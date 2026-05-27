@@ -16,7 +16,8 @@ Before starting, check:
 - [Archive guide](docs/archive-guide.md) for the right Zenodo record;
 - [Project status dashboard](docs/project-status-dashboard.md) for current public-surface counts;
 - [Public file catalog](docs/public-file-catalog.md) for the exact filename;
-- [Known gaps](docs/known-gaps.md) to avoid duplicating already-known unfinished areas.
+- [Known gaps](docs/known-gaps.md) to avoid duplicating already-known unfinished areas;
+- [Work queue](docs/work-queue.md) for concrete next tasks.
 
 Please include:
 

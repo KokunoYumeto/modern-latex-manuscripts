@@ -19,6 +19,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Browse each Zenodo record as a local page | [Record landing pages](records/README.md) |
 | Inspect every public file by name | [Public file catalog](public-file-catalog.md) |
 | See what is incomplete | [Known gaps](known-gaps.md) |
+| Pick a concrete next task | [Work queue](work-queue.md) |
 
 ## Algebraic Geometry
 
