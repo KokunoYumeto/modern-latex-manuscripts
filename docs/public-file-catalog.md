@@ -2,7 +2,7 @@
 
 Generated from the public Zenodo records API.
 
-Total files indexed: 430
+Total files indexed: 434
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -133,42 +133,46 @@ Record: <https://zenodo.org/records/20416974>
 
 ## Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts
 
-Record: <https://zenodo.org/records/20418863>
+Record: <https://zenodo.org/records/20418993>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.2730 | [00 SGA 1 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20418863/files/00%20SGA%201%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
-| reader/reference PDF | 0.8178 | [01 SGA 2 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20418863/files/01%20SGA%202%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
-| reader/reference PDF | 5.3923 | [02 SGA 3 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20418863/files/02%20SGA%203%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
-| reader/reference PDF | 4.6714 | [03 SGA 4 - English through Expose IV 8.8.pdf](https://zenodo.org/records/20418863/files/03%20SGA%204%20-%20English%20through%20Expose%20IV%208.8.pdf) |
-| reader/reference PDF | 2.9071 | [04 SGA 4 - Expose I Complete English Draft.pdf](https://zenodo.org/records/20418863/files/04%20SGA%204%20-%20Expose%20I%20Complete%20English%20Draft.pdf) |
-| reader/reference PDF | 0.6553 | [05 SGA 4 - Expose II Complete English Draft.pdf](https://zenodo.org/records/20418863/files/05%20SGA%204%20-%20Expose%20II%20Complete%20English%20Draft.pdf) |
-| reader/reference PDF | 0.3994 | [06 SGA 4 - Expose III Complete English Draft.pdf](https://zenodo.org/records/20418863/files/06%20SGA%204%20-%20Expose%20III%20Complete%20English%20Draft.pdf) |
-| reader/reference PDF | 0.6215 | [07 SGA 4 - Expose IV English Draft through section 8.8.pdf](https://zenodo.org/records/20418863/files/07%20SGA%204%20-%20Expose%20IV%20English%20Draft%20through%20section%208.8.pdf) |
-| reader/reference PDF | 0.3386 | [08 SGA 4 - Expose IV English Draft sections 10 to 14.pdf](https://zenodo.org/records/20418863/files/08%20SGA%204%20-%20Expose%20IV%20English%20Draft%20sections%2010%20to%2014.pdf) |
-| reader/reference PDF | 0.2008 | [09 SGA 4 - Expose V Introduction and Section 0.pdf](https://zenodo.org/records/20418863/files/09%20SGA%204%20-%20Expose%20V%20Introduction%20and%20Section%200.pdf) |
-| reader/reference PDF | 0.3586 | [10 SGA 4 - Expose V English Draft sections 1 to 4.pdf](https://zenodo.org/records/20418863/files/10%20SGA%204%20-%20Expose%20V%20English%20Draft%20sections%201%20to%204.pdf) |
-| reader/reference PDF | 0.4272 | [11 SGA 4 - Expose V English Draft sections 5 to 8.pdf](https://zenodo.org/records/20418863/files/11%20SGA%204%20-%20Expose%20V%20English%20Draft%20sections%205%20to%208.pdf) |
-| reader/reference PDF | 0.4826 | [12 SGA 5 - English intro and Expose I.1.pdf](https://zenodo.org/records/20418863/files/12%20SGA%205%20-%20English%20intro%20and%20Expose%20I.1.pdf) |
-| reader/reference PDF | 2.4478 | [20 SGA 1 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/20%20SGA%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 1.5039 | [21 SGA 2 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/21%20SGA%202%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 5.4631 | [22 SGA 3 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/22%20SGA%203%20Part%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 3.8318 | [23 SGA 3 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/23%20SGA%203%20Part%202%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 2.9650 | [24 SGA 3 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/24%20SGA%203%20Part%203%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 2.4100 | [25 SGA 4 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/25%20SGA%204%20Part%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 2.2773 | [26 SGA 4 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/26%20SGA%204%20Part%202%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 3.2955 | [27 SGA 4 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/27%20SGA%204%20Part%203%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 1.8876 | [28 SGA 4.5 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/28%20SGA%204.5%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 56.2983 | [29 SGA 5 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/29%20SGA%205%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 51.8090 | [30 SGA 6 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/30%20SGA%206%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 35.6319 | [31 SGA 7 Tome 1 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/31%20SGA%207%20Tome%201%20-%20French%20Reference%20PDF.pdf) |
-| reader/reference PDF | 26.2210 | [32 SGA 7 Tome 2 - French Reference PDF.pdf](https://zenodo.org/records/20418863/files/32%20SGA%207%20Tome%202%20-%20French%20Reference%20PDF.pdf) |
-| artifact/source ZIP | 205.4306 | [80 SGA - Translation Sources, Render Checks, and Worklogs.zip](https://zenodo.org/records/20418863/files/80%20SGA%20-%20Translation%20Sources%2C%20Render%20Checks%2C%20and%20Worklogs.zip) |
-| artifact/source ZIP | 5.6849 | [81 SGA - Expose IV Sections 10 to 14 Sources and Render Checks.zip](https://zenodo.org/records/20418863/files/81%20SGA%20-%20Expose%20IV%20Sections%2010%20to%2014%20Sources%20and%20Render%20Checks.zip) |
-| artifact/source ZIP | 2.7034 | [82 SGA - Expose V Introduction and Section 0 Sources and Render Checks.zip](https://zenodo.org/records/20418863/files/82%20SGA%20-%20Expose%20V%20Introduction%20and%20Section%200%20Sources%20and%20Render%20Checks.zip) |
-| artifact/source ZIP | 6.0208 | [83 SGA - Expose V Sections 1 to 4 Sources and Render Checks.zip](https://zenodo.org/records/20418863/files/83%20SGA%20-%20Expose%20V%20Sections%201%20to%204%20Sources%20and%20Render%20Checks.zip) |
-| artifact/source ZIP | 7.1891 | [84 SGA - Expose V Sections 5 to 8 Sources and Render Checks.zip](https://zenodo.org/records/20418863/files/84%20SGA%20-%20Expose%20V%20Sections%205%20to%208%20Sources%20and%20Render%20Checks.zip) |
-| manifest/status | 0.0097 | [90 SGA - Public Summary.json](https://zenodo.org/records/20418863/files/90%20SGA%20-%20Public%20Summary.json) |
+| reader/reference PDF | 1.2730 | [00 SGA 1 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20418993/files/00%20SGA%201%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
+| reader/reference PDF | 0.8178 | [01 SGA 2 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20418993/files/01%20SGA%202%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
+| reader/reference PDF | 5.3923 | [02 SGA 3 - Existing English Translation Snapshot.pdf](https://zenodo.org/records/20418993/files/02%20SGA%203%20-%20Existing%20English%20Translation%20Snapshot.pdf) |
+| reader/reference PDF | 6.6944 | [03 SGA 4 - English through Expose VI 1-21.pdf](https://zenodo.org/records/20418993/files/03%20SGA%204%20-%20English%20through%20Expose%20VI%201-21.pdf) |
+| reader/reference PDF | 2.9071 | [04 SGA 4 - Expose I Complete English Draft.pdf](https://zenodo.org/records/20418993/files/04%20SGA%204%20-%20Expose%20I%20Complete%20English%20Draft.pdf) |
+| reader/reference PDF | 0.6553 | [05 SGA 4 - Expose II Complete English Draft.pdf](https://zenodo.org/records/20418993/files/05%20SGA%204%20-%20Expose%20II%20Complete%20English%20Draft.pdf) |
+| reader/reference PDF | 0.3994 | [06 SGA 4 - Expose III Complete English Draft.pdf](https://zenodo.org/records/20418993/files/06%20SGA%204%20-%20Expose%20III%20Complete%20English%20Draft.pdf) |
+| reader/reference PDF | 0.6215 | [07 SGA 4 - Expose IV English Draft through section 8.8.pdf](https://zenodo.org/records/20418993/files/07%20SGA%204%20-%20Expose%20IV%20English%20Draft%20through%20section%208.8.pdf) |
+| reader/reference PDF | 0.3267 | [08 SGA 4 - Expose IV English Draft section 9.pdf](https://zenodo.org/records/20418993/files/08%20SGA%204%20-%20Expose%20IV%20English%20Draft%20section%209.pdf) |
+| reader/reference PDF | 0.3386 | [09 SGA 4 - Expose IV English Draft sections 10 to 14.pdf](https://zenodo.org/records/20418993/files/09%20SGA%204%20-%20Expose%20IV%20English%20Draft%20sections%2010%20to%2014.pdf) |
+| reader/reference PDF | 0.2008 | [10 SGA 4 - Expose V Introduction and Section 0.pdf](https://zenodo.org/records/20418993/files/10%20SGA%204%20-%20Expose%20V%20Introduction%20and%20Section%200.pdf) |
+| reader/reference PDF | 0.3586 | [11 SGA 4 - Expose V English Draft sections 1 to 4.pdf](https://zenodo.org/records/20418993/files/11%20SGA%204%20-%20Expose%20V%20English%20Draft%20sections%201%20to%204.pdf) |
+| reader/reference PDF | 0.4272 | [12 SGA 4 - Expose V English Draft sections 5 to 8.pdf](https://zenodo.org/records/20418993/files/12%20SGA%204%20-%20Expose%20V%20English%20Draft%20sections%205%20to%208.pdf) |
+| reader/reference PDF | 0.2386 | [13 SGA 4 - Expose VI Introduction and Section 1.1 to 1.21.pdf](https://zenodo.org/records/20418993/files/13%20SGA%204%20-%20Expose%20VI%20Introduction%20and%20Section%201.1%20to%201.21.pdf) |
+| reader/reference PDF | 0.4826 | [14 SGA 5 - English intro and Expose I.1.pdf](https://zenodo.org/records/20418993/files/14%20SGA%205%20-%20English%20intro%20and%20Expose%20I.1.pdf) |
+| reader/reference PDF | 2.4478 | [20 SGA 1 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/20%20SGA%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 1.5039 | [21 SGA 2 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/21%20SGA%202%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 5.4631 | [22 SGA 3 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/22%20SGA%203%20Part%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 3.8318 | [23 SGA 3 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/23%20SGA%203%20Part%202%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 2.9650 | [24 SGA 3 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/24%20SGA%203%20Part%203%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 2.4100 | [25 SGA 4 Part 1 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/25%20SGA%204%20Part%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 2.2773 | [26 SGA 4 Part 2 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/26%20SGA%204%20Part%202%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 3.2955 | [27 SGA 4 Part 3 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/27%20SGA%204%20Part%203%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 1.8876 | [28 SGA 4.5 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/28%20SGA%204.5%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 56.2983 | [29 SGA 5 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/29%20SGA%205%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 51.8090 | [30 SGA 6 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/30%20SGA%206%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 35.6319 | [31 SGA 7 Tome 1 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/31%20SGA%207%20Tome%201%20-%20French%20Reference%20PDF.pdf) |
+| reader/reference PDF | 26.2210 | [32 SGA 7 Tome 2 - French Reference PDF.pdf](https://zenodo.org/records/20418993/files/32%20SGA%207%20Tome%202%20-%20French%20Reference%20PDF.pdf) |
+| artifact/source ZIP | 205.4306 | [80 SGA - Translation Sources, Render Checks, and Worklogs.zip](https://zenodo.org/records/20418993/files/80%20SGA%20-%20Translation%20Sources%2C%20Render%20Checks%2C%20and%20Worklogs.zip) |
+| artifact/source ZIP | 3.9932 | [81 SGA - Expose IV Section 9 Sources and Render Checks.zip](https://zenodo.org/records/20418993/files/81%20SGA%20-%20Expose%20IV%20Section%209%20Sources%20and%20Render%20Checks.zip) |
+| artifact/source ZIP | 5.6849 | [82 SGA - Expose IV Sections 10 to 14 Sources and Render Checks.zip](https://zenodo.org/records/20418993/files/82%20SGA%20-%20Expose%20IV%20Sections%2010%20to%2014%20Sources%20and%20Render%20Checks.zip) |
+| artifact/source ZIP | 2.7034 | [83 SGA - Expose V Introduction and Section 0 Sources and Render Checks.zip](https://zenodo.org/records/20418993/files/83%20SGA%20-%20Expose%20V%20Introduction%20and%20Section%200%20Sources%20and%20Render%20Checks.zip) |
+| artifact/source ZIP | 6.0208 | [84 SGA - Expose V Sections 1 to 4 Sources and Render Checks.zip](https://zenodo.org/records/20418993/files/84%20SGA%20-%20Expose%20V%20Sections%201%20to%204%20Sources%20and%20Render%20Checks.zip) |
+| artifact/source ZIP | 7.1891 | [85 SGA - Expose V Sections 5 to 8 Sources and Render Checks.zip](https://zenodo.org/records/20418993/files/85%20SGA%20-%20Expose%20V%20Sections%205%20to%208%20Sources%20and%20Render%20Checks.zip) |
+| artifact/source ZIP | 5.8568 | [86 SGA - Expose VI Introduction and Section 1.1 to 1.21 Sources and Render Checks.zip](https://zenodo.org/records/20418993/files/86%20SGA%20-%20Expose%20VI%20Introduction%20and%20Section%201.1%20to%201.21%20Sources%20and%20Render%20Checks.zip) |
+| manifest/status | 0.0107 | [90 SGA - Public Summary.json](https://zenodo.org/records/20418993/files/90%20SGA%20-%20Public%20Summary.json) |
 
 ## Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources
 

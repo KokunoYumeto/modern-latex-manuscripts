@@ -20,11 +20,11 @@ Current record: <https://zenodo.org/records/20416974>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20418863>
+Current record: <https://zenodo.org/records/20418993>
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
-- SGA 4 currently has Exposes I, II, and III as working English drafts, plus Expose IV through section 8.8 and a separate file for sections 10 through 14.
-- SGA 4 Expose IV section 9 is the visible gap between the 8.8 and 10-14 material.
+- SGA 4 currently has a combined English working reader through Expose VI section 1.21, with Exposes I, II, and III complete as working drafts, Expose IV through section 14, and Expose V through section 8.
+- SGA 4 Expose VI should continue from section 1.22.
 - SGA 5 has only opening material and Expose I section 1 in English.
 - SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentional image-based scans; they open and page-count correctly, but embedded text extraction is not expected to be reliable.
 

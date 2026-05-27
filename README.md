@@ -10,7 +10,7 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 |---|---:|---|
 | Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20415117> |
 | EGA working English translation | 40/100, 560-page current build | <https://zenodo.org/records/20416974> |
-| SGA working English translation | 55/100 | <https://zenodo.org/records/20418863> |
+| SGA working English translation | 60/100 | <https://zenodo.org/records/20418993> |
 | Non-European mathematics manuscripts, consolidated | 85/100 | <https://zenodo.org/records/20418877> |
 | Chinese mathematical classics | 80/100 | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics | 80/100 | <https://zenodo.org/records/20415755> |

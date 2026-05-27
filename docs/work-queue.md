@@ -8,8 +8,8 @@ This page turns the current archive gaps into concrete contribution targets. It 
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://zenodo.org/records/20416974) |
 | EGA | Continue EGA III and EGA IV English translation beyond the currently represented working material. | [EGA record](https://zenodo.org/records/20416974) |
-| SGA | Fill the visible SGA 4 Expose IV section 9 gap between the draft through 8.8 and the separate 10-14 material. | [SGA record](https://zenodo.org/records/20418863) |
-| SGA | Continue SGA 5, SGA 6, SGA 7-I, and SGA 7-II English translation from the French reference PDFs. | [SGA record](https://zenodo.org/records/20418863) |
+| SGA | Continue SGA 4 Expose VI from section 1.22 and keep the combined SGA 4 reader synchronized. | [SGA record](https://zenodo.org/records/20418993) |
+| SGA | Continue SGA 5, SGA 6, SGA 7-I, and SGA 7-II English translation from the French reference PDFs. | [SGA record](https://zenodo.org/records/20418993) |
 | Weber | Continue the English translation of Lehrbuch der Algebra beyond the current Volume II draft surface. | [Weber record](https://zenodo.org/records/20418861) |
 | Noether | Continue English translation and source checking for the selected mathematical papers. | [Noether record](https://zenodo.org/records/20418862) |
 
@@ -40,4 +40,3 @@ This page turns the current archive gaps into concrete contribution targets. It 
 - Replace a vague issue report with a precise record/file/page/source-witness report.
 - Identify a better public scan for a work already present in draft form.
 - Confirm whether a suspected duplicate is genuinely redundant or a different edition/version.
-

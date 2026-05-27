@@ -7,7 +7,7 @@ This is a curated index of the main public reading surfaces. It is not a replace
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
 | Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft; TeX/build artifacts. | [EGA](https://zenodo.org/records/20416974) |
-| Grothendieck and collaborators, SGA | SGA 1-3 English/source snapshots; SGA 4 English draft material; partial SGA 5 English material; SGA 1-7 French reference PDFs. | [SGA](https://zenodo.org/records/20418863) |
+| Grothendieck and collaborators, SGA | SGA 1-3 English/source snapshots; SGA 4 English draft material; partial SGA 5 English material; SGA 1-7 French reference PDFs. | [SGA](https://zenodo.org/records/20418993) |
 | Deligne | 91 top-level paper/reference PDFs, draft TeX, and translation/provenance material in a separate working access record. | [Deligne](https://zenodo.org/records/20414959) |
 
 ## Chinese Mathematical Classics

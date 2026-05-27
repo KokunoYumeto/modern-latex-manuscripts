@@ -6,7 +6,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
 | EGA | 13 | 9 | 2 | 458.3 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20416974) |
-| SGA | 32 | 26 | 5 | 441.6 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20418863) |
+| SGA | 36 | 28 | 7 | 454.1 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20418993) |
 | Non-European Mathematics, Consolidated | 71 | 65 | 5 | 2798.5 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20418877) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |
 | Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 548.6 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://zenodo.org/records/20415755) |

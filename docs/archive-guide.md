@@ -12,7 +12,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20416974> |
-| SGA source and English translation drafts | <https://zenodo.org/records/20418863> |
+| SGA source and English translation drafts | <https://zenodo.org/records/20418993> |
 | Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://zenodo.org/records/20418877> |
 | Chinese mathematical classics only | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |

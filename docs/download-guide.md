@@ -11,7 +11,7 @@ Good starting points:
 | Interest | Start With |
 |---|---|
 | EGA | [EGA record](https://zenodo.org/records/20416974), `00 EGA - English Translation Working Draft.pdf` |
-| SGA | [SGA record](https://zenodo.org/records/20418863), the numbered English translation PDFs first |
+| SGA | [SGA record](https://zenodo.org/records/20418993), the numbered English translation PDFs first |
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20418877), `00 Index - Non-European Mathematics Corpus.pdf`, then the combined readers |
 | Weber | [Weber record](https://zenodo.org/records/20418861), reader PDFs `00` through `02` |
 | Noether | [Noether record](https://zenodo.org/records/20418862), reader PDFs `00` and `01` |
