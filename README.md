@@ -10,14 +10,14 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 |---|---:|---|
 | Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20415117> |
 | EGA working English translation | 40/100, 560-page current build | <https://zenodo.org/records/20416974> |
-| SGA working English translation | 50/100 | <https://zenodo.org/records/20417172> |
-| Non-European mathematics manuscripts, consolidated | 80/100 | <https://zenodo.org/records/20415659> |
+| SGA working English translation | 55/100 | <https://zenodo.org/records/20418863> |
+| Non-European mathematics manuscripts, consolidated | 85/100 | <https://zenodo.org/records/20418877> |
 | Chinese mathematical classics | 80/100 | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics | 80/100 | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
-| Heinrich Weber | 35/100 | <https://zenodo.org/records/20416135> |
-| Emmy Noether | 35/100 | <https://zenodo.org/records/20416137> |
+| Heinrich Weber | 40/100 | <https://zenodo.org/records/20418861> |
+| Emmy Noether | 40/100 | <https://zenodo.org/records/20418862> |
 | Pierre Deligne papers | 60/100 | <https://zenodo.org/records/20414959> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20418609> |
 | Additional author cluster | 60/100 | <https://zenodo.org/records/20416839> |

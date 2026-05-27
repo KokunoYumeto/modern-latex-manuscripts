@@ -7,7 +7,7 @@ This is a curated index of the main public reading surfaces. It is not a replace
 | Author/Corpus | Works Or Volumes | Record |
 |---|---|---|
 | Grothendieck and Dieudonne, EGA | EGA I, EGA II, EGA III parts 1-2, EGA IV parts 1-4 French originals; current compiled English working draft; TeX/build artifacts. | [EGA](https://zenodo.org/records/20416974) |
-| Grothendieck and collaborators, SGA | SGA 1-3 English/source snapshots; SGA 4 English draft material; partial SGA 5 English material; SGA 1-7 French reference PDFs. | [SGA](https://zenodo.org/records/20417172) |
+| Grothendieck and collaborators, SGA | SGA 1-3 English/source snapshots; SGA 4 English draft material; partial SGA 5 English material; SGA 1-7 French reference PDFs. | [SGA](https://zenodo.org/records/20418863) |
 | Deligne | 91 top-level paper/reference PDFs, draft TeX, and translation/provenance material in a separate working access record. | [Deligne](https://zenodo.org/records/20414959) |
 
 ## Chinese Mathematical Classics
@@ -24,7 +24,7 @@ Record: [Chinese mathematical classics](https://zenodo.org/records/20415752)
 | Yang Hui, Xiangjie Jiuzhang | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
 | Zhu Shijie, Suanxue Qimeng | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
 
-The consolidated non-European record also includes combined Chinese readers: [non-European consolidated](https://zenodo.org/records/20415659).
+The consolidated non-European record also includes combined Chinese readers: [non-European consolidated](https://zenodo.org/records/20418877).
 
 ## Indian And Sanskrit Mathematical Classics
 
@@ -37,7 +37,7 @@ Record: [Indian and Sanskrit mathematical classics](https://zenodo.org/records/2
 | Bhaskara II, Lilavati | English translation draft and original-language modern LaTeX draft. |
 | Brahmagupta, Brahmasphutasiddhanta | English translation draft and original-language modern LaTeX draft. |
 
-The consolidated non-European record also includes combined Indian/Sanskrit readers: [non-European consolidated](https://zenodo.org/records/20415659).
+The consolidated non-European record also includes combined Indian/Sanskrit readers: [non-European consolidated](https://zenodo.org/records/20418877).
 
 ## Islamic And Arabic Mathematical Texts
 
@@ -53,7 +53,7 @@ Record: [Islamic and Arabic mathematical texts](https://zenodo.org/records/20415
 | Ruska, Oldest Arabic Algebra | English translation/reference draft and source-witness draft. |
 | Robert of Chester and Karpinski | English translation/reference draft and source-witness draft. |
 
-The consolidated non-European record also includes combined Islamic/Arabic readers: [non-European consolidated](https://zenodo.org/records/20415659).
+The consolidated non-European record also includes combined Islamic/Arabic readers: [non-European consolidated](https://zenodo.org/records/20418877).
 
 ## Classical Algebra And Arithmetic
 
@@ -72,8 +72,8 @@ Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 | Author | Current Public Surface | Record |
 |---|---|---|
-| Heinrich Weber | Lehrbuch der Algebra, Volumes I and III original-language modern LaTeX drafts; Volume II English translation draft; source/provenance ZIP. | [Weber](https://zenodo.org/records/20416135) |
-| Emmy Noether | Selected mathematical-papers modern LaTeX reader; current English translation drafts; source/provenance ZIP. | [Noether](https://zenodo.org/records/20416137) |
+| Heinrich Weber | Lehrbuch der Algebra, Volumes I and III original-language modern LaTeX drafts; Volume II English translation draft; source/provenance ZIP. | [Weber](https://zenodo.org/records/20418861) |
+| Emmy Noether | Selected mathematical-papers modern LaTeX reader; current English translation drafts; source/provenance ZIP. | [Noether](https://zenodo.org/records/20418862) |
 
 ## Additional Selected Authors
 

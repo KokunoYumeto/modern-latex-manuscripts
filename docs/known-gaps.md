@@ -20,7 +20,7 @@ Current record: <https://zenodo.org/records/20416974>
 
 ## SGA
 
-Current record: <https://zenodo.org/records/20417172>
+Current record: <https://zenodo.org/records/20418863>
 
 - SGA 1, 2, and 3 have existing English/source snapshots.
 - SGA 4 currently has Exposes I, II, and III as working English drafts, plus Expose IV through section 8.8 and a separate file for sections 10 through 14.
@@ -30,7 +30,7 @@ Current record: <https://zenodo.org/records/20417172>
 
 ## Non-European Mathematical Classics
 
-Current consolidated record: <https://zenodo.org/records/20415659>
+Current consolidated record: <https://zenodo.org/records/20418877>
 
 - The current release is much more readable than the early path-dump stage: it has combined readers, work-level PDFs, source bundles, OCR notes, and page-image artifacts.
 - It still needs source-faithfulness review, terminology checks, and mathematical proofreading work by work.
@@ -38,9 +38,9 @@ Current consolidated record: <https://zenodo.org/records/20415659>
 
 ## Weber and Noether
 
-Weber: <https://zenodo.org/records/20416135>
+Weber: <https://zenodo.org/records/20418861>
 
-Noether: <https://zenodo.org/records/20416137>
+Noether: <https://zenodo.org/records/20418862>
 
 - Weber currently has modern LaTeX readers for selected original-language volumes and a partial English translation of Volume II material.
 - Noether currently has a selected mathematical-papers reader and four current English translation pieces.

@@ -12,13 +12,13 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20416974> |
-| SGA source and English translation drafts | <https://zenodo.org/records/20417172> |
-| Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://zenodo.org/records/20415659> |
+| SGA source and English translation drafts | <https://zenodo.org/records/20418863> |
+| Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://zenodo.org/records/20418877> |
 | Chinese mathematical classics only | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts only | <https://zenodo.org/records/20415770> |
-| Weber | <https://zenodo.org/records/20416135> |
-| Noether | <https://zenodo.org/records/20416137> |
+| Weber | <https://zenodo.org/records/20418861> |
+| Noether | <https://zenodo.org/records/20418862> |
 | Deligne | <https://zenodo.org/records/20414959> |
 | Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
 | Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing | <https://zenodo.org/records/20416839> |

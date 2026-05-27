@@ -10,10 +10,10 @@ This page is the human entry point for the archive. Use it when you want to find
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20416974) |
-| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20417172) |
-| Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20415659) |
-| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20416135) |
-| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20416137) |
+| Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20418863) |
+| Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20418877) |
+| Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20418861) |
+| Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20418862) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
 | Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20416839) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
@@ -28,7 +28,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
 | [EGA](https://zenodo.org/records/20416974) | French NUMDAM originals, the current compiled English working draft, TeX sources, and build artifacts. | `00 EGA - English Translation Working Draft.pdf` |
-| [SGA](https://zenodo.org/records/20417172) | Existing English snapshots for SGA 1-4, current SGA 4 translation drafts, partial SGA 5 English work, French reference PDFs for SGA 1-7. | `00 SGA 1 - Existing English Translation Snapshot.pdf` through `09 SGA 5 - English intro and Expose I.1.pdf` |
+| [SGA](https://zenodo.org/records/20418863) | Existing English snapshots for SGA 1-4, current SGA 4 translation drafts through Expose IV 8.8 plus separate Expose IV 10-14 and Expose V 0-8 material, partial SGA 5 English work, French reference PDFs for SGA 1-7. | `00 SGA 1 - Existing English Translation Snapshot.pdf` through `12 SGA 5 - English intro and Expose I.1.pdf` |
 | [Deligne](https://zenodo.org/records/20414959) | Separate working access record for Deligne papers, draft TeX, and translation material. | Top-level paper PDFs, then the source/provenance ZIP. |
 
 Use the artifact ZIPs when you need TeX sources, render checks, local build logs, or source witnesses. Use the top-level PDFs when you only want to read or quickly inspect the current state.
@@ -37,7 +37,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Consolidated non-European mathematics](https://zenodo.org/records/20415659) | Combined English translations, modern Chinese renderings, original-language modern LaTeX readers, work-level PDFs, TeX/source bundles, OCR notes, page images, and raw provenance archive. | `00 Index - Non-European Mathematics Corpus.pdf`, then `01 Combined English Translations.pdf` |
+| [Consolidated non-European mathematics](https://zenodo.org/records/20418877) | Combined English translations, modern Chinese renderings, Arabic translation drafts, original-language modern LaTeX readers, work-level PDFs, TeX/source bundles, OCR notes, page images, and raw provenance archive. | `00 Index - Non-European Mathematics Corpus.pdf`, then `01 Combined English Translations.pdf` |
 | [Chinese mathematical classics](https://zenodo.org/records/20415752) | Work-level modern LaTeX drafts and translations for Chinese mathematical texts. | Open the reader PDFs first; use the artifact ZIP for TeX and checking material. |
 | [Indian and Sanskrit mathematical classics](https://zenodo.org/records/20415755) | Work-level modern LaTeX drafts and translation material for Indian/Sanskrit mathematical texts. | Open the reader PDFs first; use the artifact ZIP for TeX and checking material. |
 | [Islamic and Arabic mathematical texts](https://zenodo.org/records/20415770) | Work-level modern LaTeX drafts and translation material for Islamic/Arabic mathematical texts. | Open the reader PDFs first; use the artifact ZIP for TeX and checking material. |
@@ -47,8 +47,8 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [Heinrich Weber](https://zenodo.org/records/20416135) | Modern LaTeX drafts for selected original-language volumes and an English translation draft for Volume II material. | `00 Weber - Lehrbuch der Algebra, Volume I - Modern LaTeX Draft.pdf` |
-| [Emmy Noether](https://zenodo.org/records/20416137) | Selected mathematical-papers reader and current English translation drafts. | `00 Noether - Selected Mathematical Papers - Modern LaTeX Draft.pdf` |
+| [Heinrich Weber](https://zenodo.org/records/20418861) | Modern LaTeX drafts for selected original-language volumes and the current English translation draft for Volume II material. | `00 Weber - Lehrbuch der Algebra, Volume I - Modern LaTeX Draft.pdf` |
+| [Emmy Noether](https://zenodo.org/records/20418862) | Selected mathematical-papers reader and current English translation drafts. | `00 Noether - Selected Mathematical Papers - Modern LaTeX Draft.pdf` |
 | [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [Additional author cluster](https://zenodo.org/records/20416839) | Selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing. | `00 Reader PDF - Minkowski...` through `09 Reader PDF - Killing...` |
 
