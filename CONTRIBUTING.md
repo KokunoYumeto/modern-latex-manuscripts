@@ -26,6 +26,8 @@ Please include:
 - a source scan or bibliographic reference;
 - a short explanation of the proposed correction.
 
+GitHub issue templates are provided for correction reports and source/work suggestions. Pull requests should use the template checklist and keep changes focused on the named work or file.
+
 For translation corrections, preserve the mathematical assertion first. Prefer a literal but readable translation over stylistic rewriting that changes scope, hypotheses, numbering, or dependency structure.
 
 For TeX corrections, keep changes narrow: fix the broken environment, cross-reference, display, diagram, table, or page break without reformatting unrelated sections.
