@@ -1,6 +1,6 @@
 # Zenodo Public Surface Audit
 
-Generated: 2026-05-27T22:59:29
+Generated: 2026-05-27T23:06:33
 
 | Record | Files | MB | Rough Metadata | URL |
 |---|---:|---:|---:|---|
@@ -18,6 +18,6 @@ Generated: 2026-05-27T22:59:29
 | Classical Algebra and Arithmetic Manuscripts: Modern LaTeX Draft Corpus | 23 | 193.50 | false | <https://zenodo.org/records/20418609> |
 | Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing: Modern LaTeX Drafts | 12 | 137.78 | false | <https://zenodo.org/records/20416839> |
 
-Readability check: the current 13-record public map has no configured public metadata or filename hits for stale record IDs, local paths, internal run labels, or rough placeholder wording as of 2026-05-27T22:56:56.
+Readability check: the current 13-record public map has no configured public metadata or filename hits for stale record IDs, local paths, internal run labels, or rough placeholder wording as of 2026-05-27T23:04:15.
 
-PDF surface check: 349 public PDFs were opened with `pdfinfo`; after classifying the known SGA 5-7 French reference scans as intentional image-based references, the audit reports zero PDF defect flags as of 2026-05-27T22:59:29.
+PDF surface check: 349 public PDFs were opened with `pdfinfo`; after classifying the known SGA 5-7 French reference scans as intentional image-based references, the audit reports zero PDF defect flags as of 2026-05-27T23:06:33.
