@@ -17,11 +17,6 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 | Size MB | File |
 |---:|---|
 | 5.6041 | [00 Deligne - English Translation Drafts Combined.pdf](https://zenodo.org/records/20414959/files/00%20Deligne%20-%20English%20Translation%20Drafts%20Combined.pdf) |
-
-## Additional PDFs
-
-| Size MB | File |
-|---:|---|
 | 0.0700 | [10-001 Deligne - Congruences for numbers of sub - Original.pdf](https://zenodo.org/records/20414959/files/10-001%20Deligne%20-%20Congruences%20for%20numbers%20of%20sub%20-%20Original.pdf) |
 | 0.1175 | [10-002 Deligne - Proper support cohomology and - Original.pdf](https://zenodo.org/records/20414959/files/10-002%20Deligne%20-%20Proper%20support%20cohomology%20and%20-%20Original.pdf) |
 | 0.1748 | [10-003 Deligne - Lefschetz theorem and a degene - Original.pdf](https://zenodo.org/records/20414959/files/10-003%20Deligne%20-%20Lefschetz%20theorem%20and%20a%20degene%20-%20Original.pdf) |

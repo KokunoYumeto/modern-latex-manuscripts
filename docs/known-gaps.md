@@ -48,7 +48,7 @@ Noether: <https://zenodo.org/records/20416137>
 
 ## Classical Algebra and Arithmetic
 
-Current record: <https://zenodo.org/records/20416197>
+Current record: <https://zenodo.org/records/20418609>
 
 - This is an organized shelf of selected working drafts, not a complete author-by-author collected corpus.
 - Gauss, Cayley, Dedekind, Dirichlet, Weber, and Noether material should be treated as staged working drafts unless a later author record marks a work as fully proofed.

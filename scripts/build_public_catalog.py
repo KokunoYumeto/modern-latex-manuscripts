@@ -35,7 +35,7 @@ RECORDS: list[tuple[str, str]] = [
     ("weber", "20416135"),
     ("noether", "20416137"),
     ("deligne", "20414959"),
-    ("classical_algebra_arithmetic", "20416197"),
+    ("classical_algebra_arithmetic", "20418609"),
     ("additional_author_cluster", "20416839"),
 ]
 
@@ -70,7 +70,7 @@ def build_rows() -> list[dict[str, str]]:
     for label, record_id in RECORDS:
         record = fetch_record(record_id)
         title = record.get("metadata", {}).get("title", "")
-        for item in record.get("files", []):
+        for item in sorted(record.get("files", []), key=lambda value: value.get("key", "").lower()):
             filename = item.get("key", "")
             size_mb = float(item.get("size", 0)) / (1024 * 1024)
             rows.append(
@@ -158,4 +158,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

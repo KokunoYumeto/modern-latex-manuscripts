@@ -19,16 +19,16 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 | 0.0391 | [00 Index - Historical Reference Witnesses.pdf](https://zenodo.org/records/20415777/files/00%20Index%20-%20Historical%20Reference%20Witnesses.pdf) |
 | 0.9318 | [01 Reference Witnesses - Combined English Translation Drafts.pdf](https://zenodo.org/records/20415777/files/01%20Reference%20Witnesses%20-%20Combined%20English%20Translation%20Drafts.pdf) |
 | 0.7274 | [02 Reference Witnesses - Combined Original and Witness Drafts.pdf](https://zenodo.org/records/20415777/files/02%20Reference%20Witnesses%20-%20Combined%20Original%20and%20Witness%20Drafts.pdf) |
-
-## Additional PDFs
-
-| Size MB | File |
-|---:|---|
 | 0.0983 | [10-18 English Translation - al-Muqaddasi - Ahsan al-Taqasim.pdf](https://zenodo.org/records/20415777/files/10-18%20English%20Translation%20-%20al-Muqaddasi%20-%20Ahsan%20al-Taqasim.pdf) |
 | 0.1722 | [10-19 English Translation - Ibn al-Nadim - Kitab al-Fihrist.pdf](https://zenodo.org/records/20415777/files/10-19%20English%20Translation%20-%20Ibn%20al-Nadim%20-%20Kitab%20al-Fihrist.pdf) |
 | 0.1825 | [10-20 English Translation - Ibn al-Qifti - Tarikh al-Hukama.pdf](https://zenodo.org/records/20415777/files/10-20%20English%20Translation%20-%20Ibn%20al-Qifti%20-%20Tarikh%20al-Hukama.pdf) |
 | 0.1669 | [10-21 English Translation - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20415777/files/10-21%20English%20Translation%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
 | 0.3116 | [10-22 English Translation - Smith-Karpinski - Numerals.pdf](https://zenodo.org/records/20415777/files/10-22%20English%20Translation%20-%20Smith-Karpinski%20-%20Numerals.pdf) |
+
+## Additional PDFs
+
+| Size MB | File |
+|---:|---|
 | 0.1669 | [70-01 Reference Text - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20415777/files/70-01%20Reference%20Text%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
 | 0.0988 | [70-02 Reference Text - al-Muqaddasi - Ahsan al-Taqasim.pdf](https://zenodo.org/records/20415777/files/70-02%20Reference%20Text%20-%20al-Muqaddasi%20-%20Ahsan%20al-Taqasim.pdf) |
 | 0.1371 | [70-03 Reference Text - Ibn al-Nadim - Kitab al-Fihrist.pdf](https://zenodo.org/records/20415777/files/70-03%20Reference%20Text%20-%20Ibn%20al-Nadim%20-%20Kitab%20al-Fihrist.pdf) |

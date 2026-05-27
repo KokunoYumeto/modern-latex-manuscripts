@@ -14,7 +14,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20415659) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20416135) |
 | Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20416137) |
-| Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20416197) |
+| Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609) |
 | Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20416839) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
 | Browse each Zenodo record as a local page | [Record landing pages](records/README.md) |
@@ -49,7 +49,7 @@ Use the artifact ZIPs when you need TeX sources, render checks, local build logs
 |---|---|---|
 | [Heinrich Weber](https://zenodo.org/records/20416135) | Modern LaTeX drafts for selected original-language volumes and an English translation draft for Volume II material. | `00 Weber - Lehrbuch der Algebra, Volume I - Modern LaTeX Draft.pdf` |
 | [Emmy Noether](https://zenodo.org/records/20416137) | Selected mathematical-papers reader and current English translation drafts. | `00 Noether - Selected Mathematical Papers - Modern LaTeX Draft.pdf` |
-| [Classical algebra and arithmetic](https://zenodo.org/records/20416197) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
+| [Classical algebra and arithmetic](https://zenodo.org/records/20418609) | Organized shelf for Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic drafts. | The numbered reader PDFs by author, followed by the sources/audits ZIP. |
 | [Additional author cluster](https://zenodo.org/records/20416839) | Selected drafts for Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing. | `00 Reader PDF - Minkowski...` through `09 Reader PDF - Killing...` |
 
 ## How To Use A Record

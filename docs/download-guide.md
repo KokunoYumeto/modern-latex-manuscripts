@@ -15,7 +15,7 @@ Good starting points:
 | Non-European mathematics | [Non-European consolidated record](https://zenodo.org/records/20415659), `00 Index - Non-European Mathematics Corpus.pdf`, then the combined readers |
 | Weber | [Weber record](https://zenodo.org/records/20416135), reader PDFs `00` through `02` |
 | Noether | [Noether record](https://zenodo.org/records/20416137), reader PDFs `00` and `01` |
-| Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20416197), numbered reader PDFs by author |
+| Classical algebra/arithmetic | [Classical algebra and arithmetic record](https://zenodo.org/records/20418609), numbered reader PDFs by author |
 
 ## I Want The TeX Or Build Artifacts
 

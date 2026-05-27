@@ -20,7 +20,7 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 | Weber | <https://zenodo.org/records/20416135> |
 | Noether | <https://zenodo.org/records/20416137> |
 | Deligne | <https://zenodo.org/records/20414959> |
-| Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20416197> |
+| Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://zenodo.org/records/20418609> |
 | Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing | <https://zenodo.org/records/20416839> |
 
 ## File Types

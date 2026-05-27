@@ -57,7 +57,7 @@ The consolidated non-European record also includes combined Islamic/Arabic reade
 
 ## Classical Algebra And Arithmetic
 
-Record: [Classical algebra and arithmetic](https://zenodo.org/records/20416197)
+Record: [Classical algebra and arithmetic](https://zenodo.org/records/20418609)
 
 | Author | Works Or Volumes |
 |---|---|

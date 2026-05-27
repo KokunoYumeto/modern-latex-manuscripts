@@ -15,5 +15,5 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Heinrich Weber | 5 | 3 | 1 | 15.8 | [weber.md](weber.md) | [Zenodo](https://zenodo.org/records/20416135) |
 | Emmy Noether | 4 | 2 | 1 | 16.7 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/20416137) |
 | Pierre Deligne | 93 | 91 | 1 | 207.3 | [deligne.md](deligne.md) | [Zenodo](https://zenodo.org/records/20414959) |
-| Classical Algebra and Arithmetic | 23 | 21 | 1 | 191.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20416197) |
+| Classical Algebra and Arithmetic | 23 | 21 | 1 | 193.5 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://zenodo.org/records/20418609) |
 | Additional Author Cluster | 12 | 10 | 1 | 137.8 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://zenodo.org/records/20416839) |
