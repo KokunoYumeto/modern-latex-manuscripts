@@ -5,8 +5,8 @@ This repository is the working coordination surface for an ongoing project to pr
 Current archive:
 
 - Zenodo concept DOI: <https://doi.org/10.5281/zenodo.20393488>
-- Current public record: <https://zenodo.org/records/20408533>
-- Current version DOI: <https://doi.org/10.5281/zenodo.20408533>
+- Current public record: <https://zenodo.org/records/20409897>
+- Current version DOI: <https://doi.org/10.5281/zenodo.20409897>
 
 ## What This Project Is
 
@@ -36,16 +36,16 @@ Do not commit large PDFs or ZIP payloads directly here. Link to the Zenodo file,
 
 ## Current Status
 
-The v21 public release surface contains:
+The v22 public release surface contains:
 
 - 58 top-level reader PDFs,
 - 33 artifact ZIPs,
 - 22 cleaned non-European top-level reader PDFs from the cleanup 9/KIMI5 batch,
 - 1 partial Cayley current-incremental top-level reader PDF,
-- SGA 1-7 handoff material including active SGA4 English translation batches,
+- SGA 1-7 handoff material including active SGA4 English translation batches through SGA4 Expose I sections 8.7-8.8,
 - a full-repo ZIP on Zenodo for bulk download.
 
-Important caveat: `00_pdf__gauss_werke.pdf` was demoted in v21. It opens, but it is a rough 1,793-page OCR/stitched working draft with visible OCR/layout damage. The material remains preserved in the Gauss artifact ZIP/history, but it should not be treated as a clean reader PDF.
+Important caveats: `00_pdf__gauss_werke.pdf` was demoted in v21, and `00_pdf__non_eu__karpinski_robert_of_chester_latin_translation_1915.pdf` was demoted in v22 after display QC. Both remain preserved in artifacts/history, but neither should be treated as a clean reader-facing PDF.
 
 ## How To Help
 
@@ -65,10 +65,11 @@ Open an issue using the templates in `.github/ISSUE_TEMPLATE/`. Small text corre
 
 - `STATUS.md`: current release surface and known holds.
 - `ROADMAP.md`: practical next steps.
-- `data/zenodo/v21_public_check_summary.json`: machine-readable public Zenodo check for v21.
-- `data/zenodo/v21_summary.json`: machine-readable v21 build summary.
-- `data/manifests/zenodo_v21_upload_files.csv`: v21 upload file list.
+- `data/zenodo/v22_public_check_summary.json`: machine-readable public Zenodo check for v22.
+- `data/zenodo/v22_summary.json`: machine-readable v22 build summary.
+- `data/manifests/zenodo_v22_upload_files.csv`: v22 upload file list.
 - `data/audits/v21_demoted_top_level_reader_pdfs.csv`: reader-surface demotions.
+- `data/manifests/kimi7_continue_nonscan_delta_summary.json`: current Kimi 7 continuation non-scan web handoff summary.
 - `scripts/`: release and audit helpers.
 
 ## License
