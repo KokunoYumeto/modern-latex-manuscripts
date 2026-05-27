@@ -1,12 +1,12 @@
 # Zenodo Public Surface Audit
 
-Generated: 2026-05-27T20:40:29
+Generated: 2026-05-27T21:01:19
 
 | Record | Files | MB | Rough Metadata | URL |
 |---|---:|---:|---:|---|
 | Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | false | <https://zenodo.org/records/20415117> |
 | Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 13 | 458.33 | false | <https://zenodo.org/records/20416974> |
-| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 26 | 424.73 | false | <https://zenodo.org/records/20415860> |
+| Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 26 | 424.73 | false | <https://zenodo.org/records/20417172> |
 | Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources | 69 | 1836.92 | false | <https://zenodo.org/records/20415659> |
 | Chinese Mathematical Classics: Original LaTeX and Multilingual Translation Drafts | 30 | 98.73 | false | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts | 13 | 548.61 | false | <https://zenodo.org/records/20415755> |
@@ -19,3 +19,5 @@ Generated: 2026-05-27T20:40:29
 | Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing: Modern LaTeX Drafts | 12 | 137.78 | false | <https://zenodo.org/records/20416839> |
 
 Readability check: the current 13-record public map has no configured public metadata or filename hits for stale record IDs, local paths, internal run labels, or rough placeholder wording.
+
+PDF surface check: 349 public PDFs were opened with `pdfinfo`; after classifying the known SGA 5-7 French reference scans as intentional image-based references, the audit reports zero PDF defect flags.

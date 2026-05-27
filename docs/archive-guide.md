@@ -10,7 +10,7 @@ Use the topic or author records first. They are cleaner and easier to browse tha
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |
 | EGA French originals and English working translation | <https://zenodo.org/records/20416974> |
-| SGA source and English translation drafts | <https://zenodo.org/records/20415860> |
+| SGA source and English translation drafts | <https://zenodo.org/records/20417172> |
 | Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://zenodo.org/records/20415659> |
 | Chinese mathematical classics only | <https://zenodo.org/records/20415752> |
 | Indian and Sanskrit mathematical classics only | <https://zenodo.org/records/20415755> |
