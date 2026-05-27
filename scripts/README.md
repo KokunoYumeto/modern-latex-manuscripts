@@ -1,12 +1,14 @@
 # Scripts
 
-This repository intentionally does not yet vendor the full local Codex toolchain. The current working scripts live in the local Codex project folder and can be selectively copied here once the public repo structure settles.
+This repository intentionally does not vendor the full local Codex toolchain. Public scripts should be small, reproducible, and usable without private credentials.
 
-Recommended future scripts:
+Current scripts:
 
-- Zenodo record/file audit;
+- `build_public_catalog.py`: rebuilds `manifests/public-file-catalog.csv` and `docs/public-file-catalog.md` from the public Zenodo records API. It does not need a token.
+
+Useful future scripts:
+
+- public metadata/name audit;
 - PDF structural audit;
 - TeX compile smoke test;
-- manifest generation;
 - source-scan provenance checker.
-
