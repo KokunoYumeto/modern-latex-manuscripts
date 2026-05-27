@@ -4,22 +4,23 @@ Generated status date: 2026-05-27.
 
 ## Current Public Archive
 
-- Published v22: <https://zenodo.org/records/20409897>
-- Version DOI: <https://doi.org/10.5281/zenodo.20409897>
+- Published v23: <https://zenodo.org/records/20410262>
+- Version DOI: <https://doi.org/10.5281/zenodo.20410262>
 - Concept DOI: <https://doi.org/10.5281/zenodo.20393488>
 
-## v22 Public Summary
+## v23 Public Summary
 
-- Published files: 96
-- Total published size: about 4.09 GB
+- Published files: 100
+- Total published size: about 4.72 GB
 - Top-level reader PDFs: 58
-- Artifact ZIPs: 33
-- Full-repo ZIP: `99_full_repo__modern_latex_corpus_v22_sga_batch004_reader_qc.zip`
+- Artifact ZIPs: 35
+- Full-repo ZIP: `99_full_repo__modern_latex_corpus_v23_kimi7_nonscan_artifacts.zip`
 - New cleaned non-European reader PDFs: 22
 - New partial Cayley reader PDF: 1
 - SGA4 English current reader PDF through Expose I sections 8.7-8.8: present.
+- Kimi 7 non-scan artifacts: 2 ZIPs, 4,689 non-image files, 804 generated PDFs with technical PDF/text-extraction audit OK.
 - Cleanup 9 cleaned PDF audit: 85/85 PDFs passed `pdfinfo` and text extraction.
-- v22 public metadata first-name check: clear.
+- v23 public metadata first-name check: clear.
 
 ## Important Holds And Demotions
 
