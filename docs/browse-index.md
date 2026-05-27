@@ -15,6 +15,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20416197) |
 | Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20416839) |
 | Browse by author or named work | [By author and work](by-author-and-work.md) |
+| Browse each Zenodo record as a local page | [Record landing pages](records/README.md) |
 | Inspect every public file by name | [Public file catalog](public-file-catalog.md) |
 | See what is incomplete | [Known gaps](known-gaps.md) |
 

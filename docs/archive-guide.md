@@ -6,7 +6,7 @@ This project publishes working modern LaTeX editions and translation drafts of o
 
 Use the topic or author records first. They are cleaner and easier to browse than the broad bulk-preservation record.
 
-For the shortest path into the archive, use the [browse index](browse-index.md). For a named-work view, use [by author and work](by-author-and-work.md). For a one-page status view, use the [project status dashboard](project-status-dashboard.md). For a searchable list of every current public file, use the [public file catalog](public-file-catalog.md). For known incompleteness, use the [known gaps](known-gaps.md) page.
+For the shortest path into the archive, use the [browse index](browse-index.md). For a named-work view, use [by author and work](by-author-and-work.md). For a per-record file view, use the [record landing pages](records/README.md). For a one-page status view, use the [project status dashboard](project-status-dashboard.md). For a searchable list of every current public file, use the [public file catalog](public-file-catalog.md). For known incompleteness, use the [known gaps](known-gaps.md) page.
 
 | Need | Start Here |
 |---|---|

@@ -5,6 +5,7 @@ This repository intentionally does not vendor the full local Codex toolchain. Pu
 Current scripts:
 
 - `build_public_catalog.py`: rebuilds `manifests/public-file-catalog.csv` and `docs/public-file-catalog.md` from the public Zenodo records API. It does not need a token.
+- `build_record_pages.py`: rebuilds `docs/records/` from `manifests/public-file-catalog.csv`, grouping each Zenodo record into reader PDFs, artifact ZIPs, and status files.
 
 Useful future scripts:
 
