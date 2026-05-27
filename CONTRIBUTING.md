@@ -12,6 +12,7 @@ Useful contributions include:
 Before starting, check:
 
 - [Browse index](docs/browse-index.md) for the fastest route to the right corpus;
+- [By author and work](docs/by-author-and-work.md) for a named-work overview;
 - [Archive guide](docs/archive-guide.md) for the right Zenodo record;
 - [Project status dashboard](docs/project-status-dashboard.md) for current public-surface counts;
 - [Public file catalog](docs/public-file-catalog.md) for the exact filename;

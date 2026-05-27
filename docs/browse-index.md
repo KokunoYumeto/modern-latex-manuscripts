@@ -14,6 +14,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Work on Noether only | [Emmy Noether record](https://zenodo.org/records/20416137) |
 | Browse classical algebra and arithmetic drafts | [Classical algebra and arithmetic record](https://zenodo.org/records/20416197) |
 | Browse additional selected author drafts | [Additional author cluster](https://zenodo.org/records/20416839) |
+| Browse by author or named work | [By author and work](by-author-and-work.md) |
 | Inspect every public file by name | [Public file catalog](public-file-catalog.md) |
 | See what is incomplete | [Known gaps](known-gaps.md) |
 
@@ -63,4 +64,3 @@ Manifest and summary files explain the state of the record. They are useful when
 | Non-European mathematics | Compare work-level English PDFs against the original-language or source-reference material and repair terminology, diagrams, and tables. |
 | Weber or Noether | Continue translation and source comparison from the author records rather than the bulk main record. |
 | Gauss and classical authors | Treat the classical shelf as staged working drafts; prioritize readability, source matching, and layout repair. |
-
