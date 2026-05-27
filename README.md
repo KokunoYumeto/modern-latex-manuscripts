@@ -1,0 +1,35 @@
+# Modern LaTeX Editions of Mathematics Manuscripts
+
+This repository is the GitHub working front door for an open project to produce modern, inspectable LaTeX editions and translation drafts of older mathematics and physics manuscripts.
+
+The durable release files live on Zenodo. GitHub is for coordination: manifests, issue tracking, contribution notes, scripts, and lightweight source snapshots where practical. Large PDFs, raw scan archives, and full provenance packages should be downloaded from the linked Zenodo records.
+
+## Current Zenodo Records
+
+| Corpus | Status | Zenodo |
+|---|---:|---|
+| Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20410262> |
+| EGA working English translation | 30/100 | <https://zenodo.org/records/20414354> |
+| SGA working English translation | 45/100 | <https://zenodo.org/records/20414657> |
+| Non-European mathematics manuscripts | 70/100 | <https://zenodo.org/records/20413193> |
+| Heinrich Weber | 25/100, update in progress | <https://zenodo.org/records/20414684> |
+| Emmy Noether | 25/100, update in progress | <https://zenodo.org/records/20414682> |
+| Pierre Deligne papers | 60/100 | <https://zenodo.org/records/20414959> |
+| Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20414788> |
+
+## Workflow
+
+1. Public scans and candidate works are identified and downloaded.
+2. Automated transcription systems produce initial TeX drafts.
+3. ChatGPT/Codex and other agents audit, compile, repair, organize, and translate.
+4. Reader PDFs stay front-facing; TeX, source scans, provenance, audits, and raw source packets are kept in artifact ZIPs.
+5. Clean releases are organized by author, work, or coherent corpus and published to Zenodo under CC0 where possible.
+
+## Quality Status
+
+These are working scholarly drafts, not final critical editions. PDF checks verify that files open and extract text; they do not certify mathematical correctness. The most useful contributions are source comparison, theorem numbering checks, LaTeX cleanup, missing diagram/table repair, and translation proofreading.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
+
