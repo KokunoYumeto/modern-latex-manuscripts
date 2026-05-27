@@ -5,7 +5,7 @@ The public project is intentionally split across a small number of logical Zenod
 | Record | Role |
 |---|---|
 | <https://zenodo.org/records/20415117> | Main project landing page and current bulk archive. |
-| <https://zenodo.org/records/20416682> | EGA originals and working English translation, current 560-page build with EGA 0_IV sections 15 through 23 included as substantive working drafts. |
+| <https://zenodo.org/records/20416798> | EGA originals and working English translation, current 560-page build with EGA 0_IV sections 15 through 23 included as substantive working drafts. |
 | <https://zenodo.org/records/20415860> | SGA source/translation snapshots and working English translation material. |
 | <https://zenodo.org/records/20415659> | Consolidated non-European mathematics corpus: Chinese, Indian/Sanskrit, and Islamic/Arabic works. |
 | <https://zenodo.org/records/20415752> | Chinese mathematical classics corpus page. |

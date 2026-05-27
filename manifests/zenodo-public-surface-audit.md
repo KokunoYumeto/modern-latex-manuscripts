@@ -1,11 +1,11 @@
 # Zenodo Public Surface Audit
 
-Generated: 2026-05-27T20:18:27
+Generated: 2026-05-27T20:23:53
 
 | Record | Files | MB | Rough Metadata | URL |
 |---|---:|---:|---:|---|
 | Modern LaTeX Editions of Public-Domain Mathematics Manuscripts | 100 | 4513.08 | false | <https://zenodo.org/records/20415117> |
-| Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 13 | 458.27 | false | <https://zenodo.org/records/20416682> |
+| Elements de Geometrie Algebrique (EGA): French Originals and English Translation Working Draft | 13 | 458.33 | false | <https://zenodo.org/records/20416798> |
 | Seminaire de Geometrie Algebrique (SGA): English Translation Working Drafts | 26 | 424.73 | false | <https://zenodo.org/records/20415860> |
 | Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources | 69 | 1836.92 | false | <https://zenodo.org/records/20415659> |
 | Chinese Mathematical Classics: Original LaTeX and Multilingual Translation Drafts | 30 | 98.73 | false | <https://zenodo.org/records/20415752> |
