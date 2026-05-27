@@ -1,0 +1,26 @@
+name: Manifest smoke test
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check JSON and CSV files
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          for path in Path("data").rglob("*.json"):
+              json.loads(path.read_text(encoding="utf-8"))
+          for path in Path("data").rglob("*.csv"):
+              with path.open(newline="", encoding="utf-8-sig") as handle:
+                  list(csv.DictReader(handle))
+          print("manifest smoke test ok")
+          PY
