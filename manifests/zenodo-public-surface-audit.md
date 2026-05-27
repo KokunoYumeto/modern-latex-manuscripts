@@ -1,6 +1,6 @@
 # Zenodo Public Surface Audit
 
-Generated: 2026-05-27T20:36:13
+Generated: 2026-05-27T20:40:29
 
 | Record | Files | MB | Rough Metadata | URL |
 |---|---:|---:|---:|---|
@@ -17,3 +17,5 @@ Generated: 2026-05-27T20:36:13
 | Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 93 | 207.28 | false | <https://zenodo.org/records/20414959> |
 | Classical Algebra and Arithmetic Manuscripts: Modern LaTeX Draft Corpus | 23 | 191.61 | false | <https://zenodo.org/records/20416197> |
 | Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing: Modern LaTeX Drafts | 12 | 137.78 | false | <https://zenodo.org/records/20416839> |
+
+Readability check: the current 13-record public map has no configured public metadata or filename hits for stale record IDs, local paths, internal run labels, or rough placeholder wording.
