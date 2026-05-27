@@ -39,10 +39,11 @@ Generated status date: 2026-05-27.
 
 ## Kimi 7 Web Handoff
 
-- Initial resolved Kimi 7 non-scan handoff: 1 ZIP, 172,497,165 bytes, 3,134 selected files.
+- Initial resolved Kimi 7 non-scan handoff, cleaned after PDF audit: 1 ZIP, 172,490,284 bytes, 3,130 files inside.
 - Continuation/repair-pass delta: 1 ZIP, 141,642,603 bytes, 1,559 files inside.
+- Initial Kimi 7 clean PDF audit: 556/556 PDFs passed `pdfinfo` and text extraction after removing four placeholder/broken PDFs.
 - Continuation delta PDF audit: 248/248 PDFs passed `pdfinfo` and text extraction.
-- Rolling web source folder is now exactly 40 ZIP files, matching the web-session source-file limit.
+- Rolling web source folder is exactly 40 ZIP files, matching the web-session source-file limit. The tiny standalone SGA coordination-notes ZIP was dropped from the drag set to make room for the two Kimi 7 handoff ZIPs.
 
 ## Quality Policy
 
