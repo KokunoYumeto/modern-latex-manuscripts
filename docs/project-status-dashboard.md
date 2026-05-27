@@ -57,7 +57,6 @@ The project is best read as a live corpus rather than a finished edition. The nu
 
 ## Current Audit Notes
 
-The latest local public archive readability audit checked the current 13-record map and reported zero configured public metadata or filename flags.
+The latest local public archive readability audit checked the current 13-record map and reported zero configured public metadata or filename flags at 2026-05-27T21:17:27.
 
-The latest local public PDF surface audit checked 349 top-level public PDFs and reported zero configured defect flags. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.
-
+The latest local public PDF surface audit checked 349 top-level public PDFs and reported zero configured defect flags at 2026-05-27T21:19:38. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.
