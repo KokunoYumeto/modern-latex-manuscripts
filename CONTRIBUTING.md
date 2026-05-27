@@ -9,6 +9,12 @@ Useful contributions include:
 - pointing to better public-domain source scans;
 - opening issues for illegible pages, corrupted files, or doubtful provenance.
 
+Before starting, check:
+
+- [Archive guide](docs/archive-guide.md) for the right Zenodo record;
+- [Public file catalog](docs/public-file-catalog.md) for the exact filename;
+- [Known gaps](docs/known-gaps.md) to avoid duplicating already-known unfinished areas.
+
 Please include:
 
 - the author/work title;
@@ -17,5 +23,8 @@ Please include:
 - a source scan or bibliographic reference;
 - a short explanation of the proposed correction.
 
-Do not add copyrighted front matter, publisher wrappers, editorial prefaces, or collected-volume apparatus unless it is clearly public-domain or explicitly licensed. The project aims to preserve the original public-domain mathematical works and their machine-assisted transcriptions, not modern publisher packaging.
+For translation corrections, preserve the mathematical assertion first. Prefer a literal but readable translation over stylistic rewriting that changes scope, hypotheses, numbering, or dependency structure.
 
+For TeX corrections, keep changes narrow: fix the broken environment, cross-reference, display, diagram, table, or page break without reformatting unrelated sections.
+
+Do not add copyrighted front matter, publisher wrappers, editorial prefaces, or collected-volume apparatus unless it is clearly public-domain or explicitly licensed. The project aims to preserve the original public-domain mathematical works and their machine-assisted transcriptions, not modern publisher packaging.
