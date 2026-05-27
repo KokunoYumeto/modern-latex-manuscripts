@@ -6,6 +6,8 @@ This project publishes working modern LaTeX editions and translation drafts of o
 
 Use the topic or author records first. They are cleaner and easier to browse than the broad bulk-preservation record.
 
+For a searchable list of every current public file, use the [public file catalog](public-file-catalog.md). For known incompleteness, use the [known gaps](known-gaps.md) page.
+
 | Need | Start Here |
 |---|---|
 | Overall project map and bulk preservation | <https://zenodo.org/records/20415117> |

@@ -32,8 +32,8 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 
 ## Quality Status
 
-These are working scholarly drafts, not final critical editions. PDF checks verify that files open and extract text; they do not certify mathematical correctness. The most useful contributions are source comparison, theorem numbering checks, LaTeX cleanup, missing diagram/table repair, and translation proofreading.
+These are working scholarly drafts, not final critical editions. PDF checks verify that files open and extract text; they do not certify mathematical correctness. The most useful contributions are source comparison, theorem numbering checks, LaTeX repair, missing diagram/table repair, and translation proofreading.
 
 ## Contributing
 
-Start with the [archive guide](docs/archive-guide.md) if you only need to know where to download or inspect files. See [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow. Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
+Start with the [archive guide](docs/archive-guide.md) if you only need to know where to download or inspect files. The [public file catalog](docs/public-file-catalog.md) lists every current Zenodo file, and [known gaps](docs/known-gaps.md) explains the main unfinished areas. See [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow. Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
