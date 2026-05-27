@@ -1,6 +1,6 @@
 # Zenodo Public Surface Audit
 
-Generated: 2026-05-27T19:27:29
+Generated: 2026-05-27T19:33:03
 
 | Record | Files | MB | Rough Metadata | URL |
 |---|---:|---:|---:|---|
@@ -15,5 +15,5 @@ Generated: 2026-05-27T19:27:29
 | Heinrich Weber: Modern LaTeX Drafts and English Translation Working Drafts | 5 | 15.84 | false | <https://zenodo.org/records/20416135> |
 | Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts | 4 | 16.71 | false | <https://zenodo.org/records/20416137> |
 | Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts | 93 | 207.28 | false | <https://zenodo.org/records/20414959> |
-| Classical Algebra and Arithmetic Manuscripts: Modern LaTeX Draft Corpus | 23 | 179.13 | false | <https://zenodo.org/records/20414788> |
+| Classical Algebra and Arithmetic Manuscripts: Modern LaTeX Draft Corpus | 23 | 191.61 | false | <https://zenodo.org/records/20416197> |
 | Weyl, Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing: Modern LaTeX Drafts | 13 | 140.46 | false | <https://zenodo.org/records/20415432> |

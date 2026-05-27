@@ -19,7 +19,7 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Heinrich Weber | 35/100 | <https://zenodo.org/records/20416135> |
 | Emmy Noether | 35/100 | <https://zenodo.org/records/20416137> |
 | Pierre Deligne papers | 60/100 | <https://zenodo.org/records/20414959> |
-| Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20414788> |
+| Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20416197> |
 | Additional author cluster | 50/100 | <https://zenodo.org/records/20415432> |
 
 ## Workflow
