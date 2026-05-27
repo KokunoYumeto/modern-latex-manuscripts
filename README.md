@@ -5,8 +5,8 @@ This repository is the working coordination surface for an ongoing project to pr
 Current archive:
 
 - Zenodo concept DOI: <https://doi.org/10.5281/zenodo.20393488>
-- Current public record before the next upload finishes: <https://zenodo.org/records/20408167>
-- In-progress v21 draft: cleaned non-European/Cayley batch, Gauss demoted from the reader-facing PDF surface.
+- Current public record: <https://zenodo.org/records/20408533>
+- Current version DOI: <https://doi.org/10.5281/zenodo.20408533>
 
 ## What This Project Is
 
@@ -36,7 +36,7 @@ Do not commit large PDFs or ZIP payloads directly here. Link to the Zenodo file,
 
 ## Current Status
 
-The v21 staging surface contains:
+The v21 public release surface contains:
 
 - 58 top-level reader PDFs,
 - 33 artifact ZIPs,
@@ -65,7 +65,8 @@ Open an issue using the templates in `.github/ISSUE_TEMPLATE/`. Small text corre
 
 - `STATUS.md`: current release surface and known holds.
 - `ROADMAP.md`: practical next steps.
-- `data/zenodo/v21_summary.json`: machine-readable v21 staging summary.
+- `data/zenodo/v21_public_check_summary.json`: machine-readable public Zenodo check for v21.
+- `data/zenodo/v21_summary.json`: machine-readable v21 build summary.
 - `data/manifests/zenodo_v21_upload_files.csv`: v21 upload file list.
 - `data/audits/v21_demoted_top_level_reader_pdfs.csv`: reader-surface demotions.
 - `scripts/`: release and audit helpers.

@@ -4,20 +4,21 @@ Generated status date: 2026-05-27.
 
 ## Current Public Archive
 
-- Published v20: <https://zenodo.org/records/20408167>
+- Published v21: <https://zenodo.org/records/20408533>
+- Version DOI: <https://doi.org/10.5281/zenodo.20408533>
 - Concept DOI: <https://doi.org/10.5281/zenodo.20393488>
-- v21 draft upload is in progress locally against Zenodo deposition `20408533`.
 
-## v21 Staging Summary
+## v21 Public Summary
 
-- Upload files: 98
-- Total staged size: about 3.91 GB
+- Published files: 98
+- Total published size: about 3.91 GB
 - Top-level reader PDFs: 58
 - Artifact ZIPs: 33
 - Full-repo ZIP: `99_full_repo__modern_latex_corpus_v21_cleanup9_non_eu.zip`
 - New cleaned non-European reader PDFs: 22
 - New partial Cayley reader PDF: 1
 - Cleanup 9 cleaned PDF audit: 85/85 PDFs passed `pdfinfo` and text extraction.
+- Public metadata first-name check: clear.
 
 ## Important Holds And Demotions
 
