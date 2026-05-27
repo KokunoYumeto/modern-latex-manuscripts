@@ -43,7 +43,7 @@ The project is best read as a live corpus rather than a finished edition. The nu
 | Zenodo presentation hygiene | 95/100 | Current records have human titles and passed configured metadata/filename checks. |
 | PDF technical surface | 90/100 | The latest local public PDF surface audit checked 349 PDFs with no configured defect flags. |
 | Source/provenance availability | 85/100 | Most records include artifact ZIPs with TeX, sources, or checking material. |
-| Human browseability | 75/100 | This dashboard, the browse index, and the file catalog make the archive navigable; deeper author-level pages can still improve it. |
+| Human browseability | 85/100 | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; deeper work-level pages can still improve it. |
 | Mathematical/source proofreading | 35/100 | Many drafts still need page-by-page checking against source witnesses. |
 | Translation completeness | 30/100 | Several corpora have substantial translation drafts, but EGA, SGA, Weber, Noether, and many classical works remain incomplete. |
 

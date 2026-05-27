@@ -7,6 +7,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Goal | Open First |
 |---|---|
 | Get the whole preservation surface | [Main project landing](https://zenodo.org/records/20415117) |
+| Decide which file type to download | [Download guide](download-guide.md) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20416974) |
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20417172) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20415659) |
