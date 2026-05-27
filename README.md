@@ -22,6 +22,19 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20416197> |
 | Additional author cluster | 60/100 | <https://zenodo.org/records/20416839> |
 
+## Start Here
+
+| Need | Page |
+|---|---|
+| Find the right corpus | [Browse index](docs/browse-index.md) |
+| Decide what to download | [Download guide](docs/download-guide.md) |
+| Browse by author or work | [By author and work](docs/by-author-and-work.md) |
+| Browse files record by record | [Record landing pages](docs/records/README.md) |
+| Understand current status | [Project status dashboard](docs/project-status-dashboard.md) |
+| Understand draft quality | [Quality rubric](docs/quality-rubric.md) |
+| Pick a concrete task | [Work queue](docs/work-queue.md) |
+| See all docs | [Site map](docs/site-map.md) |
+
 ## Workflow
 
 The detailed provenance and review workflow is in [workflow notes](docs/workflow.md).
@@ -34,8 +47,8 @@ The detailed provenance and review workflow is in [workflow notes](docs/workflow
 
 ## Quality Status
 
-These are working scholarly drafts, not final critical editions. PDF checks verify that files open and extract text; they do not certify mathematical correctness. The most useful contributions are source comparison, theorem numbering checks, LaTeX repair, missing diagram/table repair, and translation proofreading.
+These are working scholarly drafts, not final critical editions. PDF checks verify that files open and extract text; they do not certify mathematical correctness. The [quality rubric](docs/quality-rubric.md) explains the difference between preserved files, readable drafts, source-check candidates, and proofread editions. The most useful contributions are source comparison, theorem numbering checks, LaTeX repair, missing diagram/table repair, and translation proofreading.
 
 ## Contributing
 
-Start with the [browse index](docs/browse-index.md) if you want the most direct route to the right corpus. The [download guide](docs/download-guide.md) explains which files to open first. The [by author and work](docs/by-author-and-work.md) page is the shorter human map of named works. The [record landing pages](docs/records/README.md) group every Zenodo record into reader PDFs, artifact ZIPs, and status files. The [archive guide](docs/archive-guide.md) explains file roles, the [project status dashboard](docs/project-status-dashboard.md) gives the current public surface at a glance, the [public file catalog](docs/public-file-catalog.md) lists every current Zenodo file, [known gaps](docs/known-gaps.md) explains the main unfinished areas, and the [work queue](docs/work-queue.md) lists concrete next tasks. See [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow and [release checklist](docs/release-checklist.md) for publication hygiene. Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow and [release checklist](docs/release-checklist.md) for publication hygiene. Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.

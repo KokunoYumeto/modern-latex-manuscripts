@@ -6,7 +6,7 @@ This project publishes working modern LaTeX editions and translation drafts of o
 
 Use the topic or author records first. They are cleaner and easier to browse than the broad bulk-preservation record.
 
-For the shortest path into the archive, use the [browse index](browse-index.md). For file-choice help, use the [download guide](download-guide.md). For a named-work view, use [by author and work](by-author-and-work.md). For a per-record file view, use the [record landing pages](records/README.md). For a one-page status view, use the [project status dashboard](project-status-dashboard.md). For a searchable list of every current public file, use the [public file catalog](public-file-catalog.md). For known incompleteness, use the [known gaps](known-gaps.md) page.
+For the shortest path into the archive, use the [browse index](browse-index.md). For file-choice help, use the [download guide](download-guide.md). For a named-work view, use [by author and work](by-author-and-work.md). For a per-record file view, use the [record landing pages](records/README.md). For a one-page status view, use the [project status dashboard](project-status-dashboard.md). For quality/status vocabulary, use the [quality rubric](quality-rubric.md). For a searchable list of every current public file, use the [public file catalog](public-file-catalog.md). For known incompleteness, use the [known gaps](known-gaps.md) page.
 
 | Need | Start Here |
 |---|---|
@@ -36,6 +36,8 @@ For the provenance and review model, see [workflow notes](workflow.md).
 ## Quality Levels
 
 These are working scholarly drafts, not final critical editions. A PDF being public means it is useful enough to inspect, not that every theorem number, cross-reference, diagram, table, and translation choice has been proofread.
+
+For review vocabulary, see the [quality rubric](quality-rubric.md).
 
 The most useful corrections are:
 

@@ -36,6 +36,8 @@ Artifact ZIPs are not meant to be pretty. They preserve TeX, source witnesses, O
 
 Manifest/status files explain what is included, what passed technical checks, and what still needs review. They should be short enough to read and precise enough to act on.
 
+For the vocabulary used to describe draft quality, see the [quality rubric](quality-rubric.md).
+
 ## Quality Checks
 
 A technical audit means that a file opens, has plausible page counts, has no configured public naming problems, and does not trip the current surface checks. It does not mean the mathematics has been proofread.

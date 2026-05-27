@@ -8,6 +8,7 @@ This page is the human entry point for the archive. Use it when you want to find
 |---|---|
 | Get the whole preservation surface | [Main project landing](https://zenodo.org/records/20415117) |
 | Decide which file type to download | [Download guide](download-guide.md) |
+| Understand what "draft" means | [Quality rubric](quality-rubric.md) |
 | Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20416974) |
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20417172) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20415659) |
@@ -20,6 +21,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Inspect every public file by name | [Public file catalog](public-file-catalog.md) |
 | See what is incomplete | [Known gaps](known-gaps.md) |
 | Pick a concrete next task | [Work queue](work-queue.md) |
+| See all repository docs | [Site map](site-map.md) |
 
 ## Algebraic Geometry
 
