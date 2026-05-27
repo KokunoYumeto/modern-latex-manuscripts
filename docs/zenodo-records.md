@@ -5,7 +5,7 @@ The public project is intentionally split across a small number of logical Zenod
 | Record | Role |
 |---|---|
 | <https://zenodo.org/records/20415117> | Main project landing page and current bulk archive. |
-| <https://zenodo.org/records/20415918> | EGA originals and working English translation, current 547-page build. |
+| <https://zenodo.org/records/20416682> | EGA originals and working English translation, current 560-page build with EGA 0_IV sections 15 through 23 included as substantive working drafts. |
 | <https://zenodo.org/records/20415860> | SGA source/translation snapshots and working English translation material. |
 | <https://zenodo.org/records/20415659> | Consolidated non-European mathematics corpus: Chinese, Indian/Sanskrit, and Islamic/Arabic works. |
 | <https://zenodo.org/records/20415752> | Chinese mathematical classics corpus page. |
@@ -16,6 +16,6 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20416137> | Emmy Noether author record, with collected-volume wrapper pages removed from the front-facing selected-papers reader. |
 | <https://zenodo.org/records/20414959> | Pierre Deligne paper PDFs and translation/source drafts. |
 | <https://zenodo.org/records/20416197> | Classical algebra and arithmetic shelf: Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby works; current Noether reader uses the wrapper-removed selected mathematical-papers build. |
-| <https://zenodo.org/records/20415432> | Additional author cluster: Weyl, Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and nearby material. |
+| <https://zenodo.org/records/20416544> | Additional author cluster: Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and nearby material; obvious modern collected-volume wrapper pages removed from the reader-facing PDFs. |
 
 Large artifact ZIPs are part of the public records for provenance. The file list should keep reader PDFs first, then artifact/source ZIPs, then manifests and summaries.

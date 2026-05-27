@@ -9,7 +9,7 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Corpus | Status | Zenodo |
 |---|---:|---|
 | Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20415117> |
-| EGA working English translation | 40/100, 547-page current build | <https://zenodo.org/records/20415918> |
+| EGA working English translation | 40/100, 560-page current build | <https://zenodo.org/records/20416682> |
 | SGA working English translation | 50/100 | <https://zenodo.org/records/20415860> |
 | Non-European mathematics manuscripts, consolidated | 80/100 | <https://zenodo.org/records/20415659> |
 | Chinese mathematical classics | 80/100 | <https://zenodo.org/records/20415752> |
@@ -20,7 +20,7 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Emmy Noether | 35/100 | <https://zenodo.org/records/20416137> |
 | Pierre Deligne papers | 60/100 | <https://zenodo.org/records/20414959> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20416197> |
-| Additional author cluster | 50/100 | <https://zenodo.org/records/20415432> |
+| Additional author cluster | 60/100 | <https://zenodo.org/records/20416544> |
 
 ## Workflow
 
