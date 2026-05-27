@@ -31,6 +31,8 @@ Artifact ZIPs are for checking, rebuilding, or continuing work. They usually con
 
 JSON, Markdown, and CSV files are manifests or status notes. They explain what is included, what passed basic checks, and what still needs review.
 
+For the provenance and review model, see [workflow notes](workflow.md).
+
 ## Quality Levels
 
 These are working scholarly drafts, not final critical editions. A PDF being public means it is useful enough to inspect, not that every theorem number, cross-reference, diagram, table, and translation choice has been proofread.

@@ -13,6 +13,21 @@ The project workflow is deliberately redundant: raw source packets are preserved
 7. Publish reader PDFs and artifact ZIPs to Zenodo.
 8. Track corrections and future work in GitHub.
 
+## Provenance Model
+
+The archive is machine-assisted and source-checkable by design.
+
+| Stage | Role |
+|---|---|
+| Work selection | Web review and project notes identify older works worth transcribing, translating, or rescuing from scan-only access. |
+| Source acquisition | Codex downloads public scans, source PDFs, and existing open TeX where available, then indexes and hashes local copies. |
+| Draft transcription | Automated transcription systems produce first-pass TeX, often in parallel across many sections or works. |
+| Review and repair | ChatGPT/Codex and companion agents compile, inspect, repair, combine, rename, and compare outputs against source witnesses. |
+| Translation | Translation drafts are produced when useful, then kept as front-facing reader PDFs if they are readable enough to inspect. |
+| Publication | Codex stages reader PDFs, artifact ZIPs, manifests, summaries, and metadata, then publishes coherent Zenodo records through the API. |
+
+This means a public PDF should be treated as a working scholarly draft unless its record explicitly says it has been proofread. The archive aims to make correction easy: every useful public reader should have TeX or source/provenance material nearby.
+
 ## Public File Roles
 
 Reader PDFs are the public browsing surface. They should be named by author, work, language when helpful, and draft status when the text is not final.
@@ -20,6 +35,12 @@ Reader PDFs are the public browsing surface. They should be named by author, wor
 Artifact ZIPs are not meant to be pretty. They preserve TeX, source witnesses, OCR text, render checks, source packets, and provenance so the reader-facing PDF can be checked and rebuilt.
 
 Manifest/status files explain what is included, what passed technical checks, and what still needs review. They should be short enough to read and precise enough to act on.
+
+## Quality Checks
+
+A technical audit means that a file opens, has plausible page counts, has no configured public naming problems, and does not trip the current surface checks. It does not mean the mathematics has been proofread.
+
+The strongest review is source comparison: open the reader PDF, open the source scan or reference PDF from the artifact ZIP or record, and check page order, theorem numbering, displayed formulas, diagrams, tables, and cross-references.
 
 ## Publication Rule
 

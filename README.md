@@ -24,6 +24,8 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 
 ## Workflow
 
+The detailed provenance and review workflow is in [workflow notes](docs/workflow.md).
+
 1. Public scans and candidate works are identified and downloaded.
 2. Automated transcription systems produce initial TeX drafts.
 3. ChatGPT/Codex and other agents audit, compile, repair, organize, and translate.
