@@ -7,11 +7,11 @@ Generated from the current public Zenodo catalog and local mirror manifests.
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 13 |
-| Public files indexed | 434 |
+| Public files indexed | 435 |
 | Top-level PDFs | 356 |
-| Artifact/source ZIPs | 61 |
+| Artifact/source ZIPs | 62 |
 | Manifest/status files | 17 |
-| Total public file surface | 9.32 GB |
+| Total public file surface | 9.33 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -20,7 +20,7 @@ The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or r
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | [Main project landing](https://zenodo.org/records/20415117) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. |
-| [EGA](https://zenodo.org/records/20416974) | 13 | 9 | 2 | 458 MB | Current English working build plus French NUMDAM originals and TeX/build artifacts. |
+| [EGA](https://zenodo.org/records/20419105) | 14 | 9 | 3 | 460 MB | Current 578-page English working build, French NUMDAM originals, and EGA 0_IV/EGA IV TeX supplements. |
 | [SGA](https://zenodo.org/records/20418993) | 36 | 28 | 7 | 454 MB | Current SGA English/source snapshots, combined SGA 4 reader through Expose VI section 1.21, and French reference PDFs. |
 | [Non-European consolidated](https://zenodo.org/records/20418877) | 71 | 65 | 5 | 2.73 GB | Current combined multilingual release, refreshed work-level Modern Chinese and Arabic readers, and raw provenance archive. |
 | [Chinese classics](https://zenodo.org/records/20415752) | 30 | 28 | 1 | 99 MB | Current Chinese mathematical classics shelf. |
@@ -45,7 +45,7 @@ The project is best read as a live corpus rather than a finished edition. The nu
 | Source/provenance availability | 85/100 | Most records include artifact ZIPs with TeX, sources, or checking material. |
 | Human browseability | 88/100 | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; refreshed non-European and SGA records now expose more work-level PDFs. |
 | Mathematical/source proofreading | 35/100 | Many drafts still need page-by-page checking against source witnesses. |
-| Translation completeness | 30/100 | Several corpora have substantial translation drafts, but EGA, SGA, Weber, Noether, and many classical works remain incomplete. |
+| Translation completeness | 32/100 | Several corpora have substantial translation drafts, but EGA, SGA, Weber, Noether, and many classical works remain incomplete. |
 
 ## Most Useful Next Work
 
@@ -57,6 +57,6 @@ The project is best read as a live corpus rather than a finished edition. The nu
 
 ## Current Audit Notes
 
-The latest local public archive readability audit checked the current 13-record map and reported zero configured public metadata or filename flags at 2026-05-27 23:56:25.
+The latest local public archive readability audit checked the current 13-record map and reported zero configured public metadata or filename flags at 2026-05-28 00:09:01.
 
-The latest local public PDF surface audit checked 356 public PDFs at 2026-05-27 23:56:25 and reported zero configured defect flags. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.
+The latest local public PDF surface audit checked 356 public PDFs at 2026-05-28 00:09:01 and reported zero configured defect flags. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.

@@ -5,7 +5,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Record | Files | PDFs | ZIPs | MB | Page | Zenodo |
 |---|---:|---:|---:|---:|---|---|
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://zenodo.org/records/20415117) |
-| EGA | 13 | 9 | 2 | 458.3 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20416974) |
+| EGA | 14 | 9 | 3 | 460.1 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/20419105) |
 | SGA | 36 | 28 | 7 | 454.1 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/20418993) |
 | Non-European Mathematics, Consolidated | 71 | 65 | 5 | 2798.5 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://zenodo.org/records/20418877) |
 | Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://zenodo.org/records/20415752) |

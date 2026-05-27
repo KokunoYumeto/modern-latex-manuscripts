@@ -9,7 +9,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Get the whole preservation surface | [Main project landing](https://zenodo.org/records/20415117) |
 | Decide which file type to download | [Download guide](download-guide.md) |
 | Understand what "draft" means | [Quality rubric](quality-rubric.md) |
-| Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20416974) |
+| Read or continue EGA translation work | [EGA working English translation](https://zenodo.org/records/20419105) |
 | Read or continue SGA translation work | [SGA working English translation](https://zenodo.org/records/20418993) |
 | Browse Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | [Consolidated non-European mathematics record](https://zenodo.org/records/20418877) |
 | Work on Weber only | [Heinrich Weber record](https://zenodo.org/records/20418861) |
@@ -27,7 +27,7 @@ This page is the human entry point for the archive. Use it when you want to find
 
 | Corpus | What Is There Now | Best First File |
 |---|---|---|
-| [EGA](https://zenodo.org/records/20416974) | French NUMDAM originals, the current compiled English working draft, TeX sources, and build artifacts. | `00 EGA - English Translation Working Draft.pdf` |
+| [EGA](https://zenodo.org/records/20419105) | French NUMDAM originals, the current compiled English working draft with EGA 0_IV and EGA IV continuation, TeX sources, and build artifacts. | `00 EGA - English Translation Working Draft.pdf` |
 | [SGA](https://zenodo.org/records/20418993) | Existing English snapshots for SGA 1-3, a combined SGA 4 English reader through Expose VI section 1.21, separate Expose IV section 9 and sections 10-14 readers, Expose V 0-8 material, partial SGA 5 English work, French reference PDFs for SGA 1-7. | `00 SGA 1 - Existing English Translation Snapshot.pdf` through `14 SGA 5 - English intro and Expose I.1.pdf` |
 | [Deligne](https://zenodo.org/records/20414959) | Separate working access record for Deligne papers, draft TeX, and translation material. | Top-level paper PDFs, then the source/provenance ZIP. |
 

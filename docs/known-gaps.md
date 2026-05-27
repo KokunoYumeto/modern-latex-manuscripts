@@ -10,12 +10,13 @@ This page records the main incompleteness that a reader or contributor should kn
 
 ## EGA
 
-Current record: <https://zenodo.org/records/20416974>
+Current record: <https://zenodo.org/records/20419105>
 
 - EGA I and EGA II are largely inherited from the public community translation base.
-- EGA 0_IV sections 15 through 23 are present as substantive working translations in the current 560-page build.
+- EGA 0_IV sections 15 through 23 are present as substantive working translations in the current 578-page build.
+- EGA IV sections 1 through 3 are present as substantive working translations; EGA IV section 4 is included as the current partial/in-progress working file.
 - EGA 0_III sections 12 and 13 remain placeholder files rather than substantive translations.
-- EGA III and EGA IV remain far from complete as English translations beyond the currently represented material.
+- EGA III and much of EGA IV remain far from complete as English translations beyond the currently represented material.
 - The current build is useful for continuation and checking, not a proofread final edition.
 
 ## SGA

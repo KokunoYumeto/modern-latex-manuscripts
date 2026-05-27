@@ -54,7 +54,7 @@ Public-facing titles should name the author, work, language/status where needed,
 
 1. Run the public archive readability audit.
 2. Run the public PDF surface audit.
-3. Check the newest local drops against the current public summaries.
+3. Check the newest local source packets against the current public summaries.
 4. Promote only the clearer or more complete surface material.
 5. Preserve older material in artifacts or version history when it is useful for provenance.
 6. Update the archive guide, file catalog, known gaps, and current-status manifest.

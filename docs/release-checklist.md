@@ -4,7 +4,7 @@ Use this before publishing or replacing a Zenodo record.
 
 ## 1. Select The Public Surface
 
-- Prefer author, work, or coherent corpus records over raw batch records.
+- Prefer author, work, or coherent corpus records over raw processing-run records.
 - Keep the main landing record as the broad preservation surface.
 - Put readable PDFs at the top level.
 - Put TeX, source witnesses, OCR, page images, render logs, raw packets, and provenance inside artifact ZIPs.
