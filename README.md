@@ -16,8 +16,8 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 | Indian and Sanskrit mathematical classics | 80/100 | <https://zenodo.org/records/20415755> |
 | Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
 | Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
-| Heinrich Weber | 35/100 | <https://zenodo.org/records/20415871> |
-| Emmy Noether | 35/100 | <https://zenodo.org/records/20415872> |
+| Heinrich Weber | 35/100 | <https://zenodo.org/records/20416135> |
+| Emmy Noether | 35/100 | <https://zenodo.org/records/20416137> |
 | Pierre Deligne papers | 60/100 | <https://zenodo.org/records/20414959> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20414788> |
 | Additional author cluster | 50/100 | <https://zenodo.org/records/20415432> |

@@ -12,8 +12,8 @@ The public project is intentionally split across a small number of logical Zenod
 | <https://zenodo.org/records/20415755> | Indian and Sanskrit mathematical classics corpus page. |
 | <https://zenodo.org/records/20415770> | Islamic and Arabic mathematical texts corpus page. |
 | <https://zenodo.org/records/20415777> | Historical reference witnesses corpus page. |
-| <https://zenodo.org/records/20415871> | Heinrich Weber author record. |
-| <https://zenodo.org/records/20415872> | Emmy Noether author record. |
+| <https://zenodo.org/records/20416135> | Heinrich Weber author record. |
+| <https://zenodo.org/records/20416137> | Emmy Noether author record, with collected-volume wrapper pages removed from the front-facing selected-papers reader. |
 | <https://zenodo.org/records/20414959> | Pierre Deligne paper PDFs and translation/source drafts. |
 | <https://zenodo.org/records/20414788> | Classical algebra and arithmetic shelf: Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby works. |
 | <https://zenodo.org/records/20415432> | Additional author cluster: Weyl, Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, Killing, and nearby material. |
