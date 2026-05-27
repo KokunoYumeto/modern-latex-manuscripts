@@ -36,4 +36,4 @@ These are working scholarly drafts, not final critical editions. PDF checks veri
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
+Start with the [archive guide](docs/archive-guide.md) if you only need to know where to download or inspect files. See [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow. Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
