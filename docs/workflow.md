@@ -56,3 +56,5 @@ Public-facing titles should name the author, work, language/status where needed,
 4. Promote only the clearer or more complete surface material.
 5. Preserve older material in artifacts or version history when it is useful for provenance.
 6. Update the archive guide, file catalog, known gaps, and current-status manifest.
+
+For the full publication pass, use the [release checklist](release-checklist.md).
