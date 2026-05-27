@@ -8,14 +8,19 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 
 | Corpus | Status | Zenodo |
 |---|---:|---|
-| Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20410262> |
-| EGA working English translation | 30/100 | <https://zenodo.org/records/20414354> |
-| SGA working English translation | 45/100 | <https://zenodo.org/records/20414657> |
-| Non-European mathematics manuscripts | 70/100 | <https://zenodo.org/records/20413193> |
-| Heinrich Weber | 25/100, update in progress | <https://zenodo.org/records/20414684> |
-| Emmy Noether | 25/100, update in progress | <https://zenodo.org/records/20414682> |
+| Main project landing and bulk archive | 100/100 current preservation surface | <https://zenodo.org/records/20415117> |
+| EGA working English translation | 40/100, 547-page current build | <https://zenodo.org/records/20415918> |
+| SGA working English translation | 50/100 | <https://zenodo.org/records/20415860> |
+| Non-European mathematics manuscripts, consolidated | 80/100 | <https://zenodo.org/records/20415659> |
+| Chinese mathematical classics | 80/100 | <https://zenodo.org/records/20415752> |
+| Indian and Sanskrit mathematical classics | 80/100 | <https://zenodo.org/records/20415755> |
+| Islamic and Arabic mathematical texts | 80/100 | <https://zenodo.org/records/20415770> |
+| Historical reference witnesses | 70/100 | <https://zenodo.org/records/20415777> |
+| Heinrich Weber | 35/100 | <https://zenodo.org/records/20415871> |
+| Emmy Noether | 35/100 | <https://zenodo.org/records/20415872> |
 | Pierre Deligne papers | 60/100 | <https://zenodo.org/records/20414959> |
 | Classical algebra and arithmetic manuscripts | 60/100 | <https://zenodo.org/records/20414788> |
+| Additional author cluster | 50/100 | <https://zenodo.org/records/20415432> |
 
 ## Workflow
 
@@ -32,4 +37,3 @@ These are working scholarly drafts, not final critical editions. PDF checks veri
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
-
