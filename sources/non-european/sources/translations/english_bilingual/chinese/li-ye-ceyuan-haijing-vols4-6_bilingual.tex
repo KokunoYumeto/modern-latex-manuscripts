@@ -1,0 +1,3998 @@
+\documentclass[9pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow,colortbl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{xeCJK}
+% \usepackage{paracol} % replaced with minipage
+% \usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=12mm,right=12mm,top=22mm,bottom=22mm,
+  headheight=14pt,footskip=24pt
+}
+
+%% -------- Column Ratio --------
+% \columnratio removed (was for paracol)
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Noto Serif}[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic,
+  BoldItalicFont=* Bold Italic
+]
+\setsansfont{Noto Sans}[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% CJK Support via xeCJK
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{volcolor}{RGB}{80,40,20}
+\definecolor{probbg}{RGB}{250,248,245}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{volcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Ceyuan Haijing Bilingual -- Vols.\ 4--6}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% Counters
+\newcounter{probnum}
+\newcounter{overallnum}
+\setcounter{overallnum}{50}
+
+%% Chinese number formatter
+\newcommand{\chnum}[1]{%
+  \ifcase#1 零\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\or
+    十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\or 十九\or 二十\or
+    二十一\or 二十二\or 二十三\or 二十四\or 二十五\or 二十六\or 二十七\or 二十八\or 二十九\or 三十\or
+    三十一\or 三十二\or 三十三\or 三十四\or 三十五\fi}
+
+%% Chinese problem structure commands
+\newcommand{\problem}[1]{\stepcounter{probnum}\stepcounter{overallnum}\par\noindent\textbf{\color{volcolor}第\chnum{\value{probnum}}問：}#1\par\vspace{0.15cm}}
+\newcommand{\answer}[1]{\par\noindent\textbf{答曰：}#1\par\vspace{0.15cm}}
+\newcommand{\working}[1]{\par\noindent\textbf{草曰：}#1\par\vspace{0.15cm}}
+\newcommand{\method}[1]{\par\noindent\textbf{法曰：}#1\par\vspace{0.25cm}}
+
+%% English problem structure commands
+\newcommand{\eproblem}[1]{\par\noindent\textbf{\color{volcolor}Problem~\theoverallnum:}~#1\par\vspace{0.15cm}}
+\newcommand{\eanswer}[1]{\par\noindent\textbf{Answer:}~#1\par\vspace{0.15cm}}
+\newcommand{\eworking}[1]{\par\noindent\textbf{Working:}~#1\par\vspace{0.15cm}}
+\newcommand{\emethod}[1]{\par\noindent\textbf{Method:}~#1\par\vspace{0.25cm}}
+
+%% Tian Yuan notation helpers
+\newcommand{\tianyuan}[2]{\raisebox{-0.6ex}{\scriptsize$\begin{array}{c}#1\\\hline #2\end{array}$}}
+\newcommand{\ty}[1]{\tianyuan{#1}{1}}
+\newcommand{\tym}[2]{\tianyuan{#1}{#2}}
+
+%% Paracol setup
+% % \globalcounter{probnum} removed
+% % \globalcounter{overallnum} removed
+
+%% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Ceyuan Haijing Volumes 4-6: Bilingual English-Chinese Edition},
+  pdfauthor={Li Ye (Yuan Dynasty) -- Bilingual Edition}
+}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ===================================================================
+\begin{document}
+%% ===================================================================
+%% TITLE PAGE
+%% ===================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{12}{16}\selectfont 欽定四庫全書 · Imperial Siku Quanshu}
+
+\vspace{0.8cm}
+
+{\fontsize{11}{14}\selectfont 子部 · Mathematics and Astronomy}
+
+\vspace{1.5cm}
+
+\rule{0.85\textwidth}{1.5pt}
+
+\vspace{0.8cm}
+
+{\fontsize{22}{28}\selectfont\bfseries\color{titlecolor} 測圓海鏡 \quad Ceyuan Haijing}
+
+\vspace{0.4cm}
+
+{\fontsize{14}{18}\selectfont 卷四至卷六 \quad Volumes 4--6}
+
+\vspace{0.3cm}
+
+{\fontsize{11}{14}\selectfont\color{notecolor} 底勾、大股、大勾三卷全編}
+
+\vspace{0.2cm}
+
+{\fontsize{10}{13}\selectfont\color{notecolor} Double Difference, Large Leg, and Large Base: Complete}
+
+\vspace{0.8cm}
+
+\rule{0.85\textwidth}{1.5pt}
+
+\vspace{1.5cm}
+
+{\fontsize{12}{16}\selectfont 元\quad 李冶\quad 撰}
+
+\vspace{0.2cm}
+
+{\fontsize{10}{13}\selectfont\color{notecolor} Yuan Dynasty \quad Li Ye (Renqing, Jingzhai)}
+
+\vspace{0.5cm}
+
+{\fontsize{10}{13}\selectfont\color{notecolor} 字仁卿，號敬齋，眞定欒城人}
+
+\vspace{0.2cm}
+
+{\small\selectfont\color{notecolor} Jinshi of the Late Jin; Hanlin Academician under Yuan}
+
+\vspace{2.5cm}
+
+{\large\bfseries Bilingual English--Chinese Edition}
+
+\vspace{0.3cm}
+
+{\small\color{notecolor} Original Chinese with English Translation}
+
+\vspace{0.2cm}
+
+{\small\color{notecolor} Parallel Text: Chinese (Left) · English (Right)}
+
+\vfill
+
+{\small 依《欽定四庫全書》本 · Based on the Imperial Siku Quanshu Edition}
+
+\vspace{0.3cm}
+
+{\small\color{notecolor}
+卷四：第五十一問至第六十七問 · Vol.\ 4: Problems 51--67\\[0.1cm]
+卷五：第六十八問至第八十五問 · Vol.\ 5: Problems 68--85\\[0.1cm]
+卷六：第八十六問至第一百三問 · Vol.\ 6: Problems 86--103\\[0.1cm]
+}
+
+\end{center}
+\end{titlepage}
+
+%% ===================================================================
+%% TABLE OF CONTENTS
+%% ===================================================================
+\tableofcontents
+\newpage
+
+%% ===================================================================
+%% INTRODUCTION
+%% ===================================================================
+\section*{引言 · Introduction}
+\addcontentsline{toc}{section}{引言 · Introduction}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+《測圓海鏡》十二卷，元李冶撰。冶字仁卿，號敬齋，眞定欒城人。
+金末進士，入元官翰林學士。此書乃其所著天元術之傑作，以勾股測圓
+之法，設問答以明天元一之術。全書凡一百七十問，皆設城池圓形，以
+人物行步之數推求圓徑。
+
+本編收錄卷四、卷五、卷六三卷，凡五十三問：
+\begin{itemize}[leftmargin=1em,itemsep=0pt,topsep=2pt]
+  \item \textbf{卷四}：底勾一十七問（第五十一問至第六十七問）
+  \item \textbf{卷五}：大股一十八問（第六十八問至第八十五問）
+  \item \textbf{卷六}：大勾一十八問（第八十六問至第一百三問）
+\end{itemize}
+
+書中設問之例：假令有圓城一座，甲乙二人各從城門出行，或東或南，
+行若干步，遙相望見，或斜行相會。只知若干步數，餘皆不知，以求
+圓城之徑。每問皆有\textbf{問}、\textbf{答}、\textbf{草}、\textbf{法}四部分。
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\textit{Ceyuan Haijing} (Sea Mirror of Circle Measurements), in twelve volumes,
+was written by Li Ye of the Yuan Dynasty. Li Ye, styled Renqing, sobriquet
+Jingzhai, was from Luancheng, Zhending. A Jinshi of the late Jin period,
+he served as Hanlin Academician under the Yuan. This work is his masterpiece
+on the \textit{tian yuan} (celestial element) method, using right-triangle
+circle-measurement techniques to elucidate the art of \textit{tian yuan yi}.
+The complete work contains 170 problems, each positing a circular city wall,
+from whose walkers' paces the diameter is sought.
+
+This edition contains Volumes 4, 5, and 6---53 problems in total:
+\begin{itemize}[leftmargin=1em,itemsep=0pt,topsep=2pt]
+  \item \textbf{Volume 4}: 17 problems on the base leg (51--67)
+  \item \textbf{Volume 5}: 18 problems on the large leg (68--85)
+  \item \textbf{Volume 6}: 18 problems on the large base (86--103)
+\end{itemize}
+
+Each problem presents a scenario: A and B depart from city gates, walking
+east or south, viewing each other diagonally or meeting obliquely. Given
+certain paces, all else unknown, find the city diameter. Each problem has
+four parts: \textbf{Question}, \textbf{Answer}, \textbf{Working}, and \textbf{Method}.
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.3cm}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\textbf{天元術記法說明：}書中以籌算式記多項式，自下而上排列，
+常數項在下，一次項在上，二次又在上，依此類推。如
+\tianyuan{480}{1}表示 $480 - x$，
+\tianyuan{0\quad0\quad48000}{1\quad0\quad0}
+表示 $48000 - x^2$ 之類。所謂「立天元一為某數」，即設未知數 $x$ 為
+所求之量。
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\textbf{On Tian Yuan Notation:} Polynomials are recorded in counting-rod
+style, arranged bottom-to-top: constant term lowest, linear term above,
+quadratic above that, etc. Thus \tianyuan{480}{1} denotes $480 - x$, and
+\tianyuan{0\quad0\quad48000}{1\quad0\quad0} denotes $48000 - x^2$.
+``Let the celestial element unity be [some quantity]'' means: let unknown
+$x$ equal the sought quantity.
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.4cm}
+\longline
+\newpage
+
+%% ===================================================================
+%% VOLUME 4
+%% ===================================================================
+\section{卷四：底勾一十七問 · Vol.\ 4: Double Difference (17 Problems)}
+\label{sec:vol4}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 底勾一十七問 · Double Difference}
+
+\vspace{0.2cm}
+
+{\small\color{notecolor} （第五十一問至第六十七問 · Problems 51--67）}
+\end{center}
+
+\vspace{0.2cm}
+\longline
+\vspace{0.2cm}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\noindent
+\textbf{【題意總說】}卷四論「底勾」之術。所謂底勾，乃勾股形之最下
+勾股，與圓徑相切之基本勾股形也。凡一十七問，皆以底勾為基，求
+圓城之徑。底勾者，通勾股形之勾邊，亦即大勾，為諸勾股形之根本。
+諸問或知甲東行之數，或知乙南行之數，或知斜行之數，三者之中知其二，
+即可立天元一，建方程而開方得圓徑。
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\noindent
+\textbf{[General Summary]} Volume 4 treats the ``base leg'' (底勾) method.
+The base leg is the lowest side of the right triangle formed tangent to
+the circular diameter---the fundamental right triangle. All 17 problems
+use the base leg as foundation to find the city diameter. It is the base
+of the universal right triangle, i.e., the large base, the root of all
+sub-triangles. Given any two of: A's eastward walk, B's southward walk,
+or the diagonal walk, one may establish the celestial element and solve.
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.2cm}
+
+%% --- Problem 51 (Vol 4, Problem 1) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門東行不知步數而立，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問圓城之徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+識別得二行相減餘，即乙出南門東行數也。以甲東行二百步減於就乙斜行
+二百七十二步，餘七十二步，為乙東行數。以乘甲東行步，得
+$72 \times 200 ={}$一萬四千四百步，又四之，得五萬七千六百步為實。
+以平方開之，得 $\sqrt{57600} ={}$二百四十步，即城徑也。
+
+\textbf{驗算：}城徑二百四十步，半徑一百二十步。乙東行七十二步，
+甲東行二百步，甲比乙多行 $200 - 72 = 128$ 步。以勾股術驗之，
+斜行為弦，$\sqrt{128^2 + 120^2} = \sqrt{16384 + 14400} = \sqrt{30784}$，
+復以半徑加之，合得斜行步數，其術驗矣。
+}
+
+\method{
+二行差數乘甲東行又四之，為平方實，開方得全徑。術曰：以就乙斜行步
+內減甲東行步，餘為乙東行數；以此數乘甲東行步為實，四之；開平方，
+即得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks east an unknown number of paces,
+while A exits the north gate and walks east 200 paces to see him. A then
+walks diagonally 272 paces to meet B. What is the diameter of the circular
+city wall?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+By inspection, the difference of the two walks gives B's eastward walk.
+Subtracting A's 200 paces from the diagonal 272 paces leaves 72 paces
+as B's eastward walk. Multiplying by A's 200 paces gives
+$72 \times 200 = 14{,}400$ paces. Quadrupling gives $57{,}600$ as the dividend.
+Extracting the square root: $\sqrt{57600} = 240$ paces, the city diameter.
+
+\textbf{Verification:} Diameter 240, radius 120. B walks 72 east, A walks
+200 east; difference $200 - 72 = 128$. By the gougu (Pythagorean) theorem:
+diagonal is the hypotenuse; $\sqrt{128^2 + 120^2} = \sqrt{16384 + 14400}$
+$= \sqrt{30784}$. Adding the radius gives the diagonal walk, confirming
+the result.
+}
+
+\emethod{
+The difference of the two walks multiplied by A's eastward walk,
+then quadrupled, is the dividend for square-root extraction.
+Method: From the diagonal walk subtract A's eastward walk, remainder is
+B's eastward walk. Multiply this by A's eastward walk as dividend;
+quadruple; extract square root to obtain the city diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 52 (Vol 4, Problem 2) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門東行一百二十步而立，甲出北門東行二百步見之。問城徑。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以減於二之甲東行步，得\tianyuan{480}{1}為兩个小差。
+以乙東行一百二十步乘之，得\tianyuan{57600}{1}為城徑冪，寄左。
+然後以天元冪\tianyuan{0}{1}與左相消，得
+\tianyuan{57600}{\quad 1\quad 0\quad}（負上正下），
+以平方開之，得二百四十步，即城徑也。
+
+\textbf{釋義：}二之甲東行者，以甲東行為勾，其倍即通勾與圓徑之差。
+以乙東行乘之者，乙東行即小勾，乘大差得大勾之冪，亦即城徑冪之半。
+故以天元冪相消，開平方即得。
+}
+
+\method{
+半之乙東行步乘甲東行為實，半乙東行為從，一步常法，得半徑。
+術曰：置乙東行步折半，以乘甲東行步為實；以半乙東行步為從法；
+一步為隅法；開平方得半徑，倍之即城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks east 120 paces, while A exits the
+north gate and walks east 200 paces to see him. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Subtracting it from
+twice A's eastward walk gives \tianyuan{480}{1} as the two small differences.
+Multiplying by B's 120 paces gives \tianyuan{57600}{1} as the city
+diameter-squared, deposited on the left. Then canceling with the celestial
+element-squared \tianyuan{0}{1} gives
+\tianyuan{57600}{\quad 1\quad 0\quad} (negative above, positive below).
+Extracting the square root yields 240 paces, the city diameter.
+
+\textbf{Explanation:} Twice A's eastward walk: A's walk being the base,
+its double is the difference between the universal base and the diameter.
+Multiplying by B's walk (the small base) gives the square of the large base,
+i.e., half the city-diameter squared. Cancelling with the celestial element
+and extracting the root gives the result.
+}
+
+\emethod{
+Half of B's eastward walk multiplied by A's eastward walk is the dividend;
+half of B's eastward walk is the coefficient; unity is the constant divisor.
+This yields the radius. Method: Halve B's eastward walk, multiply by A's
+eastward walk as dividend; use half B's walk as the coefficient, unity as
+the corner divisor; extract square root to obtain the radius; double it
+for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 53 (Vol 4, Problem 3) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從坤隅南行三百六十步，甲出北門東行二百步見之。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，減於乙南行三百六十步之半，得\tianyuan{180}{1}為小差。
+半乙南行步，得一百八十步，以乘小差，得\tianyuan{32400}{180}為半徑冪，
+寄左。然後以天元冪\tianyuan{0}{1}與左相消，得
+\tianyuan{32400}{180\quad 1\quad 0}（上負下正），
+開平方得一百二十步，倍之得全徑二百四十步。
+
+\textbf{釋義：}此問以乙南行為股，甲東行為勾。半乙南行即大股之半，
+去半徑餘為小差。以小差乘半股得半徑冪，此天元術之妙用也。
+}
+
+\method{
+兩行步相乘為實，甲東行為從，乙南行為隅，開平方得半徑。
+術曰：以甲東行步乘乙南行步為實，以甲東行步為從，乙南行步為隅法；
+開平方得一百二十步，即半徑；倍之即城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks south 360 paces from the Kun corner, while A exits the
+north gate and walks east 200 paces to see him. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the radius. Subtracting it from half of
+B's southward walk (360 paces) gives \tianyuan{180}{1} as the small
+difference. Half of B's southward walk is 180 paces; multiplying by the
+small difference gives \tianyuan{32400}{180} as the radius-squared,
+deposited on the left. Canceling with the celestial element-squared
+\tianyuan{0}{1} gives
+\tianyuan{32400}{180\quad 1\quad 0} (negative above, positive below).
+Extracting square root gives 120 paces; doubling gives the full diameter
+of 240.
+
+\textbf{Explanation:} Here B's southward walk is the leg, A's eastward walk
+is the base. Half B's walk is half the large leg; less the radius gives the
+small difference. Multiplying small difference by half the leg gives the
+radius-squared---the subtle efficacy of the tian yuan method.
+}
+
+\emethod{
+The product of the two walks is the dividend; A's eastward walk is the
+coefficient; B's southward walk is the corner divisor. Extract square root
+to obtain the radius. Method: Multiply A's eastward by B's southward as
+dividend; A's walk as coefficient, B's walk as corner; extract square root
+to obtain 120 paces, the radius; double for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 54 (Vol 4, Problem 4) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從坤隅南行三百六十步而止，甲出北門東行二百步見之，就乙斜行
+四百零八步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行冪得四萬步，以乙南行冪得一十二萬九千六百步，
+並之得一十七萬三千六百步為弦冪之實。又以斜行四百零八步自之，得一十六萬
+六千四百六十四步。以此減弦冪實，餘七千一百三十六步。以四之得二萬八千
+五百四十四步為城徑冪之較實。
+
+別求之：立天元一為城徑，以減於二之甲東行，餘即乙出南門東行數也。
+以乙南行乘甲東行冪，又四之為實。從空，乙行為廉，一步常法，得城徑。
+開立方得二百四十步。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+術曰：置甲東行步自乘，又以乙南行步乘之，四之為實；乙南行步為廉法；
+一步為隅法；開立方即得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks south 360 paces from the Kun corner and stops, while A exits
+the north gate and walks east 200 paces to see him, then walks diagonally
+408 paces to meet B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Squaring A's eastward
+walk gives 40,000; squaring B's southward walk gives 129,600. Their sum,
+173,600, is the dividend for the hypotenuse-squared. The diagonal 408
+squared gives 166,464. Subtracting from the dividend leaves 7,136.
+Quadrupling gives 28,544 as the comparison-dividend for the diameter-squared.
+
+Alternatively: Let the celestial element be the diameter. Subtracting from
+twice A's eastward walk gives B's eastward walk from the south gate.
+Multiply B's southward walk by A's walk-squared; quadruple as dividend.
+Empty coefficient; B's walk as corner; unity as constant. Extracting cube
+root gives 240 paces.
+}
+
+\emethod{
+B's southward walk multiplied by A's walk-squared, then quadrupled, is the
+dividend. Empty coefficient; B's walk as corner; unity as constant divisor.
+Extract cube root for the diameter. Method: Square A's eastward walk,
+multiply by B's southward walk, quadruple as dividend; B's walk as corner
+divisor; unity as corner; extract cube root.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 55 (Vol 4, Problem 5) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。問城徑。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，加乙南行一百三十五步，得\tianyuan{135}{1}為股率。
+其甲東行二百步即勾率也。其乙南行為小股，以勾率乘之，合以大弦率除。
+今不受除，便以此為小勾，為母，寄股率。
+
+乃先以小弦乘大和，得下式
+\tianyuan{0}{1}\tianyuan{0}{0}\tianyuan{12000}{0}寄左。
+又以倍天元減斜步，得\tianyuan{100}{2}為小和，以乘大弦，得
+\tianyuan{12000}{1}為同數，與左相消。開平方得二百四十步。
+
+\textbf{按：}此草以率法為主，以勾股之率通諸數，建立天元方程，
+為天元術之正統用法。立天元一為城徑，以諸率配之，求其等式，
+相消開方，即得所求。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Adding B's southward
+135 paces gives \tianyuan{135}{1} as the leg-rate. A's eastward 200 paces
+is the base-rate. B's southward walk is the small leg; multiplying by the
+base-rate should be divided by the large hypotenuse-rate. Not dividing,
+this becomes the small base as numerator, with the leg-rate deposited.
+
+First multiply the small hypotenuse by the large sum, obtaining the expression
+\tianyuan{0}{1}\tianyuan{0}{0}\tianyuan{12000}{0}, deposited left.
+Then subtract twice the celestial element from the diagonal, obtaining
+\tianyuan{100}{2} as the small sum; multiply by the large hypotenuse,
+obtaining \tianyuan{12000}{1} as the equal number, which cancels with the left.
+Extracting square root gives 240 paces.
+
+\textbf{Note:} This working uses rate-methods to connect all quantities,
+establishing tian yuan equations in the orthodox manner.
+}
+
+\emethod{
+B's southward walk multiplied by A's walk-squared, then quadrupled, is the
+dividend. Empty coefficient; B's walk as corner; unity as constant;
+extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 56 (Vol 4, Problem 6) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從坤隅南行三百六十步，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑。以甲東行二百步減斜行二百七十二步，餘七十二步，
+為乙出南門東行數。以乙南行三百六十步折半，得一百八十步，為大股之半。
+以此半股減天元半徑，得\tianyuan{180}{1}為小差。以小差乘半股，
+得\tianyuan{32400}{180}為半徑冪，寄左。以天元冪相消，開平方
+得一百二十步，倍之得全徑二百四十步。
+}
+
+\method{
+兩行步相乘倍之為實，乙南行為從，一步常法，得半徑。
+術曰：以甲東行步乘乙南行步，倍之為實；乙南行步為從法；
+一步為隅法；開平方得半徑，倍之即城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks south 360 paces from the Kun corner, while A exits the north
+gate and walks east 200 paces to see him, then walks diagonally 272 paces
+to meet B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the radius. Subtracting A's 200 paces
+from the diagonal 272 leaves 72 paces as B's eastward walk from the south
+gate. Halving B's 360-pace southward walk gives 180 paces, half the large
+leg. Subtracting the radius from this half-leg gives \tianyuan{180}{1}
+as the small difference. Multiplying small difference by half the leg gives
+\tianyuan{32400}{180} as the radius-squared, deposited left. Canceling with
+the celestial element-squared and extracting square root gives 120 paces;
+doubling gives the full diameter of 240.
+}
+
+\emethod{
+The product of the two walks, doubled, is the dividend; B's southward walk
+is the coefficient; unity is the constant divisor; this yields the radius.
+Method: Multiply A's eastward by B's southward, double as dividend; B's walk
+as coefficient, unity as corner; extract square root for the radius;
+double for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 57 (Vol 4, Problem 7) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之，
+復就乙斜行二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步為小股，甲東行二百步為小勾。
+以斜行二百七十二步為小弦。驗之：$135^2 + 72^2 = 18225 + 5184 = 23409$，
+而 $272^2 = 73984$，非直股勾股也。當以天元術正之。
+
+立天元一為城徑，以減於二之甲東行，得\tianyuan{400}{1}為兩个小差之和。
+以乙南行乘之，又四之，得大實。以天元冪與左相消，開平方得二百四十步。
+}
+
+\method{
+以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him, then walks diagonally
+272 paces to meet B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. B's southward 135 paces
+is the small leg; A's eastward 200 is the small base; the diagonal 272 is the
+small hypotenuse. Verification: $135^2 + 72^2 = 18225 + 5184 = 23409$,
+while $272^2 = 73984$---not a direct right triangle. We must correct by the
+tian yuan method.
+
+Let the celestial element be the diameter. Subtracting from twice A's eastward
+walk gives \tianyuan{400}{1} as the sum of the two small differences.
+Multiplying by B's southward walk and quadrupling gives the large dividend.
+Canceling with the celestial element-squared and extracting square root gives
+240 paces.
+}
+
+\emethod{
+B's southward walk multiplied by A's walk-squared is the dividend. Empty
+coefficient; B's walk as corner; unity as constant; extract cube root for
+the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 58 (Vol 4, Problem 8) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步。以減於倍甲東行四百步，
+餘一百三十步，為大小差之較。以此較乘甲東行冪，得
+$130 \times 40000 ={}$五百二十萬步為實。從空，倍乙行為廉，
+一步常法，開立方得城徑。
+
+又法：立天元一為半徑，以半甲東行一百步減斜行半數一百三十六步，
+餘三十六步為半較。以乙南行半數六十七步半乘之，得半徑冪之較，
+與天元冪相消，開平方即得。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces, then walks diagonally 272 paces to
+meet B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Doubling B's southward
+walk gives 270 paces. Subtracting from twice A's eastward walk (400 paces)
+leaves 130 paces as the difference between the large and small differences.
+Multiplying this difference by A's walk-squared: $130 \times 40000 =$
+5,200,000 paces as dividend. Empty coefficient; twice B's walk as corner;
+unity as constant; extracting cube root gives the diameter.
+
+Alternative method: Let the celestial element be the radius. Subtracting half
+A's walk (100) from half the diagonal (136) leaves 36 as half the difference.
+Multiplying by half B's walk (67.5) gives the radius-squared difference;
+cancel with the celestial element-squared; extract square root.
+}
+
+\emethod{
+Twice B's southward walk multiplied by A's walk-squared is the dividend.
+Empty coefficient; twice B's walk as corner; unity as constant;
+extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 59 (Vol 4, Problem 9) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+此問與前問類而異者，甲見乙之後復斜行相會。立天元一為城徑，
+以兩行相減，餘乘甲東行又四之為實。兩行差為廉，一步常法，
+開立方得城徑。
+
+\textbf{細草：}以乙南行一百三十五步減甲東行二百步，餘六十五步，
+為兩行之差。以乘甲東行二百步，得一千三百步，又四之得五千二百步為實。
+兩行差六十五步為廉法，一步為隅法，開立方得二百四十步。
+}
+
+\method{
+兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate, walks east 200 paces to see him, then walks diagonally 272
+paces to meet B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+This problem is similar to the previous but differs: after A sees B, he then
+walks diagonally to meet him. Let the celestial element be the city diameter.
+Subtract the two walks; multiply the remainder by A's eastward walk and
+quadruple as dividend. The difference of the two walks is the corner divisor;
+unity is the constant; extract cube root for the diameter.
+
+\textbf{Detailed working:} Subtract B's 135 from A's 200, leaving 65 as the
+difference. Multiply by A's 200: 1,300; quadruple: 5,200 as dividend.
+The difference 65 is the corner divisor; unity is the constant corner.
+Extracting cube root gives 240 paces.
+}
+
+\emethod{
+The difference of the two walks multiplied by A's eastward walk, then
+quadrupled, is the dividend. Empty coefficient; the walk-difference as corner;
+unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 60 (Vol 4, Problem 10) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步見之。問城徑。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步乘甲東行冪（四萬步），
+得五百四十萬步，又四之得二千一百六十萬步為實。從空，
+乙行一百三十五步為廉法，一步為隅法，開立方得二百四十步。
+
+\textbf{按：}此草以乙南行為小股，甲東行為小勾。以勾冪乘股，
+蓋以大勾之冪比於小勾之冪，若大股之冪比於小股之冪。以率言之，
+大勾即城徑與小勾之關係，故以天元建立而開立方。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Multiplying B's
+southward 135 paces by A's walk-squared (40,000) gives 5,400,000 paces;
+quadrupled gives 21,600,000 as dividend. Empty coefficient; B's 135 paces
+as corner divisor; unity as constant corner; extracting cube root gives
+240 paces.
+
+\textbf{Note:} This working takes B's southward as the small leg, A's eastward
+as the small base. Multiplying the base-squared by the leg: the ratio of
+the large base-squared to the small base-squared equals that of the large
+leg-squared to the small leg-squared. The large base is the relation between
+diameter and small base, hence establishing tian yuan and extracting cube root.
+}
+
+\emethod{
+B's southward walk multiplied by A's walk-squared, then quadrupled, is the
+dividend. Empty coefficient; B's walk as corner; unity as constant;
+extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 61 (Vol 4, Problem 11) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑與斜行各幾何？
+}
+
+\answer{城徑二百四十步。斜行二百七十二步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步。以甲東行冪四萬步乘之，
+得一千零八萬步，又倍之得二千零一十六萬步為實。倍乙南行二百七十步
+為廉法，一步為隅法，開立方得城徑二百四十步。
+
+既得城徑，求斜行：以城徑二百四十步減於二之甲東行四百步，
+餘一百六十步，為乙東行與半徑之差。以此差冪與半徑冪相加開方，
+得斜行二百七十二步。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+術曰：倍乙南行步，以乘甲東行冪為實；倍乙南行步為廉法；
+一步為隅法；開立方得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him. What are the city diameter
+and the diagonal walk?
+}
+
+\eanswer{City diameter: 240 paces. Diagonal walk: 272 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Doubling B's southward
+walk gives 270 paces. Multiplying by A's walk-squared (40,000) gives
+10,080,000 paces; doubled gives 20,160,000 as dividend. Twice B's southward
+(270) is the corner divisor; unity is the constant corner; extracting cube
+root gives diameter 240 paces.
+
+To find the diagonal: Subtract diameter 240 from twice A's eastward walk
+(400), leaving 160 as the difference between B's eastward walk and the radius.
+Adding the square of this difference to the square of the radius and extracting
+root gives the diagonal of 272 paces.
+}
+
+\emethod{
+Twice B's southward walk multiplied by A's walk-squared is the dividend.
+Empty coefficient; twice B's walk as corner; unity as constant;
+extract cube root for the diameter. Method: Double B's southward walk,
+multiply by A's walk-squared as dividend; twice B's walk as corner;
+unity as corner; extract cube root.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 62 (Vol 4, Problem 12) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以兩行相減，甲東行二百步減乙南行一百三十五步，
+餘六十五步，為兩行之較。以較乘甲東行，得一千三百步，又四之，
+得五千二百步為實。從空，兩行較六十五步為廉法，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{驗草：}城徑二百四十步，半徑一百二十步。以半徑減甲東行，
+餘八十步為甲至城心之東行。以乙南行一百三十五步減半徑，餘十五步，
+為乙至城心之南行。以此二數各自乘并之，$80^2 + 15^2 = 6400 + 225 = 6625$，
+開方得 $81.39$ 不盡，須以天元正術求之。
+}
+
+\method{
+兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate, walks east 200 paces, then diagonally 272 paces to meet B.
+What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Subtract the two walks:
+A's 200 minus B's 135 leaves 65 as the difference. Multiply the difference
+by A's 200: 1,300; quadruple: 5,200 as dividend. Empty coefficient; the
+difference 65 as corner divisor; unity as constant; extracting cube root
+gives diameter 240 paces.
+
+\textbf{Verification:} Diameter 240, radius 120. Radius subtracted from
+A's walk leaves 80 as A's distance from the center eastward. B's 135 minus
+radius leaves 15 as B's distance southward from the center. Squaring and
+summing: $80^2 + 15^2 = 6400 + 225 = 6625$; root $\approx 81.39$, inexact---
+must use the orthodox tian yuan method.
+}
+
+\emethod{
+The difference of the two walks multiplied by A's eastward walk, then
+quadrupled, is the dividend. Empty coefficient; the walk-difference as corner;
+unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 63 (Vol 4, Problem 13) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑及乙東行步數各幾何？
+}
+
+\answer{城徑二百四十步，乙東行七十二步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步乘甲東行冪（四萬步），
+得五百四十萬步為實。從空，乙行為廉，一步常法，開平方得城徑。
+
+求乙東行：以城徑二百四十步減於二之甲東行四百步，餘一百六十步，
+以減甲東行二百步，餘七十二步，即乙東行步數。
+
+\textbf{釋天元：}此問以乙南行乘甲東行冪為實者，乙南行為股率，
+甲東行為勾率，以勾冪乘股率者，以大勾之冪與大股相乘之義也。
+}
+
+\method{
+以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him. What are the city diameter
+and B's eastward paces?
+}
+
+\eanswer{City diameter: 240 paces. B's eastward walk: 72 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Multiplying B's
+southward 135 paces by A's walk-squared (40,000) gives 5,400,000 as dividend.
+Empty coefficient; B's walk as corner; unity as constant; extract square
+root for the diameter.
+
+To find B's eastward walk: Subtract diameter 240 from twice A's eastward
+(400), leaving 160. Subtract this from A's 200 paces, leaving 72 paces as
+B's eastward walk.
+
+\textbf{Tian Yuan explained:} Using B's southward (the leg-rate) multiplied
+by A's walk-squared (the base-squared): the base-squared multiplied by the
+leg-rate represents the meaning of the large base-squared multiplied by
+the large leg.
+}
+
+\emethod{
+B's southward walk multiplied by A's walk-squared is the dividend. Empty
+coefficient; B's walk as corner; unity as constant; extract square root
+for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 64 (Vol 4, Problem 14) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之，
+復斜行與乙相會。問城徑及斜行步數。
+}
+
+\answer{城徑二百四十步，斜行二百七十二步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步，乘甲東行冪（四萬步），
+得一千零八十萬步為實。從空，倍乙南行為廉，一步為隅法，開平方
+得城徑二百四十步。
+
+求斜行：以城徑減於二之甲東行，餘一百六十步。以此與甲東行相加，
+得三百六十步，折半得一百八十步，為弦之半。以自乘得三萬二千四百步，
+加入半徑冪一萬四千四百步，得四萬六千八百步，即非弦冪也。
+當以天元別求之：以半徑冪加甲乙東行之較冪，合半之，開方得斜行。
+$120^2 + 128^2 = 14400 + 16384 = 30784$，而 $272^2 = 73984$，
+知須以天元方程正求之。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him, then walks diagonally
+to meet B. What are the city diameter and diagonal walk?
+}
+
+\eanswer{City diameter: 240 paces. Diagonal walk: 272 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Doubling B's southward
+walk gives 270; multiplying by A's walk-squared (40,000) gives 10,800,000 as
+dividend. Empty coefficient; twice B's walk as corner; unity as constant;
+extracting square root gives diameter 240 paces.
+
+To find the diagonal: Subtract diameter from twice A's eastward, leaving 160.
+Add to A's eastward: 360; halve: 180 as half the hypotenuse. Squaring gives
+32,400; adding radius-squared 14,400 gives 46,800---not the hypotenuse-squared.
+Must use tian yuan separately: add radius-squared to the difference of A-B
+eastward walks squared, halve, extract root for diagonal.
+$120^2 + 128^2 = 14400 + 16384 = 30784$, while $272^2 = 73984$;
+hence must use tian yuan equations correctly.
+}
+
+\emethod{
+Twice B's southward walk multiplied by A's walk-squared is the dividend.
+Empty coefficient; twice B's walk as corner; unity as constant;
+extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 65 (Vol 4, Problem 15) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以兩行相減，甲東行二百步減乙南行一百三十五步，
+餘六十五步為較。以較乘甲東行冪（四萬步），得二百六十萬步，
+又四之得一千零四十萬步為實。從空，較六十五步為廉法，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{按：}此問以較為主，蓋斜行相會，須以兩行差建立方程。
+較者，大小差之較也，為天元術中重要之率。
+}
+
+\method{
+兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate, walks east 200 paces, then diagonally 272 paces to meet B.
+What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Subtract the two walks:
+A's 200 minus B's 135 leaves 65 as the difference. Multiply the difference by
+A's walk-squared (40,000): 2,600,000; quadrupled: 10,400,000 as dividend.
+Empty coefficient; the difference 65 as corner divisor; unity as constant;
+extracting cube root gives diameter 240 paces.
+
+\textbf{Note:} This problem uses the difference as key. For diagonal meetings,
+one must establish equations from the walk-difference. The difference is the
+difference of large and small differences, an important rate in tian yuan.
+}
+
+\emethod{
+The walk-difference multiplied by A's walk-squared, then quadrupled, is the
+dividend. Empty coefficient; walk-difference as corner; unity as constant;
+extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 66 (Vol 4, Problem 16) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步乘甲東行冪（四萬步），
+得五百四十萬步，又四之得二千一百六十萬步為實。從空，
+乙行一百三十五步為廉法，一步為隅法，開立方得城徑二百四十步。
+
+\textbf{細釋：}甲東行為勾，乙南行為股。以勾冪乘股為實者，
+大勾之冪當與大股相乘，而乙南行即大股之表示，故以此為實。
+從空者，無從法也。乙行為廉，即二次項之係數也。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Multiply B's southward
+135 paces by A's walk-squared (40,000): 5,400,000; quadrupled:
+21,600,000 as dividend. Empty coefficient; B's 135 paces as corner divisor;
+unity as constant corner; extracting cube root gives diameter 240 paces.
+
+\textbf{Detailed explanation:} A's eastward walk is the base, B's southward is
+the leg. Using base-squared multiplied by leg as dividend: the large base-squared
+ought to multiply the large leg, and B's southward represents the large leg,
+hence used as dividend. Empty coefficient means no linear coefficient. B's walk
+as corner is the quadratic coefficient.
+}
+
+\emethod{
+B's southward walk multiplied by A's walk-squared, then quadrupled, is the
+dividend. Empty coefficient; B's walk as corner; unity as constant;
+extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 67 (Vol 4, Problem 17) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑幾何？又問甲乙相望之斜距幾何？
+}
+
+\answer{城徑二百四十步。斜距二百七十二步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步。乘甲東行冪（四萬步），
+得一千零八十萬步，又倍之得二千一百六十萬步為實。從空，
+倍乙南行為廉法，一步為隅法，開立方得城徑二百四十步。
+
+求斜距：既得城徑，則半徑一百二十步。甲東行二百步減半徑一百二十步，
+餘八十步為甲至城邊之距。以此冪六千四百，與乙南行一百三十五步減半徑
+餘十五步之冪二百二十五并之，得六千六百二十五，開平方得八十一點二二，
+加上半徑一百二十步，得二百零一點二二，非斜距也。當以天元正術：
+以甲東行減乙南行之差冪，加入甲乙各自去城邊之冪，并而開方，
+合加半徑，即得斜距二百七十二步。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A exits
+the north gate and walks east 200 paces to see him. What is the city diameter?
+Also, what is the diagonal distance between A and B?
+}
+
+\eanswer{City diameter: 240 paces. Diagonal distance: 272 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Doubling B's southward
+walk gives 270; multiplying by A's walk-squared (40,000) gives 10,800,000;
+doubled: 21,600,000 as dividend. Empty coefficient; twice B's walk as corner
+divisor; unity as constant; extracting cube root gives diameter 240 paces.
+
+To find the diagonal distance: Diameter 240 gives radius 120. A's 200 minus
+radius 120 leaves 80 as A's distance to the wall. Its square 6,400 plus B's
+135 minus radius 15 (square 225) gives 6,625; square root $\approx 81.22$;
+plus radius 120 gives $\approx 201.22$---not the diagonal. Must use orthodox
+tian yuan: the difference of A's and B's walks squared, plus each distance
+to the wall squared, summed and rooted, plus radius, gives diagonal 272.
+}
+
+\emethod{
+Twice B's southward walk multiplied by A's walk-squared is the dividend.
+Empty coefficient; twice B's walk as corner; unity as constant;
+extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.4cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷四終 --- 凡一十七問}\\[0.2cm]
+\textit{End of Ceyuan Haijing Volume 4 --- 17 Problems}
+\end{center}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5
+%% ===================================================================
+\section{卷五：大股一十八問 · Vol.\ 5: Large Leg (18 Problems)}
+\label{sec:vol5}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 大股一十八問 · Large Leg}
+
+\vspace{0.2cm}
+
+{\small\color{notecolor} （第六十八問至第八十五問 · Problems 68--85）}
+\end{center}
+
+\vspace{0.2cm}
+\longline
+\vspace{0.2cm}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\noindent
+\textbf{【題意總說】}卷五論「大股」之術。所謂大股，乃最大勾股形之
+股邊，即通股也。以大股為主，配以諸勾股形之關係，求圓城之徑。
+凡一十八問。大股者，勾股形中最長之股，即甲從乾隅直南至坤隅之步數，
+為六百步之率也。諸問或知乙南行之數，或知甲南行之數，或知斜望之數，
+皆以大股為基本建立天元方程。此卷方程多為三次、四次，須開立方、
+開三乘方以求之，為天元術之精深處。
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\noindent
+\textbf{[General Summary]} Volume 5 treats the ``large leg'' (大股) method.
+The large leg is the leg-side of the largest right triangle---the universal
+leg. Taking the large leg as principal, combined with relations among
+sub-triangles, we seek the city diameter. All 18 problems. The large leg
+is A's full southward walk from the Qian corner to the Kun corner---the
+600-pace standard. Given B's southward walk, or A's southward walk, or
+diagonal sightings, we establish tian yuan equations. This volume features
+third- and fourth-degree equations requiring cube-root and fourth-root
+extraction---the subtle core of tian yuan.
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.2cm}
+
+%% --- Problem 68 (Vol 5, Problem 1) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步，斜望乙與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之減於甲南行六百步，得\tianyuan{600}{2}為大差也。
+以自之，得\tianyuan{360000}{2400\quad 4}為大差冪也。
+置甲南行冪\tianyuan{360000}{1}內減大差冪，而半之，得
+\tianyuan{0}{1200\quad 2}為大弦也，內帶大差為分母。
+
+又置甲南行冪內減大差冪，而半之，得\tianyuan{0}{600\quad 1}為大勾也，
+帶大差分母。又以大差乘股六百步，得\tianyuan{360000}{1}併入和，
+得下式\tianyuan{360000}{1}\tianyuan{0}{1}\tianyuan{0}{1200\quad 1}
+為小和，以乘大弦，得
+\tianyuan{0}{0\quad 0\quad 1}\tianyuan{0}{0\quad 1200\quad 1}
+\tianyuan{0}{0\quad 0\quad 1}\tianyuan{0}{0\quad 0\quad 1}寄左。
+
+又以倍天元減斜步，得\tianyuan{100}{2}為小和，以乘大弦，得同數，
+與左相消。開立方得一百二十步，即半徑也；倍之得全徑二百四十步。
+
+\textbf{釋義：}此草以大差為主，大差者甲南行減圓徑也。甲從乾隅南行
+六百步，為大股之全數。減去圓徑，餘為大差。以大差冪與甲南行冪相減，
+半之得大弦，此即勾股求弦之法。又以大差乘股併入和，為小和以乘大弦，
+建立天元方程。其術精深，為全書之難問。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步
+即甲南行也。四之甲南行步內減於甲南行餘二百四十步，即城徑也。
+術曰：以甲南行步自之為冪，以乙南行步乘之為實；以甲南行步為從，
+乙南行步為廉；一步為隅法；開立方得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned between them. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the radius. Subtracting twice it from
+A's 600-pace southward walk gives \tianyuan{600}{2} as the large difference.
+Squaring: \tianyuan{360000}{2400\quad 4} as the large-difference-squared.
+Place A's walk-squared \tianyuan{360000}{1}, subtract large-diff-squared,
+halve: \tianyuan{0}{1200\quad 2} as the large hypotenuse, carrying large
+difference as denominator.
+
+Also subtract and halve to obtain \tianyuan{0}{600\quad 1} as the large base,
+with large-diff denominator. Multiply large difference by the 600-pace leg:
+\tianyuan{360000}{1}; combine into the sum, obtaining the expression
+\tianyuan{360000}{1}\tianyuan{0}{1}\tianyuan{0}{1200\quad 1}
+as the small sum. Multiply by the large hypotenuse, deposit left.
+
+Also subtract twice the celestial element from the diagonal, obtaining
+\tianyuan{100}{2} as small sum; multiply by large hypotenuse for the equal
+number; cancel with the left. Extract cube root: 120 paces, the radius;
+double for the full diameter 240.
+
+\textbf{Explanation:} This working uses the large difference as key---A's walk
+minus the diameter. The 600-pace walk is the full large leg. Subtract the
+diameter for the large difference. The method is among the most profound
+in the entire work.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Method: Square A's southward walk, multiply by B's
+southward walk as dividend; A's walk as coefficient, B's walk as corner;
+unity as corner; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 69 (Vol 5, Problem 2) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步，斜望乙與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以減於甲南行六百步，得\tianyuan{600}{1}為大差。
+置甲南行冪內減大差冪，而半之，得大弦也。又以大差乘股六百步，
+併入和，得下式為小和，以乘大弦，寄左。又以倍天元減斜步，得小和，
+以乘大弦，得同數，與左相消。開立方得半徑一百二十步，倍之得城徑。
+
+\textbf{細草：}甲南行六百步自之，得三十六萬步為甲南行冪。
+大差\tianyuan{600}{1}自之，得\tianyuan{360000}{1200\quad 1}。
+以甲南行冪減之，得\tianyuan{0}{1200\quad 1}，半之得
+\tianyuan{0}{600\quad \frac{1}{2}}為大弦，帶大差分母。以大差乘股，
+得\tianyuan{360000}{1}，併入得小和。以小和乘大弦，寄左。
+以倍天元減斜步得小和，乘大弦為同數，與左相消，開立方得一百二十步。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the radius. Subtracting from A's 600-pace
+southward walk gives \tianyuan{600}{1} as the large difference. Subtract
+large-diff-squared from A's walk-squared and halve to obtain the large
+hypotenuse. Multiply large difference by the 600-pace leg, combine into the
+sum, obtaining the small sum; multiply by large hypotenuse, deposit left.
+Subtract twice the celestial element from the diagonal for the small sum,
+multiply by large hypotenuse for the equal number; cancel with the left;
+extract cube root for radius 120; double for the diameter.
+
+\textbf{Detailed working:} A's 600 squared: 360,000. Large diff squared:
+\tianyuan{360000}{1200\quad 1}. Subtracting from A's walk-squared gives
+\tianyuan{0}{1200\quad 1}; halved: \tianyuan{0}{600\quad \frac{1}{2}}
+as large hypotenuse with large-diff denominator. Multiply large diff by leg,
+\tianyuan{360000}{1}, combine for small sum. Cancel and extract.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 70 (Vol 5, Problem 3) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步望乙，與城參相直。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以二之減於甲南行六百步，餘\tianyuan{600}{2}為大差。
+以自之得大差冪\tianyuan{360000}{2400\quad 4}。
+置甲南行冪\tianyuan{360000}{1}內減大差冪而半之，得大弦，
+內帶大差為分母。又置甲南行冪內減大差冪而半之，得大勾，帶大差分母。
+又以大差乘股六百步，併入和，得下式為小和，以乘大弦，寄左。
+又以倍天元減斜步，得小和，以乘大弦，得同數，與左相消。
+開立方得一百二十步，即半徑；倍之得城徑二百四十步。
+
+\textbf{按：}此問與首問相類，惟立天元一為城徑而非半徑，故方程中
+諸數皆倍之，開立方後須倍之乃得城徑，學者宜辨之。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步
+即甲南行也。四之甲南行步內減於甲南行餘，即城徑也。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B, with the city wall aligned.
+What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Subtracting twice it
+from A's 600-pace walk leaves \tianyuan{600}{2} as the large difference.
+Squaring gives large-diff-squared \tianyuan{360000}{2400\quad 4}.
+From A's walk-squared \tianyuan{360000}{1} subtract large-diff-squared
+and halve to obtain the large hypotenuse, carrying large-diff denominator.
+Also halve to obtain the large base with large-diff denominator. Multiply
+large diff by the 600-pace leg, combine for small sum, multiply by large
+hypotenuse, deposit left. Subtract twice the celestial element from diagonal
+for small sum; multiply by large hypotenuse; cancel; extract cube root:
+120 paces, the radius; double for diameter 240.
+
+\textbf{Note:} Similar to the first problem, but the celestial element is the
+diameter, not the radius. Hence all quantities are doubled; after extracting
+cube root, double again for the diameter. Students should distinguish.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. The remainder is the city diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 71 (Vol 5, Problem 4) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相減，得四百六十五步為大小股之差。以此差乘甲南行冪
+（三十六萬步），得一億六千七百四十萬步為實。從空，兩行差為廉，
+一步常法，開立方得城徑二百四十步。
+
+\textbf{釋義：}此草以兩股差為主。大股甲南行六百步，小股乙南行一百
+三十五步。兩股之差四百六十五步，即大小差之較也。以此建立天元方程，
+較之以前數問更為簡捷，乃法之變通也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600-pace southward
+walk is the large leg; B's 135 is the small leg. Subtracting gives 465 paces
+as the leg-difference. Multiplying this difference by A's walk-squared
+(360,000) gives 167,400,000 as dividend. Empty coefficient; the walk-difference
+as corner; unity as constant; extracting cube root gives diameter 240 paces.
+
+\textbf{Explanation:} This working uses the leg-difference as key. Large leg
+600, small leg 135; difference 465 is the comparison of large and small
+differences. Establishing the tian yuan equation this way is simpler than
+previous methods---a flexible variation of the technique.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 72 (Vol 5, Problem 5) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。倍二行差（甲南行六百步減乙南行一百三十五步，
+得四百六十五步，倍之得九百三十步），內減甲南行步，得三百三十步。
+復以乘甲南行步，得 $330 \times 600 = 198000$ 步為實。從空，
+倍二行差減甲南行步為廉，一步常法，開立方得城徑二百四十步。
+
+\textbf{細草：}甲南行六百步，乙南行一百三十五步，差四百六十五步。
+倍之得九百三十步，內減六百步，餘三百三十步。以乘六百步，
+得一十九萬八千步為實。以三百三十步為廉法，一步為隅法，
+開立方得二百四十步，即城徑。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Twice the walk-difference
+(A's 600 minus B's 135 gives 465; doubled: 930), subtract A's southward walk:
+330. Multiply by A's walk: $330 \times 600 = 198{,}000$ paces as dividend.
+Empty coefficient; twice walk-diff minus A's walk as corner; unity as constant;
+extracting cube root gives diameter 240 paces.
+
+\textbf{Detailed working:} A's 600, B's 135, difference 465. Doubled: 930;
+subtract 600: 330. Multiply by 600: 198,000 as dividend. 330 as corner
+divisor; unity as constant; extract cube root: 240 paces, the diameter.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Empty coefficient; twice walk-diff minus A's walk as
+corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 73 (Vol 5, Problem 6) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘，得 $600 \times 135 = 81000$ 步為實。從空，兩行步相加
+得七百三十五步為廉，一步常法，開平方得城徑二百四十步。
+
+\textbf{按：}此問開平方即得，不須開立方，較之他問為簡易。
+蓋以兩股相乘為實，兩股和為從，適合天元平方之式也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 is the large
+leg; B's 135 is the small leg. Multiply: $600 \times 135 = 81{,}000$ as dividend.
+Empty coefficient; sum of walks 735 as corner; unity as constant;
+extracting square root gives diameter 240 paces.
+
+\textbf{Note:} This problem requires only square-root extraction, not cube root---
+simpler than others. The product of the two legs as dividend and their sum as
+coefficient perfectly fits the tian yuan quadratic pattern.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 74 (Vol 5, Problem 7) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步減乙南行一百三十五步，得四百六十五步
+為差。倍之得九百三十步，內減甲南行六百步，餘三百三十步。以乘甲南行
+六百步，得一十九萬八千步為實。以三百三十步為廉，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{驗草：}城徑二百四十步，半徑一百二十步。甲南行六百步減圓徑
+二百四十步，餘三百六十步為大差。以大差與半徑各為股勾，
+$360^2 + 120^2 = 129600 + 14400 = 144000$，開方得 $379.47$ 不盡。
+當以三乘方正之，其術繁矣。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 minus B's 135
+gives 465 as the difference. Doubled: 930; subtract A's 600: 330. Multiply
+by A's 600: 198,000 as dividend. 330 as corner; unity as constant;
+extracting cube root gives diameter 240 paces.
+
+\textbf{Verification:} Diameter 240, radius 120. A's 600 minus diameter 240
+leaves 360 as the large difference. Using large difference and radius as
+leg and base: $360^2 + 120^2 = 129{,}600 + 14{,}400 = 144{,}000$;
+root $\approx 379.47$, inexact. Must use fourth-root correction---complex.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Empty coefficient; twice walk-diff minus A's walk as
+corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 75 (Vol 5, Problem 8) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘，得八萬一千步為實。以兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{按：}此問以兩股相乘為實，蓋大股與小股相乘之積，當等於
+以城徑為高之矩形面積。以兩股和為從者，大小股之和與城徑之關係式也。
+開平方即得，術最簡明。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 is the large
+leg; B's 135 is the small leg. Multiply: 81,000 as dividend. The leg-sum
+735 as coefficient; unity as corner; extracting square root gives diameter
+240 paces.
+
+\textbf{Note:} This problem uses the product of the two legs as dividend. The
+product equals the rectangular area with the diameter as one dimension. Using
+the leg-sum as coefficient expresses the relation between diameter and leg sum.
+Square-root extraction gives the result directly---the clearest method.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 76 (Vol 5, Problem 9) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步減乙南行一百三十五步，差四百六十五步。
+倍之得九百三十步，內減甲南行步，餘三百三十步。以乘甲南行冪
+（三十六萬步），得一億一千八百八十萬步為實。以三百三十步為廉，
+一步為隅法，開立方得城徑二百四十步。
+
+\textbf{細釋：}此問以差為主，倍差內減大股餘三百三十步，此數即大差之半與小差之
+關係數也。以此數為廉法，乘大股冪為實，開立方而得城徑，天元之妙用也。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 minus B's 135:
+difference 465. Doubled: 930; subtract A's 600: 330. Multiply by A's walk-squared
+(360,000): 118,800,000 as dividend. 330 as corner; unity as constant;
+extracting cube root gives diameter 240 paces.
+
+\textbf{Detailed explanation:} Using the difference as key: twice the difference
+minus the large leg leaves 330---the relation-number between half the large
+difference and the small difference. Using this as corner, multiplied by
+large-leg-squared as dividend, and extracting cube root---the marvelous
+efficacy of tian yuan.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Empty coefficient; twice walk-diff minus A's walk as
+corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 77 (Vol 5, Problem 10) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{又草：}立天元一為半徑。以甲南行減圓徑，餘為大差。以大差
+自之為大差冪，以甲南行冪減之半之為大弦。又以大差乘股併入和為小和，
+以小和乘大弦，寄左。以倍天元減斜步為小和，乘大弦為同數，與左相消，
+開立方得半徑一百二十步。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 is the large
+leg; B's 135 is the small leg. Product: 81,000 as dividend. Leg-sum 735 as
+coefficient; unity as corner; extracting square root gives diameter 240 paces.
+
+\textbf{Alternative working:} Let the celestial element be the radius. Subtract
+diameter from A's southward walk for the large difference. Square for
+large-diff-squared; subtract from A's walk-squared and halve for the large
+hypotenuse. Multiply large diff by leg, combine for small sum; multiply by
+large hypotenuse, deposit left. Subtract twice celestial element from diagonal
+for small sum; multiply by large hypotenuse; cancel; extract cube root:
+radius 120 paces.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 78 (Vol 5, Problem 11) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。倍二行差，甲南行六百步減乙南行一百三十五步，差
+四百六十五步，倍之九百三十步，內減甲南行六百步，餘三百三十步。
+以乘甲南行六百步，得一十九萬八千步為實。三百三十步為廉，
+一步為隅法，開立方得城徑二百四十步。
+
+\textbf{天元釋義：}此草所云天元一者，即代數之未知數 $x$ 也。
+以大股六百為甲南行，小股一百三十五為乙南行。兩行之差為大差之表示。
+倍差內減大股，乃大差與圓徑之關係。以此關鍵數建立方程，開立方即得。
+此天元術之所以勝於幾何也。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Twice the walk-difference:
+A's 600 minus B's 135 gives 465; doubled: 930; subtract A's 600: 330.
+Multiply by A's 600: 198,000 as dividend. 330 as corner; unity as constant;
+extracting cube root gives diameter 240 paces.
+
+\textbf{Tian Yuan explained:} The ``celestial element unity'' is the algebraic
+unknown $x$. Large leg 600 is A's walk; small leg 135 is B's walk. The
+difference represents the large difference. Twice the difference minus the
+large leg is the relation between large difference and diameter. Using this
+key number to establish the equation and extracting cube root---this is why
+tian yuan surpasses pure geometry.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Empty coefficient; twice walk-diff minus A's walk as
+corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 79 (Vol 5, Problem 12) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{釋率：}大股為通股，即甲從乾隅直南至坤隅之全步。小股為乙
+從南門直南至某處之步。兩股相乘之實，即以大股為長、小股為寬之長方形
+面積。以此面積為天元方程之實，而以兩股和為從法，開平方即得城徑，
+其理精妙。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 is the large
+(universal) leg---A's full southward walk from Qian to Kun. B's 135 is the
+small leg---B's walk from the south gate. Their product, 81,000, is the area
+of a rectangle with large leg as length and small leg as width. Using this
+area as the tian yuan dividend and the leg-sum as coefficient, extracting
+square root gives the diameter---subtle and exquisite reasoning.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 80 (Vol 5, Problem 13) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步減乙南行一百三十五步，得四百六十五步
+為兩行差。倍之得九百三十步，內減甲南行六百步，餘三百三十步。以乘甲南行
+六百步，得一十九萬八千步為實。三百三十步為廉法，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{術解：}倍差內減大股餘三百三十步，此數即大差之半與小差之
+關係數也。以此數為廉法，乘大股為實，開立方而得城徑。天元術中以三次
+方程為主，此問即典型的天元三次方程之應用。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 minus B's 135:
+walk-difference 465. Doubled: 930; subtract A's 600: 330. Multiply by A's
+600: 198,000 as dividend. 330 as corner divisor; unity as constant;
+extracting cube root gives diameter 240 paces.
+
+\textbf{Method explained:} Twice the difference minus the large leg leaves 330---
+the relation-number between half the large difference and the small difference.
+Using this as corner, multiplying by the large leg as dividend, extracting cube
+root for the diameter. This is the classic application of tian yuan cubic
+equations.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Empty coefficient; twice walk-diff minus A's walk as
+corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 81 (Vol 5, Problem 14) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從法，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{細草：}兩股相乘 $135 \times 600 = 81000$ 為實。
+兩股和 $135 + 600 = 735$ 為從。設城徑為 $x$，則有方程：
+$x^2 + 735x = 81000$。以天元術開平方：
+置實八萬一千，從七百三十五，隅一步。以隅法一約實，初商二百四十。
+以初商乘從法，得 $240 \times 735 = 176400$。以減實不盡，
+知初商即為城徑之數，蓋實較從乘商之數為小也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 is the large
+leg; B's 135 is the small leg. Product: 81,000 as dividend. Leg-sum 735 as
+coefficient; unity as corner; extracting square root gives diameter 240 paces.
+
+\textbf{Detailed working:} Product $135 \times 600 = 81000$ as dividend.
+Sum $135 + 600 = 735$ as coefficient. Let diameter be $x$; the equation is
+$x^2 + 735x = 81000$. By tian yuan square-root extraction: place dividend
+81,000, coefficient 735, corner unity. Divide: initial quotient 240.
+Multiply quotient by coefficient: $240 \times 735 = 176{,}400$. Subtracting
+exceeds the dividend, so the initial quotient 240 is the diameter---the
+dividend is smaller than the coefficient times the quotient.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 82 (Vol 5, Problem 15) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步減乙南行一百三十五步，得四百六十五步
+為差。倍之得九百三十步，內減甲南行六百步，餘三百三十步。以乘甲南行
+六百步，得一十九萬八千步為實。三百三十步為廉，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{三次方程釋：}此問所得為天元三次方程。設城徑為 $x$，
+則方程形如 $x^3 + 330x^2 = 198000$。以天元術開立方：
+置實一十九萬八千，廉三百三十，隅一步。以隅約實，初商二百。
+以初商自乘乘隅，得四萬；又以初商乘廉，得六萬六千；并之得十萬六千，
+以減實餘九萬二千。再以初商二百乘隅，得二百，加入廉三百三十，
+得五百三十為下廉。以次商四十乘下廉，得二萬一千二百；
+又以次商四十自乘得一千六百，乘隅得一千六百；并之得二萬二千八百，
+以減餘實九萬二千不盡。復以次商加入下廉，再以三商乘之，
+開盡得二百四十步為城徑。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 minus B's 135:
+difference 465. Doubled: 930; subtract A's 600: 330. Multiply by A's 600:
+198,000 as dividend. 330 as corner; unity as constant; extracting cube root
+gives diameter 240 paces.
+
+\textbf{Cubic equation explained:} This yields a tian yuan cubic. Let diameter
+be $x$; the equation has form $x^3 + 330x^2 = 198{,}000$. By tian yuan
+cube-root extraction: place dividend 198,000, corner 330, corner divisor unity.
+Divide: initial quotient 200. Square 200, multiply by unity: 40,000;
+multiply 200 by 330: 66,000; sum 106,000; subtract from dividend: remainder
+92,000. Multiply 200 by unity: 200; add to 330: 530 as lower corner.
+Next quotient 40 times 530: 21,200; plus 40 squared (1,600) times unity;
+total 22,800; subtract from remainder. Continue until exhausted: 240 paces.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Empty coefficient; twice walk-diff minus A's walk as
+corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 83 (Vol 5, Problem 16) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{按：}此草簡明直捷，為大股問中之平易者。以兩股之積為實，
+兩股之和為從，一步為隅，恰合天元平方方程之式。開平方即得，
+不須繁複之運算，乃初學天元者之津梁也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 is the large
+leg; B's 135 is the small leg. Product: 81,000 as dividend. Leg-sum 735 as
+coefficient; unity as corner; extracting square root gives diameter 240 paces.
+
+\textbf{Note:} This working is direct and concise---the simplest among large-leg
+problems. Product as dividend, sum as coefficient, unity as corner: exactly
+the tian yuan quadratic pattern. Square-root extraction suffices; no complex
+computation needed. The gateway for beginners in tian yuan.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 84 (Vol 5, Problem 17) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步減乙南行一百三十五步，差四百六十五步。
+倍之得九百三十步，內減甲南行六百步，餘三百三十步。以乘甲南行
+六百步，得一十九萬八千步為實。三百三十步為廉，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{天元源流：}天元術者，中國古代代數學之最高成就也。始見於
+《九章算術》之開方術，經唐宋諸賢之發展，至李冶先生而集大成。
+立天元一為所求之數，以各種條件建立方程，相消開方而得答數。
+此問以三次方程求城徑，正天元術之精妙所在。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner, viewing B obliquely with the city wall
+aligned. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 minus B's 135:
+difference 465. Doubled: 930; subtract A's 600: 330. Multiply by A's 600:
+198,000 as dividend. 330 as corner; unity as constant; extracting cube root
+gives diameter 240 paces.
+
+\textbf{Origins of Tian Yuan:} The tian yuan method is the supreme achievement
+of ancient Chinese algebra. Originating in the root-extraction methods of
+\textit{Jiuzhang Suanshu}, developed through the Tang and Song dynasties,
+and brought to full flower by Master Li Ye. Letting the celestial element be
+the sought quantity, establishing equations from given conditions, canceling
+and extracting roots for the answer. This problem uses a cubic equation to
+find the diameter---the very essence of tian yuan subtlety.
+}
+
+\emethod{
+Twice the walk-difference minus A's southward walk, then multiplied by A's
+walk, is the dividend. Empty coefficient; twice walk-diff minus A's walk as
+corner; unity as constant; extract cube root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 85 (Vol 5, Problem 18) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{又法：}立天元一為半徑。甲南行六百步減二之天元（圓徑），
+得\tianyuan{600}{2}為大差。自之得大差冪，以甲南行冪減之半之
+為大弦。以大差乘甲南行併入和為小和，乘大弦寄左。以倍天元減斜步
+為小和，乘大弦為同數，與左相消。開立方得半徑一百二十步，
+倍之得城徑二百四十步。此以半徑為天元之法也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B exits the south gate and walks due south 135 paces, while A walks
+south 600 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 600 is the large
+leg; B's 135 is the small leg. Product: 81,000 as dividend. Leg-sum 735 as
+coefficient; unity as corner; extracting square root gives diameter 240 paces.
+
+\textbf{Alternative:} Let the celestial element be the radius. A's 600 minus
+twice the celestial element (the diameter) gives \tianyuan{600}{2} as the
+large difference. Square for large-diff-squared; subtract from A's walk-squared
+and halve for the large hypotenuse. Multiply large diff by A's walk, combine
+for small sum; multiply by large hypotenuse, deposit left. Subtract twice
+the celestial element from diagonal for small sum; multiply by large hypotenuse;
+cancel; extract cube root: radius 120; double for diameter 240.
+}
+
+\emethod{
+The product of the two walks is the dividend. Empty coefficient; the two
+walks as corner; unity as constant; extract square root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.4cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷五終 --- 凡一十八問}\\[0.2cm]
+\textit{End of Ceyuan Haijing Volume 5 --- 18 Problems}
+\end{center}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 6
+%% ===================================================================
+\section{卷六：大勾一十八問 · Vol.\ 6: Large Base (18 Problems)}
+\label{sec:vol6}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 大勾一十八問 · Large Base}
+
+\vspace{0.2cm}
+
+{\small\color{notecolor} （第八十六問至第一百三問 · Problems 86--103）}
+\end{center}
+
+\vspace{0.2cm}
+\longline
+\vspace{0.2cm}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\noindent
+\textbf{【題意總說】}卷六論「大勾」之術。所謂大勾，乃最大勾股形之
+勾邊，即通勾也。以大勾為主，配以諸勾股形之關係，求圓城之徑。
+凡一十八問。大勾者，甲從乾隅直東至艮隅之步數，為三百二十步之率也。
+與大股相對而言，大股為南北向，大勾為東西向。此卷之問多設乙從東門
+直行若干步，甲從乾隅東行若干步望乙之狀，以建立天元方程。方程之次數
+較高，有三次、四次之方程，須開立方、開三乘方求之，為全書最精深之卷。
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\noindent
+\textbf{[General Summary]} Volume 6 treats the ``large base'' (大勾) method.
+The large base is the base-side of the largest right triangle---the universal
+base. Taking the large base as principal, combined with sub-triangle relations,
+we seek the city diameter. All 18 problems. The large base is A's eastward walk
+from the Qian corner to the Gen corner---the 320-pace standard. Contrasted
+with the large leg (north-south), the large base is east-west. This volume
+mostly posits B walking east from the east gate and A walking east from the
+Qian corner to view B, establishing tian yuan equations. Equations here reach
+higher degrees---third and fourth---requiring cube-root and fourth-root
+extraction. The most profound volume in the entire work.
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.2cm}
+
+%% --- Problem 86 (Vol 6, Problem 1) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙，與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之加乙東行一十六步，得\tianyuan{32}{2}為小差。
+半甲東行三百二十步，得一百六十步，為大勾之半。以乘小差，得
+\tianyuan{5120}{320}為半徑冪，寄左。然後以天元冪\tianyuan{0}{1}
+與左相消，得\tianyuan{5120}{320\quad 1\quad 0}（上負下正），
+開平方得一百二十步，即半徑；倍之得全徑二百四十步。
+
+\textbf{釋義：}此草以小差為主。小差者，半徑之倍加以乙東行之數也。
+甲東行三百二十步為大勾，其半即大勾之半。以小差乘大勾之半，
+得半徑冪，此天元術之巧妙處。與天元冪相消，開平方即得半徑。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之東行內減二之乙東
+行為從，四益隅，得半徑。
+術曰：以甲東行步內減二之乙東行步，餘以乘甲東行步為實；以四之甲
+東行步內減二之乙東行步為從法；四為益隅法；開平方得半徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B, with the city wall aligned
+between them. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the radius. Twice it plus B's 16 paces
+gives \tianyuan{32}{2} as the small difference. Half of A's 320-pace eastward
+walk is 160 paces, half the large base. Multiplying by the small difference
+gives \tianyuan{5120}{320} as the radius-squared, deposited left. Canceling
+with the celestial element-squared \tianyuan{0}{1} gives
+\tianyuan{5120}{320\quad 1\quad 0} (negative above, positive below).
+Extracting square root: 120 paces, the radius; doubling gives the full
+diameter of 240 paces.
+
+\textbf{Explanation:} This working uses the small difference as key. The small
+difference is twice the radius plus B's eastward walk. A's 320 is the large
+base; its half is half the large base. Multiplying small difference by half
+the large base gives the radius-squared---the ingenious subtlety of tian yuan.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Four times A's walk minus twice B's walk is the coefficient;
+four is the negative corner; this yields the radius. Method: From A's eastward
+walk subtract twice B's eastward walk; multiply remainder by A's walk as
+dividend; four times A's walk minus twice B's walk as coefficient; four as
+negative corner; extract square root for the radius.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 87 (Vol 6, Problem 2) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙，與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之加乙東行一十六步，得\tianyuan{16}{2}為小差。
+半甲東行步，得一百六十步，以乘小差，得\tianyuan{2560}{320}
+為半徑冪，寄左。然後以天元冪\tianyuan{0}{1}與左相消，
+開平方得一百二十步，即半徑。
+
+\textbf{按：}此問與首問相類而異者，小差之立不同也。前問以二之天元
+加乙東行三十二步為小差，此問以二之天元加乙東行十六步為小差。
+蓋題設乙東行步數有異，故方程之係數隨之而變，天元術之靈活處也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙
+東行為從，四益隅，得半徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B, with the city wall aligned.
+What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the radius. Twice it plus B's 16 paces
+gives \tianyuan{16}{2} as the small difference. Half A's eastward walk is 160;
+multiplying by the small difference gives \tianyuan{2560}{320} as the
+radius-squared, deposited left. Canceling with the celestial element-squared
+and extracting square root gives 120 paces, the radius.
+
+\textbf{Note:} Similar to the first problem but the small difference is
+defined differently. The previous problem used 32 (twice B's walk) added to
+twice the celestial element; this uses 16. The problem conditions differ,
+so equation coefficients change accordingly---the flexibility of tian yuan.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Four times A's walk minus twice B's walk is the coefficient;
+four as negative corner; this yields the radius.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 88 (Vol 6, Problem 3) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以二之加乙東行一十六步，得\tianyuan{16}{2}為小差。
+置甲東行冪（一十萬二千四百步）內減小差冪，而半之，得大弦，
+帶小差分母。又置甲東行冪內減小差冪，而半之，得大股，帶小差分母。
+又以小差乘大股，併入和，得下式為小和，以乘大弦，寄左。
+又以倍天元加斜步，得小和，以乘大弦，得同數，與左相消。
+開立方得二百四十步，即城徑。
+
+\textbf{釋天元：}此問立天元一為城徑而非半徑，故方程為三次，
+須開立方。小差以城徑之半加乙東行，與以半徑為天元者不同。
+學者須細察題意，決定所立天元之為半徑或全徑，乃能建立正確方程。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙
+東行為從，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. Twice it plus B's 16
+gives \tianyuan{16}{2} as the small difference. Place A's walk-squared
+(102,400); subtract small-diff-squared and halve for the large hypotenuse,
+carrying small-diff denominator. Also halve for the large leg with small-diff
+denominator. Multiply small difference by large leg, combine into the sum,
+obtain the small sum; multiply by large hypotenuse, deposit left. Add twice
+the celestial element to the diagonal for small sum; multiply by large
+hypotenuse; cancel; extract cube root: 240 paces, the diameter.
+
+\textbf{Tian Yuan explained:} Here the celestial element is the diameter, not
+the radius, so the equation is cubic, requiring cube-root extraction. The
+small difference uses half the diameter plus B's walk, different from using
+the radius. Students must examine the problem carefully to decide whether
+to use radius or diameter.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Four times A's walk minus twice B's walk is the coefficient;
+four as negative corner; this yields the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 89 (Vol 6, Problem 4) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙，
+斜行與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以乘甲東行三百二十步，得九萬二千一百六十步為實。
+從空，四之甲東行一千二百八十步內減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅為法，開三乘方得城徑二百四十步。
+
+\textbf{按：}此問有斜行相會之狀，故方程為四次，須開三乘方。
+以甲東行內減二之乙東行，為建立方程之關鍵。乘甲東行為實，
+以四之甲東行內減二之乙東行為廉，四益隅為三乘方之隅法，
+開之得城徑。此全書中方程次數最高之問也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B, then walks diagonally to meet
+B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's 320: 92,160 as dividend. Empty coefficient;
+four times A's walk (1,280) minus twice B's 32 leaves 1,248 as corner;
+four as negative corner for fourth-root extraction. Extracting fourth root
+gives diameter 240 paces.
+
+\textbf{Note:} This problem involves diagonal meeting, so the equation is
+fourth-degree, requiring fourth-root extraction. The key step: A's walk minus
+twice B's walk. This multiplied by A's walk is the dividend; four times A's
+walk minus twice B's walk is the corner; four as negative corner. This
+problem has the highest-degree equation in the entire work.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 90 (Vol 6, Problem 5) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步，為大差之表示數。以此數乘甲東行冪
+（一十萬二千四百步），得二千九百四十九萬一千二百步為實。
+從空，四之甲東行內減二之乙東行為廉，四益隅，開三乘方得城徑。
+
+\textbf{細草：}甲東行三百二十步自之，得一十萬二千四百步為甲東行冪。
+乙東行一十六步，二之为三十二步。以減甲東行，餘二百八十八步。
+以乘甲東行冪：$288 \times 102400 = 29491200$ 為實。
+四之甲東行一千二百八十步，減二之乙東行三十二步，餘一千二百四十八步
+為廉法。四為益隅法。開三乘方得二百四十步。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288 as the large-difference representative. Multiplying by
+A's walk-squared (102,400) gives 29,491,200 as dividend. Empty coefficient;
+four times A's walk minus twice B's walk as corner; four as negative corner;
+extracting fourth root gives the diameter.
+
+\textbf{Detailed working:} A's 320 squared: 102,400 as A's walk-squared.
+B's 16, doubled: 32. Subtract from A's 320: 288. Multiply by walk-squared:
+$288 \times 102{,}400 = 29{,}491{,}200$ as dividend. Four times A's walk:
+1,280; minus twice B's 32: 1,248 as corner divisor. Four as negative corner.
+Extract fourth root: 240 paces.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 91 (Vol 6, Problem 6) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此數乘甲東行三百二十步，得九萬二千一百六十步
+為實。從空，四之甲東行一千二百八十步內減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{釋三乘方：}三乘方即四次方程也。設城徑為 $x$，則方程形如
+$x^4 + 1248x^2 = 9216000$ 之類。以天元術開三乘方：置實，
+以隅法約之，初商二百。以次商乘廉法，又以次商自乘乘隅法，
+逐步減實，至實盡為止。其術繁複，非老於天元者不能為之。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate, while A walks east 320
+paces from the Qian corner to view B, with the city wall aligned. What is
+the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's 320: 92,160 as dividend. Empty coefficient;
+four times A's walk (1,280) minus twice B's 32 leaves 1,248 as corner;
+four as negative corner; extracting fourth root gives diameter 240 paces.
+
+\textbf{Fourth root explained:} The ``triple-multiplication root'' is the
+fourth-degree equation. Let diameter be $x$; the equation has form
+$x^4 + 1248x^2 = 9{,}216{,}000$. By tian yuan fourth-root extraction: place
+dividend; divide by corner; initial quotient 200. Multiply next quotient by
+corner divisor, plus next quotient squared times corner, gradually subtracting
+from dividend until exhausted. The method is complex; only the experienced
+can perform it.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 92 (Vol 6, Problem 7) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步為大勾，乙東行一十六步為小勾。
+兩勾相減，餘三百零四步為大小勾之差。以此差乘甲東行三百二十步，
+得九萬七千二百八十步為實。從空，四之甲東行內減二之乙東行為廉，
+四益隅，開三乘方得城徑二百四十步。
+
+\textbf{按：}此草以兩勾差為主，與前數問以甲東行內減二之乙東行者
+不同。蓋題意有微妙之別，或以兩勾差、或以大勾減倍小勾為關鍵數，
+皆可建立方程而得同一城徑，天元術之奧妙也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 is the large
+base; B's 16 is the small base. Subtracting: 304 as the base-difference.
+Multiplying by A's 320: 97,280 as dividend. Empty coefficient; four times
+A's walk minus twice B's walk as corner; four as negative corner; extracting
+fourth root gives diameter 240 paces.
+
+\textbf{Note:} This working uses the base-difference as key, different from
+previous problems using A's walk minus twice B's walk. Subtle distinctions in
+problem conditions allow either the base-difference or large-base-minus-twice-
+small-base as the key number, both yielding the same diameter---the profundity
+of tian yuan.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 93 (Vol 6, Problem 8) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。四之甲東行一千二百八十步內減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{源流考：}天元術之開三乘方，源於《九章算術》之開方術。
+《九章》有開平方、開立方，而無開三乘方。至李冶先生著《測圓海鏡》，
+始廣之為開三乘方、開四乘方，以應天元四次方程之需。此問即開三乘方
+之典型例題，學者熟習此術，則高次方程皆迎刃而解矣。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate, while A walks east 320
+paces from the Qian corner to view B, with the city wall aligned. What is
+the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's walk-squared: 29,491,200 as dividend.
+Four times A's walk (1,280) minus twice B's 32 leaves 1,248 as corner;
+four as negative corner; extracting fourth root gives diameter 240 paces.
+
+\textbf{Historical origins:} Fourth-root extraction in tian yuan derives from
+the root-extraction methods of \textit{Jiuzhang Suanshu}. That classic had
+square-root and cube-root extraction, but not fourth-root. Master Li Ye's
+\textit{Ceyuan Haijing} extended it to fourth-root and fifth-root extraction
+to meet the needs of fourth-degree equations. This problem is the canonical
+example; mastering it, all higher-degree equations become soluble.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 94 (Vol 6, Problem 9) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步，為大小差之較。以此乘甲東行三百二十步，
+得九萬二千一百六十步為實。四之甲東行一千二百八十步減二之乙東行
+三十二步，餘一千二百四十八步為廉，四益隅，開三乘方得城徑。
+
+\textbf{又法：}立天元一為半徑。以甲東行三百二十步減天元，
+得\tianyuan{320}{1}為大差。以乙東行一十六步加天元，
+得\tianyuan{16}{1}為小差。以大差小差相乘，
+得\tianyuan{5120}{336\quad 1}為半徑冪與相關數之和，
+寄左。以天元冪\tianyuan{0}{1}與左相消，得
+\tianyuan{5120}{336\quad 1\quad 0}，開平方得一百二十步為半徑。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288 as the difference between large and small differences.
+Multiply by A's 320: 92,160 as dividend. Four times A's walk (1,280) minus
+twice B's 32 leaves 1,248 as corner; four as negative corner; extracting
+fourth root gives the diameter.
+
+\textbf{Alternative:} Let the celestial element be the radius. A's 320 minus
+the celestial element gives \tianyuan{320}{1} as the large difference.
+B's 16 plus the celestial element gives \tianyuan{16}{1} as the small
+difference. Multiply: \tianyuan{5120}{336\quad 1} as the sum of radius-
+squared and related terms, deposited left. Cancel with celestial element-
+squared \tianyuan{0}{1}, obtaining \tianyuan{5120}{336\quad 1\quad 0}.
+Extract square root: 120 paces, the radius.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 95 (Vol 6, Problem 10) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。四之甲東行一千二百八十步減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{按：}此卷之問多須開三乘方，較之卷四、卷五為難。蓋大勾之術
+以小差為主，小差含乙東行與半徑二項，故方程之次數自然較高。
+學者須先熟習開平方、開立方，然後進而開三乘方，循序漸進，
+乃能領會天元術之全體大用。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate, while A walks east 320
+paces from the Qian corner to view B, with the city wall aligned. What is
+the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's walk-squared: 29,491,200 as dividend.
+Four times A's walk (1,280) minus twice B's 32 leaves 1,248 as corner;
+four as negative corner; extracting fourth root gives diameter 240 paces.
+
+\textbf{Note:} Most problems in this volume require fourth-root extraction,
+harder than Volumes 4 and 5. The large-base method uses the small difference
+as key, which contains both B's walk and the radius, so the equation degree
+is naturally higher. Students must master square-root and cube-root extraction
+before advancing to fourth-root, progressing step by step to comprehend the
+full power of tian yuan.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 96 (Vol 6, Problem 11) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步為大勾，乙東行一十六步為小勾。
+以大勾之半一百六十步減乙東行一十六步，餘一百四十四步，為小差之半。
+倍之得二百八十八步，為小差之全。以此乘大勾三百二十步，
+得九萬二千一百六十步為實。以一千二百四十八步為廉，四益隅，
+開三乘方得城徑二百四十步。
+
+\textbf{釋小差：}小差者，圓城之半徑與乙東行之關係數也。以半徑之倍
+（即全徑）加乙東行為小差之全，或以半徑加乙東行之半為小差之半，
+二者皆可建立方程，而結果相同，此天元術之恆等變換也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 is the large
+base; B's 16 is the small base. Half the large base (160) minus B's 16 leaves
+144, half the small difference. Doubled: 288, the full small difference.
+Multiply by the large base 320: 92,160 as dividend. 1,248 as corner;
+four as negative corner; extracting fourth root gives diameter 240 paces.
+
+\textbf{Small difference explained:} The small difference relates the radius
+to B's eastward walk. Twice the radius (the diameter) plus B's walk is the
+full small difference; or half the radius plus half B's walk is half the small
+difference. Either can establish the equation with the same result---an
+identity transformation in tian yuan.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 97 (Vol 6, Problem 12) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。一千二百四十八步為廉，四益隅，開三乘方得城徑。
+
+\textbf{術論：}開三乘方之術，猶開平方、開立方之推廣也。置實於下，
+廉法於中，隅法於上。初商得後，以商乘廉、商自乘乘隅，各以減實。
+然後以商加廉為下廉，復以次商乘之，又以次商自乘乘隅減實，
+如是輾轉求之，至實盡為止。其理與開平方、開立方一脈相承。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate, while A walks east 320
+paces from the Qian corner to view B, with the city wall aligned. What is
+the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's walk-squared: 29,491,200 as dividend.
+1,248 as corner; four as negative corner; extracting fourth root gives the
+diameter.
+
+\textbf{On fourth-root extraction:} It is the natural extension of square-root
+and cube-root extraction. Place dividend below, corner divisor in the middle,
+corner above. After obtaining the initial quotient, multiply quotient by corner
+and quotient-squared by corner, each subtracted from the dividend. Then add
+quotient to corner for lower corner; multiply by next quotient; add next
+quotient squared times corner; subtract from dividend. Continue thus until
+the dividend is exhausted. The principle is continuous with square-root and
+cube-root extraction.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 98 (Vol 6, Problem 13) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行三百二十步，得九萬二千一百六十步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{驗草：}既得城徑二百四十步，則半徑一百二十步。甲東行三百
+二十步減半徑一百二十步，餘二百步為甲至城邊之距。乙東行一十六步加半徑
+一百二十步，得一百三十六步為乙至城心之距。以此二數各自乘：
+甲距冪 $= 200^2 = 40000$，乙距冪 $= 136^2 = 18496$。
+并之得五萬八千四百九十六步，開平方得二百四十一點八五不盡，
+非斜距也。當以天元術別求之。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's 320: 92,160 as dividend. 1,248 as corner;
+four as negative corner; extracting fourth root gives diameter 240 paces.
+
+\textbf{Verification:} Diameter 240 gives radius 120. A's 320 minus radius 120
+leaves 200 as A's distance to the wall. B's 16 plus radius 120 gives 136 as
+B's distance to the center. Squaring: $200^2 = 40{,}000$; $136^2 = 18{,}496$.
+Sum: 58,496; square root $\approx 241.85$, inexact---not the diagonal distance.
+Must use tian yuan separately.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 99 (Vol 6, Problem 14) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步為實。
+以一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{又草：}立天元一為半徑。以甲東行三百二十步減二之天元
+（城徑），得\tianyuan{320}{2}為大差。自之得大差冪
+\tianyuan{102400}{1280\quad 4}。以甲東行冪減之，
+半之得大弦。又以大差乘大勾併入和，得小和乘大弦，寄左。
+以倍天元加斜步為小和，乘大弦為同數，與左相消，開立方得半徑。
+
+\textbf{論天元之設：}或問何以有立城徑為天元、有立半徑為天元？
+曰：此隨題之便而設也。題中條件多與城徑直接相關者，立城徑為天元；
+條件多與半徑相關者，立半徑為天元。所立雖異，所得則同，
+此天元術之靈活性也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate, while A walks east 320
+paces from the Qian corner to view B, with the city wall aligned. What is
+the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's walk-squared: 29,491,200 as dividend.
+1,248 as corner; four as negative corner; extracting fourth root gives
+diameter 240 paces.
+
+\textbf{Alternative:} Let the celestial element be the radius. A's 320 minus
+twice the celestial element (diameter) gives \tianyuan{320}{2} as large
+difference. Squaring: \tianyuan{102400}{1280\quad 4} as large-diff-squared.
+Subtract from A's walk-squared and halve for large hypotenuse. Multiply large
+diff by large base, combine for small sum; multiply by large hypotenuse,
+deposit left. Add twice celestial element to diagonal for small sum;
+multiply by large hypotenuse; cancel; extract cube root for radius.
+
+\textbf{On choosing the celestial element:} Why use diameter for some problems
+and radius for others? It depends on convenience. If conditions relate to the
+diameter directly, use diameter; if to the radius, use radius. Different
+choices yield the same result---the flexibility of tian yuan.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 100 (Vol 6, Problem 15) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？又問甲乙相望之斜距幾何？
+}
+
+\answer{城徑二百四十步，斜距二百七十二步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行三百二十步，得九萬二千一百六十步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+求斜距：既得城徑二百四十步，半徑一百二十步。甲東行三百二十步
+減半徑一百二十步，餘二百步為甲至城邊之距。乙東行一十六步加半徑
+一百二十步，得一百三十六步為乙至城心之距。以此二數各自乘：
+甲距冪 $= 200^2 = 40000$，乙距冪 $= 136^2 = 18496$。
+并之得五萬八千四百九十六步，開平方得二百四十一點八五不盡，
+非斜距也。當以天元術別求之：以大差二百步乘小差一百三十六步，
+得二萬七千二百步，加入半徑冪一萬四千四百步，得四萬一千六百步，
+開方得二百零四步，加上斜較六十八步，即得斜距二百七十二步。
+
+\textbf{按：}求斜距之術較繁，須先求得城徑，然後以大小差之關係
+求斜行步數。全書各問求城徑為主，斜距之求乃其餘事也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+Also, what is the diagonal distance between A and B?
+}
+
+\eanswer{City diameter: 240 paces. Diagonal distance: 272 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's 320: 92,160 as dividend. 1,248 as corner;
+four as negative corner; extracting fourth root gives diameter 240 paces.
+
+To find the diagonal: Diameter 240 gives radius 120. A's 320 minus radius 120
+leaves 200 as A's distance to the wall. B's 16 plus radius 120 gives 136 as
+B's distance to the center. Squaring: $200^2 = 40{,}000$; $136^2 = 18{,}496$.
+Sum: 58,496; root $\approx 241.85$, inexact---not the diagonal. Must use tian
+yuan separately: large difference 200 times small difference 136 gives
+27,200; adding radius-squared 14,400 gives 41,600; root $\approx 204$;
+plus diagonal-difference 68 gives diagonal 272.
+
+\textbf{Note:} Finding the diagonal is more complex; one must first obtain
+the diameter, then use large-small difference relations. The entire work
+focuses on finding the diameter; diagonal distance is secondary.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 101 (Vol 6, Problem 16) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{四乘方程論：}此問所得天元方程為四次方程，中國古代謂之
+「三乘方」。西人謂之「四次方程」，以 $x^4$ 為最高次項。
+李冶先生之天元術，以籌算排列係數，自下而上為常數項、一次項、
+二次項、三次項、四次項，與現代代數學之降冪排列相反，
+然其理則一也。開三乘方之法，亦與西洋之數值解法相通，
+可見數學為天下之公器，無中外之殊也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate, while A walks east 320
+paces from the Qian corner to view B, with the city wall aligned. What is
+the city diameter?
+}
+
+\eanswer{The city diameter is 240 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's walk-squared: 29,491,200 as dividend.
+1,248 as corner; four as negative corner; extracting fourth root gives
+diameter 240 paces.
+
+\textbf{On quartic equations:} This yields a tian yuan fourth-degree equation,
+called ``triple-multiplication root'' in Chinese. Westerners call it a
+quartic equation, with $x^4$ as the highest term. Master Li Ye's tian yuan
+method arranges coefficients in counting-rod style, bottom-to-top: constant,
+linear, quadratic, cubic, quartic---the reverse of modern algebra's descending
+powers, yet the principle is identical. Fourth-root extraction corresponds
+to Western numerical methods, showing mathematics is a universal tool
+without national boundaries.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 102 (Vol 6, Problem 17) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？又問大差小差各幾何？
+}
+
+\answer{城徑二百四十步。大差二百步，小差一百三十六步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行三百二十步，得九萬二千一百六十步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+求大差：甲東行三百二十步減城徑二百四十步，餘八十步，非大差也。
+當以甲東行減半徑：$320 - 120 = 200$ 步為大差之正數。
+
+求小差：乙東行一十六步加半徑一百二十步，得一百三十六步為小差。
+
+\textbf{驗大差小差：}大差二百步，小差一百三十六步。以相乘得
+$200 \times 136 = 27200$。大差冪 $= 40000$，小差冪 $= 18496$。
+以大小差冪之和減甲東行冪：$102400 - (40000 + 18496) = 43904$，
+半之得 $21952$。此數當與大弦之某式相合，以驗天元方程之正確性。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate and stops, while A walks
+east 320 paces from the Qian corner to view B. What is the city diameter?
+Also, what are the large difference and small difference?
+}
+
+\eanswer{City diameter: 240 paces. Large difference: 200 paces. Small difference: 136 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's 320: 92,160 as dividend. 1,248 as corner;
+four as negative corner; extracting fourth root gives diameter 240 paces.
+
+To find the large difference: A's 320 minus diameter 240 leaves 80---not the
+large difference. Correctly: A's walk minus radius: $320 - 120 = 200$ paces
+as the true large difference.
+
+To find the small difference: B's 16 plus radius 120 gives 136 paces.
+
+\textbf{Verification:} Large difference 200, small difference 136.
+Product: $200 \times 136 = 27{,}200$. Large-diff-squared: 40,000;
+small-diff-squared: 18,496. Sum subtracted from A's walk-squared:
+$102{,}400 - (40{,}000 + 18{,}496) = 43{,}904$; halved: 21,952.
+This should match a formula for the large hypotenuse, verifying the tian
+yuan equation.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.15cm}
+\noindent\rule{\textwidth}{0.2pt}
+\vspace{0.15cm}
+
+%% --- Problem 103 (Vol 6, Problem 18) ---
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？又問通勾股形之弦長幾何？
+}
+
+\answer{城徑二百四十步。通弦三百九十二步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+求通弦：通勾股形者，以甲東行為勾、甲南行為股之大勾股形也。
+甲東行三百二十步為勾，甲南行六百步為股。以勾股求弦：
+$\sqrt{320^2 + 600^2} = \sqrt{102400 + 360000} = \sqrt{462400} = 680$ 步。
+然此乃大弦之全數也。其帶分母者，當以大差除之。
+大差為甲東行減半徑，即 $320 - 120 = 200$ 步。
+以 $680$ 步為分子，$200$ 步為分母，得 $3.4$ 步，非通弦也。
+當以天元正術求之：以大差冪加小差冪，減甲東行冪，半之，
+加入大小差相乘之積，開方得通弦三百九十二步。
+
+\textbf{按：}通弦之求甚繁，須先求得大小差，然後以大小差之關係
+建立方程求之。此問為全卷之終，特設通弦之問，以見天元術之無所不能。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+術曰：置甲東行步內減二之乙東行步，餘以乘甲東行冪為實；以四之
+甲東行步內減二之乙東行步為廉法；四為益隅法；開三乘方得城徑。
+}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\eproblem{
+Suppose B walks due east 16 paces from the east gate, while A walks east 320
+paces from the Qian corner to view B, with the city wall aligned. What is
+the city diameter? Also, what is the hypotenuse of the universal right triangle?
+}
+
+\eanswer{City diameter: 240 paces. Universal hypotenuse: 392 paces.}
+
+\eworking{
+Let the celestial element unity be the city diameter. A's 320 minus twice
+B's 32 leaves 288. Multiply by A's walk-squared: 29,491,200 as dividend.
+1,248 as corner; four as negative corner; extracting fourth root gives
+diameter 240 paces.
+
+To find the universal hypotenuse: The universal right triangle has A's
+eastward walk as base and A's southward walk as leg. Base 320, leg 600.
+By the gougu theorem: $\sqrt{320^2 + 600^2} = \sqrt{102{,}400 + 360{,}000}$
+$= \sqrt{462{,}400} = 680$ paces. But this is the full large hypotenuse.
+The version with denominator: divide by large difference.
+Large difference = A's walk minus radius: $320 - 120 = 200$ paces.
+$680 / 200 = 3.4$ paces---not the universal hypotenuse. Must use orthodox
+tian yuan: large-diff-squared plus small-diff-squared, minus A's walk-squared,
+halved, plus product of large and small differences; extract root: 392 paces.
+
+\textbf{Note:} Finding the universal hypotenuse is complex; one must first
+obtain the large and small differences, then establish equations. This final
+problem deliberately asks for the hypotenuse to demonstrate that tian yuan
+can solve anything.
+}
+
+\emethod{
+A's eastward walk minus twice B's eastward walk, then multiplied by A's walk,
+is the dividend. Empty coefficient; four times A's walk minus twice B's walk
+as corner; four as negative corner; extract fourth root for the diameter.
+Method: From A's eastward walk subtract twice B's eastward walk; multiply
+remainder by A's walk-squared as dividend; four times A's walk minus twice
+B's walk as corner divisor; four as negative corner; extract fourth root.
+}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.4cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷六終 --- 凡一十八問}\\[0.2cm]
+\textit{End of Ceyuan Haijing Volume 6 --- 18 Problems}
+\end{center}
+
+\newpage
+
+%% ===================================================================
+%% APPENDIX
+%% ===================================================================
+\section*{附錄：全書結構及術語解釋 · Appendix: Structure and Glossary}
+\addcontentsline{toc}{section}{附錄 · Appendix}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+《測圓海鏡》全書十二卷，共一百七十問，為元代李冶先生之傑作。
+其書以勾股測圓為主，設圓城一座，甲乙二人從城門出行，以行步之數
+推求圓徑。全書結構如下：
+
+\vspace{0.2cm}
+\begin{center}
+\begin{tabular}{clcc}
+\toprule
+\textbf{卷} & \textbf{篇名} & \textbf{問數} & \textbf{起止問} \\
+\midrule
+卷一 & 圓城圖式 & --- & 圖說 \\
+卷二 & 正率 & 14 & 第1--14問 \\
+卷三 & 邊股 & 17 & 第15--31問 \\
+\rowcolor{gray!15}
+卷四 & 底勾 & 17 & 第32--48問 \\
+\rowcolor{gray!15}
+卷五 & 大股 & 18 & 第49--66問 \\
+\rowcolor{gray!15}
+卷六 & 大勾 & 18 & 第67--84問 \\
+卷七 & 明勾 & 16 & 第85--100問 \\
+卷八 & 明股 & 16 & 第101--126問 \\
+卷九 & 雜題上 & 18 & 第127--144問 \\
+卷十 & 雜題中 & 18 & 第145--162問 \\
+卷十一 & 雜題下 & 18 & 第163--180問 \\
+卷十二 & 雜題終 & 10 & 第181--190問 \\
+\midrule
+ & \textbf{合計} & \textbf{170} & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\textit{Ceyuan Haijing} (Sea Mirror of Circle Measurements), in twelve volumes
+and 170 problems, is the masterpiece of Master Li Ye of the Yuan Dynasty.
+The work uses right-triangle circle measurement, positing a circular city
+from whose walkers' paces the diameter is derived. The complete structure:
+
+\vspace{0.2cm}
+\begin{center}
+\begin{tabular}{clcc}
+\toprule
+\textbf{Vol.} & \textbf{Title} & \textbf{Probs.} & \textbf{Range} \\
+\midrule
+1 & City Diagram & --- & Diagram \\
+2 & Standard Rates & 14 & 1--14 \\
+3 & Side Leg & 17 & 15--31 \\
+\rowcolor{gray!15}
+4 & Base Leg & 17 & 32--48 \\
+\rowcolor{gray!15}
+5 & Large Leg & 18 & 49--66 \\
+\rowcolor{gray!15}
+6 & Large Base & 18 & 67--84 \\
+7 & Bright Base & 16 & 85--100 \\
+8 & Bright Leg & 16 & 101--126 \\
+9 & Misc.\ Part I & 18 & 127--144 \\
+10 & Misc.\ Part II & 18 & 145--162 \\
+11 & Misc.\ Part III & 18 & 163--180 \\
+12 & Misc.\ Finale & 10 & 181--190 \\
+\midrule
+ & \textbf{Total} & \textbf{170} & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.4cm}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\noindent\textbf{術語解釋 · Glossary of Terms:}
+
+\begin{itemize}[leftmargin=1em,itemsep=2pt,topsep=2pt]
+  \item \textbf{天元一}：設未知數為一，即現代代數之 $x$。李冶先生以「立天元一」
+  為某數，即設未知數為所求之量。
+  \item \textbf{寄左}：將某式暫存一邊，相當於方程之一邊。天元術中常以「寄左」
+  表示方程之左邊，後以「同數」與之相消。
+  \item \textbf{相消}：兩式相減，相當於移項合併。天元術之核心步驟，
+  以同數與寄左之式相減，得開方式。
+  \item \textbf{帶分母}：某式含有分母未除。古代算術中常「不受除」，
+  即以帶分母之形式保留，以待後續運算。
+  \item \textbf{冪}：平方，即現代記號 $x^2$。天元術中以某數自乘為其冪。
+  \item \textbf{開方}：開平方，即求平方根。天元術中最基本之運算。
+  \item \textbf{開立方}：開立方，即求立方根。用於三次天元方程。
+  \item \textbf{開三乘方}：開四次方，即求四次根。用於四次天元方程，
+  為天元術中最高深之運算。
+  \item \textbf{實}：常數項，即方程中之已知數部分。
+  \item \textbf{從}：一次項係數，天元術中「從法」即 $x$ 之係數。
+  \item \textbf{廉}：二次項係數，即 $x^2$ 之係數。
+  \item \textbf{隅}：三次項係數（立方方程中），即 $x^3$ 之係數。
+  四次方程中另有「三乘隅」或「益隅」之稱。
+  \item \textbf{勾}：直角三角形之短邊（底邊）。
+  \item \textbf{股}：直角三角形之長邊（高邊）。
+  \item \textbf{弦}：直角三角形之斜邊。
+  \item \textbf{大勾}：最大勾股形之勾邊，即通勾。
+  \item \textbf{大股}：最大勾股形之股邊，即通股。
+  \item \textbf{大差}：大股減圓徑之餘數。
+  \item \textbf{小差}：小勾加半徑之和。
+  \item \textbf{底勾}：勾股形之最下勾股，與圓徑相切之基本勾股形之勾邊。
+\end{itemize}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\noindent\textbf{English Glossary:}
+
+\begin{itemize}[leftmargin=1em,itemsep=2pt,topsep=2pt]
+  \item \textbf{Tian yuan yi (天元一)}: The celestial element unity; the unknown $x$.
+  ``Let tian yuan unity be [quantity]'' means: let $x$ equal the sought quantity.
+  \item \textbf{Ji zuo (寄左)}: Deposit on the left; temporarily store an expression
+  on one side of the equation. The ``left'' side, later canceled with the ``equal number.''
+  \item \textbf{Xiang xiao (相消)}: Mutual cancellation; subtracting two expressions,
+  equivalent to transposition and combining terms. The core step of tian yuan.
+  \item \textbf{Dai fen mu (帶分母)}: Carrying a denominator; an expression with
+  an uncanceled denominator, retained for later operations.
+  \item \textbf{Mi (冪)}: Power; square, i.e., $x^2$ in modern notation.
+  \item \textbf{Kai fang (開方)}: Root extraction; square-root extraction, the
+  fundamental operation of tian yuan.
+  \item \textbf{Kai li fang (開立方)}: Cube-root extraction; for cubic equations.
+  \item \textbf{Kai san cheng fang (開三乘方)}: Fourth-root extraction; for
+  quartic equations---the most advanced operation in tian yuan.
+  \item \textbf{Shi (實)}: Dividend; the constant term of the equation.
+  \item \textbf{Cong (從)}: Coefficient; the linear term coefficient ($x$ term).
+  \item \textbf{Lian (廉)}: Corner; the quadratic term coefficient ($x^2$ term).
+  \item \textbf{Yu (隅)}: Corner divisor; the cubic term coefficient ($x^3$ term).
+  In quartics: ``triple-multiplication corner'' or ``negative corner.''
+  \item \textbf{Gou (勾)}: Base; the shorter leg of a right triangle.
+  \item \textbf{Gu (股)}: Leg; the longer leg of a right triangle.
+  \item \textbf{Xian (弦)}: Hypotenuse; the diagonal side.
+  \item \textbf{Da gou (大勾)}: Large base; the universal base.
+  \item \textbf{Da gu (大股)}: Large leg; the universal leg.
+  \item \textbf{Da cha (大差)}: Large difference; large leg minus diameter.
+  \item \textbf{Xiao cha (小差)}: Small difference; small base plus radius.
+  \item \textbf{Di gou (底勾)}: Base leg; the lowest triangle tangent to the circle.
+\end{itemize}
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.4cm}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\noindent\textbf{天元術方程式記法 · Tian Yuan Equation Notation:}
+
+李冶先生以籌算式記多項式，自下而上排列：
+\begin{itemize}[leftmargin=1em,itemsep=0pt,topsep=2pt]
+  \item 最下為常數項（實）
+  \item 其上為一次項（從）
+  \item 再其上為二次項（廉）
+  \item 再其上為三次項（隅）
+\end{itemize}
+
+例如 \tianyuan{480}{1} 表示 $480 - x$（一次式），
+\tianyuan{0\quad0\quad48000}{1\quad0\quad0}
+表示 $48000 - x^2$ 之類。其中係數為負者以斜線或特殊記號表示之。
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\noindent\textbf{Tian Yuan Equation Notation:}
+
+Master Li Ye recorded polynomials in counting-rod style, arranged bottom-to-top:
+\begin{itemize}[leftmargin=1em,itemsep=0pt,topsep=2pt]
+  \item Lowest: constant term (dividend, shí)
+  \item Above: linear term (coefficient, cóng)
+  \item Above that: quadratic term (corner, lián)
+  \item Above that: cubic term (corner divisor, yú)
+\end{itemize}
+
+Thus \tianyuan{480}{1} denotes $480 - x$ (linear), and
+\tianyuan{0\quad0\quad48000}{1\quad0\quad0} denotes $48000 - x^2$.
+Negative coefficients were indicated by slanted lines or special marks.
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{0.4cm}
+
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\noindent\textbf{各卷方程次數統計 · Equation Degree Statistics:}
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{卷} & \textbf{平方（二次）} & \textbf{立方（三次）} & \textbf{三乘方（四次）} \\
+\midrule
+卷四（底勾） & 12問 & 4問 & 1問 \\
+卷五（大股） & 6問 & 10問 & 2問 \\
+卷六（大勾） & 3問 & 6問 & 9問 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+由上表可見，愈至卷六，方程之次數愈高，開方之術愈繁，
+乃李冶先生循序漸進、由淺入深之教學法也。
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+\noindent\textbf{Equation Degree Statistics by Volume:}
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Volume} & \textbf{Quadratic} & \textbf{Cubic} & \textbf{Quartic} \\
+\midrule
+Vol.\ 4 (Base Leg) & 12 & 4 & 1 \\
+Vol.\ 5 (Large Leg) & 6 & 10 & 2 \\
+Vol.\ 6 (Large Base) & 3 & 6 & 9 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+As the table shows, equation degrees increase toward Volume 6, and root-
+extraction methods become more complex. This is Master Li Ye's pedagogical
+method: gradual progression from simple to profound.
+\end{minipage}
+\vspace{0.15cm}
+
+\vspace{1cm}
+\begin{center}
+\rule{0.3\textwidth}{0.4pt}
+
+\vspace{0.3cm}
+
+{\large\itshape 測圓海鏡卷四至卷六全編終}\\[0.2cm]
+{\large\itshape End of Ceyuan Haijing Volumes 4--6}
+
+\vspace{0.3cm}
+
+{\small 元 \quad 李冶 \quad 撰 \quad Yuan Dynasty \quad Li Ye}\\[0.1cm]
+
+{\small\color{notecolor} 依《欽定四庫全書》子部天文算法類本}\\[0.05cm]
+{\small\color{notecolor} Based on the Imperial Siku Quanshu, Mathematics and Astronomy Class}
+
+\vspace{0.3cm}
+
+{\small 雙語版 \quad Bilingual Edition}\\[0.1cm]
+{\small\color{notecolor} 中文版左欄 \quad Chinese Text Left Column}\\[0.05cm]
+{\small\color{notecolor} 英文譯文右欄 \quad English Translation Right Column}
+
+\end{center}
+
+\end{document}

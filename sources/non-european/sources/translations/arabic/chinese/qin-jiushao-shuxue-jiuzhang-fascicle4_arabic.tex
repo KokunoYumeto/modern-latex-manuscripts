@@ -1,0 +1,659 @@
+%% ========================================================================
+%% Qin Jiushao's Shuxue Jiuzhang (数学九章) — Fascicle 4: Cewang (Surveying)
+%% CHINESE → ARABIC BILINGUAL TRANSLATION EDITION
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{array,booktabs,longtable,tabularx}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=15mm,right=15mm,top=22mm,bottom=22mm,
+  headheight=14pt,footskip=24pt
+}
+
+%% -------- Font Configuration --------
+\newfontfamily\arabicfont[Script=Arabic,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
+\newfontfamily\arabicfontbf[Script=Arabic,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Bold.ttf}
+\TeXXeTstate=1
+\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
+\newcommand{\arbf}[1]{{\arabicfontbf\beginR #1\endR}}
+\newcommand{\artxt}[1]{\arabicfont\beginR #1\endR}
+
+\newcommand{\arbullet}{{\fontspec{NotoSerif-Regular}[Path=/usr/share/fonts/truetype/noto/]\textbullet}}
+
+\usepackage{xeCJK}
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\newCJKfontfamily\chinesebf[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Bold.otf}
+\newCJKfontfamily\chineselg[Path=/mnt/agents/fonts/noto-sc-extracted/,Scale=1.15]{NotoSansCJKsc-Regular.otf}
+\newfontfamily\chfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\newfontfamily\chfontbf[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Bold.otf}
+
+\setmainfont{NotoSerif-Regular}[Path=/usr/share/fonts/truetype/noto/]
+\setsansfont{NotoSans-Regular}[Path=/usr/share/fonts/truetype/noto/]
+
+\tolerance=3000
+\emergencystretch=3em
+\hbadness=10000
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{colrule}{RGB}{160,140,120}
+
+%% -------- Parallel Text Layout --------
+\newlength{\cnwidth}
+\newlength{\arwidth}
+\setlength{\cnwidth}{0.44\textwidth}
+\setlength{\arwidth}{0.44\textwidth}
+
+\newcommand{\paralleltext}[2]{%
+  \par\medskip\noindent
+  \begin{minipage}[t]{\cnwidth}%
+    \small #1%
+  \end{minipage}%
+  \hfill\textcolor{colrule}{\vrule width 0.6pt}\hfill
+  \begin{minipage}[t]{\arwidth}%
+    \small\arabicfont\beginR #2\endR%
+  \end{minipage}%
+  \par\medskip
+}
+
+\newcommand{\parallelsection}[2]{%
+  \par\bigskip\noindent
+  \begin{minipage}[t]{\cnwidth}%
+    \Large\bfseries\color{sectioncolor} #1%
+  \end{minipage}%
+  \hfill\textcolor{colrule}{\vrule width 0.8pt}\hfill
+  \begin{minipage}[t]{\arwidth}%
+    \Large\arabicfontbf\color{sectioncolor}\beginR #2\endR%
+  \end{minipage}%
+  \par\medskip\noindent\textcolor{colrule}{\rule{\textwidth}{0.6pt}}\par\medskip
+}
+
+\newcommand{\parallelsubsection}[2]{%
+  \par\medskip\noindent
+  \begin{minipage}[t]{\cnwidth}%
+    \large\bfseries\color{sectioncolor} #1%
+  \end{minipage}%
+  \hfill\textcolor{colrule}{\vrule width 0.6pt}\hfill
+  \begin{minipage}[t]{\arwidth}%
+    \large\arabicfontbf\color{sectioncolor}\beginR #2\endR%
+  \end{minipage}%
+  \par\smallskip
+}
+
+\newcommand{\cnlabel}[1]{\textbf{\color{notecolor}#1}}
+\newcommand{\arlabel}[1]{\arabicfontbf\color{notecolor}\beginR #1\endR}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\chfont 数学九章 · 测望类}
+\fancyhead[R]{\small\arabicfont\beginR باب القياس والرصد\endR}
+\fancyhead[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\hypersetup{
+  colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Qin Jiushao - Shuxue Jiuzhang Fascicle 4 - Chinese-Arabic Edition},
+  pdfauthor={Bilingual Translation Edition}
+}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{1.5cm}
+
+{\fontsize{24}{30}\selectfont\chineselg
+\textcolor{titlecolor}{数书九章}}
+
+\vspace{0.4cm}
+
+{\fontsize{18}{24}\selectfont\arabicfont
+\textcolor{titlecolor}{\beginR كتاب المسائل التسع في الحساب\endR}}
+
+\vspace{0.8cm}
+
+{\Large\textbf{Fascicle IV / الفصل الرابع}}
+
+\vspace{0.3cm}
+
+{\large
+\textcolor{sectioncolor}{The Cewang Category (\chfont{测望类})}\\[0.3em]
+\textcolor{sectioncolor}{\arabicfont\beginR باب القياس والمراقبة عن بُعد\endR}
+}
+
+\vspace{1.2cm}
+
+{\large
+\textbf{Qin Jiushao} / \chfont 秦九韶 / \arabicfont\beginR تشين جيوشاو\endR\\[0.3em]
+c.\ 1202--1261 CE / \arabicfont\beginR حوالي ٦٠٢--٦٦١ هـ\endR\\[0.5em]
+\textit{Presented in the 7th year of Chunyou (\chfont{淳祐七年}), 1247 CE}\\[0.2em]
+\textit{\arabicfont\beginR وُلِّف في السنة السابعة من حقبة تشونيو، ٦٤٥ هـ / ١٢٤٧ م\endR}
+}
+
+\vspace{1cm}
+
+{\normalsize\textit{
+Surveying methods: double difference, similar triangles,\\
+remote measurement of heights, distances, and depths.}}
+
+\vspace{0.3cm}
+
+{\arabicfont\beginR 
+طرق القياس: الاختلاف المزدوج، المثلثات المتشابهة،\\
+القياس البعيد للارتفاعات والمسافات والأعماق.
+\endR}
+
+\vspace{1cm}
+
+\textcolor{colrule}{\rule{0.6\textwidth}{0.8pt}}
+
+\vspace{0.5cm}
+
+{\normalsize\textbf{\textsc{Chinese--Arabic Bilingual Edition}}\\[0.2em]
+\arabicfont\beginR الطبعة الثنائية اللغة: الصينية--العربية\endR}
+
+\vspace{0.5cm}
+
+{\small
+\textit{Left column}: Original Classical Chinese\\
+\textit{Right column}: Arabic Translation\\[0.2em]
+\arabicfont\beginR العمود الأيسر: النص الصيني الكلاسيكي الأصلي --- العمود الأيمن: الترجمة العربية\endR
+}
+
+\vfill
+
+{\small Typeset in \LaTeX\ with XeTeX\\
+Noto Sans CJK SC / Noto Naskh Arabic}
+
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\newpage
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION TO SURVEYING (CEWANG)
+%% ========================================================================
+\parallelsection{Introduction to Cewang / 测望类引}{مقدمة باب القياس والمراقبة}
+
+\paralleltext{%
+The fourth category of the \textit{Shuxue Jiuzhang} is \textit{Cewang} (测望), devoted to surveying and remote measurement. These problems involve measuring inaccessible distances and heights using the ``hook-and-gourd'' (gougu, 勾股) method and the ``double difference'' (chongcha, 重差) technique. The methods demonstrated here are foundational to ancient Chinese geodesy and cartography. Qin Jiushao builds upon the classical tradition of the \textit{Zhoubi Suanjing} and \textit{Haidao Suanjing}, extending Liu Hui's sea island methods with sophisticated algebraic techniques including polynomial equations of higher degree.
+}{%
+البابُ الرابع من \textit{كتاب المسائل التسع في الحساب} هو \textit{قياس ومراقبة} (测望)، المكرس للمساحة والقياس عن بُعد. تتضمن هذه المسائل قياس المسافات والارتفاعات غير المتاحة باستخدام طريقة ``الوتر والقائمة'' (勾股) وتقنية ``الاختلاف المزدوج'' (重差). تُشكِّل هذه الطرق أساس الجيوديسيا والخرائط الصينية القديمة. يبني تشين جيوشاو على التقليد الكلاسيكي لـ\textit{كتاب تشوبي الحسابي} و\textit{كتاب جزيرة البحر الحسابي}، موسّعاً طرق جزيرة البحر لـليو هوي بتقنيات جبرية متطورة تشمل معادلات متعددة الحدود من درجات عليا.
+}
+
+\paralleltext{%
+The \textit{Cewang} category comprises nine problems divided into two fascicles (juan 4 shang and juan 4 xia): (1) The Round City --- using right-triangle methods to determine a city's diameter from sightings; (2) Measuring a Tower --- similar triangles with two poles; (3) The Square City --- determining the side of a square city from walk distances; (4) Root Extraction by Counting Rods --- computational layout; (5) Measuring Water Depth --- the surplus-and-deficit method applied to a well; (6) Measuring a Pagoda's Height --- double difference method with precise numerical data; (7) Distance Across a River --- width and height from two observation points; (8) Ninth-Degree Root Extraction --- Horner's method for higher-degree surveying equations.
+}{%
+يتضمن بابُ القياس والمراقبة تسع مسائل مقسَّمة على جزأين (الجزء الرابع أ والرابع ب): (١) المدينة الدائرية --- استخدام طرق المثلثات القائمة لتحديد قطر مدينة من قياسات بصرية؛ (٢) قياس برج --- مثلثات متشابهة بعمودين؛ (٣) المدينة المربعة --- تحديد ضلع مدينة مربعة من مسافات المشي؛ (٤) استخراج الجذر بالأعواد الحسابية --- تخطيط حسابي؛ (٥) قياس عمق الماء --- تطبيق طريقة الوفرة والنقصان على بئر؛ (٦) قياس ارتفاع الباغودا --- طريقة الاختلاف المزدوج ببيانات رقمية دقيقة؛ (٧) المسافة عبر النهر --- العرض والارتفاع من نقطتي مراقبة؛ (٨) استخراج الجذر من الدرجة التاسعة --- طريقة هورنر لمعادلات القياس من الدرجات العليا.
+}
+
+\parallelsubsection{The Double Difference Method (重差术)}{طريقة الاختلاف المزدوج (重差术)}
+
+\paralleltext{%
+The ``double difference'' (chongcha, 重差) method, originating with Liu Hui's commentary on the \textit{Jiuzhang Suanshu} and fully developed in his \textit{Haidao Suanjing} (Sea Island Mathematical Manual), is the fundamental technique for all remote measurement problems. Two sightings are taken from different distances, and the differences in angles or alignments allow calculation of the inaccessible quantity. The method rests on the proportionality of corresponding sides in similar right triangles (gougu tongshi, 勾股通势).
+}{%
+طريقةُ ``الاختلاف المزدوج'' (重差)، المنشأة من تعليقات ليو هوي على \textit{كتاب المسائل التسع في الحساب} والمُطوَّرة كلياً في \textit{كتاب جزيرة البحر الحسابي}، هي التقنية الأساسية لجميع مسائل القياس البعيد. تُؤخذ قيستان بصريتان من مسافتين مختلفتين، وسماحات الزوايا أو المحاذاة تسمح بحساب الكمية غير المتاحة. تستند الطريقة على التناسبية للأضلاع المتقابلة في المثلثات القائمة المتشابهة (勾股通势).
+}
+
+\paralleltext{%
+In modern notation: if two poles of equal height $h$ are erected at distances $d_1$ and $d_2$ from an observer, and the top of a distant object aligns with both pole tops, then the object's height $H$ and its distance $D$ satisfy: $\frac{H - h_0}{D} = \frac{h - h_0}{d}$, where $h_0$ is the eye height. From two such observations, both $H$ and $D$ can be determined uniquely.
+}{%
+في الرمز الحديث: إذا نُصب عمودان بنفس الارتفاع $h$ على مسافتين $d_1$ و$d_2$ من المراقب، ومحاذى قمة جسم بعيد مع قمتَي العمودين، فإن ارتفاع الجسم $H$ ومسافته $D$ يحققان: $\frac{H - h_0}{D} = \frac{h - h_0}{d}$، حيث $h_0$ هو ارتفاع العين. من ملاحظتين كهاتين، يمكن تحديد $H$ و$D$ بشكل فريد.
+}
+
+\newpage
+
+%% ========================================================================
+%% JUAN 4 SHANG
+%% ========================================================================
+\parallelsection{Juan 4 Shang — Cewang (Fascicle 4, Part 1: Surveying)}{الجزء الرابع أ — القياس والمراقبة}
+
+\paralleltext{%
+\textit{Original preface to this fascicle:} The methods of this fascicle concern squares, circles, oblique and straight lines, all sought through mutual relations. The fundamental principles derive from the method of the celestial element. Those problems difficult to solve by conventional methods are all resolved effortlessly when illuminated by the celestial element method.
+}{%
+\textit{المقدمة الأصلية لهذا الجزء:} تتعلق طرق هذا الجزء بالمربعات والدوائر والخطوط المائلة والمستقيمة، كلها مُطلَبة من خلال العلاقات المتبادلة. المبادئ الأساسية مستمدة من طريقة العنصر السماوي. تُحلُّ جميع المسائل الصعبة حلّاً بأساليب تقليدية بسهولة عندما تُضاء بطريقة العنصر السماوي.
+}
+
+%% --------------------------------------------------
+%% PROBLEM 1: YUAN CHENG (THE ROUND CITY)
+%% --------------------------------------------------
+\parallelsubsection{Problem 1: The Round City (圆城)}{المسألة الأولى: المدينة الدائرية (圆城)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 有圆城不知周径，四门中开，北外三里有乔木。出南门边直行，至东行九里乃见木。欲知城周径各几何。
+}{%
+\arlabel{المسألة} (سؤال) توجدُ مدينة دائرية ذات محيط وقطر مجهولين. بها أربعة أبواب مفتوحة في الاتجاهات الأصلية. على بعد ثلاثة لي شمال الباب الشمالي تقف شجرة عالية. عند الخروج من الباب الجنوبي والسير مباشرة، ثم الانعطاف شرقاً تسعة لي، تُرى الشجرة. أريد معرفة محيط المدينة وقطرها.
+}
+
+\paralleltext{%
+\textit{Translation:} There is a circular city whose circumference and diameter are unknown. It has four gates at the cardinal points. Three li north of the north gate stands a tall tree. Going out the south gate, walking straight, then turning east for 9 li, the tree becomes visible. Find the circumference and diameter of the city.
+}{%
+\textit{الترجمة:} توجد مدينة دائرية محيطها وقطرها مجهولان. بها أربعة أبواب في الاتجاهات الأصلية. على بُعد ثلاثة لي شمال الباب الشمالي شجرة عالية. عند الخروج من الباب الجنوبي والسير مباشرة ثم الانعطاف شرقاً تسعة لي، تظهر الشجرة. أوجد محيط المدينة وقطرها.
+}
+
+\paralleltext{%
+\cnlabel{答} (Da) 径九里，周二十七里。
+}{%
+\arlabel{الجواب} (جواب) القطر تسعة لي، والمحيط سبعة وعشرون لي.
+}
+
+\paralleltext{%
+\textit{Answer:} The diameter is 9 li, the circumference is 27 li.
+}{%
+\textit{الإجابة:} القطر تسعة لي، والمحيط سبعة وعشرون لي.
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 以勾股夕桀求之。一为从隅，五因北里为从七廉，置北里幂八因为从五廉，以北里乘上廉为益从，三廉北覆率乘五廉，为益上廉，以北里乘上廉为实，开玲珑九乘方得数，自乘为径，以三因径得周。
+}{%
+\arlabel{الطريقة} (طريقة) تُحسب بطريقة ``الوتر والقائمة عند الغروب''. خذ الواحد معاملاً رئيسياً، اضرب المسافة الشمالية في خمسة للمعامل من الدرجة السابعة. ضع مربع المسافة الشمالية، اضرب في ثمانية للمعامل من الدرجة الخامسة. اضرب المسافة الشمالية في المعامل العلوي للمعامل الخطي السالب. اضرب المعاملات للحصول على المعاملات العلوية السالبة. اضرب المسافة الشمالية في المعامل العلوي للمقسوم. استخرج الجذر التاسع (الجذر المُزخرف) للحصول على العدد، ثم ربِّعه للحصول على القطر. اضرب القطر في ثلاثة للحصول على المحيط.
+}
+
+\paralleltext{%
+\textit{Method:} Using the ``hook-and-gourd evening-peak'' method. Take 1 as the leading coefficient. Multiply the north distance by 5 for the seventh-degree coefficient. Place the square of the north distance, multiply by 8 for the fifth-degree coefficient. Multiply the north distance by the upper coefficient for the negative linear coefficient. Double the negative rate to form the fifth-degree coefficient as the negative upper coefficient. Multiply the north distance by the upper coefficient for the dividend. Extract the ninth-degree root (ling long kai fang) to obtain the number; square it for the diameter. Multiply the diameter by 3 for the circumference.
+}{%
+\textit{الشرح:} تُستخدم طريقة ``الوتر والقائمة عند الغروب''. يؤخذ الواحد معاملاً قيادياً. تُضرب المسافة الشمالية في خمسة للمعامل من الدرجة السابعة. يُوضع مربع المسافة الشمالية ويُضرب في ثمانية للمعامل من الدرجة الخامسة. تُضرب المسافة الشمالية في المعامل الأعلى للمعامل الخطي السالب. يُضاعف معدل السالب لتكوين المعامل الخامس كمعامل أعلى سالب. تُضرب المسافة الشمالية في المعامل الأعلى للمقسوم. يُستخرج الجذر من الدرجة التاسعة (فتح المربع المُزخرف) للحصول على العدد؛ يُربَّع للحصول على القطر. يُضرب القطر في ثلاثة للحصول على المحيط.
+}
+
+%% --------------------------------------------------
+%% PROBLEM 2: CE TA (MEASURING A TOWER)
+%% --------------------------------------------------
+\parallelsubsection{Problem 2: Measuring a Tower (测塔)}{المسألة الثانية: قياس البرج (测塔)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 有塔高为数起，去塔若干步立一表，人目上望见塔尖，退行若干步又立一表，人目上望仍见塔尖。求塔高及去塔远近。
+}{%
+\arlabel{المسألة} (سؤال) يوجدُ برجٌ ذو ارتفاع مجهول. على بُعد عدد من الخطوات من البرج يُنصب عمود، ومن مستوى العين ينظر المرء إلى أعلى فيرى قمة البرج. يتراجع عدداً من الخطوات ويُنصب عمودٌ آخر، ومن مستوى العين يرى القمة مجدداً. أوجد ارتفاع البرج ومسافته.
+}
+
+\paralleltext{%
+\textit{Translation:} A tower of unknown height stands at an unknown distance. At a certain distance from the tower, a pole is erected; looking upward from eye level, the tower's peak is visible. Retreating a certain distance and erecting another pole, the peak is again visible from eye level. Find the tower's height and distance.
+}{%
+\textit{الترجمة:} برج ذو ارتفاع مجهول يقف على مسافة مجهولة. على مسافة معينة من البرج يُنصب عمود؛ بالنظر إلى الأعلى من مستوى العين تُرى قمة البرج. بالتراجع مسافة معينة ونصب عمود آخر، تُرى القمة مجدداً من مستوى العين. أوجد ارتفاع البرج ومسافته.
+}
+
+\paralleltext{%
+\cnlabel{答} (Da) 塔高若干，去塔远若干。
+}{%
+\arlabel{الجواب} (جواب) ارتفاع البرج عدد معين، ومسافته عدد معين.
+}
+
+\paralleltext{%
+\textit{Answer:} The tower's height is a certain number; its distance is a certain number.
+}{%
+\textit{الإجابة:} ارتفاع البرج عدد معين، ومسافته عدد معين.
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 以勾股求之。两表退行之差为法，前表去塔远乘表高，后表去塔远乘表高，相减为实，实如法而一得塔高。又以法除前表去塔远乘两表高差加表高得塔高。
+}{%
+\arlabel{الطريقة} (طريقة) تُحسب بطريقة الوتر والقائمة. فرق مسافتي التراجع للعمودين هو القاسم. اضرب مسافة العمود الأمامي من البرج في ارتفاع العمود، واضرب مسافة العمود الخلفي من البرج في ارتفاع العمود، اطرح للحصول على المقسوم. اقسم للحصول على ارتفاع البرج. أو اضرب مسافة العمود الأمامي في فرق ارتفاعي العمودين، اقسم على القاسم، وأضف ارتفاع العمود للحصول على ارتفاع البرج.
+}
+
+\paralleltext{%
+\textit{Method:} Using the hook-and-gourd method. The difference between the retreat distances of the two poles is the divisor. Multiply the front pole's distance to the tower by the pole height; multiply the rear pole's distance by the pole height; subtract to obtain the dividend. Divide to get the tower height. Alternatively, multiply the front distance by the difference of pole heights, divide by the divisor, and add the pole height.
+}{%
+\textit{الشرح:} تُستخدم طريقة الوتر والقائمة. فرق مسافتي التراجع للعمودين هو القاسم. تُضرب مسافة العمود الأمامي من البرج في ارتفاع العمود؛ وتُضرب مسافة العمود الخلفي في ارتفاع العمود؛ يُطرح للحصول على المقسوم. يُقسم للحصول على ارتفاع البرج. أو تُضرب المسافة الأمامية في فرق ارتفاعي العمودين، يُقسم على القاسم، ويُضاف ارتفاع العمود.
+}
+
+\paralleltext{%
+\textit{Modern formulation:} Let $d_1$ = front distance, $d_2$ = rear distance, $h$ = pole height, $e$ = eye height. Then by similar triangles: $\frac{H-e}{D} = \frac{h-e}{d_1} = \frac{h-e}{d_2 - d_1}$ whence $H$ and $D$ can be found.
+}{%
+\textit{الصياغة الحديثة:} ليكن $d_1$ المسافة الأمامية، $d_2$ المسافة الخلفية، $h$ ارتفاع العمود، $e$ ارتفاع العين. فبالمثلثات المتشابهة: $\frac{H-e}{D} = \frac{h-e}{d_1} = \frac{h-e}{d_2 - d_1}$ ومنه يُمكن إيجاد $H$ و$D$.
+}
+
+%% --------------------------------------------------
+%% PROBLEM 3: FANG CHENG (THE SQUARE CITY)
+%% --------------------------------------------------
+\parallelsubsection{Problem 3: The Square City (方城)}{المسألة الثالثة: المدينة المربعة (方城)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 有方城一座，不知大小。北门外有树，出南门直行若干步，折而西行若干步见树。求城方面。
+}{%
+\arlabel{المسألة} (سؤال) توجدُ مدينة مربعة الحجم مجهولة. خارج الباب الشمالي شجرة. عند الخروج من الباب الجنوبي والسير مباشرة عدداً من الخطوات، ثم الانعطاف غرباً عدداً من الخطوات، تُرى الشجرة. أوجد ضلع المدينة.
+}
+
+\paralleltext{%
+\textit{Translation:} There is a square city of unknown size. Outside the north gate stands a tree. Going out the south gate and walking straight a certain number of steps, then turning west and walking a certain number of steps, the tree becomes visible. Find the side of the square city.
+}{%
+\textit{الترجمة:} توجد مدينة مربعة مجهولة الحجم. خارج الباب الشمالي شجرة. عند الخروج من الباب الجنوبي والسير مباشرة عدداً من الخطوات، ثم الانعطاف غرباً عدداً من الخطوات، تظهر الشجرة. أوجد ضلع المدينة المربعة.
+}
+
+\paralleltext{%
+\cnlabel{答} (Da) 城方面若干步。
+}{%
+\arlabel{الجواب} (جواب) ضلع المدينة عدد معين من الخطوات.
+}
+
+\paralleltext{%
+\textit{Answer:} The city's side is a certain number of bu.
+}{%
+\textit{الإجابة:} ضلع المدينة عدد معين من الخطوات.
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 以勾股求之。两行步相乘为实，并两行步为从方，开平方得城方面。
+}{%
+\arlabel{الطريقة} (طريقة) تُحسب بطريقة الوتر والقائمة. اضرب مسافتي السير للحصول على المقسوم. اجمع مسافتي السير للمعامل الخطي. استخرج الجذر التربيعي للحصول على ضلع المدينة.
+}
+
+\paralleltext{%
+\textit{Method:} Using the hook-and-gourd method. Multiply the two walk distances for the dividend. Add the two walk distances for the linear coefficient. Extract the square root to obtain the city's side.
+}{%
+\textit{الشرح:} تُستخدم طريقة الوتر والقائمة. تُضرب مسافتا السير للحصول على المقسوم. يُجمع مسافتا السير للمعامل الخطي. يُستخرج الجذر التربيعي للحصول على ضلع المدينة.
+}
+
+\paralleltext{%
+\textit{Modern formulation:} If $a$ = southward steps and $b$ = westward steps, then the side $x$ satisfies: $x^2 + (a+b)x = ab$, whence $x = \frac{-(a+b) + \sqrt{(a+b)^2 + 4ab}}{2}$.
+}{%
+\textit{الصياغة الحديثة:} إذا كانت $a$ خطوات جنوبية و$b$ خطوات غربية، فإن الضلع $x$ يحقق: $x^2 + (a+b)x = ab$، ومنه $x = \frac{-(a+b) + \sqrt{(a+b)^2 + 4ab}}{2}$.
+}
+
+%% --------------------------------------------------
+%% PROBLEM 4: CHOU SUAN KAI FANG
+%% --------------------------------------------------
+\parallelsubsection{Problem 4: Counting Rod Root Extraction (筹算开方)}{المسألة الرابعة: استخراج الجذر بالأعواد الحسابية (筹算开方)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 问以开方术解高次方程，其筹布列之法若何。
+}{%
+\arlabel{المسألة} (سؤال) عن طريقة استخراج الجذور لحل المعادلات ذات الدرجات العليا، كيف تُرتَّب الأعواد الحسابية؟
+}
+
+\paralleltext{%
+\textit{Translation:} On the method of extracting roots to solve higher-degree equations, how are the counting rods arranged?
+}{%
+\textit{الترجمة:} عن طريقة استخراج الجذور لحل المعادلات من الدرجات العليا، كيف تُرتَّب الأعواد الحسابية؟
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 开方之法，先列实于中，次列隅于下，次列方于上。商除之，以上乘隅生廉，以上乘廉生方，以上乘方除实。实尽则止，不尽则倍方，三廉为方法，续商除之。
+}{%
+\arlabel{الطريقة} (طريقة) في طريقة استخراج الجذر، ضع المقسوم في الوسط أولاً، ثم ضع المعامل الوحدي في الأسفل، ثم ضع المعامل الخطي في الأعلى. اقسم بالتقدير؛ اضرب التقدير في المعامل الوحدي لتوليد المعامل الخطي، اضرب التقدير في المعامل الخطي لإنتاج المعامل التربيعي، اضرب التقدير في المعامل التربيعي واطرح من المقسوم. عندما ينفد المقسوم، توقف. إذا لم ينفد، اضعف المعامل الخطي واستمر للرقم التالي.
+}
+
+\paralleltext{%
+\textit{Method:} In the method of root extraction, first place the dividend (shi) in the middle, then place the unit coefficient (yu) below, and the linear coefficient (fang) above. Divide by estimation; multiply the estimate by the unit coefficient to generate the linear coefficient (lian); multiply the estimate by the linear coefficient to generate the square coefficient (fang); multiply the estimate by the square coefficient and subtract from the dividend. When the dividend is exhausted, stop. If not exhausted, double the linear coefficient and proceed to the next digit.
+}{%
+\textit{الشرح:} في طريقة استخراج الجذر، يُوضع المقسوم (实) في الوسط أولاً، ثم يُوضع المعامل الوحدي (隅) في الأسفل، والمعامل الخطي (方) في الأعلى. يُقسم بالتقدير؛ تُضرب التقدير في المعامل الوحدي لتوليد المعامل الخطي (廉)، تُضرب التقدير في المعامل الخطي لإنتاج المعامل التربيعي، تُضرب التقدير في المعامل التربيعي ويُطرح من المقسوم. عندما ينفد المقسوم، التوقف. إذا لم ينفد، يُضاعف المعامل الخطي ويُستمر للرقم التالي.
+}
+
+\newpage
+
+%% ========================================================================
+%% JUAN 4 XIA
+%% ========================================================================
+\parallelsection{Juan 4 Xia — Cewang Xu (Fascicle 4, Part 2: Surveying Continued)}{الجزء الرابع ب — القياس والمراقبة (تابع)}
+
+%% --------------------------------------------------
+%% PROBLEM 5: CE SHUI SHEN (MEASURING WATER DEPTH)
+%% --------------------------------------------------
+\parallelsubsection{Problem 5: Measuring Depth of Water (测水深)}{المسألة الخامسة: قياس عمق الماء (测水深)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 有井不知其深，以绳测之，绳长倍于井深，余三尺；三折而测之适足。求井深及绳长。
+}{%
+\arlabel{المسألة} (سؤال) بئر عمقها مجهول. بقياسها بحبل، يكون طول الحبل ضعف عمق البئر مع فائض ثلاثة أشبار؛ بطيِّ الحبل على ثلاثة وقياسها، يكون بالضبط. أوجد عمق البئر وطول الحبل.
+}
+
+\paralleltext{%
+\textit{Translation:} There is a well of unknown depth. Measuring with a rope, the rope's length is twice the well's depth with 3 chi to spare. Folding the rope in three and measuring, it fits exactly. Find the depth of the well and the length of the rope.
+}{%
+\textit{الترجمة:} بئر عمقها مجهول. بقياسها بحبل، يكون طول الحبل ضعف عمق البئر مع فائض ثلاثة أشبار. بطي الحبل على ثلاث وقياسها، يناسب بالضبط. أوجد عمق البئر وطول الحبل.
+}
+
+\paralleltext{%
+\cnlabel{答} (Da) 井深三尺，绳长九尺。
+}{%
+\arlabel{الجواب} (جواب) عمق البئر ثلاثة أشبار، وطول الحبل تسعة أشبار.
+}
+
+\paralleltext{%
+\textit{Answer:} The well is 3 chi deep; the rope is 9 chi long.
+}{%
+\textit{الإجابة:} عمق البئر ثلاثة أشبار، وطول الحبل تسعة أشبار.
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 以盈不足求之。倍绳余三尺为盈，三折适足为适足，以盈乘适足为实，并盈适足为法，除之得井深。倍之加余得绳长。
+}{%
+\arlabel{طريقة} (طريقة) تُحسب بطريقة الوفرة والنقصان. الفائض ثلاثة أشبار عند مضاعفة الحبل هو الوفرة؛ الملاءمة التامة عند الطي على ثلاثة هي الملاءمة. اضرب الوفرة في الملاءمة للمقسوم، واجمع الوفرة والملاءمة للقاسم، اقسم للحصول على عمق البئر. اضعف وأضف الفائض للحصول على طول الحبل.
+}
+
+\paralleltext{%
+\textit{Method:} Using the ``surplus and deficit'' (ying bu zu) method. The 3 chi excess when doubled is the surplus; the exact fit when tripled is the exact amount. Multiply the surplus by the exact amount for the dividend; add surplus and exact amount for the divisor; divide to obtain the well depth. Double and add the excess for the rope length.
+}{%
+\textit{الشرح:} تُستخدم طريقة ``الوفرة والنقصان''. الفائض ثلاثة أشبار عند مضاعفة الحبل هو الوفرة؛ الملاءمة التامة عند الطي على ثلاثة هي الملاءمة. تُضرب الوفرة في الملاءمة للمقسوم؛ تُجمع الوفرة والملاءمة للقاسم؛ يُقسم للحصول على عمق البئر. يُضاعف ويُضاف الفائض للحصول على طول الحبل.
+}
+
+\paralleltext{%
+\textit{Modern solution:} Let $d$ = well depth, $L$ = rope length. Then $L = 2d + 3$ and $L/3 = d$. Substituting: $2d + 3 = 3d$, giving $d = 3$, $L = 9$.
+}{%
+\textit{الحل الحديث:} ليكن $d$ عمق البئر، $L$ طول الحبل. فإن $L = 2d + 3$ و$L/3 = d$. بالتعويض: $2d + 3 = 3d$، فيعطي $d = 3$، $L = 9$.
+}
+
+%% --------------------------------------------------
+%% PROBLEM 6: CE TA GAO (MEASURING PAGODA HEIGHT)
+%% --------------------------------------------------
+\parallelsubsection{Problem 6: Measuring the Height of a Pagoda (测塔高)}{المسألة السادسة: قياس ارتفاع الباغودا (测塔高)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 有塔高未知，去塔百步立一表高五尺，人目去表一尺八寸，上望塔尖与表端参合。退行六十步，人目去表端仍参合塔尖。求塔高及塔心去表远近。
+}{%
+\arlabel{المسألة} (سؤال) باغودا ارتفاعها مجهول. على بُعد مئة خطوة منها يُنصب عمود ارتفاعه خمسة أشبار. عين المراقب على ارتفاع شبر واحد وثمانية بوصات من الأرض؛ بالنظر إلى الأعلى تتطابق قمة الباغودا مع قمة العمود. بالتراجع ستين خطوة، تتطابق عين المراقب مع القمتين مجدداً. أوجد ارتفاع الباغودا ومسافتها عن العمود.
+}
+
+\paralleltext{%
+\textit{Translation:} A pagoda of unknown height stands at an unknown distance. 100 bu from the pagoda, a 5-chi pole is erected. The observer's eye is 1.8 chi from the ground; looking up, the pagoda's peak aligns with the pole's tip. Retreating 60 bu, the observer's eye again aligns with both the pole's tip and the pagoda's peak. Find the pagoda's height and its distance from the pole.
+}{%
+\textit{الترجمة:} باغودا ارتفاعها مجهول تقف على مسافة مجهولة. على بُعد مئة خطوة يُنصب عمود خمسة أشبار. عين المراقب على ارتفاع شبر وثمانية بوصات؛ بالنظر إلى الأعلى تتطابق القمة مع قمة العمود. بالتراجع ستين خطوة تتطابق العين مع القمتين. أوجد ارتفاع الباغودا ومسافتها عن العمود.
+}
+
+\paralleltext{%
+\cnlabel{答} (Da) 塔身高三丈，塔高一十一丈七尺，与八丈七尺为塔心目长。
+}{%
+\arlabel{الجواب} (جواب) جسد الباغودا ثلاثة أزرة ارتفاعاً، وإجمالي ارتفاعها أحد عشر زراً وسبعة أشبار، ومسافة مركزها عن نقطة القياس ثمانية أزرة وسبعة أشبار.
+}
+
+\paralleltext{%
+\textit{Answer:} The pagoda's body is 3 zhang high; the total height (from ground to peak) is 11 zhang 7 chi; the distance from the pagoda's center to the measuring point is 8 zhang 7 chi.
+}{%
+\textit{الإجابة:} جسد الباغودا ثلاثة أزرة ارتفاعاً؛ الإرتفاع الكلي (من الأرض إلى القمة) أحد عشر زراً وسبعة أشبار؛ المسافة من مركز الباغودا إلى نقطة القياس ثمانية أزرة وسبعة أشبار.
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 此皆大小形通势相求法也。人目去塔为总股，较人目去干为分小股，人目上塔尖高塔身皆为总股高。相轮高为分大勾，数以干去塔分大勾与小较干去塔为分大勾。
+}{%
+\arlabel{الطريقة} (طريقة) كل هذه تطبيقات لطريقة المثلثات المتشابهة (大形小形通势). مسافة العين من الباغودا هي الوتر الكلي؛ مسافة العين من العمود هي الوتر الصغير؛ ارتفاع قمة الباغودا عن مستوى العين هو الارتفاع الكلي. ارتفاع العجلة الدائرية هو القائمة الكبرى؛ تُستخدم النسب بين هذه الكميات.
+}
+
+\paralleltext{%
+\textit{Method:} These are all applications of similar triangles (da xiao xing tong shi). The distance from eye to pagoda is the total height line (zong gu); the distance from eye to pole is the small height line (fen xiao gu). The height from eye level to pagoda peak is the total height; the height from eye level to pole top is the small height. The method uses proportional relationships between these quantities.
+}{%
+\textit{الشرح:} هذه كلها تطبيقات للمثلثات المتشابهة. مسافة العين من الباغودا هي الوتر الكلي؛ مسافة العين من العمود هي الوتر الصغير. ارتفاع قمة الباغودا عن مستوى العين هو الارتفاع الكلي؛ ارتفاع قمة العمود عن مستوى العين هو الارتفاع الصغير. تستخدم الطريقة العلاقات التناسبية بين هذه الكميات.
+}
+
+\paralleltext{%
+\textit{Modern formulation:} Using similar triangles with two poles:
+\[
+\frac{\text{Pagoda height} - \text{eye height}}{\text{Distance to pagoda}} = \frac{\text{Pole height} - \text{eye height}}{\text{Distance to pole}}
+\]
+With the given numerical values, this yields the pagoda height $H = 117$ chi and distance $D = 87$ chi.
+}{%
+\textit{الصياغة الحديثة:} باستخدام المثلثات المتشابهة بعمودين:
+\[
+\frac{\text{ارتفاع الباغودا} - \text{ارتفاع العين}}{\text{المسافة إلى الباغودا}} = \frac{\text{ارتفاع العمود} - \text{ارتفاع العين}}{\text{المسافة إلى العمود}}
+\]
+بالقيم الرقمية المعطاة، يُعطى هذا ارتفاع الباغودا $H = 117$ شبراً ومسافة $D = 87$ شبراً.
+}
+
+%% --------------------------------------------------
+%% PROBLEM 7: GE HE CE YUAN (DISTANCE ACROSS RIVER)
+%% --------------------------------------------------
+\parallelsubsection{Problem 7: Distance Across a River (隔河测远)}{المسألة السابعة: القياس عبر النهر (隔河测远)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 问隔河望一高岸，不知其远。平地立一表，人目上望见岸顶，又退立一表望之亦见岸顶。求河阔及岸高。
+}{%
+\arlabel{المسألة} (سؤال) عبر نهر، ضفة مرتفعة مرئية على مسافة مجهولة. يُنصب عمود على أرض مستوية؛ بالنظر إلى الأعلى من مستوى العين تُرى قمة الضفة. بالتراجع ونصب عمود آخر، تُرى القمة مجدداً. أوجد عرض النهر وارتفاع الضفة.
+}
+
+\paralleltext{%
+\textit{Translation:} Across a river, a high bank is visible at an unknown distance. A pole is erected on level ground; looking up from eye level, the bank's top is visible. Retreating and erecting another pole, the bank's top is again visible. Find the width of the river and the height of the bank.
+}{%
+\textit{الترجمة:} عبر نهر، ضفة مرتفعة مرئية على مسافة مجهولة. يُنصب عمود على أرض مستوية؛ بالنظر إلى الأعلى تُرى قمة الضفة. بالتراجع ونصب عمود آخر، تُرى القمة مجدداً. أوجد عرض النهر وارتفاع الضفة.
+}
+
+\paralleltext{%
+\cnlabel{答} (Da) 河阔若干步，岸高若干尺。
+}{%
+\arlabel{الجواب} (جواب) عرض النهر عدد معين من الخطوات، وارتفاع الضفة عدد معين من الأشبار.
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 以重差求之。两表退行步数之差为法，前表去岸远乘表高为实，实如法而一得岸高。又以法除后表去岸远乘表高亦得岸高，两者相验。
+}{%
+\arlabel{الطريقة} (طريقة) تُحسب بطريقة الاختلاف المزدوج. فرق مسافتي التراجع للعمودين هو القاسم. اضرب مسافة العمود الأمامي من الضفة في ارتفاع العمود للمقسوم، اقسم للحصول على ارتفاع الضفة. وبالمثل للعمود الخلفي؛ ينبغي أن يتفق الناتجان (للتحقق).
+}
+
+\paralleltext{%
+\textit{Method:} Using the ``double difference'' (chong cha) method. The difference between the two retreat distances is the divisor. Multiply the front pole's distance to the bank by the pole height for the dividend; divide to obtain the bank height. Similarly for the rear pole; the two results should agree (providing verification).
+}{%
+\textit{الشرح:} تُستخدم طريقة ``الاختلاف المزدوج''. فرق مسافتي التراجع للعمودين هو القاسم. تُضرب مسافة العمود الأمامي من الضفة في ارتفاع العمود للمقسوم؛ يُقسم للحصول على ارتفاع الضفة. وبالمثل للعمود الخلفي؛ ينبغي أن يتفق الناتجان (للتحقق).
+}
+
+\paralleltext{%
+\textit{Note:} The ``double difference'' method uses two observations to eliminate the unknown distance, yielding the height directly. This is the method used by Liu Hui in the \textit{Haidao Suanjing} for measuring the sea island. Qin Jiushao generalizes it to polynomial equations of arbitrary degree.
+}{%
+\textit{ملاحظة:} تستخدم طريقة ``الاختلاف المزدوج'' ملاحظتين للتخلص من المسافة المجهولة، معطية الارتفاع مباشرة. هذه هي الطريقة التي استخدمها ليو هوي في \textit{كتاب جزيرة البحر} لقياس جزيرة البحر. يُعمِّمها تشين جيوشاو إلى معادلات متعددة الحدود من درجة عشوائية.
+}
+
+%% --------------------------------------------------
+%% PROBLEM 8: JIU CHENG FANG (NINTH-DEGREE ROOT)
+%% --------------------------------------------------
+\parallelsubsection{Problem 8: Ninth-Degree Root Extraction (九乘方)}{المسألة الثامنة: استخراج الجذر من الدرجة التاسعة (九乘方)}
+
+\paralleltext{%
+\cnlabel{问} (Wen) 问以开九乘方术解方程，其立法之原若何。
+}{%
+\arlabel{المسألة} (سؤال) عن طريقة استخراج الجذر من الدرجة التاسعة لحل المعادلات --- ما المبدأ الأساسي لهذه الطريقة؟
+}
+
+\paralleltext{%
+\textit{Translation:} On the method of extracting ninth-degree roots to solve equations --- what is the fundamental principle of this method?
+}{%
+\textit{الترجمة:} عن طريقة استخراج الجذور من الدرجة التاسعة لحل المعادلات --- ما المبدأ الأساسي لهذه الطريقة؟
+}
+
+\paralleltext{%
+\cnlabel{术} (Shu) 开方之术，至于九乘方，其理一也。先列实于中，次定隅位，次立方法、廉法。商除之际，以上乘隅生廉，以上乘廉生方，以上乘方除实。每进一位，则方退一，廉退二，隅退三。如是迭进，直至实尽为止。
+}{%
+\arlabel{الطريقة} (طريقة) طريقة استخراج الجذر، حتى الدرجة التاسعة، تتبع نفس المبدأ. ضع المقسوم في الوسط أولاً، ثم حدد موضع المعامل الوحدي، ثم أَسِّس المعامل الخطي والمعاملات الوسيطة. عند القسمة بالتقدير: اضرب التقدير في المعامل الوحدي لتوليد المعاملات الوسيطة، اضرب التقدير في المعاملات الوسيطة لتوليد المعامل الخطي، اضرب التقدير في المعامل الخطي واطرح من المقسوم. عند كل إزاحة عشرية، يتراجع المعامل الخطي مرتبة واحدة، والمعاملات الوسيطة مرتبتين، والمعامل الوحدي ثلاث. استمر تكرارياً حتى ينفد المقسوم.
+}
+
+\paralleltext{%
+\textit{Method:} The method of root extraction, up to the ninth degree, follows the same principle. First place the dividend in the middle; then determine the unit position; then establish the linear and intermediate coefficients. During division-by-estimation: multiply the estimate by the unit coefficient to generate the intermediate coefficients; multiply the estimate by the intermediate coefficients to generate the linear coefficient; multiply the estimate by the linear coefficient and subtract from the dividend. At each decimal shift, the linear coefficient descends one place, the intermediate descend two places, and the unit descends three. Continue iteratively until the dividend is exhausted.
+}{%
+\textit{الشرح:} طريقة استخراج الجذر، حتى الدرجة التاسعة، تتبع نفس المبدأ. يُوضع المقسوم في الوسط؛ ثم يُحدد موضع المعامل الوحدي؛ ثم تُؤسَّس المعاملات الخطية والوسيطة. عند القسمة بالتقدير: تُضرب التقدير في المعامل الوحدي لتوليد المعاملات الوسيطة؛ تُضرب التقدير في المعاملات الوسيطة لتوليد المعامل الخطي؛ تُضرب التقدير في المعامل الخطي ويُطرح من المقسوم. عند كل إزاحة عشرية، يتراجع المعامل الخطي مرتبة، والوسيطة مرتبتين، والوحدة ثلاث. استمرار تكراري حتى ينفد المقسوم.
+}
+
+\paralleltext{%
+\textit{Mathematical note:} This describes \textbf{Horner's method} for solving polynomial equations, which Qin Jiushao developed independently centuries before Horner. For a polynomial $a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0$, the method systematically reduces the polynomial by factoring out $(x - r)$ where $r$ is the estimated root at each step. Qin's achievement in solving tenth-degree equations was unprecedented in world mathematics.
+}{%
+\textit{ملاحظة رياضية:} يصف هذا \textbf{طريقة هورنر} لحل المعادلات متعددة الحدود، التي طوَّرها تشين جيوشاو بشكل مستقل قروناً قبل هورنر. لمعادلة من الدرجة $n$: $a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0$، تُنقص الطريقة المعادلة systematically بإخراج العامل $(x - r)$ حيث $r$ هو الجذر المقدَّر في كل خطوة. كان إنجاز تشين في حل معادلات الدرجة العاشرة بلا سابق في تاريخ الرياضيات العالمية.
+}
+
+\newpage
+
+%% ========================================================================
+%% APPENDIX: SURVEYING METHODS IN CHINESE MATHEMATICS
+%% ========================================================================
+\parallelsection{Appendix: Surveying Methods in Chinese Mathematics}{ملحق: طرق القياس في الرياضيات الصينية}
+
+\parallelsubsection{A.1 The Double Difference Method (重差术)}{أ.١ طريقة الاختلاف المزدوج (重差术)}
+
+\paralleltext{%
+The ``double difference'' (chong cha, 重差) method is the crowning achievement of ancient Chinese surveying. Originating in Liu Hui's commentary on the \textit{Jiuzhang Suanshu} (c.\ 263 CE) and given full expression in his \textit{Haidao Suanjing}, the method uses two (or more) observations from different positions to determine inaccessible heights and distances.
+}{%
+تُعدُّ طريقةُ ``الاختلاف المزدوج'' (重差) إنجازاً تاجياً في المساحة الصينية القديمة. نشأت في تعليقات ليو هوي على \textit{كتاب المسائل التسع} (حوالي ٢٦٣ م) وأُعطيت صياغة كاملة في \textit{كتاب جزيرة البحر الحسابي}، تستخدم الطريقة ملاحظتين (أو أكثر) من مواضع مختلفة لتحديد الارتفاعات والمسافات غير المتاحة.
+}
+
+\paralleltext{%
+The name ``double difference'' refers to the two difference measurements: the difference in distances between the two observation points, and the difference in alignment angles (or pole heights). From these two differences, the unknown quantities are calculated by proportional reasoning through similar right triangles.
+}{%
+يشير اسم ``الاختلاف المزدوج'' إلى قياسي الاختلاف: فرق المسافات بين نقطتي الملاحظة، وفرق زوايا المحاذاة (أو ارتفاعات العمود). من هذين الاختلافين، تُحسب الكميات المجهولة بالتناسل من خلال المثلثات القائمة المتشابهة.
+}
+
+\parallelsubsection{A.2 Similar Triangles in Chinese Mathematics (勾股通势)}{أ.٢ المثلثات المتشابهة في الرياضيات الصينية (勾股通势)}
+
+\paralleltext{%
+The Chinese term \textit{gougu tongshi} (勾股通势, ``corresponding forms of hook and gourd'') expresses the principle of similar right triangles. The \textit{gou} (勾) is the base, the \textit{gu} (股) is the altitude, and the \textit{xian} (弦) is the hypotenuse. When two right triangles share an acute angle, their corresponding sides are proportional: $\frac{\text{gou}_1}{\text{gou}_2} = \frac{\text{gu}_1}{\text{gu}_2} = \frac{\text{xian}_1}{\text{xian}_2}$.
+}{%
+يعبر المصطلح الصيني \textit{勾股通势} (``الأشكال المتقابلة للوتر والقائمة'') عن مبدأ المثلثات القائمة المتشابهة. الـ\textit{勾} هو القاعدة، والـ\textit{股} هو الارتفاع، والـ\textit{弦} هو الوتر. عندما يتشارك مثلثان قائمان زاوية حادة، فإن أضلاعهما المتقابلة متناسبة: $\frac{\text{قاعدة}_1}{\text{قاعدة}_2} = \frac{\text{ارتفاع}_1}{\text{ارتفاع}_2} = \frac{\text{وتر}_1}{\text{وتر}_2}$.
+}
+
+\paralleltext{%
+This principle, equivalent to what Euclid called the property of similar triangles (Elements VI.4), was used extensively in Chinese surveying. The \textit{Ce Wang} problems all reduce to setting up proportions between known and unknown gou-gu pairs and solving for the inaccessible quantity.
+}{%
+هذا المبدأ، المكافئ لما دعا إقليده خاصية المثلثات المتشابهة (العناصر س٦.٤)، استُخدم على نطاق واسع في المساحة الصينية. تُختزل جميع مسائل القياس والمراقبة إلى إقامة التناسبات بين أزواج الوتر والقائمة المعروفة والمجهولة وحل الكمية غير المتاحة.
+}
+
+\parallelsubsection{A.3 The Counting Rod System (筹算)}{أ.٣ نظام الأعواد الحسابية (筹算)}
+
+\paralleltext{%
+The counting rod system (chou suan, 筹算) was the primary computational tool in ancient Chinese mathematics. Numbers were represented by bamboo sticks arranged in a decimal place-value system on a counting board. This positional system enabled sophisticated algebraic computations including root extraction and solution of polynomial equations up to degree 10.
+}{%
+كان نظامُ الأعواد الحسابية (筹算) الأداةَ الحسابية الأساسية في الرياضيات الصينية القديمة. تُمثَّل الأرقام بعصي الخيزران مرتبة في نظام قيمة مكانية عشري على لوح حسابي. مكَّن هذا النظام الموقعي من عمليات جبرية متطورة تشمل استخراج الجذور وحل المعادلات متعددة الحدود حتى الدرجة العاشرة.
+}
+
+\paralleltext{%
+In the counting rod layout for root extraction, the positions were arranged in columns: \textit{shang} (商, result/estimate), \textit{shi} (实, dividend), \textit{fang} (方, linear coefficient), \textit{lian} (廉, intermediate coefficients), and \textit{yu} (隅, unit coefficient). At each step of the computation, these values were updated according to the algorithm, with systematic place-value shifts.
+}{%
+في تخطيط الأعواد الحسابية لاستخراج الجذر، كانت المواضع مرتبة في أعمدة: \textit{商} (النتيجة/التقدير)، و\textit{实} (المقسوم)، و\textit{方} (المعامل الخطي)، و\textit{廉} (المعاملات الوسيطة)، و\textit{隅} (المعامل الوحدي). عند كل خطوة من الحساب، حُدِّثت هذه القيم وفق الخوارزمية، مع إزاحات منهجية للقيمة الموقعية.
+}
+
+\parallelsubsection{A.4 Qin Jiushao's Generalization}{أ.٤ تعميم تشين جيوشاو}
+
+\paralleltext{%
+Qin Jiushao's contribution to surveying mathematics was to unify the double-difference method with his general root-extraction technique (the ``method of the celestial element,'' tian yuan shu). This allowed him to formulate surveying problems as polynomial equations of high degree and solve them systematically. His solution of a tenth-degree equation arising from a surveying problem (Problem 1 of this fascicle) stands as a remarkable achievement in medieval mathematics.
+}{%
+كان إسهامُ تشين جيوشاو في رياضيات المساحة هو توحيد طريقة الاختلاف المزدوج مع تقنيته العامة لاستخراج الجذور (``طريقة العنصر السماوي''، 天元术). هذا مكَّنه من صياغة مسائل المساحة كمعادلات متعددة حدود من درجة عالية وحلها بشكل منهجي. يُعد حله لمعادلة من الدرجة العاشرة الناشئة عن مسألة مساحة (المسألة الأولى من هذا الجزء) إنجازاً ملحوظاً في الرياضيات الوسطى.
+}
+
+\vspace{1.5cm}
+
+\begin{center}
+\textcolor{colrule}{\rule{8cm}{0.6pt}}\\[0.5cm]
+{\small\textit{End of Fascicle IV / نهاية الفصل الرابع}}\\[0.3cm]
+{\small Shu Xue Jiu Zhang — Juan 4 Shang, Juan 4 Xia / 数学九章 — 卷四上，卷四下}\\[0.3cm]
+{\small\arabicfont\beginR كتاب المسائل التسع في الحساب — الجزء الرابع أ والرابع ب\endR}
+\end{center}
+
+\end{document}
