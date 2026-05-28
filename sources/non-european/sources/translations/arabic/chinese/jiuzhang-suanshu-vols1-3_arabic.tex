@@ -1,0 +1,2501 @@
+%% =============================================================================
+%% Jiuzhang Suanshu (Nine Chapters on the Mathematical Art) -- Fascicles 1-3
+%% CHINESE-ARABIC BILINGUAL EDITION
+%% Original Classical Chinese | Arabic Translation
+%% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{etoolbox}
+\usepackage{verse}
+\usepackage{microtype}
+
+%% -------- Page Geometry (wider margins for bilingual) --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Renderer=Harfbuzz
+]
+\setsansfont{Linux Biolinum O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  Renderer=Harfbuzz
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% Arabic Font Setup
+\newfontfamily\arabicfont[Script=Arabic,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
+\TeXXeTstate=1
+\newcommand{\ar}[1]{\arabicfont\beginR #1\endR}
+
+%% CJK Font Setup
+\setCJKmainfont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKsansfont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKmonofont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{commentarycolor}{RGB}{70,90,110}
+\definecolor{problemcolor}{RGB}{30,60,90}
+\definecolor{answercolor}{RGB}{40,80,60}
+\definecolor{methodcolor}{RGB}{80,50,30}
+\definecolor{arabiccolor}{RGB}{50,40,70}
+\definecolor{chinesecolor}{RGB}{70,30,30}
+
+%% -------- Column Settings for paracol --------
+\columnsep=1.2em
+\globalcounter{section}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{九章算術 -- الجُزْآن الثلاثة الأولى}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\cn}[1]{\textcolor{chinesecolor}{#1}}
+\newcommand{\arcol}[1]{\textcolor{arabiccolor}{\ar{#1}}}
+
+\newcommand{\problemnum}[1]{\textbf{[\ignorespaces#1\unskip]}}
+
+%% Bilingual environment: Chinese left, Arabic right
+\newenvironment{bilingual}{%
+  \begin{paracol}{2}%
+  \switchcolumn[0]*%
+}{%
+  \end{paracol}%
+}
+
+\newcommand{\cnline}[1]{\switchcolumn[0]\noindent #1 \switchcolumn[1]}
+\newcommand{\arline}[1]{\noindent\ar{#1} \switchcolumn[0]*}
+
+%% Problem bilingual environment
+\newenvironment{prob bilingual}{%
+  \begin{paracol}{2}%
+  \switchcolumn[0]*%
+}{%
+  \end{paracol}%
+  \vspace{0.3em}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Jiuzhang Suanshu -- Chinese-Arabic Bilingual Edition Volumes 1-3},
+  pdfauthor={Anonymous; Commentary by Liu Hui; Arabic Translation},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% -------- Vertical Spacing --------
+\setlength{\parskip}{0.3em}
+\setlength{\parindent}{0pt}
+
+%% =============================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\Huge\bfseries\color{titlecolor} 九章算術}\\[0.5cm]
+{\Huge\bfseries\color{titlecolor}\ar{كِتَابُ الْجُزْآنِ فِي عِلْمِ الْحِسَابِ}}\\[1cm]
+{\LARGE\bfseries\color{sectioncolor} JIUZHANG SUANSHU}\\[0.3cm]
+{\Large\textit{Nine Chapters on the Mathematical Art}}\\[0.3cm]
+{\Large\ar{الْفُصُولُ التِّسْعَةُ فِي فَنِّ الْحِسَابِ}}\\[2cm]
+
+\rule{0.7\textwidth}{0.8pt}\\[1.5cm]
+
+{\Large\bfseries Chinese--Arabic Bilingual Edition}\\[0.3cm]
+{\Large\bfseries\ar{الطَّبْعَةُ الثُّنَائِيَّةُ الصِّينِيَّةُ الْعَرَبِيَّةُ}}\\[1.5cm]
+
+{\large With Commentary by \textbf{Liu Hui} (劉徽, 263 CE)}\\[0.3cm]
+{\large\ar{مَعَ شُرُوحِ لِيُو هُوِي (٢٦٣ م)}}\\[0.5cm]
+{\large and Later Annotations by Li Chunfeng (李淳風, 656 CE)}\\[0.3cm]
+{\large\ar{وَشُرُوحِ لِي شُونْفِنْج (٦٥٦ م)}}\\[2cm]
+
+{\Large\bfseries Volumes 1--3 | الجُزْآنُ الثَّلَاثَةُ الأولَى}\\[1cm]
+
+\begin{tabular}{cll}
+\textbf{卷一} & 方田 & \ar{الْحُقُولُ الْمُسْتَطِيلَةُ}\\[0.3cm]
+\textbf{卷二} & 粟米 & \ar{الدُّخْنُ وَالأَرُزُّ (التَّبَادُلُ النِّسْبِيُّ)}\\[0.3cm]
+\textbf{卷三} & 衰分 & \ar{التَّوْزِيعُ الْمُرَجَّحُ}\\
+\end{tabular}
+
+\vfill
+
+{\small Compiled c.~200 BCE--200 CE \quad|\quad Commentary 263 CE}\\[0.3cm]
+{\small\ar{تَأْلِيفٌ حَوَالَيْ ٢٠٠ قَ.م -- ٢٠٠ م \quad|\quad شُرُوحُ ٢٦٣ م}}\\[1cm]
+
+\rule{0.4\textwidth}{0.4pt}
+
+\end{center}
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+
+%% =============================================================================
+\section*{劉徽九章算術注原序 | \ar{الْمُقَدِّمَةُ لِلْجُزْآنِ فِي عِلْمِ الْحِسَابِ}}
+\addcontentsline{toc}{section}{Preface: 劉徽九章算術注原序}
+
+\begin{bilingual}
+\cnline{%
+\begin{center}
+\rule{0.4\columnwidth}{0.4pt}
+\end{center}
+}
+\arline{%
+\begin{center}
+\rule{0.4\columnwidth}{0.4pt}
+\end{center}
+}
+
+\cnline{%
+昔在包犧氏始畫八卦，以通神明之德，以類萬物之情，作九九之術以合六爻之變。
+}
+\arline{%
+قَدِيمًا، فِي زَمَنِ بَاوْ شِي، رَسَمَ الثَّمَانِيَةَ الأَخْطُوطَ، لِيُطْلِعَ عَلَى خَصَائِصِ الْآلِهَةِ، وَلِيَصِفَ طَبَائِعَ الْخَلَائِقِ، وَابْتَدَعَ طَرِيقَةَ التَّرْقِيمِ التِّسْعِيَّةَ لِتُطَابِقَ تَغَيُّرَاتِ الْخُطُوطِ السِّتَّةِ.
+}
+
+\cnline{%
+暨於黃帝神而化之，引而伸之，於是建曆紀，協律呂，用稽道原，然後兩儀四象精微之氣可得而效焉。
+}
+\arline{%
+ثُمَّ فِي زَمَنِ الْإِمْبَرَاطُورِ الأَصْفَرِ، تَمَّ تَطْوِيرُهَا وَتَوْسِيعُهَا، فَأُنْشِئَ التَّقْوِيمُ وَالْمَوَازِينُ الصَّوْتِيَّةُ، وَبِهَا تَمَّ اسْتِقْصَاءُ أَصْلِ الطَّرِيقِ، وَحِينَئِذٍ أَصْبَحَ مِنَ الْمُمْكِنِ فَهْمُ دِقَّةِ قُوَى الْأَرْضَيْنِ وَالصُّوَرِ الأَرْبَعِ.
+}
+
+\cnline{%
+記稱隸首作數，其詳未之聞也。
+}
+\arline{%
+وَفِي السِّجِلَّاتِ أَنَّ لِي شُو أَوَّلَ مَنْ وَضَعَ الْعَدَدَ، لَكِنَّ التَّفَاصِيلَ لَمْ تَصِلْنَا.
+}
+
+\cnline{%
+按周公制禮而有九數，九數之流，則九章是矣。
+}
+\arline{%
+وَحَسَبَ مَا وَرَدَ، فَإِنَّ دُكْ أُونْ وَضَعَ الطَّقْسَ فَكَانَتِ التِّسْعُ عُلُومِ الرِّيَاضِيَّاتِ، وَمِنْ سَيْلِ هَذِهِ التِّسْعَةِ كَانَ هَذَا الْكِتَابُ الْجُزْآنِ.
+}
+
+\cnline{%
+往者暴秦焚書，經術散壞。自時厥後，漢北平侯張蒼、大司農中丞耿壽昌皆以善算命世。
+}
+\arline{%
+فِي الْعَهْدِ السَّابِقِ، حِينَ أَحْرَقَتْ دَوْلَةُ تْشِنَ الْعُنِيفَةَ الْكُتُبَ، تَشَتَّتَتِ الْعُلُومُ. وَمُنْذُ ذَلِكَ الْوَقْتِ، فَإِنَّ جَانَغ تْسَانْغ وَغِنْغ شُو شْانْغ مِنْ حَاكِمِيَّةِ هَانْ قَدْ أَتْقَنُوا فَنَّ الْحِسَابِ.
+}
+
+\cnline{%
+蒼等因舊文之遺殘，各稱刪補。故校其目則與古或異，而所論者多近語也。
+}
+\arline{%
+وَقَامَ تْشَانْغ وَغَيْرُهُ بِتَنْظِيمِ مَا تَبَقَّى مِنَ النُّصُوصِ الْقَدِيمَةِ، فَكَانَتْ عُنَوَانُهَا قَدْ تَخْتَلِفُ عَنِ الْقَدِيمِ، وَكَانَتْ مُسْتَخْدَمَةً بِلُغَةٍ قَرِيبَةٍ.
+}
+
+\cnline{%
+徽幼習九章，長再詳覽。觀陰陽之割裂，總算術之根源，探賾之暇，遂悟其意。
+}
+\arline{%
+أَنَا هُوِي، فِي صِغَرِي تَعَلَّمْتُ الْجُزْآنَ، وَفِي كِبَرِي دَرَسْتُهَا مُفَصَّلًا. أَرَى تَقْسِيمَ الْيِنِ وَالْيَانْغِ، وَأَجْمَعُ جُذُورَ عِلْمِ الْحِسَابِ، وَفِي أَوْقَاتِ الِاسْتِكْشَافِ، أَدْرَكْتُ مَعْنَاهَا.
+}
+
+\cnline{%
+是以敢竭頑魯，采其所見，為之作注。
+}
+\arline{%
+لِهَذَا أَجْرُؤُ عَلَى بَذْلِ جُهْدِي، مُسْتَخْدِمًا مَا أَرَاهُ، لِأَشْرَحَ هَذَا الْكِتَابَ.
+}
+
+\cnline{%
+事類相推，各有攸歸，故枝條雖分而同本榦者，知發其一端而已。
+}
+\arline{%
+الْأُمُورُ تَتَشَابَهُ وَتَتَشَابَكُ، لِكُلٍّ مِنْهَا مَصِيرُهَا، فَالْأَفْرُعُ مُنْتَشِرَةٌ لَكِنَّ لَهَا أَصْلًا وَاحِدًا، وَمَنْ يَعْرِفُ بِدَايَتَهَا يَعْرِفُ كُلَّ شَيْءٍ.
+}
+
+\cnline{%
+又所析理以辭，解體用圖，庶亦約而能周，通而不黷，覽之者思過半矣。
+}
+\arline{%
+وَأُوَضِّحُ الْمَبَادِئَ بِاللُّغَةِ، وَأَشْرَحُ الْهَيْكَلَ بِالرُّسُومِ، لَعَلَّهَا تَكُونُ مُوجَزَةً وَشَامِلَةً، وَاضِحَةً غَيْرَ مُبْهَمَةٍ، فَيَفْهَمَ الْقَارِئُ نِصْفَ الْمَعْنَى بِنِصْفِ الْعَمَلِ.
+}
+
+\cnline{%
+且算在六藝，古者以賓興賢能，教習國子。雖曰九數，其能窮纖入微，探測無方。
+}
+\arline{%
+الْحِسَابُ مِنَ الْفُنُونِ السِّتَّةِ، وَفِي الْقُدُمَاءِ كَانَ يُسْتَخْدَمُ لِتَرْبِيَةِ أَبْنَاءِ الدَّوْلَةِ. وَمَعَ أَنَّهَا تُسَمَّى التِّسْعَ عُلُومٍ، فَإِنَّهَا تَسْتَطِيعُ أَنْ تَصِلَ إِلَى أَدْقِّ التَّفَاصِيلِ وَأَدْنَى الْمَرَاتِبِ.
+}
+
+\cnline{%
+至於以法相傳，亦猶規矩度量可得而共，非特難為也。
+}
+\arline{%
+وَأَمَّا تَنَاقُلُ الطُّرُقِ، فَإِنَّهُ كَالْمِقْيَاسِ وَالْمِيزَانِ الَّذِي يُمْكِنُ الِاشْتِرَاكُ فِيهِ، وَلَيْسَ بِالْأَمْرِ الصَّعْبِ.
+}
+
+\cnline{%
+當今好之者寡，故世雖多通才達學，而未必能綜於此耳。
+}
+\arline{%
+فِي هَذَا الزَّمَانِ قَلَّ الْمُحِبُّونَ لَهَا، فَالْعَالَمُ مَلِيءٌ بِالْمَوَاهِبِ وَالْعُلُومِ، لَكِنَّهُمْ لَا يَسْتَطِيعُونَ الْجَمْعَ بَيْنَهَا فِي هَذَا الْفَنِّ.
+}
+
+\cnline{%
+周官大司徒職，夏至日中立八尺之表，其景尺有五寸，謂之地中。
+}
+\arline{%
+فِي مَنْصِبِ الْمُعَلِّمِ الْكَبِيرِ لِدُوْلَةِ تْشُو، فِي يَوْمِ الْصَّيْفِ، تُوضَعُ عَصَا بِطُولِ ثَمَانِيَةِ أَذْرُعٍ، وَظِلُّهَا خَمْسَةَ عَشَرَ بُوصَةً، وَيُسَمَّى مَرْكَزَ الْأَرْضِ.
+}
+
+\cnline{%
+徽尋九數有重差之名，原其指趣乃所以施於此也。
+}
+\arline{%
+وَأَجِدُ أَنَّ مِنَ التِّسْعِ عُلُومٍ مَا يُسَمَّى الِاسْتِقْصَاءَ، وَأَصْلُ مَعْنَاهُ يُطَبَّقُ هُنَا.
+}
+
+\cnline{%
+凡望極高、測絕深而兼知其遠者必用重差，句股則必以重差為率，故曰重差也。
+}
+\arline{%
+فِي كُلِّ مَنْظَرٍ إِلَى عُلْوٍ شَاهِقٍ، أَوْ قِيَاسِ عُمْقٍ لَا يُنْتَهَى، أَوْ مَعْرِفَةِ بُعْدٍ مَعَهُمَا، يَجِبُ اسْتِخْدَامُ الِاسْتِقْصَاءِ، وَالْوَتْرُ وَالْعَمُودُ يَسْتَخْدِمَانِهِ كَنِسْبَةٍ، فَلِهَذَا يُسَمَّى اسْتِقْصَاءً.
+}
+
+\cnline{%
+雖天圓穹之象猶曰可度，又況泰山之高與江海之廣哉。
+}
+\arline{%
+وَمَعَ أَنَّ صُورَةَ السَّمَاءِ الْمُدَوَّرَةِ الْمُقَبَّبَةِ قَابِلَةٌ لِلْقِيَاسِ، فَكَيْفَ بِعُلُوِّ جَبَلِ تَايْ شَانْ وَاتِّسَاعِ الْأَنْهَارِ وَالْبِحَارِ؟
+}
+
+\cnline{%
+徽以為今之史籍且略舉天地之物，考論厥數，載之於志，以闡世術之美。
+}
+\arline{%
+أَظُنُّ أَنَّ كُتُبَ التَّارِيخِ الْحَالِيَّةَ تُعْطِي نَظْرَةً مُجْمَلَةً عَلَى أَشْيَاءِ السَّمَاءِ وَالْأَرْضِ، فَأُحَقِّقُ أَعْدَادَهَا وَأَسْجُلُهَا فِي مُذَكَّرَاتِي، لِأُبَيِّنَ جَمَالَ فُنُونِ الْعَالَمِ.
+}
+
+\cnline{%
+輒造重差，并為注解，以究古人之意，綴於句股之下。
+}
+\arline{%
+أَصْنَعُ الِاسْتِقْصَاءَ وَأُشَرِّحُهُ، لِأَسْتَقْصِيََ مَقَاصِدَ الْقُدَمَاءِ، وَأُلْحِقُهُ بِفَصْلِ الْوَتْرِ وَالْعَمُودِ.
+}
+
+\cnline{%
+度高者重表，測深者累矩，孤離者三望，離而又旁求者四望。
+}
+\arline{%
+قِيَاسُ الْعُلُوِّ بِالْجَدَاوِلِ الْمُضَاعَفَةِ، وَقِيَاسُ الْعُمْقِ بِالْمَنَاسِيرِ الْمُتَرَاكِمَةِ، وَالْمَوْقِفُ الْمُنْفَرِدُ يَحْتَاجُ ثَلَاثَ مَنَاظِرَ، وَالْمَوْقِفُ الْمُنْفَرِدُ ذُو الِاسْتِكْشَافِ الْجَانِبِيِّ يَحْتَاجُ أَرْبَعَ مَنَاظِرَ.
+}
+
+\cnline{%
+觸類而長之，則雖幽遐詭伏，靡所不入。
+}
+\arline{%
+مَنْ طَبَّقَ هَذَا عَلَى أَصْنَافِ الْأُمُورِ وَتَمَادَى فِيهِ، فَإِنَّهُ يَصِلُ إِلَى كُلِّ خَافِيَةٍ وَبَعِيدَةٍ وَغَامِضَةٍ، وَلَا شَيْءَ يَعْجِزُ عَنْهُ.
+}
+
+\cnline{%
+\begin{flushright}
+\textit{博物君子，詳而覽焉。}
+\end{flushright}
+}
+\arline{%
+\begin{flushleft}
+\textit{\ar{يَا أَيُّهَا الْفَاضِلُ الْعَالِمُ، اطَّلِعْ عَلَيْهِ بِتَأَنٍّ.}}
+\end{flushleft}
+}
+\end{bilingual}
+
+\newpage
+
+
+%% =============================================================================
+\section{卷第一：方田 | \ar{الْجُزْءُ الأَوَّلُ: الْحُقُولُ الْمُسْتَطِيلَةُ}}
+\label{sec:fangtian}
+\addcontentsline{toc}{subsection}{Fangtián -- Rectangular Fields | \ar{الْحُقُولُ الْمُسْتَطِيلَةُ}}
+
+\begin{center}
+\textit{方田以御田疇界域} \quad|\quad \textit{\ar{الْحُقُولُ الْمُسْتَطِيلَةُ لِلْمُعَالَجَةِ حُدُودِ الْأَرَاضِي}}
+\end{center}
+
+\bigskip
+
+\begin{bilingual}
+\cnline{%
+\noindent\textbf{方田}者，田之正也。諸田不等，以方為正，故曰方田。此章以御田疇界域，論各種田地面積之計算法，并及分數四則運算之法。
+}
+\arline{%
+\textbf{الْحُقُولُ الْمُسْتَطِيلَةُ}: هِيَ أَصْلُ الْحُقُولِ. الْحُقُولُ مُخْتَلِفَةٌ، وَالْمُسْتَطِيلُ هُوَ الْأَصْلُ، فَلِهَذَا سُمِّيَتْ "الْحُقُولَ الْمُسْتَطِيلَةَ". يُعَالِجُ هَذَا الْفَصْلُ حُدُودَ الْأَرَاضِي، وَيَنَاقِشُ طُرُقَ حِسَابِ مَسَاحَاتِ الْحُقُولِ مِنْ أَنْوَاعٍ مُخْتَلِفَةٍ، وَأَيْضًا عَمَلِيَّاتِ الْكُسُورِ الأَرْبَعِ.
+}
+\end{bilingual}
+
+\bigskip
+
+%% ----- Problems 1-2 -----
+\begin{bilingual}
+\cnline{\problemnum{一}\, 今有田廣十五步，從十六步。問為田幾何？}
+\arline{\problemnum{١}\, يُوجَدُ حَقْلٌ عَرْضُهُ خَمْسَةَ عَشَرَ خُطْوَةً، وَطُولُهُ سِتَّةَ عَشَرَ خُطْوَةً. كَمْ مِنَ الأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一畝。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مُوّ (وَحِدَةُ مِسَاحَةٍ).}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二}\, 又有田廣十二步，從十四步。問為田幾何？}
+\arline{\problemnum{٢}\, وَفِي حَقْلٍ آخَرَ عَرْضُهُ اثْنَا عَشَرَ خُطْوَةً، وَطُولُهُ أَرْبَعَ عَشْرَةَ خُطْوَةً. كَمْ مِنَ الأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一百六十八步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مِئَةٌ وَثَمَانٍ وَسِتُّونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{方田術曰：}}廣從步數相乘得積步。以畝法二百四十步除之，即畝數。百畝為一頃。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ الْحُقُولِ الْمُسْتَطِيلَةِ:}} اضْرِبْ عَدَدَ خُطُوَاتِ الْعَرْضِ فِي عَدَدِ خُطُوَاتِ الطُّولِ فَتَحْصُلُ عَلَى الْمِسَاحَةِ. اقْسِمْ عَلَى مِئَتَيْنِ وَأَرْبَعِينَ خُطْوَةً لِكُلِّ مُوّ، فَتَحْصُلُ عَلَى عَدَدِ الْمُوّاتِ. وَمِائَةُ مُوّ تُسَاوِي قِرْيَةً وَاحِدَةً.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}此積謂田之冪。凡廣從相乘謂之冪。畝法二百四十步者，古制也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} هَذِهِ الْمِسَاحَةُ هِيَ مُرَبَّعُ الْحَقْلِ. وَكُلُّ مَا يُحْصَلُ عَلَيْهِ مِنْ ضَرْبِ الْعَرْضِ فِي الطُّولِ يُسَمَّى مُرَبَّعًا. وَمِئَتَانِ وَأَرْبَعُونَ خُطْوَةً لِكُلِّ مُوّ هِيَ النِّظَامُ الْقَدِيمُ.
+}
+\end{bilingual}
+
+%% ----- Problems 3-4 -----
+\begin{bilingual}
+\cnline{\problemnum{三}\, 今有田廣一里，從一里。問為田幾何？}
+\arline{\problemnum{٣}\, يُوجَدُ حَقْلٌ عَرْضُهُ لِيٌّ وَاحِدٌ، وَطُولُهُ لِيٌّ وَاحِدٌ. كَمْ مِنَ الأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}三頃七十五畝。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَلَاثُ قُرًى وَخَمْسَةٌ وَسَبْعُونَ مُوًّا.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四}\, 又有田廣二里，從三里。問為田幾何？}
+\arline{\problemnum{٤}\, وَفِي حَقْلٍ آخَرَ عَرْضُهُ لِيَّانِ، وَطُولُهُ ثَلَاثَةُ أَلْيَاتٍ. كَمْ مِنَ الأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}二十二頃五十畝。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} اثْنَتَانِ وَعِشْرُونَ قَرْيَةً وَخَمْسُونَ مُوًّا.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{里田術曰：}}廣從里數相乘得積里。以三百七十五乘之，即畝數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ حُقُولِ اللِّي:}} اضْرِبْ عَدَدَ أَلْيَاتِ الْعَرْضِ فِي عَدَدِ أَلْيَاتِ الطُّولِ فَتَحْصُلُ عَلَى مِسَاحَةِ الْأَلْيَاتِ. اضْرِبْ ذَلِكَ فِي ثَلَاثِمِائَةٍ وَخَمْسَةٍ وَسَبْعِينَ، فَتَحْصُلُ عَلَى عَدَدِ الْمُوّاتِ.
+}
+\end{bilingual}
+
+%% ----- Problems 5-6 (Fraction reduction) -----
+\begin{bilingual}
+\cnline{\problemnum{五}\, 今有十八分之十二。問約之得幾何？}
+\arline{\problemnum{٥}\, يُوجَدُ اثْنَا عَشَرَ عَلَى ثَمَانِيَةَ عَشَرَ. كَمْ يَكُونُ بَعْدَ الِاخْتِصَارِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}三分之二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثُلْثَانِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{六}\, 又有九十一分之四十九。問約之得幾何？}
+\arline{\problemnum{٦}\, وَفِي كَسْرٍ آخَرَ تِسْعَةٌ وَأَرْبَعُونَ عَلَى وَاحِدٍ وَتِسْعِينَ. كَمْ يَكُونُ بَعْدَ الِاخْتِصَارِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}十三分之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} سَبْعَةٌ عَلَى ثَلَاثَةَ عَشَرَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{約分術曰：}}可半者半之，不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ اخْتِصَارِ الْكُسُورِ:}} مَا يَنْقَسِمُ إِلَى النِّصْفِ فَانْصِفْهُ، وَمَا لَا يَنْقَسِمُ، فَضَعْ أَعْدَادَ الْبَسْطِ وَالْمَقَامِ عَلَى الْجَانِبِ، وَاطْرَحِ الْأَصْغَرَ مِنَ الْأَكْبَرِ، وَكَرِّرِ الطَّرْحَ بَيْنَهُمَا، فَتَطْلُبُ الْعَدَدَ الْمُشْتَرَكَ. وَبِالْعَدَدِ الْمُشْتَرَكِ تُبَسِّطُ الْكَسْرَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}約分者，物之數量不可悉全，必以分言之。等數者，約之篤也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} الِاخْتِصَارُ: كَمِّيَاتُ الْأَشْيَاءِ لَا تَكُونُ كَامِلَةً عَادَةً، فَلَابُدَّ مِنَ التَّعْبِيرِ عَنْهَا بِالْكُسُورِ. وَالْعَدَدُ الْمُشْتَرَكُ هُوَ أَصْلُ الِاخْتِصَارِ.
+}
+\end{bilingual}
+
+%% ----- Problems 7-9 (Adding fractions) -----
+\begin{bilingual}
+\cnline{\problemnum{七}\, 今有三分之一，五分之二。問合之得幾何？}
+\arline{\problemnum{٧}\, يُوجَدُ ثُلْثٌ، وَثُلْثَانِ مِنْ خَمْسَةٍ. كَمْ يَكُونُ مَجْمُوعُهَا؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}十五分之十一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} أَحَدَ عَشَرَ عَلَى خَمْسَةَ عَشَرَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{八}\, 又有三分之二，七分之四，九分之五。問合之得幾何？}
+\arline{\problemnum{٨}\, وَكَسْرٌ آخَرُ: اثْنَانِ عَلَى ثَلَاثَةٍ، وَأَرْبَعَةٌ عَلَى سَبْعَةٍ، وَخَمْسَةٌ عَلَى تِسْعَةٍ. كَمْ يَكُونُ مَجْمُوعُهَا؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}得一、六十三分之五十。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} وَاحِدٌ، وَخَمْسُونَ عَلَى ثَلَاثَةٍ وَسِتِّينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{九}\, 又有二分之一，三分之二，四分之三，五分之四。問合之得幾何？}
+\arline{\problemnum{٩}\, وَكَسْرٌ آخَرُ: نِصْفٌ، وَثُلْثَانِ، وَثَلَاثَةٌ عَلَى أَرْبَعَةٍ، وَأَرْبَعَةٌ عَلَى خَمْسَةٍ. كَمْ يَكُونُ مَجْمُوعُهَا؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}得二、六十分之四十三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} اثْنَانِ، وَثَلَاثَةٌ وَأَرْبَعُونَ عَلَى سِتِّينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{合分術曰：}}母互乘子，并為實，母相乘為法，實如法而一。不滿法者，以法命之。其母同者，直相從之。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ جَمْعِ الْكُسُورِ:}} اضْرِبْ كُلَّ مَقَامٍ فِي بَسْطِ الْمَقَامِ الْآخَرِ، وَاجْمَعْ فَتَحْصُلُ عَلَى الْبَسْطِ. وَاضْرِبِ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْمَقَامَ. وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ. فَإِنْ بَقِيَ شَيْءٌ، فَأَطْلِقْ عَلَيْهِ اسْمَ الْمَقَامِ. فَإِنْ تَسَاوَتِ الْمَقَامَاتُ، فَاجْمَعْ مُبَاشَرَةً.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}合分者，并數之義也。母互乘子，約而言之。母相乘為法者，齊而同之也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} جَمْعُ الْكُسُورِ: هُوَ مَعْنَى جَمْعِ الْأَعْدَادِ. ضَرْبُ كُلِّ مَقَامٍ فِي بَسْطِ الْآخَرِ هُوَ تَبْسِيطٌ. وَضَرْبُ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ لِيَكُونَ الْمَقَامَ هُوَ تَوْحِيدُهَا.
+}
+\end{bilingual}
+
+%% ----- Problems 10-11 (Subtracting fractions) -----
+\begin{bilingual}
+\cnline{\problemnum{一０}\, 今有九分之八，減其五分之一。問餘幾何？}
+\arline{\problemnum{١٠}\, يُوجَدُ ثَمَانِيَةٌ عَلَى تِسْعَةٍ، وَنُقِصُ مِنْهَا خُمْسَهَا. كَمْ يَبْقَى؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}四十五分之三十一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} وَاحِدٌ وَثَلَاثُونَ عَلَى خَمْسَةٍ وَأَرْبَعِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一一}\, 又有四分之三，減其三分之一。問餘幾何？}
+\arline{\problemnum{١١}\, وَكَسْرٌ آخَرُ: ثَلَاثَةٌ عَلَى أَرْبَعَةٍ، نُقِصُ مِنْهَا ثُلْثَهَا. كَمْ يَبْقَى؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}十二分之五。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} خَمْسَةٌ عَلَى اثْنَيْ عَشَرَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{減分術曰：}}母互乘子，以少減多，餘為實，母相乘為法，實如法而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ طَرْحِ الْكُسُورِ:}} اضْرِبْ كُلَّ مَقَامٍ فِي بَسْطِ الْآخَرِ، وَاطْرَحِ الْأَصْغَرَ مِنَ الْأَكْبَرِ، فَالْبَاقِي يَكُونُ بَسْطًا. وَاضْرِبِ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْمَقَامَ. وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ.
+}
+\end{bilingual}
+
+
+%% ----- Problems 12-14 (Comparing fractions) -----
+\begin{bilingual}
+\cnline{\problemnum{一二}\, 今有八分之五，二十五分之十六。問孰多？多幾何？}
+\arline{\problemnum{١٢}\, يُوجَدُ خَمْسَةٌ عَلَى ثَمَانِيَةٍ، وَسِتَّةَ عَشَرَ عَلَى خَمْسَةٍ وَعِشْرِينَ. أَيُّهُمَا أَكْبَرُ؟ وَبِكَمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}二十五分之十六多，多二百分之三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} سِتَّةَ عَشَرَ عَلَى خَمْسَةٍ وَعِشْرِينَ هُوَ الْأَكْبَرُ، بِزِيَادَةِ ثَلَاثَةٍ عَلَى مِئَتَيْنِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一三}\, 又有九分之八，七分之六。問孰多？多幾何？}
+\arline{\problemnum{١٣}\, وَكَسْرَانِ آخَرَانِ: ثَمَانِيَةٌ عَلَى تِسْعَةٍ، وَسِتَّةٌ عَلَى سَبْعَةٍ. أَيُّهُمَا أَكْبَرُ؟ وَبِكَمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}九分之八多，多六十三分之二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَمَانِيَةٌ عَلَى تِسْعَةٍ هِيَ الْأَكْبَرُ، بِزِيَادَةِ اثْنَيْنِ عَلَى ثَلَاثَةٍ وَسِتِّينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一四}\, 又有二十一分之八，五十分之十七。問孰多？多幾何？}
+\arline{\problemnum{١٤}\, وَكَسْرَانِ آخَرَانِ: ثَمَانِيَةٌ عَلَى وَاحِدٍ وَعِشْرِينَ، وَسَبْعَةَ عَشَرَ عَلَى خَمْسِينَ. أَيُّهُمَا أَكْبَرُ؟ وَبِكَمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}二十一分之八多，多一千五十分之四十三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَمَانِيَةٌ عَلَى وَاحِدٍ وَعِشْرِينَ هِيَ الْأَكْبَرُ، بِزِيَادَةِ ثَلَاثَةٍ وَأَرْبَعِينَ عَلَى أَلْفٍ وَخَمْسِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{課分術曰：}}母互乘子，以少減多，餘為實，母相乘為法，實如法而一，即相多也。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ مُقَارَنَةِ الْكُسُورِ:}} اضْرِبْ كُلَّ مَقَامٍ فِي بَسْطِ الْآخَرِ، وَاطْرَحِ الْأَصْغَرَ مِنَ الْأَكْبَرِ، فَالْبَاقِي يَكُونُ بَسْطًا. وَاضْرِبِ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْمَقَامَ. وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَتَحْصُلُ عَلَى الْفَرْقِ.
+}
+\end{bilingual}
+
+%% ----- Problems 15-16 (Equalizing fractions) -----
+\begin{bilingual}
+\cnline{\problemnum{一五}\, 今有三分之一，三分之二，四分之三。問減多益少，各幾何而平？}
+\arline{\problemnum{١٥}\, يُوجَدُ ثُلْثٌ، وَثُلْثَانِ، وَثَلَاثَةٌ عَلَى أَرْبَعَةٍ. كَمْ يُنْقَصُ مِنَ الْأَكْبَرِ وَيُزَادُ إِلَى الْأَصْغَرِ حَتَّى يَتَسَاوَوْا؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}減四分之三者二，三分之二者一，并以益三分之一，而各平於十二分之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يُنْقَصُ مِنَ الثَّلَاثَةِ عَلَى أَرْبَعَةٍ اثْنَانِ، وَمِنَ الثُّلْثَيْنِ وَاحِدٌ، وَالْجَمِيعُ يُضَافُ إِلَى الثُّلْثِ، فَيَتَعَادَلُونَ عِنْدَ سَبْعَةٍ عَلَى اثْنَيْ عَشَرَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一六}\, 又有二分之一，三分之二，四分之三。問減多益少，各幾何而平？}
+\arline{\problemnum{١٦}\, وَفِي أَعْدَادٍ أُخْرَى: نِصْفٌ، وَثُلْثَانِ، وَثَلَاثَةٌ عَلَى أَرْبَعَةٍ. كَمْ يُنْقَصُ مِنَ الْأَكْبَرِ وَيُزَادُ إِلَى الْأَصْغَرِ حَتَّى يَتَسَاوَوْا؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}減三分之二者一，四分之三者四，并以益二分之一，而各平於三十六分之二十三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يُنْقَصُ مِنَ الثُّلْثَيْنِ وَاحِدٌ، وَمِنَ الثَّلَاثَةِ عَلَى أَرْبَعَةٍ أَرْبَعَةٌ، وَالْجَمِيعُ يُضَافُ إِلَى النِّصْفِ، فَيَتَعَادَلُونَ عِنْدَ ثَلَاثَةٍ وَعِشْرِينَ عَلَى سِتَّةٍ وَثَلَاثِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{平分術曰：}}母互乘子，副并為平實，母相乘為法。以列數乘未并者各自為列實。亦以列數乘法，以平實減列實，餘，約之為所減。并所減以益於少，以法命平實，各得其平。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ التَّعْدِيلِ:}} اضْرِبْ كُلَّ مَقَامٍ فِي بَسْطِ الْآخَرِ، وَاجْمَعِ النُّتَائِجَ عَلَى الْجَانِبِ فَتَكُونُ الْمُتَوَسِّطَ. وَاضْرِبِ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْمَقَامَ. وَاضْرِبْ عَدَدَ الصُّفُوفِ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ صُفُوفًا. وَاضْرِبِ الْمَقَامَ أَيْضًا فِي عَدَدِ الصُّفُوفِ، وَاطْرَحِ الْمُتَوَسِّطَ مِنْ صُفُوفِ كُلٍّ، فَالْبَاقِي بَعْدَ الِاخْتِصَارِ هُوَ مَا يُنْقَصُ. وَاجْمَعِ مَا نُقِصَ لِيُضَافَ إِلَى الْأَصْغَرِ، وَاسْمُ الْمَقَامِ عَلَى الْمُتَوَسِّطِ، فَيَحْصُلُ كُلٌّ عَلَى حِصَّتِهِ الْمُتَعَادِلَةِ.
+}
+\end{bilingual}
+
+%% ----- Problems 17-18 (Division with fractions) -----
+\begin{bilingual}
+\cnline{\problemnum{一七}\, 今有七人，分八錢三分錢之一。問人得幾何？}
+\arline{\problemnum{١٧}\, يُوجَدُ سَبْعَةُ أَشْخَاصٍ، يُقَسَّمُ بَيْنَهُمْ ثَمَانِيَةُ قُرُوشٍ وَثُلُثُ قُرْشٍ. كَمْ لِكُلِّ وَاحِدٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}人得一錢、二十一分錢之四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ وَاحِدٍ قُرْشٌ وَاحِدٌ وَأَرْبَعَةٌ عَلَى وَاحِدٍ وَعِشْرِينَ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一八}\, 又有三人，三分人之一，分六錢三分錢之一，四分錢之三。問人得幾何？}
+\arline{\problemnum{١٨}\, وَفِي ثَلَاثَةِ أَشْخَاصٍ وَثُلُثِ شَخْصٍ، يُقَسَّمُ بَيْنَهُمْ سِتَّةُ قُرُوشٍ وَثُلُثُ قُرْشٍ وَثَلَاثَةٌ عَلَى أَرْبَعَةٍ مِنَ الْقُرْشِ. كَمْ لِكُلِّ وَاحِدٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}人得二錢、八分錢之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ وَاحِدٍ قُرْشَانِ وَثُمُنُ قُرْشٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{經分術曰：}}以人數為法，錢數為實，實如法而一。有分者通之，重有分者同而通之。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ التَّقْسِيمِ الْمُبَاشَرِ:}} اجْعَلْ عَدَدَ النَّاسِ مَقَامًا، وَعَدَدَ الْقُرُوشِ بَسْطًا، وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ. فَإِنْ كَانَتْ كُسُورٌ فَوَحِّدْهَا، وَإِنْ كَانَتْ كُسُورٌ مُتَعَدِّدَةٌ فَوَحِّدْهَا جَمِيعًا.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}經分者，徑以人數分錢之義。通分者，齊而同之，使可分也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} التَّقْسِيمُ الْمُبَاشَرُ: مَعْنَاهُ تَقْسِيمُ الْقُرُوشِ بِعَدَدِ النَّاسِ مُبَاشَرَةً. وَتَوْحِيدُ الْكُسُورِ: هُوَ جَعْلُهَا مُتَشَابِهَةً لِتَصِلَحَ لِلتَّقْسِيمِ.
+}
+\end{bilingual}
+
+%% ----- Problems 19-21 (Multiplying fractions) -----
+\begin{bilingual}
+\cnline{\problemnum{一九}\, 今有田廣七分步之四，從五分步之三。問為田幾何？}
+\arline{\problemnum{١٩}\, يُوجَدُ حَقْلٌ عَرْضُهُ أَرْبَعَةٌ عَلَى سَبْعَةٍ مِنَ الْخُطْوَةِ، وَطُولُهُ ثَلَاثَةٌ عَلَى خَمْسَةٍ مِنَ الْخُطْوَةِ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}三十五分步之十二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} اثْنَا عَشَرَ عَلَى خَمْسَةٍ وَثَلَاثِينَ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二０}\, 又有田廣九分步之七，從十一分步之九。問為田幾何？}
+\arline{\problemnum{٢٠}\, وَفِي حَقْلٍ آخَرَ عَرْضُهُ سَبْعَةٌ عَلَى تِسْعَةٍ مِنَ الْخُطْوَةِ، وَطُولُهُ تِسْعَةٌ عَلَى أَحَدَ عَشَرَ مِنَ الْخُطْوَةِ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}十一分步之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} سَبْعَةٌ عَلَى أَحَدَ عَشَرَ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二一}\, 又有田廣五分步之四，從九分步之五，問為田幾何？}
+\arline{\problemnum{٢١}\, وَفِي حَقْلٍ عَرْضُهُ أَرْبَعَةٌ عَلَى خَمْسَةٍ مِنَ الْخُطْوَةِ، وَطُولُهُ خَمْسَةٌ عَلَى تِسْعَةٍ مِنَ الْخُطْوَةِ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}九分步之四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} أَرْبَعَةٌ عَلَى تِسْعَةٍ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{乘分術曰：}}母相乘為法，子相乘為實，實如法而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ ضَرْبِ الْكُسُورِ:}} اضْرِبِ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْمَقَامَ، وَاضْرِبِ الْبَسْطَاتِ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}乘分者，分母相乘為法，子相乘為實，猶有分數以乘積步之法也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} ضَرْبُ الْكُسُورِ: ضَرْبُ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ لِلْمَقَامِ، وَضَرْبُ الْبَسْطَاتِ بَعْضُهَا فِي بَعْضٍ لِلْبَسْطِ، كَمَا فِي طَرِيقَةِ ضَرْبِ الْخُطُوَاتِ الْمُكَسَّرَةِ.
+}
+\end{bilingual}
+
+%% ----- Problems 22-24 (Large width fields) -----
+\begin{bilingual}
+\cnline{\problemnum{二二}\, 今有田廣三步、三分步之一，從五步、五分步之二。問為田幾何？}
+\arline{\problemnum{٢٢}\, يُوجَدُ حَقْلٌ عَرْضُهُ ثَلَاثُ خُطُوَاتٍ وَثُلُثُ خُطْوَةٍ، وَطُولُهُ خَمْسُ خُطُوَاتٍ وَثُمْنَا خُطُوَاتٍ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}十八步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَمَانِيَ عَشْرَةَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二三}\, 又有田廣七步、四分步之三，從十五步、九分步之五。問為田幾何？}
+\arline{\problemnum{٢٣}\, وَفِي حَقْلٍ آخَرَ عَرْضُهُ سَبْعُ خُطُوَاتٍ وَثَلَاثَةٌ عَلَى أَرْبَعَةٍ مِنَ الْخُطْوَةِ، وَطُولُهُ خَمْسَ عَشْرَةَ خُطْوَةً وَخَمْسَةٌ عَلَى تِسْعَةٍ مِنَ الْخُطْوَةِ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一百二十步、九分步之五。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مِائَةٌ وَعِشْرُونَ خُطْوَةً وَخَمْسَةٌ عَلَى تِسْعَةٍ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二四}\, 又有田廣十八步、七分步之五，從二十三步、十一分步之六。問為田幾何？}
+\arline{\problemnum{٢٤}\, وَفِي حَقْلٍ عَرْضُهُ ثَمَانِيَ عَشْرَةَ خُطْوَةً وَخَمْسَةٌ عَلَى سَبْعَةٍ مِنَ الْخُطْوَةِ، وَطُولُهُ ثَلَاثٌ وَعِشْرُونَ خُطْوَةً وَسِتَّةٌ عَلَى أَحَدَ عَشَرَ مِنَ الْخُطْوَةِ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一畝二百步、十一分步之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مُوّ وَاحِدٌ وَمِائَتَانِ مِنَ الْخُطْوَةِ وَسَبْعَةٌ عَلَى أَحَدَ عَشَرَ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{大廣田術曰：}}分母各乘其全，分子從之，相乘為實。分母相乘為法。實如法而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ الْعَرْضِ الْكَبِيرِ:}} كُلُّ مَقَامٍ يُضْرَبُ فِي كَامِلِهِ، وَالْبَسْطُ يَتْبَعُهُ، وَالنَّاتِجُ يُضْرَبُ فَيَكُونُ الْبَسْطَ. وَالْمَقَامَاتُ تُضْرَبُ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْمَقَامَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ.
+}
+\end{bilingual}
+
+%% ----- Problems 25-26 (Triangular fields) -----
+\begin{bilingual}
+\cnline{\problemnum{二五}\, 今有圭田廣十二步，正從二十一步。問為田幾何？}
+\arline{\problemnum{٢٥}\, يُوجَدُ حَقْلُ قَلَمِ الْكِتَابَةِ عَرْضُهُ اثْنَتَا عَشْرَةَ خُطْوَةً، وَطُولُهُ وَاحِدٌ وَعِشْرُونَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一百二十六步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مِائَةٌ وَسِتٌّ وَعِشْرُونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二六}\, 又有圭田廣五步、二分步之一，從八步、三分步之二。問為田幾何？}
+\arline{\problemnum{٢٦}\, وَفِي حَقْلُ قَلَمٍ آخَرَ عَرْضُهُ خَمْسُ خُطُوَاتٍ وَنِصْفُ خُطْوَةٍ، وَطُولُهُ ثَمَانِيَ خُطُوَاتٍ وَثُلْثَا خُطْوَةٍ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}二十三步、六分步之五。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَلَاثٌ وَعِشْرُونَ خُطْوَةً وَخَمْسَةٌ عَلَى سِتَّةٍ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}半廣以乘正從。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} انْصِفِ الْعَرْضَ وَاضْرِبْهُ فِي الطُّولِ الْمُسْتَقِيمِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}半廣者，以盈補虛，為直田也。亦可以半正從以乘廣。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} نِصْفُ الْعَرْضِ: بِاسْتِخْدَامِ الزَّائِدِ لِتَعْوِيضِ النَّاقِصِ، يَصِيرُ حَقْلًا مُسْتَطِيلًا. وَأَيْضًا يُمْكِنُ أَنْ يُنْصَفَ الطُّولُ الْمُسْتَقِيمُ وَيُضْرَبَ فِي الْعَرْضِ.
+}
+\end{bilingual}
+
+%% ----- Problems 27-28 (Trapezoidal fields) -----
+\begin{bilingual}
+\cnline{\problemnum{二七}\, 今有邪田，一頭廣三十步，一頭廣四十二步，正從六十四步。問為田幾何？}
+\arline{\problemnum{٢٧}\, يُوجَدُ حَقْلٌ مُنْحَرِفٌ، عَرْضُ طَرَفٍ ثَلَاثُونَ خُطْوَةً، وَعَرْضُ الطَّرَفِ الْآخَرِ اثْنَتَانِ وَأَرْبَعُونَ خُطْوَةً، وَالطُّولُ الْمُسْتَقِيمُ أَرْبَعٌ وَسِتُّونَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}九畝一百四十四步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} تِسْعَةُ مُوّاتٍ وَمِائَةٌ وَأَرْبَعٌ وَأَرْبَعُونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二八}\, 又有邪田，正廣六十五步，一畔從一百步，一畔從七十二步。問為田幾何？}
+\arline{\problemnum{٢٨}\, وَفِي حَقْلٍ مُنْحَرِفٍ، عَرْضُهُ الْمُسْتَقِيمُ خَمْسٌ وَسِتُّونَ خُطْوَةً، وَجَانِبَاهُ مِائَةُ خُطْوَةٍ وَاثْنَتَانِ وَسَبْعُونَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}二十三畝七十步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَلَاثٌ وَعِشْرُونَ مُوًّا وَسَبْعُونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}并兩邪而半之，以乘正從若廣。又可半正從若廣，以乘并，畝法而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْمَعِ الْمُنْحَرِفَيْنِ وَانْصِفْهُمَا، وَاضْرِبْ فِي الطُّولِ الْمُسْتَقِيمِ أَوِ الْعَرْضِ. وَأَيْضًا يُمْكِنُ نَصْفُ الطُّولِ الْمُسْتَقِيمِ أَوِ الْعَرْضِ، وَاضْرِبْهُ فِي الْمَجْمُوعِ، ثُمَّ اقْسِمْ عَلَى مِئَتَيْنِ وَأَرْبَعِينَ.
+}
+\end{bilingual}
+
+%% ----- Problems 29-30 (Spoon-shaped fields) -----
+\begin{bilingual}
+\cnline{\problemnum{二九}\, 今有箕田，舌廣二十步，踵廣五步，正從三十步。問為田幾何？}
+\arline{\problemnum{٢٩}\, يُوجَدُ حَقْلُ مِجْرَفَةٍ، عَرْضُ لِسَانِهِ عِشْرُونَ خُطْوَةً، وَعَرْضُ عَقِبِهِ خَمْسُ خُطُوَاتٍ، وَطُولُهُ الْمُسْتَقِيمُ ثَلَاثُونَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一畝一百三十五步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مُوّ وَاحِدٌ وَمِائَةٌ وَخَمْسٌ وَثَلَاثُونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三０}\, 又有箕田，舌廣一百一十七步，踵廣五十步，正從一百三十五步。問為田幾何？}
+\arline{\problemnum{٣٠}\, وَفِي حَقْلُ مِجْرَفَةٍ آخَرَ، عَرْضُ لِسَانِهِ مِائَةٌ وَسَبْعَةَ عَشَرَ خُطْوَةً، وَعَرْضُ عَقِبِهِ خَمْسُونَ خُطْوَةً، وَطُولُهُ الْمُسْتَقِيمُ مِائَةٌ وَخَمْسٌ وَثَلَاثُونَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}四十六畝二百三十二步半。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} سِتٌّ وَأَرْبَعُونَ مُوًّا وَمِائَتَانِ وَاثْنَتَانِ وَثَلَاثُونَ خُطْوَةً وَنِصْفٌ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}并踵舌而半之，以乘正從。畝法而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْمَعِ الْعَقِبَ وَاللِّسَانَ وَانْصِفْهُمَا، وَاضْرِبْ فِي الطُّولِ الْمُسْتَقِيمِ. ثُمَّ اقْسِمْ عَلَى مِئَتَيْنِ وَأَرْبَعِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}箕田者，形如箕。踵者，狹端也；舌者，廣端也。并而半之，猶兩邪之術也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} حَقْلُ الْمِجْرَفَةِ: شَكْلُهُ كَشَكْلِ الْمِجْرَفَةِ. الْعَقِبُ هُوَ الطَّرَفُ الضَّيِّقُ، وَاللِّسَانُ هُوَ الطَّرَفُ الْوَاسِعُ. جَمْعُهُمَا وَنَصْفُهُمَا كَطَرِيقَةِ الْمُنْحَرِفَيْنِ.
+}
+\end{bilingual}
+
+
+%% ----- Problems 31-32 (Circular fields) -----
+\begin{bilingual}
+\cnline{\problemnum{三一}\, 今有圓田，周三十步，徑十步。問為田幾何？}
+\arline{\problemnum{٣١}\, يُوجَدُ حَقْلٌ دَائِرِيُّ الْمُحِيطِ ثَلَاثُونَ خُطْوَةً، وَقُطْرُهُ عَشْرُ خُطُوَاتٍ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}七十五步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} خَمْسٌ وَسَبْعُونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三二}\, 又有圓田，周一百八十一步，徑六十步、三分步之一。問為田幾何？}
+\arline{\problemnum{٣٢}\, وَفِي حَقْلٍ دَائِرِيٍّ مُحِيطُهُ مِائَةٌ وَوَاحِدٌ وَثَمَانُونَ خُطْوَةً، وَقُطْرُهُ سِتُّونَ خُطْوَةً وَثُلُثُ خُطْوَةٍ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}十一畝九十步、十二分步之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} أَحَدَ عَشَرَ مُوًّا وَتِسْعُونَ خُطْوَةً وَوَاحِدٌ عَلَى اثْنَيْ عَشَرَ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}半周半徑相乘得積步。
+
+又術曰：周徑相乘，四而一。
+
+又術曰：徑自相乘，三之，四而一。
+
+又術曰：周自相乘，十二而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} نِصْفُ الْمُحِيطِ مَضْرُوبٌ فِي نِصْفِ الْقُطْرِ فَيَحْصُلُ عَلَى الْمِسَاحَةِ.
+
+طَرِيقَةٌ أُخْرَى: اضْرِبِ الْمُحِيطَ فِي الْقُطْرِ، وَاقْسِمْ عَلَى أَرْبَعَةٍ.
+
+طَرِيقَةٌ أُخْرَى: اضْرِبِ الْقُطْرَ فِي نَفْسِهِ، وَاضْرِبْ فِي ثَلَاثَةٍ، وَاقْسِمْ عَلَى أَرْبَعَةٍ.
+
+طَرِيقَةٌ أُخْرَى: اضْرِبِ الْمُحِيطَ فِي نَفْسِهِ، وَاقْسِمْ عَلَى اثْنَيْ عَشَرَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}此于徽術，當為田十畝二百八步三百一十四分步之一百一。臣淳風等謹依密率，為田十畝二百步八十八分步之八十七。
+
+按：半周為從，半徑為廣，故廣從相乘為積步也。假令圓徑二尺，圓中容六觚之一面，與圓徑之半，其數均等。合徑率一而外周率三也。
+
+又按：為圖，以六觚之一面乘一弧半徑，三之，得十二觚之冪。若又割之，次以十二觚之一面乘一弧之半徑，六之，則得二十四觚之冪。割之彌細，所失彌少。割之又割，以至于不可割，則與圓周合體而無所失矣。觚面之外，又有餘徑。以面乘餘徑，則冪出觚表。若夫觚之細者，與圓合體，則表無餘徑。表無餘徑，則冪不外出矣。以一面乘半徑，觚而裁之，每輒自倍。故以半周乘半徑而為圓冪。
+
+此一周、徑，謂至然之數，非周三徑一之率也。周三者，從其六觚之環耳。以推圓規多少之覺，乃弓之與弦也。然世傳此法，莫肯精核；學者踵古，習其謬失。不有明據，辯之斯難。凡物類形象，不圓則方。方圓之率，誠著于近，則雖遠可知也。由此言之，其用博矣。謹按圖驗，更造密率。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} وَحَسَبَ طَرِيقَتِي، يَجِبُ أَنْ يَكُونَ الْحَقْلُ عَشَرَةَ مُوّاتٍ وَمِائَتَيْنِ وَثَمَانِيَ خُطُوَاتٍ وَمِائَةً وَوَاحِدًا عَلَى ثَلَاثِمِائَةٍ وَأَرْبَعَةَ عَشَرَ. وَحَسَبَ النِّسْبَةِ الدَّقِيقَةِ لِي شُونْفِنْج: عَشَرَةُ مُوّاتٍ وَمِائَتَانِ مِنَ الْخُطْوَةِ وَسَبْعٌ وَثَمَانُونَ عَلَى ثَمَانٍ وَثَمَانِينَ مِنَ الْخُطْوَةِ.
+
+التَّفْسِيرُ: نِصْفُ الْمُحِيطِ هُوَ الطُّولُ، وَنِصْفُ الْقُطْرِ هُوَ الْعَرْضُ، فَضَرْبُ الْعَرْضِ فِي الطُّولِ يُعْطِي الْمِسَاحَةَ. لِنَفْتَرِضْ أَنَّ قُطْرَ الدَّائِرَةِ ذِرَاعَانِ، فَوَجْهُ السِّدَاسِيِّ الْمَكْتُوبِ فِيهَا مَعَ نِصْفِ الْقُطْرِ يَتَسَاوَيَانِ. فَنِسْبَةُ الْقُطْرِ وَاحِدٌ، وَنِسْبَةُ الْمُحِيطِ ثَلَاثَةٌ.
+
+وَأَيْضًا: فِي الرَّسْمِ، اضْرِبْ وَجْهَ السِّدَاسِيِّ فِي نِصْفِ قُطْرِ الْقَوْسِ، وَاضْرِبْ فِي ثَلَاثَةٍ، فَتَحْصُلُ عَلَى مِسَاحَةِ الِاثْنَيْ عَشَرَ ضِلْعًا. فَإِنْ قُسِّمَتْ مَرَّةً أُخْرَى، ثُمَّ اضْرِبْ وَجْهَ الِاثْنَيْ عَشَرَ ضِلْعًا فِي نِصْفِ قُطْرِ الْقَوْسِ، وَاضْرِبْ فِي سِتَّةٍ، فَتَحْصُلُ عَلَى مِسَاحَةِ الْأَرْبَعَةِ وَالْعِشْرِينَ ضِلْعًا. وَكُلَّمَا كَانَ التَّقْسِيمُ أَدَقَّ، كَانَ النَّقْصُ أَقَلَّ. وَإِنْ تَمَّ التَّقْسِيمُ حَتَّى لَا يُمْكِنُ التَّقْسِيمُ، فَإِنَّهَا تَنْدَمِجُ مَعَ الْمُحِيطِ الدَّائِرِيِّ دُونَ أَيِّ نَقْصٍ.
+
+هَذَا الْمُحِيطُ وَالْقُطْرُ هُمَا أَعْدَادٌ حَقِيقِيَّةٌ، لَيْسَا نِسْبَةَ ثَلَاثَةٍ لِلْقُطْرِ إِلَى الْوَاحِدِ. الثَّلَاثَةُ لِلْمُحِيطِ هِيَ مِنْ حَلْقَةِ السِّدَاسِيِّ فَقَطْ. وَالتَّفْرِيقُ بَيْنَ الدَّائِرَةِ وَالْمُسْطَّرِ كَالْفَرْقِ بَيْنَ الْقَوْسِ وَالْوَتَرِ. وَلَكِنَّ النَّاسَ يُنَاقَلُونَ هَذِهِ الطَّرِيقَةَ دُونَ تَحْقِيقٍ، وَالْعُلَمَاءُ يَتْبَعُونَ الْقُدَمَاءَ فِي أَخْطَائِهِمْ. فَبِدُونِ دَلِيلٍ وَاضِحٍ، يَصْعُبُ الْجَدَلُ. كُلُّ شَيْءٍ فِي الطَّبِيعَةِ، إِنْ لَمْ يَكُنْ دَائِرِيًّا فَهُوَ مُرَبَّعٌ. وَنِسَبُ الدَّائِرَةِ وَالْمُرَبَّعِ ظَاهِرَةٌ فِي مَا هُوَ قَرِيبٌ، وَبِهَا يُمْكِنُ مَعْرِفَةِ مَا هُوَ بَعِيدٌ. وَمِنْ هَذَا الْمَنْطِقِ، فَإِنَّ اسْتِخْدَامَهَا وَاسِعٌ. وَبِنَاءً عَلَى التَّجْرِبَةِ، أُحْدِثُ نِسْبَةً دَّقِيقَةً.
+}
+\end{bilingual}
+
+%% ----- Problems 33-34 (Domed fields) -----
+\begin{bilingual}
+\cnline{\problemnum{三三}\, 今有宛田，下周三十步，徑十六步。問為田幾何？}
+\arline{\problemnum{٣٣}\, يُوجَدُ حَقْلٌ مُحَدَّبٌ، مُحِيطُهُ السُّفْلِيُّ ثَلَاثُونَ خُطْوَةً، وَقُطْرُهُ سِتَّةَ عَشَرَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一百二十步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مِائَةٌ وَعِشْرُونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三四}\, 又有宛田，下周九十九步，徑五十一步。問為田幾何？}
+\arline{\problemnum{٣٤}\, وَفِي حَقْلٍ مُحَدَّبٍ، مُحِيطُهُ السُّفْلِيُّ تِسْعٌ وَتِسْعُونَ خُطْوَةً، وَقُطْرُهُ وَاحِدٌ وَخَمْسُونَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}五畝六十二步、四分步之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} خَمْسَةُ مُوّاتٍ وَاثْنَانِ وَسِتُّونَ خُطْوَةً وَرُبْعُ خُطْوَةٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以徑乘周，四而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اضْرِبِ الْقُطْرَ فِي الْمُحِيطِ، وَاقْسِمْ عَلَى أَرْبَعَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}宛田者，中央隆高，形如覆碗。此術以徑乘周四而一，亦猶圓冪之義也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} الْحَقْلُ الْمُحَدَّبُ: مُرْتَفِعٌ مِنَ الْوَسَطِ، وَشَكْلُهُ كَالْقَدَحِ الْمَقْلُوبِ. هَذِهِ الطَّرِيقَةُ بِضَرْبِ الْقُطْرِ فِي الْمُحِيطِ وَالْقِسْمَةِ عَلَى أَرْبَعَةٍ، هِيَ أَيْضًا كَمَعْنَى مِسَاحَةِ الدَّائِرَةِ.
+}
+\end{bilingual}
+
+%% ----- Problems 35-36 (Arc fields) -----
+\begin{bilingual}
+\cnline{\problemnum{三五}\, 今有弧田，弦三十步，矢十五步。問為田幾何？}
+\arline{\problemnum{٣٥}\, يُوجَدُ حَقْلُ قَوْسٍ، وَتَرُهُ ثَلَاثُونَ خُطْوَةً، وَسَهْمُهُ خَمْسَةَ عَشَرَ خُطْوَةً. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一畝九十七步半。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مُوّ وَاحِدٌ وَسَبْعٌ وَتِسْعُونَ خُطْوَةً وَنِصْفٌ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三六}\, 又有弧田，弦七十八步、二分步之一，矢十三步、九分步之七。問為田幾何？}
+\arline{\problemnum{٣٦}\, وَفِي حَقْلُ قَوْسٍ آخَرَ، وَتَرُهُ ثَمَانٍ وَسَبْعُونَ خُطْوَةً وَنِصْفُ خُطْوَةٍ، وَسَهْمُهُ ثَلَاثَ عَشْرَةَ خُطْوَةً وَسَبْعَةٌ عَلَى تِسْعَةٍ مِنَ الْخُطْوَةِ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}二畝一百五十五步、八十一分步之五十六。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مُوّانِ وَمِائَةٌ وَخَمْسٌ وَخَمْسُونَ خُطْوَةً وَسِتٌّ وَخَمْسُونَ عَلَى وَاحِدٍ وَثَمَانِينَ مِنَ الْخُطْوَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以弦乘矢，矢又自乘，并之，二而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اضْرِبِ الْوَتَرَ فِي السَّهْمِ، وَاضْرِبِ السَّهْمَ فِي نَفْسِهِ، وَاجْمَعِ النَّاتِجَيْنِ، وَاقْسِمْ عَلَى اثْنَيْنِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}弧田者，圓之殘也。弦者，弧之對徑也；矢者，弧之中至弦之垂距也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} حَقْلُ الْقَوْسِ: هُوَ بَقِيَّةُ الدَّائِرَةِ. الْوَتَرُ: هُوَ الْقُطْرُ الْمُقَابِلُ لِلْقَوْسِ. السَّهْمُ: هُوَ الْمَسَافَةُ الْعَمُودِيَّةُ مِنْ وَسَطِ الْقَوْسِ إِلَى الْوَتَرِ.
+}
+\end{bilingual}
+
+%% ----- Problems 37-38 (Annular fields) -----
+\begin{bilingual}
+\cnline{\problemnum{三七}\, 今有環田，中周九十二步，外周一百二十二步，徑五步。問為田幾何？}
+\arline{\problemnum{٣٧}\, يُوجَدُ حَقْلٌ حَلَقِيٌّ، مُحِيطُهُ الدَّاخِلِيُّ اثْنَانِ وَتِسْعُونَ خُطْوَةً، وَمُحِيطُهُ الْخَارِجِيُّ مِائَةٌ وَاثْنَتَانِ وَعِشْرُونَ خُطْوَةً، وَقُطْرُهُ خَمْسُ خُطُوَاتٍ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}二畝五十五步。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مُوّانِ وَخَمْسٌ وَخَمْسُونَ خُطْوَةً.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三八}\, 又有環田，中周六十二步、四分步之三，外周一百一十三步、二分步之一，徑十二步、三分步之二。問為田幾何？}
+\arline{\problemnum{٣٨}\, وَفِي حَقْلٍ حَلَقِيٍّ آخَرَ، مُحِيطُهُ الدَّاخِلِيُّ اثْنَانِ وَسِتُّونَ خُطْوَةً وَثَلَاثَةٌ عَلَى أَرْبَعَةٍ، وَمُحِيطُهُ الْخَارِجِيُّ مِائَةٌ وَثَلَاثَ عَشْرَةَ خُطْوَةً وَنِصْفُ خُطْوَةٍ، وَقُطْرُهُ اثْنَا عَشَرَ خُطْوَةً وَثُلْثَا خُطْوَةٍ. كَمْ مِنَ الْأَرْضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}四畝一百五十六步、四分步之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} أَرْبَعَةُ مُوّاتٍ وَمِائَةٌ وَسِتٌّ وَخَمْسُونَ خُطْوَةً وَرُبْعُ خُطْوَةٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}并中外周而半之，以徑乘之為積步。
+
+密率術曰：置中外周步數，分母、子各居其下。母互乘子，通全步，內分子。以中周減外周，餘半之，以益中周。徑亦通分內子，以乘周為實。分母相乘為法，除之為積步，餘積步之分。以畝法除之，即畝數也。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْمَعِ الْمُحِيطَيْنِ الدَّاخِلِيَّ وَالْخَارِجِيَّ وَانْصِفْهُمَا، وَاضْرِبِ النَّاتِجَ فِي الْقُطْرِ فَتَحْصُلُ عَلَى الْمِسَاحَةِ.
+
+طَرِيقَةُ النِّسْبَةِ الدَّقِيقَةِ: ضَعْ عَدَدَ خُطُوَاتِ الْمُحِيطَيْنِ الدَّاخِلِيِّ وَالْخَارِجِيِّ، وَلِكُلٍّ مِنْهُمَا مَقَامٌ وَبَسْطٌ تَحْتَهُ. اضْرِبْ كُلَّ مَقَامٍ فِي بَسْطِ الْآخَرِ، وَحَوِّلِ الْخُطُوَاتِ الْكَامِلَةَ مَعَ الْبَسْطِ. وَاطْرَحِ الْمُحِيطَ الدَّاخِلِيَّ مِنَ الْخَارِجِيِّ، وَانْصِفِ الْبَاقِيَ، وَأَضِفْهُ إِلَى الْمُحِيطِ الدَّاخِلِيِّ. وَحَوِّلِ الْقُطْرَ أَيْضًا مَعَ بَسْطِهِ، وَاضْرِبْ فِي الْمُحِيطِ فَيَكُونُ الْبَسْطَ. وَاضْرِبِ الْمَقَامَاتِ بَعْضُهَا فِي بَعْضٍ فَتَكُونُ الْمَقَامَ، وَاقْسِمْ فَتَحْصُلُ عَلَى الْمِسَاحَةِ. ثُمَّ اقْسِمْ عَلَى مِئَتَيْنِ وَأَرْبَعِينَ فَتَحْصُلُ عَلَى عَدَدِ الْمُوّاتِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}環田者，如圓環之形。并中外周而半之者，猶并兩邪而半之也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} الْحَقْلُ الْحَلَقِيُّ: شَكْلُهُ كَالْحَلْقَةِ الدَّائِرِيَّةِ. جَمْعُ الْمُحِيطَيْنِ الدَّاخِلِيِّ وَالْخَارِجِيِّ وَنَصْفُهُمَا كَجَمْعِ الْمُنْحَرِفَيْنِ وَنَصْفِهِمَا.
+}
+\end{bilingual}
+
+\newpage
+
+
+%% =============================================================================
+\section{卷第二：粟米 | \ar{الْجُزْءُ الثَّانِي: الدُّخْنُ وَالأَرُزُّ}}
+\label{sec:sumi}
+\addcontentsline{toc}{subsection}{Sùmǐ -- Millet and Rice | \ar{الدُّخْنُ وَالأَرُزُّ}}
+
+\begin{center}
+\textit{粟米以御交質變易} \quad|\quad \textit{\ar{الدُّخْنُ وَالأَرُزُّ لِلْمُعَالَجَةِ التَّبَادُلِ وَالتَّغْيِيرِ}}
+\end{center}
+
+\bigskip
+
+\begin{bilingual}
+\cnline{%
+本章論各種谷物之交换比率，及比例計算之法。\textit{今有術}（即今之三率法、比例法）為本章之核心算法。
+}
+\arline{%
+يَنَاقِشُ هَذَا الْفَصْلُ نِسَبَ مُقَايَلَةِ أَنْوَاعِ الْحُبُوبِ، وَطُرُقَ الْحِسَابِ التَّنَاسُبِيِّ. \textit{طَرِيقَةُ الْإِشَارَةِ} (أَيْ طَرِيقَةُ الثَّلَاثِ نِسَبٍ أَوْ طَرِيقَةُ التَّنَاسُبِ) هِيَ الْخَوَارِزْمِيَّةُ الْجَوْهَرِيَّةُ فِي هَذَا الْفَصْلِ.
+}
+\end{bilingual}
+
+\bigskip
+
+\begin{center}
+\textbf{粟米之法 | \ar{قَوَاعِدُ الدُّخْنِ وَالْأَرُزِّ}}
+\end{center}
+
+\begin{bilingual}
+\cnline{%
+\begin{tabular}{llll}
+\textbf{粟率五十} & \textbf{糲米三十} & \textbf{粺米二十七} & \textbf{鑿米二十四} \\
+\textbf{御米二十一} & 小\textbullet{}十三半 & 大\textbullet{}五十四 & \textbf{糲飯七十五} \\
+\textbf{粺飯五十四} & \textbf{鑿飯四十八} & \textbf{御飯四十二} & \textbf{菽、荅、麻、麥各四十五} \\
+\textbf{稻六十} & \textbf{豉六十三} & \textbf{飧九十} & \textbf{熟菽一百三半} \\
+\multicolumn{4}{l}{\textbf{櫱一百七十五}} \\
+\end{tabular}
+}
+\arline{%
+\begin{tabular}{ll}
+\textbf{نِسْبَةُ الدُّخْنِ ٥٠} & \textbf{نِسْبَةُ الرُّزِّ الْخَشِنِ ٣٠} \\
+\textbf{نِسْبَةُ الرُّزِّ الْمُنَقَّى ٢٧} & \textbf{نِسْبَةُ الرُّزِّ الْمَفْرُوشِ ٢٤} \\
+\textbf{نِسْبَةُ الرُّزِّ الْإِمْبَرَاطُورِيِّ ٢١} & \textbf{الدَّقِيقُ الصَّغِيرُ ١٣٫٥} \\
+\textbf{الدَّقِيقُ الْكَبِيرُ ٥٤} & \textbf{أَرُزٌّ خَشِنٌ مَطْبُوخٌ ٧٥} \\
+\textbf{أَرُزٌّ مُنَقًّى مَطْبُوخٌ ٥٤} & \textbf{أَرُزٌّ مَفْرُوشٌ مَطْبُوخٌ ٤٨} \\
+\textbf{أَرُزٌّ إِمْبَرَاطُورِيٌّ مَطْبُوخٌ ٤٢} & \\
+\textbf{فُصُولٌ وَحَبُّ الشَّيْلَجِ وَالْحَبَّةُ} & \textbf{السَّوْفُ وَالْبُرُّ كُلٌّ ٤٥} \\
+\textbf{الْأُرْزُ ٦٠} & \textbf{الْمِلْحُ الْمُخَمَّرُ ٦٣} \\
+\textbf{الْوَجْبَةُ ٩٠} & \textbf{فُصُولٌ مَطْبُوخَةٌ ١٠٣٫٥} \\
+\textbf{مَبِيضَاتُ الشَّعِيرِ ١٧٥} & \\
+\end{tabular}
+}
+\end{bilingual}
+
+\vspace{0.5em}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{今有術曰：}}以所有數乘所求率為實，以所有率為法，實如法而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ الْإِشَارَةِ:}} اضْرِبِ الْمَوْجُودَ فِي نِسْبَةِ الْمَطْلُوبِ فَيَكُونُ الْبَسْطَ، وَاجْعَلْ نِسْبَةَ الْمَوْجُودِ مَقَامًا، وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}此術今有之義，凡數相與者謂之率。率者，自相與通。有分則散，無分則不散。凡此諸率，各有所求，故曰今有術。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} مَعْنَى هَذِهِ الطَّرِيقَةِ هُوَ مَعْنَى الْإِشَارَةِ. كُلُّ عَدَدٍ مُتَعَلِّقٍ بِآخَرَ يُسَمَّى نِسْبَةً. النِّسْبَةُ: هِيَ تَعَلُّقُ كُلٍّ بِكُلٍّ. فَإِنْ وُجِدَتْ كُسُورٌ فَتَشَتَّتَتْ، وَإِنْ لَمْ تَكُنْ كُسُورٌ فَلَمْ تَتَشَتَّتْ. وَجَمِيعُ هَذِهِ النِّسَبِ لِكُلٍّ مِنْهَا مَطْلُوبٌ، فَلِهَذَا تُسَمَّى طَرِيقَةَ الْإِشَارَةِ.
+}
+\end{bilingual}
+
+\vspace{0.5em}
+
+%% ----- Sumi Problems 1-6 -----
+\begin{bilingual}
+\cnline{\problemnum{一}\, 今有粟一斗，欲為糲米。問得幾何？}
+\arline{\problemnum{١}\, يُوجَدُ دُخْنٌ قَدْرُهُ دُوّ وَاحِدٌ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ رُزًّا خَشِنًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為糲米六升。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ رُزًّا خَشِنًا قَدْرُهُ سِتَّةَ أَرْبَاعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求糲米，三之，五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْخَشِنِ مِنَ الدُّخْنِ، اضْرِبْ فِي ثَلَاثَةٍ، وَاقْسِمْ عَلَى خَمْسَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二}\, 今有粟二斗一升，欲為粺米。問得幾何？}
+\arline{\problemnum{٢}\, يُوجَدُ دُخْنٌ قَدْرُهُ دُوّانِ وَرُبْعُ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ رُزًّا مُنَقًّى. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粺米一斗一升、五十分升之十七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ رُزًّا مُنَقًّى قَدْرُهُ دُوّ وَاحِدٌ وَرُبْعُ الْقَدَحِ وَسَبْعَةَ عَشَرَ عَلَى خَمْسِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求粺米，二十七之，五十而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْمُنَقَّى مِنَ الدُّخْنِ، اضْرِبْ فِي سَبْعَةٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى خَمْسِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三}\, 今有粟四斗五升，欲為鑿米。問得幾何？}
+\arline{\problemnum{٣}\, يُوجَدُ دُخْنٌ قَدْرُهُ أَرْبَعَةُ أَدْوَاءٍ وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ رُزًّا مَفْرُوشًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為鑿米二斗一升、五分升之三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ رُزًّا مَفْرُوشًا قَدْرُهُ دُوَّانِ وَرُبْعُ الْقَدَحِ وَثَلَاثَةٌ عَلَى خَمْسَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求鑿米，十二之，二十五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْمَفْرُوشِ مِنَ الدُّخْنِ، اضْرِبْ فِي اثْنَيْ عَشَرَ، وَاقْسِمْ عَلَى خَمْسَةٍ وَعِشْرِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四}\, 今有粟七斗九升，欲為御米。問得幾何？}
+\arline{\problemnum{٤}\, يُوجَدُ دُخْنٌ قَدْرُهُ سَبْعَةُ أَدْوَاءٍ وَتِسْعَةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ رُزًّا إِمْبَرَاطُورِيًّا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為御米三斗三升、五十分升之九。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ رُزًّا إِمْبَرَاطُورِيًّا قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ وَثَلَاثَةُ أَرْبَاعِ الْقَدَحِ وَتِسْعَةٌ عَلَى خَمْسِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求御米，二十一之，五十而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْإِمْبَرَاطُورِيِّ مِنَ الدُّخْنِ، اضْرِبْ فِي وَاحِدٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى خَمْسِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{五}\, 今有粟一斗，欲為小●。問得幾何？}
+\arline{\problemnum{٥}\, يُوجَدُ دُخْنٌ قَدْرُهُ دُوّ وَاحِدٌ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دَقِيقًا صَغِيرًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為小●二升、一十分升之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دَقِيقًا صَغِيرًا قَدْرُهُ رُبْعَا قَدَحٍ وَسَبْعَةٌ عَلَى عَشْرَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求小●，二十七之，百而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدَّقِيقِ الصَّغِيرِ مِنَ الدُّخْنِ، اضْرِبْ فِي سَبْعَةٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى مِائَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{六}\, 今有粟九斗八升，欲為大●。問得幾何？}
+\arline{\problemnum{٦}\, يُوجَدُ دُخْنٌ قَدْرُهُ تِسْعَةُ أَدْوَاءٍ وَثَمَانِيَةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دَقِيقًا كَبِيرًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為大●一十斗五升、二十五分升之二十一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دَقِيقًا كَبِيرًا قَدْرُهُ عَشَرَةُ أَدْوَاءٍ وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ وَوَاحِدٌ وَعِشْرُونَ عَلَى خَمْسَةٍ وَعِشْرِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求大●，二十七之，二十五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدَّقِيقِ الْكَبِيرِ مِنَ الدُّخْنِ، اضْرِبْ فِي سَبْعَةٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى خَمْسَةٍ وَعِشْرِينَ.
+}
+\end{bilingual}
+
+
+%% ----- Sumi Problems 7-14 -----
+\begin{bilingual}
+\cnline{\problemnum{七}\, 今有粟二斗三升，欲為糲飯。問得幾何？}
+\arline{\problemnum{٧}\, يُوجَدُ دُخْنٌ قَدْرُهُ دُوَّانِ وَثَلَاثَةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ أَرُزًّا خَشِنًا مَطْبُوخًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為糲飯三斗四升半。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ أَرُزًّا خَشِنًا مَطْبُوخًا قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ وَأَرْبَعَةُ أَرْبَاعِ الْقَدَحِ وَنِصْفُ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求糲飯，三之，二而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْخَشِنِ الْمَطْبُوخِ مِنَ الدُّخْنِ، اضْرِبْ فِي ثَلَاثَةٍ، وَاقْسِمْ عَلَى اثْنَيْنِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{八}\, 今有粟三斗六升，欲為粺飯。問得幾何？}
+\arline{\problemnum{٨}\, يُوجَدُ دُخْنٌ قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ وَسِتَّةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ أَرُزًّا مُنَقًّى مَطْبُوخًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粺飯三斗八升、二十五分升之二十二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ أَرُزًّا مُنَقًّى مَطْبُوخًا قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ وَثَمَانِيَةُ أَرْبَاعِ الْقَدَحِ وَاثْنَانِ وَعِشْرُونَ عَلَى خَمْسَةٍ وَعِشْرِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求粺飯，二十七之，二十五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْمُنَقَّى الْمَطْبُوخِ مِنَ الدُّخْنِ، اضْرِبْ فِي سَبْعَةٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى خَمْسَةٍ وَعِشْرِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{九}\, 今有粟八斗六升，欲為鑿飯。問得幾何？}
+\arline{\problemnum{٩}\, يُوجَدُ دُخْنٌ قَدْرُهُ ثَمَانِيَةُ أَدْوَاءٍ وَسِتَّةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ أَرُزًّا مَفْرُوشًا مَطْبُوخًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為鑿飯八斗二升、二十五分升之一十四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ أَرُزًّا مَفْرُوشًا مَطْبُوخًا قَدْرُهُ ثَمَانِيَةُ أَدْوَاءٍ وَرُبْعَا قَدَحٍ وَأَرْبَعَةَ عَشَرَ عَلَى خَمْسَةٍ وَعِشْرِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求鑿飯，二十四之，二十五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْمَفْرُوشِ الْمَطْبُوخِ مِنَ الدُّخْنِ، اضْرِبْ فِي أَرْبَعَةٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى خَمْسَةٍ وَعِشْرِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一０}\, 今有粟九斗八升，欲為御飯。問得幾何？}
+\arline{\problemnum{١٠}\, يُوجَدُ دُخْنٌ قَدْرُهُ تِسْعَةُ أَدْوَاءٍ وَثَمَانِيَةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ أَرُزًّا إِمْبَرَاطُورِيًّا مَطْبُوخًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為御飯八斗二升、二十五分升之八。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ أَرُزًّا إِمْبَرَاطُورِيًّا مَطْبُوخًا قَدْرُهُ ثَمَانِيَةُ أَدْوَاءٍ وَرُبْعَا قَدَحٍ وَثَمَانِيَةٌ عَلَى خَمْسَةٍ وَعِشْرِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求御飯，二十一之，二十五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْإِمْبَرَاطُورِيِّ الْمَطْبُوخِ مِنَ الدُّخْنِ، اضْرِبْ فِي وَاحِدٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى خَمْسَةٍ وَعِشْرِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一一}\, 今有粟三斗少半升，欲為菽。問得幾何？}
+\arline{\problemnum{١١}\, يُوجَدُ دُخْنٌ قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ نَاقِصَ ثُلُثِ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ فُصُولًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為菽二斗七升、一十分升之三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ فُصُولًا قَدْرُهُ دُوَّانِ وَسَبْعَةُ أَرْبَاعِ الْقَدَحِ وَثَلَاثَةٌ عَلَى عَشْرَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一二}\, 今有粟四斗一升、太半升，欲為荅。問得幾何？}
+\arline{\problemnum{١٢}\, يُوجَدُ دُخْنٌ قَدْرُهُ أَرْبَعَةُ أَدْوَاءٍ وَرُبْعُ الْقَدَحِ وَثُلْثَاهُ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ حَبَّ شَيْلَجٍ. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為荅三斗七升半。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ حَبَّ شَيْلَجٍ قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ وَسَبْعَةُ أَرْبَاعِ الْقَدَحِ وَنِصْفُ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一三}\, 今有粟五斗、太半升，欲為麻。問得幾何？}
+\arline{\problemnum{١٣}\, يُوجَدُ دُخْنٌ قَدْرُهُ خَمْسَةُ أَدْوَاءٍ وَثُلْثَا رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ كَتَّانًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為麻四斗五升、五分升之三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ كَتَّانًا قَدْرُهُ أَرْبَعَةُ أَدْوَاءٍ وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ وَثَلَاثَةٌ عَلَى خَمْسَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一四}\, 今有粟一十斗八升、五分升之二，欲為麥。問得幾何？}
+\arline{\problemnum{١٤}\, يُوجَدُ دُخْنٌ قَدْرُهُ عَشَرَةُ أَدْوَاءٍ وَثَمَانِيَةُ أَرْبَاعِ الْقَدَحِ وَاثْنَانِ عَلَى خَمْسَةٍ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ بُرًّا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為麥九斗七升、二十五分升之一十四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ بُرًّا قَدْرُهُ تِسْعَةُ أَدْوَاءٍ وَسَبْعَةُ أَرْبَاعِ الْقَدَحِ وَأَرْبَعَةَ عَشَرَ عَلَى خَمْسَةٍ وَعِشْرِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求菽、荅、麻、麥，皆九之，十而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْفُصُولِ وَحَبِّ الشَّيْلَجِ وَالْكَتَّانِ وَالْبُرِّ مِنَ الدُّخْنِ، اضْرِبْ فِي تِسْعَةٍ، وَاقْسِمْ عَلَى عَشْرَةٍ فِي كُلِّ حَالَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}菽、荅、麻、麥之率各四十五，以九之十而一者，約而言之也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} نِسَبُ الْفُصُولِ وَحَبِّ الشَّيْلَجِ وَالْكَتَّانِ وَالْبُرِّ كُلُّ وَاحِدٍ مِنْهَا خَمْسَةٌ وَأَرْبَعُونَ، وَالضَّرْبُ فِي تِسْعَةٍ وَالْقِسْمَةُ عَلَى عَشْرَةٍ هُوَ تَقْرِيبٌ وَتَبْسِيطٌ.
+}
+\end{bilingual}
+
+%% ----- Problems 15-19 -----
+\begin{bilingual}
+\cnline{\problemnum{一五}\, 今有粟七斗五升、七分升之四，欲為稻。問得幾何？}
+\arline{\problemnum{١٥}\, يُوجَدُ دُخْنٌ قَدْرُهُ سَبْعَةُ أَدْوَاءٍ وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ وَأَرْبَعَةٌ عَلَى سَبْعَةٍ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ أُرْزًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為稻九斗、三十五分升之二十四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ أُرْزًا قَدْرُهُ تِسْعَةُ أَدْوَاءٍ وَأَرْبَعَةٌ وَعِشْرُونَ عَلَى خَمْسَةٍ وَثَلَاثِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求稻，六之，五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْأُرْزِ مِنَ الدُّخْنِ، اضْرِبْ فِي سِتَّةٍ، وَاقْسِمْ عَلَى خَمْسَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一六}\, 今有粟七斗八升，欲為豉。問得幾何？}
+\arline{\problemnum{١٦}\, يُوجَدُ دُخْنٌ قَدْرُهُ سَبْعَةُ أَدْوَاءٍ وَثَمَانِيَةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ مِلْحًا مُخَمَّرًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為豉九斗八升、二十五分升之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ مِلْحًا مُخَمَّرًا قَدْرُهُ تِسْعَةُ أَدْوَاءٍ وَثَمَانِيَةُ أَرْبَاعِ الْقَدَحِ وَسَبْعَةٌ عَلَى خَمْسَةٍ وَعِشْرِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求豉，六十三之，五十而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْمِلْحِ الْمُخَمَّرِ مِنَ الدُّخْنِ، اضْرِبْ فِي ثَلَاثَةٍ وَسِتِّينَ، وَاقْسِمْ عَلَى خَمْسِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一七}\, 今有粟五斗五升，欲為飧。問得幾何？}
+\arline{\problemnum{١٧}\, يُوجَدُ دُخْنٌ قَدْرُهُ خَمْسَةُ أَدْوَاءٍ وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ وَجْبَةً. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為飧九斗九升。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ وَجْبَةً قَدْرُهَا تِسْعَةُ أَدْوَاءٍ وَتِسْعَةُ أَرْبَاعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求飧，九之，五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْوَجْبَةِ مِنَ الدُّخْنِ، اضْرِبْ فِي تِسْعَةٍ، وَاقْسِمْ عَلَى خَمْسَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一八}\, 今有粟四斗，欲為熟菽。問得幾何？}
+\arline{\problemnum{١٨}\, يُوجَدُ دُخْنٌ قَدْرُهُ أَرْبَعَةُ أَدْوَاءٍ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ فُصُولًا مَطْبُوخَةً. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為熟菽八斗二升、五分升之四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ فُصُولًا مَطْبُوخَةً قَدْرُهَا ثَمَانِيَةُ أَدْوَاءٍ وَرُبْعَا قَدَحٍ وَأَرْبَعَةٌ عَلَى خَمْسَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求熟菽，二百七之，百而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْفُصُولِ الْمَطْبُوخَةِ مِنَ الدُّخْنِ، اضْرِبْ فِي مِائَتَيْنِ وَسَبْعَةٍ، وَاقْسِمْ عَلَى مِائَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一九}\, 今有粟二斗，欲為櫱。問得幾何？}
+\arline{\problemnum{١٩}\, يُوجَدُ دُخْنٌ قَدْرُهُ دُوَّانِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ مَبِيضَاتِ الشَّعِيرِ. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為櫱七斗。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ مَبِيضَاتِ شَعِيرٍ قَدْرُهَا سَبْعَةُ أَدْوَاءٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟求櫱，七之，二而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى مَبِيضَاتِ الشَّعِيرِ مِنَ الدُّخْنِ، اضْرِبْ فِي سَبْعَةٍ، وَاقْسِمْ عَلَى اثْنَيْنِ.
+}
+\end{bilingual}
+
+%% ----- Reverse conversion problems 20-23 -----
+\begin{bilingual}
+\cnline{\problemnum{二０}\, 今有糲米十五斗五升、五分升之二，欲為粟。問得幾何？}
+\arline{\problemnum{٢٠}\, يُوجَدُ رُزٌّ خَشِنٌ قَدْرُهُ خَمْسَةَ عَشَرَ دُوًّا وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ وَاثْنَانِ عَلَى خَمْسَةٍ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دُخْنًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粟二十五斗九升。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دُخْنًا قَدْرُهُ خَمْسَةٌ وَعِشْرُونَ دُوًّا وَتِسْعَةُ أَرْبَاعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以糲米求粟，五之，三而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدُّخْنِ مِنَ الرُّزِّ الْخَشِنِ، اضْرِبْ فِي خَمْسَةٍ، وَاقْسِمْ عَلَى ثَلَاثَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二一}\, 今有粺米二斗，欲為粟。問得幾何？}
+\arline{\problemnum{٢١}\, يُوجَدُ رُزٌّ مُنَقًّى قَدْرُهُ دُوَّانِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دُخْنًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粟三斗七升、二十七分升之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دُخْنًا قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ وَسَبْعَةُ أَرْبَاعِ الْقَدَحِ وَوَاحِدٌ عَلَى سَبْعَةٍ وَعِشْرِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粺米求粟，五十之，二十七而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدُّخْنِ مِنَ الرُّزِّ الْمُنَقَّى، اضْرِبْ فِي خَمْسِينَ، وَاقْسِمْ عَلَى سَبْعَةٍ وَعِشْرِينَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二二}\, 今有鑿米三斗、少半升，欲為粟。問得幾何？}
+\arline{\problemnum{٢٢}\, يُوجَدُ رُزٌّ مَفْرُوشٌ قَدْرُهُ ثَلَاثَةُ أَدْوَاءٍ نَاقِصَ ثُلُثِ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دُخْنًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粟六斗三升、三十六分升之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دُخْنًا قَدْرُهُ سِتَّةُ أَدْوَاءٍ وَثَلَاثَةُ أَرْبَاعِ الْقَدَحِ وَسَبْعَةٌ عَلَى سِتَّةٍ وَثَلَاثِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以鑿米求粟，二十五之，十三而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدُّخْنِ مِنَ الرُّزِّ الْمَفْرُوشِ، اضْرِبْ فِي خَمْسَةٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى ثَلَاثَةَ عَشَرَ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二三}\, 今有御米十四斗，欲為粟。問得幾何？}
+\arline{\problemnum{٢٣}\, يُوجَدُ رُزٌّ إِمْبَرَاطُورِيٌّ قَدْرُهُ أَرْبَعَةَ عَشَرَ دُوًّا، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دُخْنًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粟三十三斗三升、少半升。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دُخْنًا قَدْرُهُ ثَلَاثَةٌ وَثَلَاثُونَ دُوًّا وَثَلَاثَةُ أَرْبَاعِ الْقَدَحِ نَاقِصَ ثُلُثِ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以御米求粟，五十之，二十一而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدُّخْنِ مِنَ الرُّزِّ الْإِمْبَرَاطُورِيِّ، اضْرِبْ فِي خَمْسِينَ، وَاقْسِمْ عَلَى وَاحِدٍ وَعِشْرِينَ.
+}
+\end{bilingual}
+
+
+%% ----- Sumi Problems 24-31 -----
+\begin{bilingual}
+\cnline{\problemnum{二四}\, 今有稻一十二斗六升、一十五分升之一十四，欲為粟。問得幾何？}
+\arline{\problemnum{٢٤}\, يُوجَدُ أُرْزٌ قَدْرُهُ اثْنَا عَشَرَ دُوًّا وَسِتَّةُ أَرْبَاعِ الْقَدَحِ وَأَرْبَعَةَ عَشَرَ عَلَى خَمْسَةَ عَشَرَ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دُخْنًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粟一十斗五升、九分升之七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دُخْنًا قَدْرُهُ عَشَرَةُ أَدْوَاءٍ وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ وَسَبْعَةٌ عَلَى تِسْعَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以稻求粟，五之，六而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدُّخْنِ مِنَ الْأُرْزِ، اضْرِبْ فِي خَمْسَةٍ، وَاقْسِمْ عَلَى سِتَّةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二五}\, 今有糲米一十九斗二升、七分升之一，欲為粺米。問得幾何？}
+\arline{\problemnum{٢٥}\, يُوجَدُ رُزٌّ خَشِنٌ قَدْرُهُ تِسْعَةَ عَشَرَ دُوًّا وَرُبْعَا قَدَحٍ وَوَاحِدٌ عَلَى سَبْعَةٍ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ رُزًّا مُنَقًّى. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為粺米一十七斗二升、一十四分升之一十三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ رُزًّا مُنَقًّى قَدْرُهُ سَبْعَةَ عَشَرَ دُوًّا وَرُبْعَا قَدَحٍ وَثَلَاثَةَ عَشَرَ عَلَى أَرْبَعَةَ عَشَرَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以糲米求粺米，九之，十而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْمُنَقَّى مِنَ الرُّزِّ الْخَشِنِ، اضْرِبْ فِي تِسْعَةٍ، وَاقْسِمْ عَلَى عَشْرَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二六}\, 今有糲米六斗四升、五分升之三，欲為糲飯。問得幾何？}
+\arline{\problemnum{٢٦}\, يُوجَدُ رُزٌّ خَشِنٌ قَدْرُهُ سِتَّةُ أَدْوَاءٍ وَأَرْبَعَةُ أَرْبَاعِ الْقَدَحِ وَثَلَاثَةٌ عَلَى خَمْسَةٍ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ أَرُزًّا خَشِنًا مَطْبُوخًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為糲飯一十六斗一升半。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ أَرُزًّا خَشِنًا مَطْبُوخًا قَدْرُهُ سِتَّةَ عَشَرَ دُوًّا وَرُبْعُ الْقَدَحِ وَنِصْفُ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以糲米求糲飯，五之，二而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الرُّزِّ الْخَشِنِ الْمَطْبُوخِ مِنَ الرُّزِّ الْخَشِنِ، اضْرِبْ فِي خَمْسَةٍ، وَاقْسِمْ عَلَى اثْنَيْنِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二七}\, 今有糲飯七斗六升、七分升之四，欲為飧。問得幾何？}
+\arline{\problemnum{٢٧}\, يُوجَدُ أَرُزٌّ خَشِنٌ مَطْبُوخٌ قَدْرُهُ سَبْعَةُ أَدْوَاءٍ وَسِتَّةُ أَرْبَاعِ الْقَدَحِ وَأَرْبَعَةٌ عَلَى سَبْعَةٍ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ وَجْبَةً. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為飧九斗一升、三十五分升之三十一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ وَجْبَةً قَدْرُهَا تِسْعَةُ أَدْوَاءٍ وَرُبْعُ الْقَدَحِ وَوَاحِدٌ وَثَلَاثُونَ عَلَى خَمْسَةٍ وَثَلَاثِينَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以糲飯求飧，六之，五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْوَجْبَةِ مِنَ الرُّزِّ الْخَشِنِ الْمَطْبُوخِ، اضْرِبْ فِي سِتَّةٍ، وَاقْسِمْ عَلَى خَمْسَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二八}\, 今有菽一斗，欲為熟菽。問得幾何？}
+\arline{\problemnum{٢٨}\, يُوجَدُ فُصُولٌ قَدْرُهَا دُوّ وَاحِدٌ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهَا فُصُولًا مَطْبُوخَةً. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為熟菽二斗三升。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ فُصُولًا مَطْبُوخَةً قَدْرُهَا دُوَّانِ وَثَلَاثَةُ أَرْبَاعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以菽求熟菽，二十三之，十而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْفُصُولِ الْمَطْبُوخَةِ مِنَ الْفُصُولِ، اضْرِبْ فِي ثَلَاثَةٍ وَعِشْرِينَ، وَاقْسِمْ عَلَى عَشْرَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二九}\, 今有菽二斗，欲為豉。問得幾何？}
+\arline{\problemnum{٢٩}\, يُوجَدُ فُصُولٌ قَدْرُهَا دُوَّانِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهَا مِلْحًا مُخَمَّرًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為豉二斗八升。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ مِلْحًا مُخَمَّرًا قَدْرُهُ دُوَّانِ وَثَمَانِيَةُ أَرْبَاعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以菽求豉，七之，五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الْمِلْحِ الْمُخَمَّرِ مِنَ الْفُصُولِ، اضْرِبْ فِي سَبْعَةٍ، وَاقْسِمْ عَلَى خَمْسَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三０}\, 今有麥八斗六升、七分升之三，欲為小●，問得幾何？}
+\arline{\problemnum{٣٠}\, يُوجَدُ بُرٌّ قَدْرُهُ ثَمَانِيَةُ أَدْوَاءٍ وَسِتَّةُ أَرْبَاعِ الْقَدَحِ وَثَلَاثَةٌ عَلَى سَبْعَةٍ مِنْ رُبْعِ الْقَدَحِ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دَقِيقًا صَغِيرًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為小●二斗五升、一十四分升之一十三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دَقِيقًا صَغِيرًا قَدْرُهُ دُوَّانِ وَخَمْسَةُ أَرْبَاعِ الْقَدَحِ وَثَلَاثَةَ عَشَرَ عَلَى أَرْبَعَةَ عَشَرَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以麥求小●，三之，十而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدَّقِيقِ الصَّغِيرِ مِنَ الْبُرِّ، اضْرِبْ فِي ثَلَاثَةٍ، وَاقْسِمْ عَلَى عَشْرَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三一}\, 今有麥一斗，欲為大●。問得幾何？}
+\arline{\problemnum{٣١}\, يُوجَدُ بُرٌّ قَدْرُهُ دُوّ وَاحِدٌ، وَنُرِيدُ أَنْ نَصْنَعَ مِنْهُ دَقِيقًا كَبِيرًا. كَمْ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}為大●一斗二升。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} يَصِيرُ دَقِيقًا كَبِيرًا قَدْرُهُ دُوّ وَاحِدٌ وَرُبْعَا قَدَحٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以麥求大●，六之，五而一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} لِلْحُصُولِ عَلَى الدَّقِيقِ الْكَبِيرِ مِنَ الْبُرِّ، اضْرِبْ فِي سِتَّةٍ، وَاقْسِمْ عَلَى خَمْسَةٍ.
+}
+\end{bilingual}
+
+%% ----- Purchasing problems 32-37 -----
+\begin{bilingual}
+\cnline{\problemnum{三二}\, 今有出錢一百六十，買瓴甓十八枚。問枚幾何？}
+\arline{\problemnum{٣٢}\, يُوجَدُ مَنْ يُنْفِقُ مِئَةً وَسِتِّينَ قُرْشًا لِشِرَاءِ ثَمَانِيَ عَشْرَةَ قِطْعَةً مِنَ الْقَرْمِيدِ. كَمْ لِكُلِّ قِطْعَةٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一枚，八錢、九分錢之八。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ قِطْعَةٍ ثَمَانِيَةُ قُرُوشٍ وَثَمَانِيَةٌ عَلَى تِسْعَةٍ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三三}\, 今有出錢一萬三千五百，買竹二千三百五十箇。問箇幾何？}
+\arline{\problemnum{٣٣}\, يُوجَدُ مَنْ يُنْفِقُ ثَلَاثَةَ عَشَرَ أَلْفًا وَخَمْسَ مِئَةً مِنَ الْقُرُوشِ لِشِرَاءِ أَلْفَيْنِ وَثَلَاثِ مِئَةٍ وَخَمْسِينَ قَطْعَةً مِنَ الْخَشَبِ. كَمْ لِكُلِّ قَطْعَةٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一箇，五錢、四十七分錢之三十五。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ قَطْعَةٍ خَمْسَةُ قُرُوشٍ وَخَمْسَةٌ وَثَلَاثُونَ عَلَى سَبْعَةٍ وَأَرْبَعِينَ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{經率術曰：}}以所買率為法，所出錢數為實，實如法得一錢。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ النِّسْبَةِ الْمُبَاشِرَةِ:}} اجْعَلْ نِسْبَةَ مَا شِرَاءَهُ مَقَامًا، وَعَدَدَ الْقُرُوشِ الْمُنْفَقَةِ بَسْطًا، وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى قُرْشٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三四}\, 今有出錢五千七百八十五，買漆一斛六斗七升、太半升。欲斗率之，問斗幾何？}
+\arline{\problemnum{٣٤}\, يُوجَدُ مَنْ يُنْفِقُ خَمْسَةَ آلَافٍ وَسَبْعَ مِئَةٍ وَخَمْسَةً وَثَمَانِينَ قُرْشًا لِشِرَاءِ قِرْمِيزٍ قَدْرُهُ وَاحِدٌ وَسِتَّةُ أَدْوَاءٍ وَسَبْعَةُ أَرْبَاعِ الْقَدَحِ وَثُلْثَا رُبْعِ الْقَدَحِ. نُرِيدُ السِّعْرَ لِكُلِّ دُوّ. كَمْ لِكُلِّ دُوّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一斗，三百四十五錢、五百三分錢之一十五。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ دُوّ ثَلَاثَ مِئَةٍ وَخَمْسَةٌ وَأَرْبَعُونَ قُرْشًا وَخَمْسَةَ عَشَرَ عَلَى خَمْسِ مِئَةٍ وَثَلَاثَةٍ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三五}\, 今有出錢七百二十，買縑一匹二丈一尺。欲丈率之，問丈幾何？}
+\arline{\problemnum{٣٥}\, يُوجَدُ مَنْ يُنْفِقُ سَبْعَ مِئَةٍ وَعِشْرِينَ قُرْشًا لِشِرَاءِ حَاشِيَةٍ قَدْرُهَا قِطْعَةٌ وَاحِدَةٌ وَاثْنَانِ وَعِشْرُونَ ذِرَاعًا. نُرِيدُ السِّعْرَ لِكُلِّ ذِرَاعٍ. كَمْ لِكُلِّ ذِرَاعٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一丈，一百一十八錢、六十一分錢之二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ ذِرَاعٍ مِائَةٌ وَثَمَانِيَةَ عَشَرَ قُرْشًا وَاثْنَانِ عَلَى وَاحِدٍ وَسِتِّينَ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三六}\, 今有出錢二千三百七十，買布九匹二丈七尺。欲匹率之，問匹幾何？}
+\arline{\problemnum{٣٦}\, يُوجَدُ مَنْ يُنْفِقُ أَلْفَيْنِ وَثَلَاثَ مِئَةٍ وَسَبْعِينَ قُرْشًا لِشِرَاءِ قُمَاشٍ قَدْرُهُ تِسْعُ قِطَعٍ وَسَبْعَةٌ وَعِشْرُونَ ذِرَاعًا. نُرِيدُ السِّعْرَ لِكُلِّ قِطْعَةٍ. كَمْ لِكُلِّ قِطْعَةٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一匹，二百四十四錢、一百二十九分錢之一百二十四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ قِطْعَةٍ مِائَتَانِ وَأَرْبَعَةٌ وَأَرْبَعُونَ قُرْشًا وَمِائَةٌ وَأَرْبَعَةٌ وَعِشْرُونَ عَلَى مِائَةٍ وَتِسْعَةٍ وَعِشْرِينَ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三七}\, 今有出錢一萬三千六百七十，買絲一石二鈞一十七斤。欲石率之，問石幾何？}
+\arline{\problemnum{٣٧}\, يُوجَدُ مَنْ يُنْفِقُ ثَلَاثَةَ عَشَرَ أَلْفًا وَسِتَّ مِئَةٍ وَسَبْعِينَ قُرْشًا لِشِرَاءِ حَرِيرٍ قَدْرُهُ حَجَرٌ وَاحِدٌ وَاثْنَانِ جُنَيْنَانِ وَسَبْعَةَ عَشَرَ رِطْلًا. نُرِيدُ السِّعْرَ لِكُلِّ حَجَرٍ. كَمْ لِكُلِّ حَجَرٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一石，八千三百二十六錢、一百九十七分錢之一百七十八。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} لِكُلِّ حَجَرٍ ثَمَانِيَةُ آلَافٍ وَثَلَاثُ مِئَةٍ وَسِتَّةٌ وَعِشْرُونَ قُرْشًا وَمِائَةٌ وَثَمَانِيَةً وَسَبْعِينَ عَلَى مِائَةٍ وَسَبْعَةٍ وَتِسْعِينَ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{經術術曰：}}以所求率乘錢數為實，以所買率為法，實如法得一。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ الطَّرِيقَةِ الْمُبَاشِرَةِ:}} اضْرِبْ نِسْبَةَ الْمَطْلُوبِ فِي عَدَدِ الْقُرُوشِ فَتَكُونُ الْبَسْطَ، وَاجْعَلْ نِسْبَةَ مَا شِرَاءَهُ مَقَامًا، وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ.
+}
+\end{bilingual}
+
+%% ----- Price rate problems 38-43 -----
+\begin{bilingual}
+\cnline{\problemnum{三八}\, 今有出錢五百七十六，買竹七十八箇。欲其大小率之，問各幾何？}
+\arline{\problemnum{٣٨}\, يُوجَدُ مَنْ يُنْفِقُ خَمْسَ مِئَةٍ وَسِتَّةً وَسَبْعِينَ قُرْشًا لِشِرَاءِ ثَمَانِيَةٍ وَسَبْعِينَ قَطْعَةً مِنَ الْخَشَبِ. نُرِيدُ السِّعْرَ لِلْكَبِيرَةِ وَالصَّغِيرَةِ. كَمْ لِكُلٍّ مِنْهُمَا؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其四十八箇，箇七錢。其三十箇，箇八錢。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَمَانِيَةٌ وَأَرْبَعُونَ قِطْعَةً، لِكُلِّ قِطْعَةٍ سَبْعَةُ قُرُوشٍ. وَثَلَاثُونَ قِطْعَةً، لِكُلِّ قِطْعَةٍ ثَمَانِيَةُ قُرُوشٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三九}\, 今有出錢一千一百二十，買絲一石二鈞十八斤。欲其貴賤斤率之，問各幾何？}
+\arline{\problemnum{٣٩}\, يُوجَدُ مَنْ يُنْفِقُ أَلْفًا وَمِائَةً وَعِشْرِينَ قُرْشًا لِشِرَاءِ حَرِيرٍ قَدْرُهُ حَجَرٌ وَاحِدٌ وَاثْنَانِ جُنَيْنَانِ وَثَمَانِيَةَ عَشَرَ رِطْلًا. نُرِيدُ السِّعْرَ الْغَالِيَ وَالرَّخِيصَ لِكُلِّ رِطْلٍ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其二鈞八斤，斤五錢。其一石一十斤，斤六錢。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} اثْنَانِ جُنَيْنَانِ وَثَمَانِيَةَ أَرْطَالٍ، لِكُلِّ رِطْلٍ خَمْسَةُ قُرُوشٍ. وَحَجَرٌ وَعَشْرَةُ أَرْطَالٍ، لِكُلِّ رِطْلٍ سِتَّةُ قُرُوشٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四０}\, 今有出錢一萬三千九百七十，買絲一石二鈞二十八斤三兩五銖。欲其貴賤石率之，問各幾何？}
+\arline{\problemnum{٤٠}\, يُوجَدُ مَنْ يُنْفِقُ ثَلَاثَةَ عَشَرَ أَلْفًا وَتِسْعَ مِئَةٍ وَسَبْعِينَ قُرْشًا لِشِرَاءِ حَرِيرٍ قَدْرُهُ حَجَرٌ وَاحِدٌ وَاثْنَانِ جُنَيْنَانِ وَثَمَانِيَةٌ وَعِشْرُونَ رِطْلًا وَثَلَاثُ أُوقِيَّاتٍ وَخَمْسُ وَزَنَاتٍ. نُرِيدُ السِّعْرَ الْغَالِيَ وَالرَّخِيصَ لِكُلِّ حَجَرٍ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其一石，八千三百二十六錢、一百九十七分錢之一百七十八。其二鈞二十八斤三兩五銖，五千六百三十九錢、一百九十七分錢之六十七。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} الْحَجَرُ الْوَاحِدُ: ثَمَانِيَةُ آلَافٍ وَثَلَاثُ مِئَةٍ وَسِتَّةٌ وَعِشْرُونَ قُرْشًا وَمِائَةٌ وَثَمَانِيَةً وَسَبْعِينَ عَلَى مِائَةٍ وَسَبْعَةٍ وَتِسْعِينَ. الْجُنَيْنَانِ الِاثْنَانِ وَثَمَانِيَةٌ وَعِشْرُونَ رِطْلًا وَثَلَاثُ أُوقِيَّاتٍ وَخَمْسُ وَزَنَاتٍ: خَمْسَةُ آلَافٍ وَسِتَّ مِئَةٍ وَتِسْعَةٌ وَثَلَاثُونَ قُرْشًا وَسَبْعٌ وَسِتُّونَ عَلَى مِائَةٍ وَسَبْعَةٍ وَتِسْعِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四一}\, 今有出錢一萬三千九百七十，買絲一石二鈞二十八斤三兩五銖。欲其貴賤鈞率之，問各幾何？}
+\arline{\problemnum{٤١}\, يُوجَدُ مَنْ يُنْفِقُ ثَلَاثَةَ عَشَرَ أَلْفًا وَتِسْعَ مِئَةٍ وَسَبْعِينَ قُرْشًا لِشِرَاءِ حَرِيرٍ قَدْرُهُ حَجَرٌ وَاحِدٌ وَاثْنَانِ جُنَيْنَانِ وَثَمَانِيَةٌ وَعِشْرُونَ رِطْلًا وَثَلَاثُ أُوقِيَّاتٍ وَخَمْسُ وَزَنَاتٍ. نُرِيدُ السِّعْرَ لِكُلِّ جُنَيْنٍ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其七鈞，斤二百六十一錢、一百九十七分錢之一百三十三。其一鈞，斤二百七十八錢、一百九十七分錢之一百三十二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} سَبْعَةُ جُنَيْنَاتٍ: مِائَتَانِ وَوَاحِدٌ وَسِتُّونَ قُرْشًا لِكُلِّ رِطْلٍ وَمِائَةٌ وَثَلَاثَةٌ وَثَلَاثُونَ عَلَى مِائَةٍ وَسَبْعَةٍ وَتِسْعِينَ. جُنَيْنٌ وَاحِدٌ: مِائَتَانِ وَثَمَانِيَةٌ وَسَبْعُونَ قُرْشًا لِكُلِّ رِطْلٍ وَمِائَةٌ وَاثْنَانِ وَثَلَاثُونَ عَلَى مِائَةٍ وَسَبْعَةٍ وَتِسْعِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四二}\, 今有出錢一萬三千九百七十，買絲一石二鈞二十八斤三兩五銖。欲其貴賤斤率之，問各幾何？}
+\arline{\problemnum{٤٢}\, يُوجَدُ مَنْ يُنْفِقُ ثَلَاثَةَ عَشَرَ أَلْفًا وَتِسْعَ مِئَةٍ وَسَبْعِينَ قُرْشًا لِشِرَاءِ حَرِيرٍ قَدْرُهُ حَجَرٌ وَاحِدٌ وَاثْنَانِ جُنَيْنَانِ وَثَمَانِيَةٌ وَعِشْرُونَ رِطْلًا وَثَلَاثُ أُوقِيَّاتٍ وَخَمْسُ وَزَنَاتٍ. نُرِيدُ السِّعْرَ لِكُلِّ رِطْلٍ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其一石二鈞八斤，斤五錢。其一石一十斤，斤六錢。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} حَجَرٌ وَجُنَيْنَانِ وَثَمَانِيَةُ أَرْطَالٍ: خَمْسَةُ قُرُوشٍ لِكُلِّ رِطْلٍ. حَجَرٌ وَعَشْرَةُ أَرْطَالٍ: سِتَّةُ قُرُوشٍ لِكُلِّ رِطْلٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四三}\, 今有出錢一萬三千九百七十，買絲一石二鈞二十八斤三兩五銖。欲其貴賤兩率之，問各幾何？}
+\arline{\problemnum{٤٣}\, يُوجَدُ مَنْ يُنْفِقُ ثَلَاثَةَ عَشَرَ أَلْفًا وَتِسْعَ مِئَةٍ وَسَبْعِينَ قُرْشًا لِشِرَاءِ حَرِيرٍ قَدْرُهُ حَجَرٌ وَاحِدٌ وَاثْنَانِ جُنَيْنَانِ وَثَمَانِيَةٌ وَعِشْرُونَ رِطْلًا وَثَلَاثُ أُوقِيَّاتٍ وَخَمْسُ وَزَنَاتٍ. نُرِيدُ السِّعْرَ لِكُلِّ أُوقِيَّةٍ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其一石一鈞一十七斤一十四兩，兩四錢。其一鈞一十斤五兩，兩五錢。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} حَجَرٌ وَجُنَيْنٌ وَسَبْعَةَ عَشَرَ رِطْلًا وَأَرْبَعَ عَشْرَةَ أُوقِيَّةً: أَرْبَعَةُ قُرُوشٍ لِكُلِّ أُوقِيَّةٍ. جُنَيْنٌ وَعَشْرَةُ أَرْطَالٍ وَخَمْسُ أُوقِيَّاتٍ: خَمْسَةُ قُرُوشٍ لِكُلِّ أُوقِيَّةٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{其率術曰：}}各置所買石、鈞、斤、兩以為法，以所率乘錢數為實，實如法而一。不滿法者反以實減法，法賤實貴。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ نِسْبَتِهِ:}} ضَعْ كُلَّ حَجَرٍ وَجُنَيْنٍ وَرِطْلٍ وَأُوقِيَّةٍ شِرَاءَهَا مَقَامًا، وَاضْرِبْ النِّسْبَةَ فِي عَدَدِ الْقُرُوشِ فَتَكُونُ الْبَسْطَ، وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ. فَإِنْ لَمْ يَتِمَّ الْقَسْمُ فَاطْرَحِ الْبَسْطَ مِنَ الْمَقَامِ عَكْسِيًّا، فَالْمَقَامُ هُوَ الرَّخِيصُ وَالْبَسْطُ هُوَ الْغَالِي.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}其率者，所求之率也。以所買之數為法，以錢數乘所求率為實，實如法而一。不滿法者，反以實減法，法賤實貴，謂法為賤率，實為貴率也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} نِسْبَتُهُ: هِيَ النِّسْبَةُ الْمَطْلُوبَةُ. اجْعَلْ عَدَدَ مَا شِرَاءَهُ مَقَامًا، وَاضْرِبْ عَدَدَ الْقُرُوشِ فِي النِّسْبَةِ الْمَطْلُوبَةِ فَتَكُونُ الْبَسْطَ، وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ. فَإِنْ لَمْ يَتِمَّ الْقَسْمُ فَاطْرَحِ الْبَسْطَ مِنَ الْمَقَامِ عَكْسِيًّا، فَالْمَقَامُ هُوَ النِّسْبَةُ الرَّخِيصَةُ، وَالْبَسْطُ هُوَ النِّسْبَةُ الْغَالِيَةُ.
+}
+\end{bilingual}
+
+%% ----- Problems 44-46 -----
+\begin{bilingual}
+\cnline{\problemnum{四四}\, 今有出錢一萬三千九百七十，買絲一石二鈞二十八斤三兩五銖。欲其貴賤銖率之，問各幾何？}
+\arline{\problemnum{٤٤}\, يُوجَدُ مَنْ يُنْفِقُ ثَلَاثَةَ عَشَرَ أَلْفًا وَتِسْعَ مِئَةٍ وَسَبْعِينَ قُرْشًا لِشِرَاءِ حَرِيرٍ قَدْرُهُ حَجَرٌ وَوَاحِدٌ وَاثْنَانِ جُنَيْنَانِ وَثَمَانِيَةٌ وَعِشْرُونَ رِطْلًا وَثَلَاثُ أُوقِيَّاتٍ وَخَمْسُ وَزَنَاتٍ. نُرِيدُ السِّعْرَ لِكُلِّ وَزْنَةٍ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其一石一鈞一十七斤一十四兩一銖，銖四錢。其一鈞一十斤五兩四銖，銖五錢。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} حَجَرٌ وَجُنَيْنٌ وَسَبْعَةَ عَشَرَ رِطْلًا وَأَرْبَعَ عَشْرَةَ أُوقِيَّةً وَوَزْنَةٌ: أَرْبَعَةُ قُرُوشٍ لِكُلِّ وَزْنَةٍ. جُنَيْنٌ وَعَشْرَةُ أَرْطَالٍ وَخَمْسُ أُوقِيَّاتٍ وَأَرْبَعُ وَزَنَاتٍ: خَمْسَةُ قُرُوشٍ لِكُلِّ وَزْنَةٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四五}\, 今有出錢六百一十，買羽二千一百翭。欲其貴賤率之，問各幾何？}
+\arline{\problemnum{٤٥}\, يُوجَدُ مَنْ يُنْفِقُ سِتَّ مِئَةٍ وَعَشَرَةَ قُرُوشٍ لِشِرَاءِ أَلْفَيْنِ وَمِائَةِ رِيشَةٍ. نُرِيدُ السِّعْرَ الْغَالِيَ وَالرَّخِيصَ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其一千一百四十翭，三翭一錢。其九百六十翭，四翭一錢。}}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} أَلْفٌ وَمِائَةٌ وَأَرْبَعُونَ رِيشَةً، ثَلَاثُ رِيشَاتٍ بِقُرْشٍ وَاحِدٍ. وَتِسْعُ مِئَةٍ وَسِتُّونَ رِيشَةً، أَرْبَعُ رِيشَاتٍ بِقُرْشٍ وَاحِدٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{四六}\, 今有出錢九百八十，買矢簳五千八百二十枚。欲其貴賤率之，問各幾何？}
+\arline{\problemnum{٤٦}\, يُوجَدُ مَنْ يُنْفِقُ تِسْعَ مِئَةٍ وَثَمَانِينَ قُرْشًا لِشِرَاءِ خَمْسَةِ آلَافٍ وَثَمَانِيَ مِئَةٍ وَعِشْرِينَ سَهْمًا. نُرِيدُ السِّعْرَ الْغَالِيَ وَالرَّخِيصَ. كَمْ لِكُلٍّ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}其三百枚，五枚一錢。其五千五百二十枚，六枚一錢。}}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَلَاثُ مِئَةِ سَهْمٍ، خَمْسَةُ أَسْهُمٍ بِقُرْشٍ وَاحِدٍ. وَخَمْسَةُ آلَافٍ وَخَمْسُ مِئَةٍ وَعِشْرُونَ سَهْمًا، سِتَّةُ أَسْهُمٍ بِقُرْشٍ وَاحِدٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{反其率術曰：}}以錢數為法，所率為實，實如法而一。不滿法者反以實減法，法少，實多。二物各以所得多少之數乘法實，即物數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ عَكْسِ النِّسْبَةِ:}} اجْعَلْ عَدَدَ الْقُرُوشِ مَقَامًا، وَالنِّسْبَةَ الْمَطْلُوبَةَ بَسْطًا، وَاقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ. فَإِنْ لَمْ يَتِمَّ الْقَسْمُ فَاطْرَحِ الْبَسْطَ مِنَ الْمَقَامِ عَكْسِيًّا، فَالْمَقَامُ قَلِيلٌ وَالْبَسْطُ كَثِيرٌ. وَكُلُّ الشَّيْئَيْنِ يُضْرَبُ فِي عَدَدِ مَا حُصِلَ عَلَيْهِ مِنَ الْبَسْطِ وَالْمَقَامِ، فَتَحْصُلُ عَلَى عَدَدِ الْأَشْيَاءِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}反其率者，與其率相反也。其率以所買為法，此以錢數為法，故曰反其率。不滿法者反以實減法，法少實多，二物各以多少之數乘法實，即得各物之數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} عَكْسُ النِّسْبَةِ: هُوَ عَكْسُ نِسْبَتِهِ. فِي نِسْبَتِهِ، مَا شِرَاءَهُ هُوَ الْمَقَامُ، وَهُنَا عَدَدُ الْقُرُوشِ هُوَ الْمَقَامُ، فَلِهَذَا يُسَمَّى عَكْسَ نِسْبَتِهِ. فَإِنْ لَمْ يَتِمَّ الْقَسْمُ فَاطْرَحِ الْبَسْطَ مِنَ الْمَقَامِ عَكْسِيًّا، فَالْمَقَامُ قَلِيلٌ وَالْبَسْطُ كَثِيرٌ. وَكُلُّ الشَّيْئَيْنِ يُضْرَبُ فِي عَدَدِ مَا حُصِلَ عَلَيْهِ مِنَ الْكَثْرَةِ وَالْقِلَّةِ مِنَ الْبَسْطِ وَالْمَقَامِ، فَتَحْصُلُ عَلَى عَدَدِ كُلِّ شَيْءٍ.
+}
+\end{bilingual}
+
+\newpage
+
+
+%% =============================================================================
+\section{卷第三：衰分 | \ar{الْجُزْءُ الثَّالِثُ: التَّوْزِيعُ الْمُرَجَّحُ}}
+\label{sec:cuifen}
+\addcontentsline{toc}{subsection}{Cuīfēn -- Distributing by Proportion | \ar{التَّوْزِيعُ الْمُرَجَّحُ}}
+
+\begin{center}
+\textit{衰分以御貴賤粟稅之率} \quad|\quad \textit{\ar{التَّوْزِيعُ الْمُرَجَّحُ لِلْمُعَالَجَةِ نِسَبِ الضَّرَائِبِ وَالْأَرْزَاقِ}}
+\end{center}
+
+\bigskip
+
+\begin{bilingual}
+\cnline{%
+本章論比例分配之法，包括按等級、按數量、按比率之分配問題。\textit{衰分術}為本章之核心算法。
+}
+\arline{%
+يَنَاقِشُ هَذَا الْفَصْلُ طُرُقَ التَّوْزِيعِ التَّنَاسُبِيِّ، وَمِنْهَا التَّوْزِيعُ حَسَبَ الرُّتْبِ، وَحَسَبَ الْكَمِّيَّةِ، وَحَسَبَ النِّسْبَةِ. \textit{طَرِيقَةُ التَّوْزِيعِ الْمُرَجَّحِ} هِيَ الْخَوَارِزْمِيَّةُ الْجَوْهَرِيَّةُ فِي هَذَا الْفَصْلِ.
+}
+\end{bilingual}
+
+\bigskip
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{衰分術曰：}}各置列衰，副并為法，以所分乘未并者各自為實，實如法而一。不滿法者，以法命之。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ التَّوْزِيعِ الْمُرَجَّحِ:}} ضَعْ كُلَّ تَفَاوُتٍ مُصَفَّفٍ، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. وَاضْرِبِ الْمَقْسُومَ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ. فَإِنْ لَمْ يَتِمَّ الْقَسْمُ، فَأَطْلِقْ عَلَيْهِ اسْمَ الْمَقَامِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}衰分者，差分也。列衰者，列其差數以為率也。各置列衰，副并為法，以所分乘未并者各自為實，實如法而一，即各得其分也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} التَّوْزِيعُ الْمُرَجَّحُ: هُوَ التَّوْزِيعُ بِالْفَرْقِ. التَّفَاوُتُ الْمُصَفَّفُ: هُوَ صَفُّ أَعْدَادِ الْفَرْقِ لِتَكُونَ نِسْبَةً. ضَعْ كُلَّ تَفَاوُتٍ مُصَفَّفٍ، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. وَاضْرِبِ الْمَقْسُومَ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا، ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلٌّ عَلَى حِصَّتِهِ.
+}
+\end{bilingual}
+
+\vspace{0.5em}
+
+%% ----- Cuifen Problems 1-3 -----
+\begin{bilingual}
+\cnline{\problemnum{一}\, 今有大夫、不更、簪裹、上造、公士，凡五人，共獵得五鹿。欲以爵次分之，問各得幾何？}
+\arline{\problemnum{١}\, يُوجَدُ خَمْسَةُ أَشْخَاصٍ: دَافُو، وَبُو غِنْغ، وَزَان غُو، وَشَانغ دَاو، وَغُونْغ شِي. اصْطَادُوا خَمْسَ غِزْلَانٍ. يُرِيدُونَ تَوْزِيعَهَا حَسَبَ رُتَبِ الْأَلْقَابِ. كَمْ لِكُلٍّ مِنْهُمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}大夫得一鹿、三分鹿之二。不更得一鹿、三分鹿之一。簪裹得一鹿。上造得三分鹿之二。公士得三分鹿之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} دَافُو يَحْصُلُ عَلَى غَزَالَةٍ وَثُلْثَيْ غَزَالَةٍ. بُو غِنْغ يَحْصُلُ عَلَى غَزَالَةٍ وَثُلْثِ غَزَالَةٍ. زَان غُو يَحْصُلُ عَلَى غَزَالَةٍ. شَانغ دَاو يَحْصُلُ عَلَى ثُلْثَيْ غَزَالَةٍ. غُونْغ شِي يَحْصُلُ عَلَى ثُلْثِ غَزَالَةٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}列置爵數，各自為衰，副并為法。以五鹿乘未并者，各自為實。實如法得一鹿。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} صَفِّ أَعْدَادَ الْأَلْقَابِ، وَكُلٌّ مِنْهَا يَكُونُ تَفَاوُتًا. وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَ غِزْلَانٍ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى غَزَالَةٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}大夫五，不更四，簪裹三，上造二，公士一，是為列衰。副并得一十五為法。以五鹿乘未并者，大夫得二十五，不更得二十，簪裹得一十五，上造得一十，公士得五，各自為實。實如法而一，即各得鹿數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} دَافُو خَمْسَةٌ، بُو غِنْغ أَرْبَعَةٌ، زَان غُو ثَلَاثَةٌ، شَانغ دَاو اثْنَانِ، غُونْغ شِي وَاحِدٌ، وَهَذِهِ هِيَ التَّفَاوُتَاتُ الْمُصَفَّفَةُ. الْمَجْمُوعُ خَمْسَةَ عَشَرَ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَ غِزْلَانٍ فِي كُلِّ مَا لَمْ يُجْمَعْ: دَافُو يَحْصُلُ عَلَى خَمْسَةٍ وَعِشْرِينَ، بُو غِنْغ عَلَى عِشْرِينَ، زَان غُو عَلَى خَمْسَةَ عَشَرَ، شَانغ دَاو عَلَى عَشَرَةٍ، غُونْغ شِي عَلَى خَمْسَةٍ، كُلٌّ مِنْهَا بَسْطٌ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلٌّ عَلَى عَدَدِ غِزْلَانِهِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二}\, 今有牛、馬、羊食人苗。苗主責之粟五斗。羊主曰：「我羊食半馬。」馬主曰：「我馬食半牛。」今欲衰償之，問各出幾何？}
+\arline{\problemnum{٢}\, يُوجَدُ بَقَرَةٌ وَحِصَانٌ وَشَاةٌ قَدْ أَكَلَتْ مَحَاصِيلَ رَجُلٍ. صَاحِبُ الْمَحَاصِيلِ يَطْلُبُ مِنْهُمْ خَمْسَةَ أَدْوَاءٍ مِنَ الدُّخْنِ. قَالَ صَاحِبُ الشَّاةِ: "شَاتِي أَكَلَتْ نِصْفَ مَا أَكَلَهُ الْحِصَانُ". وَقَالَ صَاحِبُ الْحِصَانِ: "حِصَانِي أَكَلَ نِصْفَ مَا أَكَلَتْهُ الْبَقَرَةُ". يُرِيدُونَ التَّوْزِيعَ بِنِسْبَةِ مَا أَكَلَتْهُ. كَمْ يَدْفَعُ كُلٌّ مِنْهُمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}牛主出二斗八升、七分升之四。馬主出一斗四升、七分升之二。羊主出七升、七分升之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} صَاحِبُ الْبَقَرَةِ يَدْفَعُ دُوَّيْنِ وَثَمَانِيَةَ أَرْبَاعِ الْقَدَحِ وَأَرْبَعَةٌ عَلَى سَبْعَةٍ مِنْ رُبْعِ الْقَدَحِ. صَاحِبُ الْحِصَانِ يَدْفَعُ دُوًّا وَاحِدًا وَأَرْبَعَةَ أَرْبَاعِ الْقَدَحِ وَاثْنَانِ عَلَى سَبْعَةٍ مِنْ رُبْعِ الْقَدَحِ. صَاحِبُ الشَّاةِ يَدْفَعُ سَبْعَةَ أَرْبَاعِ الْقَدَحِ وَوَاحِدٌ عَلَى سَبْعَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}置牛四、馬二、羊一，各自為列衰，副并為法。以五斗乘未并者各自為實。實如法得一斗。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ الْبَقَرَةَ أَرْبَعَةً، وَالْحِصَانَ اثْنَيْنِ، وَالشَّاةَ وَاحِدَةً، كُلٌّ مِنْهَا يَكُونُ تَفَاوُتًا مُصَفَّفًا. وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَةَ أَدْوَاءٍ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى دُوّ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}羊食半馬，馬食半牛，則牛食四分，馬食二分，羊食一分，是為列衰。副并得七為法。以五斗乘未并者，牛得二十，馬得一十，羊得五，各自為實。實如法而一，即各出之數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} شَاتِي أَكَلَتْ نِصْفَ مَا أَكَلَهُ الْحِصَانُ، وَحِصَانِي أَكَلَ نِصْفَ مَا أَكَلَتْهُ الْبَقَرَةُ، فَالْبَقَرَةُ أَكَلَتْ أَرْبَعَةَ أَجْزَاءٍ، وَالْحِصَانُ اثْنَيْنِ، وَالشَّاةُ وَاحِدًا، وَهَذِهِ هِيَ التَّفَاوُتَاتُ الْمُصَفَّفَةُ. الْمَجْمُوعُ سَبْعَةٌ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَةَ أَدْوَاءٍ فِي كُلِّ مَا لَمْ يُجْمَعْ: الْبَقَرَةُ تَحْصُلُ عَلَى عِشْرِينَ، الْحِصَانُ عَلَى عَشَرَةٍ، الشَّاةُ عَلَى خَمْسَةٍ، كُلٌّ مِنْهَا بَسْطٌ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلٌّ عَلَى مَا يَدْفَعُهُ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{三}\, 今有甲持錢五百六十，乙持錢三百五十，丙持錢一百八十，凡三人俱出關，關稅百錢。欲以錢數多少衰出之，問各幾何？}
+\arline{\problemnum{٣}\, يُوجَدُ جَا يَحْمِلُ خَمْسَ مِئَةٍ وَسِتِّينَ قُرْشًا، وَيِي يَحْمِلُ ثَلَاثَ مِئَةٍ وَخَمْسِينَ قُرْشًا، وَبِنْغ يَحْمِلُ مِائَةً وَثَمَانِينَ قُرْشًا. جَمِيعُهُمْ يَعْبُرُونَ الْحَدَّ، وَالْجِبَايَةُ مِائَةُ قُرْشٍ. يُرِيدُونَ دَفْعَهَا حَسَبَ كَمِّيَّةِ مَا يَحْمِلُونَ. كَمْ يَدْفَعُ كُلٌّ مِنْهُمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}甲出五十一錢、一百九分錢之四十一。乙出三十二錢、一百九分錢之一十二。丙出一十六錢、一百九分錢之五十六。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} جَا يَدْفَعُ وَاحِدًا وَخَمْسِينَ قُرْشًا وَوَاحِدًا وَأَرْبَعِينَ عَلَى مِائَةٍ وَتِسْعَةٍ مِنَ الْقُرْشِ. يِي يَدْفَعُ اثْنَيْنِ وَثَلَاثِينَ قُرْشًا وَاثْنَيْ عَشَرَ عَلَى مِائَةٍ وَتِسْعَةٍ مِنَ الْقُرْشِ. بِنْغ يَدْفَعُ سِتَّةَ عَشَرَ قُرْشًا وَسِتَّةً وَخَمْسِينَ عَلَى مِائَةٍ وَتِسْعَةٍ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}各置錢數為列衰，副并為法，以百錢乘未并者，各自為實，實如法得一錢。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ عَدَدَ قُرُوشِ كُلٍّ مِنْهُمْ تَفَاوُتًا مُصَفَّفًا، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْمِائَةَ قُرْشًا فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى قُرْشٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}甲五百六十，乙三百五十，丙一百八十，各以其錢數為列衰。副并得一千九十為法。以百錢乘未并者，甲得五萬六千，乙得三萬五千，丙得一萬八千，各自為實。實如法而一，即各出稅錢也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} جَا خَمْسُ مِئَةٍ وَسِتُّونَ، يِي ثَلَاثُ مِئَةٍ وَخَمْسُونَ، بِنْغ مِائَةٌ وَثَمَانُونَ، كُلٌّ مِنْهُمْ بِعَدَدِ قُرُوشِهِ تَفَاوُتٌ مُصَفَّفٌ. الْمَجْمُوعُ أَلْفٌ وَتِسْعُونَ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْمِائَةَ قُرْشًا فِي كُلِّ مَا لَمْ يُجْمَعْ: جَا يَحْصُلُ عَلَى سِتَّةٍ وَخَمْسِينَ أَلْفًا، يِي عَلَى خَمْسَةٍ وَثَلَاثِينَ أَلْفًا، بِنْغ عَلَى ثَمَانِيَةَ عَشَرَ أَلْفًا، كُلٌّ مِنْهَا بَسْطٌ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلٌّ عَلَى مَا يَدْفَعُهُ مِنَ الضَّرِيبَةِ.
+}
+\end{bilingual}
+
+%% ----- Problems 4-7 -----
+\begin{bilingual}
+\cnline{\problemnum{四}\, 今有女子善織，日自倍，五日織五尺。問日織幾何？}
+\arline{\problemnum{٤}\, تُوجَدُ امْرَأَةٌ حَاذِقَةٌ فِي النَّسْجِ، تَتَضَاعَفُ إِنْتَاجُهَا كُلَّ يَوْمٍ. فِي خَمْسَةِ أَيَّامٍ نَسَجَتْ خَمْسَ أَذْرُعٍ. كَمْ نَسَجَتْ كُلَّ يَوْمٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}初日織一寸、三十一分寸之十九。次日織三寸、三十一分寸之七。次日織六寸、三十一分寸之十四。次日織一尺二寸、三十一分寸之二十八。次日織二尺五寸、三十一分寸之二十五。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} الْيَوْمُ الْأَوَّلُ نَسَجَتْ بُوصَةً وَاحِدَةً وَتِسْعَةَ عَشَرَ عَلَى وَاحِدٍ وَثَلَاثِينَ مِنَ الْبُوصَةِ. الْيَوْمُ الثَّانِي نَسَجَتْ ثَلَاثَ بُوصَاتٍ وَسَبْعَةٌ عَلَى وَاحِدٍ وَثَلَاثِينَ. الْيَوْمُ الثَّالِثُ نَسَجَتْ سِتَّ بُوصَاتٍ وَأَرْبَعَةَ عَشَرَ عَلَى وَاحِدٍ وَثَلَاثِينَ. الْيَوْمُ الرَّابِعُ نَسَجَتْ ذِرَاعًا وَبُوصَتَيْنِ وَثَمَانِيَةً وَعِشْرِينَ عَلَى وَاحِدٍ وَثَلَاثِينَ. الْيَوْمُ الْخَامِسُ نَسَجَتْ ذِرَاعَيْنِ وَخَمْسَ بُوصَاتٍ وَخَمْسَةً وَعِشْرِينَ عَلَى وَاحِدٍ وَثَلَاثِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}置一、二、四、八、十六為列衰，副并為法，以五尺乘未并者，各自為實，實如法得一尺。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ وَاحِدًا وَاثْنَيْنِ وَأَرْبَعَةً وَثَمَانِيَةً وَسِتَّةَ عَشَرَ تَفَاوُتًا مُصَفَّفًا، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَةَ أَذْرُعٍ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى ذِرَاعٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}日自倍者，初日一，次日二，第三日四，第四日八，第五日十六，是為列衰。副并得三十一為法。以五尺乘未并者，初日得五，次日得一十，第三日得二十，第四日得四十，第五日得八十，各自為實。實如法而一，即各日織之數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} التَّضَاعُفُ كُلَّ يَوْمٍ: الْيَوْمُ الْأَوَّلُ وَاحِدٌ، الثَّانِي اثْنَانِ، الثَّالِثُ أَرْبَعَةٌ، الرَّابِعُ ثَمَانِيَةٌ، الْخَامِسُ سِتَّةَ عَشَرَ، وَهَذِهِ هِيَ التَّفَاوُتَاتُ الْمُصَفَّفَةُ. الْمَجْمُوعُ وَاحِدٌ وَثَلَاثُونَ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَةَ أَذْرُعٍ فِي كُلِّ مَا لَمْ يُجْمَعْ: الْيَوْمُ الْأَوَّلُ يَحْصُلُ عَلَى خَمْسَةٍ، الثَّانِي عَلَى عَشَرَةٍ، الثَّالِثُ عَلَى عِشْرِينَ، الرَّابِعُ عَلَى أَرْبَعِينَ، الْخَامِسُ عَلَى ثَمَانِينَ، كُلٌّ مِنْهَا بَسْطٌ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلُّ يَوْمٍ عَلَى مَا نَسَجَهُ.
+}
+\end{bilingual}
+
+
+%% ----- Cuifen Problems 5-7 -----
+\begin{bilingual}
+\cnline{\problemnum{五}\, 今有北鄉算八千七百五十八，西鄉算七千二百三十六，南鄉算八千三百五十六，凡三鄉，發傜三百七十八人。欲以算數多少衰出之，問各幾何？}
+\arline{\problemnum{٥}\, يُوجَدُ لِقَرْيَةِ الشَّمَالِ ثَمَانِيَةُ آلَافٍ وَسَبْعُ مِئَةٍ وَثَمَانِيَةٌ وَخَمْسُونَ حَسَابًا، وَلِقَرْيَةِ الْغَرْبِ سَبْعَةُ آلَافٍ وَمِائَتَانِ وَسِتَّةٌ وَثَلَاثُونَ حَسَابًا، وَلِقَرْيَةِ الْجَنُوبِ ثَمَانِيَةُ آلَافٍ وَثَلَاثُ مِئَةٍ وَسِتَّةٌ وَخَمْسُونَ حَسَابًا. جَمِيعُ الْقُرَى الثَّلَاثِ يُرِيدُونَ إِحْضَارَ ثَلَاثِ مِئَةٍ وَثَمَانِيَةٍ وَسَبْعِينَ عَامِلًا. يُرِيدُونَ تَوْزِيعَهُمْ حَسَبَ عَدَدِ الْحِسَابَاتِ. كَمْ لِكُلِّ قَرْيَةٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}北鄉遣一百三十五人、一萬二千一百七十五分人之一萬一千六百三十七。西鄉遣一百一十二人、一萬二千一百七十五分人之四千四。南鄉遣一百二十九人、一萬二千一百七十五分之八千七百九。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} قَرْيَةُ الشَّمَالِ تُرْسِلُ مِائَةً وَخَمْسَةً وَثَلَاثِينَ رَجُلًا وَأَحَدَ عَشَرَ أَلْفًا وَسِتَّ مِئَةٍ وَسَبْعَةً وَثَلَاثِينَ عَلَى أَثْنَيْ عَشَرَ أَلْفًا وَمِائَةٍ وَخَمْسَةٍ وَسَبْعِينَ. قَرْيَةُ الْغَرْبِ تُرْسِلُ مِائَةً وَاثْنَيْ عَشَرَ رَجُلًا وَأَرْبَعَةَ آلَافٍ وَأَرْبَعَةً عَلَى أَثْنَيْ عَشَرَ أَلْفًا وَمِائَةٍ وَخَمْسَةٍ وَسَبْعِينَ. قَرْيَةُ الْجَنُوبِ تُرْسِلُ مِائَةً وَتِسْعَةً وَعِشْرِينَ رَجُلًا وَثَمَانِيَةَ آلَافٍ وَسَبْعَ مِئَةٍ وَتِسْعَةً عَلَى أَثْنَيْ عَشَرَ أَلْفًا وَمِائَةٍ وَخَمْسَةٍ وَسَبْعِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}各置算數為列衰，副并為法，以所發傜人數乘未并者，各自為實，實如法得一人。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ عَدَدَ حِسَابَاتِ كُلِّ قَرْيَةٍ تَفَاوُتًا مُصَفَّفًا، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ عَدَدَ الْعُمَّالِ الْمُرْسَلِينَ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى رَجُلٍ وَاحِدٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{六}\, 今有稟粟，大夫、不更、簪裹、上造、公士，凡五人，一十五斗。今有大夫一人後來，亦當稟五斗。倉無粟，欲以衰出之，問各幾何？}
+\arline{\problemnum{٦}\, يُوجَدُ تَقْسِيمُ أَرْزَاقٍ مِنَ الدُّخْنِ: دَافُو، وَبُو غِنْغ، وَزَان غُو، وَشَانغ دَاو، وَغُونْغ شِي، خَمْسَةُ أَشْخَاصٍ، مِقْدَارُهَا خَمْسَةَ عَشَرَ دُوًّا. يُوجَدُ دَافُو قَدْ أَتَى مُتَأَخِّرًا، وَيَسْتَحِقُّ أَيْضًا خَمْسَةَ أَدْوَاءٍ. الْمَخْزَنُ لَا يَحْتَوِي عَلَى دُخْنٍ، فَيُرِيدُونَ أَنْ يُخْرِجُوهَا بِنِسْبَةٍ. كَمْ يَدْفَعُ كُلٌّ مِنْهُمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}大夫出一斗、四分斗之一。不更出一斗。簪裹出四分斗之三。上造出四分斗之二。公士出四分斗之一。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} دَافُو يَدْفَعُ دُوًّا وَاحِدًا وَرُبْعَ دُوّ. بُو غِنْغ يَدْفَعُ دُوًّا وَاحِدًا. زَان غُو يَدْفَعُ ثَلَاثَةَ أَرْبَاعِ دُوّ. شَانغ دَاو يَدْفَعُ ثُلْثَيْ دُوّ. غُونْغ شِي يَدْفَعُ رُبْعَ دُوّ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}各置所稟粟斛斗數，爵次均之，以為列衰，副并而加後來大夫亦五斗，得二十以為法。以五斗乘未并者各自為實。實如法得一斗。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ مَا يَسْتَحِقُّهُ كُلٌّ مِنْهُمْ مِنَ الْقُرُوشِ الْمُتَسَاوِيَةِ تَفَاوُتًا مُصَفَّفًا، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ وَأَضِفْ إِلَيْهَا دَافُو الْمُتَأَخِّرُ الَّذِي يَسْتَحِقُّ خَمْسَةَ أَدْوَاءٍ، فَالْمَجْمُوعُ عِشْرُونَ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَةَ أَدْوَاءٍ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى دُوّ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}五人各五斗，合稟二十五斗。今有十五斗，不足十斗。後來大夫亦當稟五斗，并之得二十斗為法。以所不足五斗乘未并者，大夫得二十五，不更得二十，簪裹得一十五，上造得一十，公士得五，各自為實。實如法而一，即各出之數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} الْخَمْسَةُ أَشْخَاصٍ، كُلٌّ مِنْهُمْ خَمْسَةُ أَدْوَاءٍ، يَجْمَعُونَ خَمْسَةً وَعِشْرِينَ دُوًّا. الْآنَ يُوجَدُ خَمْسَةَ عَشَرَ دُوًّا، نَاقِصَ عَشَرَةِ أَدْوَاءٍ. دَافُو الْمُتَأَخِّرُ يَسْتَحِقُّ أَيْضًا خَمْسَةَ أَدْوَاءٍ، فَالْمَجْمُوعُ عِشْرُونَ دُوًّا فَتَكُونُ الْمَقَامَ. اضْرِبِ النُّقْصَانَ الْخَمْسَةَ أَدْوَاءٍ فِي كُلِّ مَا لَمْ يُجْمَعْ: دَافُو يَحْصُلُ عَلَى خَمْسَةٍ وَعِشْرِينَ، بُو غِنْغ عَلَى عِشْرِينَ، زَان غُو عَلَى خَمْسَةَ عَشَرَ، شَانغ دَاو عَلَى عَشَرَةٍ، غُونْغ شِي عَلَى خَمْسَةٍ، كُلٌّ مِنْهَا بَسْطٌ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلٌّ عَلَى مَا يَدْفَعُهُ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{七}\, 今有稟粟五斛，五人分之，欲令三人得三，二人得二。問各幾何？}
+\arline{\problemnum{٧}\, يُوجَدُ خَمْسَةُ قَرَابِيَّ مِنَ الدُّخْنِ، يُقَسَّمُ بَيْنَ خَمْسَةِ أَشْخَاصٍ، فَيَحْصُلُ ثَلَاثَةُ أَشْخَاصٍ عَلَى ثَلَاثَةِ أَجْزَاءٍ، وَاثْنَانِ عَلَى جُزْئَيْنِ. كَمْ لِكُلِّ وَاحِدٍ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}三人，人得一斛一斗五升、十三分升之五。二人，人得七斗六升、十三分升之十二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} الثَّلَاثَةُ أَشْخَاصٍ، كُلٌّ مِنْهُمْ يَحْصُلُ عَلَى قُرَابَةٍ وَدُوّ وَاحِدٍ وَخَمْسَةِ أَرْبَاعِ الْقَدَحِ وَخَمْسَةٌ عَلَى ثَلَاثَةَ عَشَرَ مِنْ رُبْعِ الْقَدَحِ. الِاثْنَانِ، كُلٌّ مِنْهُمَا يَحْصُلُ عَلَى سَبْعَةِ أَدْوَاءٍ وَسِتَّةِ أَرْبَاعِ الْقَدَحِ وَاثْنَا عَشَرَ عَلَى ثَلَاثَةَ عَشَرَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}置三人，人三；二人，人二，為列衰。副并為法。以五斛乘未并者，各自為實。實如法得一斛。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ ثَلَاثَةَ أَشْخَاصٍ، كُلُّ وَاحِدٍ مِنْهُمْ ثَلَاثَةٌ؛ وَاثْنَيْنِ، كُلُّ وَاحِدٍ مِنْهُمَا اثْنَانِ، تَفَاوُتًا مُصَفَّفًا. وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْخَمْسَ قَرَابِيَّ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى قُرَابَةٍ.
+}
+\end{bilingual}
+
+\vspace{0.5em}
+
+%% ----- Return-rate method -----
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{返衰術曰：}}列置衰而令相乘，動者為不動者衰。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{طَرِيقَةُ التَّوْزِيعِ الْعَكْسِيِّ:}} صَفِّ التَّفَاوُتَاتِ وَاجْعَلْهَا تَتَضَارَبُ، فَالْمُتَحَرِّكُ يَكُونُ تَفَاوُتًا لِلْمَرْبُوطِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}返衰者，反其列衰也。令相乘者，以多乘少，以少乘多，各為其率。動者為不動者衰，言各以不動者為法，動者為實也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} التَّوْزِيعُ الْعَكْسِيُّ: هُوَ عَكْسُ التَّفَاوُتِ الْمُصَفَّفِ. جَعْلُهَا تَتَضَارَبُ: الْكَثِيرُ يُضْرَبُ فِي الْقَلِيلِ، وَالْقَلِيلُ يُضْرَبُ فِي الْكَثِيرِ، وَكُلٌّ مِنْهُمَا يَكُونُ نِسْبَتَهُ. الْمُتَحَرِّكُ يَكُونُ تَفَاوُتًا لِلْمَرْبُوطِ: يَعْنِي أَنَّ كُلًّا يَكُونُ الْمَرْبُوطُ مَقَامُهُ، وَالْمُتَحَرِّكُ بَسْطُهُ.
+}
+\end{bilingual}
+
+%% ----- Problems 8-9 -----
+\begin{bilingual}
+\cnline{\problemnum{八}\, 今有大夫、不更、簪褭、上造、公士，凡五人，共出百錢。欲令高爵出少，以次漸多，問各幾何？}
+\arline{\problemnum{٨}\, يُوجَدُ خَمْسَةُ أَشْخَاصٍ: دَافُو، وَبُو غِنْغ، وَزَان غُو، وَشَانغ دَاو، وَغُونْغ شِي. جَمِيعُهُمْ يَدْفَعُونَ مِائَةَ قُرْشٍ. يُرِيدُونَ أَنْ يَدْفَعَ صَاحِبُ اللَّقَبِ الْأَعْلَى أَقَلَّ، وَيَزْدَادَ الْبَاقُونَ تَدْرِيجِيًّا. كَمْ يَدْفَعُ كُلٌّ مِنْهُمْ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}大夫出八錢、一百三十七分錢之一百四。不更出一十錢、一百三十七分錢之一百三十。簪褭出一十四錢、一百三十七分錢之八十二。上造出二十一錢、一百三十七分錢之一百二十三。公士出四十三錢、一百三十七分錢之一百九。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} دَافُو يَدْفَعُ ثَمَانِيَةَ قُرُوشٍ وَمِائَةً وَأَرْبَعَةً عَلَى مِائَةٍ وَسَبْعَةٍ وَثَلَاثِينَ مِنَ الْقُرْشِ. بُو غِنْغ يَدْفَعُ عَشَرَةَ قُرُوشٍ وَمِائَةً وَثَلَاثِينَ عَلَى مِائَةٍ وَسَبْعَةٍ وَثَلَاثِينَ. زَان غُو يَدْفَعُ أَرْبَعَةَ عَشَرَ قُرْشًا وَثَمَانِيَةً وَثَمَانِينَ عَلَى مِائَةٍ وَسَبْعَةٍ وَثَلَاثِينَ. شَانغ دَاو يَدْفَعُ وَاحِدًا وَعِشْرِينَ قُرْشًا وَمِائَةً وَثَلَاثًا وَعِشْرِينَ عَلَى مِائَةٍ وَسَبْعَةٍ وَثَلَاثِينَ. غُونْغ شِي يَدْفَعُ ثَلَاثَةً وَأَرْبَعِينَ قُرْشًا وَمِائَةً وَتِسْعَةً عَلَى مِائَةٍ وَسَبْعَةٍ وَثَلَاثِينَ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}置爵數各自為衰，而返衰之，副并為法。以百錢乘未并者各自為實。實如法得一錢。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ أَعْدَادَ الْأَلْقَابِ، كُلٌّ مِنْهَا يَكُونُ تَفَاوُتًا، ثُمَّ عَكِّسْهَا، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْمِائَةَ قُرْشًا فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى قُرْشٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}高爵出少，以次漸多，故令大夫五、不更四、簪裹三、上造二、公士一，返衰之。大夫得一百二十，不更得六十，簪裹得四十，上造得三十，公士得二十四，是為列衰。副并得二百七十四為法。以百錢乘未并者，各自為實。實如法而一，即各出錢數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} صَاحِبُ اللَّقَبِ الْأَعْلَى يَدْفَعُ أَقَلَّ، وَيَزْدَادُ الْبَاقُونَ تَدْرِيجِيًّا، فَدَافُو خَمْسَةٌ، بُو غِنْغ أَرْبَعَةٌ، زَان غُو ثَلَاثَةٌ، شَانغ دَاو اثْنَانِ، غُونْغ شِي وَاحِدٌ، عَكِّسْهَا. دَافُو يَحْصُلُ عَلَى مِائَةٍ وَعِشْرِينَ، بُو غِنْغ عَلَى سِتِّينَ، زَان غُو عَلَى أَرْبَعِينَ، شَانغ دَاو عَلَى ثَلَاثِينَ، غُونْغ شِي عَلَى أَرْبَعَةٍ وَعِشْرِينَ، وَهَذِهِ هِيَ التَّفَاوُتَاتُ الْمُصَفَّفَةُ. الْمَجْمُوعُ مِائَتَانِ وَأَرْبَعَةٌ وَسَبْعُونَ فَتَكُونُ الْمَقَامَ. اضْرِبِ الْمِائَةَ قُرْشًا فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلٌّ عَلَى مَا يَدْفَعُهُ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{九}\, 今有甲持粟三升，乙持糲米三升，丙持糲飯三升。欲令合而分之，問各幾何？}
+\arline{\problemnum{٩}\, يُوجَدُ جَا يَحْمِلُ ثَلَاثَةَ أَرْبَاعِ الْقَدَحِ مِنَ الدُّخْنِ، وَيِي يَحْمِلُ ثَلَاثَةَ أَرْبَاعِ الْقَدَحِ مِنَ الرُّزِّ الْخَشِنِ، وَبِنْغ يَحْمِلُ ثَلَاثَةَ أَرْبَاعِ الْقَدَحِ مِنَ الرُّزِّ الْخَشِنِ الْمَطْبُوخِ. يُرِيدُونَ أَنْ يَجْمَعُوهَا ثُمَّ يُقَسِّمُوهَا. كَمْ يَحْصُلُ كُلٌّ عَلَى؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}甲二升、一十分升之七。乙四升、一十分升之五。丙一升、一十分升之八。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} جَا يَحْصُلُ عَلَى رُبْعَيْ قَدَحٍ وَسَبْعَةٌ عَلَى عَشْرَةٍ مِنْ رُبْعِ الْقَدَحِ. يِي يَحْصُلُ عَلَى أَرْبَعَةِ أَرْبَاعِ الْقَدَحِ وَخَمْسَةٌ عَلَى عَشْرَةٍ مِنْ رُبْعِ الْقَدَحِ. بِنْغ يَحْصُلُ عَلَى رُبْعِ الْقَدَحِ وَثَمَانِيَةٌ عَلَى عَشْرَةٍ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以粟率五十、糲米率三十、糲飯率七十五為衰、而返衰之，副并為法。以九升乘未并者各自為實。實如法得一升。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلْ نِسْبَةَ الدُّخْنِ خَمْسِينَ، وَنِسْبَةَ الرُّزِّ الْخَشِنِ ثَلَاثِينَ، وَنِسْبَةَ الرُّزِّ الْخَشِنِ الْمَطْبُوخِ خَمْسَةً وَسَبْعِينَ تَفَاوُتًا، ثُمَّ عَكِّسْهَا، وَاجْمَعِ النُّسُوخَ عَلَى الْجَانِبِ فَتَكُونُ الْمَقَامَ. اضْرِبِ التِّسْعَةَ أَرْبَاعِ الْقَدَحِ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى رُبْعِ قَدَحٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}甲持粟率五十，乙持糲米率三十，丙持糲飯率七十五，返衰之。甲得四千五百，乙得七千五百，丙得三千，是為列衰。副并得一萬五千為法。以九升乘未并者，各自為實。實如法而一，即各得之數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} جَا يَحْمِلُ دُخْنًا نِسْبَتُهُ خَمْسُونَ، يِي يَحْمِلُ رُزًّا خَشِنًا نِسْبَتُهُ ثَلَاثُونَ، بِنْغ يَحْمِلُ رُزًّا خَشِنًا مَطْبُوخًا نِسْبَتُهُ خَمْسَةٌ وَسَبْعُونَ، عَكِّسْهَا. جَا يَحْصُلُ عَلَى أَرْبَعَةِ آلَافٍ وَخَمْسِ مِئَةٍ، يِي عَلَى سَبْعَةِ آلَافٍ وَخَمْسِ مِئَةٍ، بِنْغ عَلَى ثَلَاثَةِ آلَافٍ، وَهَذِهِ هِيَ التَّفَاوُتَاتُ الْمُصَفَّفَةُ. الْمَجْمُوعُ خَمْسَةَ عَشَرَ أَلْفًا فَتَكُونُ الْمَقَامَ. اضْرِبِ التِّسْعَةَ أَرْبَاعِ الْقَدَحِ فِي كُلِّ مَا لَمْ يُجْمَعْ فَيَكُونُ كُلٌّ مِنْهَا بَسْطًا. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَيَحْصُلُ كُلٌّ عَلَى مَا يَسْتَحِقُّهُ.
+}
+\end{bilingual}
+
+%% ----- Problems 10-14 (Rule of three applications) -----
+\begin{bilingual}
+\cnline{\problemnum{一０}\, 今有絲一斤，價直二百四十。今有錢一千三百二十八，問得絲幾何？}
+\arline{\problemnum{١٠}\, يُوجَدُ حَرِيرٌ قَدْرُهُ رِطْلٌ وَاحِدٌ، سِعْرُهُ مِائَتَانِ وَأَرْبَعُونَ قُرْشًا. الْآنَ يُوجَدُ أَلْفُ وَثَلَاثُ مِئَةٍ وَثَمَانِيَةٌ وَعِشْرُونَ قُرْشًا. كَمْ مِنَ الْحَرِيرِ نَحْصُلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}五斤八兩一十二銖、三分銖之四。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} خَمْسَةُ أَرْطَالٍ وَثَمَانِيَةُ أَوَاقٍ وَاثْنَا عَشَرَ وَزْنَةً وَأَرْبَعَةٌ عَلَى ثَلَاثَةٍ مِنَ الْوَزْنَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以一斤價數為法，以一斤乘今有錢數為實，實如法得絲數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلْ سِعْرَ الرِّطْلِ الْوَاحِدِ مَقَامًا، وَاضْرِبِ الرِّطْلَ فِي عَدَدِ الْقُرُوشِ الْمَوْجُودَةِ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ الْأَرْطَالِ مِنَ الْحَرِيرِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一一}\, 今有絲一斤價直三百四十三。今有絲七兩一十二銖，問得錢幾何？}
+\arline{\problemnum{١١}\, يُوجَدُ حَرِيرٌ رِطْلٌ وَاحِدٌ سِعْرُهُ ثَلَاثَ مِئَةٍ وَثَلَاثَةٌ وَأَرْبَعُونَ قُرْشًا. الْآنَ يُوجَدُ سَبْعَةُ أَوَاقٍ وَاثْنَا عَشَرَ وَزْنَةً مِنَ الْحَرِيرِ. كَمْ نَحْصُلُ مِنَ الْقُرُوشِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一百六十一錢、三十二分錢之二十三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مِائَةٌ وَوَاحِدٌ وَسِتُّونَ قُرْشًا وَثَلَاثَةً وَعِشْرِينَ عَلَى اثْنَتَيْنِ وَثَلَاثِينَ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以一斤銖數為法，以一斤價數，乘七兩一十二銖為實。實如法得錢數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلْ عَدَدَ وَزَنَاتِ الرِّطْلِ الْوَاحِدِ مَقَامًا، وَاضْرِبْ سِعْرَ الرِّطْلِ فِي سَبْعَةِ أَوَاقٍ وَاثْنَتَيْ عَشْرَةَ وَزْنَةً فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ الْقُرُوشِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一二}\, 今有縑一丈價直一百二十六。今有縑一匹九尺五寸，問得錢幾何？}
+\arline{\problemnum{١٢}\, يُوجَدُ حَاشِيَةٌ طُولُهَا ذِرَاعٌ وَاحِدٌ سِعْرُهَا مِائَةٌ وَسِتَّةٌ وَعِشْرُونَ قُرْشًا. الْآنَ يُوجَدُ حَاشِيَةٌ قَدْرُهَا قِطْعَةٌ وَاحِدَةٌ وَتِسْعَةُ أَذْرُعٍ وَخَمْسُ بُوصَاتٍ. كَمْ نَحْصُلُ مِنَ الْقُرُوشِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}六百三十三錢、五分錢之三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} سِتُّ مِئَةٍ وَثَلَاثَةٌ وَثَلَاثُونَ قُرْشًا وَثَلَاثَةٌ عَلَى خَمْسَةٍ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以一丈寸數為法，以價錢數乘今有縑寸數為實，實如法得錢數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلْ عَدَدَ بُوصَاتِ الذِّرَاعِ الْوَاحِدِ مَقَامًا، وَاضْرِبْ سِعْرَ الْقُرُوشِ فِي عَدَدِ بُوصَاتِ الْحَاشِيَةِ الْمَوْجُودَةِ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ الْقُرُوشِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一三}\, 今有布一匹，價直一百二十三。今有布二丈七尺，問得錢幾何？}
+\arline{\problemnum{١٣}\, يُوجَدُ قُمَاشٌ قِطْعَةٌ وَاحِدَةٌ سِعْرُهَا مِائَةٌ وَثَلَاثَةٌ وَعِشْرُونَ قُرْشًا. الْآنَ يُوجَدُ قُمَاشٌ قَدْرُهُ ذِرَاعَانِ وَسَبْعَةُ أَخْمَاسِ الْقَدَمِ. كَمْ نَحْصُلُ مِنَ الْقُرُوشِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}八十四錢、分錢之三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} أَرْبَعَةٌ وَثَمَانُونَ قُرْشًا وَثَلَاثَةٌ عَلَى عَدَدِ الْقِسْمِ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以一匹尺數為法，今有布尺數乘價錢為實，實如法得錢數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلْ عَدَدَ أَخْمَاسِ الْقَدَمِ فِي الْقِطْعَةِ الْوَاحِدَةِ مَقَامًا، وَاضْرِبْ عَدَدَ أَخْمَاسِ الْقَدَمِ الْمَوْجُودَةِ فِي سِعْرِ الْقُرُوشِ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ الْقُرُوشِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一四}\, 今有素一匹一丈，價直六百二十五。今有錢五百，問得素幾何？}
+\arline{\problemnum{١٤}\, يُوجَدُ حَرِيرٌ أَبْيَضُ قِطْعَةٌ وَاحِدَةٌ وَذِرَاعٌ وَاحِدٌ سِعْرُهُ سِتُّ مِئَةٍ وَخَمْسَةٌ وَعِشْرُونَ قُرْشًا. الْآنَ يُوجَدُ خَمْسُ مِئَةٍ مِنَ الْقُرُوشِ. كَمْ نَحْصُلُ مِنَ الْحَرِيرِ الْأَبْيَضِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}得素四丈。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} نَحْصُلُ عَلَى أَرْبَعَةِ أَذْرُعٍ مِنَ الْحَرِيرِ الْأَبْيَضِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以價直為法，以一匹一丈尺數乘今有錢數為實。實如法得素數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلِ السِّعْرَ مَقَامًا، وَاضْرِبْ عَدَدَ أَخْمَاسِ الْقَدَمِ فِي قِطْعَةٍ وَاحِدَةٍ وَذِرَاعٍ فِي عَدَدِ الْقُرُوشِ الْمَوْجُودَةِ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ أَخْمَاسِ الْقَدَمِ مِنَ الْحَرِيرِ الْأَبْيَضِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}此術猶今有之義。以價直為法，以所求率乘所有數為實，實如法而一也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} هَذِهِ الطَّرِيقَةُ هِيَ أَيْضًا مَعْنَى الْإِشَارَةِ. اجْعَلِ السِّعْرَ مَقَامًا، وَاضْرِبِ النِّسْبَةَ الْمَطْلُوبَةَ فِي الْمَوْجُودِ فَتَكُونُ الْبَسْطَ، ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ.
+}
+\end{bilingual}
+
+
+%% ----- Cuifen Problems 15-17 -----
+\begin{bilingual}
+\cnline{\problemnum{一五}\, 今有與人絲一十四斤，約得縑一十斤。今與人絲四十五斤八兩，問得縑幾何？}
+\arline{\problemnum{١٥}\, يُوجَدُ مَنْ يُعْطِي رَجُلًا أَرْبَعَةَ عَشَرَ رِطْلًا مِنَ الْحَرِيرِ، فَيَحْصُلُ عَلَى عَشَرَةِ أَرْطَالٍ مِنَ الْحَاشِيَةِ. الْآنَ يُعْطِي خَمْسَةً وَأَرْبَعِينَ رِطْلًا وَثَمَانِيَةَ أَوَاقٍ مِنَ الْحَرِيرِ. كَمْ يَحْصُلُ مِنَ الْحَاشِيَةِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}三十二斤八兩。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} اثْنَانِ وَثَلَاثُونَ رِطْلًا وَثَمَانِيَةَ أَوَاقٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以一十四斤兩數為法，以一十斤乘今有絲兩數為實，實如法得縑數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلْ عَدَدَ أَوَاقِ أَرْبَعَةَ عَشَرَ رِطْلًا مَقَامًا، وَاضْرِبْ عَشَرَةَ أَرْطَالٍ فِي عَدَدِ أَوَاقِ الْحَرِيرِ الْمَوْجُودَةِ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ الْأَرْطَالِ مِنَ الْحَاشِيَةِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一六}\, 今有絲一斤，耗七兩。今有絲二十三斤五兩，問耗幾何？}
+\arline{\problemnum{١٦}\, يُوجَدُ حَرِيرٌ رِطْلٌ وَاحِدٌ يَفْقِدُ سَبْعَةَ أَوَاقٍ. الْآنَ يُوجَدُ حَرِيرٌ قَدْرُهُ ثَلَاثَةٌ وَعِشْرُونَ رِطْلًا وَخَمْسَةُ أَوَاقٍ. كَمْ يَفْقِدُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一百六十三兩四銖半。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مِائَةٌ وَثَلَاثَةٌ وَسِتُّونَ وَزْنَةً وَأَرْبَعَ وَزَنَاتٍ وَنِصْفَ وَزْنَةٍ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以一斤展十六兩為法，以七兩乘今有絲兩數為實，實如法得耗數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} حَوِّلِ الرِّطْلَ إِلَى سِتَّةَ عَشَرَ وَزْنَةً فَتَكُونُ الْمَقَامَ. وَاضْرِبْ سَبْعَ وَزَنَاتٍ فِي عَدَدِ وَزَنَاتِ الْحَرِيرِ الْمَوْجُودَةِ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى قَدْرِ الْفَقْدِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一七}\, 今有生絲三十斤，乾之，耗三斤十二兩。今有乾絲一十二斤，問生絲幾何？}
+\arline{\problemnum{١٧}\, يُوجَدُ حَرِيرٌ نَيِّئٌ قَدْرُهُ ثَلَاثُونَ رِطْلًا، إِذَا جُفِّفَ فَقِدَ ثَلَاثَةَ أَرْطَالٍ وَاثْنَتَيْ عَشْرَةَ وَزْنَةً. الْآنَ يُوجَدُ حَرِيرٌ جَافٌّ قَدْرُهُ اثْنَا عَشَرَ رِطْلًا. كَمْ كَانَ مِنَ الْحَرِيرِ النَّيِّئِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一十三斤一十一兩十銖、七分銖之二。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَلَاثَةَ عَشَرَ رِطْلًا وَأَحَدَ عَشَرَ وَزْنَةً وَعَشْرَ وَزَنَاتٍ وَاثْنَانِ عَلَى سَبْعَةٍ مِنَ الْوَزْنَةِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}置生絲兩數，除耗數，餘，以為法。三十斤乘乾絲兩數為實。實如法得生絲數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} ضَعْ عَدَدَ وَزَنَاتِ الْحَرِيرِ النَّيِّئِ، وَاطْرَحْ مِنْهَا عَدَدَ الْفَقْدِ، فَالْبَاقِي يَكُونُ الْمَقَامَ. وَاضْرِبْ ثَلَاثِينَ رِطْلًا فِي عَدَدِ وَزَنَاتِ الْحَرِيرِ الْجَافِّ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ الْأَرْطَالِ مِنَ الْحَرِيرِ النَّيِّئِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}此術猶今有之義。以生絲兩數除耗數，餘為率。三十斤乘乾絲兩數為實，實如法而一，即得生絲之數也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} هَذِهِ الطَّرِيقَةُ هِيَ أَيْضًا مَعْنَى الْإِشَارَةِ. عَدَدُ وَزَنَاتِ الْحَرِيرِ النَّيِّئِ نَاقِصًا عَدَدَ الْفَقْدِ، فَالْبَاقِي هُوَ النِّسْبَةُ. وَثَلَاثُونَ رِطْلًا مَضْرُوبَةً فِي عَدَدِ وَزَنَاتِ الْحَرِيرِ الْجَافِّ فَتَكُونُ الْبَسْطَ، ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ، فَتَحْصُلُ عَلَى عَدَدِ أَرْطَالِ الْحَرِيرِ النَّيِّئِ.
+}
+\end{bilingual}
+
+%% ----- Problems 18-20 -----
+\begin{bilingual}
+\cnline{\problemnum{一八}\, 今有田一畝，收粟六升、太半升。今有田一頃二十六畝一百五十九步，問收粟幾何？}
+\arline{\problemnum{١٨}\, يُوجَدُ حَقْلٌ مِسَاحَتُهُ مُوّ وَاحِدٌ، يُنْتِجُ سِتَّةَ أَرْبَاعِ الْقَدَحِ وَثُلْثَيْ رُبْعِ الْقَدَحِ مِنَ الدُّخْنِ. الْآنَ يُوجَدُ حَقْلٌ مِسَاحَتُهُ قَرْيَةٌ وَاحِدَةٌ وَسِتَّةٌ وَعِشْرُونَ مُوًّا وَمِائَةٌ وَتِسْعٌ وَخَمْسُونَ خُطْوَةً. كَمْ يُنْتِجُ مِنَ الدُّخْنِ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}八斛四斗四升、一十二分升之五。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} ثَمَانِيَةُ قَرَابِيَّ وَأَرْبَعَةُ أَدْوَاءٍ وَأَرْبَعَةُ أَرْبَاعِ الْقَدَحِ وَخَمْسَةٌ عَلَى اثْنَيْ عَشَرَ مِنْ رُبْعِ الْقَدَحِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以畝二百四十步為法，以六升、太半升乘今有田積步為實，實如法得粟數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلْ مِئَتَيْنِ وَأَرْبَعِينَ خُطْوَةً لِكُلِّ مُوّ مَقَامًا، وَاضْرِبِ السِّتَّةَ أَرْبَاعِ الْقَدَحِ وَثُلْثَيْ رُبْعِ الْقَدَحِ فِي عَدَدِ خُطُوَاتِ الْحَقْلِ الْمَوْجُودَةِ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ قَرَابِيِّ الدُّخْنِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{一九}\, 今有取保一歲，價錢二千五百。今先取一千二百，問當作日幾何？}
+\arline{\problemnum{١٩}\, يُوجَدُ عَقْدُ خِدْمَةٍ لِمُدَّةِ سَنَةٍ وَاحِدَةٍ، سِعْرُهُ أَلْفَانِ وَخَمْسُ مِئَةٍ مِنَ الْقُرُوشِ. الْآنَ أُخِذَتْ مُقَدَّمًا أَلْفٌ وَمِائَتَانِ مِنَ الْقُرُوشِ. كَمْ يَوْمًا يَجِبُ الْعَمَلُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}一百六十九日、二十五分日之二十三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} مِائَةٌ وَتِسْعَةٌ وَسِتُّونَ يَوْمًا وَثَلَاثَةً وَعِشْرِينَ عَلَى خَمْسَةٍ وَعِشْرِينَ مِنَ الْيَوْمِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以價錢為法，以一歲三百五十四日乘先取錢數為實，實如法得日數。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اجْعَلِ السِّعْرَ مَقَامًا، وَاضْرِبْ أَيَّامَ السَّنَةِ الثَّلَاثَ مِئَةٍ وَأَرْبَعَةٍ وَخَمْسِينَ فِي الْقُرُوشِ الَّتِي أُخِذَتْ مُقَدَّمًا فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى عَدَدِ الْأَيَّامِ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\problemnum{二０}\, 今有貸人千錢，月息三十。今有貸人七百五十錢，九日歸之，問息幾何？}
+\arline{\problemnum{٢٠}\, يُوجَدُ مَنْ يُقْرِضُ أَلْفَ قُرْشٍ، وَالرِّبْحُ الشَّهْرِيُّ ثَلَاثُونَ قُرْشًا. الْآنَ يُوجَدُ مَنْ يُقْرِضُ سَبْعَ مِئَةٍ وَخَمْسِينَ قُرْشًا، وَيَرُدُّهَا بَعْدَ تِسْعَةِ أَيَّامٍ. كَمْ الرِّبْحُ؟}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{\textcolor{answercolor}{\textbf{荅曰：}}六錢、四分錢之三。}
+\arline{\textcolor{answercolor}{\textbf{الْجَوَابُ:}} سِتَّةُ قُرُوشٍ وَثَلَاثَةٌ عَلَى أَرْبَعَةٍ مِنَ الْقُرْشِ.}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{methodcolor}{\textbf{術曰：}}以月三十日，乘千錢為法。以息三十乘今所貸錢數，又以九日乘之，為實。實如法得一錢。
+}
+\arline{%
+\textcolor{methodcolor}{\textbf{الطَّرِيقَةُ:}} اضْرِبْ ثَلَاثِينَ يَوْمًا فِي أَلْفِ قُرْشٍ فَتَكُونُ الْمَقَامَ. وَاضْرِبِ الرِّبْحَ الثَّلَاثِينَ فِي عَدَدِ الْقُرُوشِ الْمُقَرَضَةِ، ثُمَّ اضْرِبْ فِي تِسْعَةِ أَيَّامٍ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى قُرْشٍ.
+}
+\end{bilingual}
+
+\begin{bilingual}
+\cnline{%
+\textcolor{commentarycolor}{\small\textit{劉徽注：}}此術以月三十日乘千錢為法者，得一萬，是為貸錢一萬，一日息三十也。以息三十乘今所貸七百五十錢，得二萬二千五百，又以九日乘之，得二十萬二千五百，為實。實如法得一錢，即九日之息也。
+}
+\arline{%
+\textcolor{commentarycolor}{\small\textit{شَرْحُ لِيُو هُوِي:}} هَذِهِ الطَّرِيقَةُ: ضَرْبُ الثَّلَاثِينَ يَوْمًا فِي أَلْفِ قُرْشٍ لِلْمَقَامِ، فَالنَّاتِجُ عَشْرَةُ آلَافٍ، وَمَعْنَاهُ أَنَّ قَرْضَ عَشْرَةِ آلَافِ قُرْشٍ يَرْبِحُ فِي الْيَوْمِ ثَلَاثِينَ قُرْشًا. وَاضْرِبْ الرِّبْحَ الثَّلَاثِينَ فِي الْقُرُوشِ الْمُقَرَضَةِ السَّبْعِ مِئَةٍ وَخَمْسِينَ، فَالنَّاتِجُ اثْنَانِ وَعِشْرُونَ أَلْفًا وَخَمْسُ مِئَةٍ، ثُمَّ اضْرِبْ فِي تِسْعَةِ أَيَّامٍ، فَالنَّاتِجُ مِئَتَانِ وَأَلْفَانِ وَخَمْسُ مِئَةٍ فَتَكُونُ الْبَسْطَ. ثُمَّ اقْسِمِ الْبَسْطَ عَلَى الْمَقَامِ فَتَحْصُلُ عَلَى قُرْشٍ، وَهُوَ رِبْحُ التِّسْعَةِ أَيَّامٍ.
+}
+\end{bilingual}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+\vspace{1em}
+
+\begin{bilingual}
+\cnline{%
+\textit{（以上為《九章算術》卷第一至卷第三之全文，含劉徽注及李淳風等注釋。卷一方田論田地面積之計算及分數運算；卷二粟米論谷物交換之比例計算；卷三衰分論按比率分配之法。此三卷為《九章算術》之基礎，示中國古代數學之精髓。）}
+}
+\arline{%
+\textit{\ar{(هَذَا هُوَ النَّصُّ الْكَامِلُ لِلْجُزْآنِ فِي عِلْمِ الْحِسَابِ مِنَ الْجُزْءِ الأَوَّلِ إِلَى الثَّالِثِ، مَعَ شُرُوحِ لِيُو هُوِي وَشُرُوحِ لِي شُونْفِنْج. الْجُزْءُ الْأَوَّلُ: الْحُقُولُ الْمُسْتَطِيلَةُ يَنَاقِشُ حِسَابَ مَسَاحَاتِ الْحُقُولِ وَعَمَلِيَّاتِ الْكُسُورِ. الْجُزْءُ الثَّانِي: الدُّخْنُ وَالْأَرُزُّ يَنَاقِشُ حِسَابَ التَّنَاسُبِ فِي تَبَادُلِ الْحُبُوبِ. الْجُزْءُ الثَّالِثُ: التَّوْزِيعُ الْمُرَجَّحُ يَنَاقِشُ طُرُقَ التَّوْزِيعِ حَسَبَ النِّسَبِ. هَذِهِ الْجُزْآنُ الثَّلَاثَةُ هِيَ أَسَاسُ كِتَابِ الْجُزْآنِ، وَتُبَيِّنُ جَوَاهِرَ الرِّيَاضِيَّاتِ الصِّينِيَّةِ الْقَدِيمَةِ.)}}
+}
+\end{bilingual}
+
+\end{document}

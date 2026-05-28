@@ -10,11 +10,8 @@
 % ============================================================
 
 %% ========================================================================
-%% Miftah al-Hisab (The Key to Arithmetic)
-%% BILINGUAL English-Arabic Edition
+%% Miftah al-Hisab (The Key to Arithmetic) — BILINGUAL English-Arabic Edition
 %% By Jamshid al-Kashi (al-Kashani) -- Completed 2 March 1427 CE
-%% ========================================================================
-%% LEFT COLUMN: Arabic text  |  RIGHT COLUMN: English translation
 %% ========================================================================
 \documentclass[11pt,a4paper]{article}
 
@@ -33,27 +30,20 @@
 \usepackage{lettrine}
 \usepackage{microtype}
 \usepackage{tocloft}
-\usepackage{indentfirst}
 \usepackage{etoolbox}
-% framed.sty not available - using custom definition
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\newenvironment{framed}{%
-  \par\vspace{0.3cm}%
-  \noindent\fbox\bgroup\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}%
-}{%
-  \end{minipage}\egroup\par\vspace{0.3cm}%
-}
+\usepackage{framed}
+\usepackage{paracol}
+\usepackage{multicol}
 
-%% -------- RTL / Arabic Support --------
-\TeXXeTstate=1
-
-%% -------- Page Geometry --------
+%% -------- Page Geometry (wider margins for two-column layout) --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
   left=15mm,right=15mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
+  headheight=14pt,footskip=25pt
 }
+
+%% -------- Column Layout --------
+\columnsep=20pt
 
 %% -------- Language Setup --------
 \setmainlanguage{english}
@@ -75,8 +65,10 @@
 ]
 \setmonofont{Liberation Mono}[Scale=MatchLowercase]
 
-%% Arabic Font
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.15,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
+%% Arabic Font Setup (explicit as requested)
+\TeXXeTstate=1
+\newfontfamily\arabicfont[Script=Arabic,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
+\newfontfamily\arabicfontbf[Script=Arabic,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Bold.ttf}
 \newfontfamily\arabicfontsf[Script=Arabic,Scale=1.1]{Noto Sans Arabic}
 
 %% -------- Colors --------
@@ -87,7 +79,9 @@
 \definecolor{arabicbg}{RGB}{250,248,245}
 \definecolor{chapcolor}{RGB}{80,40,20}
 \definecolor{algobg}{RGB}{245,245,250}
-\definecolor{colsep}{RGB}{200,190,180}
+\definecolor{leftcolbg}{RGB}{252,250,247}
+\definecolor{rightcolbg}{RGB}{247,250,252}
+\definecolor{bilingualrule}{RGB}{160,140,120}
 
 %% -------- Section Formatting --------
 \titleformat{\section}
@@ -103,48 +97,44 @@
 %% -------- Header/Footer --------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textit{Mift\=ah al-\d{H}is\=ab -- Bilingual Edition}}
-\fancyhead[R]{\small\thepage}
+\fancyhead[L]{\small\textit{Miftah al-Hisab -- Bilingual Edition}}
+\fancyhead[C]{\small\thepage}
+\fancyhead[R]{\small\ar{مفتاح الحساب -- النسخة الثنائية اللغة}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
-
-%% -------- Column Dimensions --------
-\newlength{\colwidth}
-\setlength{\colwidth}{0.47\textwidth}
-\newlength{\colsepwidth}
-\setlength{\colsepwidth}{0.03\textwidth}
 
 %% -------- Custom Commands --------
 \newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
 \newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
 
-%% Bilingual environment using minipage
-%% LEFT COLUMN: Arabic text (RTL)
-\newenvironment{bilingual}{
-  \par\vspace{0.5em}
-  \noindent
-  \begin{minipage}[t]{\colwidth}
-  \linespread{1.4}\selectfont
-  \raggedleft
-  \arabicfont
+%% Arabic RTL command (explicit as requested)
+\newcommand{\ar}[1]{\arabicfont\beginR #1\endR}
+\newcommand{\arbf}[1]{\arabicfontbf\beginR #1\endR}
+
+%% -------- Bilingual Column Environment --------
+\newenvironment{bilingual}{%
+  \vspace{0.3em}%
+  \begin{paracol}{2}%
 }{%
-  \end{minipage}%
-  \hfill\vrule width 0.4pt\hfill%
+  \end{paracol}%
+  \vspace{0.3em}%
 }
-\newcommand{\englishcol}{%
-  \end{minipage}%
-  \hfill\vrule width 0.4pt\hfill%
-  \begin{minipage}[t]{\colwidth}
-  \raggedright
+
+\newcommand{\ArCol}[1]{\switchcolumn[0]*\ar{#1}}
+\newcommand{\EnCol}[1]{\switchcolumn[1]*#1}
+
+%% -------- Custom Environments --------
+\newenvironment{arabicbox}{%
+  \begin{framed}
+  \begin{minipage}{\linewidth-2\fboxsep-2\fboxrule}
+  \setlength{\parindent}{0pt}
   \linespread{1.3}\selectfont
+}{%
+  \end{minipage}
+  \end{framed}
 }
 
-%% Arabic paragraph command (for inline use)
-\newcommand{\A}[1]{{\arabicfont #1}}
-
-%% Math algo environment
 \newenvironment{mathalgo}{%
   \par\vspace{0.3cm}
   \begin{framed}
@@ -163,12 +153,12 @@
   pdfencoding=auto,
   pdftitle={Miftah al-Hisab - Bilingual English-Arabic Edition},
   pdfauthor={Jamshid al-Kashi},
-  pdfsubject={Historical Mathematical Manuscript - Bilingual Edition}
+  pdfsubject={Historical Mathematical Manuscript -- Bilingual Edition}
 }
 
 %% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 
 %% ========================================================================
 \begin{document}
@@ -178,50 +168,56 @@
 %% ========================================================================
 \thispagestyle{empty}
 \begin{center}
-\vspace*{1cm}
+\vspace*{1.5cm}
 
-{\fontsize{16}{18}\selectfont\ar{بسم الله الرحمن الرحيم}}\\[0.5cm]
+{\fontsize{14}{16}\selectfont\ar{بسم الله الرحمن الرحيم}}\\[0.8cm]
 
-{\color{rulecolor}\longline}\\[0.4cm]
-
-{\fontsize{22}{26}\selectfont\bfseries\color{titlecolor}
-Mift\=ah al-\d{H}is\=ab}\\[0.3cm]
-{\fontsize{16}{20}\selectfont\color{sectioncolor}
-The Key to Arithmetic}\\[0.2cm]
-{\fontsize{13}{16}\selectfont\color{notecolor}
-Bilingual English--Arabic Edition}\\[0.2cm]
 {\color{rulecolor}\longline}\\[0.6cm]
 
-\begin{minipage}{0.8\textwidth}
+{\fontsize{28}{34}\selectfont\bfseries\color{titlecolor}
+Mift\=ah al-\d{H}is\=ab}\\[0.5cm]
+{\fontsize{18}{22}\selectfont\color{sectioncolor}
+The Key to Arithmetic}\\[0.3cm]
+{\color{rulecolor}\longline}\\[0.8cm]
+
+{\Large\textbf{Bilingual English--Arabic Edition}}\\[0.3cm]
+{\large\textit{النسخة الثنائية اللغة: الإنجليزية والعربية}}\\[1cm]
+
+\begin{arabicbox}
 \begin{center}
-\fbox{\parbox{0.9\textwidth}{%
-\centering
-\vspace{0.3cm}
-{\Large\ar{مفتاح الحساب}}\\[0.3cm]
-{\large\textit{Mift\=ah al-\d{H}is\=ab}}\\[0.2cm]
-{\normalsize Bilingual Edition / \ar{الطبعة الثنائية اللغة}}
-\vspace{0.3cm}
-}}
+{\Large\arbf{مفتاح الحساب}}
 \end{center}
-\end{minipage}
+\end{arabicbox}
 
-\vspace{0.5cm}
+\vspace{0.8cm}
 
-{\Large\textit{Jamsh\=id Ghiy\=ath al-D\=in al-K\=ash\=i}}\\[0.2cm]
-{\normalsize (d. 832 AH / 1429 CE)}\\[0.5cm]
+{\Large\textit{Jamsh\=id Ghiy\=ath al-D\=in}}\\[0.3cm]
+{\large al-K\=ash\=i (al-K\=ash\=an\=i)}\\[0.2cm]
+{\normalsize d.\ 832 AH / 1429 CE}\\[1cm]
 
 {\color{rulecolor}\shortline}
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 
-{\small\textit{LEFT column: Arabic original \hspace{1em}|\hspace{1em} RIGHT column: English translation}}\\[0.2cm]
-{\small Completed in Samarkand, 2 March 1427 CE (829 AH)}\\[0.4cm]
+{\small\textit{A comprehensive encyclopedic treatise on arithmetic, geometry, and algebra}}\\[0.2cm]
+{\small\textit{Completed in Samarkand, 2 March 1427 CE (829 AH)}}\\[0.5cm]
 
-{\color{rulecolor}\longline}\\[0.5cm]
+{\color{rulecolor}\longline}\\[0.8cm]
 
-{\footnotesize\ar{الطبعة الثنائية: العربية والإنجليزية}}\\
-{\footnotesize Bilingual Edition with Parallel Columns}
+\begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}}
+\textbf{Contents / المحتويات:} & \\
+1. Book I: Arithmetic of Integers & \ar{المقالة الأولى: حساب الأعداد الصحيحة} \\
+2. Book II: Fractions & \ar{المقالة الثانية: حساب الكسور} \\
+3. Book III: Sexagesimal Calculations & \ar{المقالة الثالثة: حساب الدرج والدقائق} \\
+4. Book IV: Decimal Fractions & \ar{المقالة في الكسر العشري} \\
+5. Book V: Root Extraction & \ar{استخراج الجذور} \\
+6. Book VI: Mensuration & \ar{المقالة الرابعة: المساحات والأحجام} \\
+7. Book VII: Tax and Commerce & \ar{الجبر والمقابلة} \\
+\end{tabular}
 
+\vspace{0.8cm}
+
+{\footnotesize\ar{تحقيق وترجمة وشرح}}\\[0.2cm]
 \end{center}
 \clearpage
 
@@ -237,67 +233,82 @@ Bilingual English--Arabic Edition}\\[0.2cm]
 \section*{Preface to This Bilingual Edition}
 \addcontentsline{toc}{section}{Preface to This Bilingual Edition}
 
-\lettrine[lines=3, nindent=0em, findent=3pt]{\color{chapcolor}T}{his}
-bilingual edition presents the complete structure and representative
-content of \textit{Mift\=ah al-\d{H}is\=ab} (The Key of Arithmetic), the
-crowning achievement of Islamic arithmetic, composed by the renowned
-Persian mathematician Jamsh\=id Ghiy\=ath al-D\=in al-K\=ash\=i in 1427 CE.
-
-The Arabic text appears in the \textbf{left column}, with English
-translation in the \textbf{right column}. This layout enables scholars
-and students to compare the original text with its rendering in a modern
-language. Mathematical formulas are presented in modern notation while
-preserving the original algorithms and methods.
-
-\vspace{0.3cm}
-\noindent\textbf{Key terms used in this edition:}
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Arabic} & \textbf{Transliteration} & \textbf{English} \\
-\hline
-\ar{دستور} & \textit{dust\=ur} & algorithm, table \\
-\hline
-\ar{رموز} & \textit{rum\=uz} & numerals \\
-\hline
-\ar{كسر} & \textit{kasr} & fraction \\
-\hline
-\ar{دقائق} & \textit{daq\=a'iq} & decimal fractions (lit. ``minutes'') \\
-\hline
-\ar{جيب} & \textit{jayb} & sine \\
-\hline
-\ar{زيج} & \textit{z\=ij} & astronomical table \\
-\hline
-\ar{الكسر العشري} & \textit{al-kasr al-'ashr\=i} & decimal fraction \\
-\hline
-\ar{شبكة} & \textit{shabaka} & lattice (multiplication) \\
-\hline
-\end{tabular}
-\end{center}
-\clearpage
-
-
-%% ========================================================================
-%% AUTHOR'S PREFACE — BILINGUAL
-%% ========================================================================
-\section*{Author's Preface}
-\addcontentsline{toc}{section}{Author's Preface (Bilingual)}
-
-\vspace{0.3cm}
-
-%% ---- Bismillah ----
 \begin{bilingual}
-\A{بسم الله الرحمن الرحيم}
-\englishcol
-In the name of God, the Merciful, the Compassionate.
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{كلمة في هذه النسخة}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Preface to This Edition}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
-%% ---- Opening Praise ----
 \begin{bilingual}
-\A{الحمد لله الذي توحد بإبداع الآحاد، وتفرد بتأليف صنوف الأعداد، وصلاة على خير خلقه محمد أشفع الشافعين يوم التناد، وآله وأولاده الهادين إلى سبيل النجاة والرشاد.}
-\englishcol
+\switchcolumn[0]*
+\ar{هذه النسخة الثنائية اللغة تقدم النص الكامل ومحتوى تمثيلي لمفتاح الحساب، الإنجاز الأعظم للحساب الإسلامي، الذي ألفه العالم الفارسي الشهير في الرياضيات والفلك جمشيد غياث الدين الكاشي سنة 1427 م.}
+\switchcolumn[1]*
+\lettrine[lines=3, nindent=0em, findent=3pt]{\color{chapcolor}T}{his}
+bilingual edition presents the complete structure and representative content of
+\textit{Mift\=ah al-\d{H}is\=ab} (The Key of Arithmetic), the crowning
+achievement of Islamic arithmetic, composed by the renowned Persian
+mathematician and astronomer Jamsh\=id Ghiy\=ath al-D\=in al-K\=ash\=i in 1427 CE.
+\end{bilingual}
+
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{الكاشي (حوالي 1380--1429) كان كبير علماء الفلك لدى ألغ بك في سمرقند. وكتابه مفتاح الحساب هو موسوعة شاملة تغطي ثلاثة مواضيع رئيسية: الحساب والهندسة والجبر.}
+\switchcolumn[1]*
+Al-K\=ash\=i (c.\ 1380--1429) was the astronomer royal to Ulugh Beg at
+Samarkand. His \textit{Mift\=ah al-\d{H}is\=ab} is an encyclopedic work covering
+three principal subjects: arithmetic, geometry, and algebra. It comprises
+five treatises.
+\end{bilingual}
+
+\textbf{The work includes:}
+\begin{enumerate}[nosep]
+  \item Al-K\=ash\=i's famous calculation of $\pi$ to 16 decimal places
+  \item His systematic treatment of decimal fractions (the first in history)
+  \item Methods for root extraction that predate similar European methods by centuries
+\end{enumerate}
+
+As Berggren noted, \textit{Mift\=ah} was ``the crowning achievement of Islamic arithmetic, and truly a gift fit for a king.''
+
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{يحتوي هذا الكتاب على حساب \pi بدقة 16 منزلة عشرية، والمعالجة المنهجية الأولى في التاريخ للكسور العشرية، وطرق استخراج الجذور التي سبقت الطرق الأوروبية المماثلة بقرون.}
+\switchcolumn[1]*
+\textit{Note on the text:} Arabic passages are set in Noto Naskh
+Arabic on the \textbf{left} column. English translations appear on the \textbf{right}. Mathematical formulas use modern notation while preserving the
+original algorithms.
+\end{bilingual}
+\clearpage
+
+%% ========================================================================
+%% AUTHOR'S PREFACE
+%% ========================================================================
+\section*{Author's Preface}
+\addcontentsline{toc}{section}{Author's Preface (Arabic and English)}
+
+\begin{bilingual}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{تمهيد المؤلف}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Author's Preface}
+\end{center}
+\end{bilingual}
+
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{بسم الله الرحمن الرحيم}
+
+\ar{الحمد لله الذي توحد بإبداع الآحاد، وتفرد بتأليف صنوف الأعداد، وصلاة على خير خلقه محمد أشفع الشافعين يوم التناد، وآله وأولاده الهادين إلى سبيل النجاة والرشاد.}
+\switchcolumn[1]*
+In the name of God, the Merciful, the Compassionate.
+
 Praise be to God, who is unique in creating units, and peerless in
 composing the classes of numbers. And blessings upon the best of His
 creation, Muhammad, the intercessor for the interceders on the Day of
@@ -305,142 +316,154 @@ Calling, and upon his family and his sons who guide to the path of
 salvation and right guidance.
 \end{bilingual}
 
-\vspace{0.5cm}
-
-%% ---- Author Introduction ----
 \begin{bilingual}
-\A{أمّا بعد، فإن أحوج خلق الله تعالى إلى عفوه جمشيد بن مسعود بن محمود الطبيب الكاشي الملقب بغياث الدين، يقول...}
-\englishcol
-As for what follows: the one most in need of God's forgiveness is
+\switchcolumn[0]*
+\ar{جمشيد بن مسعود بن محمود الطبيب الكاشي الملقب بغياث الدين -- أحسن الله أحواله -- يقول: لما مارست الأعمال الحسابية والقوانين الهندسية حتى بلغت إلى حقائقها، وبالغت في دقائقها، وكشفت غوامضها ومعضلاتها وحللت مشكلاتها...}
+\switchcolumn[1]*
 Jamsh\=id ibn Mas\=ud ibn Mahm\=ud al-\d{T}ab\=ib al-K\=ash\=i, called
 Ghiy\=ath al-D\=in --- may God improve his condition --- says:
-\end{bilingual}
 
-\vspace{0.5cm}
-
-%% ---- Main Preface Text ----
-\begin{bilingual}
-\A{لما مارست الأعمال الحسابية والقوانين الهندسية حتى بلغت إلى حقائقها، وبالغت في دقائقها، وكشفت غوامضها ومعضلاتها وحللت مشكلاتها، واستنبطت كثيراً من القوانين والضوابط فيها، واستخرجت ما صعب استخراجه على كثير من مباشريها...}
-\englishcol
 When I had practiced arithmetic and geometric methods until I reached
 their true principles, and penetrated their subtleties, and uncovered
-their hidden difficulties and problems and solved their challenges, and
-derived many rules and controls therein, and extracted what was
-difficult to extract for many of their practitioners --- as when I
-recomputed all the tables of the Ilkhanid Zij with the utmost precision...
+their hidden difficulties and problems and solved their challenges...
 \end{bilingual}
-
-\vspace{0.5cm}
-
-\noindent\cnote{The author continues, listing his previous works including the
-\textit{Kh\=aq\=an\=i Zij}, \textit{Sullam al-Sam\=a'}, the
-\textit{Ris\=ala al-Mu\d{h}i\d{t}iyya} on the ratio of the diameter to the
-circumference, and the \textit{Ris\=ala al-Watar wal-Jayb} on extracting
-the chord and sine.}
-
-\vspace{0.3cm}
 
 \begin{bilingual}
-\A{...وجدت في هذه الأعمال قوانين كثيرة يمكن بها إجراء عمليات الحساب بأيسر طريقة وأسهل السبل وبأقل جهد وأعظم فائدة وأوضح ترتيب. فعزمت على تدوينها وشرحها، لتكون ذكراً للأحباب ودليلاً لأهل الفهم.}
-\englishcol
-\ldots I found in the course of these works many rules by which the
-operations of arithmetic preliminaries may be performed in the easiest
-manner and the simplest ways and with the least effort and the greatest
-benefit and the clearest arrangement. So I resolved to record them and
-to explain them, to serve as a reminder for beloved friends and as
-guidance for people of understanding.
+\switchcolumn[0]*
+\ar{...وأعدت حساب جميع جداول الزيج الإلخاني بأدق دقة، وألفت الزيج المسمى بالخاقاني مكملاً للزيج الإلخاني، وجمعت فيه كل ما استنبطته من أساليب الفلكيين التي لا تظهر في زيج آخر مع البراهين الهندسية...}
+\switchcolumn[1]*
+...as when I recomputed all the tables of the Ilkhanid Zij with the utmost precision,
+and composed the Zij called the \textit{Kh\=aq\=an\=i} completing the Ilkhanid
+Zij, and collected in it all that I had derived of astronomers' methods
+that appear in no other zij together with geometric proofs...
 \end{bilingual}
 
-\vspace{0.5cm}
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{...وألفت أيضاً رسالة المحيطية في نسبة القطر إلى المحيط، ورسالة الوتر والجيب في استخراج الوتر والجيب لثلث قوس معطى...}
+\switchcolumn[1]*
+...and authored the \textit{Ris\=ala al-Mu\d{h}i\d{t}iyya} on the ratio of
+the diameter to the circumference, and the \textit{Ris\=ala al-Watar
+wal-Jayb} on extracting the chord and sine for one-third of a given
+arc, which also was difficult for predecessors...
+\end{bilingual}
 
-\noindent\cnote{The author describes his intent to compose a work that would
-serve as a comprehensive textbook for practitioners of arithmetic,
-avoiding both tedious excess and abbreviated insufficiency.}
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{...وجدت في أثناء هذه الأعمال قوانين كثيرة تؤدي بها عمليات أصول الحساب على أيسر وجه وأهنئ طريقة وأقل جهد وأنفع نتيجة وأوضح ترتيب. فعزمت على تدوينها وتوضيحها، لتكون تذكرة للأحباب وإرشاداً لأهل الفهم.}
+\switchcolumn[1]*
+...I found in the course of these works many rules by which the operations of arithmetic
+preliminaries may be performed in the easiest manner and the simplest
+ways and with the least effort and the greatest benefit and the clearest
+arrangement. So I resolved to record them and to explain them, to serve
+as a reminder for beloved friends and as guidance for people of
+understanding.
+\end{bilingual}
 \clearpage
 
 %% ========================================================================
-%% ORIGINAL TABLE OF CONTENTS — BILINGUAL
+%% TABLE OF CONTENTS OF THE ORIGINAL WORK
 %% ========================================================================
 \section*{Original Table of Contents}
-\addcontentsline{toc}{section}{Original Table of Contents (Bilingual)}
+\addcontentsline{toc}{section}{Original Table of Contents}
 
 \begin{bilingual}
-\A{\textbf{فصل في مباني علم الحساب وبيان أسمائه.}}
-\englishcol
-\textbf{Chapter on the foundations of the science of arithmetic and the explanation of its names.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فهرس الكتاب الأصلي}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Original Table of Contents}
+\end{center}
+\end{bilingual}
+
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{فصل في مباني علم الحساب وبيان أسمائه.}
+
+\ar{المقالة الأولى في حساب الأعداد الصحيحة. وهي سبعة فصول.}
+
+\ar{المقالة الثانية في حساب الكسور المتصلة والمنفصلة والكسورية.}
+
+\ar{المقالة الثالثة في حساب الدرج والدقائق والثواني ونحوها.}
+
+\ar{المقالة الرابعة في حساب المساحات والأحجام.}
+
+\ar{المقالة الخامسة في الجبر والمقابلة.}
+\switchcolumn[1]*
+A chapter on the foundations of the science of arithmetic and the explanation of its names.
+
+Treatise I: On the Arithmetic of Integers. It comprises seven chapters.
+
+Treatise II: On the Arithmetic of Continued, Disjoined, and Chain Fractions.
+
+Treatise III: On the Arithmetic of Degrees, Minutes, Seconds, and the like.
+
+Treatise IV: On the Arithmetic of Areas and Volumes.
+
+Treatise V: On Algebra and Almucabala.
 \end{bilingual}
 
 \vspace{0.5cm}
 
-\begin{bilingual}
-\A{\textbf{المقالة الأولى} في حساب الأعداد الصحيحة. وهي سبعة فصول.}
-\englishcol
-\textbf{Treatise I:} On the arithmetic of integers. It comprises seven
-chapters.
-\end{bilingual}
+\noindent\textbf{The work comprises five treatises:}
 
-\vspace{0.3cm}
-
-\begin{bilingual}
-\A{\textbf{المقالة الثانية} في حساب الكسور المتصلة والمنفصلة والكسورية.}
-\englishcol
-\textbf{Treatise II:} On the arithmetic of connected and disconnected
-fractions and fractional parts.
-\end{bilingual}
-
-\vspace{0.3cm}
-
-\begin{bilingual}
-\A{\textbf{المقالة الثالثة} في حساب الدرج والدقائق والثواني ونحوها.}
-\englishcol
-\textbf{Treatise III:} On the arithmetic of degrees, minutes, seconds,
-and their like.
-\end{bilingual}
-
-\vspace{0.3cm}
+\begin{longtable}{|c|p{7cm}|p{5cm}|}
+\hline
+\textbf{No.} & \textbf{Treatise} & \textbf{Arabic Title} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Treatise} & \textbf{Arabic Title} \\
+\hline
+\endhead
+I & \textbf{On the Arithmetic of Integers} --- 7 chapters & \ar{حساب الأعداد الصحيحة} \\
+\hline
+II & \textbf{On the Arithmetic of Fractions} --- 10 chapters & \ar{حساب الكسور} \\
+\hline
+III & \textbf{On the Arithmetic of Sexagesimal Numbers} --- 10 chapters & \ar{حساب المثالث والدرج} \\
+\hline
+IV & \textbf{On Measurements and Geometry} --- 9 chapters & \ar{حساب المساحات والأحجام} \\
+\hline
+V & \textbf{On Algebra} --- multiple chapters & \ar{الجبر والمقابلة} \\
+\hline
+\end{longtable}
 
 \begin{bilingual}
-\A{\textbf{المقالة الرابعة} في حساب المساحات والأحجام.}
-\englishcol
-\textbf{Treatise IV:} On the arithmetic of areas and volumes.
+\switchcolumn[0]*
+\ar{وضعت لأغلب الأعمال نموذجاً على هيئة جدول لتكون أسهل على أرباب الذكاء.}
+\switchcolumn[1]*
+I placed for most operations a model in tabular form so that they may be
+easily grasped by the intelligent.
 \end{bilingual}
-
-\vspace{0.3cm}
-
-\begin{bilingual}
-\A{\textbf{المقالة الخامسة} في الجبر والمقابلة.}
-\englishcol
-\textbf{Treatise V:} On algebra and comparison (al-jabr wal-muq\=abala).
-\end{bilingual}
-
-\vspace{0.5cm}
-
-\noindent Al-K\=ash\=i notes:
-\begin{quote}
-I placed for most operations a model in tabular form so that they may
-be easily grasped by the intelligent. And all the tables placed in this
-book --- ``my excuse is my frankness, and its sweet and bitter are part
-of me'' --- except seven tables.
-\end{quote}
 \clearpage
 
 
 %% ========================================================================
-%% TREATISE I: ARITHMETIC OF INTEGERS — BILINGUAL
+%% TREATISE I: ARITHMETIC OF INTEGERS
 %% ========================================================================
 \section{Treatise I: On the Arithmetic of Integers}
 \label{sec:treatise1}
 
 \begin{bilingual}
-\A{\textbf{المقالة الأولى في حساب الأعداد الصحيحة.}}
-\englishcol
-\textbf{Treatise I: On the Arithmetic of Integers.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{المقالة الأولى في حساب الأعداد الصحيحة}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Treatise I: On the Arithmetic of Integers}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
-\noindent This treatise, the foundation of the entire work, comprises
-\textbf{seven chapters} covering all operations on whole numbers:
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{هذه المقالة، وهي أساس الكتاب كله، تتكون من سبعة فصول تغطي جميع العمليات على الأعداد الصحيحة.}
+\switchcolumn[1]*
+This treatise, the foundation of the entire work, comprises
+\textbf{seven chapters} covering all operations on whole numbers.
+\end{bilingual}
 
 \begin{enumerate}[label=\textbf{Ch.\arabic*:}]
   \item \textbf{On the naming of numbers and place values} --- The
@@ -462,41 +485,55 @@ of me'' --- except seven tables.
 \subsection{Chapter 1: On the Naming of Numbers}
 
 \begin{bilingual}
-\A{\textbf{فصل في التعريف بالأعداد وأسمائها ومنازلها.}}
-\englishcol
-\textbf{Chapter on the description of numbers, their names, and their
-places.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فصل في التعريف بالأعداد وأسمائها ومنازلها}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 1: On the Naming of Numbers}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{يبدأ الكاشي بشرح نظام المنازل العشري، منسوباً إلى الهنود، ويصف أسماء المنازل.}
+\switchcolumn[1]*
 Al-K\=ash\=i begins by explaining the decimal place-value system, attributing
-it to the Indians (\ar{الهند}) and noting its transmission to the Islamic
-world. He describes the names of the place values:
+it to the Indians and noting its transmission to the Islamic world. He
+describes the names of the place values:
+\end{bilingual}
 
-\begin{center}
-\begin{tabular}{|r|l|l|}
+\begin{longtable}{|r|l|l|}
 \hline
 \textbf{Power} & \textbf{Arabic Name} & \textbf{English} \\
 \hline
-$10^0$ & \ar{واحد} (w\=ahid) & Units \\
+\endfirsthead
 \hline
-$10^1$ & \ar{عشرة} ('ashara) & Tens \\
+\textbf{Power} & \textbf{Arabic Name} & \textbf{English} \\
 \hline
-$10^2$ & \ar{مئة} (mi'a) & Hundreds \\
+\endhead
+$10^0$ & \ar{واحد} & Units \\
 \hline
-$10^3$ & \ar{ألف} (alf) & Thousands \\
+$10^1$ & \ar{عشرة} & Tens \\
+\hline
+$10^2$ & \ar{مئة} & Hundreds \\
+\hline
+$10^3$ & \ar{ألف} & Thousands \\
 \hline
 $10^4$ & \ar{عشرة آلاف} & Ten thousands \\
 \hline
 $10^5$ & \ar{مئة ألف} & Hundred thousands \\
 \hline
-$10^6$ & \ar{مليون} / \ar{ألف ألف} (mily\=un) & Millions \\
+$10^6$ & \ar{مليون} / \ar{ألف ألف} & Millions \\
 \hline
-$10^9$ & \ar{مليار} (mily\=ar) & Billions \\
+$10^7$ & \ar{عشرة ملايين} & Ten millions \\
 \hline
-\end{tabular}
-\end{center}
+$10^8$ & \ar{مئة مليون} & Hundred millions \\
+\hline
+$10^9$ & \ar{مليار} / \ar{ألف مليون} & Billions (thousand millions) \\
+\hline
+\end{longtable}
 
 \cnote{Al-K\=ash\=i extends this system far beyond what was common in his
 time, enabling the large-scale calculations that he would later use in
@@ -505,21 +542,29 @@ his astronomical computations.}
 \subsection{Chapter 4: On Multiplication}
 
 \begin{bilingual}
-\A{\textbf{فصل في الضرب وطرقه.}}
-\englishcol
-\textbf{Chapter on multiplication and its methods.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فصل في الضرب وطرقه}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 4: On Multiplication}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{يقدم الكاشي عدة طرق للضرب. أشهرها طريقة الشبكة، التي يصفها بالتفصيل. ويقدم أيضاً طريقة الأعمدة وطرق الحساب الذهني.}
+\switchcolumn[1]*
 Al-K\=ash\=i presents several methods of multiplication. The most famous is
-the \textbf{method of the network} (\ar{طريقة الشبكة} / \textit{shabaka}
-or lattice multiplication), which he describes in full detail. He also
-presents the \textbf{method of columns} (\ar{طريقة الأعمدة}) and
-methods for mental calculation.
+the \textbf{method of the network} (\ar{طريقة الشبكة} /
+\textit{shabaka} or lattice multiplication), which he describes in full
+detail. He also presents the \textbf{method of columns}
+(\ar{طريقة الأعمدة}) and methods for mental calculation.
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{Lattice Multiplication Method (\ar{الشبكة} / \textit{Shabaka}):}
+\textbf{Lattice Multiplication Method (\ar{طريقة الشبكة}):}
 \begin{enumerate}[nosep]
   \item Draw a grid of squares with as many rows and columns as there are
   digits in the multiplicand and multiplier.
@@ -555,21 +600,29 @@ methods for mental calculation.
 \subsection{Chapter 6: On the Extraction of Roots}
 
 \begin{bilingual}
-\A{\textbf{فصل في استخراج الجذور.}}
-\englishcol
-\textbf{Chapter on the extraction of roots.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فصل في استخراج الجذور}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 6: On the Extraction of Roots}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{طريقة الكاشي في استخراج الجذور من أشهر أجزاء المفتاح. يعطي خوارزمية عامة لإيجاد الجذر النوني لأي عدد، وهي طريقة مكافئة لما يُعرف بطريقة رفيني--هورنر.}
+\switchcolumn[1]*
 Al-K\=ash\=i's method for extracting roots is one of the most celebrated
 parts of the \textit{Mift\=ah}. He gives a general algorithm for finding
 the $n$th root of any number, a method equivalent to what is now known
 as the \textbf{Ruffini--Horner method} (though al-K\=ash\=i predated both by
 several centuries).
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{General Method for Extracting the $n$th Root:}
+\textbf{General Method for Extracting the $n$th Root (\ar{طريقة استخراج الجذر النوني}):}
 
 Given a number $N$ and an integer $n$, to find $\sqrt[n]{N}$:
 \begin{enumerate}[nosep]
@@ -587,7 +640,7 @@ Given a number $N$ and an integer $n$, to find $\sqrt[n]{N}$:
 \noindent For the \textbf{square root} $(n=2)$, this reduces to:
 
 \begin{mathalgo}
-\textbf{Square Root Extraction:}
+\textbf{Square Root Extraction (\ar{استخراج الجذر التربيعي}):}
 \begin{enumerate}[nosep]
   \item Separate the number into pairs of digits from the decimal point.
   \item Find the largest square not exceeding the leftmost pair; this
@@ -611,28 +664,35 @@ appeared in the works of later mathematicians. Al-K\=ash\=i's presentation
 is remarkably systematic and general, applying to roots of any order.}
 \clearpage
 
-
 %% ========================================================================
-%% TREATISE II: ARITHMETIC OF FRACTIONS — BILINGUAL
+%% TREATISE II: ARITHMETIC OF FRACTIONS
 %% ========================================================================
 \section{Treatise II: On the Arithmetic of Fractions}
 \label{sec:treatise2}
 
 \begin{bilingual}
-\A{\textbf{المقالة الثانية في حساب الكسور.}}
-\englishcol
-\textbf{Treatise II: On the Arithmetic of Fractions.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{المقالة الثانية في حساب الكسور}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Treatise II: On the Arithmetic of Fractions}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
-\noindent This is arguably the most historically significant treatise of
-the \textit{Mift\=ah}, for it contains the \textbf{first systematic
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{هذه المقالة هي الأهم تاريخياً في المفتاح، فهي تحتوي على أول معالجة منهجية للكسور العشرية في تاريخ الرياضيات.}
+\switchcolumn[1]*
+This is arguably the most historically significant treatise of the
+\textit{Mift\=ah}, for it contains the \textbf{first systematic
 treatment of decimal fractions} in the history of mathematics. As
 Youschkevitch and Rosenfeld observed: ``It is in the work of Giy\=ath
 al-D\=in Jamsh\=id al-K\=ash\=i in the early fifteenth century that we first see
 both a total command of the idea of decimal fractions and a convenient
 notation for them.''
+\end{bilingual}
 
 \subsection{The Ten Chapters of Treatise II}
 
@@ -647,7 +707,8 @@ notation for them.''
   \item \textbf{On conversion between fractions} --- Including sexagesimal
   to decimal and vice versa.
   \item \textbf{On the extraction of roots of fractions}.
-  \item \textbf{On the \textit{kasr al-a'dad}} --- A special class of fractions.
+  \item \textbf{On the \textit{kasr al-a'dad} (fractions of numbers)} ---
+  A special class of fractions.
   \item \textbf{On decimal fractions} (\ar{الكسر العشري}) --- The
   crowning achievement.
   \item \textbf{On the use of decimal fractions in calculations}.
@@ -656,17 +717,25 @@ notation for them.''
 \subsection{Chapter 9: On Decimal Fractions}
 
 \begin{bilingual}
-\A{\textbf{الباب التاسع في الكسر العشري واستعماله.}}
-\englishcol
-\textbf{Chapter 9: On the decimal fraction and its use.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{الباب التاسع في الكسر العشري واستعماله}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 9: On Decimal Fractions}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{قدم الكاشي الكسور العشرية بوضوح وعموم لم يسبق له مثيل. واستخدم خطاً رأسياً (|) لفصل الجزء الصحيح عن الجزء الكسري.}
+\switchcolumn[1]*
 \lettrine[lines=3, nindent=0em, findent=3pt]{\color{chapcolor}A}{l-K\=ash\=i}
 introduced decimal fractions with a clarity and generality that was
 unprecedented. His notation used a vertical line (\ar{|}) to separate
 the integer part from the fractional part. For example, he would write:
+\end{bilingual}
 
 \begin{center}
 \fbox{$3\,|\,14159265\ldots$}
@@ -675,12 +744,13 @@ the integer part from the fractional part. For example, he would write:
 \noindent to represent $3.14159265\ldots$, where the digits after the
 vertical bar are understood as tenths, hundredths, thousandths, etc.
 
-\vspace{0.3cm}
-
-%% ---- Decimal fractions definition ----
 \begin{bilingual}
-\A{واعلم أن العوام يسمون المنزلة الأولى بعد الوحدات \textit{منزلة أجزاء العشرة}، والثانية \textit{منزلة أجزاء المئة}، والثالثة \textit{منزلة أجزاء الألف}، وهكذا دائماً مضروبة في عشرة. وقد وجدنا مناسباً أن نسمي المنزلة الأولى بعد الفاصلة \textit{منزلة العشر الأول}، والثانية \textit{منزلة العشر الثاني}، وهكذا...}
-\englishcol
+\switchcolumn[0]*
+\ar{واعلم أن العامة يسمون المنزلة الأولى بعد الواحد منزلة أجزاء العشرة، والثانية منزلة أجزاء المئة، والثالثة منزلة أجزاء الألف، وهكذا دائماً مضروباً في عشرة. وقد رأينا أن نسمي المنزلة الأولى بعد العلامة منزلة العشر الأول، والثانية منزلة العشر الثاني، وهكذا.}
+\switchcolumn[1]*
+Al-K\=ash\=i writes:
+
+\begin{quote}
 Know that the common people call the first place after the units `the
 place of the parts of ten' (\ar{منزلة أجزاء العشرة}), and the second
 `the place of the parts of a hundred' (\ar{منزلة أجزاء المئة}), and
@@ -690,13 +760,18 @@ we have found it appropriate to call the first place after the decimal
 point `the place of the first tenth' (\ar{منزلة العشر الأول}), and
 the second `the place of the second tenth'
 (\ar{منزلة العشر الثاني}), and so on.
+\end{quote}
 \end{bilingual}
 
 \subsubsection{Al-K\=ash\=i's Notation System}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{تدوين الكاشي للكسور العشرية كان مدهشاً بحداثته. يكتب الجزء الصحيح، ثم فاصلة، ثم المنازل الكسرية.}
+\switchcolumn[1]*
 Al-K\=ash\=i's notation for decimal fractions was remarkably modern. He
 wrote the integer part, then a separator, then the fractional digits.
-For instance:
+\end{bilingual}
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -716,11 +791,16 @@ $\frac{1}{\sqrt{2}}$ \\
 
 \subsubsection{Decimal Operations}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{يستعرض الكاشي جميع العمليات الأربع الحسابية مع الكسور العشرية. ويعطي للضرب القاعدة التالية:}
+\switchcolumn[1]*
 Al-K\=ash\=i demonstrates all four arithmetic operations with decimal
 fractions. For multiplication, he gives the rule:
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{Multiplication of Decimal Fractions:}
+\textbf{Multiplication of Decimal Fractions (\ar{ضرب الكسور العشرية}):}
 \begin{enumerate}[nosep]
   \item Multiply the two numbers as if they were integers, ignoring the
   decimal point.
@@ -739,6 +819,10 @@ fractions. For multiplication, he gives the rule:
 
 \subsubsection{The Significance of Decimal Fractions}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{استخدم الكاشي الكسور العشرية على نطاق واسع في حساباته الفلكية. وكان يتحول بين النظامين الستيني والعشري بسهولة.}
+\switchcolumn[1]*
 Al-K\=ash\=i used decimal fractions extensively in his astronomical
 calculations. He converted between sexagesimal and decimal systems with
 ease. As Kennedy observed: ``Al-K\=ash\=i was first and foremost a master
@@ -746,9 +830,10 @@ computer of extraordinary ability, witness his facile use of pure
 sexagesimals, his wide application of iterative algorithms, and his sure
 touch in so laying out a computation that he controlled the maximum error
 and maintained a check at all stages.''
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{Sexagesimal to Decimal Conversion:}
+\textbf{Sexagesimal to Decimal Conversion (\ar{التحويل من الستيني إلى العشري}):}
 
 To convert a sexagesimal number $N = a + \frac{b}{60} +
 \frac{c}{60^2} + \cdots$ to decimal:
@@ -767,32 +852,43 @@ To convert a sexagesimal number $N = a + \frac{b}{60} +
 
 
 %% ========================================================================
-%% TREATISE III: ARITHMETIC OF SEXAGESIMAL NUMBERS — BILINGUAL
+%% TREATISE III: ARITHMETIC OF SEXAGESIMAL NUMBERS
 %% ========================================================================
 \section{Treatise III: On the Arithmetic of Sexagesimal Numbers}
 \label{sec:treatise3}
 
 \begin{bilingual}
-\A{\textbf{المقالة الثالثة في حساب الدرج والدقائق والثواني.}}
-\englishcol
-\textbf{Treatise III: On the Arithmetic of Degrees, Minutes, and Seconds.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{المقالة الثالثة في حساب الدرج والدقائق والثواني}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Treatise III: On the Arithmetic of Sexagesimal Numbers}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
-\noindent This treatise is devoted to the sexagesimal (base-60) system,
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{هذه المقالة مكرسة للنظام الستيني (الأساس 60)، وهو النظام القياسي للحسابات الفلكية في العالم الإسلامي.}
+\switchcolumn[1]*
+This treatise is devoted to the sexagesimal (base-60) system,
 which was the standard system for astronomical calculations in the
 Islamic world. Al-K\=ash\=i writes:
+\end{bilingual}
 
 \begin{bilingual}
-\A{لقد تبنى علماء الفلك نظام الستين لأنواع القسمة الكثيرة التي يقبلها، إذ الستون قابلة للقسمة على اثنين وثلاثة وأربعة وخمسة وستة وعشرة واثني عشر وخمسة عشر وعشرين وثلاثين. ولحاجتهم إلى استعمال الكسور في حساباتهم، قسموا الدائرة إلى ثلاثمئة وستين درجة، وكل درجة إلى ستين دقيقة، وكل دقيقة إلى ستين ثانية، وهكذا بلا نهاية.}
-\englishcol
+\switchcolumn[0]*
+\ar{اعتمده الفلكاء لكثرة الأقسام التي تقبلها، إذ الستون تقبل القسمة على اثنين وثلاثة وأربعة وخمسة وستة وعشرة واثني عشر وخمسة عشر وعشرين وثلاثين. ولحاجتهم إلى استعمال الكسور في حساباتهم، قسموا الدائرة إلى ثلاثمئة وستين درجة، كل درجة إلى ستين دقيقة، كل دقيقة إلى ستين ثانية، وهكذا لا نهاية له.}
+\switchcolumn[1]*
+\begin{quote}
 The astronomers have adopted the sexagesimal system because of the many
 kinds of divisions it admits, since sixty is divisible by two, three,
 four, five, six, ten, twelve, fifteen, twenty, and thirty. And because
 they needed to use fractions in their calculations, they divided the
 circle into three hundred and sixty degrees, each degree into sixty
 minutes, each minute into sixty seconds, and so on without end.
+\end{quote}
 \end{bilingual}
 
 \subsection{The Chapters of Treatise III}
@@ -808,7 +904,7 @@ minutes, each minute into sixty seconds, and so on without end.
   \item \textbf{On converting sexagesimal to other systems}.
   \item \textbf{On astronomical calculations}.
   \item \textbf{On operations with the \textit{sine} and
-  \textit{chord}}.
+  \textit{chord}}}.
 \end{enumerate}
 
 \subsection{Sexagesimal Notation}
@@ -819,36 +915,45 @@ notation, we write $a; b, c, d$ to represent:
 a + \frac{b}{60} + \frac{c}{60^2} + \frac{d}{60^3}
 \]
 
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{longtable}{|c|c|c|c|}
 \hline
 \textbf{Arabic Term} & \textbf{Latin Equivalent} & \textbf{Symbol} &
 \textbf{Value} \\
 \hline
-\ar{درجة} (daraja) & Degree & $^\circ$ or nothing & $60^0 = 1$ \\
+\endfirsthead
 \hline
-\ar{دقيقة} (daq\=iqa) & Minute & $'$ & $60^{-1}$ \\
+\textbf{Arabic Term} & \textbf{Latin Equivalent} & \textbf{Symbol} &
+\textbf{Value} \\
 \hline
-\ar{ثانية} (th\=aniya) & Second & $''$ & $60^{-2}$ \\
+\endhead
+\ar{درجة} & Degree & $^\circ$ or nothing & $60^0 = 1$ \\
 \hline
-\ar{ثالثة} (th\=alitha) & Third & $\'''$ & $60^{-3}$ \\
+\ar{دقيقة} & Minute & $'$ & $60^{-1}$ \\
 \hline
-\ar{رابعة} (r\=abi'a) & Fourth & & $60^{-4}$ \\
+\ar{ثانية} & Second & $''$ & $60^{-2}$ \\
 \hline
-\ar{خامسة} (kh\=amisa) & Fifth & & $60^{-5}$ \\
+\ar{ثالثة} & Third & $'''$ & $60^{-3}$ \\
 \hline
-\end{tabular}
-\end{center}
+\ar{رابعة} & Fourth & & $60^{-4}$ \\
+\hline
+\ar{خامسة} & Fifth & & $60^{-5}$ \\
+\hline
+\end{longtable}
 
 \subsection{Chapter 5: On the Extraction of Roots of Sexagesimal Numbers}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{يحتوي هذا الفصل على الطريقة العامة للكاشي في استخراج الجذور النونية في النظام الستيني. وأظهرت دراسة دخيل (1960) أن طريقة الكاشي هي في جوهرها نفسها طريقة رفيني--هورنر.}
+\switchcolumn[1]*
 This chapter contains al-K\=ash\=i's remarkably general method for
 extracting $n$th roots in the sexagesimal system. Dakhel's study of
 this chapter (1960) showed that al-K\=ash\=i's method is essentially the
 same as the Ruffini--Horner method.
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{Sexagesimal Root Extraction:}
+\textbf{Sexagesimal Root Extraction (\ar{استخراج الجذر في الستيني}):}
 
 To find $\sqrt[n]{N}$ in sexagesimal:
 \begin{enumerate}[nosep]
@@ -880,63 +985,90 @@ the calculation. Al-K\=ash\=i's method of root extraction is completely
 general and works for any order of root in any number base.}
 \clearpage
 
-
 %% ========================================================================
-%% TREATISE IV: ON MEASUREMENTS AND GEOMETRY — BILINGUAL
+%% TREATISE IV: ON MEASUREMENTS AND GEOMETRY
 %% ========================================================================
 \section{Treatise IV: On Measurements and Geometry}
 \label{sec:treatise4}
 
 \begin{bilingual}
-\A{\textbf{المقالة الرابعة في حساب المساحات والأحجام.}}
-\englishcol
-\textbf{Treatise IV: On the Arithmetic of Areas and Volumes.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{المقالة الرابعة في حساب المساحات والأحجام}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Treatise IV: On Measurements and Geometry}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
-\noindent This is the longest and most diverse treatise of the
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{هذه أطول وأتنوع مقالة في المفتاح، تغطي الهندسة المستوية والصلبية، مع تطبيقات على المساحة والعمارة والهندسة.}
+\switchcolumn[1]*
+This is the longest and most diverse treatise of the
 \textit{Mift\=ah}, covering plane and solid geometry, with applications to
 surveying, architecture, and engineering. It comprises \textbf{nine
 chapters} with numerous sections.
+\end{bilingual}
 
 \subsection{Original Table of Contents of Treatise IV}
 
 \begin{bilingual}
-\A{
-\textbf{فصل في المساحة وألفاظها.}\\[0.3cm]
-\textbf{الباب الأول:} في مساحة المثلث وما يتعلق به.\\[0.2cm]
-\textbf{الباب الثاني:} في مساحة الرباعي وما يتعلق به.\\[0.2cm]
-\textbf{الباب الثالث:} في مساحة المضلع وما يتعلق به.\\[0.2cm]
-\textbf{الباب الرابع:} في مساحة الدائرة وما يتعلق بها.\\[0.2cm]
-\textbf{الباب الخامس:} في مساحة الأجسام المستوية.\\[0.2cm]
-\textbf{الباب السادس:} في مساحة الأجسام المحدبة.\\[0.2cm]
-\textbf{الباب السابع:} في أحجام الأجسام.\\[0.2cm]
-\textbf{الباب الثامن:} في نسبة حجم الجسم إلى وزنه وعكس ذلك.\\[0.2cm]
-\textbf{الباب التاسع:} في مساحة البنيان والأبنية.
-}
-\englishcol
-\textbf{Chapter on area and its terminology.}\\[0.3cm]
-\textbf{Chapter 1:} On the area of the triangle and what relates to it.\\[0.2cm]
-\textbf{Chapter 2:} On the area of the quadrilateral and what relates to it.\\[0.2cm]
-\textbf{Chapter 3:} On the area of the polygon and what relates to it.\\[0.2cm]
-\textbf{Chapter 4:} On the area of the circle and what relates to it.\\[0.2cm]
-\textbf{Chapter 5:} On the area of plane bodies.\\[0.2cm]
-\textbf{Chapter 6:} On the area of curved bodies.\\[0.2cm]
-\textbf{Chapter 7:} On the volumes of bodies.\\[0.2cm]
-\textbf{Chapter 8:} On the ratio of the volume of a body to its weight and vice versa.\\[0.2cm]
-\textbf{Chapter 9:} On the measurement of structures and buildings.
+\switchcolumn[0]*
+\ar{فصل في المساحة وألفاظها.}
+
+\ar{الباب الأول: في مساحة المثلث وما يتعلق به.}
+
+\ar{الباب الثاني: في مساحة الرباعي وما يتعلق به.}
+
+\ar{الباب الثالث: في مساحة المضلع وما يتعلق به.}
+
+\ar{الباب الرابع: في مساحة الدائرة وما يتعلق بها.}
+
+\ar{الباب الخامس: في مساحة الأجسام المستوية.}
+
+\ar{الباب السادس: في مساحة الأجسام المحدبة.}
+
+\ar{الباب السابع: في أحجام الأجسام.}
+
+\ar{الباب الثامن: في نسبة حجم الجسم إلى وزنه وعكس ذلك.}
+
+\ar{الباب التاسع: في مساحة البنيان والأبنية.}
+\switchcolumn[1]*
+A chapter on mensuration and its terminology.
+
+Chapter 1: On the area of the triangle and what relates to it.
+
+Chapter 2: On the area of the quadrilateral and what relates to it.
+
+Chapter 3: On the area of the polygon and what relates to it.
+
+Chapter 4: On the area of the circle and what relates to it.
+
+Chapter 5: On the area of plane bodies.
+
+Chapter 6: On the area of convex bodies.
+
+Chapter 7: On the volumes of bodies.
+
+Chapter 8: On the ratio of a body's volume to its weight and vice versa.
+
+Chapter 9: On the measurement of buildings and structures.
 \end{bilingual}
 
 \subsection{Chapter 1: On the Area of a Triangle}
 
 \begin{bilingual}
-\A{\textbf{فصل في مساحة المثلث.}}
-\englishcol
-\textbf{Chapter on the area of the triangle.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فصل في مساحة المثلث}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 1: On the Area of a Triangle}
+\end{center}
 \end{bilingual}
-
-\vspace{0.5cm}
 
 \subsubsection{Section 1: Classification of Triangles}
 
@@ -946,10 +1078,8 @@ definitions for each.
 
 \subsubsection{Section 2: Area Formulas}
 
-Al-K\=ash\=i presents several methods for computing the area of a triangle:
-
 \begin{mathalgo}
-\textbf{Area of a Triangle:}
+\textbf{Area of a Triangle (\ar{مساحة المثلث}):}
 
 \textbf{Method 1 --- Base and Height:}
 \[
@@ -981,21 +1111,30 @@ A &= \sqrt{21(21-13)(21-14)(21-15)} \\
 \subsection{Chapter 4: On the Area of the Circle}
 
 \begin{bilingual}
-\A{\textbf{فصل في مساحة الدائرة ومعرفة محيطها من قطرها وعكس ذلك.}}
-\englishcol
-\textbf{Chapter on the area of the circle and knowing its circumference
-from its diameter, and vice versa.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فصل في مساحة الدائرة ومعرفة محيطها من قطرها وعكس ذلك}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 4: On the Area of the Circle}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{يحتوي هذا الفصل على أشهر مقاطع المفتاح: بيان الكاشي لقيمة \pi. يكتب:}
+\switchcolumn[1]*
 This chapter contains one of the most celebrated passages in the
 \textit{Mift\=ah}: al-K\=ash\=i's statement about the value of $\pi$. He
 writes:
+\end{bilingual}
 
 \begin{bilingual}
-\A{واعلم أن المحيط ثلاثة أضعاف القطر وكسر، وهو أقل من سُبع القطر، ولكن الناس يأخذونه سُبعاً لتسهيل الحساب. وقال أرخميدس: إن هذا الكسر أصغر من سُبع وأعظم من عشرة من إحدى وسبعين. وحسب ما توصلنا إليه وذكرناه في مقالتنا المسماة \textit{المحيطية} في نسبة القطر إلى المحيط، فهو 3 درجات و8 دقائق و29 ثانية و44 ثالثة، بعد حذف الرابعة وما بعدها، إذا كان القطر واحداً. وهذا أدق بكثير من حساب أرخميدس كما بينا في المقالة المذكورة، وهو أقرب إلى القيمة الصحيحة. إلا أن لا يعلمه على التحقيق إلا الله العزيز.}
-\englishcol
+\switchcolumn[0]*
+\ar{واعلم أن المحيط ثلاثة أضعاف القطر وجزء وهو أقل من سُبع القطر، ولكن الناس يأخذونه سُبعاً لتسهيل العمل. قال أرخميدس: إن هذا الجزء أصغر من سُبع وأكبر من عشرة من إحدى وسبعين. وحسب ما حصلناه وذكرناه في مقالتنا المسماة بالمحيطية في نسبة القطر إلى المحيط، فهو 3 درج 8 دقائق 29 ثانية 44 ثالثة...}
+\switchcolumn[1]*
+\begin{quote}
 Know that the circumference is three times the diameter and a fraction
 which is less than one seventh of the diameter, but people take it as a
 seventh for simplicity of calculation. Archimedes said that this
@@ -1007,9 +1146,8 @@ and what comes after, if the diameter is one. This is far more accurate
 than the calculation of Archimedes as we explained in the article
 mentioned, and it is closer to the correct value. However, nobody knows
 it exactly except God, the Almighty.
+\end{quote}
 \end{bilingual}
-
-\vspace{0.5cm}
 
 \noindent In modern notation:
 \[
@@ -1024,13 +1162,11 @@ $3 \times 2^{28} = 805{,}306{,}368$ sides.}
 
 \subsubsection{Circle Area and Related Formulas}
 
-Al-K\=ash\=i gives the standard formulas:
-
 \begin{mathalgo}
-\textbf{Circle Formulas:}
+\textbf{Circle Formulas (\ar{قوانين الدائرة}):}
 \begin{align*}
-C &= \pi d = 2\pi r && \text{(Circumference)} \\
-A &= \pi r^2 = \frac{\pi d^2}{4} && \text{(Area)}
+C &= \pi d = 2\pi r && \text{(Circumference / \ar{المحيط})} \\
+A &= \pi r^2 = \frac{\pi d^2}{4} && \text{(Area / \ar{المساحة})}
 \end{align*}
 
 \textbf{Finding diameter from circumference:}
@@ -1052,23 +1188,29 @@ that is:
 \subsection{Chapter 9: On the Measurement of Structures and Buildings}
 
 \begin{bilingual}
-\A{\textbf{الباب التاسع في مساحة البنيان والأبنية.}}
-\englishcol
-\textbf{Chapter 9: On the measurement of structures and buildings.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{الباب التاسع في مساحة البنيان والأبنية}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 9: On the Measurement of Structures and Buildings}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{لم يذكر أهل هذه الصنعة إلا الأقبية والأقواس، وحتى ذلك لم يُذكر على وجهه. فذكرناها هنا على وجهها الصحيح بين غيرها، لأن الحاجة في مساحة البنيان هي أشد.}
+\switchcolumn[1]*
 This chapter is of particular interest to historians of Islamic
 architecture. Al-K\=ash\=i writes:
 
-\begin{bilingual}
-\A{إن الممارسين لهذا الفن لم يذكروا إلا الأقبية والأقواس، وحتى ذلك لم يكن على وجهه الصحيح. فذكرتها هنا على وجهها الصحيح مع غيرها، لأن الحاجة في قياسات الأبنية هي أكثر طلباً.}
-\englishcol
+\begin{quote}
 The practitioners of this art have only mentioned vaults and arches,
 and even that was not done properly. So I cover them here in a proper
 way among others, because the need in buildings' measurements is more in
 demand.
+\end{quote}
 \end{bilingual}
 
 \subsubsection{Section 1: On the Areas of Vaults and Arches}
@@ -1090,12 +1232,15 @@ where $r$ is the radius of the base sphere.
 \subsubsection{Section 3: On the Surface Area of the Muqarnas}
 
 \begin{bilingual}
-\A{\textbf{فصل في مساحة سطح المقرنس.}}
-\englishcol
-\textbf{Chapter on the surface area of the muqarnas.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فصل في مساحة سطح المقرنس}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Section 3: On the Surface Area of the Muqarnas}
+\end{center}
 \end{bilingual}
-
-\vspace{0.5cm}
 
 The \textit{muqarnas} (\ar{مقرنس}) is a decorative architectural
 element used in Islamic architecture, consisting of tiered, niched
@@ -1105,7 +1250,7 @@ types of muqarnas and gives formulas for calculating their surface area,
 so that architects could determine the quantity of materials needed.
 
 \begin{mathalgo}
-\textbf{Surface Area of a Muqarnas:}
+\textbf{Surface Area of a Muqarnas (\ar{مساحة سطح المقرنس}):}
 
 For a simple muqarnas composed of $n$ tiers, each with average area
 $a_i$:
@@ -1120,22 +1265,27 @@ Islamic architecture. The muqarnas represents one of the most
 sophisticated applications of geometry in Islamic art and architecture.}
 \clearpage
 
-
 %% ========================================================================
-%% AL-KASHI'S CALCULATION OF PI — THE RISALA AL-MUHITIYYA
+%% AL-KASHI'S CALCULATION OF PI
 %% ========================================================================
 \section{Al-K\=ash\=i's Calculation of $\pi$ --- The \textit{Ris\=ala al-Mu\d{h}i\d{t}iyya}}
 \label{sec:picalc}
 
 \begin{bilingual}
-\A{\textbf{رسالة المحيطية في إيجاد نسبة المحيط إلى القطر.}}
-\englishcol
-\textbf{The Treatise on the Circumference: On finding the ratio of the
-circumference to the diameter.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{رسالة المحيطية في إيجاد نسبة المحيط إلى القطر}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Al-K\=ash\=i's Calculation of $\pi$}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{من أبرز الإنجازات في تاريخ الرياضيات: حساب الكاشي لـ\pi بدقة 16 منزلة عشرية، أنجزه سنة 1424 م. فاق هذا كل الأرقام القياسية السابقة ولم يُتجاوز في أوروبا قرابة قرنين.}
+\switchcolumn[1]*
 \lettrine[lines=3, nindent=0em, findent=3pt]{\color{chapcolor}O}{ne}
 of the most remarkable achievements in the history of mathematics is
 al-K\=ash\=i's computation of $\pi$ to 16 decimal places, completed in 1424
@@ -1143,9 +1293,14 @@ CE. This surpassed all previous records and was not improved upon in
 Europe for nearly two centuries, until Adriaan van Roomen (1561--1615)
 and later Ludolph van Ceulen (1540--1610) pushed the calculation
 further.
+\end{bilingual}
 
 \subsection{Historical Context}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{كان دافع الكاشي فلكياً: سعى لحساب محيط الكون بدقة تجعل خطأ التقريب أصغر من عرض شعرة حصان. وحدد دقة تقريبه مسبقاً واستخدم مضلعاً بـ 3 × 2^{28} = 805,306,368 ضلعاً.}
+\switchcolumn[1]*
 Al-K\=ash\=i's motivation was astronomical: he sought to compute the
 circumference of the universe with such precision that the round-off
 error would be smaller than the width of a horse's hair. He set the
@@ -1153,16 +1308,22 @@ accuracy of his approximation in advance and used a polygon with:
 \[
 3 \times 2^{28} = 805{,}306{,}368 \text{ sides}
 \]
+\end{bilingual}
 
 \subsection{The Method}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{استخدم الكاشي الطريقة الكلاسيكية لأرخميدس: إحاطة الدائرة بمضلعات منتظمة مسقطة ومحيطة وحساب محيطاتها. بدءاً بسداسي ومضاعفة عدد الأضلاع 28 مرة.}
+\switchcolumn[1]*
 Al-K\=ash\=i used the classical method of Archimedes: inscribing and
 circumscribing regular polygons around a circle and computing their
 perimeters. Starting with a hexagon and doubling the number of sides
 28 times, he obtained his approximation.
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{Al-K\=ash\=i's Method for Computing $\pi$:}
+\textbf{Al-K\=ash\=i's Method for Computing $\pi$ (\ar{طريقة الكاشي لحساب \pi}):}
 
 Starting with a regular hexagon inscribed in a unit circle:
 \begin{enumerate}[nosep]
@@ -1178,23 +1339,27 @@ Starting with a regular hexagon inscribed in a unit circle:
     \]
   \item The perimeter of the inscribed $N$-gon is $P_N = N \cdot c_N$.
   \item The approximation to $\pi$ is $\pi \approx \frac{P_N}{2}$.
-  \item Repeat 28 times to obtain the polygon with $3 \times 2^{28}$
-  sides.
+  \item Repeat 28 times to obtain the polygon with $3 \times 2^{28}$ sides.
 \end{enumerate}
 \end{mathalgo}
 
 \subsection{The Result}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{عبر الكاشي أولاً عن 2\pi في التدوين الستيني: 6؛ 16، 59، 28، 1، 34، 51، 46، 14، 50. ثم حوله إلى العشري:}
+\switchcolumn[1]*
 Al-K\=ash\=i first expressed $2\pi$ in sexagesimal notation:
 \[
 2\pi = 6; 16, 59, 28, 1, 34, 51, 46, 14, 50
 \]
 which is:
 \[
-2\pi = 6 + \frac{16}{60} + \frac{59}{60^2} + \frac{28}{60^3} + \frac{1}{60^4} +
+6 + \frac{16}{60} + \frac{59}{60^2} + \frac{28}{60^3} + \frac{1}{60^4} +
 \frac{34}{60^5} + \frac{51}{60^6} + \frac{46}{60^7} + \frac{14}{60^8} +
 \frac{50}{60^9}
 \]
+\end{bilingual}
 
 \noindent He then converted this to decimal:
 \[
@@ -1206,11 +1371,15 @@ which is:
 \fbox{$\pi = 3.1415926535897932\ldots$}
 \end{center}
 
-\begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{longtable}{|c|c|c|}
 \hline
 \textbf{Source} & \textbf{Date} & \textbf{Value of $\pi$} \\
 \hline
+\endfirsthead
+\hline
+\textbf{Source} & \textbf{Date} & \textbf{Value of $\pi$} \\
+\hline
+\endhead
 Archimedes & $\sim$250 BCE & $3.14185$ (average of bounds) \\
 \hline
 Ptolemy & $\sim$150 CE & $3.14166\ldots$ ($3; 8, 30$) \\
@@ -1222,8 +1391,7 @@ Van Ceulen & 1610 CE & 20 places \\
 \hline
 Machin & 1706 CE & 100 places \\
 \hline
-\end{tabular}
-\end{center}
+\end{longtable}
 
 \cnote{Al-K\=ash\=i's accuracy: to compute $2\pi$ with 9 sexagesimal
 places means the maximal error is less than $1/60^9 \approx 9.92 \times
@@ -1231,26 +1399,33 @@ places means the maximal error is less than $1/60^9 \approx 9.92 \times
 and including the 16th decimal place.}
 \clearpage
 
-
 %% ========================================================================
-%% TREATISE V: ON ALGEBRA — BILINGUAL
+%% TREATISE V: ON ALGEBRA
 %% ========================================================================
 \section{Treatise V: On Algebra}
 \label{sec:treatise5}
 
 \begin{bilingual}
-\A{\textbf{المقالة الخامسة في الجبر والمقابلة.}}
-\englishcol
-\textbf{Treatise V: On Algebra and Comparison (Al-Jabr wal-Muq\=abala).}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{المقالة الخامسة في الجبر والمقابلة}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Treatise V: On Algebra}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
-\noindent The final treatise of the \textit{Mift\=ah} is devoted to algebra
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{المقالة الأخيرة في المفتاه مكرسة للجبر والمقابلة. يقدم الكاشي معالجة منهجية للموضوع، مبنياً على أعمال سابقيه -- خاصة الخوارزمي وأبو كامل و الكرجي والسموأل -- مضيفاً ابتكاراته الخاصة.}
+\switchcolumn[1]*
+The final treatise of the \textit{Mift\=ah} is devoted to algebra
 (\ar{الجبر والمقابلة}). Al-K\=ash\=i presents a systematic treatment of
 the subject, building on the work of his predecessors --- particularly
 al-Khw\=arizm\=i, Ab\=u K\=amil, al-Karaj\=i, and al-Samaw'al --- while adding his
 own innovations.
+\end{bilingual}
 
 \subsection{The Chapters of Treatise V}
 
@@ -1273,11 +1448,15 @@ Al-K\=ash\=i, following the tradition established by al-Khw\=arizm\=i,
 classifies all equations into six types. Using modern notation with $x$
 as the unknown and $a, b$ as positive coefficients:
 
-\begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{longtable}{|c|c|c|}
 \hline
 \textbf{Form} & \textbf{Equation} & \textbf{Name} \\
 \hline
+\endfirsthead
+\hline
+\textbf{Form} & \textbf{Equation} & \textbf{Name} \\
+\hline
+\endhead
 1 & $ax = b$ & Simple (\ar{مبسط}) \\
 \hline
 2 & $ax^2 = bx$ & Squares equal roots \\
@@ -1290,11 +1469,10 @@ as the unknown and $a, b$ as positive coefficients:
 \hline
 6 & $bx + c = ax^2$ & Roots and numbers equal squares \\
 \hline
-\end{tabular}
-\end{center}
+\end{longtable}
 
 \begin{mathalgo}
-\textbf{Solution of $ax^2 + bx = c$ (Form 4):}
+\textbf{Solution of $ax^2 + bx = c$ (Form 4) (\ar{حل المعادلة من النوع الرابع}):}
 
 Divide by $a$: $x^2 + \frac{b}{a}x = \frac{c}{a}$
 
@@ -1318,20 +1496,27 @@ x = \frac{-b + \sqrt{b^2 + 4ac}}{2a}
 \subsection{Chapter 2: The Rule of Double False Position}
 
 \begin{bilingual}
-\A{\textbf{فصل في استخراج المجهول بطريقة الخطأين.}}
-\englishcol
-\textbf{Chapter on extracting the unknown by the method of double false
-position.}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\color{chapcolor}\ar{فصل في استخراج المجهول بطريقة الخطأين}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\color{chapcolor}Chapter 2: The Rule of Double False Position}
+\end{center}
 \end{bilingual}
 
-\vspace{0.5cm}
-
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{طريقة الخطأين هي طريقة قديمة لحل المسائل الخطية بغير جبر. ويعطي الكاشي عرضاً واضحاً لها.}
+\switchcolumn[1]*
 The \textbf{Rule of Double False Position} (\ar{طريقة الخطأين}) is an
 ancient method for solving linear problems without algebra. Al-K\=ash\=i
 gives a clear exposition:
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{Rule of Double False Position:}
+\textbf{Rule of Double False Position (\ar{طريقة الخطأين}):}
 
 Given a problem of the form $ax + b = c$, make two guesses $g_1$ and
 $g_2$, giving results $f_1$ and $f_2$ with errors $e_1 = c - f_1$ and
@@ -1356,11 +1541,16 @@ x = \frac{12 \cdot 0 - 24 \cdot 7}{0 - 7} = \frac{-168}{-7} = 24
 
 \subsection{Chapter 5: On Solving Cubic Equations}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{يقدم الكاشي طرقاً لحل المعادلات التكعيبية. وللمعادلة x^3 + px = q يستخدم طريقة تكرارية.}
+\switchcolumn[1]*
 Al-K\=ash\=i presents methods for solving cubic equations. For the equation
 $x^3 + px = q$, he uses an iterative method:
+\end{bilingual}
 
 \begin{mathalgo}
-\textbf{Iterative Solution of $x^3 + px = q$:}
+\textbf{Iterative Solution of $x^3 + px = q$ (\ar{الحل التكراري للمعادلة التكعيبية}):}
 
 Rearrange as: $x = \sqrt[3]{q - px}$
 
@@ -1390,41 +1580,39 @@ similar approach in his \textit{Ris\=ala al-Watar wal-Jayb} to compute
 $\sin(1^\circ)$ to unprecedented accuracy.}
 \clearpage
 
-
 %% ========================================================================
 %% TABLES IN THE MIFTAH
 %% ========================================================================
 \section{Tables in the \textit{Mift\=ah al-\d{H}is\=ab}}
 \label{sec:tables}
 
-Al-K\=ash\=i notes in his preface:
-
 \begin{bilingual}
-\A{وضعت لأكثر العمليات نموذجاً على هيئة جدول حتى يسهل على ذوي الألباب فهمها. وجميع الجداول الواردة في هذا الكتاب --- وعذري صراحتي، وحلوها ومرها مني --- إلا سبعة جداول.}
-\englishcol
+\switchcolumn[0]*
+\ar{يقول الكاشي في تمهيده: "وضعت لأغلب الأعمال نموذجاً على هيئة جدول لتكون أسهل على أرباب الذكاء. وجميع الجداول الموضوعة في هذا الكتاب -- "عذري صراحتي، وحلوها ومرها مني" -- إلا سبعة جداول."}
+\switchcolumn[1]*
+Al-K\=ash\=i notes in his preface:
+\begin{quote}
 I placed for most operations a model in tabular form so that they may
 be easily grasped by the intelligent. And all the tables placed in
 this book --- ``my excuse is my frankness, and its sweet and bitter
 are part of me'' --- except seven tables.
+\end{quote}
 \end{bilingual}
-
-\vspace{0.5cm}
 
 \subsection{The Seven Auxiliary Tables}
 
 \begin{enumerate}[label=\textbf{Table \arabic*:}]
   \item \textbf{Table of products of numbers below ten} --- A basic
-  multiplication table (\ar{جدول حاصل ضرب الأعداد دون العشرة}).
+  multiplication table.
   \item \textbf{The Network (\ar{الشبكة}) for multiplication} --- A
   lattice multiplication aid.
-  \item \textbf{Table of powers of places} --- Place value reference
-  (\ar{جدول منازل الأعداد}).
+  \item \textbf{Table of powers of places} --- Place value reference.
   \item \textbf{Example of the agreement of roots} --- Root extraction
   reference.
   \item \textbf{Table for knowing the rank of the product and quotient
   of division} --- Place value computation aid.
   \item \textbf{Table of sines} --- Essential for astronomical
-  calculations (\ar{جدول الجیوب}).
+  calculations.
   \item \textbf{Table for knowing the parity of the product and
   division} --- Even/odd determination.
 \end{enumerate}
@@ -1458,22 +1646,40 @@ $\times$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
 \section{Biographical Note on Al-K\=ash\=i}
 \label{app:biography}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{نبذة عن حياة الكاشي}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Biographical Note on Al-K\=ash\=i}
+\end{center}
+\end{bilingual}
+
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{ولد جمشيد غياث الدين بن مسعود بن محمود الطبيب الكاشي في كاشان، وسط إيران، حوالي سنة 1380 م. ويُعرف بالكاشي (أو الكاشاني بالأحرى)، وبلقبه غياث الدين.}
+\switchcolumn[1]*
 Jamsh\=id Ghiy\=ath al-D\=in ibn Mas\=ud ibn Mahm\=ud al-\d{T}ab\=ib al-K\=ash\=i was
 born in K\=ash\=an, in central Iran, around 1380 CE. His given name was
 Jamsh\=id; his father's name was Mas\=ud and his grandfather's name was
 Mahm\=ud. He is known as al-K\=ash\=i (or more precisely al-K\=ash\=an\=i, from
 K\=ash\=an), and by his honorific title Ghiy\=ath al-D\=in (``the rescuer of
-the religion''). The epithet al-\d{T}ab\=ib (``the physician'') reflects his
-early practice of medicine before devoting himself fully to mathematics
-and astronomy.
+the religion'').
+\end{bilingual}
 
 \subsection{Key Dates in Al-K\=ash\=i's Life}
 
-\begin{center}
-\begin{tabular}{|r|l|}
+\begin{longtable}{|r|l|}
 \hline
 \textbf{Date} & \textbf{Event} \\
 \hline
+\endfirsthead
+\hline
+\textbf{Date} & \textbf{Event} \\
+\hline
+\endhead
 $\sim$1380 & Born in K\=ash\=an, Iran \\
 \hline
 1407 & Completed \textit{Sullam al-Sam\=a'} (Ladder of the Heavens) \\
@@ -1485,7 +1691,8 @@ Astronomy) \\
 \hline
 $\sim$1420 & Moved to Samarkand at Ulugh Beg's invitation \\
 \hline
-1424 & Completed \textit{Ris\=ala al-Mu\d{h}i\d{t}iyya} (calculation of $\pi$) \\
+1424 & Completed \textit{Ris\=ala al-Mu\d{h}i\d{t}iyya} (calculation of $\pi$)
+\\
 \hline
 \textbf{2 March 1427} & \textbf{Completed \textit{Mift\=ah al-\d{H}is\=ab}} \\
 \hline
@@ -1493,8 +1700,7 @@ $\sim$1420 & Moved to Samarkand at Ulugh Beg's invitation \\
 \hline
 22 June 1429 & Died in Samarkand (Ramadan 19, 832 AH) \\
 \hline
-\end{tabular}
-\end{center}
+\end{longtable}
 
 \subsection{Al-K\=ash\=i's Other Works}
 
@@ -1516,12 +1722,11 @@ $\sim$1420 & Moved to Samarkand at Ulugh Beg's invitation \\
   Simplified astronomical tables.
 \end{enumerate}
 
-\vspace{0.5cm}
 \cnote{In the words of E.S.\ Kennedy: ``Al-K\=ash\=i was first and foremost
 a master computer of extraordinary ability, witness his facile use of
 pure sexagesimals, his wide application of iterative algorithms, and his
-sure touch in so laying out a computation that he controlled the maximum
-error and maintained a check at all stages.''}
+sure touch in so laying out a computation that he controlled the maximum error
+and maintained a check at all stages.''}
 \clearpage
 
 %% ========================================================================
@@ -1529,6 +1734,17 @@ error and maintained a check at all stages.''}
 %% ========================================================================
 \section{Testimonies of Modern Scholars}
 \label{app:scholars}
+
+\begin{bilingual}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{شهادات العلماء المعاصرين}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Testimonies of Modern Scholars}
+\end{center}
+\end{bilingual}
 
 \begin{quote}
 ``\textit{Key to Arithmetic} is the crowning achievement of Islamic
@@ -1551,7 +1767,10 @@ picture was explicitly shaken.''
 
 \vspace{0.3cm}
 
-\begin{quote}
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{"في غنى محتوياتها وتطبيق الأساليب الحسابية والجبرية لحل مختلف المسائل، بما فيها الهندسية، وفي وضوح وجمال العرض، يعد هذا الكتاب المدرسي الضخم أحد أفضل الكتب في كل الأدبيات القرون الوسطى؛ وهو شهادة على مؤلفه العلمي وقدرته التعليمية."}
+\switchcolumn[1]*
 ``In the richness of its contents and in the application of
 arithmetical and algebraic methods to the solution of various
 problems, including several geometric ones, and in the clarity and
@@ -1563,18 +1782,21 @@ often recopied and served as a manual for hundreds of years.''
 \begin{flushright}
 --- A.P.\ Youschkevitch \& B.A.\ Rosenfeld
 \end{flushright}
-\end{quote}
+\end{bilingual}
 
 \vspace{0.3cm}
 
-\begin{quote}
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{"في عمل غياث الدين جمشيد الكاشي في أوائل القرن الخامس عشر نرى أول مرة قيادة تامة لفكرة الكسور العشرية وتدوين مريح لها."}
+\switchcolumn[1]*
 ``It is in the work of Giy\=ath al-D\=in Jamsh\=id al-K\=ash\=i in the early
 fifteenth century that we first see both a total command of the idea
 of decimal fractions and a convenient notation for them.''
 \begin{flushright}
 --- V.J.\ Katz
 \end{flushright}
-\end{quote}
+\end{bilingual}
 
 \vspace{0.3cm}
 
@@ -1617,16 +1839,37 @@ Islamic world.''
 \section{Note on the Manuscripts and Editions}
 \label{app:manuscripts}
 
+\begin{bilingual}
+\switchcolumn[0]*
+\begin{center}
+\textbf{\Large\color{chapcolor}\ar{ملاحظة على المخطوطات والطبعات}}
+\end{center}
+\switchcolumn[1]*
+\begin{center}
+\textbf{\Large\color{chapcolor}Note on the Manuscripts and Editions}
+\end{center}
+\end{bilingual}
+
+\begin{bilingual}
+\switchcolumn[0]*
+\ar{حُفظ مفتاح الحساب في نسخ مخطوطة عديدة، مما يعكس أهميته واستخدامه الواسع.}
+\switchcolumn[1]*
 The \textit{Mift\=ah al-\d{H}is\=ab} was preserved in numerous manuscript
 copies, reflecting its importance and wide use. Key manuscripts
 include:
+\end{bilingual}
 
-\begin{center}
-\begin{tabular}{|l|c|l|}
+\begin{longtable}{|l|c|l|}
 \hline
 \textbf{Manuscript} & \textbf{Date} & \textbf{Location} \\
 \hline
-Nuruosmaniye 2967 & 854 H / 1450 CE & Istanbul, Nuruosmaniye Library \\
+\endfirsthead
+\hline
+\textbf{Manuscript} & \textbf{Date} & \textbf{Location} \\
+\hline
+\endhead
+Nuruosmaniye 2967 & 854 H / 1450 CE & Istanbul, Nuruosmaniye Library
+\\
 \hline
 Esad Efendi 3768 & 882 H / 1477 CE & Istanbul, S\=uleym\=aniye Library \\
 \hline
@@ -1636,14 +1879,14 @@ Aya Sofya 2713 & 896 H / 1491 CE & Istanbul, S\=uleym\=aniye Library \\
 \hline
 Leiden Or.\ 178 & 17th century & Leiden University Library \\
 \hline
-\end{tabular}
-\end{center}
+\end{longtable}
 
 \subsection{Printed Editions}
 
 \begin{enumerate}[label=\arabic*.]
-  \item \textbf{1887 Arabic edition} --- The first printed edition of the
-  complete Arabic text, published in the Ottoman Empire.
+  \item \textbf{1887 Arabic edition} --- The present edition, published in
+  the Ottoman Empire. This was the first printed edition of the
+  complete Arabic text.
   \item \textbf{1951 German edition} --- P.\ Luckey, \textit{Die
   Rechnenkunst bei Gamschid b.\ Mas'ud al-Kasi} (Wiesbaden: Franz
   Steiner). The first major modern study.
@@ -1658,19 +1901,19 @@ Leiden Or.\ 178 & 17th century & Leiden University Library \\
   A.P.\ Youschkevitch, \textit{Klyuch Arifmetiki} (Moscow).
 \end{enumerate}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
 \begin{center}
 \shortline
 
 \vspace{0.5cm}
 
-\textit{The end of the bilingual edition of the \textit{Mift\=ah
+\textit{The end of what has been compiled from the \textit{Mift\=ah
 al-\d{H}is\=ab} of Jamsh\=id al-K\=ash\=i}
 
 \vspace{0.3cm}
 
-\ar{تمت الطبعة الثنائية لمفتاح الحساب لجمشيد الكاشي}
+\ar{تم ما انتقي من مفتاح الحساب لجمشيد الكاشي}
 
 \vspace{0.5cm}
 
@@ -1680,4 +1923,5 @@ al-\d{H}is\=ab} of Jamsh\=id al-K\=ash\=i}
 \end{document}
 %% ========================================================================
 %% END OF DOCUMENT
-%% ==============================================================
+%% ========================================================================
+

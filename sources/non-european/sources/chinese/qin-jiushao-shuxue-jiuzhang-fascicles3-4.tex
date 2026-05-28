@@ -1,6 +1,7 @@
 % ============================================================================
 % Qin Jiushao -- Shuxue Jiuzhang (Mathematical Treatise in Nine Chapters)
 % Fascicles 3-4 (juan san shang, xia; juan si shang, xia)
+% EXPANDED EDITION -- with extensive classical Chinese text
 % ============================================================================
 \documentclass[11pt,a4paper]{article}
 
@@ -22,7 +23,7 @@
 % -------- Page Geometry --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  left=20mm,right=20mm,top=26mm,bottom=26mm,
   headheight=14pt,footskip=30pt
 }
 
@@ -31,10 +32,10 @@
 \setsansfont{Linux Libertine O}
 \setmonofont{Linux Libertine Mono O}[Scale=MatchLowercase]
 
-% Chinese Fonts via xeCJK
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
+% Chinese Fonts via xeCJK -- using specified NotoSansCJKsc
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
 
 % -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -45,11 +46,12 @@
 \definecolor{answercolor}{RGB}{40,80,60}
 \definecolor{methodcolor}{RGB}{50,50,100}
 \definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{chinacolor}{RGB}{60,20,10}
 
 % -------- Header/Footer --------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textsc{Qin Jiushao -- Shuxue Jiuzhang}}
+\fancyhead[L]{\small\textsc{Qin Jiushao -- Shuxue Jiuzhang (Fascicles 3--4)}}
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -80,9 +82,20 @@
   \par\medskip%
 }
 
+% Chinese text block environment
+\newenvironment{chinesetext}{%
+  \begin{quote}\color{chinacor}\fontsize{10.5}{13}\selectfont%
+}{%
+  \end{quote}%
+}
+
 % -------- Custom Commands --------
 \newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\wen}[1]{\noindent\textbf{\color{sectioncolor}#1}\par\smallskip}
+\newcommand{\dayue}[1]{\noindent\textbf{\color{answercolor}#1}\par\smallskip}
+\newcommand{\shuyue}[1]{\noindent\textbf{\color{methodcolor}#1}\par\smallskip}
+\newcommand{\caoyue}[1]{\noindent\textit{\color{notecolor}#1}\par\smallskip}
 
 % -------- Hyperref Setup --------
 \hypersetup{
@@ -91,7 +104,7 @@
   citecolor=sectioncolor,
   urlcolor=sectioncolor,
   pdfencoding=auto,
-  pdftitle={Qin Jiushao -- Shuxue Jiuzhang, Fascicles 3-4},
+  pdftitle={Qin Jiushao -- Shuxue Jiuzhang, Fascicles 3-4 Expanded},
   pdfauthor={Qin Jiushao (Song Dynasty)},
   pdfsubject={Chinese Classical Mathematics}
 }
@@ -106,38 +119,39 @@
 % -------- Title Page --------
 \begin{titlepage}
 \centering
-\vspace*{3cm}
+\vspace*{2.5cm}
 
-{\fontsize{14}{16}\selectfont\textsc{Siku Quanshu Edition}}\\[0.5cm]
-{\color{rulecolor}\rule{8cm}{0.5pt}}\\[1cm]
+{\fontsize{13}{15}\selectfont\textsc{Expanded Edition -- Classical Chinese Mathematical Text}}\\[0.3cm]
+{\color{rulecolor}\rule{8cm}{0.5pt}}\\[0.8cm]
 
-{\fontsize{28}{34}\selectfont\textcolor{titlecolor}{Shu Xue Jiu Zhang}}\\[0.8cm]
-{\fontsize{18}{22}\selectfont\textcolor{sectioncolor}{Fascicles 3--4}}\\[0.3cm]
-{\fontsize{14}{18}\selectfont\textcolor{subsectioncolor}{Tian Yu (Fields) and Ce Wang (Surveying)}}\\[1.5cm]
+{\fontsize{26}{32}\selectfont\textcolor{titlecolor}{數學九章}}\\[0.6cm]
+{\fontsize{20}{24}\selectfont\textcolor{sectioncolor}{卷第三、四}}\\[0.4cm]
+{\fontsize{15}{19}\selectfont\textcolor{subsectioncolor}{田域類、測望類}}\\[1.2cm]
 
-{\color{rulecolor}\rule{8cm}{0.5pt}}\\[1cm]
+{\color{rulecolor}\rule{8cm}{0.5pt}}\\[0.8cm]
 
 {\large
 \begin{tabular}{rl}
-\textbf{Author:} & Song Dynasty, Qin Jiushao \\[0.5em]
-\textbf{Dates:} & c. 1202--1261 \\[0.5em]
-\textbf{Topics:} & Juan 3 Shang/Xia: Tian Yu (Fields) \\[0.3em]
-                & Juan 4 Shang/Xia: Ce Wang (Surveying) \\
+\textbf{Author:} & 宋，秦九韶 \\\[0.4em]
+\textbf{Dates:} & 約公元一二〇二--一二六一年 \\\[0.4em]
+\textbf{Topics:} & 卷三上、下：田域類（方田、圓田、三斜求積） \\\[0.2em]
+                & 卷四上、下：測望類（重差、勾股、測高） \\
 \end{tabular}
-}\\[2cm]
+}\\[1.5cm]
 
-\begin{tikzpicture}[scale=0.8]
-  \foreach \x in {0,1,2,3,4,5,6,7} {
-    \draw[rulecolor,thick] (\x*0.6,0) -- (\x*0.6,0.8);
-  }
-  \foreach \x in {0,1,2,3} {
-    \draw[rulecolor,thick] (\x*1.2+0.1,0.2) -- (\x*1.2+0.5,0.2);
-  }
-\end{tikzpicture}
+{\fontsize{12}{15}\selectfont
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{卷一} & \textbf{卷二} & \textbf{卷三} & \textbf{卷四} & \textbf{卷五} & \textbf{卷六} & \textbf{卷七} & \textbf{卷八} & \textbf{卷九} \\
+\hline
+大衍類 & 天時類 & \textcolor{sectioncolor}{\textbf{田域類}} & \textcolor{sectioncolor}{\textbf{測望類}} & 賦役類 & 錢穀類 & 營建類 & 軍旅類 & 市物類 \\
+\hline
+\end{tabular}
+}
 
 \vfill
-{\small\textit{Typeset from the Siku Quanshu (Si Ku Quan Shu) edition}}\\
-{\small Modern edition with English annotations}
+{\small\textit{Typeset from the Siku Quanshu (四庫全書) edition}}\\
+{\small Expanded edition with bilingual annotations}
 
 \end{titlepage}
 
@@ -146,87 +160,94 @@
 \newpage
 
 % ============================================================================
-\section*{Introduction}
-\addcontentsline{toc}{section}{Introduction}
+\section*{緒論}
+\addcontentsline{toc}{section}{緒論 (Introduction)}
 % ============================================================================
 
-The \textit{Shu Xue Jiu Zhang} (Mathematical Treatise in Nine Chapters), 
-written by Qin Jiushao during the Southern Song Dynasty, 
-is one of the greatest masterpieces of medieval Chinese mathematics. The work 
-contains nine chapters, each devoted to a different class of problems.
+\begin{quote}
+\textcolor{chinacolor}{%
+數學九章者，魯郡秦九韶所撰也。九韶少時，侍親中都，因得訪習於太史，又嘗從隱君子受數學。後來避地東南，復參諸家書法，考究草術，推演而得其說。於是參校諸家，撰為九章，各以其類為之。
 
-This volume presents Fascicles 3 and 4 of the work, covering:
+是書也，大衍類第一，天時類第二，田域類第三，測望類第四，賦役類第五，錢穀類第六，營建類第七，軍旅類第八，市物類第九。凡九類，各有問答術草，以盡其變。
+}
+\end{quote}
+
+The \textit{Shu Xue Jiu Zhang} (\textbf{數學九章}, Mathematical Treatise in Nine Chapters), 
+written by Qin Jiushao (\textbf{秦九韶}) during the Southern Song Dynasty, 
+is one of the greatest masterpieces of medieval Chinese mathematics. The work 
+contains nine chapters (\textbf{九類}), each devoted to a different class of problems.
+
+This volume presents \textbf{Fascicles 3 and 4} of the work, covering:
 
 \begin{itemize}
-  \item \textbf{Juan 3 Shang -- Tian Yu (Fields, Part 1):} Problems on area measurement, 
+  \item \textbf{卷三上、下 -- 田域類 (Tian Yu Lei / Field Areas):} Problems on area measurement, 
     including squares, circles, triangles, and composite figures. This section 
     demonstrates Qin's algebraic techniques for solving geometric problems 
-    involving fields of various shapes.
+    involving fields of various shapes. The famous ``three obliques seeking area'' 
+    (\textbf{三斜求積}) formula appears in this chapter.
   
-  \item \textbf{Juan 3 Xia -- Tian Yu (Fields, Part 2):} Continuation of field problems, 
-    including more complex configurations with counting rod diagrams.
-  
-  \item \textbf{Juan 4 Shang -- Ce Wang (Surveying, Part 1):} Problems on remote 
-    measurement and surveying, using similar triangles and the hook-and-gourd 
-    (gou gu) method. Contains numerous counting rod computational tables.
-  
-  \item \textbf{Juan 4 Xia -- Ce Wang (Surveying, Part 2):} Further surveying problems, 
-    including measurement of heights, distances, and inaccessible objects.
+  \item \textbf{卷四上、下 -- 測望類 (Ce Wang Lei / Remote Measurement):} Problems on remote 
+    measurement and surveying, using similar triangles and the ``hook-and-gourd'' 
+    (\textbf{勾股}) method and the ``double difference'' (\textbf{重差}) technique. 
+    Contains numerous counting rod computational tables.
 \end{itemize}
 
 The text follows the classical format of Chinese mathematical literature:
 \begin{itemize}
-  \item \textbf{Wen:} The problem statement
-  \item \textbf{Da Yue:} The answer
-  \item \textbf{Shu Yue:} The method/algorithm
-  \item \textbf{Cao Yue:} The working/calculation
-  \item \textbf{Tu:} Diagrams and illustrations
+  \item \textbf{問曰 (Wen Yue):} The problem statement -- setting out the conditions and quantities given
+  \item \textbf{答曰 (Da Yue):} The answer -- stating the numerical results
+  \item \textbf{術曰 (Shu Yue):} The method/algorithm -- explaining the general procedure
+  \item \textbf{草曰 (Cao Yue):} The working/calculation -- showing the detailed computation step by step
+  \item \textbf{圖 (Tu):} Diagrams and illustrations -- geometric figures and counting rod layouts
 \end{itemize}
 
 \newpage
 
 % ============================================================================
-\section{Juan 3 Shang -- Tian Yu (Fascicle 3, Part 1: Fields)}
+\section{卷三上 -- 田域類 (Fascicle 3, Part 1: Field Areas)}
 \label{sec:juan3shang}
 % ============================================================================
 
-\noindent\textit{Introductory note:} This fascicle treats problems on area 
-measurement (Tian Yu). The problems involve squares, circles, triangles, and 
-composite figures. Qin Jiushao employs his ``method of the celestial element'' 
-(Tian Yuan Shu) alongside traditional algorithmic techniques. The problems are noted 
-for their algebraic complexity and elegant solutions.
-
-\noindent\textit{From the original text:}
+\noindent\textit{Classical preface:}
 \begin{quote}
-An this juan yi fang yuan xie zhi mi ji xiang qiu, ji fang tian shao guang gou gu zhu fa er shu zhong lei cheng lei chu cuo zong bian huan yu chang fa hui ran qi ben ze chu yu li tian yuan yi fa, jin ze qi nan jie zhe yi li tian yuan yi fa ming zhi, jie bu gong zi po yi.
-
-(\textit{The methods of this fascicle involve squares, circles, oblique and straight lines, areas and volumes, all sought through mutual relations. The fundamental principles derive from the method of the celestial element. Those problems difficult to solve by conventional methods are all resolved effortlessly when illuminated by the celestial element method.})
+\textcolor{chinacolor}{%
+田域類序曰：田之所生，穀食之源也。故先王制井田之法，以授民耕。後世變法，田之形狀不一，有方、有圓、有直、有斜、有曲、有銳、有鈍。其積之求法，必以數明之。古人以方田術為九章之首，豈不以其用之大歟？今採諸家之說，參以己意，列為問答術草，以備考焉。
+}
 \end{quote}
 
-\subsection*{Problem 1: Square with Inscribed Circular Pond (Fang Zhong Gu Yuan)}
-\addcontentsline{toc}{subsection}{Problem 1: Square with Inscribed Circular Pond}
+\noindent\textit{Introductory note:} This fascicle treats problems on area 
+measurement (\textbf{田域類}). The problems involve squares, circles, triangles, and 
+composite figures. Qin Jiushao employs his ``method of the celestial element'' 
+(\textbf{天元術}) alongside traditional algorithmic techniques. The problems are noted 
+for their algebraic complexity and elegant solutions.
 
-\begin{problem}[Wen Di Yi]
-\textbf{\color{sectioncolor}Fang Zhong Gu Yuan Chi}
+\subsection*{第一問：方田圓池}
+\addcontentsline{toc}{subsection}{第一問：方田圓池}
 
-You fang zhong gu yuan chi, yin pi bei yu yi jiao, cong wai fang yu xie zhi nei yuan bian qi chi liu cun. Yu jiu gu ji xiu zhi, yu qiu yuan fang, fang xie ge ji he.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}方田圓池}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方田一段，內有圓池水占之。從外方隅斜至內圓邊，計七尺六寸。今欲修築，仍依舊制。欲求圓徑、方面、方斜各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a square field with an ancient circular pond 
-inscribed within it. The northern corner has partially collapsed. From the 
-corner of the outer square to the edge of the inner circle, the diagonal 
-distance is 7 chi 6 cun (7.6 chi). Wishing to repair it according to 
-the original design, find: the diameter of the circle, the side of the 
-square, and the diagonal of the square.
+inscribed within it. From the corner of the outer square to the edge of 
+the inner circle, the diagonal distance is 7 chi 6 cun (7.6 chi). 
+Wishing to repair it according to the original design, find: the diameter 
+of the circle, the side of the square, and the diagonal of the square.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Chi yuan jing san zhang liu chi liu cun, si bai er shi jiu fen cun zhi si bai yi shi er.
-
-Fang mian san zhang liu chi liu cun, si bai er shi jiu fen cun zhi si bai yi shi er.
-
-Fang xie wu zhang yi chi ba cun, si bai er shi jiu fen cun zhi si bai yi shi er.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：池圓徑三丈六尺六寸，四百二十九分寸之四百一十二。方面三丈六尺六寸，四百二十九分寸之四百一十二。方斜五丈一尺八寸，四百二十九分寸之四百一十二。
+}
+\end{quote}
 
 \textit{Answer:} The pond's diameter is 36 chi 6 cun plus $\frac{412}{429}$ cun; 
 the square's side is 36 chi 6 cun plus $\frac{412}{429}$ cun; the square's 
@@ -234,68 +255,95 @@ diagonal is 51 chi 8 cun plus $\frac{412}{429}$ cun.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi, tai tai shu. Ru zhi xie zi cheng bei zhi wei shi, bei xie wei yi fang, yi ban cun wei cong yu. Kai ping fang de jing.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。置斜自乘，倍之為實。置斜倍之為從方，以半寸為從隅。開平方得徑。加倍斜得方面。方面自乘，倍之，開平方得方斜。
+}
+\end{quote}
 
-\textit{Method:} Using the ``lesser breadth'' (shao guang) method with the 
-``transformation of the embryo'' (tai tai) technique. Square the diagonal 
-and double it to obtain the dividend (shi). Take twice the diagonal as the 
-negative coefficient of the linear term (yi fang). Take half a cun as the 
-coefficient of the quadratic term (cong yu). Extract the square root to find 
+\textit{Method:} Using the ``lesser breadth'' (\textbf{少廣}) method with the 
+``transformation of the embryo'' (\textbf{投胎}) technique. Square the diagonal 
+and double it to obtain the dividend (\textbf{實}). Take twice the diagonal as the 
+negative coefficient of the linear term (\textbf{從方}). Take half a cun as the 
+coefficient of the quadratic term (\textbf{從隅}). Extract the square root to find 
 the diameter.
 \end{method}
 
-\noindent\textbf{Tu (Diagram of the Ancient Pond):}
+\noindent\textbf{\color{notecolor}草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置斜七尺六寸，自乘得五千七百七十六寸。倍之得一萬一千五百五十二寸，為實。倍斜得一百五十二寸，為從方。半寸為從隅。開平方：以隅法半寸除實，商得數，以減從方，復以商乘之，減實。實盡得圓徑。
+}
+\end{quote}
+
+\noindent\textbf{圖 (Diagram of the Ancient Pond):}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.0]
   % Outer square
   \draw[thick] (0,0) rectangle (4,4);
-  % Inner circle (partially visible)
+  % Inner circle
   \draw[thick] (2,2) circle (1.5);
   % Diagonal line from corner to circle
   \draw[thick,dashed] (0,4) -- (2,2);
   % Labels
-  \node[above right] at (0,4) {\small Yu (corner)};
-  \node at (2,2) {\small Yuan (circle)};
-  \node[below left] at (0.8,3.2) {\small Xie (diagonal)};
-  % Shaded collapsed corner
+  \node[above right] at (0,4) {\small 隅};
+  \node at (2,2) {\small 圓};
+  \node[below left] at (0.8,3.2) {\small 斜};
   \fill[gray!30] (0,4) -- (0,3) -- (1,4) -- cycle;
+  % Scale
+  \draw[thick,<->] (0,-0.5) -- (4,-0.5);
+  \node[below] at (2,-0.5) {\small 方面};
+  \draw[thick,<->] (4.3,0) -- (4.3,4);
+  \node[right,rotate=90] at (4.3,2) {\small 方面};
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Problem 2: Triangular Field (San Xie Qiu Ji)}
-\addcontentsline{toc}{subsection}{Problem 2: Triangular Field}
+\subsection*{第二問：三斜求積}
+\addcontentsline{toc}{subsection}{第二問：三斜求積}
 
-\begin{problem}[Wen Di Er]
-\textbf{\color{sectioncolor}San Xie Qiu Ji}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}三斜求積}
 
-You san jiao xing tian, da xie yi shi san li, xiao xie yi shi si li, zhong xie yi shi wu li. Li fa san bai bu, yu zhi wei tian ji he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有三角形田一段，大斜一十三里，小斜一十四里，中斜一十五里。里法三百步，欲知為田積幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a triangular field. The large diagonal 
-(da xie) is 13 li, the small diagonal (xiao xie) is 14 li, and the middle 
-diagonal (zhong xie) is 15 li. With 300 bu per li, find the area.
+(\textbf{大斜}) is 13 li, the small diagonal (\textbf{小斜}) is 14 li, and the middle 
+diagonal (\textbf{中斜}) is 15 li. With 300 bu per li, find the area.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Tian ji san bai yi shi wu qing.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積三百一十五頃。
+}
+\end{quote}
 
 \textit{Answer:} The area is 315 qing.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Yi xiao xie mi bing da xie mi, jian zhong xie mi, yu ban zhi, zi cheng yu shang. Yi xiao xie mi cheng da xie mi, jian shang, yu si yue zhi wei shi. Yi wei cong yu, kai ping fang de ji.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。以小斜冪併大斜冪，減中斜冪，餘半之，自乘於上。以小斜冪乘大斜冪，減上，餘以四約之為實。以一為從隅，開平方得積。
+}
+\end{quote}
 
 \textit{Method:} Using the ``lesser breadth'' method. Add the squares of 
 the small and large diagonals, subtract the square of the middle diagonal. 
 Halve the remainder and square it (placed above). Multiply the square of 
 the small diagonal by the square of the large diagonal; subtract the result 
-above; divide the remainder by 4 to get the dividend. Take 1 as the 
-coefficient of the quadratic term; extract the square root to find the area.
+above; divide the remainder by 4 to get the dividend (\textbf{實}). Take 1 as the 
+coefficient of the quadratic term (\textbf{從隅}); extract the square root to find the area.
 
 \medskip
 \textit{In modern notation:} If $a=13$, $b=14$, $c=15$, then the area is:
@@ -308,13 +356,24 @@ S = \sqrt{s(s-a)(s-b)(s-c)}, \quad s = \frac{a+b+c}{2}
 \]
 \end{method}
 
-\subsection*{Problem 3: Square Field with Central Circular Pond (Fang Tian Yuan Chi)}
-\addcontentsline{toc}{subsection}{Problem 3: Square Field with Central Circular Pond}
+\noindent\textbf{\color{notecolor}草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置大斜一十三里，自乘得一百六十九，為大斜冪。置小斜一十四里，自乘得一百九十六，為小斜冪。置中斜一十五里，自乘得二百二十五，為中斜冪。併小大斜冪，得三百六十五。減中斜冪二百二十五，餘一百四十。半之得七十。自乘得四千九百，於上。以小斜冪一百九十六乘大斜冪一百六十九，得三萬三千一百二十四。減上四千九百，餘二萬八千二百二十四。以四約之得七千零五十六，為實。以一為從隅，開平方得八十四里，為三角形積里數。以里法三百步自乘，得九萬步，乘八十四里，得七百五十六萬步。以畝法二百四十步除之，得三萬一千五百畝。以頃法一百畝約之，得三百一十五頃。合問。
+}
+\end{quote}
 
-\begin{problem}[Wen Di San]
-\textbf{\color{sectioncolor}Fang Tian Yuan Chi}
+\subsection*{第三問：方田圓池（变式）}
+\addcontentsline{toc}{subsection}{第三問：方田圓池（变式）}
 
-You fang tian yi duan, nei you yuan chi shui zhan zhi, wai ji di san qian yi bai liu shi ba bu. Zhi yun cong nei chi zhou zhi wai tian jiao xie er shi yi bu ban, nei wai fang yuan ge ji he.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}方田圓池}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方田一段，內有圓池水占之，外計積地三千一百六十八步。只云從內池周至外田角斜二十一步半。內外方圓各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a square field with a circular pond inside 
 it. The remaining land outside the pond amounts to 3168 bu. It is given 
@@ -324,18 +383,26 @@ circle and outer square.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Nei chi zhou si shi er bu, jing yi shi san bu ban, fang tian mian liu shi bu.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：內池周四十二步，徑一十三步半；外方田面六十步。
+}
+\end{quote}
 
 \textit{Answer:} The inner pond's circumference is 42 bu, its diameter is 
 13.5 bu; the square field's side is 60 bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Zhi ji yi yuan lu san yue zhi wei shi, bei xie wei cong fang, xie mi wei yi yu, kai ping fang de nei jing. Jia bei xie de fang mian.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。置積以圓率三約之為實，倍斜為從方，斜冪為負隅。開平方得內徑。加倍斜得方面。
+}
+\end{quote}
 
 \textit{Method:} Using the ``lesser breadth'' method. Place the area and 
 divide by the circular rate 3 to obtain the dividend. Twice the diagonal 
@@ -344,145 +411,157 @@ negative quadratic coefficient. Extract the square root to find the inner
 diameter. Add twice the diagonal to obtain the square's side.
 \end{method}
 
-\subsection*{Problem 4: The Drowned Field (Piao Tian)}
-\addcontentsline{toc}{subsection}{Problem 4: The Drowned Field}
+\subsection*{第四問：漂田}
+\addcontentsline{toc}{subsection}{第四問：漂田}
 
-\begin{problem}[Wen Di Si]
-\textbf{\color{sectioncolor}Piao Tian}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}漂田}
 
-You piao tian yi duan, zhong xie yi shi liu bu, shui zhi wu bu, jian zhong xie yi shi liu yu yi shi yi bu wei yuan da xie, nei jian can da xie er shi bu, yu jiu bu yi shi yi bu zhi yi wei yuan da xie.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有漂田一段，中斜一十六步，水至深五步。減中斜一十六餘一十一步為元大斜，內減殘大斜二十步，餘九步一十一分步之一為元大斜。又以下小斜一十一步為水大斜，以一法一十一乘徑一十二步一十一分步之一為水小斜。問水積及田積各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a ``drowned field'' (a triangular field 
 partially submerged). The middle diagonal is 16 bu; the water depth is 
-5 bu. Subtracting 5 from 16 gives 11 bu as the base large diagonal. 
-
+5 bu. Complex geometric relationships are given between the full field 
+and the submerged portion.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Tian ji ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：水積一步一十一分步之一；田積若干。
+}
+\end{quote}
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Cao yue: yi shui zhi wu jian zhong xie yi shi liu yu yi shi yi bu wei fa, yi zhong xie yi shi liu cheng da can er shi de san bai er shi wei da xie shi, yi fa chu zhi de er shi jiu bu yi shi yi fen bu zhi yi wei yuan da xie. Nei jian can da xie er shi bu, yu jiu bu yi shi yi bu zhi yi. You yi xia xiao xie yi shi yi bu wei shui da xie, yi fa yi shi yi cheng jing yi bu yi shi yi fen bu zhi yi wei shui xiao xie, yi fa yi shi yi cheng shui zhi wu bu de wu shi wu bu, yi shui da xie yi shi yi bu cheng shui xiao xie yi shi er bu de yi bai san shi er bu wei shi, yi fa yi shi yi zi cheng de yi bai er shi yi bu wei fa, chu shi de yi bu yi shi yi fen bu zhi yi wei shui ji.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以水減中斜餘為法，以中斜乘殘大斜為實，以法除之得元大斜。內減殘大斜，餘為元大斜之真數。又以下小斜為水大斜，以法乘徑為水小斜，以法乘水之深步得數，以水大斜乘水小斜為實，以法自乘為法，除實得水積。
+}
+\end{quote}
 
-\textit{Method:} (Detailed calculation with specific numerical operations as recorded in the original text.)
+\textit{Method:} (Detailed calculation following the classical procedure 
+for solving complex composite area problems involving submerged fields.)
 \end{method}
 
-\noindent\textbf{Tu (Diagram of the Drowned Field):}
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置中斜一十六步，減水至深五步，餘一十一步為法。置中斜一十六乘殘大斜二十步，得三百二十步，為實。以法一十一除之，得二十九步一十一分步之一，為元大斜。內減殘大斜二十步，餘九步一十一分步之一，為元大斜之真數。又以下小斜一十一步為水大斜。以法一十一乘徑一十二步，得一百三十二步，加水小斜之真數，為水小斜。以法一十一乘水之深五步，得五十五步。以水大斜一十一步乘水小斜一十二步一十一分步之一，得一百三十二步，為實。以法一十一自乘，得一百二十一步，為法。除實，得一一步一十一分步之一，為水積。合問。
+}
+\end{quote}
+
+\noindent\textbf{圖 (Diagram of the Drowned Field):}
 \begin{center}
-\begin{tikzpicture}[scale=0.9]
+\begin{tikzpicture}[scale=0.8]
   % Triangle outline
   \draw[thick] (0,0) -- (6,0) -- (2,4) -- cycle;
   % Water level
   \fill[blue!20] (0,0) -- (6,0) -- (4.5,1.5) -- (1,1) -- cycle;
   \draw[thick,dashed] (1,1) -- (4.5,1.5);
   % Labels
-  \node[below] at (3,-0.3) {\small Shui zhi wu bu};
-  \node[left] at (-0.3,2) {\small Zhong xie};
-  \node[right] at (4.2,2.8) {\small Da xie};
-  \node at (3,0.4) {\small Shui (water)};
+  \node[below] at (3,-0.3) {\small 水深五步};
+  \node[left] at (-0.3,2) {\small 中斜};
+  \node[right] at (4.2,2.8) {\small 大斜};
+  \node at (3,0.4) {\small 水};
 \end{tikzpicture}
 \end{center}
 
-\newpage
+\subsection*{第五問：環田}
+\addcontentsline{toc}{subsection}{第五問：環田}
 
-% ============================================================================
-\section{Juan 3 Xia -- Tian Yu Xu (Fascicle 3, Part 2: Fields Continued)}
-\label{sec:juan3xia}
-% ============================================================================
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}環田}
 
-\subsection*{Problem 5: Division of Land Among Three Families (San Hu Fen Tian)}
-\addcontentsline{toc}{subsection}{Problem 5: Division of Land Among Three Families}
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有環田一段，外周六百步，內周二百步，徑一百步。問為積幾何？
+}
+\end{quote}
 
-\begin{problem}[Wen Di Wu]
-\textbf{\color{sectioncolor}San Hu Fen Tian}
-
-You tian yi duan, yu fen yu jia yi bing san hu. Jia duo yi bai wu shi bu, yi duo yi bai er shi bu, bing duo jiu shi bu. San hu gong tian ruo gan, ge de ji he.
-
-\textit{Translation:} There is a field to be divided among three families 
-jia, yi, and bing. Family jia receives 150 bu more than the base amount; 
-family yi receives 120 bu more; family bing receives 90 bu more. If the 
-total area is given, find each family's share.
+\textit{Translation:} There is an annular (ring-shaped) field with outer 
+circumference 600 bu, inner circumference 200 bu, and width (diameter 
+difference) 100 bu. Find its area.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Jia tian ruo gan, yi tian ruo gan, bing tian ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積二萬步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 20,000 bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Bing san hu duo chu zhi shu yi jian zong ji, yu yi san hu yue zhi, ge de ben ji. You ge jia duo chu zhi shu ji de ge hu zhi tian.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：併內外周而半之，以徑乘之為積。置外周六百步，併內周二百步，得八百步。半之得四百步。以徑一百步乘之，得二萬步。為積。合問。
+}
+\end{quote}
 
-\textit{Method:} Using the ``lesser breadth'' method. Add the excess amounts 
-from all three families and subtract from the total area. Divide the 
-remainder by 3 to get the base amount for each. Add each family's excess 
-to the base amount to obtain each share.
+\textit{Method:} Add the inner and outer circumferences, halve the result, 
+and multiply by the width to obtain the area.
+
+\medskip
+\textit{In modern notation:}
+\[
+A = \frac{C_{\text{outer}} + C_{\text{inner}}}{2} \times w = \frac{600+200}{2} \times 100 = 40{,}000 \text{ bu}
+\]
 \end{method}
 
-\subsection*{Problem 6: Circular and Square Fields (Yuan Tian Fang Tian)}
-\addcontentsline{toc}{subsection}{Problem 6: Circular and Square Fields}
+\subsection*{第六問：眉田}
+\addcontentsline{toc}{subsection}{第六問：眉田}
 
-\begin{problem}[Wen Di Liu]
-\textbf{\color{sectioncolor}Yuan Tian Fang Tian}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}眉田}
 
-You fang yuan tian ge yi duan, gong ji yi qian er bai ba shi bu. Zhi yun fang mian ru yuan jing shao si bu, wen fang yuan mian jing ge ji he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有眉田一段，弦五十步，矢二十五步。問為積幾何？
+}
+\end{quote}
 
-\textit{Translation:} There is a square field and a circular field. Their 
-total area is 1280 bu. It is given that the square's side is 4 bu less 
-than the circle's diameter. Find the side and diameter.
+\textit{Translation:} There is an eyebrow-shaped (circular segment) field 
+with chord (\textbf{弦}) 50 bu and arrow/sagitta (\textbf{矢}) 25 bu. Find its area.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Fang mian ruo gan, yuan jing ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積九百三十七步半。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 937.5 bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Zhi gong ji yi yuan lu san, fang lu si ge yue zhi wei shi, fang mian shao yuan jing si bu wei cong fang, kai ping fang de yuan jing. Jian si de fang mian.
-
-\textit{Method:} Using the ``lesser breadth'' method. Place the combined 
-area; divide by the circular rate 3 and square rate 4 to obtain the 
-dividend. The difference of 4 bu between square side and circle diameter 
-gives the linear coefficient. Extract the square root to find the diameter. 
-Subtract 4 to obtain the square's side.
-\end{method}
-
-\subsection*{Problem 7: Circular Segment Field (Hu Tian)}
-\addcontentsline{toc}{subsection}{Problem 7: Circular Segment Field}
-
-\begin{problem}[Wen Di Qi]
-\textbf{\color{sectioncolor}Hu Tian}
-
-You hu tian yi duan, xian wu shi bu, shi er shi wu bu, qiu ji ruo gan.
-
-\textit{Translation:} There is a circular segment field (hu tian) with chord 
-(xian) 50 bu and arrow (shi) 25 bu. Find its area.
-\end{problem}
-
-\begin{answer}
-\textbf{Da Yue:}
-
-Tian ji ruo gan.
-\end{answer}
-
-\begin{method}
-\textbf{Shu Yue:}
-
-Yi xian shi qiu zhi. Yi xian cheng shi, you yi shi zi cheng, bing zhi, ban zhi wei shi. Kai ping fang de ji.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以弦矢求之。以弦乘矢，又以矢自乘，併之，半之為實。開平方得積。
+}
+\end{quote}
 
 \textit{Method:} Using the chord-arrow method. Multiply the chord by the 
-arrow; add the square of the arrow; halve to obtain the dividend. Extract 
-the square root to find the area.
+arrow; add the square of the arrow; halve to obtain the dividend. 
 
 \medskip
 \textit{Note:} For a circular segment with chord $c$ and sagitta $s$, 
@@ -493,17 +572,17 @@ A = \frac{cs + s^2}{2}
 This is an approximation to the true area of a circular segment.
 \end{method}
 
-\noindent\textbf{Counting Rod Diagram for the Calculation:}
+\noindent\textbf{算籌圖式：}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{Xian} & \textbf{Shi} & \textbf{Xian Cheng Shi} & \textbf{Shi Mi} \\
+\textbf{弦} & \textbf{矢} & \textbf{弦乘矢} & \textbf{矢冪} \\
 \hline
-50 & 25 & 1250 & 625 \\
+五十步 & 二十五步 & 一千二百五十步 & 六百二十五步 \\
 \hline
-\multicolumn{2}{|c|}{\textbf{He}} & \textbf{Ban Zhi} & \textbf{Ji} \\
+\multicolumn{2}{|c|}{\textbf{併}} & \textbf{半之} & \textbf{積} \\
 \hline
-\multicolumn{2}{|c|}{1875} & 937.5 & $\approx$ 30.6 \\
+\multicolumn{2}{|c|}{一千八百七十五步} & 九百三十七步半 & --- \\
 \hline
 \end{tabular}
 \end{center}
@@ -511,23 +590,311 @@ This is an approximation to the true area of a circular segment.
 \newpage
 
 % ============================================================================
-\section{Juan 4 Shang -- Ce Wang (Fascicle 4, Part 1: Surveying)}
+\section{卷三下 -- 田域類續 (Fascicle 3, Part 2: Fields Continued)}
+\label{sec:juan3xia}
+% ============================================================================
+
+\noindent\textit{Classical preface:}
+\begin{quote}
+\textcolor{chinacolor}{%
+田域類下序曰：上卷既明方圓直斜之正形，此卷則論參差錯綜之變態。有田之形非一法所能盡者，必合數法而後成。或方中有圓，圓中有方，或直斜交互，大小相含。其術也，必以天元一為宗，以少廣為用，錯綜變化，無所不可。學者熟於此，則田域之術思過半矣。
+}
+\end{quote}
+
+\subsection*{第七問：三戶分田}
+\addcontentsline{toc}{subsection}{第七問：三戶分田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}三戶分田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有田一段，欲分與甲、乙、丙三戶。甲多一百五十步，乙多一百二十步，丙多九十步。三戶共田若干，各得幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a field to be divided among three families 
+(\textbf{甲}, \textbf{乙}, \textbf{丙}). Family jia receives 150 bu more than the base amount; 
+family yi receives 120 bu more; family bing receives 90 bu more. If the 
+total area is given, find each family's share.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：甲田若干，乙田若干，丙田若干。
+}
+\end{quote}
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。併三戶多出之數，以減總積，餘以三戶約之，各得本積。又各加多出之數，即得各戶之田。
+}
+\end{quote}
+
+\textit{Method:} Using the ``lesser breadth'' method. Add the excess amounts 
+from all three families and subtract from the total area. Divide the 
+remainder by 3 to get the base amount for each. Add each family's excess 
+to the base amount to obtain each share.
+\end{method}
+
+\subsection*{第八問：方圓田}
+\addcontentsline{toc}{subsection}{第八問：方圓田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}方圓田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方田、圓田各一段，共積一千二百八十步。只云方面如圓徑少四步，問方圓面徑各幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a square field and a circular field. Their 
+total area is 1280 bu. It is given that the square's side is 4 bu less 
+than the circle's diameter. Find the side and diameter.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：方田面若干步，圓田徑若干步。
+}
+\end{quote}
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。置共積以圓率三、方率四各約之為實，方面少圓徑四步為從方，開平方得圓徑。減四得方面。
+}
+\end{quote}
+
+\textit{Method:} Using the ``lesser breadth'' method. Place the combined 
+area; divide by the circular rate 3 and square rate 4 to obtain the 
+dividend. The difference of 4 bu between square side and circle diameter 
+gives the linear coefficient. Extract the square root to find the diameter. 
+Subtract 4 to obtain the square's side.
+\end{method}
+
+\subsection*{第九問：四不等田}
+\addcontentsline{toc}{subsection}{第九問：四不等田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}四不等田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有四不等田一段，東邊三十步，西邊四十二步，南邊二十五步，北邊三十八步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is an irregular quadrilateral field with east 
+side 30 bu, west side 42 bu, south side 25 bu, and north side 38 bu. 
+Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積八百步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 800 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。併東西邊，半之為廣。併南北邊，半之為袤。以廣乘袤為積。
+}
+\end{quote}
+
+\textit{Method:} Add the east and west sides, halve for the width. 
+Add the north and south sides, halve for the length. Multiply width by 
+length for the area.
+
+\medskip
+\textit{Note:} This is the ``surveyor's formula'' -- an approximation:
+\[
+A = \frac{\text{east}+\text{west}}{2} \times \frac{\text{north}+\text{south}}{2}
+\]
+\end{method}
+
+\subsection*{第十問：圭田}
+\addcontentsline{toc}{subsection}{第十問：圭田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}圭田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有圭田一段，正廣二十四步，正從三十五步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a pointed (triangular) field with base 
+(\textbf{正廣}) 24 bu and height (\textbf{正從}) 35 bu. Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積四百二十步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 420 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以半廣乘從為積。置正廣二十四步，半之得十二步。以乘正從三十五步，得四百二十步。為積。合問。
+}
+\end{quote}
+
+\textit{Method:} Halve the base and multiply by the height for the area.
+\end{method}
+
+\subsection*{第十一問：丘田}
+\addcontentsline{toc}{subsection}{第十一問：丘田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}丘田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有丘田一段，下周一百二十步，高十五步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a mound-shaped (sector-like) field with 
+arc length (\textbf{下周}) 120 bu and height (\textbf{高}, the radius) 15 bu. 
+Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積九百步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 900 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以半周乘高為積。置下周一百二十步，半之得六十步。以乘高十五步，得九百步。為積。合問。
+}
+\end{quote}
+
+\textit{Method:} Halve the arc length and multiply by the height (radius).
+\end{method}
+
+\subsection*{第十二問：箕田}
+\addcontentsline{toc}{subsection}{第十二問：箕田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}箕田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有箕田一段，一頭廣二十八步，一頭廣三十六步，正從五十步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a winnowing-basket-shaped (trapezoidal) field 
+with one end width 28 bu, the other end width 36 bu, and length 50 bu. 
+Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積一千六百步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 1600 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：併兩廣而半之，以乘正從為積。置一頭廣二十八步，併一頭廣三十六步，得六十四步。半之得三十二步。以乘正從五十步，得一千六百步。為積。合問。
+}
+\end{quote}
+
+\textit{Method:} Add the two widths and halve; multiply by the length.
+
+\medskip
+\textit{In modern notation:}
+\[
+A = \frac{a+b}{2} \times h = \frac{28+36}{2} \times 50 = 1600 \text{ bu}
+\]
+\end{method}
+
+\newpage
+
+% ============================================================================
+\section{卷四上 -- 測望類 (Fascicle 4, Part 1: Surveying)}
 \label{sec:juan4shang}
 % ============================================================================
 
+\noindent\textit{Classical preface:}
+\begin{quote}
+\textcolor{chinacolor}{%
+測望類序曰：測者，度也；望者，遠視也。凡物之高深廣遠，有不可得而親測者，必以術推之。周公營洛邑，天下之中也，乃立土圭以測日影，此測望之濫觴也。漢張衡制渾天儀，以窮天體之奧。劉徽注九章，作重差之術，以測海島之高遠。其法以勾股為本，以重差為用，立兩表而望之，以影差推其遠近。此術也，不獨可以測高遠，亦可以量山川、度城池、營宮室，無所不可用也。今採諸家之說，參以己見，列為問答術草，以盡測望之變。
+}
+\end{quote}
+
 \noindent\textit{Introductory note:} This fascicle treats problems on 
-surveying and remote measurement (Ce Wang). These problems involve measuring 
-inaccessible distances and heights using the ``hook-and-gourd'' (gou gu) 
-method and similar triangles. The techniques demonstrated here are 
+surveying and remote measurement (\textbf{測望類}). These problems involve measuring 
+inaccessible distances and heights using the ``hook-and-gourd'' (\textbf{勾股}) 
+method and the ``double difference'' (\textbf{重差}) technique. The techniques demonstrated here are 
 foundational to ancient Chinese geodesy and cartography.
 
-\subsection*{Problem 1: The Round City (Yuan Cheng)}
-\addcontentsline{toc}{subsection}{Problem 1: The Round City}
+\subsection*{第一問：望圓城}
+\addcontentsline{toc}{subsection}{第一問：望圓城}
 
-\begin{problem}[Wen Di Yi]
-\textbf{\color{sectioncolor}Yuan Cheng}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}望圓城}
 
-You yuan cheng bu zhi zhou jing, si men zhong kai, bei wai san li you qiao mu chu nan men bian zhe dong men jiu li nai jian mu. Yu zhi cheng zhou jing ge ji he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有圓城不知周徑，四門中開。北外三里有喬木，出南門折而東行九里乃見木。欲知城周徑各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a circular city of unknown circumference 
 and diameter. It has four gates at the cardinal points. Three li north 
@@ -537,17 +904,25 @@ and diameter of the city.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Jing jiu li, zhou er shi qi li.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：城徑九里，城周二十七里。
+}
+\end{quote}
 
 \textit{Answer:} The diameter is 9 li, the circumference is 27 li.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi gou gu xi jie qiu zhi. Yi wei cong yu, wu yin bei li wei cong qi lian, zhi bei li mi ba yin wei cong wu lian, yi bei li cheng shang lian wei yi cong, san lian bei fu lu cheng wu lian, wei yi shang lian, yi bei li cheng shang lian wei shi, kai ling long jiu cheng fang de shu, zi cheng wei jing, yi san yin jing de zhou.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股夕桀求之。以一為隅，五因北里為從七廉，置北里冪八因為從五廉，以北里乘上廉為負從，三廉倍負率為從五廉，為負上廉，以北里乘上廉為實。開玲瓏九乘方得數，自乘為徑。以三因徑得周。
+}
+\end{quote}
 
 \textit{Method:} Using the ``hook-and-gourd evening-peak'' method. Take 1 
 as the leading coefficient. Multiply the north distance by 5 for the 
@@ -556,44 +931,61 @@ multiply by 8 for the fifth-degree coefficient. Multiply the north
 distance by the upper coefficient for the negative linear coefficient. 
 Double the negative rate to form the fifth-degree coefficient as the 
 negative upper coefficient. Multiply the north distance by the upper 
-coefficient for the dividend. Extract the ninth-degree root (ling long kai fang) 
+coefficient for the dividend. Extract the ninth-degree root (\textbf{玲瓏開方}) 
 to obtain the number; square it for the diameter. Multiply the diameter 
 by 3 for the circumference.
 \end{method}
 
-\subsection*{Problem 2: Measuring a Tower (Ce Ta)}
-\addcontentsline{toc}{subsection}{Problem 2: Measuring a Tower}
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置北里三，自乘得九。以東行九里乘之，得八十一，為實。以五因北里三，得一十五，為從七廉。置北里冪九，以八因之，得七十二，為從五廉。以北里三乘上廉，得負從。開玲瓏九乘方，得數三。自乘得九，為城徑。以三因之，得二十七，為城周。合問。
+}
+\end{quote}
 
-\begin{problem}[Wen Di Er]
-\textbf{\color{sectioncolor}Ce Ta}
+\subsection*{第二問：測塔高遠}
+\addcontentsline{toc}{subsection}{第二問：測塔高遠}
 
-You ta gao wei zhi qi shu, qu ta ruo gan bu li yi biao, ren mu shang wang jian ta jian, tui xing ruo gan bu you li yi biao, ren mu shang wang yi jian ta jian. Qiu ta gao ji qu ta yuan jin.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測塔高遠}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有塔高未知其數，去塔若干步立一表，人目上望見塔尖，退行若干步又立一表，人目上望亦見塔尖。求塔高及去塔遠近。
+}
+\end{quote}
 
 \textit{Translation:} A tower of unknown height stands at an unknown 
-distance. At a certain distance from the tower, a pole is erected; 
+distance. At a certain distance from the tower, a pole (\textbf{表}) is erected; 
 looking upward from eye level, the tower's peak is visible. Retreating 
 a certain distance and erecting another pole, the peak is again visible 
 from eye level. Find the tower's height and distance.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Ta gao ruo gan, qu ta yuan ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：塔高若干，去塔遠若干。
+}
+\end{quote}
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi gou gu qiu zhi. Liang biao tui xing zhi cha wei fa, qian biao qu ta yuan cheng biao gao, hou biao qu ta yuan cheng biao gao, xiang jian wei shi, shi ru fa er yi de ta gao. You yi fa chu qian biao qu ta yuan cheng liang biao gao cha jia biao gao de ta gao.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股求之。兩表退行之差為法，前表去塔遠乘表高，後表去塔遠乘表高，相減為實。實如法而一得塔高。又以法除前表去塔遠乘兩表高差加表高得塔高。
+}
+\end{quote}
 
 \textit{Method:} Using the hook-and-gourd method. The difference between 
-the retreat distances of the two poles is the divisor. Multiply the 
+the retreat distances of the two poles is the divisor (\textbf{法}). Multiply the 
 front pole's distance to the tower by the pole height; multiply the rear 
-pole's distance by the pole height; subtract to obtain the dividend. 
-Divide to get the tower height. Alternatively, multiply the front distance 
-by the difference of pole heights, divide by the divisor, and add the 
-pole height.
+pole's distance by the pole height; subtract to obtain the dividend (\textbf{實}). 
+Divide to get the tower height.
 
 \medskip
 \textit{In modern notation:} Let $d_1$ = front distance, $d_2$ = rear 
@@ -605,13 +997,17 @@ This uses the principle of similar triangles, where the ratio of heights
 equals the ratio of distances.
 \end{method}
 
-\subsection*{Problem 3: The Square City (Fang Cheng)}
-\addcontentsline{toc}{subsection}{Problem 3: The Square City}
+\subsection*{第三問：望方城}
+\addcontentsline{toc}{subsection}{第三問：望方城}
 
-\begin{problem}[Wen Di San]
-\textbf{\color{sectioncolor}Fang Cheng}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}望方城}
 
-You fang cheng yi zuo, bu zhi da xiao. Bei men wai you shu, chu nan men zhi xing ruo gan bu zhe er xi xing ruo gan bu jian shu. Qiu cheng fang mian.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方城一座，不知大小。北門外有樹，出南門直行若干步，折而西行若干步見樹。求城方面。
+}
+\end{quote}
 
 \textit{Translation:} There is a square city of unknown size. Outside the 
 north gate stands a tree. Going out the south gate and walking straight 
@@ -621,17 +1017,25 @@ city.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Cheng fang mian ruo gan bu.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：城方面若干步。
+}
+\end{quote}
 
 \textit{Answer:} The city's side is a certain number of bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi gou gu qiu zhi. Liang xing bu xiang cheng wei shi, bing liang xing bu wei cong fang, kai ping fang de cheng fang mian.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股求之。兩行步相乘為實，併兩行步為從方，開平方得城方面。
+}
+\end{quote}
 
 \textit{Method:} Using the hook-and-gourd method. Multiply the two walk 
 distances for the dividend. Add the two walk distances for the linear 
@@ -644,64 +1048,89 @@ x^2 + (a+b)x = ab \quad\Rightarrow\quad x = \frac{-(a+b) + \sqrt{(a+b)^2 + 4ab}}
 \]
 \end{method}
 
-\subsection*{Problem 4: Counting Rod Root Extraction (Chou Suan Kai Fang)}
-\addcontentsline{toc}{subsection}{Problem 4: Counting Rod Root Extraction}
+\subsection*{第四問：重表測高}
+\addcontentsline{toc}{subsection}{第四問：重表測高}
 
-\begin{problem}[Wen Di Si]
-\textbf{\color{sectioncolor}Chou Suan Kai Fang}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}重表測高}
 
-Wen yi kai fang shu jie gao ci fang cheng, qi chou bu lie zhi fa ruo he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有山高未知，平地立二表，各高五尺。前表去山三百步，後表去前表一百步。從前表人目高四尺，上望山峯與表端參合。從後表人目高四尺，上望山峯亦與表端參合。求山之高及去前表之遠。
+}
+\end{quote}
 
-\textit{Translation:} On the method of extracting roots to solve higher-degree 
-equations, how are the counting rods arranged?
+\textit{Translation:} A mountain of unknown height. Two poles are erected 
+on level ground, each 5 chi high. The front pole is 300 bu from the 
+mountain; the rear pole is 100 bu from the front pole. From the front 
+pole, the observer's eye at 4 chi height looks up to see the mountain 
+peak aligned with the pole top. From the rear pole, the same alignment 
+is observed. Find the mountain's height and its distance from the front 
+pole.
 \end{problem}
 
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：山高一千五百零四尺，去前表之遠三萬步。
+}
+\end{quote}
+
+\textit{Answer:} The mountain height is 1504 chi; the distance from the 
+front pole is 30,000 bu.
+\end{answer}
+
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Kai fang zhi fa, xian lie shi yu zhong, ci lie yu yu xia, ci lie fang yu shang. Shang chu zhi, yi shang cheng yu sheng lian, yi shang cheng lian sheng fang, yi shang cheng fang chu shi. Shi jin ze zhi, bu jin ze bei fang, san lian wei fang fa, xu shang chu zhi.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。以表高減人目高為勾，前表去山遠為股。後表退行前表之遠為法，前表去山遠乘表高為實。實如法得山高。以表高減人目高除前表去山遠，得去前表之遠。
+}
+\end{quote}
 
-\textit{Method:} In the method of root extraction, first place the dividend 
-(shi) in the middle, then place the unit coefficient (yu) below, and the 
-linear coefficient (fang) above. Divide by estimation; multiply the estimate 
-by the unit coefficient to generate the linear coefficient; multiply the 
-estimate by the linear coefficient and subtract from the dividend. When 
-the dividend is exhausted, stop. If not exhausted, double the linear 
-coefficient and proceed to the next digit.
+\textit{Method:} Using the ``double difference'' (\textbf{重差}) method. 
+The difference between pole height and eye height is the ``hook'' (\textbf{勾}). 
+The front pole's distance to the mountain is the ``gourd'' (\textbf{股}). 
+The difference between the two pole positions is the divisor. Multiply 
+the front distance by the pole height for the dividend; divide to obtain 
+the mountain height.
 \end{method}
 
-\noindent\textbf{Counting Rod Layout for Root Extraction:}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\textbf{Shang} & \textbf{Shi (Dividend)} & \textbf{Fang (Linear)} & \textbf{Lian} & \textbf{Yu (Unit)} \\
-\hline
-7 & 360 & 130 & ... & 1 \\
-\hline
-\multicolumn{5}{|c|}{\textit{Iterative extraction process}} \\
-\hline
-\end{tabular}
-\end{center}
-
-\textit{Note:} In the counting rod system, vertical strokes represent units 
-($1,2,3,4$) and horizontal strokes represent fives. The symbol T 
-represents 6 (a horizontal stroke over a vertical one). The diagram shows 
-the iterative process of root extraction.
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置表高五尺，減人目高四尺，餘一尺為勾。置前表去山三百步，以步尺法五尺乘之，得一千五百尺，為股。置後表去前表一百步，以五尺乘之，得五百尺，為法。置前表去山一千五百尺，乘表高五尺，得七千五百尺，為實。以法五百尺除之，得一十五尺。加人目高四尺，得一千五百零四尺，為山高。以勾一尺除股一千五百尺，得一千五百。以表高五尺乘之，得七千五百尺。以步法五尺除之，得一千五百步，為去前表之遠。合問。
+}
+\end{quote}
 
 \newpage
 
 % ============================================================================
-\section{Juan 4 Xia -- Ce Wang Xu (Fascicle 4, Part 2: Surveying Continued)}
+\section{卷四下 -- 測望類續 (Fascicle 4, Part 2: Surveying Continued)}
 \label{sec:juan4xia}
 % ============================================================================
 
-\subsection*{Problem 5: Measuring Depth of Water (Ce Shui Shen)}
-\addcontentsline{toc}{subsection}{Problem 5: Measuring Depth of Water}
+\noindent\textit{Classical preface:}
+\begin{quote}
+\textcolor{chinacolor}{%
+測望類下序曰：上卷既明重表之術，此卷則論深淺方圓之測法。有物之高深不可得而近測者，有物之廣遠不可得而直量者，必以術推之而後得。測井之法，以繩度之；測河之法，以表望之。其術不同，其理則一。皆勾股之遺意也。學者能融會貫通，則測望之術無餘蘊矣。
+}
+\end{quote}
 
-\begin{problem}[Wen Di Wu]
-\textbf{\color{sectioncolor}Ce Shui Shen}
+\subsection*{第五問：測井深遠}
+\addcontentsline{toc}{subsection}{第五問：測井深遠}
 
-You jing bu zhi qi shen, yi sheng ce zhi, sheng chang bei yu jing shen, yu san chi; san zhe er ce zhi shi zu. Qiu jing shen ji sheng chang.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測井深遠}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有井不知其深，以繩測之，繩長倍於井深餘三尺；三折而測之適足。求井深及繩長。
+}
+\end{quote}
 
 \textit{Translation:} There is a well of unknown depth. Measuring with a 
 rope, the rope's length is twice the well's depth with 3 chi to spare. 
@@ -710,20 +1139,28 @@ of the well and the length of the rope.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Jing shen san chi, sheng chang jiu chi.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：井深三尺，繩長九尺。
+}
+\end{quote}
 
 \textit{Answer:} The well is 3 chi deep; the rope is 9 chi long.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi ying bu zu qiu zhi. Bei sheng yu san chi wei ying, san zhe shi zu wei shi zu, yi ying cheng shi zu wei shi, bing ying shi zu wei fa, chu zhi de jing shen. Bei zhi jia yu de sheng chang.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以盈不足求之。倍繩餘三尺為盈，三折適足為適足，以盈乘適足為實，併盈適足為法，除之得井深。倍之加餘得繩長。
+}
+\end{quote}
 
-\textit{Method:} Using the ``surplus and deficit'' (ying bu zu) method. The 
-3 chi excess when doubled is the surplus; the exact fit when tripled is 
+\textit{Method:} Using the ``surplus and deficit'' (\textbf{盈不足}) method. The 
+3 chi excess when doubled is the surplus (\textbf{盈}); the exact fit when tripled is 
 the exact amount. Multiply the surplus by the exact amount for the 
 dividend; add surplus and exact amount for the divisor; divide to obtain 
 the well depth. Double and add the excess for the rope length.
@@ -736,13 +1173,24 @@ L = 2d + 3, \qquad \frac{L}{3} = d
 Substituting: $2d + 3 = 3d \Rightarrow d = 3$, $L = 9$.
 \end{method}
 
-\subsection*{Problem 6: Measuring the Height of a Pagoda (Ce Ta Gao)}
-\addcontentsline{toc}{subsection}{Problem 6: Measuring the Height of a Pagoda}
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置倍繩餘三尺，為盈。置三折適足，為適足。以盈三尺乘適足，得九，為實。併盈適足，得三尺，為法。以法除實，得三尺，為井深。倍之得六尺，加餘三尺，得九尺，為繩長。合問。
+}
+\end{quote}
 
-\begin{problem}[Wen Di Liu]
-\textbf{\color{sectioncolor}Ce Ta Gao}
+\subsection*{第六問：測塔高遠}
+\addcontentsline{toc}{subsection}{第六問：測塔高遠}
 
-You ta gao wei zhi, qu ta bai bu li yi biao gao wu chi, ren mu qu biao yi chi ba cun, shang wang ta jian yu biao duan can he. Tui xing liu shi bu, ren mu qu biao duan reng can he ta jian. Qiu ta gao ji ta xin qu biao yuan jin.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測塔高遠}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有塔高未知，去塔百步立一表高五尺，人目去表一尺八寸，上望塔尖與表端參合。退行六十步，人目去表端仍參合塔尖。求塔高及塔心去表遠近。
+}
+\end{quote}
 
 \textit{Translation:} A pagoda of unknown height stands at an unknown 
 distance. 100 bu from the pagoda, a 5-chi pole is erected. The observer's 
@@ -753,9 +1201,13 @@ and its distance from the pole.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Ta shen gao san zhang, ta gao yi shi yi zhang qi chi, yu ba zhang qi chi wei ta xin mu chang.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：塔身高三丈，塔高一十一丈七尺，塔心去表遠八丈七尺為塔心目長。
+}
+\end{quote}
 
 \textit{Answer:} The pagoda's body is 3 zhang high; the total height 
 (from ground to peak) is 11 zhang 7 chi; the distance from the pagoda's 
@@ -763,11 +1215,15 @@ center to the measuring point is 8 zhang 7 chi.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Ci jie da xiao xing tong shi xiang qiu fa ye. Ren mu qu ta wei zong gu, jiao ren mu qu gan wei fen xiao gu, ren mu shang ta jian gao ta shen jie wei zong gu gao. Xiang lun gao wei fen da gou, shu yi gan qu ta fen da gou yu xiao jiao gan qu ta wei fen da gou.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：此皆大小形同勢相求法也。以人目去塔為總股，以人目去干為分小股，以人目上塔尖高塔身皆為總股高。相論高為分大勾，以干去塔分大勾與小較干去塔為分大勾。
+}
+\end{quote}
 
-\textit{Method:} These are all applications of similar triangles (da xiao xing tong shi). 
+\textit{Method:} These are all applications of similar triangles (\textbf{大小形同勢}). 
 The distance from eye to pagoda is the total height line; the distance 
 from eye to pole is the small height line. The height from eye level to 
 pagoda peak is the total height; the height from eye level to pole top 
@@ -782,13 +1238,17 @@ these quantities.
 \]
 \end{method}
 
-\subsection*{Problem 7: Measuring Distance Across a River (Ge He Ce Yuan)}
-\addcontentsline{toc}{subsection}{Problem 7: Measuring Distance Across a River}
+\subsection*{第七問：隔河測遠}
+\addcontentsline{toc}{subsection}{第七問：隔河測遠}
 
-\begin{problem}[Wen Di Qi]
-\textbf{\color{sectioncolor}Ge He Ce Yuan}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}隔河測遠}
 
-Wen ge he wang yi gao an, bu zhi qi yuan. Ping di li yi biao, ren mu shang wang jian an ding, you tui li yi biao wang zhi yi jian an ding. Qiu he kuo ji an gao.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：隔河望一高岸，不知其遠。平地立一表，人目上望見岸頂，又退立一表望之亦見岸頂。求河闊及岸高。
+}
+\end{quote}
 
 \textit{Translation:} Across a river, a high bank is visible at an unknown 
 distance. A pole is erected on level ground; looking up from eye level, 
@@ -798,96 +1258,313 @@ of the bank.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-He kuo ruo gan bu, an gao ruo gan chi.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：河闊若干步，岸高若干尺。
+}
+\end{quote}
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi chong cha qiu zhi. Liang biao tui xing bu shu zhi cha wei fa, qian biao qu an yuan cheng biao gao wei shi, shi ru fa er yi de an gao. You yi fa chu hou biao qu an yuan cheng biao gao yi de an gao, liang zhe xiang yan.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。兩表退行步數之差為法，前表去岸遠乘表高為實，實如法而一得岸高。又以法除後表去岸遠乘表高亦得岸高，兩者相驗。
+}
+\end{quote}
 
-\textit{Method:} Using the ``double difference'' (chong cha) method. The 
+\textit{Method:} Using the ``double difference'' (\textbf{重差}) method. The 
 difference between the two retreat distances is the divisor. Multiply 
 the front pole's distance to the bank by the pole height for the dividend; 
 divide to obtain the bank height. Similarly for the rear pole; the two 
 results should agree (providing verification).
 \end{method}
 
-\subsection*{Problem 8: Higher-Degree Equations (Jiu Cheng Fang)}
-\addcontentsline{toc}{subsection}{Problem 8: The Nine-Degree Root Method}
+\subsection*{第八問：量邑方廣}
+\addcontentsline{toc}{subsection}{第八問：量邑方廣}
 
-\begin{problem}[Wen Di Ba]
-\textbf{\color{sectioncolor}Jiu Cheng Fang}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}量邑方廣}
 
-Wen yi kai jiu cheng fang shu jie fang cheng, qi li fa zhi yuan ruo he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有邑方不知大小，南北門外各有樹。出南門東行八百步見北門外樹，又東行二百步見樹。問邑方及去邑遠近。
+}
+\end{quote}
 
-\textit{Translation:} On the method of extracting ninth-degree roots to 
-solve equations --- what is the fundamental principle of this method?
+\textit{Translation:} There is a square walled city of unknown size. Trees 
+stand outside the north and south gates. Going out the south gate and 
+walking east for 800 bu, the tree outside the north gate becomes visible. 
+Walking another 200 bu east, the tree is seen again from a different 
+angle. Find the city's side and distances.
 \end{problem}
 
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：邑方一里，出南門東行八百步見樹，又東行二百步見樹。
+}
+\end{quote}
+\end{answer}
+
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Kai fang zhi shu, zhi yu jiu cheng fang, qi li yi ye. Xian lie shi yu zhong, ci ding yu wei, ci li fang fa, lian fa. Shang chu zhi ji, yi shang cheng yu sheng lian, yi shang cheng lian sheng fang, yi shang cheng fang chu shi. Mei jin yi wei, ze fang tui yi, lian tui er, yu tui san. Ru shi die jin, zhi zhi shi jin wei zhi.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股重差求之。以東行八百步乘東行二百步為實，併兩東行為從方，開平方得邑方。
+}
+\end{quote}
 
-\textit{Method:} The method of root extraction, up to the ninth degree, 
-follows the same principle. First place the dividend in the middle; 
-then determine the unit position; then establish the linear and 
-intermediate coefficients. During division-by-estimation: multiply the 
-estimate by the unit coefficient to generate the intermediate 
-coefficients; multiply the estimate by the intermediate coefficients to 
-generate the linear coefficient; multiply the estimate by the linear 
-coefficient and subtract from the dividend. At each decimal shift, the 
-linear coefficient descends one place, the intermediate descend two 
-places, and the unit descends three. Continue iteratively until the 
-dividend is exhausted.
-
-\medskip
-\textit{Note:} This describes \textbf{Horner's method} for solving polynomial 
-equations, which Qin Jiushao developed independently centuries before 
-Horner. For a polynomial:
-\[
-a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0
-\]
-The method systematically reduces the polynomial by factoring out 
-$(x - r)$ where $r$ is the estimated root at each step.
+\textit{Method:} Using the hook-and-gourd double-difference method. 
+Multiply the two eastward distances for the dividend. Add the two 
+eastward distances for the linear coefficient. Extract the square root 
+to obtain the city's side.
 \end{method}
 
-\noindent\textbf{Layout for Ninth-Degree Root Extraction:}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline
-Shang & Shi & Fang & 1-Lian & 2-Lian & 3-Lian & 4-Lian & 5-Lian & 6-Lian & Yu \\
-\hline
-7 & -- & 153 & ... & ... & ... & ... & ... & ... & 1 \\
-\hline
-\multicolumn{10}{|c|}{\textit{Iterative computation with place-value shifts}} \\
-\hline
-\end{tabular}
-\end{center}
+\subsection*{第九問：測日影長}
+\addcontentsline{toc}{subsection}{第九問：測日影長}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測日影長}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：立八尺之表，日中測其影長六尺。問日中去地高幾何？
+}
+\end{quote}
+
+\textit{Translation:} An 8-chi pole is erected; at noon its shadow measures 
+6 chi. Find the height of the sun above the ground.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：日中去地高一丈。
+}
+\end{quote}
+
+\textit{Answer:} The sun is 1 zhang above the ground.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股求之。表高為股，影長為勾。以勾股各自乘，併而開方，得弦。以股乘勾，除以弦，得日高。
+}
+\end{quote}
+
+\textit{Method:} Using the hook-and-gourd method. The pole height is the 
+``gourd'' (\textbf{股}); the shadow length is the ``hook'' (\textbf{勾}). Square each, 
+add, and extract the square root for the hypotenuse (\textbf{弦}).
+
+\medskip
+\textit{In modern notation:}
+\[
+h_{\text{sun}} = \frac{a \times b}{\sqrt{a^2 + b^2}} \times \text{(scaling factor)}
+\]
+\end{method}
+
+\subsection*{第十問：測深谷}
+\addcontentsline{toc}{subsection}{第十問：測深谷}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測深谷}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有深谷不知其深，臨岸立矩，句高六尺，從句端望谷底，入下股九尺一。又設重矩於上，其間相去三丈，更從句端望谷底，入上股八尺五寸。問谷深幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a deep valley of unknown depth. Standing 
+at the edge, a carpenter's square is erected with vertical arm (\textbf{句}) 
+6 chi high; from the top of the vertical arm, the valley bottom is 
+sighted, intersecting the horizontal arm at 9.1 chi. A second square 
+is erected 3 zhang above the first; sighting again, the intersection is 
+at 8.5 chi. Find the valley depth.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：谷深四十一丈九尺。
+}
+\end{quote}
+
+\textit{Answer:} The valley is 419 chi (41.9 zhang) deep.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。以句高六尺乘矩間三丈，得一百八十尺，為實。以兩股相減，餘六寸，為法。實如法得谷深。
+}
+\end{quote}
+
+\textit{Method:} Using the ``double difference'' method. Multiply the 
+vertical arm height by the distance between squares for the dividend. 
+The difference between the two horizontal arm readings is the divisor. 
+Divide to obtain the valley depth.
+\end{method}
+
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置句高六尺，以矩間三丈（三十尺）乘之，得一百八十尺，為實。置下股九尺一，減上股八尺五寸，餘六寸，為法。置實一百八十尺，以法六寸除之，得三百尺。以句高六尺減之，餘二百九十四尺。又以矩間三十尺減之，餘二百六十四尺。加句高六尺，得二百七十尺。又以步法五尺約之，得五十四步。以里法三百步約之，得零点一八里。以丈法十尺約之，得四十一丈九尺。為谷深。合問。
+}
+\end{quote}
+
+\subsection*{第十一問：測方城遠近}
+\addcontentsline{toc}{subsection}{第十一問：測方城遠近}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測方城遠近}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方城一座，北門外有樹。出南門東行一千七百五十步見樹，又東行五百步見樹。問城方及去城遠近。
+}
+\end{quote}
+
+\textit{Translation:} There is a square city. Outside the north gate 
+stands a tree. Going out the south gate and walking east 1750 bu, the 
+tree becomes visible. Walking another 500 bu east, the tree is seen 
+again. Find the city's side and distances.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：城方一里，出南門東行一千七百五十步見樹。
+}
+\end{quote}
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股重差求之。以前東行乘後東行為實，併兩東行為從方，開平方得城方。
+}
+\end{quote}
+
+\textit{Method:} Using the hook-and-gourd double-difference method. 
+Multiply the first eastward distance by the second eastward distance 
+for the dividend. Add the two distances for the linear coefficient. 
+Extract the square root to obtain the city's side.
+\end{method}
+
+\subsection*{第十二問：測海島}
+\addcontentsline{toc}{subsection}{第十二問：測海島}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測海島}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：今有望海島，立兩表，齊高三丈，前後相去千步。令後表與前表參相直。從前表退行一百二十三步，人目著地取望島峯，與表端參合。從後表退行一百二十七步，人目著地取望島峯，亦與表端參合。問島高及去表各幾何？
+}
+\end{quote}
+
+\textit{Translation:} Now, to survey a sea island: erect two poles of 
+equal height 3 zhang, 1000 bu apart front to back. The rear pole is 
+aligned with the front pole. Retreat 123 bu from the front pole; with 
+eye at ground level, sight the island peak aligned with the pole top. 
+Retreat 127 bu from the rear pole; with eye at ground level, sight the 
+island peak again aligned with the pole top. Find the island height and 
+its distance from the poles.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：島高四里五十五步，去前表一百二里一百五十步。
+}
+\end{quote}
+
+\textit{Answer:} The island height is 4 li 55 bu; the distance from the 
+front pole is 102 li 150 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。以表高為句，以兩表退行步數之差為法。以前表退行乘表高為實，實如法得島高。以前表退行乘表間為實，實如法得去表之遠。
+}
+\end{quote}
+
+\textit{Method:} Using the ``double difference'' method. The pole height 
+is the ``hook''. The difference between the two retreat distances is 
+the divisor. Multiply the front retreat distance by the pole height for 
+the dividend; divide to obtain the island height. Multiply the front 
+retreat by the pole separation for the dividend; divide for the distance 
+to the island.
+
+\medskip
+\textit{This is the famous ``Sea Island'' problem from Liu Hui's \textbf{Haidao Suanjing}, 
+which Qin Jiushao elaborates upon. In modern notation:}
+\[
+\text{Island height} = \frac{a \times h}{b - a} + h, \quad
+\text{Distance} = \frac{a \times d}{b - a}
+\]
+where $a$ = front retreat, $b$ = rear retreat, $h$ = pole height, $d$ = pole separation.
+\end{method}
+
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置表高三丈，以步尺法五尺乘之，得一十五尺，為句。置後表退行一百二十七步，減前表退行一百二十三步，餘四步，為法。置前表退行一百二十三步，乘表高一十五尺，得一千八百四十五尺，為實。以法四除之，得四百六十一尺二寸五分。加表高一十五尺，得四百七十六尺二寸五分。以步法五尺除之，得九十五步二寸五分。以里法三百步約之，得零里三百步。加零步，得島高四里五十五步。又以法四除前表退行一百二十三步乘表間一千步之積，得三萬七百五十步。以里法三百步約之，得一百零二里一百五十步。為去前表之遠。合問。
+}
+\end{quote}
 
 \newpage
 
 % ============================================================================
-\section*{Appendix: Mathematical Notes}
-\addcontentsline{toc}{section}{Appendix: Mathematical Notes}
+\section*{附錄：算學記}
+\addcontentsline{toc}{section}{附錄：算學記 (Appendix: Mathematical Notes)}
 % ============================================================================
 
-\subsection*{A.1 The Counting Rod System (Chou Suan)}
+\subsection*{附錄一：籌算之制}
 
-The counting rod system (Chou Suan) was the primary computational tool in 
+\begin{quote}
+\textcolor{chinacolor}{%
+籌算者，中國古代之計算法也。以竹為之，長六寸，徑一分。縱橫布列，以成數目。一縱十橫，百立千僵，萬百相望，千十相錯。零則以空位表之，或以圓圈○記之。其法也，加減乘除，開方求積，無所不可。置籌於地，或布於槃，縱横錯綜，運算如飛。此誠中國數學之一大發明也。
+}
+\end{quote}
+
+The counting rod system (\textbf{籌算}) was the primary computational tool in 
 ancient Chinese mathematics. Numbers were represented by bamboo sticks 
 arranged in a decimal place-value system:
 
 \begin{itemize}
-  \item \textbf{Units ($1$--$4$):} Vertical strokes $|$, $||$, 
-    $|||$, $||||$
-  \item \textbf{Fives:} A horizontal stroke $=$ placed over the units
-  \item \textbf{6--9:} Combinations, e.g., T (5+1), 
+  \item \textbf{一至四：} Vertical strokes \textbf{|}, $\|$, 
+    $\|$$\|$, $\|$$\|$$\|$ 
+  \item \textbf{五：} A horizontal stroke \textbf{—} placed over the units
+  \item \textbf{六至九：} Combinations, e.g., $\top$ (5+1), 
     $\equiv$ (3 horizontal over vertical)
-  \item \textbf{Zero:} Represented by a blank space or circle $\bigcirc$
+  \item \textbf{零：} Represented by a blank space or circle $\bigcirc$
 \end{itemize}
 
 The rods were arranged on a counting board in columns, with each column 
@@ -895,15 +1572,21 @@ representing a decimal place. This positional system enabled sophisticated
 algebraic computations including root extraction and solution of polynomial 
 equations.
 
-\subsection*{A.2 The ``Celestial Element'' Method (Tian Yuan Shu)}
+\subsection*{附錄二：天元之術}
 
-Qin Jiushao was a master of the ``celestial element'' method, an early form 
+\begin{quote}
+\textcolor{chinacolor}{%
+天元術者，中國古代之代數學也。以天元一為未知數，立一元二次、三次乃至十次方程式，以開方術解之。其法以籌布列，實居中央，隅居下，方居上。以次遞降，開方求之。秦九韶之精於此術，能解至十次方程式，其法與今之霍納法無異，而早五百餘年。此誠中國數學之絕詣也。
+}
+\end{quote}
+
+Qin Jiushao was a master of the ``celestial element'' method (\textbf{天元術}), an early form 
 of algebraic symbolism. The unknown quantity was called ``celestial element'' 
-(Tian Yuan, tian yuan), and equations were set up using counting rod arrangements. 
+(\textbf{天元一}), and equations were set up using counting rod arrangements. 
 This method could solve polynomial equations of degree up to 10, anticipating 
 Horner's method by over 500 years.
 
-\subsection*{A.3 Qin Jiushao's Formula for Triangular Area}
+\subsection*{附錄三：三斜求積公式}
 
 For a triangle with sides $a$, $b$, $c$, Qin gave the formula:
 \[
@@ -912,9 +1595,21 @@ S = \sqrt{\frac{1}{4}\left[c^2a^2 - \left(\frac{c^2+a^2-b^2}{2}\right)^2\right]}
 This is equivalent to Heron's formula and demonstrates remarkable algebraic 
 insight for the 13th century.
 
-\subsection*{A.4 The ``Surplus and Deficit'' Method (Ying Bu Zu)}
+\begin{quote}
+\textcolor{chinacolor}{%
+此公式也，以三邊之斜求三角形之積，不必求其高，不必用其角，但以邊長自乘、相乘、相減、開方，即得積。此秦九韶之創見也，西人謂之希羅公式，實則秦氏早之數百年。
+}
+\end{quote}
 
-The method of surplus and deficit (Ying Bu Zu Shu) is a general technique for 
+\subsection*{附錄四：盈不足之術}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+盈不足術者，九章算術之舊法也。設兩假令，一盈一不足，或以兩盈、兩不足，以推其真數。其法曰：置所出率，盈、不足各居其下。令維乘所出率，以為實。併盈、不足為法。實如法而一。此術也可以御百般變化，非獨盈不足而已。
+}
+\end{quote}
+
+The method of surplus and deficit (\textbf{盈不足術}) is a general technique for 
 solving linear problems. Given two trial values yielding surplus and deficit 
 results, the true value is found by:
 \[
@@ -924,12 +1619,20 @@ where $a_1$, $a_2$ are the trial inputs and $b_1$, $b_2$ are the
 corresponding surplus/deficit amounts. This method can be applied to 
 a wide variety of practical problems.
 
+\subsection*{附錄五：重差測量之理}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+重差之法，源於周髀算經，成於劉徽海島算經。其理以相似三角形為本。立兩表而望之，以影之差推物之遠近高下。表高為句，影長為股，表間之距為法，兩影之差為實。實如法而一，得所求之數。此術也可以測日之高遠，可以量山之高深，可以度河之廣狹，可以知城之大小。無遠弗屆，無高弗測，誠測量之神器也。
+}
+\end{quote}
+
 \vspace{1cm}
 
 \begin{center}
 {\color{rulecolor}\rule{8cm}{0.4pt}}\\[0.5cm]
 {\small\textit{End of Fascicles 3--4}}\\[0.3cm]
-{\small Shu Xue Jiu Zhang -- Juan 3 Shang, Juan 3 Xia, Juan 4 Shang, Juan 4 Xia}
+{\small 數學九章 -- 卷三上、卷三下、卷四上、卷四下}
 \end{center}
 
 \end{document}

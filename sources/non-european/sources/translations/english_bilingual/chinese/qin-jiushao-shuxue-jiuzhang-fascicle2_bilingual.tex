@@ -1,9 +1,7 @@
 %% ========================================================================
 %% Qin Jiushao: Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
-%% Fascicle 2 -- Tian Shi Lei (Heavenly Patterns / Calendar & Weather)
-%% ========================================================================
-%% BILINGUAL EDITION: English-Chinese Parallel Text
-%% LEFT COLUMN: Original Chinese  |  RIGHT COLUMN: English Translation
+%% Fascicle 2 -- Tian Shi Lei (Heavenly Patterns / Astronomy & Calendrics)
+%% BILINGUAL EDITION: Classical Chinese | English Translation
 %% ========================================================================
 \documentclass[11pt,a4paper]{article}
 
@@ -19,13 +17,15 @@
 \usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{lettrine}
 \usepackage{titlesec}
 
-%% -------- Page Geometry --------
+%% -------- Page Geometry (wider for two-column parallel) --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=12mm,right=12mm,top=22mm,bottom=22mm,
-  headheight=14pt,footskip=25pt
+  left=16mm,right=16mm,top=24mm,bottom=24mm,
+  headheight=14pt,footskip=24pt
 }
 
 %% -------- Font Configuration --------
@@ -34,9 +34,9 @@
 \setmonofont{Linux Libertine Mono O}[Scale=MatchLowercase]
 
 %% CJK Support via xeCJK
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
 
 %% -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -45,72 +45,56 @@
 \definecolor{rulecolor}{RGB}{180,160,140}
 \definecolor{headcolor}{RGB}{139,69,19}
 \definecolor{chinesebg}{RGB}{255,252,245}
-\definecolor{englishbg}{RGB}{245,248,255}
+\definecolor{englishbg}{RGB}{250,250,255}
+
+%% -------- Column Ratio --------
+\columnratio{0.48,0.52}
 
 %% -------- Header/Footer --------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang, Fascicle 2 (Bilingual Edition)}}
+\fancyhead[L]{\small\textsc{Qin Jiushao -- Shuxue Jiuzhang, Fascicle 2}}
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
-
-%% -------- Bilingual Column Macros --------
-\newcommand{\zhcolumnwidth}{0.48\textwidth}
-\newcommand{\encolumnwidth}{0.48\textwidth}
-\newcommand{\columngap}{0.02\textwidth}
-
-%% Chinese column (left)
-\newenvironment{zhcol}{%
-  \begin{minipage}[t]{\zhcolumnwidth}%
-  \setlength{\parskip}{3pt}%
-  \setlength{\parindent}{0pt}%
-}{\end{minipage}}
-
-%% English column (right)
-\newenvironment{encol}{%
-  \begin{minipage}[t]{\encolumnwidth}%
-  \setlength{\parskip}{3pt}%
-  \setlength{\parindent}{0pt}%
-}{\end{minipage}}
-
-%% Bilingual row: Chinese | English
-\newcommand{\bilingual}[2]{%
-  \noindent%
-  \begin{zhcol}#1\end{zhcol}%
-  \hfill\vline\hfill%
-  \begin{encol}#2\end{encol}\\[4pt]%
-}
-
-%% Bilingual row with alignment
-\newcommand{\bilingualpair}[2]{%
-  \noindent%
-  \begin{minipage}[t]{\zhcolumnwidth}#1\end{minipage}%
-  \hspace{\columngap}%
-  \begin{minipage}[t]{\encolumnwidth}#2\end{minipage}\\[6pt]%
-}
-
-%% Vertical separator line
-\newcommand{\vsep}{\hspace{0.5em}\textcolor{rulecolor}{$\vert$}\hspace{0.5em}}
 
 %% -------- Custom Commands --------
 \newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
 \newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
 
-%% Chinese structural markers
-\newcommand{\Wen}{\textbf{\textcolor{headcolor}{問}}}
-\newcommand{\Da}{\textbf{\textcolor{headcolor}{答曰}}}
-\newcommand{\Shu}{\textbf{\textcolor{headcolor}{術曰}}}
-\newcommand{\Cao}{\textbf{\textcolor{headcolor}{草曰}}}
-\newcommand{\An}{\textbf{\textcolor{headcolor}{按}}}
+%% Chinese structural markers (left column)
+\newcommand{\WenCN}{\textbf{\color{headcolor}問}}
+\newcommand{\DaCN}{\textbf{\color{headcolor}答曰}}
+\newcommand{\ShuCN}{\textbf{\color{headcolor}術曰}}
+\newcommand{\CaoCN}{\textbf{\color{headcolor}草曰}}
+\newcommand{\AnCN}{\textbf{\color{headcolor}按}}
 
-%% English structural markers
-\newcommand{\Ask}{\textbf{\textcolor{headcolor}{Question}}}
-\newcommand{\Ans}{\textbf{\textcolor{headcolor}{Answer}}}
-\newcommand{\Meth}{\textbf{\textcolor{headcolor}{Method}}}
-\newcommand{\Work}{\textbf{\textcolor{headcolor}{Working}}}
-\newcommand{\Note}{\textbf{\textcolor{headcolor}{Editor's Note}}}
+%% English structural markers (right column)
+\newcommand{\WenEN}{\textbf{\color{headcolor}Question}}
+\newcommand{\DaEN}{\textbf{\color{headcolor}Answer}}
+\newcommand{\ShuEN}{\textbf{\color{headcolor}Method}}
+\newcommand{\CaoEN}{\textbf{\color{headcolor}Working}}
+\newcommand{\AnEN}{\textbf{\color{headcolor}Editor's Note}}
+
+%% Bilingual section header
+\newcommand{\BilingualSection}[2]{%
+  \switchcolumn[0]*\section*{#1}%
+  \switchcolumn[1]\section*{#2}%
+}
+
+\newcommand{\BilingualSubsection}[2]{%
+  \switchcolumn[0]*\subsection*{#1}%
+  \switchcolumn[1]\subsection*{#2}%
+}
+
+%% Problem environment with Chinese label
+\newcommand{\ProblemHeader}[3]{%
+  \switchcolumn[0]*\vspace{0.5em}%
+  \noindent\textbf{\large #1}\\\noindent\textit{#2}%
+  \switchcolumn[1]\vspace{0.5em}%
+  \noindent\textbf{\large #1}\\\noindent\textit{#3}%
+}
 
 %% -------- Hyperref Setup --------
 \hypersetup{
@@ -118,8 +102,16 @@
   linkcolor=sectioncolor,
   citecolor=sectioncolor,
   urlcolor=sectioncolor,
-  pdfencoding=auto
+  pdfencoding=auto,
+  pdftitle={Shuxue Jiuzhang Fascicle 2 -- Bilingual Edition},
+  pdfauthor={Qin Jiushao (tr. bilingual edition)}
 }
+
+%% -------- Section formatting --------
+\titleformat{\section}{\Large\bfseries\color{titlecolor}}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries\color{sectioncolor}}{}{0em}{}
+\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 0.3ex minus .2ex}{0.8ex plus .2ex}
 
 %% ========================================================================
 \begin{document}
@@ -131,67 +123,69 @@
 \begin{center}
 \vspace*{1.5cm}
 
-{\fontsize{22}{28}\selectfont\color{titlecolor}
+{\fontsize{26}{32}\selectfont\color{titlecolor}
 \textsc{Mathematical Treatise in Nine Sections}}
 
-\vspace{0.5cm}
+\vspace{0.6cm}
 
 {\fontsize{16}{20}\selectfont\color{sectioncolor}
-Shuxue Jiuzhang -- {\CJKfamily{}
-數學九章}}
+Shuxue Jiuzhang -- 數學九章}
 
-\vspace{1cm}
+\vspace{1.2cm}
 
 \longline
 
-\vspace{1cm}
+\vspace{1.2cm}
 
-{\fontsize{30}{36}\selectfont\color{headcolor}
-\textbf{Fascicle 2}}
+{\fontsize{32}{38}\selectfont\color{headcolor}
+\textbf{Fascicle 2 / 卷二}}
 
 \vspace{0.4cm}
 
-{\fontsize{20}{26}\selectfont\color{sectioncolor}
-\textbf{天時類 -- Tian Shi Lei}}
+{\fontsize{22}{28}\selectfont\color{sectioncolor}
+\textbf{天時類}}
 
 \vspace{0.3cm}
 
-{\large\textit{Heavenly Patterns: Calendar, Astronomy and Weather}}
+{\Large\textit{Tian Shi Lei -- Heavenly Patterns}}
 
-\vspace{0.8cm}
+\vspace{0.3cm}
+
+{\large\color{notecolor}Calendar, Astronomy and Weather / 曆法、天文與氣象}
+
+\vspace{1.2cm}
 
 \longline
 
 \vspace{1cm}
 
-{\large\textbf{Bilingual Edition / 雙語版}}
+{\Large\textbf{Bilingual Edition / 雙語版}}
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 
-{\normalsize
-\begin{tabular}{c@{\hspace{3em}}c}
-\textbf{Original Chinese} & \textbf{English Translation} \\
-原文 & 英譯 \\
-\end{tabular}}
+{\large\color{notecolor}Classical Chinese \textbullet\ English Translation}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
-{\Large\textbf{Qin Jiushao / 秦九韶} (1202--1261)}
+{\small Original: Left / 原文：左欄 \quad Translation: Right / 譯文：右欄}
 
-\vspace{0.3cm}
+\vspace{1.2cm}
+
+{\Large\textbf{Qin Jiushao / 秦九韶}}
+
+\vspace{0.2cm}
+
+{\large (1202--1261)}
+
+\vspace{0.4cm}
 
 {\normalsize\color{notecolor} Song Dynasty, Chunyou 7th year (淳祐七年, 1247)}
 
-\vspace{1.5cm}
-
-{\small\color{sectioncolor}
-\textit{Parallel bilingual edition with original Chinese and English translation\\
-based on the Siku Quanshu (四庫全書) edition}}
-
 \vfill
 
-{\footnotesize\color{sectioncolor}
-\textit{``數術之傳，以實為體。''} / \textit{``The art of numbers, rooted in the Great Void...''}}
+{\small\color{sectioncolor}
+\textit{Bilingual edition based on the Siku Quanshu edition\\
+雙語版據《四庫全書》本編排}}
 
 \end{center}
 \end{titlepage}
@@ -203,27 +197,24 @@ based on the Siku Quanshu (四庫全書) edition}}
 \newpage
 
 %% ========================================================================
-%% Introduction
+%% INTRODUCTION (parallel bilingual)
 %% ========================================================================
-\section*{Introduction / 導言}
-\addcontentsline{toc}{section}{Introduction / 導言}
+\switchcolumn[0]*
+\section*{天時類序 / 引言}
+\addcontentsline{toc}{section}{Introduction / 引言}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】}
+\switchcolumn[1]
+\section*{Introduction to Fascicle 2}
 
-數學九章卷二天時類，凡九問。上卷五問：推氣治歷、治歷推閏、治歷演紀、綴術推星、揆日究微，皆關乎曆法推步之事。下卷四問：天池測雨、圓罌測雨、峻積驗雪、竹器驗雪，皆量雨驗雪之法。
+\switchcolumn[0]*
+天時類者，數學九章之第二卷也。凡九問，分為二類：上卷五問，論推步治曆、候星揆影之事；下卷四問，論天池圓罌測雨、峻積竹器驗雪之法。
 
-秦九韶自序云：「數術之傳，以實為體。其大可以通神明、順性命；其小可以經世務、類萬物。詎容以淺近窺哉？」
+秦九韶自序其書曰：「大则可以通神明，顺性命；小则可以经世务，类万物。」此卷九問，實以數術推天時，為農事所繫，其用至重。
 
-此卷九問，示數學之實用於曆法、天文、氣象之間，於農桑之國尤為切要。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English Translation]}
+\switchcolumn[1]
+The \textbf{Tian Shi Lei} (天時類, ``Heavenly Patterns'') is the second of nine chapters in Qin Jiushao's \textit{Shuxue Jiuzhang} (數學九章, Mathematical Treatise in Nine Sections). This fascicle contains \textbf{nine problems} divided into two parts, dealing with:
 
-The \textbf{Tian Shi Lei} (天時類, ``Heavenly Patterns'') is the second of nine chapters in Qin Jiushao's \textit{Shuxue Jiuzhang} (數學九章, \textit{Mathematical Treatise in Nine Sections}). This fascicle contains \textbf{nine problems} divided into two parts:
-
-\begin{itemize}[noitemsep,leftmargin=*]
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Calendar computation and astronomical predictions (Problems 1--5)
   \item Measurement of rainfall and snowfall (Problems 6--9)
 \end{itemize}
@@ -234,266 +225,158 @@ Qin Jiushao's preface to the \textit{Shuxue Jiuzhang} (1247) explains his motiva
 \textit{``The art of numbers, rooted in the Great Void, generates One and circulates without end. In its large aspect it can penetrate the divine and comply with destiny; in its small aspect it can govern worldly affairs and classify the myriad things. How can it be viewed as shallow or narrow?''}
 \end{quote}
 
+\switchcolumn[0]*
+此卷所用之法，大要有三：曰通積術，求諸周之公倍也；曰招差術，推日月五星之變行也；曰調日法，齊曆法之疏密也。三者皆中國古代天文數學之精髓。
+
+\switchcolumn[1]
 The nine problems of this fascicle demonstrate the practical application of mathematical techniques to calendar reform, planetary motion, and meteorological measurement---topics of vital importance to agricultural society.
-\end{minipage}
 
-\vspace{0.8cm}
-
-\noindent\rule{\textwidth}{0.4pt}
+The key methods employed are:
+\begin{itemize}[noitemsep,topsep=0pt]
+  \item \textbf{General accumulation method} (通積): Finding common periods
+  \item \textbf{Interpolation} (招差): For irregular astronomical motions
+  \item \textbf{Equalizing technique} (調日法): For calendrical adjustments
+\end{itemize}
 
 \newpage
 
 %% ========================================================================
-%% PART 1: Volume 2 Upper
+%% PART 1: Volume 2 Upper -- 卷二上
 %% ========================================================================
-\section{Volume 2, Part 1 / 卷二上}
-\label{sec:juan2shang}
+\switchcolumn[0]*
+\section*{卷二上}
+\addcontentsline{toc}{section}{Volume 2, Part 1 / 卷二上}
 
-\longline
+\switchcolumn[1]
+\section*{Volume 2, Part 1}
+
+\vspace{1em}
 
 %% ========================================================================
 %% PROBLEM 1
 %% ========================================================================
-\subsection{Problem 1 / 第一問: 推氣治歷}
+\switchcolumn[0]*
+\subsection*{第一問：推氣治歷}
+
+\vspace{0.5em}
+\WenCN{}\quad 太史觀天，慶元四年戊午歲冬至三十九日九十二刻四十五分，紹定三年庚寅歲冬至三十二日九十四刻一十二分。今欲知嘉泰甲子歲氣骨、歲餘、斗分各幾何？
+
+\vspace{0.5em}
+\AnCN{}\quad 按：紹定三年庚寅冬至，實紹定四年辛卯之歲首也。辛卯去戊午三十四年，即積三十三年。
+
+\vspace{0.5em}
+\DaCN{}\quad 氣骨一十一日三十八刻二十分八十一杪八十小分；歲餘五日二十四刻二十九分三十杪三十小分；斗分〇日二十四刻二十九分三十杪三十小分。
+
+\vspace{0.5em}
+\ShuCN{}\quad 以兩測之年差為法。置前測之日刻分，以後測之日刻分減之，餘為率。（不減，加紀策）。遞以紀策累加之，務令合天道，取五日以上為實。以法除實，得歲餘。去全分，餘為斗分。以歲餘乘前測至所求中積之年數，併入前測日刻分，滿紀策去之，餘為所求氣骨。
+
+\vspace{0.5em}
+\AnCN{}\quad 氣骨者，自冬至距夜半後甲子日之时刻也。歲餘者，歲周減六甲之餘也。斗分者，歲周減三百六十五日之餘也。此術尚未知歲實之確數，故以兩測氣骨之差為實，積年為法。
+
+\switchcolumn[1]
+\subsection*{Problem 1: Calculating Qi and Regulating the Calendar}
 \label{sec:tuiqizhili}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 推氣治歷}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Calculating Qi and Regulating the Calendar}
-\end{minipage}
-
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-太史觀天，測景驗氣：
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 慶元四年戊午歲（1198年）冬至，三十九日九十二刻四十五分。
-  \item 紹定三年庚寅歲（1230年）冬至，三十二日九十四刻十二分。
-\end{itemize}
-
-今欲求嘉泰甲子歲（1204年）氣骨、歲餘、斗分各若干。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-The Imperial Astronomer observed the heavenly way:
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\WenEN{}\quad The Imperial Astronomer observed the heavenly way:
+\begin{itemize}[noitemsep,topsep=0pt]
   \item In the 4th year of Qingyuan (慶元四年, 1198, year Wu-wu 戊午), the winter solstice was at 39 days, 92 \textit{ke} (刻), 45 \textit{fen} (分).
   \item In the 3rd year of Shaoding (紹定三年, 1230, year Geng-yin 庚寅), the winter solstice was at 32 days, 94 \textit{ke}, 12 \textit{fen}.
 \end{itemize}
-
 It is desired to find, for the intermediate year Jiatai Jiazi (嘉泰甲子, 1204): the \textit{qi bone} (氣骨), the \textit{year remainder} (歲餘), and the \textit{dou fraction} (斗分).
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\AnEN{}\quad The Shaoding 3rd year Geng-yin winter solstice actually marks the beginning of Shaoding 4th year Xin-mao (辛卯). Xin-mao is 34 years from Wu-wu, giving 33 accumulated years.
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-按：紹定三年庚寅冬至，實為紹定四年辛卯歲首。辛卯距戊午三十四年，為積三十三年。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-The Shaoding 3rd year Geng-yin winter solstice actually marks the beginning of Shaoding 4th year Xin-mao (辛卯). Xin-mao is 34 years from Wu-wu, giving 33 accumulated years.
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 氣骨：一十一日三十八刻二十分八十一杪八十小分。
-  \item 歲餘：五日二十四刻二十九分三十杪三十小分。
-  \item 斗分：零日二十四刻二十九分三十杪三十小分。
-\end{itemize}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\DaEN{}\quad
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Qi bone: 11 days, 38 \textit{ke}, 20 \textit{fen}, 81 \textit{miao} (杪), 80 small fractions.
   \item Year remainder: 5 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao}, 30 small fractions.
   \item Dou fraction: 0 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao}, 30 small fractions.
 \end{itemize}
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\ShuEN{}\quad First take the number of years between the two observations as the divisor. Place the earlier observation's days, \textit{ke}, and \textit{fen}, and subtract from the later observation's days, \textit{ke}, and \textit{fen}; the remainder is the rate. (If insufficient for subtraction, add the ji-ce 紀策). Accumulate by adding ji-ce repeatedly until the result is suitable for the heavenly way---using a number above 5 days as the dividend. Divide the dividend by the divisor to obtain the year remainder. Remove whole days; the remainder is the dou fraction. Multiply the year remainder by the number of years from the earlier observation to the desired intermediate year, add to the earlier observation's days, \textit{ke}, and \textit{fen}, and remove full ji-ce; the remainder is the desired qi bone.
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰
-
-以兩測相距之年數為法。置前測之日刻分，以減後測之日刻分；不減，加紀策。累加紀策，至合天道為止──以五日上為實。實如法得歲餘。去全日，餘為斗分。以歲餘乘前測至所求中間之年數，加前測日刻分，滿紀策去之；餘為所求氣骨。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-
-First take the number of years between the two observations as the divisor. Place the earlier observation's days, \textit{ke}, and \textit{fen}, and subtract from the later observation's days, \textit{ke}, and \textit{fen}; the remainder is the rate. (If insufficient for subtraction, add the ji-ce 紀策). Accumulate by adding ji-ce repeatedly until the result is suitable for the heavenly way---using a number above 5 days as the dividend. Divide the dividend by the divisor to obtain the year remainder. Remove whole days; the remainder is the dou fraction. Multiply the year remainder by the number of years from the earlier observation to the desired intermediate year, add to the earlier observation's days, \textit{ke}, and \textit{fen}, and remove full ji-ce; the remainder is the desired qi bone.
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-氣骨者，冬至後夜半甲子之日分也。歲餘者，歲周減去六甲之餘也。斗分者，歲周減去三百六十五日之餘也。此法尚未知歲實之確數，故以兩測氣骨之差為實、積年為法，推而求之。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-The qi bone is the days and fractions from the winter solstice to the Jiazi day after midnight. The year remainder is the residue when the solar year length is reduced by six Jiazi cycles. The dou fraction is the residue when the solar year is reduced by 365 days. This method does not yet know the precise solar year length, hence it uses the difference between two observed qi bones as the dividend and accumulated years as divisor.
-\end{minipage}
+\vspace{0.5em}
+\AnEN{}\quad The qi bone is the days and fractions from the winter solstice to the Jiazi day after midnight. The year remainder is the residue when the solar year length is reduced by six Jiazi cycles. The dou fraction is the residue when the solar year is reduced by 365 days. This method does not yet know the precise solar year length, hence it uses the difference between two observed qi bones as the dividend and accumulated years as divisor.
 
 \newpage
 
 %% ========================================================================
 %% PROBLEM 2
 %% ========================================================================
-\subsection{Problem 2 / 第二問: 治歷推閏}
+\switchcolumn[0]*
+\subsection*{第二問：治歷推閏}
+
+\vspace{0.5em}
+\WenCN{}\quad 開禧曆，以嘉泰四年甲子歲天冬至一十一日，日辰乙亥，四十四刻六十一分五十四杪；十一月經朔一日，日辰乙丑，七十五刻五十五分六十二杪。問：閏骨、閏率各幾何？
+
+\vspace{0.5em}
+\DaCN{}\quad 閏骨九日六十九刻五分九十一杪，餘一百二十一（以一百六十九分為法）；閏骨率一十六萬三千七百七十一。
+
+\vspace{0.5em}
+\ShuCN{}\quad 以日法通氣朔之日刻分杪，各為氣骨、朔骨之通分。氣骨通分以約率約之，適盡者可用；或不盡，圓徑以下在一刻內者，亦可用。乃以減朔骨通分，餘為閏骨率。以日法除之，得閏骨策。
+
+\vspace{0.5em}
+\AnCN{}\quad 若以朔骨通分徑減氣骨通分，餘為九日六十九刻五分九十二杪，即閏骨策。原草僅差四十八分之一百六十九分。其不徑減而以通分、約率、乘除往復者，蓋為後續諸算之便也。
+
+\switchcolumn[1]
+\subsection*{Problem 2: Regulating the Calendar and Intercalary Months}
 \label{sec:zhilituimin}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 治歷推閏}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Regulating the Calendar and Intercalary Months}
-\end{minipage}
-
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-開禧曆，以嘉泰四年甲子歲：
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 天正冬至：一十一日乙亥四十四刻六十一分五十四杪。
-  \item 十一月經朔：一日乙丑七十五刻五十五分六十二杪。
-\end{itemize}
-
-問：閏骨、閏率各幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-For the Kaixi calendar (開禧曆), taking the 4th year of Jiatai (嘉泰四年, 1204, year Jiazi 甲子):
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\WenEN{}\quad For the Kaixi calendar (開禧曆), taking the 4th year of Jiatai (嘉泰四年, 1204, year Jiazi 甲子):
+\begin{itemize}[noitemsep,topsep=0pt]
   \item The celestial winter solstice is at 11 days, day-token Yi-hai (乙亥), 44 \textit{ke}, 61 \textit{fen}, 54 \textit{miao}.
   \item The 11th-month new moon (經朔) is at 1 day, day-token Yi-chou (乙丑), 75 \textit{ke}, 55 \textit{fen}, 62 \textit{miao}.
 \end{itemize}
-
 Question: What are the \textit{run bone} (閏骨) and \textit{run rate} (閏率)?
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 閏骨：九日六十九刻五分九十一杪，餘一百六十一分之一百二十一。
-  \item 閏骨率：一十六萬三千七百七十一。
-\end{itemize}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\DaEN{}\quad
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Run bone: 9 days, 69 \textit{ke}, 5 \textit{fen}, 91 \textit{miao}, with remainder $121/(169\text{ fractions})$.
   \item Run bone rate: 163,771.
 \end{itemize}
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\ShuEN{}\quad Take the day-factor (日法) to convert the qi and new-moon days, \textit{ke}, \textit{fen}, and \textit{miao} into qi-bone and new-moon-bone fractions respectively. The qi-bone fraction, when reduced by the approximation rate (約率), if exactly divisible, is usable; or if the remainder after rounding is below one \textit{ke}, it is also usable. Then subtract from the new-moon-bone fraction; the remainder is the run bone rate. Divide by the day-factor to obtain the run bone \textit{ce} (策).
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰
-
-以日法通氣朔日刻分杪，各為氣骨分、朔骨分。氣骨分以約率約之，恰盡則可用；或不盡而餘不及一刻，亦可用。乃以減朔骨分；餘為閏骨率。以日法除之，得閏骨策。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-
-Take the day-factor (日法) to convert the qi and new-moon days, \textit{ke}, \textit{fen}, and \textit{miao} into qi-bone and new-moon-bone fractions respectively. The qi-bone fraction, when reduced by the approximation rate (約率), if exactly divisible, is usable; or if the remainder after rounding is below one \textit{ke}, it is also usable. Then subtract from the new-moon-bone fraction; the remainder is the run bone rate. Divide by the day-factor to obtain the run bone \textit{ce} (策).
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-若以朔骨分徑減冬至分，餘為九日六十九刻五分九十二杪，即閏骨策。原草僅差一百六十一分之四十八。其不徑減而用通分約分、輾轉乘除者，為後續計算之便也。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-If one directly subtracts the new moon fraction from the winter solstice fraction, the remainder is 9 days, 69 \textit{ke}, 5 \textit{fen}, 92 \textit{miao}, giving the run bone \textit{ce}. The original working only differs by $48/(169\text{ fractions})$. The reason for not directly subtracting but instead using common denominators, approximation, and repeated multiplication/division is to facilitate subsequent calculations.
-\end{minipage}
+\vspace{0.5em}
+\AnEN{}\quad If one directly subtracts the new moon fraction from the winter solstice fraction, the remainder is 9 days, 69 \textit{ke}, 5 \textit{fen}, 92 \textit{miao}, giving the run bone \textit{ce}. The original working only differs by $48/(169\text{ fractions})$. The reason for not directly subtracting but instead using common denominators, approximation, and repeated multiplication/division is to facilitate subsequent calculations.
 
 \newpage
 
 %% ========================================================================
 %% PROBLEM 3
 %% ========================================================================
-\subsection{Problem 3 / 第三問: 治歷演紀}
+\switchcolumn[0]*
+\subsection*{第三問：治歷演紀}
+
+\vspace{0.5em}
+\WenCN{}\quad 開禧曆積年七百八十四萬一千一百八十三。今欲知演紀之術：調日法，求朔餘、朔率、斗分、歲率、歲閏、入元歲、入閏、朔定骨、閏泛骨、閏縮、紀率、氣元率、元閏、元數、氣等率、因率、蔀率、朔等數、因數、蔀數、朔積年，凡二十三事。各幾何？
+
+\vspace{0.5em}
+\DaCN{}\quad（選錄要項）日法一萬六千九百；朔餘八千九百六十七；朔率四十九萬九千六十七；斗分即二十四刻二十九分三十杪三十小分；歲率六百一十七萬二千六百八；歲閏二萬七百二十八；入元歲九千二百四十；入閏三萬一千六十八。
+
+\vspace{0.5em}
+\ShuCN{}\quad 以大衍術求氣分、朔分、紀分、衍母、正用。以衍母除氣分，得積年；除朔分，得積月；除紀分，得積紀。各以六十乘之，得積日。以氣骨乘紀正用，得紀總；以閏骨乘朔正用，得朔總。併二總，滿衍母去之，餘為所求率實。以氣分除之，得歷過之年；以減積年，得未至之年。
+
+\vspace{0.5em}
+\AnCN{}\quad 此問全用大衍求一術，以解同餘式組，施用於治曆。所算二十三率，備成開禧曆元之全體，自天文觀測而推得曆元諸數。
+
+\switchcolumn[1]
+\subsection*{Problem 3: Deriving Calendar Epoch Calculations}
 \label{sec:zhiliyanji}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 治歷演紀}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Deriving Calendar Epoch Calculations}
-\end{minipage}
+\vspace{0.5em}
+\WenEN{}\quad The Kaixi calendar has an accumulated year count of 7,848,183. It is desired to know the derivation of this computation: adjusting the day-factor, finding the new-moon remainder, new-moon rate, dou fraction, year rate, year intercalation, entry-year, entry-intercalation, new-moon fixed bone, intercalation floating bone, intercalation shrinkage, ji rate, qi yuan rate, yuan intercalation, yuan number, qi equal-rate, cause-rate, \textit{bu} rate, new-moon equal-number, cause-number, \textit{bu} number, and new-moon accumulated year---\textbf{23 items} in total. What is each?
 
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-開禧曆積年七百八十四萬八千一百八十三。欲知其演紀之源：調日法、求朔餘、朔率、斗分、歲率、歲閏、入元歲、入閏、朔定骨、閏泛骨、閏縮、紀率、氣元率、元閏、元數、氣等率、因率、蔀率、朔等數、因數、蔀數、朔積年，凡二十三事。問各幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-The Kaixi calendar has an accumulated year count of 7,848,183. It is desired to know the derivation of this computation: adjusting the day-factor, finding the new-moon remainder, new-moon rate, dou fraction, year rate, year intercalation, entry-year, entry-intercalation, new-moon fixed bone, intercalation floating bone, intercalation shrinkage, ji rate, qi yuan rate, yuan intercalation, yuan number, qi equal-rate, cause-rate, \textit{bu} rate, new-moon equal-number, cause-number, \textit{bu} number, and new-moon accumulated year---\textbf{23 items} in total. What is each?
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
-
-（選錄要項：）
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 日法：一萬六千九百
-  \item 朔餘：八千九百六十七
-  \item 朔率：四十九萬九千六十七
-  \item 斗分：二十四刻二十九分三十杪三十小分
-  \item 歲率：六百一十七萬二千六百八
-  \item 歲閏：二萬七百二十八
-  \item 入元歲：九千二百四十
-  \item 入閏：三萬一千六十八
-\end{itemize}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-
-(Selected key results:)
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\DaEN{}\quad (Selected key results:)
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Day-factor (日法): 16,900
   \item New-moon remainder (朔餘): 8,967
   \item New-moon rate (朔率): 499,067
@@ -503,370 +386,248 @@ The Kaixi calendar has an accumulated year count of 7,848,183. It is desired to 
   \item Entry-year (入元歲): 9,240
   \item Entry-intercalation (入閏): 31,068
 \end{itemize}
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\ShuEN{}\quad Use the method of Dayan (大衍術) to find the qi fraction, new-moon fraction, ji fraction, and derived mother (衍母), and all the proper use-numbers (正用). Divide the derived mother by the qi fraction to obtain the accumulated years; by the new-moon fraction to obtain the accumulated months; by the ji fraction to obtain the accumulated ji. Multiply by 60 to obtain accumulated days. Multiply the qi bone by the ji proper-use to obtain the ji total; multiply the run bone by the new-moon proper-use to obtain the new-moon total. Combine the two totals, remove full derived mothers, and the remainder is the sought rate-dividend. Divide by the qi fraction to obtain the calendar-passed (歷過) years; subtract from the accumulated years to obtain the years not yet reached.
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰
-
-以大衍術求氣分、朔分、紀分及衍母、諸正用。以衍母除氣分，得積年；除朔分，得積月；除紀分，得積紀。以六十乘之，得積日。以氣骨乘紀正用得紀總；以閏骨乘朔正用得朔總。併二總，滿衍母去之，餘為所求率實。以氣分除之，得歷過年；以減積年，得未至年。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-
-Use the method of Dayan (大衍術) to find the qi fraction, new-moon fraction, ji fraction, and derived mother (衍母), and all the proper use-numbers (正用). Divide the derived mother by the qi fraction to obtain the accumulated years; by the new-moon fraction to obtain the accumulated months; by the ji fraction to obtain the accumulated ji. Multiply by 60 to obtain accumulated days. Multiply the qi bone by the ji proper-use to obtain the ji total; multiply the run bone by the new-moon proper-use to obtain the new-moon total. Combine the two totals, remove full derived mothers, and the remainder is the sought rate-dividend. Divide by the qi fraction to obtain the calendar-passed (歷過) years; subtract from the accumulated years to obtain the years not yet reached.
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-此問盡顯秦九韶大衍求一術之威力，以解同餘式組，用於曆法推算。所求二十三事，構成自天文觀測推導開禧曆上元之完整体系。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-This problem demonstrates the full power of Qin Jiushao's \textbf{Dayan method} (大衍求一術) for solving systems of congruences, applied here to calendar computation. The 23 quantities computed form a complete system for deriving the epoch parameters of the Kaixi calendar from astronomical observations.
-\end{minipage}
+\vspace{0.5em}
+\AnEN{}\quad This problem demonstrates the full power of Qin Jiushao's \textbf{Dayan method} (大衍求一術) for solving systems of congruences, applied here to calendar computation. The 23 quantities computed form a complete system for deriving the epoch parameters of the Kaixi calendar from astronomical observations.
 
 \newpage
 
 %% ========================================================================
 %% PROBLEM 4
 %% ========================================================================
-\subsection{Problem 4 / 第四問: 綴術推星}
+\switchcolumn[0]*
+\subsection*{第四問：綴術推星}
+
+\vspace{0.5em}
+\WenCN{}\quad 歲星合伏段，一十六日九十分，行三度九十分，去日一十三度乃見。然後順行一百一十三日，一十七度八十三分，乃留。欲知：合伏段、晨疾初段之常度、初行率、末行率、平行率，各幾何？
+
+\vspace{0.5em}
+\ShuCN{}\quad（綴術）
+\begin{enumerate}[noitemsep,topsep=0pt]
+  \item 合伏段者，常度為總日數，初行率為總行度數，末行率等于初行率減日差乘（日數減一）。
+  \item 晨疾初段者，常度為所給日數，初行率為前段之末行率，末行率等于初行率減日差乘（日數減一）。
+  \item 平行率者，併初末二率而半之，即得平行率。
+\end{enumerate}
+
+\vspace{0.5em}
+\AnCN{}\quad 五星之行，有遲疾逆順，非均加速也。此術僅取合伏、見段之中數，而以遞加遞減求逐日之行率。古法之疏，於五星尤著。原草語多隱奧，今詳釋之，以見古今疏密之比。
+
+\vspace{0.5em}
+\CaoCN{}\quad 合伏段：常度一十六日九十分；初行率二十二分七杪；末行率二十一分九十六杪；平行率約二十二分。晨疾初段：常度三十日；初行率二十一分九十六杪；日差一十一杪二十三分六十六小杪。
+
+\switchcolumn[1]
+\subsection*{Problem 4: Calculating Planetary Motion}
 \label{sec:zhuishutuixing}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 綴術推星}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Calculating Planetary Motion}
-\end{minipage}
-
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-歲星合伏段：一十六日九十分，行三度九十分，去日一十三度乃見。然後順行一百一十三日，一十七度八十三分，乃留。欲知：
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 合伏段常度、初行率、末行率、平行率
-  \item 晨疾初段常度、初行率、末行率
-\end{itemize}
-各幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-The year-star (Jupiter, 歲星) in conjunction-hidden phase (合伏段): after 16 days 90 \textit{fen}, it moves 3 degrees 90 \textit{fen}, removing 13 degrees from the sun before becoming visible. Then it proceeds directly (順行) for 113 days, 17 degrees 83 \textit{fen}, before halting (乃留). It is desired to know:
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item The conjunction-hidden segment (合伏段) constant degree, initial motion-rate, final motion-rate, mean motion-rate
-  \item The morning-rapid initial segment (晨疾初段) constant degree, initial motion-rate, final motion-rate
+\vspace{0.5em}
+\WenEN{}\quad The year-star (Jupiter, 歲星) in conjunction-hidden phase (合伏段): after 16 days 90 \textit{fen}, it moves 3 degrees 90 \textit{fen}, removing 13 degrees from the sun before becoming visible. Then it proceeds directly (順行) for 113 days, 17 degrees 83 \textit{fen}, before halting (乃留). It is desired to know:
+\begin{itemize}[noitemsep,topsep=0pt]
+  \item The conjunction-hidden segment (合伏段)
+  \item The morning-rapid initial segment (晨疾初段)
+  \item The standard degree (常度)
+  \item The initial motion-rate (初行率)
+  \item The final motion-rate (末行率)
+  \item The mean motion-rate (平行率)
 \end{itemize}
 What is each?
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰（綴術）
-
-\begin{enumerate}[noitemsep,leftmargin=*]
-  \item 合伏段：常度即總日數。初行率即總行度數。末行率以初行率減日差乘（日數減一）。
-  \item 晨疾初段：常度即所給日數。初行率即前段末行率。末行率以初行率減日差乘（日數減一）。
-  \item 平行率：並初末二行率而半之，得平行率。
-\end{enumerate}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-
-(Method of \textit{Zhui Shu}):
-\begin{enumerate}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\ShuEN{}\quad (Method of \textit{Zhui Shu}):
+\begin{enumerate}[noitemsep,topsep=0pt]
   \item For the conjunction-hidden segment: The constant degree is the total number of days. The initial motion rate is the total degrees moved. The final motion rate equals the initial rate minus the daily difference (日差) multiplied by (days $-1$).
   \item For the morning-rapid initial segment: The constant degree is the given number of days. The initial rate is the final rate of the previous segment. The final rate equals the initial rate minus the daily difference multiplied by (days $-1$).
   \item For the mean motion rate: Add the initial and final rates and halve; this gives the parallel (mean) rate.
 \end{enumerate}
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\AnEN{}\quad The five planets' motions involve non-uniform acceleration and deceleration. The method here takes only the middle values of the conjunction-hidden and direct-visibility segments, then uses successive addition/subtraction to derive the daily motion. The ancient method's approximation is particularly evident for the five planets. The original text's language was mostly hidden and obscure; the following detailed explanation reveals the comparison between ancient and modern precision.
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-五星之行，有遲疾不等。此法僅取合伏、見段之中率，而以累加累減求逐日之行。古法之疏，於五星尤甚。原文多隱奧難明，下詳解之，以見古今精粗之比。
-
-\textbf{要項計算：}
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 合伏段：常度一十六日九十分；初行率二十二分七杪；末行率二十一分九十六杪；平行率約二十二分。
-  \item 晨疾初段：常度三十日；初行率二十一分九十六杪；日差一十一杪二十三分六十六小杪。
-\end{itemize}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-The five planets' motions involve non-uniform acceleration and deceleration. The method here takes only the middle values of the conjunction-hidden and direct-visibility segments, then uses successive addition/subtraction to derive the daily motion. The ancient method's approximation is particularly evident for the five planets. The original text's language was mostly hidden and obscure; the following detailed explanation reveals the comparison between ancient and modern precision.
-
+\vspace{0.5em}
+\CaoEN{}\quad
 \textbf{Key calculations:}
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item Conjunction-hidden segment: Constant degree 16 days 90 \textit{fen}; Initial rate 22 \textit{fen} 7 \textit{miao}; Final rate 21 \textit{fen} 96 \textit{miao}; Mean rate approx. 22 \textit{fen}.
-  \item Morning-rapid initial segment: Constant degree 30 days; Initial rate 21 \textit{fen} 96 \textit{miao}; Daily difference 11 \textit{miao} 23 small-\textit{fen} 66 small-\textit{miao}.
+\begin{itemize}[noitemsep,topsep=0pt]
+  \item Conjunction-hidden segment:
+    \begin{itemize}[topsep=0pt]
+      \item Constant degree: 16 days 90 \textit{fen}
+      \item Initial rate: 22 \textit{fen} 7 \textit{miao}
+      \item Final rate: 21 \textit{fen} 96 \textit{miao}
+      \item Mean rate: approximately 22 \textit{fen} (after rounding)
+    \end{itemize}
+  \item Morning-rapid initial segment:
+    \begin{itemize}[topsep=0pt]
+      \item Constant degree: 30 days
+      \item Initial rate: 21 \textit{fen} 96 \textit{miao}
+      \item Daily difference: 11 \textit{miao} 23 small-\textit{fen} 66 small-\textit{miao}
+    \end{itemize}
 \end{itemize}
-\end{minipage}
 
 \newpage
 
 %% ========================================================================
 %% PROBLEM 5
 %% ========================================================================
-\subsection{Problem 5 / 第五問: 揆日究微}
+\switchcolumn[0]*
+\subsection*{第五問：揆日究微}
+
+\vspace{0.5em}
+\WenCN{}\quad 歷代測景，唯唐大衍曆最密。本朝崇天曆測陽城：冬至影一丈二尺七寸一分五十杪，夏至影一尺四寸七分七十杪，與大衍曆合。今開禧曆測臨安府：冬至影一丈八寸二分二十五杪，夏至影九寸一分。問：臨安夏至後幾日，其影與陽城夏至影等？又與大衍曆影較之，相差幾何？
+
+\vspace{0.5em}
+\DaCN{}\quad 大暑後五日午正，影長一尺四寸八分八十五杪（半）。影差六寸一分二十九杪（少）。
+
+\vspace{0.5em}
+\ShuCN{}\quad 用乘法，以節率入之。
+\begin{enumerate}[noitemsep,topsep=0pt]
+  \item 置臨安所測冬至影長，減夏至影長，餘為景差，以為實。
+  \item 置象限度（九十一度三十一分四十四杪），加一十一度二十五分二十七秒半；以度為寸，得一百〇二寸五千六百七十一分五十杪為法。
+  \item 以法除實，得〇點九六六四……；棄餘數，自乘得節泛數九千四百分。
+  \item 以各節氣乘法率乘之，加夏至影冪，開方得各節氣影長。
+\end{enumerate}
+
+\vspace{0.5em}
+\AnCN{}\quad 各節氣之影長，當時實測而定，原不必算。此術故為繁難，以惑學者。細考之：以象限度加一十一度有餘為法，以景差除之而後自乘，得節率。每節氣有乘法率，以節率乘之，加夏至影冪，即為各節氣之影冪。故節率者，人為析出之數也。
+
+\switchcolumn[1]
+\subsection*{Problem 5: Measuring the Sun's Shadow}
 \label{sec:kuirijiuwei}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 揆日究微}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Measuring the Sun's Shadow}
-\end{minipage}
-
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-歷代測景，唯唐大衍曆最密。本朝崇天曆測陽城：
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 冬至影：一丈二尺七寸一分五十杪
-  \item 夏至影：一尺四寸七分七十杪
-\end{itemize}
-與大衍曆合。今開禧曆測臨安府：
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 冬至影：一丈八寸二分二十五杪
-  \item 夏至影：九寸一分
-\end{itemize}
-
-欲知：臨安夏至後幾日，其影與陽城夏至影等？與大衍曆影比較，相差幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-Among all historical shadow-measurements, only the Tang dynasty's Dayan calendar (大衍曆) was the most precise. This dynasty's Chongtian calendar (崇天曆) gives for Yangcheng (陽城):
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\WenEN{}\quad Among all historical shadow-measurements, only the Tang dynasty's Dayan calendar (大衍曆) was the most precise. This dynasty's Chongtian calendar (崇天曆) gives for Yangcheng (陽城):
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Winter solstice shadow: 1 \textit{zhang} 2 \textit{chi} 7 \textit{cun} 1 \textit{fen} 50 \textit{miao}
   \item Summer solstice shadow: 1 \textit{chi} 4 \textit{cun} 7 \textit{fen} 70 \textit{miao}
 \end{itemize}
 These agree with the Dayan calendar. Now the Kaixi calendar (開禧曆) gives for Lin'an (臨安府):
-\begin{itemize}[noitemsep,leftmargin=*]
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Winter solstice shadow: 1 \textit{zhang} 8 \textit{cun} 2 \textit{fen} 25 \textit{miao}
   \item Summer solstice shadow: 9 \textit{cun} 1 \textit{fen}
 \end{itemize}
-
 It is desired to find: after how many days past the summer solstice at Lin'an will the shadow equal the Yangcheng summer solstice shadow? And comparing with the Dayan calendar's shadow, by how much do they differ?
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\DaEN{}\quad Five days after the Great Heat (大暑後五日) at noon; the shadow length is 1 \textit{chi} 4 \textit{cun} 8 \textit{fen} 85 \textit{miao} (half). The shadow difference is 6 \textit{cun} 1 \textit{fen} 29 \textit{miao} (less).
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
-
-大暑後五日正午，影長一尺四寸八分八十五杪（半）。影差六寸一分二十九杪（少）。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-
-Five days after the Great Heat (大暑後五日) at noon; the shadow length is 1 \textit{chi} 4 \textit{cun} 8 \textit{fen} 85 \textit{miao} (half). The shadow difference is 6 \textit{cun} 1 \textit{fen} 29 \textit{miao} (less).
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰
-
-以乘法乘之，節率入焉。
-\begin{enumerate}[noitemsep,leftmargin=*]
-  \item 置臨安所測冬至影，減夏至影；餘為景差，以為實。
-  \item 置象限度（九十一度三十一分四十四杪），加一十一度二十五分二十七秒半；以度為寸，得一百零二寸五千六百七十一分五十杪，以為法。
-  \item 實如法得零點九六六四……；棄餘，自乘得節泛數：九千四百分。
-  \item 以諸節氣乘節率，加夏至影冪，開方得諸節氣影長。
-\end{enumerate}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-
-Use the multiplication-rate method, with the section-rate (節率) entering into it.
-\begin{enumerate}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\ShuEN{}\quad Use the multiplication-rate method, with the section-rate (節率) entering into it.
+\begin{enumerate}[noitemsep,topsep=0pt]
   \item Place Lin'an's measured winter solstice shadow, subtract the summer solstice shadow; the remainder is the shadow-difference (景差), taken as dividend.
   \item Place the象限度 (91 degrees 31 \textit{fen} 44 \textit{miao}), add 11 degrees 25 \textit{fen} 27.5 small-\textit{fen}; treating degrees as \textit{cun}, obtain 102 \textit{cun} 5671.5 \textit{fen} 50 \textit{miao} as divisor.
   \item Divide the dividend by the divisor, obtaining 0.9664...; discard the remainder and square to obtain the section floating-number (節泛數): 9,340 \textit{fen}.
   \item Multiply by the section multiplication-rates for each solar term, add the summer solstice shadow-squared, take the square root to obtain each solar term's shadow length.
 \end{enumerate}
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-各節氣影長，當時實測而定，本不須推算。此術故為繁難，以惑學者。細考之：象限度加一十一度有餘以為法；以景差除之而自乘，得節率。每節氣有乘率；以節率乘之，加夏至影冪，得各節氣之影冪。故節率者，強立之數也。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-Each solar term's shadow length was determined by actual measurement at the time and does not need computation. The method presented here deliberately creates obscurity to puzzle the reader. Detailed examination shows: the象限度 plus 11+ degrees is taken as divisor; the shadow-difference divided by this and then squared gives the section-rate. Each solar term has a multiplication-rate; multiplying the section-rate by this and adding the summer solstice shadow-power gives each term's shadow-power. Thus the section-rate is an artificially extracted number.
-\end{minipage}
+\vspace{0.5em}
+\AnEN{}\quad Each solar term's shadow length was determined by actual measurement at the time and does not need computation. The method presented here deliberately creates obscurity to puzzle the reader. Detailed examination shows: the象限度 plus 11+ degrees is taken as divisor; the shadow-difference divided by this and then squared gives the section-rate. Each solar term has a multiplication-rate; multiplying the section-rate by this and adding the summer solstice shadow-power gives each term's shadow-power. Thus the section-rate is an artificially extracted number.
 
 \newpage
 
 %% ========================================================================
-%% PART 2: Volume 2 Lower
+%% PART 2: Volume 2 Lower -- 卷二下
 %% ========================================================================
-\section{Volume 2, Part 2 / 卷二下}
-\label{sec:juan2xia}
+\switchcolumn[0]*
+\section*{卷二下}
+\addcontentsline{toc}{section}{Volume 2, Part 2 / 卷二下}
 
-\longline
+\switchcolumn[1]
+\section*{Volume 2, Part 2}
+
+\vspace{1em}
 
 %% ========================================================================
 %% PROBLEM 6
 %% ========================================================================
-\subsection{Problem 6 / 第六問: 天池測雨}
+\switchcolumn[0]*
+\subsection*{第六問：天池測雨}
+
+\vspace{0.5em}
+\WenCN{}\quad 今州郡皆有天池盆以測雨，然人但知盆中之水即所受之雨，而不知器之圓弇各有所受，不可徑以盆測為平地之雨。設盆口徑二尺八寸，底徑一尺二寸，深一尺八寸，接雨水深九寸。問：平地雨深幾何？
+
+\vspace{0.5em}
+\DaCN{}\quad 平地雨深\textbf{三寸}。
+
+\vspace{0.5em}
+\ShuCN{}\quad 用圓錐術：
+\begin{enumerate}[noitemsep,topsep=0pt]
+  \item 以口徑乘底徑，又各自乘，併三數。以半深乘之，又以十一乘、七除，得下積。
+  \item 以半深加雨深，以減全深，得上深。
+  \item 以底徑減口徑，以上深乘之。以半深乘之，加口徑乘半深，得面率。
+  \item 以面率除半深，得水面徑。
+  \item 續以乘除，求得雨水之積，以口冪（平方三倍）除之，得平地雨深。
+\end{enumerate}
+
+\vspace{0.5em}
+\AnCN{}\quad 天池盆者，圓錐之截頭也。以雨積除以口面積，即得平地雨深。其術以圓錐台體積之術推之，而歸於平地之算。
+
+\switchcolumn[1]
+\subsection*{Problem 6: Measuring Rain with the Heavenly Pool Basin}
 \label{sec:tianchiceyu}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 天池測雨}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Measuring Rain with the Heavenly Pool Basin}
-\end{minipage}
-
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-今州郡皆有天池盆以測雨水。然世人但知盆中之水即所得之雨，而不知器形不同則受雨各異──故不可徑以盆測為平地之雨數。
-
-設盆口徑二尺八寸，底徑一尺二寸，深一尺八寸。接雨水深九寸。問平地雨深幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-Nowadays every prefecture and district has a ``heavenly pool'' basin (天池盆) for measuring rainwater. But people only know that the water in the basin equals the rain received, and do not understand that different vessel shapes receive different amounts of rain---so one cannot directly take the basin measurement as the flat-ground rain amount.
+\vspace{0.5em}
+\WenEN{}\quad Nowadays every prefecture and district has a ``heavenly pool'' basin (天池盆) for measuring rainwater. But people only know that the water in the basin equals the rain received, and do not understand that different vessel shapes receive different amounts of rain---so one cannot directly take the basin measurement as the flat-ground rain amount.
 
 Suppose the basin has:
-\begin{itemize}[noitemsep,leftmargin=*]
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Mouth diameter (口徑): 2 \textit{chi} 8 \textit{cun} (28 \textit{cun})
   \item Base diameter (底徑): 1 \textit{chi} 2 \textit{cun} (12 \textit{cun})
   \item Depth (深): 1 \textit{chi} 8 \textit{cun} (18 \textit{cun})
   \item Rainwater depth inside (接雨水深): 9 \textit{cun}
 \end{itemize}
 What is the equivalent flat-ground rain depth?
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\DaEN{}\quad Flat-ground rain depth: \textbf{3 \textit{cun}}.
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
-
-平地雨深：\textbf{三寸}。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-
-Flat-ground rain depth: \textbf{3 \textit{cun}}.
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰（圓錐術）
-\begin{enumerate}[noitemsep,leftmargin=*]
-  \item 以口徑乘底徑，又各自乘；併三數。以半深乘之；又以十一乘、七除，得下積。
-  \item 以半深加雨深，以減全深，得上深。
-  \item 以底徑減口徑；以餘乘上深。以半深乘之，加口徑乘半深，得面率。
-  \item 以面率除以半深，得水表面徑。
-  \item 續以乘除，求得雨水體積，以口冪（平方三倍）除之，得平地雨深。
-\end{enumerate}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-(Use the method for circular cones / 圓錐術):
-\begin{enumerate}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\ShuEN{}\quad Use the method for circular cones (圓錐術):
+\begin{enumerate}[noitemsep,topsep=0pt]
   \item Multiply the mouth diameter by the base diameter, and also square each; combine these three values. Multiply by half the depth; then multiply by 11 and divide by 7 to obtain the lower volume (下積).
   \item Take half the depth plus the rain depth, subtract from the total depth to obtain the upper depth (上深).
   \item Subtract the base diameter from the mouth diameter; multiply the remainder by the upper depth. Multiply by half the depth, add the result to the mouth-diameter times half-depth, to obtain the surface rate (面率).
   \item Divide the surface rate by half the depth to obtain the water surface diameter.
   \item Continue with further multiplications to isolate the rain volume, then divide by the mouth-area (squared and tripled) to obtain the flat-ground rain depth.
 \end{enumerate}
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-\textbf{數學提要：}天池盆為圓錐之截頭體。所積雨水體積為
-\[
-V_{\text{雨}} = \frac{\pi h_{\text{雨}}}{3}\left(R^2 + Rr + r^2\right)
-\]
-以口冪 $\pi R^2$ 除之，得平地雨深。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-\textbf{Mathematical summary:} The heavenly pool basin is a frustum of a cone. The rain volume collected is:
+\vspace{0.5em}
+\AnEN{}\quad The heavenly pool basin is a frustum of a cone. The rain volume collected is:
 \[
 V_{\text{rain}} = \frac{\pi h_{\text{rain}}}{3}\left(R^2 + Rr + r^2\right)
 \]
 where $R$ is the top radius, $r$ is the base radius, and $h_{\text{rain}}$ is the rain depth. Dividing by the mouth area $\pi R^2$ gives the equivalent flat-ground rain depth.
-\end{minipage}
 
 \newpage
 
 %% ========================================================================
 %% PROBLEM 7
 %% ========================================================================
-\subsection{Problem 7 / 第七問: 圓罌測雨}
+\switchcolumn[0]*
+\subsection*{第七問：圓罌測雨}
+
+\vspace{0.5em}
+\WenCN{}\quad 以圓罌受雨，口徑一尺五寸（一尺五分寸？），腹徑二尺四寸，底徑八寸，深一尺六寸，接雨水深一尺二寸。用密率入圓冪，問：平地雨深幾何？
+
+\vspace{0.5em}
+\DaCN{}\quad 平地雨深\textbf{一尺八寸，又七百四十分之六百八十三寸}。（校正值）
+
+\vspace{0.5em}
+\ShuCN{}\quad 以底徑乘腹徑，又各自乘，併三數。以半器深乘之；以十一乘、四十二除，得下積。
+
+以半器深加雨深，以減全深，得上深。以腹徑減口徑，以上深乘之。以半深乘之，加口徑乘半深，得面率。
+
+以面率乘腹率，又各自乘併之；以十一乘、四十二除，得上率。併二率（上下）為雨積實。以口徑平方之三倍除之，得平地雨深。
+
+\vspace{0.5em}
+\AnCN{}\quad 原題云「密率入圓冪」，與求平地雨深無涉。若求器中雨積，則此言為當。原草有誤，今以正術列之。
+
+\switchcolumn[1]
+\subsection*{Problem 7: Measuring Rain with a Round Vessel}
 \label{sec:yuanyingceyu}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 圓罌測雨}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Measuring Rain with a Round Vessel}
-\end{minipage}
-
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-以圓罌受雨：口徑一尺五分（一尺零五分），腹徑二尺四寸，底徑八寸，深一尺六寸。接雨水深一尺二寸。以密率（$\pi \approx 22/7$）入圓術。問平地雨深幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-Using a round vessel (圓罌) to catch rain:
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\WenEN{}\quad Using a round vessel (圓罌) to catch rain:
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Mouth diameter (口徑): 1 \textit{chi} 5 \textit{fen} (10.5 \textit{cun})
   \item Belly diameter (腹徑): 2 \textit{chi} 4 \textit{cun} (24 \textit{cun})
   \item Base diameter (底徑): 8 \textit{cun}
@@ -874,146 +635,105 @@ Using a round vessel (圓罌) to catch rain:
   \item Rainwater depth inside: 1 \textit{chi} 2 \textit{cun} (12 \textit{cun})
 \end{itemize}
 Using the ``dense rate'' (密率, $\pi \approx 22/7$) for circle computations, what is the flat-ground rain depth?
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\DaEN{}\quad Flat-ground rain depth: \textbf{1 \textit{chi} 8 \textit{cun} plus $\frac{6483}{74088}$ \textit{cun}}. (Editor's corrected value.)
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
-
-平地雨深：\textbf{一尺八寸加 $\frac{6483}{74088}$ 寸}。（校正本）
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-
-Flat-ground rain depth: \textbf{1 \textit{chi} 8 \textit{cun} plus $\frac{6483}{74088}$ \textit{cun}}. (Editor's corrected value.)
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰
-
-以底徑乘腹徑，又各自乘；併三數。以器半深乘之；以十一乘、四十二除，得下積。
-
-以器半深加雨深，以減全深，得上深。以腹徑減口徑；以餘乘上深。以半深乘之，加口徑乘半深，得面率。
-
-以面率乘腹率；又各自乘併之；以十一乘、四十二除，得上率。併二率（上下）為雨水總積實。以口徑平方三倍除之，得平地雨深。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-
-Multiply the base diameter by the belly diameter, and also square each; combine these three values. Multiply by half the vessel depth; multiply by 11 and divide by 42 to obtain the lower volume.
+\vspace{0.5em}
+\ShuEN{}\quad Multiply the base diameter by the belly diameter, and also square each; combine these three values. Multiply by half the vessel depth; multiply by 11 and divide by 42 to obtain the lower volume.
 
 Take half the vessel depth plus the rain depth, subtract from the total depth to obtain the upper depth. Subtract the belly diameter from the mouth diameter; multiply the remainder by the upper depth. Multiply by half the depth; add the mouth-diameter times half-depth to obtain the surface rate.
 
 Multiply the surface rate by the belly rate; also square each and combine; multiply by 11 and divide by 42 to obtain the upper rate. Combine the two rates (upper and lower) to obtain the total rain volume as dividend. Divide by three times the squared mouth-diameter to obtain the flat-ground rain depth.
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-原題云「以密率入圓術」，於求平地雨深無涉。若求器之雨水體積，則此語為當。原草有誤，上呈校正法。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-The original problem statement mentions ``dense rate for circle computation'' which is irrelevant to finding the flat-ground rain depth. If one were seeking the vessel's rain volume, then this phrase would be appropriate. There were errors in the original computation; the above presents the corrected method.
-\end{minipage}
+\vspace{0.5em}
+\AnEN{}\quad The original problem statement mentions ``dense rate for circle computation'' which is irrelevant to finding the flat-ground rain depth. If one were seeking the vessel's rain volume, then this phrase would be appropriate. There were errors in the original computation; the above presents the corrected method.
 
 \newpage
 
 %% ========================================================================
 %% PROBLEM 8
 %% ========================================================================
-\subsection{Problem 8 / 第八問: 峻積驗雪}
+\switchcolumn[0]*
+\subsection*{第八問：峻積驗雪}
+
+\vspace{0.5em}
+\WenCN{}\quad 驗雪占年：牆高一丈二尺，以板倚之，去址五尺，板末與牆齊。雪積板上厚四寸，峻處薄而平處厚。問：平地雪厚幾何？
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+  \draw[thick, fill=gray!20] (0,0) rectangle (0.5,12);
+  \draw[thick] (0,0) -- (0,12);
+  \draw[thick] (-1,0) -- (7,0);
+  \draw[thick, fill=brown!30] (0,12) -- (5,0) -- (5.3,0) -- (0.3,12) -- cycle;
+  \draw[thick, fill=blue!15] (0,12) -- (5,0) -- (4.7,0.24) -- (0.27,12) -- cycle;
+  \node[left] at (0,6) {\small 牆};
+  \node[below] at (2.5,0) {\small 五尺};
+  \draw[<->, thick] (0,-0.8) -- (5,-0.8);
+  \node[right, rotate=50] at (3,6) {\small 板};
+  \node[above] at (0,12.3) {\small 十二尺};
+  \draw[<->, thick] (-0.8,0) -- (-0.8,12);
+  \node[right] at (5.5,0.5) {\small 雪};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5em}
+\DaCN{}\quad 平地雪厚\textbf{一尺四分}。
+
+\vspace{0.5em}
+\ShuCN{}\quad 用少廣術，連枝入之：
+\begin{enumerate}[noitemsep,topsep=0pt]
+  \item 以去址之數自乘，為隅。
+  \item 以牆高自乘，併入上隅。
+  \item 以雪厚自乘，乘上併數，為實。
+  \item（約之）開連枝平方，得平地雪厚。
+\end{enumerate}
+
+\vspace{0.5em}
+\CaoCN{}\quad 通分內子：去址五十寸，自乘得二千五百，為隅。牆高一百二十寸，自乘得一萬四千四百。併之得一萬六千九百。雪厚四寸，自乘得十六。乘之得二十七萬四百，為實。隅與實俱以百約之，得實二千七百〇四，隅二十五。開平方：$\sqrt{2704/25} = 52/5 = 10.4$寸，即\textbf{一尺四分}。
+
+\vspace{0.5em}
+\AnCN{}\quad 理與法俱正。實即勾股術，特不以此名之耳。「連枝」之號，隱其本理。蓋三角形相似，以比例求之也。
+
+\switchcolumn[1]
+\subsection*{Problem 8: Verifying Snow Accumulation}
 \label{sec:junjiyanxue}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 峻積驗雪}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Verifying Snow Accumulation}
-\end{minipage}
+\vspace{0.5em}
+\WenEN{}\quad To verify snow for predicting the harvest: A wall is 1 \textit{zhang} 2 \textit{chi} (12 \textit{chi}) high. A plank leans against it, the base 5 \textit{chi} from the wall's foot, with the tip level with the wall top. Snow accumulates 4 \textit{cun} thick on the plank. The steep accumulation is thin while the flat accumulation is thick. What is the flat-ground snow depth?
 
-\vspace{0.3cm}
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+  \draw[thick, fill=gray!20] (0,0) rectangle (0.5,12);
+  \draw[thick] (0,0) -- (0,12);
+  \draw[thick] (-1,0) -- (7,0);
+  \draw[thick, fill=brown!30] (0,12) -- (5,0) -- (5.3,0) -- (0.3,12) -- cycle;
+  \draw[thick, fill=blue!15] (0,12) -- (5,0) -- (4.7,0.24) -- (0.27,12) -- cycle;
+  \node[left] at (0,6) {\small Wall};
+  \node[below] at (2.5,0) {\small 5 chi};
+  \draw[<->, thick] (0,-0.8) -- (5,-0.8);
+  \node[right, rotate=50] at (3,6) {\small Plank};
+  \node[above] at (0,12.3) {\small 12 chi};
+  \draw[<->, thick] (-0.8,0) -- (-0.8,12);
+  \node[right] at (5.5,0.5) {\small Snow};
+\end{tikzpicture}
+\end{center}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
+\vspace{0.5em}
+\DaEN{}\quad Flat-ground snow depth: \textbf{1 \textit{chi} 4 \textit{fen}}.
 
-驗雪以占年：牆高一丈二尺。以板倚之，去址五尺，板末與牆頭齊。板上積雪厚四寸。峻處積薄而平處積厚。問平地雪深幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-To verify snow for predicting the harvest: A wall is 1 \textit{zhang} 2 \textit{chi} (12 \textit{chi}) high. A plank leans against it, the base 5 \textit{chi} from the wall's foot, with the tip level with the wall top. Snow accumulates 4 \textit{cun} thick on the plank. The steep accumulation is thin while the flat accumulation is thick. What is the flat-ground snow depth?
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
-
-平地雪深：\textbf{一尺四分}。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-
-Flat-ground snow depth: \textbf{1 \textit{chi} 4 \textit{fen}}.
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰（少廣術，連枝法）
-\begin{enumerate}[noitemsep,leftmargin=*]
-  \item 以去址自乘，為隅。
-  \item 以牆高自乘；併入上隅。
-  \item 以雪厚自乘；乘上併數，為實。
-  \item （可約則約之。）開連枝平方，得平地雪深。
-\end{enumerate}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-(Use the method of Shao Guang / 少廣, with the connected-branch / 連枝 method):
-\begin{enumerate}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\ShuEN{}\quad Use the method of Shao Guang (少廣), with the connected-branch (連枝) method:
+\begin{enumerate}[noitemsep,topsep=0pt]
   \item Square the distance from the base (去址): this is the corner (隅).
   \item Square the wall height; combine with the corner above.
   \item Square the snow thickness; multiply by the combined value above to obtain the dividend.
   \item (Reduce if possible.) Extract the connected-branch square root to obtain the flat-ground snow depth.
 \end{enumerate}
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Cao{}
-
-皆以寸為單位：
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 去址五十寸；自乘得二千五百（隅）。
-  \item 牆高一百二十寸；自乘得一萬四千四百。
-  \item 併之：一萬四千四百加二千五百 = 一萬六千九百。
-  \item 雪厚四寸；自乘得一十六。
-  \item 相乘：$16900 \times 16 = 270400$（實）。
-\end{itemize}
-隅與實同約百；得實二千七百零四、隅二十五。開平方：$\sqrt{2704/25} = 52/5 = 10.4$ 寸 = \textbf{一尺四分}。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Work{}
-
-Convert all measurements to \textit{cun}:
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\CaoEN{}\quad Convert all measurements to \textit{cun}:
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Distance from base: 50 \textit{cun}; squared = 2,500 (corner).
   \item Wall height: 120 \textit{cun}; squared = 14,400.
   \item Combined: 14,400 + 2,500 = 16,900.
@@ -1021,189 +741,138 @@ Convert all measurements to \textit{cun}:
   \item Multiply: $16{,}900 \times 16 = 270{,}400$ (dividend).
 \end{itemize}
 The corner and dividend share a factor of 100; reduce to get dividend 2,704 and corner 25. Extracting the square root: $\sqrt{2704/25} = 52/5 = 10.4$ \textit{cun} = \textbf{1 \textit{chi} 4 \textit{fen}}.
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-理與術皆正。實即勾股術，雖不以此名之。「連枝」之號，隱其理也。圖示：AB為平地雪深（與牆頂雪厚等），BC為板上餘雪。三角形ABC與板倚牆之形相似。牆高為大股，去址為大勾，板為大弦。以勾股定理，比例求之，得平地雪深。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-Both the principle and method are correct. In fact, this uses the right-triangle (勾股) method, though not named as such. The ``connected-branch'' terminology conceals the underlying principle. The diagram illustrates: AB is the flat-ground snow depth (equal to the wall-top snow depth), BC is the excess snow on the plank. Triangle ABC is similar to the triangle formed by the plank leaning against the wall. The wall height is the large leg, the distance from base is the large base, the plank is the large hypotenuse. The flat-ground snow depth is found by proportional reasoning via the Pythagorean theorem.
-\end{minipage}
-
-%% Diagram
-\begin{center}
-\begin{tikzpicture}[scale=0.55]
-  % Wall
-  \draw[thick, fill=gray!20] (0,0) rectangle (0.5,12);
-  \draw[thick] (0,0) -- (0,12);
-  % Ground
-  \draw[thick] (-1,0) -- (7,0);
-  % Plank
-  \draw[thick, fill=brown!30] (0,12) -- (5,0) -- (5.3,0) -- (0.3,12) -- cycle;
-  % Snow on plank
-  \draw[thick, fill=blue!15] (0,12) -- (5,0) -- (4.7,0.24) -- (0.27,12) -- cycle;
-  % Labels
-  \node[left] at (0,6) {\small Wall / 牆};
-  \node[below] at (2.5,-0.5) {\small 5 chi / 五尺};
-  \draw[<->, thick] (0,-0.8) -- (5,-0.8);
-  \node[right, rotate=50] at (3,6) {\small Plank / 板};
-  \node[above] at (0,12.5) {\small 12 chi / 十二尺};
-  \draw[<->, thick] (-0.8,0) -- (-0.8,12);
-  \node[right] at (5.5,0.5) {\small Snow / 雪};
-\end{tikzpicture}
-\end{center}
+\vspace{0.5em}
+\AnEN{}\quad Both the principle and method are correct. In fact, this uses the right-triangle (勾股) method, though not named as such. The ``connected-branch'' terminology conceals the underlying principle. The diagram illustrates: AB is the flat-ground snow depth (equal to the wall-top snow depth), BC is the excess snow on the plank. Triangle ABC is similar to the triangle formed by the plank leaning against the wall. The wall height is the large leg, the distance from base is the large base, the plank is the large hypotenuse. The flat-ground snow depth is found by proportional reasoning via the Pythagorean theorem.
 
 \newpage
 
 %% ========================================================================
 %% PROBLEM 9
 %% ========================================================================
-\subsection{Problem 9 / 第九問: 竹器驗雪}
+\switchcolumn[0]*
+\subsection*{第九問：竹器驗雪}
+
+\vspace{0.5em}
+\WenCN{}\quad 以圓竹器驗雪，口徑一尺六寸，深一尺七寸，底徑一尺二寸。雪入其中，深一尺。器通風，雪多則平地淺。問：平地雪厚幾何？
+
+\vspace{0.5em}
+\DaCN{}\quad 平地雪厚\textbf{九寸，又三千四百三十九分之七百六十四寸}。
+
+\vspace{0.5em}
+\ShuCN{}\quad 以底徑減口徑，以雪深乘之，半之，自乘，為隅。以器深自乘，乘雪深自乘之數；併入隅，以雪深自乘之數乘之，為實。開連枝三乘方，得平地雪厚。
+
+\vspace{0.5em}
+\CaoCN{}\quad 通分內子：口徑十六寸，底徑十二寸。差四寸；雪深十寸。乘之得四十；半之得二十，為上廉。器深自乘：$17^2 = 289$。雪深自乘：$10^2 = 100$。乘之得二萬八千九百；併入隅，續以三乘方開法入之，得平地雪厚九寸，餘三千四百三十九分之七百六十四。
+
+\vspace{0.5em}
+\AnCN{}\quad「通風」之語，不關算術。或謂器中之雪深與平地異，以風故也；然此問算理，與天池測雨之題同，以圓臺之體推之而已。
+
+\switchcolumn[1]
+\subsection*{Problem 9: Verifying Snow with a Bamboo Container}
 \label{sec:zhuqiyanxue}
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\textbf{【原文】\quad 竹器驗雪}
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\textbf{[English]\quad Verifying Snow with a Bamboo Container}
-\end{minipage}
-
-\vspace{0.3cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Wen{}
-
-以圓竹器驗雪：口徑一尺六寸，深一尺七寸，底徑一尺二寸。雪入其中，深一尺。器通透風，雪入既多，則平地之數淺。問平地雪厚幾何？
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ask{}
-
-Using a round bamboo container (圓竹器) to verify snow:
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\WenEN{}\quad Using a round bamboo container (圓竹器) to verify snow:
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Mouth diameter (口徑): 1 \textit{chi} 6 \textit{cun} (16 \textit{cun})
   \item Depth (深): 1 \textit{chi} 7 \textit{cun} (17 \textit{cun})
   \item Base diameter (底徑): 1 \textit{chi} 2 \textit{cun} (12 \textit{cun})
 \end{itemize}
 Snow falls into it, filling to a depth of 1 \textit{chi}. The container is permeable to wind; when much snow enters, the flat-ground depth is less. What is the flat-ground snow thickness?
-\end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.5em}
+\DaEN{}\quad Flat-ground snow thickness: \textbf{9 \textit{cun} plus $\frac{764}{3439}$ \textit{cun}}.
 
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Da{}
+\vspace{0.5em}
+\ShuEN{}\quad Subtract the base diameter from the mouth diameter; multiply by the snow depth, halve, and square to obtain the corner (隅). Square the container depth and multiply by the squared snow depth; combine with the corner and multiply by the squared snow depth to obtain the dividend. Extract the connected-branch cube root (三乘方) to obtain the flat-ground snow thickness.
 
-平地雪厚：\textbf{九寸加 $\frac{764}{3439}$ 寸}。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Ans{}
-
-Flat-ground snow thickness: \textbf{9 \textit{cun} plus $\frac{764}{3439}$ \textit{cun}}.
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Shu{}曰
-
-以底徑減口徑；以餘乘雪深，半之，自乘，為隅。以器深自乘，乘雪深自乘；併入隅，乘雪深自乘，為實。開連枝三乘方，得平地雪厚。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Meth{}
-
-Subtract the base diameter from the mouth diameter; multiply the remainder by the snow depth, halve, and square to obtain the corner (隅). Square the container depth and multiply by the squared snow depth; combine with the corner and multiply by the squared snow depth to obtain the dividend. Extract the connected-branch cube root (三乘方) to obtain the flat-ground snow thickness.
-\end{minipage}
-
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\Cao{}
-
-皆以寸為單位：
-\begin{itemize}[noitemsep,leftmargin=*]
-  \item 口徑十六寸；底徑十二寸。
-  \item 差四寸；雪深十寸。
-  \item 相乘：$4 \times 10 = 40$；半之得二十（上廉）。
-  \item 器深自乘：$17^2 = 289$。
-  \item 雪深自乘：$10^2 = 100$。
-  \item 相乘：$289 \times 100 = 28900$；併入隅，續開三乘方。
-\end{itemize}
-其草用「三乘方開法」，得平地雪厚九寸，餘 $\frac{764}{3439}$。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Work{}
-
-Convert all measurements to \textit{cun}:
-\begin{itemize}[noitemsep,leftmargin=*]
+\vspace{0.5em}
+\CaoEN{}\quad Convert all measurements to \textit{cun}:
+\begin{itemize}[noitemsep,topsep=0pt]
   \item Mouth diameter: 16 \textit{cun}; base diameter: 12 \textit{cun}.
   \item Difference: 4 \textit{cun}; snow depth: 10 \textit{cun}.
-  \item Multiply: $4 \times 10 = 40$; halve = 20 (this is the upper-\textit{lian} / 上廉).
+  \item Multiply: $4 \times 10 = 40$; halve = 20 (this is the upper-\textit{lian} 上廉).
   \item Container depth squared: $17^2 = 289$.
   \item Snow depth squared: $10^2 = 100$.
   \item Multiply: $289 \times 100 = 28{,}900$; combine with the corner and continue the cube-root extraction.
 \end{itemize}
 The working proceeds through the Chinese ``method of extracting cube roots with carrying'' (三乘方開法), yielding the flat-ground snow depth of 9 \textit{cun} with remainder 764/3439.
-\end{minipage}
 
-\vspace{0.4cm}
-
-\noindent\begin{minipage}[t]{\zhcolumnwidth}
-\An{}
-
-「通透風」之語，於術無涉。或謂器中之雪深因風而異於平地；此問實與天池測雨同理，以截頭圓錐形之竹器而變通之。
-\end{minipage}%
-\hspace{\columngap}%
-\begin{minipage}[t]{\encolumnwidth}
-\Note{}
-
-The phrase ``permeable to wind'' does not affect the computation method. Some commentators suggest the snow depth in the container differs from the flat-ground depth due to wind effects; this problem uses the same geometric principle as the Heavenly Pool rain problem, adapted for a frustum-shaped bamboo container.
-\end{minipage}
+\vspace{0.5em}
+\AnEN{}\quad The phrase ``permeable to wind'' does not affect the computation method. Some commentators suggest the snow depth in the container differs from the flat-ground depth due to wind effects; this problem uses the same geometric principle as the Heavenly Pool rain problem, adapted for a frustum-shaped bamboo container.
 
 \newpage
 
 %% ========================================================================
 %% Appendix: Summary Table
 %% ========================================================================
-\section*{Summary of Fascicle 2 Problems / 卷二題目總表}
-\addcontentsline{toc}{section}{Summary of Fascicle 2 Problems / 卷二題目總表}
+\switchcolumn[0]*
+\section*{天時類九問總表}
+\addcontentsline{toc}{section}{Summary / 總表}
 
-\begin{longtable}{|c|l|l|p{5cm}|}
+\switchcolumn[1]
+\section*{Summary of Fascicle 2 Problems}
+
+\vspace{1em}
+
+\switchcolumn[0]*
+\begin{longtable}{|c|l|p{5cm}|}
 \hline
-\textbf{No.} & \textbf{Title / 題目} & \textbf{Pinyin} & \textbf{Topic / 主題} \\
+\textbf{序} & \textbf{題名} & \textbf{術要} \\
 \hline
 \endfirsthead
 \hline
-\textbf{No.} & \textbf{Title / 題目} & \textbf{Pinyin} & \textbf{Topic / 主題} \\
+\textbf{序} & \textbf{題名} & \textbf{術要} \\
 \hline
 \endhead
-1 & 推氣治歷 & Tui Qi Zhi Li & Computing solar terms from two winter solstice observations / 以二至測推節氣 \\
+1 & 推氣治歷 & 兩測推氣骨、歲餘、斗分 \\
 \hline
-2 & 治歷推閏 & Zhi Li Tui Run & Finding intercalation parameters for a calendar / 求閏骨閏率 \\
+2 & 治歷推閏 & 通分約率求閏骨、閏率 \\
 \hline
-3 & 治歷演紀 & Zhi Li Yan Ji & Deriving 23 epoch parameters using Dayan method / 大衍術推曆元 \\
+3 & 治歷演紀 & 大衍術推曆元二十三率 \\
 \hline
-4 & 綴術推星 & Zhui Shu Tui Xing & Computing Jupiter's motion rates / 推歲星行率 \\
+4 & 綴術推星 & 招差法推五星行率 \\
 \hline
-5 & 揆日究微 & Kui Ri Jiu Wei & Comparing solar shadow lengths at two locations / 比較二地日影 \\
+5 & 揆日究微 & 乘法節率推各地日影 \\
 \hline
-6 & 天池測雨 & Tian Chi Ce Yu & Measuring rain with a conical basin / 圓錐盆測雨量 \\
+6 & 天池測雨 & 圓錐台體積求平地雨深 \\
 \hline
-7 & 圓罌測雨 & Yuan Ying Ce Yu & Measuring rain with a round vessel / 圓罌測雨量 \\
+7 & 圓罌測雨 & 圓罌容積求平地雨深 \\
 \hline
-8 & 峻積驗雪 & Jun Ji Yan Xue & Converting snow on a slanted plank to flat-ground depth / 斜板積雪換算 \\
+8 & 峻積驗雪 & 少廣連枝開方求平地雪厚 \\
 \hline
-9 & 竹器驗雪 & Zhu Qi Yan Xue & Converting snow in a bamboo container to flat-ground depth / 竹器積雪換算 \\
+9 & 竹器驗雪 & 三乘方開法求平地雪厚 \\
+\hline
+\end{longtable}
+
+\switchcolumn[1]
+\begin{longtable}{|c|l|p{5.5cm}|}
+\hline
+\textbf{No.} & \textbf{Title} & \textbf{Topic} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Title} & \textbf{Topic} \\
+\hline
+\endhead
+1 & 推氣治歷 Tui Qi Zhi Li & Computing solar terms from two winter solstice observations \\
+\hline
+2 & 治歷推閏 Zhi Li Tui Run & Finding intercalation parameters for a calendar \\
+\hline
+3 & 治歷演紀 Zhi Li Yan Ji & Deriving 23 epoch parameters using Dayan method \\
+\hline
+4 & 綴術推星 Zhui Shu Tui Xing & Computing Jupiter's motion rates \\
+\hline
+5 & 揆日究微 Kui Ri Jiu Wei & Comparing solar shadow lengths at two locations \\
+\hline
+6 & 天池測雨 Tian Chi Ce Yu & Measuring rain with a conical basin \\
+\hline
+7 & 圓罌測雨 Yuan Ying Ce Yu & Measuring rain with a round vessel \\
+\hline
+8 & 峻積驗雪 Jun Ji Yan Xue & Converting snow on a slanted plank to flat-ground depth \\
+\hline
+9 & 竹器驗雪 Zhu Qi Yan Xue & Converting snow in a bamboo container to flat-ground depth \\
 \hline
 \end{longtable}
 
@@ -1217,18 +886,10 @@ The phrase ``permeable to wind'' does not affect the computation method. Some co
 \vspace{0.5cm}
 
 {\small\color{notecolor}
-\textit{「七曜周旋於蒼穹，人事追綴以相通。\\
-星以夜候，晷以晝察──歷年既久，術愈疏；\\
-唯智者能革而新之。」}\\
---- 秦九韶《數學九章》自序}
-
-\vspace{0.3cm}
-
-{\small\color{notecolor}
 \textit{``Seven planets revolve in the firmament; the affairs of men are tracked by pursuing and connecting [their motions].\\
 Stars by night, gnomon by day---as ages pass, [methods] become coarse;\\
 only the wise can reform them.''}\\
---- Qin Jiushao, Preface to \textit{Shuxue Jiuzhang}}
+--- Qin Jiushao, Preface to \textit{Shuxue Jiuzhang} / 秦九韶《數學九章序》}
 \end{center}
 
 \end{document}

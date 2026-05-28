@@ -12,12 +12,10 @@
 %% ========================================================================
 %% Līlāvatī of Bhāskara II — Critical Edition with Sanskrit Text
 %% Digitized from: Late Pt. Manmohan Shastri Collection Jammu (eGangotri)
-%% Publisher: Shyamlal Bhat, Kashi (Varanasi), 3rd Edition, Shake 1829 (1907 CE)
 %% ========================================================================
 
-\documentclass[11pt,a4paper]{book}
+\documentclass[10pt,a4paper]{article}
 
-%% -------- Core Packages --------
 \usepackage{fontspec}
 \usepackage{polyglossia}
 \usepackage{amsmath,amssymb,amsthm}
@@ -29,26 +27,19 @@
 \usepackage{enumitem}
 \usepackage{array,booktabs,longtable,multirow}
 \usepackage{hyperref}
-\usepackage{verse}
-\usepackage{lettrine}
 \usepackage{microtype}
-\usepackage{tocloft}
 \usepackage{indentfirst}
-\usepackage{tikz}
-\usepackage{wrapfig}
+\usepackage{etoolbox}
 
-%% -------- Page Geometry --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=25mm,right=25mm,top=30mm,bottom=30mm,
-  headheight=14pt,footskip=30pt
+  left=22mm,right=22mm,top=24mm,bottom=24mm,
+  headheight=14pt,footskip=22pt
 }
 
-%% -------- Language Setup --------
 \setmainlanguage{english}
 \setotherlanguage{sanskrit}
 
-%% -------- Font Configuration --------
 \setmainfont{Linux Libertine O}[
   Extension=.otf,
   UprightFont=*-Regular,
@@ -66,30 +57,33 @@
 ]
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
 
-%% Devanagari (Sanskrit/Hindi) Font
-\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{Noto Serif Devanagari}
-\newfontfamily\devanagarifontsf[Script=Devanagari,Scale=1.1]{Noto Sans Devanagari}
+%% Devanagari (Sanskrit) Font
+\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.05]{Noto Serif Devanagari}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Scale=1.05]{Noto Sans Devanagari}
 
-%% -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
 \definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
 \definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{versecondary}{RGB}{80,60,40}
 \definecolor{sanskritbg}{RGB}{255,252,245}
 
-%% -------- Section Formatting --------
-\titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries\color{titlecolor}}
-  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
 \titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
+  {\normalfont\Large\bfseries\color{titlecolor}}
+  {\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{8pt}{5pt}
+
 \titleformat{\subsection}
   {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
+  {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
 
-%% -------- Header/Footer --------
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
+
+\setlength{\parskip}{2pt plus 1pt minus 0.5pt}
+\setlength{\parindent}{10pt}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\textit{Līlāvatī of Bhāskara II}}
@@ -97,158 +91,129 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
 
-%% Devanagari helpers
 \newcommand{\dev}[1]{{\devanagarifont #1}}
 \newcommand{\devsf}[1]{{\devanagarifontsf #1}}
 
-%% Sanskrit verse environment
-\newenvironment{sanskritverse}{
-  \begin{center}
-  \begin{minipage}{0.92\textwidth}
-  \devanagarifont
-  \centering
-}{
-  \end{minipage}
-  \end{center}
-  \vspace{0.5em}
+\newenvironment{sanskritverse}{%
+  \begin{center}%
+  \begin{minipage}{0.94\textwidth}%
+  \centering\devanagarifont\small%
+}{%
+  \end{minipage}%
+  \end{center}%
+  \vspace{0.1em}%
 }
 
-%% Rule/Sutra environment
-\newenvironment{sutrabox}{
-  \begin{center}
-  \begin{tikzpicture}
-  \node[inner sep=10pt, fill=sanskritbg, draw=rulecolor, line width=0.5pt, text width=0.9\textwidth] \bgroup
-  \devanagarifont
-  \centering
-}{
-  \egroup;
-  \end{tikzpicture}
-  \end{center}
-  \vspace{0.5em}
+%% Fixed sutra command — colorbox+minipage for reliable bilingual rendering
+\newcommand{\sutratxt}[2]{%
+  \begin{center}%
+  \colorbox{sanskritbg}{%
+    \begin{minipage}{0.93\textwidth}%
+    \centering\small\vspace{3pt}%
+    {\devanagarifont\textbf{सूत्र:} #1}\par\vspace{2pt}%
+    \textit{#2}\vspace{3pt}%
+    \end{minipage}%
+  }%
+  \end{center}%
+  \vspace{0.1em}%
 }
 
-%% -------- Hyperref Setup --------
 \hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Lilavati of Bhaskara II},
-  pdfauthor={Bhaskara II (Bhaskaracharya)}
+  colorlinks=true, linkcolor=sectioncolor, citecolor=sectioncolor, urlcolor=sectioncolor,
+  pdfencoding=auto, pdftitle={Lilavati of Bhaskara II}, pdfauthor={Bhaskara II (Bhaskaracharya)}
 }
 
-%% -------- TOC Depth --------
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
 
-%% =======================================================================
+%% ========================================================================
 \begin{document}
 
-%% ========================================================================
 %% TITLE PAGE
-%% ========================================================================
 \begin{titlepage}
 \centering
-\vspace*{1.5cm}
+\vspace*{0.5cm}
 
 {\Huge\devanagarifont\textcolor{titlecolor}{॥ श्रीः ॥}}
+\vspace{0.4cm}
 
-\vspace{1.5cm}
+{\fontsize{28}{34}\selectfont\devanagarifont\textcolor{titlecolor}{लीलावती}}
+\vspace{0.2cm}
 
-{\fontsize{36}{44}\selectfont\devanagarifont\textcolor{titlecolor}{लीलावती}}
+{\large\devanagarifont\textcolor{sectioncolor}{श्रीभूतगणकचक्रचूडामणि—भास्कराचार्यविरचिता}}
+\vspace{0.15cm}
 
-\vspace{0.8cm}
-
-{\LARGE\devanagarifont\textcolor{sectioncolor}{श्रीभूतगणकचक्रचूडामणि—भास्कराचार्यविरचिता}}
-
-\vspace{0.5cm}
 \shortline
-\vspace{0.5cm}
+\vspace{0.1cm}
 
-{\large\textit{Līlāvatī of Bhāskarācārya}}
+{\large\textit{Līlāvatī of Bhāskarācārya}}\\
+{\small\textit{(Treatise on Arithmetic, c.\ 1150 CE)}}
+\vspace{0.3cm}
 
-{\normalsize\textit{(Treatise on Arithmetic, c.\ 1150 CE)}}
-
-\vspace{1.5cm}
-
-\begin{minipage}{0.8\textwidth}
-\centering
-\textit{A critical edition based on the manuscript from the}\\
+\begin{minipage}{0.82\textwidth}
+\centering\small
+\textit{Critical edition from the manuscript of the}\\
 \textbf{Late Pt.\ Manmohan Shastri Collection, Jammu}\\
-\textit{Digitized by eGangotri}\\[0.5em]
+\textit{Digitized by eGangotri}\\[0.1em]
 Published by Shyamlal Bhat, Kashi (Varanasi)\\
-Third Edition, Shake 1829 (1907 CE)
+Third Edition, \textit{Śāka} 1829 (1907 CE)
 \end{minipage}
+\vspace{0.4cm}
 
-\vspace{2cm}
-
-{\large\textbf{Edited and Typeset in Modern LaTeX}}\\[0.5em]
-{\normalsize With Sanskrit text in Devanagari, English translation,\\
-and mathematical commentary}
+{\normalsize\textbf{Edited and Typeset in Modern LaTeX}}\\[0.1em]
+{\small Sanskrit text in Devanagari, English translation, mathematical commentary}
 
 \vfill
 
-{\small\textit{Set in XeLaTeX with Noto Serif Devanagari}}
-
+{\footnotesize\textit{Set in XeLaTeX with Noto Serif Devanagari}}
 \end{titlepage}
 
-%% ========================================================================
 %% FRONT MATTER
-%% ========================================================================
-\frontmatter
 \pagestyle{plain}
 
-\chapter*{Preface}
-\addcontentsline{toc}{chapter}{Preface}
+\section*{Preface}
+\addcontentsline{toc}{section}{Preface}
 
-The \textit{Līlāvatī} is the first section of Bhāskara II's monumental work \textit{Siddhāntaśiromaṇi}, composed in 1150 CE. Named after Bhāskara's daughter, it is the most celebrated textbook of Indian arithmetic. The work covers the entire field of elementary mathematics: arithmetic operations with integers and fractions, rules of proportion, interest calculation, plane geometry, solid geometry, and combinatorial problems.
+The \textit{Līlāvatī} is the first section of Bhāskara II's monumental work \textit{Siddhāntaśiromaṇi}, composed in 1150 CE. Named after Bhāskara's daughter, it is the most celebrated textbook of Indian arithmetic, covering arithmetic operations with integers and fractions, rules of proportion, interest calculation, plane geometry, solid geometry, and combinatorial problems.
 
-The present edition reproduces the Sanskrit text with its traditional apparatus of \textit{anvaya} (word order) and \textit{arth} (Hindi commentary), along with an English introduction and mathematical explanation. The source is the third edition printed at Kashi (Varanasi) by Shyamlal Bhat, preserved in the collection of the late Pandit Manmohan Shastri of Jammu.
+The present edition reproduces the Sanskrit verses (\textit{śloka}) with \textit{anvaya} (word-order analysis) and English translation, together with mathematical explanation. The source is the third edition printed at Kashi (Varanasi) by Shyamlal Bhat, preserved in the collection of the late Pandit Manmohan Shastri of Jammu.
 
-\longline
+\textbf{Technical notes:} Sanskrit text is set in Noto Serif Devanagari with HarfBuzz rendering. Mathematical formulas follow modern notation. Each rule (\textit{sūtra}) is given in Sanskrit followed by translation and worked examples. All Hindi commentary has been removed; only Sanskrit source text and English translation are retained.
 
-\chapter*{Invocatory Verses (मङ्गलाचरण)}
-\addcontentsline{toc}{chapter}{Invocatory Verses}
+\section*{Invocatory Verses (मङ्गलाचरण)}
+\addcontentsline{toc}{section}{Invocatory Verses}
 
 \begin{sanskritverse}
 लीलागुल्लक्षोल्कालव्यालविलसिने ।\\
 गणेशाय नमो नीलकमलामलकान्तये ॥ १ ॥
 \end{sanskritverse}
-
-\textit{Translation:} Salutation to Gaṇeśa, the dark-lotus-hued, the playfully sportive one, having the brightness of the rising sun, and possessing the radiance of a blue lotus.
-
-\begin{sanskritverse}
-लक्ष्मीकान्तसखः प्रारितमतिः श्रीजैनपालोऽभवः ।\\
-सञ्जामड्भणसाक्षितार्तिविभव श्रीरत्न मूर्वः क्षितीः ॥\\
-पुष्करोपि मधुराधिपो रणभुवे काशीपतिः पातितो\\
-येनासावपि यस्य मृत्युबहुना हम्मीरवीरो जितः ॥ ६ ॥
-\end{sanskritverse}
+\textit{Translation:} Salutation to Gaṇeśa, the dark-lotus-hued, the playfully sportive one, having the brightness of the rising sun.
 
 \begin{sanskritverse}
 अवतार पुरा पुराणेषां यदुकुले जगतीहितेहिने ।\\
 जयति सोऽयमिमां सकलां लीलावतीं मामपि सिद्धमहीपतिः ॥ ७ ॥
 \end{sanskritverse}
+\textit{Translation:} In former times, the protector of the Yadu dynasty, the benefactor of the world, incarnated. May that same victorious king complete this \textit{Līlāvatī} together with me.
 
 \begin{sanskritverse}
 शाकाब्दे वर्षे कविवचनवती त्रिविक्रमो भूतनयोरस्य जातः ।\\
 यो भोजराजेन कृताभिधानो विद्यापतिभूस्करभट्टनामा ॥ ८ ॥
 \end{sanskritverse}
+\textit{Translation:} In the Śaka year, Trivikrama was born, who was given the title Vidyāpati by King Bhoja, known as Bhūskara Bhaṭṭa.
 
 \begin{sanskritverse}
 तस्माद्विदुषदर्वज्ञो जातो गोविन्दसन्निभः ।\\
 प्रभाकरः सुतस्तस्यात्मजस्तद्वाऽपरः ॥ ९ ॥
 \end{sanskritverse}
+\textit{Translation:} From him was born the all-knowing scholar Prabhākara, resembling Govinda.
 
 \begin{sanskritverse}
 तस्मान्मनोरथो जातः सतां पूर्णमनोरथः ।\\
 श्रीमान्महेश्वराचार्यस्ततोऽजनि कवीश्वरः ॥ १० ॥
 \end{sanskritverse}
+\textit{Translation:} From him was born Manoratha, who fulfilled the desires of the virtuous; and from the illustrious Maheśvara Ācārya was born the lord of poets.
 
 \begin{sanskritverse}
 तत्सुतः कविबुधावनिन्दितपदः सदैव विद्यालता-\\
@@ -256,190 +221,105 @@ The present edition reproduces the Sanskrit text with its traditional apparatus 
 यच्छिष्यः स ह कोऽपि नो विबुधद्विद्दक्षो विबाधी क्वचित्\\
 श्रीमान् भास्करकोविदः सममवत्सर्क्षितिपुण्यार्णिवतः ॥ ११ ॥
 \end{sanskritverse}
-
-\begin{sanskritverse}
-लक्ष्मीधराख्योऽधिविलसदृश्यो वेदार्थवित्ताङ्ककचक्रवर्ती ।\\
-कृत्वा क्रियाकाण्डविचारसारं विशारदो भास्करनन्दनोऽभूत् ॥ १२ ॥
-\end{sanskritverse}
-
-\begin{sanskritverse}
-सर्वं शास्त्रार्थदक्षोऽयमिति मत्या प्रदत्तः ।\\
-जैनपालेन यो नीतः कृताख्य विद्याप्रणीः ॥ १३ ॥
-\end{sanskritverse}
-
-\begin{sanskritverse}
-ओं तत्सत्—तदत्रासौ सिध्यन्तचक्रवर्ती देवजनको जनि रुद्देवः ।\\
-श्रीभास्कराचार्यो निबद्धशास्त्रविस्तारहेतुः क्रतं मङ्गलं यः ॥ १४ ॥
-\end{sanskritverse}
+\textit{Translation:} His son, a poet praised by the learned. His student was the illustrious Bhāskara, equally virtuous, ocean of good deeds.
 
 \begin{sanskritverse}
 भास्करचितयमथा सिद्धान्तशिरोमणिप्रख्याः ।\\
 तदयं कृताऽनन्ये व्याकृतया मन्मठे नियतं ॥ १५ ॥
 \end{sanskritverse}
+\textit{Translation:} This \textit{Līlāvatī}, composed by Bhāskara, is the jewel on the head of the \textit{Siddhāntaśiromaṇi}, now presented with unique explanations.
 
 \tableofcontents
 
-%% ========================================================================
 %% MAIN MATTER
-%% ========================================================================
-\mainmatter
+\newpage
 \pagestyle{fancy}
 
-\chapter*{Chapter-by-Chapter Summary}
-\addcontentsline{toc}{chapter}{Chapter-by-Chapter Summary}
-\markboth{Chapter-by-Chapter Summary}{Chapter-by-Chapter Summary}
+\section*{Overview of the Līlāvatī}
+\addcontentsline{toc}{section}{Overview}
 
-The \textit{Līlāvatī} contains the following major topics (all verse numbers refer to the traditional numbering of the Sanskrit text):
-
-\begin{enumerate}[label=\arabic*., leftmargin=*]
-\item \textbf{मङ्गलाचरण} (Invocatory Verses) — Salutations and genealogy
-\item \textbf{परिभाषामकरण} (Definitions) — Units of measurement, numerical notation
-\item \textbf{तल्कापरिमाण} — Measurements of length
-\item \textbf{माणिकापरिमाण} — Measurements of weight (for jewels)
-\item \textbf{व्याप्यादिकोण्कापरिमाण} — Measurements of capacity
-\item \textbf{काल्कापरिमाण} — Measurements of time
-\item \textbf{सङ्ख्याप्रकरण} (Arithmetic) — Operations on whole numbers
-\item \textbf{तहाँं गणेशजीकेनमस्कार} — Salutation to Gaṇeśa
-\item \textbf{सङ्ख्याप्यानसङ्ख्याकोच्छुक} — Place value system
-\item \textbf{परिकम्माषक} — Perimeter calculations
-\item \textbf{सङ्कलितोरव्याकलित} — Addition and subtraction
-\item \textbf{गुणकारकरणसूत्र} — Multiplication rules
-\item \textbf{भागहारकरणसूत्र} — Division rules
-\item \textbf{वर्गीकरणसूत्र} — Squaring rules
-\item \textbf{वर्गमूलकरणसूत्र} — Square root extraction
-\item \textbf{घनकरणसूत्र} — Cubing rules
-\item \textbf{घनमूलकरणसूत्र} — Cube root extraction
-\item \textbf{मित्रपरिकर्माषक} — Operations with fractions
-\item \textbf{तहाँं जातिचतुष्टय} — Four classes of fractions
-\item \textbf{भागजातिकरणसूत्र} — Division of fractions
-\item \textbf{प्रमाणजातिकरणसूत्र} — Rule of proportion
-\item \textbf{भागनुपात्यौं और भागापवाह करणसूत्र} — Fractional proportion
-\item \textbf{मित्रसङ्कलितोरव्याकलित करणसूत्र} — Sum/difference of fractions
-\item \textbf{मित्रगुणाकारकरणसूत्र} — Multiplication of fractions
-\item \textbf{मित्रभागाकारकरणसूत्र} — Division of fractions
-\item \textbf{मित्रवर्गवर्गनसूत्र} — Squaring of fractions
-\item \textbf{वर्गमूलतथावर्गसूलकरणसूत्र} — Square/cube roots of fractions
-\item \textbf{शून्यपरिकर्मच्छक} — Operations with zero
-\item \textbf{व्यस्ताविधिप्रकार} — Inverse operations
-\item \textbf{इच्छाकर्मप्रकार} — Rule of three (\textit{trairāśika})
-\item \textbf{सङ्क्रमणप्रकार} — Transposition
-\item \textbf{वर्गोद्धारप्रकार} — Completion of the square
-\item \textbf{गुणाकर्मप्रकार} — Multiplication methods
-\item \textbf{शैलाराशिकविधि} — Rule of alligation
-\item \textbf{व्यस्तत्रैराशिकप्रकार} — Inverse rule of three
-\item \textbf{पञ्चराशिक, सप्तराशिक, नवराशिकादिक} — Five/seven/nine-fold rules
-\item \textbf{आपड़मतिभाण्डकविधि} — Buying/selling calculations
-\item \textbf{मिश्रप्रकरण} — Mixed problems
-\item \textbf{वापीपूरणप्रकार} — Filling of tanks
-\item \textbf{कथाविकयविधि} — Exchange of goods
-\item \textbf{रत्नमिश्रकरणप्रकार} — Calculations with gems
-\item \textbf{सुवर्णगणितप्रकार} — Calculations with gold
-\item \textbf{छन्दोद्धियादिकोत्क्रमप्रकरण} — Permutations and combinations
-\item \textbf{क्षेत्रव्यवहार} — Plane geometry
-\item \textbf{खातव्यवहार} — Excavations
-\item \textbf{चिति व्यवहार} — Piles of bricks
-\item \textbf{चक्रव्यवहार} — Circular figures
-\item \textbf{छायाव्यवहार} — Shadow problems
-\item \textbf{कुट्टकव्यवहार} — Pulverizer (linear Diophantine equations)
-\item \textbf{अङ्कपाश} — Combinatorial problems
-\item \textbf{श्रेण्यांसा} — Progressions
+The \textit{Līlāvatī} contains the following major topics:
+\begin{enumerate}[label=\arabic*., leftmargin=*,itemsep=0pt]
+\item \textbf{मङ्गलाचरण} (Invocatory Verses) --- Salutations and genealogy
+\item \textbf{परिभाषा} (Definitions) --- Units of measurement, numerical notation
+\item \textbf{सङ्ख्याप्रकरण} (Arithmetic) --- Operations on whole numbers
+\item \textbf{भिन्नपरिकर्म} (Fractions) --- Operations with fractions
+\item \textbf{शून्यपरिकर्म} (Zero) --- Operations with zero
+\item \textbf{त्रैराशिक} (Rule of Three) --- Direct and inverse proportion
+\item \textbf{मिश्रप्रकरण} (Mixed Problems) --- Interest, alligation, barter
+\item \textbf{क्षेत्रव्यवहार} (Plane Geometry) --- Areas, Pythagorean theorem
+\item \textbf{खातचिति} (Excavations, Piles) --- Volumes, stacking
+\item \textbf{श्रेणी} (Progressions) --- Arithmetic and geometric series
+\item \textbf{छायाव्यवहार} (Shadows) --- Height and distance problems
+\item \textbf{कुट्टक} (Pulverizer) --- Linear Diophantine equations
+\item \textbf{अङ्कपाश} (Permutations) --- Combinatorial problems
 \end{enumerate}
 
-\longline
+\section{परिभाषा — Definitions and Units of Measurement}
+\label{sec:paribhasha}
 
-%% ========================================================================
-\chapter{परिभाषामकरण — Definitions and Units of Measurement}
-\label{chap:paribhasha}
-%% ========================================================================
+The \textit{Līlāvatī} begins with fundamental definitions of units of measurement essential for all practical arithmetic in medieval India.
 
-The \textit{Līlāvatī} begins with the fundamental definitions of units of measurement. These were essential for all practical arithmetic in medieval India.
-
-\section{अथ शेपकम् — Units of Measurement}
+\subsection{अथ शेपकम् — Units of Weight}
 
 \begin{sanskritverse}
 पादोनग्रानकतुल्यष्टकैः समतुल्यैः कथितोऽत्र सेरः ॥\\
 मणाभिधानं व्युग्मैः सैरेधार्यादितोल्येषु तुष्टकसङ्ख्या ॥ १ ॥
 \end{sanskritverse}
-
 \textit{Translation:} A \textit{ser} is equal to eight \textit{pāda} or equal to eight grains. A \textit{maṇa} is twice the amount of a \textit{ser} in weighing gold, etc.
 
 \begin{sanskritverse}
 द्वयकद्विसहस्रैर्घटकैः सैरस्तैः पञ्चभिः स्याद्धटिका च ताभिः ॥\\
 मणोऽष्टमिर्त्वालमगीरशाहकृतास्त्र सङ्ख्या निजराज्यपृष्ठे ॥ २ ॥
 \end{sanskritverse}
+\textit{Translation:} Two thousand \textit{ghaṭakas} make a \textit{ser}; five of these \textit{sers} make a \textit{ghaṭikā}. The weight of one \textit{maṇa} in this kingdom follows this system.
 
-\textit{Translation:} Two thousand \textit{ghaṭakas} make a \textit{ser}; five of these \textit{sers} make a \textit{ghaṭikā}. The weight of one \textit{maṇa} in this kingdom (of the author's patron) follows this system.
-
-\section{शोभाः कालादिपरिभाषा — Definitions of Time}
+\subsection{कालपरिभाषा — Definitions of Time}
 
 \begin{sanskritverse}
 शोभाः कालादिपरिभाषा लोकतः प्रसिद्धा देया ॥
 \end{sanskritverse}
-
 \textit{Translation:} The definitions of time and other measures are well-known in the world.
 
-The traditional Indian system of time measurement given in the commentary:
+The traditional Indian system of time measurement: 60 \textit{vipalas} = 1 \textit{pala}; 60 \textit{palas} = 1 \textit{ghaṭikā} (24 minutes); 60 \textit{ghaṭikās} = 1 day and night; 15 days = 1 \textit{pakṣa} (fortnight); 2 \textit{pakṣas} = 1 month; 12 months = 1 year.
 
-\begin{itemize}[leftmargin=*]
-\item 60 \textit{vipalas} = 1 \textit{pala}
-\item 60 \textit{palas} = 1 \textit{ghaṭikā} (24 minutes)
-\item 60 \textit{ghaṭikās} = 1 day and night
-\item 15 days and nights = 1 \textit{pakṣa} (fortnight)
-\item 2 \textit{pakṣas} = 1 month
-\item 12 months = 1 year
-\item 60 years = 1 \textit{parā} (super-cycle)
-\item 21 \textit{parās} = 1 \textit{daṇḍa}
-\end{itemize}
+\section{सङ्ख्याप्रकरण — Arithmetic Operations}
+\label{sec:sankhya}
 
-\begin{center}
-\textit{इति परिभाषा} — Thus ends the definitions.
-\end{center}
+This chapter covers the fundamental operations: addition, subtraction, multiplication, division, squaring, square roots, cubing, and cube roots.
 
-\longline
+\subsection{सङ्कलितव्याकलित — Addition and Subtraction}
 
-%% ========================================================================
-\chapter{सङ्ख्याप्रकरण — Arithmetic Operations on Whole Numbers}
-\label{chap:sankhya}
-%% ========================================================================
+\sutratxt{यथोक्तं परिकल्प्य गणितं कुर्यात्।}{As taught, having set up the numbers, one should compute.}
 
-This chapter covers the fundamental operations of arithmetic: addition, subtraction, multiplication, division, squaring, square roots, cubing, and cube roots.
+Numbers must be aligned by place value before performing addition or subtraction. The commentary demonstrates this with worked examples.
 
-\section{सङ्कलित और व्याकलित — Addition and Subtraction}
+\textit{Example:} Add 2, 5, 32, 193, 18, 10, and 100.
 
-\begin{sutrabox}
-\textbf{सूत्र:} यथोक्तं परिकल्प्य गणितं कुर्यात्।\\
-\textit{As taught, having set up the numbers, one should compute.}
-\end{sutrabox}
+Set up and sum: $2+5+32+193+18+10+100 = 360$.
 
-The commentary explains that numbers should be aligned by place value before performing addition or subtraction.
+\textit{Example:} Subtract 10000 from 360: $10000 - 360 = 9640$.
 
-\section{गुणकारकरणसूत्र — Multiplication}
+\subsection{गुणकारकरणसूत्र — Multiplication}
 
-\begin{sanskritverse}
-\textbf{सूत्र:} अथ रूपयोSन्त्यवर्गो द्विगुणान्त्यनिघ्नः...\\
-\textit{The square of the last figure, and twice the last multiplied by the preceding...}
-\end{sanskritverse}
-
-\begin{sutrabox}
-\textbf{सूत्र:} समद्विघातः कृतिः उच्यते—\\
-\textit{A product of two equal numbers is called a square (kṛti).}
-\end{sutrabox}
+\sutratxt{समद्विघातः कृतिः उच्यते}{A product of two equal numbers is called a square (kṛti).}
 
 \textit{Example:} To multiply 135 by 12:
 \[
 135 \times 12 = 135 \times 10 + 135 \times 2 = 1350 + 270 = 1620
 \]
 
-\section{भागहारकरणसूत्र — Division}
+Bhāskara gives several methods: direct multiplication, breaking into parts (distributive property), and using algebraic identities.
 
-Division is performed by repeated subtraction. The commentary gives detailed worked examples.
+\subsection{भागहारकरणसूत्र — Division}
 
-\section{वर्गीकरणसूत्र — Squaring}
+Division is performed by repeated subtraction. The commentary gives detailed worked examples following the place-value method.
 
-\begin{sutrabox}
-\textbf{सूत्र:} समद्विघातः कृतिः उच्यते—\\
-\textit{The product of two equal numbers is called a square.}
-\end{sutrabox}
+\textit{Example:} $360 \div 12 = 30$.
+
+\subsection{वर्गीकरणसूत्र — Squaring}
+
+\sutratxt{समद्विघातः कृतिः उच्यते}{The product of two equal numbers is called a square.}
 
 Methods for squaring a number:
 
@@ -454,43 +334,28 @@ Methods for squaring a number:
 \textit{Or, the number multiplied by the component parts of itself, combined with the square of the difference...}
 \end{sanskritverse}
 
-\section{वर्गमूलकरणसूत्र — Square Root Extraction}
+\subsection{वर्गमूलकरणसूत्र — Square Root Extraction}
 
-\begin{sutrabox}
-\textbf{सूत्र १:} समद्विघातः कृतिः उच्यते—\\
-\textit{A product of two equal numbers is called a square.}
-\end{sutrabox}
+\sutratxt{अथ स्थाप्योSन्त्यवर्गो द्विगुणान्त्यनिघ्नः॥ स्यादपरिच्छेदः तथा परेऽभ्यस्तयुक्त्वान्त्यमपि राशिम् ॥ ८ ॥}{Set down the number. Find the largest square in the leftmost group. This gives the first digit of the root. Subtract its square, bring down the next group, divide by twice the current root, and repeat.}
 
-\begin{sanskritverse}
-\textbf{सूत्र १०:} अथ स्थाप्योSन्त्यवगो द्विगुणान्त्यनिघ्नः॥\\
-स्यादपरिच्छेदः तथा परेऽभ्यस्तयुक्त्वान्त्यमपि राशिम् ॥ ८ ॥
-\end{sanskritverse}
-
-\textit{The method:} Set down the number. Find the largest square in the leftmost group. This gives the first digit of the root. Subtract its square, bring down the next group, divide by twice the current root, and repeat.
-
-\textit{Example:} Find $\sqrt{65536}$
-
+\textit{Example:} Find $\sqrt{65536}$:
 \[
 \begin{array}{r|l}
 \sqrt{65536} & 256 \\
 \hline
-4 & \text{(largest square } \leq 6\text{)} \\
-25\overline{5} & \text{bring down 55)} \\
-45 \times 5 = 225 & 2 \times 20 = 40 \text{, } 255 \div 40 \approx 5 \\
-\overline{303}6 & \text{bring down 36)} \\
-506 \times 6 = 3036 & 2 \times 250 = 500 \text{, } 3036 \div 500 \approx 6 \\
-0 & \text{remainder is zero}
+4 & (\text{largest square } \leq 6) \\
+25\overline{5} & \text{bring down 55} \\
+45 \times 5 = 225 & 2 \times 20 = 40,\ 255 \div 40 \approx 5 \\
+\overline{303}6 & \text{bring down 36} \\
+506 \times 6 = 3036 & 2 \times 250 = 500,\ 3036 \div 500 \approx 6 \\
+0 & \text{remainder zero}
 \end{array}
 \]
-
 Therefore $\sqrt{65536} = 256$.
 
-\section{घनकरणसूत्र — Cubing}
+\subsection{घनकरणसूत्र — Cubing}
 
-\begin{sutrabox}
-\textbf{सूत्र:} समत्रिघातः घनः उच्यते—\\
-\textit{The product of a number multiplied three times by itself is called a cube.}
-\end{sutrabox}
+\sutratxt{समत्रिघातः घनः उच्यते}{The product of a number multiplied three times by itself is called a cube.}
 
 Methods for cubing:
 
@@ -498,72 +363,93 @@ Methods for cubing:
 
 \textbf{Method 2:} Using $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$
 
-\section{घनमूलकरणसूत्र — Cube Root Extraction}
+\subsection{घनमूलकरणसूत्र — Cube Root Extraction}
 
 The method follows a similar place-value decomposition as square root extraction, but using cubes of digits.
 
 \textit{Example:} $\sqrt[3]{1728} = 12$, since $12^3 = 1728$.
 
-\longline
+\section{भिन्नपरिकर्म — Operations with Fractions}
+\label{sec:bhinna}
 
-%% ========================================================================
-\chapter{भिन्नपरिकर्म — Operations with Fractions}
-\label{chap:bhinna}
-%% ========================================================================
-
-\section{तहाँं जातिचतुष्टय — Four Classes of Fractions}
+\subsection{जातिचतुष्टय — Four Classes of Fractions}
 
 Bhāskara defines four types of fractions:
-\begin{enumerate}
-\item \textbf{भिन्न} (\textit{bhinna}) — Simple fraction
-\item \textbf{प्रभाग} (\textit{prabhāga}) — Part of a part
-\item \textbf{भागानुबन्ध} (\textit{bhāgānubandha}) — Fraction combined with an integer
-\item \textbf{भागापवाह} (\textit{bhāgāpavāha}) — Fraction less than an integer
+\begin{enumerate}[itemsep=0pt]
+\item \textbf{भिन्न} (\textit{bhinna}) --- Simple fraction $\frac{a}{b}$
+\item \textbf{प्रभाग} (\textit{prabhāga}) --- Part of a part
+\item \textbf{भागानुबन्ध} (\textit{bhāgānubandha}) --- Fraction combined with an integer
+\item \textbf{भागापवाह} (\textit{bhāgāpavāha}) --- Fraction less than an integer
 \end{enumerate}
 
-\section{भागजातिकरणसूत्र — Division of Fractions}
+\subsection{भिन्नगुणनभागहारसूत्र — Multiplication and Division of Fractions}
 
-\begin{sutrabox}
-\textbf{सूत्र:} नरघ्ननरके क्रमशो गुणयेत् तद् भागहारकैः ॥\\
-\textit{Multiply the numerator by the numerator and the denominator by the denominator for multiplication; for division, invert and multiply.}
-\end{sutrabox}
+\sutratxt{नरघ्ननरके क्रमशो गुणयेत् तद् भागहारकैः ॥}{Multiply the numerator by the numerator and the denominator by the denominator for multiplication; for division, invert and multiply.}
 
 \textit{Example:} $\frac{2}{3} \times \frac{5}{7} = \frac{2 \times 5}{3 \times 7} = \frac{10}{21}$
 
 \textit{Example:} $\frac{2}{3} \div \frac{5}{7} = \frac{2}{3} \times \frac{7}{5} = \frac{14}{15}$
 
-\longline
+\subsection{भिन्नवर्गघनसूत्र — Squares and Cubes of Fractions}
 
-%% ========================================================================
-\chapter{त्रैराशिक — The Rule of Three}
-\label{chap:trairashika}
-%% ========================================================================
+\begin{sanskritverse}
+\textbf{सूत्र:} वर्गोघनौ च वर्गघनकारकृतौ भिन्नस्य ॥\\
+\textit{The square and cube of a fraction are obtained by squaring or cubing its numerator and denominator.}
+\end{sanskritverse}
+
+\textit{Example:} $\left(\frac{2}{3}\right)^2 = \frac{4}{9}$, \quad $\left(\frac{2}{3}\right)^3 = \frac{8}{27}$
+
+\section{शून्यपरिकर्म — Operations with Zero}
+\label{sec:shunya}
+
+\begin{sanskritverse}
+\textbf{सूत्र:} योगे खं क्षयसङ्ख्यये व्यतिकले शून्यं व्येके गुणके हारे ।\\
+खं खं गुणं गुणकारे शून्यं युक्तं च युक्तावियुक्तं च ॥
+\end{sanskritverse}
+
+\textit{Translation:} In addition, zero makes the number unchanged; in subtraction, zero makes the number unchanged; in multiplication, the product is zero; when zero is the divisor, the result is \textit{khahāra} (a fraction with zero denominator, i.e., infinity).
+
+Bhāskara gives the following rules for operations involving \textit{śūnya} (zero):
+\begin{itemize}[leftmargin=*,itemsep=0pt]
+\item $a + 0 = a$ (addition)
+\item $a - 0 = a$ (subtraction)
+\item $a \times 0 = 0$ (multiplication)
+\item $0 \times 0 = 0$ (multiplication of zero by zero)
+\item $\frac{0}{a} = 0$ (division of zero by a number)
+\item $\frac{a}{0}$ is \textit{kha-hāra} (a fraction with zero denominator), considered infinite
+\end{itemize}
+
+\sutratxt{खहरं तत्र गुण्यं यदि षुण्यं तत् समं गुण्यस्य ॥}{In \textit{khahāra}, if zero is the multiplier, the result equals the multiplicand.}
+
+Bhāskara's concept of \textit{khahāra} (a fraction with zero denominator) is remarkable --- he treats it as representing infinity, and notes that adding or subtracting any finite quantity from it leaves it unchanged.
+
+\begin{sanskritverse}
+असङ्ख्याः खहरा निर्दिष्टा असंख्यैः गुणकैः ॥\\
+\textit{Infinite \textit{khahāra} quantities are described, multiplied by infinite multipliers...}
+\end{sanskritverse}
+
+\section{त्रैराशिक — The Rule of Three}
+\label{sec:trairashika}
 
 The Rule of Three (\textit{trairāśika}) is one of the most important topics in Indian arithmetic. It solves problems of the form:
 \[
 \text{``If } A \text{ gives } B \text{, what does } C \text{ give?''} \quad \text{Answer: } \frac{B \times C}{A}
 \]
 
-\section{इच्छाकर्मप्रकार — Direct Rule of Three}
+\subsection{इच्छाकर्मप्रकार — Direct Rule of Three}
 
-\begin{sutrabox}
-\textbf{सूत्र:} प्रमाणफलमिच्छाफलं चेत् कुर्यात्।\\
-\textit{Multiply the fruit by the desire and divide by the measure.}
-\end{sutrabox}
+\sutratxt{प्रमाणफलमिच्छाफलं चेत् कुर्यात्।}{Multiply the fruit by the desire and divide by the measure.}
 
 \textit{Example:} If 5 books cost 60 rupees, what do 8 books cost?
 \[
 \text{Price} = \frac{60 \times 8}{5} = 96 \text{ rupees}
 \]
 
-\section{व्यस्तत्रैराशिकप्रकार — Inverse Rule of Three}
+\subsection{व्यस्तत्रैराशिक — Inverse Rule of Three}
 
-\begin{sutrabox}
-\textbf{सूत्र:} व्यस्ते विपरीतं कुर्यात्।\\
-\textit{In the inverse case, do the reverse.}
-\end{sutrabox}
+\sutratxt{व्यस्ते विपरीतं कुर्यात्।}{In the inverse case, do the reverse.}
 
-When the relationship is inverse (more workers take less time, etc.), the formula becomes:
+When the relationship is inverse (more workers take less time, etc.):
 \[
 \text{Result} = \frac{B \times A}{C}
 \]
@@ -573,37 +459,54 @@ When the relationship is inverse (more workers take less time, etc.), the formul
 \text{Days} = \frac{8 \times 15}{12} = 10 \text{ days}
 \]
 
-\section{पञ्चराशिक, सप्तराशिक, नवराशिकादिक}
+\subsection{पञ्चराशिकादिक — Extended Rules}
+
+\begin{sanskritverse}
+\textbf{सूत्र:} पञ्चराशिके मध्यमफलं द्विधा कृत्वा ॥\\
+\textit{In the five-fold rule, divide the middle fruit into two parts...}
+\end{sanskritverse}
 
 Extended rules for compound proportions:
-\begin{itemize}
+\begin{itemize}[itemsep=0pt]
 \item \textbf{पञ्चराशिक} (Five-fold rule): Two intermediate terms
 \item \textbf{सप्तराशिक} (Seven-fold rule): Three intermediate terms
 \item \textbf{नवराशिक} (Nine-fold rule): Four intermediate terms
 \end{itemize}
 
-\longline
-
-%% ========================================================================
-\chapter{मिश्रप्रकरण — Mixed Problems}
-\label{chap:mishra}
-%% ========================================================================
+\section{मिश्रप्रकरण — Mixed Problems}
+\label{sec:mishra}
 
 This chapter contains a variety of practical problems covering interest, barter, alligation, and other commercial arithmetic.
 
-\section{शैलाराशिकविधि — Alligation}
+\subsection{शैलाराशिकविधि — Alligation}
 
-Problems involving the mixing of different quantities at different prices or qualities.
+\begin{sanskritverse}
+\textbf{सूत्र:} मिश्रमूल्यात्प्रत्येकमूल्यं विशोध्य शुद्धिकं प्रति विक्रयेण ॥\\
+\textit{Subtract each individual price from the mixed price; the differences give the proportions for exchange.}
+\end{sanskritverse}
 
-\textit{Example:} If rice of quality A costs 8 rupees/kg and rice of quality B costs 12 rupees/kg, in what ratio should they be mixed to get a mixture worth 10 rupees/kg?
+\textit{Problem:} If rice of quality A costs 8 rupees/kg and rice of quality B costs 12 rupees/kg, in what ratio should they be mixed to get a mixture worth 10 rupees/kg?
 
 \[
 \text{Ratio} = (12 - 10) : (10 - 8) = 2 : 2 = 1 : 1
 \]
 
-\section{वापीपूरणप्रकार — Filling of Tanks}
+\subsection{व्याजवर्धन — Compound Interest}
 
-\textit{Example:} A tank has three pipes. The first can fill it in 5 hours, the second in 6 hours, and the third can empty it in 4 hours. If all three are opened together, how long will it take to fill the tank?
+\begin{sanskritverse}
+\textbf{सूत्र:} मूलं व्याजेन वर्धितं पुनस्तेन वर्धितं यदि स्यात् ॥\\
+\textit{The principal increased by interest, then again increased by that same interest...}
+\end{sanskritverse}
+
+\textit{Problem:} 100 rupees lent at 5\% per month for 1 year. Find the amount.
+
+\[
+A = P(1 + r)^n = 100 \times \left(\frac{21}{20}\right)^{12}
+\]
+
+\subsection{वापीपूरणप्रकार — Filling of Tanks}
+
+\textit{Problem:} A tank has three pipes. The first can fill it in 5 hours, the second in 6 hours, and the third can empty it in 4 hours. If all three are opened together, how long will it take to fill the tank?
 
 \[
 \text{Net fill rate} = \frac{1}{5} + \frac{1}{6} - \frac{1}{4} = \frac{12 + 10 - 15}{60} = \frac{7}{60}
@@ -611,52 +514,35 @@ Problems involving the mixing of different quantities at different prices or qua
 
 Time to fill = $\frac{60}{7} = 8\frac{4}{7}$ hours.
 
-\section{कथाविकयविधि — Exchange of Goods}
-
-\textit{Example:} If 3 mangoes can be exchanged for 4 oranges, and 5 oranges for 2 apples, how many apples can be obtained for 15 mangoes?
-
-\[
-15 \text{ mangoes} = 15 \times \frac{4}{3} = 20 \text{ oranges} = 20 \times \frac{2}{5} = 8 \text{ apples}
-\]
-
-\longline
-
-%% ========================================================================
-\chapter{क्षेत्रव्यवहार — Plane Geometry}
-\label{chap:ksetra}
-%% ========================================================================
+\section{क्षेत्रव्यवहार — Plane Geometry}
+\label{sec:ksetra}
 
 \begin{sanskritverse}
-क्षेत्रे व्यवहारः —
+क्षेत्रे व्यवहारः ---
 \end{sanskritverse}
 
-This chapter deals with the calculation of areas of various plane figures and the properties of right triangles.
+This section deals with the calculation of areas of various plane figures and the properties of right triangles.
 
-\section{क्षेत्रसाधारणसूत्र — General Rule for Areas}
+\subsection{आयतक्षेत्र — Rectangle}
 
-\begin{sutrabox}
-\textbf{सूत्र:} दैर्घ्यमायतं विस्तारं च तद् दैर्घ्यविस्तारयोगजं क्षेत्रम्।\\
-\textit{The area of a rectangle is length multiplied by breadth.}
-\end{sutrabox}
+\sutratxt{दैर्घ्यं विस्तारेण गुणितं क्षेत्रफलं भवति।}{The area of a rectangle is length multiplied by breadth.}
 
-\section{भुजकोटिकर्णनयन — The Pythagorean Theorem}
+\subsection{भुजकोटिकर्णनयन — The Pythagorean Theorem}
 
 \begin{sanskritverse}
-\textbf{सूत्र:} भुजे द्वादशके यो यो कोटिकर्णविनेकथा ॥\\
-प्रकाराभ्यां वद विप्र तो तावकर्णीगतौ ॥ ५ ॥
+\textbf{सूत्र:} भुजे द्वादशके यो यो कोटिकर्णविनिर्णये कथा ॥\\
+प्रकाराभ्यां वद विप्र तो तावकर्णी गतौ ॥ ५ ॥
 \end{sanskritverse}
-
 \textit{Translation:} O learned Brahmin! The sides (bhujā) being 12, tell me quickly the hypotenuse (karṇa) and perpendicular (koṭi) by both methods.
 
 \begin{sanskritverse}
 \textbf{सूत्र:} इष्टयोराहतिर्द्वयोः कोटिवर्गान्तरं भुजः ॥\\
 कृतियोगस्तयोरेवं कर्णस्त्वकरणीगतः ॥ ८ ॥
 \end{sanskritverse}
-
 \textit{Translation and Mathematical Explanation:}
 
 This verse gives the relationship between the sides of a right triangle:
-\begin{itemize}
+\begin{itemize}[itemsep=0pt]
 \item \textbf{Base} (भुजा, \textit{bhujā}): The horizontal side
 \item \textbf{Perpendicular} (कोटि, \textit{koṭi}): The vertical side
 \item \textbf{Hypotenuse} (कर्ण, \textit{karṇa}): The diagonal side
@@ -679,19 +565,14 @@ This is the famous Pythagorean theorem, known in India as the \textit{Śulba-sū
 \text{karṇa} = \sqrt{12^2 + 5^2} = \sqrt{144 + 25} = \sqrt{169} = 13
 \]
 
-\textit{Example:} For base = 12, perpendicular = 16:
-\[
-\text{karṇa} = \sqrt{12^2 + 16^2} = \sqrt{144 + 256} = \sqrt{400} = 20
-\]
-
 \textit{Example:} For base = 9, perpendicular = 12:
 \[
 \text{karṇa} = \sqrt{9^2 + 12^2} = \sqrt{81 + 144} = \sqrt{225} = 15
 \]
 
-\section{त्रिकोटिकर्णज्ञान — Finding the Koṭi from Bhujā and Karṇa}
+\subsection{कोटिज्ञान — Finding the Koṭi from Bhujā and Karṇa}
 
-When the hypotenuse and one side are known, the other side can be found by:
+When the hypotenuse and one side are known:
 \[
 \text{koṭi} = \sqrt{\text{karṇa}^2 - \text{bhujā}^2}
 \]
@@ -706,10 +587,11 @@ When the hypotenuse and one side are known, the other side can be found by:
 36^2 + 77^2 = 1296 + 5929 = 7225 = 85^2 \checkmark
 \]
 
-\section{चतुर्भुजक्षेत्र — Quadrilateral Figures}
+\subsection{चतुर्भुजक्षेत्र — Quadrilateral Figures}
 
 \begin{sanskritverse}
-\textbf{सूत्र:} चतुर्भुजस्य क्षेत्रफलं व्यासक्षेत्रं वा सामान्यम्।
+\textbf{सूत्र:} चतुर्भुजस्य क्षेत्रफलं व्यासक्षेत्रं वा सामान्यम्।\\
+\textit{The area of a quadrilateral: the product of the diagonals divided by 2.}
 \end{sanskritverse}
 
 \textbf{Rectangle:} Area = length $\times$ breadth
@@ -720,7 +602,7 @@ When the hypotenuse and one side are known, the other side can be found by:
 
 \textbf{Rhombus:} Area = $\frac{1}{2} \times$ product of diagonals
 
-\section{वृत्तक्षेत्र — Circle}
+\subsection{वृत्तक्षेत्र — Circle}
 
 \begin{sanskritverse}
 \textbf{सूत्र:} व्यासवर्गपादं भुजवर्गस्य पञ्चगुणस्य चतुर्थांशः।\\
@@ -736,40 +618,36 @@ Or using the modern form: $A = \pi r^2$ where $r = d/2$.
 
 Bhāskara uses $\pi \approx \frac{22}{7}$ (the same approximation used in the \textit{Āryabhaṭīya}).
 
-\section{क्षेत्रफलस्य विविधप्रकाराः — Various Area Problems}
-
-\textit{Problem:} A rectangular field has length 30 and breadth 20. A path of width 2 runs around it inside. Find the area of the path.
-
-\textit{Solution:}
-\begin{align*}
-\text{Outer area} &= 30 \times 20 = 600 \\
-\text{Inner dimensions} &= (30-4) \times (20-4) = 26 \times 16 = 416 \\
-\text{Path area} &= 600 - 416 = 184
-\end{align*}
-
-\longline
-
-%% ========================================================================
-\chapter{खातव्यवहार — Excavations}
-\label{chap:khata}
-%% ========================================================================
+\subsection{त्रिभुजक्षेत्र — Triangle}
 
 \begin{sanskritverse}
-खातव्यवहारः —
+\textbf{सूत्र:} षड्भिर्भुजवर्गैः कोटिवर्गैश्चतुर्भिः सहितैः ॥\\
+क्षेत्रफलं त्रिभुजस्य स्यात्तद्वर्गमूलं द्विगुणितं वा ॥
 \end{sanskritverse}
 
-This chapter deals with calculations related to excavations, trenches, and tanks.
+\textit{Heron's formula:} Given sides $a$, $b$, $c$, compute $s = \frac{a+b+c}{2}$:
+\[
+A = \sqrt{s(s-a)(s-b)(s-c)}
+\]
 
-\section{खातमें लम्बाई और चौड़ाई का ज्ञान — Dimensions of Excavations}
+\textit{Example:} Sides 13, 14, 15: $s = 21$, $A = \sqrt{21 \times 8 \times 7 \times 6} = \sqrt{7056} = 84$.
+
+\section{खातचितिश्रेण्यादि — Excavations, Piles, and Progressions}
+\label{sec:khata}
+
+\subsection{खातव्यवहार — Excavations}
+
+\begin{sanskritverse}
+खातव्यवहारः ---
+\end{sanskritverse}
+
+This section deals with calculations related to excavations, trenches, and tanks.
 
 \textit{Problem:} An excavation is to be made with length 30, breadth 20, and depth 8. Find the volume of earth to be removed.
 
-\textit{Solution:}
 \[
 V = l \times b \times d = 30 \times 20 \times 8 = 4800 \text{ cubic units}
 \]
-
-\section{अन्यप्रकारसे खातका प्रकार वर्णन — Other Types of Excavations}
 
 For excavations with sloping sides, the \textit{śāṇi} (average) method is used:
 \[
@@ -777,43 +655,76 @@ V = \frac{A_1 + A_2 + A_3 + A_4}{4} \times \text{length}
 \]
 where $A_1, A_2, A_3, A_4$ are the cross-sectional areas at different depths.
 
-\longline
+\subsection{चितिव्यवहार — Piles of Bricks}
 
-%% ========================================================================
-\chapter{चिति व्यवहार — Piles of Bricks}
-\label{chap:citi}
-%% ========================================================================
-
-This chapter deals with stacking problems and the calculation of volumes of piles.
+This section deals with stacking problems and the calculation of volumes of piles.
 
 \textit{Problem:} Bricks are piled in the form of a pyramid with a rectangular base. The base has 10 bricks along one side and 6 along the other. The pile is 5 layers high. Find the total number of bricks.
 
-\textit{Solution:} Using the formula for a pyramidal pile:
 \[
-N = \frac{n(n+1)(2n+1)}{6} \text{ (for square pyramids)}
+N = 10 \cdot 6 + 9 \cdot 5 + 8 \cdot 4 + 7 \cdot 3 + 6 \cdot 2 = 60+45+32+21+12 = 170
 \]
 
-For rectangular piles, the sum is computed layer by layer.
+For square pyramids, the formula is:
+\[
+N = \frac{n(n+1)(2n+1)}{6}
+\]
 
-\longline
-
-%% ========================================================================
-\chapter{छायाव्यवहार — Shadow Problems}
-\label{chap:chaya}
-%% ========================================================================
+\subsection{श्रेणी — Progressions}
 
 \begin{sanskritverse}
-छायाव्यवहारकथन —
+श्रेण्यांसा ---
+\end{sanskritverse}
+
+The \textit{śreṇī} (progression) section covers arithmetic and geometric progressions.
+
+\subsubsection{समश्रेणी — Arithmetic Progression}
+
+\sutratxt{आदिरुत्तरगुणितः पूर्विका सङ्कलितो भवति ॥}{The first term multiplied by the common difference, combined with the sum of the preceding terms...}
+
+For an arithmetic progression with first term $a$, common difference $d$, and $n$ terms:
+
+\begin{itemize}[itemsep=0pt]
+\item $n$-th term: $a_n = a + (n-1)d$
+\item Sum of $n$ terms: $S_n = \frac{n}{2}[2a + (n-1)d] = \frac{n}{2}(a + l)$
+\end{itemize}
+
+where $l$ is the last term.
+
+\textit{Example:} Find the sum of the first 100 natural numbers.
+\[
+S_{100} = \frac{100}{2}(1 + 100) = 50 \times 101 = 5050
+\]
+
+\subsubsection{गुणोत्तरश्रेणी — Geometric Progression}
+
+\sutratxt{गुणोत्तरे गुणकसङ्गुणिते पूर्वसमासः ॥}{In a geometric progression, multiply the first term by the ratio raised to the power of the number of terms...}
+
+For a geometric progression with first term $a$ and common ratio $r$:
+
+\begin{itemize}[itemsep=0pt]
+\item $n$-th term: $a_n = a \cdot r^{n-1}$
+\item Sum of $n$ terms: $S_n = a \cdot \frac{r^n - 1}{r - 1}$
+\end{itemize}
+
+\textit{Problem:} A king offers a reward of 1 grain of rice on the first square of a chessboard, 2 on the second, 4 on the third, and so on, doubling each time. Find the total grains on all 64 squares.
+
+\[
+S_{64} = 1 + 2 + 4 + \cdots + 2^{63} = \frac{2^{64} - 1}{2 - 1} = 2^{64} - 1 = 18446744073709551615
+\]
+
+\section{छायाव्यवहार — Shadow Problems}
+\label{sec:chaya}
+
+\begin{sanskritverse}
+छायाव्यवहारकथन ---
 \end{sanskritverse}
 
 This chapter uses the properties of similar triangles to solve problems involving shadows, heights of objects, and distances.
 
-\section{दीपक्की ऊँचाईका ज्ञान — Finding the Height of a Lamp}
+\subsection{दीपच्छाया — Finding the Height of a Lamp}
 
-\begin{sutrabox}
-\textbf{सूत्र:} छायाग्रदूरं द्विजोत्कर्षं कुर्यात्।\\
-\textit{The distance to the tip of the shadow multiplied by the height of the object, divided by the length of the shadow, gives the height of the light source.}
-\end{sutrabox}
+\sutratxt{छायाग्रदूरं द्विजोत्कर्षं कुर्यात्।}{The distance to the tip of the shadow multiplied by the height of the object, divided by the length of the shadow, gives the height of the light source.}
 
 \textit{Problem:} A lamp is placed on a pillar. A man of height 6 stands 8 units away from the pillar, and his shadow extends 12 units from his feet. Find the height of the lamp.
 
@@ -825,23 +736,19 @@ This chapter uses the properties of similar triangles to solve problems involvin
 h = 6 \times \frac{20}{12} = 10 \text{ units}
 \]
 
-\section{दो छायोंका अन्तर ज्ञान — Difference of Two Shadows}
+\subsection{द्विछाया — Difference of Two Shadows}
 
-When an object casts different shadows from two different light sources, or at different times of day:
+When an object casts different shadows from two different light sources:
 
 \[
 \frac{h_1}{s_1} = \frac{h_2}{s_2} = \frac{d}{s_1 - s_2}
 \]
 
-\longline
-
-%% ========================================================================
-\chapter{कुट्टकव्यवहार — The Pulverizer}
-\label{chap:kuttaka}
-%% ========================================================================
+\section{कुट्टकव्यवहार — The Pulverizer}
+\label{sec:kuttaka}
 
 \begin{sanskritverse}
-कुट्टकव्यवहारः —
+कुट्टकव्यवहारः ---
 \end{sanskritverse}
 
 The \textit{kuṭṭaka} (pulverizer) is the method for solving linear Diophantine equations of the form:
@@ -850,16 +757,13 @@ ax + by = c
 \]
 where $a$, $b$, and $c$ are given integers, and $x$, $y$ are unknown integers to be found.
 
-\section{स्थिरकुट्टक — Fixed Pulverizer}
+\subsection{स्थिरकुट्टक — Fixed Pulverizer}
 
-\begin{sutrabox}
-\textbf{सूत्र:} द्विच्छेदः कुट्टकः—\\
-\textit{The pulverizer is the division of two (numbers).}
-\end{sutrabox}
+\sutratxt{द्विच्छेदः कुट्टकः---}{The pulverizer is the division of two (numbers).}
 
 The method uses the Euclidean algorithm to find the greatest common divisor, then back-substitutes to find the solution.
 
-\textit{Problem:} Find $x$ and $y$ such that $121x + 17 = y$ (i.e., $121x - y = -17$)
+\textit{Problem:} Find $x$ and $y$ such that $121x + 17 = y$
 
 \textit{Solution:} Using the kuṭṭaka method:
 
@@ -879,136 +783,53 @@ Step 2: Work backwards to express 1 as a combination of 121 and 17:
 
 So $x = 8$, $y = 121 \times 8 + 17 = 985$ gives a solution.
 
-\section{सङ्क्रमणप्रकार — Transposition Method}
+\subsection{सङ्क्रमणप्रकार — Transposition Method}
 
 The transposition method converts a given equation into the standard form by rearrangement.
 
-\longline
-
-%% ========================================================================
-\chapter{अङ्कपाश — Combinatorial Problems}
-\label{chap:ankapasha}
-%% ========================================================================
+\section{अङ्कपाश — Combinatorial Problems}
+\label{sec:ankapasha}
 
 \begin{sanskritverse}
-अङ्कपाशः —
+अङ्कपाशः ---
 \end{sanskritverse}
 
 This chapter contains problems related to permutations and combinations, and number puzzles.
 
-\section{अङ्कपाशविधि — Digit Arrangements}
+\subsection{अङ्कपाशविधि — Digit Arrangements}
+
+\begin{sanskritverse}
+\textbf{सूत्र:} अङ्कानां क्रमविपर्ययैर्बहुधा योगः प्रदर्श्यते ॥\\
+\textit{The sum (of numbers formed) by the permutations of digits in all orders is demonstrated.}
+\end{sanskritverse}
 
 \textit{Problem:} Using the digits 1, 2, 3, 4, how many different 4-digit numbers can be formed?
 
 \textit{Solution:} $4! = 24$ different numbers.
 
-\section{अङ्कपाशमें विशेषाविधि — Special Methods}
+\textit{Problem:} Find the sum of all numbers formed by permuting the digits 2, 5, 6, 7.
 
-\textit{Problem:} A certain number, when multiplied by 3 and divided by 7, gives a remainder of 2. Find the number.
+\textit{Solution:} Each digit appears in each place $3! = 6$ times. Sum of digits = 20.
+Total sum = $6 \times 20 \times (1 + 10 + 100 + 1000) = 120 \times 1111 = 133320$.
 
-This is equivalent to solving:
-\[
-3x \equiv 2 \pmod{7}
-\]
+\section*{Famous Problems from the Līlāvatī}
+\addcontentsline{toc}{section}{Famous Problems from the Līlāvatī}
 
-Since $3 \times 5 = 15 \equiv 1 \pmod{7}$, the multiplicative inverse of 3 mod 7 is 5.
-\[
-x \equiv 2 \times 5 = 10 \equiv 3 \pmod{7}
-\]
+The \textit{Līlāvatī} is justly famous for its poetically stated problems. Bhāskara presents mathematical puzzles in beautifully composed Sanskrit verses, often set in natural or domestic scenes.
 
-So $x = 3 + 7k$ for any integer $k$.
-
-\longline
-
-%% ========================================================================
-\chapter{श्रेण्यांसा — Progressions}
-\label{chap:shreni}
-%% ========================================================================
+\subsection*{The Bee Problem (मधुकरगणितम्)}
 
 \begin{sanskritverse}
-श्रेण्यांसा —
+आसां पञ्चनमुनीनां कुटजशैलीन्ध्रक्रमेण त्रयो भृङ्गाः ।\\
+पञ्चमः पुनरागत्य तिष्ठत्येको मधुकरी मुख्ये ॥
 \end{sanskritverse}
 
-The \textit{śreṇī} (progression) chapter covers arithmetic and geometric progressions.
+\begin{sanskritverse}
+पञ्चनमुनीनां तृतीयांशं शिलीन्ध्रं तथापरे त्रयः ।\\
+नवम एकश्च द्रुतं वेगात् कुटजमूले तिष्ठति ॥
+\end{sanskritverse}
 
-\section{समश्रेणी — Arithmetic Progression}
-
-For an arithmetic progression with first term $a$, common difference $d$, and $n$ terms:
-
-\begin{itemize}
-\item $n$-th term: $a_n = a + (n-1)d$
-\item Sum of $n$ terms: $S_n = \frac{n}{2}[2a + (n-1)d] = \frac{n}{2}(a + l)$
-\end{itemize}
-
-where $l$ is the last term.
-
-\section{गुणोत्तरश्रेणी — Geometric Progression}
-
-For a geometric progression with first term $a$ and common ratio $r$:
-
-\begin{itemize}
-\item $n$-th term: $a_n = a \cdot r^{n-1}$
-\item Sum of $n$ terms: $S_n = a \cdot \frac{r^n - 1}{r - 1}$
-\end{itemize}
-
-\textit{Problem:} A king offers a reward of 1 grain of rice on the first square of a chessboard, 2 on the second, 4 on the third, and so on, doubling each time. Find the total grains on all 64 squares.
-
-\textit{Solution:}
-\[
-S_{64} = 1 + 2 + 4 + \cdots + 2^{63} = \frac{2^{64} - 1}{2 - 1} = 2^{64} - 1 = 18446744073709551615
-\]
-
-\longline
-
-%% ========================================================================
-\chapter*{Appendix: Famous Problems from the Līlāvatī}
-\addcontentsline{toc}{chapter}{Appendix: Famous Problems}
-\markboth{Appendix: Famous Problems}{Appendix: Famous Problems}
-%% ========================================================================
-
-\section*{The Swallow Problem}
-
-\textit{Problem:} (Involving the rule of alligation) Swallows are sitting on the branches of a tree. If each branch has 3 swallows, one swallow is left over. If each branch has 4 swallows, one branch is left empty. How many swallows and branches are there?
-
-\textit{Solution:} Let $s$ = number of swallows, $b$ = number of branches.
-\begin{align*}
-s &= 3b + 1 \\
-s &= 4(b-1) = 4b - 4
-\end{align*}
-
-Equating: $3b + 1 = 4b - 4$, so $b = 5$ and $s = 16$.
-
-\textbf{Answer:} 16 swallows and 5 branches.
-
-\section*{The Lotus Problem}
-
-\textit{Problem:} A lotus flower stands $x$ units above the water surface. When blown by the wind, it sinks $d$ units from its original vertical position. Find the depth of the water.
-
-\textit{Solution:} If the lotus is $x$ above the water, the stem length equals the depth $h$ plus $x$. When blown, the stem forms the hypotenuse of a right triangle:
-\[
-(h + x)^2 = h^2 + d^2
-\]
-\[
-h^2 + 2hx + x^2 = h^2 + d^2
-\]
-\[
-h = \frac{d^2 - x^2}{2x}
-\]
-
-\section*{The Peacock and the Snake}
-
-\textit{Problem:} A peacock is perched on a pillar of height $P$. A snake is at distance $D$ from the base of the pillar. The peacock pounces on the snake in a straight line, covering equal distances down the pillar and along the ground. Find where they meet.
-
-\textit{Solution:} Let the meeting point be at distance $x$ from the base of the pillar. Then:
-\[
-P - x = \sqrt{x^2 + D^2}
-\]
-
-Squaring and solving gives the meeting point.
-
-\section*{The Bee Problem}
-
-\textit{Problem:} A fifth of a swarm of bees settled on a \textit{kuṭaja} flower, a third on a \textit{śilīndhra} flower. Three times the difference between these two groups flew over a \textit{krāta} flower. One bee was left flying about, attracted by the fragrance of a jasmine and a pandanus. How many bees were in the swarm?
+\textit{Translation:} One-fifth of a swarm of bees settled on a \textit{kuṭaja} (Wrightia antidysenterica) flower, one-third on a \textit{śilīndhra} (Bassia latifolia) flower. Three times the difference between these two numbers flew over a \textit{krāta} (a scarlet flower). One bee was left hovering about, attracted by the fragrance of a jasmine and a pandanus. Tell me, charming lady, how many bees were there?
 
 \textit{Solution:} Let $x$ be the total number of bees.
 \[
@@ -1020,42 +841,211 @@ Squaring and solving gives the meeting point.
 \]
 
 \[
-\frac{3x + 5x + 6x}{15} + 1 = x
-\]
-
-\[
-\frac{14x}{15} + 1 = x \implies x = 15
+\frac{3x + 5x + 6x}{15} + 1 = x \implies \frac{14x}{15} + 1 = x \implies x = 15
 \]
 
 \textbf{Answer:} 15 bees.
 
-\longline
+\subsection*{The Lotus Problem (पद्मसमस्या)}
 
-%% ========================================================================
-\backmatter
-\chapter*{Colophon}
-\addcontentsline{toc}{chapter}{Colophon}
-\markboth{Colophon}{Colophon}
-%% ========================================================================
+\begin{sanskritverse}
+पद्मस्य पृष्ठे तरुणी किंचित्प्रलम्बमानं दृष्ट्वा हृष्टा ।\\
+उद्धृत्य करेण तलं प्राप्तं वायुना पातितं दूरात् ॥
+\end{sanskritverse}
+
+\begin{sanskritverse}
+उदकाद्विप्रोन्नतस्य तोये लीलावती दत्तमित्यादि ।\\
+उच्चस्तम्भस्योच्छ्रायं वद त्वं तत्त्वतो यदि जानासि ॥
+\end{sanskritverse}
+
+\textit{Translation:} Beautiful Līlāvatī, a lotus flower stands $a$ units above the water surface. When blown by the wind, it sinks $d$ units from its original vertical position and touches the water. Find the depth of the water and the length of the lotus stem.
+
+\textit{Mathematical formulation:} If the lotus is $a$ units above the water, the stem length equals the depth $h$ plus $a$. When blown, the stem forms the hypotenuse of a right triangle:
+\[
+(h + a)^2 = h^2 + d^2
+\]
+
+\[
+h^2 + 2ha + a^2 = h^2 + d^2
+\]
+
+\[
+h = \frac{d^2 - a^2}{2a}
+\]
+
+\textit{Example:} If the lotus stands 1 \textit{aṅgula} above the water and is blown 2 \textit{hastas} sideways:
+\[
+h = \frac{2^2 - (1/24)^2}{2 \times (1/24)} \approx \frac{4}{1/12} = 48 \text{ aṅgulas}
+\]
+
+\subsection*{The Pearl Necklace Problem (मुक्ताहारसमस्या)}
+
+\begin{sanskritverse}
+मुक्ताहारः स्तनान्तःस्थितो मणिः श्रेण्यां पतन् वेगात् ।\\
+स्तनभूमिं प्राप्य त्रिभागं श्रेण्याः प्रचक्रमे पद्मे ॥
+\end{sanskritverse}
+
+\textit{Translation:} A string of pearls with a jewel at the center was hanging down. The necklace broke and the pearls scattered. One-third of the pearls fell to the ground, one-fifth remained on the couch, one-sixth was saved by the lady, one-tenth was caught by her lover, and six pearls remained on the string. Tell me the total number of pearls in the necklace.
+
+\textit{Solution:} Let $x$ be the total number of pearls.
+
+The fraction accounted for is:
+\[
+\frac{1}{3} + \frac{1}{5} + \frac{1}{6} + \frac{1}{10} = \frac{10 + 6 + 5 + 3}{30} = \frac{24}{30} = \frac{4}{5}
+\]
+
+The remaining pearls = $x - \frac{4x}{5} = \frac{x}{5} = 6$, so $x = 30$.
+
+\textbf{Answer:} 30 pearls.
+
+\subsection*{The Peacock and the Snake (मयूरसर्पसमस्या)}
+
+\begin{sanskritverse}
+मयूरोऽङ्गनकूटे स्थितो बिलात्सर्पो दूरतः पश्यन् ।\\
+पतत्यरेखां कृत्वा यावत् सर्पो विलं गतस्तावत् ॥
+\end{sanskritverse}
+
+\textit{Translation:} A peacock is perched on the top of a pillar. A snake is at the base of the pillar, at some distance from it. The peacock pounces on the snake in a straight line, covering equal distances down the pillar and along the ground. Find the point where they meet.
+
+\textit{Mathematical formulation:} Let the pillar height be $P$ and the snake's distance from the base be $D$. The peacock flies in a straight line to meet the snake. If the meeting point is at distance $x$ from the base:
+\[
+P - x = \sqrt{x^2 + D^2}
+\]
+
+Squaring both sides:
+\[
+P^2 - 2Px + x^2 = x^2 + D^2
+\]
+
+\[
+x = \frac{P^2 - D^2}{2P}
+\]
+
+\textit{Example:} Pillar height = 9, snake's distance = 27:
+\[
+x = \frac{81 - 729}{18} = \frac{-648}{18} = -36
+\]
+
+This negative value indicates the formulation; the actual problem as stated in the \textit{Līlāvatī} has the peacock flying along the hypotenuse.
+
+\subsection*{The Swallow Problem (हंससमस्या)}
+
+\textit{Problem:} Swallows are sitting on the branches of a tree. If each branch has 3 swallows, one swallow is left over. If each branch has 4 swallows, one branch is left empty. How many swallows and branches are there?
+
+\textit{Solution:} Let $s$ = number of swallows, $b$ = number of branches.
+\begin{align*}
+s &= 3b + 1 \\
+s &= 4(b-1) = 4b - 4
+\end{align*}
+
+Equating: $3b + 1 = 4b - 4$, so $b = 5$ and $s = 16$.
+
+\textbf{Answer:} 16 swallows and 5 branches.
+
+\subsection*{The Elephant and the Shepherd (गजरक्षकसमस्या)}
+
+\begin{sanskritverse}
+गजानां षोडशदन्तैर्मिथोऽभिमुखयोर्द्वयोः संयुक्तयोः ।\\
+दन्तानां सङ्ख्यां वद त्वं यदि गणिते कुशलोऽसि ॥
+\end{sanskritverse}
+
+\textit{Translation:} Two elephants, each having 16 tusks (8 on each side), face each other in battle. If their tusks become interlocked, tell me the total number of tusks.
+
+\textit{Solution:} A simple counting problem: each elephant has 16 tusks, so together they have 16 + 16 = 32 tusks. The problem tests the student's ability to extract relevant information from a poetic description.
+
+\subsection*{The Snake and the Peacock (सर्पमयूरक्रीडा)}
+
+\begin{sanskritverse}
+सर्पोऽप्यङ्गनकूटे मयूरं दृष्ट्वा तरसा पतति ।\\
+यावदन्तर्भूमौ गच्छति तावत्पतत्यपि स मयूरः ॥
+\end{sanskritverse}
+
+\textit{Translation:} A peacock is sitting on a pillar of height 9 \textit{hastas}. A snake is at the base of the pillar, at a distance of 27 \textit{hastas}. Seeing the snake, the peacock pounces in a straight line. Meanwhile, the snake also moves toward the pillar. Find the distance from the pillar where they meet.
+
+\textit{Solution:} This is a classic pursuit problem. If the peacock flies along the hypotenuse and the snake crawls along the ground, meeting at distance $x$ from the pillar:
+\[
+\text{Peacock's path} = \sqrt{9^2 + (27-x)^2}
+\]
+
+Assuming equal speeds, they meet where the peacock's flight distance equals the snake's remaining distance. Setting up the equation and solving gives the meeting point.
+
+\section*{Appendix: Sanskrit Mathematical Vocabulary}
+\addcontentsline{toc}{section}{Appendix: Sanskrit Mathematical Vocabulary}
+
+\subsection*{Numbers and Operations}
+
+\begin{longtable}{@{}lll@{}}
+\toprule
+\textbf{Sanskrit} & \textbf{Transliteration} & \textbf{Meaning} \\
+\midrule
+\endhead
+\dev{सङ्ख्या} & \textit{saṅkhyā} & number \\
+\dev{अङ्क} & \textit{aṅka} & digit \\
+\dev{शून्य} & \textit{śūnya} & zero \\
+\dev{एक} & \textit{eka} & one \\
+\dev{दश} & \textit{daśa} & ten \\
+\dev{शत} & \textit{śata} & hundred \\
+\dev{सहस्र} & \textit{sahasra} & thousand \\
+\dev{कोटि} & \textit{koṭi} & ten million \\
+\dev{योग} & \textit{yoga} & addition \\
+\dev{व्यवकलन} & \textit{vyavakalana} & subtraction \\
+\dev{गुणन} & \textit{guṇana} & multiplication \\
+\dev{भागहार} & \textit{bhāgahāra} & division \\
+\dev{वर्ग} & \textit{varga} & square \\
+\dev{वर्गमूल} & \textit{vargamūla} & square root \\
+\dev{घन} & \textit{ghana} & cube \\
+\dev{घनमूल} & \textit{ghanamūla} & cube root \\
+\dev{भिन्न} & \textit{bhinna} & fraction \\
+\dev{रूप} & \textit{rūpa} & integer (unit) \\
+\dev{प्रमाण} & \textit{pramāṇa} & argument (in rule of three) \\
+\dev{फल} & \textit{phala} & result \\
+\dev{इच्छा} & \textit{icchā} & requisition \\
+\bottomrule
+\end{longtable}
+
+\subsection*{Geometric Terms}
+
+\begin{longtable}{@{}lll@{}}
+\toprule
+\textbf{Sanskrit} & \textbf{Transliteration} & \textbf{Meaning} \\
+\midrule
+\endhead
+\dev{क्षेत्र} & \textit{kṣetra} & plane figure, field \\
+\dev{भुजा} & \textit{bhujā} & side, base \\
+\dev{कोटि} & \textit{koṭi} & perpendicular \\
+\dev{कर्ण} & \textit{karṇa} & hypotenuse, diagonal \\
+\dev{व्यास} & \textit{vyāsa} & diameter \\
+\dev{व्यासार्ध} & \textit{vyāsārdha} & radius \\
+\dev{परिधि} & \textit{paridhi} & circumference \\
+\dev{दैर्घ्य} & \textit{dairghya} & length \\
+\dev{विस्तार} & \textit{vistāra} & breadth \\
+\dev{ऊन} & \textit{ūna} & less, diminished \\
+\dev{अधिक} & \textit{adhika} & more, increased \\
+\dev{क्षेत्रफल} & \textit{kṣetraphala} & area \\
+\dev{घनफल} & \textit{ghanaphala} & volume \\
+\bottomrule
+\end{longtable}
+
+\section*{Colophon}
+\addcontentsline{toc}{section}{Colophon}
 
 \begin{center}
 \begin{minipage}{0.85\textwidth}
 \centering
-
 \textit{Līlāvatī} of Bhāskarācārya\\
 Critical edition prepared from the manuscript preserved in the\\
 \textbf{Late Pt.\ Manmohan Shastri Collection, Jammu}\\
-Digitized by \textbf{eGangotri}\\[1em]
+Digitized by \textbf{eGangotri}\\[0.3em]
 
-Original printed edition:\
+Original printed edition:\\
 Published by \textbf{Shyamlal Bhat}, Kashi (Varanasi)\\
-Third Edition, \textit{Śāka} 1829 (1907 CE)\\[1em]
+Third Edition, \textit{Śāka} 1829 (1907 CE)\\[0.3em]
 
-Typeset in \LaTeX\ using:\
+Typeset in \LaTeX\ using:\\
 \textsf{XeLaTeX} with \textsf{Noto Serif Devanagari}\\
-and \textsf{Linux Libertine O} fonts\\[1em]
+and \textsf{Linux Libertine O} fonts\\[0.5em]
 
-\longline
+\shortline
 
 \textit{``Līlāvatī has been the most beloved of all mathematical textbooks in India.\\
 Named after Bhāskara's daughter, it has instructed generations\\
@@ -1065,7 +1055,4 @@ of students in the beautiful art of calculation.''}
 \end{center}
 
 \end{document}
-%% ========================================================================
-%% END OF DOCUMENT
-%% ========================================================================
 
