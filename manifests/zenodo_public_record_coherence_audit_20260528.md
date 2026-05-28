@@ -1,6 +1,6 @@
 # Zenodo Public Record Coherence Audit
 
-Generated: 2026-05-28 21:25 Europe/Berlin
+Generated: 2026-05-29 00:06 Europe/Berlin
 
 This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It verifies that the linked Zenodo records use human-readable titles and filenames, that visible reader PDFs do not contain obvious process notes, and that the public PDF surfaces open with usable page/text characteristics under the current automated checks.
 
@@ -12,6 +12,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 - PDF process-note flags: 0
 - PDF surface-health flags: 0
 - Non-European consolidated record comparison against current live record `20435110`: 66 matched PDFs, visible translator-note labels removed from reader surfaces, duplicate aliases removed, 0 known regressions in the promoted public package
+- Satellite records refreshed in place so their related-record links point at the current main landing/raw backstop record `20435272`
 
 ## Current Records
 
