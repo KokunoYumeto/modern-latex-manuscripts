@@ -1,6 +1,6 @@
 # Zenodo Public Record Coherence Audit
 
-Generated: 2026-05-28 20:55 Europe/Berlin
+Generated: 2026-05-28 21:25 Europe/Berlin
 
 This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It verifies that the linked Zenodo records use human-readable titles and filenames, that visible reader PDFs do not contain obvious process notes, and that the public PDF surfaces open with usable page/text characteristics under the current automated checks.
 
@@ -25,8 +25,8 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 | Indian and Sanskrit mathematical classics | [20421650](https://zenodo.org/records/20421650) | 13 | 11 | 1 | clean |
 | Islamic and Arabic mathematical texts | [20421656](https://zenodo.org/records/20421656) | 19 | 17 | 1 | clean |
 | Historical reference texts | [20421657](https://zenodo.org/records/20421657) | 15 | 13 | 1 | clean |
-| Heinrich Weber | [20431945](https://zenodo.org/records/20431945) | 6 | 4 | 1 | clean |
-| Emmy Noether | [20431948](https://zenodo.org/records/20431948) | 4 | 2 | 1 | clean |
+| Heinrich Weber | [20434469](https://zenodo.org/records/20434469) | 6 | 4 | 1 | clean |
+| Emmy Noether | [20434473](https://zenodo.org/records/20434473) | 4 | 2 | 1 | clean |
 | Bernhard Riemann | [20434317](https://zenodo.org/records/20434317) | 4 | 2 | 2 | clean |
 | Carl Friedrich Gauss | [20433382](https://zenodo.org/records/20433382) | 10 | 8 | 1 | clean |
 | Deligne working record | [20414959](https://zenodo.org/records/20414959) | 93 | 91 | 1 | clean |
