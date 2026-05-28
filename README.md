@@ -31,13 +31,13 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - `reader-pdfs/gauss/` and `sources/gauss/`: Gauss Werke reader drafts for Bands I, I alternate, II, III, VI, VII, XI Part I, and individual papers, plus TeX sources and audit reports.
 - `reader-pdfs/riemann/` and `sources/riemann/`: Riemann selected/complete-draft readers and source packets.
 - `zenodo-metadata/`: public metadata JSON used for the current records.
-- `manifests/`: public summaries and a GitHub file inventory.
+- `manifests/`: public summaries, coverage/status notes, and a GitHub file inventory.
 
 ## Status
 
 This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity.
 
-EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader. The non-European corpus has 66 top-level public PDFs; the latest pass enlarges the index, removes visible translator-note labels from the Aryabhata reader surface, and labels Rosen and Robert/Karpinski as reference scans rather than generated originals. Weber now includes Volume II English translation through section 124 plus a Volume I English draft, and Noether now includes a 154-page English translation draft reader; Gauss and Riemann have current author pages with reader PDFs and source artifacts.
+EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader; see `manifests/sga_coverage_status_20260529.md` for the current source-vs-public check. The non-European corpus has 66 top-level public PDFs; the latest pass enlarges the index, removes visible translator-note labels from the Aryabhata reader surface, and labels Rosen and Robert/Karpinski as reference scans rather than generated originals. Weber now includes Volume II English translation through section 124 plus a Volume I English draft, and Noether now includes a 154-page English translation draft reader; Gauss and Riemann have current author pages with reader PDFs and source artifacts.
 
 Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, translation completion, and replacing imperfect machine-generated passages with verified text.
 
