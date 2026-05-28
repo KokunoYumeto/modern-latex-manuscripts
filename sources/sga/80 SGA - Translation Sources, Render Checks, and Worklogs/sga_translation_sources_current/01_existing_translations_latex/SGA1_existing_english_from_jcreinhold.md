@@ -10127,7 +10127,7 @@ ample for $f$ by VIII.5.8. When $g: S' \to S$ is finite and locally free, howeve
 <!-- label: VIII.6 -->
 
 \[
-Translator note: the section title contains a footnote in the source: “Cf. EGA IV 18.12 for generalizations to
+Editorial note: the section title contains a footnote in the source: “Cf. EGA IV 18.12 for generalizations to
 preschemes not necessarily locally noetherian.”
 \]
 
@@ -10180,7 +10180,7 @@ neighborhood $U$ of $y$ such that $X|U$ is finite (respectively quasi-affine, re
 $X \times_{Y} \operatorname{Spec}(\mathcal{O}_{y})$ is finite (respectively quasi-affine, respectively ...) over
 $\operatorname{Spec}(\mathcal{O}_{y})$.
 
-[Translator note: the source footnote refers to EGA IV 8.]
+[Editorial note: the source footnote refers to EGA IV 8.]
 
 Since, on the other hand, the property for $f: X \to Y$ of being finite, respectively quasi-affine, is local on $Y$, in
 order to prove VIII.6.1 and VIII.6.2 we are reduced to the case where $Y$ is the spectrum of a local ring, and hence has
@@ -10494,7 +10494,7 @@ $S'$; more generally, if $S'$ is arbitrary and $X'$ is of finite presentation, q
 <!-- label: VIII.7.10 -->
 
 The results given in this number exhaust the currently known effectivity criteria, and probably even all useful existing
-criteria. \[Translator note: the corrected source adds that this opinion turned out to be partly erroneous, referring
+criteria. \[Editorial note: the corrected source adds that this opinion turned out to be partly erroneous, referring
 for example to J.-P. Murre, Séminaire Bourbaki 294 (Appendix), May 1965, and to special results, notably of Néron and
 Raynaud; for descent of group schemes, see M. Raynaud’s 1968 thesis.\] Notice the following counterexamples in support
 of this assertion:
@@ -10587,7 +10587,7 @@ the sense of Exposé I, a morphism $U \to U_{0}$, and a $U$-isomorphism
 When $S$ is locally noetherian, this terminology agrees with that of loc. cit. Similarly, we shall say that $f$ **is
 étale**, or that $X$ **is étale over** $S$, if $f$ is étale at every point $x$ of $X$. With these definitions, the
 propositions below reduce without difficulty to the noetherian case, where they are proved in I.4, I.5, and I.7. For
-details, the reader may consult EGA IV. [Translator note: more precisely, EGA IV 17 and 18.]
+details, the reader may consult EGA IV. [Editorial note: more precisely, EGA IV 17 and 18.]
 
 **Remarks.**
 
@@ -10862,7 +10862,7 @@ universally connected fibers over $S$.
 Let $X$ and $Y$ be étale over $S$, and let $u'$ be an $S'$-morphism from $X'$ to $Y'$. We prove that it is compatible
 with the descent data, which gives the desired conclusion by IX.3.3. Let $u_{1}''$ and $u_{2}''$ be the two $S''$-morphisms
 $X'' \to Y''$ deduced from $u'$. The subprescheme of $S''$ on which $u_{1}''$ and $u_{2}''$ coincide is an induced open subprescheme,
-fiberwise closed, as the inverse image of the diagonal prescheme of $Y''$ over $S''$. \[Translator note: the source
+fiberwise closed, as the inverse image of the diagonal prescheme of $Y''$ over $S''$. \[Editorial note: the source
 footnote observes that the fibers of $S'$ over $S$ are separated.\] It is therefore the inverse image of a subset of
 $S$. Since it contains the diagonal in $S''$, it is all of $S''$. Hence $u_{1}'' = u_{2}''$, as required.
 
@@ -10984,7 +10984,7 @@ $X_{1}' = X' \times_{S} S_{1}$, relative to $g_{1}: S_{1}' \to S_{1}$, is effect
 <!-- label: IX.4.7 -->
 
 Let $g: S' \to S$ be a finite, surjective morphism of finite presentation (the last hypothesis follows from the others
-if $S$ is locally noetherian). \[Translator note: the source footnote says that in fact it is enough for $g$ to be
+if $S$ is locally noetherian). \[Editorial note: the source footnote says that in fact it is enough for $g$ to be
 integral, by a limit argument in the style of EGA IV 8.\] Then $g$ is a morphism of effective descent for the fibered
 category of preschemes étale, separated, and of finite type over other preschemes.
 
@@ -11060,7 +11060,7 @@ corresponding morphism $g_{1}: S_{1}' = S' \times_{S} S_{1} \to S_{1}$ is so. Si
 hypotheses as $g$, we are reduced to proving IX.4.9 for $S_{1}$ in place of $S$.
 
 Taking first for $A_{1}$ the direct product of the $A/\mathfrak{p}_{i}$, for the minimal prime ideals $\mathfrak{p}_{i}$
-of $A$, we are reduced to the case where $A$ is **integral**. One then shows [Translator note: the source refers to EGA
+of $A$, we are reduced to the case where $A$ is **integral**. One then shows [Editorial note: the source refers to EGA
 IV 14.3.13 and 14.5.4] that there exists an integral subscheme $S_{1}$ of $S'$, quasi-finite over $S$ and dominant over
 $S$, passing through a point of the fiber of $S'$ over the closed point $y$ of $S$. This uses the fact that $S'$ is
 universally open of finite type over the integral noetherian local $S$ and that $S'_{y}$ is nonempty. Since $A$ is
@@ -11072,7 +11072,7 @@ $S$ once more by $S_{1}$, we are reduced to the case where $S'$ has a section ov
 <!-- label: IX.4.10 -->
 
 Let $g: S' \to S$ be a finite radicial surjective morphism of finite presentation. The last condition is superfluous if
-$S$ is locally noetherian. \[Translator note: the source footnote says it even suffices that $g$ be integral, radicial,
+$S$ is locally noetherian. \[Editorial note: the source footnote says it even suffices that $g$ be integral, radicial,
 and surjective, by an easy reduction to the case in the text, in the style of EGA IV 8; cf. SGA 4 VIII 1.1.\]
 
 <!-- original page 241 -->
@@ -11182,7 +11182,7 @@ transitive.
 <!-- original page 244 -->
 
 Choose once and for all an element $s_{0}'$ in $E'$, and for each $s'$ in $E'$ choose an element $\bar{s}' \in E''$ such that
-$q_{1}(\bar{s}') = s_{0}'$ and $q_{2}(\bar{s}') = s'$, thereby displaying the connectedness of $S$. \[Translator note: the source footnote
+$q_{1}(\bar{s}') = s_{0}'$ and $q_{2}(\bar{s}') = s'$, thereby displaying the connectedness of $S$. \[Editorial note: the source footnote
 warns that such an element need not exist in all cases; the stated theorem must then be modified, though the corollaries
 remain valid.\] For every $s' \in E'$ choose a geometric point underlined $s'$ in the connected component $s'$ of $S'$;
 this point enters in fact through the corresponding fiber functor $F_{s'}'$ on the multigaloisian category $\mathcal{C}'$. The
@@ -11349,7 +11349,7 @@ course, it is no longer necessary to suppose $S'$ connected.
 <!-- label: IX.5.5 -->
 
 One proves easily that the rational curve $\mathbb{P}^{1}_{k}$ over an algebraically closed field $k$ is simply
-connected. \[Translator note: the source refers to Expos\acute{e} XI.1.1.\] Hence the fundamental group of a complete
+connected. \[Editorial note: the source refers to Expos\acute{e} XI.1.1.\] Hence the fundamental group of a complete
 rational curve having exactly one double point, with $n$ analytic branches, is the free group of galoisian type on
 $n - 1$ generators. For example, in the case of an ordinary double point, one finds the fundamental group
 $\hat{\mathbb{Z}}$, as announced in I.11 a). On the other hand, the existence of a cusp (which is a “geometrically
@@ -11387,7 +11387,7 @@ last assertion is an immediate consequence of the description IX.5.1.
 <!-- label: IX.5.7 -->
 
 It is not known at present whether the fundamental group of a proper scheme over an algebraically closed field $k$ is
-topologically finitely presented. \[Translator note: the source footnote says this seems very unlikely for smooth curves
+topologically finitely presented. \[Editorial note: the source footnote says this seems very unlikely for smooth curves
 of genus $g \geq 2$ in characteristic $p > 0$; for the largest prime-to-$p$ quotient, however, known techniques seem to
 give an affirmative answer, even without properness, and it refers to work in preparation by J.-P. Murre.\] Using
 IX.5.3, a well-known technique of hyperplane sections, and desingularization of normal surfaces, one reduces to the case
@@ -11678,7 +11678,7 @@ geometrically simply connected, meaning that every étale covering of such a fib
 However, proceeding as in no. IX.4, one easily constructs étale coverings of $X$ that do not come from étale coverings
 of $S$, by gluing trivial coverings of $Z - a$ and of $\mathbb{P}^{2}_{k} - a$. It is possible, on the other hand, that the conclusion
 of IX.6.7 remains true if the properness hypothesis is replaced by the hypothesis that $X$ be **universally open** of
-finite presentation over $S$. \[Translator note: the source adds that this is now proved, with `g` only universally open
+finite presentation over $S$. \[Editorial note: the source adds that this is now proved, with `g` only universally open
 and surjective; cf. SGA 4 XV 1.15.\] This is at least true if the fibers of $X$ over $S$ are geometrically irreducible,
 and not merely geometrically connected. We only point out that in this question one can reduce to the case where $S$ is
 the spectrum of a complete discrete valuation ring with algebraically closed residue field.
@@ -11770,7 +11770,7 @@ Let $f: X \to Y$ be a proper and separable morphism, with $Y$ locally noetherian
 factorization $X \to Y' \to Y$, where $f'_{*}(\mathcal{O}_{X}) = \mathcal{O}_{Y'}$, with $Y'$ finite over $Y$ and
 isomorphic to the spectrum of the algebra $f_{*}(\mathcal{O}_{X})$. Then $Y'$ is an **étale covering** of $Y$.
 
-This proposition will appear in EGA III 7. [Translator note: the source footnote cites EGA III 7.8.10(i).] Let us
+This proposition will appear in EGA III 7. [Editorial note: the source footnote cites EGA III 7.8.10(i).] Let us
 indicate the principle of the proof. One reduces easily to the case where $Y$ is the spectrum of a complete local ring
 $A$, and, after making a suitable finite flat extension of the latter corresponding to a suitable residue extension, one
 may suppose that the connected components of the fiber over the closed point $y$ are geometrically connected. This also
@@ -12148,7 +12148,7 @@ A satisfactory theory of specialization of the fundamental group must take into 
 the “true” fundamental group, corresponding to the classification of principal coverings with structural group an
 infinitesimal group. Once this is done, one would be entitled to expect that the “true” fundamental groups of the
 geometric fibers of a smooth and proper morphism $f: X \to Y$ form a nice local system on $X$, an inverse limit of
-finite flat group schemes over $X$. \[Translator note: the source footnote says this very attractive conjecture is
+finite flat group schemes over $X$. \[Editorial note: the source footnote says this very attractive conjecture is
 unfortunately contradicted by an unpublished example of M. Artin, already for fibers that are algebraic curves of fixed
 genus $g \geq 2$.\] We shall return later to this viewpoint; our present aim is, on the contrary, to push as far as
 possible the phenomena common to the topological theory and the schematic theory of the fundamental group.
@@ -12162,7 +12162,7 @@ another application of X.1.8 allows one to suppose $k = \mathbb{C}$.
 
 It is then not difficult to verify that the fundamental group of $X$ is isomorphic to the profinite completion of the
 fundamental group of the associated topological space $\tilde{X}$, a compact oriented surface of genus $g$, for the topology
-defined by subgroups of finite index. \[Translator note: the source footnote says this deduction was explained in one of
+defined by subgroups of finite index. \[Editorial note: the source footnote says this deduction was explained in one of
 the oral expos\acute{e}s that were not written up.\] Classically, the topological fundamental group is generated by `2g`
 generators $s_{i}, t_{i}$, $1 \leq i \leq g$, subject to the single relation
 
@@ -12206,7 +12206,7 @@ and 1. To begin with, it is hardly clear how to distinguish `2g` elements in $\p
 form a system of topological generators. In this respect, the situation of the rational line punctured at $n$ points,
 and the study of its coverings tamely ramified at those points, is more sympathetic, since the ramification groups at
 these $n$ points provide $n$ elements of the fundamental group to be studied, which one indeed shows generate it
-topologically, as we shall see later. \[Translator note: the source footnote refers to Expos\acute{e} XII and notes that these
+topologically, as we shall see later. \[Editorial note: the source footnote refers to Expos\acute{e} XII and notes that these
 elements are really determined only up to conjugacy, so a judicious simultaneous choice of representatives is
 required.\] But even in this particularly concrete case, there does not seem to be a purely algebraic proof. Such a
 proof would plainly be extremely interesting. The only fact concerning the fundamental group of a curve that one knows
@@ -12281,7 +12281,7 @@ with group $G$ is finite.
 
 Under the conditions of X.2.10, when $\dim g(X) \geq 3$ we shall prove, at least when $g$ is an immersion and $X$
 regular, a sharper result known in algebraic geometry as the **Lefschetz theorem**: $\pi_{1}(Y) \to \pi_{1}(X)$ **is an
-isomorphism**. [Translator note: the corrected source refers to the subsequent seminar SGA 2, theorem X 3.10.] In the
+isomorphism**. [Editorial note: the corrected source refers to the subsequent seminar SGA 2, theorem X 3.10.] In the
 classical cases there are analogous statements for homology groups and higher homotopy groups, which sooner or later
 must be incorporated into abstract algebraic geometry. Even for Hodge cohomology $H^{p}(X, \Omega^{q})$, the question
 does not seem to have been studied; moreover, it is hardly likely that for the latter the Lefschetz theorems remain
@@ -12315,7 +12315,7 @@ by its normalization in a finite extension of $K$. Then $Y$ is constant over $R$
 
 <!-- label: X.3 -->
 
-Recall without proof the following theorem. [Translator note: the source refers for a proof to SGA 2 X.3.4.]
+Recall without proof the following theorem. [Editorial note: the source refers for a proof to SGA 2 X.3.4.]
 
 **Purity Theorem (Zariski-Nagata).**
 
@@ -12353,7 +12353,7 @@ participants in the seminar, and should be the subject of a later exposé.
 We record here only the very simple proof in the special case $\dim A = 2$, which is enough for the most important
 application we shall make of it in the present number. Since $B$ is normal, it is a $B$-module of depth (old
 terminology: cohomological codimension) $\geq 2$; hence it is an $A$-module of depth $\geq 2$. Since $A$ is regular of
-dimension 2, it follows that $B$ is a **free module** over $A$. [Translator note: the source refers to EGA 0_IV 17.3.4.]
+dimension 2, it follows that $B$ is a **free module** over $A$. [Editorial note: the source refers to EGA 0_IV 17.3.4.]
 It then follows from I.4.10 that the set of prime ideals $\mathfrak{q}$ of $A$ at which $B$ is ramified over $A$ is the
 subset of $\operatorname{Spec}(A)$ defined by a principal ideal (generated by the discriminant of a basis of $B$ over
 $A$). Thus it is empty if it is contained in the closed point of $\operatorname{Spec}(A)$, proving X.3.2 when
@@ -12947,7 +12947,7 @@ Let $X'$ be the normalization of $X$ in $K(f^{1/n})$, where $K = k(X)$ is the fu
 $Y$ exactly at $t = 0$ and $t = \infty$, and the restriction $X'|f^{-1}(U)$ is isomorphic to the inverse image of $Y'|U$. In
 particular, the restriction of $X'$ to the **geometric** generic fiber of $X$ over $Y$ decomposes completely.
 Nevertheless $X'$ is not isomorphic to the inverse image of an étale covering of $Y$, since one sees immediately that
-the latter would necessarily be $Y'$, which is absurd because $Y'$ is ramified over $Y$. \[Translator note: the source
+the latter would necessarily be $Y'$, which is absurd because $Y'$ is ramified over $Y$. \[Editorial note: the source
 footnote observes that, from the viewpoint of the étale topology (SGA 4 VII), in this example $R^{1}(f_{et})_{*}(\mathbb{Z}/n\mathbb{Z})$ is
 “non-separated” over $S$.\]
 
@@ -12996,7 +12996,7 @@ but moreover $f$ is a **morphism** $X_{1} \to \mathbb{P}^{1}$. Thus we are in th
 Let $S$ be a prescheme, so that the category $Sch_{/}S$ of preschemes over $S$ is determined, and hence also the notion of
 a group in it; such a group will also be called a **group prescheme over $S$**, or simply an **$S$-group**. To simplify
 the exposition and fix ideas, in what follows we shall most often restrict to groups that are **affine** and **flat**
-over $S$. \[Translator note: the source footnote says that quasi-affineness instead of affineness would suffice for what
+over $S$. \[Editorial note: the source footnote says that quasi-affineness instead of affineness would suffice for what
 follows; cf. the footnote referred to as note 296 in the source.\] This will be enough for the applications we have in
 view. Of course, there are many cases where neither hypothesis is satisfied.
 
@@ -13030,7 +13030,7 @@ section over the final object $e = S$ of $Sch_{/}S$, that is, that there exists 
 To define the notion of a principal homogeneous bundle $P$ under $G$, stronger than that of a formally principal
 homogeneous bundle, one must first specify in $Sch_{/}S$ a class of morphisms to be used for “descent,” and which will
 play the role of “localization morphisms” for “trivializing” bundles. The most suitable choice varies with context; no
-one choice contains all the others. [Translator note: the source refers here to SGA 3 IV, especially §4.] Here it is
+one choice contains all the others. [Editorial note: the source refers here to SGA 3 IV, especially §4.] Here it is
 convenient to adopt the following definition:
 
 **Definition.**
@@ -13077,7 +13077,7 @@ Indeed, it becomes so after a faithfully flat and quasi-compact base extension, 
 The usefulness of Definition XI.4.1 for $S$-groups **flat** and **affine** over $S$ rests on VIII.2.1, that is, on the
 fact that the morphisms $S' \to S$ considered in XI.4.1 are morphisms of effective descent for the category of
 preschemes affine over other preschemes. Thanks to this fact, the verification of the facts sketched below is
-essentially “categorical.” [Translator note: the source refers again to the footnote cited above.]
+essentially “categorical.” [Editorial note: the source refers again to the footnote cited above.]
 
 Let $E$ be an $S$-prescheme on which the $S$-group $G$ acts on the left, and let $P$ be a principal homogeneous bundle
 on the right under $G$. We want to define an associated bundle $E^{P}$, “locally” isomorphic to $E$. To do this, make
@@ -13131,7 +13131,7 @@ $T \to S$.
 Let $G$ be an $S$-prescheme. We write $H^{0}(S,G)$ for the set of sections of $G$ over $S$, considered as a group when $G$
 is an $S$-group. In that case, we write $H^{1}(S,G)$ for the set of isomorphism classes of principal homogeneous bundles
 over $S$ with group $G$, regarding $H^{1}(S,G)$ as endowed with the “marked point” corresponding to the trivial bundles.
-\[Translator note: the source footnote says this notation is consistent with the general cohomological notation (SGA 4
+\[Editorial note: the source footnote says this notation is consistent with the general cohomological notation (SGA 4
 V) only when one has effectivity criteria for descent, which are scarcely ensured except when $G$ is affine, or merely
 quasi-affine; cf. VIII.7.9.\]
 
@@ -13243,7 +13243,7 @@ just $H^{0}(S,G)$ and $H^{1}(S,G)$. This gives a reasonable definition of the ot
 <!-- original page 299 -->
 
 Moreover, one shows that an exact sequence of $S$-groups defines an exact sequence of Weil sheaves, allowing one to
-recover and extend the exact sequence XI.4.5. \[Translator note: the source footnote refers, for a systematic study of
+recover and extend the exact sequence XI.4.5. \[Editorial note: the source footnote refers, for a systematic study of
 this point of view, to SGA 4 I-IX.\]
 
 ### 4.9.
@@ -13252,7 +13252,7 @@ this point of view, to SGA 4 I-IX.\]
 
 It would be appropriate to develop the noncommutative variants of XI.4.5 as in [XI.2]. For a systematic development, in
 the proper framework, of the various cohomological notions sketched in the present number, we refer to work in
-preparation by J. Giraud. \[Translator note: the corrected source identifies this as J. Giraud, *Cohomologie non
+preparation by J. Giraud. \[Editorial note: the corrected source identifies this as J. Giraud, *Cohomologie non
 ab\acute{e}lienne*, Springer-Verlag, 1971.\]
 
 ## 5. Special Cases of Principal Bundles
@@ -13467,7 +13467,7 @@ $n$, with basis formed by the $t^{i}$ for $0 \leq i \leq n - 1$. For it to be é
 that the reduced algebra $k[t]/(1 - t^{n})$, where $k = \kappa(s)$, obtained by formally adjoining the $n$-th roots of unity to
 $k$, be separable over $k$; that is, that the roots of $1 - t^{n}$ in an algebraic closure of $k$ all be distinct. This is
 equivalent to $n$ being prime to the characteristic. Finally, to show that the sequence of homomorphisms in XI.6.1 is
-exact, the criterion XI.4.2 reduces us to proving that $u_{n}$ is faithfully flat. \[Translator note: the corrected source
+exact, the criterion XI.4.2 reduces us to proving that $u_{n}$ is faithfully flat. \[Editorial note: the corrected source
 replaces an erroneous “v” here by $u_{n}$.\] We may plainly suppose that $S$ is affine with ring $A$, hence that $\mathbb{G}_{m},S$
 is affine with ring $B = A[t,t^{-1}]$. It is enough to verify that $u_{n}$ makes $B$ a free module of rank $n$ over $B$;
 equivalently, that $u_{n}$ is injective and that $A[t,t^{-1}]$ is a free module of rank $n$ over $A[t^{n},t^{-n}]$. Indeed, one
@@ -13480,7 +13480,7 @@ checks easily that the $t^{i}$ for $0 \leq i \leq n - 1$ form a basis of the for
 <!-- original page 304 -->
 
 The group $\mu_{n},S$ is called the **Kummer group of rank $n$ over $S$**, and a **Kummer principal covering of rank $n$
-over $S$** is a principal homogeneous bundle over $S$ whose group is the Kummer group of rank $n$. \[Translator note:
+over $S$** is a principal homogeneous bundle over $S$ whose group is the Kummer group of rank $n$. \[Editorial note:
 the corrected source reads “rank $n$ over $S$,” correcting the old text’s malformed “n S.”\]
 
 The set of these coverings is a group, denoted $H^{1}(S,\mu_{n},S)$, or simply $H^{1}(S,\mu_{n})$. Notice that the
@@ -13537,7 +13537,7 @@ $$
 0 \to H^{0}(S,\mathcal{O}_{S})^{*}_{n} \to H^{1}(S,\mu_{n}) \to {}_{nPic}(S) \to 0.
 $$
 
-\[Translator note: the corrected source fixes the definition of $\operatorname{Pic}(S)$ here from $H^{1}(S,\mathcal{O}_{S})$ to $H^{1}(S,\mathcal{O}^{*}_{S})$.\]
+\[Editorial note: the corrected source fixes the definition of $\operatorname{Pic}(S)$ here from $H^{1}(S,\mathcal{O}_{S})$ to $H^{1}(S,\mathcal{O}^{*}_{S})$.\]
 
 We shall spell out two important cases, where one or the other extreme term of this exact sequence is zero.
 
@@ -13628,7 +13628,7 @@ $$
 0 \to (\mathbb{Z}/p\mathbb{Z})_{S} \to \mathbb{G}_{a},S \to \mathbb{G}_{a},S \to 0
 $$
 
-is exact in the sense of no. XI.4. It is called the **Artin-Schreier exact sequence** over $S$. \[Translator note: the
+is exact in the sense of no. XI.4. It is called the **Artin-Schreier exact sequence** over $S$. \[Editorial note: the
 corrected source fixes the last group symbol in the displayed sequence.\]
 
 It is enough to prove this over the prime field $k = \mathbb{Z}/p\mathbb{Z}$. It is enough to observe that the
@@ -13701,7 +13701,7 @@ characteristic $p > 0$, Kummer theory no longer gives information on principal c
 then an “infinitesimal” group, that is, radicial over the base, and hence has no direct relation with $\mathbb{Z}/p\mathbb{Z}$. Thus at
 first sight, the theory of these coverings no longer falls, when $S$ is a proper scheme over an algebraically closed
 field for definiteness, under the theory of the Picard scheme as in XI.6.6. Nevertheless, if one recalls that the
-Zariski tangent space at the origin in $\operatorname{Pic}_{S}/K$ \[Translator note: the source footnote refers for the definition of
+Zariski tangent space at the origin in $\operatorname{Pic}_{S}/K$ \[Editorial note: the source footnote refers for the definition of
 $\operatorname{Pic}_{S}/K$ to A. Grothendieck, Séminaire Bourbaki no. 232, February 1962.\] identifies with $H^{1}(S,\mathcal{O}_{S})$, one sees that
 **knowledge of the group scheme `_pPic_S/k`, the kernel of multiplication by $p$ in $\operatorname{Pic}_{S}/k$, implies knowledge of
 $H^{1}(S,\mathbb{Z}/p\mathbb{Z})$ as well as of $H^{1}(S,\mu_{p})$; notice that it also implies knowledge of $H^{1}(S,\alpha_{p})$**, where $\alpha_{p}$ denotes the
@@ -13779,7 +13779,7 @@ other than finite groups.
 
 <!-- original page 311 -->
 
-Mme M. Raynaud. [Translator note: according to unpublished notes of A. Grothendieck.]
+Mme M. Raynaud. [Editorial note: according to unpublished notes of A. Grothendieck.]
 
 Proceeding as in [XII.10], one associates to every scheme $X$ locally of finite type over the field of complex numbers
 $\mathbb{C}$ an analytic space $X^{an}$, whose underlying set is $X(\mathbb{C})$.
@@ -13878,7 +13878,7 @@ $\mathcal{X} \mapsto \operatorname{Hom}_{\mathbb{C}}(\mathcal{X}, X_{1} \times X
 
 c. If $\mathcal{E}^{1}$ denotes affine space of dimension 1, that is, the topological space $\mathbb{C}$ endowed with the sheaf of holomorphic
 functions, the functor $\mathcal{X} \mapsto \operatorname{Hom}_{\mathbb{C}}(\mathcal{X},E^{1}_{\mathbb{C}})$ is representable by $\mathcal{E}^{1}$, the canonical morphism $\phi: \mathcal{E}^{1} \to E^{1}_{\mathbb{C}}$ being the
-evident morphism. \[Translator note: the corrected source adds in 2003 that $E^{1}_{\mathbb{C}}$ denotes the algebraic affine line
+evident morphism. \[Editorial note: the corrected source adds in 2003 that $E^{1}_{\mathbb{C}}$ denotes the algebraic affine line
 over $\mathbb{C}$.\] Indeed, to give a morphism from an analytic space $\mathcal{X}$ to $E^{1}_{\mathbb{C}}$ is equivalent to giving an element of
 $\Gamma(\mathcal{X},\mathcal{O}_{\mathcal{X}})$, which is also equivalent to giving a morphism from $\mathcal{X}$ to $\mathcal{E}^{1}$. Plainly one has a bijection $|\mathcal{E}^{1}| \simeq E^{1}(\mathbb{C})$,
 and, for each point $x \in \mathcal{E}^{1}$, the morphism $\hat{\phi}_{x}$ is none other than the identity morphism of a ring of formal power
@@ -14196,7 +14196,7 @@ property of being:
 (vi)  finite.
 ```
 
-Then $f$ has property $P$ if and only if $f^{an}$ has property $P$. \[Translator note: the source footnote says that a
+Then $f$ has property $P$ if and only if $f^{an}$ has property $P$. \[Editorial note: the source footnote says that a
 morphism of analytic spaces is called proper if it is proper in the sense of [XII.1, ch. 1, §10, no. 1] and is
 separated.\]
 
@@ -14510,7 +14510,7 @@ by inverse image from an extension of $I$ by $K$. It is therefore enough to prov
 (*)   Ext^q_𝒪_X(I,K)^an ≃ Ext^q_𝒪_X^an(I^an,K^an),     q = 1,
 ```
 
-is bijective. \[Translator note: the source prints “$q \neq 1$,” but the preceding sentence shows that the needed case is
+is bijective. \[Editorial note: the source prints “$q \neq 1$,” but the preceding sentence shows that the needed case is
 $q = 1$; this is a mathematical correction rather than a change of argument.\] Now one has isomorphisms
 
 ```text
@@ -14873,7 +14873,7 @@ $\mathcal{X}_{1}$ of a divisor with normal crossings. Let us show that $\mathcal
 covering of $\mathcal{X}_{1}$. Since the question is local on $\mathcal{X}_{1}$, one may suppose that $\mathcal{X}_{1}$
 is a ball in an affine space $\mathcal{E}^{n}$ and that $\mathcal{X}_{1} - \mathcal{U}_{1}$ is defined by the vanishing
 of the first $p$ coordinate functions $z_{1}, \cdots, z_{p}$, with $0 \leq p \leq n$.
-\[Translator note: the corrected source fixes $z_{q}$ to $z_{p}$ in this list.\] The étale covering $\mathcal{U}'$ of
+\[Editorial note: the corrected source fixes $z_{q}$ to $z_{p}$ in this list.\] The étale covering $\mathcal{U}'$ of
 $\mathcal{U}_{1}$ is a quotient of a covering of the form
 
 ```text
@@ -14924,7 +14924,7 @@ from the Remmert-Stein theorem [XII.9, th. 3] that it is
 
 the trace on $\mathcal{U}$ of a divisor of $\mathcal{X}$. In this case, if $\mathcal{A}$ is a coherent $\mathcal{O}_{\mathcal{U}}$-algebra such that $\mathcal{U}' = \operatorname{Spec}_{an}(\mathcal{A})$, and
 if $i: \mathcal{U} \to \mathcal{X}$ is the canonical morphism, it is enough to take $\mathcal{X}' = \operatorname{Spec}_{an}(i_{*}\mathcal{A})$; indeed one knows that $i_{*}\mathcal{A}$ is
-coherent [XII.11, no. 1, th. 1]. \[Translator note: the corrected source fixes the adjective “coherent” to agree with
+coherent [XII.11, no. 1, th. 1]. \[Editorial note: the corrected source fixes the adjective “coherent” to agree with
 `i_*𝓐`.\]
 
 **Remark (M. Raynaud, added in 2003).**
@@ -14967,7 +14967,7 @@ fundamental group,” Publ. Math. IHÉS 77 (1993), pp. 103-119.\]
 
 <!-- original page 344 -->
 
-By Mme M. Raynaud. [Translator note: according to unpublished notes of A. Grothendieck.]
+By Mme M. Raynaud. [Editorial note: according to unpublished notes of A. Grothendieck.]
 
 This exposé proposes to use étale cohomology to generalize certain results of Exposés IX and X. It also shows how one
 can extend to sheaves of not necessarily commutative groups those results of SGA 5 II that still make sense for such
@@ -14998,7 +14998,7 @@ We shall use in what follows the theory of stacks set out in [XIII.1] and [XIII.
 the étale site of a scheme. Given a scheme X, write X_et for the étale site of X. Recall that a stack F on X is a
 fibered category over X_et such that, for every scheme X′ étale over X and every pair of objects x, y of the fiber F_X′,
 the presheaf SheafHom_X′(x,y) is a sheaf, and such that, for every surjective étale morphism X″ → X′, every object of
-F_X″ endowed with a descent datum relative to X″ → X′ is the inverse image of an object of F_X′. \[Translator note: the
+F_X″ endowed with a descent datum relative to X″ → X′ is the inverse image of an object of F_X′. \[Editorial note: the
 corrected source writes “stack F” and corrects “pair of object” to “pair of objects.”\]
 
 We write F(X′) for the category of cartesian sections of F/X′. More generally, if Sch_X is the category of schemes over
@@ -15399,7 +15399,7 @@ h        k        m     |
 X  --f→  Y  --g→  Z  → S.
 ```
 
-[Translator note: the corrected source capitalizes the sentence after the diagram.] The canonical morphism
+[Editorial note: the corrected source capitalizes the sentence after the diagram.] The canonical morphism
 
 $$
 m*(g_{*}f_{*}\Phi) \to g'_{*}f'_{*}(h*\Phi)
@@ -15419,7 +15419,7 @@ m*(g_*f_*Φ) --i→ g′_*(k*f_*Φ) --j→ g′_*f′_*(h*Φ).
    same is true of ji.
 
 1. The hypothesis implies that ji is faithful, respectively that ji is fully faithful and j is faithful, respectively
-   that ji is an equivalence and j is fully faithful. [Translator note: the corrected source fixes a typo in “fully.”]
+   that ji is an equivalence and j is fully faithful. [Editorial note: the corrected source fixes a typo in “fully.”]
    It follows that i is faithful, respectively fully faithful, respectively an equivalence.
 
 **Corollary.**
@@ -15722,7 +15722,7 @@ be an exact diagram of stacks on X. Suppose that (Φ₁,f) is cohomologically pr
 <!-- original page 362 -->
 
 relative to S in dimension ≤ 0, and that (Φ₃,f) is cohomologically proper relative to S in dimension ≤ −1. Then (Φ,f) is
-cohomologically proper relative to S in dimension ≤ 1. \[Translator note: the corrected source inserts a missing
+cohomologically proper relative to S in dimension ≤ 1. \[Editorial note: the corrected source inserts a missing
 “relative.”\]
 
 For every S-scheme S′, consider the following commutative diagram, all of whose squares are cartesian:
@@ -16036,7 +16036,7 @@ $L_{i}$ is tamely ramified over $R$.
 Let R be a discrete valuation ring with field of fractions K, let L be an étale K-algebra, and let R̄ be a strict
 localization of R, K̄ its field of fractions, and L̄ = L ⊗\_K K̄. Then L is tamely ramified over R if and only if L̄ is
 tamely ramified over R̄. Indeed, one reduces to the case where L is a field. Let L̄ = ∏\_i L̄_i, where the L̄_i are
-fields extending K̄. If L′ is the Galois extension generated by L, and if L̄′ = L′ ⊗\_K K̄, \[Translator note: the
+fields extending K̄. If L′ is the Galois extension generated by L, and if L̄′ = L′ ⊗\_K K̄, \[Editorial note: the
 corrected source fixes L' to \bar{L}' here and in the following displayed product.\] then one likewise has a decomposition of
 L̄′ as a product of fields,
 
@@ -16852,7 +16852,7 @@ that are tamely ramified on X relative to S. Thus one has
 S(i_*^tame Φ) ≃ R¹_tame i_*𝓕,
 ```
 
-and this sheaf is constructible by XIII.2.4 2. \[Translator note: the source correction says the reference here was
+and this sheaf is constructible by XIII.2.4 2. \[Editorial note: the source correction says the reference here was
 wrong in the older text.\] It follows from XIII.6.3 below that S(p\*\*Φ) is constructible, that is, that R¹_tame q\*\*𝓕
 is constructible.
 
@@ -16986,7 +16986,7 @@ $$
 \pi_{12}: \pi^{tame}_{1}(\bar{U},a_{1}) \simeq \pi^{tame}_{1}(\bar{U},a_{2}),
 $$
 
-[Translator note: the corrected source notes that the last isomorphism had been written only as a morphism.] hence a
+[Editorial note: the corrected source notes that the last isomorphism had been written only as a morphism.] hence a
 morphism π = π₂⁻¹π₁₂π₁:
 
 ```text
@@ -17431,7 +17431,7 @@ X₁ ×\_X X₁ ×\_X X₁. We are therefore reduced to the case where Φ is the
 groups F whose fibers have order prime to the residual characteristics of S.
 
 By SGA 4 IX 2.14, one can find a finite family of finite morphisms p_i: Z_i → X and, for each i, a finite constant sheaf
-of groups C_i, of order prime to the residual characteristics of S, such that one has a monomorphism \[Translator note:
+of groups C_i, of order prime to the residual characteristics of S, such that one has a monomorphism \[Editorial note:
 the corrected source fixes “morphism” to “monomorphism.”\]
 
 ```text
@@ -17557,7 +17557,7 @@ Let S be a locally noetherian scheme, and let
 
 be an exact diagram of stacks on $S$ (XIII.1.10.1). If $\Phi_{1}$ is constructible, then so is $\Phi$. If, for every scheme $S'$
 étale over $S$ and every pair of objects $x_{1}$, $y_{1}$ of $(\Phi_{1})_{S}'$, the sheaf $SheafHom_{S}'(x_{1},y_{1})$ is constructible, then
-for every pair of objects $x$, $y$ of $\Phi_{S}'$, the same is true of $SheafHom_{S}'(x,y)$. \[Translator note: the corrected
+for every pair of objects $x$, $y$ of $\Phi_{S}'$, the same is true of $SheafHom_{S}'(x,y)$. \[Editorial note: the corrected
 source fixes "object" to "objects."\] Suppose $\Phi_{1}$ is 1-constructible (XIII.0) and $\Phi_{2}$ is constructible; then $\Phi$ is
 1-constructible.
 
@@ -17606,7 +17606,7 @@ F′_i(S″) =
   with an isomorphism i: p(z) ≃ p(x_i|S″) }.
 ```
 
-[Translator note: the corrected source fixes a missing closing brace in this displayed definition.] It is enough to show
+[Editorial note: the corrected source fixes a missing closing brace in this displayed definition.] It is enough to show
 that the $F'_{i}$ are constructible. But if one puts $z_{i} = p_{1}p(x_{i})$ and $z'_{i} = p_{2}p(x_{i})$, one has a
 monomorphism
 
@@ -17752,7 +17752,7 @@ is an isomorphism. It is enough to show that one has the relations
      respectively R¹g_*(g*F̄) = 0.
 ```
 
-[Translator note: the corrected source removes an extra parenthesis in the second formula.] In this form, the question
+[Editorial note: the corrected source removes an extra parenthesis in the second formula.] In this form, the question
 is local on X for the étale topology. We may therefore suppose X affine; by passage to the limit, we may suppose X of
 finite type over k. One then knows that (F,f) is cohomologically proper in dimension ≤ 0, respectively ≤ 1, and that the
 same remains true when X is replaced by an étale scheme of finite type over X, which proves (\*).
@@ -17824,7 +17824,7 @@ f′*i_*Φ → p′_*p′*(f′*i_*Φ) ⇉ q′_*q′*(f′*i_*Φ) ⇉⇉ r′_*
 j_*f″*Φ → j_*p″_*p″*(f″*Φ) ⇉ j_*q″_*q″*(f″*Φ) ⇉⇉ j_*r″_*r″*(f″*Φ).
 ```
 
-[Translator note: the corrected source fixes the upper second entry of this diagram, replacing i_x by i\_\*.] Since Y is
+[Editorial note: the corrected source fixes the upper second entry of this diagram, replacing i_x by i\_\*.] Since Y is
 smooth over S, the morphism fp is universally locally 1-aspherical for ℒ (SGA 4 XV 2.1), and it follows from SGA 4 VII
 2.1.7 that b is an equivalence of categories. On the other hand, after possibly restricting S to a nonempty open subset,
 we may suppose that the morphisms Z → S and T → S are universally locally 0-acyclic. It follows that the functors c and
@@ -18209,7 +18209,7 @@ the canonical morphisms. By XIII.3.5 the morphism g, and therefore also f, is un
 Since X is connected, f is 0-acyclic (SGA 4 XV 1.16). On the other hand, it follows from XIII.3.2 that, for every finite
 p′-group C, (C_X,g) is cohomologically proper relative to k in dimension ≤ 1. It follows that (C_Z,f) is cohomologically
 proper relative to Y in dimension ≤ 1 (XIII.1.5 c), and that f\*\*C*Z and R¹f\*\*C_Z are constant sheaves. Consequently
-f satisfies all the hypotheses of XIII.4.2. \[Translator note: the French source says “g satisfies”; the surrounding
+f satisfies all the hypotheses of XIII.4.2. \[Editorial note: the French source says “g satisfies”; the surrounding
 sentence and the use of XIII.4.2 require f: Z → Y.\] Thus one has the exact sequence
 
 $$
@@ -18407,7 +18407,7 @@ generated by the elements $(y_{i})_{i\in[1,p]}$ and $(z_{ij})_{i\in[1,n], j\in[1
 
 <!-- label: rem:XIII.4.6 -->
 
-[Translator note: the source notes that the original numbering returns here to 4.6.]
+[Editorial note: the source notes that the original numbering returns here to 4.6.]
 
 a. Conditions a) through e) of XIII.4.7 are satisfied when S is a connected normal scheme, U a dense retrocompact open
 subset of S, and f a proper morphism of finite presentation, with geometrically connected and irreducible fibers at
@@ -18531,7 +18531,7 @@ and closed and contains Z″₁, hence is equal to X″; this proves that V exte
 
 <!-- label: XIII.5.3.0 -->
 
-Resume the hypotheses and notation of XIII.5.2, assuming moreover that X is strictly local. \[Translator note: the
+Resume the hypotheses and notation of XIII.5.2, assuming moreover that X is strictly local. \[Editorial note: the
 corrected source fixes “S” to “X” here.\] It then follows from loc. cit. that every connected étale covering of U,
 tamely ramified relative to D, is a quotient of a tamely ramified covering of the form
 
@@ -18621,7 +18621,7 @@ $$
 
 where L_j is a finite separable extension of K. Let n_j be the order of the inertia group of a Galois extension
 generated by L_j, and let n_i be the least common multiple of the n_j as s ranges over the maximal points of S and j ∈
-I(x_i). [Translator note: the corrected source replaces J(x_i) by I(x_i) in this passage.]
+I(x_i). [Editorial note: the corrected source replaces J(x_i) by I(x_i) in this passage.]
 
 With the $n_{i}$ so chosen, we shall show that $V'_{1}$ extends uniquely to an étale covering of $X'_{1}$. Uniqueness
 follows from the fact that, since $X'$ is smooth over $S$ at the points of $Y$, one has
@@ -18694,7 +18694,7 @@ Let p be a prime integer or zero, and let Z be a subset of X_I all of whose poin
 Ũ_I = lim_{(n_i)} U[T_i]_{i∈I}/(T_i^{n_i} − f_i),
 ```
 
-where the projective limit is taken over the filtered set of families of integers n_i > 0 prime to p. \[Translator note:
+where the projective limit is taken over the filtered set of families of integers n_i > 0 prime to p. \[Editorial note:
 the corrected source supplies the missing index set i\in I in U[T_{i}].\] Then, for every geometric point x̄ of Z, the
 inverse image of Ũ_I on Ū is identified with the universal tamely ramified covering of Ū.
 
@@ -19050,7 +19050,7 @@ A reference index of notation used throughout SGA 1. Locators are given as `<Exp
 $<Expos\acute{e} Roman> (p. <page>)$ when known; the source's OCR-extracted index does not carry page locators, so the
 locator column reconstructs them from first use in the relevant Exposé. Where the OCR mangled an identifier (most
 commonly by dropping the $\pi$ prefix in $\pi_{1}(...)$ or the script-O / hat over a category), the original symbol is
-restored and the restoration noted. Unresolved cases are marked with a translator note rather than silently fixed.
+restored and the restoration noted. Unresolved cases are marked with a Editorial note rather than silently fixed.
 
 ## Sheaves of differentials and infinitesimal neighborhoods (Exposés II–III)
 
@@ -19058,17 +19058,17 @@ restored and the restoration noted. Unresolved cases are marked with a translato
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | $\Delta_{X/Y}$, or simply $\Delta$                                                                                                                                                        | II.1             |
 | $\Omega^{1}_{X/Y}$ (sheaf of relative differentials)                                                                                                                                      | II.1             |
-| $\mathcal{P}^{n}_{X/Y}$ (sheaf of principal parts of order $n$) <!-- TRANSLATOR NOTE: source has the script-O artefact `𝓞P_X/Y^n`; canonical EGA IV notation `𝒫^n_{X/Y}` is restored. --> | II.1             |
+| $\mathcal{P}^{n}_{X/Y}$ (sheaf of principal parts of order $n$) <!-- Editorial note: source has the script-O artefact `𝓞P_X/Y^n`; canonical EGA IV notation `𝒫^n_{X/Y}` is restored. --> | II.1             |
 | $\Delta^{n}_{X/Y}$ (n-th infinitesimal neighborhood of the diagonal)                                                                                                                      | II.1             |
-| $\mathcal{m}\Delta_{X/Y}$ (ideal sheaf of the diagonal) <!-- TRANSLATOR NOTE: source `𝔪d_X/Y`; the `d` is a misrendered Δ. -->                                                            | II.1             |
+| $\mathcal{m}\Delta_{X/Y}$ (ideal sheaf of the diagonal) <!-- Editorial note: source `𝔪d_X/Y`; the `d` is a misrendered Δ. -->                                                            | II.1             |
 | $d^{n}_{X/S}$ (n-th differential / iterated differential)                                                                                                                                 | II               |
-| $\mathcal{m}g_{X/S}$ <!-- TRANSLATOR NOTE: source `𝔪g_X/S`; symbol not fully resolved — `g` likely denotes a generic ideal sheaf or a graded component. -->                               | II               |
+| $\mathcal{m}g_{X/S}$ <!-- Editorial note: source `𝔪g_X/S`; symbol not fully resolved — `g` likely denotes a generic ideal sheaf or a graded component. -->                               | II               |
 
 ## Categories, morphisms, and 2-categorical infrastructure (Exposé VI)
 
 | Notation                                                                                                                                                                                                                   | Where introduced |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `C(...)` (a category) <!-- TRANSLATOR NOTE: source `𝓞C( )`; the leading script-O is an OCR artefact attached to the category symbol throughout. -->                                                                        | VI               |
+| `C(...)` (a category) <!-- Editorial note: source `𝓞C( )`; the leading script-O is an OCR artefact attached to the category symbol throughout. -->                                                                        | VI               |
 | `Pro-C(...)` (pro-objects of $C$)                                                                                                                                                                                          | VI               |
 | $\Gamma$ (sections / global-section functor; context-dependent)                                                                                                                                                            | VI               |
 | `(Ens)` (category of sets)                                                                                                                                                                                                 | VI               |
@@ -19079,15 +19079,15 @@ restored and the restoration noted. Unresolved cases are marked with a translato
 | $C^{\circ}$ (opposite category)                                                                                                                                                                                            | VI               |
 | $Cat_{/E}$ (categories over $E$ / fibered over $E$)                                                                                                                                                                        | VI               |
 | $\operatorname{Hom}_{E/-}(F, G)$ (cartesian functors over $E$)                                                                                                                                                             | VI               |
-| $v\ast u$ (vertical composition of 2-cells / Godement product) <!-- TRANSLATOR NOTE: source `v*u`; interpreted as horizontal/vertical composition in the 2-category of fibered categories. -->                             | VI               |
-| $F \times_{E} G$ (fibre product of fibered categories) <!-- TRANSLATOR NOTE: source `𝓞F×_𝓞E𝓞G`. -->                                                                                                                        | VI               |
-| $f^{\ast}: Cat_{/E} \to Cat_{/E'}$ (base change of fibered categories) <!-- TRANSLATOR NOTE: source `^*: Cat_/𝓞E→ Cat_/𝓞E'`. -->                                                                                           | VI               |
-| $\Gamma(G/E)$, `Γ̲(G/E)` (sections / sheaf of sections of a fibered category) <!-- TRANSLATOR NOTE: source `Γ (𝓞G/𝓞E) et Γ (𝓞G/𝓞E)`; the two are distinguished by an underline in the original which the OCR collapses. --> | VI               |
+| $v\ast u$ (vertical composition of 2-cells / Godement product) <!-- Editorial note: source `v*u`; interpreted as horizontal/vertical composition in the 2-category of fibered categories. -->                             | VI               |
+| $F \times_{E} G$ (fibre product of fibered categories) <!-- Editorial note: source `𝓞F×_𝓞E𝓞G`. -->                                                                                                                        | VI               |
+| $f^{\ast}: Cat_{/E} \to Cat_{/E'}$ (base change of fibered categories) <!-- Editorial note: source `^*: Cat_/𝓞E→ Cat_/𝓞E'`. -->                                                                                           | VI               |
+| $\Gamma(G/E)$, `Γ̲(G/E)` (sections / sheaf of sections of a fibered category) <!-- Editorial note: source `Γ (𝓞G/𝓞E) et Γ (𝓞G/𝓞E)`; the two are distinguished by an underline in the original which the OCR collapses. --> | VI               |
 | `F_S` (fibre of a fibered category over $S$)                                                                                                                                                                               | VI               |
 | $f^{\ast}_{F}(...)$ or $f^{\ast}(...)$ (inverse image along $f$)                                                                                                                                                           | VI               |
 | $\Gamma_{f}(...)$                                                                                                                                                                                                          | VI               |
-| $\operatorname{Hom}_{\bullet}(F, G)$ <!-- TRANSLATOR NOTE: source `Hom_ (𝓞F,𝓞G)`; subscript glyph not recovered from OCR. -->                                                                                              | VI               |
-| $\hat{C}at_{/E}$ (a hatted variant — pseudo-functorial 2-category) <!-- TRANSLATOR NOTE: source `Cat^_/𝓞E`; the hat is restored on `Cat`. -->                                                                              | VI               |
+| $\operatorname{Hom}_{\bullet}(F, G)$ <!-- Editorial note: source `Hom_ (𝓞F,𝓞G)`; subscript glyph not recovered from OCR. -->                                                                                              | VI               |
+| $\hat{C}at_{/E}$ (a hatted variant — pseudo-functorial 2-category) <!-- Editorial note: source `Cat^_/𝓞E`; the hat is restored on `Cat`. -->                                                                              | VI               |
 | $F/E$ (fibered category $F$ over $E$)                                                                                                                                                                                      | VI               |
 | $f^{F}_{\ast}$ or $~f_{\ast}$ (direct image; "tilde" variant)                                                                                                                                                              | VI               |
 
@@ -19095,10 +19095,10 @@ restored and the restoration noted. Unresolved cases are marked with a translato
 
 | Notation                                                                                                                                                                                           | Where introduced |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| $\pi_{1}(S, a)$ (fundamental group at the geometric point $a$) <!-- TRANSLATOR NOTE: source `_1(S,a)`; the OCR systematically drops the `π` prefix on `π_1`. Restored here and below. -->          | V                |
+| $\pi_{1}(S, a)$ (fundamental group at the geometric point $a$) <!-- Editorial note: source `_1(S,a)`; the OCR systematically drops the `π` prefix on `π_1`. Restored here and below. -->          | V                |
 | $\pi_{1}(S; a, a')$ (set of paths from $a$ to $a'$)                                                                                                                                                | V                |
 | $\pi_{1}(f; a')$ (induced morphism on fundamental groups)                                                                                                                                          | V                |
-| $C(S)$ (category of finite étale covers of $S$) <!-- TRANSLATOR NOTE: source `𝓞C(S)`; the script-O is artefactual. -->                                                                             | V                |
+| $C(S)$ (category of finite étale covers of $S$) <!-- Editorial note: source `𝓞C(S)`; the script-O is artefactual. -->                                                                             | V                |
 | `Sch` (category of schemes)                                                                                                                                                                        | V                |
 | $\mu_{n, S}$ (group scheme of $n$-th roots of unity over $S$)                                                                                                                                      | XI               |
 | $X^{an}$, $f^{an}$ (analytification)                                                                                                                                                               | XII              |
@@ -19106,11 +19106,12 @@ restored and the restoration noted. Unresolved cases are marked with a translato
 | $H^{1}_{t}(U, F)$ (Čech $H^{1}$ for the topology $t$)                                                                                                                                              | XII              |
 | $R^{1}_{t} g_{\ast} F$ (higher direct image for the topology $t$)                                                                                                                                  | XII              |
 | $C_{t}((U, X)/S)$ or $C_{t}$ (category for the topology $t$)                                                                                                                                       | XII              |
-| $\pi^{t}_{1}((U, X)/S, a)$, $\pi^{t}_{1}(U, a)$, $\pi^{t}_{1}(U)$ (fundamental group for $t$) <!-- TRANSLATOR NOTE: source `_1^t(...)`; `π` prefix restored. -->                                   | XIII             |
+| $\pi^{t}_{1}((U, X)/S, a)$, $\pi^{t}_{1}(U, a)$, $\pi^{t}_{1}(U)$ (fundamental group for $t$) <!-- Editorial note: source `_1^t(...)`; `π` prefix restored. -->                                   | XIII             |
 | $(g^{t}_{\ast} \Phi)_{T'}$                                                                                                                                                                         | XIII             |
 | $H^{0}(V, C_{V})^{\Pi}$                                                                                                                                                                            | XIII             |
-| $\pi^{\mathbf{L}}_{1}(U, a)$ (fundamental group with prime-to-$\mathbf{L}$ coefficients) <!-- TRANSLATOR NOTE: `𝐋` denotes a set of prime numbers; source `_1^𝐋 (U,a)`. -->                        | XIII             |
-| $\pi_{1}'(X, a)$ (a derived / first variant of $\pi_{1}$) <!-- TRANSLATOR NOTE: source `_1'(X,a)`. -->                                                                                             | XIII             |
-| $\pi^{\mathbf{L}}_{1}(X/S, g, \bar{s})$ or $\pi^{\mathbf{L}}_{1}(X/S, g)$ (fundamental group of a relative scheme) <!-- TRANSLATOR NOTE: source `_1^𝐋 (X/S,g,bar s)`; "bar s" rendered as `s̄`. --> | XIII             |
-| $\pi^{\mathbf{L}}_{1}(X_{\bar{s}}, a)_{K}$ (fundamental group of a geometric fibre, base extension to $K$) <!-- TRANSLATOR NOTE: source `_1^𝐋 (X_bar s,a)_K`. -->                                  | XIII             |
+| $\pi^{\mathbf{L}}_{1}(U, a)$ (fundamental group with prime-to-$\mathbf{L}$ coefficients) <!-- Editorial note: `𝐋` denotes a set of prime numbers; source `_1^𝐋 (U,a)`. -->                        | XIII             |
+| $\pi_{1}'(X, a)$ (a derived / first variant of $\pi_{1}$) <!-- Editorial note: source `_1'(X,a)`. -->                                                                                             | XIII             |
+| $\pi^{\mathbf{L}}_{1}(X/S, g, \bar{s})$ or $\pi^{\mathbf{L}}_{1}(X/S, g)$ (fundamental group of a relative scheme) <!-- Editorial note: source `_1^𝐋 (X/S,g,bar s)`; "bar s" rendered as `s̄`. --> | XIII             |
+| $\pi^{\mathbf{L}}_{1}(X_{\bar{s}}, a)_{K}$ (fundamental group of a geometric fibre, base extension to $K$) <!-- Editorial note: source `_1^𝐋 (X_bar s,a)_K`. -->                                  | XIII             |
 | $\mathbf{Z}_{\ell}[1]$ (a Tate-twist–like degree shift)                                                                                                                                            | XIII             |
+
