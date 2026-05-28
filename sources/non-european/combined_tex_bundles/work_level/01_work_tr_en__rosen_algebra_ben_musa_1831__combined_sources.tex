@@ -1,0 +1,1406 @@
+% Combined TeX source bundle
+% Title: Frederic Rosen, Algebra of Mohammed Ben Musa (1831)
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and source packet rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/en/islamic/rosen-algebra-of-mohammed-ben-musa-1831_enhanced.tex
+% ============================================================
+
+%% ========================================================================
+%% THE ALGEBRA OF MOHAMMED BEN MUSA
+%% Enhanced Bilingual Edition (English / Arabic)
+%%
+%% Based on: Frederic Rosen's 1831 English translation
+%% Edition:  Bilingual scholarly edition with Arabic terminology restored
+%%
+%% This enhanced edition preserves Rosen's classic 1831 English translation
+%% while restoring the original Arabic mathematical terminology alongside
+%% the English text. Key technical terms appear in both languages, enabling
+%% readers to appreciate al-Khwarizmi's original vocabulary.
+%% ========================================================================
+
+\input{../../../master-preamble.tex}
+
+%% -------- Custom adjustments for this bilingual volume --------
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+
+\usepackage{etoolbox}
+\usepackage{tocloft}
+\usepackage{lettrine}
+\usepackage{multicol}
+\usepackage{longtable}
+
+%% Lettrine configuration for drop caps
+\setcounter{DefaultLines}{3}
+\renewcommand{\LettrineFontHook}{\color{titlecolor}}
+\setlength{\DefaultFindent}{0.3em}
+\setlength{\DefaultNindent}{0.1em}
+
+%% Colors
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,50}
+\definecolor{arabictermcolor}{RGB}{139,69,19}
+\definecolor{margincolor}{RGB}{100,70,50}
+
+%% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{The Algebra of Mohammed ben Musa --- Enhanced Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% Footnote formatting
+\renewcommand{\thefootnote}{*}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width 0.4\textwidth height 0.4pt
+  \kern 2.6pt
+}
+
+%% ========================================================================
+%% BILINGUAL TERM MACROS
+%% ========================================================================
+
+%% --- Core Arabic term macros ---
+\newcommand{\arterm}[1]{{\arabicfont\textcolor{arabictermcolor}{\beginR #1\endR}}}
+
+%% Primary algebraic terms with bilingual display
+\newcommand{\mal}{\arterm{مال}\xspace}
+\newcommand{\jidhr}{\arterm{جذر}\xspace}
+\newcommand{\adad}{\arterm{عدد}\xspace}
+\newcommand{\shay}{\arterm{شيء}\xspace}
+\newcommand{\aljabr}{\arterm{الجبر}\xspace}
+\newcommand{\almuqabala}{\arterm{المقابلة}\xspace}
+\newcommand{\dirhem}{\arterm{درهم}\xspace}
+\newcommand{\mukhtasarat}{\arterm{مختصرات}\xspace}
+
+%% --- Bilingual term display ---
+%% Format: English (Arabic) 
+\newcommand{\bterm}[2]{\textenglish{#1}~\textarabic{\textcolor{arabictermcolor}{#2}}}
+\newcommand{\bt}[2]{#1~{\small\arterm{#2}}}
+
+%% --- Margin Arabic annotation ---
+%% --- Inline term with Arabic ---
+\newcommand{\term}[2]{#1\nobreakspace({\small\arterm{#2}})}
+
+%% --- Algebraic quantity macros ---
+\newcommand{\Squares}{\term{squares}{مال}\xspace}
+\newcommand{\Square}{\term{square}{مال}\xspace}
+\newcommand{\sq}{\term{square}{مال}\xspace}
+\newcommand{\sqs}{\term{squares}{مال}\xspace}
+\newcommand{\Roots}{\term{roots}{جذر}\xspace}
+\newcommand{\Root}{\term{root}{جذر}\xspace}
+\newcommand{\ro}{\term{root}{جذر}\xspace}
+\newcommand{\ros}{\term{roots}{جذر}\xspace}
+\newcommand{\Numbers}{\term{numbers}{عدد}\xspace}
+\newcommand{\Number}{\term{number}{عدد}\xspace}
+\newcommand{\no}{\term{number}{عدد}\xspace}
+\newcommand{\nos}{\term{numbers}{عدد}\xspace}
+\newcommand{\Thing}{\term{thing}{شيء}\xspace}
+\newcommand{\thing}{\term{thing}{شيء}\xspace}
+\newcommand{\thn}{\term{thing}{شيء}\xspace}
+\newcommand{\alJabr}{\term{restoration}{الجبر}\xspace}
+\newcommand{\alMuqabala}{\term{reduction}{المقابلة}\xspace}
+\newcommand{\Dirhems}{\term{dirhems}{دراهم}\xspace}
+\newcommand{\Dirhem}{\term{dirhem}{درهم}\xspace}
+\newcommand{\di}{\term{dirhem}{درهم}\xspace}
+\newcommand{\dis}{\term{dirhems}{دراهم}\xspace}
+
+%% --- Case headers with Arabic ---
+\newcommand{\case}[2]{\noindent\textbf{Case #1.---#2}\par\vspace{0.2cm}}
+
+%% --- Arabic block environment ---
+\newenvironment{arabicblock}{%
+  \begin{quote}\footnotesize\color{prefacecolor}%
+  \textbf{Arabic terminology note:} }%
+  {\end{quote}}
+
+%% ========================================================================
+%% DOCUMENT BEGINS
+%% ========================================================================
+
+\begin{document}
+
+%% -------- Title Page --------
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{10}{12}\selectfont\textsc{Enhanced Bilingual Edition}}\\[0.3cm]
+{\fontsize{14}{18}\selectfont\color{sectioncolor}with Arabic Terminology Restored}\\[1.2cm]
+
+{\fontsize{28}{34}\selectfont\scshape\color{titlecolor} The Algebra}\\[0.5cm]
+{\fontsize{14}{18}\selectfont\color{sectioncolor}of}\\[0.5cm]
+{\fontsize{28}{34}\selectfont\scshape\color{titlecolor} Mohammed ben Musa}\\[0.8cm]
+
+\vspace{0.3cm}
+{\Large\arterm{كتاب الجبر والمقابلة}}\\[0.3cm]
+{\normalsize\textit{Kitab al-Jabr wa-l-Muqabala}}\\[1.5cm]
+
+\rule{0.5\textwidth}{1pt}\\[0.8cm]
+
+{\Large\scshape Edited and Translated}\\[0.2cm]
+{\Large\scshape by}\\[0.2cm]
+{\Large\scshape Frederic Rosen}\\[1cm]
+
+\rule{0.5\textwidth}{1pt}\\[0.8cm]
+
+{\normalsize
+\textsc{Original Publication: London}:\\
+Printed for the Oriental Translation Fund,\\
+\textbf{1831.}\\[0.5cm]
+\textit{Bilingual edition with restored Arabic terminology\\prepared for the Internet Islamic History Sourcebook}}
+}\\[1cm]
+
+{\small\color{sectioncolor}
+Arabic terms in this edition:\\
+\term{square}{مال}~|~\term{root}{جذر}~|~\term{number}{عدد}~|~\term{thing}{شيء}~|~\term{restoration}{الجبر}~|~\term{reduction}{المقابلة}}
+
+\vfill
+{\small\textit{Enhanced edition with bilingual Arabic--English apparatus}}
+\end{center}
+\clearpage
+
+%% -------- Copyright / Blank page --------
+\thispagestyle{empty}
+\null\clearpage
+
+%% ========================================================================
+%% TRANSLATOR'S PREFACE
+%% ========================================================================
+\section*{\textsc{Preface}}
+\addcontentsline{toc}{section}{Preface}
+
+\lettrine{I}{n the study of history,} the attention of the observer is drawn by a peculiar charm towards those epochs, at which nations, after having secured their independence externally, strive to obtain an inward guarantee for their power, by acquiring eminence as great in science and in every art of peace as they have already attained in the field of war. Such an epoch was, in the history of the Arabs, that of the Caliphs Al~Mansur, Harun al~Rashid, and Al~Mamun, illustrious contemporaries of Charlemagne; to the glory of which era, the volume now offered to the public, a new monument is endeavoured to be raised.
+
+\textsc{Abu Abdallah Mohammed ben Musa,} of Khowarezm, who it appears, from his preface, wrote this Treatise at the command of the Caliph Al~Mamun, was for a long time considered as the original inventor of Algebra.\footnote{``\textit{Haec ars olim Mahomete, Mosis Arabis filio, initium sumsit: etenim hujus rei locuples testis Leo-nardus Pisanus.}'' Such are the words with which Hieronymus Cardanus commences his \textit{Ars Magna}, in which he frequently refers to the work here translated, in a manner to leave no doubt of its identity.} That he was not the inventor of the Art, is now well established; but that he was the first Mohammedan who wrote upon it, is to be found asserted in several Oriental writers. Haji Khalfa, in his bibliographical work, cites the initial words of the treatise now before us,\footnote{I am indebted to the kindness of my friend Mr.~Gustav Fluegel of Dresden, for a most interesting extract from this part of Haji Khalfa's work. Complete manuscript copies of the \arterm{كشف الظنون} are very scarce. The only two which I have hitherto had an opportunity of examining (the one bought in Egypt by Dr.~Ehrenberg, and now deposited in the Royal Library at Berlin---the other among Rich's collection in the British Museum) are only abridgments of the original compilation, in which the quotation of the initial words of each work is generally omitted. The prospect of an edition and Latin translation of the complete original work, to be published by Mr.~Fluegel, under the auspices of the Oriental Translation Committee, must under such circumstances be most gratifying to all friends of Asiatic Literature.} and states, in two distinct passages, that its author, Mohammed ben Musa, was the first Mussulman who had ever written on the solution of problems by the rules of \alJabr and \alMuqabala (\term{Completion}{الجبر} and \term{Reduction}{المقابلة}). Two marginal notes in the Oxford manuscript---from which the text of the present edition is taken---and an anonymous Arabic writer, whose Bibliotheca Philosophorum is frequently quoted by Casiri, make the same assertion.
+
+\begin{arabicblock}
+The Arabic title \arterm{كتاب الجبر والمقابلة} (\textit{Kitab al-Jabr wa-l-Muqabala}) literally means ``Book of Restoration and Reduction.'' The term \aljabr refers to the operation of transferring negative quantities to the other side of an equation as positive; \almuqabala refers to the process of cancelling like quantities on both sides.
+\end{arabicblock}
+
+From the manner in which our author, in his preface, speaks of the task he had undertaken, we cannot infer that he claimed to be the inventor. He says that the Caliph Al~Mamun encouraged him to write a popular work on Algebra: an expression which would seem to imply that other treatises were then already extant.
+
+From a formula for finding the circumference of the circle, which occurs in the work itself (Text p.~51, Transl. p.~72), I have, in a note, drawn the conclusion, that part of the information comprised in this volume was derived from an Indian source; a conjecture which is supported by the direct assertion of the author of the \textit{Bibliotheca Philosophorum} quoted by Casiri (i.~426, 428). That Mohammed ben Musa was conversant with Hindu science, is further evident from the fact\footnote{Related by Ebn al Adami in the preface to his astronomical tables. Casiri, l.~427, 428. Colebrooke, Dissertation, \&c. p.~lxiv, lxxii.} that he abridged, at Al~Mamun's request---but before the accession of that prince to the caliphat---the Sindhind, or astronomical tables, translated by Mohammed ben Ibrahim al~Fazari from the work of an Indian astronomer who visited the court of Almansur in the 156th year of the Hejira (A.D.~773).
+
+The science as taught by Mohammed ben Musa, in the treatise now before us, does not extend beyond quadratic equations, including problems with an affected square. These he solves by the same rules which are followed by Diophantus,\footnote{See Diophantus, Introd.~\S~ii. and Book iv. problems 32 and 33.} and which are taught, though less comprehensively, by the Hindu mathematicians.\footnote{Lilavati, p.~29, Vijaganita, p.~347, of Mr.~Colebrooke's translation.} That he should have borrowed from Diophantus is not at all probable; for it does not appear that the Arabs had any knowledge of Diophantus' work before the middle of the fourth century after the Hejira, when Abu'l-Wafa Buzjani rendered it into Arabic.\footnote{Casiri Bibl.~Arab.~Escur.~i.~433. Colebrooke's Dissertation, \&c. p.~lxxii.}
+
+It is far more probable that the Arabs received their first knowledge of Algebra from the Hindus, who furnished them with the decimal notation of numerals, and with various important points of mathematical and astronomical information.
+
+But under whatever obligation our author may be to the Hindus, as to the subject matter of his performance, he seems to have been independent of them in the manner of digesting and treating it: at least the method which he follows in expounding his rules, as well as in showing their application, differs considerably from that of the Hindu mathematical writers. Bhaskara and Brahmagupta give dogmatical precepts, unsupported by argument, which, even by the metrical form in which they are expressed, seem to address themselves rather to the memory than to the reasoning faculty of the learner: Mohammed gives his rules in simple prose, and establishes their accuracy by geometrical illustrations. The Hindus give comparatively few examples, and are fond of investing the statement of their problems in rhetorical pomp: the Arab, on the contrary, is remarkably rich in examples, but he introduces them with the same perspicuous simplicity of style which distinguishes his rules. In solving their problems, the Hindus are satisfied with pointing at the result, and at the principal intermediate steps which lead to it: the Arab shows the working of each example at full length, keeping his view constantly fixed upon the two sides of the equation, as on the two scales of a balance, and showing how any alteration in one side is counterpoised by a corresponding change in the other.
+
+Besides the few facts which have already been mentioned in the course of this preface, little or nothing is known of our Author's life. He lived and wrote under the caliphat of Al~Mamun, and must therefore be distinguished from Abu Jafar Mohammed ben Musa,\footnote{The father of the latter, Musa ben Shaker, whose native country I do not find recorded, had been a robber or bandit in the earlier part of his life, but had afterwards found means to attach himself to the court of the Caliph Al-Mamun; who, after Musa's death, took care of the education of his three sons, Mohammed, Ahmed, and Al~Hassan. (Abulfaragii Histor.~Dyn.~p.~280. Casiri, l.~386, 418). Each of the sons subsequently distinguished himself in mathematics and astronomy. We learn from Abulfaraj (p.~281) and from Ibn Khallikan (art.~\arterm{ثابت بن قرة}) that Thabet ben Korrah, the well-known translator of the Almagest, was indebted to Mohammed for his introduction to Al~Motaded, and the men of science at the court of that caliph.} the well-known translator of the Almagest, and the friend of Thabet ben Korrah. The latter Mohammed ben Musa was one of three brothers, all of whom were eminent mathematicians and astronomers.
+
+The manuscript from whence the text of the present edition is taken---and which is the only copy the existence of which I have as yet been able to trace---is preserved in the Bodleian collection at Oxford. It is, together with three other treatises on Arithmetic and Algebra, contained in the volume marked cmxviii.~Hunt.~214, fol., and bears the date of the transcription A.H.~743 (A.D.~1342). It is written in a plain and legible hand, but unfortunately destitute of most of the diacritical points: a deficiency which has often been very sensibly felt; for though the nature of the subject matter can but seldom leave a doubt as to the general import of a sentence, yet the true reading of some passages, and the precise interpretation of others, remain involved in obscurity. Besides, there occur several omissions of words, and even of entire sentences; and also instances of words or short passages written twice over, or words foreign to the sense introduced into the text. In printing the Arabic part, I have included in brackets many of those words which I found in the manuscript, the genuineness of which I suspected, and also such as I inserted from my own conjecture, to supply an apparent hiatus.
+
+The margin of the manuscript is partially filled with scholia in a very small and almost illegible character, a few specimens of which will be found in the notes appended to my translation. Some of them are marked as being extracted from a commentary (\arterm{شرح}) by Al~Mozaihafi,\footnote{Wherever I have met with this name, it is written without the diacritical points \arterm{المزيحفي}, and my pronunciation rests on mere conjecture.} probably the same author, whose full name is Jamaleddin Abu Abdallah Mohammed ben Omar al~Jaza'if al~Mozaihafi, and whose ``Introduction to Arithmetic,'' (\arterm{مبادي علم الحساب}) is contained in the same volume with Mohammed's work in the Bodleian library.
+
+Numerals are in the text of the work always expressed by words: figures are only used in some of the diagrams, and in a few marginal notes.
+
+The work had been only briefly mentioned in Uris' catalogue of the Bodleian manuscripts. Mr.~H.~T.~Colebrooke first introduced it to more general notice, by inserting a full account of it, with an English translation of the directions for the solution of equations, simple and compound, into the notes of the ``Dissertation'' prefixed to his invaluable work, ``Algebra, with Arithmetic and Mensuration, from the Sanscrit of Brahmegupta and Bhascara.'' (London, 1817, 4to. pages lxxv--lxxix.)
+
+The account of the work given by Mr.~Colebrooke excited the attention of a highly distinguished friend of mathematical science, who encouraged me to undertake an edition and translation of the whole: and who has taken the kindest interest in the execution of my task. He has with great patience and care revised and corrected my translation, and has furnished the commentary, subjoined to the text, in the form of common algebraic notation. But my obligations to him are not confined to this only; for his luminous advice has enabled me to overcome many difficulties, which, to my own limited proficiency in mathematics, would have been almost insurmountable.
+
+In some notes on the Arabic text which are appended to my translation, I have endeavoured, not so much to elucidate, as to point out for further enquiry, a few circumstances connected with the history of Algebra. The comparisons drawn between the Algebra of the Arabs and that of the early Italian writers might perhaps have been more numerous and more detailed; but my enquiry was here restricted by the want of some important works. Montucla, Cossali, Hutton, and the Basil edition of Cardanus' \textit{Ars magna}, were the only sources which I had the opportunity of consulting.
+
+\clearpage
+
+%% ========================================================================
+%% THE AUTHOR'S PREFACE
+%% ========================================================================
+\section*{The Author's Preface}
+\addcontentsline{toc}{section}{The Author's Preface}
+
+\begin{center}
+\textsc{In the Name of God, gracious and merciful!}
+\end{center}
+
+\vspace{0.3cm}
+\noindent This work was written by Mohammed ben Musa, of Khowarezm. He commences it thus:
+
+Praised be God for his bounty towards those who deserve it by their virtuous acts: in performing which, as by him prescribed to his adoring creatures, we express our thanks, and render ourselves worthy of the continuance (of his mercy), and preserve ourselves from change: acknowledging his might, bending before his power, and revering his greatness! He sent Mohammed (on whom may the blessing of God repose!) with the mission of a prophet, long after any messenger from above had appeared, when justice had fallen into neglect, and when the true way of life was sought for in vain. Through him he cured of blindness, and saved through him from perdition, and increased through him what before was small, and collected through him what before was scattered. Praised be God our Lord! and may his glory increase, and may all his names be hallowed---besides whom there is no God; and may his benediction rest on Mohammed the Prophet and on his descendants!
+
+The learned in times which have passed away, and among nations which have ceased to exist, were constantly employed in writing books on the several departments of science and on the various branches of knowledge, bearing in mind those that were to come after them, and hoping for a reward proportionate to their ability, and trusting that their endeavours would meet with acknowledgment, attention, and remembrance---content as they were even with a small degree of praise; small, if compared with the pains which they had undergone, and the difficulties which they had encountered in revealing the secrets and obscurities of science.
+
+Some applied themselves to obtain information which was not known before them, and left it to posterity; others commented upon the difficulties in the works left by their predecessors, and defined the best method (of study), or rendered the access (to science) easier or placed it more within reach; others again discovered mistakes in preceding works, and arranged that which was confused, or adjusted what was irregular, and corrected the faults of their fellow-labourers, without arrogance towards them, or taking pride in what they did themselves.
+
+That fondness for science, by which God has distinguished the Imam al~Mamun, the Commander of the Faithful (besides the caliphat which He has vouchsafed unto him by lawful succession, in the robe of which He has invested him, and with the honours of which He has adorned him), that affability and condescension which he shows to the learned, that promptitude with which he protects and supports them in the elucidation of obscurities and in the removal of difficulties,---has encouraged me to compose a short work on Calculating by (the rules of) \alJabr and \alMuqabala, confining it to what is easiest and most useful in arithmetic, such as men constantly require in cases of inheritance, legacies, partition, law-suits, and trade, and in all their dealings with one another, or where the measuring of lands, the digging of canals, geometrical computation, and other objects of various sorts and kinds are concerned---relying on the goodness of my intention therein, and hoping that the learned will reward it, by obtaining (for me) through their prayers the excellence of the Divine mercy: in requital of which, may the choicest blessings and the abundant bounty of God be theirs! My confidence rests with God, in this as in every thing, and in Him I put my trust. He is the Lord of the Sublime Throne. May His blessing descend upon all the prophets and heavenly messengers!
+
+\clearpage
+
+%% ========================================================================
+%% MAIN TITLE
+%% ========================================================================
+\begin{center}
+{\LARGE\scshape Mohammed ben Musa's}\\[0.5cm]
+{\Large\scshape Compendium}\\[0.3cm]
+{\large\scshape on Calculating by}\\[0.3cm]
+{\Large\scshape Completion and Reduction.}
+\end{center}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+\lettrine{W}{hen I considered} what people generally want in calculating, I found that it always is a \Number (\adad). I also observed that every \no is composed of units, and that any \no may be divided into units. Moreover, I found that every \no, which may be expressed from one to ten, surpasses the preceding by one unit: afterwards the ten is doubled or tripled, just as before the units were: thus arise twenty, thirty, \&c., until a hundred; then the hundred is doubled and tripled in the same manner as the units and the tens, up to a thousand; then the thousand can be thus repeated at any complex number; and so forth to the utmost limit of numeration.
+
+I observed that the \nos which are required in calculating by \alJabr (\term{Completion}{الجبر}) and \alMuqabala (\term{Reduction}{المقابلة}) are of three kinds, namely, \textbf{\Roots} (\jidhr), \textbf{\Squares} (\mal), and \textbf{simple \Numbers} (\adad) \textbf{relative to neither \Root nor \Square}.
+
+\begin{arabicblock}
+Al-Khwarizmi's three kinds are: \arterm{جذر} (\textit{jidhr}, root, the unknown quantity $x$); \arterm{مال} (\textit{m\=al}, literally ``wealth'' or ``property,'' the square of the unknown $x^2$); and \arterm{عدد} (\textit{'adad}, number, the constant term). These three species form the basis of all equations in the \textit{Kitab al-Jabr wa-l-Muqabala}.
+\end{arabicblock}
+
+A \textit{\Root} (\jidhr) is any quantity which is to be multiplied by itself, consisting of units, or \nos ascending, or fractions descending.\footnote{By the word \Root, is meant the simple power of the unknown quantity.}
+
+A \textit{\Square} (\mal) is the whole amount of the \ro multiplied by itself.
+
+A \textit{simple \number} (\adad) is any \no which may be pronounced without reference to \ro or \sq.
+
+A \no belonging to one of these three classes may be equal to a \no of another class; you may say, for instance, ``\textit{\sqs are equal to \ros},'' or ``\textit{\sqs are equal to \nos},'' or ``\textit{\ros are equal to \nos}.''
+
+\vspace{0.5cm}
+\case{I}{\Squares are equal to \Roots.\hfill\textnormal{\arterm{المال يساوي الجذور}}}
+
+Of the case in which \sqs are equal to \ros, this is an example: ``A \sq is equal to five \ros of the same;'' the \ro of the \sq is five, and the \sq is twenty-five, which is equal to five times its \ro.
+
+So you say, ``one third of the \sq is equal to four \ros;'' then the whole \sq is equal to twelve \ros; that is a hundred and forty-four; and its \ro is twelve.
+
+Or you say, ``five \sqs are equal to ten \ros;'' then one \sq is equal to two \ros; the \ro of the \sq is two, and its \sq is four.
+
+In this manner, whether the \sqs be many or few, (i.e.~multiplied or divided by any \no), they are reduced to a single \sq; and the same is done with the \ros, which are their equivalents; that is to say, they are reduced in the same proportion as the \sqs.
+
+\vspace{0.3cm}
+\case{II}{\Squares are equal to \Numbers.\hfill\textnormal{\arterm{المال يساوي العدد}}}
+
+As to the case in which \sqs are equal to \nos; for instance, you say, ``a \sq is equal to nine;'' then this is a \sq, and its \ro is three. Or ``five \sqs are equal to eighty;'' then one \sq is equal to one-fifth of eighty, which is sixteen. Or ``the half of the \sq is equal to eighteen;'' then the \sq is thirty-six, and its \ro is six.
+
+Thus, all \sqs, multiples, and sub-multiples of them, are reduced to a single \sq. If there be only part of a \sq, you add thereto, until there is a whole \sq; you do the same with the equivalent in \nos.
+
+\vspace{0.3cm}
+\case{III}{\Roots are equal to \Numbers.\hfill\textnormal{\arterm{الجذور تساوي العدد}}}
+
+As to the case in which \ros are equal to \nos; for instance, ``one \ro equals three in \no;'' then the \ro is three, and its \sq nine. Or ``four \ros are equal to twenty;'' then one \ro is equal to five, and the \sq to be formed of it is twenty-five. Or ``half the \ro is equal to ten;'' then the whole \ro is equal to twenty, and the \sq which is formed of it is four hundred.
+
+\vspace{0.5cm}
+I found that these three kinds; namely, \ros, \sqs, and \nos, may be combined together, and thus three compound species arise;\footnote{The three cases considered are,\\\null\hspace{1cm}$1^{st}$. $cx^2 + bx = a$\\\null\hspace{1cm}$2^{d}$. $cx^2 + a = bx$\\\null\hspace{1cm}$3^{d}$. $cx^2 = bx + a$} that is, ``\textit{\sqs and \ros equal to \nos};'' ``\textit{\sqs and \nos equal to \ros};'' ``\textit{\ros and \nos equal to \sqs}.''
+
+\vspace{0.3cm}
+\case{IV}{\Roots and \Squares are equal to \Numbers.\hfill\textnormal{\arterm{الجذور والمال تساوي العدد}}}
+
+\Ros and \Squares are equal to \nos;\footnote{$1^{st}$ case: $cx^2 + bx = a$.\\Example: $x^2 + 10x = 39$\\$x = \sqrt{25 + 39} - 5 = \sqrt{64} - 5 = 8 - 5 = 3$\\i.e. the coefficient.} for instance, ``one \sq, and ten \ros of the same, amount to thirty-nine \dirhems;'' that is to say, what must be the \sq which, when increased by ten of its own \ros, amounts to thirty-nine? The solution is this: you halve the \no\footnote{By ``the \no of the \ros'' is meant the coefficient.} of the \ros, which in the present instance yields five. This you multiply by itself; the product is twenty-five. Add this to thirty-nine; the sum is sixty-four. Now take the \ro of this, which is eight, and subtract from it half the \no of the \ros, which is five; the remainder is three. This is the \ro of the \sq which you sought for; the \sq itself is nine.
+
+The solution is the same when two \sqs or three, or more or less be specified;\footnote{$cx^2 + bx = a$ is to be reduced to the form $x^2 + \frac{b}{c}x = \frac{a}{c}$.} you reduce them to one single \sq, and in the same proportion you reduce also the \ros and simple \nos which are connected therewith.
+
+For instance, ``two \sqs and ten \ros are equal to forty-eight \dirhems;''\footnote{$2x^2 + 10x = 48$, reduced to $x^2 + 5x = 24$,\\$x = \sqrt{6\frac{1}{4} + 24} - 2\frac{1}{2} = \sqrt{30\frac{1}{4}} - 2\frac{1}{2} = 5\frac{1}{2} - 2\frac{1}{2} = 3$.} that is to say, what must be the amount of two \sqs which, when summed up and added to ten times the \ro of one of them, make up a sum of forty-eight? You must at first reduce the two \sqs to one; and you know that one \sq of the two is the moiety of both. Then reduce every thing mentioned in the statement to its half, and it will be the same as if the question had been, a \sq and five \ros of the same are equal to twenty-four \dirhems; or, what must be the amount of a \sq which, when added to five times its \ro, is equal to twenty-four? Now halve the \no of the \ros; the moiety is two and a half. Multiply that by itself; the product is six and a quarter. Add this to twenty-four; the sum is thirty \dirhems and a quarter. Take the \ro of this; it is five and a half. Subtract from this the moiety of the \no of the \ros, that is two and a half; the remainder is three. This is the \ro of the \sq, and the \sq itself is nine.
+
+The proceeding will be the same if the instance be, ``half of a \sq and five \ros are equal to twenty-eight \dirhems;''\footnote{$\frac{1}{2}x^2 + 10x = 56$; $x^2 + 10x = 56$; $x = \sqrt{25 + 56} - 5 = \sqrt{81} - 5 = 9 - 5 = 4$.} that is to say, what must be the amount of a \sq, the moiety of which, when added to the equivalent of five of its \ros, is equal to twenty-eight? Your first business must be to complete your \sq, so that it amounts to one whole \sq. This you effect by doubling it. Therefore double it, and double also that which is added to it, as well as what is equal to it. Then you have a \sq and ten \ros, equal to fifty-six \dirhems. Now halve the \ros; the moiety is five. Multiply this by itself; the product is twenty-five. Add this to fifty-six; the sum is eighty-one. Extract the \ro of this; it is nine. Subtract from this the moiety of the \no of \ros, which is five; the remainder is four. This is the \ro of the \sq which you sought for; the \sq is sixteen, and half the \sq eight.
+
+Proceed in this manner, whenever you meet with \sqs and \ros that are equal to simple \nos: for it will always answer.
+
+\vspace{0.3cm}
+\case{V}{\Squares and \Numbers are equal to \Roots.\hfill\textnormal{\arterm{المال والعدد تساوي الجذور}}}
+
+\Squares and \nos are equal to \Ros;\footnote{$2^{d}$ case: $cx^2 + a = bx$.\\Example: $x^2 + 21 = 10x$\\$x = \frac{10}{2} \pm \sqrt{(\frac{10}{2})^2 - 21} = 5 \pm \sqrt{25 - 21} = 5 \pm \sqrt{4} = 5 \pm 2 = 7$ or $3$.} for instance, ``a \sq and twenty-one in \nos are equal to ten \ros of the same \sq.'' That is to say, what must be the amount of a \sq, which, when twenty-one \dirhems are added to it, becomes equal to the equivalent of ten \ros of that \sq?
+
+Solution: Halve the \no of the \ros; the moiety is five. Multiply this by itself; the product is twenty-five. Subtract from this the twenty-one which are connected with the \sq; the remainder is four. Extract its \ro; it is two. Subtract this from the moiety of the \ros, which is five; the remainder is three. This is the \ro of the \sq which you required, and the \sq is nine. Or you may add the \ro to the moiety of the \ros; the sum is seven; this is the \ro of the \sq which you sought for, and the \sq itself is forty-nine.
+
+When you meet with an instance which refers you to this case, try its solution by addition, and if that do not serve, then subtraction certainly will. For in this case both addition and subtraction may be employed, which will not answer in any other of the three cases in which the \no of the \ros must be halved.\footnote{If in an equation, of the form $x^2 + a = bx$, $(\frac{b}{2})^2 < a$, the case supposed in the equation cannot happen. If $(\frac{b}{2})^2 = a$, then $x = \frac{b}{2}$.} And know, that, when in a question belonging to this case you have halved the \no of the \ros and multiplied the moiety by itself, if the product be less than the \no of \dirhems connected with the \sq, then the instance is impossible;\footnote{The case of $(\frac{b}{2})^2 < a$ gives no real solution.} but if the product be equal to the \dirhems by themselves, then the \ro of the \sq is equal to the moiety of the \ros alone, without either addition or subtraction.
+
+In every instance where you have two \sqs, or more or less, reduce them to one entire \sq,\footnote{$cx^2 + a = bx$ is to be reduced to $x^2 + \frac{a}{c} = \frac{b}{c}x$.} as I have explained under the first case.
+
+\vspace{0.3cm}
+\case{VI}{\Roots and \Numbers are equal to \Squares.\hfill\textnormal{\arterm{الجذور والعدد تساوي المال}}}
+
+\Ros and \nos are equal to \Squares;\footnote{$3^{d}$ case: $cx^2 = bx + a$.\\Example: $x^2 = 3x + 4$\\$x = \sqrt{(\frac{3}{2})^2 + 4} + \frac{3}{2} = \sqrt{2\frac{1}{4} + 4} + 1\frac{1}{2} = \sqrt{6\frac{1}{4}} + 1\frac{1}{2} = 2\frac{1}{2} + 1\frac{1}{2} = 4$.} for instance, ``three \ros and four of simple \nos are equal to a \sq.'' Solution: Halve the \ros; the moiety is one and a half. Multiply this by itself; the product is two and a quarter. Add this to the four; the sum is six and a quarter. Extract its \ro; it is two and a half. Add this to the moiety of the \ros, which was one and a half; the sum is four. This is the \ro of the \sq, and the \sq is sixteen.
+
+Whenever you meet with a multiple or sub-multiple of a \sq, reduce it to one entire \sq.
+
+These are the six cases which I mentioned in the introduction to this book. They have now been explained. I have shown that three among them do not require that the \ros be halved, and I have taught how they must be resolved. As for the other three, in which halving the \ros is necessary, I think it expedient, more accurately, to explain them by separate chapters, in which a figure will be given for each case, to point out the reasons for halving.
+
+\clearpage
+
+%% ========================================================================
+%% GEOMETRICAL DEMONSTRATIONS
+%% ========================================================================
+\section*{Geometrical Demonstrations}
+\addcontentsline{toc}{section}{Geometrical Demonstrations}
+
+\lettrine{D}{emonstration of the Case:} ``\textit{a \Square (\mal) and ten \Roots (\jidhr) are equal to thirty-nine \Dirhems (\dirhem).}''\footnote{Geometrical illustration of the case, $x^2 + 10x = 39$.}
+
+The figure to explain this a quadrate, the sides of which are unknown. It represents the \sq (\mal), the \ro of which, or the \ro of which, you wish to know. This is the figure $AB$, each side of which may be considered as one of its \ros; and if you multiply one of these sides by any \no, then the amount of that \no may be looked upon as the \no of the \ros which are added to the \sq. Each side of the quadrate represents the \ro of the \sq; and, as in the instance the \ros were connected with the \sq, we may take one-fourth of ten, that is to say, two and a half, and combine it with each of the four sides of the figure. Thus with the original quadrate $AB$, four new parallelograms are combined, each having a side of the quadrate as its length, and the \no of two and a half as its breadth; they are the parallelograms $C$, $G$, $T$, and $K$. We have now a quadrate of equal, though unknown sides; but in each of the four corners of which a \sq piece of two and a half multiplied by two and a half is wanting. In order to compensate for this want and to complete the quadrate, we must add (to that which we have already) four times the \sq of two and a half, that is, twenty-five. We know (by the statement) that the first figure, namely, the quadrate representing the \sq (\mal), together with the four parallelograms around it, which represent the ten \ros (\jidhr), is equal to thirty-nine of \nos. If to this we add twenty-five, which is the equivalent of the four quadrates at the corners of the figure $AB$, by which the great figure $DH$ is completed, then we know that this together makes sixty-four. One side of this great quadrate is its \ro, that is, eight. If we subtract twice a fourth of ten, that is five, from eight, as from the two extremities of the side of the great quadrate $DH$, then the remainder of such a side will be three, and that is the \ro of the \sq (\mal), or the side of the original figure $AB$.
+
+It must be observed, that we have halved the \no of the \ros, and added the product of the moiety multiplied by itself to the \no thirty-nine, in order to complete the great figure in its four corners; because the fourth of any \no multiplied by itself, and then by four, is equal to the product of the moiety of that \no multiplied by itself.\footnote{$4 \times (\frac{b}{4})^2 = (\frac{b}{2})^2$.} Accordingly, we multiplied only the moiety of the \ros by itself, instead of multiplying its fourth by itself, and then by four.
+
+This is the figure:
+\begin{center}
+\begin{tabular}{c|c|c}
+\hline
+  & $G$ & \\
+\hline
+$C$ & $AB$ & $T$ \\
+\hline
+  & $K$ & \\
+\hline
+\end{tabular}
+\end{center}
+
+The same may also be explained by another figure. We proceed from the quadrate $AB$, which represents the \sq (\mal). It is our next business to add to it the ten \ros of the same. We halve for this purpose the ten, so that it becomes five, and construct two quadrangles on two sides of the quadrate $AB$, namely, $G$ and $D$, the length of each of them being five, as the moiety of the ten \ros, whilst the breadth of each is equal to a side of the quadrate $AB$. Then a quadrate remains opposite the corner of the quadrate $AB$. This is equal to five multiplied by five: this five being half of the \no of the \ros which we have added to each of the two sides of the first quadrate. Thus we know that the first quadrate, which is the \sq (\mal), and the two quadrangles on its sides, which are the ten \ros (\jidhr), make together thirty-nine. In order to complete the great quadrate, there wants only a \sq of five multiplied by five, or twenty-five. This we add to thirty-nine, in order to complete the great \sq (\mal) $SH$. The sum is sixty-four. We extract its \ro, eight, which is one of the sides of the great quadrangle. By subtracting from this the same quantity which we have before added, namely five, we obtain three as the remainder. This is the side of the quadrangle $AB$, which represents the \sq (\mal); it is the \ro of this \sq, and the \sq itself is nine.
+
+This is the figure:
+\begin{center}
+\begin{tabular}{c|c}
+\hline
+$D$ & \\
+\hline
+$AB$ & $G$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+\noindent\textbf{Demonstration of the Case: ``a \Square (\mal) and twenty-one \Dirhems (\dirhem) are equal to ten \Roots (\jidhr).''}
+
+We represent the \sq (\mal) by a quadrate $AD$, the length of whose side we do not know. To this we join a parallelogram, the breadth of which is equal to one of the sides of the quadrate $AD$, such as the side $HN$. This parallelogram is $HB$. The length of the two figures together is equal to the line $HC$. We know that its length is ten of \nos; for every quadrate has equal sides and angles, and one of its sides multiplied by a unit is the \ro of the quadrate, or multiplied by two it is twice the \ro of the same. As it is stated, therefore, that a \sq and twenty-one of \nos are equal to ten \ros, we may conclude that the length of the line $HC$ is equal to ten of \nos, since the line $CD$ represents the \ro of the \sq. We now divide the line $CH$ into two equal parts at the point $G$: the line $GC$ is then equal to $HG$. It is also evident that the line $GT$ is equal to the line $CD$. At present we add to the line $GT$, in the same direction, a piece equal to the difference between $CG$ and $GT$, in order to complete the \sq. Then the line $TK$ becomes equal to $KM$, and we have a new quadrate of equal sides and angles, namely, the quadrate $MT$. We know that the line $TK$ is five; this is consequently the length also of the other sides: the quadrate itself is twenty-five, this being the product of the multiplication of half the \no of the \ros by themselves, for five times five is twenty-five.
+
+We have perceived that the quadrangle $HB$ represents the twenty-one of \nos which were added to the quadrate. We have then cut off a piece from the quadrangle $HB$ by the line $KT$ (which is one of the sides of the quadrate $MT$), so that only the part $TA$ remains. At present we take from the line $KM$ the piece $KL$, which is equal to $GK$; it then appears that the line $TG$ is equal to $ML$; moreover, the line $KL$, which has been cut off from $KM$, is equal to $KG$; consequently, the quadrangle $MR$ is equal to $TA$. Thus it is evident that the quadrangle $HT$, augmented by the quadrangle $MR$, is equal to the quadrangle $HB$, which represents the twenty-one.
+
+The whole quadrate $MT$ was found to be equal to twenty-five. If we now subtract from this quadrate, $MT$, the quadrangles $HT$ and $MR$, which are equal to twenty-one, there remains a small quadrate $KR$, which represents the difference between twenty-five and twenty-one. This is four; and its \ro, represented by the line $RG$, which is equal to $GA$, is two. If you subtract this \no two from the line $CG$, which is the moiety of the \ros, then the remainder is the line $AC$; that is to say, three, which is the \ro of the original \sq (\mal). But if you add the \no two to the line $CG$, which is the moiety of the \no of the \ros, then the sum is seven, represented by the line $CR$, which is the \ro to a larger \sq. However, if you add twenty-one to this \sq, then the sum will likewise be equal to ten \ros of the same \sq.
+
+\vspace{0.5cm}
+\noindent\textbf{Demonstration of the Case: ``three \Roots (\jidhr) and four of Simple \Numbers (\adad) are equal to a \Square (\mal).''}
+
+Let the \sq be represented by a quadrangle, the sides of which are unknown to us, though they are equal among themselves, as also the angles. This is the quadrate $AD$, which comprises the three \ros and the four of \nos mentioned in this instance.
+
+In every quadrate one of its sides, multiplied by a unit, is its \ro. We now cut off the quadrangle $HD$ from the quadrate $AD$, and take one of its sides $HC$ for three, which is the \no of the \ros. The same is equal to $RD$. It follows, then, that the quadrangle $HB$ represents the four of \nos which are added to the \ros. Now we halve the side $CH$, which is equal to three \ros, at the point $G$; from this division we construct the \sq $HT$, which is the product of half the \ros (or one and a half) multiplied by themselves, that is to say, two and a quarter. We add then to the line $GT$ a piece equal to the line $AH$, namely, the piece $TL$; accordingly the line $GL$ becomes equal to $AG$, and the line $KN$ equal to $TL$. Thus a new quadrangle, with equal sides and angles, arises, namely, the quadrangle $GM$ and we find that the line $AG$ is equal to $ML$, and the same line $AG$ is equal to $GL$. By these means the line $CG$ remains equal to $NR$, and the line $MN$ equal to $TL$, and from the quadrangle $HB$ a piece equal to the quadrangle $KL$ is cut off.
+
+But we know that the quadrangle $AR$ represents the four of \nos which are added to the three \ros. The quadrangle $AN$ and the quadrangle $KL$ are together equal to the quadrangle $AR$, which represents the four of \nos.
+
+We have seen, also, that the quadrangle $GM$ comprises the product of the moiety of the \ros, or of one and a half, multiplied by itself; that is to say two and a quarter, together with the four of \nos, which are represented by the quadrangles $AN$ and $KL$.
+
+There remains now from the side of the great original quadrate $AD$, which represents the whole \sq (\mal), only the moiety of the \ros, that is to say, one and a half, namely, the line $GC$. If we add this to the line $AG$, which is the \ro of the quadrate $GM$, being equal to two and a half; then this, together with $CG$, or the moiety of the three \ros, namely, one and a half, makes four, which is the line $AC$, or the \ro to a \sq (\mal), which is represented by the quadrate $AD$.
+
+Here follows the figure. This it was which we were desirous to explain.
+
+\vspace{0.3cm}
+\begin{center}
+\textit{We have observed that every question which requires equation or \alJabr or \alMuqabala for its solution, will refer you to one of the six cases which I have proposed in this book. I have now also explained their arguments. Bear them, therefore, in mind.}
+\end{center}
+
+\clearpage
+
+%% ========================================================================
+%% ON MULTIPLICATION
+%% ========================================================================
+\section*{On Multiplication}
+\addcontentsline{toc}{section}{On Multiplication}
+
+\lettrine{I}{shall now teach you} how to multiply the unknown \nos, that is to say, the \ros (\jidhr), one by the other, if they stand alone, or if \nos are added to them, or if \nos are subtracted from them, or if they are subtracted from \nos; also how to add them one to the other, or how to subtract one from the other.
+
+Whenever one \no is to be multiplied by another, the one must be repeated as many times as the other contains units.\footnote{If $x$ is to be multiplied by $y$, $x$ is to be repeated as many times as there are units in $y$.}
+
+If there are greater \nos combined with units to be added to or subtracted from them, then four multiplications are necessary;\footnote{If $x \pm a$ is to be multiplied by $y \pm b$, $x$ is to be multiplied by $y$, $x$ is to be multiplied by $b$, $a$ is to be multiplied by $y$, and $a$ is to be multiplied by $b$.} namely, the greater \nos by the greater \nos, the greater \nos by the units, the units by the greater \nos, and the units by the units.
+
+If the units, combined with the greater \nos, are positive, then the last multiplication is positive; if they are both negative, then the fourth multiplication is likewise positive. But if one of them is positive, and one negative, then the fourth multiplication is negative.\footnote{In multiplying $y \pm x = a \pm b$:\\$(+a)(+b) = +ab$; $(-a)(-b) = +ab$; $(+a)(-b) = -ab$; $(-a)(+b) = -ab$.}
+
+For instance, ``ten and one to be multiplied by ten and two.''\footnote{$(10 + 1) \times (10 + 2) = 10 \times 10 + 1 \times 10 + 2 \times 10 + 1 \times 2 = 100 + 10 + 20 + 2 = 132$.} Ten times ten is a hundred; once ten is ten positive; twice ten is twenty positive, and once two is two positive; this altogether makes a hundred and thirty-two.
+
+But if the instance is ``ten less one, to be multiplied by ten less one,''
+\footnote{$(10 - 1) \times (10 - 1) = 10 \times 10 - 10 - 10 + 1 = 100 - 20 + 1 = 81$.} then ten times ten is a hundred; the negative one by ten is ten negative; the other negative one by ten is likewise ten negative, so that it becomes eighty: but the negative one by the negative one is one positive, and this makes the result eighty-one.
+
+Or if the instance be ``ten and two, to be multiplied by ten less one,''
+\footnote{$(10 + 2) \times (10 - 1) = 10 \times 10 - 10 + 20 - 2 = 100 - 10 + 20 - 2 = 108$.} then ten times ten is a hundred, and the negative one by ten is ten negative; the positive two by ten is twenty positive; this together is a hundred and ten; the positive two by the negative one gives two negative. This makes the product a hundred and eight.
+
+I have explained this, that it might serve as an introduction to the multiplication of unknown sums, when \nos are added to them, or when \nos are subtracted from them, or when they are subtracted from \nos.
+
+For instance: ``Ten less \thing (the signification of \ro) to be multiplied by ten.''\footnote{$(10 - x) \times 10 = 10 \times 10 - 10x = 100 - 10x$.} You begin by taking ten times ten, which is a hundred; less \thn by ten is ten \ros negative; the product is therefore a hundred less ten \things (\shay).
+
+If the instance be: ``ten and \thing to be multiplied by ten,''
+\footnote{$(10 + x) \times 10 = 10 \times 10 + 10x = 100 + 10x$.} then you take ten times ten, which is a hundred, and \thn by ten is ten \things positive; so that the product is a hundred plus ten \things (\shay).
+
+If the instance be: ``ten and \thing to be multiplied by itself,''
+\footnote{$(10 + x)(10 + x) = 10 \times 10 + 10x + 10x + x^2 = 100 + 20x + x^2$.} then ten times ten is a hundred, and ten times \thn is ten \things; and again, ten times \thn is ten \things; and \thn multiplied by \thn is a \sq (\mal) positive, so that the whole product is a hundred \dirhems and twenty \things and one positive \sq (\mal).
+
+If the instance be: ``ten minus \thing to be multiplied by ten minus \thing,'' then ten times ten is a hundred; and minus \thn by ten is minus ten \things; and again, minus \thn by ten is minus ten \things. But minus \thn multiplied by minus \thn is a positive \sq (\mal). The product is therefore a hundred and a \sq, minus twenty \things.
+
+In like manner if the following question be proposed to you: ``one \dirhem minus one-sixth to be multiplied by one \dirhem minus one-sixth;'' that is to say, five-sixths by themselves, the product is five and twenty parts of a \dirhem, which is divided into six and thirty parts, or two-thirds and one-sixth of a sixth. Computation: You multiply one \dirhem by one \dirhem, the product is one \dirhem; then one \dirhem by minus one-sixth, that is one-sixth negative; then, again, one \dirhem by minus one-sixth is one-sixth negative: so far, then, the result is two-thirds of a \dirhem: but there is still minus one-sixth to be multiplied by minus one-sixth, which is one-sixth of a sixth positive; the product is, therefore, two-thirds and one sixth of a sixth.
+
+If the instance be, ``ten minus \thing to be multiplied by ten and \thing,'' then you say,
+\footnote{$(10 - x)(10 + x) = 10 \times 10 - 10x + 10x - x^2 = 100 - x^2$.} ten times ten is a hundred; and minus \thn by ten is ten \things negative; and \thn by ten is ten \things positive; and minus \thn by \thn is a \sq (\mal) positive; therefore, the product is a hundred \dirhems, minus a \sq (\mal).
+
+If the instance be, ``ten minus \thing to be multiplied by \thing,'' then you say, ten multiplied by \thn is ten \things; and minus \thn by \thn is a \sq (\mal) negative; therefore, the product is ten \things minus a \sq (\mal).
+
+If the instance be, ``ten and \thing to be multiplied by \thing less ten,'' then you say, \thn multiplied by ten is ten \things positive; and \thn by \thn is a \sq (\mal) positive; and minus ten by ten is a hundred \dirhems negative; and minus ten by \thn is ten \things negative. You say, therefore, a \sq (\mal) minus a hundred \dirhems; for, having made the \alMuqabala (\term{reduction}{المقابلة}), that is to say, having removed the ten \things positive by the ten \things negative, there remains a \sq (\mal) minus a hundred \dirhems.
+
+If the instance be, ``ten \dirhems and half a \thing to be multiplied by half a \dirhem, minus five \things,'' then you say, half a \dirhem by ten is five \dirhems positive; and half a \dirhem by half a \thn is a quarter of \thn positive; and minus five \things by ten \dirhems is fifty \ros negative. This altogether makes five \dirhems minus forty-nine \things and three quarters of \thn. After this you multiply five \ros negative by half a \ro positive: it is two \sqs (\mal) and a half negative. Therefore, the product is five \dirhems, minus two \sqs (\mal) and a half, minus forty-nine \ros and three quarters of a \ro.
+
+If the instance be, ``ten and \thing to be multiplied by \thing less ten,'' then this is the same as if it were said \thn and ten by \thn less ten. You say, therefore, \thn multiplied by \thn is a \sq (\mal) positive; and ten by \thn is ten \things positive; and minus ten by \thn is ten \things negative. You now remove the positive by the negative, then there only remains a \sq (\mal). Minus ten multiplied by ten is a hundred, to be subtracted from the \sq. This, therefore, altogether, is a \sq (\mal) less a hundred \dirhems.
+
+Whenever a positive and a negative factor concur in a multiplication, such as \thn positive and minus \thn, the last multiplication gives always the negative product. Keep this in memory.
+
+\clearpage
+
+%% ========================================================================
+%% ON ADDITION AND SUBTRACTION
+%% ========================================================================
+\section*{On Addition and Subtraction}
+\addcontentsline{toc}{section}{On Addition and Subtraction}
+
+\lettrine{K}{now that} the \ro of two hundred minus ten, added to twenty minus the \ro of two hundred, is just ten.\footnote{$\sqrt{200} - 10 + (20 - \sqrt{200}) = 10$.}
+
+The \ro of two hundred, minus ten, subtracted from twenty minus the \ro of two hundred, is thirty minus twice the \ro of two hundred; twice the \ro of two hundred is equal to the \ro of eight hundred.\footnote{$20 - \sqrt{200} - (\sqrt{200} - 10) = 30 - 2\sqrt{200} = 30 - \sqrt{800}$.}
+
+A hundred and a \sq minus twenty \ros, added to fifty and ten \ros minus two \sqs, is a hundred and fifty, minus a \sq and minus ten \ros.\footnote{$50 + 10x - 2x^2 + (100 + x^2 - 20x) = 150 - 10x - x^2$.}
+
+A hundred and a \sq, minus twenty \ros, diminished by fifty and ten \ros minus two \sqs, is fifty \dirhems and three \sqs minus thirty \ros.\footnote{$100 + x^2 - 20x - [50 - 2x^2 + 10x] = 50 + 3x^2 - 30x$.}
+
+I shall hereafter explain to you the reason of this by a figure, which will be annexed to this chapter.
+
+If you require to double the \ro of any known or unknown \sq, (the meaning of its duplication being that you multiply it by two) then it will suffice to multiply two by two, and then by the \sq;\footnote{$(2)^2 \times x^2 = 4x^2$; therefore $\sqrt{4x^2} = 2x$.} the \ro of the product is equal to twice the \ro of the original \sq.
+
+If you require to take it thrice, you multiply three by three, and then by the \sq; the \ro of the product is thrice the \ro of the original \sq.
+
+Compute in this manner every multiplication of the \ros, whether the multiplication be more or less than two.
+
+If you require to find the moiety of the \ro of the \sq, you need only multiply a half by a half, which is a quarter; and then this by the \sq: the \ro of the product will be half the \ro of the first \sq. Follow the same rule when you seek for a third, or a quarter of a \ro, or any larger or smaller quota of it, whatever may be the denominator or the numerator.
+
+Examples of this: If you require to double the \ro of nine,\footnote{$3\sqrt{9} = \sqrt{9 \times 9} = \sqrt{81} = 9$.} you multiply two by two, and then by nine: this gives thirty-six; take the \ro of this, it is six, and this is double the \ro of nine.
+
+In the same manner, if you require to triple the \ro of nine,\footnote{$3\sqrt{9} = \sqrt{9 \times 9} = \sqrt{81} = 9$.} you multiply three by three, and then by nine; the product is eighty-one; take its \ro, it is nine, which becomes equal to thrice the \ro of nine.
+
+If you require to have the moiety of the \ro of nine,\footnote{$\frac{1}{2}\sqrt{9} = \sqrt{\frac{1}{4} \times 9} = \sqrt{2\frac{1}{4}} = 1\frac{1}{2}$.} you multiply a half by a half, which gives a quarter, and then this by nine; the result is two and a quarter: take its \ro; it is one and a half, which is the moiety of the \ro of nine.
+
+You proceed in this manner with every \ro, whether positive or negative, and whether known or unknown.
+
+\clearpage
+
+%% ========================================================================
+%% ON DIVISION
+%% ========================================================================
+\section*{On Division}
+\addcontentsline{toc}{section}{On Division}
+
+\lettrine{I}{f you will divide} the \ro of nine by the \ro of four,\footnote{$\frac{\sqrt{9}}{\sqrt{4}} = \sqrt{\frac{9}{4}} = \frac{3}{2} = 1\frac{1}{2}$.} you begin with dividing nine by four, which gives two and a quarter: the \ro of this is the \no which you require---it is one and a half.
+
+If you will divide the \ro of four by the \ro of nine,\footnote{$\frac{\sqrt{4}}{\sqrt{9}} = \sqrt{\frac{4}{9}} = \frac{2}{3}$.} you divide four by nine; it is four-ninths of the unit; the \ro of this is two divided by three; namely, two-thirds of the unit.
+
+If you wish to divide twice the \ro of nine by the \ro of four, or of any other \sq,\footnote{$\frac{2\sqrt{9}}{\sqrt{4}} = \frac{\sqrt{4} \times \sqrt{9}}{\sqrt{4}} = \sqrt{9} = 3$.} you double the \ro of nine in the manner above shown to you in the chapter on Multiplication, and you divide the product by four, or by any \no whatever. You perform this in the way above pointed out.
+
+In like manner, if you wish to divide three \ros of nine, or more, or one-half or any multiple or sub-multiple of the \ro of nine, the rule is always the same: follow it, the result will be right.
+
+If you wish to multiply the \ro of nine by the \ro of four,\footnote{$\sqrt{4} \times \sqrt{9} = \sqrt{4 \times 9} = \sqrt{36} = 6$.} multiply nine by four; this gives thirty-six; take its \ro, it is six; this is the \ro of nine, multiplied by the \ro of four.
+
+Thus, if you wish to multiply the \ro of five by the \ro of ten,\footnote{$\sqrt{10} \times \sqrt{5} = \sqrt{5 \times 10} = \sqrt{50}$.} multiply five by ten: the \ro of the product is what you have required.
+
+If you wish to multiply the \ro of one-third by the \ro of a half,\footnote{$\sqrt{\frac{1}{3}} \times \sqrt{\frac{1}{2}} = \sqrt{\frac{1}{3} \times \frac{1}{2}} = \sqrt{\frac{1}{6}}$.} you multiply one-third by a half: it is one-sixth: the \ro of one-sixth is equal to the \ro of one-third, multiplied by the \ro of a half.
+
+If you require to multiply twice the \ro of nine by thrice the \ro of four,\footnote{$3\sqrt{4} \times 2\sqrt{9} = \sqrt{9 \times 4} \times \sqrt{4 \times 9} = \sqrt{36 \times 36} = 36$.} then take twice the \ro of nine, according to the rule above given, so that you may know the \ro of what \sq it is. You do the same with respect to the three \ros of four in order to know what must be the \sq of such a \ro. You then multiply these two \sqs, the one by the other, and the \ro of the product is equal to twice the \ro of nine, multiplied by thrice the \ro of four.
+
+You proceed in this manner with all positive or negative \ros.
+
+\clearpage
+
+%% ========================================================================
+%% DEMONSTRATIONS
+%% ========================================================================
+\section*{Demonstrations}
+\addcontentsline{toc}{section}{Demonstrations}
+
+\lettrine{T}{he argument} for the \ro of two hundred, minus ten, added to twenty, minus the \ro of two hundred, may be elucidated by a figure.
+
+Let the line $AB$ represent the \ro of two hundred; let the part from $A$ to the point $C$ be the ten, then the remainder of the \ro of two hundred will correspond to the remainder of the line $AB$, namely to the line $CB$. Draw now from the point $B$ a line to the point $D$, to represent twenty; let it, therefore, be twice as long as the line $AC$, which represents ten; and mark a part of it from the point $B$ to the point $H$, to be equal to the line $AB$, which represents the \ro of two hundred; then the remainder of the twenty will be equal to the part of the line, from the point $H$ to the point $D$.
+
+As our object was to add the remainder of the \ro of two hundred, after the subtraction of ten, that is to say, the line $CB$, to the line $HD$, or to twenty, minus the \ro of two hundred, we cut off from the line $BH$ a piece equal to $CB$, namely, the line $SH$. We know already that the line $AB$, or the \ro of two hundred, is equal to the line $BH$, and that the line $AC$, which represents the ten, is equal to the line $SB$, as also that the remainder of the line $AB$, namely, the line $CB$ is equal to the remainder of the line $BH$, namely, to $SH$. Let us add, therefore, this piece $SH$, to the line $HD$. We have already seen that from the line $BD$, or twenty, a piece equal to $AC$, which is ten, was cut off, namely, the piece $BS$. There remains after this the line $SD$, which, consequently, is equal to ten.
+
+This it was that we intended to elucidate.
+
+\vspace{0.3cm}
+\noindent\textbf{The argument for the \ro of two hundred, minus ten, to be subtracted from twenty, minus the \ro of two hundred, is as follows.}
+
+Let the line $AB$ represent the \ro of two hundred, and let the part thereof, from $A$ to the point $C$, signify the ten mentioned in the instance. We draw now from the point $B$, a line towards the point $D$, to signify twenty. Then we trace from $B$ to the point $H$, the same length as the length of the line which represents the \ro of two hundred; that is of the line $AB$. We have seen that the line $CB$ is the remainder from the twenty, after the \ro of two hundred has been subtracted.
+
+It is our purpose, therefore, to subtract the line $CB$ from the line $HD$; and we now draw from the point $B$, a line towards the point $S$, equal in length to the line $AC$, which represents the ten. Then the whole line $SD$ is equal to $SB$, plus $BD$, and we perceive that all this added together amounts to thirty.
+
+We now cut off from the line $HD$, a piece equal to $CB$, namely, the line $HG$; thus we find that the line $GD$ is the remainder from the line $SD$, which signifies thirty. We see also that the line $BH$ is the \ro of two hundred and that the line $SB$ and $BC$ is likewise the \ro of two hundred. Now the line $HG$ is equal to $CB$; therefore the piece subtracted from the line $SD$, which represents thirty, is equal to twice the \ro of two hundred, or once the \ro of eight hundred.
+
+This it is that we wished to elucidate.
+
+\vspace{0.3cm}
+As for the hundred and \sq minus twenty \ros added to fifty, and ten \ros minus two \sqs, this does not admit of any figure, because there are three different species, viz.~\sqs, and \ros, and \nos, and nothing corresponding to them by which they might be represented. We had, indeed, contrived to construct a figure also for this case, but it was not sufficiently clear.
+
+The elucidation by words is very easy. You know that you have a hundred and a \sq, minus twenty \ros. When you add to this fifty and ten \ros, it becomes a hundred and fifty and a \sq, minus ten \ros. The reason for these ten negative \ros is, that from the twenty negative \ros ten positive \ros were subtracted by \alMuqabala (\term{reduction}{المقابلة}). This being done, there remains a hundred and fifty and a \sq, minus ten \ros. With the hundred a \sq is connected. If you subtract from this hundred and \sq the two \sqs negative connected with fifty, then one \sq disappears by reason of the other, and the remainder is a hundred and fifty, minus a \sq, and minus ten \ros.
+
+This it was that we wished to explain.
+
+\clearpage
+
+%% ========================================================================
+%% OF THE SIX PROBLEMS
+%% ========================================================================
+\section*{Of the Six Problems}
+\addcontentsline{toc}{section}{Of the Six Problems}
+
+\lettrine{B}{efore the chapters} on computation and the several species thereof, I shall now introduce six problems, as instances of the six cases treated of in the beginning of this work. I have shown that three among these cases, in order to be solved, do not require that the \ros be halved, and I have also mentioned that the calculating by \alJabr (\term{completion}{الجبر}) and \alMuqabala (\term{reduction}{المقابلة}) must always necessarily lead you to one of these cases. I now subjoin these problems, which will serve to bring the subject nearer to the understanding, to render its comprehension easier, and to make the arguments more perspicuous.
+
+\vspace{0.3cm}
+\noindent\textbf{First Problem.}\hfill\textnormal{\arterm{المسألة الأولى}}
+
+I have divided ten into two portions; I have multiplied the one of the two portions by the other; after this I have multiplied the one of the two by itself, and the product of the multiplication by itself is four times as much as that of one of the portions by the other.\footnote{$(10-x)x = \text{product}$; $x^2 = 4(10-x)x = 40x - 5x^2$; $5x^2 = 40x$; $x^2 = 8x$; $x = 8$; $(10-x) = 2$.}
+
+Computation: Suppose one of the portions to be \thn (\shay), and the other ten minus \thn: you multiply \thn by ten minus \thn; it is ten \things minus a \sq (\mal). Then multiply it by four, because the instance states ``four times as much.'' The result will be four times the product of one of the parts multiplied by the other. This is forty \things minus four \sqs (\mal). After this you multiply \thn by \thn, that is to say, one of the portions by itself. This is a \sq (\mal), which is equal to forty \things minus four \sqs. Reduce it now by the four \sqs, and add them to the one \sq. Then the equation is: forty \things are equal to five \sqs (\mal); and one \sq will be equal to eight \ros, that is, sixty-four; the \ro of this is eight, and this is one of the two portions, namely, that which is to be multiplied by itself. The remainder from the ten is two, and that is the other portion. Thus the question leads you to one of the six cases, namely, that of ``\sqs (\mal) equal to \ros (\jidhr).'' Remark this.
+
+\vspace{0.3cm}
+\noindent\textbf{Second Problem.}\hfill\textnormal{\arterm{المسألة الثانية}}
+
+I have divided ten into two portions: I have multiplied each of the parts by itself, and afterwards ten by itself: the product of ten by itself is equal to one of the two parts multiplied by itself, and afterwards by two and seven-ninths; or equal to the other multiplied by itself, and afterwards by six and one-fourth.\footnote{$100 = x^2 \times 2\frac{7}{9}$; $\frac{1}{2\frac{7}{9}} \times 100 = x^2$; $x = 6$; $10 - x = 4$.}
+
+Computation: Suppose one of the parts to be \thn (\shay), and the other ten minus \thn. You multiply \thn by itself, it is a \sq (\mal); then by two and seven-ninths, this makes it two \sqs and seven-ninths of a \sq. You afterwards multiply ten by ten; it is a hundred, which must be equal to two \sqs and seven-ninths of a \sq. Reduce it to one \sq, through division by nine twenty-fifths;\footnote{$2\frac{7}{9} = \frac{25}{9}$; $\frac{1}{\frac{25}{9}} \times 100 = \frac{9}{25} \times 100 = 36$; $x^2 = 36$; $x = 6$.} this being its fifth and four-fifths of its fifth, take now also the fifth and four-fifths of the fifth of a hundred; this is thirty-six, which is equal to one \sq (\mal). Take its \ro, it is six. This is one of the two portions; and accordingly the other is four. This question leads you, therefore, to one of the six cases, namely, ``\sqs (\mal) equal to \nos (\adad).''
+
+\vspace{0.3cm}
+\noindent\textbf{Third Problem.}\hfill\textnormal{\arterm{المسألة الثالثة}}
+
+I have divided ten into two parts. I have afterwards divided the one by the other, and the quotient was four.\footnote{$\frac{10-x}{x} = 4$; $10 = 5x$; $x = 2$; $(10-x) = 8$.}
+
+Computation: Suppose one of the two parts to be \thn (\shay), the other ten minus \thn. Then you divide ten minus \thn by \thn, in order that four may be obtained. You know that if you multiply the quotient by the divisor, the sum which was divided is restored. In the present question the quotient is four and the divisor is \thn (\shay). Multiply, therefore, four by \thn; the result is four \things, which are equal to the sum to be divided, which was ten minus \thn. You now reduce it by \thn, which you add to the four \things. Then we have five \things equal to ten; therefore one \thn is equal to two, and this is one of the two portions. This question refers you to one of the six cases, namely, ``\ros (\jidhr) equal to \nos (\adad).''
+
+\vspace{0.3cm}
+\noindent\textbf{Fourth Problem.}\hfill\textnormal{\arterm{المسألة الرابعة}}
+
+I have multiplied one-third of \thn and one \dirhem by one-fourth of \thn and one \dirhem, and the product was twenty.\footnote{$(\frac{1}{3}x + 1)(\frac{1}{4}x + 1) = 20$; $\frac{1}{12}x^2 + \frac{7}{12}x + 1 = 20$; $x^2 + 7x = 228$.}
+
+Computation: You multiply one-third of \thn by one-fourth of \thn; it is one-half of a sixth of a \sq (\mal). Further, you multiply one \dirhem by one-third of \thn, it is one-third of \thn; and one \dirhem by one-fourth of \thn, it is one-fourth of \thn; and one \dirhem by one \dirhem, it is one \dirhem. The result of this is: the moiety of one-sixth of a \sq, and one-third of \thn, and one-fourth of \thn, and one \dirhem, is equal to twenty \dirhems. Subtract now the one \dirhem from these twenty \dirhems; the remainder is nineteen \dirhems, equal to the moiety of one-sixth of a \sq, and one-third of \thn and one-fourth of \thn. Now make your \sq a whole one: you do this by multiplying all that you have by twelve. Thus you have one \sq and seven \ros equal to two hundred and twenty-eight. Halve the \no of the \ros, and multiply it by itself; it is twelve and one-fourth. Add this to the \no, that is, to two hundred and twenty-eight; the sum is two hundred and forty and one quarter. Extract the \ro of this; it is fifteen and a half. Subtract from this the moiety of the \ros, that is, seven and a half; there remains eight, which is the \sq required.
+
+\vspace{0.3cm}
+\noindent\textbf{Fifth Problem.}\hfill\textnormal{\arterm{المسألة الخامسة}}
+
+I have divided ten into two parts; and having divided the one by the other, and multiplied each of them by itself, and also I had added the products, the sum was fifty-eight \dirhems.\footnote{$(10-x)^2 + x^2 = 58$; $100 - 20x + x^2 + x^2 = 58$; $2x^2 - 20x + 100 = 58$; $x^2 - 10x + 50 = 29$; $x = 5 \pm \sqrt{25-29} = 5 \pm 2 = 7$ or $3$.}
+
+Computation: Suppose one of the two parts to be \thn (\shay), and the other ten minus \thn. Multiply ten minus \thn by itself; it is a hundred and a \sq minus twenty \things. Then multiply \thn by \thn; it is a \sq. Add both together. The sum is a hundred, plus two \sqs (\mal) minus twenty \things, which are equal to fifty-eight \dirhems. Take now the twenty negative \things from the hundred and the two \sqs, and add them to fifty-eight; then a hundred, plus two \sqs, are equal to fifty-eight \dirhems and twenty \things. Reduce this to one \sq, by taking the moiety of all you have. It is then: fifty \dirhems and a \sq, which are equal to twenty-nine \dirhems and ten \things. Then reduce this, by taking twenty-nine from fifty: there remains twenty-one and a \sq, equal to ten \things. Halve the \no of the \ros, it is five; multiply this by itself, it is twenty-five; take from this the twenty-one which are connected with the \sq, the remainder is four. Extract the \ro, it is two. Subtract this from the moiety of the \ros, namely, from five, there remains three. This is one of the portions; the other is seven. This question refers you to one of the six cases, namely ``\sqs and \nos equal to \ros.''
+
+\vspace{0.3cm}
+\noindent\textbf{Sixth Problem.}\hfill\textnormal{\arterm{المسألة السادسة}}
+
+I have multiplied one-third of a \ro by one-fourth of a \ro, and the product is equal to the \ro and twenty-four \dirhems.\footnote{$\frac{1}{3}x \times \frac{1}{4}x = x + 24$; $\frac{1}{12}x^2 = x + 24$; $x^2 = 12x + 288$; $x = 6 + \sqrt{36 + 288} = 6 + 18 = 24$.}
+
+Computation: Call the \ro \thn (\shay); then one-third of \thn is multiplied by one-fourth of \thn; this is the moiety of one-sixth of the \sq (\mal), and is equal to \thn and twenty-four \dirhems. Multiply this moiety of one-sixth of the \sq by twelve, in order to make your \sq a whole one, and multiply also the \thn by twelve, which yields twelve \things; and also four-and-twenty by twelve: the product of the whole will be two hundred and eighty-eight \dirhems and twelve \ros, which are equal to one \sq (\mal). The moiety of the \ros is six. Multiply this by itself, and add it to two hundred and eighty-eight, it will be three hundred and twenty-four. Extract the \ro from this, it is eighteen; add this to the moiety of the \ros, which was six; the sum is twenty-four, and this is the \sq sought for.
+
+This question refers you to one of the six cases, namely, ``\ros and \nos equal to \sqs (\mal).''
+
+\clearpage
+
+%% ========================================================================
+%% VARIOUS QUESTIONS
+%% ========================================================================
+\section*{Various Questions}
+\addcontentsline{toc}{section}{Various Questions}
+
+\lettrine{I}{f a person puts} such a question to you as: ``I have divided ten into two parts, and multiplying one of these by the other, the result was twenty-one;''\footnote{$(10-x)x = 21$; $10x - x^2 = 21$; which is to be reduced to $x = 5 \pm \sqrt{25-21} = 5 \pm 2$.} then you know that one of the two parts is \thn (\shay), and the other ten minus \thn. Multiply, therefore, \thn by ten minus \thn; then you have ten \things minus a \sq (\mal), which is equal to twenty-one. Separate the \sq from the ten \things, and add it to the twenty-one. Then you have ten \things, which are equal to twenty-one \dirhems and a \sq. Take away the moiety of the \ros, and multiply the remaining five by itself; it is twenty-five. Subtract from this the twenty-one which are connected with the \sq; the remainder is four. Extract its \ro, it is two. Subtract this from the moiety of the \ros, namely, five: there remain three, which is one of the two parts. Or, if you please, you may add the \ro of four to the moiety of the \ros; the sum is seven, which is likewise one of the parts.
+
+This is one of the problems which may be resolved by addition and subtraction.
+
+If the question be: ``I have divided ten into two parts, and having multiplied each part by itself, I have subtracted the smaller from the greater, and the remainder was forty;''\footnote{$(10-x)^2 - x^2 = 40$; $100 - 20x + x^2 - x^2 = 40$; $100 - 20x = 40$; $100 = 20x + 40$; $60 = 20x$; $x = 3$.} then the computation is---you multiply ten minus \thn by itself, it is a hundred plus one \sq minus twenty \things; and you also multiply \thn by \thn, it is one \sq. Subtract this from a hundred and a \sq minus twenty \things, and you have a hundred, minus twenty \things, equal to forty \dirhems. Separate now the twenty \things from a hundred, and add them to the forty; then you have a hundred, equal to twenty \things and forty \dirhems. Subtract now forty from a hundred; there remains sixty \dirhems, equal to twenty \things: therefore one \thn is equal to three, which is one of the two parts.
+
+If the question be: ``I have divided ten into two parts, and having multiplied each part by itself, I have put them together, and have added to them the difference of the two parts previously to their multiplication, and the amount of all this is fifty-four;''\footnote{$100 - 20x + x^2 + x^2 + 10 - 2x = 54$; $100 - 22x + 2x^2 = 54$; $55 - 11x + x^2 = 27$; $x^2 + 28 = 11x$; $x = \frac{11}{2} \pm \sqrt{\frac{121}{4} - 28} = \frac{11}{2} \pm \frac{3}{2} = 7$ or $4$.} then the computation is this: You multiply ten minus \thn by itself; it is a hundred and a \sq minus twenty \things. Then multiply also the other \thn of the ten by itself; it is one \sq. Add this together, it will be a hundred plus two \sqs minus twenty \things. It was stated that the difference of the two parts before multiplication should be added to them. You say, therefore, the difference between them is ten minus two \things. The result is a hundred and ten and two \sqs minus twenty-two \things, which are equal to fifty-four \dirhems. Having reduced and equalized this, you may say, a hundred and ten \dirhems and two \sqs are equal to fifty-four \dirhems and twenty-two \things. Reduce now the two \sqs to one \sq, by taking the moiety of all you have. Thus it becomes fifty-five \dirhems and a \sq, equal to twenty-seven \dirhems and eleven \things. Subtract twenty-seven from fifty-five, there remain twenty-eight \dirhems and a \sq, equal to eleven \things. Halve now the \things, it will be five and a half; multiply this by itself, it is thirty and a quarter. Subtract from it the twenty-eight which are combined with the \sq, the remainder is two and a fourth. Extract its \ro, it is one and a half. Subtract this from the moiety of the \ros, there remain four, which is one of the two parts.
+
+If one say, ``I have divided ten into two parts; and have divided the first by the second, and the second by the first, and the sum of the quotient is two \dirhems and one-sixth;''\footnote{$100 + 2x^2 - 20x = x(10-x) \times 2\frac{1}{6} = 21\frac{2}{3}x - 2\frac{1}{6}x^2$; $100 + 4\frac{1}{6}x^2 = 41\frac{2}{3}x$; $24 + x^2 = 10x$; $x = 5 - \sqrt{25-24} = 5 - 1 = 4$ or $6$.} then the computation is this: If you multiply each part by itself, and add the products together, then their sum is equal to one of the parts multiplied by the other, and again by the quotient which is two and one-sixth. Multiply, therefore, ten less \thn by itself; it is a hundred and a \sq less twenty \things. Multiply \thn by \thn; it is one \sq. Add this together; the sum is a hundred plus two \sqs less twenty \things, which is equal to \thn multiplied by ten less \thn; that is, to ten \things less a \sq, multiplied by the sum of the quotients arising from the division of the two parts, namely, two and one-sixth. We have, therefore, twenty-one \things and two-thirds of \thn less two \sqs and one-sixth, equal to a hundred plus two \sqs less twenty \things. Reduce this by adding the two \sqs and one-sixth to a hundred plus two \sqs less twenty \things, and add the twenty negative \things from the hundred plus the two \sqs to the twenty-one \things and two-thirds of \thn. Then you have a hundred plus four \sqs and one-sixth of a \sq, equal to forty-one \things and two-thirds of \thn. Now reduce this to one \sq. You know that one \sq is obtained from four \sqs and one-sixth, by taking a fifth and one-fifth of a fifth.\footnote{$4\frac{1}{6} = \frac{25}{6}$; $\frac{1}{4\frac{1}{6}} = \frac{6}{25} = \frac{1}{5} + \frac{1}{5}\frac{1}{5}$.} Take, therefore, the fifth and one-fifth of a fifth of all that you have. Then it is twenty-four and a \sq, equal to ten \ros; because ten is one-fifth and one-fifth of the fifth of the forty-one \things and two-thirds.
+
+Observe that, in every case, where any two quantities whatsoever are divided, the first by the second and the second by the first, if you multiply the quotient of the one division by that of the other, the product is always one.\footnote{$\frac{a}{b} \times \frac{b}{a} = 1$.}
+
+If some one say: ``You divide ten into two parts; multiply one of the two parts by five, and divide it by the other: then take the moiety of the quotient, and add this to the product of the one part, multiplied by five; the sum is fifty \dirhems;''\footnote{$x^2 + 100 = 50x$; $x = 25 - \sqrt{625-100} = 25 - \sqrt{525}$.} then the computation is this: Take \thn, and multiply it by five. This is now to be divided by the remainder of the ten, that is, by ten less \thn; and of the quotient the moiety is to be taken.
+
+You know that if you divide five \things by ten less \thn, and take the moiety of the quotient, the result is the same as if you divide the moiety of five \things by ten less \thn. Take, therefore, the moiety of five \things; it is two \things and a half: and this you require to divide by ten less \thn. Now these two \things and a half, divided by ten less \thn, give a quotient which is equal to fifty less five \things: for the question states: add this (the quotient) to the one part multiplied by five, the sum will be fifty. You have already observed, that if the quotient, or the result of the division, be multiplied by the divisor, the dividend, or capital to be divided, is restored. Now, your capital, in the present instance, is two \things and a half. Multiply, therefore, ten less \thn by fifty less five \things. Then you have five hundred \dirhems and five \sqs (\mal) less a hundred \things, which are equal to two \things and a half. Reduce this to one \sq. Then it becomes a hundred \dirhems and a \sq less twenty \things, equal to the moiety of \thn. Separate now the twenty \things from the hundred \dirhems and \sq, and add them to the half \thn. Then you have a hundred \dirhems and a \sq, equal to twenty \things and a half. Now halve the \things, multiply the moiety by itself, subtract from this the hundred, extract the \ro of the remainder, and subtract this from the moiety of the \ros, which is ten and one-fourth: the remainder is eight; and this is one of the portions.
+
+If some one say: ``You divide ten into two parts: multiply the one by itself; it will be equal to the other taken eighty-one times.''\footnote{$100 - 20x + x^2 = 81x$; $x^2 + 100 = 101x$; $x = \frac{101}{2} - \sqrt{\frac{10201}{4} - 100} = 50\frac{1}{2} - 49\frac{1}{2} = 1$.} Computation: You say, ten less \thn, multiplied by itself, is a hundred plus a \sq less twenty \things, and this is equal to eighty-one \things. Separate the twenty \things from a hundred and a \sq, and add them to eighty-one. It will then be a hundred plus a \sq, which is equal to a hundred and one \ros. Halve the \ros; the moiety is fifty and a half. Multiply this by itself, it is two thousand five hundred and fifty and a quarter. Subtract from this one hundred; the remainder is two thousand four hundred and fifty and a quarter. Extract the \ro from this; it is forty-nine and a half. Subtract this from the moiety of the \ros, which is fifty and a half. There remains one, and this is one of the two parts.
+
+If some one say: ``I have purchased two measures of wheat or barley, each of them at a certain price. I afterwards added the expenses, and the sum was equal to the difference of the two prices, added to the difference of the measures.''\footnote{The purchaser does not make a clear enunciation of the terms of his bargain.} Computation: Take what \nos you please, for it is indifferent; for instance, four and six. Then you say: I have bought each measure of the four for \thn (\shay); and accordingly you multiply four by \thn, which gives four \things; and I have bought the six, each for the moiety of \thn, for which I have bought the four; or, if you please, for one-third, or one-fourth, or for any other quota of that price, for it is indifferent. Suppose that you have bought the six measures for the moiety of \thn, then you multiply the moiety of \thn by six; this gives three \things. Add them to the four \things; the sum is seven \things, which must be equal to the difference of the two quantities, which is two measures, plus the difference of the two prices, which is a moiety of \thn. You have, therefore, seven \things, equal to two and a moiety of \thn. Remove, now, this moiety of \thn, by subtracting it from the seven \things. There remain six \things and a half, equal to two \dirhems: consequently, one \thn is equal to four-thirteenths of a \dirhem. The six measures were bought, each at one-half of \thn; that is, at two-thirteenths of a \dirhem. Accordingly, the expenses amount to eight-and-twenty thirteenths of a \dirhem, and this sum is equal to the difference of the two quantities; namely
+
+\clearpage
+
+If he say: ``There are two \nos (\adad),\footnote{``\textit{\Squares (\mal)}'' in the original. The word \sq is used in the text to signify either, 1st, a \sq, properly so called, fractional or integral; 2d, a rational integer, not being a \sq \no; 3d, a rational fraction, not being a \sq; 4th, a quadratic surd, fractional or integral.} the difference of which is two \dirhems. I have divided the smaller by the larger, and the quotient was just half a \dirhem.''\footnote{$\frac{x}{x+2} = \frac{1}{2}$; $\frac{1}{2}(x+2) = x$; $\frac{1}{2}x + 1 = x$; $1 = \frac{1}{2}x$; $x = 2$; the other is $4$.} Suppose one of the two \nos to be \thn (\shay), and the other to be \thn plus two \dirhems. By the division of \thn by \thn plus two \dirhems, half a \dirhem appears as quotient. You have already observed, that by multiplying the quotient by the divisor, the capital which you divided is restored. This capital, in the present case, is \thn. Multiply, therefore, \thn and two \dirhems by half a \dirhem, which is the quotient; the product is half one \thn plus one \dirhem; this is equal to \thn. Remove, now, half a \thn on account of the other half \thn; there remains one \dirhem, equal to half a \thn. Double it, then you have one \thn, equal to two \dirhems. Consequently, the other\footnote{``\textit{\Square (\mal)}'' in the original.} \no is four.
+
+If some one say: ``I have divided ten into two parts; I have multiplied the one by ten and the other by itself, and the products were the same;''\footnote{$10x = (10-x)^2 = 100 - 20x + x^2$.} then the computation is this: You multiply \thn by ten; it is ten \things. Then multiply ten less \thn by itself; it is a hundred and a \sq less twenty \things, which is equal to ten \things. Reduce this according to the rules, which I have above explained to you.
+
+In like manner, if he say: ``I have divided ten into two parts; I have multiplied one of the two by the other, and have then divided the product by the difference of the two parts before their multiplication, and the result of this division is five and one-fourth;''\footnote{$\frac{(10-x)x}{10-2x} = 5\frac{1}{4}$; $20\frac{1}{4}x = x^2 + 5\frac{1}{4}(10-2x)$; $x = 10 - 7\frac{1}{2} = 2\frac{1}{2}$.} the computation will be this: You subtract \thn from ten; there remain ten less \thn. Multiply the one by the other, it is ten \things less a \sq (\mal). This is the product of the multiplication of one of the two parts by the other. At present you divide this by the difference between the two parts, which is ten less two \things. The quotient of this division is, according to the statement, five and a fourth. If, therefore, you multiply five and one-fourth by ten less two \things, the product must be equal to the above amount, obtained by multiplication, namely, ten \things less one \sq. Multiply now five and one-fourth by ten less two \sqs. The result is fifty-two \dirhems and a half less ten \ros and a half, which is equal to ten \ros less a \sq. Separate now the ten \ros and a half from the fifty-two \dirhems, and add them to the ten \ros less a \sq; at the same time separate this \sq from them, and add it to the fifty-two \dirhems and a half. Thus you find twenty \ros and a half, equal to fifty-two \dirhems and a half and one \sq (\mal). Now continue reducing it, conformably to the rules explained at the commencement of this book.
+
+If the question be: ``There is a \sq (\mal), two-thirds of one-fifth of which are equal to one-seventh of its \ro;''\footnote{$\frac{2}{3} \cdot \frac{1}{5}x^2 = \frac{1}{7}x$; $\frac{2}{15}x^2 = \frac{1}{7}x$; $x^2 = \frac{15}{14}x$; $x = \frac{15}{14}$.} then the \sq is equal to one \ro and half a seventh of a \ro; and the \ro consists of fourteen-fifteenths of the \sq. The computation is this: You multiply two-thirds of one-fifth of the \sq by seven and a half, in order that the \sq may be completed. Multiply that which you have already, namely, one-seventh of its \ro, by the same. The result will be, that the \sq is equal to one \ro and half a seventh of the \ro; and the \ro of the \sq is one and a half seventh; and the \sq is one and twenty-nine one hundred and ninety-sixths of a \dirhem. Two-thirds of the fifth of this are thirty parts of the hundred and ninety-six parts. One-seventh of its \ro is likewise thirty parts of a hundred and ninety-six.
+
+If the instance be: ``Three-fourths of the fifth of a \sq are equal to four-fifths of its \ro,''
+\footnote{$\frac{3}{4} \cdot \frac{1}{5}x^2 = \frac{4}{5}x$; $\frac{3}{20}x^2 = \frac{4}{5}x$; $\frac{3}{20}x = \frac{4}{5}$; $x = \frac{16}{3} = 5\frac{1}{3}$.} then the computation is this; You add one-fifth to the four-fifths, in order to complete the \ro. This is then equal to three and three-fourths of twenty parts, that is, to fifteen eightieths of the \sq. Divide now eighty by fifteen; the quotient is five and one-third. This is the \ro of the \sq, and the \sq is twenty-eight and four-ninths.
+
+If some one say: ``What is the amount of a \sq-\ro (\term{square-root}{جذر المال}), which, when multiplied by four times itself, amounts to twenty?''
+\footnote{$4x^2 = 20$; $x^2 = 5$; $x = \sqrt{5}$.} the answer is this: If you multiply it by itself it will be five: it is therefore the \ro of five.
+
+If somebody ask you for the amount of a \sq-\ro which when multiplied by its third amounts to ten,\footnote{$x \times \frac{x}{3} = 10$; $x^2 = 30$; $x = \sqrt{30}$.} the solution is, that when multiplied by itself it will amount to thirty; and it is consequently the \ro of thirty.
+
+If the question be: ``To find a quantity (\term{root}{جذر}), which when multiplied by four times itself, gives one-third of the first quantity as product,''
+\footnote{$x \times 4x = \frac{1}{3}x$; $4x^2 = \frac{1}{3}x$; $12x^2 = x$; $x = \frac{1}{12}$.} the solution is, that if you multiply it by twelve times itself, the quantity itself must re-appear: it is the moiety of one moiety of one-third.
+
+If the question be: ``A \sq (\mal), which when multiplied by its \ro gives three times the original \sq as product,''
+\footnote{$x^2 \times x = 3x^2$; $x^3 = 3x^2$; $x = 3$.} then the solution is: that if you multiply the \ro by one-third of the \sq, the original \sq is restored; its \ro must consequently be three, and the \sq itself nine.
+
+If the instance be: ``To find a \sq (\mal), four \ros of which, multiplied by three \ros, restore the \sq with a surplus of forty-four \dirhems,''
+\footnote{$4x \times 3x = x^2 + 44$; $12x^2 = x^2 + 44$; $11x^2 = 44$; $x^2 = 4$; $x = 2$.} then the solution is: that you multiply four \ros by three \ros, which gives twelve \sqs (\mal), equal to a \sq and forty-four \dirhems. Remove now one \sq of the twelve on account of the one \sq connected with the forty-four \dirhems. There remain eleven \sqs, equal to forty-four \dirhems. Make the division, the result will be four, and this is the \sq.
+
+If the instance be: ``A \sq (\mal), four of the \ros of which multiplied by five of its \ros produce twice the \sq, with a surplus of thirty-six \dirhems;''
+\footnote{$4x \times 5x = 2x^2 + 36$; $20x^2 = 2x^2 + 36$; $18x^2 = 36$; $x^2 = 2$.} then the solution is: that you multiply four \ros by five \ros, which gives twenty \sqs, equal to two \sqs and thirty-six \dirhems. Remove two \sqs from the twenty on account of the other two. The remainder is eighteen \sqs, equal to thirty-six \dirhems. Divide now thirty-six \dirhems by eighteen; the quotient is two, and this is the \sq.
+
+In the same manner, if the question be: ``A \sq, multiply its \ro by four of its \ros, and the product will be three times the \sq, with a surplus of fifty \dirhems.''
+\footnote{$x \times 4x = 3x^2 + 50$; $4x^2 = 3x^2 + 50$; $x^2 = 50$; $x = \sqrt{50}$.} Computation: You multiply the \ro by four \ros, it is four \sqs, which are equal to three \sqs and fifty \dirhems. Remove three \sqs from the four; there remains one \sq, equal to fifty \dirhems. One \ro of fifty, multiplied by four \ros of the same, gives two hundred, which is equal to three times the \sq, and a residue of fifty \dirhems.
+
+If the instance be: ``A \sq (\mal), which when added to twenty \dirhems, is equal to twelve of its \ros,''
+\footnote{$x^2 + 20 = 12x$; $x = 6 \pm \sqrt{36-20} = 6 \pm 4 = 10$ or $2$.} then the solution is this: You say, one \sq and twenty \dirhems are equal to twelve \ros. Halve the \ros and multiply them by themselves; this gives thirty-six. Subtract from this the twenty \dirhems, extract the \ro from the remainder, and subtract it from the moiety of the \ros, which is six. The remainder is the \ro of the \sq: it is two \dirhems, and the \sq is four.
+
+If the instance be: ``To find a \sq (\mal), of which if one-third be added to three \dirhems, and the sum be subtracted from the \sq, the remainder multiplied by itself restores the \sq;''\footnote{$(x^2 - \frac{1}{3}x^2 - 3)^2 = x^2$; $\frac{2}{3}x^2 - 3 = x$; $\frac{4}{9}x^4 - 4x^2 + 9 = x^2$; $x^2 + 9 = 5x$; $x = 9$ or $2\frac{1}{4}$.} then the computation is this: If you subtract one-third and three \dirhems from the \sq, there remain two-thirds of it less three \dirhems. This is the \ro. Multiply therefore two-thirds of \thn less three \dirhems by itself. You say two-thirds by two-thirds is four ninths of a \sq; and less two-thirds by three \dirhems is two \ros; and again, two-thirds by three \dirhems is two \ros; and less three \dirhems by less three \dirhems is nine \dirhems. You have, therefore, four-ninths of a \sq and nine \dirhems less four \ros, which are equal to one \ro. Add the four \ros to the one \ro, then you have five \ros, which are equal to four-ninths of a \sq and nine \dirhems. Complete now your \sq; that is, multiply the four-ninths of a \sq by two and a fourth, which gives one \sq; multiply likewise the nine \dirhems by two and a quarter; this gives twenty and a quarter; finally, multiply the five \ros by two and a quarter; this gives eleven \ros and a quarter. You have, therefore, a \sq and twenty \dirhems and a quarter, equal to eleven \ros and a quarter. Reduce this according to what I taught you about halving the \ros.
+
+If the instance be: ``To find a \no (\adad),\footnote{``\textit{\Sq (\mal)}'' in the original.} one-third of which, when multiplied by one-fourth of it, restores the \no,''
+\footnote{$\frac{1}{3}x \times \frac{1}{4}x = x$; $\frac{1}{12}x^2 = x$; $x^2 = 12x$; $x = 12$.} then the computation is: You multiply one-third of \thn by one-fourth of \thn, this gives one-twelfth of a \sq, equal to \thn, and the \sq is equal to twelve \things, which is the \ro of one hundred and forty-four.
+
+If the instance be: ``A \no (\adad),\footnote{``\textit{\Sq}'' in the original.} one-third of which and one \dirhem multiplied by one-fourth of it and two \dirhems restore the \no, with a surplus of thirteen \dirhems;''\footnote{$\frac{x}{3} + 1 \times \frac{x}{4} + 2 = x + 13$; $\frac{1}{12}x^2 + \frac{11}{12}x + 2 = x + 13$; $\frac{1}{12}x^2 + 11 = \frac{1}{12}x + 13$; $x^2 = 132 + x$; $x = 12$.} then the computation is this: You multiply one-third of \thn by one-fourth of \thn, this gives half one-sixth of a \sq; and you multiply two \dirhems by one-third of \thn, this gives two-thirds of a \ro; and one \dirhem by one-fourth of \thn gives one-fourth of a \ro; and one \dirhem by two \dirhems gives two \dirhems. This altogether is one-twelfth of a \sq and two \dirhems and eleven-twelfths of a \thn, equal to \thn and thirteen \dirhems. Remove now two \dirhems from thirteen, on account of the other two \dirhems, the remainder is eleven \dirhems. Remove then the eleven-twelfths of a \ro from the one (\ro on the opposite side), there remains one-twelfth of a \ro and eleven \dirhems, equal to one-twelfth of a \sq. Complete the \sq: that is, multiply it by twelve, and do the same with all you have. The product is a \sq, which is equal to a hundred and thirty-two \dirhems and one \ro. Reduce this, according to what I have taught you, it will be right.
+
+If the instance be: ``A \dirhem and a half to be divided among one person and certain persons, so that the share of the one person be twice as many \dirhems as there are other persons;''\footnote{The enunciation in the original is faulty, and I have altered it to correspond with the computation.} then the Computation is this: You say, the one person and some persons are one and \thn: it is the same as if the question had been one \dirhem and a half to be divided by one and \thn, and the share of one person to be equal to two \things. Multiply, therefore, two \things by one and \thn; it is two \sqs and two \things, equal to one \dirhem and a half. Reduce them to one \sq: that is, take the moiety of all you have. You say, therefore, one \sq and one \thn are equal to three-fourths of a \dirhem. Reduce this, according to what I have taught you in the beginning of this work.
+
+If the instance be: ``A \no (\adad),\footnote{``\textit{\Sq}'' in the original.} you remove one-third of it, and one-fourth of it, and four \dirhems: then you multiply the remainder by itself, and the \no,\footnote{``\textit{\Sq}'' in the original.} is restored, with a surplus of twelve \dirhems;'' then the computation is this: You take \thn, and subtract from it one-third and one-fourth; there remain five-twelfths of \thn. Subtract from this four \dirhems; the remainder is five-twelfths of \thn less four \dirhems. Multiply this by itself. Thus the five parts become five-and-twenty parts; and if you multiply twelve by itself, it is a hundred and forty-four. This makes, therefore, five and twenty hundred and forty-fourths of a \sq. Multiply then the four \dirhems twice by the five-twelfths; this gives forty parts, every twelve of which make one \ro (forty-twelfths); finally, the four \dirhems, multiplied by four \dirhems, give sixteen \dirhems to be added. The forty-twelfths are equal to three \ros and one-third of a \ro, to be subtracted. The whole product is, therefore, twenty-five-hundred-and-forty-fourths of a \sq and sixteen \dirhems less three \ros and one-third of a \ro, equal to the original \no (\adad),\footnote{``\textit{\Sq}'' in the original.} which is \thn and twelve \dirhems. Reduce this, by adding the three \ros and one-third to the \thn and twelve \dirhems. Thus you have four \ros and one-third of a \ro and twelve \dirhems. Go on balancing, and subtract the twelve (\dirhems) from sixteen; there remain four \dirhems and five-and-twenty-hundred-and-forty-fourths of a \sq, equal to four \ros and one-third. Now it is necessary to complete the \sq. This you can accomplish by multiplying all you have by five and nineteen twenty-fifths.
+
+If the question be: ``To find a \sq-\ro, which, when multiplied by two-thirds of itself, amounts to five;''\footnote{$x \times \frac{2}{3}x = 5$; $\frac{2}{3}x^2 = 5$; $x^2 = 7\frac{1}{2}$; $x = \sqrt{7\frac{1}{2}}$.} then the computation is this: You multiply one \thn by two-thirds of \thn; the product is two-thirds of \sq, equal to five. Complete it by adding its moiety to it, and add to five likewise its moiety. Thus you have a \sq, equal to seven and a half. Take its \ro; it is the \thn which you required, and which, when multiplied by two-thirds of itself, is equal to five.
+
+If the instance be: ``Two \nos (\adad),\footnote{``\textit{\Squares}'' in the original.} the difference of which is two \dirhems; you divide the small one by the great one, and the quotient is equal to half a \dirhem;''\footnote{$\frac{x}{x+2} = \frac{1}{2}$; $\frac{1}{2}(x+2) = x$; $1 + \frac{1}{2}x = x$; $1 = \frac{1}{2}x$; $x = 2$; the other is $4$.} then the computation is this: Multiply \thn and two \dirhems by the quotient, that is a half. The product is half a \thn and one \dirhem, equal to \thn. Remove now half a \dirhem on account of the half \dirhem on the other side. The remainder is one \dirhem, equal to half a \thn. Double it; then you have \thn, equal to two \dirhems. This is one of the two\footnote{``\textit{\Squares}'' in the original.} \nos, and the other is four.
+
+Instance: ``You divide one \dirhem amongst a certain \no of men, which \no is \thn. Now you add one man more to them, and divide again one \dirhem amongst them; the quota of each is then one-sixth of a \dirhem less than at the first time.''\footnote{$\frac{1}{x} - \frac{1}{x+1} = \frac{1}{6}$; $\frac{x+1-x}{x(x+1)} = \frac{1}{6}$; $\frac{1}{x(x+1)} = \frac{1}{6}$; $x^2 + x = 6$; $x = \sqrt{\frac{1}{4} + 6} - \frac{1}{2} = 2$.} Computation: You multiply the first \no of men, which is \thn, by the difference of the share for each of the other \no. Then multiply the product by the first and second \no of men, and divide the product by the difference of these two \nos. Thus you obtain the sum which shall be divided. Multiply, therefore, the first \no of men, which is \thn, by the one-sixth, which is the difference of the shares; this gives one-sixth of \ro. Then multiply this by the original \no of the men, and that of the additional one, that is to say, by \thn plus one. The product is one-sixth of \sq and one-sixth of \ro divided by one \dirhem, and this is equal to one \dirhem. Complete the \sq which you have through multiplying it, by six. Then you have a \sq and a \ro equal to six \dirhems. Halve the \ro and multiply the moiety by itself, it is one-fourth. Add this to the six; take the \ro of the sum and subtract from it the moiety of the \ro, which you have multiplied by itself, namely, a half. The remainder is the first \no of men; which in this instance is two.
+
+If the instance be: ``To find a \sq-\ro, which when multiplied by two-thirds of itself amounts to five:''\footnote{$\frac{2}{3}x^2 = 5$; $x^2 = 7\frac{1}{2}$; $x = \sqrt{7\frac{1}{2}}$.} then the computation is this: If you multiply it by itself, it gives seven and a half. Say, therefore, it is the \ro of seven and a half multiplied by two-thirds of the \ro of seven and a half. Multiply then two-thirds by two-thirds, it is four-ninths; and four-ninths multiplied by seven and a half is three and a third. The \ro of three and a third is two-thirds of the \ro of seven and a half. Multiply three and a third by seven and a half; the product is twenty-five, and its \ro is five.
+
+If the instance be: ``A \sq (\mal) multiplied by three of its \ros is equal to five times the original \sq;''\footnote{$x^2 \times 3x = 5x^2$; $3x^3 = 5x^2$; $3x = 5$; $x = 1\frac{2}{3}$; $x^2 = 2\frac{7}{9}$.} then this is the same as if it had been said, a \sq, which when multiplied by its \ro, is equal to the first \sq and two-thirds of it. Then the \ro of the \sq is one and two-thirds, and the \sq is two \dirhems and seven-ninths.
+
+If the instance be: ``Remove one-third from a \sq, then multiply the remainder by three \ros of the first \sq, and the first \sq will be restored."\footnote{$(x^2 - \frac{1}{3}x^2) \times 3x = x^2$; $\frac{2}{3}x^2 \times 3x = x^2$; $2x^3 = x^2$; $x = \frac{1}{2}$; $x^2 = \frac{1}{4}$.} Computation: If you multiply the first \sq, before removing two-thirds from it, by three \ros of the same, then it is one \sq and a half; for according to the statement two-thirds of it multiplied by three \ros give one \sq; and, consequently, the whole of it multiplied by three \ros of it gives one \sq and a half. This entire \sq, when multiplied by one \ro, gives half a \sq; the \ro of the \sq must therefore be a half, the \sq one-fourth, two-thirds of the \sq one-sixth, and three \ros of the \sq one and a half. If you multiply one-sixth by one and a half, the product is one-fourth, which is the \sq.
+
+Instance: ``A \sq (\mal); you subtract four \ros of the same, then take one-third of the remainder; this is equal to the four \ros." The \sq is two hundred and fifty-six.\footnote{$x^2 - 4x = \frac{1}{3}(x^2 - 4x)$ gives $\frac{2}{3}(x^2 - 4x) = 4x$; $x^2 - 4x = 6x$; $x^2 = 10x$; $x = 10$; $x^2 = 100$. \textit{[Note: There appears to be a discrepancy in the original text, which states 256.]}} Computation: You know that one-third of the remainder is equal to four \ros; consequently, the whole remainder must be twelve \ros; add to this the four \ros; the sum is sixteen, which is the \ro of the \sq.
+
+Instance: ``A \sq (\mal); you remove one \ro from it and if you add to this \ro a \ro of the remainder, the sum is two \dirhems."\footnote{$\sqrt{x^2 - x} + x = 2$; $\sqrt{x^2 - x} = 2 - x$; $x^2 - x = 4 + x^2 - 4x$; $3x = 4$; $x = 1\frac{1}{3}$; $x^2 = 1\frac{7}{9}$.} Then, this is the \ro of a \sq, which, when added to the \ro of the same \sq, less one \ro, is equal to two \dirhems. Subtract from this one \ro of the \sq, and subtract also from the two \dirhems one \ro of the \sq. Then two \dirhems less one \ro multiplied by itself is four \dirhems and one \sq less four \ros, and this is equal to a \sq less one \ro. Reduce it, and you find a \sq and four \dirhems, equal to a \sq and three \ros. Remove \sq by \sq; there remain three \ros, equal to four \dirhems; consequently, one \ro is equal to one \dirhem and one-third. This is the \ro of the \sq, and the \sq is one \dirhem and seven ninths of a \dirhem.
+
+Instance: ``Subtract three \ros from a \sq, then multiply the remainder by itself, and the \sq is restored."\footnote{$x^2 - 3x = x$; $x^2 = 4x$; $x = 4$.} You know by this statement that the remainder must be a \ro likewise; and that the \sq consists of four such \ros; consequently, it must be sixteen.
+
+\clearpage
+
+%% ========================================================================
+%% ON MERCANTILE TRANSACTIONS
+%% ========================================================================
+\section*{On Mercantile Transactions}
+\addcontentsline{toc}{section}{On Mercantile Transactions}
+
+\lettrine{Y}{ou know that} all mercantile transactions of people, such as buying and selling, exchange and hire, comprehend always two notions and four \nos (\adad), which are stated by the enquirer; namely, measure and price, and quantity and sum. The \no which expresses the measure is inversely proportionate to the \no which expresses the sum, and the \no of the price inversely proportionate to that of the quantity. Three of these four \nos are always known, one is unknown, and this is implied when the person inquiring says \textit{how much?} and it is the object of the question.
+
+The computation in such instances is this, that you try the three given \nos; two of them must necessarily be inversely proportionate the one to the other. Then you multiply these two proportionate \nos by each other, and you divide the product by the third given \no, the proportionate of which is unknown. The quotient of this division is the unknown \no, which the inquirer asked for; and it is inversely proportionate to the divisor.\footnote{If $a$ is given for $b$, and $A$ for $B$; then $a : b :: A : B$ or $aB = bA$; $\therefore a = \frac{bA}{B}$ and $b = \frac{aB}{A}$.}
+
+\vspace{0.3cm}
+\noindent\textbf{Examples.}\hfill\textnormal{\arterm{أمثلة}}
+
+For the first case: If you are told, ``ten for six, how much for four?'' then ten is the measure; six is the price; the expression \textit{how much} implies the unknown \no of the quantity; and \textit{four} is the \no of the sum. The \no of the measure, which is ten, is inversely proportionate to the \no of the sum, namely, \textit{four}. Multiply, therefore, ten by four, that is to say, the two known proportionate \nos by each other; the product is forty. Divide this by the other known \no, which is that of the price, namely, six. The quotient is six and two-thirds; it is the unknown \no, implied in the words of the question ``how much?'' it is the quantity, and inversely proportionate to the six, which is the price.
+
+For the second case: Suppose that some one ask this question: ``ten for eight, what must be the sum for four?'' This is also sometimes expressed thus: ``What must be the price of four of them?'' Ten is the \no of the measure, and is inversely proportionate to the unknown \no of the sum, which is involved in the expression \textit{how much} of the statement. Eight is the \no of the price, and this is inversely proportionate to the known \no of the quantity, namely, four. Multiply now the two known proportionate \nos one by the other, that is to say, four by eight. The product is thirty-two. Divide this by the other known \no, which is that of the measure, namely, ten. The quotient is three and one-fifth; this is the \no of the sum, and inversely proportionate to the ten which was the divisor. In this manner all computations in matters of business may be solved.
+
+If somebody says, ``a workman receives a pay of ten \dirhems per month; how much must be his pay for six days?'' Then you know that six days are one-fifth of the month; and that his portion of the \dirhems must be proportionate to the portion of the month. You calculate it by observing that one month, or thirty days, is the measure, ten \dirhems the price, six days the quantity, and his portion the sum. Multiply the price, that is, ten, by the quantity, which is proportionate to it, namely, six; the product is sixty. Divide this by thirty, which is the known \no of the measure. The quotient is two \dirhems, and this is the sum.
+
+This is the proceeding by which all transactions concerning exchange or measures or weights are settled.
+
+\clearpage
+
+%% ========================================================================
+%% MENSURATION
+%% ========================================================================
+\section*{Mensuration}
+\addcontentsline{toc}{section}{Mensuration}
+
+\lettrine{K}{now that} the meaning of the expression ``one by one'' is mensuration: one yard (in length) by one yard (in breadth) being understood.
+
+Every quadrangle of equal sides and angles, which has one yard for every side, has also one for its area. Has such a quadrangle two yards for its side, then the area of the quadrangle is four times the area of a quadrangle, the side of which is one yard. The same takes place with three by three, and so on, ascending or descending: for instance, a half by a half, which gives a quarter, or other fractions, always following the same rule.
+
+A quadrate, every side of which is half a yard, is equal to one-fourth of the figure which has one yard for its side. In the same manner, one-third by one-third, or one-fourth by one-fourth, or one-fifth by one-fifth, or two-thirds by a half, or more or less than this, always according to the same rule.
+
+One side of an equilateral quadrangular figure, taken once, is its \ro (\jidhr); or if the same be multiplied by two, then it is like two of its \ros, whether it be small or great.
+
+If you multiply the height of any equilateral triangle by the moiety of the basis upon which the line marking the height stands perpendicularly, the product gives the area of that triangle.
+
+In every equilateral quadrangle, the product of one diameter multiplied by the moiety of the other will be equal to the area of it.
+
+In any circle, the product of its diameter, multiplied by three and one-seventh, will be equal to the periphery. This is the rule generally followed in practical life, though it is not quite exact. The geometricians have two other methods. One of them is, that you multiply the diameter by itself; then by ten, and hereafter take the \ro of the product; the \ro will be the periphery. The other method is used by the astronomers among them: it is this, that you multiply the diameter by sixty-two thousand eight hundred and thirty-two and then divide the product by twenty thousand; the quotient is the periphery. Both methods come very nearly to the same effect.\footnote{The three formulas are: $1^{st}$, $3\frac{1}{7}d = p$ i.e.~$3.1428\,d$; $2^{d}$, $\sqrt{10d^2} = p$ i.e.~$3.16227\,d$; $3^{d}$, $\frac{d \times 62832}{20000} = p$ i.e.~$3.1416\,d$.}
+
+If you divide the periphery by three and one-seventh, the quotient is the diameter.
+
+The area of any circle will be found by multiplying the moiety of the circumference by the moiety of the diameter; since, in every polygon of equal sides and angles, such as triangles, quadrangles, pentagons, and so on, the area is found by multiplying the moiety of the circumference by the moiety of the diameter of the middle circle that may be drawn through it.
+
+If you multiply the diameter of any circle by itself, and subtract from the product one-seventh and half one-seventh of the same, then the remainder is equal to the area of the circle. This comes very nearly to the same result with the method given above.\footnote{The area of a circle whose diameter is $d$ is $\pi\frac{d^2}{4} = d^2 - \frac{d^2}{7} - \frac{1}{2} \cdot \frac{d^2}{7} = d^2(1 - \frac{3}{14}) = \frac{11}{14}d^2 \approx 0.7857d^2$. The value $\frac{22}{7} \cdot \frac{1}{4} = \frac{11}{14} \approx 0.7857$.}
+
+Every part of a circle may be compared to a bow. It must be either exactly equal to half the circumference, or less or greater than it. This may be ascertained by the arrow of the bow. When this becomes equal to the moiety of the chord, then the arc is exactly the moiety of the circumference: is it shorter than the moiety of the chord, then the bow is less than half the circumference; is the arrow longer than half the chord, then the bow comprises more than half the circumference.
+
+If you want to ascertain the circle to which it belongs, multiply the moiety of the chord by itself, divide it by the arrow, and add the quotient to the arrow, the sum is the diameter of the circle to which this bow belongs.
+
+If you want to compute the area of the bow, multiply the moiety of the diameter of the circle by the moiety of the bow, and keep the product in mind. Then subtract the arrow of the bow from the moiety of the diameter of the circle, if the bow is smaller than half the circle; or if it is greater than half the circle, subtract half the diameter of the circle from the arrow of the bow. Multiply the remainder by the moiety of the chord of the bow, and subtract the product from that which you have kept in mind if the bow is smaller than the moiety of the circle, or add it thereto if the bow is greater than half the circle. The sum after the addition, or the remainder after the subtraction, is the area of the bow.
+
+The bulk of a quadrangular body will be found by multiplying the length by the breadth, and then by the height.
+
+If it is of another shape than the quadrangular (for instance, circular or triangular), so, however, that a line representing its height may stand perpendicularly on its basis, and yet be parallel to the sides, you must calculate it by ascertaining at first the area of its basis. This, multiplied by the height, gives the bulk of the body.
+
+Cones and pyramids, such as triangular or quadrangular ones, are computed by multiplying one-third of the area of the basis by the height.
+
+\vspace{0.5cm}
+\noindent\textbf{On the Rectangular Triangle.}\hfill\textnormal{\arterm{في المثلث القائم}}
+
+Observe, that in every rectangular triangle the two short sides, each multiplied by itself and the products added together, equal the product of the long side multiplied by itself.
+
+The proof of this is the following. We draw a quadrangle, with equal sides and angles $ABCD$. We divide the line $AC$ into two moieties in the point $H$, from which we draw a parallel to the point $R$. Then we divide, also, the line $AB$ into two moieties at the point $T$, and draw a parallel to the point $G$. Then the quadrate $ABCD$ is divided into four quadrangles of equal sides and angles, and of equal area; namely, the \sqs $AK$, $CK$, $BK$, and $DK$. Now, we draw from the point $H$ to the point $T$ a line which divides the quadrangle $AK$ into two equal parts: thus there arise two triangles from the quadrangle, namely, the triangles $ATH$ and $HKT$. We know that $AT$ is the moiety of $AB$, and that $AH$ is equal to it, being the moiety of $AC$; and the line $TH$ joins them opposite the right angle. In the same manner we draw lines from $T$ to $R$, and from $R$ to $G$, and from $G$ to $H$. Thus from all the \sqs eight equal triangles arise, four of which must, consequently, be equal to the moiety of the great quadrate $AD$. We know that the line $AT$ multiplied by itself is like the area of two triangles, and $AK$ gives the area of two triangles equal to them; the sum of them is therefore four triangles. But the line $HT$, multiplied by itself, gives likewise the area of four such triangles. We perceive, therefore, that the sum of $AT$ multiplied by itself, added to $AH$ multiplied by itself, is equal to $TH$ multiplied by itself.
+
+This is the observation which we were desirous to elucidate.
+
+\vspace{0.3cm}
+\noindent\textbf{Quadrangles are of five kinds:} firstly, with right angles and equal sides; secondly, with right angles and unequal sides; thirdly, the rhombus, with equal sides and unequal angles; fourthly, the rhomboid, the length of which differs from its breadth, and the angles of which are unequal, only that the two long and the two short sides are respectively of equal length; fifthly, quadrangles with unequal sides and angles.
+
+\textit{First kind.}---The area of any quadrangle with equal sides and right angles, or with unequal sides and right angles, may be found by multiplying the length by the breadth. The product is the area. For instance: a quadrangular piece of ground, every side of which has five yards, has an area of five-and-twenty square yards.
+
+\textit{Second kind.}---A quadrangular piece of ground, the two long sides of which are of eight yards each, while the breadth is six. You find the area by multiplying six by eight, which yields forty-eight yards.
+
+\textit{Third kind, the Rhombus.}---Its sides are equal: let each of them be five, and let its diagonals be, the one eight and the other six yards. You may then compute the area, either from one of the diagonals, or from both. As you know them both, you multiply the one by the moiety of the other, the product is the area: that is to say, you multiply eight by three, or six by four; this yields twenty-four yards, which is the area.\footnote{If the two diagonals are $d$ and $d'$, and the side $s$, the area of the rhombus is $\frac{dd'}{2} = d \times \sqrt{s^2 - \frac{d^2}{4}}$.} If you know only one of the diagonals, then you are aware, that there are two triangles, two sides of each of which have every one five yards, while the third is the diagonal. Hereafter you can make the computation according to the rules for the triangles. This is the figure.
+
+\textit{The fourth kind, or Rhomboid,} is computed in the same way as the rhombus.
+
+The other quadrangles are calculated by drawing a diagonal, and computing them as triangles.
+
+\vspace{0.3cm}
+\noindent\textbf{Triangles} are of three kinds, acute-angular, obtuse-angular, or rectangular. The peculiarity of the rectangular triangle is, that if you multiply each of its two short sides by itself, and then add them together, their sum will be equal to the long side multiplied by itself. The character of the acute-angled triangle is this: if you multiply every one of its two short sides by itself, and add the products, their sum is more than the long side alone multiplied by itself. The definition of the obtuse-angled triangle is this: if you multiply its two short sides each by itself, and then add the products, their sum is less than the product of the long side multiplied by itself.
+
+The rectangular triangle has two cathetes and an hypotenuse. It may be considered as the moiety of a quadrangle. You find its area by multiplying one of its cathetes by the moiety of the other. The product is the area.
+
+\textit{Examples.}---A rectangular triangle; one cathete being six yards, the other eight, and the hypotenuse ten. You make the computation by multiplying six by four: this gives twenty-four, which is the area. Or if you prefer, you may also calculate it by the height, which rises perpendicularly from the longest side of it: for the two short sides may themselves be considered as two heights. If you prefer this, you multiply the height by the moiety of the basis. The product is the area.
+
+\textit{Second kind.}---An equilateral triangle with acute angles, every side of which is ten yards long. Its area may be ascertained by the line representing its height and the point from which it rises.\footnote{The height of the equilateral triangle whose side is 10, is $\sqrt{10^2 - 5^2} = \sqrt{75}$, and the area of the triangle is $5\sqrt{75} = 25\sqrt{5}$. The \ro is $43.3+$.} Observe, that in every isosceles triangle, a line to represent the height drawn to the basis rises from the latter in a right angle, and the point from which it proceeds is always situated in the midst of the basis; if, on the contrary, the two sides are not equal, then this point never lies in the middle of the basis. In the case now before us we perceive, that towards whatever side we may draw the line which is to represent the height, it must necessarily always fall in the middle of it, where the length of the basis is five. Now the height will be ascertained thus. You multiply five by itself; then multiply one of the sides, that is ten, by itself, which gives a hundred. Now you subtract from this the product of five multiplied by itself, which is twenty-five. The remainder is seventy-five, the \ro of which is the height. This is a line common to two rectangular triangles. If you want to find the area, multiply the \ro of seventy-five by the moiety of the basis, which is five. This you perform by multiplying at first five by itself; then you may say, that the \ro of seventy-five is to be multiplied by the \ro of twenty-five. Multiply seventy-five by twenty-five. The product is one thousand eight hundred and seventy-five; take its \ro, it is the area: it is forty-three and a little.
+
+There are also acute-angled triangles, with different sides. Their area will be found by means of the line representing the height and the point from which it proceeds. Take, for instance, a triangle, one side of which is fifteen yards, another fourteen, and the third thirteen yards.
+
+In order to find the point from which the line marking the height does arise, you may take for the basis any side you choose; e.g.~that which is fourteen yards long. The point from which the line representing the height does arise, lies in this basis at an unknown distance from either of the two other sides. Let us try to find its unknown distance from the side which is thirteen yards long. Multiply this distance by itself; it becomes an [unknown] \sq. Subtract this from thirteen multiplied by itself; that is, one hundred and sixty-nine. The remainder is one hundred and sixty-nine less a \sq. The \ro from this is the height. The remainder of the basis is fourteen less \thn. We multiply this by itself; it becomes one hundred and ninety-six, and a \sq less twenty-eight \things. We subtract this from fifteen multiplied by itself; the remainder is twenty-nine \dirhems and twenty-eight \things less one \sq. The \ro of this is the height. As, therefore, the \ro of this is the height, and the \ro of one hundred and sixty-nine less \sq is the height likewise, we know that they both are the same.\footnote{$\sqrt{169 - x^2} = \sqrt{29 + 28x - x^2}$; $169 = 29 + 28x$; $140 = 28x$; $x = 5$.} Reduce them, by removing \sq against \sq, since both are negatives. There remain twenty-nine [\dirhems] plus twenty-eight \things, which are equal to one hundred and sixty-nine. Subtract now twenty-nine from one hundred and sixty-nine. The remainder is one hundred and forty, equal to twenty-eight \things. One \thn is, consequently, five. This is the distance of the said point from the side of thirteen yards. The complement of the basis towards the other side is nine. Now in order to find the height, you multiply five by itself, and subtract it from the contiguous side, which is thirteen, multiplied by itself. The remainder is one hundred and forty-four. Its \ro is the height. It is twelve. The height forms always two right angles with the basis, and it is called the cathete.
+
+The third species is that of the obtuse-angled triangle with one obtuse angle and sides of different length. For instance, one side being six, another five, and the third nine. The area of such a triangle will be found by means of the height and of the point from which a line representing the same arises. This point can, within such a triangle, lie only in its longest side. Take therefore this as the basis: for if you choose to take one of the short sides as the basis, then this point would fall beyond the triangle. You may find the distance of this point, and the height, in the same manner, which I have shown in the acute-angled triangle; the whole computation is the same.
+
+We have above treated at length of the circles, of their qualities and their computation. The following is an example: If a circle has seven for its diameter, then it has twenty-two for its circumference. Its area you find in the following manner: Multiply the moiety of the diameter, which is three and a half, by the moiety of the circumference, which is eleven. The product is thirty-eight and a half, which is the area. Or you may also multiply the diameter, which is seven, by itself: this is forty-nine; subtracting herefrom one-seventh and half one-seventh, which is ten and a half, there remain thirty-eight and a half, which is the area.
+
+If some one inquires about the bulk of a pyramidal pillar, its base being four yards by four yards, its height ten yards, and the dimensions at its upper extremity two yards by two yards; then we know already that every pyramid is decreasing towards its top, and that one-third of the area of its basis, multiplied by the height, gives its bulk. The present pyramid has no top. We must therefore seek to ascertain what is wanting in its height to complete the top. We observe, that the proportion of the entire height to the ten, which we have now before us, is equal to the proportion of four to two. Now as two is the moiety of four, ten must likewise be the moiety of the entire height, and the whole height of the pillar must be twenty yards. At present we take one-third of the area of the basis, that is, five and one-third, and multiply it by the length, which is twenty. The product is one hundred and six yards and two-thirds. Herefrom we must then subtract the piece, which we have added in order to complete the pyramid. This we perform by multiplying one and one-third, which is one-third of the product of two by two, by ten: this gives thirteen and a third. This is the piece which we have added in order to complete the pyramid. Subtracting this from one hundred and six yards and two-thirds, there remain ninety-three yards and one-third: and this is the bulk of the mutilated pyramid.
+
+If the pillar has a circular basis, subtract one-seventh and half a seventh from the product of the diameter multiplied by itself, the remainder is the basis.
+
+If some one says: ``There is a triangular piece of land, two of its sides having ten yards each, and the basis twelve; what must be the length of one side of a quadrate situated within such a triangle?'' the solution is this. At first you ascertain the height of the triangle, by multiplying the moiety of the basis, (which is six) by itself, and subtracting the product, which is thirty-six, from one of the two short sides multiplied by itself, which is one hundred; the remainder is sixty-four: take the \ro from this; it is eight. This is the height of the triangle. Its area is, therefore, forty-eight yards: such being the product of the height multiplied by the moiety of the basis, which is six. Now we assume that one side of the quadrate inquired for is \thn (\shay). We multiply it by itself; thus it becomes a \sq, which we keep in mind. We know that there must remain two triangles on the two sides of the quadrate, and one above it. The two triangles on both sides of it are equal to each other: both having the same height and being rectangular. You find their area by multiplying \thn by six less half a \thn, which gives six \things less half a \sq. This is the area of both the triangles on the two sides of the quadrate together. The area of the upper triangle will be found by multiplying eight less \thn, which is the height, by half one \thn. The product is four \things less half a \sq. This altogether is equal to the area of the quadrate plus that of the three triangles: or, ten \things are equal to forty-eight, which is the area of the great triangle. One \thn from this is four yards and four-fifths of a yard; and this is the length of any side of the quadrate.
+
+\clearpage
+
+%% ========================================================================
+%% ON LEGACIES
+%% ========================================================================
+\section*{On Legacies}
+\addcontentsline{toc}{section}{On Legacies}
+
+\lettrine{T}{he problems in this chapter} may be considered as belonging rather to Law than to Algebra, as they contain little more than enunciations of the law of inheritance in certain complicated cases.
+
+\vspace{0.3cm}
+\noindent\textbf{On Capital, and Money lent.}\hfill\textnormal{\arterm{في رأس المال والديون}}
+
+``A \textsc{man} dies, leaving two sons behind him, and bequeathing one-third of his capital to a stranger. He leaves ten \dirhems of property and a claim of ten \dirhems upon one of the sons.''
+
+Computation: You call the sum which is taken out of the debt \thn (\shay). Add this to the capital, which is ten \dirhems. The sum is ten and \thn. Subtract one-third of this, since he has bequeathed one-third of his property, that is, three \dirhems and one-third of \thn. The remainder is six \dirhems and two-thirds of \thn. Divide this between the two sons. The portion of each of them is three \dirhems and one-third plus one-third of \thn. This is equal to the \thn which was sought for.\footnote{If a father dies, leaving $n$ sons, one of whom owes the father a sum exceeding an $n$th part of the residue of the father's estate, after paying legacies, then such son retains the whole sum which he owes the father: part, as a set-off against his share of the residue, the surplus as a gift from the father.}
+
+Reduce it, by removing one-third from \thn, on account of the other third of \thn. There remain two-thirds of \thn, equal to three \dirhems and one-third. It is then only required that you complete the \thn, by adding to it as much as one half of the same; accordingly, you add to three and one-third as much as one-half of them: This gives five \dirhems, which is the \thn that is taken out of the debts.
+
+If he leaves two sons and ten \dirhems of capital and a demand of ten \dirhems against one of the sons, and bequeaths one-fifth of his property and one \dirhem to a stranger, the computation is this: Call the sum which is taken out of the debt, \thn. Add this to the property; the sum is \thn and ten \dirhems. Subtract one-fifth of this, since he has bequeathed one-fifth of his capital, that is, two \dirhems and one-fifth of \thn; the remainder is eight \dirhems and four-fifths of \thn. Subtract also the one \dirhem which he has bequeathed; there remain seven \dirhems and four-fifths of \thn. Divide this between the two sons; there will be for each of them three \dirhems and a half plus two-fifths of \thn; and this is equal to one \thn.
+
+Reduce it by subtracting two-fifths of \thn from \thn. Then you have three-fifths of \thn, equal to three \dirhems and a half. Complete the \thn by adding to it two-thirds of the same: add as much to the three \dirhems and a half; namely, two \dirhems and one-third; the sum is five and five-sixths. This is the \thn, or the amount which is taken from the debt.
+
+If he leaves three sons, and bequeaths one-fifth of his property less one \dirhem, leaving ten \dirhems of capital and a demand of ten \dirhems against one of the sons, the computation is this: You call the sum which is taken from the debt \thn. Add this to the capital; it gives ten and \thn. Subtract from this one-fifth of it for the legacy; it is two \dirhems and one-fifth of \thn. There remain eight \dirhems and four-fifths of \thn; add to this one \dirhem, since he stated ``less one \dirhem.'' Thus you have nine \dirhems and four-fifths of \thn. Divide this between the three sons. There will be for each son three \dirhems, and one-fifth and one-third and one-fifth of \thn. This equals one \thn. Subtract one-fifth and one-third of one-fifth of \thn from \thn. There remain eleven-fifteenths of \thn, equal to three \dirhems. It is now required to complete the \thn. For this purpose, add to it four-elevenths, and do the same with the three \dirhems, by adding to them one \dirhem and one-eleventh. Then you have four \dirhems and one-eleventh, which are equal to \thn. This is the sum which is taken out of the debt.
+
+\vspace{0.3cm}
+\noindent\textbf{On another Species of Legacy.}\hfill\textnormal{\arterm{في نوع آخر من الوصايا}}
+
+``A man dies, leaving his mother, his wife, and two brothers and two sisters by the same father and mother with himself; and he bequeaths to a stranger one-ninth of his capital.''
+
+Computation: You constitute their shares by taking them out of forty-eight parts. You know that if you take one-ninth from any capital, eight-ninths of it will remain. Add now to the eight-ninths one-eighth of the same, and to the forty-eight also one-eighth of them, namely, six, in order to complete your capital. This gives fifty-four. The person to whom one-ninth is bequeathed receives six out of this, being one-ninth of the whole capital. The remaining forty-eight will be distributed among the heirs, proportionably to their legal shares.
+
+If the instance be: ``A woman dies, leaving her husband, a son, and three daughters, and bequeathing to a stranger one-eighth and one-seventh of her capital;'' then you constitute the shares of the heirs, by taking them out of twenty.\footnote{A husband is entitled to $\frac{1}{4}$th of the residue, and the sons and daughters divide the remaining $\frac{3}{4}$ths of the residue in such proportion, that a son receives twice as much as a daughter.} Take a capital, and subtract from it one-eighth and one-seventh of the same. The remainder is, a capital less one-eighth and one-seventh. Complete your capital by adding to that which you have already, fifteen forty-one parts. Multiply the parts of the capital, which are twenty, by forty-one; the product is eight hundred and twenty. Add to it fifteen forty-one parts of the same, which are three hundred: the sum is one thousand one hundred and twenty parts. The person to whom one-eighth and one-seventh were bequeathed, receives one-eighth and one-seventh of this. One seventh of it is one hundred and sixty, and one-eighth one hundred and forty. Subtracting this, there remain eight hundred and twenty parts for the heirs, proportionably to their legal shares.
+
+\vspace{0.3cm}
+\noindent\textbf{On another Species of Legacies, viz.}\hfill\textnormal{\arterm{في نوع آخر من الوصايا}}
+
+If nothing has been imposed on some of the heirs, and something has been imposed on others; the legacy amounting to more than one-third.
+
+It must be known, that the law for such a case is, that if more than one-third of the legacy has been imposed on one of the heirs, this enters into his share; but that also those on whom nothing has been imposed must, nevertheless, contribute one-third.
+
+\textit{Example:} ``A woman dies, leaving her husband, a son, and her mother. She bequeaths to a person two-fifths, and to another one-fourth of her capital. She imposes the two legacies together on her son, and on her mother one moiety (of the mother's share of the residue); on her husband she imposes nothing but one-third, (which he must contribute, according to the law).''
+
+Computation: You constitute the shares of the heritage, by taking them out of twelve parts: the son receives seven of them, the husband three, and the mother two parts. You know that the husband must give up one-third of his share; accordingly he retains twice as much as that which is detracted from his share for the legacy. As he has three parts in hand, one of these falls to the legacy, and the remaining two parts he retains for himself. The two legacies together are imposed upon the son. It is therefore necessary to subtract from his share two-fifths and one-fourth of the same. He thus retains seven twentieths of his entire original share, dividing the whole of it into twenty equal parts. The mother retains as much as she contributes to the legacy; this is one (twelfth part), the entire amount of what she had received being two parts.
+
+Take now a sum, one-fourth of which may be divided into thirds, or of one-sixth of which the moiety may be taken; this being again divisible by twenty. Such a capital is two hundred and forty. The mother receives one-sixth of this, namely, forty; twenty from this fall to the legacy, and she retains twenty for herself. The husband receives one-fourth, namely, sixty; from which twenty belong to the legacy, so that he retains forty. The remaining hundred and forty belong to the son; the legacy from this is two-fifths and one-fourth, or ninety-one; so that there remain forty-nine. The entire sum for the legacies is, therefore, one hundred and thirty-one, which must be divided among the two legatees. The one to whom two-fifths were bequeathed, receives eight-thirteenths of this; the one to whom one-fourth was devised, receives five-thirteenths.
+
+If you wish distinctly to express the shares of the two legatees, you need only to multiply the parts of the heritage by thirteen, and to take them out of a capital of three thousand one hundred and twenty.
+
+\vspace{0.3cm}
+\noindent\textbf{On another Species of Legacies.}\hfill\textnormal{\arterm{في نوع آخر من الوصايا}}
+
+``A man dies, and leaves four sons and his wife; and bequeaths to a person as much as the share of one of the sons less the amount of the share of the widow.''
+
+Divide the heritage into thirty-two parts. The widow receives one-eighth, namely, four; and each son seven. Consequently the legatee must receive three-sevenths of the share of a son. Add, therefore, to the heritage three-sevenths of the share of a son, that is to say, three parts, which is the amount of the legacy. This gives thirty-five, from which the legatee receives three and the remaining thirty-two are distributed among the heirs proportionably to their legal shares.
+
+If he leaves two sons and a daughter, and bequeaths to some one as much as would be the share of a third son, if he had one; then you must consider, what would be the share of each son, in case he had three. Assume this to be seven, and for the entire heritage take a \no, one-fifth of which may be divided into sevenths, and one-seventh of which may be divided into fifths. Such a \no is thirty-five. Add to it two-sevenths of the same, namely, ten. This gives forty-five. Herefrom the legatee receives ten, each son fourteen, and the daughter seven.
+
+If he leaves a mother, three sons, and a daughter, and bequeaths to some one as much as the share of one of his sons less the amount of the share of a second daughter, in case he had one; then you distribute the heritage into such a \no of parts as may be divided among the actual heirs, and also among the same, if a second daughter were added to them. Such a \no is three hundred and thirty-six. The share of the second daughter, if there were one, would be thirty-five, and that of a son eighty; their difference is forty-five, and this is the legacy. Add to it three hundred and thirty-six, the sum is three hundred and eighty-one, which is the \no of parts of the entire heritage.
+
+\vspace{0.3cm}
+\noindent\textbf{On Completement.}\hfill\textnormal{\arterm{في الاستكمال}}
+
+``A woman dies and leaves eight daughters, a mother, and her husband, and bequeaths to some person as much as must be added to the share of a daughter to make it equal to one-fifth of the capital and to another person as much as must be added to the share of the mother to make it equal to one-fourth of the capital.''
+
+Computation: Determine the parts of the residue, which in the present instance are thirteen. Take the capital, and subtract from it one-fifth of the same, less one part, as the share of a daughter: this being the first legacy. Then subtract also one-fourth, less two parts, as the share of the mother: this being the second legacy. There remain eleven-twentieths of the capital, which, when increased by three parts, are equal to thirteen parts. Remove now from thirteen parts the three parts on account of the three parts (on the other side), and you retain eleven-twentieths of the capital, equal to ten parts. Complete the capital, by adding to the ten parts as much as nine-elevenths of the same; then you find the capital equal to eighteen parts and two-elevenths. Assume now each part to be eleven; then the whole capital is two hundred, each part is eleven; the first legacy will be twenty-nine, and the second twenty-eight.
+
+\vspace{0.3cm}
+\noindent\textbf{Computation of Returns.}\hfill\textnormal{\arterm{في حساب المرتدات}}
+
+\textit{On Marriage in Illness.}\hfill\textnormal{\arterm{في الزوج في المرض}}
+
+``A man, in his last illness, marries a wife, paying (a marriage settlement of) one hundred \dirhems, besides which he has no property, her dowry being ten \dirhems. Then the wife dies, bequeathing one-third of her property. After this the husband dies.''
+
+Computation: You take from the one hundred that which belongs entirely to her, on account of the dowry, namely, ten \dirhems; there remain ninety \dirhems, out of which she has bequeathed a legacy. Call the sum given to her (by her husband, exclusive of her dowry) \thn; subtracting it, there remain ninety \dirhems less \thn. Ten \dirhems and \thn are already in her hands; she has disposed of one third of her property, which is three \dirhems and one-third, and one-third of \thn; there remain six \dirhems and two-thirds plus two-thirds of \thn, the moiety of which, namely, three \dirhems and one-third plus one-third of \thn, returns as his portion to the husband. Thus the heirs of the husband obtain (as his share) ninety-three \dirhems and one-third, less two thirds of \thn; and this is twice as much as the sum given to the woman, which was \thn, since the woman had power to bequeath one-third of all which the husband left; and twice as much as the gift to her is two \things. Remove now the ninety-three and one-third, from two-thirds of \thn, and add these to the two \things. Then you have ninety-three \dirhems and one-third equal to two \things and two-thirds. One \thn is three-eighths of it, namely, as much as three-eighths of the ninety-three and one-third, that is, thirty-five \dirhems.
+
+\vspace{0.3cm}
+\noindent\textbf{On Emancipation in Illness.}\hfill\textnormal{\arterm{في العتق في المرض}}
+
+``Suppose that a man on his death-bed were to emancipate two slaves; the master himself leaving a son and a daughter. Then one of the two slaves dies, leaving a daughter and property to a greater amount than his price.'' You take two-thirds of his price, and what the other slave has to return (in order to complete his ransom). If the slave die before the master, then the son and the daughter of the latter partake of the heritage, in such proportion, that the son receives as much as the two daughters together. But if the slave die after the master, then you take two-thirds of his value and what is returned by the other slave, and distribute it between the son and the daughter (of the master), in such a manner, that the son receives twice as much as the daughter; and what then remains (from the heritage of the slave) is for the son alone, exclusive of the daughter; for the moiety of the heritage of the slave descends to the daughter of the slave, and the other moiety, according to the law of succession, to the son of the master, and there is nothing for the daughter (of the master).
+
+It is the same, if a man on his death-bed emancipates a slave, besides whom he has no capital, and then the slave dies before his master.
+
+If a man in his illness emancipates a slave, besides whom he possesses nothing, then that slave must ransom himself by two-thirds of his price. If the master has anticipated these two-thirds of his price and has spent them, then, upon the death of the master, the slave must pay two-thirds of what he retains.\footnote{The slave retains one-third of his price; and this he must redeem at two-thirds of its value; namely at $\frac{2}{3} \times \frac{1}{3} = \frac{2}{9}$ of his original price.} But if the master has anticipated from him his whole price and spent it, then there is no claim against the slave, since he has already paid his entire price.
+
+``Suppose that a man on his death-bed emancipates a slave, whose price is three hundred \dirhems, not having any property besides; then the slave dies, leaving three hundred \dirhems and a daughter.'' The computation is this: Call the legacy to the slave \thn. He has to return the remainder of his price, after the deduction of the legacy, or three hundred less \thn. This ransom, of three hundred less \thn, belongs to the master. Now the slave dies, and leaves \thn and a daughter. She must receive the moiety of this, namely, one half of \thn; and the master receives as much. Therefore the heirs of the master receive three hundred less half a \thn, and this is twice as much as the legacy, which is \thn, namely, two \things. Reduce this by removing half a \thn from the three hundred, and adding it to the two \things. Then you have three hundred, equal to two \things and a half. One \thn is, therefore, as much as two-fifths of three hundred, namely, one hundred and twenty.
+
+This is the legacy (to the slave,) and the ransom is one hundred and eighty.
+
+``Some person on his sick-bed has emancipated a slave, whose price is three hundred \dirhems; the slave then dies, leaving four hundred \dirhems and ten \dirhems of debt, and two daughters, and bequeathing to a person one-third of his capital; the master has twenty \dirhems debts.'' The computation of this case is the following: Call the legacy to the slave \thn; his ransom is the remainder of his price, namely, three hundred less \thn. But the slave, when dying, left four hundred \dirhems; and out of this sum, his ransom, namely, three hundred less \thn, is paid to the master, so that one hundred \dirhems and \thn remain in the hands of the slave's heirs. Herefrom are (first) subtracted the debts, namely, ten \dirhems; there remain then ninety \dirhems and \thn. Of this he has bequeathed one-third, that is, thirty \dirhems and one-third of \thn; so that there remain for the heirs sixty \dirhems and two-thirds of \thn. Of this the two daughters receive two-thirds, namely, forty \dirhems and four-ninths of \thn, and the master as much. Therefore the heirs of the master altogether obtain three hundred and seventy less one-ninth of \thn; and this is twice as much as is given for the legacy, which is \thn. Reduce this, namely, subtract one-ninth from two; there remain one \thn and eight-ninths, equal to three hundred and seventy. One \thn is, therefore, nine-seventeenths of three hundred and seventy, that is, one hundred and ninety-six and two-seventeenths. The ransom is one hundred and three and fifteen-seventeenths.
+
+\clearpage
+
+\vspace{1cm}
+\begin{center}
+\rule{0.5\textwidth}{1pt}\\[0.5cm]
+{\small\textit{End of the Translation of the Algebra of Mohammed ben Musa.}}
+\end{center}
+
+\vfill
+\clearpage
+
+%% ========================================================================
+%% APPENDIX A: NOTES ON THE ARABIC TEXT
+%% ========================================================================
+\section*{Notes on the Arabic Text}
+\addcontentsline{toc}{section}{Notes on the Arabic Text}
+
+The following brief notes are intended to point out for further enquiry a few circumstances connected with the history of Algebra:
+
+\begin{enumerate}
+
+\item The initial words of the treatise, as cited by Haji Khalfa, are: \arterm{قال ابو عبدالله محمد بن موسى الخوارزمي} (``Abu Abdallah Mohammed ben Musa of Khowarezm said...'').
+
+\item The term \aljabr (\term{الجبر}{al-jabr}) literally signifies ``\term{restoration}{الجبر}'' or ``completion,'' referring to the operation of transferring negative quantities to the other side of an equation as positive. The term \almuqabala (\term{المقابلة}{al-muqabala}) means ``\term{reduction}{المقابلة}'' or ``opposition,'' referring to the process of cancelling like quantities on both sides of an equation.
+
+\item The Arabic word \shay (\term{شيء}{shay'}, literally ``thing'') is used throughout the text as the designation of the unknown quantity---what we should now call $x$. It corresponds exactly to the \textit{res} (``thing'') of the early Italian algebraists, and to the \textit{coss} of the Germans.
+
+\item The word \mal (\term{مال}{m\=al}, literally ``property,'' ``wealth,'' ``possession'') is used to denote the \sq of the unknown. It is rendered by Rosen as ``\term{square}{مال}.''
+
+\item The word \jidhr (\term{جذر}{jidhr}, literally ``root'') is used in the same sense as our ``root.'' The word \term{واجب}{w\=ajib} (literally ``obligatory'') is used for the ``absolute \no''---what we call the constant term.
+
+\item The method of geometrical demonstration here employed by al-Khwarizmi is worthy of especial notice. It shows that, like the Greek mathematicians, he was not satisfied with merely giving rules, but endeavoured to establish their accuracy by demonstration. His proofs are founded upon the second proposition of Book II of Euclid's Elements, and upon the well-known property of the gnomon.
+
+\item The formula for the circumference of a circle given in the text (Text p.~51, Transl. p.~72) is $c = \frac{62832}{20000}d$, which gives $\pi = 3.1416$. This value was known to the Hindu mathematician Aryabhata, and the circumstance furnishes a strong argument for the opinion that al-Khwarizmi derived part of his information from an Indian source.
+
+\item The comparisons drawn between the Algebra of the Arabs and that of the early Italian writers might perhaps have been more numerous and more detailed; but the enquiry was here restricted by the want of some important works. Montucla, Cossali, Hutton, and the Basil edition of Cardanus' \textit{Ars magna}, were the only sources which the translator had the opportunity of consulting.
+
+\item The solutions which the author has given of the remaining problems of this treatise, are, mathematically considered, for the most part incorrect. It is not that the problems, when once reduced into equations, are incorrectly worked out; but that in reducing them to equations, arbitrary assumptions are made, which are foreign or contradictory to the data first enounced, for the purpose, it should seem, of forcing the solutions to accord with the established rules of inheritance, as expounded by Arabian lawyers.
+
+\item The object of the lawyers in their interpretations, and of the author in his solutions, seems to have been, to favour heirs and next of kin; by limiting the power of a testator, during illness, to bequeath property, or to emancipate slaves; and by requiring payment of heavy ransom for slaves whom a testator might, during illness, have directed to be emancipated.
+
+\end{enumerate}
+
+\clearpage
+
+%% ========================================================================
+%% APPENDIX B: COMPLETE ARABIC--ENGLISH GLOSSARY
+%% ========================================================================
+\section*{Appendix B: Arabic--English Glossary of Algebraic Terms}
+\addcontentsline{toc}{section}{Appendix B: Arabic--English Glossary}
+
+\begin{center}
+{\Large\scshape\color{titlecolor} Complete Arabic--English Glossary}\\[0.3cm]
+{\normalsize of Mathematical and Legal Terms in al-Khw\=arizm\=i's}\\[0.2cm]
+{\large\textit{Kit\=ab al-Jabr wa-l-Muq\=abala}}\\[0.5cm]
+\rule{0.5\textwidth}{1pt}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{arabicblock}
+This glossary provides a comprehensive reference for the Arabic mathematical terminology employed throughout al-Khw\=arizm\=i's \textit{Kit\=ab al-Jabr wa-l-Muq\=abala}, with their English equivalents as established in Rosen's 1831 translation. The Arabic terms are given in their original grammatical form as they appear in the manuscript.
+\end{arabicblock}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% SECTION 1: CORE ALGEBRAIC TERMS
+%% ========================================================================
+\subsection*{I. Core Algebraic Terms}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{مال} & \textit{m\=al} (pl. \textit{amw\=al}) & \textbf{Square} of the unknown quantity; literally ``wealth,'' ``property,'' or ``possession.'' Denotes $x^2$. This is the central term of al-Khw\=arizm\=i's algebra: the square of the unknown \term{thing}{شيء}. \\
+\addlinespace
+
+\arterm{جذر} & \textit{jidhr} (pl. \textit{judh\=ur}) & \textbf{Root}; literally ``root,'' ``base,'' or ``origin.'' Denotes the unknown quantity $x$ itself, when referred to as a root to be extracted. In geometric contexts, also the side of a square. \\
+\addlinespace
+
+\arterm{شيء} & \textit{shay'} (pl. \textit{ashy\=a'}) & \textbf{Thing}; the unknown quantity, corresponding to our $x$. The fundamental designation of the variable. Also rendered by Rosen as ``\term{root}{جذر}'' in many contexts. \\
+\addlinespace
+
+\arterm{عدد} & \textit{'adad} (pl. \textit{a'd\=ad}) & \textbf{Number}; the constant or absolute term in an equation, not multiplied by any unknown. Simple, known quantities. \\
+\addlinespace
+
+\arterm{واجب} & \textit{w\=ajib} & \textbf{Obligatory} term; used for the constant or absolute number that ``belongs'' to an equation. Sometimes used interchangeably with \term{number}{عدد}. \\
+\addlinespace
+
+\arterm{درهم} & \textit{dirham} (pl. \textit{dar\=ahim}) & \textbf{Dirhem}; the standard monetary unit, used as the concrete unit for numerical examples. Corresponds to the Greek drachma and the Roman denarius. \\
+\addlinespace
+
+\arterm{مضروب} & \textit{ma\d{r}\=ub} & \textbf{Product}; the result of multiplication. Literally ``the multiplied.'' \\
+\addlinespace
+
+\arterm{قسمة} & \textit{qismah} & \textbf{Division}; the operation of dividing one quantity by another. \\
+\addlinespace
+
+\arterm{ناتج} & \textit{n\=atij} & \textbf{Result} or \textbf{quotient} of an operation. \\
+\addlinespace
+
+\arterm{باق} & \textit{b\=aqin} & \textbf{Remainder}; what is left after subtraction or division. \\
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% SECTION 2: THE TWO FUNDAMENTAL OPERATIONS
+%% ========================================================================
+\subsection*{II. The Two Fundamental Operations: \alJabr and \alMuqabala}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{الجبر} & \textit{al-jabr} & \textbf{Restoration} or \textbf{Completion}; the fundamental operation of transferring negative quantities from one side of an equation to the other as positive terms. Literally ``the setting of a broken bone,'' hence ``restoration to wholeness.'' This is the operation from which the entire science takes its name: \textit{Algebra}. \\
+\addlinespace
+
+\arterm{جبر} & \textit{jabr} & The verbal noun: to restore, to complete. When we ``complete'' a partial square to make it a whole square, we perform \aljabr. \\
+\addlinespace
+
+\arterm{المقابلة} & \textit{al-muq\=abala} & \textbf{Reduction} or \textbf{Opposition}; the operation of cancelling like quantities on both sides of an equation. Literally ``the act of placing opposite'' or ``comparison.'' \\
+\addlinespace
+
+\arterm{مقابلة} & \textit{muq\=abala} & The verbal noun: to reduce, to set opposite. When we subtract equal terms from both sides, we perform \almuqabala. \\
+\addlinespace
+
+\arterm{رد} & \textit{radd} & \textbf{Reduction} by returning; another term for simplifying an equation. \\
+\addlinespace
+
+\arterm{توحيد} & \textit{taw\h{e}id} & \textbf{Unification}; reducing multiple squares (or other terms) to a single square. \\
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% SECTION 3: THE SIX CANONICAL CASES
+%% ========================================================================
+\subsection*{III. The Six Canonical Cases}
+
+Al-Khw\=arizm\=i classifies all solvable equations into six fundamental types, which form the backbone of his method. These are traditionally grouped into three simple and three compound forms.
+
+\vspace{0.3cm}
+
+\textbf{The Three Simple Cases:}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{المساواة} & \textit{mus\=aw\=ah} & \textbf{Equality}; the condition of two quantities being equal. \\
+\addlinespace
+
+\arterm{المسألة الأولى} & \textit{al-mas'ala al-\=ul\=a} & \textbf{First case}: \Squares equal to \Roots ($ax^2 = bx$) \\
+\addlinespace
+
+\arterm{المسألة الثانية} & \textit{al-mas'ala al-th\=aniya} & \textbf{Second case}: \Squares equal to \Numbers ($ax^2 = c$) \\
+\addlinespace
+
+\arterm{المسألة الثالثة} & \textit{al-mas'ala al-th\=alitha} & \textbf{Third case}: \Roots equal to \Numbers ($bx = c$) \\
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.3cm}
+
+\textbf{The Three Compound Cases:}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{المسألة الرابعة} & \textit{al-mas'ala al-r\=abi'a} & \textbf{Fourth case}: \Roots and \Squares equal to \Numbers ($ax^2 + bx = c$) \\
+\addlinespace
+
+\arterm{المسألة الخامسة} & \textit{al-mas'ala al-kh\=amisa} & \textbf{Fifth case}: \Squares and \Numbers equal to \Roots ($ax^2 + c = bx$) \\
+\addlinespace
+
+\arterm{المسألة السادسة} & \textit{al-mas'ala al-s\=adisa} & \textbf{Sixth case}: \Roots and \Numbers equal to \Squares ($ax^2 = bx + c$) \\
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% SECTION 4: GEOMETRICAL TERMS
+%% ========================================================================
+\subsection*{IV. Geometrical Terms}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{شكل} & \textit{shakl} (pl. \textit{ashk\=al}) & \textbf{Figure} or \textbf{form}; any geometric construction. \\
+\addlinespace
+
+\arterm{مربع} & \textit{murabba'} & \textbf{Quadrate} or \textbf{square}; a four-sided figure with equal sides and right angles. Distinct from \term{m\=al}{مال} (the algebraic square). \\
+\addlinespace
+
+\arterm{طول} & \textit{t\=ul} & \textbf{Length}; the longer dimension of a figure. \\
+\addlinespace
+
+\arterm{عرض} & \textit{'ar\d{d}} & \textbf{Breadth} or \textbf{width}; the shorter dimension. \\
+\addlinespace
+
+\arterm{قطر} & \textit{qa\d{t}r} (pl. \textit{qu\d{t}\=ur}) & \textbf{Diagonal} or \textbf{diameter}; a line connecting opposite corners of a quadrilateral, or passing through the centre of a circle. \\
+\addlinespace
+
+\arterm{محيط} & \textit{mu\h{e}\=i\d{t}} & \textbf{Circumference} or \textbf{perimeter}. \\
+\addlinespace
+
+\arterm{مساحة} & \textit{mis\=a\h{a}h} & \textbf{Area}; the measure of surface contained within a figure. \\
+\addlinespace
+
+\arterm{مثلث} & \textit{muthallath} & \textbf{Triangle}. \\
+\addlinespace
+
+\arterm{قائم الزاوية} & \textit{q\=a'im al-z\=awiya} & \textbf{Rectangular} (right-angled); literally ``erect of angle.'' \\
+\addlinespace
+
+\arterm{وتر} & \textit{watar} & \textbf{Hypotenuse} of a right-angled triangle. \\
+\addlinespace
+
+\arterm{سهم} & \textit{sahm} & \textbf{Arrow} of a circular segment; the sagitta. \\
+\addlinespace
+
+\arterm{وتر القوس} & \textit{watar al-qaws} & \textbf{Chord} of an arc. \\
+\addlinespace
+
+\arterm{منحنى} & \textit{mun\h{ha}n\=a} & \textbf{Curve} or \textbf{arc}. \\
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% SECTION 5: ARITHMETICAL OPERATIONS
+%% ========================================================================
+\subsection*{V. Arithmetical Operations}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{جمع} & \textit{jam'} & \textbf{Addition}; to collect quantities together. \\
+\addlinespace
+
+\arterm{طرح} & \textit{tar\h{h}} & \textbf{Subtraction}; to remove one quantity from another. \\
+\addlinespace
+
+\arterm{ضرب} & \textit{\d{d}arb} & \textbf{Multiplication}. \\
+\addlinespace
+
+\arterm{تكرير} & \textit{takr\=ir} & \textbf{Duplication}; doubling or repeated addition. \\
+\addlinespace
+
+\arterm{تثليث} & \textit{tathl\=ith} & \textbf{Triplication}; trebling. \\
+\addlinespace
+
+\arterm{نصف} & \textit{ni\d{s}f} & \textbf{Half}; the moiety of a quantity. \\
+\addlinespace
+
+\arterm{ثلث} & \textit{thulth} & \textbf{Third}. \\
+\addlinespace
+
+\arterm{ربع} & \textit{rub'} & \textbf{Fourth} or \textbf{quarter}. \\
+\addlinespace
+
+\arterm{خمس} & \textit{khumus} & \textbf{Fifth}. \\
+\addlinespace
+
+\arterm{سدس} & \textit{sudus} & \textbf{Sixth}. \\
+\addlinespace
+
+\arterm{سبع} & \textit{sub'} & \textbf{Seventh}. \\
+\addlinespace
+
+\arterm{ثمن} & \textit{thumn} & \textbf{Eighth}. \\
+\addlinespace
+
+\arterm{تسع} & \textit{tus'} & \textbf{Ninth}. \\
+\addlinespace
+
+\arterm{عشر} & \textit{'ashr} & \textbf{Tenth}. \\
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% SECTION 6: COMMERCIAL AND LEGAL TERMS
+%% ========================================================================
+\subsection*{VI. Commercial and Legal Terms}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{مكايلة} & \textit{mak\=ayala} & \textbf{Mensuration}; the art of measuring land and quantities. \\
+\addlinespace
+
+\arterm{مكايلة الأرض} & \textit{mak\=ayala al-ar\d{d}} & \textbf{Land-measurement} or \textbf{surveying}. \\
+\addlinespace
+
+\arterm{تجارة} & \textit{tij\=ara} & \textbf{Commerce} or \textbf{trade}. \\
+\addlinespace
+
+\arterm{ميرة} & \textit{m\=ira} & \textbf{Proportion} or \textbf{alloy}; used in problems of exchange and mixing. \\
+\addlinespace
+
+\arterm{مقايضة} & \textit{muq\=ayad.a} & \textbf{Exchange} or \textbf{barter}. \\
+\addlinespace
+
+\arterm{إجارة} & \textit{ij\=ara} & \textbf{Hire} or \textbf{rental}. \\
+\addlinespace
+
+\arterm{وصية} & \textit{was.iyya} & \textbf{Legacy} or \textbf{bequest}. \\
+\addlinespace
+
+\arterm{تركة} & \textit{tarika} & \textbf{Inheritance} or \textbf{estate} of the deceased. \\
+\addlinespace
+
+\arterm{مواريث} & \textit{maw\=ar\=ith} & \textbf{Laws of inheritance}. \\
+\addlinespace
+
+\arterm{فرائض} & \textit{far\=a'i\d{d}} & \textbf{Obligatory shares}; the fixed fractional shares prescribed by Islamic law for heirs. \\
+\addlinespace
+
+\arterm{عصبة} & \textit{'a\d{s}aba} & \textbf{Residuaries}; heirs who take the remainder after the fixed shares have been distributed. \\
+\addlinespace
+
+\arterm{رأس المال} & \textit{ra's al-m\=al} & \textbf{Capital} or \textbf{principal sum}. \\
+\addlinespace
+
+\arterm{ربح} & \textit{rib\h{h}} & \textbf{Profit} or \textbf{gain}. \\
+\addlinespace
+
+\arterm{دين} & \textit{dain} & \textbf{Debt} or \textbf{loan}. \\
+\addlinespace
+
+\arterm{دينار} & \textit{d\=in\=ar} & \textbf{Dinar}; the gold coin, counterpart to the silver \term{dirhem}{درهم}. \\
+\addlinespace
+
+\arterm{فلس} & \textit{fals} & \textbf{Fals}; a copper coin of small value. \\
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% SECTION 7: VERBAL FORMS
+%% ========================================================================
+\subsection*{VII. Common Verbal Constructions}
+
+\begin{longtable}{@{}p{3.2cm}p{2.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Meaning and Usage} \\
+\midrule
+\endhead
+
+\arterm{قل} & \textit{qul} & \textbf{Say} or \textbf{suppose}; the imperative opening most problems. \\
+\addlinespace
+
+\arterm{فإذا} & \textit{fa-idh\=a} & \textbf{Then if}; introducing the working of a problem. \\
+\addlinespace
+
+\arterm{فأصبح} & \textit{fa-a\d{s}ba\h{h}} & \textbf{Then it became}; the result of an operation. \\
+\addlinespace
+
+\arterm{فاجعل} & \textit{fa-ij'al} & \textbf{Then make} or \textbf{set}; used when introducing the unknown. \\
+\addlinespace
+
+\arterm{فاضرب} & \textit{fa-\d{d}rib} & \textbf{Then multiply}. \\
+\addlinespace
+
+\arterm{فاجمع} & \textit{fa-ijma'} & \textbf{Then collect} or \textbf{add}. \\
+\addlinespace
+
+\arterm{فاستخرج} & \textit{fa-istakhrij} & \textbf{Then extract}; as in extracting a root. \\
+\addlinespace
+
+\arterm{فانظر} & \textit{fa-un\d{z}ur} & \textbf{Then observe} or \textbf{behold}. \\
+\addlinespace
+
+\arterm{إن شاء الله} & \textit{in sh\=a' All\=ah} & ``\textbf{God willing}''; a pious formula often found in Arabic mathematical manuscripts.
+
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}
+
+%% ========================================================================
+%% NOTES ON THE GLOSSARY
+%% ========================================================================
+\subsection*{Notes on the Glossary}
+
+\begin{enumerate}
+
+\item \textbf{On the term \alJabr:} The word derives from the root \arterm{ج ب ر} (\textit{j-b-r}), meaning ``to set a broken bone,'' ``to restore,'' or ``to make whole.'' In the algebraic context, it refers specifically to the restoration of completeness in an equation by transferring subtracted (negative) quantities to the other side as added (positive) quantities. The science of \textit{algebra} takes its name from this fundamental operation.
+
+\item \textbf{On the term \alMuqabala:} Derived from the root \arterm{ق ب ل} (\textit{q-b-l}), meaning ``to place opposite'' or ``to compare,'' this operation consists in setting like terms against each other on opposite sides of an equation and cancelling them. Together, \aljabr and \almuqabala reduce any equation to one of the six canonical forms.
+
+\item \textbf{On \textit{m\=al} and \textit{jidhr}:} The distinction between these terms is fundamental. \term{M\=al}{مال} (square) is the \textit{quantity} $x^2$; \term{jidhr}{جذر} (root) is either the \textit{quantity} $x$ or the \textit{operation} of extracting a square root. \term{Shay'}{شيء} (thing) is the unknown itself before it has been determined. The modern reader may think of: \textit{shay'} = $x$, \textit{m\=al} = $x^2$, \textit{jidhr} = $\sqrt{x^2} = x$.
+
+\item \textbf{On \textit{w\=ajib}:} This term, meaning ``obligatory'' or ``necessary,'' is used for the absolute (constant) term because it ``must'' be present as an obligation in the equation---it cannot be eliminated by the operations of \aljabr or \almuqabala.
+
+\item \textbf{The threefold terminology for the unknown:} Arabic algebraists employed a subtle three-level terminology: \term{shay'}{شيء} for the unknown quantity in its algebraic sense, \term{jidhr}{جذر} when referring to it as the root of a square (especially in extraction), and \term{ \no}{عدد} when it has been determined to a numerical value.
+
+\item \textbf{Dirhem and Dinar:} The \term{dirhem}{درهم} was the standard silver coin of the Islamic world; the \term{d\=in\=ar}{دينار} was the gold coin, worth approximately 10--20 dirhems depending on time and place. The \term{fals}{فلس} was a copper coin of fractional value.
+
+\item \textbf{On the six cases:} Al-Khw\=arizm\=i's classification is exhaustive for equations involving only positive coefficients and positive solutions. The possibility of negative roots was not admitted; equations leading to such results were pronounced ``impossible'' (\arterm{مستحيل}). The restriction to positive coefficients is what necessitates six cases rather than the modern unified quadratic formula.
+
+\item \textbf{Geometrical vs.\ algebraic terminology:} The reader should note that al-Khw\=arizm\=i uses \term{murabba'}{مربع} for the geometrical figure (quadrate) and \term{m\=al}{مال} for the algebraic square of the unknown. This distinction, carefully maintained in the Arabic, is sometimes blurred in Rosen's translation.
+
+\end{enumerate}
+
+\vspace{1cm}
+\begin{center}
+\rule{0.5\textwidth}{1pt}\\[0.5cm]
+{\small\textit{End of Glossary}}
+\end{center}
+
+\vspace{1cm}
+
+%% ========================================================================
+%% APPENDIX C: HOW TO READ THE BILINGUAL EDITION
+%% ========================================================================
+\section*{Appendix C: Guide to this Bilingual Edition}
+\addcontentsline{toc}{section}{Appendix C: Guide to this Bilingual Edition}
+
+\begin{arabicblock}
+This enhanced bilingual edition employs a system of inline Arabic annotations designed to preserve the full text of Rosen's classic 1831 English translation while restoring the original Arabic terminology of al-Khw\=arizm\=i's \textit{Kit\=ab al-Jabr wa-l-Muq\=abala}.
+\end{arabicblock}
+
+\vspace{0.3cm}
+
+\textbf{How the annotations work:}
+
+\begin{itemize}
+\item \textbf{Primary terms:} The first occurrence of each technical term in a section appears as \term{English}{Arabic}, e.g., \term{square}{مال}, \term{root}{جذر}, \term{thing}{شيء}, \term{number}{عدد}, \term{restoration}{الجبر}, \term{reduction}{المقابلة}, \term{dirhem}{درهم}.
+
+\item \textbf{Shorthand references:} Subsequent occurrences in the same section use abbreviated macros: \sq, \ro, \thn, \no, \di, \alJabr, \alMuqabala.
+
+\item \textbf{Arabic block quotations:} Passages set in small type within quotation environments provide explanatory notes on the Arabic terminology.
+
+\item \textbf{Case headers:} Each of the six canonical cases carries its Arabic title in the header line.
+
+\item \textbf{Footnotes:} Rosen's original mathematical footnotes are preserved in their entirety.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{The six Arabic terms restored throughout:}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{English} & \textbf{Arabic} & \textbf{Transliteration} \\
+\midrule
+\term{square}{مال} & \arterm{مال} & \textit{m\=al} \\
+\term{root}{جذر} & \arterm{جذر} & \textit{jidhr} \\
+\term{thing}{شيء} & \arterm{شيء} & \textit{shay'} \\
+\term{number}{عدد} & \arterm{عدد} & \textit{'adad} \\
+\term{restoration}{الجبر} & \arterm{الجبر} & \textit{al-jabr} \\
+\term{reduction}{المقابلة} & \arterm{المقابلة} & \textit{al-muq\=abala} \\
+\term{dirhem}{درهم} & \arterm{درهم} & \textit{dirham} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{Editions Consulted and Reference Works:}
+
+\begin{enumerate}
+\item \textbf{Original edition:} Frederic Rosen, \textit{The Algebra of Mohammed ben Musa}, London: Oriental Translation Fund, 1831. Arabic text with English translation.
+
+\item \textbf{Manuscript source:} Bodleian Library, Oxford, MS Hunt. 214 (Cod. CXVIII), folios 1--67, transcribed A.H. 743 (A.D. 1342).
+
+\item \textbf{Related works:} Haji Khalfa, \textit{Kashf al-\d{Z}un\=un}; Ibn Khallikan, \textit{Wafay\=at al-A'y\=an}; Casiri, \textit{Bibliotheca Arabico-Hispana Escurialensis}; Colebrooke, \textit{Algebra, with Arithmetic and Mensuration from the Sanscrit of Brahmegupta and Bhascara} (1817).
+\end{enumerate}
+
+\vspace{1cm}
+\begin{center}
+\rule{0.5\textwidth}{1pt}\\[0.5cm]
+{\small\textit{Enhanced Bilingual Edition prepared under the auspices of the\\Internet Islamic History Sourcebook Project}}
+\end{center}
+
+\vfill
+
+\end{document}
+

@@ -1,0 +1,2133 @@
+% =============================================================================
+% 測圓海鏡 — Chinese–Arabic Parallel Translation Edition
+% Ceyuan Haijing (Sea Mirror of Circle Measurements), Volumes 1–3
+% Original: Li Ye (Li Zhi, 1192–1279)
+% Translation: Chinese → Arabic
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{tocloft}
+
+% -------- CJK Font Setup --------
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+% -------- Latin Font Setup --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+
+% -------- Arabic Font Setup --------
+\newfontfamily\arabicfont[Script=Arabic]{Arial}
+\TeXXeTstate=1
+\newcommand{\ar}[1]{\arabicfont\beginR #1\endR}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=20mm,right=20mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{problemcolor}{RGB}{30,60,90}
+\definecolor{arabiclabel}{RGB}{139,69,19}
+\definecolor{chineselabel}{RGB}{25,55,95}
+
+% -------- Column Ratio --------
+\columnratio{0.48,0.48}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Ceyuan Haijing — Chinese–Arabic Parallel Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Parallel Commands --------
+\newcommand{\cn}[1]{\textnormal{#1}}
+\newcommand{\Problem}[1]{\noindent\textbf{\color{problemcolor}#1}}
+\newcommand{\Answer}[1]{\par\noindent\textbf{\color{problemcolor}答} #1\par}
+\newcommand{\Method}[1]{\par\noindent\textbf{\color{problemcolor}法曰} #1\par}
+\newcommand{\Workings}[1]{\par\noindent\textbf{\color{problemcolor}草曰} #1\par}
+\newcommand{\Remark}[1]{\par\noindent\textit{〔按〕}#1\par}
+
+% Arabic equivalents
+\newcommand{\ProblemAr}[1]{\noindent\textbf{\color{problemcolor}\ar{#1}}}
+\newcommand{\AnswerAr}{\par\noindent\textbf{\color{problemcolor}\ar{الجواب:}} }
+\newcommand{\MethodAr}{\par\noindent\textbf{\color{problemcolor}\ar{الطريقة:}} }
+\newcommand{\WorkingsAr}{\par\noindent\textbf{\color{problemcolor}\ar{الحل:}} }
+\newcommand{\RemarkAr}{\par\noindent\ar{〔تعليق〕}}
+
+% Parallel environment helpers
+\newenvironment{paralleltext}{%
+  \begin{paracol}{2}%
+}{%
+  \end{paracol}%
+}
+
+\newcommand{\lefttext}[1]{#1}
+\newcommand{\righttext}[1]{\switchcolumn #1}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+\setcounter{tocdepth}{2}
+
+% =============================================================================
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\fontsize{36}{44}\selectfont\CJKfamily{sf}\color{titlecolor}
+測圓海鏡}
+
+\vspace{0.6cm}
+
+{\fontsize{16}{20}\selectfont\color{sectioncolor}
+\ar{مرآة البحر لقياس الدائرة}}
+
+\vspace{0.3cm}
+
+{\fontsize{14}{18}\selectfont\color{sectioncolor}
+Ceyuan Haijing — Sea Mirror of Circle Measurements}
+
+\vspace{0.4cm}
+
+{\large\color{rulecolor}\rule{0.6\textwidth}{0.4pt}}
+
+\vspace{0.6cm}
+
+{\LARGE 卷一 — 卷三}
+
+{\large\color{sectioncolor}
+\ar{المجلد الأول — المجلد الثالث}}
+
+{\large Volumes I – III}
+
+\vspace{1.2cm}
+
+{\large\color{sectioncolor}
+元 \quad 李冶 \quad 撰}
+
+\vspace{0.3cm}
+
+{\normalsize\color{sectioncolor}
+\ar{لِـ يـِه (لي جِـه)، 1192–1279 م}}
+
+{\normalsize\color{sectioncolor}
+(Li Ye / Li Zhi, 1192–1279 CE)}
+
+\vspace{1.5cm}
+
+{\color{rulecolor}\rule{0.4\textwidth}{0.4pt}}
+
+\vspace{0.8cm}
+
+{\normalsize
+以天元術解勾股容圓一百七十問}
+
+\vspace{0.2cm}
+
+{\normalsize\color{sectioncolor}
+\ar{حلّ مئة وسؤالٍ وسبعين مسألة في الدائرة المحاطة بالمثلث القائم\\
+بطريقة عنصر السماء}}
+
+\vspace{0.4cm}
+
+{\small\color{notecolor}
+\textit{Using the Method of the Celestial Element (Tian Yuan Shu)}\\
+\textit{to Solve 170 Problems on the Inscribed Circle}\\
+\ar{باستخدام طريقة عنصر السماء لحلّ 170 مسألة في الدائرة المحاطة}}
+
+\vspace{1.2cm}
+
+{\small
+A foundational text of medieval Chinese algebra,\\
+completed in the year 1248 of the Common Era.
+}
+
+\vspace{0.3cm}
+
+{\small\color{notecolor}
+\ar{أحد النصوص الأساسية في جبر العصور الوسطى الصينية،\\
+أُنجز في سنة 1248 ميلادية}}
+
+\vfill
+
+{\small
+\textit{Bilingual Chinese–Arabic Edition / \ar{الطبعة الثنائية الصينية–العربية}}
+}
+
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% =============================================================================
+\section{Introduction / \ar{مقدمة}}
+\label{sec:intro}
+
+\begin{paracol}{2}
+
+The \textit{Ceyuan Haijing} (測圓海鏡, literally ``Sea Mirror of Circle Measurements'') is the masterpiece of Li Ye (李冶, also known as Li Zhi, 1192–1279), one of the four great mathematicians of the Song--Yuan period of China, alongside Yang Hui, Qin Jiushao, and Zhu Shijie.
+
+Completed in 1248, this work systematically applies the \textbf{tian yuan shu} (天元術, ``method of the celestial element'')---an algebraic method for setting up and solving polynomial equations---to a total of 170 geometric problems concerning a circle inscribed in or related to a right triangle (勾股容圓).
+
+\switchcolumn
+
+\ar{يعتبر كتاب «مرآة البحر لقياس الدائرة» (測圓海鏡) تحفة الرياضياتي لي يه (李冶، المعروف أيضًا باسم لي جيه، 1192–1279 م)، أحد العُظماء الأربعة في الرياضيات خلال فترة سونغ–يوان في الصين، إلى جانب يانغ هُوي وتشين جيُوشاو وتشو شِجيه.}
+
+\vspace{0.3cm}
+
+\ar{أُنجز هذا العمل في سنة 1248 م، ويطبّق بشكل منهجي \textbf{طريقة عنصر السماء} (天元術) — وهي طريقة جبرية لوضع وحلّ المعادلات متعدّدة الحدود — على 170 مسألة هندسية تتعلق بدائرة محاطة بمثلث قائم أو مرتبطة به (勾股容圓).}
+
+\switchcolumn*
+
+The book is organized as follows:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Volume 1} establishes the theoretical foundation: the \textit{Circle City Diagram} (圓城圖式), the \textit{General Rate Names} (總率名號), the \textit{Current Question Numbers} (今問正數), and the \textit{Identification Miscellaneous Records} (識別雜記) containing 692 geometric formulas.
+  \item \textbf{Volumes 2--12} present 170 problems, solved by the tian yuan shu method. The problems involve equations of degrees ranging from 1 to 6.
+\end{itemize}
+
+The present document contains the complete text of \textbf{Volumes 1--3}, comprising all foundational material and the first suite of problems.
+
+\switchcolumn
+
+\ar{يُنظَّم الكتاب على النحو التالي:}
+\begin{itemize}[leftmargin=2em,rightmargin=0em]
+  \item \ar{\textbf{المجلد الأول}: يضع الأسس النظرية: رسمة \textit{المدينة الدائرية} (圓城圖式)، و\textit{أسماء المعدّلات العامة} (總率名號)، و\textit{أعداد المسائل الحاضرة} (今問正數)، و\textit{سجلات التمييز المتنوعة} (識別雜記) التي تحتوي على 692 صيغة هندسية.}
+  \item \ar{\textbf{المجلدات 2–12}: تعرض 170 مسألة، تُحلّ بطريقة عنصر السماء، وتشمل معادلات درجتها من الدرجة الأولى إلى السادسة.}
+\end{itemize}
+
+\vspace{0.3cm}
+
+\ar{يحتوي هذا الكتاب على النص الكامل للمجلدات \textbf{1–3}، بما فيها جميع المواد الأساسية وأول مجموعة من المسائل.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+% =============================================================================
+\newpage
+\section{Original Preface / \ar{المدمة الأصلية}}
+\label{sec:preface}
+
+\begin{paracol}{2}
+
+{\color{prefacecolor}
+數本難窮，吾欲以力強窮之，彼其數不惟不能得其凡，而吾之力且憊矣。然則數果不可以窮耶？既已名之數矣，則又何為而不可窮也。
+}
+
+\vspace{0.3cm}
+
+\switchcolumn
+
+\ar{أصل الأعداد يصعب استنفاده، ولو حاولتُ إجباره بالقوة، لما استطعتُ الحصول على جوهره، بل وستنضب قواي. فهل الأعداد لا تُستنفد حقًّا؟ بما أنها سُمّيت «أعدادًا»، فكيف لا يمكن استنفادها؟}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+故謂數為難窮斯可，謂數為不可窮斯不可。何則？彼其冥冥之中，固有昭昭者存，夫昭昭者其自然之數也。非自然之數，其自然之理也。數一出於自然，吾欲以力強窮之，使隸首復生亦末如之何也已。
+}
+
+\switchcolumn
+
+\ar{فمن الجائز القول إنّ الأعداد يصعب استنفادها، لكن لا يجوز القول إنها لا تُستنفد. ولماذا؟ ففي وسط الظلام يوجد نورٌ باطن، وهذا النور هو العدد الطبيعي. بل هو ليس العدد الطبيعي وحسب، بل هو المبدأ الطبيعي. بما أن الأعداد تنبثق من الطبيعة، فلو حاولتُ إجبارها بالقوة، حتى لو بُعث لي شو (مخترع الحساب الأسطوري) من جديد، لعجز عن الأمر.}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+苟能推自然之理，以明自然之數，則雖遠而乾端坤倪，幽而神情鬼狀，未有不合者矣。
+}
+
+\switchcolumn
+
+\ar{فإذا أمكن استنباط المبادئ الطبيعية لإيضاح الأعداد الطبيعية، فحتى أقاصي السماء وأطراف الأرض، وحتى أسرار الأرواح والأشباح، لن يخلوا من التوافق.}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+予自幼喜算數，恆病夫考圓之術例出於牽強，殊乖於自然，如古率、徽率、密率之不同，截弧、截矢、截背之互見，內外諸角，析剖支條，莫不各自名家，與世作法。及反覆研究，卒無以當吾心焉。
+}
+
+\switchcolumn
+
+\ar{منذ صغري أحببتُ الحساب، وكنتُ أشكو دومًا أنّ طرق دراسة الدائرة تبدو مُكرهة وغير طبيعية — فالنسب القديمة والنسب الدقيقة والنسب المُحكَمة تختلف، والأقواس والأوتار والظهور تتباين، والزوايا الداخلية والخارجية تُحلّل إلى فروع. كلّ مدرسة وضعت اسمها وطريقتها للعالم. غير أنّ دراستها المتكرّرة لم تُشبِع فضولي.}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+老大以來，得洞淵九容之說，日夕玩繹，而向之病我者，使爆然落去而無遗余。山中多暇，客有從余求其說者，於是乎又為衍之，遂累一百七十問。
+}
+
+\switchcolumn
+
+\ar{في الكبر، حصلتُ على نظرية «تسعة استيعابات دونغ يوان» (洞淵九容)، وقد تأمّلتُها ليل نهار، فزال ما كان يؤلمني دفعةً واحدةً بلا أثر. وإذ كانت لديّ فراغاتٌ في الجبال، طلب منّي ضيوفي شرح هذه النظرية، فوسّعتُها حتى بلغت مئة وسبعين مسألة.}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+既成編，客復目之《測圓海鏡》，蓋取夫天臨海鏡之義也。
+}
+
+\switchcolumn
+
+\ar{ولما اكتمل التأليف، أطلق عليه أحد الضيوف اسم «مرآة البحر لقياس الدائرة»، مستوحىً من معنى «السماء التي تُشرف على مرآة البحر».}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+昔半山老人集《唐百家詩選》，自謂廢日力於此，良可惜。明道先生以上蔡謝君記誦為玩物喪志。夫文史尚矣，猶之為不足貴，況九九賤技能乎！
+}
+
+\switchcolumn
+
+\ar{لقد جمع «شيخ نصف الجبل» مختاراتٍ من شعر مئة شاعرٍ من تانغ، معتبرًا ذلك إضاعةً للوقت. وقد زمَر مستر مينغداو بشي شيه من شانغتساي لحفظه الشعر. وإذا كان الأدب والتاريخ — رغم علوّ شأنهما — لا يُعَدّان ثمينَين، فكيف بمهارة الضرب «تسعة في تسعة» الهزيلة!}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+嗜好酸鹹，平生每痛自戒勅，竟莫能已，類有物慿之者，吾亦不知其然而然也。
+}
+
+\switchcolumn
+
+\ar{إنّ حبّ الملح والخل، فقد حاولتُ طوال حياتي توبيخ نفسي والامتناع عنها، لكنني عجزتُ، كأنّ شيئًا ما يدفعني، ولا أدري كيف يحصل هذا.}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+故嘗私為之解曰：由技兼於事者言之，夷之禮，夔之樂，亦不免為一技。由技進乎道者言之，石之斤，扁之輪，非聖人之所與乎。
+}
+
+\switchcolumn
+
+\ar{ولذا فسّرتُ ذلك لنفسي: من جهة تطبيق المهارات، فإنّ طقوس يي وموسيقى كويي لا تخلوا من كونها مهارة. ومن جهة الارتقاء بالمهارة إلى الطريق، فإنّ فأس بن شي وعجلة بيان — أليس هما مما يُثنى عليه الحكماء؟}
+
+\switchcolumn*
+
+{\color{prefacecolor}
+覽吾之編，察吾苦心，其憫我者當百數，其笑我者當千數。乃若吾之所自得，則自得焉耳，寧復為人憫笑計哉。
+
+\hfill 李冶序
+}
+
+\switchcolumn
+
+\ar{من يطالع تأليفي ويلمس جهدي، سيجد من يشفق عليّ بالمئات، ومن يسخروا مني بالألوف. أمّا ما اكتسبته لنفسي فهو لي وحدي، وهل أبالي بمن يشفق أو يسخر؟}
+
+\vspace{0.3cm}
+
+\ar{\hfill تقديم لي يه}
+
+\end{paracol}
+
+\newpage
+
+
+% =============================================================================
+\section{Volume 1 / \ar{المجلد الأول} \quad 卷一}
+\label{sec:vol1}
+
+\begin{paracol}{2}
+
+Volume 1 is the theoretical foundation of the entire work. It comprises four major sections:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Circle City Diagram} (圓城圖式) --- the master geometric configuration
+  \item \textbf{General Rate Names} (總率名號) --- definitions of all 15 right triangles and their elements
+  \item \textbf{Current Question Numbers} (今問正數) --- numerical values for all line segments
+  \item \textbf{Identification Miscellaneous Records} (識別雜記) --- 692 geometric formulas
+\end{enumerate}
+
+\switchcolumn
+
+\ar{المجلد الأول هو الأساس النظري للعمل بأكمله. ويتألّف من أربعة أقسام رئيسية:}
+
+\begin{enumerate}[leftmargin=2em,rightmargin=0em]
+  \item \ar{\textbf{رسمة المدينة الدائرية} (圓城圖式) — التكوين الهندسي الرئيسي}
+  \item \ar{\textbf{أسماء المعدّلات العامة} (總率名號) — تعريف المثلثات القائمة الخمسة عشر وعناصرها}
+  \item \ar{\textbf{أعداد المسائل الحاضرة} (今問正數) — القيم الرقمية لجميع الخطوط}
+  \item \ar{\textbf{سجلات التمييز المتنوعة} (識別雜記) — 692 صيغة هندسية}
+\end{enumerate}
+
+\end{paracol}
+
+% ------------------------------------------------------------------------------
+\subsection{Circle City Diagram / \ar{رسمة المدينة الدائرية} (圓城圖式)}
+\label{subsec:diagram}
+
+\begin{paracol}{2}
+
+The \textit{Circle City Diagram} is the master geometric configuration upon which all 170 problems are based. It consists of a large right triangle (called 勾股形, ``leg--leg shape'') with its inscribed circle, together with specific points and lines.
+
+\vspace{0.3cm}
+
+The scenario Li Ye constructs is:
+
+\begin{quote}
+假令有圓城一所，不知周徑，四面開門，門外縱橫各有十字大道。其西北十字道頭定為乾地，其東北十字道頭定為艮地，其東南十字道頭定為巽地，其西南十字道頭定為坤地。所有測望雜法一一設問如後。
+\end{quote}
+
+\switchcolumn
+
+\ar{إنّ \textit{رسمة المدينة الدائرية} هي التكوين الهندسي الرئيسي الذي تستند إليه جميع المسائل الـ170. وتتألّف من مثلث قائم كبير (يُسمّى 勾股形، «شكل الضلع–الضلع») مع دائرته المحاطة، بالإضافة إلى نقاط وخطوط مُحدّدة.}
+
+\vspace{0.3cm}
+
+\ar{والمنطق الذي بناه لي يه هو:}
+
+\begin{quote}
+\ar{لنفترض مدينة دائرية محيطها وقطرها مجهولان، لها أبواب على الجوانب الأربعة، وخارج كلّ باب طرقات متقاطعة شمالية–جنوبية وشرقية–غربية. الطرقات المتقاطعة الشمالية–الغربية تُسمّى «تشيين» (乾)، والشمالية–الشرقية «كين» (艮)، والجنوبية–الشرقية «شون» (巽)، والجنوبية–الغربية «كون» (坤). جميع طرق القياس مفصّلة في المسائل أدناه.}
+\end{quote}
+
+\switchcolumn*
+
+\textbf{The 22 Named Points.} The largest right triangle has vertices \textbf{Tian} (天, Heaven), \textbf{Di} (地, Earth), and \textbf{Qian} (乾). The center of the inscribed circle is called \textbf{Xin} (心, Heart). Key points include intersections of horizontal and vertical lines through the center and other constructed lines. Each point is designated by a single Chinese character:
+
+\begin{center}
+\begin{tabular}{llllllll}
+\toprule
+天 & 地 & 乾 & 心 & 日 & 南 & 北 & 川 \\
+東 & 西 & 艮 & 坤 & 山 & 月 & 巽 & 青 \\
+泉 & 朱 & 金 & 泛 & 旦 & 夕 & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\switchcolumn
+
+\ar{\textbf{النقاط الثانية والعشرون المُسمّاة.} المثلث القائم الأكبر له رؤوس \textbf{تيان} (天، السماء)، و\textbf{دي} (地، الأرض)، و\textbf{تشيين} (乾). ويُسمّى مركز الدائرة المحاطة \textbf{شين} (心، القلب). وتشمل النقاط الرئيسية تقاطعات الخطوط الأفقية والعمودية عبر المركز وخطوط أخرى مُنشأة. كلّ نقطة تُحدّد بحرفٍ صينيّ واحد:}
+
+\begin{center}
+\begin{tabular}{llllllll}
+\toprule
+天 & 地 & 乾 & 心 & 日 & 南 & 北 & 川 \\
+東 & 西 & 艮 & 坤 & 山 & 月 & 巽 & 青 \\
+泉 & 朱 & 金 & 泛 & 旦 & 夕 & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{paracol}
+
+% ------------------------------------------------------------------------------
+\subsection{General Rate Names / \ar{أسماء المعدّلات العامة} (總率名號)}
+\label{subsec:names}
+
+\begin{paracol}{2}
+
+The work studies \textbf{15 right triangles}, all having a segment of the \textit{Tiandi} (天地) line as their hypotenuse (弦, ``string''). The \textit{General Rate Names} define these triangles and their three sides.
+
+In each triangle:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{弦} ($c$) --- the hypotenuse (斜邊)
+  \item \textbf{股} ($b$) --- the longer vertical leg
+  \item \textbf{勾} ($a$) --- the shorter horizontal leg
+\end{itemize}
+
+\switchcolumn
+
+\ar{يدرس هذا الكتاب \textbf{15 مثلثًا قائمًا}، جميعها يتخذ قطعةً من خط \textit{تياندي} (天地) وترًا له (弦، «الوتر»). وتحدّد \textit{أسماء المعدّلات العامة} هذه المثلثات وأضلاعها الثلاثة.}
+
+\vspace{0.3cm}
+
+\ar{في كلّ مثلث:}
+\begin{itemize}[leftmargin=2em,rightmargin=0em]
+  \item \ar{\textbf{الوتر} ($c$) — الوتر (弦)}
+  \item \ar{\textbf{الضلع الطويل} ($b$) — الضلع الرأسي الأطول (股)}
+  \item \ar{\textbf{الضلع القصير} ($a$) — الضلع الأفقي الأقصر (勾)}
+\end{itemize}
+
+\end{paracol}
+
+\begin{center}
+\begin{tabular}{|c|l|c|c|c|}
+\hline
+\textbf{No.} & \textbf{Name / \ar{الاسم}} & \textbf{\ar{الوتر} 弦} & \textbf{\ar{الضلع} 股} & \textbf{\ar{القاعدة} 勾} \\
+\hline
+1 & \ar{تونغ (العام)} 通 & 通弦 & 通股 & 通勾 \\
+2 & \ar{بيان (الجانب)} 邊 & 邊弦 & 邊股 & 邊勾 \\
+3 & \ar{دي (القاعدة)} 底 & 底弦 & 底股 & 底勾 \\
+4 & \ar{هوانغ غوانغ} 黃廣 & 黃廣弦 & 黃廣股 & 黃廣勾 \\
+5 & \ar{هوانغ تشانغ} 黃長 & 黃長弦 & 黃長股 & 黃長勾 \\
+6 & \ar{شانغ غاو (العلوي)} 上高 & 上高弦 & 上高股 & 上高勾 \\
+7 & \ar{شيا غاو (السفلي)} 下高 & 下高弦 & 下高股 & 下高勾 \\
+8 & \ar{شانغ بينغ} 上平 & 上平弦 & 上平股 & 上平勾 \\
+9 & \ar{شيا بينغ} 下平 & 下平弦 & 下平股 & 下平勾 \\
+10 & \ar{دا تشا (الكبير)} 大差 & 大差弦 & 大差股 & 大差勾 \\
+11 & \ar{شياو تشا (الصغير)} 小差 & 小差弦 & 小差股 & 小差勾 \\
+12 & \ar{هوانغ جي (القصوي)} 皇極 & 皇極弦 & 皇極股 & 皇極勾 \\
+13 & \ar{تاي شُو (الخالص)} 太虛 & 太虛弦 & 太虛股 & 太虛勾 \\
+14 & \ar{مينغ (الضوء)} 明 & 明弦 & 明股 & 明勾 \\
+15 & \ar{تشوان (التركيز)} 叀 & 叀弦 & 叀股 & 叀勾 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{paracol}{2}
+\small Note: 上高 = 下高 and 上平 = 下平, so among 15 triangles, only 13 are distinct.
+\switchcolumn
+\small \ar{ملاحظة: 上高 = 下高 و 上平 = 下平، لذا من بين 15 مثلثًا، هناك 13 مثلثًا مميزًا فقط.}
+\end{paracol}
+
+% ------------------------------------------------------------------------------
+\subsection{Current Question Numbers / \ar{أعداد المسائل الحاضرة} (今問正數)}
+\label{subsec:numbers}
+
+\begin{paracol}{2}
+
+This section gives the numerical value of every line segment in the diagram. The \textbf{radius of the inscribed circle is taken as 120 steps} (步), which serves as the standard unit.
+
+\vspace{0.3cm}
+
+\textbf{1. 通 (Tong / General)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦六百八十 & 勾三百二十 \quad 股六百 \\
+勾股和九百二十 & 較二百八十 \\
+勾和一千 & 較三百六十 \\
+股和一千二百八十 & 較八十 \\
+較和九百六十 & 較四百 \\
+和和一千六百 & 較二百四十 \\
+\end{tabular}
+\end{center}
+
+\textit{That is:} hypotenuse $c = 680$, short leg $a = 320$, long leg $b = 600$.
+
+\switchcolumn
+
+\ar{يعطي هذا القسم القيمة الرقمية لكلّ قطعة خط في الرسمة. \textbf{يُؤخذ نصف قطر الدائرة المحاطة بوحدة 120 خطوة} (步)، وهي تُستخدم كوحدة قياس معيارية.}
+
+\vspace{0.3cm}
+
+\ar{\textbf{1. تونغ (العام)}}
+
+\begin{center}
+\begin{tabular}{ll}
+\ar{الوتر 680} & \ar{القاعدة 320 \quad الضلع 600} \\
+\ar{مجموع القاعدة والضلع 920} & \ar{الفرق 280} \\
+\ar{مجموع القاعدة 1000} & \ar{الفرق 360} \\
+\ar{مجموع الضلع 1280} & \ar{الفرق 80} \\
+\ar{مجموع الفرق 960} & \ar{الفرق 400} \\
+\ar{المجموع الكلي 1600} & \ar{الفرق 240} \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\ar{أي: الوتر $c = 680$، القاعدة $a = 320$، الضلع $b = 600$.}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{paracol}{2}
+\textbf{2. 邊 (Bian / Side)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦五百四十四 & 勾二百五十六 \quad 股四百八十 \\
+勾股和七百三十六 & 較二百二十四 \\
+勾和八百 & 較二百八十八 \\
+股和一千零二十四 & 較六十四 \\
+較和七百六十八 & 較三百二十 \\
+和和一千二百八十 & 較一百九十二 \\
+\end{tabular}
+\end{center}
+
+\switchcolumn
+
+\ar{\textbf{2. بيان (الجانب)}}
+
+\begin{center}
+\begin{tabular}{ll}
+\ar{الوتر 544} & \ar{القاعدة 256 \quad الضلع 480} \\
+\ar{مجموع القاعدة والضلع 736} & \ar{الفرق 224} \\
+\ar{مجموع القاعدة 800} & \ar{الفرق 288} \\
+\ar{مجموع الضلع 1024} & \ar{الفرق 64} \\
+\ar{مجموع الفرق 768} & \ar{الفرق 320} \\
+\ar{المجموع الكلي 1280} & \ar{الفرق 192} \\
+\end{tabular}
+\end{center}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{paracol}{2}
+\textbf{3. 底 (Di / Base)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦四百二十五 & 勾二百 \quad 股三百七十五 \\
+勾股和五百七十五 & 較一百七十五 \\
+勾和六百二十五 & 較二百二十五 \\
+股和八百 & 較五十 \\
+較和六百 & 較二百五十 \\
+和和一千 & 較一百五十 \\
+\end{tabular}
+\end{center}
+
+\switchcolumn
+
+\ar{\textbf{3. دي (القاعدة)}}
+
+\begin{center}
+\begin{tabular}{ll}
+\ar{الوتر 425} & \ar{القاعدة 200 \quad الضلع 375} \\
+\ar{مجموع القاعدة والضلع 575} & \ar{الفرق 175} \\
+\ar{مجموع القاعدة 625} & \ar{الفرق 225} \\
+\ar{مجموع الضلع 800} & \ar{الفرق 50} \\
+\ar{مجموع الفرق 600} & \ar{الفرق 250} \\
+\ar{المجموع الكلي 1000} & \ar{الفرق 150} \\
+\end{tabular}
+\end{center}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{paracol}{2}
+\textbf{4. 黃廣 (Huang Guang)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦五百一十 & 勾二百四十 \quad 股四百五十 \\
+\multicolumn{2}{c}{(即城徑也 --- this is the city diameter)} \\
+勾股和六百九十 & 較二百一十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+The remaining 11 triangles follow the same pattern, each with 13 numerical quantities, giving a total of $15 \times 13 = 195$ numerical entries.
+
+\switchcolumn
+
+\ar{\textbf{4. هوانغ غوانغ}}
+
+\begin{center}
+\begin{tabular}{ll}
+\ar{الوتر 510} & \ar{القاعدة 240 \quad الضلع 450} \\
+\multicolumn{2}{c}{\ar{(هذا هو قطر المدينة)}} \\
+\ar{مجموع القاعدة والضلع 690} & \ar{الفرق 210} \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\ar{تتبع المثلثات الـ11 المتبقية النمط نفسه، ولكلّ منها 13 كمية رقمية، ما يعطي إجمالاً $15 \times 13 = 195$ مدخلاً رقميًا.}
+
+\end{paracol}
+
+\newpage
+
+
+% ------------------------------------------------------------------------------
+\subsection{Identification Miscellaneous Records / \ar{سجلات التمييز المتنوعة} (識別雜記)}
+\label{subsec:identification}
+
+\begin{paracol}{2}
+
+This is the theoretical heart of the work. It contains \textbf{692 geometric formulas} relating the various line segments in the diagram. These formulas are purely geometric theorems, independent of any particular numerical values. The problems in all subsequent volumes are solved by using these formulas together with the tian yuan shu.
+
+The section is divided into eight parts:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Various Names} (諸雜名目) --- general definitions and 30+ theorems
+  \item \textbf{Five Sums and Five Differences} (五和五較)
+  \item \textbf{Various Hypotenuses} (諸弦)
+  \item \textbf{Large and Small Differences} (大小差)
+  \item \textbf{Various Differences} (諸差)
+  \item \textbf{Mutual Relations of Rates} (諸率互見)
+  \item \textbf{Four-Place Supplement} (四位拾遺)
+  \item \textbf{Supplement} (拾遺)
+\end{enumerate}
+
+\switchcolumn
+
+\ar{هذا هو القلب النظري للعمل. ويحتوي على \textbf{692 صيغة هندسية} تربط الخطوط المختلفة في الرسمة. هذه الصيغ هي مبرهنات هندسية خالصة، مستقلة عن أي قيم رقمية مُعيّنة. وتُحلّ مسائل المجلدات التالية باستخدام هذه الصيغ معاً مع طريقة عنصر السماء.}
+
+\vspace{0.3cm}
+
+\ar{يُقسّم هذا القسم إلى ثمانية أجزاء:}
+
+\begin{enumerate}[leftmargin=2em,rightmargin=0em]
+  \item \ar{\textbf{الأسماء المتنوعة} (諸雜名目) — تعريفات عامة وأكثر من 30 مبرهنة}
+  \item \ar{\textbf{المجاميع الخمسة والفروق الخمسة} (五和五較)}
+  \item \ar{\textbf{الأوتار المختلفة} (諸弦)}
+  \item \ar{\textbf{الفروق الكبيرة والصغيرة} (大小差)}
+  \item \ar{\textbf{الفروق المختلفة} (諸差)}
+  \item \ar{\textbf{العلاقات المتبادلة للمعدّلات} (諸率互見)}
+  \item \ar{\textbf{التكميلة الرباعية} (四位拾遺)}
+  \item \ar{\textbf{التكميلة} (拾遺)}
+\end{enumerate}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Sample Definitions from 諸雜名目 / \ar{نماذج تعريفات من «الأسماء المتنوعة»}:}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Name} & \textbf{Definition} & \textbf{\ar{التعريف}} \\
+\midrule
+內率 & 明勾 $\times$ 叀股 & \ar{القاعدة المضيئة $\times$ ضلع التركيز} \\
+外率 & 明股 $\times$ 叀勾 & \ar{ضلع المضيء $\times$ قاعدة التركيز} \\
+虛率 & 虛勾 $\times$ 虛股 & \ar{القاعدة الخالصة $\times$ الضلع الخالص} \\
+角差 & 高股 $-$ 平勾 & \ar{ضلع المرتفع $-$ قاعدة المستوي} \\
+次差 & (明股$-$明勾) $+$ (叀股$-$叀勾) & \ar{(ضلع المضيء$-$قاعدته) $+$ (ضلع التركيز$-$قاعدته)} \\
+混同和 & 黃長股 $+$ 黃廣勾 & \ar{ضلع هوانغ تشانغ $+$ قاعدة هوانغ غوانغ} \\
+傍差 & (明股$-$明勾) $-$ (叀股$-$叀勾) & \ar{(ضلع المضيء$-$قاعدته) $-$ (ضلع التركيز$-$قاعدته)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent\textbf{Sample Theorems / \ar{نماذج من المبرهنات}:}
+
+\vspace{0.3cm}
+
+\begin{paracol}{2}
+
+\begin{itemize}[leftmargin=2em]
+  \item 凡大差小差相乘為半段徑冪。
+  
+  \textit{The product of the large difference and small difference equals half the square of the diameter.}
+  
+  \item 大差勾小差股相乘同上。
+  
+  \textit{The product of the large-difference short-leg and the small-difference long-leg equals the same.}
+  
+  \item 黃廣股黃長勾相乘為經冪。
+  
+  \textit{The product of the Huangguang long-leg and Huangchang short-leg equals the square of the diameter.}
+  
+  \item 勾股和即弦黃和。
+  
+  \textit{The sum of the two legs equals the sum of the hypotenuse and the diameter of the inscribed circle.}
+  
+  That is: $a + b = c + d$, where $d$ is the diameter.
+\end{itemize}
+
+\switchcolumn
+
+\begin{itemize}[leftmargin=2em,rightmargin=0em]
+  \item \ar{إنّ حاصل ضرب الفرق الكبير والفرق الصغير يساوي نصف مربّع القطر.}
+
+  \item \ar{حاصل ضرب قاعدة الفرق الكبير وضلع الفرق الصغير يساوي المقدار نفسه.}
+
+  \item \ar{حاصل ضرب ضلع هوانغ غوانغ وقاعدة هوانغ تشانغ يساوي مربّع القطر.}
+
+  \item \ar{مجموع الضلعين القائمين يساوي مجموع الوتر وقطر الدائرة المحاطة.}
+
+  \vspace{0.3cm}
+
+  \ar{أي: $a + b = c + d$، حيث $d$ هو قطر الدائرة المحاطة.}
+\end{itemize}
+
+\end{paracol}
+
+\newpage
+
+% =============================================================================
+\section{Volume 2 / \ar{المجلد الثاني} \quad 卷二}
+\label{sec:vol2}
+
+\begin{paracol}{2}
+
+\textbf{正率一十四問} --- Fourteen Questions on Standard Rates
+
+These fourteen problems form the ``Dongyuan Nine Containments'' (洞淵九容) sequence, derived from the earlier work of the Daoist master Li Sicong (李思聰, known as ``Master Dongyuan''). They present the nine fundamental types of circles contained in or related to a right triangle, plus five additional problems.
+
+\switchcolumn
+
+\ar{\textbf{أربعة عشر مسألة في المعدّلات المعيارية}}
+
+\vspace{0.3cm}
+
+\ar{تُشكّل هذه المسائل الأربعة عشر سلسلة «تسعة استيعابات دونغ يوان» (洞淵九容)، المستوحاة من عمل السيّد الطاووي لي سِتسونغ (李思聰، المعروف باسم «سيّد دونغ يوان»). وهي تعرض تسعة أنواع أساسية من الدوائر المحاطة بالمثلث القائم أو المرتبطة به، بالإضافة إلى خمس مسائل إضافية.}
+
+\end{paracol}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 1 / \ar{المسألة الأولى} \quad 第一問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人俱在乾地，乙東行三百二十步而立，甲南行六百步望見乙，問徑幾里？
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為勾股容圓也。以勾股相乘，倍之為實，並勾股冪以求弦，復加入勾股共，以為法。}
+
+\vspace{0.2cm}
+
+\Workings{置甲南行六百步在地，以乙東行三百二十步乘之，得一十九萬二千步，倍之得三十入萬四千步為實。以乙東行步自之，得一十萬零二千四百步為勾冪；以甲南行步自之，得三十六萬步為股冪。二冪相並，得四十六萬二千四百步為方實，以平方開之，得六百八十步，則弦也。以弦加勾股共，共得一千六百步以為法。如法而一，得二百四十步，則城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في موقع تشيين. يسير ب نحو الشرق 320 خطوة ويقف، ويسير أ نحو الجنوب 600 خطوة ويرى ب. فكم قطر المدينة؟}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة بالمثلث القائم. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجمع مربّعي الضلعين لاستخراج الوتر، ثم أضف مجموع الضلعين فتكون القاسية.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{ضع مسافة سير أ نحو الجنوب (600 خطوة) واضربها بمسافة سير ب نحو الشرق (320 خطوة)، تحصل على 192000 خطوة، واضعفها فتحصل على 384000 خطوة وهي الذات. ربّع مسافة سير ب نحو الشرق فتحصل على 102400 وهي مربّع القاعدة؛ ربّع مسافة سير أ نحو الجنوب فتحصل على 360000 وهي مربّع الضلع. اجمع المربّعين فتحصل على 462400 وهي الذات المربّعة، واستخرج الجذر التربيعي فتحصل على 680 خطوة وهي الوتر. أضف الوتر إلى مجموع الضلعين، يصبح المجموع 1600 خطوة وهو القاسية. اقسم الذات على القاسية فتحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 2 / \ar{المسألة الثانية} \quad 第二問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人俱在西門，乙東行二百五十六步，甲南行四百八十步望見乙，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為勾上容圓也。以勾股相乘，倍之為實，並勾股冪以求弦，加入股以為法。}
+
+\vspace{0.2cm}
+
+\Workings{置甲南行四百八十步在地，以乙東行二百五十六步乘之，得一十二萬二千八百八十步，倍之得二十四萬五千七百六十步為實。以乙東行步自之，得六萬五千五百三十六步為勾冪；以甲南行步自之，得二十三萬零四百步為股冪。勾股冪相並，得二十九萬五千九百三十六步為方實，以平方開之，得五百四十四步為弦也。以弦加入南行步，共得一千零二十四步以為法。而一，得二百四十步則城徑。合問。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان عند الباب الغربي. يسير ب نحو الشرق 256 خطوة، ويسير أ نحو الجنوب 480 خطوة ويرى ب. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة على القاعدة. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجمع مربّعي الضلعين لاستخراج الوتر، ثم أضف الضلع فتكون القاسية.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{ضع مسافة سير أ نحو الجنوب (480 خطوة) واضربها بمسافة سير ب نحو الشرق (256 خطوة)، تحصل على 122880 خطوة، واضعفها فتحصل على 245760 خطوة وهي الذات. ربّع مسافة سير ب نحو الشرق فتحصل على 65536 وهي مربّع القاعدة؛ ربّع مسافة سير أ نحو الجنوب فتحصل على 230400 وهي مربّع الضلع. اجمع مربّعي الضلعين فتحصل على 295936 وهي الذات المربّعة، واستخرج الجذر التربيعي فتحصل على 544 خطوة وهي الوتر. أضف الوتر إلى مسافة السير نحو الجنوب، يصبح المجموع 1024 خطوة وهو القاسية. اقسم الذات على القاسية فتحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 3 / \ar{المسألة الثالثة} \quad 第三問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人俱在北門，乙東行二百步而止，甲南行三百七十五步望見乙，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為股上容圓也。以勾股相乘，倍之為實，以勾股冪求弦，加入勾以為法。}
+
+\vspace{0.2cm}
+
+\Workings{置甲南行三百七十五步，以乙東行二百步乘之，得七萬五千步，倍之得一十五萬步為實。以乙東行自之，得四萬步為勾冪；以甲南行自之，得一十四萬零六百二十五步為股冪。勾股冪相並，得一十八萬零六百二十五步為方實。如平方而一，得四百二十五步則弦也。加入乙東行二百步，共得六百二十五步以為法。以法除之，得二百四十步，則城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان عند الباب الشمالي. يسير ب نحو الشرق 200 خطوة ويقف، ويسير أ نحو الجنوب 375 خطوة ويرى ب. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة على الضلع. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واستخرج الوتر من مربّعي الضلعين، ثم أضف القاعدة فتكون القاسية.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{ضع مسافة سير أ نحو الجنوب (375 خطوة) واضربها بمسافة سير ب نحو الشرق (200 خطوة)، تحصل على 75000 خطوة، واضعفها فتحصل على 150000 خطوة وهي الذات. ربّع مسافة سير ب نحو الشرق فتحصل على 40000 وهي مربّع القاعدة؛ ربّع مسافة سير أ نحو الجنوب فتحصل على 140625 وهي مربّع الضلع. اجمع مربّعي الضلعين فتحصل على 180625 وهي الذات المربّعة. استخرج الجذر التربيعي فتحصل على 425 خطوة وهي الوتر. أضف مسافة سير ب نحو الشرق (200 خطوة)، يصبح المجموع 625 خطوة وهو القاسية. اقسم الذات على القاسية فتحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 4 / \ar{المسألة الرابعة} \quad 第四問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人俱在圓城中心而立，乙穿城向東行一百三十六步而止，甲穿城南行二百五十五步望見乙，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為勾股上容圓也。以勾股相乘，倍之為實，並勾股冪如法求弦，以為法。}
+
+\vspace{0.2cm}
+
+\Workings{以二行步相乘，得三萬四千六百八十步，倍之得六萬九千三百六十步為實。置乙東行自之，得一萬八千四百九十六步為勾冪；又以甲南行自之，得六萬五千零二十五步為股冪。二冪相並，得八萬三千五百二十一步為方實，以平方開之，得二百八十九步即弦也。便以為法。如法除實，得二百四十步，即圓城之徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في مركز المدينة الدائرية. يعبر ب المدينة ويسير نحو الشرق 136 خطوة ويقف، ويعبر أ المدينة ويسير نحو الجنوب 255 خطوة ويرى ب. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة على القاعدة والضلع. اضرب المسافتين واضعف الناتج فتكون الذات، واجمع مربّعي الضلعين لاستخراج الوتر فتكون القاسية.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{اضرب المسافتين فتحصل على 34680 خطوة، واضعفها فتحصل على 69360 خطوة وهي الذات. ربّع مسافة سير ب نحو الشرق فتحصل على 18496 وهي مربّع القاعدة؛ ربّع مسافة سير أ نحو الجنوب فتحصل على 65025 وهي مربّع الضلع. اجمع المربّعين فتحصل على 83521 وهي الذات المربّعة، واستخرج الجذر التربيعي فتحصل على 289 خطوة وهي الوتر. وهي القاسية. اقسم الذات على القاسية فتحصل على 240 خطوة وهي قطر المدينة الدائرية. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 5 / \ar{المسألة الخامسة} \quad 第五問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人同立於乾地，乙東行一百八十步遇塔而止，甲南行三百六十步，回望其塔正居城徑之半，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為弦上容圓也。以勾股相乘，倍之為實，以勾股和為法。}
+
+\vspace{0.2cm}
+
+\Workings{以二行步相乘，得六萬四千八百步，倍之得一十二萬九千六百步為實。並二行步，得五百四十步以為法。除實，得二百四十步，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في موقع تشيين. يسير ب نحو الشرق 180 خطوة حتى يصل البرج ويقف، ويسير أ نحو الجنوب 360 خطوة، وعندما ينظر إلى الوراء يرى البرج عند منتصف قطر المدينة. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة على الوتر. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجمع الضلعين القائمين فتكون القاسية.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{اضرب المسافتين فتحصل على 64800 خطوة، واضعفها فتحصل على 129600 خطوة وهي الذات. اجمع المسافتين فتحصل على 540 خطوة وهي القاسية. اقسم الذات على القاسية فتحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 6 / \ar{المسألة السادسة} \quad 第六問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人俱在坤地，乙東行一百九十二步而止，甲南行三百六十步，望乙與城參相直，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為勾外容圓也。以勾股相乘，倍之為實，以弦較和為法。}
+
+\vspace{0.2cm}
+
+\Workings{以二行步相乘，得六萬九千一百二十步，倍之得一十三萬八千二百四十步為實。置乙東行自之，得三萬六千八百六十四步為勾冪；又置甲南行自之，得一十二萬九千六百步為股冪。二冪相並，得一十六萬六千四百六十四步為方實，以平方開之，得四百零八，即弦也。又置甲南行步內減乙東行步，餘一百六十八步，即較也。以較加弦，共得五百七十六步以為法。實如法而一，得二百四十步，為城徑也。合問。}
+
+\vspace{0.2cm}
+
+\Remark{此題用勾股求得弦，即可加減得弦較較為城徑。今必以勾股相乘倍積為實，求得弦較和為法，而後始得弦較較為城徑者，蓋欲因此並明勾股相乘之倍積為弦較較、弦較和相乘之積，非故為紆回也。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في موقع كون. يسير ب نحو الشرق 192 خطوة ويقف، ويسير أ نحو الجنوب 360 خطوة، ويرى ب والمدينة على استقامة واحدة. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة خارج القاعدة. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجمع الوتر والفرق فتكون القاسية.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{اضرب المسافتين فتحصل على 69120 خطوة، واضعفها فتحصل على 138240 خطوة وهي الذات. ربّع مسافة سير ب نحو الشرق فتحصل على 36864 وهي مربّع القاعدة؛ ربّع مسافة سير أ نحو الجنوب فتحصل على 129600 وهي مربّع الضلع. اجمع المربّعين فتحصل على 166464 وهي الذات المربّعة، واستخرج الجذر التربيعي فتحصل على 408 وهو الوتر. ثم اطرح مسافة سير ب نحو الشرق من مسافة سير أ نحو الجنوب، يتبقّى 168 خطوة وهي الفرق. أضف الفرق إلى الوتر، يصبح المجموع 576 خطوة وهو القاسية. اقسم الذات على القاسية فتحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\vspace{0.2cm}
+
+\RemarkAr{في هذه المسألة، يمكن استخراج الوتر من الضلعين القائمين ثم إجراء الجمع والطرح للحصول على قطر المدينة. غير أنّه يجب استخدام ضعف حاصل ضرب الضلعين القائمين كذات، ومجموع الوتر والفرق كقاسية، ثم الحصول على قطر المدينة. والغرض من ذلك هو توضيح أنّ ضعف حاصل ضرب الضلعين القائمين يساوي حاصل ضرب (الوتر ناقص الفرق) و(الوتر زائد الفرق)، وليس مجرد التعقيد.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 7 / \ar{المسألة السابعة} \quad 第七問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人同立於艮地，甲南行一百五十步而止，乙東行八十步，望乙與城參相直，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為股外容圓也。以勾股相乘，倍之為實，以弦和較為法。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في موقع كِن. يسير أ نحو الجنوب 150 خطوة ويقف، ويسير ب نحو الشرق 80 خطوة، ويرى ب والمدينة على استقامة واحدة. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة خارج الضلع. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجعل فرق مجموع الوتر والضلع القاسية.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 8 / \ar{المسألة الثامنة} \quad 第八問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人同立於坤地，甲南行一百九十二步而止，乙東行七十二步，望乙與城參相直，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為弦外容圓也。以勾股相乘，倍之為實，以勾股較為法。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في موقع كون. يسير أ نحو الجنوب 192 خطوة ويقف، ويسير ب نحو الشرق 72 خطوة، ويرى ب والمدينة على استقامة واحدة. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة الدائرة المحاطة خارج الوتر. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجعل فرق الضلعين القاسية.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 9 / \ar{المسألة التاسعة} \quad 第九問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人俱在巽地，乙東行一百九十二步而止，甲南行三百六十步，望乙與城參相直，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為勾外容半圓也。以勾股相乘，倍之為實，以股弦和為法。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في موقع شون. يسير ب نحو الشرق 192 خطوة ويقف، ويسير أ نحو الجنوب 360 خطوة، ويرى ب والمدينة على استقامة واحدة. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة نصف الدائرة المحاطة خارج القاعدة. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجمع الضلع والوتر فتكون القاسية.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 10 / \ar{المسألة العاشرة} \quad 第十問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲乙二人俱在艮地，甲南行一百五十步而止，乙東行八十步，望乙與城參相直，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{此為股外容半圓也。以勾股相乘，倍之為實，以勾弦和為法。}
+
+\switchcolumn
+
+\ar{سُئل: رجلان أ وب يقفان في موقع كِن. يسير أ نحو الجنوب 150 خطوة ويقف، ويسير ب نحو الشرق 80 خطوة، ويرى ب والمدينة على استقامة واحدة. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{هذه مسألة نصف الدائرة المحاطة خارج الضلع. اضرب الضلعين القائمين واضعف الناتج فتكون الذات، واجمع القاعدة والوتر فتكون القاسية.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\vspace{0.3cm}
+
+\begin{paracol}{2}
+\textit{The above ten problems constitute the ``Dongyuan Nine Containments'' (洞淵九容), supplemented by Problem 5 (弦上容圓). The remaining four problems of Volume 2 continue with additional standard-rate problems using the tian yuan shu method.}
+
+\switchcolumn
+
+\ar{تُشكّل المسائل العشرة أعلاه «تسعة استيعابات دونغ يوان» (洞淵九容)، بالإضافة إلى المسألة الخامسة (الدائرة المحاطة على الوتر). وتستمر المسائل الأربع المتبقية في المجلد الثاني بمسائل إضافية في المعدّلات المعيارية باستخدام طريقة عنصر السماء.}
+
+\end{paracol}
+
+\newpage
+
+
+% =============================================================================
+\section{Volume 3 / \ar{المجلد الثالث} \quad 卷三}
+\label{sec:vol3}
+
+\begin{paracol}{2}
+
+\textbf{邊股一十七問} --- Seventeen Questions on the Side-Long-Leg
+
+Volume 3 presents 17 problems in which the given data involve the \textit{side long-leg} (邊股, $b_2$), defined as the long leg of the ``Side'' triangle (邊 triangle, No.\ 2 in the table), equal to 480 steps. In all problems of this volume, the unknown to be found is the diameter of the circular city (城徑 = 240 steps).
+
+These problems demonstrate the increasing sophistication of the tian yuan shu method, with equations ranging from quadratic to cubic degree.
+
+\switchcolumn
+
+\ar{\textbf{سبع عشرة مسألة في الضلع الجانبي}}
+
+\vspace{0.3cm}
+
+\ar{يعرض المجلد الثالث 17 مسألة تتضمّن البيانات المعطاة الضلع الطويل الجانبي (邊股، $b_2$)، المعرَّف بأنه الضلع الطويل للمثلث الجانبي (邊، رقم 2 في الجدول)، وهو يساوي 480 خطوة. وفي جميع مسائل هذا المجلد، المجهول المطلوب إيجاده هو قطر المدينة الدائرية (城徑 = 240 خطوة).}
+
+\vspace{0.3cm}
+
+\ar{توضّح هذه المسائل التطوّر المتزايد في طريقة عنصر السماء، حيث تتراوح المعادلات من الدرجة الثانية إلى الدرجة الثالثة.}
+
+\end{paracol}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 1 / \ar{المسألة الأولى} \quad 第一問}
+
+\begin{paracol}{2}
+
+\noindent 或問：乙出東門南行，不知步數而止。甲出西門南行四百八十步，望見乙，復就乙行五百一十步與乙相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{倍相減步，以乘二之甲南行步，為平方實，得城徑。}
+
+\vspace{0.2cm}
+
+\Workings{識別得二行相減，餘三十步，即乙出東門南行步也。倍相減步，得六十步，以乘二之甲南行步九百六十步，得五萬七千六百步，為平方實。如法開之，得二百四十步，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج ب من الباب الشرقي ويسير نحو الجنوب مسافة مجهولة ويقف. يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة، ويرى ب، ثم يسير نحو ب 510 خطوة حتى يلتقي به. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اضعف الفرق بين المسافتين، واضربه بضعف مسافة سير أ نحو الجنوب، فتكون ذات التربيع، وتحصل على قطر المدينة.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{بالتمييز: نطرح المسافتين، يتبقّى 30 خطوة، وهي مسافة سير ب من الباب الشرقي نحو الجنوب. نضعف الفرق فنحصل على 60 خطوة، ونضربها بضعف مسافة سير أ نحو الجنوب (960 خطوة)، فنحصل على 57600 خطوة وهي ذات التربيع. نستخرج الجذر فنحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 2 / \ar{المسألة الثانية} \quad 第二問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮隅東行八十步，望見甲，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{倍南行步，以東行步乘之為實，東行步為從方，一步常法，得全徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為全徑，以減於二之甲南行步，得為兩個大差也。以乙東行步乘之，得為圓徑冪，寄左。然後以天元冪與左相消，得以帶縱平方開之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.2cm}
+
+\noindent\textbf{又法：}半之乙東行步，乘南行步為實，半之乙東行步為從，一步常法，得半徑。
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半城徑，減甲南行步，得為大差也。以半之東行步乘之，得即半徑冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يسير ب من زاوية كِن نحو الشرق 80 خطوة، ويرى أ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اضعف مسافة السير نحو الجنوب، واضربها بمسافة السير نحو الشرق فتكون الذات، واجعل مسافة السير نحو الشرق الطرف المرافق، وواحدًا القاسية الثابتة، فتحصل على القطر الكامل.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي القطر الكامل، ونطرحه من ضعف مسافة سير أ نحو الجنوب، فنحصل على ضعف الفرق الكبير. نضربها بمسافة سير ب نحو الشرق فنحصل على مربّع قطر الدائرة، ونضعها على اليسار. ثم نربّع عنصر السماء ونلغِه مع الطرف الأيسر، فنستخرج الجذر التربيعي ذا الطرف فنحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\vspace{0.2cm}
+
+\ar{\textbf{طريقة ثانية:} نصف مسافة السير نحو الشرق مضروبًا بمسافة السير نحو الجنوب فتكون الذات، ونصف مسافة السير نحو الشرق هو الطرف المرافق، وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف قطر المدينة، ونطرحه من مسافة سير أ نحو الجنوب فنحصل على الفرق الكبير. نضربها بنصف مسافة السير نحو الشرق فنحصل على مربّع نصف القطر، ونضعها على اليسار. ثم نجعل مربّع عنصر السماء مساويًا لها، ونلغِه مع الطرف الأيسر، فنستخرج الجذر التربيعي ذا الطرف فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 3 / \ar{المسألة الثالثة} \quad 第三問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮隅亦南行一百五十步，望見甲，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行步相乘為實，南行步為從方，一為隅，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半城徑，以減乙南行步，得為半梯頭；以甲行步為梯底，以乘之，得為半徑冪，寄左。然後以天元冪與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يسير ب من زاوية كِن أيضًا نحو الجنوب 150 خطوة، ويرى أ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اضرب المسافتين فتكون الذات، واجعل مسافة السير نحو الجنوب الطرف المرافق، والواحد الركن، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف قطر المدينة، ونطرحه من مسافة سير ب نحو الجنوب فنحصل على نصف رأس السلّم. نجعل مسافة سير أ الطول السفلي للسلّم، ونضربها فنحصل على مربّع نصف القطر، ونضعها على اليسار. ثم نربّع عنصر السماء ونلغِه مع الطرف الأيسر، فنستخرج الجذر التربيعي ذا الطرف فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 4 / \ar{المسألة الرابعة} \quad 第四問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步，乙出東門直行一十六步，望見甲，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{以四之東行步，乘南行冪為實，從空，東行為廉，一步為隅法，得全徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為圓徑，加乙東行步，得為中勾；其甲南行即中股也。置東行步為小勾，以中股乘之，得，合以中勾除，今不受除，便以為小股也。內寄中勾分母。乃復以中股乘之，得三百六十八萬六千四百，又四之，得一千四百七十四萬五千六百，為一段圓徑冪，寄中勾分母，寄左。然後以天元徑自之，又以中勾乘之，得為同數，與左相消，得以帶縱立方開之，得二百四十步，為城徑也。合問。}
+
+\vspace{0.2cm}
+
+\Remark{不受除者，無可除之理也。凡二數，此數於彼數有可除之理，則受除；無可除之理，則不受除也。蓋除有法有實，實可二，法不可二。此題以中勾為法，而中勾內有一元，又有十六步，其為數已二矣，又何以均分不一之數乎？故曰不受也。寄分者，姑寄其應除之數也。俟求得兩相等數，而此數內尚少一除，不除此而轉乘彼，则兩數仍相等，猶之受除者也。此所謂以乘代除也。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة، ويخرج ب من الباب الشرقي ويسير مباشرة 16 خطوة، ويرى أ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{أربعة أضعاف مسافة السير نحو الشرق مضروبة بمربّع مسافة السير نحو الجنوب فتكون الذات، الطرف فارغ، مسافة السير نحو الشرق هي الكشك، وواحدًا قاسية الركن، فتحصل على القطر الكامل.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي قطر الدائرة، ونضيف إليه مسافة سير ب نحو الشرق فنحصل على القاعدة الوسطى؛ ومسافة سير أ نحو الجنوب هي الضلع الأوسط. نضع مسافة السير نحو الشرق كقاعدة صغرى، ونضربها بالضلع الأوسط، فنحصل على... يجب تقسيمها على القاعدة الوسطى، لكنّها لا تقبل القسمة، فنعتبرها الضلع الصغير مؤقتًا، مع إبقاء القاعدة الوسطى مقامًا. ثم نضربها مرة أخرى بالضلع الأوسط فنحصل على 3686400، وأربعة أضعافها هي 14745600، وهي مربّع قطر الدائرة، مع إبقاء القاعدة الوسطى مقامًا، ونضعها على اليسار. ثم نربّع عنصر السماء (القطر) ونضربها بالقاعدة الوسطى فنحصل على المساوي، ونلغِه مع الطرف الأيسر، فنستخرج الجذر التكعبي ذا الطرف فنحصل على 240 خطوة وهي قطر المدينة. يتطابق مع المطلوب.}
+
+\vspace{0.2cm}
+
+\RemarkAr{القول «لا تقبل القسمة» يعني أنّ القسمة غير ممكنة. ففي حال وجود عددين، إذا كان أحدهما يقبل القسمة على الآخر فهو «يقبل القسمة»، وإذا لم يكن يقبل فهو «لا يقبل القسمة». ذلك أنّ القسمة تقتضي مقسومًا ومقسومًا عليه، والمقسوم يمكن أن يكون ثنائيًا أمّا المقسوم عليه فلا. ففي هذه المسألة، القاعدة الوسطى هي المقسوم عليها، وهي تحتوي على مجهول وعلى 16 خطوة، فهي بالفعل عدد ثنائي، فكيف نقسم عددًا غير موحّد؟ لهذا نقول إنّها لا تقبل القسمة. أمّا «الإبقاء ككسور» فهو تأجيل العدد المفترض قسمته. حتى إذا حصلنا على عددين متساويين، وكان أحدهما لا يزال يفتقر إلى قسمة واحدة، فبدل أن نقسم نضرب الطرف الآخر، فيبقيان متساويين، كأنّهما قُسما. وهذا ما يُسمّى «الاستعاضة بالضرب عن القسمة».}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 5 / \ar{المسألة الخامسة} \quad 第五問}
+
+\begin{paracol}{2}
+
+\noindent 或問：乙出南門東行七十二步而止，甲出西門南行四百八十步，望乙與城參相直，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{以乙東行冪，乘甲南行為實；乙東行冪為從方；甲南行步內減二之東行步為益廉；一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半城徑，以減南行步，得為小股。又以天元加乙東行步，得為小勾。又以天元加南行步，得為大股。乃置大股在地，以小勾乘之，得下式，合以小股除之，今不受除，便以為大勾，內寄小股分母。又置天元半徑，以分母小股乘之，得以減大勾，得為半個梯底於上。以乙東行七十二步為半個梯頭，以乘上位，得為半徑冪，內寄小股分母，寄左。然後置天元冪，又以分母小股乘之，得為同數，與左相消，以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج ب من الباب الجنوبي ويسير نحو الشرق 72 خطوة ويقف. يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة، ويرى ب والمدينة على استقامة واحدة. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{مربّع مسافة سير ب نحو الشرق مضروبًا بمسافة سير أ نحو الجنوب فتكون الذات؛ مربّع مسافة سير ب نحو الشرق هو الطرف المرافق؛ مسافة سير أ نحو الجنوب ناقص ضعف مسافة السير نحو الشرق هو الكشك الموجب؛ وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف قطر المدينة، ونطرحه من مسافة السير نحو الجنوب فنحصل على الضلع الصغير. ونضيف عنصر السماء إلى مسافة سير ب نحو الشرق فنحصل على القاعدة الصغرى. ونضيف عنصر السماء إلى مسافة السير نحو الجنوب فنحصل على الضلع الأكبر. نضع الضلع الأكبر ونضربه بالقاعدة الصغرى فنحصل على الناتج التالي، ويجب تقسيمه على الضلع الصغير، لكنّه لا يقبل القسمة، فنعتبره القاعدة الكبرى مؤقتًا مع إبقاء الضلع الصغير مقامًا. ثم نضع نصف قطر عنصر السماء ونضربه بالمقام (الضلع الصغير)، ونطرحه من القاعدة الكبرى فنحصل على نصف قاع السلّم في الأعلى. ومسافة سير ب نحو الشرق (72 خطوة) هي نصف رأس السلّم، ونضربها بالعدد الأعلى فنحصل على مربّع نصف القطر مع إبقاء الضلع الصغير مقامًا، ونضعها على اليسار. ثم نربّع عنصر السماء ونضربها بالمقام (الضلع الصغير) فنحصل على المساوي، ونلغِه مع الطرف الأيسر، فنستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 6 / \ar{المسألة السادسة} \quad 第六問}
+
+\begin{paracol}{2}
+
+\noindent 或問：乙出南門東行，不知步數而立。甲出西門南行四百八十步，望見乙與城參相直，又就乙行四百零八步與乙相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{以兩行相乘為實，以兩行相減為從，一步常法，平開得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以加就乙行步，得為大勾；以減甲南行步，得為大股。乃以大勾、大股相乘，得下式，合以天元加就乙行除之，今不受除，便以為小股，內寄分母。又以天元乘之，得為半徑冪，寄左。然後以天元冪與左相消，得平開，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج ب من الباب الجنوبي ويسير نحو الشرق مسافة مجهولة ويقف. يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة، ويرى ب والمدينة على استقامة واحدة، ثم يسير نحو ب 408 خطوات حتى يلتقي به. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اضرب المسافتين فتكون الذات، واجعل فرق المسافتين هو الطرف المرافق، وواحدًا القاسية الثابتة، فاستخرج الجذر التربيعي فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نضيف إليه مسافة السير نحو ب فنحصل على القاعدة الكبرى؛ ونطرحه من مسافة سير أ نحو الجنوب فنحصل على الضلع الأكبر. نضرب القاعدة الكبرى بالضلع الأكبر فنحصل على الناتج التالي، ويجب تقسيمه على مجموع عنصر السماء ومسافة السير نحو ب، لكنّه لا يقبل القسمة، فنعتبره الضلع الصغير مؤقتًا مع إبقاء المقام. ثم نضربها بعنصر السماء فنحصل على مربّع نصف القطر، ونضعها على اليسار. ثم نربّع عنصر السماء ونلغِه مع الطرف الأيسر، فنستخرج الجذر التربيعي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 7 / \ar{المسألة السابعة} \quad 第七問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行三十步，望見甲，又斜行二百五十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行步相減，以乘兩行步相併為實，兩行步相減又自之為從方，兩倍兩行步相減為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減乙南行步，得為梯頭；以甲南行步為梯底。以梯頭乘梯底，得為半徑冪，寄左。乃以兩行步相減，餘四百五十步；又以兩行步相併，得五百一十步；以減餘乘之，得二十二萬九千五百步為實。又以減餘四百五十步自之，得二十萬零二千五百步為從方。又以減餘倍之，得九百步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 30 خطوة، ويرى أ، ثم يسير مائلًا 250 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. اضعف فرق المسافتين فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير ب نحو الجنوب فنحصل على رأس السلّم؛ ومسافة سير أ نحو الجنوب هي قاع السلّم. نضرب رأس السلّم بقاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 450 خطوة؛ ونجمع المسافتين فنحصل على 510 خطوات؛ نضرب الباقي بالمجموع فنحصل على 229500 خطوة وهي الذات. نربّع الباقي (450 خطوة) فنحصل على 202500 وهي الطرف المرافق. ونضعف الباقي فنحصل على 900 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 8 / \ar{المسألة الثامنة} \quad 第八問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行五十四步而止，望見甲，又斜行三百三十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，四之兩行相減為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減乙南行步，得為梯頭差；以甲南行步內減天元，得為梯底差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘四百二十六步；又與兩行相併，得五百三十四步；以減餘乘之，得二十二萬七千四百八十四步為實。又以減餘自之，得一十八萬一千四百七十六步為從方。又以減餘四之，得一千七百零四步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 54 خطوة ويقف، ويرى أ، ثم يسير مائلًا 330 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. أربعة أضعاف فرق المسافتين فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم؛ ونطرح عنصر السماء من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 426 خطوة؛ ونجمع المسافتين فنحصل على 534 خطوة؛ نضرب الباقي بالمجموع فنحصل على 227484 خطوة وهي الذات. نربّع الباقي فنحصل على 181476 وهي الطرف المرافق. وأربعة أضعاف الباقي هي 1704 خطوات وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 9 / \ar{المسألة التاسعة} \quad 第九問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行九十步而止，望見甲，又斜行三百九十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘三百九十步；又以兩行相併，得五百七十步；以減餘乘之，得二十二萬二千三百步為實。又以減餘自之，得一十五萬二千一百步為從方。又以減餘倍之，得七百八十步；又益四之乙東行九十步，得三百六十步；共得一千一百四十步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 90 خطوة ويقف، ويرى أ، ثم يسير مائلًا 390 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 390 خطوة؛ ونجمع المسافتين فنحصل على 570 خطوة؛ نضرب الباقي بالمجموع فنحصل على 222300 خطوة وهي الذات. نربّع الباقي فنحصل على 152100 وهي الطرف المرافق. وضعف الباقي هو 780 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (90 خطوة) فتصبح 360؛ والمجموع 1140 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 10 / \ar{المسألة العاشرة} \quad 第十問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行一百二十步而止，望見甲，又斜行四百五十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘三百六十步；又以兩行相併，得六百步；以減餘乘之，得二十一万六千步為實。又以減餘自之，得一十二萬九千六百步為從方。又以減餘倍之，得七百二十步；又益四之乙東行一百二十步，得四百八十步；共得一千二百步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 120 خطوة ويقف، ويرى أ، ثم يسير مائلًا 450 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 360 خطوة؛ ونجمع المسافتين فنحصل على 600 خطوة؛ نضرب الباقي بالمجموع فنحصل على 216000 خطوة وهي الذات. نربّع الباقي فنحصل على 129600 وهي الطرف المرافق. وضعف الباقي هو 720 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (120 خطوة) فتصبح 480؛ والمجموع 1200 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 11 / \ar{المسألة الحادية عشرة} \quad 第十一問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行一百八十步而止，望見甲，又斜行五百一十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘三百步；又以兩行相併，得六百六十步；以減餘乘之，得十九萬八千步為實。又以減餘自之，得九萬步為從方。又以減餘倍之，得六百步；又益四之乙東行一百八十步，得七百二十步；共得一千三百二十步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 180 خطوة ويقف، ويرى أ، ثم يسير مائلًا 510 خطوات حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 300 خطوة؛ ونجمع المسافتين فنحصل على 660 خطوة؛ نضرب الباقي بالمجموع فنحصل على 198000 خطوة وهي الذات. نربّع الباقي فنحصل على 90000 وهي الطرف المرافق. وضعف الباقي هو 600 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (180 خطوة) فتصبح 720؛ والمجموع 1320 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 12 / \ar{المسألة الثانية عشرة} \quad 第十二問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行二百一十步而止，望見甲，又斜行五百七十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘二百七十步；又以兩行相併，得六百九十步；以減餘乘之，得十八萬六千三百步為實。又以減餘自之，得七萬二千九百步為從方。又以減餘倍之，得五百四十步；又益四之乙東行二百一十步，得八百四十步；共得一千三百八十步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 210 خطوات ويقف، ويرى أ، ثم يسير مائلًا 570 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 270 خطوة؛ ونجمع المسافتين فنحصل على 690 خطوة؛ نضرب الباقي بالمجموع فنحصل على 186300 خطوة وهي الذات. نربّع الباقي فنحصل على 72900 وهي الطرف المرافق. وضعف الباقي هو 540 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (210 خطوات) فتصبح 840؛ والمجموع 1380 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 13 / \ar{المسألة الثالثة عشرة} \quad 第十三問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行二百四十步而止，望見甲，又斜行六百三十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘二百四十步；又以兩行相併，得七百二十步；以減餘乘之，得十七萬二千八百步為實。又以減餘自之，得五萬七千六百步為從方。又以減餘倍之，得四百八十步；又益四之乙東行二百四十步，得九百六十步；共得一千四百四十步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 240 خطوة ويقف، ويرى أ، ثم يسير مائلًا 630 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 240 خطوة؛ ونجمع المسافتين فنحصل على 720 خطوة؛ نضرب الباقي بالمجموع فنحصل على 172800 خطوة وهي الذات. نربّع الباقي فنحصل على 57600 وهي الطرف المرافق. وضعف الباقي هو 480 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (240 خطوة) فتصبح 960؛ والمجموع 1440 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 14 / \ar{المسألة الرابعة عشرة} \quad 第十四問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行二百七十步而止，望見甲，又斜行六百九十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘二百一十步；又以兩行相併，得七百五十步；以減餘乘之，得十五萬七千五百步為實。又以減餘自之，得四萬四千一百步為從方。又以減餘倍之，得四百二十步；又益四之乙東行二百七十步，得一千零八十步；共得一千五百步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 270 خطوة ويقف، ويرى أ، ثم يسير مائلًا 690 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 210 خطوات؛ ونجمع المسافتين فنحصل على 750 خطوة؛ نضرب الباقي بالمجموع فنحصل على 157500 خطوة وهي الذات. نربّع الباقي فنحصل على 44100 وهي الطرف المرافق. وضعف الباقي هو 420 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (270 خطوة) فتصبح 1080؛ والمجموع 1500 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 15 / \ar{المسألة الخامسة عشرة} \quad 第十五問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行三百步而止，望見甲，又斜行七百五十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘一百八十步；又以兩行相併，得七百八十步；以減餘乘之，得十四萬零四百步為實。又以減餘自之，得三萬二千四百步為從方。又以減餘倍之，得三百六十步；又益四之乙東行三百步，得一千二百步；共得一千五百六十步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 300 خطوة ويقف، ويرى أ، ثم يسير مائلًا 750 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 180 خطوة؛ ونجمع المسافتين فنحصل على 780 خطوة؛ نضرب الباقي بالمجموع فنحصل على 140400 خطوة وهي الذات. نربّع الباقي فنحصل على 32400 وهي الطرف المرافق. وضعف الباقي هو 360 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (300 خطوة) فتصبح 1200؛ والمجموع 1560 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 16 / \ar{المسألة السادسة عشرة} \quad 第十六問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行三百三十步而止，望見甲，又斜行八百一十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘一百五十步；又以兩行相併，得八百一十步；以減餘乘之，得十二万一千五百步為實。又以減餘自之，得二萬二千五百步為從方。又以減餘倍之，得三百步；又益四之乙東行三百三十步，得一千三百二十步；共得一千六百二十步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 330 خطوة ويقف، ويرى أ، ثم يسير مائلًا 810 خطوات حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 150 خطوة؛ ونجمع المسافتين فنحصل على 810 خطوات؛ نضرب الباقي بالمجموع فنحصل على 121500 خطوة وهي الذات. نربّع الباقي فنحصل على 22500 وهي الطرف المرافق. وضعف الباقي هو 300 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (330 خطوة) فتصبح 1320؛ والمجموع 1620 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsubsection*{Problem 17 / \ar{المسألة السابعة عشرة} \quad 第十七問}
+
+\begin{paracol}{2}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出東門南行三百六十步而止，望見甲，又斜行八百七十步與甲相會，問答同前。
+
+\vspace{0.2cm}
+
+\Answer{城徑二百四十步。}
+
+\vspace{0.2cm}
+
+\Method{兩行相減，以乘兩行相併為實，兩行相減自之為從方，兩倍兩行相減又益四之東行為益廉，一步常法，得半徑。}
+
+\vspace{0.2cm}
+
+\Workings{立天元一為半徑。以減甲南行步，得為梯底差；以乙南行步內減天元，得為梯頭差。以梯頭差乘梯底差，得為半徑冪，寄左。乃以兩行相減，餘一百二十步；又以兩行相併，得八百四十步；以減餘乘之，得十萬零八百步為實。又以減餘自之，得一万四千四百步為從方。又以減餘倍之，得二百四十步；又益四之乙東行三百六十步，得一千四百四十步；共得一千六百八十步為益廉。以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\switchcolumn
+
+\ar{سُئل: يخرج أ من الباب الغربي ويسير نحو الجنوب 480 خطوة ويقف. يخرج ب من الباب الشرقي ويسير نحو الجنوب 360 خطوة ويقف، ويرى أ، ثم يسير مائلًا 870 خطوة حتى يلتقي بأ. الجواب كالسابق.}
+
+\vspace{0.2cm}
+
+\AnswerAr{قطر المدينة 240 خطوة.}
+
+\vspace{0.2cm}
+
+\MethodAr{اطرح المسافتين، واضرب الناتج بمجموع المسافتين فتكون الذات. اطرح المسافتين وربّع الناتج فتكون الطرف المرافق. ضعف فرق المسافتين مضافًا إلى أربعة أضعاف مسافة السير نحو الشرق فتكون الكشك الموجب. وواحدًا القاسية الثابتة، فتحصل على نصف القطر.}
+
+\vspace{0.2cm}
+
+\WorkingsAr{نضع عنصر السماء يساوي نصف القطر. نطرحه من مسافة سير أ نحو الجنوب فنحصل على فرق قاع السلّم؛ ونطرح عنصر السماء من مسافة سير ب نحو الجنوب فنحصل على فرق رأس السلّم. نضرب فرق رأس السلّم بفرق قاعه فنحصل على مربّع نصف القطر، ونضعها على اليسار. نطرح المسافتين فيتبقّى 120 خطوة؛ ونجمع المسافتين فنحصل على 840 خطوة؛ نضرب الباقي بالمجموع فنحصل على 100800 خطوة وهي الذات. نربّع الباقي فنحصل على 14400 وهي الطرف المرافق. وضعف الباقي هو 240 خطوة؛ مضافًا إلى أربعة أضعاف مسافة سير ب نحو الشرق (360 خطوة) فتصبح 1440؛ والمجموع 1680 خطوة وهي الكشك الموجب. نستخرج الجذر التكعبي فنحصل على 120 خطوة. نضعفها فنحصل على قطر المدينة. يتطابق مع المطلوب.}
+
+\end{paracol}
+
+\newpage
+
+
+% =============================================================================
+\section{The Tian Yuan Shu Method / \ar{طريقة عنصر السماء 天元術}}
+\label{sec:tianyuan}
+
+\begin{paracol}{2}
+
+The \textit{tian yuan shu} (天元術, ``method of the celestial element'') is the algebraic technique employed throughout the \textit{Ceyuan Haijing}. It is the earliest systematic method in Chinese mathematics for setting up and solving polynomial equations with one unknown.
+
+\vspace{0.3cm}
+
+The name 天元 (tian yuan, ``celestial element'') refers to the unknown quantity in an equation. The method is equivalent to what we now call polynomial algebra in one variable.
+
+\switchcolumn
+
+\ar{إنّ \textit{طريقة عنصر السماء} (天元術، «طريقة عنصر السماء») هي التقنية الجبرية المستخدمة في جميع أنحاء كتاب «مرآة البحر لقياس الدائرة». وهي أول طريقة منهجية في الرياضيات الصينية لوضع وحلّ المعادلات متعدّدة الحدود بمجهول واحد.}
+
+\vspace{0.3cm}
+
+\ar{يشير اسم 天元 (تيان يوان، «عنصر السماء») إلى الكمّية المجهولة في المعادلة. وتُعادل هذه الطريقة ما نسمّيه الآن بالجبر متعدّد الحدود بمتغيّر واحد.}
+
+\end{paracol}
+
+% ------------------------------------------------------------------------------
+\subsection{Methodology / \ar{المنهجية}}
+
+\begin{paracol}{2}
+
+The procedure follows these steps:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{立天元一為\textit{X}} (``Set the celestial element unity to be $X$'') --- This declares the unknown quantity. In modern notation, it is equivalent to ``Let $x$ = \textit{X}.''
+  
+  \item Express all given quantities and relationships in terms of the celestial element $x$.
+  
+  \item Construct two equal expressions (often representing the same geometric quantity computed by different methods), one designated as the ``left'' (左) expression and stored temporarily, the other as the ``equal number'' (同數).
+  
+  \item \textbf{相消} (``mutual cancellation'') --- Set the two expressions equal and simplify to obtain the polynomial equation in standard form.
+  
+  \item Solve the equation by root-extraction methods (開方): square-root extraction (開平方), cube-root extraction (開立方), or higher-degree root extraction.
+\end{enumerate}
+
+\switchcolumn
+
+\ar{تتّبع العملية الخطوات التالية:}
+
+\begin{enumerate}[leftmargin=2em,rightmargin=0em]
+  \item \ar{\textbf{نضع عنصر السماء يساوي \textit{س}} (立天元一為\textit{X}) — هذا يعلن عن الكمّية المجهولة. في الرمز الحديث، يُعادل «لتكن $x$ = \textit{X}».}
+
+  \item \ar{عبّر عن جميع الكمّيات المعطاة والعلاقات بدلالة عنصر السماء $x$.}
+
+  \item \ar{ابنِ تعبيرين متساويين (غالبًا ما يمثّلان الكمّية الهندسية نفسها المحسوبة بطريقتين مختلفتين)، أحدهما يُسمّى التعبير «الأيسر» (左) ويُحفظ مؤقتًا، والآخر يُسمّى «العدد المساوي» (同數).}
+
+  \item \ar{\textbf{الإلغاء المتبادل} (相消) — اجعل التعبيرين متساويين وبسّط للحصول على المعادلة متعدّدة الحدود بالصيغة القياسية.}
+
+  \item \ar{حلّ المعادلة بطرق استخراج الجذر (開方): استخراج الجذر التربيعي (開平方)، أو استخراج الجذر التكعبي (開立方)، أو استخراج جذر الدرجة العليا.}
+\end{enumerate}
+
+\end{paracol}
+
+% ------------------------------------------------------------------------------
+\subsection{Polynomial Notation / \ar{الرمز متعدّد الحدود}}
+
+\begin{paracol}{2}
+
+Li Ye uses a positional notation on a counting-rod board:
+\begin{itemize}[leftmargin=2em]
+  \item Coefficients are arranged vertically, with the constant term (實) at the top.
+  \item Below it: the coefficient of $x$ (方, ``square''), then $x^2$ (廉, ``edge''), then $x^3$ (隅, ``corner'').
+  \item For higher degrees: first 廉, second 廉, etc.
+  \item Negative coefficients are indicated by a diagonal stroke through the last digit.
+\end{itemize}
+
+\switchcolumn
+
+\ar{يستخدم لي يه رمزًا موضعيًا على لوحة أعواد الحساب:}
+\begin{itemize}[leftmargin=2em,rightmargin=0em]
+  \item \ar{تُرتّب المعاملات عموديًا، مع وضع الحدّ الثابت (實) في الأعلى.}
+  \item \ar{تحته: معامل $x$ (方، «المربّع»)، ثم $x^2$ (廉، «الكشك»)، ثم $x^3$ (隅، «الركن»).}
+  \item \ar{للدرجات العليا: الكشك الأول، الكشك الثاني، إلخ.}
+  \item \ar{تُشير المعاملات السالبة بخط مائل عبر الرقم الأخير.}
+\end{itemize}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsection{Example: Quadratic Equation / \ar{مثال: معادلة تربيعية}}
+
+\begin{paracol}{2}
+
+The first problem leads to the equation equivalent to:
+\[
+384000 = 1600 \cdot d
+\]
+where $d$ is the diameter. But more complex problems yield true polynomial equations. For instance, Problem 4 of Volume 3 produces a \textbf{cubic equation}:
+\[
+(4 \cdot 16)(480)^2 = (480 + 16) \cdot d^2 - d^3
+\]
+in modern form, which Li Ye solves by ``opening the cube with an edge'' (帶縱立方).
+
+\switchcolumn
+
+\ar{تؤدّي المسألة الأولى إلى المعادلة المكافئة:}
+\[
+384000 = 1600 \cdot d
+\]
+\ar{حيث $d$ هو القطر. لكنّ المسائل الأكثر تعقيدًا تُنتج معادلات متعدّدة الحدود حقيقية. فعلى سبيل المثال، تُنتج المسألة الرابعة من المجلد الثالث \textbf{معادلة تكعيبية}:}
+\[
+(4 \cdot 16)(480)^2 = (480 + 16) \cdot d^2 - d^3
+\]
+\ar{بالصيغة الحديثة، والتي يحلّها لي يه بـ«استخراج الجذر التكعبي ذي الطرف» (帶縱立方).}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsection{Historical Significance / \ar{الأهمية التاريخية}}
+
+\begin{paracol}{2}
+
+The \textit{Ceyuan Haijing} is the earliest surviving work that systematically employs the tian yuan shu. The equations solved include:
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Degree} & \textbf{Number of Equations} \\
+\midrule
+Linear (degree 1) & 31 \\
+Quadratic (degree 2) & 106 \\
+Cubic (degree 3) & 24 \\
+Quartic (degree 4) & 20 \\
+Sextic (degree 6) & 1 \\
+\midrule
+\textbf{Total} & \textbf{182} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\switchcolumn
+
+\ar{إنّ كتاب «مرآة البحر لقياس الدائرة» هو أقدم عمل باقٍ يستخدم طريقة عنصر السماء بشكل منهجي. وتشمل المعادلات المحلولة:}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{\ar{الدرجة}} & \textbf{\ar{عدد المعادلات}} \\
+\midrule
+\ar{خطية (درجة 1)} & 31 \\
+\ar{تربيعية (درجة 2)} & 106 \\
+\ar{تكعيبية (درجة 3)} & 24 \\
+\ar{رباعية (درجة 4)} & 20 \\
+\ar{سداسية (درجة 6)} & 1 \\
+\midrule
+\textbf{\ar{المجموع}} & \textbf{182} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+% ------------------------------------------------------------------------------
+\subsection{Key Terms Glossary / \ar{قائمة المصطلحات الرئيسية}}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Chinese} & \textbf{Arabic} & \textbf{English} \\
+\midrule
+天元 & \ar{عنصر السماء} (unsur al-sama') & Celestial Element / Unknown \\
+天元術 & \ar{طريقة عنصر السماء} (tariqat unsur al-sama') & Method of the Celestial Element \\
+立天元一為 & \ar{نضع عنصر السماء يساوي} & Let the unknown equal \\
+勾股 & \ar{الضلعان القائمان} (al-dil'an al-qaiman) & Two legs of right triangle \\
+勾股容圓 & \ar{الدائرة المحاطة بالمثلث القائم} & Circle inscribed in right triangle \\
+弦 & \ar{الوتر} (al-watar) & Hypotenuse \\
+股 & \ar{الضلع الطويل} (al-dhil' al-tawil) & Longer vertical leg \\
+勾 & \ar{القاعدة} (al-qaida) & Shorter horizontal leg \\
+相消 & \ar{الإلغاء المتبادل} (al-ilgha' al-mutabadil) & Mutual cancellation \\
+開方 & \ar{استخراج الجذر} (istikhraj al-jadhr) & Root extraction \\
+開平方 & \ar{استخراج الجذر التربيعي} & Square root extraction \\
+開立方 & \ar{استخراج الجذر التكعبي} & Cube root extraction \\
+實 & \ar{الذات} (al-dhat) & Constant term / Dividend \\
+方 & \ar{المربّع} (al-murabba') & Coefficient of $x$ \\
+廉 & \ar{الكشك} (al-kashk) & Coefficient of $x^2$ \\
+隅 & \ar{الركن} (al-rukn) & Coefficient of $x^3$ \\
+從 & \ar{الطرف المرافق} & Linear coefficient (in certain forms) \\
+帶縱 & \ar{ذو الطرف} & With linear term \\
+城徑 & \ar{قطر المدينة} & City diameter \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+\textit{Note:} This bilingual edition presents the complete text of Volumes 1--3 of the \textit{Ceyuan Haijing}. Volume 1 contains all definitions, numerical data, and 692 geometric formulas. Volumes 2 and 3 present the first 31 of 170 problems, solved by the tian yuan shu method. The remaining nine volumes (卷四--卷十二) continue with 139 further problems of increasing complexity, culminating in a sixth-degree equation in Volume 7.
+
+\switchcolumn
+
+\ar{ملاحظة: تعرض هذه الطبعة الثنائية النص الكامل للمجلدات 1–3 من «مرآة البحر لقياس الدائرة». يحتوي المجلد الأول على جميع التعريفات والبيانات الرقمية و692 صيغة هندسية. وتعرض المجلدات الثاني والثالث أول 31 مسألة من أصل 170، تُحلّ بطريقة عنصر السماء. ويستمر المجلدات التسعة المتبقية (卷四–卷十二) بـ139 مسألة إضافية ذات تعقيد متزايد، تبلغ ذروتها بمعادلة من الدرجة السادسة في المجلد السابع.}
+
+\end{paracol}
+
+\vspace{1cm}
+
+\begin{center}
+{\color{rulecolor}\rule{0.4\textwidth}{0.4pt}}
+
+\vspace{0.5cm}
+
+{\small\color{sectioncolor}
+\textit{End of Volumes 1--3 / \ar{نهاية المجلدات 1–3}}
+}
+
+\vspace{0.3cm}
+
+{\footnotesize\color{notecolor}
+\textit{測圓海鏡卷第一至卷第三終}
+}
+\end{center}
+
+\end{document}

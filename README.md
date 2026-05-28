@@ -1,0 +1,34 @@
+# Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
+
+This repository is a lightweight, forkable working mirror for the public manuscript typesetting and translation project archived on Zenodo.
+
+The archival source of record is Zenodo; this GitHub mirror keeps the editable TeX, public metadata, manifests, and small reader PDFs together so people can fork, inspect, correct, and contribute without downloading multi-gigabyte raw archives.
+
+## Current Public Records
+
+- Main landing page: https://zenodo.org/records/20415117
+- EGA working translation: https://zenodo.org/records/20421162
+- SGA working translation: https://zenodo.org/records/20421057
+- Heinrich Weber author record: https://zenodo.org/records/20421148
+- Emmy Noether author record: https://zenodo.org/records/20421149
+- Non-European mathematics consolidated corpus: https://zenodo.org/records/20420947
+- Chinese mathematical classics: https://zenodo.org/records/20420974
+- Indian and Sanskrit mathematical classics: https://zenodo.org/records/20420975
+- Islamic and Arabic mathematical texts: https://zenodo.org/records/20420983
+- Historical reference witnesses: https://zenodo.org/records/20420986
+
+## Repository Layout
+
+- `sources/ega/`: current editable EGA TeX tree, including local continuation work.
+- `sources/sga/`: extracted SGA TeX/source material from current public source packets.
+- `sources/weber-noether/`: current Weber and Noether translation TeX.
+- `sources/non-european/`: extracted TeX material from the current non-European corpus source bundle.
+- `reader-pdfs/`: small current reader PDFs for quick inspection. Large scans and raw archives live on Zenodo.
+- `zenodo-metadata/`: public-facing metadata JSON used for the current records.
+- `manifests/`: upload manifests and public summaries.
+
+## Status
+
+This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+
+Default dedication is CC0/public-domain dedication to the extent possible; upstream projects retain their own credit history and license context where applicable.

@@ -1,0 +1,1807 @@
+\section{Formally smooth algebras and Cohen rings}
+\label{section:0.19}
+
+\subsection{Introduction}
+\label{subsection:0.19.0}
+
+\begin{env}[19.0.1]
+\label{0.19.0.1}
+\oldpage[0\textsubscript{IV-1}]{69}
+In Chapter~IV, we will introduce and study, among other things, an important class of morphisms of preschemes, the \emph{smooth} morphisms\footnote{Also called \emph{simple} morphisms in certain recent works (inspired by the classical terminology of ``simple point''); this terminology lends itself however to confusion, notably in the theory of algebraic groups.}.
+One of their fundamental properties (and which, together with a finiteness condition, characterizes them) is a property of \emph{lifting of morphisms}:
+if $f:X\to Y$ is a smooth morphism, $g:Y'\to Y$ a morphism, then for every morphism $h:Y''\to Y'$ making $Y''$ a prescheme ``slightly different'' from $Y'$, every $Y$-morphism $Y''\to X$ factorizes as $Y''\xrightarrow{h}Y'\to X$.
+More precisely, let us restrict to the case where $Y=\Spec(A)$, $X=\Spec(B)$ are affine;
+$B$ is then called a \emph{formally smooth} $A$-algebra if, for every $A$-algebra $C$ and every nilpotent ideal $\mathfrak{J}$ of $C$, every $A$-homomorphism $B\to C/\mathfrak{J}$ \emph{lifts to} $B\to C\to C/\mathfrak{J}$.
+In other terms, the map
+\[
+  \Hom_A(B,C) \to \Hom_A(B,C/\mathfrak{J})
+\]
+is \emph{surjective}.
+In many applications, $X$ will appear as a contravariant representable functor $Y'\mapsto F(Y')$ from the category of $Y$-preschemes to that of sets, so that ($\mathbf{0_{III}}$, 8.1.8) one will have $F(Y')=\Hom_Y(Y',X)$.
+In the affine case, setting $F^0(C)=F(\Spec(C))$, the verification of the fact that, under the conditions above, $F^0(C)\to F^0(C/\mathfrak{J})$ is \emph{surjective} (which can be done even without knowing that $F$ is representable) will establish that $f$ is smooth, provided the additional finiteness condition is satisfied.
+\end{env}
+
+\begin{env}[19.0.2]
+\label{0.19.0.2}
+\oldpage[0\textsubscript{IV-1}]{70}
+For \emph{topological algebras} over a topological ring $A$, there is an analogous notion of \emph{formally smooth algebra} that we will not make precise here (cf.~\sref{0.19.3.1}).
+The study of these notions is first done from an elementary point of view in \S~19, then, with the aid of the properties of differentials that will be developed in \S\S~20 and 21, more delicate theorems will be proved in \S~22.
+Let us summarize here the main results on formally smooth algebras:
+
+\medskip\noindent\textbf{I.} ---
+Let $A$, $B$ be two noetherian local rings, $\varphi:A\to B$ a local homomorphism, $k$ the residue field of $A$, and let $B_0=B\otimes_A k$;
+we equip $A$, $B$, and $B_0$ with their preadic topologies and $k$ with the discrete topology.
+Then, for $B$ to be a formally smooth $A$-algebra, it is necessary and sufficient that $B$ be a \emph{flat} $A$-module and that $B_0$ be a formally smooth $k$-algebra \sref{0.19.7.1}.
+This theorem thus reduces formal smoothness, for noetherian local rings, to the same question for noetherian local rings that are algebras over a field.
+
+\medskip\noindent\textbf{II.} ---
+Let $k$ be a field, $A$ a noetherian local ring that is a $k$-algebra.
+For $A$ to be formally smooth, it is necessary and sufficient that $A$ be \emph{geometrically regular} over $k$, that is to say (cf.~$\mathbf{IV}$, 6.7.6), for every finite extension $k'$ of $k$, the semi-local ring $A\otimes_k k'$ be regular \sref{0.17.3.6}.
+Moreover, if $K$ is the residue field of $A$, $\widehat{A}$ is isomorphic to a power series ring $K[[T_1,\ldots,T_n]]$ \sref{0.19.6.5}.
+Moreover, the structure of $k$-algebra of $A$ is entirely determined by the residue field $K$ of $A$ and the dimension of $A$;
+the latter can furthermore be arbitrary subject to the inequality $\dim(A)\geq\rg_k(\Gamma_{K/k})$, where $\Gamma_{K/k}$ is the ``module of imperfection'' of $K$ (22.2.6).
+
+In particular, for an extension $K$ of $k$ to be formally smooth, it is necessary and sufficient that $K$ be a \emph{separable} extension of $k$ \sref{0.19.6.1}.
+
+\medskip\noindent\textbf{III.} ---
+Let $A$ be a noetherian local ring, $\mathfrak{J}$ an ideal of $A$ distinct from $A$, $A_0=A/\mathfrak{J}$, $B_0$ a complete noetherian local ring, $A_0\to B_0$ a homomorphism making $B_0$ a formally smooth $A_0$-algebra.
+Then there exists a complete noetherian local ring $B$, a local homomorphism $A\to B$ making $B$ a flat $A$-module, and an $A_0$-isomorphism $B\otimes_A A_0\xrightarrow{\sim}B_0$ (so that, by~I), $B$ is a formally smooth $A$-algebra);
+moreover $B$ is determined by these properties up to isomorphism \sref{0.19.7.2}.
+This theorem contains in particular the \emph{theorems of Cohen} on the structure of complete noetherian local rings \sref{0.19.8}, which will play an important role in \S\S~6 and 7 of Chapter~IV.
+
+\medskip\noindent\textbf{IV.} ---
+The interest in the study of formally smooth noetherian local rings over another comes from the following ``pointwise'' characterization of smooth morphisms:
+if $X$ and $Y$ are locally noetherian preschemes, $f:X\to Y$ a locally finitely presented morphism, then, for $f$ to be smooth, it is necessary and sufficient that for every $x\in X$, the ring $\sh{O}_x$ be formally smooth over $\sh{O}_{f(x)}$.
+In particular, if $Y=\Spec(k)$, where $k$ is a perfect field, to say that $f$ is smooth is equivalent to saying that $X$ is a \emph{regular} prescheme.
+
+\medskip\noindent\textbf{V.} ---
+Finally, we will see in \S\S~20, 21, and 22 that the notion of formally smooth algebra is introduced naturally in the theory of \emph{K\"ahler differentials}, the two theories shedding light on each other.
+\end{env}
+
+\begin{env}[19.0.3]
+\label{0.19.0.3}
+Throughout this section and the following ones, topological rings and modules will be assumed to be \emph{linearly topologized} ($\mathbf{0_I}$, 7.1.1);
+the topological rings considered will be assumed to be \emph{commutative}, unless explicit mention to the contrary.
+Recall that if $A$ and $B$ are two topological rings, $\rho:A\to B$ a ring homomorphism defining on $B$ a structure of $A$-algebra, we say that $B$ is a \emph{topological $A$-algebra} if $\rho$ is continuous for the topologies considered.
+
+For brevity, in a topological ring $A$ (resp. a topological $A$-module $M$), we will say ``fundamental system of open ideals (resp. submodules)'' instead of ``fundamental system of neighbourhoods of $0$ consisting of ideals (resp. submodules)''.
+
+\oldpage[0\textsubscript{IV-1}]{71}
+Given a topological ring $A$ and a topological $A$-module $M$, the sets $\mathfrak{J}M$, where $\mathfrak{J}$ ranges over a fundamental system of open ideals in $A$, form a fundamental system of open submodules of a topology on $M$ making $M$ a topological $A$-module, said to be \emph{derived} from the topology of $A$.
+
+Let $M$ be a topological $A$-module whose topology is \emph{less fine} than the topology derived from that of $A$;
+then, if $N$ is an open submodule of $M$, the discrete $A$-module $M/N$ is annihilated by an open ideal $\mathfrak{R}$ of $A$, since by hypothesis there exists such an ideal $\mathfrak{R}$ with $\mathfrak{R}\cdot M\subset N$.
+
+If $M$ and $N$ are two topological $A$-modules whose topologies are both derived from that of $A$, then every $A$-homomorphism $u:M\to N$ is \emph{continuous}, since for every neighbourhood $V$ of $0$ in $N$, there exists by hypothesis an open ideal $\mathfrak{J}$ of $A$ such that $\mathfrak{J}N\subset V$, and one thus has $u(\mathfrak{J}M)\subset\mathfrak{J}N\subset V$.
+
+When $B$ is a topological $A$-algebra, the topology on $B$ \emph{derived} from that of $A$ is \emph{finer} than the topology given on $B$, since for every open ideal $\mathfrak{R}$ of $B$, there is by hypothesis an open ideal $\mathfrak{J}$ of $A$ such that $\mathfrak{J}B\subset\mathfrak{R}$.
+\end{env}
+
+\subsection{Epimorphisms and formal monomorphisms}
+\label{subsection:0.19.1}
+
+\begin{proposition}[19.1.1]
+\label{0.19.1.1}
+Let $A$ be a topological ring, $M$, $N$ two topological $A$-modules, $(W_\lambda)$ a fundamental system of open submodules in $N$, $u:M\to N$ a continuous $A$-homomorphism, $\widehat{M}$, $\widehat{N}$ the separated completions of $M$ and $N$, $\hat{u}:\widehat{M}\to\widehat{N}$ the continuous extension of $u$ to the separated completions.
+\begin{enumerate}
+  \item[(i)] The following conditions are equivalent:
+  \begin{enumerate}
+    \item[a)] $u(M)$ is dense in $N$.
+    \item[a$'$)] $\hat{u}(\widehat{M})$ is dense in $\widehat{N}$.
+    \item[a$''$)] For all $\lambda$, the composed homomorphism $M\xrightarrow{u}N\to N/W_\lambda$ is surjective.
+  \end{enumerate}
+  \item[(ii)] The following conditions are equivalent:
+  \begin{enumerate}
+    \item[b)] The inverse image by $u$ of the topology of $N$ is equal to the topology of $M$.
+    \item[b$'$)] $\hat{u}$ is an isomorphism of the topological $\widehat{A}$-module $\widehat{M}$ onto the sub-$\widehat{A}$-module $\hat{u}(\widehat{M})$ of $\widehat{N}$ (which is necessarily closed).
+    \item[b$''$)] The $u^{-1}(W_\lambda)$ form a fundamental system of neighbourhoods of $0$ in $M$.
+  \end{enumerate}
+\end{enumerate}
+This follows immediately from the definition of separated completions, and from the fact that $N/W_\lambda$ is discrete.
+\end{proposition}
+
+\begin{env}[19.1.2]
+\label{0.19.1.2}
+When the equivalent conditions of (i) (resp. (ii)) in \sref{0.19.1.1} are satisfied, we say that $u$ is a \emph{formal epimorphism} (resp. a \emph{formal monomorphism}).
+We say that $u$ is a \emph{formal bimorphism} if it is both a formal epimorphism and a formal monomorphism;
+this amounts to the same, by virtue of \sref{0.19.1.1}, as saying that $\hat{u}$ is an \emph{isomorphism} of the topological $\widehat{A}$-module $\widehat{M}$ onto the topological $\widehat{A}$-module $\widehat{N}$.
+\end{env}
+
+\begin{proposition}[19.1.3]
+\label{0.19.1.3}
+Let $A$ be a topological ring, $M$, $N$ two topological $A$-modules, $(V_\lambda)$, $(W_\lambda)$ two fundamental systems of open submodules in $M$ and $N$ respectively, having the same index set, and such that $u(V_\lambda)\subset W_\lambda$ for all $\lambda$;
+let $u_\lambda:M/V_\lambda\to N/W_\lambda$ be the homomorphism induced by $u$ by passing to quotients.
+Then:
+\begin{enumerate}
+  \item[(i)] For $u$ to be a formal epimorphism, it is necessary and sufficient that, for all $\lambda$, $u_\lambda$ be surjective.
+  \item[(ii)] For $u$ to be a formal monomorphism, it is necessary and sufficient that, for all $\lambda$, there exist $\mu$ such that $V_\mu\subset V_\lambda$ and that $\Ker(u_\mu)$ be contained in the kernel $V_\lambda/V_\mu$ of the canonical map $M/V_\mu\to M/V_\lambda$.
+  \item[(iii)] For $u$ to be a formal bimorphism, it is necessary and sufficient that, for all $\lambda$, $u_\lambda$ be surjective and that there exist $\mu$ such that $V_\mu\subset V_\lambda$ and that the canonical homomorphism $M/V_\mu\to M/V_\lambda$ be the unique factorization $M/V_\mu\xrightarrow{u_\mu}N/W_\mu\xrightarrow{h}M/V_\lambda$ (where $N/W_\mu\to M/V_\lambda$ is necessarily unique).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Assertion (i) is immediate;
+on the other hand, $\Ker(u_\mu)=u^{-1}(W_\mu)/V_\mu$, and the kernel of the canonical map $M/V_\mu\to M/V_\lambda$ is $V_\lambda/V_\mu$;
+the condition of (ii) thus amounts to saying that $u^{-1}(W_\mu)\subset V_\lambda$, and assertion (ii) follows immediately;
+finally, when $u_\mu$ is surjective, to say that $\Ker(u_\mu)$ is contained in $V_\lambda/V_\mu$, or to say that $M/V_\mu\to M/V_\lambda$ factorizes as $M/V_\mu\xrightarrow{u_\mu}N/W_\mu\to M/V_\lambda$, where $v$ is a homomorphism $N/W_\mu\to M/V_\lambda$, is the same thing, the latter being necessarily an isomorphism.
+\end{proof}
+
+\begin{corollary}[19.1.4]
+\label{0.19.1.4}
+\oldpage[0\textsubscript{IV-1}]{72}
+Let $A$ be a topological ring, $M$, $N$ two topological $A$-modules whose topologies are derived from that of $A$, $u:M\to N$ a formal epimorphism.
+Let $(\mathfrak{J}_\lambda)$ be a fundamental system of open ideals in $A$.
+For $u$ to be a formal bimorphism, it is necessary and sufficient that for all $\lambda$, the homomorphism $u_\lambda:M/\mathfrak{J}_\lambda M\to N/\mathfrak{J}_\lambda N$ induced by $u$ by passing to quotients be bijective.
+\end{corollary}
+
+\begin{proof}
+Indeed, $u(\mathfrak{J}_\lambda M)\subset\mathfrak{J}_\lambda N$ and one can apply the criterion \sref{0.19.1.3}, (iii);
+but if one has a factorization $M/\mathfrak{J}_\lambda M\xrightarrow{u_\lambda}N/\mathfrak{J}_\lambda N\xrightarrow{h}M/\mathfrak{J}_\lambda M$, the image of $\mathfrak{J}_\lambda M$ by $u_\mu$ is $\mathfrak{J}_\lambda N/\mathfrak{J}_\mu N$, hence the image of $\mathfrak{J}_\lambda N/\mathfrak{J}_\mu N$ by $v$ is $0$ and $v$ factorizes as
+\[
+  N/\mathfrak{J}_\mu N\to N/\mathfrak{J}_\lambda N\xrightarrow{v'}M/\mathfrak{J}_\lambda M;
+\]
+but then the automorphism identical to that of $M/\mathfrak{J}_\lambda M$ factorizes as
+\[
+  M/\mathfrak{J}_\lambda M\xrightarrow{u_\lambda}N/\mathfrak{J}_\lambda N\xrightarrow{v'}M/\mathfrak{J}_\lambda M,
+\]
+which shows that $u_\lambda$ is injective, and as we already know it is surjective, this proves the corollary.
+\end{proof}
+
+\begin{proposition}[19.1.5]
+\label{0.19.1.5}
+Let $A$ be a topological ring, $M$, $N$ two topological $A$-modules, $N$ being projective, $u:M\to N$ an $A$-homomorphism.
+Let $\mathfrak{J}$ be an ideal of $A$;
+suppose one of the following conditions is verified:
+\begin{enumerate}
+  \item[(i)] $\mathfrak{J}$ is nilpotent.
+  \item[(ii)] $\mathfrak{J}$ is contained in the radical of $A$ and $M$ is of finite type.
+\end{enumerate}
+Then, for $u$ to be left invertible, it is necessary and sufficient that the homomorphism $u_0:M/\mathfrak{J}M\to N/\mathfrak{J}N$ of $(A/\mathfrak{J})$-modules, induced by $u$ by passing to quotients, be left invertible.
+\end{proposition}
+
+\begin{proof}
+The condition is obviously necessary.
+Let us prove it is sufficient.
+Let $v_0$ be a left inverse of $u_0$;
+the composed homomorphism $N\xrightarrow{u}M\to M/\mathfrak{J}M$ factorizes as $N\xrightarrow{\tilde{u}}M/\mathfrak{J}M$ since $N$ is projective;
+then $w=v_0u$ is an endomorphism of $M$ such that, for all $n$, the endomorphism $(wu)_n$ of $M_n=M/\mathfrak{J}^nM$ induced by $wu$ by passing to quotients is the identity;
+this implies that $wu=1_M$ since $M$ is separated and complete.
+\end{proof}
+
+\oldpage[0\textsubscript{IV-1}]{73}
+\begin{corollary}[19.1.6]
+\label{0.19.1.6}
+If there exists a continuous $\widehat{A}$-homomorphism $s:\widehat{N}\to\widehat{M}$ such that $s\circ\hat{u}=1_{\widehat{M}}$, then $u$ is formally left invertible.
+\end{corollary}
+
+\begin{proof}
+One will note that $\hat{u}$ is then an isomorphism of $\widehat{M}$ onto a \emph{direct summand} of $\widehat{N}$.
+To prove \sref{0.19.1.6}, it suffices to note that with the notations of \sref{0.19.1.5}, $a$), $v:M\to E$ extends to a $\widehat{A}$-homomorphism $\hat{v}:\widehat{M}\to E$ since $E$ is discrete;
+let $j:M\to\widehat{M}$ and $j':N\to\widehat{N}$ be the canonical homomorphisms;
+then, setting $w=\hat{v}\circ s\circ j'$, one has $w\circ u=\hat{v}\circ s\circ j'\circ u=\hat{v}\circ s\circ\hat{u}\circ j=\hat{v}\circ j=v$.
+\end{proof}
+
+\begin{corollary}[19.1.7]
+\label{0.19.1.7}
+Suppose that the topologies of $M$ and $N$ are derived from that of $A$, and let $(\mathfrak{J}_\lambda)$ be a fundamental system of open ideals in $A$.
+For $u$ to be formally left invertible, it is necessary and sufficient that, for all $\lambda$, the homomorphism $u_\lambda:M/\mathfrak{J}_\lambda M\to N/\mathfrak{J}_\lambda N$, induced by $u$ by passing to quotients, be left invertible (in other words, be an isomorphism of $M/\mathfrak{J}_\lambda M$ onto a direct summand of $N/\mathfrak{J}_\lambda N$).
+\end{corollary}
+
+\begin{proposition}[19.1.8]
+\label{0.19.1.8}
+Let $A$ be a topological ring admitting a fundamental system of open ideals which is a countable decreasing sequence $(\mathfrak{J}_n)$.
+Let $M$, $N$ be two topological $A$-modules whose topologies are derived from those of $A$.
+Set $M_n=M/\mathfrak{J}_n M$, $N_n=N/\mathfrak{J}_n N$, and let $u_n:M_n\to N_n$ be the $(A/\mathfrak{J}_n)$-homomorphism induced by $u$ by passing to quotients.
+Suppose that, for all $n$, $P_n=\operatorname{Coker}(u_n)$ is a $(A/\mathfrak{J}_n)$-module projective and that $M$ is separated and complete.
+Then, for $u$ to be formally left invertible (and $u$ is then an isomorphism of $M$ onto a direct summand of $N$).
+\end{proposition}
+
+\begin{proposition}[19.1.9]
+\label{0.19.1.9}
+Let $A$ be a topological ring that is preadmissible ($\mathbf{0_I}$, 7.1.2), $\mathfrak{Q}$ an ideal of definition of $A$, $(\mathfrak{J}_\lambda)$ a fundamental system of open ideals in $A$.
+Let $M$, $N$ be two topological $A$-modules whose topologies are derived from those of $A$, and such that for all $\lambda$, $N/\mathfrak{J}_\lambda N$ be an $(A/\mathfrak{J}_\lambda)$-module projective (cf.~\sref{0.19.2.3}).
+Let $u:M\to N$ be an $A$-homomorphism.
+Then the following conditions are equivalent:
+\begin{enumerate}
+  \item[a)] $u$ is formally left invertible.
+  \item[b)] The homomorphism $u_0:M/\mathfrak{Q}M\to N/\mathfrak{Q}N$ of $(A/\mathfrak{J})$-modules, induced by $u$ by passing to quotients, is left invertible.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[19.1.10]
+\label{0.19.1.10}
+\oldpage[0\textsubscript{IV-1}]{75}
+Let $A$ be a ring, $M$, $N$ two $A$-modules, $N$ being projective, $u:M\to N$ an $A$-homomorphism.
+Let $\mathfrak{J}$ be an ideal of $A$;
+suppose one of the following conditions is verified:
+\begin{enumerate}
+  \item[(i)] $\mathfrak{J}$ is nilpotent.
+  \item[(ii)] $\mathfrak{J}$ is contained in the radical of $A$ and $M$ is of finite type.
+\end{enumerate}
+Then, for $u$ to be left invertible, it is necessary and sufficient that the homomorphism $u_0:M/\mathfrak{J}M\to N/\mathfrak{J}N$ of $(A/\mathfrak{J})$-modules, induced by $u$ by passing to quotients, be left invertible.
+\end{proposition}
+
+\begin{corollary}[19.1.11]
+\label{0.19.1.11}
+\oldpage[0\textsubscript{IV-1}]{76}
+Let $A$ be a local ring, $k$ its residue field, $M$ a finitely generated $A$-module, $N$ a projective $A$-module, $u:M\to N$ a homomorphism.
+For $u$ to be left invertible, it is necessary and sufficient that there exist a system of generators $(x_i)_{1\leq i\leq m}$ of $M$ such that the images $x_i\otimes 1:M\otimes_A k\to N\otimes_A k$ of the $x_i\otimes 1$ be linearly independent in $N\otimes_A k$;
+the $x_i$ then form a base of $M$.
+\end{corollary}
+
+\begin{corollary}[19.1.12]
+\label{0.19.1.12}
+Let $A$ be a ring, $M$ a finitely generated $A$-module, $N$ a projective $A$-module, $u:M\to N$ a homomorphism.
+For every prime ideal $\mathfrak{p}\in\Spec(A)$, the following conditions are equivalent:
+\begin{enumerate}
+  \item[a)] The homomorphism $u_\mathfrak{p}:M_\mathfrak{p}\to N_\mathfrak{p}$ is left invertible.
+  \item[b)] The homomorphism $u\otimes 1:M\otimes_A k(\mathfrak{p})\to N\otimes_A k(\mathfrak{p})$ is injective (where $k(\mathfrak{p})$ denotes the residue field of $A$ at $\mathfrak{p}$).
+  \item[c)] There exists a finite system of elements $x_i\in M$ ($1\leq i\leq m$) such that the images of the $x_i$ in $M_\mathfrak{p}$ generate $M_\mathfrak{p}$, and a system of $m$ linear forms $y_i^*$ on $N$ ($1\leq i\leq m$) such that $\det(\langle y_i^*,u(x_j)\rangle)\notin\mathfrak{p}$.
+  \item[d)] There exists $f\in A-\mathfrak{p}$ such that the homomorphism $u_f:M_f\to N_f$ is left invertible.
+\end{enumerate}
+Moreover, the set of primes $\mathfrak{p}\in\Spec(A)$ satisfying these conditions is open in $\Spec(A)$.
+\end{corollary}
+
+\begin{proposition}[19.1.13]
+\label{0.19.1.13}
+Suppose the hypotheses of \sref{0.19.1.9} verified, and suppose in addition that $(\mathfrak{J}_\lambda)$ be a decreasing sequence $(\mathfrak{J}_n)$ and that $M$ be separated and complete.
+Then the conditions~a) and~b) of \sref{0.19.1.9} are also equivalent to:
+\begin{enumerate}
+  \item[c)] $u$ is left invertible.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[19.1.14]
+\label{0.19.1.14}
+Let $A$ be a ring, $M$ a finitely generated $A$-module, $N$ a projective $A$-module, $u:M\to N$ an $A$-homomorphism.
+\begin{enumerate}
+  \item[(i)] For $u$ to be left invertible, it is necessary and sufficient that, for every maximal ideal $\mathfrak{m}$ of $A$, $u_\mathfrak{m}:M_\mathfrak{m}\to N_\mathfrak{m}$ be left invertible.
+  \item[(ii)] Let $A'$ be an $A$-algebra which is a faithfully flat $A$-module.
+  For $u$ to be left invertible, it is necessary and sufficient that $u\otimes 1:M\otimes_A A'\to N\otimes_A A'$ be left invertible.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}[19.1.15]
+\label{0.19.1.15}
+\oldpage[0\textsubscript{IV-1}]{78}
+The ``dual'' notion to that of formally left invertible homomorphism is that of \emph{formally right invertible} homomorphism;
+a continuous $A$-homomorphism $u:M\to N$ satisfies, by definition, the following condition:
+for every open submodule $W'$ of $N$, there exist an open submodule $V''\subset V'\cap u^{-1}(W')$ of $M$, an open submodule $W''\subset W'$ of $N$, and a homomorphism $h:N/W''\to M/V'$ such that the canonical homomorphism $N/W''\to N/W'$ factorizes as
+\[
+  N/W''\xrightarrow{h}M/V'\xrightarrow{u'}N/W'
+\]
+where $u'$ is induced by $u$ by passing to quotients.
+\end{remark}
+
+\subsection{Formally projective modules}
+\label{subsection:0.19.2}
+
+\begin{definition}[19.2.1]
+\label{0.19.2.1}
+Let $A$ be a topological ring, $M$ a topological $A$-module.
+We say that $M$ is \emph{formally projective} if it satisfies the following condition:
+for every open ideal $\mathfrak{J}$ of $A$, every discrete $(A/\mathfrak{J})$-module $P$, every surjective $A$-homomorphism $v:M\to P\to Q$, and every continuous $A$-homomorphism $w:M\to P$ such that $v=u\circ w$.
+\end{definition}
+
+\begin{env}[19.2.2]
+\label{0.19.2.2}
+To verify the condition of \sref{0.19.2.1}, one can obviously restrict to the case where $v$ is itself surjective (replacing $Q$ by $v(M)$ and $P$ by $u^{-1}(v(M))$) at the case where $v$ is itself surjective;
+$Q$ is then isomorphic to $M/V$, where $V$ is an open submodule of $M$ such that $\mathfrak{J}M\subset V$;
+the condition of \sref{0.19.2.1} then amounts to saying that for every $(A/\mathfrak{J})$-module discrete $P$ and every $A$-homomorphism $u:P\to M/V$, there exists an open submodule $V'\subset V$ and an $A$-homomorphism $w:M/V'\to P$, such that the canonical homomorphism $M/V'\to M/V$ factorizes as $M/V'\xrightarrow{w}P\xrightarrow{u}M/V$.
+One will note that it suffices to verify this condition when $\mathfrak{J}$ ranges over a fundamental system of neighbourhoods of $0$ formed of ideals in $A$.
+\end{env}
+
+\begin{env}[19.2.3]
+\label{0.19.2.3}
+Suppose that there exists a fundamental system $(\mathfrak{J}_\lambda)$ of open ideals in $A$ and a fundamental system $(V_\lambda)$ of open submodules in $M$, having the same index set, such that $\mathfrak{J}_\lambda\subset V_\lambda$ for all $\lambda$, and such that $M/V_\lambda$ be an $(A/\mathfrak{J}_\lambda)$-module \emph{projective}.
+Then $M$ is formally projective;
+it suffices indeed, with the notations of \sref{0.19.2.2}, to take $\lambda$ such that $\mathfrak{J}_\lambda\subset\mathfrak{J}$ and $V_\lambda\subset V$;
+as $P$ is also an $(A/\mathfrak{J}_\lambda)$-module, the factorization of the canonical homomorphism $M/V_\lambda\to M/V$ into $M/V_\lambda\to P\to M/V$ results from what $M/V_\lambda$ is supposed to be an $(A/\mathfrak{J}_\lambda)$-module projective.
+
+When the stricter condition above is satisfied, we say that $M$ is \emph{strictly formally projective}.
+\end{env}
+
+\begin{proposition}[19.2.4]
+\label{0.19.2.4}
+Let $A$ be a topological ring, $M$ a topological $A$-module whose topology is derived from that of $A$.
+For $M$ to be formally projective, it is necessary and sufficient that it be strictly formally projective.
+\end{proposition}
+
+\begin{proposition}[19.2.5]
+\label{0.19.2.5}
+\oldpage[0\textsubscript{IV-1}]{79}
+Let $A$ be a topological ring, $M$ a topological $A$-module.
+\begin{enumerate}
+  \item[(i)] It suffices to remark that when $\mathfrak{J}$ (resp. $V$) ranges over the set of open ideals (resp. submodules) of $A$ (resp. $M$), the separated completed $\widehat{\mathfrak{J}}$ (resp. $\widehat{V}$) ranges over the set of open ideals of $\widehat{A}$ (resp. open submodules of $\widehat{M}$), and $\widehat{A}/\widehat{\mathfrak{J}}=A/\mathfrak{J}$ (resp. $\widehat{M}/\widehat{V}=M/V$) up to canonical isomorphism;
+  as the notion of formally projective module (resp. strictly formally projective) only involves the $A/\mathfrak{J}$ and the $M/V$, one deduces (i) immediately.
+  \item[(ii)] Suppose first that $M$ is formally projective and set $M'=M\otimes_A A'$;
+  let $\mathfrak{J}'$ be an open ideal of $A'$, $P'$, $Q'$ two discrete $(A'/\mathfrak{J}')$-modules, $u':P'\to Q'$ a surjective $A'$-homomorphism, $v':M'\to Q'$ a continuous $A'$-homomorphism.
+  There is an open ideal $\mathfrak{J}$ of $A$ such that $\mathfrak{J}A'\subset\mathfrak{J}'$, hence $P'$ and $Q'$ are also discrete $(A/\mathfrak{J})$-modules;
+  as $M$ is formally projective, there exists an $A$-homomorphism $w:M\to P'$ such that $u'\circ w=v'\circ j$, where $j:M\to M'$ is the canonical homomorphism.
+  The existence of a continuous $A'$-homomorphism $w':M'\to P'$ such that $v'=u'\circ w'$ follows.
+\end{enumerate}
+\end{proposition}
+
+\subsection{Formally smooth algebras}
+\label{subsection:0.19.3}
+
+\begin{definition}[19.3.1]
+\label{0.19.3.1}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra.
+We say that $B$ is a \emph{formally smooth} $A$-algebra if, for every discrete topological $A$-algebra $C$, and every nilpotent ideal $\mathfrak{J}$ of $C$, every continuous $A$-homomorphism $u:B\to C/\mathfrak{J}$ \emph{factorizes} as $B\xrightarrow{v}C\xrightarrow{\varphi}C/\mathfrak{J}$, where $v$ is a continuous $A$-homomorphism and $\varphi$ the canonical homomorphism.
+\end{definition}
+
+\oldpage[0\textsubscript{IV-1}]{80}
+The definition \sref{0.19.3.1} amounts to saying that the following property holds:
+\begin{enumerate}
+  \item[(P)] For every open ideal $\mathfrak{R}$ of the $A$-algebra $B$ and every continuous $A$-homomorphism $u':B/\mathfrak{R}\to C/\mathfrak{J}$ such that the homomorphism $B\to B/\mathfrak{R}\xrightarrow{u'}C/\mathfrak{J}$ is a continuous $A$-homomorphism, where $v'$ is also an $A$-homomorphism.
+\end{enumerate}
+
+Indeed, if $u:B\to C/\mathfrak{J}$ is a continuous $A$-homomorphism, its kernel $\mathfrak{R}$ is an open ideal of $B$, and if (P) is satisfied, it suffices to take $u'$ and to take for $v$ the composition $B\to B/\mathfrak{R}\xrightarrow{v'}C$ to satisfy the conditions of \sref{0.19.3.1}.
+Conversely, suppose $B$ is a formally smooth $A$-algebra;
+let us give ourselves an open ideal $\mathfrak{R}$ of $B$ and a continuous $A$-homomorphism $u':B/\mathfrak{R}\to C/\mathfrak{J}$;
+if $v:B\to C$ is a continuous $A$-homomorphism such that $u$ factorizes as $B\xrightarrow{v}C\to C/\mathfrak{J}$, the ideal $\mathfrak{R}'=\Ker(v)\cap\mathfrak{R}$ of $B$ is open and contained in $\mathfrak{R}$;
+by taking $v'$ to factorize as $B\to B/\mathfrak{R}'\xrightarrow{v'}C$, and $v'$ clearly satisfies the condition (P).
+
+\begin{proposition}[19.3.2]
+\label{0.19.3.2}
+Let $A$ be a discrete ring, $V$ a projective $A$-module;
+the symmetric algebra $B=\mathrm{S}_A^\bullet(V)$, equipped with the discrete topology, is a formally smooth $A$-algebra.
+\end{proposition}
+
+\begin{proof}
+Indeed, the notations $C$ and $\mathfrak{J}$ having the same meaning as in \sref{0.19.3.1}, let $u:B\to C/\mathfrak{J}$;
+as $V$ is projective, $u_1$, the restriction of $u$ to $V$, lifts to a homomorphism of $A$-modules $v_1:V\to C$ such that $u_1$ factorizes as $V\xrightarrow{v_1}C\xrightarrow{\varphi}C/\mathfrak{J}$;
+as $V$ is projective, $u_1$ extends to a homomorphism of $A$-algebras $v:\mathrm{S}_A^\bullet(V)\to C$, and $v$ coincides with $u$ in $V$, hence $\varphi\circ v=u$, which proves the proposition.
+\end{proof}
+
+\begin{corollary}[19.3.3]
+\label{0.19.3.3}
+If $A$ is a discrete ring, every polynomial algebra $B=A[T_\alpha]_{\alpha\in I}$, equipped with the discrete topology, is a formally smooth $A$-algebra.
+\end{corollary}
+
+\begin{proposition}[19.3.4]
+\label{0.19.3.4}
+Let $A$ be a topological ring, and let $B=A[[T_\alpha]]_{\alpha\in I}$ be a ring of formal power series $\sum c_\lambda T^\lambda$ (algebra large over $A$ of the monoid $\bb{N}^{(I)}$, identified as a topological $A$-module with the product $A^{\bb{N}^{(I)}}$).
+If one equips $B$ with the product topology, $B$ is a formally smooth topological $A$-algebra.
+\end{proposition}
+
+\begin{proposition}[19.3.5]
+\label{0.19.3.5}
+Let $A$ be a topological ring.
+\begin{enumerate}
+  \item[(i)] $A$ is a formally smooth $A$-algebra.
+  \item[(ii)] If $B$ is a formally smooth $A$-algebra and $C$ a formally smooth $B$-algebra, then $C$ is a formally smooth $A$-algebra.
+  \item[(iii)] Let $B$ be a formally smooth $A$-algebra, $A'$ a topological $A$-algebra;
+  then the topological $A'$-algebra $B\otimes_A A'$ ($\mathbf{0_I}$, 7.7.5 and 7.7.6) is formally smooth.
+  \item[(iv)] Let $B$ be a topological $A$-algebra, $S$ (resp. $T$) a multiplicative subset of $A$ (resp. $B$) such that the canonical image of $S$ in $B$ is contained in $T$.
+  If $B$ is a formally smooth $A$-algebra, then $T^{-1}B$ is an $S^{-1}A$-algebra formally smooth.
+  \item[(v)] Let $B_i$ ($1\leq i\leq n$) be topological $A$-algebras.
+  For $\prod_{i=1}^n B_i$ to be a formally smooth $A$-algebra, it is necessary and sufficient that each of the $B_i$ be so.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[19.3.6]
+\label{0.19.3.6}
+\oldpage[0\textsubscript{IV-1}]{83}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra, $\widehat{A}$ and $\widehat{B}$ the separated completions of $A$ and $B$, so that $\widehat{B}$ is a topological $\widehat{A}$-algebra.
+The following conditions are equivalent:
+\begin{enumerate}
+  \item[a)] $B$ is a formally smooth $A$-algebra.
+  \item[b)] $\widehat{B}$ is a formally smooth $A$-algebra.
+  \item[c)] $\widehat{B}$ is a formally smooth $\widehat{A}$-algebra.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Of course, the structure of $\widehat{A}$-algebra on $\widehat{B}$ is defined by the homomorphism $\hat{\varphi}$, where $\varphi:A\to B$ is the homomorphism defining the structure of $A$-algebra on $B$.
+As every discrete $A$-algebra $C$ is separated and complete, it is also a $\widehat{A}$-algebra (by canonical prolongation of the homomorphism of $A$ in $C$), and a continuous $A$-homomorphism of $B$ in $C$ gives by prolongation a canonical $\widehat{A}$-homomorphism (and \emph{a fortiori} an $A$-homomorphism) of $\widehat{B}$ in $C$ (in other terms, every continuous $A$-homomorphism $B\to C$ factorizes as $B\to\widehat{B}\to C$ uniquely).
+These remarks and the definition \sref{0.19.3.1} immediately imply the proposition.
+\end{proof}
+
+\begin{corollary}[19.3.7]
+\label{0.19.3.7}
+Under the hypotheses of \sref{0.19.3.5}, (iv)), the $A\{S^{-1}\}$-algebra topological $B\{T^{-1}\}$ is formally smooth.
+\end{corollary}
+
+\begin{proposition}[19.3.8]
+\label{0.19.3.8}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra, and suppose that for every open ideal $\mathfrak{R}$ of $B$, $\mathfrak{R}^2$ is also open.
+Let $A'$, $B'$ be the rings $A$ and $B$ equipped with topologies finer than the initial topologies, and suppose that the canonical homomorphism $\varphi:A\to B$ is still a continuous homomorphism of $A'$ in $B'$.
+Then, if $B'$ is a formally smooth $A'$-algebra, $B$ is a formally smooth $A$-algebra.
+\end{proposition}
+
+\begin{proof}
+It suffices to apply the following lemma:
+\end{proof}
+
+\begin{lemma}[19.3.8.1]
+\label{0.19.3.8.1}
+Let $C$ be a discrete $A$-algebra, $\mathfrak{J}$ a nilpotent ideal of $C$.
+Suppose that the square of every open ideal of $B$ is also open.
+Then, if a composed homomorphism $v:B\xrightarrow{u}C\to C/\mathfrak{J}$ is continuous, the homomorphism $u$ is continuous.
+\end{lemma}
+
+\begin{proof}
+Indeed, $\mathfrak{R}=u^{-1}(\mathfrak{J})$ is the kernel of $v$, and it is open by hypothesis;
+as $\mathfrak{J}^n=0$, $\mathfrak{R}^n$ is contained in $\Ker(u)$;
+but by induction on $h$, it follows from the hypothesis that $\mathfrak{R}^{2^h}$ is also open, hence $\mathfrak{R}^n$ for all $n$, and consequently $\Ker(u)$ is also open, which proves our assertion.
+\end{proof}
+
+\begin{env}[19.3.9]
+\label{0.19.3.9}
+We will now see that the property of being formally smooth implies properties of ``lifting'' of homomorphisms under more general conditions than those of the definition \sref{0.19.3.1}.
+\end{env}
+
+\begin{proposition}[19.3.10]
+\label{0.19.3.10}
+\oldpage[0\textsubscript{IV-1}]{84}
+Let $A$ be a topological ring, $B$ a formally smooth topological $A$-algebra.
+Let $C$ be a topological $A$-algebra, $\mathfrak{J}$ an ideal of $C$, satisfying the following conditions:
+\begin{enumerate}
+  \item[$1^\circ$] $C$ is metrizable and complete.
+  \item[$2^\circ$] $\mathfrak{J}$ is closed and the sequence $(\mathfrak{J}^n)$ tends to $0$.
+\end{enumerate}
+Then, every continuous $A$-homomorphism $u:B\to C/\mathfrak{J}$ factorizes as $B\xrightarrow{v}C\to C/\mathfrak{J}$, where $v$ is a continuous $A$-homomorphism.
+\end{proposition}
+
+\begin{proof}
+Let $(\mathfrak{Q}_n)$ be a decreasing sequence of ideals of $C$ forming a fundamental system of neighbourhoods of $0$ in this algebra;
+as there exists $k$ such that $\mathfrak{J}^k\subset\mathfrak{Q}_n$, $(\mathfrak{J}+\mathfrak{Q}_n)/\mathfrak{Q}_n$ is nilpotent.
+For all $n$, let $u_n$ be the continuous $A$-homomorphism $B\xrightarrow{u}C/\mathfrak{J}\to C/(\mathfrak{J}+\mathfrak{Q}_n)=(C/\mathfrak{Q}_n)/((\mathfrak{J}+\mathfrak{Q}_n)/\mathfrak{Q}_n)$;
+by hypothesis $u_n$ factorizes as $B\xrightarrow{v_n}C/\mathfrak{Q}_n\xrightarrow{\varphi_n}C/(\mathfrak{J}+\mathfrak{Q}_n)$, where $v_n$ is a continuous $A$-homomorphism.
+Let us show that one can choose step by step the $v_n$ so that $v_n$ factorizes as
+\[
+  B\xrightarrow{v_{n+1}}C/\mathfrak{Q}_{n+1}\to C/\mathfrak{Q}_n
+\]
+for all $n$ (in other words, the $v_n$ form a \emph{projective system} of homomorphisms).
+This will follow from the following lemma:
+\end{proof}
+
+\begin{lemma}[19.3.10.1]
+\label{0.19.3.10.1}
+Let $B$ be a formally smooth $A$-algebra, $E$, $E'$ two discrete topological $A$-algebras, $\mathfrak{R}$ (resp. $\mathfrak{R}'$) a nilpotent ideal of $E$ (resp. $E'$), $f:E\to E'$ a surjective $A$-homomorphism such that $f(\mathfrak{R})\subset\mathfrak{R}'$, $f':E/\mathfrak{R}\to E'/\mathfrak{R}'$ the homomorphism induced by $f$ by passing to quotients.
+Let $u:B\to E/\mathfrak{R}$ be a continuous $A$-homomorphism, $u'$ the composed homomorphism $B\xrightarrow{u}E/\mathfrak{R}\xrightarrow{f'}E'/\mathfrak{R}'$, and let $v':B\to E'$ be a continuous $A$-homomorphism such that $u'$ factorizes as $B\xrightarrow{v'}E'\to E'/\mathfrak{R}'$.
+Then there exists a continuous $A$-homomorphism $v:B\to E$ such that $v'$ factorizes as $B\xrightarrow{v}E\xrightarrow{f}E'$.
+\end{lemma}
+
+\begin{corollary}[19.3.11]
+\label{0.19.3.11}
+\oldpage[0\textsubscript{IV-1}]{85}
+Let $A$ be a topological ring, $B$ a formally smooth topological $A$-algebra, $C$ a noetherian complete local ring, $\mathfrak{J}$ an ideal distinct from $C$, $\varphi:A\to C$ a continuous homomorphism making $C$ a topological $A$-algebra.
+Then every continuous $A$-homomorphism $u_0:B\to C_0=C/\mathfrak{J}$ factorizes as $B\xrightarrow{u}C\to C/\mathfrak{J}$, where $u$ is a continuous $A$-homomorphism.
+\end{corollary}
+
+\begin{proof}
+All the conditions of \sref{0.19.3.10} are indeed satisfied ($\mathbf{0_I}$, 7.3.5).
+\end{proof}
+
+\begin{proposition}[19.3.12]
+\label{0.19.3.12}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra, $C$ a topological $A$-algebra, $\mathfrak{J}$ an ideal of $C_\lambda$, satisfying the following conditions:
+\begin{enumerate}
+  \item[$1^\circ$] There exists a fundamental system of open ideals $\mathfrak{Q}_\lambda$ of $C$, such that the $C_\lambda=C/\mathfrak{Q}_\lambda$ are artinian rings and that $C\xrightarrow{\sim}\varprojlim C_\lambda$.
+  \item[$2^\circ$] $\mathfrak{J}$ is closed in $C$ and topologically nilpotent.
+  \item[$3^\circ$] The square of every open ideal of $B$ is open.
+\end{enumerate}
+Under these conditions, every continuous $A$-homomorphism $u:B\to C/\mathfrak{J}$ factorizes as $B\xrightarrow{v}C\to C/\mathfrak{J}$, where $v$ is a continuous $A$-homomorphism.
+\end{proposition}
+
+\subsection{First criteria for formal smoothness}
+\label{subsection:0.19.4}
+
+\begin{proposition}[19.4.1]
+\label{0.19.4.1}
+\oldpage[0\textsubscript{IV-1}]{86}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra;
+suppose that there exist two decreasing filtering families $(\mathfrak{J}_\alpha)_{\alpha\in I}$, $(\mathfrak{R}_\alpha)_{\alpha\in I}$ of ideals of $A$ and $B$ respectively, such that:
+\begin{enumerate}
+  \item[$1^\circ$] $(\mathfrak{J}_\alpha)$ tends to $0$ in $A$ and $(\mathfrak{R}_\alpha)$ tends to $0$ in $B$;
+  \item[$2^\circ$] for all $\alpha\in I$, we have $\mathfrak{J}_\alpha B\subset\mathfrak{R}_\alpha$ (so that $B/\mathfrak{R}_\alpha$ is an $(A/\mathfrak{J}_\alpha)$-topological algebra);
+  \item[$3^\circ$] for all $\alpha\in I$, $B/\mathfrak{R}_\alpha$ is a formally smooth $(A/\mathfrak{J}_\alpha)$-algebra.
+\end{enumerate}
+Then $B$ is a formally smooth $A$-algebra.
+\end{proposition}
+
+\begin{proof}
+Let $C$ be a discrete $A$-algebra, $\mathfrak{L}$ a nilpotent ideal of $C$, and $\mathfrak{R}$ an open ideal of $B$;
+by hypothesis there exists $\alpha\in I$ such that $\mathfrak{R}_\alpha\subset\mathfrak{R}$, so $B/\mathfrak{R}$ is a quotient of $B/\mathfrak{R}_\alpha$.
+Every $A$-homomorphism $u':B/\mathfrak{R}\to C/\mathfrak{L}$ is also an $(A/\mathfrak{J}_\alpha)$-homomorphism, and so it also lifts from $B/\mathfrak{R}_\alpha$;
+whence the conclusion, by virtue of the remark following \sref{0.19.3.1}.
+\end{proof}
+
+\begin{corollary}[19.4.2]
+\label{0.19.4.2}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra, $(\mathfrak{J}_\alpha)_{\alpha\in I}$ a decreasing filtering family of ideals of $A$ tending to~$0$.
+For $B$ to be a formally smooth $A$-algebra, it is necessary and sufficient that for all $\alpha\in I$, setting $A_\alpha=A/\mathfrak{J}_\alpha$, $B_\alpha=B/\mathfrak{J}_\alpha B$, $B_\alpha$ be a formally smooth $A_\alpha$-algebra.
+\end{corollary}
+
+\begin{proof}
+The condition is sufficient by \sref{0.19.4.1}, and it is also necessary by \sref{0.19.3.5},~(iii).
+\end{proof}
+
+\begin{proposition}[19.4.3]
+\label{0.19.4.3}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra.
+Suppose that for every discrete $A$-algebra $C$ and every ideal $\mathfrak{J}$ of $C$ such that $\mathfrak{J}^2=0$, every continuous $A$-homomorphism $u:B\to C/\mathfrak{J}$ factorizes as $B\xrightarrow{v}C\to C/\mathfrak{J}$, where $v$ is a continuous $A$-homomorphism.
+Then $B$ is a formally smooth $A$-algebra.
+\end{proposition}
+
+\begin{proof}
+With the same notation, let $\mathfrak{R}$ be any nilpotent ideal of $C$,
+and consider a continuous $A$-homomorphism $u':B\to C/\mathfrak{R}$.
+Suppose $\mathfrak{R}^m=0$, and set $C_i=C/\mathfrak{R}^i$ for $1\leq i\leq m$, so that $C_m=C$, that $\mathfrak{R}^{i-1}/\mathfrak{R}^i$ is an ideal of square zero in $C_i$, and $C_i=C_{i+1}/\mathfrak{J}_{i+1}$;
+the hypothesis then gives by induction on $i$ the existence of continuous $A$-homomorphisms $u_i:B\to C_i$ such that $u_1=u$ and that $u_i$ factorizes as $B\xrightarrow{u_{i+1}}C_{i+1}\to C_{i+1}/\mathfrak{J}_{i+1}=C_i$;
+whence the conclusion.
+\end{proof}
+
+\begin{proposition}[19.4.4]
+\label{0.19.4.4}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra (commutative).
+For $B$ to be a formally smooth $A$-algebra, it is necessary and sufficient that for
+\oldpage[0\textsubscript{IV-1}]{87}
+every discrete topological $B$-module $L$, annihilated by an open ideal of $B$, we have (cf.~\sref{0.18.5.1})
+\[
+  \operatorname{Exalcotop}_A(B,L)=0.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $(\mathfrak{R}_\lambda)$ be a fundamental decreasing system of open ideals of $B$ and set $B_\lambda=B/\mathfrak{R}_\lambda$.
+Consider a discrete topological $A$-algebra $C$ and an ideal $\mathfrak{J}$ of $C$ such that $\mathfrak{J}^2=0$, so that $C$ is an $A$-extension of $C/\mathfrak{J}$ by $\mathfrak{J}$;
+suppose given an $A$-homomorphism $u:B_\lambda\to C/\mathfrak{J}$ and form the $A$-extension $E_\lambda$ of $B_\lambda$ by $\mathfrak{J}$, inverse image of $C$ by the homomorphism $u$ \sref{0.18.2.5};
+it is a topological $A$-algebra for the discrete topology.
+If $\operatorname{Exalcotop}_A(B,L)=0$, there exists by definition \sref{0.18.5.1} a $\mu$ such that $\mathfrak{R}_\mu\subset\mathfrak{R}_\lambda$ and the inverse image extension $E_\mu$ is $A$-trivial;
+but this means \sref{0.18.1.6} that there exists a continuous $A$-homomorphism $v:B_\mu\to E_\lambda$ such that the canonical homomorphism $B_\mu\to B_\lambda$ factorizes as $B_\mu\xrightarrow{v}E_\lambda\to B_\lambda$;
+we conclude immediately that $B_\mu\to B_\lambda\xrightarrow{u}C/\mathfrak{J}$ factorizes as $B_\mu\xrightarrow{v}E_\lambda\to C\to C/\mathfrak{J}$,
+and this proves, by virtue of \sref{0.19.3.1} and \sref{0.19.4.3}, that $B$ is a formally smooth $A$-algebra.
+The converse is immediate, applying \sref{0.19.3.1} to the case where $C$ is a topological $A$-algebra which is an $A$-extension of $B_\lambda$ by $L$, and to the identical homomorphism $B_\lambda\to B_\lambda=C/L$.
+\end{proof}
+
+When $A$ and $B$ are discrete rings, the criterion of formal smoothness \sref{0.19.4.4} reduces to
+\begin{equation}
+\tag{19.4.4.1}
+\label{0.19.4.4.1}
+\operatorname{Exalcom}_A(B,L)=0 \qquad\text{for all $B$-modules $L$};
+\end{equation}
+in other words, \emph{every commutative $A$-extension of $B$ by a $B$-module must be $A$-trivial}.
+
+\begin{corollary}[19.4.5]
+\label{0.19.4.5}
+Let $A$ be a topological ring (commutative), $B$ a topological $A$-algebra (commutative).
+\begin{enumerate}
+  \item[\rm(i)] Suppose that $B$ is a formally smooth $A$-algebra. Then, for every open ideal $\mathfrak{R}$ of $B$, every $(B/\mathfrak{R})$-module $L$, and every Hochschild $A$-bilinear symmetric $2$-cocycle $f$ of $(B/\mathfrak{R})\times(B/\mathfrak{R})$ in $L$ \sref{0.18.4.3}, there exists an open ideal $\mathfrak{R}'\subset\mathfrak{R}$ such that, if $\varphi:B/\mathfrak{R}'\to B/\mathfrak{R}$ is the canonical homomorphism, $f\circ(\varphi\times\varphi)$ is a Hochschild $A$-bilinear $2$-coboundary of $(B/\mathfrak{R}')\times(B/\mathfrak{R}')$ in $L$.
+  \item[\rm(ii)] If $B$ is a formally projective $A$-module \sref{0.19.2.1} and if the condition of~{\rm(i)} is satisfied, $B$ is a formally smooth $A$-algebra.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\begin{enumerate}
+  \item[\rm(i)] The $2$-cocycle $f$ defines an $A$-extension of Hochschild $C$ of $B/\mathfrak{R}$ by $L$ \sref{0.18.4.3}.
+  Applying \sref{0.19.3.1} to $C$, to the ideal of square zero $L$ of $C$, and to the identical homomorphism $B/\mathfrak{R}\to B/\mathfrak{R}=C/L$, we deduce the condition~(i) by virtue of \sref{0.18.4.3}.
+
+  \item[\rm(ii)] Let us apply the criterion \sref{0.19.4.3}, considering an open ideal $\mathfrak{J}$ of $A$, an open ideal $\mathfrak{R}$ of $B$, and an $(A/\mathfrak{J})$-extension $E$ of $B/\mathfrak{R}$ by $L$.
+  As $B$ is a formally projective $A$-module, the canonical continuous $A$-linear application $\rho:B\to B/\mathfrak{R}$ factorizes as $B\xrightarrow{w}E\to B/\mathfrak{R}$, where $w$ is a continuous $A$-linear application \sref{0.19.2.1},
+  which itself factorizes as $B\to B/\mathfrak{R}'\xrightarrow{w'}E$ where $\mathfrak{R}'$ is an open ideal of $B$ contained in $\mathfrak{R}$;
+  replacing $\mathfrak{J}$ by a smaller ideal, one can suppose that $\mathfrak{J}B\subset\mathfrak{R}'$.
+  Then the inverse image of the extension $E$ of $B/\mathfrak{R}$ by $L$, via the canonical homomorphism $B/\mathfrak{R}'\to B/\mathfrak{R}$, is an $(A/\mathfrak{J})$-extension \emph{of Hochschild} $E'$ of $B/\mathfrak{R}'$ by $L$;
+  \oldpage[0\textsubscript{IV-1}]{88}
+  applying~(i) to a cocycle defining this extension \sref{0.18.4.3}, we conclude that there exists an open ideal $\mathfrak{R}''\subset\mathfrak{R}'$ of $B$ such that the inverse image $E''$ of $E$ by $B/\mathfrak{R}''\to B/\mathfrak{R}$ is $A$-trivial, Q.E.D.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}[19.4.6]
+\label{0.19.4.6}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra which is a formally projective $A$-module.
+Let $A'$ be an $A$-algebra equipped with the topology derived from that of $A$.
+Suppose furthermore that $A'$ is a faithfully flat $A$-module, and that one of the following conditions is satisfied:
+\begin{enumerate}
+  \item[$1^\circ$] There exists a fundamental system $(\mathfrak{J}_\lambda)$ of open ideals of $A$ and a fundamental system $(\mathfrak{M}_\lambda)$ of open ideals of $B$, with the same index set, such that for all $\lambda$ we have $\mathfrak{J}_\lambda B\subset\mathfrak{M}_\lambda$ and $B/\mathfrak{M}_\lambda$ is a projective $(A/\mathfrak{J}_\lambda)$-module of finite type.
+  \item[$2^\circ$] $A'$ is a projective $A$-module of finite type.
+\end{enumerate}
+Then, for $B'=B\otimes_A A'$ (equipped with the tensor product topology) to be a formally smooth $A'$-algebra, it is necessary and sufficient that $B$ be a formally smooth $A$-algebra.
+\end{corollary}
+
+\begin{proof}
+The sufficiency of the condition is contained in \sref{0.19.3.5},~(iii), without any additional hypothesis on $A'$.
+To prove the converse, we apply the criterion \sref{0.19.4.5};
+under hypothesis~$2^\circ$, we will again denote by $(\mathfrak{M}_\lambda)$ a fundamental system of open ideals of $B$, and for each $\lambda$, by $\mathfrak{J}_\lambda$ an open ideal of $A$ such that $\mathfrak{J}_\lambda B\subset\mathfrak{M}_\lambda$;
+in both cases, we set $A_\lambda=A/\mathfrak{J}_\lambda$, $B_\lambda=B/\mathfrak{M}_\lambda$, $A'_\lambda=A_\lambda\otimes_A A'$, $B'_\lambda=B_\lambda\otimes_A A'$.
+Let $f$ be a Hochschild $A_\lambda$-bilinear symmetric $2$-cocycle of $B_\lambda\times B_\lambda$ in a $B_\lambda$-module $L$;
+by extension of scalars, we deduce a Hochschild $A'_\lambda$-bilinear symmetric $2$-cocycle of $B'_\lambda\times B'_\lambda$ in $L'=L\otimes_A A'$.
+As $B'$ is by hypothesis a formally smooth $A'$-algebra, there exists by \sref{0.19.4.5},~(i), a $\mu$ such that $\mathfrak{M}_\mu\subset\mathfrak{M}_\lambda$ and such that, if $\varphi':B'_\mu\to B'_\lambda$ is the canonical homomorphism, the image $c'$ of $f'\circ(\varphi'\times\varphi')$ in the Hochschild group $\mathrm{H}^2_{A'_\mu}(B'_\mu,L')^s$ is zero;
+it is clear that if $\varphi:B_\mu\to B_\lambda$ is the canonical homomorphism, and $c$ the class of $f\circ(\varphi\times\varphi)$ in the group $\mathrm{H}^2_{A_\mu}(B_\mu,L)^s$, then $c'$ is the canonical image of $c$.
+Now, if $\mathrm{P}_\bullet$ is the complex relative to the rings $A_\mu$ and $B_\mu$ defined in \sref{0.18.4.5}, the analogous complex relative to the rings $A'_\mu$ and $B'_\mu$ is evidently $\mathrm{P}_\bullet\otimes_A A'$;
+under hypothesis~$1^\circ$, the construction of $\mathrm{P}_\bullet$ shows that it is a projective $A_\mu$-module of finite type.
+One concludes from Bourbaki, \emph{Alg.}, chap.~II, $3^{\text{e}}$~\'{e}d., \S\,5, n$^\circ$\,3, prop.~7 that, under both hypotheses, one has up to canonical isomorphism;
+as $A'$ is a flat $A$-module, one has by \sref{0.18.4.5}
+\[
+  \mathrm{H}^2_{A'_\mu}(B'_\mu,L')^s = (\mathrm{H}^2_{A_\mu}(B_\mu,L)^s)\otimes_A A'
+\]
+and one can therefore write $c'=c\otimes 1$;
+but as $A'$ is a faithfully flat $A$-module, the hypothesis $c'=0$ implies $c=0$, which completes the proof.
+\end{proof}
+
+\begin{proposition}[19.4.7]
+\label{0.19.4.7}
+Let $A$ be a preadmissible topological ring, $\mathfrak{J}$ an ideal of definition of $A$ ($\mathbf{0_I}$, 7.1.2), $B$ a topological $A$-algebra which is a formally projective $A$-module.
+Consider the topological quotient rings $A_0=A/\mathfrak{J}$, $B_0=B/\mathfrak{J}B$;
+then, for $B$ to be a formally smooth $A$-algebra, it is necessary and sufficient that $B_0$ be a formally smooth $A_0$-algebra.
+\end{proposition}
+
+\begin{proof}
+\oldpage[0\textsubscript{IV-1}]{89}
+The necessity of the condition follows from \sref{0.19.4.2}.
+To see that it is sufficient, we first note that, by considering a fundamental system of open neighborhoods of $0$ in $A$ formed by ideals $\mathfrak{J}_\lambda$ contained in $\mathfrak{J}$, one can by virtue of \sref{0.19.4.2} reduce to the case where $A$ is discrete, since $B/\mathfrak{J}_\lambda B$ is a formally projective $(A/\mathfrak{J}_\lambda)$-module \sref{0.19.2.5};
+by definition of a preadmissible ring, $\mathfrak{J}$ is then nilpotent.
+It furthermore suffices to prove the proposition when $\mathfrak{J}^2=0$, for if $\mathfrak{J}^m=0$, one applies it successively to the rings $A_k=A/\mathfrak{J}^k$ and $B_k=B/\mathfrak{J}^k B$ and to the ideal $\mathfrak{J}^{k-1}/\mathfrak{J}^k$ of $A_k$ for $k=2,3,\ldots,m$, noting \sref{0.19.2.5} that $B_k=B\otimes_A A_k$ is a formally projective $A_k$-module.
+Let us apply the criterion \sref{0.19.4.5},~(ii), considering an open ideal $\mathfrak{R}$ of $B$ and a Hochschild $A$-bilinear symmetric $2$-cocycle $f$ of $(B/\mathfrak{R})\times(B/\mathfrak{R})$ in a $(B/\mathfrak{R})$-module $L$.
+Consider first the special case where $\mathfrak{J}L=0$, so that $L$ can also be viewed as a $(B_0/\mathfrak{R}B_0)$-module, and $f$ factorizes as
+\[
+  (B/\mathfrak{R})\times(B/\mathfrak{R}) \to (B_0/\mathfrak{R}B_0)\times(B_0/\mathfrak{R}B_0) \xrightarrow{f_0} L
+\]
+where $f_0$ is a Hochschild bilinear symmetric $2$-cocycle.
+By hypothesis, there exists an open ideal $\mathfrak{R}'\subset\mathfrak{R}$ in $B$ and an $A_0$-linear application $g_0:B_0/\mathfrak{R}'B_0\to L$ such that $f_0(\varphi_0(x),\varphi_0(y))=xg_0(y)-g_0(xy)+g_0(x)y$ for $x,y$ in $B_0/\mathfrak{R}'B_0$, where $\varphi_0:B_0/\mathfrak{R}'B_0\to B_0/\mathfrak{R}B_0$ is the canonical homomorphism.
+One concludes immediately that the composed $A$-linear application $g:B/\mathfrak{R}'\to B_0/\mathfrak{R}'B_0\xrightarrow{g_0}L$ is such that $dg=f\circ(\varphi\times\varphi)$, where $\varphi:B/\mathfrak{R}'\to B/\mathfrak{R}$ is the canonical homomorphism.
+
+Let us now pass to the general case, and consider first the $(B/\mathfrak{R})$-module $L/\mathfrak{J}L=L'$, for which $\mathfrak{J}L'=0$;
+if $f'$ is the $A$-bilinear composed application $(B/\mathfrak{R})\times(B/\mathfrak{R})\xrightarrow{f}L\to L'$, $f'$ is again a symmetric Hochschild $2$-cocycle, and by virtue of what precedes, there exists an open ideal $\mathfrak{R}'\subset\mathfrak{R}$ in $B$ and an $A$-linear application $g':B/\mathfrak{R}'\to L'$ satisfying $dg'=f'\circ(\varphi'\times\varphi')$ for the canonical application $\varphi':B/\mathfrak{R}'\to B/\mathfrak{R}$.
+As $B$ is a formally projective $A$-module, there exists an $A$-linear application $g_1:B/\mathfrak{R}'_1\to L$ lifting $B/\mathfrak{R}'_1\to B/\mathfrak{R}'\xrightarrow{g'}L'$.
+Consider then the Hochschild $2$-cocycle
+\[
+  f_1(x,y) = f(\varphi_1(x),\varphi_1(y)) - xg_1(y) + g_1(xy) - g_1(x)y,
+\]
+a symmetric $A$-bilinear application of $(B/\mathfrak{R}'_1)\times(B/\mathfrak{R}'_1)$ in $L$.
+The choice of $g_1$ implies that $f_1$ takes its values in $\mathfrak{J}L$.
+As $\mathfrak{J}(\mathfrak{J}L)=0$, one can again apply the first case, so there exists an open ideal $\mathfrak{R}''\subset\mathfrak{R}'_1$ and an $A$-linear application $g_2:B/\mathfrak{R}''\to\mathfrak{J}L$ such that
+\[
+  f_1(\varphi_2(x),\varphi_2(y)) = xg_2(y) - g_2(xy) + g_2(x)y
+\]
+in $(B/\mathfrak{R}'')\times(B/\mathfrak{R}'')$, where $\varphi_2:B/\mathfrak{R}''\to B/\mathfrak{R}'_1$ is the canonical application;
+the $A$-linear application $g=g_2+g_1\circ\varphi_2:B/\mathfrak{R}''\to L$ therefore satisfies $dg=f\circ(\varphi\times\varphi)$ for the canonical application $\varphi:B/\mathfrak{R}''\to B/\mathfrak{R}$.
+\end{proof}
+
+\subsection{Formal smoothness and associated graded rings}
+\label{subsection:0.19.5}
+
+\begin{env}[19.5.1]
+\label{0.19.5.1}
+\oldpage[0\textsubscript{IV-1}]{90}
+Let $C$ be a topological ring (commutative), $V$ a topological $C$-module, and consider the symmetric algebra $\mathbf{S}_C^*(V)=\bigoplus_n\mathbf{S}_C^n(V)$, which we will canonically equip with a \emph{linear topology}, compatible with its $C$-algebra structure.
+For this, consider an open submodule $U$ of $V$, and the \emph{graded ideal} $U.\mathbf{S}_C^*(V)$ it generates in $\mathbf{S}_C^*(V)$;
+we take as fundamental system of neighborhoods of $0$ in $\mathbf{S}_C^*(V)$ the set of sums $\mathfrak{a}.\mathbf{S}_C^*(V)+U.\mathbf{S}_C^*(V)$, where $\mathfrak{a}$ (resp.\ $U$) runs through a fundamental system of open ideals (resp.\ of open submodules) of $C$ (resp.\ $V$).
+We note that if the topology of $V$ is less fine than the topology derived from that of $C$, one can restrict to pairs $(\mathfrak{a},U)$ such that $\mathfrak{a}V\subset U$, so $\mathfrak{a}.\mathbf{S}_C^*(V)+U.\mathbf{S}_C^*(V)=\mathfrak{a}.1_C+U.\mathbf{S}_C^*(V)$;
+in this case the topology induced on each $\mathbf{S}_C^n(V)$ for $n\geq 1$ has as fundamental system of neighborhoods of $0$ the $U.\mathbf{S}_C^{n-1}(V)$, where $U$ runs through the open submodules of $V$;
+in particular, on $V=\mathbf{S}_C^1(V)$, it coincides with the given topology (in general it is less fine than the latter).
+Furthermore, in all cases, the \emph{topological algebra} $\mathbf{S}_C^*(V)$ thus defined is, for the categories of topological $C$-modules and of topological $C$-algebras, the solution of the same universal problem as for the categories of $C$-modules and $C$-algebras.
+Indeed, let $E$ be a topological $C$-algebra, $u:V\to E$ a homomorphism of $C$-modules, $\mathbf{S}(u)=\widetilde{u}$ its canonical extension to $\mathbf{S}_C^*(V)$.
+Suppose $u$ continuous; then, if $\mathfrak{b}$ is an open ideal of $E$, its inverse image $U=u^{-1}(\mathfrak{b})$ is an open $C$-submodule of $V$, and the image by $\widetilde{u}$ of $U.\mathbf{S}_C^*(V)$ is therefore contained in $\mathfrak{b}$;
+as moreover there exists an open ideal $\mathfrak{a}$ of $C$ such that $\mathfrak{a}.E\subset\mathfrak{b}$, hence $\widetilde{u}(\mathfrak{a}.\mathbf{S}_C^*(V))\subset\mathfrak{b}$, this proves that $\widetilde{u}$ is continuous.
+Conversely, if $\widetilde{u}$ is continuous, and if $\mathfrak{b}$ is an open ideal of $E$, there exists an open submodule $U$ of $V$ such that $\widetilde{u}(U.\mathbf{S}_C^*(V))\subset\mathfrak{b}$, and in particular $\widetilde{u}(U.1_C)\subset\mathfrak{b}$, that is $u(U)\subset\mathfrak{b}$, so $u$ is continuous.
+We also recall that one has a canonical isomorphism of topological $C$-modules (discrete)
+
+\[
+\mathbf{S}_C^n(V)/U.\mathbf{S}_C^{n-1}(V) \xrightarrow{\sim} \mathbf{S}_C^n(V/U). \tag{19.5.1.1}
+\]
+
+\label{0.19.5.1.1}
+\end{env}
+
+\begin{env}[19.5.2]
+\label{0.19.5.2}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra (commutative), $\mathfrak{J}$ an ideal of $B$ (not necessarily open or closed);
+in all that follows, we equip $\mathfrak{J}$ and the $\mathfrak{J}^n$ ($n\geq 2$) with the topology induced from that of $B$, the quotients $C=B/\mathfrak{J}$, $\mathfrak{J}^n/\mathfrak{J}^{n+1}=\gr_\mathfrak{J}^n(B)$ with the quotient topology, so that the $\mathfrak{J}^n/\mathfrak{J}^{n+1}$ are topological $C$-modules;
+the canonical injection $\mathfrak{J}/\mathfrak{J}^2\to\gr_\mathfrak{J}(B)$ extends to a homomorphism (not topological at first) of $C$-algebras
+
+\[
+\varphi:\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2) \to \gr_\mathfrak{J}(B)
+\]
+
+which for each $n$ gives a surjective homomorphism of $C$-modules
+
+\[
+\varphi_n:\mathbf{S}_C^n(\mathfrak{J}/\mathfrak{J}^2) \to \mathfrak{J}^n/\mathfrak{J}^{n+1}=\gr_\mathfrak{J}^n(B). \tag{19.5.2.1}
+\]
+
+\label{0.19.5.2.1}
+
+\oldpage[0\textsubscript{IV-1}]{91}
+When $\mathbf{S}_C^n(\mathfrak{J}/\mathfrak{J}^2)$ is equipped with the topology defined in \sref{0.19.5.1}, the homomorphisms $\varphi_n$ are continuous, by virtue of the universal property \sref{0.19.5.1} of $\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)$ applied to the topological algebra $E=\gr_{\mathfrak{J}/\mathfrak{J}^n}(B/\mathfrak{J}^n)$ equipped with the product topology of those of the $\mathfrak{J}^k/\mathfrak{J}^{k+1}$, and to the canonical injection $\mathfrak{J}/\mathfrak{J}^2\to E$.
+Note that here the topology of $\mathfrak{J}/\mathfrak{J}^2$ is less fine than that of $C$ (this latter topology on $\mathfrak{J}/\mathfrak{J}^2$ being also the topology derived from that of $B$).
+\end{env}
+
+\begin{theorem}[19.5.3]
+\label{0.19.5.3}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra, $\mathfrak{J}$ an ideal of $B$, $C=B/\mathfrak{J}$ the topological quotient $A$-algebra.
+Suppose that the discrete $A$-algebra $C$ is formally smooth.
+Then:
+\begin{enumerate}
+  \item[\rm(i)] If $B$ is a formally smooth $A$-algebra, $\mathfrak{J}/\mathfrak{J}^2$ is a topologically formally projective $C$-module \sref{0.19.2.1}.
+  \item[\rm(ii)] If $B$ is a formally smooth $A$-algebra and a preadmissible ring ($\mathbf{0_I}$, 7.1.2), the homomorphisms $\varphi_n$ \sref{0.19.5.2} are formal bimorphisms \sref{0.19.1.2}.
+  \item[\rm(iii)] Conversely, suppose that $B$ is preadmissible, that the sequence $(\mathfrak{J}^n)$ tends to $0$ in $B$, that $\mathfrak{J}/\mathfrak{J}^2$ is a projective $C$-module, and that the $\varphi_n$ are formal bimorphisms. Then $B$ is a formally smooth $A$-algebra.
+\end{enumerate}
+\end{theorem}
+
+The proof of this theorem is long and encumbered with technical details;
+we will therefore begin by proving a simpler corollary, where the guiding ideas appear more clearly;
+this corollary is moreover the particular case of the theorem \sref{0.19.5.3} that will be most frequently used in the sequel.
+
+\begin{corollary}[19.5.4]
+\label{0.19.5.4}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra, $\mathfrak{J}$ an ideal of $B$ such that the topology of $B$ is the $\mathfrak{J}$-preadic topology.
+Suppose that the discrete $A$-algebra $C=B/\mathfrak{J}$ is formally smooth.
+Then the three following conditions are equivalent:
+\begin{enumerate}
+  \item[a)] $B$ is a formally smooth $A$-algebra.
+  \item[b)] $\mathfrak{J}/\mathfrak{J}^2$ is a projective $C$-module and the canonical homomorphism
+  
+\[
+\varphi:\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2) \to \gr_\mathfrak{J}(B)
+\]
+
+  is bijective.
+  \item[c)] The separated completion $\widehat{B}$ of $B$ is a topological $\widehat{A}$-algebra isomorphic to an $\widehat{A}$-algebra of the form $B'$, where $B'=\mathbf{S}_C^*(V)$, $V$ being a projective $C$-module and $B'$ being equipped with the ${B'}^+$-preadic topology, where ${B'}^+$ is the ideal of augmentation.
+\end{enumerate}
+\end{corollary}
+
+\begin{env}[19.5.4.1]
+\label{0.19.5.4.1}
+Let us first prove that $a)$ implies that $\mathfrak{J}/\mathfrak{J}^2$ is a projective $C$-module.
+Let $P$ and $Q$ be two $C$-modules, $u:P\to Q$ a surjective $C$-homomorphism, and $v:\mathfrak{J}/\mathfrak{J}^2\to Q$ a $C$-homomorphism.
+The ring $B/\mathfrak{J}^2$ being viewed as a $B$-extension of $C$ by $\mathfrak{J}/\mathfrak{J}^2$, we deduce from $v$ a $B$-extension $E=(B/\mathfrak{J}^2)\oplus_{(\mathfrak{J}/\mathfrak{J}^2)}Q$ of $C$ by $Q$ \sref{0.18.2.8}.
+As $C$ is a discrete formally smooth $A$-algebra, the extension $E$ is $A$-trivial \sref{0.19.4.4} and can therefore be identified with $\mathrm{D}_C(Q)$ \sref{0.18.2.3}.
+The surjective homomorphism $u:P\to Q$ then canonically defines a surjective $A$-homomorphism $\psi:\mathrm{D}_C(P)\to\mathrm{D}_C(Q)$ \sref{0.18.2.9} whose kernel is an ideal $\mathfrak{L}$ of the extension $E'=\mathrm{D}_C(P)$, contained in $P$, and \emph{a fortiori} of square zero.
+Let $f:B\to E=E'/\mathfrak{L}$ be the homomorphism defining the $B$-algebra structure of $E$: as $\mathfrak{L}$ is of square zero and $B$ is a formally smooth $A$-algebra,
+\oldpage[0\textsubscript{IV-1}]{92}
+$f$ factorizes as $B\xrightarrow{g}E'\to E'/\mathfrak{L}$, where $g$ is a continuous $A$-homomorphism.
+The diagram
+
+\[
+\xymatrix{
+    E' \ar[r]^{\psi} & E \\
+    B \ar[u]^{h'} \ar[r]_{\theta} & B/\mathfrak{J}^2 \ar[u]_{v'}
+  }
+\]
+
+where $v'$ is deduced from $v$ \sref{0.18.2.8}, is commutative.
+Moreover, the image of $\mathfrak{J}$ by $\psi\circ h'$ is contained in $Q$, so the image of $\mathfrak{J}$ by $h'$ is contained in $P$, and the image of $\mathfrak{J}^2$ by $h'$ is zero.
+Restricting $h'$ and $\theta$ to $\mathfrak{J}$, one obtains a commutative diagram
+
+\[
+\xymatrix{
+    P \ar[r]^{u} & Q \\
+    \mathfrak{J}/\mathfrak{J}^2 \ar[u]^{w} \ar[ur]_{v}
+  }
+\]
+
+which proves that the $C$-module $\mathfrak{J}/\mathfrak{J}^2$ is projective.
+\end{env}
+
+\begin{env}[19.5.4.2]
+\label{0.19.5.4.2}
+Let us prove secondly that $a)$ implies that $\varphi$ is bijective, which will complete the proof that $a)$ implies $b)$.
+Set $E_n=B/\mathfrak{J}^{n+1}$, and denote by $F_n$ the quotient of $\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)$ by the $(n+1)$-th power of its ideal of augmentation.
+As $\mathfrak{J}^{n+1}$ is nilpotent in $E_n$ and $C$ is a discrete formally smooth $A$-algebra, the identity automorphism of $C$ factorizes as $C\xrightarrow{f}E_n\to C=E_n/(\mathfrak{J}/\mathfrak{J}^{n+1})$ where $f$ is an $A$-homomorphism;
+moreover, $\mathfrak{J}/\mathfrak{J}^2$ being a projective $C$-module, the identity of $\mathfrak{J}/\mathfrak{J}^2$ factorizes as $\mathfrak{J}/\mathfrak{J}^2\to\mathfrak{J}/\mathfrak{J}^{n+1}\to\mathfrak{J}/\mathfrak{J}^2$, and from $f$ and $g$ one obtains canonically a homomorphism of $C$-algebras $\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)\to E_n$ which annihilates on the $(n+1)$-th power of the ideal of augmentation, whence, passing to the quotient, a surjective homomorphism of algebras $v:F_n\to E_n$ such that $\gr^0(v)$ and $\gr^1(v)$ are the identity automorphisms of $C$ and of $\mathfrak{J}/\mathfrak{J}^2$.
+By definition of the canonical homomorphism $\varphi$, we see that $\gr^j(v)=\varphi_j$ for all $j\leq n$.
+Note now that the kernel $\mathfrak{R}$ is a nilpotent ideal of $F_n$, so that $E_n$ is identified with $F_n/\mathfrak{R}$.
+As $B$ is a formally smooth $A$-algebra, the canonical $A$-homomorphism $p_n:B\to E_n=B/\mathfrak{J}^{n+1}$, which is continuous, factorizes as $B\xrightarrow{w}F_n\xrightarrow{v}E_n$, where $w$ is a continuous $A$-homomorphism;
+as $\gr^0(v)$ is the identity, $w(\mathfrak{J})$ is contained in the ideal of augmentation of $F_n$, hence $w(\mathfrak{J}^{n+1})=0$,
+so $w$ factorizes as $B\xrightarrow{p_n}E_n\xrightarrow{w'}F_n$, and the composite $E_n\xrightarrow{w'}F_n\xrightarrow{v}E_n$ is the identity.
+Since $\gr^j(v)=\varphi_j$ for all $j\leq n$, making $j=0$ and $j=1$, one sees that $\varphi_n$ is injective, which proves that $a)$ implies $b)$.
+\end{env}
+
+\begin{env}[19.5.4.3]
+\label{0.19.5.4.3}
+\oldpage[0\textsubscript{IV-1}]{93}
+Let us next prove that $b)$ implies $a)$.
+The same reasoning as at the beginning of \sref{0.19.5.4.2} proves the existence of a surjective $A$-homomorphism of algebras $v:F_n\to E_n$ such that $\gr^j(v)=\varphi_j$ for all $j$ and the filtrations of $F_n$ and $E_n$ are finite; we conclude that $v$ is \emph{bijective} (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,2, n$^\circ$\,8, cor.~3 of th.~1).
+Let now $G$ be a discrete topological $A$-algebra, $\mathfrak{R}$ an ideal of square zero in $G$, $f:B\to G/\mathfrak{R}$ a continuous $A$-homomorphism of algebras.
+As $G$ is discrete, there exists an integer $m$ such that $f$ annihilates on $\mathfrak{J}^m$, so $f$ factorizes as $B\to E_n\xrightarrow{f_n}G/\mathfrak{R}$, where we take $n=2m$.
+One has therefore by composition a continuous $A$-homomorphism $r:C\to F_n\xrightarrow{v}E_n\xrightarrow{f_n}G/\mathfrak{R}$, and as $C$ is a discrete formally smooth $A$-algebra, $r$ factorizes as $C\xrightarrow{r'}G\to G/\mathfrak{R}$, so $G$ is thus equipped with a structure of $C$-algebra.
+On the other hand, the restriction to $\mathfrak{J}/\mathfrak{J}^2$ of the $C$-homomorphism $f'_n:F_n\xrightarrow{v}E_n\xrightarrow{f_n}G/\mathfrak{R}$ is a $C$-linear application $g:\mathfrak{J}/\mathfrak{J}^2\to G/\mathfrak{R}$.
+As $\mathfrak{J}/\mathfrak{J}^2$ is a projective $C$-module, $g$ factorizes as $\mathfrak{J}/\mathfrak{J}^2\xrightarrow{h}G\to G/\mathfrak{R}$, where $h$ is a $C$-linear application.
+By extension, one deduces a homomorphism of $C$-algebras $w:\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)\to G$, and by construction every element of degree $m$ has for image by $w$ an element of $\mathfrak{R}$, so every element of degree $n=2m$ has zero image since $\mathfrak{R}^2=0$;
+in other words, $w$ factorizes as $\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)\to F_n\xrightarrow{w'}G$.
+By construction, the composite $F_n\xrightarrow{w'}G\xrightarrow{\theta}G/\mathfrak{R}$ coincides with $f'_n$ in $C$ and in $\mathfrak{J}/\mathfrak{J}^2$, hence is equal to $f'_n$.
+Finally, the composite $B\to E_n\xrightarrow{w'\circ v^{-1}}G$ being equal to $f$, one sees that $B$ is a formally smooth $A$-algebra.
+\end{env}
+
+\begin{env}[19.5.4.4]
+\label{0.19.5.4.4}
+It remains to prove the equivalence of $a)$ and $c)$.
+In the first place, $c)$ implies that $B'$ is a $C$-algebra formally smooth for the discrete topology \sref{0.19.3.8};
+as $C$ is a formally smooth $A$-algebra, $B'$ is also a formally smooth $A$-algebra \sref{0.19.3.6}, hence $B$ is a formally smooth $A$-algebra \sref{0.19.3.6}.
+It remains to see that $a)$ implies $c)$.
+Note first that $C$ is a formally smooth $A$-algebra, the identical homomorphism $C\to B/\mathfrak{J}$ factorizes as $C\to\widehat{B}\to B/\mathfrak{J}$, where $C\to\widehat{B}$ is an $A$-homomorphism \sref{0.19.3.10};
+hence $\widehat{B}$, and therefore all the $B/\mathfrak{J}^{n+1}$, are equipped with structures of $C$-algebras.
+On the other hand, as $\mathfrak{J}/\mathfrak{J}^2$ is a projective $C$-module by $b)$, the canonical injection $\mathfrak{J}/\mathfrak{J}^2\to B/\mathfrak{J}^2$ allows one to form a projective system of $C$-homomorphisms $u_n:\mathfrak{J}/\mathfrak{J}^2\to B/\mathfrak{J}^{n+1}$ for $n\geq 1$, hence also (by the universal property of the symmetric algebra) a projective system of homomorphisms of $C$-algebras $v_n:\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)=B'\to B/\mathfrak{J}^{n+1}$;
+moreover it is clear that $v_n$ annihilates on $({B'}^+)^{n+1}$ and as $\gr^0(v_n)=\varphi_0$ and $\gr^1(v_n)=\varphi_1$, one has $\gr^j(v_n)=\varphi_j$ for $0\leq j\leq n$.
+As the $\varphi_j$ are isomorphisms by $b)$, and the filtrations of $B'/{B'}^{+^{n+1}}$ and of $B/\mathfrak{J}^{n+1}$ are finite, one concludes that $v_n$ is \emph{bijective} for
+\oldpage[0\textsubscript{IV-1}]{94}
+all $n$ (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,2, n$^\circ$\,8, cor.~3 of th.~1); whence $c)$ by passage to the projective limit.
+\end{env}
+
+\begin{remark}[19.5.5]
+\label{0.19.5.5}
+Under the general hypotheses of \sref{0.19.5.4}, suppose furthermore that $\mathfrak{J}$ is a \emph{maximal} ideal of $B$, so that $C=B/\mathfrak{J}$ is a field, and that $\mathfrak{J}/\mathfrak{J}^2$ is a vector space of \emph{finite} dimension.
+Then the conditions $a)$, $b)$ and $c)$ of \sref{0.19.5.4} are also equivalent to the following:
+\begin{enumerate}
+  \item[d)] \emph{Given} a polynomial algebra $E=C[T_1,\ldots,T_n]$ over the field $C$, and denoting by $\mathfrak{n}$ the maximal ideal of $E$ generated by the $T_i$ ($1\leq i\leq n$), then for every ideal $\mathfrak{b}$ of $E$ containing a power $\mathfrak{n}^k$, every homomorphism $v:B\to E/\mathfrak{b}$ of $A$-algebras $C$-augmented factorizes as $B\xrightarrow{w}E/\mathfrak{b}$, where $w$ is an $A$-homomorphism.
+\end{enumerate}
+Indeed, $\mathfrak{J}/\mathfrak{J}^2$ being here a free $C$-module, it suffices to verify condition $d)$, where $\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)$ identifies with the polynomial algebra $E=C[T_1,\ldots,T_n]$, where $n=\rg_C(\mathfrak{J}/\mathfrak{J}^2)$, and the ideal of augmentation of $E$ is the ideal $\mathfrak{n}$ generated by the $T_i$.
+For every integer $k\geq 0$, the hypothesis $d)$ allows one to factorize the canonical homomorphism $B\to B/\mathfrak{J}^{k+1}$ into $B\xrightarrow{w}E/\mathfrak{n}^k\to E/\mathfrak{b}$, and $a)$ follows by \sref{0.19.5.4.2}.
+\end{remark}
+
+\begin{env}[19.5.6]
+\label{0.19.5.6}
+\emph{Proof of the theorem} \sref{0.19.5.3}. ---
+Let $(\mathfrak{b}_\alpha)$ be a fundamental system of decreasing open ideals of $B$.
+We set
+
+\[
+B_\alpha=B/\mathfrak{b}_\alpha, \quad C_\alpha=B/(\mathfrak{b}_\alpha+\mathfrak{J}), \quad \mathfrak{J}_\alpha=(\mathfrak{b}_\alpha+\mathfrak{J})/\mathfrak{b}_\alpha,
+\]
+
+so that $E_0=C$;
+and we set
+
+\[
+E_{\alpha,n}=B/(\mathfrak{b}_\alpha+\mathfrak{J}^{n+1})=B_\alpha/\mathfrak{J}_\alpha^{n+1},
+\]
+
+a discrete quotient ring.
+\end{env}
+
+\begin{env}[19.5.6.1]
+\label{0.19.5.6.1}
+The $C$-modules $((\mathfrak{b}_\alpha\cap\mathfrak{J}^n)+\mathfrak{J}^{n+1})/\mathfrak{J}^{n+1}$ of $\mathfrak{J}^n/\mathfrak{J}^{n+1}$ form a fundamental system of open submodules of the topological $C$-module $\mathfrak{J}^n/\mathfrak{J}^{n+1}$;
+as $(\mathfrak{b}_\alpha\cap\mathfrak{J}^n)+\mathfrak{J}^{n+1}=\mathfrak{J}^n\cap(\mathfrak{b}_\alpha+\mathfrak{J}^{n+1})$, we have
+
+\[
+\mathfrak{J}^n/((\mathfrak{b}_\alpha\cap\mathfrak{J}^n)+\mathfrak{J}^{n+1})=\mathfrak{J}^n/(\mathfrak{J}^n\cap(\mathfrak{b}_\alpha+\mathfrak{J}^{n+1}))=(\mathfrak{b}_\alpha+\mathfrak{J}^n)/(\mathfrak{b}_\alpha+\mathfrak{J}^{n+1})=\mathfrak{J}_\alpha^n/\mathfrak{J}_\alpha^{n+1}.
+\]
+
+\end{env}
+
+\begin{env}[19.5.6.2]
+\label{0.19.5.6.2}
+\oldpage[0\textsubscript{IV-1}]{95}
+For all $n\geq 0$, we set $E_n=B/\mathfrak{J}^{n+1}$, so that $E_0=C$;
+and we set
+
+\[
+E_{\alpha,n}=B/(\mathfrak{b}_\alpha+\mathfrak{J}^{n+1})=B_\alpha/\mathfrak{J}_\alpha^{n+1},
+\]
+
+a discrete quotient ring.
+Likewise, in $\gr_\mathfrak{J}^n(B)=\mathfrak{J}^n/\mathfrak{J}^{n+1}$, we have seen that the $((\mathfrak{b}_\alpha\cap\mathfrak{J}^n)+\mathfrak{J}^{n+1})/\mathfrak{J}^{n+1}$ form a fundamental system of open submodules.
+Consider the symmetric algebra $\mathbf{S}_{C_\alpha}^*(\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^2)$;
+we denote by $F_{\alpha,n}$ the quotient of $\mathbf{S}_{C_\alpha}^*(\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^2)$ by the $(n+1)$-th power of its ideal of augmentation.
+For a fixed $n\geq 1$, it follows from \sref{0.19.5.1.1} that the $\mathbf{S}_C^n(\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^2)$ are the quotients of $\mathbf{S}_C^n(\mathfrak{J}/\mathfrak{J}^2)$ by a fundamental system of open submodules within this topological $C$-module.
+
+To abbreviate the language, we will say that for $\alpha\leq\beta$, the canonical homomorphisms $B_\beta\to B_\alpha$, $C_\beta\to C_\alpha$, $E_{\beta,n}\to E_{\alpha,n}$, $F_{\beta,n}\to F_{\alpha,n}$, etc., are \emph{homomorphisms of transition}.
+\end{env}
+
+\begin{lemma}[19.5.6.3]
+\label{0.19.5.6.3}
+Suppose that $C$ is a formally smooth $A$-algebra, that the $A$-algebra $B$ is formally smooth, the ring $B$ preadmissible, and the $C$-module $\mathfrak{J}/\mathfrak{J}^2$ formally projective.
+Then:
+\begin{enumerate}
+  \item[\rm(i)] For every $\alpha$, there exists $\beta\geq\alpha$ and an $A$-homomorphism surjective of algebras
+  
+\[
+v_{\alpha\beta}:F_{\beta,n}\to E_{\alpha,n}
+\]
+
+  such that $\gr^0(v_{\alpha\beta}):C_\beta\to C_\alpha$ and $\gr^1(v_{\alpha\beta}):\mathfrak{J}_\beta/\mathfrak{J}_\beta^2\to\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^2$ are the homomorphisms of transition;
+  $2^\circ$ the composite $E_{\lambda,n}\xrightarrow{w_{\beta\lambda}}F_{\beta,n}\xrightarrow{v_{\alpha\beta}}E_{\alpha,n}$ is the homomorphism of transition.
+
+  \item[\rm(ii)] If $\beta$ and $v_{\alpha\beta}$ satisfy the conditions of~{\rm(i)}, then for every $\gamma\geq\beta$, there exists $\delta\geq\gamma$ and an $A$-homomorphism surjective of algebras $v_{\gamma\delta}:F_{\delta,n}\to E_{\gamma,n}$ satisfying the conditions of~{\rm(i)} (for $\gamma$ and $\delta$) and making commutative the diagram
+  
+\[
+\xymatrix@C=3em{
+      F_{\beta,n} \ar[r]^{v_{\alpha\beta}} & E_{\alpha,n} \\
+      F_{\delta,n} \ar[u] \ar[r]_{v_{\gamma\delta}} & E_{\gamma,n} \ar[u]
+    }
+\]
+
+  where the vertical arrows are the homomorphisms of transition.
+\end{enumerate}
+\end{lemma}
+
+\begin{env}[19.5.6.4]
+\label{0.19.5.6.4}
+\oldpage[0\textsubscript{IV-1}]{96}
+\begin{enumerate}
+  \item[\rm(i)] In the discrete topological $A$-algebra $E_{\alpha,n}$, the ideal $\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1}$ is nilpotent, and the isomorphism $C_\alpha\xrightarrow{\sim}E_{\alpha,n}/(\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1})$ gives by composition a continuous $A$-homomorphism $C\to C_\alpha\to E_{\alpha,n}/(\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1})$;
+  as $C$ is a formally smooth $A$-algebra, this homomorphism factorizes as $C\xrightarrow{f_\alpha}E_{\alpha,n}\to E_{\alpha,n}/(\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1})$,
+  where $f_\alpha$ is a continuous $A$-homomorphism;
+  hence $\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1}$ becomes, by means of $f_\alpha$, a topological $C$-module annihilated by an open ideal of $C$.
+  The hypothesis that $\mathfrak{J}/\mathfrak{J}^2$ is a formally projective $C$-module then implies the existence of a continuous $C$-linear application $g_\alpha:\mathfrak{J}/\mathfrak{J}^2\to\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1}$ making commutative the diagram
+  
+\[
+\xymatrix{
+      \mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1} \ar[r] & \mathfrak{J}_\alpha/\mathfrak{J}_\alpha^2 \\
+      & \mathfrak{J}/\mathfrak{J}^2 \ar[ul]^{g_\alpha} \ar[u]
+    }
+\]
+
+
+  As $f_\alpha$ and $g_\alpha$ are continuous, there exists $\beta\geq\alpha$ such that these homomorphisms factorize through
+  
+\[
+C\to C_\beta\xrightarrow{f'_{\alpha\beta}}E_{\alpha,n}
+\]
+
+  
+\[
+\mathfrak{J}/\mathfrak{J}^2\to\mathfrak{J}_\beta/\mathfrak{J}_\beta^2\xrightarrow{g'_{\alpha\beta}}\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1}
+\]
+
+  and from $f'_{\alpha\beta}$ and $g'_{\alpha\beta}$, one obtains a homomorphism of $C_\beta$-algebras
+  
+\[
+\mathbf{S}_{C_\beta}^*(\mathfrak{J}_\beta/\mathfrak{J}_\beta^2) \to E_{\alpha,n}
+\]
+
+  which, since by definition $g'_{\alpha\beta}$ annihilates on the $(n+1)$-th power of the ideal of augmentation of $\mathbf{S}_{C_\beta}^*(\mathfrak{J}_\beta/\mathfrak{J}_\beta^2)$, passing to the quotient by this power, one obtains the desired homomorphism $v_{\alpha\beta}$, taking into account the definitions of $f_\alpha$ and $g_\alpha$;
+  the surjectivity of $v_{\alpha\beta}$ follows from that of the two homomorphisms $\gr^0(v_{\alpha\beta})$ and $\gr^1(v_{\alpha\beta})$,
+  since this implies that $\gr(v_{\alpha\beta})$ is surjective (the graded algebra $\gr^*(E_{\alpha,n})$ being generated by $\gr^0(E_{\alpha,n})$ and $\gr^1(E_{\alpha,n})$), and
+  as the filtrations considered are finite, one can apply Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,2, n$^\circ$\,8, cor.~3 of th.~1.
+
+  \item[\rm(ii)] The hypothesis that $B$ is preadmissible means that one can suppose all the $\mathfrak{b}_\alpha$ contained in the same $\mathfrak{b}_{\alpha_0}$, whose powers tend to $0$.
+  This implies in particular that the kernel of the homomorphism of transition $E_{\gamma,n}\to E_{\alpha,n}$, equal to $(\mathfrak{b}_\gamma+\mathfrak{J}^{n+1})/(\mathfrak{b}_\alpha+\mathfrak{J}^{n+1})$, is \emph{nilpotent};
+  applying the lemma \sref{0.19.3.10.1}, one sees that one can choose $f_\gamma$ so that the diagram
+  
+\[
+\xymatrix{
+      & E_{\alpha,n} \\
+      C \ar[ur]^{f_\alpha} \ar[r]_{f_\gamma} & E_{\gamma,n} \ar[u]
+    }
+\]
+
+  (where the vertical arrow is the homomorphism of transition) is commutative.
+  The hypothesis that $\mathfrak{J}/\mathfrak{J}^2$ is a formally projective $C$-module furthermore allows one to choose $g_\gamma:\mathfrak{J}/\mathfrak{J}^2\to\mathfrak{J}_\gamma/\mathfrak{J}_\gamma^{n+1}$ so that the appropriate diagram is commutative (it suffices to note that the image by $(g_\alpha,p_\gamma)$ of $\mathfrak{J}/\mathfrak{J}^2$ in the product module $(\mathfrak{J}_\alpha/\mathfrak{J}_\alpha^{n+1})\times(\mathfrak{J}_\gamma/\mathfrak{J}_\gamma^2)$ is contained in the canonical image $Q$ of this product module;
+  the existence of $g_\gamma$ and the relation $\beta\leq\gamma$ then suffices to obtain \sref{0.19.5.6.4} and the commutativity of the diagram.
+\end{enumerate}
+\end{env}
+
+\begin{lemma}[19.5.6.5]
+\label{0.19.5.6.5}
+\oldpage[0\textsubscript{IV-1}]{97}
+Suppose that the $A$-algebras $B$ and $C$ are both formally smooth, and that $B$ is preadmissible.
+For every system of two indices $\alpha\leq\beta$ and every homomorphism $v_{\alpha\beta}:F_{\beta,n}\to E_{\alpha,n}$ satisfying the conditions of \sref{0.19.5.6.3},~{\rm(i)}, there exists an index $\lambda\geq\beta$ and an $A$-homomorphism of algebras
+
+\[
+w_{\beta\lambda}:E_{\lambda,n}\to F_{\beta,n}
+\]
+
+such that: $1^\circ$ $\gr^0(w_{\beta\lambda}):C_\lambda\to C_\beta$ and $\gr^1(w_{\beta\lambda}):\mathfrak{J}_\lambda/\mathfrak{J}_\lambda^2\to\mathfrak{J}_\beta/\mathfrak{J}_\beta^2$ are the homomorphisms of transition;
+$2^\circ$ the composite $E_{\lambda,n}\xrightarrow{w_{\beta\lambda}}F_{\beta,n}\xrightarrow{v_{\alpha\beta}}E_{\alpha,n}$ is the homomorphism of transition.
+\end{lemma}
+
+\begin{proof}
+Let us apply the lemma \sref{0.19.5.6.3},~(ii) with $\gamma=\beta$, which gives a $\delta\geq\beta$ and a $v_{\beta\delta}:F_{\delta,n}\to E_{\beta,n}$.
+Recall that $v_{\beta\delta}$ is surjective;
+on the other hand, its kernel $\mathfrak{R}$ is nilpotent since $B$ is preadmissible.
+As $B$ is a formally smooth $A$-algebra, the $A$-homomorphism canonical $\rho_{\beta,n}:B\to E_{\beta,n}$, which is continuous, factorizes as $B\xrightarrow{w}F_{\beta,n}\xrightarrow{v_{\beta\delta}}E_{\beta,n}$, where $w$ is a continuous $A$-homomorphism.
+As $F_{\beta,n}$ is discrete, there exists $\lambda\geq\delta$ such that $w$ is zero on $\mathfrak{b}_\lambda$, so $w$ factorizes as $B\to B/\mathfrak{b}_\lambda\xrightarrow{w'_\lambda}F_{\beta,n}$.
+Consider the composed homomorphism $u'_\lambda:B/\mathfrak{b}_\lambda\xrightarrow{w'_\lambda}F_{\beta,n}\xrightarrow{v_{\alpha\beta}}E_{\alpha,n}$, where $q_{\beta\delta}$ is the homomorphism of transition;
+as the composite $v_{\beta\delta}\circ w_{\beta\lambda}$ is the homomorphism of transition $C_\lambda\to C_\beta$, this $A$-homomorphism is the canonical homomorphism $B/\mathfrak{b}_\lambda\to B/(\mathfrak{b}_\alpha+\mathfrak{J}^{n+1})=E_{\alpha,n}$.
+Moreover, as $\varphi_{\gamma\gamma,0}$ and $\varphi_{\gamma\gamma,1}$ are the homomorphisms of transition identities, $u^0_{\beta\gamma}:C_\gamma\to C_\beta$ and $u^1_{\beta\gamma}:\mathfrak{J}_\gamma/\mathfrak{J}_\gamma^2\to\mathfrak{J}_\beta/\mathfrak{J}_\beta^2$ are the homomorphisms of transition.
+From $w'_\lambda$, noting that $\gr^0(q_{\beta\delta})=\gr^0(v_{\beta\delta}):C_\delta\to C_\beta$ is the homomorphism of transition, the composite $C_\lambda\to C_\delta\to C_\beta$ is the homomorphism of transition.
+Similarly, $\gr^1(v_{\beta\delta}\circ w_{\beta\lambda})$ is the homomorphism of transition, and the required properties follow.
+\end{proof}
+
+\begin{lemma}[19.5.6.7]
+\label{0.19.5.6.7}
+\oldpage[0\textsubscript{IV-1}]{98}
+Suppose that $B$ is preadmissible, that $\mathfrak{J}/\mathfrak{J}^2$ is a formally projective $C$-module, that $C$ is a formally smooth $A$-algebra, and that the $\varphi_n$ are formal bimorphisms.
+Then, for every pair of indices $\alpha,\beta$ such that $\alpha\leq\beta$ and every homomorphism $v_{\alpha\beta}:F_{\beta,n}\to E_{\alpha,n}$ satisfying the conditions of \sref{0.19.5.6.3},~{\rm(i)}, there exists an index $\gamma\geq\beta$ such that, for every index $\mu\geq\gamma$, there exists a commutative diagram of $A$-homomorphisms
+
+\[
+\xymatrix@C=3em{
+    F_{\beta,n} \ar[r]^{v_{\alpha\beta}} & E_{\alpha,n} \\
+    F_{\mu,n} \ar[u]^{u_{\beta\mu}} & E_{\mu,n} \ar[u]_{p_{\alpha\mu}}
+  }
+\]
+
+where $p_{\alpha\mu}$ is the homomorphism of transition.
+\end{lemma}
+
+\begin{env}[19.5.6.8]
+\label{0.19.5.6.8}
+\oldpage[0\textsubscript{IV-1}]{99}
+\emph{Proof of} \sref{0.19.5.3},~(iii). ---
+To show that $\varphi_n$ is a formal bimorphism, we apply the criterion of \sref{0.19.1.3} and the conditions of \sref{0.19.5.6.5} being satisfied by hypothesis; let us determine, for every $\alpha$, $v_{\alpha\beta}$ and $w_{\beta\lambda}$ satisfying the conclusions of this lemma.
+The homomorphism
+
+\[
+\gr^n(v_{\alpha\beta}):\gr^n(F_{\beta,n}) \to \gr^n(E_{\alpha,n})
+\]
+
+is none other than the homomorphism
+
+\[
+\varphi_{\alpha\beta,n}:\mathbf{S}_{C_\beta}^n(\mathfrak{J}_\beta/\mathfrak{J}_\beta^2)\to\mathfrak{J}_\alpha^n/\mathfrak{J}_\alpha^{n+1}
+\]
+
+deduced from the canonical homomorphism $\varphi_n$ \sref{0.19.5.2.1} by passage to quotients;
+indeed, it follows from \sref{0.19.5.6.3} and the definition of the canonical homomorphism $\varphi$ that $\gr^j(v_{\alpha\beta})$ coincides with $\varphi_{\alpha\beta,j}$ for all $j$,
+since $\varphi_n$ is surjective, $c'$ is \emph{a fortiori} a formal epimorphism;
+moreover, for $j\leq n$, as $\gr^j(v_{\alpha\beta})=\varphi_j$ for all $j$, the homomorphism composed
+
+\[
+\gr^j(F_{\lambda,n}) \xrightarrow{\varphi_{\lambda\lambda,j}} \gr^j(E_{\lambda,n}) \xrightarrow{\gr^j(w_{\beta\lambda})} \gr^j(F_{\beta,n})
+\]
+
+is the homomorphism of transition, since this is true for $j=0$ and $j=1$ by \sref{0.19.5.6.5}, and as $\gr^*(E_{\lambda,n})$ is generated by $\gr^1(E_{\lambda,n})$; composing with the homomorphism of transition $\gr^n(F_{\beta,n})\to\gr^n(F_{\alpha,n})$, one sees therefore, for $j=n$, that one has factorized the homomorphism of transition $\gr^n(F_{\lambda,n})\to\gr^n(F_{\alpha,n})$ as
+
+\[
+\gr^n(F_{\lambda,n}) \xrightarrow{\varphi_{\lambda\lambda,n}} \gr^n(E_{\lambda,n}) \to \gr^n(F_{\alpha,n})
+\]
+
+which is the condition of \sref{0.19.1.3} for $\varphi_n$ to be a formal bimorphism.
+\end{env}
+
+Let $G$ be a discrete topological $A$-algebra, $\mathfrak{R}$ an ideal of square zero in $G$, $f:B\to G/\mathfrak{R}$ a continuous $A$-homomorphism of algebras.
+As $G/\mathfrak{R}$ is discrete, there exists an index $\alpha$ such that $f$ annihilates on $\mathfrak{b}_\alpha$; moreover, as $\mathfrak{J}^m\subset\mathfrak{b}_\alpha$ for a sufficiently large $m$, $f$ factorizes as
+
+\[
+B\xrightarrow{p_\alpha}E_{\alpha,n}\xrightarrow{f_{\alpha,n}}G/\mathfrak{R}
+\]
+
+where we take $n=2m$.
+The hypotheses of the lemma \sref{0.19.5.6.3} being satisfied, there exists a $\beta\geq\alpha$ and a $v_{\alpha\beta}:F_{\beta,n}\to E_{\alpha,n}$;
+thus the composite $f_{\alpha,n}\circ v_{\alpha\beta}:F_{\beta,n}\to G/\mathfrak{R}$ is a continuous $A$-homomorphism.
+Since $F_{\beta,n}$ is a $C_\beta$-algebra, hence in particular a discrete topological $C$-algebra, this gives by composition a continuous $A$-homomorphism $r:C\to G/\mathfrak{R}$.
+Since $C$ is a formally smooth $A$-algebra, $r$ factorizes as $C\xrightarrow{r'}G\to G/\mathfrak{R}$, and $G$ is thereby equipped with the structure of a discrete topological $C$-algebra.
+On the other hand, by composition with the canonical homomorphism
+\[
+  \mathfrak{J}/\mathfrak{J}^2\to\mathfrak{J}_\beta/\mathfrak{J}_\beta^2\to F_{\beta,n},
+\]
+one deduces from $f_{\alpha,n}\circ v_{\alpha\beta}$ a continuous $C$-homomorphism $g:\mathfrak{J}/\mathfrak{J}^2\to G/\mathfrak{R}$.
+Since $\mathfrak{J}/\mathfrak{J}^2$ is a formally projective $C$-module, $g$ factorizes as $\mathfrak{J}/\mathfrak{J}^2\xrightarrow{h}G\to G/\mathfrak{R}$, where $h$ is a continuous $C$-homomorphism.
+As $G$ is discrete, there exists an index $\gamma\geq\beta$ such that $h$ annihilates the image of $((\mathfrak{b}_\gamma\cap\mathfrak{J})+\mathfrak{J}^2)/\mathfrak{J}^2$ and $r'$ annihilates the image of $(\mathfrak{b}_\gamma+\mathfrak{J})/\mathfrak{J}$;
+therefore $h$ factorizes as a $C_\gamma$-homomorphism $\mathfrak{J}_\gamma/\mathfrak{J}_\gamma^2\to G$.
+By extension, this gives a homomorphism of $C_\gamma$-algebras
+\[
+  w_\gamma:\mathbf{S}_{C_\gamma}^*(\mathfrak{J}_\gamma/\mathfrak{J}_\gamma^2)\to G.
+\]
+By construction, every element of degree $m$ has image in $\mathfrak{R}$ under $w_\gamma$, hence every element of degree $n=2m$ has zero image, since $\mathfrak{R}^2=0$;
+in other words, $w_\gamma$ factorizes as $F_{\gamma,n}\xrightarrow{w'_\gamma}G$.
+Applying the lemma \sref{0.19.5.6.7} to $v_{\alpha\beta}$, there exists a $\delta\geq\gamma$ and a $u_{\gamma\delta}:E_{\delta,n}\to F_{\gamma,n}$, so that the composite $v_{\alpha\beta}\circ u_{\gamma\delta}$ is the homomorphism of transition.
+One obtains therefore finally a commutative diagram of continuous $A$-homomorphisms
+
+\[
+\xymatrix@C=3em{
+    & E_{\alpha,n} \ar[r]^{f_{\alpha,n}} & G/\mathfrak{R} \\
+    & F_{\beta,n} \ar[u]^{v_{\alpha\beta}} \\
+    B \ar[r]_{p_\delta} & E_{\delta,n} \ar[u]^{u_{\gamma\delta}} & F_{\gamma,n} \ar[l]^{w_\gamma} \ar[r]_{w'_\gamma} & G
+  }
+\]
+
+and the composite $f':B\to G$ of the homomorphisms of the bottom line is such that $f$ factorizes as $B\xrightarrow{f'}G\to G/\mathfrak{R}$, which proves that $B$ is a formally smooth $A$-algebra.
+The proof of the theorem \sref{0.19.5.3} is thus complete.
+
+\begin{corollary}[19.5.7]
+\label{0.19.5.7}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra, $(\mathfrak{b}_\lambda)$ a fundamental system of open ideals of $B$, $\mathfrak{J}$ an ideal of $B$, and $C=B/\mathfrak{J}$ the topological quotient $A$-algebra.
+Set $C_\lambda=B/(\mathfrak{b}_\lambda+\mathfrak{J})$.
+Suppose that:
+\begin{enumerate}
+  \item[$1^\circ$] for all $n$, the topology induced on $\mathfrak{J}^n$ by that of $B$ is also the topology of the $B$-module $\mathfrak{J}^n$ deduced from the topology of $B$ \sref{0.19.0.2}; this condition is satisfied in particular if $B$ is Noetherian and its topology is preadic (\textbf{0\textsubscript{I}}, 7.3.2);
+  \item[$2^\circ$] $C$ is a formally smooth $A$-algebra.
+\end{enumerate}
+Under these conditions:
+\begin{enumerate}
+  \item[\rm(i)] If $B$ is a formally smooth $A$-algebra, then, for all $\lambda$, $(\mathfrak{J}/\mathfrak{J}^2)\otimes_C C_\lambda$ is a projective $C_\lambda$-module.
+  \item[\rm(ii)] If $B$ is a formally smooth $A$-algebra and a preadmissible ring, then, for all $\lambda$, the canonical homomorphism
+  \[
+    \label{0.19.5.7.1}
+    \varphi_\lambda=\varphi\otimes 1_{C_\lambda}:
+    \mathbf{S}_{C_\lambda}^*((\mathfrak{J}/\mathfrak{J}^2)\otimes_C C_\lambda)
+    \to \gr_\mathfrak{J}(B)\otimes_C C_\lambda
+    \tag{19.5.7.1}
+  \]
+  is bijective.
+  \item[\rm(iii)] Conversely, suppose that $B$ is preadmissible, that the sequence $(\mathfrak{J}^n)$ tends to $0$, and that, for all $\lambda$, $(\mathfrak{J}/\mathfrak{J}^2)\otimes_C C_\lambda$ is a projective $C_\lambda$-module and the homomorphism \sref{0.19.5.7.1} is bijective.
+  Then $B$ is a formally smooth $A$-algebra.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Indeed, the topology of $\mathfrak{J}/\mathfrak{J}^2$ and those of the $\mathbf{S}_C^n(\mathfrak{J}/\mathfrak{J}^2)$ are then also deduced from that of $B$ \sref{0.19.5.1};
+the conclusions are immediate consequences of \sref{0.19.5.3} and of the criteria of \sref{0.19.1.4} and \sref{0.19.2.4} specialized to this type of topology.
+\end{proof}
+
+\begin{remark}[19.5.8]
+\label{0.19.5.8}
+Suppose that $\mathfrak{J}/\mathfrak{J}^2$ is a $C$-module of finite type and that, for the quotient topology inherited from $B$, $C$ is a Zariski ring.
+Let $\mathfrak{r}$ be an ideal of definition of $C$, so that the $\mathfrak{r}^n$ form a fundamental system of neighborhoods of $0$ in $C$.
+Then the conclusions of {\rm(i)} and {\rm(ii)} in \sref{0.19.5.7} may be replaced by the following:
+\begin{enumerate}
+  \item[\rm(i')] $\mathfrak{J}/\mathfrak{J}^2$ is a projective $C$-module.
+  \item[\rm(ii')] The canonical homomorphism
+  \[
+    \varphi:\mathbf{S}_C^*(\mathfrak{J}/\mathfrak{J}^2)\to\gr_\mathfrak{J}(B)
+  \]
+  is bijective.
+\end{enumerate}
+Indeed, it is clear that {\rm(i')} implies the conclusion of {\rm(i)} in \sref{0.19.5.7}.
+Conversely, if $(\mathfrak{J}/\mathfrak{J}^2)\otimes_C C_\lambda$ is a projective $C_\lambda$-module for all $\lambda$, then $(\mathfrak{J}/\mathfrak{J}^2)\otimes_C(C/\mathfrak{r}^n)$ is a projective, hence flat, $(C/\mathfrak{r}^n)$-module for every $n$;
+one concludes that $\mathfrak{J}/\mathfrak{J}^2$ is a flat $C$-module (\textbf{0\textsubscript{III}}, 10.2.2), hence projective since it is finitely presented (Bourbaki, \emph{Alg. comm.}, chap.~II, \textsection5, n\textsuperscript{o}~2, cor.~2 of th.~1).
+On the other hand, the $C$-modules $\mathbf{S}_C^n(\mathfrak{J}/\mathfrak{J}^2)$ and $\gr_\mathfrak{J}^n(B)$ are of finite type, and when $C$ is a Zariski ring it is equivalent to say that $\varphi_n$ is bijective or that $\varphi_n\otimes 1_{C_\lambda}$ is bijective for all $\lambda$ (Bourbaki, \emph{Alg. comm.}, chap.~III, \textsection3, n\textsuperscript{o}~5, prop.~9);
+therefore {\rm(ii)} is equivalent to {\rm(ii')}.
+\end{remark}
+
+\subsection{The case of algebras over a field}
+\label{subsection:0.19.6}
+
+\begin{theorem}[19.6.1]
+\label{0.19.6.1}
+\oldpage[0\textsubscript{IV-1}]{100}
+{\rm(Cohen).} ---
+Let $k$ be a field, $K$ an extension of $k$, $k$ and $K$ being equipped with the discrete topologies.
+For $K$ to be a formally smooth $k$-algebra, it is necessary and sufficient that $K$ be a separable extension of $k$.
+\end{theorem}
+
+\begin{proof}
+The necessity of the condition will be established in \sref{0.19.6.5.1} (and of course is not used until then);
+we will content ourselves here with proving that the condition is \emph{sufficient}.
+We distinguish two cases:
+
+\emph{I. --- $K$ is a separable extension of finite type of $k$.}
+We know then (Bourbaki, \emph{Alg.}, chap.~V, \S\,9, n$^\circ$\,3, th.~2) that there exists a pure sub-extension $K'=k(T_1,\ldots,T_n)$ of $K$ such that $K$ is a finite separable algebraic extension of $K'$.
+In view of \sref{0.19.3.5},~(ii), one can therefore reduce to the case where $K=K'$, or to the case where $K$ is algebraically finite over $k$.
+In the first case, $A=k[T_1,\ldots,T_n]$ is a formally smooth $k$-algebra \sref{0.19.3.3}, hence $k(T_1,\ldots,T_n)=S^{-1}A$ where $S=A-\{0\}$ is also formally smooth \sref{0.19.3.5},~(iv).
+In the second case, \emph{all} Hochschild cohomology groups $\mathrm{H}^n_k(K,L)$ are zero for every $(K,K)$-bimodule $L$:
+indeed, if one considers the $k$-algebra tensor product $C=K\otimes_k K$, $L$ is a $C$-module on the left and the cohomology group $\mathrm{H}^n_k(K,L)$ is equal to $\operatorname{Ext}^n_C(K,L)$, where $K$ is also viewed as $(K,K)$-bimodule,
+\oldpage[0\textsubscript{IV-1}]{101}
+hence as a left $C$-module (M, IX, 4).
+Now, as $K$ is a finite separable extension of $k$, we know that $K\otimes_k K$ is a direct product of extensions of $k$, one of which is $K$ itself (Bourbaki, \emph{Alg.}, chap.~VIII, \S\,8, prop.~3);
+this implies that $K$ is a \emph{projective} $C$-module, whence our assertion.
+Every $k$-extension of $K$ of zero kernel $L$ is therefore $k$-trivial, and \emph{a fortiori} all commutative $k$-extensions are trivial, whence the theorem in this case \sref{0.19.4.4}.
+
+\emph{II. --- General case.} ---
+With the notation of \sref{0.18.4.5}, it suffices to prove that $\Hom_K(\mathrm{H}_2(\mathrm{P}'_\bullet),L)=0$ for \emph{every} $K$-vector space $L$, which means that $\mathrm{H}_2(\mathrm{P}'_\bullet)=0$.
+If $K$ is a union of a filtering family of sub-extensions $K^{(\alpha)}$ of $k$, $\mathrm{P}'_\bullet$ is the \emph{inductive limit} of the corresponding complexes $\mathrm{P}'^{(\alpha)}_\bullet$, since the $\varinjlim$ functor commutes with the tensor product in the category of $k$-modules;
+by the exactness of the $\varinjlim$ functor in this category, one has $\mathrm{H}_2(\mathrm{P}'_\bullet)=\varinjlim\mathrm{H}_2(\mathrm{P}'^{(\alpha)}_\bullet)$.
+As $K$ is separable, it follows that the same holds for every sub-extension of $K$ and that $K$ is a union of sub-extensions of finite type, so the first part of the proof implies that $K$ is a formally smooth $k$-algebra, Q.E.D.
+\end{proof}
+
+\begin{corollary}[19.6.2]
+\label{0.19.6.2}
+Let $A$ be a separated complete local ring, $K$ its residue field, $k$ a subfield of $K$ such that $K$ is a separable extension of $k$.
+Then there exists a subfield $K'$ of $A$ containing $k$, such that the restriction to $K'$ of the canonical homomorphism $A\to K$ is an isomorphism of $K'$ onto $K$.
+\end{corollary}
+
+\begin{proof}
+Let $\mathfrak{m}$ be the maximal ideal of $A$.
+By the hypothesis and \sref{0.19.6.1}, $K$ is a formally smooth $k$-algebra;
+applying \sref{0.19.3.10} (replacing $C$ by $A$ and $\mathfrak{J}$ by $\mathfrak{m}$), one sees that the identity automorphism of $K=A/\mathfrak{m}$ factorizes as $K\xrightarrow{u}A\to A/\mathfrak{m}$, where $u$ is a $k$-homomorphism, hence necessarily a $k$-isomorphism of $K$ onto a subfield $K'$ of $A$ containing $k$.
+\end{proof}
+
+\begin{corollary}[19.6.3]
+\label{0.19.6.3}
+Let $A$ be a noetherian complete local ring, $\mathfrak{m}$ its maximal ideal, $k$ its residue field.
+The following conditions are equivalent:
+\begin{enumerate}
+  \item[a)] $A$ contains a subfield.
+  \item[b)] If $p$ is the characteristic of $k$, one has $pA=0$.
+  \item[c)] There exists a field $K$ such that $A$ is isomorphic to a quotient ring of a formal power series ring $B=K[[T_1,\ldots,T_n]]$.
+\end{enumerate}
+When this is the case, one can suppose that $A$ is isomorphic to $B/\mathfrak{b}$, where $\mathfrak{b}$ is contained in the square of the maximal ideal of $B$.
+\end{corollary}
+
+\begin{proof}
+It is immediate that $c)$ implies $a)$, since $A$ is $\neq 0$ because it is a local ring;
+as $K$ is a field and the composed homomorphism $K\xrightarrow{\varphi}B\to A$ (where $\varphi$ is the canonical injection) is not zero, it is injective.
+To see that $a)$ implies $b)$, it suffices to remark that if $K$ is a subfield of $A$, $K$ is isomorphic to a subfield of $k$ and has therefore the same characteristic $p$;
+as $p.1=0$ in $K$, hence in $A$, one has $pA=0$.
+Reciprocally, $b)$ implies $a)$, for the composite of the canonical homomorphisms $\mathbf{Z}\xrightarrow{j}A\to k$ has kernel $p\mathbf{Z}$, and one has $j(p\mathbf{Z})=0$, hence $\Ker(j)=p\mathbf{Z}$ and $A$ contains a ring $A'$
+\oldpage[0\textsubscript{IV-1}]{102}
+isomorphic to $\mathbf{Z}/p\mathbf{Z}$ and not meeting $\mathfrak{m}$;
+if $p>0$, $A'$ is a field; if not, every element of $A'$ being invertible in $A$, the field of fractions of $A'$ (isomorphic to $\mathbf{Q}$) is also contained in $A$.
+
+Let us prove finally that $a)$ implies $c)$;
+the condition $a)$ implies that $A$ contains a prime subfield $k_0$, isomorphic to the prime subfield of $k$, and whose $k$ is therefore a separable extension.
+Applying \sref{0.19.6.2}, one sees that there exists an isomorphism $f$ of $k$ onto a subfield $K$ of $A$.
+On the other hand, let $(x_i)_{1\leq i\leq n}$ be a system of elements of $\mathfrak{m}$ such that the classes mod.\ $\mathfrak{m}^2$ of the $x_i$ form a basis (over $k$) of $\mathfrak{m}/\mathfrak{m}^2$.
+Since $A$ is complete, there exists a continuous ring homomorphism $u:k[[T_1,\ldots,T_n]]\to A$ such that $u$ equals $f$ on $k$ and $u(T_i)=x_i$ for all $i$, and this homomorphism is surjective by virtue of the choice of the $x_i$ (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,2, n$^\circ$\,9, prop.~11).
+\end{proof}
+
+\begin{theorem}[19.6.4]
+\label{0.19.6.4}
+Let $k$ be a field, $A$ a local noetherian $k$-algebra, $\mathfrak{m}$ its maximal ideal, $K=A/\mathfrak{m}$ its residue field, $A$ being equipped with the $\mathfrak{m}$-preadic topology.
+Suppose that $K$ is a separable extension of $k$.
+Then the following conditions are equivalent:
+\begin{enumerate}
+  \item[a)] $A$ is a formally smooth $k$-algebra.
+  \item[b)] The completion $\widehat{A}$ of $A$ is $k$-isomorphic to a formal power series ring $K[[T_1,\ldots,T_n]]$ (where the $k$-algebra structure is defined by the composed homomorphism $k\xrightarrow{\varphi}K\xrightarrow{\psi}K[[T_1,\ldots,T_n]]$, where $\psi$ is the canonical injection and $\varphi$ the homomorphism defining the extension structure of $K$).
+  \item[b')] $\widehat{A}$ is a formal power series ring isomorphic to $K[[T_1,\ldots,T_n]]$.
+  \item[c)] $A$ is a regular local ring.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The fact that $a)$ implies $b)$ is a particular case of \sref{0.19.5.4} (equivalence of $a)$ and $c)$), applied replacing $k$ by $A$, $B$ by $A$ and $\mathfrak{J}$ by $\mathfrak{m}$, taking into account \sref{0.19.6.1}.
+It is clear that $b)$ implies $b'$) and $b')$ implies $c)$ by \sref{0.17.1.1}.
+Finally, $c)$ is verified: it follows from \sref{0.17.1.1},~$a$) and from \sref{0.19.5.4} (equivalence of $b)$ and $a)$), applied to $K=A/\mathfrak{m}$, replacing $C$ by $A$, that $A$ is a formally smooth $k$-algebra.
+\end{proof}
+
+\begin{corollary}[19.6.5]
+\label{0.19.6.5}
+\oldpage[0\textsubscript{IV-1}]{103}
+Let $k$ be a field, $A$ a local noetherian $k$-algebra, $\mathfrak{m}$ its maximal ideal, $A$ being equipped with the $\mathfrak{m}$-preadic topology.
+Suppose that $A$ is a formally smooth $k$-algebra;
+then $A$ is \emph{geometrically regular} over $k$, in other words (cf.~$\mathbf{IV}$, 6.7.6), for every finite extension $k'$ of $k$, the semi-local ring $A'=A\otimes_k k'$ is regular \sref{0.17.3.6}.
+Furthermore, if $K$ is the residue field of $A$, $\widehat{A}$ is isomorphic to a formal power series ring $K[[T_1,\ldots,T_n]]$.
+\end{corollary}
+
+\begin{proof}
+As $\widehat{A}'=\widehat{A}\otimes_k k'$, it follows from \sref{0.19.3.6} and \sref{0.17.1.5} (applied to the maximal ideals of $A'$) that one can reduce to the case where $A$ is complete;
+then $A'$ is a formally smooth $k'$-algebra \sref{0.19.3.5},~(iii) and is moreover a direct product of $k'$-local algebras, which are also formally smooth \sref{0.19.3.5},~(v).
+One is therefore reduced to proving that $A$ is \emph{regular}.
+Let $k_0$ be the prime subfield of $k$;
+as $k$ is a separable extension of $k_0$, it is a formally smooth $k_0$-algebra \sref{0.19.6.1}, and by the hypothesis, so is $A$ \sref{0.19.3.5},~(ii).
+As the residue field $K$ of $A$ is a separable extension of $k_0$, one can then apply \sref{0.19.6.4} to $A$ and $k_0$, whence the conclusion.
+\end{proof}
+
+\begin{corollary}[19.6.5.1]
+\label{0.19.6.5.1}
+Let $A$ be a noetherian local ring, $k$ a subfield of $A$ such that $A$ is a formally smooth $k$-algebra (for its preadic topology).
+Then every field $K$ such that $k\subset K\subset A$ is a separable extension of $k$.
+\end{corollary}
+
+\begin{proof}
+Indeed, for every finite extension $k'$ of $k$, the ring $K\otimes_k k'$ is identified with a sub-ring of $A'=A\otimes_k k'$;
+as $A'$ is a regular ring, hence reduced, so is $K\otimes_k k'$, which proves that $K$ is a separable extension of $k$ (Bourbaki, \emph{Alg.}, chap.~VIII, \S\,7, n$^\circ$\,3, th.~1).
+\end{proof}
+
+\begin{remark}[19.6.5.2]
+\label{0.19.6.5.2}
+If $K$ is a \emph{non-separable} extension of $k$, the formal power series ring $K[[T_1,\ldots,T_n]]$ is therefore \emph{not} a formally smooth $k$-algebra (for the usual $k$-algebra structure recalled in \sref{0.19.6.4}).
+On the other hand, there exist formally smooth $k$-algebras $A$ which are complete noetherian local rings whose residue field $K$ is a non-separable extension of $k$ (for example the completions of the localizations of $B=k[T_1,\ldots,T_n]$ at maximal ideals $\mathfrak{n}$ such that $B/\mathfrak{n}$ is a finite non-separable algebraic extension of $k$);
+such a ring cannot therefore be $k$-isomorphic to $K[[T_1,\ldots,T_n]]$ even though it is \emph{isomorphic} to it by virtue of \sref{0.19.6.5}.
+
+One can in certain cases make the corollary \sref{0.19.6.5} more precise:
+\end{remark}
+
+\begin{proposition}[19.6.6]
+\label{0.19.6.6}
+Let $k$ be a field, $A$ a local noetherian $k$-algebra, $\mathfrak{m}$ its maximal ideal, $A$ being equipped with the $\mathfrak{m}$-preadic topology.
+Suppose that the residue field $K=A/\mathfrak{m}$ of $A$ is such that there exists a finite radicial extension $k_0$ of $k$ for which the residue field of the local ring $K\otimes_k k_0$ is a separable extension of $k_0$ (we will express this property later by saying that $K$ is of \emph{finite radicial multiplicity} over $k$ ($\mathbf{IV}$, 4.7.4) and we will see that this condition is always satisfied when $K$ is an extension of finite type of $k$).
+Then the following conditions are equivalent:
+\begin{enumerate}
+  \item[a)] $A$ is a formally smooth $k$-algebra.
+  \item[b)] There exists a finite radicial extension $k'$ of $k$ such that $\widehat{A}\otimes_k k'$ is $k'$-isomorphic to a formal power series algebra $K'[[T_1,\ldots,T_n]]$, where $K'$ is a separable extension of $k'$.
+  \item[b')] There exists a finite extension $k'$ of $k$ such that the semi-local ring $\widehat{A}\otimes_k k'$ has at least one local component which is $k'$-isomorphic to a formal power series algebra $K'[[T_1,\ldots,T_n]]$, where $K'$ is a separable extension of $k'$.
+  \item[c)] $A$ is geometrically regular over $k$ \sref{0.19.6.5}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\oldpage[0\textsubscript{IV-1}]{104}
+Note first that if $k'$ is a finite radicial extension of $k$, there is only a single maximal ideal of $A'=A\otimes_k k'$ above $\mathfrak{m}$, formed of elements whose $p^h$-th power ($p$ being the characteristic of $k$) is in $\mathfrak{m}$ for a suitable $h$ (Bourbaki, \emph{Alg.\ comm.}, chap.~V, \S\,2, n$^\circ$\,3, lemma~4);
+$A'$ is therefore a local ring, and so is its completion $\widehat{A}'$.
+We recall on the other hand that if $K$ is a separable extension of $k$, then, for every finite extension $k''$ of $k$, $K\otimes_k k''$ is a direct product of fields (Bourbaki, \emph{Alg.}, chap.~VIII, \S\,7, n$^\circ$\,3, cor.~1 of th.~1), and therefore $\mathfrak{m}\otimes_k k''$ is the radical of $A\otimes_k k''$, and the residue fields at the maximal ideals of $A\otimes_k k''$ are the field components of $K\otimes_k k''$; furthermore, these fields are separable extensions of $k''$ since for every extension $k_1$ of $k''$, $K\otimes_k k_1=(K\otimes_k k'')\otimes_{k''}k_1$ is without radical (\emph{loc.\ cit.}, th.~1).
+Applying these remarks to the field $K$ of finite radicial multiplicity over $k$, one sees that for \emph{every} finite extension $k''$ of $k_0$, $(K\otimes_k k'')_{\mathrm{red}}$ is separable over $k''$.
+
+Let us pass to the proof of \sref{0.19.6.6}.
+It is trivial that $b)$ implies $b')$.
+If one sets $B'=K'[[T_1,\ldots,T_n]]$, the hypothesis that $K'$ is separable over $k'$ entails, by the remarks of the beginning, that for every finite extension $k''$ of $k'$, the local components of the semi-local complete ring $B'\otimes_{k'} k''$ (equal to formal power series algebras $(K'\otimes_{k'}k'')[[T_1,\ldots,T_n]]$) are the field components of $K'\otimes_{k'}k''$, and the $K_i''$ are separable over $k_0'$; since each of these local rings is $k_0'$-isomorphic to a formal power series algebra $K_i''[[T_1,\ldots,T_n]]$, where $K'$ is separable, one sees that the hypothesis $b')$ is still verified when one replaces $k'$ by any of its finite extensions.
+In particular, one can suppose $k'$ \emph{quasi-Galois}, hence a Galois extension of a radicial extension $k_0'$ of $k$;
+$A'=\widehat{A}\otimes_k k'$ can then be written $A_0'=\widehat{A}\otimes_k k_0'$, where $A_0'=\widehat{A}\otimes_k k_0'$ is a complete local ring.
+One of the local direct components of $A'$, viewed as $k_0'$-algebras, is $k_0'$-isomorphic to a formal power series ring $K_0'[[T_1,\ldots,T_n]]$, where $K_0'$ is separable over $k_0'$;
+in view of \sref{0.19.6.4}, $A_0'$ is therefore a formally smooth $k_0'$-algebra.
+But as $k_0'$ is a $k$-module which is faithfully flat, projective and of finite type, one concludes by \sref{0.19.4.7} that $\widehat{A}$ is a formally smooth $k$-algebra.
+
+On the other hand, that $a)$ implies $c)$ has already been seen \sref{0.19.6.5};
+it remains therefore to verify that $c)$ implies $b)$.
+If $c)$ is verified, then, for every finite radicial extension $k'$ of $k$ containing $k_0$, $A\otimes_k k'$ is a local regular ring, whose residue field $K'$ is a separable extension of $k'$;
+it follows therefore from \sref{0.19.6.4} that its completion $\widehat{A}\otimes_k k'$ is $k'$-isomorphic to a formal power series ring $K'[[T_1,\ldots,T_n]]$.
+\end{proof}
+
+\begin{remarks}[19.6.7]
+\label{0.19.6.7}
+\begin{enumerate}
+  \item[\rm(i)] We note that the hypothesis that $K$ is of finite radicial multiplicity over $k$ was only used in the proof of the implication $b')\Rightarrow a)$.
+  \item[\rm(ii)] We will prove later (22.5.8) that $a)$ and $c)$ are equivalent, \emph{without} any hypothesis on the extension $K$ of $k$.
+\end{enumerate}
+\end{remarks}
+
+\subsection{The case of local homomorphisms; existence and uniqueness theorems}
+\label{subsection:0.19.7}
+
+In this section, whenever a semi-local ring is considered as a topological ring, it is always understood that it is endowed with its $\mathfrak{r}$-preadic topology, where $\mathfrak{r}$ is its radical. Every local homomorphism of local rings is thus automatically continuous.
+
+\begin{theorem}[19.7.1]
+\label{0.19.7.1}
+Let $A$, $B$ be two local noetherian rings, $\mathfrak{m}$, $\mathfrak{n}$ their respective maximal ideals, $k=A/\mathfrak{m}$ the residue field of $A$; suppose that $A$ and $B$ are equipped respectively with the $\mathfrak{m}$-preadic and $\mathfrak{n}$-preadic topologies.
+Let $\varphi:A\to B$ be a local homomorphism, and set $B_0=B\otimes_A k$.
+The following properties are equivalent:
+\begin{enumerate}
+  \item[\rm a)] $B$ is a formally smooth $A$-algebra.
+  \item[\rm b)] $B$ is a flat $A$-module and $B_0=B/\mathfrak{m}B$ (equipped with the quotient topology) is a formally smooth $k$-algebra.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The proof is carried out in several steps.
+
+\medskip
+\noindent\textbf{(19.7.1.1)}\enspace
+Let us first show that $b)$ implies $a)$; we will apply the criterion \sref{0.19.4.7}, with $\mathfrak{J}=\mathfrak{m}$; by virtue of the second hypothesis in $b)$, it suffices to show that $B$ is a \emph{formally projective} $A$-module.
+The hypothesis implies that for all $h>0$, $B/\mathfrak{m}^h B$ is a flat $(A/\mathfrak{m}^h)$-module ($\mathbf{0_{III}}$, 10.2.1); as the $\mathfrak{m}^h$ form a fundamental system of neighbourhoods of $0$ in $A$ and $(B/\mathfrak{m}^h B)\otimes_{A/\mathfrak{m}^h} k = B_0$, we can replace $A$ and $B$ by $A/\mathfrak{m}^h$ and $B/\mathfrak{m}^h B$ respectively, and thus suppose that $A$ is \emph{artinian} (hence discrete).
+As $B_0$ is a $k$-algebra formally smooth, it is a regular ring \sref{0.19.6.5}; let $(x_i^0)_{1\leq i\leq n}$ be a regular system of parameters for $B_0$ \sref{0.17.1.6},
+\oldpage[0\textsubscript{IV-1}]{105}
+and for each $i$, let $x_i\in B$ be such that $x_i^0$ is its image in $B_0=B/\mathfrak{m}B$; as the $x_i^0$ generate the maximal ideal $\mathfrak{n}_0=\mathfrak{n}/\mathfrak{m}B$ of $B_0$, the ideals $\mathfrak{Q}_m=\sum_{i=1}^n (x_i^0)^m B_0$ (for $m>0$) form a fundamental system of neighbourhoods of $0$ in $B_0$, since $\mathfrak{Q}_m$ is evidently contained in $\mathfrak{n}_0^m$, and $\mathfrak{n}_0^m$ contains $\mathfrak{Q}_m^m$.
+Set $\mathfrak{J}_m=\sum_{i=1}^n x_i^m B$ for all $m>0$;
+it is clear that $\mathfrak{n}=\mathfrak{J}_1+\mathfrak{m}B$; as there exists $h>0$ such that $\mathfrak{m}^h=0$, one has $\mathfrak{n}^m\subset\mathfrak{J}_1^{m-h}\subset\mathfrak{n}^{m-h}$ for $m>h$, and as we have seen that $\mathfrak{J}_m\supset\mathfrak{J}_1^{mn}$, the $\mathfrak{J}_m$ form a fundamental system of neighbourhoods of $0$ in $B$.
+The whole argument then amounts to proving that the $B/\mathfrak{J}^m$ are \emph{free} $A$-modules, and it amounts to the same to verify that these are \emph{flat} $A$-modules ($\mathbf{0_{III}}$, 10.1.3).
+Now, the hypothesis that $(x_i^0)$ is a $B_0$-regular sequence of elements of the maximal ideal of $B_0$ implies the same property for the sequence $(x_i^0)^m$ ($1\leq i\leq n$) for all $m>0$ \sref{0.15.1.20}; the conclusion thus follows from \sref{0.15.1.16}, $b)$ and $c)$).
+\end{proof}
+
+\begin{lemma}[19.7.1.2]
+\label{0.19.7.1.2}
+Let $A$ be a topological ring, $B$, $C$ two topological $A$-algebras that are local noetherian rings.
+Suppose further that $C$ is complete and that the residue field $B/\mathfrak{m}$ of $B$ is an $A$-module of finite type.
+Let $E$ be the completed tensor product $B\widehat{\otimes}_A C$.
+Then:
+\begin{enumerate}
+  \item[\rm(i)] $E$ is a complete semi-local noetherian ring.
+  \item[\rm(ii)] The ideal $\mathfrak{m}E$ is contained in the radical of $E$, and for all $h>0$, $E/\mathfrak{m}^h E$ is isomorphic to $(B/\mathfrak{m}^h)\otimes_A C$.
+  \item[\rm(iii)] If $C$ is a flat $A$-module, $E$ is a flat $B$-module.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By definition, $E$ is the separated completion of the tensor product $B\otimes_A C$ for the topology defined by the ideals $\operatorname{Im}(\mathfrak{m}^i\otimes_A C)+\operatorname{Im}(B\otimes_A \mathfrak{n}')$ ($\mathbf{0_I}$, 7.7.5).
+If one sets $\mathfrak{r}=\operatorname{Im}(\mathfrak{m}\otimes_A C)+\operatorname{Im}(B\otimes_A \mathfrak{n})$, one has $\mathfrak{r}^{2i}\subset\operatorname{Im}(\mathfrak{m}^i\otimes_A C)+\operatorname{Im}(B\otimes_A \mathfrak{n}^i)\subset\mathfrak{r}^i$, so $E$ is also the separated completion of $B\otimes_A C$ for the $\mathfrak{r}$-preadic topology.
+By hypothesis, $(B\otimes_A C)/\mathfrak{r}=(B/\mathfrak{m})\otimes_A (C/\mathfrak{n})$ is a $(C/\mathfrak{n})$-module of finite type, hence an artinian ring;
+moreover, $\mathfrak{r}/\mathfrak{r}^2$, being a quotient of $((\mathfrak{m}/\mathfrak{m}^2)\otimes_A C)\oplus(B\otimes_A (\mathfrak{n}/\mathfrak{n}^2))$, is a $(B\otimes_A C)$-module of finite type; applying ($\mathbf{0_I}$, 7.2.11), one sees that $E$ is a \emph{noetherian} ring; moreover, $E/\mathfrak{r}E$, being artinian, $E$ is \emph{semi-local}.
+Note now that $E$, which is isomorphic to $\varprojlim((B/\mathfrak{m}^i)\otimes_A(C/\mathfrak{n}^j))$, is also isomorphic, by the theorem
+\oldpage[0\textsubscript{IV-1}]{106}
+of the double projective limit, to $\varprojlim_i(\varprojlim_j((B/\mathfrak{m}^i)\otimes_A (C/\mathfrak{n}^j)))$; but $\varprojlim_j((B/\mathfrak{m}^i)\otimes_A (C/\mathfrak{n}^j))$
+is the separated completion of $(B/\mathfrak{m}^i)\otimes_A C$, and as $C$ is complete, this is none other than $(B/\mathfrak{m}^i)\otimes_A C$ itself, since $B/\mathfrak{m}^i$ is an $A$-module of finite type (as $\mathfrak{m}/\mathfrak{m}^i$ is a $(B/\mathfrak{m})$-module of finite type ($\mathbf{0_I}$, 7.3.6)).
+One therefore has $E=\varprojlim_i((B/\mathfrak{m}^i)\otimes_A C)$.
+For every integer $h>0$, $\mathfrak{m}^h E$, being an ideal of $E$, is closed in $E$ ($\mathbf{0_I}$, 7.3.5), hence complete, and on the other hand it is evidently dense in $\varprojlim_i(\operatorname{Im}(\mathfrak{m}^h/\mathfrak{m}^{h+i})\otimes_A C))$, hence equal to this projective limit.
+Moreover, all the projective systems considered are defined by \emph{surjective} homomorphisms; it follows therefore from ($\mathbf{0_{III}}$, 13.2.2) that $E/\mathfrak{m}^h E$ is isomorphic to $(B/\mathfrak{m}^h)\otimes_A C = (B\otimes_A C)/\operatorname{Im}(\mathfrak{m}^h\otimes_A C)$.
+In particular $\operatorname{Im}(\mathfrak{m}\otimes_A C)\subset\mathfrak{r}$, which shows that $\mathfrak{m}E$ is contained in $\mathfrak{r}E$, hence in the radical of $E$.
+Finally, the hypothesis that $C$ is a flat $A$-module implies that $(B/\mathfrak{m}^h)\otimes_A C = E/\mathfrak{m}^h E$ is a flat $(B/\mathfrak{m}^h)$-module for all $h>0$: since $B$ and $E$ are noetherian and $\mathfrak{m}E$ is contained in the radical of $E$, it follows from ($\mathbf{0_{III}}$, 10.2.2) that $E$ is a flat $B$-module.
+\end{proof}
+
+\begin{lemma}[19.7.1.3]
+\label{0.19.7.1.3}
+Let $A$ be a local noetherian ring, $\mathfrak{m}$ its maximal ideal, $k$ its residue field, $B_0$ a local noetherian $k$-algebra; suppose that $B_0$ is complete and regular.
+Then there exists a topological $A$-algebra $B$ that is a complete local noetherian ring, a flat $A$-module, and such that $B_0$ is $k$-isomorphic to $B\otimes_A k = B/\mathfrak{m}B$.
+\end{lemma}
+
+\begin{proof}
+As $\widehat{A}$ is flat over $A$ and has the same residue field, we can restrict to the case where $A$ is \emph{complete}.
+
+Let $K$ be the residue field of $B_0$, and let us distinguish two cases:
+
+\medskip
+\noindent\emph{Case~I}: $K$ is a \emph{separable} extension of $k$.
+By virtue of \sref{0.19.6.4}, $B_0$ is $k$-isomorphic to a formal power series ring $K[[T_1,\ldots,T_n]]$.
+When $B_0=K$, the lemma has already been proved ($\mathbf{0_{III}}$, 10.3.1); let $C$ be a complete local noetherian ring that is a flat $A$-module and such that $C\otimes_A k$ is isomorphic to $K$.
+For $n\geq 1$, it suffices to take (using the preceding notation) $B=C[[T_1,\ldots,T_n]]$; indeed it is known (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,3, n$^\circ$\,4, cor.~3 of th.~1) that $B$ is a flat $C$-module, hence also a flat $A$-module, and on the other hand, it is immediate that $C[[T_1,\ldots,T_n]]\otimes_A k$ is isomorphic to $(C/\mathfrak{m}C)[[T_1,\ldots,T_n]]=B_0$.
+
+\medskip
+\noindent\emph{Case~II}: $K$ is of \emph{characteristic} $p>0$, and is therefore of the same characteristic as $k$.
+\oldpage[0\textsubscript{IV-1}]{107}
+Denote by $\mathbf{F}_p$ the prime field, and by $W(P)$ the complete local ring of $p$-adic numbers $\mathbf{Z}_p$, which is a complete discrete valuation ring (hence \emph{regular}), with $P$ as residue field.
+Let us first show that there exists a continuous ring homomorphism $W(P)\to A$, thus making $A$ into a $W(P)$-\emph{topological algebra}.
+Indeed, if $j:\mathbf{Z}\to A$ is the canonical homomorphism, one has $j(p\mathbf{Z})\subset\mathfrak{m}$ by hypothesis, whence $j^{-1}(\mathfrak{m})=p\mathbf{Z}$, and $j$ therefore factors as $\mathbf{Z}\to\mathbf{Z}_{p\mathbf{Z}}\xrightarrow{f}A$, where $f$ is a local homomorphism, hence continuous, which (since $A$ is complete) extends by continuity to the desired homomorphism $W(P)\to A$.
+
+As $k$ is a separable extension of $P$, case~I) shows that there is a local homomorphism $W(P)\to W(k)$, where $W(k)$ is a complete local noetherian ring and a flat $W(P)$-module, such that $W(k)\otimes_{W(P)}P$ is isomorphic to $k$.
+Moreover, as the uniformiser $p$ of $W(P)$ is a $W(k)$-regular element by flatness ($\mathbf{0_I}$, 6.3.4), and as $W(k)/pW(k)=k$, the maximal ideal of $W(k)$ is $pW(k)$, which implies that this ring is a \emph{complete discrete valuation ring} (Bourbaki, \emph{Alg.\ comm.}, chap.~VI, \S\,3, n$^\circ$\,5, prop.~9).
+By \sref{0.19.7.1.1} (as $k$ is separable over $P$, hence a formally smooth $P$-algebra \sref{0.19.6.1}), one sees that $W(k)$ is a $W(P)$-algebra \emph{formally smooth}.
+The continuous $W(P)$-homomorphism $W(k)\to k$ therefore factors as $W(k)\to A\to k$ \sref{0.19.3.11},
+which allows us to consider $A$ as a $W(k)$-topological algebra.
+Applying now case~I) to $B_0$ considered as a $P$-algebra and to $W(P)$, one sees that there exists a $W(P)$-algebra $B_P$ which is a complete local noetherian ring, a flat $W(P)$-module, and such that $B_P\otimes_{W(P)}P$ is $P$-isomorphic to $B_0$.
+Using again the fact that $W(k)$ is a $W(P)$-algebra formally smooth, one sees by \sref{0.19.3.11} that the homomorphism $W(k)\to k\to B_0$ factors as $W(k)\to B_P\to B_0$; moreover, as $k=W(k)/pW(k)$, one has $B_P\otimes_{W(k)}k = B_P/pB_P = B_P\otimes_{W(P)}P = B_0$.
+Let us show that $B_P$ is a flat $W(k)$-module; it suffices to verify that $B_P$ is a $W(k)$-module \emph{without torsion} ($\mathbf{0_I}$, 6.3.4), or equivalently that $p$ is a $B_P$-regular element, which follows from the fact that $B_P$ is a flat $W(P)$-module ($\mathbf{0_I}$, 6.3.4).
+
+Set now
+\[
+  B = B_P\widehat{\otimes}_{W(k)} A
+\]
+and note that the residue field of $A$ being equal to that of $W(k)$, is \emph{a fortiori} a $W(k)$-module of finite type.
+It follows first from \sref{0.19.7.1.2} that $B$ is a complete semi-local noetherian ring, $\mathfrak{m}B$ is contained in the radical of $B$; moreover $B/\mathfrak{m}B$ is $k$-isomorphic to $B_P\otimes_{W(k)}k = B_0$, hence $B$ is in fact a \emph{local} ring.
+As $B_P$ is a flat $W(k)$-module, \sref{0.19.7.1.2} shows finally that $B$ is a flat $A$-module. \textsc{q.e.d.}
+\end{proof}
+
+\begin{lemma}[19.7.1.4]
+\label{0.19.7.1.4}
+\oldpage[0\textsubscript{IV-1}]{108}
+Let $A$ be a ring, $\mathfrak{J}$ an ideal of $A$, $M$, $N$ two $A$-modules separated for the $\mathfrak{J}$-preadic topology.
+Suppose further that $N$ is complete for the $\mathfrak{J}$-preadic topology and that $M$ is a flat $A$-module.
+Let $u:N\to M$ be an $A$-homomorphism; if $u\otimes 1:N\otimes_A(A/\mathfrak{J})\to M\otimes_A(A/\mathfrak{J})$ is bijective, then $u$ is bijective.
+\end{lemma}
+
+\begin{proof}
+The graded modules being taken relative to the $\mathfrak{J}$-preadic filtrations, it follows from the hypotheses on $M$ and $N$ relative to the $\mathfrak{J}$-preadic topologies that it suffices to prove that $\gr(u):\gr_\bullet(N)\to\gr_\bullet(M)$ is \emph{bijective} (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,2, n$^\circ$\,8, cor.~3 of th.~1).
+Now, there is a commutative diagram
+\[
+\xymatrix{
+  \gr_0(N)\otimes_{A_0}\gr_\bullet(A) \ar[r]^-{\gr_0(u)\otimes 1} \ar[d]_{\varphi_N} & \gr_0(M)\otimes_{A_0}\gr_\bullet(A) \ar[d]^{\varphi_M} \\
+  \gr_\bullet(N) \ar[r]^-{\gr(u)} & \gr_\bullet(M)
+}
+\]
+where $A_0=A/\mathfrak{J}=\gr_0(A)$, and $\varphi_M$ and $\varphi_N$ are the canonical maps ($\mathbf{0_{III}}$, 10.1.2).
+By hypothesis, $\gr_0(u)$ is bijective as well as $\varphi_M$ ($\mathbf{0_{III}}$, 10.2.1), and $\varphi_N$ is surjective; one deduces first that $\gr_0(u)\otimes 1$ is bijective, then that $\varphi_N$ is injective, hence bijective, and finally that $\gr(u)$ is bijective.
+\end{proof}
+
+\begin{lemma}[19.7.1.5]
+\label{0.19.7.1.5}
+Let $A$ be a noetherian ring, $\mathfrak{J}$ an ideal of $A$, $B$, $B'$ two $A$-algebras that are local noetherian rings, the homomorphisms $A\to B$, $A\to B'$ being continuous for the $\mathfrak{J}$-preadic topology on $A$.
+Suppose that:
+\begin{enumerate}
+  \item[$1^\circ$] $B$ and $B'$ are complete for the $\mathfrak{J}$-preadic topologies;
+  \item[$2^\circ$] $B$ is a formally smooth $A$-algebra;
+  \item[$3^\circ$] $B'$ is a flat $A$-module.
+\end{enumerate}
+Set $A_0=A/\mathfrak{J}$, and let $u_0:B\otimes_A A_0\to B'\otimes_A A_0$ be an $A_0$-isomorphism; then there exists an $A$-isomorphism $u:B\to B'$ such that $u_0=u\otimes 1$ (which implies that $B'$ is also a formally smooth $A$-algebra and $B$ is a flat $A$-module).
+\end{lemma}
+
+\begin{proof}
+Set $B_0=B\otimes_A A_0$, $B_0'=B'\otimes_A A_0$.
+Note that if $\mathfrak{m}$ and $\mathfrak{m}'$ are the maximal ideals of $B$ and $B'$, the $\mathfrak{J}$-preadic topologies on $B$ and $B'$ are separated since $\mathfrak{J}B\subset\mathfrak{m}$ and $\mathfrak{J}B'\subset\mathfrak{m}'$; moreover, as $\mathfrak{J}B'$ is closed in $B'$ for the $\mathfrak{J}$-preadic topology, the composed homomorphism $B\to B_0\xrightarrow{u_0}B_0'$, which is continuous for the $\mathfrak{J}$-preadic topologies, factors as $B\xrightarrow{\bar{u}}B'$, where $\bar{u}$ is a continuous $A$-homomorphism \sref{0.19.3.10}.
+One has $\bar{u}_0=u\otimes 1$, and the hypothesis that $u_0$ is bijective implies that $\bar{u}$ is bijective, by virtue of \sref{0.19.7.1.4}.
+\end{proof}
+
+\medskip
+\noindent\textbf{(19.7.1.6)}\enspace
+\emph{End of the proof of} \sref{0.19.7.1}. ---
+To finish proving \sref{0.19.7.1}, it remains to show that $a)$ implies $b)$; it is already known that $a)$ implies that $B_0$ is a $k$-algebra formally smooth \sref{0.19.3.5}, (iii), hence it suffices to prove that $B$ is a flat $A$-module.
+It amounts to the same to establish that $\widehat{B}$ is a flat $\widehat{A}$-module (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,5, n$^\circ$\,4, prop.~4), and one knows that $\widehat{B}$ is an $\widehat{A}$-algebra formally smooth \sref{0.19.3.6}; one can therefore restrict to the case where $A$ and $B$ are \emph{complete}.
+As $B_0$ is a $k$-algebra formally smooth, it is a regular ring \sref{0.19.6.5} and complete ($\mathbf{0_I}$, 6.3.5); applying \sref{0.19.7.1.3}, one sees that there exists a complete local noetherian ring $B'$ that is a flat $A$-module and a $k$-isomorphism $B_0\simeq B_0'=B'\otimes_A k$.
+It then suffices to apply \sref{0.19.7.1.5} (taking $\mathfrak{J}$ to be the maximal ideal of $A$) to obtain that $B$ is $A$-isomorphic to $B'$, hence is a flat $A$-module. \textsc{q.e.d.}
+
+\begin{theorem}[19.7.2]
+\label{0.19.7.2}
+\oldpage[0\textsubscript{IV-1}]{109}
+Let $A$ be a local noetherian ring, $\mathfrak{J}$ an ideal contained in the maximal ideal of $A$, $A_0=A/\mathfrak{J}$, $B_0$ a complete local noetherian ring, $A_0\to B_0$ a local homomorphism making $B_0$ into a formally smooth $A_0$-algebra.
+Then there exists a complete local noetherian ring $B$, a local homomorphism $A\to B$ making $B$ into a flat $A$-module, and an $A_0$-isomorphism $u:B\otimes_A A_0\xrightarrow{\sim} B_0$.
+If $(B',u')$ is a couple satisfying the same conditions as $(B,u)$, there exists an $A$-isomorphism $v:B\xrightarrow{\sim} B'$ making the diagram
+\[
+\xymatrix{
+  B\otimes_A A_0 \ar[rr]^{v\otimes 1} \ar[dr]_u && B'\otimes_A A_0 \ar[dl]^{u'} \\
+  & B_0
+}
+\]
+commutative.
+\end{theorem}
+
+\begin{proof}
+Let $\mathfrak{m}$ be the maximal ideal of $A$, so that $\mathfrak{m}_0=\mathfrak{m}/\mathfrak{J}$ is the maximal ideal of $A_0$, $A$ and $A_0$ having the same residue field $k$.
+Set $B_{00}=B_0\otimes_{A_0} k$; as $B_{00}$ is a formally smooth $k$-algebra \sref{0.19.3.5}, (iii), it is a regular local ring \sref{0.19.6.5}; applying \sref{0.19.7.1.3}, one sees that there exists a topological $A$-algebra $B$ which is a complete local noetherian ring, a flat $A$-module, and for which one has a $k$-isomorphism $u_{00}:B\otimes_A k\xrightarrow{\sim} B_{00}$.
+Note that by virtue of \sref{0.19.7.1}, $B$ is a formally smooth $A$-algebra, hence $B\otimes_A A_0=B/\mathfrak{J}B$ is a formally smooth $A_0$-algebra \sref{0.19.3.5}, (iii) and a complete local noetherian ring; moreover, $B_0$ is a flat $A_0$-module by virtue of the hypothesis and of \sref{0.19.7.1}; as one has a $k$-isomorphism $u_{00}:B\otimes_A k=(B\otimes_A A_0)\otimes_{A_0} k\xrightarrow{\sim} B_0\otimes_{A_0} k = B_{00}$, one deduces from \sref{0.19.7.1.5}, applied by replacing $A$ by $A_0$ and $\mathfrak{J}$ by $\mathfrak{m}_0$, that there exists an $A_0$-isomorphism $u:B\otimes_A A_0\xrightarrow{\sim} B_0$ such that $u_{00}=u\otimes 1$.
+As for the uniqueness assertion, note that the ideals $\mathfrak{J}^h B$ (resp.\ $\mathfrak{J}^h B'$) are closed in $B$ (resp.\ $B'$) ($\mathbf{0_I}$, 7.3.5), hence $B$ and $B'$ are separated and complete for the $\mathfrak{J}$-preadic topologies (Bourbaki, \emph{Top.\ g\'{e}n.}, chap.~III, 3$^\text{e}$ \'{e}d., \S\,3, n$^\circ$\,5, cor.~2 of prop.~9); one has by hypothesis an $A_0$-isomorphism $v_0:B\otimes_A A_0\xrightarrow{\sim} B'\otimes_A A_0$ such that $u'v_0=u$; as $B$ is a formally smooth $A$-algebra and $B'$ a flat $A$-module, one can apply \sref{0.19.7.1.5}, whence the existence of the $A$-isomorphism $v$ answering the question.
+\end{proof}
+
+\begin{remarks}[19.7.3]
+\label{0.19.7.3}
+\begin{enumerate}
+  \item[\rm(i)] We note that the uniqueness assertion in \sref{0.19.7.2} is still valid if one only supposes that $B$ and $B'$ are complete \emph{for the $\mathfrak{J}$-preadic topologies}.
+We do not know whether one can similarly improve the existence assertion, that is, whether one can dispense with assuming the local ring $B_0$ to be complete (for its $\mathfrak{n}_0$-preadic topology, where $\mathfrak{n}_0$ denotes its maximal ideal) by only requiring that $B$ be complete for the $\mathfrak{J}$-preadic topology.
+When $A_0$ is complete for the $\mathfrak{m}$-preadic topology, one can see that this problem reduces to the following: if $B_0$ is a regular local noetherian ring (not necessarily complete) containing the prime field $\mathbf{F}_p=\mathbf{Z}/p\mathbf{Z}$, does there exist for every $n>1$ a flat $(\mathbf{Z}/p^n\mathbf{Z})$-algebra $B$ such that $B/pB$ is isomorphic to $B_0$?
+  \item[\rm(ii)] We note that in general, the isomorphism $v$ whose existence is asserted in \sref{0.19.7.2} is \emph{not unique} (cf.\ \sref{0.19.8.7}).
+\end{enumerate}
+\end{remarks}
+
+\subsection{Cohen algebras and Cohen rings; application to the structure of complete local rings}
+\label{subsection:0.19.8}
+
+The results of this section are immediate applications of the theorems of \sref{subsection:0.19.7}, but deserve to be stated explicitly because of their practical importance.
+
+\begin{definition}[19.8.1]
+\label{0.19.8.1}
+Let $A$, $B$ be two local noetherian rings, $\mathfrak{m}$ the maximal ideal of $A$, $k=A/\mathfrak{m}$ its residue field, $\varphi:A\to B$ a local homomorphism, making $B$ into an $A$-algebra.
+We say that $B$ is a \emph{Cohen $A$-algebra} if it satisfies the following conditions:
+\begin{enumerate}
+  \item[\rm(i)] $B$ is a complete ring.
+  \item[\rm(ii)] $B$ is a flat $A$-module.
+  \item[\rm(iii)] $B\otimes_A k$ is a field (in other words, $\mathfrak{m}B$ is the maximal ideal of $B$) which is a separable extension of $k$.
+\end{enumerate}
+\end{definition}
+
+\oldpage[0\textsubscript{IV-1}]{110}
+\begin{theorem}[19.8.2]
+\label{0.19.8.2}
+Let $A$ be a local noetherian ring, $k$ its residue field.
+\begin{enumerate}
+  \item[\rm(i)] If $B$ is a Cohen $A$-algebra, $B$ is a formally smooth $A$-algebra.
+For every complete local noetherian ring $C$, every local homomorphism $A\to C$ and every ideal $\mathfrak{J}\neq C$ in $C$, every $A$-homomorphism $B\to C/\mathfrak{J}$ therefore factors as $B\xrightarrow{v}C\to C/\mathfrak{J}$, where $v$ is an $A$-homomorphism (necessarily local).
+  \item[\rm(ii)] For every field $K$, separable extension of $k$, there exists a Cohen $A$-algebra $B$ such that $B\otimes_A k$ is $k$-isomorphic to $K$, and such an $A$-algebra is unique up to isomorphism.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+As $K$ is a formally smooth $k$-algebra \sref{0.19.6.1}, the assertion (i) follows from \sref{0.19.7.1}.
+To prove (ii), one can restrict to the case where $A$ is \emph{complete}, for it amounts to the same to say that $B$ is a flat $A$-module or a flat $\widehat{A}$-module ($\mathbf{0_{III}}$, 10.2.3), one has $\mathfrak{m}B=\mathfrak{m}\widehat{A}B$ and $k$ is the residue field of $\widehat{A}$.
+It then suffices to apply \sref{0.19.7.2} taking $\mathfrak{J}=\mathfrak{m}$ and $B_0=K$ (and using \sref{0.19.6.1}).
+\end{proof}
+
+\begin{definition}[19.8.3]
+\label{0.19.8.3}
+A \emph{prime local ring} is a local ring of the form $\mathbf{Z}_{p\mathbf{Z}}$, where $p\mathbf{Z}$ is a prime ideal of $\mathbf{Z}$.
+A \emph{complete prime local ring} is the completion of a prime local ring.
+\end{definition}
+
+The prime local rings are therefore of two kinds:
+\begin{enumerate}
+  \item[$1^\circ$] Those corresponding to maximal ideals $p\mathbf{Z}$ where $p\neq 0$ is a prime number; $\mathbf{Z}_{p\mathbf{Z}}$ is a discrete valuation ring, whose completion is the ring of $p$-adic integers usually denoted $\mathbf{Z}_p$.\footnote{This notation, now universally used, is in conflict with the notation $A_f$ adopted in ($\mathbf{0_I}$, 1.2.3): with $A=\mathbf{Z}$ and $f=p$, $A_f$ denotes the ring of rational numbers of the form $k/p^n$ ($k\in\mathbf{Z}$, $n$ an integer $\geq 0$); we will always avoid using the notation $\mathbf{Z}_p$ to denote this latter ring.}
+  \item[$2^\circ$] For the prime ideal $p\mathbf{Z}=(0)$, $\mathbf{Z}_{p\mathbf{Z}}$ is the field of rational numbers $\mathbf{Q}$, which is identical to its completion (the topology being naturally the topology of a local noetherian ring, hence discrete here).
+\end{enumerate}
+
+The terminology of \sref{0.19.8.3}, analogous to that of ``prime fields'', is justified in the same way: for every local ring $A$, consider the canonical homomorphism $\varphi:\mathbf{Z}\to A$, and let $p\mathbf{Z}$ be the inverse image under this homomorphism of the maximal ideal $\mathfrak{m}$ of $A$; $p\mathbf{Z}$ is a prime ideal of $\mathbf{Z}$ and the preceding homomorphism therefore factors as $\mathbf{Z}\to\mathbf{Z}_{p\mathbf{Z}}\xrightarrow{\psi}A$; moreover, as $\varphi$ is the \emph{unique} homomorphism of $\mathbf{Z}$ into $A$, $p$ and $\psi$ are determined in a unique way.
+In other words, for every local ring $A$, there is a unique homomorphism $\psi:P\to A$, where $P$ is a prime local ring; if moreover $A$ is separated and complete, one can extend this homomorphism by completion, and there is thus a unique homomorphism $\hat{\psi}:\widehat{P}\to A$, where $\widehat{P}$ is a complete prime local ring.
+Moreover, $\psi$ gives by passage to quotients a homomorphism of the residue field $\mathbf{F}_p$ if $p>0$ (resp.\ $\mathbf{Q}$ if $p=0$) into the residue field $k$ of $A$, and $p$ is therefore the \emph{characteristic} of $k$.
+
+If one takes in particular $A$ to be a prime local ring (resp.\ complete prime local ring), one sees that there exists in such a ring only \emph{a single endomorphism}, namely the identity.
+
+\begin{definition}[19.8.4]
+\label{0.19.8.4}
+\oldpage[0\textsubscript{IV-1}]{111}
+Let $A$ be a local ring, $P\to A$ the unique homomorphism from a prime local ring $P$ into $A$, $p$ the characteristic of the residue fields of $P$ and $A$.
+We say that $A$ is a \emph{Cohen ring} if it is a Cohen $P$-algebra, that is \sref{0.19.8.1}, if:
+\begin{enumerate}
+  \item[$1^\circ$] $A$ is noetherian and complete.
+  \item[$2^\circ$] $A$ is a flat $P$-module (which also amounts to saying that $A$ is a flat $\widehat{P}$-module (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,5, n$^\circ$\,4, prop.~4)).
+  \item[$3^\circ$] $A/pA$ is a field (necessarily separable over the residue field of $P$, this field being prime).
+\end{enumerate}
+\end{definition}
+
+If $p=0$, these conditions are equivalent to saying that $A$ is a field of characteristic $0$.
+If $p>0$, one necessarily has $pA\neq 0$; condition $3^\circ$ means that $pA$ is the maximal ideal $\mathfrak{m}$ of $A$; condition $2^\circ$ means that $p$ is $A$-regular, since $P$ is a discrete valuation ring ($\mathbf{0_I}$, 6.3.4).
+Hence $A$ is a regular ring \sref{0.17.1.1}, $d)$) of dimension $1$, and therefore a discrete valuation ring, complete by virtue of $1^\circ$; in summary:
+
+\begin{proposition}[19.8.5]
+\label{0.19.8.5}
+The Cohen rings are the fields of characteristic $0$ and the complete discrete valuation rings whose residue field has characteristic $p>0$, and whose maximal ideal is generated by $p\cdot 1$ ($1$ being the unity of the ring).
+\end{proposition}
+
+We note that in the second case, $p\cdot 1\neq 0$ since $p$ is $A$-regular, hence one can identify $p\cdot 1$ with the integer $p$; the canonical homomorphism $\mathbf{Z}_p\to A$ is injective, and one identifies $p\cdot 1$ with the element $p$ of $\mathbf{Z}_p$; one says in this case that $A$ is a \emph{$p$-ring} (or \emph{Cohen $p$-ring}).
+
+\begin{theorem}[19.8.6]
+\label{0.19.8.6}
+\textup{(Cohen).} ---
+\begin{enumerate}
+  \item[\rm(i)] Let $W$ be a Cohen ring, $C$ a complete local noetherian ring, $\mathfrak{J}$ an ideal of $C$ distinct from $C$.
+Then every local homomorphism $u:W\to C/\mathfrak{J}$ factors as $W\xrightarrow{v}C\to C/\mathfrak{J}$ where $v$ is a local homomorphism.
+  \item[\rm(ii)] Let $K$ be a field.
+There exists a Cohen ring $W$ whose residue field is isomorphic to $K$.
+If $W'$ is a second Cohen ring, $K'$ its residue field, every isomorphism $u:K\xrightarrow{\sim}K'$ arises by passage to quotients from an isomorphism $v:W\xrightarrow{\sim}W'$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+This is nothing other than \sref{0.19.8.2} applied to the case where $A$ is a prime local ring.
+\end{proof}
+
+\begin{remarks}[19.8.7]
+\label{0.19.8.7}
+\begin{enumerate}
+  \item[\rm(i)] When $K$ is of characteristic $0$, part (ii) of \sref{0.19.8.6} becomes trivial.
+  \item[\rm(ii)] The homomorphism $v$ of \sref{0.19.8.6}, (i) is \emph{not} necessarily determined uniquely by $u$, as is shown already by the case where $W$ is a field of characteristic $0$, $\mathfrak{J}^2=0$ and $u$ is an isomorphism (cf.\ (21.5.5)).
+Similarly, in \sref{0.19.8.6}, (ii), the isomorphism $v$ is not necessarily determined uniquely by $u$ (cf.\ (21.5.5)).
+However, when $K$ is \emph{perfect} and of characteristic $p>0$, one will see (21.5.5) that in \sref{0.19.8.6}, (ii) the isomorphism $v$ is unique.
+One will also see later that in this case $W$ identifies with the ring $W_\infty(K)$ of \emph{Witt vectors of infinite length} over $K$.
+  \item[\rm(iii)] In \sref{0.19.8.6}, (i), one can weaken the hypotheses on $C$ by using \sref{0.19.3.10} and \sref{0.19.3.12}.
+\end{enumerate}
+\end{remarks}
+
+\begin{theorem}[19.8.8]
+\label{0.19.8.8}
+\oldpage[0\textsubscript{IV-1}]{112}
+\textup{(Cohen).} ---
+Let $A$ be a complete local noetherian ring, $k$ its residue field.
+\begin{enumerate}
+  \item[\rm(i)] There exists a Cohen ring $W$ such that $A$ is isomorphic to a quotient ring of a formal power series ring $W[[T_1,\ldots,T_n]]$ (and in particular $A$ is isomorphic to a quotient of a complete regular local ring \sref{0.17.3.8}).
+If $A$ contains a field, it is isomorphic to a quotient ring of $k[[T_1,\ldots,T_n]]$.
+  \item[\rm(ii)] Suppose moreover that $A$ is an integral domain.
+Then there exists a subring $B$ of $A$ such that: $1^\circ$ $B$ is isomorphic to a formal power series ring over a ring $C$ which is a field or a Cohen ring (which implies that $B$ is a complete regular local ring \sref{0.17.3.8}); $2^\circ$ $B$ has the same residue field as $A$ and the injection $B\to A$ is a local homomorphism; $3^\circ$ $A$ is a finite $B$-algebra.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $\mathfrak{m}$ be the maximal ideal of $A$.
+There exists a Cohen ring $W$ whose residue field is isomorphic to $k$ \sref{0.19.8.6}, (ii); one therefore has a homomorphism $W\to A/\mathfrak{m}$, which then factors as $W\xrightarrow{u}A\to A/\mathfrak{m}$, where $u$ is a local homomorphism \sref{0.19.8.6}, (i).
+For every finite family $(x_i)_{1\leq i\leq n}$ of elements of $\mathfrak{m}$, there then exists a local homomorphism $v:W[[T_1,\ldots,T_n]]\to A$ extending $u$ and such that $v(T_i)=x_i$ for all $i$ (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,4, n$^\circ$\,5, prop.~6).
+When $A$ contains a field, it contains a prime field $P$, of which $k$ is an extension (necessarily separable), and therefore $A$ contains a field isomorphic to $k$ \sref{0.19.6.2}; one can then replace $W$ by $k$ in the preceding definition of $v$.
+
+\medskip
+\noindent(i)\enspace
+Let us first take the $x_i$ to be a system of generators of $\mathfrak{m}$.
+As $W$ has the same residue field as $A$, and the classes of the $x_i$ generate the graded ring $\gr_\bullet(A)$ as a $k$-algebra, $\gr(v):\gr_\bullet(W[[T_1,\ldots,T_n]])\to\gr_\bullet(A)$ is surjective; one deduces that $v$ is itself surjective (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,2, n$^\circ$\,8, cor.~2 of th.~1).
+We recall that the case where $A$ contains a field has already been seen and is included here only for convenience \sref{0.19.6.3}.
+
+\medskip
+\noindent(ii)\enspace
+If $A$ contains a field, it contains a field $k'$ isomorphic to $k$ as we have seen; one then considers a system of parameters $(y_j)_{1\leq j\leq m}$ of $A$ \sref{0.16.3.6}, one takes $B=k[[T_1,\ldots,T_m]]$ and one considers the local homomorphism $w:B\to A$ which coincides in $k$ with an isomorphism $k\to k'$ and is such that $w(T_j)=y_j$ for $1\leq j\leq m$.
+If $A$ does not contain a field, the unique homomorphism $\mathbf{Z}_{p\mathbf{Z}}\to A$ \sref{0.19.8.3} is necessarily injective (for otherwise, as $A$ is an integral domain, its kernel would be the maximal ideal of $\mathbf{Z}_{p\mathbf{Z}}$ and its image would be isomorphic to a field; moreover one has $p>0$ by hypothesis, $\mathbf{Z}_{p\mathbf{Z}}$ being a field if $p=0$); the element $p\cdot 1$ of $A$ (identified with $p$) is a non-zero-divisor in $A$, and is contained in $\mathfrak{m}$, hence \sref{0.16.3.4} and \sref{0.16.3.7} there exist $m-1$ other elements $x_i$ ($2\leq i\leq m$) of $\mathfrak{m}$ forming, with $p$, a system of parameters of $A$.
+The Cohen ring $W$ considered at the beginning of the proof is then a discrete valuation ring whose residue field is isomorphic to $k$, in which $p$ generates the maximal ideal \sref{0.19.8.5}, and the unique homomorphism $u:W\to A$ defined at the beginning maps $p$ to itself.
+One then takes $B=W[[T_1,\ldots,T_{m-1}]]$ and considers the local homomorphism $w:B\to A$ which coincides with $u$ in $W$ and is such that $w(T_i)=x_i$ for $1\leq i\leq m-1$.
+\oldpage[0\textsubscript{IV-1}]{113}
+In both cases, if $\mathfrak{n}$ is the maximal ideal of $B$, it is clear that $\mathfrak{n}A$ is an ideal of definition of $A$; as moreover $B/\mathfrak{n}$ and $A/\mathfrak{m}$ are isomorphic, $A$ is a quasi-finite $B$-module ($\mathbf{0_I}$, 7.4.4), hence a $B$-module of finite type since $B$ is complete and $A$ is separated for the $\mathfrak{n}$-preadic topologies ($\mathbf{0_I}$, 7.4.1).
+On the other hand, in both cases one has $\dim(B)=\dim(A)=m$; in the first case, this follows from \sref{0.17.1.4}, (iii); in the second, one sees directly that $p$ and the $T_i$ ($1\leq i\leq m-1$) form a $B$-regular sequence generating $\mathfrak{n}$, or one can also use the fact that these elements generate $\mathfrak{n}$ and that $\dim(B)\geq\dim(A)$ by \sref{0.16.3.10}.
+As $A$ and $B$ are integral domains, one finally deduces from \sref{0.16.3.10} that $w$ is injective, which completes the proof.
+\end{proof}
+
+\begin{corollary}[19.8.9]
+\label{0.19.8.9}
+Let $A$ be a complete local noetherian integral domain containing a field $k_0$; let $k$ be the residue field of $A$, and suppose that $k$ is finite over $k_0$.
+Then, in the conclusion of \sref{0.19.8.8}, (ii), one can replace $1^\circ$ and $2^\circ$ by the condition that $B$ is of the form $k_0[[T_1,\ldots,T_n]]$, the canonical injection $B\to A$ being a local $k_0$-homomorphism (for the usual $k_0$-algebra structure of $B$).
+\end{corollary}
+
+\begin{proof}
+Indeed, taking up the proof of \sref{0.19.8.8}, (ii), one defines this time $w:k_0[[T_1,\ldots,T_n]]\to A$ as coinciding in $k_0$ with the identity and mapping $T_j$ to $y_j$ for $1\leq j\leq n$.
+The hypothesis that $k$ is of finite degree over $k_0$ again implies that $A$ is a quasi-finite $B$-module, hence of finite type by ($\mathbf{0_I}$, 7.4.1), and one concludes as in \sref{0.19.8.8}.
+\end{proof}
+
+\begin{corollary}[19.8.10]
+\label{0.19.8.10}
+Let $A$ be a local artinian ring whose maximal ideal $\mathfrak{m}$ is of square zero; then there exists a regular local noetherian ring $B$, with maximal ideal $\mathfrak{n}$, such that $A$ is isomorphic to $B/\mathfrak{n}^2$.
+\end{corollary}
+
+\begin{proof}
+Let $K$ be the residue field $A/\mathfrak{m}$ of $A$, and $n$ the rank of $\mathfrak{m}/\mathfrak{m}^2=\mathfrak{m}$ over $K$.
+If $A$ contains a field, it follows from \sref{0.19.6.3} that $A$ is isomorphic to $B/\mathfrak{b}$, where $B=K[[T_1,\ldots,T_n]]$ and $\mathfrak{b}$ is contained in the square of the maximal ideal $\mathfrak{n}$ of $B$; but as $\operatorname{long}(B/\mathfrak{n}^2)=n+1=\operatorname{long}(A)$, one necessarily has $\mathfrak{b}=\mathfrak{n}^2$.
+
+Suppose next that $A$ does not contain a field; this implies that $K$ is of characteristic $p>0$ and that $p\cdot 1\neq 0$ in $A$ \sref{0.19.6.3}; hence $p\cdot 1$ is an element of $\mathfrak{m}$, and there are therefore $n-1$ other elements $x_i$ ($2\leq i\leq n$) of $\mathfrak{m}$ forming with $p\cdot 1$ a basis of $\mathfrak{m}$ over $K$.
+Let $W$ be a Cohen ring whose residue field is isomorphic to $K$; $W$ is a discrete valuation ring in which $p$ generates the maximal ideal; one has seen in the proof of \sref{0.19.8.8} that there is a homomorphism $u:W\to A$ mapping $p$ to itself and which by passage to quotients gives the identity on $K$.
+One takes $B=W[[T_2,\ldots,T_n]]$ and considers the local homomorphism $w:B\to A$ which coincides with $u$ in $W$ and is such that $w(T_i)=x_i$ for $2\leq i\leq n$.
+It is clear that $w$ is surjective and that its kernel $\mathfrak{b}$ is contained in the square of the maximal ideal $\mathfrak{n}=pB+BT_2+\ldots+BT_n$ of $B$; as $\operatorname{long}(B/\mathfrak{n}^2)=n+1=\operatorname{long}(A)$, one again has $\mathfrak{b}=\mathfrak{n}^2$.
+\end{proof}
+
+\begin{proposition}[19.8.11]
+\label{0.19.8.11}
+Let $A$ be a local artinian ring, $\mathfrak{m}$ its maximal ideal, $k$ its residue field.
+For $A$ to be isomorphic to a quotient ring of a Cohen ring, it is necessary and sufficient that $\mathfrak{m}$ be generated by $p\cdot 1$, where $p$ is the characteristic of $k$.
+\end{proposition}
+
+\begin{proof}
+\oldpage[0\textsubscript{IV-1}]{114}
+The condition is evidently necessary \sref{0.19.8.5}.
+To see that it is sufficient, one observes, as at the beginning of the proof of \sref{0.19.8.8}, that there exists a Cohen ring $W$ whose residue field is isomorphic to $k$ and a local homomorphism $u:W\to A$.
+Moreover, if one considers the composed homomorphism $\mathbf{Z}_{p\mathbf{Z}}\to W\xrightarrow{u}A$ (which is necessarily the unique homomorphism of $\mathbf{Z}_{p\mathbf{Z}}$ into $A$), one sees that the image under $u$ of the element $p\cdot 1$ of $W$ is the element $p\cdot 1$ of $A$; as the element $p\cdot 1$ of $W$ generates the maximal ideal of this ring, one deduces immediately from the hypothesis that $\gr(u):\gr_\bullet(W)\to\gr_\bullet(A)$ is surjective, and therefore so is $u$ (Bourbaki, \emph{Alg.\ comm.}, chap.~III, \S\,2, n$^\circ$\,8, cor.~2 of th.~1).
+\end{proof}
+
+\subsection{Relatively formally smooth algebras}
+\label{subsection:0.19.9}
+
+\begin{definition}[19.9.1]
+\label{0.19.9.1}
+Let $\Lambda$ be a topological ring, $A$ a topological $\Lambda$-algebra, $B$ a topological $A$-algebra.
+We say that $B$ is a \emph{formally smooth $A$-algebra relative to $\Lambda$} if, for every discrete topological $A$-algebra $C$, and every nilpotent ideal $\mathfrak{J}$ of $C$, every continuous $A$-homomorphism $u_0:B\to C/\mathfrak{J}$ which factors as $B\xrightarrow{u}C\to C/\mathfrak{J}$, where $u$ is a continuous $\Lambda$-homomorphism, also factors as $B\xrightarrow{v}C\to C/\mathfrak{J}$, where $v$ is a continuous $A$-homomorphism.
+\end{definition}
+
+It follows from this definition that if $B$ is a \emph{formally smooth} $A$-algebra, then $B$ is also formally smooth relative to $\Lambda$, for every structure of topological $\Lambda$-algebra defined on $A$ (in other words, every continuous ring homomorphism $\Lambda\to A$).
+
+\begin{proposition}[19.9.2]
+\label{0.19.9.2}
+Let $\Lambda$ be a topological ring, $A$ a topological $\Lambda$-algebra.
+\begin{enumerate}
+  \item[\rm(i)] $A$ is a $\Lambda$-algebra formally smooth relative to $\Lambda$.
+  \item[\rm(ii)] If $B$ is an $A$-algebra formally smooth relative to $\Lambda$ and $C$ is a $B$-algebra formally smooth relative to $\Lambda$, then $C$ is an $A$-algebra formally smooth relative to $\Lambda$.
+  \item[\rm(iii)] Let $B$ be an $A$-algebra formally smooth relative to $\Lambda$, $A'$ a topological $A$-algebra, then the topological $A'$-algebra $B\otimes_A A'$ is formally smooth relative to $\Lambda$.
+  \item[\rm(iv)] Let $B$ be a topological $A$-algebra, $S$ (resp.\ $T$) a multiplicative subset of $A$ (resp.\ $B$) such that the canonical image of $S$ in $B$ is contained in $T$.
+If $B$ is an $A$-algebra formally smooth relative to $\Lambda$, then $T^{-1}B$ is an $S^{-1}A$-algebra formally smooth relative to $\Lambda$.
+  \item[\rm(v)] Let $B_i$ ($1\leq i\leq n$) be topological $A$-algebras.
+For $\prod_{i=1}^n B_i$ to be an $A$-algebra formally smooth relative to $\Lambda$, it is necessary and sufficient that each of the $B_i$ be so.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Assertion (i) is trivial, and the proof of the others closely follows the proofs of \sref{0.19.3.5}; it is therefore left to the reader.
+\end{proof}
+
+\begin{corollary}[19.9.3]
+\label{0.19.9.3}
+Let $A$ be a topological ring, $A'$ and $B$ two topological $A$-algebras.
+Then the topological $A$-algebra $B'=B\otimes_A A'$ is a $B$-algebra formally smooth relative to $A$.
+\end{corollary}
+
+\begin{proof}
+This follows from \sref{0.19.9.2}, (i) and (iii).
+\end{proof}
+
+\begin{proposition}[19.9.4]
+\label{0.19.9.4}
+Let $\Lambda$ be a topological ring, $A$ a topological $\Lambda$-algebra, $B$ a topological $A$-algebra.
+The following conditions are equivalent:
+\begin{enumerate}
+  \item[\rm a)] $B$ is an $A$-algebra formally smooth relative to $\Lambda$.
+  \item[\rm b)] $\widehat{B}$ is an $A$-algebra formally smooth relative to $\Lambda$.
+  \item[\rm c)] $\widehat{B}$ is an $\widehat{A}$-algebra formally smooth relative to $\Lambda$.
+  \item[\rm d)] $\widehat{B}$ is an $\widehat{A}$-algebra formally smooth relative to $\widehat{\Lambda}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The proof is again left to the reader, modelled on that of \sref{0.19.3.6}.
+\end{proof}
+
+\oldpage[0\textsubscript{IV-1}]{115}
+\begin{env}[19.9.5]
+\label{0.19.9.5}
+Similarly, the statement \sref{0.19.3.8} is still valid (with the same proof) when one replaces ``formally smooth'' by ``formally smooth relative to $\Lambda$''.
+If in the statement of \sref{0.19.3.10} one replaces ``formally smooth'' by ``formally smooth relative to $\Lambda$'', the conclusion is replaced by the following (the proof remaining essentially unchanged): \emph{every continuous $A$-homomorphism $u_0:B\to C/\mathfrak{J}$ which factors as $B\xrightarrow{u}C\to C/\mathfrak{J}$, where $u$ is a continuous $\Lambda$-homomorphism, also factors as $B\xrightarrow{v}C\to C/\mathfrak{J}$, where $v$ is a continuous $A$-homomorphism}.
+\end{env}
+
+\begin{env}[19.9.6]
+\label{0.19.9.6}
+The criteria for formal smoothness \sref{0.19.4.1} and \sref{0.19.4.2} are also valid when one replaces ``formally smooth'' by ``formally smooth relative to $\Lambda$'', the proofs remaining practically unchanged.
+\end{env}
+
+\begin{proposition}[19.9.7]
+\label{0.19.9.7}
+Let $\Lambda$ be a topological ring, $A$ a topological $\Lambda$-algebra, $B$ a topological $A$-algebra.
+Suppose that for every discrete $A$-algebra $C$ and every ideal $\mathfrak{J}$ of $C$ such that $\mathfrak{J}^2=0$, every continuous $A$-homomorphism $u_0:B\to C/\mathfrak{J}$ which factors as $B\xrightarrow{u}C\to C/\mathfrak{J}$, where $u$ is a continuous $\Lambda$-homomorphism, also factors as $B\xrightarrow{v}C\to C/\mathfrak{J}$, where $v$ is a continuous $A$-homomorphism.
+Then $B$ is an $A$-algebra formally smooth relative to $\Lambda$.
+\end{proposition}
+
+\begin{proof}
+The proof of \sref{0.19.4.3} transcribes immediately.
+\end{proof}
+
+\begin{proposition}[19.9.8]
+\label{0.19.9.8}
+Let $\Lambda$ be a topological ring, $A$ a topological $\Lambda$-algebra, $B$ a topological $A$-algebra.
+For $B$ to be an $A$-algebra formally smooth relative to $\Lambda$, it is necessary and sufficient that for every discrete topological $B$-module $L$, annihilated by an open ideal of $B$, one has (cf.\ 18.4.2)
+\[
+  \operatorname{Exalcotop}_{A/\Lambda}(B,L) = 0.
+\]
+\end{proposition}
+
+\begin{proof}
+Using the notation of the proof of \sref{0.19.4.4}, it suffices to note here that one can suppose that the extension $E_\Lambda$ of $B_\Lambda$ is $\Lambda$-trivial; the rest of the proof is then unchanged.
+\end{proof}
+
+When $\Lambda$, $A$ and $B$ are discrete rings, the criterion \sref{0.19.9.8} reduces to
+\begin{equation}
+\tag{19.9.8.1}
+  \label{0.19.9.8.1}
+  \operatorname{Exalcom}_{A/\Lambda}(B,L) = 0 \quad\text{for every $B$-module $L$};
+\end{equation}
+in other words, \emph{every commutative $A$-extension of $B$ by a $B$-module, which is also $\Lambda$-trivial, is also $A$-trivial}.
+
+\subsection{Formally unramified algebras and formally \'{e}tale algebras}
+\label{subsection:0.19.10}
+
+\begin{env}[19.10.1]
+\label{0.19.10.1}
+We will also need two notions closely related to that of a formally smooth algebra.
+\end{env}
+
+\begin{definition}[19.10.2]
+\label{0.19.10.2}
+Let $A$ be a topological ring, $B$ a topological $A$-algebra.
+We say that $B$ is a \emph{formally unramified} $A$-algebra if, for every $A$-homomorphism $p:E\to C$ of discrete $A$-algebras, whose kernel is nilpotent, and every continuous $A$-homomorphism $u:B\to C$, there exists \emph{at most one} continuous $A$-homomorphism $v:B\to E$ such that $u$ factors as $B\xrightarrow{v}E\xrightarrow{p}C$.
+We say that $B$ is a \emph{formally \'{e}tale} $A$-algebra if it is formally smooth and formally unramified, in other words, if, for every surjective $A$-homomorphism $p:E\to C$ of discrete $A$-algebras, whose kernel is nilpotent, and for every continuous $A$-homomorphism $u:B\to C$, there exists \emph{one and only one} continuous $A$-homomorphism $v:B\to E$ such that $u$ factors as $B\xrightarrow{v}E\xrightarrow{p}C$.
+\end{definition}
+
+\oldpage[0\textsubscript{IV-1}]{116}
+\begin{examples}[19.10.3]
+\label{0.19.10.3}
+We restrict here to \emph{discrete} rings.
+\begin{enumerate}
+  \item[\rm(i)] If the structural homomorphism $\rho:A\to B$ is \emph{surjective}, $B$ is a \emph{formally unramified} $A$-algebra, for with the notation of \sref{0.19.10.2}, the composed homomorphism $A\xrightarrow{j}B\xrightarrow{v}E$ must be the structural homomorphism, hence $v$ is unique (if it exists).
+On the other hand, $B$ is not formally smooth unless $\rho$ is \emph{bijective}.
+  \item[\rm(ii)] Let $A$ be a ring, $S$ a multiplicative subset of $A$; then $B=S^{-1}A$ is a \emph{formally \'{e}tale} $A$-algebra.
+Indeed, let $j:A\to B$ be the canonical homomorphism, $\rho:A\to E$ a ring homomorphism, $\mathfrak{J}$ a nilpotent ideal of $E$, $p:E\to C=E/\mathfrak{J}$ the canonical homomorphism.
+If $u:B\to C$ is an $A$-homomorphism, $u(s/1)$ is invertible in $C$ for $s\in S$ since $s/1$ is invertible in $B$; but $u(s/1)=p(\rho(s))$, and as $\mathfrak{J}$ is nilpotent, the fact that the image of $\rho(s)$ in $E/\mathfrak{J}$ is invertible implies that $\rho(s)$ is itself invertible in $E$ ($\mathbf{0_I}$, 7.1.12); one concludes that $\rho$ factors in a unique way as $A\xrightarrow{j}B\xrightarrow{v}E$, and one evidently has $u\circ j=(p\circ v)\circ j$, whence $u=p\circ v$, which proves our assertion.
+  \item[\rm(iii)] A finite separable extension $k'$ of a field $k$ is a formally smooth $k$-algebra \sref{0.19.6.1}; we will see later that for a \emph{finite type} extension $K$ of a field $k$ to be a formally \'{e}tale $k$-algebra, it is necessary and sufficient that it be formally unramified, and this is also equivalent to $K$ being a finite and separable extension of $k$ (21.7.4).
+  \item[\rm(iv)] A polynomial algebra $A[X_\alpha]_{\alpha\in I}$ over a ring $A$ is \emph{formally smooth} \sref{0.19.3.3} but \emph{not formally \'{e}tale} if $I$ is non-empty, as follows immediately from the definitions.
+\end{enumerate}
+\end{examples}
+
+\begin{remark}[19.10.4]
+\label{0.19.10.4}
+The same reasoning as in \sref{0.19.4.3} shows that in order to verify that a topological $A$-algebra $B$ is formally unramified, one can, in the definition \sref{0.19.10.2}, restrict to the case where the kernel of $p:E\to C$ is of \emph{square zero}; one can moreover restrict to the case where $u(B)\subset p(E)$ (for otherwise there is no $v$ factoring $u$) and, replacing $C$ by $u(B)$ and $E$ by $p^{-1}(u(B))$, suppose $u$ and $p$ \emph{surjective}.
+\end{remark}

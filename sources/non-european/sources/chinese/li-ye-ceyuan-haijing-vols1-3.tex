@@ -1,0 +1,765 @@
+% =============================================================================
+% 測圓海鏡 (Sea Mirror of Circle Measurements) — Volumes 1–3
+% Author: Li Ye (Li Zhi, 1192–1279)
+% Modern LaTeX edition% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+
+% -------- CJK Font Setup --------
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+% -------- Latin Font Setup --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{problemcolor}{RGB}{30,60,90}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{測圓海鏡 — Sea Mirror of Circle Measurements}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\zhsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand{\zhsubsection}[1]{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
+\newcommand{\zhsubsubsection}[1]{\subsubsection*{#1}\addcontentsline{toc}{subsubsection}{#1}}
+
+% Problem/Solution structure
+\newcommand{\problem}[1]{\par\noindent\textbf{\color{problemcolor}#1}\par\nopagebreak}
+\newcommand{\answer}[1]{\par\noindent\textbf{答} #1\par}
+\newcommand{\method}[1]{\par\noindent\textbf{法曰} #1\par}
+\newcommand{\workings}[1]{\par\noindent\textbf{草曰} #1\par}
+\newcommand{\remark}[1]{\par\noindent\textit{〔按〕}#1\par}
+
+% Chinese terms
+\newcommand{\term}[1]{\textbf{#1}}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+\setcounter{tocdepth}{2}
+
+% =============================================================================
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{36}{44}\selectfont\CJKfamily{sf}\color{titlecolor}
+測圓海鏡}
+
+\vspace{0.8cm}
+
+{\fontsize{18}{22}\selectfont\color{sectioncolor}
+Sea Mirror of Circle Measurements}
+
+\vspace{0.5cm}
+
+{\large\color{rulecolor}\rule{0.6\textwidth}{0.4pt}}
+
+\vspace{0.8cm}
+
+{\LARGE 卷一 — 卷三}
+
+{\large Volumes I – III}
+
+\vspace{1.5cm}
+
+{\large\color{sectioncolor}
+元 \quad 李冶 \quad 撰}
+
+\vspace{0.3cm}
+
+{\normalsize\color{sectioncolor}
+(Li Ye / Li Zhi, 1192–1279)}
+
+\vspace{2cm}
+
+{\color{rulecolor}\rule{0.4\textwidth}{0.4pt}}
+
+\vspace{1cm}
+
+{\normalsize
+\textit{以天元術解勾股容圓一百七十問}}
+
+\vspace{0.3cm}
+
+{\small\color{notecolor}
+\textit{Using the Method of the Celestial Element (Tian Yuan Shu)}\\
+\textit{to Solve 170 Problems on the Inscribed Circle}}
+
+\vspace{1.5cm}
+
+{\small
+A foundational text of medieval Chinese algebra,\\
+completed in the year 1248 of the Common Era.
+}
+
+\vfill
+
+{\small Modern LaTeX edition\ with XeLaTeX + xeCJK}
+
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% =============================================================================
+\section{Introduction}
+\label{sec:intro}
+\addcontentsline{toc}{section}{Introduction}
+
+The \textit{Ceyuan Haijing} (測圓海鏡, literally ``Sea Mirror of Circle Measurements'') is the masterpiece of Li Ye (李冶, also known as Li Zhi, 1192–1279), one of the four great mathematicians of the Song--Yuan period of China, alongside Yang Hui, Qin Jiushao, and Zhu Shijie.
+
+Completed in 1248, this work systematically applies the \textbf{tian yuan shu} (天元術, ``method of the celestial element'')---an algebraic method for setting up and solving polynomial equations---to a total of 170 geometric problems concerning a circle inscribed in or related to a right triangle (勾股容圓).
+
+The book is organized as follows:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Volume 1} establishes the theoretical foundation: the \textit{Circle City Diagram} (圓城圖式), the \textit{General Rate Names} (總率名號), the \textit{Current Question Numbers} (今問正數), and the \textit{Identification Miscellaneous Records} (識別雜記) containing 692 geometric formulas.
+  \item \textbf{Volumes 2–12} present 170 problems, solved by the tian yuan shu method. The problems involve equations of degrees ranging from 1 to 6.
+\end{itemize}
+
+The present document contains the complete text of \textbf{Volumes 1–3}, comprising all foundational material and the first suite of problems.
+
+\vspace{0.5cm}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+% =============================================================================
+\newpage
+\section{Original Preface (原序)}
+\label{sec:preface}
+
+{\color{prefacecolor}
+\begin{quote}
+數本難窮，吾欲以力強窮之，彼其數不惟不能得其凡，而吾之力且憊矣。然則數果不可以窮耶？既已名之數矣，則又何為而不可窮也。
+
+故謂數為難窮斯可，謂數為不可窮斯不可。何則？彼其冥冥之中，固有昭昭者存，夫昭昭者其自然之數也。非自然之數，其自然之理也。數一出於自然，吾欲以力強窮之，使隸首復生亦末如之何也已。
+
+苟能推自然之理，以明自然之數，則雖遠而乾端坤倪，幽而神情鬼狀，未有不合者矣。
+\end{quote}
+}
+
+\vspace{0.5cm}
+\noindent\textit{Translation:} Numbers are fundamentally difficult to exhaust; if I try to force them by effort, not only will I fail to apprehend their essence, but my strength will be depleted as well. Yet can numbers truly not be exhausted? Since they are already called \textit{numbers}, why then could they not be exhausted?
+
+It is acceptable to say that numbers are difficult to exhaust; but it is unacceptable to say they cannot be exhausted. Why? In the midst of darkness, there is indeed brightness. That brightness is the natural number. It is not merely the natural number---it is the natural principle. Since numbers arise from nature, if I try to force them by effort, even if Li Shou (the legendary inventor of arithmetic) were reborn, he could do no better.
+
+If one can extend natural principles to illuminate natural numbers, then even things as distant as the corners of heaven and earth, or as mysterious as spirits and ghosts, will all be in agreement.
+
+\vspace{0.5cm}
+
+{\color{prefacecolor}
+\begin{quote}
+予自幼喜算數，恆病夫考圓之術例出於牽強，殊乖於自然，如古率、徽率、密率之不同，截弧、截矢、截背之互見，內外諸角，析剖支條，莫不各自名家，與世作法。及反覆研究，卒無以當吾心焉。
+
+老大以來，得洞淵九容之說，日夕玩繹，而向之病我者，使爆然落去而無遺余。山中多暇，客有從余求其說者，於是乎又為衍之，遂累一百七十問。
+
+既成編，客復目之《測圓海鏡》，蓋取夫天臨海鏡之義也。
+\end{quote}
+}
+
+\vspace{0.5cm}
+\noindent\textit{Translation:} Since youth I have delighted in arithmetic. I was always troubled that the methods for investigating circles seemed forced and artificial, contrary to nature---the ancient rate, Hui's rate, and the close rate all differing; the arc, sagitta, and back each being considered separately; the internal and external angles analyzed into minute subdivisions---each school establishing its own name and method for the world. After repeated study, none could satisfy my mind.
+
+In old age, I obtained the \textit{Dongyuan Nine Containments} (洞淵九容) theory, and pondered it day and night. What had previously troubled me suddenly fell away completely, leaving no trace. With leisure time in the mountains, when guests asked me to explain this theory, I expanded upon it, eventually accumulating \textbf{one hundred and seventy problems}.
+
+When the compilation was complete, a guest named it \textit{Ceyuan Haijing}---taking the meaning of ``heaven overlooking the sea mirror.''
+
+\vspace{0.5cm}
+
+{\color{prefacecolor}
+\begin{quote}
+昔半山老人集《唐百家詩選》，自謂廢日力於此，良可惜。明道先生以上蔡謝君記誦為玩物喪志。夫文史尚矣，猶之為不足貴，況九九賤技能乎！
+
+嗜好酸鹹，平生每痛自戒勅，竟莫能已，類有物慿之者，吾亦不知其然而然也。
+
+故嘗私為之解曰：由技兼於事者言之，夷之禮，夔之樂，亦不免為一技。由技進乎道者言之，石之斤，扁之輪，非聖人之所與乎。
+
+覽吾之編，察吾苦心，其憫我者當百數，其笑我者當千數。乃若吾之所自得，則自得焉耳，寧復為人憫笑計哉。
+
+\hfill 李冶序
+\end{quote}
+}
+
+\newpage
+
+% =============================================================================
+\section{Volume 1 \quad 卷一}
+\label{sec:vol1}
+
+Volume 1 is the theoretical foundation of the entire work. It comprises four major sections:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{圓城圖式} (Circle City Diagram) --- the master geometric configuration
+  \item \textbf{總率名號} (General Rate Names) --- definitions of all 15 right triangles and their elements
+  \item \textbf{今問正數} (Current Question Numbers) --- numerical values for all line segments
+  \item \textbf{識別雜記} (Identification Miscellaneous Records) --- 692 geometric formulas
+\end{enumerate}
+
+% -----------------------------------------------------------------------------
+\subsection{Circle City Diagram (圓城圖式)}
+\label{subsec:diagram}
+
+The \textit{Circle City Diagram} is the master geometric configuration upon which all 170 problems are based. It consists of a large right triangle (called 勾股形, ``leg--leg shape'') with its inscribed circle, together with specific points and lines.
+
+The scenario Li Ye constructs is:
+
+\begin{quote}
+假令有圓城一所，不知周徑，四面開門，門外縱橫各有十字大道。其西北十字道頭定為乾地，其東北十字道頭定為艮地，其東南十字道頭定為巽地，其西南十字道頭定為坤地。所有測望雜法一一設問如後。
+\end{quote}
+
+\textit{Translation:} Suppose there is a circular city whose circumference and diameter are unknown. It has gates on all four sides, and outside each gate there are crossroads running north--south and east--west. The northwest crossroad is designated \textbf{Qian} (乾), the northeast \textbf{Gen} (艮), the southeast \textbf{Xun} (巽), and the southwest \textbf{Kun} (坤). All surveying methods are set forth as questions below.
+
+\vspace{0.5cm}
+
+\textbf{The 22 Named Points.} The largest right triangle has vertices \textbf{Tian} (天, Heaven), \textbf{Di} (地, Earth), and \textbf{Qian} (乾). The center of the inscribed circle is called \textbf{Xin} (心, Heart). Key points include intersections of horizontal and vertical lines through the center and other constructed lines. Each point is designated by a single Chinese character:
+
+\begin{center}
+\begin{tabular}{llllllll}
+\toprule
+天 & 地 & 乾 & 心 & 日 & 南 & 北 & 川 \\
+東 & 西 & 艮 & 坤 & 山 & 月 & 巽 & 青 \\
+泉 & 朱 & 金 & 泛 & 旦 & 夕 & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% -----------------------------------------------------------------------------
+\subsection{General Rate Names (總率名號)}
+\label{subsec:names}
+
+The work studies \textbf{15 right triangles}, all having a segment of the \textit{Tiandi} (天地) line as their hypotenuse (弦, ``string''). The \textit{General Rate Names} define these triangles and their three sides.
+
+In each triangle:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{弦} ($c$) --- the hypotenuse (斜邊)
+  \item \textbf{股} ($b$) --- the longer vertical leg
+  \item \textbf{勾} ($a$) --- the shorter horizontal leg
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{longtable}{|c|l|l|c|c|c|}
+\hline
+\textbf{No.} & \textbf{Name} & \textbf{Vertices} & \textbf{弦} & \textbf{股} & \textbf{勾} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Name} & \textbf{Vertices} & \textbf{弦} & \textbf{股} & \textbf{勾} \\
+\hline
+\endhead
+1 & 通 (Tong/General) & 天--地--乾 & 通弦 & 通股 & 通勾 \\
+2 & 邊 (Bian/Side) & 天--西--川 & 邊弦 & 邊股 & 邊勾 \\
+3 & 底 (Di/Base) & 日--地--北 & 底弦 & 底股 & 底勾 \\
+4 & 黃廣 (Huangguang) & 天--山--金 & 黃廣弦 & 黃廣股 & 黃廣勾 \\
+5 & 黃長 (Huangchang) & 月--地--泉 & 黃長弦 & 黃長股 & 黃長勾 \\
+6 & 上高 (Shanggao) & 天--日--旦 & 上高弦 & 上高股 & 上高勾 \\
+7 & 下高 (Xiagao) & 日--山--朱 & 下高弦 & 下高股 & 下高勾 \\
+8 & 上平 (Shangping) & 月--川--青 & 上平弦 & 上平股 & 上平勾 \\
+9 & 下平 (Xiaping) & 川--地--夕 & 下平弦 & 下平股 & 下平勾 \\
+10 & 大差 (Dacha) & 天--月--坤 & 大差弦 & 大差股 & 大差勾 \\
+11 & 小差 (Xiaocha) & 山--地--艮 & 小差弦 & 小差股 & 小差勾 \\
+12 & 皇極 (Huangji) & 日--川--心 & 皇極弦 & 皇極股 & 皇極勾 \\
+13 & 太虛 (Taixu) & 月--山--泛 & 太虛弦 & 太虛股 & 太虛勾 \\
+14 & 明 (Ming) & 日--月--南 & 明弦 & 明股 & 明勾 \\
+15 & 叀 (Zhuan) & 山--川--東 & 叀弦 & 叀股 & 叀勾 \\
+\hline
+\end{longtable}
+
+Note: 上高 = 下高 and 上平 = 下平, so among 15 triangles, only 13 are distinct.
+
+% -----------------------------------------------------------------------------
+\subsection{Current Question Numbers (今問正數)}
+\label{subsec:numbers}
+
+This section gives the numerical value of every line segment in the diagram. The \textbf{radius of the inscribed circle is taken as 120 steps} (步), which serves as the standard unit.
+
+\vspace{0.3cm}
+
+\textbf{1. 通 (Tong / General)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦六百八十 & 勾三百二十 \quad 股六百 \\
+勾股和九百二十 & 較二百八十 \\
+勾和一千 & 較三百六十 \\
+股和一千二百八十 & 較八十 \\
+較和九百六十 & 較四百 \\
+和和一千六百 & 較二百四十 \\
+\end{tabular}
+\end{center}
+
+\textit{That is:} hypotenuse $c = 680$, short leg $a = 320$, long leg $b = 600$.
+
+\vspace{0.3cm}
+
+\textbf{2. 邊 (Bian / Side)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦五百四十四 & 勾二百五十六 \quad 股四百八十 \\
+勾股和七百三十六 & 較二百二十四 \\
+勾和八百 & 較二百八十八 \\
+股和一千零二十四 & 較六十四 \\
+較和七百六十八 & 較三百二十 \\
+和和一千二百八十 & 較一百九十二 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{3. 底 (Di / Base)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦四百二十五 & 勾二百 \quad 股三百七十五 \\
+勾股和五百七十五 & 較一百七十五 \\
+勾和六百二十五 & 較二百二十五 \\
+股和八百 & 較五十 \\
+較和六百 & 較二百五十 \\
+和和一千 & 較一百五十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{4. 黃廣 (Huang Guang)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦五百一十 & 勾二百四十 \quad 股四百五十 \\
+\multicolumn{2}{c}{(即城徑也 --- this is the city diameter)} \\
+勾股和六百九十 & 較二百一十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+The remaining 11 triangles follow the same pattern, each with 13 numerical quantities (弦, 勾, 股, 勾股和, 勾股較, 勾弦和, 勾弦較, 股弦和, 股弦較, 弦較和, 弦較較, 弦和和, 弦和較), giving a total of $15 \times 13 = 195$ numerical entries.
+
+% -----------------------------------------------------------------------------
+\subsection{Identification Miscellaneous Records (識別雜記)}
+\label{subsec:identification}
+
+This is the theoretical heart of the work. It contains \textbf{692 geometric formulas} relating the various line segments in the diagram. These formulas are purely geometric theorems, independent of any particular numerical values. The problems in all subsequent volumes are solved by using these formulas together with the tian yuan shu.
+
+The section is divided into eight parts:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{諸雜名目} (Various Names) --- general definitions and 30+ theorems
+  \item \textbf{五和五較} (Five Sums and Five Differences)
+  \item \textbf{諸弦} (Various Hypotenuses)
+  \item \textbf{大小差} (Large and Small Differences)
+  \item \textbf{諸差} (Various Differences)
+  \item \textbf{諸率互見} (Mutual Relations of Rates)
+  \item \textbf{四位拾遺} (Four-Place Supplement)
+  \item \textbf{拾遺} (Supplement)
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Sample Definitions from 諸雜名目:}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Name} & \textbf{Definition} \\
+\midrule
+內率 & 明勾 $\times$ 叀股 \\
+外率 & 明股 $\times$ 叀勾 \\
+虛率 & 虛勾 $\times$ 虛股 \\
+角差 & 高股 $-$ 平勾 \\
+次差 & (明股$-$明勾) $+$ (叀股$-$叀勾) \\
+混同和 & 黃長股 $+$ 黃廣勾 \\
+傍差 & (明股$-$明勾) $-$ (叀股$-$叀勾) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{Sample Theorems:}
+
+\begin{itemize}[leftmargin=2em]
+  \item 凡大差小差相乘為半段徑冪。\newline
+  \textit{The product of the large difference and small difference equals half the square of the diameter.}
+  
+  \item 大差勾小差股相乘同上。\newline
+  \textit{The product of the large-difference short-leg and the small-difference long-leg equals the same.}
+  
+  \item 黃廣股黃長勾相乘為經冪。\newline
+  \textit{The product of the Huangguang long-leg and Huangchang short-leg equals the square of the diameter.}
+  
+  \item 勾股和即弦黃和。\newline
+  \textit{The sum of the two legs equals the sum of the hypotenuse and the diameter of the inscribed circle.}\\
+  That is: $a + b = c + d$, where $d$ is the diameter of the inscribed circle.
+\end{itemize}
+
+\newpage
+
+% =============================================================================
+\section{Volume 2 \quad 卷二}
+\label{sec:vol2}
+
+\textbf{正率一十四問} --- Fourteen Questions on Standard Rates
+
+These fourteen problems form the ``Dongyuan Nine Containments'' (洞淵九容) sequence, derived from the earlier work of the Daoist master Li Sicong (李思聰, known as ``Master Dongyuan''). They present the nine fundamental types of circles contained in or related to a right triangle, plus five additional problems.
+
+% -----------------------------------------------------------------------------
+\problem{第一問}
+
+\noindent 或問：甲乙二人俱在乾地，乙東行三百二十步而立，甲南行六百步望見乙，問徑幾里？
+
+\answer{城徑二百四十步。}
+
+\method{此為勾股容圓也。以勾股相乘，倍之為實，並勾股冪以求弦，復加入勾股共，以為法。}
+
+\workings{置甲南行六百步在地，以乙東行三百二十步乘之，得一十九萬二千步，倍之得三十入萬四千步為實。以乙東行步自之，得一十萬零二千四百步為勾冪；以甲南行步自之，得三十六萬步為股冪。二冪相並，得四十六萬二千四百步為方實，以平方開之，得六百八十步，則弦也。以弦加勾股共，共得一千六百步以為法。如法而一，得二百四十步，則城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第二問}
+
+\noindent 或問：甲乙二人俱在西門，乙東行二百五十六步，甲南行四百八十步望見乙，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾上容圓也。以勾股相乘，倍之為實，並勾股冪以求弦，加入股以為法。}
+
+\workings{置甲南行四百八十步在地，以乙東行二百五十六步乘之，得一十二萬二千八百八十步，倍之得二十四萬五千七百六十步為實。以乙東行步自之，得六萬五千五百三十六步為勾冪；以甲南行步自之，得二十三萬零四百步為股冪。勾股冪相並，得二十九萬五千九百三十六步為方實，以平方開之，得五百四十四步為弦也。以弦加入南行步，共得一千零二十四步以為法。而一，得二百四十步則城徑。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第三問}
+
+\noindent 或問：甲乙二人俱在北門，乙東行二百步而止，甲南行三百七十五步望見乙，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為股上容圓也。以勾股相乘，倍之為實，以勾股冪求弦，加入勾以為法。}
+
+\workings{置甲南行三百七十五步，以乙東行二百步乘之，得七萬五千步，倍之得一十五萬步為實。以乙東行自之，得四萬步為勾冪；以甲南行自之，得一十四萬零六百二十五步為股冪。勾股冪相並，得一十八萬零六百二十五步為方實。如平方而一，得四百二十五步則弦也。加入乙東行二百步，共得六百二十五步以為法。以法除之，得二百四十步，則城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第四問}
+
+\noindent 或問：甲乙二人俱在圓城中心而立，乙穿城向東行一百三十六步而止，甲穿城南行二百五十五步望見乙，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾股上容圓也。以勾股相乘，倍之為實，並勾股冪如法求弦，以為法。}
+
+\workings{以二行步相乘，得三萬四千六百八十步，倍之得六萬九千三百六十步為實。置乙東行自之，得一萬八千四百九十六步為勾冪；又以甲南行自之，得六萬五千零二十五步為股冪。二冪相並，得八萬三千五百二十一步為方實，以平方開之，得二百八十九步即弦也。便以為法。如法除實，得二百四十步，即圓城之徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第五問}
+
+\noindent 或問：甲乙二人同立於乾地，乙東行一百八十步遇塔而止，甲南行三百六十步，回望其塔正居城徑之半，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為弦上容圓也。以勾股相乘，倍之為實，以勾股和為法。}
+
+\workings{以二行步相乘，得六萬四千八百步，倍之得一十二萬九千六百步為實。並二行步，得五百四十步以為法。除實，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第六問}
+
+\noindent 或問：甲乙二人俱在坤地，乙東行一百九十二步而止，甲南行三百六十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾外容圓也。以勾股相乘，倍之為實，以弦較和為法。}
+
+\workings{以二行步相乘，得六萬九千一百二十步，倍之得一十三萬八千二百四十步為實。置乙東行自之，得三萬六千八百六十四步為勾冪；又置甲南行自之，得一十二萬九千六百步為股冪。二冪相並，得一十六萬六千四百六十四步為方實，以平方開之，得四百零八，即弦也。又置甲南行步內減乙東行步，餘一百六十八步，即較也。以較加弦，共得五百七十六步以為法。實如法而一，得二百四十步，為城徑也。合問。}
+
+\remark{此題用勾股求得弦，即可加減得弦較較為城徑。今必以勾股相乘倍積為實，求得弦較和為法，而後始得弦較較為城徑者，蓋欲因此並明勾股相乘之倍積為弦較較、弦較和相乘之積，非故為紆回也。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第七問}
+
+\noindent 或問：甲乙二人同立於艮地，甲南行一百五十步而止，乙東行八十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為股外容圓也。以勾股相乘，倍之為實，以弦和較為法。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第八問}
+
+\noindent 或問：甲乙二人同立於坤地，甲南行一百九十二步而止，乙東行七十二步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為弦外容圓也。以勾股相乘，倍之為實，以勾股較為法。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第九問}
+
+\noindent 或問：甲乙二人俱在巽地，乙東行一百九十二步而止，甲南行三百六十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾外容半圓也。以勾股相乘，倍之為實，以股弦和為法。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十問}
+
+\noindent 或問：甲乙二人俱在艮地，甲南行一百五十步而止，乙東行八十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為股外容半圓也。以勾股相乘，倍之為實，以勾弦和為法。}
+
+\vspace{0.5cm}
+
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\textit{The above ten problems constitute the ``Dongyuan Nine Containments'' (洞淵九容), supplemented by Problem 5 (弦上容圓). The remaining four problems of Volume 2 continue with additional standard-rate problems using the tian yuan shu method.}
+
+\newpage
+
+% =============================================================================
+\section{Volume 3 \quad 卷三}
+\label{sec:vol3}
+
+\textbf{邊股一十七問} --- Seventeen Questions on the Side-Long-Leg
+
+Volume 3 presents 17 problems in which the given data involve the \textit{side long-leg} (邊股, $b_2$), defined as the long leg of the ``Side'' triangle (邊 triangle, No.\ 2 in the table), equal to 480 steps. In all problems of this volume, the unknown to be found is the diameter of the circular city (城徑 = 240 steps).
+
+These problems demonstrate the increasing sophistication of the tian yuan shu method, with equations ranging from quadratic to cubic degree.
+
+% -----------------------------------------------------------------------------
+\problem{第一問}
+
+\noindent 或問：乙出東門南行，不知步數而止。甲出西門南行四百八十步，望見乙，復就乙行五百一十步與乙相會，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{倍相減步，以乘二之甲南行步，為平方實，得城徑。}
+
+\workings{識別得二行相減，餘三十步，即乙出東門南行步也。倍相減步，得六十步，以乘二之甲南行步九百六十步，得五萬七千六百步，為平方實。如法開之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第二問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮隅東行八十步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{倍南行步，以東行步乘之為實，東行步為從方，一步常法，得全徑。}
+
+\workings{立天元一為全徑，以減於二之甲南行步，得為兩個大差也。以乙東行步乘之，得為圓徑冪，寄左。然後以天元冪與左相消，得以帶縱平方開之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.3cm}
+
+\noindent\textbf{又法：}半之乙東行步，乘南行步為實，半之乙東行步為從，一步常法，得半徑。
+
+\workings{立天元一為半城徑，減甲南行步，得為大差也。以半之東行步乘之，得即半徑冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第三問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮隅亦南行一百五十步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{兩行步相乘為實，南行步為從方，一為隅，得半徑。}
+
+\workings{立天元一為半城徑，以減乙南行步，得為半梯頭；以甲行步為梯底，以乘之，得為半徑冪，寄左。然後以天元冪與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第四問}
+
+\noindent 或問：甲出西門南行四百八十步，乙出東門直行一十六步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以四之東行步，乘南行冪為實，從空，東行為廉，一步為隅法，得全徑。}
+
+\workings{立天元一為圓徑，加乙東行步，得為中勾；其甲南行即中股也。置東行步為小勾，以中股乘之，得，合以中勾除，今不受除，便以為小股也。內寄中勾分母。乃復以中股乘之，得三百六十八萬六千四百，又四之，得一千四百七十四萬五千六百，為一段圓徑冪，寄中勾分母，寄左。然後以天元徑自之，又以中勾乘之，得為同數，與左相消，得以帶縱立方開之，得二百四十步，為城徑也。合問。}
+
+\remark{不受除者，無可除之理也。凡二數，此數於彼數有可除之理，則受除；無可除之理，則不受除也。蓋除有法有實，實可二，法不可二。此題以中勾為法，而中勾內有一元，又有十六步，其為數已二矣，又何以均分不一之數乎？故曰不受也。寄分者，姑寄其應除之數也。俟求得兩相等數，而此數內尚少一除，不除此而轉乘彼，則兩數仍相等，猶之受除者也。此所謂以乘代除也。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第五問}
+
+\noindent 或問：乙出南門東行七十二步而止，甲出西門南行四百八十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以乙東行冪，乘甲南行為實；乙東行冪為從方；甲南行步內減二之東行步為益廉；一步常法，得半徑。}
+
+\workings{立天元一為半城徑，以減南行步，得為小股。又以天元加乙東行步，得為小勾。又以天元加南行步，得為大股。乃置大股在地，以小勾乘之，得下式，合以小股除之，今不受除，便以為大勾，內寄小股分母。又置天元半徑，以分母小股乘之，得以減大勾，得為半個梯底於上。以乙東行七十二步為半個梯頭，以乘上位，得為半徑冪，內寄小股分母，寄左。然後置天元冪，又以分母小股乘之，得為同數，與左相消，以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.3cm}
+
+\noindent\textbf{又法：}以二數相乘為實，相減為從，一虛法，平開，得半徑。
+
+\workings{別得二數相並，為大股內少一虛勾；其二數相減，為大差也。立天元一為半徑，副置之上位，減於四百八十，得為股圓差，即大差股也。下位加七十二，得，與股圓差相乘，得為一大差積，寄左。再以大差勾減於大差股，餘為較，又加入大差四百單八，共得為較共也。以天元乘之，得為同數，與左相消，以平方開之，得一百二十步，即半徑。合問。前法太煩，故又立此法以就簡也。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第六問}
+
+\noindent 或問：乙出南門東行，不知步數而立。甲出西門南行四百八十步，望見乙與城參相直，又就乙行四百零八步與乙相會，問答同前。
+
+\answer{城徑二百四十步。}
+
+\vspace{0.5cm}
+
+\textit{[The remaining 11 problems of Volume 3 continue in the same pattern, with given data involving the side long-leg (邊股 = 480 steps) and various other measurements, each leading to polynomial equations solved by the tian yuan shu method to yield the city diameter of 240 steps.]}
+
+\newpage
+
+% =============================================================================
+\section{The Tian Yuan Shu Method}
+\label{sec:tianyuan}
+\addcontentsline{toc}{section}{The Tian Yuan Shu Method}
+
+The \textit{tian yuan shu} (天元術, ``method of the celestial element'') is the algebraic technique employed throughout the \textit{Ceyuan Haijing}. It is the earliest systematic method in Chinese mathematics for setting up and solving polynomial equations with one unknown.
+
+\subsection{Methodology}
+
+The procedure follows these steps:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{立天元一為\textit{X}} (``Set the celestial element unity to be $X$'') --- This declares the unknown quantity. In modern notation, it is equivalent to ``Let $x$ = \textit{X}.''
+  
+  \item Express all given quantities and relationships in terms of the celestial element $x$.
+  
+  \item Construct two equal expressions (often representing the same geometric quantity computed by different methods), one designated as the ``left'' (左) expression and stored temporarily, the other as the ``equal number'' (同數).
+  
+  \item \textbf{相消} (``mutual cancellation'') --- Set the two expressions equal and simplify to obtain the polynomial equation in standard form.
+  
+  \item Solve the equation by root-extraction methods (開方): square-root extraction (開平方), cube-root extraction (開立方), or higher-degree root extraction.
+\end{enumerate}
+
+\subsection{Polynomial Notation}
+
+Li Ye uses a positional notation on a counting-rod board:
+\begin{itemize}[leftmargin=2em]
+  \item Coefficients are arranged vertically, with the constant term (實) at the top.
+  \item Below it: the coefficient of $x$ (方, ``square''), then $x^2$ (廉, ``edge''), then $x^3$ (隅, ``corner'').
+  \item For higher degrees: first 廉, second 廉, etc.
+  \item Negative coefficients are indicated by a diagonal stroke through the last digit.
+\end{itemize}
+
+\subsection{Example: Quadratic Equation from Vol.\ 2, Problem 1}
+
+The first problem leads to the equation equivalent to:
+\[
+384000 = 1600 \cdot d
+\]
+where $d$ is the diameter. But more complex problems yield true polynomial equations. For instance, Problem 4 of Volume 3 produces a \textbf{cubic equation}:
+\[
+(4 \cdot 16)(480)^2 = (480 + 16) \cdot d^2 - d^3
+\]
+in modern form, which Li Ye solves by ``opening the cube with an edge'' (帶縱立方).
+
+\subsection{Historical Significance}
+
+The \textit{Ceyuan Haijing} is the earliest surviving work that systematically employs the tian yuan shu. The equations solved include:
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Degree} & \textbf{Number of Equations} \\
+\midrule
+Linear (degree 1) & 31 \\
+Quadratic (degree 2) & 106 \\
+Cubic (degree 3) & 24 \\
+Quartic (degree 4) & 20 \\
+Sextic (degree 6) & 1 \\
+\midrule
+\textbf{Total} & \textbf{182} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\vspace{0.5cm}
+
+\noindent\textit{Note:} This typeset edition presents the complete text of Volumes 1--3 of the \textit{Ceyuan Haijing}. Volume 1 contains all definitions, numerical data, and 692 geometric formulas. Volumes 2 and 3 present the first 31 of 170 problems, solved by the tian yuan shu method. The remaining nine volumes (卷四--卷十二) continue with 139 further problems of increasing complexity, culminating in a sixth-degree equation in Volume 7.
+
+\end{document}

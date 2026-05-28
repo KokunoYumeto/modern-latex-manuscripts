@@ -1,0 +1,749 @@
+%% ========================================================================
+%% Yang Hui's Xiangjie Jiuzhang Suanfa — Part III (Reclassification)
+%% 詳解九章算法 纂類
+%% Author: Yang Hui (楊輝), Song Dynasty (1261)
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{verse}
+\usepackage{lettrine}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{french}
+
+%% -------- Font Configuration --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+%% CJK Support via xeCJK
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{詳解九章算法 纂類}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Chinese text helpers
+\newcommand{\zhb}[1]{\textbf{#1}}
+\newcommand{\question}[1]{\paragraph{#1}}
+\newcommand{\answer}[1]{\textsf{答：}#1}
+\newcommand{\method}[1]{\textsf{術：}#1}
+\newcommand{\explanation}[1]{\textsf{解：}#1}
+
+%% Problem environment
+\newenvironment{problemenv}[1]{%
+  \medskip\noindent\textbf{#1}\par\nopagebreak\smallskip
+}{\medskip}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={詳解九章算法 纂類 (Part III)},
+  pdfauthor={Yang Hui (楊輝)},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% No indent for entire document, use paragraph spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 2pt}
+
+%% ========================================================================
+
+\begin{document}
+
+%% ===== TITLE PAGE =====
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+
+{\fontsize{36}{44}\selectfont\color{titlecolor} 詳解九章算法}
+
+\vspace{1.5cm}
+
+{\fontsize{24}{30}\selectfont\color{sectioncolor} 纂類}
+
+\vspace{0.5cm}
+
+{\Large\color{prefacecolor} (Reclassification of Problems)}
+
+\vspace{2cm}
+
+\shortline
+
+\vspace{1cm}
+
+{\LARGE 宋 \quad 楊輝 \quad 編次}
+
+\vspace{0.5cm}
+
+{\large Yang Hui's \textit{Detailed Analysis of the Mathematical\\[0.3em]
+Methods in the `Nine Chapters' --- Part III}}
+
+\vspace{0.5cm}
+
+{\normalsize (Southern Song Dynasty, 1261 CE)}
+
+\vspace{2cm}
+
+\shortline
+
+\vspace{1cm}
+
+{\normalsize A new classification of the 246 problems from the\\
+\textit{Nine Chapters on the Mathematical Art},\\
+reorganized by mathematical method rather than by chapter}
+
+\vfill
+
+{\small Modern Typesetting Edition}
+
+\end{titlepage}
+
+%% ===== TABLE OF CONTENTS =====
+\tableofcontents
+\newpage
+
+%% ===== PREFACE =====
+\section*{纂類序 (Preface to the Reclassification)}
+\addcontentsline{toc}{section}{纂類序 (Preface)}
+
+\begin{quote}
+\color{prefacecolor}
+\setlength{\parindent}{2em}
+
+黃帝九章古序云：國家嘗設算科取士，選九章以為算經之首，蓋猶儒者之六經，醫家之難素，兵法之孫子歟。昔聖宋紹興戊辰，算士榮棨謂靖康以來，罕有舊本，間有存者，狃於末習，向獲善本，得其全經，復起於學。以魏景元元年劉徽等、唐朝議大夫、行太史令上輕車都尉李淳風等注釋，聖宋右班直賈憲細草。
+
+輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。於是以答參問，用草考法，因法推類，然後知斯文非古之全經也。將後賢補贅之文，修前代已廢之法，刪立題術，又纂法問，詳著於後，儻得賢者，改而正諸，是所願也。
+
+\end{quote}
+
+\newpage
+
+%% ===== TABLE OF CONTENTS OF THE ORIGINAL =====
+\section*{九章互見目錄 (Cross-Referenced Contents)}
+\addcontentsline{toc}{section}{九章互見目錄 (Cross-Referenced Contents)}
+
+楊輝竊見九章舊本，作立題法遺闕。古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至真術淹廢，偽本滋典。此說固然，殊不知所傳之本亦不得其真矣。如粟米章之互換、少廣章之求由開方，皆重疊無謂，而作者題問不歸章次，亦有之。今作纂類，互見目錄，以辯其訛，後之明者，更為詳釋，不亦善乎？
+
+古本二百四十六問，其分布如下：
+
+\begin{center}
+\begin{longtable}{|l|c|l|c|}
+\hline
+\textbf{章別} & \textbf{問數} & \textbf{章別} & \textbf{問數} \\
+\hline
+\endfirsthead
+\hline
+\textbf{章別} & \textbf{問數} & \textbf{章別} & \textbf{問數} \\
+\hline
+\endhead
+\hline
+\endfoot
+方田 & 38問（並乘除問） & 均輸 & 28問 \\
+粟米 & 46問（乘除6問，互換31） & 盈不足 & 20問 \\
+衰分 & 20問（互換11，衰分9） & 方程 & 18問 \\
+少廣 & 24問 & 勾股 & 24問 \\
+商功 & 28問（疊積27） & 合率 & 11問 \\
+\hline
+\end{longtable}
+\end{center}
+
+類題以物理分章，有題法又互之訛。今將二百四十六問分別門例，使後學亦可周知也。
+
+\newpage
+
+%% ===== MAIN CONTENT =====
+\section{乘除第一 (Multiplication and Division)}
+
+\textbf{凡四十一問}。今考該四十問：方田三十八，粟米二問。
+
+\subsection{基本方法}
+
+\textbf{直田法}曰：廣從相乘為實，如畝法而一。
+
+\begin{problemenv}{方田一}
+廣十五步，從十六步，問田幾何？
+
+\textsf{答曰：}一畝。
+\end{problemenv}
+
+\begin{problemenv}{方田二}
+廣十二步，從十四步，問田幾何？
+
+\textsf{答曰：}一百六十八步。
+\end{problemenv}
+
+\subsection{里田法}
+
+\textbf{里田法}曰：方自乘為積里，以一里之積三百七十五畝乘之。
+
+\begin{problemenv}{里田一}
+方田一里，問為田幾何？
+
+\textsf{答曰：}三頃七十五畝。
+\end{problemenv}
+
+\begin{problemenv}{里田二}
+廣二里，從三里，問田幾何？
+
+\textsf{答曰：}二十二頃五十畝。
+\end{problemenv}
+
+\subsection{圭田法}
+
+\textbf{圭田法}曰：半廣以乘正從，或半正從以乘廣。
+
+\begin{problemenv}{圭田}
+圭田廣十二步，從二十一步，問田幾何？
+
+\textsf{答曰：}一百二十六步。
+\end{problemenv}
+
+\subsection{斜田法}
+
+\textbf{斜田法}曰：併兩斜半之以乘正從，或併兩廣乘半從。
+
+\begin{problemenv}{斜田}
+斜田正廣六十五步，一畔從七十二步，一畔從一百步，問田幾何？
+
+\textsf{答曰：}九畝一百四十四步。
+\end{problemenv}
+
+\subsection{圓田法}
+
+\textbf{圓田法}曰：半周半徑相乘，半周自乘三而一，周自乘十二而一，徑自乘三之四而一。
+
+\begin{problemenv}{圓田}
+圓田周三十步，徑一十步，問田幾何？（古術）
+
+\textsf{答曰：}七十五步。
+\end{problemenv}
+
+\begin{problemenv}{圓田（密率）}
+密率答曰：七十一步二十二分步之一十三。
+
+\textbf{密率}：周自乘，又二十五乘之，三百一十四而一。
+\end{problemenv}
+
+\subsection{除率法}
+
+\textbf{經率法}（俗名商除）曰：錢數為實，以所買率為法，實如法而一。原載粟米章。
+
+\begin{problemenv}{經率一}
+錢一百六十文，買瓴甓十八枚，問枚價幾何？
+
+\textsf{答曰：}一枚八錢九分錢之八。
+\end{problemenv}
+
+\begin{problemenv}{經率二}
+錢十三貫五百，買竹二千三百五十個，問個價？
+
+\textsf{答曰：}五錢四十七分錢之三十五。
+\end{problemenv}
+
+\newpage
+\section{互換第二 (Exchange and Barter)}
+
+\textbf{凡五十六問}。今考該五十五問：粟米三十一，衰分十一，均輸十一，盈朒二。
+
+\subsection{互換法}
+
+\textbf{互換法}曰：以所求率乘所有數，為實；以所有率為法，實如法而一。
+
+置位法曰：錢錢物物數數率率依本色對列，其各物原率隨而下布。
+
+\subsection{粟米互換}
+
+\begin{problemenv}{粟米互換一}
+粟二斗一升，問為粺米幾何？
+
+\textsf{答曰：}一斗一升五十分升之十七。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換二}
+粟三斗六升，問為粺飯幾何？
+
+\textsf{答曰：}三斗八升二十五分升之二十二。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換三}
+粟八斗六升，問為糳飯幾何？
+
+\textsf{答曰：}八斗二升二十五分升之一十四。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換四}
+粟九斗八升，問為御飯幾何？
+
+\textsf{答曰：}八斗二升二十五分升之八。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換五}
+粟七斗八升，問為豉幾何？
+
+\textsf{答曰：}九斗八升二十五分升之七。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換六}
+粟五斗五升，問為飧幾何？
+
+\textsf{答曰：}九斗九升。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換七}
+粟四斗，問為熟菽幾何？
+
+\textsf{答曰：}八斗二升五分升之四。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換八}
+粟二斗，問為蘖幾何？
+
+\textsf{答曰：}七斗。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換九}
+粟三斗少半升，問為菽幾何？
+
+\textsf{答曰：}二斗七升十分升之三。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十}
+粟四斗一升太半升，問為答幾何？
+
+\textsf{答曰：}三斗七升半。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十一}
+粟五斗太半升，問為麻幾何？
+
+\textsf{答曰：}四斗五升五分升之三。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十二}
+粟一斗，問為粝米幾何？
+
+\textsf{答曰：}六升。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十三}
+粟四斗五升，問為糳米幾何？
+
+\textsf{答曰：}二斗一升五分升之三。
+\end{problemenv}
+
+\subsection{持金出關}
+
+\begin{problemenv}{持金出關}
+今持金十二斤出關，稅之十分而取一。今關取金二斤，價錢五千。問金一斤值錢幾何？
+
+\textsf{答曰：}六千二百五十。
+\end{problemenv}
+
+\begin{problemenv}{持米出三關}
+持米出三關，外關三分稅一，中關五分稅一，內關七分稅一，餘存米五斗。問：原米幾何？
+
+\textsf{答曰：}一十斗九升八分升之三。
+\end{problemenv}
+
+\newpage
+\section{合率第三 (Combined Rates)}
+
+\textbf{凡二十問}：少廣十一，均輸八，盈不足一。
+
+\subsection{少廣法}
+
+少廣反合分並率。設諸分母子併而為廣，借田求縱，立少廣章，易合分之術而為之法。用副置分母自乘，以乘全步及諸子，各以本母除其子而併之，免互乘之繁。又得此術，兼助合分，使法術引伸，不亦善乎？
+
+\textbf{少廣法}曰：列置全步及分母子，而副置分母自乘，以乘全步及子，各以本母除子，併之為法，以全步積分乘畝步為實，實如法而一。
+
+\begin{problemenv}{少廣一}
+田一畝廣一步半，問從？
+
+\textsf{答曰：}一百六十步。
+\end{problemenv}
+
+\begin{problemenv}{少廣二}
+田一畝廣一步半，三分步之一，問從？
+
+\textsf{答曰：}一百三十步一十一分步之一十。
+\end{problemenv}
+
+\begin{problemenv}{少廣三}
+田一畝廣一步半，三分步之一，四分步之一，問從？
+
+\textsf{答曰：}一百一十五步五分步之一。
+\end{problemenv}
+
+\begin{problemenv}{少廣四}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，問從？
+
+\textsf{答曰：}一百五步一百三十七分步之一十五。
+\end{problemenv}
+
+\begin{problemenv}{少廣五}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，問從？
+
+\textsf{答曰：}九十七步四十九分步之四十七。
+\end{problemenv}
+
+\begin{problemenv}{少廣六}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，問從？
+
+\textsf{答曰：}九十二步一百二十一分步之六十八。
+\end{problemenv}
+
+\newpage
+\section{分率第四 (Fractional Rates)}
+
+\textbf{凡九問}。本章九問。
+
+\subsection{乘分法}
+
+\textbf{乘分法}曰：分母各乘其全，分子從之，相乘為實，分母相乘為法。
+
+\begin{problemenv}{乘分一}
+田廣一十八步七分步之五，從二十三步十一分步之六，問為田幾何？
+
+\textsf{答曰：}一畝二百步十一分步之七。
+\end{problemenv}
+
+\begin{problemenv}{乘分二}
+田廣三步三分步之一，從五步五分步之一，問為田幾何？
+
+\textsf{答曰：}一十八步。
+\end{problemenv}
+
+\subsection{除分法}
+
+\textbf{除分法}曰：人數為法，錢數為實，有分者通之，實如法而一。
+
+\begin{problemenv}{除分一}
+七人均入錢三分錢之一，問人得幾何？
+
+\textsf{答曰：}人得一錢二十一分錢之四。
+\end{problemenv}
+
+\begin{problemenv}{除分二}
+三人三分人之一均六錢三分錢之一四分錢之三，問人得幾何？
+
+\textsf{答曰：}得三錢八分錢之一。
+\end{problemenv}
+
+\newpage
+\section{衰分第五 (Proportional Distribution)}
+
+\textbf{凡一十八問}：本章九問，均輸九問。
+
+\textbf{衰分法}曰：各置列衰，副併為法，以所分乘未併者各自為實，實如法而一。
+
+\begin{problemenv}{衰分一}
+今有牛二羊五買豕一十三家，有餘錢一千；賣牛三豕三以買九羊，錢適足；賣六羊八豕以買五牛，錢不足六百。問牛羊豕價各幾何？
+
+\textsf{答曰：}牛價一千二百，羊價五百，豕價三百。
+\end{problemenv}
+
+\begin{problemenv}{衰分二（五雀六燕）}
+五雀六燕共重一斤，雀重燕輕，交易一枚，其重適等。問各幾何？
+
+\textsf{答曰：}雀一兩十九分兩之一十三，燕一兩十九分兩之五。
+\end{problemenv}
+
+\begin{problemenv}{均輸一}
+五縣均賦粟一萬石，每車載二十五石，行道一里出雇錢一文，各縣到輸所遠近不等，粟價高下，欲令縣勞收相等。内甲縣二萬五百二十戶，粟一石價錢二十，自輸其縣；乙縣一萬二千三百一十二戶，粟一石價錢一十，遠輸所二百里；丙縣七千一百八十二戶，粟一石價錢一十二，遠輸所一百五十里；丁縣一萬三千三百三十八戶，粟一石價錢一十七，遠輸所二百五十里；戊縣五千一百三十戶，粟一石價錢一十三，遠輸所一百五十里。問各幾何？
+\end{problemenv}
+
+\newpage
+\section{疊積第六 (Stacked Accumulations)}
+
+\textbf{凡二十七問}，並商功章。
+
+\textbf{商功法}曰：各以其積乘之，以高若深乘之，皆如六而一。
+
+\begin{problemenv}{盤池}
+盤池上廣六丈，袤八丈，下廣四丈，袤六丈，深二丈。問積尺幾何？
+
+\textsf{答曰：}七萬六百六十六尺太半尺。
+\end{problemenv}
+
+\begin{problemenv}{冥谷}
+冥谷上廣二丈，袤七丈，下廣八尺，袤四丈，深六丈五尺。問積幾何？
+
+\textsf{答曰：}五萬二千尺。
+\end{problemenv}
+
+\begin{problemenv}{芻甍}
+芻甍法曰：倍下長併入上長，以廣乘之，又高乘之，皆如六而一。
+
+下廣三丈，袤四丈，上袤二丈，無廣，高一丈。問積幾何？
+
+\textsf{答曰：}五千尺。
+\end{problemenv}
+
+\begin{problemenv}{羨除}
+羨除法曰：併三廣以深乘之，又長乘之，皆如六而一。
+
+上廣一丈，下廣六尺，深三尺，末廣八尺，無深，袤七尺。問積幾何？
+
+\textsf{答曰：}五千尺。
+\end{problemenv}
+
+\newpage
+\section{盈不足第七 (Excess and Deficit)}
+
+\textbf{凡十一問}，並本章。
+
+\subsection{盈朒適足法}
+
+\textbf{盈朒適足法}曰：置所出率，盈朒各居其下。副置出率，以少減多餘為約法。盈朒適足，令維乘所出率實，以盈朒之數乘人積為人實，實皆如約法而一。
+
+其一法曰：以盈或不足之數為實，置所出率，以少減多餘為法，實如法而一約人，以適足出率乘人，為物價也。
+
+\begin{problemenv}{盈不足一（共買犬）}
+共買犬，人出五不足九十文，人出五十文適足。問人數、犬價各幾何？
+
+\textsf{答曰：}二人，犬價一百。
+\end{problemenv}
+
+\begin{problemenv}{盈不足二（買豕）}
+買豕，人各出一百盈一百文，各出九十適足。問人數、豕價各幾何？
+
+\textsf{答曰：}十人，豕價九百。
+\end{problemenv}
+
+\subsection{雙假設法}
+
+\begin{problemenv}{盈不足三}
+今有共買璡，人出半盈四，人出少半不足三。問人數、璡價各幾何？
+
+\textsf{答曰：}四十二人，璡價十七。
+\end{problemenv}
+
+\begin{problemenv}{盈不足四（大小器）}
+今有大器五小器一容三斛，大器一小器五容二斛。問大小器各容幾何？
+
+\textsf{答曰：}大器容二十四分解之一十三，小器容二十四分解之七。
+\end{problemenv}
+
+\begin{problemenv}{盈不足五（二酒求價）}
+今有醇酒一斗直錢五十，行酒一斗直錢一十。今將錢三十，得酒二斗。問醇行酒各幾何？
+
+\textsf{答曰：}醇酒二升半，行酒一斗七升半。
+\end{problemenv}
+
+\begin{problemenv}{盈不足六（五家共井）}
+今有五家共井，甲二綆不足如乙一，乙三綆不足如丙一，丙四綆不足如丁一，丁五綆不足如戊一，戊六綆不足如甲一。如各得所不足一綆，皆逮。問井深、綆長各幾何？
+\end{problemenv}
+
+\newpage
+\section{方程第八 (Simultaneous Equations)}
+
+\textbf{凡二十問}：本章十八問，均輸盈朒二。
+
+\subsection{方程法}
+
+\textbf{方程法}曰：所求率互乘鄰行，以少減多，再求減損。錢為實，物為法，實如法而一。
+
+置位法曰：依所問排列逐物與價，而鄰行相對如之。
+
+\begin{problemenv}{方程一（上中下禾）}
+上禾三束，中禾二束，下禾一束，共實三十九斗。上禾二束，中禾三束，下禾一束，共實三十四斗。上禾一束，中禾二束，下禾三束，共實二十六斗。問：上、中、下禾一束各幾何？
+
+\textsf{答曰：}上禾一束，得九斗四分斗之一；中禾一束，得四斗四分斗之一；下禾一束，得二斗四分斗之三。
+\end{problemenv}
+
+\begin{problemenv}{方程二（牛羊價）}
+五牛二羊，直金十兩；二牛五羊，直金八兩。問：牛、羊價各幾何？
+
+\textsf{答曰：}一牛直金一兩二十一分兩之一十三；一羊直金二十一分兩之二十。
+\end{problemenv}
+
+\begin{problemenv}{方程三}
+上禾二秉，中禾三秉，下禾四秉，實皆不滿斗。上取中，中取下，下取上，各一秉，而實滿斗。問：上、中、下禾一秉，實各幾何？
+
+\textsf{答曰：}上禾一秉，實二十五分斗之九；中禾一秉，實二十五分斗之七；下禾一秉，實二十五分斗之四。
+\end{problemenv}
+
+\subsection{正負術}
+
+\textbf{正負術}曰：同名相除，異名相益，正無入負之，負無入正之。其異名相除，同名相益，正無入正之，負無入負之。
+
+\begin{problemenv}{方程四（賣牛買羊）}
+今有賣牛二、羊五，以買一十三豕，有餘錢一千；賣牛三、豕三，以買九羊，錢適足；賣六羊、八豕，以買五牛，錢不足六百。問：牛、羊、豕價各幾何？
+
+\textsf{答曰：}牛價一千二百，羊價五百，豕價三百。
+\end{problemenv}
+
+\begin{problemenv}{方程五（金銀易重）}
+今有黃金九，白銀一十一，稱之重適等，交易其一，金輕十三兩。問：金、銀一枚各重幾何？
+\end{problemenv}
+
+\newpage
+\section{勾股第九 (Right Triangles)}
+
+\textbf{凡三十八問}：少廣十三，商功一問，本章二十四。
+
+\subsection{勾股基本方法}
+
+\textbf{勾股法}曰：勾自乘，股自乘，併之為弦實，開方除之即弦。其勾股自乘為實，如股弦較而一，加較半之即弦。
+
+\begin{problemenv}{勾股一}
+其三，勾自乘為實，如股弦較而一，加較半之即弦。
+
+立木垂索，委地二尺，引索斜之，拄地去木八尺。問索長幾何？
+
+\textsf{答曰：}一十七尺。
+\end{problemenv}
+
+\begin{problemenv}{勾股二}
+其四，勾自乘為實，如股弦較而一，以較減之餘半之即股。
+
+垣高一丈，倚木齊垣，木腳去本以畫記之，臥而過畫一尺。問去本幾何？
+
+\textsf{答曰：}四丈九尺半。
+\end{problemenv}
+
+\begin{problemenv}{勾股三}
+其五，半勾自乘為實，如半股弦較而一，加半較即弦。
+
+圓材埋在壁中，不知大小，鋸深一寸，道長一尺。問徑幾何？
+\end{problemenv}
+
+\subsection{戶高廣問題}
+
+\begin{problemenv}{勾股四（戶高廣）}
+開門去閫一尺，不合二寸。問門廣幾何？
+
+\textsf{答曰：}一丈一寸五分。
+\end{problemenv}
+
+\subsection{勾股容方}
+
+\textbf{合率}：勾中容方。
+
+\begin{problemenv}{勾股容方}
+今有勾五步，股十二步。問：勾中容方幾何？
+
+\textsf{答曰：}方三步十七分步之九。
+\end{problemenv}
+
+\subsection{複雜勾股問題}
+
+\begin{problemenv}{勾股五（竹折）}
+今有竹高一丈，末折抵地，去本三尺。問：折者高幾何？
+
+\textsf{答曰：}四尺五十五分尺之十一。
+\end{problemenv}
+
+\begin{problemenv}{勾股六（葭生中央）}
+今有池方一丈，葭生其中央，出水一尺。引葭赴岸，適與岸齊。問：水深、葭長各幾何？
+\end{problemenv}
+
+\begin{problemenv}{勾股七（邑方）}
+今有邑方不知大小，各開中門。出北門二十步有木，出南門十四步折而西行一千七百七十五步見木。問：邑方幾何？
+\end{problemenv}
+
+\newpage
+
+%% ===== APPENDIX: NOTES ON CLASSIFICATION =====
+\section*{Appendix: The Nine Classification Categories}
+\addcontentsline{toc}{section}{Appendix: The Nine Classification Categories}
+
+Yang Hui's \textit{Reclassification} (纂類) reorganizes the 246 problems from the \textit{Nine Chapters} into nine categories based on their mathematical methods:
+
+\begin{enumerate}
+\item \textbf{乘除 (Chéngchú)} -- Multiplication and Division: 41 problems dealing with basic field measurements and unit conversions.
+
+\item \textbf{分率 (Fēnlǜ)} -- Fractional Rates: 9 problems on operations with fractions (multiplication, division, and comparison of fractions).
+
+\item \textbf{合率 (Hélǜ)} -- Combined Rates: 20 problems on combining fractional quantities, including the ``short width'' (少廣) method.
+
+\item \textbf{互換 (Hùhuàn)} -- Exchange and Barter: 56 problems on proportional exchange of goods, including grain conversion and taxation problems.
+
+\item \textbf{衰分 (Shuāifēn)} -- Proportional Distribution: 18 problems on distributing quantities proportionally, including the ``fair taxes'' (均輸) method.
+
+\item \textbf{疊積 (Diéjī)} -- Stacked Accumulations: 27 problems on volumes of earthworks and other three-dimensional calculations.
+
+\item \textbf{盈不足 (Yíngbùzú)} -- Excess and Deficit: 11 problems solved by the double false position method.
+
+\item \textbf{方程 (Fāngchéng)} -- Simultaneous Equations: 20 problems on systems of linear equations, solved by matrix methods on counting boards.
+
+\item \textbf{勾股 (Gōugǔ)} -- Right Triangles: 38 problems applying the Pythagorean theorem and related geometric methods.
+\end{enumerate}
+
+\medskip
+\longline
+
+\vspace{1cm}
+
+\noindent\textit{This typesetting reproduces the content of Yang Hui's ``Detailed Analysis of the Mathematical Methods in the `Nine Chapters' --- Part III (Reclassification),'' originally composed in 1261 CE during the Southern Song Dynasty. The original work reorganized all 246 problems from the \textit{Nine Chapters on the Mathematical Art} according to their underlying mathematical methods, creating a pedagogically innovative structure that anticipated modern approaches to mathematical classification.}
+
+\vspace{1cm}
+
+\begin{flushright}
+\textit{--- End of Part III ---}
+\end{flushright}
+
+\end{document}

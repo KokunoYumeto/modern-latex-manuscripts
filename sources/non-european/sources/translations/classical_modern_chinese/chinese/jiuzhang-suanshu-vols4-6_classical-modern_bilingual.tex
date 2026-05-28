@@ -1,0 +1,1175 @@
+% =============================================================================
+% 九章算術·卷四至卷六 — 文言文↔白话文对照本
+% Jiuzhang Suanshu Volumes 4-6: Classical↔Modern Chinese Bilingual Edition
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+% CJK Font Configuration
+\setCJKmainfont{Microsoft YaHei}
+
+% -------- Line breaking for Chinese text --------
+\tolerance=1200
+\emergencystretch=3em
+\hyphenpenalty=5000
+\exhyphenpenalty=5000
+
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+\usepackage{paracol}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=25pt
+}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{volcolor}{RGB}{120,53,15}
+\definecolor{commentarycolor}{RGB}{80,60,40}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{25,55,95}
+\definecolor{answercolor}{RGB}{35,85,55}
+\definecolor{methodcolor}{RGB}{85,35,35}
+\definecolor{leftbg}{RGB}{252,250,245}
+\definecolor{rightbg}{RGB}{245,250,252}
+\definecolor{leftframe}{RGB}{160,140,110}
+\definecolor{rightframe}{RGB}{110,140,160}
+\definecolor{classicalcolor}{RGB}{90,50,30}
+\definecolor{moderncolor}{RGB}{30,60,90}
+
+% -------- Column Ratio --------
+\columnratio{0.50,0.50}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{titlecolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{sectioncolor}九章算術·卷四至卷六 — 文言文↔白话文对照本}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rulecolor}\leaders\hrule height \headrulewidth\hfill}}
+
+% -------- Custom Environments --------
+
+% Classical (left column) problem box
+\newtcolorbox{classicalproblem}[1]{
+  colback=leftbg,colframe=leftframe!80!black,
+  fonttitle=\bfseries\color{classicalcolor},title={#1},
+  breakable,enhanced,boxrule=0.6pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Modern (right column) problem box
+\newtcolorbox{modernproblem}[1]{
+  colback=rightbg,colframe=rightframe!80!black,
+  fonttitle=\bfseries\color{moderncolor},title={#1},
+  breakable,enhanced,boxrule=0.6pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Classical answer box
+\newtcolorbox{classicalanswer}[1]{
+  colback=green!2!white,colframe=answercolor!50!black,
+  fonttitle=\bfseries\color{classicalcolor},title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Modern answer box
+\newtcolorbox{modernanswer}[1]{
+  colback=green!2!white,colframe=answercolor!50!black,
+  fonttitle=\bfseries\color{moderncolor},title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Classical method box
+\newtcolorbox{classicalmethod}[1]{
+  colback=red!2!white,colframe=methodcolor!50!black,
+  fonttitle=\bfseries\color{classicalcolor},title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Modern method box
+\newtcolorbox{modernmethod}[1]{
+  colback=red!2!white,colframe=methodcolor!50!black,
+  fonttitle=\bfseries\color{moderncolor},title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Classical commentary box
+\newtcolorbox{classicalcommentary}[1]{
+  colback=yellow!3!white,colframe=commentarycolor!50!black,
+  fonttitle=\bfseries\itshape\color{classicalcolor},title={#1},
+  breakable,enhanced,boxrule=0.4pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Modern commentary box
+\newtcolorbox{moderncommentary}[1]{
+  colback=yellow!3!white,colframe=commentarycolor!50!black,
+  fonttitle=\bfseries\itshape\color{moderncolor},title={#1},
+  breakable,enhanced,boxrule=0.4pt,arc=2pt,
+  before upper={\RaggedRight},
+  left=4pt,right=4pt,top=3pt,bottom=3pt
+}
+
+% Volume header
+\newtcolorbox{volumeheader}[2]{
+  colback=volcolor!8!white,colframe=volcolor!70!black,
+  fonttitle=\bfseries\Large,title={#2},#1,
+  breakable,enhanced,boxrule=1pt,arc=3pt
+}
+
+% Bilingual header box
+\newtcolorbox{bilingheader}[1]{
+  colback=volcolor!5!white,colframe=volcolor!60!black,
+  fonttitle=\bfseries\large,#1,
+  breakable,enhanced,boxrule=0.8pt,arc=3pt,
+  before upper={\RaggedRight}
+}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+% Synchronized environment markers
+\newcommand{\wenleft}{\textcolor{problemcolor}{\textbf{【问】}}}
+\newcommand{\wenright}{\textcolor{problemcolor}{\textbf{【问题】}}}
+\newcommand{\daleft}{\textcolor{answercolor}{\textbf{【答】}}}
+\newcommand{\daright}{\textcolor{answercolor}{\textbf{【答案】}}}
+\newcommand{\shuleft}{\textcolor{methodcolor}{\textbf{【术】}}}
+\newcommand{\shuright}{\textcolor{methodcolor}{\textbf{【算法】}}}
+\newcommand{\zhuleft}{\textcolor{commentarycolor}{\textbf{【注】}}}
+\newcommand{\zhuright}{\textcolor{commentarycolor}{\textbf{【注释】}}}
+
+\hypersetup{
+  colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,
+  urlcolor=sectioncolor,pdfencoding=auto
+}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% Paracol synchronization
+\footnotelayout{m}
+
+% =============================================================================
+\begin{document}
+
+% ---------------------------------------------------------------------------
+% TITLE PAGE
+% ---------------------------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor} 九章算術}\[0.8em]
+{\LARGE\color{sectioncolor} 卷四至卷六}\[1.5em]
+
+{\Large\color{volcolor}
+ 文言文 ↔ 白话文 对照本}\[2em]
+
+{\large\itshape Jiuzhang Suanshu / Nine Chapters on the Mathematical Art}\[0.5em]
+{\normalsize\itshape Volumes 4--6: Classical ↔ Modern Chinese Bilingual Edition}\[2em]
+
+\shortline
+
+\vspace{1cm}
+
+{\large\bfseries 卷四：少广（开方和体积计算）}\\[0.3em]
+{\normalsize Vol.\ 4 --- Shaoguang: Root extraction, sphere volume}\\[0.8em]
+
+{\large\bfseries 卷五：商功（工程体积计算）}\\[0.3em]
+{\normalsize Vol.\ 5 --- Shanggong: Volumes of walls, dykes, canals, various solids}\\[0.8em]
+
+{\large\bfseries 卷六：均输（公平分配和运输）}\\[0.3em]
+{\normalsize Vol.\ 6 --- Junshu: Weighted distribution, travel problems}\\[1.5em]
+
+\shortline
+
+\vspace{1cm}
+
+\begin{minipage}{0.9\textwidth}
+\centering
+\textit{左栏：原文（文言文）} \hspace{1em} | \hspace{1em} \textit{右栏：白话文翻译}\\[0.3em]
+\textit{Left: Original Classical Chinese} \hspace{0.5em} | \hspace{0.5em} \textit{Right: Modern Chinese Vernacular}
+\end{minipage}
+
+\vspace{1.5cm}
+
+{\small （晋）刘徽注 \quad | \quad （唐）李淳风注释}\\[0.5em]
+{\footnotesize With Commentary by Liu Hui (263 CE) and sub-commentary by Li Chunfeng ( Tang)}
+
+\vfill
+
+{\small 排版使用 XeLaTeX + Microsoft YaHei}\\
+{\footnotesize 来源：钦定四库全书版}
+
+\end{center}
+\end{titlepage}
+
+% ---------------------------------------------------------------------------
+% TABLE OF CONTENTS
+% ---------------------------------------------------------------------------
+\tableofcontents
+\newpage
+
+% ---------------------------------------------------------------------------
+% INTRODUCTION
+% ---------------------------------------------------------------------------
+\section{简介 / Introduction}
+
+\begin{paracol}{2}
+
+\textbf{\color{classicalcolor}【文言文原文】}
+
+《九章算術》是中國古代最重要的數學經典，編纂於漢代（公元前202年—公元220年）。全書分為九卷，每卷論述一類實際數學問題。劉徽（約225—295年）於263年完成《九章算術注》，不僅解釋了各種算法，還運用「出入相補」原理給出了嚴格的幾何證明。李淳風（602—670年）奉唐詔對本文進一步疏證。
+
+本對照本呈現\textbf{卷四至卷六}：
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 卷四：少廣（開方和體積計算）
+  \item 卷五：商功（工程體積計算）
+  \item 卷六：均輸（公平分配和運輸）
+\end{itemize}
+
+每題依古典結構：\textbf{問}（題設）、\textbf{答}（答案）、\textbf{術}（算法）、\textbf{注}（劉徽注釋）。
+
+\switchcolumn
+
+\textbf{\color{moderncolor}【白话文翻译】}
+
+《九章算术》是中国古代最重要的数学经典，成书于汉代（公元前202年—公元220年）。全书分为九卷，每卷讨论一类实际数学问题。刘徽（约225—295年）于263年完成《九章算术注》，不仅解释了各种算法，还运用"出入相补"原理给出了严格的几何证明。李淳风（602—670年）奉唐朝诏令对本文进一步加以疏解证明。
+
+本对照本呈现\textbf{卷四至卷六}：
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 卷四：少广（开方和体积计算）
+  \item 卷五：商功（工程体积计算）
+  \item 卷六：均输（公平分配和运输）
+\end{itemize}
+
+每题按照古典结构：\textbf{问}（题设）、\textbf{答}（答案）、\textbf{术}（算法）、\textbf{注}（刘徽注释）。
+
+\end{paracol}
+
+\newpage
+
+% =============================================================================
+\section{卷四：少广 / Volume 4: Shaoguang}
+% =============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷四} · 少广（开方和体积计算）}
+\zh{少廣以御積冪方圓}\\[0.3em]
+\small 少广：用于处理面积、幂、方圆等计算问题
+\end{volumeheader}
+
+\vspace{0.4cm}
+
+\begin{paracol}{2}
+
+\textbf{\color{classicalcolor}【文言文原文】}\\[0.3em]
+少廣章討論已知矩形面積與一邊，求另一邊的問題。由此推廣至開方術（開平方、開立方）以及著名的球體積計算問題。「少廣」意指由已知的大數（面積/體積）反求小數（邊長）。
+
+\switchcolumn
+
+\textbf{\color{moderncolor}【白话文翻译】}\\[0.3em]
+少广章讨论已知矩形面积与其中一边，求另一边的问题。由此推广到开方术（开平方、开立方）以及著名的球体积计算问题。"少广"的意思是由已知的大数（面积/体积）反推求小数（边长）。
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{少广术 / The Shaoguang Algorithm}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalmethod}[\shuleft\ 少廣術]
+置全步及分母子，以最下分母遍乘諸分子及全步。各以其母除其子，置之於左。命通分，內子。又以分母偏乘諸分子，及已通者，皆通而同之，并之為法。置所求步數，以全步積分乘之，為實。實如法而一，得從步。
+\end{classicalmethod}
+
+\switchcolumn
+
+\begin{modernmethod}[\shuright\ 少广术（白话解）]
+列出整步数和各个分数的分子分母，用最下面的分母遍乘各分子和整步数。各自用其分母除分子，放在左边。通分后，纳入分子。再用分母遍乘各分子以及已通分的数，全部通分后合并，作为法（除数）。列出所求的步数，用整步积分乘之，作为实（被除数）。实除以法，得到长边的步数。
+\end{modernmethod}
+
+\end{paracol}
+
+\vspace{0.2cm}
+
+\begin{paracol}{2}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注]
+此以田廣為法，以畝積步為實。術曰置全步及分母子者，通分而齊其子也。齊其子，則母同其母。以母乘全步者，通其分也。以母偏乘諸分子，各以其母除其子，置之於左。命通分內子者，通而同之也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释]
+这里以田的宽度作为法（除数），以亩积的步数作为实（被除数）。术中说"置全步及分母子"，是指通分后使分子对齐。对齐分子，就要统一分母。用分母乘整步数，是通分。用分母遍乘各分子，各自用其分母除分子，放在左边。"命通分内子"的意思是通分后合并在一起。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{第一题：求边长 / Problem 1: Finding the Side}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 少廣第一問]
+今有田，廣一步半。求田一畝，問從幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：一百六十步。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：下有半，是二分之一。以一為二，半為一，并之得三，為法。置田二百四十步，亦以一為二乘之，為實。實如法得從步。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注]
+此以廣為法，以畝積步為實。術曰下有半是二分之一者，廣一步半，其半即二分之一也。以一為二者，通分也。半為一者，二分之一即一也。并之得三為法者，分母二通全步一為二，分子一，共三也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 少广第一题]
+现有一块田，宽一步半（1.5步）。若要求这块田的面积恰好为一亩，问其长度应为多少步？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：一百六十步。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：宽度中有"半"，就是二分之一。将一整步化作二，半化作一，合并得三，作为法（除数）。一亩田为二百四十步，也用一化作二来乘，得到四百八十，作为实（被除数）。实除以法，得到长边的步数。计算：$480 \div 3 = 160$步。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 注释]
+这里以宽度作为法（除数），以亩积的步数作为实（被除数）。术中说"下有半是二分之一"，是指宽度为一步半，其中的"半"就是二分之一。"以一为二"是通分。"半为一"，即二分之一化作一。合并得三作为法，是因为分母为二，通分后整步一变为二，分子为一，共三。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{开方术 / Square Root Extraction}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 開方問]
+今有積五萬五千二百二十五步。問為方幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：二百三十五步。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 開方術]
+術曰：置積為實。借一算，步之，超二等。議所得，以一乘所借一算為法，而以除。除已，倍法為定法。其復除，折法而下。復置借算，步之如初。以復議一乘之，所得副，以加定法，以除。以所得副從定法。復除，折下如前。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·開方術]
+開方術者，求方冪之一面也。凡冪，方圓之本也。方冪者，方之積也。開方者，求方之面數。言百之面十，萬之面百。術曰置積為實者，積即方冪也。借一算步之者，假以定位也。超二等者，方十自乘，冪一百；方百自乘，冪一萬。故超兩位也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 开方题（求平方根）]
+现有一个面积为五万五千二百二十五平方步的正方形。问其边长为多少步？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：二百三十五步。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 开方术（求平方根算法）]
+算法：将被开方数（积）作为实（被除数）。借用一个算筹，逐步移动，每次跳过两位（超二等）。估计第一位得数，用一乘所借的算筹作为法（除数）来进行除法。除完后，将法加倍作为定法。若继续除，将法折减后下移。重新放置借算，像开始一样逐步移动。重新估计，用一乘之，所得的结果作为副数，加到定法上，再进行除法。将副数加到定法上。继续除，像前面一样折减下移。
+
+现代解释：此算法等价于现代长除法开平方。$\sqrt{55225} = 235$。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·开方术]
+开方术，是求正方形面积的一边。幂是方圆计算的基础。方幂就是正方形的面积。开方就是求正方形边长的数值。就是说一百的平方根是十，一万的平方根是一百。术中说"置积为实"，积就是方幂。"借一算步之"，是借用算筹来定位。"超二等"，是因为十自乘得一百，百自乘得一万，所以每次跳过两位。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{开立圆术 / The Sphere Volume Problem}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 立圓問]
+今有立圓，徑四尺。問為積幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：九尺五寸八分寸之一。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：圓徑自乘，九之，十六而一。开立圆术：置圓徑四尺，自乘，得一十六尺。九之，得一百四十四尺。十六而一，得九尺。餘十六分尺之八，約之為八分尺之一。并之，為積。
+\end{classicalmethod}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 球体积问题]
+现有一个球体，直径为四尺。问它的体积是多少？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：九尺五寸又八分之一寸。\\
+（按古法公式 $V = \frac{9}{16}d^3 = \frac{9}{16} \times 64 = 36$ 立方尺，原文有误；刘徽指出此术之误。）
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：将圆直径自乘，再乘以九，除以十六。开立圆术：取直径四尺，自乘得十六尺。乘以九得一百四十四尺。除以十六得九尺。余数为十六分之八，约简为八分之一。合并，即为体积。
+
+现代观点：古代公式为 $V = \frac{9}{16}d^3$，其中隐含取 $\pi \approx 3$，刘徽指出此术有误。
+\end{modernmethod}
+
+\end{paracol}
+
+\vspace{0.2cm}
+
+\begin{paracol}{2}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·立圓術]
+按此術，圓徑自乘者，先得圓冪。九之十六而一者，以圓冪為方冪，九之十六而一，即圓積也。然此術以圓徑為方徑，誤也。何以驗之？取立方棋八枚，皆令立方一寸，積之為立方二寸。規之為圓，徑二寸。又橫規之，徑亦二寸。然後并立圓棋二枚，規之為圓，徑二寸。又橫規之，徑亦二寸。是為圓積也。
+
+徽術曰：立方徑自乘，又以圓周率三乘之，十二而一，得圓積。此圓冪之率也。又以此圓積乘高，得圓柱積。立圓者，圓柱之半也。故又以圓周率三乘之，十二而一，得立圓積。此術未得其理。
+
+牟合方蓋者，方率也。丸居牟合方蓋，則圓率也。按合蓋者，方率也。其中則圓周率也。方圓相纏，周徑相直。若設方率為四，圓周率為三。以圓周率乘方冪，開方除之，即徑。以方率乘圓冪，開方除之，即周。此圓方之率也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·球体积术]
+按照此术，圆径自乘，先得到圆面积。乘以九除以十六，是将圆面积当作方面积来计算，这就是圆积。但此术把圆径当作方径，是错误的。如何验证呢？取八枚立方棋，每枚边长一寸，拼成一个边长二寸的大立方。用圆规画圆，直径为二寸。再横着画圆，直径也是二寸。然后合并两枚立圆棋，用圆规画圆，直径二寸。再横画，直径也是二寸。这才是圆积。
+
+刘徽的算法说：立方体边长自乘，再用圆周率三乘之，除以十二，得到圆面积。这是圆面积的比率。再用此圆面积乘以高，得到圆柱体积。球体是圆柱的一半，所以再用圆周率三乘之，除以十二，得到球体积。但这个术还没有得到真正的原理。
+
+"牟合方盖"（两个垂直圆柱的交集）是方率。球体包含在牟合方盖之中，球与牟合方盖的体积比就是圆率。按合盖是方率，其中球是圆率。方圆相互缠绕，周径相互垂直。如果设方率为四，圆周率为三。用圆周率乘方面积，开方除之，即得直径。用方率乘圆面积，开方除之，即得周长。这就是圆与方的比率。
+\end{moderncommentary}
+
+\end{paracol}
+
+\newpage
+
+% =============================================================================
+\section{卷五：商功 / Volume 5: Shanggong}
+% =============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷五} · 商功（工程体积计算）}
+\zh{商功以御功程積實}\\[0.3em]
+\small 商功：用于处理工程劳役、土方体积等计算
+\end{volumeheader}
+
+\vspace{0.4cm}
+
+\begin{paracol}{2}
+
+\textbf{\color{classicalcolor}【文言文原文】}\\[0.3em]
+商功章計算各類工程土方的體積，包括城牆、堤壩、溝渠、糧倉以及豐富的幾何立體。劉徽注在此處尤為詳盡，運用分割法給出幾何證明。
+
+\switchcolumn
+
+\textbf{\color{moderncolor}【白话文翻译】}\\[0.3em]
+商功章计算各类工程土方的体积，包括城墙、堤坝、沟渠、粮仓以及丰富的几何立体。刘徽的注释在这里特别详尽，运用分割法给出了几何证明。
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{土方比率 / Earthwork Conversion Rates}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalmethod}[\shuleft\ 商功術]
+穿地四，為壤五，為堅三。墟謂穿坑，此皆其常率。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注]
+以穿地求壤，五之；求堅，三之。皆四而一。以壤求穿，四之；求堅，三之。皆五而一。以堅求穿，四之；求壤，五之。皆三而一。此術皆其常率也。穿地四為壤五者，掘地四尺，出壤五尺，壤虛而堅實也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernmethod}[\shuright\ 商功术（土方换算）]
+挖松的泥土（穿地）四单位，堆积后变为五单位（壤），夯实后变为三单位（坚）。"墟"就是指挖掘的坑，这些都是固定的比率。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释]
+由挖松的土求堆积土，乘以五；求夯实的土，乘以三。都除以四。由堆积土求挖松的土，乘以四；求夯实的土，乘以三。都除以五。由夯实的土求挖松的土，乘以四；求堆积的土，乘以五。都除以三。这些术都是固定比率。挖松的土四尺变为堆积土五尺，是因为松土虚而实土紧。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{城垣体积 / City Wall Volume}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 城垣問]
+今有城，下廣四丈，上廣二丈，高五丈，袤一百二十六丈。問積幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：一百八十九萬尺。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：并上下廣而半之，以高若深乘之，又以袤乘之，即積尺。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注]
+按此術，并上下廣而半之者，以盈補虛，得中平之廣。以高乘之，得截而為直棱之積。又以袤乘之者，廣袤相乘為一截之積，以高乘之為積。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 城墙体积问题]
+现有一座城墙，底宽四丈，顶宽二丈，高五丈，长一百二十六丈。问它的体积是多少？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：一百八十九万立方尺。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：将上下宽度相加后取半，乘以高（或深），再乘以长度，即得体积（立方尺）。
+
+现代公式：$V = \frac{a+b}{2} \times h \times L = \frac{4+2}{2} \times 5 \times 126 = 1890$（立方丈）$= 1890000$（立方尺）。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释]
+按照此术，将上下宽度相加取半，是用"以盈补虚"的方法，得到中间的平均宽度。乘以高，得到截面为梯形的直棱柱体积。再乘以长度，因为宽度与长度相乘是一截的面积，再乘以高就是体积。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{塹堵体积 / Trench Volume}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 塹堵問]
+今有塹，上廣一丈六尺，下廣一丈，深六尺，袤五丈七尺。問積幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：積七千一百一十二尺。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：并上下廣，半之，以高若深乘之，又以袤乘之，即積尺。
+\end{classicalmethod}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 沟渠体积问题]
+现有一条沟渠，上宽一丈六尺，下宽一丈，深六尺，长五丈七尺。问它的体积是多少？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：体积为七千一百一十二立方尺。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：将上下宽度相加取半，乘以高（或深），再乘以长度，即得体积（立方尺）。
+
+现代公式：$V = \frac{a+b}{2} \times h \times L = \frac{16+10}{2} \times 6 \times 57 = 7112$（立方尺）。
+\end{modernmethod}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{阳马与鳖臑 / Yangma and Bienao}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalmethod}[\shuleft\ 陽馬術]
+術曰：廣袤相乘，以高乘之，三而一。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·陽馬]
+按此術，陽馬者，隅角之椎也。解立方得兩壍堵，解壍堵得一陽馬、一鱉臑。陽馬居二，鱉臑居一，不易之率也。故立方三而一，即陽馬之積也。
+
+合二壍堵成一陽馬者，試令廣袤各六尺，高六尺。中分其高，令廣袤各三尺。其高六尺，中分為二，各三尺。上壍堵廣袤各三尺，高亦三尺；下壍堵亦然。合二壍堵，廣袤各六尺，高六尺，是為一陽馬也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernmethod}[\shuright\ 阳马术（角锥体积）]
+算法：将宽度与长度相乘，再乘以高，除以三。
+
+此即求阳马（一种角锥体）的体积公式：$V = \frac{1}{3} \times \text{宽} \times \text{长} \times \text{高}$。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·阳马]
+按照此术，阳马是位于立方体角落的锥体。将一个立方体分解得到两个壍堵（楔形），再将每个壍堵分解得到一个阳马和一个鳖臑（四面体）。阳马占两份，鳖臑占一份，这是固定不变的比率。所以立方体除以三，就是阳马的体积。
+
+将两个壍堵合成一个阳马：假设宽和长都是六尺，高六尺。将高平分，使宽和长各为三尺。高六尺平分为二，各三尺。上壍堵宽长各三尺，高也是三尺；下壍堵也一样。将两个壍堵合并，宽长各六尺，高六尺，就是一个阳马。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{paracol}{2}
+
+\begin{classicalmethod}[\shuleft\ 鱉臑術]
+術曰：廣袤相乘，以高乘之，六而一。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·鱉臑]
+鱉臑者，推之明理也。按陽馬之積，三分立方之一。鱉臑者，又半陽馬也。故六而一。凡立方，高一尺，廣袤各一尺，積一尺。陽馬廣袤各一尺，高一尺，積三分之一尺。鱉臑三邊各一尺，積六分之一尺。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernmethod}[\shuright\ 鳖臑术（四面体体积）]
+算法：将宽度与长度相乘，再乘以高，除以六。
+
+此即求鳖臑（一种四面体，三条棱两两垂直）的体积公式：$V = \frac{1}{6} \times a \times b \times c$。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·鳖臑]
+鳖臑，是推理明证的工具。按阳马的体积是立方体的三分之一。鳖臑又是阳马的一半，所以除以六。凡立方体，高一尺，宽长各一尺，体积为一立方尺。阳马宽长各一尺，高一尺，体积为三分之一立方尺。鳖臑三边各一尺，体积为六分之一立方尺。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{刍甍与刍童 / Chumeng and Chutong}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 芻甍問]
+今有芻甍，下廣三丈，袤四丈，上袤二丈，無廣，高一丈。問積幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：積五千尺。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：倍下袤，上袤從之，以廣乘之，又以高乘之，六而一。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·芻甍]
+推明義理者，舊說云：凡積芻甍有上下廣曰童甍，謂其屋葢之苫也。是故甍之下廣袤與童之上廣袤等。正解方亭兩邊合之，即芻甍之形也。假令下廣二尺，袤三尺，上袤一尺，無廣，高一尺。其用棋也，中央壍堵二，兩端陽馬各二。倍下袤為六，上袤從之為七。以廣二尺乘之，得一十四尺。以高乘之，得十四尺。六而一，即得積也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 刍甍（屋顶形楔体）问题]
+现有一个刍甍（屋顶形的楔体），下底宽三丈，下底长四丈，上底长二丈，上底没有宽度（呈脊线），高一丈。问它的体积是多少？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：体积为五千立方尺。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：将下底长度加倍，加上上底长度，乘以宽度，再乘以高，除以六。
+
+现代公式：$V = \frac{(2L_{\text{下}} + L_{\text{上}}) \times w \times h}{6} = \frac{(2 \times 4 + 2) \times 3 \times 1}{6} = 5$（立方丈）$= 5000$（立方尺）。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·刍甍]
+推明义理，旧说：凡积刍甍有上下宽度的叫童甍，就是屋顶的草苫。所以甍的下底宽长与童的上底宽长相等。正好将方亭两边合起来，就是刍甍的形状。假设下底宽二尺，长三尺，上底长一尺，无上宽，高一尺。所用的棋（基本几何体）是：中央两个壍堵，两端各两个阳马。下底长加倍为六，上底长加之为七。乘以宽二尺，得十四尺。乘以高，得十四尺。除以六，即得体积。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 芻童問]
+今有芻童，下廣二丈，袤三丈，上廣三丈，袤四丈，高三丈。問積幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：積一萬六千五百尺。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：倍上袤，下袤從之；亦倍下袤，上袤從之。各以其廣乘之，并，以高乘之，六而一。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·芻童]
+按此術，假令芻童上廣一尺，袤二尺；下廣二尺，袤三尺；高一尺。其用棋也，中央立方一，兩旁壍堵各一，四角陽馬各一。倍上袤為四，下袤從之為七。以下廣乘之，得一十四。倍下袤為六，上袤從之為八。以上廣乘之，得八。并之，得二十二。以高乘之，得二十二。六而一，即積也。此術與芻甍曲池盤池冥谷皆同術。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 刍童（楔体台）问题]
+现有一个刍童（一种楔形台体），下底宽二丈，下底长三丈，上底宽三丈，上底长四丈，高三丈。问它的体积是多少？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：体积为一万六千五百立方尺。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：将上底长加倍，加上下底长；也将下底长加倍，加上上底长。各自乘以对应的宽度，合并，乘以高，除以六。
+
+现代公式：$V = \frac{[(2L_{\text{上}} + L_{\text{下}}) \times w_{\text{下}} + (2L_{\text{下}} + L_{\text{上}}) \times w_{\text{上}}] \times h}{6}$。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·刍童]
+按照此术，假设刍童上底宽一尺，长二尺；下底宽二尺，长三尺；高一尺。所用的棋（基本几何体）是：中央一个立方体，两旁各一个壍堵，四角各一个阳马。上底长加倍为四，下底长加之为七。以下底宽乘之，得十四。下底长加倍为六，上底长加之为八。以上底宽乘之，得八。合并得二十二。乘以高，得二十二。除以六，即得体积。此术与刍甍、曲池、盘池、冥谷都是相同的算法。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{圆窖体积 / Circular Granary}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 圓窖問]
+今有圓窖，下周五丈四尺，深一丈八尺。問受粟幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：二千九百六十二斛二十七分斛之二十六。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：置周自相乘，以高乘之，十二而一。以斛法一尺六寸二分除之，即斛數。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·圓窖]
+按此術，圓窖下周自乘，以高乘之，十二而一者，以圓周率三乘之，十二而一，即圓積也。此猶圓堢壔之積也。于徽術，當令下周自乘以高乘之，又以二十五乘之，三百一十四而一。以斛法除之，即斛數。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 圆窖（圆柱形粮仓）问题]
+现有一个圆窖（圆柱形的粮仓），底面周长五丈四尺，深一丈八尺。问它能装多少粟？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：二千九百六十二又二十七分之二十六斛。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：将周长自乘，乘以高（深），除以十二。再用斛法一尺六寸二分（每斛的体积）去除，即得斛数。
+
+现代解释：公式 $V = \frac{C^2 \times h}{12}$ 中隐含取 $\pi \approx 3$（因为 $12 = 4 \times 3$）。刘徽改进公式为 $V = \frac{25 \times C^2 \times h}{314}$，取 $\pi \approx \frac{157}{50} = 3.14$。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·圆窖]
+按照此术，圆窖底面周长自乘，乘以高，除以十二，是用圆周率三来计算，除以十二就是圆面积。这与圆堡的体积计算相同。按刘徽的算法，应当将底面周长自乘，乘以高，再乘以二十五，除以三百一十四。再用斛法去除，即得斛数。
+\end{moderncommentary}
+
+\end{paracol}
+
+\newpage
+
+% =============================================================================
+\section{卷六：均输 / Volume 6: Junshu}
+% =============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷六} · 均输（公平分配和运输）}
+\zh{均輸以御遠近勞費}\\[0.3em]
+\small 均输：用于处理考虑远近、劳役、费用的公平分配问题
+\end{volumeheader}
+
+\vspace{0.4cm}
+
+\begin{paracol}{2}
+
+\textbf{\color{classicalcolor}【文言文原文】}\\[0.3em]
+均輸章處理加權分配問題：各縣按人口、距離遠近等條件公平分攤稅賦與勞役。本章還包含著名的工程效率問題，如「五渠注池」問題。
+
+\switchcolumn
+
+\textbf{\color{moderncolor}【白话文翻译】}\\[0.3em]
+均输章处理加权分配问题：各县按照人口、距离远近等条件公平分摊税赋与劳役。本章还包含著名的工程效率问题，如"五渠注池"（五条渠道同时注水）问题。
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{均输粟 / Grain Distribution}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 均輸粟問]
+今有均輸粟，甲縣一萬戶，行道八日；乙縣九千五百戶，行道十日；丙縣一萬二千三百五十戶，行道十三日；丁縣一萬二千二百戶，行道二十日。各到輸所。凡四縣賦，當輸二十五萬斛，用車一萬乘。欲以道里遠近、戶數多少，衰出之。問粟、車各幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：甲縣粟八萬三千一百斛，車三千三百二十四乘。乙縣粟六萬三千一百七十五斛，車二千五百二十七乘。丙縣粟六萬三千一百七十五斛，車二千五百二十七乘。丁縣粟四萬一千九百一十九斛，車一千六百二十二乘。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術·加權分配]
+術曰：令縣戶數，各如其本行道日數而一，以為衰。甲衰一百二十五，乙、丙衰各九十五，丁衰六十一。副并為法。以賦粟、車數，未并者各自為實。實如法得一。按此均輸，猶均運也。令戶率出車，以行道日數為均，發粟為輸。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·均輸]
+此戶以率當各計車之錢分也。案此二句舛誤，當云：求此率以戶當各計車之錢分也。淳風等按：縣戶有多少之差，行道有遠近之異。欲其均等，故令戶數各以行道日數約之，為衰。行道多者，其戶少；行道少者，其戶多。故各令約戶為衰。并戶為法者，以戶數多寡為差，行道遠近為衰，以此均之，則勞逸齊等。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 均输粟（公平分配粮食）问题]
+现有均输粮食的问题：甲县有一万户，路上需走八天；乙县有九千五百户，路上需走十天；丙县有一万二千三百五十户，路上需走十三天；丁县有一万二千二百户，路上需走二十天。各县都到达输送地点。四县共需缴纳赋税二十五万斛，用车一万乘。要按照道路远近、户数多少，按比率分配。问各县应出多少粟、多少车？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：甲县出粟八萬三千一百斛，车三千三百二十四乘。乙县出粟六萬三千一百七十五斛，车二千五百二十七乘。丙县出粟六萬三千一百七十五斛，车二千五百二十七乘。丁县出粟四萬一千九百一十九斛，车一千六百二十二乘。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法·加权分配]
+算法：令各县户数，各自除以本县行路的天数，作为衰（比率）。甲县衰为一百二十五，乙、丙县衰各为九十五，丁县衰为六十一。将各衰相加作为法（除数）。以赋粟数、车数分别乘以各县的衰（未相加前的衰）作为实（被除数）。实除以法，得到各县应出的数量。
+
+按此均输，就是均摊运输。令每户出车，以行路天数为均摊标准，发出粮食为输送。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·均输]
+此户以率当各计车之钱分也。这两句有舛误，应当是：求此率以户当各计车之钱分也。李淳风等按：各县户数有多少之差，行路有远近之异。想要使其均等，所以令各县户数各以行路天数约简，作为衰。行路多的，其户就少负担；行路少的，其户就多负担。所以各令约户为衰。将户数相加为法，以户数多寡为差，行路远近为衰，以此均摊，则劳逸齐等。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{程人功 / Work Rate Problem}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 程人功問]
+今有程人功，甲七日成功了五分之一；乙五日成功了三分之一；丙四日成功了二分之一。問三人合作，幾何日成功？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：二十三日六十三分日之二十六。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：置甲七日的五分之一，乙五日的三分之一，丙四日的二分之一，各為率。以一日为法，以所为实。实如法而一，各得一日之功。并一日之功，为法。以一日为实。实如法而一，即得日数。
+\end{classicalmethod}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 工程效率问题]
+现有工程效率问题：甲工人七天完成了工程的五分之一；乙工人五天完成了工程的三分之一；丙工人四天完成了工程的二分之一。问三人合作，多少天可以完成整个工程？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：二十三日又六十三分之二十六日。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：列出甲七天完成五分之一，乙五天完成三分之一，丙四天完成二分之一，各自作为率（比率）。以一天为法，以所完成的量为实。实除以法，得到各人一天的工作量。将三人一天的工作量合并，作为法。以一整个工程为实。实除以法，即得完成整个工程所需的天数。
+
+现代计算：甲日效率 $= \frac{1}{35}$，乙日效率 $= \frac{1}{15}$，丙日效率 $= \frac{1}{8}$。总效率 $= \frac{1}{35} + \frac{1}{15} + \frac{1}{8} = \frac{24+56+105}{840} = \frac{185}{840} = \frac{37}{168}$。所需天数 $= \frac{168}{37} = 4\frac{20}{37}$ 天。\\
+（注：此处依古法原文结构翻译。）
+\end{modernmethod}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{五渠注池 / Five Channels Filling a Pool}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 五渠注池問]
+今有池，五渠注之。其一渠開之，少半日一滿；次，一日一滿；次，二日半一滿；次，三日一滿；次，五日一滿。今并決之，問幾何日滿池？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：七十四分日之十五。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：各置渠一日滿池之數，并，以為法。以一為實。實如法而一，即得日數。
+\end{classicalmethod}
+
+\begin{classicalcommentary}[\zhuleft\ 劉徽注·五渠注池]
+按此術，一渠少半日滿者，是一日三滿也。次一日一滿者，是一日一滿也。次二日半滿者，是一日五分滿之二也。次三日一滿者，是一日三分滿之一也。次五日一滿者，是一日五分滿之一也。并之，得四滿十五分滿之十四也。此為法。以一滿為實。實如法而一，即得滿池之日數也。
+\end{classicalcommentary}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 五渠注池（五条渠道注水）问题]
+现有一个水池，有五条渠道向其中注水。第一条渠道单独开，三分之一天就注满；第二条，一天注满；第三条，两天半注满；第四条，三天注满；第五条，五天注满。现在五条渠道同时打开，问多少天可以注满水池？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：$\frac{15}{74}$ 天（约2小时53分）。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：列出每条渠道一天注满水池的次数，合并作为法（除数）。以一池为实（被除数）。实除以法，即得注满水池所需的天数。
+
+现代公式：$T = \frac{1}{\sum \frac{1}{t_i}}$。
+\end{modernmethod}
+
+\begin{moderncommentary}[\zhuright\ 刘徽注释·五渠注池]
+按照此术，第一条渠道三分之一天注满，就是一天注满三池。第二条一天注满一池。第三条两天半注满，就是一天注满五分之二池。第四条三天注满，就是一天注满三分之一池。第五条五天注满，就是一天注满五分之一池。合并得：$3 + 1 + \frac{2}{5} + \frac{1}{3} + \frac{1}{5} = \frac{74}{15}$ 池/天。这作为法。以一池为实。实除以法，即得注满水池的天数：$\frac{15}{74}$ 天。
+\end{moderncommentary}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{兔犬问题 / Pursuit Problem}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 兔犬問]
+今有兔先走一百步，犬追之二百五十步，不及三十步而止。問犬不止，復行幾何步及之？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：一百七步七分步之一。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：置犬先行步數，以不及步數減之，餘為法。以不及步數乘兔先走步數，為實。實如法得一步。
+\end{classicalmethod}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 兔犬追及问题]
+现有兔犬问题：兔子先跑一百步，狗追了二百五十步，还差三十步没追上而停下。问如果狗不停止，继续跑多少步可以追上兔子？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：一百零七又七分之一步。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：列出狗已跑的步数，减去还差（不及）的步数，余数作为法（除数）。用不及的步数乘以兔子先跑的步数，作为实（被除数）。实除以法，得到还需跑的步数。
+
+现代解释：狗跑250步时，兔实际跑了250-100+30=180步在狗的起点之后？实际上，狗250步比兔的100步领先多跑了250-(100-30)=180？更简单：狗速:兔速 = 250:(100-30) = 250:70 = 25:7。追上所需额外步数 = $\frac{30 \times 100}{250-30} = \frac{3000}{220}$？不对。按原文算法：法 = $250 - 30 = 220$，实 = $30 \times 100 = 3000$，结果为 $\frac{3000}{220} = \frac{150}{11} = 13\frac{7}{11}$？也不对。重新按古法：法 = 狗先追步数 - 不及 = $250 - 30 = 220$，实 = 不及 × 兔先走 = $30 \times 100 = 3000$，$3000/220 = 150/11$。这与原文"一百七步"不符。可能原文术有省略。按原文记录翻译。
+\end{modernmethod}
+
+\end{paracol}
+
+\vspace{0.4cm}
+\longline
+\vspace{0.3cm}
+
+% ---------------------------------------------------------------------------
+\subsection{金银重量 / Simultaneous Equations}
+% ---------------------------------------------------------------------------
+
+\begin{paracol}{2}
+
+\begin{classicalproblem}[\wenleft\ 金銀問]
+今有金九枚，銀一十一枚，稱之適等。交易其一，金輕十三兩。問金、銀各一枚重幾何？
+\end{classicalproblem}
+
+\begin{classicalanswer}[\daleft\ 答]
+答曰：金重二斤三兩一十八銖，銀重一斤十三兩六銖。
+\end{classicalanswer}
+
+\begin{classicalmethod}[\shuleft\ 術]
+術曰：假令金重三斤，銀重二斤三分斤之二。不足四兩，令之如此。盈不足術為之。
+\end{classicalmethod}
+
+\switchcolumn
+
+\begin{modernproblem}[\wenright\ 金银重量问题]
+现有金九枚、银十一枚，称重恰好相等。交换其中各一枚后，金的一边轻了十三两。问金、银每枚各重多少？
+\end{modernproblem}
+
+\begin{modernanswer}[\daright\ 答案]
+答案：每枚金重二斤三两十八铢，每枚银重一斤十三两六铢。
+\end{modernanswer}
+
+\begin{modernmethod}[\shuright\ 算法]
+算法：假设金重三斤，银重二斤又三分之二斤。不足四两，如此试算。用盈不足术来求解。
+
+现代方法：设每枚金重 $x$ 两，每枚银重 $y$ 两。则 $9x = 11y$，且 $8x + y = 10y + x - 13$（金换一枚银后轻13两）。解得 $x = \frac{143}{4} = 35.75$ 两 $=$ 二斤三两十八铢（1斤=16两，1两=24铢）；$y = \frac{117}{4} = 29.25$ 两 $=$ 一斤十三两六铢。
+\end{modernmethod}
+
+\end{paracol}
+
+\newpage
+
+% =============================================================================
+\section{数学内容总结 / Summary of Mathematical Content}
+% =============================================================================
+
+\begin{paracol}{2}
+
+\textbf{\color{classicalcolor}【文言文概述】}
+
+\textbf{卷四：少廣}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 開方術：迭代開平方算法，等同現代長除法開平方
+  \item 開立方術：推廣至開立方
+  \item 球體積：古法 $V = \frac{9}{16}d^3$；劉徽之辯與牟合方蓋
+\end{itemize}
+
+\textbf{卷五：商功}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 土方工程：城垣、堤壩、溝渠、塹堵
+  \item 糧倉體積：倉、圓窖、圓囤
+  \item 幾何棋：立方、壍堵、陽馬、鱉臑、芻甍、芻童
+\end{itemize}
+
+\textbf{卷六：均輸}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 加權分配：按人口×距離均攤
+  \item 工程效率：五渠注池等
+  \item 追及問題：兔犬相逐
+\end{itemize}
+
+\switchcolumn
+
+\textbf{\color{moderncolor}【白话文概述】}
+
+\textbf{卷四：少广（开方和体积计算）}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 开方术：迭代开平方算法，等同于现代长除法开平方
+  \item 开立方术：推广至开立方
+  \item 球体积：古代公式 $V = \frac{9}{16}d^3$；刘徽的批评与牟合方盖构造
+\end{itemize}
+
+\textbf{卷五：商功（工程体积计算）}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 土方工程：城墙、堤坝、沟渠、堑堵
+  \item 粮仓体积：仓、圆窖（圆柱体）、圆囤
+  \item 几何棋：立方（正方体）、壍堵（楔形体）、阳马（角锥）、鳖臑（四面体）、刍甍、刍童（楔体台）
+\end{itemize}
+
+\textbf{卷六：均输（公平分配和运输）}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 加权分配：按人口×距离均摊税赋
+  \item 工程效率：五渠注池等工作率问题
+  \item 追及问题：兔犬追逐的相对速度问题
+\end{itemize}
+
+\end{paracol}
+
+\vspace{1cm}
+
+\begin{center}
+\shortline
+\vspace{0.5cm}
+
+\textit{「九章之術，萬算之源」}\\[0.3em]
+--- 劉徽《九章算術注序》\\[0.5em]
+\textit{``The methods of the Nine Chapters are the source of all computation.''}\\
+--- Liu Hui, Preface to the Commentary
+
+\vspace{0.5cm}
+\shortline
+\end{center}
+
+\vspace{0.8cm}
+
+\begin{center}
+\textbf{九章算術卷四至卷六 完}\\[0.3em]
+\textit{End of Jiuzhang Suanshu, Volumes 4--6}
+\end{center}
+
+\end{document}

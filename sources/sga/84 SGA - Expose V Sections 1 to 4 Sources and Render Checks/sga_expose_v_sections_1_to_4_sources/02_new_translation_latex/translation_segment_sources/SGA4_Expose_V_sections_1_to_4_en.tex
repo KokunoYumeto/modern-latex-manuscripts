@@ -1,0 +1,1448 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: V, Cohomology in Topoi
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4 orgogozo_tex_sources/05/05.tex
+% Range translated in this batch: Expose V, Sections 1--4; source lines 370--1946.
+% Package policy: fresh/new material only, not cumulative, to keep downloads small.
+% Status: draft translation, compile-checked, not proofed line-by-line against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.10in}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,hypertexnames=false}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\A}{\mathfrak{A}}
+\newcommand{\B}{\mathfrak{B}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\Cech}{\v{C}ech}
+\newcommand{\Ucal}{\mathcal{U}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ob}{\operatorname{Ob}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\Vois}{\operatorname{Neigh}}
+\newcommand{\Fl}{\operatorname{Fl}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\resp}{respectively}
+\newcommand{\ie}{i.e.}
+\newcommand{\cf}{cf.}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\Mod}{\operatorname{Mod}}
+\newcommand{\Hhom}{\mathcal{H}om}
+\newcommand{\sh}{\sim}
+\newcommand{\what}{\widehat}
+\newcommand{\Top}{\mathbf{Top}}
+\newcommand{\Ouv}{\operatorname{Open}}
+\newcommand{\Point}{\operatorname{Point}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{SGA 4, Expos\'e V. Cohomology in Topoi}}\\[0.35em]
+{\large Draft translation, Sections 1--4}\\[0.35em]
+J.-L. Verdier
+\end{center}
+
+\bigskip
+
+\noindent\emph{Translator's status note.} This fresh-only continuation covers Expos\'e V, Sections 1--4, corresponding to source lines 370--1946 of the Orgogozo--Laszlo TeX snapshot. Terminology is normalized to current mathematical English: \emph{ringed topos}, \emph{flat module}, \emph{flat morphism of ringed topoi}, \emph{point/fiber functor}, \emph{localization}, \emph{presheaf topos}, \emph{Cech cohomology}, \emph{sieve}, \emph{covering family}, and \emph{change of universe}. Numbering follows the source.
+
+\section{Flat modules}
+
+\begin{statement}{Definition 1.1}
+Let $(E,A)$ be a ringed topos \emph{(IV, 11.1.1)}. A right $A$-module (\resp\ a left $A$-module) $M$ is called \emph{flat} if the functor
+\[
+M\otimes_A - \qquad (\resp\ -\otimes_A M)
+\]
+from the category of left $A$-modules (\resp\ right $A$-modules) to the category of abelian sheaves on $E$ is exact.
+\end{statement}
+
+\begin{statement}{Proposition 1.2}
+Let $M$ be a $B$-$A$-bimodule.
+\begin{enumerate}[label=\arabic*)]
+\item The following properties are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $M$ is left $A$-flat.
+\item For every injective $B$-module $I$, the left $A$-module $\Hhom_B(M,I)$ is injective.
+\end{enumerate}
+\item A module $M$ which is a pseudo-filtered inductive limit \emph{(I, 2.7.1)} of flat modules is flat.
+\item Finally, if
+\[
+M_\bullet=\cdots\longrightarrow M_{i+1}\longrightarrow M_i\longrightarrow\cdots
+\]
+is an acyclic complex of flat modules, with $M_i=0$ for $i<i_0$, then for every module $F$ the complex
+\[
+M_\bullet\otimes_A F=\cdots\longrightarrow M_{i+1}\otimes_A F
+   \longrightarrow M_i\otimes_A F\longrightarrow\cdots
+\]
+is acyclic.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+By (IV, 12.12) one has an adjunction isomorphism
+\[
+\Hom_B(M\otimes_A -, -)\xrightarrow{\sim}
+\Hom_A(-,\Hhom_B(M,-)).
+\]
+It is then enough to apply 0.2 to obtain the equivalence (i) $\Leftrightarrow$ (ii). This adjunction isomorphism also shows that tensor product commutes with inductive limits. The fact that pseudo-filtered inductive limits are exact (0.1) gives the second assertion. To show that the complex $M_\bullet\otimes_A F$ is acyclic, it is enough to show that, for every injective abelian sheaf $I$, the complex
+\[
+\Hom^\bullet_{\ZZ}(M_\bullet\otimes_A F,I)
+\]
+is acyclic. By the adjunction formulae this complex is isomorphic to
+\[
+\Hom^\bullet_A(F,\Hhom_{\ZZ}(M_\bullet,I)).
+\]
+But, by the equivalence (i) $\Leftrightarrow$ (ii), the complex of sheaves
+\[
+\Hhom_{\ZZ}(M_\bullet,I)
+\]
+is an acyclic complex whose objects are injective. This proves the assertion.
+\end{prooftext}
+
+\begin{statement}{Proposition 1.3.1}
+Let $(E,A)$ be a ringed topos, let $H$ be an object of $E$, and let $M$ be a flat $A_{/H}$-module. Then $j_{H!}M$ is a flat $A$-module. In particular $A_H$ is flat on both the right and the left.
+\end{statement}
+
+Suppose, to fix ideas, that $M$ is a right $A_{/H}$-module. For every left $A$-module $P$ there is a canonical isomorphism (IV, 12)
+\[
+P\otimes_A j_{H!}M\simeq j_{H!}(P\otimes_{A_{/H}}M).
+\]
+The functors $j_{H!}$ and $j_H^*$ are exact (IV, 11.3.1 and 11.12.2), and by hypothesis the functor $-\otimes_{A_{/H}}M$ is exact. Hence the functor
+\[
+P\longmapsto P\otimes_A j_{H!}M
+\]
+is exact, and $j_{H!}M$ is flat.
+
+\begin{statement}{Proposition 1.3.2}
+\emph{Projection formula for closed immersions.} Let $(E,A)$ be a ringed topos, let $i:F\to E$ be a closed subtopos of $E$, and put $i^*A=A_{/F}$. For every right $A_{/F}$-module $M$ and every left $A$-module $P$, there is a functorial isomorphism
+\[
+i_*(M\otimes_{A_{/F}}i^*P)\simeq (i_*M)\otimes_A P .
+\]
+\end{statement}
+
+Let $U$ be the open complement of $F$ and let $j:U\to E$ be the canonical immersion. One has
+\[
+j^*(i_*M\otimes_A P)\simeq 0\otimes_{A_{/U}}j^*P
+\]
+(IV, 12); hence $i_*M\otimes_A P$ is supported on $F$. Therefore the adjunction morphism
+\[
+i_*M\otimes_A P\longrightarrow i_*i^*(i_*M\otimes_A P)
+\]
+is an isomorphism (IV, 14). Moreover,
+\[
+i^*(i_*M\otimes_A P)\simeq i^*i_*M\otimes_{A_{/F}}i^*P
+\]
+(IV, 12), and since $i:F\to E$ is a closed immersion, $i^*i_*M\simeq M$ (IV, 14). The announced isomorphism follows.
+
+\begin{statement}{Corollary 1.3.3}
+For every flat $A_{/F}$-module $M$, the module $i_*M$ is flat.
+\end{statement}
+
+This follows from 1.3.2 and (IV, 14), since the functor
+\[
+P\longmapsto (i_*M)\otimes_A P
+\]
+is exact.
+
+\subsection*{1.4}
+
+Let $(E,A)$ be a ringed topos, let $x:P\to E$ be a point of $E$ (IV, 6.1), and let $\Vois(x)$ denote the category of neighborhoods of $x$ (IV, 6.8). To every object $V$ of $\Vois(x)$ there corresponds an object of $E$, still denoted $V$, and a point $x_V:P\to E/V$ of $E/V$. Moreover, to every morphism $u:V\to W$ in $\Vois(x)$ there corresponds an essentially commutative diagram of morphisms of topoi (IV, 6.7)
+\[
+\vcenter{\xymatrix@C=2.5cm@R=1.5cm{
+P \ar[r]^{x_V}\ar[rd]_{x_W} & E/V \ar[d]^{j_u}\\
+& E/W .
+}}
+\tag{1.4.1}
+\]
+Let $N$ be an $A_x$-module (\resp\ a set). From (1.4.1) one obtains a diagram of $A_x$-modules (\resp\ sets):
+\[
+\vcenter{\xymatrix@C=2cm@R=1.5cm{
+x_W^*x_{W*}N \ar[r]^{\ad_W}\ar[d]_{\phi(u)} & N\\
+x_V^*x_{V*}N \ar[ru]_{\ad_V}&
+}}
+\tag{1.4.2}
+\]
+where $\ad_W$ and $\ad_V$ are the adjunction morphisms. One checks immediately that $\phi(uv)=\phi(v)\phi(u)$. Thus one has a functor from the filtered category $\Vois(x)^\op$ to the category of $A_x$-modules (\resp\ sets), and a homomorphism
+\[
+\Lambda(N):\varinjlim_{V\in \Vois(x)^\op}x_V^*x_{V*}N\longrightarrow N .
+\tag{1.4.3}
+\]
+
+\begin{statement}{Proposition 1.5}
+For every $A_x$-module (\resp\ set) $N$, the map $\Lambda(N)$ is an isomorphism.
+\end{statement}
+
+This proposition is a special case of a proposition due to Deligne (8.2.6). We give a direct proof. Passing to the underlying sets, it is enough to prove the proposition when $N$ is a set (I, 2.8). The cofiltered category $\Fl(\Vois(x))$ of arrows of $\Vois(x)$ is fibered over $\Vois(x)$ by the functor
+\[
+p:\Fl(\Vois(x))\longrightarrow \Vois(x)
+\]
+which sends an arrow to its target. Let $D$ be a category and let
+\[
+F:\Fl(\Vois(x))\longrightarrow D
+\]
+be a pro-object (I, 8.10). For every object $V$ of $\Vois(x)$, denote by $F_V$ the pro-object obtained by restricting $F$ to the fiber category $\Vois(x)/V$. To every morphism $m:U\to V$ in $\Vois(x)$, base change by $m$ associates a morphism of pro-objects $F_U\to F_V$, and the canonical morphisms of pro-objects $F\to F_V$ determine a morphism
+\[
+F\longrightarrow \varprojlim_{V\in \Vois(x)^\op}F_V
+\tag{1.5.1}
+\]
+which is immediately checked to be an isomorphism. Apply this remark to the pro-object of pointed sets
+\[
+(U,V,m)\longmapsto x_V^*(m)=F(U,V,m).
+\tag{1.5.2}
+\]
+One obtains an isomorphism of pro-objects
+\[
+F\xrightarrow{\sim}
+\varprojlim_{V\in \Vois(x)}
+   \varprojlim_{\Vois(x)/V}x_V^*(m),
+\tag{1.5.3}
+\]
+and hence, for every set $N$, a bijection
+\[
+\varinjlim_{\Fl(\Vois(x))^\op}\Hom(x_V^*(m),N)
+\simeq
+\varinjlim_{\Vois(x)^\op}
+   \varinjlim_{(\Vois(x)/V)^\op}\Hom(x_V^*(m),N).
+\tag{1.5.4}
+\]
+But for fixed $V$,
+\[
+\varinjlim_{(\Vois(x)/V)^\op}\Hom(x_V^*(m),N)
+\]
+identifies with $x_V^*x_{V*}N$. Indeed,
+\[
+x_V^*x_{V*}N\simeq
+\varinjlim_{\Vois(x_V)^\op}\Hom_{E/V}(W,x_{V*}N)
+\]
+by IV, 6.8.1, and therefore by adjunction
+\[
+x_V^*x_{V*}N\simeq
+\varinjlim_{\Vois(x_V)^\op}\Hom(x_V^*(w),N).
+\]
+Moreover, the category $\Vois(x_V)$ is equivalent to $\Vois(x)/V$ (IV, 6.7.2). Finally, the canonical transition maps appearing in (1.5.4) identify with the canonical maps
+\[
+x_U^*x_{U*}N\longrightarrow x_V^*x_{V*}N
+\]
+of (1.4.3), as the reader will readily verify. Thus one has a bijection
+\[
+\varinjlim_{\Fl(\Vois(x))^\op}\Hom(x_V^*(m),N)
+\simeq
+\varinjlim_{\Vois(x)^\op}x_V^*x_{V*}N .
+\tag{1.5.5}
+\]
+Composing $\Lambda(N)$ with this bijection, one obtains the map induced by the maps
+\[
+\Hom(x_V^*(m),N)\longrightarrow N
+\]
+which send a map $r:x_V^*(m)\to N$ to the image under $r$ of the marked point of $x_V^*(m)$. It remains only to observe that every object $(U,V,m)$ of $\Fl(\Vois(x))$ is bounded below by $(U,U,\id_U)$ and that $x_U^*(\id_U)$ consists of a single element; equivalently, the canonical morphism from the constant pro-object reduced to one element to $F$ is an isomorphism of pro-objects.
+
+\begin{statement}{Proposition 1.6}
+Let $(E,A)$ be a ringed topos and let $M$ be an $A$-module.
+\begin{enumerate}[label=\arabic*)]
+\item If $M$ is flat, then for every point $x:P\to E$ of $E$, the $A_x$-module $M_x$ is flat.
+\item Let $(x_i)_{i\in I}$ be a conservative family of points of $E$ such that, for every $i\in I$, $M_{x_i}$ is a flat $A_{x_i}$-module.
+\end{enumerate}
+Then $M$ is flat.
+\end{statement}
+
+\begin{statement}{Lemma 1.6.1}
+Let $M$ be a flat module and let $V$ be an object of $E$. The $A/V$-module $j_V^*M$ is flat.
+\end{statement}
+
+We must show that the functor
+\[
+P\longmapsto P\otimes_{A/V}j_V^*M
+\]
+is exact. Since extension by zero $j_{V!}$ is exact and faithful (IV, 11.3.1), it is enough to show that
+\[
+P\longmapsto j_{V!}(P\otimes_{A/V}j_V^*M)
+\]
+is exact. There is a functorial isomorphism
+\[
+j_{V!}(P\otimes_{A/V}j_V^*M)\simeq j_{V!}(P)\otimes_A M
+\]
+(IV, 12.11), and hence the functor $P\mapsto j_{V!}(P)\otimes_A M$ is exact (IV, 11.3.1).
+
+\subsubsection*{1.6.2}
+
+Let us prove 1). Suppose, to fix ideas, that $M$ is a flat left $A$-module, and let $x:P\to E$ be a point of $E$. We show that the functor
+\[
+N\longmapsto N\otimes_{A_x}M_x
+\]
+from the category of right $A_x$-modules to the category of abelian groups is exact. It suffices to show that this functor is left exact. With the notation of 1.4, let $V$ be a neighborhood of $x$ and let $j_V:E/V\to E$ be the localization morphism. For every $A_x$-module $N$ one has
+\[
+x_V^*x_{V*}N\otimes_{A_x}M_x
+\simeq
+x_V^*\bigl(x_{V*}N\otimes_{A_{/V}}j_V^*M\bigr)
+\]
+(IV, 12.11). Hence the functor
+\[
+N\longmapsto x_V^*x_{V*}N\otimes_{A_x}M_x
+\]
+is left exact. Therefore
+\[
+N\longmapsto N\otimes_{A_x}M_x,
+\]
+being a filtered inductive limit of left exact functors (1.5), is left exact.
+
+Let us prove 2). Let
+\[
+0\longrightarrow P'\longrightarrow P\longrightarrow P''\longrightarrow 0
+\]
+be an exact sequence of $A$-modules. We must show that
+\[
+0\longrightarrow P'\otimes_A M\longrightarrow P\otimes_A M
+\longrightarrow P''\otimes_A M\longrightarrow 0
+\]
+is exact. It is enough to check exactness on all fibers at the points $x_i$ (IV, 6). The sequence of fibers at $x_i$ is
+\[
+0\longrightarrow P'_{x_i}\otimes_{A_{x_i}}M_{x_i}
+\longrightarrow P_{x_i}\otimes_{A_{x_i}}M_{x_i}
+\longrightarrow P''_{x_i}\otimes_{A_{x_i}}M_{x_i}
+\longrightarrow 0,
+\]
+and this sequence is exact because $M_{x_i}$ is flat.
+
+\begin{statement}{Proposition 1.7}
+Let $(E,A)$ be a ringed topos, let $u:E'\to E$ be a morphism of topoi, and put $A'=u^*A$. Let $M$ be a right $A'$-module (\resp\ a left $A'$-module). The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item The functor
+\[
+N\longmapsto M\otimes_{A'}u^*N
+\qquad
+(\resp\ N\longmapsto u^*N\otimes_{A'}M)
+\]
+from the category of left $A$-modules (\resp\ right $A$-modules) to the category of abelian sheaves on $E'$ is exact.
+\item $M$ is a flat $A'$-module.
+\end{enumerate}
+\end{statement}
+
+It is clear that (ii) implies (i). We prove that (i) implies (ii). We give the proof only in the case where $E'$ has a conservative family of points $(x_i)_{i\in I}$. The general case is treated in 8.2.7. In this special case, which covers most applications, one is reduced to the case where $E'$ is the punctual topos and where the morphism $u$, now denoted by $x$, is a point of $E$ (1.6 and IV, 11.3.1). We restrict ourselves to the case where $M$ is a right $A'$-module. The case where $M$ is a left $A'$-module is reduced to this one by passing to opposite rings.
+
+Let $V$ be a neighborhood of $x$ and let $V_x$ be its fiber at $x$. With the notation of 1.4, one has an essentially commutative diagram of morphisms of topoi
+\[
+\xymatrix@C=2.25cm@R=1.5cm{
+P \ar[r]^{j}\ar[rd]_{x_V} & P/V_x \ar[r]^{j_{V_x}}\ar[d]^{x/V} & P\ar[d]^x\\
+& E/V \ar[r] & E ,
+}
+\]
+where $x/V$ is the morphism induced from $x$ by localization on $V$ (IV, 5.10), and $j$ is the morphism induced by the marked point of $V_x$. We show that the functor
+\[
+N'\longmapsto M\otimes_{A'}x_V^*N'
+\]
+is exact. One has $x_V^*=j^*(x/V)^*$ and $\id=j^*j_{V_x}^*$, and hence a canonical isomorphism
+\[
+M\otimes_{A'}x_V^*N'
+\simeq
+j^*\bigl(j_{V_x}^*M\otimes_{A'/V_x}(x/V)^*N'\bigr).
+\]
+Since $j^*$ is exact and since $j_{V_x!}$ is exact and faithful (IV, 11.3.1), it is enough to show that the functor
+\[
+N'\longmapsto j_{V_x!}\bigl(j_{V_x}^*M\otimes (x/V)^*N'\bigr)
+\]
+is exact. By (IV, 12.11), it is enough to show that
+\[
+N'\longmapsto M\otimes_{A'}x^*j_{V!}N'
+\]
+is exact. But by the definition of the inverse image of an induced topos (IV, 5.10.2), $j_{V_x!}(x/V)^*N'$ is equal to $x^*j_{V!}N'$, and since $j_{V!}$ is exact (IV, 11.3.1), exactness follows from the hypothesis.
+
+For every $A'$-module $Q$ one has a functorial isomorphism (1.5)
+\[
+Q\simeq \varinjlim_{\Vois(x)^\op}x_V^*x_{V*}Q .
+\]
+By what precedes, the functor
+\[
+Q\longmapsto M\otimes_{A'}Q
+\]
+is a filtered inductive limit of left exact functors. It is therefore left exact, and $M$ is flat.
+
+\begin{statement}{Corollary 1.7.1}
+Let $u:(E',A')\to(E,A)$ be a morphism of ringed topoi, and let $M$ be a flat $A$-module. Then $u^*M$ is a flat $A'$-module.
+\end{statement}
+
+This follows from the criterion in 1.7 and the formula (IV, 13.4.5).
+
+\begin{statement}{Corollary 1.7.2}
+Let $u:(E',A')\to(E,A)$ be a morphism of ringed topoi. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item the right $u^{-1}(A)$-module (\resp\ left $u^{-1}(A)$-module) $A'$ is flat;
+\item the functor $u^*$ from the category of left $A$-modules (\resp\ right $A$-modules) to the category of left $A'$-modules (\resp\ right $A'$-modules) is exact.
+\end{enumerate}
+\end{statement}
+
+The equivalence follows from 1.7 and from the definition of $u^*$ (IV, 13.2.1).
+
+\begin{statement}{Definition 1.8}
+A morphism of ringed topoi satisfying the equivalent properties of 1.7.2 is called a \emph{left flat} (\resp\ \emph{right flat}) morphism of topoi.
+\end{statement}
+
+\begin{statement}{Proposition 1.9}
+Let $\U\subset \V$ be two univers, let $C$ be a $\U$-site, let $C^\sim_\U$ and $C^\sim_\V$ be the categories of $\U$- and $\V$-sheaves of sets, respectively, let
+\[
+\epsilon:C^\sim_\U\longrightarrow C^\sim_\V
+\]
+be the canonical inclusion functor, and let $A$ be a $\U$-sheaf of rings on $C$.
+\begin{enumerate}[label=\arabic*)]
+\item The functor $\epsilon$ commutes with $\U$-small inductive and projective limits of modules. On categories of modules, $\epsilon$ is conservative and fully faithful.
+\item For every object $H$ of $C^\sim_\U$, there is a canonical isomorphism
+\[
+\epsilon(A_H)\simeq \epsilon(A)_{\epsilon(H)} .
+\]
+\item Every injective left or right $A$-module is carried by $\epsilon$ to an injective $\epsilon(A)$-module.
+\item Every flat right or left $A$-module is carried by $\epsilon$ to a flat $\epsilon(A)$-module.
+\item The functor $\epsilon$ commutes with formation of the tensor product and of the sheaf of homomorphisms.
+\end{enumerate}
+\end{statement}
+
+Formation of the associated sheaf does not depend on the universe (II, 3.6). It then follows from the construction of inductive and projective limits in categories of sheaves (II, 4.1 and 6.4) that $\epsilon$ commutes with $\U$-small projective limits of sets or modules, giving 1). To prove 2), by taking a $\U$-small generating subcategory of $C^\sim_\U$, one is reduced to the case where $C$ is $\U$-small (III, 4.1). It then follows from (II, 6.5) that the free $A$-module generated by $H$ is obtained by first forming the presheaf of free $A$-modules generated by $H$, a construction which commutes with enlargement of universes, and then taking the associated sheaf, an operation which also commutes with enlargement of universes (II, 3.6).
+
+To prove 3), it is enough, by 0.5, to show that every $\V$-subsheaf of a $\U$-sheaf is a $\U$-sheaf; this is clear. To prove 4), let $M$ be a flat $A$-module. It is enough to show that, for every injective $\epsilon(A)$-module $J$, the abelian sheaf
+\[
+\Hhom_{\epsilon(A)}(\epsilon(M),J)
+\]
+is injective (1.2). By 0.5, $J$ is a subobject, hence a direct factor, of an object of the form
+\[
+\prod_\alpha \epsilon(I_\alpha),
+\]
+where the $I_\alpha$ are injective. We may therefore suppose that $J=\epsilon(I)$ with $I$ injective. If the homomorphism
+\[
+\epsilon\bigl(\Hhom_A(M,I)\bigr)
+\longrightarrow
+\Hhom_{\epsilon(A)}(\epsilon(M),\epsilon(I))
+\]
+is an isomorphism, then $\Hhom_{\epsilon(A)}(\epsilon(M),\epsilon(I))$ is injective by 3). It remains to prove 5).
+
+The assertion that formation of the tensor product commutes with $\epsilon$ follows from IV, 12.6 and from the fact that formation of the associated sheaf commutes with enlargement of the universe (II, 3.6). For every object $X$ of $C^\sim_\U$ and every pair of $A$-modules $M,N$ on $C^\sim_\U$, one has
+\[
+\Hom_{C^\sim_\V}\bigl(\epsilon(X),\epsilon(\Hhom_A(M,N))\bigr)
+\simeq
+\Hom_{C^\sim_\U}\bigl(X,\Hhom_A(M,N)\bigr)
+\simeq
+\Hom_A(\ZZ_X\otimes_{\ZZ}M,N)
+\]
+by full faithfulness of $\epsilon$, and then
+\[
+\Hom_A(\ZZ_X\otimes_{\ZZ}M,N)
+\simeq
+\Hom_{\epsilon(A)}\bigl(\epsilon(\ZZ_X\otimes_{\ZZ}M),\epsilon(N)\bigr)
+\simeq
+\Hom_{\epsilon(A)}\bigl(\epsilon(\ZZ_X)\otimes_{\ZZ}\epsilon(M),\epsilon(N)\bigr)
+\]
+by full faithfulness of $\epsilon$ and by what was just proved. Using 2) and IV, 12.14, one obtains finally an isomorphism
+\[
+\Hom_{C^\sim_\V}\bigl(\epsilon(X),\epsilon(\Hhom_A(M,N))\bigr)
+\simeq
+\Hom_{C^\sim_\V}\bigl(\epsilon(X),
+\Hhom_{\epsilon(A)}(\epsilon(M),\epsilon(N))\bigr),
+\]
+and hence the announced isomorphism.
+
+\subsection*{1.10}
+
+Let $E$ be a topos and let
+\[
+\mathcal U=(U_i\to X)_{i\in I}
+\]
+be a small family of morphisms with common target. For the finite set $\Delta_n=\{0,\ldots,n\}$, put
+\[
+S_n(\mathcal U)=
+\coprod_{f:\Delta_n\to I}\prod_{a\in \Delta_n,\,X}U_{f(a)},
+\]
+the coproduct being taken over the set of maps $\Delta_n\to I$. Let $m,n$ be integers and let $g:\Delta_m\to \Delta_n$ be a map. Define a morphism
+\[
+s(g):S_n(\mathcal U)\longrightarrow S_m(\mathcal U)
+\tag{1.10.1}
+\]
+as follows: for every $f:\Delta_n\to I$, the restriction of $s(g)$ to
+\[
+\prod_{a\in \Delta_n,\,X} U_{f(a)}
+\]
+is the composite of the canonical inclusion
+\[
+\prod_{b\in \Delta_m,\,X}U_{f(g(b))}\hookrightarrow S_m(\mathcal U)
+\]
+and the unique morphism
+\[
+s_f(g):\prod_{a\in \Delta_n,\,X}U_{f(a)}
+\longrightarrow
+\prod_{b\in \Delta_m,\,X}U_{f(g(b))}
+\]
+such that, for every $b\in\Delta_m$,
+\[
+\pr_{f(g(b))}s_f(g)=\pr_{f(g(b))}.
+\]
+Here $\pr_a$ denotes the $a$-th projection. Thus one obtains a contravariant functor $\Delta_n\mapsto S_n$ from the category of finite sets to $E$, in other words a semi-simplicial complex $S_\bullet(\mathcal U)$ of objects of $E$. Note that this complex is canonically augmented toward $X$.
+
+Every functor from $E$ to a category $C$ carries $S_\bullet(\mathcal U)$ to a simplicial object of $C$. In particular, if $A$ is a ring of $E$, the functor ``free $A$-module generated by'' carries $S_\bullet(\mathcal U)$ to a simplicial complex of $A$-bimodules, augmented toward $A_X$, denoted $A_\bullet(\mathcal U)$. One has
+\[
+A_n(\mathcal U)=
+\bigoplus_{f:\Delta_n\to I} A_{\prod_{a\in \Delta_n,\,X}U_{f(a)}} .
+\tag{1.10.2}
+\]
+This complex will often be denoted
+\[
+\xymatrix@C=1cm@M=.5cm{
+\cdots \ar@<12pt>[r]^{s_0}\ar[r]^{s_1}\ar@<-12pt>[r]^{s_2}&
+\displaystyle\bigoplus_{i,j} A_{U_i\times_X U_j}
+\ar@<6pt>[r]^{s_0}\ar@<-6pt>[r]_{s_1}&
+\displaystyle\bigoplus_i A_{U_i}\ar[r]&A_X .
+}
+\tag{1.10.3}
+\]
+In (1.10.3), except for the last arrow, which is the augmentation, the arrows represent the face operators of the simplicial complex $A_\bullet(\mathcal U)$; that is, the morphisms corresponding to the increasing injective maps $\Delta_n\to\Delta_{n+1}$, where $s_i$ omits the integer $i$. To $A_\bullet(\mathcal U)$ one associates a differential complex augmented toward $A_X$:
+\[
+\cdots\xrightarrow{d}\bigoplus_{i,j}A_{U_i\times_X U_j}
+\xrightarrow{d}\bigoplus_i A_{U_i}\longrightarrow A_X,
+\tag{1.10.4}
+\]
+with
+\[
+d=\sum_i(-1)^i s_i .
+\tag{1.10.5}
+\]
+
+\begin{statement}{Proposition 1.11}
+If the family $\mathcal U=(U_i\to X)_{i\in I}$ is epimorphic, the differential complex (1.10.4) is acyclic and gives a resolution of $A_X$.
+\end{statement}
+
+Let $\ZZ$ denote the constant sheaf with values in $\ZZ$. By the definition of the functor ``free $A$-module generated by'', for every object $H$ of $E$ one has
+\[
+A_H\simeq \ZZ_H\otimes_{\ZZ}A,
+\]
+and therefore
+\[
+A_\bullet(\mathcal U)\simeq \ZZ_\bullet(\mathcal U)\otimes_{\ZZ}A.
+\]
+Since the components of $\ZZ_\bullet(\mathcal U)$ are flat $\ZZ$-modules (1.3.1), it is enough to prove the proposition for $A=\ZZ$.
+
+Suppose first that $E$ is the topos of sets. Then the augmented complex $S_\bullet(\mathcal U)$ is a direct sum of augmented complexes of the form
+\[
+\xymatrix@C=.6cm@M=.18cm@R=.3cm{
+\cdots \ar@<9pt>[r]\ar@<3pt>[r]\ar@<-3pt>[r]\ar@<-9pt>[r]&
+S\times S\times S\ar@<5pt>[r]\ar[r]\ar@<-5pt>[r]&
+S\times S\ar@<2pt>[r]\ar@<-2pt>[r]&
+S\ar[r]&\{e\},
+}
+\]
+where $\{e\}$ is a one-point set. Each of these augmented complexes is homotopically trivial. Thus $S_\bullet(\mathcal U)$ is a homotopically trivial augmented complex, and its homology is therefore trivial. This proves the proposition in this case.
+
+Now let $p:\Set\to E$ be a point of $E$. Since formation of the complex $\ZZ_\bullet(\mathcal U)$ commutes with inverse-image functors of morphisms of topoi,
+\[
+p^*(\ZZ_\bullet(\mathcal U))\simeq
+\ZZ_\bullet(p^*(\mathcal U))
+\]
+is a resolution of $\ZZ_{p^*X}\simeq p^*(\ZZ_X)$. This proves the proposition when $E$ has enough fiber functors (IV, 4.6). This is the case in particular when $E$ is a presheaf topos $\widehat C$, since for every object $X$ of $C$, $\Gamma(X,-)$ is a fiber functor. In the general case, $E$ is equivalent to a topos of sheaves on a small site $C$ (IV, 1), and the epimorphic family
+\[
+\mathcal U=(U_i\to X)_{i\in I}
+\]
+is the image, under the associated-sheaf functor, of an epimorphic family
+\[
+\mathcal U'=(U'_i\to X')_{i\in I}.
+\]
+Consequently
+\[
+\ZZ_\bullet(\mathcal U)\simeq \underline a\,\ZZ_\bullet(\mathcal U')
+\]
+is a resolution of $\underline a\,\ZZ_{X'}\simeq \ZZ_X$.
+
+\section{\Cech\ cohomology. Cohomological notation}
+
+\subsection*{2.1. General notation}
+
+\subsubsection*{2.1.1}
+Let $(E,A)$ be a ringed topos and let $M,N$ be two $A$-modules, left modules to fix ideas. We denote by
+\[
+\Ext_A^q(E;M,N)
+\]
+the value at $N$ of the $q$-th right derived functor of the functor $\Hom_A(M,-)$ \cite{11}. The functors $\Ext_A^q(E;M,N)$, $q\in\NN$, form a $\delta$-functor in the variable $N$. They also form a contravariant $\delta$-functor in the variable $M$. By definition,
+\[
+\Ext_A^0(E;M,N)=\Hom_A(M,N).
+\]
+
+\subsubsection*{2.1.2}
+Let $X$ be an object of $E$. When $M=A_X$, the free $A$-module generated by $X$ (IV, 12), we put
+\[
+\Ext_A^q(E;A_X,N)=H^q(X,N).
+\]
+Notice that in this new notation the ring $A$ no longer appears. This cannot cause confusion, since we shall show (3.5) that formation of the $H^q(X,-)$ commutes with restriction of scalars. The functor $H^q(X,-)$ is the $q$-th right derived functor of
+\[
+\Hom_A(A_X,-)=\Hom_E(X,-),
+\]
+also denoted $\Gamma(X,-)$. When $M=A$, we put
+\[
+\Ext_A^q(E;A,N)=H^q(E,N).
+\]
+
+\subsection*{2.2. Localization}
+
+Let $X$ be an object of $E$ and let
+\[
+j:E_{/X}\longrightarrow E
+\]
+be the localization morphism (IV, 8). The functor $j_X^*$ on modules is exact (4.11) and admits an exact left adjoint $j_{X!}$ (4.11). Consequently it carries injective modules to injective modules. Thus, for a variable $A$-module $N$ on $E$ and a variable $A|X$-module $M$ on $E_{/X}$, one has functorial isomorphisms
+\[
+\Ext^q_{A|X}(E_{/X};M,j_X^*N)
+\simeq
+\Ext_A^q(E;j_{X!}M,N).
+\tag{2.2.1}
+\]
+In particular, one has canonical isomorphisms
+\[
+H^q(E_{/X},j_X^*N)\simeq H^q(X,N).
+\]
+For every object $X$ of $E$ and every pair of $A$-modules $M,N$, set
+\[
+\Ext_A^q(X;M,N)
+=
+\Ext^q_{A|X}(E_{/X};M|X,N|X).
+\tag{2.2.2}
+\]
+By what precedes, the functors $\Ext_A^q(X;M,-)$ are the derived functors of
+\[
+N\longmapsto \Hom_{A|X}(M|X,N|X).
+\]
+The functors $(M,N)\mapsto \Ext_A^q(X;M,N)$, $q>0$, form a $\delta$-functor with respect to each variable.
+
+\subsection*{2.3. The case of presheaf topoi. Cohomology of a covering}
+
+\subsubsection*{2.3.1}
+Let $C$ be a small category endowed with a presheaf of rings $A$, let $\widehat C$ be the topos of presheaves on $C$, and let $X$ be a representable object of $\widehat C$. The functor which sends an $A$-module $M$ to the group
+\[
+\Gamma(X,M)=M(X)
+\]
+is exact (I, 3). Hence $H^q(X,M)=0$ for all $q>0$ and every $A$-module $M$; equivalently, $A_X$ is a projective $A$-module.
+
+\subsubsection*{2.3.2}
+Let $S$ be a presheaf on $C$. For every $A$-module $M$ there is a canonical isomorphism (I, 2)
+\[
+\Gamma(S,M)\simeq \varprojlim_{C/S}M|S .
+\]
+Moreover, for every injective $A$-module $M$, the $A|S$-module $M|S$ is injective (2.2). Therefore the groups $H^q(S,M)$ are the values at $M|S$ of the right derived functors of the functor $\varprojlim_{C/S}$. Denoting these derived functors by $\varprojlim^q_{C/S}$, one has canonical isomorphisms
+\[
+H^q(S,M)\simeq \varprojlim_{C/S}^q\, M|S.
+\]
+In particular, one has canonical isomorphisms
+\[
+H^q(\widehat C,M)\simeq \varprojlim_C^q M .
+\]
+
+\subsubsection*{2.3.3}
+Let $X$ be an object of $C$ and let
+\[
+\mathcal U=(U_i\to X)_{i\in I}
+\]
+be a family of morphisms of $C$ such that, for every $i\in I$, the morphism $U_i\to X$ is squareable (I, 10). Let $A_\bullet$ be the simplicial complex studied in 1.10:
+\[
+\xymatrix@M=.25cm@C=1cm{
+A_\bullet=\cdots \ar@<7pt>[r]\ar@<1pt>[r]\ar@<-5pt>[r]&
+\displaystyle\coprod_{(i,j)\in I\times I} A_{U_i\times_X U_j}
+\ar@<3pt>[r]\ar@<-3pt>[r]&
+\displaystyle\coprod_{i\in I} A_{U_i}.
+}
+\]
+For every $A$-module $M$, put
+\[
+C^\bullet(\mathcal U,M)=\Hom_A(A_\bullet,M):
+\]
+\[
+\xymatrix@C=.75cm@M=.25cm{
+C^\bullet(\mathcal U,M):
+\displaystyle\prod_{i\in I} M(U_i)
+\ar@<6pt>[r]\ar@<-2pt>[r]&
+\displaystyle\prod_{(i,j)\in I\times I} M(U_i\times_X U_j)
+\ar@<10pt>[r]\ar@<3pt>[r]\ar@<-5pt>[r]&
+\cdots .
+}
+\tag{2.3.3.1}
+\]
+Set
+\[
+H^q(\mathcal U,M)=H^q(C^\bullet(\mathcal U,M)).
+\]
+
+\begin{statement}{Proposition 2.3.4}
+\begin{enumerate}[label=\arabic*)]
+\item With the notation of 2.3.3, let $R\hookrightarrow X$ be the sieve generated by the family $(U_i\to X)$, $i\in I$. There is a canonical isomorphism
+\[
+H^q(\mathcal U,M)\simeq H^q(R,M).
+\]
+\item The functors $H^q(\mathcal U,-)$ commute with restrictions of scalars.
+\end{enumerate}
+\end{statement}
+
+Since $R$ is a subobject of $X$ in $\widehat C$, the fiber products
+\[
+U_{i_1}\times_R U_{i_2}\times_R\cdots\times_R U_{i_n}
+\quad\text{and}\quad
+U_{i_1}\times_X U_{i_2}\times_X\cdots\times_X U_{i_n}
+\]
+are canonically isomorphic. It follows from 1.11 that the complex $A_{\mathcal U,\bullet}$ is a resolution of $A_R$, and from 2.3.1 that the components of $A_{\mathcal U,\bullet}$ are projective modules. The cohomology groups of $C^\bullet(\mathcal U,M)$ are therefore canonically isomorphic to
+\[
+\Ext_A^q(\widehat C;A_R,M),
+\]
+which gives the isomorphism. Assertion 2) follows immediately from the description (2.3.3.1) of $C^\bullet(\mathcal U,M)$.
+
+\begin{statement}{Corollary 2.3.5}
+Let
+\[
+\mathcal U=(U_i\to X,\ i\in I),\qquad
+\mathcal U'=(U'_j\to X,\ j\in J)
+\]
+be two families of morphisms with target $X$. Let
+\[
+\phi=(\phi:I\to J,\ m_i:U_i\to U'_{\phi(i)})
+\]
+and
+\[
+\phi'=(\phi':I\to J,\ m'_i:U_i\to U'_{\phi'(i)})
+\]
+be two morphisms, over $X$, from $\mathcal U$ to $\mathcal U'$. The morphisms $\phi$ and $\phi'$ induce morphisms
+\[
+\phi^q,{\phi'}^q:H^q(\mathcal U,M)\longrightarrow H^q(\mathcal U',M).
+\]
+These morphisms are equal. In particular, if the families $\mathcal U$ and $\mathcal U'$ are equivalent (\ie, if there exists a morphism from $\mathcal U$ to $\mathcal U'$ and a morphism from $\mathcal U'$ to $\mathcal U$), then the $A$-modules $H^q(\mathcal U,M)$ and $H^q(\mathcal U',M)$ are canonically isomorphic.
+\end{statement}
+
+\begin{prooftext}
+Let $R$ and $R'$ be the sieves of $X$ generated by the families $\mathcal U$ and $\mathcal U'$. The morphisms $\phi$ and $\phi'$ define the same morphism from $R$ to $R'$ and hence induce two homotopic morphisms between the projective resolutions $A_{\mathcal U,\bullet}$ and $A_{\mathcal U',\bullet}$.
+\end{prooftext}
+
+\begin{remarktext}{Exercise 2.3.6 (standard resolution)}
+\begin{enumerate}[label=\alph*)]
+\item Let $C$ be a small category. For every integer $n>0$, let $\Fl^n(C)$ denote the set of sequences of morphisms in $C$,
+\[
+(u_1,\ldots,u_n),
+\]
+such that, for every $i$, the target of $u_i$ is equal to the source of $u_{i+1}$, so that $u_i$ and $u_{i+1}$ are composable. Define a semi-simplicial set
+\[
+\xymatrix@M=.25cm@C=.75cm{
+ES(C)=\ob C &
+\Fl^1(C)\ar@<3pt>[l]\ar@<-3pt>[l]&
+\Fl^2(C)\ar@<6pt>[l]\ar[l]\ar@<-6pt>[l]&
+\Fl^3(C)\ar@<9pt>[l]\ar@<3pt>[l]\ar@<-3pt>[l]\ar@<-9pt>[l]&
+\cdots ,
+}
+\]
+whose face operators $s_i:\Fl^n(C)\to \Fl^{n-1}(C)$ are
+\begin{align*}
+s_0(u_1,\ldots,u_n)&=(u_2,\ldots,u_n),\\
+s_i(u_1,\ldots,u_n)&=(u_1,\ldots,u_{i+1}u_i,\ldots,u_n),
+\qquad 0<i<n,\\
+s_n(u_1,\ldots,u_n)&=(u_1,\ldots,u_{n-1}).
+\end{align*}
+
+\item Show that if $C$ has an initial object or a final object, the complex $ES(C)$ is homotopically trivial.
+
+\item For every object $X$ of $C$, let ${}_{X\backslash}C$ denote the category of arrows with source $X$. Define a semi-simplicial presheaf $ES(C)$ whose value at every object $X$ of $C$ is $ES({}_{X\backslash}C)$. Let $\ZZ_{ES(C)}$ be the free abelian semi-simplicial presheaf generated by $ES(C)$. It is equipped with a canonical augmentation
+\[
+\ZZ_{ES(C)}\longrightarrow \ZZ
+\]
+to the constant presheaf with value $\ZZ$. Show that, on passing to the associated differential complex, $\ZZ_{ES(C)}$ is a resolution of $\ZZ$ and that the components of this complex are projective abelian presheaves.
+
+\item For every abelian presheaf $M$, put
+\[
+ST^\bullet(M)=\Hom(\ZZ_{ES(C)},M).
+\]
+Describe explicitly the components of $ST^\bullet(M)$. Show that, for every integer $q\geq0$,
+\[
+H^q(ST^\bullet(M))=H^q(\widehat C,M).
+\]
+
+\item Show that, for every sheaf $S$ on $C$, the functors $H^q(S,-)$ commute with restrictions of scalars.
+
+\item Observe that, when $C$ is a group, $\ZZ_{ES(C)}$ is the standard resolution of the trivial module $\ZZ$ \cite{3}.
+
+\item Show that, for every abelian presheaf $M$ on $C$, $\ZZ_{ES(C)}\otimes M$ is a left resolution of $M$. Define the functor $\varprojlim_C$ on presheaves. Show that it is right exact. Denote its left derived functors by $H_q(C,M)$. Show that the components of the complex $\ZZ_{ES(C)}\otimes M$ are acyclic for $\varprojlim_C$. Deduce, writing
+\[
+ST_\bullet(M)=\varprojlim_C(\ZZ_{ES(C)}\otimes M),
+\]
+canonical isomorphisms
+\[
+H_q(ST_\bullet(M))\simeq H_q(C,M).
+\]
+
+\item Let $u:\widehat C\to\Set$ be the unique morphism from the topos $\widehat C$ to the punctual topos. Let
+\[
+u_!:\widehat C_{\ZZ}\longrightarrow \Ab
+\]
+be the left adjoint of $u^*:\Ab\to\widehat C_{\ZZ}$. Show that, for every abelian presheaf $M$,
+\[
+u_!M=\varinjlim_C M.
+\]
+
+\item From now on denote by $ST^\bullet(C,M)$ and $ST_\bullet(C,M)$ the complexes previously denoted $ST^\bullet(M)$ and $ST_\bullet(M)$. A presheaf $M$ on $C$ is called \emph{locally constant} if it sends all morphisms of $C$ to isomorphisms. Associate to every locally constant presheaf $M$ a locally constant presheaf $\check M$ on the opposite category $C^\op$, such that for every morphism $u$ of $C$,
+\[
+\check M(u)=M(u)^{-1}.
+\]
+Find canonical isomorphisms between the complexes $ST^\bullet(C,M)$ and $ST^\bullet(C^\op,\check M)$, and between $ST_\bullet(C,M)$ and $ST_\bullet(C^\op,\check M)$.
+
+\item Let $C$ be a small category having an initial object (\resp\ a small filtered category). Show that, for every constant presheaf $M$,
+\[
+H^q(\widehat C,M)=0\quad(q>0)
+\]
+(\resp\ $H_q(C,M)=0$ for $q>0$).
+\end{enumerate}
+\end{remarktext}
+
+\subsection*{2.4. The case of small sites. \Cech\ cohomology}
+
+\subsubsection*{2.4.1}
+Let $(C,A)$ be a ringed $\U$-site, let $C^\sim$ be the topos of sheaves on $C$, and let
+\[
+\epsilon:C\longrightarrow C^\sim
+\]
+be the canonical functor which assigns to an object of $C$ the sheaf associated with the presheaf represented by that object. By abuse of notation, for every object $X$ of $C$ and every sheaf of $A$-modules $M$ we write
+\[
+H^q(X,M)=H^q(\epsilon(X),M)
+\]
+(\cf\ 2.3.1). Recall that when the topology of $C$ is no finer than the canonical topology, as is always the case in practice, the functor $\epsilon$ is fully faithful and allows one to identify $C$ with its image under $\epsilon$.
+
+\subsubsection*{2.4.2}
+Let
+\[
+\Hh^0:C^\sim_A\longrightarrow \widehat C_A
+\]
+denote the inclusion functor from sheaves of $A$-modules into presheaves of $A$-modules. Thus, for every sheaf of $A$-modules $M$,
+\[
+\Hh^0(M)(X)=H^0(X,M)=M(X)
+\tag{2.4.2.1}
+\]
+for every object $X$ of $C$. The functor $\Hh^0$ is left exact. Its right derived functors are denoted $\Hh^q$. Since, for every object $X$ of $C$, the functor ``sections over $X$'' is exact in the category of presheaves, one has
+\[
+\Hh^q(M)(X)=H^q(X,M)
+\tag{2.4.2.2}
+\]
+for every object $X$ of $C$ and every sheaf of $A$-modules $M$. Thus the presheaf $\Hh^q(M)$ is simply the presheaf
+\[
+X\longmapsto H^q(X,M).
+\]
+
+\subsubsection*{2.4.3}
+Assume that $(C,A)$ is a \emph{small} ringed site, so that $C^\sim$ is a \emph{topos} to which the results of 2.3 apply. Let $X$ be an object of $C$ and let $R\hookrightarrow X$ be a covering sieve. For every \emph{presheaf} $G$ of $A$-modules, the groups $H^q(R,G)$, computed in the topos $\widehat C$, are called the \emph{\Cech\ cohomology groups of the presheaf $G$ relative to the covering sieve $R$}. When $R\hookrightarrow X$ is the sieve generated by a covering family
+\[
+\mathcal U=(U_i\to X)_{i\in I}
+\]
+of squareable morphisms, these groups may be computed by means of the complex $C^\bullet(\mathcal U,G)$ (2.3.3), called the \emph{\Cech\ complex of $G$ relative to the covering family $\mathcal U$}, or relative to the covering $\mathcal U$. The groups
+\[
+H^q(\mathcal U,G)=H^q(R,G)
+\]
+(2.3.4) are then called the \emph{\Cech\ cohomology groups of $G$ relative to the covering family $\mathcal U$}.
+
+\subsubsection*{2.4.4}
+Let $M$ be a sheaf of $A$-modules on $C$. The groups
+\[
+H^q(\mathcal U,\Hh^0(M))
+\]
+are most often denoted, abusively, by $H^q(\mathcal U,M)$ and called the \Cech\ cohomology groups of the sheaf $M$ relative to the covering family $\mathcal U$.
+
+\subsubsection*{2.4.5}
+Let
+\[
+\check{\Hh}^0:\widehat C_A\longrightarrow \widehat C_A
+\]
+be the natural extension to presheaves of $A$-modules of the functor $L$ described in II. Thus, by definition, for a presheaf $G$ and an object $X$ of $C$,
+\[
+\check{\Hh}^0(G)(X)=
+\varinjlim_{R\hookrightarrow X}G(R),
+\tag{2.4.5.1}
+\]
+where the inductive limit is taken over the covering sieves of $X$. It follows from (2.4.5.1) that $\check{\Hh}^0$ is left exact. Its right derived functors are denoted $\check{\Hh}^q$. Since the functors ``sections over $X$'' and ``filtered inductive limit'' are exact, (2.4.5.1) gives
+\[
+\check{\Hh}^q(G)(X)=
+\varinjlim_{R\hookrightarrow X}H^q(R,G),
+\tag{2.4.5.2}
+\]
+where the limit is taken over the covering sieves of $X$.
+
+The presheaves $\check{\Hh}^q$ are called the \emph{\Cech\ cohomology presheaves}. For every object $X$ of $C$, put
+\[
+\check H^q(X,G)=\check{\Hh}^q(G)(X).
+\tag{2.4.5.3}
+\]
+The groups $\check H^q(X,G)$ are called the \emph{\Cech\ cohomology groups}. When the topology of $C$ is defined by a pretopology, as is most often the case in practice, one has, taking 2.3.4 into account,
+\[
+\check H^q(X,G)\simeq
+\varinjlim_{\mathcal U} H^q(\mathcal U,G),
+\tag{2.4.5.4}
+\]
+the inductive limit being taken over the squareable covering families, preordered by the natural order relation on the corresponding sieves (2.3.5).
+
+\subsubsection*{2.4.6}
+Let $M$ be a sheaf of $A$-modules. We set, abusively,
+\[
+\check H^q(X,M)=\check H^q(X,\Hh^0(M)),
+\qquad
+\check{\Hh}^q(M)=\check{\Hh}^q(\Hh^0(M)).
+\tag{2.4.6.1}
+\]
+The groups $\check H^q(X,M)$ are called the \Cech\ cohomology groups of the sheaf $M$. Note that, although the functors $\check H^q$ are derived functors on the category of presheaves, they do not in general form a $\delta$-functor on the category of sheaves.
+
+\subsection*{2.5. Change of universe. \Cech\ cohomology for $\U$-sites}
+
+\subsubsection*{2.5.1}
+Let $(C,A)$ be a ringed $\U$-site and let $\V$ be a universe containing $\U$. The site $(C,A)$ is then a $\V$-site, and one has a $\U$-topos $C^\sim_\U$, a $\V$-topos $C^\sim_\V$, and a canonical inclusion functor
+\[
+\epsilon:C^\sim_\U\hookrightarrow C^\sim_\V .
+\]
+The functor $\epsilon$ is exact and fully faithful on categories of modules, and carries injective modules to injective modules (1.9). Hence, for every pair of $\U$-sheaves of $A$-modules, there are canonical isomorphisms
+\[
+\Ext_A^q(C^\sim_\U;M,N)
+\simeq
+\Ext_{\epsilon A}^q(C^\sim_\V;\epsilon M,\epsilon N),
+\qquad q\geq0.
+\tag{2.5.1.1}
+\]
+In particular, for every $\U$-sheaf of sets $R$ on $C$, there are canonical isomorphisms (2.1.1)
+\[
+H^q(R,M)\simeq H^q(\epsilon R,\epsilon M),
+\qquad q\geq0,
+\tag{2.5.1.2}
+\]
+and still more particularly, for every object $X$ of $C$, one has canonical isomorphisms (2.4.1)
+\[
+H^q(X,M)\simeq H^q(X,\epsilon M).
+\tag{2.5.1.3}
+\]
+In loose terms, sheaf cohomology therefore does not depend on the choice of universe, and one may always enlarge the universe, when needed for a proof or a construction, in order to compute the cohomology of a sheaf.
+
+\subsubsection*{2.5.2}
+Let $(C,A)$ be a ringed $\U$-site and let $\V$ be a universe containing $\U$. Denote by $C^\sim_A$ the category of $\U$-sheaves, and let
+\[
+\widehat\epsilon:\widehat C_{A,\U}\longrightarrow \widehat C_{A,\V}
+\]
+be the inclusion functor from $\U$-presheaves into $\V$-presheaves of $A$-modules. The functor $\widehat\epsilon$ is exact; hence the derived functors of
+\[
+\widehat\epsilon\,\Hh^0:C^\sim_A\longrightarrow \widehat C_{A,\V}
+\]
+are the functors $\widehat\epsilon\,\Hh^q$, $q\geq0$. By abuse of notation, we again write
+\[
+\Hh^q:C^\sim_A\longrightarrow \widehat C_{A,\V},
+\qquad q\geq0,
+\]
+for the functors $\widehat\epsilon\,\Hh^q$.
+
+When $C$ is $\V$-small, this enlargement of the universe has the following advantage. The category $\widehat C_\U$ is not in general a $\U$-topos, and the $\U$-presheaves of $A$-modules are not necessarily submodules of injective $\U$-presheaves. By contrast, the category of $\V$-presheaves is a topos, a $\V$-topos, and therefore every $\V$-presheaf of $A$-modules is a subobject of a $\V$-injective presheaf (0.1.1). Thus, for every $\V$-presheaf of sets $R$ and, in particular, when $R$ is a $\U$-presheaf, and for every $\U$-sheaf of $A$-modules $M$, the groups
+\[
+H^q(R,\Hh^q(M))
+\]
+are defined by 2.1.1, and it follows from (2.5.1.2) that these groups do not depend on the universe $\V$ considered. Similarly, for every pair of integers $p,q\geq0$, the presheaves
+\[
+\check{\Hh}^p(\Hh^q(M))
+\]
+are defined by 2.4.5, and it follows from (2.5.1.2) and (2.4.5.4) that these presheaves do not depend on the universe $\V$ used to define them.
+
+\section{The Cartan--Leray spectral sequence relative to a covering}
+
+\begin{statement}{Proposition 3.1}
+Let $(C,A)$ be a ringed $\U$-site and let $\V$ be a universe containing $\U$. The functor
+\[
+\Hh^0:C^\sim_A\longrightarrow \widehat C_{A,\V}
+\]
+of 2.5.2 carries injective $A$-modules to injective presheaves. For every integer $q>0$ and every $A$-module $M$, the sheaf associated with the presheaf $\Hh^q(M)$ is zero.
+\end{statement}
+
+Let $\underline a_{\V}$ denote the associated-sheaf functor for $\V$-presheaves, and let
+\[
+\epsilon:C^\sim_A\hookrightarrow C^\sim_{A,\V}
+\]
+be the inclusion functor from $\U$-sheaves into $\V$-sheaves. One has
+\[
+\underline a_{\V}\Hh^0=\epsilon
+\]
+(II, 3.6), and since the functors $\underline a_{\V}$ and $\epsilon$ are exact,
+\[
+\underline a_{\V}\Hh^q=0
+\]
+for every integer $q>0$. For every $\U$-sheaf $M$ and every $\V$-presheaf $N$, there is a functorial isomorphism
+\[
+\Hom_{\widehat C_{A,\V}}\bigl(N,\Hh^0(M)\bigr)
+\simeq
+\Hom_{C^\sim_{A,\V}}\bigl(\underline a_{\V}N,\epsilon M\bigr).
+\]
+When $M$ is injective, $\epsilon M$ is injective (1.9), and since $\underline a_{\V}$ is exact, the functor
+\[
+N\longmapsto \Hom_{\widehat C_{A,\V}}\bigl(N,\Hh^0(M)\bigr)
+\]
+is exact. Hence $\Hh^0(M)$ is injective.
+
+\begin{statement}{Theorem 3.2}
+Let $(C,A)$ be a ringed $\U$-site, let $R$ be a $\U$-presheaf of sets on $C$, and let $M$ be a sheaf of $A$-modules. There exists a spectral sequence, functorial in $R$ and in $M$:
+\[
+H^{p+q}(\underline a R,M)\Longleftarrow
+E_2^{p,q}=H^p(R,\Hh^q(M)).
+\tag{3.2.1}
+\]
+When $C$ is not $\U$-small, the term $H^p(R,\Hh^q(M))$ is to be interpreted as the cohomology of the presheaf $\Hh^q(M)$ in the topos $\widehat C_{\V}$, where $\V$ is a universe containing $\U$ and such that $C$ is $\V$-small (2.5.2).
+\end{statement}
+
+By the definition of the associated-sheaf functor (\cf\ II), there is an isomorphism of functors
+\[
+H^0(\underline a R,M)\simeq H^0(R,\Hh^0(M)).
+\]
+The functor $\Hh^0$ carries injective objects to injective objects. The spectral sequence of composite functors (0.3) is the desired spectral sequence.
+
+\begin{statement}{Corollary 3.3}
+Let $X$ be an object of $C$ and let
+\[
+\mathcal U=(U_i\to X)_{i\in I}
+\]
+be a covering family such that, for every $i\in I$, the morphism $U_i\to X$ is squareable. Then there is a spectral sequence, called the Cartan--Leray spectral sequence:
+\[
+H^{p+q}(X,M)\Longleftarrow
+E_2^{p,q}=H^p(\mathcal U,\Hh^q(M)).
+\tag{3.3.1}
+\]
+\end{statement}
+
+Let $R\hookrightarrow X$ be the sieve generated by $\mathcal U$. Since this sieve is covering, the sheaf associated with $R$ is the sheaf associated with $X$ (II, 5.2). Taking 2.4.1 into account, one has
+\[
+H^{p+q}(\underline a R,M)=H^{p+q}(X,M).
+\]
+The corollary follows from 2.3.4.
+
+\begin{statement}{Corollary 3.4}
+There exists a spectral sequence, functorial in the sheaf $M$ and in the object $X$ of $C$,
+\[
+H^{p+q}(X,M)\Longleftarrow
+E_2^{p,q}=\check H^p(X,\Hh^q(M)).
+\tag{3.4.1}
+\]
+As $X$ varies in $C$, this spectral sequence gives a spectral sequence of presheaves:
+\[
+\Hh^{p+q}(M)\Longleftarrow
+E_2^{p,q}=\check{\Hh}^p(\Hh^q(M)).
+\tag{3.4.2}
+\]
+These spectral sequences give functorial edge morphisms
+\begin{align*}
+\Phi^q(M)&:\check{\Hh}^q(M)\longrightarrow \Hh^q(M),\tag{3.4.3}\\
+\Phi_X^q(M)&:\check H^q(X,M)\longrightarrow H^q(X,M).\tag{3.4.4}
+\end{align*}
+The morphisms $\Phi^q$ and $\Phi_X^q$ are isomorphisms for $q=0$ or $q=1$. The morphisms $\Phi^2$ and $\Phi_X^2$ are monomorphisms. More generally, if the presheaves $\Hh^i(M)$ vanish for $0<i<n$, then $\Phi^q(M)$ and $\Phi_X^q(M)$ are isomorphisms for $0\leq q\leq n$ and monomorphisms for $q=n+1$.
+\end{statement}
+
+The first spectral sequence is obtained by taking the inductive limit in the spectral sequence (3.2.1) over covering sieves $R\hookrightarrow X$, using (2.4.5.2). The second spectral sequence follows immediately from (2.4.5.3). The sheaves associated with the presheaves $\Hh^q(M)$ are zero for $q>0$ (3.1). Hence
+\[
+\check{\Hh}^0(\Hh^q(M))=0
+\qquad (q>0)
+\]
+(II, 3.4 and II, 3.2). The assertions on the morphisms $\Phi^q$ and $\Phi_X^q$ follow at once.
+
+\begin{statement}{Corollary 3.5}
+Let $(E,A)$ be a ringed topos and let $M$ be an $A$-module, a left module to fix ideas. Denote by $\mathcal M$ the underlying abelian sheaf of $M$. The functor
+\[
+M\longmapsto \mathcal M
+\]
+is exact, and therefore, for every object $X$ of $E$, the canonical isomorphism
+\[
+H^0(X,M)\xrightarrow{\sim}H^0(X,\mathcal M)
+\]
+extends to morphisms
+\[
+H^q(X,M)\longrightarrow H^q(X,\mathcal M),\qquad q\geq0.
+\]
+These morphisms are isomorphisms.
+\end{statement}
+
+For every object $Y$ of $E$, by (2.4.5.4) one has
+\[
+\check H^p(Y,M)=\varinjlim_{\mathcal U}H^p(\mathcal U,M),
+\qquad
+\check H^p(Y,\mathcal M)=
+\varinjlim_{\mathcal U}H^p(\mathcal U,\mathcal M),
+\]
+where the inductive limit is taken over epimorphic families
+\[
+\mathcal U=(Y_i\to Y)_{i\in I}.
+\]
+It follows that the canonical homomorphism
+\[
+\check H^p(Y,M)\longrightarrow \check H^p(Y,\mathcal M)
+\]
+is an isomorphism (2.3.4). Hence, by (2.4.5.3), the canonical homomorphism
+\[
+\check{\Hh}^p(M)\longrightarrow \check{\Hh}^p(\mathcal M)
+\]
+is an isomorphism. If $M$ is an injective $A$-module, one has $\check{\Hh}^p(\mathcal M)=0$ for $p>0$. Thus $\Hh^1(\mathcal M)=0$, and by induction on $p$, using 3.4, $\Hh^p(\mathcal M)=0$ for $p>0$. Hence $H^p(X,\mathcal M)=0$ for $p>0$, by (2.4.2.2) and 2.5. Consequently the functor $M\mapsto\mathcal M$ carries injective objects to objects acyclic for $H^0(X,-)$, which gives the announced isomorphism.
+
+\begin{remarktext}{Exercise 3.6}
+Let $G$ be a topological group and let $B_G$ be its classifying topos (IV, 2.5). Let $E_G$ denote the object of $B_G$ formed by the underlying topological space of $G$, endowed with the left translation action of the elements of $G$. The canonical morphism from $E_G$ to the final object $e_G$ of $B_G$ is an epimorphism; it therefore gives a covering
+\[
+\mathcal U=(E_G\to e_G).
+\]
+For every abelian sheaf $F$ on $B_G$, there is a spectral sequence
+\[
+E_2^{p,q}=H^p(\mathcal U,\Hh^q(F))
+\Longrightarrow H^{p+q}(B_G,F),
+\tag{3.6.1}
+\]
+which we propose to study.
+\end{remarktext}
+
+\begin{enumerate}[label=\arabic*)]
+\item Show that, for every integer $n$, the topos
+\[
+B_{G/E_G\times E_G\times\cdots\times E_G}
+\qquad (n\ \text{factors})
+\]
+is canonically equivalent to the topos (IV, 2.5)
+\[
+\Top(G\times G\times\cdots\times G)
+\qquad (n-1\ \text{factors}).
+\]
+For every integer $n$, denote by $F_n$ the sheaf on the topological space $G\times\cdots\times G$ ($n$ factors) induced by $F$.
+
+\item Deduce that the term $E_2^{p,q}$ of (3.6.1) is canonically isomorphic to the $p$-th cohomology group of a complex of the form
+\[
+H^q(e,F_0)\longrightarrow H^q(G,F_1)
+\longrightarrow H^q(G\times G,F_2)\longrightarrow\cdots,
+\]
+which should be made explicit. Here $e$ denotes the one-point topological space.
+
+\item Deduce that the cohomology of the classifying topos $B_G$ with values in locally constant sheaves is isomorphic to the corresponding singular cohomology of the spaces $G\times G\times\cdots\times G$, in cases where the cohomology of locally constant sheaves coincides with the corresponding singular cohomology, for example when $G$ is locally contractible. For classifying spaces, consult \cite{15}.
+\end{enumerate}
+
+\section{Acyclic sheaves}
+
+\begin{statement}{Definition 4.1}
+Let $(E,A)$ be a ringed topos, let $F$ be an $A$-module, and let $S$ be a topologically generating family of $E$. We say that $F$ is \emph{$S$-acyclic} if, for every object $X$ of $S$ and every integer $q>0$,
+\[
+H^q(X,F)=0.
+\]
+When $S=\ob E$, the $S$-acyclic sheaves are called \emph{flasque} sheaves.
+\end{statement}
+
+\subsection*{4.2}
+Let $(C,A)$ be a ringed $\U$-site and let $F$ be a sheaf of $A$-modules on $C$. We say that $F$ is \emph{$C$-acyclic} if $F$ is $S$-acyclic, where $S$ is the family of sheaves associated with the objects of $C$.
+
+\begin{statement}{Proposition 4.3}
+Let $(C,A)$ be a ringed $\U$-site and let $F$ be a sheaf of $A$-modules. Let
+\[
+\Hh^0:C^\sim_A\longrightarrow \widehat C_A
+\]
+be the inclusion functor from $A$-modules to presheaves of $A$-modules; here these are $\V$-presheaves, with $\V$ a universe such that $C$ is $\V$-small. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $F$ is $C$-acyclic.
+\item For every object $X$ of $C$ and every covering sieve $R\hookrightarrow X$,
+\[
+H^q(R,\Hh^0(F))=0\qquad\text{for all }q>0.
+\]
+\item For every object $X$ of $C$,
+\[
+\check H^q(X,F)=0\qquad\text{for all }q>0.
+\]
+\end{enumerate}
+\end{statement}
+
+\begin{itemize}
+\item[(i) $\Rightarrow$ (ii)] Since $F$ is $C$-acyclic, the presheaves $\Hh^q(F)$ vanish for $q>0$. The spectral sequence (3.2.1) then gives an isomorphism
+\[
+H^q(R,\Hh^0(F))\simeq H^q(X,F)
+\]
+for every $q$. Hence $H^q(R,\Hh^0(F))=0$ for $q>0$.
+\item[(ii) $\Rightarrow$ (iii)] This is clear by passing to the inductive limit.
+\item[(iii) $\Rightarrow$ (i)] One proves by induction on $q$ that the presheaves $\Hh^q(F)$ vanish for $q>0$, using (3.4.2).
+\end{itemize}
+
+\subsection*{4.4}
+It follows from criterion 4.3(ii) and from 3.5 that the property of being $S$-acyclic depends only on the underlying abelian sheaf. In particular, a sheaf of $A$-modules is flasque if and only if its underlying abelian sheaf is flasque.
+
+\begin{statement}{Corollary 4.5}
+Let $(E,A)$ be a ringed topos and let $F$ be an $A$-module. The following properties are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $F$ is flasque.
+\item For every epimorphic family
+\[
+\mathfrak X=(X_i\to X)_{i\in I},
+\]
+one has
+\[
+H^q(\mathfrak X,F)=0\qquad\text{for all }q>0.
+\]
+\end{enumerate}
+\end{statement}
+
+In 4.2, take $C$ to be the topos $E$ itself. The corollary then follows from the equivalence (i) $\Leftrightarrow$ (ii) of 4.2.
+
+\subsection*{4.6}
+Injective sheaves are flasque. Flasque sheaves are $S$-acyclic for every topologically generating family $S$. Flasque sheaves are not necessarily injective, as is seen by taking $E$ to be the topos of sets. $S$-acyclic sheaves are not necessarily flasque; see Exercise 4.15.
+
+\begin{statement}{Proposition 4.7}
+Let $(E,A)$ be a topos, let $F$ be a flasque $A$-module, and let $X$ be an object of $E$. For every subobject $Y$ of $X$, the canonical homomorphism
+\[
+H^0(X,F)\longrightarrow H^0(Y,F)
+\]
+is surjective.
+\end{statement}
+
+Suppose that $Y$ is a subobject of $X$ for which the morphism $H^0(X,F)\to H^0(Y,F)$ is not surjective. Let $Z$ be the object obtained by gluing two copies $X_1$ and $X_2$ of $X$ along $Y$. The object $Z$ is covered by the two subobjects $X_1$ and $X_2$, and
+\[
+X_1\times_Z X_2=Y.
+\]
+Let $\mathfrak X=(X_1,X_2)$ be the resulting covering. One immediately sees that
+\[
+H^1(\mathfrak X,F)\neq0,
+\]
+a contradiction.
+
+\subsection*{4.8}
+The property described in 4.7 does not characterize flasque sheaves in the case of general topoi; see Exercise 4.15. It does characterize them, however, for topoi generated by their open subobjects, and in particular for topoi associated with topological spaces; see Exercise 4.16. In the case of topological spaces, the terminology \emph{flasque} used here agrees with the terminology of \cite{7}; see Exercise 4.16.
+
+\begin{statement}{Proposition 4.9}
+Let
+\[
+u:(E,A)\longrightarrow(E',A')
+\]
+be a morphism of ringed topoi.
+\begin{enumerate}[label=\arabic*)]
+\item The functor $u_*$ carries flasque $A$-modules to flasque $A'$-modules.
+\item Let $S$ and $S'$ be topologically generating families of $E$ and $E'$ respectively, such that $u^*(S')\subset S$. The functor $u_*$ carries $S$-acyclic $A$-modules to $S'$-acyclic $A'$-modules.
+\item If $u$ is a flat morphism (1.8), then $u_*$ carries injective $A$-modules to injective $A'$-modules.
+\end{enumerate}
+\end{statement}
+
+Let $X$ be an object of $E'$, let
+\[
+\mathfrak X=(X_i\to X)_{i\in I}
+\]
+be an epimorphic family, let $F$ be a flasque $A$-module, and let $C^\bullet(\mathfrak X,u_*F)$ be the \Cech\ complex of the covering $\mathfrak X$. There is a canonical isomorphism
+\[
+C^\bullet(\mathfrak X,u_*F)\simeq C^\bullet(u^*(\mathfrak X),F),
+\]
+using the adjunction between $u_*$ and $u^*$ and the fact that $u^*$ commutes with fiber products. Moreover, $u^*$ commutes with inductive limits, hence
+\[
+u^*(\mathfrak X)=(u^*X_i\to u^*X)_{i\in I}
+\]
+is an epimorphic family. Since $F$ is flasque, one has
+\[
+H^q(u^*(\mathfrak X),F)=0\qquad(q>0),
+\]
+and consequently
+\[
+H^q(\mathfrak X,u_*F)=0\qquad(q>0).
+\]
+Thus $u_*F$ is flasque.
+
+We prove 2). If $S'$ is stable under fiber products, a proof analogous to the preceding one proves 2). In the general case we shall use the spectral sequence of the morphism $u$ (5.3.2). Assertion 2) will not be used before 5.3.2. Let $F$ be an $S$-acyclic sheaf. The sheaves $R^q u_*F$ are the sheaves associated with the presheaves
+\[
+X\longmapsto H^q(u^*X,F).
+\]
+Since $S'$ is a topologically generating family and $F$ is $S$-acyclic, one has $R^q u_*F=0$ for all $q>0$. The spectral sequence (5.3.2) then gives an isomorphism, for every object $X$ of $E'$,
+\[
+H^q(X,u_*F)\simeq H^q(u^*X,F),
+\]
+and hence for every $X$ in $S'$ one has $H^q(X,u_*F)=0$.
+
+We prove 3). If the morphism $u$ is flat, the functor $u^*$ on modules is exact (1.8). Hence its right adjoint $u_*$ carries injective objects to injective objects (0.2).
+
+\begin{statement}{Proposition 4.10}
+Let $F$ be an $A$-module of the ringed topos $(E,A)$, and let $G$ be an injective $A$-module.
+\begin{enumerate}[label=\arabic*)]
+\item The functor
+\[
+F\longmapsto \Hhom_A(F,G)
+\]
+is exact.
+\item The abelian sheaf $\Hhom_A(F,G)$ is flasque.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+For 1), let
+\[
+0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow0
+\]
+be an exact sequence. We must show that
+\[
+0\longrightarrow \Hhom_A(F'',G)\longrightarrow \Hhom_A(F,G)
+\longrightarrow \Hhom_A(F',G)\longrightarrow0
+\]
+is exact. It is enough to show that, for every object $H$ of $E$, the sequence
+\begin{align*}
+0&\longrightarrow \Hom_E(H,\Hhom_A(F'',G))
+\longrightarrow \Hom_E(H,\Hhom_A(F,G))\\
+&\longrightarrow \Hom_E(H,\Hhom_A(F',G))\longrightarrow0
+\end{align*}
+is exact. But by (IV, 12.6) this last sequence is isomorphic to
+\[
+0\to \Hom_A(A_H\otimes_A F'',G)
+\to \Hom_A(A_H\otimes_A F,G)
+\to \Hom_A(A_H\otimes_A F',G)\to0,
+\]
+and the $A$-module $A_H$ is flat (1.3.1).
+
+For 2), let
+\[
+\mathfrak X=(X_i\to X)_{i\in I}
+\]
+be an epimorphic family of $E$, and let
+\[
+\xymatrix@M=.25cm@C=1cm{
+C_\bullet(\mathfrak X):\cdots \ar@<5pt>[r]\ar[r]\ar@<-5pt>[r]&
+\displaystyle\coprod_{i,j}\ZZ_{X_i\times_X X_j}
+\ar@<3pt>[r]\ar@<-3pt>[r]&
+\displaystyle\coprod_i\ZZ_{X_i}
+}
+\]
+be the complex defined in 1.10. This complex is a flat resolution of $\ZZ_X$, which is itself flat (1.3.1).
+
+Compute
+\[
+H^q(\mathfrak X,\Hhom_A(F,G))
+\simeq
+H^q\!\left(\Hom^\bullet_{\ZZ}(C_\bullet(\mathfrak X),\Hhom_A(F,G))\right)
+\simeq
+H^q\!\left(\Hom_A(C_\bullet(\mathfrak X)\otimes_{\ZZ}F,G)\right).
+\]
+The complex
+\[
+C_\bullet(\mathfrak X)\otimes_{\ZZ}F
+\]
+is acyclic in degrees different from $0$, since $C_\bullet(\mathfrak X)$ is a flat resolution of a flat module. Therefore
+\[
+\Hom_A(C_\bullet(\mathfrak X)\otimes_{\ZZ}F,G)
+\]
+is acyclic in nonzero degrees.
+\end{prooftext}
+
+\begin{statement}{Proposition 4.11}
+Let $(E,A)$ be a ringed topos, and let $F$ be a flasque (\resp\ injective) sheaf of $A$-modules.
+\begin{enumerate}[label=\arabic*)]
+\item For every object $X$ of $E$, the $A|X$-module $j_X^*F$ is flasque (\resp\ injective).
+\item For every closed subtopos $Z$ of $E$, the sheaf of sections of $F$ with support in $Z$ \emph{(IV, 14)} is flasque (\resp\ injective).
+\end{enumerate}
+\end{statement}
+
+Assertion 1) follows from 4.5 when $F$ is flasque. The functor $j_X^*$ has an exact left adjoint $j_{X!}$ (IV, 11); therefore, when $F$ is injective, $j_X^*F$ is injective (0.2). We prove 2). Let $i:Z\to E$ denote the inclusion morphism. The sheaf of sections of $F$ with support in $Z$ is the sheaf $i_*i^!F$ (IV, 14). The functor $i_*i^!$ is right adjoint to the exact functor $i_*i^*$ (IV, 14); hence it carries injective sheaves to injective sheaves.
+
+Let $U$ be the open complement of $Z$, let $j:U\to E$ be the inclusion morphism, and let $F$ be a flasque sheaf. There is an exact sequence (IV, 14)
+\[
+0\longrightarrow i_*i^!F\longrightarrow F\longrightarrow j_*j^*F.
+\tag{4.11.1}
+\]
+For every object $X$ of $E$, one has
+\[
+j_*j^*F(X)=F(X\times U),
+\]
+and the morphism $F(X)\to j_*j^*F(X)$ induced by the last arrow of (4.11.1) comes from the canonical injection $X\times U\hookrightarrow X$. Since $F$ is flasque, this morphism is surjective (4.7), and hence the last arrow of (4.11.1) is an epimorphism of presheaves. For every object $X$ of $E$, the long exact cohomology sequence deduced from (4.11.1) gives
+\[
+H^q(X,i_*i^!F)=0\qquad(q>0),
+\]
+and therefore $i_*i^!F$ is flasque.
+
+\subsection*{4.12}
+The property that a sheaf be flasque (\resp\ injective) localizes (4.11.1). But it is not in general a local property; see Exercise 4.15. It is, however, a local property for topoi generated by their open subobjects, and in particular for topoi associated with topological spaces; see Exercise 4.16.
+
+\begin{remarktext}{Exercise 4.13}
+Let $X$ be a locally compact space and let $F$ be a $c$-soft sheaf \cite{7}. Using the local nature of softness (\emph{loc. cit.}), show that the restriction of $F$ to every paracompact open subset of $X$ is a soft sheaf. Show that the paracompact open subsets form a basis for the topology of $X$. Deduce, denoting by $S$ the family of paracompact open subsets of $X$, that the sheaf $F$ is $S$-acyclic. Show that the sheaf of continuous functions on $X$ is $S$-acyclic but is not flasque when $X$ is not discrete.
+\end{remarktext}
+
+\begin{remarktext}{Problem 4.14}
+Study totally acyclic topoi, i.e. topoi such that
+\[
+H^q(X,F)=0
+\]
+for every $q>0$, every object $X$, and every abelian sheaf $F$.
+\end{remarktext}
+
+\begin{remarktext}{Exercise 4.15}
+Let $G$ be a discrete group and let $B_G$ be its classifying topos (IV, 2.4). Show that for every abelian sheaf $F$ and every monomorphism $X\hookrightarrow Y$, the homomorphism
+\[
+F(Y)\longrightarrow F(X)
+\]
+is surjective. Let $E(G)$ be the group $G$, regarded as a homogeneous space under itself. It is an object of $B_G$. The topos $B_{G/E(G)}$ is equivalent to the punctual topos (IV, 8). The morphism $E(G)\to e$, where $e$ is the final object of $B_G$, is an epimorphism. For every abelian sheaf $F$ on $B_G$, the sheaf $F|E(G)$ is flasque. Deduce that the property of being flasque or injective is not local.
+\end{remarktext}
+
+\begin{remarktext}{Exercise 4.16}
+A topos $E$ is said to be \emph{generated by its open subobjects} if the open subobjects of $E$, i.e. the subobjects of the final object $e$ of $E$, form a generating family (I, 7). Such a topos has the following property:
+
+\smallskip
+\noindent(P) Every epimorphic family $X_i\to X$, $i\in I$, is refined by an epimorphic family $U_j\to X$, $j\in J$, where the $U_j\to X$ are monomorphisms.
+
+\begin{enumerate}[label=\alph*)]
+\item Are there topoi satisfying property (P) which are not generated by their open subobjects? Topoi associated with topological spaces are generated by their open subobjects. If $E$ is generated by its open subobjects (\resp\ has property (P)), then for every object $X$ of $E$, the topos $E_{/X}$ is generated by its open subobjects (\resp\ has property (P)). Every subtopos of a topos generated by its open subobjects is generated by its open subobjects. Property (P) is not a local property.
+
+\item Let $E$ be a topos and let $\Ouv(E)$ be the category of open subobjects of $E$ endowed with the induced topology. The inclusion functor $\Ouv(E)\to E$ is a morphism of sites, hence gives a morphism of topoi
+\[
+\Pi:E\longrightarrow \Ouv(E)^\sim .
+\]
+The functor $\Pi^*$ is fully faithful. The morphism $\Pi$ has, with respect to the 2-category of topoi generated by their open subobjects, a universal property which the reader should make explicit.
+
+\item Let $E$ be a topos generated by its open subobjects, and let $\Point(E)$ be the set of isomorphism classes of points of $E$. Show that $\Point(E)$ is small. Put a topology on $\Point(E)$ and define a morphism
+\[
+\Top(\Point(E))\longrightarrow \Ouv(E)^\sim
+\]
+making $\Top(\Point(E))$ a subtopos of $\Ouv(E)^\sim$. For every topological space $X$, show that every morphism from $\Top(X)$ to $E$ gives a morphism from $\Top(X)$ to $\Top(\Point(E))$. Show that a topos generated by its open subobjects is equivalent to a topos $\Top(X)$, with $X$ a topological space, if and only if it has enough points. Show that there exist topoi generated by their open subobjects which are not equivalent to topoi $\Top(X)$ for any topological space $X$.
+
+\item Let $E$ be a topos satisfying property (P). An abelian sheaf $F$ on $E$ is flasque if and only if, for every monomorphism $X\hookrightarrow Y$, the homomorphism
+\[
+F(Y)\longrightarrow F(X)
+\]
+is surjective.
+
+\item Let $E$ be a topos satisfying property (P). Show that the property that a sheaf $F$ be flasque is local in nature.
+
+\item Let $E$ be a topos generated by its open subobjects, and let $e$ be the final object of $E$. An abelian sheaf $F$ is flasque if and only if, for every open subobject $U$ of $e$, the canonical morphism
+\[
+F(e)\longrightarrow F(U)
+\]
+is surjective.
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 4.17 (flasque sheaves and change of universe)}
+Let $C$ be a $\U$-site, for example a $\U$-topos, and let $\V$ be a universe containing $\U$. Let
+\[
+\epsilon:C^\sim_\U\longrightarrow C^\sim_\V
+\]
+be the canonical inclusion between the corresponding categories of sheaves. Let $F$ be a flasque $\U$-abelian sheaf on $C$. The aim is to show that $\epsilon F$ is flasque. First observe that for every object $X$ of $C^\sim_\U$ one has
+\[
+H^q(\epsilon X,\epsilon F)=0\qquad(q>0).
+\]
+Every object $Y$ of $C^\sim_\V$ admits an epimorphic family
+\[
+\epsilon X_i\to Y,\qquad i\in I,
+\]
+where the morphisms $\epsilon X_i\to Y$ are monomorphisms. It follows that
+\[
+H^q(Y,\epsilon F)=
+\varprojlim_{\epsilon X\hookrightarrow Y}^{\,q} F(X).
+\]
+To show that these $\varprojlim^q$ vanish for $q\neq0$, one may reduce to the topos $\Ouv(C_{\V/Y})^\sim$ and use the fact that, for this topos, a sheaf is flasque if it is locally flasque.
+\end{remarktext}
+
+
+\begin{thebibliography}{99}
+\bibitem{3} H. Cartan and S. Eilenberg, \emph{Homological Algebra}.
+\bibitem{7} R. Godement, \emph{Th\'eorie des faisceaux}.
+\bibitem{11} A. Grothendieck, \emph{Sur quelques points d'alg\`ebre homologique}, Tohoku Math. J.
+\bibitem{15} G. Segal, \emph{Classifying spaces and spectral sequences}.
+\end{thebibliography}
+
+\bigskip
+\noindent\textbf{Continuation anchor.} The next translated segment should begin with Expos\'e V, Section 5, ``The $R^q u_*$ and the Cartan--Leray spectral sequence relative to a morphism of topoi'', source line 1947 of \texttt{05/05.tex}.
+
+\end{document}
+

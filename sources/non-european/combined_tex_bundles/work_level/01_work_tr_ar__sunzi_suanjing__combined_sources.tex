@@ -1,0 +1,920 @@
+% Combined TeX source bundle
+% Title: Sunzi, Sunzi Suanjing, Arabic translation draft
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and source packet rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/ar/chinese/sunzi-suanjing_arabic.tex
+% ============================================================
+
+%% ========================================================================
+%% Sunzi Suanjing (孙子算经) — Chinese → Arabic Bilingual Edition
+%% 孫子算經 — الطبعة الثنائية الصينية-العربية
+%% Parallel text: Classical Chinese | Arabic Translation
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{etoolbox}
+\usepackage{framed}
+\usepackage{xeCJK}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+
+%% -------- Font Configuration --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+%% -------- Arabic Font --------
+\newfontfamily\arabicfont[Script=Arabic]{Arial}
+\TeXXeTstate=1
+\newcommand{\ar}[1]{\arabicfont\beginR #1\endR}
+
+%% -------- CJK Font --------
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{chinesebg}{RGB}{255,252,245}
+\definecolor{problembg}{RGB}{250,248,244}
+\definecolor{answerbg}{RGB}{245,250,245}
+\definecolor{methodbg}{RGB}{245,248,252}
+\definecolor{crtgold}{RGB}{139,90,0}
+\definecolor{arabicbg}{RGB}{252,255,250}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\color{titlecolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Sunzi Suanjing — الطبعة الصينية-العربية}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\zh}[1]{{\CJKfamily{}#1}}
+
+%% Bilingual line environment
+\newcommand{\biline}[2]{%
+  \noindent\begin{minipage}[t]{0.46\textwidth}\small#1\end{minipage}%
+  \hfill\vrule\hfill%
+  \begin{minipage}[t]{0.46\textwidth}\small\ar{#2}\end{minipage}%
+  \par\vspace{6pt}%
+}
+
+%% Bilingual display environment (for longer passages)
+\newenvironment{bilingual}
+  {\par\noindent\ignorespaces}
+  {\par}
+\newcommand{\cnline}[1]{\begin{minipage}[t]{0.46\textwidth}\small#1\end{minipage}}
+\newcommand{\arline}[1]{\begin{minipage}[t]{0.46\textwidth}\small\ar{#1}\end{minipage}}
+\newcommand{\bipassage}[2]{%
+  \noindent\cnline{#1}\hfill\vrule\hfill\arline{#2}\par\vspace{8pt}%
+}
+
+%% Custom framed boxes (replacing tcolorbox)
+\newcommand{\custombox}[4]{%
+  \par\smallskip\noindent%
+  \colorbox{#1}{%
+    \fcolorbox{#2}{#1}{%
+      \begin{minipage}{0.97\textwidth}#4\end{minipage}%
+    }%
+  }\par\smallskip%
+}
+
+\newcommand{\biproblem}[2]{%
+  \par\smallskip\noindent%
+  \fcolorbox{rulecolor}{problembg}{%
+    \begin{minipage}{0.97\textwidth}%
+    \small
+    \begin{minipage}[t]{0.46\textwidth}\textbf{\zh{問}}\\#1\end{minipage}%
+    \hfill\vrule\hfill%
+    \begin{minipage}[t]{0.46\textwidth}\ar{\textbf{المسألة:}\\#2}\end{minipage}%
+    \end{minipage}%
+  }\par\smallskip%
+}
+\newcommand{\bianswer}[2]{%
+  \par\smallskip\noindent%
+  \fcolorbox{rulecolor!70!green}{answerbg}{%
+    \begin{minipage}{0.97\textwidth}%
+    \small
+    \begin{minipage}[t]{0.46\textwidth}\textbf{\zh{答}}\\#1\end{minipage}%
+    \hfill\vrule\hfill%
+    \begin{minipage}[t]{0.46\textwidth}\ar{\textbf{الجواب:}\\#2}\end{minipage}%
+    \end{minipage}%
+  }\par\smallskip%
+}
+\newcommand{\bimethod}[2]{%
+  \par\smallskip\noindent%
+  \fcolorbox{rulecolor!70!blue}{methodbg}{%
+    \begin{minipage}{0.97\textwidth}%
+    \small
+    \begin{minipage}[t]{0.46\textwidth}\textbf{\zh{術}}\\#1\end{minipage}%
+    \hfill\vrule\hfill%
+    \begin{minipage}[t]{0.46\textwidth}\ar{\textbf{الطريقة:}\\#2}\end{minipage}%
+    \end{minipage}%
+  }\par\smallskip%
+}
+
+%% Preface shaded environment
+\newenvironment{prefacebox}{%
+  \definecolor{shadecolor}{RGB}{255,252,245}%
+  \begin{shaded}\small\begin{minipage}{0.95\textwidth}%
+}{%
+  \end{minipage}\end{shaded}%
+}
+
+%% Gold CRT box
+\newenvironment{crtbox}{%
+  \par\medskip\noindent%
+  \fcolorbox{crtgold}{crtgold!8}{%
+    \begin{minipage}{0.96\textwidth}%
+    \medskip
+}{%
+    \medskip\end{minipage}%
+  }\par\medskip%
+}
+
+%% Song box
+\newenvironment{songbox}{%
+  \par\medskip\noindent%
+  \fcolorbox{rulecolor}{chinesebg}{%
+    \begin{minipage}{0.9\textwidth}\centering\large%
+}{%
+    \end{minipage}%
+  }\par\medskip%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Sunzi Suanjing — Chinese-Arabic Bilingual Edition},
+  pdfauthor={Sunzi (c. 400 CE) — Arabic translation edition}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{13}{15}\selectfont\textsc{Classical Chinese Mathematics} — \ar{رياضيات الصين الكلاسيكية}}\\[0.8cm]
+
+\longline\\[1cm]
+
+{\fontsize{32}{38}\selectfont\bfseries\color{titlecolor}
+\zh{孫子算經}}\\[0.6cm]
+
+{\fontsize{20}{24}\selectfont\itshape Sunzi Suanjing}\\[0.3cm]
+
+{\fontsize{26}{30}\selectfont\color{crtgold}\ar{كِتَابُ سُونْزِ فِي الْحِسَاب}}\\[0.6cm]
+
+{\fontsize{14}{18}\selectfont Master Sun's Mathematical Manual}\\[0.3cm]
+
+{\fontsize{14}{18}\selectfont\ar{كتاب سيدنا سُونْز في علم الحساب}}\\[1.2cm]
+
+\longline\\[1.2cm]
+
+\fcolorbox{rulecolor}{chinesebg}{%
+\begin{minipage}{0.85\textwidth}
+\centering
+\small
+\textit{One of the Ten Computational Canons (\zh{算經十書}) — \ar{من كتب الرياضيات العشرة}}}\\[4pt]
+\textit{Contains the earliest known description of the}\\[2pt]
+\textbf{\large Chinese Remainder Theorem}\\[3pt]
+{\large\ar{مُسَلَّمَةُ البَاقِي الصِّينِيَّة}}
+\end{minipage}%
+}
+
+\vfill
+
+{\normalsize\ar{الطبعة الثنائية: الصينية والعربية} — Bilingual Chinese/Arabic Edition}\\[0.4cm]
+{\small\today}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{Introduction — \ar{مقدمة}}
+
+\bipassage{%
+\textbf{The Sunzi Suanjing} (\zh{孫子算經}, ``Master Sun's Mathematical Manual'') is one of the earliest surviving Chinese mathematical texts, written during the 3rd to 5th centuries CE. It was listed as one of the \textit{Ten Computational Canons} (\zh{算經十書}) during the Tang dynasty. The treatise consists of three volumes (\zh{卷}):
+\begin{itemize}[leftmargin=1em,topsep=0pt,itemsep=1pt]
+  \item \textbf{Volume I} (\zh{卷上}): Units, counting rods, multiplication
+  \item \textbf{Volume II} (\zh{卷中}): Fractions, geometry, practical problems
+  \item \textbf{Volume III} (\zh{卷下}): 36 problems including the CRT
+\end{itemize}%
+}{%
+\textbf{كتاب سونز في الحساب} (孫子算經، «كتاب سيدنا سُونْز في علم الحساب») هو أحد أقدم النصوص الرياضية الصينية التي وصلت إلينا، وقد أُلِّفَ في القرن الثالث إلى الخامس الميلادي. وُسِّمَ الكتاب إلى ثلاثة أجزاء (卷):
+\begin{itemize}[leftmargin=1em,topsep=0pt,itemsep=1pt]
+  \item \textbf{الجزء الأول} (卷上): وحدات القياس، أعواد الحساب، جدول الضرب
+  \item \textbf{الجزء الثاني} (卷中): الكسور، الهندسة، مسائل عملية
+  \item \textbf{الجزء الثالث} (卷下): ست وثلاثون مسألة تشمل مسألة الباقي الصينية
+\end{itemize}%
+}
+
+\bipassage{%
+The text's most celebrated contribution is \textbf{Problem 26 of Volume III}:
+\begin{quote}\small
+``There are certain things whose number is unknown. If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. How many things are there?''
+\end{quote}
+This problem represents the earliest known statement of the Chinese Remainder Theorem. The solution method gives:
+\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
+where $r_1, r_2, r_3$ are remainders upon division by 3, 5, and 7.
+}{%
+أهم إسهام في هذا الكتاب هو \textbf{المسألة السادسة والعشرون من الجزء الثالث}:
+\begin{quote}\small\ar{توجد أشياء لا نعرف عددها. إذا عددناها على ثلاثات بقيت اثنتان، وعلى خمسات بقيت ثلاث، وعلى سبعات بقيت اثنتان. كم عددها؟}
+\end{quote}
+هذه المسألة تمثل أقدم صياغة معروفة لمسألة الباقي الصينية. طريقة الحل:
+\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
+حيث $r_1, r_2, r_3$ هي بقايا القسمة على ٣ و٥ و٧.
+}
+
+\newpage
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\section*{Preface — \ar{المقدمة} (\zh{序})}
+\addcontentsline{toc}{section}{Preface (\zh{序}) — \ar{المقدمة}}
+
+\begin{prefacebox}
+\large
+\zh{孫子曰：夫算者，天地之經緯，群生之元首；五常之本末，陰陽之父母；星辰之建號，三光之表裹；五行之準平，四時之終始；萬物之祖宗，六藝之綱紀。}
+\end{prefacebox}
+
+\vspace{0.3cm}
+
+\bipassage{%
+\textbf{Sun Zi said:} Calculation is the warp and weft of heaven and earth, the origin of all living beings; the root and branch of the Five Constants, the father and mother of yin and yang; the establishment of titles for stars and constellations, the exterior and interior of the Three Lights; the standard balance of the Five Elements, the beginning and end of the Four Seasons; the ancestor of all things, the framework of the Six Arts.
+}{%
+\textbf{قال سيدنا سونز:} علم الحساب هو نسيج السماء والأرض، وأصل جميع الكائنات؛ أساس الخمس ثوابت وأب وأم الين واليانغ؛ ترتيب النجوم والأبراج، وباطن وظاهر الأجرام الثلاثة؛ موازين العناصر الخمسة، وبداية ونهاية الفصول الأربعة؛ أصل الأشياء كلها، ومنهاج الفنون الستة.
+}
+
+\bipassage{%
+Investigate the gathering and dispersing of all categories, examine the descending and ascending of the Two Qi; track the cycles of cold and heat, pace the differences between near and far; observe the subtle foundations of the heavenly Dao, examine the lengths and widths of geography; gather signs of spirits, test omens of success and failure; exhaust the principles of virtue, investigate the nature of life. Establish rules and compasses, standardize squares and circles, observe laws and regulations, measure with precision. Enduring through countless generations without decay, its influence extends to all directions without limit. Those who face toward it are rich with abundance, while those who turn away are poor and destitute. Those whose minds open understand even as children, while those whose intentions remain closed find mastery difficult even with white hair.
+}{%
+فَحَصُ اجتماع وتفرق الفئات كلها، وراقب صعود وهبوط القِوَتَيْن؛ تتبع دورات البرد والحر، وقِسْ الاختلاف بين القريب والبعيد؛ راقب أسس الطريق السماوي الدقيقة، وفحص أطوال وعرض الجغرافيا؛ اجمع علامات الأرواح، واختبر فُؤُول النجاح والفشل؛ استنفد مبادئ الفضيلة، وفحص طبيعة الحياة. اضع القواعد والدوائر، وسوِّ المربعات والدوائر، واعمل القوانين واللوائح، وقِسْ بدقة. يبقى عبر أجيال لا تنحصر بلا فناء، ونفوذه يمتد إلى الجهات كلها بلا حدود. من يواجهه يكون غنيًا بالوفرة، ومن يتولَّ عنه يكون فقيرًا معدمًا. من تفتح عقله يفهم ولو كان صغيرًا، ومن بقي بصيرته مغلقة يجد الصعوبة حتى ولو شاب شعره.
+}
+
+\bipassage{%
+Therefore, one who wishes to study must necessarily measure his own ability and assess himself carefully, setting his mind on specialization. If so, how could there be any failure?
+}{%
+فمن أراد أن يتعلم فلا بد أن يقيس قدرته ويُقَوِّم نفسه بعناية، ويوجه عقله نحو التخصص. إن فعل ذلك، فكيف يمكن أن يفشل؟
+}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME I
+%% ========================================================================
+\section{Volume I (\zh{卷上}) — \ar{الجزء الأول: وحدات القياس وأعواد الحساب}}
+
+\subsection*{1. The Origin of Length Measurements — \ar{أصل وحدات الطول}}
+
+\biproblem{%
+\zh{度之所起，起於忽。欲知其忽，蠶所生，吐絲為忽。十忽為一秒，十秒為一毫，十毫為一釐，十釐為一分，十分為一寸，十寸為一尺，十尺為一丈，十丈為一引。}%
+}{%
+أصل القياس يبدأ بالوحدة \textit{هُو} (忽). لتعرف الهُو: فإن دودة القز تنتجه من غزل الحرير. عشر هُو تساوي \textit{مِيَاو} (秒)، وعشر مِيَاو تساوي \textit{هَاو} (毫)، وعشر هَاو تساوي \textit{لِي} (釐)، وعشر لِي تساوي \textit{فَن} (分)، وعشر فَن تساوي \textit{تْسُون} (寸)، وعشر تْسُون تساوي \textit{تْشِ} (尺)، وعشر تْشِ تساوي \textit{جَانْغ} (丈)، وعشر جَانْغ تساوي \textit{يِن} (引).
+}
+
+\subsection*{3. Large Numbers — \ar{الأعداد الكبيرة}}
+
+\biproblem{%
+\zh{凡大數之法，萬萬曰億，萬萬億曰兆，萬萬兆曰京，萬萬京曰陔，萬萬陔曰秭，萬萬秭曰壤，萬萬壤曰溝，萬萬溝曰澗，萬萬澗日正，萬萬正曰載。}%
+}{%
+قاعدة الأعداد الكبيرة: عشرة آلاف مضروبة في عشرة آلاف تُسَمَّى \textit{يِ} (億)، وعشرة آلاف \textit{يِ} تُسَمَّى \textit{جَاوْ} (兆)، وعشرة آلاف \textit{جَاوْ} تُسَمَّى \textit{جِينْغ} (京)، وعشرة آلاف \textit{جِينْغ} تُسَمَّى \textit{غاي} (陔)، وعشرة آلاف \textit{غاي} تُسَمَّى \textit{زِ} (秭)، وهكذا إلى \textit{رَانْغ} و\textit{قُو} و\textit{جْيَانْ} و\textit{جَنْغ} و\textit{زاي} (載).
+}
+
+\subsection*{6. Counting Rod Notation — \ar{طريقة أعواد الحساب}}
+
+\biproblem{%
+\zh{凡筭之法，先識其位，一從十橫，百立千僵，千十相望，萬百相當。}%
+}{%
+طريقة الحساب تبدأ بمعرفة المواضع: الواحد عمودي، والعشرة أفقية، والمئة واقفة، والألف مستلقية. الألوف والعشرات تقابل بعضها، والعشرات والمئات تتطابق.
+}
+
+\bipassage{%
+This describes the traditional Chinese counting rod numeral system: Units (1--9) are represented by \textbf{vertical} rods; Tens (10--90) by \textbf{horizontal} rods; Hundreds (100--900) by \textbf{vertical} rods; Thousands (1000--9000) by \textbf{horizontal} rods. The pattern alternates for each place value.
+}{%
+هذا يصف نظام أعواد الحساب الصينية التقليدية: الوحدات (١-٩) تُمثَّل بأعواد \textbf{عمودية}؛ العشرات (١٠-٩٠) بأعواد \textbf{أفقية}؛ المئات (١٠٠-٩٠٠) بأعواد \textbf{عمودية}؛ الألوف (١٠٠٠-٩٠٠٠) بأعواد \textbf{أفقية}. النمط يتناوب بين العمودي والأفقي مع كل منزلة.
+}
+
+\subsection*{7. Method of Multiplication — \ar{طريقة الضرب}}
+
+\biproblem{%
+\zh{凡乘之法，重置其位。上下相觀，上位有十步至十，有百步至百。以上命下，所得之數列於中位。言十即過，不滿自如。上位乘訖者先去之。下位乘訖者則俱退之。六不積，五不隻。上下相乘，至盡則已。}%
+}{%
+طريقة الضرب: رتِّب المواضع. انظر من الأعلى والأسفل: إن كان في الأعلى عشرة فتقدم إلى العشرات، وإن كان مئة فتقدم إلى المئات. اضرب الأعلى في الأسفل، والنتيجة تُوضع في الوسط. إن بلغت عشرة فاحمل، وإن لم تبلغ فاتركها. الموضع الأعلى إذا انتهى من الضرب يُزال أولاً. الموضع الأسفل إذا انتهى من الضرب تتراجع كلها. الستة لا تُجمع، والخمسة لا تكون وحيدة. اضرب الأعلى والأسفل حتى الانتهاء.
+}
+
+\subsection*{8. Method of Division — \ar{طريقة القسمة}}
+
+\biproblem{%
+\zh{凡除之法，與乘正異。乘得在中央，除得在上方。假令六為法，百為實。以六除百，當進之二等，令在正百下，以六除一，則法多而實少，不可除，故當退就十位。}%
+}{%
+طريقة القسمة تختلف عن الضرب تمامًا. في الضرب الناتج في الوسط، وفي القسمة الناتج في الأعلى. لنفرض أن الستة هي القاسم والمئة هي المقسوم. قسمة المئة على الستة: تقدم منزلتين وضع تحت المئة، والقسمة على الستة إنما القاسم أكبر من المقسوم فلا يمكن القسمة، فيجب الرجوع إلى منزلة العشرات.
+}
+
+\subsection*{16. Example: $81 \times 81$ — \ar{مثال: ضرب ٨١ في ٨١}}
+
+\biproblem{%
+\zh{九九八十一，自相乘，得幾何？}%
+}{%
+ثمانية وتسعون في ثمانية وثمانون، نضربهما في بعضهما، فكم يكون؟
+}
+\bianswer{%
+\zh{答曰：六千五百六十一。}%
+}{%
+الجواب: ستة آلاف وخمسمئة وواحد وستون.
+}
+\bimethod{%
+\zh{術曰：重置其位，以上八呼下八，八八六十四，即下六千四百於中位。以上八呼下一，一八如八，即於中位下八十。退下位一等，收上位八十。以上位一呼下八，一八如八，即於中位下八十。以上一呼下一，一一如一，即於中位下一。上下位俱收，中位即得六千五百六十一。}%
+}{%
+الطريقة: رتِّب المواضع، انادِ ثمانية من الأعلى بثمانية من الأسفل: ثمانية في ثمانية أربعة وستون، فضع أربعة آلاف وستمئة في الوسط. انادِ ثمانية من الأعلى بواحد من الأسفل: واحد في ثمانية بثمانية، فضع ثمانين في الوسط. أنزل الموضع السفلي منزلة واحدة، واحفظ ثمانين في الأعلى. انادِ واحدًا من الأعلى بثمانية من الأسفل: واحد في ثمانية بثمانية، فضع ثمانين في الوسط. انادِ واحدًا من الأعلى بواحد من الأسفل: واحد في واحد بواحد، فضع واحدًا في الوسط. اجمع المواضع العليا والسفلى، فيصبح في الوسط ستة آلاف وخمسمئة وواحد وستون.
+}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME II
+%% ========================================================================
+\section{Volume II (\zh{卷中}) — \ar{الجزء الثاني: الكسور والمساحات}}
+
+\subsection*{Problem 1. Reducing Fractions — \ar{المسألة الأولى: تبسيط الكسور}}
+
+\biproblem{%
+\zh{今有一十八分之一十二。問約之得幾何？}%
+}{%
+لدينا اثنا عشر من ثمانية عشر. إذا بسَّطناها فكم تكون؟
+}
+\bianswer{%
+\zh{答曰：三分之二。}%
+}{%
+الجواب: ثلثان.
+}
+\bimethod{%
+\zh{術曰：置十八分在下，一十二分在上。副置二位，以少減多，等數得六，為法。約之，即得。}%
+}{%
+الطريقة: ضع ثمانية عشر في الأسفل واثني عشر في الأعلى. ضع الرقمين معًا، اطرح الأصغر من الأكبر؛ العدد المشترك هو ستة وهو القاسم. اقسم عليه فتحصل على النتيجة.
+}
+
+\subsection*{Problem 9. Brick Calculation — \ar{المسألة التاسعة: حساب الطوب}}
+
+\biproblem{%
+\zh{今有屋基南北三丈，東西六丈，欲以磚砌之。凡積二尺，用磚五枚。問計幾何？}%
+}{%
+لدينا أساس بيت طوله من الشمال إلى الجنوب ثلاثة \textit{جانْغ}، وعرضه من الشرق إلى الغرب ستة \textit{جانْغ}، ونريد بناءه بالطوب. كل قدمين مكعبين يحتاجان خمس طوبات. كم تحتاج؟
+}
+\bianswer{%
+\zh{答曰：四千五百枚。}%
+}{%
+الجواب: أربعة آلاف وخمسمئة طوبة.
+}
+\bimethod{%
+\zh{術曰：置東西六丈，以南北三丈乘之，得一千八百尺。以五乘之，得九千尺。以二除之，即得。}%
+}{%
+الطريقة: ضع عرض الشرق والغرب ستة \textit{جانْغ}، اضربه في طول الشمال والجنوب ثلاثة \textit{جانْغ}، فتحصل على ألف وثمان مئة قدم. اضربها في خمسة فتكون تسعة آلاف قدم. اقسمها على اثنين فتحصل على النتيجة.
+}
+
+\subsection*{Problem 13. Area of a Circular Field — \ar{المسألة الثالثة عشر: مساحة الحقل الدائري}}
+
+\biproblem{%
+\zh{今有圓田周三百步，徑一百步。問得田幾何？}%
+}{%
+لدينا حقل دائري محيطه ثلاثمئة خطوة، وقطره مئة خطوة. كم تبلغ مساحة الحقل؟
+}
+\bianswer{%
+\zh{答曰：三十一畝奇六十步。}%
+}{%
+الجواب: واحد وثلاثون \textit{مُو} وستون خطوة زائدة.
+}
+\bimethod{%
+\zh{術曰：先置周三百步，半之，得一百五十步。又置徑一百步，半之，得五十步。相乘，得七千五百步。以畝法二百四十步除之，即得。}%
+}{%
+الطريقة: ضع المحيط ثلاثمئة خطوة، نصفها فتصبح مئة وخمسون. ثم ضع القطر مئة خطوة، نصفها فتصبح خمسين. اضربهما فتصبح سبعة آلاف وخمسمئة. اقسم على قانون المُو وهو مئتان وأربعون خطوة، فتحصل على النتيجة.
+}
+
+\subsection*{Problem 23. Canal Construction — \ar{المسألة الثالثة والعشرون: حفر قناة}}
+
+\biproblem{%
+\zh{今有穿渠，長二十九里一百四步，上廣一丈二尺六寸，下廣八尺，深一丈八尺。秋程人功三百尺。問須功幾何？}%
+}{%
+لدينا قناة لحفرها، طولها تسعة وعشرون لِي ومئة وأربع خطوات، عرضها العلوي \textit{جانْغ} واحد وقدمان وستة \textit{تْسُون}، وعرضها السفلي ثمانية أقدام، وعمقها \textit{جانْغ} واحد وثمانية أقدام. كمية عمل الشخص في الخريف ثلاثمئة قدم. كم تحتاج من العمال؟
+}
+\bianswer{%
+\zh{答曰：三萬二千六百四十五人，不盡六十九尺六寸。}%
+}{%
+الجواب: اثنان وثلاثون ألفًا وستمئة وخمسة وأربعون شخصًا، وبقية تسعة وستون قدمًا وستة \textit{تْسُون}.
+}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME III
+%% ========================================================================
+\section{Volume III (\zh{卷下}) — \ar{الجزء الثالث: مسائل عملية}}
+
+\subsection*{Problem 5. Go Board — \ar{المسألة الخامسة: لوحة اللو}}
+
+\biproblem{%
+\zh{今有碁局方一十九道。問用碁幾何？}%
+}{%
+لدينا لوحة لو مربعة ذات تسعة عشر خطًا في كل جانب. كم حجرًا يُستخدم؟
+}
+\bianswer{%
+\zh{答曰：三百六十一。}%
+}{%
+الجواب: ثلاثمئة وواحد وستون.
+}
+\bimethod{%
+\zh{術曰：置一十九道，自相乘之，即得。}%
+}{%
+الطريقة: ضع تسعة عشر خطًا، واضربها في نفسها، فتحصل على النتيجة.
+}
+
+\bipassage{%
+This gives $19^2 = 361$ intersection points on a Go board.
+}{%
+وهذا يعطي $19^2 = 361$ نقطة تقاطع على لوحة اللو.
+}
+
+\subsection*{Problem 15. People and Carts — \ar{المسألة الخامسة عشر: الناس والعربات}}
+
+\biproblem{%
+\zh{今有三人共車，二車空；二人共車，九人步。問人與車各幾何？}%
+}{%
+إذا استقلَّ ثلاثة أشخاص كل عربة، فتبقى عربتان فارغتين. وإذا استقلَّ اثنان في كل عربة، فتسعة يمشون. كم عدد الناس والعربات؟
+}
+\bianswer{%
+\zh{答曰：一十五車。三十九人。}%
+}{%
+الجواب: خمس عشرة عربة. تسعة وثلاثون شخصًا.
+}
+\bimethod{%
+\zh{術曰：置二車，以三乘之，得六。加步者九人，得車一十五。欲知人者，以二乘車，加九人，即得。}%
+}{%
+الطريقة: ضع العربتين، واضربهما في ثلاثة فتصبح ستة. أضف المشاة التسعة، فتصبح العربات خمس عشرة. ولمعرفة الناس: اضرب العربات في اثنين، وأضف التسعة، فتحصل على النتيجة.
+}
+
+\subsection*{Problem 17. Guests at a Feast — \ar{المسألة السابعة عشر: الضيوف في الوليمة}}
+
+\biproblem{%
+\zh{今有婦人河上蕩桮。津吏問曰：「桮何以多？」婦人曰：「家有客。」津吏曰：「客幾何？」婦人曰：「二人共飯，三人共羹，四人共肉，凡用桮六十五。不知客幾何？」}%
+}{%
+كانت امرأة تغسل أكوابًا على النهر. سألها عامل المَعْبَر: «لمَ الأكواب كثيرة؟» قالت: «إن في الدار ضيوفًا.» قال: «كم الضيوف؟» قالت: «اثنان يتقاسمان الطعام، وثلاثة يتقاسمان المرق، وأربعة يتقاسمان اللحم، ومجموع الأكواب خمسة وستون. لا أعلم كم الضيوف.»
+}
+\bianswer{%
+\zh{答曰：六十人。}%
+}{%
+الجواب: ستون شخصًا.
+}
+\bimethod{%
+\zh{術曰：置六十五桮，以一十二乘之，得七百八十，以十三除之，即得。}%
+}{%
+الطريقة: ضع خمسة وستين كوبًا، واضربها في اثني عشر فتصبح سبعمئة وثمانون. اقسمها على ثلاثة عشر، فتحصل على النتيجة.
+}
+
+\subsection*{Problem 18. Wood and Rope — \ar{المسألة الثامنة عشر: الخشب والحبل}}
+
+\biproblem{%
+\zh{今有木，不知長短。引繩度之，餘繩四尺五寸。屈繩量之，不足一尺。問木長幾何？}%
+}{%
+لدينا خشب لا نعرف طوله. سُمِكَ بِحَبْل فبقي من الحبل أربعة أقدام وخمسة \textit{تْسُون}. طُوِيَ الحبل لِقياسه فنقص قدمًا واحدة. كم طول الخشب؟
+}
+\bianswer{%
+\zh{答曰：六尺五寸。}%
+}{%
+الجواب: ستة أقدام وخمسة \textit{تْسُون}.
+}
+\bimethod{%
+\zh{術曰：置餘繩四尺五寸，加不足一尺，共五尺五寸。倍之，得一丈一尺。減餘四尺五寸，即得。}%
+}{%
+الطريقة: ضع بقية الحبل أربعة أقدام وخمسة \textit{تْسُون}، وأضف النقص وهو قدم واحدة، فتصبح خمسة أقدام وخمسة \textit{تْسُون}. اضربها في اثنين فتصبح \textit{جانْغ} واحد وقدمان. اطرح البقية أربعة أقدام وخمسة \textit{تْسُون}، فتحصل على النتيجة.
+}
+
+\subsection*{Problem 19. Rice in a Vessel — \ar{المسألة التاسعة عشر: الأرز في الوعاء}}
+
+\biproblem{%
+\zh{今有器中米，不知其數。前人取半，中人三分取一，後人四分取一，餘米一斗五升。問本米幾何？}%
+}{%
+في وعاءٍ أرزٌ لا نعرف كميته. أخذ الأول نصفه، وأخذ الثاني ثلث ما بقي، وأخذ الثالث ربع ما بقي بعد ذلك، فبقي من الأرز \textit{تُو} واحد وخمسة \textit{شَنْغ}. كم كان الأرز الأصلي؟
+}
+\bianswer{%
+\zh{答曰：六斗。}%
+}{%
+الجواب: ستة أَدْوَال (تُو).
+}
+\bimethod{%
+\zh{術曰：置餘米一斗五升，以六乘之，得九斗。以二除之，得四斗五升。以四乘之，得一斛八斗。以三除之，即得。}%
+}{%
+الطريقة: ضع بقية الأرز \textit{تُو} واحد وخمسة \textit{شَنْغ}، واضربها في ستة فتصبح تسعة أَدْوَال. اقسمها على اثنين فتصبح أربعة أَدْوَال وخمسة \textit{شَنْغ}. اضربها في أربعة فتصبح \textit{هُو} واحد وثمانية أَدْوَال. اقسمها على ثلاثة فتحصل على النتيجة.
+}
+
+\subsection*{Problem 31. Pheasants and Rabbits — \ar{المسألة الحادية والثلاثون: الدجاج والأرانب في القفص}}
+
+\biproblem{%
+\zh{今有雉、兔同籠，上有三十五頭，下九十四足。問雉、兔各幾何？}%
+}{%
+لدينا طيور وأرانب في قفص واحد: فوق خمس وثلاثون رأسًا، وتحت أربع وتسعون قدمًا. كم طائرًا وكم أرنبًا؟
+}
+\bianswer{%
+\zh{答曰：雉二十三。兔一十二。}%
+}{%
+الجواب: ثلاثة وعشرون طائرًا. اثنا عشر أرنبًا.
+}
+\bimethod{%
+\zh{術曰：上置三十五頭，下置九十四足。半其足，得四十七。以少減多，再命之，上三除下三，上五除下五。下有一除上一，下有二除上二，即得。}%
+}{%
+الطريقة: ضع في الأعلى خمس وثلاثين رأسًا، وفي الأسفل أربع وتسعين قدمًا. أنصف الأقدام فتصبح سبع وأربعين. اطرح الأصغر من الأكبر وكرِّر، ثم اقسم. فتحصل على النتيجة.
+}
+
+\subsection*{Problem 34. Nine Dikes — \ar{المسألة الرابعة والثلاثون: السدود التسعة}}
+
+\biproblem{%
+\zh{今有出門望見九隄。隄有九木，木有九枝，枝有九巢，巢有九禽，禽有九雛，雛有九毛，毛有九色。問各幾何？}%
+}{%
+خرج رجل من بابه فرأى تسع سدود. كل سد فيه تسع شجرات، وكل شجرة فيها تسع أغصان، وكل غصن فيه تسع أعشاش، وكل عش فيه تسع طيور، وكل طائر فيه تسع فراخ، وكل فرخ فيه تسع ريشات، وكل ريشة فيها تسع ألوان. كم كل منها؟
+}
+\bianswer{%
+\zh{答曰：木八十一。枝七百二十九。巢六千五百六十一。禽五萬九千四十九。雛五十三萬一千四百四十一。毛四百七十八萬二千九百六十九。色四千三百四萬六千七百二十一。}%
+}{%
+الجواب: شجرات واحد وثمانون. أغصان سبعمئة وتسع وعشرون. أعشاش ستة آلاف وخمسمئة وواحد وستون. طيور تسعة وأربعون ألفًا وتسعة وأخمسون. فراخ واحد وثلاثون ألفًا وأربعمئة وواحد وأربعون. ريشات تسعمئة واثنتان وستون ألفًا وثمانمئة وتسعة وسبعون. ألوان واحد وعشرون مليونًا وستمئة وسبعة وسبعون ألفًا ومئتان وواحد.
+}
+
+\subsection*{Problem 35. Three Daughters — \ar{المسألة الخامسة والثلاثون: البنات الثلاث}}
+
+\biproblem{%
+\zh{今有三女，長女五日一歸，中女四日一歸，少女三日一歸。問三女幾何日相會？}%
+}{%
+لدينا ثلاث بنات: الكبرى تعود كل خمسة أيام، والوسطى كل أربعة أيام، والصغرى كل ثلاثة أيام. بعد كم يوم تلتقي البنات الثلاث معًا؟
+}
+\bianswer{%
+\zh{答曰：六十日。}%
+}{%
+الجواب: ستون يومًا.
+}
+\bimethod{%
+\zh{術曰：置長女五日、中女四日、少女三日，於右方。各列一算於左方。維乘之，各得所到數：長女十二到，中女十五到，少女二十到。又各以歸日乘到數，即得。}%
+}{%
+الطريقة: ضع أيام الكبرى خمسة، والوسطى أربعة، والصغرى ثلاثة. ضع لكل منها حسابًا على اليسار. اضربها: الكبرى تصل اثنتي عشرة مرة، والوسطى خمس عشرة، والصغرى عشرين. ثم اضرب أيام العودة في عدد مرات الوصول، فتحصل على النتيجة.
+}
+
+\bipassage{%
+This is a least common multiple problem: $\text{lcm}(3,4,5) = 60$.
+}{%
+هذه مسألة المضاعف المشترك الأصغر: $\text{lcm}(3,4,5) = 60$.
+}
+
+\newpage
+
+%% ========================================================================
+%% THE CHINESE REMAINDER THEOREM
+%% ========================================================================
+\section*{\zh{物不知數} — Problem of the Unknown Quantity}
+\addcontentsline{toc}{section}{The Chinese Remainder Theorem (\zh{物不知數}) — \ar{مُسَلَّمَةُ البَاقِي الصِّينِيَّة}}
+
+\begin{crtbox}
+\noindent\textbf{\large Problem 26, Volume III (\zh{卷下第26問}) — \ar{المسألة السادسة والعشرون}}
+
+\vspace{0.3cm}
+
+\biproblem{%
+\zh{今有物，不知其數。三、三數之，賸二；五、五數之，賸三；七、七數之，賸二。問物幾何？}%
+}{%
+توجد أشياء لا نعرف عددها. إذا عددناها على ثلاثات بقيت اثنتان، وعلى خمسات بقيت ثلاث، وعلى سبعات بقيت اثنتان. كم عددها؟
+}
+
+\bianswer{%
+\zh{答曰：二十三。}%
+}{%
+الجواب: ثلاث وعشرون.
+}
+
+\bimethod{%
+\zh{術曰：「三、三數之，賸二」，置一百四十；「五、五數之，賸三」，置六十三；「七、七數之，賸二」，置三十。并之，得二百三十三。以二百一十減之，即得。凡三、三數之，賸一，則置七十；五、五數之，賸一，則置二十一；七、七數之，賸一，則置十五。一百六以上，以一百五減之，即得。}%
+}{%
+الطريقة: «إذا عددنا على ثلاثات بقيت اثنتان»، فضع مئة وأربعين؛ «إذا عددنا على خمسات بقيت ثلاث»، فضع ثلاثة وستين؛ «إذا عددنا على سبعات بقيت اثنتان»، فضع ثلاثين. اجمعها فتصبح مئتين وثلاثة وثلاثين. اطرح منها مئتين وعشرة، فتحصل على النتيجة. عامة: إذا عددنا على ثلاثات بقيت واحدة، فضع سبعين؛ وعلى خمسات بقيت واحدة، فضع واحدًا وعشرين؛ وعلى سبعات بقيت واحدة، فضع خمسة عشر. إذا كان المجموع فوق مئة وستة، فاطرح منه مئة وخمسة، فتحصل على النتيجة.
+}
+
+\end{crtbox}
+
+\vspace{0.5cm}
+
+\subsection*{Modern Mathematical Analysis — \ar{التحليل الرياضي الحديث}}
+
+\bipassage{%
+In modern notation, this problem asks us to find the smallest positive integer $N$ satisfying the system of congruences:
+\begin{align*}
+N &\equiv 2 \pmod{3} \\
+N &\equiv 3 \pmod{5} \\
+N &\equiv 2 \pmod{7}
+\end{align*}
+The method gives:
+\begin{align*}
+N &= 140 + 63 + 30 - 210 \\
+  &= 233 - 210 \\
+  &= 23
+\end{align*}
+}{%
+بالصياغة الحديثة، تطلب هذه المسألة إيجاد أصغر عدد صحيح موجب $N$ يحقق نظام المتطابقات:
+\begin{align*}
+N &\equiv 2 \pmod{3} \\
+N &\equiv 3 \pmod{5} \\
+N &\equiv 2 \pmod{7}
+\end{align*}
+الطريقة تعطي:
+\begin{align*}
+N &= 140 + 63 + 30 - 210 \\
+  &= 233 - 210 \\
+  &= 23
+\end{align*}
+}
+
+\bipassage{%
+The three key numbers \textbf{70}, \textbf{21}, and \textbf{15} have special properties:
+\begin{itemize}[leftmargin=1em,topsep=0pt,itemsep=2pt]
+  \item $70 = 2 \times 5 \times 7 \equiv 1 \pmod{3}$, and $70 \equiv 0 \pmod{5}$, $70 \equiv 0 \pmod{7}$
+  \item $21 = 1 \times 3 \times 7 \equiv 1 \pmod{5}$, and $21 \equiv 0 \pmod{3}$, $21 \equiv 0 \pmod{7}$
+  \item $15 = 1 \times 3 \times 5 \equiv 1 \pmod{7}$, and $15 \equiv 0 \pmod{3}$, $15 \equiv 0 \pmod{5}$
+\end{itemize}
+Since $3 \times 5 \times 7 = 105$, the general solution is:
+\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
+}{%
+الأرقام الثلاثة الرئيسية \textbf{٧٠} و\textbf{٢١} و\textbf{١٥} لها خصائص خاصة:
+\begin{itemize}[leftmargin=1em,topsep=0pt,itemsep=2pt]
+  \item $70 = 2 \times 5 \times 7 \equiv 1 \pmod{3}$، و $70 \equiv 0 \pmod{5}$، و $70 \equiv 0 \pmod{7}$
+  \item $21 = 1 \times 3 \times 7 \equiv 1 \pmod{5}$، و $21 \equiv 0 \pmod{3}$، و $21 \equiv 0 \pmod{7}$
+  \item $15 = 1 \times 3 \times 5 \equiv 1 \pmod{7}$، و $15 \equiv 0 \pmod{3}$، و $15 \equiv 0 \pmod{5}$
+\end{itemize}
+وبما أن $3 \times 5 \times 7 = 105$، فالحل العام هو:
+\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
+}
+
+\subsection*{Verification — \ar{التحقق}}
+
+\bipassage{%
+\begin{align*}
+23 \div 3 &= 7 \text{ remainder } \mathbf{2} \quad \checkmark \\
+23 \div 5 &= 4 \text{ remainder } \mathbf{3} \quad \checkmark \\
+23 \div 7 &= 3 \text{ remainder } \mathbf{2} \quad \checkmark
+\end{align*}
+}{%
+\begin{align*}
+23 \div 3 &= 7 \text{ و الباقي } \mathbf{2} \quad \checkmark \\
+23 \div 5 &= 4 \text{ و الباقي } \mathbf{3} \quad \checkmark \\
+23 \div 7 &= 3 \text{ و الباقي } \mathbf{2} \quad \checkmark
+\end{align*}
+}
+
+\subsection*{Sunzi's Formula — \ar{قانون سونز}}
+
+\bipassage{%
+For general remainders $r_1, r_2, r_3$:
+\[
+\boxed{N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k}
+\]
+where $M = 3 \times 5 \times 7 = 105$ is the least common multiple, and:
+\begin{itemize}[leftmargin=1em,topsep=0pt,itemsep=1pt]
+  \item $70 = 105/3 \times 2$ is the multiplier for remainder mod 3
+  \item $21 = 105/5 \times 1$ is the multiplier for remainder mod 5
+  \item $15 = 105/7 \times 1$ is the multiplier for remainder mod 7
+\end{itemize}
+}{%
+للبقايا العامة $r_1, r_2, r_3$:
+\[
+\boxed{N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k}
+\]
+حيث $M = 3 \times 5 \times 7 = 105$ هو المضاعف المشترك الأصغر، و:
+\begin{itemize}[leftmargin=1em,topsep=0pt,itemsep=1pt]
+  \item $70 = 105/3 \times 2$ هو المعامل للباقي من القسمة على ٣
+  \item $21 = 105/5 \times 1$ هو المعامل للباقي من القسمة على ٥
+  \item $15 = 105/7 \times 1$ هو المعامل للباقي من القسمة على ٧
+\end{itemize}
+}
+
+\subsection*{Historical Significance — \ar{الأهمية التاريخية}}
+
+\bipassage{%
+This problem, known as the \textbf{``Problem of the Unknown Quantity''} (\zh{物不知數}), is the earliest known statement of what we now call the \textbf{Chinese Remainder Theorem}. While Sunzi's text gives only a specific numerical method without proof, it contains the essential idea:
+\begin{enumerate}[leftmargin=1em,topsep=0pt,itemsep=2pt]
+  \item Find numbers that are multiples of all but one modulus, and leave remainder 1 when divided by the remaining modulus
+  \item Multiply each such number by the corresponding remainder
+  \item Sum the results and subtract multiples of the LCM to get the smallest positive solution
+\end{enumerate}
+}{%
+هذه المسألة، المعروفة بـ«مسألة العدد المجهول» (物不知數)، هي أقدم صياغة معروفة لما نسميه الآن \textbf{مسألة الباقي الصينية}. ورغم أن نص سونز يعطي طريقة عددية محددة دون برهان، إلا أنه يحتوي على الفكرة الأساسية:
+\begin{enumerate}[leftmargin=1em,topsep=0pt,itemsep=2pt]
+  \item أوجد أعدادًا هي مضاعفات الكل ما عدا معيار واحد، وتترك باقيًا واحدًا عند قسمتها على المعيار الباقي
+  \item اضرب كل عدد منها في الباقي المقابل
+  \item اجمع النتائج واطرح مضاعفات المضاعف المشترك الأصغر للحصول على أصغر حل موجب
+\end{enumerate}
+}
+
+\bipassage{%
+The general theorem was later fully developed by \textbf{Qin Jiushao} (\zh{秦九韶}, 1202--1261) in his \textit{Mathematical Treatise in Nine Sections} (\zh{數書九章}, 1247 CE), where he called it the \textbf{``Great Extension Seeking-Unity Method''} (\zh{大衍求一術}). This method could solve systems of arbitrary linear congruences.
+}{%
+المسألة العامة طوَّرها لاحقًا \textbf{تْشِن جْيوشَاو} (秦九韶، ١٢٠٢-١٢٦١) في كتابه «المعالجة الرياضية في تسعة أقسام» (數書九章، ١٢٤٧م)، وسماها \textbf{«طريقة الامتداد العظيم لطلب الواحد»} (大衍求一術). وكانت هذه الطريقة تستطيع حل أنظمة المتطابقات الخطية من أي نوع.
+}
+
+\bipassage{%
+In Europe, similar methods were not developed until the work of Euler (1743) and Gauss (1801). In 1852, the British missionary Alexander Wylie published notes on Chinese science, introducing this problem to European mathematicians. In 1876, the German mathematician L. Matthiessen first pointed out that Sunzi's solution was consistent with Gauss's method.
+}{%
+في أوروبا، لم تُطوَّر طرق مماثلة حتى عمل أويلر (١٧٤٣) وغاوس (١٨٠١). في عام ١٨٥٢، نشر المبشر البريطاني ألكسندر وايلي ملاحظات عن العلوم الصينية، وقدَّم هذه المسألة إلى الرياضيين الأوروبيين. وفي عام ١٨٧٦، أشار الرياضي الألماني ل. ماتيسين لأول مرة إلى أن حل سونز يتوافق مع طريقة غاوس.
+}
+
+\newpage
+
+\subsection*{The ``Sunzi Song'' — \ar{أغنية سونز} (\zh{孫子歌})}
+
+\begin{songbox}
+\zh{三人同行七十稀，五樹梅花廿一枝，}\\[4pt]
+\zh{七子團圓正半月，除百零五便得知。}
+\end{songbox}
+
+\vspace{0.3cm}
+
+\bipassage{%
+\textit{``Three people walking together---seventy is rare; five plum trees---twenty-one branches; seven sons reunite---half a full moon (15); subtract one hundred and five, then you will know.''}
+}{%
+\ar{ثلاثة يمشون معًا — السبعون نادرة؛ خمس شجرات خوخ — واحد وعشرون غصنًا؛ سبعة أبناء يجتمعون — نصف قمر كامل (١٥)؛ اطرح مئة وخمسة، فستعرف.}
+}
+
+\bipassage{%
+This gives the key numbers: \textbf{70} for mod 3, \textbf{21} for mod 5, \textbf{15} for mod 7, and \textbf{105} as the LCM.
+}{%
+هذا يعطي الأرقام الرئيسية: \textbf{٧٠} للقسمة على ٣، و\textbf{٢١} للقسمة على ٥، و\textbf{١٥} للقسمة على ٧، و\textbf{١٠٥} كمضاعف مشترك أصغر.
+}
+
+\newpage
+
+%% ========================================================================
+%% REMAINING PROBLEMS FROM VOLUME III
+%% ========================================================================
+\section*{Remaining Problems from Volume III — \ar{مسائل أخرى من الجزء الثالث}}
+\addcontentsline{toc}{section}{Remaining Problems — \ar{مسائل أخرى}}
+
+\subsection*{Problem 27. Birds and Beasts — \ar{المسألة السابعة والعشرون: الطيور والوحوش}}
+
+\biproblem{%
+\zh{今有獸六首四足，禽四首二足。上有七十六首，下有四十六足。問禽、獸各幾何？}%
+}{%
+لدينا وحش بستة رؤوس وأربع قوائم، وطائر بأربعة رؤوس وقدمين. فوق ستة وسبعون رأسًا، وتحت ست وأربعون قدمًا. كم طائرًا وكم وحشًا؟
+}
+\bianswer{%
+\zh{答曰：八獸，七禽。}%
+}{%
+الجواب: ثمانية وحوش، وسبعة طيور.
+}
+\bimethod{%
+\zh{術曰：倍足以減首，餘，半之，即禽。四乘禽數，減足，餘，半之，即獸。}%
+}{%
+الطريقة: اضعف الأقدام واطرح الرؤوس، ونصف الباقي فهو عدد الطيور. اضرب عدد الطيور في أربعة واطرح من الأقدام، ونصف الباقي فهو عدد الوحوش.
+}
+
+\subsection*{Problem 29. One Hundred Deer — \ar{المسألة التاسعة والعشرون: مئة أيل}}
+
+\biproblem{%
+\zh{今有百鹿入城，家取一鹿，不盡；又三家共一鹿，適盡。問城中家幾何？}%
+}{%
+دخلت مئة أيل المدينة، فأخذت كل بيت أيلاً واحداً ولم يكفِ؛ ثم اقتسمت ثلاثة بيوت كل أيل وكفى بالضبط. كم بيتًا في المدينة؟
+}
+\bianswer{%
+\zh{答曰：七十五家。}%
+}{%
+الجواب: خمسة وسبعون بيتًا.
+}
+\bimethod{%
+\zh{術曰：以盈不足取之。假令七十二家，鹿不盡四。令之九十家，鹿不足二十。置七十二於右上，盈四於右下。置九十於左上，不足二十於左下。維乘之，所得，并為實。并盈不足為法。除之，即得。}%
+}{%
+الطريقة: بالزيادة والنقص. لنفرض اثنتين وسبعين بيتًا، فالأيائل تبقى أربعة. ولنفرض تسعين بيتًا، فالأيائل تنقص عشرون. ضع اثنتين وسبعين في الأعلى الأيمن، والزيادة أربعة في الأسفل الأيمن. ضع تسعين في الأعلى الأيسر، والنقص عشرون في الأسفل الأيسر. اضرب متقاطعًا واجمع للمقسوم. واجمع الزيادة والنقص للقاسم. اقسم فتحصل على النتيجة.
+}
+
+\subsection*{Problem 30. Three Chickens — \ar{المسألة الثلاثون: الدجاج الثلاث}}
+
+\biproblem{%
+\zh{今有三雞共啄粟一千一粒。雛啄一，母啄二，翁啄四。主責本粟，三雞主各償幾何？}%
+}{%
+لدينا ثلاث دجاجات تلتهم ألفًا وواحدة حبة ذُرَة. الكتكوت يلتهم واحدة، والدجاجة اثنتين، والديك أربع. يريد صاحب الذرة ردَّها، فكم يدفع كل صاحب دجاجة؟
+}
+\bianswer{%
+\zh{答曰：雞雛主一百四十三。雞母主二百八十六。雞翁主五百七十二。}%
+}{%
+الجواب: صاحب الكتكوت مئة وثلاث وأربعون. صاحب الدجاجة مئتان وست وثمانون. صاحب الديك خمسمئة واثنتان وسبعون.
+}
+
+\subsection*{Problem 33. Wheel Turns — \ar{المسألة الثالثة والثلاثون: دورات العجلة}}
+
+\biproblem{%
+\zh{今有長安、洛陽相去九百里。車輪一匝一丈八尺。欲自洛陽至長安，問輪匝幾何？}%
+}{%
+بين مدينتي تشْانْغآن ولويْيانْغ تسعمئة لِي. دورة عجلة العربة \textit{جانْغ} واحد وثمانية أقدام. إذا أردت السفر من لويْيانْغ إلى تشْانْغآن، كم دورة للعجلة؟
+}
+\bianswer{%
+\zh{答曰：九萬匝。}%
+}{%
+الجواب: تسعون ألف دورة.
+}
+
+\newpage
+
+%% ========================================================================
+%% EPILOGUE
+%% ========================================================================
+\section*{Epilogue — \ar{خاتمة}}
+\addcontentsline{toc}{section}{Epilogue — \ar{خاتمة}}
+
+\bipassage{%
+The \textit{Sunzi Suanjing} stands as a remarkable testament to the sophistication of ancient Chinese mathematics. While the text covers basic arithmetic---units of measurement, multiplication tables, and simple fractions---its greatest legacy lies in the brief but brilliant ``Problem of the Unknown Quantity'' that opens the door to modern number theory.
+}{%
+يقف كتاب سونز في الحساب شهادةً رائعة على تطور الرياضيات الصينية القديمة. ورغم أن النص يغطي الحساب الأساسي — وحدات القياس وجداول الضرب والكسور البسيطة — فإن أعظم إرث له يكمن في المسألة الموجزة والبراقة «مسألة العدد المجهول» التي تفتح الباب لنظرية الأعداد الحديثة.
+}
+
+\bipassage{%
+The Chinese Remainder Theorem, as this method came to be known in the West, would not be fully formalized in Europe for over a millennium. The algorithm described by Sunzi contains the essential ingredients of the modern theorem: the construction of auxiliary numbers with specific divisibility properties, their combination with the given remainders, and reduction modulo the least common multiple.
+}{%
+مسألة الباقي الصينية، كما عُرِفت هذه الطريقة في الغرب، لم تُصاغ رسميًّا في أوروبا لأكثر من ألف عام. الخوارزمية التي وصفها سونز تحتوي على المكونات الأساسية للنظرية الحديثة: بناء أعداد مساعدة بخصائص قابلية قسمة محددة، ودمجها مع البقايا المعطاة، والتخفيض بالمضاعف المشترك الأصغر.
+}
+
+\bipassage{%
+The influence of this text extended far beyond China. The problem circulated as a mathematical puzzle throughout East Asia, and the general method developed by Qin Jiushao represents one of the great achievements of medieval mathematics anywhere in the world.
+}{%
+تأثير هذا النص امتد بعيدًا خارج الصين. انتشرت المسألة كأحجية رياضية في جميع أنحاء شرق آسيا، والطريقة العامة التي طوَّرها تْشِن جْيوشَاو تمثل أحد أعظم الإنجازات الرياضية في العصور الوسطى في أي مكان في العالم.
+}
+
+\vspace{1cm}
+\begin{center}
+\longline
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textit{Typeset from the classical Chinese text — \ar{مُنضَّدٌ من النص الصيني الكلاسيكي}}\\[4pt]
+\textit{Chinese Text Project} (\texttt{ctext.org/sunzi-suan-jing})
+\end{center}
+
+\end{document}
+

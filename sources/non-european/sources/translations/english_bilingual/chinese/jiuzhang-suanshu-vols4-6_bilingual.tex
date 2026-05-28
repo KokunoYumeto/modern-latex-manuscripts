@@ -1,0 +1,1177 @@
+% =============================================================================
+% Jiuzhang Suanshu (Nine Chapters) — Fascicles 4-6
+% BILINGUAL EDITION: Chinese / English
+% 九章算術·卷四至卷六 — 漢英對照版
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+% CJK support
+\usepackage{xeCJK}
+\setCJKmainfont{Microsoft YaHei}
+\newcommand{\zh}[1]{{\CJKfamily{\CJKrmdefault}#1}}
+
+% Parallel columns for bilingual text
+\usepackage{paracol}
+\columnsep=20pt
+
+% -------- Line breaking --------
+\tolerance=1200
+\emergencystretch=3em
+\hyphenpenalty=5000
+\exhyphenpenalty=5000
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{ragged2e}
+\usepackage{microtype}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Font Configuration --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{volcolor}{RGB}{120,53,15}
+\definecolor{commentarycolor}{RGB}{80,60,40}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{25,55,95}
+\definecolor{answercolor}{RGB}{35,85,55}
+\definecolor{methodcolor}{RGB}{85,35,35}
+\definecolor{chinesebg}{RGB}{255,252,245}
+\definecolor{englishbg}{RGB}{250,252,255}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{titlecolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Jiuzhang Suanshu — Fascicles 4--6 (Bilingual)}}
+\fancyhead[C]{\small\zh{九章算術·卷四至卷六（漢英對照）}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% -------- Custom Environments --------
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% Problem environment — Chinese
+\newtcolorbox{problemzh}[1]{
+  colback=problemcolor!5!white,colframe=problemcolor!60!black,
+  fonttitle=\bfseries,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Problem environment — English
+\newtcolorbox{problemen}[1]{
+  colback=problemcolor!3!white,colframe=problemcolor!40!black,
+  fonttitle=\bfseries\itshape,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Answer environment — Chinese
+\newtcolorbox{answerzh}[1]{
+  colback=answercolor!5!white,colframe=answercolor!60!black,
+  fonttitle=\bfseries,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Answer environment — English
+\newtcolorbox{answeren}[1]{
+  colback=answercolor!3!white,colframe=answercolor!40!black,
+  fonttitle=\bfseries\itshape,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Method environment — Chinese
+\newtcolorbox{methodzh}[1]{
+  colback=methodcolor!5!white,colframe=methodcolor!60!black,
+  fonttitle=\bfseries,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Method environment — English
+\newtcolorbox{methoden}[1]{
+  colback=methodcolor!3!white,colframe=methodcolor!40!black,
+  fonttitle=\bfseries\itshape,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Commentary environment — Chinese
+\newtcolorbox{commentaryzh}[1]{
+  colback=yellow!5!white,colframe=commentarycolor!60!black,
+  fonttitle=\bfseries,title={#1},
+  breakable,enhanced,boxrule=0.4pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Commentary environment — English
+\newtcolorbox{commentaryen}[1]{
+  colback=yellow!3!white,colframe=commentarycolor!40!black,
+  fonttitle=\bfseries\itshape,title={#1},
+  breakable,enhanced,boxrule=0.4pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Volume header — bilingual
+\newenvironment{volumeheader}[1]{%
+  \par\medskip
+  \noindent\textcolor{volcolor}{\rule{\textwidth}{0.8pt}}\par
+  \smallskip
+  \noindent{\Large\bfseries\color{volcolor}#1}\par
+  \smallskip
+}{%
+  \smallskip
+  \noindent\textcolor{volcolor}{\rule{\textwidth}{0.8pt}}\par
+  \medskip
+}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\columnlabel}[1]{\begin{center}\textcolor{volcolor}{\textbf{\large #1}}\end{center}\vspace{0.3cm}}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,
+  urlcolor=sectioncolor,pdfencoding=auto
+}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% Set column widths for paracol
+\setlength{\columnsep}{16pt}
+
+% =============================================================================
+\begin{document}
+
+% ---------------------------------------------------------------------------
+% TITLE PAGE
+% ---------------------------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor} Jiuzhang Suanshu\\[0.5em]
+\Large Nine Chapters on the Mathematical Art}\\[1.5em]
+
+{\LARGE\color{sectioncolor} Fascicles 4--6}\\[1em]
+
+{\Large\color{volcolor} 九章算術·卷四至卷六}\\[1.5em]
+
+{\Large\textbf{Bilingual Edition — 漢英對照版}}\\[2em]
+
+\shortline
+
+{\large\textbf{Left Column — 左欄:} Original Chinese \zh{（原文）}}\\[0.3em]
+{\large\textbf{Right Column — 右欄:} English Translation \zh{（英譯）}}\\[1.5em]
+
+\shortline
+
+\vspace{1cm}
+
+{\large With Commentary by}\\[0.3em]
+{\Large\bfseries Liu Hui \zh{(劉徽)} \textit{(263 CE)}}\\[0.3em]
+{\normalsize With sub-commentary by Li Chunfeng \zh{(唐 李淳風注釋)}}\\[1.5em]
+
+{\itshape From the Siku Quanshu \zh{(欽定四庫全書)} Edition}\\[0.3em]
+{\small Zi Bu — Astronomy and Mathematics \zh{(子部·天文算法類)}}\\[2em]
+
+\vfill
+
+\begin{minipage}{0.9\textwidth}
+\centering
+\textbf{Volumes covered:}\\[0.5em]
+\textbf{Vol.\ 4 — Shaoguang} (\zh{少廣}): Root extraction, finding dimensions given area/volume, sphere volume \\[0.3em]
+\textbf{Vol.\ 5 — Shanggong} (\zh{商功}): Volumes of earthworks, walls, dykes, granaries, and geometric solids \\[0.3em]
+\textbf{Vol.\ 6 — Junshu} (\zh{均輸}): Equitable taxation, weighted distribution, travel problems
+\end{minipage}
+
+\vspace{2cm}
+
+{\small\textit{Modern LaTeX edition}}\\
+{\small from the Internet Archive Siku Quanshu scan}
+
+\end{center}
+\end{titlepage}
+
+% ---------------------------------------------------------------------------
+% TABLE OF CONTENTS
+% ---------------------------------------------------------------------------
+\tableofcontents
+\newpage
+
+% ---------------------------------------------------------------------------
+% INTRODUCTION
+% ---------------------------------------------------------------------------
+\section*{Introduction \zh{引言}}
+\addcontentsline{toc}{section}{Introduction \zh{引言}}
+
+\begin{paracol}{2}
+
+\columnlabel{Chinese \zh{中文原文}}
+
+\zh{九章算術}是中國最重要的古代數學典籍，編纂於漢代（公元前202年—公元220年）。全書分為九卷，每卷針對不同類別的實用數學問題。
+
+\textbf{劉徽}（約公元225—295年）於\textbf{公元263年}完成的注釋，是數學史上最輝煌的著作之一。劉徽不僅解釋了算法，還運用\zh{出入相補}的幾何方法提供了嚴格的證明，並以多達3072邊的內接正多邊形計算了圓周率的精確近似值。
+
+\textbf{李淳風}（公元602—670年）及其團隊受唐代朝廷詔命所作的注釋，進一步闡明和校正了文本。
+
+本文呈現\textbf{卷四至卷六}的內容。
+
+每題遵循古典結構：
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{問}（Wen）：問題陳述——「今有……」
+  \item \textbf{答}（Da）：答案——「答曰……」
+  \item \textbf{術}（Shu）：算法——「術曰……」
+  \item \textbf{注}（Zhu）：劉徽注釋，闡述推理過程
+\end{itemize}
+
+\switchcolumn
+
+\columnlabel{English Translation}
+
+The \textit{Jiuzhang Suanshu} (\zh{九章算術}, ``Nine Chapters on the Mathematical Art'') is the most important ancient Chinese mathematical text, compiled during the Han dynasty (202 BCE -- 220 CE). The work is divided into nine chapters (\zh{卷}), each addressing a different category of practical mathematical problems.
+
+The commentary by \textbf{Liu Hui} (\zh{劉徽}, c.\ 225--295 CE), completed in \textbf{263 CE}, is one of the most brilliant works in the history of mathematics. Liu Hui not only explained the algorithms but also provided rigorous proofs using the method of geometric dissection (\zh{出入相補}), and famously computed an approximation of $\pi$ using inscribed polygons with up to 3072 sides.
+
+The sub-commentary by \textbf{Li Chunfeng} (\zh{李淳風}, 602--670 CE) and his team, commissioned by the Tang court, further clarified and corrected the text.
+
+This document presents \textbf{Fascicles 4--6}.
+
+Each problem follows the classical structure:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Wen} (\zh{問}): The problem statement --- ``Suppose there is\ldots''
+  \item \textbf{Da} (\zh{答}): The answer --- ``Answer:\ldots''
+  \item \textbf{Shu} (\zh{術}): The method/algorithm --- ``Method:\ldots''
+  \item \textbf{Zhu} (\zh{注}): Liu Hui's commentary explaining the reasoning
+\end{itemize}
+
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\section{Volume 4: Shaoguang \zh{少廣}}
+% ============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷四} · Shaoguang (\zh{少廣})}
+\begin{paracol}{2}
+\centering
+\zh{少廣以御積冪方圓}\\[0.3em]
+\switchcolumn
+\centering
+\textit{Shaoguang: For governing areas, powers, squares, and circles}
+\end{paracol}
+\end{volumeheader}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+
+\zh{少廣}章處理已知矩形面積及其他維度，求其中一邊長的問題。由此推廣至開平方、開立方，以及著名的球體積計算問題。章名意為由較大的面積或體積，反求較小的維度。
+
+\switchcolumn
+
+The chapter \zh{少廣} (Shaoguang, ``Lesser Breadth'') deals with finding one dimension of a rectangle given its area and other dimensions. It extends to root extraction (square and cube roots) and the famous problem of computing the volume of a sphere. The title refers to finding a ``lesser'' (smaller) dimension given a ``greater'' (area/volume).
+
+\end{paracol}
+
+\subsection{Opening Method: The Shaoguang Algorithm \zh{少廣術}}
+
+\begin{paracol}{2}
+
+\begin{methodzh}[\zh{少廣術} · 開方法]
+置全步及分母子，以最下分母遍乘諸分子及全步。各以其母除其子，置之於左。命通分，內子。又以分母偏乘諸分子，及已通者，皆通而同之，并之為法。置所求步數，以全步積分乘之，為實。實如法而一，得從步。
+\end{methodzh}
+
+\switchcolumn
+
+\begin{methoden}[\zh{少廣術} · Method of Lesser Breadth]
+Place the whole steps and the numerators/denominators of fractions. Multiply all numerators and whole steps by the lowest denominator. Each divides its child by its mother, place these on the left. Call this common denominator, including the numerators. Again multiply all numerators by the denominator; those already converted are all made common and unified. Add them to make the divisor. Place the required number of steps, multiply by the whole-step accumulated parts to make the dividend. Divide by the divisor to obtain the length in steps.
+\end{methoden}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\begin{commentaryzh}[\zh{劉徽注} · 劉徽注釋]
+此以田廣為法，以畝積步為實。術曰置全步及分母子者，通分而齊其子也。齊其子，則母同其母。以母乘全步者，通其分也。以母偏乘諸分子，各以其母除其子，置之於左。命通分內子者，通而同之也。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{commentaryen}[Liu Hui's Commentary]
+Here the field width is taken as divisor, and the mu-area in steps is the dividend. The method says ``place whole steps and fraction numerators/denominators'' — this is bringing fractions to common denominators and equalizing their numerators. Having equalized numerators, their denominators become common. Multiplying whole steps by the denominator converts the fractions. Multiplying all numerators by the denominator, each dividing its child by its mother and placing on the left, then bringing to common denominator including numerators — this is converting to common form and unifying.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 1: Finding the Side from Area with Fractional Parts \zh{少廣第一問}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{問} · 問題一]
+今有田，廣一步半。求田一畝，問從幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：一百六十步。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：下有半，是二分之一。以一為二，半為一，并之得三，為法。置田二百四十步，亦以一為二乘之，為實。實如法得從步。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注}]
+此以廣為法，以畝積步為實。術曰下有半是二分之一者，廣一步半，其半即二分之一也。以一為二者，通分也。半為一者，二分之一即一也。并之得三為法者，分母二通全步一為二，分子一，共三也。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{problemen}[Problem 1]
+Suppose there is a field, with width one and a half bu (\zh{步}). If one mu (\zh{畝}) of field is desired, how long is the length?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: 160 bu.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: The lower [fraction] is a half, which is one of two equal parts. Take one as two, the half as one; adding them gives three, which is the divisor. Place the field area of 240 bu; also take one as two and multiply, making the dividend. Divide by the divisor to obtain the length in bu.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui's Commentary]
+Here the width is taken as divisor, and the mu-area in steps is the dividend. The method says ``the lower is a half, which is one of two equal parts'' — the width is one and a half bu, and its half is one of two equal parts. ``Take one as two'' is converting the fraction. ``Half as one'' means one of two equal parts is one. ``Adding them gives three as divisor'' means the denominator 2 converts the whole step 1 into 2, plus numerator 1, giving 3 total.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem on Square Root Extraction \zh{開方術}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{開方} · 開平方]
+今有積五萬五千二百二十五步。問為方幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：二百三十五步。
+\end{answerzh}
+
+\begin{methodzh}[\zh{開方術} · 開方法]
+術曰：置積為實。借一算，步之，超二等。議所得，以一乘所借一算為法，而以除。除已，倍法為定法。其復除，折法而下。復置借算，步之如初。以復議一乘之，所得副，以加定法，以除。以所得副從定法。復除，折下如前。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注} · 劉徽論開方]
+開方術者，求方冪之一面也。凡冪，方圓之本也。方冪者，方之積也。開方者，求方之面數。言百之面十，萬之面百。術曰置積為實者，積即方冪也。借一算步之者，假以定位也。超二等者，方十自乘，冪一百；方百自乘，冪一萬。故超兩位也。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{problemen}[Square Root Extraction (\zh{開方})]
+Suppose there is an area of 55,225 square bu (\zh{步}). What is the side of the square?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: 235 bu.
+\end{answeren}
+
+\begin{methoden}[Method of Root Extraction]
+Method: Place the area as dividend. Borrow one counting rod, step it, skip two places. Estimate the result; multiply by one and by the borrowed rod to make the divisor, then divide. After dividing, double the divisor to make the fixed divisor. For repeated division, fold the divisor down. Again place the borrowed rod and step as before. Multiply the new estimate by one; the obtained result is auxiliary — add it to the fixed divisor and divide. The auxiliary result follows the fixed divisor. Repeat division, folding down as before.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui on Root Extraction]
+The root extraction method seeks one side of a square area. All areas are the root of squares and circles. A square area is the product of a square's sides. Root extraction seeks the number of the square's side. The side of 100 is 10; the side of 10,000 is 100. The method says ``place the area as dividend'' — the area is the square power. ``Borrow one counting rod and step it'' borrows for positioning. ``Skip two places'' because 10 squared is 100, and 100 squared is 10,000 — so skip two decimal places.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Sphere Volume Problem \zh{立圓術}}
+
+\begin{paracol}{2}
+
+這是\zh{九章算術}中最著名的問題之一，劉徽對其進行了深入分析，為後來祖沖之及其子祖暅的工作奠定了基礎。
+
+\begin{problemzh}[\zh{立圓} · 球體積問題]
+今有立圓，徑四尺。問為積幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：九尺五寸八分寸之一。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 古法]
+術曰：圓徑自乘，九之，十六而一。开立圆术：置圓徑四尺，自乘，得一十六尺。九之，得一百四十四尺。十六而一，得九尺。餘十六分尺之八，約之為八分尺之一。并之，為積。
+\end{methodzh}
+
+\switchcolumn
+
+This is one of the most famous problems in the \textit{Jiuzhang Suanshu}, which Liu Hui analyzed in depth, setting the foundation for later work by Zu Chongzhi and his son Zu Geng.
+
+\begin{problemen}[The Sphere Volume Problem (\zh{立圓})]
+Suppose there is a solid sphere, with diameter 4 chi (\zh{尺}). What is its volume?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: $9$ chi, $5$ cun, and $\frac{1}{8}$ cun (using the ancient formula $V = \frac{9}{16}d^3$).
+\end{answeren}
+
+\begin{methoden}[Method — Ancient Formula]
+Method: Square the diameter, multiply by 9, divide by 16. To open [find the volume of] a solid sphere: place the diameter 4 chi, square it to get 16 chi. Multiply by 9 to get 144 chi. Divide by 16 to get 9 chi. The remainder is $\frac{8}{16}$ chi, which reduces to $\frac{1}{8}$ chi. Add them to get the volume.
+\end{methoden}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\begin{commentaryzh}[\zh{劉徽注} · 劉徽論球體積]
+按此術，圓徑自乘者，先得圓冪。九之十六而一者，以圓冪為方冪，九之十六而一，即圓積也。然此術以圓徑為方徑，誤也。
+
+徽術曰：立方徑自乘，又以圓周率三乘之，十二而一，得圓積。此圓冪之率也。
+
+牟合方蓋者，方率也。丸居牟合方蓋，則圓率也。按合蓋者，方率也。其中則圓周率也。方圓相纏，周徑相直。若設方率為四，圓周率為三。以圓周率乘方冪，開方除之，即徑。以方率乘圓冪，開方除之，即周。此圓方之率也。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{commentaryen}[Liu Hui's Famous Commentary on the Sphere]
+According to this method, squaring the diameter first gives the circular area. Multiplying by 9 and dividing by 16 takes the circular area as a square area — this gives the circle's area. But this method takes the circle's diameter as the square's diameter, which is wrong.
+
+My method says: Square the cube's diameter, multiply by the circumference rate 3, divide by 12 to get the circular area. This is the rate for circular area.
+
+The mouhe fangai (\zh{牟合方蓋}, ``double-lid umbrella'') — the intersection of two perpendicular cylinders — represents the square rate. The sphere residing inside the mouhe fangai represents the circular rate. The fangai has the square rate; within it lies the circumference rate. Square and circle intertwine, circumference and diameter relate directly. If we set the square rate as 4 and the circumference rate as 3: multiplying the square area by the circumference rate and extracting the square root gives the diameter; multiplying the circular area by the square rate and extracting the square root gives the circumference. These are the rates for circle and square.
+\end{commentaryen}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\textit{譯注：}劉徽在此指出了古法公式 $V = \frac{9}{16}d^3$ 的錯誤（該公式隱含了 $\pi = 3$ 的特定配置）。他引入了\zh{牟合方蓋}（兩個互相垂直的圓柱體的交集）的概念，作為求球體積的關鍵。他正確地指出球體內接於此立體，但未能完成最終計算。這一工作後來由公元五世紀的\textbf{祖暅}（\zh{祖暅}）完成，他證明了\zh{牟合方蓋}的體積為外切立方體的$\frac{2}{3}$，從而導出正確公式 $V = \frac{\pi}{6}d^3$。
+
+\switchcolumn
+
+\textit{Commentary:} Liu Hui here identifies the error in the ancient formula $V = \frac{9}{16}d^3$ (which implies $\pi = 3$ in a specific configuration). He introduces the concept of \zh{牟合方蓋} (mouhe fangai, ``double-lid umbrella''), the intersection of two perpendicular cylinders, as the key to finding the sphere volume. He correctly states that the sphere is inscribed in this solid, but was unable to complete the computation. This was later accomplished by \textbf{Zu Geng} (\zh{祖暅}) in the 5th century, who proved that the volume of the \zh{牟合方蓋} is $\frac{2}{3}$ of the circumscribed cube, leading to the correct formula $V = \frac{\pi}{6}d^3$.
+
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\section{Volume 5: Shanggong \zh{商功}}
+% ============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷五} · Shanggong (\zh{商功})}
+\begin{paracol}{2}
+\centering
+\zh{商功以御功程積實}\\[0.3em]
+\switchcolumn
+\centering
+\textit{Shanggong: For governing labor, engineering, and solid volumes}
+\end{paracol}
+\end{volumeheader}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+
+\zh{商功}章處理工程和建築中各種立體的體積計算：土方工程、城牆、堤壩、溝渠、糧倉，以及豐富的幾何立體集合。劉徽在此處的注釋尤為詳盡，提供了運用割補法的幾何證明。
+
+\switchcolumn
+
+The chapter \zh{商功} (Shanggong, ``Construction Consultations'') deals with computing the volumes of various solids arising in engineering and construction: earthworks, city walls, dykes, ditches, canals, granaries, and a rich collection of geometric solids. Liu Hui's commentary is particularly extensive here, providing geometric proofs using dissection methods.
+
+\end{paracol}
+
+\subsection{Classification of Earthwork Solids \zh{穿地壤堅之率}}
+
+\begin{paracol}{2}
+
+\begin{methodzh}[\zh{商功術} · 開方法]
+穿地四，為壤五，為堅三。墟謂穿坑，此皆其常率。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注}]
+以穿地求壤，五之；求堅，三之。皆四而一。以壤求穿，四之；求堅，三之。皆五而一。以堅求穿，四之；求壤，五之。皆三而一。此術皆其常率也。穿地四為壤五者，掘地四尺，出壤五尺，壤虛而堅實也。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{methoden}[Opening Method]
+For excavated earth: 4 units [loose] become 5 units [piled], or 3 units [compacted]. The ``ruins'' refer to excavated pits --- these are standard rates.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui's Commentary]
+Converting excavated earth to piled earth: multiply by 5; to compacted earth: multiply by 3. All divide by 4. Converting piled earth to excavated: multiply by 4; to compacted: multiply by 3. All divide by 5. Converting compacted to excavated: multiply by 4; to piled: multiply by 5. All divide by 3. These are all standard rates. ``Excavated 4 becomes piled 5'' means digging 4 chi of earth yields 5 chi of piled earth, because piled earth is loose while compacted earth is dense.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem: Volume of a City Wall \zh{城垣}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{城垣} · 城牆問題]
+今有城，下廣四丈，上廣二丈，高五丈，袤一百二十六丈。問積幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：一百八十九萬尺。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：并上下廣而半之，以高若深乘之，又以袤乘之，即積尺。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注}]
+按此術，并上下廣而半之者，以盈補虛，得中平之廣。以高乘之，得截而為直棱之積。又以袤乘之者，廣袤相乘為一截之積，以高乘之為積。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{problemen}[City Wall (\zh{城垣})]
+Suppose there is a city wall: lower width 4 zhang (\zh{丈}), upper width 2 zhang, height 5 zhang, length 126 zhang. What is the volume?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: 1,890,000 cubic chi.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Add the upper and lower widths and halve; multiply by the height or depth; then multiply by the length to obtain the volume in cubic chi.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui's Commentary]
+Liu Hui explains: Adding the widths and halving gives the ``middle width'' by the principle of compensating excess with deficiency (\zh{以盈補虛}). Multiplying by height gives the cross-sectional area, and by length gives the volume.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem: Volume of a Canal with Sloped Sides \zh{塹堵}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{塹堵} · 溝渠問題]
+今有塹，上廣一丈六尺，下廣一丈，深六尺，袤五丈七尺。問積幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：積七千一百一十二尺。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：并上下廣，半之，以高若深乘之，又以袤乘之，即積尺。
+\end{methodzh}
+
+\switchcolumn
+
+\begin{problemen}[Canal/Trench (\zh{塹堵})]
+Suppose there is a trench: upper width 1 zhang 6 chi, lower width 1 zhang, depth 6 chi, length 5 zhang 7 chi. What is the volume?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: Volume 7,112 cubic chi.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Add the upper and lower widths, halve; multiply by the height or depth; then multiply by the length to obtain the volume in cubic chi.
+\end{methoden}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Yangma (\zh{陽馬}) and Bienao (\zh{鱉臑})}
+
+\begin{paracol}{2}
+
+這些是中國數學中最重要的幾何立體，由長方體的切割而產生。
+
+\begin{methodzh}[\zh{陽馬術} · 陽馬（角錐）]
+術曰：廣袤相乘，以高乘之，三而一。
+\end{methodzh}
+
+此為\zh{陽馬}（陽馬，底面為矩形的角錐，一側棱垂直於底面）的體積公式：$V = \frac{1}{3} \times \text{廣} \times \text{袤} \times \text{高}$。
+
+\switchcolumn
+
+These are among the most important geometric solids in Chinese mathematics, arising from the dissection of a rectangular prism.
+
+\begin{methoden}[Yangma (Corner Pyramid)]
+Method: Multiply width by length, multiply by height, divide by 3.
+\end{methoden}
+
+This gives the volume of a \zh{陽馬} (yangma), a pyramid with rectangular base and one lateral edge perpendicular to the base: $V = \frac{1}{3} \times \text{width} \times \text{length} \times \text{height}$.
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\begin{commentaryzh}[\zh{劉徽注} · 劉徽論陽馬]
+按此術，陽馬者，隅角之椎也。解立方得兩壍堵，解壍堵得一陽馬、一鱉臑。陽馬居二，鱉臑居一，不易之率也。故立方三而一，即陽馬之積也。
+
+合二壍堵成一陽馬者，試令廣袤各六尺，高六尺。中分其高，令廣袤各三尺。其高六尺，中分為二，各三尺。上壍堵廣袤各三尺，高亦三尺；下壍堵亦然。合二壍堵，廣袤各六尺，高六尺，是為一陽馬也。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{commentaryen}[Liu Hui on the Yangma]
+Liu Hui's Proof: A yangma is a corner pyramid. Dissecting a rectangular prism gives two \zh{壍堵} (wedge-like solids); dissecting each \zh{壍堵} gives one yangma and one \zh{鱉臑} (turtle-foreleg, a tetrahedron). The ratio of yangma to bienao is always 2:1. Hence a cube divided gives the yangma volume as one-third.
+
+Combining two \zh{壍堵} makes one yangma: suppose width and length are each 6 chi, height 6 chi. Bisect the height so width and length are each 3 chi. The height of 6 chi is bisected into two of 3 chi each. The upper \zh{壍堵} has width and length each 3 chi, height also 3 chi; the lower \zh{壍堵} is the same. Combining the two \zh{壍堵}, width and length are each 6 chi, height 6 chi — this makes one yangma.
+\end{commentaryen}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\begin{methodzh}[\zh{鱉臑術} · 鱉臑（四面體）]
+術曰：廣袤相乘，以高乘之，六而一。
+\end{methodzh}
+
+此為\zh{鱉臑}（鱉臑，三條互相垂直的棱構成的四面體）的體積公式：$V = \frac{1}{6} \times a \times b \times c$。
+
+\begin{commentaryzh}[\zh{劉徽注}]
+鱉臑者，推之明理也。按陽馬之積，三分立方之一。鱉臑者，又半陽馬也。故六而一。凡立方，高一尺，廣袤各一尺，積一尺。陽馬廣袤各一尺，高一尺，積三分之一尺。鱉臑三邊各一尺，積六分之一尺。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{methoden}[Bienao (Tetrahedron)]
+Method: Multiply width by length, multiply by height, divide by 6.
+\end{methoden}
+
+This gives the volume of a \zh{鱉臑} (bienao), a tetrahedron with three mutually perpendicular edges: $V = \frac{1}{6} \times a \times b \times c$.
+
+\begin{commentaryen}[Liu Hui's Commentary]
+The bienao reveals clear principles. The yangma's volume is one-third of a cube. The bienao is half the yangma. Hence divide by 6. For a cube of height 1 chi, width and length each 1 chi, the volume is 1 cubic chi. A yangma with width and length each 1 chi, height 1 chi, has volume $\frac{1}{3}$ cubic chi. A bienao with three edges each 1 chi has volume $\frac{1}{6}$ cubic chi.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Chumeng (\zh{芻甍}) and Chutong (\zh{芻童})}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{芻甍} · 草屋頂形]
+今有芻甍，下廣三丈，袤四丈，上袤二丈，無廣，高一丈。問積幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：積五千尺。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：倍下袤，上袤從之，以廣乘之，又以高乘之，六而一。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注}]
+推明義理者，舊說云：凡積芻甍有上下廣曰童甍，謂其屋葢之苫也。是故甍之下廣袤與童之上廣袤等。正解方亭兩邊合之，即芻甍之形也。假令下廣二尺，袤三尺，上袤一尺，無廣，高一尺。其用棋也，中央壍堵二，兩端陽馬各二。倍下袤為六，上袤從之為七。以廣二尺乘之，得一十四尺。以高乘之，得十四尺。六而一，即得積也。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{problemen}[Thatched Roof — Chumeng (\zh{芻甍})]
+Suppose there is a thatched roof: lower width 3 zhang, lower length 4 zhang, upper length 2 zhang, no upper width, height 1 zhang. What is the volume?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: Volume 5,000 cubic chi.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Double the lower length, add the upper length following it; multiply by the width; then multiply by the height; divide by 6.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui's Commentary]
+The traditional explanation says: A chumeng with both upper and lower widths is called a ``tongmeng'' — like the thatch of a roof. Thus the lower width and length of the chumeng equal the upper width and length of the tong. Correctly dissecting a square pavilion from both sides and combining them gives the shape of a chumeng. Suppose lower width 2 chi, length 3 chi, upper length 1 chi, no upper width, height 1 chi. The dissecting pieces used are: two central \zh{壍堵} and two yangma at each end. Double the lower length to 6, the upper length follows to 7. Multiply by width 2 chi to get 14 chi. Multiply by height to get 14. Divide by 6 to get the volume.
+\end{commentaryen}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{芻童} · 草垛形]
+今有芻童，下廣二丈，袤三丈，上廣三丈，袤四丈，高三丈。問積幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：積一萬六千五百尺。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：倍上袤，下袤從之；亦倍下袤，上袤從之。各以其廣乘之，并，以高乘之，六而一。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注}]
+按此術，假令芻童上廣一尺，袤二尺；下廣二尺，袤三尺；高一尺。其用棋也，中央立方一，兩旁壍堵各一，四角陽馬各一。倍上袤為四，下袤從之為七。以下廣乘之，得一十四。倍下袤為六，上袤從之為八。以上廣乘之，得八。并之，得二十二。以高乘之，得二十二。六而一，即積也。此術與芻甍曲池盤池冥谷皆同術。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{problemen}[Thatched Mound — Chutong (\zh{芻童})]
+Suppose there is a thatched mound: lower width 2 zhang, lower length 3 zhang, upper width 3 zhang, upper length 4 zhang, height 3 zhang. What is the volume?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: Volume 16,500 cubic chi.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Double the upper length, the lower length follows it; also double the lower length, the upper length follows it. Each is multiplied by its width; add them, multiply by the height, and divide by 6.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui's Commentary]
+According to this method: suppose a chutong with upper width 1 chi, length 2 chi; lower width 2 chi, length 3 chi; height 1 chi. The dissecting pieces are: one central cube, one \zh{壍堵} on each side, one yangma at each of four corners. Double upper length to 4, lower length follows to 7. Multiply by lower width to get 14. Double lower length to 6, upper length follows to 8. Multiply by upper width to get 8. Add them to get 22. Multiply by height to get 22. Divide by 6 to get the volume. This method is the same for chumeng, curved pool, basin pool, and dark valley.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Circular Granary \zh{圓窖}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{圓窖} · 圓形糧窖]
+今有圓窖，下周五丈四尺，深一丈八尺。問受粟幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：二千九百六十二斛二十七分斛之二十六。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：置周自相乘，以高乘之，十二而一。以斛法一尺六寸二分除之，即斛數。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注}]
+按此術，圓窖下周自乘，以高乘之，十二而一者，以圓周率三乘之，十二而一，即圓積也。此猶圓堢壔之積也。于徽術，當令下周自乘以高乘之，又以二十五乘之，三百一十四而一。以斛法除之，即斛數。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{problemen}[Circular Granary (\zh{圓窖})]
+Suppose there is a circular granary: circumference 5 zhang 4 chi, depth 1 zhang 8 chi. How much grain does it hold?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: 2,962 $\frac{26}{27}$ hu (\zh{斛}).
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Place the circumference, multiply by itself, multiply by the height, divide by 12. Divide by the hu-measure standard of 1 chi 6 cun 2 fen to get the number of hu.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui's Commentary]
+According to this method: the circular granary's lower circumference is squared, multiplied by the height, and divided by 12 — this multiplies by the circumference rate 3 and divides by 12, giving the circular area. This is like the volume of a circular embankment. In my method, the lower circumference should be squared, multiplied by the height, then multiplied by 25 and divided by 314. Divide by the hu-measure to get the number of hu.
+\end{commentaryen}
+
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\section{Volume 6: Junshu \zh{均輸}}
+% ============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷六} · Junshu (\zh{均輸})}
+\begin{paracol}{2}
+\centering
+\zh{均輸以御遠近勞費}\\[0.3em]
+\switchcolumn
+\centering
+\textit{Junshu: For governing fair distribution considering distance, labor, and cost}
+\end{paracol}
+\end{volumeheader}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+
+\zh{均輸}章處理加權分配的問題，即根據各方人口、與目的地距離及其他因素的差異，公平分攤貢賦。本章還包含著名的工作效率問題，如「五渠注池」問題。
+
+\switchcolumn
+
+The chapter \zh{均輸} (Junshu, ``Equitable Taxation'') deals with problems of weighted distribution, where contributions must be apportioned fairly among parties that differ in population, distance from the destination, and other factors. It also contains famous work-rate problems, including the ``five channels filling a pool'' problem.
+
+\end{paracol}
+
+\subsection{The Opening Problem: Grain Distribution Among Four Counties \zh{均輸粟}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{均輸粟} · 四縣均輸]
+今有均輸粟，甲縣一萬戶，行道八日；乙縣九千五百戶，行道十日；丙縣一萬二千三百五十戶，行道十三日；丁縣一萬二千二百戶，行道二十日。各到輸所。凡四縣賦，當輸二十五萬斛，用車一萬乘。欲以道里遠近、戶數多少，衰出之。問粟、車各幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：甲縣粟八萬三千一百斛，車三千三百二十四乘。乙縣粟六萬三千一百七十五斛，車二千五百二十七乘。丙縣粟六萬三千一百七十五斛，車二千五百二十七乘。丁縣粟四萬一千九百一十九斛，車一千六百二十二乘。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 加權分配法]
+術曰：令縣戶數，各如其本行道日數而一，以為衰。甲衰一百二十五，乙、丙衰各九十五，丁衰六十一。副并為法。以賦粟、車數，未并者各自為實。實如法得一。按此均輸，猶均運也。令戶率出車，以行道日數為均，發粟為輸。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注} · 劉徽論均輸]
+此戶以率當各計車之錢分也。案此二句舛誤，當云：求此率以戶當各計車之錢分也。淳風等按：縣戶有多少之差，行道有遠近之異。欲其均等，故令戶數各以行道日數約之，為衰。行道多者，其戶少；行道少者，其戶多。故各令約戶為衰。并戶為法者，以戶數多寡為差，行道遠近為衰，以此均之，則勞逸齊等。
+\end{commentaryzh}
+
+\switchcolumn
+
+\begin{problemen}[Equitable Grain Distribution]
+Suppose there is equitable grain distribution: County A has 10,000 households, travel time 8 days; County B has 9,500 households, travel 10 days; County C has 12,350 households, travel 13 days; County D has 12,200 households, travel 20 days. All reach the delivery point. Total tax: 250,000 hu, using 10,000 carts. Distribute according to distance and household count. How much grain and how many carts for each?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: County A: 83,100 hu of grain, 3,324 carts. County B: 63,175 hu, 2,527 carts. County C: 63,175 hu, 2,527 carts. County D: 41,919 hu, 1,622 carts.
+\end{answeren}
+
+\begin{methoden}[Method of Weighted Distribution]
+Method: Let each county's household count, divided by its travel days, serve as the decay factor (\zh{衰}). A's decay is 125; B's and C's are each 95; D's is 61. Add these auxiliaries to make the divisor. For the grain and cart distribution, let each uncombined amount serve as dividend. Divide by the divisor to obtain one part. This equitable distribution is like equalized transport. Let households each contribute carts proportionally; use travel days for equalization, and grain dispatch as delivery.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui on Equitable Distribution]
+This uses the rate to calculate each household's share of cart expenses. Li Chunfeng et al. note: counties differ in household numbers and travel distances differ. To equalize, each county's households are divided by travel days to make the decay factor. More travel days means fewer effective households; fewer travel days means more effective households. Thus each is reduced to make the decay factor. Adding households as divisor uses household count difference and travel distance as decay; equalizing by this makes labor and rest proportionate.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem: Workers with Different Rates \zh{程人功}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{程人功} · 工作效率]
+今有程人功，甲七日成功了五分之一；乙五日成功了三分之一；丙四日成功了二分之一。問三人合作，幾何日成功？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：二十三日六十三分日之二十六。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：置甲七日的五分之一，乙五日的三分之一，丙四日的二分之一，各為率。以一日为法，以所为实。实如法而一，各得一日之功。并一日之功，为法。以一日为实。实如法而一，即得日数。
+\end{methodzh}
+
+\switchcolumn
+
+\begin{problemen}[Labor Rates (\zh{程人功})]
+Suppose there are workers: A completes one-fifth of the work in 7 days; B completes one-third in 5 days; C completes one-half in 4 days. How many days if all three work together?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: $23 \frac{26}{63}$ days.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Place A's one-fifth in 7 days, B's one-third in 5 days, C's one-half in 4 days; each serves as a rate. Take one day as divisor, the accomplishment as dividend. Dividing gives each worker's one-day contribution. Add the one-day contributions as divisor. Take one day as dividend. Divide to get the number of days.
+\end{methoden}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Five Channels Filling a Pool \zh{五渠注池}}
+
+\begin{paracol}{2}
+
+這是\zh{九章算術}中最著名的問題之一，作為卷六的最後一題出現。
+
+\begin{problemzh}[\zh{五渠注池} · 五渠注池]
+今有池，五渠注之。其一渠開之，少半日一滿；次，一日一滿；次，二日半一滿；次，三日一滿；次，五日一滿。今并決之，問幾何日滿池？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：七十四分日之十五。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：各置渠一日滿池之數，并，以為法。以一為實。實如法而一，即得日數。
+\end{methodzh}
+
+\begin{commentaryzh}[\zh{劉徽注}]
+按此術，一渠少半日滿者，是一日三滿也。次一日一滿者，是一日一滿也。次二日半滿者，是一日五分滿之二也。次三日一滿者，是一日三分滿之一也。次五日一滿者，是一日五分滿之一也。并之，得四滿十五分滿之十四也。此為法。以一滿為實。實如法而一，即得滿池之日數也。
+\end{commentaryzh}
+
+\switchcolumn
+
+This is one of the most celebrated problems in the \textit{Jiuzhang Suanshu}, appearing as the final problem of Volume 6.
+
+\begin{problemen}[Five Channels Filling a Pool (\zh{五渠注池})]
+Suppose there is a pool, with five channels filling it. The first channel alone fills it in one-third of a day; the second in one day; the third in two and a half days; the fourth in three days; the fifth in five days. Now all are opened together. How many days to fill the pool?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: $\frac{15}{74}$ of a day.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Place each channel's daily fill rate [i.e., $\frac{1}{1/3}$, $\frac{1}{1}$, $\frac{1}{2.5}$, $\frac{1}{3}$, $\frac{1}{5}$], add them as the divisor; take 1 as the dividend. Divide to get the days.
+\end{methoden}
+
+\begin{commentaryen}[Liu Hui's Commentary]
+Liu Hui explains: The first channel fills 3 pools/day; the second fills 1; the third fills $\frac{2}{5}$; the fourth fills $\frac{1}{3}$; the fifth fills $\frac{1}{5}$. Summing: $3 + 1 + \frac{2}{5} + \frac{1}{3} + \frac{1}{5} = \frac{74}{15}$ pools/day. Thus one pool takes $\frac{15}{74}$ day.
+\end{commentaryen}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem: Hare and Dog Pursuit \zh{兔犬}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{兔犬} · 追及問題]
+今有兔先走一百步，犬追之二百五十步，不及三十步而止。問犬不止，復行幾何步及之？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：一百七步七分步之一。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：置犬先行步數，以不及步數減之，餘為法。以不及步數乘兔先走步數，為實。實如法得一步。
+\end{methodzh}
+
+\switchcolumn
+
+\begin{problemen}[Hare and Dog Pursuit (\zh{兔犬})]
+A hare has a head start of 100 bu. A dog chases it for 250 bu, but is still 30 bu behind. If the dog does not stop, how many more bu must it run to catch the hare?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: $107 \frac{1}{7}$ bu.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Place the dog's initial chase steps; subtract the shortfall steps; the remainder is the divisor. Multiply the shortfall steps by the hare's head start to make the dividend. Divide by the divisor to get the additional steps needed.
+\end{methoden}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem: Gold and Silver Weights \zh{金銀}}
+
+\begin{paracol}{2}
+
+\begin{problemzh}[\zh{金銀} · 金銀重量]
+今有金九枚，銀一十一枚，稱之適等。交易其一，金輕十三兩。問金、銀各一枚重幾何？
+\end{problemzh}
+
+\begin{answerzh}[\zh{答} · 答案]
+答曰：金重二斤三兩一十八銖，銀重一斤十三兩六銖。
+\end{answerzh}
+
+\begin{methodzh}[\zh{術} · 算法]
+術曰：假令金重三斤，銀重二斤三分斤之二。不足四兩，令之如此。盈不足術為之。
+\end{methodzh}
+
+\switchcolumn
+
+\begin{problemen}[Gold and Silver Weights (\zh{金銀})]
+Suppose there are 9 pieces of gold and 11 pieces of silver, which weigh the same. Exchange one piece [between them], and the gold side is lighter by 13 liang. How much does each piece of gold and silver weigh?
+\end{problemen}
+
+\begin{answeren}[Answer]
+Answer: Each piece of gold weighs 2 jin 3 liang 18 zhu; each piece of silver weighs 1 jin 13 liang 6 zhu.
+\end{answeren}
+
+\begin{methoden}[Method]
+Method: Suppose gold weighs 3 jin, silver weighs $2 \frac{2}{3}$ jin. This is short by 4 liang. Proceed by the surplus-deficit method (\zh{盈不足術}).
+\end{methoden}
+
+\end{paracol}
+
+\newpage
+
+% ============================================================================
+\section{Summary of Mathematical Content \zh{數學內容摘要}}
+% ============================================================================
+
+\begin{paracol}{2}
+
+\textbf{卷四：\zh{少廣}（Shaoguang）}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{開平方}（\zh{開方}）：迭代算法求 $\sqrt{N}$，實質等同現代開方長除法
+  \item \textbf{開立方}（\zh{開立方}）：推廣至 $\sqrt[3]{N}$
+  \item \textbf{球體積}：古法公式 $V = \frac{9}{16}d^3$；劉徽的批評與\zh{牟合方蓋}構造
+  \item 帶幾何解釋的分數運算
+\end{itemize}
+
+\switchcolumn
+
+\textbf{Volume 4: \zh{少廣} (Shaoguang)}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Square root extraction} (\zh{開方}): Iterative algorithm for $\sqrt{N}$, essentially equivalent to modern long-division method for roots
+  \item \textbf{Cube root extraction} (\zh{開立方}): Extension to $\sqrt[3]{N}$
+  \item \textbf{Sphere volume}: The ancient formula $V = \frac{9}{16}d^3$; Liu Hui's critique and the \zh{牟合方蓋} construction
+  \item Fractional arithmetic with geometric interpretation
+\end{itemize}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+
+\textbf{卷五：\zh{商功}（Shanggong）}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{土方體積}：\zh{城}（城牆）、\zh{垣}（牆）、\zh{堤}（堤壩）、\zh{溝}（溝渠）、\zh{渠}（水渠）、\zh{塹}（塹壕）
+  \item \textbf{糧倉體積}：\zh{倉}（糧倉）、\zh{圓窖}（圓窖）、\zh{圓囤}（圓囤）
+  \item \textbf{幾何立體}：\zh{立方}（立方）、\zh{壍堵}（壍堵）、\zh{陽馬}（陽馬）、\zh{鱉臑}（鱉臑）、\zh{芻甍}（芻甍）、\zh{芻童}（芻童）、\zh{曲池}（曲池）、\zh{盤池}（盤池）、\zh{冥谷}（冥谷）
+  \item 劉徽的\textbf{割補幾何證明}，用於各立體體積公式
+\end{itemize}
+
+\switchcolumn
+
+\textbf{Volume 5: \zh{商功} (Shanggong)}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Earthwork volumes}: \zh{城} (city wall), \zh{垣} (wall), \zh{堤} (dyke), \zh{溝} (ditch), \zh{渠} (canal), \zh{塹} (trench)
+  \item \textbf{Granary volumes}: \zh{倉} (granary), \zh{圓窖} (circular pit), \zh{圓囤} (circular granary)
+  \item \textbf{Geometric solids}: \zh{立方} (cube), \zh{壍堵} (wedge), \zh{陽馬} (rectangular pyramid), \zh{鱉臑} (tetrahedron), \zh{芻甍} (wedge with ridge), \zh{芻童} (frustum of wedge), \zh{曲池} (curved pool), \zh{盤池} (basin), \zh{冥谷} (ravine)
+  \item Liu Hui's \textbf{geometric dissection proofs} for each solid volume formula
+\end{itemize}
+
+\end{paracol}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+
+\textbf{卷六：\zh{均輸}（Junshu）}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{加權分配}：按人口 $\times$ 距離在各縣間分攤稅賦
+  \item \textbf{工作效率問題}：多個速率不同的工人
+  \item \textbf{追及問題}：相對速度（兔犬問題）
+  \item \textbf{聯立方程}：金銀重量、糧食交換
+  \item 著名的\textbf{五渠注池}工作效率問題
+\end{itemize}
+
+\switchcolumn
+
+\textbf{Volume 6: \zh{均輸} (Junshu)}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Weighted distribution}: Apportioning taxes among counties by population $\times$ distance
+  \item \textbf{Work-rate problems}: Multiple workers with different rates
+  \item \textbf{Pursuit problems}: Relative speed (hare and dog)
+  \item \textbf{Simultaneous equations}: Gold and silver weights, grain exchange
+  \item The famous \textbf{five channels filling a pool} work-rate problem
+\end{itemize}
+
+\end{paracol}
+
+\vspace{1cm}
+
+\begin{center}
+\shortline
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+\centering
+\textit{「九章之術，算術之溯源也。」}\\
+—— 劉徽，\zh{九章算術注序}
+\switchcolumn
+\centering
+\textit{``The methods of the Nine Chapters are the source of all computation.''}\\
+--- Liu Hui, \zh{九章算術注序} (Preface to the Commentary)
+\end{paracol}
+
+\vspace{0.5cm}
+\shortline
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{paracol}{2}
+\centering
+\textbf{\zh{九章算術卷四至卷六 完}}
+\switchcolumn
+\centering
+\textit{End of Jiuzhang Suanshu, Fascicles 4--6}
+\end{paracol}
+\end{center}
+
+\end{document}

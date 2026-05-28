@@ -1,0 +1,793 @@
+%% ========================================================================
+%% Qin Jiushao: Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
+%% Fascicle 2 -- Tian Shi Lei (Heavenly Patterns / Calendar & Weather)
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+% polyglossia removed -- conflicts with xeCJK
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xeCJK}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Font Configuration --------
+\setmainfont{Times New Roman}
+\setsansfont{Times New Roman}
+\setmonofont{Times New Roman Mono O}[Scale=MatchLowercase]
+
+%% CJK Support via xeCJK
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{headcolor}{RGB}{139,69,19}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang, Fascicle 2}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\Wen}{\textbf{問}}
+\newcommand{\Da}{\textbf{答曰}}
+\newcommand{\Shu}{\textbf{術曰}}
+\newcommand{\Cao}{\textbf{草曰}}
+\newcommand{\An}{\textbf{按}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% Title Page
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\fontsize{28}{34}\selectfont\color{titlecolor}
+\textsc{Mathematical Treatise in Nine Sections}}
+
+\vspace{0.8cm}
+
+{\fontsize{18}{22}\selectfont\color{sectioncolor}
+Shuxue Jiuzhang -- 數學九章}
+
+\vspace{1.5cm}
+
+\longline
+
+\vspace{1.5cm}
+
+{\fontsize{36}{42}\selectfont\color{headcolor}
+\textbf{Fascicle 2}}
+
+\vspace{0.5cm}
+
+{\fontsize{24}{30}\selectfont\color{sectioncolor}
+\textbf{天時類}}
+
+\vspace{0.3cm}
+
+{\Large\textit{Tian Shi Lei}}
+
+\vspace{0.3cm}
+
+{\large\color{notecolor}(Heavenly Patterns: Calendar, Astronomy and Weather)}
+
+\vspace{1.5cm}
+
+\longline
+
+\vspace{1.5cm}
+
+{\Large\textbf{Qin Jiushao}}
+
+\vspace{0.2cm}
+
+{\large 秦九韶 (1202--1261)}
+
+\vspace{0.5cm}
+
+{\normalsize\color{notecolor} Song Dynasty, Chunyou 7th year (1247)}
+
+\vspace{2cm}
+
+{\small\color{sectioncolor}
+\textit{Presented in modern typesetting with English commentary\\
+based on the Siku Quanshu (Complete Library of the Four Treasuries) edition}}
+
+\vfill
+
+{\small Edited and typeset from the original Chinese mathematical text}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% Table of Contents
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% Preface to Fascicle 2
+%% ========================================================================
+\section*{Introduction to Fascicle 2}
+\addcontentsline{toc}{section}{Introduction to Fascicle 2}
+
+The \textbf{Tian Shi Lei} (天時類, ``Heavenly Patterns'') is the second of nine
+chapters in Qin Jiushao's \textit{Shuxue Jiuzhang} (數學九章, Mathematical
+Treatise in Nine Sections). This fascicle contains \textbf{nine problems}
+divided into two parts, dealing with:
+
+\begin{itemize}
+  \item Calendar computation and astronomical predictions (Problems 1--5)
+  \item Measurement of rainfall and snowfall (Problems 6--9)
+\end{itemize}
+
+Qin Jiushao's preface to the \textit{Shuxue Jiuzhang} (1247) explains his
+motivation:
+
+\begin{quote}
+\textit{``The art of numbers, rooted in the Great Void, generates One and
+circulates without end. In its large aspect it can penetrate the divine
+and comply with destiny; in its small aspect it can govern worldly affairs
+and classify the myriad things. How can it be viewed as shallow or narrow?''}
+\end{quote}
+
+The nine problems of this fascicle demonstrate the practical application of
+mathematical techniques to calendar reform, planetary motion, and
+meteorological measurement---topics of vital importance to agricultural
+society.
+
+\newpage
+
+%% ========================================================================
+%% PART 1: Volume 2 Upper
+%% ========================================================================
+\section{Volume 2, Part 1 (卷二上)}
+\label{sec:juan2shang}
+
+\longline
+
+\subsection{Problem 1: Calculating Qi and Regulating the Calendar}
+\label{sec:tuiqizhili}
+
+\subsubsection*{推氣治歷 (Tui Qi Zhi Li)}
+
+\Wen{}\quad The Imperial Astronomer observed the heavenly way:
+\begin{itemize}[noitemsep]
+  \item In the 4th year of Qingyuan (慶元四年, 1198, year Wu-wu 戊午),
+    the winter solstice was at 39 days, 92 \textit{ke} (刻), 45 \textit{fen} (分).
+  \item In the 3rd year of Shaoding (紹定三年, 1230, year Geng-yin 庚寅),
+    the winter solstice was at 32 days, 94 \textit{ke}, 12 \textit{fen}.
+\end{itemize}
+It is desired to find, for the intermediate year Jiatai Jiazi (嘉泰甲子, 1204):
+the \textit{qi bone} (氣骨), the \textit{year remainder} (歲餘), and the
+\textit{dou fraction} (斗分).
+
+\medskip
+
+\An{}\quad The Shaoding 3rd year Geng-yin winter solstice actually marks the
+beginning of Shaoding 4th year Xin-mao (辛卯). Xin-mao is 34 years from
+Wu-wu, giving 33 accumulated years.
+
+\medskip
+
+\Da{}\quad
+\begin{itemize}[noitemsep]
+  \item Qi bone: 11 days, 38 \textit{ke}, 20 \textit{fen}, 81 \textit{miao} (杪),
+    80 small fractions.
+  \item Year remainder: 5 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao},
+    30 small fractions.
+  \item Dou fraction: 0 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao},
+    30 small fractions.
+\end{itemize}
+
+\medskip
+
+\Shu{}曰\quad First take the number of years between the two observations as the
+divisor. Place the earlier observation's days, \textit{ke}, and \textit{fen},
+and subtract from the later observation's days, \textit{ke}, and
+\textit{fen}; the remainder is the rate. (If insufficient for subtraction,
+add the ji-ce 紀策). Accumulate by adding ji-ce repeatedly until the result
+is suitable for the heavenly way---using a number above 5 days as the
+dividend. Divide the dividend by the divisor to obtain the year remainder.
+Remove whole days; the remainder is the dou fraction. Multiply the year
+remainder by the number of years from the earlier observation to the desired
+intermediate year, add to the earlier observation's days, \textit{ke}, and
+\textit{fen}, and remove full ji-ce; the remainder is the desired qi bone.
+
+\medskip
+
+\An{}\quad (Editor's note:) The qi bone is the days and fractions from the
+winter solstice to the Jiazi day after midnight. The year remainder is the
+residue when the solar year length is reduced by six Jiazi cycles. The dou
+fraction is the residue when the solar year is reduced by 365 days. This
+method does not yet know the precise solar year length, hence it uses the
+difference between two observed qi bones as the dividend and accumulated
+years as divisor.
+
+\newpage
+
+%% ========================================================================
+\subsection{Problem 2: Regulating the Calendar and Intercalary Months}
+\label{sec:zhilituimin}
+
+\subsubsection*{治歷推閏 (Zhi Li Tui Run)}
+
+\Wen{}\quad For the Kaixi calendar (開禧曆), taking the 4th year of Jiatai
+(嘉泰四年, 1204, year Jiazi 甲子):
+\begin{itemize}[noitemsep]
+  \item The celestial winter solstice is at 11 days, day-token Yi-hai (乙亥),
+    44 \textit{ke}, 61 \textit{fen}, 54 \textit{miao}.
+  \item The 11th-month new moon (經朔) is at 1 day, day-token Yi-chou (乙丑),
+    75 \textit{ke}, 55 \textit{fen}, 62 \textit{miao}.
+\end{itemize}
+Question: What are the \textit{run bone} (閏骨) and \textit{run rate} (閏率)?
+
+\medskip
+
+\Da{}\quad
+\begin{itemize}[noitemsep]
+  \item Run bone: 9 days, 69 \textit{ke}, 5 \textit{fen}, 91 \textit{miao},
+    with remainder $121/(169\text{ fractions})$.
+  \item Run bone rate: 163,771.
+\end{itemize}
+
+\medskip
+
+\Shu{}曰\quad Take the day-factor (日法) to convert the qi and new-moon days,
+\textit{ke}, \textit{fen}, and \textit{miao} into qi-bone and new-moon-bone
+fractions respectively. The qi-bone fraction, when reduced by the
+approximation rate (約率), if exactly divisible, is usable; or if the
+remainder after rounding is below one \textit{ke}, it is also usable. Then
+subtract from the new-moon-bone fraction; the remainder is the run bone
+rate. Divide by the day-factor to obtain the run bone \textit{ce} (策).
+
+\medskip
+
+\An{}\quad (Editor's note:) If one directly subtracts the new moon fraction
+from the winter solstice fraction, the remainder is 9 days, 69 \textit{ke},
+5 \textit{fen}, 92 \textit{miao}, giving the run bone \textit{ce}. The
+original working only differs by $48/(169\text{ fractions})$. The reason
+for not directly subtracting but instead using common denominators,
+approximation, and repeated multiplication/division is to facilitate
+subsequent calculations.
+
+\newpage
+
+%% ========================================================================
+\subsection{Problem 3: Deriving Calendar Epoch Calculations}
+\label{sec:zhiliyanji}
+
+\subsubsection*{治歷演紀 (Zhi Li Yan Ji)}
+
+\Wen{}\quad The Kaixi calendar has an accumulated year count of 7,848,183.
+It is desired to know the derivation of this computation: adjusting the
+day-factor, finding the new-moon remainder, new-moon rate, dou fraction,
+year rate, year intercalation, entry-year, entry-intercalation, new-moon
+fixed bone, intercalation floating bone, intercalation shrinkage, ji rate,
+qi yuan rate, yuan intercalation, yuan number, qi equal-rate, cause-rate,
+\textit{bu} rate, new-moon equal-number, cause-number, \textit{bu} number,
+and new-moon accumulated year---\textbf{23 items} in total. What is each?
+
+\medskip
+
+\Da{}\quad (Selected key results:)
+\begin{itemize}[noitemsep]
+  \item Day-factor (日法): 16,900
+  \item New-moon remainder (朔餘): 8,967
+  \item New-moon rate (朔率): 499,067
+  \item Dou fraction (斗分): equivalent to 24 \textit{ke}, 29 \textit{fen},
+    30 \textit{miao}, 30 small fractions
+  \item Year rate (歲率): 6,172,608
+  \item Year intercalation (歲閏): 20,728
+  \item Entry-year (入元歲): 9,240
+  \item Entry-intercalation (入閏): 31,068
+\end{itemize}
+
+\medskip
+
+\Shu{}曰\quad Use the method of Dayan (大衍術) to find the qi fraction,
+new-moon fraction, ji fraction, and derived mother (衍母), and all the
+proper use-numbers (正用). Divide the derived mother by the qi fraction to
+obtain the accumulated years; by the new-moon fraction to obtain the
+accumulated months; by the ji fraction to obtain the accumulated ji.
+Multiply by 60 to obtain accumulated days. Multiply the qi bone by the ji
+proper-use to obtain the ji total; multiply the run bone by the new-moon
+proper-use to obtain the new-moon total. Combine the two totals, remove
+full derived mothers, and the remainder is the sought rate-dividend.
+Divide by the qi fraction to obtain the calendar-passed (歷過) years;
+subtract from the accumulated years to obtain the years not yet reached.
+
+\medskip
+
+This problem demonstrates the full power of Qin Jiushao's \textbf{Dayan
+method} (大衍求一術) for solving systems of congruences, applied here to
+calendar computation. The 23 quantities computed form a complete system
+for deriving the epoch parameters of the Kaixi calendar from astronomical
+observations.
+
+\newpage
+
+%% ========================================================================
+\subsection{Problem 4: Calculating Planetary Motion}
+\label{sec:zhuishutuixing}
+
+\subsubsection*{綴術推星 (Zhui Shu Tui Xing)}
+
+\Wen{}\quad The year-star (Jupiter, 歲星) in conjunction-hidden phase
+(合伏段): after 16 days 90 \textit{fen}, it moves 3 degrees 90 \textit{fen},
+removing 13 degrees from the sun before becoming visible. Then it proceeds
+directly (順行) for 113 days, 17 degrees 83 \textit{fen}, before halting
+(乃留). It is desired to know:
+\begin{itemize}[noitemsep]
+  \item The conjunction-hidden segment (合伏段)
+  \item The morning-rapid initial segment (晨疾初段)
+  \item The standard degree (常度)
+  \item The initial motion-rate (初行率)
+  \item The final motion-rate (末行率)
+  \item The mean motion-rate (平行率)
+\end{itemize}
+What is each?
+
+\medskip
+
+\Shu{}曰\quad (Method of \textit{Zhui Shu}):
+
+\begin{enumerate}[noitemsep]
+  \item For the conjunction-hidden segment: The constant degree is the
+total number of days. The initial motion rate is the total degrees moved.
+The final motion rate equals the initial rate minus the daily difference
+(日差) multiplied by (days $-1$).
+  \item For the morning-rapid initial segment: The constant degree is the
+given number of days. The initial rate is the final rate of the previous
+segment. The final rate equals the initial rate minus the daily difference
+multiplied by (days $-1$).
+  \item For the mean motion rate: Add the initial and final rates and
+halve; this gives the parallel (mean) rate.
+\end{enumerate}
+
+\medskip
+
+\An{}\quad (Editor's note:) The five planets' motions involve non-uniform
+acceleration and deceleration. The method here takes only the middle
+values of the conjunction-hidden and direct-visibility segments, then
+uses successive addition/subtraction to derive the daily motion. The
+ancient method's approximation is particularly evident for the five
+planets. The original text's language was mostly hidden and obscure; the
+following detailed explanation reveals the comparison between ancient and
+modern precision.
+
+\vspace{0.5cm}
+
+\textbf{Key calculations:}
+\begin{itemize}[noitemsep]
+  \item Conjunction-hidden segment:
+    \begin{itemize}
+      \item Constant degree: 16 days 90 \textit{fen}
+      \item Initial rate: 22 \textit{fen} 7 \textit{miao}
+      \item Final rate: 21 \textit{fen} 96 \textit{miao}
+      \item Mean rate: approximately 22 \textit{fen} (after rounding)
+    \end{itemize}
+  \item Morning-rapid initial segment:
+    \begin{itemize}
+      \item Constant degree: 30 days
+      \item Initial rate: 21 \textit{fen} 96 \textit{miao}
+      \item Daily difference: 11 \textit{miao} 23 small-\textit{fen} 66
+        small-\textit{miao}
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+%% ========================================================================
+\subsection{Problem 5: Measuring the Sun's Shadow}
+\label{sec:kuirijiuwei}
+
+\subsubsection*{揆日究微 (Kui Ri Jiu Wei)}
+
+\Wen{}\quad Among all historical shadow-measurements, only the Tang dynasty's
+Dayan calendar (大衍曆) was the most precise. This dynasty's Chongtian
+calendar (崇天曆) gives for Yangcheng (陽城):
+\begin{itemize}[noitemsep]
+  \item Winter solstice shadow: 1 \textit{zhang} 2 \textit{chi} 7 \textit{cun}
+    1 \textit{fen} 50 \textit{miao}
+  \item Summer solstice shadow: 1 \textit{chi} 4 \textit{cun} 7 \textit{fen}
+    70 \textit{miao}
+\end{itemize}
+These agree with the Dayan calendar. Now the Kaixi calendar (開禧曆) gives
+for Lin'an (臨安府):
+\begin{itemize}[noitemsep]
+  \item Winter solstice shadow: 1 \textit{zhang} 8 \textit{cun} 2 \textit{fen}
+    25 \textit{miao}
+  \item Summer solstice shadow: 9 \textit{cun} 1 \textit{fen}
+\end{itemize}
+It is desired to find: after how many days past the summer solstice at
+Lin'an will the shadow equal the Yangcheng summer solstice shadow? And
+comparing with the Dayan calendar's shadow, by how much do they differ?
+
+\medskip
+
+\Da{}\quad Five days after the Great Heat (大暑後五日) at noon; the shadow
+length is 1 \textit{chi} 4 \textit{cun} 8 \textit{fen} 85 \textit{miao} (half).
+The shadow difference is 6 \textit{cun} 1 \textit{fen} 29 \textit{miao} (less).
+
+\medskip
+
+\Shu{}曰\quad Use the multiplication-rate method, with the section-rate
+(節率) entering into it.
+
+\begin{enumerate}[noitemsep]
+  \item Place Lin'an's measured winter solstice shadow, subtract the summer
+    solstice shadow; the remainder is the shadow-difference (景差), taken
+    as dividend.
+  \item Place the象限度 (91 degrees 31 \textit{fen} 44 \textit{miao}), add
+    11 degrees 25 \textit{fen} 27.5 small-\textit{fen}; treating degrees as
+    \textit{cun}, obtain 102 \textit{cun} 5671.5 \textit{fen} 50 \textit{miao}
+    as divisor.
+  \item Divide the dividend by the divisor, obtaining 0.9664...; discard
+    the remainder and square to obtain the section floating-number
+    (節泛數): 9,340 \textit{fen}.
+  \item Multiply by the section multiplication-rates for each solar term,
+    add the summer solstice shadow-squared, take the square root to obtain
+    each solar term's shadow length.
+\end{enumerate}
+
+\medskip
+
+\An{}\quad (Editor's note:) Each solar term's shadow length was determined by
+actual measurement at the time and does not need computation. The method
+presented here deliberately creates obscurity to puzzle the reader.
+Detailed examination shows: the象限度 plus 11+ degrees is taken as
+divisor; the shadow-difference divided by this and then squared gives the
+section-rate. Each solar term has a multiplication-rate; multiplying the
+section-rate by this and adding the summer solstice shadow-power gives
+each term's shadow-power. Thus the section-rate is an artificially
+extracted number.
+
+\newpage
+
+%% ========================================================================
+%% PART 2: Volume 2 Lower
+%% ========================================================================
+\section{Volume 2, Part 2 (卷二下)}
+\label{sec:juan2xia}
+
+\longline
+
+\subsection{Problem 6: Measuring Rain with the Heavenly Pool Basin}
+\label{sec:tianchiceyu}
+
+\subsubsection*{天池測雨 (Tian Chi Ce Yu)}
+
+\Wen{}\quad Nowadays every prefecture and district has a ``heavenly pool''
+basin (天池盆) for measuring rainwater. But people only know that the
+water in the basin equals the rain received, and do not understand that
+different vessel shapes receive different amounts of rain---so one cannot
+directly take the basin measurement as the flat-ground rain amount.
+
+Suppose the basin has:
+\begin{itemize}[noitemsep]
+  \item Mouth diameter (口徑): 2 \textit{chi} 8 \textit{cun} (28 \textit{cun})
+  \item Base diameter (底徑): 1 \textit{chi} 2 \textit{cun} (12 \textit{cun})
+  \item Depth (深): 1 \textit{chi} 8 \textit{cun} (18 \textit{cun})
+  \item Rainwater depth inside (接雨水深): 9 \textit{cun}
+\end{itemize}
+What is the equivalent flat-ground rain depth?
+
+\medskip
+
+\Da{}\quad Flat-ground rain depth: \textbf{3 \textit{cun}}.
+
+\medskip
+
+\Shu{}曰\quad Use the method for circular cones (圓錐術):
+\begin{enumerate}[noitemsep]
+  \item Multiply the mouth diameter by the base diameter, and also square
+each; combine these three values. Multiply by half the depth; then
+multiply by 11 and divide by 7 to obtain the lower volume (下積).
+  \item Take half the depth plus the rain depth, subtract from the total
+depth to obtain the upper depth (上深).
+  \item Subtract the base diameter from the mouth diameter; multiply the
+remainder by the upper depth. Multiply by half the depth, add the result
+to the mouth-diameter times half-depth, to obtain the surface rate
+(面率).
+  \item Divide the surface rate by half the depth to obtain the water
+surface diameter.
+  \item Continue with further multiplications to isolate the rain volume,
+then divide by the mouth-area (squared and tripled) to obtain the
+flat-ground rain depth.
+\end{enumerate}
+
+\medskip
+
+\textbf{Mathematical summary:} The heavenly pool basin is a frustum of a
+cone. The rain volume collected is:
+\[
+V_{\text{rain}} = \frac{\pi h_{\text{rain}}}{3}\left(R^2 + Rr + r^2\right)
+\]
+where $R$ is the top radius, $r$ is the base radius, and $h_{\text{rain}}$
+is the rain depth. Dividing by the mouth area $\pi R^2$ gives the
+equivalent flat-ground rain depth.
+
+\newpage
+
+%% ========================================================================
+\subsection{Problem 7: Measuring Rain with a Round Vessel}
+\label{sec:yuanyingceyu}
+
+\subsubsection*{圓罌測雨 (Yuan Ying Ce Yu)}
+
+\Wen{}\quad Using a round vessel (圓罌) to catch rain:
+\begin{itemize}[noitemsep]
+  \item Mouth diameter (口徑): 1 \textit{chi} 5 \textit{fen} (10.5 \textit{cun})
+  \item Belly diameter (腹徑): 2 \textit{chi} 4 \textit{cun} (24 \textit{cun})
+  \item Base diameter (底徑): 8 \textit{cun}
+  \item Depth (深): 1 \textit{chi} 6 \textit{cun} (16 \textit{cun})
+  \item Rainwater depth inside: 1 \textit{chi} 2 \textit{cun} (12 \textit{cun})
+\end{itemize}
+Using the ``dense rate'' (密率, $\pi \approx 22/7$) for circle computations,
+what is the flat-ground rain depth?
+
+\medskip
+
+\Da{}\quad Flat-ground rain depth:
+\textbf{1 \textit{chi} 8 \textit{cun} plus $\frac{6483}{74088}$ \textit{cun}}.
+(Editor's corrected value.)
+
+\medskip
+
+\Shu{}曰\quad Multiply the base diameter by the belly diameter, and also
+square each; combine these three values. Multiply by half the vessel
+depth; multiply by 11 and divide by 42 to obtain the lower volume.
+
+Take half the vessel depth plus the rain depth, subtract from the total
+depth to obtain the upper depth. Subtract the belly diameter from the
+mouth diameter; multiply the remainder by the upper depth. Multiply by
+half the depth; add the mouth-diameter times half-depth to obtain the
+surface rate.
+
+Multiply the surface rate by the belly rate; also square each and combine;
+multiply by 11 and divide by 42 to obtain the upper rate. Combine the two
+rates (upper and lower) to obtain the total rain volume as dividend.
+Divide by three times the squared mouth-diameter to obtain the flat-ground
+rain depth.
+
+\medskip
+
+\An{}\quad (Editor's note:) The original problem statement mentions ``dense
+rate for circle computation'' which is irrelevant to finding the flat-ground
+rain depth. If one were seeking the vessel's rain volume, then this phrase
+would be appropriate. There were errors in the original computation; the
+above presents the corrected method.
+
+\newpage
+
+%% ========================================================================
+\subsection{Problem 8: Verifying Snow Accumulation}
+\label{sec:junjiyanxue}
+
+\subsubsection*{峻積驗雪 (Jun Ji Yan Xue)}
+
+\Wen{}\quad To verify snow for predicting the harvest: A wall is
+1 \textit{zhang} 2 \textit{chi} (12 \textit{chi}) high. A plank leans against
+it, the base 5 \textit{chi} from the wall's foot, with the tip level with
+the wall top. Snow accumulates 4 \textit{cun} thick on the plank. The
+steep accumulation is thin while the flat accumulation is thick. What is
+the flat-ground snow depth?
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+  % Wall
+  \draw[thick, fill=gray!20] (0,0) rectangle (0.5,12);
+  \draw[thick] (0,0) -- (0,12);
+  % Ground
+  \draw[thick] (-1,0) -- (7,0);
+  % Plank
+  \draw[thick, fill=brown!30] (0,12) -- (5,0) -- (5.3,0) -- (0.3,12) -- cycle;
+  % Snow on plank
+  \draw[thick, fill=blue!15] (0,12) -- (5,0) -- (4.7,0.24) -- (0.27,12) -- cycle;
+  % Labels
+  \node[left] at (0,6) {\small Wall};
+  \node[below] at (2.5,0) {\small 5 chi};
+  \draw[<->, thick] (0,-0.8) -- (5,-0.8);
+  \node[right, rotate=50] at (3,6) {\small Plank};
+  \node[above] at (0,12.3) {\small 12 chi};
+  \draw[<->, thick] (-0.8,0) -- (-0.8,12);
+  \node[right] at (5.5,0.5) {\small Snow};
+\end{tikzpicture}
+\end{center}
+
+\medskip
+
+\Da{}\quad Flat-ground snow depth: \textbf{1 \textit{chi} 4 \textit{fen}}.
+
+\medskip
+
+\Shu{}曰\quad Use the method of Shao Guang (少廣), with the connected-branch
+(連枝) method:
+\begin{enumerate}[noitemsep]
+  \item Square the distance from the base (去址): this is the corner
+    (隅).
+  \item Square the wall height; combine with the corner above.
+  \item Square the snow thickness; multiply by the combined value above
+    to obtain the dividend.
+  \item (Reduce if possible.) Extract the connected-branch square root
+    to obtain the flat-ground snow depth.
+\end{enumerate}
+
+\medskip
+
+\Cao{}曰\quad Convert all measurements to \textit{cun}:
+\begin{itemize}[noitemsep]
+  \item Distance from base: 50 \textit{cun}; squared = 2,500 (corner).
+  \item Wall height: 120 \textit{cun}; squared = 14,400.
+  \item Combined: 14,400 + 2,500 = 16,900.
+  \item Snow thickness: 4 \textit{cun}; squared = 16.
+  \item Multiply: $16{,}900 \times 16 = 270{,}400$ (dividend).
+\end{itemize}
+The corner and dividend share a factor of 100; reduce to get dividend
+2,704 and corner 25. Extracting the square root: $\sqrt{2704/25} =
+52/5 = 10.4$ \textit{cun} = \textbf{1 \textit{chi} 4 \textit{fen}}.
+
+\medskip
+
+\An{}\quad (Editor's note:) Both the principle and method are correct.
+In fact, this uses the right-triangle (勾股) method, though not named
+as such. The ``connected-branch'' terminology conceals the underlying
+principle. The diagram illustrates: AB is the flat-ground snow depth
+(equal to the wall-top snow depth), BC is the excess snow on the plank.
+Triangle ABC is similar to the triangle formed by the plank leaning
+against the wall. The wall height is the large leg, the distance from
+base is the large base, the plank is the large hypotenuse. The flat-ground
+snow depth is found by proportional reasoning via the Pythagorean theorem.
+
+\newpage
+
+%% ========================================================================
+\subsection{Problem 9: Verifying Snow with a Bamboo Container}
+\label{sec:zhuqiyanxue}
+
+\subsubsection*{竹器驗雪 (Zhu Qi Yan Xue)}
+
+\Wen{}\quad Using a round bamboo container (圓竹器) to verify snow:
+\begin{itemize}[noitemsep]
+  \item Mouth diameter (口徑): 1 \textit{chi} 6 \textit{cun} (16 \textit{cun})
+  \item Depth (深): 1 \textit{chi} 7 \textit{cun} (17 \textit{cun})
+  \item Base diameter (底徑): 1 \textit{chi} 2 \textit{cun} (12 \textit{cun})
+\end{itemize}
+Snow falls into it, filling to a depth of 1 \textit{chi}. The container is
+permeable to wind; when much snow enters, the flat-ground depth is less.
+What is the flat-ground snow thickness?
+
+\medskip
+
+\Da{}\quad Flat-ground snow thickness:
+\textbf{9 \textit{cun} plus $\frac{764}{3439}$ \textit{cun}}.
+
+\medskip
+
+\Shu{}曰\quad Subtract the base diameter from the mouth diameter; multiply
+by the snow depth, halve, and square to obtain the corner (隅). Square
+the container depth and multiply by the squared snow depth; combine with
+the corner and multiply by the squared snow depth to obtain the dividend.
+Extract the connected-branch cube root (三乘方) to obtain the flat-ground
+snow thickness.
+
+\medskip
+
+\Cao{}曰\quad Convert all measurements to \textit{cun}:
+\begin{itemize}[noitemsep]
+  \item Mouth diameter: 16 \textit{cun}; base diameter: 12 \textit{cun}.
+  \item Difference: 4 \textit{cun}; snow depth: 10 \textit{cun}.
+  \item Multiply: $4 \times 10 = 40$; halve = 20 (this is the
+    upper-\textit{lian} 上廉).
+  \item Container depth squared: $17^2 = 289$.
+  \item Snow depth squared: $10^2 = 100$.
+  \item Multiply: $289 \times 100 = 28{,}900$; combine with the corner
+    and continue the cube-root extraction.
+\end{itemize}
+The working proceeds through the Chinese ``method of extracting cube
+roots with carrying'' (三乘方開法), yielding the flat-ground snow depth
+of 9 \textit{cun} with remainder 764/3439.
+
+\medskip
+
+\An{}\quad (Editor's note:) The phrase ``permeable to wind'' does not
+affect the computation method. Some commentators suggest the snow depth
+in the container differs from the flat-ground depth due to wind effects;
+this problem uses the same geometric principle as the Heavenly Pool rain
+problem, adapted for a frustum-shaped bamboo container.
+
+\newpage
+
+%% ========================================================================
+%% Appendix: Summary Table
+%% ========================================================================
+\section*{Summary of Fascicle 2 Problems}
+\addcontentsline{toc}{section}{Summary of Fascicle 2 Problems}
+
+\begin{longtable}{|c|l|l|p{6cm}|}
+\hline
+\textbf{No.} & \textbf{Title} & \textbf{Pinyin} & \textbf{Topic} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Title} & \textbf{Pinyin} & \textbf{Topic} \\
+\hline
+\endhead
+1 & 推氣治歷 & Tui Qi Zhi Li & Computing solar terms from two winter solstice observations \\
+\hline
+2 & 治歷推閏 & Zhi Li Tui Run & Finding intercalation parameters for a calendar \\
+\hline
+3 & 治歷演紀 & Zhi Li Yan Ji & Deriving 23 epoch parameters using Dayan method \\
+\hline
+4 & 綴術推星 & Zhui Shu Tui Xing & Computing Jupiter's motion rates \\
+\hline
+5 & 揆日究微 & Kui Ri Jiu Wei & Comparing solar shadow lengths at two locations \\
+\hline
+6 & 天池測雨 & Tian Chi Ce Yu & Measuring rain with a conical basin \\
+\hline
+7 & 圓罌測雨 & Yuan Ying Ce Yu & Measuring rain with a round vessel \\
+\hline
+8 & 峻積驗雪 & Jun Ji Yan Xue & Converting snow on a slanted plank to flat-ground depth \\
+\hline
+9 & 竹器驗雪 & Zhu Qi Yan Xue & Converting snow in a bamboo container to flat-ground depth \\
+\hline
+\end{longtable}
+
+\vspace{1cm}
+
+\begin{center}
+\longline
+
+\textit{End of Fascicle 2}
+
+\vspace{0.5cm}
+
+{\small\color{notecolor}
+\textit{``Seven planets revolve in the firmament; the affairs of men are
+tracked by pursuing and connecting [their motions].\\
+Stars by night, gnomon by day---as ages pass, [methods] become coarse;\\
+only the wise can reform them.''}\\
+--- Qin Jiushao, Preface to \textit{Shuxue Jiuzhang}}
+\end{center}
+
+\end{document}
