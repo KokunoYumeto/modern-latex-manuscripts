@@ -9,7 +9,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - Main landing and bulk preservation record: https://zenodo.org/records/20430709
 - EGA working English translation and French originals: https://zenodo.org/records/20432146
 - SGA working English translation and French references: https://zenodo.org/records/20432263
-- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20431960
+- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20432406
 - Heinrich Weber author record: https://zenodo.org/records/20431945
 - Emmy Noether author record: https://zenodo.org/records/20431948
 - Bernhard Riemann author record: https://zenodo.org/records/20431305
@@ -35,7 +35,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity.
 
-EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader. The non-European corpus has 66 cleaned top-level reader PDFs; the latest cleanup comparison found 64 improved, 0 worsened, and 2 same or inconclusive against the prior public release. Weber and Noether have current author pages with original-language readers, English readers, and source artifacts.
+EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader. The non-European corpus has 66 cleaned top-level reader PDFs; the latest repair comparison found 64 improved, 0 worsened, and 2 same or inconclusive against the prior public release. Weber and Noether have current author pages with original-language readers, English readers, and source artifacts.
 
 Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, translation completion, and replacing imperfect machine-generated passages with verified text.
 
@@ -50,5 +50,6 @@ Please keep corrections narrowly scoped and cite the source page or file when po
 Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
 
 For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20430709.
+
 
 
