@@ -1,6 +1,6 @@
 # SGA 2: Local Cohomology and Lefschetz Theorems
 
-> Consolidated from the jcreinhold LLM-generated Markdown snapshot included in the source package packet. Not mathematically proofed in this batch.
+> Consolidated from the jcreinhold LLM-generated Markdown snapshot included in the source package packet. Not mathematically proofed in this translation segment.
 
 
 
@@ -164,7 +164,7 @@ comments and advice.
 
 The editor, Yves Laszlo.
 
-<!-- Editorial note: Laszlo's own English preface in the source PDF has been adopted here with only light
+<!-- editorial note: Laszlo's own English preface in the source PDF has been adopted here with only light
 copy-editing for consistency with the SGA 1 translation. The French original of the preface (also in the source PDF)
 is the authoritative version; this text matches it. -->
 
@@ -1166,7 +1166,7 @@ $$
 but $j$ is separated (EGA I 5.5.1) and quasi-compact, hence (EGA III 1.4.10) the
 $R^{i} j_{*}(F|Z) = \mathcal{H}^{i}_{Z}(F)$ are quasi-coherent, which completes the proof.
 
-<!-- Editorial note: The OCR shows `(I 24)`, `(I 22)`, `(I 23)`, `(I 27)`. In the renumbered 1968 edition these
+<!-- editorial note: The OCR shows `(I 24)`, `(I 22)`, `(I 23)`, `(I 27)`. In the renumbered 1968 edition these
 correspond to the displayed exact sequence and canonical isomorphisms of Exposé I §2. The reference targets in this
 file are conservative; a reader who needs the exact decimal should consult Exposé I directly. ΓZ underlined in the
 source is rendered with the script-H `ℋ` for the sheafified cohomology functor and with `ΓZ` for the underlined
@@ -1604,7 +1604,7 @@ The following results hold under the assumption that $A$ is noetherian and $M$ i
 1. The radical of the annihilator of $M$, $r(Ann M)$, is the intersection of the ideals associated with $M$ that are
    minimal (for the inclusion relation in `Ass M`).
 
-<!-- Editorial note: The source labels both the definition and the proposition that follows as "Proposition 1.1"; we
+<!-- editorial note: The source labels both the definition and the proposition that follows as "Proposition 1.1"; we
 preserve the duplication and tag the second one *bis* in the spirit of the editor's note on numbering (cf. Introduction,
 N.D.E. intro-1). The third assertion of this proposition is given as item (iii) in the source. -->
 
@@ -1735,7 +1735,7 @@ induction hypothesis,
 Ext^{i−1}_A(N, M) = 0 if i ⩽ n − 1.
 ```
 
-<!-- Editorial note: The source displays `Ext^{i−1}_A(N, M) = 0` here, but the intended module is `M/f_1 M`. We retain
+<!-- editorial note: The source displays `Ext^{i−1}_A(N, M) = 0` here, but the intended module is `M/f_1 M`. We retain
 the source as printed; the argument that follows uses what the induction hypothesis provides, namely vanishing for
 `M/f_1 M`. -->
 
@@ -1806,7 +1806,7 @@ The following logical implications hold:
        (3) ⇐= (4)
 ```
 
-<!-- Editorial note: The source's implication diagram shows (1) ⇔ (2), (2) ⇒ (3), and (4) ⇒ (2); we render this as a
+<!-- editorial note: The source's implication diagram shows (1) ⇔ (2), (2) ⇒ (3), and (4) ⇒ (2); we render this as a
 two-line ASCII diagram. -->
 
 Moreover, if $A$ is noetherian and $M$ is finitely generated, these conditions are equivalent.
@@ -1980,7 +1980,7 @@ and $\rho^{i-1}$ is surjective.
 H^p(X, ℋ^q_Y(X, F)) ⟹ H^*_Y(X, F).
 ```
 
-<!-- Editorial note: The source writes `H^q_Y(X, F)` for the sheafified `ℋ^q_Y(F)` (the underline is lost by OCR). The
+<!-- editorial note: The source writes `H^q_Y(X, F)` for the sheafified `ℋ^q_Y(F)` (the underline is lost by OCR). The
 abutment is `H^*_Y(X, F)`; per the SGA 2 conventions adopted for this translation, the sheafified functor on the
 spectral sequence's `E_2` page is rendered with script `ℋ`. -->
 
@@ -2035,7 +2035,7 @@ is a coherent $\mathcal{O}_{X}$-module whose support is equal to $Y$, and one kn
 ℋ^i_Y(X, F) = lim_{→ m} Ext^i_{𝒪_X}(𝒪_Y^m, F),
 ```
 
-<!-- Editorial note: The source writes `H^i_Y(X, F)` here for the sheafified Ext-limit; per the convention adopted in
+<!-- editorial note: The source writes `H^i_Y(X, F)` here for the sheafified Ext-limit; per the convention adopted in
 this translation, the sheafified version is rendered as `ℋ^i_Y`. -->
 
 so (v) ⇒ (i). Moreover, the transition morphisms in the projective system of the $\mathcal{O}^{m}_{Y}$ are epimorphisms.
@@ -2144,7 +2144,7 @@ $X$ such that $Y \cap V$ has codimension $\geqslant d$ in $V$. Finally, if $X$ i
 then $X - Y$ is connected by Hartshorne's theorem. The corollary thus follows from the next lemma, which is of a purely
 topological nature.
 
-<!-- Editorial note: The source writes "il existe un voisinage ouvert V de X" ("an open neighborhood V of X"); the
+<!-- editorial note: The source writes "il existe un voisinage ouvert V de X" ("an open neighborhood V of X"); the
 sense requires "of `y`", which we have restored. -->
 
 **Lemma.**
@@ -2355,7 +2355,7 @@ factors as
 where $C' \to Ab$ is the canonical functor. In what follows, $T(M)$ will always be considered as endowed with this
 $A$-module structure.
 
-<!-- Editorial note: source diagram is ASCII art with @@/~~~ glyphs; rendered above as a labeled commutative
+<!-- editorial note: source diagram is ASCII art with @@/~~~ glyphs; rendered above as a labeled commutative
 triangle. -->
 
 Composing with the isomorphism $M \xrightarrow{\sim} \operatorname{Hom}_{A}(A, M)$ the morphism
@@ -3962,7 +3962,7 @@ LEDGER DELTA (Exposé V):
 
 <!-- original page 72 -->
 
-<!-- Editorial note: Throughout this Exposé we write `ℰxt^i_Z(F, G)` (script `ℰ`)
+<!-- editorial note: Throughout this Exposé we write `ℰxt^i_Z(F, G)` (script `ℰ`)
 for the sheafified version of `Ext` (the variant underlined in the original source)
 and `Ext^i_Z(X; F, G)` for the global one. Wherever the OCR shows two parallel
 forms `ExtiZ (X; F, G)` and `ExtiZ (F, G)` for the same derived functor, the second
@@ -4046,7 +4046,7 @@ It follows in particular from (1.4.2) that there is a $\partial$-functorial isom
 
 <!-- original page 74 -->
 
-<!-- Editorial note: the source paginates the displayed θ-isomorphism at the
+<!-- editorial note: the source paginates the displayed θ-isomorphism at the
 foot of page 73 and the section heading 1.5 at the top of page 74; the running
 header on page 74 is the Exposé title, which we omit. -->
 
@@ -4194,7 +4194,7 @@ One defines in the same way
 φ̲: lim_{→ n} ℰxt^i_{𝒪_X}(F ⊗ 𝒪_{Y_n}, G) → ℰxt^i_Y(F, G).
 ```
 
-<!-- Editorial note: in the source both arrows are called `ϕ`; here `φ̲`
+<!-- editorial note: in the source both arrows are called `ϕ`; here `φ̲`
 (underlined `φ`) denotes the sheafified variant, to match the global/sheafified
 split used elsewhere in this Exposé. -->
 
@@ -4233,7 +4233,7 @@ The functor $N \mapsto \lim_{\to n} Ext^{\bullet}_{A}(M/I^{n} M, N)$ is a univer
 that the same holds for the functor $N \mapsto Ext^{\bullet}_{Y}(M, N)$. Indeed, if $N$ is an injective module, by (9
 and 11), $\mathcal{H}^{q}_{Y}(N) = 0$ for $q \neq 0$; and by (IV.2.2), $\mathcal{H}^{0}_{Y}(N)$ is injective.
 
-<!-- Editorial note: the citations "(9 and 11)" in the source most plausibly
+<!-- editorial note: the citations "(9 and 11)" in the source most plausibly
 refer to results from the present section's preceding Exposés (likely I 1.4 and
 the depth/injectivity material of IV); they are kept verbatim, as in the
 French. -->
@@ -4273,7 +4273,7 @@ Unresolved / flagged:
 - The citation "(9 and 11)" in the proof of Theorem 2.3 is opaque in the source.
   It almost certainly refers to numbered items inside SGA 2 (Exposé I, no. 1.4
   for the injectivity-preservation of `Γ_Z`, and Exposé IV for the depth
-  vanishing); the bare "(9 and 11)" reading is preserved with a Editorial note,
+  vanishing); the bare "(9 and 11)" reading is preserved with a editorial note,
   pending a cross-reference pass against the renumbered statements.
 - The morphism called `ϕ` twice in the source — once globally, once sheafified —
   has been disambiguated as `φ` / `φ̲` to mirror the `Γ_Z` / `ΓZ` convention
@@ -4289,7 +4289,7 @@ Unresolved / flagged:
 
 <!-- original page 61 -->
 
-<!-- Editorial note: Throughout this Exposé, following the convention pinned in Exposé VI, the underlined `Ext^i_Z` of
+<!-- editorial note: Throughout this Exposé, following the convention pinned in Exposé VI, the underlined `Ext^i_Z` of
 the source — the sheafified Ext functor on `X` — is rendered with a script-E as `ℰxt^i_Z(F, G)`. The non-underlined
 global `Ext^i_Z(X; F, G)` is unchanged. Likewise the sheafified local cohomology functor of Exposé I is `ℋ^i_Y(F)`,
 while the global one is `H^i_Y(X, F)`. -->
@@ -4469,7 +4469,7 @@ Ass Hom_A(P, H) = Supp P ∩ Ass H.
 One knows that `Ass H ⊂ Supp H ⊂ Supp P` and that $Ass \operatorname{Hom}_{A}(P, H) = \emptyset$; hence
 $Ass H = \emptyset$, so $H = 0$.
 
-<!-- Editorial note: The source states the formula `Ass Hom_A(P, H) = Supp P ∩ Ass H` "under the sole hypothesis that
+<!-- editorial note: The source states the formula `Ass Hom_A(P, H) = Supp P ∩ Ass H` "under the sole hypothesis that
 `M` is of finite type"; in context the finite-type module is `P` (the source uses `M` and `P` interchangeably in this
 passage). The formula is the standard one for finitely generated `P` over a noetherian ring. -->
 
@@ -4601,7 +4601,7 @@ In the situation just described, one has:
 Note first that $\mathcal{E}xt^{i}_{Y}(F, G)$ is coherent for every $i$ when $Supp F \subset Y$. Moreover, setting
 $F'' = F/\Gamma_{Y}(F)$ as above, one sees that $Supp F'' = S'$, so that (2) follows from (1) and from 1.3.
 
-<!-- Editorial note: The source reference here reads "1.3" (= Lemma VII.1.3) but the argument actually invokes Lemma
+<!-- editorial note: The source reference here reads "1.3" (= Lemma VII.1.3) but the argument actually invokes Lemma
 VII.1.5 to swap `F` for `F''`. We have preserved the source's "1.3"; readers checking the proof should compare 1.5. -->
 
 To prove (1), one first remarks that
@@ -4642,7 +4642,7 @@ D(P) = { dim 𝒪_{X,p} | p ∈ P }.
 
 If $P$ is the underlying space of a connected subprescheme of $X$, then $D(P)$ is an interval.
 
-<!-- Editorial note: The source reads "sous-préschéma connexe de A"; the symbol "A" is almost certainly an OCR slip
+<!-- editorial note: The source reads "sous-préschéma connexe de A"; the symbol "A" is almost certainly an OCR slip
 for "X" — the lemma is about subpreschemes of the ambient `X` of the section. We render it as `X`. -->
 
 Indeed, let $\alpha$ and $\beta$ belong to $D(P)$, corresponding to points $p$ and $q$ of $P$. We show that there exists
@@ -4653,7 +4653,7 @@ that two successive components meet. One is reduced to the case where $p$ is the
 component $Q$ of $P$, and where $q \in Q$, and so $q \supset p$ as ideals of $\mathcal{O}_{q}$, where the assertion is
 trivial from the definition of dimension.
 
-<!-- Editorial note: The source displayed equation reads `dim 𝒪_{X,p_i} − dim 𝒪_{X,p_{i+1}} = 1`, but for the
+<!-- editorial note: The source displayed equation reads `dim 𝒪_{X,p_i} − dim 𝒪_{X,p_{i+1}} = 1`, but for the
 argument to give an interval-filling chain one needs unit jumps in either direction; we read this as an absolute value
 and have rendered it `| … | = 1`. The source also writes the interval as `[p, q]` where `[α, β]` is intended. -->
 
@@ -4672,7 +4672,7 @@ noetherian, hence locally connected; we may therefore assume $X$ affine and noet
 `D(P) = [a, b[`, which is legitimate by the preceding lemma. If $n > b$, we conclude by 2.1; if $n < a$, then
 $n < \dim \mathcal{O}_{X,x} = prof \mathcal{O}_{X,x}$ for every $x \in P$, and we conclude by 1.7.
 
-<!-- Editorial note: The source defines `P = Y ∩ Supp F ∩ (X − Y)`, which is empty as written; the intended set is
+<!-- editorial note: The source defines `P = Y ∩ Supp F ∩ (X − Y)`, which is empty as written; the intended set is
 almost certainly the closure intersection that appears in §1, e.g. `P = Supp F ∩ (closure of (Supp F ∩ (X − Y)))` or
 `P = Y ∩ (Supp F ∩ closure …)`, depending on parsing. We have kept the source's expression literally and flagged it
 here. The proof below works for any closed `P ⊂ Y ∩ Supp F` on which the dimension function is bounded by an interval
@@ -4715,7 +4715,7 @@ here. The proof below works for any closed `P ⊂ Y ∩ Supp F` on which the dim
 
 <!-- original page 67 -->
 
-<!-- Editorial note: per the SGA 2 glossary, the sheafified section functor (underlined `ΓZ` in the source) is
+<!-- editorial note: per the SGA 2 glossary, the sheafified section functor (underlined `ΓZ` in the source) is
 rendered with a script-H in cohomological degrees, so `ℋ^i_Y(F)` denotes the sheafified local-cohomology functor and
 `H^i_Y(X, F)` its global version. -->
 
@@ -4980,7 +4980,7 @@ $$
 
 which gives the conclusion. QED.
 
-<!-- Editorial note: the OCR carries `H^q(L′^•)` and `Ext^q(M, A) ≅ H^q(L′^•)` in this paragraph, with the sign of `q`
+<!-- editorial note: the OCR carries `H^q(L′^•)` and `Ext^q(M, A) ≅ H^q(L′^•)` in this paragraph, with the sign of `q`
 flipped relative to the intermediate step `″H^q(F Hom(L′^•, C_A^p)) ≅ F Hom(H^{-q}(L′^•), C_A^p)` (line 184-185 of the
 source) and relative to the statement of Proposition 1.1 (whose `Ext^{-q}(M, A)` indexes the spectral sequence the
 same way). The sign `−q` is the one consistent with both ends of the proof; this is rendered above with the `−q`
@@ -5449,7 +5449,7 @@ Terms confirmed or first activated in this Exposé (consult `glossary.md` for th
 | localement immergeable dans un préschéma régulier | locally embeddable in a regular prescheme | Standing hypothesis of Theorem VIII.2.1.                                                                         |
 | $c(x) = codim(\bar{x} \cap Y, \bar{x})$           | $c(x)$ as written                         | Preserved verbatim from (2.1); closures are reduced (cf. N.D.E.).                                                |
 | profondeur ($prof F_{x}$)                         | depth ($prof F_{x}$)                      | Per glossary; the source uses `prof`.                                                                            |
-| « x suit y »                                      | "$x$ follows $y$"                         | Translator keeps quotation marks since the source flags it; Lemma VIII.2.5.                                      |
+| « x suit y »                                      | "$x$ follows $y$"                         | Quotation preserved marks since the source flags it; Lemma VIII.2.5.                                      |
 | sous-faisceau quasi-cohérent                      | quasi-coherent subsheaf                   | Standard.                                                                                                        |
 | de Cohen-Macaulay (sur U !)                       | Cohen-Macaulay (on $U$!)                  | Exclamation preserved; the parenthetical insists $F$ is Cohen-Macaulay on the open $U$, not on a global ambient. |
 | condition (a), (b), (c), (d)                      | condition (a), (b), (c), (d)              | Lowercase Latin letters in this Exposé (not Roman); (i)–(iv) in Corollary 2.3 stay Roman, per the source.        |
@@ -5525,7 +5525,7 @@ deduced from $f$ by passing to the completions.
 
 <!-- label: eq:IX.1.1 -->
 
-<!-- Editorial note: The source diagram (1.1) places the inclusions `Y → X` and `Y′ → X′` to the left, and the
+<!-- editorial note: The source diagram (1.1) places the inclusions `Y → X` and `Y′ → X′` to the left, and the
 completion-passing square on the right; the OCR has fractured the layout. The left half merely records the closed
 subsets `Y ⊂ X` and `Y′ = f(Y) ⊂ X′`, with `f` restricting to `f: Y → Y′`. The square that matters in what follows is
 the one on the right. -->
@@ -5907,7 +5907,7 @@ the hypotheses of Theorem 1.1 are satisfied, and one finds a commutative diagram
 
 <!-- label: eq:IX.1.3.1 -->
 
-<!-- Editorial note: The source labels this diagram "(1.1)" which conflicts with diagram (1.1) above; I label it
+<!-- editorial note: The source labels this diagram "(1.1)" which conflicts with diagram (1.1) above; I label it
 eq:IX.1.3.1 to disambiguate, following the SGA 2 numbering convention. -->
 
 [^N.D.E-IX-1]
@@ -6102,7 +6102,7 @@ noetherian ring and that:
 
 Then there exists a coherent $\mathcal{O}_{X}$-Module $\tilde{F}$ such that $\tilde{F}^{\wedge} \simeq F$.
 
-<!-- Editorial note: In the source the conclusion is "il existe un O_X-Module cohérent F tel que F̂ ≃ F"; the input
+<!-- editorial note: In the source the conclusion is "il existe un O_X-Module cohérent F tel que F̂ ≃ F"; the input
 `F` (on `X̂`) and the constructed `F` (on `X`) share the same symbol. To disambiguate the conclusion in English without
 altering the mathematics, we write `F̃` for the constructed `𝒪_X`-Module; in the source these are typographically the
 same letter. -->
@@ -6206,7 +6206,7 @@ LEDGER DELTA (Exposé IX):
 [^N.D.E-IX-4]: *N.D.E.* The "finiteness theorem 2.1" referenced here is the finiteness theorem of Exposé VIII (VIII
     2.3), not the Theorem 2.1 of the present Exposé; the source's local cross-reference is to the
     cohomological finiteness statement on which the existence theorem is built.
-        <!-- Editorial note: The source writes "théorème de
+        <!-- editorial note: The source writes "théorème de
     finitude 2.1" but the only Theorem 2.1 in the present Exposé is the existence theorem itself. The intended
     reference is to the Exposé VIII finiteness theorem, which is the "finiteness theorem" referenced in the
     Introduction and at the head of this Exposé. -->
@@ -6818,10 +6818,9 @@ LEDGER DELTA (Exposé X):
 [^N.D.E-X-5]: *N.D.E.* This last condition can be improved, cf. the editor's note (1) on page 90.
 
 [^TRANSLATOR-X-1]:
-    <!-- Editorial note: The French source reads "D'après le corollaire 3.9", but the result invoked
+    <!-- editorial note: The French source reads "D'après le corollaire 3.9", but the result invoked
     is Corollary 3.8 (the reduction to the complete case via `Â`). Lemma 3.9 itself is applied in the next sentence.
-    The reference has been silently corrected here; the original numbering anomaly is preserved as a translator
-    note. -->
+    The reference has been silently corrected here; the original numbering anomaly is preserved as a editorial note. -->
 
 
 <!-- SOURCE: 11-application-au-groupe-de-picard.md -->
@@ -7416,7 +7415,7 @@ LEDGER DELTA (Exposé XI):
 [^XI-3-star5]: It is the proof reproduced in EGA IV 21.11.1.
 
 [^TRANSLATOR-XI-1]:
-    <!-- Editorial note: The source literally has "prof(A) = 3 + 1 ⩾ 2 car t est A-régulier". The
+    <!-- editorial note: The source literally has "prof(A) = 3 + 1 ⩾ 2 car t est A-régulier". The
     intended chain is: since `t ∈ r(A)` is `A`-regular and `A` is complete for the `t`-adic topology, `prof(A) ⩾
     prof(A/tA) + 1 = prof(B) + 1`; using b) `prof(B) ⩾ 3` gives `prof(A) ⩾ 4`, and only `⩾ 2` is needed for the
     application of 3.5. The translation preserves the "3 + 1" numeric form. -->
@@ -9934,7 +9933,7 @@ is a hyperplane section should not play a role, and should be replaceable by the
 $X - Y$ is Stein (i.e. in the case of Algebraic Geometry, $X$ is proper over $k$ and $X - Y$ affine; as we said, the
 homological version of this conjecture is demonstrated for algebraic spaces over the field $\mathbb{C}$)[^XIII-6-9].
 
-<!-- Editorial note: The source says "3.4" but the problems referenced are those of section 4 (4.2, 4.3). The reading
+<!-- editorial note: The source says "3.4" but the problems referenced are those of section 4 (4.2, 4.3). The reading
 "section 4" (or "no 4") is consistent with the surrounding discussion of Lefschetz-type problems and the conjectures
 A–D below; we have kept the source's "3.4" literally and flagged it. -->
 
@@ -10447,7 +10446,7 @@ hyperplane section.
 
 <!-- label: XIV -->
 
-> **Editorial note.** Per Raynaud's opening footnote, this Exposé adopts the modern terminology in which *scheme*
+> **editorial note.** Per Raynaud's opening footnote, this Exposé adopts the modern terminology in which *scheme*
 > denotes what Exposés I–XIII of SGA 2 called *prescheme*, and *separated scheme* denotes what they called *scheme*.
 > This Exposé therefore breaks with the prescheme/scheme convention used elsewhere in this translation; the shift is
 > deliberate and matches Raynaud's own.
@@ -13609,7 +13608,7 @@ conventions (e.g. `SGA 4 IV 3.8`).
   (`schéma`, in the older sense of separated prescheme). Exposé XIV, added in 1967 by Raynaud, explicitly adopts the
   modern usage in which *scheme* means what was previously called *prescheme*, and *separated scheme* means what was
   previously called *scheme*; her opening footnote announces this. The translation honors that per-Exposé split; a
-  Editorial note at the head of Exposé XIV recalls it.
+  editorial note at the head of Exposé XIV recalls it.
 
 - **Editor footnotes (N.D.E.)**. The 2005 LaTeX edition by Yves Laszlo *et al.* added footnotes (*Notes de l'éditeur*,
   abbreviated *N.D.E.*) recording corrections, updates, and the current status of questions raised in the original. In
@@ -13639,7 +13638,7 @@ the source: this English version exists to make the volume readable, not to repl
 # Glossary and Translation Ledger — SGA 2
 
 This file records the translation choices made for the SGA 2 Markdown translation. It is the authoritative reference for
-the parallel translators of individual Exposés; every translator must consult it before drafting and must obey it where
+the parallel editors of individual Exposes; the glossary should be consulted before drafting and must obey it where
 it applies.
 
 ## Core terminology
@@ -13674,7 +13673,7 @@ it applies.
 | sous-foncteur                              | subfunctor                                    | Standard.                                                                                                                                         |
 | catégorie dérivée $D^{+}(X)$               | derived category $D^{+}(X)$                   | Used principally in Exposé XIV.                                                                                                                   |
 | catégorie abélienne                        | abelian category                              | Standard.                                                                                                                                         |
-| limite projective / inductive              | inverse / direct limit                        | Modern English. Flag the SGA-era usage in a Editorial note on first occurrence per Exposé.                                                       |
+| limite projective / inductive              | inverse / direct limit                        | Modern English. Flag the SGA-era usage in a editorial note on first occurrence per Exposé.                                                       |
 | fibre                                      | fiber                                         | American spelling.                                                                                                                                |
 | spécialisation                             | specialization                                | American spelling.                                                                                                                                |
 | canonique                                  | canonical                                     | Do *not* translate as "natural" unless the source specifically appeals to naturality.                                                             |
@@ -13693,7 +13692,7 @@ it applies.
 | $H^{i}_{Y}(X, F)$ (sections with support)                   | $H^{i}_{Y}(X, F)$                                                                                                          | Global, non-underlined.                                                                                                                              |
 | $\mathcal{H}^{i}_{Y}(F)$ (sheafified, underlined in source) | $\mathcal{H}^{i}_{Y}(F)$                                                                                                   | Use the script-H Unicode $\mathcal{H}$ to mark the sheafified functor. Where OCR drops the underline, the surrounding French reveals which is meant. |
 | $\Gamma_{Z}$ (global sections with support in $Z$)          | $\Gamma_{Z}$                                                                                                               | Global, non-underlined functor.                                                                                                                      |
-| $\Gamma Z$ underlined (sheafified)                          | $\Gamma_{Z}$ (sheafified) — render as $\Gamma Z$ or $\Gamma_{Z}$ with a one-line typographic note at first use per Exposé. | The translator should pin the convention at first use in each Exposé.                                                                                |
+| $\Gamma Z$ underlined (sheafified)                          | $\Gamma_{Z}$ (sheafified) — render as $\Gamma Z$ or $\Gamma_{Z}$ with a one-line typographic note at first use per Exposé. | The convention should be pinned at first use in each Exposé.                                                                                |
 | sorite                                                      | sorites                                                                                                                    | Loanword, kept (per SGA 1).                                                                                                                          |
 | dévissage                                                   | dévissage                                                                                                                  | Loanword, kept.                                                                                                                                      |
 | Hartogs (phénomène de —)                                    | Hartogs phenomenon                                                                                                         | Standard.                                                                                                                                            |
@@ -13798,9 +13797,9 @@ Preserve modality exactly; do *not* upgrade certainty.
 
 ## Common OCR repairs
 
-These recur across the source files. Apply them locally as the translator reads each block; do not silently "correct"
+These recur across the source files. Apply them locally as the each block is read; do not silently "correct"
 the mathematics — only repair what the OCR clearly mangled, and flag anything genuinely ambiguous with a
-`<!-- Editorial note: ... -->` comment.
+`<!-- editorial note: ... -->` comment.
 
 - **Dropped sub/superscripts on big operators.** $\Gamma$, $H^{i}$, $Ext^{i}$, $R^{i} f_{*}$, `O_X`, $H^{\bullet}$,
   $H_{\bullet}$ routinely lose their indices. The surrounding French sentence almost always names them ("la cohomologie
@@ -14018,4 +14017,3 @@ $<Expos\acute{e} Roman> (p. <page>)$.
 | Samuel conjecture                                              | XI.3.14                 |
 | cohomological semi-purity theorem                              | XIV.1.10                |
 | strictly local ring                                            | XIII.6 (p. 151)         |
-

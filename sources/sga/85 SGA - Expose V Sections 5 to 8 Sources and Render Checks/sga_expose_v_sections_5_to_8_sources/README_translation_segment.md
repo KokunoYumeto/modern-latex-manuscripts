@@ -1,6 +1,6 @@
-# SGA Translation Batch 019
+# SGA Translation translation segment
 
-Fresh-only package. This batch translates the remaining part of SGA 4, Exposé V.
+source package. this translation segment translates the remaining part of SGA 4, Exposé V.
 
 ## Translated range
 
@@ -15,10 +15,10 @@ This completes the current working English LaTeX draft of SGA 4, Exposé V.
 
 ## Main files
 
-- `02_new_translation_latex/batch_019/SGA4_Expose_V_sections_5_to_8_en.tex`
-- `02_new_translation_latex/batch_019/SGA4_Expose_V_sections_5_to_8_en.pdf`
-- `05_source_extracts/batch_019/SGA4_Expose_V_sections_5_to_8_source_lines_1947_4410_fr.tex`
-- `04_render_checks/batch_019/SGA4_Expose_V_sections_5_to_8_render/`
+- `02_new_translation_latex/translation segment/SGA4_Expose_V_sections_5_to_8_en.tex`
+- `02_new_translation_latex/translation segment/SGA4_Expose_V_sections_5_to_8_en.pdf`
+- `05_source_extracts/translation segment/SGA4_Expose_V_sections_5_to_8_source_lines_1947_4410_fr.tex`
+- `04_render_checks/translation segment/SGA4_Expose_V_sections_5_to_8_render/`
 
 ## Render validation
 

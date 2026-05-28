@@ -1,4 +1,4 @@
-# Worklog Batch 018
+# Worklog translation segment
 
 Generated: 2026-05-27T18:13:51Z
 
@@ -13,8 +13,5 @@ Fresh material:
 - Section 4, "Acyclic sheaves".
 
 Packaging policy:
-- Fresh/new-only package, not cumulative.
-- Includes English TeX, rendered PDF, all rendered page PNGs, French source extract, compile log, PDF info, validation note, file list, and checksums.
 
-Continuation anchor:
-- SGA 4, Exposé V, Section 5, "The R^q u_* and the Cartan--Leray spectral sequence relative to a morphism of topoi", source line 1947 of `05/05.tex`.
+continuation point:

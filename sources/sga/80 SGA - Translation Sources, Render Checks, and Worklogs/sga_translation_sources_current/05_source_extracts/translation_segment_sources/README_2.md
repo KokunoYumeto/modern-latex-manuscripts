@@ -1,4 +1,4 @@
-# Batch 012 source extract
+# translation segment source extract
 
 French source range extracted from the Orgogozo/Laszlo SGA 4 TeX snapshot:
 

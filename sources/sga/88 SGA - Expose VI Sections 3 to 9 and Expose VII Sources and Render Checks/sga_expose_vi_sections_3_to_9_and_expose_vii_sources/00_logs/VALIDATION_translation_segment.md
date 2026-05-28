@@ -1,4 +1,4 @@
-# Validation - Batch 022
+# Validation - translation segment
 
 - Both TeX files compiled successfully with `pdflatex` in two passes.
 - Rendered PDFs:

@@ -1,4 +1,4 @@
-# SGA Translation Batch 018 — Fresh-only package
+# SGA Translation translation segment — source package
 
 This package contains new material only.
 
@@ -14,11 +14,10 @@ Source: `orgogozo_tex_sources/05/05.tex`, lines 370--1946.
 
 ## Main files
 
-- `02_new_translation_latex/batch_018/SGA4_Expose_V_sections_1_to_4_en.tex`
-- `02_new_translation_latex/batch_018/SGA4_Expose_V_sections_1_to_4_en.pdf`
-- `05_source_extracts/batch_018/SGA4_Expose_V_sections_1_to_4_source_lines_370_1946_fr.tex`
-- `04_render_checks/batch_018/SGA4_Expose_V_sections_1_to_4_render/`
+- `02_new_translation_latex/translation segment/SGA4_Expose_V_sections_1_to_4_en.tex`
+- `02_new_translation_latex/translation segment/SGA4_Expose_V_sections_1_to_4_en.pdf`
+- `05_source_extracts/translation segment/SGA4_Expose_V_sections_1_to_4_source_lines_370_1946_fr.tex`
+- `04_render_checks/translation segment/SGA4_Expose_V_sections_1_to_4_render/`
 
 ## Next anchor
 
-Continue at SGA 4, Exposé V, Section 5, source line 1947 of `05/05.tex`.

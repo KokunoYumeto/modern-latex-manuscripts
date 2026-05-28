@@ -1,6 +1,6 @@
 # SGA 3: Group Schemes
 
-> Consolidated from the jcreinhold LLM-generated Markdown snapshot included in the source package packet. Not mathematically proofed in this batch.
+> Consolidated from the jcreinhold LLM-generated Markdown snapshot included in the source package packet. Not mathematically proofed in this translation segment.
 
 
 
@@ -11507,7 +11507,7 @@ Then, by 4.35.1, one has:
 
 [Fr64] P. Freyd, *Abelian categories*, Harper and Row, 1964.
 
-<!-- Editorial note: The footnote bodies for N.D.E-III-65 through N.D.E-III-143 follow the same numbering scheme as the original; they record editorial additions, corrections, and clarifications. They are listed below for reference. -->
+<!-- editorial note: The footnote bodies for N.D.E-III-65 through N.D.E-III-143 follow the same numbering scheme as the original; they record editorial additions, corrections, and clarifications. They are listed below for reference. -->
 
 <!-- LEDGER DELTA — Exposé III — for consolidation in Phase 3
 | French | English | Note |
@@ -18334,7 +18334,7 @@ Grothendieck), Sém. Bourbaki, Vol. 9, Exp. 294 (1965), Soc. Math. France, 1995.
 | théorème de platitude générique | generic flatness theorem | Standard (EGA IV_2 6.9.3). |
 | schéma fini | finite scheme | Standard. |
 | schéma noethérien | Noetherian scheme | Capital N. |
-| « accents » | "accents" | Translator's note on Gabriel's use of primes vs. accents. |
+| « accents » | "accents" | editorial note on Gabriel's use of primes vs. accents. |
 | « pré-relations d'équivalence » | "pre-equivalence relations" | Guillemets in source → English quotation marks; coinage preserved. |
 -->
 
@@ -39282,7 +39282,7 @@ implications, which results from the corresponding relations between the topolog
             locally trivial ⇐    trivial
 ```
 
-<!-- Editorial note: original diagram is degraded by OCR; the implications are reconstructed from the surrounding text
+<!-- editorial note: original diagram is degraded by OCR; the implications are reconstructed from the surrounding text
 and from the standard implications between the five notions. -->
 
 From the practical point of view, let us point out at once that all the groups of multiplicative type we shall encounter
@@ -44513,7 +44513,7 @@ that one could also prove 4.2 directly by exactly the same method as 4.1.
 
 <!-- label: III.XI.4.3 -->
 
-<!-- Editorial note: In the source, the footnote (∗) is marked at this point of the text; the OCR has fused it with the
+<!-- editorial note: In the source, the footnote (∗) is marked at this point of the text; the OCR has fused it with the
 N.D.E. (4). They are rendered here as XI-4-1 and N.D.E-XI-4. -->
 
 Let us now prove 4.1. Since the functor $F$ is evidently of local nature, one may suppose $S$ affine, so that
@@ -45251,7 +45251,7 @@ over $S$. In particular, 6.11 a) remains valid by replacing the hypothesis "$H$ 
     and affine opens over $S$. This is theorem IX.9.26 in *Faisceaux amples sur les schémas en groupes et sur les
     espaces homogènes*, Lecture Notes Maths. 119 (1970).
 
-[^XI-4-2]: *Translator's note:* the French *tapis* is the standard SGA idiom for an underlying body of foundational
+[^XI-4-2]: *editorial note:* the French *tapis* is the standard SGA idiom for an underlying body of foundational
     results that one rolls out; "the general machinery of EGA IV §8" would be an equivalent rendering.
 
 [^XI-5-1]: The situation has changed since the writing of this text, cf. XV and XIX N° 6.
@@ -56262,7 +56262,7 @@ and $H$ is separated over $S$ (Exp. VI_A 0.3), one deduces immediately that $u =
 [^N.D.E-XVI-1]: N.D.E.: S. Koizumi & G. Shimura, Specialization of abelian varieties, *Sci. Papers Coll. Gen. Ed. Univ.
     Tokyo* **9** (1959), 187–211.
 
-[^XVI-1]: Editorial note: the source reads "1.2 a)" here, which appears to be a typo for "1.3 a)" (the connected-fiber
+[^XVI-1]: editorial note: the source reads "1.2 a)" here, which appears to be a typo for "1.3 a)" (the connected-fiber
     case of the immersion criterion stated and proved above).
 
 
@@ -75333,7 +75333,7 @@ Amer. Math. Soc., 1997).
     used in the previous section; here Demazure exploits the resulting formula
     $s_{\beta}(t_{\alpha}) = t_{\alpha} t^{-2}_{\beta} = t_{\alpha}$ (using $t^{2}_{\beta} = e$, which holds in `B_2`).
 
-    <!-- Editorial note: the source displays "(α^*, β) = 2"; this is a sign-convention discrepancy that does not
+    <!-- editorial note: the source displays "(α^*, β) = 2"; this is a sign-convention discrepancy that does not
     affect the conclusion `s_β(t_α) = t_α` since `t_β^{(α^*, β)}` is computed via the involution `t_β^2 = e`. -->
 
 [^N.D.E-XXIII-7]: N.D.E.: We introduce here absolute constants $A, B, \cdots, J$. These constants will be determined in
@@ -79516,7 +79516,7 @@ One then sets
 π((v, t, u), (v′, t′, u′)) = (v · ᵗv′′ t⁻¹, t t′′ t′, t′⁻¹ u′′ t′ · u′).
 ```
 
-<!-- Editorial note: source has `v · tv′′ t⁻¹` and `t′⁻¹ u′′ t′ · u′`; the leading `t` (resp. `t′⁻¹`) denotes conjugation, rendered here with a leading raised `ᵗ`/`t′⁻¹` to indicate the conjugation action. -->
+<!-- editorial note: source has `v · tv′′ t⁻¹` and `t′⁻¹ u′′ t′ · u′`; the leading `t` (resp. `t′⁻¹`) denotes conjugation, rendered here with a leading raised `ᵗ`/`t′⁻¹` to indicate the conjugation action. -->
 
 The verification of (i) is immediate (by 2.8 (ii)). To verify the condition in (iii) bearing on $\pi$, one sees that
 
@@ -79559,7 +79559,7 @@ section), one has:*
 Indeed, the two sides of each of these formulas define morphisms between smooth $\mathbb{Z}$-schemes of finite
 presentation, which coincide on the generic fibers, by 2.10 (iii).
 
-<!-- Editorial note: source says "par 2.10 (iii)" but the reference should be to 2.9 (iii); kept as in source. -->
+<!-- editorial note: source says "par 2.10 (iii)" but the reference should be to 2.9 (iii); kept as in source. -->
 
 **Corollary 2.11.** *Let $\alpha \in R$. For all $S$ and all $x, y \in \mathbb{G}_{a}(S)$ such that
 $(p_{\alpha}(x), p_{-\alpha}(y)) \in V_{1}(S)$ and $1 + xy \in \mathbb{G}_{m}(S)$ (which defines an open subset of
@@ -80842,7 +80842,7 @@ figure):
 
 *Figure 3.15.1.*
 
-<!-- Editorial note: The cube diagram in the source has many visual lines/arrows that are difficult to render in plain text; the labels and key adjacencies are preserved above. -->
+<!-- editorial note: The cube diagram in the source has many visual lines/arrows that are difficult to render in plain text; the labels and key adjacencies are preserved above. -->
 
 <!-- original page 451 -->
 
@@ -82815,7 +82815,7 @@ Let $P \supset Q$ be as above. Consider the relative root datum (7.5) of $G$ ove
 f : (M, M^*, R, R^*, R^+) ⥲ (M, M^*, R, R^*, R^+).
 ```
 
-<!-- Editorial note: The source writes f as an automorphism of (M, M^*, R, R^*, R^+) with itself; presumably the identifications are over different bases or models. -->
+<!-- editorial note: The source writes f as an automorphism of (M, M^*, R, R^*, R^+) with itself; presumably the identifications are over different bases or models. -->
 
 The set $\Delta$ of simple roots of $R^{+}$ is transformed into the set $\Delta$ of simple roots of $R^{+}$, hence every
 subset $A$ of $\Delta$ into a subset $f(A) \subset \Delta$.
@@ -83322,7 +83322,7 @@ matters mathematically, consult the source: this English version exists to make 
 # Glossary and Translation Ledger — SGA 3
 
 This file records the translation choices made for the SGA 3 Markdown translation. It is the authoritative reference for
-the parallel translators of individual Exposés; every translator must consult it before drafting and must obey it where
+the parallel editors of individual Exposes; the glossary should be consulted before drafting and must obey it where
 it applies.
 
 ## Core terminology
@@ -83605,7 +83605,7 @@ Each translated Exposé file ends with a fenced HTML-comment block titled `LEDGE
 terminology choices that the translator encountered beyond what this glossary already covers. Those deltas are kept in
 place at the foot of each Exposé rather than copied here, both to preserve the audit trail and because consolidating the
 deltas (which span ~500–1,500 terms across the 26 Exposés) into a single table would make the glossary harder to scan
-than the per-Exposé tables. A future review pass pass may de-duplicate the most cross-cutting entries (e.g. *dévissage*, the
+than the per-Exposé tables. A future editorial review pass may de-duplicate the most cross-cutting entries (e.g. *dévissage*, the
 `prescheme`/`scheme` split, Demazure's *épinglage* → *pinning*, Bertin's "anti-affine" envelope) into the tables above;
 until then, consult the deltas in the Exposé files for the authoritative per-Exposé terminology choices.
 
@@ -84133,4 +84133,3 @@ A combined index of notation and terminology for Tome III. Page numbers refer to
 | $Z_{\alpha}$                                                   | 7                                           |
 | $Z(R)$                                                         | 98                                          |
 | $Z^{1}(S'/S, G)$                                               | 262                                         |
-

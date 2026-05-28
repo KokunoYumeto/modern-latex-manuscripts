@@ -1,4 +1,4 @@
-# Worklog - Batch 017 fresh-only
+# Worklog - translation segment fresh-only
 
 Continued SGA 4 after Expose IV.
 
@@ -9,4 +9,3 @@ Translated range:
 - Section 0, "Generalities on abelian categories", through Exercise 0.5.2
 - Source extract: Orgogozo--Laszlo TeX snapshot, `05/05.tex`, lines 57--369
 
-Package is fresh/new-only, not cumulative.

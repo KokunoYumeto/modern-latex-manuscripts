@@ -1,6 +1,4 @@
-# SGA Translation Batch 016 - fresh/new-only package
 
-This package changes the delivery policy from cumulative ZIPs to fresh/new-only ZIPs because the previous cumulative package was too large to download reliably in the review session.
 
 Contents:
 

@@ -8,7 +8,7 @@ The source package packet contains four distinct classes of material.
 
 First, it contains baseline French sources for SGA 1--4. SGA 1 and SGA 2 have modern French TeX/PDF sources from arXiv; SGA 3 has modern reference PDFs but no raw French TeX found in the prior pass; SGA 4 has the Orgogozo/Laszlo French TeX source. The packet metadata states that no clear public English translation was found for SGA 4.
 
-Second, it contains public English translation attempts for SGA 1--3. The most complete of these is the jcreinhold Markdown snapshot, described in its own README as an LLM-generated English translation of SGA 1, SGA 2, and SGA 3. Those translations were converted in this batch into standalone LaTeX files, without mathematical proofreading and without claiming final editorial status.
+Second, it contains public English translation attempts for SGA 1--3. The most complete of these is the jcreinhold Markdown snapshot, described in its own README as an LLM-generated English translation of SGA 1, SGA 2, and SGA 3. Those translations were converted in this translation segment into standalone LaTeX files, without mathematical proofreading and without claiming final editorial status.
 
 Third, it contains partial public SGA 1 material from the jmoellermath repository and partial SGA 1/SGA 6 material from the thosgood repository. These should be used as secondary comparison material, not as the project baseline, because the source package status file says they are partial.
 
@@ -31,7 +31,7 @@ The register is modern mathematical English with SGA structure preserved. The tr
 
 Use `Exposé` as the structural unit, not `Chapter`, because it is a canonical SGA reference form. In running prose, `exposé` may be translated as `lecture` only when the word is not acting as a formal label.
 
-Use `scheme` for `préschéma` except where the historical distinction is itself under discussion. If a section depends on the original EGA convention that `scheme` means a separated prescheme, add a translator's note or keep `prescheme` locally. In SGA 4 and SGA 5 foundations, this policy avoids burdening the reader with obsolete terminology while preserving precision where necessary.
+Use `scheme` for `préschéma` except where the historical distinction is itself under discussion. If a section depends on the original EGA convention that `scheme` means a separated prescheme, add a editorial note or keep `prescheme` locally. In SGA 4 and SGA 5 foundations, this policy avoids burdening the reader with obsolete terminology while preserving precision where necessary.
 
 Use American mathematical spelling consistently: `fiber`, `fibered`, `neighbor`, `analyze`; but keep established French-derived terms with accents where standard, e.g. `étale`.
 
@@ -91,7 +91,7 @@ Recommended top matter:
 % Volume: SGA n
 % Expose: ...
 % Source: ...
-% Range translated in this batch: ...
+% Range translated in this translation segment: ...
 % Status: draft translation, not proofed against scan
 ```
 
@@ -125,7 +125,7 @@ Fourth, a compile check: run LaTeX or at minimum a syntax pass. If full compilat
 
 ## 7. Batch sequencing
 
-Batch 001 created in this session contains:
+translation segment created in this session contains:
 
 - provisional LaTeX consolidation of the existing SGA 1--3 English Markdown translations;
 - a new draft translation of SGA 4, Exposé I, opening through Proposition 1.4;

@@ -1,4 +1,4 @@
-# Validation Batch 024
+# Validation translation segment
 
 - Final TeX compiled with `pdflatex` in two passes.
 - Final PDF page count: 52 pages.

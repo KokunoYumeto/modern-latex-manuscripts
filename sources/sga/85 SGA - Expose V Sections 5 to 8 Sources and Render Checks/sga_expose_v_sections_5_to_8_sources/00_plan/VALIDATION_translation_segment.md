@@ -1,8 +1,8 @@
-# Validation - Batch 019
+# Validation - translation segment
 
 ## Compile
 
-Command run from `02_new_translation_latex/batch_019/`:
+Command run from `02_new_translation_latex/translation segment/`:
 
 ```bash
 pdflatex -interaction=nonstopmode -halt-on-error SGA4_Expose_V_sections_5_to_8_en.tex

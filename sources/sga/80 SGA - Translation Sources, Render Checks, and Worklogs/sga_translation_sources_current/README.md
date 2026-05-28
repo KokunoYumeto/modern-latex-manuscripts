@@ -1,18 +1,18 @@
-# SGA Translation Package - Cumulative Batch 012
+# SGA Translation Package - Cumulative translation segment
 
 Generated: 2026-05-27
 
-This package is cumulative through Batch 012.
+This package is cumulative through translation segment.
 
-Fresh work in Batch 012:
+Fresh work in translation segment:
 
 - SGA 4, Exposé IV, "Topoi," from the opening through Section 6.10.
 - Sections covered: Introduction; Definition and characterization of topoi; Examples of topoi; Morphisms of topoi; Examples of morphisms of topoi; Induced topoi; Points of a topos and fiber functors.
 
 Main fresh file:
 
-- `02_new_translation_latex/batch_012/SGA4_Expose_IV_sections_0_to_6_10_en.tex`
-- `02_new_translation_latex/batch_012/SGA4_Expose_IV_sections_0_to_6_10_en.pdf`
+- `02_new_translation_latex/translation segment/SGA4_Expose_IV_sections_0_to_6_10_en.tex`
+- `02_new_translation_latex/translation segment/SGA4_Expose_IV_sections_0_to_6_10_en.pdf`
 
 Main cumulative reader PDFs:
 
@@ -33,8 +33,8 @@ Audit and verification material:
 - `00_plan/VALIDATION_BATCH_012.md`
 - `00_plan/COVERAGE_BATCH_012.csv`
 - `00_plan/PDFINFO_BATCH_012_fresh_and_cumulative.txt`
-- `04_render_checks/batch_012/`
-- `05_source_extracts/batch_012/SGA4_Expose_IV_sections_0_to_6_10_source_lines_1_4120_fr.tex`
+- `04_render_checks/translation segment/`
+- `05_source_extracts/translation segment/SGA4_Expose_IV_sections_0_to_6_10_source_lines_1_4120_fr.tex`
 
 Carried-forward material:
 
@@ -45,8 +45,8 @@ Carried-forward material:
 
 Status caveat:
 
-The fresh Batch 012 material is compile-checked and rendered, but it remains a working translation draft pending independent mathematical proofing against the source.
+The fresh translation segment material is compile-checked and rendered, but it remains a working translation draft pending independent mathematical proofing against the source.
 
-## Batch 013 update
+## translation segment update
 
 This cumulative package adds SGA 4, Exposé IV, Sections 7--8.8 and updates the cumulative SGA 4 progress reader through Exposé IV 8.8. It also includes rendered PDF checks for the fresh file and cumulative join/final pages.

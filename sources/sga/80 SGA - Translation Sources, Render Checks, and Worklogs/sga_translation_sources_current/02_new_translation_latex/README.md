@@ -1,4 +1,4 @@
-# New draft translations, batch 001
+# New draft translations, translation segment
 
 These files are fresh draft translations from the French TeX sources included in the source package packet.
 

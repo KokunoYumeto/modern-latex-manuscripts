@@ -1,4 +1,4 @@
-# Validation - Batch 017 fresh-only
+# Validation - translation segment fresh-only
 
 - TeX compiled with `pdflatex` twice without fatal errors.
 - Rendered PDF pages to PNG for visual checking.

@@ -1,4 +1,4 @@
-# Worklog - Batch 023
+# Worklog - translation segment
 
 Fresh-only translation batch for the SGA translation project.
 
@@ -12,7 +12,7 @@ Translated range:
 
 Primary reader PDF:
 
-- `02_new_translation_latex/batch_023/SGA4_Exposes_VIII_to_XII_5_11_en.pdf`
+- `02_new_translation_latex/translation segment/SGA4_Exposes_VIII_to_XII_5_11_en.pdf`
 
 Build notes:
 
@@ -21,6 +21,5 @@ Build notes:
 - Rendered every page of the final 51-page PDF to PNG at 140 DPI for visual checking.
 - Source extracts are included for the translated French ranges.
 
-Continuation anchor:
+continuation point:
 
-- SGA 4, Expose XII, Section 6, "First reductions", source line 785 of `12/12.tex`.

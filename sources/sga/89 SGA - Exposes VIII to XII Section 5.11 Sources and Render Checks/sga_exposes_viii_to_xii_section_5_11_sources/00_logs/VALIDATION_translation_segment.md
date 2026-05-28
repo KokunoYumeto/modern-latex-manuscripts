@@ -1,4 +1,4 @@
-# Validation - Batch 023
+# Validation - translation segment
 
 Final reader PDF: `SGA4_Exposes_VIII_to_XII_5_11_en.pdf`.
 
@@ -18,7 +18,7 @@ The second pass reports:
 
 Rendering:
 
-- Full-page render checks are in `04_render_checks/batch_023/SGA4_Exposes_VIII_to_XII_5_11_render/`.
+- Full-page render checks are in `04_render_checks/translation segment/SGA4_Exposes_VIII_to_XII_5_11_render/`.
 - There are 51 PNG render files, one for each page.
 - Visual samples checked: page 1, page 33, page 35, and page 51.
 

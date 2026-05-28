@@ -1,4 +1,4 @@
-# Worklog - batch 004
+# Worklog - translation segment
 
 This output continues the SGA translation project and implements the user's cumulative-packaging instruction.
 
@@ -25,6 +25,5 @@ A flat convenience directory, `06_all_rendered_pdfs/`, contains copies of every 
 
 The SGA 1-3 PDFs are readable preview renders generated from existing Markdown snapshots. They are not full proofed mathematical typesettings; displayed formulae may remain as source-like text in places. The new SGA 4 translations are LaTeX-authored and compile-checked.
 
-## Next continuation anchor
+## Next continuation point
 
-SGA 4, Expose I, Section 8.9, "Exactness properties of Ind(C)", source line 4626.

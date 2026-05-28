@@ -1,4 +1,4 @@
-# Validation - batch 004
+# Validation - translation segment
 
 - The new Section 8.1-8.6 LaTeX file was compiled with pdflatex and rendered completely to PNG.
 - The new Section 8.7-8.8 LaTeX file was compiled with pdflatex and rendered completely to PNG.

@@ -1,12 +1,12 @@
-# Validation - Batch 009
+# Validation - translation segment
 
 ## LaTeX compilation
 
-Fresh Batch 009 TeX compiled successfully with `pdflatex` in two passes.
+Fresh translation segment TeX compiled successfully with `pdflatex` in two passes.
 
 Fresh PDF:
 
-- `02_new_translation_latex/batch_009/SGA4_Expose_II_opening_sections_1_to_2_7_en.pdf`
+- `02_new_translation_latex/translation segment/SGA4_Expose_II_opening_sections_1_to_2_7_en.pdf`
 - Page count: 6
 
 Cumulative SGA 4 Expose II PDF:
@@ -23,8 +23,8 @@ Combined SGA 4 progress PDF:
 
 Rendered PNG checks are included under:
 
-- `04_render_checks/batch_009/SGA4_Expose_II_opening_sections_1_to_2_7_render/`
-- `04_render_checks/batch_009/SGA4_translation_progress_Expose_I_complete_and_Expose_II_to_2_7_sample_render/`
+- `04_render_checks/translation segment/SGA4_Expose_II_opening_sections_1_to_2_7_render/`
+- `04_render_checks/translation segment/SGA4_translation_progress_Expose_I_complete_and_Expose_II_to_2_7_sample_render/`
 
 The fresh PDF was rendered pagewise. Pages 1, 4, and 6 were visually inspected for clipped text, formula rendering, and page-boundary problems. The combined progress PDF was sample-rendered at the Expose I/Expose II join and at the final page.
 
