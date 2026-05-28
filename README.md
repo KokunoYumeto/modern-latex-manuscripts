@@ -4,6 +4,14 @@ This repository is a lightweight, forkable working mirror for the public manuscr
 
 The archival source of record is Zenodo; this GitHub mirror keeps the editable TeX, public metadata, manifests, and small reader PDFs together so people can fork, inspect, correct, and contribute without downloading multi-gigabyte raw archives.
 
+## Start Here
+
+- Browse `reader-pdfs/` when you want the current readable PDFs.
+- Browse `sources/` when you want editable TeX or source packets to correct.
+- Browse `manifests/` and `zenodo-metadata/` when you want record status, file inventories, and public archive metadata.
+- Open a GitHub issue when a PDF renders badly, a source witness is missing, or a theorem/reference/translation error is visible.
+- Open a pull request when you have a focused correction to TeX, translation, numbering, or metadata.
+
 ## Current Public Records
 
 - Main landing page: https://zenodo.org/records/20415117
@@ -24,6 +32,10 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 - `sources/weber-noether/`: current Weber and Noether translation TeX.
 - `sources/non-european/`: extracted TeX material from the current non-European corpus source bundle, including combined language/corpus TeX and work-level source bundles.
 - `reader-pdfs/`: small current reader PDFs for quick inspection. Large scans and raw archives live on Zenodo.
+- `reader-pdfs/ega/`: current EGA working English reader.
+- `reader-pdfs/sga/`: SGA translation snapshots, SGA 4 current readers, SGA 5 opening material, and French reference PDFs.
+- `reader-pdfs/weber/`: Weber modern LaTeX readers and current English translation reader.
+- `reader-pdfs/noether/`: Noether modern LaTeX reader and current English translation reader.
 - `reader-pdfs/non-european/`: current work-level and combined reader PDFs for the non-European corpus, with human-readable file names matching the public archive.
 - `zenodo-metadata/`: public-facing metadata JSON used for the current records.
 - `manifests/`: upload manifests and public summaries.
