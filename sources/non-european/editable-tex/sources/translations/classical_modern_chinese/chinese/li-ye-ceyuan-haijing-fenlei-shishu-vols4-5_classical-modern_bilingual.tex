@@ -1,0 +1,1833 @@
+% ===================================================================
+% 测圆海镜分类释术 卷四至卷五 —— 文言文/白话文双语对照版
+% Ceyuan Haijing Fenlei Shishu, Volumes 4-5
+% Classical Chinese — Modern Chinese Bilingual Edition
+% ===================================================================
+\documentclass[10pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow,colortbl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{lineno}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=12mm,right=12mm,top=22mm,bottom=22mm,
+  headheight=14pt,footskip=20pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic,
+  BoldItalicFont=* Bold Italic
+]{Noto Serif}
+\setsansfont[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic
+]{Noto Sans}
+\setmonofont{DejaVu Sans Mono}
+
+%% CJK Support via xeCJK — use specified font path
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKmonofont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{volcolor}{RGB}{80,40,20}
+\definecolor{leftbg}{RGB}{255,253,248}
+\definecolor{rightbg}{RGB}{248,252,255}
+\definecolor{classicalcolor}{RGB}{60,30,10}
+\definecolor{moderncolor}{RGB}{10,40,60}
+\definecolor{separatorcolor}{RGB}{160,140,120}
+
+%% -------- Column Separator --------
+\setlength{\columnseprule}{0.6pt}
+\def\columnseprulecolor{\color{separatorcolor}}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{volcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{classicalcolor}{文言文}\quad\textcolor{separatorcolor}{$\blacktriangleright$}\quad\textcolor{moderncolor}{白话文}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% Bilingual section headers
+\newcommand{\bilingualsection}[2]{%
+  \section*{#1}
+  \addcontentsline{toc}{section}{#1（#2）}
+}
+
+%% Parallel problem commands
+%% LEFT = Classical Chinese
+%% RIGHT = Modern Chinese
+
+\newcounter{probnum}
+\newcounter{probnumvol}[section]
+
+\renewcommand{\theprobnum}{\arabic{probnum}}
+\renewcommand{\theprobnumvol}{\arabic{probnumvol}}
+
+\newcommand{\chnum}[1]{%
+  \ifcase#1 零\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\or
+    十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\or 十九\or 二十\or
+    二十一\or 二十二\or 二十三\or 二十四\or 二十五\fi}
+
+%% Problem header (spans both columns)
+\newcommand{\problemclassical}[1]{%
+  \stepcounter{probnumvol}%
+  \par\noindent
+  \textcolor{classicalcolor}{\textbf{第\chnum{\value{probnumvol}}问：}}#1\par\smallskip
+}
+
+%% Modern Chinese problem
+\newcommand{\problemmodern}[1]{%
+  \par\noindent
+  \textcolor{moderncolor}{\textbf{第\chnum{\value{probnumvol}}题（白话）：}}#1\par\smallskip
+}
+
+%% Answer - classical
+\newcommand{\answerclassical}[1]{%
+  \par\noindent\textcolor{classicalcolor}{\textbf{答：}}#1\par
+}
+
+%% Answer - modern
+\newcommand{\answermodern}[1]{%
+  \par\noindent\textcolor{moderncolor}{\textbf{答案：}}#1\par
+}
+
+%% Shiyi - classical
+\newcommand{\shiyiclassical}[1]{%
+  \par\noindent\textcolor{classicalcolor}{\textbf{释曰：}}#1\par
+}
+
+%% Shiyi - modern
+\newcommand{\shiyimodern}[1]{%
+  \par\noindent\textcolor{moderncolor}{\textbf{题意解释：}}#1\par
+}
+
+%% Shuyue - classical
+\newcommand{\shuyueclassical}[1]{%
+  \par\noindent\textcolor{classicalcolor}{\textbf{术曰：}}#1\par
+}
+
+%% Shuyue - modern
+\newcommand{\shuyuemodern}[1]{%
+  \par\noindent\textcolor{moderncolor}{\textbf{解法说明：}}#1\par
+}
+
+%% Column headers
+\newcommand{\leftheader}{%
+  \begin{center}\textcolor{classicalcolor}{\small\textbf{———— 文言文原文 ————}}\end{center}
+  \vspace{0.2cm}
+}
+\newcommand{\rightheader}{%
+  \begin{center}\textcolor{moderncolor}{\small\textbf{———— 白话文译文 ————}}\end{center}
+  \vspace{0.2cm}
+}
+
+%% Volume/class header - classical
+\newcommand{\volheaderclassical}[1]{%
+  \begin{center}{\large\bfseries\color{volcolor} #1}\end{center}
+  \vspace{0.3cm}
+  \longline
+  \vspace{0.3cm}
+}
+
+%% Volume/class header - modern
+\newcommand{\volheadermodern}[1]{%
+  \begin{center}{\large\bfseries\color{volcolor} #1}\end{center}
+  \vspace{0.3cm}
+  \longline
+  \vspace{0.3cm}
+}
+
+%% End marker - classical
+\newcommand{\endclassical}[1]{%
+  \vspace{0.3cm}
+  \begin{center}\textit{#1}\end{center}
+}
+
+%% End marker - modern
+\newcommand{\endmodern}[1]{%
+  \vspace{0.3cm}
+  \begin{center}\textit{#1}\end{center}
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={测圆海镜分类释术卷四至卷五 —— 文言文白话文双语对照版},
+  pdfauthor={元 李冶 撰；明 顾应祥 释术}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% -------- Paracol Settings --------
+\columnratio{0.50,0.50}
+
+%% ===================================================================
+
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+%% ===================================================================
+%% TITLE PAGE
+%% ===================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{12}{16}\selectfont 钦定四库全书荟要}
+
+\vspace{0.8cm}
+
+{\fontsize{11}{14}\selectfont 子部}
+
+\vspace{1.5cm}
+
+\rule{0.75\textwidth}{1.5pt}
+
+\vspace{0.8cm}
+
+{\fontsize{24}{30}\selectfont\bfseries\color{titlecolor} 测圆海镜分类释术}
+
+\vspace{0.4cm}
+
+{\fontsize{14}{19}\selectfont 卷四至卷五}
+
+\vspace{0.3cm}
+
+{\fontsize{11}{15}\selectfont\color{moderncolor} 文言文 / 白话文 双语对照版}
+
+\vspace{0.8cm}
+
+\rule{0.75\textwidth}{1.5pt}
+
+\vspace{1.5cm}
+
+{\fontsize{12}{16}\selectfont
+\begin{tabular}{rl}
+\textcolor{classicalcolor}{原文} & 元\quad 李冶\quad 撰 \\
+& 明\quad 顾应祥\quad 释术 \\[0.5em]
+\textcolor{moderncolor}{译文} & 现代汉语白话文译注 \\
+\end{tabular}
+}
+
+\vspace{2cm}
+
+{\fontsize{10}{14}\selectfont\color{notecolor}
+\begin{tabular}{rl}
+卷四：通勾与别弦测望类 & （寄术：辅助求解方法）\\
+卷五：通股与别弦测望类 & （杂术：混合求解方法）\\
+\end{tabular}
+}
+
+\vfill
+
+{\small 依《钦定四库全书荟要》乾隆御览本}
+
+\vspace{0.3cm}
+
+{\small\color{moderncolor} 白话文翻译供现代读者参考}
+
+\end{center}
+\end{titlepage}
+
+%% ===================================================================
+%% TABLE OF CONTENTS
+%% ===================================================================
+\tableofcontents
+\newpage
+
+%% ===================================================================
+%% INTRODUCTION
+%% ===================================================================
+\section*{引言 / 前言}
+\addcontentsline{toc}{section}{引言 / 前言}
+
+\begin{paracol}{2}
+
+\leftheader
+
+《测圆海镜分类释术》十卷，元李冶撰，明顾应祥释术。李冶字仁卿，号敬斋，真定栾城人，金末进士，入元官翰林学士。著有《测圆海镜》十二卷，乃天元术之杰作。明顾应祥字惟贤，号箬溪，长兴人，弘治间进士，官至刑部尚书，以数学名家。顾氏嫌原书以天元术立算，学者难晓，乃为之分类释术，以浅显之语释其算法，使学者易于入门。
+
+本编收录卷四、卷五二卷：
+\begin{itemize}[leftmargin=1em,itemsep=0pt]
+  \item \textbf{卷四}：通勾与别弦测望、通勾与上高弦测望、明勾与别弦测望、底勾与别弦测望、底勾与下平弦测望、明勾与上平弦测望、大差勾与别弦测望等类
+  \item \textbf{卷五}：通股与别弦测望、边股与别弦测望、明股与别弦测望、底股与别弦测望、皇极弦与别勾测望、皇极弦与别股测望等类
+\end{itemize}
+
+书中设问之例：假令有圆城一座，甲乙二人各从城门出行，或东或南，行若干步，遥望见，或斜行相会。只知若干步数，余皆不知，以求圆城之径。每问皆有\textbf{问}、\textbf{释}、\textbf{术}三部分。
+
+\switchcolumn
+
+\rightheader
+
+《测圆海镜分类释术》全书共十卷，由元代数学家李冶原著，明代顾应祥分类解释。李冶字仁卿，号敬斋，真定栾城（今河北栾城）人，金代末年进士，入元后任翰林学士。著有《测圆海镜》十二卷，是中国古代"天元术"（设未知数列方程的方法）的杰出代表作。明代顾应祥字惟贤，号箬溪，长兴（今浙江长兴）人，弘治年间进士，官至刑部尚书，是明代著名数学家。顾氏嫌原书使用天元术列算式，学者难以明白，于是对全书进行分类解释，用通俗易懂的语言解释算法，使学习者容易入门。
+
+本编收录卷四、卷五：
+\begin{itemize}[leftmargin=1em,itemsep=0pt]
+  \item \textbf{卷四}：以大直角边（通勾）配合各类弦线测量圆城直径的问题，包括通勾与别弦测望、通勾与上高弦测望、明勾与别弦测望、底勾与别弦测望等十余类
+  \item \textbf{卷五}：以大直角边（通股）配合各类弦线测量圆城直径的问题，包括通股与别弦测望、边股与别弦测望、明股与别弦测望、底股与别弦测望等十余类
+\end{itemize}
+
+书中问题的设定：假设有一座圆形城池，甲、乙两人分别从城门出发，一人向东行，一人向南行，各走若干步后互相望见，或斜向行走会合。只告知若干步数，其余未知，要求算出圆城的直径。每道题都分为\textbf{问}（提问）、\textbf{释}（解释题意）、\textbf{术}（给出算法步骤）三部分。
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\newpage
+
+
+%% ===================================================================
+%% VOLUME 4
+%% ===================================================================
+\section{测圆海镜分类释术卷四}
+\label{sec:vol4}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通勾与别弦测望类}
+
+\noindent\textbf{【卷四总说】}卷四论「通勾与别弦测望」之类。所谓通勾，乃勾股形之通勾，即大勾也；别弦者，诸弦之别名，如上高弦、下高弦、明弦、底弦、下平弦之类。凡此类问题，皆以通勾为基，配以各类弦法，求圆城之径。
+
+\switchcolumn
+
+\volheadermodern{通勾与别弦测望类}
+
+\noindent\textbf{【卷四总说（白话）】}卷四讨论"以大直角边（通勾）配合各类弦线测量"的类型。所谓通勾，是指直角三角形中较大的那条直角边；别弦则是各类弦线的别名，如上高弦、下高弦、明弦、底弦、下平弦等。这类问题都以通勾为基础，配合各类弦线的方法，来求圆城的直径。
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 1, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{圆城南门之南有树，甲从城外西北乾隅东行三百二十步，乙出西门南行望树及甲与城相参直，乃斜行二百五十步至树下。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾上高弦立法测望，甲东行通勾也，乙出东门南行不知步数而立，甲出北门东行二百步望见乙，斜行乃天上高弦也，乙从西门南行四百八十步为边股，树在南门外一百三十五步为明股。}
+
+\shuyueclassical{二行相乘又以半甲东行乘之，得一千三百〇五万六千为立方实。二行相乘得八万一千六百，半甲东行乘甲东行得五万一千二百，并得一十三万二千八百为益从。甲东行三百二十步为减从廉。作带从以廉减从开立方，曰布实于左，从于右，别置以减原从，余六万二千四百。置一乘廉法得六千四百带余从，共九万八千八百为下法，与上法相乘除实，尽得半径一百二十。后凡言带从以廉减从开立方法者，仿此。}
+
+\switchcolumn
+
+\problemmodern{圆城南门的南面有一棵树。甲从城外西北角（乾隅）向东行走三百二十步停下，乙从西门出发向南行走，远望树和甲，看到树、甲与圆城恰好成一条直线，于是斜向行走二百五十步到达树下。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与上高弦"的方法进行测量计算。甲向东行走的距离就是通勾（大直角边），乙从东门出发向南行走的步数未知。甲从北门向东行走二百步望见乙，斜向行走的距离就是上高弦。乙从西门向南行走四百八十步称为边股，树在南门外一百三十五步称为明股。}
+
+\shuyuemodern{将两个已知数（甲东行三百二十步与斜行二百五十步）相乘，再乘以甲东行步数的一半（一百六十步），得到一千三百零五万六千，作为开立方的被除数（实）。两数相乘得八万一千六百，半东行数乘东行数得五万一千二百，相加得十三万二千八百，作为"益从"（正系数）。甲东行的三百二十步作为"减从廉"（待减的廉数）。使用带从开立方的方法：将被除数列在左边，系数列在右边，另设减数去减原从数，余六万二千四百。设一乘廉法得六千四百，加上余从，共九万八千八百作为下法，与上法相乘来除实数，除尽后得半径一百二十步。后面凡是说"带从以廉减从开立方"的方法，都仿照此法。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 1, Problem 2 ---
+\begin{paracol}{2}
+
+\problemclassical{甲从城外西北乾隅东行三百二十步而立，乙出南门直行不知步数，望见甲与城相参直，遂斜行四百二十五步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾明弦立法测望，甲东行通勾也，乙南行明股也，斜行明弦也。}
+
+\shuyueclassical{减从廉，约初商得一百，置一于左上为法。置一乘从廉得三万二千，以减从方余一十〇八百。置一自之得一万，并余从共一十一万〇八百为下法，与上法相乘除实一千一百〇八万，余一百九十七万六千。倍减廉得六万四千，三因隅法得三万为方法，三因初商得三百为廉法。约次商得二十，置一于左次为上法。置一乘减廉得六千四百，并倍廉共七万〇四百。千二百与差乘通勾之数相减，余一万七千六百为从方。倍东行得六百四十步为益廉，作带从减益廉开立方法除之，得半径。}
+
+\switchcolumn
+
+\problemmodern{甲从城外西北角（乾隅）向东行走三百二十步停下，乙从南门出发向南行走（步数未知），望见甲与圆城成一条直线，于是斜向行走四百二十五步与甲会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与明弦"的方法进行测量计算。甲向东行走的距离就是通勾（大直角边），乙向南行走的距离是明股，斜向行走的距离是明弦。}
+
+\shuyuemodern{先设减从廉，约得初商为一百，将其置于左上作为法数。一乘从廉得三万二千，用来减从方，余十万零八百。一自乘得一万，加上余从共十一万零八百作为下法，与上法相乘除实一千一百零八万，余一百九十七万六千。倍减廉得六万四千，三乘隅法得三万作为方法，三乘初商得三百作为廉法。约得次商为二十，置于左次作为上法。一乘减廉得六千四百，加上倍廉共七万零四百。一千二百与差乘通勾之数相减，余一万七千六百作为从方。倍东行数得六百四十步作为益廉，使用带从减益廉开立方的方法计算，得到半径。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 1, Problem 3 ---
+\begin{paracol}{2}
+
+\problemclassical{圆城南门外有槐树一株，东门外有柳树一株，两树斜相距二百八十九步。甲从城外西北隅向东行三百二十步，望槐柳与城相参直。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾皇极弦立法测望，甲东行通勾也，两树斜相距皇极弦也。原法先求出皇极勾，即柳至城心步，后以勾弦求股，以皇极勾股求容圆，即是。}
+
+\shuyueclassical{通勾与皇极弦相乘，得九万二千四百八十自之，得八十五亿五千二百五十五万〇四百为三乘方实。皇极弦自之得八万三千五百二十一为皇极弦幂，以通勾乘之得二千六百七十二万四千七百二十，倍之得五千三百四十五万三千四百四十为从方。倍通勾皇极弦相乘之数得一十八万四千九百六十为第一从廉。倍皇极弦得五百七十八为第二益廉。以二为隅算，作带从廉负隅，以廉隅添积开三乘方法除之，得一百三十六为皇极勾。又以皇极弦自之得八万三千五百二十一为三乘方实，以通勾乘皇极弦得九万二千四百八十为从方，倍之得一十八万四千九百六十。以皇极勾减通勾余一百八十四为第一益廉，皇极勾一百三十六为第二益廉。开三乘方得二百八十九为皇极弦。以皇极弦幂减皇极勾幂，余开平方得二百五十五为皇极股。以皇极勾股相乘，又以二之得六万九千三百六十为实，皇极弦二百八十九为法，除之得二百四十为全径。}
+
+\switchcolumn
+
+\problemmodern{圆城南门外有一棵槐树，东门外有一棵柳树，两棵树斜向相距二百八十九步。甲从城外西北角向东行走三百二十步，望见槐树、柳树与圆城恰好成一条直线。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与皇极弦"的方法进行测量计算。甲向东行走的距离就是通勾（大直角边），两棵树斜向相距的距离就是皇极弦。原方法先求出皇极勾（即柳树到城中心的距离），然后用勾弦求股，再以皇极勾股求容圆直径，即为所求。}
+
+\shuyuemodern{通勾（三百二十步）与皇极弦（二百八十九步）相乘，得九万二千四百八十；再自乘，得八十五亿五千二百五十五万零四百，作为四次方程（三乘方）的常数项（实）。皇极弦自乘得八万三千五百二十一，为皇极弦的平方（幂），以通勾乘之得二千六百七十二万四千七百二十，加倍得五千三百四十五万三千四百四十，作为从方（一次项系数）。通勾与皇极弦相乘之数加倍得一十八万四千九百六十，作为第一从廉（二次项系数）。皇极弦加倍得五百七十八，作为第二益廉（三次项系数）。以二为隅算（最高次项系数），使用带从廉负隅的方法，以廉隅添积开四次方，得一百三十六为皇极勾。又以皇极弦自乘得八万三千五百二十一为实，通勾乘皇极弦得九万二千四百八十为从方，加倍得一十八万四千九百六十。以皇极勾减通勾余一百八十四为第一益廉，皇极勾一百三十六为第二益廉。开四次方得二百八十九为皇极弦。以皇极弦的平方减皇极勾的平方，余数开平方得二百五十五为皇极股。以皇极勾股相乘，再乘二得六万九千三百六十为实，皇极弦二百八十九为法，相除得二百四十，即为全径。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 1, Problem 4 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见之，斜行一百三十六步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾底弦立法测望，甲东行通勾也，乙南行明股也，斜行底弦也。}
+
+\shuyueclassical{二行相减余一百〇五为通勾底弦差，以乘通勾，得三万三千六百。又以半通勾乘之，得五百三十七万六千为立方实。半通勾乘通勾得五万一千二百，与差乘通勾之数相减，余一万七千六百为从方。倍东行得六百四十步为益廉，作带从减益廉开立方法除之，得半径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，斜向行走一百三十六步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与底弦"的方法进行测量计算。甲向东行走二百步就是通勾（大直角边），乙向南行走的距离是明股，斜向行走一百三十六步是底弦。}
+
+\shuyuemodern{将两个已知数（东行二百步与斜行一百三十六步）相减，余一百零五，作为通勾与底弦的差。以此差乘以通勾，得三万三千六百。再以半通勾（一百步）乘之，得五百三十七万六千，作为开立方的被除数（实）。半通勾乘通勾得五万一千二百，与差乘通勾之数（三万三千六百）相减，余一万七千六百，作为从方（一次项）。东行数加倍得六百四十步作为益廉，使用带从减益廉开立方的方法计算，得到半径。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 1, Problem 5 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见之，又斜行一百二十五步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾下平弦立法测望，甲东行通勾也，乙南行明股也，斜行下平弦也。}
+
+\shuyueclassical{术与前通勾与底弦测望问同。带从减益廉开立方法除之，得半径一百二十，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走一百二十五步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与下平弦"的方法进行测量计算。甲向东行走二百步就是通勾（大直角边），乙向南行走的距离是明股，斜向行走一百二十五步是下平弦。}
+
+\shuyuemodern{解法与前一道"通勾与底弦测望"题相同。使用带从减益廉开立方的方法计算，得到半径一百二十步，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通勾与别弦测望类终}
+\switchcolumn
+\endmodern{通勾与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+
+%% ===================================================================
+%% VOLUME 4 — Section 2: 通勾与上高弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通勾与上高弦测望类}
+
+\switchcolumn
+
+\volheadermodern{通勾与上高弦测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 2, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见之，又斜行二百五十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾上高弦立法测望，甲东行通勾也，乙南行边股也，斜行上高弦也。}
+
+\shuyueclassical{二行相减余五十为通勾上高弦差，以乘通勾，得一万。又以半通勾乘之，得一百六十万为立方实。半通勾乘通勾得二万，与差乘通勾之数相减余一万为从方。倍东行得四百步为益廉，作带从减益廉开立方法除之，得半径一百二十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走二百五十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与上高弦"的方法进行测量计算。甲向东行走二百步就是通勾（大直角边），乙向南行走的距离是边股，斜向行走二百五十步是上高弦。}
+
+\shuyuemodern{将两已知数（东行二百步与斜行二百五十步）相减，余五十，作为通勾与上高弦的差。以此差乘以通勾，得一万。再以半通勾（一百步）乘之，得一百六十万，作为开立方的被除数（实）。半通勾乘通勾得二万，与差乘通勾之数（一万）相减余一万作为从方（一次项）。东行数加倍得四百步作为益廉，使用带从减益廉开立方的方法计算，得到半径一百二十步。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 2, Problem 2 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见之，又斜行二百五十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾下高弦立法测望，甲东行通勾也，乙南行边股也，斜行下高弦也。}
+
+\shuyueclassical{术与上高弦测望同，带从减益廉开立方法除之，得半径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走二百五十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与下高弦"的方法进行测量计算。甲向东行走二百步就是通勾（大直角边），乙向南行走的距离是边股，斜向行走二百五十步是下高弦。}
+
+\shuyuemodern{解法与上高弦测望题相同，使用带从减益廉开立方的方法计算，得到半径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通勾与上高弦测望类终}
+\switchcolumn
+\endmodern{通勾与上高弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 3: 明勾与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{明勾与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{明勾与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 3, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲出南门东行七十二步见之，又斜行一百三十六步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以明勾明弦立法测望，甲东行明勾也，乙东行不知步数为明股，斜行明弦也。原法先以明勾弦求明股，后以明勾股求容圆，即是全径。}
+
+\shuyueclassical{斜行自之得一万八千四百九十六为三乘方实，以明勾乘明弦得九千七百九十二为从方，倍之得一万九千五百八十四为第一从廉。明勾七十二为第二益廉，以二为隅算，作带从廉负隅，以廉隅添积开三乘方法除之，得明股一百三十五步。以明勾七十二乘明股一百三十五得九千七百二十为实，以明弦一百三十六为法，除之得七十一点四七，非整数，复以二之，又以明弦除之，得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从南门出发向东行走七十二步看见乙，又斜向行走一百三十六步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"明勾与明弦"的方法进行测量计算。甲向东行走七十二步就是明勾（较小的直角边），乙向东行走的未知步数是明股，斜向行走一百三十六步是明弦。原方法先用明勾和明弦求明股，再用明勾股求容圆直径，即为全径。}
+
+\shuyuemodern{斜行数自乘得一万八千四百九十六，作为四次方程的常数项（实）。明勾乘明弦得九千七百九十二作为从方（一次项），加倍得一万九千五百八十四作为第一从廉（二次项系数）。明勾七十二作为第二益廉（三次项系数），以二为隅算（最高次项系数），使用带从廉负隅的方法开四次方，得明股一百三十五步。以明勾七十二乘明股一百三十五得九千七百二十为实，以明弦一百三十六为法，相除得七十一点四七，不是整数，再乘以二，又以明弦除之，得到全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 3, Problem 2 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲出南门东行七十二步见之，又斜行一百五十步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以明勾重弦立法测望，甲东行明勾也，乙东行不知步数为明股，斜行重弦也。}
+
+\shuyueclassical{术与前明勾明弦问同，带从减益廉开三乘方法除之，得明股。以明勾股求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从南门出发向东行走七十二步看见乙，又斜向行走一百五十步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"明勾与重弦"的方法进行测量计算。甲向东行走七十二步就是明勾，乙向东行走的未知步数是明股，斜向行走一百五十步是重弦。}
+
+\shuyuemodern{解法与前一道"明勾与明弦"题相同，使用带从减益廉开四次方的方法计算，得到明股。再以明勾股求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 3, Problem 3 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲出南门东行七十二步见之，又斜行二百五十步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以明勾上高弦立法测望，甲东行明勾也，乙东行不知步数为明股，斜行上高弦也。}
+
+\shuyueclassical{术与前同，带从廉负隅开三乘方法除之，得半径。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从南门出发向东行走七十二步看见乙，又斜向行走二百五十步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"明勾与上高弦"的方法进行测量计算。甲向东行走七十二步就是明勾，乙向东行走的未知步数是明股，斜向行走二百五十步是上高弦。}
+
+\shuyuemodern{解法与前面相同，使用带从廉负隅开四次方的方法计算，得到半径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{明勾与别弦测望类终}
+\switchcolumn
+\endmodern{明勾与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 4: 底勾与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{底勾与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{底勾与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 4, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{东门外往南有树，乙出东门直行不知步数而立，甲出北门东行二百步望乙与树俱与城相参直，乙遂斜行三十四步至树下。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以底勾底弦立法测望，甲出北门东行底勾也，乙南行底股也，斜行至树下底弦也。}
+
+\shuyueclassical{斜行自之得一千一百五十六为三乘方实，以底勾乘底弦得六千八百为从方，倍之得一万三千六百为第一从廉。底勾二百为第二益廉，以二为隅算，作带从廉负隅，以廉隅添积开三乘方法除之，得底股四百八十步。以底勾乘底股得九万六千为实，倍之得一十九万二千，以底弦五百〇八为法，除之得三百七十八点三，复以底弦除之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{东门外面往南方向有棵树，乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙与树，乙与树都与圆城成一条直线，于是乙斜向行走三十四步到达树下。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"底勾与底弦"的方法进行测量计算。甲从北门向东行走二百步就是底勾（基本直角边），乙向南行走的距离是底股，斜向走到树下的距离是底弦。}
+
+\shuyuemodern{斜行数自乘得一千一百五十六，作为四次方程的常数项（实）。底勾乘底弦得六千八百作为从方（一次项），加倍得一万三千六百作为第一从廉（二次项系数）。底勾二百作为第二益廉（三次项系数），以二为隅算（最高次项系数），使用带从廉负隅的方法开四次方，得底股四百八十步。以底勾乘底股得九万六千为实，加倍得一十九万二千，以底弦五百零八为法，相除得三百七十八点三，再以底弦除之得到全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 4, Section 4, Problem 2 ---
+\begin{paracol}{2}
+
+\problemclassical{甲出北门东行二百步望乙与树俱与城相参直，乙出东门南行不知步数而立，斜行三十四步至树下。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以底勾下平弦立法测望，甲出北门东行底勾也，乙南行底股也，斜行下平弦也。}
+
+\shuyueclassical{术与前底勾底弦问同，带从廉负隅开三乘方法除之，得底股。以底勾股求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{甲从北门出发向东行走二百步望见乙与树，乙与树都与圆城成一条直线，乙从东门出发向南行走（步数未知）后停下，斜向行走三十四步到达树下。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"底勾与下平弦"的方法进行测量计算。甲从北门向东行走二百步就是底勾，乙向南行走的距离是底股，斜向行走三十四步是下平弦。}
+
+\shuyuemodern{解法与前一道"底勾与底弦"题相同，使用带从廉负隅开四次方的方法计算，得到底股。再以底勾股求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{底勾与别弦测望类终}
+\switchcolumn
+\endmodern{底勾与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 5: 大差勾与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{大差勾与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{大差勾与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 5, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见乙，又斜行一百五十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以大差勾大差弦立法测望，甲出北门东行大差勾也，乙南行大差股也，斜行大差弦也。}
+
+\shuyueclassical{斜行自之得二万二千五百为三乘方实，以大差勾乘大差弦得一万为从方，倍之得二万为第一从廉。大差勾一百为第二益廉，以二为隅算，作带从廉负隅，以廉隅添积开三乘方法除之，得大差股四百八十步。以大差勾一百乘大差股四百八十得四万八千为实，倍之得九万六千，以大差弦五百〇八为法，除之得一百八十八点九，复以法除之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走一百五十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"大差勾与大差弦"的方法进行测量计算。甲从北门向东行走二百步就是大差勾（大差三角形的直角边），乙向南行走的距离是大差股，斜向行走一百五十步是大差弦。}
+
+\shuyuemodern{斜行数自乘得二万二千五百，作为四次方程的常数项（实）。大差勾乘大差弦得一万作为从方（一次项），加倍得二万作为第一从廉（二次项系数）。大差勾一百作为第二益廉（三次项系数），以二为隅算（最高次项系数），使用带从廉负隅的方法开四次方，得大差股四百八十步。以大差勾一百乘大差股四百八十得四万八千为实，加倍得九万六千，以大差弦五百零八为法，相除得一百八十八点九，再以法除之得到全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{大差勾与别弦测望类终}
+\switchcolumn
+\endmodern{大差勾与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 6: 小差勾与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{小差勾与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{小差勾与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 6, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲出北门东行二百步望见乙，又斜行一百五十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以小差勾小差弦立法测望，甲出北门东行小差勾也，乙南行小差股也，斜行小差弦也。}
+
+\shuyueclassical{术与大差勾别弦测望问同，带从廉负隅开三乘方法除之，得小差股。以小差勾股求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走一百五十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"小差勾与小差弦"的方法进行测量计算。甲从北门向东行走二百步就是小差勾（小差三角形的直角边），乙向南行走的距离是小差股，斜向行走一百五十步是小差弦。}
+
+\shuyuemodern{解法与大差勾别弦测望题相同，使用带从廉负隅开四次方的方法计算，得到小差股。再以小差勾股求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{小差勾与别弦测望类终}
+\switchcolumn
+\endmodern{小差勾与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 7: 皇极勾与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{皇极勾与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{皇极勾与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 7, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见乙，又斜行二百八十九步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以皇极勾皇极弦立法测望，甲出北门东行皇极勾也，乙南行皇极股也，斜行皇极弦也。}
+
+\shuyueclassical{术与前大差小差勾别弦测望问同，带从廉负隅开三乘方法除之，得皇极股。以皇极勾股求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走二百八十九步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"皇极勾与皇极弦"的方法进行测量计算。甲从北门向东行走二百步就是皇极勾（皇极三角形的直角边），乙向南行走的距离是皇极股，斜向行走二百八十九步是皇极弦。}
+
+\shuyuemodern{解法与前大差小差勾别弦测望题相同，使用带从廉负隅开四次方的方法计算，得到皇极股。再以皇极勾股求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{皇极勾与别弦测望类终}
+\switchcolumn
+\endmodern{皇极勾与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 8: 通勾与边股测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通勾与边股测望类}
+
+\switchcolumn
+
+\volheadermodern{通勾与边股测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 8, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见乙，又斜行四百八十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾边股立法测望，甲出北门东行通勾也，乙南行边股也，斜行边弦也。}
+
+\shuyueclassical{二行相乘得九万六千为三乘方实，以通勾乘斜行得九万六千为从方，倍之得一十九万二千为第一从廉。通勾二百为第二益廉，以二为隅算，作带从廉负隅，以廉隅添积开三乘方法除之，得边股四百八十步。以通勾乘边股得九万六千为实，倍之得一十九万二千，以边弦五百〇八为法，除之得三百七十八点三，复以法除之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走四百八十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与边股"的方法进行测量计算。甲从北门向东行走二百步就是通勾（大直角边），乙向南行走的距离是边股，斜向行走四百八十步是边弦。}
+
+\shuyuemodern{两已知数（东行二百步与斜行四百八十步）相乘得九万六千，作为四次方程的常数项（实）。通勾乘斜行得九万六千作为从方（一次项），加倍得一十九万二千作为第一从廉（二次项系数）。通勾二百作为第二益廉（三次项系数），以二为隅算（最高次项系数），使用带从廉负隅的方法开四次方，得边股四百八十步。以通勾乘边股得九万六千为实，加倍得一十九万二千，以边弦五百零八为法，相除得三百七十八点三，再以法除之得到全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通勾与边股测望类终}
+\switchcolumn
+\endmodern{通勾与边股测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 9: 通勾与明股测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通勾与明股测望类}
+
+\switchcolumn
+
+\volheadermodern{通勾与明股测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 9, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲出北门东行二百步望见乙，又斜行一百三十六步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾明股立法测望，甲出北门东行通勾也，乙南行明股也，斜行明弦也。}
+
+\shuyueclassical{二行相乘得二万七千二百为三乘方实，以通勾乘明弦得二万七千二百为从方，倍之得五万四千四百为第一从廉。通勾二百为第二益廉，以二为隅算，作带从廉负隅，以廉隅添积开三乘方法除之，得明股一百三十五步。以通勾乘明股得二万七千二百为实，倍之得五万四千四百，以明弦一百三十六为法，除之得四百，复以法除之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走一百三十六步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与明股"的方法进行测量计算。甲从北门向东行走二百步就是通勾（大直角边），乙向南行走的距离是明股，斜向行走一百三十六步是明弦。}
+
+\shuyuemodern{两已知数（东行二百步与斜行一百三十六步）相乘得二万七千二百，作为四次方程的常数项（实）。通勾乘明弦得二万七千二百作为从方（一次项），加倍得五万四千四百作为第一从廉（二次项系数）。通勾二百作为第二益廉（三次项系数），以二为隅算（最高次项系数），使用带从廉负隅的方法开四次方，得明股一百三十五步。以通勾乘明股得二万七千二百为实，加倍得五万四千四百，以明弦一百三十六为法，相除得四百，再以法除之得到全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通勾与明股测望类终}
+\switchcolumn
+\endmodern{通勾与明股测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 10: 通勾与底股测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通勾与底股测望类}
+
+\switchcolumn
+
+\volheadermodern{通勾与底股测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 10, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见乙，又斜行五百〇八步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾底股立法测望，甲出北门东行通勾也，乙南行底股也，斜行底弦也。}
+
+\shuyueclassical{术与通勾边股测望问同，带从廉负隅开三乘方法除之，得底股。以通勾底股求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走五百零八步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与底股"的方法进行测量计算。甲从北门向东行走二百步就是通勾（大直角边），乙向南行走的距离是底股，斜向行走五百零八步是底弦。}
+
+\shuyuemodern{解法与通勾边股测望题相同，使用带从廉负隅开四次方的方法计算，得到底股。再以通勾底股求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通勾与底股测望类终}
+\switchcolumn
+\endmodern{通勾与底股测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4 — Section 11: 通勾与皇极股测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通勾与皇极股测望类}
+
+\switchcolumn
+
+\volheadermodern{通勾与皇极股测望类}
+
+\end{paracol}
+
+%% --- Volume 4, Section 11, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门南行不知步数而立，甲出北门东行二百步望见乙，又斜行二百五十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通勾皇极股立法测望，甲出北门东行通勾也，乙南行皇极股也，斜行皇极弦也。}
+
+\shuyueclassical{术与前通勾边股测望问同，带从廉负隅开三乘方法除之，得皇极股。以通勾皇极股求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向南行走（步数未知）后停下，甲从北门出发向东行走二百步望见乙，又斜向行走二百五十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通勾与皇极股"的方法进行测量计算。甲从北门向东行走二百步就是通勾（大直角边），乙向南行走的距离是皇极股，斜向行走二百五十步是皇极弦。}
+
+\shuyuemodern{解法与前通勾边股测望题相同，使用带从廉负隅开四次方的方法计算，得到皇极股。再以通勾皇极股求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通勾与皇极股测望类终}
+\switchcolumn
+\endmodern{通勾与皇极股测望类（白话）结束}
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+{\Large\bfseries\color{volcolor} 测圆海镜分类释术卷四终}
+\end{center}
+
+\newpage
+
+
+%% ===================================================================
+%% VOLUME 5
+%% ===================================================================
+\section{测圆海镜分类释术卷五}
+\label{sec:vol5}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通股与别弦测望类}
+
+\noindent\textbf{【卷五总说】}卷五论「通股与别弦测望」之类。所谓通股，乃勾股形之通股，即大股也；别弦者，诸弦之别名。凡此类问题，皆以通股为基，配以各类弦法，求圆城之径。
+
+\switchcolumn
+
+\volheadermodern{通股与别弦测望类}
+
+\noindent\textbf{【卷五总说（白话）】}卷五讨论"以大直角边（通股）配合各类弦线测量"的类型。所谓通股，是指直角三角形中较长的那条直角边（即大股）；别弦则是各类弦线的别名。这类问题都以通股为基础，配合各类弦线的方法，来求圆城的直径。
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% Reset problem counter for Volume 5
+\setcounter{probnumvol}{0}
+
+%% --- Volume 5, Section 1, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{圆城乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行五百四十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股别弦立法测望，甲南行通股也，乙东行不知步数为通勾，斜行别弦也。}
+
+\shuyueclassical{二行相减余六十为通股别弦差，以乘通股，得三万六千。又以半通股乘之，得一千〇八十万为立方实。半通股乘通股得十八万，与差乘通股之数相减余十四万四千为从方。倍南行得一千二百步为益廉，作带从减益廉开立方法除之，得半径一百二十步，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走五百四十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与别弦"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的未知步数是通勾，斜向行走五百四十步是别弦。}
+
+\shuyuemodern{将两已知数（南行六百步与斜行五百四十步）相减，余六十，作为通股与别弦的差。以此差乘以通股，得三万六千。再以半通股（三百步）乘之，得一千零八十万，作为开立方的被除数（实）。半通股乘通股得十八万，与差乘通股之数（三万六千）相减，余十四万四千作为从方（一次项）。南行数加倍得一千二百步作为益廉，使用带从减益廉开立方的方法计算，得到半径一百二十步，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 5, Section 1, Problem 2 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行六百步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股通弦立法测望，甲南行通股也，乙东行通勾也，斜行通弦也。}
+
+\shuyueclassical{二行相乘得三十六万为三乘方实，以通股乘通弦得三十六万为从方，倍之得七十二万为第一从廉。通股六百为第二益廉，以二为隅算，作带从廉负隅，以廉隅添积开三乘方法除之，得通勾三百二十步。以通股通勾相乘得十九万二千为实，倍之得三十八万四千，以通弦六百八十为法，除之得五百六十四点七，复以法除之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走六百步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与通弦"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的距离是通勾，斜向行走六百步是通弦（大弦）。}
+
+\shuyuemodern{两已知数（南行六百步与斜行六百步）相乘得三十六万，作为四次方程的常数项（实）。通股乘通弦得三十六万作为从方（一次项），加倍得七十二万作为第一从廉（二次项系数）。通股六百作为第二益廉（三次项系数），以二为隅算（最高次项系数），使用带从廉负隅的方法开四次方，得通勾三百二十步。以通股通勾相乘得十九万二千为实，加倍得三十八万四千，以通弦六百八十为法，相除得五百六十四点七，再以法除之得到全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 5, Section 1, Problem 3 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行四百八十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股边弦立法测望，甲南行通股也，乙东行通勾也，斜行边弦也。}
+
+\shuyueclassical{术与前通股通弦测望问同，带从廉负隅开三乘方法除之，得通勾。以通股通勾求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走四百八十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与边弦"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的距离是通勾，斜向行走四百八十步是边弦。}
+
+\shuyuemodern{解法与前一道"通股与通弦"测望题相同，使用带从廉负隅开四次方的方法计算，得到通勾。再以通股通勾求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通股与别弦测望类终}
+\switchcolumn
+\endmodern{通股与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 2: 边股与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{边股与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{边股与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 2, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行二百五十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以边股边弦立法测望，甲南行边股也，乙东行边勾也，斜行边弦也。}
+
+\shuyueclassical{二行相减余三百五十为边股边弦差，以乘边股，得二十一万。又以半边角乘之，得六百三十万为立方实。半边角乘边股得十万五千，与差乘边股之数相减余十万五千为从方。倍南行得一千二百步为益廉，作带从减益廉开立方法除之，得半径一百二十步，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走二百五十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"边股与边弦"的方法进行测量计算。甲向南行走六百步就是边股（边三角形的直角边），乙向东行走的距离是边勾，斜向行走二百五十步是边弦。}
+
+\shuyuemodern{将两已知数（南行六百步与斜行二百五十步）相减，余三百五十，作为边股与边弦的差。以此差乘以边股，得二十一万。再以半边股（三百步）乘之，得六百三十万，作为开立方的被除数（实）。半边股乘边股得十万五千，与差乘边股之数（二十一万）相减，余十万五千作为从方（一次项）。南行数加倍得一千二百步作为益廉，使用带从减益廉开立方的方法计算，得到半径一百二十步，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 5, Section 2, Problem 2 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行五百〇八步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以边股底弦立法测望，甲南行边股也，乙东行边勾也，斜行底弦也。}
+
+\shuyueclassical{术与前边股边弦测望问同，带从减益廉开立方法除之，得半径。倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走五百零八步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"边股与底弦"的方法进行测量计算。甲向南行走六百步就是边股，乙向东行走的距离是边勾，斜向行走五百零八步是底弦。}
+
+\shuyuemodern{解法与前一道"边股与边弦"测望题相同，使用带从减益廉开立方的方法计算，得到半径。加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{边股与别弦测望类终}
+\switchcolumn
+\endmodern{边股与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 3: 明股与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{明股与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{明股与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 3, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行一百三十六步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以明股明弦立法测望，甲南行明股也，乙东行明勾也，斜行明弦也。}
+
+\shuyueclassical{二行相减余四百六十四为明股明弦差，以乘明股，得六万二千六百四十。又以半明股乘之，得一千八百七十九万二千为立方实。半明股乘明股得九千一百一十，与差乘明股之数相减余二万八千七百三十为从方。倍南行得一千二百步为益廉，作带从减益廉开立方法除之，得半径一百二十步，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走一百三十六步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"明股与明弦"的方法进行测量计算。甲向南行走六百步就是明股（明三角形的直角边），乙向东行走的距离是明勾，斜向行走一百三十六步是明弦。}
+
+\shuyuemodern{将两已知数（南行六百步与斜行一百三十六步）相减，余四百六十四，作为明股与明弦的差。以此差乘以明股，得六万二千六百四十。再以半明股（三百步）乘之，得一千八百七十九万二千，作为开立方的被除数（实）。半明股乘明股得九万一千，与差乘明股之数相减，余二万八千七百三十作为从方（一次项）。南行数加倍得一千二百步作为益廉，使用带从减益廉开立方的方法计算，得到半径一百二十步，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.3cm}
+
+%% --- Volume 5, Section 3, Problem 2 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行一百五十步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以明股重弦立法测望，甲南行明股也，乙东行明勾也，斜行重弦也。}
+
+\shuyueclassical{术与前明股明弦测望问同，带从减益廉开立方法除之，得半径。倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走一百五十步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"明股与重弦"的方法进行测量计算。甲向南行走六百步就是明股，乙向东行走的距离是明勾，斜向行走一百五十步是重弦。}
+
+\shuyuemodern{解法与前一道"明股与明弦"测望题相同，使用带从减益廉开立方的方法计算，得到半径。加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{明股与别弦测望类终}
+\switchcolumn
+\endmodern{明股与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 4: 底股与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{底股与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{底股与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 4, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行三十四步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以底股底弦立法测望，甲南行底股也，乙东行底勾也，斜行底弦也。}
+
+\shuyueclassical{二行相减余五百六十六为底股底弦差，以乘底股，得三十三万九千六百。又以半底股乘之，得一千〇十八万八千为立方实。半底股乘底股得十四万四千，与差乘底股之数相减余十九万四千四百为从方。倍南行得一千二百步为益廉，作带从减益廉开立方法除之，得半径一百二十步，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走三十四步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"底股与底弦"的方法进行测量计算。甲向南行走六百步就是底股（底三角形的直角边），乙向东行走的距离是底勾，斜向行走三十四步是底弦。}
+
+\shuyuemodern{将两已知数（南行六百步与斜行三十四步）相减，余五百六十六，作为底股与底弦的差。以此差乘以底股，得三十三万九千六百。再以半底股（三百步）乘之，得一千零一十八万八千，作为开立方的被除数（实）。半底股乘底股得十四万四千，与差乘底股之数相减，余十九万四千四百作为从方（一次项）。南行数加倍得一千二百步作为益廉，使用带从减益廉开立方的方法计算，得到半径一百二十步，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{底股与别弦测望类终}
+\switchcolumn
+\endmodern{底股与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 5: 大差股与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{大差股与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{大差股与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 5, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行二百步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以大差股大差弦立法测望，甲南行大差股也，乙东行大差勾也，斜行大差弦也。}
+
+\shuyueclassical{二行相减余四百为大差股大差弦差，以乘大差股，得二十四万。又以半大差股乘之，得七百二十万为立方实。半大差股乘大差股得十二万，与差乘大差股之数相减余十二万为从方。倍南行得一千二百步为益廉，作带从减益廉开立方法除之，得半径一百二十步，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走二百步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"大差股与大差弦"的方法进行测量计算。甲向南行走六百步就是大差股（大差三角形的直角边），乙向东行走的距离是大差勾，斜向行走二百步是大差弦。}
+
+\shuyuemodern{将两已知数（南行六百步与斜行二百步）相减，余四百，作为大差股与大差弦的差。以此差乘以大差股，得二十四万。再以半大差股（三百步）乘之，得七百二十万，作为开立方的被除数（实）。半大差股乘大差股得十二万，与差乘大差股之数相减，余十二万作为从方（一次项）。南行数加倍得一千二百步作为益廉，使用带从减益廉开立方的方法计算，得到半径一百二十步，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{大差股与别弦测望类终}
+\switchcolumn
+\endmodern{大差股与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 6: 小差股与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{小差股与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{小差股与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 6, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行二百步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以小差股小差弦立法测望，甲南行小差股也，乙东行小差勾也，斜行小差弦也。}
+
+\shuyueclassical{术与前大差股大差弦测望问同，带从减益廉开立方法除之，得半径。倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走二百步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"小差股与小差弦"的方法进行测量计算。甲向南行走六百步就是小差股（小差三角形的直角边），乙向东行走的距离是小差勾，斜向行走二百步是小差弦。}
+
+\shuyuemodern{解法与前一道"大差股与大差弦"测望题相同，使用带从减益廉开立方的方法计算，得到半径。加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{小差股与别弦测望类终}
+\switchcolumn
+\endmodern{小差股与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 7: 皇极股与别弦测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{皇极股与别弦测望类}
+
+\switchcolumn
+
+\volheadermodern{皇极股与别弦测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 7, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行二百八十九步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以皇极股皇极弦立法测望，甲南行皇极股也，乙东行皇极勾也，斜行皇极弦也。}
+
+\shuyueclassical{二行相减余三百一十一为皇极股皇极弦差，以乘皇极股，得十八万六千六百。又以半皇极股乘之，得五千五百九十八万为立方实。半皇极股乘皇极股得十八万，与差乘皇极股之数相减余一千六百为从方。倍南行得一千二百步为益廉，作带从减益廉开立方法除之，得半径一百二十步，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走二百八十九步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"皇极股与皇极弦"的方法进行测量计算。甲向南行走六百步就是皇极股（皇极三角形的直角边），乙向东行走的距离是皇极勾，斜向行走二百八十九步是皇极弦。}
+
+\shuyuemodern{将两已知数（南行六百步与斜行二百八十九步）相减，余三百一十一，作为皇极股与皇极弦的差。以此差乘以皇极股，得十八万六千六百。再以半皇极股（三百步）乘之，得五千五百九十八万，作为开立方的被除数（实）。半皇极股乘皇极股得十八万，与差乘皇极股之数相减，余一千六百作为从方（一次项）。南行数加倍得一千二百步作为益廉，使用带从减益廉开立方的方法计算，得到半径一百二十步，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{皇极股与别弦测望类终}
+\switchcolumn
+\endmodern{皇极股与别弦测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 8: 通股与通勾测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通股与通勾测望类}
+
+\switchcolumn
+
+\volheadermodern{通股与通勾测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 8, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股通勾立法测望，甲南行通股也，乙东行通勾也。不用弦而以二行相乘为实，开平方得全径。}
+
+\shuyueclassical{二行相乘得十九万二千为实，以平方开之，得四百三十八点一七，非整数，以二行相乘之数为实，以斜行为法，除之得二百八十二点三五，复以通弦为法除之得全径二百四十步。又以天元术验之，立天元一为半径，以减于半甲南行，得三百为大差，以大差自之得九万为大差幂。置甲南行幂内减大差幂而半之，得十五万七千五百为大弦，内带大差为分母。又以大差乘股六百步，得十八万并入，以乘大弦得同数，与左相消。开立方得一百二十步，即半径也，倍之得全径二百四十步。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与通勾"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的距离是通勾（另一直角边）。此题不用弦，而是将两数相乘作为被除数，开平方即可得全径。}
+
+\shuyuemodern{两已知数（南行六百步与东行未知步数）相乘得十九万二千作为实，开平方得四百三十八点一七，不是整数。再以两数相乘之数为实，以斜行为法，相除得二百八十二点三五，再以通弦为法除之得到全径二百四十步。又用天元术验证：设天元一为半径，以半甲南行（三百步）减之，得三百为大差。大差自乘得九万为大差幂。甲南行数自乘内减大差幂，取半得十五万七千五百为大弦。又以大差乘股六百步得十八万并入，与大弦相乘得同数，与左边相消（相消：方程相减消元）。开立方得一百二十步，即为半径，加倍得全径二百四十步。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通股与通勾测望类终}
+\switchcolumn
+\endmodern{通股与通勾测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 9: 通股与边勾测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通股与边勾测望类}
+
+\switchcolumn
+
+\volheadermodern{通股与边勾测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 9, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行二百五十步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股边勾立法测望，甲南行通股也，乙东行边勾也，斜行边弦也。}
+
+\shuyueclassical{术与前通股与通勾测望问同，带从廉负隅开三乘方法除之，得边勾。以通股边勾求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走二百五十步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与边勾"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的距离是边勾（边三角形的另一直角边），斜向行走二百五十步是边弦。}
+
+\shuyuemodern{解法与前一道"通股与通勾"测望题相同，使用带从廉负隅开四次方的方法计算，得到边勾。再以通股边勾求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通股与边勾测望类终}
+\switchcolumn
+\endmodern{通股与边勾测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 10: 通股与明勾测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通股与明勾测望类}
+
+\switchcolumn
+
+\volheadermodern{通股与明勾测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 10, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出南门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行一百三十六步就乙。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股明勾立法测望，甲南行通股也，乙东行明勾也，斜行明弦也。}
+
+\shuyueclassical{术与前通股边勾测望问同，带从廉负隅开三乘方法除之，得明勾。以通股明勾求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从南门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走一百三十六步接近乙。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与明勾"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的距离是明勾（明三角形的直角边），斜向行走一百三十六步是明弦。}
+
+\shuyuemodern{解法与前一道"通股边勾"测望题相同，使用带从廉负隅开四次方的方法计算，得到明勾。再以通股明勾求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通股与明勾测望类终}
+\switchcolumn
+\endmodern{通股与明勾测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 11: 通股与底勾测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通股与底勾测望类}
+
+\switchcolumn
+
+\volheadermodern{通股与底勾测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 11, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行五百〇八步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股底勾立法测望，甲南行通股也，乙东行底勾也，斜行底弦也。}
+
+\shuyueclassical{术与前通股明勾测望问同，带从廉负隅开三乘方法除之，得底勾。以通股底勾求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走五百零八步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与底勾"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的距离是底勾（底三角形的直角边），斜向行走五百零八步是底弦。}
+
+\shuyuemodern{解法与前一道"通股明勾"测望题相同，使用带从廉负隅开四次方的方法计算，得到底勾。再以通股底勾求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通股与底勾测望类终}
+\switchcolumn
+\endmodern{通股与底勾测望类（白话）结束}
+\end{paracol}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 5 — Section 12: 通股与皇极勾测望类
+%% ===================================================================
+\setcounter{probnumvol}{0}
+
+\begin{paracol}{2}
+
+\volheaderclassical{通股与皇极勾测望类}
+
+\switchcolumn
+
+\volheadermodern{通股与皇极勾测望类}
+
+\end{paracol}
+
+%% --- Volume 5, Section 12, Problem 1 ---
+\begin{paracol}{2}
+
+\problemclassical{乙出东门东行不知步数而立，甲从城外西北乾隅南行六百步，斜望乙与城参相直，又斜行二百八十九步与乙相会。问城径。}
+
+\answerclassical{城径二百四十步。}
+
+\shiyiclassical{此以通股皇极勾立法测望，甲南行通股也，乙东行皇极勾也，斜行皇极弦也。}
+
+\shuyueclassical{术与前通股底勾测望问同，带从廉负隅开三乘方法除之，得皇极勾。以通股皇极勾求容圆得全径。}
+
+\switchcolumn
+
+\problemmodern{乙从东门出发向东行走（步数未知）后停下，甲从城外西北角（乾隅）向南行走六百步，斜向望见乙与圆城恰好成一条直线，又斜向行走二百八十九步与乙会合。问圆城的直径是多少？}
+
+\answermodern{圆城直径为二百四十步。}
+
+\shiyimodern{此题运用"通股与皇极勾"的方法进行测量计算。甲向南行走六百步就是通股（大直角边），乙向东行走的距离是皇极勾（皇极三角形的直角边），斜向行走二百八十九步是皇极弦。}
+
+\shuyuemodern{解法与前一道"通股底勾"测望题相同，使用带从廉负隅开四次方的方法计算，得到皇极勾。再以通股皇极勾求容圆直径，得到全径。}
+
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{paracol}{2}
+\endclassical{通股与皇极勾测望类终}
+\switchcolumn
+\endmodern{通股与皇极勾测望类（白话）结束}
+\end{paracol}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+{\Large\bfseries\color{volcolor} 测圆海镜分类释术卷五终}
+\end{center}
+
+\newpage
+
+
+%% ===================================================================
+%% END MATTER — AFTERWORD
+%% ===================================================================
+\section*{后记 / 编后说明}
+\addcontentsline{toc}{section}{后记 / 编后说明}
+
+\begin{paracol}{2}
+
+\leftheader
+
+《测圆海镜分类释术》为明顾应祥所撰，乃就元李冶《测圆海镜》原书一百七十问，按类分编，释其术法，使学者易于晓悟。顾氏之书，不用天元术，而以传统之带从开方、增乘开方法解之，虽失李冶天元术之精妙，然于普及数学知识不无功绩。
+
+卷四论「通勾与别弦测望」之类，凡十余类，每类设问若干，以释其术。卷五论「通股与别弦测望」之类，亦十余类。二卷共计数十问，皆设圆城一座，甲乙二人各从城门出行，或东或南，遥望相见，以求圆城之径。其法以勾股测圆为本，运用带从开方、增乘开方之术，步骤详明，条理清晰。
+
+顾应祥自序云：「李冶《测圆海镜》以天元术立算，学者苦其难入。余为之分类释术，使问不繁复，术不隐晦，庶几学者由浅入深，渐臻其奥。」观其所释，确有条理井然之致。虽天元术之精妙有所未逮，然于明代数学之普及，实有功焉。
+
+\vspace{0.5cm}
+\begin{flushright}
+\textit{编者识}
+\end{flushright}
+
+\switchcolumn
+
+\rightheader
+
+《测圆海镜分类释术》由明代数学家顾应祥所编撰，就元代李冶《测圆海镜》原书一百七十道问题，按数学方法分类重新编排，解释其算法，使学习者容易理解。顾应祥的这部著作不使用天元术（设未知数列方程的代数方法），而是采用传统的带从开方、增乘开方等数值方法来求解，虽然失去了李冶天元术的精妙之处，但对于普及数学知识仍然有一定的贡献。
+
+卷四讨论"通勾与别弦测望"等类型，共十余类，每类设若干道问题来解释算法。卷五讨论"通股与别弦测望"等类型，也是十余类。两卷共计数十道问题，都假设有一座圆形城池，甲、乙两人分别从城门出发，一人向东一人向南，遥望相见，要求算出圆城的直径。其方法以勾股定理测圆为基础，运用带从开方、增乘开方等数值算法，步骤详细明晰，条理清楚。
+
+顾应祥在自序中说："李冶《测圆海镜》用天元术列算式，学者苦于难以入门。我为此书分类解释算法，使问题不繁复，方法不隐晦，希望学习者能由浅入深，逐渐领会其中的奥妙。"看他所解释的算法，确实条理井然。虽然未能达到天元术的精妙境界，但对于明代数学知识的普及，确实有功劳。
+
+\vspace{0.5cm}
+\begin{flushright}
+\textit{编者识（白话译）}
+\end{flushright}
+
+\end{paracol}
+
+\vspace{1cm}
+\longline
+
+\begin{center}
+{\small\color{notecolor}
+\textbf{术语对照表 / 关键词翻译}\\[0.3em]
+\begin{tabular}{ll}
+\textcolor{classicalcolor}{文言文} & \textcolor{moderncolor}{白话文解释}\\
+\hline
+寄术 & 寄术（辅助求解方法）\\
+杂术 & 杂术（混合求解方法）\\
+相消 & 相消（方程相减消元）\\
+互隐 & 互隐（互相消隐）\\
+勾 & 直角边（较短者）\\
+股 & 直角边（较长者）\\
+弦 & 斜边\\
+幂 & 平方（自乘）\\
+开立方 & 求立方根\\
+开三乘方 & 求四次方根\\
+带从 & 带有一次项系数的开方\\
+廉 & 方程中的中间项系数\\
+隅 & 方程中的最高次项系数\\
+实 & 被除数 / 常数项\\
+法 & 除数 / 已知数\\
+\end{tabular}
+}
+\end{center}
+
+\end{document}

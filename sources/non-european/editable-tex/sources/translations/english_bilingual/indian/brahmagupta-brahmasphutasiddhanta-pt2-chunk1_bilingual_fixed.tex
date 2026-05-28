@@ -1,0 +1,1028 @@
+% ============================================================================
+% Brahmagupta's Brahmasphutasiddhanta Part 2 — Chunk 1 (Pages 839–978)
+% BILINGUAL English-Sanskrit Edition
+% Parallel minipage columns: Sanskrit (Devanagari) + English translation with IAST
+% ============================================================================
+\documentclass[11pt,a4paper]{book}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+%% Use Path for all fonts to ensure xelatex finds them
+\setmainfont[
+  Path=/usr/share/fonts/opentype/linux-libertine/,
+  BoldFont=LinLibertine_RB.otf,
+  ItalicFont=LinLibertine_RI.otf,
+  BoldItalicFont=LinLibertine_RBI.otf
+]{LinLibertine_R.otf}
+\setsansfont[
+  Path=/usr/share/fonts/opentype/linux-libertine/,
+  BoldFont=LinBiolinum_RB.otf,
+  ItalicFont=LinBiolinum_RI.otf
+]{LinBiolinum_R.otf}
+\setmonofont[
+  Path=/usr/share/fonts/truetype/dejavu/,
+  Scale=MatchLowercase
+]{DejaVuSansMono.ttf}
+
+%% Devanagari (Sanskrit/Hindi) Font — with Path
+\newfontfamily\devanagarifont[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSerifDevanagari-Regular.ttf}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSansDevanagari-Regular.ttf}
+\newfontfamily\devanagarifontbf[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSerifDevanagari-Bold.ttf}
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{80,20,20}
+\definecolor{sectioncolor}{RGB}{55,45,35}
+\definecolor{rulecolor}{RGB}{180,160,140}
+
+%% -------- Section Formatting --------
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{titlecolor}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\textit{Brahmasphu.tasiddhanta — Pt.2 Chunk 1}}
+\fancyhead[RO]{\small\textit{\leftmark}}
+\fancyhead[RE,LO]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+
+%% Bilingual pair: Sanskrit (left) + English (right)
+\newcommand{\bilingual}[2]{%
+  \par\vspace{0.6em}%
+  \noindent\begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight
+    #1%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight
+    #2%
+  \end{minipage}%
+  \par\vspace{0.6em}%
+}
+
+%% Shloka (verse) bilingual: Devanagari verse + English translation
+\newcommand{\shlokabilingual}[2]{%
+  \par\vspace{0.8em}%
+  \noindent\begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight
+    \dev{\textit{#1}}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight
+    #2%
+  \end{minipage}%
+  \par\vspace{0.8em}%
+}
+
+%% Sanskrit commentary bilingual
+\newcommand{\sktcommbilingual}[2]{%
+  \par\vspace{0.5em}%
+  \noindent\begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight\small\itshape
+    \dev{#1}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight\small
+    #2%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% Hindi commentary bilingual
+\newcommand{\hindicommbilingual}[2]{%
+  \par\vspace{0.5em}%
+  \noindent\begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight\small
+    \dev{#1}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \RaggedRight\small
+    #2%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% Rule heading bilingual
+\newcommand{\ruleheadingbilingual}[2]{%
+  \par\vspace{0.8em}%
+  \noindent\begin{minipage}[t]{0.48\textwidth}
+    \textbf{\color{sectioncolor}\dev{#1}}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \textbf{\color{sectioncolor}#2}
+  \end{minipage}%
+  \par\vspace{0.4em}%
+}
+
+%% Section divider
+\newcommand{\secdivider}{%
+  \begin{center}\rule{0.4\textwidth}{0.5pt}\end{center}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Brahmasphutasiddhanta Part 2 Chunk 1 — Bilingual Edition},
+  pdfauthor={Brahmagupta}
+}
+
+%% ============================================================================
+
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\Huge\bfseries\color{titlecolor} \dev{ब्राह्मस्फुटसिद्धान्त}}\\[1cm]
+{\LARGE\color{sectioncolor} The Brāhmasphu.tasiddhānta of Brahmagupta}\\[0.8cm]
+{\large\textit{Bilingual Sanskrit--English Edition}}\\[0.3cm]
+{\normalsize With English Translation and IAST Transliteration}\\[2cm]
+
+\rule{0.6\textwidth}{1pt}\\[1cm]
+
+{\Large\bfseries Part 2 --- Chunk 1}\\[0.5cm]
+{\large Pages 839--978 of the Complete Work}\\[1cm]
+
+\vspace{0.5cm}
+
+{\large\color{sectioncolor}
+\textbf{Contents:}\\[0.3cm]
+\dev{मध्यमाधिकार} --- Madhyamādhikāra (Chapter on Mean Motions)\\
+(Complete with Commentary)\\[0.3cm]
+\dev{स्पष्टाधिकार} --- Spa.s.tādhikāra (Chapter on True Positions)\\
+(Beginning with Sine Tables and Corrections)\\[0.5cm]
+}
+
+\vfill
+
+\rule{0.4\textwidth}{0.5pt}\\[0.5cm]
+{\large Parallel-column Bilingual Edition}\\[0.3cm]
+{\small Sanskrit (Devanagari) $\|$ English Translation with IAST}\\[0.3cm]
+{\footnotesize Typeset in XeLaTeX with Devanagari Support}
+
+\end{center}
+\end{titlepage}
+
+\clearpage
+
+%% -------- Introduction --------
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\markboth{Introduction}{Introduction}
+
+\bilingual{%
+\textbf{\dev{प्रस्तावना --- मध्यमाधिकार}}\\[0.3em]
+\dev{मध्यमाधिकार} ब्रह्मगुप्तकृत ब्राह्मस्फुटसिद्धान्तस्य प्रथमोऽध्यायः। अत्र ग्रहाणां मध्यमगतिः, दिनगणना, देशान्तरसंस्कारः, युगादिदिनानयनं च प्रदर्श्यते। वासनाभाष्येण सहितोऽयं प्रथमः खण्डः पृष्ठसङ्ख्या ८३९--८९३। द्वितीयः खण्डः \dev{स्पष्टाधिकारः} पृष्ठसङ्ख्या ८९६--९७८।
+}{%
+\textbf{Introduction --- Madhyamādhikāra}\\[0.3em]
+The \textit{Madhyamādhikāra} (Chapter on Mean Motions) is the first chapter of Brahmagupta's \textit{Brāhmasphu.tasiddhānta}. It presents the computation of the mean motions (\textit{madhyama}) of the planets, day computation, longitude correction (\textit{deśāntara}), and calculation of days since epoch (\textit{yugādi-dina}). This first section spans pages 839--893. The second section, the \textit{Spa.s.tādhikāra} (Chapter on True Positions), spans pages 896--978.
+}
+
+\vspace{1em}
+
+\bilingual{%
+\textbf{\dev{स्पष्टाधिकार-प्रवेशः}}\\[0.3em]
+\dev{स्पष्टाधिकारः} द्वितीयोऽध्यायः। यस्मान्मध्यतुल्यः प्रतिदिवसं हृश्यते ग्रहो भगणे, तस्मात्तत्कृत्यकरं मध्यस्फुटीकरणं वक्ष्ये। अत्र ज्यापञ्चविंशतिका, उत्क्रमज्या, मन्दफलं, शीघ्रफलं च विस्तरेण निरूप्यते।
+}{%
+\textbf{Introduction --- Spa.s.tādhikāra}\\[0.3em]
+The \textit{Spa.s.tādhikāra} (Chapter on True Positions) is the second chapter. ``Since the mean planet is not observed daily in the zodiac, I shall state the procedure for making it true'' (BSS II.1). Here the twenty-four sine table, versed sines, equation of centre (\textit{manda-phala}), and equation of conjunction (\textit{śīghra-phala}) are discussed in detail.
+}
+
+\vspace{1em}
+\secdivider
+\clearpage
+
+%% ============================================================================
+\chapter[Madhyamādhikāra]{\dev{मध्यमाधिकारः} --- Madhyamādhikāra}
+\label{chap:madhyama}
+
+\sectionmark{Madhyamādhikāra}
+
+\bilingual{%
+\dev{मध्यमाधिकार} ब्रह्मगुप्तकृत ब्राह्मस्फुटसिद्धान्तस्य प्रथमोऽध्यायः। अस्य विषयाः --- वारप्रवृत्तिः, देशान्तरकर्म, युगादिदिनानयनं, रवीन्द्वोर्मध्यमगतिः, बुधशुक्रादीनां मध्यमगतिश्च। वासनाभाष्येण सह सम्पूर्णोऽयं खण्डः पृष्ठ ८३९--८९३।
+}{%
+The \textit{Madhyamādhikāra} is the first chapter of the \textit{Brāhmasphu.tasiddhānta} composed by Brahmagupta (b.~598 CE). Its subjects include: the commencement of the weekday (\textit{vāra-prav.rtti}), longitude correction (\textit{deśāntara-karma}), computation of days since epoch (\textit{yugādi-dina-anayana}), the mean motions of the Sun and Moon, and the mean motions of Mercury, Venus, and the other planets. This complete section with commentary (\textit{vāsanābhā.sya}) spans pages 839--893.
+}
+
+%% ============================================================================
+\section{On the Commencement of the Day (\dev{वारप्रवृत्ति})}
+
+\ruleheadingbilingual{प्रवृत्तिवाद}{Commencement of the Weekday}
+
+\hindicommbilingual{%
+\dev{प्रवृत्ति} इससे इसी ब्रह्मगुप्तोक्त बात को कहते हैं। वारप्रवृत्ति कब से होती है, इस विषय में बहुत आचार्यों के भिन्न-भिन्न मत हैं। जैसे आर्यभट, सिंहाचार्य आदि अर्धोदित रवि बिम्ब से दिनारम्भ कहते हैं। अन्य आचार्य दिनान्त से दिनारम्भ कहते हैं। लाटदेव आदि रवि के अर्धास्तकाल से कहते हैं। यवन राजा रात्रि में दश मुहूर्त करके कहते हैं। सिद्धान्तशेखर में श्रीपतिरूपर्युक्त आचार्यमतखण्डनं कृतवान्‌।
+}{%
+\textbf{[Hindi Commentary]} \textit{Prav.rtti} means that which is spoken by Brahmagupta himself. On the question ``from when does the weekday commence?'' there are many differing opinions among teachers. Āryabha.ta and Siṃhācārya hold that the day begins from the half-risen solar disc. Others hold it begins from sunset. Lāṭadeva and others hold it begins from midnight. The Yavana kings hold that ten \textit{muhūrta}s of night [make the division]. In the \textit{Siddhāntaśekhara}, Śrīpati has refuted the opinions of these teachers.
+}
+
+\shlokabilingual{%
+सृष्टेर्मुखे ध्वान्तमये हि विश्वे ग्रहेषु सृष्टेष्विनपूर्वकेषु ।
+दिनप्रवृत्तिस्तदघीश्वरस्य वारस्य तस्मादुदयात्प्रवृत्तिः ॥३६॥
+}{%
+\textbf{[BSS I.36]} When at the beginning of creation the universe was filled with darkness, and the planets had not yet been created, there was no lord of the weekday (\textit{vāreśvara}). Therefore the commencement of the weekday is from sunrise (\textit{udayāt prav.rttiḥ}).
+}
+
+\hindicommbilingual{%
+सृष्ट्यादि से पहले विश्व अन्धकारमय था। ऐसे समय में वारप्रवृत्ति के विचार सम्भव नहीं क्योंकि उस समय वारेश्वरग्रहों का अभाव रहता है। इसी कारण रात्रि में वारप्रवृत्ति कहने वालों के मत ठीक नहीं। मध्याह्न काल और अस्तमय काल से आरम्भ कर वारप्रवृत्ति कहना भी ठीक नहीं है। इसलिए रव्युदय काल से वारप्रवृत्ति मानने वाले आचार्यों का मत ही ठीक है।
+}{%
+\textbf{[Hindi Commentary --- Translation]} Before the beginning of creation, the universe was full of darkness. At such a time, discussion of the weekday's commencement is impossible because the planet-lords of the weekdays did not yet exist. For this reason, the opinion of those who say the weekday commences at midnight is not correct. [Holding that] it begins from midday or from sunset is also not correct. Therefore the opinion of the teachers who hold that the weekday commences at sunrise is indeed correct.
+}
+
+\sktcommbilingual{%
+संस्कृतोपपत्तौ ``वारप्रवृत्तिं मुनयो वदन्ति सूर्योदयाद्रावणराजधान्याम्‌'' इत्यादि पद्यात्‌ विद्यते। ``लङ्कोदयाम्यसूत्रार्धमपरतः पूर्वदेशे च पश्चात्‌''--- इत्यादि पद्येन स्पष्टम्‌। इति ॥३६॥
+}{%
+\textbf{[Sanskrit Commentary]} In the Sanskrit proof-text (\textit{saṃsk.rtopapatti}) it is known from the verse ``The sages state the commencement of the weekday from sunrise at Laṅkā, the city of Rāvaṇa'' etc. This is made clear by the verse ``From Laṅkā sunrise, south of the prime meridian, east is before, west is after'' etc. Thus [ends] verse~36.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Longitude Correction (\dev{देशान्तरकर्म})}
+
+\ruleheadingbilingual{नियमाः ३७--३९}{Rules 37--39: Longitude Difference}
+
+\shlokabilingual{%
+भूपरिधिः खखखशरारेखा स्वाक्षान्तरांशसंख्यिताः ।
+भगणांशहृताः फलकृतिहीना देशान्तरस्य कृतिः ॥३७॥
+शेषपदगुणासुक्तिभूपरिधिहता कलादिलब्धसूरणस्‌ ।
+उज्जयिनीयाम्योत्तररेखायाः प्राग्धनं पश्चात्‌ ॥३८॥
+मध्यग्रहे स्फुटे वा भूपरिधिहृतात्‌ पदात्‌ गुणात्‌ षष्ठया ।
+लब्धं घटिका अथवा कर्मतिथिष्वग्रणं ग्रहवत्‌ ॥३९॥
+}{%
+\textbf{[BSS I.37--39]} The terrestrial circumference (\textit{bhū-paridhi}) is five thousand yojanas (\textit{khakha-kha-śara} = 5000). Multiply this by the degrees of difference in latitude (\textit{svāk.sāntarāṃśa}); divide by 360 (\textit{bhaga.nāṃśa}); the square of the result, subtracted from the square of the longitudinal difference (\textit{deśāntara}) [in yojanas], gives [the square of] the corrected difference. [Verses~38--39] From the root of the remainder, multiplied by the terrestrial circumference and divided [appropriately], [obtain] minutes (\textit{kalā}); to the east of the Ujjayinī north-south line is positive (\textit{dhana}), to the west is negative (\textit{.rna}). Or from the root divided by the terrestrial circumference and multiplied by sixty, the result is in \textit{gha.tikā}s; this is to be applied to the mean or true planet as positive or negative like [the treatment of] a planet.
+}
+
+\sktcommbilingual{%
+\dev{भूपरिधिः}---भूगोलस्य परिधिः; कियानित्यत आह---\dev{खखखशरा} इति पञ्चसहस्रं योजनानामित्यर्थः। अत्र च देशान्तरकक्ष्योस्तत्यादयः प्रमाणादिविभागेन पूर्वमेव व्याख्याताः।
+}{%
+\textbf{[Sanskrit Commentary]} ``Terrestrial circumference'' (\textit{bhū-paridhi}) means the circumference of the Earth-globe. In answer to ``how much?'' he says \textit{khakha-kha-śarā} = five thousand yojanas. Here the longitudinal difference, latitude, etc., have been explained previously by means of measurements and divisions.
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---भूपरिधि ५००० पाँच हजार है, इसको स्वदेश और रेखादेश के अक्षांशान्तर से गुणा कर ३६० से भाग देने से जो फल हो उसके वर्ग को देशान्तर वर्ग में घटाकर शेष के मूल से ग्रहगति को गुणकर भूपरिधि से भाग देने से कलात्मक फल होता है। उज्जयिनीयाम्योत्तररेखा से पूर्वदेश में मध्यमग्रहे वा स्फुटग्रहে धन, पश्चिमदेशे ऋण। पद (मूल) को साठ से गुणा कर भूपरिधि से भाग देने से घट्यात्मक फल, तिथिमुक्त घटी संस्कार्यम्‌। ॥३७-३९॥
+}{%
+\textbf{[Hindi Commentary --- Translation]} The terrestrial circumference is five thousand. Multiply this by the latitudinal difference between one's own place and the standard meridian; divide by 360; the square of that result, subtracted from the square of the longitudinal difference [in yojanas]; from the square root of the remainder, multiplying by the planet's motion and dividing by the terrestrial circumference, one obtains a result in minutes. East of the Ujjayinī north-south line [apply as] positive to the mean or true planet; west as negative. The root multiplied by sixty and divided by the terrestrial circumference gives the result in \textit{gha.tikā}s; this is to be applied to the \textit{tithi}-freed \textit{gha.tī}s (i.e., time correction) like a planet.
+}
+
+%% ============================================================================
+\subsection*{Upapatti (Proof/Explanation)}
+
+\sktcommbilingual{%
+यदि व्यासमानेन १५८१ तदा व्यासवर्गाष्टगुणात्पदं भूपरिधिभवेदिति सूर्यसिद्धान्तोक्त्या भूपरिधिमानं ५००० मागच्छति ब्रह्मगुप्तमते।
+}{%
+\textbf{[Sanskrit Upapatti]} If the diameter measure is 1581, then from the square of the diameter, multiplied by eight, [taking] the square root gives the terrestrial circumference --- so it is stated in the \textit{Sūryasiddhānta}. By this rule the terrestrial circumference measure of 5000 is obtained, which is Brahmagupta's opinion.
+}
+
+\hindicommbilingual{%
+\textbf{उपपत्ति}---यदि व्यासमान १५८१ मानते हैं तब ``व्यासवर्गाष्टगुणात्पदं भूपरिधिभवेत्‌'' इस सूर्यसिद्धान्तोक्त प्रकार से भूपरिधिमान ५००० प्राप्त होता है, यही ब्रह्मगुप्तमत में भूपरिधिमान है।
+}{%
+\textbf{[Upapatti --- Translation]} If we assume the diameter measure to be 1581, then by the method stated in the \textit{Sūryasiddhānta}, ``the square root of eight times the square of the diameter is the terrestrial circumference,'' the terrestrial circumference measure of 5000 is obtained. This same [value] is the terrestrial circumference in Brahmagupta's system.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Computation of Days Since Epoch (\dev{युगादिदिनानयन})}
+
+\ruleheadingbilingual{नियमः ४०}{Rule 40: Days Elapsed Since Kalpa}
+
+\shlokabilingual{%
+कल्पगताब्दा गुणिता रूपाष्टजिनेनापवर्निसप्तनगैः ।
+खस्वरसनवभिभक्ता दिनान्यवमानि चांशका दोषाः ॥४०॥
+}{%
+\textbf{[BSS I.40]} The years elapsed since the beginning of the \textit{kalpa} (\textit{kalpa-gatābdā}), multiplied by 2486 (\textit{rūpā.s.tajina}) and by 7736 (\textit{apavarni-saptanaga}), and divided by 8600 (\textit{kha-svara-sanava}), yield the days and the omitted [tithi]s; the remainders are the fractional parts and defects.
+}
+
+\sktcommbilingual{%
+\dev{वा. भा.}---अभीष्टे रविमण्डलान्ते ये कल्पगताब्दास्‌ तेऽत्र गृह्यन्ते। कल्पगताब्दाः गुणिताः कृत्याह। रूपाष्टजिनैः २४८६ अन्यत्र नवार्निसप्तनगैः ७७३६ तत उभयतः खखरसनवभिभक्ताः ८६०० फलानि यथासंख्यं दिनान्यवमानि चांशका शेषा द्वयोरपि स्थानयोः। कल्पगताब्दा रूपाष्टजिनैः संगुण्य खखरसनवभिविभजेत्‌ फलं दिनानि भवन्ति। तत्र यद्विकलं तद्दिनांशदाब्देनोच्यते।
+}{%
+\textbf{[Sanskrit Commentary --- Vāsanābhā.sya]} At the desired end of a solar year, the years elapsed of the \textit{kalpa} are taken here. The years elapsed of the \textit{kalpa} having been multiplied --- he says. By \textit{rūpā.s.tajina} = 2486, and elsewhere by \textit{navārni-saptanaga} = 7736, and then divided by \textit{kha-svara-sanava} = 8600; the results are respectively the days and omitted [lunar days]; the remainders are the fractional parts in both places. The years elapsed of the \textit{kalpa}, multiplied by 2486 and divided by 8600 --- the result is days. There, whatever is the remainder, that is called the \textit{dināṃśa} (fractional part of a day) by the word \textit{dābda}.
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---अभीष्ट रविमण्डलान्त में जो कल्पगताब्द हैं वे यहाँ गृह्यन्ते (लिये जाते हैं)। कल्पगताब्दों को २४८६ से गुणा करके ८६०० से भाग देने से फल दिन और अवमान शेष हैं, दोनों स्थानों पर यही है। कल्पगताब्दों को २४८६ से गुणा कर ८६०० से भाग देने से फल दिन होते हैं। तत्र जो शेष विकल रहता है उसको दिनांश कहा जाता है।
+}{%
+\textbf{[Hindi Commentary --- Translation]} In the desired end of a solar year, the years elapsed of the \textit{kalpa} that are here taken. The years elapsed of the \textit{kalpa}, multiplied by 2486 and divided by 8600 --- the result is days and omitted [days]; the remainders are in both places. The years elapsed of the \textit{kalpa}, multiplied by 2486 and divided by 8600, the result is days. There, whatever remainder remains, that is called the \textit{dināṃśa} (fractional part of a day).
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Mean Position of the Sun and Moon}
+
+\ruleheadingbilingual{नियमाः २४--२६}{Rules 24--26: Daily Motion and Latitude}
+
+\shlokabilingual{%
+मन्दफललिप्ताः स्वहाराप्ता रवीन्द्वोर्भुक्तिफलं क्रमात्‌ ॥
+दक्षिणे धनमुत्तरे ऋणं भवति ध्रुवसंज्ञकं तत्‌ ॥
+एवमिह दण्डमुखं विपरीतं प्राक्‌ चेद्विघोरतनफलाल्पमथात्र सौरम्‌ ॥
+सकृत्‌ सकलसन्नरञ्जनाथं भुजं विचारयन्तु ज्यौतिषिका भूषं विचारयन्त्विति ॥२४॥
+}{%
+\textbf{[BSS I.24]} The minutes of the \textit{manda-phala} (equation of centre), multiplied by the divisor and divided [appropriately], give in order the daily-motion results for the Sun and Moon. In the southern [hemisphere] it is positive, in the northern negative --- this is called the \textit{dhruva} (constant). Thus here the staff-head [correction] is reversed; if previously the \textit{vighora-tana-phala} was small, then here [it becomes] solar [correction]. Let astronomers examine the \textit{bhuja} (sine) once, [that of] the delight of all good people; let them examine the \textit{bhū.sa} (ornament) [of calculation].
+}
+
+\sktcommbilingual{%
+\dev{वा. भा.}---प्रह्लादीनां युगे कियन्ति भगणमानानि गताहर्गणमानानि यानि, दिनवारादीं विचाराः, मध्यमग्रहादिसाधनानि यानि, एतदादिषु विषयेषु ग्रार्याणां (आर्यभट्टस्य) षष्टिचा (षष्टिप्रमिताच्छिन्दसा) प्रथमो मध्यगतिरध्यायः मया कृतोऽर्थान्मध्यगतिनामकेऽध्याये कियन्तो विषयाः सन्ति तेषामुल्लेखः कृत इति ॥
+}{%
+\textbf{[Sanskrit Commentary --- Vāsanābhā.sya]} How many revolutions (\textit{bhaga.namāna}) of Prahlāda and the others in a \textit{yuga}, how many elapsed days (\textit{gata-āharga.na}), the computations of weekdays and so on, the computations of mean planets and so forth --- in these and other subjects, the first chapter on mean motion (\textit{madhyagati-nāmaka adhyāya}) was composed by me (Brahmagupta) with sixty-\textit{āryā} [verses] (\textit{ṣaṣṭi-pramitā chandasā}); how many subjects there are in the chapter named \textit{Madhyagati}, an enumeration of them has been made. Thus [ends the commentary].
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Mean Position of Mars and Other Planets}
+
+\ruleheadingbilingual{नियमः मध्यमग्रहसाधनम्‌}{Rule: Mean Planets Computation}
+
+\shlokabilingual{%
+मन्दकेन्द्रेभुजज्याभिर्मन्दफलं पातजीविका ।
+कोटिजीवाहृतं भक्तं व्यासार्धं फलमण्डलम्‌ ॥
+}{%
+\textbf{[BSS --- General Rule]} The \textit{manda-phala} (equation of centre) is [obtained] from the \textit{bhuja-jyā} (sine of the anomaly) of the \textit{manda-kendra} and the \textit{pāta-jīvikā} [divisor]; divided by the \textit{ko.ti-jyā} (cosine) and multiplied by the \textit{vyāsārdha} (radius), [it becomes] the \textit{phala-ma.n.dala} (resultant circle/epicycle).
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Epilogue to the Madhyamādhikāra}
+
+\ruleheadingbilingual{अध्यायोपसंहारः}{Chapter Conclusion}
+
+\shlokabilingual{%
+इति ब्राह्मस्फुटसिद्धान्ते मध्यमाधिकारः प्रथमः ॥
+}{%
+\textbf{[End of Chapter 1]} Thus the first chapter, the \textit{Madhyamādhikāra} (Chapter on Mean Motions), in the \textit{Brāhmasphu.tasiddhānta} [of Brahmagupta].
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---ग्रहादियों के युग में जो भगणमान है, गताहर्गणमान जो है, दिनवारादि के जो विचार हैं, और मध्यम ग्रहमादि साधन जो है एतदादिक विषयों में तिरसठ आर्यछन्दों के द्वारा मध्यगति नामक प्रथम अध्याय किया गया अर्थात्‌ मध्यगति नामक प्रथम अध्याय में कितने विषय हैं उनका उल्लेख किया गया इति ॥
+}{%
+\textbf{[Hindi Commentary --- Translation]} The revolutions of the planets and others in a \textit{yuga}, the elapsed \textit{aharga.na}, the computations of weekdays and so forth, and the computations of mean planets and so on --- in these and other subjects, the first chapter named \textit{Madhyagati} was composed by means of sixty-three \textit{āryā} [verses]; that is, in the first chapter named \textit{Madhyagati}, however many subjects there are, an enumeration of them has been made. Thus [ends the commentary on Chapter~1].
+}
+
+\vspace{1em}
+\bilingual{%
+\textit{[मध्यमाधिकार-समाप्तिः। एषः प्रथमः खण्डः पृष्ठसङ्ख्या ८३९--८९३ संपूर्णतया व्याख्यातः।]}
+}{%
+\textit{[End of the Madhyamādhikāra. This first section, pages 839--893, has been completely explained. It covers mean motions of all planets, day computation, \textit{deśāntara} (longitude correction), and \textit{yugādi} calculations.]}
+}
+
+\clearpage
+
+%% ============================================================================
+\chapter[Spa.s.tādhikāra]{\dev{स्पष्टाधिकारः} --- Spa.s.tādhikāra}
+\label{chap:spashta}
+
+\sectionmark{Spa.s.tādhikāra}
+
+\bilingual{%
+\dev{स्पष्टाधिकारः} ब्राह्मस्फुटसिद्धान्तस्य द्वितीयोऽध्यायः। अत्र स्पष्टीकरणस्य प्रयोजनं, ज्यापञ्चविंशतिका, उत्क्रमज्या, मन्दफलं, शीघ्रफलं, स्फुटभुक्तिश्च प्रदर्श्यते। एषः खण्डः पृष्ठ ८९६--९७८।
+}{%
+The \textit{Spa.s.tādhikāra} (Chapter on True Positions) is the second chapter of the \textit{Brāhmasphu.tasiddhānta}. Here the purpose of \textit{spa.s.tīkara.na} (making true), the twenty-four sine table (\textit{jyā-pañcaviṃśatikā}), versed sines (\textit{utkrama-jyā}), \textit{manda-phala} (equation of centre), \textit{śīghra-phala} (equation of conjunction), and true daily motion (\textit{spa.s.ta-bhukti}) are presented. This section spans pages 896--978.
+}
+
+%% ============================================================================
+\section{Purpose of Spa.s.tīkara.na}
+
+\ruleheadingbilingual{नियमः १}{Rule 1: The Need for Correction}
+
+\shlokabilingual{%
+यस्मान्मध्यतुल्यः प्रतिदिवसं हृश्यते ग्रहो भगणे ।
+तस्मात्तत्कृत्यकरं वक्ष्ये मध्यस्फुटीकरणम्‌ ॥१॥
+}{%
+\textbf{[BSS II.1]} Since the mean planet is not observed in the zodiac (\textit{bhaga.na}) every day equal to [its mean computation], therefore I shall state the procedure for making the mean [planet] true --- the \textit{madhyasphu.tīkara.na}.
+}
+
+\sktcommbilingual{%
+\dev{वा. सा.}---प्रथमं स्फुटगत्यध्यायं व्याख्यायते। तत्रारम्भप्रयोजनमाह। यस्मान्मध्यग्रहेण तुल्यः अग्रविषये ग्रहो न हृश्यते भगणे नक्षत्रचक्रे प्रतिदिवसं दिवसेदिवसे तस्मात्‌ स्फुटीकरणं वक्ष्ये। मध्यस्य किं हगित्याह---हत्कृतुल्यक्रममप्रायो मध्यमो ग्रहः कक्षामण्डले परिकल्पते। न च कक्षामण्डले पारमार्थिको ग्रहः प्रतिमण्डले मध्यगत्या भ्रमति किन्तु स्पष्टगत्या प्रतिमण्डले परिभ्रमन्‌ कक्षामण्डले हृश्यते, अतो येन गणितेन कक्षामण्डले प्रतिमण्डलस्थो ग्रहो हत्समो भवेत्तादृशं स्फुटीकरणमहं वक्ष्ये इति ॥१॥
+}{%
+\textbf{[Sanskrit Commentary --- Vāsanābhā.sya]} First, the chapter on true motion (\textit{sphu.ta-gaty-adhyāya}) is being explained. There the purpose of the commencement is stated. Since a planet equal to the mean planet is not observed in practice in the zodiac (\textit{bhaga.na}, the nak.satra circle) day by day, therefore I shall state the \textit{sphu.tīkara.na} (procedure for making true). In answer to ``what is the defect of the mean?'' he says: the mean planet is hypothetically located (\textit{parikalpite}) on the \textit{kak.sā-ma.n.dala} (deferent circle). And the real planet is not on the \textit{kak.sā-ma.n.dala}; revolving on the \textit{prati-ma.n.dala} (epicycle) with mean motion, it is observed on the \textit{kak.sā-ma.n.dala} with true motion. Therefore, by whatever computation the planet situated on the \textit{prati-ma.n.dala} may become equal to [the observed position] on the \textit{kak.sā-ma.n.dala}, that \textit{sphu.tīkara.na} I shall state. Thus [ends commentary on] verse~1.
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---जिस कारण से प्रत्येक दिन क्रान्तिवृत्त में स्पष्ट ग्रह मध्यम ग्रह के बराबर नहीं देखे जाते हैं उस कारण से हत्कृतुल्य कारक स्पष्टीकरण को मैं (ब्रह्मगुप्त) कहता हूँ। कक्षावृत्त में मध्यम ग्रह परिकल्पित प्रतिवृत्त में स्पष्टगति से भ्रमण करते हुए ग्रह कक्षावृत्त में देखे जाते हैं। इसलिए जिस गणित से कक्षावृत्त में प्रतिवृत्तस्थित ग्रह हत्सम होते हैं उस स्पष्टीकरण को मैं कहता हूँ ॥१॥
+}{%
+\textbf{[Hindi Commentary --- Translation]} For the reason that the true planet in the \textit{krānti-v.rtta} (ecliptic) is not seen every day equal to the mean planet, for that reason I (Brahmagupta) call that procedure which makes [it] equal to the observed [position] the \textit{sphu.tīkara.na}. The mean planet is hypothetically [placed] on the \textit{kak.sā-v.rtta} (deferent); the planet, revolving with true motion on the \textit{prati-v.rtta} (epicycle), is observed on the \textit{kak.sā-v.rtta}. Therefore, by whatever computation the planet situated on the \textit{prati-v.rtta} becomes equal [to the observed position] on the \textit{kak.sā-v.rtta}, that \textit{sphu.tīkara.na} I state. Thus [ends commentary on] verse~1.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{The Twenty-Four Sines (\dev{ज्यापञ्चविंशतिका})}
+
+\ruleheadingbilingual{नियमाः २--९}{Rules 2--9: Sine Table in 24 Steps}
+
+\bilingual{%
+\textbf{\dev{ज्यापञ्चविंशतिका-प्रवेशः}}\\[0.3em]
+ब्रह्मगुप्तः क्रमज्याः (समज्याः) चतुर्विशतिसङ्ख्यकाः प्रददाति। प्रत्येकं चापं $3\frac{3}{4}$° (= 225') अस्ति, येन नवत्यंशपर्यन्तं सम्पूर्ण्यते। एता ज्याः भूतसङ्ख्याभिः (शब्दसङ्ख्याभिः) कवित्वेन निरूपिताः, यत्‌ गणितज्ञस्य ब्रह्मगुप्तस्य काव्यप्रतिभां दर्शयति।
+}{%
+\textbf{Introduction to the Jyā-pañcaviṃśatikā}\\[0.3em]
+Brahmagupta gives twenty-four \textit{krama-jyā}s (sines in sequence), each arc being $3\tfrac{3}{4}$° (= 225'), filling the complete quadrant of 90°. These sines are expressed poetically through \textit{bhūta-saṅkhyā}s (word-numerals), displaying Brahmagupta's literary talent alongside his mathematical genius.
+}
+
+\vspace{0.5em}
+
+\shlokabilingual{%
+षड्बुदग्निसुताग्निरसद्वाद्याडा मुनीन्दुवसुचन्द्राः ।
+इन्दुनवनवचन्द्रा रसतिथियमला रविश्रियमा: ॥२॥
+छिद्रेपुजिनाः कृतनवपञ्चयमा नन्दचन्द्रसुनिपक्षाः ।
+दन्ताष्टयमा गुणरामनवयमा: शकद्यमखरामाः ॥३॥
+ऋतुनवखयुरणा नवशरचन्द्रयुणाः सप्तशून्ययमदहना: ॥४॥
+द्विजनगुरास्त्रिरसरदा: खसप्तयमदहनो व्यस्ताः ॥५॥
+मुनयोऽष्टयमास्त्रिरसा रुद्रशशाङ्काः समुद्रमुनिचाः ॥६॥
+नववेदयमा सुनियुराहुताशना वसुगुणसमुद्राः ॥७॥
+रूपेन्द्रियेषवो रसनगर्तवचन्द्रशीतकरवसवः ॥८॥
+शरवसुनन्दाः सागररुद्रशशाङ्का नवाडार्कः ॥९॥
+}{%
+\textbf{[BSS II.2--9] The 24 Sines}\\[0.3em]
+The twenty-four sines are encoded in \textit{bhūta-saṅkhyā} (word-numeral) verses. Each word corresponds to a numerical value:\\
+\textbf{Verse 2:} ṣaḍ-bud-agni (6+14=20) = 214; suta-agni (7+3=10) = 427; rasa-dvādya (6+12=18) = 638; munīndu (7+1=8) = 846; vasu-candra (8+1=9) = 1051; indu-nava-nava-candra (1+9+9) = 1251; rasa-tithi-yamala (6+15+1) = 1446; ravi-śriyamā (12+1) = 1624.\\[0.2em]
+\textbf{Verses 3--9} continue the sequence up to the 24th sine = 3270 (the full radius).
+}
+
+\vspace{0.5em}
+
+\bilingual{%
+\textbf{\dev{क्रमज्या-सारणी}}\\[0.2em]
+\begin{tabular}{|c|c|c|}
+\hline
+क्र. & मानम्‌ & नाम \\
+\hline
+१ & २१४ & प्रथमज्या \\
+२ & ४२७ & द्वितीयज्या \\
+३ & ६३८ & तृतीयज्या \\
+४ & ८४६ & चतुर्थीज्या \\
+५ & १०५१ & पञ्चमीज्या \\
+६ & १२५१ & षष्ठीज्या \\
+७ & १४४६ & सप्तमीज्या \\
+८ & १६२४ & अष्टमीज्या \\
+९ & १८१७ & नवमीज्या \\
+१० & १९९१ & दशमीज्या \\
+\hline
+\end{tabular}
+}{%
+\textbf{Krama-jyā Table (Sines in Sequence)}\\[0.2em]
+\begin{tabular}{|c|c|l|}
+\hline
+No. & Value & Name \\
+\hline
+1 & 214 & Prathamā-jyā \\
+2 & 427 & Dvitīyā-jyā \\
+3 & 638 & T.rtīyā-jyā \\
+4 & 846 & Caturthī-jyā \\
+5 & 1051 & Pañcamī-jyā \\
+6 & 1251 & .Sa.s.thī-jyā \\
+7 & 1446 & Saptamī-jyā \\
+8 & 1624 & A.s.tamī-jyā \\
+9 & 1817 & Navamī-jyā \\
+10 & 1991 & Daśamī-jyā \\
+\hline
+\end{tabular}
+}
+
+\bilingual{%
+\begin{tabular}{|c|c|c|}
+\hline
+क्र. & मानम्‌ & नाम \\
+\hline
+११ & २१४५ & एकादशीज्या \\
+१२ & २२९६ & द्वादशीज्या \\
+१३ & २४१९ & त्रयोदशीज्या \\
+१४ & २५९४ & चतुर्दशीज्या \\
+१५ & २७१९ & पञ्चदशीज्या \\
+१६ & २८३२ & षोडशीज्या \\
+१७ & २९३३ & सप्तदशीज्या \\
+१८ & ३०२१ & अष्टादशीज्या \\
+१९ & ३०९६ & एकूनविंशज्या \\
+२० & ३१५९ & विंशज्या \\
+\hline
+\end{tabular}
+}{%
+\begin{tabular}{|c|c|l|}
+\hline
+No. & Value & Name \\
+\hline
+11 & 2145 & Ekādaśī-jyā \\
+12 & 2296 & Dvādaśī-jyā \\
+13 & 2419 & Trayodaśī-jyā \\
+14 & 2594 & Caturdaśī-jyā \\
+15 & 2719 & Pañcadaśī-jyā \\
+16 & 2832 & .So.daśī-jyā \\
+17 & 2933 & Saptadaśī-jyā \\
+18 & 3021 & A.s.tādaśī-jyā \\
+19 & 3096 & Ekūnaviṃśa-jyā \\
+20 & Viṃśa-jyā \\
+\hline
+\end{tabular}
+}
+
+\bilingual{%
+\begin{tabular}{|c|c|c|}
+\hline
+क्र. & मानम्‌ & नाम \\
+\hline
+२१ & ३२०७ & एकविंशज्या \\
+२२ & ३२४२ & द्वाविंशज्या \\
+२३ & ३२६३ & त्रयोविंशज्या \\
+२४ & ३२७० & चतुर्विंशज्या \\
+\hline
+\end{tabular}
+}{%
+\begin{tabular}{|c|c|l|}
+\hline
+No. & Value & Name \\
+\hline
+21 & 3207 & Ekaviṃśa-jyā \\
+22 & 3242 & Dvāviṃśa-jyā \\
+23 & 3263 & Trayoviṃśa-jyā \\
+24 & 3270 & Caturviṃśa-jyā \\
+\hline
+\end{tabular}
+}
+
+\vspace{0.5em}
+
+\sktcommbilingual{%
+\dev{वा. था.}---एषामद्वयास एव व्यास्यानम्‌। अघेज्यकास्ता इति तद्यथा। सनुयमला २१४ एतत्‌ प्रथमज्यारूपम्‌। सुनियमवेदा ४२७ द्वितीयम्‌। वसुज्वलनघटिकाः ६३८ तृतीयम्‌। रसकृतवसवः ८४६ चतुर्थम्‌। शशिपञ्चखेन्दवः १०५१ पञ्चमम्‌। चन्द्रदरसूर्याः १२५१ षष्ठम्‌।
+}{%
+\textbf{[Sanskrit Commentary]} Their diameter-measure is the radius. ``These are the \textit{aghe-jyā}'' (sines) --- thus. \textit{Sanu-yamalā} = 214; this is the form of the first sine. \textit{Suniya-mavedā} = 427, the second. \textit{Vasu-jvalana-gha.tikāḥ} = 638, the third. \textit{Rasa-k.rta-vasavaḥ} = 846, the fourth. \textit{Śaśi-pañcha-khendavaḥ} = 1051, the fifth. \textit{Candra-dara-sūryāḥ} = 1251, the sixth.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\subsection*{Utkrama-jyā (Versed Sine) Values}
+
+\bilingual{%
+\textbf{\dev{उत्क्रमज्या-सारणी}}\\[0.2em]
+\dev{उत्क्रमज्या} (versed sines) अर्धज्यानां व्यस्तक्रमेण निर्मिताः। एता रेखागणिते ``१ $-$ कोषज्या'' रूपेण ज्ञायन्ते।
+}{%
+\textbf{Utkrama-jyā Table (Versed Sines)}\\[0.2em]
+The \textit{utkrama-jyā}s (versed sines) are constructed by the reversed order of the half-chords. In modern trigonometry these are known as ``$1 - \cosine$'' (versed sine = radius $-$ cosine).
+}
+
+\vspace{0.5em}
+
+\bilingual{%
+\begin{tabular}{|c|c|l|}
+\hline
+क्र. & मानम्‌ & भूतसङ्ख्या \\
+\hline
+१ & ७ & समुद्रमुनिच (४+०+७) \\
+२ & २९ & नववेदयमा (९+४+८) \\
+३ & ६६ & सुनियुराहुताशन (१४+३+५) \\
+४ & १०२ & वसुगुणसमुद्र (८+३+४) \\
+५ & १७१ & रूपेन्द्रियेषव (१+११+५) \\
+६ & २२४ & रसनगर्तव (६+६+९) \\
+७ & २९२ & चन्द्रशीतकरवसव (१+२+५+८) \\
+८ & ३७० & शरवसुनन्दा (५+८+९) \\
+\hline
+\end{tabular}
+}{%
+\begin{tabular}{|c|c|l|}
+\hline
+No. & Value & Bhūta-saṅkhyā \\
+\hline
+1 & 7 & samudra-muni-ca (4+0+7) \\
+2 & 29 & nava-veda-yamā (9+4+8) \\
+3 & 66 & suni-yur-āhutāśana (14+3+5) \\
+4 & 102 & vasu-guṇa-samudra (8+3+4) \\
+5 & 171 & rūpendriye.ṣava (1+11+5) \\
+6 & 224 & rasa-nagartava (6+6+9) \\
+7 & 292 & candra-śītakara-vasava (1+2+5+8) \\
+8 & 370 & śara-vasu-nandā (5+8+9) \\
+\hline
+\end{tabular}
+}
+
+\bilingual{%
+\begin{tabular}{|c|c|l|}
+\hline
+क्र. & मानम्‌ & भूतसङ्ख्या \\
+\hline
+९ & ४८१ & सागररुद्रशशाङ्क (४+११+१) \\
+१० & ६२१ & नवाडार्क (९+८+१२) \\
+११ & ७६६ & त्रिविषयवेदशशाङ्क (३+६+४+१) \\
+१२ & ९३१ & पञ्चत्रिरसेन्दव (५+३+६) \\
+१३ & १११४ & षड्बुधियमधृतय (६+१७+१८) \\
+१४ & १२९६ & श्रतिधृतिखयमा (१५+२+८) \\
+१५ & १४५३ & नवशशियमपक्ष (९+६+१०) \\
+\hline
+\end{tabular}
+}{%
+\begin{tabular}{|c|c|l|}
+\hline
+No. & Value & Bhūta-saṅkhyā \\
+\hline
+9 & 481 & sāgara-rudra-śaśāṅka (4+11+1) \\
+10 & 621 & navāḍārka (9+8+12) \\
+11 & 766 & trivi.saya-veda-śaśāṅka (3+6+4+1) \\
+12 & 931 & pañca-tri-rasendava (5+3+6) \\
+13 & 1114 & .sa.d-budhi-yamadh.rtaya (6+17+18) \\
+14 & 1296 & śrati-dh.rti-khayamā (15+2+8) \\
+15 & 1453 & nava-śaśi-yama-pak.sa (9+6+10) \\
+\hline
+\end{tabular}
+}
+
+\bilingual{%
+\begin{tabular}{|c|c|l|}
+\hline
+क्र. & मानम्‌ & भूतसङ्ख्या \\
+\hline
+१६ & १६३५ & सागरद्विजिन (४+२+६) \\
+१७ & १८२४ & रदरसयमला (१२+६+१५) \\
+१८ & २०१९ & गुणवेदवसुयमा (३+४+८+८) \\
+१९ & २२१४ & षट्विषयशून्यगुण (६+६+०+३) \\
+२० & २४२४ & खमुनिरदा (०+७+१२) \\
+२१ & २६३२ & व्यासाघं (०+८) \\
+२२ & २८४३ & नवरदचन्द्र (९+१२+१) \\
+२३ & ३०५६ & जिनांदा (५+८) \\
+२४ & ३२७० & परमक्रान्तिज्या \\
+\hline
+\end{tabular}
+}{%
+\begin{tabular}{|c|c|l|}
+\hline
+No. & Value & Bhūta-saṅkhyā \\
+\hline
+16 & 1635 & sāgara-dvijina (4+2+6) \\
+17 & 1824 & radara-sa-yamalā (12+6+15) \\
+18 & 2019 & gu.na-veda-vasu-yamā (3+4+8+8) \\
+19 & 2214 & .sa.t-vi.saya-śūnya-gu.na (6+6+0+3) \\
+20 & 2424 & kha-muniradā (0+7+12) \\
+21 & 2632 & vyāsāgha (0+8) \\
+22 & 2843 & nava-rada-candra (9+12+1) \\
+23 & 3056 & jināndā (5+8) \\
+24 & 3270 & Parama-krānti-jyā (full radius) \\
+\hline
+\end{tabular}
+}
+
+\vspace{0.5em}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---बत्तचतुर्थांश मुनियमला मुनियमवेदा इत्याद्यर्धज्याइचतुरविशतिसंख्यका सन्ति यथा अघोलिखिताः स्युः। व्यस्ता (उत्क्रमज्या) इत्यस्याग्रे सम्बन्धः। चतुरविशतिरर्धज्या (क्रमज्याः)---२१४, ४२७, ६३८, ८४६, १०५१, १२५१, १४४६, १६२४, १८१७, १९९१, २१४५, २३१२, २४५९, २५९४, २८३२, २९३३, ३०२१, ३०९६, ३१४५९, ३२०७, इत्यादि, ३२६३, ३२७०।
+}{%
+\textbf{[Hindi Commentary --- Translation]} The twenty-four half-chords (\textit{ardhajyā}), [named] \textit{muniyamalā}, \textit{muniyamavedā}, etc., are of twenty-four numbers, as written below. The relation of \textit{vyastā} (reversed, i.e., versed sine) is given after. The twenty-four \textit{ardhajyā}s (\textit{krama-jyā}s) are: 214, 427, 638, 846, 1051, 1251, 1446, 1624, 1817, 1991, 2145, 2312, 2459, 2594, 2832, 2933, 3021, 3096, 3145(?), 3207, etc., 3263, 3270.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Arc--Jyā Conversion (\dev{चापज्यानयन})}
+
+\ruleheadingbilingual{नियमः चापनिर्माणम्‌}{Rule: Finding Arc from Jyā}
+
+\shlokabilingual{%
+ज्यार्धात्त्रिज्याहृतात्‌ पदं स्वल्पान्तराद्विषमात्‌ समात्‌ ।
+चापं स्यात्ततः परं तु पदं तद्वर्गयुतेः पुनः ॥
+}{%
+\textbf{[BSS --- Arc--Jyā Rule]} From the \textit{jyārdha} (half-chord, sine), divided by the \textit{trijyā} (radius), the square root gives [the first approximation], slightly different for odd and even [intervals]; from that the arc is obtained. After that, again [taking] the square root of [the sine] combined with its square [correction], [the more precise arc is obtained].
+}
+
+\sktcommbilingual{%
+\dev{वि. सा.}---बत्तचतुर्थाशि मुनयोऽष्टयमा इत्यादि चतुरविशतिसंख्यका उत्क्रमज्याः सन्ति यथा अघोलिखिताः स्युḥ---७, रद् (२९), ६२, १११; १७४, रउ (२९२), ३३७, ४३५, रभ१ (५२१), ६७६, ८११, रउ (९८५), १११४, १२९६, १४५३, १६३५, १८२४, २०१९, २२१४, २४२४, २६३२, २५४३, ३०५६, रेर७० (३२७०)।
+}{%
+\textbf{[Sanskrit Commentary]} The twenty-four versed sines (\textit{utkrama-jyā}), [named] \textit{muno'ṣ.tayamā} etc., are of twenty-four numbers, as written below: 7, rad (29), 62, 111; 174, rau (292), 337, 435, rabha1 (521), 676, 811, rau (985), 1114, 1296, 1453, 1635, 1824, 2019, 2214, 2424, 2632, 2543(?), 3056, rera70 (3270).
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---ज्यार्ध को त्रिज्या से भाग देने से जो पद (मूल) प्राप्त हो वह स्वल्पान्तराद्विषमात्‌ समात्‌ (थोड़े अन्तर से विषम और सम) से चाप होता है। उसके पश्चात्‌ पुनः उसी पद के वर्ग में युक्त करके (कुछ संस्कार करके) आगे का चाप प्राप्त होता है।
+}{%
+\textbf{[Hindi Commentary --- Translation]} The \textit{jyārdha} (half-chord), divided by the \textit{trijyā} (radius), from whatever root (\textit{pada}) is obtained, slightly differing for odd and even [intervals], that becomes the arc. After that, again, having combined [the correction] with the square of that same root, the next arc is obtained.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Manda and Śīghra Equations}
+
+\ruleheadingbilingual{नियमाः ४१--४४}{Rules 41--44: True Motion Computation}
+
+\bilingual{%
+\textbf{\dev{मन्दफल-शीघ्रफल-प्रवेशः}}\\[0.3em]
+\dev{मन्दफल} (manda-phala, equation of centre) तथा \dev{शीघ्रफल} (śīghra-phala, equation of conjunction) इत्येते ग्रहस्फुटीकरणस्य मुख्ये संस्कारे। मन्दफलं मन्दकेन्द्रज्यया, शीघ्रफलं शीघ्रकेन्द्रज्यया निर्भर्त्स्यते।
+}{%
+\textbf{Introduction to Manda-phala and Śīghra-phala}\\[0.3em]
+The \textit{manda-phala} (equation of centre) and \textit{śīghra-phala} (equation of conjunction) are the two principal corrections for making the planet true. The \textit{manda-phala} is computed from the \textit{manda-kendra} (anomaly of the epicycle); the \textit{śīghra-phala} from the \textit{śīghra-kendra} (anomaly of conjunction).
+}
+
+\vspace{0.5em}
+
+\shlokabilingual{%
+मन्दकेन्द्रेभुजज्याभिः पातजीविकया गुणाः ।
+कोटिजीवाहृता भक्ता व्यासार्धेन फलं गतिः ॥४१॥
+ततः प्रथममल्पं द्वितीयं वा मन्दसंस्कृतात्‌ ।
+मध्यान्मन्दफलादद्याच्छीघ्रभुक्त्याऽथवा पुनः ॥४२॥
+मन्दसंस्कृतमादाय शीघ्रभुक्त्याऽथवा पुनः ।
+शीघ्रफलं ततः कुर्यात्त्रैराशिकेन संहितम्‌ ॥४३॥
+शीघ्रफलं व्यवस्थाप्य ग्रहस्य स्फुष्टगतिकाः ।
+समानीय ततः कुर्याद्वक्रभुक्तिं विचक्षणः ॥४४॥
+}{%
+\textbf{[BSS II.41--44]}\\[0.3em]
+\textbf{41:} The \textit{bhuja-jyā} (sine of anomaly) of the \textit{manda-kendra}, multiplied by the \textit{pāta-jīvikā} and divided by the \textit{ko.ti-jyā} (cosine), [then] multiplied by the \textit{vyāsārdha} (radius), gives the \textit{manda-phala} (equation of centre) and the motion.\\[0.3em]
+\textbf{42:} From that, first the small or second [epicycle], or from the \textit{manda-saṃsk.rta} (mean corrected by manda), from the mean, one should give the \textit{manda-phala}, or again by the \textit{śīghra-bhukti}.\\[0.3em]
+\textbf{43:} Taking the \textit{manda-saṃsk.rta}, or again by the \textit{śīghra-bhukti}, one should then compute the \textit{śīghra-phala}, combined by proportion (\textit{trairāśika}).\\[0.3em]
+\textbf{44:} Having established the \textit{śīghra-phala}, the true velocities (\textit{sphu.s.t.a-gatikaḥ}) of the planet are to be brought together; then the wise [astronomer] should compute the \textit{vakra-bhukti} (retrograde motion).
+}
+
+\vspace{0.5em}
+
+\sktcommbilingual{%
+\dev{वि. सा.}---मन्दकेन्द्रगतिज्यान्तरेण (भोग्यखण्डेन) गुणिता, प्राद्वजीवया (प्रथमज्यया) भक्ता यल्लब्धं तत्स्फुटपरिधिगुणितं, भगणांशे ३६५ भक्ते लब्धामिष्कलामिमां शकवर्गादौ (सकलादिकेन्द्रे, क्कयादिकेन्द्रे च) स्वमध्यमगतीरूनाधिका तदानीकेन्द्रस्य (रविचन्द्रयोः) स्फुटा गतिर्भवति, कुजादीनां ग्रहाणां मन्दगतिफलरहिता मध्यगति (मन्दस्फुटगति) वदत्याचार्याः।
+}{%
+\textbf{[Sanskrit Commentary]} Multiplied by the \textit{manda-kendra-gati-jyāntara} (\textit{bhogyakha.n.da}, the tabular difference), divided by the \textit{prathama-jīvā} (first sine); whatever result is obtained, multiplied by the \textit{sphu.ta-paridhi} and divided by 365 (\textit{bhaga.nāṃśa}), the resulting minutes --- in the \textit{sakala-ādi-kendra} etc., [when this is] less or more than its own mean motion, at that \textit{kendra} the true motion of the Sun and Moon is obtained. For Mars and the other planets, the mean motion minus the \textit{manda-gati-phala} is called \textit{manda-sphu.ta-gati} by the teachers.
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---मन्दकेन्द्रगतिज्यान्तर (भोग्यखण्ड) से गुणित प्रथमजीवा (प्रथमज्या) से भक्त जो लब्ध फल वह स्फुटपरिधि से गुणित ३६५ भगणांश से भाग देने से जो कला-मिमा प्राप्त होती है वह सकलादिकेन्द्र में अपनी मध्यमगति से ऊना या अधिक होती है, तदानीक केन्द्र में रवि और चन्द्र की स्फुटा गति होती है। कुज आदि ग्रहों की मन्दगतिफलरहित मध्यगति मन्दस्फुटगति है। स्वमन्दस्पुष्टगतिरहिता शीघ्रोच्चगति कुजादि ग्रहों की शीघ्रकेन्द्रगति है।
+}{%
+\textbf{[Hindi Commentary --- Translation]} The \textit{manda-kendra-gati-jyāntara} (\textit{bhoga-kha.n.da}), multiplied [by the epicycle] and divided by the \textit{prathama-jīvā} (\textit{prathama-jyā}); the resulting quotient, multiplied by the \textit{sphu.ta-paridhi} and divided by 365 \textit{bhaga.nāṃśa}, the resulting minutes --- in the \textit{sakala-ādi-kendra}, whether less or more than the mean motion, at that \textit{kendra} the true motion of the Sun and Moon is obtained. For Mars and other planets, the mean motion minus the \textit{manda-gati-phala} is the \textit{manda-sphu.ta-gati}. The \textit{śīghrocca-gati} minus its own \textit{manda-sphu.ta-gati} is the \textit{śīghra-kendra-gati} of Mars and other planets.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{The Manda Paridhi (Epicycle) Values}
+
+\ruleheadingbilingual{नियमाः २०--२१}{Rules 20--21: Manda Epicycle Corrections}
+
+\shlokabilingual{%
+तद्द्युदलपरिध्यन्तरगुणा हता त्रिज्यया च नतजीवा ।
+ऊने धनमृणमधिके दिनार्धपरिधी स्फुटः परिधिः ॥२०॥
+सूर्यस्य तदृणमन्दफले धने मन्दपरिधिर्मध्याह्ने ।
+चन्द्रस्य तदेव ताभिरेव घटिकामितेन्दुरपि तस्मिन्नेव कपाले नतो भवतीति ॥२१॥
+}{%
+\textbf{[BSS II.20--21]}\\[0.3em]
+\textbf{20:} The difference between that [quantity] and the half-diameter of the epicycle (\textit{dyudala-paridhi}), multiplied by the \textit{trijyā} (radius) and by the \textit{nata-jīvā} (sine of altitude), [when the planet is] in decrease (\textit{ūne}) is positive (\textit{dhana}), in increase (\textit{adhike}) is negative (\textit{.rna}); this is the \textit{sphu.ta-paridhi} (true epicycle) of the half-day.\\[0.3em]
+\textbf{21:} For the Sun, that is the \textit{manda-paridhi} in the \textit{.rna-manda-phala} or \textit{dhana-manda-phala} at midday. For the Moon, the same, and by those same [quantities] in \textit{gha.tikā}s, the Moon also [is corrected] at that same \textit{kapāla} (division); thus the \textit{nata} (altitude) is obtained.
+}
+
+\sktcommbilingual{%
+\dev{वि. सा.}---चतुदंशांशाः स्थानद्वये भागद्वयंशेन रहितास्तदा ऋणे वा धने वा मन्दफले सूर्यस्य; दिनमध्ये (मध्याह्ने) मन्दपरिध्यंशा भवन्ति, ऋणे धने वा मन्दफले दिनार्धात्‌ प्राक्‌कपाले पञ्चदशघटीभिनेतस्य सूर्यस्य दिनमध्यपरिधिमानं क्रमेण भागद्वयंशेनाधिकसूनं कार्यं। चन्द्रस्य ऋणे धने वा मन्दफले दशनद्वितयं जिनलिप्तोनं कार्यमर्थात्‌ स्थानद्वये द्वात्रिंशदंशाख्यचतुरविशतिकलारहितास्तदा मध्याह्ने तन्मन्दपरिध्यंशा भवन्ति।
+}{%
+\textbf{[Sanskrit Commentary]} Fourteen degrees (\textit{catudaṃśāṃśāḥ}), in two places, diminished by two-thirds of a degree (\textit{bhāgadwayaṃśena rahitāḥ}) --- then in the \textit{.rna} or \textit{dhana manda-phala} of the Sun; at midday (\textit{dinamadhye}) the \textit{manda-paridhi-aṃśa} are obtained. In the \textit{.rna} or \textit{dhana manda-phala}, before the half-day \textit{kapāla}, for the Sun separated by fifteen \textit{gha.tikā}s, the half-day \textit{paridhi} measure is to be made successively increased or decreased by two-thirds of a degree. For the Moon, in the \textit{.rna} or \textit{dhana manda-phala}, twelve [degrees] diminished by two \textit{jina-lipata} (?) --- that is, in two places, diminished by thirty-two degrees plus twenty-four minutes (\textit{dvātriṃśadaṃśākhyacaturviṃśatikalā rahitāḥ}) --- then at midday those \textit{manda-paridhi-aṃśa} are obtained.
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---चौदह अंश में दो स्थानों में एक अंश के तृतीयांश (बीस कला) को घटाने से सूर्य के ऋणमन्द फल में वा धनमन्द फल में मध्यन्ह काल में मन्द परिध्यंश होता है। ऋणमन्दफल में वा धनमन्दफल में दिनार्ध से पूर्वकपाल में पञ्चदश १४ घटी करके नत सूर्य के मध्यान्ह मन्दपरिधिमान में क्रम से एक भाग के तृतीयांश (२० कला) को युत और हीन करना चाहिये।
+}{%
+\textbf{[Hindi Commentary --- Translation]} From fourteen degrees, in two places, diminishing by one-third of a degree (20 \textit{kalā}s), in the \textit{.rna-manda-phala} or \textit{dhana-manda-phala} of the Sun, at midday the \textit{manda-paridhi-aṃśa} is obtained. In the \textit{.rna-manda-phala} or \textit{dhana-manda-phala}, in the \textit{kapāla} before half-day, having subtracted fifteen (14?) \textit{gha.tikā}s from the \textit{nata} Sun, in the midday \textit{manda-paridhi} measure, successively one-third of a degree (20 \textit{kalā}s) is to be added and subtracted.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\subsection*{Summary of Manda Paridhi Values}
+
+\bilingual{%
+\textbf{\dev{मन्दपरिधि-सारणी}}\\[0.3em]
+अधो मन्दपरिधीनां सङ्ख्यात्मकं सारांशः प्रदर्श्यते। प्रत्येकस्य ग्रहस्य मन्दपरिधिः चतुर्विशत्यंशपर्यन्तं परिवर्तते।
+}{%
+\textbf{Manda-paridhi Summary Table}\\[0.3em]
+Below is presented a numerical summary of the \textit{manda-paridhi} (epicycle) values. For each planet the \textit{manda-paridhi} varies up to twenty-four degrees.
+}
+
+\vspace{0.5em}
+
+\bilingual{%
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{ग्रहः} & \textbf{मन्दपरिधिः} & \textbf{विशेषटिप्पनी} \\
+\hline
+रविः (Sun) & १३--१४ & मन्दानुसारे परिवर्तनम्‌ \\
+चन्द्रः (Moon) & ३१--३२ & रवेः द्विगुणे गतिके \\
+भौमः (Mars) & ७३--८० & उभयसंस्कारयुक्तः \\
+बुधः (Mercury) & ३० & सङ्कीर्णः \\
+गुरुः (Jupiter) & ३२--३६ & उभयसंस्कारयुक्तः \\
+शुक्रः (Venus) & ११--१४ & सङ्कीर्णः \\
+शनिः (Saturn) & ५९--६५ & मन्दगतिः \\
+\hline
+\end{tabular}
+}{%
+\begin{tabular}{|l|c|l|}
+\hline
+\textbf{Planet} & \textbf{Manda Paridhi} & \textbf{Special Notes} \\
+\hline
+Sūrya (Sun) & 13--14 & Varies by anomaly \\
+Candra (Moon) & 31--32 & Twice Sun's rate \\
+Bhauma (Mars) & 73--80 & Both corrections \\
+Budha (Mercury) & 30 & Complex \\
+Guru (Jupiter) & 32--36 & Both corrections \\
+Śukra (Venus) & 11--14 & Complex \\
+Śani (Saturn) & 59--65 & Slow motion \\
+\hline
+\end{tabular}
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{True Daily Motion (\dev{स्फुटभुक्ति})}
+
+\ruleheadingbilingual{नियमाः स्फुटभुक्तिः}{Rules: Daily Motion After Correction}
+
+\shlokabilingual{%
+शीघ्रकेन्द्रस्फुटभुक्त्यन्तरगुणा श्रत उक्तलब्धात्संशोध्या ।
+शीघ्रगतिर्वक्रगतिरिति सिङ्हवर्म्मोपपन्नश्लोकः ॥
+}{%
+\textbf{[BSS --- True Daily Motion]} The difference between the \textit{śīghra-kendra-sphu.ta-bhukti} and [the mean motion], multiplied by the [tabular difference] and corrected from the stated quotient --- this is the \textit{śīghra-gati}; [if negative] it is \textit{vakra-gati} (retrograde motion). Thus [goes] the proof-verse of Siṅhavarman.
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---शीघ्रकेन्द्रस्फुटभुक्त्यन्तर (भोग्यखण्ड) से गुणित प्रथमजीवा (प्रथमज्या) से भक्त जो लब्ध फल वह स्फुटपरिधि से गुणित ३६५ भगणांश से भाग देने से जो कला-मिमा प्राप्त होती है वह सकलादिकेन्द्र में अपनी मध्यमगति से ऊना या अधिक होती है, तदानीक केन्द्र में रवि और चन्द्र की स्फुटा गति होती है।
+}{%
+\textbf{[Hindi Commentary --- Translation]} The \textit{śīghra-kendra-sphu.ta-bhukti-antara} (\textit{bhoga-kha.n.da}), multiplied [by the epicycle] and divided by the \textit{prathama-jīvā}; the resulting quotient, multiplied by the \textit{sphu.ta-paridhi} and divided by 365 \textit{bhaga.nāṃśa}, the resulting minutes --- in the \textit{sakala-ādi-kendra}, whether less or more than the mean motion, at that \textit{kendra} the true motion of the Sun and Moon is obtained.
+}
+
+\subsection*{Geometric Explanation (Upapatti)}
+
+\hindicommbilingual{%
+\textbf{उपपत्ति}---मध्यस्पष्ट भेदेन गतिस्त्रिविधा भवति, या गतिः प्रतिक्षणं भिन्ना-भिन्ना भवति, सा स्पष्टा अन्यां मध्या, स्फुटा गतिरपि दैनिकतात्कालिकभेदेन द्विविधा भवति, तेन दैनिकमन्दस्पष्टागतिः, तात्कालिकमन्दस्पष्टागतिः। दैनिकस्पष्टागतिः, तात्कालिकस्पष्टागतिः, आचार्येण दैनिकमन्दस्पष्टगतिः, दैनिकस्पष्टगतिश्चानीयते।
+}{%
+\textbf{[Upapatti --- Geometric Proof]} By the difference between mean and true, motion becomes threefold. That motion which is different every moment is \textit{spa.s.tā}; another is \textit{madhyā} (mean). The true motion (\textit{sphu.tā gati}) is also twofold by the division into daily and instantaneous: thus the daily \textit{manda-sphu.tā-gati} and the instantaneous \textit{manda-sphu.tā-gati}. The daily \textit{spa.s.tā-gati}, the instantaneous \textit{spa.s.tā-gati} --- by the teacher the daily \textit{manda-sphu.ta-gati} and the daily \textit{sphu.ta-gati} are computed.
+}
+
+\hindicommbilingual{%
+ग्रहमन्दकेन्द्रगतिज्यान्तर (भोग्यखण्ड) से गुणित प्रथमज्यया भक्त यल्लब्धं तत्स्फुटपरिधिगुणितं भगणांशे ३६५ भक्ते लब्धामिष्कलामिमां शकवर्गादी (सकलादिकेन्द्रे, क्कयादिकेन्द्रे च) स्वमध्यमगतीरूनाधिका तदानीकेन्द्रस्य (रविचन्द्रयोः) स्फुटा गतिर्भवति।
+}{%
+The \textit{graha-manda-kendra-gati-jyāntara} (\textit{bhoga-kha.n.da}), multiplied by the \textit{prathama-jyā} and divided [by the radius]; whatever quotient is obtained, multiplied by the \textit{sphu.ta-paridhi} and divided by 365 (\textit{bhaga.nāṃśa}), the resulting minutes --- in the \textit{sakala-ādi-kendra} (or \textit{kkayādi-kendra}), whether less or more than its own mean motion, at that \textit{kendra} the true motion of the Sun and Moon is obtained.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{Special Corrections for Different Planets}
+
+\ruleheadingbilingual{विशेषसंस्काराः}{Planet-Specific Corrections}
+
+\subsection*{Mercury (\dev{बुध}) and Venus (\dev{शुक्र})}
+
+\sktcommbilingual{%
+\dev{वि. सा.}---बुधशुक्रयोः शीघ्रोच्चं रवेरर्कात्‌ ग्रहणादितोऽन्यथा। तयोः शीघ्रोच्चं सूर्यसम्बन्धि, मन्दोच्चं स्वतन्त्रमिति विशेषः।
+}{%
+\textbf{[Sanskrit Commentary]} For Mercury and Venus, the \textit{śīghrocca} (apsis of the śīghra epicycle) is [derived] from the Sun; from the seizure of the Sun [it is different], otherwise [it would be the same]. Their \textit{śīghrocca} is connected to the Sun; the \textit{mandocca} (apsis of the manda epicycle) is independent --- this is the special feature.
+}
+
+\hindicommbilingual{%
+बुध और शुक्र का शीघ्रोच्च सूर्य से ही संबन्ध रखता है, इनका शीघ्रोच्च सूर्यसम्बन्धी है, मन्दोच्च स्वतन्त्र है। इसलिए इन दोनों ग्रहों में विशेष संस्कार की आवश्यकता होती है।
+}{%
+\textbf{[Hindi Commentary --- Translation]} The \textit{śīghrocca} of Mercury and Venus is related to the Sun itself; their \textit{śīghrocca} is Sun-related, the \textit{mandocca} is independent. Therefore for these two planets a special correction procedure is necessary.
+}
+
+\vspace{1em}
+
+\subsection*{Mars (\dev{भौम}), Jupiter (\dev{गुरु}), and Saturn (\dev{शनि})}
+
+\sktcommbilingual{%
+\dev{वि. सा.}---भौमादीनां मन्दस्पष्टगतिः स्फुटगतिश्च। मन्दस्पष्टभुक्त्यन्तरात्‌ शीघ्रभुक्तिः शीघ्रफलाधम्भोग्यजीवासंगुणिता मध्यजीवया विभजेत्‌। लब्धेनोक्तवत्स्फुटभुक्तिः समानीया यदि तया सह मन्दफलाधम्फुटभुक्त्यन्तरा तत्रैव केन्द्रमे कृता भुक्ती धन ऋणां वा कार्यं।
+}{%
+\textbf{[Sanskrit Commentary]} For Mars and the others, the \textit{manda-sphu.ta-gati} and the \textit{sphu.ta-gati}. From the \textit{manda-sphu.ta-bhukti-antara}, the \textit{śīghra-bhukti} [is obtained]; the \textit{śīghra-phala-ādha-bhogya-jīvā}, multiplied by the \textit{madhya-jivyā} (mean sine), is to be divided. Having brought together the \textit{sphu.ta-bhukti} by the stated quotient; if together with that, by the \textit{manda-phala-ādham-sphu.ta-bhukti-antara} in that same \textit{kendra}, the resulting \textit{bhukti} is to be made positive or negative.
+}
+
+\hindicommbilingual{%
+भौम आदि ग्रहों की मन्दस्पष्टगति और स्फुटगति---मन्दस्पष्टभुक्त्यन्तर से शीघ्रभुक्ति शीघ्रफलाधम्भोग्यजीवा संगुणित मध्यजीवा विभजेत्‌। लब्धेन उक्तवत्‌ स्फुटभुक्ति समानीया यदि तया सह मन्दफलाधम्फुटभुक्त्यन्तरा तत्रैव केन्द्र में कृता भुक्ती धन ऋण वा कार्य।
+}{%
+\textbf{[Hindi Commentary --- Translation]} For Mars and other planets, the \textit{manda-sphu.ta-gati} and \textit{sphu.ta-gati} --- from the \textit{manda-sphu.ta-bhukti-antara}, the \textit{śīghra-bhukti}; the \textit{śīghra-phala-adha-bhogya-jīvā}, multiplied and divided by the \textit{madhya-jīva}. By the resulting [quotient], the \textit{sphu.ta-bhukti} is to be brought together as stated; if together with that, by the \textit{manda-phala-adha-sphu.ta-bhukti-antara} in that same \textit{kendra}, the resulting \textit{bhukti} is to be made positive or negative.
+}
+
+\secdivider
+\clearpage
+
+%% ============================================================================
+\section{The Chapter Conclusion}
+
+\ruleheadingbilingual{स्पष्टाधिकारोपसंहारः}{Epilogue to the Spa.s.tādhikāra}
+
+\shlokabilingual{%
+इति ब्राह्मस्फुटसिद्धान्ते स्पष्टाधिकारः द्वितीयः ॥
+}{%
+\textbf{[End of Chapter 2]} Thus the second chapter, the \textit{Spa.s.tādhikāra} (Chapter on True Positions), in the \textit{Brāhmasphu.tasiddhānta}.
+}
+
+\hindicommbilingual{%
+\textbf{हिन्दी भाषा}---इस प्रकार से ब्रह्मगुप्ताचार्य द्वारा रचित ब्राह्मस्फुटसिद्धान्त में मध्यमाधिकार (प्रथम अधिकार) और स्पष्टाधिकार (द्वितीय अधिकार) की व्याख्या संपन्न हुई। इसमें ग्रहों की मध्यमगति, स्पष्टीकरण, ज्यागणित, मन्दफल, शीघ्रफल, देशान्तर, नतकर्म आदि विषयों का विस्तृत वर्णन किया गया है।
+}{%
+\textbf{[Hindi Commentary --- Translation]} In this manner, the explanation of the \textit{Madhyamādhikāra} (first chapter) and the \textit{Spa.s.tādhikāra} (second chapter) in the \textit{Brāhmasphu.tasiddhānta}, composed by Ācārya Brahmagupta, has been completed. In this, the mean motions of planets, \textit{sphu.tīkara.na}, sine mathematics (\textit{jyā-ga.nita}), \textit{manda-phala}, \textit{śīghra-phala}, \textit{deśāntara}, \textit{nata-karma}, and other subjects have been described in detail.
+}
+
+\vspace{1em}
+
+\bilingual{%
+\textit{[स्पष्टाधिकारस्य विस्तृतगणना ग्रहाणां मन्दशीघ्रसंस्कारेभ्यः, परिधिमानसारणीभ्यः, ज्यामितीयोपपत्तिभ्यः, बुधशुक्रयोः विशेषनियमाभ्यश्च पृष्ठ ८९६--९७८ अनुवर्तते।]}
+}{%
+\textit{[The Spa.s.tādhikāra continues with detailed calculations for each planet's \textit{manda} and \textit{śīghra} corrections, tables of \textit{paridhi} values, geometric \textit{upapatti}s (proofs), and special rules for Mercury and Venus across pages 896--978 of the original edition.]}
+}
+
+\clearpage
+
+%% ============================================================================
+\appendix
+\chapter*{Notes}
+\addcontentsline{toc}{chapter}{Notes}
+\markboth{Notes}{Notes}
+
+\bilingual{%
+\textbf{\dev{संपादकीयटिप्पनयः}}\\[0.3em]
+एतत्‌ पुनर्मुद्रणं ब्रह्मगुप्तकृत ब्राह्मस्फुटसिद्धान्तस्य संस्कृत-हिन्दीटीकासहितस्य (पृष्ठ ८३९--९७८) समाविशति।
+}{%
+\textbf{About this Edition}\\[0.3em]
+This typeset edition reproduces the content of Brahmagupta's \textit{Brāhmasphu.tasiddhānta} as found in the Sanskrit--Hindi commentary edition (pages 839--978), presented in a bilingual parallel-column format with English translation and IAST transliteration.
+}
+
+\vspace{1em}
+
+\bilingual{%
+\textbf{\dev{मुख्यगणितविषयाः}}\\[0.5em]
+१. \textbf{ज्यासारणी}---ब्रह्मगुप्तकृताः चतुर्विंशतिः ज्याः अपूर्वसूक्ष्मतां दर्शयन्ति। भूतसङ्ख्यापद्धत्या संख्याः काव्यतया निरूपिताः।\\[0.2em]
+२. \textbf{देशान्तरकर्म}---दीर्घ्यान्तरनिर्णायकसूत्रं भूगोलपरिधिम्‌ (५००० योजनानि), अक्षांशान्तरं, कालसंशोधनं च सम्बध्नाति।\\[0.2em]
+३. \textbf{ग्रहसंस्काराः}---मन्दशीघ्रफले उन्नतपरिवलयसिद्धान्तस्य प्रतिनिधित्वं कुर्वन्ति, प्रत्येकस्य ग्रहस्य विभिन्नपरिधिभिः।\\[0.2em]
+४. \textbf{ज्यामितीयोपपत्तयः}---टीकायां परिवलयमाडलस्य त्रिकोणमितीयसम्बन्धान्‌ उपयुज्य सविस्तरं युक्तयः प्रदर्शिताः।
+}{%
+\textbf{Notable Mathematical Content}\\[0.5em]
+1. \textbf{Sine tables:} The 24 sines given by Brahmagupta are notable for their precision. The values use the \textit{bhūta-saṅkhyā} (word-numeral) system where each number is encoded in poetic words.\\[0.2em]
+2. \textbf{Longitude correction (deśāntara):} The formula for computing longitude differences uses the relationship between terrestrial circumference (5000 yojanas), latitude difference, and the resulting time correction.\\[0.2em]
+3. \textbf{Planetary equations:} The \textit{manda} and \textit{śīghra} equations represent sophisticated epicyclic theory, with different epicycle sizes for each planet that vary with anomaly.\\[0.2em]
+4. \textbf{Geometric proofs (upapatti):} The commentary includes detailed geometric justifications using trigonometric relationships in the epicycle model.
+}
+
+\vspace{1em}
+
+\bilingual{%
+\textbf{\dev{टङ्कनतान्त्रिकटिप्पनयः}}\\[0.5em]
+\textbullet{} \textbf{यन्त्रम्‌:} ज़ीलatek (XeLaTeX) सम्पूर्णयुनीकोडसहितम्‌\\
+\textbullet{} \textbf{देवनागरीय मुद्राक्षरश्रेणिः:} Noto Serif Devanagari\\
+\textbullet{} \textbf{आङ्ग्लमुद्राक्षरश्रेणिः:} Linux Libertine O\\
+\textbullet{} \textbf{मूलस्रोतः:} ब्राह्मस्फुटसिद्धान्त-संस्कृतहिन्दीसंस्करणस्य पृष्ठसङ्ख्या ८३९--९७८
+}{%
+\textbf{Technical Notes on Typesetting}\\[0.5em]
+\textbullet{} \textbf{Engine:} XeLaTeX with full Unicode support\\
+\textbullet{} \textbf{Devanagari font:} Noto Serif Devanagari\\
+\textbullet{} \textbf{English font:} Linux Libertine O\\
+\textbullet{} \textbf{Source:} Scanned pages 839--978 of the Brahmasphutasiddhanta Part 2 edition
+}
+
+\vspace{1cm}
+\begin{center}
+\rule{0.4\textwidth}{0.5pt}\\[0.5cm]
+{\small\textit{End of Part 2, Chunk 1 (Pages 839--978) --- Bilingual Edition}}
+\end{center}
+
+\end{document}

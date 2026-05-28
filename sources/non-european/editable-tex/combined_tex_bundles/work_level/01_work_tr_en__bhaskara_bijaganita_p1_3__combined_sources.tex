@@ -1,0 +1,3181 @@
+% Combined TeX source bundle
+% Title: Bhaskara II, Bijaganita, current English bilingual parts 1-3
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and reuse rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/en/indian/bhaskara-ii-bijaganita-part1_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Bhaskara II's Bijaganita (Part 1) -- Bilingual Sanskrit-English Edition
+%% Source: Benares Sanskrit Series, No. 159 (1927 Edition)
+%% Translation follows S. K. Abhyankar's conventions with IAST
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+%\usepackage{verse}      % Not available - using custom environments
+%\usepackage{lettrine}   % Not available
+%\usepackage{microtype}  % Not available
+%\usepackage{tocloft}    % Not available
+\usepackage{indentfirst}
+\usepackage{etoolbox}
+%\usepackage{wrapfig}    % Not available
+\usepackage{ragged2e}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=15mm,right=15mm,top=22mm,bottom=22mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{sanskrit}
+
+%% -------- Font Configuration --------
+\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setsansfont[
+  
+  UprightFont=TeXGyreHeros,
+  BoldFont=TeXGyreHeros,
+  ItalicFont=TeXGyreHeros,
+  BoldItalicFont=TeXGyreHeros
+]{TeXGyreHeros}
+\setmonofont[
+  
+  UprightFont=TeXGyreCursor,
+  BoldFont=TeXGyreCursor,
+  ItalicFont=TeXGyreCursor,
+  BoldItalicFont=TeXGyreCursor,
+  Scale=MatchLowercase
+]{TeXGyreCursor}
+
+%% Devanagari (Sanskrit/Hindi) Font
+\newfontfamily\devanagarifont[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSerifDevanagari-Regular.ttf}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSansDevanagari-Regular.ttf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{versecolor}{RGB}{80,60,50}
+\definecolor{notetextcolor}{RGB}{60,80,100}
+\definecolor{leftbg}{RGB}{255,253,250}
+\definecolor{rightbg}{RGB}{250,252,255}
+\definecolor{colsep}{RGB}{180,160,140}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}\centering}
+  {\thesection}{0em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}\centering}
+  {\thesubsection}{0em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Bijaganita -- Bilingual Edition (Sanskrit-English)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% Bilingual parallel columns
+\newcommand{\bicol}[2]{%
+\noindent%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushleft}
+\small
+#1
+\end{flushleft}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushleft}
+\small
+#2
+\end{flushleft}
+\end{minipage}%
+\vspace{0.4em}
+}
+
+\newcommand{\bicolverse}[2]{%
+\par\noindent%
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\color{versecolor}
+\devanagarifont
+\small
+#1
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\color{versecolor}
+\small
+#2
+\end{minipage}%
+\par\vspace{0.4em}
+}
+
+\newcommand{\sectionbicol}[2]{%
+\vspace{0.5em}
+\noindent%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+\large\bfseries\color{sectioncolor}
+\dev{#1}
+\end{center}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+\large\bfseries\color{sectioncolor}
+#2
+\end{center}
+\end{minipage}%
+\vspace{0.3em}
+\noindent\rule{\textwidth}{0.4pt}
+}
+
+\newcommand{\subsectionbicol}[2]{%
+\vspace{0.4em}
+\noindent%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+\normalsize\itshape\color{sectioncolor}
+\dev{#1}
+\end{center}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{center}
+\normalsize\itshape\color{sectioncolor}
+#2
+\end{center}
+\end{minipage}%
+\vspace{0.2em}
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Bhaskara II's Bijaganita Part 1 -- Bilingual Edition},
+  pdfauthor={Bhaskaracharya, Translated with IAST},
+  pdfsubject={Sanskrit Mathematical Manuscript, Bilingual Edition}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+{\LARGE\bfseries BILINGUAL EDITION}\\[0.3cm]
+{\large Sanskrit -- English / Sa\d{m}sk\d{r}ta -- A\d{n}gla}\\[0.5cm]
+\longline\\[0.4cm]
+{\Huge\devanagarifont बीजगणितमध्यगणितं वा}\\[0.3cm]
+{\LARGE\scshape Bijaganita}\\[0.2cm]
+{\normalsize (Seed Computation / Elements of Algebra)}\\[0.4cm]
+{\large\devanagarifont श्रीभास्कराचार्यविरचितम्~।}\\[0.3cm]
+{\large\itshape Composed by \'{S}r\={\i} Bh\={a}skar\={a}c\={a}rya}\\[0.6cm]
+{\large Part 1 / Prathamo Bh\={a}ga\d{h}}\\[0.3cm]
+\shortline
+{\normalsize Edited by Sudh\={a}kara Dvived\={\i} with further notes by Mural\={\i}dhara Jha}\\[0.2cm]
+{\small Benares Sanskrit Series, No.~159 (1927)}\\[0.3cm]
+{\footnotesize Bilingual edition with IAST transliteration following S.~K.~Abhyankar's conventions}\\[0.5cm]
+\longline
+\end{center}
+\clearpage
+
+%% ========================================================================
+%% TRANSLATOR'S PREFACE
+%% ========================================================================
+\thispagestyle{empty}
+\section*{Translator's Preface}
+\addcontentsline{toc}{section}{Translator's Preface}
+
+This bilingual edition presents Bh\={a}skara II's \textit{B\={\i}jaga\d{n}ita} (``Seed Computation'') in parallel Sanskrit-English columns. The text is based on the Benares Sanskrit Series edition of 1927, edited by Sudh\={a}kara Dvived\={\i} with additional notes by Mural\={\i}dhara Jha.
+
+\textbf{Key Terminology:}
+\begin{itemize}[leftmargin=2em]
+  \item \dev{बीज} (\textit{b\={\i}ja}) --- seed, origin; hence \textit{algebra}
+  \item \dev{अव्यक्त} (\textit{avyakta}) --- unseen, unknown quantity
+  \item \dev{यावत्तावत्} (\textit{y\={a}vat-t\={a}vat}) --- ``as much as,'' the unknown $x$
+  \item \dev{रूप} (\textit{r\={u}pa}) --- absolute number, constant term
+  \item \dev{वर्ण} (\textit{var\d{n}a}) --- colour, representing different unknowns
+  \item \dev{करणी} (\textit{kara\d{n}\={\i}}) --- surd, irrational quantity
+  \item \dev{समीकरण} (\textit{sam\={\i}kara\d{n}a}) --- equation (making equal)
+  \item \dev{धन} (\textit{dhana}) --- positive (wealth)
+  \item \dev{ऋण} (\textit{\d{r}\d{n}a}) --- negative (debt)
+\end{itemize}
+
+The left column presents the original Sanskrit in Devan\={a}gar\={\i} script. The right column provides the English translation with IAST transliteration of key terms.
+
+\clearpage
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\section*{\dev{विषयसूची} / Table of Contents}
+\addcontentsline{toc}{section}{Table of Contents}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{p{5.5cm}p{5.5cm}r}
+\toprule
+\textbf{Sanskrit} & \textbf{English} & \textbf{Page} \\
+\midrule
+\endhead
+\dev{घनाणां सङ्कलनम्} & Sa\d{m}kalana of cubes & 1 \\
+\dev{घनानां व्यवकलनम्} & Vyavakalana of cubes & 2 \\
+\dev{घनानां गुणनम्} & Gu\d{n}ana of cubes & 3 \\
+\dev{घनानां भागहारः} & Division of cubes & 4 \\
+\dev{घनानां वर्गो मूलं च} & Square and root of cubes & 5 \\
+\dev{अव्यक्तसङ्कलनव्यवकलनम्} & Addition/Subtraction of unknowns & 5 \\
+\dev{अव्यक्तगुणनम्} & Multiplication of unknowns & 7 \\
+\dev{अव्यक्तभागहारः} & Division of unknowns & 9 \\
+\dev{अव्यक्तवर्गादि} & Square etc.~of unknowns & 10 \\
+\dev{अनेकवर्णीद्विपद्विभ्रम} & Multi-coloured binomials & 10 \\
+\dev{करणीसङ्कलनव्यवकलनम्} & Addition/Subtraction of surds & 11 \\
+\dev{करणीगुणनम्} & Multiplication of surds & 13 \\
+\dev{करणीभजनम्} & Division of surds & 14 \\
+\dev{करणीवर्गः} & Square of surds & 15 \\
+\dev{करणीमूलम्} & Square root of surds & 16 \\
+\dev{कुट्टकः} & Ku\d{t}\d{t}aka (Pulverizer) & 24 \\
+\dev{वर्गप्रकृतिः} & Vargaprak\d{r}ti (Square-nature) & 33 \\
+\dev{चक्रवालम्} & Cakrav\={a}la (Cyclic Method) & 35 \\
+\dev{एकवर्णसमीकरणबीजम्} & Single-colour equation-seed & 43 \\
+\dev{असकृत्वर्गादिसमीकरणम्} & Repeated square equations & 56 \\
+\dev{बहुवर्णसमीकरणम्} & Multi-coloured equations & 66 \\
+\dev{अनेकवर्णमध्यमाहरणम्} & Elimination of many unknowns & 89 \\
+\dev{भावितम्} & Bh\={a}vita (Product) & 123 \\
+\dev{प्रत्येकसंहारः} & Pratyekasa\d{m}h\={a}ra & 129 \\
+\dev{प्रदिशविद्यया} & Pradi\'{s}a method & 131 \\
+\dev{नवीनप्रदिशविद्यया} & New Pradi\'{s}a method & 145 \\
+\bottomrule
+\end{longtable}
+\end{center}
+\clearpage
+
+%% ========================================================================
+%% MAIN TEXT -- OPENING INVOCATION
+%% ========================================================================
+\thispagestyle{empty}
+\vspace*{0.5cm}
+
+\begin{center}
+\sectionbicol{श्रीगणेशाय नमः}{Obeisance to \'{S}r\={\i} Ga\d{n}e\'{s}a}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\sectionbicol{अथ बीजगणितम्}{Now begins the B\={\i}jaga\d{n}ita}
+\end{center}
+
+\vspace{0.8cm}
+
+%% ========================================================================
+%% UPODGHATA (INTRODUCTION)
+%% ========================================================================
+\sectionbicol{उपोद्घातः}{Upodgh\={a}ta (Introduction)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+श्रीं ॐ मते बलवते हनुमते नमः~।\\[0.3cm]
+उत्पादकं यत् प्रवदन्ति बुद्धेः स्थितं सुरैरपि~।\\
+अस्य क्रिया तत्कथयाम्यथवा तद्वीजमष्टधा~॥\\[0.2cm]
+पूर्वं प्रोक्तं व्यक्तमस्य कथये प्रज्ञा ते च मेऽव्यक्तयुक्तया~।\\
+यं तु शक्या मन्दबुद्धिर्न तत्समं न तद् द्वयं वीजक्रिया च~॥
+}{%
+Obeisance to the powerful Han\={u}mat, the abode of wisdom.\\[0.3cm]
+That which the sages declare as the source of intellect,\\
+even by the gods --- its eight-fold \textit{b\={\i}ja} operation I shall tell.\\[0.2cm]
+First the manifest (\textit{vyakta}) was spoken; now I speak the unmanifest (\textit{avyakta})\\
+to those of wisdom; the slow-witted cannot grasp this two-fold \textit{b\={\i}ja}-operation.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{व्याख्या:} भास्करो वदति यत् स बीजगणितस्य अष्टविधक्रियाम् कथयिष्यति। ये व्यक्तगणिते निपुणाः ते अव्यक्तगणितमपि अधीयीरन्। बीजगणितम् एव सर्वगणितस्य मूलम् अस्ति।
+}{%
+\textbf{Explanation:} Bh\={a}skara states that he will explain the eight-fold operations of algebra (\textit{b\={\i}jaga\d{n}ita}). Those accomplished in manifest arithmetic (\textit{vyaktaga\d{n}ita}) should also study the unmanifest (\textit{avyakta}). Algebra is the root of all computation.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{मूलसंकल्पना:}
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+\item अव्यक्तकल्पना --- अज्ञातराशीनाम् प्रतिनिधित्वम्
+\item यावत्तावत् ($x$) --- प्रथमोऽज्ञातराशिः
+\item कालक, नीलक, पीतक, हरितक --- अन्ये वर्णाः
+\item रूपाणि --- अचलसंख्याः
+\item धन (\textplus) तथा ऋण (\textminus) --- चिह्ने
+\item करणी --- असङ्ख्येयसंख्याः
+\end{itemize}
+}{%
+\textbf{Fundamental Concepts:}
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+\item \textit{Avyakta-kalpan\={a}} --- representation of unknown quantities
+\item \textit{Y\={a}vat-t\={a}vat} ($x$) --- first unknown quantity
+\item K\={a}laka, N\={\i}laka, P\={\i}taka, Haritaka --- other colours for unknowns
+\item R\={u}pa --- absolute constants
+\item Dhana ($+$) and \d{r}\d{n}a ($-$) --- signs
+\item Kara\d{n}\={\i} --- irrational (surd) quantities
+\end{itemize}
+}
+
+\vspace{0.5cm}
+
+\bicolverse{%
+ब्रह्मस्फुटसिद्धान्ते च कालक्रियायां तथैव च~।\\
+ग्रहगणितं निगदितं त्रैराशिकफलं तथा~॥
+}{%
+In the Br\={a}hmasphu\d{t}asiddh\={a}nta and in K\={a}lakriy\={a},\\
+and Graha-ga\d{n}ita and the Rule of Three --- all was told.
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER I -- SUM OF CUBES
+%% ========================================================================
+\sectionbicol{घनाणां सङ्कलनम्}{Ghan\={a}\d{n}\={a}\d{m} Sa\d{m}kalana\d{m} (Sum of Cubes)}
+
+\vspace{0.3cm}
+
+\subsectionbicol{घनाणां सङ्कलने करणसूत्रं बुद्धये}{S\={u}tra for Sum of Cubes}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+घनाः समं सङ्गुणिता द्वित्रिभिः समन्विताः\\
+एकघनाद्विवर्जितास्ते सङ्कलिताः स्युः सदा घनाः~॥ १ ॥
+}{%
+\textit{ghan\={a}\d{h} sama\d{m} sa\d{n}gu\d{n}it\={a} dvitribhi\d{h} samanvit\={a}\d{h}}\\
+\textit{ekaghan\={a}d vivarjit\={a}s te sa\d{m}kalit\={a}\d{h} syu\d{h} sad\={a} ghan\={a}\d{h}} --- Verse 1
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्रार्थ:} पूर्वसङ्ख्यानां घनानां योगः समानम् अस्ति यत् तेषां योगस्य वर्गः। अतः
+\[1^3 + 2^3 + 3^3 + \cdots + n^3 = \left(\frac{n(n+1)}{2}\right)^2\]
+\textbf{उदाहरणम्:} पञ्चानां घनानां योगः
+\begin{align*}
+1^3 + 2^3 + 3^3 + 4^3 + 5^3 &= \left(\frac{5 \cdot 6}{2}\right)^2 \\
+&= 15^2 = 225
+\end{align*}
+\textbf{सत्यापनम्:} $1 + 8 + 27 + 64 + 125 = 225$
+}{%
+\textbf{Rule:} The sum of cubes of the first $n$ natural numbers equals the square of their sum:
+\[1^3 + 2^3 + 3^3 + \cdots + n^3 = \left(\frac{n(n+1)}{2}\right)^2\]
+\textbf{Example:} Sum of the first 5 cubes:
+\begin{align*}
+1^3 + 2^3 + 3^3 + 4^3 + 5^3 &= \left(\frac{5 \cdot 6}{2}\right)^2 \\
+&= 15^2 = 225
+\end{align*}
+\textbf{Verification:} $1 + 8 + 27 + 64 + 125 = 225$ \checkmark
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER II -- SUBTRACTION OF CUBES
+%% ========================================================================
+\sectionbicol{घनानां व्यवकलनम्}{Ghan\={a}n\={a}\d{m} Vyavakalana\d{m} (Subtraction of Cubes)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+व्यस्तद्वयोर्घनयोर्व्यस्तयोर्घनयोर्व्यवकलनम्~।\\
+समघ्नयोरपि तथा व्यवकलनं सम्भवत्येव~॥ २ ॥
+}{%
+\textit{vyastadvayor ghanayor vyastayor ghanayor vyavakalanam}\\
+\textit{samaghnayor api tath\={a} vyavakala\d{m} sambhavaty eva} --- Verse 2
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्रार्थ:} द्वयोः घनयोः व्यवकलनं तयोः मूलयोः व्यवकलनेन सह घनेन समं भवति। यदि $a$ तथा $b$ द्वौ राशी, तर्हि
+\[a^3 - b^3 = (a-b)(a^2 + ab + b^2)\]
+\textbf{उदाहरणम्:}
+\begin{align*}
+(y\bar{a}\ 5)^3 - (y\bar{a}\ 2)^3 &= 125y\bar{a}^3 - 8y\bar{a}^3 \\
+&= 117y\bar{a}^3
+\end{align*}
+अथवा: $(5-3)(25 + 15 + 9) = 2 \cdot 49 = 98$ (रूपेण)
+}{%
+\textbf{Rule:} The subtraction of cubes of two quantities equals the product of their difference and the sum of their squares plus their product:
+\[a^3 - b^3 = (a-b)(a^2 + ab + b^2)\]
+\textbf{Example:}
+\begin{align*}
+(5y\bar{a})^3 - (2y\bar{a})^3 &= 125y\bar{a}^3 - 8y\bar{a}^3 \\
+&= 117y\bar{a}^3
+\end{align*}
+Or: $(5-3)(25 + 15 + 9) = 2 \cdot 49 = 98$ (in constants)
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER III -- MULTIPLICATION OF CUBES
+%% ========================================================================
+\sectionbicol{घनानां गुणनम्}{Ghan\={a}n\={a}\d{m} Gu\d{n}anam (Multiplication of Cubes)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+घनयोर्घनयोर्घनयोर्वा गुणनं सम्भवति~।\\
+घनघातः सम्भवत्येवं गुणकारघनयोः समं~॥ ३ ॥
+}{%
+\textit{ghanayor ghanayor ghanayor v\={a} gu\d{n}ana\d{m} sambhavati}\\
+\textit{ghanagh\={a}ta\d{h} sambhavaty eva\d{m} gu\d{n}ak\={a}raghanayo\d{h} sama\d{m}} --- Verse 3
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्रार्थ:} द्वयोः घनयोः गुणनफलं तयोः मूलयोः गुणनस्य घनत्वेन समं भवति।
+\[a^3 \times b^3 = (ab)^3\]
+\textbf{उदाहरणम्:}
+\begin{align*}
+(3y\bar{a})^3 \times (2y\bar{a})^3 &= (6y\bar{a})^3 \\
+&= 216y\bar{a}^3
+\end{align*}
+}{%
+\textbf{Rule:} The product of two cubes equals the cube of the product of their roots:
+\[a^3 \times b^3 = (ab)^3\]
+\textbf{Example:}
+\begin{align*}
+(3y\bar{a})^3 \times (2y\bar{a})^3 &= (6y\bar{a})^3 \\
+&= 216y\bar{a}^3
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER IV -- DIVISION OF CUBES
+%% ========================================================================
+\sectionbicol{घनानां भागहारः}{Ghan\={a}n\={a}\d{m} Bh\={a}gah\={a}ra\d{h} (Division of Cubes)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+घनं घनेन विभजेद् घनमूलयोर्मूलयोरिव~।\\
+घनभागः स्तः सम्भवत्येवं भागकारयोः समं~॥ ४ ॥
+}{%
+\textit{ghana\d{m} ghanena vibhajed ghanam\={u}layor m\={u}layor iva}\\
+\textit{ghanabh\={a}ga\d{h} stha\d{h} sambhavaty eva\d{m} bh\={a}gak\={a}rayo\d{h} sama\d{m}} --- Verse 4
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्रार्थ:} घनं घनेन विभज्य लब्धिः मूलयोः भागस्य घनत्वेन समं भवति।
+\[\frac{a^3}{b^3} = \left(\frac{a}{b}\right)^3\]
+\textbf{उदाहरणम्:}
+\begin{align*}
+\frac{(8y\bar{a})^3}{(2y\bar{a})^3} &= \left(\frac{8y\bar{a}}{2y\bar{a}}\right)^3 \\
+&= (4y\bar{a})^3 = 64y\bar{a}^3
+\end{align*}
+}{%
+\textbf{Rule:} A cube divided by a cube; the quotient is the cube of the quotient of their roots:
+\[\frac{a^3}{b^3} = \left(\frac{a}{b}\right)^3\]
+\textbf{Example:}
+\begin{align*}
+\frac{(8y\bar{a})^3}{(2y\bar{a})^3} &= \left(\frac{8y\bar{a}}{2y\bar{a}}\right)^3 \\
+&= (4y\bar{a})^3 = 64y\bar{a}^3
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER V -- SQUARE AND ROOT OF CUBES
+%% ========================================================================
+\sectionbicol{घनानां वर्गो मूलं च}{Ghan\={a}n\={a}\d{m} Vargo M\={u}la\d{m} ca (Square and Root of Cubes)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+घनस्य वर्गः स्यात् षट्ठी घनस्य मूलं तु मूलघनम्~।\\
+वर्गमूलं घनमूलं च कल्पनीयं ततस्ततः~॥ ५ ॥
+}{%
+\textit{ghanasya varga\d{h} sy\={a}t \d{s}a\d{s}\d{t}h\={\i} ghanasya m\={u}la\d{m} tu m\={u}laghanam}\\
+\textit{vargam\={u}la\d{m} ghanam\={u}la\d{m} ca kalpan\={\i}ya\d{m} tatas tata\d{h}} --- Verse 5
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्रार्थ:} घनस्य वर्गः षष्ठी घातः। घनस्य मूलं तु मूलस्य घनः।
+\begin{align*}
+(a^3)^2 &= a^6 \quad \text{(घनवर्गः = षट्ठी घातः)} \\
+\sqrt[3]{a^3} &= a \quad \text{(घनमूलम्)} \\
+\sqrt{a^3} &= a^{3/2} \quad \text{(वर्गमूलं घनस्य)}
+\end{align*}
+}{%
+\textbf{Rule:} The square of a cube is the sixth power. The root of a cube is the cube-root.
+\begin{align*}
+(a^3)^2 &= a^6 \quad \text{(square of cube = 6th power)} \\
+\sqrt[3]{a^3} &= a \quad \text{(cube root)} \\
+\sqrt{a^3} &= a^{3/2} \quad \text{(square root of cube)}
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER VI -- ADDITION/SUBTRACTION OF UNKNOWNS
+%% ========================================================================
+\sectionbicol{अव्यक्तसङ्कलनव्यवकलनम्}{Avyakta-sa\d{m}kalana-vyavakalanam (Addition/Subtraction of Unknowns)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+(१) यावत्तावत् कालक नीलक पीतक हरितकादयः~।\\
+वर्णाः पीतो हरितश्चेत् द्वयं च अव्यक्तानां कल्पना मतसंज्ञा—\\
+राशिसंख्यानां कल्पिता मताचार्येण~॥ ६ ॥
+}{%
+(1) \textit{y\={a}vat-t\={a}vat k\={a}laka n\={\i}laka p\={\i}taka haritak\={a}daya\d{h}}\\
+\textit{var\d{n}\={a}h} --- The unknown quantities are represented by colours:
+\textit{y\={a}vat-t\={a}vat} ($x$), \textit{k\={a}laka} ($y$), \textit{n\={\i}laka} ($z$), \textit{p\={\i}taka} ($u$), \textit{haritaka} ($v$), etc.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र (१):} अज्ञातराशीनाम् प्रतिनिधित्वाय वर्णाः कल्पिताः। यावत्तावत् (= $x$), कालक (= $y$), नीलक (= $z$), पीतक (= $u$), हरितक (= $v$) इत्यादयः।
+\textbf{सूत्र (२):} समानजातीयानां राशीनां योगः व्यवकलनं वा क्रियते। भिन्नजातीयाः पृथक् स्थापनीयाः।
+\begin{align*}
+(y\bar{a}\ 1 + k\bar{a}\ 1) + (y\bar{a}\ 2 + k\bar{a}\ 8) &= y\bar{a}\ 3 + k\bar{a}\ 9 \\
+(y\bar{a}\ 5 + k\bar{a}\ 3) - (y\bar{a}\ 2 + k\bar{a}\ 8) &= y\bar{a}\ 3 + k\bar{a}\ \bar{5}
+\end{align*}
+}{%
+\textbf{Rule (1):} Unknown quantities are represented by colours: \textit{y\={a}vat-t\={a}vat} ($x$), \textit{k\={a}laka} ($y$), \textit{n\={\i}laka} ($z$), \textit{p\={\i}taka} ($u$), \textit{haritaka} ($v$).
+\textbf{Rule (2):} Like terms are combined; unlike terms are set down separately.
+\begin{align*}
+(y\bar{a}\ 1 + k\bar{a}\ 1) + (y\bar{a}\ 2 + k\bar{a}\ 8) &= y\bar{a}\ 3 + k\bar{a}\ 9 \\
+(y\bar{a}\ 5 + k\bar{a}\ 3) - (y\bar{a}\ 2 + k\bar{a}\ 8) &= y\bar{a}\ 3 + k\bar{a}\ \bar{5}
+\end{align*}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\footnotesize\textbf{टीका:} ``यावत्तावत् साकल्येन मनस्यवस्था'' इत्यमरकोषोक्तेः `यावत्तावत्' इति भवितुमर्हति किंत्वद्यपदम्। बीजगणिते च ``यावत्तावद्विनिम्मे'' इत्याख्यासम्भवम्।
+}{%
+\footnotesize\textbf{Note:} From the Amarakosha: ``\textit{y\={a}vat-t\={a}vat s\={a}kalyena manasyavasth\={a}}'' --- the term \textit{y\={a}vat-t\={a}vat} means ``as much as,'' representing the state of the mind regarding an unknown quantity.
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER VII -- MULTIPLICATION OF UNKNOWNS
+%% ========================================================================
+\sectionbicol{अव्यक्तगुणनम्}{Avyakta-gu\d{n}anam (Multiplication of Unknowns)}
+
+\vspace{0.3cm}
+
+\subsectionbicol{अव्यक्तवर्गविधम्}{Avyakta-varga-vidham}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+अव्यक्ताकृतयोः समस्य हेतोः समेत्य वर्गद्वयं कल्पयेत्~।\\
+तदा तयोर्वर्गयोर्वर्गः सम्भवत्येवमेकस्य वर्गः~॥ ७ ॥
+}{%
+\textit{avyakt\={a}k\d{r}tayo\d{h} samasya heto\d{h} sametya vargadvaya\d{m} kalpayet}\\
+\textit{tad\={a} tayor vargayor varga\d{h} sambhavaty ekasya varga\d{h}} --- Verse 7
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} अव्यक्ताकृतयोः गुणने नवः जातिभेदः सम्भवति। अव्यक्तस्य वर्गः \dev{वर्गः} इति, ततो घनः, वर्गवर्गः इत्यादि।
+\textbf{उदाहरणम्:}
+\begin{align*}
+(y\bar{a}\ 5 + k\bar{a}\ 3) \times (y\bar{a}\ 3 + k\bar{a}\ 2) &= y\bar{a}v\ 15 + y\bar{a}\ 19 + k\bar{a}\ 6
+\end{align*}
+\textbf{गुण्यस्य धनर्णव्यत्यासे:} $y\bar{a}\ 5\ k\bar{a}\ \bar{3}$ गुणितं $y\bar{a}\ 3\ k\bar{a}\ 2$ सह = $y\bar{a}v\ 15 + y\bar{a}\ \bar{1} + k\bar{a}\ \bar{6}$
+}{%
+\textbf{Rule:} When two unknowns are multiplied, a new species is produced. The square of an unknown is \textit{varga}; higher powers follow.
+\textbf{Example:}
+\begin{align*}
+(5y\bar{a} + 3k\bar{a}) \times (3y\bar{a} + 2k\bar{a}) &= 15y\bar{a}^2 + 19y\bar{a} + 6k\bar{a}
+\end{align*}
+\textbf{With sign change of multiplicand:} $(5y\bar{a} - 3k\bar{a}) \times (3y\bar{a} + 2k\bar{a})$ $= 15y\bar{a}^2 + y\bar{a} - 6k\bar{a}$
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER VIII -- DIVISION OF UNKNOWNS
+%% ========================================================================
+\sectionbicol{अव्यक्तभागहारः}{Avyakta-bh\={a}gah\={a}ra\d{h} (Division of Unknowns)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+भागाहरे करणसूत्रं बुद्धये~।\\
+भाज्यच्छेदः सृजति प्रच्युतः सन् क्षेपे क्षेपे स्थानक्षेपं क्षेपेण~।\\
+दैन्यैर्द्विजैः सङ्गुणो यैः क्षेपैर्भागाहरे लब्धयस्तः स्पृशेत्~
+}{%
+\textit{bh\={a}g\={a}hare kara\d{n}as\={u}tra\d{m} buddhaye}\\
+\textit{bh\={a}jyaccheda\d{h} s\d{r}jati pracyuta\d{h} san k\d{s}epe k\d{s}epe sth\={a}nak\d{s}epa\d{m} k\d{s}epe\d{n}a}\\
+--- The division of unknown quantities follows the method for known quantities.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} अव्यक्तानां भागहारः व्यक्तानामिव एव। यदि भाजकः भाज्यं न सम्पूर्णं विभजेत्, तर्हि भिन्नं सम्भवति।
+\textbf{उदाहरणम्:} $y\bar{a}\ 18\ k\bar{a}\ 24$ विभज्य $k\bar{a}\ 6\ y\bar{a}\ 5$ इति
+\begin{align*}
+\text{भाज्य: }& y\bar{a}v\ 10 + y\bar{a}\ 27 + y\bar{a}\ 18 + k\bar{a}\ 24 \\
+\text{भाजक: }& y\bar{a}\ 5 + k\bar{a}\ 6 \\
+\text{लब्धि: }& y\bar{a}\ 2 + y\bar{a}\ 3 + k\bar{a}\ 4
+\end{align*}
+}{%
+\textbf{Rule:} Division of unknowns is the same as for knowns. If division is not exact, a fraction results.
+\textbf{Example:} Divide $18y\bar{a} + 24k\bar{a}$ by $5y\bar{a} + 6k\bar{a}$:
+\begin{align*}
+\text{Dividend: }& 10y\bar{a}^2 + 27y\bar{a} + 18y\bar{a} + 24k\bar{a} \\
+\text{Divisor: }& 5y\bar{a} + 6k\bar{a} \\
+\text{Quotient: }& 2y\bar{a} + 3y\bar{a} + 4k\bar{a}
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER IX -- SQUARE AND HIGHER POWERS
+%% ========================================================================
+\sectionbicol{अव्यक्तवर्गादि}{Avyakta-varg\={a}di (Square etc.~of Unknowns)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+वर्गः प्रथमं ततो घनोऽथ वर्गवर्गस्ततोऽष्टघातः~।\\
+नवमो वर्गघनश्चेत्यादि घातानां क्रमेण स्मृतम्~
+}{%
+\textit{varga\d{h} prathama\d{m} tato ghano 'tha vargavargas tato '\d{s}\d{t}agh\={a}ta\d{h}}\\
+\textit{navamo vargaghana\'{s} cety\={a}di gh\={a}t\={a}n\={a}\d{m} krame\d{n}a sm\d{r}tam}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{अव्यक्तघातानां क्रम:}
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+\item \dev{वर्ग} --- $y\bar{a}^2$ (वर्ग:)
+\item \dev{घन} --- $y\bar{a}^3$ (घन:)
+\item \dev{वर्गवर्ग} --- $y\bar{a}^4$ (वर्गस्य वर्ग:)
+\item \dev{घनवर्ग} --- $y\bar{a}^5$ (घनस्य वर्ग:)
+\item \dev{घनघन} --- $y\bar{a}^6$ (घनस्य घन:)
+\item \dev{वर्गघन} --- $y\bar{a}^6$ अपि
+\item \dev{अष्टघात} --- $y\bar{a}^8$ (अष्टमघात:)
+\item \dev{घनघनवर्ग} --- $y\bar{a}^9$ (नवम:)
+\end{itemize}
+}{%
+\textbf{Powers of Unknowns (in order):}
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+\item \textit{Varga} --- $y\bar{a}^2$ (square)
+\item \textit{Ghana} --- $y\bar{a}^3$ (cube)
+\item \textit{Varga-varga} --- $y\bar{a}^4$ (square of square)
+\item \textit{Ghana-varga} --- $y\bar{a}^5$ (square of cube)
+\item \textit{Ghana-ghana} --- $y\bar{a}^6$ (cube of cube)
+\item \textit{Varga-ghana} --- $y\bar{a}^6$ (also)
+\item \textit{A\d{s}\d{t}agh\={a}ta} --- $y\bar{a}^8$ (8th power)
+\item \textit{Ghana-ghana-varga} --- $y\bar{a}^9$ (9th power)
+\end{itemize}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER X -- MULTI-COLOURED BINOMIALS
+%% ========================================================================
+\sectionbicol{अनेकवर्णीद्विपद्विभ्रम}{Aneka-var\d{n}\={\i}-dvi-pada-vibhrama}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+द्विवर्णकं द्विपदं त्रिवर्णकं त्रिपदं तथा~।\\
+बहुवर्णकं बहुपदं च कल्पयेत् सुबुद्धिभिः~
+}{%
+\textit{dvivar\d{n}aka\d{m} dvipada\d{m} trivar\d{n}aka\d{m} tripada\d{m} tath\={a}}\\
+\textit{bahuvar\d{n}aka\d{m} bahupada\d{m} ca kalpayet subuddhibhi\d{h}}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} द्विवर्णक (= द्वयोः अज्ञातराश्योः), द्विपद (= द्विपदीयं), त्रिवर्णक, त्रिपद, बहुवर्णक, बहुपद --- एतेषां क्रियाः सुबुद्धिभिः कल्पनीयाः।
+\vspace{0.3cm}
+
+भास्करोऽत्र बहुपदीयराशीनां संकलनव्यवकलनादिक्रियाः विवृणोति। द्विपदीयराश्योः $(a+b)$ तथा $(c+d)$ गुणने फलं $ac + ad + bc + bd$ इति।
+}{%
+\textbf{Rule:} Expressions with two unknowns (\textit{dvivar\d{n}aka}), two terms (\textit{dvipada}), three unknowns (\textit{trivar\d{n}aka}), three terms (\textit{tripada}), and many unknowns (\textit{bahuvar\d{n}aka}) or many terms (\textit{bahupada}) should be formed by the intelligent.
+\vspace{0.3cm}
+
+Bh\={a}skara explains operations on polynomials. Multiplication of binomials: $(a+b) \times (c+d) = ac + ad + bc + bd$.
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XI -- OPERATIONS ON SURDS
+%% ========================================================================
+\sectionbicol{करणीसङ्कलनव्यवकलनम्}{Kara\d{n}\={\i}-sa\d{m}kalana-vyavakalanam (Addition/Subtraction of Surds)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+करणीसंयुक्तिरेभिः सङ्कलिता स्यात् समं करणीभिः~।\\
+करणीभिर्विशिष्टाः पृथक् स्थापनीयाः समं करणीभिः~
+}{%
+\textit{kara\d{n}\={\i}sa\d{m}yuktirebhi\d{h} sa\d{m}kalit\={a} sy\={a}t sama\d{m} kara\d{n}\={\i}bhi\d{h}}\\
+\textit{kara\d{n}\={\i}bhir vi\d{s}i\d{s}\d{t}\={a}\d{h} p\d{r}thak sth\={a}pan\={\i}y\={a}\d{h} sama\d{m} kara\d{n}\={\i}bhi\d{h}}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} समानकरणिकाः करण्यः संकलिताः स्युः। भिन्नकरणिकाः पृथक् स्थापनीयाः।
+\vspace{0.3cm}
+\textbf{उदाहरणम् १:} $\sqrt{3} + \sqrt{3} + 2\sqrt{3} + 5\sqrt{3}$ योजय।
+\[\text{योग: } (1+1+2+5)\sqrt{3} = 9\sqrt{3}\]
+\textbf{उदाहरणम् २:} $\sqrt{2} + \sqrt{3} + \sqrt{5}$ योजय।
+\[\text{फलम्: } \sqrt{2} + \sqrt{3} + \sqrt{5} \quad \text{(पृथक् स्थापितम्)}\]
+}{%
+\textbf{Rule:} Surds having the same radical are added together; those with different radicals are set down separately.
+\vspace{0.3cm}
+\textbf{Example 1:} Add $\sqrt{3} + \sqrt{3} + 2\sqrt{3} + 5\sqrt{3}$.
+\[\text{Sum: } (1+1+2+5)\sqrt{3} = 9\sqrt{3}\]
+\textbf{Example 2:} Add $\sqrt{2} + \sqrt{3} + \sqrt{5}$.
+\[\text{Result: } \sqrt{2} + \sqrt{3} + \sqrt{5} \quad \text{(set down separately)}\]
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XII -- MULTIPLICATION OF SURDS
+%% ========================================================================
+\sectionbicol{करणीगुणनम्}{Kara\d{n}\={\i}-gu\d{n}anam (Multiplication of Surds)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+करणीगुणने करणीगुणने समे समे विपरे विपरे~।\\
+गुण्यकरणीगुणककरणी गुणनफलं करणी भवति~
+}{%
+\textit{kara\d{n}\={\i}gu\d{n}ane kara\d{n}\={\i}gu\d{n}ane same same vipare vipare}\\
+\textit{gu\d{n}yakara\d{n}\={\i}gu\d{n}akakara\d{n}\={\i} gu\d{n}anaphala\d{m} kara\d{n}\={\i} bhavati}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} करण्योः गुणने गुण्यकरणी-गुणककरण्योः पदयोः गुणनं नवकरणीं जनयति। गुणकोत्तरयोः गुणनं नवगुणकः।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:} $3\sqrt{2}$ गुणितं $4\sqrt{3}$
+\[\text{फलम्: } (3 \times 4) \times \sqrt{2 \times 3} = 12\sqrt{6}\]
+\textbf{सूत्रत:}
+\[a\sqrt{b} \times c\sqrt{d} = (ac)\sqrt{bd}\]
+}{%
+\textbf{Rule:} In multiplication of surds, multiply the radical quantities to obtain the new radical; multiply the coefficients for the new coefficient.
+\vspace{0.3cm}
+\textbf{Example:} Multiply $3\sqrt{2}$ by $4\sqrt{3}$.
+\[\text{Product: } (3 \times 4) \times \sqrt{2 \times 3} = 12\sqrt{6}\]
+\textbf{In general:}
+\[a\sqrt{b} \times c\sqrt{d} = (ac)\sqrt{bd}\]
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XIII -- DIVISION OF SURDS
+%% ========================================================================
+\sectionbicol{करणीभजनम्}{Kara\d{n}\={\i}-bhajanam (Division of Surds)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+भजनं करण्योर्भजनं करण्योर्वर्गवत् संस्कारः~।\\
+भाज्यकरणीभाजककरणीभागो यथोक्तक्रमेण~
+}{%
+\textit{bhajana\d{m} kara\d{n}yor bhajana\d{m} kara\d{n}yor vargavat sa\d{msk\={a}ra\d{h}}}\\
+\textit{bh\={a}jyakara\d{n}\={\i}bh\={a}jakakara\d{n}\={\i}bh\={a}go yathoktakrame\d{n}a}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} करण्योः भजने संस्कारः वर्गवत्। भाज्यकरणीम् भाजककरण्या विभज्य लब्धिः करणीरूपेण भवति।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:} $12\sqrt{6}$ विभज्य $3\sqrt{2}$
+\[\text{भाग: } \frac{12}{3} \times \sqrt{\frac{6}{2}} = 4\sqrt{3}\]
+\textbf{सूत्रत:}
+\[\frac{a\sqrt{b}}{c\sqrt{d}} = \frac{a}{c}\sqrt{\frac{b}{d}}\]
+}{%
+\textbf{Rule:} In division of surds, the operation is like that for squares. Divide the radical of the dividend by the radical of the divisor, and the coefficient of the dividend by the coefficient of the divisor.
+\vspace{0.3cm}
+\textbf{Example:} Divide $12\sqrt{6}$ by $3\sqrt{2}$.
+\[\text{Quotient: } \frac{12}{3} \times \sqrt{\frac{6}{2}} = 4\sqrt{3}\]
+\textbf{In general:}
+\[\frac{a\sqrt{b}}{c\sqrt{d}} = \frac{a}{c}\sqrt{\frac{b}{d}}\]
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XIV -- SQUARE OF SURDS
+%% ========================================================================
+\sectionbicol{करणीवर्गः}{Kara\d{n}\={\i}-varga\d{h} (Square of Surds)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+वर्गः करण्याः स्यात् पदस्य वर्गः करणी चेति~।\\
+वर्गः करण्याः स्यात् पदस्य वर्गः करणी च भवति~
+}{%
+\textit{varga\d{h} kara\d{n}y\={a}\d{h} sy\={a}t padasya varga\d{h} kara\d{n}\={\i} ceti}\\
+\textit{varga\d{h} kara\d{n}y\={a}\d{h} sy\={a}t padasya varga\d{h} kara\d{n}\={\i} ca bhavati}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} करण्याः वर्गः = गुणकवर्गः $\times$ पदम् (करणी ततः निर्गच्छति)।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:} $3\sqrt{5}$ इत्यस्य वर्गः
+\[\text{वर्ग: } (3)^2 \times 5 = 9 \times 5 = 45\]
+यतः $(3\sqrt{5})^2 = 3^2 \times (\sqrt{5})^2 = 9 \times 5 = 45$
+\vspace{0.3cm}
+\textbf{सूत्रत:}
+\[(a\sqrt{b})^2 = a^2 \cdot b\]
+}{%
+\textbf{Rule:} The square of a surd equals the square of the coefficient times the radical quantity (the radical sign vanishes).
+\vspace{0.3cm}
+\textbf{Example:} Square of $3\sqrt{5}$.
+\[\text{Square: } (3)^2 \times 5 = 9 \times 5 = 45\]
+Since $(3\sqrt{5})^2 = 3^2 \times (\sqrt{5})^2 = 9 \times 5 = 45$
+\vspace{0.3cm}
+\textbf{In general:}
+\[(a\sqrt{b})^2 = a^2 \cdot b\]
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XV -- SQUARE ROOT OF SURDS
+%% ========================================================================
+\sectionbicol{करणीमूलम्}{Kara\d{n}\={\i}-m\={u}lam (Square Root of Surds)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+(१) वर्गं करण्या यदि वा करणीस्तु तयो रूपपक्षं वा बहूनाम्~।\\
+विशोध्येष्टं पदं ते शेषस्य रूपाणि युतानि निपातयेत्~
+}{%
+(1) \textit{varga\d{m} kara\d{n}y\={a} yadi v\={a} kara\d{n}\={\i}stu tayo r\={u}papak\d{s}a\d{m} v\={a} bah\={u}n\={a}m}\\
+\textit{vi\'{s}odhye\d{s}\d{t}am pada\d{m} te \'{s}e\d{s}asya r\={u}p\={a}\d{n}i yut\={a}ni nip\={a}tayet}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} करणीविशिष्टस्य राशेः वर्गमूलं ज्ञातुं यदि $\sqrt{a + \sqrt{b}} = \sqrt{x} + \sqrt{y}$, तर्हि
+\begin{align*}
+x + y &= a \\
+4xy &= b
+\end{align*}
+$\textit{atha } x - y = \sqrt{a^2 - b}$ इति। अतः
+\begin{align*}
+x &= \frac{a + \sqrt{a^2 - b}}{2} \\
+y &= \frac{a - \sqrt{a^2 - b}}{2}
+\end{align*}
+}{%
+\textbf{Rule:} To find $\sqrt{a + \sqrt{b}}$, assume $\sqrt{a + \sqrt{b}} = \sqrt{x} + \sqrt{y}$. Then:
+\begin{align*}
+x + y &= a \\
+4xy &= b
+\end{align*}
+Also $x - y = \sqrt{a^2 - b}$. Therefore:
+\begin{align*}
+x &= \frac{a + \sqrt{a^2 - b}}{2} \\
+y &= \frac{a - \sqrt{a^2 - b}}{2}
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XVI -- THE PULVERIZER
+%% ========================================================================
+\sectionbicol{कुट्टकः}{Ku\d{t}\d{t}aka\d{h} (The Pulverizer)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+भाज्यं हरेण विभजेद् भाजकेनापवर्त्य तौ~।\\
+यावत्तावत्प्रचलितं कुट्टकं तत्र योजयेत्~
+}{%
+\textit{bh\={a}jya\d{m} hare\d{n}a vibhajed bh\={a}jaken\={a}pavartya tau}\\
+\textit{y\={a}vatt\={a}vatpracalita\d{m} ku\d{t}\d{t}aka\d{m} tatra yojayet}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} कुट्टकः रैखिकअनिर्णीतसमीकरणस्य $ax \pm c = by$ इत्यस्य विधिः, यत्र $a$, $b$, $c$ ज्ञातसङ्ख्याः, $x$, $y$ ज्ञेयसङ्ख्याः।
+\vspace{0.3cm}
+\textbf{विधानम्:}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+\item भाज्यं ($a$) भाजकेन ($b$) विभज्य लब्धिः तथा शेषं ज्ञातव्यम्
+\item परस्परभागहारः (निरन्तरभागहार: continued fractions)
+\item \dev{मतित:} (बुद्धिपूर्वक) क्रिया
+\item एकस्य विशिष्टोत्तरात् सामान्योत्तरं प्राप्तुम्
+\end{enumerate}
+\textbf{उदाहरणम्:} $100x + 90 = 63y$
+\begin{align*}
+x &= 18 + 63t \\
+y &= 30 + 100t
+\end{align*}
+}{%
+\textbf{Rule:} The Pulverizer (\textit{ku\d{t}\d{t}aka}) solves linear indeterminate equations $ax \pm c = by$, where $a$, $b$, $c$ are known integers, and $x$, $y$ are unknown integers.
+\vspace{0.3cm}
+\textbf{Method:}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+\item Divide dividend ($a$) by divisor ($b$) to get quotient and remainder
+\item Mutual division (continued fractions)
+\item \textit{Matita\d{h}} (intelligent) operation
+\item Derive general solution from a particular one
+\end{enumerate}
+\textbf{Example:} $100x + 90 = 63y$
+\begin{align*}
+x &= 18 + 63t \\
+y &= 30 + 100t
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XVII -- VARGAPRAKRTI
+%% ========================================================================
+\sectionbicol{वर्गप्रकृतिः}{Vargaprak\d{r}ti\d{h} (Square-Nature)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+मूलं मूलं द्विगुणं युक्तं तत्प्रकृत्या हतं सहितम्~।\\
+सर्वमूलं पुनर्मूलं ततः प्रकृतिमूलं भवेत्~
+}{%
+\textit{m\={u}la\d{m} m\={u}la\d{m} dvigu\d{n}a\d{m} yukta\d{m} tat prak\d{r}ty\={a} hata\d{m} sahitam}\\
+\textit{sarvam\={u}lam punarm\={u}la\d{m} tata\d{h} prak\d{r}tim\={u}la\d{m} bhavet}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} वर्गप्रकृतिः अनिर्णीतसमीकरणम्:
+\[Nx^2 + 1 = y^2\]
+एतत् ब्रह्मगुप्तसमीकरणम् अथवा पेल्-समीकरणम् इति प्रसिद्धम्।
+\vspace{0.3cm}
+\textbf{भास्करस्य विधय:}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+\item \dev{भावना} (समास:): द्वयोः उत्तरयोः संयोगेन तृतीयम्
+\item \dev{चक्रवाल} (चक्रविधिः): आवर्तनीयकल्पः
+\end{enumerate}
+\textbf{उदाहरणम्:} $61x^2 + 1 = y^2$
+\begin{align*}
+x &= 226153980 \\
+y &= 1766319049
+\end{align*}
+}{%
+\textbf{Rule:} The Square-Nature (\textit{vargaprak\d{r}ti}) deals with:
+\[Nx^2 + 1 = y^2\]
+known as Brahmagupta's equation or the Pell equation.
+\vspace{0.3cm}
+\textbf{Bh\={a}skara's methods:}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+\item \textit{Bh\={a}van\={a}} (composition): combining two solutions
+\item \textit{Cakrav\={a}la} (cyclic method): an iterative algorithm
+\end{enumerate}
+\textbf{Example:} $61x^2 + 1 = y^2$
+\begin{align*}
+x &= 226153980 \\
+y &= 1766319049
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XVIII -- CYCLIC METHOD
+%% ========================================================================
+\sectionbicol{चक्रवालम्}{Cakrav\={a}lam (The Cyclic Method)}
+
+\vspace{0.3cm}
+
+\bicol{%
+\textbf{चक्रवालविधिः} भास्करस्य बीजगणिते अत्यन्तं महत्त्वपूर्णं योगदानम् अस्ति। एतत् सर्वथा न्यूनोत्तरं प्राप्नोति।
+\vspace{0.3cm}
+\textbf{चरण १:} $a$, $b$, $k$ चिनोतु यत् $Na^2 + k = b^2$
+\textbf{चरण २:} $m$ ज्ञायतां यत् $a \cdot m + b$ विभाज्यते $k$ अनया, तथा $|m^2 - N|$ न्यूनतमम्।
+\textbf{चरण ३:}
+\begin{align*}
+a' &= \frac{am + b}{k} \\
+b' &= \frac{bm + Na}{k} \\
+k' &= \frac{m^2 - N}{k}
+\end{align*}
+\textbf{चरण ४:} यदि $k' = 1$, तर्हि $(a', b')$ उत्तरम्। अन्यथा पुनरावृत्तिः।
+}{%
+\textbf{The Cyclic Method} is Bh\={a}skara's most important contribution to algebra. It always converges to the minimal solution.
+\vspace{0.3cm}
+\textbf{Step 1:} Choose $a$, $b$, $k$ such that $Na^2 + k = b^2$
+\textbf{Step 2:} Find $m$ such that $am + b$ is divisible by $k$, and $|m^2 - N|$ is minimized.
+\textbf{Step 3:}
+\begin{align*}
+a' &= \frac{am + b}{k} \\
+b' &= \frac{bm + Na}{k} \\
+k' &= \frac{m^2 - N}{k}
+\end{align*}
+\textbf{Step 4:} If $k' = 1$, then $(a', b')$ is the solution. Otherwise repeat.
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XIX -- SINGLE-COLORED EQUATIONS
+%% ========================================================================
+\sectionbicol{एकवर्णसमीकरणबीजम्}{Ekavar\d{n}a-sam\={\i}kara\d{n}a-b\={\i}jam (Seed of Single-Colour Equations)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+रूपाणि यत्र स्युः समतुल्यानि तत्र यावत् तुल्यानि~।\\
+यावन्ति तानि तानि विपरीतानि तुल्यानि तु तुल्यानि~
+}{%
+\textit{r\={u}p\={a}\d{n}i yatra syu\d{h} samatuly\={a}ni tatra y\={a}vat tuly\={a}ni}\\
+\textit{y\={a}vanti t\={a}ni t\={a}ni vipar\={\i}t\={a}ni tuly\={a}ni tu tuly\={a}ni}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} एकवर्णसमीकरणे \dev{संरमण} (पार्श्वान्तरम्) द्वारा अज्ञातराशीनाम् समीकरणं क्रियते।
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+\item न्यूनपक्षात् अज्ञातांशं महतः पक्षात् अपनयतु
+\item महतः पक्षात् रूपाणि न्यूनात् पक्षात् अपनयतु
+\item रूपशेषं अज्ञातशेषेन विभजतु
+\end{enumerate}
+\textbf{उदाहरणम्:} $4y\bar{a} + 7 = 2y\bar{a} + 13$
+\begin{align*}
+4y\bar{a} - 2y\bar{a} &= 13 - 7 \\
+2y\bar{a} &= 6 \\
+y\bar{a} &= 3
+\end{align*}
+\textbf{सत्यापनम्:} $4(3) + 7 = 19$ तथा $2(3) + 13 = 19$ \checkmark
+}{%
+\textbf{Rule:} In a single-coloured equation, equalize unknowns by transposition (\textit{sa\d{m}rama\d{n}a}):
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+\item Subtract unknown on smaller side from unknown on greater side
+\item Subtract known on greater side from known on smaller side
+\item Divide the remainder of known by remainder of unknown
+\end{enumerate}
+\textbf{Example:} $4y\bar{a} + 7 = 2y\bar{a} + 13$
+\begin{align*}
+4y\bar{a} - 2y\bar{a} &= 13 - 7 \\
+2y\bar{a} &= 6 \\
+y\bar{a} &= 3
+\end{align*}
+\textbf{Check:} $4(3) + 7 = 19$ and $2(3) + 13 = 19$ \checkmark
+}
+
+\clearpage
+
+\subsectionbicol{शेषात्समीकरणम्}{\'{S}e\d{s}\={a}t-sam\={\i}kara\d{n}am (Equation by Residue)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+यद् दातुं यद् दातव्यं तुल्यं तुल्येन संयोजयेत्~।\\
+विपरीतानि तुल्यानि तु तुल्यानि समीकुर्यात्~
+}{%
+\textit{yad d\={a}tu\d{m} yad d\={a}tavya\d{m} tulya\d{m} tulyena sa\d{m}yojayet}\\
+\textit{vipar\={\i}t\={a}ni tuly\={a}ni tu tuly\={a}ni sam\={\i}kury\={a}t}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{उदाहरणानि:}
+\vspace{0.2cm}
+\textbf{(१)} $3y\bar{a} + 5 = 2y\bar{a} + 12 \Rightarrow y\bar{a} = 7$
+\vspace{0.2cm}
+\textbf{(२)} $5y\bar{a} - 8 = 3y\bar{a} + 10$
+\begin{align*}
+5y\bar{a} - 3y\bar{a} &= 10 + 8 \\
+2y\bar{a} &= 18 \Rightarrow y\bar{a} = 9
+\end{align*}
+\textbf{(३)} $7y\bar{a} + 15 = 4y\bar{a} + 3$
+\begin{align*}
+3y\bar{a} &= 3 - 15 = -12 \Rightarrow y\bar{a} = -4
+\end{align*}
+}{%
+\textbf{Examples:}
+\vspace{0.2cm}
+\textbf{(1)} $3y\bar{a} + 5 = 2y\bar{a} + 12 \Rightarrow y\bar{a} = 7$
+\vspace{0.2cm}
+\textbf{(2)} $5y\bar{a} - 8 = 3y\bar{a} + 10$
+\begin{align*}
+5y\bar{a} - 3y\bar{a} &= 10 + 8 \\
+2y\bar{a} &= 18 \Rightarrow y\bar{a} = 9
+\end{align*}
+\textbf{(3)} $7y\bar{a} + 15 = 4y\bar{a} + 3$
+\begin{align*}
+3y\bar{a} &= 3 - 15 = -12 \Rightarrow y\bar{a} = -4
+\end{align*}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XX -- REPEATED SQUARE EQUATIONS
+%% ========================================================================
+\sectionbicol{असकृत्वर्गादिसमीकरणम्}{Asak\d{r}t-varg\={a}di-sam\={\i}kara\d{n}am (Repeated Square Equations)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+वर्गो घनो वर्गवर्गोऽष्टघातो नवमो वर्गघनश्चेति~।\\
+समीकरणं समं समं कुर्यात् समतुल्यं तु तुल्यम्~
+}{%
+\textit{vargo ghano vargavargo '\d{s}\d{t}agh\={a}to navamo vargaghana\'{s} ceti}\\
+\textit{sam\={\i}kara\d{n}a\d{m} sama\d{m} sama\d{m} kury\={a}t samatulya\d{m} tu tulyam}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} वर्गघनादिक्रमसमीकरणानि संरमणेन समीकृत्य मूलद्वारा वा अपवर्तनद्वारा वा सोद्धरणानि।
+\vspace{0.3cm}
+\textbf{(१) द्विघातसमीकरणम्:} $y\bar{a}^2 - 5y\bar{a} + 6 = 0$
+\begin{align*}
+(y\bar{a} - 2)(y\bar{a} - 3) &= 0
+\end{align*}
+$\therefore y\bar{a} = 2$ अथवा $y\bar{a} = 3$
+\vspace{0.3cm}
+\textbf{(२) द्विघातसमीकरणम्:} $2y\bar{a}^2 + 7y\bar{a} - 15 = 0$
+\[y\bar{a} = \frac{-7 \pm \sqrt{49 + 120}}{4} = \frac{-7 \pm 13}{4}\]
+$\therefore y\bar{a} = \frac{3}{2}$ अथवा $y\bar{a} = -5$
+}{%
+\textbf{Rule:} For equations with squares, cubes, and higher powers, equalize by transposition, then factor or extract roots.
+\vspace{0.3cm}
+\textbf{(1) Quadratic:} $y\bar{a}^2 - 5y\bar{a} + 6 = 0$
+\begin{align*}
+(y\bar{a} - 2)(y\bar{a} - 3) &= 0
+\end{align*}
+$\therefore y\bar{a} = 2$ or $y\bar{a} = 3$
+\vspace{0.3cm}
+\textbf{(2) Quadratic:} $2y\bar{a}^2 + 7y\bar{a} - 15 = 0$
+\[y\bar{a} = \frac{-7 \pm \sqrt{49 + 120}}{4} = \frac{-7 \pm 13}{4}\]
+$\therefore y\bar{a} = \frac{3}{2}$ or $y\bar{a} = -5$
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XXI -- MULTI-COLORED EQUATIONS
+%% ========================================================================
+\sectionbicol{बहुवर्णसमीकरणम्}{Bahuvarga-sam\={\i}kara\d{n}am (Multi-Coloured Equations)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+यावद् यावत् कालक नीलक पीतक हरितकादयः~।\\
+वर्णाः समीकरणे बहुवर्णे प्रयोजयन्ते सततम्~
+}{%
+\textit{y\={a}vad y\={a}vat k\={a}laka n\={\i}laka p\={\i}taka haritak\={a}daya\d{h}}\\
+\textit{var\d{n}\={a}h sam\={\i}kara\d{n}e bahuvar\d{n}e prayojayante satatam}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} बहुवर्णसमीकरणे बहूनाम् अज्ञातराशीनाम् प्रतिनिधित्वाय भिन्नवर्णाः प्रयुज्यन्ते।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:}
+\begin{align*}
+5x + 3y + 7 &= 3x + 5y + 5 \\
+2x - 2y + 2 &= 0 \\
+x - y + 1 &= 0 \\
+x &= y - 1
+\end{align*}
+$\therefore$ अनिर्णीतोत्तरम्: यस्याः $y$ इष्टं स्यात्, तस्य $x = y - 1$
+}{%
+\textbf{Rule:} In multi-coloured equations, multiple unknowns are represented by different colours.
+\vspace{0.3cm}
+\textbf{Example:}
+\begin{align*}
+5x + 3y + 7 &= 3x + 5y + 5 \\
+2x - 2y + 2 &= 0 \\
+x - y + 1 &= 0 \\
+x &= y - 1
+\end{align*}
+$\therefore$ Indeterminate solution: for any chosen $y$, $x = y - 1$
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XXII -- ELIMINATION OF MANY UNKNOWNS
+%% ========================================================================
+\sectionbicol{अनेकवर्णमध्यमाहरणम्}{Aneka-var\d{n}a-madhyam\={a}hara\d{n}am (Elimination of Many Unknowns)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+मध्यमाहरणं तेषां यथा स्थानं प्रयोजयेत्~।\\
+तुल्यानां तुल्यतां नीत्वा मध्यमं हरेद् बुधः~
+}{%
+\textit{madhyam\={a}hara\d{n}a\d{m} te\d{s}\={a}\d{m} yath\={a} sth\={a}na\d{m} prayojayet}\\
+\textit{tuly\={a}n\={a}m tulyat\={a}\d{m} n\={\i}tv\={a} madhyama\d{m} hared budha\d{h}}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} मध्यमाहरणम् एकस्य वर्णस्य गुणकानां समीकरणं कृत्वा व्यवकलनेन क्रियते।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:}
+\begin{align*}
+2x + 3y + 6 &= 0 \quad \text{(१)} \\
+3x + 2y + 7 &= 0 \quad \text{(२)} \\
+4x + 5y + 9 &= 0 \quad \text{(३)}
+\end{align*}
+(१) तथा (२) योजनेन:
+\begin{align*}
+6x + 9y + 18 &= 0 \\
+6x + 4y + 14 &= 0 \\
+5y + 4 &= 0 \Rightarrow y = -\tfrac{4}{5}
+\end{align*}
+प्रतिस्थापनेन: $x = -\tfrac{9}{5}$
+}{%
+\textbf{Rule:} Elimination of the middle (\textit{madhyam\={a}hara\d{n}a}) is performed by equalizing coefficients of one unknown and subtracting.
+\vspace{0.3cm}
+\textbf{Example:}
+\begin{align*}
+2x + 3y + 6 &= 0 \quad \text{(1)} \\
+3x + 2y + 7 &= 0 \quad \text{(2)} \\
+4x + 5y + 9 &= 0 \quad \text{(3)}
+\end{align*}
+From (1) and (2):
+\begin{align*}
+6x + 9y + 18 &= 0 \\
+6x + 4y + 14 &= 0 \\
+5y + 4 &= 0 \Rightarrow y = -\tfrac{4}{5}
+\end{align*}
+Substituting: $x = -\tfrac{9}{5}$
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XXIII -- BHAVITA (PRODUCT) EQUATIONS
+%% ========================================================================
+\sectionbicol{भावितम्}{Bh\={a}vitam (The Product)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+भावितं भावितं यत्र द्वयोर्वर्णयोर्गुणः~।\\
+स्थाप्यते समतुल्यं तद् भावितं प्रचक्षते~
+}{%
+\textit{bh\={a}vita\d{m} bh\={a}vita\d{m} yatra dvayor var\d{n}ayor gu\d{n}a\d{h}}\\
+\textit{sth\={a}pyate samatulya\d{m} tad bh\={a}vita\d{m} pracak\d{s}ate}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} \dev{भावित} इति द्वयोः अज्ञातराश्योः गुणनफलम्। एतादृशं समीकरणं \dev{भावितसमीकरण} इति उच्यते।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:} $(2x + 3) \cdot y = 6$ अथवा $2xy + 3y = 6$
+\vspace{0.2cm}
+\textbf{उत्तरम्:} अनिर्णीतम्। यस्याः $y \neq 0$, तस्य
+\[x = \frac{6 - 3y}{2y}\]
+\vspace{0.2cm}
+यदि $xy = c$ (नियतगुणनफलम्) अथवा $xy = ax + by + c$ तर्हि भावितसमीकरणम्।
+}{%
+\textbf{Rule:} \textit{Bh\={a}vita} is the product of two unknown quantities. An equation involving such a product is called a \textit{bh\={a}vita-sam\={\i}kara\d{n}a}.
+\vspace{0.3cm}
+\textbf{Example:} $(2x + 3) \cdot y = 6$, or $2xy + 3y = 6$
+\vspace{0.2cm}
+\textbf{Solution:} Indeterminate. For any $y \neq 0$:
+\[x = \frac{6 - 3y}{2y}\]
+\vspace{0.2cm}
+Equations of the form $xy = c$ (constant product) or $xy = ax + by + c$ are \textit{bh\={a}vita} equations.
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XXIV -- INDIVIDUAL SUBTRACTION METHOD
+%% ========================================================================
+\sectionbicol{प्रत्येकसंहारः}{Pratyeka-sa\d{m}h\={a}ra\d{h} (Individual Subtraction)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+प्रत्येकं संहरेद् भाज्यं हरेण प्रत्येकं बुधः~।\\
+लब्धानि यानि तान्येव मूलानि प्रत्येकशः~
+}{%
+\textit{pratyeka\d{m} sa\d{m}hared bh\={a}jya\d{m} hare\d{n}a pratyeka\d{m} budha\d{h}}\\
+\textit{labdh\={a}ni y\={a}ni t\={a}ny eva m\={u}l\={a}ni pratyeka\'{s}a\d{h}}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} प्रत्येकसंहारः तर्हि प्रयुज्यते यदा एकेनैव हरेण बहूनि भाज्यानि विभज्यन्ते। प्रत्येकं लब्धिः पृथक् मूलत्वेन गृह्यते।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:} $100x^2$, $80x^2$, $60x^2$ इति त्रीणि प्रत्येकं $20x^2$ इति विभज्यन्ताम्।
+\[\text{लब्धय: } 5,\ 4,\ 3 \quad \text{क्रमश:}\]
+}{%
+\textbf{Rule:} The method of individual subtraction is used when the same divisor is applied separately to multiple dividends. Each quotient is then a separate root.
+\vspace{0.3cm}
+\textbf{Example:} Divide $100x^2$, $80x^2$, and $60x^2$ individually by $20x^2$.
+\[\text{Quotients: } 5,\ 4,\ 3 \quad \text{respectively}\]
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XXV -- PRADISHA METHOD
+%% ========================================================================
+\sectionbicol{प्रदिशविद्यया}{Pradi\'{s}a-vidyay\={a} (By the Pradi\'{s}a Method)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+प्रदिशा विद्यया ज्ञेयं मूलं यत्र प्रदिश्यते~।\\
+प्रदिशं तत्र योज्यं स्याद् विद्वद्भिरनुमीयते~
+}{%
+\textit{pradi\'{s}\={a} vidyay\={a} j\~{n}eya\d{m} m\={u}la\d{m} yatra pradi\'{s}yate}\\
+\textit{pradi\'{s}a\d{m} tatra yojya\d{m} sy\={a}d vidvadbhir anum\={\i}yate}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} \dev{प्रदिश} विधिः मूलस्य अन्वेषणे प्रज्ञापूर्वकअनुमानं कर्तुं प्रयुक्ता। उच्चघातसमीकरणेषु विशिष्टा।
+\vspace{0.3cm}
+\textbf{उदाहरणम्:} $13824$ इत्यस्य घनमूलं ज्ञातव्यम्।
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+\item एककस्थानम् $4$ अतः घनमूलस्य एककं $4$
+\item $20^3 = 8000$, $30^3 = 27000$
+\item अतः मूलं $20$ तथा $30$ मध्ये
+\item $\therefore$ घनमूलम् $= 24$ ($24^3 = 13824$)
+\end{itemize}
+}{%
+\textbf{Rule:} The \textit{pradi\'{s}a} method finds roots by inspection and intelligent guessing, especially useful for higher-degree equations.
+\vspace{0.3cm}
+\textbf{Example:} Find the cube root of $13824$.
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+\item The number ends in $4$, so the cube root ends in $4$
+\item $20^3 = 8000$ and $30^3 = 27000$
+\item So the root is between $20$ and $30$
+\item $\therefore$ Cube root $= 24$ ($24^3 = 13824$)
+\end{itemize}
+}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER XXVI -- NEW PRADISHA METHOD
+%% ========================================================================
+\sectionbicol{नवीनप्रदिशविद्यया}{Nav\={\i}na-pradi\'{s}a-vidyay\={a} (By the New Pradi\'{s}a Method)}
+
+\vspace{0.3cm}
+
+\bicolverse{%
+नवीं प्रदिशमास्थाय मूलं यत् प्रदिश्यते~।\\
+तत् सुलभं भवेत् प्राज्ञैर् विदुषां नात्र संशयः~
+}{%
+\textit{nav\={\i}\d{m} pradi\'{s}am \={a}sth\={a}ya m\={u}la\d{m} yat pradi\'{s}yate}\\
+\textit{tat sulabha\d{m} bhavet pr\={a}j\~{n}air vidu\d{s}\={a}\d{m} n\={a}tra sa\d{ms}aya\d{h}}
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{सूत्र:} नवी प्रदिशविद्या पूर्वविधेः सुधारिता संस्करणम्। दुष्करतरमूलानाम् अप्य् अन्वेषणे समर्था।
+\vspace{0.3cm}
+
+अस्यां संहितायां पूर्वस्याः प्रदिशविधेः सन्ततिः दुष्करतरघातानाम् उच्चकोटिसमीकरणानां च मूलप्रदानाय सन्ततिरस्ति।
+}{%
+\textbf{Rule:} The new \textit{pradi\'{s}a} method gives an improved technique for finding roots, suitable for even more complex cases.
+\vspace{0.3cm}
+
+This chapter extends the previous \textit{pradi\'{s}a} methods with additional techniques for extraction of roots of higher powers and for handling more complex algebraic expressions.
+}
+
+\clearpage
+
+%% ========================================================================
+%% CLOSING
+%% ========================================================================
+\vspace{1cm}
+\begin{center}
+\longline
+\vspace{0.5cm}
+{\Large\itshape\color{sectioncolor} End of Part I / Prathamasya Bh\={a}gasya Sam\={a}pti\d{h}}\\[0.3cm]
+{\normalsize (Pages 1--57 / Pr\d{s}\d{t}h\={a}ni 1--57)}
+\vspace{0.5cm}
+\longline
+\end{center}
+
+\vspace{1cm}
+
+%% ========================================================================
+%% APPENDIX: explanatory notes
+%% ========================================================================
+\section*{Appendix / Pariccheda\d{h}}
+\addcontentsline{toc}{section}{Appendix}
+
+\subsectionbicol{संशोधकीयटिप्पणयः}{Notes}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{१. संकेतनविषये:} भास्करः \dev{यावत्} ($x$) इत्यस्य स्थाने अज्ञातराशिं प्रयुङ्क्ते। वर्णाः \dev{कालक} ($y$), \dev{नीलक} ($z$), \dev{पीतक} ($u$), \dev{हरितक} ($v$) इत्यादयः अन्यान् अज्ञातराशीन् प्रतिनिधत्ते।
+}{%
+\textbf{1. On notation:} Bh\={a}skara uses \textit{y\={a}vat} ($x$) for the unknown. The colours \textit{k\={a}laka} ($y$), \textit{n\={\i}laka} ($z$), \textit{p\={\i}taka} ($u$), \textit{haritaka} ($v$) represent further unknowns.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{२. ऋणसंख्याविषये:} भास्करः ऋणसंख्याः पूर्णतया स्वीकरोति, \dev{ऋण} (ऋणम्) इति धनविपरीतम् उच्यते। ऋणैः सह गुणनादिक्रियानां नियमाः स्पष्टतया दत्ताः।
+}{%
+\textbf{2. On negative numbers:} Bh\={a}skara fully accepts negative numbers, calling them \d{r}\d{n}a (debt), opposed to dhana (wealth/positive). He gives clear rules for arithmetic with negatives.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{३. करणीविषये:} \dev{करणी} (करणी) क्रियाः असङ्ख्येयसंख्यानां कलनस्य साक्षात् साक्षात् सूचयन्ति। भास्करः करणीविशिष्टराशीन् संकलयितुं, व्यवकलयितुं, गुणयितुं, विभजितुं, मूलानि च निष्काषयितुं शक्नोति।
+}{%
+\textbf{3. On surds:} The \textit{kara\d{n}\={\i}} (surd) operations demonstrate sophisticated understanding of irrational numbers. Bh\={a}skara can add, subtract, multiply, divide, and extract roots of surd expressions.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{४. चक्रवालविधौ:} $Nx^2 + 1 = y^2$ इत्यस्य समाधानाय \dev{चक्रवाल} विधिः भारतीयगणितस्य अत्युत्तमसाधनानाम् एकतमा। एषः सर्वदा न्यूनोत्तरं प्राप्नोति।
+}{%
+\textbf{4. On the cyclic method:} The \textit{cakrav\={a}la} method for solving $Nx^2 + 1 = y^2$ is one of the greatest achievements of Indian mathematics. It always converges to the minimal solution.
+}
+
+\vspace{0.5cm}
+
+\bicol{%
+\textbf{५. समीकरणविषये:} भास्करः समीकरणानि बहुविधानि वर्गीकरोति तेषां प्रत्येकं क्रमबद्धं विधिं ददाति। द्विघातसमीकरणस्य व्याख्या पूर्णा, द्वयोः, एकस्य, निर्णीतानाम् उत्तरानां सहिता।
+}{%
+\textbf{5. On equations:} Bh\={a}skara classifies equations into several types and gives systematic methods for each. His treatment of quadratic equations is complete, including cases with two, one, or no real solutions.
+}
+
+\vspace{1cm}
+
+\begin{center}
+\longline\\[0.3cm]
+{\small\textit{Printed by Jai Krishna Das Gupta at the Vidya Vilas Press, Gopalmandir Lane, Benares. 1927.}}\\[0.1cm]
+{\small\textsc{Benares Sanskrit Series No.~159}}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: translations/en/indian/bhaskara-ii-bijaganita-part2_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Bhaskara II: Bijaganita Part II — Bilingual Sanskrit-English Edition
+%% LEFT COLUMN: Sanskrit (Devanagari)
+%% RIGHT COLUMN: English Translation with IAST
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+%\usepackage{lettrine}   % removed: unavailable
+% \usepackage{microtype}  % disabled: incompatible with ucharclasses font switching
+%\usepackage{tocloft}    % removed: unavailable
+\usepackage{indentfirst}
+%\usepackage{ucharclasses}  % removed: unavailable
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+%% -------- Page Geometry (wider margins for parallel columns) --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{sanskrit}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}
+
+%% Devanagari Font
+\newfontfamily\devanagarifont[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSerifDevanagari-Regular.ttf}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSansDevanagari-Regular.ttf}
+
+% ucharclasses removed; using explicit \dev{} command for Devanagari text
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{versecolor}{RGB}{60,50,40}
+\definecolor{sanskritbg}{RGB}{255,253,245}
+\definecolor{englishbg}{RGB}{250,252,255}
+\definecolor{columnrule}{RGB}{160,140,120}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{B\={\i}jaga\d{n}ita — Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+\newcommand{\vs}{\vspace{0.5em}}
+
+%% Sanskrit verse environment for bilingual display
+\newenvironment{sanskritverse}{%
+  \begin{quote}\devanagarifont\textcolor{versecolor}%
+}{%
+  \end{quote}
+}
+
+%% Column environment: Sanskrit | English
+\newcommand{\sktcol}[1]{%
+  \noindent\begin{minipage}[t]{0.47\textwidth}%
+  \setlength{\parindent}{0pt}%
+  #1%
+  \end{minipage}%
+}
+\newcommand{\engcol}[1]{%
+  \begin{minipage}[t]{0.47\textwidth}%
+  \setlength{\parindent}{0pt}%
+  \raggedright
+  #1%
+  \end{minipage}%
+}
+\newcommand{\sktenvpair}[2]{%
+  \par\vspace{0.6em}%
+  \noindent\sktcol{#1}\hfill\vrule\hfill\engcol{#1}%
+  \par\vspace{0.6em}%
+}
+
+%% Bilingual pair command: \bilingual{Sanskrit}{English}
+%% ucharclasses handles automatic Devanagari font switching
+\newcommand{\bilingual}[2]{%
+  \par\vspace{0.5em}%
+  \noindent\begin{minipage}[t]{0.47\textwidth}%
+  \setlength{\parindent}{0pt}%
+  \small #1%
+  \end{minipage}%
+  \hfill\textcolor{columnrule}{\vrule width 0.5pt}\hfill%
+  \begin{minipage}[t]{0.47\textwidth}%
+  \setlength{\parindent}{0pt}%
+  \small\raggedright #2%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% Verse numbering
+\newcounter{verseno}
+\newcommand{\verseref}[1]{\hfill\textcolor{notecolor}{\textsc{(#1)}}}
+
+%% Shloka macro for bilingual display
+\newcommand{\shlokaSkt}[1]{%
+  \begin{center}\textcolor{versecolor}{\devanagarifont #1}\end{center}%
+}
+\newcommand{\shlokaEng}[1]{%
+  \begin{center}\textit{#1}\end{center}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+
+%% ========================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor} B\={\i}jaga\d{n}ita\par}
+\vspace{0.3cm}
+{\Large\itshape The Algebra of Bh\={a}skara II\par}
+
+\vspace{1cm}
+{\LARGE\bfseries\color{sectioncolor} Part II\par}
+\vspace{0.2cm}
+{\large Pages 58--114\par}
+
+\vspace{1.5cm}
+
+\begin{center}
+\rule{0.6\textwidth}{1pt}
+\end{center}
+
+\vspace{0.3cm}
+{\large\devanagarifont
+बीजगणितम् — द्विभाषीसंस्करणम्\\[0.3em]
+Bilingual Sanskrit-English Edition\par}
+
+\vspace{0.3cm}
+\begin{center}
+\rule{0.6\textwidth}{1pt}
+\end{center}
+
+\vspace{1cm}
+
+{\large\devanagarifont
+अथ एकवर्णसमीकरणम्\\
+अव्यक्तवर्गादिसमीकरणम्\\
+अनेकवर्णसमीकरणम्\\[0.5em]
+अनेकवर्णमध्यमाहरणभेदाः\par}
+
+\vspace{0.5cm}
+{\normalsize
+1.~Equations with One Unknown (Ekavar\d{n}a-sam\={\i}kara\d{n}a)\\
+2.~Equations with Unknown Squares (Avyakta-varg\={a}di-sam\={\i}kara\d{n}a)\\
+3.~Equations with Many Unknowns (Anekavar\d{n}a-sam\={\i}kara\d{n}a)\\
+4.~Variations of the Elimination Method (Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}h)\par}
+
+\vfill
+
+{\large Bh\={a}skara II (1114--1185 CE)\par}
+\vspace{0.3cm}
+{\small Sanskrit text in Devanagari $\parallel$ English translation with IAST\par}
+
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+%% ========================================================================
+\section*{Introduction / प्रस्तावना}
+\addcontentsline{toc}{section}{Introduction}
+
+\bilingual{\textbf{संस्कृतम्}\\[0.5em]
+अयं ग्रन्थः श्रीभास्कराचार्यविरचितस्य \textbf{बीजगणितस्य} द्वितीयं भागं समाविशति। बीजगणितं गणितशास्त्रस्य मूलभूतं खण्डं यत् समीकरणानां साधनं, अज्ञातराशीनां निर्णयं च व्याख्यायते। पृष्ठक्रमांक ५८--११४ पर्यन्तं चत्वारि प्रधानाध्यायानि समाविष्टानि—एकवर्णसमीकरणम्, अव्यक्तवर्गादिसमीकरणम्, अनेकवर्णसमीकरणम्, तथा अनेकवर्णमध्यमाहरणभेदाः।
+}{%
+\textbf{English Translation}\\[0.5em]
+This volume contains \textbf{Part II} of the \textit{B\={\i}jaga\d{n}ita} (``Seed Computation,'' i.e., Algebra) composed by \textbf{Bh\={a}skara II} (1114--1185 CE). The \textit{B\={\i}jaga\d{n}ita} is the foundational treatise of Indian algebra, treating equations, unknown quantities, and their solutions. Pages 58--114 encompass four principal chapters: equations with one unknown, equations with unknown squares, equations with many unknowns, and variations of the elimination method.}
+
+\vs
+
+\bilingual{भास्कराचार्यस्य गणितस्य विशेषता अस्ति यत् प्रत्येकं विषयं श्लोकेन (सूत्रेण) उपदिश्य, तदनन्तरं उदाहरणैः (worked examples) सह व्याख्याति। अज्ञातराशिः \dev{यावत्तावत्} (``as much as'') इत्युच्यते, संक्षेपेण \dev{या} अथवा \dev{याव} इति लिख्यते। समीकरणानि \textit{समशोधन} (elimination/equation) क्रियया साध्यन्ते।
+}{%
+A distinctive feature of Bh\={a}skara's exposition is that each topic is introduced by a verse (\textit{s\={u}tra}) containing a rule, followed by worked examples (\textit{ud\={a}hara\d{n}a}) and detailed commentary (\textit{v\={a}rttika}) showing the method of solution step by step. The unknown quantity is denoted by \dev{यावत्तावत्} (\textit{y\={a}vatt\={a}vat}, ``as much as''), abbreviated \dev{या} or \dev{याव}. Equations are solved by the process of \textit{sama-\'{s}odhana} (making equal and clearing).}
+
+\vs
+
+\bilingual{\textbf{मुख्याः पद्धतयः} — अस्य भागस्य प्रधानगणितपद्धतयः सन्ति: (१) \textbf{चक्रवालपद्धतिः} (cyclic method) — \textit{वर्गप्रकृतेः} ($x^2 - Ny^2 = 1$) साधनार्थं भास्करस्य श्रेष्ठमल्गोरिद्मिकसिद्धान्तः; (२) \textbf{भावितपद्धतिः} — घातसमीकरणानां साधनार्थं; (३) \textbf{मध्यमाहरणम्} — बहुवर्णसमीकरणानां साधनार्थं निरसनपद्धतिः।
+}{%
+\textbf{Key Methods} treated in this part include: (1) The \textbf{Cakrav\={a}la} (cyclic) \textbf{method} --- Bh\={a}skara's greatest algorithmic achievement for solving \textit{vargaprak\d{r}ti} ($x^2 - Ny^2 = 1$, Pell's equation); (2) The \textbf{Bh\={a}vita} method for product equations; (3) \textbf{Madhyam\={a}hara\d{n}a} --- the elimination method for equations with multiple unknowns.}
+
+\newpage
+
+%% ========================================================================
+\part*{Chapter I: Equations with One Unknown}
+\addcontentsline{toc}{part}{Chapter I: Equations with One Unknown}
+
+\section*{\dev{एकवर्णसमीकरणम्} $\parallel$ Ekavar\d{n}a-sam\={\i}kara\d{n}a}
+\addcontentsline{toc}{section}{Ekavar\d{n}a-sam\={\i}kara\d{n}a (pp.~58--76)}
+
+\bilingual{\textbf{\dev{अ}}थैकवर्णसमीकरणम्। अत्र \textbf{यावत्तावत्} एको वर्णः प्रकल्प्यते, ततो रूपैः सह समीकृत्य यावत्तावन्मानं साध्यते। राशिश्च द्विधा—\textit{स्वीकृतपक्षः} (accepting side) तथा \textit{दातृपक्षः} (giving side) इति। तयोः समशोधनेन मानं निर्णीयते।
+}{%
+\textbf{N}ow, equations with one unknown. Here, a single unknown quantity, called \textbf{y\={a}vatt\={a}vat} (\dev{यावत्तावत्}, ``as much as''), is postulated. Combining it with known quantities (\textit{r\={u}pa}, \dev{रूप}), one forms an equation and determines the value of the unknown. Each side of the equation is called either the \textit{accepting side} (what is received) or the \textit{giving side} (what is given). By the process of equal-clearing (\textit{sama-\'{s}odhana}), the value is determined.}
+
+\vs
+
+\subsection*{Simple Linear Equation $\parallel$ सरलरेखीयसमीकरणम्}
+
+\bilingual{\textbf{उदाहरणम्} — अत्राश्वमूल्यमज्ञातं तस्य मानं \dev{यावत्तावत्} एकं प्रकल्प्तं \dev{या १}। तदा श्रेणीशकं यदेकस्य यावत्तावन्मूल्यं तदा पणां किमिति कल्पितच्छागपणां प्रमाणमकं लब्धं पणामश्वानां मूल्यम्। \dev{या ६}। अत्र रूपातनये प्रक्षिप्ते जातमाश्चस्य धनं \dev{या ६ रूप २०}। एवं दशानां मूल्यं \dev{या १०}। अत्र रूपाते चाणांते प्रक्षिप्ते जातं द्वितीयस्य धनं \dev{या १० रूप १००}।
+}{%
+\textbf{Example} --- Here, the price of a horse is unknown; let its value be one \textbf{y\={a}vatt\={a}vat}, written \textbf{y\={a} 1}. If the price of one horse equals the price of so many goats, then the price in coins is determined. For one horse: \textbf{y\={a} 6}. Adding twenty coins (\textit{r\={u}pa}), the first person's wealth becomes: \textbf{y\={a} 6, r\={u}pa 20}. The price of ten horses is \textbf{y\={a} 10}. Adding one hundred coins, the second person's wealth becomes: \textbf{y\={a} 10, r\={u}pa 100}.}
+
+\vs
+
+\bilingual{\textbf{समशोधनम्} — एतौ समशोधने छते एव सभी जाते समशोधनार्थं—
+\begin{center}\dev{न्यासः---या ६ रूप २०}\\\dev{या १० रूप १००}\end{center}
+}{%
+\textbf{Equal-clearing} --- These two are made equal for clearing:
+\begin{center}\textsc{Setting down:} \textbf{y\={a} 6, r\={u}pa 20}\\\textbf{y\={a} 10, r\={u}pa 100}\end{center}}
+
+\vs
+
+\bilingual{\textbf{नियमः} — अथैकाव्यक्त शोधयेदन्यपक्षादव्ययव्यक्तान्। छोधिते द्वितीयपदमुक्त्वेषु आचयपक्षतुल्यपक्षः शोधितेषु शेषं रूप ४००। अथ कल्पितकलवर्ण \dev{या ४} रूपैः रूप ४०० उक्ते लब्धमेकस्य यावत्तावतो मानं व्यक्तं १००।
+}{%
+\textbf{Rule} --- One should clear the unknown from one side, and the known from the other side. When cleared, the remainder on the other side is r\={u}pa 400. Then, dividing r\={u}pa 400 by the coefficient of the unknown (y\={a} 4), the value of one y\={a}vatt\={a}vat is obtained as 100. Thus the price of one horse is 100 (coins).}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Example: Jewels and Wealth / रत्नधनस्योदाहरणम्}
+
+\bilingual{\begin{sanskritverse}
+माणिक्यामल्नीलमौक्तिककिमितिः पञ्चाषसममा—\\
+देकस्यान्यतरस्य सप्त नव पट् तद्दलसंख्या सखे।\\
+रूपाणां नवतिद्विषष्ठिर्नयोस्तौ तुल्यवित्तौ तथा\\
+वीजं प्रतिरुज्ञानि कुरुते मौल्यानि शीघ्रं वद ॥३॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 3: Jewels and Equal Wealth}
+\end{flushright}
+``The measures of ruby, sapphire, pearl, and emerald of one are fifty, seven, nine, and half that number, O friend. Their total wealth is one hundred sixty-two coins each. Tell me quickly the prices, O algebraist, that make them equal.''
+
+\vs
+\textsc{Solution:} Let the prices of ruby etc. be y\={a}(1) 3, y\={a} 2, y\={a} 1. The two sides become:
+\begin{center}\textbf{y\={a} 19, y\={a} 16, y\={a} 7, r\={u}pa 90}\\\textbf{y\={a} 21, y\={a} 18, y\={a} 6, r\={u}pa 62}\end{center}
+By equal-clearing, the value of y\={a}vatt\={a}vat is 4. The prices of jewels are 12, 8, 4.}
+
+\vs
+
+\bilingual{\begin{sanskritverse}
+एको द्वीति मम द्विहि शतं धनेन\\
+त्वत्तो भवामि हि सखे द्विगुणस्ततोऽस्यः।\\
+भूते द्वयोर्यदसि वैनम बहुगुणोऽहं\\
+त्वत्तस्तयोर्वद धने मम किं प्रमाणे ॥४॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 4: The Merchant's Wealth}
+\end{flushright}
+``If you give me one hundred, O friend, I become twice as rich as you. But if I give you two hundred, I become some multiple. Tell me, what are our respective measures of wealth?''
+
+\vs
+\textsc{Solution:} Let the two merchants' wealth be y\={a} 1 and y\={a} 1. After giving 100, the first becomes twice the second: \textbf{y\={a} 1, r\={u}pa 100} = \textbf{y\={a} 2, r\={u}pa 200}. By clearing: \textbf{y\={a} 4, r\={u}pa 300}, whence y\={a} = 75. The wealths are 40 and 170.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Quadratic and Higher Equations / वर्गसमीकरणम्}
+
+\bilingual{\textbf{उदाहरणम्} — राशिद्वैदशानिशं राशिद्वयनाल्यक्ष कः समो यः स्यात्। राशिकृतिः बहुगुणिता पञ्चत्रिंशद्युता विद्ध ॥६॥
+}{%
+\textbf{Example} --- ``A certain number when multiplied by twelve and added to its own square equals thirty-five. What is that number?'' Let the number be y\={a} 1. Then: 12y\={a} + y\={a}varga 1 = 35. Clearing gives sides: \textbf{y\={a}v 1, y\={a} 12, r\={u}pa 0} and \textbf{r\={u}pa 35}. Extracting the square root: \textbf{y\={a} 1, r\={u}pa 2} and \textbf{r\={u}pa 3}. From the equation of these, the number is 5.}
+
+\vs
+
+\bilingual{\textbf{वर्गपूरणनियमः} — एषां पूर्वमूलानां च सर्वेषां योगः = \dev{याव ३ या ३१ रूप ८८}। इदमेकाद्वययुतं प्रयोदशवर्गं—
+\begin{center}\dev{याव ३ या ३१ रूप ७५}\\\dev{याव ० या ० रूप १६९}\end{center}
+}{%
+\textbf{Rule for Completion of the Square:} The sum of all these roots = \textbf{y\={a}v 3, y\={a} 31, r\={u}pa 88}. Adding an increment to make a perfect square:
+\begin{center}\textbf{y\={a}v 3, y\={a} 31, r\={u}pa 75}\\\textbf{r\={u}pa 169}\end{center}
+Equating and multiplying both sides by twelve, taking the double-root from the square 169, the roots are \textbf{y\={a} 6, r\={u}pa 31} and \textbf{r\={u}pa 43}.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{The Lotus and the Swallow / हंसपद्मोदाहरणम्}
+
+\bilingual{\textbf{उदाहरणम्} — अत्र वा प्रथमप्रमाणकलं द्वितीयप्रमाणकलं विमले प्रलम्बये तद्गुणगुणितेन द्वितीयमूललेन तुल्यमेव प्रथममूलधनं स्यात्। अतो द्वितीयस्यायं गुणः २।
+}{%
+\textbf{Example: The Lotus and the Swallow} --- Here, the difference of the two root-measures, multiplied by the product of the multiplier, equals the second root-wealth. The multiplier of the second is 2. If the first root-wealth equals the product of one multiplier and the second root-wealth, divided by the square of the difference, then the difference of measures is 4. Thus the first and second root-wealths are 8 and 4, yielding a result of 2.}
+
+\vs
+
+\bilingual{\begin{sanskritverse}
+एकक्रान्तर्चयनात् फलस्य वर्गं विशोध्य परिशिष्यम्।\\
+पञ्चक्रान्तेन दत्तं तुल्यः कालः फले च तथैः ॥८॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 8: The Lotus Problem}
+\end{flushright}
+``Having subtracted the square of the result from the first increased [quantity], the remainder, divided by five, gives equal time and result.''
+
+\vs
+\textsc{Solution:} The multiplier is 5. Dividing by the decreased multiplier (4), the square of the small difference (16) divides the second wealth, yielding 4. Adding the square of the difference gives the first wealth as 20. By the rule of proportion, time = 20.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Four Merchants with Equal Wealth / चत्वारो वणिजः समधनाः}
+
+\bilingual{\begin{sanskritverse}
+माणिक्याणुकणिनीलादीनां मुक्ताफलानां शतं\\
+षड्भागि च पञ्च रत्नवीरां येषां चतुर्णां धनम्।\\
+संग्रहे हयरैन ते निजधनाद्वेकैक मिथो\\
+जातास्तुल्यधनाः पृथग्वद सखे तद्दनमैल्यानि मे ॥२॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 2: Four Merchants of Equal Wealth}
+\end{flushright}
+``Of rubies, coral, sapphires, pearls, and emeralds, there are one hundred; six parts and five jewels. Four merchants whose wealth, when one gives to another, they become equal. Tell me separately, O friend, the prices of their wealth.''
+
+\vs
+\textsc{Method:} The unknowns are postulated as y\={a}vatt\={a}vats. After four equal-clearings, the root is obtained by intelligent reasoning. As Bh\={a}skara himself says:
+\begin{quote}
+``Neither squared nor unsquared is the seed; seeds are not separate. Intelligence alone is the seed, for endless are the suppositions.''
+\end{quote}}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Geometric Application: Equilateral Triangle / समभुजत्रिकोणस्य क्षेत्रव्यवहारः}
+
+\bilingual{\textbf{न्यासः} — क्षेत्रव्यवहारात् समभुजत्रिकोणस्य जाते लम्बवर्गः = \dev{याव १ रूप १५, रूप २००}। या १ या १ क १८ रूप १। द्वितीयाव्यावावर्गी = \dev{याव १ या क ६२ या २ रूप १९ क ६२}।
+}{%
+\textbf{Setting Down:} From geometric computation for an equilateral triangle, the square of the altitude is: \textbf{y\={a}v 1, r\={u}pa 15, r\={u}pa 200}, or \textbf{y\={a} 1, k\={a} 18, r\={u}pa 1}. The second altitude-square is: \textbf{y\={a}v 1, y\={a} k\={a} 62, y\={a} 2, r\={u}pa 19, k\={a} 62}. Subtracting the base 6, the second altitude-square becomes: \textbf{y\={a}v 1, y\={a} 2, y\={a} k\={a} 62, r\={u}pa 13, k\={a} 62}.}
+
+\vs
+
+\bilingual{\textbf{समशोधनम्} — एतौ समाविति समशोधने छते जाते पक्षौ—
+\begin{center}\dev{र २५ क ५१२}\\\dev{या २ या क ६२}\end{center}
+}{%
+\textbf{Equal-clearing:} These being made equal, the sides after clearing are:
+\begin{center}\textbf{r\={u}pa 25, k\={a} 512}\\\textbf{y\={a} 2, y\={a} k\={a} 62}\end{center}}
+
+\newpage
+
+%% ========================================================================
+\section*{Equations with Unknown Squares / अव्यक्तवर्गादिसमीकरणम्}
+\addcontentsline{toc}{section}{Avyakta-varg\={a}di-sam\={\i}kara\d{n}a (pp.~77--95)}
+
+\bilingual{\textbf{सूत्रम्} —
+\begin{sanskritverse}
+अव्यक्तवर्गादि यदा द्वयोः पक्षौ तदैकेन निःशेषं किंचित्।\\
+क्षेपं तयोरेन पदप्रदः स्याद्व्यक्तः सहेत परेन भूयः ॥१॥
+\end{sanskritverse}
+\begin{sanskritverse}
+व्यक्तस्य मूलस्य समीकृते समव्यक्तमानं बहु लभ्यते तत्।\\
+न निर्वहेत् चेद्धनवर्गयोस्त्वेति तदा क्षेपमिदं स्यबुद्ध्या ॥२॥
+\end{sanskritverse}
+}{%
+\textbf{Rule (Verses 1--2):} ---
+\begin{flushright}
+\textit{When unknown squares appear on both sides,}\\
+\textit{divide by something to make one side a perfect square.}\\
+\textit{The additive must be such that it yields}\\
+\textit{a rational root when combined with the known term.}\\[0.5em]
+\textit{When the root of the known is equated,}\\
+\textit{many unknown values may be obtained;}\\
+\textit{if the square does not succeed,}\\
+\textit{then by intelligence determine the additive.}
+\end{flushright}}
+
+\vs
+
+\bilingual{\begin{sanskritverse}
+अव्यक्तमूलर्कांक ततोऽस्य व्यक्तस्य पक्षस्य पदं यदि स्यात्।\\
+मूलं धनं तथा विधाय साव्यमव्यक्तमानं द्विधा कल्पितं स्यात्॥३॥
+\end{sanskritverse}
+}{%
+\textbf{Verse 3:}
+\begin{flushright}
+\textit{If the root of the unknown side, having a number,}\\
+\textit{when made the root of the known side---}\\
+\textit{having made that root positive or negative,}\\
+\textit{the unknown value is to be assumed twofold.}
+\end{flushright}}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Example: Series of Numbers / राशिश्रेण्युदाहरणम्}
+
+\bilingual{\begin{sanskritverse}
+स्वार्धपञ्चाशनवमैर्युक्ताः के स्युः समाश्रयाः।\\
+अन्यैर्द्वादशहीनाख्य परिशिष्टाख्य तान् वद ॥१४॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 14: Numbers with Fractional Relations}
+\end{flushright}
+``What numbers, when increased by their own half, five-ninths, and [other fractions], become equal? And when diminished by others, twelve less---tell me the remainders.''
+
+\vs
+\textsc{Solution:} Let the equal number be y\={a}vatt\={a}vat 1. By the reverse process, the numbers are y\={a} $\frac{2}{5}$, y\={a} $\frac{5}{6}$, y\={a} $\frac{9}{10}$. Dividing by the greatest common measure and multiplying by y\={a}vatt\={a}vat value 150, the numbers are 100, 125, 135.}
+
+\vs
+
+\bilingual{\begin{sanskritverse}
+त्रयोदश तथा पञ्च करण्यो मूजयोनितो।\\
+भूजाता च चत्वारः फले भूमिं वदाऽखु मे ॥१५॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 15: The Excavated Plot}
+\end{flushright}
+``The square-roots of thirteen and five, diminished by the base, and four as the result---tell me the area, O algebraist.''
+
+\vs
+\textsc{Solution:} Let the area be y\={a}vatt\={a}vat 1. By the formula ``altitude times half-base divided [equals the area of a triangle],'' the section-ratio is k\={a} $\frac{5}{13}$. Its square is k\={a} 5. Subtracting from r\={u}pa 5, r\={u}pa $\frac{5}{13}$, the root gives the altitude k\={a} $\frac{5}{13}$.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Geometric Diagrams / क्षेत्रचित्राणि}
+
+\bilingual{\textbf{क्षेत्राणि} — तेषां स्वरूपाणि यथा—
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[thick] (0,0) grid (6,6);
+\draw[very thick] (0,0) rectangle (6,6);
+\node at (3,-0.5) {\dev{६}};
+\node at (-0.5,3) {\dev{६}};
+\node at (6.5,3) {\dev{६}};
+\node at (3,6.5) {\dev{६}};
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{tikzpicture}[scale=0.5]
+\draw[thick] (0,0) grid (3,3);
+\draw[very thick] (0,0) rectangle (3,3);
+\node at (1.5,-0.5) {\dev{३}};
+\node at (-0.5,1.5) {\dev{३}};
+\node at (3.5,1.5) {\dev{३}};
+\node at (1.5,3.5) {\dev{३}};
+\end{tikzpicture}
+\end{center}
+}{%
+\textbf{Geometric Figures:} Their forms are as follows:
+\begin{center}
+\textit{Square of side 6}\hspace{0.5cm}\textit{Square of side 3}
+\end{center}
+\textit{The large square is 36 units in area; the small square is 9 units. The difference is 27, which may be analyzed as the sum of gnomon regions.}
+
+\vs
+
+\bilingual{\begin{sanskritverse}
+चतुर्गुणस्य घातस्य युतिवर्गस्य चान्तरम्।\\
+राश्यन्तरकृतेस्तुल्यं द्वयोरन्त्यकयोर्यथा ॥१७॥
+\end{sanskritverse}
+}{%
+\textbf{Verse 17:}
+\begin{flushright}
+\textit{The difference between the square of the sum}\\
+\textit{and four times the product}\\
+\textit{equals the square of the difference of the two numbers,}\\
+\textit{as between the last two terms.}
+\end{flushright}
+\textsc{Numerical verification:} For numbers 3 and 5: $(3+5)^2 - 4 \cdot 3 \cdot 5 = 64 - 60 = 4 = (5-3)^2$. This is the algebraic identity: $(a+b)^2 - 4ab = (a-b)^2$.}
+
+\newpage
+
+%% ========================================================================
+\part*{Chapter II: Equations with Many Unknowns}
+\addcontentsline{toc}{part}{Chapter II: Equations with Many Unknowns}
+
+\section*{\dev{अनेकवर्णसमीकरणम्} $\parallel$ Anekavar\d{n}a-sam\={\i}kara\d{n}a}
+\addcontentsline{toc}{section}{Anekavar\d{n}a-sam\={\i}kara\d{n}a (pp.~96--114)}
+
+\bilingual{\textbf{\dev{अ}}थानेकवर्णसमीकरणम्। अत्र बहूनां यावत्तावतां सहचरितानां समीकरणं दीयते। यदा बहूनामज्ञातानां राशीनां मूल्यानि निर्णेतव्यानि भवन्ति, तदा प्रत्येकं राश्यै यावत्तावत् प्रकल्प्यते। तदनन्तरं कुट्टकविधिना मानानि निर्णीयन्ते।
+}{%
+\textbf{N}ow, equations with many unknowns. Here, equations are given involving several associated y\={a}vatt\={a}vats. When the values of many unknown quantities must be determined, a y\={a}vatt\={a}vat is postulated for each quantity. Thereafter, the values are determined by the \textit{ku\d{t}\d{t}aka} (pulverizer) method.}
+
+\vs
+
+\bilingual{\textbf{मुख्यनियमः} — अत्र माणिक्यादीनां मौल्यानि यावत्तावदादीनि प्रकल्प्य तद्गुणपरितसंख्यां च छत्वा रूपाणि च प्रक्षिप्य समशोधनार्थं—
+\begin{center}
+\dev{न्यासः---या ५ का ८ नी ३ रूप १०}\\
+\dev{या ३ का ९ नी ५ रूप ६२}
+\end{center}
+}{%
+\textbf{Main Rule:} Let the prices of rubies etc. be postulated as y\={a}vatt\={a}vats etc., and multiplying by their respective coefficients and adding r\={u}pas, for equal-clearing:
+\begin{center}
+\textsc{Setting down:} \textbf{y\={a} 5, k\={a} 8, n\={\i} 3, r\={u}pa 10}\\
+\textbf{y\={a} 3, k\={a} 9, n\={\i} 5, r\={u}pa 62}
+\end{center}}
+
+\vs
+
+\bilingual{\textbf{समशोधनम्} — अत्र वर्गं शोध्येदित्यादिना जाता यावत्तावद्विमतिः:
+\begin{center}\dev{या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$}\end{center}
+}{%
+\textbf{Equal-clearing:} Clearing the square etc., the value of y\={a}vatt\={a}vat is:
+\begin{center}$\displaystyle\text{y\={a}} = \frac{-\text{k\={a}} + \text{n\={\i}} + \text{r\={u}pa }28}{2}$\end{center}}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Tabular Solution / सारणीकृतसाधनम्}
+
+\bilingual{\textbf{निर्माणप्रक्रिया} — प्रथमं नी=३ कल्पिते यदि तत्र पीतकमानं किमपि त्रिगुणितमेव। तदा—
+\begin{center}
+\begin{tabular}{rclcrclcrcl}
+\dev{यदि} & \dev{पी=३९} & \dev{,} & \dev{का=४५} & \dev{अतः} & \dev{या=१} & \dev{(१)} \\
+\dev{,} & \dev{पी=४२} & \dev{,} & \dev{का=३०} & \dev{,} & \dev{या=२१} & \dev{(२)} \\
+\dev{,} & \dev{पी=४५} & \dev{,} & \dev{का=१५} & \dev{,} & \dev{या=३३} & \dev{(३)} \\
+\end{tabular}
+\end{center}
+}{%
+\textbf{Construction Procedure:} First, if n\={\i}=3 is postulated, the yellow value must be some multiple of three. Then:
+\begin{center}
+\begin{tabular}{rclcrclcrcl}
+If & p\={\i}=39 & $\Rightarrow$ & k\={a}=45 & then & y\={a}=1 & (1)\\
+If & p\={\i}=42 & $\Rightarrow$ & k\={a}=30 & then & y\={a}=21 & (2)\\
+If & p\={\i}=45 & $\Rightarrow$ & k\={a}=15 & then & y\={a}=33 & (3)\\
+\end{tabular}
+\end{center}
+\textsc{Note:} This tabular method generates an infinite family of solutions. The values are obtained by the \textit{ku\d{t}\d{t}aka} (pulverizer) algorithm applied to the reduced equation.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{The General Rule / सामान्यसूत्रम्}
+
+\bilingual{\begin{sanskritverse}
+द्वयोः समीकरणयोर्मूलमेकं यदि विद्यते।\\
+तदा तदन्यत्समीकर्य मूलं तद्वदनुष्ठितम्॥
+\end{sanskritverse}
+}{%
+\textbf{General Rule:}
+\begin{flushright}
+\textit{When the root of one of two equations is known,}\\
+\textit{then having equated the other,}\\
+\textit{its root is obtained by the same procedure.}
+\end{flushright}
+\textsc{Explanation:} This is the fundamental principle of elimination. If one variable can be expressed from one equation, substitute this expression into the second equation. This is the \textit{madhyam\={a}hara\d{n}a} (elimination of the middle) method in its general form.}
+
+\newpage
+
+%% ========================================================================
+\section*{\dev{अनेकवर्णमध्यमाहरणभेदाः} $\parallel$ Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}h}
+\addcontentsline{toc}{section}{Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}h (pp.~107--114)}
+
+\bilingual{\textbf{\dev{अ}}थानेकवर्णमध्यमाहरणभेदाः। अत्र बहुवर्णसमीकरणानां मध्यमाहरणस्य विभिन्नाः पद्धतयः प्रदर्श्यन्ते। मध्यमाहरणमित्युक्ते अनेकवर्णसमीकरणेभ्यो मध्यमवर्णस्य निरसनं, अन्येषां च मानानां ततो निर्णयः।
+}{%
+\textbf{N}ow, variations of the elimination method for equations with many unknowns. Here, various methods of \textit{madhyam\={a}hara\d{n}a} (elimination of the middle [term]) for equations with many unknowns are demonstrated. By \textit{madhyam\={a}hara\d{n}a} is meant the elimination of the middle unknown from a system of equations, and the determination of the remaining quantities thereafter.}
+
+\vs
+
+\bilingual{\begin{sanskritverse}
+इष्टं तयोः प्रथमपक्षादेन\\
+छत्तोकवत् प्रथमवर्णमितिकृत् साध्या।\\
+हृद् यं भवेत् प्रकृतिवर्गमितिः सुखोर्मि-\\
+र्वै कृतिप्रकृतित्रय नियोजनीया ॥५॥
+\end{sanskritverse}
+}{%
+\textbf{Verse 5:}
+\begin{flushright}
+\textit{Having chosen [a number] from the first side of the two,}\\
+\textit{it should be made to have the measure of the first unknown,}\\
+\textit{as if divided. That which would be in the heart}\\
+\textit{[i.e., the divisor]---the square-root of the original,}\\
+\textit{three [terms] involving the square and the original}\\
+\textit{must be applied.}
+\end{flushright}
+\textsc{Explanation:} This verse describes a sophisticated elimination procedure. The ``three terms involving the square and the original'' refers to the quadratic, linear, and constant terms that arise when completing the square during elimination.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Example: Doubled Number with Square / द्विगुणितराशिवर्गयुतः}
+
+\bilingual{\begin{sanskritverse}
+को राशिद्विगुणो राशिवर्गेः पट्डिमः समन्वितः।\\
+मूलद्वो जायते बीजगणितं वद तत् त्वम् ॥१॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 1: A Number with Its Square}
+\end{flushright}
+``What number, when doubled and added to its square-root's square (i.e., the number itself), produces two roots? Speak that algebra, O you.''
+
+\vs
+\textsc{Solution:} Let the first unknown's doubled quantity with its square be y\={a}v 6, y\={a} 2. For the square, the setting-down is:
+\begin{center}\textbf{y\={a}v 6, y\={a} 2, k\={a}v 0}\\\textbf{y\={a}v 0, y\={a} 0, k\={a}v 1}\end{center}
+By equal-clearing, the sides become y\={a}v 6, y\={a} 2, k\={a}v 1. Multiplying by the coefficient and adding r\={u}pa, the first root is \textbf{y\={a} 6, r\={u}pa 1}. The second root is \textbf{k\={a} 2}, or k\={a} 20 with residue 49. Equating with the first side y\={a} 6, r\={u}pa 1, the value of y\={a}vatt\={a}vat is $\frac{2}{5}$ or 8.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Example: Sum and Product / राशियोगघातोदाहरणम्}
+
+\bilingual{\begin{sanskritverse}
+राशियोगकृतिर्मित्रा राश्योर्गुणघनेन चेत्।\\
+द्विस्य धनयोगस्य सा तुल्या गणकौच्यताम् ॥२॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 2: The Square of the Sum}
+\end{flushright}
+``The square of the sum of numbers, O friend, when equal to the cube of their product---let the calculator declare the sum of their doubled wealth.''
+
+\vs
+\textsc{Solution:} The procedure by which [this is done]---intelligent ones should postulate numbers. Postulated: (y\={a} 1, k\={a} 1), (y\={a} 1, k\={a} 1). Their sum is 2. By its double, the wealth is y\={a}v 8, y\={a}v 4. The individual wealths of the numbers: y\={a}v 1, y\={a} k\={a} m\={a} 2, k\={a}v y\={a} m\={a} 2, k\={a}v m\={a} 1. For the second: bh\={a}ga 1, y\={a} k\={a} m\={a} 2, k\={a}v y\={a} m\={a} 2, k\={a}v m\={a} 1. Their sum is y\={a}v 2, k\={a}v y\={a} m\={a} 6. Twice this: y\={a}v 4, k\={a}v y\={a} m\={a} 12, for equal-clearing.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{The Elimination Procedure / मध्यमाहरणप्रक्रिया}
+
+\bilingual{\textbf{मुख्यन्यासः} — अत्र माणिक्यादीनां मौल्यानि यावत्तावदादीनि प्रकल्प्य तद्गुणपरितसंख्यां च छत्वा रूपाणि च प्रक्षिप्य समशोधनार्थं—
+\begin{center}
+\dev{न्यासः---या ५ का ८ नी ३ रूप १०}\\
+\dev{या ३ का ९ नी ५ रूप ६२}
+\end{center}
+}{%
+\textbf{Main Setting-down:} Postulating the prices of rubies etc. as y\={a}vatt\={a}vats, multiplying by their respective coefficients and adding r\={u}pas, for equal-clearing:
+\begin{center}
+\textsc{Setting:} \textbf{y\={a} 5, k\={a} 8, n\={\i} 3, r\={u}pa 10}\\
+\textbf{y\={a} 3, k\={a} 9, n\={\i} 5, r\={u}pa 62}
+\end{center}}
+
+\vs
+
+\bilingual{\textbf{समशोधनम्} — अत्र वर्गं शोध्येदित्यादिना जाता यावत्तावद्विमतिः:
+\begin{center}\dev{या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$}\end{center}
+}{%
+\textbf{Clearing:} Clearing the squares, the value of y\={a}vatt\={a}vat is:
+\begin{center}$\displaystyle\text{y\={a}} = \frac{-\text{k\={a}} + \text{n\={\i}} + \text{r\={u}pa }28}{2}$\end{center}
+\textsc{Note:} This is a single equation with three unknowns. By the \textit{ku\d{t}\d{t}aka} method, infinitely many solutions are obtained.}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Concluding Verses / समाप्तिश्लोकाः}
+
+\bilingual{\begin{sanskritverse}
+नवमिः सममिः शुण्णः को राशिकिंवशात् हतः।\\
+यद्वैक्यं फले काल्यं भवेत् बहुविशतेऽमितम् ॥१०॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 10: Equal Remainder}
+\end{flushright}
+``Nine is the equal remainder. What number, when multiplied by a certain divisor, when added to another and divided by the divisor, yields an equal remainder of twenty?''
+
+\vs
+\textsc{Solution:} The divisor is postulated as r\={u}pa 16. The number is l\={a} 1. Having obtained one measure by the single-divisor reduction, the multiplier becomes the product: y\={a} 16, k\={a} 30. This result, diminished by the divisor: y\={a} 16, k\={a} 26, equated to twenty, by \textit{ku\d{t}\d{t}aka} the value y\={a}vatt\={a}vat is n\={\i} 29, r\={u}pa 297. Here, since only one sum of results is indicated, no additive is required.}
+
+\vs
+
+\bilingual{\begin{sanskritverse}
+कलितसनवशुण्णो राशिकिंवशद्विभाजितः।\\
+यद्वैक्यमपि त्रिशद्दत्तमेकादशाऽऽक्रमम् ॥११॥
+\end{sanskritverse}
+}{%
+\begin{flushright}
+\textit{Verse 11: Divided with Remainder}
+\end{flushright}
+``A number increased by nine and diminished by something, divided by a certain divisor, when added together gives thirty as the result in the eleventh step.''
+
+\vs
+\textsc{Solution:} Let the first number be y\={a}vatt\={a}vat plus the known. The second is 6y\={a} + 2. By the statement of the first, the value of y\={a}vatt\={a}vat = $\frac{3\text{k\={a}} + \text{known}}{6}$, and by the third statement: y\={a}} = $\frac{9\text{n\={\i}} + 3 - \text{known}}{6}$. By the \textit{ku\d{t}\d{t}aka} method, the first number is postulated as 36, the second as 126, r\={u}pa 104.}
+
+\newpage
+
+%% ========================================================================
+\section*{The Cakrav\={a}la (Cyclic) Method $\parallel$ चक्रवालपद्धतिः}
+\addcontentsline{toc}{section}{The Cakrav\={a}la Method (Vargaprak\d{r}ti)}
+
+\bilingual{\textbf{चक्रवालपद्धतिः} — \dev{वर्गप्रकृति} इत्युक्ते $x^2 - Ny^2 = 1$ रूपं समीकरणं यत्र $N$ अज्ञातवर्गे कारः (गुणकः), $x$ प्रकृतिः (ज्येष्ठमूलम्), $y$ ह्रस्वम् (कनिष्ठमूलम्)। भास्कराचार्यस्य \textbf{चक्रवालपद्धतिः} अस्मिन् समीकरणे साधने सर्वोत्तमा अल्गोरिद्मिकपद्धतिः अस्ति। इयं पद्धतिः सदैव परिसमाप्तिं गच्छति तथा च न्यूनतमं समाधानं प्रयच्छति।
+}{%
+\textbf{The Cakrav\={a}la (Cyclic) Method:} The \textit{vargaprak\d{r}ti} is the equation $x^2 - Ny^2 = 1$, where $N$ is the \textit{k\={a}ra\d{n}a} (multiplier/prak\d{r}ti), $x$ is the \textit{jye\d{s}\d{t}ha-m\={u}la} (greater root), and $y$ is the \textit{kani\d{s}\d{t}ha-m\={u}la} (lesser root). Bh\={a}skara's \textbf{Cakrav\={a}la} (``cyclic'') method is the supreme algorithmic procedure for solving this equation. This method always terminates and produces the minimal solution.}
+
+\vs
+
+\bilingual{\textbf{चक्रवालस्य पद्धतिः} —
+\begin{enumerate}[label=\arabic*.]
+\item मूलस्य ($\sqrt{N}$) समीपतमं पूर्णाङ्कं गृहाण।
+\item प्रथमं समीकरणं रचय: $a^2 - N \cdot 1^2 = k$, यत्र $a$ समीपतमपूर्णाङ्कं, $k$ क्षेपः।
+\item ततः $b = \dfrac{a + m}{|k|}$ गणय, यत्र $m$ अनेन प्रकारेण वृत्यते यत् $a + m \equiv 0 \pmod{|k|}$ तथा च $m^2 - N$ न्यूनतमं भवति।
+\item नवीन समीकरणं रचय: $a_{\text{new}}^2 - N \cdot b^2 = k_{\text{new}}$।
+\item यदा $k_{\text{new}} = 1, 2, -1, -2, 4, -4$ भवति, तदा \textit{भावना} (composition) क्रियते।
+\item अन्यथा चक्रं पुनः आरभ्यते।
+\end{enumerate}
+}{%
+\textbf{The Cakrav\={a}la Procedure:}
+\begin{enumerate}[label=\arabic*.]
+\item Take the integer nearest to $\sqrt{N}$.
+\item Form the first equation: $a^2 - N \cdot 1^2 = k$, where $a$ is the nearest integer, $k$ is the additive (\textit{k\d{s}epa}).
+\item Compute $b = \dfrac{a + m}{|k|}$, where $m$ is chosen such that $a + m \equiv 0 \pmod{|k|}$ and $m^2 - N$ is minimized.
+\item Form the new equation: $a_{\text{new}}^2 - N \cdot b^2 = k_{\text{new}}$.
+\item When $k_{\text{new}} = 1, 2, -1, -2, 4, -4$, apply \textit{bh\={a}van\={a}} (composition).
+\item Otherwise, repeat the cycle.
+\end{enumerate}}
+
+\newpage
+
+%% ========================================================================
+\subsection*{The Famous Example $N=61$ / प्रसिद्धमुदाहरणम् $N=61$}
+
+\bilingual{\textbf{उदाहरणम्} — \dev{``एकषष्टिप्रकृतिः''} इति प्रसिद्धमुदाहरणं भास्कराचार्यस्य अस्ति। अत्र $N = 61$। एतत् समीकरणं $x^2 - 61y^2 = 1$ इत्यस्य न्यूनतमं समाधानं अत्यन्तं विस्तृतं जातं यत् पूर्वं यावद्ब्रह्मगुप्तस्य कालपर्यन्तं कठिनतमं मन्यते स्म।
+}{%
+\textbf{Example:} The ``\textit{prak\d{r}ti} sixty-one'' is Bh\={a}skara's most celebrated example. Here $N = 61$. The minimal solution of $x^2 - 61y^2 = 1$ is enormously large, and was considered the most difficult case from the time of Brahmagupta until Bh\={a}skara.}
+
+\vs
+
+\bilingual{\textbf{चक्रवालस्य परिक्रमाः} —
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{\dev{चक्रम्}} & \textbf{\dev{गुणकः}} & \textbf{\dev{ज्येष्ठम्}} & \textbf{\dev{कनिष्ठम्}} & \textbf{\dev{क्षेपः}} & \textbf{\dev{वृत्तिः}} \\
+\hline
+\dev{१} & \dev{६१} & \dev{८} & \dev{१} & \dev{-१३} & \dev{प्रारम्भः} \\
+\dev{२} & \dev{६१} & \dev{४७} & \dev{६} & \dev{७} & \dev{चक्रम्} \\
+\dev{३} & \dev{६१} & \dev{४८} & \dev{७} & \dev{-१३} & \dev{चक्रम्} \\
+\dev{४} & \dev{६१} & \dev{६३} & \dev{८} & \dev{-४} & \dev{भावना} \\
+\dev{५} & \dev{६१} & \dev{११९} & \dev{१५} & \dev{४} & \dev{भावना} \\
+\dev{६} & \dev{६१} & \dev{३९७} & \dev{५१} & \dev{-४} & \dev{भावना} \\
+\dev{७} & \dev{६१} & \dev{१३२३} & \dev{१७०} & \dev{७} & \dev{चक्रम्} \\
+\dev{८} & \dev{६१} & \dev{१३२४} & \dev{१७१} & \dev{-१३} & \dev{चक्रम्} \\
+\dev{९} & \dev{६१} & \dev{१८९१} & \dev{२४२} & \dev{७} & \dev{चक्रम्} \\
+\dev{१०} & \dev{६१} & \dev{२८५६} & \dev{३६५} & \dev{-३} & \dev{चक्रम्} \\
+\dev{११} & \dev{६१} & \dev{२८५७} & \dev{३६६} & \dev{-१} & \dev{समाप्तिः} \\
+\hline
+\end{tabular}
+\end{center}
+}{%
+\textbf{Cycles of the Cakrav\={a}la:}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Cycle} & \textbf{Prak\d{r}ti $N$} & \textbf{Jye\d{s}\d{t}ha $a$} & \textbf{Kani\d{s}\d{t}ha $b$} & \textbf{K\d{s}epa $k$} & \textbf{Operation} \\
+\hline
+1 & 61 & 8 & 1 & $-13$ & Initiation \\
+2 & 61 & 47 & 6 & 7 & Cycle \\
+3 & 61 & 48 & 7 & $-13$ & Cycle \\
+4 & 61 & 63 & 8 & $-4$ & Bh\={a}van\={a} \\
+5 & 61 & 119 & 15 & 4 & Bh\={a}van\={a} \\
+6 & 61 & 397 & 51 & $-4$ & Bh\={a}van\={a} \\
+7 & 61 & 1323 & 170 & 7 & Cycle \\
+8 & 61 & 1324 & 171 & $-13$ & Cycle \\
+9 & 61 & 1891 & 242 & 7 & Cycle \\
+10 & 61 & 2856 & 365 & $-3$ & Cycle \\
+11 & 61 & 2857 & 366 & $-1$ & \textbf{Termination} \\
+\hline
+\end{tabular}
+\end{center}}
+
+\newpage
+
+%% ========================================================================
+\subsection*{Final Composition: The Solution / अन्तिमभावना: समाधानम्}
+
+\bilingual{\textbf{समाधानम्} — यदा क्षेपः $k = -1$ प्राप्यते (चक्रे ११), तदा \textit{भावनया} सह सम्पूर्णं समाधानं प्राप्यते। अन्तिमे समीकरणे $2857^2 - 61 \cdot 366^2 = -1$ भवति। अस्य वर्गीकरणेन ($k = -1$ इत्यस्य द्विवारं प्रयोगेन) $k = 1$ प्राप्यते।
+
+\vspace{0.5em}
+\textbf{\dev{अतः न्यूनतमं समाधानम्:}}
+\begin{center}
+\fbox{\dev{ज्येष्ठमूलम् $x = 1{,}766{,}319{,}049$}}\\[0.3em]
+\fbox{\dev{कनिष्ठमूलम् $y = 226{,}153{,}980$}}
+\end{center}
+\vspace{0.3em}
+\textbf{\dev{सत्यापनम्:}}
+\begin{center}
+$1{,}766{,}319{,}049^2 - 61 \cdot 226{,}153{,}980^2 = 1$
+\end{center}
+}{%
+\textbf{The Solution:} When the additive $k = -1$ is reached (at cycle 11), the complete solution is obtained by \textit{bh\={a}van\={a}} (composition). The final equation yields $2857^2 - 61 \cdot 366^2 = -1$. Squaring this (applying $k = -1$ twice) gives $k = 1$.
+
+\vspace{0.5em}
+\textbf{The minimal solution is:}
+\begin{center}
+\fbox{Greater root $x = 1{,}766{,}319{,}049$}\\[0.3em]
+\fbox{Lesser root $y = 226{,}153{,}980$}
+\end{center}
+\vspace{0.3em}
+\textbf{Verification:}
+\begin{center}
+$1{,}766{,}319{,}049^2 - 61 \cdot 226{,}153{,}980^2 = 1$ $\checkmark$
+\end{center}
+
+\vs
+\textsc{Historical Note:} This solution was not matched in Europe until the work of Fermat, Brouncker, and Wallis in the 17th century. Bh\={a}skara's Cakrav\={a}la algorithm always terminates---a fact that was only rigorously proved in the 20th century by Krishnaswami Alladi. The method is superior to the European ``chain method'' of Brouncker in both elegance and efficiency.}
+
+\newpage
+
+%% ========================================================================
+\section*{The Bh\={a}vita Method $\parallel$ भावितपद्धतिः}
+\addcontentsline{toc}{section}{The Bh\={a}vita Method (Product Equations)}
+
+\bilingual{\textbf{भावितपद्धतिः} — \dev{भावित} इत्युक्ते द्वयोः अज्ञातराश्योः घातः (product)। यदा समीकरणे द्वयोः वर्णयोः गुणनफलं प्रविष्टं भवति, तदा \textit{भावितपद्धतिः} प्रयुज्यते। अस्याः पद्धतेर्मुख्यं प्रयोजनं \textit{वर्गप्रकृतेः} समाधानेषु \textit{भावनायाः} (composition) क्रियायां विद्यते।
+}{%
+\textbf{The Bh\={a}vita Method:} \textit{Bh\={a}vita} means the product of two unknown quantities. When the product of two unknowns appears in an equation, the \textit{bh\={a}vita} method is applied. The principal application of this method is in the \textit{bh\={a}van\={a}} (composition) operation for solving the \textit{vargaprak\d{r}ti}.}
+
+\vs
+
+\bilingual{\textbf{भावनानियमः} — यदि $(a, b, k)$ तथा $(A, B, K)$ द्वे वर्गप्रकृतिसमाधाने स्तः, अर्थात् $a^2 - Nb^2 = k$ तथा $A^2 - NB^2 = K$, तदा भावनया नवीनं समाधानं प्राप्यते:
+\begin{center}
+\fbox{$x = aA \pm NbB$, \quad $y = aB \pm Ab$}
+\end{center}
+\vspace{0.3em}
+यस्य क्षेपः नवीनं समीकरणं $x^2 - Ny^2 = kK$ सन्तोषयति।
+}{%
+\textbf{The Bh\={a}van\={a} Rule:} If $(a, b, k)$ and $(A, B, K)$ are two solutions of the vargaprak\d{r}ti, i.e., $a^2 - Nb^2 = k$ and $A^2 - NB^2 = K$, then by \textit{bh\={a}van\={a}} a new solution is obtained:
+\begin{center}
+\fbox{$x = aA \pm NbB$, \quad $y = aB \pm Ab$}
+\end{center}
+\vspace{0.3em}
+whose additive satisfies the new equation $x^2 - Ny^2 = kK$.
+
+\vs
+\textsc{Special Case:} When $k = K = 1$, the product $kK = 1$, so the composed solution directly solves $x^2 - Ny^2 = 1$. When $k = K = -1$, then $kK = 1$ again, so two solutions with additive $-1$ compose to a solution with additive $+1$. This is the key to terminating the Cakrav\={a}la method.}
+
+\newpage
+
+%% ========================================================================
+\section*{Summary of Part II / द्वितीयभागस्य संक्षेपः}
+\addcontentsline{toc}{section}{Summary}
+
+\bilingual{\textbf{समीकरणविधयः} — अस्य भागे निम्नलिखिताः प्रधानगणितविधयः उपदिष्टाः सन्ति:
+
+\begin{enumerate}
+\item \textbf{एकवर्णसमीकरणम्} — रेखीयसमीकरणानां, वर्गसमीकरणानां च साधनम्।
+\item \textbf{अव्यक्तवर्गादिसमीकरणम्} — अज्ञातवर्गयुक्तसमीकरणानां साधनम्।
+\item \textbf{अनेकवर्णसमीकरणम्} — बहुवर्णसमीकरणानां कुट्टकविधिना साधनम्।
+\item \textbf{मध्यमाहरणम्} — मध्यमवर्णस्य निरसनपद्धतिः।
+\item \textbf{चक्रवालपद्धतिः} — वर्गप्रकृतेः ($x^2 - Ny^2 = 1$) सर्वोत्तमा साधनपद्धतिः।
+\item \textbf{भावितपद्धतिः} — द्विवर्णघातसमीकरणानां तथा भावनायाः क्रिया।
+\end{enumerate}
+}{%
+\textbf{Equation Methods:} In this part, the following principal mathematical methods are taught:
+
+\begin{enumerate}
+\item \textbf{Equations with One Unknown} --- solution of linear and quadratic equations.
+\item \textbf{Equations with Unknown Squares} --- solution of equations containing unknown squares.
+\item \textbf{Equations with Many Unknowns} --- solution by the \textit{ku\d{t}\d{t}aka} (pulverizer) method.
+\item \textbf{Elimination of the Middle} --- the method of eliminating the middle unknown.
+\item \textbf{The Cakrav\={a}la Method} --- the supreme method for solving $x^2 - Ny^2 = 1$.
+\item \textbf{The Bh\={a}vita Method} --- product equations and the composition operation.
+\end{enumerate}}
+
+\vs
+
+\bilingual{\textbf{भास्करस्य योगदानम्} — भास्कराचार्यस्य \textbf{चक्रवालपद्धतिः} गणितस्य इतिहासे अत्यन्तं महत्त्वपूर्णा अस्ति। इयं पद्धतिः—
+\begin{itemize}
+\item सदैव परिसमाप्तिं गच्छति (always terminates)
+\item न्यूनतमं समाधानं प्रयच्छति (produces the minimal solution)
+\item युरोपीयपद्धतेः अपेक्षया अधिकतया कुशला (more efficient than European methods)
+\item आधुनिकअल्गोरिद्मिकविश्लेषणस्य आधारभूता (foundational for modern algorithmic analysis)
+\end{itemize}
+}{%
+\textbf{Bh\={a}skara's Contribution:} Bh\={a}skara's \textbf{Cakrav\={a}la method} is one of the most significant achievements in the history of mathematics. This method:
+\begin{itemize}
+\item Always terminates (always terminates)
+\item Produces the minimal solution (produces the minimal solution)
+\item Is more efficient than European methods of the 17th century (more efficient than European methods)
+\item Is foundational for modern algorithmic analysis (foundational for modern algorithmic analysis)
+\end{itemize}}
+
+\newpage
+
+%% ========================================================================
+\vspace*{2cm}
+
+\begin{center}
+{\Large\bfseries\color{sectioncolor} End of Part II $\parallel$ द्वितीयभागसमाप्तिः\par}
+\vspace{1cm}
+{\large Pages 58--114 of the B\={\i}jaga\d{n}ita\par}
+\vspace{0.5cm}
+{\normalsize\itshape To be continued in Part III (pages 115--170)\par}
+\end{center}
+
+\vfill
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}\\[0.5em]
+{\small\textsc{Bilingual Sanskrit-English Edition}\\
+\textsc{Sanskrit text: Devanagari} $\parallel$ \textsc{English: IAST transliteration}\\[0.3em]
+\textsc{Compiled from the Sanskrit edition of}\\
+\textsc{Shri Bhaskaracharya}\\
+\textsc{Circa 1150 CE}\par}
+\end{center
+
+
+% ============================================================
+% Source: translations/en/indian/bhaskara-ii-bijaganita-part3_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Bhaskara II: Bijaganita (Part 3: pages 115-170)
+%% BILINGUAL English-Sanskrit Edition
+%% Parallel columns: Sanskrit (Devanagari) | English translation with IAST
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+% verse, lettrine, microtype, tocloft removed for compilation
+\usepackage{indentfirst}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{sanskrit}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}
+
+%% Devanagari (Sanskrit/Hindi) Font
+\newfontfamily\devanagarifont[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSerifDevanagari-Regular.ttf}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/]{NotoSansDevanagari-Regular.ttf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{sanskrcolor}{RGB}{60,30,10}
+\definecolor{engcolor}{RGB}{30,50,80}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Bijaganita -- Bilingual Edition (Sanskrit-English)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+
+%% Bilingual parallel columns
+\newcommand{\bicol}[2]{%
+\noindent%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushleft}
+\small
+#1
+\end{flushleft}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushleft}
+\small
+#2
+\end{flushleft}
+\end{minipage}%
+\vspace{0.4em}
+}
+
+%% Sanskrit verse environment (replacement for verse package)
+\newenvironment{sanskritverse}{%
+  \begin{quote}
+}{%
+  \end{quote}
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% Title Page
+%% ========================================================================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor} Bījagaṇita\par}
+\vspace{0.5cm}
+{\Large\itshape Algebra of Bhāskara II\par}
+\vspace{1.5cm}
+
+{\LARGE\bfseries Part III: Pages 115--170\par}
+\vspace{0.3cm}
+{\large \textsc{Bilingual English--Sanskrit Edition}\par}
+\vspace{0.5cm}
+{\normalsize (Parts 7--9 of 9)\par}
+\vspace{0.8cm}
+
+\shortline
+\vspace{0.5cm}
+
+{\large\dev{श्रीभास्कराचार्यविरचितं बीजगणितम्}\par}
+\vspace{0.3cm}
+{\normalsize \textit{Śrībhāskarācāryaviracitaṃ Bījagaṇitam}\par}
+\vspace{0.5cm}
+{\normalsize The Bījagaṇita (Algebra) composed by Śrī Bhāskarācārya\par}
+
+\vspace{0.8cm}
+\shortline
+\vspace{0.5cm}
+
+{\normalsize
+\begin{minipage}{0.85\textwidth}
+\centering
+\textbf{Parallel-Column Layout:}\\[0.3em]
+\textsc{Left:} Sanskrit original in Devanagari script\\[0.2em]
+\textsc{Right:} English translation with IAST transliteration of technical terms\\[0.5em]
+Covering advanced topics in \textit{Varga-prakṛti} (Pell's equation),\\
+\textit{Aneka-varṇa-madhyamāharaṇa-bhedāḥ} (equations with multiple unknowns),\\
+\textit{Bhāvitam} (product equations), and concluding verses
+\end{minipage}
+\par}
+
+\vfill
+
+{\small\textit{Typeset from the scanned edition published by}}\\[0.3em]
+{\small Chowkhamba Sanskrit Series, Varanasi\par}
+\vspace{1cm}
+{\small Modern scholarly typesetting\par}
+{\footnotesize XeLaTeX with Devanagari support\par}
+
+\end{titlepage}
+
+%% ========================================================================
+%% Table of Contents
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% Introduction
+%% ========================================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+This volume presents the final portion of Bhāskara II's \textit{Bījagaṇita}, comprising pages 115--170 of the original Chowkhamba Sanskrit Series edition. This section covers the most advanced topics in the treatise:
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Aneka-varṇa-madhyamāharaṇa-bhedāḥ} (Equations with Multiple Unknowns) --- systematic methods for solving equations involving several unknown quantities, building on the single-variable equations treated earlier.
+  
+  \item \textbf{Bhāvitam} (Product Equations) --- equations involving products of unknowns, including the famous ``Bhāvita'' (product) class of problems.
+  
+  \item \textbf{Śeṣaṇa} and \textbf{Prakṣepaka-vidhi} --- special algebraic methods for remainder problems and the method of addition/substitution.
+  
+  \item \textbf{Concluding Verses} --- the epilogue (\textit{upasaṃhāra}) in which Bhāskara summarizes his work and pays homage to tradition.
+\end{enumerate}
+
+Bhāskara employs his characteristic notation where unknown quantities are denoted by the initial syllable \dev{याव} (\textit{yāva-}, from \textit{yāvattāvat}, ``as much as''), and coefficients are prefixed to these symbols. The final sections also include a publisher's catalogue listing the many Sanskrit texts available from the Chowkhamba Sanskrit Book Depot, Varanasi.
+
+\longline
+
+%% ========================================================================
+%% Part 7: Pages 115-133
+%% ========================================================================
+\section{From the Varga-prakṛti Section (p.\ 115)}
+
+The opening of this portion continues the discussion of the Varga-prakṛti (square-nature) equation, i.e., equations of the form $Nx^2 + k = y^2$. The text presents further rules and examples for finding solutions to such indeterminate equations.
+
+\subsection*{Continuation of the Square-nature Method}
+
+\begin{sanskritverse}
+\dev{%
+समशोधने हृते पक्षौ यावच्चावत्तावकस्य रूपं प्रक्षिप्य प्रथमपक्षमूलं या २ रू १ ।\\
+परपक्षस्य काव १२ रू १ । वर्गप्रकृत्या मूले क २ उचे ७ वा क २८ उचे ९७ ।\\
+कनिष्ठं कालकमानम् । उच्चिष्टस्य या २ रू १ समं हृत्वा लब्धं यावच्चावकमानम् ३ वा ४८ ।\\
+स्वच्छानेनोत्थापने हृते जाती राशी १, ५ वा २०, ७६ इत्यादि ॥}
+\end{sanskritverse}
+
+\cnote{After equal subtraction, the two sides being reduced, adding the original constant to the first side, its root is $\sqrt{4y^2 + 1}$. For the second side: $\sqrt{12y^2 - 1}$. By the square-nature [method], the roots are $(2, 7)$ or $(28, 97)$. The lesser is the time-value. The residue from $\sqrt{4y^2 + 1}$ gives the yāvattāvat value 3 or 48. By self-substitution and reduction, the series of values 1, 5 or 20, 76, etc.}
+
+\bigskip
+
+\begin{sanskritverse}
+\dev{%
+अथापरं सूत्रं साध्येऽस्तु ॥\\[0.5em]
+(१) द्वितीयपक्षे सति सममेव तु हत्यापवर्त्योन पदे प्रसाध्ये ।\\
+उच्चिष्टं कनिष्ठेन तदा निहत्याच्छेदं वर्गेण हतोऽपवर्तः ॥ ६ ॥\\
+कनिष्ठवर्गेण तदा निहत्योच्चिष्टं ततः पूर्ववदेव शेषम् ।\\
+इत्यर्थात् ॥}
+\end{sanskritverse}
+
+\cnote{Rule 6: ``When the second side exists [and is not unity], having made [the two sides] equal, multiplying and reducing, the remainder [is obtained]; having multiplied the residue by the lesser [root], dividing by the square [nature], the reduced [equation is obtained]. Then having multiplied by the square of the lesser [root], the residue --- from that, as before, the remainder.'' Thus the meaning.}
+
+\subsection*{Worked Example (p.\ 115)}
+
+\begin{sanskritverse}
+\dev{%
+(१) वि०—कल्प्यते समी पक्षौ\\[0.3em]
+\hspace*{2em} काव १\\
+\hspace*{2em} यावव्। ई १ याव।ई १}
+\end{sanskritverse}
+
+\dev{%
+अत्र प्रथमपक्षस्य मूले क १ द्वितीयपक्षस्य यावव्।ई १ याव।ई १ मूलेन सममिति ।\\
+तत्र द्वितीयपक्षस्य मूले च का।}
+
+$$\text{का} = \sqrt{\text{यावव।ई १ याव।ई १}} = \text{या}\sqrt{\text{याव।ई १ ई १}}$$
+
+\dev{%
+अत इदं याव।ई १ ई १ मूलदं ततो वर्गप्रकृतिविषयो यथा का वर्गः ई, गुणः ई, युतो मूलदं इति हत्वा यावच्चावकमानं उच्चिष्टं चास्य याव।ई १ ई १ मूलेन सममिति।}
+
+\subsection*{Summary Rule (p.\ 115 bottom)}
+
+The section concludes with a general procedure:
+
+\begin{sanskritverse}
+\dev{%
+एवं बहुधा बुद्धिमत्त्वविचिन्त्यामिति सर्वमुपपन्नम् ॥}
+\end{sanskritverse}
+
+\cnote{``Thus in many ways, by the thoughtful application of intelligence, all [is demonstrated].'' Everything is proved.}
+
+%% ========================================================================
+%% Part 7 Section 2: Aneka-varna-madhyamaharana-bhedah
+%% ========================================================================
+\section{Aneka-varṇa-madhyamāharaṇa-bhedāḥ (pp.\ 116--133)}
+\label{sec:aneka-varna}
+
+This is the largest section of the final portion, dealing systematically with equations involving multiple unknown quantities (\textit{aneka-varṇa}, ``many colours''). The Sanskrit term \textit{varṇa} (colour) is the traditional designation for an unknown quantity in Indian algebra --- different unknowns being assigned different colours.
+
+\subsection{General Rules for Multiple Unknowns (pp.\ 116--117)}
+
+\begin{sanskritverse}
+\dev{%
+अथ सूत्रं साध्येऽस्तु ॥\\[0.5em]
+(१) द्वितीयपक्षे सति सममेव तु हत्यापवर्त्योन पदे प्रसाध्ये ।\\
+उच्चिष्टं कनिष्ठेन तदा निहत्याच्छेदं वर्गेण हतोऽपवर्तः ॥ ६ ॥\\[0.5em]
+कनिष्ठवर्गेण तदा निहत्योच्चिष्टं ततः पूर्ववदेव शेषम् ।\\
+इत्यर्थात् ॥}
+\end{sanskritverse}
+
+\subsection*{Worked Example 1 (p.\ 117)}
+
+\begin{sanskritverse}
+\dev{%
+उदाहरणम् ॥\\[0.3em]
+यस्य वर्गेऽद्वितिः पञ्चगुणा वर्गशतोनिता ।\\
+मूलद्वा जायते राशिः गणितज्ञ वदाशु तम् ॥ १ ॥}
+\end{sanskritverse}
+
+\cnote{Example 1: ``A number whose square minus twice [itself], diminished by a hundred times five [i.e., 500], has two roots --- tell me that number quickly, O mathematician.''}
+
+\dev{%
+अत्र राशिः=या १ । अस्य वर्गेऽद्वितिः पञ्चगुणा वर्गशतोनिता यावव ५ याव १०० । अयं वर्ग इति कालकवर्गसमं हृत्वा गृहीतं कालकवर्गस्य मूलं का १ । द्वितीयपक्षस्य यावव ५ याव १०० ।\\
+यावच्चावकगुणापवत्यं वर्गप्रकृत्या मूले क १० उचे २० वा क १७० उचे ३८० ।}
+
+\subsection*{Worked Example 2 (p.\ 117)}
+
+\begin{sanskritverse}
+\dev{%
+उदाहरणम् ॥\\[0.3em]
+कयोः स्यादन्तरे वर्गौ वर्गयोगो ययोर्घनः ।\\
+तौ राशी कथयामित्रो वहुधा बोज्ञवित्तम ॥ २ ॥}
+\end{sanskritverse}
+
+\cnote{Example 2: ``Two numbers whose difference of squares [equals] the sum of their squares --- tell me those numbers, O friend, in many ways, O best of algebraists.''}
+
+\dev{%
+अत्र राशी या १, का १ । अनयोरन्तरं या १ का १ नीलकवर्गसमं हृत्वा लब्धं यावच्चावकमानं का १ नीलं ई १ । अनेन यावच्चावकद्वितीयाप्य जाती राशी का १ नीलं ई, का १ ।\\
+अनयोर्वर्गयोगः काव २ नीलका २ नीलव १ । एष घन इति नीलकवर्गयनसमं हृत्वा शोधने हृते जाते प्रथमपक्षे नीलव १ नीलव १ । द्वितीयपक्षे काव २ नीलका २ ।}
+
+\subsection*{Rule for Three Unknowns (pp.\ 119--120)}
+
+\begin{sanskritverse}
+\dev{%
+(१) साध्यकल्पो यदि वर्गवर्गेषद्वित्र्यादिवर्णस्य हते समं तम् ।\\
+हृत्वा पदं तस्य तदन्वपक्षे वर्गप्रकृत्यैवकदैव मूले ॥\\
+कनिष्ठमाच्छाद्य पदेन तुल्यं उच्चिष्टं द्वितीयेन समं विधायात् ॥ ८ ॥}
+\end{sanskritverse}
+
+\cnote{Rule 8: ``If the square of the square of an assumed [quantity], diminished by the square of one, two, three, etc., unknown quantities, having made [the two sides] equal, taking the square root of that, then by the square-nature method, the roots [are found]; covering the lesser root by an equal root, making the residue equal to the second [unknown]...''}
+
+\subsection*{Worked Example with Three Unknowns (p.\ 121)}
+
+\begin{sanskritverse}
+\dev{%
+उदाहरणम् ॥\\[0.3em]
+त्रिकादिचतुरश्रेणां नच्छेदं क्वापि च यत् कलम् ।\\
+तदेव त्रिगुणं क्षेत्रमष्टयुगच्छेदं भवेद्व्र ॥ ९ ॥}
+\end{sanskritverse}
+
+\dev{%
+अत्र श्रेण्योन्या इः । आदि=३, चयः=२, गच्छः=या १ । आदि=३, चयः=२, गच्छः=का १ ।\\
+अनयोः (क) कलं=याव १ या २, काव १ का २ । अनयोरन्यत् त्रिगुणं परस्मिं हृत्वा शोधनार्थं}
+
+$$\text{न्यासः} \longrightarrow \text{याव ३ या ६}$$
+$$\text{काव १ का २}$$
+
+\dev{%
+शोधने हृते पक्षौ त्रिगुणीहृत्व नव प्रक्षिप्य प्रथमपक्षस्य मूलं या ३ रू ३ ।\\
+द्वितीयपक्षस्य काव ३ का ६ रू ९ । नीलकवर्गेण}
+
+\subsection*{Rule for Equal-square Unknowns (p.\ 121)}
+
+\begin{sanskritverse}
+\dev{%
+(९) प्रथमपक्षस्यद्विगुणीतच्छेदस्य मूलं नीलं प्रकल्प्य तद्वर्गेण समं परं पक्षं\\
+हृत्वा पूर्वोक्तर्यस्य वासना चातिसरति ॥}
+\end{sanskritverse}
+
+\cnote{``Having assumed the root of twice the divisor of the first side as the `blue' [unknown], having divided the other side by its square, the desire is satisfied more than previously stated.''}
+
+\subsection{The Method of Substitution (pp.\ 125--128)}
+
+\begin{sanskritverse}
+\dev{%
+अथ सूत्रं सूचयम् ॥\\[0.5em]
+(१) सकृपमयकमल्पकं वा विभोगमूलं प्रथमं प्रकल्प्य ।\\
+योगान्तरशेषकमाजिताच्छेदान्तरशेषकतः पदं स्यात् ॥ १२ ॥}
+\end{sanskritverse}
+
+\cnote{Rule 12: ``Having assumed the root of the difference of [the two sides] as the first [unknown], or a small quantity, [and] the residue of the difference of sums as the square [of another unknown], the root [is obtained].''}
+
+\dev{%
+(९) वि०—अत्र कल्प्यते योगान्तरशेषमानम् = क्षे\\
+वर्गान्तरशेषमानम् = क्षे$_2$, वर्गयोगशेषमानम् = क्षे$_3$\\
+विभोगमूलम् = या, योगमूलम् = का}
+
+$$\text{तदा प्रदर्शनार्थं विभोगः} = \text{या}^2 - \text{क्षे}_1, \text{ योगः} = \text{का}^2 - \text{क्षे}_1$$
+
+$$\text{अल्पराशिः} = \frac{\text{का}^2 - \text{या}^2}{2}, \quad \text{वृहद्राशिः} = \frac{\text{का}^2 + \text{या}^2 - 2\text{क्षे}_1}{2}$$
+
+\subsection*{Rule 13 (p.\ 129)}
+
+\begin{sanskritverse}
+\dev{%
+शेषं ततः शेषकमूलमन्यच्च मूले विद्ध्वादसकृत् सम्मते ॥ ९ ॥\\
+समाविते वर्गकृती तु यत्र तन्मूलमादाय च शेषकस्य ।\\
+इष्टोद्धृतस्येर्विवर्जितस्य दलैन समं तद्विह तदैव कार्यम् ॥ १० ॥}
+\end{sanskritverse}
+
+\subsection*{Worked Example on the Product Method (p.\ 130)}
+
+\begin{sanskritverse}
+\dev{%
+उदाहरणम् ॥\\[0.3em]
+तौ राशी वद यत्कृत्योः समस्तगुणयोर्युतिः ।\\
+मूलद्वा स्याद्‌योगमष्टौ मूलद्वा रूपसंयुतः ॥ १ ॥}
+\end{sanskritverse}
+
+\dev{%
+अत्र राशी या १, का १ । अनयोर्वर्गयोः समस्तगुणयोर्युतिः यावव ७ काव ८ । अयं वर्ग इति नीलकवर्गसमं हृत्वा पक्षयोः कालकधनं प्रक्षिप्य नीलकपक्षस्य मूलं नी १ । परपक्षस्य याव ७ काव ८ ।}
+
+\subsection*{Summary Verses (p.\ 131)}
+
+\begin{sanskritverse}
+\dev{%
+अथ सूत्रं सूचयम् ॥\\[0.5em]
+(१) सकृपमयकमल्पकं वा विभोगमूलं प्रथमं प्रकल्प्य ।\\
+योगान्तरशेषकमाजिताच्छेदान्तरशेषकतः पदं स्यात् ॥ १२ ॥\\[0.5em]
+वर्गान्तरशेषकसंमितिर्युता क्षेपेण हृत्वोर्ध्वितेन तै ततः ।\\
+द्विधा पदं तत्पदयुगविभोगाज् मूलं युतमूलमतस्तयोरिति ॥}
+\end{sanskritverse}
+
+\cnote{``The difference of squares having a residue equal to the divisor, divided by the additive, then by the quotient, [the root] divided in two; from the difference of the pair of roots, the root [of the lesser] from the sum of the roots, thus [proceeding]...''}
+
+%% ========================================================================
+%% Part 8: Pages 134-152
+%% ========================================================================
+\section{Bhāvitam and Prakṣepaka-vidhi (pp.\ 134--152)}
+\label{sec:bhavitam}
+
+\subsection{Equations with Product Terms (pp.\ 134--138)}
+
+This section deals with \textit{bhāvita} (product) equations, where the unknowns appear in product form. The method extends the techniques for multiple unknowns to handle more complex algebraic structures.
+
+\begin{sanskritverse}
+\dev{%
+अथ वा स्वर्णकल्पनायां मन्दबुद्धीनां पुनः किञ्चित् पठितः ।\\
+तत् सूचयामि ॥\\[0.5em]
+हरमका यस्य हृति सूक्ष्मति सोऽपि द्वितीयपदयुतातः ।\\
+तेनाहतोऽस्यवर्णो रूपपदेनान्वितः कल्पः ॥ १६ ॥}
+\end{sanskritverse}
+
+\cnote{Rule 16: ``The divisor multiplied by [some quantity] whose [result] is fine, added to the second term; having multiplied by that, the unknown [is obtained], combined with a root term [as] the assumption.''}
+
+\subsection*{Worked Example (p.\ 137)}
+
+\begin{sanskritverse}
+\dev{%
+उदाहरणम् ॥\\[0.3em]
+न यदि पदं रूपाणां शिष्येत्तं तेन हरतोऽपि ।\\
+नावच्छद्‌गुणो भवति न चेदेवमपि किल तथै ॥ १७ ॥}
+\end{sanskritverse}
+
+\dev{%
+हरमतिः । यस्याङ्कस्य हृतिहरमका सती सूक्ष्यतीति निश्शेषा भवति अपि च सोऽप्यङ्को हर्यो रूपपदेन च गुणितो हरमकः सन् सूक्ष्यति तदा तेनाहतोऽस्यवर्णस्तेन रूपाणां घनमूलं न लभ्यते तदा तेन रूपेषु हरतोऽपि तावद्‌गुणो भवेत् तन्मूलं रूपपदं स्यात् ।}
+
+\subsection{The Bhāvita Rule (pp.\ 140--141)}
+
+\begin{sanskritverse}
+\dev{%
+भावितम् ॥\\[0.5em]
+वर्णद्वयातिकूपेऽस्य मकरवेष्टनैकतः ।\\
+एताम्या संयुताबुद्धि कल्पयो र्वैच्छया च तौ ॥ ३ ॥\\[0.5em]
+वर्णद्वयो वर्गयोरन्ते क्रियते ते विपर्ययात् ।\\
+समयोः पक्षयोरेकमाध्यमिकमपास्य तौ वर्णौ रूपाणि च}
+\end{sanskritverse}
+
+\cnote{The section on ``Product'': ``Two unknowns, their product having a coefficient, from one side having a single enclosure [i.e., bracketed], having assumed any sum of their values, [proceeding] with the pair of unknowns reversed, [taking] the square of two unknowns, the means [being] equal, having removed one middle term, the two unknowns and the roots...''}
+
+\subsection*{Worked Example on Bhāvita (p.\ 142)}
+
+\begin{sanskritverse}
+\dev{%
+उदाहरणम् ॥\\[0.3em]
+चतुःषष्टिगुणयो राश्योः संयुतिर्द्वियुता तयोः ।\\
+राशिघातेन तुल्येति ॥}
+\end{sanskritverse}
+
+\dev{%
+तत्र यथोक्तं हृते पक्षौ $\left\{ \begin{array}{l} \text{या ४ का ३ रू २} \\ \text{या।का।भा १} \end{array} \right.$}
+
+\dev{%
+वर्णद्वयातिकूपेऽस्य १४ एतदेकेनाहतं हते जाते द्विके १, १४ । एते वर्णद्वया ४, ३ स्वैच्छया युते जाते यावच्चावककालकमाने ५, १८ वा १७, ५ । द्विकेन ५, ११ वा १०, ६ ॥}
+
+\subsection{The Method of Mean Elimination (pp.\ 145--147)}
+
+\begin{sanskritverse}
+\dev{%
+माध्यमाविगमः ॥\\[0.5em]
+आसन्नमानस्य हराशमानम् अप्राप्तिगुण्ये सहिते क्षेपेण ।\\
+पूर्णे स्याताम् अन्तरराशिकाभ्यां तदा हरांशो भवतीश्रमस्य ॥ १ ॥\\[0.5em]
+आसन्नमानयोरन्तरमेव भवेत् ।\\
+अंशस्थाने सदा रूपं चिन्त्येत तथा धीमता ॥ २ ॥\\
+सर्वेषामासन्नमानेषु हरांशो भवति षट् ।\\
+तथोत्तरोत्तरं सूक्ष्मतामासन्नानि भवन्ति हि ॥ ३ ॥}
+\end{sanskritverse}
+
+\cnote{The method of mean-elimination: ``The divisor-measure of the approximate value, added to the non-obtained quantity and the additive, being complete by two numbers with difference, then the divisor-fraction [gives] the effort. The difference of two approximate values alone [suffices]. The numerator [is] always unity [at first], thus by the intelligent. For all approximate values, the divisor-fraction is six. Thus gradually, more and more subtle approximate values are obtained.''}
+
+\subsection*{Concluding Verses of the Bhāvitam Section (pp.\ 151--152)}
+
+\begin{sanskritverse}
+\dev{%
+तथा गोले मयोक्तम् ।\\
+उत्थ सदसतां मर्तानां वैराशिकमात्रमेव पाठो बुद्धिरेव बीजम् ।\\
+तथा गोलाख्याय मयोक्तम् ।\\[0.3em]
+अस्ति वैराशिकं पाठी बीजं च विमला मतिः ।\\
+किमन्यत् सुखदीनामतो मन्दाऽर्थमुच्यते ॥\\[0.3em]
+गणककर्मान्तरमयं बाललोचनगम्यं\\
+सकलगणितसारं सोपपट्टिप्रकारम् ।\\
+इति बहुगुणयुक्तं सर्वदोषैर्विमुक्तं\\
+पठ पठ मतिबुद्ध्‌यै लाघवं प्रौढिसिद्ध्यै ॥}
+\end{sanskritverse}
+
+\cnote{The epilogue: ``Thus I have spoken of the sphere. For people ascending from the unreal to the real, the mere reading [of this text] is the seed of intelligence. Thus I have spoken of the sphere called `Gola'. There is the study of the text and pure intellect --- what else [is needed]? For the delight of the wise, this is declared. This work accessible to the eye of a child [yet] profound, the essence of all mathematics with proofs endowed, endowed with many virtues, free from all faults --- read, read with intelligence and understanding, for ease and the attainment of maturity.''}
+
+\begin{sanskritverse}
+\dev{%
+इति श्रीभास्कराचार्यविरचिते सिद्धान्तशिरोमणौ\\
+बीजगणिताध्यायः समाप्तः ॥}
+\end{sanskritverse}
+
+\cnote{``Thus ends the Bījagaṇita-adhyāya in the Siddhāntaśiromaṇi composed by Śrī Bhāskarācārya.''}
+
+\bigskip
+
+\begin{sanskritverse}
+\dev{%
+वि०—इति कूपाङ्कनमुखाकरे यदिह भास्करबीजमपूर्वकम् ।\\
+तदुपनिषमतीव चमत्कृतिं विभिधरस्य चकार च कारणम् ॥}
+\end{sanskritverse}
+
+\cnote{Editor's note: ``That unprecedented algebra of Bhāskara which here [appears] with the face of a well-digit-mine [i.e., a numerical source], having ascertained it with the Upaniṣad [of commentary], the cause of the appearance of manifold wonder.''}
+
+%% ========================================================================
+%% Part 9: Pages 153-170
+%% ========================================================================
+\section{Final Sections and Publisher's Catalogue (pp.\ 153--170)}
+\label{sec:final}
+
+\subsection{Navīna-mati-viśeṣaḥ (pp.\ 153--157)}
+
+The section on ``Special Methods for New Understanding'' presents advanced techniques for solving equations through approximation and iteration, building on the methods developed earlier.
+
+\begin{sanskritverse}
+\dev{%
+नवीनमतिविशेषः ॥\\[0.5em]
+निरक्ष पदं यद्‌द्विगुणात् स्यात् फलार्थं धनार्थं तदेवात्र शेषं तदस्यम् ।\\
+पदद्वयं धनं शेषहृतप्रमन्यत् फलं तद्‌भवत् शेषमूलं धनेन ॥ १ ॥\\
+धनार्थं नवं तस्य कृत्या विहीनो गुणः शेषमकोऽस्यवर्णस्य मानम् ।\\
+मूद्‌गुसेव मते यदा शेषमानं भवेद्‌द्वितीयं तदा लव्धितौ ते ॥ २ ॥}
+\end{sanskritverse}
+
+\cnote{Rule 1: ``A number, when doubled, becomes the root; for the fruit [result], for wealth [coefficient], that same residue here --- its two terms [are] the wealth divided by the residue; the fruit [is] the root of the residue multiplied by the wealth. The new wealth is diminished by nine times its square; the multiplier, diminished [thus], [gives] the measure of the unknown. When by the opinion of Mūdgu [i.e., by the method of approximation], the residue-value becomes the second [term], then the quotient for both.''}
+
+\subsection{Worked Examples on Special Methods (pp.\ 157--159)}
+
+\begin{sanskritverse}
+\dev{%
+उदाहरणानि ॥\\[0.3em]
+(१) कल्प्यते अ+क=५७६०, अ$-$क=$\frac{\text{अ}}{२}$ तदा अ=३८४०,\\
+\hspace*{2em} क=१९२० इति क्षिप्रम् ॥\\[0.3em]
+(२) यदि $\frac{२\text{क}+१}{२} = \frac{७\text{क}+५}{६}$ तदा कमानम्=१ इति क्षिप्रम् ॥\\[0.3em]
+(३) यदि $\frac{\text{क}+१}{२} + \frac{३\text{क}-४}{५} + \frac{९}{८} = \frac{६\text{क}+७}{८}$, तदा क=२० इति क्षिप्रम् ॥\\[0.3em]
+(४) $(\text{क}+\frac{५}{४})(\text{क}-\frac{५}{४}) - (\text{क}+५)(\text{क}-३) + \frac{३}{८} = ०$\\
+\hspace*{2em} तदा क=१२ इति क्षिप्रम् ॥}
+\end{sanskritverse}
+
+\subsection{The Method of Approximate Roots (pp.\ 160--165)}
+
+This section presents the \textit{āsanna-mūla} (approximate root) method --- an iterative technique for finding successively better approximations to irrational square roots, a precursor to what is now known as Newton's method.
+
+\begin{sanskritverse}
+\dev{%
+आसन्नमूलानि सूत्राणि ॥\\[0.5em]
+आसन्नमानस्य हराशमानम् अप्राप्तिगुण्ये सहिते क्षेपेण ।\\
+पूर्णे स्याताम् अन्तरराशिकाभ्यां तदा हरांशो भवतीश्रमस्य ॥ १ ॥}
+\end{sanskritverse}
+
+The mathematical procedure is as follows: given a non-square number $n$, to find $\sqrt{n}$:
+\begin{enumerate}[label=\arabic*.]
+  \item Choose an initial approximation $a_1$ (the ``approximate value'')
+  \item Compute the residue: $r = n - a_1^2$
+  \item Form the next approximation: $a_2 = a_1 + \dfrac{r}{2a_1}$
+  \item Iterate for successively better approximations
+\end{enumerate}
+
+\dev{%
+कल्प्यते—\\
+(१) $0$, अ, अ', अ'', $\cdots\cdots\cdots$\\
+(२) $1$, सो, सो', सो'', $\cdots\cdots\cdots$\\
+(३) अ, क$_१$, क$_₂$, क$_₃$, क$_₄$, $\cdots\cdots\cdots$}
+
+\dev{%
+अत्र क$_१$, क$_₂$, क$_₃$,—अयबवदासन्नमूलस्यासन्नमानानि $\frac{\text{प}}{\text{ल}}$, $\frac{\text{प}'}{\text{ल}'}$, $\frac{\text{प}''}{\text{ल}''}$ चेति ।}
+
+$$\sqrt{n} = \frac{\frac{\sqrt{n+\text{अ}_₁}}{\text{सो}'} \cdot \text{प} + \text{प}}{\frac{\sqrt{n+\text{अ}_₁}}{\text{सो}''} \cdot \text{ल} + \text{ल}} = \frac{\text{प}(\sqrt{n+\text{अ}_₁}) + \text{सो}''\text{प}}{\text{ल}(\sqrt{n+\text{अ}_₁}) + \text{सो}''\text{ल}}$$
+
+\subsection{Final Concluding Verses (pp.\ 166--168)}
+
+The treatise concludes with verses that reflect on the nature of mathematical knowledge and pay homage to the tradition:
+
+\begin{sanskritverse}
+\dev{%
+इति श्रीभास्कराचार्यविरचिते सिद्धान्तशिरोमणौ\\
+बीजगणिताध्यायः समाप्तः ॥}
+\end{sanskritverse}
+
+\begin{sanskritverse}
+\dev{%
+अस्ति वैराशिकं पाठी बीजं च विमला मतिः ।\\
+किमन्यत् सुखदीनामतो मन्दाऽर्थमुच्यते ॥\\[0.5em]
+गणककर्मान्तरमयं बाललीलावनोगम्यं\\
+सकलगणितसारं सोपपट्टिप्रकारम् ।\\
+इति बहुगुणयुक्तं सर्वदोषैर्विमुक्तं\\
+पठ पठ मतिबुद्ध्‌्यै लाघवं प्रौढिसिद्ध्यै ॥}
+\end{sanskritverse}
+
+\cnote{``There is the study of this work and pure intellect --- what else [is needed]? Thus is declared for the delight of the wise. This [work], accessible as a child's play [yet] the essence of all mathematics with demonstrations, endowed with many virtues, free from all faults --- read, read with intelligence and understanding, for ease and the attainment of maturity.''}
+
+\bigskip
+
+The author reflects on the completion of the work:
+
+\begin{sanskritverse}
+\dev{%
+तथा गोले मयोक्तम् ।\\
+उत्थ सदसतां मर्तानां वैराशिकमात्रमेव पाठो बुद्धिरेव बीजम् ।\\
+तथा गोलाख्याय मयोक्तम् ॥}
+\end{sanskritverse}
+
+\cnote{``Thus I have spoken of the sphere. For people ascending from the unreal to the real, the mere reading [of this text] is the seed of intelligence. Thus I have spoken of what is called the sphere.''}
+
+\subsection*{Colophon}
+
+\begin{sanskritverse}
+\dev{%
+इति श्रीभास्कराचार्यविरचिते सिद्धान्तशिरोमणौ\\
+बीजगणिताध्यायः समाप्तः ॥}
+\end{sanskritverse}
+
+\longline
+
+\subsection*{Editor's Note (p.\ 168)}
+
+\begin{sanskritverse}
+\dev{%
+वि०—इति कूपाङ्कनमुखाकरे यदिह भास्करबीजमपूर्वकम् ।\\
+तदुपनिषमतीव चमत्कृतिं विभिधरस्य चकार च कारणम् ॥}
+\end{sanskritverse}
+
+\cnote{``That unprecedented algebra of Bhāskara, which here [appears] at the mouth of the well-digit-mine, having ascertained it with the Upaniṣad [of commentary], became the cause of the appearance of manifold wonder.''}
+
+%% ========================================================================
+%% Publisher's Catalogue (pp. 169-170)
+%% ========================================================================
+\section*{Publisher's Catalogue (Chowkhamba Sanskrit Book Depot)}
+\addcontentsline{toc}{section}{Publisher's Catalogue}
+
+The final two pages contain a catalogue of Sanskrit publications available from the \textsc{Chowkhamba Sanskrit Book Depot} (Chowkhamba Griham), 4015 Thatheri Bazar, Varanasi. The catalogue lists works across all branches of Sanskrit learning, including:
+
+\begin{longtable}{r p{8cm} c c}
+\toprule
+\textbf{No.} & \textbf{Title} & \textbf{Price} & \textbf{Pages} \\
+\midrule
+\endhead
+19 & Golaprakāśasya Golādhyāya-Bījagaṇita-vāsiṣṭha-\\
+   & koṇa-gaṇite Śrī-Candraśekhāra-saṃskṛtite & $\cdots$ & ८ & ७ \\
+20 & Golaprakāśīya-cāpīyatrikōṇa-gaṇitasya\\
+   & ``Vivāha'' ṭīkā Śrīmahāvīra-paṇḍita-viracitā & $\cdots$ & ७ & ८ \\
+21 & Vāsanāvyañjana-ṭīkā Śrīgaṇeśa-dhara-mitra-kṛtā\\
+   & ṭīkā-sahitā & $\cdots$ & ९ & ७ \\
+22 & Prasaṅga-mūla-prabhāvicāra-syāt-mūla-prathः & $\cdots$ & ७ & ४५ \\
+23 & Karṇa-prakāśaḥ Śrī-sudhā-kara-dvivedi-saṃśodhitः & $\cdots$ & १ & ८ \\
+24 & Jātaka-paddhatiḥ & $\cdots$ & २ & ७ \\
+25 & Bhāvate-karaṇaṃ (Bījakoṣa-udāharaṇa-sahitam) & $\cdots$ & २ & ७ \\
+26 & Prabhāve-padavः & $\cdots$ & $\cdots$ & ७ \\
+27 & Daivajña-kāma-dhenuः & $\cdots$ & ४ & ८ \\
+28 & Sūrya-siddhāntaṃ (Mṛtaṃ) Śrī-sudhā-kara-dvivedi-\\
+   & kṛta-ṭīkopetaḥ & $\cdots$ & ३ & ७ \\
+29 & Makaranda-vivaraṇam (udāharaṇa-sahitam) & $\cdots$ & ७ & ६ \\
+30 & Jātaka-paddhatiḥ proktamārga-vyākhyā-sahitā & $\cdots$ & ७ & १२ \\
+31 & Digvijaya-saṃ M.M. Śrī-sudhā-kara-dvivedi-viracitā & $\cdots$ & ७ & १० \\
+32 & Gaṇaka-taraṅgiṇī Śrī-sudhā-kara-dvivedi-nirmitā & $\cdots$ & ३ & ७ \\
+33 & Yājūṣa-jyotiṣam (Śrīmākara-sudhā-kara-bhāṣya-sahitam) & $\cdots$ & १ & ४ \\
+34 & Piṇḍa-prabhākaraḥ Śrī-sudhā-kara-dvivedi-viracitaḥ & $\cdots$ & ७ & ४ \\
+35 & Suktiratnāvaliḥ (Mṛtaṃ) Śrī-sudhā-kara-dvivedi-viracitः & $\cdots$ & ७ & ७ \\
+36 & Vallana-kalanam—Śrīmuralī-dhara-dvivedi-viracitam\\
+   & (caturtha-adhyāya-paryantam) & $\cdots$ & १ & ७ \\
+37 & Gaṇitakā itihāsa Pāṭīgaṇita Śrī-sudhā-kara-\\
+   & dvivedi viracitam & $\cdots$ & २ & ७ \\
+38 & Bṛhat-saṃhitā (Mahārāja-ṭīkā-sahitā) & $\cdots$ & १६ & ४ \\
+39 & Nāradī-saṃhitā & $\cdots$ & ७ & ८ \\
+40 & Vāsatvavibodha-prabhāsa-saṃgrahaḥ (Mṛtaṃ)\\
+   & Śrī-sudhā-kara-dvivedi-viracitaḥ & $\cdots$ & ७ & २ \\
+41 & Tulanātmaka bhāṣā śāstra—arthavāda—bhāṣā viṣayan\\
+   & (lekhaṭa—ḍākṭara Maṅgala-deva śāstrī)\ldots & २ & १० \\
+\bottomrule
+\end{longtable}
+
+\vfill
+\begin{center}
+\textbf{\dev{कृष्णदास गुप्त,}}\\
+\textbf{४०१५ ठठेरी बाजार, बनारस सिटी ।}\\[0.5em]
+\textsc{Chowkhamba Sanskrit Book Depot}\\
+4015 Thatheri Bazar, Varanasi City
+\end{center}
+
+%% ========================================================================
+%% End of Document
+%% ========================================================================
+\end{document}
+

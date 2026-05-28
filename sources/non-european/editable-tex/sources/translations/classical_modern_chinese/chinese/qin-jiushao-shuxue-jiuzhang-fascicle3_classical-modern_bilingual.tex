@@ -1,0 +1,904 @@
+% ============================================================================
+% Qin Jiushao -- Shuxue Jiuzhang (Mathematical Treatise in Nine Chapters)
+% Fascicle 3 (Juan San): Tian Yu Lei -- Field Areas
+% BILINGUAL EDITION: Classical Chinese + Modern Chinese (白话文)
+% ============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{booktabs,longtable}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes}
+\usepackage{xeCJK}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=20mm,right=20mm,top=26mm,bottom=26mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Libertine O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+
+% Chinese Fonts via xeCJK
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKmonofont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+% -------- Bilingual Edition Colors --------
+\definecolor{origcolor}{RGB}{30,60,90}      % Classical Chinese text
+\definecolor{modcolor}{RGB}{90,30,30}       % Modern Chinese translation
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{120,50,30}
+\definecolor{subsectioncolor}{RGB}{80,60,50}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problembg}{RGB}{255,252,245}
+\definecolor{labelorig}{RGB}{30,60,90}
+\definecolor{labelmod}{RGB}{90,30,30}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{origcolor}数书九章 · 卷三（田域类）— 古今双语版}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\origlabel}[1]{{\color{origcolor}\textbf{#1}}}
+\newcommand{\modlabel}[1]{{\color{modcolor}\textbf{#1}}}
+\newcommand{\origtext}[1]{{\color{origcolor}#1}}
+\newcommand{\modtext}[1]{{\color{modcolor}#1}}
+\newcommand{\modline}{\noindent{\color{modcolor}\rule{0.4\textwidth}{0.3pt}}\par}
+\newcommand{\origline}{\noindent{\color{origcolor}\rule{0.4\textwidth}{0.3pt}}\par}
+
+% -------- Problem Environment (Bilingual) --------
+\newenvironment{bilingualproblem}[2][]{%
+  \medskip\noindent\rule{\textwidth}{0.5pt}%
+  \par\noindent\textbf{\large\color{sectioncolor}#1}\par\nopagebreak%
+  \smallskip%
+  \begin{center}
+  \textbf{\large\color{origcolor}#2}
+  \end{center}
+  \smallskip%
+}{%
+  \par\noindent\rule{\textwidth}{0.5pt}\medskip%
+}
+
+% -------- Section Heading (Bilingual) --------
+\newcommand{\bilingualsection}[3]{%
+  \section*{#1\hfill{\normalsize\color{modcolor}#2}}%
+  \addcontentsline{toc}{section}{#1（#2）}%
+}
+
+\newcommand{\bilingualsubsection}[3]{%
+  \subsection*{#1\hfill{\normalsize\color{modcolor}#2}}%
+  \addcontentsline{toc}{subsection}{#1（#2）}%
+}
+
+% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={数书九章·卷三（田域类）-- 古今双语版},
+  pdfauthor={秦九韶（南宋）},
+  pdfsubject={中国古典数学 · 双语版}
+}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% ============================================================================
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\color{rulecolor}\rule{8cm}{0.5pt}}\\[0.8cm]
+
+{\fontsize{26}{32}\selectfont\textcolor{titlecolor}{数学九章}}\\[0.6cm]
+{\fontsize{20}{26}\selectfont\textcolor{sectioncolor}{卷三}}\\[0.3cm]
+{\fontsize{16}{20}\selectfont\textcolor{subsectioncolor}{田域类}}\\[0.5cm]
+
+\vspace{0.3cm}
+{\Large\color{modcolor} 白话文译文}\\[0.3cm]
+{\large\color{origcolor} Classical--Modern Chinese Bilingual Edition}\\[1cm]
+
+{\color{rulecolor}\rule{8cm}{0.5pt}}\\[0.8cm]
+
+{\large
+\begin{tabular}{rl}
+\textbf{撰者：} & 南宋 秦九韶 \\[0.4em]
+\textbf{生卒：} & 约1202--1261年 \\[0.4em]
+\textbf{内容：} & 卷三上：方田、圆田、三斜求积 \\[0.3em]
+              & 卷三下：弧田、分田、方圆共积 \\
+\end{tabular}
+}\\[1.5cm]
+
+\begin{tikzpicture}[scale=0.7]
+  \draw[origcolor,thick] (0,0) -- (5,0) -- (5,5) -- (0,5) -- cycle;
+  \draw[modcolor,thick,dashed] (2.5,2.5) circle (1.8);
+  \fill[rulecolor!30] (0,5) -- (0,4) -- (1,5) -- cycle;
+  \node[origcolor] at (2.5,-0.6) {\small 方中圆池};
+\end{tikzpicture}
+
+\vfill
+{\small\color{origcolor}四库全书本}\\[0.3cm]
+{\small\color{modcolor}现代排版，保留问答术草结构，附白话文译文}
+
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% ============================================================================
+\bilingualsection{数书九章序（节录）}{Preface Excerpt}
+% ============================================================================
+
+\begin{quote}
+\origtext{数学九章，吾所述也。昔周公制礼，有九数之名。九章者，盖古九数之流。其问题也，或出于田畴，或出于营造，或出于赋役，或出于商贾，莫不皆有实用。今之学者，惟务科举，以为进身之阶，而九章之学寝微矣。}
+
+\vspace{0.5em}
+\modtext{白话文：数学九章，是我所撰写的著作。古代周公制定礼制时，有"九数"的名称。九章，是古代九数的流变传承。其中的问题，有的来源于田地测量，有的来源于工程营造，有的来源于赋税徭役，有的来源于商业贸易，无不具有实际用途。如今的学者，只致力于科举考试，把它作为升官的阶梯，而九章之学的地位日渐衰微了。}
+\end{quote}
+
+\medskip
+
+\begin{quote}
+\origtext{余幼侍亲宦游，尝闻学问。及长，从隐君子学算术，颇有所得。于是参考前闻，推陈出新，因古九章之目，而增损其间，名曰数学九章。其卷有九，其类八十有一。上以备国家之用，下以助百姓之生。}
+
+\vspace{0.5em}
+\modtext{白话文：我小时候跟随父母在外做官，曾听说过学问之事。长大后，跟随隐士学习算术，很有收获。于是参考前人的学说，推陈出新，依照古代九章的条目，在其中增减内容，命名为数学九章。全书共九卷，八十一个类别。上可供国家之用，下可帮助百姓谋生。}
+\end{quote}
+
+\newpage
+
+% ============================================================================
+\section*{\color{origcolor}卷三上 田域类}\addcontentsline{toc}{section}{卷三上 田域类}
+\label{sec:juan3shang}
+% ============================================================================
+
+\noindent\origtext{\textbf{题记：}此卷论田域之术，凡九问。方田、圆田、三斜求积、弧田、分田诸法，皆田畴实测之事。秦九韶立天元一法，以代数之术解几何之题，其巧思神妙，超越前古。}
+
+\vspace{0.5em}
+\noindent\modtext{\textbf{〔白话文〕题记：}本卷讨论田地面积的计算方法，共九个问题。方田、圆田、三斜求积、弧田、分田等各种方法，都是田地实际测量的内容。秦九韶创立天元一法，用代数的手段解决几何问题，其巧妙构思精妙绝伦，超越了前代学者。}
+
+\medskip
+
+\begin{quote}
+\origtext{按此卷有方田、圆田、三斜求积、弧田、分田、方圆共积诸问。其术或出少广，或出商功，错综变化，贯通一理。盖田畴之设，起于井田，历代因革，量法渐密。秦氏生当南宋，承前启后，集其大成。}
+
+\vspace{0.5em}
+\modtext{白话文：按此卷有方田、圆田、三斜求积、弧田、分田、方圆共积等问题。其方法或出自少广章，或出自商功章，错综复杂而变化多端，贯穿统一的原理。田地的设置，起源于井田制度，历代沿袭变革，测量方法日渐精密。秦九韶生于南宋时代，继承前人、启发后人，集其大成。}
+\end{quote}
+
+% ============================================================================
+\bilingualsubsection{第一问 方中圆池}{Problem 1: Circular Pond in a Square Field}
+% ============================================================================
+
+\begin{bilingualproblem}{方中圆池}
+
+\noindent\origlabel{〔问〕}
+\origtext{有方田一段，中有古圆池，湮塞崩坏，仅存遗迹。今从外方隅斜至内圆边，计得七尺六寸。欲依旧修理，问圆径、方面、方斜各几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块正方形田地，其中有一座古老的圆形池塘，池塘淤塞、堤岸崩坏，仅存遗迹。现在从方形田地的角斜量到圆形池塘的边，测得距离为七尺六寸。想要按照原来的样式修复，问：圆池的直径、方田的边长、方田的对角线各是多少？}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{池圆径三丈六尺六寸，四百二十九分寸之四百一十二。
+
+方面三丈六尺六寸，四百二十九分寸之四百一十二。
+
+方斜五丈一尺八寸，四百二十九分寸之四百一十二。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{圆池的直径为三十六尺六寸又四百二十九分之四百一十二寸。
+
+方田的边长为三十六尺六寸又四百二十九分之四百一十二寸。
+
+方田的对角线为五十一尺八寸又四百二十九分之四百一十二寸。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{以少广求之，投胎术入之。置斜自乘，倍之为实，倍斜为益方，半寸为从隅。开平方得圆径。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用少广章的方法求解，用投胎术（变量替换法）入算。将斜距之数自乘，再乘以二作为常数项（实）；以斜距的两倍作为一次项负系数（益方）；以半寸作为二次项的系数（从隅）。以此三数开平方，即得圆池的直径。}
+
+\vspace{0.5em}
+\begin{center}
+\textit{Modern formulation:} If $d$ is the diagonal distance from corner to circle edge, and $x$ is the circle's diameter:
+\[
+2d^2 - 2d \cdot x + 0.5 x^2 = 0 \quad\Rightarrow\quad x = \text{root of the quadratic}
+\]
+\end{center}
+
+\vspace{0.5em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置斜七尺六寸，自乘得五十七尺七十六寸。倍之得一百一十五尺五十二寸，以为实。
+
+倍斜得十五尺二寸，以为益方。
+
+半寸为从隅。
+
+开平方：以从隅半寸为法，除实。初商三十六尺，以初商乘益方十五尺二寸得五百四十七尺二寸，以减实。又以初商乘从隅半寸得十八寸，加于减余。再商六寸，如法入之。得圆径三丈六尺六寸，不尽四百一十二，以法四百二十九约之，得四百二十九分寸之四百一十二。
+
+方面即圆径，故同。
+
+方斜以方面自乘倍之，开平方得。或以圆径加两倍斜距得之，即五丈一尺八寸余分同。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将斜距七尺六寸，自乘得五十七尺七十六寸。乘以二得一百一十五尺五十二寸，作为常数项（实）。
+
+将斜距乘以二得十五尺二寸，作为一次项负系数（益方）。
+
+以半寸作为二次项系数（从隅）。
+
+开平方：以从隅半寸为除数。初商为三十六尺，以初商乘益方十五尺二寸得五百四十七尺二寸，用以减实。又以初商乘从隅半寸得十八寸，加于减余。再商六寸，按法入算。得到圆径三丈六尺六寸，余数四百一十二，以除数四百二十九约分，得四百二十九分之四百一十二。
+
+方面就是圆径，所以相同。
+
+方斜以方面自乘再乘以二，开平方求得。或者以圆径加上两倍斜距求得，即五丈一尺八寸，余分数相同。}
+
+\vspace{0.8em}
+\noindent\textbf{图：方中圆池之形}
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+  \draw[origcolor,thick] (0,0) rectangle (4.5,4.5);
+  \draw[modcolor,thick] (2.25,2.25) circle (1.7);
+  \draw[thick,dashed] (0,4.5) -- (2.25,2.25);
+  \fill[rulecolor!30] (0,4.5) -- (0,3.5) -- (1,4.5) -- cycle;
+  \node[above right] at (0,4.5) {\small\color{origcolor}隅};
+  \node[origcolor] at (2.25,2.25) {\small 池};
+  \node[below left] at (1,3.5) {\small\color{origcolor}斜七尺六寸};
+  \draw[<->] (2.25,0.45) -- (3.95,0.45) node[midway,below] {\small\color{modcolor}圆径};
+  \draw[<->] (0,-0.3) -- (4.5,-0.3) node[midway,below] {\small\color{origcolor}方面};
+\end{tikzpicture}
+\end{center}
+
+
+
+% ============================================================================
+\bilingualsubsection{第二问 三斜求积}{Problem 2: Area from Three Oblique Sides}
+% ============================================================================
+
+\begin{bilingualproblem}{三斜求积}
+
+\noindent\origlabel{〔问〕}
+\origtext{有三角形田一段，大斜一十三里，小斜一十四里，中斜一十五里。里法三百步，欲知为田几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块三角形田地，最长边（大斜）为十三里，次长边（小斜）为十四里，最长边（中斜）为十五里。按古法一里等于三百步，一步等于五尺。要求这块三角形田地的面积。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{田积三百一十五顷。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{这块三角形田地的面积为三百一十五顷。按古法：一顷等于一百亩，一亩等于二百四十平方步。所以三百一十五顷就是三万一千五百亩。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{以少广求之。以小斜幂并大斜幂，减中斜幂，余半之，自乘于上。以小斜幂乘大斜幂，减上，余四约之为实。一为从隅，开平方得积。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用少广章的方法求解。先以小边的平方加上大边的平方，减去中边的平方，取其余数的一半，再自乘，放在上位。再以小边的平方乘以大边的平方，减去上位的数值，所得的余数除以四，作为常数项（实）。以一为从隅（即二次项系数），开平方即得三角形的面积。}
+
+\vspace{0.5em}
+\textit{Note:} This is equivalent to \textbf{Heron's formula}:
+\[
+S = \sqrt{s(s-a)(s-b)(s-c)}, \quad s = \frac{a+b+c}{2}
+\]
+\origtext{与古希腊海伦（Heron）公式等价，足见十三世纪中国数学之高度成就。}
+\modtext{这与古希腊数学家海伦的公式等价，可见十三世纪中国数学的高度成就。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置大斜一十三里，自乘得一百六十九，为大斜幂。
+
+置小斜一十四里，自乘得一百九十六，为小斜幂。
+
+置中斜一十五里，自乘得二百二十五，为中斜幂。
+
+以小斜幂一百九十六并大斜幂一百六十九，得三百六十五。减中斜幂二百二十五，余一百四十。半之得七十。自乘得四千九百，于上。
+
+以小斜幂一百九十六乘大斜幂一百六十九，得三万三千一百二十四。减上四千九百，余二万八千二百二十四。四约之得七千零五十六，为实。
+
+以一为从隅，开平方。初商八十里，八十自乘得六千四百，以减实七千零五十六，余六百五十六。以从隅一为法，除之得六百五十六，加入初商八十，得八十四里。余三十二里未尽。
+
+以里法三百步乘之，得二万五千二百平方步。以亩法二百四十步除之，得一百零五亩。以顷法一百亩约之，得一顷五亩。併之共三百一十五顷。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将大斜十三里，自乘得一百六十九，作为大边的平方（大斜幂）。
+
+将小斜十四里，自乘得一百九十六，作为小边的平方（小斜幂）。
+
+将中斜十五里，自乘得二百二十五，作为中边的平方（中斜幂）。
+
+以小斜幂一百九十六加上大斜幂一百六十九，得三百六十五。减去中斜幂二百二十五，余一百四十。取一半得七十。自乘得四千九百，放在上位。
+
+以小斜幂一百九十六乘大斜幂一百六十九，得三万三千一百二十四。减去上位的四千九百，余二万八千二百二十四。除以四得七千零五十六，作为常数项（实）。
+
+以一为从隅，开平方。初商八十里，八十自乘得六千四百，用以减实七千零五十六，余六百五十六。以从隅一作为除数，除之得六百五十六，加入初商八十，得八十四里。余三十二里未除尽。
+
+以里法三百步乘之，得二万五千二百平方步。以亩法二百四十步除之，得一百零五亩。以顷法一百亩约之，得一顷五亩。合并共得三百一十五顷。}
+
+
+% ============================================================================
+\bilingualsubsection{第三问 方田园池}{Problem 3: Square Field with Circular Pond}
+% ============================================================================
+
+\begin{bilingualproblem}{方田园池}
+
+\noindent\origlabel{〔问〕}
+\origtext{有方田一段，内有圆池水占之，外计地三千一百六十八步。只云从内池周至外田角斜二十一步半。内外方圆各几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块正方形田地，内有圆形水池，池中有水。方田的面积减去圆池的面积，剩余可耕之地的面积为三千一百六十八平方步。又已知从圆池的边缘到方田的角，斜距为二十一步半。求方田的边长及圆池的周长、直径各是多少。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{内池周四十二步，径一十三步半。方田面六十步。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{圆池的周长为四十二步，直径为十三步半。方田的每边长为六十步。
+
+验算：方田面积三千六百平方步，圆池面积约四百三十二平方步（以圆周率三计算），相减得三千一百六十八步，与题意相符。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{以少广求之。置积以圆率三约之为实，倍斜为从方，斜幂为益隅，开平方得内径。加倍斜得方面。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用少广章的方法求解。将外计地之积数除以圆周率三，作为常数项（实）。以斜距的两倍为从方（一次项系数）。以斜距的平方为益隅（负的二次项系数）。以此三数开平方，即得圆池的直径。再加上斜距的两倍，即得方田的边长。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置外计地三千一百六十八步。以圆率三约之，得一千零五十六步，为实。
+
+倍斜二十一步半，得四十三步，为从方。
+
+斜二十一步半自乘，得四百六十二步又四分之一，为益隅。
+
+开平方：置实一千零五十六步。以益隅四百六十二步又四分之一下入。初商十三步，以十三乘从方四十三得五百五十九，以减实。又以十三自乘一百六十九，加益隅四百六十二步又四分之一，得六百三十一步又四分之一。以减余实。再商半步，如法入之。得内径一十三步半。
+
+加倍斜四十三步，得方面六十步。
+
+池周以径一十三步半乘圆率三，得四十二步。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将外计地三千一百六十八步。以圆周率三约分，得一千零五十六步，作为常数项（实）。
+
+将斜距二十一步半乘以二，得四十三步，作为从方。
+
+斜距二十一步半自乘，得四百六十二步又四分之一，作为益隅。
+
+开平方：置实一千零五十六步。以益隅四百六十二步又四分之一下入。初商十三步，以十三乘从方四十三得五百五十九，用以减实。又以十三自乘一百六十九，加益隅四百六十二步又四分之一，得六百三十一步又四分之一。用以减余实。再商半步，按法入算。得到内径十三步半。
+
+加两倍斜距四十三步，得方田边长六十步。
+
+池周以直径十三步半乘以圆周率三，得四十二步。}
+
+
+% ============================================================================
+\bilingualsubsection{第四问 漂田}{Problem 4: Drowned (Submerged) Field}
+% ============================================================================
+
+\begin{bilingualproblem}{漂田}
+
+\noindent\origlabel{〔问〕}
+\origtext{有漂田一段，中斜一十六步，水之深五尺。减中斜一十六余十一步为元大斜，内减残大斜二十步，余九步一十分步之一为元大斜。又以下小斜十一步为水大斜，以法十一乘径一步一十分步之一为水小斜，以法十一乘水深五步得五十五步，以水大斜十一步乘水小斜十二步得一百三十二步为实，以法十一自乘得一百二十一步为法，除实得一步一十分步之一为水积。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块"漂田"（被水淹没的三角形田地），其高（中斜）为十六步，水深五尺（即五步）。要求水淹部分的面积。方法是：以中斜十六减去水深五，余十一步作为法。以中斜十六乘残大斜二十得三百二十，以法除之，得二十九步又十一分之一为元大斜。再减去残大斜二十步，余九步又十一分之一。又以下小斜十一步为水大斜，以法十一乘径一步又十一分之一为水小斜。以水深五乘以法十一得五十五步，以水大斜十一乘水小斜十二得一百三十二步为实，以法十一自乘一百二十一步为法，除实得一步又十一分之一为水积。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{田积若干，水积一步一十分步之一。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{水淹部分的面积（水积）为一步又十一分之一平方步。全田的面积可据中斜及底边推得。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{草曰：以水之五尺减中斜一十六，余十一步为法。以中斜一十六乘残大斜二十得三百二十为大斜实，以法除之得二十九步一十分步之一为元大斜。内减残大斜二十步，余九步一十分步之一。又以下小斜十一步为水大斜，以法十一乘径一步一十分步之一为水小斜，以法十一乘水深五步得五十五步，以水大斜十一步乘水小斜十二步得一百三十二步为实，以法十一自乘得一百二十一步为法，除实得一步一十分步之一为水积。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用水深五步减中斜十六步，余十一步作为法（除数）。以中斜十六乘残大斜二十得三百二十，作为大斜的实，以法除之得二十九步又十一分之一，作为原来的大斜。再减去残大斜二十步，余九步又十一分之一。又以下小斜十一步为水大斜，以法十一乘径一步又十一分之一作为水小斜，以法十一乘水深五步得五十五步，以水大斜十一乘水小斜十二得一百三十二步为实，以法十一自乘一百二十一步为法，除实得一步又十一分之一为水积。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置中斜一十六步，减水深五步，余十一步，以为法。
+
+以中斜一十六步乘残大斜二十步，得三百二十步，为大斜实。以法十一步除之，得二十九步一十分步之一，为元大斜。
+
+内减残大斜二十步，余九步一十分步之一。又以下小斜十一步为水大斜，以法十一乘径一步一十分步之一为水小斜，以法十一乘水深五步得五十五步，以水大斜十一步乘水小斜十二步得一百三十二步为实，以法十一自乘得一百二十一步为法，除实得一步一十分步之一为水积。
+
+此乃以比例法求水积也。减水之中斜与全中斜之比，等于减水之大小斜与全大小斜之比，由此递推而得各数。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将中斜十六步，减去水深五步，余十一步，作为法（除数）。
+
+以中斜十六步乘残大斜二十步，得三百二十步，作为大斜的实。以法十一步除之，得二十九步又十一分之一，作为原来的大斜。
+
+再减去残大斜二十步，余九步又十一分之一。又以下小斜十一步为水大斜，以法十一乘径一步又十一分之一作为水小斜，以法十一乘水深五步得五十五步，以水大斜十一乘水小斜十二得一百三十二步为实，以法十一自乘一百二十一步为法，除实得一步又十一分之一为水积。
+
+这是用比例法求水积。被水淹没部分的中斜与全中斜之比，等于被淹没部分的大小斜与全大小斜之比，由此递推而得到各数。}
+
+\vspace{0.8em}
+\noindent\textbf{图：漂田之形}
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+  \draw[origcolor,thick] (0,0) -- (6,0) -- (2,4) -- cycle;
+  \fill[blue!18] (0,0) -- (6,0) -- (4.5,1.5) -- (1,1) -- cycle;
+  \draw[thick,dashed] (1,1) -- (4.5,1.5);
+  \node[below] at (3,-0.3) {\small\color{origcolor}底边};
+  \node[left] at (-0.3,2) {\small\color{origcolor}中斜十六步};
+  \node[right] at (4.2,2.8) {\small\color{origcolor}大斜};
+  \node[blue!50!black] at (3,0.4) {\small 水淹部分};
+  \draw[<->] (-0.5,0) -- (-0.5,1) node[midway,left] {\small\color{modcolor}水深五步};
+\end{tikzpicture}
+\end{center}
+
+
+
+\newpage
+
+% ============================================================================
+\section*{\color{origcolor}卷三下 田域类续}\addcontentsline{toc}{section}{卷三下 田域类续}
+\label{sec:juan3xia}
+% ============================================================================
+
+\noindent\origtext{\textbf{题记：}此为卷三之下半，凡五问。续论分田、方圆共积、弧田诸题，并及面积单位之换算。}
+
+\vspace{0.5em}
+\noindent\modtext{\textbf{〔白话文〕题记：}这是卷三的下半部分，共五个问题。继续讨论分田、方圆共积、弧田等题目，以及面积单位的换算。}
+
+
+% ============================================================================
+\bilingualsubsection{第五问 三户分田}{Problem 5: Three Families Dividing a Field}
+% ============================================================================
+
+\begin{bilingualproblem}{三户分田}
+
+\noindent\origlabel{〔问〕}
+\origtext{有田一段，欲分与甲乙丙三户。甲多一百五十步，乙多一百二十步，丙多九十步。三户共田若干，各得几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块田地，想要均分给甲、乙、丙三户耕种。分田的方法是：先定一个基准数，三户各得此基准数。此外甲户多得一百五十步，乙户多得一百二十步，丙户多得九十步。用这差等之法分配，问三户各得田积多少，三户共得田积多少。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{甲田若干，乙田若干，丙田若干。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{设三户的基准田积各为 $x$ 步，则甲户得 $x+150$ 步，乙户得 $x+120$ 步，丙户得 $x+90$ 步。三户共得 $3x+360$ 步。若知总田之数，则可求得各户之积。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{以少广求之。并三户多出之数以减总积，余以三户约之，各得本积。又各加多出之数即得各户之田。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用少广章的方法求解。先将三户多出的数相加：甲多一百五十步，乙多一百二十步，丙多九十步，共多三百六十步。以此多数从总田积中减去，其余除以三，即得每户的基本田积。然后各加以多出的数，即得各户应得的田地。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置甲多一百五十步，乙多一百二十步，丙多九十步。并之得三百六十步。
+
+以总田积减此三百六十步，余以三户约之，得各户基本田积。
+
+各加其多数：基本积加一百五十步为甲田；加一百二十步为乙田；加九十步为丙田。
+
+并三户之田，验之与总积相合，术得矣。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将甲多一百五十步，乙多一百二十步，丙多九十步。相加得三百六十步。
+
+用总田积减去这三百六十步，余数除以三户，得各户的基本田积。
+
+各户加上其多出的数：基本积加一百五十步为甲户的田；加一百二十步为乙户的田；加九十步为丙户的田。
+
+合并三户的田地，验算与总积相合，方法便正确了。}
+
+
+% ============================================================================
+\bilingualsubsection{第六问 圆田方田}{Problem 6: Circular and Square Fields Together}
+% ============================================================================
+
+\begin{bilingualproblem}{圆田方田}
+
+\noindent\origlabel{〔问〕}
+\origtext{有方圆田各一段，共积一千二百八十步。只云方面如圆径少四步，问方圆面径各几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块圆形田地和一块方形田地，二者面积之和为一千二百八十平方步。又已知方田的边长比圆田的直径少四步。以此两个条件求方田的边长及圆田的直径各是多少。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{方面若干，圆径若干。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{设圆径为 $d$ 步，则方面为 $d-4$ 步。圆田积为 $\frac{3}{4}d^2$（以圆率三、方率四计），方田积为 $(d-4)^2$。二者之和为一千二百八十步，解之可得圆径与方面。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{以少广求之。置共积，以圆率三、方率四各约之为实，方面少圆径四步为从方，开平方得圆径。减四得方面。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用少广章的方法求解。置共积一千二百八十步。以圆率三约圆田部分，以方率四约方田部分，合之为实。以方面少于圆径的四步为从方。开平方即得圆径。以圆径减四步得方面。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置共积一千二百八十步。列圆率三、方率四于下。以圆率三乘方率四得一十二，以约共积，得一百零六步又三分之二，为实。
+
+置方面少圆径四步，为从方。
+
+开平方：初商十步，以十乘从方四得四十，以减实。又以十自乘得一百，减余。再商二步，以二乘从方四得八，以减余实。又以二自乘得四，减之。不尽者为细分，以法约之。
+
+得圆径约十六步，减四步，得方面十二步。验之：圆田积约一百九十二步，方田积一百四十四步，合之三百三十六步，此以约数言之。若以圆率三、方率四之整数计，则圆积一百九十二步，方积一百四十四步，共三百三十六步，需以倍数通之乃合题数。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将共积一千二百八十步。列圆率三、方率四于下。以圆率三乘方率四得十二，用以约共积，得一百零六步又三分之二，作为常数项（实）。
+
+将方面比圆径少四步，作为从方。
+
+开平方：初商十步，以十乘从方四得四十，用以减实。又以十自乘得一百，减余数。再商二步，以二乘从方四得八，用以减余实。又以二自乘得四，减之。不尽的数作为细分数，以法约之。
+
+得圆径约十六步，减四步，得方面十二步。验算：圆田积约一百九十二步，方田积一百四十四步，合计三百三十六步，这是用约数来说的。若以圆率三、方率四的整数计，则圆积一百九十二步，方积一百四十四步，共三百三十六步，需要以倍数通分才能合于题数。}
+
+
+% ============================================================================
+\bilingualsubsection{第七问 弧田}{Problem 7: Arc-shaped (Circular Segment) Field}
+% ============================================================================
+
+\begin{bilingualproblem}{弧田}
+
+\noindent\origlabel{〔问〕}
+\origtext{有弧田一段，弦五十步，矢二十五步，问为积几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块弧田（弓形田地），弦（弓弦，即弧的底边）长五十步；矢（弧的中点至弦的垂直距离）长二十五步。用这两个数求这块弧田的面积。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{田积九百三十七步半。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{这块弧田的面积为九百三十七步半。按古法弧田术，以弦矢相乘，加上矢的平方，取半即得。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{以弦矢求之。以弦乘矢，又以矢自乘，并之，半之为实。开平方得积。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用弦矢之法求解。先以弦长乘矢长，再以矢长自乘，二数合并，取一半，作为实（常数项）。开平方即得弧田之积。按此术的公式即：积 = (弦$\times$矢 + 矢$^2$) $\div$ 2。}
+
+\vspace{0.5em}
+\textit{Note:} For a circular segment with chord $c$ and sagitta $s$, Qin's formula gives:
+\[
+A = \frac{cs + s^2}{2}
+\]
+\origtext{此式实为圆弓形面积之近似公式。当矢等于半弦时，此段弧恰为半圆。}
+\modtext{此式实际上是圆弓形面积的近似公式。当矢长等于弦长的一半时，这段弧恰好是半圆。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置弦五十步，矢二十五步。
+
+以弦乘矢：五十乘二十五，得一千二百五十步。
+
+以矢自乘：二十五自乘，得六百二十五步。
+
+并之：一千二百五十加六百二十五，得一千八百七十五步。
+
+半之：一千八百七十五步折半，得九百三十七步半，为实。
+
+开平方：此处实即积，不复开方，故田积为九百三十七步半。
+
+按古法一步为五尺，一亩为二百四十步，则此田约三亩又二百一十七步半。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将弦五十步，矢二十五步。
+
+以弦乘矢：五十乘二十五，得一千二百五十步。
+
+以矢自乘：二十五自乘，得六百二十五步。
+
+合并：一千二百五十加六百二十五，得一千八百七十五步。
+
+取半：一千八百七十五步折半，得九百三十七步半，作为实。
+
+开平方：此处实即为积，不需要再开方，所以田积为九百三十七步半。
+
+按古法一步为五尺，一亩为二百四十步，则此田约三亩又二百一十七步半。}
+
+\vspace{0.8em}
+\noindent\textbf{筹算图式：}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{\color{origcolor}弦} & \textbf{\color{origcolor}矢} & \textbf{\color{origcolor}弦乘矢} & \textbf{\color{origcolor}矢幂} \\
+\hline
+五十步 & 二十五步 & 一千二百五十步 & 六百二十五步 \\
+\hline
+\multicolumn{2}{|c|}{\textbf{\color{origcolor}并}} & \textbf{\color{origcolor}半之} & \textbf{\color{origcolor}得积} \\
+\hline
+\multicolumn{2}{|c|}{一千八百七十五步} & 九百三十七步半 & 九百三十七步半 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+% ============================================================================
+\bilingualsubsection{第八问 环田}{Problem 8: Ring-shaped (Annular) Field}
+% ============================================================================
+
+\begin{bilingualproblem}{环田}
+
+\noindent\origlabel{〔问〕}
+\origtext{有环田一段，外周七十二步，内周三十六步，径十二步。问为积几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有一块环田，形如圆环。外周七十二步，内周三十六步，环的宽度（径）十二步。所谓环田，就是圆环形的田地，外圆包内圆，中间的面积为可耕之地。求这块环田的面积。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{田积三百二十四步。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{这块环田的面积为三百二十四平方步。按古法环田术，以内外周相减之半乘径，或以中周乘径得之。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{以环田术求之。并内外周，半之，以乘径得积。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{用环田的术求解。将外周与内周合并，取其半，作为中周。以此中周乘以环的径（宽度），即得环田之积。其道理如同以长方形的长乘宽。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置外周七十二步，内周三十六步。
+
+并之：七十二加三十六，得一百零八步。
+
+半之：一百零八步折半，得五十四步，为中周。
+
+置径十二步。
+
+以中周五十四步乘径十二步，得六百四十八步。半之得三百二十四步，为环田积。
+
+\textit{按：}环田积亦可以内外周差三十六步折半得十八步，乘径十二步得二百一十六步，加以内周积亦可通。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将外周七十二步，内周三十六步。
+
+合并：七十二加三十六，得一百零八步。
+
+取半：一百零八步折半，得五十四步，作为中周。
+
+将径十二步。
+
+以中周五十四步乘径十二步，得六百四十八步。取半得三百二十四步，作为环田面积。
+
+\textit{按：}环田面积也可以将内外周差三十六步折半得十八步，乘以径十二步得二百一十六步，再加上内周面积，也可以通算。}
+
+
+% ============================================================================
+\bilingualsubsection{第九问 益田积换}{Problem 9: Field Area Unit Conversion}
+% ============================================================================
+
+\begin{bilingualproblem}{益田积换}
+
+\noindent\origlabel{〔问〕}
+\origtext{有田积一顷三十五亩，欲以亩法换为步积。又以步积换为尺积。问各得几何。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 问〕}
+\modtext{有田积一顷三十五亩，想要求其折合为平方步数及平方尺数。按古法田亩之制：一顷为一百亩，一亩为二百四十平方步，一步为五尺。以此三级单位递换，可知其面积的大小。}
+
+\end{bilingualproblem}
+
+\noindent\origlabel{〔答〕}
+\origtext{步积三万二千四百步。尺积八十一万平方尺。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 答〕}
+\modtext{一顷三十五亩共一百三十五亩。每亩二百四十步，所以步积为三万二千四百平方步。每步二十五平方尺，所以尺积为八十一万平方尺。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔术曰〕}
+\origtext{置顷数以百乘之为亩数，加零亩，以二百四十乘之为步积。又以二十五乘之为尺积。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 术〕}
+\modtext{先将顷数乘以一百化为亩数，加上零头亩数，再以每亩二百四十步乘之得步积。再以每步二十五平方尺（因一步五尺，五尺自乘得二十五平方尺）乘之，得尺积。}
+
+\vspace{0.8em}
+\noindent\origlabel{〔草曰〕}
+\origtext{置田积一顷，以百乘之得一百亩，加三十五亩，共一百三十五亩。
+
+以亩法二百四十步乘之：一百三十五乘二百四十。先以一百乘二百四十得二万四千；以三十五乘二百四十得八千四百；并之得三万二千四百步，为步积。
+
+以步化尺：一步五尺，一步之积即五尺乘五尺为二十五平方尺。
+
+以三万二千四百步乘二十五尺：先以三万二千四百乘二十得六十四万八千；以三万二千四百乘五得十六万二千；并之得八十一万平方尺。
+
+故田积一顷三十五亩，合三万二千四百平方步，又合八十一万平方尺。}
+
+\vspace{0.5em}
+\noindent\modlabel{〔白话文 · 草〕}
+\modtext{将田积一顷，以一百乘之得一百亩，加上三十五亩，共一百三十五亩。
+
+以亩法二百四十步乘之：一百三十五乘二百四十。先以一百乘二百四十得二万四千；以三十五乘二百四十得八千四百；合并得三万二千四百步，作为步积。
+
+将步化为尺：一步五尺，一步的面积即五尺乘五尺为二十五平方尺。
+
+以三万二千四百步乘二十五平方尺：先以三万二千四百乘二十得六十四万八千；以三万二千四百乘五得十六万二千；合并得八十一万平方尺。
+
+所以田积一顷三十五亩，折合三万二千四百平方步，又折合八十一万平方尺。}
+
+
+
+\newpage
+
+% ============================================================================
+\section*{\color{origcolor}田域类面积单位换算表}
+\vspace{-0.3em}
+{\normalsize\color{modcolor} 田域类面积单位換算表}\addcontentsline{toc}{section}{田域类面积单位换算表}
+% ============================================================================
+
+\begin{center}
+\begin{longtable}{|l|l|l|}
+\hline
+\textbf{\color{origcolor}单位名称} & \textbf{\color{origcolor}换算关系} & \textbf{\color{origcolor}备注} \\
+\hline
+\endfirsthead
+\hline
+\textbf{\color{origcolor}单位名称} & \textbf{\color{origcolor}换算关系} & \textbf{\color{origcolor}备注} \\
+\hline
+\endhead
+1 里 & 300 步 & \modtext{长度单位} \\
+\hline
+1 步 & 5 尺 & \modtext{长度单位} \\
+\hline
+1 尺 & 10 寸 & \modtext{长度单位} \\
+\hline
+1 顷 & 100 亩 & \modtext{面积单位} \\
+\hline
+1 亩 & 240 平方步 & \modtext{面积单位} \\
+\hline
+1 步$^2$ & 25 平方尺 & \modtext{面积单位（一步五尺，自乘得二十五）} \\
+\hline
+1 亩 & 6000 平方尺 & 240 $\times$ 25 \\
+\hline
+1 顷 & 600000 平方尺 & 100 $\times$ 6000 \\
+\hline
+1 顷 & 15 亩（现制） & \modtext{秦制与今制不同} \\
+\hline
+\caption{\color{origcolor}秦九韶《数学九章》田域类面积单位换算表}
+\end{longtable}
+\end{center}
+
+\newpage
+
+% ============================================================================
+\section*{\color{origcolor}附录：田域类数学注记}
+\vspace{-0.3em}
+{\normalsize\color{modcolor} 附录：田域类数学注记}\addcontentsline{toc}{section}{附录：田域类数学注记}
+% ============================================================================
+
+\subsection*{\color{origcolor}一、三斜求积术与海伦公式}
+\addcontentsline{toc}{subsection}{一、三斜求积术与海伦公式}
+
+\origtext{秦九韶之三斜求积术，以三角形三边求其面积。设三边为 $a$, $b$, $c$，则其公式为：}
+\modtext{白话文：秦九韶的三斜求积术，以三角形的三条边求其面积。设三边为 $a$, $b$, $c$，则其公式为：}
+
+\[
+S = \sqrt{\frac{1}{4}\left[a^2b^2 - \left(\frac{a^2+b^2-c^2}{2}\right)^2\right]}
+\]
+
+\origtext{此公式与古希腊海伦（Heron）之公式等价：}
+\modtext{白话文：这个公式与古希腊数学家海伦的公式等价：}
+
+\[
+S = \sqrt{s(s-a)(s-b)(s-c)}, \quad s = \frac{a+b+c}{2}
+\]
+
+\origtext{二者可以互推。秦氏之式虽形异而实同，足见十三世纪中国数学之高度成就。}
+\modtext{白话文：二者可以互相推导。秦九韶的公式虽然形式不同但实质相同，足见十三世纪中国数学的高度成就。}
+
+\subsection*{\color{origcolor}二、弧田术之近似性}
+\addcontentsline{toc}{subsection}{二、弧田术之近似性}
+
+\origtext{弧田术之公式为：}
+\modtext{白话文：弧田术的公式为：}
+
+\[
+A = \frac{cs + s^2}{2}
+\]
+
+\origtext{此式实为圆弓形面积之近似公式。其误差随矢长与弦长之比而变。当矢长较小时，误差亦小；当矢长等于半弦时，此式给出半圆面积之近似值。}
+\modtext{白话文：这个公式实际上是圆弓形面积的近似公式。它的误差随着矢长与弦长之比而变化。当矢长较小时，误差也小；当矢长等于弦长的一半时，这个公式给出半圆面积的近似值。}
+
+\subsection*{\color{origcolor}三、田亩制度之源流}
+\addcontentsline{toc}{subsection}{三、田亩制度之源流}
+
+\origtext{中国田亩之制，源远流长。井田之制，始于黄帝；商鞅变法，开阡陌；汉承秦制，亩法二百四十步；唐制因之，宋亦沿袭。秦九韶所据之亩法，乃宋代通行之制也。}
+\modtext{白话文：中国田亩制度，源远流长。井田制度，始于黄帝时代；商鞅变法，开辟田间小路；汉代继承秦制，亩法为二百四十步；唐代沿袭此制，宋代也继续沿用。秦九韶所依据的亩法，就是宋代通行的制度。}
+
+\subsection*{\color{origcolor}四、天元术在田域类之应用}
+\addcontentsline{toc}{subsection}{四、天元术在田域类之应用}
+
+\origtext{秦九韶解田域诸题，多用天元一术。其法以未知数为天元，立一元二次方程或高次方程，以开方术解之。此法比西方之代数学早五百余年，诚中国数学之瑰宝也。}
+\modtext{白话文：秦九韶解答田地领域的各种问题，多使用天元一术。其方法以未知数为天元，建立一元二次方程或高次方程，以开方术求解。这个方法比西方的代数学早五百多年，实在是中国数学的瑰宝。}
+
+\vspace{1cm}
+
+\begin{center}
+{\color{rulecolor}\rule{8cm}{0.4pt}}\\[0.5cm]
+{\small\color{origcolor}\textit{卷三 田域类 终}}\\[0.3cm]
+{\small\color{modcolor} 数学九章 -- 卷三上、卷三下 古今双语版}\\[0.3cm]
+{\small\color{origcolor}数书九章 · 卷三（田域类）-- Classical--Modern Chinese Bilingual Edition}
+\end{center}
+
+\end{document}

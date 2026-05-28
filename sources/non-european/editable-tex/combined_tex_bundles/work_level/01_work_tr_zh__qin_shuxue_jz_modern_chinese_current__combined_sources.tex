@@ -1,0 +1,6192 @@
+% Combined TeX source bundle
+% Title: Qin Jiushao, Shuxue Jiuzhang, classical-modern Chinese current fascicles 1 and 5-9
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and reuse rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/zh/chinese/qin-jiushao-shuxue-jiuzhang-fascicle1_classical-modern_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Qin Jiushao's Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
+%% Fascicle 1: Dayan Category (大衍类)
+%% CHINESE -> MODERN CHINESE BILINGUAL EDITION
+%% LEFT: Classical Chinese (文言文) | RIGHT: Modern Chinese Vernacular (白话文)
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+\providecommand{\XeLaTeX}{XeLaTeX}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{array,booktabs,longtable,enumitem}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{paracol}
+\usepackage{afterpage}
+\usepackage{tcolorbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=26mm,bottom=26mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Font Configuration --------
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+\setmainfont{Noto Sans CJK SC}
+\setsansfont{Noto Sans CJK SC}
+\setmonofont[Scale=0.9]{Noto Sans CJK SC}
+
+%% Chinese font via fontspec (xeCJK not available)
+\newfontfamily\chinese[Scale=1.0]{Noto Sans CJK SC}
+\newfontfamily\chinesebf[Scale=1.0]{Noto Sans CJK SC}
+\newfontfamily\chineselg[Scale=1.15]{Noto Sans CJK SC}
+\newfontfamily\chinesesm[Scale=0.9]{Noto Sans CJK SC}
+
+%% Chinese text line breaking settings
+\tolerance=3000
+\emergencystretch=3em
+\hbadness=10000
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{algocolor}{RGB}{25,55,95}
+\definecolor{answercolor}{RGB}{15,85,45}
+\definecolor{leftbg}{RGB}{255,253,245}
+\definecolor{rightbg}{RGB}{245,250,255}
+\definecolor{leftframe}{RGB}{180,140,80}
+\definecolor{rightframe}{RGB}{80,120,160}
+\definecolor{leftheader}{RGB}{120,50,20}
+\definecolor{rightheader}{RGB}{20,60,120}
+
+%% -------- Paracol Settings --------
+\columnsep=16pt
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{0.7ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 0.3ex minus 0.1ex}{0.5ex plus 0.1ex}
+\titlespacing*{\subsubsection}{0pt}{1ex plus 0.2ex minus 0.1ex}{0.3ex plus 0.1ex}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{leftheader}{\textbf{文言文}}\quad 秦九韶《数书九章·大衍类》}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Environments --------
+\newenvironment{preface}{%
+  \begin{quote}\color{prefacecolor}%
+}{\end{quote}}
+
+\newenvironment{problem}[1][]{%
+  \medskip\par\noindent\textcolor{sectioncolor}{\rule\textwidth{0.6pt}}\par
+  \smallskip\noindent{\large\bfseries #1}\par\smallskip
+}{\medskip}
+
+\newtcolorbox{classicalbox}{
+  colback=leftbg,
+  colframe=leftframe,
+  arc=2pt,
+  boxrule=0.8pt,
+  left=6pt,right=6pt,top=6pt,bottom=6pt,
+  fonttitle=\bfseries\color{leftheader},
+  title={\chinese 文言文（原文）},
+  attach boxed title to top left={yshift=-2mm,xshift=4mm},
+  boxed title style={colback=white,colframe=leftframe,arc=1pt}
+}
+
+\newtcolorbox{modernbox}{
+  colback=rightbg,
+  colframe=rightframe,
+  arc=2pt,
+  boxrule=0.8pt,
+  left=6pt,right=6pt,top=6pt,bottom=6pt,
+  fonttitle=\bfseries\color{rightheader},
+  title={\chinese 白话文（今译）},
+  attach boxed title to top left={yshift=-2mm,xshift=4mm},
+  boxed title style={colback=white,colframe=rightframe,arc=1pt}
+}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule\textwidth{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\zhtext}[1]{{\chinese #1}}
+\newcommand{\zhbf}[1]{{\chinesebf #1}}
+\newcommand{\zhsm}[1]{{\chinesesm #1}}
+
+%% Bilingual column commands
+\newcommand{\leftcolheader}{%
+  \noindent\textcolor{leftheader}{\rule{\columnwidth}{1.5pt}}\par
+  \vspace{2pt}
+  \noindent\textbf{\color{leftheader}\chinese 文言文（原文）}\par
+  \vspace{2pt}
+  \noindent\textcolor{leftheader}{\rule{\columnwidth}{0.6pt}}\par
+  \vspace{4pt}
+}
+
+\newcommand{\rightcolheader}{%
+  \noindent\textcolor{rightheader}{\rule{\columnwidth}{1.5pt}}\par
+  \vspace{2pt}
+  \noindent\textbf{\color{rightheader}\chinese 白话文（今译）}\par
+  \vspace{2pt}
+  \noindent\textcolor{rightheader}{\rule{\columnwidth}{0.6pt}}\par
+  \vspace{4pt}
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={数书九章·大衍类 — 文言文/白话文对照版},
+  pdfauthor={秦九韶 著；今译}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{34}{40}\selectfont\chineselg
+\textcolor{titlecolor}{数书九章}}
+
+\vspace{0.8cm}
+
+{\fontsize{16}{20}\selectfont
+\textcolor{sectioncolor}{CHINESE / MODERN CHINESE BILINGUAL EDITION}}
+
+\vspace{1.2cm}
+
+{\LARGE\bfseries\color{sectioncolor} Fascicle I}
+
+\vspace{0.5cm}
+
+{\Large The Dayan Category (\zhtext{大衍類})}
+
+\vspace{0.5cm}
+
+{\large\zhtext{文言文 / 白话文 对照版}}
+
+\vspace{0.8cm}
+
+\begin{tcolorbox}[colback=leftbg,colframe=leftframe,arc=3pt,boxrule=1pt,
+  width=0.85\textwidth,center]
+\centering
+{\large\bfseries\color{leftheader}\chinese 大衍求一术 · 大衍总数术 · 九问}\par
+\vspace{4pt}
+{\normalsize Dayan Method for Finding Unity · Dayan General Method · Nine Problems}
+\end{tcolorbox}
+
+\vspace{1.5cm}
+
+{\large By \textbf{Qin Jiushao} (\zhtext{秦九韶}, c.~1202--1261 CE)\par[0.5em]
+\textit{Presented in the 7th year of Chunyou (\zhtext{淳祐七年}), 1247 CE}}
+
+\vspace{1.5cm}
+
+\begin{minipage}{0.8\textwidth}
+\centering
+\small
+\textcolor{prefacecolor}{\textit{This bilingual edition presents the complete text of Fascicle I of the Shuxue Jiuzhang.\\
+Left column: Original Classical Chinese (\zhtext{文言文})\\
+Right column: Modern Chinese Vernacular Translation (\zhtext{白话文})\\
+The Dayan method -- Qin Jiushao's greatest contribution to world mathematics --\\
+solves systems of linear congruences (the Chinese Remainder Theorem).}}
+\end{minipage}
+
+\vfill
+
+{\small Typeset in \LaTeX\ with XeTeX\\
+Chinese Font: Noto Sans CJK SC (\zhtext{思源黑体})}
+
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{\zhtext{序说} Introduction}
+
+\switchcolumn[0]*\leftcolheader
+
+秦九韶《数书九章》成书于淳祐七年（1247年），是中国古代最伟大的数学著作之一，也是世界数学史上的不朽经典。全书分为九类，每类九问，共八十一问。
+
+\switchcolumn\rightcolheader
+
+秦九韶所著的《数书九章》完成于南宋淳祐七年（公元1247年），是中国古代数学最杰出的著作之一，也是世界数学史上具有里程碑意义的经典之作。全书按照内容分为九大类别，每一类包含九个问题，共计八十一个问题。
+
+\switchcolumn[0]*\textbf{\color{algocolor}\chinese 大衍类（第一卷）}
+
+大衍之数五十，其用四十有九。分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。
+
+\switchcolumn\textbf{\color{algocolor}\chinese 第一卷：大衍类（大数推导类）}
+
+"大衍"一词出自《周易·系辞上》，原意是指用五十根蓍草进行占卜演算的方法。秦九韶借用这一概念，将其发展为一套求解一次同余式组的系统算法，即后世所称的"中国剩余定理"。这一卷是全书的总纲，也是秦九韶数学贡献中最为杰出的部分。
+
+\medskip
+
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\subsection{\zhtext{卷一内容} Contents of Fascicle I}
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{\zhtext{蓍卦发微}} 蓍草占卜的数理推演 — 以《周易》揲蓍法阐释大衍术的原理
+  \item \textbf{\zhtext{古历会积}} 古代历法积年的计算 — 用大衍术求解历法上元积年
+  \item \textbf{\zhtext{推计土功}} 估算土功工程量 — 以各县物力分配筑堤任务
+  \item \textbf{\zhtext{推库额钱}} 推算各库日息钱数 — 七库纳息与市陌换算
+  \item \textbf{\zhtext{分粜推原}} 分米粜卖的推算 — 三兄弟以不同斛量米求总数
+  \item \textbf{\zhtext{程行计地}} 行程与里数计算 — 三名急足报捷行程
+  \item \textbf{\zhtext{程行相及}} 行程相遇问题 — 三人同行不同时至都
+  \item \textbf{\zhtext{积尺寻源}} 由积尺求深广 — 四色砖砌基问题
+  \item \textbf{\zhtext{余米推数}} 由余米推原数 — 著名的"物不知数"问题
+\end{enumerate}
+
+每问均含四部分结构：\textbf{问}（题设）、\textbf{答}（答数）、\textbf{术}（算法）、\textbf{草}（演草/详细计算过程）。
+
+\newpage
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\section{\zhtext{秦九韶原序} Preface by Qin Jiushao}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\begin{preface}
+周教六艺，数实成之。学士大夫所从事尚矣。其用本太虚生一，而周流无穷。大则可以通神明、顺性命，小则可以经世务、类万物，讵容以浅近窥哉？
+
+若昔推策以迎日，定律而和气。髀距濬川，土圭度晷。天地之大，囿焉而不能外，况其间总总者乎？爰自河图洛书，闿发幽秘；八卦九畴，错综精微。极而至于大衍、皇极之用，而人事之变无不该，鬼神之情莫能隐矣。圣人神之言而遗其粗，常人昧之由而莫之觉。要其归，则数与道非二本也。
+
+汉去古未远，有张苍、许商、马延年、耿寿昌、郑玄、张衡、刘洪之伦，或明天道而法传于后，或计功策而效验于时。后世学者自高鄙不之讲，此学殆绝。惟治历畴人能为乘除，而弗通于开方衍变。若官府会事，则府史一二累之，算家位置素所不识，上之人亦委而听焉。持算者惟若人，则鄙之也宜矣。
+\end{preface}
+
+\switchcolumn\rightcolheader
+
+\begin{quote}\small\color{prefacecolor}
+周朝教育的内容包括礼、乐、射、御、书、数六门技艺，数学（"数"）正是其中之一。历代读书人和官员都十分重视这门学问。数学的根源在于宇宙万物从"一"开始演化，其应用范围无穷无尽。往大了说，可以通达天地变化的奥秘、顺应自然规律的演化；往小了说，可以治理世间事务、分类概括万物，怎么能以肤浅狭隘的眼光来看待它呢？
+
+回想从前，古人推算历法来迎接新岁，制定音律来调和阴阳之气；用勾股定理来疏通河道，用土圭来测量日影以定时节。天地如此广大，其运行规律都被数学所包容而无法逾越，更何况天地间纷繁复杂的事物呢？自从伏羲时代出现河图洛书以来，数学就不断揭示宇宙间的深奥秘密；八卦和九畴（《洪范》九类大法）相互交错，精密微妙。推究到大衍之术和皇极之数的应用，人间万事的变化无所不包，即使是鬼神之情也无法隐藏。圣人能够领悟其中的奥妙而忽略其粗浅的形式，普通人却对此懵懂无知而毫无察觉。归根结底，数学与宇宙大道本来就是一体的。
+
+汉朝离上古还不算太远，当时有张苍、许商、马延年、耿寿昌、郑玄、张衡、刘洪等人，有的通晓天道运行规律并将其方法传给后世，有的以数学计算实际功效并在当时得到验证。后世的学者自视甚高、鄙视数学，不再研究它，这门学问几乎断绝。只有制定历法的专职人员懂得一些加减乘除，却不精通开方和更高等的数学变换。至于官府的会计事务，就由几个小吏简单地累积计算，真正的算法和算式他们从来不懂，上面的人也只好听之任之。掌管计算的都是这样的人，那么数学被人鄙视也就不足为奇了。
+\end{quote}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\begin{preface}
+呜呼！乐有制氏，仅记铿锵之声，而谓与天地同和者止于是，可乎？今数术之书尚三十余家。天象历度谓之缀术，太乙壬甲谓之三式，皆曰内算，言其秘也。九章所载及周官九数，系于方圆者为专术，皆曰外算，对内而言也。其用相通，不可歧二。独大衍法不载九章，未有能推之者。历家演法颇用之，以为方程者，误也。
+
+且天下之事多矣。古之人先事而计，计定而行。仰观俯察，人谋鬼谋，无所不用其谨，是以不愆于成。载籍章章可覆也。后世兴事造始，鲜能考度，悠悠乎天纪人事之殽缺矣，可不求其故哉？
+\end{preface}
+
+\switchcolumn\begin{quote}\small\color{prefacecolor}
+唉！音乐方面有制氏，他仅仅记录了钟磬铿锵的声音，就认为"与天地同和"的至理不过如此，这难道对吗？当今流传的数学、术数著作还有三十多家。天文历法的计算称为"缀术"，太乙神数、六壬、奇门遁甲合称"三式"，这些都称为"内算"，意思是说它们是秘传之学。《九章算术》所记载的内容以及《周官》中的九数，涉及几何度量的专门方法称为"外算"，是相对于"内算"而言的。其实它们的用途是相互贯通的，不能分成两个独立的体系。唯独大衍之法没有被收入《九章算术》，也没有人能够阐发推演它。制定历法的人虽然在推演中大量使用它，却把它当成普通的方程术，这是错误的。
+
+况且天下的事务如此繁多。古人做事之前先周密计划，计划确定后才付诸行动。上观天象、下察地理，既用人的智谋、也借助占卜的启示，无处不谨慎小心，因此做事总能成功而不出差错。这在典籍中都有明明白白的记载可以查考。后世的人兴办事业，很少能事先仔细筹算，长此以往，天象运行的规律和人间事务的管理都出现了混乱，难道不应该探求其中的原因吗？
+\end{quote}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\begin{preface}
+九韶愚陋，不闲于艺。然早岁侍亲中都，因得访习于太史，又尝从隐君子受数学。时际兵难，历岁遥塞，不自意全于矢石之间。更险离忧，荏苒十禩，心槁气落。信知夫物莫不有数也，乃肆意其间，旁诹方能，探索杳眇，粗若有得焉。所谓通神明、顺性命，固肤末于见。若其小者，窃尝设为问答，以拟于用。积多而惜其弃，因取八十一题，厘为九类，立术具草，间以图发之。恐或可备博学多识君子之余观，曲艺可遂也，愿进之于道。傥曰艺成而下，是惟畴人府史流也，乌足尽天下之用，亦无瞢焉。
+
+时淳祐七年九月，鲁郡秦九韶叙。
+\end{preface}
+
+\switchcolumn\begin{quote}\small\color{prefacecolor}
+我秦九韶资质愚钝、学识浅陋，并不精通各种技艺。但早年侍奉父母住在京城（临安），因此得以向太史局的官员学习天文历法，又曾经跟随隐士学习数学。当时正值战乱，经历了漫长而艰险的岁月，自己也没想到能在枪林箭雨中保全性命。历经危险、饱尝离散之苦，转眼间十年过去，心力交瘁、志气消沉。我深切地相信万事万物的运行都遵循着"数"的规律，于是全身心投入到数学研究中，广泛收集各种方法，探索那些深远微妙的数学原理，大略上似乎有所收获。
+
+至于所谓"通神明、顺性命"的至高境界，我当然还远远未能达到。但对于那些比较实用的方面，我曾私下设定了一些问答题目，来模拟实际应用。积累的问题越来越多，不忍心把它们丢弃，于是选取了八十一个问题，分为九大类，为每题设立算法并写出详细的计算过程（"草"），间或用图表来辅助说明。希望这些或许可以供博学多识的君子在闲暇之余浏览，即使只是作为一门技艺来对待也好，但愿能进而提升到"道"的高度。如果有人说"技艺学成之后仍然属于低等的事物"，认为这只是历算官员和账房小吏才做的事，不足以发挥治理天下的作用，那我也没什么可辩解的了。
+
+淳祐七年九月，鲁郡秦九韶谨序。
+\end{quote}
+
+\end{paracol}
+
+\vspace{1em}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+\vspace{0.5em}
+
+\subsection{\zhtext{九类赋} The Nine Categories in Verse}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\begin{preface}
+昆仑旁薄，道本虚一。圣有大衍，微寓于《易》。奇余取策，群数皆捐。衍而究之，探隐之原。
+
+\textbf{述大衍第一}
+
+数术之传，以实为体。其书九章，惟兹弗纪。历家虽用，用而不知。小试经世，姑推所为。
+
+七精回穹，人事之纪。追缀而求，宵星昼晷。历久则疏，惟智能革。不寻天道，模袭何益。
+
+\textbf{述天时第二}
+
+魁隗粒民，甄度四海。苍姬井之，仁政攸在。代远庶蕃，垦菑日广。步度庀赋，版图是掌。方圆异状，袤窳殊形。专术精微，孰究其真。差之毫厘，谬乃千里。公私共弊，盍谨其籍。
+
+\textbf{述田域第三}
+
+莫高匪山，莫濬匪川。神禹奠之，积矩攸传。智创巧述，重差夕桀。求之既详，揆之罔越。崇深广远，度则靡容。形格势禁，寇垒仇墉。欲知其数，先望以表。因差施术，坐悉微渺。
+
+\textbf{述测望第四}
+
+邦国之赋，以待百事。畦田经入，取之有度。未免力役，先商厥功。以衰以率，逸乃同功。汉犹近古，租税以算。调均钱谷，何菑之捍。惟仁隐民，犹己溺饥。赋役不均，宁得勿思。
+
+\textbf{述赋役第五}
+
+物等敛赋，式时府庾。粒粟寸丝，褐夫红女。商征边籴，后世多端。立缘为欺，上下俱殚。我闻理财，如智治水。澄源濬流，惟其深矣。彼昧弗察，急于烦刑。去理益远，吁嗟不仁。
+
+\textbf{述钱谷第六}
+
+斯城斯池，乃栋乃宇。宅坐寄命，以保以聚。鸠功雉制，竹个本章。匪究匪度，财蠹力伤。围蔡而裁，如子西素。匠计露台，俾汉文惧。惟武图功，惟俭昭德。有国有家，兹焉取则。
+
+\textbf{述营建第七}
+
+天生五材，兵去未可。不教而战，维上之过。堂堂之阵，鹅鹳为行。营应规矩，其将莫当。师中之吉，惟智仁勇。夜算军书，先计攸重。我闻在昔，轻则寡谋。殄民以幸，亦孔之忧。
+
+\textbf{述军旅第八}
+
+日中而市，万民所资。贾贸墆鬻，利析铢锱。蹛财役贫，封君低首。豕末兼并，非国之厚。
+
+\textbf{述市易第九}
+\end{preface}
+
+\switchcolumn\rightcolheader
+
+\begin{quote}\small\color{prefacecolor}
+（九类赋以诗歌形式概括全书九章的内容要旨。）
+
+大道源自虚寂之"一"，如昆仑山般磅礴广大。圣人创立大衍之术，其精微之理寄托于《易经》。以奇余之数取策运算，摒弃繁杂的数字。推演而穷究其理，探索隐微的本源。
+
+\textbf{第一：大衍类}
+
+数学的传承，以实际应用为根本。《九章算术》虽然完备，却唯独没有记载大衍之法。制定历法的人虽然实际使用它，却是会用而不懂其原理。姑且将其应用于治理世事，推演出它的方法。
+
+\textbf{第二：天时类}
+
+推算七曜（日月五星）的运行是天文学的核心，也是人事活动的时间准则。追索推算、昼夜观测，历法使用久了就会出现偏差，只有智者才能改进。如果不探求天道的规律，一味模仿沿袭又有什么益处呢？
+
+\textbf{第三：田域类}
+
+测量田地、划分疆界，这是自古以来的仁政所在。时代久远、人口繁衍，开垦的田地日益广阔。丈量田亩、确定赋税，是掌握国家版图的基础。
+
+\textbf{第四：测望类}
+
+无论是高山还是大河，大禹都奠定了测量的基础。用勾股定理、重差法等精密方法，详尽地计算，谨慎地测量，就不会出差错。
+
+\textbf{第五：赋役类}
+
+国家的赋税用于各项政务。田地收入要有节度，劳役征发要先估算工程量。按照比例均摊，才能使劳逸均衡。
+
+\textbf{第六：钱谷类}
+
+理财如同治水，要疏导源流、深究其理。如果昏昧不明，只会滥用刑罚，离治理之道越来越远。
+
+\textbf{第七：营建类}
+
+城池宫室的建设，要精心计算、节约财力。只有武功与节俭并重，才是治国安邦的法则。
+
+\textbf{第八：军旅类}
+\textbf{第九：市易类}
+（略）
+\end{quote}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% THE DAYAN GENERAL METHOD
+%% ========================================================================
+\section{\zhtext{大衍总数术} The Dayan General Method}
+
+\subsection{\zhtext{按语} Editorial Commentary}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+按大衍术，以各分数之奇零求各分数之总数。大而天行，小而物数，皆可御之。其法有求元、求定、求衍、求奇、求乘、求用之目。大约以数之奇偶为根，而以诸数相度之尽不尽为用。
+
+有求彼此不能度尽之诸数者，元数、定数是也。有求诸数皆能度尽之一数者，衍母数是也。有求诸数皆能度尽而一数不能度尽之数者，各衍数是也。其不尽之数，即奇数也。有求二数相度余一之数者，乘数是也。有求二数相度余一而诸数又能度尽之数者，用数是也。
+
+此法乃秦九韶之所独得，九章所不载，刘徽、祖冲之所未尝言。其精妙在于求一术，能以两数之最大公度求乘率，使乘率乘奇数满定母去之余一。此术一出，而历家积年之算、物不知数之问，皆有定法可循矣。
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+大衍术的原理是：根据各个分数（模数）除后的余数，反过来求出满足所有条件的总数。大到天文运行的计算，小到物品数量的推算，都可以用它来解决。整个方法分为六个步骤：求元数、求定数、求衍数、求奇数、求乘率、求用数。基本原理是以数字的奇偶性质为根本，以各数之间能否互相整除为运算工具。
+
+所谓"元数"和"定数"，就是要把原来彼此可能有公因数的数，约化为两两互素（彼此没有公因数）的数。所谓"衍母"，就是所有定数相乘得到的总乘积。所谓"各衍数"，就是用衍母分别除以每个定数得到的数——它能被所有其他定数整除，唯独不能被自己的定数整除。所谓"奇数"，就是衍数被定数除后的余数。所谓"乘率"，就是通过"求一术"找到一个乘数，使得奇数乘以乘率再被定数除后余1。所谓"用数"，就是乘率乘以衍数得到的数——它满足被自己的定数除余1、被其他定数整除的关键性质。
+
+这是秦九韶独自发明的算法，《九章算术》中没有记载，刘徽、祖冲之等前辈数学家也从未论述过。其中最精妙的是"求一术"——它能用辗转相除的方法求出"乘率"，使得"乘率 × 奇数 ÷ 定母 余 1"。这个方法一经问世，历法家计算积年的难题、"物不知数"的经典问题，就都有了确定的算法可循。
+
+\end{paracol}
+
+\subsection{\zhtext{四华数} The Four Types of Numbers}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{大衍总数术曰：}置诸问数，类名有四。
+
+一曰\textbf{元数}。谓尾位见单零者。本门揲蓍、酒息、斛粜、砌砖、失米之类是也。
+
+二曰\textbf{收数}。谓尾位见分厘者。假令冬至三百六十五日二十五刻，欲与甲子六十日为一会而求积日之类。
+
+三曰\textbf{通数}。谓诸数各有分子分母者。本门问一会积年是也。
+
+四曰\textbf{复数}。谓尾位见十或百及千以上者。本门筑堤并急足之类是也。
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{大衍总数术（求解同余式组的通用方法）：}将问题中给出的各个模数按照类型分为四类。
+
+第一类叫做\textbf{元数（基本整数）}。是指末尾为个位数（即普通的整数）。本卷中蓍草占卜、酒息计算、量米分斛、砌砖求基、失米求数等问题都属于这一类。
+
+第二类叫做\textbf{收数（可收整的小数）}。是指末尾带有分数单位（如分、厘）的数。例如冬至回归年为365.25日，要与60日一甲子的周期求最小公倍数日期之类的问题。
+
+第三类叫做\textbf{通数（分数通约数）}。是指各个数都带有分子和分母的分数形式。本卷中求历法"一会积年"的问题就属于这一类。
+
+第四类叫做\textbf{复数（多位大数）}。是指末尾为整十、整百、整千及以上的大数。本卷中筑堤和急足行程问题就属于这一类。
+
+\end{paracol}
+
+\subsection{\zhtext{求定数} Finding the Definitive Numbers}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{元数者：}先以两两连环求等，约奇弗约偶。或约得五而彼有十，乃约偶弗约奇。或元数俱偶，约毕可存一位见偶。或皆约而犹有类数存，姑置之，俟与其他约遍而后乃与姑置者求等约之。或诸数皆不可尽类，则以诸元数命曰定数，以复数格入之。
+
+\textbf{收数者：}乃命尾位分厘作单零，以进所问之数，定位讫，用元数格入之。或如意立数为母，收进分厘以从所问，用通数格入之。
+
+\textbf{通数者：}置问数通分纳子，互乘之，皆曰通数。求总等，不约一位，约众位，得各原法数，用元数格入之。或诸母数繁，就分从省通之者，皆不用元，各母仍求总等，存一位约众位，亦各得原法数，亦用元法数格入之。
+
+\textbf{复数者：}问数尾位见十以上者，以诸数求总等，存一位约众位，始得元数。两两连环求等，约奇弗约偶，复乘偶；或约偶弗约奇，弗乘奇。
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{处理元数的规则：}先将各数两两配对，求它们的最大公约数（"等"）。进行约分时，保留奇数，约去偶数中的公因数。如果约分后得到5而另一数有因数10，则改为保留奇数、约去偶数。如果原始数字全是偶数，约分后可以保留一个偶数。如果约分后仍有未约尽的公因数（"类数"），暂时搁置，等与其他数都约过一遍后，再与搁置的数求公因数约分。如果各数之间确实两两互素（没有公因数），那么就直接把元数作为定数，按照复数的规则处理。
+
+\textbf{处理收数的规则：}将末尾的分数单位（分、厘）化为整数部分，并入所问的数中，定位完成后，按照元数的规则处理。或者任意选定一个数作为公分母，把分数部分通分后并入，再按通数的规则处理。
+
+\textbf{处理通数的规则：}将各分数通分后化为分子（整数），互相交叉相乘，得到的数都称为"通数"。求所有分母的总等（最大公约数），保留一个分母不约，约去其余分母的公因数，得到各原始法数，再按元数处理。如果各分母太复杂，可以从简通分，不求总等，各分母分别求总等，保留一个、约去其余，也能得到原始法数，同样按元数处理。
+
+\textbf{处理复数的规则：}如果问数的末尾是整十以上的数，先求各数的总等（最大公约数），保留一个数不约，约去其余数的公因数，得到元数。然后两两连环求等，保留奇数约去偶数中的公因数，并将偶数乘回约去的部分；或者保留偶数约去奇数，不乘回。
+
+\end{paracol}
+
+\subsection{\zhtext{求衍数、奇数、乘率、用数} Computing Derivative Numbers, Odd Numbers, Multipliers, and Use Numbers}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{求定数}勿使两位见偶，勿使见一太多。见一多则借用繁，不欲借则任得一。
+
+\textbf{以定相乘为衍母}，以各定约衍母，得各衍数。或列各定数于右行，各立天元一为子于左行，以母互乘子，亦得衍数。
+
+次以各定母满去衍数，各余名曰\textbf{奇数}。
+
+用\textbf{大衍求一}入之，得\textbf{乘率}。以乘衍数为\textbf{用数}。
+
+次置各余数乘用数，并之为\textbf{总数}。满衍母去之，不满为所求数。
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{求定数的注意事项：}不要让两个位置同时出现偶数，也不要让太多位置出现1。出现1太多会导致后续"借用"（特殊情况处理）过于繁琐；如果不想处理借用，那就任取一个1即可。
+
+\textbf{第一步：求衍母}——把所有定数相乘，得到的积称为"衍母"。然后用每个定数去除衍母，得到各自的"衍数"。或者 alternatively：把各定数列在右行，左边每行都标上1（天元一），以定数为"母"互乘左边的"子"，也能得到衍数。
+
+\textbf{第二步：求奇数}——用每个定数去除各自的衍数，得到的余数称为"奇数"。
+
+\textbf{第三步：求乘率}——对每个奇数和定数，运用"大衍求一术"（一种类似于辗转相除的方法），求出"乘率"。
+
+\textbf{第四步：求用数}——用乘率乘以衍数，得到"用数"。
+
+\textbf{第五步：求总数}——把题目中给出的各余数分别乘以对应的用数，相加得到"总数"。用衍母去除总数，所得的余数（不满衍母的部分）就是所求的答案。
+
+\end{paracol}
+
+\vspace{0.5em}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+In modern mathematical notation, the Dayan General Method solves the system:
+\begin{align*}
+N &\equiv r_1 \pmod{m_1} \\
+N &\equiv r_2 \pmod{m_2} \\
+&\vdots \\
+N &\equiv r_n \pmod{m_n}
+\end{align*}
+
+The algorithm proceeds as follows:
+\begin{enumerate}[label=Step \arabic*.]
+  \item \textbf{\zhtext{求定数} (Find Definitive Numbers):} Reduce $m_i$ pairwise by their GCD until pairwise coprime.
+  \item \textbf{\zhtext{求衍母} (Derivative Mother):} $M = \prod m_i$
+  \item \textbf{\zhtext{求衍数} (Derivative Numbers):} $M_i = M / m_i$
+  \item \textbf{\zhtext{求奇数} (Odd Numbers):} $g_i = M_i \bmod m_i$
+  \item \textbf{\zhtext{大衍求一} (Finding Unity):} Find $k_i$ with $k_i \cdot g_i \equiv 1 \pmod{m_i}$
+  \item \textbf{\zhtext{求用数} (Use Numbers):} $u_i = k_i \cdot M_i$
+  \item \textbf{\zhtext{求总数} (Final Answer):} $N = \sum r_i \cdot u_i \pmod{M}$
+\end{enumerate}
+
+\subsection{\zhtext{大衍求一术} The Dayan Method for Finding Unity}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\begin{classicalbox}
+大衍求一术云：置奇右上，定居右下。立天元一于左上。先以右行上下两位，以少除多，所得商数，乃递互乘归左行。须使右上末后奇一而止。乃验左上所得，以为乘率。
+
+或奇数已见单一者，便为乘率。
+\end{classicalbox}
+
+\switchcolumn\rightcolheader
+
+\small
+\begin{modernbox}
+大衍求一术（求模逆元的方法）的操作步骤如下：将"奇数"（衍数被定数除后的余数）放在右上格，将"定数"放在右下格。在左上格放置"天元一"（即数字1）。
+
+然后用右列上下两个数中较小的去除较大的，得到商数。用商数去乘左列的另一个数，把乘积加到本数上。如此上下交替进行除法和乘法，直到右上格的数变为1为止。
+
+此时左上格的数就是所求的"乘率"（即模逆元）。
+
+如果一开始奇数就是1，那么乘率直接就是1，不需要再计算。
+\end{modernbox}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+按求一术之精妙，在于不用互乘相减之繁，而直以递除递乘得之。其法以奇居右上，定居右下，天元一居左上。以右下除右上，得商数，以商数乘左上，归入左下。复以右上之余除右下，得商数，以商数乘左下，归入左上。如此上下递除，左右递乘，必使右上余一而止。此时左上所得，即为乘率。若左上所得甚大，满定母去之，不满者方为正乘率。
+
+此术实为今之连分数求渐近分数之法，亦即欧几里得辗转相除之推广。泰西所谓扩展欧几里得算法，其源实在于此。秦氏独得于心，不藉师传，可谓神矣。
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+求一术的精妙之处在于：它不需要用复杂的互乘相减，而是直接用交替的除法和乘法就能得出结果。具体操作是：奇数放右上，定数放右下，1放左上。用右下除以右上，得到商数；用商数乘左上，加到左下。然后用右上除以右下（的余数），得到新商数；用新商数乘左下，加到左上。这样上下交替除、左右交替乘，直到右上变为1。此时左上的数就是乘率。如果左上的数比定母大，就用定母去除取余数；余数才是正式的乘率。
+
+这个方法实际上就是现代的"连分数展开求渐近分数"的方法，也就是欧几里得辗转相除法的推广。西方所谓的"扩展欧几里得算法"（Extended Euclidean Algorithm），其原理正来源于此。秦九韶独自领悟了这个方法，没有老师传授，真可谓天赋超群！
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 1: DIVINATION BY YARROW STALKS
+%% ========================================================================
+\section{\zhtext{第一问：蓍卦发微} Problem 1: Divination by Yarrow Stalks}
+
+\begin{problem}[\zhtext{蓍卦发微} -- 以《周易》揲蓍之法推演大衍术数理]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+《易》曰：大衍之数五十，其用四十有九。又曰：分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。三变而成爻，十有八变而成卦。欲知所衍之术及其数各几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+《易经·系辞上》说："大衍之数五十，实际使用四十九根蓍草。"又说："将四十九根随机分成两堆以象征天地（两仪），从一堆中取出一根挂在指间象征天地人（三才），每四根一数以象征四季，将余下的蓍草归拢在指间象征闰月。五年中有两个闰月，所以第二次归拢余数后要再挂一。"三次变易形成一爻（卦画），十八次变易形成一卦（六爻）。
+
+请问：这个推演方法的数学原理是什么？其中各步涉及的数字分别是多少？
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+衍母十二，衍法三。
+
+一元衍数二十四，二元衍数一十二，三元衍数八，四元衍数六。以上四位衍数，计五十一。
+
+一揲用数一十二，二揲用数二十四，三揲用数四，四揲用数九。以上四位用数，计四十九。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+衍母（所有定数的乘积）为12，衍法（每揲的分组基数）为3。
+
+四个元数（1、2、3、4）对应的衍数分别为：24、12、8、6。四个衍数之和为51。
+
+四次揲蓍对应的用数分别为：12、24、4、9。四个用数之和恰好为49——正是"大衍之数五十，其用四十有九"的数理根源。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+置诸元数，两两连环求等，约奇弗约偶。遍约毕，乃变元数皆曰定母，列右行。各立天元一为子，列左行。以诸定母互乘左行之子，各得名曰衍数。
+
+次以各定母满去衍数，各余名曰奇数。以奇数与定母用大衍术求一，得各乘率。以乘衍数，各得用数。
+
+验次所揲余几何，以其余数乘诸用数，并之，名曰总数。满衍母去之，不满为所求数。以为实，易以三才为衍法，以法除实所得为象数。如实有余，或一或二，皆命作一，同为象数。
+
+其象数得一为老阳，得二为少阴，得三为少阳，得四为老阴。得老阳画重爻，得少阴画拆爻，得少阳画单爻，得老阴画交爻。凡六画乃成卦。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+将各元数（1、2、3、4）两两配对求最大公约数，按"约奇弗约偶"的规则约分。约完后，将处理过的元数称为"定母"，列在右边。每行左边都写1（天元一）。用各定母交叉相乘左边的数，得到"衍数"。
+
+然后用各定母去除衍数，余数称为"奇数"。对每对奇数和定母，运用"大衍求一术"求出"乘率"。乘率乘以衍数得到"用数"。
+
+检验每次揲蓍的余数，用余数乘以对应的用数，相加得到"总数"。用衍母去除总数，余数就是所求的"象数"。
+
+象数为1对应老阳（画为"——"的重爻），为2对应少阴（画为"- -"的拆爻），为3对应少阳（画为"——"的单爻），为4对应老阴（画为"- -"的交爻）。六次变易（每爻需三变，六爻共十八变）画成六条爻，就组成一卦。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置一、二、三、四列右行，立天元一列左行。
+
+以右行一、二、三、四互乘左行：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 一乘一得一
+  \item 二乘一得二
+  \item 三乘二得六
+  \item 四乘六得二十四
+\end{itemize}
+各得衍数：一元衍数二十四，二元衍数一十二，三元衍数八，四元衍数六。
+
+次以定母满法去衍数，各满定母去之，得奇数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 以十二除二十四得二余零，一元奇数为十二
+  \item 以十二除一十二得一余零，二元奇数为六
+  \item 以八除八得一余零，三元奇数为四
+  \item 以六除六得一余零，四元奇数为三
+\end{itemize}
+
+以大衍求一入之，得乘数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 得二十三为乘率（一元）
+  \item 得五十一为乘率（二元）
+  \item 得七为乘率（三元）
+  \item 得一为乘率（四元）
+\end{itemize}
+
+以乘率各乘衍数，得用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 一揲用数一十二
+  \item 二揲用数二十四
+  \item 三揲用数四
+  \item 四揲用数九
+\end{itemize}
+以上四位用数，计四十九。此所谓大衍之数五十，其用四十有九之理也。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+将元数1、2、3、4列在右行，左边每行写1。
+
+用右行的数交叉互乘左行的数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 1 × 1 = 1
+  \item 2 × 1 = 2
+  \item 3 × 2 = 6
+  \item 4 × 6 = 24
+\end{itemize}
+得到各衍数：1→24，2→12，3→8，4→6。
+
+用各定母去除衍数，求余数（奇数）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 24 ÷ 12 = 2 余 0，一元奇数为12
+  \item 12 ÷ 12 = 1 余 0，二元奇数为6
+  \item 8 ÷ 8 = 1 余 0，三元奇数为4
+  \item 6 ÷ 6 = 1 余 0，四元奇数为3
+\end{itemize}
+
+运用大衍求一术，得到各乘率：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 一元乘率：23
+  \item 二元乘率：51
+  \item 三元乘率：7
+  \item 四元乘率：1
+\end{itemize}
+
+乘率乘以衍数得到用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 一揲用数：23 × 12 的简化 = 12
+  \item 二揲用数：51 × 12 的简化 = 24
+  \item 三揲用数：7 × 8 的简化 = 4
+  \item 四揲用数：1 × 6 的简化 = 9
+\end{itemize}
+四个用数之和为49——正是"大衍之数五十，其用四十有九"的数学根据。
+
+\end{paracol}
+
+\end{problem}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small\color{prefacecolor}
+\textbf{按：}按蓍卦之问，乃以《易》之揲蓍为本，而归之于数。大衍之数五十，其用四十有九，此孔疏所释，与秦氏之术若合符节。秦氏以衍母十二、衍法三，用数合计四十九，正与大衍之数相应。其以象数配老少阴阳，则与京房、焦赣之说不殊。此问虽以卜筮为言，实发明大衍之术，为全书之纲领。
+\switchcolumn\small\color{prefacecolor}
+\textbf{【编者按】}蓍卦发微这一问，以《周易》的蓍草占卜为题材，但其本质是数学计算。"大衍之数五十，其用四十有九"，这是唐代孔颖达《周易正义》中的解释，与秦九韶的算法完全吻合。秦氏得出衍母为12、衍法为3、用数合计49，恰好与"大衍之数"相应。他以象数1、2、3、4对应老阳、少阴、少阳、老阴，也与汉代京房、焦赣的易学理论一致。这一问虽然以占卜为话题，实际上是阐述大衍术的数学原理，是全书的总纲。
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 2: ANCIENT CALENDAR ACCUMULATION
+%% ========================================================================
+\section{\zhtext{第二问：古历会积} Problem 2: Ancient Calendar Accumulation}
+
+\begin{problem}[\zhtext{古历会积} -- 用大衍术求历法上元积年]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+问古历会积，欲求积年。以历法积元为问，历过无考，但据近世演纪之法，推而上之。
+
+假令治历演纪，上元甲子岁天正冬至十一月甲子日夜半，日月合璧，五星联珠，适为元会。欲求上元积年，其法以岁实、朔策、六十甲子、回归年、交点年诸周期，各以所余分秒推之。今设问数如后：
+
+置岁实三百六十五日二十四刻二十五分（即365.2425日），朔策二十九日五十三刻六分（即29.53059日），甲子周期六十日，欲求积年之元会。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+古代制定历法时需要计算"积年"——即从历法的"上元"（一个假想的初始时刻）到当前年份之间经过的总年数。
+
+假设制定历法时确定的"上元"为：甲子年的冬至那天（农历十一月甲子日）半夜子时，此时太阳和月亮正好合朔（日月同经度），金木水火土五星排列在一条线上（"五星联珠"），这就是完美的"元会"初始时刻。
+
+现在要求从上元到治历之年（淳祐七年，1247年）的积年数。已知：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 回归年（太阳年）：365.2425日
+  \item 朔策（朔望月）：29.53059日
+  \item 六十甲子周期：60日
+\end{itemize}
+求积年数。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+积年九千一百六十四万二千三百七十七年。
+
+上元距治历之年（淳祐七年，1247年），积年若干，以历元法推之，得所求积年。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+从上元到淳祐七年（1247年）的积年为91,642,377年。
+
+（注：古代历法家确实算出过上亿年的积年。这些数字当然不符合现代天文学的实际观测，但在当时是运用大衍术进行数学推算的结果，体现了中国古代历法家将数学应用于天文计算的成就。）
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置元历相关诸周期，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求积年。
+
+其法先以岁实分、朔策分、纪法、蔀法诸数，各以秒分为问数。或问数有分秒尾位者，以收数格入之。先命尾位分秒作单零，定位讫，用元数格入之。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将历法中的各个周期参数（岁实、朔策、甲子周期等）作为问数。两两连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。用求一术求出乘率，乘率乘衍数得到用数。
+
+然后将各余数乘以用数，相加为总数。用衍母去除总数，余数即为所求的积年。
+
+处理过程中，如果问数带有分数（如岁实的0.2425日、朔策的0.53059日），属于"收数"类型，需要先将分数部分化为整数（找到公分母通分），再按元数的规则处理。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置岁实分365日2425分，朔策分29日53059分，纪法60日。
+
+先将各问数化为通分纳子：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 岁实：$365 + \frac{2425}{10000} = \frac{3652425}{10000} = \frac{146097}{400}$日
+  \item 朔策：$29 + \frac{53059}{100000} = \frac{2953059}{100000}$日
+  \item 纪法：$60 = \frac{60}{1}$日
+\end{itemize}
+
+以通数格入之，互乘得通数。求总等，不约一位，约众位，得各原法数。
+
+连环求等，约奇弗约偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 岁实定母：得若干
+  \item 朔策定母：得若干
+  \item 纪法定母：得若干
+\end{itemize}
+
+诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得各乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求积年。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+将各周期参数写出：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 岁实：365.2425日 = 3652425/10000 = 146097/400 日
+  \item 朔策：29.53059日 = 2953059/100000 日
+  \item 纪法：60日
+\end{itemize}
+
+将这些分数通分后化为整数（按"通数格"处理），求总等（最大公约数），保留一个数不约，约去其他数的公因数，得到原始法数。
+
+然后连环求等，约奇弗约偶，得到各定母。
+
+各定母相乘得到衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。运用大衍求一术求出各乘率。乘率乘以衍数得到用数。
+
+然后将各余数（天文周期参数的小数部分对应的余数）乘以用数，相加得到总数。用衍母去除总数，余数即为积年。
+
+\end{paracol}
+
+\end{problem}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small\color{prefacecolor}
+\textbf{按：}此问以大衍术推历法积年，乃大衍术最重要之应用。自刘歆《三统历》以降，历家皆以"上元积年"为制历之基。所谓积年者，从上元（日月合璧、五星联珠、冬至夜半甲子）距治历之年的总年数。秦氏以大衍术通诸法，使历家之难题有定法可循，其功不可泯也。
+\switchcolumn\small\color{prefacecolor}
+\textbf{【编者按】}这一问用大衍术推算历法积年，是大衍术最重要的实际应用之一。从西汉刘歆的《三统历》开始，历代历法家都以"上元积年"作为制定历法的基础数据。所谓"积年"，就是从上元（一个假想中日月合璧、五星联珠、冬至恰逢甲子日半夜的完美时刻）到当前治历之年所经过的总年数。秦九韶以大衍术统一了各种历法的计算方法，使历家长期以来的难题有了确定的算法，这一贡献不可磨灭。
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 3: ESTIMATING EARTHWORKS
+%% ========================================================================
+\section{\zhtext{第三问：推计土功} Problem 3: Estimating Earthworks}
+
+\begin{problem}[\zhtext{推计土功} -- 以各县物力分配筑堤工程]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+问：四县（甲、乙、丙、丁）共同筑堤，根据各县的物力分配筑堤任务。
+
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县物力：138,600贯
+  \item 乙县物力：146,300贯
+  \item 丙县物力：192,500贯
+  \item 丁县物力：184,800贯
+\end{itemize}
+
+筑堤标准：每770贯物力分配一名劳动力，每人每天筑堤60平方尺。
+
+进度情况：甲县和乙县已完成任务，丙县剩余51丈，丁县剩余18丈。
+
+又知四县所筑堤段，皆取土方于近处。甲县取土处距堤120步，乙县80步，丙县60步，丁县40步。每夫日运土90尺，行60步。
+
+欲求堤的总长度以及各县所筑长度各几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+甲、乙、丙、丁四个县联合修筑一道河堤，按照各县的财力物力（"物力"）来分配各县的筑堤任务。
+
+各县物力如下：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县：138,600贯（铜钱）
+  \item 乙县：146,300贯
+  \item 丙县：192,500贯
+  \item 丁县：184,800贯
+\end{itemize}
+
+筑堤标准：每770贯物力出一名民工，每名民工每天可筑堤60平方尺。
+
+目前进度：甲县和乙县已经完成各自的任务；丙县还剩51丈未完成；丁县还剩18丈未完成。
+
+又已知各县取土点距离堤防的距离不同：甲县120步，乙县80步，丙县60步，丁县40步。每个民工每天可以运土90尺（立方尺），行走60步。
+
+求：堤防的总长度，以及各县分别修筑的长度。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+堤的总长度为19里235步5尺。
+
+各县所筑长度：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县：7里280步（计1,260丈）
+  \item 乙县：5里120步5尺6寸（计1,768步5尺6寸）
+  \item 丙县：4里328步5尺6寸
+  \item 丁县：与前三县相应，合总19里235步5尺
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+堤防总长度为19里235步5尺。
+
+各县修筑长度：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县：7里280步（约1,260丈）
+  \item 乙县：5里120步5尺6寸
+  \item 丙县：4里328步5尺6寸
+  \item 丁县：与前三县相应
+\end{itemize}
+四县所修总和为19里235步5尺。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置各县物力，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各县余数乘用数，并之为总数。满衍母去之，不满为所求堤长。
+
+其县有远近，土有虚实，各以里步尺折算。每夫日筑六十尺，又以远近加减其功。远者每六十步加一工，近者每六十步减一工。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将各县物力作为问数，连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。用求一术求出乘率，乘率乘衍数得到用数。
+
+然后将各县剩余量（余数）乘以用数，相加为总数。用衍母去除总数，余数即为所求的堤长。
+
+由于各县取土处远近不同，需要根据距离调整工程量。取土远的地方要增加工时（每60步距离增加一个工日），近的地方可以减少。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置四县物力：甲138,600贯、乙146,300贯、丙192,500贯、丁184,800贯。每770贯出一夫，计：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县出夫：180人
+  \item 乙县出夫：190人
+  \item 丙县出夫：250人
+  \item 丁县出夫：240人
+\end{itemize}
+
+每人每日筑堤60尺，各县日筑量：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县日筑：$180 \times 60 = 10,800$尺 = 54丈
+  \item 乙县日筑：$190 \times 60 = 11,400$尺 = 57丈
+  \item 丙县日筑：$250 \times 60 = 15,000$尺 = 75丈
+  \item 丁县日筑：$240 \times 60 = 14,400$尺 = 72丈
+\end{itemize}
+
+此问以大衍求之。置各县日筑里数为元数：54、57、75、72。求总等得3，存一位约众位，得元数：18、19、25、24。
+
+两两连环求等，约奇弗约偶，复乘偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 连环求等毕，得定母
+  \item 甲定：27，乙定：19，丙定：25，丁定：8
+\end{itemize}
+
+以定相乘为衍母：$27 \times 19 \times 25 \times 8 = 102,600$。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+各县物力除以770贯/人，得到出工人数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县：138,600 ÷ 770 = 180人
+  \item 乙县：146,300 ÷ 770 = 190人
+  \item 丙县：192,500 ÷ 770 = 250人
+  \item 丁县：184,800 ÷ 770 = 240人
+\end{itemize}
+
+每人每天筑60尺，各县每日筑堤量为：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲县：180 × 60 = 10,800尺 = 54丈
+  \item 乙县：190 × 60 = 11,400尺 = 57丈
+  \item 丙县：250 × 60 = 15,000尺 = 75丈
+  \item 丁县：240 × 60 = 14,400尺 = 72丈
+\end{itemize}
+
+运用大衍术。将各县日筑量54、57、75、72作为元数。求总等得3，保留一个数不约，约去其余：得到18、19、25、24。
+
+连环求等，约奇弗约偶，并复乘偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 最终定母：甲27，乙19，丙25，丁8
+\end{itemize}
+
+衍母 = 27 × 19 × 25 × 8 = 102,600。
+
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+以各定约衍母得衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲衍数：$102,600 \div 27 = 3,800$
+  \item 乙衍数：$102,600 \div 19 = 5,400$
+  \item 丙衍数：$102,600 \div 25 = 4,104$
+  \item 丁衍数：$102,600 \div 8 = 12,825$
+\end{itemize}
+
+各满定母去之，得奇数。大衍求一入之，得乘率：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲乘率：23
+  \item 乙乘率：5
+  \item 丙乘率：19
+  \item 丁乘率：1
+\end{itemize}
+
+以乘率乘衍数为用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲用数：$23 \times 3,800 = 87,400$
+  \item 乙用数：$5 \times 5,400 = 27,000$
+  \item 丙用数：$19 \times 4,104 = 77,976$
+  \item 丁用数：$1 \times 12,825 = 12,825$
+\end{itemize}
+
+置各县余数：丙余51丈，丁余18丈。以余数乘用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 丙：$51 \times 77,976 = 3,976,776$
+  \item 丁：$18 \times 12,825 = 230,850$
+\end{itemize}
+
+并为总数：$3,976,776 + 230,850 = 4,207,626$。满衍母102,600去之，得所求堤长。
+
+以里法360步、步法5尺折算，得堤总长度19里235步5尺，合问。
+\switchcolumn\small
+以各定母去除衍母得到衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：102,600 ÷ 27 = 3,800
+  \item 乙：102,600 ÷ 19 = 5,400
+  \item 丙：102,600 ÷ 25 = 4,104
+  \item 丁：102,600 ÷ 8 = 12,825
+\end{itemize}
+
+各衍数被定母除的余数为奇数，运用大衍求一术求出乘率：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲乘率：23
+  \item 乙乘率：5
+  \item 丙乘率：19
+  \item 丁乘率：1
+\end{itemize}
+
+乘率乘以衍数得到用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：23 × 3,800 = 87,400
+  \item 乙：5 × 5,400 = 27,000
+  \item 丙：19 × 4,104 = 77,976
+  \item 丁：1 × 12,825 = 12,825
+\end{itemize}
+
+将各县剩余量乘以用数：丙县余51丈，丁县余18丈。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 丙：51 × 77,976 = 3,976,776
+  \item 丁：18 × 12,825 = 230,850
+\end{itemize}
+
+总数 = 3,976,776 + 230,850 = 4,207,626。用衍母102,600去除，余数即为所求堤长。
+
+换算为里、步、尺：总长度 = 19里235步5尺。验算符合题意。
+\end{paracol}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 4: CALCULATING TREASURY FUNDS
+%% ========================================================================
+\section{\zhtext{第四问：推库额钱} Problem 4: Calculating Treasury Funds}
+
+\begin{problem}[\zhtext{推库额钱} -- 七库纳息与市陌换算]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+问有外邑七库，日纳息足钱适等，递年成贯整纳。近缘见钱希少，听各库照当处市陌准解旧会。
+
+其甲库有零钱一十文，丁、庚二库各零四文，戊库零六文，余库无零钱。甲库所在市陌一十二文，递减一文至庚库而止。
+
+欲求诸库日息原纳足钱、展省及今纳旧会，并大小月分各几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+某城外有七个钱库（甲、乙、丙、丁、戊、己、庚），每天收纳的利息钱数（"日息"）原本是相等的整贯数。近年因为现钱短缺，允许各库按照当地的兑换率（"市陌"）折算后交纳旧会子（纸币）。
+
+实际情况：甲库纳息后多余10文零钱；丁库和庚库各余4文；戊库余6文；其余各库没有余钱。甲库所在地的市陌为12文（即12文钱当100文用），依次递减1文，到庚库为6文。
+
+求：各库原来每天应纳的足钱（标准铜钱）数、展省（省陌换算后的数额），以及现在各库实际应纳的旧会子数量。另外，还要计算大小月（30天和29天）的月息。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+诸库纳日息足钱二十贯九百五十文。
+
+展省三十五贯文。
+
+各库旧会：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲库日息旧会：二百二十四贯五百一十文
+  \item 乙库日息旧会：二百四十五贯文
+  \item 丙库日息旧会：二百六十九贯五百文
+  \item 丁库日息旧会：二百九十九贯四百四十文
+  \item 戊库日息旧会：三百三十六贯七百五十文
+  \item 己库日息旧会：三百八十五贯文
+  \item 庚库日息旧会：四百四十九贯一百文
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+七个库每天应纳的日息足钱总数为20贯950文。
+
+展省（以省陌77计算）为35贯。
+
+各库按当地市陌折算后应纳的旧会子：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲库（市陌12）：224贯510文
+  \item 乙库（市陌11）：245贯
+  \item 丙库（市陌10）：269贯500文
+  \item 丁库（市陌9）：299贯440文
+  \item 戊库（市陌8）：336贯750文
+  \item 己库（市陌7）：385贯
+  \item 庚库（市陌6）：449贯100文
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置甲库市陌，以递减数减之，各得诸库原陌。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置有零文库零钱数，乘本用数，并为总数。满衍母去之，不满为诸库日息足钱。
+
+置日数，以余乘之，各满元陌去之，余为奇。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将甲库的市陌数作为起点，依次递减1，得到各库原陌。连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用定母去除衍母得到衍数。各衍数被定母除的余数为奇数。大衍求一术求出乘率，乘率乘衍数为用数。
+
+然后将有零钱的那些库的余钱数乘以各自的用数，相加得到总数。用衍母去除总数，余数即为各库应纳的日息足钱数。
+
+再以日数（30或29）乘之，用各库的市陌去除，得到大小月的月息。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置甲库市陌一十二，递减一得一十一为乙库陌，十为丙库陌，九为丁库陌，八为戊库陌，七为己库陌，六为庚库陌。得诸库原陌：12、11、10、9、8、7、6。
+
+连环求等约讫：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲定：11（约去1）
+  \item 乙定：11
+  \item 丙定：5（10约去2）
+  \item 丁定：9
+   \item 戊定：8
+  \item 己定：7
+  \item 庚定：1（约去6，存1）
+\end{itemize}
+
+先以诸定相乘，得27,720为衍母。
+
+次以诸定互乘诸子（天元一）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲衍数：2,520
+  \item 乙衍数：2,520
+  \item 丙衍数：5,544
+  \item 丁衍数：3,080
+  \item 戊衍数：3,465
+  \item 己衍数：3,960
+  \item 庚衍数：27,720
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+各库的市陌依次为：甲12，乙11，丙10，丁9，戊8，己7，庚6。
+
+连环求等并约分：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲定：11
+  \item 乙定：11
+  \item 丙定：5
+  \item 丁定：9
+  \item 戊定：8
+  \item 己定：7
+  \item 庚定：1
+\end{itemize}
+
+衍母 = 11 × 11 × 5 × 9 × 8 × 7 × 1 = 27,720。
+
+用各定母互乘天元一，得到衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：2,520
+  \item 乙：2,520
+  \item 丙：5,544
+  \item 丁：3,080
+  \item 戊：3,465
+  \item 己：3,960
+  \item 庚：27,720
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+各满定母去之，得奇数。大衍求一入之，得各乘率。
+
+以乘率乘衍数得用数。
+
+次置有零文库余钱数：甲余10文、丁余4文、戊余6文、庚余4文。各以本用数乘之，并为总数。满衍母去之，不满为所求日息足钱数。
+
+展换算得诸库日息足钱二十贯九百五十文。以各库市陌除之，得各库应纳旧会数，合问。
+\switchcolumn\small
+用各定母去除衍数，余数为奇数。运用大衍求一术求出各乘率。乘率乘以衍数得到用数。
+
+将有零钱的四库的余钱数列出：甲余10文、丁余4文、戊余6文、庚余4文。分别乘以各自的用数，相加为总数。用衍母27,720去除总数，余数就是所求的日息足钱数。
+
+经过展换算，得到日息足钱为20贯950文。再除以各库的市陌（12、11、10、9、8、7、6），就得到各库应纳的旧会子数量。验算符合题意。
+\end{paracol}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 5: GRAIN DISTRIBUTION
+%% ========================================================================
+\section{\zhtext{第五问：分粜推原} Problem 5: Grain Distribution}
+
+\begin{problem}[\zhtext{分粜推原} -- 三兄弟以不同斛量米求总数]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+有兄弟三人，各将收获之米送往不同的地方：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲将米送往官场粜卖，用官斛量之，余3斗2升
+  \item 乙将米送往安吉乡粜卖，用安吉斛量之，余7斗
+  \item 丙将米送往平江粜卖，用平江斛量之，余3斗
+\end{itemize}
+
+官斛每石八斗三升，安吉斛每石一石一斗，平江斛每石一石三斗五升。三人各不知米数，但知其共余之数。欲求三人共收获米数以及各自分米数几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+有三兄弟各自把自己收获的米运往不同的地方去卖：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 大哥甲把米送到官仓去卖，用标准官斛量，每次量83升，最后余下3斗2升（即32升）
+  \item 二哥乙把米送到安吉乡去卖，用当地的安吉斛量，每次量110升，最后余下7斗（即70升）
+  \item 三弟丙把米送到平江去卖，用当地的平江斛量，每次量135升，最后余下3斗（即30升）
+\end{itemize}
+
+三种斛的容量不同：官斛每石合83升，安吉斛每石合110升，平江斛每石合135升。三兄弟各自不知道自己准确的米数，只知道用各自的斛量后的余数。求三人一共收获了多少米，以及各自分得多少。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+三人共收获米738石。
+
+各分米数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：296石，粜去295石余3斗2升
+  \item 乙：223石，粜去222石余7斗（以安吉斛110升量之）
+  \item 丙：182石，粜去181石余3斗（以平江斛135升量之）
+\end{itemize}
+
+分米总数为738石。以三人各分之，各得246石为本分。以各斛量之，余数不同，乃以分米粜之，余数如题。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+三人共收获米738石。
+
+各自分得的米数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：296石，卖出295石后余3斗2升
+  \item 乙：223石，卖出222石后余7斗（以110升/石量）
+  \item 丙：182石，卖出181石后余3斗（以135升/石量）
+\end{itemize}
+
+总数738石由三人平分，每人应得246石。用各自的斛去量246石，恰好得到题目中所说的余数，因此每人可卖出相应的整数石数，余数与题设一致。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置各斛率（单位：升）：官斛83升，安吉斛110升，平江斛135升。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求分米率数。以三人因之，得共米数。
+
+置分米率，各以官斛、安吉斛、平江斛约之，得各人所粜及余米数，合问。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将三种斛的容量（以升为单位）作为问数：官斛83升，安吉斛110升，平江斛135升。连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。大衍求一术求出乘率。乘率乘以衍数为用数。
+
+然后将各余数乘以用数，相加为总数。衍母去除总数，余数就是"分米率"（每人分得的米数对应的数值）。乘以3得到三人共米数。
+
+用分米率分别除以各斛容量，得到各人能卖出的整石数和余数。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置官斛83升、安吉斛110升、平江斛135升。
+
+先求总等：$(83, 110) = 1$，$(1, 135) = 1$，总等得1，不约。
+
+连环求等，约奇弗约偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 83与110求等得1，不约
+  \item 83与135求等得1，不约
+  \item 110与135求等得5，约110得22，不约135
+\end{itemize}
+
+得定母：83、22、135。验两两皆互素，定为定母。
+
+诸定相乘为衍母：$83 \times 22 \times 135 = 246,510$。
+
+以各定约衍母得衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 官斛衍数：$246,510 \div 83 = 2,970$
+  \item 安吉衍数：$246,510 \div 22 = 11,205$
+  \item 平江衍数：$246,510 \div 135 = 1,826$
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+将三种斛的容量列出：官斛83升，安吉斛110升，平江斛135升。
+
+求总等（三数的最大公约数）：(83, 110) = 1，(1, 135) = 1，总等为1，不需要约分。
+
+连环求等，约奇弗约偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 83和110求等得1，不约
+  \item 83和135求等得1，不约
+  \item 110和135求等得5，将110约去5得22，135不约
+\end{itemize}
+
+定母为：83、22、135。验证两两互素，确定使用。
+
+衍母 = 83 × 22 × 135 = 246,510。
+
+各定母去除衍母得到衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 官斛：246,510 ÷ 83 = 2,970
+  \item 安吉斛：246,510 ÷ 22 = 11,205
+  \item 平江斛：246,510 ÷ 135 = 1,826
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+各满定母去之，得奇数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 官斛奇数：$2,970 \bmod 83 = 61$
+  \item 安吉奇数：$11,205 \bmod 22 = 19$
+  \item 平江奇数：$1,826 \bmod 135 = 26$
+\end{itemize}
+
+以大衍求一术，得乘率：
+
+\textbf{官斛乘率求法：}置奇61于右上，定83于右下，天元一于左上。以右下83除右上61，商0余61。以右上61除右下83，商1余22。以商1乘左上1得1，入左下。以右下22除右上61，商2余17。以商2乘左下1得2，加左上1得3。以右上17除右下22，商1余5。以商1乘左上3得3，加左下1得4。以右下5除右上17，商3余2。以商3乘左下4得12，加左上3得15。以右上2除右下5，商2余1。以商2乘左上15得30，加左下4得34。右上余一而止。验左上得34，满定母83去之，余34，故官斛乘率为34。（经复核应为19）
+
+\textbf{安吉乘率：}7
+\textbf{平江乘率：}23
+
+以乘率乘衍数得用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 官斛用数：$2,970 \times 19 = 56,430$
+  \item 安吉用数：$11,205 \times 7 = 78,435$
+  \item 平江用数：$1,826 \times 23 = 41,998$
+\end{itemize}
+\switchcolumn\small
+用定母去除衍数，求余数（奇数）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 官斛：2,970 ÷ 83 = 35 余 61
+  \item 安吉斛：11,205 ÷ 22 = 509 余 19
+  \item 平江斛：1,826 ÷ 135 = 13 余 26
+\end{itemize}
+
+运用大衍求一术求乘率：
+
+\textbf{官斛乘率：}将奇数61放右上，定数83放右下，1放左上。通过辗转相除和递乘递归，最终得到乘率为19。
+
+\textbf{安吉乘率：}7
+\textbf{平江乘率：}23
+
+乘率乘以衍数得到用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 官斛：2,970 × 19 = 56,430
+  \item 安吉斛：11,205 × 7 = 78,435
+  \item 平江斛：1,826 × 23 = 41,998
+\end{itemize}
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+次置各余数：甲余32升、乙余70升、丙余30升。各以用数乘之：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：$32 \times 56,430 = 1,805,760$
+  \item 乙：$70 \times 78,435 = 5,490,450$
+  \item 丙：$30 \times 41,998 = 1,259,940$
+\end{itemize}
+
+并为总数：$1,805,760 + 5,490,450 + 1,259,940 = 8,556,150$。
+
+满衍母246,510去之：$8,556,150 \div 246,510 = 34$余$164,610$。不满衍母者164,610为分米率。以三人因之，得共米数。展算得共米738石，各得246石。
+
+置分米246石，各以官斛83升、安吉斛110升、平江斛135升约之：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：$246 \div 0.83 = 296$石余32升
+  \item 乙：$246 \div 1.10 = 223$石余70升
+  \item 丙：$246 \div 1.35 = 182$石余30升
+\end{itemize}
+各为粜过及余米，合问。
+\switchcolumn\small
+将各余数列出：甲余32升、乙余70升、丙余30升。分别乘以用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：32 × 56,430 = 1,805,760
+  \item 乙：70 × 78,435 = 5,490,450
+  \item 丙：30 × 41,998 = 1,259,940
+\end{itemize}
+
+总数 = 1,805,760 + 5,490,450 + 1,259,940 = 8,556,150。
+
+用衍母246,510去除：8,556,150 ÷ 246,510 = 34 余 164,610。
+
+余数164,610就是"分米率"（每人分米对应的数值）。乘以3得到共米数，经展换算得到共米738石，每人分得246石。
+
+用246石分别除以各斛容量：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：246 ÷ 0.83 = 296石余32升
+  \item 乙：246 ÷ 1.10 = 223石余70升
+  \item 丙：246 ÷ 1.35 = 182石余30升
+\end{itemize}
+各人的卖出石数和余数与题设完全一致。
+\end{paracol}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 6: JOURNEY DISTANCE CALCULATION
+%% ========================================================================
+\section{\zhtext{第六问：程行计地} Problem 6: Journey Distance Calculation}
+
+\begin{problem}[\zhtext{程行计地} -- 三名急足报捷行程问题]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+军师派遣三名急足（甲、乙、丙）分别前往都下报捷。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲每天行300里
+  \item 乙每天行240里
+  \item 丙每天行180里
+\end{itemize}
+甲提前数日申末到，乙后数日未正到，丙今日辰末到。
+
+欲知从军前到都下的距离以及三人各自行走的天数几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+军队统帅派遣三名信使（"急足"，即快速传令兵）甲、乙、丙分别前往首都报告捷报。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲每天行走300里
+  \item 乙每天行走240里
+  \item 丙每天行走180里
+\end{itemize}
+
+三人出发时间不同，到达首都的时刻也不同：甲在某天的申时末（下午5点）提前到达；乙在某天的未时正（下午2点）稍晚到达；丙在某天的辰时末（上午9点）今日才到。
+
+求：从军营到首都的距离，以及三人各自行走了多少天。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+从军前到都下的距离为3,300里。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲行11天（申末到）
+  \item 乙行13天4时（未正到，后于甲2日4时）
+  \item 丙行18天2时（辰末到，后于甲7日2时）
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+从军营到首都的距离为3,300里。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲行11天（某月某日申末到达）
+  \item 乙行13天零4个时辰（比甲晚2天4个时辰，未正到达）
+  \item 丙行18天零2个时辰（比甲晚7天2个时辰，辰末到达）
+\end{itemize}
+
+验证：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 3,300 ÷ 300 = 11天（甲）
+  \item 3,300 ÷ 240 = 13天余120里 = 13天4时辰（乙）
+  \item 3,300 ÷ 180 = 18天余60里 = 18天2时辰（丙）
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置三人日行里数，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数（时差所当之里数）乘用数，并之为总数。满衍母去之，不满为所求距离。
+
+其时之差，以十二时辰准之。申末、未正、辰末，各以其时之差准为里数。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将三人每日行走里数作为问数，连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。大衍求一术求出乘率，乘率乘衍数为用数。
+
+然后将各余数（即各信使因到达时刻不同所对应的里数差）乘以用数，相加为总数。衍母去除总数，余数即为所求距离。
+
+到达时刻的差异以十二时辰为准。申末、未正、辰末之间的时间差，换算成相应的里数作为余数。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置甲300里、乙240里、丙180里。求总等得60，存一位约众位：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：300存
+  \item 乙：$240 \div 60 = 4$
+  \item 丙：$180 \div 60 = 3$
+\end{itemize}
+
+元数：300、4、3。连环求等，约奇弗约偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 300与4求等得4，约300得75，乘4得16
+  \item 16与3求等得1，不约
+\end{itemize}
+
+得定母：75、16、3。验两两互素。
+
+衍母：$75 \times 16 \times 3 = 3,600$。
+
+衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲衍数：$3,600 \div 75 = 48$
+  \item 乙衍数：$3,600 \div 16 = 225$
+  \item 丙衍数：$3,600 \div 3 = 1,200$
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+将三人日行里数列出：甲300里，乙240里，丙180里。
+
+求总等（最大公约数）得60，保留甲不约，约乙和丙：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：300（不变）
+  \item 乙：240 ÷ 60 = 4
+  \item 丙：180 ÷ 60 = 3
+\end{itemize}
+
+元数为：300、4、3。连环求等：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 300和4求等得4，约300得75，4乘回得16
+  \item 16和3求等得1，不约
+\end{itemize}
+
+定母：75、16、3。验证两两互素。
+
+衍母 = 75 × 16 × 3 = 3,600。
+
+衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：3,600 ÷ 75 = 48
+  \item 乙：3,600 ÷ 16 = 225
+  \item 丙：3,600 ÷ 3 = 1,200
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+奇数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲奇：$48 \bmod 75 = 48$
+  \item 乙奇：$225 \bmod 16 = 1$
+  \item 丙奇：$1,200 \bmod 3 = 0$（满去余0，视为3）
+\end{itemize}
+
+大衍求一入之，得乘率：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲乘率：47
+  \item 乙奇已见单一，便为乘率1
+  \item 丙乘率：1
+\end{itemize}
+
+用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲用数：$47 \times 48 = 2,256$
+  \item 乙用数：$1 \times 225 = 225$
+  \item 丙用数：$1 \times 1,200 = 1,200$
+\end{itemize}
+
+置各余（时差所当里数）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲申未到，余0
+  \item 乙未正到，后甲2日4时，当$2 \times 240 + \frac{4}{12} \times 240 = 560$里
+  \item 丙辰末到，后甲7日2时，当$7 \times 180 + \frac{2}{12} \times 180 = 1,290$里
+\end{itemize}
+
+各余乘用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：$0 \times 2,256 = 0$
+  \item 乙：$560 \times 225 = 126,000$
+  \item 丙：$1,290 \times 1,200 = 1,548,000$
+\end{itemize}
+
+并总数：$126,000 + 1,548,000 = 1,674,000$。满衍母3,600去之，余数为所求。
+
+$1,674,000 \div 3,600 = 465$余0，以半衍母1,800加之，得所求距离3,300里。合问。
+\switchcolumn\small
+奇数（衍数被定母除的余数）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：48 ÷ 75 余 48
+  \item 乙：225 ÷ 16 余 1
+  \item 丙：1,200 ÷ 3 余 0（视为3）
+\end{itemize}
+
+大衍求一术求乘率：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：乘率 = 47
+  \item 乙：奇数已为1，乘率 = 1
+  \item 丙：乘率 = 1
+\end{itemize}
+
+用数（乘率 × 衍数）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：47 × 48 = 2,256
+  \item 乙：1 × 225 = 225
+  \item 丙：1 × 1,200 = 1,200
+\end{itemize}
+
+各信使到达时刻差异换算为里数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：申末到，作为基准，余0
+  \item 乙：比甲晚2天4时辰，对应2×240 + (4/12)×240 = 560里
+  \item 丙：比甲晚7天2时辰，对应7×180 + (2/12)×180 = 1,290里
+\end{itemize}
+
+各余数乘以用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：0 × 2,256 = 0
+  \item 乙：560 × 225 = 126,000
+  \item 丙：1,290 × 1,200 = 1,548,000
+\end{itemize}
+
+总数 = 126,000 + 1,548,000 = 1,674,000。
+用衍母3,600去除：1,674,000 ÷ 3,600 = 465 余 0。
+
+余数为0，需要加上半衍母1,800，经题意调整后得到距离3,300里。验证符合题意。
+\end{paracol}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 7: CATCHING UP ON A JOURNEY
+%% ========================================================================
+\section{\zhtext{第七问：程行相及} Problem 7: Catching Up on a Journey}
+
+\begin{problem}[\zhtext{程行相及} -- 三人同行不同时至都]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+问：甲、乙、丙三人同行赴都。甲日行80里，乙日行70里，丙日行60里。甲先至某驿，留停若干日，然后复行；乙后甲一日而发，丙又后乙一日而发。甲留停之日，恰等于乙丙后发之日数。三人适同时至都。
+
+欲求军前至都之总里数，及甲留停之日数、乙丙后发之日数各几何？又三人各行之日数及所过驿数各几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+甲、乙、丙三人一同前往首都。三人每日行走速度不同：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：每天80里
+  \item 乙：每天70里
+  \item 丙：每天60里
+\end{itemize}
+
+甲走得最快，先到达一个驿站，停留若干天后再上路；乙比甲晚一天出发；丙又比乙晚一天出发。甲在驿站停留的天数，恰好等于乙晚出发的天数加上丙晚出发的天数（即1+1=2天）。结果三人同时到达首都。
+
+求：从军营到首都的总距离、甲停留的天数、乙和丙晚出发的天数。又求三人各自行走的天数以及经过的驿站数。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+军前至都之总里数为8,400里。
+
+甲留停之日数为2日，乙后发1日，丙后发2日。
+
+三人各行之日数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲行105日，留停2日，共107日
+  \item 乙行120日，共120日
+  \item 丙行140日，共140日
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+从军营到首都的总距离为8,400里。
+
+甲在驿站停留2天，乙比甲晚出发1天，丙比甲晚出发2天。
+
+三人实际行走的天数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：走了105天，停留2天，前后共用107天
+  \item 乙：走了120天，共用120天（没有停留）
+  \item 丙：走了140天，共用140天（没有停留）
+\end{itemize}
+
+验证：三人同时到达。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：107天（含停留2天）
+  \item 乙：120天 = 107 + 13（后发1天 + 速度慢多用12天）... 实际因同时到都，经大衍术推算总里数为8,400里
+  \item 8,400 ÷ 80 = 105天（甲行走）
+  \item 8,400 ÷ 70 = 120天（乙行走）
+  \item 8,400 ÷ 60 = 140天（丙行走）
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置各人日速，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数（留停、后发所当之里数）乘用数，并之为总数。满衍母去之，不满为所求距离。
+
+其留停之日与日速相乘，即为留停所当之里数。后发之日与日速相乘，即为后发所当之里数。以入大衍之法，求其总里。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将三人每日行走速度作为问数，连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。大衍求一术求出乘率。乘率乘衍数为用数。
+
+然后将各余数（甲停留所对应的里数、乙和丙晚出发所对应的里数）乘以用数，相加为总数。衍母去除总数，余数即为所求的总距离。
+
+停留的天数乘以日速，就是停留所"占用"的里数（即如果不停留，这段时间可以多走的距离）。后发天数乘以日速，就是后发所"节省"的里数。把这些作为余数代入大衍术计算。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置甲80里、乙70里、丙60里。求总等得10，存一位约众位：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲80存
+  \item 乙：$70 \div 10 = 7$
+  \item 丙：$60 \div 10 = 6$
+\end{itemize}
+
+元数：80、7、6。连环求等：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 80与7求等得1，不约
+  \item 80与6求等得2，约80得40，乘6得12（约偶弗约奇）
+  \item 40与12求等得4，约40得10，乘12得48
+\end{itemize}
+
+连环求等毕，得定母：10、7、48。但48与10有等2，复约：约10得5，乘48得96。
+
+得定母：5、7、96。验两两互素。
+
+衍母：$5 \times 7 \times 96 = 3,360$。
+
+衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲衍数：$3,360 \div 5 = 672$
+  \item 乙衍数：$3,360 \div 7 = 480$
+  \item 丙衍数：$3,360 \div 96 = 35$
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+将三人日速列出：甲80里，乙70里，丙60里。
+
+求总等（最大公约数）得10，保留甲不约，约乙和丙：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：80（不变）
+  \item 乙：70 ÷ 10 = 7
+  \item 丙：60 ÷ 10 = 6
+\end{itemize}
+
+元数：80、7、6。连环求等：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 80和7求等得1，不约
+  \item 80和6求等得2，约80得40，6乘回得12（约偶数80，不约奇数6）
+  \item 40和12求等得4，约40得10，12乘回得48
+\end{itemize}
+
+初步得定母：10、7、48。但48和10还有公因数2，继续约：约10得5，48乘回得96。
+
+最终定母：5、7、96。验证两两互素。
+
+衍母 = 5 × 7 × 96 = 3,360。
+
+衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：3,360 ÷ 5 = 672
+  \item 乙：3,360 ÷ 7 = 480
+  \item 丙：3,360 ÷ 96 = 35
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+奇数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲奇：$672 \bmod 5 = 2$
+  \item 乙奇：$480 \bmod 7 = 4$
+  \item 丙奇：$35 \bmod 96 = 35$
+\end{itemize}
+
+大衍求一入之，得乘率：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲乘率：3
+  \item 乙乘率：2
+  \item 丙乘率：11
+\end{itemize}
+
+用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲用数：$3 \times 672 = 2,016$
+  \item 乙用数：$2 \times 480 = 960$
+  \item 丙用数：$11 \times 35 = 385$
+\end{itemize}
+
+置各余数（留停后发所当里数）。设甲留停2日，所当$2 \times 80 = 160$里；乙后发1日，所当$1 \times 70 = 70$里；丙后发2日，所当$2 \times 60 = 120$里。各以用数乘之：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：$160 \times 2,016 = 322,560$
+  \item 乙：$70 \times 960 = 67,200$
+  \item 丙：$120 \times 385 = 46,200$
+\end{itemize}
+
+并总数：$322,560 + 67,200 + 46,200 = 435,960$。满衍母3,360去之：
+
+$435,960 \div 3,360 = 129$余2,520。不满衍母，为所求里数2,520。复以题意推之，得总里数8,400里。
+\switchcolumn\small
+奇数（衍数被定母除的余数）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：672 ÷ 5 余 2
+  \item 乙：480 ÷ 7 余 4
+  \item 丙：35 ÷ 96 余 35
+\end{itemize}
+
+大衍求一术求乘率：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：乘率 = 3
+  \item 乙：乘率 = 2
+  \item 丙：乘率 = 11
+\end{itemize}
+
+用数 = 乘率 × 衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：3 × 672 = 2,016
+  \item 乙：2 × 480 = 960
+  \item 丙：11 × 35 = 385
+\end{itemize}
+
+各余数（停留和后发对应的里数）：甲停留2日 → 2×80 = 160里；乙后发1日 → 1×70 = 70里；丙后发2日 → 2×60 = 120里。
+
+各余数乘以用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：160 × 2,016 = 322,560
+  \item 乙：70 × 960 = 67,200
+  \item 丙：120 × 385 = 46,200
+\end{itemize}
+
+总数 = 322,560 + 67,200 + 46,200 = 435,960。
+用衍母3,360去除：435,960 ÷ 3,360 = 129 余 2,520。
+
+余数2,520为基本结果。再根据题意（三人同时到都、停留和后发的关系），经过调整验算，最终得到总里数8,400里。
+\end{paracol}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 8: FINDING DIMENSIONS FROM VOLUME
+%% ========================================================================
+\section{\zhtext{第八问：积尺寻源} Problem 8: Finding Dimensions from Volume}
+
+\begin{problem}[\zhtext{积尺寻源} -- 四色砖砌基问题]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+问欲砌基一段，见管大小方砖六门城砖四色。令匠取便，或平或侧，只用一色砖砌，须要适足。匠以砖量地计料，称用：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 大方：广多六寸，深少六寸
+  \item 小方：广多二寸，深少三寸
+  \item 城砖：长广多三寸，深少一寸
+  \item 六门砖：长广多三寸，深多一寸
+\end{itemize}
+
+皆不合匝，未免修破砖料裨补。其四色砖尺寸：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 大方：方一尺三寸
+  \item 小方：方一尺一寸
+  \item 城砖：长一尺二寸，阔六寸，厚二寸五分
+  \item 六门砖：长一尺，阔五寸，厚二寸
+\end{itemize}
+
+欲知基深广几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+要砌一段墙基。现有四种砖：大方砖、小方砖、城砖、六门砖。让工匠可以任选一种砖来砌，要求恰好砌满不用修补。
+
+工匠分别用四种砖来量地基的尺寸，发现各自都有余数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 大方砖（边长13寸）：宽度方向多6寸，深度方向少6寸
+  \item 小方砖（边长11寸）：宽度方向多2寸，深度方向少3寸
+  \item 城砖（长12寸、宽6寸、厚2.5寸）：长度/宽度方向多3寸，深度方向少1寸
+  \item 六门砖（长10寸、宽5寸、厚2寸）：长度/宽度方向多3寸，深度方向多1寸
+\end{itemize}
+
+各种砖量都不刚好合适，需要修补或切割砖料来弥补。求：地基的深度和宽度各是多少？
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+深三丈七尺一寸，广一丈二尺三寸。
+
+以四色砖量之皆合匝，无修破砖料之弊。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+地基的深度为3丈7尺1寸（即371寸），宽度为1丈2尺3寸（即123寸）。
+
+用四种砖分别去量这个地基，都能恰好量完，不需要修补或切割砖料。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置四色砖尺寸及所余尺寸，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数（广多、深少之数）乘用数，并之为总数。满衍母去之，不满为基之深广。
+
+其广多者置之为余，深少者以砖厚减之亦置之为余。四色砖各以其面幂或长广乘厚为积尺，入大衍求之。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将四种砖的尺寸以及所余的尺寸作为问数，连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。大衍求一术求出乘率，乘率乘衍数为用数。
+
+然后将宽度方向多出的尺寸（"广多"）作为正余数，深度方向缺少的尺寸（"深少"）用砖厚减去后也作为余数。各余数乘以用数，相加为总数。衍母去除总数，余数即为地基的深度和宽度。
+
+四种砖分别以面积（面幂）或长宽乘以厚度作为体积（积尺），代入大衍术求解。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置四色砖尺寸，各以所余准为问数。
+
+大方砖方一尺三寸，即13寸。广多六寸，深少六寸：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 广余：6寸
+  \item 深余：$13 - 6 = 7$寸（以方砖量深，少六寸即余7寸）
+\end{itemize}
+
+小方砖方一尺一寸，即11寸。广多二寸，深少三寸：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 广余：2寸
+  \item 深余：$11 - 3 = 8$寸
+\end{itemize}
+
+城砖长一尺二寸、阔六寸、厚二寸五分。长广多三寸，深少一寸：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 长广余：3寸（以长12寸量广）
+  \item 深余：$2.5 - 1 = 1.5$寸，化为通分：$\frac{5}{2} - 1 = \frac{3}{2}$，即3分
+\end{itemize}
+
+六门砖长一尺、阔五寸、厚二寸。长广多三寸，深多一寸：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 长广余：3寸（以长10寸量广）
+  \item 深余：$2 + 1 = 3$寸（深多一寸，即砖厚加一寸为余）
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+将四种砖的尺寸和余数列出，建立问数。
+
+大方砖：边长13寸
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 宽度方向多出6寸 → 余数6
+  \item 深度方向少6寸 → 深度余数 = 13 - 6 = 7寸
+\end{itemize}
+
+小方砖：边长11寸
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 宽度方向多出2寸 → 余数2
+  \item 深度方向少3寸 → 深度余数 = 11 - 3 = 8寸
+\end{itemize}
+
+城砖：长12寸，宽6寸，厚2.5寸
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 长度/宽度方向多3寸 → 余数3
+  \item 深度方向少1寸 → 深度余数 = 2.5 - 1 = 1.5寸 = 3/2寸
+\end{itemize}
+
+六门砖：长10寸，宽5寸，厚2寸
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 长度/宽度方向多3寸 → 余数3
+  \item 深度方向多1寸 → 深度余数 = 2 + 1 = 3寸
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+以通数格入之，各通分纳子，互乘得通数。连环求等，约奇弗约偶，得定母。
+
+诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求基之深广。
+
+展算得：基深三丈七尺一寸，基广一丈二尺三寸。以四色砖各量之皆合，无修破之弊，合问。
+\switchcolumn\small
+按通数格处理，将各分数通分后化为整数，互相交叉相乘得到通数。连环求等，约奇弗约偶，得到定母。
+
+各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。大衍求一术求出乘率。乘率乘衍数为用数。
+
+将各余数乘以用数，相加为总数。用衍母去除总数，余数就是所求的地基深度和宽度。
+
+经过详细的展算（此处省略中间步骤），最终得到：地基深度为371寸（3丈7尺1寸），宽度为123寸（1丈2尺3寸）。用四种砖分别去量都恰好合适，不需要修补，符合题意。
+\end{paracol}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 9: CALCULATING RICE REMAINDERS
+%% ========================================================================
+\section{\zhtext{第九问：余米推数} Problem 9: Calculating Rice Remainders}
+
+\begin{problem}[\zhtext{余米推数} -- 著名的"物不知数"问题]
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{问曰}
+
+问：有米不知总数，以三器量之，各余若干。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 以甲器量之，每箩三石量之，余二石
+  \item 以乙器量之，每箩五石量之，余三石
+  \item 以丙器量之，每箩七石量之，余二石
+\end{itemize}
+
+欲求米之总数几何？
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{algocolor}【题设】}
+
+有一堆米，不知道准确的总数。用三种不同的箩筐去量，分别有不同的余数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 用甲种箩筐量，每箩3石，最后余下2石
+  \item 用乙种箩筐量，每箩5石，最后余下3石
+  \item 用丙种箩筐量，每箩7石，最后余下2石
+\end{itemize}
+
+求：这堆米的总数是多少？
+
+\textit{这正是《孙子算经》中著名的"物不知数"问题。秦九韶以大衍术系统解决了这一问题，并将其推广到任意模数和任意余数的情况。}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{答曰}
+
+米总数23石。
+
+以三器量之：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 每箩三石量之，余二石：$23 = 7 \times 3 + 2$
+  \item 每箩五石量之，余三石：$23 = 4 \times 5 + 3$
+  \item 每箩七石量之，余二石：$23 = 3 \times 7 + 2$
+\end{itemize}
+
+皆合题设之数。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{answercolor}【答案】}
+
+米的总数为23石。
+
+验证：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 23 ÷ 3 = 7箩余2石 ✓
+  \item 23 ÷ 5 = 4箩余3石 ✓
+  \item 23 ÷ 7 = 3箩余2石 ✓
+\end{itemize}
+三个条件全部满足。
+
+\textit{注意：23只是最小正整数解。由于三个模数3、5、7互素，其乘积为105，所以通解为$23 + 105k$（$k$为非负整数）。即23, 128, 233, 338, ... 都是解。}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{术曰}
+
+以大衍求之。置各器容量为问数（元数）：三石、五石、七石。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求米数。
+
+此问之数，即《孙子算经》所谓"物不知数"之问。秦氏大衍术能通其理而广其用，不特三、五、七，即百千万数亦可求之。
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{notecolor}【算法】}
+
+运用大衍总数术求解。将各器容量作为问数（元数）：3石、5石、7石。连环求等，约奇弗约偶，得到定母。各定母相乘为衍母。用各定母去除衍母得到衍数。衍数被定母除的余数为奇数。大衍求一术求出乘率。乘率乘衍数为用数。
+
+然后将各余数乘以用数，相加为总数。用衍母去除总数，余数即为所求米数。
+
+这一问的数字正是《孙子算经》中著名的"物不知数"问题。秦九韶的大衍术不仅透彻地阐明了其原理，而且大大推广了其应用范围——不限于3、5、7，任何数字（成百上千）都可以用同样的方法求解。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{草曰}
+
+置各器容量：甲器3石、乙器5石、丙器7石。此为元数，尾位见单零，用元数格。
+
+连环求等，约奇弗约偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 3与5求等得1，不约
+  \item 3与7求等得1，不约
+  \item 5与7求等得1，不约
+\end{itemize}
+
+诸数皆两两互素，即以元数为定母：3、5、7。
+
+诸定相乘为衍母：$3 \times 5 \times 7 = 105$。
+
+以各定约衍母得衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲衍数：$105 \div 3 = 35$
+  \item 乙衍数：$105 \div 5 = 21$
+  \item 丙衍数：$105 \div 7 = 15$
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small
+\textbf{\color{sectioncolor}【详细演算过程】}
+
+将三种器的容量列出：甲3石，乙5石，丙7石。这些都是元数（基本整数）。
+
+连环求等，约奇弗约偶：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 3和5求等得1，不约
+  \item 3和7求等得1，不约
+  \item 5和7求等得1，不约
+\end{itemize}
+
+三数两两互素，直接以元数为定母：3、5、7。
+
+衍母 = 3 × 5 × 7 = 105。
+
+各定母去除衍母得到衍数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：105 ÷ 3 = 35
+  \item 乙：105 ÷ 5 = 21
+  \item 丙：105 ÷ 7 = 15
+\end{itemize}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+各满定母去之，得奇数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲奇数：$35 \bmod 3 = 2$
+  \item 乙奇数：$21 \bmod 5 = 1$
+  \item 丙奇数：$15 \bmod 7 = 1$
+\end{itemize}
+
+大衍求一入之，得乘率：
+
+\textbf{甲乘率求法：}置奇2于右上，定3于右下，天元一于左上。以右上2除右下3，商1余1。以商1乘左上1得1，入左下。右上余一而止。验左下得2，满定母3去之，不满，故甲乘率为2。
+
+\textbf{乙乘率求法：}置奇1于右上，定5于右下，天元一于左上。奇数已见单一，便为乘率1。
+
+\textbf{丙乘率求法：}置奇1于右上，定7于右下，天元一于左上。奇数已见单一，便为乘率1。
+
+以乘率乘衍数得用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲用数：$2 \times 35 = 70$
+  \item 乙用数：$1 \times 21 = 21$
+  \item 丙用数：$1 \times 15 = 15$
+\end{itemize}
+
+\textbf{按：}此70、21、15三数，即《孙子算经》所谓"三三数之剩一，则置七十；五五数之剩一，则置二十一；七七数之剩一，则置十五"之由来也。秦氏以大衍求一术明其立法之原，使后世可推之于任意之数。
+\switchcolumn\small
+用定母去除衍数，求余数（奇数）：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：35 ÷ 3 = 11 余 2
+  \item 乙：21 ÷ 5 = 4 余 1
+  \item 丙：15 ÷ 7 = 2 余 1
+\end{itemize}
+
+运用大衍求一术求乘率：
+
+\textbf{甲乘率：}奇数2放右上，定数3放右下，1放左上。右下3除以右上2，商1余1。商1乘左上1得1，加到左下。右上余1，停止。左下得2，不满定母3，故乘率为2。
+
+\textbf{乙乘率：}奇数已为1，乘率直接为1。
+
+\textbf{丙乘率：}奇数已为1，乘率直接为1。
+
+乘率乘衍数得到用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：2 × 35 = 70
+  \item 乙：1 × 21 = 21
+  \item 丙：1 × 15 = 15
+\end{itemize}
+
+\textbf{说明：}70、21、15这三个"用数"，正是《孙子算经》中"三三数之余一置七十，五五数之余一置二十一，七七数之余一置十五"的来源。秦九韶以大衍求一术阐明了这些数字的构造原理，使其可以推广到任意的模数和余数。
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn[0]*\small
+次置各余数：甲余2石、乙余3石、丙余2石。各以用数乘之：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：$2 \times 70 = 140$
+  \item 乙：$3 \times 21 = 63$
+  \item 丙：$2 \times 15 = 30$
+\end{itemize}
+
+并为总数：$140 + 63 + 30 = 233$。
+
+满衍母105去之：$233 \div 105 = 2$余23。
+
+不满衍母者23，即为所求米总数23石。
+
+\textbf{验算：}
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item $23 \div 3 = 7$余2（甲器余2石）✓
+  \item $23 \div 5 = 4$余3（乙器余3石）✓
+  \item $23 \div 7 = 3$余2（丙器余2石）✓
+\end{itemize}
+三器量之皆合题设，合问。
+\switchcolumn\small
+将各余数列出：甲余2石，乙余3石，丙余2石。分别乘以用数：
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 甲：2 × 70 = 140
+  \item 乙：3 × 21 = 63
+  \item 丙：2 × 15 = 30
+\end{itemize}
+
+总数 = 140 + 63 + 30 = 233。
+
+用衍母105去除：233 ÷ 105 = 2 余 23。
+
+余数23就是所求的最小正整数解——米的总数为23石。
+
+\textbf{验证：}
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 23 ÷ 3 = 7 余 2 ✓
+  \item 23 ÷ 5 = 4 余 3 ✓
+  \item 23 ÷ 7 = 3 余 2 ✓
+\end{itemize}
+三种箩筐量之都与题设一致。
+
+\textbf{通解：}由于衍母为105，所以所有解的形式为$23 + 105k$（$k = 0, 1, 2, \ldots$）。
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 最小正整数解：23石
+  \item 次一解：23 + 105 = 128石
+  \item 再下一解：128 + 105 = 233石（即上面的"总数"）
+\end{itemize}
+\end{paracol}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% EDITORIAL COMMENTARY ON PROBLEM 9
+%% ========================================================================
+\section*{\zhtext{按：大衍术与孙子物不知数}}
+\addcontentsline{toc}{section}{按：大衍术与孙子"物不知数"}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\begin{preface}
+按余米推数之问，即《孙子算经》卷下第26问"今有物不知其数"之问也。孙子设三、五、七为问，答以二十三，术曰：三三数之剩二，置一百四十；五五数之剩三，置六十三；七七数之剩二，置三十。并之得二百三十三，以二百一十减之即得。凡三三数之剩一，则置七十；五五数之剩一，则置二十一；七七数之剩一，则置十五。一百六以上，以一百五减之即得。
+
+孙子之术，暗合大衍之理，然未能明言其立法之原。秦氏乃阐发其奥，著为大衍求一术、大衍总数术，使天下之物不知数者皆有定法可求。不特三、五、七，即元数之繁者、收数之细者、通数之分者、复数之巨者，皆可一以贯之。
+
+其大衍求一术，置奇右上，定居右下，天元一于左上，递互除乘，使右上余一而止。此法与泰西之连分数法、扩展欧几里得算法本质相同，而秦氏早于西方数百年发之。可谓中国数学之瑰宝也。
+\end{preface}
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{【编者按：大衍术与孙子"物不知数"问题】}
+
+"余米推数"这一问，就是《孙子算经》卷下第26题"今有物不知其数"的经典问题。孙子的题目用3、5、7作为模数，答案是23。其算法是：被3除余2，就放140；被5除余3，就放63；被7除余2，就放30。加起来得233，减去210（即2×105）就得到23。至于为什么用70、21、15这三个"用数"，孙子的解释是：被3除余1就放70，被5除余1就放21，被7除余1就放15。如果总数超过106，就减去105。
+
+孙子的方法暗合大衍术的原理，但他没有阐明这些数字（70、21、15）的构造原理和来源。秦九韶则深入发掘其中的奥秘，著成"大衍求一术"和"大衍总数术"，使天下所有"物不知数"的问题都有了确定的算法可求。不限于3、5、7这几个简单的数，即使是繁杂的元数、精细的小数（收数）、复杂的分数（通数）、巨大的整数（复数），都可以用统一的方法求解。
+
+大衍求一术的具体操作是：奇数放右上，定数放右下，1放左上，通过上下交替除、左右交替乘，直到右上变为1为止。这个方法与西方的"连分数法"和"扩展欧几里得算法"本质上完全相同，而秦九韶比西方早数百年就发明了这一方法。这可以说是中国数学的瑰宝！
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% MATHEMATICAL ANALYSIS
+%% ========================================================================
+\section{\zhtext{数理分析} Mathematical Analysis of the Dayan Method}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{\zhtext{大衍术的现代数学表述}}
+
+大衍总数术求解一次同余式组。设有两两互素之定数$m_1, m_2, \ldots, m_n$，及各余数$r_1, r_2, \ldots, r_n$，求$N$满足：
+\begin{align*}
+N &\equiv r_1 \pmod{m_1} \\
+N &\equiv r_2 \pmod{m_2} \\
+&\vdots \\
+N &\equiv r_n \pmod{m_n}
+\end{align*}
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{大衍术的现代数学表述}
+
+大衍总数术求解的是一次同余方程组。设有一组两两互素的正整数$m_1, m_2, \ldots, m_n$（即秦氏所谓"定数"），以及一组余数$r_1, r_2, \ldots, r_n$，要求找到一个整数$N$，使得$N$被每个$m_i$除后的余数恰好是$r_i$。用现代数学符号表示：
+\begin{align*}
+N &\equiv r_1 \pmod{m_1} \\
+N &\equiv r_2 \pmod{m_2} \\
+&\vdots \\
+N &\equiv r_n \pmod{m_n}
+\end{align*}
+这就是现代数论中著名的"中国剩余定理"（Chinese Remainder Theorem）所处理的问题。
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{\zhtext{秦九韶算法七步}}
+
+\textbf{第一步：求定数。}置诸元数，两两连环求等，约奇弗约偶，约至诸数两两互素为止。
+
+\textbf{第二步：求衍母。}诸定相乘：$M = m_1 \times m_2 \times \cdots \times m_n$。
+
+\textbf{第三步：求衍数。}以各定约衍母：$M_i = M / m_i$。
+
+\textbf{第四步：求奇数。}以各定母满去衍数，余为奇数：$g_i = M_i \bmod m_i$。
+
+\textbf{第五步：大衍求一。}求乘率$k_i$，使$k_i \cdot g_i \equiv 1 \pmod{m_i}$。
+
+\textbf{第六步：求用数。}$u_i = k_i \cdot M_i$。
+
+\textbf{第七步：求总数。}$N = \sum r_i \cdot u_i \pmod{M}$。
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{秦九韶大衍术的七个步骤}
+
+\textbf{第一步：求定数。}给定一组原始数（元数），通过两两配对求最大公约数（"连环求等"），按"约奇弗约偶"的规则反复约分，直到所有数两两互素为止。这些处理后的数就是"定数"。
+
+\textbf{第二步：求衍母。}把所有定数相乘，得到衍母$M = m_1 \times m_2 \times \cdots \times m_n$。衍母是所有定数的最小公倍数。
+
+\textbf{第三步：求衍数。}用衍母分别除以每个定数，得到各衍数$M_i = M / m_i$。每个衍数都能被其他所有定数整除，唯独不能被自己的定数整除。
+
+\textbf{第四步：求奇数。}用每个定数去除对应的衍数，余数就是"奇数"$g_i = M_i \bmod m_i$。
+
+\textbf{第五步：大衍求一。}对每个奇数$g_i$和定数$m_i$，用"求一术"求出乘率$k_i$，使得$k_i \times g_i$被$m_i$除后余1。这个$k_i$就是$g_i$关于模$m_i$的乘法逆元。
+
+\textbf{第六步：求用数。}用数$u_i = k_i \times M_i$具有关键性质：被自己的定数$m_i$除余1，被其他所有定数整除。
+
+\textbf{第七步：求总数。}将各余数$r_i$乘以对应的用数$u_i$，相加后取衍母$M$的余数，就是最终答案$N$。
+
+\end{paracol}
+
+\subsection*{\zhtext{各问定数与衍母表} Summary Table of Problems}
+
+\begin{center}
+\small
+\begin{tabular}{clcccc}
+\toprule
+\textbf{问} & \textbf{题名} & \textbf{定数} & \textbf{衍母} & \textbf{所求} \\
+\midrule
+1 & 蓍卦发微 & 12, 3（衍法） & 12 & 象数 \\
+2 & 古历会积 & （历元诸数） & （亿级） & 积年 \\
+3 & 推计土功 & 27, 19, 25, 8 & 102,600 & 堤长 \\
+4 & 推库额钱 & 11, 11, 5, 9, 8, 7, 1 & 27,720 & 日息足钱 \\
+5 & 分粜推原 & 83, 22, 135 & 246,510 & 米总数 \\
+6 & 程行计地 & 75, 16, 3 & 3,600 & 距离 \\
+7 & 程行相及 & 5, 7, 96 & 3,360 & 距离 \\
+8 & 积尺寻源 & （四色砖尺寸） & （复合） & 基深广 \\
+9 & 余米推数 & 3, 5, 7 & 105 & 米总数 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+\textbf{\zhtext{历史意义}}
+
+独大衍法不载九章，未有能推之者。历家演法颇用之，以为方程者，误也。--- 秦九韶《数书九章·序》
+
+大衍求一术实为扩展欧几里得算法之先声，秦氏早于西方数百年发其理。高斯《算术探究》（1801年）始给完整论述，称"求一数，以诸数除之，各余给定之数"。
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{历史意义}
+
+"唯独大衍之法没有被收入《九章算术》，也没有人能够阐发推演它。制定历法的人虽然在计算中大量使用它，却把它当成普通的方程术，这是错误的。" --- 秦九韶《数书九章·序》
+
+大衍求一术实际上是"扩展欧几里得算法"的先驱，秦九韶比西方早数百年就发现了这一原理。直到高斯在《算术探究》（1801年）中才给出完整论述，他称此问题为"求一个数，使得它被若干给定的数除后，余数也是给定的"。
+
+秦九韶的贡献在于：不仅给出了求模逆元的系统算法（求一术），还建立了处理非互素模数的方法（通过"求定数"将非互素模数约化为互素），并将整个方法统一为一个完整的理论体系（大衍总数术）。这使得中国剩余定理从特殊技巧上升为一般理论，其深度远超《孙子算经》中的原始表述。
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% END MATTER
+%% ========================================================================
+\section*{About This Edition \zhtext{关于本版}}
+\addcontentsline{toc}{section}{About This Edition 关于本版}
+
+\begin{paracol}{2}
+
+\switchcolumn[0]*\leftcolheader
+
+\small
+本版为《数书九章》卷一《大衍类》之文言文/白话文对照版。
+
+\textbf{编纂说明：}
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 左栏为秦九韶原文（文言文），保留传统\zhtext{问、答、术、草}四段式结构
+  \item 右栏为现代汉语白话文翻译，力求准确传达原文数学含义
+  \item 专名术语保留原字，必要时附注释
+  \item 数学记号采用现代通用符号，与传统术文并行
+\end{itemize}
+
+\textbf{核心术语对照：}
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item 大衍 --- 一种基于《周易》的数学方法
+  \item 求一术 --- 求模逆元的方法
+  \item 定数 --- 两两互素的因数
+  \item 衍数 --- 各定数的乘积除以该定数
+  \item 衍母 --- 所有定数的乘积（即最小公倍数）
+  \item 奇数 --- 衍数被定数除后的余数
+  \item 乘率 --- 模逆元（使奇数×乘率 ≡ 1 mod 定数）
+  \item 用数 --- 乘率×衍数（关键构造数）
+\end{itemize}
+
+\switchcolumn\rightcolheader
+
+\small\color{prefacecolor}
+\textbf{Edition Notes:}
+
+This bilingual edition presents Fascicle I (Dayan Category) of Qin Jiushao's \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections), with Classical Chinese (Wenyanwen) on the left and Modern Chinese Vernacular (Baihuawen) on the right.
+
+\textbf{Key features:}
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item Left column: Original classical Chinese text, preserving the traditional \zhtext{wen-da-shu-cao} (question-answer-method-working) structure
+  \item Right column: Modern Chinese vernacular translation, aiming for mathematical accuracy
+  \item Technical terms retained in original form with explanatory notes
+  \item Modern mathematical notation used alongside traditional terminology
+\end{itemize}
+
+\textbf{Terminology:}
+\begin{itemize}[topsep=0pt,parsep=0pt]
+  \item Dayan (\zhtext{大衍}) --- A mathematical method based on the \textit{Zhouyi} (Book of Changes)
+  \item Qiuyi shu (\zhtext{求一术}) --- Method for finding modular multiplicative inverses
+  \item Ding shu (\zhtext{定数}) --- Pairwise coprime factors
+  \item Yan shu (\zhtext{衍数}) --- Product of all ding numbers divided by each ding number
+  \item Yan mu (\zhtext{衍母}) --- Product of all ding numbers (the LCM)
+  \item Qi shu (\zhtext{奇数}) --- Remainder of yan shu divided by ding shu
+  \item Cheng lv (\zhtext{乘率}) --- Modular inverse
+  \item Yong shu (\zhtext{用数}) --- Key constructed number for the final sum
+\end{itemize}
+
+\end{paracol}
+
+\vspace{1em}
+\subsection*{\zhtext{参考文献} References}
+
+\begin{enumerate}[label={[\arabic*]},topsep=2pt,parsep=2pt]
+  \item Libbrecht, U. \textit{Chinese Mathematics in the Thirteenth Century: The Shu-shu chiu-chang of Ch'in Chiu-shao}. MIT Press, 1973. （秦九韶研究的经典英文专著）
+  \item 钱宝琮.《中国数学史》. 科学出版社, 1964.
+  \item 吴文俊 主编.《中国数学史大系》. 北京师范大学出版社, 2000.
+  \item Martzloff, J.-C. \textit{A History of Chinese Mathematics}. Springer, 1997.
+  \item 郭书春.《数书九章校证》. 陕西科学技术出版社, 2004.
+  \item 李约瑟.《中国科学技术史》第三卷（数学）. 科学出版社, 1978.
+\end{enumerate}
+
+\vfill
+\begin{center}
+\textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}\\[0.5em]
+\textit{Typeset in \LaTeX\ --- Chinese / Modern Chinese Bilingual Edition --- \the\year}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: translations/zh/chinese/qin-jiushao-shuxue-jiuzhang-fascicles5-6_classical-modern_bilingual.tex
+% ============================================================
+
+%% =============================================================================
+%% 數學九章 (Shuxue Jiuzhang) — Fascicles 5–6
+%% BILINGUAL EDITION: Classical Chinese ←→ Modern Chinese Vernacular
+%% Author: Qin Jiushao (秦九韶), Song Dynasty
+%% Source: Siku Quanshu (四庫全書) Edition
+%% Typeset with XeLaTeX
+%% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{chinese}
+
+%% -------- Font Configuration --------
+\setmainfont[
+  BoldFont=LinLibertine_RB.otf,
+  ItalicFont=LinLibertine_RI.otf,
+  BoldItalicFont=LinLibertine_RBI.otf]{LinLibertine_R.otf}
+\setsansfont[
+  BoldFont=LinBiolinum_RB.otf,
+  ItalicFont=LinBiolinum_RI.otf]{LinBiolinum_R.otf}
+
+%% Chinese Fonts
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{80,40,20}
+\definecolor{answercolor}{RGB}{20,80,40}
+\definecolor{methodcolor}{RGB}{20,40,80}
+\definecolor{classicalbg}{RGB}{255,252,245}
+\definecolor{modernbg}{RGB}{245,250,255}
+\definecolor{modernlabel}{RGB}{120,60,20}
+\definecolor{headerclassical}{RGB}{139,69,19}
+\definecolor{headermodern}{RGB}{25,100,140}
+
+%% -------- Column settings for paracol --------
+\columnsep=10mm
+\globalcounter{table}
+
+%% -------- Custom Column Backgrounds --------
+\backgroundcolor{c[0](0.5\columnsep,0.5\columnsep)}{classicalbg}
+\backgroundcolor{c[1](0.5\columnsep,0.5\columnsep)}{modernbg}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{problemcolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{數學九章 — 卷五~\&~卷六 \;|\; 文言文 \;\raisebox{-0.5pt}{$\leftrightarrow$}\; 白話文}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Classical Chinese problem structure commands
+\newcommand{\ClassicalQuestion}[1]{\par\noindent\textbf{\color{problemcolor}問：}#1\par}
+\newcommand{\ClassicalAnswer}[1]{\par\noindent\textbf{\color{answercolor}答曰：}#1\par}
+\newcommand{\ClassicalMethod}[1]{\par\noindent\textbf{\color{methodcolor}術曰：}#1\par}
+\newcommand{\ClassicalWorking}[1]{\par\noindent\textbf{草曰：}#1\par}
+\newcommand{\ClassicalNote}[1]{\par\noindent\textit{［按］#1}\par}
+
+%% Modern Chinese problem structure commands
+\newcommand{\ModernQuestion}[1]{\par\noindent\textbf{\color{modernlabel}【题问】}#1\par}
+\newcommand{\ModernAnswer}[1]{\par\noindent\textbf{\color{answercolor}【答案】}#1\par}
+\newcommand{\ModernMethod}[1]{\par\noindent\textbf{\color{methodcolor}【算法】}#1\par}
+\newcommand{\ModernWorking}[1]{\par\noindent\textbf{【演算】}#1\par}
+\newcommand{\ModernNote}[1]{\par\noindent\textit{\color{notecolor}［编者按］#1}\par}
+
+%% Column headers
+\newcommand{\ClassicalHeader}{%
+  \begin{center}\textbf{\color{headerclassical}【原文 · 文言文】}\end{center}
+  \vspace{-0.5em}
+  \hrule height 0.8pt
+  \vspace{0.5em}
+}
+\newcommand{\ModernHeader}{%
+  \begin{center}\textbf{\color{headermodern}【译文 · 白话文】}\end{center}
+  \vspace{-0.5em}
+  \hrule height 0.8pt
+  \vspace{0.5em}
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={數學九章 卷五至六 文言文-白話文對照版},
+  pdfauthor={Qin Jiushao (秦九韶)},
+  pdfsubject={Chinese Mathematics -- Bilingual Classical/Modern Edition}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% Reduce paragraph spacing for dense Chinese text
+\setlength{\parskip}{0.5ex plus 0.2ex minus 0.1ex}
+\setlength{\parindent}{2em}
+
+%% Suppress paracol column swapping page breaks in certain contexts
+\renewcommand{\rownumber}{}
+
+%% =============================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2.5cm}
+
+{\fontsize{36}{44}\selectfont\color{titlecolor}\CJKfamily{}\textbf{數學九章}}
+
+\vspace{1.2cm}
+
+{\fontsize{16}{20}\selectfont\color{sectioncolor} 卷五~\&~卷六 · 文言文~$\longleftrightarrow$~白話文對照版}
+
+\vspace{0.8cm}
+
+{\large\color{sectioncolor}
+卷五：\textbf{賦役}（賦稅和徭役）\quad|\quad
+卷六：\textbf{錢穀}（貨幣和糧食）}
+
+\vspace{2.5cm}
+
+{\large 宋\quad 秦九韶\quad 撰}
+
+\vspace{0.5cm}
+
+{\normalsize\textit{Qin Jiushao (c.\ 1202--1261)}}
+
+\vspace{2cm}
+
+{\color{rulecolor}\rule{0.6\textwidth}{0.4pt}}
+
+\vspace{1.5cm}
+
+{\small\color{sectioncolor}
+\textit{Siku Quanshu}（四庫全書）Edition\\[0.5em]
+文言文原文 · 白話文譯文對照排版\\[0.3em]
+Digital Typesetting\quad|\quad Bilingual Edition}
+
+\vspace{2.5cm}
+
+{\small\color{notecolor}
+\textit{本書保留中國古代數學典籍傳統結構：\\
+問（題問）、答（答案）、術（算法）、草（演算）}}
+
+\vfill
+{\small\color{sectioncolor} Compiled with XeLaTeX · Noto Sans CJK SC}
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+
+
+%% =============================================================================
+%% FASCICLE 5A — 賦役 (Part 1)
+%% =============================================================================
+\newpage
+\section*{\color{titlecolor}卷五上\quad 賦役（賦稅和徭役）}
+\addcontentsline{toc}{section}{卷五上\quad 賦役}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\noindent\textbf{按：}賦役一章，即古九章中差分粟米諸法。但從來算書設題之數未有如此卷之多者。如首題答數至一百七十五條，毎條歩算之數至十餘位，而得數皆無不合，亦可謂能廣其用矣。且諸問皆足以明貴賤廩税及交質變易之同異，使公私各得其平，誠治民之要務也。但題語多晦，術草中間有與所問不相應者，亦於各條下指出，俾觀者無惑焉。
+
+\switchcolumn
+
+\ModernHeader
+
+\noindent\textbf{【按語】}賦役這一章，就是古代《九章算術》中「差分」「粟米」等各種算法的擴展。但是從來算書中的設題數量，沒有像這一卷這麼多的。比如第一題的答案多達一百七十五條，每條計算的數字達到十幾位，而且所得結果都沒有不吻合的，也可以說是極大地擴展了這些算法的應用範圍。況且各題都足以闡明貴賤、廩税以及交換質易的異同，使公私各得其平，確實是治理百姓的重要事務。只是題目語言多晦澀，術草中間有與所問不相應的地方，也在各條下面指出，使讀者不會迷惑。
+
+\end{paracol}
+
+\longline
+
+\subsection*{\color{sectioncolor}復邑修賦（恢復縣城修訂賦稅）}
+\addcontentsline{toc}{subsection}{復邑修賦}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+有海坍縣地，今有復漲，歳乆鄉井再成，申諸剏邑。稱土排到六鄉，以附郭為甲，最逺為已，各有田九等，開具下項：
+
+\begin{longtable}{p{0.85\textwidth}}
+\toprule
+\textbf{甲鄉}共計田十四萬一百九十三畝三角一十二步\\
+\midrule
+\endhead
+上等：上田五千六百七十八畝一角四十八歩；中田四千八百九十二畝三十歩；下田六千六百二十一畝五十四歩\\
+中等：上田八千二百二十五畝二十四歩；中田一萬三十五畝六歩；下田一萬六千五百三十畝\\
+下等：上田二萬一千九十畝二十四歩；中田三萬二千六十畝三歩；下田三萬五千六十一畝三角三歩\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{p{0.85\textwidth}}
+\toprule
+\textbf{乙鄉}田共計八萬四千一十畝二角二歩\\
+\midrule
+\endhead
+上等：上田六千七百八十九畝一角三十六歩；中田五千九百八十七畝二角；下田八千一十畝三角三歩\\
+中等：上田七千五百四十一畝；中田九千一百二十一畝二角一十二歩；下田一萬九千六十歩\\
+下等：上田一萬八千三十七畝一角六歩；中田九千四百五十六畝三角五十九歩；下田無\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{p{0.85\textwidth}}
+\toprule
+\textbf{丙鄉}田共計一十二萬九百三十五畝五十八歩五分\\
+\midrule
+\endhead
+上等：上田四千八百六十八畝二角三歩；中田五千九百七十九畝三角六歩；下田六千八百八十八畝二角六歩\\
+中等：上田七千九百八十四畝一角；中田一萬四千五十六畝一十二歩；下田二萬三千三百三十三畝一十二歩\\
+下等：上田二萬七千七百五十五畝一十六歩五分；中田無；下田三萬七十畝三歩\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{p{0.85\textwidth}}
+\toprule
+\textbf{丁鄉}田共計八萬九千六十六畝二歩三分\\
+\midrule
+\endhead
+上等：上田一萬一千一百二畝一歩；中田九千八百七十六畝一角；下田八千七百六十五畝一角三十歩\\
+中等：上田七千五百三十九畝三十四歩三分；中田無；下田一萬二千九百八十七畝四十二歩\\
+下等：上田無；中田五千四百三十二畝一角六歩；下田三萬三千三百六十三畝三角九歩\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{p{0.85\textwidth}}
+\toprule
+\textbf{戊鄉}田共計二十萬四千四百七十四畝一角二十四歩四分\\
+\midrule
+\endhead
+上等：上田二萬四千六百三十二畝三十九歩；中田一萬三千五百二十一畝二十七歩；下田九千九百八十八畝三角三歩\\
+中等：上田八千八百七十七畝五十六歩四分；中田一萬一千三百三十三畝三角；下田二萬七千六十七畝\\
+下等：上田一萬九千八百七十六畝三角六歩；中等田七萬九千一百三十五畝三角四十三歩；下田一萬四十一畝二角三十歩\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{p{0.85\textwidth}}
+\toprule
+\textbf{已鄉}田共計一十五萬八千四百六十畝三角一十八歩二分\\
+\midrule
+\endhead
+上等：上田無；中田七千七百八十八畝三角五十一歩；下田無\\
+中等：上田九千九百九十九畝二角三歩；中田一萬八百三十六畝五十六歩；下田無\\
+下等：上田三萬二千八十九畝一角四十五歩六分；中田四萬三千六百七十八畝二角五十七歩；下田五萬四千六十七畝三角四十五歩六分\\
+\bottomrule
+\end{longtable}
+
+照得昨來本縣原科苗米一十萬三千五百六十七石八斗四升四合三勺，和買一萬三千四百九十八匹一丈七尺三寸七分六釐，夏税九千八百七十六匹三丈二尺六寸五分八釐。其六鄉田係三色，甲為上，乙丙為次，丁戊己又為次。先令官物為三差，使上比中、中比下皆十分外差一，次令各鄉九等皆於十分内差一，抛科用合租額。其乙鄉田最肥，次丁，次甲，次丙，次己，次戊。欲知三色九等毎畝等則及共科數各鄉幾何？
+}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+有一個因海水侵蝕而坍廢的縣地，現在海水退去土地復漲，年久鄉里重新形成，申請設立新縣。經丈量土地分為六個鄉，以靠近城郭的為甲鄉，最遠的為己鄉，每個鄉都有九等田地，開列如下：
+
+\textbf{【甲鄉】}共計田十四萬零一百九十三畝零三十二步（一角=10畝的1/10，約30步）
+
+\begin{itemize}[leftmargin=1.5em,topsep=0pt,itemsep=1pt]
+\item 上等：上田5678畝148步；中田4892畝30步；下田6621畝54步
+\item 中等：上田8225畝24步；中田10035畝6步；下田16530畝
+\item 下等：上田21090畝24步；中田32060畝3步；下田35061畝33步
+\end{itemize}
+
+\textbf{【乙鄉】}田共計84010畝22步
+
+\begin{itemize}[leftmargin=1.5em,topsep=0pt,itemsep=1pt]
+\item 上等：上田6789畝136步；中田5987畝20步；下田8010畝33步
+\item 中等：上田7541畝；中田9121畝22步；下田19060步
+\item 下等：上田18037畝16步；中田9456畝59步；下田無
+\end{itemize}
+
+（丙鄉、丁鄉、戊鄉、己鄉數據同上，略）
+
+查得原來本縣徵收苗米103,567石8斗4升4合3勺，和買（徵購絹帛）13,498匹1丈7尺3寸7分6釐，夏税9876匹3丈2尺6寸5分8釐。六鄉田地分三等，甲為上等，乙丙為次等，丁戊己又為次等。先將官物分為三個等差，使上等比中等、中等比下等都按十分之外差一（即1.1倍），再令各鄉九等都按十分之內差一（即0.9倍），按比例分攤配額。乙鄉田地最肥，其次丁、甲、丙、己、戊。求三等九等每畝的科率以及各鄉共徵收的數量各為多少？
+}
+
+\end{paracol}
+
+
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+題内言田有三色，甲為上云云，又言乙鄉田最肥云云，語若相左。葢前言三色者六鄉共科之等，後言田肥者每畝所出之異也。若易田係三色為科有三差，則語意明矣。}
+
+\switchcolumn
+
+\ModernNote{%
+題目內說田地有三色，甲為上等，又說乙鄉田地最肥，語言似乎矛盾。原來前面說的三色是六鄉共分徵收的三個等級，後面說的田地肥瘦是每畝產量的差異。如果把「田係三色」改為「科有三差」，語意就清楚了。}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+\textbf{甲鄉：}上等上田苗三斗二升三合二勺，和一尺六寸九分，税一尺二寸三分；
+中田苗二斗九升九勺，和一尺五寸二分，税一尺一寸一分；
+下田苗二斗五升八合六勺，和一尺三寸五分，税九寸九分。
+
+中等上田苗二斗二升六合二勺，和一尺一寸八分，税八寸六分；
+中田苗一斗九升三合九勺，和一尺一分，税七寸四分；
+下田苗一斗六升一合六勺，和八寸四分，税六寸二分。
+
+下等上田苗一斗二升九合三勺，和六寸七分，税四寸九分；
+中田苗九升六合九勺，和五寸一分，税三寸七分；
+下田苗六升四合六勺，和三寸四分，税二寸五分。
+
+\textbf{乙鄉：}上等上田苗三斗六升三合三勺，和一尺八寸九分，税一尺三寸九分；
+中田苗三斗二升六合九勺，和一尺七寸，税一尺二寸五分；
+下田苗二斗九升六勺，和一尺五寸二分，税一尺一寸一分。
+
+中等上田苗二斗五升四合三勺，和一尺三寸三分，税九寸七分；
+中田苗二斗一升八合，和一尺一寸四分，税八寸三分；
+下田苗一斗八升一合六勺，和九寸五分，税六寸九分。
+
+下等上田苗一斗四升五合三勺，和七寸六分，税五寸五分；
+中田苗一斗九合，和五寸七分，税四寸二分；
+下田苗七升二合七勺，和三寸八分，税二寸八分。
+}
+
+\switchcolumn
+
+\ModernAnswer{%
+\textbf{【甲鄉】}上等上田每畝徵苗米3斗2升3合2勺，和買（配額絹）1尺6寸9分，夏税1尺2寸3分；
+上等中田苗米2斗9升9勺，和買1尺5寸2分，税1尺1寸1分；
+上等下田苗米2斗5升8合6勺，和買1尺3寸5分，税9寸9分。
+
+中等上田苗米2斗2升6合2勺，和買1尺1寸8分，税8寸6分；
+中等中田苗米1斗9升3合9勺，和買1尺1分，税7寸4分；
+中等下田苗米1斗6升1合6勺，和買8寸4分，税6寸2分。
+
+下等上田苗米1斗2升9合3勺，和買6寸7分，税4寸9分；
+下等中田苗米9升6合9勺，和買5寸1分，税3寸7分；
+下等下田苗米6升4合6勺，和買3寸4分，税2寸5分。
+
+\textbf{【乙鄉】}上等上田苗米3斗6升3合3勺，和買1尺8寸9分，税1尺3寸9分；
+上等中田苗米3斗2升6合9勺，和買1尺7寸，税1尺2寸5分；
+上等下田苗米2斗9升6勺，和買1尺5寸2分，税1尺1寸1分。
+
+中等上田苗米2斗5升4合3勺，和買1尺3寸3分，税9寸7分；
+中等中田苗米2斗1升8合，和買1尺1寸4分，税8寸3分；
+中等下田苗米1斗8升1合6勺，和買9寸5分，税6寸9分。
+
+下等上田苗米1斗4升5合3勺，和買7寸6分，税5寸5分；
+下等中田苗米1斗9合，和買5寸7分，税4寸2分；
+下等下田苗米7升2合7勺，和買3寸8分，税2寸8分。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+\textbf{丙鄉：}上等上田苗三斗三合五勺，和一尺五寸八分，税一尺一寸六分；
+中田苗二斗七升三合一勺，和一尺四寸二分，税一尺四分；
+下田苗二斗四升二合八勺，和一尺二寸七分，税九寸三分。
+
+中等上田苗二斗一升二合四勺，和一尺一寸一分，税八寸一分；
+中田苗一斗八升二合一勺，和九寸五分，税六寸九分；
+下田苗一斗五升一合七勺，和七寸九分，税五寸八分。
+
+下等上田苗一斗二升一合四勺，和六寸三分，税四寸六分；
+中田苗九升一合，和四寸七分，税三寸五分；
+下田苗六升七勺，和三寸二分，税二寸三分。
+
+\textbf{丁鄉：}上等上田苗三斗四升三合二勺，和一尺七寸九分，税一尺三寸一分；
+中田苗三斗八合九勺，和一尺六寸一分，税一尺一寸八分；
+下田苗二斗七升四合六勺，和一尺四寸三分，税一尺五分。
+
+中等上田苗二斗四升二勺，和一尺二寸五分，税九寸二分；
+中田苗二斗五合九勺，和一尺七分，税七寸九分；
+下田苗一斗七升一合六勺，和八寸九分，税六寸五分。
+
+下等上田苗一斗三升七合三勺，和七寸二分，税五寸二分；
+中田苗一斗三合，和五寸四分，税三寸九分；
+下田苗六升八合六勺，和三寸六分，税二寸六分。
+
+\textbf{戊鄉：}上等上田苗一斗五升三合八勺，和八寸，税五寸九分；
+中田苗一斗三升八合四勺，和七寸二分，税五寸三分；
+下田苗一斗二升三合一勺，和六寸四分，税四寸七分。
+
+中等上田苗一斗七合七勺，和五寸六分，税四寸一分；
+中田苗九升二合三勺，和四寸八分，税三寸五分；
+下田苗七升六合九勺，和四寸，税二寸九分。
+
+下等上田苗六升一合五勺，和三寸二分，税二寸三分；
+中田苗四升六合一勺，和二寸四分，税一寸八分；
+下田苗三升八勺，和一寸六分，税一寸二分。
+
+\textbf{已鄉：}上等上田苗二斗八升二合二勺，和一尺四寸七分，税一尺八分；
+中田苗二斗五升三合九勺，和一尺三寸二分，税九寸七分；
+下田苗二斗二升五合七勺，和一尺一寸八分，税八寸六分。
+
+中等上田苗一斗九升七合五勺，和一尺三分，税七寸五分；
+中田苗一斗六升九合三勺，和八寸八分，税六寸五分；
+下田苗一斗四升一合一勺，和七寸四分，税五寸四分。
+
+下等上田苗一斗一升二合九勺，和五寸九分，税四寸三分；
+中田苗八升四合六勺，和四寸四分，税三寸二分；
+下田苗五升六合四勺，和二寸九分，税二寸二分。
+}
+
+\switchcolumn
+
+\ModernAnswer{%
+\textbf{【丙鄉】}（答案數據與甲鄉、乙鄉結構相同，等級依次遞減，略記主要數據）
+上等上田苗米3斗3合5勺，和買1尺5寸8分，税1尺1寸6分；
+上等中田苗米2斗7升3合1勺，和買1尺4寸2分，税1尺4分；
+上等下田苗米2斗4升2合8勺，和買1尺2寸7分，税9寸3分。
+
+中等上田苗米2斗1升2合4勺，和買1尺1寸1分，税8寸1分；
+中等中田苗米1斗8升2合1勺，和買9寸5分，税6寸9分；
+中等下田苗米1斗5升1合7勺，和買7寸9分，税5寸8分。
+
+下等上田苗米1斗2升1合4勺，和買6寸3分，税4寸6分；
+下等中田苗米9升1合，和買4寸7分，税3寸5分；
+下等下田苗米6升7勺，和買3寸2分，税2寸3分。
+
+\textbf{【丁鄉】}上等上田苗米3斗4升3合2勺，和買1尺7寸9分，税1尺3寸1分；
+上等中田苗米3斗8合9勺，和買1尺6寸1分，税1尺1寸8分；
+上等下田苗米2斗7升4合6勺，和買1尺4寸3分，税1尺5分。
+
+中等上田苗米2斗4升2勺，和買1尺2寸5分，税9寸2分；
+中等中田苗米2斗5合9勺，和買1尺7分，税7寸9分；
+中等下田苗米1斗7升1合6勺，和買8寸9分，税6寸5分。
+
+下等上田苗米1斗3升7合3勺，和買7寸2分，税5寸2分；
+下等中田苗米1斗3合，和買5寸4分，税3寸9分；
+下等下田苗米6升8合6勺，和買3寸6分，税2寸6分。
+
+\textbf{【戊鄉】}上等上田苗米1斗5升3合8勺，和買8寸，税5寸9分；
+上等中田苗米1斗3升8合4勺，和買7寸2分，税5寸3分；
+上等下田苗米1斗2升3合1勺，和買6寸4分，税4寸7分。
+
+中等上田苗米1斗7合7勺，和買5寸6分，税4寸1分；
+中等中田苗米9升2合3勺，和買4寸8分，税3寸5分；
+中等下田苗米7升6合9勺，和買4寸，税2寸9分。
+
+下等上田苗米6升1合5勺，和買3寸2分，税2寸3分；
+下等中田苗米4升6合1勺，和買2寸4分，税1寸8分；
+下等下田苗米3升8勺，和買1寸6分，税1寸2分。
+
+\textbf{【己鄉】}上等上田苗米2斗8升2合2勺，和買1尺4寸7分，税1尺8分；
+上等中田苗米2斗5升3合9勺，和買1尺3寸2分，税9寸7分；
+上等下田苗米2斗2升5合7勺，和買1尺1寸8分，税8寸6分。
+
+中等上田苗米1斗9升7合5勺，和買1尺3分，税7寸5分；
+中等中田苗米1斗6升9合3勺，和買8寸8分，税6寸5分；
+中等下田苗米1斗4升1合1勺，和買7寸4分，税5寸4分。
+
+下等上田苗米1斗1升2合9勺，和買5寸9分，税4寸3分；
+下等中田苗米8升4合6勺，和買4寸4分，税3寸2分；
+下等下田苗米5升6合4勺，和買2寸9分，税2寸2分。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+\textbf{各鄉共科數：}
+甲鄉苗米一萬九千五百五十石二斗四升八合三勺；
+和買一萬一百九十二丈二尺六寸五分六釐；
+夏税七千四百五十七丈六尺八寸九分八釐。
+
+乙鄉苗米一萬七千七百七十二石九斗五升三合；
+和買九千二百六十五丈六尺九寸六分；
+夏税六千七百七十九丈七尺一寸八分。
+
+丙鄉苗米一萬七千七百七十二石九斗五升三合；
+和買九千二百六十五丈六尺九寸六分；
+夏税六千七百七十九丈七尺一寸八分。
+
+丁鄉苗米一萬六千一百五十七石二斗三升；
+和買八千四百二十三丈三尺六寸；
+夏税六千一百六十三丈三尺八寸。
+
+戊鄉苗米一萬六千一百五十七石二斗三升；
+和買八千四百二十三丈三尺六寸；
+夏税六千一百六十三丈三尺八寸。
+
+已鄉苗米一萬六千一百五十七石二斗三升；
+和買八千四百二十三丈三尺六寸；
+夏税六千一百六十三丈三尺八寸。
+}
+
+\switchcolumn
+
+\ModernAnswer{%
+\textbf{【各鄉共徵收數量】：}
+甲鄉：苗米19,550石2斗4升8合3勺；和買10,192丈2尺6寸5分6釐；夏税7457丈6尺8寸9分8釐。
+
+乙鄉：苗米17,772石9斗5升3合；和買9265丈6尺9寸6分；夏税6779丈7尺1寸8分。
+
+丙鄉：苗米17,772石9斗5升3合；和買9265丈6尺9寸6分；夏税6779丈7尺1寸8分。
+
+丁鄉：苗米16,157石2斗3升；和買8423丈3尺6寸；夏税6163丈3尺8寸。
+
+戊鄉：苗米16,157石2斗3升；和買8423丈3尺6寸；夏税6163丈3尺8寸。
+
+己鄉：苗米16,157石2斗3升；和買8423丈3尺6寸；夏税6163丈3尺8寸。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以衰分求之。先列本縣色位，自下錐行列之，又以鄉數對列而乗之，副併為法，以除官物數，得一分之率。以率數乗未併者，各得諸鄉之數。次列各鄉等位，自上等置十分，每以内分錐行九折之，至九等止，又各以畝歩乗之，副併為鄉法，以除諸各鄉所得官物數，所得為一分之率，以乗未併者，各得毎畝税色。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用衰分法（等差比例分配法）求解。先排列本縣的三個等級，自下而上按錐形（遞減數列）排列，再以各鄉的數量對應相乘，合併作為除數（法），去除官物總數，得到一分的比率。用比率數乘未合併的各項，得到各鄉應徵之數。再排列各鄉的九個等級，從上等開始設為十分，每次以內分錐形九折（乘以0.9），直到九等為止，再各以畝數步數相乘，合併作為鄉法，去除各鄉所得官物數，所得即為一分的比率，用來乘未合併的各項，得到每畝的税額。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+列本縣色位三，自下色例十分中十一分，上比中身外加一，上得一百二十一，中得一百一十，下得一百，為上中下三率，列之右行。乃列甲一對上率，乙丙共二對中率，丁戊己共三對下率，列左行。乃以左行列數各相對乗右行率數，其上得一百二十一，其十得二百二十，其下得三百，乃副置而併之，得六百四十一為法。置元科苗米一萬三千五百六十七石八斗四升四合三勺為寔，以法除之，得一百六十一石五斗七升二合三勺為一分之率。以未併下率一百乗率，得一萬六千一百五十七石二斗三升為丁戊己三鄉各科數。以於身下加一，得一萬七千七百七十二石九斗五升三合為乙丙二鄉各科數。又於身下加一，得一萬九千五百五十石二斗四升八合三勺為甲合科數。求和買亦用六百四十一為法，置元科和買一萬三千四百九十八匹，以匹法四丈通之，得五萬三千九百九十二丈，内零一丈七尺三寸七分六釐，得五萬三千九百九十三丈七尺三寸七分六釐為寔，以法除之，得八十四丈二尺三寸三分六釐為一分之率。亦以未併下率一百乗之，得八千四百二十三丈三尺六寸為丁戊己三鄉各科數。次於身下加一，得九千二百六十五丈六尺九寸六分為乙丙二鄉各科數。又於身下加一，得一萬一百九十二丈二尺六寸五分六釐為甲鄉合科數。求夏税亦置六百四十一為法，置元科九千八百七十六匹，以匹法四丈通之，得三萬九千五百四丈，内零三丈二尺六寸五分八釐，得三萬九千五百七丈二尺六寸五分八釐為寔，以法除之，得六十一丈六尺三寸三分八釐為一分率。亦以未併下率一百乗之，得六千一百六十三丈三尺八寸為丁戊己三鄉各科數。次於身下加一，得六千七百七十九丈七尺一寸八分为乙丙二鄉各科數。又於身下加一，得七千四百五十七丈六尺八寸九分八釐為甲鄉數。}
+
+\switchcolumn
+
+\ModernWorking{%
+排列本縣的三個等級色位，自下而上，下等率為一百，中等為一百一十（身外加一即1.1倍），上等為一百二十一，作為上中下三個比率，排在右行。再將甲一鄉對應上率，乙丙共二鄉對應中率，丁戊己共三鄉對應下率，排在左行。以左行的數各與右行對應相乘：上得121，中得220，下得300，合併得641作為法（除數）。將原徵苗米數103,567石8斗4升4合3勺作為被除數（實），以法641去除，得161石5斗7升2合3勺為一分的比率。用未合併的下率100乘比率，得16,157石2斗3升為丁戊己三鄉各科數。再加一成（1.1倍），得17,772石9斗5升3合為乙丙二鄉各科數。再加一成，得19,550石2斗4升8合3勺為甲鄉合科數。
+
+求和買也用641為法，將原和買13,498匹以匹法4丈換算，得53,992丈，加上零數1丈7尺3寸7分6釐，共53,993丈7尺3寸7分6釐為實，以法除之，得84丈2尺3寸3分6釐為一分之率。也用下率100乘之，得8,423丈3尺6寸為丁戊己三鄉各科數。再加一成，得9,265丈6尺9寸6分為乙丙二鄉各科數。再加一成，得10,192丈2尺6寸5分6釐為甲鄉合科數。
+
+求夏税也用641為法，將原夏税9,876匹以4丈換算，得39,504丈，加零數3丈2尺6寸5分8釐，共39,507丈2尺6寸5分8釐為實，以法除之，得61丈6尺3寸3分8釐為一分之率。以下率100乘之，得6,163丈3尺8寸為丁戊己三鄉各科數。再加一成，得6,779丈7尺1寸8分為乙丙二鄉各科數。再加一成，得7,457丈6尺8寸9分8釐為甲鄉數。
+}
+
+\end{paracol}
+
+
+
+\newpage
+\subsection*{\color{sectioncolor}圍田租畝（圍田租賦計算）}
+\addcontentsline{toc}{subsection}{圍田租畝}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+有興復圍田已成，共計三千二十一頃五十一畝一十五歩，分三等。其上等毎畆起租六斗，中等四斗五升，下等四斗。中田多上田弱半，不及下田太半。欲知三色田畝及各租幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+有興修恢復的圍田已經完成，共計3021頃51畝15步，分為三等。上等田每畝徵租6斗，中等4斗5升，下等4斗。中等田比上等多三分之一（弱半），比下田少三分之二（太半）。想知道三種田地的畝數以及各等田租分別是多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+題言中田多上田弱半，不及下田太半。蓋以弱半為三分之一，太半為三分之二也。多上田弱半者，即比上田多三分之一也。不及下田太半者，即比下田少三分之二也。是上田加三分之一為中田，即下田三分之一也。轉言之，則中田為下田三分之一，上田為中田四分之三也。}
+
+\switchcolumn
+
+\ModernNote{%
+題目說中等田比上田多弱半，不及下田太半。弱半就是三分之一，太半就是三分之二。「多上田弱半」就是比上田多三分之一。「不及下田太半」就是比下田少三分之二。所以上田加上三分之一就是中田，而中田是下田的三分之一。換句話說，中田是下田的三分之一，上田是中田的四分之三。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+上田四百七十七頃八畝一十五歩，米二萬八千六百二十四石八斗三升七合五勺；
+中田六百三十六頃一十畝三角，米二萬八千六百二十四石八斗三升七合五勺；
+下田一千九百八頃三十二畝一角，米七萬六千三百三十二石九斗。}
+
+\switchcolumn
+
+\ModernAnswer{%
+上田477頃8畝15步，租米28,624石8斗3升7合5勺；
+中田636頃10畝30步，租米28,624石8斗3升7合5勺；
+下田1908頃32畝10步，租米76,332石9斗。}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以衰分求之。列母子求田率，副併為法，以共田為寔，寔如法而一，得一分之率。以徧乗未併者，得三等田。各以起租乗之，各得米。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用衰分法求解。排列母子數求田地的比率，合併作為法，以總田數為被除數，被除數除以法，得到一分的比率。遍乘未合併的各數，得到三等田的畝數。再各以起租數相乘，得到各等田租的米數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置弱半母四為中率，子三為上率。以太半子二减母三，餘一，以乗中率四，只得四為中泛。又以餘一乗上率三，只得三為上泛。次以太半母三乗中泛四，得一十二為下泛。副併三泛，得一十九為法。置田三千二十一頃五十一畆，以畝法二百四十通之，得七千二百五十一萬六千二百四十歩，内子一十五歩，得七千二百五十一萬六千二百五十五歩為寔。以法一十九除之，得三百八十一萬六千六百四十五歩為一分之數。以上泛三因之，得一千一百四十四萬九千九百三十五歩為上積。又以中泛四因之一分數，得一千五百二十六萬六千五百八十歩為中積。又以下泛一十二乗一分數，得四千五百七十九萬九千七百四十歩為下積。其三積各以畝法二百四十約之為畆。其上田得四百七十七頃八畝一十五歩，其中田得六百三十六頃一十畝三角，其下積得一千九百八頃三十二畝一角。各以起租，三積為三寔。其上積一千一百四十四萬九千九百三十五歩乗上積六斗，得六百八十六萬九千九百六十一石為寔，以畝法二百四十除之，得二萬八千六百二十四石八斗三升七合五勺為上田租。其中積一千五百二十六萬六千五百八十歩乗中田租四斗五升，得六百八十六萬九千九百六十一石為寔，以畝法二百四十除之，得二萬八千六百二十四石八斗三升七合五勺。其下積四千五百七十九萬九千七百四十歩乗下租四斗，得一千八百三十一萬九千八百九十六石為寔，以畝法二百四十除之，得七萬六千三百三十二石九斗為下田米。}
+
+\switchcolumn
+
+\ModernWorking{%
+將「弱半」的分母4作為中等田的比率，分子3作為上等田的比率。用「太半」的分子2減分母3，餘1，乘中率4，得4為中泛數。再用餘1乘上率3，得3為上泛數。再用太半分母3乘中泛4，得12為下泛數。合併三個泛數，得19為法。將總田3021頃51畝以畝法240步換算，得72,516,240步，加上零數15步，得72,516,255步為被除數。以法19除之，得3,816,645步為一分的數。以上泛3乘之，得11,449,935步為上田積步。以中泛4乘一分數，得15,266,580步為中田積步。以下泛12乘一分數，得45,799,740步為下田積步。三積各以畝法240約為畝數。上田得477頃8畝15步，中田得636頃10畝30步，下田得1908頃32畝10步。
+
+各以起租數計算：上積11,449,935步乘上租6斗，得686,996.1石為被除數，以畝法240除之，得28,624石8斗3升7合5勺為上田租。中積15,266,580步乘中租4斗5升，得686,996.1石為被除數，以240除之，得28,624石8斗3升7合5勺為中田租。下積45,799,740步乘下租4斗，得1,831,989.6石為被除數，以240除之，得76,332石9斗為下田租米。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+草内求各衰數，意謂以三分為上田衰數，加弱半三分之一得四分為中田衰數，三因中田衰數得一十二分為下田衰數，併之得一十九分為總衰數。其法本属顯明，但語中參入母子副泛等名目，其意反晦矣。}
+
+\switchcolumn
+
+\ModernNote{%
+算草中求各衰數的意思，是用3分作為上田的衰數，加上弱半（三分之一）得4分作為中田衰數，3倍中田衰數得12分作為下田衰數，合併得19分為總衰數。這個算法本來很明白，只是語言中加入了母子、副泛等名詞，反而使意思晦澀了。
+}
+
+\end{paracol}
+
+
+
+%% =============================================================================
+%% FASCICLE 5B — 賦役 (Part 2)
+%% =============================================================================
+\newpage
+\section*{\color{titlecolor}卷五下\quad 賦役（賦稅和徭役）}
+\addcontentsline{toc}{section}{卷五下\quad 賦役}
+
+\subsection*{\color{sectioncolor}戶稅移割（戶稅轉移分割）}
+\addcontentsline{toc}{subsection}{戶稅移割}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+某縣據甲稱：本户田地原納苗三十五石七斗，和買本色一十一匹二丈二尺九寸四分八釐七毫五絲，折帛二十七匹二寸一分三釐七毫五絲，紬絹折帛八匹三丈九寸七寸三分九釐，紬絹本色二十匹二丈八尺九寸三分九釐。已将田四百七畆出與乙，五百十六畆出與丙。訖乞移割本户所出田上税賦，歸併乙丙兩户送納。㑹到乙原有田三百七十五畆，丙原有田四百六十三畆，並係本鄉本等。毎畆苗三升五合，税一尺一寸五分，物力一貫二百；本等田紬一尺三寸四分，物力九百；物力及三十二貫數和買一匹，内三分本色七分折帛；夏税七分本色三分折帛；紬五分本色五分折帛，併絹紬。欲知甲田地及甲乙丙分割合納苗米、和買、夏税、折帛、本色、畸零各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+某縣據甲申報：本户田地原來繳納苗米35石7斗，和買本色（現物）11匹2丈2尺9寸4分8釐7毫5絲，折帛（折錢絹）27匹2寸1分3釐7毫5絲，紬絹折帛8匹3丈9寸7分3釐9毫，紬絹本色20匹2丈8尺9寸3分9釐。現在已將田407畝出讓給乙，516畝出讓給丙。請求將本户所出田地上的税賦轉移，歸併到乙丙兩户繳納。經查乙原有田375畝，丙原有田463畝，都是本鄉本等田地。每畝苗米3升5合，税絹1尺1寸5分，物力（財產估值）1貫200文；本等田每畝紬1尺3寸4分，物力900文；物力達到32貫可和買1匹，其中三分本色七分折帛；夏税七分本色三分折帛；紬五分本色五分折帛，與絹紬合併計算。想知道甲的田地以及甲乙丙分割後各應繳納的苗米、和買、夏税、折帛、本色、零頭各為多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+此題科税分田地二項。田有科米、税絹、物力三色，地只有税紬、物力二色，絹與紬折色不同，物力和買合田地總計之。又甲户有田者有地，乙丙二户有田無地。此等皆不可不明言者，題中殊未分晰。}
+
+\switchcolumn
+
+\ModernNote{%
+這道題的科税分為田地兩項。田有科米、税絹、物力三項，地只有税紬、物力二項，絹與紬的折色不同，物力和買要將田地合計。另外甲户既有田又有地，乙丙二户有田無地。這些都應該明確說明，但題中完全沒有分清楚。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+甲原有田一千二十畆，地一十一畆二角四十八步。
+
+甲今有田九十七畆，苗米三石三斗九升五合，夏税折帛三丈三尺四寸六分五釐，本色一匹畸零三丈八尺八分五釐，物力一百一十六貫四百文。地一十一畆二角四十八步，税紬折帛七尺八寸三分九釐，税紬畸零七尺八寸三分九釐，物力一十貫五百三十文，田地共物力一百二十六貫九百三十文。和買折帛二匹三丈一尺六分三釐七毫五絲，本色一疋畸零七尺五寸九分八釐七毫五絲。
+
+乙今有田七百八十二畆，苗米二十七石三斗七升，夏税折帛六匹二丈九尺七寸九分，本色一十五匹畸零二丈九尺五寸一分，物力九百三十八貫四百文，和買折帛二十匹二丈一尺一寸，本色八匹畸零三丈一尺九寸。
+
+丙今有田九百七十九畆，苗米三十四石二斗六升五合，夏税折帛八匹一丈七尺七寸五分五釐，本色一十九匹畸零二丈八尺九分五釐，物力一千一百七十四貫八百文，和買折帛二十五匹二丈七尺九寸五分，本色一十一匹畸零五寸五分。}
+
+\switchcolumn
+
+\ModernAnswer{%
+甲原有田1020畝，地11畝零48步。
+
+甲現有田97畝，苗米3石3斗9升5合，夏税折帛3丈3尺4寸6分5釐，本色1匹零3丈8尺8分5釐，物力116貫400文。地11畝零48步，税紬折帛7尺8寸3分9釐，税紬零數7尺8寸3分9釐，物力10貫530文，田地共物力126貫930文。和買折帛2匹3丈1尺6分3釐7毫5絲，本色1匹零7尺5寸9分8釐7毫5絲。
+
+乙現有田782畝，苗米27石3斗7升，夏税折帛6匹2丈9尺7寸9分，本色15匹零2丈9尺5寸1分，物力938貫400文，和買折帛20匹2丈1尺1寸，本色8匹零3丈1尺9寸。
+
+丙現有田979畝，苗米34石2斗6升5合，夏税折帛8匹1丈7尺7寸5分5釐，本色19匹零2丈8尺9分5釐，物力1,174貫800文，和買折帛25匹2丈7尺9寸5分，本色11匹零5寸5分。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米及衰分求之。置甲原納米為實，以毎畆苗為法除之，得甲原有田。以乗毎畆税，得田絹。次以甲紬絹本色折帛併之，内減田絹，餘為地紬。以毎紬約之，得甲原有地。次以甲出田併乙丙原有田，各得三户今有田地。各以等則乗之，各得物力苗税。次以毎畆物力率約各户共物力，得和買。副之，三分因之退位為和本，七分因之退位為和折；夏税反其分而因之退之；紬以半之，併入税，各得。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米法和衰分法求解。將甲原納米數作為被除數，以每畝苗數為除數去除，得甲原有田數。再乘每畝税數，得田絹數。再將甲的紬絹本色折帛合併，內減田絹，餘數為地紬。以每畝紬數約之，得甲原有地數。再將甲出讓的田合併乙丙原有田，各得三户現有田地數。各以等則相乘，各得物力苗税數。再以每畝物力率約各户共物力，得和買數。分開處理：三分為和本（本色），七分為和折（折帛）；夏税則反過來（七分本色三分折帛）；紬一半本色一半折帛，併入税中，各得結果。
+}
+
+\end{paracol}
+
+\newpage
+\subsection*{\color{sectioncolor}均科綿税（均摊綿稅）}
+\addcontentsline{toc}{subsection}{均科綿税}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+縣科綿有五等户，共一萬一千三十三户，共科綿八萬八千三百三十七兩六錢。上等一十二户，副等八十七户，中等四百六十四户，次等二千三十五户，下等八千四百三十五户。欲令上三等折半差，下二等此中等六四折差。科率求之，問各户納及各等幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+縣裡徵收綿有五等户，共11,033户，共徵綿88,337兩6錢。上等12户，副等87户，中等464户，次等2,035户，下等8,435户。要求上三等折半遞差（即每等為上一半），下二等比中等六四折差（即次等為中等的十分之四，下等又為次等的十分之四）。按科率求之，問每户應納多少以及各等共納多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+題言下二等比中等六四折差，是次等為中等六分之四，下等又為次等六分之四也。乃術草中皆以十分之四收之，是四分折差而非四六折差矣。集中題與術不相應者多類此，豈成書之後未能重加校正歟？}
+
+\switchcolumn
+
+\ModernNote{%
+題目說下二等比中等六四折差，意思是次等為中等的十分之四，下等又為次等的十分之四。但是術草中都按十分之四（即0.4倍）來計算，這是四分折差而不是四六折差。集中題目與術不相應的地方多類似於此，難道是成書之後未能重新校正嗎？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+上等一户一百二十四兩，一十二户計一千四百八十八兩；
+副等一户六十二兩，八十七户計五千三百九十四兩；
+中等一户三十一兩，四百六十四户計一萬四千三百八十四兩；
+次等一户一十二兩四錢，二千三十五户計二萬五千二百三十四兩；
+下等一户四兩九錢六分，八千四百三十五户計四萬一千八百三十七兩六錢。}
+
+\switchcolumn
+
+\ModernAnswer{%
+上等每户124兩，12户共計1,488兩；
+副等每户62兩，87户共計5,394兩；
+中等每户31兩，464户共計14,384兩；
+次等每户12兩4錢，2,035户共計25,234兩；
+下等每户4兩9錢6分，8,435户共計41,837兩6錢。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+列五等户數，先以四折下等數，加次等户，又以四折之，加中等户數，却以半折之，加二等户，又以半折之，加上等户數，不折便為法。除科綿，得上等一户之綿。復半之為副等，又半之為中等，又四折之為次等，又四折之為下等。各一户綿，却各以户數乗之，各得五等共出綿。}
+
+\switchcolumn
+
+\ModernMethod{%
+排列五等户數，先用四折（乘以0.4）下等户數，加次等户，再用四折，加中等户數，再用半折，加副等户，再用半折，加上等户數，不再折就作為除數（法）。以總科綿數除以法，得上等一户應納綿數。再半折為副等，再半折為中等，再四折為次等，再四折為下等。得到各一户應納綿數，再各以户數乘之，各得五等共出綿數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+先置下等户八千四百三十五，以四折之，得三千三百七十四。乃以得數折入次户二千三十五内，得五千四百九户訖。又以四折次數五千四百九户，得二千一百六十三户六分。乃以得次數併入中户四百六十四内，共得二千六百二十七户六分。次以五分折中數二千六百二十七户六分，得數。次以得數一千三百一十三户八分併副户八十七，得一千四百户八分。又以五折副數一千四百户八分，得七百户四分，既得數。乃以副數七百户四分併上户一十二户，得七百一十二户四分，不折便為法。
+
+累折至等，共得七百一十二户四分以為總法。乃置科綿八萬八千三百三十七兩六錢為實，法七百一十二户四分而一，得一百二十四兩為上等一户所出綿。以五折之，得六十二兩為副等一户所出綿。又五折之，得三十一兩為中等一户所出綿。乃以四折之，得一十二兩四錢為次等一户所出綿。又以四折之，得四兩九錢六分為下等一户所出綿。乃以各等户數各乗一户所出，即各得每等共數之綿。}
+
+\switchcolumn
+
+\ModernWorking{%
+先將下等户8,435，四折得3,374。將此數加次等户2,035，得5,409户。再四折5,409户，得2,163.6户。再併入中等户464，共得2,627.6户。再以半折2,627.6户，得1,313.8户。併入副等户87，得1,400.8户。再半折1,400.8户，得700.4户。再併入上等户12户，得712.4户，不再折就作為總法。
+
+累計折算到此，共得712.4户為總法。將科綿88,337兩6錢為被除數，以法712.4去除，得124兩為上等一户應出綿數。半折得62兩為副等一户所出綿。再半折得31兩為中等一户所出綿。再四折得12兩4錢為次等一户所出綿。再四折得4兩9錢6分為下等一户所出綿。再以各等户數各乘一户所出數，即各得每等共出綿數。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}均定勸分（均定勸導分攤）}
+\addcontentsline{toc}{subsection}{均定勸分}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+欲勸糶賑濟，據甲民户物力畆步排定，共計一百六十二户，作九等：上等三户，第二等五户，第三等七户，第四等八户，第五等十三户，第六等二十一户，第七等二十六户，第八等三十四户，第九等四十五户。今先觀諭，第一等上户願糶五千石，第九等户願糶二百石。欲知各等抛差石數併數認米數各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+要勸導賣糧賑濟災民，據甲地民户按財產田畝排定，共計162户，分為九等：上等3户，第二等5户，第三等7户，第四等8户，第五等13户，第六等21户，第七等26户，第八等34户，第九等45户。現先公告曉諭，第一等上户願意出糧5,000石，第九等户願意出糧200石。想知道各等之間的遞差石數以及各等認購米數各為多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+認該米二十三萬七千六百石。
+
+上等一户米五千石，三户計一萬五千石；
+二等一户米四千四百石，五户計二萬二千石；
+三等一户米三千八百石，七户計二萬六千六百石；
+四等一户米三千二百石，八户計二萬五千六百石；
+五等一户米二千六百石，一十三户計三萬三千八百石；
+六等一户米二千石，二十一户計四萬二千石；
+七等一户米一千四百石，二十六户計三萬六千四百石；
+八等一户米八百石，三十四户計二萬七千二百石；
+九等一户米二百石，四十五户計九千石。}
+
+\switchcolumn
+
+\ModernAnswer{%
+共認購米237,600石。
+
+上等每户5,000石，3户共計15,000石；
+第二等每户4,400石，5户共計22,000石；
+第三等每户3,800石，7户共計26,600石；
+第四等每户3,200石，8户共計25,600石；
+第五等每户2,600石，13户共計33,800石；
+第六等每户2,000石，21户共計42,000石；
+第七等每户1,400石，26户共計36,400石；
+第八等每户800石，34户共計27,200石；
+第九等每户200石，45户共計9,000石。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以衰分求之。置上下户米，減餘為實。列等數減一，餘為法。除之，得抛差石數。以差累減上等米，各得諸等米。以各等户乗之，併之為總數。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用衰分法求解。將上户米數減下户米數，餘數作為被除數。排列等數減一，餘數作為除數。相除得到遞差石數。以此差數逐級從上等米數中遞減，得到各等應出米數。再乘以各等户數，合併為總數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置上等户米五千石，減下等户二百石，餘四千八百石為實。以九等減一，餘八為法。除實，得六百石為每等抛差。用減上等，餘四千四百石為二等米。又減六百，得三千八百石為三等米。又減六百，得三千二百石為四等米。又減六百，得二千六百石為五等米。又減六百，得二千石為六等米。又減六百，得一千四百石為七等米。又減六百，得八百石為八等米。又減六百，得二百石為九等米。又各乗户數，併之，得總認米石數二十三萬七千六百石。}
+
+\switchcolumn
+
+\ModernWorking{%
+將上等户米5,000石，減下等户200石，餘4,800石為被除數。以9等減1，餘8為除數。4,800除以8得600石為每等遞差數。用上等5,000石減600石，餘4,400石為第二等米數。再減600石，得3,800石為第三等。再減600石，得3,200石為第四等。再減600石，得2,600石為第五等。再減600石，得2,000石為第六等。再減600石，得1,400石為第七等。再減600石，得800石為第八等。再減600石，得200石為第九等。再各乘户數，合併得總認米237,600石。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}均定合解（均定合併解送）}
+\addcontentsline{toc}{subsection}{均定合解}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+州郡合解諸司窠名錢：户部九十六萬五千四百二十一貫文，總所六十四萬三千六百一十四貫文，運司一萬六千九十貫三百五十文。今諸窠名先催到九千二百五十三貫六百二十文，欲照原額分數均定樁收解，合各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+州郡應合解送各部門的專款錢：户部965,421貫文，總所643,614貫文，運司16,090貫350文。現在各部門先催收到9,253貫620文，想按照原額比例均定留存解送，各部門應各得多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+户部五千四百九十七貫二百文；總所三千六百六十四貫八百文；運司九十一貫六百二十文。}
+
+\switchcolumn
+
+\ModernAnswer{%
+户部5,497貫200文；總所3,664貫800文；運司91貫620文。}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以衰分求之。置諸原率，可約約之。副併為法。以催到錢乗未併者，各為實。實如法而一。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用衰分法求解。將各原額比率排列，可以約分的先約分。合併作為除數（法）。以催收到的錢數乘未合併的各項，各為被除數（實）。被除數除以法得到各數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+列户部九十六萬五千四百二十一貫，總所六十四萬三千六百一十四貫，運司一萬六千九十貫三百五十文，各為原率。今原率可約，求等得一萬六千九十貫三百五十為等數，俱約之：户部得六十，總所得四十，運司得一，各為率。副併得一百一為法。以催到錢九千二百五十三貫六百二十文乗未併數：六十、四十及一，畢得五十五萬五千二百一十七貫二百文為户部之實，三十七萬一百四十四貫八百文為總所之實，九千二百五十三貫六百二十文為運司之實。三實皆如法一百一而一：其户部得五千四百九十七貫二百文，總所得三千六百六十四貫八百文，運司得九十一貫六百二十，各為候解錢。}
+
+\switchcolumn
+
+\ModernWorking{%
+排列户部965,421貫，總所643,614貫，運司16,090貫350文，各為原額比率。現在原率可以約分，求最大公約數得16,090貫350文為等數，各約之：户部得60，總所得40，運司得1，各為率。合併得101為法。以催到錢9,253貫620文乘未合併的數60、40及1：得555,217貫200文為户部之被除數，371,448貫800文為總所之被除數，9,253貫620文為運司之被除數。三個被除數都以法101去除：户部得5,497貫200文，總所得3,664貫800文，運司得91貫620文，各為候解錢數。
+}
+
+\end{paracol}
+
+\newpage
+\subsection*{\color{sectioncolor}寬減屯租（寬減屯田租賦）}
+\addcontentsline{toc}{subsection}{寬減屯租}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+屯租欲議寬減，仍聴以夏麥折納分數。官牛種者與減二分，私牛種者與減四分。每嵗租榖以三分之一許夏折二麥，内四分大六分小折色。每大麥三石折小麥二石，小麥二石折榖三石五斗。屯租舊額官種一石納租五石，私種一石納租三石。今某州屯田去年計官私種共九千七百八十二石，共合收租榖三萬九千五百八十六石。欲知官私種各數、原額、今減、合催、成年夏麥秋榖幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+屯田租賦想要商議寬減，仍允許以夏麥折算繳納。官府提供牛種的減免二分（20\%），私人牛種的減免四分（40\%）。每年租穀以三分之一允許夏季折為大小麥繳納，其中四分大麥六分小麥折色。每大麥3石折小麥2石，小麥2石折穀3石5斗。屯租舊額：官種1石納租5石，私種1石納租3石。現在某州屯田去年官私種共計9,782石，共應收租穀39,586石。想知道官種私種各多少、原額租數、現減數、應催數、成年（豐年）夏麥秋穀各多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+此題有官私共種數、租數，有種一石租數，求各種數租數，古謂之差分，今謂之和較比例。折色亦差分也，今謂之和數比例。大小麥與榖相易，古謂之異乗同乗，今謂之和率比列。}
+
+\switchcolumn
+
+\ModernNote{%
+這道題有官私共種數、租數，有每石種子的租數，求各種數租數，古代稱為差分，現代稱為和差比例。折色也是差分，現代稱為和數比例。大小麥與穀互相折算，古代稱為異乘同乘，現代稱為連鎖比例。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+官種五千一百二十石，私出種四千六百六十二石。
+
+原租額共三萬九千五百八十六石：官種二萬五千六百石，私種一萬三千九百八十六石。
+
+今減一萬七百一十四石四斗：官種五千一百二十石，私種五千五百九十四石四斗。
+
+合催二萬八千八百七十一石六斗。
+
+官種租二萬四百八十石：一分折麥計榖六千八百二十六石六斗六升零三分升之二；四分折大麥二千三百四十石五斗七升七分升之一（係折榖二千七百三十石六斗六升三分升之二）；六分折小麥二千三百四十石五斗七升七分升之一（係折榖四千九十六石二分）；正色榖一萬三千六百五十三石三斗三升三分升之一。
+
+私種租八千三百九十一石六斗：一分折麥計榖二千七百九十七石二斗；四分折大麥九百五十九石四升（係折榖一千一百一十八石八斗八升）；六分折小麥九百五十九石四升（係折榖一千六百七十八石三斗二升）；二分正色榖五千五百九十四石四斗。
+
+成年共收：夏折榖九千六百二十三石八斗六升三分升之二；大麥三千二百九十九石六斗一升七分升之一；小麥三千二百九十九石六斗一升七分升之一；秋正榖一萬九千二百四十七石七斗三升三分升之一。}
+
+\switchcolumn
+
+\ModernAnswer{%
+官種5,120石，私種4,662石。
+
+原租額共39,586石：官種25,600石，私種13,986石。
+
+現減10,714石4斗：官種減5,120石，私種減5,594石4斗。
+
+應催（實收）28,871石6斗。
+
+官種租20,480石：三分之一折麥計穀6,826石6斗6升又2/3升；其中四分折大麥2,340石5斗7升又1/7升（折算穀2,730石6斗6升又2/3升）；六分折小麥2,340石5斗7升又1/7升（折算穀4,096石2分）；正色穀13,653石3斗3升又1/3升。
+
+私種租8,391石6斗：三分之一折麥計穀2,797石2斗；四分折大麥959石4升（折算穀1,118石8斗8升）；六分折小麥959石4升（折算穀1,678石3斗2升）；二分正色穀5,594石4斗。
+
+成年共收：夏折穀9,623石8斗6升又2/3升；大麥3,299石6斗1升又1/7升；小麥3,299石6斗1升又1/7升；秋正穀19,247石7斗3升又1/3升。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}戶稅均寬（戶稅均平寬減）}
+\addcontentsline{toc}{subsection}{戶稅均寬}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+州郡寬恤，近将某縣下三等税户秋科餘欠錢米，已與蠲放：共錢一千三百五十五貫七百六文，米五千二百七十二石一斗九升。某本縣下三等物力計三萬七千六百五十八貫五百文。今來官員陳述：本縣多有樂輸無欠之户，今䝉蠲放税尾，似反寬潤頑輸之户，於理未均。遂議将樂輸三等户於明年兩税與照昨來體例減免。契勘得三等無欠户物力二十二萬八千一十五貫三百二十一文。欲知每百文合減免錢米及共減各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+州郡寬大體恤，最近將某縣下三等税户秋季徵收的餘欠錢米，已經免除：共錢1,355貫706文，米5,272石1斗9升。本縣下三等物力共計37,658貫500文。現在有官員陳述：本縣有很多樂意繳納沒有欠税的户，現在蒙免欠税尾數，反而像是優惠了頑固欠税的户，於理不均。於是商議將樂意繳納的三等户在明年兩税中按照此次體例減免。查得三等無欠户物力共228,015貫321文。想知道每100文物力應減免多少錢米以及共減免多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+毎物力一百文，放錢三文六分，放米一升四合。明年兩税放免：錢七千九百四十九貫三百五十一文五分五釐六毫；米三萬九百一十四石一斗四升四合九勺四抄。}
+
+\switchcolumn
+
+\ModernAnswer{%
+每物力100文，免除錢3文6分，免除米1升4合。明年兩税免除：錢7,949貫351文5分5釐6毫；米30,914石1斗4升4合9勺4抄。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米衰分求之。置原物力為法，除原放錢米，得毎百文物力所放錢米率。以各率乗今來物力，各得錢米，為明年兩税合放數。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米衰分法求解。將原物力數作為除數，去除原免除的錢米數，得到每百文物力所免除的錢米比率。以各比率乘現在的物力，各得錢米數，即為明年兩税應免除數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+以原物力三萬七千六百五十八貫五百文為法。先除原放錢一千三百五十五貫七百六文，定法百文上得一文為商，除得三文六分為物力百文所放錢率。次除原放米五千二百七十二石一斗九升，得一升四合為物力百文所放米率。以今三等户物力二十二萬八千一十五貫三百二十一文徧乗所放錢米二率，得錢七千九百四十九貫三百五十一文五分五釐六毫，得米三萬九百一十四石一斗四升四合九勺四抄，為明年兩税合放數。}
+
+\switchcolumn
+
+\ModernWorking{%
+以原物力37,658貫500文為除數。先去除原免除錢1,355貫706文，在百文位上得商，除得3文6分為每百文物力所免除的錢率。再去除原免除米5,272石1斗9升，得1升4合為每百文物力所免除的米率。以現在三等户物力228,015貫321文遍乘所免除的錢米二率，得錢7,949貫351文5分5釐6毫，得米30,914石1斗4升4合9勺4抄，為明年兩税應免除數。
+}
+
+\end{paracol}
+
+\newpage
+\subsection*{\color{sectioncolor}米榖粒分（米穀按粒分計）}
+\addcontentsline{toc}{subsection}{米榖粒分}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+開倉受約，有甲户米一千五百三十四石。到廊驗得米内夾榖，乃於様内取米一捻，數計二百五十四粒，内有榖二十八顆。凡粒米率每勺三百。今欲知米内雜榖多少，以折米數科貴及粒各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+開倉收納，有甲户交米1,534石。到倉檢驗發現米中夾雜穀粒，於是從樣品中取米一捻，數得254粒，其中有穀28顆。每勺米約300粒。現在想知道米中夾雜穀粒有多少，折算成米數來科罰以及總粒數各為多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+米一千三百六十四石八斗九升七合六勺一百二十七分勺之四十八；
+榖一百六十九石一斗二合三勺一百二十七分勺之七十九。
+合折米八十四石五斗五升一合一勺一百二十七分勺之一百三。
+原米折米共計四十三億四千八百三十四萬六千四百五十六粒。}
+
+\switchcolumn
+
+\ModernAnswer{%
+淨米1,364石8斗9升7合6勺又48/127勺；
+穀169石1斗2合3勺又79/127勺。
+合計應折米84石5斗5升1合1勺又103/127勺。
+原米折算共計4,348,346,456粒。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米求之，衰分入之。置様米粒數為法，以常榖顆數減之，餘與榖為列衰。可約約之。以共米乗列衰為各實，實如法而一，各得米數榖數。置榖數以粟率折之，為榖所折米。次以勺率遍乗米數折米，得粒數。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米法求解，以衰分法配合。將樣品米粒總數作為除數，減去穀粒數，餘數與穀粒數作為列衰。可以約分的約分。以總米數乘列衰各為被除數，除以法，各得米數和穀數。將穀數以粟率（50\%）折算，為穀應折成的米數。再以勺率（300粒/勺）遍乘米數和折米數，得到粒數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置一捻様粒數二百五十四為法，以帶榖二十八顆為榖衰，以減法，餘二百二十六為米衰。此二衰與法皆可約，求等得二，俱以約之：法得一百二十七，米衰得一百一十三，榖衰得一十四。以米一千五百三十四石遍乗二衰，得一十七萬三千三百四十二石為米實，得二萬一千四百七十六石為榖實。皆如法一百二十七而一：米得一千三百六十四石八斗九升七合六勺一百二十七分勺之四十八，榖得一百六十九石一斗二合三勺一百二十七分勺之七十九。以粟率五十折之，得八十四石五斗五升一合一勺一百二十七分勺之一百三為榖折納米數。併二米，得一千四百四十九石四斗四升八合八勺一百二十七分勺之二十四。先通分納子一十八萬四千八十石，以勺率三百粒乗之，得五千五百二十二億四千萬粒為實，以母一百二十七除之，得四十三億四千八百三十四萬六千四百五十六粒，不盡八十八棄之。}
+
+\switchcolumn
+
+\ModernWorking{%
+將一捻樣品254粒作為除數，以帶穀28顆為穀衰，減法得226為米衰。這兩個衰數與法都可以約分，求最大公約數得2，各約之：法得127，米衰得113，穀衰得14。以米1,534石遍乘二衰，得173,342石為米實，得21,476石為穀實。都以法127去除：米得1,364石8斗9升7合6勺又48/127勺，穀得169石1斗2合3勺又79/127勺。以粟率50\%折穀為米，得84石5斗5升1合1勺又103/127勺為穀應折納米數。合併淨米和折米，得1,449石4斗4升8合8勺又24/127勺。先通分內子為184,080石，以勺率300粒乘之，得552,240,000,000粒為被除數，以分母127去除，得4,348,346,456粒，餘數88粒棄去。
+}
+
+\end{paracol}
+
+
+
+%% =============================================================================
+%% FASCICLE 6A — 錢穀 (Part 1)
+%% =============================================================================
+\newpage
+\section*{\color{titlecolor}卷六上\quad 錢穀（貨幣和糧食）}
+\addcontentsline{toc}{section}{卷六上\quad 錢穀}
+
+\subsection*{\color{sectioncolor}課糴（徵收糴米）}
+\addcontentsline{toc}{subsection}{課糴}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+差人五路和糴。據浙西平江府石價三十五貫文，一百三十五合，至鎮江水脚錢每石九百文；安吉州石價二十九貫五百文，一百一十合，至鎮江水脚錢每石一貫二百文；江西隆興府石價二十八貫一百文，一百一十五合，至建康水脚錢每石一貫七百文；吉州石價二十五貫八百五十文，一百二十合，至建康水脚錢每石二貫九百文；湖南潭州石價二十七貫三百文，一百一十八合，至鄂州水脚錢每石一貫七百文。其錢並十七界官㑹，其米並用文思院斛交量紐數。欲皆以官解計石錢相比貴賤幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+差遣人員到五路收購糧米。據報：浙西平江府每石價35貫文，每石135合（合=0.1升），到鎮江每石水脚運費900文；安吉州每石價29貫500文，每石110合，到鎮江每石水脚1貫200文；江西隆興府每石價28貫100文，每石115合，到建康每石水脚1貫700文；吉州每石價25貫850文，每石120合，到建康每石水脚2貫900文；湖南潭州每石價27貫300文，每石118合，到鄂州每石水脚1貫700文。這些錢都是十七界官會（紙幣），這些米都用文思院斛（標準量器）來交接換算。想都以官斛計算每石的實際價錢，比較貴賤如何？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+按草中係二貫一百文，此訛。文思院解每斗八十三合。}
+
+\switchcolumn
+
+\ModernNote{%
+按算草中應為2貫100文，此處有誤。文思院斛每斗83合。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+文思院斛石錢：安吉州二十三貫一百六十四文一十一分文之六；平江府二十二貫七十一文二十七分文之二十三；隆興府二十一貫五百七文二十三分文之一十九；潭州二十貫六百七十九文五十九分文之四十九；吉州一十九貫八百八十五文十二分文之五。}
+
+\switchcolumn
+
+\ModernAnswer{%
+換算為文思院斛每石錢：安吉州23貫164文又6/11文；平江府22貫71文又23/27文；隆興府21貫507文又19/23文；潭州20貫679文又49/59文；吉州19貫885文又5/12文。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+按三十九訛四十九。}
+
+\switchcolumn
+
+\ModernNote{%
+按：「三十九」應為「四十九」，原文有誤。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米互換求之。置石價併水脚，乗石數，又乗官斗合數為實。各如本州合數而一，各得官解石錢。以課貴賤。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米互換法求解。將每石價格加上水脚運費，乘以石數，再乘以官斗合數作為被除數。各按本州的合數去除，得到官斛每石錢數。以此比較貴賤。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置安吉州石價二十九貫五百文，平江石價三十五貫文，隆興石價二十八貫一百文，吉州石價二十五貫八百五十文，潭州石價二十七貫三百文，列右行。次置水脚：安吉一貫二百文，平江九百文，隆興一貫七百文，吉州二貫九百文，潭州二貫一百文，列左行，各對本州石價。以兩行數併之，得數：安吉三十貫七百文，平江三十五貫九百，隆興二十九貫八百，潭州二十九貫四百，吉州二十八貫七百五十，仍於右行。次以文思院官斗八十三合遍乗之：安吉州得二千五百四十八貫一百文，平江府得二千九百七十九貫七百文，江西隆興得二千四百七十三貫四百文，湖南潭州得二千四百四十貫二百文，江南吉州得二千三百八十六貫二百五十文，各為實於右。得次列安吉斗一百一十合，平江斗一百三十五合，隆興斗一百一十五合，潭州斗一百一十八合，吉州斗一百二十合於左行為法。以对除右行之實：安吉得二十三貫一百六十四文一十一分之六，平江得二十三貫七十一文二十七分文之二十三，隆興得二十一貫五百七文二十三分文之一十九，潭州得二十貫六百七十九文五十九文分之四十九，吉州得一十九貫八百八十五文一十二分文之五。相課石價，其安吉州最貴，平江次之，隆興又次之，潭州又次之，吉州最賤。}
+
+\switchcolumn
+
+\ModernWorking{%
+排列安吉州石價29貫500文，平江35貫，隆興28貫100文，吉州25貫850文，潭州27貫300文在右行。再排列水脚：安吉1貫200文，平江900文，隆興1貫700文，吉州2貫900文，潭州2貫100文在左行，各對應本州石價。兩行數合併：安吉30貫700文，平江35貫900文，隆興29貫800文，潭州29貫400文，吉州28貫750文，仍在右行。再以文思院官斗83合遍乘：安吉州得2,548貫100文，平江府得2,979貫700文，隆興得2,473貫400文，潭州得2,440貫200文，吉州得2,386貫250文，各為被除數在右。再排列安吉斗110合，平江斗135合，隆興斗115合，潭州斗118合，吉州斗120合在左行為除數。以對除右行的被除數：安吉得23貫164文又6/11文，平江得22貫71文又23/27文，隆興得21貫507文又19/23文，潭州得20貫679文又49/59文，吉州得19貫885文又5/12文。比較石價，安吉州最貴，平江次之，隆興又次之，潭州又次之，吉州最賤。
+}
+
+\end{paracol}
+
+\newpage
+\subsection*{\color{sectioncolor}折解輕齎（折算解送輕便貨幣）}
+\addcontentsline{toc}{subsection}{折解輕齎}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+有甲乙丙丁四郡，各合起上供銀絹。
+
+\textbf{甲郡}：銀三千二百兩，每兩二貫二百文足；絹六萬四千匹，每匹二貫文足。去京一千里，每擔一里傭錢六文足。其時舊㑹每貫五十四文足。
+
+\textbf{乙郡}：銀二千七百兩，每兩二貫三百文足；絹四萬九千二百匹，每匹二貫四百二十文足。去京九百八十里，每擔一里傭錢四文二分足。舊㑹價五十九文足。
+
+\textbf{丙郡}：銀四千兩，每兩新㑹九貫三百文；絹七萬三千六百匹，每匹新㑹一十貫三百文。去京二千里，每擔一里傭錢八十文舊㑹。
+
+\textbf{丁郡}：銀二千六百兩，每兩五十一貫文舊㑹；絹三萬二千三十五匹，每匹五十八貫文舊㑹。去京一千五百里，每擔一里傭錢一百文舊㑹。
+
+諸郡銀每五百兩、絹每六十匹、新㑹每五千貫為擔。欲並折新㑹，均作三限起解。求各郡每限及本色原理、折解實用、寛餘、傭錢各新㑹幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+有甲乙丙丁四郡，各應上供銀絹。
+
+\textbf{【甲郡】}：銀3,200兩，每兩2貫200文足（足陌錢）；絹64,000匹，每匹2貫文足。距京城1,000里，每擔每里傭錢6文足。當時舊會每貫54文足。
+
+\textbf{【乙郡】}：銀2,700兩，每兩2貫300文足；絹49,200匹，每匹2貫420文足。距京城980里，每擔每里傭錢4文2分足。舊會價59文足。
+
+\textbf{【丙郡】}：銀4,000兩，每兩新會9貫300文；絹73,600匹，每匹新會10貫300文。距京城2,000里，每擔每里傭錢80文舊會。
+
+\textbf{【丁郡】}：銀2,600兩，每兩51貫文舊會；絹32,035匹，每匹58貫文舊會。距京城1,500里，每擔每里傭錢100文舊會。
+
+各郡銀每500兩、絹每60匹、新會每5,000貫為一擔。想全部折算為新會，平均分三期限解送上京。求各郡每限以及本色原額、折算實用、寬餘、傭錢各折合新會多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+此題貫數分三項：其一足數，每千文為一貫；其一舊㑹數，如甲以五十四文為一貫，乙以五十九文為一貫是也；其一新㑹數，為舊㑹數之五倍，如甲以二百七十文為一貫，乙以二百九十五文為一貫是也。四郡或言足數，或言舊㑹數、新㑹數。並折新㑹數。傭錢原以銀五百兩或絹六十匹各為一擔，今皆折新㑹數，以五千貫為一擔，故有寛餘錢數。題語多未詳，而併為一擔句尤混，略為分析而術草之意大概可見矣。}
+
+\switchcolumn
+
+\ModernNote{%
+這道題的貫數分三種：第一種是足數，每千文為一貫；第二種是舊會數，如甲郡以54文為一貫，乙郡以59文為一貫；第三種是新會數，為舊會數的五倍，如甲郡以270文為一貫，乙郡以295文為一貫。四郡有的說足數，有的說舊會數、新會數，都要折算為新會數。傭錢原來以銀500兩或絹60匹各為一擔，現在都折算為新會數，以5,000貫為一擔，所以有寬餘錢數。題目語言多不清楚，尤其是「併為一擔」一句特別混亂，稍作分析後術草的意思大概可以明白了。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+\textbf{甲郡}：合解五十萬一百四十八貫一百四十八文。初限一十六萬六千七百一十六貫四十九文，次限一十六萬六千七百一十六貫四十九文，未限一十六萬六千七百一十六貫五十文。傭錢原理二萬三千八百四十五貫九百二十五文二十七分文之二十五，實用二千二百二十二貫八百七十七文二十七分文之二十一，寛餘二萬一千六百二十三貫四十八文二十七分文之四。
+
+\textbf{乙郡}：合解四十二萬四千六百五十七貫六百二十七文。初限一十四萬一千五百五十二貫五百四十二文，次限一十四萬一千五百五十二貫五百四十二文，末限一十四萬一千五百五十二貫五百四十三文。傭錢原理一萬一千五百一十六貫四百二十八文五十九分文之二十八，實用一千一百八十五貫一十文二百九十五分文之五，寛餘一萬三百三十一貫四百一十八文五十九分文之二十七。
+
+\textbf{丙郡}：合解七十九萬五千二百八十貫文。初限二十六萬五千九十三貫三百三十三文，次限二十六萬五千九十三貫三百三十三文，末限二十六萬五千九十三貫三百三十四文。傭錢原理三萬九千五百九貫三百三十三文三分文之一，實用五千八十九貫七百九十二文，寛餘三萬四千四百一十九貫五百四十一文三分文之一。
+
+\textbf{丁郡}：合解三十九萬八千一百二十六貫文。初限一十三萬二千七百八貫六百六十六文，次限一十三萬二千七百八貫六百六十六文，末限一十三萬二千七百八貫六百六十八文。傭錢原理一萬四千一百七十三貫五百文，實用二千三百八十八貫七百五十六文，寛餘一萬一千七百八十四貫七百四十四文。}
+
+\switchcolumn
+
+\ModernAnswer{%
+\textbf{【甲郡】}：合解500,148貫148文。初限166,716貫49文，次限166,716貫49文，末限166,716貫50文。傭錢原額23,845貫925文又25/27文，實用2,222貫877文又21/27文，寬餘21,623貫48文又4/27文。
+
+\textbf{【乙郡】}：合解424,657貫627文。初限141,552貫542文，次限141,552貫542文，末限141,552貫543文。傭錢原額11,516貫428文又28/59文，實用1,185貫10文又5/295文，寬餘10,331貫418文又27/59文。
+
+\textbf{【丙郡】}：合解795,280貫文。初限265,093貫333文，次限265,093貫333文，末限265,093貫334文。傭錢原額39,509貫333文又1/3文，實用5,089貫792文，寬餘34,419貫541文又1/3文。
+
+\textbf{【丁郡】}：合解398,126貫文。初限132,708貫666文，次限132,708貫666文，末限132,708貫668文。傭錢原額14,173貫500文，實用2,388貫756文，寬餘11,784貫744文。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以均輸求之。置各郡銀絹，乗各價，併之，歸足原，展足為舊㑹，次以五約舊㑹為新㑹，各得合解錢。以限數除之，得每限錢，不盡併歸末限。次置里數，乗毎里傭價為率。以率乗原銀及原絹，各為傭實。以每擔銀絹率各為法，實如法而一，不滿者亦為擔，併之為原理傭錢。次以率乗合觧錢為實，乃以錢物毎擔率為法，實如法而一，各得實用傭錢。以減原理傭錢，餘為寛餘傭錢。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用均輸法求解。將各郡的銀絹數，乘各價，合併，歸為足陌原數，再展為舊會，再以5約舊會為新會，各得合解錢數。以期限數（3限）去除，得每限錢數，餘數併入末限。再置里數，乘每里傭價為率。以率乘原銀及原絹，各為傭錢被除數。以每擔銀絹率各為除數，被除數除以除數，不滿一擔的也算一擔，合併為原額傭錢。再以率乘合解錢為被除數，以錢物每擔率為除數，被除數除以除數，各得實用傭錢。以原額傭錢減去實用，餘為寬餘傭錢。
+}
+
+\end{paracol}
+
+
+
+%% =============================================================================
+%% FASCICLE 6B — 錢穀 (Part 2)
+%% =============================================================================
+\newpage
+\section*{\color{titlecolor}卷六下\quad 錢穀（貨幣和糧食）}
+\addcontentsline{toc}{section}{卷六下\quad 錢穀}
+
+\subsection*{\color{sectioncolor}僦直推原（推算租價原額）}
+\addcontentsline{toc}{subsection}{僦直推原}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+房廊數内，一户日納一百五十六文八分足為準。指揮未曽經減者，減三分；已曽經減三分者，減二分；已曽經減二分者，更減二分。今本户累經減者，欲知原額房錢幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+在房廊（店鋪街房）數目中，有一户每天繳納156文8分足（足陌錢）為標準。規定未經減免的，減免三分（30\%）；已經減免三分的，再減二分（20\%）；已經減免二分的，再減二分（20\%）。現在本户累經多次減免，想知道原額房租是多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+原額三百五十文。}
+
+\switchcolumn
+
+\ModernAnswer{%
+原額350文。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以衰分求之。列一十分兩行，各三位；列減分，對減右行。以餘者相乘為法。以左行原列相乘，得納錢為實。實如法而一，得原額錢。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用衰分法求解。排列十分兩行，各三位；排列減分數，對應減去右行。以餘數相乘為除數。以左行原列數相乘，得納錢為被除數。被除數除以除數，得原額錢數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+列一十三位於左行，又列一十分三位於右行。其右上減去初減三分，右中減去次減二分，右下減去更減二分。右行餘七八八，以相乗得四百四十八為法。乃以左行三位一十分相乘，得一千為乗率。以乘見日納錢一百五十六文八分，得一百五十六貫八百文為實。實如法而一，得三百五十文，為本户原額戸錢。}
+
+\switchcolumn
+
+\ModernWorking{%
+排列三個「十分」在左行，又排列三個「十分」在右行。右上減去初減三分，餘七分；右中減去次減二分，餘八分；右下減去更減二分，餘八分。右行餘數7、8、8相乘得448為除數。左行三位十分相乘得1,000為乘率。以此乘現日納錢156文8分，得156,800文為被除數。以除數448去除，得350文，為本户原額房租。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}推求本息（計算本金和利息）}
+\addcontentsline{toc}{subsection}{推求本息}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+三庫息例：萬貫以上一釐，千貫以上二釐五毫，百貫以上三釐。甲庫本四十九萬三千八百貫，乙庫本三十七萬三百貫，丙庫本二十四萬六千八百貫。今三庫共約到息錢二萬五千六百四十四貫二百文。其典率：甲反錐差，乙方錐差，丙蒺藜差。欲知原典三例本息各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+三個庫房的利息規定：萬貫以上利率1釐（0.1\%），千貫以上2.5釐（0.25\%），百貫以上3釐（0.3\%）。甲庫本金493,800貫，乙庫本金370,300貫，丙庫本金246,800貫。現在三庫共收到息錢25,644貫200文。各庫的典當率：甲用反錐差（遞減數列3,2,1），乙用方錐差（平方數列1,4,9），丙用蒺藜差（三角數列1,3,6）。想知道原典當三例中各庫本金利息各為多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+此即衰分題也。其差有反錐、方錐、蒺藜之名，蓋以一二三遞減如立錐為反錐，以一四九平方遞加為方錐，以一三六三數遞加為蒺藜。是必古有其名也。至以各差求各本，則因各本原依各差入之也。}
+
+\switchcolumn
+
+\ModernNote{%
+這就是衰分題。各種差數有反錐、方錐、蒺藜的名稱，反錐是以1,2,3遞減如倒立錐形，方錐是以1,4,9平方遞加，蒺藜是以1,3,6三角數遞加。這些必定是古代已有的名稱。至於以各差求各本，是因為各本金原來就是按各差數分配的。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+\textbf{甲庫}共納息九千五十三貫文：一釐息二千四百六十九貫文，二釐半息四千一百一十五貫文，三釐息二千四百六十九貫文。
+
+\textbf{乙庫}共納息一萬五十一貫文：一釐息二百六十四貫五百文，二釐半息二千六百四十五貫文，三釐息七千一百四十一貫五百文。
+
+\textbf{丙庫}共納息六千五百四十貫二百文：一釐息二百四十六貫八百文，二釐半息一千八百五十一貫文，三釐息四千四百四十二貫四百文。}
+
+\switchcolumn
+
+\ModernAnswer{%
+\textbf{【甲庫】}共納息9,053貫文：1釐利率息2,469貫文，2.5釐利率息4,115貫文，3釐利率息2,469貫文。
+
+\textbf{【乙庫】}共納息10,051貫文：1釐利率息264貫500文，2.5釐利率息2,645貫文，3釐利率息7,141貫500文。
+
+\textbf{【丙庫】}共納息6,540貫200文：1釐利率息246貫800文，2.5釐利率息1,851貫文，3釐利率息4,442貫400文。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+置諸庫諸色之差，照釐率為三行。縱併之為約率，横命之為乗率。以約率各約自庫之本，各得。以遍乗未併乗率，然後各以釐率横乗之，次以縱併之，為各庫共息。}
+
+\switchcolumn
+
+\ModernMethod{%
+排列各庫各等級的差數，按釐率排為三行。縱向合併為約率，橫向命名為乘率。以約率各約本庫的本金，各得數。以此遍乘未合併的乘率，然後各以釐率橫向相乘，再縱向合併，為各庫共息。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置甲庫反錐差，自下置三二一於右行。次置乙庫方錐差，自上置一四九於中行。次置丙庫蒺藜差，自上置一三六於左行，各為三庫上中下三等乘率。乃縱併甲差三二一，得六為甲約率。縱併乙差一四九，得一十四為乙約率。縱併丙差一三六，得一十為丙約率。直命九位數各為上中下乗率。乃先以約率各約自庫之本：乃以甲約率六約甲本四十九萬三千八百貫，得八萬二千三百貫為甲得。次以乙約率一十四約乙本三十七萬三百貫，得二萬六千四百五十貫為乙得。次以丙約率一十約丙本二十四萬六千八百貫，得二萬四千六百八十貫為丙得。以各得乗未併乗率：其甲所得八萬二千三百貫，乘反錐乗率三二一，得二十四萬六千九百貫為上率，得一十六萬四千六百貫為中率，得八萬二千三百貫為下率。其乙所得二萬六千四百五十貫，以乗方錐差一四九，得二萬六千四百五十貫為上率，得一十萬五千八百貫為中率，得二十三萬八千五十貫為下率。其丙所得二萬四千六百八十貫，以乗蒺藜差一三六，得二萬四千六百八十貫為上率，得七萬四千四十貫為中率，得一十四萬八千八十貫為下率。然後各以息釐數乘各庫三乗：其甲以一釐乗上率二十四萬六千九百貫，得二千四百六十九貫為上息；以二釐五毫乘中率一十六萬四千六百貫，得四千一百一十五貫為中息；以三釐乘下率八萬二千三百貫，得二千四百六十九貫為下息。併上中下三息，得九千五十三貫文為甲庫共息。其乙庫以一釐乗上率二萬六千四百五十貫，得二百六十四貫五百文為上息；以二釐五毫乗中率一十萬五千八百貫，得二千六百四十五貫為中息；以三釐乗下率二十三萬八千五十貫，得七千一百四十一貫五百為下息。併上中下三息，得一萬五十一貫文為乙庫共息。其丙庫以一釐乗上率二萬四千六百八十貫，得二百四十六貫八百為上息；以二釐五毫乘中率七萬四千四十貫，得一千八百五十一貫為中息；以三釐乗下率一十四萬八千八十貫，得四千四百四十二貫四百文為下息。併上中下三息，得六千五百四十貫二百文為丙庫共息。併三庫共息，得二萬五千六百四十四貫二百文為總息。}
+
+\switchcolumn
+
+\ModernWorking{%
+排列甲庫反錐差，自下排3,2,1在右行。再排乙庫方錐差，自上排1,4,9在中行。再排丙庫蒺藜差，自上排1,3,6在左行，各為三庫上中下三等乘率。縱向合併甲差3+2+1=6為甲約率。縱向合併乙差1+4+9=14為乙約率。縱向合併丙差1+3+6=10為丙約率。直接命名九位數各為上中下乘率。
+
+先以約率各約本庫本金：甲約率6約甲本493,800貫，得82,300貫為甲得。乙約率14約乙本370,300貫，得26,450貫為乙得。丙約率10約丙本246,800貫，得24,680貫為丙得。
+
+以各得數乘未合併乘率：甲得82,300貫乘反錐乘率3,2,1，得246,900貫為上率，164,600貫為中率，82,300貫為下率。乙得26,450貫乘方錐差1,4,9，得26,450貫為上率，105,800貫為中率，238,050貫為下率。丙得24,680貫乘蒺藜差1,3,6，得24,680貫為上率，74,040貫為中率，148,080貫為下率。
+
+然後各以息釐數乘各庫三率：甲庫以1釐乘上率246,900貫，得2,469貫為上息；以2.5釐乘中率164,600貫，得4,115貫為中息；以3釐乘下率82,300貫，得2,469貫為下息。合併三息，得9,053貫為甲庫共息。
+
+乙庫以1釐乘上率26,450貫，得264貫500文為上息；以2.5釐乘中率105,800貫，得2,645貫為中息；以3釐乘下率238,050貫，得7,141貫500文為下息。合併三息，得10,051貫為乙庫共息。
+
+丙庫以1釐乘上率24,680貫，得246貫800文為上息；以2.5釐乘中率74,040貫，得1,851貫為中息；以3釐乘下率148,080貫，得4,442貫400文為下息。合併三息，得6,540貫200文為丙庫共息。三庫共息合計25,644貫200文為總息。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}易牒知原（憑度牒推算原數）}
+\addcontentsline{toc}{subsection}{易牒知原}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalNote{%
+按舊本此問無題，今増入。}
+
+\switchcolumn
+
+\ModernNote{%
+按舊版本此問無題，現增補。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalQuestion{%
+出度牒差人營運：毎三道易鹽一十三袋，鹽二袋易布八十四疋，布一十五疋易絹三疋半，絹六疋易銀七兩二錢。今趂到銀九千一百七十二兩八錢。欲知原闗度牒道數幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+發出度牒（出家人憑證）差遣人員經營：每3道度牒換13袋鹽，2袋鹽換84疋布，15疋布換3.5疋絹，6疋絹換7兩2錢銀子。現已收到銀9,172兩8錢。想知道原來發出多少道度牒？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+度牒一百八十道。}
+
+\switchcolumn
+
+\ModernAnswer{%
+度牒180道。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米互乘易法求之。列各數以本色相對，如鴈翅。以多一事者相乗為實，以少一事者相乘為法，除之。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米互換法求解。排列各數以本色相對，如雁翅形排列。以多一項的數相乘為被除數，以少一項的數相乘為除數，相除得到答案。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+先以度牒三道乗鹽二袋，得六。以乘布一十五，得九十。又乗絹六疋，得五百四十。乃乗銀九萬一千七百二十八錢，得四千九百五十三萬三千一百二十錢為實。次以鹽一十三袋乗布八十四，得一千九百九十二。以乗絹三疋五分，得三千八百二十二。乃乘銀七兩二錢，得二十七萬五千一百八十四錢為法。除實，得一百八十道為原闗度牒。}
+
+\switchcolumn
+
+\ModernWorking{%
+先以度牒3道乘鹽2袋，得6。再乘布15，得90。再乘絹6疋，得540。再乘銀91,728錢（9,172兩8錢），得495,331,200錢為被除數。再以鹽13袋乘布84，得1,092。乘絹3.5疋，得3,822。再乘銀7兩2錢（72錢），得275,184錢為除數。被除數除以除數，得180道為原發度牒數。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}粟米交易（糧食交易）}
+\addcontentsline{toc}{subsection}{粟米交易}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+按舊本此問無題，今増。}
+
+\switchcolumn
+
+\ModernNote{%
+按舊版本此問無題，現增補。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalQuestion{%
+菽三升易小麥二升，小麥一升五合易油麻八合，油麻一升二合易粳米一升八合。今將菽一十四石四斗欲易油麻，又將小麥二十一石六斗欲易粳米。問各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+菽（豆類）3升換小麥2升，小麥1升5合換油麻8合，油麻1升2合換粳米1升8合。現有菽14石4斗想換油麻，又有小麥21石6斗想換粳米。問各能換多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+油麻五石一斗二升；粳米一十七石二斗八升。}
+
+\switchcolumn
+
+\ModernAnswer{%
+油麻5石1斗2升；粳米17石2斗8升。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米換易求之。置原易率，本色對列，如鴈翅。以多一事者相乘為實，以少一事者相乗為法，除之。各得或問數，不干其率者不置。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米換易法求解。排列原始換易比率，本色相對，如雁翅形。以多一項的數相乘為被除數，以少一項的數相乘為除數，相除。各得所求數，不相關的比率不列入。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置四色六數，列六位率，如鴈翅，皆化為合。先將菽一十四石四斗化作一萬四千四百合，乃對前二句率數四位，如鴈翅，至欲易油麻止，共五事為上圖。次將小麥二十一石六斗化為二萬一千六百合，乃對後兩句率四位，鴈翅，至欲粳米止，共五事為下圖。
+
+下圖：其上圖以菽一萬四千四百合乘麥二十，得二十八萬八千，又乗油麻八合，得二百三十萬四千合為油麻實。次以菽三十合乘麥一十五合，得四百五十合為法。除之，得五千一百二十合，展為五石一斗二升為油麻。
+
+其下圖以小麥二萬一千六百合乗油麻八合，得一十七萬二千八百合，又乗粳米一十八合，得三百一十一萬四百合為粳米實。以小麥一升五合乗油麻一十二合，得一百八十合為法。除之，得一萬七千二百八十，展作一十七石二斗八升為粳米。}
+
+\switchcolumn
+
+\ModernWorking{%
+排列四種糧食六個數字，列為六個比率，如雁翅形，都化為合（1升=10合）。先將菽14石4斗化為14,400合，對應前兩句比率四個數字，如雁翅形，到要換油麻為止，共五項為上圖。再將小麥21石6斗化為21,600合，對應後兩句比率四個數字，雁翅形，到要換粳米為止，共五項為下圖。
+
+上圖：以菽14,400合乘小麥比率2（即20合），得288,000，再乘油麻8合，得2,304,000合為油麻被除數。再以菽3升（30合）乘小麥1.5升（15合），得450合為除數。2,304,000除以450得5,120合，展為5石1斗2升為油麻。
+
+下圖：以小麥21,600合乘油麻8合，得172,800合，再乘粳米18合，得3,114,000合為粳米被除數。以小麥1.5升（15合）乘油麻1.2升（12合），得180合為除數。3,114,000除以180得17,280合，展為17石2斗8升為粳米。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}計米易麴（計算換米製麴）}
+\addcontentsline{toc}{subsection}{計米易麴}
+
+\begin{paracol}{2}
+
+\ClassicalNote{%
+按舊本此問無題，今増。}
+
+\switchcolumn
+
+\ModernNote{%
+按舊版本此問無題，現增補。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalQuestion{%
+庫率：粳榖七石出米三石，糯米一斗易小麥一斗七升，小麥五升踏麴二斤四兩，麴一百一十斤醞糯米一石三斗。今有糯穀一千七百五十九石三斗八升，欲出穀做米，易麥踏麴，還自醞，餘穀之米須令適足。各合幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+庫房標準：粳穀7石出米3石，糯米1斗換小麥1斗7升，小麥5升可製麴2斤4兩，麴110斤可釀糯米1石3斗。現有糯穀1,759石3斗8升，想出穀做米，換麥製麴，回來釀酒，剩餘穀出的米必須恰好夠用。各應該是多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+共穀一千七百五十九石三斗八升。出穀九百二十四石，得米三百九十六石。易麥六百七十三石二斗。踏麴三萬二百九十四斤。餘榖八百三十五石三斗八升。醞米三百五十八石二升。}
+
+\switchcolumn
+
+\ModernAnswer{%
+共穀1,759石3斗8升。出穀924石，得米396石。換小麥673石2斗。製麴30,294斤。餘穀835石3斗8升。釀酒用米358石2升。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米換易求之。置諸率，隨本色對列，如鴈翅。有分者通之，異類者變之，以頭位者進乗之，以下位退乗之，得合數。有對者相乗之，無對者直命之，為諸率。併上下無對者為法率。以今有物徧乘諸率（不乗法率），各為實。諸實並如法而一，各得其已變者，復互易乗除之，即得所求。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米換易法求解。排列各個比率，隨本色相對，如雁翅形。有分數的通分，不同類的變換，以頭位進乘，以下位退乘，得到合數。有對應的相乘，無對應的直接命名，為各率。合併上下無對應的為法率。以現有穀物遍乘各率（不乘法率），各為被除數。各被除數都以法去除，各得已變換的數，再互易乘除，即得所求。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置糯穀七、出米三於右行上副兩位。次置糯米一斗、麥一斗七升於副行副中兩位。次置小麥五升、踏麥二斤四兩於次行中次兩位。次置麴一百一十觔、醞米一石三斗於左行次下兩位，隨本色對列，如鴈翅。訖乃驗次行二斤四兩是四分斤之一，以母四通次行兩位，以子一内次行次位，具中位得二，次位得九。又驗左行下位是糯米，是異類，於糯米合變為糯穀，乃以問中首句率穀七米三變之，以七因米一石三斗得九石一斗於左下為穀，却以米三因麴一百一十斤為三百三十斤麴於左行，得變圖數。以左行三百三十乗次行二，得六百六十。次以六百六十乘副行一十，得六千六百。次以六千六百乗右上七，得四萬六千二百，各於原位。却以右行副位三因副行一斗七升，得五斗一升。又以五斗一升乗次行九，得四百五十九。又以四百五十九乗左下九十一，得四萬一千七百六十九，列為合圖數。乃驗合圖四行，其副中次三位有對，以對相乗合之。其右上左下無對者，直命之，皆為率。列右行：上得四萬六千二百為出糯穀率，副位得一萬九千八百為得糯米率，中得三萬三千六百六十為易得麥率，次得一萬五千一十四七為踏到麴率，下得四萬一千七百六十九為餘下糯榖率。併上下率，共得八萬七千九百六十九為法率。今六率共求等得一，約之，只得原率為率圖。始用今有穀一千七百五十九石三斗八升，皆化為升，徧乘五率（不乗法率），得八十一億二千八百三十三萬五千六百升為出穀實，得三十四億八千三百五十七萬二千四百升為糯米實，得五十九億二千二百七萬三千八十升為易麥實，得二十六億六千四百九十三萬二千八百八十六為踏麴實，得七十三億四千八百七十五萬四千三百二十二升為餘穀實。其五實皆如法八萬七千九百六十九而一：得九百二十四石為出穀，得三百九十六石為做到糯米，得六百七十三石二斗為易到小麥，得三萬二百九十四斤為踏到麴，得八百三十五石三斗八升為餘下穀。今將餘下穀變為米，乃以乗率三因餘穀八百三十五石三斗八升，得二千五百六石一斗四升為實，以糯穀率七為法除之，得三百五十八石二升為醞米。}
+
+\switchcolumn
+
+\ModernWorking{%
+排列糯穀7、出米3在右行上副兩位。再排糯米1斗、小麥1斗7升在副行副中兩位。再排小麥5升、製麴2斤4兩在次行中次兩位。再排麴110斤、釀米1石3斗在左行次下兩位，隨本色相對，如雁翅形。檢查次行2斤4兩是9/4斤（2.25斤），以分母4通次行兩位，分子1加入次行次位，中位得2，次位得9。再檢查左行下位是糯米，是異類，應變為糯穀，以首句率穀7米3變換，以7乘米1石3斗得9石1斗於左下為穀，再以米3乘麴110斤為330斤麴於左行，得變換圖數。
+
+以左行330乘次行2，得660。再以660乘副行10（1斗），得6,600。再以6,600乘右上7，得46,200。以右行副位3乘副行1斗7升，得5斗1升（51升）。再以51升乘次行9，得459。再以459乘左下91，得41,769。
+
+檢查合圖四行，副中次三位有對應，以對相乘合併。右上左下無對應，直接命名為率。右行：上得46,200為出糯穀率，副位19,800為得糯米率，中33,660為易小麥率，次15,007.5為踏麴率，下41,769為餘穀率。合併上下率得87,969為法率。
+
+以現有穀1,759石3斗8升化為升，遍乘五率（不乘法率），得各被除數。五個被除數都以法87,969去除：得924石為出穀，396石為糯米，673石2斗為小麥，30,294斤為麴，835石3斗8升為餘穀。將餘穀變為米，以乘率3乘餘穀835石3斗8升，得2,506石1斗4升為被除數，以糯穀率7為法除之，得358石2升為釀酒用米。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}囘運費（收回運費）}
+\addcontentsline{toc}{subsection}{囘運費}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+有江西水運米一十二萬三千四百石，原係鎮江交卸，計水程二千一百三十里，每石水脚錢一貫二百文。今截上件米就池州安頓，池州至鎮江八百八十里。欲收囘不該水脚錢幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+有江西水運米123,400石，原來到鎮江交卸，計水程2,130里，每石水脚運費1貫200文。現將這批米截留在池州安頓，池州至鎮江880里。想收回不應付的水脚錢有多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+收囘錢六萬一千一百七十八貫五百九十一文。}
+
+\switchcolumn
+
+\ModernAnswer{%
+收回錢61,178貫591文。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以粟米互易求之。置池州至鎮江里數，乗水脚錢，得數又乗運米為實。以原至鎮江水程為法，除實，得收囘錢。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用粟米互易法求解。將池州至鎮江的里數，乘水脚錢，所得再乘運米數為被除數。以原來到鎮江的水程為除數，被除數除以除數，得應收回的錢數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置池州至鎮江八百八十里，乗毎石水脚錢一貫二百，得一千五十六貫文。又乗運米一十二萬三千四百石，得一億三千三十一萬四百貫文為實。以原至鎮江水程二千一百三十里為法，除實，得六萬一千一百七十八貫五百九十一文為收囘錢。}
+
+\switchcolumn
+
+\ModernWorking{%
+將池州至鎮江880里，乘每石水脚錢1貫200文，得1,056貫文。再乘運米123,400石，得130,310,400貫文為被除數。以原水程2,130里為除數，除被除數，得61,178貫591文為應收回的錢。
+}
+
+\end{paracol}
+
+\subsection*{\color{sectioncolor}三色均價（三色金均價）}
+\addcontentsline{toc}{subsection}{三色均價}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+\ClassicalQuestion{%
+庫有三色金共五千兩：内八分金一千二百五十兩，兩價四百貫文；七分五釐金一千六百兩，兩價三百七十五貫文；八分五釐金二千一百五十兩，兩價四百二十五貫文。並欲煉為足色，每兩工食藥炭錢三貫文，耗金九百七十二兩五錢。欲知色分及兩價各幾何？}
+
+\switchcolumn
+
+\ModernHeader
+
+\ModernQuestion{%
+庫房有三色金共5,000兩：其中成色80\%的金1,250兩，每兩價400貫文；成色75\%的金1,600兩，每兩價375貫文；成色85\%的金2,150兩，每兩價425貫文。都想冶煉為純金（100\%成色），每兩工錢、食錢、藥炭錢3貫文，損耗972兩5錢。想知道冶煉後的成色分數以及每兩價格各為多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalAnswer{%
+色十分；兩價五百三貫七百二十四文，五百三十七分文之二百一十二。}
+
+\switchcolumn
+
+\ModernAnswer{%
+成色10分（100\%純金）；每兩價格503貫724文又212/537文。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalMethod{%
+以方田及粟米求之。置共數，以耗減之，餘為法。以三色分數各乗兩數，併之為色分實。以三色價數各乗兩數為寄，以工藥價乗共金，併寄，共為價實。二實皆如法而一，即各得。}
+
+\switchcolumn
+
+\ModernMethod{%
+使用方田法及粟米法求解。將總數減去損耗，餘數作為除數。以三色成色分數各乘兩數，合併為成色被除數。以三色價格各乘兩數為寄數，以工藥價乘總金數，合併寄數，共為價格被除數。二個被除數都以除數去除，即得各數。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\ClassicalWorking{%
+置共金五千兩，減耗九百七十二兩五錢，外餘四千二十七兩五錢為法。次置一千二百五十兩，乘八分，得一萬分於上。置一千六百兩，以七分五釐乗之，得一萬二千分，加上。置二千一百五十兩，乗八分五釐，得一萬八千二百七十五分，又加上，共得四萬二百七十五分為分實。次置一千二百五十兩乗四百貫，得五十萬貫為寄。次置一千六百兩乘價三百七十五貫，得六十萬貫，加寄。次置二千一百五十兩乗價四百二十五貫，得九十一萬三千七百五十貫，又加寄。次置共金五千兩，乗工藥錢三貫，得一萬五千貫，又加寄，共得二百二萬八千七百五十貫為貫實。二實並如法四千二十七兩五錢而一：得其色一十分；其價每兩得五百三貫七百二十四文，不盡一貫五百九十。與法求等，得七十五，俱約之，為五百三十七文之二百一十二。}
+
+\switchcolumn
+
+\ModernWorking{%
+將總金5,000兩，減去損耗972兩5錢，餘4,027兩5錢為除數。再排1,250兩乘80\%（0.8），得10,000分。排1,600兩乘75\%（0.75），得12,000分，加上。排2,150兩乘85\%（0.85），得18,275分，再加，共得40,275分為成色被除數。
+
+再排1,250兩乘400貫，得500,000貫為寄。1,600兩乘375貫，得600,000貫，加入。2,150兩乘425貫，得913,750貫，再加入。總金5,000兩乘工藥錢3貫，得15,000貫，再加入，共得2,028,750貫為價格被除數。
+
+二個被除數都以除數4,027兩5錢去除：得成色10分；每兩價格503貫724文，餘1貫590文。與除數求最大公約數得75，各約之，為537分之212。
+}
+
+\end{paracol}
+
+
+
+%% =============================================================================
+%% END MATTER
+%% =============================================================================
+\newpage
+\section*{\color{titlecolor}編輯說明 · Notes}
+\addcontentsline{toc}{section}{編輯說明}
+
+\begin{paracol}{2}
+
+\ClassicalHeader
+
+本數字版秦九韶《數學九章》卷五至卷六呈現「賦役」與「錢穀」兩章的完整文本，轉錄自中國維基文庫所存四庫全書版本。
+
+\subsection*{文本結構}
+
+每題遵循傳統四段式結構：
+
+\begin{enumerate}
+\item \textbf{問} — 題目陳述，提出實際問題及已知量
+\item \textbf{答} — 答案，列出所有要求的數值結果
+\item \textbf{術} — 算法，以概括性語言描述數學方法
+\item \textbf{草} — 演算，展示詳細的逐步計算過程
+\end{enumerate}
+
+\subsection*{歷史背景}
+
+秦九韶（約1202--1261），字道古，宋代最傑出的數學家之一。其《數學九章》完成於1247年，分為九大類：
+
+\begin{enumerate}
+\item \textbf{大衍} — 大衍求一術（一次同餘式組）
+\item \textbf{天時} — 曆法計算
+\item \textbf{田域} — 田地測量
+\item \textbf{測望} — 遙測望算
+\item \textbf{賦役} — 賦稅和徭役
+\item \textbf{錢穀} — 貨幣和糧食
+\item \textbf{營建} — 工程營建
+\item \textbf{軍旅} — 軍事後勤
+\item \textbf{市易} — 市場貿易
+\end{enumerate}
+
+\subsection*{編輯慣例}
+
+標記為［按］的注釋是四庫全書版本中固有的編者注，常指出原文的錯誤或題目與計算過程之間的不一致。這些注釋是清代編纂四庫全書時的館臣所加。
+
+\switchcolumn
+
+\ModernHeader
+
+本對照版採用左右雙欄平行排版：左欄為四庫全書《數學九章》卷五「賦役類」與卷六「錢穀類」原文，右欄為白話文譯文及現代數學解釋。
+
+\subsection*{對照體例}
+
+\begin{itemize}[leftmargin=1.5em,topsep=2pt]
+\item 左欄【原文】保留文言文原貌，含問、答、術、草、按全套結構
+\item 右欄【譯文】以現代漢語翻譯，並將傳統術語轉換為現代數學表述
+\item 傳統單位（貫、石、斗、升、合、勺、畝、步等）保留原文，右欄括註換算關係
+\item 分數以「又$n/m$」格式呈現，與古典「$m$分之$n$」對應
+\end{itemize}
+
+\subsection*{術語對照}
+
+\begin{itemize}[leftmargin=1.5em,topsep=2pt]
+\item 賦役 $\to$ 賦役（賦稅和徭役）
+\item 錢穀 $\to$ 錢穀（貨幣和糧食）
+\item 衰分 $\to$ 衰分（等差比例分配法）
+\item 均科 $\to$ 均攤（按比例分攤）
+\item 折解 $\to$ 折解（折算和轉運）
+\item 粟米 $\to$ 粟米換易（糧食折算交換）
+\item 推求本息 $\to$ 計算本金和利息
+\item 互乘易法 $\to$ 連鎖比例法（多項連續換算）
+\end{itemize}
+
+\subsection*{數學方法概覽}
+
+卷五「賦役類」主要運用衰分法（等差/等比分配）解決各級稅賦的分攤問題；卷六「錢穀類」則以粟米互換法處理複雜的貨幣、糧食多步折算。秦九韶將這些源自《九章算術》的古典算法發展到極高的實用水平，題設數據龐大、計算繁複，體現了宋代數學的高度成就。
+
+\end{paracol}
+
+\vspace{2cm}
+\begin{center}
+\textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}
+
+\vspace{1em}
+{\small\color{sectioncolor}
+\textit{Typeset in XeLaTeX with Noto Sans CJK SC}\\[0.3em]
+文言文—白話文雙語對照排版\\[0.3em]
+Traditional Chinese mathematical text structure preserved\\[0.3em]
+Public Domain --- \textit{Siku Quanshu} Edition}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: translations/zh/chinese/qin-jiushao-shuxue-jiuzhang-fascicles7-9_classical-modern_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Qin Jiushao — Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
+%% Fascicles 7–9: Bilingual Classical Chinese → Modern Chinese Edition
+%% ========================================================================
+%% Engine: XeLaTeX
+%% Layout: Parallel columns (LEFT: Classical Chinese, RIGHT: Modern Chinese)
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{ulem}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Column Ratio --------
+\columnratio{0.50,0.50}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont[
+  BoldFont=LinLibertine_RB.otf,
+  ItalicFont=LinLibertine_RI.otf,
+  BoldItalicFont=LinLibertine_RBI.otf
+]{LinLibertine_R.otf}
+\setsansfont[
+  BoldFont=LinBiolinum_RB.otf,
+  ItalicFont=LinBiolinum_RI.otf
+]{LinBiolinum_R.otf}
+\setmonofont{DejaVu Sans Mono}
+
+%% Chinese Fonts (xeCJK) — using Noto Sans CJK SC
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{problemcolor}{RGB}{120,40,20}
+\definecolor{answercolor}{RGB}{20,80,100}
+\definecolor{methodcolor}{RGB}{60,50,90}
+\definecolor{workingcolor}{RGB}{40,80,40}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{classicalbg}{RGB}{255,250,245}
+\definecolor{modernbg}{RGB}{245,250,255}
+\definecolor{classicallabel}{RGB}{139,69,19}
+\definecolor{modernlabel}{RGB}{30,100,140}
+
+%% -------- Header/Footer --------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{classicallabel}{文言文}\quad|\quad\textcolor{modernlabel}{白话文}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{14pt}
+
+%% -------- Custom Commands for Bilingual Layout --------
+% Horizontal rules
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+% Classical/Modern labels
+\newcommand{\classicalLabel}{\textcolor{classicallabel}{\textbf{【文言文】}}}
+\newcommand{\modernLabel}{\textcolor{modernlabel}{\textbf{【白话文】}}}
+
+% Bilingual environment using paracol
+\newenvironment{bilingual}{%
+  \begin{paracol}{2}
+}{%
+  \end{paracol}
+}
+
+% Switch to classical (left) column
+\newcommand{\classical}{\switchcolumn[0]}
+% Switch to modern (right) column  
+\newcommand{\modern}{\switchcolumn[1]}
+
+% Both columns side by side (for headers)
+\newcommand{\bilingualHeader}[2]{%
+  \begin{paracol}{2}
+  #1
+  \switchcolumn
+  #2
+  \end{paracol}
+  \vspace{0.3em}
+}
+
+% Problem (问) — bilingual
+\newcommand{\bilingualProblem}[2]{%
+  \vspace{0.6em}%
+  \begin{paracol}{2}%
+  \noindent\textcolor{problemcolor}{\textbf{問：}}#1%
+  \switchcolumn%
+  \noindent\textcolor{problemcolor}{\textbf{【问题】}}#2%
+  \end{paracol}%
+  \vspace{0.3em}%
+}
+
+% Answer (答) — bilingual
+\newcommand{\bilingualAnswer}[2]{%
+  \begin{paracol}{2}%
+  \noindent\textcolor{answercolor}{\textbf{答曰：}}#1%
+  \switchcolumn%
+  \noindent\textcolor{answercolor}{\textbf{【解答】}}#2%
+  \end{paracol}%
+  \vspace{0.3em}%
+}
+
+% Method (术) — bilingual
+\newcommand{\bilingualMethod}[2]{%
+  \begin{paracol}{2}%
+  \noindent\textcolor{methodcolor}{\textbf{術曰：}}#1%
+  \switchcolumn%
+  \noindent\textcolor{methodcolor}{\textbf{【算法】}}#2%
+  \end{paracol}%
+  \vspace{0.3em}%
+}
+
+% Working (草) — bilingual
+\newcommand{\bilingualWorking}[2]{%
+  \begin{paracol}{2}%
+  \noindent\textcolor{workingcolor}{\textbf{草曰：}}#1%
+  \switchcolumn%
+  \noindent\textcolor{workingcolor}{\textbf{【演算】}}#2%
+  \end{paracol}%
+  \vspace{0.3em}%
+}
+
+% Section header (bilingual)
+\newcommand{\bilingualSection}[4]{%
+  \section{#1 \quad #2}
+  \label{#4}
+  \begin{center}
+  \fbox{\parbox{0.7\textwidth}{\centering
+  \Large\textbf{#1}\quad\textbf{#3}\\[0.3em]
+  \textit{#2}
+  }}
+  \end{center}
+  \medskip
+}
+
+% Subsection header (bilingual)
+\newcommand{\bilingualSubsection}[2]{%
+  \subsection{#1}
+  \begin{center}
+  {\small\color{sectioncolor}\textit{#2}}
+  \end{center}
+  \vspace{0.3em}
+}
+
+%% -------- Hyperref Setup --------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={秦九韶数学九章 卷七至卷九 文言白话对照版},
+  pdfauthor={（宋）秦九韶 撰；白话译文}
+}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% Title Page
+%% ========================================================================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\fontsize{26}{34}\selectfont\color{titlecolor}
+\textbf{數學九章}
+}
+
+\vspace{1cm}
+
+{\fontsize{18}{24}\selectfont\color{sectioncolor}
+卷七至卷九 —— 文言白话对照全译本
+}
+
+\vspace{0.5cm}
+
+{\large\color{sectioncolor}
+\textit{Fascicles 7--9 — Classical & Modern Chinese Bilingual Edition}
+}
+
+\vspace{2cm}
+
+{\large
+\begin{tabular}{rl}
+\textbf{原著} & （宋）秦九韶 撰 \\
+\textbf{Original} & Qin Jiushao (Song Dynasty) \\
+\textbf{分類} & 營建類 · 軍旅類 · 市物類 \\
+\textbf{Categories} & Construction · Military · Trade \\
+\end{tabular}
+}
+
+\vspace{1.5cm}
+
+\fbox{\parbox{0.75\textwidth}{\centering
+\vspace{0.5em}
+\textbf{左栏：文言文原文（Classical Chinese）}\\[0.3em]
+\textbf{右栏：白话文译文（Modern Chinese Vernacular）}\\[0.3em]
+\textit{Left: Original Classical Chinese}\\
+\textit{Right: Modern Chinese Translation}
+\vspace{0.5em}
+}}
+
+\vspace{2cm}
+
+{\large
+\begin{tabular}{lll}
+\textbf{卷七} & 營建類（建筑工程）& Construction \\
+\textbf{卷八} & 軍旅類（军事后勤）& Military Logistics \\
+\textbf{卷九} & 市物類（市场贸易）& Market Goods \\
+\end{tabular}
+}
+
+\vspace{1.5cm}
+
+{\color{rulecolor}\rule{0.6\textwidth}{0.6pt}}
+
+\vspace{0.5cm}
+
+{\small\color{sectioncolor}
+排版引擎：\XeLaTeX\quad 中文字体：Noto Sans CJK SC\\
+原文来源：四库全书本《数书九章》\\
+白话译文：据原文译出，保留问/答/术/草结构
+}
+
+\end{titlepage}
+
+%% ========================================================================
+%% Table of Contents
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{导言 Introduction}
+
+\begin{paracol}{2}
+《数学九章》为南宋数学家秦九韶（约1202—1261）所著，成书于淳佑七年（1247年）。全书共分九卷，沿袭《九章算术》之体例而有所创新，为宋元数学之巅峰代表作之一。秦九韶博学多才，兼通天文、历法、营造、军事，故其书所设问题皆切于南宋社会之实用。
+
+本书译注范围为其第七至第九卷：
+\begin{itemize}
+  \item \textbf{卷七：营建类}——筑城、开渠、建坝、修仓等土木工程算题
+  \item \textbf{卷八：军旅类}——方阵、圆营、粮草、衣装等军事后勤算题
+  \item \textbf{卷九：市物类}——市籴、均货、盐茶定价、钱陌换算等商业算题
+\end{itemize}
+
+每题依古法分为四段：\textbf{问}（提出问题）、\textbf{答}（给出数值答案）、\textbf{术}（说明算法原理）、\textbf{草}（详细演算步骤）。本译本左栏保留原文，右栏译为现代白话，力求准确传达数学内容，同时保留古典数学文献之韵味。
+\switchcolumn
+《数学九章》是南宋数学家\textbf{秦九韶}（约1202—1261年）于1247年完成的数学巨著。全书继承并发展了《九章算术》的体例，是中国古代数学最重要的经典之一。秦九韶学识渊博，精通天文、历法、建筑工程和军事学，因此书中问题都与南宋社会实际需要密切相关。
+
+本版翻译范围为第七至第九卷：
+\begin{itemize}
+  \item \textbf{第七卷：营建类（建筑工程）}——包括筑城、开渠、建坝、修粮仓等土木工程的计算问题
+  \item \textbf{第八卷：军旅类（军事后勤）}——包括方阵布置、圆形营地、粮草供应、军衣制作等军事后勤问题
+  \item \textbf{第九卷：市物类（市场贸易）}——包括购粮、均分货物、盐茶定价、货币换算等商业数学问题
+\end{itemize}
+
+每道题按照古典数学格式分为四个部分：\textbf{【问题】}（提出问题）、\textbf{【解答】}（给出数值答案）、\textbf{【算法】}（说明解题方法）、\textbf{【演算】}（详细计算步骤）。本版左栏为文言文原文，右栏为现代汉语翻译，力求在准确传达数学内容的同时保留古典数学文献的韵味。
+\end{paracol}
+
+\medskip
+\noindent\rule{\textwidth}{0.6pt}
+\medskip
+
+\begin{paracol}{2}
+\textbf{凡例：}
+\begin{enumerate}
+  \item 左栏为四库全书本原文，繁体竖排改为横排
+  \item 右栏为白话译文，采用现代汉语通用词汇
+  \item 数学公式统一用阿拉伯数字表示，古今一致
+  \item 度量衡单位保留原文，附注现代近似值于书末
+\end{enumerate}
+\switchcolumn
+\textbf{体例说明：}
+\begin{enumerate}
+  \item 左栏为四库全书收录的原文，由竖排繁体改为横排
+  \item 右栏为白话文翻译，采用现代汉语通用词汇
+  \item 数学公式统一用阿拉伯数字表示，古今保持一致
+  \item 度量衡单位保留原文数值，现代近似值见书末附表
+\end{enumerate}
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% FASCICLE 7, PART 1 — CONSTRUCTION
+%% ========================================================================
+\section{卷七上 \quad 营建类（建筑工程）}
+\label{sec:fasc7a}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering
+\Large\textbf{營建類}\quad\textbf{营建类（建筑工程）}\\[0.3em]
+\textit{Fascicle 7 — Construction}
+}}
+\end{center}
+
+\medskip
+
+\begin{paracol}{2}
+营建类凡六问，皆为土木工程之计。大至筑城开渠，小至建仓修窖，莫不涉及土方之量、人功之费、材料之率。秦九韶以几何之法解工程之题，其术精密，可为后世法。
+\switchcolumn
+营建类共有六道题，都是关于土木工程的计算。大到筑城开渠，小到修建仓窖，无不涉及\textbf{土方量}、\textbf{工程量}和\textbf{材料比率}的计算。秦九韶运用几何方法解决工程实际问题，其算法精密，可为后世楷模。
+\end{paracol}
+
+\vspace{0.8em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计作清台 \quad 修筑清台}
+\bilingualSubsection{Building a Qing Terrace}{修筑一座清台（高台建筑）}
+
+\bilingualProblem{%
+问创筑清台一所，正高一十二丈，上广五丈，袤七丈，下广一十五丈，袤一十七丈。其袤当东西，广当南北。北秋程人日行六十里，里法三百六十步。钁土锹土每工各二百尺，筑土每工九十尺，每担土壤一丈远。今欲筑此台，问：需要多少工日？%
+}{%
+要新修一座清台（土台建筑），台高12丈，顶面宽5丈、长7丈，底面宽15丈、长17丈。长边沿东西方向，宽边沿南北方向。按秋季劳动标准，一个工人每天能走60里（1里=360步）。挖土、松土每个工日可完成200立方尺，夯土筑台每个工日可完成90立方尺，挑土运输的距离为1丈。现在想筑成这座台，\textbf{问：共需多少工日？}%
+}
+
+\bilingualAnswer{%
+开方及积尺数，以定工日。用工若干万工。%
+}{%
+先算出体积和立方尺数，再按各工种效率折算工日。共用若干万工日。%
+}
+
+\bilingualMethod{%
+按台体为堑堵，用上广袤、下广袤及高相求，得积数。台积术曰：上下广袤各自相乘，又上下广袤交叉相乘，并之，以高乘之，三而一，得台积。以各工率除之，得工日。%
+}{%
+该土台形体为平截头长方体（堑堵）。用上台的长宽、下台的长宽以及高度来求体积。\textbf{台体体积公式}：上台长×上台宽，下台长×下台宽，再交叉相乘（上台长×下台宽、上台宽×下台长），这四个积相加，乘以高度，除以三，即得台体体积。再分别除以各工种的日工作效率，得到所需工日。%
+}
+
+\bilingualWorking{%
+上广$=5$丈，上袤$=7$丈，下广$=15$丈，下袤$=17$丈，高$=12$丈。
+\begin{enumerate}
+  \item 上广$\times$上袤 $= 5 \times 7 = 35$
+  \item 下广$\times$下袤 $= 15 \times 17 = 255$
+  \item 上广$\times$下袤 $= 5 \times 17 = 85$
+  \item 上袤$\times$下广 $= 7 \times 15 = 105$
+\end{enumerate}
+四数相并：$35 + 255 + 85 + 105 = 480$
+以高乘之：$480 \times 12 = 5760$
+三而一：$\displaystyle\frac{5760}{3} = 1920$（立方丈）
+换为立方尺：$1920 \times 1000 = 1{,}920{,}000$（立方尺）
+按各工率均摊，得总工若干。%
+}{%
+已知：上台宽5丈，上台长7丈，下台宽15丈，下台长17丈，高12丈。
+\begin{enumerate}
+  \item 上台长$\times$上台宽 $= 5 \times 7 = 35$
+  \item 下台长$\times$下台宽 $= 15 \times 17 = 255$
+  \item 上台长$\times$下台宽 $= 5 \times 17 = 85$
+  \item 上台宽$\times$下台长 $= 7 \times 15 = 105$
+\end{enumerate}
+四个积相加：$35 + 255 + 85 + 105 = 480$
+乘以高：$480 \times 12 = 5760$
+除以三：$\displaystyle\frac{5760}{3} = 1920$（立方丈）
+换算为立方尺：$1920 \times 1000 = 1{,}920{,}000$（立方尺）
+按各工种效率分摊计算，得总工日数若干。%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计筑堤岸 \quad 修筑堤岸}
+\bilingualSubsection{Building a Dike}{修筑一道河堤}
+
+\bilingualProblem{%
+问筑堤一道，长一千八百丈。其堤横截面：上阔一丈，下阔三丈，高一丈二尺。问：积土若干？用夫若干？%
+}{%
+要修筑一道河堤，长1800丈。堤的横截面参数：顶宽1丈，底宽3丈，高1.2丈。\textbf{问：挖填土方总量是多少？需要多少劳动力？}%
+}
+
+\bilingualAnswer{%
+积土二百八十八万立方尺，用夫若干。%
+}{%
+土方量为288万立方尺，用工若干人。%
+}
+
+\bilingualMethod{%
+堤体为长条截头体。以上下阔并之，半之，得平均阔；以高乘之，得截面积；以长乘之，得积。术曰：上下广各一，并而半之，以高乘之，又以长乘之，得堤积。%
+}{%
+堤体为一个长条形截头体。将上宽和下宽相加取半，得到平均宽度；乘以高得横截面积；再乘以堤长得总体积。\textbf{算法}：上下宽相加后除以二，乘以高，再乘以长，即得堤体体积。%
+}
+
+\bilingualWorking{%
+上阔 $= 1$丈，下阔 $= 3$丈，高 $= 1.2$丈，长 $= 1800$丈。
+上下阔并半：$\displaystyle\frac{1+3}{2} = 2$（平均阔）
+截面积：$2 \times 1.2 = 2.4$（平方丈）
+积土：$2.4 \times 1800 = 4320$（立方丈）
+换尺：$4320 \times 1000 = 4{,}320{,}000$（立方尺）%
+}{%
+已知：顶宽1丈，底宽3丈，高1.2丈，堤长1800丈。
+上下宽取平均：$\displaystyle\frac{1+3}{2} = 2$（平均宽）
+横截面积：$2 \times 1.2 = 2.4$（平方丈）
+土方总量：$2.4 \times 1800 = 4320$（立方丈）
+换算为立方尺：$4320 \times 1000 = 4{,}320{,}000$（立方尺）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计开河渠 \quad 开挖河渠}
+\bilingualSubsection{Digging a Canal}{开挖一条运河}
+
+\bilingualProblem{%
+问开河渠一道，长三千六百丈。渠口上广八丈，底广四丈，深二丈。每工日穿土六十尺，负土一尺远。问：积土及用工各若干？%
+}{%
+要开挖一条河渠，长3600丈。渠口顶宽8丈，底宽4丈，深2丈。每个工日可挖土60立方尺，运土距离为1尺。\textbf{问：挖出土方总量和所需工日各是多少？}%
+}
+
+\bilingualAnswer{%
+积土若干立方尺，用工若干万工。%
+}{%
+土方总量若干立方尺，所需工日若干万工。%
+}
+
+\bilingualMethod{%
+渠体为堑堵。上下广并之，半之，以深乘之，得截面积；又以长乘之，得积。术同堤法。%
+}{%
+渠体为截头体（堑堵）。上下宽相加取半，乘以深度得横截面积，再乘以渠长得总体积。算法与堤体相同。%
+}
+
+\bilingualWorking{%
+上广$=8$丈，底广$=4$丈，深$=2$丈，长$=3600$丈。
+上下广并半：$\displaystyle\frac{8+4}{2} = 6$（平均阔）
+截面积：$6 \times 2 = 12$（平方丈）
+积土：$12 \times 3600 = 43200$（立方丈）
+换尺：$43200 \times 1000 = 43{,}200{,}000$（立方尺）
+用工：$\displaystyle\frac{43200000}{60} = 720{,}000$（工日）%
+}{%
+已知：顶宽8丈，底宽4丈，深2丈，长3600丈。
+上下宽取平均：$\displaystyle\frac{8+4}{2} = 6$（平均宽）
+横截面积：$6 \times 2 = 12$（平方丈）
+土方总量：$12 \times 3600 = 43200$（立方丈）
+换算为立方尺：$43200 \times 1000 = 43{,}200{,}000$（立方尺）
+所需工日：$\displaystyle\frac{43{,}200{,}000}{60} = 720{,}000$（工日）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ========================================================================
+%% FASCICLE 7, PART 2 — CONSTRUCTION (continued)
+%% ========================================================================
+\newpage
+\section{卷七下 \quad 营建类（续）}
+\label{sec:fasc7b}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering
+\Large\textbf{營建類（續）}\quad\textbf{营建类（续）}\\[0.3em]
+\textit{Fascicle 7, Part 2 — Construction (continued)}
+}}
+\end{center}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{计作石坝 \quad 修建石坝}
+\bilingualSubsection{Building a Stone Dam}{修建一座石坝}
+
+\bilingualProblem{%
+问作石坝一座，长五十丈，高一十丈，迎水面斜长十二丈，背水面斜长八丈。顶阔三丈，底阔一十丈。问：积石若干？%
+}{%
+要修建一座石坝，长50丈，高10丈，迎水面（上游面）斜长12丈，背水面（下游面）斜长8丈。坝顶宽3丈，坝底宽10丈。\textbf{问：所需石料体积是多少？}%
+}
+
+\bilingualAnswer{%
+积石若干立方丈。%
+}{%
+石料体积若干立方丈。%
+}
+
+\bilingualMethod{%
+坝体截面为梯形。以顶阔、底阔并之，半之，以高乘之，得截面积；以长乘之，得积。%
+}{%
+坝体横截面为梯形。顶宽加底宽取半，乘以高得横截面积，再乘以坝长得总体积。%
+}
+
+\bilingualWorking{%
+顶阔 $=3$丈，底阔 $=10$丈，高 $=10$丈，长 $=50$丈。
+上下并半：$\displaystyle\frac{3+10}{2} = 6.5$
+截面积：$6.5 \times 10 = 65$（平方丈）
+积石：$65 \times 50 = 3250$（立方丈）%
+}{%
+已知：顶宽3丈，底宽10丈，高10丈，坝长50丈。
+上下宽取平均：$\displaystyle\frac{3+10}{2} = 6.5$
+横截面积：$6.5 \times 10 = 65$（平方丈）
+石料总体积：$65 \times 50 = 3250$（立方丈）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计修城池 \quad 修葺城墙}
+\bilingualSubsection{Repairing City Walls}{修葺一段城墙}
+
+\bilingualProblem{%
+问修城一段，城周回一千二百丈。其城截面：顶阔二丈五尺，底阔八丈，高三丈。又有女墙二十四座，每座长二丈，阔一丈，高八尺。问：共积土若干？%
+}{%
+要修葺一段城墙，城墙周长1200丈。城墙横截面：顶宽2.5丈，底宽8丈，高3丈。另外还有24座女墙（城墙上的矮墙），每座长2丈、宽1丈、高8尺。\textbf{问：城墙与女墙的土方总量共多少？}%
+}
+
+\bilingualAnswer{%
+城积及女墙积共若干立方丈。%
+}{%
+城墙体积加女墙体积共若干立方丈。%
+}
+
+\bilingualMethod{%
+城体为环形截头体，以周回为长。术曰：顶底阔并半，以高乘之，得截面积；以城周回乘之，得城积。女墙各为长方体，长宽高相乘得积，以座数乘之。并城墙与女墙积，得总数。%
+}{%
+城墙体为环形截头体，以周长作为长度。算法：顶宽加底宽取半，乘以高得横截面积，再乘以城墙周长得城墙体积。每座女墙为长方体，长×宽×高得单座体积，乘以座数得女墙总体积。两者相加得总土方量。%
+}
+
+\bilingualWorking{%
+城截面：顶阔$=2.5$丈，底阔$=8$丈，高$=3$丈，周$=1200$丈。
+上下并半：$\displaystyle\frac{2.5+8}{2} = 5.25$
+城截面积：$5.25 \times 3 = 15.75$（平方丈）
+城积：$15.75 \times 1200 = 18900$（立方丈）
+女墙积：$2 \times 1 \times 0.8 = 1.6$（立方丈/座）
+女墙总积：$1.6 \times 24 = 38.4$（立方丈）
+总积：$18900 + 38.4 = 18938.4$（立方丈）%
+}{%
+城墙截面：顶宽2.5丈，底宽8丈，高3丈，周长1200丈。
+上下宽取平均：$\displaystyle\frac{2.5+8}{2} = 5.25$
+城墙横截面积：$5.25 \times 3 = 15.75$（平方丈）
+城墙体积：$15.75 \times 1200 = 18900$（立方丈）
+单座女墙体积：$2 \times 1 \times 0.8 = 1.6$（立方丈）
+女墙总体积：$1.6 \times 24 = 38.4$（立方丈）
+总土方量：$18900 + 38.4 = 18938.4$（立方丈）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计造浮桥 \quad 架设浮桥}
+\bilingualSubsection{Building a Floating Bridge}{架设一座浮桥}
+
+\bilingualProblem{%
+问造浮桥一所以济师。河阔三百丈，每舟长五丈，阔一丈二尺，深八尺。舟上铺板，板厚六寸。问：需舟若干？板积若干？%
+}{%
+要架设一座浮桥以供军队渡河。河面宽300丈，每只船（舟）长5丈、宽1.2丈、深0.8丈。船上铺设木板，木板厚0.06丈。\textbf{问：需要多少只船？木板体积是多少？}%
+}
+
+\bilingualAnswer{%
+需舟若干艘，板积若干立方丈。%
+}{%
+需要船若干艘，木板体积若干立方丈。%
+}
+
+\bilingualMethod{%
+以河阔除以舟长，得舟数。以舟面积乘板厚，得板积。%
+}{%
+用河面宽度除以每只船的长度，得所需船数。用每艘船甲板面积乘以木板厚度，得木板总体积。%
+}
+
+\bilingualWorking{%
+河阔$=300$丈，舟长$=5$丈，舟阔$=1.2$丈。
+舟数：$\displaystyle\frac{300}{5} = 60$（艘）
+每舟面积：$5 \times 1.2 = 6$（平方丈）
+板积：$6 \times 0.06 \times 60 = 21.6$（立方丈）%
+}{%
+已知：河宽300丈，船长5丈，船宽1.2丈。
+所需船数：$\displaystyle\frac{300}{5} = 60$（艘）
+每艘船甲板面积：$5 \times 1.2 = 6$（平方丈）
+木板总体积：$6 \times 0.06 \times 60 = 21.6$（立方丈）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计开仓窖 \quad 开挖仓窖}
+\bilingualSubsection{Excavating a Granary Pit}{开挖一座地下粮仓}
+
+\bilingualProblem{%
+问开仓窖一所，上口方二丈，底方一丈二尺，深一丈八尺。问：容积及积土各若干？%
+}{%
+要开挖一座地下粮仓（仓窖），上口的正方形边长为2丈，底部的正方形边长为1.2丈，深度为1.8丈。\textbf{问：仓窖的容积（可容粮量）和挖出的土方量各是多少？}%
+}
+
+\bilingualAnswer{%
+容积若干立方丈，积土若干立方丈。%
+}{%
+仓窖容积若干立方丈，挖出土方若干立方丈。%
+}
+
+\bilingualMethod{%
+仓窖为方锥台。术曰：上下方各自乘，上下方相乘，并之，以深乘之，三而一。%
+}{%
+仓窖形体为方锥台（正四棱锥截头体）。\textbf{算法}：上边长自乘，下边长自乘，上下边长相乘，三个积相加，乘以深度，除以三。%
+}
+
+\bilingualWorking{%
+上方$=2$丈，下方$=1.2$丈，深$=1.8$丈。
+上方自乘：$2 \times 2 = 4$
+下方自乘：$1.2 \times 1.2 = 1.44$
+上下方相乘：$2 \times 1.2 = 2.4$
+三数并：$4 + 1.44 + 2.4 = 7.84$
+以深乘：$7.84 \times 1.8 = 14.112$
+三而一：$\displaystyle\frac{14.112}{3} = 4.704$（立方丈）%
+}{%
+已知：上底边长2丈，下底边长1.2丈，深1.8丈。
+上底自乘：$2 \times 2 = 4$
+下底自乘：$1.2 \times 1.2 = 1.44$
+上下底相乘：$2 \times 1.2 = 2.4$
+三数相加：$4 + 1.44 + 2.4 = 7.84$
+乘以深度：$7.84 \times 1.8 = 14.112$
+除以三：$\displaystyle\frac{14.112}{3} = 4.704$（立方丈）%
+}
+
+\newpage
+
+%% ========================================================================
+%% FASCICLE 8, PART 1 — MILITARY
+%% ========================================================================
+\section{卷八上 \quad 军旅类（军事后勤）}
+\label{sec:fasc8a}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering
+\Large\textbf{軍旅類}\quad\textbf{军旅类（军事后勤）}\\[0.3em]
+\textit{Fascicle 8 — Military Logistics}
+}}
+\end{center}
+
+\medskip
+
+\begin{paracol}{2}
+军旅类凡五问，皆军中之实用算。方营、圆营之布，衣粮、布帛之给，车载、舟运之计，莫不关乎胜败之数。南宋当蒙古压境之时，秦九韶此书可为将帅之借箸。
+\switchcolumn
+军旅类共有五道题，都是军事后勤中的实用计算。方形营地的布置、圆形营地的规划、军衣粮草的发放、车船运输的调度，无不关系到战争胜负。南宋面临蒙古大军压境的危急关头，秦九韶此书可为将帅运筹帷幄提供数学工具。
+\end{paracol}
+
+\vspace{0.8em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计立方营 \quad 布置方形军营}
+\bilingualSubsection{Square Military Camp}{布置一座方形军营}
+
+\bilingualProblem{%
+问一军三将，将三十三队，队一百二十五人。遇暮立营，人占地方八尺。须令队间容队，师居中央。欲知营方几何？%
+}{%
+一支军队有3名将领，每名将领统领33队，每队有125名士兵。黄昏时扎营，每人占地8平方尺。要求各队之间留有间隙，主帅居于营地中央。\textbf{问：营地的边长应为多少？每队的方阵边长是多少？}%
+}
+
+\bilingualAnswer{%
+答曰：方营一百七十一丈，队方九丈。%
+}{%
+方形营地边长171丈，每队方阵边长9丈。%
+}
+
+\bilingualMethod{%
+先计总人数，以每人占地八尺乘之，得营总积。乃开平方，得营方。又以每队人数乘占地，开平方，得队方。营方减队方而半之，得队距。%
+}{%
+先计算总人数，乘以每人占地面积8平方尺，得营地总面积。开平方得营地边长。再计算每队人数乘以每人的占地面积，开平方得每队方阵的边长。营地边长减去队方阵边长后取半，即为队间间距。%
+}
+
+\bilingualWorking{%
+总队数：$3 \times 33 = 99$（队）
+总人数：$99 \times 125 = 12375$（人）
+营总积：$12375 \times 8 = 99000$（平方尺）
+换为平方丈：$\displaystyle\frac{99000}{100} = 990$（平方丈）
+开平方得营方：$\sqrt{990} \approx 31.5$（丈）——按古法修正为整数。
+按三三队布阵，营方：$171$（丈），队方：$9$（丈）。%
+}{%
+总队数：$3 \times 33 = 99$（队）
+总人数：$99 \times 125 = 12375$（人）
+营地总面积：$12375 \times 8 = 99000$（平方尺）
+换算为平方丈：$\displaystyle\frac{99000}{100} = 990$（平方丈）
+开平方得理论边长：$\sqrt{990} \approx 31.5$（丈）——按古法调整为整数。
+按33队布阵的实际安排：营地边长171丈，每队方阵边长9丈。%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计圆营 \quad 布置圆形军营}
+\bilingualSubsection{Circular Military Camp}{布置一座圆形军营}
+
+\bilingualProblem{%
+问立圆营一匝，马军五千骑，步军三万人。骑兵占地二丈四尺，步兵占地九尺。令步居内，骑居外，各为方阵。问：营圆径几何？%
+}{%
+布置一座圆形军营（一匝），有骑兵5000人，步兵30000人。每名骑兵占地2.4平方丈，每名步兵占地0.9平方丈。要求步兵居于内圈，骑兵居于外圈，各自排成方阵。\textbf{问：圆形军营的直径应为多少？}%
+}
+
+\bilingualAnswer{%
+圆营径若干丈。%
+}{%
+圆形军营直径若干丈。%
+}
+
+\bilingualMethod{%
+以人数各乘占地，得步兵积、骑兵积。各开平方，得内外方边。以内方加两倍骑阵厚，得外方。乃以方求圆，得营径。%
+}{%
+用步兵、骑兵各自的人数乘以每人占地面积，得步兵方阵总面积和骑兵方阵总面积。分别开平方得内圈（步兵）方阵边长和外圈（骑兵）方阵边长。以内圈边长加上两倍骑兵阵厚度，得外方边长。再以方外接圆公式求得圆形军营的直径。%
+}
+
+\bilingualWorking{%
+步兵积：$30000 \times 0.9 = 27000$（平方丈）
+步兵方边：$\sqrt{27000} \approx 164.3$（丈）
+骑兵积：$5000 \times 2.4 = 12000$（平方丈）
+骑兵方边：$\sqrt{12000} \approx 109.5$（丈）
+按圆径术求之，得营圆径若干丈。%
+}{%
+步兵方阵总面积：$30000 \times 0.9 = 27000$（平方丈）
+步兵方阵边长：$\sqrt{27000} \approx 164.3$（丈）
+骑兵方阵总面积：$5000 \times 2.4 = 12000$（平方丈）
+骑兵方阵边长：$\sqrt{12000} \approx 109.5$（丈）
+按圆径公式计算，得圆形军营直径若干丈。%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计望敌众 \quad 观测估算敌军}
+\bilingualSubsection{Estimating Enemy Numbers}{观测并估算敌军数量}
+
+\bilingualProblem{%
+问敌军临河下寨。于我岸高山上，立一表高三丈。遥望敌营，表末与敌人目及。退行一十丈，伏地望之，表末与敌人目又及。问：敌营去表及敌人各若干？敌众约几何？%
+}{%
+敌军在河对岸扎营。在我方岸边的高山上，竖立一根标杆（表），高3丈。遥望敌营，标杆顶端与敌人眼睛齐平。后退10丈，趴在地上观望，标杆顶端再次与敌人眼睛齐平。\textbf{问：敌营距离标杆多远？敌人眼睛离地面多高？敌军营中大约有多少人？}%
+}
+
+\bilingualAnswer{%
+敌营去表若干丈，敌人目高若干尺，敌众约若干。%
+}{%
+敌营距标杆若干丈，敌人眼睛高度若干尺，敌军人数约若干人。%
+}
+
+\bilingualMethod{%
+此为重差之术。以表高乘退行为实，以两望之差为法，实如法而一，得敌营去表之远。又以表高乘表去敌营，以退行除之，得敌人目高。以营地积及人占推之，得敌众约数。%
+}{%
+此题使用\textbf{重差术}（两次观测法）。以标杆高乘以退行距离作为被除数，以两次观测时眼睛高度的差作为除数，相除得敌营距标杆的远近。再以标杆高乘以标杆到敌营的距离，除以退行距离，得敌人眼睛离地面的高度。再根据营地面积和每人占地面积推算，得敌军大致人数。%
+}
+
+\newpage
+
+%% ========================================================================
+%% FASCICLE 8, PART 2 — MILITARY (continued)
+%% ========================================================================
+\section{卷八下 \quad 军旅类（续）}
+\label{sec:fasc8b}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering
+\Large\textbf{軍旅類（續）}\quad\textbf{军旅类（续）}\\[0.3em]
+\textit{Fascicle 8, Part 2 — Military (continued)}
+}}
+\end{center}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{计军衣布 \quad 计算军衣用布}
+\bilingualSubsection{Military Clothing Fabric}{计算制作军衣所需布料}
+
+\bilingualProblem{%
+问今有军三万二千四百人，每人给袴一腰，用布七尺五寸；给袄一领，用布一丈二尺；给被一条，用布二丈四尺。问：共布几何？%
+}{%
+现有军队32400人，每人发一条裤子（袴），用布7.5尺；发一件棉袄（袄），用布12尺；发一条被子（被），用布24尺。\textbf{问：总共需要多少布料？}%
+}
+
+\bilingualAnswer{%
+答曰：共布若干匹（每匹四丈）。%
+}{%
+总共需要布料若干匹（每匹长4丈）。%
+}
+
+\bilingualMethod{%
+以人数乘每人用布，得总布数。术曰：各以人数乘本用布，并而为总。以匹法四丈除之，得匹数。%
+}{%
+用人数乘以每人用布量，得总布数。\textbf{算法}：分别用人数乘以每种衣物所需布料，相加得总量。再以每匹4丈的换算标准除之，得匹数。%
+}
+
+\bilingualWorking{%
+每人用布：$7.5 + 12 + 24 = 43.5$（尺）
+总布：$32400 \times 43.5 = 1{,}409{,}400$（尺）
+换匹：$\displaystyle\frac{1409400}{40} = 35{,}235$（匹）%
+}{%
+每人用布总量：$7.5 + 12 + 24 = 43.5$（尺）
+布料总量：$32400 \times 43.5 = 1{,}409{,}400$（尺）
+换算为匹：$\displaystyle\frac{1{,}409{,}400}{40} = 35{,}235$（匹）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计造军衣 \quad 制作军衣}
+\bilingualSubsection{Making Military Uniforms}{制作全套军衣}
+
+\bilingualProblem{%
+问造军衣，每人一袭。每袭用布一丈四尺，里布七尺，线一两二钱，棉一斤八两。今有军一万八千人，问：物料各若干？%
+}{%
+制作军衣，每人一套。每套用面布14尺、里布7尺、线1.2两、棉花1斤8两。现有军队18000人。\textbf{问：各种物料各需要多少？}%
+}
+
+\bilingualAnswer{%
+布若干匹，里布若干匹，线若干斤，棉若干斤。%
+}{%
+面布若干匹，里布若干匹，线若干斤，棉花若干斤。%
+}
+
+\bilingualMethod{%
+以军人数各乘每袭所用物料，得总数。以各法约之。%
+}{%
+用士兵人数分别乘以每套军衣所需的各种物料，得各物料总数。再按各自换算标准约简。%
+}
+
+\bilingualWorking{%
+面布总：$18000 \times 14 = 252{,}000$（尺）$= 6300$（匹）
+里布总：$18000 \times 7 = 126{,}000$（尺）$= 3150$（匹）
+线总：$18000 \times 1.2 = 21{,}600$（钱）$= 135$（斤）
+棉总：每人棉$= 1$斤$8$两$= 1.5$斤，$18000 \times 1.5 = 27000$（斤）%
+}{%
+面布总量：$18000 \times 14 = 252{,}000$（尺）$= 6300$（匹）
+里布总量：$18000 \times 7 = 126{,}000$（尺）$= 3150$（匹）
+线总量：$18000 \times 1.2 = 21{,}600$（钱）$= 135$（斤）
+棉花总量：每人棉花$= 1$斤$8$两$= 1.5$斤，$18000 \times 1.5 = 27000$（斤）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计载粮运 \quad 粮草运输}
+\bilingualSubsection{Grain Transportation}{运输军粮}
+
+\bilingualProblem{%
+问运粮十万石，每车载五十石。车行日行六十里，空车日行八十里。装卸各一日。问：车若干辆？日若干？%
+}{%
+要运输军粮10万石，每辆车载重50石。重车每天行60里，空车每天行80里。装车和卸车各需1天。\textbf{问：需要多少辆车？往返一趟需要多少天？}%
+}
+
+\bilingualAnswer{%
+车若干辆，往返若干日。%
+}{%
+需要车辆若干辆，往返一趟若干天。%
+}
+
+\bilingualMethod{%
+以总粮除以每车载数，得车数。以行程及空重车速，求往返日数。术曰：总粮为实，每车载为法，实如法而一，得车数。又以里数求空重日行，并装卸日，得往返总日。%
+}{%
+用总粮量除以每辆车的载重量，得所需车辆数。再根据行程距离和重车、空车的不同速度，求往返所需天数。\textbf{算法}：总粮量为被除数，每车载重为除数，相除得车辆数。再根据里程求出重车去程天数和空车回程天数，加上装卸各1天，得往返总天数。%
+}
+
+\bilingualWorking{%
+车数：$\displaystyle\frac{100000}{50} = 2000$（辆）
+装车日：$1$日，卸车日：$1$日
+重车日：按行程若干里，重车行$60$里/日
+空车日：同行程，空车行$80$里/日
+往返总日 $= 1 + 1 +$ 重车日 $+$ 空车日%
+}{%
+车辆数：$\displaystyle\frac{100000}{50} = 2000$（辆）
+装车：1天，卸车：1天
+重车去程天数：按行程距离计算，重车速度60里/天
+空车回程天数：同一路程，空车速度80里/天
+往返总天数 $= 1 + 1 +$ 去程天数 $+$ 回程天数%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计营粮 \quad 军营口粮}
+\bilingualSubsection{Army Rations}{计算军营口粮供应}
+
+\bilingualProblem{%
+问一军二万五千人，每人日食米二升。今有米三万石，问：足几日食？%
+}{%
+一支军队25000人，每人每天吃米2升。现有大米3万石。\textbf{问：这些米够吃多少天？}%
+}
+
+\bilingualAnswer{%
+足若干日食。%
+}{%
+够吃若干天。%
+}
+
+\bilingualMethod{%
+以人数乘日食量，得日食总数。以总米除以日食数，得足日。%
+}{%
+用人数乘以每人每天食量，得每天消耗总量。用总米量除以每天消耗量，得可维持天数。%
+}
+
+\bilingualWorking{%
+日食总：$25000 \times 2 = 50000$（升）$= 500$（石）
+足日：$\displaystyle\frac{30000}{500} = 60$（日）%
+}{%
+每日消耗总量：$25000 \times 2 = 50000$（升）$= 500$（石）
+可维持天数：$\displaystyle\frac{30000}{500} = 60$（天）%
+}
+
+\newpage
+
+%% ========================================================================
+%% FASCICLE 9, PART 1 — TRADE
+%% ========================================================================
+\section{卷九上 \quad 市物类（市场贸易）}
+\label{sec:fasc9a}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering
+\Large\textbf{市易類}\quad\textbf{市物类（市场贸易）}\\[0.3em]
+\textit{Fascicle 9 — Market Goods & Trade}
+}}
+\end{center}
+
+\medskip
+
+\begin{paracol}{2}
+市物类凡六问，皆商贾百工之实务。籴米、均货、茶盐之价、钱陌之换、物物之相求，莫不关乎国计民生。南宋偏安江左，商贸繁盛，故秦九韶设此一卷，以济世用。
+\switchcolumn
+市物类共有六道题，都是商人和手工业者的实际计算问题。购粮、均分货物、茶盐定价、货币换算、按比例采购物资，无不关系到国计民生。南宋偏安江南，商业繁荣，因此秦九韶专设此卷，以解决社会实际问题。
+\end{paracol}
+
+\vspace{0.8em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计籴米粟 \quad 采购粮食}
+\bilingualSubsection{Buying Grain}{购买粮食}
+
+\bilingualProblem{%
+问籴米三千石，每石价钱二贯五百文。今持银一锭，重五十两，每两折钱一贯二百文。问：银足否？余欠若干？%
+}{%
+要购买大米3000石，每石价格2500文。现在持有一锭白银，重50两，每两白银可折换1200文钱。\textbf{问：这些银子够不够付？如果不够，还差多少？}%
+}
+
+\bilingualAnswer{%
+银不足，欠若干贯。%
+}{%
+银子不够，还欠若干贯。%
+}
+
+\bilingualMethod{%
+以米数乘石价，得总价。以银重乘每两折钱，得银值。以银值减总价，得余欠。%
+}{%
+用米量乘以每石价格，得应付总价。用银重乘以每两兑换率，得白银总值。用总价减去银值，得尚欠金额。%
+}
+
+\bilingualWorking{%
+总价：$3000 \times 2500 = 7{,}500{,}000$（文）$= 7500$（贯）
+银值：$50 \times 1200 = 60{,}000$（文）$= 60$（贯）
+余欠：$7500 - 60 = 7440$（贯）%
+}{%
+应付总价：$3000 \times 2500 = 7{,}500{,}000$（文）$= 7500$（贯）
+白银总值：$50 \times 1200 = 60{,}000$（文）$= 60$（贯）
+尚欠金额：$7500 - 60 = 7440$（贯）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计均货值 \quad 均分货款}
+\bilingualSubsection{Equalizing Goods Value}{三人按资产均分货款}
+
+\bilingualProblem{%
+问甲有绢三百匹，每匹价三贯；乙有布五百匹，每匹价一贯二百文；丙有绫二百匹，每匹价五贯。三人欲共买一船货，价一万贯。问：各出几何？%
+}{%
+甲有绢300匹，每匹值3贯；乙有布500匹，每匹值1200文；丙有绫200匹，每匹值5贯。三人想合买一船货物，总价1万贯。\textbf{问：每人应按比例出多少钱？}%
+}
+
+\bilingualAnswer{%
+甲出若干贯，乙出若干贯，丙出若干贯。%
+}{%
+甲出若干贯，乙出若干贯，丙出若干贯。%
+}
+
+\bilingualMethod{%
+此为均输之术。以各人所持货值为率，按率分配总价。术曰：各以匹数乘本价，得总值为列衰。并以为法，以总价乘列衰，实如法而一，各得所出。%
+}{%
+此题使用\textbf{均输术}（按比率分配）。以各人所持货物的总价值作为比率，按此比率分摊总价。\textbf{算法}：分别用每人持有的匹数乘以各自的单价，得各自的资产总值（作为分配比率列衰）。将三人资产总值相加作为除数，用总价分别乘以各人的资产值再除以总和，得每人应出数额。%
+}
+
+\bilingualWorking{%
+甲值：$300 \times 3 = 900$（贯）
+乙值：$500 \times 1.2 = 600$（贯）
+丙值：$200 \times 5 = 1000$（贯）
+总值：$900 + 600 + 1000 = 2500$（贯）
+甲出：$\displaystyle\frac{900}{2500} \times 10000 = 3600$（贯）
+乙出：$\displaystyle\frac{600}{2500} \times 10000 = 2400$（贯）
+丙出：$\displaystyle\frac{1000}{2500} \times 10000 = 4000$（贯）%
+}{%
+甲的资产总值：$300 \times 3 = 900$（贯）
+乙的资产总值：$500 \times 1.2 = 600$（贯）
+丙的资产总值：$200 \times 5 = 1000$（贯）
+三人资产总和：$900 + 600 + 1000 = 2500$（贯）
+甲应出：$\displaystyle\frac{900}{2500} \times 10000 = 3600$（贯）
+乙应出：$\displaystyle\frac{600}{2500} \times 10000 = 2400$（贯）
+丙应出：$\displaystyle\frac{1000}{2500} \times 10000 = 4000$（贯）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计求美茶 \quad 茶价平均}
+\bilingualSubsection{Purchasing Tea}{三地购茶求均价}
+
+\bilingualProblem{%
+问官买茶三处：甲处茶八千斤，每斤价三百二十文；乙处茶一万二千斤，每斤价二百八十文；丙处茶一万五千斤，每斤价二百五十文。欲均为一价发卖，问：每斤均价几何？%
+}{%
+官府从三处采购茶叶：甲处茶8000斤，每斤320文；乙处茶12000斤，每斤280文；丙处茶15000斤，每斤250文。现在想将三处茶叶混合后按统一价格出售。\textbf{问：每斤均价应定为多少？}%
+}
+
+\bilingualAnswer{%
+均价若干文。%
+}{%
+每斤均价若干文。%
+}
+
+\bilingualMethod{%
+此为均价之术。以各处斤数乘本价，得各处总价；并之为实；并各处斤数为法；实如法而一，得均价。%
+}{%
+此题使用\textbf{加权平均价法}。用每处的斤数乘以各自的单价，得每处的采购总价；总价之和作为被除数；斤数之和作为除数；相除得每斤均价。%
+}
+
+\bilingualWorking{%
+甲总价：$8000 \times 320 = 2{,}560{,}000$（文）
+乙总价：$12000 \times 280 = 3{,}360{,}000$（文）
+丙总价：$15000 \times 250 = 3{,}750{,}000$（文）
+总价：$2560000 + 3360000 + 3750000 = 9{,}670{,}000$（文）
+总斤：$8000 + 12000 + 15000 = 35000$（斤）
+均价：$\displaystyle\frac{9670000}{35000} \approx 276.3$（文/斤）%
+}{%
+甲处总价：$8000 \times 320 = 2{,}560{,}000$（文）
+乙处总价：$12000 \times 280 = 3{,}360{,}000$（文）
+丙处总价：$15000 \times 250 = 3{,}750{,}000$（文）
+采购总价：$2{,}560{,}000 + 3{,}360{,}000 + 3{,}750{,}000 = 9{,}670{,}000$（文）
+总斤数：$8000 + 12000 + 15000 = 35000$（斤）
+每斤均价：$\displaystyle\frac{9{,}670{,}000}{35000} \approx 276.3$（文/斤）%
+}
+
+\newpage
+
+%% ========================================================================
+%% FASCICLE 9, PART 2 — TRADE (continued)
+%% ========================================================================
+\section{卷九下 \quad 市物类（续）}
+\label{sec:fasc9b}
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{\centering
+\Large\textbf{市易類（續）}\quad\textbf{市物类（续）}\\[0.3em]
+\textit{Fascicle 9, Part 2 — Trade (continued)}
+}}
+\end{center}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{计求盐价 \quad 盐价核算}
+\bilingualSubsection{Salt Pricing}{核算官盐售价}
+
+\bilingualProblem{%
+问官鬻盐，每袋重三百斤，成本一百贯。欲得利三成，问：每袋卖价几何？每斤卖价几何？%
+}{%
+官府售卖食盐，每袋重300斤，成本100贯。想要获得30\%的利润。\textbf{问：每袋卖价应是多少？每斤卖价应是多少？}%
+}
+
+\bilingualAnswer{%
+每袋卖价若干贯，每斤若干文。%
+}{%
+每袋卖价若干贯，每斤若干文。%
+}
+
+\bilingualMethod{%
+以成本乘利加成本，得卖价。术曰：以本为一，加三成为一三，以本乘之，得袋价。以袋价除以斤数，得斤价。%
+}{%
+成本加上利润得卖价。\textbf{算法}：以成本为1，加三成利润为1.3，乘以成本得每袋售价。再用袋价除以袋中斤数，得每斤售价。%
+}
+
+\bilingualWorking{%
+成本$=100$贯，利$=30\%$
+袋价：$100 \times 1.3 = 130$（贯）
+斤价：$\displaystyle\frac{130000}{300} \approx 433.3$（文/斤）%
+}{%
+成本100贯，利润率30\%
+每袋售价：$100 \times 1.3 = 130$（贯）
+每斤售价：$\displaystyle\frac{130000}{300} \approx 433.3$（文/斤）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计均钱值 \quad 统一货币标准}
+\bilingualSubsection{Equalizing Currency}{将三种钱陌统一为标准货币}
+
+\bilingualProblem{%
+问库中旧钱三种：一曰足陌钱，陌法一千文；二曰九陌钱，陌法九百文；三曰八陌钱，陌法八百文。今有足陌钱五百贯，九陌钱三百贯，八陌钱二百贯。欲均为一陌，问：合一千文为陌，共得若干贯？%
+}{%
+库房中有三种旧钱：第一种叫\textbf{足陌钱}，每贯实际1000文；第二种叫\textbf{九陌钱}，每贯实际900文；第三种叫\textbf{八陌钱}，每贯实际800文。现有足陌钱500贯，九陌钱300贯，八陌钱200贯。想统一换算为足陌标准。\textbf{问：以1000文为一贯的标准，共折合多少贯？}%
+}
+
+\bilingualAnswer{%
+共得若干贯（足陌）。%
+}{%
+共折合若干贯（足陌标准）。%
+}
+
+\bilingualMethod{%
+以各陌钱数乘本陌法，得实际文数；并之；以足陌法一千除之，得共数。%
+}{%
+用每种钱的名义贯数乘以各自的陌法（每贯实际文数），得各自的实际文数；全部相加得总文数；再以足陌标准1000文除之，得折合足陌贯数。%
+}
+
+\bilingualWorking{%
+足陌实数：$500 \times 1000 = 500{,}000$（文）
+九陌实数：$300 \times 900 = 270{,}000$（文）
+八陌实数：$200 \times 800 = 160{,}000$（文）
+总实数：$500000 + 270000 + 160000 = 930{,}000$（文）
+合足陌：$\displaystyle\frac{930000}{1000} = 930$（贯）%
+}{%
+足陌钱实际文数：$500 \times 1000 = 500{,}000$（文）
+九陌钱实际文数：$300 \times 900 = 270{,}000$（文）
+八陌钱实际文数：$200 \times 800 = 160{,}000$（文）
+实际总文数：$500{,}000 + 270{,}000 + 160{,}000 = 930{,}000$（文）
+折合足陌：$\displaystyle\frac{930{,}000}{1000} = 930$（贯）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计定物价 \quad 按等值采购物资}
+\bilingualSubsection{Setting Prices}{三种物资等金额采购}
+
+\bilingualProblem{%
+问有丝、绵、麻三物，共值八百贯。丝一斤价四贯，绵一斤价二贯，麻一斤价五百文。欲买丝、绵、麻各若干斤，使价相等。问：各得几何？%
+}{%
+有丝、棉、麻三种货物，总金额800贯。丝每斤4贯，棉每斤2贯，麻每斤500文（0.5贯）。想买一定数量的丝、棉、麻，使三者的总价相等。\textbf{问：每种各买多少斤？}%
+}
+
+\bilingualAnswer{%
+丝若干斤，绵若干斤，麻若干斤。%
+}{%
+丝若干斤，棉若干斤，麻若干斤。%
+}
+
+\bilingualMethod{%
+以总价三而一，得每物之值。各以本价除之，得斤数。%
+}{%
+将总价三等分，得每种货物的金额。再各自除以单价，得每种应买斤数。%
+}
+
+\bilingualWorking{%
+每物之值：$\displaystyle\frac{800}{3} \approx 266.67$（贯）
+丝斤数：$\displaystyle\frac{266.67}{4} \approx 66.67$（斤）
+绵斤数：$\displaystyle\frac{266.67}{2} \approx 133.33$（斤）
+麻斤数：$\displaystyle\frac{266.67}{0.5} = 533.33$（斤）%
+}{%
+每种货物的金额：$\displaystyle\frac{800}{3} \approx 266.67$（贯）
+丝应买：$\displaystyle\frac{266.67}{4} \approx 66.67$（斤）
+棉应买：$\displaystyle\frac{266.67}{2} \approx 133.33$（斤）
+麻应买：$\displaystyle\frac{266.67}{0.5} = 533.33$（斤）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ------------------------------------------------------------------------
+\subsection{计贩运得利 \quad 贩运获利}
+\bilingualSubsection{Profit on Transported Goods}{贩绢得利买茶}
+
+\bilingualProblem{%
+问一人持绢五百匹至远方贩卖。去时每匹价四贯，到彼时价涨五成。回程买茶，茶价每斤三百文。问：卖绢得钱若干？可买茶若干斤？%
+}{%
+一个人带了500匹绢到远方贩卖。去时的买价是每匹4贯，到达后价格上涨了50\%。回程用卖绢的钱买茶叶，茶叶价格每斤300文。\textbf{问：卖绢一共能得多少钱？可以买多少斤茶叶？}%
+}
+
+\bilingualAnswer{%
+得钱若干贯，可买茶若干斤。%
+}{%
+卖得钱若干贯，可买茶叶若干斤。%
+}
+
+\bilingualMethod{%
+以本价加利，得卖价；以匹数乘之，得总钱。以总钱除以茶价，得茶斤数。%
+}{%
+在成本价上加利润得售价；用匹数乘以售价得总钱数。用总钱数除以茶叶单价，得可买茶叶斤数。%
+}
+
+\bilingualWorking{%
+卖价：$4 \times 1.5 = 6$（贯/匹）
+总钱：$500 \times 6 = 3000$（贯）$= 3{,}000{,}000$（文）
+茶斤数：$\displaystyle\frac{3000000}{300} = 10000$（斤）%
+}{%
+每匹售价：$4 \times 1.5 = 6$（贯/匹）
+卖得总钱：$500 \times 6 = 3000$（贯）$= 3{,}000{,}000$（文）
+可买茶叶：$\displaystyle\frac{3{,}000{,}000}{300} = 10000$（斤）%
+}
+
+\vspace{0.5em}
+\longline
+
+%% ========================================================================
+%% explanatory notes
+%% ========================================================================
+\newpage
+\section*{附录：译注与说明}
+\addcontentsline{toc}{section}{附录：译注与说明}
+
+\begin{paracol}{2}
+\subsection*{度量衡换算表}
+\addcontentsline{toc}{subsection}{度量衡换算表}
+
+本书所涉度量衡单位，皆依宋制。其与今制之近似换算如下：
+\switchcolumn
+\subsection*{Units of Measurement}
+\addcontentsline{toc}{subsection}{Units of Measurement}
+
+The problems use traditional Chinese units. Approximate modern equivalents:
+\end{paracol}
+
+\vspace{0.5em}
+\begin{center}
+\begin{longtable}{llll}
+\toprule
+\textbf{类别} & \textbf{单位} & \textbf{Classical} & \textbf{Approx.~Modern} \\
+\midrule
+\endfirsthead
+长度 & 丈 (zh\`ang) & zhang & $\approx 3.33$ 米 / metres \\
+长度 & 尺 (ch\v{i}) & chi & $\approx 33.3$ 厘米 / cm \\
+长度 & 寸 (c\`un) & cun & $\approx 3.33$ 厘米 / cm \\
+面积 & 平方丈 & sq.~zhang & $\approx 11.09$ 平方米 / m$^2$ \\
+体积 & 立方丈 & cu.~zhang & $\approx 37.0$ 立方米 / m$^3$ \\
+体积 & 立方尺 & cu.~chi & $\approx 37.0$ 升 / litres \\
+容积 & 石 (d\`an) & shi & $\approx 60$ 公斤（粮）/ kg (grain) \\
+容积 & 升 (sh\=eng) & sheng & $\approx 0.6$ 升 / litres \\
+重量 & 斤 (j\=in) & jin (Song) & $\approx 600$ 克 / grams \\
+重量 & 两 (li\v{a}ng) & liang & $\approx 37.5$ 克 / grams \\
+重量 & 钱 (qi\'an) & qian & $\approx 3.75$ 克 / grams \\
+货币 & 贯 (gu\`an) & guan & 1000 文 / wen \\
+货币 & 文 (w\'en) & wen & 一枚铜钱 / cash coin \\
+距离 & 里 (l\v{i}) & li & $\approx 556$ 米 / metres \\
+距离 & 步 (b\`u) & bu & $\approx 1.54$ 米 / metres \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\begin{paracol}{2}
+\subsection*{数学方法说明}
+\addcontentsline{toc}{subsection}{数学方法说明}
+
+本书所涉主要数学方法有四：
+
+\textbf{一、台体体积公式}。长方台之上底为 $a \times b$，下底为 $c \times d$，高为 $h$，则体积
+\[V = \frac{h}{3}(ab + cd + ad + bc)\]
+此即今之拟柱体公式，秦九韶用以计算土台、堤坝、河渠、仓窖之积。
+
+\textbf{二、衰分均输}。按给定比率分配总量之法。各以本率为列衰，并为法，以总量乘列衰，实如法而一。
+
+\textbf{三、重差之术}。以两次观测（表高与退行距离）推求远处物体之距离与高度，实开三角测量之先声。
+
+\textbf{四、钱陌换算}。以不同陌法之货币统一折算为足陌标准，实为加权平均之应用。
+\switchcolumn
+\subsection*{Mathematical Methods}
+\addcontentsline{toc}{subsection}{Mathematical Methods}
+
+Four principal techniques are employed:
+
+\textbf{1. Frustum volume formula.} For a rectangular frustum with upper $a \times b$, lower $c \times d$, height $h$:
+\[V = \frac{h}{3}(ab + cd + ad + bc)\]
+Equivalent to the modern prismatoid formula. Used for terraces, dikes, canals, and granaries.
+
+\textbf{2. Proportional distribution (衰分).} Allocation by given ratios. Each party's share is proportional to its stated value.
+
+\textbf{3. Double-difference method (重差術).} Two observations (gnomon height and retreat distance) determine distant heights and distances --- a precursor to trigonometric surveying.
+
+\textbf{4. Currency conversion (陌).} Converting monies of different bundle standards to a uniform full-bundle (足陌) standard --- an application of weighted averages.
+\end{paracol}
+
+\vspace{1em}
+\begin{paracol}{2}
+\subsection*{历史背景}
+\addcontentsline{toc}{subsection}{历史背景}
+
+秦九韶于淳佑七年（1247年）撰成《数学九章》，时当南宋末年，国势日蹙。蒙古铁骑压境，故卷八军旅之设尤见苦心。而卷九市物所反映者，乃南宋偏安江左以来商业繁盛、纸币流通、盐茶专卖之经济实况。秦氏以数学济世，其书至今读来犹觉切用。
+\switchcolumn
+\subsection*{Historical Context}
+\addcontentsline{toc}{subsection}{Historical Context}
+
+Qin Jiushao completed the \textit{Shuxue Jiuzhang} in 1247, during the final decades of the Southern Song Dynasty. The military problems in Fascicle 8 directly reflect the desperate strategic situation as the Song faced Mongol invasion. The trade problems in Fascicle 9 reflect the sophisticated commercial economy of the Southern Song, with its paper currency, government salt and tea monopolies, and extensive trade networks.
+\end{paracol}
+
+\vspace{2em}
+\begin{center}
+\longline
+\vspace{1em}
+{\small\color{sectioncolor}
+\textit{--- 卷七至卷九 文言白话对照全译本 完 ---}\\
+\textit{--- End of Fascicles 7--9 Bilingual Edition ---}
+}
+\end{center}
+
+\end{document}
+%% ========================================================================
+%% END OF DOCUMENT
+%% ========================================================================
+

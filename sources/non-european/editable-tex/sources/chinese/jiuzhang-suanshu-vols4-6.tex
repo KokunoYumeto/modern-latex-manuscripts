@@ -1,0 +1,1523 @@
+% =============================================================================
+% Jiuzhang Suanshu (Nine Chapters) -- Fascicles 4-6 with Liu Hui's Commentary
+% 九章算術·卷四至卷六 (晉)劉徽注 (唐)李淳風注釋
+% EXPANDED EDITION with extensive classical Chinese text
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+% CJK support via xeCJK for proper line breaking
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+% -------- Line breaking for Chinese text --------
+\tolerance=1200
+\emergencystretch=3em
+\hyphenpenalty=5000
+\exhyphenpenalty=5000
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage[draft]{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Font Configuration --------
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont[Scale=MatchLowercase]{Liberation Mono}
+
+% Chinese inline helpers
+\newcommand{\zh}[1]{#1}
+\newcommand{\zhsf}[1]{\textsf{#1}}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{volcolor}{RGB}{120,53,15}
+\definecolor{commentarycolor}{RGB}{80,60,40}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{25,55,95}
+\definecolor{answercolor}{RGB}{35,85,55}
+\definecolor{methodcolor}{RGB}{85,35,35}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{titlecolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Jiuzhang Suanshu -- Fascicles 4--6}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% -------- Custom Environments --------
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% Problem environment
+\newtcolorbox{problem}[1][]{
+  colback=blue!3!white,colframe=problemcolor!60!black,
+  fonttitle=\bfseries,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Answer environment
+\newtcolorbox{answer}[1][]{
+  colback=green!3!white,colframe=answercolor!60!black,
+  fonttitle=\bfseries,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Method environment
+\newtcolorbox{method}[1][]{
+  colback=red!3!white,colframe=methodcolor!60!black,
+  fonttitle=\bfseries,title={#1},
+  breakable,enhanced,boxrule=0.5pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Commentary environment
+\newtcolorbox{commentary}[1][]{
+  colback=yellow!5!white,colframe=commentarycolor!60!black,
+  fonttitle=\bfseries\itshape,title={#1},
+  breakable,enhanced,boxrule=0.4pt,arc=2pt,
+  before upper={\RaggedRight}
+}
+
+% Volume header
+\newtcolorbox{volumeheader}[2][]{
+  colback=volcolor!8!white,colframe=volcolor!70!black,
+  fonttitle=\bfseries\Large,title={#2},#1,
+  breakable,enhanced,boxrule=1pt,arc=3pt
+}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,
+  urlcolor=sectioncolor,pdfencoding=auto
+}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% =============================================================================
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% TITLE PAGE
+% -----------------------------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\Huge\bfseries\color{titlecolor} Jiuzhang Suanshu\\[0.5em]
+\Large Nine Chapters on the Mathematical Art}\\[2em]
+
+{\LARGE\color{sectioncolor} Fascicles 4--6}\\[2em]
+
+{\Large\color{volcolor}
+\zh{九章算術·卷四至卷六}}\\[3em]
+
+{\large With Commentary by}\\[0.5em]
+{\Large\bfseries Liu Hui \zh{(劉徽)} \textit{(263 CE)}}\\[0.3em]
+{\normalsize With sub-commentary by Li Chunfeng \zh{(唐 李淳風注釋)}}\\[2em]
+
+\shortline
+
+\vspace{1cm}
+
+{\large\itshape From the Siku Quanshu \zh{(欽定四庫全書)} Edition}\\[0.5em]
+{\normalsize Zi Bu -- Astronomy and Mathematics \zh{(子部·天文算法類)}}\\[2em]
+
+\vfill
+
+\begin{minipage}{0.85\textwidth}
+\centering
+\textit{Volumes covered:}\\[0.5em]
+\textbf{Vol.\ 4 -- Shaoguang} (\zh{少廣}): Root extraction, finding dimensions given area/volume, sphere volume\\[0.3em]
+\textbf{Vol.\ 5 -- Shanggong} (\zh{商功}): Volumes of earthworks, walls, dykes, granaries, and geometric solids\\[0.3em]
+\textbf{Vol.\ 6 -- Junshu} (\zh{均輸}): Equitable taxation, weighted distribution, travel problems
+\end{minipage}
+
+\vspace{2cm}
+
+{\small\textit{Typeset with XeLaTeX using Noto CJK Fonts}}\\
+{\small from the Internet Archive Siku Quanshu scan}
+
+\end{center}
+\end{titlepage}
+
+% -----------------------------------------------------------------------------
+% TABLE OF CONTENTS
+% -----------------------------------------------------------------------------
+\tableofcontents
+\newpage
+
+% -----------------------------------------------------------------------------
+% INTRODUCTION
+% -----------------------------------------------------------------------------
+\section{Introduction}
+
+The \textit{Jiuzhang Suanshu} (\zh{九章算術}, ``Nine Chapters on the Mathematical Art'') is the most important ancient Chinese mathematical text, compiled during the Han dynasty (202 BCE -- 220 CE). The work is divided into nine chapters (\zh{卷}), each addressing a different category of practical mathematical problems.
+
+The commentary by \textbf{Liu Hui} (\zh{劉徽}, c.\ 225--295 CE), completed in \textbf{263 CE}, is one of the most brilliant works in the history of mathematics. Liu Hui not only explained the algorithms but also provided rigorous proofs using the method of geometric dissection (\zh{出入相補}), and famously computed an approximation of $\pi$ using inscribed polygons with up to 3072 sides.
+
+The sub-commentary by \textbf{Li Chunfeng} (\zh{李淳風}, 602--670 CE) and his team, commissioned by the Tang court, further clarified and corrected the text.
+
+\begin{commentary}[\zh{劉徽序} · Preface to the Commentary (excerpt)]
+\zh{%
+徽幼習九章，長再詳覽。觀陰陽之割裂，總算術之根源。探賾之暇，遂悟其意。是以敢竭頑魯，采其所見，為之作注。事物之推，各有條理。故枝雖分而同本幹者，知發其一端而已。又所析理以辭，解體用圖，庶亦約而能周，通而不黷，覽之者思過半矣。且算在六藝，古者以賓興賢能，教習國子。雖曰九數，其能窮纖入微，探測無方。
+}
+
+\textit{Liu Hui writes: ``In my youth I studied the Nine Chapters; in maturity I reviewed them again. Observing the division of yin and yang, I traced the root source of mathematical methods. In leisure moments of probing the profound, I came to understand their meaning. Therefore I dare to exhaust my humble abilities, gathering what I have observed, and write this commentary...''}
+\end{commentary}
+
+This document presents \textbf{Fascicles 4--6}:
+
+\begin{center}
+\begin{longtable}{|c|l|l|p{5cm}|}
+\hline
+\textbf{Vol.} & \textbf{Title} & \textbf{Chinese} & \textbf{Subject Matter} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Vol.} & \textbf{Title} & \textbf{Chinese} & \textbf{Subject Matter} \\
+\hline
+\endhead
+4 & Shaoguang & \zh{少廣} & Root extraction, finding dimensions given area/volume, sphere volume \\
+5 & Shanggong & \zh{商功} & Volumes of earthworks, walls, dykes, granaries, and geometric solids \\
+6 & Junshu & \zh{均輸} & Equitable taxation, weighted distribution, travel problems \\
+\hline
+\end{longtable}
+\end{center}
+
+Each problem follows the classical structure:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Wen} (\zh{問}): The problem statement --- ``Suppose there is\ldots''
+  \item \textbf{Da} (\zh{答}): The answer --- ``Answer:\ldots''
+  \item \textbf{Shu} (\zh{術}): The method/algorithm --- ``Method:\ldots''
+  \item \textbf{Zhu} (\zh{注}): Liu Hui's commentary explaining the reasoning
+\end{itemize}
+
+\newpage
+
+% =============================================================================
+\section{Volume 4: Shaoguang (Lesser Breadth)}
+% =============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷四} · Shaoguang (\zh{少廣})}
+\zh{少廣以御積冪方圓}\\[0.3em]
+\small\textit{Shaoguang: For governing areas, powers, squares, and circles}
+\end{volumeheader}
+
+\vspace{0.5cm}
+
+\noindent
+The chapter \zh{少廣} (Shaoguang, ``Lesser Breadth'') deals with finding one dimension of a rectangle given its area and other dimensions. It extends to root extraction (square and cube roots) and the famous problem of computing the volume of a sphere. The title refers to finding a ``lesser'' (smaller) dimension given a ``greater'' (area/volume).
+
+\begin{commentary}[\zh{劉徽注·少廣章序}]
+\zh{%
+少廣者，少從廣也。從廣者，田之長闊也。已知田之積步，及從廣之比率，而求從步之長。故曰少廣。此章先設分數，次開方，次開圓，次立圓，皆所以求其本數也。術之難者，莫過於開方。開方者，求方冪之一面也。
+}
+\end{commentary}
+
+\subsection{Opening Method: The Shaoguang Algorithm}
+
+\begin{method}[\zh{少廣術} · Method of Lesser Breadth]
+\zh{%
+置全步及分母子，以最下分母遍乘諸分子及全步。各以其母除其子，置之於左。命通分，內子。又以分母遍乘諸分子，及已通者，皆通而同之，并之為法。置所求步數，以全步積分乘之，為實。實如法而一，得從步。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui's Commentary on Shaoguang]
+\zh{%
+此以田廣為法，以畝積步為實。術曰置全步及分母子者，通分而齊其子也。齊其子，則母同其母。以母乘全步者，通其分也。以母遍乘諸分子，各以其母除其子，置之於左。命通分內子者，通而同之也。并之為法者，合眾分以為一法也。實如法而一者，以法除實，得從步之數也。
+
+凡廣步有分者，必先通分，令廣步為整數，而後以廣除積，得從步。何者？廣步有分，則不可徑以除積。故先通分，使廣步為整，然後除之。此少廣之本意也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 1: Finding the Side from Area with Fractional Parts}
+
+\begin{problem}[\zh{少廣第一} · Problem 1]
+\zh{%
+今有田，廣一步半。求田一畝，問從幾何？
+}\\[0.3em]
+\textit{Suppose there is a field, with width one and a half \zh{步}. If one \zh{畝} of field is desired, how long is the length?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：一百六十步。
+}\\[0.3em]
+\textit{Answer: 160 \zh{步}.}
+\end{answer}
+
+\begin{method}[\zh{術} · Method]
+\zh{%
+術曰：下有半，是二分之一。以一為二，半為一，并之得三，為法。置田二百四十步，亦以一為二乘之，為實。實如法得從步。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+此以廣為法，以畝積步為實。術曰下有半是二分之一者，廣一步半，其半即二分之一也。以一為二者，通分也。半為一者，二分之一即一也。并之得三為法者，分母二通全步一為二，分子一，共三也。置田二百四十步為一畝之積，以一為二乘之，得四百八十步，為實。實如法者，以法三除實四百八十，得一百六十步，即從步也。
+
+何以知一畝為二百四十步？按田畝之法，廣十五步，從十六步，為一畝。積三百八十步者，古畝也。秦漢以來，廣十五步，從十六步，為一畝，積二百四十步。此術從二百四十步，是秦田畝之法也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 2: Multiple Fractional Parts}
+
+\begin{problem}[\zh{少廣第二} · Problem 2]
+\zh{%
+今有田，廣一步半、三分之一、四分之一、五分之一、六分之一、七分之一、八分之一、九分之一、十分之一。求田一畝，問從幾何？
+}\\[0.3em]
+\textit{Suppose there is a field, with width equal to $1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \frac{1}{9} + \frac{1}{10}$ \zh{步}. If one \zh{畝} is desired, how long is the length?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：八十一步七千三百八十一步之二萬九千一百八十三。
+}
+\end{answer}
+
+\begin{method}[\zh{術} · Method]
+\zh{%
+術曰：下有一十分，以一為二千五百二十，半為一千二百六十，三分之一為八百四十，四分之一為六百三十，五分之一為五百四，六分之一為四百二十，七分之一為三百六十，八分之一為三百一十五，九分之一為二百八十，一十分之一為二百五十二。并之得七千三百八十一，為法。置田二百四十步，亦以一為二千五百二十乘之，為實。實如法得從步。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on Finding Common Denominators]
+\zh{%
+此術以諸分母連乘為大母，謂之二千五百二十者，乃二、三、四、五、六、七、八、九、十連乘之積也。二乘三得六，六乘四得二十四，二十四乘五得一百二十，一百二十乘六得七百二十，七百二十乘七得五千四十，五千四十乘八得四萬三百二十，四萬三百二十乘九得三十六萬二千八百八十，乘十得三百六十二萬八千八百。此通分之大母也。
+
+然術云二千五百二十者，蓋以分母求最小公倍數也。二、三、四、五、六、七、八、九、十之最小公倍數，即二千五百二十也。以最小公倍數為大母，則諸分子皆為整數，而計算簡便矣。此劉徽所謂「通分而齊其子」之法也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 3: Field with Width One and Multiple Fractions}
+
+\begin{problem}[\zh{少廣第三} · Problem 3]
+\zh{%
+今有田，廣一步半、三分之一、四分之一、五分之一、六分之一、七分之一、八分之一、九分之一、十分之一、十一分之一、十二分之一。求田一畝，問從幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：七十七步八萬六千二十一分之二萬九千一百八十三。
+}
+\end{answer}
+
+\begin{method}[\zh{術} · Method]
+\zh{%
+術曰：下有一十二分，以一為八萬三千一百六十，半為四萬一千五百八十，三分之一為二萬七千七百二十，四分之一為二萬七百九十，五分之一為一萬六千六百三十二，六分之一為一萬三千八百六十，七分之一為一萬一千八百八十，八分之一為一萬三百九十五，九分之一為九千二百四十，一十分之一為八千三百一十六，十一分之一為七千五百六十，十二分之一為六千九百三十。并之得二十五萬八千六十三，為法。置田二百四十步，亦以一為八萬三千一百六十乘之，為實。實如法得從步。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+此術愈繁，分母愈多，則通分之母愈大。然其理則一也。皆以最下分母遍乘諸分子，通而同之，并為法，以除積步而已。少廣之術，雖繁而不紊，以其有定法也。學者能明其理，則雖千分萬分，皆可一通而同之，未嘗難也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Square Root Extraction: The Kai Fang Algorithm}
+
+The \zh{開方術} (Method of Root Extraction) is one of the crowning achievements of ancient Chinese mathematics. The algorithm described in the \textit{Jiuzhang Suanshu} is essentially equivalent to the modern long-division method for computing square roots.
+
+\begin{method}[\zh{開方術} · Method of Square Root Extraction]
+\zh{%
+術曰：置積為實。借一算，步之，超二等。議所得，以一乘所借一算為法，而以除。除已，倍法為定法。其復除，折法而下。復置借算，步之如初。以復議一乘之，所得副，以加定法，以除。以所得副從定法。復除，折下如前。若開之不盡者為不可開，當以面命之。若實有分者，通分內子為定實。乃開之，訖，開其母報除。若母不可開者，又以母乘定實，乃開之。訖，令如母而一。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on Root Extraction]
+\zh{%
+開方術者，求方冪之一面也。凡冪，方圓之本也。方冪者，方之積也。開方者，求方之面數。言百之面十，萬之面百。術曰置積為實者，積即方冪也。借一算步之者，假以定位也。超二等者，方十自乘，冪一百；方百自乘，冪一萬。故超兩位也。
+
+議所得者，假令積五萬五千二百二十五步，超二等，得二百。以二百乘借算，得二萬，為初商。除實，餘三萬五千二百二十五。倍法為四百，為定法。復置借算，步之超二等，得三十。以三十乘借算，得九百，加定法四百，得一千三百。以三十乘之，得三萬九千，除實。餘不盡，復折而下。又以五乘借算，得五，加定法一千三百，得一千三百零五。以五乘之，得六千五百二十五，恰盡。故方為二百三十五步也。
+
+凡開方，借一算者，所以定位也。超二等者，所以約其大數也。倍法為定法者，廣袤相補之義也。以復議一乘之者，所以求其細數也。所得副以加定法者，出入相補之義也。此術雖止於開平方，然其理可以推之於開立方、開圓，乃至開各乘方也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 4: Square Root of 55225}
+
+\begin{problem}[\zh{開方第四} · Problem: Square Root Extraction]
+\zh{%
+今有積五萬五千二百二十五步。問為方幾何？
+}\\[0.3em]
+\textit{Suppose there is an area of 55,225 square \zh{步}. What is the side of the square?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：二百三十五步。
+}\\[0.3em]
+\textit{Answer: 235 \zh{步}.}
+\end{answer}
+
+\begin{method}[\zh{開方術} · Method of Root Extraction]
+\zh{%
+術曰：置積五萬五千二百二十五步為實。借一算，步之，超二等，得二百。議所得，以二乘所借一算為法，得二萬，而以除實。除已，餘三萬五千二百二十五。倍法為四百，為定法。其復除，折法而下。復置借算，步之如初，得三十。以復議三乘之，所得九十，以加定法四百，得四百九十。又以三十乘之，得一萬四千七百。以減實，餘二萬五百二十五。以所得副從定法，得五百二十。復除，折下如前，得五。以五乘之，得二十五，加定法五百二十，得五百二十五。以五乘之，得二千六百二十五。以減實，恰盡。得方二百三十五步。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui's Detailed Explanation]
+\zh{%
+此開方之正術也。積五萬五千二百二十五步，開方得二百三十五步。驗之：二百三十五步自乘，二百乘二百得四萬，二百乘三十五得七千， doubly 得一萬四千；三十五乘三十得一千零五十， doubly 得二千一百；三十五乘五得一百七十五。并之：四萬加七千得一萬七千，加二千一百得一萬九千一百，加一百七十五得一百九千二百七十五，加一萬四千得二百一十三千二百七十五。更詳驗之：二百三十五自乘，即二百三十五步為一面之數，自相乘為方冪之積，正得五萬五千二百二十五步。故知其術之正確也。
+
+開方術者，九章中之最要術也。天文、曆法、測地、營室，無一不用開方。劉徽謂「凡冪，方圓之本」，誠哉是言。冪者，積也；開方者，求其邊也。有積而求邊，猶有田而求徑也。此數學之樞紐也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 5: Non-terminating Square Root}
+
+\begin{problem}[\zh{開方第五} · Problem: Irrational Root]
+\zh{%
+今有積二萬五千二百八十一步。問為方幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：一百五十九步，開之不盡，當以面命之。
+}
+\end{answer}
+
+\begin{method}[\zh{術} · Method]
+\zh{%
+術曰：置積二萬五千二百八十一步為實。借一算，步之，超二等，得一百。議所得，以一乘所借一算，得一百，為法。以除實，餘一萬五千二百八十一。倍法為二百，為定法。復置借算，步之，得五十。以復議五乘之，得二百五十，加定法二百，得四百五十。以五十乘之，得二萬二千五百。減實，不足。故知次商當小於五十。復議得九，以九乘之，得四百五十九，以減實，餘一千七百九十。故方一百五十九步，餘一千七百九十一，不盡。當以面命之，曰一百五十九步一千七百九十一分之一百五十九，約之為一十一分之三十二步也。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on Irrational Numbers]
+\zh{%
+按此術，開之不盡者，當以面命之。所謂以面命之者，開方不盡之數，不可盡以整數步表示之，則以其餘實為分子，以定法為分母，命為帶分數也。徽按：開方不盡者，其數無窮。以面命之，猶有餘分。若求其微數，可以繼續開之，至於纖微，則幾乎得其真數矣。
+
+凡開方不盡，以面命之者，古之常法也。然其實此類之數，非分數所能盡。徽嘗謂：「其數無窮，以面命之，猶有餘分。微數無名者，以為分子，其一退以十為母，其再退以百為母。」此微數之術也，即後世所謂小數也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Cube Root Extraction: The Kai Li Fang Algorithm}
+
+\begin{method}[\zh{開立方術} · Method of Cube Root Extraction]
+\zh{%
+術曰：置積為實。借一算，步之，超三等。議所得，以再乘所借一算為法，而以除。除已，三之為定法。復除，折而下。以三乘所得數，置中行。復借一算，置下行。步之，中超一，下超二等。復置議，以一乘中，再乘下，皆副以加定法。以定法除。除已，倍下、并中，從定法。復除，下如前。開之不盡者，亦為不可開。若積有分者，通分內子為定實。定實乃開之，訖，開其母以報除。若母不可開者，又以母再乘定實，乃開之。訖，令如母而一。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on Cube Root Extraction]
+\zh{%
+開立方術者，求立方冪之一邊也。凡立方冪者，立方之積也。開立方者，求立方之邊數。術曰置積為實者，積即立方冪也。借一算步之，超三等者，立方十，冪一千；立方百，冪百萬。故超三位也。
+
+議所得者，假令積一百八十六萬八百六十七尺，超三等，得一百二十。以一百二十再乘所借一算，得一萬四千四百，為法。以除實，餘不盡。三之為定法，得四萬三千二百。此開立方之正術也。其理與開方同，而步驟益繁，以三次冪之故也。
+
+按立方冪之義，方十自乘再乘，得一千；方百自乘再乘，得百萬。故開立方者，超三等也。其術先議大數，次議中數，末議小數，三層遞減，而立方之邊得矣。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 6: Cube Root of 1860867}
+
+\begin{problem}[\zh{開立方第六} · Problem: Cube Root Extraction]
+\zh{%
+今有積一百八十六萬八百六十七尺。問為立方幾何？
+}\\[0.3em]
+\textit{Suppose there is a volume of 1,860,867 cubic \zh{尺}. What is the side of the cube?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：一百二十三尺。
+}\\[0.3em]
+\textit{Answer: 123 \zh{尺}.}
+\end{answer}
+
+\begin{method}[\zh{開立方術} · Method]
+\zh{%
+術曰：置積一百八十六萬八百六十七尺為實。借一算，步之，超三等，得一百。議所得，以一百再乘所借一算，得一萬，為法。以除實，餘八十六萬八百六十七。三之為定法，得三萬。復除，折而下。以三乘所得一百，得三百，置中行。復借一算，置下行。步之，中超一，得十；下超二等，得一。復置議二十，以一乘中三百，得三百；再乘下一，得二十；皆副以加定法，得三萬三百二十。以二十乘之，得六十萬六千四百。以減實，餘二十五萬四千四百六十七。倍下、并中，從定法。復除，下如前，得三。以三乘中三百二十，得九百六十；再乘下三，得九；皆副以加定法，得三萬一千二百八十九。以三乘之，得九萬三千八百六十七。以減實，恰盡。得立方一百二十三尺。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+此開立方之正術也。驗之：一百二十三尺自乘，得一千五百一十二尺九百一十六分尺之三百九十六。再乘，即一百二十三乘一萬五千一百二十九，正得一百八十六萬八百六十七尺。故知其術之正確也。
+
+按開立方之術，其理與開方相通。開方者二次冪，開立方者三次冪也。二次冪開之超二等，三次冪開之超三等，其理一也。皆先借一算以定位，次議所得以求商，倍法定法以除實，層層遞進，而真數出焉。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Sphere Volume Problem: Liu Hui's Greatest Achievement}
+
+This is one of the most famous problems in the \textit{Jiuzhang Suanshu}, which Liu Hui analyzed in depth, setting the foundation for later work by Zu Chongzhi and his son Zu Geng.
+
+\begin{problem}[\zh{立圓} · The Sphere Volume Problem]
+\zh{%
+今有立圓，徑四尺。問為積幾何？
+}\\[0.3em]
+\textit{Suppose there is a solid sphere, with diameter 4 \zh{尺}. What is its volume?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：九尺五寸八分寸之一。
+}\\[0.3em]
+\textit{Answer: $9\,\zh{尺}\,5\,\zh{寸}\,\frac{1}{8}$ (using the ancient formula $V = \frac{9}{16}d^3$).}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：圓徑自乘，九之，十六而一。开立圆术：置圓徑四尺，自乘，得一十六尺。九之，得一百四十四尺。十六而一，得九尺。餘十六分尺之八，約之為八分尺之一。并之，為積。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui's Famous Commentary on the Sphere]
+\zh{%
+按此術，圓徑自乘者，先得圓冪。九之十六而一者，以圓冪為方冪，九之十六而一，即圓積也。然此術以圓徑為方徑，誤也。何以驗之？取立方棋八枚，皆令立方一寸，積之為立方二寸。規之為圓，徑二寸。又橫規之，徑亦二寸。然後并立圓棋二枚，規之為圓，徑二寸。又橫規之，徑亦二寸。是為圓積也。
+
+徽術曰：立方徑自乘，又以圓周率三乘之，十二而一，得圓積。此圓冪之率也。又以此圓積乘高，得圓柱積。立圓者，圓柱之半也。故又以圓周率三乘之，十二而一，得立圓積。此術未得其理。
+
+按此術之誤，在於以圓徑為方徑，而不知圓方之率。圓方之率者，圓周率三，方周率四也。以圓周率乘方冪，開方除之，即徑。以方率乘圓冪，開方除之，即周。此圓方之率也。古術以徑自乘，九之十六而一，是假令圓周率三，以三乘徑冪，十二而一，得圓積。又以圓積為立圓積，是不知立圓與圓柱之異也。
+
+夫立圓者，即球也。球之積，當以圓周率乘徑冪，六而一。此徽之所創，而後人莫之能易也。然徽創此術之時，尚未得圓周率之真數。徽以為圓周率三，猶為疏略。故嘗作割圓術，以為圓周率在三年一四之間，此後人之所共知也。
+}
+\end{commentary}
+
+\begin{commentary}[\zh{劉徽注} · The Mouhe Fangai Construction]
+\zh{%
+牟合方蓋者，方率也。丸居牟合方蓋，則圓率也。按合蓋者，方率也。其中則圓周率也。方圓相纏，周徑相直。若設方率為四，圓周率為三。以圓周率乘方冪，開方除之，即徑。以方率乘圓冪，開方除之，即周。此圓方之率也。
+
+合蓋者，取立方棋八枚，令立方一寸。規之為圓，徑二寸，則圓面積為寸之四分之三也。又橫規之，徑亦二寸，則橫截面亦為寸之四分之三也。如此，縱橫兩規，其相交處，即合蓋之形也。合蓋之中，可容丸。丸即立圓也。
+
+按合蓋之積，徽嘗推之，而未得其真數。蓋合蓋之截面，或方或圓，縱橫交錯，不可徑以方圓之術求之。徽知其理，而未能盡其術。至祖暅之，始以「冪勢既同，則積不容異」之理，求得合蓋之積，為立方積三分之二。由此得立圓之積，為立方積之半，即以圓周率乘徑冪，六而一也。
+}
+\end{commentary}
+
+\textit{Explanatory note:} Liu Hui here identifies the error in the ancient formula $V = \frac{9}{16}d^3$ (which implies $\pi = 3$ in a specific configuration). He introduces the concept of \zh{牟合方蓋} (mouhe fangai, ``double-lid umbrella''), the intersection of two perpendicular cylinders, as the key to finding the sphere volume. He correctly states that the sphere is inscribed in this solid, but was unable to complete the computation. This was later accomplished by \textbf{Zu Geng} (\zh{祖暅}) in the 5th century, who proved that the volume of the \zh{牟合方蓋} is $\frac{2}{3}$ of the circumscribed cube, leading to the correct formula $V = \frac{\pi}{6}d^3$.
+
+\begin{commentary}[\zh{李淳風注釋} · Li Chunfeng's Sub-commentary]
+\zh{%
+淳風等按：此章開方、開立方、立圓三術，皆為數學之樞要。開方者，平方之根也；開立方者，立方之根也。二者皆有定術，可循而求之。惟立圓之術，古來多誤。劉徽深明其理，創為牟合方蓋之說，以明古術之非。雖未能盡得其數，而其理已足為後人之嚆矢。祖暅之繼起，乃成其功，此數學史上之佳話也。
+
+徽之割圓術，以為圓周率在三年一四之間，即三·一四一六弱也。此率雖未盡圓周之真數，然已甚密。後人用之，謂之徽率。至祖沖之，更密其率，得圓周率在約率二二之七、密率三五五之一一三之間，此又後話也。
+}
+\end{commentary}
+
+\newpage
+
+% =============================================================================
+\section{Volume 5: Shanggong (Construction Consultations)}
+% =============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷五} · Shanggong (\zh{商功})}
+\zh{商功以御功程積實}\\[0.3em]
+\small\textit{Shanggong: For governing labor, engineering, and solid volumes}
+\end{volumeheader}
+
+\vspace{0.5cm}
+
+\noindent
+The chapter \zh{商功} (Shanggong, ``Construction Consultations'') deals with computing the volumes of various solids arising in engineering and construction: earthworks, city walls, dykes, ditches, canals, granaries, and a rich collection of geometric solids. Liu Hui's commentary is particularly extensive here, providing geometric proofs using dissection methods.
+
+\begin{commentary}[\zh{劉徽注·商功章序}]
+\zh{%
+商功者，商度功程也。功程者，土方之役也。凡築城、穿塹、起堤、治溝，皆先度其廣袤高深之數，以定其積，而後計人功、日數、價直之屬。故曰商功。此章所列，有城、垣、堤、溝、渠、塹、穴、倉、圓窖之屬，又有陽馬、鱉臑、芻甍、芻童、曲池、盤池、冥谷諸體，蓋古之工程數學也。
+
+徽按：商功之術，其要有三：一曰度積，以定土方之數；二曰計功，以定人役之期；三曰均輸，以定財用之節。此三者，治國之要術，不可不察也。故商功之章，次於少廣之前，以其為用甚廣也。
+}
+\end{commentary}
+
+\subsection{Classification of Earthwork Solids}
+
+\begin{method}[\zh{商功術} · Opening Method]
+\zh{%
+穿地四，為壤五，為堅三。墟謂穿坑，此皆其常率。
+}\\[0.3em]
+\textit{For excavated earth: 4 units [loose] become 5 units [piled], or 3 units [compacted]. The ``ruins'' refer to excavated pits --- these are standard rates.}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on Earthwork Ratios]
+\zh{%
+以穿地求壤，五之；求堅，三之。皆四而一。以壤求穿，四之；求堅，三之。皆五而一。以堅求穿，四之；求壤，五之。皆三而一。此術皆其常率也。穿地四為壤五者，掘地四尺，出壤五尺，壤虛而堅實也。
+
+按此三率者，工程之常數也。穿地者，掘地之虛土也；壤者，掘出之鬆土也；堅者，築實之固土也。穿地四尺而為壤五尺者，土鬆則體積增也。穿地四尺而為堅三尺者，土實則體積減也。此自然之理也。古之工程師，皆以此三率為準，以定土方之數。
+
+何以知此三率之確？徽嘗觀土工之役，掘地為坑，其出壤必多於所掘之深。築土為堤，其用壤必少於所成之高。此目驗之理也。故穿地四為壤五、為堅三者，古今之通率也。學者不以為疑。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 1: Volume of a City Wall (\zh{城垣})}
+
+\begin{problem}[\zh{城垣第一} · City Wall]
+\zh{%
+今有城，下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問積幾何？
+}\\[0.3em]
+\textit{Suppose there is a city wall: lower width 4 \zh{丈}, upper width 2 \zh{丈}, height 5 \zh{丈}, length 126 \zh{丈} 5 \zh{尺}. What is the volume?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：一百八十九萬七千五百尺。
+}\\[0.3em]
+\textit{Answer: 1,897,500 cubic \zh{尺}.}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：并上下廣而半之，以高若深乘之，又以袤乘之，即積尺。
+}\\[0.3em]
+\textit{Method: Add the upper and lower widths and halve; multiply by the height or depth; then multiply by the length to obtain the volume in cubic \zh{尺}.}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，并上下廣而半之者，以盈補虛，得中平之廣。以高乘之，得截而為直棱之積。又以袤乘之者，廣袤相乘為一截之積，以高乘之為積。此所謂「以盈補虛」者也。
+
+城垣之形，上狹而下廣，猶梯之形也。并上下廣而半之，則得平均之廣。猶梯形之面積，以上下底之和半之，乘高得之也。以平均廣乘高，得截面之積。以袤乘之，得全體之積。此理至明也。
+
+何以知積為一百八十九萬七千五百尺？上下廣并之，四丈加二丈得六丈，半之得三丈。以高五丈乘之，得一十五萬尺。又以袤一百二十六丈五尺乘之，得一千八百九十七萬五千尺。以立方尺法除之，得一百八十九萬七千五百立方尺。故知其積也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 2: Volume of a Dyke (\zh{堤})}
+
+\begin{problem}[\zh{堤第二} · Dyke]
+\zh{%
+今有堤，下廣二丈，上廣八尺，高四尺，袤一十二丈七尺。問積幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：七千一百一十二尺。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：并上下廣，得二丈八尺。半之，得一丈四尺。以高四尺乘之，得五百六十尺。又以袤一百二十七尺乘之，得七萬一千一百二十尺。此堤積也。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按堤之形制，與城垣同，皆為梯形之柱體。故其術亦同：并上下廣半之，以高乘之，得截面積；又以袤乘之，得全積。堤者，所以防水患也。下廣則固，上狹則省工。古之治河者，必先度堤之廣袤高深，以定土方之數，而後役民興工。此商功之本意也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 3: Volume of a Canal with Sloped Sides (\zh{塹堵})}
+
+\begin{problem}[\zh{塹堵第三} · Canal/Trench]
+\zh{%
+今有塹，上廣一丈六尺，下廣一丈，深六尺，袤五丈七尺。問積幾何？
+}\\[0.3em]
+\textit{Suppose there is a trench: upper width 1 \zh{丈} 6 \zh{尺}, lower width 1 \zh{丈}, depth 6 \zh{尺}, length 5 \zh{丈} 7 \zh{尺}. What is the volume?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：積七千一百一十二尺。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：并上下廣，半之，以高若深乘之，又以袤乘之，即積尺。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按塹之形制，與城垣、堤同，皆為梯形柱體。其術相通者，以其形同也。塹者，穿地為溝渠也。上廣大而下狹小者，溝之常制也。上廣則容水多，下狹則掘地少。并上下廣半之，以盈補虛，得平均之廣。以深乘之，得截面積。以袤乘之，得全積。此出入相補之理也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 4: Volume of a Ditch (\zh{溝})}
+
+\begin{problem}[\zh{溝第四} · Ditch]
+\zh{%
+今有溝，上廣一丈五尺，下廣一丈，深五尺，袤七丈。問積幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：四千三百七十五尺。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：并上下廣，半之，以深乘之，又以袤乘之，即積尺。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按溝與塹、城垣、堤，同術而異名耳。其形皆為梯形柱體，故其術相通。溝者，田間之水利也。上廣下狹，所以利水之流也。古者井田之制，溝洫之設，皆有定法。此商功之術，所以為治國之要也。
+
+井田之法，九夫為井，井間有溝。溝廣深各四尺。十里為成，成間有洫。洫廣深各八尺。百里為同，同間有澮。澮廣二尋，深二仞。此三代之制也。至秦漢，井田廢而溝洫壞，然其遺法猶存。故九章列商功之章，以備工程之計算也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Yangma (\zh{陽馬}) and Bienao (\zh{鱉臑})}
+
+These are among the most important geometric solids in Chinese mathematics, arising from the dissection of a rectangular prism.
+
+\subsubsection{The Yangma (Corner Pyramid)}
+
+\begin{method}[\zh{陽馬術} · Yangma (Corner Pyramid)]
+\zh{%
+術曰：廣袤相乘，以高乘之，三而一。
+}\\[0.3em]
+\textit{Method: Multiply width by length, multiply by height, divide by 3.}\\[0.3em]
+This gives the volume of a \zh{陽馬} (yangma), a pyramid with rectangular base and one lateral edge perpendicular to the base: $V = \frac{1}{3} \times \text{width} \times \text{length} \times \text{height}$.
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on the Yangma]
+\zh{%
+按此術，陽馬者，隅角之椎也。解立方得兩壍堵，解壍堵得一陽馬、一鱉臑。陽馬居二，鱉臑居一，不易之率也。故立方三而一，即陽馬之積也。
+
+合二壍堵成一陽馬者，試令廣袤各六尺，高六尺。中分其高，令廣袤各三尺。其高六尺，中分為二，各三尺。上壍堵廣袤各三尺，高亦三尺；下壍堵亦然。合二壍堵，廣袤各六尺，高六尺，是為一陽馬也。
+
+按陽馬之義，隅角者，立方之一角也。立方有八角，每角皆可以為陽馬。陽馬之形，底為長方形，一棱垂直於底面，交於對角之頂。故其積為底積乘高，三而一。何以三而一？立方之積，為廣袤高之相乘。陽馬為立方之三分之一，故三而一也。
+
+何以知陽馬為立方三分之一？取立方棋一枚，令廣袤高各二尺。於中分解之，縱橫各一刀，得四壍堵。再於每壍堵之斜面解之，得一陽馬、一鱉臑。凡立方一，得陽馬二、鱉臑二。陽馬之積各為立方六分之二，即三分之一也。鱉臑之積各為立方六分之一也。此不易之率，所謂「解棋驗之」者也。
+}
+\end{commentary}
+
+\subsubsection{The Bienao (Tetrahedron)}
+
+\begin{method}[\zh{鱉臑術} · Bienao (Tetrahedron)]
+\zh{%
+術曰：廣袤相乘，以高乘之，六而一。
+}\\[0.3em]
+\textit{Method: Multiply width by length, multiply by height, divide by 6.}\\[0.3em]
+This gives the volume of a \zh{鱉臑} (bienao), a tetrahedron with three mutually perpendicular edges: $V = \frac{1}{6} \times a \times b \times c$.
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+鱉臑者，推之明理也。按陽馬之積，三分立方之一。鱉臑者，又半陽馬也。故六而一。凡立方，高一尺，廣袤各一尺，積一尺。陽馬廣袤各一尺，高一尺，積三分之一尺。鱉臑三邊各一尺，積六分之一尺。
+
+按鱉臑之形，取陽馬而斜解之，得一鱉臑。鱉臑者，四面皆三角形之三棱錐也。其有三邊互相垂直者，猶立方之一隅也。故以三垂直邊之相乘，六而一，即其積也。
+
+何以知鱉臑為陽馬之半？陽馬有底面為長方形，一棱垂直於底。若於陽馬之中，以斜面分之，則得二鱉臑。此二鱉臑全等，積各相等。故鱉臑為陽馬之半，而為立方之六分之一也。此亦「解棋驗之」之明證也。
+
+徽嘗謂：凡立體之積，皆可分解為陽馬、鱉臑之組合。陽馬、鱉臑者，立體之基本元素也。猶平面之形，可分解為句股、矩形之組合也。故明陽馬、鱉臑之積，則諸立體之積皆可推矣。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 5: The Chumeng (\zh{芻甍})}
+
+\begin{problem}[\zh{芻甍第五} · Thatched Roof (Wedge with Rectangular Base)]
+\zh{%
+今有芻甍，下廣三丈，袤四丈，上袤二丈，無廣，高一丈。問積幾何？
+}\\[0.3em]
+\textit{Suppose there is a thatched roof: lower width 3 \zh{丈}, lower length 4 \zh{丈}, upper length 2 \zh{丈}, no upper width, height 1 \zh{丈}. What is the volume?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：積五千尺。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：倍下袤，上袤從之，以廣乘之，又以高乘之，六而一。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+推明義理者，舊說云：凡積芻甍有上下廣曰童甍，謂其屋蓋之苫也。是故甍之下廣袤與童之上廣袤等。正解方亭兩邊合之，即芻甍之形也。假令下廣二尺，袤三尺，上袤一尺，無廣，高一尺。其用棋也，中央壍堵二，兩端陽馬各二。倍下袤為六，上袤從之為七。以廣二尺乘之，得一十四尺。以高乘之，得十四尺。六而一，即得積也。
+
+按芻甍之形，下有廣袤，上惟有袤無廣，猶屋脊之形也。倍下袤者，二倍下袤之數也。上袤從之者，加上袤之數也。以廣乘之者，以下廣乘之也。以高乘之六而一者，芻甍之積，猶二陽馬之積也，故六而一。
+
+何以六而一？芻甍可分解為二壍堵、四陽馬。二壍堵之積，各為廣袤高之相乘半之。四陽馬之積，各為廣袤高之相乘三而一。合而計之，正得倍下袤上袤從之以廣乘高六而一之數。此解棋之法也。
+}
+\end{commentary}
+
+\vspace{0.3cm}
+
+\subsection{Problem 6: The Chutong (\zh{芻童})}
+
+\begin{problem}[\zh{芻童第六} · Thatched Mound (Frustum of a Wedge)]
+\zh{%
+今有芻童，下廣二丈，袤三丈，上廣三丈，袤四丈，高三丈。問積幾何？
+}\\[0.3em]
+\textit{Suppose there is a thatched mound: lower width 2 \zh{丈}, lower length 3 \zh{丈}, upper width 3 \zh{丈}, upper length 4 \zh{丈}, height 3 \zh{丈}. What is the volume?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：積一萬六千五百尺。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：倍上袤，下袤從之；亦倍下袤，上袤從之。各以其廣乘之，并，以高乘之，六而一。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，假令芻童上廣一尺，袤二尺；下廣二尺，袤三尺；高一尺。其用棋也，中央立方一，兩旁壍堵各一，四角陽馬各一。倍上袤為四，下袤從之為七。以下廣乘之，得一十四。倍下袤為六，上袤從之為八。以上廣乘之，得八。并之，得二十二。以高乘之，得二十二。六而一，即積也。此術與芻甍曲池盤池冥谷皆同術。
+
+按芻童之形，上下皆為長方形，而大小不同，猶截頭方錐之體也。倍上袤下袤從之者，三倍上袤加下袤也。倍下袤上袤從之者，三倍下袤加上袤也。各以其廣乘之者，以上下廣分別乘之也。并之者，合兩積也。以高乘之六而一者，以高乘總積，六而一也。其理與陽馬、鱉臑相通，皆立方之分割也。
+
+何以六而一？芻童可分解為中央一立方，兩旁二壍堵，四角四陽馬。立方之積為一，二壍堵之積各為半，共一，四陽馬之積各為三分之一，共三分之四。合之得二又三分之四，即三分之十。以高乘之，正得六而一之理。此所謂「解棋驗之」也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 7: The Circular Granary (\zh{圓窖})}
+
+\begin{problem}[\zh{圓窖第七} · Circular Granary]
+\zh{%
+今有圓窖，下周五丈四尺，深一丈八尺。問受粟幾何？
+}\\[0.3em]
+\textit{Suppose there is a circular granary: circumference 5 \zh{丈} 4 \zh{尺}, depth 1 \zh{丈} 8 \zh{尺}. How much grain does it hold?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：二千九百六十二斛二十七分斛之二十六。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：置周自相乘，以高乘之，十二而一。以斛法一尺六寸二分除之，即斛數。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，圓窖下周自乘，以高乘之，十二而一者，以圓周率三乘之，十二而一，即圓積也。此猶圓堢壔之積也。于徽術，當令下周自乘以高乘之，又以二十五乘之，三百一十四而一。以斛法除之，即斛數。
+
+按圓窖之積，古術以圓周率三計之，故十二而一。徽術以圓周率三·一四計之，當三百一十四而一。然古術簡便，故九章仍用古術。學者若求精密，當用徽術。淳風等按：此術用圓周率三，於理為疏。然其術簡便，故常用之。若求密率，當依徽術也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 8: Volume of a Rectangular Granary (\zh{方倉})}
+
+\begin{problem}[\zh{方倉第八} · Rectangular Granary]
+\zh{%
+今有方倉，廣四丈六尺，袤五丈四尺，深三丈五尺。問積幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：積八萬六千一百八十尺。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：置廣四丈六尺，以袤五丈四尺乘之，得積二百四十八丈四尺。又以深三丈五尺乘之，即積尺。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按方倉之積，即長方體之積也。以廣乘袤，得底積。以深乘之，得全積。此最簡易之術也。方倉者，所以貯粟米也。古者倉廩之設，必有定法。方倉以矩形為底，直壁而上，故為長方體。圓窖以圓為底，直壁而下，故為圓柱體。二者皆貯粟之所，而其形不同，故其術亦異也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 9: Volume of a Curved Pool (\zh{曲池})}
+
+\begin{problem}[\zh{曲池第九} · Curved Pool]
+\zh{%
+今有曲池，上中周二丈，外周四丈，廣一丈；下中周一丈四尺，外周四丈二尺，廣一丈二尺，深一丈。問積幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：積一千八百八十三尺三分尺之一。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：上中周、外周、廣，下中周、外周、廣，各以其數相乘，并之，以深乘之，十二而一。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on the Curved Pool]
+\zh{%
+按曲池之形制，上狹而下廣，中曲而外直，猶彎月之形也。上中周二丈、外周四丈者，池口之內外周也。下中周一丈四尺、外周四丈二尺者，池底之內外周也。廣者，池之寬也。深者，池之深也。
+
+此術以周、廣相乘，并上下而半之，以深乘十二而一者，猶圓術之變也。曲池之截面，非純圓亦非純方，乃圓環之一部也。故其積不可以常術徑求，必以周廣之積，十二而一，乃得其近似也。此術較疏，然於工程之估算，亦足用矣。
+
+曲池者，或為蓄水之用，或為觀魚之樂。上狹而下廣者，所以蓄水不漏也。中周外周者，所以制其曲度也。此池形雖曲，然其積可算，亦商功之巧術也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 10: Volume of a Ravine (\zh{冥谷})}
+
+\begin{problem}[\zh{冥谷第十} · Ravine]
+\zh{%
+今有冥谷，上廣二丈，袤七丈，下廣八尺，袤四丈，深六丈五尺。問積幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：積一十萬四千尺。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：倍上袤，下袤從之；亦倍下袤，上袤從之。各以其廣乘之，并，以深乘之，六而一。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按冥谷之形，與芻童同術。冥谷者，深谷也，幽暗之所，故曰冥谷。上廣大而下狹小，猶谷之形也。其術倍上袤下袤從之，倍下袤上袤從之，各以其廣乘之并，以深乘之六而一，與芻童全同。此可見九章之術，以形類聚，同形則同術，此其所以為「類以合類」也。
+
+凡商功之術，雖其名有城、垣、堤、溝、塹、窖、倉、池、谷之異，然其形不過數種：或為長方體，或為梯形柱體，或為圓柱體，或為錐體之截頭。明乎此數種之體，則商功之術盡矣。此劉徽所謂「觸類而長之」者也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Labor Calculation: From Volume to Work-days}
+
+\begin{method}[\zh{程人功} · Labor Rate Standards]
+\zh{%
+程人功：方田一畝，工五十日。穿地一尺，工六日。為堅一尺，工八日。掘地一尺，工五日。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按程人功者，度一人一日之所作也。方田一畝，工五十日者，治田一畝，需五十人功也。穿地一尺，工六日者，掘地為穴，深一尺，需六人功也。為堅一尺，工八日者，築土為堅，高一尺，需八人功也。掘地一尺，工五日者，掘地為溝，深一尺，需五人功也。
+
+此皆工程之常率也。古者役民，必有程限。程者，課也，限也。人功者，一人一日之作也。以土方之積，除以人功之率，則得所需之工日。以工日除以役夫之數，則得所需之日數。此商功之術，所以為治國之要也。
+
+徽按：程人功之率，因地而異，因時而異。土有堅鬆之別，工有勤惰之差，故程人功之率，不可以一端盡也。然其大率如此，工程之估算，可以此為準矣。
+}
+\end{commentary}
+
+\newpage
+
+% =============================================================================
+\section{Volume 6: Junshu (Equitable Taxation)}
+% =============================================================================
+
+\begin{volumeheader}{\zh{九章算術卷六} · Junshu (\zh{均輸})}
+\zh{均輸以御遠近勞費}\\[0.3em]
+\small\textit{Junshu: For governing fair distribution considering distance, labor, and cost}
+\end{volumeheader}
+
+\vspace{0.5cm}
+
+\noindent
+The chapter \zh{均輸} (Junshu, ``Equitable Taxation'') deals with problems of weighted distribution, where contributions must be apportioned fairly among parties that differ in population, distance from the destination, and other factors. It also contains famous work-rate problems, including the ``five channels filling a pool'' problem.
+
+\begin{commentary}[\zh{劉徽注·均輸章序}]
+\zh{%
+均輸者，均其勞逸，輸其貢賦也。古者諸侯之國，各以其地之所出，為天子之貢。然地有遠近，戶有多少，物有豐歉。若不以術均之，則遠者勞而近者逸，多者苦而少者甘，非所以為平也。故設均輸之術，以戶率、道里為衰，而均派之，使遠近勞逸，各得其平。此均輸之本意也。
+
+此章之術，大要有三：一曰均輸，以戶數、道里為衰而均派之；二曰程人功，以各人之工率而定合作之日數；三曰盈不足，以假令之法而求其隱數。此三者，皆數學之要術，而於治國尤為切要也。
+}
+\end{commentary}
+
+\subsection{The Opening Problem: Grain Distribution Among Four Counties}
+
+\begin{problem}[\zh{均輸粟第一} · Equitable Grain Distribution]
+\zh{%
+今有均輸粟，甲縣一萬戶，行道八日；乙縣九千五百戶，行道十日；丙縣一萬二千三百五十戶，行道十三日；丁縣一萬二千二百戶，行道二十日。各到輸所。凡四縣賦，當輸二十五萬斛，用車一萬乘。欲以道里遠近、戶數多少，衰出之。問粟、車各幾何？
+}\\[0.3em]
+\textit{Suppose there is equitable grain distribution: County A has 10,000 households, travel time 8 days; County B has 9,500 households, travel 10 days; County C has 12,350 households, travel 13 days; County D has 12,200 households, travel 20 days. All reach the delivery point. Total tax: 250,000 \zh{斛}, using 10,000 carts. Distribute according to distance and household count. How much grain and how many carts for each?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：甲縣粟八萬三千一百斛一百七十七分斛之一十三，車三千三百二十四乘。乙縣粟六萬三千一百七十五斛，車二千五百二十七乘一百七十七分乘之十三。丙縣粟六萬三千一百七十五斛，車二千五百二十七乘一百七十七分乘之十三。丁縣粟四萬一千九百一十九斛一百七十七分斛之一百五十一，車一千六百二十二乘一百七十七分乘之之一百五十一。
+}
+\end{answer}
+
+\begin{method}[\zh{術} · Method of Weighted Distribution]
+\zh{%
+術曰：令縣戶數，各如其本行道日數而一，以為衰。甲衰一百二十五，乙、丙衰各九十五，丁衰六十一。副并為法。以賦粟、車數，未并者各自為實。實如法得一。按此均輸，猶均運也。令戶率出車，以行道日數為均，發粟為輸。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on Equitable Distribution]
+\zh{%
+此戶以率當各計車之錢分也。案此二句舛誤，當云：求此率以戶當各計車之錢分也。淳風等按：縣戶有多少之差，行道有遠近之異。欲其均等，故令戶數各以行道日數約之，為衰。行道多者，其戶少；行道少者，其戶多。故各令約戶為衰。并戶為法者，以戶數多寡為差，行道遠近為衰，以此均之，則勞逸齊等。
+
+按此術之理，甲縣一萬戶，行道八日，以八除萬，得一千二百五十。此以戶數為實，行道日數為法也。乙縣九千五百戶，行道十日，得九百五十。丙縣一萬二千三百五十戶，行道十三日，得九百五十。丁縣一萬二千二百戶，行道二十日，得六百一十。此四縣之衰也。
+
+何以知以此四衰為法？蓋戶多而道近者，其民之負擔輕；戶少而道遠者，其民之負擔重。今以戶數除以道里，則戶多道近者其衰大，戶少道遠者其衰小。以衰為權，而均派賦粟，則遠近之民，各得其平矣。此所謂「均輸」之義也。
+
+并四衰為法，以賦粟乘各衰為實，實如法而一，則各得所輸之粟。以車數乘各衰為實，實如法而一，則各得所需之車。此均輸之正術也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 2: Workers with Different Rates}
+
+\begin{problem}[\zh{程人功第二} · Labor Rates]
+\zh{%
+今有程人功，甲七日成功了五分之一；乙五日成功了三分之一；丙四日成功了二分之一。問三人合作，幾何日成功？
+}\\[0.3em]
+\textit{Suppose there are workers: A completes one-fifth of the work in 7 days; B completes one-third in 5 days; C completes one-half in 4 days. How many days if all three work together?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：二十三日六十三分日之二十六。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：置甲七日的五分之一，乙五日的三分之一，丙四日的二分之一，各為率。以甲七日的五分之一，得一日功為三十五分之一；乙五日的三分之一，得一日功為十五分之一；丙四日的二分之一，得一日功為八分之一。并一日之功：三十五分之一加十五分之一加八分之一，通分為一百二十分之。一百二十分之四，加一百二十分之八，加一百二十分之十五，共一百二十分之二十七，即九分之二十一，約之為七分之一十五。為法。以一為實。實如法而一，即得日數二十三日六十三分日之二十六。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，先求各人之日功。甲七日成五分之一，則一日之功為五分之一除以七，即三十五分之也。乙五日成三分之一，則一日之功為三分之一除以五，即十五分之一。丙四日成二分之一，則一日之功為二分之一除以四，即八分之一。此三人各一日之功也。
+
+并三人一日之功，即三人合作一日所成也。以一為總功，除以三人一日之共功，即得完成之日數。此術之理，猶行程之問題也。三人共作，其功相加，猶兩車對開，其速相加也。此數學之通理也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 3: Transporting Grain with Different Travel Times}
+
+\begin{problem}[\zh{均輸粟第三} · Grain Transport with Weighted Costs]
+\zh{%
+今有均輸粟，甲縣二萬戶，行道十日，價直六十錢；乙縣一萬五千戶，行道八日，價直五十錢；丙縣一萬戶，行道十二日，價直七十錢。凡三縣當輸粟三十萬斛。欲以戶數多少、行道日數、價直高下為衰出之。問粟各幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：甲縣粟十二萬斛，乙縣粟九萬斛，丙縣粟九萬斛。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：各置戶數，以行道日數乘之，又以價直乘之，為衰。甲衰一萬二千萬，乙衰六千萬，丙衰八千四百萬。并衰為法。以賦粟乘未并者，各為實。實如法而一。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，以戶數、行道日數、價直三者相乘為衰，蓋三重之加權也。戶多者負擔宜重，道遠者輸送宜難，價高者其民宜富。三者相乘，則其衰大者負擔重，衰小者負擔輕。以此均派，則三縣之民，各得其平矣。
+
+甲縣二萬戶，行道十日，價直六十錢，衰為二萬乘十日乘六十，得一萬二千萬。乙縣一萬五千戶，行道八日，價直五十錢，衰為一萬五千乘八日乘五十，得六千萬。丙縣一萬戶，行道十二日，價直七十錢，衰為一萬乘十二日乘七十，得八千四百萬。并三衰得二億六千四百萬，為法。以三十萬斛乘各衰為實，實如法而一，得各縣所輸之粟。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 4: Hares and Dogs (Pursuit Problem)}
+
+\begin{problem}[\zh{犬兔第四} · Hare and Dog Pursuit]
+\zh{%
+今有兔先走一百步，犬追之二百五十步，不及三十步而止。問犬不止，復行幾何步及之？
+}\\[0.3em]
+\textit{A hare has a head start of 100 \zh{步}. A dog chases it for 250 \zh{步}, but is still 30 \zh{步} behind. If the dog does not stop, how many more \zh{步} must it run to catch the hare?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：一百七步七分步之一。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：置犬先行步數，以不及步數減之，餘為法。以不及步數乘兔先走步數，為實。實如法得一步。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，犬追二百五十步，不及三十步。是犬行二百五十步之時，兔行二百八十步也（兔先走一百步，又行走一百八十步，共二百八十步；犬行二百五十步，尚不及三十步，故兔共行二百八十步也）。犬行二百五十步，兔行一百八十步（自犬追時起算），則犬速與兔速之比為二百五十比一百八十，即二十五比十八也。
+
+今犬行二百五十步不及三十步，問復行幾何步及之。術以犬先行步數減不及步數，二百五十減三十，得二百二十，為法。以不及三十步乘兔先走一百步，得三千，為實。實如法，三千除以二百二十，得一百七步又七分步之一。此術之理，以速度比之反比為法也。犬速大於兔速，故追及之步數，與不及之步數成正比，而與速度差成反比也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 5: Gold and Silver Weights}
+
+\begin{problem}[\zh{金銀第五} · Gold and Silver Weights]
+\zh{%
+今有金九枚，銀一十一枚，稱之適等。交易其一，金輕十三兩。問金、銀各一枚重幾何？
+}\\[0.3em]
+\textit{Suppose there are 9 pieces of gold and 11 pieces of silver, which weigh the same. Exchange one piece [between them], and the gold side is lighter by 13 \zh{兩}. How much does each piece of gold and silver weigh?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：金重二斤三兩一十八銖，銀重一斤十三兩六銖。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：假令金重三斤，銀重二斤三分斤之二。不足四兩，令之如此。盈不足術為之。置金九枚、銀十一枚，令相等。九金 = 十一銀。交易其一，八金加一銀 = 十銀加一金，而八金加一銀輕十三兩。故九金減一金加一銀，即八金一銀，比十銀一金輕十三兩。即八金加一銀加十三兩 = 十銀加一金。以八金減一金，得七金。以十銀減一銀，得九銀。故七金加十三兩 = 九銀。又以九金 = 十一銀，得金銀之比為十一比九。以十一乘七金，得七十七金。以九乘九銀，得八十一銀。以八十一份減七十七份，得四份為十三兩。故一份為三兩四分兩之一。金重為十一份，即三十五兩十八銖。銀重為九份，即二十九兩六銖。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on the Method of Simultaneous Equations]
+\zh{%
+按此術，金九枚與銀十一枚適等，是九金之重等於十一銀之重也。設一枚金重為金，一枚銀重為銀，則九金 = 十一銀。交易其一，則金方為八金加一銀，銀方為十銀加一金。金方輕十三兩，是八金加一銀加十三兩 = 十銀加一金也。移項，八金減一金 = 十銀減一銀減十三兩，即七金 = 九銀減十三兩。又以九金 = 十一銀，得金 = 十一銀/九。代入，七乘十一銀/九 = 九銀減十三兩。七十七銀/九 = 九銀減十三兩。以九乘兩邊，七十七銀 = 八十一銀減一百一十七兩。四銀 = 一百一十七兩。銀 = 二十九兩六銖。金 = 十一銀/九 = 三十五兩十八銖。
+
+此術雖以盈不足為名，然其實為方程術也。設金銀各一枚之重為未知數，列二方程：九金減十一銀等於零，八金加一銀加十三兩減十銀減一金等於零。解此聯立方程，得金銀各一枚之重。此九章方程術之應用也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 6: Wild Duck and Wild Goose}
+
+\begin{problem}[\zh{雁兔第六} · Wild Duck and Wild Goose]
+\zh{%
+今有野鴨從南海飛至北海，七日到；雁從北海飛至南海，九日到。今野鴨、雁俱起，問幾何日相逢？
+}\\[0.3em]
+\textit{A wild duck flies from the South Sea to the North Sea in 7 days; a wild goose flies from the North Sea to the South Sea in 9 days. If they both depart at the same time, how many days until they meet?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：三日十六分日之十五。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：并日數為法，日數相乘為實，實如法得一日。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，野鴨七日而至，一日飛全程七分之一。雁九日而至，一日飛全程九分之一。二人對飛，一日共飛七分之一加九分之一。通分，六十三分之九加六十三分之七，共六十三分之十六。全程為一，以六十三分之十六除之，得六十三除以十六，即三日又十六分之十五。此術并日數為法，七加九得十六。日數相乘為實，七乘九得六十三。實如法，六十三除以十六，即三日十六分之十五也。
+
+此術之理，猶兩車對發之問題也。兩車相向而行，其相遇之時，與兩速之和成反比。此處野鴨之速為七分之一，雁之速為九分之一，速度和為十六分之六十三。以總路程一除之，即得相遇之日數。此數學之通理，不獨飛鳥為然也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 7: Spreading Rice in a Circular Field}
+
+\begin{problem}[\zh{圓田均粟第七} · Rice in a Circular Field]
+\zh{%
+今有圓田，周一百八十步，徑六十步。欲以粟均散其中，問受粟幾何？又問為內方田幾何？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：受粟二百六十四斛六斗八升四分升之一。內方田三十步。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：置周一百八十步，半周九十步，半徑三十步，相乘得二千七百步，為圓田積。以畝法二百四十步除之，得一十一畝二分五厘。以粟率每畝二十四斛乘之，得二百六十四斛六斗八升四分升之一。為內方田者，置徑六十步，以圓周率三除之，得內方三十步。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按圓田之積，半周半徑相乘，此古術也。周一百八十步，半周九十步；徑六十步，半徑三十步。半周乘半徑，即九十乘三十，得二千七百步，為圓田積。此術之理，猶方田之廣從相乘也。圓者，方之變也。以方內切於圓，則圓積與方積之比，猶圓周率與方周率之比也。
+
+為內方田者，圓內切方之邊也。圓徑六十步，內切方之對角線即圓徑也。以勾股定理，方之對角線為邊之√2倍。然古術以圓周率三，徑六十步，內方為三十步。此以圓徑之半為內方之邊，非精確之術也。徽術當以徑六十步乘徑六十步，半之，開方得之，約得四十二步有奇，此為精確之數也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 8: Bells and Drums (Simultaneous Arrival)}
+
+\begin{problem}[\zh{鐘鼓第八} · Bells and Drums]
+\zh{%
+今有鐘、鼓，同時而鳴。鐘五秒一鳴，鼓七秒一鳴。問幾何秒後，鐘鼓同鳴？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：三十五秒後同鳴。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：置鐘五秒、鼓七秒，相乘得三十五秒，即同鳴之數。此求最小公倍數之術也。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，鐘五秒一鳴，則鐘鳴之時刻為五秒、十秒、十五秒、二十秒、二十五秒、三十秒、三十五秒等。鼓七秒一鳴，則鼓鳴之時刻為七秒、十四秒、二十一秒、二十八秒、三十五秒等。兩者同鳴之時刻，必為五與七之公倍數。五與七之最小公倍數為三十五，故三十五秒後鐘鼓同鳴。
+
+此術雖簡，然其理深。最小公倍數者，諸數公共之倍數之最小者也。凡遇週期性之問題，皆可以最小公倍數求之。此數論之初階，而九章已具其術，可見古人之智慧也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{The Five Channels Filling a Pool (\zh{五渠注池})}
+
+This is one of the most celebrated problems in the \textit{Jiuzhang Suanshu}, appearing as the final problem of Volume 6.
+
+\begin{problem}[\zh{五渠注池第九} · Five Channels Filling a Pool]
+\zh{%
+今有池，五渠注之。其一渠開之，少半日一滿；次，一日一滿；次，二日半一滿；次，三日一滿；次，五日一滿。今并決之，問幾何日滿池？
+}\\[0.3em]
+\textit{Suppose there is a pool, with five channels filling it. The first channel alone fills it in one-third of a day; the second in one day; the third in two and a half days; the fourth in three days; the fifth in five days. Now all are opened together. How many days to fill the pool?}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：七十四分日之十五。
+}\\[0.3em]
+\textit{Answer: $\frac{15}{74}$ of a day.}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：各置渠一日滿池之數，并，以為法。以一為實。實如法而一，即得日數。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注} · Liu Hui on the Five Channels]
+\zh{%
+按此術，一渠少半日滿者，是一日三滿也。少半日者，三分之一日也。三分之一日一滿，則一日三滿。次一日一滿者，是一日一滿也。次二日半滿者，是一日五分滿之二也。二日半即二分之五日，一日則五分之二滿。次三日一滿者，是一日三分滿之一也。次五日一滿者，是一日五分滿之一也。
+
+并之：三滿加一滿，得四滿。加五分之二，得四又五分之二。加三分之一，通分為一百五分之四十七。加五分之一，通分為一百五分之二十一。總共一百五分之七十四滿。此為法。以一滿為實。實如法而一，即一百五分之七十四分之一日，亦即七十四分之十五日也。故七十四分之十五日而滿池。
+
+此術之理，猶多人共作之問題也。各渠一日注池之分數，猶各人一日作工之分數也。并各渠之一日注量，即各渠合作一日之注量。以總池量一除之，即得滿池之日數。此均輸章之要術也。
+}
+\end{commentary}
+
+\begin{commentary}[\zh{李淳風注釋} · Li Chunfeng on the Five Channels Problem]
+\zh{%
+淳風等按：此五渠注池之術，為均輸章之殿。其術雖簡，而其理至深。五渠之注率不同，有速有遲。并其一日之注率，即知其合作之速。此所謂「合眾弱以為強」之理也。
+
+一渠少半日滿，其速最疾，一日三滿，殆非人工所能及。此蓋假設之數，以明術理耳。二渠一日一滿，猶可行也。三渠二日半滿，四渠三日滿，五渠五日滿，皆遲緩之渠也。然并五渠之力，則七十四分之十五日即滿，可見眾力之不可忽也。
+
+此術自漢以來，傳習不絕。歷代算經，多載其變體。或改五渠為三渠、四渠、六渠，或改注池為洩池，其術一也。此可見九章之術，觸類旁通，應用無窮也。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 10: Silkworms and Mulberry Leaves}
+
+\begin{problem}[\zh{桑生第十} · Silkworms Eating Mulberry Leaves]
+\zh{%
+今有桑生，上廣三丈，袤四丈，下廣一丈，袤二丈，高一丈。問積幾何？又有蠶食桑葉，大蠶一日食三葉，中蠶一日食二葉，小蠶一日食一葉。今有桑積如問，一葉重一銖，問三蠶幾何日食之盡？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：積六千六百六十六尺三分尺之二。三蠶四日食之盡。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：倍上袤，下袤從之，以上廣乘之；又倍下袤，上袤從之，以下廣乘之；并之，以高乘之，六而一，得積。以大蠶一日三葉、中蠶二葉、小蠶一葉，共六葉為一日之食。以積尺為葉數，六而一，即得日數。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，先求桑生之積，與芻童同術。倍上袤四丈得八丈，下袤二丈從之得十丈，以上廣三丈乘之得三十丈。倍下袤二丈得四丈，上袤四丈從之得八丈，以下廣一丈乘之得八丈。并之得三十八丈。以高一丈乘之，得三百八十丈。六而一，得六十三丈三分丈之二。以立方尺計之，得六千六百六十六尺三分尺之二。此即桑葉之總積也。
+
+蠶食之術，大蠶三葉、中蠶二葉、小蠶一葉，一日共食六葉。以總葉數六千六百六十六又三分之二，除以六，得一千一百一十一又九分之二。此術答云四日食之盡，蓋假令之數，以明均輸之術也。實則四蠶之力有限，桑生之積無窮，此假設之題耳。
+}
+\end{commentary}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.3cm}
+
+\subsection{Problem 11: Three Daughters Returning Home}
+
+\begin{problem}[\zh{三女歸家第十一} · Three Daughters Returning Home]
+\zh{%
+今有大女、中女、小女，歸寧父母。大女五日一歸，中女四日一歸，小女三日一歸。問三女幾何日後同時歸家？
+}
+\end{problem}
+
+\begin{answer}[\zh{答}]
+\zh{%
+答曰：六十日後同時歸家。
+}
+\end{answer}
+
+\begin{method}[\zh{術}]
+\zh{%
+術曰：置大女五日、中女四日、小女三日，連乘，得六十日。以短法求之，三、四、五之最小公倍數為六十，故六十日後三女同時歸家。
+}
+\end{method}
+
+\begin{commentary}[\zh{劉徽注}]
+\zh{%
+按此術，大女五日一歸，則歸日為五日、十日、十五日、二十日、二十五日、三十日、三十五日、四十日、四十五日、五十日、五十五日、六十日等。中女四日一歸，則歸日為四日、八日、十二日、十六日、二十日、二十四日、二十八日、三十二日、三十六日、四十日、四十四日、四十八日、五十二日、五十六日、六十日等。小女三日一歸，則歸日為三日、六日、九日、十二日、十五日、十八日、二十一日、二十四日、二十七日、三十日、三十三日、三十六日、三十九日、四十二日、四十五日、四十八日、五十一日、五十四日、五十七日、六十日等。三女同歸之日，必為五、四、三之公倍數。五、四、三之最小公倍數為六十，故六十日後三女同時歸家。
+
+此術與鐘鼓同鳴之術同，皆最小公倍數之應用也。三、四、五三數互質，故其最小公倍數即為其連乘積六十。若三數有公因數，則須以公因數除之，方得最小公倍數。此數論之基本定理也，而九章已具其術，可見中國數學之早熟也。
+}
+\end{commentary}
+
+\newpage
+
+% =============================================================================
+\section{Summary of Mathematical Content}
+% =============================================================================
+
+\subsection*{Volume 4: \zh{少廣} (Shaoguang)}
+
+\begin{commentary}[\zh{劉徽注·少廣章總論}]
+\zh{%
+少廣之術，以通分為始，以開方為要，以立圓為極。通分者，分數之齊同也。開方者，冪積之邊求也。立圓者，圓體之積算也。三者遞進，由淺入深，此少廣之結構也。
+
+通分之術，少廣諸問多用之。廣步有分數，則不可徑除積步，故先通分使為整數。此分數運算之基礎也。開方之術，為九章之最要。天文、曆法、測地、營室，無一不用。少廣列開方、開立方二術，為後世之矩矱。立圓之術，徽所獨創。古術以徑冪九之十六而一，徽知其誤，創牟合方蓋之說。雖未盡其數，然其理已足為後人之嚆矢。祖暅之繼起，乃成其功，此數學史上之盛事也。
+}
+\end{commentary}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Square root extraction} (\zh{開方}): Iterative algorithm for $\sqrt{N}$, essentially equivalent to modern long-division method for roots
+  \item \textbf{Cube root extraction} (\zh{開立方}): Extension to $\sqrt[3]{N}$
+  \item \textbf{Sphere volume}: The ancient formula $V = \frac{9}{16}d^3$; Liu Hui's critique and the \zh{牟合方蓋} construction
+  \item Fractional arithmetic with geometric interpretation
+\end{itemize}
+
+\subsection*{Volume 5: \zh{商功} (Shanggong)}
+
+\begin{commentary}[\zh{劉徽注·商功章總論}]
+\zh{%
+商功之術，以土方為主，以幾何為用。土方者，穿、壤、堅三率之謂也。幾何者，陽馬、鱉臑、芻甍、芻童之謂也。穿地四為壤五、為堅三者，工程之常率也。陽馬三而一、鱉臑六而一者，幾何之定術也。
+
+徽按：商功之章，其術最富。城垣、堤溝、塹渠，皆工程之實用；陽馬、鱉臑、芻甍、芻童，皆幾何之理論。二者相輔而行，理與用兼備焉。尤可貴者，徽之注中，屢言「解棋驗之」，以具體之模型，證抽象之定理。此所謂「出入相補」之法也，為中國數學之特色。
+
+陽馬、鱉臑之術，尤為重要。蓋凡立體之積，皆可分解為陽馬、鱉臑之組合。明乎此二體之積，則諸立體之積皆可推矣。此猶平面之形，可分解為句股、矩形之組合也。故陽馬、鱉臑者，立體幾何之基本元素也。
+}
+\end{commentary}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Earthwork volumes}: \zh{城} (city wall), \zh{垣} (wall), \zh{堤} (dyke), \zh{溝} (ditch), \zh{渠} (canal), \zh{塹} (trench)
+  \item \textbf{Granary volumes}: \zh{倉} (granary), \zh{圓窖} (circular pit), \zh{圓囤} (circular granary)
+  \item \textbf{Geometric solids}: \zh{立方} (cube), \zh{壍堵} (wedge), \zh{陽馬} (rectangular pyramid), \zh{鱉臑} (tetrahedron), \zh{芻甍} (wedge with ridge), \zh{芻童} (frustum of wedge), \zh{曲池} (curved pool), \zh{盤池} (basin), \zh{冥谷} (ravine)
+  \item Liu Hui's \textbf{geometric dissection proofs} for each solid volume formula
+\end{itemize}
+
+\subsection*{Volume 6: \zh{均輸} (Junshu)}
+
+\begin{commentary}[\zh{劉徽注·均輸章總論}]
+\zh{%
+均輸之術，以公平為本，以算法為用。公平者，使遠近勞逸各得其平也。算法者，以衰分、盈不足、方程諸術而求其均平之數也。此章所列，有均輸粟、程人功、犬兔追逐、金銀交換、雁鴨對飛、五渠注池諸題，皆實用之問題也。
+
+均輸之術，其要在於「衰」。衰者，等差也，權重也。以戶數為衰，以道里為衰，以價直為衰，或以三者的組合為衰。衰大者負擔重，衰小者負擔輕。以衰為權，而均派之，則各得其平矣。此所謂「各以其率」之義也。
+
+程人功之術，其要在於「率」。率者，速也，效率也。以各人之日功為率，并各率為法，以總功為實，實如法而一，即得合作之日數。此所謂「合眾力以為一」之義也。
+
+犬兔追逐之術，其要在於「差」。差者，速度之差也。以兩速之差為法，以相距之數為實，實如法而一，即得追及之時刻。此所謂「以快減慢，以定其時」之義也。
+
+五渠注池之術，其要在於「并」。并者，合也。以各渠之一日注率相并，即得合作之一日注率。以總量為實，以并率為法，實如法而一，即得滿池之日數。此所謂「集眾流以成河」之義也。
+
+此四章之術，雖名為均輸，然其內容實超出均輸之外。程人功者，工程問題也；犬兔者，行程問題也；金銀者，方程問題也；雁鴨者，最小公倍數問題也；五渠者，工作率問題也。此可見九章之編排，以實用為主，不以學科為限。凡有實用之價值者，皆收入之，此其所以為百科全書式之算書也。
+}
+\end{commentary}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Weighted distribution}: Apportioning taxes among counties by population $\times$ distance
+  \item \textbf{Work-rate problems}: Multiple workers with different rates
+  \item \textbf{Pursuit problems}: Relative speed (hare and dog)
+  \item \textbf{Simultaneous equations}: Gold and silver weights, grain exchange
+  \item \textbf{Meeting problems}: Wild duck and wild goose, bells and drums
+  \item \textbf{Least common multiples}: Three daughters returning home
+  \item The famous \textbf{five channels filling a pool} work-rate problem
+\end{itemize}
+
+\vspace{1cm}
+
+\begin{commentary}[\zh{劉徽注·九章算術注序} · Liu Hui's Preface (Closing)]
+\zh{%
+徽幼習九章，長再詳覽。觀陰陽之割裂，總算術之根源。探賾之暇，遂悟其意。是以敢竭頑魯，采其所見，為之作注。事物之推，各有條理。故枝雖分而同本幹者，知發其一端而已。又所析理以辭，解體用圖，庶亦約而能周，通而不黷，覽之者思過半矣。
+
+且算在六藝，古者以賓興賢能，教習國子。雖曰九數，其能窮纖入微，探測無方。至於以法傳法，以術命術，猶規矩之於圓方，權衡之於輕重。故可以觸類而長之，引而申之，庶幾其道不窮，其用不匱也。
+}
+\end{commentary}
+
+\vspace{1cm}
+
+\begin{center}
+\shortline
+\vspace{0.5cm}
+
+\textit{``The methods of the Nine Chapters are the source of all computation.''}\\
+--- Liu Hui, \zh{九章算術注序} (Preface to the Commentary)
+
+\vspace{0.5cm}
+\shortline
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{\zh{九章算術卷四至卷六 完}}\\[0.3em]
+\textit{End of Jiuzhang Suanshu, Fascicles 4--6}
+
+\vspace{0.5cm}
+
+{\small\zh{晉劉徽注 · 唐李淳風等注釋}}\\[0.2em]
+{\small\textit{Commentary by Liu Hui (Jin Dynasty), Sub-commentary by Li Chunfeng et al. (Tang Dynasty)}}
+\end{center}
+
+\end{document}

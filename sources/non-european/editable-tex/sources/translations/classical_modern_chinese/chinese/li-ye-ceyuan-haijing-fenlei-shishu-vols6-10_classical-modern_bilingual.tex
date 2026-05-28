@@ -1,0 +1,3336 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper]{article}
+
+% Encoding and fonts
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+% Math
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+
+% Layout
+\usepackage{geometry}
+\geometry{tmargin=2cm,bmargin=2cm,lmargin=1.8cm,rmargin=1.8cm}
+
+% Parallel columns
+\usepackage{paracol}
+\columnsep=1.5em
+
+% Typography
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\linespread{1.25}
+
+% Colors
+\usepackage{xcolor}
+\definecolor{classicalcolor}{RGB}{80,30,30}
+\definecolor{moderncolor}{RGB}{30,50,80}
+\definecolor{volumecolor}{RGB}{60,40,80}
+\definecolor{sectioncolor}{RGB}{40,80,60}
+
+% Tables and lists
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% Headers
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{classicalcolor}{測圓海鏡分類釋術}}
+\fancyhead[R]{\small\textcolor{moderncolor}{文言文~$\leftrightarrow$~白话文}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Custom environments and commands
+\newtcolorbox{classicalbox}{
+  colback=red!3,
+  colframe=red!30!black,
+  boxrule=0.3pt,
+  left=4pt,right=4pt,top=3pt,bottom=3pt,
+  fontupper=\small
+}
+
+\newtcolorbox{modernbox}{
+  colback=blue!3,
+  colframe=blue!30!black,
+  boxrule=0.3pt,
+  left=4pt,right=4pt,top=3pt,bottom=3pt,
+  fontupper=\small
+}
+
+\newcommand{\VolumeHeader}[1]{%
+  \switchcolumn*\noindent\rule{\linewidth}{0.5pt}\\
+  \begin{center}
+  \textcolor{volumecolor}{\Large\bfseries #1}
+  \end{center}
+  \noindent\rule{\linewidth}{0.5pt}\\
+  \switchcolumn\noindent\rule{\linewidth}{0.5pt}\\
+  \begin{center}
+  \textcolor{volumecolor}{\Large\bfseries #1}
+  \end{center}
+  \noindent\rule{\linewidth}{0.5pt}\\
+}
+
+\newcommand{\SectionHeader}[1]{%
+  \switchcolumn*\noindent\textcolor{sectioncolor}{\textbf{#1}}\\
+  \switchcolumn\noindent\textcolor{sectioncolor}{\textbf{#1}}\\
+}
+
+\newcommand{\WenQuestion}[1]{\textbf{\textcolor{classicalcolor}{#1}}}
+\newcommand{\BaiQuestion}[1]{\textbf{\textcolor{moderncolor}{#1}}}
+\newcommand{\WenExplain}{\textcolor{classicalcolor}{\textbf{【释曰】}}}
+\newcommand{\BaiExplain}{\textcolor{moderncolor}{\textbf{【白话释义】}}}
+\newcommand{\WenMethod}{\textcolor{classicalcolor}{\textbf{【术曰】}}}
+\newcommand{\BaiMethod}{\textcolor{moderncolor}{\textbf{【白话解法】}}}
+
+% Bilingual question macro
+\newcommand{\BilingualQuestion}[6]{%
+  \switchcolumn*
+  \begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+  \WenQuestion{#1}\\#2
+  \end{tcolorbox}
+  \switchcolumn
+  \begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+  \BaiQuestion{#3}\\#4
+  \end{tcolorbox}
+  \switchcolumn*
+  \begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+  \WenExplain~#5
+  \end{tcolorbox}
+  \switchcolumn
+  \begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+  \BaiExplain~#6
+  \end{tcolorbox}
+}
+
+% Method macro
+\newcommand{\BilingualMethod}[4]{%
+  \switchcolumn*
+  \begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+  \WenMethod~#1
+  \end{tcolorbox}
+  \switchcolumn
+  \begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+  \BaiMethod~#2
+  \end{tcolorbox}
+}
+
+\newcommand{\syncmark}{\switchcolumn*\switchcolumn}
+
+\title{
+  \textcolor{volumecolor}{\Huge 测圆海镜分类释术}\\[0.5em]
+  \textcolor{classicalcolor}{\Large 文言文}\quad$\longleftrightarrow$\quad\textcolor{moderncolor}{\Large 白话文}\\[0.5em]
+  \large 卷六至卷十（终卷）
+}
+\author{
+  \textcolor{classicalcolor}{元~李冶~撰}\qquad\textcolor{classicalcolor}{明~顾应祥~释术}\\[0.3em]
+  \textcolor{moderncolor}{白话文今译}
+}
+\date{}
+
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\vspace{1em}
+\begin{center}
+\rule{0.6\textwidth}{0.5pt}
+\end{center}
+
+\vspace{1em}
+\begin{paracol}{2}
+\switchcolumn*
+\noindent\textbf{\textcolor{classicalcolor}{【文言文原版】}}
+\switchcolumn
+\noindent\textbf{\textcolor{moderncolor}{【白话文今译】}}
+\end{paracol}
+
+\vspace{1em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\noindent
+《测圆海镜》乃金元之际数学家李冶（1192--1279）所著，为中国古代天元术之杰作。全书十二卷，以勾股容圆为题，设问一百七十道，系统阐述了以天元术（代数方法）求解几何问题之法。明顾应祥为之分类释术，编成《测圆海镜分类释术》。
+
+\vspace{0.5em}
+\noindent
+本文档收录卷六至卷十（最终五卷）之内容。卷六论通弦测望，卷七论大差小差，卷八论皇极太虚，卷九论诸弦差较，卷十论杂法，共计九十九问。
+
+\switchcolumn
+\noindent
+《测圆海镜》是金元时期数学家李冶（1192--1279）所著的数学巨著，是中国古代"天元术"（代数方法）的杰出代表。全书共十二卷，以"勾股容圆"（直角三角形内切圆）为主题，设有一百七十道问题，系统地阐述了用代数方法解决几何问题的技术。明代顾应祥对其进行了分类和解释，编成《测圆海镜分类释术》。
+
+\vspace{0.5em}
+\noindent
+本文档收录第六卷至第十卷（最后五卷）的内容。第六卷论述通弦的测望方法，第七卷论述大差与小差，第八卷论述皇极与太虚，第九卷论述各弦的差较，第十卷论述杂法，共计九十九问。
+
+\end{paracol}
+
+\vspace{1em}
+\begin{center}
+\rule{0.6\textwidth}{0.5pt}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+
+
+
+%======================================================================
+\newpage
+\section*{\textcolor{volumecolor}{卷六} —— 高级辅助方法}
+\addcontentsline{toc}{section}{卷六\quad 高级辅助方法}
+%======================================================================
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{center}
+\noindent\textbf{钦定四库全书}
+
+\vspace{0.5em}
+\noindent\textbf{测圆海镜分类释术卷六}\quad 元~李~冶~撰\\
+明~顾应祥~释术
+\end{center}
+
+\switchcolumn
+\begin{center}
+\noindent\textbf{钦定四库全书（现代语译）}
+
+\vspace{0.5em}
+\noindent\textbf{《测圆海镜分类释术》第六卷}\quad 元代~李~冶~著\\
+明代~顾应祥~分类并解释算法
+\end{center}
+
+\end{paracol}
+
+\vspace{1em}
+
+\begin{paracol}{2}
+
+\subsection*{\textcolor{sectioncolor}{勾与和测望一}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第一节：已知勾与和求圆的测望方法}}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问一}\quad 甲乙俱在城外西北乾隅，甲南行不知步数而立，乙东行三百二十步见之，甲又斜行与相会，计甲直行斜行共一千二百八十步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题一}\quad 甲和乙都在城外西北角的乾隅，甲向南走若干步后停下，乙向东走三百二十步后看见了甲，甲又斜着走与乙会合，甲直走与斜走共计一千二百八十步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此通勾与通股弦和测望。乙东行，通勾也；甲直斜共行，通股弦和也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是已知通勾与通股弦和来测望圆径的问题。乙向东走的步数是"通勾"（大直角三角形的短直角边）；甲直走与斜走合计的步数是"通股弦和"（另一直角边与斜边之和）。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 勾自之，得一十萬二千四百。以和除之，得八十為股弦較。以較減和，半之為股。以勾股求容圓術求之，得城徑。
+
+\vspace{0.3em}
+\textbf{又曰}\quad 勾和各自乘，相減為實；倍和除之，得股。相並為實，倍和除之，得弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 勾（三百二十步）自乘，得十万二千四百。用股弦和去除，得八十为股弦差。用股弦和减去股弦差，取半得股。用勾股容圆术求得圆径。
+
+\vspace{0.3em}
+\textbf{补充算法}\quad 勾和和各自乘，相减为被除数；二倍和去除之，得股。相加为被除数，二倍和去除之，得弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\vspace{0.3em}
+\noindent\small 边勾以下，俱以类推。
+\switchcolumn
+\vspace{0.3em}
+\noindent\small 边勾等同类问题，都按此方法类推。
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二}\quad 乙出东门南行，丙出南门东行，各不知步数而立，只云丙行多于乙步。甲从乾隅东行三百二十步，望乙丙与城相参直，计乙丙共行一百二步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二}\quad 乙出东门向南走，丙出南门向东走，各走若干步停下，只知丙走的比乙多。甲从西北乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上，乙和丙共走了一百零二步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以通勾与明勾、边股和测望。甲东行，通勾也；乙出东门南行为边股，丙出南门东行为明勾，共计一百二步，明勾、边股和也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是已知通勾与明勾、边股之和来测望圆径的问题。甲向东走的是"通勾"；乙出东门向南走的是"边股"，丙出南门向东走的是"明勾"，两人合计一百零二步，即明勾与边股之和。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 倍共步乘东行算，得二千零八十八万九千六百，为立方实。共步乘东行，加东行算，得一十三万五千零四十，为从方。东行为从廉，五分为隅算。作带从负隅，以廉减从，开立方法除之，得全径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 二倍共步数乘以向东走的步数之积，得二千零八十八万九千六百，作为开立方的被开方数。共步数乘以向东走的步数，加上东行步数的平方，得一十三万五千零四十，作为从方系数。以东行步数为从廉系数，五分为隅算系数。列带从负隅立方方程，用从廉减从方，开立方求之，得圆的全径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn*
+\small\textbf{带从负隅开立方详解：}置所得实，以从方约之。初商二百，置一于左上为法，置一乘从廉得六万四千，以减从方，存七万一千零四十为从。置一自之得四万，以隅算五分因之，得二万为隅法。并从，共九万一千零四十为下法，与上法相乘，除实一千八百二十万八千，余实二百六十八万一千六百。从方内再减六万四千，止余七千零四十为从。三因隅法得六万为方法，三因初商得六百为廉法。次商四十，置一于左，次为上法，置一乘从廉得一万二千八百，以减余从，不及减，反减余从七千零四十，余五千七百六十为负从。置一乘廉法，以隅因得一万二千，置一自之，隅因得八百为隅法。并方廉隅，共七万二千八百，减去负从，余六万七千零四十为下法，与上法相乘，除实尽。
+\switchcolumn
+\small\textbf{带从负隅开立方的白话解释：}把被开方数写在算板上，用从方系数来估算。第一位商取二百，在左上方写一作为上法，用一乘从廉系数得六万四千，从从方中减去，剩下七万一千零四十作为新的从系数。取一自乘得四万，乘以隅算系数五分，得二万作为隅法。合并从方与隅法，共九万一千零四十作为下法，与上法相乘，从被开方数中减去一千八百二十万八千，剩余二百六十八万一千六百。从方中再减六万四千，只剩七千零四十作为从。三倍隅法得六万作为方法，三倍初商得六百作为廉法。第二位商取四十，在左上方写一作为上法，用一乘从廉得一万二千八百，要从余从七千零四十中减它，不够减，反而用七千零四十去减一万二千八百，余五千七百六十作为负从。再按规定计算方廉隅各项，合并后减去负从，得到下法六万七千零四十，与上法四十相乘，恰好除尽余实。
+\end{paracol}
+
+\begin{paracol}{2}
+\switchcolumn*
+\small 法已见四卷通勾太虚弦条，因以五分为隅，故重出。
+
+又為帶從負隅，以廉添積，開立方法，法見四卷通勾虛弦條下。
+\switchcolumn
+\small 这个方法已在第四卷的通勾太虚弦条中出现过，因为这里以五分为隅算，所以重新列出。
+
+还有一种带从负隅、以廉添积开立方法，详见第四卷通勾虚弦条下。
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三}\quad 乙出东门东行，丙出南门南行，各不知步数而立。甲从乾隅东行三百二十步，望乙丙二人俱与城相参直，计乙丙共行一百五十一步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三}\quad 乙出东门向东走，丙出南门向南走，各走若干步后停下。甲从乾隅向东走三百二十步，看见乙和丙两人都与城墙在一条直线上，乙和丙共走了一百五十一步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以通勾与边勾、明股和，立法测望。甲东行，通勾；乙东行，边勾；丙南行，明股也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用通勾与边勾、明股之和来建立测望方法的问题。甲向东走的是通勾；乙向东走的是边勾；丙向南走的是明股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通勾自之，得一十萬二千四百，半之得五萬一千二百，又自之得二十六億二千一百四十四萬，为三乘方实。以三百六十二乘半通勾算，得一千八百五十三万四千四百，为从方。通勾乘和步，得四萬八千三百二十，为从一廉。五之通勾，得一千六百，为从二廉。二分五釐为常法。作带从方廉三乘方法，开之得八十为小差。小差者，通股弦較也。以减通勾，即城徑。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通勾自乘，得十万二千四百，取半得五万一千二百，再自乘得二十六亿二千一百四十四万，作为四次方程的常数项。用三百六十二乘以半通勾，得一千八百五十三万四千四百，作为从方系数。通勾乘以和步，得四万八千三百二十，作为第一廉系数。五倍通勾，得一千六百，作为第二廉系数。二分五厘作为常法（隅算系数）。列带从方廉四次方程，开方得八十为小差。小差就是通股弦差。用通勾减去小差，即得圆的直径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn*
+\small\textbf{带从方廉负隅翻法开三乘方详解：}置所得三乘方实，以廉隅约之。商得八十，置一于左上为法，置一乘从一廉得三百八十六万五千六百，置一自之以乘从二廉得一千零二十四万，置一自乘再得五十一万二千，以二分五厘因之，得一十二万八千为隅法。并从方、一廉、二廉、隅法，得三千二百七十六万八千为下法，与上法相乘，除实尽。
+\switchcolumn
+\small\textbf{带从方廉负隅翻法开四次方的白话解释：}把四次方程的常数项写在算板上，用各廉隅系数来估算。商取八十，在左上方写一作为上法，用一乘第一廉系数得三百八十六万五千六百，用一自乘再乘第二廉系数得一千零二十四万，用一自乘再乘得五十一万二千，以二分五厘乘之，得十二万八千作为隅法。合并从方、一廉、二廉、隅法，共三千二百七十六万八千作为下法，与上法八十相乘，恰好除尽被开方数。
+\end{paracol}
+
+
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问四}\quad 东门外往南有树，乙出东门往东不知步数而立。甲出北门东行二百步，斜望乙与树，正与城相参直。既而乙复折而斜行至树下，与甲相望，计乙直行斜行共五十步。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题四}\quad 东门外往南方向有一棵树，乙出东门向东走了若干步后停下。甲出北门向东走二百步，斜着望去，乙和树正好与城墙在一条直线上。接着乙折回斜着走到树下，与甲相望，乙直走和斜走共五十步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以底勾与边勾弦和，立法测望。甲出北门东行，底勾也；乙一直一斜，边勾、边弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用底勾与边勾弦和来建立测望方法的问题。甲出北门向东走的是底勾；乙一直走一斜走，分别对应边勾和边弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 底勾与和相减，余一百五十为差。差加底勾，复以差乘之，得数半之，得二万六千二百五十。差自之，得二万二千五百。二数相减，余三千七百五十为实。并勾和，半之，得一百二十五为法。实如法而得一。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 底勾与勾弦和相减，余一百五十作为差。差加上底勾，再用差去乘这个和，取结果的一半，得二万六千二百五十。差自乘，得二万二千五百。两数相减，余三千七百五十作为被除数。勾与和相加取半，得一百二十五作为除数。被除数除以除数即得结果。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问五}\quad 南门外往东不知步数有树，乙出南门南行不知步数而立。甲出北门东行二百步，见树与乙与城相参直，乙复斜行至树下与甲相望，计乙一直一斜共二百八十八步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题五}\quad 南门外往东若干步有一棵树，乙出南门向南走了若干步后停下。甲出北门向东走二百步，看见树和乙与城墙在一条直线上。乙又斜着走到树下与甲相望，乙直走和斜走共二百八十八步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以底勾与明股弦和，立法测望。甲出北门东行，底勾也；乙出南门南行，明股也；斜行，明弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用底勾与明股弦和来建立测望方法的问题。甲出北门向东走的是底勾；乙出南门向南走的是明股；乙斜着走的是明弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 勾和相减余，半之得四十四为半差。以减底勾，余一百五十六为泛率。泛率自之，又倍之，得四万八千六百七十二。半差乘和步，得一万二千六百七十二。二数相减，余三万六千为实。半底勾减和步，得一百八十八。倍泛率，得三百一十二。二数相并，得五百为法。实如法而一，得明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 勾与和相减的余数取半，得四十四作为半差。用底勾减去半差，余一百五十六作为泛率。泛率自乘，再乘以二，得四万八千六百七十二。半差乘以和步，得一万二千六百七十二。两数相减，余三万六千作为被除数。半底勾减去和步，得一百八十八。泛率乘以二，得三百一十二。两数相加，得五百作为除数。被除数除以除数，得明勾。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{勾与较测望二}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第二节：已知勾与差求圆的测望方法}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问六}\quad 甲乙俱在城外西北乾隅，甲南行不知步数而立，乙东行三百二十步见之，甲又斜行与乙相会，计甲直行不及斜行八十步。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题六}\quad 甲和乙都在城外西北角的乾隅，甲向南走若干步后停下，乙向东走三百二十步后看见了甲，甲又斜着走与乙会合，甲直走的步数比斜走的少八十步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以通勾与股弦较测望。乙东行，通勾也；甲直行不及斜行，股弦较也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是已知通勾与股弦差来测望圆径的问题。乙向东走的是通勾；甲直走比斜走少的步数，就是股弦差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 较除勾算，得一千二百八十为股弦和。减较，半之为股；加较，半之为弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 用股弦差去除勾的自乘数，得一千二百八十为股弦和。用股弦和减去股弦差，取半得股；加上股弦差，取半得弦。再用勾股容圆术求得圆径。
+\end{tcolorbox}
+
+\switchcolumn*
+\small 边勾以下，俱即此类推。
+\switchcolumn
+\small 边勾等同类问题，都按此类推。
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{股与和测望三}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第三节：已知股与和求圆的测望方法}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问七}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行不知步数见之，又斜行与甲相会，计乙直斜共行一千步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题七}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走若干步后看见了甲，又斜着走与甲会合，乙直走和斜走共一千步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以通股、勾弦和测望。甲南行，通股也；乙直东行与斜行共，勾弦和也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是已知通股与勾弦和来测望圆径的问题。甲向南走的是通股；乙直走与斜走的合计，就是勾弦和。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 股自之，得三十六万。和除之，得三百六十为勾弦较。减和，半之为勾；加和，半之为弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 股自乘，得三十六万。用勾弦和去除，得三百六十为勾弦差。用勾弦和减去勾弦差，取半得勾；加上勾弦差，取半得弦。再用勾股容圆术求得圆径。
+\end{tcolorbox}
+
+\switchcolumn*
+\small 边股以下，推此。
+\switchcolumn
+\small 边股等同类问题，都按此方法推算。
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问八}\quad 甲从乾隅南行六百步而立，乙出南门直行，丙出东门直行，三人相望，俱与城相参直。计其行步，则乙与丙共行一百五十一步。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题八}\quad 甲从乾隅向南走六百步后停下，乙出南门向南直走，丙出东门向东直走，三人互相望去，都与城墙在一条直线上。已知乙和丙共走了一百五十一步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以通股、边勾、明股和，立法测望。甲行，通股；乙行，明股；丙行，边勾也。共之和也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用通股与边勾、明股之和来建立测望方法的问题。甲走的是通股；乙走的是明股；丙走的是边勾。三人步数的和就是已知条件。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通股为算，半而自之，得三百二十四亿，为三乘方实。倍和加通股，以乘半通股算，得一亿六千二百三十六万，为从方。通股乘和步，得九万零六百，为从一廉。通股加半股，得九百，为从二廉。二分五釐为隅算。作带从方廉负隅，以二廉减从，翻法开三乘方法除之，得三百六十为股圆差。以减通股，即圆径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 以通股为基数，取半后自乘，得三百二十四亿，作为四次方程的常数项。二倍和加上通股，乘以半通股，得一亿六千二百三十六万，作为从方系数。通股乘以和步，得九万零六百，作为第一廉系数。通股加上半股，得九百，作为第二廉系数。二分五厘为隅算系数。列带从方廉负隅四次方程，用第二廉减从方，翻法开四次方，得三百六十为股圆差。用通股减去股圆差，即得圆径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{弦与和测望四}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第四节：已知弦与和求圆的测望方法}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问九}\quad 甲乙二人共立于城外东北艮隅，乙南行过城门而立，甲东行望乙与城相参直而止。丙丁二人共立于城外西南坤隅，丁向东过城门而立，丙向南行望丁及甲乙，悉与城相参直，丙复斜行六百八十步与甲相会。计乙之南与丁之东共三百四十二步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题九}\quad 甲和乙一起站在城外东北艮隅，乙向南走经过城门后停下，甲向东走看见乙与城墙在一条直线上后停下。丙和丁一起站在城外西南坤隅，丁向东走经过城门后停下，丙向南走看见丁和甲乙，都与城墙在一条直线上。丙又斜着走六百八十步与甲会合。已知乙向南走的和丁向东走的共三百四十二步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此通弦与大差勾、小差股和，立法测望。乙从艮隅而南过城门而立，山之艮，小差股也；以甲东行为勾，丁从坤隅东行过城门而立，坤之月，大差勾也；以丙南行为股，丙斜行与甲相会，通弦也。乙丁直行共步，大差勾与小差股和也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用通弦与大差勾、小差股之和来建立测望方法的问题。乙从艮隅向南经过城门停下，这就是小差股；甲向东走的是勾，丁从坤隅向东经过城门停下，这就是大差勾；丙向南走的是股，丙斜着走与甲会合的步数是通弦。乙和丁直走的步数和，就是大差勾与小差股的和。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 斜步、共步相乘，倍之，得四十六万五千一百二十为实。斜步、共步相减，余三百三十八为差。倍斜行加差，共一千六百九十八为从。作带从开平方法除之，得全径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 斜走的步数与共走的步数相乘，再乘以二，得四十六万五千一百二十作为被开方数。斜走步数与共走步数相减，余三百三十八作为差。二倍斜走步数加上差，共一千六百九十八作为从方系数。列带从开平方方程，开方求之，得圆的全径。
+\end{tcolorbox}
+
+\switchcolumn*
+\small 带从开平方法见前。
+\switchcolumn
+\small 带从开平方法，详见前文。
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十}\quad 甲出东门东行，乙出南门南行，各不知步数，相望与城相参直，甲复斜行二百八十九步与乙相会。乙直长，甲直短，共计一百五十一步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十}\quad 甲出东门向东走，乙出南门向南走，各走若干步后互相望去与城墙在一条直线上，甲又斜着走二百八十九步与乙会合。乙直走的较长，甲直走的较短，合计一百五十一步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以皇极弦、边勾、明股和，立法测望。甲东行为边勾，乙南行为明股，甲之斜行，皇极弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用皇极弦、边勾、明股之和来建立测望方法的问题。甲向东走的是边勾，乙向南走的是明股，甲斜着走的是皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 斜行自之，得八万三千五百二十一为弦算。共步自之，得二万二千八百零一为和算。和算减弦算，余六万零七百二十为实。倍共步减斜行，余一十三步为从。作带从开平方法除之，得全径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 斜走步数自乘，得八万三千五百二十一作为弦算。共走步数自乘，得二万二千八百零一作为和算。用弦算减去和算，余六万零七百二十作为被开方数。二倍共走步数减去斜走步数，余十三步作为从方系数。列带从开平方方程，开方求之，得圆的全径。
+\end{tcolorbox}
+
+\end{paracol}
+
+
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十一}\quad 甲乙二人同出东门，甲东行乙南行；丙丁二人同出南门，丙南行丁东行，各不知步数而立。四人遥望见，悉与城相参直。问其步数，则曰：甲丙共行了一百五十一步，乙丁立处相距一百零二步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十一}\quad 甲和乙一起出东门，甲向东走乙向南走；丙和丁一起出南门，丙向南走丁向东走，各走若干步后停下。四人互相遥望，都与城墙在一条直线上。已知：甲丙共走了一百五十一步，乙丁停下的地方相距一百零二步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此太虚弦与边勾、明股和，立法测望。甲出东门直行为边勾而乙南行为股，丙出南门南行为明股而丁东行为勾。甲丙共步，边勾、明股和也。乙丁相距，太虚弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用太虚弦与边勾、明股之和来建立测望方法的问题。甲出东门直走的是边勾，乙向南走的是股；丙出南门向南走的是明股，丁向东走的是勾。甲丙共走的步数，就是边勾与明股之和。乙丁相距的步数，就是太虚弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 共步、相距步相减，余四十九为差，自之得二千四百零一为差算。共步自之，得二万二千八百零一为和算。差算减和算，余二万零四百为实。倍距步减差，余一百五十五为从。作以从减法，开平方法除之，得全径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 共走步数与相距步数相减，余四十九作为差，差的平方得二千四百零一作为差算。共走步数自乘，得二万二千八百零一作为和算。用和算减去差算，余二万零四百作为被开方数。二倍相距步数减去差，余一百五十五作为从方系数。列"以从减法"开平方方程，开方求之，得圆的全径。
+\end{tcolorbox}
+
+\switchcolumn*
+\small 以从减法开平方法见前。
+
+又为以从添积开平方。
+\switchcolumn
+\small "以从减法"开平方法详见前文。
+
+还有一种"以从添积"开平方法。
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十二}\quad 出南门向东有槐树，出东门向南有柳树。丙丁俱出南门，丙直往南，丁往东至槐树下立；甲乙俱出东门，甲直往东，乙往南至柳树下立。四人遥望相见，各不知步数。只云：丙丁共行了二百零七步，甲乙共行了四十六步，其甲丙立处相距二百八十九步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十二}\quad 出南门向东有一棵槐树，出东门向南有一棵柳树。丙和丁都出南门，丙直往南走，丁往东走到槐树下停下；甲和乙都出东门，甲直往东走，乙往南走到柳树下停下。四人互相遥望都能看见，各不知步数。已知：丙丁共走了二百零七步，甲乙共走了四十六步，甲丙停下的地方相距二百八十九步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以皇极弦与明勾股和、边勾股和，立法测望。槐在南门之东，为南之月，明勾也；丁直行往南，为日之南，明股也；共行二百零七，明勾股和也。柳在东门之南，为山之东，边股也；甲直行往东，为东之川，边勾也；共行四十六步，边勾股和也。甲丙立处相距，为日川，皇极弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用皇极弦与明勾股和、边勾股和来建立测望方法的问题。槐树在南门以东，对应"南之月"，即明勾；丁直往南走，对应"日之南"，即明股；共走二百零七步，就是明勾股和。柳树在东门以南，对应"山之东"，即边股；甲直往东走，对应"东之川"，即边勾；共走四十六步，就是边勾股和。甲丙停下的地方相距，对应"日川"，即皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 二和相减余，以减相距余，半之得六十四为平勾。以加二和相减，为平股。相乘为实，平方开之，即半径。
+
+\vspace{0.3em}
+\textbf{又曰}\quad 二和相并，以减相距余，半之得一十八为泛率。加明和为长，加边和为广。长广相乘，得半径算。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 两个和相减的余数，用相距减去这个余数，取半得六十四作为平勾。用平勾加上二和之差，得到平股。平勾与平股相乘作为被开方数，开平方即得圆的半径。
+
+\vspace{0.3em}
+\textbf{另一算法}\quad 两个和相加之和，用相距去减其余数，取半得十八作为泛率。泛率加上明和为长，加上边和为宽。长与宽相乘，即得半径的平方。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十三}\quad 南门之东有槐，东门之南有柳。丙出南门直行，丁出南门东至槐下；甲出东门直行，乙出东门南至柳下。相望俱与城相参直。计丙南丁东共行二百零七步，甲东乙南共行四十六步，其二树相距一百零二步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十三}\quad 南门以东有槐树，东门以南有柳树。丙出南门直往南走，丁出南门向东走到槐树下；甲出东门直往东走，乙出东门向南走到柳树下。互相望去都与城墙在一条直线上。已知丙南丁东共走二百零七步，甲东乙南共走四十六步，两棵树相距一百零二步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此与前问同，前以远相距言，此以近相距言。近相距，太虚弦也。以太虚弦与明、叀二和，立法测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这道题与上一题相同，上一题说的是较远距离，这一题说的是较近距离。较近距离就是太虚弦。用太虚弦与明勾股和、叀勾股和来建立测望方法。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.3em}
+
+\begin{paracol}{2}
+\switchcolumn*
+\small\textbf{【文言文】}\quad 叀和乘虚弦，又自之，得二千二百零一万四千八百六十四为平实。并二和自之，得六万四千零九为二和算。边和自之，得二千一百一十六为边和算。明和自之，得四万二千八百四十九为明和算。并明和算、叀和算，以减二和算，余一万九千零四十四为益隅。作负隅开平方法除之，得叀弦。倍弦算与和算相减，开其余，得叀勾股较。加和，半之为股；减和，半之为勾。
+
+\vspace{0.3em}
+\textbf{又曰}\quad 隅算除平实，即得叀弦算。
+
+\textbf{又曰}\quad 明和乘虚弦，又自之，得四亿四千五百八十万零九百九十六为平实。如前法为负隅，平方开之，得明弦。若以益隅除平实，径得明弦算。
+
+\textbf{又术}\quad 虚弦自之，得一萬零四百零四为虚弦算。以叀和乘之，得四十七万八千五百八十四为平实。倍明和，得四百一十四为益隅，开之得叀弦。若以益隅除平实，径得叀弦算。
+\switchcolumn
+\small\textbf{【白话译文】}\quad 叀和乘以虚弦，再自乘，得二千二百零一万四千八百六十四作为被开方数。两个和的自乘，得六万四千零九作为二和算。边和自乘，得二千一百一十六作为边和算。明和自乘，得四万二千八百四十九作为明和算。明和算与叀和算相加，用二和算去减，余一万九千零四十四作为益隅系数。列负隅开平方方程，开方得叀弦。二倍弦算与和算相减，开其余数，得叀勾股差。加上和取半为股；减去和取半为勾。
+
+\vspace{0.3em}
+\textbf{简化算法}\quad 用益隅系数去除被开方数，直接得到叀弦。
+
+\textbf{另一简化}\quad 明和乘以虚弦再自乘，得四亿四千五百八十万零九百九十六作为被开方数。用前述方法列负隅，开平方得明弦。若用益隅除被开方数，直接得到明弦。
+
+\textbf{另一种解法}\quad 虚弦自乘，得一万零四百零四作为虚弦算。乘以叀和，得四十七万八千五百八十四作为被开方数。二倍明和得四百一十四作为益隅系数，开方得叀弦。若用益隅除被开方数，直接得叀弦。
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{弦与较测望六}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第六节：已知弦与差求圆的测望方法}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十四}\quad 甲丙二人俱在城外西北隅起程，丙南行甲东行，各不知步数，隔城相望。既而甲斜行六百八十步与丙相会。问其东行步数，则曰：我少于丙南行二百八十步。问城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十四}\quad 甲和丙都在城外西北角出发，丙向南走甲向东走，各走若干步后隔城相望。接着甲斜着走六百八十步与丙会合。问甲向东走了多少步？回答说：我比丙向南走的少二百八十步。求圆的直径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此通弦与通勾股较，立法测望。甲东行为勾，丙南行为股，甲少于丙步数，勾股较也，斜行，弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用通弦与通勾股差来建立测望方法的问题。甲向东走的是勾，丙向南走的是股，甲比丙少走的步数就是勾股差，甲斜着走的是弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 弦自乘，倍之，得九十二万四千八百。较自乘，得七万八千四百。相减，余八十四万六千四百为实。平方开之，得勾股和九百二十。加较，半之为股；减较，半之为勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 弦自乘，乘以二，得九十二万四千八百。勾股差自乘，得七万八千四百。两数相减，余八十四万六千四百作为被开方数。开平方，得勾股和九百二十。加上勾股差取半为股；减去勾股差取半为勾。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\switchcolumn*
+\small\textbf{又曰：}弦较相减，得四百为弦较较；相并，得九百六十为弦较和。弦较较、弦较和相乘，得三十八万四千为实。倍较，得五百六十为从，二为隅算。作以从减法、负隅开平方法除之，得通股。作带从负隅开平方法除之，得通勾。
+
+带从负隅开平方法，见四卷底勾通弦条。
+带从负隅以从减隅开平方法，见四卷大差勾黄长弦条下。
+
+又为以从添积负隅开平方，以六百乘从益实，倍六百，得一千二百为法。即是边弦以下类推。
+\switchcolumn
+\small\textbf{另一算法：}弦与较相减，得四百为"弦较较"；弦与较相加，得九百六十为"弦较和"。"弦较较"与"弦较和"相乘，得三十八万四千作为被开方数。二倍较，得五百六十作为从方系数，二作为隅算系数。列"以从减法、负隅"开平方方程，开方得通股。列带从负隅开平方方程，开方得通勾。
+
+带从负隅开平方法详见第四卷底勾通弦条。
+带从负隅以从减隅开平方法详见第四卷大差勾黄长弦条下。
+
+还有一种以从添积负隅开平方法，以六百乘从作为益实，二倍六百得一千二百作为法。边弦以下的问题都按此类推。
+\end{paracol}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十五}\quad 乙出东门南行不知步数而立，甲出西门直往南行，回望乙与城相参直，又斜行五百一十步与乙相会。问乙行步，则曰：少于城径二百一十步。不知城径几何。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十五}\quad 乙出东门向南走了若干步后停下，甲出西门直往南走，回头看乙与城墙在一条直线上，又斜着走五百一十步与乙会合。问乙走了多少步？回答说：比城径少二百一十步。求城径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此黄广弦与叀股、黄广勾较，立法测望。乙出东门南行为叀股，城径即黄广勾，少于城径即叀股、黄广勾较也，斜行，黄广弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用黄广弦与叀股、黄广勾差来建立测望方法的问题。乙出东门向南走的是叀股，城径就是黄广勾，比城径少的步数就是叀股与黄广勾之差，斜着走的是黄广弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 较自之，得四万四千一百为较算，以为实。斜步四之，减二较，余一千六百二十为从，五为隅算。作负隅减从，开平方法除之，得叀股三十，加较为黄广勾，即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 差自乘，得四万四千一百作为较算，作为被开方数。斜走步数的四倍减去二倍差，余一千六百二十作为从方系数，五作为隅算系数。列负隅减从开平方方程，开方得叀股三十，加上差为黄广勾，即城径。
+\end{tcolorbox}
+
+\switchcolumn*
+\small 负隅减从开平方法，见二卷通勾叀勾条。
+\switchcolumn
+\small 负隅减从开平方法详见第二卷通勾叀勾条。
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十六}\quad 乙出南门东行不知步数而立，甲出北门直往东行，望乙与城相参直，又斜行二百七十二步与乙相会。问乙东行步，则曰：少于城径一百六十八步。不知城径几何。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十六}\quad 乙出南门向东走了若干步后停下，甲出北门直往东走，看见乙与城墙在一条直线上，又斜着走二百七十二步与乙会合。问乙向东走了多少步？回答说：比城径少一百六十八步。求城径。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此黄长弦与明勾、黄长股较，立法测望。乙出南门东行为明勾，城径即黄长股，少于城径即明勾、黄长股较也，斜行，黄长弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用黄长弦与明勾、黄长股差来建立测望方法的问题。乙出南门向东走的是明勾，城径就是黄长股，比城径少的步数就是明勾与黄长股之差，斜着走的是黄长弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 较自之，得二万八千二百二十四为实。四斜行减二较，余七百五十二为从方，五为隅算。作负隅减从，开平方法除之，得明勾七十二，加较为黄长股，即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 差自乘，得二万八千二百二十四作为被开方数。四倍斜走步数减去二倍差，余七百五十二作为从方系数，五作为隅算系数。列负隅减从开平方方程，开方得明勾七十二，加上差为黄长股，即城径。
+\end{tcolorbox}
+
+\switchcolumn*
+\small 负隅减从开平方法，见二卷。
+\switchcolumn
+\small 负隅减从开平方法详见第二卷。
+
+\end{paracol}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+
+\textbf{\textcolor{volumecolor}{测圆海镜分类释术卷六终}}
+\end{center}
+
+
+
+%======================================================================
+\newpage
+\section*{\textcolor{volumecolor}{卷七} —— 大差小差与中差}
+\addcontentsline{toc}{section}{卷七\quad 大差小差与中差}
+%======================================================================
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{center}
+\noindent\textbf{测圆海镜分类释术卷七}\quad 元~李~冶~撰\\
+明~顾应祥~释术
+\end{center}
+
+\vspace{0.5em}
+\noindent
+卷七专论大差、小差、中差之测望。大差者，通弦与通股之差；小差者，通弦与通勾之差；中差者，大小差之差也。此三差为测圆术之枢纽，诸题皆以之为本。凡十八题，分为三节。
+
+\switchcolumn
+\begin{center}
+\noindent\textbf{《测圆海镜分类释术》第七卷}\quad 元代~李~冶~著\\
+明代~顾应祥~分类并解释算法
+\end{center}
+
+\vspace{0.5em}
+\noindent
+第七卷专门论述大差、小差、中差的测望方法。"大差"指通弦与通股之差；"小差"指通弦与通勾之差；"中差"指大差与小差之差。这三种差是测圆术的核心枢纽，各题都以它们为基础。共十八题，分为三节。
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{大差测望一}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第一节：大差测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问一}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。既而甲斜行与乙相会，计甲共行一千二百八十步。以甲斜行与乙东行相较，求大差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题一}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。接着甲斜着走与乙会合，甲共走了一千二百八十步。用甲斜走的步数与乙向东走的步数相比较，求大差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大差立法测望。甲南行六百步为通股，乙东行三百二十步为通勾。甲斜行为通弦。通弦减通股，余为大差。大差勾者，以通勾与大差相减之数也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大差来建立测望方法的问题。甲向南走六百步是通股，乙向东走三百二十步是通勾。甲斜着走的是通弦。用通弦减去通股，余数就是大差。大差勾，就是用通勾减去大差得到的数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通弦自乘，以通股自乘减之，开方得大差勾。以勾股求之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通弦自乘，用通股自乘去减，开平方得大差勾。再用勾股术推算，求得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二}\quad 甲从乾隅东行三百二十步而立，乙从坤隅南行六百步而立。二人隔城相望，甲复斜行至乙处，计甲共行一千二百八十步。以乙南行与甲斜行相较，求大差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二}\quad 甲从乾隅向东走三百二十步后停下，乙从坤隅向南走六百步后停下。两人隔城相望，甲又斜着走到乙处，甲共走了一千二百八十步。用乙向南走的步数与甲斜走的步数相比较，求大差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此亦以大差立法测望。通股减通弦，余为大差。大差勾即通勾之余数。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这也是用大差来建立测望方法的问题。用通股减去通弦，余数就是大差。大差勾就是通勾的余数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通弦自乘，减通股自乘，开方得大差。以大差减通股，得股圆差，即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通弦自乘，减去通股自乘，开平方得大差。用通股减去大差，得股圆差，即城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三}\quad 乙出东门南行，不知步数而立。甲从乾隅东行三百二十步，望乙与城相参直。甲又斜行五百一十步与乙相会。求大差勾、股、弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三}\quad 乙出东门向南走了若干步后停下。甲从乾隅向东走三百二十步，看见乙与城墙在一条直线上。甲又斜着走五百一十步与乙会合。求大差勾、大差股、大差弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾与大差股测望。甲东行，通勾也；乙出东门南行，大差股也；甲斜行，大差弦也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾与大差股来测望的问题。甲向东走的是通勾；乙出东门向南走的是大差股；甲斜着走的是大差弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通勾自乘，以明勾减之，余为实。以大差弦除之，得大差股。以大差股减通股，余即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通勾自乘，用明勾去减，余数作为被除数。用大差弦去除，得大差股。用通股减去大差股，余数就是城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问四}\quad 乙出南门东行，不知步数而立。甲从乾隅南行六百步，望乙与城相参直。甲又斜行至乙处，计甲共行六百八十步。求大差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题四}\quad 乙出南门向东走了若干步后停下。甲从乾隅向南走六百步，看见乙与城墙在一条直线上。甲又斜着走到乙处，甲共走了六百八十步。求大差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大差股与通弦测望。大差股即通股减弦之余。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大差股与通弦来测望的问题。大差股就是通股减去弦的余数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通弦自乘，减通股自乘，开方得大差勾。以大差勾减通勾，余为城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通弦自乘，减去通股自乘，开平方得大差勾。用通勾减去大差勾，余数即为城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问五}\quad 乙出东门东行，不知步数而立。丙出南门南行，不知步数而立。甲从乾隅东行三百二十步，望乙丙与城相参直，计乙丙共行一百五十一步。以乙行与丙行相较，求大差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题五}\quad 乙出东门向东走了若干步后停下。丙出南门向南走了若干步后停下。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上，乙和丙共走了一百五十一步。用乙走的与丙走的相比较，求大差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾、大差股和测望。乙东行为边勾，丙南行为大差股，共行一百五十一步，即大差勾股和也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾与大差股之和来测望的问题。乙向东走的是边勾，丙向南走的是大差股，共走了一百五十一步，就是大差勾股和。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 共步自乘，以通勾乘之为实。以通股减共步为从，开平方得大差股。以减通股即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 共走步数自乘，用通勾去乘作为被开方数。用通股减去共步作为从方系数，开平方得大差股。用通股减去大差股即得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问六}\quad 甲从坤隅东行过城门而止，乙从艮隅南行过城门而止。二人相望与城相参直，计甲东行与乙南行共三百四十二步。以甲行减乙行，余八十步。求大差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题六}\quad 甲从坤隅向东走经过城门后停下，乙从艮隅向南走经过城门后停下。两人互相望去与城墙在一条直线上，甲向东走的与乙向南走的共三百四十二步。用甲走的步数减乙走的步数，余八十步。求大差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大差勾股和与较测望。甲东行过城门为大差勾，乙南行过城门为大差股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大差勾股和与差来测望的问题。甲向东经过城门走的是大差勾，乙向南经过城门走的是大差股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 和自乘，减较自乘，以四因之为实。倍和为从，开平方得大差弦。以弦减通弦，余即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 和自乘，减去差自乘，再乘以四作为被开方数。二倍和作为从方系数，开平方得大差弦。用通弦减去大差弦，余数就是城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问七}\quad 甲乙二人俱出东门，甲东行乙南行。丙丁二人俱出南门，丙南行丁东行。四人相望，各与城相参直。计甲丙共行二百步，乙丁相距二百八十九步。求大差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题七}\quad 甲和乙都出东门，甲向东走乙向南走。丙和丁都出南门，丙向南走丁向东走。四人互相望去，都与城墙在一条直线上。已知甲丙共走了二百步，乙丁相距二百八十九步。求大差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚弦与边勾明股和测望。乙丁相距即太虚弦，大差之属也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用太虚弦与边勾明股和来测望的问题。乙丁相距的步数就是太虚弦，属于大差的范畴。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 以太虚弦减皇极弦，余为大差弦。以勾股术推之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 用皇极弦减去太虚弦，余数为大差弦。用勾股术推算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问八}\quad 甲从乾隅东行三百二十步，南门外有树，乙出南门南行至树下。甲斜望乙与树及城相参直，计甲斜行二百八十九步。求大差股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题八}\quad 甲从乾隅向东走三百二十步，南门外有一棵树，乙出南门向南走到树下。甲斜着望去，乙、树和城墙都在一条直线上，甲斜着走了二百八十九步。求大差股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾与大差弦测望。甲东行为明勾，斜行为大差弦，乙南行为大差股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾与大差弦来测望的问题。甲向东走的是明勾，斜着走的是大差弦，乙向南走的是大差股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾自乘，减大差弦自乘，开方得大差股。以减通股，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾自乘，减去大差弦自乘，开平方得大差股。用通股减去大差股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问九}\quad 乙出东门东行二百步而立，丙出南门南行一百五十一步而立。甲从乾隅东行三百二十步，望乙丙与城相参直。求大差勾股较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题九}\quad 乙出东门向东走二百步后停下，丙出南门向南走一百五十一步后停下。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上。求大差勾股差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以边勾、明股与大差测望。大差勾股较即通股弦较与通勾弦较之差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用边勾、明股与大差来测望的问题。大差勾股差就是通股弦差与通勾弦差之差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 边勾自乘，明股自乘，相减为实。以边勾明股相乘为法，除之得大差勾股较。以加减术推之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 边勾自乘，明股自乘，相减作为被除数。以边勾与明股相乘作为除数，相除得大差勾股差。用加减术推算，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{小差测望二}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第二节：小差测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。甲斜行与乙相会，计甲共行一千二百八十步。以通弦减通勾，求小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。甲斜着走与乙会合，甲共走了一千二百八十步。用通弦减去通勾，求小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以小差立法测望。通弦减通勾之余，为小差。小差股者，通股之减数也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用小差来建立测望方法的问题。通弦减去通勾的余数，就是小差。小差股，就是通股减去小差得到的数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通弦自乘，减通勾自乘，开方得小差股。以小差股减通股，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通弦自乘，减去通勾自乘，开平方得小差股。用通股减去小差股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十一}\quad 乙出南门东行，不知步数而立。甲从乾隅南行六百步，望乙与城相参直。甲又斜行二百七十二步与乙相会。求小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十一}\quad 乙出南门向东走了若干步后停下。甲从乾隅向南走六百步，看见乙与城墙在一条直线上。甲又斜着走二百七十二步与乙会合。求小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾与小差弦测望。乙出南门东行为明勾，甲斜行为小差弦，甲南行为小差股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾与小差弦来测望的问题。乙出南门向东走的是明勾，甲斜着走的是小差弦，甲向南走的是小差股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾自乘，减小差弦自乘，开方得小差股。以小差股减通股，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾自乘，减去小差弦自乘，开平方得小差股。用通股减去小差股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十二}\quad 甲从艮隅南行过城门而止，乙从坤隅东行过城门而止。二人相望与城相参直，计甲南行三百六十步，乙东行一百六十步。求小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十二}\quad 甲从艮隅向南走经过城门后停下，乙从坤隅向东走经过城门后停下。两人互相望去与城墙在一条直线上，已知甲向南走了三百六十步，乙向东走了一百六十步。求小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以小差勾股直接测望。甲南行过城门为小差股，乙东行过城门为小差勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是直接用小差勾股来测望的问题。甲向南经过城门走的是小差股，乙向东经过城门走的是小差勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 小差勾股各自乘，相併开方得小差弦。以通弦减之，余即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 小差勾和小差股各自乘，相加后开平方得小差弦。用通弦减去小差弦，余数就是城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十三}\quad 甲乙二人同出东门，甲东行二百步，乙南行一百五十一步而立。二人相望与城相参直。求小差勾股较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十三}\quad 甲和乙一起出东门，甲向东走二百步，乙向南走一百五十一步后停下。两人互相望去与城墙在一条直线上。求小差勾股差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以小差勾股与通弦测望。甲东行为小差勾，乙南行为小差股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用小差勾股与通弦来测望的问题。甲向东走的是小差勾，乙向南走的是小差股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 小差勾股各自乘相併开方得小差弦，以通弦减之得小差。小差减通勾得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 小差勾和小差股各自乘，相加开平方得小差弦，用通弦减去小差弦得小差。再用小差减通勾得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{中差测望三}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第三节：中差测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十四}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步，乙东行三百二十步。各不知余数。以通股减通弦为大差，以通勾减通弦为小差。大小差相减为中差。求中差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十四}\quad 甲和乙都在城外西北乾隅，甲向南走六百步，乙向东走三百二十步。各不知其余数。用通股减通弦作为大差，用通勾减通弦作为小差。大差与小差相减作为中差。求中差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以中差立法测望。中差者，大差与小差之差，即通股与通勾之差也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用中差来建立测望方法的问题。中差就是大差与小差之差，也就是通股与通勾之差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通股自乘，减通勾自乘，开方得勾股和。以和减通弦，余为中差。以中差加减术推之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通股自乘，减去通勾自乘，开平方得勾股和。用勾股和减去通弦，余数为中差。用中差加减术推算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十五}\quad 乙出东门南行，不知步数而立。甲从乾隅东行三百二十步，望乙与城相参直。计甲斜行五百一十步。以乙行与城径相较，求中差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十五}\quad 乙出东门向南走了若干步后停下。甲从乾隅向东走三百二十步，看见乙与城墙在一条直线上。甲斜着走了五百一十步。用乙走的步数与城径相比较，求中差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾与中差测望。明勾即通勾减边勾之余，中差即大差减小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾与中差来测望的问题。明勾就是通勾减去边勾的余数，中差就是大差减去小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾自乘为实，以通弦约之，得中差股。以减通股得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾自乘作为被除数，用通弦去约，得中差股。用通股减去中差股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十六}\quad 甲从乾隅南行六百步，乙从乾隅东行三百二十步。以甲斜行与乙东行相较，求中差勾股较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十六}\quad 甲从乾隅向南走六百步，乙从乾隅向东走三百二十步。用甲斜走的步数与乙向东走的步数相比较，求中差勾股差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以通勾股较测望。中差勾股较即通股减通勾之数。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用通勾股差来测望的问题。中差勾股差就是通股减去通勾的数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通股减通勾，得三百八十步为中差。以勾股术推之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通股减去通勾，得三百八十步作为中差。用勾股术推算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十七}\quad 乙出南门东行七十二步而立，丙出东门南行三十步而立。甲从乾隅东行三百二十步，望乙丙与城相参直。求中差弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十七}\quad 乙出南门向东走七十二步后停下，丙出东门向南走三十步后停下。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上。求中差弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾、叀股与中差测望。乙东行为明勾，丙南行为叀股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾、叀股与中差来测望的问题。乙向东走的是明勾，丙向南走的是叀股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾、叀股各自乘相併开方得中差弦。以通弦减之，余为城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾和叀股各自乘，相加开平方得中差弦。用通弦减去中差弦，余数为城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十八}\quad 甲从坤隅东行过城门，乙从艮隅南行过城门。二人相望与城相参直，计甲东行三百二十步，乙南行六百步。以甲行减乙行，求中差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十八}\quad 甲从坤隅向东走经过城门，乙从艮隅向南走经过城门。两人互相望去与城墙在一条直线上，已知甲向东走了三百二十步，乙向南走了六百步。用甲走的步数减乙走的步数，求中差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大差勾股与小差勾股测望中差。中差即大小差之差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大差勾股与小差勾股来测望中差的问题。中差就是大小差之差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 大差股减小差股，得中差。以减通弦，余为城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 大差股减去小差股，得中差。用中差减通弦，余数为城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+
+\textbf{\textcolor{volumecolor}{测圆海镜分类释术卷七终}}
+\end{center}
+
+
+
+%======================================================================
+\newpage
+\section*{\textcolor{volumecolor}{卷八} —— 皇极太虚与杂题}
+\addcontentsline{toc}{section}{卷八\quad 皇极太虚与杂题}
+%======================================================================
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{center}
+\noindent\textbf{测圆海镜分类释术卷八}\quad 元~李~冶~撰\\
+明~顾应祥~释术
+\end{center}
+
+\vspace{0.5em}
+\noindent
+卷八专论皇极、太虚、明、叀四种之测望，以及杂题之类。皇极者，通勾股之中；太虚者，虚勾股之极；明者，明勾股之谓；叀者，叀勾股之称。凡三十四题，分为五节。
+
+\switchcolumn
+\begin{center}
+\noindent\textbf{《测圆海镜分类释术》第八卷}\quad 元代~李~冶~著\\
+明代~顾应祥~分类并解释算法
+\end{center}
+
+\vspace{0.5em}
+\noindent
+第八卷专门论述皇极、太虚、明、叀四种勾股形的测望方法，以及杂题之类的题目。"皇极"是通勾股之中的勾股形；"太虚"是虚勾股之极的勾股形；"明"指明勾股；"叀"指叀勾股。共三十四题，分为五节。
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{皇极测望一}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第一节：皇极测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问一}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。二人隔城相望，各与城相参直。以勾股之中数，求皇极弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题一}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。两人隔城相望，都与城墙在一条直线上。用勾股之中数，求皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以皇极弦立法测望。皇极者，勾股之中极也。皇极弦即通弦之半，为勾股容圆之枢纽。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用皇极弦来建立测望方法的问题。"皇极"就是勾股之中的极致。皇极弦就是通弦的一半，是勾股容圆方法的枢纽。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通勾股各自乘相併，开方得通弦。半之为皇极弦。以皇极弦减通弦，余即城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通勾和通股各自乘，相加后开平方得通弦。取半为皇极弦。用通弦减去皇极弦，余数即城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二}\quad 乙出东门东行，不知步数而立。丙出南门南行，不知步数而立。甲从乾隅东行三百二十步，望乙丙与城相参直，计乙丙共行一百五十一步。以边勾明股求皇极。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二}\quad 乙出东门向东走了若干步后停下。丙出南门向南走了若干步后停下。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上，乙和丙共走了一百五十一步。用边勾和明股求皇极。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以边勾明股和测望皇极。乙东行为边勾，丙南行为明股，共行一百五十一步，即皇极勾股和也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用边勾与明股之和来测望皇极的问题。乙向东走的是边勾，丙向南走的是明股，共走了一百五十一步，就是皇极勾股和。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 边勾明股各自乘相併开方得皇极弦。以通弦减之余为城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 边勾和明股各自乘，相加开平方得皇极弦。用通弦减去其余数，即为城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三}\quad 甲从乾隅东行三百二十步，乙出东门南行一百五十一步。甲望乙与城相参直，又斜行二百八十九步与乙相会。求皇极勾股较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三}\quad 甲从乾隅向东走三百二十步，乙出东门向南走一百五十一步。甲看见乙与城墙在一条直线上，又斜着走二百八十九步与乙会合。求皇极勾股差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以皇极弦与边勾明股和测望。甲斜行二百八十九步为皇极弦，乙丙共行一百五十一步为边勾明股和。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用皇极弦与边勾明股和来测望的问题。甲斜着走的二百八十九步是皇极弦，乙丙共走的一百五十一步是边勾与明股之和。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 皇极弦自乘，减边勾明股和自乘，开方得皇极勾股较。以加减术推之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 皇极弦自乘，减去边勾明股和的自乘，开平方得皇极勾股差。用加减术推算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问四}\quad 甲从艮隅南行过城门而止，乙从坤隅东行过城门而止。二人相望与城相参直。以甲行乙行求皇极弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题四}\quad 甲从艮隅向南走经过城门后停下，乙从坤隅向东走经过城门后停下。两人互相望去与城墙在一条直线上。用甲走的和乙走的求皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大差勾小差股测望皇极。甲南行过城门为小差股，乙东行过城门为大差勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大差勾与小差股来测望皇极的问题。甲向南经过城门走的是小差股，乙向东经过城门走的是大差勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 大差勾小差股各自乘相併开方得皇极弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 大差勾和小差股各自乘，相加开平方得皇极弦。用通弦减去皇极弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问五}\quad 甲出东门东行二百步，乙出南门南行一百五十一步。二人相望与城相参直，计二人相距二百八十九步。以相距与各行相较，求皇极。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题五}\quad 甲出东门向东走二百步，乙出南门向南走一百五十一步。两人互相望去与城墙在一条直线上，两人相距二百八十九步。用相距步数与各自行走的步数相比较，求皇极。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以皇极勾股弦直接测望。甲东行为皇极勾，乙南行为皇极股，相距为皇极弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是直接用皇极勾股弦来测望的问题。甲向东走的是皇极勾，乙向南走的是皇极股，两人相距的是皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 皇极勾股各自乘相併开方得皇极弦。以勾股术求之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 皇极勾和皇极股各自乘，相加开平方得皇极弦。用勾股术推算，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{太虚测望二}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第二节：太虚测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问六}\quad 甲乙二人同出东门，甲东行乙南行。丙丁二人同出南门，丙南行丁东行。四人相望，悉与城相参直。计甲丙共行一百五十一步，乙丁相距一百零二步。以太虚弦测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题六}\quad 甲和乙一起出东门，甲向东走乙向南走。丙和丁一起出南门，丙向南走丁向东走。四人互相望去，都与城墙在一条直线上。已知甲丙共走了一百五十一步，乙丁相距一百零二步。用太虚弦测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚弦立法测望。乙丁相距一百零二步，即太虚弦也。太虚者，虚勾股之极，为最小之勾股形。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用太虚弦来建立测望方法的问题。乙丁相距的一百零二步，就是太虚弦。"太虚"是虚勾股的极致，为最小的勾股形。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 太虚弦自乘为实，以通弦约之，得太虚勾。以太虚勾减通勾，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 太虚弦自乘作为被除数，用通弦去约，得太虚勾。用通勾减去太虚勾，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问七}\quad 乙出东门东行一百步，丙出南门南行五十一步而立。甲从乾隅东行三百二十步，望乙丙与城相参直。以太虚勾股测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题七}\quad 乙出东门向东走一百步，丙出南门向南走五十一步后停下。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上。用太虚勾股测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚勾股直接测望。乙东行为太虚勾，丙南行为太虚股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是直接用太虚勾股来测望的问题。乙向东走的是太虚勾，丙向南走的是太虚股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 太虚勾股各自乘相併开方得太虚弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 太虚勾和太虚股各自乘，相加开平方得太虚弦。用通弦减去太虚弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问八}\quad 甲从乾隅东行三百二十步，南门外有槐树。乙出南门东至槐树下。甲斜望乙与槐与城相参直，计甲斜行一百零二步。求太虚股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题八}\quad 甲从乾隅向东走三百二十步，南门外有一棵槐树。乙出南门向东走到槐树下。甲斜着望去，乙、槐树和城墙都在一条直线上，甲斜着走了一百零二步。求太虚股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚弦与明勾测望。甲斜行一百零二步为太虚弦，乙东至槐树下为明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用太虚弦与明勾来测望的问题。甲斜着走的一百零二步是太虚弦，乙向东走到槐树下走的是明勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 太虚弦自乘，减明勾自乘，开方得太虚股。以太虚股减通股得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 太虚弦自乘，减去明勾自乘，开平方得太虚股。用通股减去太虚股，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问九}\quad 甲从艮隅南行过城门三百六十步而立，乙从坤隅东行过城门一百六十步而立。二人相望与城相参直。以太虚测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题九}\quad 甲从艮隅向南走经过城门三百六十步后停下，乙从坤隅向东走经过城门一百六十步后停下。两人互相望去与城墙在一条直线上。用太虚测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以小差股大差勾测望太虚。小差股大差勾即太虚勾股之属。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用小差股和大差勾来测望太虚的问题。小差股和大差勾就是太虚勾股的一类。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 小差股大差勾各自乘相併开方得太虚弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 小差股和大差勾各自乘，相加开平方得太虚弦。用通弦减去太虚弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十}\quad 乙出东门东行七十二步，丙出南门南行三十步而立。二人相望与城相参直。以太虚勾股测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十}\quad 乙出东门向东走七十二步，丙出南门向南走三十步后停下。两人互相望去与城墙在一条直线上。用太虚勾股测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚勾股直接测望。乙东行为太虚勾，丙南行为太虚股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是直接用太虚勾股来测望的问题。乙向东走的是太虚勾，丙向南走的是太虚股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 太虚勾股各自乘相併开方得太虚弦。以勾股术求之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 太虚勾和太虚股各自乘，相加开平方得太虚弦。用勾股术推算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十一}\quad 甲出东门东行二百步，乙出南门南行一百五十一步。甲望乙与城相参直，又斜行二百八十九步与乙相会。以太虚弦与皇极弦相较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十一}\quad 甲出东门向东走二百步，乙出南门向南走一百五十一步。甲看见乙与城墙在一条直线上，又斜着走二百八十九步与乙会合。用太虚弦与皇极弦相比较。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚弦与皇极弦测望。甲斜行二百八十九步为皇极弦，太虚弦为其减数。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用太虚弦与皇极弦来测望的问题。甲斜着走的二百八十九步是皇极弦，太虚弦是它的减数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 皇极弦减太虚弦，余为明弦。以明弦减通弦得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 皇极弦减去太虚弦，余数为明弦。用通弦减去明弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十二}\quad 甲从乾隅东行三百二十步，乙出东门南行三十步。甲望乙与城相参直。求太虚勾股较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十二}\quad 甲从乾隅向东走三百二十步，乙出东门向南走三十步。甲看见乙与城墙在一条直线上。求太虚勾股差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以通勾与太虚股测望。乙出东门南行为太虚股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用通勾与太虚股来测望的问题。乙出东门向南走的是太虚股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 太虚股自乘为实，以通勾约之得太虚勾。以减通勾得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 太虚股自乘作为被除数，用通勾去约，得太虚勾。用通勾减去太虚勾，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十三}\quad 乙出南门东行七十二步，丙出东门南行三十步。甲从乾隅南行六百步，望乙丙与城相参直。以太虚测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十三}\quad 乙出南门向东走七十二步，丙出东门向南走三十步。甲从乾隅向南走六百步，看见乙和丙与城墙在一条直线上。用太虚测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚勾股与通股测望。乙东行为太虚勾，丙南行为太虚股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用太虚勾股与通股来测望的问题。乙向东走的是太虚勾，丙向南走的是太虚股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 太虚勾股各自乘相併开方得太虚弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 太虚勾和太虚股各自乘，相加开平方得太虚弦。用通弦减去太虚弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十四}\quad 甲乙二人同出东门，甲东行乙南行。丙丁二人同出南门，丙南行丁东行。四人遥望望，计甲丙共行二百步，乙丁相距一百零二步。以太虚弦与皇极弦测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十四}\quad 甲和乙一起出东门，甲向东走乙向南走。丙和丁一起出南门，丙向南走丁向东走。四人互相遥望，已知甲丙共走了二百步，乙丁相距一百零二步。用太虚弦与皇极弦测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以太虚皇极二弦测望。乙丁相距为太虚弦，甲丙共行为皇极勾股和。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用太虚弦和皇极弦来测望的问题。乙丁相距的是太虚弦，甲丙共走的是皇极勾股和。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 太虚弦自乘，以皇极弦约之，得太虚勾。以减通勾得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 太虚弦自乘，用皇极弦去约，得太虚勾。用通勾减去太虚勾，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{明测望三}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第三节：明勾股测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十五}\quad 乙出南门东行七十二步而立。甲从乾隅南行六百步，望乙与城相参直。以明勾测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十五}\quad 乙出南门向东走七十二步后停下。甲从乾隅向南走六百步，看见乙与城墙在一条直线上。用明勾测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾立法测望。乙出南门东行七十二步为明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾来建立测望方法的问题。乙出南门向东走的七十二步就是明勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾自乘为实，以通弦约之，得明股。以明股减通股得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾自乘作为被除数，用通弦去约，得明股。用通股减去明股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十六}\quad 丙出南门南行五十一步而立。甲从乾隅东行三百二十步，望丙与城相参直。以明股测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十六}\quad 丙出南门向南走五十一步后停下。甲从乾隅向东走三百二十步，看见丙与城墙在一条直线上。用明股测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明股立法测望。丙出南门南行为明股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明股来建立测望方法的问题。丙出南门向南走的是明股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明股自乘为实，以通弦约之，得明勾。以明勾减通勾得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明股自乘作为被除数，用通弦去约，得明勾。用通勾减去明勾，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十七}\quad 乙出南门东行七十二步，丙出南门南行五十一步。二人相望与城相参直，计乙丙相距一百零二步。以明勾股测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十七}\quad 乙出南门向东走七十二步，丙出南门向南走五十一步。两人互相望去与城墙在一条直线上，乙和丙相距一百零二步。用明勾股测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾股直接测望。乙东行为明勾，丙南行为明股，相距为明弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是直接用明勾股来测望的问题。乙向东走的是明勾，丙向南走的是明股，两人相距的是明弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾股各自乘相併开方得明弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾和明股各自乘，相加开平方得明弦。用通弦减去明弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十八}\quad 甲从乾隅东行三百二十步，乙出南门东行七十二步。甲望乙与城相参直，又斜行二百八十九步与乙相会。以明勾与皇极弦测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十八}\quad 甲从乾隅向东走三百二十步，乙出南门向东走七十二步。甲看见乙与城墙在一条直线上，又斜着走二百八十九步与乙会合。用明勾与皇极弦测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明勾与皇极弦测望。乙东行为明勾，甲斜行为皇极弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾与皇极弦来测望的问题。乙向东走的是明勾，甲斜着走的是皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾自乘，减皇极弦自乘，开方得明股。以明股减通股得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾自乘，减去皇极弦自乘，开平方得明股。用通股减去明股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十九}\quad 甲从乾隅南行六百步，丙出南门南行五十一步。甲望丙与城相参直。以明股与小差测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十九}\quad 甲从乾隅向南走六百步，丙出南门向南走五十一步。甲看见丙与城墙在一条直线上。用明股与小差测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明股与小差测望。丙南行为明股，小差即通弦减通勾之余。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明股与小差来测望的问题。丙向南走的是明股，小差就是通弦减去通勾的余数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明股自乘，以小差约之，得明勾。以明勾减通勾得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明股自乘，用小差去约，得明勾。用通勾减去明勾，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{叀测望四}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第四节：叀勾股测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十}\quad 乙出东门南行三十步而立。甲从乾隅东行三百二十步，望乙与城相参直。以叀股测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十}\quad 乙出东门向南走三十步后停下。甲从乾隅向东走三百二十步，看见乙与城墙在一条直线上。用叀股测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以叀股立法测望。乙出东门南行为叀股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用叀股来建立测望方法的问题。乙出东门向南走的是叀股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 叀股自乘为实，以通弦约之，得叀勾。以叀勾减通勾得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 叀股自乘作为被除数，用通弦去约，得叀勾。用通勾减去叀勾，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十一}\quad 甲出东门东行二百步而立。丙出东门南行三十步。甲望丙与城相参直。以叀勾测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十一}\quad 甲出东门向东走二百步后停下。丙出东门向南走三十步。甲看见丙与城墙在一条直线上。用叀勾测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以叀勾立法测望。甲东行为叀勾，丙南行为叀股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用叀勾来建立测望方法的问题。甲向东走的是叀勾，丙向南走的是叀股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 叀勾自乘为实，以通弦约之，得叀股。以叀股减通股得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 叀勾自乘作为被除数，用通弦去约，得叀股。用通股减去叀股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十二}\quad 甲出东门东行二百步，乙出东门南行三十步。二人相望与城相参直。以叀勾股直接测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十二}\quad 甲出东门向东走二百步，乙出东门向南走三十步。两人互相望去与城墙在一条直线上。直接用叀勾股测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以叀勾股直接测望。甲东行为叀勾，乙南行为叀股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是直接用叀勾股来测望的问题。甲向东走的是叀勾，乙向南走的是叀股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 叀勾股各自乘相併开方得叀弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 叀勾和叀股各自乘，相加开平方得叀弦。用通弦减去叀弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十三}\quad 甲从乾隅东行三百二十步，乙出东门南行三十步。甲斜行与乙相会，计甲斜行二百八十九步。以叀股与皇极弦测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十三}\quad 甲从乾隅向东走三百二十步，乙出东门向南走三十步。甲斜着走与乙会合，甲斜着走了二百八十九步。用叀股与皇极弦测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以叀股与皇极弦测望。乙南行为叀股，甲斜行为皇极弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用叀股与皇极弦来测望的问题。乙向南走的是叀股，甲斜着走的是皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 叀股自乘，减皇极弦自乘，开方得叀勾。以叀勾减通勾得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 叀股自乘，减去皇极弦自乘，开平方得叀勾。用通勾减去叀勾，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{杂题测望五}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第五节：杂题测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十四}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。各不知余数。以勾股和较之变化，求杂题之数。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十四}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。各不知其余数。用勾股和差的变化，求杂题的各数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以杂题立法测望。杂题者，诸差互见之题也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用杂题来建立测望方法的问题。"杂题"就是各种差数互相出现的题目。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通勾股各自乘相併开方得通弦。以通弦减通股得大差，减通勾得小差。大小差相减得中差。诸差互以求之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通勾和通股各自乘，相加开平方得通弦。用通弦减通股得大差，减通勾得小差。大差与小差相减得中差。各种差互相求解，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十五}\quad 乙出东门南行三十步，丙出南门东行七十二步。二人相望与城相参直。以明叀二勾股测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十五}\quad 乙出东门向南走三十步，丙出南门向东走七十二步。两人互相望去与城墙在一条直线上。用明叀两种勾股测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以明叀二勾股杂测。乙南行为叀股，丙东行为明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用明勾股和叀勾股两种混合测望的问题。乙向南走的是叀股，丙向东走的是明勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾叀股各自乘相併开方得杂弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾和叀股各自乘，相加开平方得杂弦。用通弦减去杂弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十六}\quad 甲从乾隅东行三百二十步，乙出东门南行三十步，丙出南门东行七十二步。甲望乙丙与城相参直。以三差互见测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十六}\quad 甲从乾隅向东走三百二十步，乙出东门向南走三十步，丙出南门向东走七十二步。甲看见乙和丙与城墙在一条直线上。用大中小差互相出现来测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大中小差杂见测望。乙南行为叀股，丙东行为明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是大中小差混合出现的测望问题。乙向南走的是叀股，丙向东走的是明勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾自乘为实，叀股自乘为实，二实相併开方得杂弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾自乘为被除数，叀股自乘为被除数，两被除数相加开平方得杂弦。用通弦减去杂弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十七}\quad 甲乙二人同出东门，甲东行乙南行。丙丁二人同出南门，丙南行丁东行。四人相望，计甲东行二百步，乙南行三十步，丙南行五十一步，丁东行七十二步。以四行互见测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十七}\quad 甲和乙一起出东门，甲向东走乙向南走。丙和丁一起出南门，丙向南走丁向东走。四人互相望去，已知甲向东走二百步，乙向南走三十步，丙向南走五十一步，丁向东走七十二步。用四种步数互相出现来测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以四行杂见测望。甲东行为叀勾，乙南行为叀股，丙南行为明股，丁东行为明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用四种步数混合出现来测望的问题。甲向东走的是叀勾，乙向南走的是叀股，丙向南走的是明股，丁向东走的是明勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 四行各自乘，相併开方得杂弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 四种步数各自乘，相加开平方得杂弦。用通弦减去杂弦，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十八}\quad 甲从乾隅东行三百二十步，乙出东门南行三十步，丙出南门东行七十二步。甲斜望乙与城相参直，又斜望丙与城相参直。计甲至乙斜行二百八十九步，甲至丙斜行二百七十二步。以二斜行测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十八}\quad 甲从乾隅向东走三百二十步，乙出东门向南走三十步，丙出南门向东走七十二步。甲斜着看见乙与城墙在一条直线上，又斜着看见丙与城墙在一条直线上。甲到乙斜着走二百八十九步，甲到丙斜着走二百七十二步。用两条斜线来测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以二斜行杂测。甲至乙为皇极弦，甲至丙为小差弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用两条斜线混合测望的问题。甲到乙走的是皇极弦，甲到丙走的是小差弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 二弦各自乘相减，开方得勾股较。以加减术推之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 两弦各自乘，相减后开平方得勾股差。用加减术推算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二十九}\quad 乙出东门东行二百步，丙出南门南行五十一步。二人相望与城相参直。甲从乾隅东行三百二十步，望乙丙与城相参直。以东行南行杂测。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二十九}\quad 乙出东门向东走二百步，丙出南门向南走五十一步。两人互相望去与城墙在一条直线上。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上。用东行和南行混合测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以东行南行杂见测望。乙东行为边勾，丙南行为明股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用东行和南行混合出现来测望的问题。乙向东走的是边勾，丙向南走的是明股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 边勾明股各自乘相併开方得杂弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 边勾和明股各自乘，相加开平方得杂弦。用通弦减去杂弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三十}\quad 甲从艮隅南行过城门三百六十步，乙从坤隅东行过城门一百六十步。二人相望与城相参直。以过城门之行杂测。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三十}\quad 甲从艮隅向南经过城门走三百六十步，乙从坤隅向东经过城门走一百六十步。两人互相望去与城墙在一条直线上。用过城门的步数混合测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以过城门之行杂测。甲南行过城门为小差股，乙东行过城门为大差勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用过城门的步数混合测望的问题。甲向南经过城门走的是小差股，乙向东经过城门走的是大差勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 大差勾小差股各自乘相併开方得杂弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 大差勾和小差股各自乘，相加开平方得杂弦。用通弦减去杂弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三十一}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。甲斜行与乙相会。以通勾股弦诸差互求。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三十一}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。甲斜着走与乙会合。用通勾股弦各种差互相求取。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以诸差互见杂测。通勾股弦诸差互相求之术。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是各种差数互相出现混合测望的问题。通勾股弦各种差互相求取的方法。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通弦自乘，减通股自乘，开方得大差勾。通弦自乘，减通勾自乘，开方得小差股。大小差相减得中差。诸差互以求之，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通弦自乘减去通股自乘，开平方得大差勾。通弦自乘减去通勾自乘，开平方得小差股。大差与小差相减得中差。各种差互相求解，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三十二}\quad 甲出东门东行二百步，乙出南门南行五十一步。二人相望与城相参直，计相距二百八十九步。以相距与各行杂测。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三十二}\quad 甲出东门向东走二百步，乙出南门向南走五十一步。两人互相望去与城墙在一条直线上，两人相距二百八十九步。用相距与各自行走的步数混合测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以相距与各行杂见测望。相距为皇极弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用相距与各自行走步数混合出现来测望的问题。两人相距的是皇极弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 相距自乘，减东行自乘，开方得南行余数。以减通股得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 相距自乘，减去东行自乘，开平方得南行余数。用通股减去此余数，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三十三}\quad 乙出东门南行三十步，丙出南门东行七十二步，丁出东门东行二百步。甲从乾隅东行三百二十步，望乙丙丁与城相参直。以三行杂测。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三十三}\quad 乙出东门向南走三十步，丙出南门向东走七十二步，丁出东门向东走二百步。甲从乾隅向东走三百二十步，看见乙、丙、丁与城墙在一条直线上。用三种步数混合测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以三行杂见测望。乙南行为叀股，丙东行为明勾，丁东行为边勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用三种步数混合出现来测望的问题。乙向南走的是叀股，丙向东走的是明勾，丁向东走的是边勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 三行各自乘，相併开方得杂弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 三种步数各自乘，相加开平方得杂弦。用通弦减去杂弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三十四}\quad 甲乙丙丁四人，甲从乾隅东行三百二十步，乙从乾隅南行六百步，丙出东门东行二百步，丁出南门南行五十一步。以四隅之行杂测。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三十四}\quad 甲、乙、丙、丁四人，甲从乾隅向东走三百二十步，乙从乾隅向南走六百步，丙出东门向东走二百步，丁出南门向南走五十一步。用四个方向的步数混合测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以四隅之行杂见测望。诸行互见，以天元术推之。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用四个方向的步数混合出现来测望的问题。各种步数互相出现，用天元术推算。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通勾股各自乘相併开方得通弦。以通弦减通股得大差，减通勾得小差。以大小差推诸数，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通勾和通股各自乘，相加开平方得通弦。用通弦减通股得大差，减通勾得小差。用大小差推算各数，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+
+\textbf{\textcolor{volumecolor}{测圆海镜分类释术卷八终}}
+\end{center}
+
+
+
+%======================================================================
+\newpage
+\section*{\textcolor{volumecolor}{卷九} —— 诸弦差较}
+\addcontentsline{toc}{section}{卷九\quad 诸弦差较}
+%======================================================================
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{center}
+\noindent\textbf{测圆海镜分类释术卷九}\quad 元~李~冶~撰\\
+明~顾应祥~释术
+\end{center}
+
+\vspace{0.5em}
+\noindent
+卷九专论诸弦差较之测望。诸弦者，通弦、边弦、底弦、黄广弦、黄长弦之类；差较者，弦与勾股之差及差与差之比较也。凡十四题，分为四节。
+
+\switchcolumn
+\begin{center}
+\noindent\textbf{《测圆海镜分类释术》第九卷}\quad 元代~李~冶~著\\
+明代~顾应祥~分类并解释算法
+\end{center}
+
+\vspace{0.5em}
+\noindent
+第九卷专门论述各种弦的差较之测望方法。"诸弦"包括通弦、边弦、底弦、黄广弦、黄长弦等；"差较"是指弦与勾股之差以及差与差的比较。共十四题，分为四节。
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{大股小勾测望一}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第一节：大股小勾测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问一}\quad 甲从乾隅南行六百步而立，乙从乾隅东行三百二十步而立。以通股与通勾之差，求大股小勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题一}\quad 甲从乾隅向南走六百步后停下，乙从乾隅向东走三百二十步后停下。用通股与通勾之差，求大股和小勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大股小勾立法测望。通股六百步为大股，通勾三百二十步为小勾。大股小勾之相較，为勾股之极差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大股小勾来建立测望方法的问题。通股六百步是大股，通勾三百二十步是小勾。大股与小勾之差，就是勾股的极差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通股自乘，减通勾自乘，开方得勾股和。以和减通弦，余为弦较。以弦较加减通勾股，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通股自乘减去通勾自乘，开平方得勾股和。用勾股和减去通弦，余数为弦较。用弦较加减通勾和通股，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二}\quad 乙出东门南行三十步而立，丙出南门东行七十二步而立。甲从乾隅东行三百二十步，望乙丙与城相参直。以大股小勾测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二}\quad 乙出东门向南走三十步后停下，丙出南门向东走七十二步后停下。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上。用大股小勾测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以叀股明勾测望大股小勾。乙南行为叀股，丙东行为明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用叀股和明勾来测望大股小勾的问题。乙向南走的是叀股，丙向东走的是明勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 叀股明勾各自乘相併开方得小弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 叀股和明勾各自乘，相加开平方得小弦。用通弦减去小弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三}\quad 甲从乾隅东行三百二十步，乙出东门东行二百步。二人相望与城相参直。以大股与边勾测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三}\quad 甲从乾隅向东走三百二十步，乙出东门向东走二百步。两人互相望去与城墙在一条直线上。用大股与边勾测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大股边勾测望。甲东行为通勾，乙东行为边勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大股和边勾来测望的问题。甲向东走的是通勾，乙向东走的是边勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通勾减边勾，余为小勾。以小勾加减术推之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通勾减去边勾，余数为小勾。用小勾加减术推算，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{大差大小差测望二}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第二节：大差大小差测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问四}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。以通弦减通股为大差，减通勾为小差。大小差相求。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题四}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。用通弦减通股作为大差，减通勾作为小差。大小差互相求取。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大差大小差立法测望。大差即通股弦较，小差即通勾弦较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大差和大小差来建立测望方法的问题。大差就是通股弦差，小差就是通勾弦差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 大差自乘为实，小差自乘为实，二实相减开方得中差。以中差加减大小差，得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 大差自乘作为被开方数，小差自乘作为被开方数，两数相减开平方得中差。用中差加减大小差，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问五}\quad 乙出东门南行三十步而立，丙出南门东行七十二步而立。以叀股明勾求大小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题五}\quad 乙出东门向南走三十步后停下，丙出南门向东走七十二步后停下。用叀股和明勾求大小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以叀股明勾测望大小差。叀股即小差之属，明勾即大差之属。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用叀股和明勾来测望大小差的问题。叀股就是小差的一类，明勾就是大差的一类。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 叀股自乘减明勾自乘，开方得大小差较。以较加减术推之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 叀股自乘减去明勾自乘，开平方得大小差之差。用差加减术推算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问六}\quad 甲从乾隅东行三百二十步，乙出东门南行三十步，丙出南门东行七十二步。甲望乙丙与城相参直。以三差互求。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题六}\quad 甲从乾隅向东走三百二十步，乙出东门向南走三十步，丙出南门向东走七十二步。甲看见乙和丙与城墙在一条直线上。用大中小差互相求取。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大中小差互见测望。乙南行为叀股，丙东行为明勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是大中小差互相出现来测望的问题。乙向南走的是叀股，丙向东走的是明勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 明勾自乘为大差实，叀股自乘为小差实。二实相减开方得中差。以中差加减得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 明勾自乘作为大差被开方数，叀股自乘作为小差被开方数。两数相减开平方得中差。用中差加减运算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问七}\quad 甲从艮隅南行过城门三百六十步，乙从坤隅东行过城门一百六十步。以过城门之行求大小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题七}\quad 甲从艮隅向南经过城门走三百六十步，乙从坤隅向东经过城门走一百六十步。用过城门的步数求大小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以过城门之行测望大小差。甲南行为小差股，乙东行为大差勾。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用过城门的步数来测望大小差的问题。甲向南走的是小差股，乙向东走的是大差勾。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 小差股自乘为实，大差勾自乘为实。二实相併开方得大小差弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 小差股自乘作为被开方数，大差勾自乘作为被开方数。两数相加开平方得大小差弦。用通弦减去大小差弦，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{诸弦测望三}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第三节：各种弦的测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问八}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。甲斜行与乙相会。以通弦为本，求边弦、底弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题八}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。甲斜着走与乙会合。以通弦为基础，求边弦和底弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以诸弦立法测望。通弦为勾股弦之全，边弦、底弦为其分支。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用各种弦来建立测望方法的问题。通弦是勾股弦的全体，边弦和底弦是它的分支。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 通勾股各自乘相併开方得通弦。通弦半之得皇极弦。以通弦减皇极弦余为边弦。边弦减通弦余为城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 通勾和通股各自乘，相加开平方得通弦。通弦取半得皇极弦。用通弦减去皇极弦余为边弦。边弦减通弦余为城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问九}\quad 乙出东门东行二百步，丙出南门南行五十一步。二人相望与城相参直。以边股明勾求诸弦。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题九}\quad 乙出东门向东走二百步，丙出南门向南走五十一步。两人互相望去与城墙在一条直线上。用边股和明勾求各种弦。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以边股明勾测望诸弦。乙东行为边股，丙南行为明股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用边股和明勾来测望各种弦的问题。乙向东走的是边股，丙向南走的是明股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 边股明股各自乘相併开方得边弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 边股和明股各自乘，相加开平方得边弦。用通弦减去边弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十}\quad 甲从乾隅东行三百二十步，乙出东门南行三十步。甲望乙与城相参直，又斜行二百八十九步与乙相会。以底弦与通弦测望。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十}\quad 甲从乾隅向东走三百二十步，乙出东门向南走三十步。甲看见乙与城墙在一条直线上，又斜着走二百八十九步与乙会合。用底弦与通弦测望。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以底弦通弦测望。甲斜行为皇极弦，即底弦之属。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用底弦和通弦来测望的问题。甲斜着走的是皇极弦，也就是底弦的一类。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 皇极弦自乘，减通勾自乘，开方得底股。以底股减通股得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 皇极弦自乘减去通勾自乘，开平方得底股。用通股减去底股，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{大小差测望四}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{第四节：大小差测望}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十一}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。以通股减通弦为大差，通勾减通弦为小差。大小差互求。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十一}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。用通股减通弦作为大差，通勾减通弦作为小差。大小差互相求取。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以大小差互见测望。大差为通股弦较，小差为通勾弦较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用大小差互相出现来测望的问题。大差是通股弦差，小差是通勾弦差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 大差小差各自乘相併开方得中差弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 大差和小差各自乘，相加开平方得中差弦。用通弦减去中差弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十二}\quad 乙出东门南行三十步，丙出南门东行七十二步。甲从乾隅东行三百二十步，望乙丙与城相参直。以叀股明勾求大小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十二}\quad 乙出东门向南走三十步，丙出南门向东走七十二步。甲从乾隅向东走三百二十步，看见乙和丙与城墙在一条直线上。用叀股和明勾求大小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以叀股明勾测望大小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用叀股和明勾来测望大小差的问题。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 叀股自乘为小差实，明勾自乘为大差实。二实相减开方得差较。以差较加减得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 叀股自乘作为小差被开方数，明勾自乘作为大差被开方数。两数相减开平方得差较。用差较加减运算，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十三}\quad 甲从艮隅南行过城门三百六十步，乙从坤隅东行过城门一百六十步。以过城门之行求差较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十三}\quad 甲从艮隅向南经过城门走三百六十步，乙从坤隅向东经过城门走一百六十步。用过城门的步数求差较。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以过城门之行测望差较。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用过城门的步数来测望差较的问题。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 小差股大差勾各自乘相併开方得差弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 小差股和大差勾各自乘，相加开平方得差弦。用通弦减去差弦，得城径。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问十四}\quad 甲出东门东行二百步，乙出南门南行五十一步。二人相望与城相参直。以边股明股求大小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题十四}\quad 甲出东门向东走二百步，乙出南门向南走五十一步。两人互相望去与城墙在一条直线上。用边股和明股求大小差。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以边股明股测望大小差。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用边股和明股来测望大小差的问题。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 边股明股各自乘相併开方得弦。以通弦减之得城径。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 边股和明股各自乘，相加开平方得弦。用通弦减去此弦，得城径。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+
+\textbf{\textcolor{volumecolor}{测圆海镜分类释术卷九终}}
+\end{center}
+
+
+
+%======================================================================
+\newpage
+\section*{\textcolor{volumecolor}{卷十} —— 杂法与总结}
+\addcontentsline{toc}{section}{卷十\quad 杂法与总结（终卷）}
+%======================================================================
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{center}
+\noindent\textbf{测圆海镜分类释术卷十}\quad 元~李~冶~撰\\
+明~顾应祥~释术
+\end{center}
+
+\vspace{0.5em}
+\noindent
+卷十为全书之终，专论杂法。杂法者，诸术之变通也，凡不属于前九卷之专题者，皆汇于此。凡四题，皆为通术之总结。
+
+\switchcolumn
+\begin{center}
+\noindent\textbf{《测圆海镜分类释术》第十卷}\quad 元代~李~冶~著\\
+明代~顾应祥~分类并解释算法
+\end{center}
+
+\vspace{0.5em}
+\noindent
+第十卷是全书的终结，专门论述杂法。"杂法"就是各种算法的变通运用，凡是不属于前九卷专题的内容，都汇集于此。共四题，都是通用方法的总结。
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+\subsection*{\textcolor{sectioncolor}{杂法}}
+\switchcolumn
+\subsection*{\textcolor{sectioncolor}{杂法——全书总结}}
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问一}\quad 甲乙二人俱在城外西北乾隅，甲南行六百步而立，乙东行三百二十步而立。二人隔城相望，甲斜行与乙相会。以天元术总求诸数。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题一}\quad 甲和乙都在城外西北乾隅，甲向南走六百步后停下，乙向东走三百二十步后停下。两人隔城相望，甲斜着走与乙会合。用天元术一并求各数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以天元术杂法总测。天元一者，立天元一为勾股之基，以诸数推之。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用天元术杂法来总结测望的问题。"天元一"就是设立天元一作为勾股的基础，用各种数值来推算。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 立天元一为勾，以股乘之，得勾股积。以弦除之，得容圆径。天元自之为勾冪，以减弦冪，开方得股。勾股各自乘相併开方得弦。以勾股求容圆术，得城径二百四十步。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 设天元一为勾，用股去乘它，得勾股积。用弦去除它，得容圆直径。天元一自乘为勾的幂，用弦的幂去减，开平方得股。勾和股各自乘，相加开平方得弦。用勾股容圆术，求得城径二百四十步。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问二}\quad 乙出东门南行三十步，丙出南门东行七十二步，丁出东门东行二百步，戊出南门南行五十一步。五人各不知余数。甲从乾隅东行三百二十步，望乙丙丁戊与城相参直。以天元术杂测诸行。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题二}\quad 乙出东门向南走三十步，丙出南门向东走七十二步，丁出东门向东走二百步，戊出南门向南走五十一步。五人各不知其余数。甲从乾隅向东走三百二十步，看见乙、丙、丁、戊与城墙在一条直线上。用天元术混合测望各种步数。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以天元术杂测诸行。乙南行为叀股，丙东行为明勾，丁东行为边勾，戊南行为明股。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用天元术混合测望各种步数的问题。乙向南走的是叀股，丙向东走的是明勾，丁向东走的是边勾，戊向南走的是明股。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 立天元一为城径。以通勾减天元，得边勾。以通股减天元，得明股。边勾明股各自乘相併开方得皇极弦。以通弦减皇极弦，余为太虚弦。太虚弦自乘，以明和约之，得太虚勾。以次推之，得天元即城径二百四十步。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 设天元一为城径。用通勾减去天元一，得边勾。用通股减去天元一，得明股。边勾和明股各自乘，相加开平方得皇极弦。用通弦减去皇极弦，余数为太虚弦。太虚弦自乘，用明和去约，得太虚勾。依次推算，得天元一即城径二百四十步。
+\end{tcolorbox}
+
+\vspace{0.8em}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问三}\quad 甲乙丙丁四人，甲从乾隅东行三百二十步，乙从乾隅南行六百步，丙出东门东行二百步，丁出南门南行五十一步。以天元术总括全书之术。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题三}\quad 甲、乙、丙、丁四人，甲从乾隅向东走三百二十步，乙从乾隅向南走六百步，丙出东门向东走二百步，丁出南门向南走五十一步。用天元术总括全书的方法。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此以天元术总括全书。通勾三百二十步，通股六百步，通弦以勾股术求之。边勾、明股、皇极弦、太虚弦，皆以天元一推之。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是用天元术总括全书的问题。通勾三百二十步，通股六百步，通弦用勾股术求取。边勾、明股、皇极弦、太虚弦，都用天元一来推算。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 立天元一为圆径。通勾自乘，以天元减之，得边勾冪。通股自乘，以天元减之，得明股冪。边勾冪明股冪各自乘相併开方得皇极弦。皇极弦自乘，以通弦减之，得诸弦之差。以次推之，得天元即城径二百四十步。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 设天元一为圆径。通勾自乘，用天元一减去它，得边勾冪。通股自乘，用天元一减去它，得明股冪。边勾冪和明股冪各自乘，相加开平方得皇极弦。皇极弦自乘，用通弦去减，得各种弦的差。依次推算，得天元一即城径二百四十步。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{0.5em}
+
+\begin{paracol}{2}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!3,colframe=red!30!black,boxrule=0.3pt]
+\WenQuestion{问四}\quad 全书诸题，以勾股容圆为本，以天元一为法。通勾、通股、通弦为三大纲，边勾、明股、皇极弦、太虚弦为四目，大差、小差、中差为三变。总括其术。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!3,colframe=blue!30!black,boxrule=0.3pt]
+\BaiQuestion{问题四}\quad 全书各题，以勾股容圆为基础，以天元一作为方法。通勾、通股、通弦为三大纲，边勾、明股、皇极弦、太虚弦为四个条目，大差、小差、中差为三种变化。总括其算法。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!30!black,boxrule=0.3pt]
+\WenExplain\quad 此总括全书之术。测圆海镜分类释术，凡十卷，一百七十题。以勾股容圆为题，以天元术为法。通勾三百二十步，通股六百步，通弦以勾股术求之得六百八十步。城径二百四十步。诸差：大差八十步，小差三百六十步，中差二百八十步。边勾一百六十步，明股七十二步，皇极弦二百八十九步，太虚弦一百零二步。凡此诸数，皆以天元一推之而得。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!30!black,boxrule=0.3pt]
+\BaiExplain\quad 这是总括全书算法的问题。《测圆海镜分类释术》共十卷，一百七十题。以勾股容圆为题目，以天元术为方法。通勾三百二十步，通股六百步，通弦用勾股术求得六百八十步。城径二百四十步。各种差：大差八十步，小差三百六十步，中差二百八十步。边勾一百六十步，明股七十二步，皇极弦二百八十九步，太虚弦一百零二步。所有这些数，都是用天元一推算而得到的。
+\end{tcolorbox}
+
+\switchcolumn*
+\begin{tcolorbox}[colback=red!5,colframe=red!40!black,boxrule=0.3pt]
+\WenMethod\quad 立天元一为圆径。以勾股容圆术推之：勾股和减弦，余为圆径。通勾三百二十步，通股六百步，通弦六百八十步。勾股和九百二十步，减弦六百八十步，余二百四十步，即城径。此全书之宗也。
+\end{tcolorbox}
+\switchcolumn
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,boxrule=0.3pt]
+\BaiMethod\quad 设天元一为圆径。用勾股容圆术推算：勾股和减去弦，余数为圆径。通勾三百二十步，通股六百步，通弦六百八十步。勾股和九百二十步，减去弦六百八十步，余二百四十步，就是城径。这是全书的总纲。
+\end{tcolorbox}
+
+\end{paracol}
+
+\vspace{1em}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+
+\textbf{\textcolor{volumecolor}{测圆海镜分类释术卷十终}}
+\end{center}
+
+\vspace{2em}
+
+%======================================================================
+% END MATTER
+%======================================================================
+
+\begin{center}
+\rule{0.6\textwidth}{0.5pt}
+
+\vspace{1em}
+
+\textbf{\textcolor{volumecolor}{\LARGE 测圆海镜分类释术卷六至卷十终}}
+
+\vspace{1em}
+
+{\small\textcolor{classicalcolor}{元~李~冶~撰}\qquad\textcolor{classicalcolor}{明~顾应祥~释术}}
+
+\vspace{0.5em}
+
+{\small\textcolor{moderncolor}{白话文今译版}}
+
+\vspace{0.5em}
+
+{\small 钦定四库全书\quad 子部\quad 天文算法类}
+
+\vspace{1em}
+
+\rule{0.6\textwidth}{0.5pt}
+\end{center}
+
+\vspace{2em}
+
+%======================================================================
+% APPENDIX: Technical notes
+%======================================================================
+\newpage
+\section*{\textcolor{volumecolor}{附录：术语对照表}}
+\addcontentsline{toc}{section}{附录：术语对照表}
+
+\begin{center}
+\begin{tabular}{|p{0.25\textwidth}|p{0.35\textwidth}|p{0.3\textwidth}|}
+\hline
+\rowcolor{volumecolor!20}
+\textbf{\textcolor{volumecolor}{术语}} & \textbf{\textcolor{classicalcolor}{文言文定义}} & \textbf{\textcolor{moderncolor}{白话文解释}} \\
+\hline
+勾 & 短直角边 & 直角三角形中较短的直角边 \\
+\hline
+股 & 长直角边 & 直角三角形中较长的直角边 \\
+\hline
+弦 & 斜边 & 直角三角形的斜边 \\
+\hline
+通勾 & 大勾股形之勾 & 最大直角三角形的短直角边 \\
+\hline
+通股 & 大勾股形之股 & 最大直角三角形的长直角边 \\
+\hline
+通弦 & 大勾股形之弦 & 最大直角三角形的斜边 \\
+\hline
+边勾 & 东门东行之勾 & 从东门向东走的直角边 \\
+\hline
+边股 & 东门南行之股 & 从东门向南走的直角边 \\
+\hline
+明勾 & 南门东行之勾 & 从南门向东走的直角边 \\
+\hline
+明股 & 南门南行之股 & 从南门向南走的直角边 \\
+\hline
+叀勾 & 类似边勾之小勾 & 较小的类似边勾的直角边 \\
+\hline
+叀股 & 类似明股之小股 & 较小的类似明股的直角边 \\
+\hline
+皇极弦 & 通弦之半 & 通弦的一半 \\
+\hline
+太虚弦 & 最小勾股形之弦 & 最小直角三角形的斜边 \\
+\hline
+大差 & 通股弦较 & 通弦与通股之差 \\
+\hline
+小差 & 通勾弦较 & 通弦与通勾之差 \\
+\hline
+中差 & 大小差之差 & 大差与小差之差 \\
+\hline
+天元一 & 代数未知数 & 代数中的未知数 $x$ \\
+\hline
+容圆 & 内切圆 & 直角三角形的内切圆 \\
+\hline
+城径 & 圆城之直径 & 圆形城池的直径 \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}

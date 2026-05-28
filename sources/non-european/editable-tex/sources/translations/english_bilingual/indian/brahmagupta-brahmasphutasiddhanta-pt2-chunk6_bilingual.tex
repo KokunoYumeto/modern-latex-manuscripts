@@ -1,0 +1,1122 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+\setmainlanguage{english}
+\setotherlanguage{sanskrit}
+
+\newfontfamily\devanagarifont[Script=Devanagari,Path=/usr/share/fonts/truetype/noto/,Extension=.ttf,UprightFont=NotoSerifDevanagari-Regular,BoldFont=NotoSerifDevanagari-Regular]{NotoSerifDevanagari-Regular}
+
+\geometry{paperwidth=210mm,paperheight=297mm,left=15mm,right=15mm,top=22mm,bottom=22mm,headheight=14pt,footskip=24pt}
+
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{versebg}{RGB}{250,248,245}
+
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\vnum}[1]{\hfill\textnormal{||#1||}}
+
+\newsavebox{\shlokabox}
+\newenvironment{shloka}{%
+  \begin{lrbox}{\shlokabox}
+  \begin{minipage}{\dimexpr\textwidth-16pt\relax}%
+  \devanagarifont\centering\setstretch{1.3}%
+}{%
+  \end{minipage}%
+  \end{lrbox}%
+  \par\medskip\noindent\fcolorbox{rulecolor}{versebg}{\usebox{\shlokabox}}\par\medskip
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Brāhmasphuṭasiddhānta — Part II, Final Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{sectioncolor}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{sectioncolor}}{\thesubsection}{1em}{}
+
+\hypersetup{colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,urlcolor=sectioncolor,pdfencoding=auto,pdftitle={Brāhmasphutasiddhanta Part 2 Bilingual},pdfauthor={Brahmagupta}}
+
+\newcommand{\bilingual}[2]{%
+  \noindent%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \setstretch{1.15}#1%
+  \end{minipage}%
+  \hfill%
+  \vrule\hfill%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \setstretch{1.15}#2%
+  \end{minipage}%
+  \par\medskip
+}
+
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\Huge\bfseries\color{titlecolor} Brāhmasphuṭasiddhānta}\\[0.6cm]
+{\LARGE\bfseries\color{sectioncolor} \dev{ब्राह्मस्फुटसिद्धान्त}}\\[1.2cm]
+\longline\\[0.6cm]
+{\Large\textit{Bilingual Sanskrit--English Edition}}\\[0.3cm]
+{\large Part II --- Final Portion (Pages 1539--1676)}\\[0.8cm]
+\longline\\[1.2cm]
+{\Large\textbf{Brahmagupta}}\\[0.3cm]
+{\large (c.\ 598--668 CE)}\\[1cm]
+{\large Left Column: Sanskrit (Devanagarī)}\\[0.2cm]
+{\large Right Column: English Translation with IAST}\\[1.5cm]
+{\normalsize Contents: \dev{मिश्र गणित} | Rule of Three | \dev{भाण्डप्रतिभाण्डक} | \dev{शून्यपरिकर्म} | \dev{श्रेढी} | \dev{क्षेत्रव्यवहार} | \dev{खातव्यवहार} | \dev{धान्यराशि} | \dev{गीताध्याय}}\\[0.5cm]
+\longline\\[1cm]
+{\small Typeset in XeLaTeX with Devanagari support}
+\vfill
+{\small\textit{Based on the Chowkhamba Sanskrit Series edition}}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%% ==================== INTRODUCTION ====================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+\bilingual{%
+\textbf{\large सूचना}\\[0.5em]
+एतद् अन्तिमभागः द्वितीयस्य भागस्य ब्राह्मस्पुटसिद्धान्तस्य। एषः सम्पुटः गणिताध्यायस्य अन्तिमाध्यायान् समाविशति---तृतीयजातिम्, मिश्रगणितम्, त्रैराशिकम्, भाण्डप्रतिभाण्डकम्, शून्यपरिकर्म, श्रेढीम्, क्षेत्रव्यवहारम्, खातव्यवहारम्, धान्यराशिव्यवहारम्, छायाव्यवहारम्, तथा गीताध्यायस्य आरम्भम्॥
+}{%
+\textbf{\large Introduction}\\[0.5em]
+This is the final portion of Part II of the \textit{Brāhmasphuṭasiddhānta}. This volume contains the concluding chapters of the \textit{Gaṇitādhyāya} (Mathematics Chapter)---the Third Class of Partnerships, Mixed Calculations, the Rule of Three, Exchange of Goods, Operations with Zero, Series, Plane Geometry, Excavations, Grain Heaps, Shadows, and the beginning of the Chapter on Spheres.
+}
+
+\bilingual{%
+सप्तमे शताब्दे लिखितं ब्रह्मगुप्तस्य एतत् ग्रन्थं २४ अध्यायात्मकम् अस्ति। एषः खण्डः गणितस्य विविधक्षेत्राणि समाविशति---वाणिज्यगणितम्, शून्यबीजगणितम्, श्रेढी, ज्यामिती, घनगणितम्, तथा गोलज्यामिती॥
+}{%
+Written in the 7th century, Brahmagupta's treatise comprises 24 chapters. This section covers an extraordinary range of mathematical topics---commercial arithmetic, the algebra of zero, series, geometry, solid geometry, and spherical geometry.
+}
+
+\vspace{1em}
+\noindent\longline
+\vspace{1em}
+
+%% ==================== CHAPTER 1: Tritiya Jati ====================
+\section{\dev{तृतीय जातिः} --- The Third Class of Partnerships}
+
+\bilingual{%
+\textbf{अध्यायः १: तृतीय जातिः}\\[0.3em]
+पृष्ठ ७५४---तृतीयजातिसम्बन्धी सवर्णनस्य चर्चा आरभ्यते। एषा जातिः संयुक्तकर्मवेगान् संस्पृशति।\\[0.5em]
+\begin{shloka}
+दिन सम्बन्धिपूरणकालः सर्वेषां योगः, ततोऽनुपातेनैक कालावच्छेदेन\\
+मुक्तसंकुल्याभिर्वापीसंपूरणकालः, एतावदाचार्योक्तमुपन्नम् ॥९॥\vnum{९}
+\end{shloka}
+}{%
+\textbf{Chapter 1: The Third Class of Partnerships}\\[0.3em]
+Page 754---Here begins the discussion of the third class of partnership problems (\textit{tṛtīya jāti}), which deals with combined rates of work.\\[0.5em]
+\textit{Translation:} ``The sum of all [workers'] day-related filling-times is [found]; then by proportion, the time for a single cistern-filling by all [working together] released [at once] is found. Thus has the Ācārya stated what follows.'' ||9||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+तृतीय जाति में सवर्णन को कहते हैं। ऊर्ध्वस्थित भंश को अंश से गुणने से तृतीय जाति में सवर्णन होता है। हर से हर को गुणा देना और अपने अंश करके युत-ऊन हर से उपस्थित अंश को गुणा देना तब शंशानुबन्ध और शंशापवाह में सवर्णन होता है। इसका सम्बन्ध भागे से है॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+In the third class (\textit{tṛtīya jāti}), \textit{savaraṇa} (reduction to common denominators) is taught. When the numerator standing above is multiplied by the numerator, the third-class reduction is accomplished. The denominator is given to be multiplied by the denominator, and the numerator standing there, being added or subtracted, is multiplied---then the connection of fractions and the removal of fractions is accomplished. This relates to the section on partnership.
+}
+
+\subsection{\dev{उदाहरणम्} --- Worked Example}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+एक निर्भर एक दिन में एक वापी (पोखड़ा) को भरता है, द्वितीय निर्भर उसी वापी को एक दिन के आधा समय में भरता है, तृतीय निर्भर उसी वापी को एक दिन के चतुर्थांश समय में भरता है, चतुर्थ निर्भर उसी वापी को एकदिन के पञ्चमांश समय में भरता है; यदि एक ही समय में सब निर्भरों को खोल दिया जाय तब वे कितने समय में उस वापी को भरेंगे?
+}{%
+\textbf{Worked Example:}\\[0.3em]
+One worker fills a tank (\textit{vāpī}) in one day; a second fills the same tank in half a day; a third fills the same tank in a quarter of a day; a fourth fills the same tank in a fifth of a day. If all workers are released at the same time, in how much time will they fill that tank?
+}
+
+\bilingual{%
+\textbf{न्यास:} १|२|४|५---`ऊर्ध्वशैछेदगुणा' इस सूत्र के अनुसार १, २, ४, ५ इन सबों का योग करने से १२---सब निर्भरों से इतने पूरण दिन प्रमाण हुए। अब अनुपात करते हैं यदि १२ इसमें एक दिन पाते हैं तो एक पूरण में क्या इस अनुपात से पूरणकालप्रमाण दे?
+}{%
+\textbf{Statement:} 1|2|4|5---According to the rule ``multiply the upper and lower [terms],'' summing 1, 2, 4, 5 gives 12---so many filling-days are produced by all workers together. Now by proportion: if 12 yields one day, then for one filling, what is obtained by this proportion? Thus the filling-time is determined.
+}
+
+\bilingual{%
+\textbf{उपपत्तिः:}\\[0.3em]
+एक निर्भर एक दिन में एक वापी को भरता है, द्वितीय निर्भर दिनार्ध में भरता है तो एक दिन में कथा इस अनुपात से एक दिन सम्बन्धी पूरण काल---२, यदि तृतीय निर्भर एक दिन के चतुर्थांश समय में उसी वापी को भरता है तो एक दिन में कथा इस अनुपात से एक दिन सम्बन्धी पूरण काल---४, यदि चतुर्थ निर्भर एक दिन के पञ्चमांश में उसी वापी को भरता है तो एक दिन में कथा इससे एक दिन सम्बन्धी उसका पूरण काल---५। सबों का योग = १२ तब अनुपात करते हैं।\\[0.3em]
+लीलावती में ``मजेछिदोंगीरथ तैविमिश्रै'' इत्यादि, भास्करोक्त सूत्र आचार्योक्त सूत्र के अनुरूप ही है॥
+}{%
+\textbf{Demonstration (\textit{upapatti}):}\\[0.3em]
+One worker fills a tank in one day; the second fills it in half a day, so by this proportion his one-day filling-rate is 2. If the third fills the same tank in a quarter of a day, his one-day filling-rate is 4. If the fourth fills it in a fifth of a day, his one-day filling-rate is 5. The sum of all = 12. Then by proportion the filling-time is found.\\[0.3em]
+In the \textit{Līlāvatī}, ``\textit{maje chidongī ratha tai vimiśrai}'' etc.---Bhāskara's rule is in conformity with the Ācārya's [Brahmagupta's] rule.
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 2: Mishra Ganita ====================
+\section{\dev{मिश्र गणितम्} --- Mixed Calculations}
+
+\bilingual{%
+\textbf{अध्यायः २: मिश्रगणितम्}\\[0.3em]
+एषः खण्डः मिश्रगणितम् अथवा मिश्रगणनानि संस्पृशति---चक्रवृद्धिसूदम्, मिश्रकाणि, तथा सम्बद्धानि वाणिज्यगणितीयानि समस्यानि।
+}{%
+\textbf{Chapter 2: Mixed Calculations}\\[0.3em]
+This section deals with \textit{miśra gaṇita} or mixed calculations, including compound interest, alligation, and related commercial arithmetic problems.
+}
+
+\subsection{\dev{मिश्रधनानयनम्} --- Finding the Compound Amount}
+
+\bilingual{%
+\begin{shloka}
+अमागकाल प्रमाणधन परकाल हीनं द्वितीय स्थानं भवति\\
+मिश्रघाते मिश्रकेष्ठ वर्गं योज्यं मूलं ततोऽन्यार्धं हीनं प्रमाणफलम् ॥१५॥\vnum{१५}
+\end{shloka}
+}{%
+\textit{Translation:} ``The first term multiplied by the standard period [and] divided by the other period becomes the second term. The square of the other principal, added to the product of the mixed [amount], [and] the square root [taken]; then, diminished by half of the other, is the standard result.'' ||15||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+प्रमाण काल और प्रमाणधन के धन में परकाल से भाग देकर जो फल हो उसको दो स्थानों में स्थापन करना, प्रथम स्थान स्थित फल का नाम भ्रा, द्वितीय स्थान स्थित फल = भ्रन्य आद्य और मिश्रवन के घात में अन्यकेष्ठ का वर्ग जोड़ कर मूल लेना, उसमे भ्रन्यार्ध को घटाने से प्रमाण फल होता है॥१५॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+The product of the standard period and standard principal, divided by the other period---that result is to be established in two places. The result in the first place is named \textit{bhrā}, the result in the second place = \textit{bhranya}. The square of the other principal, added to the product of the mixed [amount], the square root taken; from it, half of the other being subtracted, the standard result is obtained. ||15||
+}
+
+\subsection{\dev{उदाहरणम्} --- Worked Example on Compound Interest}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+पाच सौ द्रम्मों को सूद पर लगाया गया, चार महीनों में जो मृद दुश्ना उसको पुनः दूसरे स्थान में सूद पर लगाया गया, कालान्तर में दस महीनों में जोरी से झटहनर रुपये हो गये तब प्रमाण फन को कहो॥१५॥
+}{%
+\textbf{Example:}\\[0.3em]
+Five hundred drammas were lent at interest. In four months, whatever [amount] was due was lent again at interest in a second place; after a period of ten months, the total amount became such and such rupees. State the standard result. ||15||
+}
+
+\bilingual{%
+\textbf{उदाहरण के अनुसार न्यास:} प्रमाण काल = ४, प्रमाण धन = ५००, परकाल = १०, मिश्रधन = ७९।\\[0.3em]
+अमागकाल $\\times$ प्रमाणधन $= \\frac{4 \\times 500}{10} = 200$ (प्रथम स्थान)\\[0.3em]
+$\\sqrt{(200)^2 + (79)^2} = \\sqrt{40000 + 6241} = \\sqrt{46241} \\approx 215$\\[0.3em]
+इसमें १०० घटाने से $215 - 100 = १००$ (प्रमाण फल)॥१५॥
+}{%
+\textbf{Statement according to the example:} Standard period = 4, Standard principal = 500, Other period = 10, Mixed amount = 79.\\[0.3em]
+$\\frac{\\text{standard period} \\times \\text{standard principal}}{\\text{other period}} = \\frac{4 \\times 500}{10} = 200$ (first term)\\[0.3em]
+$\\sqrt{(200)^2 + (79)^2} = \\sqrt{46241} \\approx 215$\\[0.3em]
+Subtracting 100: $215 - 100 = 100$ (standard result). ||15||
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 3: Trairashika ====================
+\section{\dev{त्रैराशिकादिकम्} --- The Rule of Three and Extensions}
+
+\bilingual{%
+\begin{shloka}
+फलच्छिदामन्योन्यपक्षनयनं विधाय बहुराशिके वधे\\
+स्वल्परादिवधभाजिते फलम् ॥१३॥\vnum{१३}
+\end{shloka}
+}{%
+\textit{Translation:} ``Having performed the mutual transposition of the fruit and the denominators in the multiplication of the rule of many terms, the result [is obtained when] divided by the product of the smaller terms etc.'' ||13||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+फलच्छिदा अन्योन्यपक्षनयन विधि से बहुराशिक के वध में स्वल्परादि वध भाजिते फल---इस सूत्र का अर्थ है कि बहुसंख्यक राशियों के गुणन में जब फल निकालना हो तो फलच्छिदा (फल का छेद) से अन्योन्य पक्षनयन करके स्वल्प (छोटी) राशि आदि से भाग देने से फल प्राप्त होता है।
+}{%
+\textbf{Commentary:}\\[0.3em]
+The meaning of this rule is: when extracting the result from the multiplication of many quantities, by the mutual transposition of the fruit and denominators, and dividing by the product of the smaller quantities etc., the result is obtained. The \textit{phalachchidā} (fruit-denominator) method of mutual transposition is applied in the \textit{bahu-rāśika} (rule of many terms).
+}
+
+\subsection{\dev{त्रैराशिकोदाहरणम्} --- Example: Rule of Three}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+यदि पाँच माह में द्रम्मों की वृद्धि (सूद) १२५ रूपये हो तब सौ रुपये की कितनी वृद्धि (सूद) होगी?\\[0.3em]
+\textbf{न्यास:} ५ | १२५ | १००\\[0.3em]
+$\\frac{5 \\times 100}{125} = 4$ वृद्धिः
+}{%
+\textbf{Example:}\\[0.3em]
+If in five months the increase (interest) on drammas is 125 rupees, then what is the increase (interest) on 100 rupees?\\[0.3em]
+\textbf{Statement:} 5 | 125 | 100\\[0.3em]
+$\\frac{5 \\times 100}{125} = 4$ (increase)
+}
+
+\subsection{\dev{पञ्चराशिकादि} --- Rule of Five and More}
+
+\bilingual{%
+\begin{shloka}
+फलच्छिदामन्योन्यपक्षनयनं विधाय\\
+सप्तराशिकादावपि ज्ञेयम् ॥१३॥\vnum{१३}
+\end{shloka}
+}{%
+\textit{Translation:} ``Having performed the mutual transposition of the fruit and denominators, this method is to be known for the rule of seven and others as well.'' ||13||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+सप्तराशिकादियों के लिये भी उदाहरण के अनुसार न्यास करके ``फलच्छिदामन्योन्यपक्षनयन विधि'' से सप्तराशिक आदि का फल ज्ञात होता है। यह विधि पञ्चराशिकादियों में भी ज्ञात करनी चाहिए।
+}{%
+\textbf{Commentary:}\\[0.3em]
+For the rule of seven and others also, having made the statement according to the example, the result of the rule of seven etc.
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 4: Bhanda-pratibhanda ====================
+\section{\dev{भाण्डप्रतिभाण्डकम्} --- Exchange of Goods}
+
+\bilingual{%
+\begin{shloka}
+प्रागभूस्य व्यत्यासो भाण्डप्रतिभाण्डकेऽन्यदुक्तसमम्\\
+परिकर्माण्यष्टानां व्यवहाराणामभिहितानि ॥१३॥\vnum{१३}
+\end{shloka}
+}{%
+\textit{Translation:} ``The transposition in exchange of goods is as previously stated; the operations of the eight procedures have been declared.'' ||13||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+``प्रथमस्थाने यौ मूल्यराशी तयोर्व्यत्यासः कार्यः'' इति चतुर्वेदाचार्यः। (तथैव भाण्डप्रतिभाण्डके विधि रित्यादि भास्करोक्तमेतदनुरूपमेव)।\\[0.3em]
+अर्थात् प्रथम स्थान में जो दो मूल्य राशियाँ हैं उनका व्यत्यास (विनिमय) करना भाण्डप्रतिभाण्डक व्यवहार है।
+}{%
+\textbf{Commentary:}\\[0.3em]
+``In the first place, the two value-quantities, their transposition is to be done''---thus the four-Veda Ācārya [Brahmagupta]. (Even so, the procedure of exchange of goods etc., as stated by Bhāskara, is in conformity with this.)\\[0.3em]
+That is, in the first place, the transposition (exchange) of the two value-quantities is the procedure of \textit{ bhāṇḍa-pratibhāṇḍaka} (exchange of goods).
+}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+दश पणैः सपणः---\\[0.3em]
+\textbf{न्यास:} १० पैसे, ८ पैसे
+}{%
+\textbf{Example:}\\[0.3em]
+Ten paṇas with seven paṇas---\\[0.3em]
+\textbf{Statement:} 10 paise, 8 paise
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 5: Shunya-parikarma ====================
+\section{\dev{शून्यपरिकर्म} --- Operations with Zero}
+
+\bilingual{%
+\textbf{अध्यायः ५: शून्यपरिकर्म}\\[0.3em]
+एषः ब्राह्मस्फुटसिद्धान्तस्य सर्वप्रसिद्धतमः खण्डः अस्ति। ब्रह्मगुप्तः एव प्रथमः गणितज्ञः अभवत् यः शून्यस्य (\dev{शून्य}) कृते व्यवस्थितानि नियमानि स्थापितवान्---शून्येन भाजनस्य विवादास्पदं नियमम् अपि संस्मरन्।
+}{%
+\textbf{Chapter 5: Operations with Zero}\\[0.3em]
+This is one of the most celebrated sections of the \textit{Brāhmasphuṭasiddhānta}. Brahmagupta was the first mathematician in history to lay down systematic rules for arithmetic operations involving zero (\textit{śūnya}), including the much-discussed rule for division by zero.
+}
+
+\bilingual{%
+\begin{shloka}
+ऋणे गुणे ऋणं क्षये गुणे यः क्षयम्\\
+ऋणे तु ऋणं तद्धनं धनयोः\\
+शून्येन निहतौ जातौ पुनः शून्यौ सकलविधौ\\
+खहरं भजेत तु शून्येन निःशेषं तु यत् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``A debt multiplied by a debt is a debt; a loss multiplied by a loss is a loss. But a debt [multiplied by a] debt is positive for positives. Those multiplied by zero become zero again in all ways. That which is exactly divisible by zero becomes a \textit{khahara}.''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+शून्य की गुणा और भाग सम्बन्धी नियम---धन और ऋण की गुणा करने से शून्य प्राप्त होता है। शून्य से किसी संख्या को गुणा करने से शून्य प्राप्त होता है। शून्य को शून्य से भाग देने से शून्य। परन्तु जब किसी संख्या को शून्य से भाग दिया जाय तब वह \dev{खहर} (अनिश्चित/अनन्त राशि) कहलाती है।\\[0.3em]
+यदि $6 \\div 0 = $ खहर इति।
+}{%
+\textbf{Commentary:}\\[0.3em]
+Rules relating to multiplication and division with zero---Multiplying positive and negative yields zero. Multiplying any number by zero gives zero. Dividing zero by zero gives zero. But when a number is divided by zero, it is called \textit{khahara} (an undefined/infinite quantity).\\[0.3em]
+If $6 \\div 0 = $ \textit{khahara}, thus.
+}
+
+\bilingual{%
+\textbf{सप्तमाध्याये व्यक्ताव्यक्तवर्णनम्}---अष्टादशे अध्याये (बीजगणिते) ब्रह्मगुप्तः विस्तरत्:अर्थात् वदति---
+}{%
+\textbf{In the 18th chapter (Algebra), Brahmagupta elaborates further:}
+}
+
+\bilingual{%
+\begin{shloka}
+योगे शून्यं खण्डिते च पूर्ववत् साधनम्\\
+शून्येऽपि गुणके जाते पुनस्तत्रैव राशयः\\
+भाज्ये शून्यं भागकारे तु जाते खहरं भवेत्\\
+तस्य प्रसज्जते विकारो न तु शून्यं ततः ॥
+\end{shloka}
+}{%
+\textit{Translation:} ``In addition, zero; in division also, the previous method. When even zero becomes a multiplier, the quantities become zero again there. When the dividend is zero and the divisor is zero, a \textit{khahara} comes into being. Its modification is produced, but not zero from that.''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+शून्य से योग, खण्डन आदि में पूर्ववत् साधन होता है। शून्य से गुणा करने पर राशियाँ शून्य हो जाती हैं। जब भाज्य शून्य हो और भागकार (भाजक) भी शून्य हो तब खहर राशि प्रसज्जते (उत्पन्न होती है)। इस विकार का कारण है कि शून्य से भाग करने पर कोई निश्चित राशि नहीं मिलती।\\[0.3em]
+ऋणात्मक राशि शून्यतोऽपि---ऋणात्मक राशि की शून्य से भी गुणा होती है। यदि $6 \\div 0 = $ खहर तो इसमें कोई विकार नहीं, बल्कि यह एक विशेष प्रकार की राशि है।
+}{%
+\textbf{Commentary:}\\[0.3em]
+In addition, division, etc., with zero, the previous method applies. When multiplied by zero, quantities become zero. When the dividend is zero and the divisor is zero, a \textit{khahara} quantity is produced. The reason for this modification is that no definite quantity is obtained on division by zero.\\[0.3em]
+Negative quantities [multiplied] by zero---negative quantities are also multiplied by zero. If $6 \\div 0 = $ \textit{khahara}, then there is no error in this; rather, it is a special kind of quantity.
+}
+
+\bilingual{%
+\textbf{शून्यस्य नियमसारांशः---ब्रह्मगुप्तकीयाः नियमाः}\\[0.3em]
+\begin{align*}
+a + 0 &= a \\
+a - 0 &= a \\
+a \\times 0 &= 0 \\
+0 \\times 0 &= 0 \\
+0 \\div a &= 0 \\quad (a \\neq 0) \\
+a \\div 0 &= \\textrm{खहर} \\quad (\\textrm{अनिश्चित/अनन्त राशि})
+\end{align*}
+}{%
+\textbf{Summary of Brahmagupta's Rules for Zero}\\[0.3em]
+\begin{align*}
+a + 0 &= a \\
+a - 0 &= a \\
+a \\times 0 &= 0 \\
+0 \\times 0 &= 0 \\
+0 \\div a &= 0 \\quad (\\text{for } a \\neq 0) \\
+a \\div 0 &= \\textrm{\\textit{khahara}} \\quad (\\text{an undefined/infinite quantity})
+\end{align*}
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+यहाँ कोलब्रक साहेब ने उत्तर लिखा है जो बिलकुल असर्ज़त हैं इति। उपपत्ति में ऋणात्मक राशि की प्रशंसा निम्न लिखित श्लोक से की हैं। लीलावती में ``न्ये गुणके जाते खं हारइचेद्'' इत्यादि की उपपत्ति में किसी ने व्यस्त त्रैराशिक के लक्षण नहीं कहे हैं! इसका लक्षण भास्कराचार्य ने कहा है इति।\\[0.3em]
+खभक्त इति पृच्छाया उत्तरं खहरात्मकम्॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+Here Colebrooke Sahib has written answers which are entirely inappropriate. In the demonstration, the praise of negative quantities has been made by the verse written below. In the \textit{Līlāvatī}, ``\textit{nye guṇake jāte khaṃ hāraiced}'' etc.---in the demonstration of this, no one has stated the characteristics of the busy rule of three! Bhāskarācārya has stated its characteristic.\\[0.3em]
+\textit{Khabhakta}---the answer to the question is of the nature of \textit{khahara}.
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 6: Shredhi (Series) ====================
+\section{\dev{श्रेढी} --- Progressions and Series}
+
+\bilingual{%
+\textbf{अध्यायः ६: श्रेढी}\\[0.3em]
+एषः विस्तृतः खण्डः समान्तरश्रेढीम्, गुणोत्तरश्रेढीम्, श्रेढीनां योगम्, तथा सम्बद्धानि विषयानि संस्पृशति।
+}{%
+\textbf{Chapter 6: Progressions and Series}\\[0.3em]
+This extensive section treats arithmetic and geometric progressions, sums of series, and related topics.
+}
+
+\subsection{\dev{सङ्कलितैक्यानयनम्} --- Sum of Sums of Natural Numbers}
+
+\bilingual{%
+\begin{shloka}
+द्वियुक्तगच्छाभिहतं द्विभक्तं मनस्विनः\\
+सङ्कलितैक्यं व्याख्यातम् ॥१९॥\vnum{१९}
+\end{shloka}
+}{%
+\textit{Translation:} ``The number of terms increased by two, multiplied [by the sum], divided by two---the sum of sums has been explained by the wise man [Brahmagupta].'' ||19||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+एक से आरम्भ कर इष्ट गच्छ का एकोत्तर सङ्कलित जो होता है उसको दो युक्त गच्छ में गुणा कर तीन से भाग देने में सङ्कलितैक्य प्रमाण होता है। गच्छ (पद) पर्यन्त एकादि अङ्कों के योग का नाम सद्वलित है उसके लिए आचार्य ने विधि नहीं लिखी है, सो ठीक नहीं है, क्योंकि गच्छ प्रमाण अधिक रहने से योग करने की क्रिया द्वारा सङ्कलित ज्ञान के लिये बहुत ही श्रम करना होगा, सङ्कलितानयन के लिये लीलावती में ``नैक पदघ्न पदार्ध मर्दकाद्यड युति'' इत्यादि भास्करोक्त रीति बहुत ही सुन्दर है।
+}{%
+\textbf{Commentary:}\\[0.3em]
+Starting from one, the sum increased by one of the desired number of terms---multiplying it by the number of terms increased by two, and dividing by three, the measure of the sum of sums is obtained. The sum of natural numbers up to the number of terms is called \textit{sadvalita}. For this the Ācārya has not written a rule, which is not correct, because when the number of terms is large, one would have to labour greatly to know the sum by the operation of addition. For the finding of the sum, the method stated by Bhāskara in the \textit{Līlāvatī}---``\textit{naika padaghna padārtha mardakādyaḍa yuti}'' etc.---is very beautiful.
+}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+एकादि में नौ पदों तक अङ्कों के पृथक् पृथक् सङ्कलित कहो, और उन्हीं अङ्कों के सङ्कलितैक्यों को कहो॥\\[0.3em]
+\textbf{न्यास:} १ | २ | ३ | ४ | ५ | ६ | ७ | ८ | ९\\[0.3em]
+भास्करोक्त सूत्रानुसारेण पृथक् पृथक् सङ्कलितानि: $1, 3, 6, 10, 15, 21, 28, 36, 45$\\[0.3em]
+आचार्योक्त सूत्रानुसारेण सङ्कलितैक्यानि: $1, 4, 10, 20, 35, 56, 84, 120, 165$
+}{%
+\textbf{Example:}\\[0.3em]
+State separately the successive sums of natural numbers up to nine terms, and also their sum of sums.\\[0.3em]
+\textbf{Statement:} 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\\[0.3em]
+By Bhāskara's rule, the successive sums: $1, 3, 6, 10, 15, 21, 28, 36, 45$\\[0.3em]
+By the Ācārya's rule, the sums of sums: $1, 4, 10, 20, 35, 56, 84, 120, 165$
+}
+
+\subsection{\dev{उपपत्तिः} --- Demonstration}
+
+\bilingual{%
+\textbf{उपपत्तिः:}\\[0.3em]
+यदि पद = ५ तब एकादि अङ्कों को पदपर्यन्त क्रम से और उत्क्रम से स्थापन करने में:
+\[
+\begin{array}{ccccc}
+1 & 2 & 3 & 4 & 5 \\
+5 & 4 & 3 & 2 & 1
+\end{array}
+\]
+इनका योग करने से प्रत्येक स्थान में $6 = $ पद $+ १$, यह पद पर्यन्त है। अतः:
+\[
+\\frac{\\text{पद}(\\text{पद} + 1)}{2} = \\text{सङ्कलित}
+\]
+\[
+\\frac{5 \\times 6}{2} = 15 \\quad \\text{(सङ्कलित)}
+\]
+इसमें भास्करोक्त सङ्कलितानयन उपपन्न होता है॥
+}{%
+\textbf{Demonstration:}\\[0.3em]
+If terms = 5, then establishing the natural numbers up to the terms in order and reverse order:
+\[
+\begin{array}{ccccc}
+1 & 2 & 3 & 4 & 5 \\
+5 & 4 & 3 & 2 & 1
+\end{array}
+\]
+Adding these, in each place $6 = $ terms $+ 1$, this extending over the terms. Therefore:
+\[
+\\frac{\\text{terms}(\\text{terms} + 1)}{2} = \\text{sum}
+\]
+\[
+\\frac{5 \\times 6}{2} = 15 \\quad \\text{(sum)}
+\]
+Thus Bhāskara's method for finding the sum is demonstrated.
+}
+
+\subsection{\dev{वर्गसङ्कलितम्} --- Sum of Squares}
+
+\bilingual{%
+\begin{shloka}
+गच्छपदघ्नं पदार्धं मर्दकाद्यड युतिम्\\
+वर्गसङ्कलितं व्याख्यातम् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``The number of terms multiplied by the terms, half the terms [combined with] the addition of the compressing etc. [i.e., $1/3$]---the sum of squares has been explained.''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+यदि $k = 1 + 4 + 9 + 16 + ...$ पदपर्यन्त, तव इस श्रेढी का योगफल किमित्यानीयते?\\[0.3em]
+$k = 1 + 4 + 9 + 16 + ...$ पदपर्यन्त\\[0.3em]
+$\\displaystyle = \\frac{n(n+1)(2n+1)}{6}$
+}{%
+\textbf{Commentary:}\\[0.3em]
+If $k = 1 + 4 + 9 + 16 + ...$ up to [the given] terms, how is the sum of this series to be found?\\[0.3em]
+$k = 1 + 4 + 9 + 16 + ...$ up to terms\\[0.3em]
+$\\displaystyle = \\frac{n(n+1)(2n+1)}{6}$
+}
+
+\subsection{\dev{घनसङ्कलितम्} --- Sum of Cubes}
+
+\bilingual{%
+\begin{shloka}
+द्वियुक्तगच्छाभिहतं द्विभक्तं मनस्विनः\\
+घनसङ्कलितैक्यं व्याख्यातम् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``The number of terms increased by two, multiplied, divided by two---the sum of the sum of cubes has been explained by the wise one.''
+}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+यदि $k = 1 + 8 + 27 + 64 + 125 + ...$ पदपर्यन्त, तव इस श्रेढी का योगफल किमित्यानीयते?\\[0.3em]
+\textbf{नवमिर्गखनेन भजनेन च हि:}\\[0.3em]
+$\\displaystyle \\left\\{\\frac{n(n+1)}{2}\\right\\}^2$
+}{%
+\textbf{Example:}\\[0.3em]
+If $k = 1 + 8 + 27 + 64 + 125 + ...$ up to terms, how is the sum of this series to be found?\\[0.3em]
+\textbf{By dividing by nine and multiplying:}\\[0.3em]
+$\\displaystyle \\left\\{\\frac{n(n+1)}{2}\\right\\}^2$
+}
+
+\subsection{\dev{गुणोत्तरश्रेढी} --- Geometric Progression}
+
+\bilingual{%
+\begin{shloka}
+व्येकं व्येकगुणोद्धृतमित्यादिना\\
+गुणोत्तरश्रेढी योगफलं व्याख्यातम् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``Decreased by one, divided by the common ratio decreased by one, etc.---the sum of a geometric progression has been explained.''
+}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+यदि $k = 4 + 44 + 444 + ...$ पदपर्यन्त, तव इस श्रेढी का योगफल किमित्यानीयते?\\[0.3em]
+नौ से गुणा करने से और भाग देने से:
+\[
+k = \\frac{4}{9}(9 + 99 + 999 + \\cdots)
+\]
+\[
+= \\frac{4}{9}\\left\\{(10-1) + (10^2-1) + (10^3-1) + \\cdots\\right\\}
+\]
+\[
+= \\frac{4}{9}\\left\\{\\frac{10(10^n - 1)}{10 - 1} - n\\right\\}
+\]
+}{%
+\textbf{Example:}\\[0.3em]
+If $k = 4 + 44 + 444 + ...$ up to terms, how is the sum of this series to be found?\\[0.3em]
+By multiplying by nine and dividing:
+\[
+k = \\frac{4}{9}(9 + 99 + 999 + \\cdots)
+\]
+\[
+= \\frac{4}{9}\\left\\{(10^1-1) + (10^2-1) + (10^3-1) + \\cdots\\right\\}
+\]
+\[
+= \\frac{4}{9}\\left\\{\\frac{10(10^n - 1)}{9} - n\\right\\}
+\]
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+एवमेव ५-५५-५५५ $+ ...$ पदपर्यन्तम्\\
+६-६६-६६६ $+ ...$ पदपर्यन्तम्\\
+७-७७-७७७ $+ ...$ पदपर्यन्तम्\\
+८-८८-८८८ $+ ...$ पदपर्यन्तम्\\
+९-९९-९९९ $+ ...$ पदपर्यन्तम्\\[0.3em]
+आसां श्रेढीनां योगफलं पूर्व विधिनैव प्राप्यगच्छनीति॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+Similarly: $5 + 55 + 555 + ...$ up to terms\\
+$6 + 66 + 666 + ...$ up to terms\\
+$7 + 77 + 777 + ...$ up to terms\\
+$8 + 88 + 888 + ...$ up to terms\\
+$9 + 99 + 999 + ...$ up to terms\\[0.3em]
+The sum of these series is obtained by the previous method.
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 7: Kshetra-vyavahara ====================
+\section{\dev{क्षेत्रव्यवहारः} --- Plane Geometry}
+
+\bilingual{%
+\textbf{अध्यायः ७: क्षेत्रव्यवहारः}\\[0.3em]
+एषः महत्त्वपूर्णः खण्डः विविधेषां ज्यामितीयाकृतीनां---त्रिभुजानाम्, चतुर्भुजानाम्, वृत्तानाम्---क्षेत्रफलगणनान्, तेषां भुजकोटिकर्णानां, विकर्णानां, तथा लम्बानां सम्बन्धान् च संस्पृशति।
+}{%
+\textbf{Chapter 7: Plane Geometry}\\[0.3em]
+This major section deals with the calculation of areas of various geometric figures---triangles, quadrilaterals, circles---and the relationships between their sides, diagonals, and altitudes.
+}
+
+\subsection{\dev{समलम्बचतुर्भुजस्य क्षेत्रफलम्} --- Area of an Isosceles Trapezium}
+
+\bilingual{%
+\begin{shloka}
+बाहुकोट्योर्हताः परस्परं क्षेत्रयोरिह\\
+तेषु भूमिरधिकोऽर्धको मुखं च विषमस्य द्वयम् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``The mutual products of the sides and perpendiculars of two fields---among them, the greater is the base, half is the face, and two [come from] the unequal [sides].''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+वर्ग क्षेत्रोपरिगत वृत्त का व्यास उसका कर्ता ही होता है, भ्राव्य क्षेत्र में भी ऐसा ही होता है, आचार्योक्त पद में अविरुद्ध शब्द से समलम्ब समलम्बान्तर चतुर्भुज समझना चाहिये जहाँ दोनों कर्ता दोनों भुज बराबर हैं। कर्ता को पार्श्वबाहु भुज से गुणा कर द्विगुणीत लम्ब से भाग देने से चतुर्भुजोपरिगत वृत्त का व्यासार्ध होता है। विषम चतुर्भुज में जिसमें उसके उपर वृत्त हो सकता है उसमें भुज और प्रतिभुज (सम्मुख भुज) के चतुर्भुज फल का शब्द व्यासार्ध होता है॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+The diameter of the circumscribed circle of a square field is its diagonal; in an oblong field also it is the same. In the Ācārya's text, by the word \textit{aviruddha} one should understand an isosceles trapezium (\textit{samlamba}), where both diagonals and both sides are equal. Multiplying the diagonal by the side and dividing by twice the altitude, the semi-diameter of the circumscribed circle of the quadrilateral is obtained. In a scalene quadrilateral in which a circumscribed circle is possible, the semi-diameter is the square root of the product of the side and the opposite side.
+}
+
+\subsection{\dev{वृत्तस्य व्यासज्ञानम्} --- Finding the Diameter of a Circumscribed Circle}
+
+\bilingual{%
+\begin{shloka}
+विपर्यस्तपादं भुजयोः कर्णं द्विगुणावलम्बनविभक्तः\\
+हृदयं द्विसस्य भुजप्रतिभुजकृतियोगसूलार्धम् ॥२६॥\vnum{२६}
+\end{shloka}
+}{%
+\textit{Translation:} ``The transposed side-product of the two sides, the diagonal divided by twice the altitude---the heart [semi-diameter] of that. For a quadrilateral, the semi-square-root of the sum of the products of the sides and opposite sides.'' ||26||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+वर्ग क्षेत्रे तथापय्यते कर्ण एवं व्यास उति स्फुटस्। व्युत्क्रमेण च द्वि ननस्य च तुल्यौ भुजौ उच्यते। सेनायमर्थः। विपर्यस्तपादं भुज द्वियुगन लम्ब विभक्तः फल हृदय च चतुर्भुजोपरिगत वृत्तस्य व्यासार्ध भवेत्। विषम चतुर्भुजे यत्र तदुर्पारिग तदत्तं भवितुमर्हति तत्र भुज प्रतिभुजयोः वर्गयोगसूलार्धं हृद व्यासार्ध भवेत्॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+In a square field, the diagonal itself is clearly the diameter. By transposition, two equal sides are spoken of. The meaning is this: the transposed side-product of the sides, divided by twice the altitude---the result is the heart (semi-diameter) of the circle circumscribed about the quadrilateral. In a scalene quadrilateral where a circumscribed circle is possible, the semi-square-root of the sum of the products of the side and opposite side becomes the heart (semi-diameter).
+}
+
+\subsection{\dev{त्रिभुजोपरिगतवृत्तव्यासज्ञानार्थम्} --- Circle Diameter from Triangle}
+
+\bilingual{%
+\begin{shloka}
+इदानीं त्रिभुजोपरिगतवृत्तस्य व्यासज्ञानार्थमाह\\
+त्रिभुजस्य बाहोर्भुजयोर्हृतः कर्णो द्विगुणावलम्बरविभक्तः\\
+हृदयं द्विसस्य भुजप्रतिभुजकृतियोगसूलार्धम् ॥२७॥\vnum{२७}
+\end{shloka}
+}{%
+\textit{Translation:} ``Now, for knowing the diameter of the circle circumscribed about a triangle, he says: the product of the two sides of the triangle, divided by the altitude [and] multiplied by the diagonal---the heart [is] the semi-square-root of the sum of the products of the side and opposite side.'' ||27||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+वर्ग क्षेत्रे श्रायते च कर्ण एव तदपरिग नवृत्त व्यासः। व्युत्क्रमेण समलम्बचतुर्भुजं वोध्यम्। यत्र कर्णौ भुजौ च तुल्यौ, कर्णः पादवं मञ्जेन गुणो द्विगुणावलम्ब विभक्तः फल हृदयमर्थात् चतुर्भुजोपरिगत वृत्तस्य व्यासार्ध भवेत्। विषम चतुर्भुजे यत्र तदुर्पारिग तदत्तं भवितुमर्हति तत्र भुज प्रतिभुजयो वर्गयोगसूलार्धं हृद (व्यासार्ध) भवेत्॥२७॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+In a square field, the diagonal itself is the diameter of the circumscribed circle. An isosceles trapezium is to be understood by transposition. Where the diagonals and sides are equal, the diagonal, multiplied by the side and divided by twice the altitude---the result is the heart, i.e., the semi-diameter of the circle circumscribed about the quadrilateral. In a scalene quadrilateral where a circumscribed circle is possible, the semi-square-root of the sum of the products of the side and opposite side is the heart (semi-diameter). ||27||
+}
+
+\subsection{\dev{जात्ययोः क्षेत्रयोः} --- On Two Classes of Triangles}
+
+\bilingual{%
+\begin{shloka}
+जात्ययोस्तिहताः परस्परं क्षेत्रयोरिह हि बाहुकोटयः\\
+तेषु भूमिरधिकोऽर्धको मुखं विषमस्य द्वयम् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``The sides and perpendiculars of two regular [triangular] fields here, mutually multiplied---among them the greater is the base, half [is] the face, and two [come from] the unequal [sides].''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+दो जात्य त्रिभुज के भुज और कोटि को परस्पर क्रम से गुणा करने से विषम चतुर्भुज के भुज होते हैं उनमें श्रेष्ठक भू होती है, लघु मुख होता है, और मध्य दोनों भुज होते हैं।
+}{%
+\textbf{Commentary:}\\[0.3em]
+Multiplying the sides and perpendiculars of two regular (\textit{jātya}) triangles mutually in order, the sides of a scalene quadrilateral are produced; among them the greatest is the base, the smallest is the face, and the two middle ones are the [other] sides.
+}
+
+\subsection{\dev{विषमचतुर्भुजक्षेत्रफलम्} --- Area of a Scalene Quadrilateral}
+
+\bilingual{%
+\begin{shloka}
+विषमं चतुर्भुजं क्षेत्रं समलम्बवत् सदृशम्\\
+तस्य कर्णे लम्बौ संपातं तयोः परस्परं गुणनम्\\
+ततोऽर्धं फलं स्यात् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``A scalene quadrilateral field is similar to an isosceles trapezium. Its diagonals [are] the two altitudes [meeting] at the intersection; their mutual product, then half, is the area.''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+विषम चतुर्भुज क्षेत्र समलम्बवत् (समलम्बचतुर्भुज की तरह) सदृश (समान) है। तस्य (उसके) कर्णे लम्बौ (दो लम्ब) संपात (प्रतिच्छेदन) बिन्दु में एक दूसरे को काटते हैं तब तयोः (उन लम्बों का) परस्परं गुणन (गुणा) ततोऽर्धं (आधा) फलं स्यात् (फल होता है)।
+}{%
+\textbf{Commentary:}\\[0.3em]
+A scalene quadrilateral field is similar (\textit{sadṛśa}) to an isosceles trapezium (\textit{samlamba-vat}). Its diagonals [are] the two altitudes [meeting] at the intersection (\textit{sampāta}) point where they cut each other; then their mutual product, halved, is the area.
+}
+
+\subsection{\dev{त्रिभुजक्षेत्रफलम्} --- Area of a Triangle}
+
+\bilingual{%
+\begin{shloka}
+समकोणत्रिभुजे कर्णः समपादभुजयोर्वर्गयोगसूलम्\\
+तत्कर्णस्य चतुर्गुणीतो भुजयोर्घातः समकोणे ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``In a right-angled triangle, the hypotenuse is the square root of the sum of the squares of the equal side and base. The product of the sides, multiplied by four [divided by] that hypotenuse, [gives the altitude] in the right-angled [triangle].''
+}
+
+\bilingual{%
+\textbf{उदाहरणम्---समकोणत्रिभुजे:}\\[0.3em]
+\[
+c^2 = a^2 + b^2 \\quad \\text{(यत्र $c$ = कर्णः)}
+\]
+}{%
+\textbf{Example---Right-Angled Triangle:}\\[0.3em]
+\[
+c^2 = a^2 + b^2 \\quad \\text{(where $c$ = hypotenuse)}
+\]
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 8: Khata-vyavahara ====================
+\section{\dev{खातव्यवहारः} --- Excavations (Solid Geometry)}
+
+\bilingual{%
+\textbf{अध्यायः ८: खातव्यवहारः}\\[0.3em]
+एषः खण्डः खातानाम्, कूपानाम्, सरोवराणाम्, तथा सम्बद्धानां घनाकृतीनां घनफलगणनान् संस्पृशति।
+}{%
+\textbf{Chapter 8: Excavations (Solid Geometry)}\\[0.3em]
+This section deals with the calculation of volumes of excavations, wells, reservoirs, and related solid figures.
+}
+
+\subsection{\dev{समखातघनफलम्} --- Volume of a Regular Excavation}
+
+\bilingual{%
+\begin{shloka}
+समखातं तु यत् क्षेत्रफलं तद्वेधगुणितं घनफलम्\\
+समखातस्य त्रिभागः सूचीखातस्य घनफलम् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``That regular excavation of which [the area]---the area of the field multiplied by the depth is the volume. One-third of the regular excavation is the volume of a needle-excavation [pyramid/cone].''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+समखात का क्षेत्रफल उसी तरह ज्ञात करें जैसे समचतुर्भुज या समलम्बचतुर्भुज का क्षेत्रफल ज्ञात होता है। क्षेत्रफल को वेध (गहराई) से गुणा करने से समखात का घनफल होता है। अर्थात् जिस खात के मुख में जितने दैर्घ्यादि हैं उतने तल में रहने से वह समखात कह लाता है उसके घनफल को तीन से भाग देने से सूचीकार खात का घनफल होता है॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+The area of a regular excavation is found just as the area of a square or isosceles trapezium is found. The area multiplied by the depth (\textit{vedha}) gives the volume of the regular excavation. That is, an excavation in which the length etc. at the mouth are the same at the base is called a regular excavation (\textit{sama-khāta}). Dividing its volume by three gives the volume of a needle-like excavation (\textit{sūcī-khāta}, i.e., pyramid/cone).
+}
+
+\subsection{\dev{उदाहरणम्} --- Worked Example}
+
+\bilingual{%
+\textbf{उदाहरणम्:}\\[0.3em]
+किसी वापी (वावली) की दीर्घता (लम्बाई) तीस हाथ है, विस्तार साठ हाथ। उस वापी के भीतर चार, पाँच, छः, सात, आठ भुज खण्डों से पाँच खात (खत्ता) हैं, खातों के क्रम से वेध ८, ७, ७, ३, २ हैं तब उन खातों के समरज्जु प्रमाण कहो।\\[0.3em]
+\textbf{समरज्जु:} मुखतल भुजैक्य त्रि से $36|35|42|21|16$ इन सबों के योग को एकाग्र $30$ से भाग देने से:
+\[
+\\text{समरज्जु} = \\frac{\\text{विस्तार} \\times \\text{दैर्घ्य}}{30}
+\]
+\[
+\\text{क्षेत्रफल} = \\text{विस्तार} \\times \\text{दैर्घ्य} = 8 \\times 30 = 240
+\]
+इस क्षेत्रफल को समरज्जु से गुणा करने से सम्पूर्ण खात का घनफल १२०० हुआ॥
+}{%
+\textbf{Example:}\\[0.3em]
+A certain tank (\textit{vāpī}) has length thirty cubits, breadth sixty cubits. Inside it are five excavations (\textit{khāta}) with [side] portions of four, five, six, seven, eight [cubits]; the depths of the excavations in order are 8, 7, 7, 3, 2. State the mean section (\textit{samarajju}) measure of those excavations.\\[0.3em]
+\textbf{Mean section:} The side-sums at mouth and base [give] 36|35|42|21|16. Dividing the sum of all these by the aggregate 30:
+\[
+\\text{Mean section} = \\frac{\\text{breadth} \\times \\text{length}}{30}
+\]
+\[
+\\text{Area} = 8 \\times 30 = 240
+\]
+Multiplying this area by the mean section, the total excavation volume became 1200.
+}
+
+\subsection{\dev{विस्तारदैर्घ्यवेधेषु वैषम्ये} --- Irregular Excavations}
+
+\bilingual{%
+\textbf{उदाहरणानि:}\\[0.3em]
+किसी पुष्करिणी की लम्बाई १६ हाथ है, विस्तार = ५ हाथ, वेध २, ३, ४ हाथ हैं तब उसका फल क्या होगा।\\[0.3em]
+\textbf{न्यास:} २|३|४ वेध, वेधों की सममिति $= \\frac{9}{3} = ३$, यहाँ स्थान संख्या = ३\\[0.3em]
+$\\text{क्षेत्रफल} = 5 \\times 16 = 80$\\[0.3em]
+इसको वेध से गुणा करने से: $80 \\times 3 = 240$ खातफल।
+}{%
+\textbf{Examples:}\\[0.3em]
+A certain pond has length 16 cubits, breadth = 5 cubits, depths 2, 3, 4 cubits; then what is its volume?\\[0.3em]
+\textbf{Statement:} 2|3|4 depths; mean of depths $= \\frac{9}{3} = 3$; here the number of places = 3.\\[0.3em]
+$\\text{Area} = 5 \\times 16 = 80$\\[0.3em]
+Multiplying by depth: $80 \\times 3 = 240$ (excavation volume).
+}
+
+\bilingual{%
+दूसरा उदाहरण---जिस खात का दैर्घ्य = १२ हाथ है, वेध = ८ हाथ है, विस्तार ३|४|५ हाथ, उस खात का फल कतो।\\[0.3em]
+विस्तृति सममिति $= \\frac{3+4+5}{3} = ४$\\[0.3em]
+$\\text{क्षेत्रफल} = 4 \\times 12 = 48$\\[0.3em]
+इसको वेध से गुणा करने से: $48 \\times 8 = 384$ (खात फल)।
+}{%
+\textbf{Second Example:} An excavation of which the length = 12 cubits, depth = 8 cubits, breadth 3|4|5 cubits---state its volume.\\[0.3em]
+Mean breadth $= \\frac{3+4+5}{3} = 4$\\[0.3em]
+$\\text{Area} = 4 \\times 12 = 48$\\[0.3em]
+Multiplying by depth: $48 \\times 8 = 384$ (excavation volume).
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 9: Dhanyarashi ====================
+\section{\dev{धान्यराशिव्यवहारः} --- Grain Heaps}
+
+\bilingual{%
+\textbf{अध्यायः ९: धान्यराशिव्यवहारः}\\[0.3em]
+एषः खण्डः शङ्कुाकारधान्यराशीनां मापनं संस्पृशति।
+}{%
+\textbf{Chapter 9: Grain Heaps}\\[0.3em]
+This section treats the measurement of grain stored in heaps, which have the form of a cone or portion thereof.
+}
+
+\subsection{\dev{स्थूलधान्यराशिमानम्} --- Measuring Coarse Grain Heaps}
+
+\bilingual{%
+\begin{shloka}
+वृत्तपरिगतधान्यराशेः परिधिनवमांशो वेधः\\
+वेधेन गुणितः परिधिः षष्ट्यंशः फलं स्यात् ॥५०॥\vnum{५०}
+\end{shloka}
+}{%
+\textit{Translation:} ``The circumference of a circular grain heap---a ninth of the circumference is the depth. The circumference multiplied by the depth, [then] a sixtieth of that, is the volume [measure].'' ||50||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+भित्त्यन्तर्बाह्यकोणागः परिधिः द्विचतुः सत्रिभागगुणः प्राग्वत्‌ गणितं कृत्वा स्वगुणकारभक्तं तदा तद्‌ गणितं भवति। अर्थात्‌ भित्तिपादसंलग्नस्य धान्यराशेः परिधिमानं द्वाभ्यां संगुण्य तस्मात्पूर्वंवचत्फलं तदुद्वाभ्यां भक्तं तदा तद्राशेधनफलं भवति।
+}{%
+\textbf{Commentary:}\\[0.3em]
+The inner-outer corner circumference, multiplied by two-four [and] a seventh part, having performed the calculation as before, divided by its multiplier, then that calculation becomes [the volume]. That is, the circumference measure of the grain heap touching the base of the wall, multiplied by two, then the result as before, divided by those two, then the volume of that heap becomes [known].
+}
+
+\subsection{\dev{उदाहरणानि} --- Worked Examples}
+
+\bilingual{%
+\textbf{स्थूलधान्यराशिमानज्ञानार्थम्:}\\[0.3em]
+\textbf{न्यास:} स्थूलधान्यराशि परिधिः ६०, परिषेधांशमांशः $६ = $ वेधः\\[0.3em]
+$\\text{परिधेः षष्ट्यंशः} = \\frac{60}{10} = 10$, वर्गितः $= 100$\\[0.3em]
+$\\text{वेधगुणितः} = 100 \\times 6 = 600$ (स्थूलधान्यराशि घनफलम्)\\[1em]
+\textbf{शूकधान्यराशिमानज्ञानार्थम्:}\\[0.3em]
+\textbf{न्यास:} परिधिः ६०, परिधिः नवमांशो वेधः ५\\[0.3em]
+$\\text{परिषेः षष्ट्यंशः} = \\frac{60}{6} = 10$, वर्गितः $= 100$\\[0.3em]
+$\\text{वेधगुणितः} = 100 \\times 5 = 500$ (शूकधान्यराशि घनफलम्)
+}{%
+\textbf{For Knowing the Measure of Coarse Grain Heaps:}\\[0.3em]
+\textbf{Statement:} Coarse grain heap circumference 60, portion $6 = $ depth.\\[0.3em]
+$\\text{Sixtieth of circumference} = \\frac{60}{10} = 10$, squared $= 100$\\[0.3em]
+$\\text{Multiplied by depth} = 100 \\times 6 = 600$ (coarse grain heap volume)\\[1em]
+\textbf{For Knowing the Measure of \textit{Śūka} Grain Heaps:}\\[0.3em]
+\textbf{Statement:} Circumference 60, a ninth of circumference is depth 5.\\[0.3em]
+$\\text{Sixtieth of circumference} = \\frac{60}{6} = 10$, squared $= 100$\\[0.3em]
+$\\text{Multiplied by depth} = 100 \\times 5 = 500$ (\textit{śūka} grain heap volume)
+}
+
+\bilingual{%
+\textbf{अणुधान्यराशिमानज्ञानार्थम्:}\\[0.3em]
+\textbf{न्यास:} अणुधान्यराशि परिधिः ६०, वेधः = ३\\[0.3em]
+$\\text{परिषेः षष्ट्यंशः} = \\frac{60}{?} = 5$, वर्गितः $= 100$\\[0.3em]
+$\\text{वेधगुणितः} = 100 \\times 3 = 300$ (अणुधान्यराशि घनफलम्)
+}{%
+\textbf{For Knowing the Measure of Fine Grain Heaps:}\\[0.3em]
+\textbf{Statement:} Fine grain heap circumference 60, depth = 3.\\[0.3em]
+$\\text{Sixtieth of circumference} = \\frac{60}{?} = 5$, squared $= 100$\\[0.3em]
+$\\text{Multiplied by depth} = 100 \\times 3 = 300$ (fine grain heap volume)
+}
+
+\subsection{\dev{उपपत्तिः} --- Demonstration}
+
+\bilingual{%
+\textbf{उपपत्तिः:}\\[0.3em]
+धान्य स्थितिवशेन धान्यराशिः सूच्याकारो भवति तदाधारपरिधिनवमांशादिभागस्तद्वेघो भवतीति प्रत्यक्षापरोक्षया स्थिरीकृतः। वृत्तक्षेत्र परिधिगुणितव्यासः...
+}{%
+\textbf{Demonstration:}\\[0.3em]
+By the nature of the grain's position, the grain heap becomes needle-shaped (conical); its base circumference divided by nine etc. becomes its depth---this is established by direct and indirect perception. The area of a circular field is the circumference multiplied by the diameter...
+}
+
+\subsection{\dev{भास्करीय लीलावत्यामुदाहरणम्} --- Example from Bhāskara's Līlāvatī}
+
+\bilingual{%
+\begin{shloka}
+समभुवि किल राशिभिः स्थितः स्थूलधान्यः परिधिपरिमितिः\\
+स्याद्व्यष्टिषट्यंशया प्रवद गणक खार्यः कि मिताः सन्ति तस्मिन्\\
+अथ पृथगपुघान्यैरछुकधान्यैरच शीघ्रम् ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``On level ground indeed a coarse grain heap stands, with a [known] circumference measure. With the sixty-fourth part [of the circumference], tell me, calculator, how many \textit{khāri}s are in it? Also quickly [tell me] separately for \textit{pu} and \textit{śuka} grains.''
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 10: Chhaya ====================
+\section{\dev{छायाव्यवहारः} --- Shadows and Gnomons}
+
+\bilingual{%
+\textbf{अध्यायः १०: छायाव्यवहारः}\\[0.3em]
+एषः खण्डः शङ्कुस्य (gnomon) छायायाः तथा सम्बद्धानां गणितीयानि संस्पृशति।
+}{%
+\textbf{Chapter 10: Shadows and Gnomons}\\[0.3em]
+This section deals with the mathematics of the gnomon's shadow and related calculations.
+}
+
+\bilingual{%
+\begin{shloka}
+द्विजद्विसम्भागैकनिघ्नातु तु परिषैः फलम्\\
+भित्त्यन्तर्बाह्यकोणागे परिधिः द्विचतुःसत्रिभागैकगुणः ॥५१॥\vnum{५१}
+\end{shloka}
+}{%
+\textit{Translation:} ``The result [is obtained] from the circumference, multiplied by two, half of two [i.e., one], etc. At the inner-outer corner, the circumference multiplied by two-four and one-seventh [i.e., $2\\frac{4}{7}$].'' ||51||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+भित्त्यन्तर्बाह्यकोणागः परिधिः द्विचतुः सव्यंशगुणः प्राग्वत्‌ गणितं कृत्वा स्वगुणकारभक्तं तदा तद्‌ गणितं भवति। अर्थात्‌ भित्तिपादसंलग्नस्य धान्यराशेः परिधिमानं द्वाभ्यां संगुण्य तस्मात्पूर्वंवचत्फलं तदुद्वाभ्यां भक्तं तदा तद्राशिघनफलं भवति।\\[0.3em]
+भित्त्योरन्तः कोणस्थितधान्यराशेः परिधि चतुर्गुणं त्वा ततः पूर्ववत्फलमानीय तच्चतुर्भक्तं तदा तद्धान्यराशिघनफलं भवति।\\[0.3em]
+भित्त्योबहिः कोणस्थितधान्यराशेः परिधि सत्रिभागेकेन संगुण्य ततः पूर्वैवत्फलमानीय तत्फलं सत्रिभागैकेन भक्तं तदा तस्य धान्यराशिघनफलं भवेदिति॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+The inner-outer corner circumference, multiplied by two-four [and] one-seventh, having performed the calculation as before, divided by its multiplier, then that calculation becomes [known]. That is, the circumference measure of the grain heap touching the base of the wall, multiplied by two, then the result as before, divided by those two, then the volume of that heap becomes known.\\[0.3em]
+For a grain heap situated at the inner corner of two walls, the circumference [is] multiplied by four; then having obtained the result as before, dividing it by four, then the volume of that grain heap becomes known.\\[0.3em]
+For a grain heap situated at the outer corner of two walls, the circumference [is] multiplied by one-and-three-sevenths [i.e., $\\frac{10}{7}$]; then having obtained the result as before, dividing that result by one-and-three-sevenths, then the volume of that grain heap becomes known.
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CHAPTER 11: Gitadhyaya ====================
+\section{\dev{गीताध्यायः} --- The Chapter on Spheres}
+
+\bilingual{%
+\textbf{अध्यायः ११: गीताध्यायः}\\[0.3em]
+एतत् सपुटस्य अन्तिमपृष्ठानि गीताध्यायम् (गोलाध्यायम्) आरभन्ते, यत् गोलस्य तथा गोलखण्डानां ज्यामिती संस्पृशति। एषः ब्राह्मस्पुटसिद्धान्तस्य एकविंशतितमः अध्यायः।
+}{%
+\textbf{Chapter 11: The Chapter on Spheres}\\[0.3em]
+The final pages of this volume begin the \textit{Gītādhyāya} (Chapter on Spheres), which deals with the geometry of spheres and spherical segments. This is the 21st chapter of the \textit{Brāhmasphuṭasiddhānta}.
+}
+
+\subsection{\dev{विष्कम्भपरिधिः} --- Diameter and Circumference}
+
+\bilingual{%
+\begin{shloka}
+विवृतद्विसम्भागैकनिघ्नात् तु परिषैः फलम्\\
+इत्यादि भास्करोक्तमेतदनुरूपमेव ॥५१॥\vnum{५१}
+\end{shloka}
+}{%
+\textit{Translation:} ``The result [is obtained] from the circumference, multiplied by one [half] of the expanded diameter-pair [i.e., the diameter], etc.---this is indeed in conformity with what Bhāskara has stated.'' ||51||
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+विवृत (विस्तृत) द्विसम्भाग (द्विज) एकनिघ्नात् (एक से गुणा कर) तु परिषैः फलम्---इत्यादि भास्करोक्तमेतदनुरूपमेव (भास्कराचार्य के कथन के अनुरूप ही)॥५१॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+Expanded (\textit{vivṛta}) pair-of-diameter-half (\textit{dvisambhāga}) multiplied by one [i.e., the diameter]---the result from the circumference, etc.---this is indeed in conformity with what Bhāskarācārya has stated. ||51||
+}
+
+\subsection{\dev{राशिव्यवहारः} --- Calculation of Heaps}
+
+\bilingual{%
+\begin{shloka}
+भित्यन्तर्बाह्यकोणागः परिधिः द्विचतुः सव्यंशगुणः प्राग्वत्\\
+गणितं कृत्वा स्वगुणकारभक्तं तदा तद् गणितं भवति\\
+अर्थात् भित्तिपादसंलग्नस्य धान्यराशेः परिधिमानं द्वाभ्यां संगुण्य\\
+तस्मात्पूर्ववचत्फलं तदुद्वाभ्यां भक्तं तदा तद्राशिघनफलं भवति ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``The inner-outer corner circumference, multiplied by two-four [and] one-seventh [i.e., $\\frac{18}{7}$] as before; having performed the calculation, divided by its multiplier, then that calculation becomes [known]. That is, the circumference measure of the grain heap touching the base of the wall, multiplied by two; then the result as before, divided by those two, then the volume of that heap becomes known.''
+}
+
+\bilingual{%
+\textbf{टीका:}\\[0.3em]
+भित्त्योरन्तः कोणस्थितधान्यराशेः परिधि चतुर्गुणं त्वा ततः पूर्ववत्फलमानीय तच्चतुर्भक्तं तदा तद्धान्यराशिघनफलं भवति। भित्त्योबहिः कोणस्थितधान्यराशेः परिधि सत्रिभागेकेन संगुण्य ततः पूर्वैवत्फलमानीय तत्फलं सत्रिभागैकेन भक्तं तदा तस्य धान्यराशिघनफलं भवेदिति॥
+}{%
+\textbf{Commentary:}\\[0.3em]
+For a grain heap situated at the inner corner of two walls, the circumference [is] multiplied by four; then having obtained the result as before, dividing it by four, then the volume of that grain heap becomes known. For a grain heap situated at the outer corner of two walls, the circumference [is] multiplied by one-and-three-sevenths; then having obtained the result as before, dividing that result by one-and-three-sevenths, then the volume of that grain heap becomes known.
+}
+
+\bilingual{%
+\textbf{भास्करीय लीलावत्यामुदाहरणम्:}\\[0.5em]
+\begin{shloka}
+परिधिर्भित्ति लग्नस्य राशोः शत्करः किल\\
+अन्तः कोणस्थितस्यापि तिथितुल्यकरः सखे\\
+बहिः कोणस्थितस्यापि पञ्चघ्ननवसंमितः\\
+तेषामाचक्ष्व मे क्षिप्रं धनहस्तान् पृथक् पृथक् ॥\vnum{}
+\end{shloka}
+}{%
+\textbf{Example from Bhāskara's Līlāvatī:}\\[0.5em]
+\textit{Translation:} ``The circumference of a heap touching a wall is indeed a hundred. Of one situated at the inner corner, [it is] equal to the number of lunar days [30], O friend. Of one situated at the outer corner, [it is] measured as nine multiplied by five [45]. Tell me quickly their \textit{dhana-hasta}s [wealth-measures] separately.''
+}
+
+\bilingual{%
+\textbf{न्यासः:}\\[0.3em]
+अत्र प्रथमस्य परिधिः ३० द्विनिष्ठः $= 30 \\times 2 = 60$\\
+अन्तः कोणस्थितपरिधिः १५ चतुर्गुणितः $= 15 \\times 4 = 60$\\
+बाह्यकोणस्थितपरिधिः ४८ सत्रिभागैक गुणितः $= 48 \\times \\frac{5}{4} = 60$\\
+एषाविधः $= 6$\\
+र एभ्यः फलं तुल्यमेतावत्य् एव खार्यः $= 600$\\
+एतत् स्व स्व गुरोन भक्तं जातं पृथक् पृथक् फलम् $300 | 150 | 450$\\
+एवं स्थूल धान्यस्य मानं जातम्।
+}{%
+\textbf{Statement:}\\[0.3em]
+Here, the circumference of the first [heap] 30, doubled $= 30 \\times 2 = 60$.\\
+The inner-corner circumference 15, quadrupled $= 15 \\times 4 = 60$.\\
+The outer-corner circumference 48, multiplied by one-and-a-quarter $= 48 \\times \\frac{5}{4} = 60$.\\
+This measure $= 6$.\\
+From these, the equal result is just so many \textit{khāri}s $= 600$.\\
+This, divided by its own multiplier, became the separate results $300 | 150 | 450$.\\
+Thus the measure of coarse grain was found.
+}
+
+\subsection{\dev{अन्योदाहरणम्} --- Another Example}
+
+\bilingual{%
+\begin{shloka}
+षट्त्रिशेन्मित परिधौ राशौ धान्यस्य कि भवेद् गणितम्\\
+हस्त चतुष्काभ्युदये यदि वेत्सि तदुच्यतामाशु ॥\vnum{}
+\end{shloka}
+}{%
+\textit{Translation:} ``When the circumference of a heap of grain is measured as thirty-six, what is the calculation [volume], if you know, tell me quickly, [given] a rise of four cubits [depth].''
+}
+
+\bilingual{%
+\textbf{न्यासः:}\\[0.3em]
+धान्यराशि परिधिः ३६, वेधः = ४ तदा पूर्ववत्‌ परिषेः षष्ट्यंशः $= 6$\\
+वर्गितः $= 36$\\
+वेधगुणितः $= 36 \\times 4 = 144$ घनफलम्।
+}{%
+\textbf{Statement:}\\[0.3em]
+Grain heap circumference 36, depth = 4; then as before, the sixtieth of the circumference $= 6$.\\
+Squared $= 36$.\\
+Multiplied by depth $= 36 \\times 4 = 144$ (volume).
+}
+
+\vspace{0.5em}
+\noindent\longline
+\vspace{0.5em}
+
+%% ==================== CONCLUDING REMARKS ====================
+\section*{Concluding Remarks}
+\addcontentsline{toc}{section}{Concluding Remarks}
+
+\bilingual{%
+\textbf{समाप्तिकथनम्}\\[0.5em]
+एतत् सपुटं द्वितीयस्य भागस्य ब्राह्मस्फुटसिद्धान्तस्य समापयति, विस्तृतगणितीयविषयाणां परिष्कारं कुर्वत्। एतस्मिन् सम्पुटे समावेशिताः खण्डाः ब्रह्मगुप्तस्य गणितचिन्तनस्य गभीरतां तथा परिष्कारं दर्शयन्ति।
+}{%
+\textbf{Concluding Remarks}\\[0.5em]
+This volume concludes the second part of the \textit{Brāhmasphuṭasiddhānta}, covering an extraordinary range of mathematical topics. The sections included in this portion demonstrate the depth and sophistication of Brahmagupta's mathematical thought.
+}
+
+\bilingual{%
+\begin{enumerate}
+\item \textbf{वाणिज्यगणितम्:} भागसमस्याः (\dev{भागे}), चक्रवृद्धिसूदः (\dev{मिश्र धन}), विनिमयव्यवहारः (\dev{भाण्डप्रतिभाण्डक}), तथा त्रैराशिकम् तस्य विस्ताराः च।
+\item \textbf{शून्यस्य बीजगणितम्:} शून्येन क्रियासु ब्रह्मगुप्तस्य क्रान्तिकारि नियमाः, शून्येन भाजनस्य विवादास्पदं परन्तु मार्गदर्शकं चोपचारं समाविशन्तः---\dev{खहर} इति राशिं प्राप्य।
+\item \textbf{श्रेढयः:} समान्तरश्रेढी, गुणोत्तरश्रेढी, प्राकृतिकसङ्ख्यानां वर्गानां घनानां च योगानां समग्रचिकित्सा।
+\item \textbf{क्षेत्रज्यामितिः:} त्रिभुजानां, चतुर्भुजानां, वृत्तानां च क्षेत्रफलानि, चक्रीयचतुर्भुजानां तथा परिगतवृत्तानां सूत्रैः सह।
+\item \textbf{घनगणितम्:} खातानां, कूपानां, धान्यराशीनां च घनफलगणनम्।
+\item \textbf{गोलज्यामितिः:} गीताध्यायस्य (गोलाध्यायस्य) आरम्भः, गोलखण्डानां ज्यामिती संस्पृशन्।
+\end{enumerate}
+}{%
+\begin{enumerate}
+\item \textbf{Commercial Arithmetic:} Partnership problems (\textit{bhāga}), compound interest (\textit{miśra dhana}), barter exchange (\textit{bhāṇḍa-pratibhāṇḍaka}), and the Rule of Three and its extensions.
+\item \textbf{The Algebra of Zero:} Brahmagupta's revolutionary rules for arithmetic with zero, including the controversial but pioneering treatment of division by zero as yielding the quantity \textit{khahara}.
+\item \textbf{Series:} Comprehensive treatment of arithmetic and geometric progressions, sums of natural numbers, squares, and cubes.
+\item \textbf{Plane Geometry:} Areas of triangles, quadrilaterals, and circles, with theorems on cyclic quadrilaterals and circumscribed circles.
+\item \textbf{Solid Geometry:} Volumes of excavations, wells, and grain heaps.
+\item \textbf{Spherical Geometry:} The beginning of the chapter on spheres (\textit{gītādhyāya}), dealing with the geometry of spherical segments.
+\end{enumerate}
+}
+
+\vspace{1em}
+\begin{center}
+\longline\\[0.5em]
+\textit{``The Brāhmasphuṭasiddhānta stands as one of the most influential}\\
+\textit{mathematical texts in the history of world mathematics.''}\\[0.5em]
+\longline
+\end{center}
+
+\vspace{1em}
+\bilingual{%
+\textbf{स्रोतसि टिप्पणी:}\\[0.3em]
+वर्तमानसंस्करणं चौखम्बसंस्कृतशृङ्खलाप्रकाशनं आधृत्य विरचितम्, पण्डितसुधाकरद्विवेदिनः विस्तृतया हिन्दीटीकया सह। ब्रह्मगुप्तस्य नियमानां समानान्तरं विस्तारं कुर्वतः भास्कराचार्यस्य द्वितीयस्य लीलावत्याः सततं सन्दर्भाः कृताः।
+}{%
+\textbf{Note on Sources:}\\[0.3em]
+The present edition is based on the Chowkhamba Sanskrit Series publication, with the extensive Hindi commentary (\textit{Hindī bhāṣā}) of Paṇḍita Sudhākara Dvivedin. Frequent references are made to the \textit{Līlāvatī} of Bhāskarācārya II, whose rules often parallel or expand upon those of Brahmagupta.
+}
+
+\vspace{1em}
+\bilingual{%
+ग्रन्थः गीताध्यायस्य संधिं समापयति---गोलज्यामितेः अध्यायस्य, यत् एतत् संस्करणस्य तृतीये अन्तिमे भागे अनुबन्धिष्यते।
+}{%
+The work concludes with the transition into the \textit{Gītādhyāya}, the chapter on spherical geometry, which will be continued in the third and final part of this edition.
+}
+
+\vfill
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}\\[0.5em]
+\textsc{End of Part II}\\[0.3em]
+\dev{द्वितीयभागसमाप्तिः}\\[0.5em]
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+\end{document}

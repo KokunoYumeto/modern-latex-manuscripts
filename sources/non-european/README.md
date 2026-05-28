@@ -1,9 +1,17 @@
-# Non-European Mathematics Sources
+# Non-European Mathematics Corpus Mirror
 
-This directory mirrors the editable TeX surface of the current non-European mathematics Zenodo release. It includes:
+This folder mirrors the current cleaned source bundle for the public non-European mathematics corpus record on Zenodo.
 
-- `combined_tex_bundles/`: language/corpus-level and work-level combined TeX files.
-- `sources/`: individual TeX source files organized by corpus and language.
-- `audit-and-repair-notes/`: current PDF/readability audit, repair TODO, and CSV report.
+Live archive record: https://zenodo.org/records/20427329
 
-The large raw archives, page images, and OCR image assets are preserved on Zenodo rather than tracked in Git.
+The reader PDFs live in `reader-pdfs/non-european/`. This folder contains editable TeX, combined TeX bundles, regenerated component PDFs, text-sweep reports, repair notes, and checksums extracted from the public source artifact. Large raw source scans, OCR page images, and as-received provenance ZIPs remain on Zenodo rather than in Git, so the repository stays forkable.
+
+Current public release summary:
+
+- 66 top-level reader PDFs.
+- 214 editable TeX sources in the repaired source bundle.
+- 40 regenerated component PDFs in the repair/source artifact.
+- 73 files on the Zenodo record, including six ZIP artifacts for source/provenance material.
+- Local public-reader text sweep: zero process-note hits after cleanup.
+
+This is a working draft corpus for inspection and correction, not a proofed critical edition.

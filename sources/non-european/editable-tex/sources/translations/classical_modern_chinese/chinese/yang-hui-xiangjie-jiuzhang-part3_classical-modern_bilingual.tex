@@ -1,0 +1,1316 @@
+%% ========================================================================
+%% Yang Hui's Xiangjie Jiuzhang Suanfa — Part III (Reclassification)
+%% BILINGUAL EDITION: Classical Chinese <-> Modern Chinese Vernacular
+%% 详解九章算法 纂类 — 文言原文与白话译文对照本
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{xeCJK}
+\usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}
+
+%% CJK Support via xeCJK
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKmonofont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{classicalbg}{RGB}{255,252,240}
+\definecolor{modernbg}{RGB}{240,248,255}
+\definecolor{classicalframe}{RGB}{180,160,120}
+\definecolor{modernframe}{RGB}{120,160,180}
+\definecolor{colheadcl}{RGB}{139,90,43}
+\definecolor{colheadmd}{RGB}{43,90,139}
+
+%% -------- Section Formatting --------
+\titleformat{\section}{\normalfont\Large\bfseries\color{sectioncolor}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{sectioncolor}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\color{sectioncolor}}{\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{colheadcl}{【文言】}\quad\textcolor{colheadmd}{【白话】}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% Column header
+\newcommand{\colheader}{%
+  \begin{center}
+  \begin{minipage}[t]{0.45\textwidth}
+  \centering\textcolor{colheadcl}{\textbf{【文言原文】}}\\[2pt]
+  \footnotesize\textcolor{colheadcl}{Classical Chinese (文言文)}
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.45\textwidth}
+  \centering\textcolor{colheadmd}{\textbf{【白话译文】}}\\[2pt]
+  \footnotesize\textcolor{colheadmd}{Modern Chinese Vernacular (白话文)}
+  \end{minipage}
+  \end{center}
+  \vspace{6pt}
+  \noindent\rule{\textwidth}{0.4pt}
+  \vspace{6pt}
+}
+
+%% Bilingual paragraph pair (main workhorse)
+\newcommand{\bilingual}[2]{%
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\setlength{\parindent}{2em}\setlength{\parskip}{4pt}%
+\small\color{prefacecolor}#1%
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\setlength{\parindent}{2em}\setlength{\parskip}{4pt}%
+\small#2%
+\end{minipage}
+\vspace{8pt}
+}
+
+%% Colored box pair for methods/rules
+\newcommand{\bilingualmethod}[2]{%
+\vspace{6pt}
+\noindent
+\fcolorbox{classicalframe}{classicalbg}{%
+  \begin{minipage}[t]{0.42\textwidth}
+  \setlength{\parindent}{1.5em}\setlength{\parskip}{3pt}%
+  \small\color{prefacecolor}\textit{#1}%
+  \end{minipage}}%
+\hfill
+\fcolorbox{modernframe}{modernbg}{%
+  \begin{minipage}[t]{0.42\textwidth}
+  \setlength{\parindent}{1.5em}\setlength{\parskip}{3pt}%
+  \small\textit{#2}%
+  \end{minipage}}%
+\vspace{8pt}
+}
+
+%% Bilingual question display
+\newcommand{\biquestion}[2]{%
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\small\textbf{问：}#1%
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\small\textbf{问题：}#2%
+\end{minipage}
+\vspace{4pt}
+}
+
+%% Bilingual answer display
+\newcommand{\bianswer}[2]{%
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\small\textcolor{notecolor}{\textbf{答曰：}#1}%
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\small\textcolor{notecolor}{\textbf{答案：}#2}%
+\end{minipage}
+\vspace{6pt}
+}
+
+%% Problem header
+\newcounter{probnum}
+\newcommand{\probheader}[1]{%
+  \refstepcounter{probnum}%
+  \vspace{10pt}%
+  \noindent\textbf{\color{sectioncolor}题例 \theprobnum：#1}\par\smallskip
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={详解九章算法 纂类 — 文言白话对照本 (Part III)},
+  pdfauthor={杨辉 (Yang Hui)},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 2pt}
+
+%% ========================================================================
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+%% ===== TITLE PAGE =====
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\fontsize{30}{38}\selectfont\color{titlecolor} 详解九章算法}
+\vspace{0.8cm}
+
+{\fontsize{22}{28}\selectfont\color{sectioncolor} 纂类}
+\vspace{0.3cm}
+
+{\Large\color{prefacecolor} 文言原文与白话文对照本}
+\vspace{1.2cm}
+
+\shortline
+\vspace{0.8cm}
+
+{\LARGE 宋 \quad 杨辉 \quad 编次}
+\vspace{0.6cm}
+
+{\large\textit{Yang Hui's Detailed Analysis of the Mathematical\\[0.3em]
+Methods in the `Nine Chapters' --- Part III}}\\[0.4em]
+{\normalsize Bilingual Edition: Classical Chinese $\leftrightarrow$ Modern Chinese Vernacular}
+\vspace{0.4cm}
+
+{\normalsize (南宋理宗景定二年，1261 年)}
+\vspace{1.2cm}
+
+\shortline
+\vspace{0.8cm}
+
+\begin{minipage}{0.88\textwidth}
+\centering
+\small
+\textbf{【凡例说明】}\\[0.3em]
+本书页采用双栏对照排版：\\[0.2em]
+\textcolor{colheadcl}{$\bullet$ 左栏（暖棕底色）} —— 收录杨辉《详解九章算法·纂类》原文，保留宋代数学用语\\[0.2em]
+\textcolor{colheadmd}{$\bullet$ 右栏（淡蓝底色）} —— 提供现代白话文翻译，便于当代读者理解\\[0.2em]
+将《九章算术》二百四十六问按数学方法重新分类为九大门类
+\end{minipage}
+
+\vfill
+{\small 现代排版制作版}
+\end{titlepage}
+
+%% ===== TABLE OF CONTENTS =====
+\tableofcontents
+\newpage
+
+%% ===== COLUMN HEADER =====
+\colheader
+
+%% ===== PREFACE =====
+\section*{纂类序（Preface to the Reclassification）}
+\addcontentsline{toc}{section}{纂类序}
+
+\bilingual{%
+黄帝九章古序云：国家尝设算科取士，选九章以为算经之首，盖犹儒者之六经，医家之难素，兵法之孙子欤。昔圣宋绍兴戊辰，算士荣棨谓靖康以来，罕有旧本，间有存者，狃于末习，向获善本，得其全经，复起于学。以魏景元元年刘徽等、唐朝议大夫、行太史令上轻车都尉李淳风等注释，圣宋右班直贾宪细草。
+
+辉尝闻学者，谓九章题问颇隐，法理难明，不得其门而入。于是以答参问，用草考法，因法推类，然后知斯文非古之全经也。将后贤补赘之文，修前代已废之法，删立题术，又纂法问，详著于后，傥得贤者，改而正诸，是所愿也。
+}{%
+《黄帝九章算术》的古序说：国家曾经设立算学科举考试来选拔人才，把《九章算术》选为算经的第一部，这就好像儒家学者的六经，医学家的《难经》《素问》，兵法家的《孙子兵法》一样重要。从前圣宋绍兴戊辰年间，算学家荣棨说，自靖康年间以来，很少有旧版本流传，偶尔有保存下来的，也被后来的习惯所局限。后来我得到了好的版本，获得了完整的经书，才使这门学问重新振兴起来。这部书有魏景元元年（260年）刘徽等人、唐朝议大夫兼行太史令上轻车都尉李淳风等人的注释，以及本朝右班直贾宪的详细算草。
+
+我曾经听学者们说，《九章算术》的题目和问法相当隐晦，其中的法则和道理难以明了，让人找不到入门的路径。于是我便以答案来参照问题，用算草来考证方法，根据方法推求类别，这之后才知道这本书并不是古代的完整原经。我把后世贤者补充添附的文字加以整理，把前代已经废弃的法则加以修复，删改并重新设立题目和方法，又编纂了法则和问答，详细地写在后面，如果能够得到贤明之士加以改正和校正，那就是我的心愿了。
+}
+
+\newpage
+\colheader
+
+%% ===== TABLE OF CONTENTS OF THE ORIGINAL =====
+\section*{九章互见目录（Cross-Referenced Contents）}
+\addcontentsline{toc}{section}{九章互见目录}
+
+\bilingual{%
+杨辉窃见九章旧本，作立题法遗阙。古序云：靖康以来，罕有旧本，间有存者，狃于末习，不循本意，以至真术淹废，伪本滋典。此说固然，殊不知所传之本亦不得其真矣。如粟米章之互换、少广章之求由开方，皆重叠无谓，而作者题问不归章次，亦有之。今作纂类，互见目录，以辩其讹，后之明者，更为详释，不亦善乎？
+
+古本二百四十六问，其分布如下：
+}{%
+杨辉私下考察《九章算术》的旧版本，发现其中设立题目的法则有所遗漏缺失。古序说：自靖康以来，很少有旧版本留存，偶尔有保存下来的，也被后来的习惯所局限，不遵循本来的意图，以至于真正的算法被淹没废弃，错误的版本却滋生流传。这种说法固然有理，但殊不知所流传的版本也已经不是真正的原本了。比如粟米章中的互换问题、少广章中求平方根的方法，都有重复而无意义的内容，而且编撰者的题目和问答不按章节顺序排列的情况也存在。现在我编撰这部《纂类》，制作互见目录，用来辨别其中的错误，后世的明智之人能够进一步详细解释，不也是好事吗？
+
+古本共二百四十六道题，分布如下：
+}
+
+\begin{center}
+\begin{tabular}{|l|c|l|c|}
+\hline
+\textbf{章别} & \textbf{问数} & \textbf{章别} & \textbf{问数} \\
+\hline
+方田 & 38问（并乘除问） & 均输 & 28问 \\
+粟米 & 46问（乘除6问，互换31） & 盈不足 & 20问 \\
+衰分 & 20问（互换11，衰分9） & 方程 & 18问 \\
+少广 & 24问 & 勾股 & 24问 \\
+商功 & 28问（叠积27） & 合率 & 11问 \\
+\hline
+\end{tabular}
+\end{center}
+
+\bilingual{%
+类题以物理分章，有题法又互之讹。今将二百四十六问分别门例，使后学亦可周知也。
+}{%
+按类别分题，以事物的性质来分章，但有些题目和法则存在互相错乱的讹误。现在将二百四十六问分别归属到各个门类条例中，使后世的学者也能够全面了解了。
+}
+
+\newpage
+\colheader
+
+%% ===== MAIN CONTENT =====
+\section{乘除第一（Multiplication and Division）}
+
+\bilingual{%
+\textbf{凡四十一问}。今考该四十问：方田三十八，粟米二问。
+}{%
+\textbf{共四十一道题}。现在考证实为四十问：方田章三十八问，粟米章二问。
+}
+
+\subsection{基本方法（Basic Methods）}
+
+\bilingualmethod{%
+\textbf{直田法}曰：广从相乘为实，如亩法而一。
+}{%
+\textbf{直田法}：将田地的宽（广）和长（从）相乘得到被除数（实），然后除以亩法（一亩 = 240 平方步）即得亩数。
+}
+
+\probheader{方田一}
+\biquestion{%
+广十五步，从十六步，问田几何？
+}{%
+有一块田地，宽十五步，长十六步，问这块田有多少亩？
+}
+\bianswer{%
+一亩。
+}{%
+一亩。
+}
+
+\probheader{方田二}
+\biquestion{%
+广十二步，从十四步，问田几何？
+}{%
+有一块田地，宽十二步，长十四步，问这块田面积是多少？
+}
+\bianswer{%
+一百六十八步。
+}{%
+一百六十八平方步。
+}
+
+\subsection{里田法（Li-field Method）}
+
+\bilingualmethod{%
+\textbf{里田法}曰：方自乘为积里，以一里之积三百七十五亩乘之。
+}{%
+\textbf{里田法}：将一里的边长自乘得到平方里的面积，然后乘以一平方里等于三百七十五亩的换算率。
+}
+
+\probheader{里田一}
+\biquestion{%
+方田一里，问为田几何？
+}{%
+有一方形田地，边长为一里，换算成亩是多少？
+}
+\bianswer{%
+三顷七十五亩。
+}{%
+三顷七十五亩。
+}
+
+\probheader{里田二}
+\biquestion{%
+广二里，从三里，问田几何？
+}{%
+有一块田地，宽二里，长三里，问面积是多少？
+}
+\bianswer{%
+二十二顷五十亩。
+}{%
+二十二顷五十亩。
+}
+
+\subsection{圭田法（Triangular Field Method）}
+
+\bilingualmethod{%
+\textbf{圭田法}曰：半广以乘正从，或半正从以乘广。
+}{%
+\textbf{圭田法}：取宽度的一半乘以正长，或者取正长的一半乘以宽度。（即三角形面积 = 底 $\times$ 高 $\div$ 2）
+}
+
+\probheader{圭田}
+\biquestion{%
+圭田广十二步，从二十一步，问田几何？
+}{%
+有一块三角形田地，底宽十二步，高二十一步，问面积是多少？
+}
+\bianswer{%
+一百二十六步。
+}{%
+一百二十六平方步。
+}
+
+\newpage
+\colheader
+
+\subsection{斜田法（Trapezoidal Field Method）}
+
+\bilingualmethod{%
+\textbf{斜田法}曰：并两斜半之以乘正从，或并两广乘半从。
+}{%
+\textbf{斜田法}：将两条斜边相加取一半，再乘以正长；或者将两条宽相加，再乘以半长。（梯形面积 = （上底 + 下底）$\times$ 高 $\div$ 2）
+}
+
+\probheader{斜田}
+\biquestion{%
+斜田正广六十五步，一畔从七十二步，一畔从一百步，问田几何？
+}{%
+有一块梯形田地，正宽六十五步，一侧长七十二步，另一侧长一百步，问面积是多少？
+}
+\bianswer{%
+九亩一百四十四步。
+}{%
+九亩一百四十四平方步。
+}
+
+\subsection{圆田法（Circular Field Method）}
+
+\bilingualmethod{%
+\textbf{圆田法}曰：半周半径相乘，半周自乘三而一，周自乘十二而一，径自乘三之四而一。
+}{%
+\textbf{圆田法}：半周长与半径相乘得面积；或半周长自乘再除以三；或周长自乘再除以十二；或直径自乘乘以三再除以四。（按古代圆周率 $\pi \approx 3$）
+}
+
+\probheader{圆田}
+\biquestion{%
+圆田周三十步，径十步，问田几何？（古术）
+}{%
+有一块圆形田地，周长三十步，直径十步，问面积是多少？（按古代算法）
+}
+\bianswer{%
+七十五步。
+}{%
+七十五平方步。
+}
+
+\bilingualmethod{%
+\textbf{密率}：周自乘，又二十五乘之，三百一十四而一。
+}{%
+\textbf{密率法}：周长自乘，再乘以二十五，然后除以三百一十四。（即按 $\pi = 157/50 = 3.14$ 计算）
+}
+
+\subsection{除率法（Division Rate Method）}
+
+\bilingualmethod{%
+\textbf{经率法}（俗名商除）曰：钱数为实，以所买率为法，实如法而一。原载粟米章。
+}{%
+\textbf{经率法}（俗称商除）：将钱数作为被除数（实），把所买东西的单价率作为除数（法），实除以法即得单价。原载于粟米章。
+}
+
+\probheader{经率一}
+\biquestion{%
+钱一百六十文，买瓴甓十八枚，问枚价几何？
+}{%
+有一百六十文钱，买砖十八枚，问每枚砖的价钱是多少？
+}
+\bianswer{%
+一枚八钱九分钱之八。
+}{%
+每枚八又九分之八文钱。
+}
+
+\probheader{经率二}
+\biquestion{%
+钱十三贯五百，买竹二千三百五十个，问个价？
+}{%
+有一万三千五百文钱，买竹子二千三百五十根，问每根竹子的价钱？
+}
+\bianswer{%
+五钱四十七分钱之三十五。
+}{%
+每根五又四十七分之三十五文钱。
+}
+
+\newpage
+\colheader
+
+\section{互换第二（Exchange and Barter）}
+
+\bilingual{%
+\textbf{凡五十六问}。今考该五十五问：粟米三十一，衰分十一，均输十一，盈朒二。
+}{%
+\textbf{共五十六道题}。现在考证实为五十五问：粟米章三十一问，衰分章十一问，均输章十一问，盈不足章二问。
+}
+
+\subsection{互换法（Exchange Method）}
+
+\bilingualmethod{%
+\textbf{互换法}曰：以所求率乘所有数，为实；以所有率为法，实如法而一。
+}{%
+\textbf{互换法}：用所求物品的比率乘以已有的数量，作为被除数（实）；用已有物品的比率作为除数（法），实除以法即得所求的数量。
+}
+
+\bilingualmethod{%
+\textbf{置位法}曰：钱钱物物数数率率依本色对列，其各物原率随而下布。
+}{%
+\textbf{置位法}：在算板上布列时，将钱、物、数量、比率按照各自的类别对应排列，各种物品的原始比率依次向下布置。
+}
+
+\subsection{粟米互换（Grain Conversion）}
+
+\probheader{粟米互换一}
+\biquestion{%
+粟二斗一升，问为粺米几何？
+}{%
+有粟（带壳谷物）二斗一升，问能舂成多少粺米（精米）？
+}
+\bianswer{%
+一斗一升五十分升之十七。
+}{%
+一斗一升又五十分之十七升。
+}
+
+\probheader{粟米互换二}
+\biquestion{%
+粟三斗六升，问为粺饭几何？
+}{%
+有粟三斗六升，问能做成多少粺米饭？
+}
+\bianswer{%
+三斗八升二十五分升之二十二。
+}{%
+三斗八升又二十五分之二十二升。
+}
+
+\probheader{粟米互换三}
+\biquestion{%
+粟八斗六升，问为糳饭几何？
+}{%
+有粟八斗六升，问能做成多少糳米饭？
+}
+\bianswer{%
+八斗二升二十五分升之一十四。
+}{%
+八斗二升又二十五分之十四升。
+}
+
+\probheader{粟米互换四}
+\biquestion{%
+粟九斗八升，问为御饭几何？
+}{%
+有粟九斗八升，问能做成多少御米饭？
+}
+\bianswer{%
+八斗二升二十五分升之八。
+}{%
+八斗二升又二十五分之八升。
+}
+
+\probheader{粟米互换五}
+\biquestion{%
+粟七斗八升，问为豉几何？
+}{%
+有粟七斗八升，问能制成多少豆豉？
+}
+\bianswer{%
+九斗八升二十五分升之七。
+}{%
+九斗八升又二十五分之七升。
+}
+
+\probheader{粟米互换六}
+\biquestion{%
+粟五斗五升，问为飧几何？
+}{%
+有粟五斗五升，问能做成多少熟食（飧）？
+}
+\bianswer{%
+九斗九升。
+}{%
+九斗九升。
+}
+
+\probheader{粟米互换七}
+\biquestion{%
+粟四斗，问为熟菽几何？
+}{%
+有粟四斗，问能煮熟多少豆子？
+}
+\bianswer{%
+八斗二升五分升之四。
+}{%
+八斗二升又五分之四升。
+}
+
+\newpage
+\colheader
+
+\probheader{粟米互换八}
+\biquestion{%
+粟二斗，问为蘖几何？
+}{%
+有粟二斗，问能发芽制成多少糵（麦芽）？
+}
+\bianswer{%
+七斗。
+}{%
+七斗。
+}
+
+\probheader{粟米互换九}
+\biquestion{%
+粟三斗少半升，问为菽几何？
+}{%
+有粟三斗又三分之一升，问能换多少豆子？
+}
+\bianswer{%
+二斗七升十分升之三。
+}{%
+二斗七升又十分之三升。
+}
+
+\probheader{粟米互换十}
+\biquestion{%
+粟四斗一升太半升，问为答几何？
+}{%
+有粟四斗一升又三分之二升，问能换多少大麦？
+}
+\bianswer{%
+三斗七升半。
+}{%
+三斗七升半。
+}
+
+\probheader{粟米互换十一}
+\biquestion{%
+粟五斗太半升，问为麻几何？
+}{%
+有粟五斗又三分之二升，问能换多少麻？
+}
+\bianswer{%
+四斗五升五分升之三。
+}{%
+四斗五升又五分之三升。
+}
+
+\probheader{粟米互换十二}
+\biquestion{%
+粟一斗，问为粝米几何？
+}{%
+有粟一斗，问能舂成多少糙米？
+}
+\bianswer{%
+六升。
+}{%
+六升。
+}
+
+\probheader{粟米互换十三}
+\biquestion{%
+粟四斗五升，问为糳米几何？
+}{%
+有粟四斗五升，问能舂成多少精白米？
+}
+\bianswer{%
+二斗一升五分升之三。
+}{%
+二斗一升又五分之三升。
+}
+
+\subsection{持金出关（Taxation Problems）}
+
+\probheader{持金出关}
+\biquestion{%
+今持金十二斤出关，税之十分而取一。今关取金二斤，价钱五千。问金一斤值钱几何？
+}{%
+现在有人带着十二斤金子出关，按规定要征收十分之一的关税。现在关卡收取了二斤金子，作价五千文钱。问一斤金子值多少钱？
+}
+\bianswer{%
+六千二百五十。
+}{%
+六千二百五十文。
+}
+
+\probheader{持米出三关}
+\biquestion{%
+持米出三关，外关三分税一，中关五分税一，内关七分税一，余存米五斗。问：原米几何？
+}{%
+有人带着米出三道关卡，外关征收三分之一，中关征收五分之一，内关征收七分之一，最后还剩五斗米。问：原来有多少米？
+}
+\bianswer{%
+一十斗九升八分升之三。
+}{%
+十斗九升又八分之三升。
+}
+
+\newpage
+\colheader
+
+\section{合率第三（Combined Rates）}
+
+\bilingual{%
+\textbf{凡二十问}：少广十一，均输八，盈不足一。
+}{%
+\textbf{共二十道题}：少广章十一问，均输章八问，盈不足章一问。
+}
+
+\subsection{少广法（Short Width Method）}
+
+\bilingual{%
+少广反合分并率。设诸分母子并而为广，借田求纵，立少广章，易合分之术而为法。用副置分母自乘，以乘全步及诸子，各以本母除其子而并之，免互乘之繁。又得此术，兼助合分，使法引伸，不亦善乎？
+}{%
+少广的方法是反过来的合分并率。假设把各个分数的分母和分子合并起来作为宽度，借用田地面积来求长度，设立少广章，把合分的方法改换过来作为法则。另外把分母自乘，再乘以整数步和各个分子，各自用原来的分母去除分子然后合并，这样就避免了互乘的繁琐。又得到这个方法，还能辅助合分的运算，使法则得以推广延伸，不也是很好的吗？
+}
+
+\bilingualmethod{%
+\textbf{少广法}曰：列置全步及分母子，而副置分母自乘，以乘全步及子，各以本母除子，并之为法，以全步积分乘亩步为实，实如法而一。
+}{%
+\textbf{少广法}：在算板上布列整数步和各个分数的分子分母，另外把分母自乘，再乘以整数步和分子，各自用原来的分母去除分子，合并起来作为除数（法），用整数步的积分乘以一亩的步数作为被除数（实），实除以法即得长度。
+}
+
+\probheader{少广一}
+\biquestion{%
+田一亩广一步半，问从？
+}{%
+有一块田面积一亩，宽一步半，问长是多少？
+}
+\bianswer{%
+一百六十步。
+}{%
+一百六十步。
+}
+
+\probheader{少广二}
+\biquestion{%
+田一亩广一步半，三分步之一，问从？
+}{%
+有一块田面积一亩，宽一步半又三分之一步，问长是多少？
+}
+\bianswer{%
+一百三十步一十一分步之一十。
+}{%
+一百三十步又十一分之十步。
+}
+
+\probheader{少广三}
+\biquestion{%
+田一亩广一步半，三分步之一，四分步之一，问从？
+}{%
+有一块田面积一亩，宽一步半又三分之一步又四分之一步，问长是多少？
+}
+\bianswer{%
+一百一十五步五分步之一。
+}{%
+一百一十五步又五分之一步。
+}
+
+\probheader{少广四}
+\biquestion{%
+田一亩广一步半，三分步之一，四分步之一，五分步之一，问从？
+}{%
+有一块田面积一亩，宽一步半又三分之一又四分之一又五分之一步，问长是多少？
+}
+\bianswer{%
+一百五步一百三十七分步之一十五。
+}{%
+一百零五步又一百三十七分之十五步。
+}
+
+\probheader{少广五}
+\biquestion{%
+田一亩广一步半，三分步之一，四分步之一，五分步之一，六分步之一，问从？
+}{%
+有一块田面积一亩，宽一步半又三分之一又四分之一又五分之一又六分之一步，问长是多少？
+}
+\bianswer{%
+九十七步四十九分步之四十七。
+}{%
+九十七步又四十九分之四十七步。
+}
+
+\probheader{少广六}
+\biquestion{%
+田一亩广一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，问从？
+}{%
+有一块田面积一亩，宽一步半又三分之一又四分之一又五分之一又六分之一又七分之一步，问长是多少？
+}
+\bianswer{%
+九十二步一百二十一分步之六十八。
+}{%
+九十二步又一百二十一分之六十八步。
+}
+
+\newpage
+\colheader
+
+\section{分率第四（Fractional Rates）}
+
+\bilingual{%
+\textbf{凡九问}。本章九问。
+}{%
+\textbf{共九道题}。都是分率章的题目。
+}
+
+\subsection{乘分法（Multiplication of Fractions）}
+
+\bilingualmethod{%
+\textbf{乘分法}曰：分母各乘其全，分子从之，相乘为实，分母相乘为法。
+}{%
+\textbf{乘分法}：分母各自乘以整数部分，分子跟随着，然后相乘作为被除数（实），分母相乘作为除数（法），实除以法即得结果。（分数乘法：分子乘分子，分母乘分母）
+}
+
+\probheader{乘分一}
+\biquestion{%
+田广一十八步七分步之五，从二十三步十一分步之六，问为田几何？
+}{%
+有一块田地，宽十八步又七分之五步，长二十三步又十一分之六步，问面积是多少？
+}
+\bianswer{%
+一亩二百步十一分步之七。
+}{%
+一亩二百平方步又十一分之七平方步。
+}
+
+\probheader{乘分二}
+\biquestion{%
+田广三步三分步之一，从五步五分步之一，问为田几何？
+}{%
+有一块田地，宽三步又三分之一，长五步又五分之一，问面积是多少？
+}
+\bianswer{%
+一十八步。
+}{%
+十八平方步。
+}
+
+\subsection{除分法（Division of Fractions）}
+
+\bilingualmethod{%
+\textbf{除分法}曰：人数为法，钱数为实，有分者通之，实如法而一。
+}{%
+\textbf{除分法}：将人数作为除数（法），将钱数作为被除数（实），有分数的就通分，实除以法即得每人分得的数量。
+}
+
+\probheader{除分一}
+\biquestion{%
+七人均入钱三分钱之一，问人得几何？
+}{%
+七个人平分一又三分之一文钱，问每人得多少？
+}
+\bianswer{%
+人得一钱二十一分钱之四。
+}{%
+每人得一又二十一分之四文钱。
+}
+
+\probheader{除分二}
+\biquestion{%
+三人三分人之一均六钱三分钱之一四分钱之三，问人得几何？
+}{%
+有三又三分之一个人平分六又三分之一又四分之三文钱，问每人得多少？
+}
+\bianswer{%
+得三钱八分钱之一。
+}{%
+每人得三又八分之一文钱。
+}
+
+\newpage
+\colheader
+
+\section{衰分第五（Proportional Distribution）}
+
+\bilingual{%
+\textbf{凡十八问}：本章九问，均输九问。
+}{%
+\textbf{共十八道题}：衰分章九问，均输章九问。
+}
+
+\bilingualmethod{%
+\textbf{衰分法}曰：各置列衰，副并为法，以所分乘未并者各自为实，实如法而一。
+}{%
+\textbf{衰分法}：各自布置分配的比率（列衰），另外合并起来作为除数（法），用要分配的总量乘以未合并前的各自比率作为被除数（实），实除以法即得各人分得的数量。（按比例分配）
+}
+
+\probheader{衰分一}
+\biquestion{%
+今有牛二羊五买豕一十三家，有余钱一千；卖牛三豕三以买九羊，钱适足；卖六羊八豕以买五牛，钱不足六百。问牛羊豕价各几何？
+}{%
+现在有人用二头牛和五只羊去换十三头猪，还余下一千文钱；卖三头牛和三头猪去买九只羊，钱刚好够；卖六只羊和八头猪去买五头牛，还差六百文钱。问牛、羊、猪各值多少钱？
+}
+\bianswer{%
+牛价一千二百，羊价五百，豕价三百。
+}{%
+牛价一千二百文，羊价五百文，猪价三百文。
+}
+
+\probheader{衰分二（五雀六燕）}
+\biquestion{%
+五雀六燕共重一斤，雀重燕轻，交易一枚，其重适等。问各几何？
+}{%
+有五只麻雀和六只燕子共重一斤，麻雀重而燕子轻，交换一只后，两边的重量正好相等。问每只麻雀和燕子各重多少？
+}
+\bianswer{%
+雀一两十九分两之一十三，燕一两十九两之五。
+}{%
+每只麻雀重一两又十九分之十三两，每只燕子重一两又十九分之五两。
+}
+
+\probheader{均输一}
+\biquestion{%
+五县均赋粟一万石，每车载二十五石，行道一里出雇钱一文，各县到输所远近不等，粟价高下，欲令县劳收相等。内甲县二万五百二十户，粟一石价钱二十，自输其县；乙县一万二千三百一十二户，粟一石价钱一十，远输所二百里；丙县七千一百八十二户，粟一石价钱一十二，远输所一百五十里；丁县一万三千三百三十八户，粟一石价钱一十七，远输所二百五十里；戊县五千一百三十户，粟一石价钱一十三，远输所一百五十里。问各几何？
+}{%
+五个县共同分摊缴纳一万石粟米的赋税，每辆车装载二十五石，每走一里路需要出一文钱的运费，各县到缴纳地点的远近不同，粟米价格也有高低，现在要使各县付出的劳力和收到的粟米价值相等。其中甲县有二万零五百二十户，粟一石值二十文钱，在本县缴纳；乙县有一万二千三百一十二户，粟一石值十文钱，距离缴纳地二百里；丙县有七千一百八十二户，粟一石值十二文钱，距离缴纳地一百五十里；丁县有一万三千三百三十八户，粟一石值十七文钱，距离缴纳地二百五十里；戊县有五千一百三十户，粟一石值十三文钱，距离缴纳地一百五十里。问各县应缴纳多少？
+}
+
+\newpage
+\colheader
+
+\section{叠积第六（Stacked Accumulations）}
+
+\bilingual{%
+\textbf{凡二十七问}，并商功章。
+}{%
+\textbf{共二十七道题}，都是商功章的内容。
+}
+
+\bilingualmethod{%
+\textbf{商功法}曰：各以其积乘之，以高若深乘之，皆如六而一。
+}{%
+\textbf{商功法}：各自用底面积相乘，再乘以高或深，然后都除以六。（楔形体体积公式 $V = \frac{1}{6} \times$ 底面积 $\times$ 高）
+}
+
+\probheader{盘池}
+\biquestion{%
+盘池上广六丈，袤八丈，下广四丈，袤六丈，深二丈。问积尺几何？
+}{%
+有一个盘形水池，上底宽六丈，长八丈，下底宽四丈，长六丈，深二丈。问容积是多少立方尺？
+}
+\bianswer{%
+七万六百六十六尺太半尺。
+}{%
+七万零六百六十六又三分之二立方尺。
+}
+
+\probheader{冥谷}
+\biquestion{%
+冥谷上广二丈，袤七丈，下广八尺，袤四丈，深六丈五尺。问积几何？
+}{%
+有一个深谷，上底宽二丈，长七丈，下底宽八尺，长四丈，深六丈五尺。问容积是多少？
+}
+\bianswer{%
+五万二千尺。
+}{%
+五万二千立方尺。
+}
+
+\bilingualmethod{%
+\textbf{刍甍法}曰：倍下长并入上长，以广乘之，又高乘之，皆如六而一。
+
+下广三丈，袤四丈，上袤二丈，无广，高一丈。问积几何？
+}{%
+\textbf{刍甍法}：将下底长度加倍加上上底长度，乘以宽度，再乘以高，然后都除以六。
+
+有一个屋脊形的草垛，下底宽三丈，长四丈，上底长二丈，没有宽度（上底为线），高一丈。问体积是多少？
+}
+\bianswer{%
+五千尺。
+}{%
+五千立方尺。
+}
+
+\bilingualmethod{%
+\textbf{羡除法}曰：并三广以深乘之，又长乘之，皆如六而一。
+
+上广一丈，下广六尺，深三尺，末广八尺，无深，袤七尺。问积几何？
+}{%
+\textbf{羡除法}：将三个宽度相加，乘以深度，再乘以长度，然后都除以六。
+
+有一个隧道形体，上宽一丈，下宽六尺，深三尺，末端宽八尺，没有深度，长七尺。问体积是多少？
+}
+\bianswer{%
+五千尺。
+}{%
+五千立方尺。
+}
+
+\newpage
+\colheader
+
+\section{盈不足第七（Excess and Deficit）}
+
+\bilingual{%
+\textbf{凡十一问}，并本章。
+}{%
+\textbf{共十一道题}，都是盈不足章的内容。
+}
+
+\subsection{盈朒适足法（Excess/Deficit/Exact Method）}
+
+\bilingualmethod{%
+\textbf{盈朒适足法}曰：置所出率，盈朒各居其下。副置出率，以少减多余为约法。盈朒适足，令维乘所出率实，以盈朒之数乘人积为人实，实皆如约法而一。
+
+其一法曰：以盈或不足之数为实，置所出率，以少减多余为法，实如法而一约人，以适足出率乘人，为物价也。
+}{%
+\textbf{盈不足适足法}：布置每人出的钱数（出率），盈余或不足数各放在下面。另外布置出率，用大的减去小的，余数作为约法。对于盈不足适足的情况，交叉相乘所出率与实，用盈或不足的数乘以人数积作为人实，各实都除以约法即得。
+
+另一种方法：用盈余或不足的数作为被除数（实），布置所出率，用大的减去小的余数作为除数（法），实除以法得到人数，再用适足的出率乘以人数，就得到物价。
+}
+
+\probheader{盈不足一（共买犬）}
+\biquestion{%
+共买犬，人出五不足九十文，人出五十文适足。问人数、犬价各几何？
+}{%
+几个人合伙买一条狗，每人出五文钱，还差九十文；每人出五十文，正好够。问有多少人和狗的价钱是多少？
+}
+\bianswer{%
+二人，犬价一百。
+}{%
+二人，狗的价钱一百文。
+}
+
+\probheader{盈不足二（买豕）}
+\biquestion{%
+买豕，人各出一百盈一百文，各出九十适足。问人数、豕价各几何？
+}{%
+几个人合伙买一头猪，每人出一百文，多出一百文；每人出九十文，正好够。问有多少人和猪的价钱是多少？
+}
+\bianswer{%
+十人，豕价九百。
+}{%
+十人，猪的价钱九百文。
+}
+
+\subsection{双假设法（Double False Position）}
+
+\probheader{盈不足三}
+\biquestion{%
+今有共买璡，人出半盈四，人出少半不足三。问人数、璡价各几何？
+}{%
+现在几个人合伙买璡（一种玉器），每人出一半钱，多四文；每人出少于一半的钱，少三文。问人数和玉价各是多少？
+}
+\bianswer{%
+四十二人，璡价十七。
+}{%
+四十二人，玉价十七文。
+}
+
+\probheader{盈不足四（大小器）}
+\biquestion{%
+今有大器五小器一容三斛，大器一小器五容二斛。问大小器各容几何？
+}{%
+现在有大容器五个和小容器一个共容三斛，大容器一个和小容器五个共容二斛。问大小容器各能容多少？
+}
+\bianswer{%
+大器容二十四分解之一十三，小器容二十四分解之七。
+}{%
+大容器容二十四分之十三斛，小容器容二十四分之七斛。
+}
+
+\probheader{盈不足五（二酒求价）}
+\biquestion{%
+今有醇酒一斗直钱五十，行酒一斗直钱一十。今将钱三十，得酒二斗。问醇行酒各几何？
+}{%
+现在有醇酒（好酒）一斗值五十文，行酒（普通酒）一斗值十文。现在用三十文钱买酒二斗。问醇酒和行酒各买了多少？
+}
+\bianswer{%
+醇酒二升半，行酒一斗七升半。
+}{%
+醇酒二升半，行酒一斗七升半。
+}
+
+\probheader{盈不足六（五家共井）}
+\biquestion{%
+今有五家共井，甲二绠不足如乙一，乙三绠不足如丙一，丙四绠不足如丁一，丁五绠不足如戊一，戊六绠不足如甲一。如各得所不足一绠，皆逮。问井深、绠长各几何？
+}{%
+现在有五家人共用一口井，甲家的绳二条还不够乙家一条那么长，乙家的绳三条还不够丙家一条那么长，丙家的绳四条还不够丁家一条那么长，丁家的绳五条还不够戊家一条那么长，戊家的绳六条还不够甲家一条那么长。如果各家都得到所缺的一条绳长，就都能打到水。问井的深度和各家的绳长各是多少？
+}
+
+\newpage
+\colheader
+
+\section{方程第八（Simultaneous Equations）}
+
+\bilingual{%
+\textbf{凡二十问}：本章十八问，均输盈朒二。
+}{%
+\textbf{共二十道题}：方程章十八问，均输章和盈不足章各一问。
+}
+
+\subsection{方程法（Method of Simultaneous Equations）}
+
+\bilingualmethod{%
+\textbf{方程法}曰：所求率互乘邻行，以少减多，再求减损。钱为实，物为法，实如法而一。
+
+置位法曰：依所问排列逐物与价，而邻行相对如之。
+}{%
+\textbf{方程法}：用所求的比率交叉乘以相邻的行，用少的减去多的，再次求减损。钱数作为被除数（实），物品作为除数（法），实除以法即得各物的单价。
+
+布列方法：按照问题排列各种物品和价格，相邻的行互相对应排列。（线性方程组的增广矩阵布列法）
+}
+
+\probheader{方程一（上中下禾）}
+\biquestion{%
+上禾三束，中禾二束，下禾一束，共实三十九斗。上禾二束，中禾三束，下禾一束，共实三十四斗。上禾一束，中禾二束，下禾三束，共实二十六斗。问：上、中、下禾一束各几何？
+}{%
+上等禾三束，中等禾二束，下等禾一束，共出谷三十九斗。上等禾二束，中等禾三束，下等禾一束，共出谷三十四斗。上等禾一束，中等禾二束，下等禾三束，共出谷二十六斗。问：上、中、下等禾每束各出多少斗谷？
+}
+\bianswer{%
+上禾一束，得九斗四分斗之一；中禾一束，得四斗四分斗之一；下禾一束，得二斗四分斗之三。
+}{%
+上等禾每束出九又四分之一斗；中等禾每束出四又四分之一斗；下等禾每束出二又四分之三斗。
+}
+
+\probheader{方程二（牛羊价）}
+\biquestion{%
+五牛二羊，直金十两；二牛五羊，直金八两。问：牛、羊价各几何？
+}{%
+五头牛二只羊，值十两金子；二头牛五只羊，值八两金子。问：牛和羊各值多少？
+}
+\bianswer{%
+一牛直金一两二十一分两之一十三；一羊直金二十一两分之二十。
+}{%
+一头牛值一两又二十一分之十三两金子；一只羊值二十一分之二十两金子。
+}
+
+\probheader{方程三}
+\biquestion{%
+上禾二秉，中禾三秉，下禾四秉，实皆不满斗。上取中，中取下，下取上，各一秉，而实满斗。问：上、中、下禾一秉，实各几何？
+}{%
+上等禾二秉，中等禾三秉，下等禾四秉，出谷都不满一斗。上等禾从中等禾取，中等禾从下等禾取，下等禾从上等禾取，各取一秉后，出谷正好满一斗。问：上、中、下等禾每秉各出多少斗谷？
+}
+\bianswer{%
+上禾一秉，实二十五分斗之九；中禾一秉，实二十五分斗之七；下禾一秉，实二十五分斗之四。
+}{%
+上等禾每秉出二十五分之九斗；中等禾每秉出二十五分之七斗；下等禾每秉出二十五分之四斗。
+}
+
+\subsection{正负术（Positive and Negative Method）}
+
+\bilingualmethod{%
+\textbf{正负术}曰：同名相除，异名相益，正无入负之，负无入正之。其异名相除，同名相益，正无入正之，负无入负之。
+}{%
+\textbf{正负术}：同号的两数相减（绝对值相减），异号的两数相加（绝对值相加），正数没有对应数时就加上负号，负数没有对应数时就加上正号。另一种情况：异号的两数相除，同号的两数相乘，正数没有对应数时就记为正，负数没有对应数时就记为负。
+}
+
+\probheader{方程四（卖牛买羊）}
+\biquestion{%
+今有卖牛二、羊五，以买一十三豕，有余钱一千；卖牛三、豕三，以买九羊，钱适足；卖六羊、八豕，以买五牛，钱不足六百。问：牛、羊、豕价各几何？
+}{%
+现在卖二头牛和五只羊去买十三头猪，余一千文钱；卖三头牛和三头猪去买九只羊，钱刚好够；卖六只羊和八头猪去买五头牛，差六百文钱。问：牛、羊、猪各值多少钱？
+}
+\bianswer{%
+牛价一千二百，羊价五百，豕价三百。
+}{%
+牛价一千二百文，羊价五百文，猪价三百文。
+}
+
+\probheader{方程五（金银易重）}
+\biquestion{%
+今有黄金九，白银一十一，称之重适等，交易其一，金轻十三两。问：金、银一枚各重几何？
+}{%
+现在有黄金九枚，白银十一枚，称起来重量正好相等。交换一枚后，黄金这边轻了十三两。问：金、银每枚各重多少？
+}
+
+\newpage
+\colheader
+
+\section{勾股第九（Right Triangles）}
+
+\bilingual{%
+\textbf{凡三十八问}：少广十三，商功一问，本章二十四。
+}{%
+\textbf{共三十八道题}：少广章十三问，商功章一问，勾股章二十四问。
+}
+
+\subsection{勾股基本方法（Basic Pythagorean Methods）}
+
+\bilingualmethod{%
+\textbf{勾股法}曰：勾自乘，股自乘，并之为弦实，开方除之即弦。其勾股自乘为实，如股弦较而一，加较半之即弦。
+}{%
+\textbf{勾股法}：勾（短直角边）自乘，股（长直角边）自乘，合并起来作为弦（斜边）的平方数，开平方即得弦长。另外，勾股各自平方作为被除数，除以股弦差再加差的一半即得弦长。（勾股定理 $c = \sqrt{a^2 + b^2}$）
+}
+
+\probheader{勾股一}
+\biquestion{%
+其三，勾自乘为实，如股弦较而一，加较半之即弦。
+
+立木垂索，委地二尺，引索斜之，拄地去木八尺。问索长几何？
+}{%
+第三种方法：勾自乘作为被除数，除以股弦差，再加差的一半即得弦。
+
+有一根竖立的木杆垂着绳索，绳拖在地上二尺长，拉紧绳索斜着拉，绳索着地的地方距离木杆八尺。问绳索有多长？
+}
+\bianswer{%
+一十七尺。
+}{%
+十七尺。
+}
+
+\probheader{勾股二}
+\biquestion{%
+其四，勾自乘为实，如股弦较而一，以较减之余半之即股。
+
+垣高一丈，倚木齐垣，木脚去本以画记之，卧而过画一尺。问去本几何？
+}{%
+第四种方法：勾自乘作为被除数，除以股弦差，用差去减余数再取半即得股。
+
+有一道高一丈的墙，把一根木头靠着墙竖立，在木脚离地的地方做记号，然后放倒木头，记号超过地面一尺。问木脚离墙根多远？
+}
+\bianswer{%
+四丈九尺半。
+}{%
+四丈九尺半。
+}
+
+\probheader{勾股三}
+\biquestion{%
+其五，半勾自乘为实，如半股弦较而一，加半较即弦。
+
+圆材埋在壁中，不知大小，锯深一寸，道長一尺。问径几何？
+}{%
+第五种方法：半勾自乘作为被除数，除以半股弦差，加半差即得弦。
+
+有一段圆形木材埋在墙壁中，不知道大小，锯进去一寸深，锯道长一尺。问圆木的直径是多少？
+}
+
+\subsection{户高广问题（Door Height and Width）}
+
+\probheader{勾股四（户高广）}
+\biquestion{%
+开门去阃一尺，不合二寸。问门广几何？
+}{%
+打开门后，门扇离门槛一尺，门扇之间有缝隙不合二寸。问门的宽度是多少？
+}
+\bianswer{%
+一丈一寸五分。
+}{%
+一丈一寸五分。
+}
+
+\subsection{勾股容方（Square Inscribed in Right Triangle）}
+
+\bilingualmethod{%
+\textbf{合率}：勾中容方。
+
+今有勾五步，股十二步。问：勾中容方几何？
+}{%
+\textbf{合率问题}：直角三角形中内接正方形的边长计算。
+
+现在有一个直角三角形，勾（短直角边）五步，股（长直角边）十二步。问：在这个直角三角形中能容纳的最大正方形的边长是多少？
+}
+\bianswer{%
+方三步十七分步之九。
+}{%
+正方形边长为三又十七分之九步。
+}
+
+\newpage
+\colheader
+
+\subsection{复杂勾股问题（Complex Pythagorean Problems）}
+
+\probheader{勾股五（竹折）}
+\biquestion{%
+今有竹高一丈，末折抵地，去本三尺。问：折者高几何？
+}{%
+现在有一根竹子高一丈，顶端折断后触地，竹尖离根部三尺远。问：折断处离地有多高？
+}
+\bianswer{%
+四尺五十五分尺之十一。
+}{%
+四尺又五十五分之十一尺。
+}
+
+\probheader{勾股六（葭生中央）}
+\biquestion{%
+今有池方一丈，葭生其中央，出水一尺。引葭赴岸，适与岸齐。问：水深、葭长各几何？
+}{%
+现在有一个边长一丈的方形水池，芦苇生长在水池的中央，露出水面一尺。把芦苇拉到岸边，正好与岸边齐平。问：水深和芦苇长度各是多少？
+}
+
+\probheader{勾股七（邑方）}
+\biquestion{%
+今有邑方不知大小，各开中门。出北门二十步有木，出南门十四步折而西行一千七百七十五步见木。问：邑方几何？
+}{%
+现在有一座方形城邑，不知道大小，各边开有中门。出北门走二十步有一棵树，出南门走十四步然后向西折行一千七百七十五步能看到那棵树。问：城邑的边长是多少？
+}
+
+\newpage
+\colheader
+
+%% ===== APPENDIX =====
+\section*{附录：九大分类门类说明}
+\addcontentsline{toc}{section}{附录：九大分类门类说明}
+
+\bilingual{%
+杨辉《纂类》将《九章算术》二百四十六问按数学方法重新分为九大门类：
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{乘除} —— 乘法与除法：四十一道，涉及基本田地测量与单位换算。
+\item \textbf{分率} —— 分数运算：九道，涉及分数乘法、除法与比较。
+\item \textbf{合率} —— 合率运算：二十道，涉及分数合并运算，包括"少广"法。
+\item \textbf{互换} —— 交换与贸易：五十六道，涉及物品比例交换，包括谷物换算与税务问题。
+\item \textbf{衰分} —— 比例分配：十八道，涉及按比例分配数量，包括"均输"法。
+\item \textbf{叠积} —— 体积计算：二十七道，涉及土方工程与其他三维体积计算。
+\item \textbf{盈不足} —— 盈不足术：十一道，用双假设法（试位法）求解。
+\item \textbf{方程} —— 线性方程组：二十道，涉及多元一次方程组，用算板矩阵法求解。
+\item \textbf{勾股} —— 勾股定理：三十八道，应用勾股定理及相关几何方法。
+\end{enumerate}
+}{%
+杨辉的《纂类》将《九章算术》中的二百四十六道数学题按照数学方法重新组织为九个大类：
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{乘除} —— 乘法和除法：41道题，关于基本田地面积测量和单位换算。
+\item \textbf{分率} —— 分数运算：9道题，关于分数的乘法、除法和比较大小。
+\item \textbf{合率} —— 合率运算：20道题，关于分数的合并计算，包括"少广"法。
+\item \textbf{互换} —— 交换与易货贸易：56道题，关于物品的比例交换，包括谷物换算和赋税问题。
+\item \textbf{衰分} —— 按比例分配：18道题，关于按一定比例分配数量，包括"均输"法。
+\item \textbf{叠积} —— 堆叠体积计算：27道题，关于土方工程和其他三维立体体积的计算。
+\item \textbf{盈不足} —— 盈亏问题：11道题，用双假设法（试位法）来求解。
+\item \textbf{方程} —— 线性方程组：20道题，关于多元一次方程组，用算板上的矩阵方法来求解。
+\item \textbf{勾股} —— 直角三角形：38道题，应用勾股定理和相关的几何计算方法。
+\end{enumerate}
+}
+
+\vspace{1cm}
+\longline
+
+\vspace{1cm}
+
+\bilingual{%
+\noindent\textit{此排版本再现杨辉《详解九章算法·纂类》（南宋景定二年，1261年）之内容。原著将《九章算术》全部二百四十六问按数学方法重新分类，开创了按方法论组织数学问题的教学新体例，堪称现代数学分类教学法之先声。}
+}{%
+\noindent\textit{本排版版再现杨辉《详解九章算法·纂类》的内容，原著成书于南宋景定二年（1261年）。原著将《九章算术》中全部二百四十六道数学题按照其内在的数学方法重新组织分类，创造了一种具有教学创新性的结构，可谓现代数学分类教学法的先声。}
+}
+
+\vspace{1cm}
+
+\begin{flushright}
+\textit{—— 第三部（纂类）终 ——}
+\end{flushright}
+
+\end{document}
