@@ -1,2073 +1,2078 @@
-%% ========================================================================
-%% Kitab al-Mukhtasar fi Hisab al-Jabr wa-l-Muqabala
-%% by Muhammad ibn Musa al-Khwarizmi (c. 820 CE)
-%% Enhanced Arabic Scholarly Edition
-%% ========================================================================
-
-\documentclass[11pt,a4paper]{book}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{lettrine}
-\usepackage{microtype}
-\usepackage{tocloft}
-\usepackage{indentfirst}
-\usepackage{tcolorbox}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=22mm,right=22mm,top=28mm,bottom=28mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Language Setup --------
-\setmainlanguage[numerals=maghrib]{arabic}
-\setotherlanguage{english}
-
-%% -------- Font Configuration --------
-\setmainfont{Arial}
-
-\newfontfamily\latinfont{Times New Roman}
-\newfontfamily\latinfontsf{Arial}
-\setmonofont{Courier New}
-
-%% Arabic display font
-\newfontfamily\arabicdisplayfont[Script=Arabic,Scale=1.1]{Arial}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{arabicbg}{RGB}{252,250,245}
-\definecolor{dropgold}{RGB}{139,90,43}
-\definecolor{commentarybg}{RGB}{245,248,250}
-\definecolor{originalbg}{RGB}{255,253,245}
-
-%% -------- Section Formatting --------
-\titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries\color{titlecolor}}
-  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE]{\small\thepage}
-\fancyhead[RO]{\small\thepage}
-\fancyhead[C]{\small Kitab al-Jabr wa-l-Muqabala -- al-Tab'a al-Arabiyya al-Muhaqqaqa}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-
-%% -------- tcolorbox styles --------
-\tcbuselibrary{skins,breakable}
-
-\newtcolorbox{originaltext}[1]{
-  colback=originalbg,
-  colframe=rulecolor,
-  arc=3pt,
-  boxrule=0.6pt,
-  left=12pt,right=12pt,top=8pt,bottom=8pt,
-  fontupper=\normalsize,
-  breakable,
-  title={\small\textbf{al-Nass al-Asli li-l-Khwarizmi}},
-  coltitle=dropgold,
-  colbacktitle=arabicbg,
-  fonttitle=\small,
-  #1
-}
-
-\newtcolorbox{commentary}[1]{
-  colback=commentarybg,
-  colframe=sectioncolor,
-  arc=2pt,
-  boxrule=0.5pt,
-  left=10pt,right=10pt,top=6pt,bottom=6pt,
-  fontupper=\small,
-  breakable,
-  title={\small\textbf{Taqliq Tahqiqi}},
-  coltitle=sectioncolor,
-  fonttitle=\small,
-  #1
-}
-
-\newtcolorbox{mathexplain}[1]{
-  colback=white,
-  colframe=notecolor,
-  arc=2pt,
-  boxrule=0.6pt,
-  left=10pt,right=10pt,top=6pt,bottom=6pt,
-  fontupper=\small,
-  breakable,
-  title={\small\textbf{al-Tawdih al-Riyadi}},
-  coltitle=notecolor,
-  fonttitle=\small,
-  #1
-}
-
-\newtcolorbox{historicalbox}[1]{
-  colback=arabicbg,
-  colframe=dropgold,
-  arc=2pt,
-  boxrule=0.5pt,
-  left=10pt,right=10pt,top=6pt,bottom=6pt,
-  fontupper=\small,
-  breakable,
-  title={\small\textbf{Siyaq Tarikhi}},
-  coltitle=dropgold,
-  fonttitle=\small,
-  #1
-}
-
-\newtcolorbox{geombox}[1]{
-  colback=white,
-  colframe=sectioncolor,
-  arc=2pt,
-  boxrule=0.6pt,
-  left=10pt,right=10pt,top=6pt,bottom=6pt,
-  fontupper=\small,
-  breakable,
-  title={\small\textbf{al-Tashrih al-Hindi}},
-  coltitle=sectioncolor,
-  fonttitle=\small,
-  #1
-}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Kitab al-Jabr wa-l-Muqabala - Arabic Enhanced Edition},
-  pdfauthor={al-Khwarizmi}
-}
-
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
-
-%% ========================================================================
-\begin{document}
-
-%% ========================================================================
-%% TITLE PAGE
-%% ========================================================================
-\begin{titlepage}
-\begin{center}
-
-\vspace*{1.5cm}
-
-{\fontsize{28}{34}\selectfont\color{titlecolor} Kitab al-Mukhtasar fi Hisab al-Jabr wa-l-Muqabala}
-
-\vspace{0.5cm}
-
-{\LARGE\textbf{li-Muhammad ibn Musa al-Khwarizmi}}
-
-\vspace{0.3cm}
-
-{\normalsize (taqriban 780--850 M)}
-
-\vspace{1.5cm}
-
-\begin{tcolorbox}[colback=arabicbg,colframe=dropgold,arc=4pt,boxrule=1pt,width=0.85\textwidth]
-\begin{center}
-\large
-\textbf{al-Tab'a al-Arabiyya al-Muhaqqaqa al-Mu'azzaza}
-
-\vspace{0.2cm}
-
-Enhanced Arabic Scholarly Edition
-
-\vspace{0.2cm}
-
-al-Nass al-Asli ma'a Ta'liqat Tahqiqiyya wa-Shuruh Riyadiyya
-\end{center}
-\end{tcolorbox}
-
-\vspace{1.5cm}
-
-{\large Allifa hadha al-Kitab 'inda Balat al-Khalifa al-Ma'mun fi Baghdad}
-
-\vspace{0.5cm}
-
-{\normalsize Hawali Sanat 200 H / 820 M}
-
-\vspace{1.5cm}
-
-\rule{0.3\textwidth}{0.5pt}
-
-\vspace{0.8cm}
-
-{\footnotesize\latinfont This enhanced edition prepared with:}
-
-{\footnotesize al-Nass al-Asli al-Arabi -- Ta'liqat Tahqiqiyya -- Tawdihat Riyadiyya -- Siyaq Tarikhi}
-
-\vspace{0.5cm}
-
-{\footnotesize\latinfont Based on the critical edition of}
-
-{\footnotesize 'Ali Mustafa Musharrafa wa-Muhammad Mursi Ahmad (al-Qahira, 1939)}
-
-\end{center}
-\end{titlepage}
-
-%% ========================================================================
-%% ABOUT THIS EDITION
-%% ========================================================================
-\thispagestyle{empty}
-\begin{center}
-\vspace*{2cm}
-
-{\Large\textbf{'An Hadhihi al-Tab'a}}
-
-\vspace{1cm}
-
-\begin{tcolorbox}[colback=arabicbg,colframe=rulecolor,arc=3pt,boxrule=0.5pt,width=0.88\textwidth]
-\small
-Tuqaddimu hadhihi al-tab'a al-Kitab al-Asli fi 'ilm al-Jabr li-Muhammad ibn
-Musa al-Khwarizmi, alladhi allafahu fi Balat al-Khalifa al-Ma'mun fi Baghdad
-hawali sanat 820 M. Yashtamil hadha al-Isdar al-Mu'azzaz 'ala al-nass al-Arabi
-al-asli ma'a ta'liqat tahqiqiya mufassala wa-sharh riyadi wa-tawdihat
-hindisiya wa-siyaq tarikhi -- kulluha bi-l-lugha al-Arabiyya.
-
-\vspace{0.3cm}
-
-al-Nass al-asli ma'khudh min al-tab'a al-tahqiqiya li-'Ali Mustafa Musharrafa
-wa-Muhammad Mursi Ahmad (al-Qahira, 1359 H / 1939 M), allati istanadat ila
-al-makhtuta al-wahida al-mahfuza fi maktabat Bodleyan bi-Oxford (Hunt. 214,
-nusikhat sanat 743 H / 1342 M).
-\end{tcolorbox}
-
-\end{center}
-
-\newpage
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\tableofcontents
-\newpage
-
-%% ========================================================================
-%% PREFACE
-%% ========================================================================
-\chapter*{Taqdimat al-Tab'a al-Mu'azzaza}
-\addcontentsline{toc}{chapter}{Taqdimat al-Tab'a al-Mu'azzaza}
-\markboth{Taqdimat al-Tab'a}{Taqdimat al-Tab'a}
-
-\begin{historicalbox}
-Tu'tabar ummat al-Islam min aghna al-umam turathan 'ilmiyyan, wa-qad
- Tatawaqqalat 'alayha hadarat mukhtalifa min fajr al-tarikh ila al-yawm.
-Wa-fi kulli hadara minha qamat bi-qasT wafir min wajibiha al-'ilmi nahwa
-al-usra al-bashariyya. Wa-laysa yakfi an natahaddath 'an majdina al-'ilmi
-kama law kana usTura, bal yajib an yazhar hadha al-majd fi sura
-malmusa tara'ha al-a'yun wa-tunaluha al-aydi. Li-dhalika kana min
-al-muhimm an na'na bi-nashr al-kutub allati wada'aha aba'una
-wa-ajdaduna, khususan idha kanat hadhihi al-kutub hamma al-athar fi
-takyif al-tafkir al-bashari. Wa-la shakka anna fi muqaddimati hadhihi
-al-kutub \textbf{Kitab al-Khwarizmi fi al-Jabr wa-l-Muqabala}.
-\end{historicalbox}
-
-\section*{Ahimmiyyat Hadha al-Kitab fi Tarikh al-'Ilm}
-
-\begin{commentary}
-\textbf{Kitab al-Khwarizmi fi al-Jabr wa-l-Muqabala} huwa awwal kitab
-munaZZam fi 'ilm al-jabr 'ala al-itlaq. Wa-huwa yamthilu al-laHZa allati
-taHawwala fiha al-jabr min majmu'at min al-qawa'id al-munfasila ila 'ilm
-riyadi munazzam lahu usuluhu wa-qawa'iduhu al-khassa. Laqad adkhala
-al-Khwarizmi niZaman lil-mu'adlat min al-daraja al-thaniya bina'an 'ala
-thalathat anwa' min al-kamiyyat: \textbf{al-mal} (al-majhul al-tarb'i),
-wa-\textbf{al-jadhr} (al-majhul al-khatti), wa-\textbf{al-'adad} (al-thabit).
-Wa-min hadhihi al-anwa' al-thalatha istanbaTa \textbf{sitt haSalat}
-kanuniyya taghatti kulli ashkal al-mu'adlat al-tarb'iyya dhat al-ma'amilat
-al-mujiba.
-
-\vspace{0.3cm}
-
-\textbf{MustalaHat al-Jabr al-Asasiyya:}
-\begin{itemize}[rightmargin=1em]
-  \item \textbf{al-Jabr} (al-jabr): idafat ma yanquSu min ahadi
-    Tarfay al-mu'adla ila al-Taraf al-akhar li-istikmal al-tawazun
-  \item \textbf{al-Muqabala} (al-muqabala): hadf ma yatashabahu min
-    al-Tarfayn, ay Tarq al-mutashabihat min kila Tarfi al-mu'adla
-    li-tashil
-  \item \textbf{al-Mal} (al-mal): mirab' al-majhul, ay $x^2$
-  \item \textbf{al-Jadhr} (al-jadhr): al-majhul dhatuhu, ay $x$
-  \item \textbf{al-'Adad} (al-'adad): al-hadd al-thabit fi al-mu'adla
-\end{itemize}
-\end{commentary}
-
-\newpage
-
-%% ========================================================================
-%% AUTHOR'S PREFACE
-%% ========================================================================
-\chapter*{Kalamat al-Musannif: al-Muqaddima al-Asliyya}
-\addcontentsline{toc}{chapter}{Kalamat al-Musannif: al-Muqaddima al-Asliyya}
-\markboth{al-Muqaddima al-Asliyya}{al-Muqaddima al-Asliyya}
-
-\begin{originaltext}
-Bismi Allahi al-Rahmani al-Rahim.
-
-Al-Hamdu lillahi 'ala ni'amihi li-ahli Ta'atihi, bi-ada'iha bi-qudratihi
-'ala 'ibadihi al-mu'minina bihi, li-yuthayyibahum biha thawaban,
-wa-yuHafiZahum biha 'an al-taghyir, wa-ya'rifahum qudratahu,
-wa-yudhillilahum li-'iZmatihi. Arsala Muhammadan Salla Allahu 'alayhi
-wa-Sallam bi-risalatihi ba'da inqiTa' al-rusul, wa-dhihab al-'adl,
-wa-fasad al-nuSul.
-
-Wa-qad kana al-'ulama' fi al-azmani al-khaliya wa-fi al-umam al-salifa
-yu'allifuna al-kutub fi abwab al-'ulum wa-furu' al-ma'rifa, yatadhakkaruna
-min ba'dihim, wa-yarjuna al-ajra bi-qadri ma kana minhum, wa-yathiquna
-bi-ma yaHasil lahum min al-shukr wa-al-ijlal wa-al-i'Zam, raDiina
-wa-law bi-qalilin min al-thina', qalilan muqarana bi-ma badhuluhu min
-al-jahd wa-al-mushaqqa fi kashf khafa'a al-'ilmi wa-izalat satayrihi.
-
-Wa-dhalika al-Hubb li-l-'ilmi alladhi mayyaza Allahu bihi al-Imam
-al-Ma'mun Amir al-Mu'minin (ma'a ma manna bihi 'alayhi min al-khilafa
-bi-al-ijma', wa-al-libas alladhi albasahu iyahu, wa-al-zina allati
-zayyanahu biha), wa-dhalika al-laTf wa-al-tawaddud alladhi yubdihi
-li-l-'ulama', wa-tilka al-sur'a allati yuHamiha wa-yunSiha fi tawDiH
-al-mubhamat wa-izalat al-Su'ubat -- qad Hamalni 'ala an u'allif
-mukhtaSan fi al-Jabr wa-l-Muqabala, aqtasiru fihi 'ala ma huwa aysar
-wa-anfa' fi al-Hisab, mimma yaHtaju ilayhi al-nasu da'iman fi masa'il
-al-mirath wa-al-'aTaya wa-al-qisma wa-al-khuSumat wa-al-tijara wa-kulli
-ma yata'amaluna bihi fima baynahum, aw fi misaHat al-arDiyn wa-Hufri
-al-anhar wa-masa'il al-handasa wa-ghayriha min anwa' al-ashya'
-al-mukhtalifa al-aSnaf.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{al-Ta'liq al-Tahqiqi:}
-
-Yastahillu al-Khwarizmi kitabahu bi-al-basmala al-taqlidiyya, thumma
-yuthni 'ala al-Khalifa al-Ma'mun (198--218 H / 813--833 M), wa-huwa min
-ashhura khulafa' Bani al-'Abbas tashji'an lil-'ilm. Laqad assasa
-al-Ma'mun \textbf{Bayt al-Hikma} fi Baghdad, wa-ja'alahu markazan
-'alamiyyan lil-baHth al-'ilmi, wa-jama'a fihi al-mutarjimina
-wa-al-'ulama' min al-muslimina wa-ghayrihim.
-
-Yubayyinu al-Khwarizmi dafi'ahu li-ta'lif hadha al-Kitab: al-Haja
-al-mulahha li-uslub manZum fi Hal al-masa'il al-'amaliyya allati
-yuwajihuha al-nas yawmiyyan -- min qismat al-tarakat ila misaHat
-al-aradi wa-Hufri al-qanawat. Wa-hadha yuwiZZahu anna al-jabr 'inda
-al-Khwarizmi lam yakun mujarrad niZariyya mujarrada, bal kana
-\textbf{adatan 'amaliyya} muWajahatan nahwa Hall al-mushkilat
-al-waqi'iyya.
-\end{commentary}
-
-\begin{historicalbox}
-\textbf{al-Imam al-Ma'mun Amir al-Mu'minin (786--833 M):}
-
-Kana al-Ma'mun min akthar al-khulafa' tashji'an lil-'ilm wa-al-'ulama'.
-Amara bi-tarjamat al-kutub al-Yunaniyya wa-al-Hindiyya wa-al-Suryaniyya
-ila al-Arabiyya, wa-assasa Bayt al-Hikma fi Baghdad allati kanat 'aSima
-al-'ilmi fi al-'alam. Wa-fi 'ahdihi taqallada al-Khwarizmi mansaBan fi
-Bayt al-Hikma, haythu allafa hadha al-kitab wa-ghayrahu min al-muSannafat
-fi al-riyadiyyat wa-al-falak wa-al-jughrafiya.
-\end{historicalbox}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: ON NUMBERS AND THE THREE KINDS
-%% ========================================================================
-\chapter{fi al-A'dad wa-al-Anwa' al-Thalatha}
-\label{ch:intro}
-
-\begin{originaltext}
-Lamma naZartu fima yaHtaju ilayhi al-nasu fi Hisabatihim, wajadtu
-anna dhalika kulluhu 'adad. Wa-wajadtu aydan anna kullu 'adadin
-mu'allaf min al-waHadat, wa-annahu la yakhlu 'adad min an yanqasim
-ila waHadat. Wa-'alimtu anna kulla 'adadin yu'adda min al-waHid ila
-al-'ashara yazidu 'ala alladhi qablahu bi-waHid, thumma yuDa'afu
-al-'ashru wa-yuthallathu, kama fu'ila bi-l-waHadat, fa-yakunu
-'ishrun wa-thalathun wa-haka-dha ila al-ma'iyya, thumma yuDa'afu
-al-ma'iyya wa-yuthallathuha kama fu'ila bi-l-'asharat wa-l-waHadat ila
-al-alf, thumma yukarru al-alfu kadhaka fi kulli 'adadin murakkab,
-wa-haka-dha ila aqSa Hadin fi al-'add.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{al-NiZam al-'Adadi 'inda al-Khwarizmi:}
-
-Yabda'u al-Khwarizmi kitabahu bi-munaqasha falsafiyya li-l-'adad,
-mustakhdiman al-niZam al-'adadi al-'ashari alladhi yu'rafu al-yawma
-bi-``al-arqam al-Arabiyya'' (wa-hiya fi al-aSl min aSl Hind).
-Yasifu al-Khwarizmi al-niZam al-marakaZi li-l-a'dad Haythu kullu
-mawDi' yamthilu quwwa min 'ashara. Hadhihi al-muqaddima laysat
-majarrad tamhid, bal hiya i'lan 'an \textbf{al-niZam al-'adadi
-al-mawDi'i} alladhi sa-yaj'alu kull al-Hisabati al-taliqa mumkina.
-
-Laqad istaw'abba al-Khwarizmi anna kulla masa'ala Hisabiyya -- sawa'
-fi al-tijara aw al-misaHa aw al-mirath -- yumkinu irja'uha fi
-al-nihaya ila mafhum al-'adad, wa-min thumma yumkinu Halluha bi-l-Turuq
-al-riyadiyya.
-\end{commentary}
-
-\section{al-Anwa' al-Thalatha min al-A'dad fi al-Jabr}
-
-\begin{originaltext}
-Fa-wajadtu anna al-a'dada allati yaHtaju ilayha fi Hisab al-Jabr
-wa-l-Muqabala thalathatu anwa': \textbf{juthur}, wa-\textbf{amwal},
-wa-\textbf{a'dad mufarrada} la tat'allaqu bi-jadhrin wa-la bi-malin.
-
-Amma al-jadhr fa-huwa kullu miqdarin yuDribu fi nafsihi mu'allafan
-min waHadatin aw a'dadin sa'ida aw kusurin nazila. Wa-amma al-mal
-fa-huwa jami'u ma Hasala min Darb al-jadhr fi nafsihi. Wa-amma
-al-'adad al-mufrad fa-huwa kullu 'adadin yudhkaru bi-ghayri nisba ila
-jadhrin wa-la malin.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Anwa' al-Thalatha bi-l-Rumuz al-Haditha:}
-
-\begin{center}
-\begin{tabular}{|c|c|c|l|}
-\hline
-\textbf{al-Isem al-Arabi} & \textbf{al-Ramz al-Hadith} & \textbf{al-Mathal} & \textbf{al-Ta'rif} \\
-\hline
-al-mal ($x^2$) & mal & $x^2$ & mirab' al-majhul \\
-\hline
-al-jadhr ($x$) & jadhr & $x$ & al-kamiyya al-majhula \\
-\hline
-al-'adad ($c$) & 'adad & 39 & al-thabit al-'adadi \\
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.3cm}
-
-\textbf{Mulahadha:} kalimat \textbf{``mal''} fi al-iStilaH al-jabri
-'inda al-Khwarizmi ta'ni \textit{mirab' al-majhul}. Wa-amma
-\textbf{``al-shay' ''} (alladhi yumaththilu ``al-jadhr'')
-fa-huwa al-majhul al-khatti. Wa-l-jadhr huwa alladhi tunsha'u
-minhu al-amwal bi-l-Darb fi al-nafs. Wa-l-'adad al-mufrad huwa
-kullu 'adadin la yatagayyaru bi-taghyyuri al-majhul.
-\end{mathexplain}
-
-\begin{commentary}
-\textbf{Tafsir al-MustalaHat al-Jabriyya:}
-
-Kalimat \textbf{``al-jadhr''} fi hadha al-siyaq tuKhTallifu 'an
-al-jadhr al-tarb'i kama nafhamuhu al-yawm. Fa-l-jadhr 'inda
-al-Khwarizmi huwa \textbf{al-majhul dhatuhu}, ay $x$ fi al-rumuz
-al-Haditha. Wa-l-mal huwa \textbf{tarb' hadha al-majhul}, ay $x^2$.
-
-Wa-qad ikhtara al-Khwarizmi kalimat \textbf{``mal''} rubbama
-li-annana mirab' al-majhul yumaththilu \textit{al-tharwa} aw
-\textit{al-mumtalakat} fi al-tafkir al-iqtiSadi li-l-'asr -- fa-huwa
-al-kamiyya al-akbar wa-al-ahamm fi al-mu'adala.
-\end{commentary}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: THE SIX CANONICAL CASES
-%% ========================================================================
-\chapter{al-HaSalat al-Sitt al-Kanuniyya lil-Mu'adlat}
-\label{ch:six-cases}
-
-\begin{originaltext}
-Hadhi-hi hiya al-HaSalat al-sitt alladhi dhakartuha fi muqaddimati
-hadha al-kitab. Thalathun minha la taHtaju ila an tunaSafa
-al-juthuru, wa-qad bayyantu kayfa tujab. Wa-amma al-thalath
-al-ukhra allati yajibu fiha naSf al-juthuri, fa-ara an ubayyinaha
-aydan mufassaLan ma'a dhikri al-shakl li-kulli haSala yubayyin
-sabab al-naSf.
-\end{originaltext}
-
-\begin{commentary}
-YuQassimu al-Khwarizmi jami'a al-mu'adlat al-tarb'iyya ila
-\textbf{sitt haSalat kanuniyya} -- thalath \textit{basita} wa-thalath
-\textit{murakkaba}. Hadha al-taqsimu yughatti jami'a ashkal
-al-mu'adlat al-tarb'iyya dhat al-ma'amilat al-mujiba. Wa-l-sabab fi
-al-iqtiSir 'ala al-ma'amilat al-mujiba huwa anna al-Khwarizmi yafhamu
-kulla Haddin fi al-mu'adala 'ala annahu \textbf{kamiyya hindisiyya}
-(Tul aw misaHa), wa-la yumkinu an takuna al-misaHa saliba.
-
-\vspace{0.3cm}
-
-\textbf{al-Tamayyuz bayn al-HaSalat al-Basita wa-l-Murakkaba:}
-\begin{itemize}
-  \item al-HaSalat al-basita (al-ula wa-l-thaniya wa-l-thalitha): la
-taHtaju ila \textbf{naSf al-juthur} -- yumkinu Halluha bi-l-tashil
-al-mubashshar.
-  \item al-HaSalat al-murakkaba (al-rabi'a wa-l-khamisa wa-l-sadisa):
-tataTallaBu \textbf{naSf al-juthur}, wa-hadhihi hiya al-HaSalat
-allati yaZharu fiha \textbf{takmil al-murabba'} (completing the square).
-\end{itemize}
-\end{commentary}
-
-\section{al-HaSalat al-Basita al-Thalath}
-
-\begin{mathexplain}
-\textbf{al-HaSalat al-Basita (la tatallaBu naSf al-juthur):}
-
-\begin{center}
-\begin{tabular}{|c|c|c|l|}
-\hline
-\textbf{al-HaSala} & \textbf{al-Mu'adala} & \textbf{al-Hall} & \textbf{al-Isem al-Arabi} \\
-\hline
-al-Ula & $ax^2 = bx$ & $x = b/a$ & mal yusawi usuLan \\
-\hline
-al-Thaniya & $ax^2 = c$ & $x = \sqrt{c/a}$ & mal yusawi 'adadan \\
-\hline
-al-Thalitha & $bx = c$ & $x = c/b$ & usuL tusawi 'adadan \\
-\hline
-\end{tabular}
-\end{center}
-\end{mathexplain}
-
-\subsection{al-HaSala al-Ula: al-mal yusawi usuLan}
-
-\begin{originaltext}
-\textbf{Mathal:} mal yusawi khamsata usuLihi. Jadhr al-mal khamsa,
-wa-l-mal khamsa wa-'ishrun, wa-huwa yusawi khamsata a'da' jadhr.
-
-\textbf{Mathal akhar:} thulthu mal yusawi arba'ata usuLin. Fa-l-mal
-kulluh yusawi ithnay 'ashara jadhra; ay mi'a wa-arba'a wa-arba'in,
-wa-jadhrhu ithna 'ashar.
-
-\textbf{Mathal thalith:} khamsatu amwalin tusawi 'ashara usuLan.
-Fa-mal wahid yusawi jadhrayn; jadhr al-mal ithnan, wa-malahu
-arba'a.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Tawdih al-Riyadi lil-HaSala al-Ula:}
-
-\begin{center}
-$\begin{aligned}
-  x^2 &= 5x \quad\Rightarrow\quad x = 5, \quad x^2 = 25 \\
-  \tfrac{1}{3}x^2 &= 4x \quad\Rightarrow\quad x^2 = 12x = 144, \quad x = 12 \\
-  5x^2 &= 10x \quad\Rightarrow\quad x^2 = 2x = 4, \quad x = 2
-\end{aligned}$
-\end{center}
-
-\textbf{al-Tariqa al-'Amma:} fi al-mu'adala $ax^2 = bx$, naqsimu
-al-Tarfayn 'ala $ax$ (bi-afTariD $x \neq 0$) fa-nuHallu 'ala
-$x = b/a$. Amma Hall $x = 0$ fa-kana yutajahalu taqlidiyan li-annahu
-la ma'na 'amaliyya lahu fi muZamm al-masa'il.
-\end{mathexplain}
-
-\subsection{al-HaSala al-Thaniya: al-mal yusawi 'adadan}
-
-\begin{originaltext}
-\textbf{Mathal:} mal yusawi tis'a. Fa-hadha mal, wa-jadhrhu thalatha.
-
-\textbf{Mathal akhar:} khamsatu amwalin tusawi thamanin. Fa-mal wahid
-yusawi khumus thamanin, wa-huwa sitta 'ashar.
-
-\textbf{Mathal thalith:} niSf mal yusawi thamaniya 'ashar. Fa-l-mal
-sitta wa-thalathun, wa-jadhrhu sitta.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Tawdih al-Riyadi lil-HaSala al-Thaniya:}
-
-\begin{center}
-$\begin{aligned}
-  x^2 &= 9 \quad\Rightarrow\quad x = 3 \\
-  5x^2 &= 80 \quad\Rightarrow\quad x^2 = 16, \quad x = 4 \\
-  \tfrac{1}{2}x^2 &= 18 \quad\Rightarrow\quad x^2 = 36, \quad x = 6
-\end{aligned}$
-\end{center}
-
-\textbf{al-Tariqa al-'Amma:} fi al-mu'adala $ax^2 = c$, naqsimu 'ala
-$a$ fa-nuHallu 'ala $x^2 = c/a$, thumma na'khudhu al-jadhr al-tarb'i
-li-kila al-Tarfayn: $x = \sqrt{c/a}$.
-\end{mathexplain}
-
-\subsection{al-HaSala al-Thalitha: al-usuL tusawi 'adadan}
-
-\begin{originaltext}
-\textbf{Mathal:} jadhr wahid yusawi thalathata 'adadan. Fa-l-jadhr
-thalatha, wa-maluha tis'a.
-
-\textbf{Mathal akhar:} arba'atu usuLin tusawi 'ishrina. Fa-jadhr wahid
-yusawi khamsa, wa-l-mal alladhi yunsha'u minhu khamsa wa-'ishrun.
-
-\textbf{Mathal thalith:} niSf jadhr yusawi 'ashara. Fa-l-jadhr kulluh
-yusawi 'ishrina, wa-l-mal alladhi yunsha'u minhu arba'umi'a.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Tawdih al-Riyadi lil-HaSala al-Thalitha:}
-
-\begin{center}
-$\begin{aligned}
-  x &= 3 \\
-  4x &= 20 \quad\Rightarrow\quad x = 5, \quad x^2 = 25 \\
-  \tfrac{1}{2}x &= 10 \quad\Rightarrow\quad x = 20, \quad x^2 = 400
-\end{aligned}$
-\end{center}
-
-\textbf{al-Tariqa al-'Amma:} fi al-mu'adala $bx = c$, naqsimu 'ala
-$b$ fa-nuHallu 'ala $x = c/b$. Wa-hadhihi abSar al-HaSalat, li-annaha
-mu'adala khattiyya.
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% THE THREE COMPOUND CASES
-%% ========================================================================
-\section{al-HaSalat al-Murakkaba al-Thalath}
-
-\begin{mathexplain}
-\textbf{al-HaSalat al-Murakkaba (tatallaBu naSf al-juthur -- takmil
-al-murabba'):}
-
-\begin{center}
-\begin{tabular}{|c|c|l|}
-\hline
-\textbf{al-HaSala} & \textbf{al-Mu'adala} & \textbf{al-Isem al-Arabi} \\
-\hline
-al-Rabi'a & $ax^2 + bx = c$ & mal wa-usuL yusawi 'adadan \\
-\hline
-al-Khamisa & $ax^2 + c = bx$ & mal wa-'adad yusawi usuLan \\
-\hline
-al-Sadisa & $bx + c = ax^2$ & usuL wa-'adad yusawi malan \\
-\hline
-\end{tabular}
-\end{center}
-
-\textbf{limadha tatallaBu hadhihi al-HaSalat naSf al-juthur?}
-
-li-annaha taShtamilu 'ala thalathat aTrafi mal + juthur + 'adad,
-wa-la yumkinu 'azlu al-majhul bi-l-qisma al-mubashshara. badalan
-min dhalika, nastakhdimu tariqat \textbf{takmil al-murabba'}
-allati taHawwilu al-mu'adala al-tarb'iyya ila mu'adala min al-shakl
-$(x + p)^2 = q$ yumkinu Halluha bi-akhdhi al-jadhr al-tarb'i.
-\end{mathexplain}
-
-\subsection{al-HaSala al-Rabi'a: mal wa-usuL yusawi 'adadan}
-
-\begin{originaltext}
-\textbf{Mathal:} mal wa-'asharatu usuLihi tusawi tis'a wa-thalathin
-darhaman.
-
-al-Hall: naSifu 'adada al-juthuri, fa-yakunu khamsa, wa-naDribuhu fi
-nafsihi fa-yakunu khamsa wa-'ishrina, fa-nuDifuhu ila tis'a
-wa-thalathin fa-yakunu tis'a wa-sittin, fa-na'khudh jadhrhu fa-yakunu
-thamaniya, fa-nanquSu minhu naSf 'adadi al-juthuri wa-huwa khamsa,
-Yabqa thalatha, wa-hadha huwa jadhr al-mal al-maTlub, wa-l-mal
-tis'a.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Hall al-'Am lil-HaSala al-Rabi'a:}
-
-\begin{center}
-$\boxed{x^2 + bx = c \quad\Longrightarrow\quad x = \sqrt{\left(\frac{b}{2}\right)^2 + c} - \frac{b}{2}}$
-\end{center}
-
-\textbf{al-Tatbiq 'ala al-mathal:}
-$x^2 + 10x = 39 \Rightarrow x = \sqrt{25 + 39} - 5 = \sqrt{64} - 5 = 8 - 5 = 3$
-
-\textbf{al-Tafsir:} al-Khwarizmi la yaktubu Sighatan 'amma -- bal
-yuqaddimu \textbf{Khwarizmiyya} (silsilat khuTwat) yumkinu tatbiQuha
-'ala ay mu'adala min hadha al-shakl. Wa-hadha huwa al-sabab fi
-anna naSammiyanfusana al-yawma ``Khwarizmiyyat'' (algorithms)!
-\end{mathexplain}
-
-\begin{commentary}
-\textbf{limadha ya'malu hadha al-Hall?}
-
-Tariqat al-Khwarizmi ta'tamidu 'ala fikrat \textbf{takmil al-murabba'}.
-'indama nuDifu $(b/2)^2$ ila kila Tarfi al-mu'adala $x^2 + bx = c$,
-naHsalu 'ala:
-$x^2 + bx + (b/2)^2 = c + (b/2)^2$
-
-al-Taraf al-aysar huwa al-an mirab' kamil: $(x + b/2)^2 = c + (b/2)^2$
-
-'inda akhdhi al-jadhr al-tarb'i: $x + b/2 = \sqrt{c + (b/2)^2}$
-
-Wa-bi-Tarqi $b/2$: $x = \sqrt{(b/2)^2 + c} - b/2$
-
-Wa-hadha bi-ZabT ma yaf'aluhi al-Khwarizmi, wa-in duna istikhdam
-al-rumuz al-jabriyya al-Haditha!
-\end{commentary}
-
-\newpage
-
-\subsection{al-HaSala al-Khamisa: mal wa-'adad yusawi usuLan}
-
-\begin{originaltext}
-\textbf{Mathal:} mal wa-wahid wa-'ishruna 'adadan yusawi 'asharata
-usuLihi.
-
-al-Hall: naSifu 'adada al-juthuri fa-yakunu khamsa, wa-naDribuhu fi
-nafsihi fa-yakunu khamsa wa-'ishrina, fa-nanquSu minhu al-wahida
-wa-l-'ishrina al-mulHaqqayni bi-l-mal, Yabqa arba'a, fa-nastakhrij
-jadhraha fa-yakunu ithnayn, fa-nanquSuhu min naSf 'adadi al-juthuri
-wa-huwa khamsa, Yabqa thalatha, wa-hadha jadhr al-mal al-maTlub, wa-l-mal
-tis'a. Aw tuDifu al-jadhr ila naSf al-juthuri, fa-yakunu sab'a,
-wa-hadha jadhr al-mal al-maTlub, wa-l-mal tis'a wa-arba'un.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Hall al-'Am lil-HaSala al-Khamisa:}
-
-\begin{center}
-$\boxed{x^2 + c = bx \quad\Longrightarrow\quad x = \frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}}$
-\end{center}
-
-\textbf{al-Tatbiq:}
-$x^2 + 21 = 10x \Rightarrow x = 5 \pm \sqrt{25 - 21} = 5 \pm 2 = 3 \text{ aw } 7$
-
-\textbf{mulahadha muhimma:} hadhihi hiya al-HaSala \textbf{al-wahida}
-allati yakunu fiha Hallan -- wa-li-dhalika fa-inna al-Khwarizmi yadhkuru
-SariHan annahu yumkinu istikhdam al-jam' aw al-TarH. Amma fi
-al-HaSalat al-ukhra fa-yakunu al-Hall wahidan faqaT.
-\end{mathexplain}
-
-\begin{commentary}
-\textbf{shuruT imkaniyyat al-Hall fi al-HaSala al-Khamisa:}
-
-ba'da naSf al-juthur wa-Darb al-naSf fi nafsihi, idha kana al-natij
-\textbf{aqall} min al-'adad al-mulHaqq bi-l-mal, fa-l-masa'la
-\textbf{mumtani'a} (la Hall Haqiqiyyan). Amma idha kana al-natij
-\textbf{musawiyan} lil-'adad, fa-jadhr al-mal yusawi naSf al-juthur
-watfahu, bi-la ziyada wa-la nuqsan.
-
-\vspace{0.2cm}
-
-\textbf{bi-l-rumuz al-Haditha:} al-dakhil taHt al-jadhr yajib an la
-yakun saliban: $(b/2)^2 - c \geq 0$. Wa-hadha ya'ni $b^2 \geq 4c$,
-wa-huwa al-shart al-ma'ruf al-yawma bi-ism \textbf{al-mumayyiz}
-(discriminant) lil-mu'adala al-tarb'iyya.
-\end{commentary}
-
-\newpage
-
-\subsection{al-HaSala al-Sadisa: usuL wa-'adad yusawi malan}
-
-\begin{originaltext}
-\textbf{Mathal:} thalathatu usuLin wa-arba'atu a'dadin yusawi malan.
-
-al-Hall: naSifu al-juthuri fa-yakunu wahidan wa-niSf, wa-naDribuhu fi
-nafsihi fa-yakunu ithnayn wa-rub'an, fa-nuDifuhu ila al-arba'a fa-yakunu
-sitta wa-rub'an, fa-nastakhrij jadhraha fa-yakunu ithnayn wa-niSfan,
-fa-nuDifuhu ila naSf al-juthuri wa-huwa wahid wa-niS fa-yakunu
-arba'a, wa-hadha jadhr al-mal, wa-l-mal sitta 'ashar.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Hall al-'Am lil-HaSala al-Sadisa:}
-
-\begin{center}
-$\boxed{bx + c = x^2 \quad\Longrightarrow\quad x = \frac{b}{2} + \sqrt{\left(\frac{b}{2}\right)^2 + c}}$
-\end{center}
-
-\textbf{al-Tatbiq:}
-$3x + 4 = x^2 \Rightarrow x = 1\tfrac{1}{2} + \sqrt{2\tfrac{1}{4} + 4} = 1\tfrac{1}{2} + \sqrt{6\tfrac{1}{4}} = 1\tfrac{1}{2} + 2\tfrac{1}{2} = 4$
-
-\textbf{mulahadha:} fi hadhihi al-HaSala yakunu al-Hall \textbf{mujaban
-da'iman}, li-annana najma'u al-jadhr al-tarb'i ma'a niSf al-ma'amil.
-Hadha yatawaafaqu ma'a Tabi'at al-masa'il al-'amaliyya allati kana
-yata'amalu ma'aha al-Khwarizmi.
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: GEOMETRICAL DEMONSTRATIONS
-%% ========================================================================
-\chapter{al-Tashrihat al-Hindisiyya lil-HaSalat al-Murakkaba}
-\label{ch:geom}
-
-\begin{originaltext}
-Hadhi-hi hiya al-HaSalat al-sitt alladhi dhakartuha fi muqaddimati
-hadha al-kitab. Qad wuDDoHat al-an. Qad bayyantu anna thalathan minha
-la taHtaju ila naSf al-juthuri, wa-'allamtu kayfa yajibu Halluha. Wa-amma
-al-thalath al-ukhra allati fiha naSf al-juthuri Daruriyyun, fa-ara min
-al-muSlaH an uuwiHHahu bi-fuSulin munfasila, yu'ta fi kulli minha
-shakl yubayyin sabab al-naSf.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{al-manhaj al-Hindisi lil-Khwarizmi:}
-
-Min ahamma ma yumayyizu kitab al-Khwarizmi annahu la yaktaSi bi-taqdim
-\textbf{Khwarizmiyya} (al-ijra' al-Hisabi) li-kulli HaSala, bal
-yuqaddimu aydan \textbf{al-tashrih al-Hindisi} (geometric demonstration)
-alladhi yuZhir \textit{limadha} ta'malu hadhihi al-tariqa. hadha
-al-manhaj ya'ksi al-ta'thir al-Yunani -- khususan Iqlidus -- 'ala
-al-riyadiyyat al-Islamiyya.
-
-al-Khwarizmi yastakhdimu \textbf{murabba'at wa-ajniha (mustatTilat)}
-li-tamthil al-kamiyyat al-jabriyya. al-mal huwa murabba', wa-l-juthur
-hiya mustatTilat mulHaqa bi-jawanib al-murabba', wa-l-a'dad hiya
-murabba'at ma'rufa al-misaHa. hadha al-tafsir al-Hindisi huwa alladhi
-yubirru qawa'idat ``naSf al-juthur'' -- fa-hiya al-tariqa allati
-nuHawwilu biha al-shakl ghayr al-munTaZZim ila murabba' kamil.
-\end{commentary}
-
-\section{Tashrih al-HaSala al-Rabi'a: ``Mal wa-'asharatu usuL yusawi tis'a wa-thalathin''}
-
-\begin{originaltext}
-al-shakl al-mubayyin li-hadha huwa \textbf{murabba'}, aDla'uhu
-majhula. Yumanthilu al-mal, jadhr alladhi turidu ma'rifatahu. Hadha
-huwa al-shakl A B, wa-kullu Dila' min aDla'ihi yumkinu i'tibaruhu
-ahada juthurihi; wa-idha Darabta ahada hadhihi al-aDla' fi ayyi
-'adadin, fa-inna miqdar dhalika al-'adadi yumkinu an yunZar ilayhi
-ka-'adadi al-juthuri allati tuDafu ila al-mal.
-
-kullu Dila' min aDla' al-murabba' yumanthilu jadhr al-mal; wa-kama
-fi al-misal kanat al-juthuru murtabiTa bi-l-mal, yumkinuna an
-na'khudha rub'a al-'ashara, ay thnan wa-niSf, wa-nulHiqaha bi-kulli
-min al-aDla' al-arba'a lil-shakl. Fa-ma'a al-murabba' al-asli A B,
-tulHaqu arba'at ajniha mutawaziyya al-aDla', kullu minha lahu Dila'
-min aDla' al-murabba' ka-Tul, wa-'adadi thnayni wa-niSf ka-'arD;
-wa-hiya al-ajniha J, Z, T, K.
-
-Ladayna al-an murabba' mutasawi al-aDla' majhul, walakin fi kulli
-min zawaya-hi al-arba' yanquSu laHZa murabba'a min thnayni wa-niSf
-maDruba fi thnayni wa-niSf. Li-nu'awiDa 'an hadha al-nuqsan
-wa-nukammila al-murabba', yajib an nuDifa (ila ma ladayna) arba'
-marat murabba'a thnayni wa-niSf, ay khamsa wa-'ishrun.
-
-Wa-nahnu na'lamu (min al-mas'ala) anna al-shakl al-awwal, ayyuha
-al-murabba' al-mumaththil lil-mal, ma'a al-ajniha al-arba'a al-muHiTa
-bihi, al-mumaththila lil-'asharati juthur, yusawi tis'a wa-thalathina
-'adadan. Fa-idha aSafnaha ila khamsa wa-'ishrina, allati hiya
-musawiyya lil-murabba'at al-arba' 'inda zawaya al-shakl A B, allati
-tukammilu al-murabba' al-kabir D H, fa-n'alamu anna hadha al-majmui'
-ya'kul sitta wa-arba'in. ahadu aDla' hadha al-murabba' al-kabir huwa
-jadhrhu, ay thamaniya. Fa-idha naqasna Di'fa rub'i al-'ashara, ay
-khamsa, min thamaniya, kama min Tarafayyi al-Dil' al-murabba' al-kabir
-D H, fa-yabqa min hadha al-Dil' thalatha, wa-hadha huwa jadhr
-al-mal, aw Dil' al-shakl al-asli A B.
-\end{originaltext}
-
-\begin{geombox}
-\textbf{al-Burhan al-Hindisi lil-HaSala al-Rabi'a:}
-
-\begin{center}
-\begin{tabular}{lcl}
-\textbf{al-shakl} & $=$ & \textbf{al-misaHa} \\
-\hline
-Murabba' A B & $=$ & $x^2$ \\
-+ 4 mutawaziyat al-aDla' & $=$ & $10x$ \\
-\hline
-al-majmui' al-juz' & $=$ & $39$ \\
-+ 4 murabba'at zawiya ($2.5 \times 2.5$) & $=$ & $25$ \\
-\hline
-al-majmui' (Murabba' D H al-kabir) & $=$ & $64$ \\
-Dila' al-Murabba' al-kabir & $=$ & $\sqrt{64} = 8$ \\
-$x = 8 - 2 \times 2.5 = 8 - 5 =$ & \fbox{3} & \\
-\end{tabular}
-\end{center}
-
-\vspace{0.3cm}
-
-\textbf{al-tafsir al-mar'i:} nabda'u bi-murabba' janibuhu $x$
-(yumanthil al-mal). NulHiq bi-kulli janib mustatTila Tuluhu $x$
-wa-'arDuha $2.5$ (rub' al-'adad 10). al-arba' mustatTilat tumanthil
-$10x$. al-misaHa al-kulliyya hatta al-an hiya $x^2 + 10x = 39$.
-
-Li-nukammila al-murabba' al-kabir, naHtaju li-izafat arba' murabba'at
-Sagira 'inda al-zawaya, kullu minha $2.5 \times 2.5 = 6.25$. al-majmui'
-$4 \times 6.25 = 25$. al-an al-murabba' al-kabir lahu misaHa
-$39 + 25 = 64$, fa-Dil'uhu huwa $8$. NunquS minhu $5$ ('arDu
-mustatTilatayn) fa-nuHallu 'ala $x = 3$.
-\end{geombox}
-
-\begin{commentary}
-\textbf{limadha ``rub' '' thumma ``Di'fa rub' ''?}
-
-Yulahidhu al-qari'u anna al-Khwarizmi ya'khudhu \textbf{rub'a} 'adad
-al-juthuri (rub' al-'ishrin = 2.5) li-insha' al-ajniha al-arba'a, thumma
-yuTraHu \textbf{Di'fa} hadha al-rub'i min Dil' al-murabba' al-kabir.
-limadha?
-
-li-anna kulli janib min jawaniB al-murabba' yaHaSSulu 'alayhi \textit{janiHan}
-(wahid min kulli janib). Fa-idha kana 'arDu kulli janiH huwa $b/4$,
-fa-inna al-majmui' al-muTraHu min kila Tarafayi al-Dil' huwa
-$2 \times (b/4) = b/2$, wa-huwa bi-ZabT ``naSf 'adadi al-juthur''
-al-madhkur fi al-Khwarizmiyya!
-
-Wa-haka-dha yuZhiru al-burhan al-Hindisi \textit{sabab} naSf al-juthur --
-wa-huwa taHawwilu al-shakl ila murabba' kamil.
-\end{commentary}
-
-\newpage
-
-\section{Tashrih al-HaSala al-Khamisa: ``Mal wa-21 yusawi 10 usuL''}
-
-\begin{originaltext}
-Numaththilu al-mal bi-murabba' A D, Tul Dil'ihi majhul ladayna.
-Ila hadha nulHiqu mustatTila, 'arDuhu musawin li-ahadi aDla'
-al-murabba' A D, kayna al-Dil' H N. Hadha al-mustatTil huwa H B.
-Tul al-shaklayni ma'an yusawi al-KhaTT H J. Na'lamu anna Tuluha
-'asharatu a'dadin; fa-kullu murabba'in lahu aDla' mutasawiya
-wa-zawaya mutasawiya, wa-ahad aDla'ihi maDruban fi wahida huwa
-jadhr al-murabba', aw maDruban fi ithnatayn fa-huwa Di'fu jadhr
-al-shakl al-batt.
-
-Fakama wada'at al-mas'ala anna malan wa-wahidan wa-'ishrina 'adadan
-yusawi 'asharata juthuran, yumkinuna an nastanTiZu anna Tul al-KhaTT
-H J yusawi 'asharata a'dadin, idha al-KhaTT J D yumanthilu jadhr
-al-mal. Naqsimu al-an al-KhaTT J H ila niSfayn mutasawiyayn 'inda
-al-nuqTa W: fa-l-KhaTT W J idhun yusawi H W.
-
-Wa-na'lamu anna al-ruba'i H B yumanthilu al-wahida wa-l-'ishrina
-'adadan allati zidat 'ala al-murabba'. Wa-wujida anna al-murabba'
-M T kulluhu yusawi khamsa wa-'ishrina. Fa-idha naqasna min hadha
-al-murabba' M T al-ruba'iyyayn H T wa-M R, alladhayn yusawiyan
-wahidan wa-'ishrina, fa-yabqa murabba' Sagir K R, yumanthilu
-al-furq bayna khamsa wa-'ishrina wa-wahid wa-'ishrina. Wa-huwa
-arba'a; wa-jadhruh, al-mumaththal bi-l-KhaTT W A alladhi yusawi
-A J, huwa ithnan.
-\end{originaltext}
-
-\begin{geombox}
-\textbf{al-Burhan al-Hindisi lil-HaSala al-Khamisa:}
-
-\begin{center}
-\begin{tabular}{lcl}
-$MT = (10/2)^2$ & $=$ & $25$ \\
-$HT + MR = HB$ & $=$ & $21$ \\
-$KR = 25 - 21$ & $=$ & $4$ \\
-$\sqrt{KR}$ & $=$ & $2$ \\
-$x = WJ - WA = 5 - 2 =$ & \fbox{3} & \\
-aw $x = WJ + WA = 5 + 2 =$ & \fbox{7} & \\
-\end{tabular}
-\end{center}
-
-\vspace{0.3cm}
-
-\textbf{al-tafsir:} Nabni murabba'an janibuhu $x$ (al-mal). NulHiq
-bihi mustatTilan Tuluhu $10$ wa-'arDuhu $x$ -- walakin al-misaHa
-al-za'ida $21$ tumaththalu bi-l-mustatTil alladhi yulSaqu kharij
-al-murabba'. Nukammilu al-murabba' al-kabir bi-Tul $10$ (jami'
-al-juthur), wa-na'khudhu niSfahu $5$. al-murabba' al-kabir ($5 \times 5 = 25$)
-naqisan al-mustatTil ($21$) yu'tina murabba'an Sagiran ($4$) janibuhu
-$2$. al-Hallani ya'tiyani min imkaniyyati TarHi aw jam'i hadha
-al-janib min al-niSf.
-\end{geombox}
-
-\newpage
-
-\section{Tashrih al-HaSala al-Sadisa: ``3 usuL wa-4 yusawi malan''}
-
-\begin{originaltext}
-Li-yakun al-mal mumaththan bi-ruba'i aDla'uhu majhula ladayna,
-wa-in kanat mutasawiya fima baynaha, kama al-zawaya. Hadha huwa
-al-murabba' A D, alladhi yashtamilu 'ala al-thalathati juthurin
-wa-al-arba'ati a'dadin al-madhkura fi hadhihi al-mas'ala.
-
-Fi kulli murabba'in ahad aDla'ihi, maDruban fi wahida, huwa
-jadhr. NaqTu' al-an min al-murabba' A D al-ruba'i H D, wa-na'khudh
-ahad aDla'ihi H J li-thalatha, wa-huwa 'adad al-juthur. Wa-huwa
-musawin li-A R. Yatba'u idhan anna al-ruba'i H B yumanthilu
-al-arba'a a'dadan allati zidat 'ala al-juthur. al-an nunaSSifu
-al-Dil' J H alladhi yusawi thalathata juthur, 'inda al-nuqTa W;
-min hadha al-qisma nabni al-murabba' W T alladhi huwa hasilu Darb
-niSf al-juthur (wahid wa-niSf) fi nafsihi, ay thnan wa-rub'.
-\end{originaltext}
-
-\begin{geombox}
-\textbf{al-Burhan al-Hindisi lil-HaSala al-Sadisa:}
-
-\begin{center}
-\begin{tabular}{lcl}
-Murabba' $WT = (3/2)^2$ & $=$ & $2.25$ \\
-$AN + KL = AR = 4$ & & (al-a'dad al-muDafa) \\
-$GM = WT + (AN + KL) = 2.25 + 4$ & $=$ & $6.25$ \\
-$AG = \sqrt{GM} = \sqrt{6.25}$ & $=$ & $2.5$ \\
-$x = AG + GW = 2.5 + 1.5 =$ & \fbox{4} & \\
-\end{tabular}
-\end{center}
-
-\vspace{0.3cm}
-
-\textbf{al-tafsir:} Nabda'u bi-murabba' kabir ($x \times x = x^2$)
-yumanthilu al-mal. NaqTa'u minhu mustatTila ($3 \times x = 3x$)
-yumanthilu al-juthur. ma yabqa huwa al-mustatTil alladhi yumanthilu
-al-'adad 4. Nukammilu al-murabba' al-Sagir 'inda al-zawiya bi-niSf
-al-juthur (1.5). Na'khudhu al-jadhr al-tarb'i lil-majmui' wa-nujmi'
-'alayhi niSf al-juthur.
-\end{geombox}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: MULTIPLICATION
-%% ========================================================================
-\chapter{fi Darb al-Ta'abirat al-Jabriyya}
-\label{ch:multiplication}
-
-\begin{originaltext}
-Sa-u'allimuka al-an kayfa taDribu al-a'dada al-majhula -- ay
-al-juthur -- ba'Duha fi ba'D, in kanat munfarida, aw idha uDifat
-ilayha a'dad, aw idha nuqiSat minha a'dad, aw idha nuqiyat min
-a'dad; aydan kayfa tujmi'uha ba'Duha ila ba'D, aw kayfa tanquSu
-ba'Duha min ba'D.
-
-Kullama urida Darbu 'adadin fi 'adadin, fayajib an yukarrara
-ahaduhuma bi-'adadi ma yaHtawihi al-akhar min al-waHadat.
-
-Idha kanat a'dadun akbaru mu'allafa ma'a waHadatin li-tuDafa aw
-tunqas minhum, fa-inna \textbf{arba'a Darbatin} lazima; ay: al-a'dad
-al-akbaru fi al-a'dad al-akbar, wa-l-a'dad al-akbar fi al-waHadat,
-wa-l-waHadat fi al-a'dad al-akbar, wa-l-waHadat fi al-waHadat.
-
-Idha kanat al-waHadat al-mu'allafa ma'a al-a'dadi al-akbar
-mujibatayni kulltayhima, fa-l-Darbatu al-rabi'a mujiba; wa-idha
-kanat salibatayni kulltayhima, fa-l-Darbatu al-rabi'a mujiba aydan.
-Wa-idha kanat ihdahuma mujiba wa-l-ukhra saliba, fa-l-Darbatu
-al-rabi'a saliba.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{Qawa'id al-Darb al-Arba'i 'inda al-Khwarizmi:}
-
-Yuqaddimu al-Khwarizmi huna qawa'id Darb dhati al-Haddayn -- ay ma
-nusammi al-yawma ``tawzi' al-Darb 'ala al-jam' ''. Idda aradna Darba
-$(a + x)(b + y)$, fa-nahnu naHtaju li-arba' Darbat munfasila:
-
-\begin{enumerate}
-  \item al-akbar fi al-akbar: $a \times b$
-  \item al-akbar fi al-waHadat: $a \times y$
-  \item al-waHadat fi al-akbar: $x \times b$
-  \item al-waHadat fi al-waHadat: $x \times y$
-\end{enumerate}
-
-Wa-hadhihi hiya bi-ZabT al-Sigha allati na'rifuha al-yawma:
-$(a + x)(b + y) = ab + ay + bx + xy$
-
-\textbf{Ahammiyyat qawa'id al-Isharat:} Yulahidu al-Khwarizmi anna
-``al-salibi fi al-salibi = mujib'' wa-``al-salibi fi al-mujibi
-= salib''. Wa-hadhihi awwalu Siyaghat ma'rufa li-\textbf{qawa'id
-al-isharat} fi tarikh al-riyadiyyat!
-\end{commentary}
-
-\begin{mathexplain}
-\textbf{Qawa'id al-Isharat fi al-Darb:}
-
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-& \textbf{mujib} & \textbf{salib} \\
-\hline
-\textbf{mujib} & mujib & salib \\
-\hline
-\textbf{salib} & salib & mujib \\
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.3cm}
-
-$\begin{aligned}
-  (+x)(+y) &= +xy \\
-  (-x)(-y) &= +xy \\
-  (+x)(-y) &= -xy \\
-  (-x)(+y) &= -xy
-\end{aligned}$
-
-hadhihi al-qawa'id kanat thawriyya fi zamaniha -- fa-qad samahat
-bi-l-ta'amul ma'a ``al-kamiyyat al-naqiSa'' (al-a'dad al-saliba)
-fi siyaq al-Darb wa-l-qisma.
-\end{mathexplain}
-
-\section{Amthila 'ala al-Darb}
-
-\begin{originaltext}
-\textbf{al-mithal al-awwal:} 'ashara wa-waHid yuDribani fi 'ashara
-wa-ithnayn.
-
-'asharat 'asharat mi'a; waHid 'ashara 'asharatu 'asharat mujiba;
-ithnan 'ashara 'ishruna mujiba; wa-waHid fi ithnayn ithnan mujiban;
-al-majmui' mi'a wa-ithnan wa-thalathun.
-
-\textbf{al-mithal al-thani:} 'ashara naqis wahid, yuDrabu fi 'ashara
-naqis wahid.
-
-Fa-'asharat 'asharat mi'a; al-salib wahid fi 'ashara 'asharatu
-'asharat saliba; al-salib al-akhar fi 'ashara 'asharatu 'asharat
-salibat ukhra, fa-yakunu thamanun; lakinna al-salib wahid fi
-al-salib wahid wahid mujib, fa-yakunu al-natij wahidan wa-thamanin.
-
-\textbf{al-mithal al-thalith:} 'ashara wa-shay' yuDribani fi 'ashara
-wa-shay'.
-
-Fa-'asharat 'asharat mi'a, wa-'asharat shay' 'asharat ashya'; wa
-'asharat shay' 'asharat ashya'; wa-l-shay' maDruban fi al-shay'
-mal mujib, fa-yakunu al-natij mi'at dirham wa-'ishruna shay'an
-wa-malan mujiban wahidan.
-
-\textbf{al-mithal al-rabi':} 'ashara naqis shay', fi 'ashara naqis
-shay'.
-
-Fa-'asharat 'asharat mi'a; wa-salib shay' fi 'ashara 'asharatu
-ashya' saliba; wa-salib shay' akhar fi 'ashara 'asharatu ashya'
-saliba. Lakin salib shay' maDruban fi salib shay' mal mujib.
-Fa-l-natij mi'a wa-mal, naqis 'ishruna shay'an.
-
-\textbf{al-mithal al-khamis:} 'ashara naqis shay', fi 'ashara wa-
-ziyadat shay'.
-
-Fa-taqul: 'asharat 'asharat mi'a; wa-salib shay' fi 'ashara
-'asharat ashya' saliba; wa-shay' fi 'ashara 'asharat ashya'
-mujiba; wa-salib shay' fi shay' mal mujib; fa-l-natij mi'at
-dirham, naqis malin.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Tawdih al-Riyadi li-l-amthila:}
-
-\begin{center}
-$\begin{aligned}
-  (10 + 1)(10 + 2) &= 100 + 10 + 20 + 2 = 132 \\
-  (10 - 1)(10 - 1) &= 100 - 10 - 10 + 1 = 81 \\
-  (10 + x)(10 + x) &= 100 + 10x + 10x + x^2 = 100 + 20x + x^2 \\
-  (10 - x)(10 - x) &= 100 - 10x - 10x + x^2 = 100 - 20x + x^2 \\
-  (10 - x)(10 + x) &= 100 - 10x + 10x - x^2 = 100 - x^2
-\end{aligned}$
-\end{center}
-
-\textbf{mulahadha:} al-mithal al-khamis yuZhiru natijatan mudhishatan:
-$(10 - x)(10 + x) = 100 - x^2$ -- wa-huwa \textbf{farq al-mirabba'ayn}
-(difference of squares), ihdha ahamm al-Sughar al-jabriyya fi
-jami' al-riyadiyyat!
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: ADDITION AND SUBTRACTION
-%% ========================================================================
-\chapter{fi al-Jam' wa-al-TarH}
-\label{ch:addition}
-
-\section{'Amaliyyat 'ala al-Juthur al-tarb'iyya}
-
-\begin{originaltext}
-i'lam anna jadhr mi'atayni naqis 'ashara, mudafan ila 'ishrina
-naqis jadhr mi'atayni, huwa 'asharat.
-
-Wa-jadhr mi'atayni naqis 'ashara, munqasan min 'ishrin naqis jadhr
-mi'atayni, huwa thalathun naqis Di'fi jadhr mi'atayni; wa-Di'fu
-jadhr mi'atayni yusawi jadhr thamanimi'a.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Tawdih al-Riyadi:}
-
-\begin{center}
-$\begin{aligned}
-  (\sqrt{200} - 10) + (20 - \sqrt{200}) &= 10 \\
-  (20 - \sqrt{200}) - (\sqrt{200} - 10) &= 30 - 2\sqrt{200} = 30 - \sqrt{800}
-\end{aligned}$
-\end{center}
-
-\textbf{al-mulahadha al-muhimma:} al-Khwarizmi ya'rifu anna
-$2\sqrt{200} = \sqrt{800}$. Wa-hadha yatba'u min al-qawa'id al-'amma
-$a\sqrt{b} = \sqrt{a^2 b}$. Fa-l-jadhr al-tarb'i yu'ammuqu kakyan
-jabri mustaqill yumkinu jam'uhu wa-TarQuhu mitla al-mutaghayyirat.
-\end{mathexplain}
-
-\section{fi muDa'afat al-Juthur wa-niSfiha}
-
-\begin{originaltext}
-Idha aradta an tuDa'ifa jadhr ayi malin ma'lum aw majhul,
-(bi-ma'na annaka taDribuhu fi ithnayn) fa-yakfi annaka taDriba
-ithnayn fi ithnayn, thumma fi al-mal; fa-jadhr al-natij yusawi
-Di'fa jadhr al-mal al-asli.
-
-Wa-idha aradta an ta'khudhah thalathan, fa-Draba thalathata fi
-thalatha thumma fi al-mal; fa-jadhr al-natij huwa thalathatu
-a'da' jadhr al-mal al-asli.
-
-Wa-idha aradta an tajida niSf jadhr al-mal, fama 'alayka illa an
-naDriba niSf fi niSf, wa-huwa rub'; thumma hadha fi al-mal:
-fa-jadhr al-natij sa-yakunu niSfa jadhr al-mal al-awwal.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Tawdih al-Riyadi:}
-
-\begin{center}
-$\begin{aligned}
-  2\sqrt{S} &= \sqrt{4S} \\
-  3\sqrt{S} &= \sqrt{9S} \\
-  \tfrac{1}{2}\sqrt{S} &= \sqrt{\tfrac{1}{4}S}
-\end{aligned}$
-\end{center}
-
-\textbf{al-tafsir:} al-qawa'id hiY $\sqrt{a^2 \cdot S} = a\sqrt{S}$.
-al-Khwarizmi yuqaddimuha ka-Khwarizmiyya 'amaliyya: li-tuDa'ifa
-al-jadhr, aDrib al-mal (mal) fi 4 (2x2) thumma khudh al-jadhr.
-hadhihi al-tariqa tatajannabu al-ta'amul ma'a ``naSf al-jadhr''
-mubashsharatan.
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: DIVISION
-%% ========================================================================
-\chapter{fi al-Qisma}
-\label{ch:division}
-
-\begin{originaltext}
-Idha aradta an taqsima jadhr tis'a 'ala jadhr arba'a, fa-bda' bi-
-qismati tis'a 'ala arba'a, fa-yu'tika ithnayn wa-rub'an; fa-jadhr
-hadha huwa al-'adad alladhi taHtaju ilayhi -- wa-huwa wahid wa-niSf.
-
-Wa-idha aradta an taqsima jadhr arba'a 'ala jadhr tis'a, fa-aqsim
-arba'a 'ala tis'a; fa-huwa arba'u atsa' al-wahda; wa-jadhr hadha
-ithnan maqsuman 'ala thalatha; ay thulthay al-wahda.
-
-Wa-idha aradta an taDruba jadhr tis'a fi jadhr arba'a, fa-Drab
-tis'a fi arba'a; fa-yu'tika sitta wa-thalathin; fa-khudh jadhr,
-fa-huwa sitta; wa-hadha huwa jadhr tis'a maDruban fi jadhr arba'a.
-
-Wa-idha aradta an taDruba Di'fa jadhr tis'a fi thalathati a'da'
-jadhr arba'a, fa-khudh Di'fa jadhr tis'a Hasaba al-qawida al-
-madhkura, Hatta ta'rifa jadhr ayi mal huwa. Waf'il al-mithla
-bi-l-nisbati li-l-thalathati juthur al-arba'a li-ta'riffa ma yajib
-an yakuna mal dhalika al-jadhr. Thumma aDrab hadhayni al-malayn
-ahadahuma fi al-akhar, fa-jadhr al-natij yusawi Di'fa jadhr tis'a
-maDruban fi thalathati a'da' jadhr arba'a.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{Qawa'id al-Juthur 'inda al-Khwarizmi:}
-
-\begin{center}
-$\begin{aligned}
-  \frac{\sqrt{9}}{\sqrt{4}} &= \sqrt{\frac{9}{4}} = \frac{3}{2} = 1.5 \\
-  \frac{\sqrt{4}}{\sqrt{9}} &= \sqrt{\frac{4}{9}} = \frac{2}{3} \\
-  \sqrt{9} \times \sqrt{4} &= \sqrt{9 \times 4} = \sqrt{36} = 6 \\
-  (2\sqrt{9}) \times (3\sqrt{4}) &= \sqrt{36 \times 36} = 36
-\end{aligned}$
-\end{center}
-
-\textbf{al-qawa'id al-'Amma:}
-\begin{itemize}
-  \item $\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}}$
-  \item $\sqrt{a} \times \sqrt{b} = \sqrt{a \times b}$
-  \item $(m\sqrt{a}) \times (n\sqrt{b}) = mn\sqrt{ab}$
-\end{itemize}
-
-Hadhihi al-qawa'id hiya al-asas alladhi yabni 'alayhi al-Khwarizmi
-jami' 'amaliyyatihi 'ala al-juthur.
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: THE SIX ILLUSTRATIVE PROBLEMS
-%% ========================================================================
-\chapter{al-sittu Masa'il al-TawDiHiyya}
-\label{ch:six-problems}
-
-\begin{originaltext}
-Qabla fuSuli al-Hisab wa-anwa'iha al-mukhtalifa, sa'uqaddimu al-an
-sitta masa'il, kamithal 'ala al-HaSalat al-sitt allati tanaWalat
-ha fi bidayat hadha al-'amal. Qad bayyantu anna thalathan min
-hadhihi al-HaSalat, li-Halliha, la taHtaju ila naSf al-juthur, wa-
-dhakartu aydanna anna al-Hisab bi-l-jabr wa-l-muqabala yajib ann
-yaqulaka da'iman ila ihdha haa al-HaSalat. Sa-ulHaqu hadhihi al-
-masa'il al-an, allati sa-takunu aqraba ila al-fahm, wa-tusahhilu
-istiya' al-mawdii', wa-tubayyinu al-ijj b-iDaaa akbar.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{limadha sittu masa'il?}
-
-Yuqaddimu al-Khwarizmi ba'da shariH al-HaSalat al-sitt \textbf{sitta
-masa'il tatbiqiyya} -- mas'ala wahida li-kulli HaSala. Hadhihi al-
-masa'il laysat majarrad tamariyn riyadiyya, bal hiya \textit{qiSas}
-(word problems) ta'ksi mawaqif waqi'iyya. Wa-al-ahammu min dhalika
-annaha tuZhiru kayfiyyat \textbf{nimuDajat} mas'ala waqi'iyya ila
-mu'adala jabriyya -- wa-hiya al-mahara al-asasiyya fi 'ilm al-jabr.
-\end{commentary}
-
-\section*{al-mas'ala al-ula}
-\addcontentsline{toc}{section}{al-mas'ala al-ula}
-
-\begin{originaltext}
-``Qasamtu 'ashara ila qismayn; Darabtu ahadahuma fi al-akhar; ba'da
-hadha Darabtu ahada al-qismayn fi nafsihi, wa-hasil al-Darb fi
-nafsihi arba'atu a'da'i ma hasala min Darbi ahadi al-qismayni fi
-al-akhar.''
-
-al-Hall: li-yakun ahad al-qismayn shay'an, wa-al-akhar 'ashara
-naqis shay'. TaDrabu al-shay' fi 'ashara naqis shay'; fa-huwa
-'asharat ashya' naqis mal. Thumma taDribuhu fi arba'a, li-anna al-
-mas'ala taqulu ``arba'atu a'da' ''. Fa-l-natij arba'un 'asharat
-ashya' naqis arba'ati amwalin. Ba'da hadha taDribu al-shay' fi al-
-shay', ay ahada al-qismayni fi nafsihi. Wa-hadha mal, huwa musawin
-li-arba'in shay'an naqis arba'ati amwalin. KhaffiDha al-an bi-l-
-arba'ati amwalin, wa-azidha ila al-mali al-waHid. Fa-l-mu'adala:
-arbau 'ishruna shay'an tusawi khamsata amwla; wa-malu wahid
-yusawi thamaniyata juthuran, ay arba'a wa-sittin; wa-jadhr hadha
-thamaniya.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Hall al-Riyadi:}
-
-\begin{center}
-$\begin{aligned}
-  x^2 &= 4x(10-x) = 40x - 4x^2 \\
-  \Rightarrow\quad 5x^2 &= 40x \quad\Rightarrow\quad x^2 = 8x = 64 \quad\Rightarrow\quad x = 8
-\end{aligned}$
-\end{center}
-
-al-qismaan huma: $x = 8$ wa $10 - x = 2$.\\
-Hadhihi al-mas'ala taquluna ila ihdha al-HaSalat al-sitt, ay:
-\textbf{mal yusawi usuLan}.
-\end{mathexplain}
-
-\section*{al-mas'ala al-thaniya}
-\addcontentsline{toc}{section}{al-mas'ala al-thaniya}
-
-\begin{mathexplain}
-\textbf{al-mas'ala:} ``Qasamtu 'ashara ila qismayn; Darabtu kulla
-qism fi nafsihi, wa-ba'dahu 'ashara fi nafsaha: hasilu 'asharat
-fi nafsiha yusawi ahada al-qismayni maDruban fi nafsihi, wa-ba'dahu
-fi ithnayn wa-sab'at atsa'.''
-
-$100 = x^2 \times 2\tfrac{7}{9} = x^2 \times \tfrac{25}{9}$
-$\Rightarrow x^2 = \tfrac{900}{25} = 36 \Rightarrow x = 6$
-
-al-qismaan huma: $x = 6$ wa $10 - x = 4$.
-\end{mathexplain}
-
-\section*{al-mas'ala al-thalitha}
-\addcontentsline{toc}{section}{al-mas'ala al-thalitha}
-
-\begin{mathexplain}
-\textbf{al-mas'ala:} ``Qasamtu 'ashara ila qismayn. Qasamtu al-
-wahida 'ala al-ukhar, wa-al-natij arba'a.''
-
-$\dfrac{10 - x}{x} = 4 \Rightarrow 10 - x = 4x \Rightarrow 10 = 5x \Rightarrow x = 2$
-
-al-qismaan huma: $x = 2$ wa $10 - x = 8$.
-\end{mathexplain}
-
-\section*{al-mas'ala al-rabi'a}
-\addcontentsline{toc}{section}{al-mas'ala al-rabi'a}
-
-\begin{mathexplain}
-\textbf{al-mas'ala:} ``Darabtu thulthi shay' wa-dirham fi rub'i
-shay' wa-dirham, wa-al-natij 'ishrun.''
-
-$\left(\dfrac{x}{3} + 1\right)\left(\dfrac{x}{4} + 1\right) = 20$
-$\Rightarrow \dfrac{x^2}{12} + \dfrac{7x}{12} + 1 = 20$
-$\Rightarrow x^2 + 7x = 228$
-
-naSf al-juthur: $3.5$. al-murabba': $12.25$.
-nuDiI ila 228: $240.25$. al-jadhr: $15.5$.
-nanquS $3.5$: $x = 12$.
-\end{mathexplain}
-
-\section*{al-mas'ala al-khamisa}
-\addcontentsline{toc}{section}{al-mas'ala al-khamisa}
-
-\begin{mathexplain}
-\textbf{al-mas'ala:} ``Qasamtu 'ashara ila qismayn; ba'da Darbi
-kulli qism fi nafsihi, jamatuhuma; wa-al-majmu' thamaniya wa-
-khamsun dirhama.''
-
-$x^2 + (10-x)^2 = 58 \Rightarrow 2x^2 - 20x + 100 = 58$
-$\Rightarrow x^2 + 28 = 11x$
-
-$x = \dfrac{11}{2} \pm \sqrt{\dfrac{121}{4} - 28} = 5.5 \pm 2.5$.
-al-qismaan: $x = 3$ aw $x = 7$.
-\end{mathexplain}
-
-\section*{al-mas'ala al-sadisa}
-\addcontentsline{toc}{section}{al-mas'ala al-sadisa}
-
-\begin{mathexplain}
-\textbf{al-mas'ala:} ``Darabtu thultha jadhr fi rub'a jadhr, wa-al-
-natij yusawi al-jadhr wa-arba'a wa-'ishrina dirhama.''
-
-$\dfrac{x}{3} \cdot \dfrac{x}{4} = x + 24 \Rightarrow \dfrac{x^2}{12} = x + 24$
-$\Rightarrow x^2 = 12x + 288$
-
-$x = 6 + \sqrt{36 + 288} = 6 + 18 = 24$
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: VARIOUS QUESTIONS
-%% ========================================================================
-\chapter{masa'il mukhtalifa}
-\label{ch:various}
-
-\begin{originaltext}
-Wa-hadhihi masa'il iDafiyya li-tawsi' al-fahm wa-ta'kidi al-mabadi'
-allati buniyat 'alayha al-HaSalat al-sitt al-kanuniyya.
-\end{originaltext}
-
-\section*{masa'il tawDiHiyya iDafiyya}
-\addcontentsline{toc}{section}{masa'il tawDiHiyya iDafiyya}
-
-\begin{originaltext}
-\textbf{mas'ala 1:} qasamtu 'ashara ila qismayn, wa-Darabtu
-ahadahuma fi al-akhar, fa-kana al-natij wahidan wa-'ishrina.
-
-\textbf{mas'ala 2:} qasamtu 'ashara ila qismayn; ba'da Darbi kulla
-qism fi nafsihi, naqastu al-asghar min al-akbar, wa-al-baqiyy
-arba'un.
-
-\textbf{mas'ala 3:} lana murabba', thulthahu min khumushihi yusawi
-sub'i jadhr.
-
-\textbf{mas'ala 4:} wujad jadhr murabba', idha Duriba fi arba'a
-amthalihi kana al-majmui' 'ishrina.
-
-\textbf{mas'ala 5:} murabba', idha Duribat arba' min juthur fi
-khamsat min juthur antajat Di'f al-mal, ma'a fa'iD sitta wa-
-thalathin dirhaman.
-
-\textbf{mas'ala 6:} wujad murabba', idha uDifa thulthuhu ila
-thalathati darahim, wa-nuqiSa al-majmu' min al-murabba', thumma
-Duriba al-baqiyy fi nafsihi, astarada al-murabba'.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{Hullu-l-masa'il al-mukhtalifa:}
-
-\textbf{mas'ala 1:} $x(10-x) = 21 \Rightarrow 10x - x^2 = 21 \Rightarrow x^2 + 21 = 10x$
-
-$x = 5 \pm \sqrt{25 - 21} = 5 \pm 2 = 3 \text{ aw } 7$
-
-\vspace{0.2cm}
-
-\textbf{mas'ala 2:} $(10-x)^2 - x^2 = 40 \Rightarrow 100 - 20x = 40 \Rightarrow x = 3$
-
-\vspace{0.2cm}
-
-\textbf{mas'ala 3:} $\tfrac{2}{3} \cdot \tfrac{1}{5} x^2 = \tfrac{1}{7}x \Rightarrow \tfrac{2}{15}x^2 = \tfrac{1}{7}x \Rightarrow x = \tfrac{15}{14} = 1\tfrac{1}{14}$
-
-\vspace{0.2cm}
-
-\textbf{mas'ala 4:} $x \cdot 4x = 20 \Rightarrow 4x^2 = 20 \Rightarrow x^2 = 5 \Rightarrow x = \sqrt{5}$
-
-\vspace{0.2cm}
-
-\textbf{mas'ala 5:} $4x \cdot 5x = 2x^2 + 36 \Rightarrow 20x^2 = 2x^2 + 36 \Rightarrow 18x^2 = 36 \Rightarrow x^2 = 2$
-
-\vspace{0.2cm}
-
-\textbf{mas'ala 6:} $\left(x - \tfrac{x}{3} - 3\right)^2 = x \Rightarrow \left(\tfrac{2x}{3} - 3\right)^2 = x$
-
-$\Rightarrow \tfrac{4x^2}{9} + 9 - 4x = x \Rightarrow x^2 + 20\tfrac{1}{4} = 11\tfrac{1}{4}x \Rightarrow x = 9 \text{ aw } 2\tfrac{1}{4}$
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% PART: PRACTICAL APPLICATIONS
-%% ========================================================================
-\part{al-Tatbiqat al-'amaliyya}
-\label{part:practical}
-
-\begin{historicalbox}
-\textbf{al-jabr wa-al-Hayat al-yawmiyya:}
-
-Min ahamma ma yumayyizu kitab al-Khwarizmi anna al-jabra 'indahu
-laysa mujarrad lu'bat ithniyya aw niZariyya mujarrada, bal huwa
-\textbf{adatun 'amaliyya} li-l-ta'amul ma'a al-masa'il al-yawmiyya.
-YatanaWal al-juz' al-thani min kitabihi tatbiqat 'amaliyya fi
-thalathat majalat ra'iyya:
-
-\begin{enumerate}
-  \item \textbf{al-mu'amalat al-tijariyya} -- al-bay' wa-l-shira'
-    wa-l-Sarf wa-l-ijara
-  \item \textbf{al-misaHa wa-l-handasa} -- misaHat al-ardiyn wa-Hufri
-    al-qanawat
-  \item \textbf{al-mirath wa-l-wasaya} -- ahkam al-fara'iD al-islamiyya
-\end{enumerate}
-
-Wa-hadha ya'ksi al-wiDifa \textbf{al-'amaliyya} li-l-'ilmi fi
-al-HaDara al-islamiyya -- lam yakun al-'ilmu munfasilan 'an al-Hayat,
-bal kana fi khidmati al-insan mubashsharatan.
-\end{historicalbox}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: MERCANTILE TRANSACTIONS
-%% ========================================================================
-\chapter{fi al-mu'amalat al-tijariyya}
-\label{ch:mercantile}
-
-\begin{originaltext}
-fi al-mu'amalat al-tijariyya: i'lam anna jami'a mu'amalat al-nas
-min bay' wa-shira' wa-muSarafa wa-ijara, fa-innaha la takhlu min
-qadrayni wa-arba'ati a'dadin yas'alu 'anha al-sa'il, wa-hiya al-
-miqdar wa-l-thaman wa-l-kayfiyya wa-l-jami'. 'adad al-miqdar
-yunasibu 'adad al-jami', wa-'adad al-thaman yunasibu 'adad al-
-kayfiyya. thalathatu min hadhihi al-arba'a da'iman ma'luma, wa-
-Wahid majhul, wa-huwa alladhi yatadammanuhu qawluhu ``kam?'' wa-
-huwa al-maTlub.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{Qa'idat al-arba'a a'dad -- al-jabr al-tijari:}
-
-Yasifu al-Khwarizmi huna ma nusammi al-yawma ``qawa'id al-thalath''
-(Rule of Three) aw ``al-tanasiq''. Kullu mas'alat tijariyya tatadammanu
-arba'a kamiyyat murtabiTa bi-l-tanasiq:
-
-\begin{itemize}
-  \item \textbf{al-miqdar} (al-miqdar): kamiyyat al-sila' fi al-Safqa al-ula
-  \item \textbf{al-thaman} (al-thaman): si'r tilka al-kamiyya
-  \item \textbf{al-kayfiyya} (al-kamiyya): kamiyyat al-sila' fi al-Safqa al-thaniya
-  \item \textbf{al-jami'} (al-majmui'): al-si'r al-ijmali al-maTlub
-\end{itemize}
-
-thalathu min hadhihi al-kamiyyat ma'lumma wa-l-rabi'a majhula.
-Wa-l-'alaqa hiya: $\text{al-miqdar} : \text{al-kayfiyya} :: \text{al-jami'} : \text{al-thaman}$
-aw bi-l-mu'adala: $a \times b = c \times d$
-\end{commentary}
-
-\begin{mathexplain}
-\textbf{Qa'idat al-arba'a a'dad:}
-
-\begin{center}
-\begin{tabular}{c|c}
-\textbf{al-miqdar} & \textbf{al-thaman} \\
-\hline
-$a$ (ma'lum) & $b$ (ma'lum) \\
-$c$ (ma'lum aw majhul) & $d$ (ma'lum aw majhul) \\
-\end{tabular}
-
-\vspace{0.3cm}
-
-$\text{al-majhul} = \dfrac{\text{hasil Darb al-'adadayni al-mutanasibayn}}{\text{al-'adad al-ma'lum al-thalith}}$
-\end{center}
-
-\textbf{al-Amthila:}
-\begin{enumerate}
-  \item ``'ashara bi-sitta, kam bi-arba'a?''
-  $\text{al-kamiyya} = \dfrac{10 \times 4}{6} = \dfrac{40}{6} = 6\tfrac{2}{3}$
-
-  \item ``'ashara bi-thamaniya, ma yakunu al-jami' li-arba'a?''
-  $\text{al-jami'} = \dfrac{8 \times 4}{10} = \dfrac{32}{10} = 3\tfrac{1}{5}$
-
-  \item ``lil-'amili ujrat 'asharati darahim fi al-shahr; kam
-    yajib an takunu ujratuhu fi sittati ayyaam?''
-  $\text{al-ujra} = \dfrac{10 \times 6}{30} = 2 \text{ dirahm}$,
-  ba-frD anna al-shahr thalathun yawman.
-\end{enumerate}
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: MENSURATION
-%% ========================================================================
-\chapter{al-misaHa wa-l-handasa}
-\label{ch:mensuration}
-
-\begin{originaltext}
-i'lam anna ma'na qawlina ``wahid fi wahid'' huwa al-misaHa: ay
-Dhiraa' fi Tuliha fi Dhiraa' fi 'arDiha.
-
-kullu murabba' mutasawi al-aDla' wa-l-zawaya, lahu Dhiraa' wahida
-li-kulli Dil', fa-lahu wahid fi misaHihi. Fa-in kana li-mithali
-hadha al-murabba' Di'lan fi Dil'ihi, fa-inna misaHat al-murabba'
-'arba'atu amthali misaHa murabba' Dil'uhu Dhiraa' wahida.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{manhaj al-Khwarizmi fi al-misaHa:}
-
-Yabda'u al-Khwarizmi bi-ta'rifi al-misaHa 'ala annaha murabba' al-
-wahda (Dhiraa' fi Dhiraa'). hadha al-ta'rif yaj'alu al-misaHa
-\textbf{kamiyya mujiba da'iman}, wa-huwa ma yufassiru iqtiSarahu
-'ala al-ma'amilat al-mujiba fi al-jabr.
-
-al-mulahadha al-muhimma anna al-Khwarizmi yafhamu al-misaHa
-\textit{bi-shakl hindisi} -- fa-l-misaHa laysat majarrad 'adad, bal
-hiya murabba' lahu Tul wa-'arD. hadha al-tafakkur al-hindisi huwa
-alladhi yumakkinuhu min i'itai al-burahin al-hindisiyya li-l-HaSalat
-al-jabriyya.
-\end{commentary}
-
-\section{al-muthallathat}
-
-\begin{originaltext}
-Idha Darabta irtifa'a ayi muthallath mutasawi al-aDla' fi niSfi
-al-qaa alladhi yaqumu 'alayha al-khaTT al-mamayyiz lil-irtifaa'
-'amudiyyan, fa-l-natij yu'ti misaHa dhalika al-muthallath.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{misaHat al-muthallath:}
-
-\begin{center}
-$\text{misaHat al-muthallath} = \text{al-irtifaa'} \times \dfrac{\text{al-qa}}{2}$
-\end{center}
-
-hadhihi al-Sigha SaHiHa li-\textbf{kulli} muthallath, laysa faqaT
-al-muthallath al-mutasawi al-aDla'. wa-l-Khwarizmi yastakhdimuha
-fi masa'ili misaHa al-ardiyn.
-\end{mathexplain}
-
-\section{al-dawa'ir}
-
-\begin{originaltext}
-Fi kulli da'ira, hasilu Darbi qiTriha fi thalath wa-sabi'a wahida
-yusawi al-muHit.
-
-Wa-tujad misaHa ayi da'ira bi-Darbi niSfi al-muHit fi niSfi al-qiT.
-
-Wa-idha Darabta qiTa ayi da'ira fi nafsihi, wa-naqasta min al-natij
-sub'an wa-niSfa sub'in minhu, fa-l-baqiy yusawi misaHat al-da'ira.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{misaHa wa-muHit al-da'ira 'inda al-Khwarizmi:}
-
-\begin{center}
-$\begin{aligned}
-  C &= \pi d \approx \dfrac{22}{7} \times d \quad\text{(al-muHit)} \\
-  A &= \dfrac{C}{2} \times \dfrac{d}{2} = \dfrac{Cd}{4} \quad\text{(al-misaHa -- al-tariqa al-ula)} \\
-  A &= d^2 - \dfrac{d^2}{7} - \dfrac{d^2}{14} = d^2 \times \left(1 - \dfrac{3}{14}\right) = d^2 \times \dfrac{11}{14} \quad\text{(al-misaHa -- al-tariqa al-thaniya)}
-\end{aligned}$
-\end{center}
-
-\textbf{mulahadha:} qimmat $\pi \approx \dfrac{22}{7}$ hiya al-taqrib
-al-shahir alladhi istakhdamahu al-riyadiyyun al-islamiyyun wa-l-
-Yunaniyyun. Amma al-tariqa al-thaniya fa-yuHassibu fiha al-Khwarizmi
-$\pi/4 \approx 11/14$, wa-huwa taqrib mumtaz.
-\end{mathexplain}
-
-\section{al-aHjam}
-
-\begin{originaltext}
-Hajam al-jism ruba'i al-aDla' yujad bi-Darbi al-Tul fi al-'arD,
-thumma fi al-irtifaa'.
-
-Wa-amma al-makhruTat wa-al-ahram, kayna al-muthallath aw al-ruba'i,
-fa-tuHassabu bi-Darbi thuluth misaHa al-qa fi al-irtifaa'.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{Hisab al-aHjam:}
-
-\begin{center}
-$\begin{aligned}
-  V_{\text{muwazi al-mustatiilat}} &= \text{al-Tul} \times \text{al-'arD} \times \text{al-irtifaa'} \\
-  V_{\text{haram}} &= \dfrac{1}{3} \times \text{(misaHa al-qa)} \times \text{al-irtifaa'}
-\end{aligned}$
-\end{center}
-
-hadhihi al-Sighar SaHiHa wa-la tazalu tudarRasu fi al-madaris Hatta
-al-yawm!
-\end{mathexplain}
-
-\section{al-muthallath al-qaaim al-zawiya (mubarhanat fifaghorus)}
-
-\begin{originaltext}
-laHiz annahu fi kulli muthallath qaaim al-zawiya al-Dil'ayn al-
-qSirayn kulla wahid minhuma maDruban fi nafsihi, wa-majmu' al-
-hasilayn, yusawi hasila Darbi al-Dil' al-TawiI maDruban fi nafsihi.
-\end{originaltext}
-
-\begin{geombox}
-\textbf{mubarhanat fifaghorus 'inda al-Khwarizmi:}
-
-\begin{center}
-$\boxed{a^2 + b^2 = c^2}$
-\end{center}
-
-Haythu $a$ wa $b$ huma al-Dil'aan al-qiSiran (al-saqan), wa $c$ huwa
-al-watar (al-Dil' al-TawiI).
-
-\textbf{al-burhan al-hindisi:} yuqaddimu al-Khwarizmi burhanan
-hindisiyyan jamilan bi-istikhdam murabba' maqsum ila arba'a murabba'at
-Sagira mutasawiya wa-thamani muthallathat mutasawiya, mubayyinan anna
-majmu' murabba'ayi al-Dil'ayni al-qiSirayn yusawi murabba' al-Dil' al-
-TawiI.
-\end{geombox}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER: ON LEGACIES
-%% ========================================================================
-\chapter{fi al-wasaya wa-'ilm al-fara'iD}
-\label{ch:legacies}
-
-\begin{originaltext}
-YatanaWalu al-juz' al-akhir min hadha al-'amal ahkam al-mirath al-
-islami (al-fara'iD). Wa-hadha al-mawDu', ma'a annahu yabdU min
-jinsi al-fiqh la al-riyadiyyat, yaHtaju li-jami' adawat al-jabr fi
-Hallihi Hina turakkabu al-wasaya 'ala al-as-ham al-shar'iyya.
-\end{originaltext}
-
-\begin{commentary}
-\textbf{al-jabr wa-l-fara'iD:}
-
-YuZhiru hadha al-faSl -- alladhi ya'tabiruhu ba'Du al-mu'arrikhin
-akthara li-l-ih-timam fi al-kitab -- kayfa anna al-jabr kana
-\textbf{adatan Darruriyya} Hatta fi al-'ulum al-shar'iyya. fi al-
-qanun al-islami li-l-mirath, hunaka \textit{as-ham thabita}
-muHaddada fi al-qur'an al-karim (mithla: li-l-zawja al-thumnu,
-li-l-abi al-sudus, ila akhirihi). Lakin 'indama yuDafu waSiyya
-(taTaww'iyya) ila hadhihi al-as-ham al-thabita, taSbiH al-mas'ala
-\textit{jabriyya}: naHtaju li-majhul ($x$) li-yumaththila al-mablagh
-al-ijmali aw al-waSiyya.
-
-Hadha huwa bi-ZabT ma daafa' al-Khwarizmi li-ta'lifi kitabihi --
-fa-l-quDat wa-l-fuqaha' kanu bi-Haja li-Tariqa munazZama li-Halli
-hadhihi al-masa'il.
-\end{commentary}
-
-\section*{fi ras al-mal wa-l-duyun}
-\addcontentsline{toc}{section}{fi ras al-mal wa-l-duyun}
-
-\begin{originaltext}
-\textbf{mas'ala:} ``tawaffa rajulun wa-taraka ibnayn, wa-awSa
-bi-thulthi ras mali-hi li-ajjanibi. Taraka 'asharati darahim
-malan wa-'asharati darahim dainan 'ala ahadi al-ibnayn.''
-
-al-Hall: tusammiya al-mablagh alladhi yustakhraj min al-dayni
-shay'an. tuziIha ila ras al-mal alladhi huwa 'asharatu darahim.
-a-yakunu al-majmuu' $10 + x$. TanquSu minhu thulthan, li-annahu
-awSa bi-thulthi mali-hi: $3.33 + 0.33x$. al-Baqiy $6.67 + 0.67x$.
-Taqsima hadha bayna al-ibnayn: yakulu kulla wahid minhuma $3.33 +
-0.33x$. Wa-hadha yusawi al-shay' al-maTlub.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Hall al-Riyadi:}
-
-\begin{center}
-$3.33 + 0.33x = x \quad\Rightarrow\quad 3.33 = 0.67x \quad\Rightarrow\quad x = 5$
-\end{center}
-
-YaHulu al-ajjanibi 'ala 5 darahim; wa-yaHulu kulla walad 'ala 5
-darahim (yabqii al-ibnu al-madynun bi-daynihi kamilan ka-muqasSa
-Hissatuhu).
-
-\textbf{al-mu'adala:} nahnu nabHathu 'an $x$ alladhi yumaththilu
-al-mablagh alladhi yuKHsamu min al-dayni li-yuzafa ila al-tarika
-qabla qismat al-waSiyya.
-\end{mathexplain}
-
-\section*{fi naw' akhar min al-wasaya}
-\addcontentsline{toc}{section}{fi naw' akhar min al-wasaya}
-
-\begin{originaltext}
-\textbf{mas'ala:} ``tawaffa rajulun tarikan ummahu wa-zawjatahu
-wa-akhawayn wa-ukhtayn lahu min ab wa-umm, wa-awSa li-ajnanibi
-bi-tsa'i ras mali-hi.''
-
-al-Hall: tuj'alu as-hamu al-tarika min thamaniya wa-arba'in juz'an.
-Wa-ta'lamu annaka idha akhadhta ts'an min ayyi ras mali yabqa
-thamaniya atsa'ihi. azid al-an ila al-thamaniya atsa' thumnaha minha,
-wa-ila al-thamaniya wa-arba'ayn aydan thumnahun, ay sitta, li-ikmal
-ras mali-ka. Fa-hadha yu'ti arba'a wa-khamsin. yaHulu al-shakhS
-alladhi yu'Sa lahu bi-ts'i 'ala sittatin min hadha. al-baqiyya
-thamaniya wa-arba'un tuqSamu bayna al-warathah Hasaban li-as-hamihim
-al-shar'iyya.
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Hall al-Riyadi:}
-
-\begin{center}
-\begin{tabular}{l|c}
-\textbf{al-warith} & \textbf{al-sahm (min 48)} \\
-\hline
-al-umm & 8 \\
-al-zawja & 6 \\
-kullu akh & 14 \\
-kullu ukht & 7 \\
-\hline
-al-majmu' & $8 + 6 + 2(14) + 2(7) = 56$ juz' mu'addal \\
-\end{tabular}
-\end{center}
-
-\textbf{al-Khwarizmiyya:} ras al-mal = 54. al-waSiyya = 6 (ts' al-
-54). al-baqiy = 48 yuqSamu bayna al-warathah. Hadhihi al-mas'ala
-tataTallabu wijda maDami' mushtarak (48) yumkinu an yastaWi 'ala
-jami' al-as-ham al-shar'iyya ba'da izalat al-waSiyya.
-\end{mathexplain}
-
-\section*{masa'il al-wasaya al-murakkaba}
-\addcontentsline{toc}{section}{masa'il al-wasaya al-murakkaba}
-
-\begin{originaltext}
-\textbf{mas'ala:} ``tawaffat imra'atun tarikatan zawjaha wa-bnan
-laha wa-ummaha. awSatat li-shakhsin bi-thuluthay maliha, wa-li-
-akhar bi-rub'ihi. j'alat al-waSiyyatayn ma'an 'ala ibniha, wa-'ala
-ummiha niSf (Hissati al-umm min al-baqiyya); 'ala zawjiha la
-tulzimuhu illa al-thuluth (alladhi yajib an yusam bihi, Hasaba al-
-qanun).''
-\end{originaltext}
-
-\begin{mathexplain}
-\textbf{al-Hall al-Riyadi:}
-
-\begin{center}
-\begin{tabular}{l|c|l}
-\textbf{al-warith} & \textbf{al-sahm al-asli} & \textbf{al-taSaruf} \\
-\hline
-al-ibn & $7/12$ & mukallaT bi- $\tfrac{2}{5} + \tfrac{1}{4} = \tfrac{13}{20}$ \\
-al-zawj & $3/12 = 1/4$ & yusamim bi-thulthi sahmihi = $1/12$ \\
-al-umm & $2/12 = 1/6$ & mukallafat bi-niSfi sahmihi = $1/12$ \\
-\end{tabular}
-\end{center}
-
-\textbf{al-mu'adala:} al-musahimat al-ijmaliYya =
-$\tfrac{13}{20} \times \tfrac{7}{12} + \tfrac{1}{12} + \tfrac{1}{12} = \text{muHassabat tanasubiyyan}$
-
-Hadhihi al-mas'ala al-murakkaba tuZhiru al-quwwa al-Haqiqiyya li-l-
-jabr fi Hall al-masa'il al-shar'iyya al-murakkaba allati kana
-yuwajihuha al-quDat.
-\end{mathexplain}
-
-\newpage
-
-%% ========================================================================
-%% APPENDICES
-%% ========================================================================
-\appendix
-
-\chapter{mulakHHas al-HaSalat al-sitt}
-\label{app:six-cases}
-
-\begin{mathexplain}
-\textbf{al-HaSalat al-sitt al-kanuniyya li-l-mu'adlat al-tarb'iyya:}
-
-\begin{center}
-\renewcommand{\arraystretch}{1.8}
-\begin{longtable}{|c|c|c|c|}
-\hline
-\textbf{al-HaSala} & \textbf{al-ism al-Arabi} & \textbf{al-mu'adala} & \textbf{al-Hall} \\
-\hline
-\endfirsthead
-\hline
-\textbf{al-HaSala} & \textbf{al-ism al-Arabi} & \textbf{al-mu'adala} & \textbf{al-Hall} \\
-\hline
-\endhead
-\hline
-\endfoot
-al-ula & mal yusawi usuLan & $ax^2 = bx$ & $x = b/a$ \\
-\hline
-al-thaniya & mal yusawi 'adadan & $ax^2 = c$ & $x = \sqrt{c/a}$ \\
-\hline
-al-thalitha & usuL tusawi 'adadan & $bx = c$ & $x = c/b$ \\
-\hline
-al-rabi'a & mal wa-usuL yusawi 'adadan & $ax^2 + bx = c$ & $x = \sqrt{(b/2a)^2 + c/a} - b/2a$ \\
-\hline
-al-khamisa & mal wa-'adad yusawi usuLan & $ax^2 + c = bx$ & $x = \tfrac{b}{2a} \pm \sqrt{(b/2a)^2 - c/a}$ \\
-\hline
-al-sadisa & usuL wa-'adad yusawi malan & $bx + c = ax^2$ & $x = \tfrac{b}{2a} + \sqrt{(b/2a)^2 + c/a}$ \\
-\hline
-\end{longtable}
-\end{center}
-
-\vspace{0.5cm}
-
-\textbf{mulahadha tarikhiyya:} Hadhihi al-HaSalat al-sitt tastanfudhu
-jami'a imkaniyyat al-mu'adlat al-tarb'iyya dhat \textbf{al-ma'amilat
-al-mujiba}. al-iqtiSir 'ala al-ma'amilat al-mujiba kana Darruriyyan
-bi-sabab al-tafsir al-hindisi: fa-l-Khwarizmi yafhamu kulla Haddin
-fi al-mu'adala 'ala annahu miqdar hindisi (masaHat wa-Tul), la
-yumkinu an takuna al-misaHa saliba. wa-l-mu'alaja al-kamila li-jami'
-al-mu'adlat al-tarb'iyya bima fiha al-ma'amilat al-saliba lam ta'ti
-illa fi 'asr al-nahDa al-urubbiyya.
-\end{mathexplain}
-
-\newpage
-
-\chapter{mu'jam al-muSTalaHat al-jabriyya al-Arabiyya}
-\label{app:glossary}
-
-\begin{center}
-\renewcommand{\arraystretch}{1.6}
-\begin{longtable}{|c|c|p{6cm}|}
-\hline
-\textbf{al-muSTalaH al-Arabi} & \textbf{al-nuskha al-latiniyya} & \textbf{al-ma'na wa-l-tafsir} \\
-\hline
-\endfirsthead
-\hline
-\textbf{al-muSTalaH al-Arabi} & \textbf{al-nuskha al-latiniyya} & \textbf{al-ma'na wa-l-tafsir} \\
-\hline
-\endhead
-\hline
-\endfoot
-al-jabr (al-jabr) & algebra & idafat ma yanquSu min ahadi Tarfay al-mu'adala ila al-Taraf al-akhar li-istikmal al-tawazun \\
-\hline
-al-muqabala (al-muqabala) & almuchabala & hadf ma yatashabahu min al-Tarfayn li-tashil al-mu'adala \\
-\hline
-al-jadhr (al-jadhr) & radix & al-majhul dhatuhu ($x$) -- ``al-shay' '' al-majhul \\
-\hline
-al-mal (al-mal) & census & mirab' al-majhul ($x^2$) -- ``al-tharwa'' aw ``al-mumtalakat'' \\
-\hline
-al-'adad al-mufrad (al-'adad al-mufrad) & numerus simplex & al-Hadd al-thabit fi al-mu'adala (al-'adad al-ma'lum) \\
-\hline
-al-shay' (al-shay') & res/cosa & al-majhul ($x$) -- kalimat badIla li-l-jadhr \\
-\hline
-al-dirham (al-dirham) & drachma & wahidat al-nuqd/ al-qiyas -- tustakhdam kawwahida li-l-a'dad \\
-\hline
-al-waSiyya (al-waSiyya) & legatum & al-tarika aw al-waSiyya fi qanun al-mirath \\
-\hline
-al-fara'iD (al-fara'iD) & legata & al-as-ham al-ilzamiyya fi al-mirath al-islami \\
-\hline
-misaHa (misaHa) & mensura & misaHa al-ard -- Hisab al-masaaHat \\
-\hline
-Darb (Darb) & multiplicatio & 'amaliyyat al-Darb \\
-\hline
-qisma (qisma) & divisio & 'amaliyyat al-qisma \\
-\hline
-jam' (jam') & additio & 'amaliyyat al-jam' \\
-\hline
-TarH (TarH) & subtractio & 'amaliyyat al-TarH \\
-\hline
-jadhr (jadhr) & radix & al-jadhr al-tarb'i \\
-\hline
-muka''ab (muka''ab) & cubus & muka''ab al-majhul ($x^3$) \\
-\hline
-\end{longtable}
-\end{center}
-
-\begin{commentary}
-\textbf{tatawwur al-muSTalaHat al-jabriyya:}
-
-'inda tarjamat al-latiniyyin li-kutub al-riyadiyyat al-arabiyya fi
-al-qarn al-thani 'ashar al-miladi (fi TulayTula wa-Siqilliyya),
-Hawwalu al-muSTalaHat al-arabiyya ila latiniyya:
-
-\begin{itemize}
-  \item \textbf{al-jabr} $\rightarrow$ \textbf{algebra} (min ``al-jabr'')
-  \item \textbf{al-shay'} $\rightarrow$ \textbf{res} (al-shay'/al-jawhar)
-    $\rightarrow$ \textbf{cosa} (fi al-iTaliyya)
-    $\rightarrow$ \textbf{coss} (fi al-almaniyya)
-  \item \textbf{al-mal} $\rightarrow$ \textbf{census} (al-mumtalakat)
-  \item \textbf{al-jadhr} $\rightarrow$ \textbf{radix} (al-jadhr)
-  \item \textbf{al-dirham} $\rightarrow$ \textbf{drachma} (al-'umla)
-\end{itemize}
-
-Wa-kalimat ``\textbf{jabr}'' (algebra) hiya al-waHIda allati waSalat
-ila al-lugha al-inkliZiyya mubashsharatan min al-arabiyya -- wa-hiya
-iHda al-kalimat al-qalIla dhati al-aSl al-arabi fi al-riyadiyyat
-al-inkliZiyya ila janib ``\textbf{Sifr}'' (zero, min al-Sifr)
-wa-``\textbf{jayb}'' (sine, min al-jayb) wa-``\textbf{Khwarizmiyya}''
-(algorithm, min al-Khwarizmi).
-\end{commentary}
-
-\newpage
-
-%% ========================================================================
-%% BIBLIOGRAPHIC NOTE
-%% ========================================================================
-\chapter*{mulahadha bIblIyughrafiyya}
-\addcontentsline{toc}{chapter}{mulahadha bIblIyughrafiyya}
-\markboth{mulahadha bIblIyughrafiyya}{mulahadha bIblIyughrafiyya}
-
-\begin{historicalbox}
-\textbf{al-maSadir al-makhTUTa:}
-
-al-makhTUta al-ra'Isiyya li-kitab al-Khwarizmi \textit{al-mukhTasar fi
-Hisab al-Jabr wa-l-Muqabala} maHfUZa fi maktabat Bodleyan bi-Oxford
-(makhTUta Hunt. 214, awraq 1--123), nusikhat sanat 743 H / 1342 M.
-Wa-hiya juz' min majlud CMXXVIII alladhi yaHtawi ayDan 'ala thalath
-muSannafat ukhra fi al-Hisab wa-l-jabr.
-
-al-makhTUta maktuba bi-KhaT wadiH wa-maqru', lakinnaha taniqu ila
-Haddin kabiirin min al-nuqaT al-i'jamiyya allati tumayyizu al-Huruf
-al-mutashabiha.
-\end{historicalbox}
-
-\vspace{0.3cm}
-
-\begin{historicalbox}
-\textbf{al-Taba'at wa-l-tarajim:}
-
-\begin{enumerate}[label={[\arabic*]},rightmargin=1em]
-  \item Frederic Rosen, \textit{The Algebra of Mohammed ben Musa},
-  London: Oriental Translation Fund, 1831. (al-nas al-arabi ma'a
-  al-tarjama al-inkliZiyya)
-
-  \item Louis Charles Karpinski, \textit{Robert of Chester's Latin
-  Translation of the Algebra of Al-Khowarizmi}, New York: Macmillan,
-  1915. (al-nas al-latini ma'a al-nuskha al-inkliZiyya)
-
-  \item 'Ali MuSTafa Musharrafa wa-Muhammad Mursi Ahmad (muhaqqiqan),
-  \textit{Kitab al-Jabr wa-l-Muqabala}, al-Qahira: al-Jami'a al-
-  miSriyya / maTba'at Fath Allah Ilyas Nuri, 1359 H / 1939 M.
-  (al-Taba'a al-'arabiyya al-tahqiqiyya, maSr al-taDnId al-Hali)
-\end{enumerate}
-\end{historicalbox}
-
-\vspace{0.3cm}
-
-\begin{historicalbox}
-\textbf{li-l-mazid min al-qira'a:}
-
-\begin{itemize}[rightmargin=1em]
-  \item J. Ruska, ``Zur aeltesten arabischen Algebra und Rechenkunst,''
-  \textit{Sitzungsberichte der Heidelberger Akademie der Wissenschaften},
-  Philosophisch-historische Klasse, Jahrgang 1917, 8. Abhandlung.
-
-  \item H. Suter, ``Die Mathematiker und Astronomen der Araber und ihre
-  Werke,'' \textit{Abhandlungen zur Geschichte der mathematischen
-  Wissenschaften}, 10. Heft, Leipzig, 1900.
-
-  \item R. Rashed (ed.), \textit{Al-Khwarizmi: Le commencement de
-  l'algebre}, Paris: Blanchard, 2007. (Edition critique avec traduction
-  francaise)
-
-  \item B. van Dalen et al., ``Al-Khwarizmi's Astronomical Tables in
-  a Tenth-Century Context,'' \textit{SCIAMVS}, 18 (2017), pp. 49--93.
-\end{itemize}
-\end{historicalbox}
-
-\vfill
-
-\begin{center}
-\rule{0.3\textwidth}{0.4pt}
-
-\vspace{0.3cm}
-
-{\small\latinfont Modern LaTeX edition}\\[0.1cm]
-{\small\latinfont Via XeLaTeX with polyglossia and fontspec}
-\end{center}
-
-\vspace{0.3cm}
-
-\begin{tcolorbox}[colback=arabicbg,colframe=dropgold,arc=3pt,boxrule=0.6pt,width=0.5\textwidth,halign=center]
-{\Large Tamma bi-Hamdi Allahi}
-\end{tcolorbox}
-
-\end{document}
+%% ========================================================================
+%% Kitab al-Mukhtasar fi Hisab al-Jabr wa-l-Muqabala
+%% by Muhammad ibn Musa al-Khwarizmi (c. 820 CE)
+%% Enhanced Arabic Scholarly Edition
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{book}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{lettrine}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{tcolorbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage[numerals=maghrib]{arabic}
+\setotherlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{NotoNaskhArabic-Regular.ttf}[
+  Script=Arabic,
+  Path=/usr/share/fonts/truetype/noto/,
+  BoldFont=NotoNaskhArabic-Bold.ttf,
+  Renderer=Harfbuzz
+]
+
+\newfontfamily\latinfont[Path=/usr/share/fonts/opentype/linux-libertine/]{LinLibertine_R.otf}
+\newfontfamily\latinfontsf{Noto Sans}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% Arabic display font
+\newfontfamily\arabicdisplayfont[Script=Arabic,Scale=1.1,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{arabicbg}{RGB}{252,250,245}
+\definecolor{dropgold}{RGB}{139,90,43}
+\definecolor{commentarybg}{RGB}{245,248,250}
+\definecolor{originalbg}{RGB}{255,253,245}
+
+%% -------- Section Formatting --------
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{titlecolor}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\thepage}
+\fancyhead[RO]{\small\thepage}
+\fancyhead[C]{\small Kitab al-Jabr wa-l-Muqabala -- al-Tab'a al-Arabiyya al-Muhaqqaqa}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% -------- tcolorbox styles --------
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{originaltext}[1][]{
+  colback=originalbg,
+  colframe=rulecolor,
+  arc=3pt,
+  boxrule=0.6pt,
+  left=12pt,right=12pt,top=8pt,bottom=8pt,
+  fontupper=\normalsize,
+  breakable,
+  title={\small\textbf{al-Nass al-Asli li-l-Khwarizmi}},
+  coltitle=dropgold,
+  colbacktitle=arabicbg,
+  fonttitle=\small,
+  #1
+}
+
+\newtcolorbox{commentary}[1][]{
+  colback=commentarybg,
+  colframe=sectioncolor,
+  arc=2pt,
+  boxrule=0.5pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,
+  fontupper=\small,
+  breakable,
+  title={\small\textbf{Taqliq Tahqiqi}},
+  coltitle=sectioncolor,
+  fonttitle=\small,
+  #1
+}
+
+\newtcolorbox{mathexplain}[1][]{
+  colback=white,
+  colframe=notecolor,
+  arc=2pt,
+  boxrule=0.6pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,
+  fontupper=\small,
+  breakable,
+  title={\small\textbf{al-Tawdih al-Riyadi}},
+  coltitle=notecolor,
+  fonttitle=\small,
+  #1
+}
+
+\newtcolorbox{historicalbox}[1][]{
+  colback=arabicbg,
+  colframe=dropgold,
+  arc=2pt,
+  boxrule=0.5pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,
+  fontupper=\small,
+  breakable,
+  title={\small\textbf{Siyaq Tarikhi}},
+  coltitle=dropgold,
+  fonttitle=\small,
+  #1
+}
+
+\newtcolorbox{geombox}[1][]{
+  colback=white,
+  colframe=sectioncolor,
+  arc=2pt,
+  boxrule=0.6pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt,
+  fontupper=\small,
+  breakable,
+  title={\small\textbf{al-Tashrih al-Hindi}},
+  coltitle=sectioncolor,
+  fonttitle=\small,
+  #1
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Kitab al-Jabr wa-l-Muqabala - Arabic Enhanced Edition},
+  pdfauthor={al-Khwarizmi}
+}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+
+\vspace*{1.5cm}
+
+{\fontsize{28}{34}\selectfont\color{titlecolor} Kitab al-Mukhtasar fi Hisab al-Jabr wa-l-Muqabala}
+
+\vspace{0.5cm}
+
+{\LARGE\textbf{li-Muhammad ibn Musa al-Khwarizmi}}
+
+\vspace{0.3cm}
+
+{\normalsize (taqriban 780--850 M)}
+
+\vspace{1.5cm}
+
+\begin{tcolorbox}[colback=arabicbg,colframe=dropgold,arc=4pt,boxrule=1pt,width=0.85\textwidth]
+\begin{center}
+\large
+\textbf{al-Tab'a al-Arabiyya al-Muhaqqaqa al-Mu'azzaza}
+
+\vspace{0.2cm}
+
+Enhanced Arabic Scholarly Edition
+
+\vspace{0.2cm}
+
+al-Nass al-Asli ma'a Ta'liqat Tahqiqiyya wa-Shuruh Riyadiyya
+\end{center}
+\end{tcolorbox}
+
+\vspace{1.5cm}
+
+{\large Allifa hadha al-Kitab 'inda Balat al-Khalifa al-Ma'mun fi Baghdad}
+
+\vspace{0.5cm}
+
+{\normalsize Hawali Sanat 200 H / 820 M}
+
+\vspace{1.5cm}
+
+\rule{0.3\textwidth}{0.5pt}
+
+\vspace{0.8cm}
+
+{\footnotesize\latinfont This enhanced edition prepared with:}
+
+{\footnotesize al-Nass al-Asli al-Arabi -- Ta'liqat Tahqiqiyya -- Tawdihat Riyadiyya -- Siyaq Tarikhi}
+
+\vspace{0.5cm}
+
+{\footnotesize\latinfont Based on the critical edition of}
+
+{\footnotesize 'Ali Mustafa Musharrafa wa-Muhammad Mursi Ahmad (al-Qahira, 1939)}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% ABOUT THIS EDITION
+%% ========================================================================
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2cm}
+
+{\Large\textbf{'An Hadhihi al-Tab'a}}
+
+\vspace{1cm}
+
+\begin{tcolorbox}[colback=arabicbg,colframe=rulecolor,arc=3pt,boxrule=0.5pt,width=0.88\textwidth]
+\small
+Tuqaddimu hadhihi al-tab'a al-Kitab al-Asli fi 'ilm al-Jabr li-Muhammad ibn
+Musa al-Khwarizmi, alladhi allafahu fi Balat al-Khalifa al-Ma'mun fi Baghdad
+hawali sanat 820 M. Yashtamil hadha al-Isdar al-Mu'azzaz 'ala al-nass al-Arabi
+al-asli ma'a ta'liqat tahqiqiya mufassala wa-sharh riyadi wa-tawdihat
+hindisiya wa-siyaq tarikhi -- kulluha bi-l-lugha al-Arabiyya.
+
+\vspace{0.3cm}
+
+al-Nass al-asli ma'khudh min al-tab'a al-tahqiqiya li-'Ali Mustafa Musharrafa
+wa-Muhammad Mursi Ahmad (al-Qahira, 1359 H / 1939 M), allati istanadat ila
+al-makhtuta al-wahida al-mahfuza fi maktabat Bodleyan bi-Oxford (Hunt. 214,
+nusikhat sanat 743 H / 1342 M).
+\end{tcolorbox}
+
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\chapter*{Taqdimat al-Tab'a al-Mu'azzaza}
+\addcontentsline{toc}{chapter}{Taqdimat al-Tab'a al-Mu'azzaza}
+\markboth{Taqdimat al-Tab'a}{Taqdimat al-Tab'a}
+
+\begin{historicalbox}
+Tu'tabar ummat al-Islam min aghna al-umam turathan 'ilmiyyan, wa-qad
+ Tatawaqqalat 'alayha hadarat mukhtalifa min fajr al-tarikh ila al-yawm.
+Wa-fi kulli hadara minha qamat bi-qasT wafir min wajibiha al-'ilmi nahwa
+al-usra al-bashariyya. Wa-laysa yakfi an natahaddath 'an majdina al-'ilmi
+kama law kana usTura, bal yajib an yazhar hadha al-majd fi sura
+malmusa tara'ha al-a'yun wa-tunaluha al-aydi. Li-dhalika kana min
+al-muhimm an na'na bi-nashr al-kutub allati wada'aha aba'una
+wa-ajdaduna, khususan idha kanat hadhihi al-kutub hamma al-athar fi
+takyif al-tafkir al-bashari. Wa-la shakka anna fi muqaddimati hadhihi
+al-kutub \textbf{Kitab al-Khwarizmi fi al-Jabr wa-l-Muqabala}.
+\end{historicalbox}
+
+\section*{Ahimmiyyat Hadha al-Kitab fi Tarikh al-'Ilm}
+
+\begin{commentary}
+\textbf{Kitab al-Khwarizmi fi al-Jabr wa-l-Muqabala} huwa awwal kitab
+munaZZam fi 'ilm al-jabr 'ala al-itlaq. Wa-huwa yamthilu al-laHZa allati
+taHawwala fiha al-jabr min majmu'at min al-qawa'id al-munfasila ila 'ilm
+riyadi munazzam lahu usuluhu wa-qawa'iduhu al-khassa. Laqad adkhala
+al-Khwarizmi niZaman lil-mu'adlat min al-daraja al-thaniya bina'an 'ala
+thalathat anwa' min al-kamiyyat: \textbf{al-mal} (al-majhul al-tarb'i),
+wa-\textbf{al-jadhr} (al-majhul al-khatti), wa-\textbf{al-'adad} (al-thabit).
+Wa-min hadhihi al-anwa' al-thalatha istanbaTa \textbf{sitt haSalat}
+kanuniyya taghatti kulli ashkal al-mu'adlat al-tarb'iyya dhat al-ma'amilat
+al-mujiba.
+
+\vspace{0.3cm}
+
+\textbf{MustalaHat al-Jabr al-Asasiyya:}
+\begin{itemize}[rightmargin=1em]
+  \item \textbf{al-Jabr} (al-jabr): idafat ma yanquSu min ahadi
+    Tarfay al-mu'adla ila al-Taraf al-akhar li-istikmal al-tawazun
+  \item \textbf{al-Muqabala} (al-muqabala): hadf ma yatashabahu min
+    al-Tarfayn, ay Tarq al-mutashabihat min kila Tarfi al-mu'adla
+    li-tashil
+  \item \textbf{al-Mal} (al-mal): mirab' al-majhul, ay $x^2$
+  \item \textbf{al-Jadhr} (al-jadhr): al-majhul dhatuhu, ay $x$
+  \item \textbf{al-'Adad} (al-'adad): al-hadd al-thabit fi al-mu'adla
+\end{itemize}
+\end{commentary}
+
+\newpage
+
+%% ========================================================================
+%% AUTHOR'S PREFACE
+%% ========================================================================
+\chapter*{Kalamat al-Musannif: al-Muqaddima al-Asliyya}
+\addcontentsline{toc}{chapter}{Kalamat al-Musannif: al-Muqaddima al-Asliyya}
+\markboth{al-Muqaddima al-Asliyya}{al-Muqaddima al-Asliyya}
+
+\begin{originaltext}
+Bismi Allahi al-Rahmani al-Rahim.
+
+Al-Hamdu lillahi 'ala ni'amihi li-ahli Ta'atihi, bi-ada'iha bi-qudratihi
+'ala 'ibadihi al-mu'minina bihi, li-yuthayyibahum biha thawaban,
+wa-yuHafiZahum biha 'an al-taghyir, wa-ya'rifahum qudratahu,
+wa-yudhillilahum li-'iZmatihi. Arsala Muhammadan Salla Allahu 'alayhi
+wa-Sallam bi-risalatihi ba'da inqiTa' al-rusul, wa-dhihab al-'adl,
+wa-fasad al-nuSul.
+
+Wa-qad kana al-'ulama' fi al-azmani al-khaliya wa-fi al-umam al-salifa
+yu'allifuna al-kutub fi abwab al-'ulum wa-furu' al-ma'rifa, yatadhakkaruna
+min ba'dihim, wa-yarjuna al-ajra bi-qadri ma kana minhum, wa-yathiquna
+bi-ma yaHasil lahum min al-shukr wa-al-ijlal wa-al-i'Zam, raDiina
+wa-law bi-qalilin min al-thina', qalilan muqarana bi-ma badhuluhu min
+al-jahd wa-al-mushaqqa fi kashf khafa'a al-'ilmi wa-izalat satayrihi.
+
+Wa-dhalika al-Hubb li-l-'ilmi alladhi mayyaza Allahu bihi al-Imam
+al-Ma'mun Amir al-Mu'minin (ma'a ma manna bihi 'alayhi min al-khilafa
+bi-al-ijma', wa-al-libas alladhi albasahu iyahu, wa-al-zina allati
+zayyanahu biha), wa-dhalika al-laTf wa-al-tawaddud alladhi yubdihi
+li-l-'ulama', wa-tilka al-sur'a allati yuHamiha wa-yunSiha fi tawDiH
+al-mubhamat wa-izalat al-Su'ubat -- qad Hamalni 'ala an u'allif
+mukhtaSan fi al-Jabr wa-l-Muqabala, aqtasiru fihi 'ala ma huwa aysar
+wa-anfa' fi al-Hisab, mimma yaHtaju ilayhi al-nasu da'iman fi masa'il
+al-mirath wa-al-'aTaya wa-al-qisma wa-al-khuSumat wa-al-tijara wa-kulli
+ma yata'amaluna bihi fima baynahum, aw fi misaHat al-arDiyn wa-Hufri
+al-anhar wa-masa'il al-handasa wa-ghayriha min anwa' al-ashya'
+al-mukhtalifa al-aSnaf.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{al-Ta'liq al-Tahqiqi:}
+
+Yastahillu al-Khwarizmi kitabahu bi-al-basmala al-taqlidiyya, thumma
+yuthni 'ala al-Khalifa al-Ma'mun (198--218 H / 813--833 M), wa-huwa min
+ashhura khulafa' Bani al-'Abbas tashji'an lil-'ilm. Laqad assasa
+al-Ma'mun \textbf{Bayt al-Hikma} fi Baghdad, wa-ja'alahu markazan
+'alamiyyan lil-baHth al-'ilmi, wa-jama'a fihi al-mutarjimina
+wa-al-'ulama' min al-muslimina wa-ghayrihim.
+
+Yubayyinu al-Khwarizmi dafi'ahu li-ta'lif hadha al-Kitab: al-Haja
+al-mulahha li-uslub manZum fi Hal al-masa'il al-'amaliyya allati
+yuwajihuha al-nas yawmiyyan -- min qismat al-tarakat ila misaHat
+al-aradi wa-Hufri al-qanawat. Wa-hadha yuwiZZahu anna al-jabr 'inda
+al-Khwarizmi lam yakun mujarrad niZariyya mujarrada, bal kana
+\textbf{adatan 'amaliyya} muWajahatan nahwa Hall al-mushkilat
+al-waqi'iyya.
+\end{commentary}
+
+\begin{historicalbox}
+\textbf{al-Imam al-Ma'mun Amir al-Mu'minin (786--833 M):}
+
+Kana al-Ma'mun min akthar al-khulafa' tashji'an lil-'ilm wa-al-'ulama'.
+Amara bi-tarjamat al-kutub al-Yunaniyya wa-al-Hindiyya wa-al-Suryaniyya
+ila al-Arabiyya, wa-assasa Bayt al-Hikma fi Baghdad allati kanat 'aSima
+al-'ilmi fi al-'alam. Wa-fi 'ahdihi taqallada al-Khwarizmi mansaBan fi
+Bayt al-Hikma, haythu allafa hadha al-kitab wa-ghayrahu min al-muSannafat
+fi al-riyadiyyat wa-al-falak wa-al-jughrafiya.
+\end{historicalbox}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: ON NUMBERS AND THE THREE KINDS
+%% ========================================================================
+\chapter{fi al-A'dad wa-al-Anwa' al-Thalatha}
+\label{ch:intro}
+
+\begin{originaltext}
+Lamma naZartu fima yaHtaju ilayhi al-nasu fi Hisabatihim, wajadtu
+anna dhalika kulluhu 'adad. Wa-wajadtu aydan anna kullu 'adadin
+mu'allaf min al-waHadat, wa-annahu la yakhlu 'adad min an yanqasim
+ila waHadat. Wa-'alimtu anna kulla 'adadin yu'adda min al-waHid ila
+al-'ashara yazidu 'ala alladhi qablahu bi-waHid, thumma yuDa'afu
+al-'ashru wa-yuthallathu, kama fu'ila bi-l-waHadat, fa-yakunu
+'ishrun wa-thalathun wa-haka-dha ila al-ma'iyya, thumma yuDa'afu
+al-ma'iyya wa-yuthallathuha kama fu'ila bi-l-'asharat wa-l-waHadat ila
+al-alf, thumma yukarru al-alfu kadhaka fi kulli 'adadin murakkab,
+wa-haka-dha ila aqSa Hadin fi al-'add.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{al-NiZam al-'Adadi 'inda al-Khwarizmi:}
+
+Yabda'u al-Khwarizmi kitabahu bi-munaqasha falsafiyya li-l-'adad,
+mustakhdiman al-niZam al-'adadi al-'ashari alladhi yu'rafu al-yawma
+bi-``al-arqam al-Arabiyya'' (wa-hiya fi al-aSl min aSl Hind).
+Yasifu al-Khwarizmi al-niZam al-marakaZi li-l-a'dad Haythu kullu
+mawDi' yamthilu quwwa min 'ashara. Hadhihi al-muqaddima laysat
+majarrad tamhid, bal hiya i'lan 'an \textbf{al-niZam al-'adadi
+al-mawDi'i} alladhi sa-yaj'alu kull al-Hisabati al-taliqa mumkina.
+
+Laqad istaw'abba al-Khwarizmi anna kulla masa'ala Hisabiyya -- sawa'
+fi al-tijara aw al-misaHa aw al-mirath -- yumkinu irja'uha fi
+al-nihaya ila mafhum al-'adad, wa-min thumma yumkinu Halluha bi-l-Turuq
+al-riyadiyya.
+\end{commentary}
+
+\section{al-Anwa' al-Thalatha min al-A'dad fi al-Jabr}
+
+\begin{originaltext}
+Fa-wajadtu anna al-a'dada allati yaHtaju ilayha fi Hisab al-Jabr
+wa-l-Muqabala thalathatu anwa': \textbf{juthur}, wa-\textbf{amwal},
+wa-\textbf{a'dad mufarrada} la tat'allaqu bi-jadhrin wa-la bi-malin.
+
+Amma al-jadhr fa-huwa kullu miqdarin yuDribu fi nafsihi mu'allafan
+min waHadatin aw a'dadin sa'ida aw kusurin nazila. Wa-amma al-mal
+fa-huwa jami'u ma Hasala min Darb al-jadhr fi nafsihi. Wa-amma
+al-'adad al-mufrad fa-huwa kullu 'adadin yudhkaru bi-ghayri nisba ila
+jadhrin wa-la malin.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Anwa' al-Thalatha bi-l-Rumuz al-Haditha:}
+
+\begin{center}
+\begin{tabular}{|c|c|c|l|}
+\hline
+\textbf{al-Isem al-Arabi} & \textbf{al-Ramz al-Hadith} & \textbf{al-Mathal} & \textbf{al-Ta'rif} \\
+\hline
+al-mal ($x^2$) & mal & $x^2$ & mirab' al-majhul \\
+\hline
+al-jadhr ($x$) & jadhr & $x$ & al-kamiyya al-majhula \\
+\hline
+al-'adad ($c$) & 'adad & 39 & al-thabit al-'adadi \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{Mulahadha:} kalimat \textbf{``mal''} fi al-iStilaH al-jabri
+'inda al-Khwarizmi ta'ni \textit{mirab' al-majhul}. Wa-amma
+\textbf{``al-shay' ''} (alladhi yumaththilu ``al-jadhr'')
+fa-huwa al-majhul al-khatti. Wa-l-jadhr huwa alladhi tunsha'u
+minhu al-amwal bi-l-Darb fi al-nafs. Wa-l-'adad al-mufrad huwa
+kullu 'adadin la yatagayyaru bi-taghyyuri al-majhul.
+\end{mathexplain}
+
+\begin{commentary}
+\textbf{Tafsir al-MustalaHat al-Jabriyya:}
+
+Kalimat \textbf{``al-jadhr''} fi hadha al-siyaq tuKhTallifu 'an
+al-jadhr al-tarb'i kama nafhamuhu al-yawm. Fa-l-jadhr 'inda
+al-Khwarizmi huwa \textbf{al-majhul dhatuhu}, ay $x$ fi al-rumuz
+al-Haditha. Wa-l-mal huwa \textbf{tarb' hadha al-majhul}, ay $x^2$.
+
+Wa-qad ikhtara al-Khwarizmi kalimat \textbf{``mal''} rubbama
+li-annana mirab' al-majhul yumaththilu \textit{al-tharwa} aw
+\textit{al-mumtalakat} fi al-tafkir al-iqtiSadi li-l-'asr -- fa-huwa
+al-kamiyya al-akbar wa-al-ahamm fi al-mu'adala.
+\end{commentary}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: THE SIX CANONICAL CASES
+%% ========================================================================
+\chapter{al-HaSalat al-Sitt al-Kanuniyya lil-Mu'adlat}
+\label{ch:six-cases}
+
+\begin{originaltext}
+Hadhi-hi hiya al-HaSalat al-sitt alladhi dhakartuha fi muqaddimati
+hadha al-kitab. Thalathun minha la taHtaju ila an tunaSafa
+al-juthuru, wa-qad bayyantu kayfa tujab. Wa-amma al-thalath
+al-ukhra allati yajibu fiha naSf al-juthuri, fa-ara an ubayyinaha
+aydan mufassaLan ma'a dhikri al-shakl li-kulli haSala yubayyin
+sabab al-naSf.
+\end{originaltext}
+
+\begin{commentary}
+YuQassimu al-Khwarizmi jami'a al-mu'adlat al-tarb'iyya ila
+\textbf{sitt haSalat kanuniyya} -- thalath \textit{basita} wa-thalath
+\textit{murakkaba}. Hadha al-taqsimu yughatti jami'a ashkal
+al-mu'adlat al-tarb'iyya dhat al-ma'amilat al-mujiba. Wa-l-sabab fi
+al-iqtiSir 'ala al-ma'amilat al-mujiba huwa anna al-Khwarizmi yafhamu
+kulla Haddin fi al-mu'adala 'ala annahu \textbf{kamiyya hindisiyya}
+(Tul aw misaHa), wa-la yumkinu an takuna al-misaHa saliba.
+
+\vspace{0.3cm}
+
+\textbf{al-Tamayyuz bayn al-HaSalat al-Basita wa-l-Murakkaba:}
+\begin{itemize}
+  \item al-HaSalat al-basita (al-ula wa-l-thaniya wa-l-thalitha): la
+taHtaju ila \textbf{naSf al-juthur} -- yumkinu Halluha bi-l-tashil
+al-mubashshar.
+  \item al-HaSalat al-murakkaba (al-rabi'a wa-l-khamisa wa-l-sadisa):
+tataTallaBu \textbf{naSf al-juthur}, wa-hadhihi hiya al-HaSalat
+allati yaZharu fiha \textbf{takmil al-murabba'} (completing the square).
+\end{itemize}
+\end{commentary}
+
+\section{al-HaSalat al-Basita al-Thalath}
+
+\begin{mathexplain}
+\textbf{al-HaSalat al-Basita (la tatallaBu naSf al-juthur):}
+
+\begin{center}
+\begin{tabular}{|c|c|c|l|}
+\hline
+\textbf{al-HaSala} & \textbf{al-Mu'adala} & \textbf{al-Hall} & \textbf{al-Isem al-Arabi} \\
+\hline
+al-Ula & $ax^2 = bx$ & $x = b/a$ & mal yusawi usuLan \\
+\hline
+al-Thaniya & $ax^2 = c$ & $x = \sqrt{c/a}$ & mal yusawi 'adadan \\
+\hline
+al-Thalitha & $bx = c$ & $x = c/b$ & usuL tusawi 'adadan \\
+\hline
+\end{tabular}
+\end{center}
+\end{mathexplain}
+
+\subsection{al-HaSala al-Ula: al-mal yusawi usuLan}
+
+\begin{originaltext}
+\textbf{Mathal:} mal yusawi khamsata usuLihi. Jadhr al-mal khamsa,
+wa-l-mal khamsa wa-'ishrun, wa-huwa yusawi khamsata a'da' jadhr.
+
+\textbf{Mathal akhar:} thulthu mal yusawi arba'ata usuLin. Fa-l-mal
+kulluh yusawi ithnay 'ashara jadhra; ay mi'a wa-arba'a wa-arba'in,
+wa-jadhrhu ithna 'ashar.
+
+\textbf{Mathal thalith:} khamsatu amwalin tusawi 'ashara usuLan.
+Fa-mal wahid yusawi jadhrayn; jadhr al-mal ithnan, wa-malahu
+arba'a.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Tawdih al-Riyadi lil-HaSala al-Ula:}
+
+\begin{center}
+$\begin{aligned}
+  x^2 &= 5x \quad\Rightarrow\quad x = 5, \quad x^2 = 25 \\
+  \tfrac{1}{3}x^2 &= 4x \quad\Rightarrow\quad x^2 = 12x = 144, \quad x = 12 \\
+  5x^2 &= 10x \quad\Rightarrow\quad x^2 = 2x = 4, \quad x = 2
+\end{aligned}$
+\end{center}
+
+\textbf{al-Tariqa al-'Amma:} fi al-mu'adala $ax^2 = bx$, naqsimu
+al-Tarfayn 'ala $ax$ (bi-afTariD $x \neq 0$) fa-nuHallu 'ala
+$x = b/a$. Amma Hall $x = 0$ fa-kana yutajahalu taqlidiyan li-annahu
+la ma'na 'amaliyya lahu fi muZamm al-masa'il.
+\end{mathexplain}
+
+\subsection{al-HaSala al-Thaniya: al-mal yusawi 'adadan}
+
+\begin{originaltext}
+\textbf{Mathal:} mal yusawi tis'a. Fa-hadha mal, wa-jadhrhu thalatha.
+
+\textbf{Mathal akhar:} khamsatu amwalin tusawi thamanin. Fa-mal wahid
+yusawi khumus thamanin, wa-huwa sitta 'ashar.
+
+\textbf{Mathal thalith:} niSf mal yusawi thamaniya 'ashar. Fa-l-mal
+sitta wa-thalathun, wa-jadhrhu sitta.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Tawdih al-Riyadi lil-HaSala al-Thaniya:}
+
+\begin{center}
+$\begin{aligned}
+  x^2 &= 9 \quad\Rightarrow\quad x = 3 \\
+  5x^2 &= 80 \quad\Rightarrow\quad x^2 = 16, \quad x = 4 \\
+  \tfrac{1}{2}x^2 &= 18 \quad\Rightarrow\quad x^2 = 36, \quad x = 6
+\end{aligned}$
+\end{center}
+
+\textbf{al-Tariqa al-'Amma:} fi al-mu'adala $ax^2 = c$, naqsimu 'ala
+$a$ fa-nuHallu 'ala $x^2 = c/a$, thumma na'khudhu al-jadhr al-tarb'i
+li-kila al-Tarfayn: $x = \sqrt{c/a}$.
+\end{mathexplain}
+
+\subsection{al-HaSala al-Thalitha: al-usuL tusawi 'adadan}
+
+\begin{originaltext}
+\textbf{Mathal:} jadhr wahid yusawi thalathata 'adadan. Fa-l-jadhr
+thalatha, wa-maluha tis'a.
+
+\textbf{Mathal akhar:} arba'atu usuLin tusawi 'ishrina. Fa-jadhr wahid
+yusawi khamsa, wa-l-mal alladhi yunsha'u minhu khamsa wa-'ishrun.
+
+\textbf{Mathal thalith:} niSf jadhr yusawi 'ashara. Fa-l-jadhr kulluh
+yusawi 'ishrina, wa-l-mal alladhi yunsha'u minhu arba'umi'a.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Tawdih al-Riyadi lil-HaSala al-Thalitha:}
+
+\begin{center}
+$\begin{aligned}
+  x &= 3 \\
+  4x &= 20 \quad\Rightarrow\quad x = 5, \quad x^2 = 25 \\
+  \tfrac{1}{2}x &= 10 \quad\Rightarrow\quad x = 20, \quad x^2 = 400
+\end{aligned}$
+\end{center}
+
+\textbf{al-Tariqa al-'Amma:} fi al-mu'adala $bx = c$, naqsimu 'ala
+$b$ fa-nuHallu 'ala $x = c/b$. Wa-hadhihi abSar al-HaSalat, li-annaha
+mu'adala khattiyya.
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% THE THREE COMPOUND CASES
+%% ========================================================================
+\section{al-HaSalat al-Murakkaba al-Thalath}
+
+\begin{mathexplain}
+\textbf{al-HaSalat al-Murakkaba (tatallaBu naSf al-juthur -- takmil
+al-murabba'):}
+
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{al-HaSala} & \textbf{al-Mu'adala} & \textbf{al-Isem al-Arabi} \\
+\hline
+al-Rabi'a & $ax^2 + bx = c$ & mal wa-usuL yusawi 'adadan \\
+\hline
+al-Khamisa & $ax^2 + c = bx$ & mal wa-'adad yusawi usuLan \\
+\hline
+al-Sadisa & $bx + c = ax^2$ & usuL wa-'adad yusawi malan \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{limadha tatallaBu hadhihi al-HaSalat naSf al-juthur?}
+
+li-annaha taShtamilu 'ala thalathat aTrafi mal + juthur + 'adad,
+wa-la yumkinu 'azlu al-majhul bi-l-qisma al-mubashshara. badalan
+min dhalika, nastakhdimu tariqat \textbf{takmil al-murabba'}
+allati taHawwilu al-mu'adala al-tarb'iyya ila mu'adala min al-shakl
+$(x + p)^2 = q$ yumkinu Halluha bi-akhdhi al-jadhr al-tarb'i.
+\end{mathexplain}
+
+\subsection{al-HaSala al-Rabi'a: mal wa-usuL yusawi 'adadan}
+
+\begin{originaltext}
+\textbf{Mathal:} mal wa-'asharatu usuLihi tusawi tis'a wa-thalathin
+darhaman.
+
+al-Hall: naSifu 'adada al-juthuri, fa-yakunu khamsa, wa-naDribuhu fi
+nafsihi fa-yakunu khamsa wa-'ishrina, fa-nuDifuhu ila tis'a
+wa-thalathin fa-yakunu tis'a wa-sittin, fa-na'khudh jadhrhu fa-yakunu
+thamaniya, fa-nanquSu minhu naSf 'adadi al-juthuri wa-huwa khamsa,
+Yabqa thalatha, wa-hadha huwa jadhr al-mal al-maTlub, wa-l-mal
+tis'a.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Hall al-'Am lil-HaSala al-Rabi'a:}
+
+\begin{center}
+$\boxed{x^2 + bx = c \quad\Longrightarrow\quad x = \sqrt{\left(\frac{b}{2}\right)^2 + c} - \frac{b}{2}}$
+\end{center}
+
+\textbf{al-Tatbiq 'ala al-mathal:}
+$x^2 + 10x = 39 \Rightarrow x = \sqrt{25 + 39} - 5 = \sqrt{64} - 5 = 8 - 5 = 3$
+
+\textbf{al-Tafsir:} al-Khwarizmi la yaktubu Sighatan 'amma -- bal
+yuqaddimu \textbf{Khwarizmiyya} (silsilat khuTwat) yumkinu tatbiQuha
+'ala ay mu'adala min hadha al-shakl. Wa-hadha huwa al-sabab fi
+anna naSammiyanfusana al-yawma ``Khwarizmiyyat'' (algorithms)!
+\end{mathexplain}
+
+\begin{commentary}
+\textbf{limadha ya'malu hadha al-Hall?}
+
+Tariqat al-Khwarizmi ta'tamidu 'ala fikrat \textbf{takmil al-murabba'}.
+'indama nuDifu $(b/2)^2$ ila kila Tarfi al-mu'adala $x^2 + bx = c$,
+naHsalu 'ala:
+$x^2 + bx + (b/2)^2 = c + (b/2)^2$
+
+al-Taraf al-aysar huwa al-an mirab' kamil: $(x + b/2)^2 = c + (b/2)^2$
+
+'inda akhdhi al-jadhr al-tarb'i: $x + b/2 = \sqrt{c + (b/2)^2}$
+
+Wa-bi-Tarqi $b/2$: $x = \sqrt{(b/2)^2 + c} - b/2$
+
+Wa-hadha bi-ZabT ma yaf'aluhi al-Khwarizmi, wa-in duna istikhdam
+al-rumuz al-jabriyya al-Haditha!
+\end{commentary}
+
+\newpage
+
+\subsection{al-HaSala al-Khamisa: mal wa-'adad yusawi usuLan}
+
+\begin{originaltext}
+\textbf{Mathal:} mal wa-wahid wa-'ishruna 'adadan yusawi 'asharata
+usuLihi.
+
+al-Hall: naSifu 'adada al-juthuri fa-yakunu khamsa, wa-naDribuhu fi
+nafsihi fa-yakunu khamsa wa-'ishrina, fa-nanquSu minhu al-wahida
+wa-l-'ishrina al-mulHaqqayni bi-l-mal, Yabqa arba'a, fa-nastakhrij
+jadhraha fa-yakunu ithnayn, fa-nanquSuhu min naSf 'adadi al-juthuri
+wa-huwa khamsa, Yabqa thalatha, wa-hadha jadhr al-mal al-maTlub, wa-l-mal
+tis'a. Aw tuDifu al-jadhr ila naSf al-juthuri, fa-yakunu sab'a,
+wa-hadha jadhr al-mal al-maTlub, wa-l-mal tis'a wa-arba'un.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Hall al-'Am lil-HaSala al-Khamisa:}
+
+\begin{center}
+$\boxed{x^2 + c = bx \quad\Longrightarrow\quad x = \frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c}}$
+\end{center}
+
+\textbf{al-Tatbiq:}
+$x^2 + 21 = 10x \Rightarrow x = 5 \pm \sqrt{25 - 21} = 5 \pm 2 = 3 \text{ aw } 7$
+
+\textbf{mulahadha muhimma:} hadhihi hiya al-HaSala \textbf{al-wahida}
+allati yakunu fiha Hallan -- wa-li-dhalika fa-inna al-Khwarizmi yadhkuru
+SariHan annahu yumkinu istikhdam al-jam' aw al-TarH. Amma fi
+al-HaSalat al-ukhra fa-yakunu al-Hall wahidan faqaT.
+\end{mathexplain}
+
+\begin{commentary}
+\textbf{shuruT imkaniyyat al-Hall fi al-HaSala al-Khamisa:}
+
+ba'da naSf al-juthur wa-Darb al-naSf fi nafsihi, idha kana al-natij
+\textbf{aqall} min al-'adad al-mulHaqq bi-l-mal, fa-l-masa'la
+\textbf{mumtani'a} (la Hall Haqiqiyyan). Amma idha kana al-natij
+\textbf{musawiyan} lil-'adad, fa-jadhr al-mal yusawi naSf al-juthur
+watfahu, bi-la ziyada wa-la nuqsan.
+
+\vspace{0.2cm}
+
+\textbf{bi-l-rumuz al-Haditha:} al-dakhil taHt al-jadhr yajib an la
+yakun saliban: $(b/2)^2 - c \geq 0$. Wa-hadha ya'ni $b^2 \geq 4c$,
+wa-huwa al-shart al-ma'ruf al-yawma bi-ism \textbf{al-mumayyiz}
+(discriminant) lil-mu'adala al-tarb'iyya.
+\end{commentary}
+
+\newpage
+
+\subsection{al-HaSala al-Sadisa: usuL wa-'adad yusawi malan}
+
+\begin{originaltext}
+\textbf{Mathal:} thalathatu usuLin wa-arba'atu a'dadin yusawi malan.
+
+al-Hall: naSifu al-juthuri fa-yakunu wahidan wa-niSf, wa-naDribuhu fi
+nafsihi fa-yakunu ithnayn wa-rub'an, fa-nuDifuhu ila al-arba'a fa-yakunu
+sitta wa-rub'an, fa-nastakhrij jadhraha fa-yakunu ithnayn wa-niSfan,
+fa-nuDifuhu ila naSf al-juthuri wa-huwa wahid wa-niS fa-yakunu
+arba'a, wa-hadha jadhr al-mal, wa-l-mal sitta 'ashar.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Hall al-'Am lil-HaSala al-Sadisa:}
+
+\begin{center}
+$\boxed{bx + c = x^2 \quad\Longrightarrow\quad x = \frac{b}{2} + \sqrt{\left(\frac{b}{2}\right)^2 + c}}$
+\end{center}
+
+\textbf{al-Tatbiq:}
+$3x + 4 = x^2 \Rightarrow x = 1\tfrac{1}{2} + \sqrt{2\tfrac{1}{4} + 4} = 1\tfrac{1}{2} + \sqrt{6\tfrac{1}{4}} = 1\tfrac{1}{2} + 2\tfrac{1}{2} = 4$
+
+\textbf{mulahadha:} fi hadhihi al-HaSala yakunu al-Hall \textbf{mujaban
+da'iman}, li-annana najma'u al-jadhr al-tarb'i ma'a niSf al-ma'amil.
+Hadha yatawaafaqu ma'a Tabi'at al-masa'il al-'amaliyya allati kana
+yata'amalu ma'aha al-Khwarizmi.
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: GEOMETRICAL DEMONSTRATIONS
+%% ========================================================================
+\chapter{al-Tashrihat al-Hindisiyya lil-HaSalat al-Murakkaba}
+\label{ch:geom}
+
+\begin{originaltext}
+Hadhi-hi hiya al-HaSalat al-sitt alladhi dhakartuha fi muqaddimati
+hadha al-kitab. Qad wuDDoHat al-an. Qad bayyantu anna thalathan minha
+la taHtaju ila naSf al-juthuri, wa-'allamtu kayfa yajibu Halluha. Wa-amma
+al-thalath al-ukhra allati fiha naSf al-juthuri Daruriyyun, fa-ara min
+al-muSlaH an uuwiHHahu bi-fuSulin munfasila, yu'ta fi kulli minha
+shakl yubayyin sabab al-naSf.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{al-manhaj al-Hindisi lil-Khwarizmi:}
+
+Min ahamma ma yumayyizu kitab al-Khwarizmi annahu la yaktaSi bi-taqdim
+\textbf{Khwarizmiyya} (al-ijra' al-Hisabi) li-kulli HaSala, bal
+yuqaddimu aydan \textbf{al-tashrih al-Hindisi} (geometric demonstration)
+alladhi yuZhir \textit{limadha} ta'malu hadhihi al-tariqa. hadha
+al-manhaj ya'ksi al-ta'thir al-Yunani -- khususan Iqlidus -- 'ala
+al-riyadiyyat al-Islamiyya.
+
+al-Khwarizmi yastakhdimu \textbf{murabba'at wa-ajniha (mustatTilat)}
+li-tamthil al-kamiyyat al-jabriyya. al-mal huwa murabba', wa-l-juthur
+hiya mustatTilat mulHaqa bi-jawanib al-murabba', wa-l-a'dad hiya
+murabba'at ma'rufa al-misaHa. hadha al-tafsir al-Hindisi huwa alladhi
+yubirru qawa'idat ``naSf al-juthur'' -- fa-hiya al-tariqa allati
+nuHawwilu biha al-shakl ghayr al-munTaZZim ila murabba' kamil.
+\end{commentary}
+
+\section{Tashrih al-HaSala al-Rabi'a: ``Mal wa-'asharatu usuL yusawi tis'a wa-thalathin''}
+
+\begin{originaltext}
+al-shakl al-mubayyin li-hadha huwa \textbf{murabba'}, aDla'uhu
+majhula. Yumanthilu al-mal, jadhr alladhi turidu ma'rifatahu. Hadha
+huwa al-shakl A B, wa-kullu Dila' min aDla'ihi yumkinu i'tibaruhu
+ahada juthurihi; wa-idha Darabta ahada hadhihi al-aDla' fi ayyi
+'adadin, fa-inna miqdar dhalika al-'adadi yumkinu an yunZar ilayhi
+ka-'adadi al-juthuri allati tuDafu ila al-mal.
+
+kullu Dila' min aDla' al-murabba' yumanthilu jadhr al-mal; wa-kama
+fi al-misal kanat al-juthuru murtabiTa bi-l-mal, yumkinuna an
+na'khudha rub'a al-'ashara, ay thnan wa-niSf, wa-nulHiqaha bi-kulli
+min al-aDla' al-arba'a lil-shakl. Fa-ma'a al-murabba' al-asli A B,
+tulHaqu arba'at ajniha mutawaziyya al-aDla', kullu minha lahu Dila'
+min aDla' al-murabba' ka-Tul, wa-'adadi thnayni wa-niSf ka-'arD;
+wa-hiya al-ajniha J, Z, T, K.
+
+Ladayna al-an murabba' mutasawi al-aDla' majhul, walakin fi kulli
+min zawaya-hi al-arba' yanquSu laHZa murabba'a min thnayni wa-niSf
+maDruba fi thnayni wa-niSf. Li-nu'awiDa 'an hadha al-nuqsan
+wa-nukammila al-murabba', yajib an nuDifa (ila ma ladayna) arba'
+marat murabba'a thnayni wa-niSf, ay khamsa wa-'ishrun.
+
+Wa-nahnu na'lamu (min al-mas'ala) anna al-shakl al-awwal, ayyuha
+al-murabba' al-mumaththil lil-mal, ma'a al-ajniha al-arba'a al-muHiTa
+bihi, al-mumaththila lil-'asharati juthur, yusawi tis'a wa-thalathina
+'adadan. Fa-idha aSafnaha ila khamsa wa-'ishrina, allati hiya
+musawiyya lil-murabba'at al-arba' 'inda zawaya al-shakl A B, allati
+tukammilu al-murabba' al-kabir D H, fa-n'alamu anna hadha al-majmui'
+ya'kul sitta wa-arba'in. ahadu aDla' hadha al-murabba' al-kabir huwa
+jadhrhu, ay thamaniya. Fa-idha naqasna Di'fa rub'i al-'ashara, ay
+khamsa, min thamaniya, kama min Tarafayyi al-Dil' al-murabba' al-kabir
+D H, fa-yabqa min hadha al-Dil' thalatha, wa-hadha huwa jadhr
+al-mal, aw Dil' al-shakl al-asli A B.
+\end{originaltext}
+
+\begin{geombox}
+\textbf{al-Burhan al-Hindisi lil-HaSala al-Rabi'a:}
+
+\begin{center}
+\begin{tabular}{lcl}
+\textbf{al-shakl} & $=$ & \textbf{al-misaHa} \\
+\hline
+Murabba' A B & $=$ & $x^2$ \\
++ 4 mutawaziyat al-aDla' & $=$ & $10x$ \\
+\hline
+al-majmui' al-juz' & $=$ & $39$ \\
++ 4 murabba'at zawiya ($2.5 \times 2.5$) & $=$ & $25$ \\
+\hline
+al-majmui' (Murabba' D H al-kabir) & $=$ & $64$ \\
+Dila' al-Murabba' al-kabir & $=$ & $\sqrt{64} = 8$ \\
+$x = 8 - 2 \times 2.5 = 8 - 5 =$ & \fbox{3} & \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{al-tafsir al-mar'i:} nabda'u bi-murabba' janibuhu $x$
+(yumanthil al-mal). NulHiq bi-kulli janib mustatTila Tuluhu $x$
+wa-'arDuha $2.5$ (rub' al-'adad 10). al-arba' mustatTilat tumanthil
+$10x$. al-misaHa al-kulliyya hatta al-an hiya $x^2 + 10x = 39$.
+
+Li-nukammila al-murabba' al-kabir, naHtaju li-izafat arba' murabba'at
+Sagira 'inda al-zawaya, kullu minha $2.5 \times 2.5 = 6.25$. al-majmui'
+$4 \times 6.25 = 25$. al-an al-murabba' al-kabir lahu misaHa
+$39 + 25 = 64$, fa-Dil'uhu huwa $8$. NunquS minhu $5$ ('arDu
+mustatTilatayn) fa-nuHallu 'ala $x = 3$.
+\end{geombox}
+
+\begin{commentary}
+\textbf{limadha ``rub' '' thumma ``Di'fa rub' ''?}
+
+Yulahidhu al-qari'u anna al-Khwarizmi ya'khudhu \textbf{rub'a} 'adad
+al-juthuri (rub' al-'ishrin = 2.5) li-insha' al-ajniha al-arba'a, thumma
+yuTraHu \textbf{Di'fa} hadha al-rub'i min Dil' al-murabba' al-kabir.
+limadha?
+
+li-anna kulli janib min jawaniB al-murabba' yaHaSSulu 'alayhi \textit{janiHan}
+(wahid min kulli janib). Fa-idha kana 'arDu kulli janiH huwa $b/4$,
+fa-inna al-majmui' al-muTraHu min kila Tarafayi al-Dil' huwa
+$2 \times (b/4) = b/2$, wa-huwa bi-ZabT ``naSf 'adadi al-juthur''
+al-madhkur fi al-Khwarizmiyya!
+
+Wa-haka-dha yuZhiru al-burhan al-Hindisi \textit{sabab} naSf al-juthur --
+wa-huwa taHawwilu al-shakl ila murabba' kamil.
+\end{commentary}
+
+\newpage
+
+\section{Tashrih al-HaSala al-Khamisa: ``Mal wa-21 yusawi 10 usuL''}
+
+\begin{originaltext}
+Numaththilu al-mal bi-murabba' A D, Tul Dil'ihi majhul ladayna.
+Ila hadha nulHiqu mustatTila, 'arDuhu musawin li-ahadi aDla'
+al-murabba' A D, kayna al-Dil' H N. Hadha al-mustatTil huwa H B.
+Tul al-shaklayni ma'an yusawi al-KhaTT H J. Na'lamu anna Tuluha
+'asharatu a'dadin; fa-kullu murabba'in lahu aDla' mutasawiya
+wa-zawaya mutasawiya, wa-ahad aDla'ihi maDruban fi wahida huwa
+jadhr al-murabba', aw maDruban fi ithnatayn fa-huwa Di'fu jadhr
+al-shakl al-batt.
+
+Fakama wada'at al-mas'ala anna malan wa-wahidan wa-'ishrina 'adadan
+yusawi 'asharata juthuran, yumkinuna an nastanTiZu anna Tul al-KhaTT
+H J yusawi 'asharata a'dadin, idha al-KhaTT J D yumanthilu jadhr
+al-mal. Naqsimu al-an al-KhaTT J H ila niSfayn mutasawiyayn 'inda
+al-nuqTa W: fa-l-KhaTT W J idhun yusawi H W.
+
+Wa-na'lamu anna al-ruba'i H B yumanthilu al-wahida wa-l-'ishrina
+'adadan allati zidat 'ala al-murabba'. Wa-wujida anna al-murabba'
+M T kulluhu yusawi khamsa wa-'ishrina. Fa-idha naqasna min hadha
+al-murabba' M T al-ruba'iyyayn H T wa-M R, alladhayn yusawiyan
+wahidan wa-'ishrina, fa-yabqa murabba' Sagir K R, yumanthilu
+al-furq bayna khamsa wa-'ishrina wa-wahid wa-'ishrina. Wa-huwa
+arba'a; wa-jadhruh, al-mumaththal bi-l-KhaTT W A alladhi yusawi
+A J, huwa ithnan.
+\end{originaltext}
+
+\begin{geombox}
+\textbf{al-Burhan al-Hindisi lil-HaSala al-Khamisa:}
+
+\begin{center}
+\begin{tabular}{lcl}
+$MT = (10/2)^2$ & $=$ & $25$ \\
+$HT + MR = HB$ & $=$ & $21$ \\
+$KR = 25 - 21$ & $=$ & $4$ \\
+$\sqrt{KR}$ & $=$ & $2$ \\
+$x = WJ - WA = 5 - 2 =$ & \fbox{3} & \\
+aw $x = WJ + WA = 5 + 2 =$ & \fbox{7} & \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{al-tafsir:} Nabni murabba'an janibuhu $x$ (al-mal). NulHiq
+bihi mustatTilan Tuluhu $10$ wa-'arDuhu $x$ -- walakin al-misaHa
+al-za'ida $21$ tumaththalu bi-l-mustatTil alladhi yulSaqu kharij
+al-murabba'. Nukammilu al-murabba' al-kabir bi-Tul $10$ (jami'
+al-juthur), wa-na'khudhu niSfahu $5$. al-murabba' al-kabir ($5 \times 5 = 25$)
+naqisan al-mustatTil ($21$) yu'tina murabba'an Sagiran ($4$) janibuhu
+$2$. al-Hallani ya'tiyani min imkaniyyati TarHi aw jam'i hadha
+al-janib min al-niSf.
+\end{geombox}
+
+\newpage
+
+\section{Tashrih al-HaSala al-Sadisa: ``3 usuL wa-4 yusawi malan''}
+
+\begin{originaltext}
+Li-yakun al-mal mumaththan bi-ruba'i aDla'uhu majhula ladayna,
+wa-in kanat mutasawiya fima baynaha, kama al-zawaya. Hadha huwa
+al-murabba' A D, alladhi yashtamilu 'ala al-thalathati juthurin
+wa-al-arba'ati a'dadin al-madhkura fi hadhihi al-mas'ala.
+
+Fi kulli murabba'in ahad aDla'ihi, maDruban fi wahida, huwa
+jadhr. NaqTu' al-an min al-murabba' A D al-ruba'i H D, wa-na'khudh
+ahad aDla'ihi H J li-thalatha, wa-huwa 'adad al-juthur. Wa-huwa
+musawin li-A R. Yatba'u idhan anna al-ruba'i H B yumanthilu
+al-arba'a a'dadan allati zidat 'ala al-juthur. al-an nunaSSifu
+al-Dil' J H alladhi yusawi thalathata juthur, 'inda al-nuqTa W;
+min hadha al-qisma nabni al-murabba' W T alladhi huwa hasilu Darb
+niSf al-juthur (wahid wa-niSf) fi nafsihi, ay thnan wa-rub'.
+\end{originaltext}
+
+\begin{geombox}
+\textbf{al-Burhan al-Hindisi lil-HaSala al-Sadisa:}
+
+\begin{center}
+\begin{tabular}{lcl}
+Murabba' $WT = (3/2)^2$ & $=$ & $2.25$ \\
+$AN + KL = AR = 4$ & & (al-a'dad al-muDafa) \\
+$GM = WT + (AN + KL) = 2.25 + 4$ & $=$ & $6.25$ \\
+$AG = \sqrt{GM} = \sqrt{6.25}$ & $=$ & $2.5$ \\
+$x = AG + GW = 2.5 + 1.5 =$ & \fbox{4} & \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{al-tafsir:} Nabda'u bi-murabba' kabir ($x \times x = x^2$)
+yumanthilu al-mal. NaqTa'u minhu mustatTila ($3 \times x = 3x$)
+yumanthilu al-juthur. ma yabqa huwa al-mustatTil alladhi yumanthilu
+al-'adad 4. Nukammilu al-murabba' al-Sagir 'inda al-zawiya bi-niSf
+al-juthur (1.5). Na'khudhu al-jadhr al-tarb'i lil-majmui' wa-nujmi'
+'alayhi niSf al-juthur.
+\end{geombox}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: MULTIPLICATION
+%% ========================================================================
+\chapter{fi Darb al-Ta'abirat al-Jabriyya}
+\label{ch:multiplication}
+
+\begin{originaltext}
+Sa-u'allimuka al-an kayfa taDribu al-a'dada al-majhula -- ay
+al-juthur -- ba'Duha fi ba'D, in kanat munfarida, aw idha uDifat
+ilayha a'dad, aw idha nuqiSat minha a'dad, aw idha nuqiyat min
+a'dad; aydan kayfa tujmi'uha ba'Duha ila ba'D, aw kayfa tanquSu
+ba'Duha min ba'D.
+
+Kullama urida Darbu 'adadin fi 'adadin, fayajib an yukarrara
+ahaduhuma bi-'adadi ma yaHtawihi al-akhar min al-waHadat.
+
+Idha kanat a'dadun akbaru mu'allafa ma'a waHadatin li-tuDafa aw
+tunqas minhum, fa-inna \textbf{arba'a Darbatin} lazima; ay: al-a'dad
+al-akbaru fi al-a'dad al-akbar, wa-l-a'dad al-akbar fi al-waHadat,
+wa-l-waHadat fi al-a'dad al-akbar, wa-l-waHadat fi al-waHadat.
+
+Idha kanat al-waHadat al-mu'allafa ma'a al-a'dadi al-akbar
+mujibatayni kulltayhima, fa-l-Darbatu al-rabi'a mujiba; wa-idha
+kanat salibatayni kulltayhima, fa-l-Darbatu al-rabi'a mujiba aydan.
+Wa-idha kanat ihdahuma mujiba wa-l-ukhra saliba, fa-l-Darbatu
+al-rabi'a saliba.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{Qawa'id al-Darb al-Arba'i 'inda al-Khwarizmi:}
+
+Yuqaddimu al-Khwarizmi huna qawa'id Darb dhati al-Haddayn -- ay ma
+nusammi al-yawma ``tawzi' al-Darb 'ala al-jam' ''. Idda aradna Darba
+$(a + x)(b + y)$, fa-nahnu naHtaju li-arba' Darbat munfasila:
+
+\begin{enumerate}
+  \item al-akbar fi al-akbar: $a \times b$
+  \item al-akbar fi al-waHadat: $a \times y$
+  \item al-waHadat fi al-akbar: $x \times b$
+  \item al-waHadat fi al-waHadat: $x \times y$
+\end{enumerate}
+
+Wa-hadhihi hiya bi-ZabT al-Sigha allati na'rifuha al-yawma:
+$(a + x)(b + y) = ab + ay + bx + xy$
+
+\textbf{Ahammiyyat qawa'id al-Isharat:} Yulahidu al-Khwarizmi anna
+``al-salibi fi al-salibi = mujib'' wa-``al-salibi fi al-mujibi
+= salib''. Wa-hadhihi awwalu Siyaghat ma'rufa li-\textbf{qawa'id
+al-isharat} fi tarikh al-riyadiyyat!
+\end{commentary}
+
+\begin{mathexplain}
+\textbf{Qawa'id al-Isharat fi al-Darb:}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+& \textbf{mujib} & \textbf{salib} \\
+\hline
+\textbf{mujib} & mujib & salib \\
+\hline
+\textbf{salib} & salib & mujib \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+$\begin{aligned}
+  (+x)(+y) &= +xy \\
+  (-x)(-y) &= +xy \\
+  (+x)(-y) &= -xy \\
+  (-x)(+y) &= -xy
+\end{aligned}$
+
+hadhihi al-qawa'id kanat thawriyya fi zamaniha -- fa-qad samahat
+bi-l-ta'amul ma'a ``al-kamiyyat al-naqiSa'' (al-a'dad al-saliba)
+fi siyaq al-Darb wa-l-qisma.
+\end{mathexplain}
+
+\section{Amthila 'ala al-Darb}
+
+\begin{originaltext}
+\textbf{al-mithal al-awwal:} 'ashara wa-waHid yuDribani fi 'ashara
+wa-ithnayn.
+
+'asharat 'asharat mi'a; waHid 'ashara 'asharatu 'asharat mujiba;
+ithnan 'ashara 'ishruna mujiba; wa-waHid fi ithnayn ithnan mujiban;
+al-majmui' mi'a wa-ithnan wa-thalathun.
+
+\textbf{al-mithal al-thani:} 'ashara naqis wahid, yuDrabu fi 'ashara
+naqis wahid.
+
+Fa-'asharat 'asharat mi'a; al-salib wahid fi 'ashara 'asharatu
+'asharat saliba; al-salib al-akhar fi 'ashara 'asharatu 'asharat
+salibat ukhra, fa-yakunu thamanun; lakinna al-salib wahid fi
+al-salib wahid wahid mujib, fa-yakunu al-natij wahidan wa-thamanin.
+
+\textbf{al-mithal al-thalith:} 'ashara wa-shay' yuDribani fi 'ashara
+wa-shay'.
+
+Fa-'asharat 'asharat mi'a, wa-'asharat shay' 'asharat ashya'; wa
+'asharat shay' 'asharat ashya'; wa-l-shay' maDruban fi al-shay'
+mal mujib, fa-yakunu al-natij mi'at dirham wa-'ishruna shay'an
+wa-malan mujiban wahidan.
+
+\textbf{al-mithal al-rabi':} 'ashara naqis shay', fi 'ashara naqis
+shay'.
+
+Fa-'asharat 'asharat mi'a; wa-salib shay' fi 'ashara 'asharatu
+ashya' saliba; wa-salib shay' akhar fi 'ashara 'asharatu ashya'
+saliba. Lakin salib shay' maDruban fi salib shay' mal mujib.
+Fa-l-natij mi'a wa-mal, naqis 'ishruna shay'an.
+
+\textbf{al-mithal al-khamis:} 'ashara naqis shay', fi 'ashara wa-
+ziyadat shay'.
+
+Fa-taqul: 'asharat 'asharat mi'a; wa-salib shay' fi 'ashara
+'asharat ashya' saliba; wa-shay' fi 'ashara 'asharat ashya'
+mujiba; wa-salib shay' fi shay' mal mujib; fa-l-natij mi'at
+dirham, naqis malin.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Tawdih al-Riyadi li-l-amthila:}
+
+\begin{center}
+$\begin{aligned}
+  (10 + 1)(10 + 2) &= 100 + 10 + 20 + 2 = 132 \\
+  (10 - 1)(10 - 1) &= 100 - 10 - 10 + 1 = 81 \\
+  (10 + x)(10 + x) &= 100 + 10x + 10x + x^2 = 100 + 20x + x^2 \\
+  (10 - x)(10 - x) &= 100 - 10x - 10x + x^2 = 100 - 20x + x^2 \\
+  (10 - x)(10 + x) &= 100 - 10x + 10x - x^2 = 100 - x^2
+\end{aligned}$
+\end{center}
+
+\textbf{mulahadha:} al-mithal al-khamis yuZhiru natijatan mudhishatan:
+$(10 - x)(10 + x) = 100 - x^2$ -- wa-huwa \textbf{farq al-mirabba'ayn}
+(difference of squares), ihdha ahamm al-Sughar al-jabriyya fi
+jami' al-riyadiyyat!
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: ADDITION AND SUBTRACTION
+%% ========================================================================
+\chapter{fi al-Jam' wa-al-TarH}
+\label{ch:addition}
+
+\section{'Amaliyyat 'ala al-Juthur al-tarb'iyya}
+
+\begin{originaltext}
+i'lam anna jadhr mi'atayni naqis 'ashara, mudafan ila 'ishrina
+naqis jadhr mi'atayni, huwa 'asharat.
+
+Wa-jadhr mi'atayni naqis 'ashara, munqasan min 'ishrin naqis jadhr
+mi'atayni, huwa thalathun naqis Di'fi jadhr mi'atayni; wa-Di'fu
+jadhr mi'atayni yusawi jadhr thamanimi'a.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Tawdih al-Riyadi:}
+
+\begin{center}
+$\begin{aligned}
+  (\sqrt{200} - 10) + (20 - \sqrt{200}) &= 10 \\
+  (20 - \sqrt{200}) - (\sqrt{200} - 10) &= 30 - 2\sqrt{200} = 30 - \sqrt{800}
+\end{aligned}$
+\end{center}
+
+\textbf{al-mulahadha al-muhimma:} al-Khwarizmi ya'rifu anna
+$2\sqrt{200} = \sqrt{800}$. Wa-hadha yatba'u min al-qawa'id al-'amma
+$a\sqrt{b} = \sqrt{a^2 b}$. Fa-l-jadhr al-tarb'i yu'ammuqu kakyan
+jabri mustaqill yumkinu jam'uhu wa-TarQuhu mitla al-mutaghayyirat.
+\end{mathexplain}
+
+\section{fi muDa'afat al-Juthur wa-niSfiha}
+
+\begin{originaltext}
+Idha aradta an tuDa'ifa jadhr ayi malin ma'lum aw majhul,
+(bi-ma'na annaka taDribuhu fi ithnayn) fa-yakfi annaka taDriba
+ithnayn fi ithnayn, thumma fi al-mal; fa-jadhr al-natij yusawi
+Di'fa jadhr al-mal al-asli.
+
+Wa-idha aradta an ta'khudhah thalathan, fa-Draba thalathata fi
+thalatha thumma fi al-mal; fa-jadhr al-natij huwa thalathatu
+a'da' jadhr al-mal al-asli.
+
+Wa-idha aradta an tajida niSf jadhr al-mal, fama 'alayka illa an
+naDriba niSf fi niSf, wa-huwa rub'; thumma hadha fi al-mal:
+fa-jadhr al-natij sa-yakunu niSfa jadhr al-mal al-awwal.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Tawdih al-Riyadi:}
+
+\begin{center}
+$\begin{aligned}
+  2\sqrt{S} &= \sqrt{4S} \\
+  3\sqrt{S} &= \sqrt{9S} \\
+  \tfrac{1}{2}\sqrt{S} &= \sqrt{\tfrac{1}{4}S}
+\end{aligned}$
+\end{center}
+
+\textbf{al-tafsir:} al-qawa'id hiY $\sqrt{a^2 \cdot S} = a\sqrt{S}$.
+al-Khwarizmi yuqaddimuha ka-Khwarizmiyya 'amaliyya: li-tuDa'ifa
+al-jadhr, aDrib al-mal (mal) fi 4 (2x2) thumma khudh al-jadhr.
+hadhihi al-tariqa tatajannabu al-ta'amul ma'a ``naSf al-jadhr''
+mubashsharatan.
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: DIVISION
+%% ========================================================================
+\chapter{fi al-Qisma}
+\label{ch:division}
+
+\begin{originaltext}
+Idha aradta an taqsima jadhr tis'a 'ala jadhr arba'a, fa-bda' bi-
+qismati tis'a 'ala arba'a, fa-yu'tika ithnayn wa-rub'an; fa-jadhr
+hadha huwa al-'adad alladhi taHtaju ilayhi -- wa-huwa wahid wa-niSf.
+
+Wa-idha aradta an taqsima jadhr arba'a 'ala jadhr tis'a, fa-aqsim
+arba'a 'ala tis'a; fa-huwa arba'u atsa' al-wahda; wa-jadhr hadha
+ithnan maqsuman 'ala thalatha; ay thulthay al-wahda.
+
+Wa-idha aradta an taDruba jadhr tis'a fi jadhr arba'a, fa-Drab
+tis'a fi arba'a; fa-yu'tika sitta wa-thalathin; fa-khudh jadhr,
+fa-huwa sitta; wa-hadha huwa jadhr tis'a maDruban fi jadhr arba'a.
+
+Wa-idha aradta an taDruba Di'fa jadhr tis'a fi thalathati a'da'
+jadhr arba'a, fa-khudh Di'fa jadhr tis'a Hasaba al-qawida al-
+madhkura, Hatta ta'rifa jadhr ayi mal huwa. Waf'il al-mithla
+bi-l-nisbati li-l-thalathati juthur al-arba'a li-ta'riffa ma yajib
+an yakuna mal dhalika al-jadhr. Thumma aDrab hadhayni al-malayn
+ahadahuma fi al-akhar, fa-jadhr al-natij yusawi Di'fa jadhr tis'a
+maDruban fi thalathati a'da' jadhr arba'a.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{Qawa'id al-Juthur 'inda al-Khwarizmi:}
+
+\begin{center}
+$\begin{aligned}
+  \frac{\sqrt{9}}{\sqrt{4}} &= \sqrt{\frac{9}{4}} = \frac{3}{2} = 1.5 \\
+  \frac{\sqrt{4}}{\sqrt{9}} &= \sqrt{\frac{4}{9}} = \frac{2}{3} \\
+  \sqrt{9} \times \sqrt{4} &= \sqrt{9 \times 4} = \sqrt{36} = 6 \\
+  (2\sqrt{9}) \times (3\sqrt{4}) &= \sqrt{36 \times 36} = 36
+\end{aligned}$
+\end{center}
+
+\textbf{al-qawa'id al-'Amma:}
+\begin{itemize}
+  \item $\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}}$
+  \item $\sqrt{a} \times \sqrt{b} = \sqrt{a \times b}$
+  \item $(m\sqrt{a}) \times (n\sqrt{b}) = mn\sqrt{ab}$
+\end{itemize}
+
+Hadhihi al-qawa'id hiya al-asas alladhi yabni 'alayhi al-Khwarizmi
+jami' 'amaliyyatihi 'ala al-juthur.
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: THE SIX ILLUSTRATIVE PROBLEMS
+%% ========================================================================
+\chapter{al-sittu Masa'il al-TawDiHiyya}
+\label{ch:six-problems}
+
+\begin{originaltext}
+Qabla fuSuli al-Hisab wa-anwa'iha al-mukhtalifa, sa'uqaddimu al-an
+sitta masa'il, kamithal 'ala al-HaSalat al-sitt allati tanaWalat
+ha fi bidayat hadha al-'amal. Qad bayyantu anna thalathan min
+hadhihi al-HaSalat, li-Halliha, la taHtaju ila naSf al-juthur, wa-
+dhakartu aydanna anna al-Hisab bi-l-jabr wa-l-muqabala yajib ann
+yaqulaka da'iman ila ihdha haa al-HaSalat. Sa-ulHaqu hadhihi al-
+masa'il al-an, allati sa-takunu aqraba ila al-fahm, wa-tusahhilu
+istiya' al-mawdii', wa-tubayyinu al-ijj b-iDaaa akbar.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{limadha sittu masa'il?}
+
+Yuqaddimu al-Khwarizmi ba'da shariH al-HaSalat al-sitt \textbf{sitta
+masa'il tatbiqiyya} -- mas'ala wahida li-kulli HaSala. Hadhihi al-
+masa'il laysat majarrad tamariyn riyadiyya, bal hiya \textit{qiSas}
+(word problems) ta'ksi mawaqif waqi'iyya. Wa-al-ahammu min dhalika
+annaha tuZhiru kayfiyyat \textbf{nimuDajat} mas'ala waqi'iyya ila
+mu'adala jabriyya -- wa-hiya al-mahara al-asasiyya fi 'ilm al-jabr.
+\end{commentary}
+
+\section*{al-mas'ala al-ula}
+\addcontentsline{toc}{section}{al-mas'ala al-ula}
+
+\begin{originaltext}
+``Qasamtu 'ashara ila qismayn; Darabtu ahadahuma fi al-akhar; ba'da
+hadha Darabtu ahada al-qismayn fi nafsihi, wa-hasil al-Darb fi
+nafsihi arba'atu a'da'i ma hasala min Darbi ahadi al-qismayni fi
+al-akhar.''
+
+al-Hall: li-yakun ahad al-qismayn shay'an, wa-al-akhar 'ashara
+naqis shay'. TaDrabu al-shay' fi 'ashara naqis shay'; fa-huwa
+'asharat ashya' naqis mal. Thumma taDribuhu fi arba'a, li-anna al-
+mas'ala taqulu ``arba'atu a'da' ''. Fa-l-natij arba'un 'asharat
+ashya' naqis arba'ati amwalin. Ba'da hadha taDribu al-shay' fi al-
+shay', ay ahada al-qismayni fi nafsihi. Wa-hadha mal, huwa musawin
+li-arba'in shay'an naqis arba'ati amwalin. KhaffiDha al-an bi-l-
+arba'ati amwalin, wa-azidha ila al-mali al-waHid. Fa-l-mu'adala:
+arbau 'ishruna shay'an tusawi khamsata amwla; wa-malu wahid
+yusawi thamaniyata juthuran, ay arba'a wa-sittin; wa-jadhr hadha
+thamaniya.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Hall al-Riyadi:}
+
+\begin{center}
+$\begin{aligned}
+  x^2 &= 4x(10-x) = 40x - 4x^2 \\
+  \Rightarrow\quad 5x^2 &= 40x \quad\Rightarrow\quad x^2 = 8x = 64 \quad\Rightarrow\quad x = 8
+\end{aligned}$
+\end{center}
+
+al-qismaan huma: $x = 8$ wa $10 - x = 2$.\\
+Hadhihi al-mas'ala taquluna ila ihdha al-HaSalat al-sitt, ay:
+\textbf{mal yusawi usuLan}.
+\end{mathexplain}
+
+\section*{al-mas'ala al-thaniya}
+\addcontentsline{toc}{section}{al-mas'ala al-thaniya}
+
+\begin{mathexplain}
+\textbf{al-mas'ala:} ``Qasamtu 'ashara ila qismayn; Darabtu kulla
+qism fi nafsihi, wa-ba'dahu 'ashara fi nafsaha: hasilu 'asharat
+fi nafsiha yusawi ahada al-qismayni maDruban fi nafsihi, wa-ba'dahu
+fi ithnayn wa-sab'at atsa'.''
+
+$100 = x^2 \times 2\tfrac{7}{9} = x^2 \times \tfrac{25}{9}$
+$\Rightarrow x^2 = \tfrac{900}{25} = 36 \Rightarrow x = 6$
+
+al-qismaan huma: $x = 6$ wa $10 - x = 4$.
+\end{mathexplain}
+
+\section*{al-mas'ala al-thalitha}
+\addcontentsline{toc}{section}{al-mas'ala al-thalitha}
+
+\begin{mathexplain}
+\textbf{al-mas'ala:} ``Qasamtu 'ashara ila qismayn. Qasamtu al-
+wahida 'ala al-ukhar, wa-al-natij arba'a.''
+
+$\dfrac{10 - x}{x} = 4 \Rightarrow 10 - x = 4x \Rightarrow 10 = 5x \Rightarrow x = 2$
+
+al-qismaan huma: $x = 2$ wa $10 - x = 8$.
+\end{mathexplain}
+
+\section*{al-mas'ala al-rabi'a}
+\addcontentsline{toc}{section}{al-mas'ala al-rabi'a}
+
+\begin{mathexplain}
+\textbf{al-mas'ala:} ``Darabtu thulthi shay' wa-dirham fi rub'i
+shay' wa-dirham, wa-al-natij 'ishrun.''
+
+$\left(\dfrac{x}{3} + 1\right)\left(\dfrac{x}{4} + 1\right) = 20$
+$\Rightarrow \dfrac{x^2}{12} + \dfrac{7x}{12} + 1 = 20$
+$\Rightarrow x^2 + 7x = 228$
+
+naSf al-juthur: $3.5$. al-murabba': $12.25$.
+nuDiI ila 228: $240.25$. al-jadhr: $15.5$.
+nanquS $3.5$: $x = 12$.
+\end{mathexplain}
+
+\section*{al-mas'ala al-khamisa}
+\addcontentsline{toc}{section}{al-mas'ala al-khamisa}
+
+\begin{mathexplain}
+\textbf{al-mas'ala:} ``Qasamtu 'ashara ila qismayn; ba'da Darbi
+kulli qism fi nafsihi, jamatuhuma; wa-al-majmu' thamaniya wa-
+khamsun dirhama.''
+
+$x^2 + (10-x)^2 = 58 \Rightarrow 2x^2 - 20x + 100 = 58$
+$\Rightarrow x^2 + 28 = 11x$
+
+$x = \dfrac{11}{2} \pm \sqrt{\dfrac{121}{4} - 28} = 5.5 \pm 2.5$.
+al-qismaan: $x = 3$ aw $x = 7$.
+\end{mathexplain}
+
+\section*{al-mas'ala al-sadisa}
+\addcontentsline{toc}{section}{al-mas'ala al-sadisa}
+
+\begin{mathexplain}
+\textbf{al-mas'ala:} ``Darabtu thultha jadhr fi rub'a jadhr, wa-al-
+natij yusawi al-jadhr wa-arba'a wa-'ishrina dirhama.''
+
+$\dfrac{x}{3} \cdot \dfrac{x}{4} = x + 24 \Rightarrow \dfrac{x^2}{12} = x + 24$
+$\Rightarrow x^2 = 12x + 288$
+
+$x = 6 + \sqrt{36 + 288} = 6 + 18 = 24$
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: VARIOUS QUESTIONS
+%% ========================================================================
+\chapter{masa'il mukhtalifa}
+\label{ch:various}
+
+\begin{originaltext}
+Wa-hadhihi masa'il iDafiyya li-tawsi' al-fahm wa-ta'kidi al-mabadi'
+allati buniyat 'alayha al-HaSalat al-sitt al-kanuniyya.
+\end{originaltext}
+
+\section*{masa'il tawDiHiyya iDafiyya}
+\addcontentsline{toc}{section}{masa'il tawDiHiyya iDafiyya}
+
+\begin{originaltext}
+\textbf{mas'ala 1:} qasamtu 'ashara ila qismayn, wa-Darabtu
+ahadahuma fi al-akhar, fa-kana al-natij wahidan wa-'ishrina.
+
+\textbf{mas'ala 2:} qasamtu 'ashara ila qismayn; ba'da Darbi kulla
+qism fi nafsihi, naqastu al-asghar min al-akbar, wa-al-baqiyy
+arba'un.
+
+\textbf{mas'ala 3:} lana murabba', thulthahu min khumushihi yusawi
+sub'i jadhr.
+
+\textbf{mas'ala 4:} wujad jadhr murabba', idha Duriba fi arba'a
+amthalihi kana al-majmui' 'ishrina.
+
+\textbf{mas'ala 5:} murabba', idha Duribat arba' min juthur fi
+khamsat min juthur antajat Di'f al-mal, ma'a fa'iD sitta wa-
+thalathin dirhaman.
+
+\textbf{mas'ala 6:} wujad murabba', idha uDifa thulthuhu ila
+thalathati darahim, wa-nuqiSa al-majmu' min al-murabba', thumma
+Duriba al-baqiyy fi nafsihi, astarada al-murabba'.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{Hullu-l-masa'il al-mukhtalifa:}
+
+\textbf{mas'ala 1:} $x(10-x) = 21 \Rightarrow 10x - x^2 = 21 \Rightarrow x^2 + 21 = 10x$
+
+$x = 5 \pm \sqrt{25 - 21} = 5 \pm 2 = 3 \text{ aw } 7$
+
+\vspace{0.2cm}
+
+\textbf{mas'ala 2:} $(10-x)^2 - x^2 = 40 \Rightarrow 100 - 20x = 40 \Rightarrow x = 3$
+
+\vspace{0.2cm}
+
+\textbf{mas'ala 3:} $\tfrac{2}{3} \cdot \tfrac{1}{5} x^2 = \tfrac{1}{7}x \Rightarrow \tfrac{2}{15}x^2 = \tfrac{1}{7}x \Rightarrow x = \tfrac{15}{14} = 1\tfrac{1}{14}$
+
+\vspace{0.2cm}
+
+\textbf{mas'ala 4:} $x \cdot 4x = 20 \Rightarrow 4x^2 = 20 \Rightarrow x^2 = 5 \Rightarrow x = \sqrt{5}$
+
+\vspace{0.2cm}
+
+\textbf{mas'ala 5:} $4x \cdot 5x = 2x^2 + 36 \Rightarrow 20x^2 = 2x^2 + 36 \Rightarrow 18x^2 = 36 \Rightarrow x^2 = 2$
+
+\vspace{0.2cm}
+
+\textbf{mas'ala 6:} $\left(x - \tfrac{x}{3} - 3\right)^2 = x \Rightarrow \left(\tfrac{2x}{3} - 3\right)^2 = x$
+
+$\Rightarrow \tfrac{4x^2}{9} + 9 - 4x = x \Rightarrow x^2 + 20\tfrac{1}{4} = 11\tfrac{1}{4}x \Rightarrow x = 9 \text{ aw } 2\tfrac{1}{4}$
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% PART: PRACTICAL APPLICATIONS
+%% ========================================================================
+\part{al-Tatbiqat al-'amaliyya}
+\label{part:practical}
+
+\begin{historicalbox}
+\textbf{al-jabr wa-al-Hayat al-yawmiyya:}
+
+Min ahamma ma yumayyizu kitab al-Khwarizmi anna al-jabra 'indahu
+laysa mujarrad lu'bat ithniyya aw niZariyya mujarrada, bal huwa
+\textbf{adatun 'amaliyya} li-l-ta'amul ma'a al-masa'il al-yawmiyya.
+YatanaWal al-juz' al-thani min kitabihi tatbiqat 'amaliyya fi
+thalathat majalat ra'iyya:
+
+\begin{enumerate}
+  \item \textbf{al-mu'amalat al-tijariyya} -- al-bay' wa-l-shira'
+    wa-l-Sarf wa-l-ijara
+  \item \textbf{al-misaHa wa-l-handasa} -- misaHat al-ardiyn wa-Hufri
+    al-qanawat
+  \item \textbf{al-mirath wa-l-wasaya} -- ahkam al-fara'iD al-islamiyya
+\end{enumerate}
+
+Wa-hadha ya'ksi al-wiDifa \textbf{al-'amaliyya} li-l-'ilmi fi
+al-HaDara al-islamiyya -- lam yakun al-'ilmu munfasilan 'an al-Hayat,
+bal kana fi khidmati al-insan mubashsharatan.
+\end{historicalbox}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: MERCANTILE TRANSACTIONS
+%% ========================================================================
+\chapter{fi al-mu'amalat al-tijariyya}
+\label{ch:mercantile}
+
+\begin{originaltext}
+fi al-mu'amalat al-tijariyya: i'lam anna jami'a mu'amalat al-nas
+min bay' wa-shira' wa-muSarafa wa-ijara, fa-innaha la takhlu min
+qadrayni wa-arba'ati a'dadin yas'alu 'anha al-sa'il, wa-hiya al-
+miqdar wa-l-thaman wa-l-kayfiyya wa-l-jami'. 'adad al-miqdar
+yunasibu 'adad al-jami', wa-'adad al-thaman yunasibu 'adad al-
+kayfiyya. thalathatu min hadhihi al-arba'a da'iman ma'luma, wa-
+Wahid majhul, wa-huwa alladhi yatadammanuhu qawluhu ``kam?'' wa-
+huwa al-maTlub.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{Qa'idat al-arba'a a'dad -- al-jabr al-tijari:}
+
+Yasifu al-Khwarizmi huna ma nusammi al-yawma ``qawa'id al-thalath''
+(Rule of Three) aw ``al-tanasiq''. Kullu mas'alat tijariyya tatadammanu
+arba'a kamiyyat murtabiTa bi-l-tanasiq:
+
+\begin{itemize}
+  \item \textbf{al-miqdar} (al-miqdar): kamiyyat al-sila' fi al-Safqa al-ula
+  \item \textbf{al-thaman} (al-thaman): si'r tilka al-kamiyya
+  \item \textbf{al-kayfiyya} (al-kamiyya): kamiyyat al-sila' fi al-Safqa al-thaniya
+  \item \textbf{al-jami'} (al-majmui'): al-si'r al-ijmali al-maTlub
+\end{itemize}
+
+thalathu min hadhihi al-kamiyyat ma'lumma wa-l-rabi'a majhula.
+Wa-l-'alaqa hiya: $\text{al-miqdar} : \text{al-kayfiyya} :: \text{al-jami'} : \text{al-thaman}$
+aw bi-l-mu'adala: $a \times b = c \times d$
+\end{commentary}
+
+\begin{mathexplain}
+\textbf{Qa'idat al-arba'a a'dad:}
+
+\begin{center}
+\begin{tabular}{c|c}
+\textbf{al-miqdar} & \textbf{al-thaman} \\
+\hline
+$a$ (ma'lum) & $b$ (ma'lum) \\
+$c$ (ma'lum aw majhul) & $d$ (ma'lum aw majhul) \\
+\end{tabular}
+
+\vspace{0.3cm}
+
+$\text{al-majhul} = \dfrac{\text{hasil Darb al-'adadayni al-mutanasibayn}}{\text{al-'adad al-ma'lum al-thalith}}$
+\end{center}
+
+\textbf{al-Amthila:}
+\begin{enumerate}
+  \item ``'ashara bi-sitta, kam bi-arba'a?''
+  $\text{al-kamiyya} = \dfrac{10 \times 4}{6} = \dfrac{40}{6} = 6\tfrac{2}{3}$
+
+  \item ``'ashara bi-thamaniya, ma yakunu al-jami' li-arba'a?''
+  $\text{al-jami'} = \dfrac{8 \times 4}{10} = \dfrac{32}{10} = 3\tfrac{1}{5}$
+
+  \item ``lil-'amili ujrat 'asharati darahim fi al-shahr; kam
+    yajib an takunu ujratuhu fi sittati ayyaam?''
+  $\text{al-ujra} = \dfrac{10 \times 6}{30} = 2 \text{ dirahm}$,
+  ba-frD anna al-shahr thalathun yawman.
+\end{enumerate}
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: MENSURATION
+%% ========================================================================
+\chapter{al-misaHa wa-l-handasa}
+\label{ch:mensuration}
+
+\begin{originaltext}
+i'lam anna ma'na qawlina ``wahid fi wahid'' huwa al-misaHa: ay
+Dhiraa' fi Tuliha fi Dhiraa' fi 'arDiha.
+
+kullu murabba' mutasawi al-aDla' wa-l-zawaya, lahu Dhiraa' wahida
+li-kulli Dil', fa-lahu wahid fi misaHihi. Fa-in kana li-mithali
+hadha al-murabba' Di'lan fi Dil'ihi, fa-inna misaHat al-murabba'
+'arba'atu amthali misaHa murabba' Dil'uhu Dhiraa' wahida.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{manhaj al-Khwarizmi fi al-misaHa:}
+
+Yabda'u al-Khwarizmi bi-ta'rifi al-misaHa 'ala annaha murabba' al-
+wahda (Dhiraa' fi Dhiraa'). hadha al-ta'rif yaj'alu al-misaHa
+\textbf{kamiyya mujiba da'iman}, wa-huwa ma yufassiru iqtiSarahu
+'ala al-ma'amilat al-mujiba fi al-jabr.
+
+al-mulahadha al-muhimma anna al-Khwarizmi yafhamu al-misaHa
+\textit{bi-shakl hindisi} -- fa-l-misaHa laysat majarrad 'adad, bal
+hiya murabba' lahu Tul wa-'arD. hadha al-tafakkur al-hindisi huwa
+alladhi yumakkinuhu min i'itai al-burahin al-hindisiyya li-l-HaSalat
+al-jabriyya.
+\end{commentary}
+
+\section{al-muthallathat}
+
+\begin{originaltext}
+Idha Darabta irtifa'a ayi muthallath mutasawi al-aDla' fi niSfi
+al-qaa alladhi yaqumu 'alayha al-khaTT al-mamayyiz lil-irtifaa'
+'amudiyyan, fa-l-natij yu'ti misaHa dhalika al-muthallath.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{misaHat al-muthallath:}
+
+\begin{center}
+$\text{misaHat al-muthallath} = \text{al-irtifaa'} \times \dfrac{\text{al-qa}}{2}$
+\end{center}
+
+hadhihi al-Sigha SaHiHa li-\textbf{kulli} muthallath, laysa faqaT
+al-muthallath al-mutasawi al-aDla'. wa-l-Khwarizmi yastakhdimuha
+fi masa'ili misaHa al-ardiyn.
+\end{mathexplain}
+
+\section{al-dawa'ir}
+
+\begin{originaltext}
+Fi kulli da'ira, hasilu Darbi qiTriha fi thalath wa-sabi'a wahida
+yusawi al-muHit.
+
+Wa-tujad misaHa ayi da'ira bi-Darbi niSfi al-muHit fi niSfi al-qiT.
+
+Wa-idha Darabta qiTa ayi da'ira fi nafsihi, wa-naqasta min al-natij
+sub'an wa-niSfa sub'in minhu, fa-l-baqiy yusawi misaHat al-da'ira.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{misaHa wa-muHit al-da'ira 'inda al-Khwarizmi:}
+
+\begin{center}
+$\begin{aligned}
+  C &= \pi d \approx \dfrac{22}{7} \times d \quad\text{(al-muHit)} \\
+  A &= \dfrac{C}{2} \times \dfrac{d}{2} = \dfrac{Cd}{4} \quad\text{(al-misaHa -- al-tariqa al-ula)} \\
+  A &= d^2 - \dfrac{d^2}{7} - \dfrac{d^2}{14} = d^2 \times \left(1 - \dfrac{3}{14}\right) = d^2 \times \dfrac{11}{14} \quad\text{(al-misaHa -- al-tariqa al-thaniya)}
+\end{aligned}$
+\end{center}
+
+\textbf{mulahadha:} qimmat $\pi \approx \dfrac{22}{7}$ hiya al-taqrib
+al-shahir alladhi istakhdamahu al-riyadiyyun al-islamiyyun wa-l-
+Yunaniyyun. Amma al-tariqa al-thaniya fa-yuHassibu fiha al-Khwarizmi
+$\pi/4 \approx 11/14$, wa-huwa taqrib mumtaz.
+\end{mathexplain}
+
+\section{al-aHjam}
+
+\begin{originaltext}
+Hajam al-jism ruba'i al-aDla' yujad bi-Darbi al-Tul fi al-'arD,
+thumma fi al-irtifaa'.
+
+Wa-amma al-makhruTat wa-al-ahram, kayna al-muthallath aw al-ruba'i,
+fa-tuHassabu bi-Darbi thuluth misaHa al-qa fi al-irtifaa'.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{Hisab al-aHjam:}
+
+\begin{center}
+$\begin{aligned}
+  V_{\text{muwazi al-mustatiilat}} &= \text{al-Tul} \times \text{al-'arD} \times \text{al-irtifaa'} \\
+  V_{\text{haram}} &= \dfrac{1}{3} \times \text{(misaHa al-qa)} \times \text{al-irtifaa'}
+\end{aligned}$
+\end{center}
+
+hadhihi al-Sighar SaHiHa wa-la tazalu tudarRasu fi al-madaris Hatta
+al-yawm!
+\end{mathexplain}
+
+\section{al-muthallath al-qaaim al-zawiya (mubarhanat fifaghorus)}
+
+\begin{originaltext}
+laHiz annahu fi kulli muthallath qaaim al-zawiya al-Dil'ayn al-
+qSirayn kulla wahid minhuma maDruban fi nafsihi, wa-majmu' al-
+hasilayn, yusawi hasila Darbi al-Dil' al-TawiI maDruban fi nafsihi.
+\end{originaltext}
+
+\begin{geombox}
+\textbf{mubarhanat fifaghorus 'inda al-Khwarizmi:}
+
+\begin{center}
+$\boxed{a^2 + b^2 = c^2}$
+\end{center}
+
+Haythu $a$ wa $b$ huma al-Dil'aan al-qiSiran (al-saqan), wa $c$ huwa
+al-watar (al-Dil' al-TawiI).
+
+\textbf{al-burhan al-hindisi:} yuqaddimu al-Khwarizmi burhanan
+hindisiyyan jamilan bi-istikhdam murabba' maqsum ila arba'a murabba'at
+Sagira mutasawiya wa-thamani muthallathat mutasawiya, mubayyinan anna
+majmu' murabba'ayi al-Dil'ayni al-qiSirayn yusawi murabba' al-Dil' al-
+TawiI.
+\end{geombox}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER: ON LEGACIES
+%% ========================================================================
+\chapter{fi al-wasaya wa-'ilm al-fara'iD}
+\label{ch:legacies}
+
+\begin{originaltext}
+YatanaWalu al-juz' al-akhir min hadha al-'amal ahkam al-mirath al-
+islami (al-fara'iD). Wa-hadha al-mawDu', ma'a annahu yabdU min
+jinsi al-fiqh la al-riyadiyyat, yaHtaju li-jami' adawat al-jabr fi
+Hallihi Hina turakkabu al-wasaya 'ala al-as-ham al-shar'iyya.
+\end{originaltext}
+
+\begin{commentary}
+\textbf{al-jabr wa-l-fara'iD:}
+
+YuZhiru hadha al-faSl -- alladhi ya'tabiruhu ba'Du al-mu'arrikhin
+akthara li-l-ih-timam fi al-kitab -- kayfa anna al-jabr kana
+\textbf{adatan Darruriyya} Hatta fi al-'ulum al-shar'iyya. fi al-
+qanun al-islami li-l-mirath, hunaka \textit{as-ham thabita}
+muHaddada fi al-qur'an al-karim (mithla: li-l-zawja al-thumnu,
+li-l-abi al-sudus, ila akhirihi). Lakin 'indama yuDafu waSiyya
+(taTaww'iyya) ila hadhihi al-as-ham al-thabita, taSbiH al-mas'ala
+\textit{jabriyya}: naHtaju li-majhul ($x$) li-yumaththila al-mablagh
+al-ijmali aw al-waSiyya.
+
+Hadha huwa bi-ZabT ma daafa' al-Khwarizmi li-ta'lifi kitabihi --
+fa-l-quDat wa-l-fuqaha' kanu bi-Haja li-Tariqa munazZama li-Halli
+hadhihi al-masa'il.
+\end{commentary}
+
+\section*{fi ras al-mal wa-l-duyun}
+\addcontentsline{toc}{section}{fi ras al-mal wa-l-duyun}
+
+\begin{originaltext}
+\textbf{mas'ala:} ``tawaffa rajulun wa-taraka ibnayn, wa-awSa
+bi-thulthi ras mali-hi li-ajjanibi. Taraka 'asharati darahim
+malan wa-'asharati darahim dainan 'ala ahadi al-ibnayn.''
+
+al-Hall: tusammiya al-mablagh alladhi yustakhraj min al-dayni
+shay'an. tuziIha ila ras al-mal alladhi huwa 'asharatu darahim.
+a-yakunu al-majmuu' $10 + x$. TanquSu minhu thulthan, li-annahu
+awSa bi-thulthi mali-hi: $3.33 + 0.33x$. al-Baqiy $6.67 + 0.67x$.
+Taqsima hadha bayna al-ibnayn: yakulu kulla wahid minhuma $3.33 +
+0.33x$. Wa-hadha yusawi al-shay' al-maTlub.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Hall al-Riyadi:}
+
+\begin{center}
+$3.33 + 0.33x = x \quad\Rightarrow\quad 3.33 = 0.67x \quad\Rightarrow\quad x = 5$
+\end{center}
+
+YaHulu al-ajjanibi 'ala 5 darahim; wa-yaHulu kulla walad 'ala 5
+darahim (yabqii al-ibnu al-madynun bi-daynihi kamilan ka-muqasSa
+Hissatuhu).
+
+\textbf{al-mu'adala:} nahnu nabHathu 'an $x$ alladhi yumaththilu
+al-mablagh alladhi yuKHsamu min al-dayni li-yuzafa ila al-tarika
+qabla qismat al-waSiyya.
+\end{mathexplain}
+
+\section*{fi naw' akhar min al-wasaya}
+\addcontentsline{toc}{section}{fi naw' akhar min al-wasaya}
+
+\begin{originaltext}
+\textbf{mas'ala:} ``tawaffa rajulun tarikan ummahu wa-zawjatahu
+wa-akhawayn wa-ukhtayn lahu min ab wa-umm, wa-awSa li-ajnanibi
+bi-tsa'i ras mali-hi.''
+
+al-Hall: tuj'alu as-hamu al-tarika min thamaniya wa-arba'in juz'an.
+Wa-ta'lamu annaka idha akhadhta ts'an min ayyi ras mali yabqa
+thamaniya atsa'ihi. azid al-an ila al-thamaniya atsa' thumnaha minha,
+wa-ila al-thamaniya wa-arba'ayn aydan thumnahun, ay sitta, li-ikmal
+ras mali-ka. Fa-hadha yu'ti arba'a wa-khamsin. yaHulu al-shakhS
+alladhi yu'Sa lahu bi-ts'i 'ala sittatin min hadha. al-baqiyya
+thamaniya wa-arba'un tuqSamu bayna al-warathah Hasaban li-as-hamihim
+al-shar'iyya.
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Hall al-Riyadi:}
+
+\begin{center}
+\begin{tabular}{l|c}
+\textbf{al-warith} & \textbf{al-sahm (min 48)} \\
+\hline
+al-umm & 8 \\
+al-zawja & 6 \\
+kullu akh & 14 \\
+kullu ukht & 7 \\
+\hline
+al-majmu' & $8 + 6 + 2(14) + 2(7) = 56$ juz' mu'addal \\
+\end{tabular}
+\end{center}
+
+\textbf{al-Khwarizmiyya:} ras al-mal = 54. al-waSiyya = 6 (ts' al-
+54). al-baqiy = 48 yuqSamu bayna al-warathah. Hadhihi al-mas'ala
+tataTallabu wijda maDami' mushtarak (48) yumkinu an yastaWi 'ala
+jami' al-as-ham al-shar'iyya ba'da izalat al-waSiyya.
+\end{mathexplain}
+
+\section*{masa'il al-wasaya al-murakkaba}
+\addcontentsline{toc}{section}{masa'il al-wasaya al-murakkaba}
+
+\begin{originaltext}
+\textbf{mas'ala:} ``tawaffat imra'atun tarikatan zawjaha wa-bnan
+laha wa-ummaha. awSatat li-shakhsin bi-thuluthay maliha, wa-li-
+akhar bi-rub'ihi. j'alat al-waSiyyatayn ma'an 'ala ibniha, wa-'ala
+ummiha niSf (Hissati al-umm min al-baqiyya); 'ala zawjiha la
+tulzimuhu illa al-thuluth (alladhi yajib an yusam bihi, Hasaba al-
+qanun).''
+\end{originaltext}
+
+\begin{mathexplain}
+\textbf{al-Hall al-Riyadi:}
+
+\begin{center}
+\begin{tabular}{l|c|l}
+\textbf{al-warith} & \textbf{al-sahm al-asli} & \textbf{al-taSaruf} \\
+\hline
+al-ibn & $7/12$ & mukallaT bi- $\tfrac{2}{5} + \tfrac{1}{4} = \tfrac{13}{20}$ \\
+al-zawj & $3/12 = 1/4$ & yusamim bi-thulthi sahmihi = $1/12$ \\
+al-umm & $2/12 = 1/6$ & mukallafat bi-niSfi sahmihi = $1/12$ \\
+\end{tabular}
+\end{center}
+
+\textbf{al-mu'adala:} al-musahimat al-ijmaliYya =
+$\tfrac{13}{20} \times \tfrac{7}{12} + \tfrac{1}{12} + \tfrac{1}{12} = \text{muHassabat tanasubiyyan}$
+
+Hadhihi al-mas'ala al-murakkaba tuZhiru al-quwwa al-Haqiqiyya li-l-
+jabr fi Hall al-masa'il al-shar'iyya al-murakkaba allati kana
+yuwajihuha al-quDat.
+\end{mathexplain}
+
+\newpage
+
+%% ========================================================================
+%% APPENDICES
+%% ========================================================================
+\appendix
+
+\chapter{mulakHHas al-HaSalat al-sitt}
+\label{app:six-cases}
+
+\begin{mathexplain}
+\textbf{al-HaSalat al-sitt al-kanuniyya li-l-mu'adlat al-tarb'iyya:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{longtable}{|c|c|c|c|}
+\hline
+\textbf{al-HaSala} & \textbf{al-ism al-Arabi} & \textbf{al-mu'adala} & \textbf{al-Hall} \\
+\hline
+\endfirsthead
+\hline
+\textbf{al-HaSala} & \textbf{al-ism al-Arabi} & \textbf{al-mu'adala} & \textbf{al-Hall} \\
+\hline
+\endhead
+\hline
+\endfoot
+al-ula & mal yusawi usuLan & $ax^2 = bx$ & $x = b/a$ \\
+\hline
+al-thaniya & mal yusawi 'adadan & $ax^2 = c$ & $x = \sqrt{c/a}$ \\
+\hline
+al-thalitha & usuL tusawi 'adadan & $bx = c$ & $x = c/b$ \\
+\hline
+al-rabi'a & mal wa-usuL yusawi 'adadan & $ax^2 + bx = c$ & $x = \sqrt{(b/2a)^2 + c/a} - b/2a$ \\
+\hline
+al-khamisa & mal wa-'adad yusawi usuLan & $ax^2 + c = bx$ & $x = \tfrac{b}{2a} \pm \sqrt{(b/2a)^2 - c/a}$ \\
+\hline
+al-sadisa & usuL wa-'adad yusawi malan & $bx + c = ax^2$ & $x = \tfrac{b}{2a} + \sqrt{(b/2a)^2 + c/a}$ \\
+\hline
+\end{longtable}
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{mulahadha tarikhiyya:} Hadhihi al-HaSalat al-sitt tastanfudhu
+jami'a imkaniyyat al-mu'adlat al-tarb'iyya dhat \textbf{al-ma'amilat
+al-mujiba}. al-iqtiSir 'ala al-ma'amilat al-mujiba kana Darruriyyan
+bi-sabab al-tafsir al-hindisi: fa-l-Khwarizmi yafhamu kulla Haddin
+fi al-mu'adala 'ala annahu miqdar hindisi (masaHat wa-Tul), la
+yumkinu an takuna al-misaHa saliba. wa-l-mu'alaja al-kamila li-jami'
+al-mu'adlat al-tarb'iyya bima fiha al-ma'amilat al-saliba lam ta'ti
+illa fi 'asr al-nahDa al-urubbiyya.
+\end{mathexplain}
+
+\newpage
+
+\chapter{mu'jam al-muSTalaHat al-jabriyya al-Arabiyya}
+\label{app:glossary}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{longtable}{|c|c|p{6cm}|}
+\hline
+\textbf{al-muSTalaH al-Arabi} & \textbf{al-nuskha al-latiniyya} & \textbf{al-ma'na wa-l-tafsir} \\
+\hline
+\endfirsthead
+\hline
+\textbf{al-muSTalaH al-Arabi} & \textbf{al-nuskha al-latiniyya} & \textbf{al-ma'na wa-l-tafsir} \\
+\hline
+\endhead
+\hline
+\endfoot
+al-jabr (al-jabr) & algebra & idafat ma yanquSu min ahadi Tarfay al-mu'adala ila al-Taraf al-akhar li-istikmal al-tawazun \\
+\hline
+al-muqabala (al-muqabala) & almuchabala & hadf ma yatashabahu min al-Tarfayn li-tashil al-mu'adala \\
+\hline
+al-jadhr (al-jadhr) & radix & al-majhul dhatuhu ($x$) -- ``al-shay' '' al-majhul \\
+\hline
+al-mal (al-mal) & census & mirab' al-majhul ($x^2$) -- ``al-tharwa'' aw ``al-mumtalakat'' \\
+\hline
+al-'adad al-mufrad (al-'adad al-mufrad) & numerus simplex & al-Hadd al-thabit fi al-mu'adala (al-'adad al-ma'lum) \\
+\hline
+al-shay' (al-shay') & res/cosa & al-majhul ($x$) -- kalimat badIla li-l-jadhr \\
+\hline
+al-dirham (al-dirham) & drachma & wahidat al-nuqd/ al-qiyas -- tustakhdam kawwahida li-l-a'dad \\
+\hline
+al-waSiyya (al-waSiyya) & legatum & al-tarika aw al-waSiyya fi qanun al-mirath \\
+\hline
+al-fara'iD (al-fara'iD) & legata & al-as-ham al-ilzamiyya fi al-mirath al-islami \\
+\hline
+misaHa (misaHa) & mensura & misaHa al-ard -- Hisab al-masaaHat \\
+\hline
+Darb (Darb) & multiplicatio & 'amaliyyat al-Darb \\
+\hline
+qisma (qisma) & divisio & 'amaliyyat al-qisma \\
+\hline
+jam' (jam') & additio & 'amaliyyat al-jam' \\
+\hline
+TarH (TarH) & subtractio & 'amaliyyat al-TarH \\
+\hline
+jadhr (jadhr) & radix & al-jadhr al-tarb'i \\
+\hline
+muka''ab (muka''ab) & cubus & muka''ab al-majhul ($x^3$) \\
+\hline
+\end{longtable}
+\end{center}
+
+\begin{commentary}
+\textbf{tatawwur al-muSTalaHat al-jabriyya:}
+
+'inda tarjamat al-latiniyyin li-kutub al-riyadiyyat al-arabiyya fi
+al-qarn al-thani 'ashar al-miladi (fi TulayTula wa-Siqilliyya),
+Hawwalu al-muSTalaHat al-arabiyya ila latiniyya:
+
+\begin{itemize}
+  \item \textbf{al-jabr} $\rightarrow$ \textbf{algebra} (min ``al-jabr'')
+  \item \textbf{al-shay'} $\rightarrow$ \textbf{res} (al-shay'/al-jawhar)
+    $\rightarrow$ \textbf{cosa} (fi al-iTaliyya)
+    $\rightarrow$ \textbf{coss} (fi al-almaniyya)
+  \item \textbf{al-mal} $\rightarrow$ \textbf{census} (al-mumtalakat)
+  \item \textbf{al-jadhr} $\rightarrow$ \textbf{radix} (al-jadhr)
+  \item \textbf{al-dirham} $\rightarrow$ \textbf{drachma} (al-'umla)
+\end{itemize}
+
+Wa-kalimat ``\textbf{jabr}'' (algebra) hiya al-waHIda allati waSalat
+ila al-lugha al-inkliZiyya mubashsharatan min al-arabiyya -- wa-hiya
+iHda al-kalimat al-qalIla dhati al-aSl al-arabi fi al-riyadiyyat
+al-inkliZiyya ila janib ``\textbf{Sifr}'' (zero, min al-Sifr)
+wa-``\textbf{jayb}'' (sine, min al-jayb) wa-``\textbf{Khwarizmiyya}''
+(algorithm, min al-Khwarizmi).
+\end{commentary}
+
+\newpage
+
+%% ========================================================================
+%% BIBLIOGRAPHIC NOTE
+%% ========================================================================
+\chapter*{mulahadha bIblIyughrafiyya}
+\addcontentsline{toc}{chapter}{mulahadha bIblIyughrafiyya}
+\markboth{mulahadha bIblIyughrafiyya}{mulahadha bIblIyughrafiyya}
+
+\begin{historicalbox}
+\textbf{al-maSadir al-makhTUTa:}
+
+al-makhTUta al-ra'Isiyya li-kitab al-Khwarizmi \textit{al-mukhTasar fi
+Hisab al-Jabr wa-l-Muqabala} maHfUZa fi maktabat Bodleyan bi-Oxford
+(makhTUta Hunt. 214, awraq 1--123), nusikhat sanat 743 H / 1342 M.
+Wa-hiya juz' min majlud CMXXVIII alladhi yaHtawi ayDan 'ala thalath
+muSannafat ukhra fi al-Hisab wa-l-jabr.
+
+al-makhTUta maktuba bi-KhaT wadiH wa-maqru', lakinnaha taniqu ila
+Haddin kabiirin min al-nuqaT al-i'jamiyya allati tumayyizu al-Huruf
+al-mutashabiha.
+\end{historicalbox}
+
+\vspace{0.3cm}
+
+\begin{historicalbox}
+\textbf{al-Taba'at wa-l-tarajim:}
+
+\begin{enumerate}[label={[\arabic*]},rightmargin=1em]
+  \item Frederic Rosen, \textit{The Algebra of Mohammed ben Musa},
+  London: Oriental Translation Fund, 1831. (al-nas al-arabi ma'a
+  al-tarjama al-inkliZiyya)
+
+  \item Louis Charles Karpinski, \textit{Robert of Chester's Latin
+  Translation of the Algebra of Al-Khowarizmi}, New York: Macmillan,
+  1915. (al-nas al-latini ma'a al-nuskha al-inkliZiyya)
+
+  \item 'Ali MuSTafa Musharrafa wa-Muhammad Mursi Ahmad (muhaqqiqan),
+  \textit{Kitab al-Jabr wa-l-Muqabala}, al-Qahira: al-Jami'a al-
+  miSriyya / maTba'at Fath Allah Ilyas Nuri, 1359 H / 1939 M.
+  (al-Taba'a al-'arabiyya al-tahqiqiyya, maSr al-taDnId al-Hali)
+\end{enumerate}
+\end{historicalbox}
+
+\vspace{0.3cm}
+
+\begin{historicalbox}
+\textbf{li-l-mazid min al-qira'a:}
+
+\begin{itemize}[rightmargin=1em]
+  \item J. Ruska, ``Zur aeltesten arabischen Algebra und Rechenkunst,''
+  \textit{Sitzungsberichte der Heidelberger Akademie der Wissenschaften},
+  Philosophisch-historische Klasse, Jahrgang 1917, 8. Abhandlung.
+
+  \item H. Suter, ``Die Mathematiker und Astronomen der Araber und ihre
+  Werke,'' \textit{Abhandlungen zur Geschichte der mathematischen
+  Wissenschaften}, 10. Heft, Leipzig, 1900.
+
+  \item R. Rashed (ed.), \textit{Al-Khwarizmi: Le commencement de
+  l'algebre}, Paris: Blanchard, 2007. (Edition critique avec traduction
+  francaise)
+
+  \item B. van Dalen et al., ``Al-Khwarizmi's Astronomical Tables in
+  a Tenth-Century Context,'' \textit{SCIAMVS}, 18 (2017), pp. 49--93.
+\end{itemize}
+\end{historicalbox}
+
+\vfill
+
+\begin{center}
+\rule{0.3\textwidth}{0.4pt}
+
+\vspace{0.3cm}
+
+{\small\latinfont Typeset in Noto Naskh Arabic and Linux Libertine}\\[0.1cm]
+{\small\latinfont Via XeLaTeX with polyglossia and fontspec}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{tcolorbox}[colback=arabicbg,colframe=dropgold,arc=3pt,boxrule=0.6pt,width=0.5\textwidth,halign=center]
+{\Large Tamma bi-Hamdi Allahi}
+\end{tcolorbox}
+
+\end{document}

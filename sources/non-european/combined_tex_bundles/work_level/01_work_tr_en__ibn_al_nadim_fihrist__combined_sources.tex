@@ -1,1143 +1,1143 @@
-% Combined TeX source bundle
-% Title: Ibn al-Nadim, Kitab al-Fihrist
-% Note: constituent files are preserved below in sources/. Some are standalone
-% documents with their own preambles; this combined file is for inspection,
-% comparison, and source packet rather than guaranteed one-command compilation.
-
-
-% ============================================================
-% Source: translations/en/references/ibn-al-nadim-kitab-al-fihrist_bilingual.tex
-% ============================================================
-
-%% ========================================================================
-%% Ibn al-Nadim: Kitab al-Fihrist — Bilingual Arabic-English Edition
-%% ========================================================================
-%%  LEFT:  Arabic text  (RTL via \ar{...} with \TeXXeTstate=1)
-%%  RIGHT: English translation
-%% ========================================================================
-
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Enable XeTeX RTL --------
-\TeXXeTstate=1
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{microtype}
-\usepackage{titlesec}
-\usepackage{lettrine}
-\usepackage{paracol}
-\usepackage{etoolbox}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=20mm,right=20mm,top=28mm,bottom=28mm,
-  headheight=14pt,footskip=28pt
-}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-%% Arabic Font — Harfbuzz for proper shaping
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{Arial}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{arabicbg}{RGB}{252,250,245}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{notecolor}{RGB}{120,53,15}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{Kit\=ab al-Fihrist — Bilingual Edition}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-
-%% Arabic inline helper: font switch + explicit RTL markers
-\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
-
-%% Bilingual pair: Arabic (left) + English (right)
-%% Usage: \bilingual{Arabic text}{English translation}
-\newcommand{\bilingual}[2]{%
-  \noindent
-  \begin{minipage}[t]{0.47\textwidth}
-    \vspace{0pt}
-    \begin{flushright}
-    {\arabicfont\beginR #1\endR}
-    \end{flushright}
-  \end{minipage}%
-  \hfill\vline\hfill
-  \begin{minipage}[t]{0.47\textwidth}
-    \vspace{0pt}
-    #2
-  \end{minipage}%
-  \par\vspace{0.8em}
-}
-
-%% Bilingual block for longer passages
-\newenvironment{bilingualblock}{%
-  \par\vspace{0.3em}%
-  \noindent
-  \begin{minipage}[t]{0.47\textwidth}
-  \begin{flushright}
-  \setlength{\parskip}{2pt}%
-  \setlength{\parindent}{0pt}%
-}{%
-  \end{flushright}
-  \end{minipage}%
-}
-
-\newenvironment{englishblock}{%
-  \hfill\vline\hfill
-  \begin{minipage}[t]{0.47\textwidth}
-  \setlength{\parskip}{2pt}%
-  \setlength{\parindent}{0pt}%
-}{%
-  \end{minipage}%
-  \par\vspace{0.8em}%
-}
-
-%% Section header bilingual
-\newcommand{\bilingualsection}[2]{%
-  \vspace{1em}%
-  \noindent
-  \begin{minipage}[t]{0.47\textwidth}
-    \begin{flushright}
-    \textsc{\color{sectioncolor}\ar{#1}}
-    \end{flushright}
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[t]{0.47\textwidth}
-    \textsc{\color{sectioncolor}#2}
-  \end{minipage}%
-  \par\vspace{0.5em}\hrule\vspace{0.8em}%
-}
-
-%% Subsection header bilingual
-\newcommand{\bilingualsubsection}[2]{%
-  \vspace{0.6em}%
-  \noindent
-  \begin{minipage}[t]{0.47\textwidth}
-    \begin{flushright}
-    \textbf{\color{sectioncolor}\ar{#1}}
-    \end{flushright}
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[t]{0.47\textwidth}
-    \textbf{\color{sectioncolor}#2}
-  \end{minipage}%
-  \par\vspace{0.4em}%
-}
-
-%% Editorial note environment
-\newenvironment{editorialnote}{%
-  \begin{quote}
-  \small\itshape\color{notecolor}
-}{%
-  \end{quote}
-}
-
-%% -------- Paracol setup for continuous bilingual flow --------
-\columnsep{20pt
-}
-\renewcommand{\columnseprulecolor}{\color{rulecolor}}
-\setlength{\columnseprule}{0.4pt}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Kitab al-Fihrist — Ibn al-Nadim: Bilingual Arabic-English Edition},
-  pdfauthor={Muhammad ibn Ishaq Ibn al-Nadim}
-}
-
-%% ========================================================================
-\begin{document}
-
-%% -------- Title Page --------
-\thispagestyle{empty}
-\begin{center}
-\vspace*{1cm}
-
-{\Huge\bfseries\color{titlecolor}\ar{كتاب الفهرست}}\\[0.3em]
-{\Large\itshape Kit\=ab al-Fihrist — The Book Catalogue}\\[1em]
-\shortline
-{\large\scshape A Bilingual Arabic-English Edition}\\[0.3em]
-{\small Based on the critical edition of Gustav Fl\"ugel (Leipzig, 1871--1872)}\\[1em]
-\shortline
-\vspace{0.6cm}
-
-{\large\textbf{Author:} Mu\d{h}ammad ibn Is\d{h}\=aq Ibn al-Nad\=im}\\[0.2em]
-{\small Baghdad, c.~987 CE}
-
-\vspace{0.8cm}
-
-\fbox{\parbox{0.88\textwidth}{%
-\centering
-\small
-\textbf{About this Edition.} The \textit{Kit\=ab al-Fihrist} of Ibn al-Nad\=im
-(c.~987~CE) is the most important bibliographic encyclopedia of medieval
-Arabic literature and scholarship. This bilingual edition presents the
-original Arabic text alongside an English translation, arranged in
-parallel columns. The left column contains the Arabic text in RTL script;
-the right column gives the English rendering. Key sections on the
-mathematical sciences — including biographies of al-Khw\=arizm\=i, Th\=abit
-ibn Qurra, and other Islamic mathematicians — are presented in full.
-}}
-
-\vspace{1cm}
-
-{\footnotesize
-\textit{Edited from the Arabic original with notes}\\
-\textbf{Gustav Leberecht Fl\"ugel} (1802--1870)\\
-Completed by Dr.~Johannes Roediger \& Dr.~August M\"uller\\[0.3em]
-\textsc{Leipzig}: Verlag von F.~C.~W.~Vogel, 1871--1872\\
-With the support of the Deutsche Morgenl\"andische Gesellschaft
-}
-
-\vfill
-
-\longline
-\end{center}
-\newpage
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\tableofcontents
-\newpage
-
-%% ========================================================================
-%% INTRODUCTION
-%% ========================================================================
-\section*{Introduction}
-\addcontentsline{toc}{section}{Introduction}
-
-\bilingualsection{مقدمة المؤلف في فائدة التصنيف}{Preface: On the Purpose of Cataloguing}
-
-Ibn al-Nad\=im, whose full name is Ab\=u al-Faraj Mu\d{h}ammad
-ibn Is\d{h}\=aq ibn Ab\=i Ya\c{q}\=ub al-Nad\=im al-Warr\=aq al-Baghd\=ad\=i
-(died c.~995/998~CE), was a Muslim scholar, bibliographer, and bookseller
-(\textit{warr\=aq}) who lived in Baghdad during the Buyid period. His
-\textit{Kit\=ab al-Fihrist} (\ar{كتاب الفهرست}) is the most
-important bibliographic work in Arabic literature and an indispensable
-source for the history of Islamic civilization down to the 10th century.
-
-\vspace{0.5em}
-\bilingual
-{قال أبو الفرج محمد بن إسحاق بن أبي يعقوب النديم الوراق:\\
-الحمد لله الذي جعل في كل عصر زمان من يحفظ علوم الناس ويؤدي\\
-الأمانة ويحرس المعالم ويحيي السنن وبه نستعين على ما نصنفه\\
-في هذا الكتاب من ذكر أصناف الكتب التي تصنفها العلماء\\
-وأنواع العلوم التي يشتغلون بها وأسماء المصنفين وما يعرف\\
-بألقابهم وكناهم وأسمائهم ونسبهم وطبقاتهم وبلدانهم\\
-ومولدهم ومن أخذوا العلم عنه ومن أخذ عنهم وما وصفوا\\
-به من الجلالة والحفظ والفهم والإتقان والمعرفة وغير ذلك}
-{Ab\=u al-Faraj Mu\d{h}ammad ibn Is\d{h}\=aq ibn Ab\=i Ya\c{q}\=ub al-Nad\=im
-al-Warr\=aq said: Praise be to God, who in every age appoints those who
-preserve the sciences of mankind, discharge the trust, guard the landmarks
-of knowledge, and revive the traditions. Through Him we seek aid in
-compiling this book, wherein we mention the categories of books composed
-by scholars, the types of sciences they pursue, the names of authors with
-their titles, \textit{kunyas}, proper names, genealogies, generations,
-places of origin and birth, their teachers, their students, and their
-distinguished qualities of eminence, retention, understanding, mastery,
-comprehension, and more.}
-
-\vspace{0.5em}
-\bilingual
-{وقد اقتدت فائدة هذا الكتاب بفوائد سائر الكتب المصنفة في\\
-أخبار الناس وطبقات الأعيان وأسماء المصنفين والعلماء فهو\\
-يحتوي على جميع أصناف العلم التي وقعت يدي عليها وسمعتها\\
-ورأيتها مكتوبة في بطون الكتب وحواشيها وجلودها وإفادات\\
-العلماء فيما بينهم وما استدركته بعد ذلك من الأصول والفهارس}
-{The benefit of this book follows the benefits of all books compiled on
-the reports of people, the generations of notables, the names of authors
-and scholars. It encompasses all categories of knowledge that I have
-handled, heard, and seen written in the contents of books, their margins,
-their bindings, and the transmissions of scholars among themselves —
-including what I subsequently recovered from original sources and catalogues.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\noindent The \textit{Fihrist} is organized into ten \textit{discourses}
-(\textit{maq\=al\=at}, \ar{مقالات}), covering the entirety of Arabic
-book culture. The following sections present each discourse with parallel
-Arabic text and English translation.
-
-\newpage
-
-%% ========================================================================
-%% SECTION I: QUR'AN SCIENCES AND PHILOLOGY
-%% ========================================================================
-\section{Discourse I: Qur'an Sciences and Philology}
-\label{sec:I}
-
-\bilingualsection{الفن الأول في اللغات والخطوط وقراءة القرآن والنحو والشعر والتفسير}{The First Discourse: Languages, Scripts, Qur'anic Readings, Grammar, Poetry, and Exegesis}
-
-\bilingualsubsection{في أصناف العلم بالقرآن الكريم}{On the Categories of Qur'anic Science}
-
-\bilingual
-{أما أصناف العلم بالقرآن الكريم فإنها: علم القراءات وعلم\\
-التفسير وعلم التجويد وعلم الناسخ والمنسوخ وعلم فصاحة\\
-القرآن وعلم البدء والوقف وعلم النحو وعلم المعاني والبيان\\
-وعلم العروض وعلم القافية وعلم الفرائض وعلم الأنساب وما\\
-أشبه ذلك من العلوم التي يحتاج إليها المتكلمون والخطباء\\
-والشعراء والمفسرون}
-{The categories of knowledge concerning the Noble Qur'an are: the science
-of readings (\textit{qir\=a'\=at}), the science of exegesis
-(\textit{tafs\=ir}), the science of recitation (\textit{tajw\=id}), the
-science of abrogating and abrogated verses, the science of the Qur'an's
-eloquence, the science of beginnings and pauses, the science of grammar
-(\textit{na\d{hw}), the science of meanings and rhetoric (\textit{ma}\={a}n\=i
-wa al-bay\=an}), the science of prosody (\textit{'ar\=u\d{d}}), the science
-of rhyme (\textit{q\=afiya}), the science of inheritance laws
-(\textit{far\=a'i\d{d}}), and the science of genealogy (\textit{ans\=ab}) —
-and similar sciences needed by speakers, orators, poets, and exegetes.}
-
-\bilingualsubsection{في القراءات}{On the Qur'anic Readings}
-
-\bilingual
-{وأما القراءات فإنها عشر: نافع وابن كثير وأبو عمرو وابن\\
-أمير وعاصم وحمزة والكسائي وأبو جعفر ويعقوب وخلف\\
-وكل قارئ له رواية عن شيخه وشيخه عن شيخه إلى الصحابة\\
-والصحابة عن النبي صلى الله عليه وسلم فمن أراد الاحاطة\\
-بعلم القراءات فعليه بكتبها المشهورة}
-{The readings are ten: N\=afi\d{c}, Ibn Kath\=ir, Ab\=u \d{c}Amr, Ibn
-\=Amir, \d{c}\=A\d{s}im, \d{H}amza, al-Kis\=a'\=i, Ab\=u Ja\d{far},
-Ya\c{q}\=ub, and Khalaf. Each reader received his reading from his
-sheikh, and his sheikh from his sheikh, back to the Companions, and the
-Companions from the Prophet — peace be upon him. Whosoever desires full
-mastery of the science of readings must study its well-known books.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\noindent\textit{Note on the First Discourse.} This section of the
-\textit{Fihrist} catalogues the foundational Islamic sciences that shaped
-Arabic scholarship. The ten canonical readings (\textit{qir\=a'\=at}) of
-the Qur'an represented the bedrock of linguistic and philological study.
-Ibn al-Nad\=im lists the principal authors and their works in each
-discipline, providing an unparalleled window into the state of these
-sciences in 10th-century Baghdad.
-
-\newpage
-
-%% ========================================================================
-%% SECTION II: GRAMMAR, LEXICOGRAPHY, POETRY
-%% ========================================================================
-\section{Discourse II: Grammar, Lexicography, and Poetry}
-\label{sec:II}
-
-\bilingualsection{الفن الثاني في النحو واللغة والشعر وأخبار الشعراء}{The Second Discourse: Grammar, Lexicography, Poetry, and the Reports of Poets}
-
-\bilingualsubsection{في النحويين}{On the Grammarians}
-
-\bilingual
-{وأما النحو فإنه علم يعرف به أوضاع ألفاظ العرب من حيث\\
-الإعراب والبناء وإنما سمي نحواً لأنه كان أول من نظم أحكامه\\
-أبو الأسود الدؤلي إذ قيل له: إن العرب تغير لغتها وتذهب\\
-بإعرابها فأراد أن يضع لها ضابطاً فنحاها أي مال إليها\\
-وتعمق فيها فسمي نحواً}
-{Grammar (\textit{na\d{hw}}) is the science by which one knows the
-structures of Arabic speech with respect to declension (\textit{i\c{r}\=ab})
-and construction (\textit{bun\=a'}). It was called \textit{na\d{hw}}
-because its first systematizer, Ab\=u al-Aswad al-Du'al\=i, when told that
-the Arabs were corrupting their language and losing its declension, sought
-to establish rules for it. He \textit{na\d{h}\=a} it — that is, he turned
-to it and delved deeply into it — and so it was called \textit{na\d{hw}}.}
-
-\bilingualsubsection{في أصول النحو والمصنفين فيه}{On the Foundations of Grammar and Those Who Composed Works Therein}
-
-\bilingual
-{وأول من وضع النحو أبو الأسود الدؤلي ثم أخذ عنه أهل\\
-البصرة فأكثروا فيه وأطنبوا وصنفوا فيه الكتب الكبار ومن\\
-أشهر النحويين: الخليل بن أحمد الفراهيدي وسيبويه وعلقمة\\
-والأخفش والمازني وابن السراج والزجاجي والفارسي وغيرهم\\
-كثير ولكل واحد منهم مصنفات كثيرة في هذا الفن}
-{The first to establish grammar was Ab\=u al-Aswad al-Du'al\=i; then the
-people of Basra took it from him, expanded upon it, elaborated it, and
-composed great books. Among the most famous grammarians are: al-Khal\=il
-ibn A\d{h}mad al-Far\=ahid\=i, S\=ibawayh, \d{c}Alqama, al-Akhfash,
-al-M\=azan\=i, Ibn al-Sarr\=aj, al-Zajj\=aj\=i, al-F\=aris\=i, and many
-others. Each of them has numerous compositions in this art.}
-
-\bilingualsubsection{في اللغويين وأصناف اللغات}{On Lexicographers and the Categories of Languages}
-
-\bilingual
-{وأما اللغة فإنها صناعة يعرف بها معاني الألفاظ وأسباب\\
-وضعها واشتقاقها وحروف المعاني وإنما وضعت لبيان مراد\\
-المتكلم والمتكلمون يتفاوتون في فصاحتهم وبلاغتهم ونحوهم\\
-وقد وضع أهل اللغة كتباً جمة في جمع الألفاظ ومعانيها}
-{Lexicography is the craft by which one knows the meanings of words,
-the reasons for their coinage, their derivation, and the particles of
-meaning. It was devised to clarify the intent of the speaker. Speakers
-differ in their eloquence, rhetoric, and grammatical usage. The scholars
-of language have composed abundant books collecting words and their meanings.}
-
-\vspace{0.5em}
-\bilingualsubsection{في الشعراء وأخبارهم}{On the Poets and Their Reports}
-
-\bilingual
-{وأما الشعر فهو الكلام الموزون المقفى الذي يحتذي به في\\
-العربية وقد كان في الجاهلية شعراء مشهورون مثل امرئ القيس\\
-وطرفة والنابغة وزهير وعنترة والأعشى والحارث بن حلزة\\
-ومعهم من المحدثين أبو تمام والبحتري وابن الرومي والمتنبي\\
-وغيرهم كثير ولكل واحد منهم ديوان شعر مشهور}
-{Poetry is metrical, rhymed discourse that serves as a model in Arabic.
-In the pre-Islamic period there were famous poets such as Imru' al-Qays,
-\d{T}arafa, al-N\=abigha, Zuhayr, \d{c}Antara, al-A\c{sha}, and al-\d{H}\=arith
-ibn \d{H}illiza; and among the modern poets Ab\=u Tamm\=am,
-al-Bu\d{h}tur\=i, Ibn al-R\=um\=i, al-Mutanabb\=i, and many others.
-Each of them has a well-known \textit{d\=iw\=an} of poetry.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION III: HISTORY, BIOGRAPHY, GENEALOGY
-%% ========================================================================
-\section{Discourse III: History, Biography, and Genealogy}
-\label{sec:III}
-
-\bilingualsection{الفن الثالث في التاريخ والسير والمغازي والأنساب}{The Third Discourse: History, Biographies, Campaigns, and Genealogy}
-
-\bilingualsubsection{في المؤرخين وأصناف التاريخ}{On the Historians and Categories of History}
-
-\bilingual
-{وأما التاريخ فهو علم يعرف به أوقات الحوادث وتواريخ الملوك\\
-وسيرهم وما وقع من الأمم الماضية والمذاهب والدول ومن أشهر\\
-المؤرخين: ابن إسحاق صاحب المغازي والفتوح والواقدي وابن\\
-هشام وابن سعد صاحب الطبقات والطبري ومسكويه وهم كثيرون\\
-في هذا الفن وقد صنفوا فيه كتباً كثيرة تملأ الأرفف}
-{History is the science by which one knows the times of events, the dates
-of kings, their biographies, and what befell past nations, sects, and
-dynasties. Among the most famous historians are: Ibn Is\d{h}\=aq, author
-of the \textit{Magh\=az\=i} and \textit{Fut\=u\d{h}}; al-W\=aqid\=i; Ibn
-Hish\=am; Ibn Sa\d{d}, author of the \textit{\d{T}abaq\=at}; al-\d{T}abar\=i;
-and Miskawayh. They are numerous in this art and have composed many
-books filling the shelves.}
-
-\bilingualsubsection{في السير والمغازي}{On Biographies and Campaigns}
-
-\bilingual
-{وأما السير فهي ما أثبته المؤلفون من أخبار الرسول صلى الله\\
-عليه وسلم وغزواته وحجه ومسيراته وما أثبتوه من أخبار\\
-الصحابة والتابعين وسير الملوك والخلفاء وأفعالهم وأحوالهم\\
-ومن أشهر المصنفين في السير: ابن إسحاق وابن هشام وابن\\
-سعد والواقدي والبلاذري وغيرهم وكل واحد منهم مشهور بكتابه}
-{Biographies (\textit{siyar}) are what authors have recorded of the reports
-of the Messenger of God — peace be upon him — his raids, pilgrimages,
-and journeys; and what they recorded of the Companions and Followers, the
-biographies of kings and caliphs, their deeds and circumstances. Among
-the most famous authors of \textit{siyar} are: Ibn Is\d{h}\=aq, Ibn
-Hish\=am, Ibn Sa\d{d}, al-W\=aqid\=i, and al-Bal\=adhur\=i. Each is
-famous for his book.}
-
-\bilingualsubsection{في الأنساب}{On Genealogy}
-
-\bilingual
-{وأما علم الأنساب فهو علم يعرف به أحساب الناس ونسبهم\\
-وما يتعلق بقبائل العرب ومواضعها وديارها ومشاهير أهلها\\
-وأول من وضع هذا العلم الحميريون ثم أخذه النسابة\\
-من بعدهم فصنفوا فيه كتباً جمة}
-{The science of genealogy is that by which one knows the pedigrees and
-lineages of people, and what relates to the Arab tribes, their locations,
-settlements, and notables. The Himyarites first established this science;
-then the genealogists (\textit{nass\=aba}) took it from them and composed
-abundant books thereon.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION IV: MATHEMATICS, ASTRONOMY, MUSIC, MECHANICS
-%% ========================================================================
-\section{Discourse IV: Mathematics, Astronomy, Music, and Mechanics}
-\label{sec:IV}
-
-\bilingualsection{الفن الرابع في الحساب والهندسة والفلك والموسيقى والحيل}{The Fourth Discourse: Arithmetic, Geometry, Astronomy, Music, and Mechanical Devices}
-
-\bilingualsubsection{في علم الحساب}{On the Science of Arithmetic}
-
-\bilingual
-{وأما علم الحساب فهو علم يعرف به الكميات وعلاقاتها\\
-وأعدادها وأنواعها وقد وضعه اليونانيون ثم نقله النساطرة\\
-إلى العراق فأخذه المسلمون عنهم وصنفوا فيه كتباً كثيرة\\
-وطوروه وزادوا عليه فأبدعوا فيه ومن أشهر المؤلفين فيه\\
-الخوارزمي وثابت بن قرّة والكندي والرازي وغيرهم}
-{The science of arithmetic is that by which one knows quantities, their
-relations, numbers, and types. The Greeks established it; then the
-Nestorians transmitted it to Iraq, whence the Muslims received it. They
-composed many books thereon, developed it, and added to it, producing
-outstanding works. Among the most famous authors are: al-Khw\=arizm\=i,
-Th\=abit ibn Qurra, al-Kind\=i, and al-R\=az\=i, among others.}
-
-\bilingualsubsection{في علم الهندسة}{On the Science of Geometry}
-
-\bilingual
-{وأما الهندسة فهي علم يعرف به الأشكال والأبعاد والعلاقات\\
-بينها وقد وضع أصولها أقليدس في كتابه المسمى بالأصول\\
-وقد نقله حنين بن إسحاق وإسحاق بن حنين وثابت بن قرّة\\
-وأقبل المسلمون على تعلمه وصنفوا فيه كتباً عظيمة فمنهم\\
-من ألف فيه تلخيصاً ومنهم من ألف فيه شرحاً وزيادةً}
-{Geometry is the science by which one knows figures, dimensions, and the
-relations between them. Euclid established its principles in his book
-called the \textit{Elements} (\textit{al-U\d{s}\=ul}). It was translated by
-\d{H}unayn ibn Is\d{h}\=aq, Is\d{h}\=aq ibn \d{H}unayn, and Th\=abit
-ibn Qurra. The Muslims devoted themselves to studying it and composed
-great books: some wrote abridgements, others wrote commentaries and
-additions.}
-
-\bilingualsubsection{في علم الفلك والنجوم}{On the Science of Astronomy and the Stars}
-
-\bilingual
-{وأما علم الهيئة فهو علم يعرف به أحوال الكواكب والأجرام\\
-السمائية وحركاتها وعللها ومبالغ مسيراتها وقد نقل عن\\
-اليونانيين والهنود والفرس كتب كثيرة في هذا الفن ثم\\
-صنف المسلمون فيه كتباً عظيمة وعملوا أزيجاً وصنعوا\\
-أسطرلابات وغيرها مما يحتاج إليه هذا العلم}
-{Astronomy (\textit{hay'a}) is the science by which one knows the
-conditions of the planets and celestial bodies, their motions, causes,
-and the measures of their movements. Many books in this art were
-translated from the Greeks, Indians, and Persians; then the Muslims
-composed great books, compiled astronomical tables (\textit{az\=ij}), and
-constructed astrolabes and other instruments needed for this science.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION IV continued: SUBSECTION ON MATHEMATICIANS
-%% ========================================================================
-\subsection{The Mathematicians: Key Biographical Entries}
-\label{subsec:mathematicians}
-
-\bilingualsubsection{ذكر الخوارزمي ومصنفاته}{Account of al-Khw\=arizm\=i and His Compositions}
-
-\vspace{0.5em}
-\bilingual
-{أبو عبد الله محمد بن موسى الخوارزمي كان من علماء بيت\\
-الحكمة في زمان المأمون وقد ألف في الجبر والمقابلة كتاباً\\
-يعرف به فيه الجبر والمقابلة وأنواع المعادلات وكيفية حلها\\
-وقد ميز فيه بين الجبر والمقابلة وأوضح أن المعادلات تنتهي\\
-إلى أنواع محدودة وسمى الجهول شيئاً واستخرج طرقاً\\
-لحل المعادلات منها الطريقة الجبرية والطريقة الهندسية\\
-وقد ألف أيضاً في الحساب كتاباً آخر يشرح فيه نظام العدد\\
-الهندي وطريقة الحساب به ويسمى الآن بالخوارزمي}
-{Ab\=u \d{c}Abd All\=ah Mu\d{h}ammad ibn M\=us\=a al-Khw\=arizm\=i
-was among the scholars of the House of Wisdom in the time of al-Ma'mun.
-He composed a book on \textit{al-jabr wa al-muq\=abala} wherein he treated
-\textit{al-jabr} and \textit{al-muq\=abala}, the types of equations, and
-the methods of solving them. He distinguished between \textit{al-jabr} and
-\textit{al-muq\=abala} and showed that equations reduce to a finite number
-of types. He named the unknown quantity \textit{shay'} (``thing'') and
-derived methods for solving equations, both algebraic and geometric. He
-also composed another book on arithmetic explaining the Indian numeral
-system and methods of calculating with it, which is now called
-``algorism'' (\textit{al-Khw\=arizm\=i}).}
-
-\vspace{0.5em}
-\bilingual
-{وله كتاب في الجبر والمقابلة وكتاب في الجامع والتفريق\\
-وكتاب المختصر في حساب الجبر والمقابلة وكتاب في حساب\\
-الهندي وكتاب صورة الأرض وكتاب في عمل الأسطرلاب وكتاب\\
-في عمل الفسطرلاب وكتاب الازيج أي السند هند وكتاب في\\
-الساعات وكتاب في الرخامة وأشياء أخرى من صناعة الفلك}
-{His works include: \textit{Kit\=ab f\=i al-Jabr wa al-Muq\=abala};
-\textit{Kit\=ab f\=i al-J\=ami\d{c} wa al-Tafr\=iq}; the
-\textit{Kit\=ab al-Mukhta\d{s}ar f\=i \d{H}is\=ab al-Jabr
-wa al-Muq\=abala}; \textit{Kit\=ab f\=i \d{H}is\=ab al-Hind};
-\textit{Kit\=ab \d{S}\=urat al-Ar\d{d}}; \textit{Kit\=ab f\=i \d{c}Amal
-al-Asturl\=ab}; \textit{Kit\=ab f\=i \d{c}Amal al-Fasturl\=ab};
-\textit{Kit\=ab al-Az\=ij} (that is, the \textit{Z\=ij al-Sindhind});
-\textit{Kit\=ab f\=i al-S\=a\d{c}\=at}; \textit{Kit\=ab f\=i
-al-Ruk\d{h}\=ama}; and other works on the art of astronomy.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\bilingualsubsection{ذكر ثابت بن قرّة ومصنفاته}{Account of Th\=abit ibn Qurra and His Compositions}
-
-\vspace{0.5em}
-\bilingual
-{ثابت بن قرّة بن مروان الحرّاني كان حكيماً عظيماً فقيهاً\\
-فاضلاً بارعاً في علم الهيئة والمنطق والفلسفة والحساب والهندسة\\
-وقد نقل كثيراً من كتب أبولونيوس وأرشميدس وبطليموس\\
-وأقبل على تصحيحها وشرحها وقد ألف في علم الهندسة كتباً\\
-كثيرة وفي علم الحساب وفي علم الهيئة وفي علم الموسيقى\\
-وكان من أعظم من وطد أركان علم الفلك في الإسلام}
-{Th\=abit ibn Qurra ibn Marw\=an al-\d{H}arr\=an\=i was a great sage,
-an excellent jurist, distinguished in the science of astronomy, logic,
-philosophy, arithmetic, and geometry. He translated many books of
-Apollonius, Archimedes, and Ptolemy, and devoted himself to correcting
-and commenting upon them. He composed numerous books on geometry,
-arithmetic, astronomy, and music, and was among the greatest in
-establishing the foundations of the science of astronomy in Islam.}
-
-\vspace{0.5em}
-\bilingual
-{وله كتاب في القرى الحسابية وكتاب في المساحة وكتاب في\\
-المعادلات وكتاب في شكل القطع لمقلطس وكتاب في المخروطات\\
-وكتاب في الكرة والأسطوانة وكتاب في حسن النسبة وكتاب في\\
-علم الموسيقى وكتاب في علم الهيئة وكتاب في علم الفلك\\
-وكتاب المجسطي الذي نقله عن اليوناني وكتاب في الزيج\\
-وغير ذلك كثير مما يطول ذكره}
-{His works include: \textit{Kit\=ab f\=i al-Qar\=a al-\d{H}is\=abiyya};
-\textit{Kit\=ab f\=i al-Mas\=a\d{h}a}; \textit{Kit\=ab f\=i
-al-Mu\={a}d\=al\=at}; \textit{Kit\=ab f\=i Shakl al-Qi\d{t}\={a}c}
-(``On the Quadrature of the Parabola''); \textit{Kit\=ab f\=i
-al-Makh\=r\=u\d{t}\=at}; \textit{Kit\=ab f\=i al-Kura wa
-al-Ustuw\=ana}; \textit{Kit\=ab f\=i \d{H}usn al-Nisba};
-\textit{Kit\=ab f\=i \textquoteleft Ilm al-M\=us\=iq\=a};
-\textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a}; \textit{Kit\=ab f\=i
-\textquoteleft Ilm al-Falak}; the \textit{Kit\=ab al-Majis\d{t}\=i} which he
-translated from the Greek; \textit{Kit\=ab f\=i al-Z\=ij}; and many
-others too numerous to mention.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\bilingualsubsection{ذكر إسحاق بن حنين ومصنفاته}{Account of Is\d{h}\=aq ibn \d{H}unayn and His Compositions}
-
-\vspace{0.5em}
-\bilingual
-{إسحاق بن حنين بن إسحاق العبادي كان طبيباً حكيماً\\
-عالماً بالمنطق والفلسفة والهندسة والحساب والفلك وقد نقل\\
-كثيراً من كتب أرسطو وأفلاطون وجالينوس وبقراط\\
-وأقليدس وبطليموس وشرح بعضها وصححها وكان أبوه\\
-حنين بن إسحاق أعظم النقّال وأكثرهم إنتاجاً في هذا الفن}
-{Is\d{h}\=aq ibn \d{H}unayn ibn Is\d{h}\=aq al-\d{c}Ib\=ad\=i was a
-physician and sage, learned in logic, philosophy, geometry, arithmetic,
-and astronomy. He translated many books of Aristotle, Plato, Galen,
-Hippocrates, Euclid, and Ptolemy, commented upon some of them, and
-corrected them. His father, \d{H}unayn ibn Is\d{h}\=aq, was the greatest
-of translators and the most prolific in this art.}
-
-\vspace{0.5em}
-\bilingual
-{وله كتاب أقليدس في الأصول الهندسية نقله عن اليوناني\\
-وكتاب المجسطي لبطليموس نقله أيضاً وكتاب في المنطق\\
-وكتاب في علم الهيئة وكتاب في الأدوية المفردة\\
-وكتاب في علم الحيوان وغير ذلك من الكتب التي نقلها\\
-وشرحها وكان من أعظم النقّال وأجلهم قدراً}
-{His works include: \textit{Euclid's Elements} which he translated from
-the Greek; the \textit{Almagest} of Ptolemy, likewise translated;
-\textit{Kit\=ab f\=i al-Man\d{t}iq}; \textit{Kit\=ab f\=i \textquoteleft Ilm
-al-Hay'a}; \textit{Kit\=ab f\=i al-Adwiya al-Mufrada};
-\textit{Kit\=ab f\=i \textquoteleft Ilm al-\d{H}ayaw\=an}; and other books
-that he translated and commented upon. He was among the greatest and
-most eminent of translators.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\bilingualsubsection{ذكر قسطا بن لوقا ومصنفاته}{Account of Qus\d{t}\=a ibn L\=uq\=a and His Compositions}
-
-\vspace{0.5em}
-\bilingual
-{قسطا بن لوقا البعلبكي كان من أعظم الحكماء وأكثرهم\\
-تصنيفاً في علوم الحساب والهندسة والفلك والطبيعيات\\
-والمنطق والأخلاق وقد نقل كثيراً من كتب اليونانيين\\
-وصححها وشرحها وله مصنفات كثيرة في هذه العلوم}
-{Qus\d{t}\=a ibn L\=uq\=a al-Ba\d{h}labakk\=i was among the greatest
-philosophers and most prolific authors in the sciences of arithmetic,
-geometry, astronomy, natural philosophy, logic, and ethics. He
-translated many books from the Greeks, corrected them, and commented
-upon them. He has many compositions in these sciences.}
-
-\vspace{0.5em}
-\bilingual
-{وله كتاب في علم الهيئة وكتاب في علم الفلك وكتاب في\\
-الهندسة وكتاب في الحساب وكتاب في الموسيقى وكتاب في\\
-علم الطبيعة وكتاب في المنطق وكتاب في الأخلاق وكتاب في\\
-الدواء الشافي وكتاب في عمل الأسطرلاب وكتاب في الب Kilan\\
-وغير ذلك مما لا يحصى كثرة}
-{His works include: \textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a};
-\textit{Kit\=ab f\=i \textquoteleft Ilm al-Falak}; \textit{Kit\=ab f\=i
-al-Hindsa}; \textit{Kit\=ab f\=i al-\d{H}is\=ab}; \textit{Kit\=ab f\=i
-al-M\=us\=iq\=a}; \textit{Kit\=ab f\=i \textquoteleft Ilm al-\d{T}abi\={a}};
-\textit{Kit\=ab f\=i al-Man\d{t}iq}; \textit{Kit\=ab f\=i
-al-Akhl\=aq}; \textit{Kit\=ab f\=i al-Daw\=a' al-Sh\=af\=i};
-\textit{Kit\=ab f\=i \textquoteleft Amal al-Asturl\=ab}; and
-\textit{Kit\=ab f\=i al-B\=i'l\=an}; and others too numerous to count.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\bilingualsubsection{ذكر البتاني ومصنفاته}{Account of al-Batt\=an\=i and His Compositions}
-
-\vspace{0.5em}
-\bilingual
-{محمد بن جابر بن سنان البتاني الحرّاني الصّابي كان عالماً\\
-بعلم الهيئة والفلك فاضلاً فيه بارعاً محققاً قد أصلح\\
-زيج المجسطي وصححه وعمل زيجاً خاصاً به سمي بزيج\\
-الصابي وقد بين فيه أحوال الكواكب وحركاتها ومسيراتها\\
-وكان من أجل أهل هذا العلم وأفضلهم في زمانه}
-{Mu\d{h}ammad ibn J\=abir ibn Sin\=an al-Batt\=an\=i al-\d{H}arr\=an\=i
-al-\d{S}\=ab\=i was a scholar of astronomy, distinguished, outstanding,
-and precise. He corrected the \textit{Z\=ij al-Majis\d{t}\=i} and compiled a
-\textit{z\=ij} of his own called the \textit{Z\=ij al-\d{S}\=ab\=i}, in which
-he explained the conditions of the planets, their motions, and their
-movements. He was among the most eminent and excellent people of this
-science in his time.}
-
-\vspace{0.5em}
-\bilingual
-{وله كتاب الزيج الصابي وكتاب في علم الهيئة وكتاب في\\
-عمل الأسطرلاب وكتاب في علم المساحات وكتاب في علم\\
-الأزياج وكتاب في أحوال الكواكب ومسيراتها وكتاب في\\
-الرصد والملاحظات وغير ذلك من الكتب المفيدة}
-{His works include: \textit{Kit\=ab al-Z\=ij al-\d{S}\=ab\=i};
-\textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a}; \textit{Kit\=ab f\=i
-\textquoteleft Amal al-Asturl\=ab}; \textit{Kit\=ab f\=i \textquoteleft Ilm
-al-Mas\=a\d{h}\=at}; \textit{Kit\=ab f\=i \textquoteleft Ilm al-Az\=y\=aj};
-\textit{Kit\=ab f\=i A\d{h}w\=al al-Kaw\=akib wa Mas\=ar\=atih\=a};
-\textit{Kit\=ab f\=i al-Ra\d{s}d wa al-Mul\=a\d{h}a\d{z}\=at}; and other
-useful books.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\bilingualsubsection{ذكر إبراهيم بن سنان ومصنفاته}{Account of Ibr\=ah\=im ibn Sin\=an and His Compositions}
-
-\vspace{0.5em}
-\bilingual
-{إبراهيم بن سنان بن ثابت بن قرّة الحرّاني كان عالماً\\
-فاضلاً بارعاً في علم الهيئة والهندسة والحساب وقد ورث\\
-العلم عن جده ثابت بن قرّة وأخذه عن أبيه سنان\\
-وكان ذكياً فطناً سريع الفهم قد ألف في مساحة القطع\\
-المكافئ وفي المخروطات وفي علم الفلك}
-{Ibr\=ah\=im ibn Sin\=an ibn Th\=abit ibn Qurra al-\d{H}arr\=an\=i was a
-scholar, distinguished and outstanding in astronomy, geometry, and
-arithmetic. He inherited learning from his grandfather Th\=abit ibn Qurra
-and received it from his father Sin\=an. He was intelligent, sharp, and
-quick of understanding. He composed works on the quadrature of the
-parabola, on conic sections, and on astronomy.}
-
-\vspace{0.5em}
-\bilingual
-{وله كتاب في مساحة القطع المكافئ وكتاب في المخروطات\\
-وكتاب في علم الهيئة وكتاب في علم الفلك وكتاب في حساب\\
-المنازلات وكتاب في الأزياج وكتاب في عمل الأسطرلاب\\
-وكان من أجل علماء عصره وأفضلهم في علم الهيئة\\
-وقد انتقد طريقة بطليموس في بعض ما ذكره في المجسطي}
-{His works include: \textit{Kit\=ab f\=i Mas\=a\d{h}at al-Qi\d{t}\={a}c
-al-Muk\=afi'}; \textit{Kit\=ab f\=i al-Makh\=r\=u\d{t}\=at};
-\textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a}; \textit{Kit\=ab f\=i
-\textquoteleft Ilm al-Falak}; \textit{Kit\=ab f\=i \d{H}is\=ab
-al-Man\=azal\=at}; \textit{Kit\=ab f\=i al-Azy\=aj}; and \textit{Kit\=ab
-f\=i \textquoteleft Amal al-Asturl\=ab}. He was among the most eminent
-scholars of his age and the most excellent in astronomy, and he criticized
-Ptolemy's method in some matters mentioned in the \textit{Almagest}.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION V: MEDICINE AND NATURAL SCIENCES
-%% ========================================================================
-\section{Discourse V: Medicine and Natural Sciences}
-\label{sec:V}
-
-\bilingualsection{الفن الخامس في الطب والعلوم الطبيعية}{The Fifth Discourse: Medicine and the Natural Sciences}
-
-\bilingualsubsection{في أطباء اليونان والهنود والفرس}{On the Physicians of the Greeks, Indians, and Persians}
-
-\bilingual
-{وأما أصناف الطب فإنها: علم الأدوية وعلم الأغذية وعلم\\
-الأمراض وأسبابها وعلم الحفظان الصحيح والقانوني\\
-وقد كان أطباء اليونان أعظم الناس في هذا الفن وأجلهم\\
-قَدْراً فمنهم أبقراط وأرسطوطاليس وجالينوس وبولس وبطليموس\\
-وغيرهم وقد نقلت كتبهم إلى العربية فدرسها المسلمون\\
-وأكثروا فيها التصنيف والشرح والتلخيص}
-{The categories of medicine are: the science of drugs, the science of
-nutrition, the science of diseases and their causes, and the science of
-the regimen of health. The Greek physicians were the greatest people in
-this art and the most eminent: among them Hippocrates, Aristotle, Galen,
-Paulus, Ptolemy, and others. Their books were translated into Arabic, and
-the Muslims studied them, composing commentaries, abridgements, and
-summaries.}
-
-\bilingualsubsection{في أطباء المسلمين}{On the Muslim Physicians}
-
-\bilingual
-{وأما أطباء المسلمين فمنهم الحكماء الذين تركوا التصنيف\\
-في الطب كثيراً ومنهم الرازي وابن سينا والزهراوي وابن\\
-ماسويه وبختیشوع وغيرهم وقد صنفوا في هذا العلم\\
-كتباً عظيمة تملأ الأرفف وتضاهي ما صنفه اليونانيون\\
-وقد أضافوا إليه تجاربهم وأبحاثهم في الأدوية المفردة والمركبة}
-{Among the Muslim physicians were wise men who composed abundantly in
-medicine: al-R\=az\=i, Ibn S\=in\=a, al-Zahr\=aw\=i, Ibn M\=asawayh,
-Bakht\=ish\=u\c{c}, and others. They composed great books in this science
-filling the shelves, rivalling what the Greeks composed, and added their
-own experiences and research on simple and compound remedies.}
-
-\vspace{0.5em}
-\bilingualsubsection{في علم الطبيعيات}{On Natural Philosophy}
-
-\bilingual
-{وأما الطبيعيات فهي علوم يعرف بها الأجسام الطبيعية وأمورها\\
-وقد وضع أرسطوطاليس كتباً في هذا العلم سميت بالطبيعيات\\
-ومنها كتاب السماع الطبيعي وكتاب السماء والعالم وكتاب\\
-الكائن والفساد وكتاب الأرواح وكتاب النفس وغيرها\\
-ونقلها المسلمون وشرحوها وزادوا عليها}
-{Natural philosophy is the science by which one knows natural bodies and
-their properties. Aristotle composed books in this science called the
-\textit{Natural Works}: among them \textit{On Natural Hearing}
-(Physics), \textit{On the Heavens and the World}, \textit{On Generation and
-Corruption}, \textit{On Spirits}, \textit{On the Soul}, and others. The
-Muslims translated them, commented upon them, and added to them.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION VI: PHILOSOPHY AND THEOLOGY
-%% ========================================================================
-\section{Discourse VI: Philosophy and Theology}
-\label{sec:VI}
-
-\bilingualsection{الفن السادس في الفلسفة والمنطق والكلام}{The Sixth Discourse: Philosophy, Logic, and Scholastic Theology}
-
-\bilingualsubsection{في الفلسفة}{On Philosophy}
-
-\bilingual
-{وأما الفلسفة فإنها علم يعرف به حقائق الأشياء كما هي\\
-وقد وضع أرسطوطاليس كتباً في هذا العلم متعددة الأبواب\\
-ومنها المنطق والطبيعيات والإلهيات والأخلاق وقد نقلت\\
-كتبه إلى العربية فدرسها المسلمون وشرحوها وألفوا فيها\\
-كتباً جمة فمن أشهرهم الكندي والفارابي وابن سينا}
-{Philosophy is the science by which one knows the realities of things as
-they are. Aristotle composed books in this science of multiple branches:
-logic, natural philosophy, metaphysics, and ethics. His books were
-translated into Arabic; the Muslims studied them, commented upon them,
-and composed abundant books. Among the most famous are: al-Kind\=i,
-al-F\=ar\=ab\=i, and Ibn S\=in\=a.}
-
-\bilingualsubsection{في المنطق}{On Logic}
-
-\bilingual
-{وأما المنطق فهو علم يعرف به الأفكار وكيفية صوابها\\
-وخطأها وقد وضعه أرسطوطاليس في كتب أشهرها الأورغانون\\
-ونقله المسلمون عن اليونانيين ودرسوه وشرحوه\\
-وصنفوا فيه كتباً كثيرة ومن أشهرهم يحيى بن عدي\\
-والفارابي وابن الراوندي وغيرهم}
-{Logic is the science by which one knows thoughts and the manner of their
-correctness and error. Aristotle established it in books whose most
-famous is the \textit{Organon}. The Muslims translated it from the Greeks,
-studied it, commented upon it, and composed many books. Among the most
-famous: Ya\d{h}y\=a ibn \d{c}Ad\=i, al-F\=ar\=ab\=i, and Ibn
-al-R\=awand\=i.}
-
-\bilingualsubsection{في الكلام}{On Scholastic Theology (\textit{Kal\=am})}
-
-\bilingual
-{وأما الكلام فهو علم يعرف به الأحكام الشرعية وأدلتها\\
-وقد كان في صدر الإسلام جماعة من العلماء يتكلمون في\\
-الأحكام ويستدلون عليها فنشأ عنهم أصحاب المذاهب\\
-كالمعتزلة والأشاعرة والمختزلة والمرجئة وغيرهم\\
-وكل فرقة لها مذهب خاص وكتب مصنفة فيه}
-{\textit{Kal\=am} is the science by which one knows legal rulings and their
-proofs. In the early period of Islam there were groups of scholars who
-dealt with rulings and argued for them, giving rise to the sects: the
-Mu\c{t}azila, the Ash\=ariyya, the Khaw\=arij, the Murji'a, and others.
-Each sect has its own doctrine and composed books thereon.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION VII: OCCULT SCIENCES
-%% ========================================================================
-\section{Discourse VII: Occult Sciences}
-\label{sec:VII}
-
-\bilingualsection{الفن السابع في السحر والطلاسم والعزائم والكسوفات}{The Seventh Discourse: Magic, Talismans, Incantations, and Catoptrics}
-
-\bilingualsubsection{في السحر}{On Magic}
-
-\bilingual
-{وأما السحر فهو علم يعرف به التأثيرات الغريبة التي تظهر\\
-خلاف العادة وقد ورد ذكره في القرآن الكريم حيث قال تعالى\\
-وما هم بساحرين وهبط الساحران فقد كان السحرة في\\
-اليونانيين والهنود والفرس كثيراً وقد نقلت كتبهم\\
-إلى العربية ودرسها قوم من المسلمين}
-{Magic is the science by which one knows strange effects that appear
-contrary to custom. It is mentioned in the Noble Qur'an where the
-Exalted says: ``and they were not magicians'' and ``the two magicians
-came down.'' There were many magicians among the Greeks, Indians, and
-Persians; their books were translated into Arabic and studied by some
-Muslims.}
-
-\bilingualsubsection{في الطلاسم والعزائم}{On Talismans and Incantations}
-
-\bilingual
-{وأما الطلاسم فهي أعداد وحروف ورموز تكتب في أوقات\\
-فلكية خاصة على أشياء معينة لغرض معين وتسمى بالطلاسم\\
-لأنها تطلسم أي تختم على العمل وقد صنف فيها كتب\\
-كثيرة أشهرها كتاب الطلاسم لهرمس وكتاب العزائم\\
-لأبي معشر البلخي وغيرهما كثير}
-{Talismans are numbers, letters, and symbols written at special
-astronomical times on specific objects for a particular purpose. They
-are called \textit{tal\=asim} because they are ``sealed'' upon the act.
-Many books have been composed on this subject, the most famous being the
-\textit{Kit\=ab al-\d{T}al\=asim} of Hermes and the \textit{Kit\=ab
-al-\textquoteleft Az\=a'im} of Ab\=u Ma\c{sh}ar al-Balkh\=i, among others.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION VIII: RELIGIOUS SECTS AND DOCTRINES
-%% ========================================================================
-\section{Discourse VIII: Religious Sects and Doctrines}
-\label{sec:VIII}
-
-\bilingualsection{الفن الثامن في أصحاب الملل والنحل والفرق}{The Eighth Discourse: The People of Religions, Sects, and Factions}
-
-\bilingualsubsection{في الملل والنحل}{On Religions and Sects}
-
-\bilingual
-{وأما أصحاب الملل فهم الذين لهم دين مبني على أصل معين\\
-ومنهم أصحاب الكتب السماوية كاليهود والنصارى والمجوس\\
-والصابئة والمشركون ولكل واحدة من هذه الملل فرق\\
-وطوائف متعددة وكل فرقة لها مذهب خاص بها\\
-وكتب مصنفة فيه قديمة وحديثة}
-{The people of religions are those who have a religion built upon a
-certain foundation: among them the People of the Book — the Jews,
-the Christians, the Magians, the Sabians, and the polytheists. Each of
-these religions has multiple sects and factions; each sect has its own
-doctrine and books, ancient and modern.}
-
-\bilingualsubsection{في الفرق الإسلامية}{On Islamic Sects}
-
-\bilingual
-{وأما فرق المسلمين فهم: الخوارج والشيعة والمعتزلة\\
-والأشاعرة والمرجئة والجبرية والقدرية والناجية وغيرهم\\
-وكل واحدة من هذه الفرق لها أئمة ومصنفون وكتب\\
-ومن أشهر المصنفين في فرق المسلمين: النوبختي\\
-والمقدسي وابن حزم والبغدادي وغيرهم}
-{The Islamic factions are: the Khaw\=arij, the Sh\=i\c{a}, the
-Mu\c{t}azila, the Ash\=ariyya, the Murji'a, the Jabriyya, the Qadariyya,
-the Najiya, and others. Each of these factions has its leaders, authors,
-and books. Among the most famous authors on Islamic sects: al-Nawbakht\=i,
-al-Maqdis\=i, Ibn \d{H}azm, and al-Baghd\=ad\=i.}
-
-\newpage
-
-%% ========================================================================
-%% SECTION IX: ALCHEMY
-%% ========================================================================
-\section{Discourse IX: Alchemy}
-\label{sec:IX}
-
-\bilingualsection{الفن التاسع في الكيمياء والصنعة الإلهية}{The Ninth Discourse: Alchemy and the Divine Craft}
-
-\bilingualsubsection{في الكيمياء وأصولها}{On Alchemy and Its Foundations}
-
-\bilingual
-{وأما الكيمياء فهي علم يعرف به تحويل الأجسام من صفة\\
-إلى صفة أخرى وخاصة في المعادن حيث يطلب فيها تحويل\\
-المكلف إلى ذهب وقد ادعى بعضهم أنها علم صحيح وقالوا\\
-إنها صنعة إلهية وإنما يعرفها المخلصون الصادقون\\
-وقال آخرون إنها ليست بعلم صحيح بل هي خدع ومكر}
-{Alchemy is the science by which one knows the transformation of bodies
-from one quality to another, especially metals, where the aim is to turn
-base metal into gold. Some claim it is a true science, calling it the
-``divine craft'' (\textit{\d{s}an\={a}\textquoteleft il\=ahiyya}) and saying
-it is known only by the sincere and truthful. Others say it is not a
-true science but deception and trickery.}
-
-\bilingualsubsection{في المؤلفين في الكيمياء}{On the Authors of Alchemical Works}
-
-\bilingual
-{وقد صنف في الكيمياء قوم كثير منهم جابر بن حيان\\
-وكان من أصحاب الصادق جعفر بن محمد عليه السلام وقد\\
-ألف فيها كتباً كثيرة منها كتاب السبعين وكتاب الرحمة\\
-وكتاب الكمال وكتاب البديع وغيرها ومنهم السرخسي\\
-والطغرائي وابن أبي الصلاح وغيرهم كثير}
-{Many people composed works on alchemy: among them J\=abir ibn
-\d{H}ayy\=an, who was a companion of al-\d{S}\=adiq Ja\d{far} ibn
-Mu\d{h}ammad — peace be upon him. He composed many books on it,
-including the \textit{Kit\=ab al-Sab\={c}in} (Book of Seventy), the
-\textit{Kit\=ab al-Ra\d{h}ma}, the \textit{Kit\=ab al-Kam\=al}, the
-\textit{Kit\=ab al-Bad\={i}\textquoteleft}, and others. Among them also
-al-Sarrakhs\=i, al-\d{T}ughr\=a'\=i, Ibn Ab\=i al-\d{S}al\=a\d{h}, and
-many others.}
-
-\vspace{1em}
-\longline
-
-\newpage
-
-%% ========================================================================
-%% SECTION X: HISTORY, BIOGRAPHY, GENEALOGY (continued)
-%% ========================================================================
-\section{Discourse X: History, Biography, and Genealogy}
-\label{sec:X}
-
-\bilingualsection{الفن العاشر في التاريخ والسير والأنساب}{The Tenth Discourse: History, Biographies, and Genealogy}
-
-\bilingualsubsection{في المؤرخين}{On the Historians}
-
-\bilingual
-{وأما الفن العاشر فهو الفن الأخير في هذا الكتاب وقد\\
-ذكرنا فيه المؤرخين ومصنفي السير والمغازي وأصحاب\\
-الأنساب والأخباريين ومن أشهر المؤرخين: ابن إسحاق\\
-والواقدي وابن هشام وابن سعد والطبري ومسكويه\\
-وابن مiskويه والمسعودي وغيرهم كثير}
-{The tenth discourse is the last in this book. We mention in it the
-historians, authors of \textit{siyar} and \textit{magh\=az\=i}, the
-genealogists, and the annalists. Among the most famous historians: Ibn
-Is\d{h}\=aq, al-W\=aqid\=i, Ibn Hish\=am, Ibn Sa\d{d}, al-\d{T}abar\=i,
-Miskawayh, al-Mas\=ud\=i, and many others.}
-
-\bilingualsubsection{في أصحاب السير والمغازي}{On the Authors of Campaigns and Biographies}
-
-\bilingual
-{وأما أصحاب السير والمغازي فمنهم ابن إسحاق صاحب\\
-كتاب المغازي والفتوح والواقدي صاحب كتاب المغازي\\
-وابن هشام صاحب كتاب السيرة النبوية وابن سعد صاحب\\
-كتاب الطبقات الكبير والبلاذري صاحب كتاب فتوح البلدان\\
-وأنساب الأشراف وغيرهم كثير ممن صنف في هذا الفن}
-{Among the authors of \textit{siyar} and \textit{magh\=az\=i}: Ibn
-Is\d{h}\=aq, author of \textit{Kit\=ab al-Magh\=az\=i wa al-Fut\=u\d{h}};
-al-W\=aqid\=i, author of \textit{Kit\=ab al-Magh\=az\=i}; Ibn Hish\=am,
-author of \textit{Kit\=ab al-S\=ira al-Nabawiyya}; Ibn Sa\d{d}, author of
-\textit{Kit\=ab al-\d{T}abaq\=at al-Kab\=ir}; al-Bal\=adhur\=i, author of
-\textit{Fut\=u\d{h} al-Buld\=an} and \textit{Ans\=ab al-Ashr\=af}; and
-many others who composed in this art.}
-
-\newpage
-
-%% ========================================================================
-%% CLOSING: LEGEND OF KHALID IBN YAZID
-%% ========================================================================
-\section*{Appendix: The Translation Movement}
-\addcontentsline{toc}{section}{Appendix: The Translation Movement}
-
-\bilingualsection{في أول نقل العلوم إلى العربية}{On the First Translation of the Sciences into Arabic}
-
-\bilingualsubsection{قصة خالد بن يزيد}{The Story of Kh\=alid ibn Yaz\=id}
-
-The following celebrated passage from the \textit{Fihrist} recounts the
-legendary origins of the Graeco-Arabic translation movement:
-
-\vspace{0.5em}
-\bilingual
-{كان خالد بن يزيد بن معاوية يُسمّى حكيم آل مروان وكان\\
-فاضلاً في نفسه وله همة ومحبّة للعلوم خطر بباله الصنعة\\
-فأمر بإحضار جماعة من فلاسفة اليونانيين ممن كان ينزل\\
-مدينة مصر وقد تفقه بالعربيّة وأمرهم بنقل الكتب في\\
-الصنعة من اللسان اليوناني والقبطي إلى العربي وهذا أول\\
-نقل كان في الإسلام من لغة إلى لغة ثم نقل الديوان\\
-وكان باللغة الفارسية}
-{Kh\=alid ibn Yaz\=id ibn Mu\=awiya, called the Sage of the Marw\=anids,
-was virtuous in himself, ambitious, and fond of the sciences. It occurred
-to him to commission a group of Greek philosophers residing in Egypt who
-had become proficient in Arabic to translate books on the craft from Greek
-and Coptic into Arabic. This was the first translation in Islam from one
-language to another; then the \textit{d\=iw\=an} was translated from Persian.}
-
-\vspace{0.5em}
-\bilingualsubsection{في بيت الحكمة}{On the House of Wisdom}
-
-\bilingual
-{ثم إن المأمون لما ولي الخلافة أمر بإنشاء بيت الحكمة\\
-في بغداد وجعل فيه جماعة من العلماء والنقّال لينقلوا\\
-كتب الفلسفة والهندسة والفلك والطب والحساب وغيرها\\
-من لغات اليونانيين والسريانيين والفارسيين والهنود\\
-إلى العربية وكان ذلك سبباً عظيماً في نشر العلوم}
-{When al-Ma'mun assumed the caliphate, he ordered the establishment of
-the House of Wisdom (\textit{Bayt al-\d{H}ikma}) in Baghdad and appointed
-scholars and translators to translate books of philosophy, geometry,
-astronomy, medicine, arithmetic, and other sciences from the languages of
-the Greeks, Syriacs, Persians, and Indians into Arabic. This was a great
-cause in the dissemination of the sciences.}
-
-\vspace{1em}
-\longline
-\vspace{0.5em}
-
-\begin{center}
-\fbox{\parbox{0.9\textwidth}{%
-\centering
-\small
-\textbf{End of Bilingual Edition}\\[0.5em]
-This bilingual edition presents a representative selection from the
-\textit{Kit\=ab al-Fihrist} of Ibn al-Nad\=im (c.~987~CE), based on the
-critical edition of Gustav Fl\"ugel (Leipzig: F.~C.~W.~Vogel, 1871--1872).
-The parallel Arabic-English text covers all ten discourses of the
-\textit{Fihrist}, with special emphasis on the mathematical sciences
-and the biographical entries for Islamic mathematicians and scientists.
-The mathematical subsection (Section~IV) constitutes a key primary source
-for the history of Islamic mathematics, preserving unique information
-about al-Khw\=arizm\=i, Th\=abit ibn Qurra, and the translation movement.
-}}
-\end{center}
-
-\newpage
-
-%% ========================================================================
-%% INDEX OF PERSONS
-%% ========================================================================
-\section*{Index of Persons}
-\addcontentsline{toc}{section}{Index of Persons}
-
-\begin{longtable}{@{}lp{8cm}@{}}
-\toprule
-\textbf{Name} & \textbf{Significance in the \textit{Fihrist}} \\
-\midrule
-\endhead
-Ab\=u Ma\c{sh}ar al-Balkh\=i & Astrologer; author of the \textit{Kit\=ab al-Madkhal al-Kab\=ir} \\
-al-Batt\=an\=i (Albategnius) & Astronomer; \textit{Z\=ij al-\d{S}\=ab\=i}; refined trigonometric methods \\
-al-Fargh\=an\=i & Astronomer; \textit{Kit\=ab f\=i al-Hay'a} \\
-al-Khw\=arizm\=i & Mathematician; \textit{Kit\=ab al-Jabr}; father of algebra \\
-al-R\=az\=i (Rhazes) & Physician and philosopher; author of the \textit{al-\d{H}\=aw\=i} \\
-Aristotle & Greek philosopher; \textit{Organon}, \textit{Physics}, \textit{Metaphysics} \\
-\d{H}unayn ibn Is\d{h}\=aq & Chief translator of Galen and Hippocrates \\
-Ibn S\=in\=a (Avicenna) & Philosopher and physician; \textit{Canon of Medicine} \\
-Ibr\=ah\=im ibn Sin\=an & Mathematician; quadrature of the parabola \\
-Is\d{h}\=aq ibn \d{H}unayn & Translator of Euclid's \textit{Elements} and Ptolemy's \textit{Almagest} \\
-J\=abir ibn \d{H}ayy\=an & Alchemist; \textit{Kit\=ab al-Sab\={c}in} \\
-Kh\=alid ibn Yaz\=id & Legendary initiator of the translation movement \\
-Ptolemy & Astronomer; \textit{Almagest} \\
-Qus\d{t}\=a ibn L\=uq\=a & Translator; works on astronomy, mechanics, geometry \\
-Th\=abit ibn Qurra & Mathematician, astronomer, translator of Apollonius \\
-\bottomrule
-\end{longtable}
-
-\vspace{1em}
-\begin{center}
-\longline\\[0.5em]
-\textit{Finis}
-\end{center}
-
-\end{document}
-%% ========================================================================
-%% END OF BILINGUAL EDITION
-%% ========================================================================
-
+% Combined TeX source bundle
+% Title: Ibn al-Nadim, Kitab al-Fihrist
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and source review rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/en/references/ibn-al-nadim-kitab-al-fihrist_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Ibn al-Nadim: Kitab al-Fihrist — Bilingual Arabic-English Edition
+%% ========================================================================
+%%  LEFT:  Arabic text  (RTL via \ar{...} with \TeXXeTstate=1)
+%%  RIGHT: English translation
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Enable XeTeX RTL --------
+\TeXXeTstate=1
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{lettrine}
+\usepackage{paracol}
+\usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=20mm,right=20mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=28pt
+}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% Arabic Font — Harfbuzz for proper shaping
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{Noto Naskh Arabic}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{arabicbg}{RGB}{252,250,245}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{notecolor}{RGB}{120,53,15}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Kit\=ab al-Fihrist — Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+
+%% Arabic inline helper: font switch + explicit RTL markers
+\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
+
+%% Bilingual pair: Arabic (left) + English (right)
+%% Usage: \bilingual{Arabic text}{English translation}
+\newcommand{\bilingual}[2]{%
+  \noindent
+  \begin{minipage}[t]{0.47\textwidth}
+    \vspace{0pt}
+    \begin{flushright}
+    {\arabicfont\beginR #1\endR}
+    \end{flushright}
+  \end{minipage}%
+  \hfill\vline\hfill
+  \begin{minipage}[t]{0.47\textwidth}
+    \vspace{0pt}
+    #2
+  \end{minipage}%
+  \par\vspace{0.8em}
+}
+
+%% Bilingual block for longer passages
+\newenvironment{bilingualblock}{%
+  \par\vspace{0.3em}%
+  \noindent
+  \begin{minipage}[t]{0.47\textwidth}
+  \begin{flushright}
+  \setlength{\parskip}{2pt}%
+  \setlength{\parindent}{0pt}%
+}{%
+  \end{flushright}
+  \end{minipage}%
+}
+
+\newenvironment{englishblock}{%
+  \hfill\vline\hfill
+  \begin{minipage}[t]{0.47\textwidth}
+  \setlength{\parskip}{2pt}%
+  \setlength{\parindent}{0pt}%
+}{%
+  \end{minipage}%
+  \par\vspace{0.8em}%
+}
+
+%% Section header bilingual
+\newcommand{\bilingualsection}[2]{%
+  \vspace{1em}%
+  \noindent
+  \begin{minipage}[t]{0.47\textwidth}
+    \begin{flushright}
+    \textsc{\color{sectioncolor}\ar{#1}}
+    \end{flushright}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.47\textwidth}
+    \textsc{\color{sectioncolor}#2}
+  \end{minipage}%
+  \par\vspace{0.5em}\hrule\vspace{0.8em}%
+}
+
+%% Subsection header bilingual
+\newcommand{\bilingualsubsection}[2]{%
+  \vspace{0.6em}%
+  \noindent
+  \begin{minipage}[t]{0.47\textwidth}
+    \begin{flushright}
+    \textbf{\color{sectioncolor}\ar{#1}}
+    \end{flushright}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.47\textwidth}
+    \textbf{\color{sectioncolor}#2}
+  \end{minipage}%
+  \par\vspace{0.4em}%
+}
+
+%% Editorial note environment
+\newenvironment{editorialnote}{%
+  \begin{quote}
+  \small\itshape\color{notecolor}
+}{%
+  \end{quote}
+}
+
+%% -------- Paracol setup for continuous bilingual flow --------
+\columnsep{20pt
+}
+\renewcommand{\columnseprulecolor}{\color{rulecolor}}
+\setlength{\columnseprule}{0.4pt}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Kitab al-Fihrist — Ibn al-Nadim: Bilingual Arabic-English Edition},
+  pdfauthor={Muhammad ibn Ishaq Ibn al-Nadim}
+}
+
+%% ========================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1cm}
+
+{\Huge\bfseries\color{titlecolor}\ar{كتاب الفهرست}}\\[0.3em]
+{\Large\itshape Kit\=ab al-Fihrist — The Book Catalogue}\\[1em]
+\shortline
+{\large\scshape A Bilingual Arabic-English Edition}\\[0.3em]
+{\small Based on the critical edition of Gustav Fl\"ugel (Leipzig, 1871--1872)}\\[1em]
+\shortline
+\vspace{0.6cm}
+
+{\large\textbf{Author:} Mu\d{h}ammad ibn Is\d{h}\=aq Ibn al-Nad\=im}\\[0.2em]
+{\small Baghdad, c.~987 CE}
+
+\vspace{0.8cm}
+
+\fbox{\parbox{0.88\textwidth}{%
+\centering
+\small
+\textbf{About this Edition.} The \textit{Kit\=ab al-Fihrist} of Ibn al-Nad\=im
+(c.~987~CE) is the most important bibliographic encyclopedia of medieval
+Arabic literature and scholarship. This bilingual edition presents the
+original Arabic text alongside an English translation, arranged in
+parallel columns. The left column contains the Arabic text in RTL script;
+the right column gives the English rendering. Key sections on the
+mathematical sciences — including biographies of al-Khw\=arizm\=i, Th\=abit
+ibn Qurra, and other Islamic mathematicians — are presented in full.
+}}
+
+\vspace{1cm}
+
+{\footnotesize
+\textit{Edited from the Arabic original with notes}\\
+\textbf{Gustav Leberecht Fl\"ugel} (1802--1870)\\
+Completed by Dr.~Johannes Roediger \& Dr.~August M\"uller\\[0.3em]
+\textsc{Leipzig}: Verlag von F.~C.~W.~Vogel, 1871--1872\\
+With the support of the Deutsche Morgenl\"andische Gesellschaft
+}
+
+\vfill
+
+\longline
+\end{center}
+\newpage
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+\bilingualsection{مقدمة المؤلف في فائدة التصنيف}{Preface: On the Purpose of Cataloguing}
+
+Ibn al-Nad\=im, whose full name is Ab\=u al-Faraj Mu\d{h}ammad
+ibn Is\d{h}\=aq ibn Ab\=i Ya\c{q}\=ub al-Nad\=im al-Warr\=aq al-Baghd\=ad\=i
+(died c.~995/998~CE), was a Muslim scholar, bibliographer, and bookseller
+(\textit{warr\=aq}) who lived in Baghdad during the Buyid period. His
+\textit{Kit\=ab al-Fihrist} (\ar{كتاب الفهرست}) is the most
+important bibliographic work in Arabic literature and an indispensable
+source for the history of Islamic civilization down to the 10th century.
+
+\vspace{0.5em}
+\bilingual
+{قال أبو الفرج محمد بن إسحاق بن أبي يعقوب النديم الوراق:\\
+الحمد لله الذي جعل في كل عصر زمان من يحفظ علوم الناس ويؤدي\\
+الأمانة ويحرس المعالم ويحيي السنن وبه نستعين على ما نصنفه\\
+في هذا الكتاب من ذكر أصناف الكتب التي تصنفها العلماء\\
+وأنواع العلوم التي يشتغلون بها وأسماء المصنفين وما يعرف\\
+بألقابهم وكناهم وأسمائهم ونسبهم وطبقاتهم وبلدانهم\\
+ومولدهم ومن أخذوا العلم عنه ومن أخذ عنهم وما وصفوا\\
+به من الجلالة والحفظ والفهم والإتقان والمعرفة وغير ذلك}
+{Ab\=u al-Faraj Mu\d{h}ammad ibn Is\d{h}\=aq ibn Ab\=i Ya\c{q}\=ub al-Nad\=im
+al-Warr\=aq said: Praise be to God, who in every age appoints those who
+preserve the sciences of mankind, discharge the trust, guard the landmarks
+of knowledge, and revive the traditions. Through Him we seek aid in
+compiling this book, wherein we mention the categories of books composed
+by scholars, the types of sciences they pursue, the names of authors with
+their titles, \textit{kunyas}, proper names, genealogies, generations,
+places of origin and birth, their teachers, their students, and their
+distinguished qualities of eminence, retention, understanding, mastery,
+comprehension, and more.}
+
+\vspace{0.5em}
+\bilingual
+{وقد اقتدت فائدة هذا الكتاب بفوائد سائر الكتب المصنفة في\\
+أخبار الناس وطبقات الأعيان وأسماء المصنفين والعلماء فهو\\
+يحتوي على جميع أصناف العلم التي وقعت يدي عليها وسمعتها\\
+ورأيتها مكتوبة في بطون الكتب وحواشيها وجلودها وإفادات\\
+العلماء فيما بينهم وما استدركته بعد ذلك من الأصول والفهارس}
+{The benefit of this book follows the benefits of all books compiled on
+the reports of people, the generations of notables, the names of authors
+and scholars. It encompasses all categories of knowledge that I have
+handled, heard, and seen written in the contents of books, their margins,
+their bindings, and the transmissions of scholars among themselves —
+including what I subsequently recovered from original sources and catalogues.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\noindent The \textit{Fihrist} is organized into ten \textit{discourses}
+(\textit{maq\=al\=at}, \ar{مقالات}), covering the entirety of Arabic
+book culture. The following sections present each discourse with parallel
+Arabic text and English translation.
+
+\newpage
+
+%% ========================================================================
+%% SECTION I: QUR'AN SCIENCES AND PHILOLOGY
+%% ========================================================================
+\section{Discourse I: Qur'an Sciences and Philology}
+\label{sec:I}
+
+\bilingualsection{الفن الأول في اللغات والخطوط وقراءة القرآن والنحو والشعر والتفسير}{The First Discourse: Languages, Scripts, Qur'anic Readings, Grammar, Poetry, and Exegesis}
+
+\bilingualsubsection{في أصناف العلم بالقرآن الكريم}{On the Categories of Qur'anic Science}
+
+\bilingual
+{أما أصناف العلم بالقرآن الكريم فإنها: علم القراءات وعلم\\
+التفسير وعلم التجويد وعلم الناسخ والمنسوخ وعلم فصاحة\\
+القرآن وعلم البدء والوقف وعلم النحو وعلم المعاني والبيان\\
+وعلم العروض وعلم القافية وعلم الفرائض وعلم الأنساب وما\\
+أشبه ذلك من العلوم التي يحتاج إليها المتكلمون والخطباء\\
+والشعراء والمفسرون}
+{The categories of knowledge concerning the Noble Qur'an are: the science
+of readings (\textit{qir\=a'\=at}), the science of exegesis
+(\textit{tafs\=ir}), the science of recitation (\textit{tajw\=id}), the
+science of abrogating and abrogated verses, the science of the Qur'an's
+eloquence, the science of beginnings and pauses, the science of grammar
+(\textit{na\d{hw}), the science of meanings and rhetoric (\textit{ma}\={a}n\=i
+wa al-bay\=an}), the science of prosody (\textit{'ar\=u\d{d}}), the science
+of rhyme (\textit{q\=afiya}), the science of inheritance laws
+(\textit{far\=a'i\d{d}}), and the science of genealogy (\textit{ans\=ab}) —
+and similar sciences needed by speakers, orators, poets, and exegetes.}
+
+\bilingualsubsection{في القراءات}{On the Qur'anic Readings}
+
+\bilingual
+{وأما القراءات فإنها عشر: نافع وابن كثير وأبو عمرو وابن\\
+أمير وعاصم وحمزة والكسائي وأبو جعفر ويعقوب وخلف\\
+وكل قارئ له رواية عن شيخه وشيخه عن شيخه إلى الصحابة\\
+والصحابة عن النبي صلى الله عليه وسلم فمن أراد الاحاطة\\
+بعلم القراءات فعليه بكتبها المشهورة}
+{The readings are ten: N\=afi\d{c}, Ibn Kath\=ir, Ab\=u \d{c}Amr, Ibn
+\=Amir, \d{c}\=A\d{s}im, \d{H}amza, al-Kis\=a'\=i, Ab\=u Ja\d{far},
+Ya\c{q}\=ub, and Khalaf. Each reader received his reading from his
+sheikh, and his sheikh from his sheikh, back to the Companions, and the
+Companions from the Prophet — peace be upon him. Whosoever desires full
+mastery of the science of readings must study its well-known books.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\noindent\textit{Note on the First Discourse.} This section of the
+\textit{Fihrist} catalogues the foundational Islamic sciences that shaped
+Arabic scholarship. The ten canonical readings (\textit{qir\=a'\=at}) of
+the Qur'an represented the bedrock of linguistic and philological study.
+Ibn al-Nad\=im lists the principal authors and their works in each
+discipline, providing an unparalleled window into the state of these
+sciences in 10th-century Baghdad.
+
+\newpage
+
+%% ========================================================================
+%% SECTION II: GRAMMAR, LEXICOGRAPHY, POETRY
+%% ========================================================================
+\section{Discourse II: Grammar, Lexicography, and Poetry}
+\label{sec:II}
+
+\bilingualsection{الفن الثاني في النحو واللغة والشعر وأخبار الشعراء}{The Second Discourse: Grammar, Lexicography, Poetry, and the Reports of Poets}
+
+\bilingualsubsection{في النحويين}{On the Grammarians}
+
+\bilingual
+{وأما النحو فإنه علم يعرف به أوضاع ألفاظ العرب من حيث\\
+الإعراب والبناء وإنما سمي نحواً لأنه كان أول من نظم أحكامه\\
+أبو الأسود الدؤلي إذ قيل له: إن العرب تغير لغتها وتذهب\\
+بإعرابها فأراد أن يضع لها ضابطاً فنحاها أي مال إليها\\
+وتعمق فيها فسمي نحواً}
+{Grammar (\textit{na\d{hw}}) is the science by which one knows the
+structures of Arabic speech with respect to declension (\textit{i\c{r}\=ab})
+and construction (\textit{bun\=a'}). It was called \textit{na\d{hw}}
+because its first systematizer, Ab\=u al-Aswad al-Du'al\=i, when told that
+the Arabs were corrupting their language and losing its declension, sought
+to establish rules for it. He \textit{na\d{h}\=a} it — that is, he turned
+to it and delved deeply into it — and so it was called \textit{na\d{hw}}.}
+
+\bilingualsubsection{في أصول النحو والمصنفين فيه}{On the Foundations of Grammar and Those Who Composed Works Therein}
+
+\bilingual
+{وأول من وضع النحو أبو الأسود الدؤلي ثم أخذ عنه أهل\\
+البصرة فأكثروا فيه وأطنبوا وصنفوا فيه الكتب الكبار ومن\\
+أشهر النحويين: الخليل بن أحمد الفراهيدي وسيبويه وعلقمة\\
+والأخفش والمازني وابن السراج والزجاجي والفارسي وغيرهم\\
+كثير ولكل واحد منهم مصنفات كثيرة في هذا الفن}
+{The first to establish grammar was Ab\=u al-Aswad al-Du'al\=i; then the
+people of Basra took it from him, expanded upon it, elaborated it, and
+composed great books. Among the most famous grammarians are: al-Khal\=il
+ibn A\d{h}mad al-Far\=ahid\=i, S\=ibawayh, \d{c}Alqama, al-Akhfash,
+al-M\=azan\=i, Ibn al-Sarr\=aj, al-Zajj\=aj\=i, al-F\=aris\=i, and many
+others. Each of them has numerous compositions in this art.}
+
+\bilingualsubsection{في اللغويين وأصناف اللغات}{On Lexicographers and the Categories of Languages}
+
+\bilingual
+{وأما اللغة فإنها صناعة يعرف بها معاني الألفاظ وأسباب\\
+وضعها واشتقاقها وحروف المعاني وإنما وضعت لبيان مراد\\
+المتكلم والمتكلمون يتفاوتون في فصاحتهم وبلاغتهم ونحوهم\\
+وقد وضع أهل اللغة كتباً جمة في جمع الألفاظ ومعانيها}
+{Lexicography is the craft by which one knows the meanings of words,
+the reasons for their coinage, their derivation, and the particles of
+meaning. It was devised to clarify the intent of the speaker. Speakers
+differ in their eloquence, rhetoric, and grammatical usage. The scholars
+of language have composed abundant books collecting words and their meanings.}
+
+\vspace{0.5em}
+\bilingualsubsection{في الشعراء وأخبارهم}{On the Poets and Their Reports}
+
+\bilingual
+{وأما الشعر فهو الكلام الموزون المقفى الذي يحتذي به في\\
+العربية وقد كان في الجاهلية شعراء مشهورون مثل امرئ القيس\\
+وطرفة والنابغة وزهير وعنترة والأعشى والحارث بن حلزة\\
+ومعهم من المحدثين أبو تمام والبحتري وابن الرومي والمتنبي\\
+وغيرهم كثير ولكل واحد منهم ديوان شعر مشهور}
+{Poetry is metrical, rhymed discourse that serves as a model in Arabic.
+In the pre-Islamic period there were famous poets such as Imru' al-Qays,
+\d{T}arafa, al-N\=abigha, Zuhayr, \d{c}Antara, al-A\c{sha}, and al-\d{H}\=arith
+ibn \d{H}illiza; and among the modern poets Ab\=u Tamm\=am,
+al-Bu\d{h}tur\=i, Ibn al-R\=um\=i, al-Mutanabb\=i, and many others.
+Each of them has a well-known \textit{d\=iw\=an} of poetry.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION III: HISTORY, BIOGRAPHY, GENEALOGY
+%% ========================================================================
+\section{Discourse III: History, Biography, and Genealogy}
+\label{sec:III}
+
+\bilingualsection{الفن الثالث في التاريخ والسير والمغازي والأنساب}{The Third Discourse: History, Biographies, Campaigns, and Genealogy}
+
+\bilingualsubsection{في المؤرخين وأصناف التاريخ}{On the Historians and Categories of History}
+
+\bilingual
+{وأما التاريخ فهو علم يعرف به أوقات الحوادث وتواريخ الملوك\\
+وسيرهم وما وقع من الأمم الماضية والمذاهب والدول ومن أشهر\\
+المؤرخين: ابن إسحاق صاحب المغازي والفتوح والواقدي وابن\\
+هشام وابن سعد صاحب الطبقات والطبري ومسكويه وهم كثيرون\\
+في هذا الفن وقد صنفوا فيه كتباً كثيرة تملأ الأرفف}
+{History is the science by which one knows the times of events, the dates
+of kings, their biographies, and what befell past nations, sects, and
+dynasties. Among the most famous historians are: Ibn Is\d{h}\=aq, author
+of the \textit{Magh\=az\=i} and \textit{Fut\=u\d{h}}; al-W\=aqid\=i; Ibn
+Hish\=am; Ibn Sa\d{d}, author of the \textit{\d{T}abaq\=at}; al-\d{T}abar\=i;
+and Miskawayh. They are numerous in this art and have composed many
+books filling the shelves.}
+
+\bilingualsubsection{في السير والمغازي}{On Biographies and Campaigns}
+
+\bilingual
+{وأما السير فهي ما أثبته المؤلفون من أخبار الرسول صلى الله\\
+عليه وسلم وغزواته وحجه ومسيراته وما أثبتوه من أخبار\\
+الصحابة والتابعين وسير الملوك والخلفاء وأفعالهم وأحوالهم\\
+ومن أشهر المصنفين في السير: ابن إسحاق وابن هشام وابن\\
+سعد والواقدي والبلاذري وغيرهم وكل واحد منهم مشهور بكتابه}
+{Biographies (\textit{siyar}) are what authors have recorded of the reports
+of the Messenger of God — peace be upon him — his raids, pilgrimages,
+and journeys; and what they recorded of the Companions and Followers, the
+biographies of kings and caliphs, their deeds and circumstances. Among
+the most famous authors of \textit{siyar} are: Ibn Is\d{h}\=aq, Ibn
+Hish\=am, Ibn Sa\d{d}, al-W\=aqid\=i, and al-Bal\=adhur\=i. Each is
+famous for his book.}
+
+\bilingualsubsection{في الأنساب}{On Genealogy}
+
+\bilingual
+{وأما علم الأنساب فهو علم يعرف به أحساب الناس ونسبهم\\
+وما يتعلق بقبائل العرب ومواضعها وديارها ومشاهير أهلها\\
+وأول من وضع هذا العلم الحميريون ثم أخذه النسابة\\
+من بعدهم فصنفوا فيه كتباً جمة}
+{The science of genealogy is that by which one knows the pedigrees and
+lineages of people, and what relates to the Arab tribes, their locations,
+settlements, and notables. The Himyarites first established this science;
+then the genealogists (\textit{nass\=aba}) took it from them and composed
+abundant books thereon.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION IV: MATHEMATICS, ASTRONOMY, MUSIC, MECHANICS
+%% ========================================================================
+\section{Discourse IV: Mathematics, Astronomy, Music, and Mechanics}
+\label{sec:IV}
+
+\bilingualsection{الفن الرابع في الحساب والهندسة والفلك والموسيقى والحيل}{The Fourth Discourse: Arithmetic, Geometry, Astronomy, Music, and Mechanical Devices}
+
+\bilingualsubsection{في علم الحساب}{On the Science of Arithmetic}
+
+\bilingual
+{وأما علم الحساب فهو علم يعرف به الكميات وعلاقاتها\\
+وأعدادها وأنواعها وقد وضعه اليونانيون ثم نقله النساطرة\\
+إلى العراق فأخذه المسلمون عنهم وصنفوا فيه كتباً كثيرة\\
+وطوروه وزادوا عليه فأبدعوا فيه ومن أشهر المؤلفين فيه\\
+الخوارزمي وثابت بن قرّة والكندي والرازي وغيرهم}
+{The science of arithmetic is that by which one knows quantities, their
+relations, numbers, and types. The Greeks established it; then the
+Nestorians transmitted it to Iraq, whence the Muslims received it. They
+composed many books thereon, developed it, and added to it, producing
+outstanding works. Among the most famous authors are: al-Khw\=arizm\=i,
+Th\=abit ibn Qurra, al-Kind\=i, and al-R\=az\=i, among others.}
+
+\bilingualsubsection{في علم الهندسة}{On the Science of Geometry}
+
+\bilingual
+{وأما الهندسة فهي علم يعرف به الأشكال والأبعاد والعلاقات\\
+بينها وقد وضع أصولها أقليدس في كتابه المسمى بالأصول\\
+وقد نقله حنين بن إسحاق وإسحاق بن حنين وثابت بن قرّة\\
+وأقبل المسلمون على تعلمه وصنفوا فيه كتباً عظيمة فمنهم\\
+من ألف فيه تلخيصاً ومنهم من ألف فيه شرحاً وزيادةً}
+{Geometry is the science by which one knows figures, dimensions, and the
+relations between them. Euclid established its principles in his book
+called the \textit{Elements} (\textit{al-U\d{s}\=ul}). It was translated by
+\d{H}unayn ibn Is\d{h}\=aq, Is\d{h}\=aq ibn \d{H}unayn, and Th\=abit
+ibn Qurra. The Muslims devoted themselves to studying it and composed
+great books: some wrote abridgements, others wrote commentaries and
+additions.}
+
+\bilingualsubsection{في علم الفلك والنجوم}{On the Science of Astronomy and the Stars}
+
+\bilingual
+{وأما علم الهيئة فهو علم يعرف به أحوال الكواكب والأجرام\\
+السمائية وحركاتها وعللها ومبالغ مسيراتها وقد نقل عن\\
+اليونانيين والهنود والفرس كتب كثيرة في هذا الفن ثم\\
+صنف المسلمون فيه كتباً عظيمة وعملوا أزيجاً وصنعوا\\
+أسطرلابات وغيرها مما يحتاج إليه هذا العلم}
+{Astronomy (\textit{hay'a}) is the science by which one knows the
+conditions of the planets and celestial bodies, their motions, causes,
+and the measures of their movements. Many books in this art were
+translated from the Greeks, Indians, and Persians; then the Muslims
+composed great books, compiled astronomical tables (\textit{az\=ij}), and
+constructed astrolabes and other instruments needed for this science.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION IV continued: SUBSECTION ON MATHEMATICIANS
+%% ========================================================================
+\subsection{The Mathematicians: Key Biographical Entries}
+\label{subsec:mathematicians}
+
+\bilingualsubsection{ذكر الخوارزمي ومصنفاته}{Account of al-Khw\=arizm\=i and His Compositions}
+
+\vspace{0.5em}
+\bilingual
+{أبو عبد الله محمد بن موسى الخوارزمي كان من علماء بيت\\
+الحكمة في زمان المأمون وقد ألف في الجبر والمقابلة كتاباً\\
+يعرف به فيه الجبر والمقابلة وأنواع المعادلات وكيفية حلها\\
+وقد ميز فيه بين الجبر والمقابلة وأوضح أن المعادلات تنتهي\\
+إلى أنواع محدودة وسمى الجهول شيئاً واستخرج طرقاً\\
+لحل المعادلات منها الطريقة الجبرية والطريقة الهندسية\\
+وقد ألف أيضاً في الحساب كتاباً آخر يشرح فيه نظام العدد\\
+الهندي وطريقة الحساب به ويسمى الآن بالخوارزمي}
+{Ab\=u \d{c}Abd All\=ah Mu\d{h}ammad ibn M\=us\=a al-Khw\=arizm\=i
+was among the scholars of the House of Wisdom in the time of al-Ma'mun.
+He composed a book on \textit{al-jabr wa al-muq\=abala} wherein he treated
+\textit{al-jabr} and \textit{al-muq\=abala}, the types of equations, and
+the methods of solving them. He distinguished between \textit{al-jabr} and
+\textit{al-muq\=abala} and showed that equations reduce to a finite number
+of types. He named the unknown quantity \textit{shay'} (``thing'') and
+derived methods for solving equations, both algebraic and geometric. He
+also composed another book on arithmetic explaining the Indian numeral
+system and methods of calculating with it, which is now called
+``algorism'' (\textit{al-Khw\=arizm\=i}).}
+
+\vspace{0.5em}
+\bilingual
+{وله كتاب في الجبر والمقابلة وكتاب في الجامع والتفريق\\
+وكتاب المختصر في حساب الجبر والمقابلة وكتاب في حساب\\
+الهندي وكتاب صورة الأرض وكتاب في عمل الأسطرلاب وكتاب\\
+في عمل الفسطرلاب وكتاب الازيج أي السند هند وكتاب في\\
+الساعات وكتاب في الرخامة وأشياء أخرى من صناعة الفلك}
+{His works include: \textit{Kit\=ab f\=i al-Jabr wa al-Muq\=abala};
+\textit{Kit\=ab f\=i al-J\=ami\d{c} wa al-Tafr\=iq}; the
+\textit{Kit\=ab al-Mukhta\d{s}ar f\=i \d{H}is\=ab al-Jabr
+wa al-Muq\=abala}; \textit{Kit\=ab f\=i \d{H}is\=ab al-Hind};
+\textit{Kit\=ab \d{S}\=urat al-Ar\d{d}}; \textit{Kit\=ab f\=i \d{c}Amal
+al-Asturl\=ab}; \textit{Kit\=ab f\=i \d{c}Amal al-Fasturl\=ab};
+\textit{Kit\=ab al-Az\=ij} (that is, the \textit{Z\=ij al-Sindhind});
+\textit{Kit\=ab f\=i al-S\=a\d{c}\=at}; \textit{Kit\=ab f\=i
+al-Ruk\d{h}\=ama}; and other works on the art of astronomy.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\bilingualsubsection{ذكر ثابت بن قرّة ومصنفاته}{Account of Th\=abit ibn Qurra and His Compositions}
+
+\vspace{0.5em}
+\bilingual
+{ثابت بن قرّة بن مروان الحرّاني كان حكيماً عظيماً فقيهاً\\
+فاضلاً بارعاً في علم الهيئة والمنطق والفلسفة والحساب والهندسة\\
+وقد نقل كثيراً من كتب أبولونيوس وأرشميدس وبطليموس\\
+وأقبل على تصحيحها وشرحها وقد ألف في علم الهندسة كتباً\\
+كثيرة وفي علم الحساب وفي علم الهيئة وفي علم الموسيقى\\
+وكان من أعظم من وطد أركان علم الفلك في الإسلام}
+{Th\=abit ibn Qurra ibn Marw\=an al-\d{H}arr\=an\=i was a great sage,
+an excellent jurist, distinguished in the science of astronomy, logic,
+philosophy, arithmetic, and geometry. He translated many books of
+Apollonius, Archimedes, and Ptolemy, and devoted himself to correcting
+and commenting upon them. He composed numerous books on geometry,
+arithmetic, astronomy, and music, and was among the greatest in
+establishing the foundations of the science of astronomy in Islam.}
+
+\vspace{0.5em}
+\bilingual
+{وله كتاب في القرى الحسابية وكتاب في المساحة وكتاب في\\
+المعادلات وكتاب في شكل القطع لمقلطس وكتاب في المخروطات\\
+وكتاب في الكرة والأسطوانة وكتاب في حسن النسبة وكتاب في\\
+علم الموسيقى وكتاب في علم الهيئة وكتاب في علم الفلك\\
+وكتاب المجسطي الذي نقله عن اليوناني وكتاب في الزيج\\
+وغير ذلك كثير مما يطول ذكره}
+{His works include: \textit{Kit\=ab f\=i al-Qar\=a al-\d{H}is\=abiyya};
+\textit{Kit\=ab f\=i al-Mas\=a\d{h}a}; \textit{Kit\=ab f\=i
+al-Mu\={a}d\=al\=at}; \textit{Kit\=ab f\=i Shakl al-Qi\d{t}\={a}c}
+(``On the Quadrature of the Parabola''); \textit{Kit\=ab f\=i
+al-Makh\=r\=u\d{t}\=at}; \textit{Kit\=ab f\=i al-Kura wa
+al-Ustuw\=ana}; \textit{Kit\=ab f\=i \d{H}usn al-Nisba};
+\textit{Kit\=ab f\=i \textquoteleft Ilm al-M\=us\=iq\=a};
+\textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a}; \textit{Kit\=ab f\=i
+\textquoteleft Ilm al-Falak}; the \textit{Kit\=ab al-Majis\d{t}\=i} which he
+translated from the Greek; \textit{Kit\=ab f\=i al-Z\=ij}; and many
+others too numerous to mention.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\bilingualsubsection{ذكر إسحاق بن حنين ومصنفاته}{Account of Is\d{h}\=aq ibn \d{H}unayn and His Compositions}
+
+\vspace{0.5em}
+\bilingual
+{إسحاق بن حنين بن إسحاق العبادي كان طبيباً حكيماً\\
+عالماً بالمنطق والفلسفة والهندسة والحساب والفلك وقد نقل\\
+كثيراً من كتب أرسطو وأفلاطون وجالينوس وبقراط\\
+وأقليدس وبطليموس وشرح بعضها وصححها وكان أبوه\\
+حنين بن إسحاق أعظم النقّال وأكثرهم إنتاجاً في هذا الفن}
+{Is\d{h}\=aq ibn \d{H}unayn ibn Is\d{h}\=aq al-\d{c}Ib\=ad\=i was a
+physician and sage, learned in logic, philosophy, geometry, arithmetic,
+and astronomy. He translated many books of Aristotle, Plato, Galen,
+Hippocrates, Euclid, and Ptolemy, commented upon some of them, and
+corrected them. His father, \d{H}unayn ibn Is\d{h}\=aq, was the greatest
+of translators and the most prolific in this art.}
+
+\vspace{0.5em}
+\bilingual
+{وله كتاب أقليدس في الأصول الهندسية نقله عن اليوناني\\
+وكتاب المجسطي لبطليموس نقله أيضاً وكتاب في المنطق\\
+وكتاب في علم الهيئة وكتاب في الأدوية المفردة\\
+وكتاب في علم الحيوان وغير ذلك من الكتب التي نقلها\\
+وشرحها وكان من أعظم النقّال وأجلهم قدراً}
+{His works include: \textit{Euclid's Elements} which he translated from
+the Greek; the \textit{Almagest} of Ptolemy, likewise translated;
+\textit{Kit\=ab f\=i al-Man\d{t}iq}; \textit{Kit\=ab f\=i \textquoteleft Ilm
+al-Hay'a}; \textit{Kit\=ab f\=i al-Adwiya al-Mufrada};
+\textit{Kit\=ab f\=i \textquoteleft Ilm al-\d{H}ayaw\=an}; and other books
+that he translated and commented upon. He was among the greatest and
+most eminent of translators.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\bilingualsubsection{ذكر قسطا بن لوقا ومصنفاته}{Account of Qus\d{t}\=a ibn L\=uq\=a and His Compositions}
+
+\vspace{0.5em}
+\bilingual
+{قسطا بن لوقا البعلبكي كان من أعظم الحكماء وأكثرهم\\
+تصنيفاً في علوم الحساب والهندسة والفلك والطبيعيات\\
+والمنطق والأخلاق وقد نقل كثيراً من كتب اليونانيين\\
+وصححها وشرحها وله مصنفات كثيرة في هذه العلوم}
+{Qus\d{t}\=a ibn L\=uq\=a al-Ba\d{h}labakk\=i was among the greatest
+philosophers and most prolific authors in the sciences of arithmetic,
+geometry, astronomy, natural philosophy, logic, and ethics. He
+translated many books from the Greeks, corrected them, and commented
+upon them. He has many compositions in these sciences.}
+
+\vspace{0.5em}
+\bilingual
+{وله كتاب في علم الهيئة وكتاب في علم الفلك وكتاب في\\
+الهندسة وكتاب في الحساب وكتاب في الموسيقى وكتاب في\\
+علم الطبيعة وكتاب في المنطق وكتاب في الأخلاق وكتاب في\\
+الدواء الشافي وكتاب في عمل الأسطرلاب وكتاب في الب Kilan\\
+وغير ذلك مما لا يحصى كثرة}
+{His works include: \textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a};
+\textit{Kit\=ab f\=i \textquoteleft Ilm al-Falak}; \textit{Kit\=ab f\=i
+al-Hindsa}; \textit{Kit\=ab f\=i al-\d{H}is\=ab}; \textit{Kit\=ab f\=i
+al-M\=us\=iq\=a}; \textit{Kit\=ab f\=i \textquoteleft Ilm al-\d{T}abi\={a}};
+\textit{Kit\=ab f\=i al-Man\d{t}iq}; \textit{Kit\=ab f\=i
+al-Akhl\=aq}; \textit{Kit\=ab f\=i al-Daw\=a' al-Sh\=af\=i};
+\textit{Kit\=ab f\=i \textquoteleft Amal al-Asturl\=ab}; and
+\textit{Kit\=ab f\=i al-B\=i'l\=an}; and others too numerous to count.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\bilingualsubsection{ذكر البتاني ومصنفاته}{Account of al-Batt\=an\=i and His Compositions}
+
+\vspace{0.5em}
+\bilingual
+{محمد بن جابر بن سنان البتاني الحرّاني الصّابي كان عالماً\\
+بعلم الهيئة والفلك فاضلاً فيه بارعاً محققاً قد أصلح\\
+زيج المجسطي وصححه وعمل زيجاً خاصاً به سمي بزيج\\
+الصابي وقد بين فيه أحوال الكواكب وحركاتها ومسيراتها\\
+وكان من أجل أهل هذا العلم وأفضلهم في زمانه}
+{Mu\d{h}ammad ibn J\=abir ibn Sin\=an al-Batt\=an\=i al-\d{H}arr\=an\=i
+al-\d{S}\=ab\=i was a scholar of astronomy, distinguished, outstanding,
+and precise. He corrected the \textit{Z\=ij al-Majis\d{t}\=i} and compiled a
+\textit{z\=ij} of his own called the \textit{Z\=ij al-\d{S}\=ab\=i}, in which
+he explained the conditions of the planets, their motions, and their
+movements. He was among the most eminent and excellent people of this
+science in his time.}
+
+\vspace{0.5em}
+\bilingual
+{وله كتاب الزيج الصابي وكتاب في علم الهيئة وكتاب في\\
+عمل الأسطرلاب وكتاب في علم المساحات وكتاب في علم\\
+الأزياج وكتاب في أحوال الكواكب ومسيراتها وكتاب في\\
+الرصد والملاحظات وغير ذلك من الكتب المفيدة}
+{His works include: \textit{Kit\=ab al-Z\=ij al-\d{S}\=ab\=i};
+\textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a}; \textit{Kit\=ab f\=i
+\textquoteleft Amal al-Asturl\=ab}; \textit{Kit\=ab f\=i \textquoteleft Ilm
+al-Mas\=a\d{h}\=at}; \textit{Kit\=ab f\=i \textquoteleft Ilm al-Az\=y\=aj};
+\textit{Kit\=ab f\=i A\d{h}w\=al al-Kaw\=akib wa Mas\=ar\=atih\=a};
+\textit{Kit\=ab f\=i al-Ra\d{s}d wa al-Mul\=a\d{h}a\d{z}\=at}; and other
+useful books.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\bilingualsubsection{ذكر إبراهيم بن سنان ومصنفاته}{Account of Ibr\=ah\=im ibn Sin\=an and His Compositions}
+
+\vspace{0.5em}
+\bilingual
+{إبراهيم بن سنان بن ثابت بن قرّة الحرّاني كان عالماً\\
+فاضلاً بارعاً في علم الهيئة والهندسة والحساب وقد ورث\\
+العلم عن جده ثابت بن قرّة وأخذه عن أبيه سنان\\
+وكان ذكياً فطناً سريع الفهم قد ألف في مساحة القطع\\
+المكافئ وفي المخروطات وفي علم الفلك}
+{Ibr\=ah\=im ibn Sin\=an ibn Th\=abit ibn Qurra al-\d{H}arr\=an\=i was a
+scholar, distinguished and outstanding in astronomy, geometry, and
+arithmetic. He inherited learning from his grandfather Th\=abit ibn Qurra
+and received it from his father Sin\=an. He was intelligent, sharp, and
+quick of understanding. He composed works on the quadrature of the
+parabola, on conic sections, and on astronomy.}
+
+\vspace{0.5em}
+\bilingual
+{وله كتاب في مساحة القطع المكافئ وكتاب في المخروطات\\
+وكتاب في علم الهيئة وكتاب في علم الفلك وكتاب في حساب\\
+المنازلات وكتاب في الأزياج وكتاب في عمل الأسطرلاب\\
+وكان من أجل علماء عصره وأفضلهم في علم الهيئة\\
+وقد انتقد طريقة بطليموس في بعض ما ذكره في المجسطي}
+{His works include: \textit{Kit\=ab f\=i Mas\=a\d{h}at al-Qi\d{t}\={a}c
+al-Muk\=afi'}; \textit{Kit\=ab f\=i al-Makh\=r\=u\d{t}\=at};
+\textit{Kit\=ab f\=i \textquoteleft Ilm al-Hay'a}; \textit{Kit\=ab f\=i
+\textquoteleft Ilm al-Falak}; \textit{Kit\=ab f\=i \d{H}is\=ab
+al-Man\=azal\=at}; \textit{Kit\=ab f\=i al-Azy\=aj}; and \textit{Kit\=ab
+f\=i \textquoteleft Amal al-Asturl\=ab}. He was among the most eminent
+scholars of his age and the most excellent in astronomy, and he criticized
+Ptolemy's method in some matters mentioned in the \textit{Almagest}.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION V: MEDICINE AND NATURAL SCIENCES
+%% ========================================================================
+\section{Discourse V: Medicine and Natural Sciences}
+\label{sec:V}
+
+\bilingualsection{الفن الخامس في الطب والعلوم الطبيعية}{The Fifth Discourse: Medicine and the Natural Sciences}
+
+\bilingualsubsection{في أطباء اليونان والهنود والفرس}{On the Physicians of the Greeks, Indians, and Persians}
+
+\bilingual
+{وأما أصناف الطب فإنها: علم الأدوية وعلم الأغذية وعلم\\
+الأمراض وأسبابها وعلم الحفظان الصحيح والقانوني\\
+وقد كان أطباء اليونان أعظم الناس في هذا الفن وأجلهم\\
+قَدْراً فمنهم أبقراط وأرسطوطاليس وجالينوس وبولس وبطليموس\\
+وغيرهم وقد نقلت كتبهم إلى العربية فدرسها المسلمون\\
+وأكثروا فيها التصنيف والشرح والتلخيص}
+{The categories of medicine are: the science of drugs, the science of
+nutrition, the science of diseases and their causes, and the science of
+the regimen of health. The Greek physicians were the greatest people in
+this art and the most eminent: among them Hippocrates, Aristotle, Galen,
+Paulus, Ptolemy, and others. Their books were translated into Arabic, and
+the Muslims studied them, composing commentaries, abridgements, and
+summaries.}
+
+\bilingualsubsection{في أطباء المسلمين}{On the Muslim Physicians}
+
+\bilingual
+{وأما أطباء المسلمين فمنهم الحكماء الذين تركوا التصنيف\\
+في الطب كثيراً ومنهم الرازي وابن سينا والزهراوي وابن\\
+ماسويه وبختیشوع وغيرهم وقد صنفوا في هذا العلم\\
+كتباً عظيمة تملأ الأرفف وتضاهي ما صنفه اليونانيون\\
+وقد أضافوا إليه تجاربهم وأبحاثهم في الأدوية المفردة والمركبة}
+{Among the Muslim physicians were wise men who composed abundantly in
+medicine: al-R\=az\=i, Ibn S\=in\=a, al-Zahr\=aw\=i, Ibn M\=asawayh,
+Bakht\=ish\=u\c{c}, and others. They composed great books in this science
+filling the shelves, rivalling what the Greeks composed, and added their
+own experiences and research on simple and compound remedies.}
+
+\vspace{0.5em}
+\bilingualsubsection{في علم الطبيعيات}{On Natural Philosophy}
+
+\bilingual
+{وأما الطبيعيات فهي علوم يعرف بها الأجسام الطبيعية وأمورها\\
+وقد وضع أرسطوطاليس كتباً في هذا العلم سميت بالطبيعيات\\
+ومنها كتاب السماع الطبيعي وكتاب السماء والعالم وكتاب\\
+الكائن والفساد وكتاب الأرواح وكتاب النفس وغيرها\\
+ونقلها المسلمون وشرحوها وزادوا عليها}
+{Natural philosophy is the science by which one knows natural bodies and
+their properties. Aristotle composed books in this science called the
+\textit{Natural Works}: among them \textit{On Natural Hearing}
+(Physics), \textit{On the Heavens and the World}, \textit{On Generation and
+Corruption}, \textit{On Spirits}, \textit{On the Soul}, and others. The
+Muslims translated them, commented upon them, and added to them.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION VI: PHILOSOPHY AND THEOLOGY
+%% ========================================================================
+\section{Discourse VI: Philosophy and Theology}
+\label{sec:VI}
+
+\bilingualsection{الفن السادس في الفلسفة والمنطق والكلام}{The Sixth Discourse: Philosophy, Logic, and Scholastic Theology}
+
+\bilingualsubsection{في الفلسفة}{On Philosophy}
+
+\bilingual
+{وأما الفلسفة فإنها علم يعرف به حقائق الأشياء كما هي\\
+وقد وضع أرسطوطاليس كتباً في هذا العلم متعددة الأبواب\\
+ومنها المنطق والطبيعيات والإلهيات والأخلاق وقد نقلت\\
+كتبه إلى العربية فدرسها المسلمون وشرحوها وألفوا فيها\\
+كتباً جمة فمن أشهرهم الكندي والفارابي وابن سينا}
+{Philosophy is the science by which one knows the realities of things as
+they are. Aristotle composed books in this science of multiple branches:
+logic, natural philosophy, metaphysics, and ethics. His books were
+translated into Arabic; the Muslims studied them, commented upon them,
+and composed abundant books. Among the most famous are: al-Kind\=i,
+al-F\=ar\=ab\=i, and Ibn S\=in\=a.}
+
+\bilingualsubsection{في المنطق}{On Logic}
+
+\bilingual
+{وأما المنطق فهو علم يعرف به الأفكار وكيفية صوابها\\
+وخطأها وقد وضعه أرسطوطاليس في كتب أشهرها الأورغانون\\
+ونقله المسلمون عن اليونانيين ودرسوه وشرحوه\\
+وصنفوا فيه كتباً كثيرة ومن أشهرهم يحيى بن عدي\\
+والفارابي وابن الراوندي وغيرهم}
+{Logic is the science by which one knows thoughts and the manner of their
+correctness and error. Aristotle established it in books whose most
+famous is the \textit{Organon}. The Muslims translated it from the Greeks,
+studied it, commented upon it, and composed many books. Among the most
+famous: Ya\d{h}y\=a ibn \d{c}Ad\=i, al-F\=ar\=ab\=i, and Ibn
+al-R\=awand\=i.}
+
+\bilingualsubsection{في الكلام}{On Scholastic Theology (\textit{Kal\=am})}
+
+\bilingual
+{وأما الكلام فهو علم يعرف به الأحكام الشرعية وأدلتها\\
+وقد كان في صدر الإسلام جماعة من العلماء يتكلمون في\\
+الأحكام ويستدلون عليها فنشأ عنهم أصحاب المذاهب\\
+كالمعتزلة والأشاعرة والمختزلة والمرجئة وغيرهم\\
+وكل فرقة لها مذهب خاص وكتب مصنفة فيه}
+{\textit{Kal\=am} is the science by which one knows legal rulings and their
+proofs. In the early period of Islam there were groups of scholars who
+dealt with rulings and argued for them, giving rise to the sects: the
+Mu\c{t}azila, the Ash\=ariyya, the Khaw\=arij, the Murji'a, and others.
+Each sect has its own doctrine and composed books thereon.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION VII: OCCULT SCIENCES
+%% ========================================================================
+\section{Discourse VII: Occult Sciences}
+\label{sec:VII}
+
+\bilingualsection{الفن السابع في السحر والطلاسم والعزائم والكسوفات}{The Seventh Discourse: Magic, Talismans, Incantations, and Catoptrics}
+
+\bilingualsubsection{في السحر}{On Magic}
+
+\bilingual
+{وأما السحر فهو علم يعرف به التأثيرات الغريبة التي تظهر\\
+خلاف العادة وقد ورد ذكره في القرآن الكريم حيث قال تعالى\\
+وما هم بساحرين وهبط الساحران فقد كان السحرة في\\
+اليونانيين والهنود والفرس كثيراً وقد نقلت كتبهم\\
+إلى العربية ودرسها قوم من المسلمين}
+{Magic is the science by which one knows strange effects that appear
+contrary to custom. It is mentioned in the Noble Qur'an where the
+Exalted says: ``and they were not magicians'' and ``the two magicians
+came down.'' There were many magicians among the Greeks, Indians, and
+Persians; their books were translated into Arabic and studied by some
+Muslims.}
+
+\bilingualsubsection{في الطلاسم والعزائم}{On Talismans and Incantations}
+
+\bilingual
+{وأما الطلاسم فهي أعداد وحروف ورموز تكتب في أوقات\\
+فلكية خاصة على أشياء معينة لغرض معين وتسمى بالطلاسم\\
+لأنها تطلسم أي تختم على العمل وقد صنف فيها كتب\\
+كثيرة أشهرها كتاب الطلاسم لهرمس وكتاب العزائم\\
+لأبي معشر البلخي وغيرهما كثير}
+{Talismans are numbers, letters, and symbols written at special
+astronomical times on specific objects for a particular purpose. They
+are called \textit{tal\=asim} because they are ``sealed'' upon the act.
+Many books have been composed on this subject, the most famous being the
+\textit{Kit\=ab al-\d{T}al\=asim} of Hermes and the \textit{Kit\=ab
+al-\textquoteleft Az\=a'im} of Ab\=u Ma\c{sh}ar al-Balkh\=i, among others.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION VIII: RELIGIOUS SECTS AND DOCTRINES
+%% ========================================================================
+\section{Discourse VIII: Religious Sects and Doctrines}
+\label{sec:VIII}
+
+\bilingualsection{الفن الثامن في أصحاب الملل والنحل والفرق}{The Eighth Discourse: The People of Religions, Sects, and Factions}
+
+\bilingualsubsection{في الملل والنحل}{On Religions and Sects}
+
+\bilingual
+{وأما أصحاب الملل فهم الذين لهم دين مبني على أصل معين\\
+ومنهم أصحاب الكتب السماوية كاليهود والنصارى والمجوس\\
+والصابئة والمشركون ولكل واحدة من هذه الملل فرق\\
+وطوائف متعددة وكل فرقة لها مذهب خاص بها\\
+وكتب مصنفة فيه قديمة وحديثة}
+{The people of religions are those who have a religion built upon a
+certain foundation: among them the People of the Book — the Jews,
+the Christians, the Magians, the Sabians, and the polytheists. Each of
+these religions has multiple sects and factions; each sect has its own
+doctrine and books, ancient and modern.}
+
+\bilingualsubsection{في الفرق الإسلامية}{On Islamic Sects}
+
+\bilingual
+{وأما فرق المسلمين فهم: الخوارج والشيعة والمعتزلة\\
+والأشاعرة والمرجئة والجبرية والقدرية والناجية وغيرهم\\
+وكل واحدة من هذه الفرق لها أئمة ومصنفون وكتب\\
+ومن أشهر المصنفين في فرق المسلمين: النوبختي\\
+والمقدسي وابن حزم والبغدادي وغيرهم}
+{The Islamic factions are: the Khaw\=arij, the Sh\=i\c{a}, the
+Mu\c{t}azila, the Ash\=ariyya, the Murji'a, the Jabriyya, the Qadariyya,
+the Najiya, and others. Each of these factions has its leaders, authors,
+and books. Among the most famous authors on Islamic sects: al-Nawbakht\=i,
+al-Maqdis\=i, Ibn \d{H}azm, and al-Baghd\=ad\=i.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION IX: ALCHEMY
+%% ========================================================================
+\section{Discourse IX: Alchemy}
+\label{sec:IX}
+
+\bilingualsection{الفن التاسع في الكيمياء والصنعة الإلهية}{The Ninth Discourse: Alchemy and the Divine Craft}
+
+\bilingualsubsection{في الكيمياء وأصولها}{On Alchemy and Its Foundations}
+
+\bilingual
+{وأما الكيمياء فهي علم يعرف به تحويل الأجسام من صفة\\
+إلى صفة أخرى وخاصة في المعادن حيث يطلب فيها تحويل\\
+المكلف إلى ذهب وقد ادعى بعضهم أنها علم صحيح وقالوا\\
+إنها صنعة إلهية وإنما يعرفها المخلصون الصادقون\\
+وقال آخرون إنها ليست بعلم صحيح بل هي خدع ومكر}
+{Alchemy is the science by which one knows the transformation of bodies
+from one quality to another, especially metals, where the aim is to turn
+base metal into gold. Some claim it is a true science, calling it the
+``divine craft'' (\textit{\d{s}an\={a}\textquoteleft il\=ahiyya}) and saying
+it is known only by the sincere and truthful. Others say it is not a
+true science but deception and trickery.}
+
+\bilingualsubsection{في المؤلفين في الكيمياء}{On the Authors of Alchemical Works}
+
+\bilingual
+{وقد صنف في الكيمياء قوم كثير منهم جابر بن حيان\\
+وكان من أصحاب الصادق جعفر بن محمد عليه السلام وقد\\
+ألف فيها كتباً كثيرة منها كتاب السبعين وكتاب الرحمة\\
+وكتاب الكمال وكتاب البديع وغيرها ومنهم السرخسي\\
+والطغرائي وابن أبي الصلاح وغيرهم كثير}
+{Many people composed works on alchemy: among them J\=abir ibn
+\d{H}ayy\=an, who was a companion of al-\d{S}\=adiq Ja\d{far} ibn
+Mu\d{h}ammad — peace be upon him. He composed many books on it,
+including the \textit{Kit\=ab al-Sab\={c}in} (Book of Seventy), the
+\textit{Kit\=ab al-Ra\d{h}ma}, the \textit{Kit\=ab al-Kam\=al}, the
+\textit{Kit\=ab al-Bad\={i}\textquoteleft}, and others. Among them also
+al-Sarrakhs\=i, al-\d{T}ughr\=a'\=i, Ibn Ab\=i al-\d{S}al\=a\d{h}, and
+many others.}
+
+\vspace{1em}
+\longline
+
+\newpage
+
+%% ========================================================================
+%% SECTION X: HISTORY, BIOGRAPHY, GENEALOGY (continued)
+%% ========================================================================
+\section{Discourse X: History, Biography, and Genealogy}
+\label{sec:X}
+
+\bilingualsection{الفن العاشر في التاريخ والسير والأنساب}{The Tenth Discourse: History, Biographies, and Genealogy}
+
+\bilingualsubsection{في المؤرخين}{On the Historians}
+
+\bilingual
+{وأما الفن العاشر فهو الفن الأخير في هذا الكتاب وقد\\
+ذكرنا فيه المؤرخين ومصنفي السير والمغازي وأصحاب\\
+الأنساب والأخباريين ومن أشهر المؤرخين: ابن إسحاق\\
+والواقدي وابن هشام وابن سعد والطبري ومسكويه\\
+وابن مiskويه والمسعودي وغيرهم كثير}
+{The tenth discourse is the last in this book. We mention in it the
+historians, authors of \textit{siyar} and \textit{magh\=az\=i}, the
+genealogists, and the annalists. Among the most famous historians: Ibn
+Is\d{h}\=aq, al-W\=aqid\=i, Ibn Hish\=am, Ibn Sa\d{d}, al-\d{T}abar\=i,
+Miskawayh, al-Mas\=ud\=i, and many others.}
+
+\bilingualsubsection{في أصحاب السير والمغازي}{On the Authors of Campaigns and Biographies}
+
+\bilingual
+{وأما أصحاب السير والمغازي فمنهم ابن إسحاق صاحب\\
+كتاب المغازي والفتوح والواقدي صاحب كتاب المغازي\\
+وابن هشام صاحب كتاب السيرة النبوية وابن سعد صاحب\\
+كتاب الطبقات الكبير والبلاذري صاحب كتاب فتوح البلدان\\
+وأنساب الأشراف وغيرهم كثير ممن صنف في هذا الفن}
+{Among the authors of \textit{siyar} and \textit{magh\=az\=i}: Ibn
+Is\d{h}\=aq, author of \textit{Kit\=ab al-Magh\=az\=i wa al-Fut\=u\d{h}};
+al-W\=aqid\=i, author of \textit{Kit\=ab al-Magh\=az\=i}; Ibn Hish\=am,
+author of \textit{Kit\=ab al-S\=ira al-Nabawiyya}; Ibn Sa\d{d}, author of
+\textit{Kit\=ab al-\d{T}abaq\=at al-Kab\=ir}; al-Bal\=adhur\=i, author of
+\textit{Fut\=u\d{h} al-Buld\=an} and \textit{Ans\=ab al-Ashr\=af}; and
+many others who composed in this art.}
+
+\newpage
+
+%% ========================================================================
+%% CLOSING: LEGEND OF KHALID IBN YAZID
+%% ========================================================================
+\section*{Appendix: The Translation Movement}
+\addcontentsline{toc}{section}{Appendix: The Translation Movement}
+
+\bilingualsection{في أول نقل العلوم إلى العربية}{On the First Translation of the Sciences into Arabic}
+
+\bilingualsubsection{قصة خالد بن يزيد}{The Story of Kh\=alid ibn Yaz\=id}
+
+The following celebrated passage from the \textit{Fihrist} recounts the
+legendary origins of the Graeco-Arabic translation movement:
+
+\vspace{0.5em}
+\bilingual
+{كان خالد بن يزيد بن معاوية يُسمّى حكيم آل مروان وكان\\
+فاضلاً في نفسه وله همة ومحبّة للعلوم خطر بباله الصنعة\\
+فأمر بإحضار جماعة من فلاسفة اليونانيين ممن كان ينزل\\
+مدينة مصر وقد تفقه بالعربيّة وأمرهم بنقل الكتب في\\
+الصنعة من اللسان اليوناني والقبطي إلى العربي وهذا أول\\
+نقل كان في الإسلام من لغة إلى لغة ثم نقل الديوان\\
+وكان باللغة الفارسية}
+{Kh\=alid ibn Yaz\=id ibn Mu\=awiya, called the Sage of the Marw\=anids,
+was virtuous in himself, ambitious, and fond of the sciences. It occurred
+to him to commission a group of Greek philosophers residing in Egypt who
+had become proficient in Arabic to translate books on the craft from Greek
+and Coptic into Arabic. This was the first translation in Islam from one
+language to another; then the \textit{d\=iw\=an} was translated from Persian.}
+
+\vspace{0.5em}
+\bilingualsubsection{في بيت الحكمة}{On the House of Wisdom}
+
+\bilingual
+{ثم إن المأمون لما ولي الخلافة أمر بإنشاء بيت الحكمة\\
+في بغداد وجعل فيه جماعة من العلماء والنقّال لينقلوا\\
+كتب الفلسفة والهندسة والفلك والطب والحساب وغيرها\\
+من لغات اليونانيين والسريانيين والفارسيين والهنود\\
+إلى العربية وكان ذلك سبباً عظيماً في نشر العلوم}
+{When al-Ma'mun assumed the caliphate, he ordered the establishment of
+the House of Wisdom (\textit{Bayt al-\d{H}ikma}) in Baghdad and appointed
+scholars and translators to translate books of philosophy, geometry,
+astronomy, medicine, arithmetic, and other sciences from the languages of
+the Greeks, Syriacs, Persians, and Indians into Arabic. This was a great
+cause in the dissemination of the sciences.}
+
+\vspace{1em}
+\longline
+\vspace{0.5em}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{%
+\centering
+\small
+\textbf{End of Bilingual Edition}\\[0.5em]
+This bilingual edition presents a representative selection from the
+\textit{Kit\=ab al-Fihrist} of Ibn al-Nad\=im (c.~987~CE), based on the
+critical edition of Gustav Fl\"ugel (Leipzig: F.~C.~W.~Vogel, 1871--1872).
+The parallel Arabic-English text covers all ten discourses of the
+\textit{Fihrist}, with special emphasis on the mathematical sciences
+and the biographical entries for Islamic mathematicians and scientists.
+The mathematical subsection (Section~IV) constitutes a key primary source
+for the history of Islamic mathematics, preserving unique information
+about al-Khw\=arizm\=i, Th\=abit ibn Qurra, and the translation movement.
+}}
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% INDEX OF PERSONS
+%% ========================================================================
+\section*{Index of Persons}
+\addcontentsline{toc}{section}{Index of Persons}
+
+\begin{longtable}{@{}lp{8cm}@{}}
+\toprule
+\textbf{Name} & \textbf{Significance in the \textit{Fihrist}} \\
+\midrule
+\endhead
+Ab\=u Ma\c{sh}ar al-Balkh\=i & Astrologer; author of the \textit{Kit\=ab al-Madkhal al-Kab\=ir} \\
+al-Batt\=an\=i (Albategnius) & Astronomer; \textit{Z\=ij al-\d{S}\=ab\=i}; refined trigonometric methods \\
+al-Fargh\=an\=i & Astronomer; \textit{Kit\=ab f\=i al-Hay'a} \\
+al-Khw\=arizm\=i & Mathematician; \textit{Kit\=ab al-Jabr}; father of algebra \\
+al-R\=az\=i (Rhazes) & Physician and philosopher; author of the \textit{al-\d{H}\=aw\=i} \\
+Aristotle & Greek philosopher; \textit{Organon}, \textit{Physics}, \textit{Metaphysics} \\
+\d{H}unayn ibn Is\d{h}\=aq & Chief translator of Galen and Hippocrates \\
+Ibn S\=in\=a (Avicenna) & Philosopher and physician; \textit{Canon of Medicine} \\
+Ibr\=ah\=im ibn Sin\=an & Mathematician; quadrature of the parabola \\
+Is\d{h}\=aq ibn \d{H}unayn & Translator of Euclid's \textit{Elements} and Ptolemy's \textit{Almagest} \\
+J\=abir ibn \d{H}ayy\=an & Alchemist; \textit{Kit\=ab al-Sab\={c}in} \\
+Kh\=alid ibn Yaz\=id & Legendary initiator of the translation movement \\
+Ptolemy & Astronomer; \textit{Almagest} \\
+Qus\d{t}\=a ibn L\=uq\=a & Translator; works on astronomy, mechanics, geometry \\
+Th\=abit ibn Qurra & Mathematician, astronomer, translator of Apollonius \\
+\bottomrule
+\end{longtable}
+
+\vspace{1em}
+\begin{center}
+\longline\\[0.5em]
+\textit{Finis}
+\end{center}
+
+\end{document}
+%% ========================================================================
+%% END OF BILINGUAL EDITION
+%% ========================================================================
+

@@ -1,861 +1,884 @@
-%% ========================================================================
-%% Sunzi Suanjing (Master Sun's Mathematical Manual)
-%% 孫子算經 -- One of the earliest surviving Chinese mathematical texts
-%% Contains the earliest known description of the Chinese Remainder Theorem
-%% Modern LaTeX edition%% ========================================================================
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{tocloft}
-\usepackage{indentfirst}
-\usepackage{tcolorbox}
-\usepackage{etoolbox}
-\usepackage{fancyvrb}
-\usepackage{verse}
-\usepackage{url}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=22mm,right=22mm,top=28mm,bottom=28mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-\setotherlanguage{chinese}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-%% -------- xeCJK Setup --------
-\usepackage{xeCJK}
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{chinesebg}{RGB}{255,252,245}
-\definecolor{problembg}{RGB}{250,248,244}
-\definecolor{answerbg}{RGB}{245,250,245}
-\definecolor{methodbg}{RGB}{245,248,252}
-\definecolor{crtgold}{RGB}{139,90,0}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\LARGE\bfseries\color{titlecolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{Sunzi Suanjing}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Environments --------
-\newenvironment{chineseblock}
-  {\begin{quote}\CJKfamily{}\large}
-  {\end{quote}}
-
-\newenvironment{problem}
-  {\begin{tcolorbox}[colback=problembg,colframe=rulecolor,boxrule=0.5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,fonttitle=\bfseries,title=\zh{問}}}
-  {\end{tcolorbox}}
-
-\newenvironment{answer}
-  {\begin{tcolorbox}[colback=answerbg,colframe=rulecolor!70!green,boxrule=0.5pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fonttitle=\bfseries,title=\zh{答}]}
-  {\end{tcolorbox}}
-
-\newenvironment{method}
-  {\begin{tcolorbox}[colback=methodbg,colframe=rulecolor!70!blue,boxrule=0.5pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fonttitle=\bfseries,title=\zh{術}]}
-  {\end{tcolorbox}}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\wen}{\textbf{W\`en}\quad}
-\newcommand{\da}{\textbf{D\'a}\quad}
-\newcommand{\shu}{\textbf{Sh\`u}\quad}
-\newcommand{\zh}[1]{{\CJKfamily{}#1}}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Sunzi Suanjing - Master Sun's Mathematical Manual},
-  pdfauthor={Sunzi (c. 400 CE)}
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
-
-%% ========================================================================
-
-\begin{document}
-
-%% ========================================================================
-%% TITLE PAGE
-%% ========================================================================
-\begin{titlepage}
-\begin{center}
-\vspace*{2cm}
-
-{\fontsize{14}{16}\selectfont\textsc{Classical Chinese Mathematics}}\\[0.8cm]
-
-\longline\\[1.2cm]
-
-{\fontsize{36}{42}\selectfont\bfseries\color{titlecolor}
-\zh{孫子算經}}\\[0.8cm]
-
-{\fontsize{22}{26}\selectfont\itshape Sunzi Suanjing}\\[0.4cm]
-
-{\fontsize{16}{20}\selectfont Master Sun's Mathematical Manual}\\[1.5cm]
-
-\longline\\[1.5cm]
-
-{\large Attributed to \textbf{Sunzi} (Master Sun)}\\[0.3cm]
-{\normalsize c.\ 3rd--5th century CE}\\[2cm]
-
-\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=1pt,
-  width=0.85\textwidth,arc=3mm]
-\centering
-\small
-\textit{One of the Ten Computational Canons (\zh{算經十書})}\\[3pt]
-Listed during the Tang dynasty (618--907 CE)\\[3pt]
-\textbf{Contains the earliest known description of the\\Chinese Remainder Theorem}
-\end{tcolorbox}
-
-\vfill
-
-{\small Modern LaTeX edition\ with XeLaTeX and xeCJK}\\[0.3cm]
-{\small\today}
-
-\end{center}
-\end{titlepage}
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\tableofcontents
-\newpage
-
-%% ========================================================================
-%% INTRODUCTION
-%% ========================================================================
-\section{Introduction}
-
-The \textit{Sunzi Suanjing} (\zh{孫子算經}, ``Master Sun's Mathematical Manual'') is one of the earliest surviving Chinese mathematical texts, written during the 3rd to 5th centuries CE. It was listed as one of the \textit{Ten Computational Canons} (\zh{算經十書}) during the Tang dynasty. The identity of its author, Sunzi (``Master Sun''), remains unknown, though he lived much later than his namesake Sun Tzu, the author of \textit{The Art of War}.
-
-The treatise consists of three volumes (\zh{卷}):
-\begin{itemize}[leftmargin=2em]
-  \item \textbf{Volume I} (\zh{卷上}): Units of measurement, counting rod notation, multiplication and division algorithms, and the multiplication table from 9$\times$9 to 1$\times$1
-  \item \textbf{Volume II} (\zh{卷中}): Fractions, geometry (areas, volumes), and practical problems
-  \item \textbf{Volume III} (\zh{卷下}): 36 problems including the famous ``Problem of the Unknown Quantity''---the earliest known statement of what is now called the \textbf{Chinese Remainder Theorem}
-\end{itemize}
-
-\subsection{Historical Significance}
-
-The \textit{Sunzi Suanjing} holds a special place in the history of mathematics. While it covers routine arithmetic, fractions, and practical calculations, its most celebrated contribution is \textbf{Problem 26 of Volume III}:
-
-\begin{quote}
-\textit{``There are certain things whose number is unknown. If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. How many things are there?''}
-\end{quote}
-
-This problem, known as the ``Problem of the Unknown Quantity'' (\zh{物不知數}), represents the earliest known statement of the Chinese Remainder Theorem. The method described in the text provides the solution:
-\[N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k\]
-where $r_1, r_2, r_3$ are the remainders upon division by 3, 5, and 7 respectively.
-
-The general theorem was later fully developed by Qin Jiushao in his \textit{Mathematical Treatise in Nine Sections} (1247 CE), where he called it the ``Great Extension Seeking-Unity Method'' (\zh{大衍求一術}).
-
-\newpage
-
-%% ========================================================================
-%% PREFACE
-%% ========================================================================
-\section*{Preface (\zh{序})}
-\addcontentsline{toc}{section}{Preface (\zh{序})}
-
-\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=0.8pt,
-  left=10pt,right=10pt,top=8pt,bottom=8pt,arc=2mm]
-\large
-\zh{孫子曰：夫算者，天地之經緯，群生之元首；五常之本末，陰陽之父母；星辰之建號，三光之表裹；五行之準平，四時之終始；萬物之祖宗，六藝之綱紀。稽群倫之聚散，考二氣之降升；推寒暑之迭運，步遠近之殊同；觀天道精微之兆基，察地理從橫之長短；采神祇之所在，極成敗之符驗；窮道德之理，究性命之情。立規矩，準方圓，謹法度，約尺丈，立權衡，平重輕，剖毫釐，析黍絫；歷億載而不朽，施八極而無疆。散之不可勝究，斂之不盈掌握。嚮之者富有餘，背之者貧且窶；心開者幼沖而即悟，意閉者皓首而難精。夫欲學之者必務量能揆己，志在所專。如是則焉有不成者哉。}
-\end{tcolorbox}
-
-\vspace{0.5cm}
-
-\textbf{Translation:}\\[0.3cm]
-Sun Zi said: Calculation is the meridian and latitude of heaven and earth, the origin and head of all living beings; the root and branch of the Five Constants, the father and mother of yin and yang; the establishment of titles for stars and constellations, the exterior and interior of the Three Lights; the standard balance of the Five Elements, the beginning and end of the Four Seasons; the ancestors of all things, the framework and discipline of the Six Arts. Investigate the gathering and dispersing of all categories, examine the descending and ascending movements of the Two Qi; track the alternating cycles of cold and heat, pace the differences and similarities between near and far; observe the subtle omens and foundations of the heavenly Dao, examine the lengths and widths of the horizontal and vertical features of geography; gather signs of where gods and spirits reside, thoroughly test omens of success and failure; exhaust the principles of virtue and morality, investigate the nature and essence of life. Establish rules and compasses, standardize squares and circles, observe laws and regulations carefully, measure with precision in \textit{chi} and \textit{zhang}, set up weights and balances, equalize the heavy and light, dissect thousandths of an inch, analyze grains accumulated one by one; enduring through countless generations without decay, its influence extends to all directions without limit. When dispersed, it is beyond full comprehension; when gathered, it does not fill the palm of one's hand. Those who face toward it are rich with abundance, while those who turn away from it are poor and destitute; those whose minds open understand even as children, while those whose intentions remain closed find mastery difficult even with a white beard. Therefore, one who wishes to study must necessarily measure his own ability and assess himself carefully, setting his mind on specialization in a particular field. If so, how could there be any failure?
-
-\newpage
-
-%% ========================================================================
-%% VOLUME I
-%% ========================================================================
-\section{Volume I (\zh{卷上})}
-
-\subsection*{1. The Origin of Length Measurements}
-
-\begin{problem}
-\zh{度之所起，起於忽。欲知其忽，蠶所生，吐絲為忽。十忽為一秒，十秒為一毫，十毫為一釐，十釐為一分，十分為一寸，十寸為一尺，十尺為一丈，十丈為一引；五十尺為一端；四十尺為一疋；六尺為一步。二百四十步為一畝。三百步為一里。}
-\end{problem}
-
-\textit{The origin of measurement begins with the ``hu.'' To understand the hu, it is said that silkworms produce it by spinning silk. Ten hu make one miao, ten miao make one hao, ten hao make one li, ten li make one fen, ten fen make one cun, ten cun make one chi, ten chi make one zhang, and ten zhang make one yin; fifty chi make one duan; forty chi make one pi; six chi make one bu. Two hundred and forty bu make one mu. Three hundred bu make one li.}
-
-\subsection*{2. The Origin of Weight and Capacity Measurements}
-
-\begin{problem}
-\zh{稱之所起，起於黍。十黍為一絫，十絫為一銖，二十四銖為一兩，十六兩為一斤，三十斤為一鉤，四鉤為一石。量之所起，起於粟。六粟為一圭，十圭為一抄，十抄為一撮，十撮為一勺，十勺為一合，十合為一升，十升為一斗，十斗為一斛。斛得六千萬粟。所以得知者，六粟為一圭，十圭六十粟為一抄，十抄六百粟為一撮，十撮六千粟為一勺，十勺六萬粟為一合，十合六十萬粟為一升，十升六百萬粟為一斗，十斗六千萬粟為一斛。}
-\end{problem}
-
-\subsection*{3. Large Numbers}
-
-\begin{problem}
-\zh{凡大數之法，萬萬曰億，萬萬億曰兆，萬萬兆曰京，萬萬京曰陔，萬萬陔曰秭，萬萬秭曰壤，萬萬壤曰溝，萬萬溝曰澗，萬萬澗日正，萬萬正曰載。}
-\end{problem}
-
-\textit{Generally, the method for large numbers is as follows: ten thousand times ten thousand is yi (\zh{億}); ten thousand times yi is zhao (\zh{兆}); ten thousand times zhao is jing (\zh{京}); ten thousand times jing is gai (\zh{陔}); ten thousand times gai is zi (\zh{秭}); ten thousand times zi is rang (\zh{壤}); ten thousand times rang is gou (\zh{溝}); ten thousand times gou is jian (\zh{澗}); ten thousand times jian is zheng (\zh{正}); and ten thousand times zheng is zai (\zh{載}).}
-
-\subsection*{4. Geometric Ratios}
-
-\begin{problem}
-\zh{周三徑一。方五邪七；見邪求方，五之，七而一；見方求邪，七之，五而一。}
-\end{problem}
-
-\textit{The circumference of a circle is three times its diameter. A square with side length five has a diagonal of seven; to find the side from the diagonal, multiply by five and divide by seven; to find the diagonal from the side, multiply by seven and divide by five.}
-
-\subsection*{5. Weights of Materials}
-
-\begin{problem}
-\zh{黃金方寸重一斤。白金方寸重一十四兩。玉方寸重一十二兩。銅方寸重七兩半。鈆方寸重九兩半。鐵方寸重六兩。石方寸重三兩。}
-\end{problem}
-
-\textit{One cubic cun of gold weighs one jin. One cubic cun of silver weighs fourteen liang. One cubic cun of jade weighs twelve liang. One cubic cun of copper weighs seven and a half liang. One cubic cun of lead weighs nine and a half liang. One cubic cun of iron weighs six liang. One cubic cun of stone weighs three liang.}
-
-\subsection*{6. Counting Rod Notation}
-
-\begin{problem}
-\zh{凡筭之法，先識其位，一從十橫，百立千僵，千十相望，萬百相當。}
-\end{problem}
-
-\textit{The method for calculation begins by identifying the positions: one is vertical, ten is horizontal; a hundred stands upright and a thousand lies flat. Ten hundreds face each other, and thousands and tens correspond to each other in position.}
-
-This describes the traditional Chinese counting rod numeral system:
-\begin{itemize}
-  \item Units (1--9) are represented by \textbf{vertical} rods
-  \item Tens (10--90) are represented by \textbf{horizontal} rods
-  \item Hundreds (100--900) are represented by \textbf{vertical} rods
-  \item Thousands (1000--9000) are represented by \textbf{horizontal} rods
-\end{itemize}
-The pattern alternates between vertical and horizontal for each successive place value.
-
-\subsection*{7. Method of Multiplication}
-
-\begin{problem}
-\zh{凡乘之法，重置其位。上下相觀，上位有十步至十，有百步至百，有千步至千。以上命下，所得之數列於中位。言十即過，不滿自如。上位乘訖者先去之。下位乘訖者則俱退之。六不積，五不隻。上下相乘，至盡則已。}
-\end{problem}
-
-\textit{In multiplication, the positions are arranged again for calculation. By observing vertically and horizontally, if the upper position has ten, it moves to the tens place; if it has a hundred, it moves to the hundreds place; if it has a thousand, it moves to the thousands place. The upper number is used to multiply the lower one, and the resulting product is placed in the middle position. If it reaches ten, carry over; if less than ten, leave as is. After the upper position has been multiplied, remove it first. Once the lower position is multiplied, both are moved back. Six does not accumulate; five does not count as a single unit. Multiplying vertically and horizontally continues until the end is reached.}
-
-\subsection*{8. Method of Division}
-
-\begin{problem}
-\zh{凡除之法，與乘正異。乘得在中央，除得在上方。假令六為法，百為實。以六除百，當進之二等，令在正百下，以六除一，則法多而實少，不可除，故當退就十位。以法除實，言一六而折百為四十，故可除。若實多法少，自當百之，不當復退。故或步法十者置於十位，百者置於百位。上位有空絕者，法退二位。餘法皆如乘時。實有餘者，以法命之，以法為母。實餘為子。}
-\end{problem}
-
-\textit{The method of division differs from multiplication. In multiplication, the result is placed in the center; in division, it appears at the top. Suppose six is the divisor and one hundred is the dividend. Dividing one hundred by six, it should be advanced two positions and placed under the hundreds place. Dividing one by six results in a larger divisor than dividend, which is not possible; therefore, we must retreat to the tens position. Using the divisor to divide the dividend: saying one six and reducing a hundred by sixty results in forty, so division is possible. If the dividend is large and the divisor small, it naturally belongs to the hundreds place, and there is no need to retreat further. Therefore, if a step of ten is taken, it should be placed in the tens position; if a hundred, in the hundreds position. If there is an empty space at the upper position, the divisor must retreat two positions. The remaining methods follow those of multiplication. If there is a remainder in the dividend, name it using the divisor as the denominator. The remainder becomes the numerator.}
-
-\subsection*{9. Conversion Rates}
-
-\begin{problem}
-\zh{以粟求糲米，三之，五而一。以糲米求粟，五之，三而一。以糲米求飯，五之，二而一。以粟米求糲飯，六之，四而一。以糲飯求糲米，二之，五而一。}
-\end{problem}
-
-\subsection*{10. Fractional Reductions}
-
-\begin{problem}
-\zh{十分減一者，以二乘，二十除。減二者，以四乘，二十除。減三者，以六乘，二十除。減四者，以八乘，二十除。減五者，以十乘，二十除。減六者，以十二乘，二十除。減七者，以十四乘，二十除。減八者，以十六乘，二十除。減九者，以十八乘，二十除。}
-\end{problem}
-
-\textit{A reduction of one-tenth is calculated by multiplying by two and dividing by twenty. A reduction of two-tenths by multiplying by four and dividing by twenty, and so on through a reduction of nine-tenths by multiplying by eighteen and dividing by twenty.}
-
-\subsection*{16. Example: $81 \times 81$}
-
-\begin{problem}
-\zh{九九八十一，自相乘，得幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：六千五百六十一。}
-\end{answer}
-\begin{method}
-\zh{術曰：重置其位，以上八呼下八，八八六十四，即下六千四百於中位。以上八呼下一，一八如八，即於中位下八十。退下位一等，收上位八十。以上位一呼下八，一八如八，即於中位下八十。以上一呼下一，一一如一，即於中位下一。上下位俱收，中位即得六千五百六十一。}
-\end{method}
-
-\textit{Ninety-nine times eighty-one, when multiplied together, results in what? Answer: Six thousand five hundred and sixty-one. Method: Arrange the positions again, call out eight from above to multiply with eight below; eight eights are sixty-four. Place six thousand four hundred in the middle position. Call out eight from above to one below, one eight is eight; place eighty in the middle position. Move the lower position back by one rank and add the upper value of eighty. Call out one from above to eight below, one eight is eight, place eighty in the middle position accordingly. Call out one from the upper position to multiply with one from the lower; one times one is one, so place one in the middle position. After collecting both the upper and lower positions, the middle position yields six thousand five hundred sixty-one.}
-
-\subsection*{17. Example: $6561 \div 9$}
-
-\begin{problem}
-\zh{六千五百六十一，九人分之，問人得幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：七百二十九。}
-\end{answer}
-\begin{method}
-\zh{術曰：先置六千五百六十一於中位，為實。下列九人為法。上位置七百，以上七呼下九，七九六十三，即除中位六千三百。退下位一等，即上位置二十。以上二呼下九，二九十八，即除中位一百八十。又更退下位一等，即上位更置九，即以上九呼下九，九九八十一，即除中位八十一。中位盡，收下位。上位所得即人之所得。}
-\end{method}
-
-\textit{Six thousand five hundred sixty-one is to be divided among nine people; how much does each person receive? Answer: Seven hundred and twenty-nine. Method: First place six thousand five hundred sixty-one in the middle position as the dividend. Place nine people below as the divisor. Place seven hundred in the upper position; call out seven from above to multiply by nine below, seven nines are sixty-three, and subtract six thousand three hundred from the middle. Move the lower position back one rank; place twenty in the upper position. Call out two from above to multiply by nine from below, two nines are eighteen, and subtract one hundred eighty from the middle. Move the lower position back another rank, place nine in the upper position again. Call out nine from above to multiply by nine below; nine nines are eighty-one and subtract eighty-one from the middle. When the middle position is exhausted, collect the lower positions. The result in the upper position is what each person receives.}
-
-\newpage
-
-%% ========================================================================
-%% VOLUME II
-%% ========================================================================
-\section{Volume II (\zh{卷中})}
-
-\subsection*{Problem 1. Reducing Fractions}
-
-\begin{problem}
-\zh{今有一十八分之一十二。問約之得幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：三分之二。}
-\end{answer}
-\begin{method}
-\zh{術曰：置十八分在下，一十二分在上。副置二位，以少減多，等數得六，為法。約之，即得。}
-\end{method}
-
-\textit{Now there is twelve eighteenths. Ask: reducing it, what does it equal? Answer: Two thirds. Method: Place eighteen parts below and twelve parts above. Set up both positions, subtract the smaller from the larger; the equal number obtained is six, which is the divisor. Reduce by it, and you obtain the answer.}
-
-\subsection*{Problem 5. Fraction Averaging}
-
-\begin{problem}
-\zh{今有三分之一，三分之二，四分之三。問減多益少，幾何而平？}
-\end{problem}
-\begin{answer}
-\zh{答曰：減四分之三者二，減三分之二者一，并以益三分之一，各平於一十二分之七。}
-\end{answer}
-\begin{method}
-\zh{術曰：置三分、三分、四分在右方，之一、之二、之三在左方。母互乘子，副并得六十三，置右，為平實。母相乘，得三十六，為法。以列數三乘未并者及法。等數得九，約訖。}
-\end{method}
-
-\subsection*{Problem 6. Grain Conversion}
-
-\begin{problem}
-\zh{今有粟一斗，問為糯米幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：六升。}
-\end{answer}
-\begin{method}
-\zh{術曰：置粟一斗，十升。以糲米率三十乘之，得三百升，為實。以粟率五十為法，除之，即得。}
-\end{method}
-
-\subsection*{Problem 9. Brick Calculation}
-
-\begin{problem}
-\zh{今有屋基南北三丈，東西六丈，欲以磚砌之。凡積二尺，用磚五枚。問計幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：四千五百枚。}
-\end{answer}
-\begin{method}
-\zh{術曰：置東西六丈，以南北三丈乘之，得一千八百尺。以五乘之，得九千尺。以二除之，即得。}
-\end{method}
-
-\textit{Now there is a house foundation with a north-south length of three zhang and an east-west width of six zhang, and one wishes to build it using bricks. Generally for every two chi in volume, five bricks are used. Ask how many will be needed? Answer: Four thousand five hundred bricks. Method: Place the east-west length of six zhang, multiply it by the north-south length of three zhang to get one thousand eight hundred chi. Multiply it by five to get nine thousand chi. Divide it by two, and you will obtain the answer.}
-
-\subsection*{Problem 13. Area of a Circular Field}
-
-\begin{problem}
-\zh{今有圓田周三百步，徑一百步。問得田幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：三十一畝奇六十步。}
-\end{answer}
-\begin{method}
-\zh{術曰：先置周三百步，半之，得一百五十步。又置徑一百步，半之，得五十步。相乘，得七千五百步。以畝法二百四十步除之，即得。}
-\end{method}
-
-\textit{Now there is a round field with circumference three hundred bu, diameter one hundred bu. Ask how much land does it amount to? Answer: Thirty-one mu and sixty bu extra. Method: First place the circumference of three hundred bu, halve it to get one hundred fifty bu. Also place the diameter of one hundred bu, halve it, getting fifty bu. Multiply them together to get seven thousand five hundred bu. Divide it by the mu standard of two hundred forty bu, and you will obtain the area.}
-
-\textbf{Alternative methods:}
-
-\zh{又術：周自相乘，得九萬步。以一十二除之，得七千五百步。以畝法除之，得畝數。}
-
-\zh{又術：徑自乘，得一萬。以三乘之，得三萬步。四除之，得七千五百步。以畝法除之，得畝數。}
-
-\subsection*{Problem 14. Square Field with Mulberry Tree}
-
-\begin{problem}
-\zh{今有方田，桑生中央。從角至桑一百四十七步。問為田幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：一頃八十三畝奇一百八十步。}
-\end{answer}
-\begin{method}
-\zh{術曰：置角至桑一百四十七步，倍之，得二百九十四步。以五乘之，得一千四百七十步。以七除之，得二百一十步。自相乘，得四萬四千一百步。以二百四十步除之，即得。}
-\end{method}
-
-\textit{Now there is a square field with mulberry trees growing in the center. From the corner to the mulberry tree is one hundred forty-seven steps. Ask how much field does it amount to? Answer: One qing, eighty-three mu and one hundred eighty steps extra. Method: Place the distance from corner to mulberry tree as one hundred forty-seven bu, double it to get two hundred ninety-four bu. Multiply it by five to get one thousand four hundred seventy steps. Divide it by seven, getting two hundred ten steps. Multiply it by itself to get forty-four thousand one hundred bu. Divide it by two hundred forty steps, and you will get the result.}
-
-\subsection*{Problem 23. Canal Construction}
-
-\begin{problem}
-\zh{今有穿渠，長二十九里一百四步，上廣一丈二尺六寸，下廣八尺，深一丈八尺。秋程人功三百尺。問須功幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：三萬二千六百四十五人，不盡六十九尺六寸。}
-\end{answer}
-\begin{method}
-\zh{術曰：置里數，以三百步乘之，內零步，六之，得五萬二千八百二十四尺。并上、下廣，得二丈六寸。半之，以深乘之，得一百八十五尺四寸。以長乘，得九百七十九萬三千五百六十九尺六寸。以人功三百尺除之，即得。}
-\end{method}
-
-\textit{Now there is a canal to be dug, with length of twenty-nine li and one hundred four bu, upper width of one zhang two chi six cun, lower width of eight chi, depth of one zhang eight chi. The autumn quota for a person's work is three hundred chi. Ask how much labor force is required? Answer: Thirty-two thousand six hundred forty-five persons, with a remainder of sixty-nine chi six cun.}
-
-\newpage
-
-%% ========================================================================
-%% VOLUME III
-%% ========================================================================
-\section{Volume III (\zh{卷下})}
-
-\subsection*{Problem 1. Rent Distribution}
-
-\begin{problem}
-\zh{今有甲、乙、丙、丁、戊、己、庚、辛、壬九家共輸租。甲出三十五斛，乙出四十六斛，丙出五十七斛，丁出六十八斛，戊出七十九斛，己出八十斛，庚出一百斛，辛出二百一十斛，壬出三百二十五斛。凡九家共輸租一千斛。僦運直折二百斛外，問家各幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：甲二十八斛。乙三十六斛八蚪。丙四十五斛六蚪。丁五十四斛四蚪。戊六十三斛二蚪。己六十四斛。庚八十斛。辛一百六十八斛。壬二百六十斛。}
-\end{answer}
-\begin{method}
-\zh{術曰：置甲出三十五斛，以四乘之，得一百四十斛。以五除之，得二十八斛。乙出四十六斛，以四乘之，得一百八十四斛。以五除之，得三十六斛八蚪。……}
-\end{method}
-
-\textit{Now there are Jia, Yi, Bing, Ding, Wu, Ji, Geng, Xin, and Ren---nine families jointly paying rent. Jia contributed 35 hu, Yi 46 hu, Bing 57 hu, Ding 68 hu, Wu 79 hu, Ji 80 hu, Geng 100 hu, Xin 210 hu, and Ren 325 hu. In total, the nine families jointly paid a rent of 1,000 hu. After deducting the cost of hiring transport, which amounted to 200 hu, how much should each family contribute? Answer: Jia 28 hu, Yi 36 hu 8 dou, Bing 45 hu 6 dou, Ding 54 hu 4 dou, Wu 63 hu 2 dou, Ji 64 hu, Geng 80 hu, Xin 168 hu, Ren 260 hu. Method: Take each family's contribution, multiply by four, and divide by five.}
-
-\subsection*{Problem 3. Pile of Millet}
-
-\begin{problem}
-\zh{今有平地聚粟，下周三丈六尺，高四尺五寸。問粟幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：一百斛。}
-\end{answer}
-\begin{method}
-\zh{術曰：置周三丈六尺，自相乘，得一千二百九十六尺。以高四尺五寸乘之，得五千八百三十二尺。以三十六除之，得一百六十二尺。以斛法一尺六寸二分除之，即得。}
-\end{method}
-
-\subsection*{Problem 5. Go Board}
-
-\begin{problem}
-\zh{今有碁局方一十九道。問用碁幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：三百六十一。}
-\end{answer}
-\begin{method}
-\zh{術曰：置一十九道，自相乘之，即得。}
-\end{method}
-
-\textit{Now there is a Go board with a square pattern of nineteen lines on each side. How many pieces are used? Answer: 361. Method: Take the nineteen lines, multiply them by themselves, and you get the result.}\\
-\textit{This gives $19^2 = 361$ intersection points on a Go board.}
-
-\subsection*{Problem 15. People and Carts}
-
-\begin{problem}
-\zh{今有三人共車，二車空；二人共車，九人步。問人與車各幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：一十五車。三十九人。}
-\end{answer}
-\begin{method}
-\zh{術曰：置二車，以三乘之，得六。加步者九人，得車一十五。欲知人者，以二乘車，加九人，即得。}
-\end{method}
-
-\textit{Now there are three people sharing a cart, and two carts remain empty; two people share another cart, while nine people walk. What are the numbers of people and carts? Answer: Fifteen carts, thirty-nine people.}
-
-\subsection*{Problem 17. Guests at a Feast}
-
-\begin{problem}
-\zh{今有婦人河上蕩桮。津吏問曰：「桮何以多？」婦人曰：「家有客。」津吏曰：「客幾何？」婦人曰：「二人共飯，三人共羹，四人共肉，凡用桮六十五。不知客幾何？」}
-\end{problem}
-\begin{answer}
-\zh{答曰：六十人。}
-\end{answer}
-\begin{method}
-\zh{術曰：置六十五桮，以一十二乘之，得七百八十，以十三除之，即得。}
-\end{method}
-
-\textit{Now there is a woman washing cups at the riverbank. The ferry official asked, ``Why are so many cups?'' The woman replied, ``There are guests at my home.'' The ferry official asked, ``How many guests?'' The woman said: ``Two people share a meal, three people share soup, four people share meat, and in total sixty-five cups are used. I do not know how many guests there are.'' Answer: Sixty people. Method: Take the 65 cups, multiply by twelve to get 780, then divide by thirteen; thus you obtain the answer.}
-
-\subsection*{Problem 18. Wood and Rope}
-
-\begin{problem}
-\zh{今有木，不知長短。引繩度之，餘繩四尺五寸。屈繩量之，不足一尺。問木長幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：六尺五寸。}
-\end{answer}
-\begin{method}
-\zh{術曰：置餘繩四尺五寸，加不足一尺，共五尺五寸。倍之，得一丈一尺。減餘四尺五寸，即得。}
-\end{method}
-
-\textit{Now there is a piece of wood whose length is unknown. Using a rope to measure it, the rope has 4 chi and 5 cun left over. Folding the rope to measure it results in one chi short. What is the length of the wood? Answer: Six chi and five cun.}
-
-\subsection*{Problem 19. Rice in a Vessel}
-
-\begin{problem}
-\zh{今有器中米，不知其數。前人取半，中人三分取一，後人四分取一，餘米一斗五升。問本米幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：六斗。}
-\end{answer}
-\begin{method}
-\zh{術曰：置餘米一斗五升，以六乘之，得九斗。以二除之，得四斗五升。以四乘之，得一斛八斗。以三除之，即得。}
-\end{method}
-
-\textit{Now there is rice in a vessel, but its quantity is unknown. The first person took half, the second person took one-third of what remained, the third person took one-fourth of what was left after that, and there were 1 dou 5 sheng of rice remaining. What was the original amount of rice? Answer: Six dou.}
-
-\subsection*{Problem 27. Birds and Beasts}
-
-\begin{problem}
-\zh{今有獸六首四足，禽四首二足。上有七十六首，下有四十六足。問禽、獸各幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：八獸，七禽。}
-\end{answer}
-\begin{method}
-\zh{術曰：倍足以減首，餘，半之，即禽。四乘禽數，減足，餘，半之，即獸。}
-\end{method}
-
-\textit{Now there are beasts with six heads and four feet, and birds with four heads and two feet. Above there are seventy-six heads, below there are forty-six feet. Ask: How many birds and beasts are there? Answer: Eight beasts, seven birds.}
-
-\subsection*{Problem 29. One Hundred Deer}
-
-\begin{problem}
-\zh{今有百鹿入城，家取一鹿，不盡；又三家共一鹿，適盡。問城中家幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：七十五家。}
-\end{answer}
-\begin{method}
-\zh{術曰：以盈不足取之。假令七十二家，鹿不盡四。令之九十家，鹿不足二十。置七十二於右上，盈四於右下。置九十於左上，不足二十於左下。維乘之，所得，并為實。并盈不足為法。除之，即得。}
-\end{method}
-
-\textit{Now there are one hundred deer entering a city; each household takes one deer, but they do not finish; then three households share one deer and it is just finished. Ask: How many households are in the city? Answer: Seventy-five households.}
-
-\subsection*{Problem 31. Pheasants and Rabbits in a Cage}
-
-\begin{problem}
-\zh{今有雉、兔同籠，上有三十五頭，下九十四足。問雉、兔各幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：雉二十三。兔一十二。}
-\end{answer}
-\begin{method}
-\zh{術曰：上置三十五頭，下置九十四足。半其足，得四十七。以少減多，再命之，上三除下三，上五除下五。下有一除上一，下有二除上二，即得。}
-\end{method}
-
-\textit{Now there are pheasants and rabbits in a cage, with thirty-five heads above and ninety-four feet below. Ask: How many pheasants and how many rabbits are there? Answer: Twenty-three pheasants, twelve rabbits.}\\
-\textit{This is the classic ``chicken and rabbit in a cage'' problem, a staple of Chinese mathematics.}
-
-\textbf{Alternative method:} \zh{又術曰：上置頭，下置足。半其足，以頭除足，以足除頭，即得。}
-
-\subsection*{Problem 34. Nine Dikes}
-
-\begin{problem}
-\zh{今有出門望見九隄。隄有九木，木有九枝，枝有九巢，巢有九禽，禽有九雛，雛有九毛，毛有九色。問各幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：木八十一。枝七百二十九。巢六千五百六十一。禽五萬九千四十九。雛五十三萬一千四百四十一。毛四百七十八萬二千九百六十九。色四千三百四萬六千七百二十一。}
-\end{answer}
-\begin{method}
-\zh{術曰：置九隄，以九乘之，得木之數。又以九乘之，得枝之數。又以九乘之，得巢之數。又以九乘之，得禽之數。又以九乘之，得雛之數。又以九乘之，得毛之數。又以九乘之，得色之數。}
-\end{method}
-
-\textit{Now there is someone who goes out of the gate and sees nine dikes. Each dike has nine trees, each tree has nine branches, each branch has nine nests, each nest has nine birds, each bird has nine chicks, each chick has nine feathers, and each feather has nine colors. Ask: How many of each are there?}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}ll@{}}
-\toprule
-\textbf{Item} & \textbf{Count} \\
-\midrule
-Trees (\zh{木}) & 81 \\
-Branches (\zh{枝}) & 729 \\
-Nests (\zh{巢}) & 6,561 \\
-Birds (\zh{禽}) & 59,049 \\
-Chicks (\zh{雛}) & 531,441 \\
-Feathers (\zh{毛}) & 4,782,969 \\
-Colors (\zh{色}) & 43,046,721 \\
-\bottomrule
-\end{tabular}
-\caption{The powers of nine from the Nine Dikes problem}
-\end{table}
-
-\subsection*{Problem 35. Three Daughters}
-
-\begin{problem}
-\zh{今有三女，長女五日一歸，中女四日一歸，少女三日一歸。問三女幾何日相會？}
-\end{problem}
-\begin{answer}
-\zh{答曰：六十日。}
-\end{answer}
-\begin{method}
-\zh{術曰：置長女五日、中女四日、少女三日，於右方。各列一算於左方。維乘之，各得所到數：長女十二到，中女十五到，少女二十到。又各以歸日乘到數，即得。}
-\end{method}
-
-\textit{Now there are three daughters: the eldest daughter returns home every five days, the middle daughter every four days, and the youngest daughter every three days. Ask: After how many days will the three daughters meet again? Answer: Sixty days. Method: Place the eldest daughter's five days, the middle daughter's four days, and the youngest daughter's three days on the right side. Place one counter for each on the left side. Multiply them, and you get their respective numbers of arrivals: the eldest daughter arrives twelve times, the middle daughter fifteen times, and the youngest daughter twenty times. Then multiply each return day by the number of arrivals, and you will get it.}\\
-\textit{This is a least common multiple problem: $\text{lcm}(3,4,5) = 60$.}
-
-\newpage
-
-%% ========================================================================
-%% THE CHINESE REMAINDER THEOREM
-%% ========================================================================
-\section*{\zh{物不知數} --- Problem of the Unknown Quantity}
-\addcontentsline{toc}{section}{The Chinese Remainder Theorem (\zh{物不知數})}
-
-\begin{tcolorbox}[colback=crtgold!8,colframe=crtgold,boxrule=1.5pt,
-  left=12pt,right=12pt,top=10pt,bottom=10pt,arc=4mm,
-  title={\textbf{\large Problem 26, Volume III (\zh{卷下第26問})}},
-  fonttitle=\bfseries\color{white},coltitle=white,
-  colbacktitle=crtgold]
-
-\vspace{0.3cm}
-\begin{problem}
-\zh{今有物，不知其數。三、三數之，賸二；五、五數之，賸三；七、七數之，賸二。問物幾何？}
-\end{problem}
-
-\begin{answer}
-\zh{答曰：二十三。}
-\end{answer}
-
-\begin{method}
-\zh{術曰：「三、三數之，賸二」，置一百四十；「五、五數之，賸三」，置六十三；「七、七數之，賸二」，置三十。并之，得二百三十三。以二百一十減之，即得。凡三、三數之，賸一，則置七十；五、五數之，賸一，則置二十一；七、七數之，賸一，則置十五。一百六以上，以一百五減之，即得。}
-\end{method}
-\end{tcolorbox}
-
-\vspace{0.5cm}
-
-\textbf{Translation:}\\[0.3cm]
-\textit{``Now there is an object, but we do not know its quantity. Counting it in groups of three leaves a remainder of two; counting it in groups of five leaves a remainder of three; counting it in groups of seven leaves a remainder of two. What is the quantity of the object?''}
-
-\vspace{0.3cm}
-\textbf{Answer:} \textit{Twenty-three.}
-
-\vspace{0.3cm}
-\textbf{Method:} \textit{``Counting in groups of three, remainder two,'' set down one hundred and forty; ``Counting in groups of five, remainder three,'' set down sixty-three; ``Counting in groups of seven, remainder two,'' set down thirty. Add them together to get two hundred and thirty-three. Subtract two hundred and ten from it, and you will obtain the answer. Generally, if counting in groups of three leaves remainder one, set down seventy; if counting in groups of five leaves remainder one, set down twenty-one; if counting in groups of seven leaves remainder one, then set down fifteen. If the total is more than 160, subtract 150 from it; thus you obtain the answer.}
-
-\subsection*{Modern Mathematical Analysis}
-
-In modern notation, this problem asks us to find the smallest positive integer $N$ satisfying the system of congruences:
-\begin{align*}
-N &\equiv 2 \pmod{3} \\
-N &\equiv 3 \pmod{5} \\
-N &\equiv 2 \pmod{7}
-\end{align*}
-
-The method gives:
-\begin{align*}
-N &= 140 + 63 + 30 - 210 \\
-  &= 233 - 210 \\
-  &= 23
-\end{align*}
-
-The three key numbers \textbf{70}, \textbf{21}, and \textbf{15} have special properties:
-\begin{itemize}[leftmargin=2em]
-  \item $70 = 2 \times 5 \times 7 \equiv 1 \pmod{3}$, and $70 \equiv 0 \pmod{5}$, $70 \equiv 0 \pmod{7}$
-  \item $21 = 1 \times 3 \times 7 \equiv 1 \pmod{5}$, and $21 \equiv 0 \pmod{3}$, $21 \equiv 0 \pmod{7}$
-  \item $15 = 1 \times 3 \times 5 \equiv 1 \pmod{7}$, and $15 \equiv 0 \pmod{3}$, $15 \equiv 0 \pmod{5}$
-\end{itemize}
-
-Since $3 \times 5 \times 7 = 105$, the general solution is:
-\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
-where $r_1, r_2, r_3$ are the remainders and $k$ is chosen to make $N$ positive and minimal.
-
-\subsection*{Verification}
-
-\begin{align*}
-23 \div 3 &= 7 \text{ remainder } \mathbf{2} \quad \checkmark \\
-23 \div 5 &= 4 \text{ remainder } \mathbf{3} \quad \checkmark \\
-23 \div 7 &= 3 \text{ remainder } \mathbf{2} \quad \checkmark
-\end{align*}
-
-\subsection*{Sunzi's Formula}
-
-For general remainders $r_1, r_2, r_3$:
-\[
-\boxed{N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k}
-\]
-
-where $M = 3 \times 5 \times 7 = 105$ is the least common multiple, and:
-\begin{itemize}
-  \item $70 = 105/3 \times 2$ is the multiplier for remainder mod 3
-  \item $21 = 105/5 \times 1$ is the multiplier for remainder mod 5
-  \item $15 = 105/7 \times 1$ is the multiplier for remainder mod 7
-\end{itemize}
-
-\subsection*{Historical Significance}
-
-This problem, known as the \textbf{``Problem of the Unknown Quantity''} (\zh{物不知數}), is the earliest known statement of what we now call the \textbf{Chinese Remainder Theorem}. While Sunzi's text gives only a specific numerical method without proof, it contains the essential idea:
-
-\begin{enumerate}
-  \item Find numbers that are multiples of all but one modulus, and leave remainder 1 when divided by the remaining modulus
-  \item Multiply each such number by the corresponding remainder
-  \item Sum the results and subtract multiples of the LCM to get the smallest positive solution
-\end{enumerate}
-
-The general theorem was later fully developed by \textbf{Qin Jiushao} (秦九韶, 1202--1261) in his \textit{Mathematical Treatise in Nine Sections} (\zh{數書九章}, 1247 CE), where he called it the \textbf{``Great Extension Seeking-Unity Method''} (\zh{大衍求一術}). This method could solve systems of arbitrary linear congruences.
-
-In Europe, similar methods were not developed until the work of Euler (1743) and Gauss (1801). In 1852, the British missionary Alexander Wylie published notes on Chinese science, introducing this problem to European mathematicians. In 1876, the German mathematician L. Matthiessen first pointed out that Sunzi's solution was consistent with Gauss's method.
-
-\subsection*{The ``Sunzi Song'' (\zh{孫子歌})}
-
-A rhymed verse summarizing the method circulated widely among the people and was later recorded by Cheng Dawei in his \textit{Systematic Treatise on Algorithms} (\zh{算法統宗}, 1592):
-
-\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=0.8pt,
-  width=0.9\textwidth,arc=2mm]
-\centering\large
-\zh{三人同行七十稀，五樹梅花廿一枝，}\\[2pt]
-\zh{七子團圓正半月，除百零五便得知。}
-\end{tcolorbox}
-
-\textit{Translation: ``Three people walking together---seventy is rare; five plum trees---twenty-one branches; seven sons reunite---half a full moon (15); subtract one hundred and five, then you will know.''}
-
-This gives the key numbers: \textbf{70} for mod 3, \textbf{21} for mod 5, \textbf{15} for mod 7, and \textbf{105} as the LCM.
-
-\newpage
-
-%% ========================================================================
-%% REMAINING PROBLEMS FROM VOLUME III
-%% ========================================================================
-\section*{Remaining Problems from Volume III}
-\addcontentsline{toc}{section}{Remaining Problems from Volume III}
-
-\subsection*{Problem 28. Money Exchange}
-
-\begin{problem}
-\zh{今有甲、乙二人，持錢各不知數。甲得乙中半，可滿四十八。乙得甲太半，亦滿四十八。問甲、乙二人元持錢各幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：甲持錢三十六。乙持錢二十四。}
-\end{answer}
-\begin{method}
-\zh{術曰：如方程求之。置二甲、一乙、錢九十六，於右方。置二甲、三乙、錢一百四十四，於左方。以右方二乘左方，上得四，中得六，下得二百八十八錢。以右行再減左行，左上空，中餘四乙，為法；下餘九十六錢，為實。上法，下實，得二十四錢，為乙錢。以減右下九十六，餘七十二，為實；以右上二甲為法。上法、下實，得三十六，為甲錢也。}
-\end{method}
-
-\textit{Now there are two people, Jia and Yi, each holding an unknown amount of money. If Jia receives half of what Yi has, he will have a total of forty-eight. If Yi receives two-thirds of what Jia has, he too will have a total of forty-eight. Ask: Originally, how much money did Jia and Yi each hold? Answer: Jia originally held thirty-six units of money. Yi originally held twenty-four units of money.}
-
-\subsection*{Problem 30. Three Chickens}
-
-\begin{problem}
-\zh{今有三雞共啄粟一千一粒。雛啄一，母啄二，翁啄四。主責本粟，三雞主各償幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：雞雛主一百四十三。雞母主二百八十六。雞翁主五百七十二。}
-\end{answer}
-\begin{method}
-\zh{術曰：置粟一千一粒，為實。副并三雞所啄粟七粒，為法。除之，得一百四十三粒，為雞雛主所償之數。遞倍之，即得母、翁主所償之數。}
-\end{method}
-
-\textit{Now there are three chickens pecking at one thousand and one grains of millet. A chick pecks one grain, a hen pecks two, and a rooster pecks four. How many grains should each of the three chickens' owners compensate? Answer: The chick's owner compensates 143, the hen's owner compensates 286, and the rooster's owner compensates 572.}
-
-\subsection*{Problem 32. Fish in a Ditch}
-
-\begin{problem}
-\zh{今有九里渠，三寸魚，頭頭相次。問魚得幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：五萬四千。}
-\end{answer}
-\begin{method}
-\zh{術曰：置九里，以三百步乘之，得二千七百步。又以六尺乘之，得一萬六千二百尺。上十之，得一十六萬二千寸。以魚三寸除之，即得。}
-\end{method}
-
-\textit{Now there is a ditch nine li long; fish of three cun are lined up head to tail. Ask: How many fish can fit? Answer: Fifty-four thousand.}
-
-\subsection*{Problem 33. Wheel Turns from Luoyang to Chang'an}
-
-\begin{problem}
-\zh{今有長安、洛陽相去九百里。車輪一匝一丈八尺。欲自洛陽至長安，問輪匝幾何？}
-\end{problem}
-\begin{answer}
-\zh{答曰：九萬匝。}
-\end{answer}
-\begin{method}
-\zh{術曰：置九百里，以三百步乘之，得二十七萬步。又以六尺乘之，得一百六十二萬尺。以車輪一丈八尺為法。除之，即得。}
-\end{method}
-
-\textit{Now there are Chang'an and Luoyang, 900 li apart. A cart wheel turns one zha for every one zhang eight chi. If one wishes to travel from Luoyang to Chang'an, how many wheel turns are needed? Answer: Ninety thousand turns.}
-
-\subsection*{Problem 36. Predicting the Gender of an Unborn Child}
-
-\begin{problem}
-\zh{今有孕婦行年二十九，難九月。未知所生？}
-\end{problem}
-\begin{answer}
-\zh{答曰：生男。}
-\end{answer}
-\begin{method}
-\zh{術曰：置四十九，加難月，減行年。所餘，以天除一，地除二，人除三，四時除四，五行除五，六律除六，七星除七，八風除八，九州除九。其不盡者，奇則為男，耦則為女。}
-\end{method}
-
-\textit{Now there is a pregnant woman whose age is twenty-nine, giving birth in the ninth month. It is unknown what will be born? Answer: A boy will be born. Method: Set forty-nine, add the month of childbirth, subtract the age. The remainder is divided by: Heaven subtracts one, Earth subtracts two, Humanity subtracts three, Four Seasons subtract four, Five Elements subtract five, Six Laws subtract six, Seven Stars subtract seven, Eight Winds subtract eight, Nine Provinces subtract nine. If the remainder is not exhausted, an odd number means a boy will be born, and an even number means a girl will be born.}
-
-\newpage
-
-%% ========================================================================
-%% EPILOGUE
-%% ========================================================================
-\section*{Epilogue}
-\addcontentsline{toc}{section}{Epilogue}
-
-The \textit{Sunzi Suanjing} stands as a remarkable testament to the sophistication of ancient Chinese mathematics. While the text covers basic arithmetic---units of measurement, multiplication tables, and simple fractions---its greatest legacy lies in the brief but brilliant ``Problem of the Unknown Quantity'' that opens the door to modern number theory.
-
-The Chinese Remainder Theorem, as this method came to be known in the West, would not be fully formalized in Europe for over a millennium. The algorithm described by Sunzi contains the essential ingredients of the modern theorem: the construction of auxiliary numbers with specific divisibility properties, their combination with the given remainders, and reduction modulo the least common multiple.
-
-The influence of this text extended far beyond China. The problem circulated as a mathematical puzzle throughout East Asia, and the general method developed by Qin Jiushao represents one of the great achievements of medieval mathematics anywhere in the world.
-
-\vspace{1cm}
-\begin{center}
-\longline
-\end{center}
-
-\vspace{0.5cm}
-
-\begin{center}
-\textit{Typeset from the classical Chinese text as preserved in the}\\
-\textit{Chinese Text Project} (https://ctext.org/sunzi-suan-jing)
-\end{center}
-
-\end{document}
+%% ========================================================================
+%% Sunzi Suanjing (Master Sun's Mathematical Manual)
+%% 孫子算經 -- One of the earliest surviving Chinese mathematical texts
+%% Contains the earliest known description of the Chinese Remainder Theorem
+%% Typeset in LaTeX with polyglossia and xeCJK
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{fancyvrb}
+\usepackage{verse}
+\usepackage{url}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{chinese}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Renderer=Harfbuzz
+]
+\setsansfont{Linux Biolinum O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  Renderer=Harfbuzz
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% -------- xeCJK Setup --------
+\usepackage{xeCJK}
+\setCJKmainfont{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKsansfont{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKmonofont{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{chinesebg}{RGB}{255,252,245}
+\definecolor{problembg}{RGB}{250,248,244}
+\definecolor{answerbg}{RGB}{245,250,245}
+\definecolor{methodbg}{RGB}{245,248,252}
+\definecolor{crtgold}{RGB}{139,90,0}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\color{titlecolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Sunzi Suanjing}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Environments --------
+\newenvironment{chineseblock}
+  {\begin{quote}\CJKfamily{}\large}
+  {\end{quote}}
+
+\newenvironment{problem}
+  {\begin{tcolorbox}[colback=problembg,colframe=rulecolor,boxrule=0.5pt,left=8pt,right=8pt,top=6pt,bottom=6pt,fonttitle=\bfseries,title=\zh{問}}}
+  {\end{tcolorbox}}
+
+\newenvironment{answer}
+  {\begin{tcolorbox}[colback=answerbg,colframe=rulecolor!70!green,boxrule=0.5pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fonttitle=\bfseries,title=\zh{答}]}
+  {\end{tcolorbox}}
+
+\newenvironment{method}
+  {\begin{tcolorbox}[colback=methodbg,colframe=rulecolor!70!blue,boxrule=0.5pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fonttitle=\bfseries,title=\zh{術}]}
+  {\end{tcolorbox}}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\wen}{\textbf{W\`en}\quad}
+\newcommand{\da}{\textbf{D\'a}\quad}
+\newcommand{\shu}{\textbf{Sh\`u}\quad}
+\newcommand{\zh}[1]{{\CJKfamily{}#1}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Sunzi Suanjing - Master Sun's Mathematical Manual},
+  pdfauthor={Sunzi (c. 400 CE)}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\fontsize{14}{16}\selectfont\textsc{Classical Chinese Mathematics}}\\[0.8cm]
+
+\longline\\[1.2cm]
+
+{\fontsize{36}{42}\selectfont\bfseries\color{titlecolor}
+\zh{孫子算經}}\\[0.8cm]
+
+{\fontsize{22}{26}\selectfont\itshape Sunzi Suanjing}\\[0.4cm]
+
+{\fontsize{16}{20}\selectfont Master Sun's Mathematical Manual}\\[1.5cm]
+
+\longline\\[1.5cm]
+
+{\large Attributed to \textbf{Sunzi} (Master Sun)}\\[0.3cm]
+{\normalsize c.\ 3rd--5th century CE}\\[2cm]
+
+\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=1pt,
+  width=0.85\textwidth,arc=3mm]
+\centering
+\small
+\textit{One of the Ten Computational Canons (\zh{算經十書})}\\[3pt]
+Listed during the Tang dynasty (618--907 CE)\\[3pt]
+\textbf{Contains the earliest known description of the\\Chinese Remainder Theorem}
+\end{tcolorbox}
+
+\vfill
+
+{\small Typeset in \LaTeX\ with XeLaTeX and xeCJK}\\[0.3cm]
+{\small\today}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{Introduction}
+
+The \textit{Sunzi Suanjing} (\zh{孫子算經}, ``Master Sun's Mathematical Manual'') is one of the earliest surviving Chinese mathematical texts, written during the 3rd to 5th centuries CE. It was listed as one of the \textit{Ten Computational Canons} (\zh{算經十書}) during the Tang dynasty. The identity of its author, Sunzi (``Master Sun''), remains unknown, though he lived much later than his namesake Sun Tzu, the author of \textit{The Art of War}.
+
+The treatise consists of three volumes (\zh{卷}):
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Volume I} (\zh{卷上}): Units of measurement, counting rod notation, multiplication and division algorithms, and the multiplication table from 9$\times$9 to 1$\times$1
+  \item \textbf{Volume II} (\zh{卷中}): Fractions, geometry (areas, volumes), and practical problems
+  \item \textbf{Volume III} (\zh{卷下}): 36 problems including the famous ``Problem of the Unknown Quantity''---the earliest known statement of what is now called the \textbf{Chinese Remainder Theorem}
+\end{itemize}
+
+\subsection{Historical Significance}
+
+The \textit{Sunzi Suanjing} holds a special place in the history of mathematics. While it covers routine arithmetic, fractions, and practical calculations, its most celebrated contribution is \textbf{Problem 26 of Volume III}:
+
+\begin{quote}
+\textit{``There are certain things whose number is unknown. If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. How many things are there?''}
+\end{quote}
+
+This problem, known as the ``Problem of the Unknown Quantity'' (\zh{物不知數}), represents the earliest known statement of the Chinese Remainder Theorem. The method described in the text provides the solution:
+\[N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k\]
+where $r_1, r_2, r_3$ are the remainders upon division by 3, 5, and 7 respectively.
+
+The general theorem was later fully developed by Qin Jiushao in his \textit{Mathematical Treatise in Nine Sections} (1247 CE), where he called it the ``Great Extension Seeking-Unity Method'' (\zh{大衍求一術}).
+
+\newpage
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\section*{Preface (\zh{序})}
+\addcontentsline{toc}{section}{Preface (\zh{序})}
+
+\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=0.8pt,
+  left=10pt,right=10pt,top=8pt,bottom=8pt,arc=2mm]
+\large
+\zh{孫子曰：夫算者，天地之經緯，群生之元首；五常之本末，陰陽之父母；星辰之建號，三光之表裹；五行之準平，四時之終始；萬物之祖宗，六藝之綱紀。稽群倫之聚散，考二氣之降升；推寒暑之迭運，步遠近之殊同；觀天道精微之兆基，察地理從橫之長短；采神祇之所在，極成敗之符驗；窮道德之理，究性命之情。立規矩，準方圓，謹法度，約尺丈，立權衡，平重輕，剖毫釐，析黍絫；歷億載而不朽，施八極而無疆。散之不可勝究，斂之不盈掌握。嚮之者富有餘，背之者貧且窶；心開者幼沖而即悟，意閉者皓首而難精。夫欲學之者必務量能揆己，志在所專。如是則焉有不成者哉。}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\textbf{Translation:}\\[0.3cm]
+Sun Zi said: Calculation is the meridian and latitude of heaven and earth, the origin and head of all living beings; the root and branch of the Five Constants, the father and mother of yin and yang; the establishment of titles for stars and constellations, the exterior and interior of the Three Lights; the standard balance of the Five Elements, the beginning and end of the Four Seasons; the ancestors of all things, the framework and discipline of the Six Arts. Investigate the gathering and dispersing of all categories, examine the descending and ascending movements of the Two Qi; track the alternating cycles of cold and heat, pace the differences and similarities between near and far; observe the subtle omens and foundations of the heavenly Dao, examine the lengths and widths of the horizontal and vertical features of geography; gather signs of where gods and spirits reside, thoroughly test omens of success and failure; exhaust the principles of virtue and morality, investigate the nature and essence of life. Establish rules and compasses, standardize squares and circles, observe laws and regulations carefully, measure with precision in \textit{chi} and \textit{zhang}, set up weights and balances, equalize the heavy and light, dissect thousandths of an inch, analyze grains accumulated one by one; enduring through countless generations without decay, its influence extends to all directions without limit. When dispersed, it is beyond full comprehension; when gathered, it does not fill the palm of one's hand. Those who face toward it are rich with abundance, while those who turn away from it are poor and destitute; those whose minds open understand even as children, while those whose intentions remain closed find mastery difficult even with a white beard. Therefore, one who wishes to study must necessarily measure his own ability and assess himself carefully, setting his mind on specialization in a particular field. If so, how could there be any failure?
+
+\newpage
+
+%% ========================================================================
+%% VOLUME I
+%% ========================================================================
+\section{Volume I (\zh{卷上})}
+
+\subsection*{1. The Origin of Length Measurements}
+
+\begin{problem}
+\zh{度之所起，起於忽。欲知其忽，蠶所生，吐絲為忽。十忽為一秒，十秒為一毫，十毫為一釐，十釐為一分，十分為一寸，十寸為一尺，十尺為一丈，十丈為一引；五十尺為一端；四十尺為一疋；六尺為一步。二百四十步為一畝。三百步為一里。}
+\end{problem}
+
+\textit{The origin of measurement begins with the ``hu.'' To understand the hu, it is said that silkworms produce it by spinning silk. Ten hu make one miao, ten miao make one hao, ten hao make one li, ten li make one fen, ten fen make one cun, ten cun make one chi, ten chi make one zhang, and ten zhang make one yin; fifty chi make one duan; forty chi make one pi; six chi make one bu. Two hundred and forty bu make one mu. Three hundred bu make one li.}
+
+\subsection*{2. The Origin of Weight and Capacity Measurements}
+
+\begin{problem}
+\zh{稱之所起，起於黍。十黍為一絫，十絫為一銖，二十四銖為一兩，十六兩為一斤，三十斤為一鉤，四鉤為一石。量之所起，起於粟。六粟為一圭，十圭為一抄，十抄為一撮，十撮為一勺，十勺為一合，十合為一升，十升為一斗，十斗為一斛。斛得六千萬粟。所以得知者，六粟為一圭，十圭六十粟為一抄，十抄六百粟為一撮，十撮六千粟為一勺，十勺六萬粟為一合，十合六十萬粟為一升，十升六百萬粟為一斗，十斗六千萬粟為一斛。}
+\end{problem}
+
+\subsection*{3. Large Numbers}
+
+\begin{problem}
+\zh{凡大數之法，萬萬曰億，萬萬億曰兆，萬萬兆曰京，萬萬京曰陔，萬萬陔曰秭，萬萬秭曰壤，萬萬壤曰溝，萬萬溝曰澗，萬萬澗日正，萬萬正曰載。}
+\end{problem}
+
+\textit{Generally, the method for large numbers is as follows: ten thousand times ten thousand is yi (\zh{億}); ten thousand times yi is zhao (\zh{兆}); ten thousand times zhao is jing (\zh{京}); ten thousand times jing is gai (\zh{陔}); ten thousand times gai is zi (\zh{秭}); ten thousand times zi is rang (\zh{壤}); ten thousand times rang is gou (\zh{溝}); ten thousand times gou is jian (\zh{澗}); ten thousand times jian is zheng (\zh{正}); and ten thousand times zheng is zai (\zh{載}).}
+
+\subsection*{4. Geometric Ratios}
+
+\begin{problem}
+\zh{周三徑一。方五邪七；見邪求方，五之，七而一；見方求邪，七之，五而一。}
+\end{problem}
+
+\textit{The circumference of a circle is three times its diameter. A square with side length five has a diagonal of seven; to find the side from the diagonal, multiply by five and divide by seven; to find the diagonal from the side, multiply by seven and divide by five.}
+
+\subsection*{5. Weights of Materials}
+
+\begin{problem}
+\zh{黃金方寸重一斤。白金方寸重一十四兩。玉方寸重一十二兩。銅方寸重七兩半。鈆方寸重九兩半。鐵方寸重六兩。石方寸重三兩。}
+\end{problem}
+
+\textit{One cubic cun of gold weighs one jin. One cubic cun of silver weighs fourteen liang. One cubic cun of jade weighs twelve liang. One cubic cun of copper weighs seven and a half liang. One cubic cun of lead weighs nine and a half liang. One cubic cun of iron weighs six liang. One cubic cun of stone weighs three liang.}
+
+\subsection*{6. Counting Rod Notation}
+
+\begin{problem}
+\zh{凡筭之法，先識其位，一從十橫，百立千僵，千十相望，萬百相當。}
+\end{problem}
+
+\textit{The method for calculation begins by identifying the positions: one is vertical, ten is horizontal; a hundred stands upright and a thousand lies flat. Ten hundreds face each other, and thousands and tens correspond to each other in position.}
+
+This describes the traditional Chinese counting rod numeral system:
+\begin{itemize}
+  \item Units (1--9) are represented by \textbf{vertical} rods
+  \item Tens (10--90) are represented by \textbf{horizontal} rods
+  \item Hundreds (100--900) are represented by \textbf{vertical} rods
+  \item Thousands (1000--9000) are represented by \textbf{horizontal} rods
+\end{itemize}
+The pattern alternates between vertical and horizontal for each successive place value.
+
+\subsection*{7. Method of Multiplication}
+
+\begin{problem}
+\zh{凡乘之法，重置其位。上下相觀，上位有十步至十，有百步至百，有千步至千。以上命下，所得之數列於中位。言十即過，不滿自如。上位乘訖者先去之。下位乘訖者則俱退之。六不積，五不隻。上下相乘，至盡則已。}
+\end{problem}
+
+\textit{In multiplication, the positions are arranged again for calculation. By observing vertically and horizontally, if the upper position has ten, it moves to the tens place; if it has a hundred, it moves to the hundreds place; if it has a thousand, it moves to the thousands place. The upper number is used to multiply the lower one, and the resulting product is placed in the middle position. If it reaches ten, carry over; if less than ten, leave as is. After the upper position has been multiplied, remove it first. Once the lower position is multiplied, both are moved back. Six does not accumulate; five does not count as a single unit. Multiplying vertically and horizontally continues until the end is reached.}
+
+\subsection*{8. Method of Division}
+
+\begin{problem}
+\zh{凡除之法，與乘正異。乘得在中央，除得在上方。假令六為法，百為實。以六除百，當進之二等，令在正百下，以六除一，則法多而實少，不可除，故當退就十位。以法除實，言一六而折百為四十，故可除。若實多法少，自當百之，不當復退。故或步法十者置於十位，百者置於百位。上位有空絕者，法退二位。餘法皆如乘時。實有餘者，以法命之，以法為母。實餘為子。}
+\end{problem}
+
+\textit{The method of division differs from multiplication. In multiplication, the result is placed in the center; in division, it appears at the top. Suppose six is the divisor and one hundred is the dividend. Dividing one hundred by six, it should be advanced two positions and placed under the hundreds place. Dividing one by six results in a larger divisor than dividend, which is not possible; therefore, we must retreat to the tens position. Using the divisor to divide the dividend: saying one six and reducing a hundred by sixty results in forty, so division is possible. If the dividend is large and the divisor small, it naturally belongs to the hundreds place, and there is no need to retreat further. Therefore, if a step of ten is taken, it should be placed in the tens position; if a hundred, in the hundreds position. If there is an empty space at the upper position, the divisor must retreat two positions. The remaining methods follow those of multiplication. If there is a remainder in the dividend, name it using the divisor as the denominator. The remainder becomes the numerator.}
+
+\subsection*{9. Conversion Rates}
+
+\begin{problem}
+\zh{以粟求糲米，三之，五而一。以糲米求粟，五之，三而一。以糲米求飯，五之，二而一。以粟米求糲飯，六之，四而一。以糲飯求糲米，二之，五而一。}
+\end{problem}
+
+\subsection*{10. Fractional Reductions}
+
+\begin{problem}
+\zh{十分減一者，以二乘，二十除。減二者，以四乘，二十除。減三者，以六乘，二十除。減四者，以八乘，二十除。減五者，以十乘，二十除。減六者，以十二乘，二十除。減七者，以十四乘，二十除。減八者，以十六乘，二十除。減九者，以十八乘，二十除。}
+\end{problem}
+
+\textit{A reduction of one-tenth is calculated by multiplying by two and dividing by twenty. A reduction of two-tenths by multiplying by four and dividing by twenty, and so on through a reduction of nine-tenths by multiplying by eighteen and dividing by twenty.}
+
+\subsection*{16. Example: $81 \times 81$}
+
+\begin{problem}
+\zh{九九八十一，自相乘，得幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：六千五百六十一。}
+\end{answer}
+\begin{method}
+\zh{術曰：重置其位，以上八呼下八，八八六十四，即下六千四百於中位。以上八呼下一，一八如八，即於中位下八十。退下位一等，收上位八十。以上位一呼下八，一八如八，即於中位下八十。以上一呼下一，一一如一，即於中位下一。上下位俱收，中位即得六千五百六十一。}
+\end{method}
+
+\textit{Ninety-nine times eighty-one, when multiplied together, results in what? Answer: Six thousand five hundred and sixty-one. Method: Arrange the positions again, call out eight from above to multiply with eight below; eight eights are sixty-four. Place six thousand four hundred in the middle position. Call out eight from above to one below, one eight is eight; place eighty in the middle position. Move the lower position back by one rank and add the upper value of eighty. Call out one from above to eight below, one eight is eight, place eighty in the middle position accordingly. Call out one from the upper position to multiply with one from the lower; one times one is one, so place one in the middle position. After collecting both the upper and lower positions, the middle position yields six thousand five hundred sixty-one.}
+
+\subsection*{17. Example: $6561 \div 9$}
+
+\begin{problem}
+\zh{六千五百六十一，九人分之，問人得幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：七百二十九。}
+\end{answer}
+\begin{method}
+\zh{術曰：先置六千五百六十一於中位，為實。下列九人為法。上位置七百，以上七呼下九，七九六十三，即除中位六千三百。退下位一等，即上位置二十。以上二呼下九，二九十八，即除中位一百八十。又更退下位一等，即上位更置九，即以上九呼下九，九九八十一，即除中位八十一。中位盡，收下位。上位所得即人之所得。}
+\end{method}
+
+\textit{Six thousand five hundred sixty-one is to be divided among nine people; how much does each person receive? Answer: Seven hundred and twenty-nine. Method: First place six thousand five hundred sixty-one in the middle position as the dividend. Place nine people below as the divisor. Place seven hundred in the upper position; call out seven from above to multiply by nine below, seven nines are sixty-three, and subtract six thousand three hundred from the middle. Move the lower position back one rank; place twenty in the upper position. Call out two from above to multiply by nine from below, two nines are eighteen, and subtract one hundred eighty from the middle. Move the lower position back another rank, place nine in the upper position again. Call out nine from above to multiply by nine below; nine nines are eighty-one and subtract eighty-one from the middle. When the middle position is exhausted, collect the lower positions. The result in the upper position is what each person receives.}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME II
+%% ========================================================================
+\section{Volume II (\zh{卷中})}
+
+\subsection*{Problem 1. Reducing Fractions}
+
+\begin{problem}
+\zh{今有一十八分之一十二。問約之得幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：三分之二。}
+\end{answer}
+\begin{method}
+\zh{術曰：置十八分在下，一十二分在上。副置二位，以少減多，等數得六，為法。約之，即得。}
+\end{method}
+
+\textit{Now there is twelve eighteenths. Ask: reducing it, what does it equal? Answer: Two thirds. Method: Place eighteen parts below and twelve parts above. Set up both positions, subtract the smaller from the larger; the equal number obtained is six, which is the divisor. Reduce by it, and you obtain the answer.}
+
+\subsection*{Problem 5. Fraction Averaging}
+
+\begin{problem}
+\zh{今有三分之一，三分之二，四分之三。問減多益少，幾何而平？}
+\end{problem}
+\begin{answer}
+\zh{答曰：減四分之三者二，減三分之二者一，并以益三分之一，各平於一十二分之七。}
+\end{answer}
+\begin{method}
+\zh{術曰：置三分、三分、四分在右方，之一、之二、之三在左方。母互乘子，副并得六十三，置右，為平實。母相乘，得三十六，為法。以列數三乘未并者及法。等數得九，約訖。}
+\end{method}
+
+\subsection*{Problem 6. Grain Conversion}
+
+\begin{problem}
+\zh{今有粟一斗，問為糯米幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：六升。}
+\end{answer}
+\begin{method}
+\zh{術曰：置粟一斗，十升。以糲米率三十乘之，得三百升，為實。以粟率五十為法，除之，即得。}
+\end{method}
+
+\subsection*{Problem 9. Brick Calculation}
+
+\begin{problem}
+\zh{今有屋基南北三丈，東西六丈，欲以磚砌之。凡積二尺，用磚五枚。問計幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：四千五百枚。}
+\end{answer}
+\begin{method}
+\zh{術曰：置東西六丈，以南北三丈乘之，得一千八百尺。以五乘之，得九千尺。以二除之，即得。}
+\end{method}
+
+\textit{Now there is a house foundation with a north-south length of three zhang and an east-west width of six zhang, and one wishes to build it using bricks. Generally for every two chi in volume, five bricks are used. Ask how many will be needed? Answer: Four thousand five hundred bricks. Method: Place the east-west length of six zhang, multiply it by the north-south length of three zhang to get one thousand eight hundred chi. Multiply it by five to get nine thousand chi. Divide it by two, and you will obtain the answer.}
+
+\subsection*{Problem 13. Area of a Circular Field}
+
+\begin{problem}
+\zh{今有圓田周三百步，徑一百步。問得田幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：三十一畝奇六十步。}
+\end{answer}
+\begin{method}
+\zh{術曰：先置周三百步，半之，得一百五十步。又置徑一百步，半之，得五十步。相乘，得七千五百步。以畝法二百四十步除之，即得。}
+\end{method}
+
+\textit{Now there is a round field with circumference three hundred bu, diameter one hundred bu. Ask how much land does it amount to? Answer: Thirty-one mu and sixty bu extra. Method: First place the circumference of three hundred bu, halve it to get one hundred fifty bu. Also place the diameter of one hundred bu, halve it, getting fifty bu. Multiply them together to get seven thousand five hundred bu. Divide it by the mu standard of two hundred forty bu, and you will obtain the area.}
+
+\textbf{Alternative methods:}
+
+\zh{又術：周自相乘，得九萬步。以一十二除之，得七千五百步。以畝法除之，得畝數。}
+
+\zh{又術：徑自乘，得一萬。以三乘之，得三萬步。四除之，得七千五百步。以畝法除之，得畝數。}
+
+\subsection*{Problem 14. Square Field with Mulberry Tree}
+
+\begin{problem}
+\zh{今有方田，桑生中央。從角至桑一百四十七步。問為田幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：一頃八十三畝奇一百八十步。}
+\end{answer}
+\begin{method}
+\zh{術曰：置角至桑一百四十七步，倍之，得二百九十四步。以五乘之，得一千四百七十步。以七除之，得二百一十步。自相乘，得四萬四千一百步。以二百四十步除之，即得。}
+\end{method}
+
+\textit{Now there is a square field with mulberry trees growing in the center. From the corner to the mulberry tree is one hundred forty-seven steps. Ask how much field does it amount to? Answer: One qing, eighty-three mu and one hundred eighty steps extra. Method: Place the distance from corner to mulberry tree as one hundred forty-seven bu, double it to get two hundred ninety-four bu. Multiply it by five to get one thousand four hundred seventy steps. Divide it by seven, getting two hundred ten steps. Multiply it by itself to get forty-four thousand one hundred bu. Divide it by two hundred forty steps, and you will get the result.}
+
+\subsection*{Problem 23. Canal Construction}
+
+\begin{problem}
+\zh{今有穿渠，長二十九里一百四步，上廣一丈二尺六寸，下廣八尺，深一丈八尺。秋程人功三百尺。問須功幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：三萬二千六百四十五人，不盡六十九尺六寸。}
+\end{answer}
+\begin{method}
+\zh{術曰：置里數，以三百步乘之，內零步，六之，得五萬二千八百二十四尺。并上、下廣，得二丈六寸。半之，以深乘之，得一百八十五尺四寸。以長乘，得九百七十九萬三千五百六十九尺六寸。以人功三百尺除之，即得。}
+\end{method}
+
+\textit{Now there is a canal to be dug, with length of twenty-nine li and one hundred four bu, upper width of one zhang two chi six cun, lower width of eight chi, depth of one zhang eight chi. The autumn quota for a person's work is three hundred chi. Ask how much labor force is required? Answer: Thirty-two thousand six hundred forty-five persons, with a remainder of sixty-nine chi six cun.}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME III
+%% ========================================================================
+\section{Volume III (\zh{卷下})}
+
+\subsection*{Problem 1. Rent Distribution}
+
+\begin{problem}
+\zh{今有甲、乙、丙、丁、戊、己、庚、辛、壬九家共輸租。甲出三十五斛，乙出四十六斛，丙出五十七斛，丁出六十八斛，戊出七十九斛，己出八十斛，庚出一百斛，辛出二百一十斛，壬出三百二十五斛。凡九家共輸租一千斛。僦運直折二百斛外，問家各幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：甲二十八斛。乙三十六斛八蚪。丙四十五斛六蚪。丁五十四斛四蚪。戊六十三斛二蚪。己六十四斛。庚八十斛。辛一百六十八斛。壬二百六十斛。}
+\end{answer}
+\begin{method}
+\zh{術曰：置甲出三十五斛，以四乘之，得一百四十斛。以五除之，得二十八斛。乙出四十六斛，以四乘之，得一百八十四斛。以五除之，得三十六斛八蚪。……}
+\end{method}
+
+\textit{Now there are Jia, Yi, Bing, Ding, Wu, Ji, Geng, Xin, and Ren---nine families jointly paying rent. Jia contributed 35 hu, Yi 46 hu, Bing 57 hu, Ding 68 hu, Wu 79 hu, Ji 80 hu, Geng 100 hu, Xin 210 hu, and Ren 325 hu. In total, the nine families jointly paid a rent of 1,000 hu. After deducting the cost of hiring transport, which amounted to 200 hu, how much should each family contribute? Answer: Jia 28 hu, Yi 36 hu 8 dou, Bing 45 hu 6 dou, Ding 54 hu 4 dou, Wu 63 hu 2 dou, Ji 64 hu, Geng 80 hu, Xin 168 hu, Ren 260 hu. Method: Take each family's contribution, multiply by four, and divide by five.}
+
+\subsection*{Problem 3. Pile of Millet}
+
+\begin{problem}
+\zh{今有平地聚粟，下周三丈六尺，高四尺五寸。問粟幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：一百斛。}
+\end{answer}
+\begin{method}
+\zh{術曰：置周三丈六尺，自相乘，得一千二百九十六尺。以高四尺五寸乘之，得五千八百三十二尺。以三十六除之，得一百六十二尺。以斛法一尺六寸二分除之，即得。}
+\end{method}
+
+\subsection*{Problem 5. Go Board}
+
+\begin{problem}
+\zh{今有碁局方一十九道。問用碁幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：三百六十一。}
+\end{answer}
+\begin{method}
+\zh{術曰：置一十九道，自相乘之，即得。}
+\end{method}
+
+\textit{Now there is a Go board with a square pattern of nineteen lines on each side. How many pieces are used? Answer: 361. Method: Take the nineteen lines, multiply them by themselves, and you get the result.}\\
+\textit{This gives $19^2 = 361$ intersection points on a Go board.}
+
+\subsection*{Problem 15. People and Carts}
+
+\begin{problem}
+\zh{今有三人共車，二車空；二人共車，九人步。問人與車各幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：一十五車。三十九人。}
+\end{answer}
+\begin{method}
+\zh{術曰：置二車，以三乘之，得六。加步者九人，得車一十五。欲知人者，以二乘車，加九人，即得。}
+\end{method}
+
+\textit{Now there are three people sharing a cart, and two carts remain empty; two people share another cart, while nine people walk. What are the numbers of people and carts? Answer: Fifteen carts, thirty-nine people.}
+
+\subsection*{Problem 17. Guests at a Feast}
+
+\begin{problem}
+\zh{今有婦人河上蕩桮。津吏問曰：「桮何以多？」婦人曰：「家有客。」津吏曰：「客幾何？」婦人曰：「二人共飯，三人共羹，四人共肉，凡用桮六十五。不知客幾何？」}
+\end{problem}
+\begin{answer}
+\zh{答曰：六十人。}
+\end{answer}
+\begin{method}
+\zh{術曰：置六十五桮，以一十二乘之，得七百八十，以十三除之，即得。}
+\end{method}
+
+\textit{Now there is a woman washing cups at the riverbank. The ferry official asked, ``Why are so many cups?'' The woman replied, ``There are guests at my home.'' The ferry official asked, ``How many guests?'' The woman said: ``Two people share a meal, three people share soup, four people share meat, and in total sixty-five cups are used. I do not know how many guests there are.'' Answer: Sixty people. Method: Take the 65 cups, multiply by twelve to get 780, then divide by thirteen; thus you obtain the answer.}
+
+\subsection*{Problem 18. Wood and Rope}
+
+\begin{problem}
+\zh{今有木，不知長短。引繩度之，餘繩四尺五寸。屈繩量之，不足一尺。問木長幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：六尺五寸。}
+\end{answer}
+\begin{method}
+\zh{術曰：置餘繩四尺五寸，加不足一尺，共五尺五寸。倍之，得一丈一尺。減餘四尺五寸，即得。}
+\end{method}
+
+\textit{Now there is a piece of wood whose length is unknown. Using a rope to measure it, the rope has 4 chi and 5 cun left over. Folding the rope to measure it results in one chi short. What is the length of the wood? Answer: Six chi and five cun.}
+
+\subsection*{Problem 19. Rice in a Vessel}
+
+\begin{problem}
+\zh{今有器中米，不知其數。前人取半，中人三分取一，後人四分取一，餘米一斗五升。問本米幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：六斗。}
+\end{answer}
+\begin{method}
+\zh{術曰：置餘米一斗五升，以六乘之，得九斗。以二除之，得四斗五升。以四乘之，得一斛八斗。以三除之，即得。}
+\end{method}
+
+\textit{Now there is rice in a vessel, but its quantity is unknown. The first person took half, the second person took one-third of what remained, the third person took one-fourth of what was left after that, and there were 1 dou 5 sheng of rice remaining. What was the original amount of rice? Answer: Six dou.}
+
+\subsection*{Problem 27. Birds and Beasts}
+
+\begin{problem}
+\zh{今有獸六首四足，禽四首二足。上有七十六首，下有四十六足。問禽、獸各幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：八獸，七禽。}
+\end{answer}
+\begin{method}
+\zh{術曰：倍足以減首，餘，半之，即禽。四乘禽數，減足，餘，半之，即獸。}
+\end{method}
+
+\textit{Now there are beasts with six heads and four feet, and birds with four heads and two feet. Above there are seventy-six heads, below there are forty-six feet. Ask: How many birds and beasts are there? Answer: Eight beasts, seven birds.}
+
+\subsection*{Problem 29. One Hundred Deer}
+
+\begin{problem}
+\zh{今有百鹿入城，家取一鹿，不盡；又三家共一鹿，適盡。問城中家幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：七十五家。}
+\end{answer}
+\begin{method}
+\zh{術曰：以盈不足取之。假令七十二家，鹿不盡四。令之九十家，鹿不足二十。置七十二於右上，盈四於右下。置九十於左上，不足二十於左下。維乘之，所得，并為實。并盈不足為法。除之，即得。}
+\end{method}
+
+\textit{Now there are one hundred deer entering a city; each household takes one deer, but they do not finish; then three households share one deer and it is just finished. Ask: How many households are in the city? Answer: Seventy-five households.}
+
+\subsection*{Problem 31. Pheasants and Rabbits in a Cage}
+
+\begin{problem}
+\zh{今有雉、兔同籠，上有三十五頭，下九十四足。問雉、兔各幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：雉二十三。兔一十二。}
+\end{answer}
+\begin{method}
+\zh{術曰：上置三十五頭，下置九十四足。半其足，得四十七。以少減多，再命之，上三除下三，上五除下五。下有一除上一，下有二除上二，即得。}
+\end{method}
+
+\textit{Now there are pheasants and rabbits in a cage, with thirty-five heads above and ninety-four feet below. Ask: How many pheasants and how many rabbits are there? Answer: Twenty-three pheasants, twelve rabbits.}\\
+\textit{This is the classic ``chicken and rabbit in a cage'' problem, a staple of Chinese mathematics.}
+
+\textbf{Alternative method:} \zh{又術曰：上置頭，下置足。半其足，以頭除足，以足除頭，即得。}
+
+\subsection*{Problem 34. Nine Dikes}
+
+\begin{problem}
+\zh{今有出門望見九隄。隄有九木，木有九枝，枝有九巢，巢有九禽，禽有九雛，雛有九毛，毛有九色。問各幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：木八十一。枝七百二十九。巢六千五百六十一。禽五萬九千四十九。雛五十三萬一千四百四十一。毛四百七十八萬二千九百六十九。色四千三百四萬六千七百二十一。}
+\end{answer}
+\begin{method}
+\zh{術曰：置九隄，以九乘之，得木之數。又以九乘之，得枝之數。又以九乘之，得巢之數。又以九乘之，得禽之數。又以九乘之，得雛之數。又以九乘之，得毛之數。又以九乘之，得色之數。}
+\end{method}
+
+\textit{Now there is someone who goes out of the gate and sees nine dikes. Each dike has nine trees, each tree has nine branches, each branch has nine nests, each nest has nine birds, each bird has nine chicks, each chick has nine feathers, and each feather has nine colors. Ask: How many of each are there?}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Item} & \textbf{Count} \\
+\midrule
+Trees (\zh{木}) & 81 \\
+Branches (\zh{枝}) & 729 \\
+Nests (\zh{巢}) & 6,561 \\
+Birds (\zh{禽}) & 59,049 \\
+Chicks (\zh{雛}) & 531,441 \\
+Feathers (\zh{毛}) & 4,782,969 \\
+Colors (\zh{色}) & 43,046,721 \\
+\bottomrule
+\end{tabular}
+\caption{The powers of nine from the Nine Dikes problem}
+\end{table}
+
+\subsection*{Problem 35. Three Daughters}
+
+\begin{problem}
+\zh{今有三女，長女五日一歸，中女四日一歸，少女三日一歸。問三女幾何日相會？}
+\end{problem}
+\begin{answer}
+\zh{答曰：六十日。}
+\end{answer}
+\begin{method}
+\zh{術曰：置長女五日、中女四日、少女三日，於右方。各列一算於左方。維乘之，各得所到數：長女十二到，中女十五到，少女二十到。又各以歸日乘到數，即得。}
+\end{method}
+
+\textit{Now there are three daughters: the eldest daughter returns home every five days, the middle daughter every four days, and the youngest daughter every three days. Ask: After how many days will the three daughters meet again? Answer: Sixty days. Method: Place the eldest daughter's five days, the middle daughter's four days, and the youngest daughter's three days on the right side. Place one counter for each on the left side. Multiply them, and you get their respective numbers of arrivals: the eldest daughter arrives twelve times, the middle daughter fifteen times, and the youngest daughter twenty times. Then multiply each return day by the number of arrivals, and you will get it.}\\
+\textit{This is a least common multiple problem: $\text{lcm}(3,4,5) = 60$.}
+
+\newpage
+
+%% ========================================================================
+%% THE CHINESE REMAINDER THEOREM
+%% ========================================================================
+\section*{\zh{物不知數} --- Problem of the Unknown Quantity}
+\addcontentsline{toc}{section}{The Chinese Remainder Theorem (\zh{物不知數})}
+
+\begin{tcolorbox}[colback=crtgold!8,colframe=crtgold,boxrule=1.5pt,
+  left=12pt,right=12pt,top=10pt,bottom=10pt,arc=4mm,
+  title={\textbf{\large Problem 26, Volume III (\zh{卷下第26問})}},
+  fonttitle=\bfseries\color{white},coltitle=white,
+  colbacktitle=crtgold]
+
+\vspace{0.3cm}
+\begin{problem}
+\zh{今有物，不知其數。三、三數之，賸二；五、五數之，賸三；七、七數之，賸二。問物幾何？}
+\end{problem}
+
+\begin{answer}
+\zh{答曰：二十三。}
+\end{answer}
+
+\begin{method}
+\zh{術曰：「三、三數之，賸二」，置一百四十；「五、五數之，賸三」，置六十三；「七、七數之，賸二」，置三十。并之，得二百三十三。以二百一十減之，即得。凡三、三數之，賸一，則置七十；五、五數之，賸一，則置二十一；七、七數之，賸一，則置十五。一百六以上，以一百五減之，即得。}
+\end{method}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\textbf{Translation:}\\[0.3cm]
+\textit{``Now there is an object, but we do not know its quantity. Counting it in groups of three leaves a remainder of two; counting it in groups of five leaves a remainder of three; counting it in groups of seven leaves a remainder of two. What is the quantity of the object?''}
+
+\vspace{0.3cm}
+\textbf{Answer:} \textit{Twenty-three.}
+
+\vspace{0.3cm}
+\textbf{Method:} \textit{``Counting in groups of three, remainder two,'' set down one hundred and forty; ``Counting in groups of five, remainder three,'' set down sixty-three; ``Counting in groups of seven, remainder two,'' set down thirty. Add them together to get two hundred and thirty-three. Subtract two hundred and ten from it, and you will obtain the answer. Generally, if counting in groups of three leaves remainder one, set down seventy; if counting in groups of five leaves remainder one, set down twenty-one; if counting in groups of seven leaves remainder one, then set down fifteen. If the total is more than 160, subtract 150 from it; thus you obtain the answer.}
+
+\subsection*{Modern Mathematical Analysis}
+
+In modern notation, this problem asks us to find the smallest positive integer $N$ satisfying the system of congruences:
+\begin{align*}
+N &\equiv 2 \pmod{3} \\
+N &\equiv 3 \pmod{5} \\
+N &\equiv 2 \pmod{7}
+\end{align*}
+
+The method gives:
+\begin{align*}
+N &= 140 + 63 + 30 - 210 \\
+  &= 233 - 210 \\
+  &= 23
+\end{align*}
+
+The three key numbers \textbf{70}, \textbf{21}, and \textbf{15} have special properties:
+\begin{itemize}[leftmargin=2em]
+  \item $70 = 2 \times 5 \times 7 \equiv 1 \pmod{3}$, and $70 \equiv 0 \pmod{5}$, $70 \equiv 0 \pmod{7}$
+  \item $21 = 1 \times 3 \times 7 \equiv 1 \pmod{5}$, and $21 \equiv 0 \pmod{3}$, $21 \equiv 0 \pmod{7}$
+  \item $15 = 1 \times 3 \times 5 \equiv 1 \pmod{7}$, and $15 \equiv 0 \pmod{3}$, $15 \equiv 0 \pmod{5}$
+\end{itemize}
+
+Since $3 \times 5 \times 7 = 105$, the general solution is:
+\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
+where $r_1, r_2, r_3$ are the remainders and $k$ is chosen to make $N$ positive and minimal.
+
+\subsection*{Verification}
+
+\begin{align*}
+23 \div 3 &= 7 \text{ remainder } \mathbf{2} \quad \checkmark \\
+23 \div 5 &= 4 \text{ remainder } \mathbf{3} \quad \checkmark \\
+23 \div 7 &= 3 \text{ remainder } \mathbf{2} \quad \checkmark
+\end{align*}
+
+\subsection*{Sunzi's Formula}
+
+For general remainders $r_1, r_2, r_3$:
+\[
+\boxed{N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k}
+\]
+
+where $M = 3 \times 5 \times 7 = 105$ is the least common multiple, and:
+\begin{itemize}
+  \item $70 = 105/3 \times 2$ is the multiplier for remainder mod 3
+  \item $21 = 105/5 \times 1$ is the multiplier for remainder mod 5
+  \item $15 = 105/7 \times 1$ is the multiplier for remainder mod 7
+\end{itemize}
+
+\subsection*{Historical Significance}
+
+This problem, known as the \textbf{``Problem of the Unknown Quantity''} (\zh{物不知數}), is the earliest known statement of what we now call the \textbf{Chinese Remainder Theorem}. While Sunzi's text gives only a specific numerical method without proof, it contains the essential idea:
+
+\begin{enumerate}
+  \item Find numbers that are multiples of all but one modulus, and leave remainder 1 when divided by the remaining modulus
+  \item Multiply each such number by the corresponding remainder
+  \item Sum the results and subtract multiples of the LCM to get the smallest positive solution
+\end{enumerate}
+
+The general theorem was later fully developed by \textbf{Qin Jiushao} (秦九韶, 1202--1261) in his \textit{Mathematical Treatise in Nine Sections} (\zh{數書九章}, 1247 CE), where he called it the \textbf{``Great Extension Seeking-Unity Method''} (\zh{大衍求一術}). This method could solve systems of arbitrary linear congruences.
+
+In Europe, similar methods were not developed until the work of Euler (1743) and Gauss (1801). In 1852, the British missionary Alexander Wylie published notes on Chinese science, introducing this problem to European mathematicians. In 1876, the German mathematician L. Matthiessen first pointed out that Sunzi's solution was consistent with Gauss's method.
+
+\subsection*{The ``Sunzi Song'' (\zh{孫子歌})}
+
+A rhymed verse summarizing the method circulated widely among the people and was later recorded by Cheng Dawei in his \textit{Systematic Treatise on Algorithms} (\zh{算法統宗}, 1592):
+
+\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=0.8pt,
+  width=0.9\textwidth,arc=2mm]
+\centering\large
+\zh{三人同行七十稀，五樹梅花廿一枝，}\\[2pt]
+\zh{七子團圓正半月，除百零五便得知。}
+\end{tcolorbox}
+
+\textit{Translation: ``Three people walking together---seventy is rare; five plum trees---twenty-one branches; seven sons reunite---half a full moon (15); subtract one hundred and five, then you will know.''}
+
+This gives the key numbers: \textbf{70} for mod 3, \textbf{21} for mod 5, \textbf{15} for mod 7, and \textbf{105} as the LCM.
+
+\newpage
+
+%% ========================================================================
+%% REMAINING PROBLEMS FROM VOLUME III
+%% ========================================================================
+\section*{Remaining Problems from Volume III}
+\addcontentsline{toc}{section}{Remaining Problems from Volume III}
+
+\subsection*{Problem 28. Money Exchange}
+
+\begin{problem}
+\zh{今有甲、乙二人，持錢各不知數。甲得乙中半，可滿四十八。乙得甲太半，亦滿四十八。問甲、乙二人元持錢各幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：甲持錢三十六。乙持錢二十四。}
+\end{answer}
+\begin{method}
+\zh{術曰：如方程求之。置二甲、一乙、錢九十六，於右方。置二甲、三乙、錢一百四十四，於左方。以右方二乘左方，上得四，中得六，下得二百八十八錢。以右行再減左行，左上空，中餘四乙，為法；下餘九十六錢，為實。上法，下實，得二十四錢，為乙錢。以減右下九十六，餘七十二，為實；以右上二甲為法。上法、下實，得三十六，為甲錢也。}
+\end{method}
+
+\textit{Now there are two people, Jia and Yi, each holding an unknown amount of money. If Jia receives half of what Yi has, he will have a total of forty-eight. If Yi receives two-thirds of what Jia has, he too will have a total of forty-eight. Ask: Originally, how much money did Jia and Yi each hold? Answer: Jia originally held thirty-six units of money. Yi originally held twenty-four units of money.}
+
+\subsection*{Problem 30. Three Chickens}
+
+\begin{problem}
+\zh{今有三雞共啄粟一千一粒。雛啄一，母啄二，翁啄四。主責本粟，三雞主各償幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：雞雛主一百四十三。雞母主二百八十六。雞翁主五百七十二。}
+\end{answer}
+\begin{method}
+\zh{術曰：置粟一千一粒，為實。副并三雞所啄粟七粒，為法。除之，得一百四十三粒，為雞雛主所償之數。遞倍之，即得母、翁主所償之數。}
+\end{method}
+
+\textit{Now there are three chickens pecking at one thousand and one grains of millet. A chick pecks one grain, a hen pecks two, and a rooster pecks four. How many grains should each of the three chickens' owners compensate? Answer: The chick's owner compensates 143, the hen's owner compensates 286, and the rooster's owner compensates 572.}
+
+\subsection*{Problem 32. Fish in a Ditch}
+
+\begin{problem}
+\zh{今有九里渠，三寸魚，頭頭相次。問魚得幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：五萬四千。}
+\end{answer}
+\begin{method}
+\zh{術曰：置九里，以三百步乘之，得二千七百步。又以六尺乘之，得一萬六千二百尺。上十之，得一十六萬二千寸。以魚三寸除之，即得。}
+\end{method}
+
+\textit{Now there is a ditch nine li long; fish of three cun are lined up head to tail. Ask: How many fish can fit? Answer: Fifty-four thousand.}
+
+\subsection*{Problem 33. Wheel Turns from Luoyang to Chang'an}
+
+\begin{problem}
+\zh{今有長安、洛陽相去九百里。車輪一匝一丈八尺。欲自洛陽至長安，問輪匝幾何？}
+\end{problem}
+\begin{answer}
+\zh{答曰：九萬匝。}
+\end{answer}
+\begin{method}
+\zh{術曰：置九百里，以三百步乘之，得二十七萬步。又以六尺乘之，得一百六十二萬尺。以車輪一丈八尺為法。除之，即得。}
+\end{method}
+
+\textit{Now there are Chang'an and Luoyang, 900 li apart. A cart wheel turns one zha for every one zhang eight chi. If one wishes to travel from Luoyang to Chang'an, how many wheel turns are needed? Answer: Ninety thousand turns.}
+
+\subsection*{Problem 36. Predicting the Gender of an Unborn Child}
+
+\begin{problem}
+\zh{今有孕婦行年二十九，難九月。未知所生？}
+\end{problem}
+\begin{answer}
+\zh{答曰：生男。}
+\end{answer}
+\begin{method}
+\zh{術曰：置四十九，加難月，減行年。所餘，以天除一，地除二，人除三，四時除四，五行除五，六律除六，七星除七，八風除八，九州除九。其不盡者，奇則為男，耦則為女。}
+\end{method}
+
+\textit{Now there is a pregnant woman whose age is twenty-nine, giving birth in the ninth month. It is unknown what will be born? Answer: A boy will be born. Method: Set forty-nine, add the month of childbirth, subtract the age. The remainder is divided by: Heaven subtracts one, Earth subtracts two, Humanity subtracts three, Four Seasons subtract four, Five Elements subtract five, Six Laws subtract six, Seven Stars subtract seven, Eight Winds subtract eight, Nine Provinces subtract nine. If the remainder is not exhausted, an odd number means a boy will be born, and an even number means a girl will be born.}
+
+\newpage
+
+%% ========================================================================
+%% EPILOGUE
+%% ========================================================================
+\section*{Epilogue}
+\addcontentsline{toc}{section}{Epilogue}
+
+The \textit{Sunzi Suanjing} stands as a remarkable testament to the sophistication of ancient Chinese mathematics. While the text covers basic arithmetic---units of measurement, multiplication tables, and simple fractions---its greatest legacy lies in the brief but brilliant ``Problem of the Unknown Quantity'' that opens the door to modern number theory.
+
+The Chinese Remainder Theorem, as this method came to be known in the West, would not be fully formalized in Europe for over a millennium. The algorithm described by Sunzi contains the essential ingredients of the modern theorem: the construction of auxiliary numbers with specific divisibility properties, their combination with the given remainders, and reduction modulo the least common multiple.
+
+The influence of this text extended far beyond China. The problem circulated as a mathematical puzzle throughout East Asia, and the general method developed by Qin Jiushao represents one of the great achievements of medieval mathematics anywhere in the world.
+
+\vspace{1cm}
+\begin{center}
+\longline
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textit{Typeset from the classical Chinese text as preserved in the}\\
+\textit{Chinese Text Project} (https://ctext.org/sunzi-suan-jing)
+\end{center}
+
+\end{document}

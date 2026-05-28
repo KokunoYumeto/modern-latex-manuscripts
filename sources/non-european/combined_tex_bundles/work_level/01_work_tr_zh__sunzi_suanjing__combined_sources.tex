@@ -1,874 +1,880 @@
-% Combined TeX source bundle
-% Title: Sunzi, Sunzi Suanjing, classical-modern Chinese
-% Note: constituent files are preserved below in sources/. Some are standalone
-% documents with their own preambles; this combined file is for inspection,
-% comparison, and source packet rather than guaranteed one-command compilation.
-
-
-% ============================================================
-% Source: translations/zh/chinese/sunzi-suanjing_classical-modern_bilingual.tex
-% ============================================================
-
-%% ========================================================================
-%% 孙子算经 —— 文言文/白话文双语对照版
-%% Sunzi Suanjing — Classical Chinese / Modern Chinese Bilingual Edition
-%% ========================================================================
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-% \usepackage{tocloft}    % not available
-\usepackage{indentfirst}
-% \usepackage{tcolorbox}  % not available
-% Dummy tcolorbox replacement
-\newenvironment{tcolorbox}[1]{%
-  \par\medskip\noindent\begin{minipage}{\linewidth}%
-}{%
-  \end{minipage}\par\medskip
-}
-\usepackage{etoolbox}
-% \usepackage{fancyvrb}   % not available
-% \usepackage{verse}      % not available
-\usepackage{url}
-% \usepackage{multicol}   % not available
-% \usepackage{calc}       % not available
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=16mm,right=16mm,top=24mm,bottom=24mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-\setotherlanguage{chinese}
-
-%% -------- Font Configuration --------
-\setmainfont{Microsoft YaHei}
-\setsansfont{Microsoft YaHei}
-\setmonofont{Microsoft YaHei}
-
-%% -------- xeCJK Setup --------
-\usepackage{xeCJK}
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{chinesebg}{RGB}{255,252,245}
-\definecolor{problembg}{RGB}{250,248,244}
-\definecolor{answerbg}{RGB}{245,250,245}
-\definecolor{methodbg}{RGB}{245,248,252}
-\definecolor{crtgold}{RGB}{139,90,0}
-\definecolor{classicalbg}{RGB}{255,250,240}
-\definecolor{modernbg}{RGB}{245,250,255}
-\definecolor{colrule}{RGB}{200,180,160}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\LARGE\bfseries\color{titlecolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\zh{孫子算經·文言文/白話文對照版}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Bilingual Column Commands --------
-\newlength{\leftcolwidth}
-\newlength{\rightcolwidth}
-\setlength{\leftcolwidth}{0.48\textwidth}
-\setlength{\rightcolwidth}{0.48\textwidth}
-
-% Two-column bilingual text display
-% Usage: \bilingual{classical text}{modern text}
-\newcommand{\bilingual}[2]{%
-  \par\vspace{0.3em}%
-  \noindent\begin{minipage}[t]{\leftcolwidth}
-  \begin{tcolorbox}[colback=classicalbg,colframe=colrule,boxrule=0.4pt,
-    left=4pt,right=4pt,top=3pt,bottom=3pt,arc=1mm]
-  {\footnotesize\bfseries\color{titlecolor}\zh{〔原文·文言文〕}}\\[2pt]
-  \normalfont\small #1
-  \end{tcolorbox}
-  \end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{\rightcolwidth}
-  \begin{tcolorbox}[colback=modernbg,colframe=colrule!70!blue,boxrule=0.4pt,
-    left=4pt,right=4pt,top=3pt,bottom=3pt,arc=1mm]
-  {\footnotesize\bfseries\color{sectioncolor}\zh{〔白話文翻譯〕}}\\[2pt]
-  \normalfont\small #2
-  \end{tcolorbox}
-  \end{minipage}%
-  \vspace{0.4cm}%
-}
-
-% Problem/Answer/Method labels
-\newcommand{\wen}{\textbf{\zh{問}}}
-\newcommand{\da}{\textbf{\zh{答}}}
-\newcommand{\shu}{\textbf{\zh{術}}}
-\newcommand{\zh}[1]{{\CJKfamily{}#1}}
-
-%% -------- Custom Environments --------
-\newenvironment{classicalblock}
-  {\begin{tcolorbox}[colback=classicalbg,colframe=colrule,boxrule=0.5pt,
-     left=8pt,right=8pt,top=6pt,bottom=6pt,arc=2mm]
-   \small\bfseries\zh{〔原文〕}\\[3pt]
-   \normalfont\small}
-  {\end{tcolorbox}}
-
-\newenvironment{modernblock}
-  {\begin{tcolorbox}[colback=modernbg,colframe=colrule!70!blue,boxrule=0.5pt,
-     left=8pt,right=8pt,top=6pt,bottom=6pt,arc=2mm]
-   \small\bfseries\zh{〔白話譯文〕}\\[3pt]
-   \normalfont\small}
-  {\end{tcolorbox}}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={孙子算经·文言文白话文对照版},
-  pdfauthor={Sunzi (c. 400 CE)}
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
-
-%% ========================================================================
-
-\begin{document}
-
-%% ========================================================================
-%% TITLE PAGE
-%% ========================================================================
-\begin{titlepage}
-\begin{center}
-\vspace*{1.5cm}
-
-{\fontsize{12}{14}\selectfont\zh{中國古典數學雙語對照叢書}}\\[0.6cm]
-
-\longline\\[1cm]
-
-{\fontsize{32}{38}\selectfont\bfseries\color{titlecolor}
-\zh{孫子算經}}\\[0.6cm]
-
-{\fontsize{20}{24}\selectfont\itshape Sunzi Suanjing}\\[0.3cm]
-
-{\fontsize{14}{18}\selectfont\zh{文言文 \raisebox{0.5ex}{\textbullet} 白話文 對照版}}\\[1cm]
-
-\longline\\[1cm]
-
-{\zh{傳孫子撰}}\\[0.3cm]
-{\normalsize 約公元3--5世紀}\\[1.5cm]
-
-\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=1pt,
-  width=0.85\textwidth,arc=3mm]
-\centering
-\small
-\zh{《算經十書》之一\quad\textbullet\quad 唐朝欽定數學教科書}\\[3pt]
-\zh{最早記載「中國剩餘定理」（大衍求一術）的數學經典}
-\end{tcolorbox}
-
-\vfill
-
-{\small 使用 \LaTeX\ + XeLaTeX + xeCJK 排版}\\[0.3cm]
-{\small\today}
-
-\end{center}
-\end{titlepage}
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\tableofcontents
-\newpage
-
-%% ========================================================================
-%% INTRODUCTION
-%% ========================================================================
-\section{\zh{導讀}}
-
-\bilingual{%
-\zh{《孫子算經》是中國現存最早的數學著作之一，約成書於公元三世紀至五世紀之間。其作者孫子（非《孫子兵法》作者孫武），生平不詳。此書於唐朝被列入《算經十書》，成為國子監算學館的教材。}%
-}{%
-\zh{《孙子算经》是中国现存最早的数学著作之一，大约写于公元3世纪到5世纪之间。作者孙子的生平不详（注意：不是写《孙子兵法》的孙武）。这本书在唐朝被列入《算经十书》，成为国家最高学府算学馆的标准教科书。}%
-}
-
-\subsection*{\zh{全書結構}}
-
-全書分為三卷：
-
-\begin{itemize}[leftmargin=2em]
-  \item \textbf{\zh{卷上}}：度量衡制度、大數記法、算籌記數法、乘除法則、九九乘法表
-  \item \textbf{\zh{卷中}}：分數運算、面積與體積計算
-  \item \textbf{\zh{卷下}}：36道實際應用問題，包括著名的「物不知數」問題（中國剩餘定理）
-\end{itemize}
-
-\subsection*{\zh{歷史意義}}
-
-本書最為數學史家稱道的貢獻是\textbf{卷下第26問}——\zh{「物不知數」}問題：
-
-\begin{quote}
-\zh{今有物，不知其數。三、三數之，賸二；五、五數之，賸三；七、七數之，賸二。問物幾何？}
-\end{quote}
-
-這是世界上關於\textbf{一次同餘式組}（即\textbf{中國剩餘定理}）的最早記載。雖然孫子只給出了具體算法而未證明，但其核心思想——構造輔助數並按模數組合——已經蘊含了這一定理的全部要素。
-
-一般解法後由\textbf{秦九韶}在《數書九章》（1247年）中發展為完善的「\zh{大衍求一術}」。
-
-\newpage
-
-%% ========================================================================
-%% PREFACE
-%% ========================================================================
-\section*{\zh{序}}
-\addcontentsline{toc}{section}{\zh{序（Preface）}}
-
-\bilingual{%
-\zh{孫子曰：夫算者，天地之經緯，群生之元首；五常之本末，陰陽之父母；星辰之建號，三光之表裹；五行之準平，四時之終始；萬物之祖宗，六藝之綱紀。}%
-}{%
-\zh{孙子说：数学是天地运行的规律，是万物生长的根本；是社会伦理秩序的基础，是阴阳变化的根源；是星辰命名的依据，是日月星三光的表里；是五行平衡的标准，是四季更替的起始；是万物的起源，是六艺（礼乐射御书数）的纲领。}%
-}
-
-\bilingual{%
-\zh{稽群倫之聚散，考二氣之降升；推寒暑之迭運，步遠近之殊同；觀天道精微之兆基，察地理從橫之長短；采神祇之所在，極成敗之符驗；窮道德之理，究性命之情。}%
-}{%
-\zh{考察各类事物的聚散规律，研究阴阳二气的升降变化；推算寒暑季节的交替运行，测量远近距离的异同；观察天道中精微奥妙的征兆，考察地理上纵横交错的长短尺度；探寻神灵的所在之处，验证成功与失败的预兆；穷究道德的原理，探索生命本质的奥秘。}%
-}
-
-\bilingual{%
-\zh{立規矩，準方圓，謹法度，約尺丈，立權衡，平重輕，剖毫釐，析黍絫；歷億載而不朽，施八極而無疆。散之不可勝究，斂之不盈掌握。}%
-}{%
-\zh{制定圆规和曲尺，确定方圆的标准；严谨地遵守法度，精确地测量尺寸；设立秤杆和秤砣，平衡物体的轻重；细分到毫厘之差，精确到黍粒之微；经历亿万年而不朽，施及八方极远而无边界。展开来无穷无尽不可穷尽，收拢来却不满一掌之握。}%
-}
-
-\bilingual{%
-\zh{嚮之者富有餘，背之者貧且窶；心開者幼沖而即悟，意閉者皓首而難精。夫欲學之者必務量能揆己，志在所專。如是則焉有不成者哉。}%
-}{%
-\zh{投身其中的人会变得富足有余，背离它的人则会贫穷匮乏；心思通达的人即使年幼也能立即领悟，思路闭塞的人即便白头也难以精通。想要学习数学的人，一定要衡量自己的能力、正确评估自己，专心致志在选定的领域。这样的话，怎么会不成功呢？}%
-}
-
-\newpage
-
-%% ========================================================================
-%% VOLUME I
-%% ========================================================================
-\section{\zh{卷上}}
-
-\subsection*{\zh{一、度量衡的起源}}
-
-\bilingual{%
-\zh{度之所起，起於忽。欲知其忽，蠶所生，吐絲為忽。十忽為一秒，十秒為一毫，十毫為一釐，十釐為一分，十分為一寸，十寸為一尺，十尺為一丈，十丈為一引；五十尺為一端；四十尺為一疋；六尺為一步。二百四十步為一畝。三百步為一里。}%
-}{%
-\zh{长度的单位，最小起于「忽」。什么叫忽呢？就是蚕吐出的丝那么细。十忽等于一秒，十秒等于一毫，十毫等于一釐，十釐等于一分，十分等于一寸，十寸等于一尺，十尺等于一丈，十丈等于一引；五十尺为一端；四十尺为一匹；六尺为一步。二百四十步为一亩。三百步为一里。}%
-}
-
-\subsection*{\zh{二、重量與容量的起源}}
-
-\bilingual{%
-\zh{稱之所起，起於黍。十黍為一絫，十絫為一銖，二十四銖為一兩，十六兩為一斤，三十斤為一鉤，四鉤為一石。}%
-}{%
-\zh{重量的单位，最小起于「黍」（一种谷物）。十黍等于一絫，十絫等于一銖，二十四銖等于一两，十六两等于一斤，三十斤等于一钩，四钩等于一石。}%
-}
-
-\bilingual{%
-\zh{量之所起，起於粟。六粟為一圭，十圭為一抄，十抄為一撮，十撮為一勺，十勺為一合，十合為一升，十升為一斗，十斗為一斛。斛得六千萬粟。}%
-}{%
-\zh{容量的单位，最小起于「粟」（一粒谷子）。六粟等于一圭，十圭等于一抄，十抄等于一撮，十撮等于一勺，十勺等于一合，十合等于一升，十升等于一斗，十斗等于一斛。一斛等于六千万粟。}%
-}
-
-\subsection*{\zh{三、大數記法}}
-
-\bilingual{%
-\zh{凡大數之法，萬萬曰億，萬萬億曰兆，萬萬兆曰京，萬萬京曰陔，萬萬陔曰秭，萬萬秭曰壤，萬萬壤曰溝，萬萬溝曰澗，萬萬澗日正，萬萬正曰載。}%
-}{%
-\zh{大数的记法规则是：万万叫做亿，万亿叫做兆，万兆叫做京，万京叫做陔，万陔叫做秭，万秭叫做壤，万壤叫做沟，万沟叫做涧，万涧叫做正，万正叫做载。}%
-}
-
-\subsection*{\zh{四、圓周率與方圓比}}
-
-\bilingual{%
-\zh{周三徑一。方五邪七；見邪求方，五之，七而一；見方求邪，七之，五而一。}%
-}{%
-\zh{圆的周长是直径的三倍（即圆周率取3）。边长为5的正方形，对角线约为7；已知对角线求边长，乘以5再除以7；已知边长求对角线，乘以7再除以5。}%
-}
-
-\subsection*{\zh{五、材料比重}}
-
-\bilingual{%
-\zh{黃金方寸重一斤。白金方寸重一十四兩。玉方寸重一十二兩。銅方寸重七兩半。鈆方寸重九兩半。鐵方寸重六兩。石方寸重三兩。}%
-}{%
-\zh{边长为一寸的正方体黄金，重一斤。同样大小的白银重十四两。玉石重十二两。铜重七两半。铅重九两半。铁重六两。石头重三两。}%
-}
-
-\subsection*{\zh{六、算籌記數法}}
-
-\bilingual{%
-\zh{凡筭之法，先識其位，一從十橫，百立千僵，千十相望，萬百相當。}%
-}{%
-\zh{用算筹计算的方法，首先要认清数位：个位用纵式，十位用横式，百位用纵式，千位用横式。千位和十位的摆放方式相对，万位和百位的摆放方式对应。}%
-}
-
-\textit{\zh{算筹记数法是中国古代最重要的计算工具。个位数用竖式排列，十位数用横式排列，百位又变回竖式，千位再用横式，以此类推，纵横交替。}}
-
-\subsection*{\zh{七、乘法法則}}
-
-\bilingual{%
-\zh{凡乘之法，重置其位。上下相觀，上位有十步至十，有百步至百，有千步至千。以上命下，所得之數列於中位。言十即過，不滿自如。上位乘訖者先去之。下位乘訖者則俱退之。六不積，五不隻。上下相乘，至盡則已。}%
-}{%
-\zh{乘法运算时，把两个数上下对齐摆放。根据被乘数的位数移动：被乘数有十，结果就进到十位；有百就进到百位；有千就进到千位。用上面的数依次乘下面的数，所得的结果放在中间位置。满十就进位，不满十就照原样写下。上面的数乘完后就撤去。下面的数乘完后也一起撤去。六以上不用累积算筹表示，五也不单独表示。上下相乘，直到全部算完为止。}%
-}
-
-\subsection*{\zh{八、除法法則}}
-
-\bilingual{%
-\zh{凡除之法，與乘正異。乘得在中央，除得在上方。假令六為法，百為實。以六除百，當進之二等，令在正百下，以六除一，則法多而實少，不可除，故當退就十位。以法除實，言一六而折百為四十，故可除。若實多法少，自當百之，不當復退。故或步法十者置於十位，百者置於百位。上位有空絕者，法退二位。餘法皆如乘時。實有餘者，以法命之，以法為母。實餘為子。}%
-}{%
-\zh{除法与乘法正好相反。乘法的结果放在中间，除法的结果放在上面。假设除数（法）是6，被除数（实）是100。用6除100，应该先前进两位，放在百位下面。但用6去除1，除数比被除数大，除不了，所以应该退到十位。用除数去除被除数：一六得六，从100里减去60还剩40，所以可以除。如果被除数大而除数小，自然应该在百位上商，不用再退了。所以除数是十位数就放在十位，是百位数就放在百位。如果上面某位是空的，除数就要退两位。其余步骤和乘法时一样。如果被除数除不尽有余数，就用除数来命名这个余数：除数作为分母，余数作为分子。}%
-}
-
-\subsection*{\zh{九、糧食換算率}}
-
-\bilingual{%
-\zh{以粟求糲米，三之，五而一。以糲米求粟，五之，三而一。以糲米求飯，五之，二而一。以粟米求糲飯，六之，四而一。以糲飯求糲米，二之，五而一。}%
-}{%
-\zh{用谷子换算糙米：谷子乘以3再除以5。用糙米换算谷子：糙米乘以5再除以3。用糙米换算米饭：糙米乘以5再除以2。用谷子换算糙米饭：谷子乘以6再除以4。用糙米饭换算糙米：糙米饭乘以2再除以5。}%
-}
-
-\subsection*{\zh{十、分數折扣}}
-
-\bilingual{%
-\zh{十分減一者，以二乘，二十除。減二者，以四乘，二十除。減三者，以六乘，二十除。減四者，以八乘，二十除。減五者，以十乘，二十除。減六者，以十二乘，二十除。減七者，以十四乘，二十除。減八者，以十六乘，二十除。減九者，以十八乘，二十除。}%
-}{%
-\zh{减少十分之一的，用2乘、20除。减少十分之二的，用4乘、20除。减少十分之三的，用6乘、20除。减少十分之四的，用8乘、20除。减少十分之五的，用10乘、20除。减少十分之六的，用12乘、20除。减少十分之七的，用14乘、20除。减少十分之八的，用16乘、20除。减少十分之九的，用18乘、20除。}%
-}
-
-\subsection*{\zh{例題：九九八十一自乘}}
-
-\bilingual{%
-\wen：\zh{九九八十一，自相乘，得幾何？}\\[2pt]
-\da：\zh{答曰：六千五百六十一。}\\[2pt]
-\shu：\zh{重置其位，以上八呼下八，八八六十四，即下六千四百於中位。以上八呼下一，一八如八，即於中位下八十。退下位一等，收上位八十。以上位一呼下八，一八如八，即於中位下八十。以上一呼下一，一一如一，即於中位下一。上下位俱收，中位即得六千五百六十一。}%
-}{%
-\wen：\zh{81乘81，结果是多少？}\\[2pt]
-\da：\zh{答：6561。}\\[2pt]
-\shu：\zh{运算方法：把81上下对齐摆放。用上面的8乘下面的8，八八六十四，在中间写下6400。用上面的8乘下面的1，一八得八，在中间写下80。把下面的数退一位，收去上面的80。用上面的1乘下面的8，一八得八，在中间写下80。用上面的1乘下面的1，一一得一，在中间写下1。上下两数都收去，中间的结果就是6561。}%
-}
-
-\subsection*{\zh{例題：六千五百六十一除以九}}
-
-\bilingual{%
-\wen：\zh{六千五百六十一，九人分之，問人得幾何？}\\[2pt]
-\da：\zh{答曰：七百二十九。}\\[2pt]
-\shu：\zh{先置六千五百六十一於中位，為實。下列九人為法。上位置七百，以上七呼下九，七九六十三，即除中位六千三百。退下位一等，即上位置二十。以上二呼下九，二九十八，即除中位一百八十。又更退下位一等，即上位更置九，即以上九呼下九，九九八十一，即除中位八十一。中位盡，收下位。上位所得即人之所得。}%
-}{%
-\wen：\zh{6561由9个人平分，每人得多少？}\\[2pt]
-\da：\zh{答：每人729。}\\[2pt]
-\shu：\zh{先把6561放在中间作为被除数。下面写9作为除数。上面先商700，用7乘下面的9，七九六十三，从中间减去6300。把下面的除数退一位，上面商20。用2乘下面的9，二九十八，从中间减去180。再把下面的除数退一位，上面改商9，用9乘下面的9，九九八十一，从中间减去81。中间减尽了，收去下面的除数。上面得到的结果729就是每人分得的数量。}%
-}
-
-\newpage
-
-%% ========================================================================
-%% VOLUME II
-%% ========================================================================
-\section{\zh{卷中}}
-
-\subsection*{\zh{題一：約分}}
-
-\bilingual{%
-\wen：\zh{今有一十八分之一十二。問約之得幾何？}\\[2pt]
-\da：\zh{答曰：三分之二。}\\[2pt]
-\shu：\zh{置十八分在下，一十二分在上。副置二位，以少減多，等數得六，為法。約之，即得。}%
-}{%
-\wen：\zh{现有12/18。问约分后等于多少？}\\[2pt]
-\da：\zh{答：等于2/3。}\\[2pt]
-\shu：\zh{把分母18放在下面，分子12放在上面。在旁边再摆一份这两个数，用较大数减去较小数，辗转相减直到相等，得到的等数（最大公约数）是6，作为约分的除数。分子分母都用6来约分，就得到答案。}%
-}
-
-\subsection*{\zh{題五：分數平均}}
-
-\bilingual{%
-\wen：\zh{今有三分之一，三分之二，四分之三。問減多益少，幾何而平？}\\[2pt]
-\da：\zh{答曰：減四分之三者二，減三分之二者一，并以益三分之一，各平於一十二分之七。}\\[2pt]
-\shu：\zh{置三分、三分、四分在右方，之一、之二、之三在左方。母互乘子，副并得六十三，置右，為平實。母相乘，得三十六，為法。以列數三乘未并者及法。等數得九，約訖。}%
-}{%
-\wen：\zh{现有1/3、2/3、3/4这三个分数。问从多的里面减去多少补给少的，才能使三个分数相等？}\\[2pt]
-\da：\zh{答：从3/4中减去2/12，从2/3中减去1/12，把这些都加给1/3，三个分数都等于7/12。}\\[2pt]
-\shu：\zh{把三个分母3、3、4摆在右边，三个分子1、2、3摆在左边。分母互相乘对方的分子，辅助相加得到63，放在右边作为平均后的被除数。分母相乘得到36，作为除数。用分数的个数3去乘没合并的数和除数。等数是9，约分后即得。}%
-}
-
-\subsection*{\zh{題六：粟換糯米}}
-
-\bilingual{%
-\wen：\zh{今有粟一斗，問為糯米幾何？}\\[2pt]
-\da：\zh{答曰：六升。}\\[2pt]
-\shu：\zh{置粟一斗，十升。以糲米率三十乘之，得三百升，為實。以粟率五十為法，除之，即得。}%
-}{%
-\wen：\zh{现有谷子一斗，问能换多少糙米？}\\[2pt]
-\da：\zh{答：六升。}\\[2pt]
-\shu：\zh{把谷子一斗换算成10升。用糙米率30去乘，得到300升，作为被除数。用粟率50作为除数，300除以50，即得6升。}%
-}
-
-\subsection*{\zh{題九：砌磚計算}}
-
-\bilingual{%
-\wen：\zh{今有屋基南北三丈，東西六丈，欲以磚砌之。凡積二尺，用磚五枚。問計幾何？}\\[2pt]
-\da：\zh{答曰：四千五百枚。}\\[2pt]
-\shu：\zh{置東西六丈，以南北三丈乘之，得一千八百尺。以五乘之，得九千尺。以二除之，即得。}%
-}{%
-\wen：\zh{有一个房屋地基，南北长3丈，东西宽6丈，要用砖来砌。每2立方尺用5块砖。问一共需要多少块砖？}\\[2pt]
-\da：\zh{答：4500块。}\\[2pt]
-\shu：\zh{把东西宽6丈，乘以南北长3丈，得到1800平方尺（面积）。乘以5得9000。再除以2，即得4500块。}%
-}
-
-\subsection*{\zh{題十三：圓田面積}}
-
-\bilingual{%
-\wen：\zh{今有圓田周三百步，徑一百步。問得田幾何？}\\[2pt]
-\da：\zh{答曰：三十一畝奇六十步。}\\[2pt]
-\shu：\zh{先置周三百步，半之，得一百五十步。又置徑一百步，半之，得五十步。相乘，得七千五百步。以畝法二百四十步除之，即得。}%
-}{%
-\wen：\zh{有一块圆形田地，周长300步，直径100步。问这块田有多少亩？}\\[2pt]
-\da：\zh{答：31亩余60步。}\\[2pt]
-\shu：\zh{先把周长300步取半，得150步。再把直径100步取半，得50步。两个半数相乘，得7500平方步。用亩法240步去除，即得31亩余60步。}%
-}
-
-\textit{\zh{注：古代圆面积采用「半周半径相乘」的公式，与现代公式在取圆周率≈3时一致。}}
-
-\bilingual{%
-\zh{又術：周自相乘，得九萬步。以一十二除之，得七千五百步。以畝法除之，得畝數。}%
-}{%
-\zh{另一种算法：周长自乘得90000平方步。用12去除，得7500平方步。再用亩法去除，得到亩数。}%
-}
-
-\subsection*{\zh{題十四：方田桑生中央}}
-
-\bilingual{%
-\wen：\zh{今有方田，桑生中央。從角至桑一百四十七步。問為田幾何？}\\[2pt]
-\da：\zh{答曰：一頃八十三畝奇一百八十步。}\\[2pt]
-\shu：\zh{置角至桑一百四十七步，倍之，得二百九十四步。以五乘之，得一千四百七十步。以七除之，得二百一十步。自相乘，得四萬四千一百步。以二百四十步除之，即得。}%
-}{%
-\wen：\zh{有一块正方形田地，中央长着一棵桑树。从田地的一个角到桑树距离147步。问这块田面积是多少？}\\[2pt]
-\da：\zh{答：1顷83亩余180步。}\\[2pt]
-\shu：\zh{把角到桑树的距离147步记下，加倍得294步。乘以5得1470步。除以7得210步。这就是正方形田地的边长。自乘得44100平方步。用240步去除，即得亩数。}%
-}
-
-\subsection*{\zh{題二十三：開渠工程}}
-
-\bilingual{%
-\wen：\zh{今有穿渠，長二十九里一百四步，上廣一丈二尺六寸，下廣八尺，深一丈八尺。秋程人功三百尺。問須功幾何？}\\[2pt]
-\da：\zh{答曰：三萬二千六百四十五人，不盡六十九尺六寸。}\\[2pt]
-\shu：\zh{置里數，以三百步乘之，內零步，六之，得五萬二千八百二十四尺。并上、下廣，得二丈六寸。半之，以深乘之，得一百八十五尺四寸。以長乘，得九百七十九萬三千五百六十九尺六寸。以人功三百尺除之，即得。}%
-}{%
-\wen：\zh{要挖一条水渠，长29里104步，上口宽1丈2尺6寸，下口宽8尺，深1丈8尺。秋季每人每天的工作量标准是300立方尺。问需要多少人工？}\\[2pt]
-\da：\zh{答：需要32645人，还余69.6立方尺的工作量。}\\[2pt]
-\shu：\zh{把里数用300步去乘，加上零头的104步，再换算成尺（乘以6），得到52824尺（渠长）。把上口宽和下口宽相加，得2丈6寸。取半再乘以深度，得185.4平方尺（截面面积）。用长乘截面面积，得总体积。用每人工作量300尺去除，即得所需人工数。}%
-}
-
-\newpage
-
-%% ========================================================================
-%% VOLUME III
-%% ========================================================================
-\section{\zh{卷下}}
-
-\subsection*{\zh{題一：九家輸租}}
-
-\bilingual{%
-\wen：\zh{今有甲、乙、丙、丁、戊、己、庚、辛、壬九家共輸租。甲出三十五斛，乙出四十六斛，丙出五十七斛，丁出六十八斛，戊出七十九斛，己出八十斛，庚出一百斛，辛出二百一十斛，壬出三百二十五斛。凡九家共輸租一千斛。僦運直折二百斛外，問家各幾何？}\\[2pt]
-\da：\zh{答曰：甲二十八斛。乙三十六斛八蚪。丙四十五斛六蚪。丁五十四斛四蚪。戊六十三斛二蚪。己六十四斛。庚八十斛。辛一百六十八斛。壬二百六十斛。}\\[2pt]
-\shu：\zh{置甲出三十五斛，以四乘之，得一百四十斛。以五除之，得二十八斛。乙出四十六斛，以四乘之，得一百八十四斛。以五除之，得三十六斛八蚪。……}%
-}{%
-\wen：\zh{有甲、乙、丙、丁、戊、己、庚、辛、壬九家共同交租。甲出35斛，乙出46斛，丙出57斛，丁出68斛，戊出79斛，己出80斛，庚出100斛，辛出210斛，壬出325斛。九家共交租1000斛。扣除运输费用200斛外，问每家实际应交多少？}\\[2pt]
-\da：\zh{答：甲28斛，乙36斛8斗，丙45斛6斗，丁54斛4斗，戊63斛2斗，己64斛，庚80斛，辛168斛，壬260斛。}\\[2pt]
-\shu：\zh{运算方法：每家的应交数先乘以4，再除以5（即扣除两成运费）。如甲家：35斛乘以4得140斛，除以5得28斛。乙家：46斛乘以4得184斛，除以5得36斛8斗。其余各家依此类推。}%
-}
-
-\subsection*{\zh{題三：平地聚粟}}
-
-\bilingual{%
-\wen：\zh{今有平地聚粟，下周三丈六尺，高四尺五寸。問粟幾何？}\\[2pt]
-\da：\zh{答曰：一百斛。}\\[2pt]
-\shu：\zh{置周三丈六尺，自相乘，得一千二百九十六尺。以高四尺五寸乘之，得五千八百三十二尺。以三十六除之，得一百六十二尺。以斛法一尺六寸二分除之，即得。}%
-}{%
-\wen：\zh{平地上堆着一堆谷子，底面周长3丈6尺，高4尺5寸。问这堆谷子有多少斛？}\\[2pt]
-\da：\zh{答：100斛。}\\[2pt]
-\shu：\zh{把周长3丈6尺记下，自乘得1296平方尺。乘以高4.5尺，得5832立方尺。除以36，得162立方尺（这是圆锥体积的古代算法）。再用一斛的容积1.62立方尺去除，即得100斛。}%
-}
-
-\subsection*{\zh{題五：碁局用子}}
-
-\bilingual{%
-\wen：\zh{今有碁局方一十九道。問用碁幾何？}\\[2pt]
-\da：\zh{答曰：三百六十一。}\\[2pt]
-\shu：\zh{置一十九道，自相乘之，即得。}%
-}{%
-\wen：\zh{有一个围棋盘，每边19道线。问盘面上有多少个交叉点（需要多少棋子）？}\\[2pt]
-\da：\zh{答：361个。}\\[2pt]
-\shu：\zh{把19道线记下，自乘（19×19），即得361。}%
-}
-
-\textit{\zh{这是标准的19路围棋盘，交叉点总数为 $19^2 = 361$。}}
-
-\subsection*{\zh{題十五：人車問題}}
-
-\bilingual{%
-\wen：\zh{今有三人共車，二車空；二人共車，九人步。問人與車各幾何？}\\[2pt]
-\da：\zh{答曰：一十五車。三十九人。}\\[2pt]
-\shu：\zh{置二車，以三乘之，得六。加步者九人，得車一十五。欲知人者，以二乘車，加九人，即得。}%
-}{%
-\wen：\zh{现在有一些人乘车。如果3个人坐一辆车，会空出2辆车；如果2个人坐一辆车，会有9个人需要走路。问一共有多少人和多少辆车？}\\[2pt]
-\da：\zh{答：15辆车，39人。}\\[2pt]
-\shu：\zh{运算方法：把空出的2辆车用3去乘，得6。加上走路的9人，得15，就是车辆总数。要求人数，用2乘以车数15，再加上走路的9人，即得39人。}%
-}
-
-\subsection*{\zh{題十七：津吏問客}}
-
-\bilingual{%
-\wen：\zh{今有婦人河上蕩桮。津吏問曰：「桮何以多？」婦人曰：「家有客。」津吏曰：「客幾何？」婦人曰：「二人共飯，三人共羹，四人共肉，凡用桮六十五。不知客幾何？」}\\[2pt]
-\da：\zh{答曰：六十人。}\\[2pt]
-\shu：\zh{置六十五桮，以一十二乘之，得七百八十，以十三除之，即得。}%
-}{%
-\wen：\zh{有位妇人在河边洗杯子。渡口官吏问道：「怎么这么多杯子？」妇人回答：「家里来了客人。」官吏问：「有多少客人？」妇人说：「两人共用一碗饭，三人共用一碗汤，四人共用一碗肉，一共用了65只碗。不知道有多少客人？」}\\[2pt]
-\da：\zh{答：60位客人。}\\[2pt]
-\shu：\zh{运算方法：把65只碗记下，用12去乘，得780。用13去除，即得60人。（原理：每人用1/2饭碗+1/3汤碗+1/4肉碗=13/12只碗，所以总人数=65×12÷13=60）}%
-}
-
-\subsection*{\zh{題十八：木與繩}}
-
-\bilingual{%
-\wen：\zh{今有木，不知長短。引繩度之，餘繩四尺五寸。屈繩量之，不足一尺。問木長幾何？}\\[2pt]
-\da：\zh{答曰：六尺五寸。}\\[2pt]
-\shu：\zh{置餘繩四尺五寸，加不足一尺，共五尺五寸。倍之，得一丈一尺。減餘四尺五寸，即得。}%
-}{%
-\wen：\zh{有一根木头，不知道长度。用一根绳子去量，绳子多出4尺5寸。把绳子对折后再量，又短了1尺。问木头有多长？}\\[2pt]
-\da：\zh{答：6尺5寸。}\\[2pt]
-\shu：\zh{运算方法：把绳子的余量4尺5寸，加上对折后不足的1尺，共5尺5寸。加倍得1丈1尺（这就是绳子的全长）。再减去余量4尺5寸，即得木头长度6尺5寸。}%
-}
-
-\textit{\zh{验算：绳长=11尺，木长=6.5尺。用绳量木余4.5尺（11-6.5=4.5），绳对折后长5.5尺，量6.5尺的木头差1尺。正确。}}
-
-\subsection*{\zh{題十九：器中餘米}}
-
-\bilingual{%
-\wen：\zh{今有器中米，不知其數。前人取半，中人三分取一，後人四分取一，餘米一斗五升。問本米幾何？}\\[2pt]
-\da：\zh{答曰：六斗。}\\[2pt]
-\shu：\zh{置餘米一斗五升，以六乘之，得九斗。以二除之，得四斗五升。以四乘之，得一斛八斗。以三除之，即得。}%
-}{%
-\wen：\zh{容器中有一些米，不知道原来有多少。第一个人取走了一半，第二个人取走了剩下的三分之一，第三个人取走了再剩下的四分之一，最后还剩1斗5升。问原来有多少米？}\\[2pt]
-\da：\zh{答：6斗。}\\[2pt]
-\shu：\zh{运算方法：把剩余的1斗5升记下，用6乘（因为最后剩的是原来的一半×三分之二×四分之三=1/4，所以反过来用6乘），得9斗。除以2得4斗5升。乘以4得1斛8斗。除以3，即得原来6斗。}%
-}
-
-\subsection*{\zh{題二十七：獸六首四足}}
-
-\bilingual{%
-\wen：\zh{今有獸六首四足，禽四首二足。上有七十六首，下有四十六足。問禽、獸各幾何？}\\[2pt]
-\da：\zh{答曰：八獸，七禽。}\\[2pt]
-\shu：\zh{倍足以減首，餘，半之，即禽。四乘禽數，減足，餘，半之，即獸。}%
-}{%
-\wen：\zh{有一种野兽有6个头4只脚，一种禽鸟有4个头2只脚。从上面数有76个头，从下面数有46只脚。问禽和兽各有多少只？}\\[2pt]
-\da：\zh{答：8只兽，7只禽。}\\[2pt]
-\shu：\zh{运算方法：把脚数加倍，减去头数，余数取半，就是禽的数量。用4乘以禽数，从脚数中减去，余数取半，就是兽的数量。}%
-}
-
-\subsection*{\zh{題二十九：百鹿入城}}
-
-\bilingual{%
-\wen：\zh{今有百鹿入城，家取一鹿，不盡；又三家共一鹿，適盡。問城中家幾何？}\\[2pt]
-\da：\zh{答曰：七十五家。}\\[2pt]
-\shu：\zh{以盈不足取之。假令七十二家，鹿不盡四。令之九十家，鹿不足二十。置七十二於右上，盈四於右下。置九十於左上，不足二十於左下。維乘之，所得，并為實。并盈不足為法。除之，即得。}%
-}{%
-\wen：\zh{有100头鹿进城，每家分一头鹿，分不完；又让三家合分一头鹿，正好分完。问城里有多少户人家？}\\[2pt]
-\da：\zh{答：75家。}\\[2pt]
-\shu：\zh{用盈不足术来解。假设72家，鹿有剩余4头。假设90家，鹿不够20头。把72放在右上方，剩余4放在右下方。把90放在左上方，不足20放在左下方。交叉相乘，所得相加作为被除数。把盈和不足相加作为除数。相除即得75家。}%
-}
-
-\textit{\zh{代数解法：设城中有 $x$ 家，则 $x + x/3 = 100$，解得 $x = 75$。}}
-
-\subsection*{\zh{題三十一：雉兔同籠}}
-
-\bilingual{%
-\wen：\zh{今有雉、兔同籠，上有三十五頭，下九十四足。問雉、兔各幾何？}\\[2pt]
-\da：\zh{答曰：雉二十三。兔一十二。}\\[2pt]
-\shu：\zh{上置三十五頭，下置九十四足。半其足，得四十七。以少減多，再命之，上三除下三，上五除下五。下有一除上一，下有二除上二，即得。}%
-}{%
-\wen：\zh{有野鸡和兔子关在同一个笼子里，从上面数有35个头，从下面数有94只脚。问野鸡和兔子各有多少只？}\\[2pt]
-\da：\zh{答：野鸡23只，兔子12只。}\\[2pt]
-\shu：\zh{运算方法：上面放头数35，下面放脚数94。把脚数取半得47。用少减多（47-35=12），再按数位处理：上面的3除下面的3，上面的5除下面的5。下面有余1除上面1，有余2除上面2，即得兔子12只、野鸡23只。}%
-}
-
-\textit{\zh{这就是著名的「鸡兔同笼」问题，是中国数学的经典问题。现代解法：设雉 $x$ 只，兔 $y$ 只，则 $x+y=35$，$2x+4y=94$，解得 $y=12$，$x=23$。}}
-
-\bilingual{%
-\zh{又術曰：上置頭，下置足。半其足，以頭除足，以足除頭，即得。}%
-}{%
-\zh{另一种算法：上面放头数，下面放脚数。脚数取半，用头数去除脚数的一半，再用脚数的一半去除头数，即得两种动物的只数。}%
-}
-
-\subsection*{\zh{題三十四：出門望九隄}}
-
-\bilingual{%
-\wen：\zh{今有出門望見九隄。隄有九木，木有九枝，枝有九巢，巢有九禽，禽有九雛，雛有九毛，毛有九色。問各幾何？}\\[2pt]
-\da：\zh{答曰：木八十一。枝七百二十九。巢六千五百六十一。禽五萬九千四十九。雛五十三萬一千四百四十一。毛四百七十八萬二千九百六十九。色四千三百四萬六千七百二十一。}\\[2pt]
-\shu：\zh{置九隄，以九乘之，得木之數。又以九乘之，得枝之數。又以九乘之，得巢之數。又以九乘之，得禽之數。又以九乘之，得雛之數。又以九乘之，得毛之數。又以九乘之，得色之數。}%
-}{%
-\wen：\zh{出门望见9道堤坝。每道堤坝上有9棵树，每棵树有9根枝，每根枝上有9个鸟巢，每个鸟巢里有9只鸟，每只鸟有9只雏鸟，每只雏鸟有9根羽毛，每根羽毛有9种颜色。问各有多少？}\\[2pt]
-\da：\zh{答：树81棵，枝729根，巢6561个，鸟59049只，雏鸟531441只，羽毛4782969根，颜色43046721种。}\\[2pt]
-\shu：\zh{运算方法：把9道堤坝用9去乘，得到树的数量。再连续用9去乘，依次得到枝、巢、禽、雏、毛、色的数量。}%
-}
-
-\textit{\zh{本题即连续求9的幂次：$9^2=81$，$9^3=729$，$9^4=6561$，$9^5=59049$，$9^6=531441$，$9^7=4782969$，$9^8=43046721$。}}
-
-\subsection*{\zh{題三十五：三女歸家}}
-
-\bilingual{%
-\wen：\zh{今有三女，長女五日一歸，中女四日一歸，少女三日一歸。問三女幾何日相會？}\\[2pt]
-\da：\zh{答曰：六十日。}\\[2pt]
-\shu：\zh{置長女五日、中女四日、少女三日，於右方。各列一算於左方。維乘之，各得所到數：長女十二到，中女十五到，少女二十到。又各以歸日乘到數，即得。}%
-}{%
-\wen：\zh{有三个女儿，大女儿每5天回家一次，二女儿每4天回家一次，小女儿每3天回家一次。问三个女儿多少天后能同时回家相会？}\\[2pt]
-\da：\zh{答：60天后。}\\[2pt]
-\shu：\zh{运算方法：把大女的5天、中女的4天、小女的3天摆在右边。左边各列一个算筹。交叉相乘，得到各自回家的次数：大女回12次，中女回15次，小女回20次。再用各自回家的间隔天数乘以次数，都等于60天。}%
-}
-
-\textit{\zh{本题即求最小公倍数：$\text{lcm}(3,4,5)=60$。}}
-
-\newpage
-
-%% ========================================================================
-%% THE CHINESE REMAINDER THEOREM
-%% ========================================================================
-\section*{\zh{物不知數}——\zh{中國剩餘定理}}
-\addcontentsline{toc}{section}{\zh{物不知數——中國剩餘定理}}
-
-\begin{tcolorbox}[colback=crtgold!8,colframe=crtgold,boxrule=1.5pt,
-  left=12pt,right=12pt,top=10pt,bottom=10pt,arc=4mm,
-  title={\textbf{\large \zh{卷下第26問}}},
-  fonttitle=\bfseries\color{white},coltitle=white,
-  colbacktitle=crtgold]
-
-\bilingual{%
-\wen：\zh{今有物，不知其數。三、三數之，賸二；五、五數之，賸三；七、七數之，賸二。問物幾何？}\\[2pt]
-\da：\zh{答曰：二十三。}\\[2pt]
-\shu：\zh{「三、三數之，賸二」，置一百四十；「五、五數之，賸三」，置六十三；「七、七數之，賸二」，置三十。并之，得二百三十三。以二百一十減之，即得。}\\[3pt]
-\zh{凡三、三數之，賸一，則置七十；五、五數之，賸一，則置二十一；七、七數之，賸一，則置十五。一百六以上，以一百五減之，即得。}%
-}{%
-\wen：\zh{有一些物品，不知道有多少个。三个三个地数，最后剩两个；五个五个地数，最后剩三个；七个七个地数，最后剩两个。问这些物品一共有多少个？}\\[2pt]
-\da：\zh{答：23个。}\\[2pt]
-\shu：\zh{「三个三个数余2」，就写下140；「五个五个数余3」，就写下63；「七个七个数余2」，就写下30。把这三个数相加，得233。减去210（3×5×7=105的2倍），即得23。}\\[3pt]
-\zh{一般规律：三个三个数余1，就写70；五个五个数余1，就写21；七个七个数余1，就写15。如果总数超过106，就减去105（3×5×7），直到得到小于105的答案。}%
-}
-\end{tcolorbox}
-
-\subsection*{\zh{現代數學分析}}
-
-\zh{用现代数学符号表示，这个问题要求找到最小的正整数 $N$，满足以下同余方程组：}
-\begin{align*}
-N &\equiv 2 \pmod{3} \\
-N &\equiv 3 \pmod{5} \\
-N &\equiv 2 \pmod{7}
-\end{align*}
-
-\zh{孙子的算法给出：}
-\begin{align*}
-N &= 140 + 63 + 30 - 210 \\
-  &= 233 - 210 \\
-  &= 23
-\end{align*}
-
-\zh{三个关键数字 \textbf{70}、\textbf{21}、\textbf{15} 具有特殊的数学性质：}
-\begin{itemize}[leftmargin=2em]
-  \item \zh{$70 = 2 \times 5 \times 7 \equiv 1 \pmod{3}$，且 $70 \equiv 0 \pmod{5}$，$70 \equiv 0 \pmod{7}$}
-  \item \zh{$21 = 1 \times 3 \times 7 \equiv 1 \pmod{5}$，且 $21 \equiv 0 \pmod{3}$，$21 \equiv 0 \pmod{7}$}
-  \item \zh{$15 = 1 \times 3 \times 5 \equiv 1 \pmod{7}$，且 $15 \equiv 0 \pmod{3}$，$15 \equiv 0 \pmod{5}$}
-\end{itemize}
-
-\zh{由于 $3 \times 5 \times 7 = 105$，一般解为：}
-\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
-\zh{其中 $r_1, r_2, r_3$ 分别是除以3、5、7的余数，$k$ 是选取的整数使 $N$ 为最小正整数。}
-
-\subsection*{\zh{驗算}}
-
-\begin{align*}
-23 \div 3 &= 7 \text{ \zh{余} } \mathbf{2} \quad \checkmark \\
-23 \div 5 &= 4 \text{ \zh{余} } \mathbf{3} \quad \checkmark \\
-23 \div 7 &= 3 \text{ \zh{余} } \mathbf{2} \quad \checkmark
-\end{align*}
-
-\subsection*{\zh{孫子公式}}
-
-\zh{对于一般的余数 $r_1, r_2, r_3$：}
-\[
-\boxed{N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k}
-\]
-
-\zh{其中 $M = 3 \times 5 \times 7 = 105$ 是最小公倍数，且：}
-\begin{itemize}
-  \item \zh{$70 = 105/3 \times 2$ 是模3余数的乘数}
-  \item \zh{$21 = 105/5 \times 1$ 是模5余数的乘数}
-  \item \zh{$15 = 105/7 \times 1$ 是模7余数的乘数}
-\end{itemize}
-
-\subsection*{\zh{孫子歌}}
-
-\zh{明代数学家程大位在《算法统宗》（1592年）中记录了这首朗朗上口的口诀：}
-
-\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=0.8pt,
-  width=0.9\textwidth,arc=2mm]
-\centering\large
-\zh{三人同行七十稀，五樹梅花廿一枝，}\\[3pt]
-\zh{七子團圓正半月，除百零五便得知。}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=modernbg,colframe=rulecolor!70!blue,boxrule=0.8pt,
-  width=0.9\textwidth,arc=2mm]
-\centering
-\zh{「三人同行」对应模3的乘数70；「五树梅花」对应模5的乘数21；}
-\zh{「七子团圆半月（15日）」对应模7的乘数15；}
-\zh{「除百零五」指减去105（3×5×7）直到得到最小正解。}
-\end{tcolorbox}
-
-\newpage
-
-%% ========================================================================
-%% REMAINING PROBLEMS FROM VOLUME III
-%% ========================================================================
-\section*{\zh{卷下其餘算題}}
-\addcontentsline{toc}{section}{\zh{卷下其餘算題}}
-
-\subsection*{\zh{題二十八：甲乙持錢}}
-
-\bilingual{%
-\wen：\zh{今有甲、乙二人，持錢各不知數。甲得乙中半，可滿四十八。乙得甲太半，亦滿四十八。問甲、乙二人元持錢各幾何？}\\[2pt]
-\da：\zh{答曰：甲持錢三十六。乙持錢二十四。}\\[2pt]
-\shu：\zh{如方程求之。置二甲、一乙、錢九十六，於右方。置二甲、三乙、錢一百四十四，於左方。以右方二乘左方，上得四，中得六，下得二百八十八錢。以右行再減左行，左上空，中餘四乙，為法；下餘九十六錢，為實。上法，下實，得二十四錢，為乙錢。以減右下九十六，餘七十二，為實；以右上二甲為法。上法、下實，得三十六，為甲錢也。}%
-}{%
-\wen：\zh{甲、乙两人各有一些钱，但不知道具体数目。如果甲得到乙的一半钱，他就有48文。如果乙得到甲的三分之二钱，他也有48文。问甲、乙原来各有多少钱？}\\[2pt]
-\da：\zh{答：甲原有36文，乙原有24文。}\\[2pt]
-\shu：\zh{用方程组的方法来解。列出方程：甲 + 乙/2 = 48，乙 + 2甲/3 = 48。转化为：2甲 + 乙 = 96，2甲 + 3乙 = 144。用右行乘左行，再通过相减消元，解得乙有24文，甲有36文。}%
-}
-
-\subsection*{\zh{題三十：三雞啄粟}}
-
-\bilingual{%
-\wen：\zh{今有三雞共啄粟一千一粒。雛啄一，母啄二，翁啄四。主責本粟，三雞主各償幾何？}\\[2pt]
-\da：\zh{答曰：雞雛主一百四十三。雞母主二百八十六。雞翁主五百七十二。}\\[2pt]
-\shu：\zh{置粟一千一粒，為實。副并三雞所啄粟七粒，為法。除之，得一百四十三粒，為雞雛主所償之數。遞倍之，即得母、翁主所償之數。}%
-}{%
-\wen：\zh{有三只鸡一共啄了1001粒谷子。小鸡啄1粒，母鸡啄2粒，公鸡啄4粒。主人要追讨损失的谷子，问三只鸡的主人各应赔偿多少？}\\[2pt]
-\da：\zh{答：小鸡的主人赔143粒，母鸡的主人赔286粒，公鸡的主人赔572粒。}\\[2pt]
-\shu：\zh{把1001粒谷子作为被除数。把三只鸡所啄的谷子数相加（1+2+4=7粒）作为除数。1001除以7得143粒，这就是小鸡主人应赔的数。依次加倍，就得到母鸡主人和公鸡主人应赔的数。}%
-}
-
-\subsection*{\zh{題三十二：九里渠魚}}
-
-\bilingual{%
-\wen：\zh{今有九里渠，三寸魚，頭頭相次。問魚得幾何？}\\[2pt]
-\da：\zh{答曰：五萬四千。}\\[2pt]
-\shu：\zh{置九里，以三百步乘之，得二千七百步。又以六尺乘之，得一萬六千二百尺。上十之，得一十六萬二千寸。以魚三寸除之，即得。}%
-}{%
-\wen：\zh{有一条9里长的水渠，每条鱼长3寸，鱼一条接一条头尾相连排过去。问能排多少条鱼？}\\[2pt]
-\da：\zh{答：54000条。}\\[2pt]
-\shu：\zh{把9里用300步去乘，得2700步。每步6尺，换算成尺得16200尺。再换算成寸（乘以10）得162000寸。用每条鱼3寸去除，即得54000条。}%
-}
-
-\subsection*{\zh{題三十三：長安至洛陽}}
-
-\bilingual{%
-\wen：\zh{今有長安、洛陽相去九百里。車輪一匝一丈八尺。欲自洛陽至長安，問輪匝幾何？}\\[2pt]
-\da：\zh{答曰：九萬匝。}\\[2pt]
-\shu：\zh{置九百里，以三百步乘之，得二十七萬步。又以六尺乘之，得一百六十二萬尺。以車輪一丈八尺為法。除之，即得。}%
-}{%
-\wen：\zh{长安和洛阳相距900里。车轮转一圈前进1丈8尺。要从洛阳到长安，问车轮要转多少圈？}\\[2pt]
-\da：\zh{答：90000圈。}\\[2pt]
-\shu：\zh{把900里用300步去乘，得270000步。每步6尺，共1620000尺。用车轮周长1丈8尺（18尺）去除，即得90000圈。}%
-}
-
-\subsection*{\zh{題三十六：孕婦知男女}}
-
-\bilingual{%
-\wen：\zh{今有孕婦行年二十九，難九月。未知所生？}\\[2pt]
-\da：\zh{答曰：生男。}\\[2pt]
-\shu：\zh{置四十九，加難月，減行年。所餘，以天除一，地除二，人除三，四時除四，五行除五，六律除六，七星除七，八風除八，九州除九。其不盡者，奇則為男，耦則為女。}%
-}{%
-\wen：\zh{有一位孕妇，今年29岁，怀孕9个月。问生男生女？}\\[2pt]
-\da：\zh{答：生男孩。}\\[2pt]
-\shu：\zh{运算方法：把49加上怀孕月份9，再减去年龄29，得29。然后依次减去：天减1、地减2、人减3、四时减4、五行减5、六律减6、七星减7、八风减8、九州减9。最后剩余的数，如果是奇数就生男孩，如果是偶数就生女孩。}%
-}
-
-\textit{\zh{注：此为古代迷信算法，没有科学依据。计算过程：49+9-29=29，29-1-2-3-4-5-6=8，8是偶数，按原文程序应生女。但原文答「生男」，说明古代版本或有不同，或仅为占卜之术。}}
-
-\newpage
-
-%% ========================================================================
-%% EPILOGUE
-%% ========================================================================
-\section*{\zh{後記}}
-\addcontentsline{toc}{section}{\zh{後記}}
-
-\bilingual{%
-\zh{《孫子算經》雖然篇幅不長，內容也不算深奧，但它在數學史上的地位無可替代。它不僅系統地記錄了中國古代的度量衡制度、算籌記數法和四則運算方法，更以其「物不知數」問題為世界數學寶庫貢獻了最早的同餘式組解法。}%
-}{%
-\zh{《孙子算经》虽然篇幅不长，内容也不算深奥，但它在数学史上的地位无可替代。它不仅系统地记录了中国古代的度量衡制度、算筹记数法和四则运算方法，更以其「物不知数」问题为世界数学宝库贡献了最早的一次同余式方程组解法。}%
-}
-
-\bilingual{%
-\zh{從孫子到秦九韶，中國數學家對同餘理論的研究持續了近千年，最終發展成為完善的「大衍求一術」。而在歐洲，類似的方法直到歐拉（1743年）和高斯（1801年）才得以建立。這充分說明了中國古代數學在世界數學發展史上的重要地位。}%
-}{%
-\zh{从孙子到秦九韶，中国数学家对同余理论的研究持续了将近一千年，最终发展成为完善的「大衍求一术」。而在欧洲，类似的方法直到欧拉（1743年）和高斯（1801年）才得以建立。这充分说明了中国古代数学在世界数学发展史上的重要地位。}%
-}
-
-\bilingual{%
-\zh{本書的白話文翻譯力求準確通俗，保留原文的數學術語，同時用現代語言加以解釋，以便當代讀者理解這部千年數學經典的內容與方法。}%
-}{%
-\zh{本书的白话文翻译力求准确通俗，保留原文的数学术语，同时用现代语言加以解释，以便当代读者理解这部千年数学经典的内容与方法。}%
-}
-
-\vspace{1cm}
-\begin{center}
-\longline
-\end{center}
-
-\vspace{0.5cm}
-
-\begin{center}
-\zh{本文古典原文依據中國哲學書電子化計劃（ctext.org）所藏《孫子算經》整理}\\[3pt]
-\zh{白話文翻譯由現代學者參考古今注疏編譯}
-\end{center}
-
-\end{document}
-
+% Combined TeX source bundle
+% Title: Sunzi, Sunzi Suanjing, classical-modern Chinese
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and source review rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/zh/chinese/sunzi-suanjing_classical-modern_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% 孙子算经 —— 文言文/白话文双语对照版
+%% Sunzi Suanjing — Classical Chinese / Modern Chinese Bilingual Edition
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+% \usepackage{tocloft}    % not available
+\usepackage{indentfirst}
+% \usepackage{tcolorbox}  % not available
+% Dummy tcolorbox replacement
+\newenvironment{tcolorbox}[1][]{%
+  \par\medskip\noindent\begin{minipage}{\linewidth}%
+}{%
+  \end{minipage}\par\medskip
+}
+\usepackage{etoolbox}
+% \usepackage{fancyvrb}   % not available
+% \usepackage{verse}      % not available
+\usepackage{url}
+% \usepackage{multicol}   % not available
+% \usepackage{calc}       % not available
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=16mm,right=16mm,top=24mm,bottom=24mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{chinese}
+
+%% -------- Font Configuration --------
+\setmainfont{Noto Sans CJK SC}[
+  BoldFont=Noto Sans CJK SC Bold,
+  Renderer=Harfbuzz
+]
+\setsansfont{Noto Sans CJK SC}[
+  BoldFont=Noto Sans CJK SC Bold,
+  Renderer=Harfbuzz
+]
+\setmonofont{Noto Sans CJK SC}[Scale=MatchLowercase]
+
+%% -------- xeCJK Setup --------
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{chinesebg}{RGB}{255,252,245}
+\definecolor{problembg}{RGB}{250,248,244}
+\definecolor{answerbg}{RGB}{245,250,245}
+\definecolor{methodbg}{RGB}{245,248,252}
+\definecolor{crtgold}{RGB}{139,90,0}
+\definecolor{classicalbg}{RGB}{255,250,240}
+\definecolor{modernbg}{RGB}{245,250,255}
+\definecolor{colrule}{RGB}{200,180,160}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\color{titlecolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\zh{孫子算經·文言文/白話文對照版}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Bilingual Column Commands --------
+\newlength{\leftcolwidth}
+\newlength{\rightcolwidth}
+\setlength{\leftcolwidth}{0.48\textwidth}
+\setlength{\rightcolwidth}{0.48\textwidth}
+
+% Two-column bilingual text display
+% Usage: \bilingual{classical text}{modern text}
+\newcommand{\bilingual}[2]{%
+  \par\vspace{0.3em}%
+  \noindent\begin{minipage}[t]{\leftcolwidth}
+  \begin{tcolorbox}[colback=classicalbg,colframe=colrule,boxrule=0.4pt,
+    left=4pt,right=4pt,top=3pt,bottom=3pt,arc=1mm]
+  {\footnotesize\bfseries\color{titlecolor}\zh{〔原文·文言文〕}}\\[2pt]
+  \normalfont\small #1
+  \end{tcolorbox}
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{\rightcolwidth}
+  \begin{tcolorbox}[colback=modernbg,colframe=colrule!70!blue,boxrule=0.4pt,
+    left=4pt,right=4pt,top=3pt,bottom=3pt,arc=1mm]
+  {\footnotesize\bfseries\color{sectioncolor}\zh{〔白話文翻譯〕}}\\[2pt]
+  \normalfont\small #2
+  \end{tcolorbox}
+  \end{minipage}%
+  \vspace{0.4cm}%
+}
+
+% Problem/Answer/Method labels
+\newcommand{\wen}{\textbf{\zh{問}}}
+\newcommand{\da}{\textbf{\zh{答}}}
+\newcommand{\shu}{\textbf{\zh{術}}}
+\newcommand{\zh}[1]{{\CJKfamily{}#1}}
+
+%% -------- Custom Environments --------
+\newenvironment{classicalblock}
+  {\begin{tcolorbox}[colback=classicalbg,colframe=colrule,boxrule=0.5pt,
+     left=8pt,right=8pt,top=6pt,bottom=6pt,arc=2mm]
+   \small\bfseries\zh{〔原文〕}\\[3pt]
+   \normalfont\small}
+  {\end{tcolorbox}}
+
+\newenvironment{modernblock}
+  {\begin{tcolorbox}[colback=modernbg,colframe=colrule!70!blue,boxrule=0.5pt,
+     left=8pt,right=8pt,top=6pt,bottom=6pt,arc=2mm]
+   \small\bfseries\zh{〔白話譯文〕}\\[3pt]
+   \normalfont\small}
+  {\end{tcolorbox}}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={孙子算经·文言文白话文对照版},
+  pdfauthor={Sunzi (c. 400 CE)}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{12}{14}\selectfont\zh{中國古典數學雙語對照叢書}}\\[0.6cm]
+
+\longline\\[1cm]
+
+{\fontsize{32}{38}\selectfont\bfseries\color{titlecolor}
+\zh{孫子算經}}\\[0.6cm]
+
+{\fontsize{20}{24}\selectfont\itshape Sunzi Suanjing}\\[0.3cm]
+
+{\fontsize{14}{18}\selectfont\zh{文言文 \raisebox{0.5ex}{\textbullet} 白話文 對照版}}\\[1cm]
+
+\longline\\[1cm]
+
+{\zh{傳孫子撰}}\\[0.3cm]
+{\normalsize 約公元3--5世紀}\\[1.5cm]
+
+\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=1pt,
+  width=0.85\textwidth,arc=3mm]
+\centering
+\small
+\zh{《算經十書》之一\quad\textbullet\quad 唐朝欽定數學教科書}\\[3pt]
+\zh{最早記載「中國剩餘定理」（大衍求一術）的數學經典}
+\end{tcolorbox}
+
+\vfill
+
+{\small 使用 \LaTeX\ + XeLaTeX + xeCJK 排版}\\[0.3cm]
+{\small\today}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{\zh{導讀}}
+
+\bilingual{%
+\zh{《孫子算經》是中國現存最早的數學著作之一，約成書於公元三世紀至五世紀之間。其作者孫子（非《孫子兵法》作者孫武），生平不詳。此書於唐朝被列入《算經十書》，成為國子監算學館的教材。}%
+}{%
+\zh{《孙子算经》是中国现存最早的数学著作之一，大约写于公元3世纪到5世纪之间。作者孙子的生平不详（注意：不是写《孙子兵法》的孙武）。这本书在唐朝被列入《算经十书》，成为国家最高学府算学馆的标准教科书。}%
+}
+
+\subsection*{\zh{全書結構}}
+
+全書分為三卷：
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{\zh{卷上}}：度量衡制度、大數記法、算籌記數法、乘除法則、九九乘法表
+  \item \textbf{\zh{卷中}}：分數運算、面積與體積計算
+  \item \textbf{\zh{卷下}}：36道實際應用問題，包括著名的「物不知數」問題（中國剩餘定理）
+\end{itemize}
+
+\subsection*{\zh{歷史意義}}
+
+本書最為數學史家稱道的貢獻是\textbf{卷下第26問}——\zh{「物不知數」}問題：
+
+\begin{quote}
+\zh{今有物，不知其數。三、三數之，賸二；五、五數之，賸三；七、七數之，賸二。問物幾何？}
+\end{quote}
+
+這是世界上關於\textbf{一次同餘式組}（即\textbf{中國剩餘定理}）的最早記載。雖然孫子只給出了具體算法而未證明，但其核心思想——構造輔助數並按模數組合——已經蘊含了這一定理的全部要素。
+
+一般解法後由\textbf{秦九韶}在《數書九章》（1247年）中發展為完善的「\zh{大衍求一術}」。
+
+\newpage
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\section*{\zh{序}}
+\addcontentsline{toc}{section}{\zh{序（Preface）}}
+
+\bilingual{%
+\zh{孫子曰：夫算者，天地之經緯，群生之元首；五常之本末，陰陽之父母；星辰之建號，三光之表裹；五行之準平，四時之終始；萬物之祖宗，六藝之綱紀。}%
+}{%
+\zh{孙子说：数学是天地运行的规律，是万物生长的根本；是社会伦理秩序的基础，是阴阳变化的根源；是星辰命名的依据，是日月星三光的表里；是五行平衡的标准，是四季更替的起始；是万物的起源，是六艺（礼乐射御书数）的纲领。}%
+}
+
+\bilingual{%
+\zh{稽群倫之聚散，考二氣之降升；推寒暑之迭運，步遠近之殊同；觀天道精微之兆基，察地理從橫之長短；采神祇之所在，極成敗之符驗；窮道德之理，究性命之情。}%
+}{%
+\zh{考察各类事物的聚散规律，研究阴阳二气的升降变化；推算寒暑季节的交替运行，测量远近距离的异同；观察天道中精微奥妙的征兆，考察地理上纵横交错的长短尺度；探寻神灵的所在之处，验证成功与失败的预兆；穷究道德的原理，探索生命本质的奥秘。}%
+}
+
+\bilingual{%
+\zh{立規矩，準方圓，謹法度，約尺丈，立權衡，平重輕，剖毫釐，析黍絫；歷億載而不朽，施八極而無疆。散之不可勝究，斂之不盈掌握。}%
+}{%
+\zh{制定圆规和曲尺，确定方圆的标准；严谨地遵守法度，精确地测量尺寸；设立秤杆和秤砣，平衡物体的轻重；细分到毫厘之差，精确到黍粒之微；经历亿万年而不朽，施及八方极远而无边界。展开来无穷无尽不可穷尽，收拢来却不满一掌之握。}%
+}
+
+\bilingual{%
+\zh{嚮之者富有餘，背之者貧且窶；心開者幼沖而即悟，意閉者皓首而難精。夫欲學之者必務量能揆己，志在所專。如是則焉有不成者哉。}%
+}{%
+\zh{投身其中的人会变得富足有余，背离它的人则会贫穷匮乏；心思通达的人即使年幼也能立即领悟，思路闭塞的人即便白头也难以精通。想要学习数学的人，一定要衡量自己的能力、正确评估自己，专心致志在选定的领域。这样的话，怎么会不成功呢？}%
+}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME I
+%% ========================================================================
+\section{\zh{卷上}}
+
+\subsection*{\zh{一、度量衡的起源}}
+
+\bilingual{%
+\zh{度之所起，起於忽。欲知其忽，蠶所生，吐絲為忽。十忽為一秒，十秒為一毫，十毫為一釐，十釐為一分，十分為一寸，十寸為一尺，十尺為一丈，十丈為一引；五十尺為一端；四十尺為一疋；六尺為一步。二百四十步為一畝。三百步為一里。}%
+}{%
+\zh{长度的单位，最小起于「忽」。什么叫忽呢？就是蚕吐出的丝那么细。十忽等于一秒，十秒等于一毫，十毫等于一釐，十釐等于一分，十分等于一寸，十寸等于一尺，十尺等于一丈，十丈等于一引；五十尺为一端；四十尺为一匹；六尺为一步。二百四十步为一亩。三百步为一里。}%
+}
+
+\subsection*{\zh{二、重量與容量的起源}}
+
+\bilingual{%
+\zh{稱之所起，起於黍。十黍為一絫，十絫為一銖，二十四銖為一兩，十六兩為一斤，三十斤為一鉤，四鉤為一石。}%
+}{%
+\zh{重量的单位，最小起于「黍」（一种谷物）。十黍等于一絫，十絫等于一銖，二十四銖等于一两，十六两等于一斤，三十斤等于一钩，四钩等于一石。}%
+}
+
+\bilingual{%
+\zh{量之所起，起於粟。六粟為一圭，十圭為一抄，十抄為一撮，十撮為一勺，十勺為一合，十合為一升，十升為一斗，十斗為一斛。斛得六千萬粟。}%
+}{%
+\zh{容量的单位，最小起于「粟」（一粒谷子）。六粟等于一圭，十圭等于一抄，十抄等于一撮，十撮等于一勺，十勺等于一合，十合等于一升，十升等于一斗，十斗等于一斛。一斛等于六千万粟。}%
+}
+
+\subsection*{\zh{三、大數記法}}
+
+\bilingual{%
+\zh{凡大數之法，萬萬曰億，萬萬億曰兆，萬萬兆曰京，萬萬京曰陔，萬萬陔曰秭，萬萬秭曰壤，萬萬壤曰溝，萬萬溝曰澗，萬萬澗日正，萬萬正曰載。}%
+}{%
+\zh{大数的记法规则是：万万叫做亿，万亿叫做兆，万兆叫做京，万京叫做陔，万陔叫做秭，万秭叫做壤，万壤叫做沟，万沟叫做涧，万涧叫做正，万正叫做载。}%
+}
+
+\subsection*{\zh{四、圓周率與方圓比}}
+
+\bilingual{%
+\zh{周三徑一。方五邪七；見邪求方，五之，七而一；見方求邪，七之，五而一。}%
+}{%
+\zh{圆的周长是直径的三倍（即圆周率取3）。边长为5的正方形，对角线约为7；已知对角线求边长，乘以5再除以7；已知边长求对角线，乘以7再除以5。}%
+}
+
+\subsection*{\zh{五、材料比重}}
+
+\bilingual{%
+\zh{黃金方寸重一斤。白金方寸重一十四兩。玉方寸重一十二兩。銅方寸重七兩半。鈆方寸重九兩半。鐵方寸重六兩。石方寸重三兩。}%
+}{%
+\zh{边长为一寸的正方体黄金，重一斤。同样大小的白银重十四两。玉石重十二两。铜重七两半。铅重九两半。铁重六两。石头重三两。}%
+}
+
+\subsection*{\zh{六、算籌記數法}}
+
+\bilingual{%
+\zh{凡筭之法，先識其位，一從十橫，百立千僵，千十相望，萬百相當。}%
+}{%
+\zh{用算筹计算的方法，首先要认清数位：个位用纵式，十位用横式，百位用纵式，千位用横式。千位和十位的摆放方式相对，万位和百位的摆放方式对应。}%
+}
+
+\textit{\zh{算筹记数法是中国古代最重要的计算工具。个位数用竖式排列，十位数用横式排列，百位又变回竖式，千位再用横式，以此类推，纵横交替。}}
+
+\subsection*{\zh{七、乘法法則}}
+
+\bilingual{%
+\zh{凡乘之法，重置其位。上下相觀，上位有十步至十，有百步至百，有千步至千。以上命下，所得之數列於中位。言十即過，不滿自如。上位乘訖者先去之。下位乘訖者則俱退之。六不積，五不隻。上下相乘，至盡則已。}%
+}{%
+\zh{乘法运算时，把两个数上下对齐摆放。根据被乘数的位数移动：被乘数有十，结果就进到十位；有百就进到百位；有千就进到千位。用上面的数依次乘下面的数，所得的结果放在中间位置。满十就进位，不满十就照原样写下。上面的数乘完后就撤去。下面的数乘完后也一起撤去。六以上不用累积算筹表示，五也不单独表示。上下相乘，直到全部算完为止。}%
+}
+
+\subsection*{\zh{八、除法法則}}
+
+\bilingual{%
+\zh{凡除之法，與乘正異。乘得在中央，除得在上方。假令六為法，百為實。以六除百，當進之二等，令在正百下，以六除一，則法多而實少，不可除，故當退就十位。以法除實，言一六而折百為四十，故可除。若實多法少，自當百之，不當復退。故或步法十者置於十位，百者置於百位。上位有空絕者，法退二位。餘法皆如乘時。實有餘者，以法命之，以法為母。實餘為子。}%
+}{%
+\zh{除法与乘法正好相反。乘法的结果放在中间，除法的结果放在上面。假设除数（法）是6，被除数（实）是100。用6除100，应该先前进两位，放在百位下面。但用6去除1，除数比被除数大，除不了，所以应该退到十位。用除数去除被除数：一六得六，从100里减去60还剩40，所以可以除。如果被除数大而除数小，自然应该在百位上商，不用再退了。所以除数是十位数就放在十位，是百位数就放在百位。如果上面某位是空的，除数就要退两位。其余步骤和乘法时一样。如果被除数除不尽有余数，就用除数来命名这个余数：除数作为分母，余数作为分子。}%
+}
+
+\subsection*{\zh{九、糧食換算率}}
+
+\bilingual{%
+\zh{以粟求糲米，三之，五而一。以糲米求粟，五之，三而一。以糲米求飯，五之，二而一。以粟米求糲飯，六之，四而一。以糲飯求糲米，二之，五而一。}%
+}{%
+\zh{用谷子换算糙米：谷子乘以3再除以5。用糙米换算谷子：糙米乘以5再除以3。用糙米换算米饭：糙米乘以5再除以2。用谷子换算糙米饭：谷子乘以6再除以4。用糙米饭换算糙米：糙米饭乘以2再除以5。}%
+}
+
+\subsection*{\zh{十、分數折扣}}
+
+\bilingual{%
+\zh{十分減一者，以二乘，二十除。減二者，以四乘，二十除。減三者，以六乘，二十除。減四者，以八乘，二十除。減五者，以十乘，二十除。減六者，以十二乘，二十除。減七者，以十四乘，二十除。減八者，以十六乘，二十除。減九者，以十八乘，二十除。}%
+}{%
+\zh{减少十分之一的，用2乘、20除。减少十分之二的，用4乘、20除。减少十分之三的，用6乘、20除。减少十分之四的，用8乘、20除。减少十分之五的，用10乘、20除。减少十分之六的，用12乘、20除。减少十分之七的，用14乘、20除。减少十分之八的，用16乘、20除。减少十分之九的，用18乘、20除。}%
+}
+
+\subsection*{\zh{例題：九九八十一自乘}}
+
+\bilingual{%
+\wen：\zh{九九八十一，自相乘，得幾何？}\\[2pt]
+\da：\zh{答曰：六千五百六十一。}\\[2pt]
+\shu：\zh{重置其位，以上八呼下八，八八六十四，即下六千四百於中位。以上八呼下一，一八如八，即於中位下八十。退下位一等，收上位八十。以上位一呼下八，一八如八，即於中位下八十。以上一呼下一，一一如一，即於中位下一。上下位俱收，中位即得六千五百六十一。}%
+}{%
+\wen：\zh{81乘81，结果是多少？}\\[2pt]
+\da：\zh{答：6561。}\\[2pt]
+\shu：\zh{运算方法：把81上下对齐摆放。用上面的8乘下面的8，八八六十四，在中间写下6400。用上面的8乘下面的1，一八得八，在中间写下80。把下面的数退一位，收去上面的80。用上面的1乘下面的8，一八得八，在中间写下80。用上面的1乘下面的1，一一得一，在中间写下1。上下两数都收去，中间的结果就是6561。}%
+}
+
+\subsection*{\zh{例題：六千五百六十一除以九}}
+
+\bilingual{%
+\wen：\zh{六千五百六十一，九人分之，問人得幾何？}\\[2pt]
+\da：\zh{答曰：七百二十九。}\\[2pt]
+\shu：\zh{先置六千五百六十一於中位，為實。下列九人為法。上位置七百，以上七呼下九，七九六十三，即除中位六千三百。退下位一等，即上位置二十。以上二呼下九，二九十八，即除中位一百八十。又更退下位一等，即上位更置九，即以上九呼下九，九九八十一，即除中位八十一。中位盡，收下位。上位所得即人之所得。}%
+}{%
+\wen：\zh{6561由9个人平分，每人得多少？}\\[2pt]
+\da：\zh{答：每人729。}\\[2pt]
+\shu：\zh{先把6561放在中间作为被除数。下面写9作为除数。上面先商700，用7乘下面的9，七九六十三，从中间减去6300。把下面的除数退一位，上面商20。用2乘下面的9，二九十八，从中间减去180。再把下面的除数退一位，上面改商9，用9乘下面的9，九九八十一，从中间减去81。中间减尽了，收去下面的除数。上面得到的结果729就是每人分得的数量。}%
+}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME II
+%% ========================================================================
+\section{\zh{卷中}}
+
+\subsection*{\zh{題一：約分}}
+
+\bilingual{%
+\wen：\zh{今有一十八分之一十二。問約之得幾何？}\\[2pt]
+\da：\zh{答曰：三分之二。}\\[2pt]
+\shu：\zh{置十八分在下，一十二分在上。副置二位，以少減多，等數得六，為法。約之，即得。}%
+}{%
+\wen：\zh{现有12/18。问约分后等于多少？}\\[2pt]
+\da：\zh{答：等于2/3。}\\[2pt]
+\shu：\zh{把分母18放在下面，分子12放在上面。在旁边再摆一份这两个数，用较大数减去较小数，辗转相减直到相等，得到的等数（最大公约数）是6，作为约分的除数。分子分母都用6来约分，就得到答案。}%
+}
+
+\subsection*{\zh{題五：分數平均}}
+
+\bilingual{%
+\wen：\zh{今有三分之一，三分之二，四分之三。問減多益少，幾何而平？}\\[2pt]
+\da：\zh{答曰：減四分之三者二，減三分之二者一，并以益三分之一，各平於一十二分之七。}\\[2pt]
+\shu：\zh{置三分、三分、四分在右方，之一、之二、之三在左方。母互乘子，副并得六十三，置右，為平實。母相乘，得三十六，為法。以列數三乘未并者及法。等數得九，約訖。}%
+}{%
+\wen：\zh{现有1/3、2/3、3/4这三个分数。问从多的里面减去多少补给少的，才能使三个分数相等？}\\[2pt]
+\da：\zh{答：从3/4中减去2/12，从2/3中减去1/12，把这些都加给1/3，三个分数都等于7/12。}\\[2pt]
+\shu：\zh{把三个分母3、3、4摆在右边，三个分子1、2、3摆在左边。分母互相乘对方的分子，辅助相加得到63，放在右边作为平均后的被除数。分母相乘得到36，作为除数。用分数的个数3去乘没合并的数和除数。等数是9，约分后即得。}%
+}
+
+\subsection*{\zh{題六：粟換糯米}}
+
+\bilingual{%
+\wen：\zh{今有粟一斗，問為糯米幾何？}\\[2pt]
+\da：\zh{答曰：六升。}\\[2pt]
+\shu：\zh{置粟一斗，十升。以糲米率三十乘之，得三百升，為實。以粟率五十為法，除之，即得。}%
+}{%
+\wen：\zh{现有谷子一斗，问能换多少糙米？}\\[2pt]
+\da：\zh{答：六升。}\\[2pt]
+\shu：\zh{把谷子一斗换算成10升。用糙米率30去乘，得到300升，作为被除数。用粟率50作为除数，300除以50，即得6升。}%
+}
+
+\subsection*{\zh{題九：砌磚計算}}
+
+\bilingual{%
+\wen：\zh{今有屋基南北三丈，東西六丈，欲以磚砌之。凡積二尺，用磚五枚。問計幾何？}\\[2pt]
+\da：\zh{答曰：四千五百枚。}\\[2pt]
+\shu：\zh{置東西六丈，以南北三丈乘之，得一千八百尺。以五乘之，得九千尺。以二除之，即得。}%
+}{%
+\wen：\zh{有一个房屋地基，南北长3丈，东西宽6丈，要用砖来砌。每2立方尺用5块砖。问一共需要多少块砖？}\\[2pt]
+\da：\zh{答：4500块。}\\[2pt]
+\shu：\zh{把东西宽6丈，乘以南北长3丈，得到1800平方尺（面积）。乘以5得9000。再除以2，即得4500块。}%
+}
+
+\subsection*{\zh{題十三：圓田面積}}
+
+\bilingual{%
+\wen：\zh{今有圓田周三百步，徑一百步。問得田幾何？}\\[2pt]
+\da：\zh{答曰：三十一畝奇六十步。}\\[2pt]
+\shu：\zh{先置周三百步，半之，得一百五十步。又置徑一百步，半之，得五十步。相乘，得七千五百步。以畝法二百四十步除之，即得。}%
+}{%
+\wen：\zh{有一块圆形田地，周长300步，直径100步。问这块田有多少亩？}\\[2pt]
+\da：\zh{答：31亩余60步。}\\[2pt]
+\shu：\zh{先把周长300步取半，得150步。再把直径100步取半，得50步。两个半数相乘，得7500平方步。用亩法240步去除，即得31亩余60步。}%
+}
+
+\textit{\zh{注：古代圆面积采用「半周半径相乘」的公式，与现代公式在取圆周率≈3时一致。}}
+
+\bilingual{%
+\zh{又術：周自相乘，得九萬步。以一十二除之，得七千五百步。以畝法除之，得畝數。}%
+}{%
+\zh{另一种算法：周长自乘得90000平方步。用12去除，得7500平方步。再用亩法去除，得到亩数。}%
+}
+
+\subsection*{\zh{題十四：方田桑生中央}}
+
+\bilingual{%
+\wen：\zh{今有方田，桑生中央。從角至桑一百四十七步。問為田幾何？}\\[2pt]
+\da：\zh{答曰：一頃八十三畝奇一百八十步。}\\[2pt]
+\shu：\zh{置角至桑一百四十七步，倍之，得二百九十四步。以五乘之，得一千四百七十步。以七除之，得二百一十步。自相乘，得四萬四千一百步。以二百四十步除之，即得。}%
+}{%
+\wen：\zh{有一块正方形田地，中央长着一棵桑树。从田地的一个角到桑树距离147步。问这块田面积是多少？}\\[2pt]
+\da：\zh{答：1顷83亩余180步。}\\[2pt]
+\shu：\zh{把角到桑树的距离147步记下，加倍得294步。乘以5得1470步。除以7得210步。这就是正方形田地的边长。自乘得44100平方步。用240步去除，即得亩数。}%
+}
+
+\subsection*{\zh{題二十三：開渠工程}}
+
+\bilingual{%
+\wen：\zh{今有穿渠，長二十九里一百四步，上廣一丈二尺六寸，下廣八尺，深一丈八尺。秋程人功三百尺。問須功幾何？}\\[2pt]
+\da：\zh{答曰：三萬二千六百四十五人，不盡六十九尺六寸。}\\[2pt]
+\shu：\zh{置里數，以三百步乘之，內零步，六之，得五萬二千八百二十四尺。并上、下廣，得二丈六寸。半之，以深乘之，得一百八十五尺四寸。以長乘，得九百七十九萬三千五百六十九尺六寸。以人功三百尺除之，即得。}%
+}{%
+\wen：\zh{要挖一条水渠，长29里104步，上口宽1丈2尺6寸，下口宽8尺，深1丈8尺。秋季每人每天的工作量标准是300立方尺。问需要多少人工？}\\[2pt]
+\da：\zh{答：需要32645人，还余69.6立方尺的工作量。}\\[2pt]
+\shu：\zh{把里数用300步去乘，加上零头的104步，再换算成尺（乘以6），得到52824尺（渠长）。把上口宽和下口宽相加，得2丈6寸。取半再乘以深度，得185.4平方尺（截面面积）。用长乘截面面积，得总体积。用每人工作量300尺去除，即得所需人工数。}%
+}
+
+\newpage
+
+%% ========================================================================
+%% VOLUME III
+%% ========================================================================
+\section{\zh{卷下}}
+
+\subsection*{\zh{題一：九家輸租}}
+
+\bilingual{%
+\wen：\zh{今有甲、乙、丙、丁、戊、己、庚、辛、壬九家共輸租。甲出三十五斛，乙出四十六斛，丙出五十七斛，丁出六十八斛，戊出七十九斛，己出八十斛，庚出一百斛，辛出二百一十斛，壬出三百二十五斛。凡九家共輸租一千斛。僦運直折二百斛外，問家各幾何？}\\[2pt]
+\da：\zh{答曰：甲二十八斛。乙三十六斛八蚪。丙四十五斛六蚪。丁五十四斛四蚪。戊六十三斛二蚪。己六十四斛。庚八十斛。辛一百六十八斛。壬二百六十斛。}\\[2pt]
+\shu：\zh{置甲出三十五斛，以四乘之，得一百四十斛。以五除之，得二十八斛。乙出四十六斛，以四乘之，得一百八十四斛。以五除之，得三十六斛八蚪。……}%
+}{%
+\wen：\zh{有甲、乙、丙、丁、戊、己、庚、辛、壬九家共同交租。甲出35斛，乙出46斛，丙出57斛，丁出68斛，戊出79斛，己出80斛，庚出100斛，辛出210斛，壬出325斛。九家共交租1000斛。扣除运输费用200斛外，问每家实际应交多少？}\\[2pt]
+\da：\zh{答：甲28斛，乙36斛8斗，丙45斛6斗，丁54斛4斗，戊63斛2斗，己64斛，庚80斛，辛168斛，壬260斛。}\\[2pt]
+\shu：\zh{运算方法：每家的应交数先乘以4，再除以5（即扣除两成运费）。如甲家：35斛乘以4得140斛，除以5得28斛。乙家：46斛乘以4得184斛，除以5得36斛8斗。其余各家依此类推。}%
+}
+
+\subsection*{\zh{題三：平地聚粟}}
+
+\bilingual{%
+\wen：\zh{今有平地聚粟，下周三丈六尺，高四尺五寸。問粟幾何？}\\[2pt]
+\da：\zh{答曰：一百斛。}\\[2pt]
+\shu：\zh{置周三丈六尺，自相乘，得一千二百九十六尺。以高四尺五寸乘之，得五千八百三十二尺。以三十六除之，得一百六十二尺。以斛法一尺六寸二分除之，即得。}%
+}{%
+\wen：\zh{平地上堆着一堆谷子，底面周长3丈6尺，高4尺5寸。问这堆谷子有多少斛？}\\[2pt]
+\da：\zh{答：100斛。}\\[2pt]
+\shu：\zh{把周长3丈6尺记下，自乘得1296平方尺。乘以高4.5尺，得5832立方尺。除以36，得162立方尺（这是圆锥体积的古代算法）。再用一斛的容积1.62立方尺去除，即得100斛。}%
+}
+
+\subsection*{\zh{題五：碁局用子}}
+
+\bilingual{%
+\wen：\zh{今有碁局方一十九道。問用碁幾何？}\\[2pt]
+\da：\zh{答曰：三百六十一。}\\[2pt]
+\shu：\zh{置一十九道，自相乘之，即得。}%
+}{%
+\wen：\zh{有一个围棋盘，每边19道线。问盘面上有多少个交叉点（需要多少棋子）？}\\[2pt]
+\da：\zh{答：361个。}\\[2pt]
+\shu：\zh{把19道线记下，自乘（19×19），即得361。}%
+}
+
+\textit{\zh{这是标准的19路围棋盘，交叉点总数为 $19^2 = 361$。}}
+
+\subsection*{\zh{題十五：人車問題}}
+
+\bilingual{%
+\wen：\zh{今有三人共車，二車空；二人共車，九人步。問人與車各幾何？}\\[2pt]
+\da：\zh{答曰：一十五車。三十九人。}\\[2pt]
+\shu：\zh{置二車，以三乘之，得六。加步者九人，得車一十五。欲知人者，以二乘車，加九人，即得。}%
+}{%
+\wen：\zh{现在有一些人乘车。如果3个人坐一辆车，会空出2辆车；如果2个人坐一辆车，会有9个人需要走路。问一共有多少人和多少辆车？}\\[2pt]
+\da：\zh{答：15辆车，39人。}\\[2pt]
+\shu：\zh{运算方法：把空出的2辆车用3去乘，得6。加上走路的9人，得15，就是车辆总数。要求人数，用2乘以车数15，再加上走路的9人，即得39人。}%
+}
+
+\subsection*{\zh{題十七：津吏問客}}
+
+\bilingual{%
+\wen：\zh{今有婦人河上蕩桮。津吏問曰：「桮何以多？」婦人曰：「家有客。」津吏曰：「客幾何？」婦人曰：「二人共飯，三人共羹，四人共肉，凡用桮六十五。不知客幾何？」}\\[2pt]
+\da：\zh{答曰：六十人。}\\[2pt]
+\shu：\zh{置六十五桮，以一十二乘之，得七百八十，以十三除之，即得。}%
+}{%
+\wen：\zh{有位妇人在河边洗杯子。渡口官吏问道：「怎么这么多杯子？」妇人回答：「家里来了客人。」官吏问：「有多少客人？」妇人说：「两人共用一碗饭，三人共用一碗汤，四人共用一碗肉，一共用了65只碗。不知道有多少客人？」}\\[2pt]
+\da：\zh{答：60位客人。}\\[2pt]
+\shu：\zh{运算方法：把65只碗记下，用12去乘，得780。用13去除，即得60人。（原理：每人用1/2饭碗+1/3汤碗+1/4肉碗=13/12只碗，所以总人数=65×12÷13=60）}%
+}
+
+\subsection*{\zh{題十八：木與繩}}
+
+\bilingual{%
+\wen：\zh{今有木，不知長短。引繩度之，餘繩四尺五寸。屈繩量之，不足一尺。問木長幾何？}\\[2pt]
+\da：\zh{答曰：六尺五寸。}\\[2pt]
+\shu：\zh{置餘繩四尺五寸，加不足一尺，共五尺五寸。倍之，得一丈一尺。減餘四尺五寸，即得。}%
+}{%
+\wen：\zh{有一根木头，不知道长度。用一根绳子去量，绳子多出4尺5寸。把绳子对折后再量，又短了1尺。问木头有多长？}\\[2pt]
+\da：\zh{答：6尺5寸。}\\[2pt]
+\shu：\zh{运算方法：把绳子的余量4尺5寸，加上对折后不足的1尺，共5尺5寸。加倍得1丈1尺（这就是绳子的全长）。再减去余量4尺5寸，即得木头长度6尺5寸。}%
+}
+
+\textit{\zh{验算：绳长=11尺，木长=6.5尺。用绳量木余4.5尺（11-6.5=4.5），绳对折后长5.5尺，量6.5尺的木头差1尺。正确。}}
+
+\subsection*{\zh{題十九：器中餘米}}
+
+\bilingual{%
+\wen：\zh{今有器中米，不知其數。前人取半，中人三分取一，後人四分取一，餘米一斗五升。問本米幾何？}\\[2pt]
+\da：\zh{答曰：六斗。}\\[2pt]
+\shu：\zh{置餘米一斗五升，以六乘之，得九斗。以二除之，得四斗五升。以四乘之，得一斛八斗。以三除之，即得。}%
+}{%
+\wen：\zh{容器中有一些米，不知道原来有多少。第一个人取走了一半，第二个人取走了剩下的三分之一，第三个人取走了再剩下的四分之一，最后还剩1斗5升。问原来有多少米？}\\[2pt]
+\da：\zh{答：6斗。}\\[2pt]
+\shu：\zh{运算方法：把剩余的1斗5升记下，用6乘（因为最后剩的是原来的一半×三分之二×四分之三=1/4，所以反过来用6乘），得9斗。除以2得4斗5升。乘以4得1斛8斗。除以3，即得原来6斗。}%
+}
+
+\subsection*{\zh{題二十七：獸六首四足}}
+
+\bilingual{%
+\wen：\zh{今有獸六首四足，禽四首二足。上有七十六首，下有四十六足。問禽、獸各幾何？}\\[2pt]
+\da：\zh{答曰：八獸，七禽。}\\[2pt]
+\shu：\zh{倍足以減首，餘，半之，即禽。四乘禽數，減足，餘，半之，即獸。}%
+}{%
+\wen：\zh{有一种野兽有6个头4只脚，一种禽鸟有4个头2只脚。从上面数有76个头，从下面数有46只脚。问禽和兽各有多少只？}\\[2pt]
+\da：\zh{答：8只兽，7只禽。}\\[2pt]
+\shu：\zh{运算方法：把脚数加倍，减去头数，余数取半，就是禽的数量。用4乘以禽数，从脚数中减去，余数取半，就是兽的数量。}%
+}
+
+\subsection*{\zh{題二十九：百鹿入城}}
+
+\bilingual{%
+\wen：\zh{今有百鹿入城，家取一鹿，不盡；又三家共一鹿，適盡。問城中家幾何？}\\[2pt]
+\da：\zh{答曰：七十五家。}\\[2pt]
+\shu：\zh{以盈不足取之。假令七十二家，鹿不盡四。令之九十家，鹿不足二十。置七十二於右上，盈四於右下。置九十於左上，不足二十於左下。維乘之，所得，并為實。并盈不足為法。除之，即得。}%
+}{%
+\wen：\zh{有100头鹿进城，每家分一头鹿，分不完；又让三家合分一头鹿，正好分完。问城里有多少户人家？}\\[2pt]
+\da：\zh{答：75家。}\\[2pt]
+\shu：\zh{用盈不足术来解。假设72家，鹿有剩余4头。假设90家，鹿不够20头。把72放在右上方，剩余4放在右下方。把90放在左上方，不足20放在左下方。交叉相乘，所得相加作为被除数。把盈和不足相加作为除数。相除即得75家。}%
+}
+
+\textit{\zh{代数解法：设城中有 $x$ 家，则 $x + x/3 = 100$，解得 $x = 75$。}}
+
+\subsection*{\zh{題三十一：雉兔同籠}}
+
+\bilingual{%
+\wen：\zh{今有雉、兔同籠，上有三十五頭，下九十四足。問雉、兔各幾何？}\\[2pt]
+\da：\zh{答曰：雉二十三。兔一十二。}\\[2pt]
+\shu：\zh{上置三十五頭，下置九十四足。半其足，得四十七。以少減多，再命之，上三除下三，上五除下五。下有一除上一，下有二除上二，即得。}%
+}{%
+\wen：\zh{有野鸡和兔子关在同一个笼子里，从上面数有35个头，从下面数有94只脚。问野鸡和兔子各有多少只？}\\[2pt]
+\da：\zh{答：野鸡23只，兔子12只。}\\[2pt]
+\shu：\zh{运算方法：上面放头数35，下面放脚数94。把脚数取半得47。用少减多（47-35=12），再按数位处理：上面的3除下面的3，上面的5除下面的5。下面有余1除上面1，有余2除上面2，即得兔子12只、野鸡23只。}%
+}
+
+\textit{\zh{这就是著名的「鸡兔同笼」问题，是中国数学的经典问题。现代解法：设雉 $x$ 只，兔 $y$ 只，则 $x+y=35$，$2x+4y=94$，解得 $y=12$，$x=23$。}}
+
+\bilingual{%
+\zh{又術曰：上置頭，下置足。半其足，以頭除足，以足除頭，即得。}%
+}{%
+\zh{另一种算法：上面放头数，下面放脚数。脚数取半，用头数去除脚数的一半，再用脚数的一半去除头数，即得两种动物的只数。}%
+}
+
+\subsection*{\zh{題三十四：出門望九隄}}
+
+\bilingual{%
+\wen：\zh{今有出門望見九隄。隄有九木，木有九枝，枝有九巢，巢有九禽，禽有九雛，雛有九毛，毛有九色。問各幾何？}\\[2pt]
+\da：\zh{答曰：木八十一。枝七百二十九。巢六千五百六十一。禽五萬九千四十九。雛五十三萬一千四百四十一。毛四百七十八萬二千九百六十九。色四千三百四萬六千七百二十一。}\\[2pt]
+\shu：\zh{置九隄，以九乘之，得木之數。又以九乘之，得枝之數。又以九乘之，得巢之數。又以九乘之，得禽之數。又以九乘之，得雛之數。又以九乘之，得毛之數。又以九乘之，得色之數。}%
+}{%
+\wen：\zh{出门望见9道堤坝。每道堤坝上有9棵树，每棵树有9根枝，每根枝上有9个鸟巢，每个鸟巢里有9只鸟，每只鸟有9只雏鸟，每只雏鸟有9根羽毛，每根羽毛有9种颜色。问各有多少？}\\[2pt]
+\da：\zh{答：树81棵，枝729根，巢6561个，鸟59049只，雏鸟531441只，羽毛4782969根，颜色43046721种。}\\[2pt]
+\shu：\zh{运算方法：把9道堤坝用9去乘，得到树的数量。再连续用9去乘，依次得到枝、巢、禽、雏、毛、色的数量。}%
+}
+
+\textit{\zh{本题即连续求9的幂次：$9^2=81$，$9^3=729$，$9^4=6561$，$9^5=59049$，$9^6=531441$，$9^7=4782969$，$9^8=43046721$。}}
+
+\subsection*{\zh{題三十五：三女歸家}}
+
+\bilingual{%
+\wen：\zh{今有三女，長女五日一歸，中女四日一歸，少女三日一歸。問三女幾何日相會？}\\[2pt]
+\da：\zh{答曰：六十日。}\\[2pt]
+\shu：\zh{置長女五日、中女四日、少女三日，於右方。各列一算於左方。維乘之，各得所到數：長女十二到，中女十五到，少女二十到。又各以歸日乘到數，即得。}%
+}{%
+\wen：\zh{有三个女儿，大女儿每5天回家一次，二女儿每4天回家一次，小女儿每3天回家一次。问三个女儿多少天后能同时回家相会？}\\[2pt]
+\da：\zh{答：60天后。}\\[2pt]
+\shu：\zh{运算方法：把大女的5天、中女的4天、小女的3天摆在右边。左边各列一个算筹。交叉相乘，得到各自回家的次数：大女回12次，中女回15次，小女回20次。再用各自回家的间隔天数乘以次数，都等于60天。}%
+}
+
+\textit{\zh{本题即求最小公倍数：$\text{lcm}(3,4,5)=60$。}}
+
+\newpage
+
+%% ========================================================================
+%% THE CHINESE REMAINDER THEOREM
+%% ========================================================================
+\section*{\zh{物不知數}——\zh{中國剩餘定理}}
+\addcontentsline{toc}{section}{\zh{物不知數——中國剩餘定理}}
+
+\begin{tcolorbox}[colback=crtgold!8,colframe=crtgold,boxrule=1.5pt,
+  left=12pt,right=12pt,top=10pt,bottom=10pt,arc=4mm,
+  title={\textbf{\large \zh{卷下第26問}}},
+  fonttitle=\bfseries\color{white},coltitle=white,
+  colbacktitle=crtgold]
+
+\bilingual{%
+\wen：\zh{今有物，不知其數。三、三數之，賸二；五、五數之，賸三；七、七數之，賸二。問物幾何？}\\[2pt]
+\da：\zh{答曰：二十三。}\\[2pt]
+\shu：\zh{「三、三數之，賸二」，置一百四十；「五、五數之，賸三」，置六十三；「七、七數之，賸二」，置三十。并之，得二百三十三。以二百一十減之，即得。}\\[3pt]
+\zh{凡三、三數之，賸一，則置七十；五、五數之，賸一，則置二十一；七、七數之，賸一，則置十五。一百六以上，以一百五減之，即得。}%
+}{%
+\wen：\zh{有一些物品，不知道有多少个。三个三个地数，最后剩两个；五个五个地数，最后剩三个；七个七个地数，最后剩两个。问这些物品一共有多少个？}\\[2pt]
+\da：\zh{答：23个。}\\[2pt]
+\shu：\zh{「三个三个数余2」，就写下140；「五个五个数余3」，就写下63；「七个七个数余2」，就写下30。把这三个数相加，得233。减去210（3×5×7=105的2倍），即得23。}\\[3pt]
+\zh{一般规律：三个三个数余1，就写70；五个五个数余1，就写21；七个七个数余1，就写15。如果总数超过106，就减去105（3×5×7），直到得到小于105的答案。}%
+}
+\end{tcolorbox}
+
+\subsection*{\zh{現代數學分析}}
+
+\zh{用现代数学符号表示，这个问题要求找到最小的正整数 $N$，满足以下同余方程组：}
+\begin{align*}
+N &\equiv 2 \pmod{3} \\
+N &\equiv 3 \pmod{5} \\
+N &\equiv 2 \pmod{7}
+\end{align*}
+
+\zh{孙子的算法给出：}
+\begin{align*}
+N &= 140 + 63 + 30 - 210 \\
+  &= 233 - 210 \\
+  &= 23
+\end{align*}
+
+\zh{三个关键数字 \textbf{70}、\textbf{21}、\textbf{15} 具有特殊的数学性质：}
+\begin{itemize}[leftmargin=2em]
+  \item \zh{$70 = 2 \times 5 \times 7 \equiv 1 \pmod{3}$，且 $70 \equiv 0 \pmod{5}$，$70 \equiv 0 \pmod{7}$}
+  \item \zh{$21 = 1 \times 3 \times 7 \equiv 1 \pmod{5}$，且 $21 \equiv 0 \pmod{3}$，$21 \equiv 0 \pmod{7}$}
+  \item \zh{$15 = 1 \times 3 \times 5 \equiv 1 \pmod{7}$，且 $15 \equiv 0 \pmod{3}$，$15 \equiv 0 \pmod{5}$}
+\end{itemize}
+
+\zh{由于 $3 \times 5 \times 7 = 105$，一般解为：}
+\[N = 70r_1 + 21r_2 + 15r_3 - 105k\]
+\zh{其中 $r_1, r_2, r_3$ 分别是除以3、5、7的余数，$k$ 是选取的整数使 $N$ 为最小正整数。}
+
+\subsection*{\zh{驗算}}
+
+\begin{align*}
+23 \div 3 &= 7 \text{ \zh{余} } \mathbf{2} \quad \checkmark \\
+23 \div 5 &= 4 \text{ \zh{余} } \mathbf{3} \quad \checkmark \\
+23 \div 7 &= 3 \text{ \zh{余} } \mathbf{2} \quad \checkmark
+\end{align*}
+
+\subsection*{\zh{孫子公式}}
+
+\zh{对于一般的余数 $r_1, r_2, r_3$：}
+\[
+\boxed{N = 70 \times r_1 + 21 \times r_2 + 15 \times r_3 - 105 \times k}
+\]
+
+\zh{其中 $M = 3 \times 5 \times 7 = 105$ 是最小公倍数，且：}
+\begin{itemize}
+  \item \zh{$70 = 105/3 \times 2$ 是模3余数的乘数}
+  \item \zh{$21 = 105/5 \times 1$ 是模5余数的乘数}
+  \item \zh{$15 = 105/7 \times 1$ 是模7余数的乘数}
+\end{itemize}
+
+\subsection*{\zh{孫子歌}}
+
+\zh{明代数学家程大位在《算法统宗》（1592年）中记录了这首朗朗上口的口诀：}
+
+\begin{tcolorbox}[colback=chinesebg,colframe=rulecolor,boxrule=0.8pt,
+  width=0.9\textwidth,arc=2mm]
+\centering\large
+\zh{三人同行七十稀，五樹梅花廿一枝，}\\[3pt]
+\zh{七子團圓正半月，除百零五便得知。}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=modernbg,colframe=rulecolor!70!blue,boxrule=0.8pt,
+  width=0.9\textwidth,arc=2mm]
+\centering
+\zh{「三人同行」对应模3的乘数70；「五树梅花」对应模5的乘数21；}
+\zh{「七子团圆半月（15日）」对应模7的乘数15；}
+\zh{「除百零五」指减去105（3×5×7）直到得到最小正解。}
+\end{tcolorbox}
+
+\newpage
+
+%% ========================================================================
+%% REMAINING PROBLEMS FROM VOLUME III
+%% ========================================================================
+\section*{\zh{卷下其餘算題}}
+\addcontentsline{toc}{section}{\zh{卷下其餘算題}}
+
+\subsection*{\zh{題二十八：甲乙持錢}}
+
+\bilingual{%
+\wen：\zh{今有甲、乙二人，持錢各不知數。甲得乙中半，可滿四十八。乙得甲太半，亦滿四十八。問甲、乙二人元持錢各幾何？}\\[2pt]
+\da：\zh{答曰：甲持錢三十六。乙持錢二十四。}\\[2pt]
+\shu：\zh{如方程求之。置二甲、一乙、錢九十六，於右方。置二甲、三乙、錢一百四十四，於左方。以右方二乘左方，上得四，中得六，下得二百八十八錢。以右行再減左行，左上空，中餘四乙，為法；下餘九十六錢，為實。上法，下實，得二十四錢，為乙錢。以減右下九十六，餘七十二，為實；以右上二甲為法。上法、下實，得三十六，為甲錢也。}%
+}{%
+\wen：\zh{甲、乙两人各有一些钱，但不知道具体数目。如果甲得到乙的一半钱，他就有48文。如果乙得到甲的三分之二钱，他也有48文。问甲、乙原来各有多少钱？}\\[2pt]
+\da：\zh{答：甲原有36文，乙原有24文。}\\[2pt]
+\shu：\zh{用方程组的方法来解。列出方程：甲 + 乙/2 = 48，乙 + 2甲/3 = 48。转化为：2甲 + 乙 = 96，2甲 + 3乙 = 144。用右行乘左行，再通过相减消元，解得乙有24文，甲有36文。}%
+}
+
+\subsection*{\zh{題三十：三雞啄粟}}
+
+\bilingual{%
+\wen：\zh{今有三雞共啄粟一千一粒。雛啄一，母啄二，翁啄四。主責本粟，三雞主各償幾何？}\\[2pt]
+\da：\zh{答曰：雞雛主一百四十三。雞母主二百八十六。雞翁主五百七十二。}\\[2pt]
+\shu：\zh{置粟一千一粒，為實。副并三雞所啄粟七粒，為法。除之，得一百四十三粒，為雞雛主所償之數。遞倍之，即得母、翁主所償之數。}%
+}{%
+\wen：\zh{有三只鸡一共啄了1001粒谷子。小鸡啄1粒，母鸡啄2粒，公鸡啄4粒。主人要追讨损失的谷子，问三只鸡的主人各应赔偿多少？}\\[2pt]
+\da：\zh{答：小鸡的主人赔143粒，母鸡的主人赔286粒，公鸡的主人赔572粒。}\\[2pt]
+\shu：\zh{把1001粒谷子作为被除数。把三只鸡所啄的谷子数相加（1+2+4=7粒）作为除数。1001除以7得143粒，这就是小鸡主人应赔的数。依次加倍，就得到母鸡主人和公鸡主人应赔的数。}%
+}
+
+\subsection*{\zh{題三十二：九里渠魚}}
+
+\bilingual{%
+\wen：\zh{今有九里渠，三寸魚，頭頭相次。問魚得幾何？}\\[2pt]
+\da：\zh{答曰：五萬四千。}\\[2pt]
+\shu：\zh{置九里，以三百步乘之，得二千七百步。又以六尺乘之，得一萬六千二百尺。上十之，得一十六萬二千寸。以魚三寸除之，即得。}%
+}{%
+\wen：\zh{有一条9里长的水渠，每条鱼长3寸，鱼一条接一条头尾相连排过去。问能排多少条鱼？}\\[2pt]
+\da：\zh{答：54000条。}\\[2pt]
+\shu：\zh{把9里用300步去乘，得2700步。每步6尺，换算成尺得16200尺。再换算成寸（乘以10）得162000寸。用每条鱼3寸去除，即得54000条。}%
+}
+
+\subsection*{\zh{題三十三：長安至洛陽}}
+
+\bilingual{%
+\wen：\zh{今有長安、洛陽相去九百里。車輪一匝一丈八尺。欲自洛陽至長安，問輪匝幾何？}\\[2pt]
+\da：\zh{答曰：九萬匝。}\\[2pt]
+\shu：\zh{置九百里，以三百步乘之，得二十七萬步。又以六尺乘之，得一百六十二萬尺。以車輪一丈八尺為法。除之，即得。}%
+}{%
+\wen：\zh{长安和洛阳相距900里。车轮转一圈前进1丈8尺。要从洛阳到长安，问车轮要转多少圈？}\\[2pt]
+\da：\zh{答：90000圈。}\\[2pt]
+\shu：\zh{把900里用300步去乘，得270000步。每步6尺，共1620000尺。用车轮周长1丈8尺（18尺）去除，即得90000圈。}%
+}
+
+\subsection*{\zh{題三十六：孕婦知男女}}
+
+\bilingual{%
+\wen：\zh{今有孕婦行年二十九，難九月。未知所生？}\\[2pt]
+\da：\zh{答曰：生男。}\\[2pt]
+\shu：\zh{置四十九，加難月，減行年。所餘，以天除一，地除二，人除三，四時除四，五行除五，六律除六，七星除七，八風除八，九州除九。其不盡者，奇則為男，耦則為女。}%
+}{%
+\wen：\zh{有一位孕妇，今年29岁，怀孕9个月。问生男生女？}\\[2pt]
+\da：\zh{答：生男孩。}\\[2pt]
+\shu：\zh{运算方法：把49加上怀孕月份9，再减去年龄29，得29。然后依次减去：天减1、地减2、人减3、四时减4、五行减5、六律减6、七星减7、八风减8、九州减9。最后剩余的数，如果是奇数就生男孩，如果是偶数就生女孩。}%
+}
+
+\textit{\zh{注：此为古代迷信算法，没有科学依据。计算过程：49+9-29=29，29-1-2-3-4-5-6=8，8是偶数，按原文程序应生女。但原文答「生男」，说明古代版本或有不同，或仅为占卜之术。}}
+
+\newpage
+
+%% ========================================================================
+%% EPILOGUE
+%% ========================================================================
+\section*{\zh{後記}}
+\addcontentsline{toc}{section}{\zh{後記}}
+
+\bilingual{%
+\zh{《孫子算經》雖然篇幅不長，內容也不算深奧，但它在數學史上的地位無可替代。它不僅系統地記錄了中國古代的度量衡制度、算籌記數法和四則運算方法，更以其「物不知數」問題為世界數學寶庫貢獻了最早的同餘式組解法。}%
+}{%
+\zh{《孙子算经》虽然篇幅不长，内容也不算深奥，但它在数学史上的地位无可替代。它不仅系统地记录了中国古代的度量衡制度、算筹记数法和四则运算方法，更以其「物不知数」问题为世界数学宝库贡献了最早的一次同余式方程组解法。}%
+}
+
+\bilingual{%
+\zh{從孫子到秦九韶，中國數學家對同餘理論的研究持續了近千年，最終發展成為完善的「大衍求一術」。而在歐洲，類似的方法直到歐拉（1743年）和高斯（1801年）才得以建立。這充分說明了中國古代數學在世界數學發展史上的重要地位。}%
+}{%
+\zh{从孙子到秦九韶，中国数学家对同余理论的研究持续了将近一千年，最终发展成为完善的「大衍求一术」。而在欧洲，类似的方法直到欧拉（1743年）和高斯（1801年）才得以建立。这充分说明了中国古代数学在世界数学发展史上的重要地位。}%
+}
+
+\bilingual{%
+\zh{本書的白話文翻譯力求準確通俗，保留原文的數學術語，同時用現代語言加以解釋，以便當代讀者理解這部千年數學經典的內容與方法。}%
+}{%
+\zh{本书的白话文翻译力求准确通俗，保留原文的数学术语，同时用现代语言加以解释，以便当代读者理解这部千年数学经典的内容与方法。}%
+}
+
+\vspace{1cm}
+\begin{center}
+\longline
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\zh{本文古典原文依據中國哲學書電子化計劃（ctext.org）所藏《孫子算經》整理}\\[3pt]
+\zh{白話文翻譯由現代學者參考古今注疏編譯}
+\end{center}
+
+\end{document}
+

@@ -1,541 +1,541 @@
-\documentclass[11pt,a4paper]{article}
-
-% Core packages
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable}
-\usepackage{hyperref}
-% \usepackage{microtype}  % Removed: can cause issues with XeLaTeX
-\usepackage{indentfirst}
-\usepackage{float}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{tikz}
-
-% Page geometry
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=22mm,right=22mm,top=28mm,bottom=28mm,
-  headheight=14pt,footskip=30pt
-}
-
-% Language setup
-\setmainlanguage{english}
-
-% Font configuration
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-% xeCJK for Chinese
-\usepackage{xeCJK}
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-% Colors
-\definecolor{titlecolor}{RGB}{60,30,10}
-\definecolor{sectioncolor}{RGB}{80,40,15}
-\definecolor{chaptercolor}{RGB}{100,50,20}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{problemcolor}{RGB}{30,60,90}
-
-% Section formatting
-\usepackage{titlesec}
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-% Header/Footer
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{Suanxue Qimeng --- Volume II (Middle)}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Custom commands
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-
-% Problem environment
-\newenvironment{problembox}{%
-  \begin{quote}
-  \itshape
-  \color{problemcolor}
-}{%
-  \end{quote}
-}
-
-% Historical box using tikz
-\newcommand{\historicalbox}[1]{%
-  \begin{center}
-  \begin{tikzpicture}
-    \node[draw=rulecolor, fill=white, rounded corners=3pt, 
-          inner sep=10pt, text width=0.9\textwidth] {#1};
-  \end{tikzpicture}
-  \end{center}
-  \vspace{0.3cm}
-}
-
-% Hyperref
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Suanxue Qimeng --- Volume II (Middle)},
-  pdfauthor={Zhu Shijie (transcribed and annotated)},
-}
-
-% TOC depth
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
-
-\begin{document}
-
-% Title page
-\begin{titlepage}
-\centering
-\vspace*{2cm}
-
-{\fontsize{14}{16}\selectfont\textsc{Historical Chinese Mathematical Texts}}
-\vspace{1cm}
-
-\longline
-\vspace{1.5cm}
-
-{\fontsize{28}{34}\selectfont\bfseries\color{titlecolor}
-新編算學啟蒙\\[0.5cm]
-\textit{Suanxue Qimeng}\\[0.3cm]
-}
-\vspace{0.5cm}
-
-{\fontsize{18}{22}\selectfont\color{sectioncolor}
-\textit{Introduction to Computational Studies}\\[0.8cm]
-}
-
-\vspace{0.3cm}
-{\fontsize{16}{20}\selectfont\bfseries\color{chaptercolor}
-卷中 --- Volume II (Middle)\\[0.3cm]
-}
-
-\vspace{1.5cm}
-\longline
-\vspace{1cm}
-
-{\large 松庭朱世傑編撰\\[0.3cm]
-\textit{Compiled by Zhu Shijie (Songting)}\\[0.5cm]
-}
-
-\vspace{0.5cm}
-
-{\large\textit{Yuan Dynasty, 1299 CE}\\[0.3cm]
-}
-
-\vspace{1cm}
-
-\begin{minipage}{0.8\textwidth}
-\centering
-\textit{Seven Chapters (七門), Seventy-One Problems (七十一問):}\\[0.3cm]
-田畝形段門 · 倉屯積粟門 · 雙據互換門 · 求差分和門 · 差分均配門 · 商功修築門 · 貴賤反率門
-\end{minipage}
-
-\vfill
-
-{\small\textit{With facsimile reproductions of original woodblock prints,}\\
-\textit{transcriptions, and modern mathematical commentary}\\[0.5cm]
-}
-
-{\small Modern LaTeX edition\ with \textsf{XeLaTeX} and \textup{xeCJK}\\
-\today}
-
-\end{titlepage}
-
-% Table of Contents
-\tableofcontents
-\newpage
-
-% Introduction
-\section{Introduction}
-
-\historicalbox{
-\textit{Suanxue Qimeng} (算學啟蒙, ``Introduction to Computational Studies'') is one of the two major mathematical works by the celebrated Yuan dynasty mathematician \textbf{Zhu Shijie} (朱世傑, courtesy name 松庭 Songting, fl.~1299). Written in 1299 and printed in Yangzhou, this three-volume textbook contains 259 problems organized into 20 chapters (門), progressing from elementary arithmetic to the advanced ``Celestial Element Method'' (天元術).
-}
-
-\subsection{About the Author}
-
-Zhu Shijie was a wandering mathematics teacher from Yan-shan (near modern Beijing) who traveled throughout China for over twenty years, attracting students from all directions. He made groundbreaking contributions to:
-\begin{itemize}[noitemsep]
-  \item \textbf{Tianyuan shu} (天元術): polynomial algebra in one unknown
-  \item \textbf{Siyuan shu} (四元術): polynomial algebra in up to four unknowns
-  \item \textbf{Duoji shu} (垛積術): summation of finite series (pyramidal numbers)
-  \item \textbf{Zhaocha shu} (招差術): finite-difference interpolation
-\end{itemize}
-
-His two extant works are \textit{Suanxue Qimeng} (1299) and \textit{Siyuan Yujian} (四元玉鑑, 1303).
-
-\subsection{Structure of Volume II (卷中)}
-
-Volume II contains \textbf{7 chapters} with \textbf{71 problems} total, covering:
-
-\begin{center}
-\begin{longtable}{|c|l|c|l|}
-\hline
-\textbf{No.} & \textbf{Chapter Title} & \textbf{Problems} & \textbf{Topic} \\
-\hline
-\endfirsthead
-\hline
-\textbf{No.} & \textbf{Chapter Title} & \textbf{Problems} & \textbf{Topic} \\
-\hline
-\endhead
-1 & 田畝形段門 & 16 & Field area computations \\
-2 & 倉屯積粟門 & 9 & Granary volume calculations \\
-3 & 雙據互換門 & 6 & Double proportion problems \\
-4 & 求差分和門 & 9 & Sum-and-difference problems \\
-5 & 差分均配門 & 10 & Proportional distribution \\
-6 & 商功修築門 & 13 & Construction earthwork \\
-7 & 貴賤反率門 & 8 & Inverse proportion (price/rate) \\
-\hline
-\end{longtable}
-\end{center}
-
-The problems follow the classical Chinese format: 今有 (``Now there is'') for the problem statement, 答曰 (``Answer:'') for the answer, and 術曰 (``Method:'') for the solution procedure.
-
-\newpage
-
-% Chapter 1
-\section{Chapter 1: 田畝形段門 --- Field Area Computations}
-\label{sec:tianmu}
-
-\historicalbox{
-\textbf{16 Problems} on calculating the areas of fields of various geometric shapes. This chapter corresponds to the ``Fangtian'' (方田) chapter of the \textit{Jiuzhang Suanshu} (九章算術). The standard conversion is 1 畝 (mu) = 240 square 步 (bu).
-}
-
-\subsection{Facsimile of Opening Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{all_pages/page-002.png}\hfill
-\includegraphics[width=0.45\textwidth]{all_pages/page-003.png}
-\caption{Left: Opening of 田畝形段門 with the first two problems. Right: Problems including the gougu (right-triangle) field with diagram.}
-\end{figure}
-
-\subsection{Sample Problems}
-
-\begin{problembox}
-\textbf{Problem 1} (Square Field): 今有方田一段，自方九十六步，問為田幾何？\\[0.2cm]
-\textit{Now there is a square field, each side 96 bu. What is the area?}\\[0.2cm]
-答曰三十八畝四分。 \textit{Answer: 38 mu and 4 fen.}\\[0.2cm]
-術曰：列九十六步自乘，得九千二百一十六步，為田積也，以畝法二百四十步除之，合問。\\[0.2cm]
-\textit{Method: Place 96 bu, square it to obtain 9216 bu as the area. Divide by the mu-factor 240 bu to obtain the answer.}
-\end{problembox}
-
-\textbf{Modern formula:} $A = \frac{96^2}{240} = \frac{9216}{240} = 38.4$ mu.
-
-\begin{problembox}
-\textbf{Problem 2} (Rectangular Field): 今有直田一段，長四十九步，闊二十四步，問為田幾何？\\[0.2cm]
-\textit{Now there is a rectangular field, length 49 bu, width 24 bu.}\\[0.2cm]
-答曰四畝九分。 \textit{Answer: 4 mu and 9 fen.}\\[0.2cm]
-術曰：列長四十九步，以闊二十四步乘之，得一千一百七十六步，為田積也，以畝法二百四十步除之，合問。
-\end{problembox}
-
-\textbf{Modern formula:} $A = \frac{49 \times 24}{240} = \frac{1176}{240} = 4.9$ mu.
-
-\begin{problembox}
-\textbf{Problem 3} (Right-Triangle Field): 今有勾股田一段，勾三十六步，股六十二步，問為田幾何？\\[0.2cm]
-\textit{Now there is a right-triangle field with base (gou) 36 bu and height (gu) 62 bu.}\\[0.2cm]
-答曰四畝六分五厘。\\[0.2cm]
-術曰：列股六十二步，以勾三十六步乘之，折半，得一千一百一十六步，為田積也，以畝法二百四十步除之，合問。
-\end{problembox}
-
-\textbf{Modern formula:} $A = \frac{62 \times 36}{2 \times 240} = \frac{1116}{240} = 4.65$ mu.
-
-\subsection{Additional Facsimile Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{all_pages/page-004.png}\hfill
-\includegraphics[width=0.45\textwidth]{all_pages/page-005.png}
-\caption{Left: Trapezoidal (梯田) and wedge (圭田) fields. Right: Circular fields (圓田).}
-\end{figure}
-
-\subsection{Geometric Formulas Used}
-
-The chapter systematically covers the following field shapes:
-
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-\textbf{Shape} & \textbf{Formula} \\
-\midrule
-Square field (方田) & $A = \frac{\text{side}^2}{240}$ \\
-Rectangle (直田) & $A = \frac{\text{length} \times \text{width}}{240}$ \\
-Right triangle (勾股田) & $A = \frac{\text{base} \times \text{height}}{2 \times 240}$ \\
-Trapezoid (梯田, 邪田) & $A = \frac{(a+b)}{2} \times \frac{h}{240}$ \\
-Triangle (圭田) & $A = \frac{\text{base} \times \text{height}}{2 \times 240}$ \\
-Circle (圓田) & $A = \frac{C \times d}{4 \times 240}$ (using $\pi \approx 3$) \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\newpage
-
-% Chapter 2
-\section{Chapter 2: 倉屯積粟門 --- Granary Volume Calculations}
-\label{sec:cangcun}
-
-\historicalbox{
-\textbf{9 Problems} on computing the volume of granaries (倉, 窖) and the amount of grain they can store. The standard conversion: 1 斛 (hu) of grain occupies a volume of 1.62 cubic 尺 (chi).
-}
-
-\subsection{Facsimile Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{all_pages/page-006.png}\hfill
-\includegraphics[width=0.45\textwidth]{all_pages/page-007.png}
-\caption{Problems on granary and pit volume calculations from 倉屯積粟門.}
-\end{figure}
-
-\subsection{Sample Problems}
-
-\begin{problembox}
-\textbf{Problem 1}: 今有方窖一所，口方八尺，底方六尺，深九尺，問受粟幾何？\\[0.2cm]
-\textit{Now there is a square pit: mouth 8 chi square, base 6 chi square, depth 9 chi. How much grain can it hold?}\\[0.2cm]
-答曰二百十六斛。\\[0.2cm]
-術曰：列口方八尺，自乘，得六十四尺；又列底方六尺，自乘，得三十六尺；相併，得一百尺；以深九尺乘之，得九百尺；如三而一，得三百尺，為積；以斛法一尺六寸二分除之，合問。
-\end{problembox}
-
-\textbf{Modern analysis:} This computes the volume of a frustum of a square pyramid:
-$$V = \frac{(8^2 + 6^2) \times 9}{3} = \frac{(64 + 36) \times 9}{3} = \frac{100 \times 9}{3} = 300 \text{ cubic chi}$$
-Grain capacity: $300 / 1.62 \approx 185$ hu. (The text gives 216 hu using a simplified formula.)
-
-\newpage
-
-% Chapter 3
-\section{Chapter 3: 雙據互換門 --- Double Proportion Problems}
-\label{sec:shuangju}
-
-\historicalbox{
-\textbf{6 Problems} involving compound proportion (重今有術), where quantities are related through multiple intermediate proportions.
-}
-
-\subsection{Sample Problem}
-
-\begin{problembox}
-\textbf{Problem}: 今有絹一疋，價鈔二貫五百文，問丈價幾何？\\[0.2cm]
-\textit{Now there is one bolt of silk, price 2 guan 500 wen. What is the price per 丈?}\\[0.2cm]
-答曰每丈六百二十五文。\\[0.2cm]
-術曰：列鈔二貫五百文，以四丈除之，得六百二十五文，合問。
-\end{problembox}
-
-The standard bolt (疋) of silk = 4 丈 (zhang), so the price per zhang is $2500 \div 4 = 625$ wen.
-
-\newpage
-
-% Chapter 4
-\section{Chapter 4: 求差分和門 --- Sum-and-Difference Problems}
-\label{sec:qiucha}
-
-\historicalbox{
-\textbf{9 Problems} on finding two or more quantities given their sum and difference, or other relations among them. These are classic ``sum and difference'' (和差) problems.
-}
-
-\subsection{Facsimile Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{all_pages/page-008.png}\hfill
-\includegraphics[width=0.45\textwidth]{all_pages/page-009.png}
-\caption{Problems from 求差分和門 on sum-and-difference calculations.}
-\end{figure}
-
-\subsection{Sample Problem}
-
-\begin{problembox}
-\textbf{Problem}: 今有金銀共重九十兩，只云金輕銀重，每一兩金價四百文，銀價四十文，共價一萬三千二百文，問金銀各幾何？\\[0.2cm]
-\textit{Now there is gold and silver totaling 90 liang. Gold is lighter, silver heavier. Each liang of gold costs 400 wen, each liang of silver 40 wen. The total price is 13,200 wen. How much gold and silver?}\\[0.2cm]
-答曰金三十兩，銀六十兩。
-\end{problembox}
-
-\textbf{Modern solution:} Let $x$ = gold (liang), $y$ = silver (liang).
-\begin{align*}
-x + y &= 90 \\
-400x + 40y &= 13200
-\end{align*}
-Solving: $x = 30$ liang gold, $y = 60$ liang silver.
-
-\newpage
-
-% Chapter 5
-\section{Chapter 5: 差分均配門 --- Proportional Distribution}
-\label{sec:chafen}
-
-\historicalbox{
-\textbf{10 Problems} on proportional distribution (衰分) according to given ratios. These problems involve dividing quantities (grain, money, labor) among parties in given proportions.
-}
-
-\subsection{Facsimile Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{all_pages/page-055.png}\hfill
-\includegraphics[width=0.45\textwidth]{all_pages/page-056.png}
-\caption{Distribution problems from 差分均配門.}
-\end{figure}
-
-\subsection{Sample Problem}
-
-\begin{problembox}
-\textbf{Problem}: 今有粟七百三十八石，令四等人戶作差五等出之，最上每戶出三十五石，最下每戶出一十四石，問逐等各幾何？\\[0.2cm]
-\textit{Now there are 738 shi of grain to be distributed among four classes of households in five-grade arithmetic difference. The highest class gives 35 shi each, the lowest 14 shi each. How much for each grade?}
-\end{problembox}
-
-\textbf{Modern analysis:} This is an arithmetic progression problem. If there are $n$ households in each class and the five grades form an arithmetic sequence from 14 to 35, then the common difference is $(35-14)/4 = 5.25$ shi per grade.
-
-\newpage
-
-% Chapter 6
-\section{Chapter 6: 商功修築門 --- Construction Earthwork}
-\label{sec:shanggong}
-
-\historicalbox{
-\textbf{13 Problems} on computing volumes of earthworks (walls, dikes, canals) and labor requirements. This corresponds to the ``Shanggong'' (商功) chapter of the \textit{Jiuzhang Suanshu}.
-}
-
-\subsection{Facsimile Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{all_pages/page-040.png}\hfill
-\includegraphics[width=0.45\textwidth]{all_pages/page-041.png}
-\caption{Construction problems from 商功修築門.}
-\end{figure}
-
-\subsection{Sample Problem}
-
-\begin{problembox}
-\textbf{Problem}: 今有城下廣四丈，上廣二丈，高五丈，袤一百二十六丈，問積幾何？\\[0.2cm]
-\textit{Now there is a city wall: lower width 4 zhang, upper width 2 zhang, height 5 zhang, length 126 zhang. What is the volume?}\\[0.2cm]
-答曰七千五百六十丈。\\[0.2cm]
-術曰：并上下廣，得六丈，半之，得三丈，以高五丈乘之，得一十五丈，又以袤一百二十六丈乘之，合問。
-\end{problembox}
-
-\textbf{Modern formula:} For a trapezoidal prism (wall):
-$$V = \frac{(w_{\text{base}} + w_{\text{top}})}{2} \times h \times l = \frac{(4+2)}{2} \times 5 \times 126 = 3 \times 5 \times 126 = 1890 \text{ cubic zhang}$$
-
-\newpage
-
-% Chapter 7
-\section{Chapter 7: 貴賤反率門 --- Inverse Proportion (Price/Rate)}
-\label{sec:guijian}
-
-\historicalbox{
-\textbf{8 Problems} on inverse proportion problems involving prices and rates (反率). These are classic ``buying and selling'' problems where the relationship between quality and price is inversely proportional.
-}
-
-\subsection{Facsimile Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.45\textwidth]{all_pages/page-030.png}\hfill
-\includegraphics[width=0.45\textwidth]{all_pages/page-058.png}
-\caption{Left: Problems from 貴賤反率門 on gold/silver vases. Right: Final problems of the volume.}
-\end{figure}
-
-\subsection{Sample Problem}
-
-\begin{problembox}
-\textbf{Problem}: 今有金瓶一十二隻，銀瓶一十五隻，共價鈔二貫七百七十二文，只云金價貴銀價賤，二價相差七百七十二文，問二色各價幾何？\\[0.2cm]
-\textit{Now there are 12 gold vases and 15 silver vases, total price 2 guan 772 wen. The gold price exceeds the silver price by 772 wen. What are the individual prices?}
-\end{problembox}
-
-\textbf{Modern solution:} Let $x$ = gold price, $y$ = silver price.
-\begin{align*}
-12x + 15y &= 2772 \\
-x - y &= 772
-\end{align*}
-Substituting $x = y + 772$: $12(y+772) + 15y = 2772$, so $27y + 9264 = 2772$, giving $y = 240$ wen, $x = 1012$ wen.
-
-\newpage
-
-% Additional facsimile gallery
-\section{Gallery of Original Facsimile Pages}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.3\textwidth]{all_pages/page-010.png}\hfill
-\includegraphics[width=0.3\textwidth]{all_pages/page-020.png}\hfill
-\includegraphics[width=0.3\textwidth]{all_pages/page-035.png}
-\caption{Selection of original woodblock-printed pages from 算學啟蒙卷中.}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.3\textwidth]{all_pages/page-045.png}\hfill
-\includegraphics[width=0.3\textwidth]{all_pages/page-050.png}\hfill
-\includegraphics[width=0.3\textwidth]{all_pages/page-059.png}
-\caption{Further selection of pages showing the variety of problem types in Volume II.}
-\end{figure}
-
-\newpage
-
-% Mathematical commentary
-\section{Modern Mathematical Commentary}
-
-\subsection{Common Problem Types}
-
-The problems in Volume II fall into several recurring mathematical patterns:
-
-\subsubsection*{Area Formulas}
-The field-area chapter systematically applies area formulas for various geometric shapes. Zhu Shijie uses the traditional ``mu-factor'' (畝法) of 240 square bu per mu, requiring division by 240 as the final step in all area problems.
-
-\subsubsection*{Volume Calculations}
-For granary volumes, Zhu employs the classical formulas:
-\begin{itemize}[noitemsep]
-  \item Square/rectangular pit: $V = \text{length} \times \text{width} \times \text{depth}$
-  \item Frustum of square pyramid: $V = \frac{(A_{\text{top}} + A_{\text{base}}) \times h}{3}$
-  \item Cylinder/circular pit: $V = \frac{C^2 \times h}{12}$ (using $\pi \approx 3$)
-\end{itemize}
-
-\subsubsection*{Proportional Reasoning}
-The 雙據互換門, 差分均配門, and 貴賤反率門 chapters all involve proportional reasoning:
-\begin{itemize}[noitemsep]
-  \item Direct proportion (正比例)
-  \item Inverse proportion (反比例)
-  \item Arithmetic progression (等差級數)
-  \item Weighted distribution (加權分配)
-\end{itemize}
-
-\subsection{Historical Significance}
-
-\historicalbox{
-Volume II of \textit{Suanxue Qimeng} represents a comprehensive intermediate-level textbook that bridges elementary arithmetic (Volume I) and advanced algebra (Volume III). The problems reflect practical concerns of Yuan dynasty China---agriculture, taxation, construction, and commerce---while systematically developing mathematical techniques.
-
-The work was transmitted to Korea and Japan, where it served as a standard textbook. A Korean edition from 1433 is the earliest extant printed version. In Japan, it influenced the development of \textit{wasan} (Japanese mathematics).
-}
-
-\vspace{1cm}
-\begin{center}
-\longline\\[0.5cm]
-{\small\textit{End of Volume II (卷中) of Suanxue Qimeng}\\
-新編算學啟蒙卷中終}
-\end{center}
-
-\end{document}
+\documentclass[11pt,a4paper]{article}
+
+% Core packages
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable}
+\usepackage{hyperref}
+% \usepackage{microtype}  % Removed: can cause issues with XeLaTeX
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+
+% Page geometry
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+% Language setup
+\setmainlanguage{english}
+
+% Font configuration
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+% xeCJK for Chinese
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK SC}[Scale=1.0]
+\setCJKsansfont{Noto Sans CJK SC}[Scale=1.0]
+\setCJKmonofont{Noto Sans CJK SC}[Scale=0.9]
+
+% Colors
+\definecolor{titlecolor}{RGB}{60,30,10}
+\definecolor{sectioncolor}{RGB}{80,40,15}
+\definecolor{chaptercolor}{RGB}{100,50,20}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{30,60,90}
+
+% Section formatting
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Suanxue Qimeng --- Volume II (Middle)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Custom commands
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+% Problem environment
+\newenvironment{problembox}{%
+  \begin{quote}
+  \itshape
+  \color{problemcolor}
+}{%
+  \end{quote}
+}
+
+% Historical box using tikz
+\newcommand{\historicalbox}[1]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=rulecolor, fill=white, rounded corners=3pt, 
+          inner sep=10pt, text width=0.9\textwidth] {#1};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.3cm}
+}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Suanxue Qimeng --- Volume II (Middle)},
+  pdfauthor={Zhu Shijie (transcribed and annotated)},
+}
+
+% TOC depth
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{14}{16}\selectfont\textsc{Historical Chinese Mathematical Texts}}
+\vspace{1cm}
+
+\longline
+\vspace{1.5cm}
+
+{\fontsize{28}{34}\selectfont\bfseries\color{titlecolor}
+新編算學啟蒙\\[0.5cm]
+\textit{Suanxue Qimeng}\\[0.3cm]
+}
+\vspace{0.5cm}
+
+{\fontsize{18}{22}\selectfont\color{sectioncolor}
+\textit{Introduction to Computational Studies}\\[0.8cm]
+}
+
+\vspace{0.3cm}
+{\fontsize{16}{20}\selectfont\bfseries\color{chaptercolor}
+卷中 --- Volume II (Middle)\\[0.3cm]
+}
+
+\vspace{1.5cm}
+\longline
+\vspace{1cm}
+
+{\large 松庭朱世傑編撰\\[0.3cm]
+\textit{Compiled by Zhu Shijie (Songting)}\\[0.5cm]
+}
+
+\vspace{0.5cm}
+
+{\large\textit{Yuan Dynasty, 1299 CE}\\[0.3cm]
+}
+
+\vspace{1cm}
+
+\begin{minipage}{0.8\textwidth}
+\centering
+\textit{Seven Chapters (七門), Seventy-One Problems (七十一問):}\\[0.3cm]
+田畝形段門 · 倉屯積粟門 · 雙據互換門 · 求差分和門 · 差分均配門 · 商功修築門 · 貴賤反率門
+\end{minipage}
+
+\vfill
+
+{\small\textit{With facsimile reproductions of original woodblock prints,}\\
+\textit{transcriptions, and modern mathematical commentary}\\[0.5cm]
+}
+
+{\small Typeset in \LaTeX\ with \textsf{XeLaTeX} and \textup{xeCJK}\\
+\today}
+
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Introduction
+\section{Introduction}
+
+\historicalbox{
+\textit{Suanxue Qimeng} (算學啟蒙, ``Introduction to Computational Studies'') is one of the two major mathematical works by the celebrated Yuan dynasty mathematician \textbf{Zhu Shijie} (朱世傑, courtesy name 松庭 Songting, fl.~1299). Written in 1299 and printed in Yangzhou, this three-volume textbook contains 259 problems organized into 20 chapters (門), progressing from elementary arithmetic to the advanced ``Celestial Element Method'' (天元術).
+}
+
+\subsection{About the Author}
+
+Zhu Shijie was a wandering mathematics teacher from Yan-shan (near modern Beijing) who traveled throughout China for over twenty years, attracting students from all directions. He made groundbreaking contributions to:
+\begin{itemize}[noitemsep]
+  \item \textbf{Tianyuan shu} (天元術): polynomial algebra in one unknown
+  \item \textbf{Siyuan shu} (四元術): polynomial algebra in up to four unknowns
+  \item \textbf{Duoji shu} (垛積術): summation of finite series (pyramidal numbers)
+  \item \textbf{Zhaocha shu} (招差術): finite-difference interpolation
+\end{itemize}
+
+His two extant works are \textit{Suanxue Qimeng} (1299) and \textit{Siyuan Yujian} (四元玉鑑, 1303).
+
+\subsection{Structure of Volume II (卷中)}
+
+Volume II contains \textbf{7 chapters} with \textbf{71 problems} total, covering:
+
+\begin{center}
+\begin{longtable}{|c|l|c|l|}
+\hline
+\textbf{No.} & \textbf{Chapter Title} & \textbf{Problems} & \textbf{Topic} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Chapter Title} & \textbf{Problems} & \textbf{Topic} \\
+\hline
+\endhead
+1 & 田畝形段門 & 16 & Field area computations \\
+2 & 倉屯積粟門 & 9 & Granary volume calculations \\
+3 & 雙據互換門 & 6 & Double proportion problems \\
+4 & 求差分和門 & 9 & Sum-and-difference problems \\
+5 & 差分均配門 & 10 & Proportional distribution \\
+6 & 商功修築門 & 13 & Construction earthwork \\
+7 & 貴賤反率門 & 8 & Inverse proportion (price/rate) \\
+\hline
+\end{longtable}
+\end{center}
+
+The problems follow the classical Chinese format: 今有 (``Now there is'') for the problem statement, 答曰 (``Answer:'') for the answer, and 術曰 (``Method:'') for the solution procedure.
+
+\newpage
+
+% Chapter 1
+\section{Chapter 1: 田畝形段門 --- Field Area Computations}
+\label{sec:tianmu}
+
+\historicalbox{
+\textbf{16 Problems} on calculating the areas of fields of various geometric shapes. This chapter corresponds to the ``Fangtian'' (方田) chapter of the \textit{Jiuzhang Suanshu} (九章算術). The standard conversion is 1 畝 (mu) = 240 square 步 (bu).
+}
+
+\subsection{Facsimile of Opening Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{all_pages/page-002.png}\hfill
+\includegraphics[width=0.45\textwidth]{all_pages/page-003.png}
+\caption{Left: Opening of 田畝形段門 with the first two problems. Right: Problems including the gougu (right-triangle) field with diagram.}
+\end{figure}
+
+\subsection{Sample Problems}
+
+\begin{problembox}
+\textbf{Problem 1} (Square Field): 今有方田一段，自方九十六步，問為田幾何？\\[0.2cm]
+\textit{Now there is a square field, each side 96 bu. What is the area?}\\[0.2cm]
+答曰三十八畝四分。 \textit{Answer: 38 mu and 4 fen.}\\[0.2cm]
+術曰：列九十六步自乘，得九千二百一十六步，為田積也，以畝法二百四十步除之，合問。\\[0.2cm]
+\textit{Method: Place 96 bu, square it to obtain 9216 bu as the area. Divide by the mu-factor 240 bu to obtain the answer.}
+\end{problembox}
+
+\textbf{Modern formula:} $A = \frac{96^2}{240} = \frac{9216}{240} = 38.4$ mu.
+
+\begin{problembox}
+\textbf{Problem 2} (Rectangular Field): 今有直田一段，長四十九步，闊二十四步，問為田幾何？\\[0.2cm]
+\textit{Now there is a rectangular field, length 49 bu, width 24 bu.}\\[0.2cm]
+答曰四畝九分。 \textit{Answer: 4 mu and 9 fen.}\\[0.2cm]
+術曰：列長四十九步，以闊二十四步乘之，得一千一百七十六步，為田積也，以畝法二百四十步除之，合問。
+\end{problembox}
+
+\textbf{Modern formula:} $A = \frac{49 \times 24}{240} = \frac{1176}{240} = 4.9$ mu.
+
+\begin{problembox}
+\textbf{Problem 3} (Right-Triangle Field): 今有勾股田一段，勾三十六步，股六十二步，問為田幾何？\\[0.2cm]
+\textit{Now there is a right-triangle field with base (gou) 36 bu and height (gu) 62 bu.}\\[0.2cm]
+答曰四畝六分五厘。\\[0.2cm]
+術曰：列股六十二步，以勾三十六步乘之，折半，得一千一百一十六步，為田積也，以畝法二百四十步除之，合問。
+\end{problembox}
+
+\textbf{Modern formula:} $A = \frac{62 \times 36}{2 \times 240} = \frac{1116}{240} = 4.65$ mu.
+
+\subsection{Additional Facsimile Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{all_pages/page-004.png}\hfill
+\includegraphics[width=0.45\textwidth]{all_pages/page-005.png}
+\caption{Left: Trapezoidal (梯田) and wedge (圭田) fields. Right: Circular fields (圓田).}
+\end{figure}
+
+\subsection{Geometric Formulas Used}
+
+The chapter systematically covers the following field shapes:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Shape} & \textbf{Formula} \\
+\midrule
+Square field (方田) & $A = \frac{\text{side}^2}{240}$ \\
+Rectangle (直田) & $A = \frac{\text{length} \times \text{width}}{240}$ \\
+Right triangle (勾股田) & $A = \frac{\text{base} \times \text{height}}{2 \times 240}$ \\
+Trapezoid (梯田, 邪田) & $A = \frac{(a+b)}{2} \times \frac{h}{240}$ \\
+Triangle (圭田) & $A = \frac{\text{base} \times \text{height}}{2 \times 240}$ \\
+Circle (圓田) & $A = \frac{C \times d}{4 \times 240}$ (using $\pi \approx 3$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\newpage
+
+% Chapter 2
+\section{Chapter 2: 倉屯積粟門 --- Granary Volume Calculations}
+\label{sec:cangcun}
+
+\historicalbox{
+\textbf{9 Problems} on computing the volume of granaries (倉, 窖) and the amount of grain they can store. The standard conversion: 1 斛 (hu) of grain occupies a volume of 1.62 cubic 尺 (chi).
+}
+
+\subsection{Facsimile Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{all_pages/page-006.png}\hfill
+\includegraphics[width=0.45\textwidth]{all_pages/page-007.png}
+\caption{Problems on granary and pit volume calculations from 倉屯積粟門.}
+\end{figure}
+
+\subsection{Sample Problems}
+
+\begin{problembox}
+\textbf{Problem 1}: 今有方窖一所，口方八尺，底方六尺，深九尺，問受粟幾何？\\[0.2cm]
+\textit{Now there is a square pit: mouth 8 chi square, base 6 chi square, depth 9 chi. How much grain can it hold?}\\[0.2cm]
+答曰二百十六斛。\\[0.2cm]
+術曰：列口方八尺，自乘，得六十四尺；又列底方六尺，自乘，得三十六尺；相併，得一百尺；以深九尺乘之，得九百尺；如三而一，得三百尺，為積；以斛法一尺六寸二分除之，合問。
+\end{problembox}
+
+\textbf{Modern analysis:} This computes the volume of a frustum of a square pyramid:
+$$V = \frac{(8^2 + 6^2) \times 9}{3} = \frac{(64 + 36) \times 9}{3} = \frac{100 \times 9}{3} = 300 \text{ cubic chi}$$
+Grain capacity: $300 / 1.62 \approx 185$ hu. (The text gives 216 hu using a simplified formula.)
+
+\newpage
+
+% Chapter 3
+\section{Chapter 3: 雙據互換門 --- Double Proportion Problems}
+\label{sec:shuangju}
+
+\historicalbox{
+\textbf{6 Problems} involving compound proportion (重今有術), where quantities are related through multiple intermediate proportions.
+}
+
+\subsection{Sample Problem}
+
+\begin{problembox}
+\textbf{Problem}: 今有絹一疋，價鈔二貫五百文，問丈價幾何？\\[0.2cm]
+\textit{Now there is one bolt of silk, price 2 guan 500 wen. What is the price per 丈?}\\[0.2cm]
+答曰每丈六百二十五文。\\[0.2cm]
+術曰：列鈔二貫五百文，以四丈除之，得六百二十五文，合問。
+\end{problembox}
+
+The standard bolt (疋) of silk = 4 丈 (zhang), so the price per zhang is $2500 \div 4 = 625$ wen.
+
+\newpage
+
+% Chapter 4
+\section{Chapter 4: 求差分和門 --- Sum-and-Difference Problems}
+\label{sec:qiucha}
+
+\historicalbox{
+\textbf{9 Problems} on finding two or more quantities given their sum and difference, or other relations among them. These are classic ``sum and difference'' (和差) problems.
+}
+
+\subsection{Facsimile Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{all_pages/page-008.png}\hfill
+\includegraphics[width=0.45\textwidth]{all_pages/page-009.png}
+\caption{Problems from 求差分和門 on sum-and-difference calculations.}
+\end{figure}
+
+\subsection{Sample Problem}
+
+\begin{problembox}
+\textbf{Problem}: 今有金銀共重九十兩，只云金輕銀重，每一兩金價四百文，銀價四十文，共價一萬三千二百文，問金銀各幾何？\\[0.2cm]
+\textit{Now there is gold and silver totaling 90 liang. Gold is lighter, silver heavier. Each liang of gold costs 400 wen, each liang of silver 40 wen. The total price is 13,200 wen. How much gold and silver?}\\[0.2cm]
+答曰金三十兩，銀六十兩。
+\end{problembox}
+
+\textbf{Modern solution:} Let $x$ = gold (liang), $y$ = silver (liang).
+\begin{align*}
+x + y &= 90 \\
+400x + 40y &= 13200
+\end{align*}
+Solving: $x = 30$ liang gold, $y = 60$ liang silver.
+
+\newpage
+
+% Chapter 5
+\section{Chapter 5: 差分均配門 --- Proportional Distribution}
+\label{sec:chafen}
+
+\historicalbox{
+\textbf{10 Problems} on proportional distribution (衰分) according to given ratios. These problems involve dividing quantities (grain, money, labor) among parties in given proportions.
+}
+
+\subsection{Facsimile Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{all_pages/page-055.png}\hfill
+\includegraphics[width=0.45\textwidth]{all_pages/page-056.png}
+\caption{Distribution problems from 差分均配門.}
+\end{figure}
+
+\subsection{Sample Problem}
+
+\begin{problembox}
+\textbf{Problem}: 今有粟七百三十八石，令四等人戶作差五等出之，最上每戶出三十五石，最下每戶出一十四石，問逐等各幾何？\\[0.2cm]
+\textit{Now there are 738 shi of grain to be distributed among four classes of households in five-grade arithmetic difference. The highest class gives 35 shi each, the lowest 14 shi each. How much for each grade?}
+\end{problembox}
+
+\textbf{Modern analysis:} This is an arithmetic progression problem. If there are $n$ households in each class and the five grades form an arithmetic sequence from 14 to 35, then the common difference is $(35-14)/4 = 5.25$ shi per grade.
+
+\newpage
+
+% Chapter 6
+\section{Chapter 6: 商功修築門 --- Construction Earthwork}
+\label{sec:shanggong}
+
+\historicalbox{
+\textbf{13 Problems} on computing volumes of earthworks (walls, dikes, canals) and labor requirements. This corresponds to the ``Shanggong'' (商功) chapter of the \textit{Jiuzhang Suanshu}.
+}
+
+\subsection{Facsimile Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{all_pages/page-040.png}\hfill
+\includegraphics[width=0.45\textwidth]{all_pages/page-041.png}
+\caption{Construction problems from 商功修築門.}
+\end{figure}
+
+\subsection{Sample Problem}
+
+\begin{problembox}
+\textbf{Problem}: 今有城下廣四丈，上廣二丈，高五丈，袤一百二十六丈，問積幾何？\\[0.2cm]
+\textit{Now there is a city wall: lower width 4 zhang, upper width 2 zhang, height 5 zhang, length 126 zhang. What is the volume?}\\[0.2cm]
+答曰七千五百六十丈。\\[0.2cm]
+術曰：并上下廣，得六丈，半之，得三丈，以高五丈乘之，得一十五丈，又以袤一百二十六丈乘之，合問。
+\end{problembox}
+
+\textbf{Modern formula:} For a trapezoidal prism (wall):
+$$V = \frac{(w_{\text{base}} + w_{\text{top}})}{2} \times h \times l = \frac{(4+2)}{2} \times 5 \times 126 = 3 \times 5 \times 126 = 1890 \text{ cubic zhang}$$
+
+\newpage
+
+% Chapter 7
+\section{Chapter 7: 貴賤反率門 --- Inverse Proportion (Price/Rate)}
+\label{sec:guijian}
+
+\historicalbox{
+\textbf{8 Problems} on inverse proportion problems involving prices and rates (反率). These are classic ``buying and selling'' problems where the relationship between quality and price is inversely proportional.
+}
+
+\subsection{Facsimile Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{all_pages/page-030.png}\hfill
+\includegraphics[width=0.45\textwidth]{all_pages/page-058.png}
+\caption{Left: Problems from 貴賤反率門 on gold/silver vases. Right: Final problems of the volume.}
+\end{figure}
+
+\subsection{Sample Problem}
+
+\begin{problembox}
+\textbf{Problem}: 今有金瓶一十二隻，銀瓶一十五隻，共價鈔二貫七百七十二文，只云金價貴銀價賤，二價相差七百七十二文，問二色各價幾何？\\[0.2cm]
+\textit{Now there are 12 gold vases and 15 silver vases, total price 2 guan 772 wen. The gold price exceeds the silver price by 772 wen. What are the individual prices?}
+\end{problembox}
+
+\textbf{Modern solution:} Let $x$ = gold price, $y$ = silver price.
+\begin{align*}
+12x + 15y &= 2772 \\
+x - y &= 772
+\end{align*}
+Substituting $x = y + 772$: $12(y+772) + 15y = 2772$, so $27y + 9264 = 2772$, giving $y = 240$ wen, $x = 1012$ wen.
+
+\newpage
+
+% Additional facsimile gallery
+\section{Gallery of Original Facsimile Pages}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{all_pages/page-010.png}\hfill
+\includegraphics[width=0.3\textwidth]{all_pages/page-020.png}\hfill
+\includegraphics[width=0.3\textwidth]{all_pages/page-035.png}
+\caption{Selection of original woodblock-printed pages from 算學啟蒙卷中.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{all_pages/page-045.png}\hfill
+\includegraphics[width=0.3\textwidth]{all_pages/page-050.png}\hfill
+\includegraphics[width=0.3\textwidth]{all_pages/page-059.png}
+\caption{Further selection of pages showing the variety of problem types in Volume II.}
+\end{figure}
+
+\newpage
+
+% Mathematical commentary
+\section{Modern Mathematical Commentary}
+
+\subsection{Common Problem Types}
+
+The problems in Volume II fall into several recurring mathematical patterns:
+
+\subsubsection*{Area Formulas}
+The field-area chapter systematically applies area formulas for various geometric shapes. Zhu Shijie uses the traditional ``mu-factor'' (畝法) of 240 square bu per mu, requiring division by 240 as the final step in all area problems.
+
+\subsubsection*{Volume Calculations}
+For granary volumes, Zhu employs the classical formulas:
+\begin{itemize}[noitemsep]
+  \item Square/rectangular pit: $V = \text{length} \times \text{width} \times \text{depth}$
+  \item Frustum of square pyramid: $V = \frac{(A_{\text{top}} + A_{\text{base}}) \times h}{3}$
+  \item Cylinder/circular pit: $V = \frac{C^2 \times h}{12}$ (using $\pi \approx 3$)
+\end{itemize}
+
+\subsubsection*{Proportional Reasoning}
+The 雙據互換門, 差分均配門, and 貴賤反率門 chapters all involve proportional reasoning:
+\begin{itemize}[noitemsep]
+  \item Direct proportion (正比例)
+  \item Inverse proportion (反比例)
+  \item Arithmetic progression (等差級數)
+  \item Weighted distribution (加權分配)
+\end{itemize}
+
+\subsection{Historical Significance}
+
+\historicalbox{
+Volume II of \textit{Suanxue Qimeng} represents a comprehensive intermediate-level textbook that bridges elementary arithmetic (Volume I) and advanced algebra (Volume III). The problems reflect practical concerns of Yuan dynasty China---agriculture, taxation, construction, and commerce---while systematically developing mathematical techniques.
+
+The work was transmitted to Korea and Japan, where it served as a standard textbook. A Korean edition from 1433 is the earliest extant printed version. In Japan, it influenced the development of \textit{wasan} (Japanese mathematics).
+}
+
+\vspace{1cm}
+\begin{center}
+\longline\\[0.5cm]
+{\small\textit{End of Volume II (卷中) of Suanxue Qimeng}\\
+新編算學啟蒙卷中終}
+\end{center}
+
+\end{document}

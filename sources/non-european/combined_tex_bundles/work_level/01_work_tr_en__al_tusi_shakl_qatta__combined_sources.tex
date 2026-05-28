@@ -1,1080 +1,1080 @@
-% Combined TeX source bundle
-% Title: Nasir al-Din al-Tusi, Shakl al-Qatta
-% Note: constituent files are preserved below in sources/. Some are standalone
-% documents with their own preambles; this combined file is for inspection,
-% comparison, and source packet rather than guaranteed one-command compilation.
-
-
-% ============================================================
-% Source: translations/en/islamic/al-tusi-shakl-al-qatta_bilingual.tex
-% ============================================================
-
-%% ========================================================================
-%% Kitab Shakl al-Qatta' -- BILINGUAL English-Arabic Edition
-%% by Nasir al-Din al-Tusi (1201-1274)
-%%
-%% LEFT COLUMN:  Arabic original text
-%% RIGHT COLUMN: English translation
-%% ========================================================================
-
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{microtype}
-\usepackage{tikz}
-\usepackage{etoolbox}
-
-\usetikzlibrary{arrows.meta,calc,intersections,through,backgrounds,patterns}
-
-%% -------- Page Geometry (wider margins for two-column layout) --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=12mm,right=12mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=25pt
-}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-
-%% Arabic Font (RTL via TeXXeT)
-\TeXXeTstate=1
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{Arial}
-\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.05]{Arial Arabic}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{arabicblue}{RGB}{25,55,95}
-\definecolor{goldaccent}{RGB}{140,110,70}
-\definecolor{leftbg}{RGB}{250,247,242}
-\definecolor{rightbg}{RGB}{242,247,250}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}\centering}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}\centering}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{Kitab Shakl al-Qatta' -- Bilingual Edition}}
-\fancyhead[R]{\small\thepage}
-\fancyhead[C]{\small\ar{كِتَابُ شَكْلِ الْقِطَّاعِ}}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Theorem Environments --------
-\theoremstyle{plain}
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{corollary}{Corollary}[section]
-
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-
-\theoremstyle{remark}
-\newtheorem{remark}{Remark}[section]
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-
-%% Arabic inline helper with RTL
-\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
-\newcommand{\artext}[1]{\ar{#1}}
-
-%% Decorative ornaments
-\newcommand{\ornament}{\begin{center}\textcolor{goldaccent}{$\ast$~$\ast$~$\ast$}\end{center}}
-\newcommand{\dblornament}{\begin{center}\textcolor{goldaccent}{$\ast$~$\ast$~$\ast$~$\ast$~$\ast$}\end{center}}
-
-%% -------- BILINGUAL PARALLEL COLUMN COMMANDS --------
-%% Using minipage for precise control
-\newcommand{\bilingualsection}[2]{%
-  \section{#1 / \ar{#2}}%
-}
-\newcommand{\bilingualsubsection}[2]{%
-  \subsection{#1 / \ar{#2}}%
-}
-
-%% Full-width bilingual block: Arabic LEFT, English RIGHT
-\newcommand{\bilingualblock}[2]{%
-  \noindent%
-  \begin{minipage}[t]{0.47\textwidth}%
-    \vspace{0pt}%
-    \fcolorbox{rulecolor}{leftbg}{%
-      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
-        \small\ar{#1}%
-      }%
-    }%
-  \end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{0.47\textwidth}%
-    \vspace{0pt}%
-    \fcolorbox{rulecolor}{rightbg}{%
-      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
-        \small #2%
-      }%
-    }%
-  \end{minipage}%
-  \par\vspace{0.5em}%
-}
-
-%% Arabic-only block (left column)
-\newcommand{\arabicblock}[1]{%
-  \noindent\begin{minipage}{0.47\textwidth}%
-    \fcolorbox{rulecolor}{leftbg}{%
-      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
-        \small\ar{#1}%
-      }%
-    }%
-  \end{minipage}%
-  \hfill
-  \begin{minipage}{0.47\textwidth}%
-    \small\textit{[Arabic text provided; English translation follows below.]}
-  \end{minipage}%
-  \par\vspace{0.5em}%
-}
-
-%% English-only block (right column with Arabic header)
-\newcommand{\englishblock}[2]{%
-  \noindent\begin{minipage}{0.47\textwidth}%
-    \centering\textcolor{notecolor}{\small\ar{#1}}%
-  \end{minipage}%
-  \hfill
-  \begin{minipage}{0.47\textwidth}%
-    \fcolorbox{rulecolor}{rightbg}{%
-      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
-        \small #2%
-      }%
-    }%
-  \end{minipage}%
-  \par\vspace{0.5em}%
-}
-
-%% Inline bilingual pair (for short texts)
-\newcommand{\inlinebilingual}[2]{%
-  \par\noindent%
-  \makebox[0.48\textwidth][l]{\small\ar{#1}}%
-  \hfill%
-  \makebox[0.48\textwidth][r]{\small #2}%
-  \par\vspace{0.3em}%
-}
-
-%% Translator's note
-\newcommand{\transnote}[1]{%
-  \par\vspace{0.3em}%
-  \noindent\textcolor{notecolor}{\textit{[Transl. note: #1]}}%
-  \vspace{0.3em}%
-}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Kitab Shakl al-Qatta - Bilingual Edition},
-  pdfauthor={Nasir al-Din al-Tusi (1201-1274)},
-}
-
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
-
-%% ========================================================================
-\begin{document}
-
-%% ========================================================================
-%% TITLE PAGE
-%% ========================================================================
-\thispagestyle{empty}
-\begin{center}
-\vspace*{1.5cm}
-
-{\fontsize{22}{28}\selectfont\textsc{Kitab Shakl al-Qatta'}}\\[0.5cm]
-{\Large\textsc{Treatise on the Quadrilateral}}\\[0.3cm]
-{\large Bilingual Arabic--English Edition}\\[1cm]
-
-\shortline
-
-\vspace{0.5cm}
-{\Large\ar{كِتَابُ شَكْلِ الْقِطَّاعِ}}\\[0.3cm]
-{\large\ar{لِلْعَلَّامَةِ نَصِيرِ الدِّينِ الطُّوسِي}}\\[0.5cm]
-{\normalsize By the Learned Nasir al-Din al-Tusi}\\[0.1cm]
-{\normalsize (1201--1274 CE / 597--672 AH)}\\[1cm]
-
-\shortline
-
-\vspace{0.5cm}
-{\small Critical edition based on the 1891 edition}\\[0.1cm]
-{\small by Alexandre Pacha Caratheodory (Constantinople)}\\[0.3cm]
-{\small English translation prepared for this bilingual edition}\\[1cm]
-
-\dblornament
-
-\vspace{0.5cm}
-{\small\ar{بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ}}\\[0.2cm]
-{\small\textit{In the Name of God, the Compassionate, the Merciful}}\\[0.5cm]
-
-\end{center}
-\clearpage
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\tableofcontents
-\clearpage
-
-%% ========================================================================
-%% EDITORIAL PREFACE
-%% ========================================================================
-\section*{Editorial Preface}
-\addcontentsline{toc}{section}{Editorial Preface}
-
-\begin{center}
-\fcolorbox{rulecolor}{white}{%
-\parbox{0.85\textwidth}{%
-\small This bilingual edition presents \textbf{Nasir al-Din al-Tusi's} (1201--1274)
-\textit{Kitab Shakl al-Qatta'} (Treatise on the Quadrilateral), one of the most
-important works in the history of trigonometry. Composed originally in Persian
-and later translated by the author into Arabic at the request of his students,
-the treatise provides the first systematic treatment of plane and spherical
-trigonometry independent of its astronomical applications.
-
-\vspace{0.3em}
-The \textbf{left column} throughout presents the \textbf{Arabic original text};
-the \textbf{right column} gives the \textbf{English translation}.
-Mathematical notation is rendered in modern form alongside the original
-Arabic terminology, which is preserved in footnotes.
-
-\vspace{0.3em}
-This edition is based on the critical edition published by
-\textit{Alexandre Pacha Caratheodory} in Constantinople (Istanbul), 1891,
-under the authority of the Ottoman Ministry of Public Instruction.
-}%
-}
-\end{center}
-
-\ornament
-
-\clearpage
-
-%% ========================================================================
-%% AUTHOR'S PREFACE (Bilingual)
-%% ========================================================================
-\section*{Author's Preface / \ar{كَلَامُ الْمُصَنِّفِ فِي الْمُقَدِّمَةِ}}
-\addcontentsline{toc}{section}{Author's Preface}
-
-\bilingualblock{%
-بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
-
-الْحَمْدُ لِلَّهِ الَّذِي بِابْتِدَاعِهِ الْحَقَائِقَ الْغَيْبِيَّةَ أَتَمَّ الْمَوَاهِبَ الْجَسِيمَةَ، وَأَخْرَجَ بِخَلْقِهِ الْمَوْجُودَاتِ مِنْ غَيْبِ الْعَدَمِ إِلَى شَهَادَةِ الْوُجُودِ وَأَوْدَعَ فِي طِيبَاتِ الْأَشْيَاءِ أَسْرَارًا جَلِيلَةً وَمُلْكًا عَظِيمًا
-
-وَالصَّلَاةُ وَالسَّلَامُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ
-}{%
-In the Name of God, the Compassionate, the Merciful.
-
-Praise be to God, who by originating hidden realities perfected the greatest
-gifts, and by creating existent things brought them from the concealment of
-non-existence to the testimony of existence, and placed in the goodness of
-things sublime secrets and a mighty dominion.
-
-Blessings and peace be upon our master Muhammad and upon his family and all
-his companions.
-}
-
-\vspace{0.5cm}
-
-\bilingualblock{%
-أَمَّا بَعْدُ: فَقَدْ كُنْتُ قَدْ أَلَّفْتُ فِي سِنِينَ مَاضِيَةٍ مُصَنَّفًا فِيهِ جَمِيعُ كَلَامِنَا فِي شَكْلِ الْقِطَّاعِ الْمُكَمَّلِ مَعَ الْبُرُوهَانِ، وَأَلْحَقْتُ بِهِ مَا يَقُومُ مَقَامَهُ وَيَتَعَلَّقُ بِهِ، وَكَانَ ذٰلِكَ فِي لِسَانِ الْفَارِسِيَّةِ، ثُمَّ إِنَّ بَعْضَ الْإِخْوَانِ الْمُتَطَلِّبِينَ لِلْعُلُومِ طَلَبُوا مِنِّي أَنْ أُتَرْجِمَهُ إِلَى اللُّغَةِ الَعَرَبِيَّةِ، فَوَفَّقْتُ لِمَا أَحَبُّوا، وَحَذَفْتُ مِنْهُ بَعْضَ الْفُصُولِ الَّتِي لَا مَعْنَى لَهَا، وَشَرَعْتُ فِي الْعَمَلِ بِمُعَاوَنَةِ الْعَلِيِّ الْقَدِيرِ
-}{%
-As to what follows: I had composed, in years past, a treatise containing all
-our discourse on the \textit{complete quadrilateral figure} (\textbf{shakl
-al-qa\d{t}\d{t}a`}\footnote{\textit{shakl al-qa\d{t}\d{t}a`} (\ar{شَكْلُ الْقِطَّاعِ}):
-lit. ``the figure of secants'' or ``the figure of intersectors,'' from
-\textit{qa\d{t}\d{t}a`} meaning lines that cut or intersect each other.})
-with proofs, and appended to it what takes its place and relates to it; and
-that was in the Persian language. Then some brethren who seek knowledge asked
-me to translate it into the Arabic language, and I complied with their wish,
-and removed from it some sections that had no essential meaning, and set to
-work with the assistance of the Most High, the All-Powerful.
-}
-
-\ornament
-
-%% ========================================================================
-%% STRUCTURE OF THE WORK
-%% ========================================================================
-\section*{Structure of the Treatise / \ar{تَرْتِيبُ الْكِتَابِ}}
-\addcontentsline{toc}{section}{Structure of the Treatise}
-
-\noindent This treatise is divided into \textbf{five books}, each containing
-several propositions and chapters, as follows:
-
-\begin{center}
-\begin{longtable}{lp{8cm}l}
-\toprule
-\textbf{Book} & \textbf{Contents} & \textbf{Arabic} \\
-\midrule
-\endhead
-
-\textbf{Book I} & On compound ratios and their rules, in fourteen propositions. & \ar{فِي الْأُصُولِ الْمُرَكَّبَةِ} \\
-\addlinespace[0.2cm]
-
-\textbf{Book II} & On the plane quadrilateral figure and the ratios found therein, in eleven chapters. & \ar{فِي شَكْلِ الْقِطَّاعِ الْمُسَطَّحِ} \\
-\addlinespace[0.2cm]
-
-\textbf{Book III} & Introduction to the theory of the spherical quadrilateral, in three chapters. & \ar{فِي الْقِطَّاعِ الْكُرَوِيِّ} \\
-\addlinespace[0.2cm]
-
-\textbf{Book IV} & On the spherical quadrilateral and the ratios found therein, in five chapters. & \ar{فِي أَنْوَاعِ الْقِطَّاعِ الْكُرَوِيِّ} \\
-\addlinespace[0.2cm]
-
-\textbf{Book V} & Methods replacing the theory of the quadrilateral for computing arcs of great circles, in seven chapters. & \ar{فِي الْأَضْرُبِ الْبَدِيلَةِ} \\
-\bottomrule
-\end{longtable}
-\end{center}
-
-\transnote{The Arabic terms are given in the rightmost column. For key
-technical terms, see the Glossary at the end of this edition.}
-
-\clearpage
-
-%% ========================================================================
-%% BOOK I -- COMPOUND RATIOS
-%% ========================================================================
-\section{Book I: On Compound Ratios / \ar{الْبَابُ الْأَوَّلُ: فِي الْأُصُولِ الْمُرَكَّبَةِ}}
-\label{sec:book1}
-\addcontentsline{toc}{section}{Book I: On Compound Ratios}
-
-\subsection*{General Rule / \ar{الْقَاعِدَةُ الْعَامَّةُ}}
-\addcontentsline{toc}{subsection}{General Rule}
-
-\bilingualblock{%
-وَنَقُولُ: إِنَّ أَصْلَ الْمَعْنَى فِي الْقَوْلِ إِنَّ هٰذَا النِّسْبَةَ مُرَكَّبَةٌ مِنْ هٰذَيْنِ النِّسْبَتَيْنِ أَوْ هٰذَا النِّسْبَةَ مُفَرَّقَةٌ إِلَى هٰذَيْنِ النِّسْبَتَيْنِ: أَنَّ النِّسْبَةَ الْمُرَكَّبَةَ نِسْبَتَانِ مَفْرُوقَتَانِ مِنْ نِسْبَةٍ، فَإِذَا وُضِعَتْ إِحْدَاهُمَا فِي الْأُخْرَى عَلَى التَّكْرَارِ حَصَلَ نِسْبَةٌ مَعْيُنَةٌ
-}{%
-We say: The basis of the meaning in saying that ``this ratio is composed of
-these two ratios,'' or that ``this ratio is decomposed into these two ratios,''
-is that the compound ratio consists of two ratios separated from one ratio, so
-that when one is placed in the other by repetition, a certain ratio is obtained.
-}
-
-\bilingualblock{%
-وَأَمَّا التَّفْرِيقُ: فَهُوَ أَنْ تَكُونَ النِّسْبَةُ مَفْرُوقَةً إِلَى نِسْبَتَيْنِ فَيَكُونُ كُلُّ وَاحِدَةٍ مِنْهُمَا بِمَنْزِلَةِ الْجُزْءِ مِنَ الْكُلِّ
-}{%
-As for decomposition: it is that the ratio be decomposed into two ratios, each
-of which is in the position of a part of the whole.
-}
-
-\transnote{Al-Tusi begins with the Euclidean theory of compound ratios (Book VI
-of the Elements), developing it into a systematic algebraic tool. The
-``quantity'' (\textit{qadr}) of a ratio is the number that the antecedent
-contains of the consequent.}
-
-%% ========================================================================
-%% PROPOSITION I
-%% ========================================================================
-\subsection{Proposition I / \ar{الْمَسْأَلَةُ الْأُولَى}}
-\label{prop:1}
-\addcontentsline{toc}{subsection}{Proposition I}
-
-\bilingualblock{%
-فَإِذَا وُجِدَ هٰذَا فَلْنَقُلْ: أَيُّ نِسْبَةٍ كَانَتْ لِثَلَاثَةِ مُتَجَانِسَاتٍ إِلَى إِحْدَاهُنَّ فَهِيَ مُرَكَّبَةٌ مِنْ نِسْبَتِهِ إِلَى الثَّالِثَةِ وَنِسْبَةِ تِلْكَ الثَّالِثَةِ إِلَى الْأُولَى
-}{%
-\textbf{Proposition.} Given three homogeneous quantities, the ratio of any
-one of these three quantities to a second is composed of the ratio of the
-first to the third and of that of the third to the second.
-}
-
-\bilingualblock{%
-فَلْيَكُنْ ثَلَاثَةُ مُتَجَانِسَاتٍ أ وَ ب وَ ج، فَأَقُولُ: إِنَّ نِسْبَةَ أ إِلَى ب تُسَاوِي نِسْبَةَ أ إِلَى ج فِي نِسْبَةِ ج إِلَى ب، وَنِسْبَةَ أ إِلَى ج تُسَاوِي نِسْبَةَ أ إِلَى ب فِي نِسْبَةِ ب إِلَى ج، وَنِسْبَةَ ب إِلَى ج تُسَاوِي نِسْبَةَ ب إِلَى أ فِي نِسْبَةِ أ إِلَى ج، وَهَكَذَا
-}{%
-Let there be three homogeneous quantities A, B, C. I say that the ratio of A
-to B is composed of the ratio of A to C and the ratio of C to B; and the
-ratio of A to C is composed of the ratio of A to B and the ratio of B to C;
-and the ratio of B to C is composed of the ratio of B to A and the ratio of A
-to C; and so on. In modern notation:
-\[
-\frac{A}{B} = \frac{A}{C} \times \frac{C}{B}, \quad
-\frac{A}{C} = \frac{A}{B} \times \frac{B}{C}, \quad
-\frac{B}{C} = \frac{B}{A} \times \frac{A}{C}
-\]
-}
-
-\vspace{0.3cm}
-
-\bilingualblock{%
-فَلْنَفْرِضْ أَنَّ وَاحِدَةً تَقِيسُ هٰذِهِ الْقِدْرَ، فَلْتَقِسْ د كَمَا أَقَاسَتْ أ ج، وَتَقِسْ ط كَمَا أَقَاسَتْ ج ب، وَتَقِيسَ هَـٰ كَمَا أَقَاسَتْ أ ب، فَتَكُونُ د كَمِيَّةَ نِسْبَةِ أ إِلَى ج، وَط كَمِيَّةَ نِسْبَةِ ج إِلَى ب، وَهَـٰ كَمِيَّةَ نِسْبَةِ أ إِلَى ب
-}{%
-\textit{Demonstration.} Let us suppose a unit that measures these quantities.
-Let it measure D as A measures C; let it measure T as C measures B; let it
-measure H as A measures B. Then D is the \textit{quantity} of the ratio
-$\frac{A}{C}$; T is the \textit{quantity} of the ratio $\frac{C}{B}$; and H is
-the \textit{quantity} of the ratio $\frac{A}{B}$.
-}
-
-\transnote{The ``quantity'' (\textit{qadr} \ar{قَدْر}) of a ratio is the
-number that the unit measures in the same way that the antecedent measures
-the consequent. The ``same name'' (\textit{ism mushtarak}) of a ratio is the
-number that is its very quantity. Al-Tusi here establishes the fundamental
-property that underlies all subsequent trigonometric identities.}
-
-\ornament
-
-%% ========================================================================
-%% PROPOSITION II
-%% ========================================================================
-\subsection{Proposition II / \ar{الْمَسْأَلَةُ الثَّانِيَةُ}}
-\label{prop:2}
-\addcontentsline{toc}{subsection}{Proposition II}
-
-\bilingualblock{%
-وَنِسْبَةُ أَحَدِ الثَّلَاثَةِ أَوْ لَاَخَرِ كَانَتْ مِنْهَا إِلَى الثَّالِثِ فَنِسْبَتُهُ إِلَى الثَّالِثِ فِي نِسْبَةِ الثَّالِثِ إِلَى ذٰلِكَ الْآخَرِ
-}{%
-\textbf{Proposition.} The ratio of any one of the three quantities A, B, C to
-any other is composed of the ratio of the first to the third and of that of
-the third to the second.
-
-That is:
-\[
-\frac{A}{B} = \frac{A}{C} \times \frac{C}{B} = \frac{C}{B} \times \frac{A}{C}
-\]
-for the composition of ratios is like the multiplication of numbers; one may
-transpose the factors.
-}
-
-\ornament
-
-%% ========================================================================
-%% PROPOSITIONS III--XIV SUMMARY
-%% ========================================================================
-\subsection{Summary of Propositions III--XIV / \ar{خُلَاصَةُ الْمَسَائِلِ ٣--١٤}}
-\label{sec:prop3-14}
-\addcontentsline{toc}{subsection}{Summary: Propositions III--XIV}
-
-\noindent The remaining twelve propositions of Book I develop the algebra of
-compound ratios in full generality:
-
-\begin{enumerate}[leftmargin=2em]
-\item[\textbf{III.}] Any ratio composed of two ratios can also be composed of
-two other ratios derived from these by means of homogeneous quantities taken
-from the first and second ratios.
-\item[\textbf{IV.}] If any quantity measures two others, the ratio of these two
-quantities to each other is equal to the ratio composed of the inverse of the
-first ratio with the second ratio.
-\item[\textbf{V.}] The ratio composed of two ratios is also composed of the
-inverse of the first with the inverse of the second.
-\item[\textbf{VI.}] Any compound ratio can be decomposed into simple ratios in
-two ways: either as fractions with numerator unity, or as expressions with
-denominator unity.
-\item[\textbf{VII.}] If one has six quantities whose compound ratios give rise
-to other compound ratios, then to decompose any compound ratio it suffices to
-know the quantities of a single column.
-\item[\textbf{VIII.}] Any compound ratio gives rise to 9 other compound ratios
-and to 18 expressions of component ratios, or with their inverses 36
-expressions.
-\item[\textbf{IX.}] Two ways of decomposing a compound ratio: by preceding the
-two terms of the second ratio, or by making them follow the two terms of the
-first ratio.
-\item[\textbf{X.}] The count can be extended to 72 expressions.
-\item[\textbf{XI.}] If two of six quantities, each taken in one of the two
-members, are equal, the 4 others are in proportion.
-\item[\textbf{XII.}] If the two equal quantities belong to the same member, the
-other 4 are not proportional.
-\item[\textbf{XIII.}] Any simple ratio can be considered as composed if one
-multiplies it by an identity ratio, e.g. if $\frac{A}{B} = \frac{C}{D}$, then
-also $\frac{A}{B} = \frac{C}{D} \times \frac{D}{D}$.
-\item[\textbf{XIV.}] Any simple identity ratio equals any ratio multiplied by
-its inverse: $\frac{A}{A} = \frac{X}{X} \times \frac{X}{X}$.
-\end{enumerate}
-
-\transnote{These propositions constitute a complete algebraic theory of ratios,
-far surpassing Euclid's treatment in generality and systematic power. They form
-the foundation upon which al-Tusi builds the trigonometric theorems of the
-later books.}
-
-\clearpage
-
-%% ========================================================================
-%% BOOK II -- THE PLANE QUADRILATERAL
-%% ========================================================================
-\section{Book II: The Plane Quadrilateral / \ar{الْبَابُ الثَّانِي: فِي شَكْلِ الْقِطَّاعِ الْمُسَطَّحِ}}
-\label{sec:book2}
-\addcontentsline{toc}{section}{Book II: The Plane Quadrilateral}
-
-\subsection*{Chapter I: Generation of the Figure / \ar{فِي إِنْشَاءِ الشَّكْلِ}}
-\addcontentsline{toc}{subsection}{Chapter I: Generation of the Figure}
-
-\bilingualblock{%
-وَهٰذَا الشَّكْلُ يُسَمَّى شَكْلَ الْقِطَّاعِ لِأَنَّهُ مُنْشَأٌ مِنْ أَرْبَعَةِ خُطُوطٍ مُقَاطِعَةٍ، وَيُسَمَّى أَيْضًا شَكْلَ الْقَطَائِعِ الْمُكَمَّلَةِ. وَقَدْ أَطْلَقَ عَلَيْهِ بَعْضُ الْمُتَأَخِّرِينَ اسْمَ الْمُخَمَّسِ لِأَنَّهُ يَحْتَوِي عَلَى خَمْسَةِ أَضْلَاعٍ فِي الْحَقِيقَةِ إِذَا أُضِيفَ إِلَيْهِ قُطْرٌ وَاحِدٌ
-}{%
-This figure is called the \textbf{figure of secants} (\textit{shakl
-al-qa\d{t}\d{t}a`}) because it is generated from four intersecting lines,
-and is also called the \textbf{figure of complete secants} (\textit{shakl
-al-qa\d{t}a'i` al-mukammala}). Some later scholars have given it the name
-\textbf{pentagonal} because it contains five sides in reality when one diagonal
-is added to it.
-}
-
-\bilingualblock{%
-وَقَدْ أَخْطَأَ حُسَامُ الدِّينِ فِي قَوْلِهِ إِنَّ هٰذَا الشَّكْلَ إِنَّمَا يَكُونُ فِي تِسْعَةِ أَشْكَالٍ، وَهُوَ فِي اثْنَيْ عَشَرَ شَكْلًا. وَقَدْ بَيَّنَّا ذٰلِكَ فِي هٰذَا الْمَكَانِ وَأَثْبَتْنَاهُ بِالْبُرْهَانِ
-}{%
-Hussam al-Din erred in saying that this figure occurs in only nine
-configurations; it is in fact twelve configurations. We have demonstrated this
-here and proved it rigorously.
-}
-
-\transnote{Hussam al-Din al-Salar (d. c. 1250), author of an earlier treatise
-on the quadrilateral, was al-Tusi's predecessor. Al-Tusi corrected his count
-from 9 to 12 figures, noting that some geometers extend the count to 48,
-which reduce four-by-four to the twelve fundamental configurations.}
-
-%% ========================================================================
-%% THE TWELVE FIGURES
-%% ========================================================================
-\subsection{The Twelve Figures / \ar{الْأَشْكَالُ الِاثْنَا عَشَرُ}}
-\label{sec:12figs}
-\addcontentsline{toc}{subsection}{The Twelve Figures}
-
-\noindent The quadrilateral figure is generated by the intersection of four
-straight lines. The twelve configurations are classified into three groups of
-four:
-
-\begin{center}
-\textbf{I.} The point of intersection of two lines falls between the two
-points of intersection on each of them.\\[0.2cm]
-\textbf{II.} The point of intersection falls outside one or both segments.\\[0.2cm]
-\textbf{III.} More complex configurations with all points of intersection
-external.\\[0.2cm]
-\end{center}
-
-\begin{center}
-\begin{tabular}{cccc}
-\textbf{I} & \textbf{II} & \textbf{III} & \textbf{IV} \\
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\coordinate (A) at (0,0); \coordinate (B) at (2,0);
-\coordinate (C) at (0.5,1.5); \coordinate (D) at (1.5,-1);
-\coordinate (E) at (0.8,0.6); \coordinate (F) at (1.2,-0.4);
-\draw[thick] (C)--(D); \draw[thick] (A)--(B); \draw[thick] (0,-0.8)--(2,1);
-\draw[thick] (0.2,1.2)--(1.8,-1.2);
-\foreach \p/\n in {A/A,B/B,C/C,D/D,E/E,F/F} \node at (\p) {\tiny\n};
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,1.5); \draw[thick] (0.5,1.5)--(2,0);
-\draw[thick] (0,0.8)--(2,0.8); \draw[thick] (1,0)--(1,1.5);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,1.5); \draw[thick] (0,1.2)--(2,0);
-\draw[thick] (0.3,1.5)--(1.7,-0.3); \draw[thick] (0.5,-0.3)--(2,1.2);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,0); \draw[thick] (0.5,-0.5)--(1.5,1.5);
-\draw[thick] (1.2,-0.5)--(0.3,1.5); \draw[thick] (0,0.8)--(2,0.5);
-\end{tikzpicture} \\[0.3cm]
-\textbf{V} & \textbf{VI} & \textbf{VII} & \textbf{VIII} \\
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,1); \draw[thick] (0.5,1)--(2,-0.5);
-\draw[thick] (0.3,0.8)--(1.8,0.8); \draw[thick] (1,0.5)--(1,-0.5);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,1.2); \draw[thick] (0,1)--(2,0);
-\draw[thick] (0.5,1.2)--(1.5,-0.2); \draw[thick] (1,1.2)--(1,-0.2);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0.5)--(2,0.5); \draw[thick] (0.8,1.2)--(1.2,-0.3);
-\draw[thick] (0,0)--(2,1); \draw[thick] (0.3,-0.2)--(1.8,1.2);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,0.5); \draw[thick] (0,0.8)--(2,0.3);
-\draw[thick] (0.5,1)--(1.5,-0.3); \draw[thick] (1.2,1)--(0.3,-0.3);
-\end{tikzpicture} \\[0.3cm]
-\textbf{IX} & \textbf{X} & \textbf{XI} & \textbf{XII} \\
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,1); \draw[thick] (0.3,1)--(2,0);
-\draw[thick] (0,0.3)--(2,0.7); \draw[thick] (0.8,1)--(1.5,-0.3);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,0); \draw[thick] (0.5,1.2)--(1.5,-0.3);
-\draw[thick] (0.8,1.2)--(1.8,-0.3); \draw[thick] (0,0.5)--(2,0.8);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0)--(2,1.2); \draw[thick] (0.5,1.2)--(2,0);
-\draw[thick] (0,0.5)--(1.8,1); \draw[thick] (0.3,0.8)--(2,0.3);
-\end{tikzpicture} &
-\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
-\draw[thick] (0,0.5)--(2,1); \draw[thick] (0,0.8)--(2,0);
-\draw[thick] (0.5,1.2)--(1.5,-0.2); \draw[thick] (1,1.2)--(0.3,-0.2);
-\end{tikzpicture} \\
-\end{tabular}
-\end{center}
-
-\transnote{The fundamental theorem: for all twelve figures, the ratio of line
-AB to line BD is composed of the ratio of AE to EC and that of CF to FD:
-\[\frac{AB}{BD} = \frac{AE}{EC} \times \frac{CF}{FD}\]
-This is proved by drawing a parallel from A to CD, meeting BE at H, and using
-similar triangles.}
-
-\clearpage
-
-%% ========================================================================
-%% BOOK III -- SPHERICAL QUADRILATERAL INTRODUCTION
-%% ========================================================================
-\section{Book III: Introduction to the Spherical Quadrilateral / \ar{الْبَابُ الثَّالِثُ: فِي تَقْدِمَةِ الْقِطَّاعِ الْكُرَوِيِّ}}
-\label{sec:book3}
-\addcontentsline{toc}{section}{Book III: Spherical Quadrilateral Introduction}
-
-\subsection*{On Chords, Arcs, and Sines / \ar{فِي الْأَوْتَارِ وَالْأَقْوَاسِ وَالْجُيُوبِ}}
-\addcontentsline{toc}{subsection}{On Chords, Arcs, and Sines}
-
-\bilingualblock{%
-وَقَدْ وَجَدَ الْعُلَمَاءُ أَنَّ مُثَلَّثَاتِ الدَّائِرَةِ الْكُرَوِيَّةِ يَنْحَلُّ بِطَرِيقَيْنِ: طَرِيقُ الْأَوْتَارِ وَالْأَقْوَاسِ، وَطَرِيقُ الْأَقْوَاسِ وَالْجُيُوبِ. وَهٰذَا أَخِفُّ وَأَسْهَلُ
-}{%
-The scholars have found that spherical triangles can be solved by two methods:
-the method of \textbf{chords and arcs} (\textit{al-awtar wa-l-aqsus}), and the
-method of \textbf{arcs and sines} (\textit{al-aqsus wa-l-juyub}). The latter is
-lighter and easier.
-}
-
-\bilingualblock{%
-وَقَدْ بَيَّنَ أَبُو الرِّيحَانِ أَنَّ جِيبَ قَوْسِ أَرْكَانِ الْمُثَلَّثِ الْمُسَطَّحِ لَهَا نِسْبَةٌ مُسَاوِيَةٌ لِنِسْبَةِ جِيَابِ أَضْلَاعِهِ
-}{%
-Abu Rayhan (al-Biruni) demonstrated that the sines of the arcs of a plane
-triangle have a ratio equal to the ratio of the sines of its sides. This is
-the \textbf{Law of Sines}:
-}
-
-\begin{proposition}[The Law of Sines for Plane Triangles]
-In any plane triangle, the ratio of the sides is equal to the ratio of the
-sines of the opposite angles:
-\[
-\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
-\]
-\end{proposition}
-
-\transnote{This is one of the earliest explicit statements of the Law of Sines.
-The term \textit{jayb} (\ar{جَيْب}, lit. ``pocket'' or ``fold of a garment'')
-is the Arabic word for sine, derived from the Sanskrit \textit{jiva} through
-the mistranslation \textit{jiba} (\ar{جِيبَ}) as \textit{jayb} (pocket) by
-Arab scholars reading unvocalized manuscripts.}
-
-%% ========================================================================
-%% THE FUNDAMENTAL PROBLEM
-%% ========================================================================
-\subsection{The Fundamental Problem / \ar{الْمَسْأَلَةُ الْأَصْلِيَّةُ}}
-\label{sec:fundamental-problem}
-\addcontentsline{toc}{subsection}{The Fundamental Problem}
-
-\bilingualblock{%
-مَعْلُومُ جَمْعِ قَوْسَيْنِ أَوْ تَفْرِيقِهِمَا وَمَعْلُومُ نِسْبَةِ جِيبِ أَحَدِهِمَا إِلَى جِيبِ الْآخَرِ، فَنُرِيدُ إِيجَادَ الْقَوْسَيْنِ
-}{%
-\textbf{Given:} the sum or difference of two arcs, and the ratio of the sine
-of one of them to the sine of the other. \textbf{Find:} the two arcs.
-}
-
-\bilingualblock{%
-وَقَدْ اسْتَنَبَ الْأَمِيرُ أَبُو نَصْرِ بْنُ عِرَاقٍ طَرِيقَةً فِي حَلِّ هٰذِهِ الْمَسْأَلَةِ بِالْأَشْكَالِ الْهَنْدَسِيَّةِ، وَنَحْنُ نُبَيِّنُ طَرِيقَةً فِي حَلِّهَا بِالْجَبْرِ
-}{%
-The Emir Abu Nasr ibn Iraq devised a method for solving this problem by
-geometrical figures. We shall demonstrate a method for solving it by
-\textbf{algebra} (\textit{al-jabr}).
-}
-
-\transnote{This fundamental problem --- given $\alpha \pm \beta$ and
-$\frac{\sin\alpha}{\sin\beta}$, find $\alpha$ and $\beta$ --- is of central
-importance in spherical astronomy. Al-Tusi gives a complete algebraic solution,
-reducing it to the solution of a quadratic equation. Abu Nasr ibn `Iraq had
-previously solved it geometrically.}
-
-\clearpage
-
-%% ========================================================================
-%% BOOK IV -- THE SPHERICAL QUADRILATERAL
-%% ========================================================================
-\section{Book IV: The Spherical Quadrilateral / \ar{الْبَابُ الرَّابِعُ: فِي الْقِطَّاعِ الْكُرَوِيِّ وَالنَّسَبِ الْمَوْجُودَةِ فِيهِ}}
-\label{sec:book4}
-\addcontentsline{toc}{section}{Book IV: The Spherical Quadrilateral}
-
-\subsection*{Definition of the Spherical Quadrilateral / \ar{تَعْرِيفُ الْقِطَّاعِ الْكُرَوِيِّ}}
-\addcontentsline{toc}{subsection}{Definition}
-
-\bilingualblock{%
-وَالْقِطَّاعُ الْكُرَوِيُّ هُوَ الشَّكْلُ الَّذِي يَتَوَلَّدُ مِنْ تَقَاطُعِ أَرْبَعَةِ دَوَائِرَ كُبْرَى عَلَى سَطْحِ الْكُرَةِ. وَكُلُّ ضَلْعٍ مِنْ أَضْلَاعِهِ قَوْسُ دَائِرَةٍ كُبْرَى
-}{%
-The \textbf{spherical quadrilateral} is the figure generated by the
-intersection of four great circles on the surface of a sphere. Each of the
-four sides is an arc of a great circle. The angles are measured by the arcs
-of great circles drawn through their vertices perpendicular to the opposite
-sides.
-}
-
-\begin{center}
-\begin{tikzpicture}[scale=1.2]
-\draw[thick] (0,0) circle (2.5cm);
-\draw[thick,red] (0,2.5) arc (90:-90:2.5 and 1.2);
-\draw[thick,red] (0,2.5) arc (90:270:2.5 and 1.2);
-\draw[thick,blue] (2.5,0) arc (0:180:1.2 and 2.5);
-\draw[thick,blue] (-2.5,0) arc (180:360:1.2 and 2.5);
-\node at (0,2.8) {\small A};
-\node at (2.8,0) {\small B};
-\node at (0,-2.8) {\small C};
-\node at (-2.8,0) {\small D};
-\node at (0.3,0.3) {\small E};
-\node at (-0.3,-0.3) {\small F};
-\end{tikzpicture}
-\end{center}
-
-\subsection{Ptolemy's Theorems Applied / \ar{قَوَاعِدُ بَطَلْمَيُوسَ فِي الْقِطَّاعِ الْكُرَوِيِّ}}
-\label{sec:ptolemy}
-\addcontentsline{toc}{subsection}{Ptolemy's Theorems}
-
-\bilingualblock{%
-وَقَدْ أَثْبَتْنَا أَنَّ الْقَوَاعِدَ الْمُسَطَّحَةَ تُطْبَقُ عَلَى جِيَابِ الْقِطَّاعِ الْكُرَوِيِّ، وَذٰلِكَ أَنَّ جِيَابَ الْأَقْوَاسِ فِي دَائِرَةِ الْكُرَةِ لَهَا نِسَبٌ كَنِسَبِ الْخُطُوطِ الْمُسَطَّحَةِ فِي الدَّائِرَةِ الْمُسْتَوِيَّةِ
-}{%
-We have proved that the plane theorems apply to the sines of the spherical
-quadrilateral; that is, the sines of arcs in the circle of the sphere have
-ratios like those of plane lines in a plane circle.
-}
-
-\begin{proposition}[The Sine Theorem for Spherical Triangles]
-In any spherical triangle, the sines of the sides are in the same ratio as
-the sines of the opposite angles:
-\[
-\frac{\sin a}{\sin A} = \frac{\sin b}{\sin B} = \frac{\sin c}{\sin C}
-\]
-\end{proposition}
-
-\bilingualblock{%
-وَقَدْ خَرَجَ مِنْ هٰذَا الْبَحْثِ سَبْعٌ وَعِشْرُونَ صُورَةً، فَرَدَدْنَاهَا إِلَى ثَلَاثَةَ عَشَرَ صُورَةً وَوَاحِدَةٌ
-}{%
-From this investigation, twenty-seven cases arise; we have reduced them to
-thirteen cases plus one (making fourteen in total), and examined each case
-separately with its own demonstration.
-}
-
-\transnote{The reduction from 27 cases to 13+1 is a remarkable achievement of
-systematic analysis. Al-Tusi shows that the apparently distinct cases are
-related through the \textbf{polar triangle} (\textit{al-muthallath al-aqibi}),
-a concept he develops fully: if $ABC$ is a spherical triangle, its polar
-triangle $A'B'C'$ has sides $a' = 180^\circ - A$, $b' = 180^\circ - B$,
-$c' = 180^\circ - C$. This allows conversion between problems involving
-angles and problems involving sides.}
-
-\clearpage
-
-%% ========================================================================
-%% BOOK V -- METHODS OF SOLUTION
-%% ========================================================================
-\section{Book V: Methods of Solution / \ar{الْبَابُ الْخَامِسُ: فِي الْأَضْرُبِ الْبَدِيلَةِ لِنَظَرِيَّةِ الشَّكْلِ}}
-\label{sec:book5}
-\addcontentsline{toc}{section}{Book V: Methods of Solution}
-
-\subsection*{Chapter I: Spherical Triangles / \ar{فِي مُثَلَّثَاتِ الْكُرَةِ}}
-\addcontentsline{toc}{subsection}{Chapter I: Spherical Triangles}
-
-\bilingualblock{%
-وَقَدْ عَلِمْنَا أَنَّ تَقَاطُعَ ثَلَاثَةِ دَوَائِرَ كُبْرَى يَتَوَلَّدُ مِنْهَا مُثَلَّثَاتٌ عَلَى سَطْحِ الْكُرَةِ، وَقَدْ يَكْفِينَا مَعْرِفَةُ أَحَدِهَا لِنَعْرِفَ جَمِيعَهَا
-}{%
-We know that the intersections of three great circles generate triangles on
-the surface of a sphere, and it suffices to know one of them to know them all.
-}
-
-\subsection{On Inclinations and the Sine Theorem / \ar{فِي الْمَيْلِ وَقَانُونِ الْجِيَابِ}}
-\label{sec:inclinations}
-\addcontentsline{toc}{subsection}{On Inclinations and the Sine Theorem}
-
-\bilingualblock{%
-وَفِي هٰذِهِ الْمُثَلَّثَاتِ يُسَمَّى قَوْسُ ب ج مَيْلَ قَوْسِ أ ج، وَهٰذَا الْمَيْلُ هُوَ حِصَّةُ قَوْسِ أ ج فِي الْمَيْلِ الْكُلِّيِّ لِدَائِرَةِ أ د عَلَى دَائِرَةِ أ هـ الَّذِي يَقِيسُهُ زَاوِيَةُ أ
-}{%
-In these triangles, arc BC is called the \textbf{inclination} (\textit{mayl}
-\ar{مَيْل}) of arc AC; this inclination is the portion of arc AC in the total
-inclination of circle AD to circle AH, which is measured by angle A.
-}
-
-\bilingualblock{%
-وَإِذَا نَسَبْنَا قَوْسَ ب ج إِلَى قَوْسِ أ ب سُمِّيَ (ب ج) مَيْلًا ثَانِيًا. وَهٰذَا مَا يُسَمِّيهِ أَبُو الرِّيحَانِ عَرْضًا، فَقَوْسُ ب ج هُوَ الْمَيْلُ الْأَوَّلُ لِقَوْسِ أ ج، وَالْعَرْضُ لِقَوْسِ أ ب
-}{%
-If we relate arc BC to arc AB, then BC is called the \textbf{second
-inclination}. This is what Abu Rayhan calls the ``breadth'' (\textit{`ard}).
-Thus arc BC is the \textbf{first inclination} with respect to arc AC, and the
-\textbf{breadth} with respect to arc AB.
-}
-
-\bilingualblock{%
-وَفِي هٰذَا الِاسْتِعَارَةِ نَقُولُ: إِنَّ نِسَبَ جِيَابِ الْمَيْلِ مُسَاوِيَةٌ لِنِسَبِ جِيَابِ أَقْوَاسِهَا، وَأَنَّ نِسْبَةَ جِيبِ أَيِّ مَيْلٍ إِلَى جِيبِ قَوْسِهِ تُسَاوِي نِسْبَةَ جِيبِ مَيْلٍ آخَرَ إِلَى جِيبِ قَوْسِهِ
-}{%
-In this manner of speaking, we say: the ratios of the sines of the
-inclinations are equal to the ratios of the sines of their arcs, and the ratio
-of the sine of any inclination to the sine of its arc is equal to the ratio
-of the sine of another inclination to the sine of its arc.
-}
-
-\transnote{In modern notation: if $BC$ is the inclination of $AC$, and $LM$ is
-the inclination of $AE$, then:
-\[\frac{\sin BC}{\sin LM} = \frac{\sin AE}{\sin LA}\]
-This is the spherical sine theorem in its most general form.}
-
-%% ========================================================================
-%% THE EIGHT DEMONSTRATIONS
-%% ========================================================================
-\subsection{The Eight Demonstrations of the Sine Theorem / \ar{ثَمَانِيَةُ بُرُوهَانِ لِقَانُونِ الْجِيَابِ}}
-\label{sec:sine-theorem}
-\addcontentsline{toc}{subsection}{Eight Demonstrations}
-
-\noindent Al-Tusi provides \textbf{eight demonstrations} of the sine theorem
-for spherical triangles:
-
-\begin{enumerate}[leftmargin=2em]
-\item[\textbf{1--2.}] Two demonstrations concerning the equality of the ratios
-of the sines of the arcs and the sines of the angles.
-\item[\textbf{3--4.}] Two demonstrations using the tangents of the angles and
-the sines of the arcs.
-\item[\textbf{5--6.}] Two demonstrations concerning the ratios of the tangents
-and the sines.
-\item[\textbf{7--8.}] Two general demonstrations applying to all spherical
-triangles, regardless of whether the angles are acute or obtuse.
-\end{enumerate}
-
-\transnote{The eight demonstrations represent a tour de force of mathematical
-rigor. Each demonstration handles a different configuration of the spherical
-triangle. Objections had been raised against the use of tangents because of
-their rapid growth beyond 45\degree; al-Tusi refutes these objections and
-analyzes the cases where tangent must be replaced by cotangent.}
-
-%% ========================================================================
-%% THE FIGURE OF SHADOWS
-%% ========================================================================
-\subsection{The Figure of Shadows (Tangent Theorem) / \ar{شَكْلُ الزِّلَالِ (قَانُونُ الظِّلَالِ)}}
-\label{sec:shadows}
-\addcontentsline{toc}{subsection}{The Figure of Shadows}
-
-\bilingualblock{%
-وَالظِّلُّ الْأَوَّلُ هُوَ الظِّلُّ، وَالظِّلُّ الثَّانِي هُوَ ظِلُّ التَّمَامِ. وَقَدِ اسْتَخْرَجَ أَبُو الْوَفَاءِ هٰذَا الشَّكْلَ وَبَيَّنَ قَوَاعِدَهُ
-}{%
-The \textbf{first shadow} is the \textbf{tangent}; the \textbf{second shadow}
-is the \textbf{cotangent}. Abu al-Wafa' invented this figure and demonstrated
-its principles.
-}
-
-\bilingualblock{%
-وَالظِّلُّ لَيْسَ إِلَّا جِيبُ ارْتِفَاعِ الْقَوْسِ أَوْ مَا يُسَمِّيهِ الْمُتَأَخِّرُونَ جَيْبَ التَّمَامِ. وَالظِّلُّ الْأَوَّلُ هُوَ الظِّلُّ، وَالظِّلُّ الثَّانِي هُوَ ظِلُّ التَّمَامِ
-}{%
-The \textbf{shadow} of an arc is the sine of its altitude, or what the moderns
-call its \textbf{cosine}. The \textbf{first shadow} is the \textbf{tangent};
-the \textbf{second shadow} is the \textbf{cotangent}.
-}
-
-\transnote{The ``shadow'' (\textit{zill} \ar{ظِلّ}) terminology comes from the
-shadow cast by a gnomon on a sundial. The first shadow (tangent) is the ratio
-of the gnomon to the horizontal shadow; the second shadow (cotangent) is the
-ratio of the gnomon to the vertical shadow. Abu al-Wafa' al-Buzjani (940--998)
-was the first to introduce all six trigonometric functions in their modern
-form.}
-
-%% ========================================================================
-%% APPLICATIONS
-%% ========================================================================
-\subsection{Applications to Spherical Astronomy / \ar{التَّطْبِيقَاتُ فِي عِلْمِ الْفَلَكِ}}
-\label{sec:applications}
-\addcontentsline{toc}{subsection}{Applications to Astronomy}
-
-\bilingualblock{%
-وَقَدْ اسْتَخْرَجْنَا بِقَانُونِ الْجِيَابِ وَقَانُونِ الظِّلَالِ جَمِيعَ أَنْوَاعِ حَلِّ الْمُثَلَّثَاتِ الْكُرَوِيَّةِ، وَقَدْ تَعَدَّدَتِ الطُّرُقُ فِي ذٰلِكَ وَاخْتَلَفَتْ
-}{%
-We have derived, by means of the sine theorem and the tangent theorem, all
-types of solutions for spherical triangles; and the methods in this are
-multiple and various.
-}
-
-\bilingualblock{%
-وَأَمَّا مَا يَتَعَلَّقُ بِمَعْرِفَةِ الْأَضْلَاعِ مِنَ الزَّوَايَا الثَّلَاثِ فَلَمْ أَعْرِفْ طَرِيقَةً فِي حَلِّهِ بِالظِّلَالِ
-}{%
-As for what concerns finding the sides from the three angles [of a spherical
-triangle], I do not know a method for solving it by means of tangents.
-}
-
-\transnote{Al-Tusi here admits the limitation of his method: given three
-angles of a spherical triangle, he cannot find the sides using the tangent
-theorem alone. This case requires the polar triangle method: if $A$, $B$, $C$
-are the three angles, the sides of the polar triangle are $a' = 180^\circ - A$,
-$b' = 180^\circ - B$, $c' = 180^\circ - C$. The problem is thus reduced to
-the case of three sides, which al-Tusi can solve. This is one of the earliest
-uses of the polar triangle in mathematical history.}
-
-\clearpage
-
-%% ========================================================================
-%% EPILOGUE AND HISTORICAL NOTES
-%% ========================================================================
-\section*{Epilogue: Historical and Biographical Notes / \ar{الْخَاتِمَةُ: تَرَاجِمُ الْعُلَمَاءِ}}
-\label{sec:epilogue}
-\addcontentsline{toc}{section}{Epilogue: Biographical Notes}
-
-\noindent\textbf{Notices of the Geometers and Astronomers cited in this Treatise.}
-
-\begin{center}
-\begin{longtable}{lp{8cm}}
-\toprule
-\textbf{Name} & \textbf{Details} \\
-\midrule
-\endhead
-
-\textsc{Sabit-Ibn-Kourah} (\ar{ثَابِتُ بْنُ قُرَّةَ}) & One of the most celebrated translators of Greek scientific works. Born 836, died 901 in Baghdad. Author of a work on the quadrilateral. \\
-\addlinespace[0.15cm]
-
-\textsc{Abu Rayhan al-Biruni} (\ar{أَبُو الرَّيْحَانِ الْبِيرُونِيُّ}) & From Birun, city of Khwarezm. Died 1038--1039. Author of works on the chord and the sine. First to take the radius as unity. Gave a demonstration of the proportionality of the sines of the arcs and the angles in the spherical triangle. \\
-\addlinespace[0.15cm]
-
-\textsc{Abu Mahmud al-Khujandi} (\ar{أَبُو مَحْمُودٍ الْخُجَنْدِيُّ}) & c.~992. Disputed with Abu al-Wafa' the priority concerning the theorem of the proportionality of the sines of the angles and the arcs. \\
-\addlinespace[0.15cm]
-
-\textsc{Abu Ja'far al-Khazin} (\ar{أَبُو جَعْفَرٍ الْخَازِنُ}) & c.~1000. The surname Khazin = librarian. \\
-\addlinespace[0.15cm]
-
-\textsc{Abu al-Fadl al-Nayrizi} (\ar{أَبُو الْفَضْلِ النَّيْرِيزِيُّ}) & One of the principal commentators of Euclid, and author of astronomical tables in the Indian manner. \\
-\addlinespace[0.15cm]
-
-\textsc{Hussam al-Din al-Salar} (\ar{حُسَامُ الدِّينِ السَّالَارُ}) & Author of a treatise on the quadrilateral which served as the basis for the treatise of Nasir al-Din. \\
-\addlinespace[0.15cm]
-
-\textsc{Abdullah b. Abd al-Kafi} (\ar{عَبْدُ اللهِ بْنُ عَبْدِ الْكَافِيِ}) & The copyist of the manuscript and a disciple of Nasir al-Din. \\
-
-\bottomrule
-\end{longtable}
-\end{center}
-
-\clearpage
-
-%% ========================================================================
-%% GLOSSARY OF TECHNICAL TERMS
-%% ========================================================================
-\section*{Glossary of Technical Terms / \ar{قَامُوسُ الْمُصْطَلَحَاتِ الْفَنِّيَّةِ}}
-\addcontentsline{toc}{section}{Glossary of Technical Terms}
-
-\begin{center}
-\begin{longtable}{lll}
-\toprule
-\textbf{Arabic} & \textbf{Transliteration} & \textbf{English} \\
-\midrule
-\endhead
-
-\ar{شَكْلُ الْقِطَّاعِ} & \textit{shakl al-qa\d{t}\d{t}a`} & figure of secants / quadrilateral \\
-\ar{الْقَطَائِعُ الْمُكَمَّلَةُ} & \textit{al-qa\d{t}a'i` al-mukammala} & complete secants \\
-\ar{نِسْبَةٌ مُرَكَّبَةٌ} & \textit{nisba murakkaba} & compound ratio \\
-\ar{قُطْرٌ} & \textit{qu\d{t}r} & diagonal \\
-\ar{ضَلْعٌ} & \textit{\d{d}al`} & side \\
-\ar{قَاعِدَةٌ} & \textit{qa`ida} & base \\
-\ar{جِيبُ قَوْسٍ} & \textit{jayb qaws} & sine of an arc \\
-\ar{جِيبُ التَّمَامِ} & \textit{jayb al-tamam} & cosine (lit. ``sine of the complement'') \\
-\ar{ظِلُّ قَوْسٍ} & \textit{zill qaws} & tangent (lit. ``shadow of an arc'') \\
-\ar{ظِلُّ التَّمَامِ} & \textit{zill al-tamam} & cotangent \\
-\ar{مُثَلَّثٌ كُرَوِيٌّ} & \textit{muthallath kurawi} & spherical triangle \\
-\ar{زَاوِيَةٌ} & \textit{zawiya} & angle \\
-\ar{قَوْسٌ} & \textit{qaws} & arc \\
-\ar{دَائِرَةٌ كُبْرَى} & \textit{daira kubra} & great circle \\
-\ar{مَيْلٌ} & \textit{mayl} & inclination \\
-\ar{عَرْضٌ} & \textit{`ard} & breadth / latitude \\
-\ar{ارْتِفَاعٌ} & \textit{irtifa`} & altitude \\
-
-\bottomrule
-\end{longtable}
-\end{center}
-
-\transnote{The term \textit{jayb} (\ar{جَيْب}) for ``sine'' is one of the
-most fascinating etymologies in mathematics. The Sanskrit word \textit{jiva}
-(``chord'') was transliterated into Arabic as \textit{jiba} (\ar{جِيبَ},
-unvocalized as \ar{جيب}). Later Arabic scholars, reading the unvocalized text,
-misinterpreted it as \textit{jayb} (\ar{جَيْب}), meaning ``pocket'' or
-``fold of a garment.'' When European scholars translated Arabic texts into
-Latin, they rendered \textit{jayb} as \textit{sinus} (``bay'' or ``fold''),
-giving us the modern term ``sine.''}
-
-\clearpage
-
-%% ========================================================================
-%% SCHOLARLY APPARATUS
-%% ========================================================================
-\section*{Scholarly Apparatus / \ar{الْآلَاتُ الْعِلْمِيَّةُ}}
-\addcontentsline{toc}{section}{Scholarly Apparatus}
-
-\subsection*{Note on the Edition}
-
-This bilingual edition reproduces the critical edition published in
-Constantinople (Istanbul) in 1891 under the authority of the Ottoman Ministry
-of Public Instruction. The original edition comprised:
-
-\begin{itemize}[leftmargin=2em]
-\item \textbf{French Translation} (pp.~1--214): A complete translation by
-Alexandre Pacha Caratheodory (1833--1906), Ottoman diplomat and mathematician,
-with extensive notes and a biographical appendix.
-\item \textbf{Arabic Original} (pp.~1--178): The original Arabic text, printed
-in lithographic form from the manuscript belonging to Edhem Pasha.
-\end{itemize}
-
-\subsection*{The Significance of the Work}
-
-Al-Tusi's \textit{Kitab Shakl al-Qatta'} represents one of the most important
-contributions to trigonometry in the medieval Islamic world:
-
-\begin{enumerate}[leftmargin=2em]
-\item \textbf{Systematized the theory of compound ratios} (Book I), providing a
-complete algebraic foundation for ratio theory that went beyond Euclid's
-\textit{Elements}.
-\item \textbf{Analyzed the complete quadrilateral figure} (Book II), classifying
-all twelve configurations generated by four intersecting lines and deriving
-the fundamental proportional relationships.
-\item \textbf{Established the foundations of spherical trigonometry} (Books
-III--IV), including the sine theorem for spherical triangles and its systematic
-application.
-\item \textbf{Developed practical computational methods} (Book V) for solving
-spherical triangles, which were essential for astronomical calculations.
-\end{enumerate}
-
-\subsection*{Bibliographical References}
-
-\begin{enumerate}[leftmargin=2em]
-\item Nasir al-Din al-Tusi. \textit{Kitab Shakl al-Qatta'}. Arabic manuscript,
-Edhem Pasha Library, Constantinople.
-\item Al-Tusi, N.~al-D. \textit{Traite du Quadrilatere attribue a
-Nassiruddin-El-Toussy}. Translated by Alexandre Pacha Caratheodory.
-Constantinople: Typographie et Lithographie Osmanie, 1891.
-\item Caratheodory, A.~P. ``Sur le traite du quadrilatere de
-Nassiruddin-el-Toussy.'' \textit{Journal de Mathematiques Pures et
-Appliquees}, 4\textsuperscript{e} serie, tome 8 (1892), pp.~215--218.
-\item Suter, H. ``Die Mathematiker und Astronomen der Araber und ihre Werke.''
-\textit{Abhandlungen zur Geschichte der mathematischen Wissenschaften}, 10
-(1900), No.~368, p.~132.
-\item Krause, M. ``Die Sphaerik von Menelaos aus Alexandrien.''
-\textit{Abhandlungen der Gesellschaft der Wissenschaften zu Goettingen},
-Phil.-hist. Klasse, 3\textsuperscript{e} Folge, No.~17 (1936).
-\end{enumerate}
-
-\vspace{1cm}
-\begin{center}
-\dblornament\par\vspace{0.5cm}
-{\small\ar{نِهَايَةُ الْكِتَابِ}}\par\vspace{0.3cm}
-{\small\textit{End of the Treatise}}\par\vspace{0.3cm}
-{\small\textit{Modern LaTeX edition\ in bilingual Arabic--English format}}
-\end{center}
-
-\end{document}
-
+% Combined TeX source bundle
+% Title: Nasir al-Din al-Tusi, Shakl al-Qatta
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and source review rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/en/islamic/al-tusi-shakl-al-qatta_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Kitab Shakl al-Qatta' -- BILINGUAL English-Arabic Edition
+%% by Nasir al-Din al-Tusi (1201-1274)
+%%
+%% LEFT COLUMN:  Arabic original text
+%% RIGHT COLUMN: English translation
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{etoolbox}
+
+\usetikzlibrary{arrows.meta,calc,intersections,through,backgrounds,patterns}
+
+%% -------- Page Geometry (wider margins for two-column layout) --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=12mm,right=12mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=25pt
+}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+
+%% Arabic Font (RTL via TeXXeT)
+\TeXXeTstate=1
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.05]{Noto Naskh Arabic}
+\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.05]{Noto Sans Arabic}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{arabicblue}{RGB}{25,55,95}
+\definecolor{goldaccent}{RGB}{140,110,70}
+\definecolor{leftbg}{RGB}{250,247,242}
+\definecolor{rightbg}{RGB}{242,247,250}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}\centering}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}\centering}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Kitab Shakl al-Qatta' -- Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\fancyhead[C]{\small\ar{كِتَابُ شَكْلِ الْقِطَّاعِ}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Theorem Environments --------
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Arabic inline helper with RTL
+\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
+\newcommand{\artext}[1]{\ar{#1}}
+
+%% Decorative ornaments
+\newcommand{\ornament}{\begin{center}\textcolor{goldaccent}{$\ast$~$\ast$~$\ast$}\end{center}}
+\newcommand{\dblornament}{\begin{center}\textcolor{goldaccent}{$\ast$~$\ast$~$\ast$~$\ast$~$\ast$}\end{center}}
+
+%% -------- BILINGUAL PARALLEL COLUMN COMMANDS --------
+%% Using minipage for precise control
+\newcommand{\bilingualsection}[2]{%
+  \section{#1 / \ar{#2}}%
+}
+\newcommand{\bilingualsubsection}[2]{%
+  \subsection{#1 / \ar{#2}}%
+}
+
+%% Full-width bilingual block: Arabic LEFT, English RIGHT
+\newcommand{\bilingualblock}[2]{%
+  \noindent%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \vspace{0pt}%
+    \fcolorbox{rulecolor}{leftbg}{%
+      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+        \small\ar{#1}%
+      }%
+    }%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \vspace{0pt}%
+    \fcolorbox{rulecolor}{rightbg}{%
+      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+        \small #2%
+      }%
+    }%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% Arabic-only block (left column)
+\newcommand{\arabicblock}[1]{%
+  \noindent\begin{minipage}{0.47\textwidth}%
+    \fcolorbox{rulecolor}{leftbg}{%
+      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+        \small\ar{#1}%
+      }%
+    }%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}{0.47\textwidth}%
+    \small\textit{[Arabic text provided; English translation follows below.]}
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% English-only block (right column with Arabic header)
+\newcommand{\englishblock}[2]{%
+  \noindent\begin{minipage}{0.47\textwidth}%
+    \centering\textcolor{notecolor}{\small\ar{#1}}%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}{0.47\textwidth}%
+    \fcolorbox{rulecolor}{rightbg}{%
+      \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+        \small #2%
+      }%
+    }%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% Inline bilingual pair (for short texts)
+\newcommand{\inlinebilingual}[2]{%
+  \par\noindent%
+  \makebox[0.48\textwidth][l]{\small\ar{#1}}%
+  \hfill%
+  \makebox[0.48\textwidth][r]{\small #2}%
+  \par\vspace{0.3em}%
+}
+
+%% Translator's note
+\newcommand{\transnote}[1]{%
+  \par\vspace{0.3em}%
+  \noindent\textcolor{notecolor}{\textit{[Transl. note: #1]}}%
+  \vspace{0.3em}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Kitab Shakl al-Qatta - Bilingual Edition},
+  pdfauthor={Nasir al-Din al-Tusi (1201-1274)},
+}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{22}{28}\selectfont\textsc{Kitab Shakl al-Qatta'}}\\[0.5cm]
+{\Large\textsc{Treatise on the Quadrilateral}}\\[0.3cm]
+{\large Bilingual Arabic--English Edition}\\[1cm]
+
+\shortline
+
+\vspace{0.5cm}
+{\Large\ar{كِتَابُ شَكْلِ الْقِطَّاعِ}}\\[0.3cm]
+{\large\ar{لِلْعَلَّامَةِ نَصِيرِ الدِّينِ الطُّوسِي}}\\[0.5cm]
+{\normalsize By the Learned Nasir al-Din al-Tusi}\\[0.1cm]
+{\normalsize (1201--1274 CE / 597--672 AH)}\\[1cm]
+
+\shortline
+
+\vspace{0.5cm}
+{\small Critical edition based on the 1891 edition}\\[0.1cm]
+{\small by Alexandre Pacha Caratheodory (Constantinople)}\\[0.3cm]
+{\small English translation prepared for this bilingual edition}\\[1cm]
+
+\dblornament
+
+\vspace{0.5cm}
+{\small\ar{بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ}}\\[0.2cm]
+{\small\textit{In the Name of God, the Compassionate, the Merciful}}\\[0.5cm]
+
+\end{center}
+\clearpage
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\clearpage
+
+%% ========================================================================
+%% EDITORIAL PREFACE
+%% ========================================================================
+\section*{Editorial Preface}
+\addcontentsline{toc}{section}{Editorial Preface}
+
+\begin{center}
+\fcolorbox{rulecolor}{white}{%
+\parbox{0.85\textwidth}{%
+\small This bilingual edition presents \textbf{Nasir al-Din al-Tusi's} (1201--1274)
+\textit{Kitab Shakl al-Qatta'} (Treatise on the Quadrilateral), one of the most
+important works in the history of trigonometry. Composed originally in Persian
+and later translated by the author into Arabic at the request of his students,
+the treatise provides the first systematic treatment of plane and spherical
+trigonometry independent of its astronomical applications.
+
+\vspace{0.3em}
+The \textbf{left column} throughout presents the \textbf{Arabic original text};
+the \textbf{right column} gives the \textbf{English translation}.
+Mathematical notation is rendered in modern form alongside the original
+Arabic terminology, which is preserved in footnotes.
+
+\vspace{0.3em}
+This edition is based on the critical edition published by
+\textit{Alexandre Pacha Caratheodory} in Constantinople (Istanbul), 1891,
+under the authority of the Ottoman Ministry of Public Instruction.
+}%
+}
+\end{center}
+
+\ornament
+
+\clearpage
+
+%% ========================================================================
+%% AUTHOR'S PREFACE (Bilingual)
+%% ========================================================================
+\section*{Author's Preface / \ar{كَلَامُ الْمُصَنِّفِ فِي الْمُقَدِّمَةِ}}
+\addcontentsline{toc}{section}{Author's Preface}
+
+\bilingualblock{%
+بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
+
+الْحَمْدُ لِلَّهِ الَّذِي بِابْتِدَاعِهِ الْحَقَائِقَ الْغَيْبِيَّةَ أَتَمَّ الْمَوَاهِبَ الْجَسِيمَةَ، وَأَخْرَجَ بِخَلْقِهِ الْمَوْجُودَاتِ مِنْ غَيْبِ الْعَدَمِ إِلَى شَهَادَةِ الْوُجُودِ وَأَوْدَعَ فِي طِيبَاتِ الْأَشْيَاءِ أَسْرَارًا جَلِيلَةً وَمُلْكًا عَظِيمًا
+
+وَالصَّلَاةُ وَالسَّلَامُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ
+}{%
+In the Name of God, the Compassionate, the Merciful.
+
+Praise be to God, who by originating hidden realities perfected the greatest
+gifts, and by creating existent things brought them from the concealment of
+non-existence to the testimony of existence, and placed in the goodness of
+things sublime secrets and a mighty dominion.
+
+Blessings and peace be upon our master Muhammad and upon his family and all
+his companions.
+}
+
+\vspace{0.5cm}
+
+\bilingualblock{%
+أَمَّا بَعْدُ: فَقَدْ كُنْتُ قَدْ أَلَّفْتُ فِي سِنِينَ مَاضِيَةٍ مُصَنَّفًا فِيهِ جَمِيعُ كَلَامِنَا فِي شَكْلِ الْقِطَّاعِ الْمُكَمَّلِ مَعَ الْبُرُوهَانِ، وَأَلْحَقْتُ بِهِ مَا يَقُومُ مَقَامَهُ وَيَتَعَلَّقُ بِهِ، وَكَانَ ذٰلِكَ فِي لِسَانِ الْفَارِسِيَّةِ، ثُمَّ إِنَّ بَعْضَ الْإِخْوَانِ الْمُتَطَلِّبِينَ لِلْعُلُومِ طَلَبُوا مِنِّي أَنْ أُتَرْجِمَهُ إِلَى اللُّغَةِ الَعَرَبِيَّةِ، فَوَفَّقْتُ لِمَا أَحَبُّوا، وَحَذَفْتُ مِنْهُ بَعْضَ الْفُصُولِ الَّتِي لَا مَعْنَى لَهَا، وَشَرَعْتُ فِي الْعَمَلِ بِمُعَاوَنَةِ الْعَلِيِّ الْقَدِيرِ
+}{%
+As to what follows: I had composed, in years past, a treatise containing all
+our discourse on the \textit{complete quadrilateral figure} (\textbf{shakl
+al-qa\d{t}\d{t}a`}\footnote{\textit{shakl al-qa\d{t}\d{t}a`} (\ar{شَكْلُ الْقِطَّاعِ}):
+lit. ``the figure of secants'' or ``the figure of intersectors,'' from
+\textit{qa\d{t}\d{t}a`} meaning lines that cut or intersect each other.})
+with proofs, and appended to it what takes its place and relates to it; and
+that was in the Persian language. Then some brethren who seek knowledge asked
+me to translate it into the Arabic language, and I complied with their wish,
+and removed from it some sections that had no essential meaning, and set to
+work with the assistance of the Most High, the All-Powerful.
+}
+
+\ornament
+
+%% ========================================================================
+%% STRUCTURE OF THE WORK
+%% ========================================================================
+\section*{Structure of the Treatise / \ar{تَرْتِيبُ الْكِتَابِ}}
+\addcontentsline{toc}{section}{Structure of the Treatise}
+
+\noindent This treatise is divided into \textbf{five books}, each containing
+several propositions and chapters, as follows:
+
+\begin{center}
+\begin{longtable}{lp{8cm}l}
+\toprule
+\textbf{Book} & \textbf{Contents} & \textbf{Arabic} \\
+\midrule
+\endhead
+
+\textbf{Book I} & On compound ratios and their rules, in fourteen propositions. & \ar{فِي الْأُصُولِ الْمُرَكَّبَةِ} \\
+\addlinespace[0.2cm]
+
+\textbf{Book II} & On the plane quadrilateral figure and the ratios found therein, in eleven chapters. & \ar{فِي شَكْلِ الْقِطَّاعِ الْمُسَطَّحِ} \\
+\addlinespace[0.2cm]
+
+\textbf{Book III} & Introduction to the theory of the spherical quadrilateral, in three chapters. & \ar{فِي الْقِطَّاعِ الْكُرَوِيِّ} \\
+\addlinespace[0.2cm]
+
+\textbf{Book IV} & On the spherical quadrilateral and the ratios found therein, in five chapters. & \ar{فِي أَنْوَاعِ الْقِطَّاعِ الْكُرَوِيِّ} \\
+\addlinespace[0.2cm]
+
+\textbf{Book V} & Methods replacing the theory of the quadrilateral for computing arcs of great circles, in seven chapters. & \ar{فِي الْأَضْرُبِ الْبَدِيلَةِ} \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\transnote{The Arabic terms are given in the rightmost column. For key
+technical terms, see the Glossary at the end of this edition.}
+
+\clearpage
+
+%% ========================================================================
+%% BOOK I -- COMPOUND RATIOS
+%% ========================================================================
+\section{Book I: On Compound Ratios / \ar{الْبَابُ الْأَوَّلُ: فِي الْأُصُولِ الْمُرَكَّبَةِ}}
+\label{sec:book1}
+\addcontentsline{toc}{section}{Book I: On Compound Ratios}
+
+\subsection*{General Rule / \ar{الْقَاعِدَةُ الْعَامَّةُ}}
+\addcontentsline{toc}{subsection}{General Rule}
+
+\bilingualblock{%
+وَنَقُولُ: إِنَّ أَصْلَ الْمَعْنَى فِي الْقَوْلِ إِنَّ هٰذَا النِّسْبَةَ مُرَكَّبَةٌ مِنْ هٰذَيْنِ النِّسْبَتَيْنِ أَوْ هٰذَا النِّسْبَةَ مُفَرَّقَةٌ إِلَى هٰذَيْنِ النِّسْبَتَيْنِ: أَنَّ النِّسْبَةَ الْمُرَكَّبَةَ نِسْبَتَانِ مَفْرُوقَتَانِ مِنْ نِسْبَةٍ، فَإِذَا وُضِعَتْ إِحْدَاهُمَا فِي الْأُخْرَى عَلَى التَّكْرَارِ حَصَلَ نِسْبَةٌ مَعْيُنَةٌ
+}{%
+We say: The basis of the meaning in saying that ``this ratio is composed of
+these two ratios,'' or that ``this ratio is decomposed into these two ratios,''
+is that the compound ratio consists of two ratios separated from one ratio, so
+that when one is placed in the other by repetition, a certain ratio is obtained.
+}
+
+\bilingualblock{%
+وَأَمَّا التَّفْرِيقُ: فَهُوَ أَنْ تَكُونَ النِّسْبَةُ مَفْرُوقَةً إِلَى نِسْبَتَيْنِ فَيَكُونُ كُلُّ وَاحِدَةٍ مِنْهُمَا بِمَنْزِلَةِ الْجُزْءِ مِنَ الْكُلِّ
+}{%
+As for decomposition: it is that the ratio be decomposed into two ratios, each
+of which is in the position of a part of the whole.
+}
+
+\transnote{Al-Tusi begins with the Euclidean theory of compound ratios (Book VI
+of the Elements), developing it into a systematic algebraic tool. The
+``quantity'' (\textit{qadr}) of a ratio is the number that the antecedent
+contains of the consequent.}
+
+%% ========================================================================
+%% PROPOSITION I
+%% ========================================================================
+\subsection{Proposition I / \ar{الْمَسْأَلَةُ الْأُولَى}}
+\label{prop:1}
+\addcontentsline{toc}{subsection}{Proposition I}
+
+\bilingualblock{%
+فَإِذَا وُجِدَ هٰذَا فَلْنَقُلْ: أَيُّ نِسْبَةٍ كَانَتْ لِثَلَاثَةِ مُتَجَانِسَاتٍ إِلَى إِحْدَاهُنَّ فَهِيَ مُرَكَّبَةٌ مِنْ نِسْبَتِهِ إِلَى الثَّالِثَةِ وَنِسْبَةِ تِلْكَ الثَّالِثَةِ إِلَى الْأُولَى
+}{%
+\textbf{Proposition.} Given three homogeneous quantities, the ratio of any
+one of these three quantities to a second is composed of the ratio of the
+first to the third and of that of the third to the second.
+}
+
+\bilingualblock{%
+فَلْيَكُنْ ثَلَاثَةُ مُتَجَانِسَاتٍ أ وَ ب وَ ج، فَأَقُولُ: إِنَّ نِسْبَةَ أ إِلَى ب تُسَاوِي نِسْبَةَ أ إِلَى ج فِي نِسْبَةِ ج إِلَى ب، وَنِسْبَةَ أ إِلَى ج تُسَاوِي نِسْبَةَ أ إِلَى ب فِي نِسْبَةِ ب إِلَى ج، وَنِسْبَةَ ب إِلَى ج تُسَاوِي نِسْبَةَ ب إِلَى أ فِي نِسْبَةِ أ إِلَى ج، وَهَكَذَا
+}{%
+Let there be three homogeneous quantities A, B, C. I say that the ratio of A
+to B is composed of the ratio of A to C and the ratio of C to B; and the
+ratio of A to C is composed of the ratio of A to B and the ratio of B to C;
+and the ratio of B to C is composed of the ratio of B to A and the ratio of A
+to C; and so on. In modern notation:
+\[
+\frac{A}{B} = \frac{A}{C} \times \frac{C}{B}, \quad
+\frac{A}{C} = \frac{A}{B} \times \frac{B}{C}, \quad
+\frac{B}{C} = \frac{B}{A} \times \frac{A}{C}
+\]
+}
+
+\vspace{0.3cm}
+
+\bilingualblock{%
+فَلْنَفْرِضْ أَنَّ وَاحِدَةً تَقِيسُ هٰذِهِ الْقِدْرَ، فَلْتَقِسْ د كَمَا أَقَاسَتْ أ ج، وَتَقِسْ ط كَمَا أَقَاسَتْ ج ب، وَتَقِيسَ هَـٰ كَمَا أَقَاسَتْ أ ب، فَتَكُونُ د كَمِيَّةَ نِسْبَةِ أ إِلَى ج، وَط كَمِيَّةَ نِسْبَةِ ج إِلَى ب، وَهَـٰ كَمِيَّةَ نِسْبَةِ أ إِلَى ب
+}{%
+\textit{Demonstration.} Let us suppose a unit that measures these quantities.
+Let it measure D as A measures C; let it measure T as C measures B; let it
+measure H as A measures B. Then D is the \textit{quantity} of the ratio
+$\frac{A}{C}$; T is the \textit{quantity} of the ratio $\frac{C}{B}$; and H is
+the \textit{quantity} of the ratio $\frac{A}{B}$.
+}
+
+\transnote{The ``quantity'' (\textit{qadr} \ar{قَدْر}) of a ratio is the
+number that the unit measures in the same way that the antecedent measures
+the consequent. The ``same name'' (\textit{ism mushtarak}) of a ratio is the
+number that is its very quantity. Al-Tusi here establishes the fundamental
+property that underlies all subsequent trigonometric identities.}
+
+\ornament
+
+%% ========================================================================
+%% PROPOSITION II
+%% ========================================================================
+\subsection{Proposition II / \ar{الْمَسْأَلَةُ الثَّانِيَةُ}}
+\label{prop:2}
+\addcontentsline{toc}{subsection}{Proposition II}
+
+\bilingualblock{%
+وَنِسْبَةُ أَحَدِ الثَّلَاثَةِ أَوْ لَاَخَرِ كَانَتْ مِنْهَا إِلَى الثَّالِثِ فَنِسْبَتُهُ إِلَى الثَّالِثِ فِي نِسْبَةِ الثَّالِثِ إِلَى ذٰلِكَ الْآخَرِ
+}{%
+\textbf{Proposition.} The ratio of any one of the three quantities A, B, C to
+any other is composed of the ratio of the first to the third and of that of
+the third to the second.
+
+That is:
+\[
+\frac{A}{B} = \frac{A}{C} \times \frac{C}{B} = \frac{C}{B} \times \frac{A}{C}
+\]
+for the composition of ratios is like the multiplication of numbers; one may
+transpose the factors.
+}
+
+\ornament
+
+%% ========================================================================
+%% PROPOSITIONS III--XIV SUMMARY
+%% ========================================================================
+\subsection{Summary of Propositions III--XIV / \ar{خُلَاصَةُ الْمَسَائِلِ ٣--١٤}}
+\label{sec:prop3-14}
+\addcontentsline{toc}{subsection}{Summary: Propositions III--XIV}
+
+\noindent The remaining twelve propositions of Book I develop the algebra of
+compound ratios in full generality:
+
+\begin{enumerate}[leftmargin=2em]
+\item[\textbf{III.}] Any ratio composed of two ratios can also be composed of
+two other ratios derived from these by means of homogeneous quantities taken
+from the first and second ratios.
+\item[\textbf{IV.}] If any quantity measures two others, the ratio of these two
+quantities to each other is equal to the ratio composed of the inverse of the
+first ratio with the second ratio.
+\item[\textbf{V.}] The ratio composed of two ratios is also composed of the
+inverse of the first with the inverse of the second.
+\item[\textbf{VI.}] Any compound ratio can be decomposed into simple ratios in
+two ways: either as fractions with numerator unity, or as expressions with
+denominator unity.
+\item[\textbf{VII.}] If one has six quantities whose compound ratios give rise
+to other compound ratios, then to decompose any compound ratio it suffices to
+know the quantities of a single column.
+\item[\textbf{VIII.}] Any compound ratio gives rise to 9 other compound ratios
+and to 18 expressions of component ratios, or with their inverses 36
+expressions.
+\item[\textbf{IX.}] Two ways of decomposing a compound ratio: by preceding the
+two terms of the second ratio, or by making them follow the two terms of the
+first ratio.
+\item[\textbf{X.}] The count can be extended to 72 expressions.
+\item[\textbf{XI.}] If two of six quantities, each taken in one of the two
+members, are equal, the 4 others are in proportion.
+\item[\textbf{XII.}] If the two equal quantities belong to the same member, the
+other 4 are not proportional.
+\item[\textbf{XIII.}] Any simple ratio can be considered as composed if one
+multiplies it by an identity ratio, e.g. if $\frac{A}{B} = \frac{C}{D}$, then
+also $\frac{A}{B} = \frac{C}{D} \times \frac{D}{D}$.
+\item[\textbf{XIV.}] Any simple identity ratio equals any ratio multiplied by
+its inverse: $\frac{A}{A} = \frac{X}{X} \times \frac{X}{X}$.
+\end{enumerate}
+
+\transnote{These propositions constitute a complete algebraic theory of ratios,
+far surpassing Euclid's treatment in generality and systematic power. They form
+the foundation upon which al-Tusi builds the trigonometric theorems of the
+later books.}
+
+\clearpage
+
+%% ========================================================================
+%% BOOK II -- THE PLANE QUADRILATERAL
+%% ========================================================================
+\section{Book II: The Plane Quadrilateral / \ar{الْبَابُ الثَّانِي: فِي شَكْلِ الْقِطَّاعِ الْمُسَطَّحِ}}
+\label{sec:book2}
+\addcontentsline{toc}{section}{Book II: The Plane Quadrilateral}
+
+\subsection*{Chapter I: Generation of the Figure / \ar{فِي إِنْشَاءِ الشَّكْلِ}}
+\addcontentsline{toc}{subsection}{Chapter I: Generation of the Figure}
+
+\bilingualblock{%
+وَهٰذَا الشَّكْلُ يُسَمَّى شَكْلَ الْقِطَّاعِ لِأَنَّهُ مُنْشَأٌ مِنْ أَرْبَعَةِ خُطُوطٍ مُقَاطِعَةٍ، وَيُسَمَّى أَيْضًا شَكْلَ الْقَطَائِعِ الْمُكَمَّلَةِ. وَقَدْ أَطْلَقَ عَلَيْهِ بَعْضُ الْمُتَأَخِّرِينَ اسْمَ الْمُخَمَّسِ لِأَنَّهُ يَحْتَوِي عَلَى خَمْسَةِ أَضْلَاعٍ فِي الْحَقِيقَةِ إِذَا أُضِيفَ إِلَيْهِ قُطْرٌ وَاحِدٌ
+}{%
+This figure is called the \textbf{figure of secants} (\textit{shakl
+al-qa\d{t}\d{t}a`}) because it is generated from four intersecting lines,
+and is also called the \textbf{figure of complete secants} (\textit{shakl
+al-qa\d{t}a'i` al-mukammala}). Some later scholars have given it the name
+\textbf{pentagonal} because it contains five sides in reality when one diagonal
+is added to it.
+}
+
+\bilingualblock{%
+وَقَدْ أَخْطَأَ حُسَامُ الدِّينِ فِي قَوْلِهِ إِنَّ هٰذَا الشَّكْلَ إِنَّمَا يَكُونُ فِي تِسْعَةِ أَشْكَالٍ، وَهُوَ فِي اثْنَيْ عَشَرَ شَكْلًا. وَقَدْ بَيَّنَّا ذٰلِكَ فِي هٰذَا الْمَكَانِ وَأَثْبَتْنَاهُ بِالْبُرْهَانِ
+}{%
+Hussam al-Din erred in saying that this figure occurs in only nine
+configurations; it is in fact twelve configurations. We have demonstrated this
+here and proved it rigorously.
+}
+
+\transnote{Hussam al-Din al-Salar (d. c. 1250), author of an earlier treatise
+on the quadrilateral, was al-Tusi's predecessor. Al-Tusi corrected his count
+from 9 to 12 figures, noting that some geometers extend the count to 48,
+which reduce four-by-four to the twelve fundamental configurations.}
+
+%% ========================================================================
+%% THE TWELVE FIGURES
+%% ========================================================================
+\subsection{The Twelve Figures / \ar{الْأَشْكَالُ الِاثْنَا عَشَرُ}}
+\label{sec:12figs}
+\addcontentsline{toc}{subsection}{The Twelve Figures}
+
+\noindent The quadrilateral figure is generated by the intersection of four
+straight lines. The twelve configurations are classified into three groups of
+four:
+
+\begin{center}
+\textbf{I.} The point of intersection of two lines falls between the two
+points of intersection on each of them.\\[0.2cm]
+\textbf{II.} The point of intersection falls outside one or both segments.\\[0.2cm]
+\textbf{III.} More complex configurations with all points of intersection
+external.\\[0.2cm]
+\end{center}
+
+\begin{center}
+\begin{tabular}{cccc}
+\textbf{I} & \textbf{II} & \textbf{III} & \textbf{IV} \\
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\coordinate (A) at (0,0); \coordinate (B) at (2,0);
+\coordinate (C) at (0.5,1.5); \coordinate (D) at (1.5,-1);
+\coordinate (E) at (0.8,0.6); \coordinate (F) at (1.2,-0.4);
+\draw[thick] (C)--(D); \draw[thick] (A)--(B); \draw[thick] (0,-0.8)--(2,1);
+\draw[thick] (0.2,1.2)--(1.8,-1.2);
+\foreach \p/\n in {A/A,B/B,C/C,D/D,E/E,F/F} \node at (\p) {\tiny\n};
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.5); \draw[thick] (0.5,1.5)--(2,0);
+\draw[thick] (0,0.8)--(2,0.8); \draw[thick] (1,0)--(1,1.5);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.5); \draw[thick] (0,1.2)--(2,0);
+\draw[thick] (0.3,1.5)--(1.7,-0.3); \draw[thick] (0.5,-0.3)--(2,1.2);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,0); \draw[thick] (0.5,-0.5)--(1.5,1.5);
+\draw[thick] (1.2,-0.5)--(0.3,1.5); \draw[thick] (0,0.8)--(2,0.5);
+\end{tikzpicture} \\[0.3cm]
+\textbf{V} & \textbf{VI} & \textbf{VII} & \textbf{VIII} \\
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1); \draw[thick] (0.5,1)--(2,-0.5);
+\draw[thick] (0.3,0.8)--(1.8,0.8); \draw[thick] (1,0.5)--(1,-0.5);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.2); \draw[thick] (0,1)--(2,0);
+\draw[thick] (0.5,1.2)--(1.5,-0.2); \draw[thick] (1,1.2)--(1,-0.2);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0.5)--(2,0.5); \draw[thick] (0.8,1.2)--(1.2,-0.3);
+\draw[thick] (0,0)--(2,1); \draw[thick] (0.3,-0.2)--(1.8,1.2);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,0.5); \draw[thick] (0,0.8)--(2,0.3);
+\draw[thick] (0.5,1)--(1.5,-0.3); \draw[thick] (1.2,1)--(0.3,-0.3);
+\end{tikzpicture} \\[0.3cm]
+\textbf{IX} & \textbf{X} & \textbf{XI} & \textbf{XII} \\
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1); \draw[thick] (0.3,1)--(2,0);
+\draw[thick] (0,0.3)--(2,0.7); \draw[thick] (0.8,1)--(1.5,-0.3);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,0); \draw[thick] (0.5,1.2)--(1.5,-0.3);
+\draw[thick] (0.8,1.2)--(1.8,-0.3); \draw[thick] (0,0.5)--(2,0.8);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0)--(2,1.2); \draw[thick] (0.5,1.2)--(2,0);
+\draw[thick] (0,0.5)--(1.8,1); \draw[thick] (0.3,0.8)--(2,0.3);
+\end{tikzpicture} &
+\begin{tikzpicture}[scale=0.45,baseline=(current bounding box.center)]
+\draw[thick] (0,0.5)--(2,1); \draw[thick] (0,0.8)--(2,0);
+\draw[thick] (0.5,1.2)--(1.5,-0.2); \draw[thick] (1,1.2)--(0.3,-0.2);
+\end{tikzpicture} \\
+\end{tabular}
+\end{center}
+
+\transnote{The fundamental theorem: for all twelve figures, the ratio of line
+AB to line BD is composed of the ratio of AE to EC and that of CF to FD:
+\[\frac{AB}{BD} = \frac{AE}{EC} \times \frac{CF}{FD}\]
+This is proved by drawing a parallel from A to CD, meeting BE at H, and using
+similar triangles.}
+
+\clearpage
+
+%% ========================================================================
+%% BOOK III -- SPHERICAL QUADRILATERAL INTRODUCTION
+%% ========================================================================
+\section{Book III: Introduction to the Spherical Quadrilateral / \ar{الْبَابُ الثَّالِثُ: فِي تَقْدِمَةِ الْقِطَّاعِ الْكُرَوِيِّ}}
+\label{sec:book3}
+\addcontentsline{toc}{section}{Book III: Spherical Quadrilateral Introduction}
+
+\subsection*{On Chords, Arcs, and Sines / \ar{فِي الْأَوْتَارِ وَالْأَقْوَاسِ وَالْجُيُوبِ}}
+\addcontentsline{toc}{subsection}{On Chords, Arcs, and Sines}
+
+\bilingualblock{%
+وَقَدْ وَجَدَ الْعُلَمَاءُ أَنَّ مُثَلَّثَاتِ الدَّائِرَةِ الْكُرَوِيَّةِ يَنْحَلُّ بِطَرِيقَيْنِ: طَرِيقُ الْأَوْتَارِ وَالْأَقْوَاسِ، وَطَرِيقُ الْأَقْوَاسِ وَالْجُيُوبِ. وَهٰذَا أَخِفُّ وَأَسْهَلُ
+}{%
+The scholars have found that spherical triangles can be solved by two methods:
+the method of \textbf{chords and arcs} (\textit{al-awtar wa-l-aqsus}), and the
+method of \textbf{arcs and sines} (\textit{al-aqsus wa-l-juyub}). The latter is
+lighter and easier.
+}
+
+\bilingualblock{%
+وَقَدْ بَيَّنَ أَبُو الرِّيحَانِ أَنَّ جِيبَ قَوْسِ أَرْكَانِ الْمُثَلَّثِ الْمُسَطَّحِ لَهَا نِسْبَةٌ مُسَاوِيَةٌ لِنِسْبَةِ جِيَابِ أَضْلَاعِهِ
+}{%
+Abu Rayhan (al-Biruni) demonstrated that the sines of the arcs of a plane
+triangle have a ratio equal to the ratio of the sines of its sides. This is
+the \textbf{Law of Sines}:
+}
+
+\begin{proposition}[The Law of Sines for Plane Triangles]
+In any plane triangle, the ratio of the sides is equal to the ratio of the
+sines of the opposite angles:
+\[
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
+\]
+\end{proposition}
+
+\transnote{This is one of the earliest explicit statements of the Law of Sines.
+The term \textit{jayb} (\ar{جَيْب}, lit. ``pocket'' or ``fold of a garment'')
+is the Arabic word for sine, derived from the Sanskrit \textit{jiva} through
+the mistranslation \textit{jiba} (\ar{جِيبَ}) as \textit{jayb} (pocket) by
+Arab scholars reading unvocalized manuscripts.}
+
+%% ========================================================================
+%% THE FUNDAMENTAL PROBLEM
+%% ========================================================================
+\subsection{The Fundamental Problem / \ar{الْمَسْأَلَةُ الْأَصْلِيَّةُ}}
+\label{sec:fundamental-problem}
+\addcontentsline{toc}{subsection}{The Fundamental Problem}
+
+\bilingualblock{%
+مَعْلُومُ جَمْعِ قَوْسَيْنِ أَوْ تَفْرِيقِهِمَا وَمَعْلُومُ نِسْبَةِ جِيبِ أَحَدِهِمَا إِلَى جِيبِ الْآخَرِ، فَنُرِيدُ إِيجَادَ الْقَوْسَيْنِ
+}{%
+\textbf{Given:} the sum or difference of two arcs, and the ratio of the sine
+of one of them to the sine of the other. \textbf{Find:} the two arcs.
+}
+
+\bilingualblock{%
+وَقَدْ اسْتَنَبَ الْأَمِيرُ أَبُو نَصْرِ بْنُ عِرَاقٍ طَرِيقَةً فِي حَلِّ هٰذِهِ الْمَسْأَلَةِ بِالْأَشْكَالِ الْهَنْدَسِيَّةِ، وَنَحْنُ نُبَيِّنُ طَرِيقَةً فِي حَلِّهَا بِالْجَبْرِ
+}{%
+The Emir Abu Nasr ibn Iraq devised a method for solving this problem by
+geometrical figures. We shall demonstrate a method for solving it by
+\textbf{algebra} (\textit{al-jabr}).
+}
+
+\transnote{This fundamental problem --- given $\alpha \pm \beta$ and
+$\frac{\sin\alpha}{\sin\beta}$, find $\alpha$ and $\beta$ --- is of central
+importance in spherical astronomy. Al-Tusi gives a complete algebraic solution,
+reducing it to the solution of a quadratic equation. Abu Nasr ibn `Iraq had
+previously solved it geometrically.}
+
+\clearpage
+
+%% ========================================================================
+%% BOOK IV -- THE SPHERICAL QUADRILATERAL
+%% ========================================================================
+\section{Book IV: The Spherical Quadrilateral / \ar{الْبَابُ الرَّابِعُ: فِي الْقِطَّاعِ الْكُرَوِيِّ وَالنَّسَبِ الْمَوْجُودَةِ فِيهِ}}
+\label{sec:book4}
+\addcontentsline{toc}{section}{Book IV: The Spherical Quadrilateral}
+
+\subsection*{Definition of the Spherical Quadrilateral / \ar{تَعْرِيفُ الْقِطَّاعِ الْكُرَوِيِّ}}
+\addcontentsline{toc}{subsection}{Definition}
+
+\bilingualblock{%
+وَالْقِطَّاعُ الْكُرَوِيُّ هُوَ الشَّكْلُ الَّذِي يَتَوَلَّدُ مِنْ تَقَاطُعِ أَرْبَعَةِ دَوَائِرَ كُبْرَى عَلَى سَطْحِ الْكُرَةِ. وَكُلُّ ضَلْعٍ مِنْ أَضْلَاعِهِ قَوْسُ دَائِرَةٍ كُبْرَى
+}{%
+The \textbf{spherical quadrilateral} is the figure generated by the
+intersection of four great circles on the surface of a sphere. Each of the
+four sides is an arc of a great circle. The angles are measured by the arcs
+of great circles drawn through their vertices perpendicular to the opposite
+sides.
+}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\draw[thick] (0,0) circle (2.5cm);
+\draw[thick,red] (0,2.5) arc (90:-90:2.5 and 1.2);
+\draw[thick,red] (0,2.5) arc (90:270:2.5 and 1.2);
+\draw[thick,blue] (2.5,0) arc (0:180:1.2 and 2.5);
+\draw[thick,blue] (-2.5,0) arc (180:360:1.2 and 2.5);
+\node at (0,2.8) {\small A};
+\node at (2.8,0) {\small B};
+\node at (0,-2.8) {\small C};
+\node at (-2.8,0) {\small D};
+\node at (0.3,0.3) {\small E};
+\node at (-0.3,-0.3) {\small F};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Ptolemy's Theorems Applied / \ar{قَوَاعِدُ بَطَلْمَيُوسَ فِي الْقِطَّاعِ الْكُرَوِيِّ}}
+\label{sec:ptolemy}
+\addcontentsline{toc}{subsection}{Ptolemy's Theorems}
+
+\bilingualblock{%
+وَقَدْ أَثْبَتْنَا أَنَّ الْقَوَاعِدَ الْمُسَطَّحَةَ تُطْبَقُ عَلَى جِيَابِ الْقِطَّاعِ الْكُرَوِيِّ، وَذٰلِكَ أَنَّ جِيَابَ الْأَقْوَاسِ فِي دَائِرَةِ الْكُرَةِ لَهَا نِسَبٌ كَنِسَبِ الْخُطُوطِ الْمُسَطَّحَةِ فِي الدَّائِرَةِ الْمُسْتَوِيَّةِ
+}{%
+We have proved that the plane theorems apply to the sines of the spherical
+quadrilateral; that is, the sines of arcs in the circle of the sphere have
+ratios like those of plane lines in a plane circle.
+}
+
+\begin{proposition}[The Sine Theorem for Spherical Triangles]
+In any spherical triangle, the sines of the sides are in the same ratio as
+the sines of the opposite angles:
+\[
+\frac{\sin a}{\sin A} = \frac{\sin b}{\sin B} = \frac{\sin c}{\sin C}
+\]
+\end{proposition}
+
+\bilingualblock{%
+وَقَدْ خَرَجَ مِنْ هٰذَا الْبَحْثِ سَبْعٌ وَعِشْرُونَ صُورَةً، فَرَدَدْنَاهَا إِلَى ثَلَاثَةَ عَشَرَ صُورَةً وَوَاحِدَةٌ
+}{%
+From this investigation, twenty-seven cases arise; we have reduced them to
+thirteen cases plus one (making fourteen in total), and examined each case
+separately with its own demonstration.
+}
+
+\transnote{The reduction from 27 cases to 13+1 is a remarkable achievement of
+systematic analysis. Al-Tusi shows that the apparently distinct cases are
+related through the \textbf{polar triangle} (\textit{al-muthallath al-aqibi}),
+a concept he develops fully: if $ABC$ is a spherical triangle, its polar
+triangle $A'B'C'$ has sides $a' = 180^\circ - A$, $b' = 180^\circ - B$,
+$c' = 180^\circ - C$. This allows conversion between problems involving
+angles and problems involving sides.}
+
+\clearpage
+
+%% ========================================================================
+%% BOOK V -- METHODS OF SOLUTION
+%% ========================================================================
+\section{Book V: Methods of Solution / \ar{الْبَابُ الْخَامِسُ: فِي الْأَضْرُبِ الْبَدِيلَةِ لِنَظَرِيَّةِ الشَّكْلِ}}
+\label{sec:book5}
+\addcontentsline{toc}{section}{Book V: Methods of Solution}
+
+\subsection*{Chapter I: Spherical Triangles / \ar{فِي مُثَلَّثَاتِ الْكُرَةِ}}
+\addcontentsline{toc}{subsection}{Chapter I: Spherical Triangles}
+
+\bilingualblock{%
+وَقَدْ عَلِمْنَا أَنَّ تَقَاطُعَ ثَلَاثَةِ دَوَائِرَ كُبْرَى يَتَوَلَّدُ مِنْهَا مُثَلَّثَاتٌ عَلَى سَطْحِ الْكُرَةِ، وَقَدْ يَكْفِينَا مَعْرِفَةُ أَحَدِهَا لِنَعْرِفَ جَمِيعَهَا
+}{%
+We know that the intersections of three great circles generate triangles on
+the surface of a sphere, and it suffices to know one of them to know them all.
+}
+
+\subsection{On Inclinations and the Sine Theorem / \ar{فِي الْمَيْلِ وَقَانُونِ الْجِيَابِ}}
+\label{sec:inclinations}
+\addcontentsline{toc}{subsection}{On Inclinations and the Sine Theorem}
+
+\bilingualblock{%
+وَفِي هٰذِهِ الْمُثَلَّثَاتِ يُسَمَّى قَوْسُ ب ج مَيْلَ قَوْسِ أ ج، وَهٰذَا الْمَيْلُ هُوَ حِصَّةُ قَوْسِ أ ج فِي الْمَيْلِ الْكُلِّيِّ لِدَائِرَةِ أ د عَلَى دَائِرَةِ أ هـ الَّذِي يَقِيسُهُ زَاوِيَةُ أ
+}{%
+In these triangles, arc BC is called the \textbf{inclination} (\textit{mayl}
+\ar{مَيْل}) of arc AC; this inclination is the portion of arc AC in the total
+inclination of circle AD to circle AH, which is measured by angle A.
+}
+
+\bilingualblock{%
+وَإِذَا نَسَبْنَا قَوْسَ ب ج إِلَى قَوْسِ أ ب سُمِّيَ (ب ج) مَيْلًا ثَانِيًا. وَهٰذَا مَا يُسَمِّيهِ أَبُو الرِّيحَانِ عَرْضًا، فَقَوْسُ ب ج هُوَ الْمَيْلُ الْأَوَّلُ لِقَوْسِ أ ج، وَالْعَرْضُ لِقَوْسِ أ ب
+}{%
+If we relate arc BC to arc AB, then BC is called the \textbf{second
+inclination}. This is what Abu Rayhan calls the ``breadth'' (\textit{`ard}).
+Thus arc BC is the \textbf{first inclination} with respect to arc AC, and the
+\textbf{breadth} with respect to arc AB.
+}
+
+\bilingualblock{%
+وَفِي هٰذَا الِاسْتِعَارَةِ نَقُولُ: إِنَّ نِسَبَ جِيَابِ الْمَيْلِ مُسَاوِيَةٌ لِنِسَبِ جِيَابِ أَقْوَاسِهَا، وَأَنَّ نِسْبَةَ جِيبِ أَيِّ مَيْلٍ إِلَى جِيبِ قَوْسِهِ تُسَاوِي نِسْبَةَ جِيبِ مَيْلٍ آخَرَ إِلَى جِيبِ قَوْسِهِ
+}{%
+In this manner of speaking, we say: the ratios of the sines of the
+inclinations are equal to the ratios of the sines of their arcs, and the ratio
+of the sine of any inclination to the sine of its arc is equal to the ratio
+of the sine of another inclination to the sine of its arc.
+}
+
+\transnote{In modern notation: if $BC$ is the inclination of $AC$, and $LM$ is
+the inclination of $AE$, then:
+\[\frac{\sin BC}{\sin LM} = \frac{\sin AE}{\sin LA}\]
+This is the spherical sine theorem in its most general form.}
+
+%% ========================================================================
+%% THE EIGHT DEMONSTRATIONS
+%% ========================================================================
+\subsection{The Eight Demonstrations of the Sine Theorem / \ar{ثَمَانِيَةُ بُرُوهَانِ لِقَانُونِ الْجِيَابِ}}
+\label{sec:sine-theorem}
+\addcontentsline{toc}{subsection}{Eight Demonstrations}
+
+\noindent Al-Tusi provides \textbf{eight demonstrations} of the sine theorem
+for spherical triangles:
+
+\begin{enumerate}[leftmargin=2em]
+\item[\textbf{1--2.}] Two demonstrations concerning the equality of the ratios
+of the sines of the arcs and the sines of the angles.
+\item[\textbf{3--4.}] Two demonstrations using the tangents of the angles and
+the sines of the arcs.
+\item[\textbf{5--6.}] Two demonstrations concerning the ratios of the tangents
+and the sines.
+\item[\textbf{7--8.}] Two general demonstrations applying to all spherical
+triangles, regardless of whether the angles are acute or obtuse.
+\end{enumerate}
+
+\transnote{The eight demonstrations represent a tour de force of mathematical
+rigor. Each demonstration handles a different configuration of the spherical
+triangle. Objections had been raised against the use of tangents because of
+their rapid growth beyond 45\degree; al-Tusi refutes these objections and
+analyzes the cases where tangent must be replaced by cotangent.}
+
+%% ========================================================================
+%% THE FIGURE OF SHADOWS
+%% ========================================================================
+\subsection{The Figure of Shadows (Tangent Theorem) / \ar{شَكْلُ الزِّلَالِ (قَانُونُ الظِّلَالِ)}}
+\label{sec:shadows}
+\addcontentsline{toc}{subsection}{The Figure of Shadows}
+
+\bilingualblock{%
+وَالظِّلُّ الْأَوَّلُ هُوَ الظِّلُّ، وَالظِّلُّ الثَّانِي هُوَ ظِلُّ التَّمَامِ. وَقَدِ اسْتَخْرَجَ أَبُو الْوَفَاءِ هٰذَا الشَّكْلَ وَبَيَّنَ قَوَاعِدَهُ
+}{%
+The \textbf{first shadow} is the \textbf{tangent}; the \textbf{second shadow}
+is the \textbf{cotangent}. Abu al-Wafa' invented this figure and demonstrated
+its principles.
+}
+
+\bilingualblock{%
+وَالظِّلُّ لَيْسَ إِلَّا جِيبُ ارْتِفَاعِ الْقَوْسِ أَوْ مَا يُسَمِّيهِ الْمُتَأَخِّرُونَ جَيْبَ التَّمَامِ. وَالظِّلُّ الْأَوَّلُ هُوَ الظِّلُّ، وَالظِّلُّ الثَّانِي هُوَ ظِلُّ التَّمَامِ
+}{%
+The \textbf{shadow} of an arc is the sine of its altitude, or what the moderns
+call its \textbf{cosine}. The \textbf{first shadow} is the \textbf{tangent};
+the \textbf{second shadow} is the \textbf{cotangent}.
+}
+
+\transnote{The ``shadow'' (\textit{zill} \ar{ظِلّ}) terminology comes from the
+shadow cast by a gnomon on a sundial. The first shadow (tangent) is the ratio
+of the gnomon to the horizontal shadow; the second shadow (cotangent) is the
+ratio of the gnomon to the vertical shadow. Abu al-Wafa' al-Buzjani (940--998)
+was the first to introduce all six trigonometric functions in their modern
+form.}
+
+%% ========================================================================
+%% APPLICATIONS
+%% ========================================================================
+\subsection{Applications to Spherical Astronomy / \ar{التَّطْبِيقَاتُ فِي عِلْمِ الْفَلَكِ}}
+\label{sec:applications}
+\addcontentsline{toc}{subsection}{Applications to Astronomy}
+
+\bilingualblock{%
+وَقَدْ اسْتَخْرَجْنَا بِقَانُونِ الْجِيَابِ وَقَانُونِ الظِّلَالِ جَمِيعَ أَنْوَاعِ حَلِّ الْمُثَلَّثَاتِ الْكُرَوِيَّةِ، وَقَدْ تَعَدَّدَتِ الطُّرُقُ فِي ذٰلِكَ وَاخْتَلَفَتْ
+}{%
+We have derived, by means of the sine theorem and the tangent theorem, all
+types of solutions for spherical triangles; and the methods in this are
+multiple and various.
+}
+
+\bilingualblock{%
+وَأَمَّا مَا يَتَعَلَّقُ بِمَعْرِفَةِ الْأَضْلَاعِ مِنَ الزَّوَايَا الثَّلَاثِ فَلَمْ أَعْرِفْ طَرِيقَةً فِي حَلِّهِ بِالظِّلَالِ
+}{%
+As for what concerns finding the sides from the three angles [of a spherical
+triangle], I do not know a method for solving it by means of tangents.
+}
+
+\transnote{Al-Tusi here admits the limitation of his method: given three
+angles of a spherical triangle, he cannot find the sides using the tangent
+theorem alone. This case requires the polar triangle method: if $A$, $B$, $C$
+are the three angles, the sides of the polar triangle are $a' = 180^\circ - A$,
+$b' = 180^\circ - B$, $c' = 180^\circ - C$. The problem is thus reduced to
+the case of three sides, which al-Tusi can solve. This is one of the earliest
+uses of the polar triangle in mathematical history.}
+
+\clearpage
+
+%% ========================================================================
+%% EPILOGUE AND HISTORICAL NOTES
+%% ========================================================================
+\section*{Epilogue: Historical and Biographical Notes / \ar{الْخَاتِمَةُ: تَرَاجِمُ الْعُلَمَاءِ}}
+\label{sec:epilogue}
+\addcontentsline{toc}{section}{Epilogue: Biographical Notes}
+
+\noindent\textbf{Notices of the Geometers and Astronomers cited in this Treatise.}
+
+\begin{center}
+\begin{longtable}{lp{8cm}}
+\toprule
+\textbf{Name} & \textbf{Details} \\
+\midrule
+\endhead
+
+\textsc{Sabit-Ibn-Kourah} (\ar{ثَابِتُ بْنُ قُرَّةَ}) & One of the most celebrated translators of Greek scientific works. Born 836, died 901 in Baghdad. Author of a work on the quadrilateral. \\
+\addlinespace[0.15cm]
+
+\textsc{Abu Rayhan al-Biruni} (\ar{أَبُو الرَّيْحَانِ الْبِيرُونِيُّ}) & From Birun, city of Khwarezm. Died 1038--1039. Author of works on the chord and the sine. First to take the radius as unity. Gave a demonstration of the proportionality of the sines of the arcs and the angles in the spherical triangle. \\
+\addlinespace[0.15cm]
+
+\textsc{Abu Mahmud al-Khujandi} (\ar{أَبُو مَحْمُودٍ الْخُجَنْدِيُّ}) & c.~992. Disputed with Abu al-Wafa' the priority concerning the theorem of the proportionality of the sines of the angles and the arcs. \\
+\addlinespace[0.15cm]
+
+\textsc{Abu Ja'far al-Khazin} (\ar{أَبُو جَعْفَرٍ الْخَازِنُ}) & c.~1000. The surname Khazin = librarian. \\
+\addlinespace[0.15cm]
+
+\textsc{Abu al-Fadl al-Nayrizi} (\ar{أَبُو الْفَضْلِ النَّيْرِيزِيُّ}) & One of the principal commentators of Euclid, and author of astronomical tables in the Indian manner. \\
+\addlinespace[0.15cm]
+
+\textsc{Hussam al-Din al-Salar} (\ar{حُسَامُ الدِّينِ السَّالَارُ}) & Author of a treatise on the quadrilateral which served as the basis for the treatise of Nasir al-Din. \\
+\addlinespace[0.15cm]
+
+\textsc{Abdullah b. Abd al-Kafi} (\ar{عَبْدُ اللهِ بْنُ عَبْدِ الْكَافِيِ}) & The copyist of the manuscript and a disciple of Nasir al-Din. \\
+
+\bottomrule
+\end{longtable}
+\end{center}
+
+\clearpage
+
+%% ========================================================================
+%% GLOSSARY OF TECHNICAL TERMS
+%% ========================================================================
+\section*{Glossary of Technical Terms / \ar{قَامُوسُ الْمُصْطَلَحَاتِ الْفَنِّيَّةِ}}
+\addcontentsline{toc}{section}{Glossary of Technical Terms}
+
+\begin{center}
+\begin{longtable}{lll}
+\toprule
+\textbf{Arabic} & \textbf{Transliteration} & \textbf{English} \\
+\midrule
+\endhead
+
+\ar{شَكْلُ الْقِطَّاعِ} & \textit{shakl al-qa\d{t}\d{t}a`} & figure of secants / quadrilateral \\
+\ar{الْقَطَائِعُ الْمُكَمَّلَةُ} & \textit{al-qa\d{t}a'i` al-mukammala} & complete secants \\
+\ar{نِسْبَةٌ مُرَكَّبَةٌ} & \textit{nisba murakkaba} & compound ratio \\
+\ar{قُطْرٌ} & \textit{qu\d{t}r} & diagonal \\
+\ar{ضَلْعٌ} & \textit{\d{d}al`} & side \\
+\ar{قَاعِدَةٌ} & \textit{qa`ida} & base \\
+\ar{جِيبُ قَوْسٍ} & \textit{jayb qaws} & sine of an arc \\
+\ar{جِيبُ التَّمَامِ} & \textit{jayb al-tamam} & cosine (lit. ``sine of the complement'') \\
+\ar{ظِلُّ قَوْسٍ} & \textit{zill qaws} & tangent (lit. ``shadow of an arc'') \\
+\ar{ظِلُّ التَّمَامِ} & \textit{zill al-tamam} & cotangent \\
+\ar{مُثَلَّثٌ كُرَوِيٌّ} & \textit{muthallath kurawi} & spherical triangle \\
+\ar{زَاوِيَةٌ} & \textit{zawiya} & angle \\
+\ar{قَوْسٌ} & \textit{qaws} & arc \\
+\ar{دَائِرَةٌ كُبْرَى} & \textit{daira kubra} & great circle \\
+\ar{مَيْلٌ} & \textit{mayl} & inclination \\
+\ar{عَرْضٌ} & \textit{`ard} & breadth / latitude \\
+\ar{ارْتِفَاعٌ} & \textit{irtifa`} & altitude \\
+
+\bottomrule
+\end{longtable}
+\end{center}
+
+\transnote{The term \textit{jayb} (\ar{جَيْب}) for ``sine'' is one of the
+most fascinating etymologies in mathematics. The Sanskrit word \textit{jiva}
+(``chord'') was transliterated into Arabic as \textit{jiba} (\ar{جِيبَ},
+unvocalized as \ar{جيب}). Later Arabic scholars, reading the unvocalized text,
+misinterpreted it as \textit{jayb} (\ar{جَيْب}), meaning ``pocket'' or
+``fold of a garment.'' When European scholars translated Arabic texts into
+Latin, they rendered \textit{jayb} as \textit{sinus} (``bay'' or ``fold''),
+giving us the modern term ``sine.''}
+
+\clearpage
+
+%% ========================================================================
+%% SCHOLARLY APPARATUS
+%% ========================================================================
+\section*{Scholarly Apparatus / \ar{الْآلَاتُ الْعِلْمِيَّةُ}}
+\addcontentsline{toc}{section}{Scholarly Apparatus}
+
+\subsection*{Note on the Edition}
+
+This bilingual edition reproduces the critical edition published in
+Constantinople (Istanbul) in 1891 under the authority of the Ottoman Ministry
+of Public Instruction. The original edition comprised:
+
+\begin{itemize}[leftmargin=2em]
+\item \textbf{French Translation} (pp.~1--214): A complete translation by
+Alexandre Pacha Caratheodory (1833--1906), Ottoman diplomat and mathematician,
+with extensive notes and a biographical appendix.
+\item \textbf{Arabic Original} (pp.~1--178): The original Arabic text, printed
+in lithographic form from the manuscript belonging to Edhem Pasha.
+\end{itemize}
+
+\subsection*{The Significance of the Work}
+
+Al-Tusi's \textit{Kitab Shakl al-Qatta'} represents one of the most important
+contributions to trigonometry in the medieval Islamic world:
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Systematized the theory of compound ratios} (Book I), providing a
+complete algebraic foundation for ratio theory that went beyond Euclid's
+\textit{Elements}.
+\item \textbf{Analyzed the complete quadrilateral figure} (Book II), classifying
+all twelve configurations generated by four intersecting lines and deriving
+the fundamental proportional relationships.
+\item \textbf{Established the foundations of spherical trigonometry} (Books
+III--IV), including the sine theorem for spherical triangles and its systematic
+application.
+\item \textbf{Developed practical computational methods} (Book V) for solving
+spherical triangles, which were essential for astronomical calculations.
+\end{enumerate}
+
+\subsection*{Bibliographical References}
+
+\begin{enumerate}[leftmargin=2em]
+\item Nasir al-Din al-Tusi. \textit{Kitab Shakl al-Qatta'}. Arabic manuscript,
+Edhem Pasha Library, Constantinople.
+\item Al-Tusi, N.~al-D. \textit{Traite du Quadrilatere attribue a
+Nassiruddin-El-Toussy}. Translated by Alexandre Pacha Caratheodory.
+Constantinople: Typographie et Lithographie Osmanie, 1891.
+\item Caratheodory, A.~P. ``Sur le traite du quadrilatere de
+Nassiruddin-el-Toussy.'' \textit{Journal de Mathematiques Pures et
+Appliquees}, 4\textsuperscript{e} serie, tome 8 (1892), pp.~215--218.
+\item Suter, H. ``Die Mathematiker und Astronomen der Araber und ihre Werke.''
+\textit{Abhandlungen zur Geschichte der mathematischen Wissenschaften}, 10
+(1900), No.~368, p.~132.
+\item Krause, M. ``Die Sphaerik von Menelaos aus Alexandrien.''
+\textit{Abhandlungen der Gesellschaft der Wissenschaften zu Goettingen},
+Phil.-hist. Klasse, 3\textsuperscript{e} Folge, No.~17 (1936).
+\end{enumerate}
+
+\vspace{1cm}
+\begin{center}
+\dblornament\par\vspace{0.5cm}
+{\small\ar{نِهَايَةُ الْكِتَابِ}}\par\vspace{0.3cm}
+{\small\textit{End of the Treatise}}\par\vspace{0.3cm}
+{\small\textit{Typeset with XeLaTeX\ in bilingual Arabic--English format}}
+\end{center}
+
+\end{document}
+
