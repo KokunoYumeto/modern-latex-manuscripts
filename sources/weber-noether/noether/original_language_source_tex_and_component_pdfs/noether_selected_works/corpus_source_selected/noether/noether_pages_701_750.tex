@@ -1,0 +1,922 @@
+% ============================================================================
+% Emmy Noether: Selected Mathematical Papers — Pages 701–750
+% Papers 42 (end), 43, and 44
+% ============================================================================
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Encoding & Fonts ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman,english]{babel}
+\usepackage[activate=false]{microtype}
+
+% ---------- Page Geometry ----------
+\usepackage{geometry}
+\geometry{a4paper,left=24mm,right=24mm,top=26mm,bottom=28mm,headheight=14pt,footskip=30pt}
+
+% ---------- Headers & Footers ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{E.~Noether — Selected Mathematical Papers}}
+\fancyhead[R]{\small\thepage}
+\fancyfoot[C]{\small Pages 701–750}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ---------- Mathematical Typesetting ----------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{dsfont}
+
+% ---------- Theorem Environments ----------
+\theoremstyle{plain}
+\newtheorem{satz}{Satz}[section]
+\newtheorem{hilfssatz}{Hilfssatz}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{korollar}{Korollar}[section]
+\newtheorem{folgerung}{Folgerung}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{beispiel}{Beispiel}[section]
+\newtheorem*{bezeichnung}{Bezeichnung}
+
+\theoremstyle{remark}
+\newtheorem*{bemerkung}{Bemerkung}
+
+% ---------- Structural ----------
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\S\,\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection.}{0.5em}{}
+
+% ---------- Lists ----------
+\usepackage{enumitem}
+\setlist[enumerate]{label=(\arabic*),leftmargin=*,itemsep=0pt}
+\setlist[itemize]{leftmargin=*,itemsep=0pt}
+
+% ---------- Tables ----------
+\usepackage{array,booktabs}
+
+% ---------- Diagrams ----------
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows.meta,positioning,calc}
+
+% ---------- Utilities ----------
+\usepackage{xspace,setspace,etoolbox}
+\setstretch{1.06}
+
+% ---------- Cross-references ----------
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
+
+% ============================================================================
+% COMPREHENSIVE MACRO BLOCK
+% ============================================================================
+
+% ---------- General shorthands ----------
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Norm}{N}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Rang}{Rang}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\charakt}{char}
+
+% ---------- Number systems ----------
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\HH}{\mathbb{H}}
+
+% ---------- Fraktur / Ideals ----------
+\newcommand{\ido}{\mathfrak{o}}
+\newcommand{\ida}{\mathfrak{a}}
+\newcommand{\idb}{\mathfrak{b}}
+\newcommand{\idc}{\mathfrak{c}}
+\newcommand{\idd}{\mathfrak{d}}
+\newcommand{\ide}{\mathfrak{e}}
+\newcommand{\idf}{\mathfrak{f}}
+\newcommand{\idg}{\mathfrak{g}}
+\newcommand{\idh}{\mathfrak{h}}
+\newcommand{\idm}{\mathfrak{m}}
+\newcommand{\idn}{\mathfrak{n}}
+\newcommand{\idp}{\mathfrak{p}}
+\newcommand{\idq}{\mathfrak{q}}
+\newcommand{\idr}{\mathfrak{r}}
+\newcommand{\ids}{\mathfrak{s}}
+\newcommand{\idP}{\mathfrak{P}}
+\newcommand{\idQ}{\mathfrak{Q}}
+\newcommand{\idD}{\mathfrak{D}}
+\newcommand{\idM}{\mathfrak{M}}
+\newcommand{\idA}{\mathfrak{A}}
+\newcommand{\idB}{\mathfrak{B}}
+\newcommand{\idC}{\mathfrak{C}}
+\newcommand{\idN}{\mathfrak{N}}
+\newcommand{\idR}{\mathfrak{R}}
+\newcommand{\idS}{\mathfrak{S}}
+\newcommand{\idT}{\mathfrak{T}}
+
+% ---------- Script letters ----------
+\newcommand{\cO}{\mathfrak{O}}
+\newcommand{\cP}{\mathfrak{P}}
+\newcommand{\cS}{\mathfrak{S}}
+\newcommand{\cG}{\mathfrak{G}}
+\newcommand{\cH}{\mathfrak{H}}
+\newcommand{\cK}{\mathfrak{K}}
+\newcommand{\cM}{\mathfrak{M}}
+\newcommand{\cN}{\mathfrak{N}}
+\newcommand{\cR}{\mathfrak{R}}
+\newcommand{\cT}{\mathfrak{T}}
+\newcommand{\cD}{\mathfrak{D}}
+\newcommand{\cE}{\mathfrak{E}}
+\newcommand{\cF}{\mathfrak{F}}
+\newcommand{\cL}{\mathfrak{L}}
+\newcommand{\cC}{\mathfrak{C}}
+\newcommand{\cI}{\mathfrak{I}}
+\newcommand{\cA}{\mathfrak{A}}
+\newcommand{\cB}{\mathfrak{B}}
+
+% ---------- Calligraphic ----------
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calQ}{\mathcal{Q}}
+
+% ---------- Greek ----------
+\newcommand{\al}{\alpha}\newcommand{\be}{\beta}\newcommand{\ga}{\gamma}
+\newcommand{\de}{\delta}\newcommand{\ep}{\varepsilon}\newcommand{\ze}{\zeta}
+\newcommand{\et}{\eta}\newcommand{\tha}{\vartheta}\newcommand{\io}{\iota}
+\newcommand{\ka}{\kappa}\newcommand{\la}{\lambda}\newcommand{\muu}{\mu}
+\newcommand{\nuu}{\nu}\newcommand{\xii}{\xi}\newcommand{\pii}{\pi}
+\newcommand{\rh}{\varrho}\newcommand{\si}{\sigma}\newcommand{\ta}{\tau}
+\newcommand{\ups}{\upsilon}\newcommand{\ph}{\varphi}\newcommand{\ch}{\chi}
+\newcommand{\ps}{\psi}\newcommand{\om}{\omega}
+\newcommand{\Ga}{\Gamma}\newcommand{\De}{\Delta}\newcommand{\La}{\Lambda}
+\newcommand{\Si}{\Sigma}\newcommand{\Om}{\Omega}
+
+% ---------- Operators & Delimiters ----------
+\newcommand{\diff}{\mathfrak{D}}
+\newcommand{\tensor}{\otimes}\newcommand{\Tensor}{\bigotimes}
+\newcommand{\dirsum}{\oplus}\newcommand{\Dirsum}{\bigoplus}
+\newcommand{\iso}{\cong}\newcommand{\cont}{\subseteq}
+\newcommand{\surj}{\twoheadrightarrow}\newcommand{\inj}{\hookrightarrow}
+\newcommand{\inv}{^{-1}}
+
+% ---------- Specific to these papers ----------
+\newcommand{\Maxord}{\text{Maximalordnung}}
+\newcommand{\Hauptgebiet}{\text{Hauptgebiet}}
+\newcommand{\Erwit}{\text{Erweiterungsideal}}
+\newcommand{\Hauptordnung}{\text{Hauptordnung}}
+\newcommand{\Differente}{\mathfrak{D}}
+\newcommand{\Diffquot}{\mathfrak{D}}
+\newcommand{\Nullideal}{\mathfrak{0}}
+\newcommand{\Fakt}{\text{Fakt}}
+\newcommand{\Faktsys}{\text{Faktorensystem}}
+\newcommand{\Zerfall}{\text{Zerfall}}
+\newcommand{\darst}{\text{Darst.}}
+\newcommand{\irred}{\text{irred.}}
+
+\frenchspacing
+
+% ============================================================================
+\begin{document}
+\renewenvironment{noetherpaper}[4]{\newpage\section*{#1}\addcontentsline{toc}{section}{#1}\par\smallskip}{\par\medskip}
+
+
+% ---------------------------------------------------------------------------
+\newpage
+
+% #############################################################################
+% PAPER 42 — CONCLUSION (Pages 701–703)
+% #############################################################################
+\section*{Paper 42}
+\addcontentsline{toc}{section}{Paper 42: Zerfallende verschr\"ankte Produkte und ihre Maximalordnungen (conclusion)}
+\markboth{Paper 42}{Zerfallende verschr\"ankte Produkte und ihre Maximalordnungen}
+
+\begin{center}
+\Large\bfseries Zerfallende verschr\"ankte Produkte und ihre Maximalordnungen
+\end{center}
+
+\begin{center}\textit{[Conclusion: \S\,III --- Maximalordnungen beliebiger verschr\"ankter Produkte]}\end{center}
+
+\medskip
+\noindent\textbf{Notation.} Let $K$ be a simple normal algebra over $\Omega$ and $k$ a
+maximal commutative subfield. Following the notation of the preceding sections,
+$\calO$ denotes a maximal order, $\ido$ an order in $k$, $\idp$ a prime ideal,
+and $\idD$ the different.
+
+\subsection*{\S\,III. --- Maximalordnungen beliebiger verschr\"ankter Produkte}
+
+Die f\"ur zerfallende verschr\"ankte Produkte abgeleiteten S\"utze bleiben auch im allgemeinen Fall bestehen, sobald man nur die Einteilung in Gebiete verfeinert. Die Tatsachen \"uber das Hauptgebiet gelten dann genau, die \"ubrigen m{\"u}ssen als Aussagen \"uber die einzelnen Stellen formuliert werden. Dabei ist die Stelle jetzt als $\idp$-adische Erweiterung zu verstehen.
+
+\begin{definition}
+Sei $K$ einfache normale Algebra \"uber $\Omega$ und $k$ maximal kommutativer Teilk\"orper. In ein \emph{Gebiet} nach $k$ werden alle solchen Maximalordnungen aus $K$ gerechnet, die denselben Durchschnitt mit $k$ haben und die ausserdem an den Verzweigungsstellen von $K$ dieselben $\idp$-adischen Komponenten besitzen. Ist der Durchschnitt mit $k$ die Hauptordnung, so handelt es sich um ein \emph{Hauptgebiet}.
+\end{definition}
+
+F\"ur die Hauptgebiete gilt dann:
+
+\begin{satz}
+Die Maximalordnungen eines Hauptgebiets gehen ineinander \"uber durch Transformation mit Erweiterungsidealen der Ideale aus $k$. M.\,a.\,W.: Diejenigen zur Differente primen Linksideale der Maximalordnungen eines Hauptgebiets, die $\ido$ in ihrer Rechtsordnung enthalten, sind Erweiterungen der Ideale aus $k$.
+\end{satz}
+
+\begin{satz}
+Ist $K$ von Primzahlgrad, so gibt es nur ein Hauptgebiet, dieses geht durch Erweiterungsideale der $k$-Ideale in sich \"uber. Die entsprechenden Ideale einer festen Maximalordnung $\calO$ sind die mit den zweiseitigen Idealen aus $\calO$ erweiterten Ideale aus $k$.
+\end{satz}
+
+\noindent\textit{Beweis.} Zwei Maximalordnungen eines Hauptgebiets sind nur an endlich vielen Stellen voneinander verschieden; nach Definition sind das Stellen, wo $K$ zerf\"ullt. Hier wird aber $K$ von der in \S\,1 und \S\,2 betrachteten Form; das ist klar, wenn $k$ galoissch, wenn das Faktorensystem also zu eins assoziiert ist und somit durch das Einssystem ersetzt werden kann; daraus folgt es aber nach \S\,1, 2.~und~2., auch im nichtgaloisschen Fall. Es handelt sich also an jeder solchen Stelle, und damit allgemein\footnote{Vgl. dazu H. \S\,8, oder die vorangehende Arbeit von Hasse, (4).} um Erweiterungsideale.
+
+Ist $K$ von Primzahlgrad, so ist es entweder zerfallend (\S\,2) oder Divisionsalgebra; es bleibt dann an allen Verzweigungsstellen Divisionsalgebra, besitzt also nur ein Hauptgebiet, so dass wieder Transformation mit Erweiterungsidealen gilt. Die allgemeinste Transformation geschieht durch Zusammensetzen der Erweiterungsideale mit denjenigen, die die Maximalordnung in sich transformieren, also mit den zweiseitigen, die bekanntlich nur an den Verzweigungsstellen von Zentrumsidealen, also Erweiterungsidealen verschieden sind. Damit folgen die weiteren Aussagen. \hfill$\square$
+
+\begin{satz}
+Die Maximalordnungen eines beliebigen Gebiets gehen ineinander \"uber durch zur Differente prime Ideale, die an jeder Stelle aus Moduln der zugeh\"origen Ordnung zusammengesetzt sind, wie in \S\,2 Satz~3 angegeben. Die Komponenten dieser Moduln bei einem festen Ideal sind dabei nur an endlich vielen Stellen von der Ordnung verschieden.
+\end{satz}
+
+Dies folgt unmittelbar aus \S\,2; es sei nur bemerkt, dass die Operatoren $u_S$ an den einzelnen Stellen durch entsprechende \"aquivalente ersetzt werden m{\"u}ssen.
+
+Ob es auch hier zu jeder Ordnung aus $k$ Maximalordnungen mit dieser Ordnung als Durchschnitt gibt, bedarf genauerer Untersuchung an den Verzweigungsstellen. Ein Hauptgebiet existiert stets, wie aus der verschr\"ankten, evt.\ verallgemeinerten, Produktdarstellung entnommen werden kann, die zu einer $\ido$ enthaltenden Ordnung f\"uhrt, sobald die Faktorensysteme als ganz angenommen werden\footnote{Anderer Beweis bei Hasse und Chevalley, (4) und (3).}.
+
+Eine weitere Frage ist inwieweit es m\"oglich ist, durch die arithmetische Einteilung nach Gebieten die algebraischen Zerf\"allungsk\"orper zu charakterisieren. M.\,a.\,W.: Erzeugen verschiedene Zerf\"allungsk\"orper stets verschiedene Gebietseinteilungen, erzeugen sie schon verschiedene Hauptgebiete? Und ersch\"opfen etwa die Hauptgebiete aller Zerf\"allungsk\"orper schon die Gesamtheit aller Maximalordnungen?
+
+Dass durch eine einzelne Maximalordnung eine solche Charakterisierung sicher nicht m\"oglich ist, zeigen die einfachsten Beispiele: z.B.~enth\"ult die Maximalordnung $\frac{1}{4}\{4+i+j\sqrt{7}+k\sqrt{w}\}$ des Quaternionenk\"orpers neben der Hauptordnung $[1,\,\varrho]$ auch noch die Hauptordnung $[1,\,\frac{\varrho}{2}]$ des K\"orpers der dritten Einheitswurzeln.
+
+\begin{flushright} G\"ottingen, August 1932. \end{flushright}
+
+\newpage
+% #############################################################################
+% PAPER 43 — IDEALDIFFERENTIATION UND DIFFERENTE (Pages 704–724)
+% #############################################################################
+\section*{Paper 43}
+\addcontentsline{toc}{section}{Paper 43: Idealdifferentiation und Differente}
+\markboth{Paper 43}{Idealdifferentiation und Differente}
+
+\begin{center}
+\Large\bfseries 43.\ Idealdifferentiation und Differente
+\end{center}
+\begin{center}\textit{Journal f.\ d.\ reine u.\ angew.\ Math.\ \textbf{188} (1950), S.\ 1--21}\end{center}
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+\begin{center}\textbf{Einleitung}\end{center}
+
+Der Hauptsatz der Verzweigungstheorie des algebraischen Zahlk\"orpers sagt bekanntlich aus, da\ss  die Differente (das Verzweigungsideal) mindestens durch die $(\sigma-1)$-te Potenz eines Primideals teilbar ist, das zur $\sigma$-ten Potenz in seiner Primzahl $p$ aufgeht, und zwar genau durch die $(\sigma-1)$-te Potenz, wenn $\sigma$ nicht durch $p$ teilbar ist, durch eine h\"ohere, wenn $\sigma$ durch $p$ teilbar ist.
+
+Dieser Satz ist das Analogon dazu, da\ss  der Differentialquotient $f'(x)$ eines Polynoms $f(x)$ mindestens durch die $(\sigma-1)$-te Potenz eines Linearfaktors teilbar ist, der in $f(x)$ zur $\sigma$-ten Potenz aufgeht, und zwar genau durch die $(\sigma-1)$-te Potenz, wenn $\sigma$ nicht durch die Charakteristik des Koeffizientenbereichs teilbar ist, durch eine h\"ohere, wenn $\sigma$ durch diese Charakteristik teilbar ist.
+
+Ich zeige im folgenden, da\ss  es sich hier um mehr als eine formale Analogie handelt. Die Differente l\"a\ss t sich auffassen als Differentialquotient eines definierenden Ideals des Zahlk\"orpers $K$ in einem zugeordneten ganzzahligen Polynombereich von $x_1,\ldots,x_n$, der Differentialquotient genommen an der Stelle $x=\omega$, also f\"ur $x_1=\omega_1,\ldots,x_n=\omega_n$, wo $\omega_1,\ldots,\omega_n$ eine Modulbasis des Systems der ganzen Zahlen aus $K$ --- der Hauptordnung $\ido$ --- bedeutet.
+
+Dabei entspricht das definierende Ideal $\idM$ der Gesamtheit der Relationen zwischen den $\omega_i$, besteht also aus allen ganzzahligen Polynomen $f(x)$, f\"ur die $f(\omega)$ verschwindet. Der Differentialquotient $\diff\,[x-\omega]$ aber ist definiert als Differenzenquotient, genommen an der Stelle $x=\omega$.
+
+Man betrachte n\"amlich --- wegen $f(\omega)=0$ --- das Ideal $\idM$ als aus allen Differenzen $f(x)-f(\omega)$ bestehend, bilde weiter das Differenzenideal $\idB=(x_1-\omega_1,\ldots,x_n-\omega_n)$ und den Differenzenquotient $\mathfrak{U}=\idM:\idB$, wobei die Quotientenbildung den \"ublichen Idealquotienten bedeutet, genommen im Polynombereich der $x$ mit ganzen Zahlen aus $K$, also Zahlen aus $\ido$, als Koeffizienten. Dann wird die Differente $\idD$ definiert durch
+\[
+\idD = \mathfrak{U}[x=\omega].
+\]
+Die Erweiterung des Koeffizientenbereichs ist notwendig, damit Differenzenideal und Differenzenquotient \"uberhaupt definiert sind. Es handelt sich also um die direkte Verallgemeinerung des Differentialquotienten eines Polynoms einer Unbestimmten $x$:
+\[
+f'(\xi) = \frac{f(x)-f(\xi)}{x-\xi},
+\]
+genommen an der Stelle $x=\xi$, wobei auch hier der Polynombereich durch Adjunktion von $\xi$ erweitert werden mu\ss , damit die Differenzen definiert sind.
+
+Tats\"achlich geht auch der Idealdifferentialquotient in den Polynomdifferentialquotienten \"uber, sobald die Basis der $\omega$ aus den Potenzen eines einzigen Elementes besteht.
+
+Die hier gegebene Definition der Differente schlie\ss t somit direkt an Bekanntes an, sie f\"uhrt aber nichtinvariante Zwischenglieder ein, insofern, als das Ideal $\idM$ von der gew\"ahlten Basis abh\"angt.
+
+Eine gleichbedeutende, vollst\"andig invariante Definition erh\"ult man, wenn man statt des ganzzahligen Polynombereichs einen zur Hauptordnung $\ido$ isomorphen Ring $\cO$ einf\"uhrt --- der dem Restklassenring nach $\idM$ isomorph wird --- und dessen Koeffizientenbereich durch $\ido$ zu $\cO_{\ido}$ erweitert\footnote{Die Erweiterung des Koeffizientenbereichs --- direkte Produktbildung --- wird in \S\,1 auch f\"ur nichtkommutative Ringe behandelt, allgemeiner als f\"ur die Zwecke dieser Arbeit erforderlich. Daf\"ur gen\"ugt \S\,2 in der Spezialisierung auf kommutative Ringe und endliche Basis.}. Das Differenzenideal $\idB$ wird hier aus allen Differenzen $(x-\xi)$ abgeleitet, wo $x$ und $\xi$ sich verm\"oge des Isomorphismus von $\cO$ zu $\ido$ entsprechen; der Differenzenquotient $\mathfrak{U}$ wird gleich dem Quotienten des Nullideals durch $\idB$; die Differente entsteht aus $\mathfrak{U}$, indem jeweils $x$ durch das isomorphe $\xi$ ersetzt wird.
+
+Diese invariante Definition wird im folgenden an die Spitze gestellt, und zwar wird so direkt die Differente eines beliebigen kommutativen Ringes in bezug auf einen Unterring definiert, wobei nur gewisse Voraussetzungen in bezug auf die M\"oglichkeit der Koeffizientenerweiterung erf\"ullt sein m\"ussen, was z.\,B. immer der Fall ist bei Existenz einer Modulbasis, eventuell unter \"Ubergang zu gewissen Quotientenringen. Damit ist dann insbesondere auch die Differente einer beliebigen Ordnung des Zahlk\"orpers definiert, ebenso die Differente des Restklassenringes einer Ordnung etwa nach einer Primzahlpotenz; weiter auch die Relativdifferente und die Differente im Fall der algebraischen Funktionen von mehreren Unbestimmten.
+
+Die \"Ubereinstimmung der Differentialdefinition der Differente mit der \"ublichen folgt aus einer genauen, auf der direkten Summenzerlegung beruhenden Strukturuntersuchung des dem Zahlk\"orper durch direkte Produktbildung zugeordneten galoisschen Erweiterungsringes\footnote{Es handelt sich hier um eine Weiterf\"uhrung der meiner Diskriminantenarbeit zugrunde liegenden \"Uberlegungen, wobei aber die Kenntnis dieser Arbeit nicht vorausgesetzt wird. Vgl.\ E.\ Noether, Der Diskriminantensatz f\"ur die Ordnungen eines algebraischen Zahl- und Funktionenk\"orpers, J.\ Math.\ \textbf{157} (1927), 82--104.} --- eine Untersuchung, die im Spezialfall des Restklassenringes nach einem Polynom einer Unbestimmten auf eine Analyse der Lagrangeschen Interpolationsformel hinauskommt.
+
+Genauer verstehe ich darunter folgendes:
+
+Es werde ein dem Zahlk\"orper $K$ isomorpher Ring $\cE$ eingef\"uhrt, der $\ido$ umfa\ss t, und sein Koeffizientenbereich --- die rationalen Zahlen --- durch den galoisschen K\"orper $\Gamma$ von $K$ erweitert. Dieses erweiterte System $\cE_{\Gamma}$ wird direkte Summe von $n$ einfachen Komponenten, die den $n$ Isomorphismen (\"Ubergang zu den konjugierten K\"orpern) von $K$ entsprechen und Erweiterungen des Differenzenquotienten $\mathfrak{U}$ und seiner Konjugierten sind; zugleich wird das Nullideal von $\cE_{\Gamma}$ Durchschnitt der $n$ aus dem Differenzenideal und seinen Konjugierten abgeleiteten Ideale. Die einfachen Komponenten werden von der Form $\Gamma e^{(i)}$, wo $e^{(i)}$ die Komponente der Einheit bedeutet; der Differenzenquotient wird --- da $e^{(i)}$ f\"ur $x=\xi$ in die Einheit \"ubergeht --- gleich $\idD e^{(i)}$, unter $\idD$ die Differente von $\ido$ verstanden. Die Differente $\idD$ besteht aus allen Elementen des K\"orpers, die mit $e^{(i)}$ multipliziert in $\cE_{\Gamma}$ liegen, dem direkten Produkt der Ordnung mit sich selbst.
+
+Entsprechendes gilt f\"ur die Konjugierten.
+
+Um von da aus die Definition durch den komplement\"aren Modul zu gewinnen, ist zu beachten, da\ss  $e^{(i)}$ eine Linearform in der den $\omega$ entsprechenden Basis $x_1,\ldots,x_n$ von $\cO$ bzw.\ $\cE$ wird; die Koeffizienten der $x$ in den $e^{(i)}$ aber ergeben gerade eine Basis des komplement\"aren Moduls von $\ido$ (und seinen Konjugierten). Aus der Tatsache, da\ss  der Differenzenquotient $\mathfrak{U}$ Koeffizienten aus $\ido$ hat, folgt sofort, da\ss  die Differente gleich dem Quotienten von $\ido$ durch seinen Komplement\"armodul wird, wodurch die Dedekindsche Definition gewonnen ist.
+
+Die angegebenen Betrachtungen sind nicht auf die Hauptordnung beschr\"ankt; sie charakterisieren die Differente jeder Ordnung als Quotient der Ordnung durch ihren Komplement\"armodul.
+
+Die \"Ubereinstimmung der Differentialdefinition mit der Definition durch die Fundamentalgleichung --- im Fall der Hauptordnung --- folgt aus der oben erw\"ahnten Tatsache, da\ss  der Idealdifferentialquotient in den Polynomdifferentialquotienten \"ubergeht, sobald die Basis aus den Potenzen eines Elementes, hier der Fundamentalform, besteht. Damit ist dann auch der begriffliche Zusammenhang dieser letzteren Definition mit der Dedekindschen gegeben.
+
+Unter Zugrundelegung der Fundamentalgleichung --- im Fall der Hauptordnung --- folgt bekanntlich direkt der am Anfang erw\"ahnte Hauptsatz. Zu einer genauen Exponentenbestimmung f\"uhrt die Betrachtung der Differente $\idD[\idp^t]$ des Restklassenringes der Hauptordnung nach $\idp^t$ mit gen\"ugend hohem $t$ --- es gen\"ugt $t=n$, was f\"ur K\"orper zweiten Grades auch notwendig ist --- wobei es wesentlich ist, da\ss  die Differente $\idD$, betrachtet $\bmod\;\idp^t$, genau in $\idD[\idp^t]$ \"ubergeht.
+
+Hier kann man sich wieder --- da der direkten Summe des Ringes die direkte Summe der Differenten entspricht --- auf den Restklassenring nach $\idp^t$ beschr\"anken. Dieser letztere aber wird isomorph dem Restklassenring nach einem Polynom in einer Unbestimmten mit Koeffizienten $\bmod\;\idp^t$; und die Differentiation dieses Polynoms ergibt --- wie \"O.\ Ore, der auf anderem Wege zu einem solchen Polynom kam, gezeigt hat\footnote{Anmerkung bei der Herausgabe: Dieses Zitat ist im Manuskript nicht ausgef\"ullt. Siehe die Hinweise in dem nur skizzierten \S\,7 der Arbeit.} --- den genauen \"Uberblick \"uber die \"uberhaupt m\"oglichen Exponenten mit Hilfe der Supplementzahlen.
+
+Schlie\ss lich ergibt die Strukturuntersuchung noch den bekannten Satz, da\ss  die Differente eines Oberk\"orpers von $K$ gleich dem Produkt der Relativdifferente mit der Differente von $K$ wird, und zwar als Folge der Tatsache, da\ss  dieselbe Multiplikationseigenschaft f\"ur die Einheiten der direkten Summenzerlegung und damit f\"ur die Komplement\"armoduln erf\"ullt ist.
+
+Die angegebenen Tatsachen gelten \"uberhaupt alle f\"ur Relativdifferenten durch \"Ubergang zu gewissen Quotientenringen genau so, wie ich das in der Diskriminantenarbeit f\"ur Relativdiskriminanten ausgef\"uhrt habe. Es bleibt weiter --- durch \"Ubergang zum Funktionalbereich --- alles erhalten f\"ur algebraische Funktionenk\"orper mit Koeffizientenk\"orper der Charakteristik Null, w\"ahrend bei Charakteristik $p$ und bei ganzzahligen algebraischen Funktionen zwar die Struktureigenschaften erhalten bleiben (im wesentlichen sogar ohne \"Ubergang zum Funktionalbereich), die Verzweigungstheorie aber wegen des Auftretens von inseparablen Erweiterungsk\"orpern sich \"andert, was hier nicht mehr ausgef\"uhrt wird. Als wesentlichstes Ergebnis m\"ochte ich die oben skizzierten vollst\"andig invarianten, auch f\"ur algebraische Funktionen mehrerer Unbestimmten g\"ultigen Strukturs\"atze (\S\,5 und \S\,6) bezeichnen; der \"Ubergang zum Komplement\"armodul bedeutet schon ein Aufl\"osen in Koeffizientenidentit\"aten und ist nur durchgef\"uhrt, um Bekanntes einzuordnen.
+
+\bigskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\section*{\S\,1. Erweiterung des Koeffizientenbereichs eines Ringes oder direkte Produktbildung}
+\addcontentsline{toc}{subsection}{\S\,1. Erweiterung des Koeffizientenbereichs}
+
+\textbf{Definierendes Ideal.}\footnote{F\"ur kritische Bemerkungen zu diesem Paragraphen bin ich B.\,L.\ van der Waerden zu Dank verpflichtet.}
+
+In diesem Paragraphen werden allgemeine Ringe zugrunde gelegt, f\"ur die das kommutative Gesetz der Multiplikation nicht vorausgesetzt wird. Dagegen wird der Einfachheit halber die Existenz des Einheitselementes vorausgesetzt, und zwar, sofern nicht ausdr\"ucklich das Gegenteil vermerkt, in der ganzen Arbeit.
+
+\subsection*{1. Definition des direkten Produktes}
+
+Ein Ring $\cO \times \ido$ oder $\cO_{\ido}$ hei\ss t \emph{direktes Produkt} der Ringe $\cO$ und $\ido$ in bezug auf $h$ --- oder auch aus $\cO$ durch Erweiterung des Koeffizientenbereichs $h$ zu $\ido$ entstanden\footnote{Die zweite im folgenden meist gebrauchte Schreibweise soll an die Erweiterung des Koeffizientenbereichs erinnern; die erste ist die \"ubliche Bezeichnung des direkten Produktes.} ---, wenn die folgenden Bedingungen erf\"ullt sind:
+
+\begin{enumerate}
+\item $\cO_{\ido}$ enth\"ult $\cO$ und $\ido$ als Unterring und wird gleich dem Produkt dieser Ringe (also gleich dem Durchschnitt aller $\cO$ und $\ido$ umfassenden Ringe in $\cO_{\ido}$).
+
+\item Der Durchschnitt von $\cO$ und $\ido$ ist durch $h$ gegeben, wo $h$ das Einheitselement von $\cO_{\ido}$ enth\"ult.
+
+\item $\cO$ und $\ido$ sind elementweise vertauschbar; somit besteht $\cO_{\ido}$ aus der Gesamtheit der bilinearen Verbindungen $x_1 y_1 + \cdots + x_n y_n$, wo die $x$ bzw.\ $y$ alle Systeme von je endlich vielen Elementen aus $\cO$ bzw.\ $\ido$ durchlaufen, und $h$ ist im Zentrum von $\cO$ und $\ido$ und damit von $\cO_{\ido}$ gelegen.
+
+\item Zwei Elemente aus $\cO_{\ido}$ sind nur dann (und nat\"urlich stets dann) gleich, wenn sie auf mindestens eine Art formal gleich werden verm\"oge der in $\cO$ einerseits und in $\ido$ andererseits bestehenden Relationen.
+
+Darunter ist das folgende zu verstehen: Gilt $x_1 y_1 + \cdots + x_n y_n = 0$ in $\cO_{\ido}$, so l\"a\ss t sich dieser Ausdruck durch Zuf\"ugen von Summen formal verschwindender Verbindungen $(y h)\delta - y(h\delta)$, wo $h,y$ in $\cO$ und $\delta$ in $\ido$, umformen in $(\alpha_1 x_1 + \cdots + \alpha_n x_n) + (\beta_1 y_1 + \cdots + \beta_m y_m)$ mit $\alpha_1 = 0,\ldots,\alpha_n = 0$; $\beta_1 = 0,\ldots,\beta_m = 0$, wo $\alpha,\beta$ in $\ido$ bzw.\ $\cO$ und $\alpha_i x_i$ in $\cO$, so da\ss  also $\alpha = 0$ Relationen zwischen den $x, y, h$ in $\cO$ und $\beta = 0$ Relationen zwischen den $y, \delta, h$ in $\ido$ bedeuten\footnote{Setzt man die Existenz des Einheitselementes nicht voraus, so treten in (3) und (4) noch lineare Zusatzglieder auf.}.
+
+Zwei Elemente aus $\cO_{\ido}$ sind nur dann gleich, wenn ihre Differenz auf die angegebene Art verschwindet.
+\end{enumerate}
+
+Durch die Forderung des direkten Produktes sind also die Gleichheits- und Verkn\"upfungsbeziehungen (Addition und Multiplikation) eindeutig durch diejenigen der Faktoren festgelegt. Daraus folgt: Sind $\cO$, $\ido$ und ihr Durchschnitt $h$ isomorph zu $\bar{\cO}$, $\bar{\ido}$ und $\bar{h}$ und existiert das direkte Produkt $\bar{\cO} \times \bar{\ido}$, so existiert auch $\cO \times \ido$ und wird zu $\bar{\cO} \times \bar{\ido}$ isomorph.
+
+Jeder Ring $\cR$, der gleich dem Produkt von $\cO$ und $\ido$ wird, derart, da\ss  $\cO$ und $\ido$ elementweise vertauschbar sind, wird homomorphes Bild von $\cO \times \ido$, wobei die Abbildung von $\cO$ zu $\cO$ bzw.\ $\ido$ zu $\ido$ isomorph bleibt. Denn die Gleichheit in $\cO \times \ido$ wird durch diejenige in $\cR$ umfa\ss t und stimmt f\"ur $\cO$ bzw.\ $\ido$ mit der von $\cO$ bzw.\ $\ido$ in $\cO \times \ido$ \"uberein\footnote{Vergleiche auch \S\,1, 4.}.
+
+\subsection*{2. Notwendige und hinreichende Bedingungen f\"ur die Existenz des direkten Produkts in bezug auf einen Unterring}
+
+Sind $\cO$ und $\ido$ Ringe, deren Durchschnitt durch den im Zentrum beider gelegenen Ring $h$ gegeben ist, so braucht das direkte Produkt in bezug auf $h$ nicht zu existieren, wie das folgende Beispiel zeigt: Sei $h$ der Ring der ganzen rationalen Zahlen, $\cO = h[x]$ mit $1 - 2x = 0$, und $\ido = h[y]$ mit $1 - 2y = 0$, wo $y$ ein neues Symbol bedeutet. Es werden also $\cO$ und $\ido$ in bezug auf $h$ \"aquivalente Ringe, deren mengentheoretischer Durchschnitt durch $h$ gegeben ist, w\"ahrend zwischen den Symbolen $x$ und $y$ keine Verkn\"upfungen gegeben sind.
+
+Es gibt keinen $\cO$ und $\ido$ umfassenden Ring $\cR$ derart, da\ss  in $\cR$ --- wo also jetzt Verkn\"upfungen zwischen $x$ und $y$ bestehen --- der Durchschnitt durch $h$ gegeben ist. Denn in $\cR$ folgt:
+\[
+0 = (1-2x)y - x(1-2y) = y - x,
+\]
+wobei Vertauschbarkeit von $x$ und $y$ sogar nicht benutzt wird).
+
+Die notwendige und hinreichende Bedingung f\"ur die Existenz des direkten Produktes ist die folgende:
+
+Es mu\ss  mindestens einen $\cO$ und $\ido$ umfassenden Ring $\cR$ geben derart, da\ss  der Durchschnitt von $\cO$ und $\ido$ durch $h$ gegeben ist und da\ss  $\cO$ und $\ido$ elementweise vertauschbar werden.
+
+Existiert n\"amlich das direkte Produkt, so ist es selbst ein solcher Ring $\cR$. Um umgekehrt das direkte Produkt zu konstruieren, darf vorausgesetzt werden --- diese Voraussetzung wird im folgenden stets gemacht ---, da\ss  zwischen den nicht zu $h$ geh\"origen Elementen von $\cO$ und $\ido$ keine Verkn\"upfungen bestehen, da dies durch \"Ubergang zu \"aquivalenter Erweiterung von $h$ --- Einf\"uhrung anderer Symbole --- stets erreichbar ist.
+
+Es enthalte weiter $h$ das Einheitselement $e$ von $\cO$ und $\ido$ (vgl.\ dazu aber Anmerkung).
+
+Man definiere jetzt $\mathfrak{T}$ als Menge aller bilinearen Verbindungen
+\[
+x_1 y_1 + x_2 y_2 + \cdots + x_n y_n,
+\]
+wo die $x$ und $y$ alle Systeme von je endlich vielen Elementen aus $\cO$ bzw.\ $\ido$ durchlaufen und die $x$ und $y$ also in $\mathfrak{T}$ vertauschbar werden.
+
+Man setze zwei solche Verbindungen dann und nur dann gleich, wenn sie verm\"oge der Relationen in $\cO$ und $\ido$ formal gleich werden in dem unter 1, (4) pr\"azisierten Sinn. Man definiere weiter Summe und Produkt von $\alpha_1 x_1 + \cdots + \alpha_n x_n$ und $\beta_1 x_1 + \cdots + \beta_m x_m$, wo unter den $\alpha, \beta$ auch Nullen auftreten k\"onnen, durch die entsprechenden formalen Operationen unter Zuhilfenahme der Relationen in $\cO$ und $\ido$. Dann wird $\mathfrak{T}$ zu einem Ring, der $\cO$ und $\ido$ als Unterring enth\"ult und deren direktes Produkt ist.
+
+\subsection*{3. Beispiele und Spezialf\"alle}
+
+\textit{a)} Ist $\cO$ ein K\"orper und $\ido$ ein beliebiger Ring, der $h$ als Unterring enth\"ult, so existiert stets das direkte Produkt $\cO \times \ido$.
+
+\textit{b)} Ist $\cO = h[x]$ der Polynombereich in einer Unbestimmten $x$ \"uber $h$, so existiert das direkte Produkt $\cO \times \ido = \ido[x]$ genau dann, wenn $\ido$ eine $h$-Algebra ist, d.h.\ wenn die Struktur von $\ido$ als $h$-Modul mit der Ringstruktur vertr\"aglich ist.
+
+\textit{c)} Sind $\cO$ und $\ido$ beides endliche Erweiterungen von $h$, so existiert das direkte Produkt genau dann, wenn die eine Erweiterung \"uber $h$ linear disjunkt von der anderen ist.
+
+\subsection*{4. Eindeutigkeit des direkten Produktes}
+
+Das direkte Produkt $\cO \times \ido$ ist durch $\cO$, $\ido$ und den Unterring $h$ bis auf Isomorphie eindeutig bestimmt. Dies folgt unmittelbar aus den definierenden Eigenschaften (1)--(4).
+
+\newpage
+\section*{\S\,2. Ringe mit unabh\"angiger Modulbasis. Konstruktion des direkten Produktes}
+\addcontentsline{toc}{subsection}{\S\,2. Ringe mit unabh\"angiger Modulbasis}
+
+\subsection*{1. Konstruktion des direkten Produktes}
+
+Ein System $\mathfrak{T}$ von Elementen $\tau$ aus $\cO$ hei\ss t eine \emph{$h$-Modulbasis} von $\cO$, wenn $\cO$ gleich dem aus $\mathfrak{T}$ in $\cO$ abgeleiteten $h$-Modul wird.
+
+Ein solches System $\mathfrak{T}$ hei\ss t \emph{unabh\"angig} (in bezug auf $h$), wenn aus einer Relation
+\[
+\alpha_1 \tau_1 + \alpha_2 \tau_2 + \cdots + \alpha_n \tau_n = 0 \qquad (\alpha_i \in h)
+\]
+stets $\alpha_1 = \alpha_2 = \cdots = \alpha_n = 0$ folgt.
+
+Besitzt $\cO$ eine unabh\"angige $h$-Modulbasis, so existiert das direkte Produkt $\cO \times \ido$ f\"ur jeden Ring $\ido$, der $h$ als Unterring enth\"ult.
+
+\textit{Beweis.} Sei $\mathfrak{T} = \{\tau_1, \tau_2, \ldots\}$ eine unabh\"angige $h$-Modulbasis von $\cO$. Man bilde die Menge aller formalen Linearkombinationen
+\[
+\sum_i y_i \tau_i \qquad (y_i \in \ido,
+\]
+fast alle $y_i = 0$). Definiert man Addition und Multiplikation durch die formalen Regeln unter Benutzung der Multiplikationstafel der $\tau_i$ in $\cO$, so erh\"ult man einen Ring, der das direkte Produkt $\cO \times \ido$ ist.
+
+\subsection*{2. Verengungsideal und Erweiterungsideal}
+
+Sei $\cO_{\ido} = \cO \times \ido$ das direkte Produkt. Ein Ideal $\ida$ in $\cO$ erzeugt in $\cO_{\ido}$ ein \emph{Erweiterungsideal} $\ida \cO_{\ido}$. Umgekehrt hei\ss t f\"ur ein Ideal $\idA$ in $\cO_{\ido}$ der Durchschnitt $\idA \cap \cO$ das \emph{Verengungsideal} von $\idA$ in $\cO$.
+
+\begin{satz}
+Jedes Ideal aus $\cO$ ist Verengungsideal seines Erweiterungsideals in $\cO_{\ido}$.
+\end{satz}
+
+\textit{Beweis.} Sei $\ida$ ein Ideal in $\cO$ und $\bar{\ida} = \ida \cO_{\ido} \cap \cO$ das Verengungsideal des Erweiterungsideals. Dann gilt $\ida \subseteq \bar{\ida}$. Sei umgekehrt $c \in \bar{\ida}$. Dann ist $c \in \ida \cO_{\ido}$, also
+\[
+c = \sum_i a_i \cdot \left(\sum_j y_{ij} \tau_j\right) = \sum_j \left(\sum_i a_i y_{ij}\right) \tau_j.
+\]
+Andererseits ist $c = \sum_j (h_j e) \tau_j$ mit $h_j \in h$. Wegen der Unabh\"angigkeit der $\tau_j$ folgt $h_j e = \sum_i a_i y_{ij} \in \ida$, also $c \in \ida$. \hfill$\square$
+
+\subsection*{3. Hinreichendes Kriterium f\"ur die Existenz des direkten Produktes}
+
+Das unter 1. gegebene Konstruktionsverfahren l\"a\ss t sich verallgemeinern. Ein hinreichendes Kriterium f\"ur die Existenz des direkten Produktes ist das folgende:
+
+Besitzt $\cO$ eine $h$-Modulbasis $\mathfrak{T}$, die auch $\ido$-Modulbasis von $\cO_{\ido}$ wird (sofern dieses existiert), und ist diese Basis unabh\"angig in bezug auf $h$, so existiert $\cO \times \ido$.
+
+Dies folgt, da die Konstruktion unter 1. dann durchgef\"uhrt werden kann.
+
+\newpage
+\section*{\S\,3. Das Differenzenideal und der Differenzenquotient}
+\addcontentsline{toc}{subsection}{\S\,3. Differenzenideal und Differenzenquotient}
+
+Sei $\cO$ ein kommutativer Ring mit Einheitselement, $\ido$ ein Unterring und das direkte Produkt $\cO_{\ido} = \cO \times \ido$ in bezug auf $h$ existiere. Es werde ein $\ido$-isomorpher Ring $\bar{\cO}$ eingef\"uhrt, dessen Elemente mit $\xi, \eta, \ldots$ bezeichnet werden, w\"ahrend die Elemente von $\cO$ mit $x, y, \ldots$ bezeichnet werden.
+
+Das \emph{Differenzenideal} $\idB$ von $\cO_{\ido}$ wird definiert als das von allen Differenzen $x - \xi$ erzeugte Ideal:
+\[
+\idB = (x_1 - \xi_1,\, x_2 - \xi_2,\, \ldots),
+\]
+wo $x_i$ und $\xi_i$ verm\"oge des Isomorphismus zwischen $\cO$ und $\bar{\cO}$ einander entsprechen.
+
+Der \emph{Differenzenquotient} $\mathfrak{U}$ ist definiert als Idealquotient des Nullideals durch $\idB$:
+\[
+\mathfrak{U} = (0) : \idB = \{\, u \in \cO_{\ido} \mid u \cdot \idB = 0 \,\}.
+\]
+
+Die \emph{Differente} $\idD$ von $\ido$ in bezug auf $h$ (oder von $\cO$ in bezug auf $\ido$) entsteht aus $\mathfrak{U}$, indem in den Elementen von $\mathfrak{U}$ jeweils $x$ durch das isomorphe $\xi$ ersetzt wird (oder umgekehrt).
+
+\begin{satz}
+Die Differente $\idD$ ist ein Ideal in $\ido$ (bzw.\ in $\cO$). Sie besteht aus allen Elementen $d \in \ido$, f\"ur die $d \cdot e^{(i)} \in \cO_{\ido}$ gilt, wo $e^{(i)}$ die Komponenten der Einheit in der direkten Summenzerlegung von $\cO_{\ido}$ sind.
+\end{satz}
+
+\newpage
+\section*{\S\,4. Direkte Summenzerlegung und Komponenten der Einheit}
+\addcontentsline{toc}{subsection}{\S\,4. Direkte Summenzerlegung}
+
+Die zentrale Strukturaussage lautet:
+
+\begin{satz}
+Es werde ein dem Zahlk\"orper $K$ isomorpher Ring $\cE$ eingef\"uhrt, der $\ido$ umfa\ss t, und sein Koeffizientenbereich --- die rationalen Zahlen --- durch den galoisschen K\"orper $\Gamma$ von $K$ erweitert. Dann wird das erweiterte System $\cE_{\Gamma}$ direkte Summe von $n$ einfachen Komponenten, die den $n$ Isomorphismen von $K$ entsprechen.
+\end{satz}
+
+Die einfachen Komponenten werden von der Form $\Gamma e^{(i)}$, wo $e^{(i)}$ die Komponente der Einheit bedeutet. Der Differenzenquotient wird gleich $\idD \cdot e^{(i)}$, unter $\idD$ die Differente von $\ido$ verstanden. Die Differente $\idD$ besteht aus allen Elementen des K\"orpers, die mit $e^{(i)}$ multipliziert in $\cE_{\Gamma}$ liegen.
+
+\begin{satz}
+Die Einheitskomponenten $e^{(i)}$ sind Linearformen in der Basis von $\cO$ bzw.\ $\cE$; die Koeffizienten der $x$ in den $e^{(i)}$ ergeben eine Basis des komplement\"aren Moduls von $\ido$.
+\end{satz}
+
+Aus der Tatsache, da\ss  der Differenzenquotient $\mathfrak{U}$ Koeffizienten aus $\ido$ hat, folgt sofort, da\ss  die Differente gleich dem Quotienten von $\ido$ durch seinen Komplement\"armodul wird, wodurch die Dedekindsche Definition gewonnen ist.
+
+\newpage
+\section*{\S\,5. Die Differente als Quotient der Ordnung durch ihren Komplement\"armodul}
+\addcontentsline{toc}{subsection}{\S\,5. Differente und Komplement\"armodul}
+
+Die angegebenen Betrachtungen sind nicht auf die Hauptordnung beschr\"ankt; sie charakterisieren die Differente jeder Ordnung als Quotient der Ordnung durch ihren Komplement\"armodul.
+
+\begin{satz}
+F\"ur jede Ordnung $\ido$ des Zahlk\"orpers $K$ gilt:
+\[
+\idD = \ido : \ido^*,
+\]
+wo $\ido^*$ der Komplement\"armodul von $\ido$ in bezug auf $h$ ist.
+\end{satz}
+
+\textit{Beweisskizze.} Aus der direkten Summenzerlegung folgt, da\ss  der Differenzenquotient $\mathfrak{U}$ Koeffizienten aus $\ido$ besitzt. Die Einheitskomponenten $e^{(i)}$ ergeben als Linearformen in der Basis Koeffizienten, die den komplement\"aren Modul aufspannen. Die Beziehung $\idD = \ido : \ido^*$ folgt durch Vergleich der Koeffizientenstruktur.
+
+\newpage
+\section*{\S\,6. Zusammenhang mit der Differentiation bei Polynomen und der Fundamentalgleichung}
+\addcontentsline{toc}{subsection}{\S\,6. Zusammenhang mit Polynomdifferentiation}
+
+Die \"Ubereinstimmung der Differentialdefinition mit der Definition durch die Fundamentalgleichung --- im Fall der Hauptordnung --- folgt aus der oben erw\"ahnten Tatsache, da\ss  der Idealdifferentialquotient in den Polynomdifferentialquotienten \"ubergeht, sobald die Basis aus den Potenzen eines Elementes, hier der Fundamentalform, besteht.
+
+\begin{satz}
+Ist $\ido = [1, \theta, \theta^2, \ldots, \theta^{n-1}]$ eine Potenzbasis, so f\"allt der Idealdifferentialquotient mit dem Polynomdifferentialquotienten der Fundamentalgleichung zusammen.
+\end{satz}
+
+Damit ist dann auch der begriffliche Zusammenhang dieser letzteren Definition mit der Dedekindschen gegeben.
+
+Unter Zugrundelegung der Fundamentalgleichung --- im Fall der Hauptordnung --- folgt bekanntlich direkt der am Anfang erw\"ahnte Hauptsatz der Verzweigungstheorie.
+
+\bigskip
+\noindent\rule{\textwidth}{0.4pt}
+\begin{center}
+\textit{[Das Manuskript bricht hier in skizzenhafter Form ab. Der Verfasserin war offenbar eine}\\
+\textit{genauere Ausarbeitung der \S\S\,6, 3 und 7 beabsichtigt.]}\\[0.3em]
+\textit{G\"ottingen, im Winter 1927/28. Nachgelassene Arbeit.}
+\end{center}
+
+\newpage
+% #############################################################################
+% PAPER 44 — ALGEBRA DER HYPERKOMPLEXEN GRÖSSEN (Pages 725–750)
+% #############################################################################
+\section*{Paper 44}
+\addcontentsline{toc}{section}{Paper 44: Algebra der hyperkomplexen Gr\"o\ss en (Vorlesung)}
+\markboth{Paper 44}{Algebra der hyperkomplexen Gr\"o\ss en}
+
+\begin{center}
+\Large\bfseries Algebra der hyperkomplexen Gr\"o\ss en
+\end{center}
+
+\begin{center}
+\textit{Vorlesung von Prof.\ E.\ Noether}\\[0.3em]
+\textit{W.S.\ 1929/30}\\[0.3em]
+\textit{Ausgearbeitet von Prof.\ M.\ Deuring}
+\end{center}
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{center}\textbf{Inhaltsverzeichnis}\end{center}
+
+\smallskip
+\textbf{Einleitung}
+
+\textbf{Kapitel I: Darstellungen}
+\begin{itemize}[nosep]
+\item[\S\,1.] Definition der direkten Darstellung --- Definition der reziproken Darstellung
+\item[\S\,2.] Darstellungsklassen
+\item[\S\,3.] Darstellungsmoduln
+\item[\S\,4.] Der Zusammenhang zwischen Darstellungsmoduln und Darstellungen
+\item[\S\,5.] Vollreduzible Darstellungen --- vollst\"andig reduzible Moduln
+\end{itemize}
+
+\textbf{Kapitel II: Galoissche Theorie kommutativer K\"orper}
+\begin{itemize}[nosep]
+\item[\S\,6.] Die irreduziblen Darstellungen kommutativer Systeme
+\item[\S\,7.] Der Zerf\"allungsk\"orper
+\item[\S\,8.] Die galoissche Gruppe
+\item[\S\,9.] \"Ubergang zu beliebigen K\"orpern
+\item[\S\,10.] Einseitige Zerlegung des Gruppenringes
+\end{itemize}
+
+\textbf{Kapitel III: Gruppenringe}
+\begin{itemize}[nosep]
+\item[\S\,11.] Darstellungstheoretischer Aufbau
+\item[\S\,12.] Charaktere und Charakterenrelationen
+\item[\S\,13.] Anwendung auf die Darstellungstheorie der endlichen Gruppen
+\item[\S\,14.] Die absolut irreduziblen Darstellungen
+\item[\S\,15.] Die Gruppenringe abelscher Gruppen
+\item[\S\,16.] Die verschiedenen \"aquivalenten Formen des Gruppenringes
+\end{itemize}
+
+\textbf{Kapitel IV: Zweiseitig einfache Ringe}
+\begin{itemize}[nosep]
+\item[\S\,18.] Ein Hilfssatz
+\item[\S\,19.] Normalringe und verschr\"ankte Produkte
+\item[\S\,20.] Irreduzible Darstellungen der Normalringe
+\item[\S\,21.] Automorphismenring und Zerf\"allungsk\"orper
+\end{itemize}
+
+\textbf{Kapitel V: Faktorensysteme}
+\begin{itemize}[nosep]
+\item[\S\,22.] Die Gruppe der K\"orper mit gegebenem Zentrum
+\item[\S\,23.] Faktorensysteme
+\item[\S\,24.] Multiplikation von Faktorensystemen
+\item[\S\,25.] Normaldarstellung von $\mathfrak{S}_t$ mit Galoisschen Teilk\"orpern
+\item[\S\,26.] Multiplikation der Normaldarstellungen
+\end{itemize}
+
+\textbf{Kapitel VI: Theorie der Faktorensysteme}
+\begin{itemize}[nosep]
+\item[\S\,27.] Zyklische Algebren
+\item[\S\,28.] Der Hauptsatz der Faktorensysteme
+\item[\S\,29.] Anwendungen
+\end{itemize}
+
+\newpage
+\section*{Einleitung}
+\addcontentsline{toc}{subsection}{Einleitung}
+
+Diese Vorlesung behandelt die allgemeine Darstellungstheorie der Ringe, die aus der Theorie der Darstellungen von endlichen Gruppen einerseits, aus der algebraischen und arithmetischen Theorie der hyperkomplexen Zahlsysteme andererseits hervorgewachsen ist. Diese allgemeinere Auffassung gestattet es, die Resultate beider Gebiete unter einem einheitlichen Gesichtspunkt zu erfassen und wechselseitig zu beleuchten.
+
+Der Grundgedanke ist der folgende: Jeder Ring $\cO$ besitzt Darstellungen als Ring von linearen Transformationen eines Vektorraumes. Die Theorie dieser Darstellungen f\"uhrt zu einer Strukturanalyse des Ringes, die seine Zerlegung in einfache Bestandteile zum Ziele hat.
+
+\newpage
+\section*{Kapitel I. Darstellungen}
+\addcontentsline{toc}{subsection}{Kapitel I: Darstellungen}
+
+\subsection*{\S\,1. Definition der direkten Darstellung --- Definition der reziproken Darstellung}
+
+Eine \emph{direkte Darstellung} $n$-ten Grades von $\cO$ in einem K\"orper $\KK$ ist ein Homomorphismus von $\cO$ in den Ring $\KK_n$ der $n$-reihigen quadratischen Matrizen mit Elementen aus $\KK$. Das hei\ss t: Jedem Element $a \in \cO$ wird eine Matrix $A(a) \in \KK_n$ zugeordnet, und es gilt:
+\[
+A(a+b) = A(a) + A(b), \qquad A(ab) = A(a) \cdot A(b).
+\]
+
+Eine \emph{reziproke Darstellung} $n$-ten Grades von $\cO$ in $\KK$ ist ein Teilring $\cD^*$ des Ringes $\KK_n^*$ der Matrizen $n$-ten Grades mit Elementen aus $\KK$, auf den $\cO$ reziprok ringhomomorph abgebildet ist. Reziprok ringhomomorph hei\ss t: Entsprechen den $\cO$-Elementen $c, d$ die $\cD^*$-Elemente $C, D$, so entspricht $cd$ das Element $DC$ (umgekehrte Reihenfolge!).
+
+\subsection*{\S\,2. Darstellungsklassen}
+
+Zwei direkte Darstellungen $A(a)$ und $B(a)$ von $\cO$ in $\KK$ hei\ss en \emph{\"aquivalent}, wenn es eine feste regul\"are Matrix $T \in \KK_n$ gibt mit
+\[
+B(a) = T^{-1} A(a) T \qquad \text{f\"ur alle } a \in \cO.
+\]
+
+Die \"aquivalenten Darstellungen bilden eine \emph{Darstellungsklasse}. Die Anzahl der in\"aquivalenten irreduziblen Darstellungsklassen ist endlich, wenn $\cO$ eine endliche Basis \"uber $\KK$ besitzt.
+
+\subsection*{\S\,3. Darstellungsmoduln}
+
+Sei $\cO$ ein Ring und $\KK$ ein K\"orper. Ein \emph{Darstellungsmodul} $M$ ist ein $\KK$-Vektorraum, auf dem $\cO$ als Ring von linearen Operatoren wirkt:
+\[
+c(m_1 + m_2) = cm_1 + cm_2, \qquad (c_1 c_2)m = c_1(c_2 m), \qquad c(tm) = (ct)m.
+\]
+
+$M$ hei\ss t \emph{vollst\"andig reduzibel}, wenn er direkte Summe von einfachen Untermoduln ist. $M$ hei\ss t \emph{einfach}, wenn er keine nichttrivialen Untermoduln besitzt.
+
+\subsection*{\S\,4. Der Zusammenhang zwischen Darstellungsmoduln und Darstellungen}
+
+\begin{enumerate}
+\item Jeder Darstellungsmodul f\"uhrt in eindeutiger Weise zu einer Darstellung: W\"ahlt man eine Basis $x_1, \ldots, x_n$ von $M$ \"uber $\KK$, so wird jedem $c \in \cO$ durch $cx_i = \sum_j a_{ij} x_j$ eine Matrix $(a_{ij})$ zugeordnet.
+
+\item Jede Darstellung f\"uhrt zu einem Darstellungsmodul: Man definiert $M = \KK^n$ mit der Operation $c \cdot v = A(c) \cdot v$.
+
+\item Zwei Darstellungen sind \"aquivalent genau dann, wenn die zugeh\"origen Darstellungsmoduln isomorph sind.
+\end{enumerate}
+
+\subsection*{\S\,5. Vollreduzible Darstellungen --- vollst\"andig reduzible Moduln}
+
+Eine Darstellung hei\ss t \emph{vollreduzibel}, wenn der zugeh\"orige Darstellungsmodul vollst\"andig reduzibel ist, d.h.\ direkte Summe von einfachen Untermoduln.
+
+\begin{satz}[Maschke--Noether]
+Ist $\cO$ ein Ring, der als $\KK$-Algebra halbeinfach ist, so ist jede Darstellung von $\cO$ vollreduzibel.
+\end{satz}
+
+Der Beweis beruht auf der Existenz eines Komplements zu jedem Untermodul mittels des Spurop\"olynoms.
+
+\newpage
+\section*{Kapitel II. Galoissche Theorie kommutativer K\"orper}
+\addcontentsline{toc}{subsection}{Kapitel II: Galoissche Theorie}
+
+\subsection*{\S\,6. Die irreduziblen Darstellungen kommutativer Systeme}
+
+$\mathfrak{Z} = z_1 \mathfrak{P} + \cdots + z_n \mathfrak{P}$ sei ein kommutatives System \"uber $\mathfrak{P}$. Wir wollen alle irreduziblen Darstellungen von $\mathfrak{Z}$ in einem algebraisch abgeschlossenen Erweiterungsk\"orper $\Omega$ von $\mathfrak{P}$ aufstellen.
+
+Da jede Darstellung von $\mathfrak{Z}$ in $\Omega$ zu einer Darstellung von $\mathfrak{Z}_\Omega = \Omega z_1 + \cdots + \Omega z_n$ f\"uhrt --- die Darstellungen der schon aufgel\"osten Algebra sind bekannt --- gen\"ugt es, die Darstellungen von $\mathfrak{Z}$ zu untersuchen.
+
+Ist $\mathfrak{Z}$ kommutativ und halbeinfach, so zerfallt $\mathfrak{Z}_\Omega$ in direkte Summe von K\"orpern, die zu $\Omega$ isomorph sind. Die irreduziblen Darstellungen sind gegeben durch die verschiedenen Isomorphismen von $\mathfrak{Z}$ in $\Omega$.
+
+\subsection*{\S\,7. Der Zerf\"allungsk\"orper}
+
+Die $Z_i$ sind die irreduziblen Darstellungen von $\mathfrak{Z}$ in $\Omega$. Wenn also der K\"orper $\Gamma$ zwischen $\mathfrak{P}$ und $\Omega$, $\mathfrak{P} \subset \Gamma \subset \Omega$, alle $Z_i$ enth\"alt, so m\"ussen alle irreduziblen Darstellungen von $\mathfrak{Z}$ schon in $\Gamma$ m\"oglich sein.
+
+Ein solcher K\"orper $\Gamma$ hei\ss t \emph{Zerf\"allungsk\"orper} von $\mathfrak{Z}$. Der kleinste Zerf\"allungsk\"orper ist durch die Adjunktion der Werte $Z_i(z_j)$ an $\mathfrak{P}$ gegeben.
+
+\subsection*{\S\,8. Die galoissche Gruppe}
+
+Sei $\Gamma$ ein Zerf\"allungsk\"orper von $\mathfrak{Z}$. Die Gruppe $\mathfrak{G}$ der Automorphismen von $\Gamma$, die $\mathfrak{P}$ elementweise festlassen, hei\ss t \emph{galoissche Gruppe} von $\Gamma$ \"uber $\mathfrak{P}$.
+
+Die Anzahl der irreduziblen Darstellungen von $\mathfrak{Z}$ in $\Gamma$ ist gleich dem Grad $[\Gamma : \mathfrak{P}]$. Die galoissche Gruppe operiert transitiv auf diesen Darstellungen.
+
+\subsection*{\S\,9. \"Ubergang zu beliebigen K\"orpern}
+
+Die bisher entwickelte Darstellungstheorie reicht zu einer Begr\"undung der Galoisschen Theorie aus. F\"ur beliebige kommutative K\"orper $K$ \"uber $\mathfrak{P}$ betrachte man das System $\mathfrak{Z} = K$ und seine Darstellungen.
+
+\subsection*{\S\,10. Einseitige Zerlegung des Gruppenringes}
+
+Der Gruppenring $\mathfrak{G}_\mathfrak{P}$ einer endlichen Gruppe $\mathfrak{G}$ \"uber $\mathfrak{P}$ zerf\"allt einseitig in direkte Summe von einfachen Linksidealen:
+\[
+\mathfrak{G}_\mathfrak{P} = \mathfrak{I}_1 \oplus \mathfrak{I}_2 \oplus \cdots \oplus \mathfrak{I}_r.
+\]
+Diese Zerlegung entspricht der Zerlegung der regul\"aren Darstellung in irreduzible Bestandteile.
+
+\newpage
+\section*{Kapitel III. Gruppenringe}
+\addcontentsline{toc}{subsection}{Kapitel III: Gruppenringe}
+
+\subsection*{\S\,11. Darstellungstheoretischer Aufbau}
+
+Der Gruppenring $\mathfrak{G}_\mathfrak{P}$ einer endlichen Gruppe $\mathfrak{G} = \{s_1, \ldots, s_h\}$ wird als Menge aller formalen Summen $\sum_i \alpha_i s_i$ mit $\alpha_i \in \mathfrak{P}$ definiert. Multiplikation und Addition werden distributiv aus den Gruppenverkn\"upfungen erkl\"art.
+
+Die Darstellungstheorie von $\mathfrak{G}_\mathfrak{P}$ liefert:
+\begin{itemize}
+\item Die absolut irreduziblen Darstellungen der Gruppe $\mathfrak{G}$.
+\item Die Charaktere und Charakterenrelationen.
+\item Die Zerlegung des Gruppenringes in einfache Bestandteile.
+\end{itemize}
+
+\subsection*{\S\,12. Charaktere und Charakterenrelationen}
+
+Der Charakter $\chi$ einer Darstellung $\mathfrak{D}$ ist definiert durch
+\[
+\chi(s) = \Tr\,\mathfrak{D}(s).
+\]
+
+F\"ur die irreduziblen Charaktere gelten die Orthogonalit\"atsrelationen:
+\[
+\sum_{s \in \mathfrak{G}} \chi_i(s) \chi_j(s^{-1}) =
+\begin{cases}
+n_i h & \text{f\"ur } i = j,\\
+0 & \text{f\"ur } i \neq j,
+\end{cases}
+\]
+wo $n_i$ der Grad der $i$-ten irreduziblen Darstellung ist und $h = |\mathfrak{G}|$.
+
+\subsection*{\S\,13. Anwendung auf die Darstellungstheorie der endlichen Gruppen}
+
+Aus den Charakterenrelationen folgt:
+\begin{enumerate}
+\item Die Anzahl der irreduziblen Darstellungen ist gleich der Anzahl der Konjugationsklassen von $\mathfrak{G}$.
+\item Die Summe der Quadrate der Grade der irreduziblen Darstellungen ist gleich der Ordnung der Gruppe: $\sum_i n_i^2 = h$.
+\item Jeder Grad $n_i$ teilt die Gruppenordnung $h$.
+\end{enumerate}
+
+\subsection*{\S\,14. Die absolut irreduziblen Darstellungen}
+
+Eine Darstellung hei\ss t \emph{absolut irreduzibel}, wenn sie \"uber dem algebraischen Abschlu\ss  $\bar{\mathfrak{P}}$ irreduzibel bleibt. Die absolut irreduziblen Darstellungen entsprechen den einfachen Bestandteilen von $\mathfrak{G}_{\bar{\mathfrak{P}}}$.
+
+\subsection*{\S\,15. Die Gruppenringe abelscher Gruppen}
+
+Wir verstehen unter $\mathfrak{U} = \{u_1, \ldots, u_n\}$ eine abelsche Gruppe der Ordnung $n$. Der Gruppenring $\mathfrak{U}_\mathfrak{P}$ ist kommutativ.
+
+\begin{satz}
+Der Gruppenring einer abelschen Gruppe ist genau dann vollreduzibel, wenn die Charakteristik $p$ von $\mathfrak{P}$ die Gruppenordnung $n$ nicht teilt.
+\end{satz}
+
+\textit{Beweis.} F\"ur den ersten Teil: Aus $h \equiv 0 \pmod{p}$ folgt $H = 0$, d.h.\ $\mathfrak{o}$ enth\"alt den Darstellungsmodul f\"ur den Hauptcharakter nicht, kann also nicht vollreduzibel gewesen sein.
+
+Wenn aber $h \not\equiv 0 \pmod{p}$, also $\mathfrak{o}$ vollreduzibel ist, so folgt unmittelbar
+\[
+1 = \frac{1}{n} \sum_a a \cdot a^{-1}.
+\]
+
+\textit{Umkehrung:} Aus $h \equiv 0 \pmod{p}$ folgt $\mathfrak{o} = 0$. Dies wird f\"ur abelsche Gruppen bewiesen. (In M.Z.\ \S\,26 ist dieser Teil des Satzes allgemein bewiesen.)
+
+\subsection*{\S\,16. Die verschiedenen \"aquivalenten Formen des Gruppenringes}
+
+Definiert man das Produkt $\mathfrak{U}_i \cdot \mathfrak{U}_k = \mathfrak{U}_l$ durch
+\[
+\mathfrak{U}_l a = \mathfrak{U}_i a \cdot \mathfrak{U}_k a,
+\]
+so ist die Gesamtheit der $\mathfrak{U}_i$ eine mit $\mathfrak{U}$ isomorphe Gruppe $\mathfrak{A}$.
+
+\textit{Beweis.} $\mathfrak{U}_l = \mathfrak{U}_i \cdot \mathfrak{U}_k$ ist wegen
+\[
+\mathfrak{U}_a \cdot \mathfrak{U}_b = \mathfrak{U}_i a^{-1} \mathfrak{U}_k a \cdot \mathfrak{U}_i b^{-1} \mathfrak{U}_k b = \mathfrak{U}_i ab^{-1} \mathfrak{U}_k ab = \mathfrak{U}_{ab}
+\]
+ein Homomorphismus von $\mathfrak{U}$ auf $\mathfrak{A}$, und da es au\ss er den $\mathfrak{U}_i$ keine Homomorphismen von $\mathfrak{U}$ gibt, so ist $\mathfrak{U}$ gleich einem Unterring $\mathfrak{B}$.
+
+\newpage
+\section*{Kapitel IV. Zweiseitig einfache Ringe}
+\addcontentsline{toc}{subsection}{Kapitel IV: Zweiseitig einfache Ringe}
+
+\subsection*{\S\,18. Ein Hilfssatz}
+
+Wir verstehen unter $\KK$ einen K\"orper und unter $\mathfrak{G}$ eine Gruppe von Automorphismen (isomorphen Abbildungen auf sich) von $\KK$. Die Menge der $\KK$-Elemente, die bei jedem zu $\mathfrak{G}$ geh\"origen Automorphismus unge\"andert bleiben, ist ein Teilk\"orper $\mathfrak{P}$ von $\KK$, der \emph{Invariantenk\"orper} von $\mathfrak{G}$.
+
+Ist $t \neq 0$ irgendein Element aus $\KK$, so bilden diejenigen Elemente $s \in \mathfrak{G}$, f\"ur die $t^s = t$, eine Untergruppe $\mathfrak{H}$ von $\mathfrak{G}$.
+
+\begin{hilfssatz}
+Sei $\KK$ ein K\"orper, $\mathfrak{G}$ eine Gruppe von Automorphismen von $\KK$ und $\mathfrak{P}$ der Invariantenk\"orper. Sei $\KK$ von endlichem Grad $n$ \"uber $\mathfrak{P}$. Dann gilt:
+\begin{enumerate}
+\item $|\mathfrak{G}| \leq [\KK : \mathfrak{P}] = n$.
+\item Ist $|\mathfrak{G}| = n$, so ist $\mathfrak{G}$ die volle Galoisgruppe von $\KK$ \"uber $\mathfrak{P}$.
+\end{enumerate}
+\end{hilfssatz}
+
+\subsection*{\S\,19. Normalringe und verschr\"ankte Produkte}
+
+Sei $\KK$ ein K\"orper und $\mathfrak{S}$ eine Gruppe von Automorphismen von $\KK$ mit Invariantenk\"orper $\mathfrak{P}$. Sei $[\KK : \mathfrak{P}] = n$ und $|\mathfrak{S}| = n$.
+
+Der \emph{verschr\"ankte Produkt} $\mathfrak{S}_\mathfrak{P}$ (oder $\mathfrak{S}_\KK$) wird definiert als der von $\KK$ und den Symbolen $u_s$ ($s \in \mathfrak{S}$) erzeugte Ring mit den Relationen:
+\begin{align*}
+x \cdot u_s &= u_s \cdot x^s \qquad (x \in \KK),\\
+u_s \cdot u_t &= a_{s,t} \cdot u_{st} \qquad (a_{s,t} \in \KK^*).
+\end{align*}
+Die Faktoren $a_{s,t}$ bilden ein \emph{Faktorensystem} und gen\"ugen der Kozyklusbedingung:
+\[
+a_{s,t} \cdot a_{st,r} = a_{s,tr} \cdot a_{t,r}^s.
+\]
+
+\begin{satz}
+$\mathfrak{S}_\KK$ ist zweiseitig einfach (also auch vollst\"andig reduzibel).
+\end{satz}
+
+\textit{Beweis.} Jedes zweiseitige $\mathfrak{S}_\KK$-Ideal $\ida$ ist gegen\"uber der Gruppe $\mathfrak{S}$ der inneren Automorphismen von $\KK$ invariant. Denn setzen wir, unter $x$ ein von Null verschiedenes $\KK$-Element verstanden, $x^{-1} \ida x = \ida'$, so ist $\ida \subseteq \ida'$ wegen der Idealeigenschaft von $\ida$; da aber $\ida$ als $\KK$-Modul betrachtet wird, folgt $\ida = \ida'$. Also ist $\ida$ zweiseitiges Ideal des verschr\"ankten Produktes, was die Einfachheit zeigt.
+
+\subsection*{\S\,20. Irreduzible Darstellungen der Normalringe}
+
+\begin{satz}
+Die einzige irreduzible reziproke Darstellungsklasse von $\mathfrak{S}_\KK$ in $\KK$ ist die durch ein einfaches Linksideal von $\mathfrak{S}_\KK$ erzeugte.
+\end{satz}
+
+Wenn diese irreduzible Darstellung den Grad $r$ hat, so ist der Grad irgendeiner Darstellung ein Multiplum von $r$; man kann nat\"urlich durch Aneinanderbauen von irreduziblen Darstellungen zu jedem gegebenen Multiplum $r \cdot m$ gelangen.
+
+\subsection*{\S\,21. Automorphismenring und Zerf\"allungsk\"orper}
+
+Sei $\mathfrak{R}_\mathfrak{P}$ ein zweiseitig einfacher Ring mit Zentrum $\mathfrak{P}$. Sei $\KK$ ein maximaler kommutativer Teilk\"orper von $\mathfrak{R}_\mathfrak{P}$ vom Grad $t$ \"uber $\mathfrak{P}$.
+
+\begin{satz}
+$\KK$ ist Zerf\"allungsk\"orper von $\mathfrak{R}_\mathfrak{P}$ genau dann, wenn $\mathfrak{R}_\mathfrak{P} \tensor_\mathfrak{P} \KK \cong \KK_t$.
+\end{satz}
+
+\textit{Beweis.} Sei $\KK$ Zerf\"allungsk\"orper, $\mathfrak{T}$ der Automorphismenk\"orper der Rechtsideale von $\mathfrak{R}$, also $\mathfrak{R}_\mathfrak{P} \sim \mathfrak{T} \subseteq \KK$. Daraus folgt $\mathfrak{R}_\mathfrak{P} = \mathfrak{T} \tensor_\mathfrak{P} \KK$; der Rang von $\mathfrak{R}_\mathfrak{P}$ \"uber $\KK$ ist mithin das Produkt von $(\mathfrak{T} : \mathfrak{P})$ mit dem Rang von $\mathfrak{T}_\mathfrak{P}$; er ist andererseits gleich $t^2$, daher ist der Rang von $\mathfrak{T}$, also auch der von $\KK$, gleich $t$. \hfill$\square$
+
+\newpage
+\section*{Kapitel V. Faktorensysteme}
+\addcontentsline{toc}{subsection}{Kapitel V: Faktorensysteme}
+
+\subsection*{\S\,22. Die Gruppe der K\"orper mit gegebenem Zentrum}
+
+Die zweiseitig einfachen Ringe mit festem Zentrum $\mathfrak{P}$ und festem Grad $t$ bilden eine Gruppe unter der Multiplikation $\tensor_\mathfrak{P}$. Das Einselement ist $\mathfrak{P}_t$ (die Matrizenalgebra \"uber $\mathfrak{P}$). Das inverse Element ist die \emph{reziproke Algebra}.
+
+\subsection*{\S\,23. Faktorensysteme}
+
+Sei $\KK$ ein galoisscher Erweiterungsk\"orper von $\mathfrak{P}$ mit Gruppe $\mathfrak{G}$. Jedem verschr\"ankten Produkt $\mathfrak{S}_\KK = (\KK, \mathfrak{G}, a_{s,t})$ ist ein Faktorensystem $\{a_{s,t}\}$ zugeordnet.
+
+Zwei Faktorensysteme $\{a_{s,t}\}$ und $\{b_{s,t}\}$ hei\ss en \emph{\"aquivalent}, wenn es Elemente $c_s \in \KK^*$ gibt mit
+\[
+b_{s,t} = \frac{c_s \cdot c_t^s}{c_{st}} \cdot a_{s,t}.
+\]
+
+\subsection*{\S\,24. Multiplikation von Faktorensystemen}
+
+Die \"Aquivalenzklassen von Faktorensystemen bilden eine Gruppe:
+\[
+\{a_{s,t}\} \cdot \{b_{s,t}\} = \{a_{s,t} \cdot b_{s,t}\}.
+\]
+Diese Gruppe ist isomorph zur \emph{Brauergruppe} des K\"orpers $\mathfrak{P}$.
+
+\subsection*{\S\,25. Normaldarstellung von $\mathfrak{S}_t$ mit Galoisschen Teilk\"orpern}
+
+Sei $\mathfrak{R}_\mathfrak{P}$ ein Normalring vom Grad $t^2$ \"uber $\mathfrak{P}$. Eine \emph{Normaldarstellung} ist eine Einbettung von $\mathfrak{R}_\mathfrak{P}$ in $\KK_t$, wo $\KK$ ein galoisscher Erweiterungsk\"orper von $\mathfrak{P}$ mit Gruppe $\mathfrak{G}$ ist.
+
+Die Normaldarstellung liefert:
+\begin{enumerate}
+\item Ein Faktorensystem $\{a_{s,t}\}$.
+\item Eine Realisierung von $\mathfrak{R}_\mathfrak{P}$ als verschr\"anktes Produkt.
+\item Die Verbindung zur Galoisschen Theorie.
+\end{enumerate}
+
+\subsection*{\S\,26. Multiplikation der Normaldarstellungen}
+
+Sind $\mathfrak{R}_\mathfrak{P}^{(1)}$ und $\mathfrak{R}_\mathfrak{P}^{(2)}$ zwei Normalringe mit den Faktorensystemen $\{a_{s,t}^{(1)}\}$ und $\{a_{s,t}^{(2)}\}$, so hat das direkte Produkt $\mathfrak{R}_\mathfrak{P}^{(1)} \tensor_\mathfrak{P} \mathfrak{R}_\mathfrak{P}^{(2)}$ das Faktorensystem $\{a_{s,t}^{(1)} \cdot a_{s,t}^{(2)}\}$.
+
+\newpage
+\section*{Kapitel VI. Theorie der Faktorensysteme}
+\addcontentsline{toc}{subsection}{Kapitel VI: Theorie der Faktorensysteme}
+
+\subsection*{\S\,27. Zyklische Algebren}
+
+Sei $\KK$ ein zyklischer Erweiterungsk\"orper von $\mathfrak{P}$ vom Grad $n$ mit erzeugendem Automorphismus $\sigma$. Ein \emph{zyklische Algebra} $(\KK, \sigma, a)$ wird definiert als das verschr\"ankte Produkt mit Basis $\{u_0, u_1, \ldots, u_{n-1}\}$ und
+\[
+u_i \cdot x = x^{\sigma^i} \cdot u_i, \qquad u_i \cdot u_j = u_{i+j} \cdot a^{\lfloor (i+j)/n \rfloor}.
+\]
+
+\begin{satz}
+Zwei zyklische Algebren $(\KK, \sigma, a)$ und $(\KK, \sigma, b)$ sind \"aquivalent genau dann, wenn $a/b$ eine Norm aus $\KK$ ist.
+\end{satz}
+
+\subsection*{\S\,28. Der Hauptsatz der Faktorensysteme}
+
+\begin{satz}[Hauptsatz]
+Die Gruppe der Faktorensysteme modulo der trivialen Faktorensysteme ist isomorph zur Brauergruppe des K\"orpers $\mathfrak{P}$.
+\end{satz}
+
+Dieser Satz liefert die vollst\"andige Klassifikation der zweiseitig einfachen Ringe mit Zentrum $\mathfrak{P}$.
+
+\subsection*{\S\,29. Anwendungen}
+
+\begin{enumerate}
+\item \textit{Lokale Klassenk\"orpertheorie:} F\"ur $\mathfrak{P} = \QQ_p$ ist die Brauergruppe isomorph zu $\QQ/\ZZ$.
+
+\item \textit{Globale Klassenk\"orpertheorie:} Die Brauergruppe von $\QQ$ l\"a\ss t sich durch die lokalen Brauergruppen beschreiben (lokal-globales Prinzip).
+
+\item \textit{Satz von Hasse--Brauer--Noether:} Eine Algebra \"uber $\QQ$ zerf\"allt genau dann, wenn sie lokal \"uberall zerf\"allt.
+\end{enumerate}
+
+\bigskip
+\noindent\rule{\textwidth}{0.4pt}
+\begin{center}
+\textit{Ende der Vorlesung\\[0.3em]
+Ausgearbeitet von M.\ Deuring, G\"ottingen W.S.\ 1929/30}
+\end{center}
+
+\vfill
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}\\[0.5em]
+{\small\textit{End of pages 701--750}}
+\end{center}
+
+\end{document}

@@ -1,0 +1,905 @@
+% Typeset pages 501-550 of Emmy Noether's Selected Mathematical Papers
+% Papers: "Der Endlichkeitssatz der Invarianten endlicher linearer Gruppen" (conclusion)
+%         "Abstrakter Aufbau der Idealtheorie in algebraischen Zahl- und Funktionenkörpern"
+%         "Der Diskriminantensatz für die Ordnungen eines algebraischen Zahl- oder Funktionenkörpers" (beginning)
+
+\documentclass[12pt,a4paper]{article}
+
+% ==================== ENCODING AND LANGUAGE ====================
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+\usepackage[activate=false]{microtype}
+
+% ==================== PAGE GEOMETRY ====================
+\usepackage{geometry}
+\geometry{
+  paperwidth=210mm,
+  paperheight=297mm,
+  textwidth=160mm,
+  textheight=240mm,
+  top=25mm,
+  bottom=25mm,
+  left=25mm,
+  right=25mm,
+  headheight=12pt
+}
+
+% ==================== MATHEMATICS ====================
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\let\Im\relax  % Prevent conflict with \Im redefinition
+\DeclareMathOperator{\Im}{Im}
+\usepackage{wasysym}
+
+% ==================== FONTS ====================
+\usepackage{lmodern}
+\usepackage{rsfso}
+\usepackage{euscript}
+
+% ==================== COMPREHENSIVE MACRO BLOCK ====================
+
+% ---- General Mathematics ----
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Pfield}{\mathfrak{P}}
+\newcommand{\Kfield}{\mathfrak{K}}
+
+% ---- Algebraic Structures ----
+\newcommand{\ideal}[1]{\mathfrak{#1}}
+\newcommand{\Ideal}[1]{\left(#1\right)}
+\newcommand{\Ring}{\mathfrak{R}}
+\newcommand{\Modul}{\mathfrak{M}}
+\newcommand{\Ordnung}{\mathfrak{O}}
+\newcommand{\Koerper}{\mathfrak{K}}
+\newcommand{\Teilermodul}{\mathfrak{T}}
+
+% ---- Operators and Functions ----
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\trdeg}{tr\,deg}
+\DeclareMathOperator{\lc}{lc}
+\DeclareMathOperator{\ordn}{Ord}
+\DeclareMathOperator{\Fkt}{Fkt}
+
+% ---- Number Theory / Ideal Theory ----
+\newcommand{\ganz}{\text{ ganz }}
+\newcommand{\nichtganz}{\text{ nichtganz }}
+\newcommand{\teilerfremd}{\text{ teilerfremd }}
+\newcommand{\Idealquot}[2]{[#1 : #2]}
+\newcommand{\Modulquot}[2]{(#1 : #2)}
+\newcommand{\Hauptideal}[1]{(#1)}
+\newcommand{\Erweiterungsideal}[1]{\bar{#1}}
+\newcommand{\Verengungsideal}[1]{\underline{#1}}
+
+% ---- Group Theory ----
+\newcommand{\Gruppe}{\mathfrak{G}}
+\newcommand{\Invariante}{I}
+\newcommand{\Subst}[2]{#1 \cdot #2}
+
+% ---- Special Notation from Noether's Papers ----
+\newcommand{\B}{\mathfrak{B}}
+\newcommand{\D}{\mathfrak{D}}
+\newcommand{\E}{\mathfrak{E}}
+\newcommand{\G}{\mathfrak{G}}
+\newcommand{\J}{\mathfrak{J}}
+\newcommand{\M}{\mathfrak{M}}
+\newcommand{\Rx}{\mathfrak{R}}
+\newcommand{\fR}{\mathfrak{R}}
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fG}{\mathfrak{G}}
+\newcommand{\fS}{\mathfrak{S}}
+\newcommand{\fA}{\mathfrak{A}}
+\newcommand{\fB}{\mathfrak{B}}
+\newcommand{\fC}{\mathfrak{C}}
+\newcommand{\fD}{\mathfrak{D}}
+\newcommand{\fE}{\mathfrak{E}}
+\newcommand{\fH}{\mathfrak{H}}
+\newcommand{\fI}{\mathfrak{I}}
+\newcommand{\fJ}{\mathfrak{J}}
+\newcommand{\fK}{\mathfrak{K}}
+\newcommand{\fL}{\mathfrak{L}}
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fO}{\mathfrak{O}}
+\newcommand{\fP}{\mathfrak{P}}
+\newcommand{\fQ}{\mathfrak{Q}}
+\newcommand{\fT}{\mathfrak{T}}
+\newcommand{\fU}{\mathfrak{U}}
+\newcommand{\fV}{\mathfrak{V}}
+\newcommand{\fW}{\mathfrak{W}}
+\newcommand{\fX}{\mathfrak{X}}
+\newcommand{\fY}{\mathfrak{Y}}
+
+% ---- Modul and Ideal operations ----
+\newcommand{\Modulbasis}[1]{\langle #1 \rangle}
+\newcommand{\Durchschnitt}{\cap}
+\newcommand{\kleinstes}{\text{lcm}}
+\newcommand{\groesstes}{\text{gcd}}
+\newcommand{\Vielfaches}{\text{lcm}}
+\newcommand{\Teiler}{\text{gcd}}
+\newcommand{\Ordn}[1]{\mathcal{O}_{#1}}
+\newcommand{\Restklassenring}[2]{#1/#2}
+\newcommand{\Restklassenmodul}[2]{#1 \mid #2}
+
+% ---- Special symbols ----
+\newcommand{\Einheitselement}{e}
+\newcommand{\Nullideal}{\mathfrak{0}}
+\newcommand{\Nullmodul}{\mathfrak{0}}
+\newcommand{\Einheitsideal}{\mathfrak{o}}
+\newcommand{\Hauptmodul}{\mathfrak{C}}
+\newcommand{\aee}{\text{ a.e.\ }}
+\newcommand{\ueber}{\text{ über }}
+\newcommand{\inbezugauf}{\text{ in bezug auf }}
+\newcommand{\bzgl}{\text{ bzgl.\ }}
+
+% ---- Theorem environments ----
+\theoremstyle{plain}
+\newtheorem{Satz}{Satz}[section]
+\newtheorem{Hilfssatz}[Satz]{Hilfssatz}
+\newtheorem{Folgerung}[Satz]{Folgerung}
+\newtheorem{Lemma}[Satz]{Lemma}
+\newtheorem{Korollar}[Satz]{Korollar}
+
+\theoremstyle{definition}
+\newtheorem{Definition}[Satz]{Definition}
+\newtheorem{Bemerkung}[Satz]{Bemerkung}
+
+\theoremstyle{remark}
+\newtheorem{Anmerkung}{Anmerkung}
+
+% ---- Custom section numbering ----
+\renewcommand{\thesection}{\S\,\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\theSatz}{\arabic{section}.\arabic{Satz}}
+
+% ==================== OTHER PACKAGES ====================
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% ---- Section formatting ----
+\titleformat{\section}{\normalfont\large\bfseries}{\S\,\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% ---- Header/Footer ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small Emmy Noether, \textit{Selected Mathematical Papers} --- Pages 501--550}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---- Footnote formatting ----
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\usepackage[hang]{footmisc}
+\setlength{\footnotemargin}{1em}
+
+% ---- Line spacing ----
+\usepackage{setspace}
+\onehalfspacing
+
+% ---- Prevent overfull hboxes ----
+\tolerance=1000
+\emergencystretch=3em
+\hfuzz=1pt
+
+% ---- German quotation marks ----
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+% ---- Margin notes ----
+\newcommand{\Rand}[1]{\marginpar{\tiny\raggedright #1}}
+
+% ---- Number sets within text ----
+\newcommand{\Zahl}[1]{\text{#1}}
+
+\errorcontextlines=100
+\begin{document}
+\renewenvironment{noetherpaper}[4]{\newpage\section*{#1}\addcontentsline{toc}{section}{#1}\par\smallskip}{\par\medskip}
+
+
+% ==================== TITLE PAGE ====================
+% ==================== TABLE OF CONTENTS FOR THIS SECTION ====================
+\newpage
+
+% ==================== PAPER 1: ENDLICHKEITSSATZ (Conclusion) ====================
+\selectlanguage{ngerman}
+\section*{Der Endlichkeitssatz der Invarianten endlicher linearer Gruppen}
+\addcontentsline{toc}{section}{Der Endlichkeitssatz der Invarianten endlicher linearer Gruppen (conclusion)}
+\markboth{Der Endlichkeitssatz der Invarianten endlicher linearer Gruppen}{}
+
+\subsection*{Fortsetzung vom vorhergehenden Heft}
+
+\begin{center}
+\textbf{\S\,82. Die Invariantenendlichkeit.}
+\end{center}
+
+\setcounter{section}{82}
+\setcounter{subsection}{1}
+\setcounter{Satz}{0}
+
+\noindent
+\textit{1.} Unter einer \textit{endlichen linearen Gruppe der Charakteristik $p$} sei verstanden eine Gruppe $\fG$ von $h$ linearen Substitutionen $A_{1},\dots,A_{h}$ (von nicht verschwindender Determinante) mit Koeffizienten aus einem Körper $P$ der Charakteristik $p$. Dabei sei durch $A_{k}$ die lineare Substitution
+\[
+x_{i}^{(k)} = \sum_{\nu=1}^{n} a_{i\nu}^{(k)} x_{\nu} \quad (i = 1,\dots,n)
+\]
+oder abkürzend: $(x) = A_{k}(x)$ dargestellt. Die Gruppe $\fG$ führt also die Reihe $(x)$ mit den Elementen $x_{1},\dots,x_{n}$ über in die Reihen $(x^{(k)})$ mit den Elementen $x_{1}^{(k)},\dots,x_{n}^{(k)}$. Da unter $A_{1},\dots,A_{h}$ die Identität enthalten sein muß, ist auch unter den Reihen $(x^{(k)})$ die Reihe $(x)$ enthalten.
+
+Unter einer \textit{ganzen rationalen (absoluten) Invariante} der Gruppe sei verstanden eine solche ganze rationale Funktion von $x_{1},\dots,x_{n}$ --- mit Koeffizienten aus $P$\footnote{Das stellt insofern keine Einschränkung der Allgemeinheit dar, als jede Invariante mit Koeffizienten aus einem Körper der Charakteristik $p$ --- der mit $P$ einen gemeinsamen Umfassungskörper besitzen muß, damit die Invarianten definiert sind --- sich linear aus endlich vielen Invarianten mit Koeffizienten aus $P$ zusammensetzen läßt. Man braucht im allgemeinen Fall nur die Koeffizienten durch solche auszudrücken, die inbezug auf $P$ linear unabhängig sind; dann ist die Eigenschaft der Invarianz identisch in diesen unabhängigen erfüllt.} --- die bei Anwendung von $A_{1},\dots,A_{h}$ identisch ungeändert bleibt. Zu diesen Invarianten gehören also alle symmetrischen Funktionen --- mit Koeffizienten aus $P$ --- der Reihen $(x^{(k)})$. Umgekehrt gilt für jede solche Invariante:
+\[
+f(x) = f(x^{(1)}) = \cdots = f(x^{(h)}) \quad \text{oder} \quad h \cdot f(x) = f(x^{(1)}) + \cdots + f(x^{(h)}).
+\]
+Hieraus folgt, daß für den Fall, wo die Ordnung $h$ der Gruppe nicht durch die Charakteristik teilbar ist --- also insbesondere im Fall der Charakteristik Null --- die symmetrischen Funktionen
+\[
+s_{\nu}(x) = x_{\nu}^{(1)} + x_{\nu}^{(2)} + \cdots + x_{\nu}^{(h)} \quad (\nu = 1,\dots,n)
+\]
+und allgemeiner die durch die symmetrischen Funktionen der $(x^{(k)})$ erzeugte Invariantenmenge ein \textit{endliches Invariantensystem} bilden. Denn es läßt sich jede Invariante $f(x)$ in der Form darstellen:
+\[
+f(x) = \frac{1}{h} \sum_{k=1}^{h} f(x^{(k)}),
+\]
+und diese ist eine ganze rationale Funktion der $s_{\nu}(x)$ mit Koeffizienten aus $P$, wenn $f(x)$ eine solche der $x_{i}$ war.
+
+Im allgemeinen Fall beliebiger Charakteristik gilt der
+\begin{Satz}
+\textbf{Endlichkeitssatz der Invarianten.} Die Invarianten einer endlichen linearen Gruppe besitzen stets ein \textit{endliches \textup{(}ganz-rationales\textup{)} Integritätsbasis}.
+\end{Satz}
+
+Der Beweis beruht auf dem in \S\,81 entwickelten Endlichkeitskriterium. Es ist zu zeigen, daß der Ring $\fJ$ der Invarianten die dort angegebene Eigenschaft besitzt: daß nämlich jeder zwischen $\fJ$ und $P(x_{1},\dots,x_{n})$ liegende Invariantenbereich eine endliche Integritätsbasis besitzt.
+
+\textit{2. Reduktion auf den Fall der symmetrischen Gruppe.} Sei $\fJ$ der Invariantenring, $\fK = P(x_{1},\dots,x_{n})$ der rationale Funktionenkörper. Es wird behauptet: Jeder Zwischenring $\fR$ zwischen $\fJ$ und $\fK$ ist Invariantenring einer Untergruppe von $\fG$.
+
+Denn sei $\fR$ ein solcher Zwischenring. Da $\fK$ endlich und galoissch über dem symmetrischen Funktionenkörper, und da $\fG$ endlich ist, wird $\fK$ auch endlich und galoissch über $\fR$. Die $\fR$ festlassenden Automorphismen von $\fK$ bilden also eine Untergruppe $\mathfrak{H}$ von $\fG$, und $\fR$ besteht gerade aus den bei $\mathfrak{H}$ invarianten Elementen von $\fK$.
+
+Für den Invariantenring $\fR$ gilt nun: Er enthält $P$, und jedes Element aus $\fR$ ist ganz inbezug auf $\fJ$. Denn jedes Element aus $\fR$ genügt einer Gleichung, deren Koeffizienten die symmetrischen Funktionen der Konjugierten sind, und diese gehören zu $\fJ$.
+
+\textit{3. Anwendung des Endlichkeitskriteriums.} Um das Endlichkeitskriterium anwenden zu können, muß gezeigt werden, daß $\fJ$ noethersch ist und daß der ganze Abschluß von $\fJ$ in $\fK$ endlicher $\fJ$-Modul wird.
+
+Da $\fJ$ Invariantenring der endlichen Gruppe $\fG$ ist, wird $\fK$ galoissch über dem Quotientenkörper von $\fJ$, und $\fG$ ist die Galoisgruppe. Es ist also $\fK^{\fG} = \text{Quot}(\fJ)$. Da $\fK$ endlich über $\text{Quot}(\fJ)$, wird der ganze Abschluß $\bar{\fJ}$ von $\fJ$ in $\fK$ endlich über $\fJ$, wenn $\fJ$ noethersch ist.
+
+Der Ring $\fJ$ ist aber noethersch als Invariantenring einer endlichen Gruppe: Es gibt eine endliche $\fJ$-Modulbasis von $\fK$, nämlich die Potenzprodukte der $x_{i}$ mit Exponenten $< h$, und daraus folgt die Endlichkeit.
+
+Damit ist gezeigt, daß das Endlichkeitskriterium anwendbar ist, und der Endlichkeitssatz der Invarianten ist bewiesen.
+
+\textit{4. Bemerkungen.} Für den Fall, daß die Ordnung $h$ der Gruppe nicht durch die Charakteristik $p$ teilbar ist, kann der Beweis direkt geführt werden: Die symmetrischen Funktionen $s_{\nu}(x)$ bilden dann bereits ein endliches Invariantensystem.
+
+Im Fall $p \mid h$ versagt dieser direkte Beweis, da die Division durch $h$ nicht mehr möglich ist. Hier greift das Endlichkeitskriterium ein, das unabhängig von der Teilbarkeit durch die Charakteristik gilt.
+
+\newpage
+% ==================== PAPER 2: ABSTRAKTER AUFBAU DER IDEALTHEORIE ====================
+\section*{Abstrakter Aufbau der Idealtheorie in algebraischen Zahl- und Funktionenkörpern}
+\addcontentsline{toc}{section}{Abstrakter Aufbau der Idealtheorie in algebraischen Zahl- und Funktionenkörpern}
+\markboth{Abstrakter Aufbau der Idealtheorie}{}
+
+\begin{center}
+\textit{Math.\ Ann.\ 96 (1926), S.~26--61}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+Die vorliegende Arbeit gibt einen axiomatischen Aufbau der Idealtheorie in algebraischen Zahl- und Funktionenkörpern. Ausgehend von einfachen Axiomen werden schrittweise die bekannten Sätze der Idealtheorie entwickelt, wobei sich zeigt, welche Voraussetzungen für jeden einzelnen Satz wirklich nötig sind.
+
+\setcounter{section}{0}
+\setcounter{Satz}{0}
+
+\section{Vorbemerkung. Axiome.}
+
+\noindent
+Die axiomatische Methode, die in der vorliegenden Arbeit zur Entwicklung der Idealtheorie verwendet wird, hat den Vorteil, daß sie zeigt, welche Voraussetzungen für jeden einzelnen Satz wirklich nötig sind. Es wird sich erweisen, daß die verschiedenen Sätze der klassischen Idealtheorie auf verschiedene Kombinationen von fünf einfachen Axiomen zurückgeführt werden können.
+
+\subsection*{Axiomatik.}
+
+\noindent
+Es werden fünf Axiome zugrunde gelegt:
+
+\medskip
+\noindent
+\textbf{I.~Teilerkettensatz.} In jedem Ideal des Ringes bricht jede aufsteigende Kette von Teilern im Endlichen ab.
+
+\medskip
+\noindent
+\textbf{II.~Vielfachenkettensatz.} In jedem Ideal des Ringes bricht jede absteigende Kette von Vielfachen im Endlichen ab.
+
+\medskip
+\noindent
+\textbf{III.~Existenz des Einheitselementes.} Es existiert ein Einheitselement $e$ der Multiplikation.
+
+\medskip
+\noindent
+\textbf{IV.~Nichtauftreten von Nullteilern.} Aus $ab = 0$ folgt $a = 0$ oder $b = 0$.
+
+\medskip
+\noindent
+\textbf{V.~Ganze Abgeschlossenheit im Quotientenkörper.} Jedes Element des Quotientenkörpers, das ganz in bezug auf den Ring ist, gehört dem Ring an.
+
+\medskip
+\noindent
+Aus diesen Axiomen entwickle ich schrittweise eine immer stärker eingeschränkte Idealtheorie bis hin zu der gesuchten; und zeige umgekehrt, daß hier auch alle Axiome tatsächlich erfüllt sind.
+
+Aus dem Teilerkettensatz \textbf{I} folgt, wie ich (Idealtheorie \S\,4) gezeigt habe, die Darstellung eines Ideals als kleinstes gemeinsames Vielfaches von endlich vielen, zu verschiedenen Primidealen gehörigen Primäridealen. Ich wiederhole hier kurz diesen Beweis (\S\,6), weil er sich unter Verwendung des Begriffes des Idealquotienten vereinfachen läßt, und weil ich ein Versehen berichtigen will; der ursprüngliche Beweis benutzt nämlich an einer Stelle die nicht vorausgesetzte Existenz des Einheitselementes der Multiplikation\footnote{Auf dieses Versehen machte mich P.~Urysohn aufmerksam; meine Abänderung des Beweises war aber etwas umständlicher als die hier mitgeteilte, die von E.~Artin stammt. Dieser hatte schon früher für sich die Lücke ausgefüllt und sich auch unabhängig von mir die Vereinfachung mit dem Idealquotienten überlegt. --- Eine weitere Vereinfachung, die die Einführung der \glqq reduzierten Darstellung\grqq\ vermeidet, entnehme ich einer verwandten Fragestellung bei W.~Krull: \textit{Algebraische Theorie der Ringe III}, Math.\ Ann.\ \textbf{92} (1924), S.~181--213, Satz~I.}.
+
+Die Voraussetzung des Vielfachen-Kettensatzes bewirkt (\S\,7), daß im Restklassenring nach jedem vom Nullideal verschiedenen Ideal ein Primideal keinen echten Teiler besitzen kann, mit Ausnahme des alle Elemente umfassenden Einheitsideales. Damit aber werden die Primärkomponenten dieser Ideale eindeutig bestimmt, mit Ausnahme der zum Einheitsideal gehörigen. In etwas weniger scharfer Fassung findet sich dies Resultat schon bei Masazo Sono\footnote{On the Reduction of Ideals. \textit{Memoirs of the College of Science, Kyoto University}, Series A, \textbf{7} (1924), S.~191--204.}; seine Voraussetzung der Existenz einer Kompositionsreihe im Restklassenring ist dem \glqq Doppelkettensatz\grqq\ in diesem Ring gleichwertig, wie ich zum Schluß (\S\,10) kurz zeige. Dabei verstehe ich unter Doppelkettensatz die Gültigkeit von Teilerketten- und Vielfachenkettensatz ohne Beschränkung auf vom Nullideal verschiedene Ideale.
+
+Ist noch Axiom \textbf{III} --- Existenz des Einheitselementes --- erfüllt, so tritt das Einheitsideal nicht als zugehöriges Primideal auf; die Primärkomponenten sind also eindeutig bestimmt; sie werden paarweise teilerfremd und ihr kleinstes gemeinsames Vielfaches gleich dem Produkt. Die Axiome \textbf{I}, \textbf{II}, \textbf{III} sind für alle endlichen Ordnungen eines algebraischen Zahlkörpers erfüllt; hier hat schon Dedekind (Dirichlet-Dedekind, Zahlentheorie, 3.~Aufl., 11.~Suppl., \S\,172) ohne vollständig ausgeführten Beweis die eindeutige Darstellung eines Ideals als Produkt von paarweise teilerfremden einartigen Idealen (Primärkomponenten) ausgesprochen.
+
+Aus Voraussetzung \textbf{IV} --- Nichtauftreten von Nullteilern --- folgt, daß die verschiedenen Potenzen eines von Null- und Einheitsideal verschiedenen Ideals alle verschieden sind, und daß der Quotientenkörper existiert.
+
+Ist schließlich noch Axiom \textbf{V} der ganzen Abgeschlossenheit im Quotientenkörper erfüllt, so werden die Primärideale --- wegen \textbf{IV} eindeutig bestimmte --- Potenzen von Primidealen, womit der übliche Zerlegungssatz gewonnen ist (\S\,8). Dieser letztere Nachweis beruht auf einer, im Fall des Zahlkörpers schon von Dedekind (3.~Aufl., \S\,172) gezogenen Folgerung aus der ganzen Abgeschlossenheit: Man kann ein echt gebrochenes Element so als Quotient ganzer darstellen, daß auch das Quadrat des Zählers nicht durch den Nenner teilbar wird. An Stelle dieser Folgerung treten in den späteren Darstellungen --- auch als Folge der ganzen Abgeschlossenheit --- der viel weniger durchsichtige verallgemeinerte Gaußsche Satz oder entsprechende, etwas mehr aussagende Modulsätze; alles Sätze, die zur Anwendung Basiselemente voraussetzen, während hier mit den Idealen selbst gearbeitet wird.
+
+In der Umkehrung (\S\,9) ergeben sich die von Axiom \textbf{V} verschiedenen Axiome fast direkt; letzteres aus dem Nachweis, daß ein echt gebrochenes Element sich stets so darstellen läßt, daß keine Potenz des Zählers durch den Nenner teilbar wird, was also noch eine Verschärfung der ursprünglich aus \textbf{V} gezogenen Folgerung bedeutet. Dieser Nachweis gelingt aber erst, indem aus der Idealdarstellung die üblichen Schlüsse gezogen werden, Hauptidealdarstellung modulo einem festen Ideal und Theorie der gebrochenen Ideale, also der Idealquotienten im Körper. Auch die Tatsache, daß aus der Darstellung durch Primidealpotenzen die ganze Abgeschlossenheit folgt, war schon Dedekind bekannt, wie eine Bemerkung (3.~Aufl., \S\,172, S.~522 unten) zeigt.
+
+Die Axiome \textbf{I} bis \textbf{V} ergeben, daß die vier im allgemeinen getrennten Zerlegungen in kleinste paarweise teilerfremde Ideale, gegenseitig prime Ideale, größte Primärkomponenten und irreduzible Ideale zusammenfallen; und umgekehrt ergibt sich aus diesem Zusammenfallen und den Axiomen \textbf{I}--\textbf{IV} die ganze Abgeschlossenheit. Für Ringe mit Nullteilern folgt aus dem Erfülltsein der übrigen Axiome --- wobei \textbf{V} als ganze Abgeschlossenheit im Quotientenring zu definieren ist --- nicht notwendig das Zusammenfallen der Zerlegungen, wie das Beispiel des Restklassenringes nach gewissen Idealen einer endlichen Ordnung zeigt (\S\,9).
+
+In \S\,1 skizziere ich die Theorie der in bezug auf einen Ring ganzen Größen, bis hin zu der Dedekindschen Folgerung aus der ganzen Abgeschlossenheit. In \S\,2 zeige ich, wie die Kettensätze sich vom Ring übertragen auf Moduln aus Linearformen, mit diesem Ring als Koeffizienten- und Multiplikatorenbereich\footnote{Diese Fassung der Modulsätze rührt von Prüfer her (Neue Begründung der algebraischen Zahlentheorie, \S\,2, Math.\ Ann.\ \textbf{94} (1924), S.~198--243) und ist durchsichtiger als die übliche Übertragung der Basissätze.}. Hieraus ziehe ich (\S\,3) die Folgerung, daß beim Übergang zu den ganzen Größen eines algebraischen Erweiterungskörpers (erster Art) die Axiome \textbf{I} bis \textbf{IV} für jede Ordnung erhalten bleiben, während für die aus allen ganzen Größen bestehende Ordnung auch \textbf{V} gilt. Diese --- für den algebraischen Zahlkörper natürlich bekannte --- Tatsache erlaubt die Unterordnung der am Anfang erwähnten Funktionenkörper; insbesondere ist durch den einfachen Nachweis, daß der aus den ganzzahligen Polynomen mehrerer Unbestimmter abgeleitete Funktionalbereich den Axiomen genügt, auch die Kroneckersche Idealtheorie voll eingeordnet\footnote{Die Verschiedenheit tritt also erst bei den Diskriminantensätzen auf, dadurch bedingt, daß der Restklassenring des Funktionalbereiches nach einer Primzahl ein unvollkommener Körper wird, und somit Erweiterungen zweiter Art auftreten können.}.
+
+Die dann entwickelte Idealtheorie setzt diese nur der Einordnung dienenden \S\S\,2 und 3 nicht voraus. In \S\,4 und \S\,5 werden die von den Axiomen \textbf{I} bis \textbf{V} unabhängigen Grundlagen gegeben; dadurch tritt schärfer als in der ursprünglichen Begründung hervor, welche Teile der Theorie von Endlichkeitsvoraussetzungen unabhängig sind.
+
+\newpage
+\section{Theorie der ganzen Größen.}
+
+\noindent
+Zugrunde gelegt sei ein kommutativer Ring\footnote{Ein Ring ist bekanntlich definiert, wenn in einer Menge eine Gleichheitsrelation gegeben ist, und außerdem zwei Verknüpfungen, Addition und Multiplikation, die den üblichen Gesetzen genügen: die Addition ist assoziativ, kommutativ und eindeutig umkehrbar, die Multiplikation ist assoziativ --- kommutativ, wenn es sich um einen kommutativen Ring handelt --- und gegenüber der Addition distributiv.
+
+Ist dabei die zugrunde gelegte Gleichheitsdefinition nicht die mengentheoretische Identität, so muß --- damit in jedem Untersystem dieselbe Gleichheitsdefinition erhalten bleibe --- ein solches Untersystem (Unterring, Modul, Ideal) neben irgendeinem Element auch alle ihm gleichen enthalten. Ebenso muß bei jeder Erweiterung vorausgesetzt werden, daß die neue Gleichheitsdefinition die alte umfaßt.
+
+Alle Begriffe wie \glqq endlich viele Elemente\grqq, \glqq eindeutige Zuordnung\grqq, \dots\ sind im Sinne der Gleichheitsdefinition gemeint; es gibt \glqq ein und nur ein Element\grqq\ heißt also beispielsweise, es gibt bis auf gleiche nur ein Element. Übrigens kann man von der Gleichheit immer zu einer mengentheoretischen Identität übergehen, indem man gleiche Elemente in eine Klasse zusammenfaßt und diese Klassen als neue Elemente einführt.
+
+Die hier gegebenen Bemerkungen zur Gleichheitsdefinition stammen von R.~Hölzer.} $T$ ohne Nullteiler, mit Einheitselement $e$ der Multiplikation (Axiom \textbf{III} und \textbf{IV}); in $T$ sei ein fester, das Einheitselement enthaltender Unterring $R$ ausgezeichnet. Die Begriffe Modul, Ordnung, ganz sollen sich durchweg auf diesen festen Ring $R$ beziehen, was der Kürze halber später in der Bezeichnung weggelassen wird\footnote{Die Elemente aus $R$ seien mit lateinischen, die aus $T$ allgemein mit griechischen Buchstaben bezeichnet.}. (Die Elemente aus $R$ seien mit lateinischen, die aus $T$ allgemein mit griechischen Buchstaben bezeichnet.)
+
+\setcounter{Satz}{0}
+\subsection{}
+
+\noindent
+\textbf{1.} Ein System $M$ von Elementen aus $T$ heißt wie üblich \textit{$R$-Modul} --- kurz Modul ---, wenn es neben zwei Elementen $\alpha$ und $\beta$ auch die Differenz, neben $\alpha$ auch $r\alpha$ enthält, unter $r$ ein beliebiges Element aus $R$ verstanden. $M$ heißt durch $N$ \textit{teilbar}, $M = 0(N)$ und $M$ ein \textit{Vielfaches}, $N$ ein \textit{Teiler}, wenn jedes Element von $M$ auch in $N$ enthalten ist.
+
+$R$-Moduln, deren Elemente alle zu $R$ gehören, heißen \textit{Ideale in $R$}.
+
+Offenbar ist der Durchschnitt --- das kleinste gemeinsame Vielfache $[\dots M,\dots]$ --- beliebig vieler Moduln aus $T$ wieder ein Modul; ebenso ist $T$ Modul. Somit existiert eindeutig der aus einem beliebigen System $\Sigma$ von Elementen aus $T$ abgeleitete Modul als Durchschnitt aller Moduln, die $\Sigma$ umfassen. Die \textit{Summe} --- der größte gemeinsame Teiler $(\dots M,\dots)$ --- eines beliebigen Systems von Moduln ist der aus der Vereinigungsmenge abgeleitete Modul. Das \textit{Produkt} $MN$ zweier Moduln ist definiert als der aus allen Produkten $\alpha\beta$ mit $\alpha \in M$, $\beta \in N$ abgeleitete Modul.
+
+\medskip
+\noindent
+\textbf{2.} Ein Element $\alpha$ aus $T$ heißt \textit{ganz in bezug auf $R$}, wenn es eine Gleichung mit Koeffizienten aus $R$ und höchstem Koeffizienten $1$ genügt:
+\[
+\alpha^{n} + r_{1}\alpha^{n-1} + \cdots + r_{n} = 0.
+\]
+Ein System $\fO$ von ganzen Größen aus $T$ heißt \textit{Ordnung} in bezug auf $R$, wenn $\fO$ ein $R$ umfassender Ring ist. Eine Ordnung heißt \textit{endlich}, wenn sie endlicher $R$-Modul ist.
+
+\medskip
+\noindent
+\textbf{3.} Es gilt das \textit{transitive Gesetz der ganzen Abhängigkeit}: Ist $\fO$ eine aus ganzen Größen bestehende Ordnung, so ist jedes in bezug auf $\fO$ ganze Element aus $T$ auch ganz in bezug auf $R$.
+
+Nach Definition genügt $\alpha$ einer Gleichung: $\alpha^{m} + \omega_{1}\alpha^{m-1} + \cdots + \omega_{m} = 0$, ist also auch ganz in bezug auf die aus $\omega_{1},\dots,\omega_{m}$ abgeleitete Ordnung $\fO' = R_{\omega_{1},\dots,\omega_{m}}$, die als Produkt $R_{\omega_{1}} \cdot R_{\omega_{2}} \cdots R_{\omega_{m}}$ endlich wird. Nach dem unter \textbf{2.} gegebenen transitiven Gesetz wird somit die aus $\alpha$ abgeleitete endliche $\fO'$-Ordnung $\fO'_{\alpha}$ auch eine endliche $R$-Ordnung, und $\alpha$ wird nach dem Hilfssatz ganz als Element einer endlichen Ordnung.
+
+\medskip
+\noindent
+\textbf{4.} Der Ring $R$ heißt \textit{ganz-abgeschlossen in $T$}, wenn jedes in bezug auf $R$ ganze Element aus $T$ zu $R$ gehört. Nach der zweiten Fassung der Definition der ganzen Größen in \textbf{3.} gehört also ein Element $\alpha$ aus $T$ dann und nur dann zu $R$, wenn es mindestens einen vom Nullmodul verschiedenen Hauptmodul $\fC$ gibt, so daß $\fC \cdot R_{\alpha}$ einen endlichen Modul bildet\footnote{Sind in $R$ Nullteiler zugelassen, so muß $\fC$ wieder als regulärer Hauptmodul vorausgesetzt werden; ebenso muß das Element $c$ in Folgerung I als regulär vorausgesetzt werden.}.
+
+Aus dem Begriff des ganz-abgeschlossenen Ringes hat Dedekind (3.~Aufl., \S\,172) zwei wichtige Folgerungen gezogen, die es ermöglichen, diesen Begriff für die Idealtheorie zu verwerten:
+
+\begin{Folgerung}[Dedekindsche Folgerung I]
+$R$ sei ganz-abgeschlossen in $T$, und außerdem sei als weitere Voraussetzung in $R$ der Teilerkettensatz für Ideale (Axiom \textbf{I}) erfüllt. Ist $\beta$ ein nichtganzes Element aus $T$, $c \neq 0$ ein Element aus $R$, so gibt es einen Exponenten $\varrho > 0$ derart, daß in der Reihe der Elemente $c, c\beta,\dots,c\beta^{\varrho},\dots$ die Elemente $c,\dots,c\beta^{\varrho}$ ganz, alle übrigen nichtganz sind.
+\end{Folgerung}
+
+Wären alle Elemente $c\beta^{\varrho}$ ganz, so gehörten sie wegen der ganzen Abgeschlossenheit von $R$ zu $R$. Damit aber ginge die Kette der Moduln $\fC\beta, \fC\beta_{2},\dots,\fC\beta_{\varrho},\dots$ --- wo $\fC$ den aus $c$, $\fB$ den aus $\beta$ abgeleiteten Modul bezeichnet --- über in eine Kette von Idealen $c_{1},\dots,c_{\varrho},\dots$ mit $c_{\varrho} = (c, c\beta,\dots,c\beta^{\varrho})$, die nach Voraussetzung im Endlichen abbricht. Damit aber wäre gegen die Voraussetzung $\fB$ endlich und $\beta$ ganz; es gibt somit nichtganze unter den Elementen $c\beta^{\varrho}$. Weiter sind mit irgendeinem nichtganzen Element auch alle folgenden nichtganz; denn ist $c\beta^{\varrho}$ ganz, also in $R$, so genügt $c\beta^{\varrho}$ für $\sigma < \varrho$ der Gleichung $(c\beta^{\sigma})^{\varrho} - c^{\varrho-\sigma}(c\beta^{\varrho})^{\sigma} = 0$ und ist also auch ganz. Ist somit $c\beta^{\varrho'}$ das erste nichtganze Element, so wird --- da $c$ ganz --- $\varrho > 0$ und ist der gesuchte Exponent.
+
+Spezialisiert man den Erweiterungsring $T$ zu dem Quotientenkörper von $R$ --- d.\,h. zu dem durch Adjunktion aller Elementenpaare entstehenden Körper\footnote{In bekannter Steinitzscher Fassung, J.~f.~M.\ 137. Sind in $R$ Nullteiler zugelassen, so muß an Stelle des Quotientenkörpers der Quotientenring treten, durch Adjunktion aller Quotientenpaare, bei denen der Nenner ein reguläres Element aus $R$ ist. Hier ist die Dedekindsche Folgerung II nicht mehr erfüllt; denn $n$ wird im allgemeinen kein reguläres Element sein.} ---, so folgt daraus die
+
+\begin{Folgerung}[Dedekindsche Folgerung II]
+$R$ sei ganz abgeschlossen in seinem Quotientenkörper $\fK$, und in $R$ sei der Teilerkettensatz für Ideale erfüllt. Ist $\beta$ ein nichtganzes Element aus $\fK$, so läßt $\beta$ eine Darstellung als Quotient von Elementen aus $R$ zu: $\beta = m/n$ derart, daß auch $m^{2}/n$ nichtganz ist.
+\end{Folgerung}
+
+Setzt man $\beta = b/c$ mit $c \neq 0$, so werden in der Reihe $c, c\beta = b, c\beta^{2},\dots$ die beiden ersten Elemente sicher ganz, also $\varrho > 1$, wo $\varrho$ den Exponenten aus Folgerung I bedeutet. Setzt man $m = c\beta^{\varrho}$, $n = c\beta^{\varrho-1}$ --- wegen $\varrho > 1$ sind das ganze Größen der Reihe ---, so werden $m/n = \beta$ und $m^{2}/n = c\beta^{\varrho+1}$ nichtganz.
+
+Das transitive Gesetz der ganzen Abgeschlossenheit besteht in der Form: Ist $R$ ein beliebiger Ring aus $T$, bezeichnet $\fO$ das System aller in bezug auf $R$ ganzen Größen aus $T$, so besteht $\fO$ auch aus allen in bezug auf $\fO$ ganzen Größen aus $T$. --- Denn jede in bezug auf $\fO$ ganze Größe ist auch ganz in bezug auf $R$, nach dem transitiven Gesetz in \textbf{3.}, gehört also zu $\fO$.
+
+\newpage
+\section{Kettensätze in endlichen Modulbereichen.}
+
+\noindent
+Der Modulsatz, demzufolge sich die Kettensätze übertragen, tritt in der hier zu gebenden Anwendung nur für Moduln eines Erweiterungsringes auf. Da der Beweis aber im Fall eines allgemeinen Modulbereichs derselbe bleibt, soll ein solcher zugrunde gelegt werden.
+
+Ein System $M$ von Elementen $a, b, \dots$ heißt \textit{Modulbereich in bezug auf einen Ring $R$}, wenn in $M$ zwei Operationen gegeben sind, die eindeutig zu Elementen aus $M$ führen: eine additive Verknüpfung der Elemente und eine Multiplikation der Elemente mit den Elementen aus $R$; wenn $M$ gegenüber der Addition eine Abelsche Gruppe bildet, während für die Multiplikation das assoziative Gesetz erfüllt ist, und wenn das distributive Gesetz in beiden Fassungen gilt\footnote{Vgl. Idealtheorie, \S\,9.}.
+
+Für einen Modulbereich bleiben offenbar alle unter \S\,1, \textbf{1.} gegebenen Moduldefinitionen erhalten, die sich nicht auf die Multiplikation beziehen. Insbesondere heißt $M$ ein \textit{endlicher Modulbereich}, wenn es endlich viele Elemente $\varepsilon_{1},\dots,\varepsilon_{k}$ aus $M$ gibt derart, daß $M$ gleich dem aus $\varepsilon_{1},\dots,\varepsilon_{k}$ abgeleiteten Modul wird, also gleich dem System aller Linearformen $r_{1}\varepsilon_{1} + \cdots + r_{k}\varepsilon_{k}$, wenn in $R$ ein Einheitselement existiert, während sonst noch Zusatzglieder $n_{i}\varepsilon_{i}$ hinzukommen (vgl. Anm.\ \textsuperscript{6}).
+
+\begin{Satz}[Modulsatz]
+Ist $M$ ein endlicher Modulbereich in bezug auf einen kommutativen Ring $R$ mit Einheitselement, und gilt in $R$ der Teiler- bzw.\ Vielfachenkettensatz der Ideale, so gilt in $M$ Teiler- bzw.\ Vielfachenkettensatz der Moduln.
+\end{Satz}
+
+Der Beweis beruht darauf, daß jedem Modul aus $M$ eindeutig ein System von endlich vielen Idealen aus $R$ zugeordnet wird derart, daß einem echten Teiler bzw.\ Vielfachen des Moduls jeweils mindestens ein echter Teiler- bzw.\ Vielfachenideal entspricht.
+
+Ein Element aus $M$ heißt von der \textit{Länge} $i$, wenn es sich auf mindestens eine Art als Linearform in $\varepsilon_{1},\dots,\varepsilon_{i}$ darstellen läßt, während es keine Darstellung als Linearform in $\varepsilon_{1},\dots,\varepsilon_{i-1}$ zuläßt. Einem beliebigen Modul $\fU$ aus $M$ seien jetzt $k$ Ideale $\mathfrak{a}_{1},\dots,\mathfrak{a}_{k}$ aus $R$ zugeordnet: unter $\fU_{i}$ sei der Modul aller Elemente aus $\fU$ verstanden von der Länge $\leq i$, und $\mathfrak{a}_{i}$ bezeichne das System aller Koeffizienten von $\varepsilon_{i}$ in $\fU_{i}$. Dann folgt vorerst:
+
+Ist $\fB$ ein echter Teiler von $\fU$, sind $\mathfrak{b}_{1},\dots,\mathfrak{b}_{k}$ die $\fB$ zugeordneten Ideale, so ist unter den $\mathfrak{b}$ mindestens ein echter Teiler des entsprechenden $\mathfrak{a}$. Aus $\fU = 0(\fB)$ folgt nämlich $\fU_{i} = 0(\fB_{i})$ und damit $\mathfrak{a}_{i} = 0(\mathfrak{b}_{i})$ für $i = 1, 2,\dots,k$. Nach Voraussetzung muß es in $\fB$ nicht in $\fU$ enthaltene Elemente geben, also auch solche kleinster Länge $\varrho$. Dann aber wird $\mathfrak{b}_{\varrho}$ ein echter Teiler von $\mathfrak{a}_{\varrho}$; denn es wird $\fU_{\varrho} = 0(\fB_{\varrho})$, $\fU_{\varrho-1} = 0(\fB_{\varrho-1})$, wenn $\beta = b_{\varrho}\varepsilon_{\varrho} + \cdots + b_{k}\varepsilon_{k}$ ein solches Element kleinster Länge aus $\fB$ ist. Aus $\mathfrak{b}_{\varrho} = 0(\mathfrak{a}_{\varrho})$ folgt nämlich die Existenz eines Elementes $\alpha = a_{\varrho}\varepsilon_{\varrho} + \cdots + a_{k}\varepsilon_{k} \in \fU$, und damit die Existenz eines Elementes $\beta - \alpha \in \fB$, $\notin \fU$ von kleinerer Länge als $\varrho$.
+
+Sei jetzt eine Teiler- bzw.\ Vielfachenkette $\fU_{1}, \fU_{2},\dots, \fU_{\varrho},\dots$ vorgelegt; sei in $R$ der Teiler- bzw.\ Vielfachenkettensatz erfüllt. Bezeichnen $\mathfrak{a}_{i1}, \mathfrak{a}_{i2},\dots, \mathfrak{a}_{i\varrho},\dots$ die $\fU_{\varrho}$ zugeordneten Ideale, so bilden die Reihen $\mathfrak{a}_{i1}, \mathfrak{a}_{i2},\dots$ Teiler- bzw.\ Vielfachenketten für $i = 1,\dots,k$; es gibt also nach Voraussetzung einen Index $\varkappa$ derart, daß das Ideal $\mathfrak{a}_{i\varkappa}$ gleich allen folgenden wird für jedes $i$. Dann aber wird der Modul $\fU_{\varkappa}$ nach dem oben Bewiesenen gleich allen folgenden, womit die Kettensätze übertragen sind.
+
+Unmittelbar ergibt sich jetzt die
+\begin{Folgerung}[des Modulsatzes]
+Gilt in $R$ der Vielfachenkettensatz modulo jedem vom Nullideal verschiedenen Ideal, so gilt in $M$ der Vielfachenkettensatz modulo jedem Modul $\fC$, dessen zugeordnete Ideale $\mathfrak{c}_{1},\dots,\mathfrak{c}_{k}$ sämtlich vom Nullideal verschieden sind.
+\end{Folgerung}
+Denn unter diesen Annahmen brechen die Vielfachenketten $\mathfrak{c}_{i1},\dots,\mathfrak{c}_{i\varrho},\dots$ im Endlichen ab.
+
+\newpage
+\section{Erhaltung der Axiome bei Adjunktion ganzer Größen.}
+
+\noindent
+Aus dem Modulsatz ergibt sich, daß beim Übergang zu den ganzen Größen eines algebraischen Erweiterungskörpers die Axiome \textbf{I} bis \textbf{IV} für jede Ordnung erhalten bleiben, während für die aus allen ganzen Größen bestehende Ordnung auch Axiom \textbf{V} gilt.
+
+\setcounter{Satz}{0}
+\subsection{}
+
+\noindent
+\textbf{1.} Es sei $T$ ein kommutativer Ring ohne Nullteiler mit Einheitselement, $R$ ein Unterring mit demselben Einheitselement. Es werde vorausgesetzt, daß in $R$ der Teilerkettensatz (Axiom \textbf{I}) gilt.
+
+Es sei $\fO$ eine endliche Ordnung aus $T$ (in bezug auf $R$); dann gilt in $\fO$ der Teilerkettensatz für Ideale. Denn $\fO$ ist endlicher $R$-Modul, also gilt nach dem Modulsatz der Teilerkettensatz für die $R$-Moduln aus $\fO$. Da jedes Ideal in $\fO$ auch $R$-Modul ist, gilt erst recht der Teilerkettensatz für Ideale.
+
+\medskip
+\noindent
+\textbf{2.} Die Ringeigenschaft der ganzen Größen und das transitive Gesetz der ganzen Abhängigkeit beruhen auf dem
+
+\begin{Hilfssatz}
+Ist $\fO$ eine endliche Ordnung aus $T$, $\alpha$ ein beliebiges Element aus $\fO$, so ist die aus $\alpha$ abgeleitete Ordnung $R_{\alpha}$ endlich --- m.\,a.\,W.: alle Elemente einer endlichen Ordnung sind ganz.
+\end{Hilfssatz}
+
+Der Beweis ergibt sich nach den üblichen Schlüssen. Ist $o_{1},\dots,o_{n}$ eine Modulbasis von $\fO$, so gehört wegen der Ringeigenschaft auch $\alpha o_{i}$ zu $\fO$. Also kommt $\alpha o_{i} = r_{i1}o_{1} + \cdots + r_{in}o_{n}$ und daraus $|r_{ik} - \alpha e_{ik}| = 0$, mit $e_{ik} = -0$ für $i \neq k$; $e_{ii} = e$, womit $\alpha$ als ganz nachgewiesen ist. Für das Verschwinden der Determinante wird benutzt, daß $T$ und damit $\fO$ ohne Nullteiler vorausgesetzt ist\footnote{Ist in $R$ der Teilerkettensatz vorausgesetzt, sind aber Nullteiler zugelassen, so wird der Hilfssatz eine unmittelbare Folge des Modulsatzes in \S\,2, demzufolge sich der Kettensatz auf die Moduln aus $\fO$ überträgt. Auch dieser Beweis stammt für den Zahlkörper von Dedekind (4.~Aufl., \S\,173, II) und stellt die erste Anwendung von Kettensätzen in der Literatur dar. In den unter \textbf{4.} zu gebenden Folgerungen benutzt Dedekind statt dessen noch die speziellere Tatsache, daß die Anzahl der Restklassen nach einem Ideal im algebraischen Zahlkörper endlich ist.}.
+
+Das System $\fO$ aller ganzen Größen aus $T$ bildet eine Ordnung. $\fO$ umfaßt $R$; denn die Elemente aus $R$ sind ganz, da $R$ einen endlichen $R$-Modul mit dem Einheitselement als Basis bildet. $\fO$ hat aber auch Ringeigenschaft; denn die aus zwei beliebigen ganzen Größen $\alpha$, $\beta$ abgeleitete Ordnung $R_{\alpha,\beta}$ wird gleich dem Produkt $R_{\alpha} \cdot R_{\beta}$, also endlich. Somit sind nach dem Hilfssatz $\alpha + \beta$ und $\alpha\beta$ als Elemente einer endlichen Ordnung ganz.
+
+\textit{Transitives Gesetz der ganzen Abhängigkeit:} Ist $\fO$ eine aus ganzen Größen bestehende Ordnung, so ist jedes in bezug auf $\fO$ ganze Element aus $T$ auch ganz in bezug auf $R$. Nach Definition genügt $\alpha$ einer Gleichung: $\alpha^{m} + \omega_{1}\alpha^{m-1} + \cdots + \omega_{m} = 0$, ist also auch ganz in bezug auf die aus $\omega_{1},\dots,\omega_{m}$ abgeleitete Ordnung $\fO' = R_{\omega_{1},\dots,\omega_{m}}$, die als Produkt $R_{\omega_{1}} \cdot R_{\omega_{2}} \cdots R_{\omega_{m}}$ endlich wird. Nach dem unter \textbf{2.} gegebenen transitiven Gesetz wird somit die aus $\alpha$ abgeleitete endliche $\fO'$-Ordnung $\fO'_{\alpha}$ auch eine endliche $R$-Ordnung, und $\alpha$ wird nach dem Hilfssatz ganz als Element einer endlichen Ordnung.
+
+\medskip
+\noindent
+\textbf{3.} Aus dem Modulsatz folgt unmittelbar, daß in jeder endlichen Ordnung $\fO$ aus $T$ der Teilerkettensatz für Ideale gilt, wenn er in $R$ gilt. Denn $\fO$ ist endlicher $R$-Modul, und jedes Ideal in $\fO$ ist auch $R$-Modul.
+
+\medskip
+\noindent
+\textbf{4.} Es sei jetzt $\fK$ ein algebraischer Erweiterungskörper (erster Art) des Quotientenkörpers von $R$. Die aus allen in bezug auf $R$ ganzen Größen von $\fK$ bestehende Ordnung $\fO$ heißt die \textit{Hauptordnung} von $\fK$ in bezug auf $R$. Dann gilt:
+
+\begin{Satz}
+In der Hauptordnung $\fO$ eines algebraischen Zahlkörpers oder Funktionenkörpers (erster Art) sind die Axiome \textbf{I} bis \textbf{V} sämtlich erfüllt.
+\end{Satz}
+
+Der Beweis ergibt sich aus den vorhergehenden Überlegungen. Die Axiome \textbf{I} bis \textbf{IV} gelten in jeder endlichen Ordnung, also insbesondere in der Hauptordnung. Axiom \textbf{V} --- die ganze Abgeschlossenheit --- gilt nach Konstruktion der Hauptordnung.
+
+Damit ist gezeigt, daß die Kroneckersche Idealtheorie --- der Funktionalbereich der ganzzahligen Polynome --- in denselben Axiomen aufgeht, und daß die Unterschiede zwischen Zahl- und Funktionenkörpern erst bei den Diskriminantensätzen auftreten.
+
+\newpage
+\section{Isomorphiesätze. Direkte Summen.}
+
+\noindent
+Im folgenden wird nur Ring- bzw.\ Moduleigenschaft aber kein weiteres Axiom vorausgesetzt.
+
+\setcounter{Satz}{0}
+\subsection{}
+
+\noindent
+\textbf{1.} Sind $M$ und $\bar{M}$ Modulbereiche in bezug auf $R$ (\S\,2), so heißt $M$ zu $\bar{M}$ \textit{homomorph} (genauer: modul-homomorph), $M \sim \bar{M}$, wenn jedem Element aus $M$ ein und nur ein Element aus $\bar{M}$ entspricht, derart, daß dadurch $\bar{M}$ erschöpft wird\footnote{Alles im Sinne der in $M$ herrschenden Gleichheitsdefinition, vgl.\ Anmerkung\ \textsuperscript{6}).}; und wenn bei dieser Zuordnung die Differenz und die Multiplikation mit demselben Element aus $R$ sich entsprechen; wenn also aus $\beta \sim \bar{\beta}$ und $\gamma \sim \bar{\gamma}$ stets folgt: $(\beta - \gamma) \sim (\bar{\beta} - \bar{\gamma})$ und $r\beta \sim r\bar{\beta}$.
+
+Einem $R$-Modul $\fE$ aus $M$ entspricht also homomorph ein $R$-Modul $\bar{\fE}$ aus $\bar{M}$; und die Gesamtheit $\fE^{*}$ der Elemente aus $\bar{M}$, denen Elemente eines $R$-Moduls $\fE$ aus $M$ entsprechen, bildet einen durch $\fE$ eindeutig bestimmten $R$-Modul in $\bar{M}$, den $\fE$ zugeordneten Modul $\fE^{*}$ mit $\fE \sim \fE^{*}$.
+
+Ist insbesondere $\fA$ der dem Nullelement aus $\bar{M}$ zugeordnete Modul, so wird $\fE^{*}$ ein Teiler von $\fU$ und zerfällt in Klassen von modulo $\fA$ kongruenten Elementen aus $M$, derart daß diese Klassen den Elementen aus $\fE$ ein-eindeutig entsprechen. Geht man von $\fE$ in $\bar{M}$ über zu $\bar{\fE}$, und von da zurück zu $\fE^{*}$, so wird $\fE^{*} = (\fE, \fA)$; also gleich dem größten gemeinsamen Teiler von $\fE$ und $\fU$; es wird also $\fE^{*} = \fE$, wenn $\fE$ Teiler von $\fU$.
+
+Ist das Entsprechen der Elemente aus $M$ und $\bar{M}$ umkehrbar eindeutig, so heißen die Bereiche \textit{isomorph} (genauer modul-isomorph) $M \simeq \bar{M}$.
+
+Ist $\fA$ ein beliebiger $R$-Modul aus $M$, so entsteht ein zu $\bar{M}$ homomorpher Modulbereich $\bar{M}$ --- der \textit{Restklassenmodul} $M \mid \fA$ ---, indem man die Kongruenz nach $\fA$ als neue Gleichheitsbeziehung auffaßt. Jedem Element aus $M$ sind dabei alle und nur die ihm gleichen aus $\bar{M}$ zugeordnet. Geht man in $\bar{M}$ von der Gleichheitsdefinition zur Identität über, so heißt das, daß man alle in $\bar{M}$ gleichen Elemente in einer Klasse --- Restklasse --- zusammenfaßt und diese Restklassen als neue Elemente von $\bar{M}$ auffaßt\footnote{Vgl. dazu Anmerkung\ \textsuperscript{6}).}.
+
+Durch den Übergang zum Restklassenmodul wird jeder Homomorphismus erzeugt; denn ist $M \sim \bar{M}$, und ist $\fA$ der dem Nullelement aus $\bar{M}$ zugeordnete Modul, so wird, wie oben gezeigt, $\bar{M}$ isomorph dem Restklassenmodul $M \mid \fA$.
+
+\medskip
+\noindent
+\textbf{2.} \textit{Erster Isomorphiesatz.} Bedeutet $\bar{M}$ den Restklassenmodul $M \mid \fA$, und ist $\fE$ Teiler von $\fA$, so gilt der Isomorphismus: $M \mid \fE \sim \bar{M} \mid \bar{\fE}$. Denn die Kongruenz nach $\fA$ ist zugleich eine Kongruenz nach $\fE$; nach $\fA$ gleiche Elemente bleiben also gleich nach $\fE$, und man kann mithin den Restklassenmodul $M \mid \fE$ --- also die Gleichheit nach $\fE$ --- bilden, indem man zuerst die Elemente nach $\fA$ gleichsetzt, also zu $\bar{M}$ übergeht, und unter diesen die nach $\bar{\fE}$ gleichen zusammenfaßt, was in $\bar{M}$ dem Gleichsetzen nach $\bar{\fE}$, also der Bildung von $\bar{M} \mid \bar{\fE}$ entspricht.
+
+\textit{Zweiter Isomorphiesatz.} Sind $\fB$ und $\fU$ Moduln aus $M$, so gilt der Isomorphismus:
+\[
+(\fB, \fA) \mid \fA \simeq \fB \mid [\fB, \fA].
+\]
+Denn nach \textbf{1.} wird $\fB$ homomorph zu $\bar{\fB}$, wenn $(\fB, \fA) \mid \fA$ gleich $\bar{\fB}$ gesetzt wird; und da hierbei allen Elementen aus $[\fB, \fA]$ und nur diesen das Nullelement in $\bar{\fB}$ entspricht, so kommt wieder nach \textbf{1.} der obige Isomorphismus.
+
+\medskip
+\noindent
+\textbf{3.} Sind $R$ und $\bar{R}$ (kommutative) Ringe, so heißt $R$ \textit{homomorph} zu $\bar{R}$ (genauer ring-homomorph), $R \sim \bar{R}$, wenn jedem Element aus $R$ ein und nur ein Element aus $\bar{R}$ entspricht derart, daß dadurch $\bar{R}$ erschöpft wird; und wenn bei dieser Zuordnung Differenz und Produkt sich entsprechen. Ist das Entsprechen der Elemente umkehrbar eindeutig, so heißen die Ringe \textit{isomorph} (genauer ring-isomorph), $R \simeq \bar{R}$.
+
+Alle Überlegungen unter \textbf{1.} und \textbf{2.} bleiben erhalten, wenn man die Moduln durch Ideale in $R$ ersetzt\footnote{Bei nichtkommutativen Ringen müssen zweiseitige Ideale zugrunde gelegt werden.}, und wenn der Begriff des Modul-Homomorphismus und Modul-Isomorphismus durch Ring-Homomorphismus und Ring-Isomorphismus ersetzt wird. Insbesondere entsteht, wenn $\mathfrak{c}$ ein Teiler von $\mathfrak{a}$ ist, der \textit{Restklassenring} $\mathfrak{c} \mid \mathfrak{a}$, indem die Kongruenz nach $\mathfrak{a}$ als neue Gleichheitsbeziehung eingeführt wird, wobei zu beachten ist, daß jetzt noch die Produkte von Restklassen definiert sind.
+
+Es wird $\mathfrak{c}$ homomorph zu $\mathfrak{c} \mid \mathfrak{a}$; jeder Homomorphismus ist auf diese Art erzeugt, und es gelten wie unter \textbf{2.} die \textit{Isomorphiesätze}:
+
+\textit{Erster Isomorphiesatz.} Bedeutet $\bar{R}$ den Restklassenring $R \mid \mathfrak{a}$, und ist $\mathfrak{c}$ Teiler von $\mathfrak{a}$, so wird $R \mid \mathfrak{c} \simeq \bar{R} \mid \bar{\mathfrak{c}}$ im Sinne des Ring-Isomorphismus.
+
+\textit{Zweiter Isomorphiesatz.} Sind $\mathfrak{b}$ und $\mathfrak{a}$ Ideale aus $R$, so gilt der Ring-Isomorphismus:
+\[
+(\mathfrak{b}, \mathfrak{a}) \mid \mathfrak{a} \simeq \mathfrak{b} \mid [\mathfrak{b}, \mathfrak{a}].
+\]%
+\footnote{Diese aus der Gruppentheorie bekannten Isomorphiesätze finden sich für Moduln in etwas speziellerer Fassung zuerst bei Dedekind (vgl.\ 3.~Aufl., S.~484). Die obige Fassung für Ideale findet sich bei Masazo Sono: On Congruences. I., II., III, IV. \textit{Memoirs of the College of Science, Kyoto Imperial University}, Series A, \textbf{2} (1917), S.~203--226; \textbf{3} (1918), S.~113--149, 189--197; \textbf{4} (1919), S.~1--20. Die für diese Arbeit maßgebende Fassung rührt von E.~Artin her, der auch den Zusammenhang mit dem Restklassenbegriff hergestellt hat. Eine ähnliche Fassung findet sich bei W.~Krull: Algebraische Theorie der Ringe II, Math.\ Ann.\ \textbf{91} (1924), S.~1--46.}
+
+\medskip
+\noindent
+\textbf{4.} Im folgenden sollen die Rechenregeln über teilerfremde Ideale zusammengestellt werden\footnote{Diese Regeln finden sich, allerdings ohne den direkten Zusammenhang mit der Produktzerlegung, schon bei Dedekind (vgl.\ 3.~Aufl., \S\,170, besonders S.~488).}, aus denen sich in \textbf{5.} die Sätze über direkte Summen ergeben werden. In dem kommutativen Ring $R$ werde die Existenz des Einheitselementes $e$ der Multiplikation vorausgesetzt. Es wird also $\mathfrak{a} = \mathfrak{o}\mathfrak{a}$ für jedes Ideal aus $R$, unter $\mathfrak{o}$ das Einheitsideal verstanden.
+
+Zwei Ideale $\mathfrak{a}, \mathfrak{b}$ heißen \textit{teilerfremd}, wenn ihr größter gemeinsamer Teiler $(\mathfrak{a}, \mathfrak{b})$ gleich $\mathfrak{o}$ wird.
+
+\smallskip
+\noindent
+\textbf{4$\alpha$.} Ist $(\mathfrak{a}, \mathfrak{b}) = \mathfrak{o}$, so wird $(\mathfrak{a}, \mathfrak{b}\mathfrak{c}) = (\mathfrak{a}, \mathfrak{c})$. Denn $(\mathfrak{a}, \mathfrak{c}) = (\mathfrak{a}, \mathfrak{b}) \cdot (\mathfrak{a}, \mathfrak{c}) = (\mathfrak{a}^{2}, \mathfrak{a}\mathfrak{b}, \mathfrak{a}\mathfrak{c}, \mathfrak{b}\mathfrak{c})$ wird durch $(\mathfrak{a}, \mathfrak{b}\mathfrak{c})$ teilbar und umgekehrt. Daraus folgt:
+
+\smallskip
+\noindent
+\textbf{4$\beta$.} Aus $\mathfrak{c}\mathfrak{b} = 0(\mathfrak{a})$ und $(\mathfrak{a}, \mathfrak{b}) = \mathfrak{o}$ folgt $\mathfrak{c} = 0(\mathfrak{a})$. Denn $\mathfrak{c}\mathfrak{b} = 0(\mathfrak{a})$ ist gleichbedeutend mit $(\mathfrak{a}, \mathfrak{b}\mathfrak{c}) = \mathfrak{a}$; also wird wegen $(\mathfrak{a}, \mathfrak{b}) = \mathfrak{o}$ auch $(\mathfrak{a}, \mathfrak{c}) = \mathfrak{a}$ oder $\mathfrak{c} = 0(\mathfrak{a})$. Es folgt weiter:
+
+\smallskip
+\noindent
+\textbf{4$\gamma$.} Ist jedes der Ideale $\mathfrak{a}_{1},\dots,\mathfrak{a}_{m}$ teilerfremd zu jedem der Ideale $\mathfrak{b}_{1},\dots,\mathfrak{b}_{n}$, so wird das Produkt der $\mathfrak{a}_{i}$ teilerfremd zu dem Produkt der $\mathfrak{b}_{j}$. Denn aus $(\mathfrak{a}, \mathfrak{b}) = \mathfrak{o}$ und $(\mathfrak{a}, \mathfrak{c}) = \mathfrak{o}$ kommt $(\mathfrak{a}, \mathfrak{b}\mathfrak{c}) = \mathfrak{o}$, woraus durch endlich oftmalige Wiederholung die Behauptung folgt.
+
+Aus \textbf{4$\alpha$} und \textbf{4$\gamma$} ergibt sich:
+
+\smallskip
+\noindent
+\textbf{4$\delta$.} Sind die Ideale $\mathfrak{b}_{1},\dots,\mathfrak{b}_{n}$ paarweise teilerfremd, also $(\mathfrak{b}_{i}, \mathfrak{b}_{k}) = \mathfrak{o}$ für $i \neq k$, so wird ihr kleinstes gemeinsames Vielfaches gleich ihrem Produkt. Sei $(\mathfrak{a}, \mathfrak{b}) = \mathfrak{o}$, $\mathfrak{v} = [\mathfrak{a}, \mathfrak{b}]$; dann wird $\mathfrak{b}\mathfrak{v} = \mathfrak{o}\mathfrak{v} = (\mathfrak{a}\mathfrak{b}, \mathfrak{b}\mathfrak{v}) = (\mathfrak{a}\mathfrak{b}, \mathfrak{b}\mathfrak{v})$, also wird $\mathfrak{v} = 0(\mathfrak{a})$ und $\mathfrak{b}\mathfrak{v} = 0(\mathfrak{a}\mathfrak{b})$, woraus $\mathfrak{v} = 0(\mathfrak{a}\mathfrak{b})$ folgt. Da auch $\mathfrak{a}\mathfrak{b} = 0(\mathfrak{v})$, wird $\mathfrak{v} = \mathfrak{a}\mathfrak{b}$.
+
+\medskip
+\noindent
+\textbf{5.} Ein Modul $\fG$ heißt \textit{direkte Summe} der Moduln $\fG_{1},\dots,\fG_{n}$, wenn $\fG = (\fG_{1},\dots,\fG_{n})$ und wenn $[\fG_{i}, (\fG_{1},\dots,\fG_{i-1},\fG_{i+1},\dots,\fG_{n})] = \mathfrak{o}$ für $i = 1,\dots,n$. Jedes Element $\gamma$ aus $\fG$ läßt sich dann eindeutig darstellen als $\gamma = \gamma_{1} + \cdots + \gamma_{n}$ mit $\gamma_{i} \in \fG_{i}$.
+
+Analog heißt ein Ring $R$ \textit{direkte Summe} der Ringe $R_{1},\dots,R_{n}$, wenn $R = (R_{1},\dots,R_{n})$ als Ideal und wenn die $R_{i}$ paarweise teilerfremd sind. Dann ist jedes Element $r \in R$ eindeutig darstellbar als $r = r_{1} + \cdots + r_{n}$ mit $r_{i} \in R_{i}$, und es gilt $r_{i} \cdot r_{k} = 0$ für $i \neq k$.
+
+\newpage
+\section{Idealtheorie bei Voraussetzung des Teilerkettensatzes.}
+
+\noindent
+Zugrunde gelegt sei ein (kommutativer) Ring $R$, für den Axiom \textbf{I} des Teilerkettensatzes erfüllt ist; weiter sei im folgenden stets eine feste Wohlordnung aller Elemente aus $R$ zugrunde gelegt. Damit ist aber zugleich auch eine Wohlordnung aller Ideale aus $R$ gegeben. Denn die beiden Voraussetzungen ergeben sofort, daß jedes Ideal aus $R$ eine aus endlich vielen Elementen bestehende Idealbasis besitzt. Geht man also von der Wohlordnung der Elemente aus $R$ über zu einer quasi-lexikographischen Anordnung aller endlichen Untermengen von $R$\footnote{Darunter ist folgendes zu verstehen: die Elemente $a_{1},\dots,a_{n}$ einer endlichen Untermenge $\mathfrak{M}$ seien so bezeichnet, daß die Anordnung der Indizes mit der in $R$ gegebenen Wohlordnung übereinstimmt. Jede Untermenge $\mathfrak{M}$ gehe einer solchen mit $m > n$ Elementen voran. Sind $\mathfrak{M}$ und $\mathfrak{N}$ Untermengen von gleich vielen Elementen, so heiße $\mathfrak{M}$ früher als $\mathfrak{N}$, wenn das erste Element $a_{i}$, das von dem entsprechenden $b_{i}$ verschieden ist, in der Wohlordnung von $R$ dem $b_{i}$ vorangeht. Damit ist jedem System endlicher Untermengen ein erstes Element $\mathfrak{M}_{0}$ zugeordnet.
+
+Bei gegebener Wohlordnung von $R$ bedarf es also keines weiteren Auswahlpostulats; ist insbesondere $R$ abzählbar --- wie etwa im Fall des algebraischen Zahlkörpers ---, so liegt überhaupt kein Auswahlpostulat zugrunde.
+
+Auf die Rolle des Auswahlpostulats in der Idealtheorie ist ohne nähere Ausführungen in Idealtheorie, Anmerkung\ \textsuperscript{6}), hingewiesen.}, und ordnet jedem Ideal als ausgezeichnete Basis die unter den verschiedenen möglichen Basen erste in der Wohlordnung der endlichen Untermengen zu, so sind mit den endlichen Untermengen auch die Ideale wohlgeordnet.
+
+\begin{Satz}[I]
+Jedes Ideal aus $R$ läßt --- bei Voraussetzung des Teilerkettensatzes --- eine Darstellung als kleinstes gemeinsames Vielfaches von endlich vielen \textit{irreduziblen Idealen} zu, d.\,h.\ von Idealen die sich nicht als kleinstes gemeinsames Vielfaches von zwei echten Teilern darstellen lassen.
+\end{Satz}
+
+Zum Beweis ist zu zeigen: Ist Satz I für ein Ideal $\mathfrak{m}$ nicht erfüllt, so besitzt $\mathfrak{m}$ einen echten Teiler, für den Satz I ebenfalls nicht erfüllt ist; daraus läßt sich entgegen dem vorausgesetzten Teilerkettensatz eine nicht im Endlichen abbrechende Teilerkette konstruieren. In der Tat muß $\mathfrak{m}$ reduzibel sein, da sonst $\mathfrak{m} = [\mathfrak{m}]$ die gewünschte Darstellung liefern würde. Wird $\mathfrak{m} = [\mathfrak{a}, \mathfrak{b}]$, so kann Satz I nicht für $\mathfrak{a}$ und $\mathfrak{b}$ gleichzeitig erfüllt sein, da sonst eine entsprechende Darstellung für $\mathfrak{m}$ folgen würde. Es gibt also echte Teiler von $\mathfrak{m}$, für die Satz I nicht erfüllt ist; sei $\mathfrak{a}_{1}$ der in der Wohlordnung der Ideale erste. Indem man entsprechend zu $\mathfrak{a}_{1}$ einen echten Teiler $\mathfrak{a}_{2}$ konstruiert, und allgemein zu $\mathfrak{a}_{\nu}$ einen echten Teiler $\mathfrak{a}_{\nu+1}$, kommt man zu einer wohlbestimmten, nicht im Endlichen abbrechenden Teilerkette, gegen die Voraussetzung\footnote{Satz I gilt offenbar genau so für Modulbereiche, wenn der Teilerkettensatz für das System aller Moduln vorausgesetzt wird. Satz I trägt nämlich rein mengentheoretischen Charakter --- er ist zugleich der einzige, bei dessen Beweis die Wohlordnung der Ideale benutzt wird. Es handelt sich, unabhängig von allen Verknüpfungen, um die folgenden mengentheoretischen Begriffe:
+
+In einer Menge $M$ sei eine Untermenge $\mathfrak{X}$ der Potenzmenge --- also ein System von Untermengen --- ausgezeichnet. $\mathfrak{X}$ sei als wohlgeordnet angenommen; die Elemente von $\mathfrak{X}$ seien etwa als $\mathfrak{X}$-Mengen bezeichnet. In $\mathfrak{X}$ sei der Kettensatz vorausgesetzt: Jede Kette von $\mathfrak{X}$-Mengen, $\mathfrak{U}_{1}, \mathfrak{U}_{2},\dots, \mathfrak{U}_{\nu},\dots$, derart, daß $\mathfrak{U}_{\nu}$ eine echte Obermenge von $\mathfrak{U}_{\nu-1}$ ist, bricht im Endlichen ab. Eine $\mathfrak{X}$-Menge $\mathfrak{U}$ heiße reduzibel, wenn sie Durchschnitt von zwei $\mathfrak{X}$-Mengen ist, die beide echte Obermengen von $\mathfrak{U}$ werden, im entgegengesetzten Fall irreduzibel. Dann ergeben die obigen Überlegungen: Jede $\mathfrak{X}$-Menge läßt sich als Durchschnitt von endlich vielen irreduziblen $\mathfrak{X}$-Mengen darstellen.}.
+
+Wegen des vorausgesetzten Teilerkettensatzes kann nach \S\,5, \textbf{2.} von Primäridealen schlechthin gesprochen werden. Den Zusammenhang zwischen primär und irreduzibel ergibt
+
+\begin{Satz}[II]
+Bei Voraussetzung des Teilerkettensatzes ist jedes irreduzible Ideal primär, m.\,a.\,W.\ jedes nichtprimäre Ideal ist reduzibel.
+\end{Satz}
+
+Da beim Übergang zum Restklassenring $R \mid \mathfrak{m}$ wegen der Homomorphie der Teilerkettensatz erhalten bleibt, da der Darstellung von $\mathfrak{m}$ als kleinstem gemeinsamen Vielfachen die Darstellung des Nullideals entspricht und da wegen des ersten Isomorphiesatzes (\S\,4, \textbf{3.}) den primären Teilern von $\mathfrak{m}$ wieder solche in $\bar{R}$ entsprechen und umgekehrt, kann man sich auf die Zerlegung des Nullideals im Restklassenring beschränken. Da dieser ein Ring gleicher Allgemeinheit ist, kann man von vornherein das zu zerlegende Ideal als Nullideal von $R$ voraussetzen.
+
+Sei also das Nullideal von $R$ nichtprimär, so daß es mindestens ein Paar von Idealen $\mathfrak{a}, \mathfrak{b}$ gibt --- wobei noch $\mathfrak{b}$ als Hauptideal vorausgesetzt werden darf --- derart, daß $\mathfrak{a} \neq (0)$, $\mathfrak{b}^{\varkappa} \neq (0)$ für jedes $\varkappa$, aber $\mathfrak{a}\mathfrak{b} = (0)$. Es sei die --- nach Voraussetzung im Endlichen abbrechende --- Teilerkette der Idealquotienten gebildet: $\mathfrak{a}, \mathfrak{a}:\mathfrak{b},\dots, \mathfrak{a}:\mathfrak{b}^{\varkappa},\dots$; sei etwa $\mathfrak{t} = \mathfrak{a}:\mathfrak{b}^{\varrho} = \mathfrak{a}:\mathfrak{b}^{\varrho+1} = \dots$ gleich allen folgenden Idealen der Kette; also $\mathfrak{t} = \mathfrak{t}:\mathfrak{b}$ oder $\mathfrak{b}$ prim zu $\mathfrak{t}$. Weiter ist $\mathfrak{t}$ als Teiler von $\mathfrak{a}$ vom Nullideal verschieden, ebenso $\mathfrak{b}^{\varkappa}$ für jeden Exponenten $\varkappa$. Zum Beweise von Satz II genügt es also, eine Darstellung $(0) = [\mathfrak{t}, \mathfrak{b}^{\varrho+1}]$ nachzuweisen.
+
+Nach Definition ist:
+\[
+\mathfrak{b}^{\varrho+1} \cdot \mathfrak{t} = 0(\mathfrak{a}), \quad \text{also} \quad \mathfrak{b}^{\varrho+1} \cdot \mathfrak{t} = (0),
+\]
+es ist also nur zu zeigen:
+\[
+(0) = [\mathfrak{t}, \mathfrak{b}^{\varrho+1}].
+\]
+Dies folgt aus den Voraussetzungen, daß $\mathfrak{b}$ Hauptideal und zu $\mathfrak{t}$ prim ist. Jedes Element $c$ aus $\mathfrak{c}$ läßt wegen der Teilbarkeit durch $\mathfrak{b}^{\varrho+1}$ eine Darstellung zu --- unter $n$ Symbol einer ganzen Zahl verstanden ---:
+\[
+c = n \cdot b^{\varrho+1} + r \cdot b^{\varrho+1},
+\]
+wo $r$ jetzt wieder ein Element aus $R$ bedeutet. Aus $c = 0(\mathfrak{t})$ folgt also $r \cdot b^{\varrho+1} = 0(\mathfrak{t})$ und damit $r = 0(\mathfrak{t})$ wegen $\mathfrak{t}:\mathfrak{b} = \mathfrak{t}$. Damit ist aber $c = 0(\mathfrak{b}^{\varrho+1})$ und Satz II bewiesen.
+
+\begin{Satz}[III]
+Bei Voraussetzung des Teilerkettensatzes läßt jedes Ideal eine kürzeste Darstellung als kleinstes gemeinsames Vielfaches von endlich vielen, zu verschiedenen Primidealen gehörigen, also \textit{größten} Primärkomponenten zu\footnote{Dabei sind die zugehörigen Primideale und die isolierten Komponenten eindeutig bestimmt. Vgl. Idealtheorie oder auch W.~Krull, Ein neuer Beweis für die Hauptsätze der allgemeinen Idealtheorie. Math.\ Ann.\ \textbf{90} (1923), S.~55--64. In \S\,7 wird ein direkter Beweis der Eindeutigkeit für den dort auftretenden einfachen Spezialfall gegeben werden. Die dort als eindeutig erkannten Primärideale sind isolierte Komponenten.}.
+\end{Satz}
+
+Um zu einer solchen Darstellung zu gelangen, hat man nur, was immer möglich, die nach Satz I existierende Darstellung durch irreduzible, also nach Satz II primäre Ideale durch eine kürzeste zu ersetzen. Faßt man die zu gleichen Primidealen gehörigen Primärideale zusammen, so ergibt sich die gesuchte Darstellung nach \S\,5, \textbf{3.} Die Primärkomponenten können als größte bezeichnet werden, da das kleinste gemeinsame Vielfache von irgendwelchen unter ihnen nicht mehr primär ist.
+
+\newpage
+\section{Idealtheorie bei Voraussetzung des Doppelkettensatzes.}
+
+\noindent
+Die Vereinfachungen gegenüber der bis jetzt entwickelten Theorie beruhen auf den zu gebenden Hilfssätzen.
+
+\setcounter{Satz}{0}
+\subsection{}
+
+\noindent
+\textbf{1.} Ist in einem kommutativen Ring ohne Nullteiler der Vielfachenkettensatz erfüllt, so ist der Ring zugleich Körper. Es ist zu zeigen, daß für $a \neq 0$ die Gleichung $ax = b$ stets eine Lösung im Ring besitzt; daß sie nicht mehr als eine Lösung besitzen kann, folgt daraus, daß der Ring ohne Nullteiler vorausgesetzt ist.
+
+Sei $\mathfrak{a}$ das aus $a$ abgeleitete Hauptideal; nach Voraussetzung bricht die Reihe der Potenzen im Endlichen ab; sei etwa $\mathfrak{a}^{n}$ gleich allen folgenden. Bezeichnet $\mathfrak{b}$ das aus $b$ abgeleitete Hauptideal, so kommt also:
+\[
+\mathfrak{a}^{n+1} \cdot \mathfrak{b} = \mathfrak{a}^{n} \cdot \mathfrak{b}, \quad \text{also} \quad \mathfrak{a}^{n} \cdot \mathfrak{b} = \mathfrak{a}^{n+1} \cdot \mathfrak{c}
+\]
+mit $\mathfrak{c} \subseteq \mathfrak{b}$. Das ergibt insbesondere für das Element $a^{n}b$ eine Darstellung --- unter $n$ Symbol für eine ganze Zahl verstanden ---
+\[
+a^{n}b = k \cdot a^{n+1} + n \cdot a^{n+1} = a^{n+1}(k + n),
+\]
+wo $c$ wieder Element aus $R$ ist. Da nach Voraussetzung keine Nullteiler existieren, kommt daraus $b = ac$, womit die Körpereigenschaft bewiesen ist.
+
+\medskip
+\noindent
+\textbf{2.} Aus \textbf{1.} folgt unmittelbar der
+
+\begin{Hilfssatz}
+Ist in einem kommutativen Ring der Vielfachenkettensatz erfüllt, so besitzt ein Primideal keinen von $\mathfrak{o}$ verschiedenen echten Teiler.
+\end{Hilfssatz}
+
+Ebenso folgt der \textit{Zusatz.} Ist nur Axiom \textbf{II} erfüllt --- Vielfachenkettensatz modulo jedem vom Nullideal verschiedenen Ideal ---, so besitzt jedes vom Nullideal verschiedene Primideal keinen von $\mathfrak{o}$ verschiedenen echten Teiler.
+
+Denn der Restklassenring nach einem Primideal $\mathfrak{p}$ wird nach Definition ein Ring ohne Nullteiler; und da wegen der Homomorphie auch hier der Vielfachenkettensatz erfüllt ist, nach \textbf{1.} ein Körper. Wegen des eineindeutigen Entsprechens der Teiler von $\mathfrak{p}$ und der Ideale im Restklassenring besitzt also $\mathfrak{p}$ keinen von $\mathfrak{o}$ verschiedenen echten Teiler\footnote{Für Ringe mit Nullteilern ist der Hilfssatz nicht mehr richtig; es können dort Primideale mit von $\mathfrak{o}$ verschiedenen echten Teilern existieren, wie das Beispiel des Restklassenringes $T \mid \mathfrak{p}^{2}$, wo $T$ Hauptordnung und $\mathfrak{p}$ Primideal, zeigt.}.
+
+\begin{Satz}[IV]
+Ist in einem kommutativen Ring der Doppelkettensatz erfüllt, so sind in jeder kürzesten Darstellung eines Ideals diejenigen primären Komponenten, die nicht zum Einheitsideal $\mathfrak{o}$ gehören, eindeutig bestimmt.
+\end{Satz}
+
+\textit{Zusatz.} Bei Voraussetzung von Axiom \textbf{I} und \textbf{II} gilt Satz IV für jedes vom Nullideal verschiedene Ideal.
+
+Seien $\mathfrak{m} = [\mathfrak{q}_{1}, \mathfrak{q}_{2},\dots, \mathfrak{q}_{r}] = [\mathfrak{q}_{1}', \mathfrak{q}_{2}',\dots, \mathfrak{q}_{s}']$ kürzeste Darstellungen von $\mathfrak{m}$ durch größte Primärkomponenten, seien $\mathfrak{o}, \mathfrak{p}_{1},\dots, \mathfrak{p}_{r}$ bzw.\ $\mathfrak{o}, \mathfrak{p}_{1}',\dots, \mathfrak{p}_{s}'$ die zugehörigen Primideale. Dabei soll $\mathfrak{q}$ bzw.\ $\mathfrak{q}'$ fortgelassen werden, wenn kein zu $\mathfrak{o}$ gehöriges Primärideal auftritt. Wegen $\mathfrak{o} \supseteq \mathfrak{p}_{1} \cdots \mathfrak{p}_{r} \supseteq \mathfrak{m}$ muß jedes $\mathfrak{p}_{i}$ in einem $\mathfrak{p}_{j}'$ aufgehen, also nach dem Hilfssatz mit diesem identisch sein. Da ebenso jedes $\mathfrak{p}_{j}'$ mit einem $\mathfrak{p}_{i}$ übereinstimmen muß, stimmen also die von $\mathfrak{o}$ verschiedenen Primideale überein, $\mathfrak{p}_{i} = \mathfrak{p}_{i}'$. Es wird weiter $\mathfrak{q}_{1} \cdot \mathfrak{q}_{2} \cdots \mathfrak{q}_{r} = 0(\mathfrak{q}_{i})$ und daraus $\mathfrak{q}_{i} = 0(\mathfrak{q}_{i}')$, da die übrigen Komponenten nicht durch $\mathfrak{p}_{i}$ teilbar, also prim zu $\mathfrak{q}_{i}$ sind. Da ebenso $\mathfrak{q}_{i}' = 0(\mathfrak{q}_{i})$ folgt, ist also $\mathfrak{q}_{i} = \mathfrak{q}_{i}'$, womit die Eindeutigkeit bewiesen ist.
+
+\newpage
+\section{Idealtheorie bei Voraussetzung der Axiome I--V.}
+
+\noindent
+Die weiteren Sätze beruhen auf der Voraussetzung aller fünf Axiome. Es wird also ein kommutativer Ring $R$ ohne Nullteiler mit Einheitselement zugrunde gelegt, in dem der Teiler- und Vielfachenkettensatz gilt, und der ganz abgeschlossen in seinem Quotientenkörper ist.
+
+\setcounter{Satz}{0}
+\subsection{}
+
+\noindent
+\textbf{1.} Ein Ideal $\mathfrak{q}$ heißt \textit{Primärideal} zum zugehörigen Primideal $\mathfrak{p}$, wenn aus $ab = 0(\mathfrak{q})$ und $a \neq 0(\mathfrak{q})$ folgt: $b^{\varkappa} = 0(\mathfrak{q})$ für hinreichend großes $\varkappa$; oder äquivalent: wenn aus $ab = 0(\mathfrak{q})$ folgt, daß entweder $a = 0(\mathfrak{q})$ oder $b^{\varkappa} = 0(\mathfrak{q})$.
+
+\medskip
+\noindent
+\textbf{2.} Unter den gegenwärtigen Voraussetzungen gilt:
+
+\begin{Hilfssatz}
+Jedes Primärideal $\mathfrak{q}$ ist Potenz seines zugehörigen Primideals: $\mathfrak{q} = \mathfrak{p}^{\varrho}$.
+\end{Hilfssatz}
+
+Denn wegen des Teilerkettensatzes kommt $\mathfrak{p} = (\mathfrak{o}c_{1},\dots, \mathfrak{o}c_{n})$\footnote{Es ist dabei zu beachten, daß als Multiplikatoren der $c$ nur die Restklassen nach $\mathfrak{p}$ in Betracht kommen, und wobei die $c$ als linear unabhängig in bezug auf den Restklassenkörper nach $\mathfrak{p}$ vorausgesetzt werden dürfen.}, wobei die $c$ als linear unabhängig in bezug auf den Restklassenkörper nach $\mathfrak{p}$ vorausgesetzt werden dürfen. Aus dieser Linearunabhängigkeit folgt aber für $k > 1$ eine Darstellung: $\mathfrak{p}^{2} = [\mathfrak{q}_{1}, \mathfrak{q}_{2}]$, wo $\mathfrak{q}_{1} = (\mathfrak{o}c_{1}, \mathfrak{p}^{2})$ und $\mathfrak{q}_{2} = (\mathfrak{o}c_{2},\dots, \mathfrak{o}c_{k}, \mathfrak{p}^{2})$ gesetzt ist; es werden somit $\mathfrak{q}_{1}$ und $\mathfrak{q}_{2}$ echte Teiler von $\mathfrak{p}^{2}$, und es wird $\mathfrak{p}^{2}$ gegen Voraussetzung reduzibel. Damit ist $\mathfrak{p} = (\mathfrak{o}c, \mathfrak{p}^{2})$ mit der sich daraus ergebenden Folgerung bewiesen.
+
+Daß umgekehrt als Folge der Axiome \textbf{I} bis \textbf{V} jedes Primärideal irreduzibel wird, ist unmittelbar klar, da eine Primidealpotenz $\mathfrak{p}^{\varrho}$ sich nicht als kleinstes gemeinsames Vielfaches echter Teiler der Form $\mathfrak{p}^{\alpha}$ und $\mathfrak{p}^{\beta}$ darstellen lassen kann.
+
+\medskip
+\noindent
+\textbf{3.} Sind Nullteiler im Ring zugelassen, so folgt aus den Axiomen \textbf{I} bis \textbf{III} und der ganzen Abgeschlossenheit im Quotientenring nicht, daß jedes Primärideal irreduzibel wird\footnote{Es bedeute $T$ einen Ring, in dem alle Axiome \textbf{I} bis \textbf{IV} außer der ganzen Abgeschlossenheit erfüllt sind; solche Ringe gibt es, z.\,B. sind die vom System aller in bezug auf $R$ ganzen Größen verschiedenen endlichen Ordnungen eines endlichen Erweiterungskörpers des Quotientenkörpers von $R$ solche Ringe, wenn in $R$ die Axiome \textbf{I} bis \textbf{V} gelten (\S\,3, \textbf{2.}). Nach der Folgerung \textbf{8.} gibt es in $T$ reduzible Primärideale $\mathfrak{q}$; es bedeute $\mathfrak{p}^{2}$ ein echtes Vielfaches von $\mathfrak{q}$ und $\bar{R}$ den Restklassenring $T \mid \mathfrak{p}^{2}$, in dem also das $\mathfrak{q}$ zugeordnete Ideal $\bar{\mathfrak{q}}$ ein vom Nullideal verschiedenes reduzibles Primärideal wird. In $\bar{R}$ sind die Axiome \textbf{I} bis \textbf{III} erfüllt, aber es gilt auch die ganze Abgeschlossenheit im Quotientenring. Denn da in $T$ jedes nicht durch $\mathfrak{p}$ teilbare Element zu $\mathfrak{p}^{2}$ teilerfremd wird, sind in $\bar{R}$ alle regulären Elemente Einheiten; es ist also $\bar{R}$ mit seinem Quotientenring identisch.}. Denn es bedeute $T$ einen Ring, in dem alle Axiome \textbf{I} bis \textbf{IV} außer der ganzen Abgeschlossenheit erfüllt sind; solche Ringe gibt es, z.\,B. sind die vom System aller in bezug auf $R$ ganzen Größen verschiedenen endlichen Ordnungen eines endlichen Erweiterungskörpers des Quotientenkörpers von $R$ solche Ringe, wenn in $R$ die Axiome \textbf{I} bis \textbf{V} gelten (\S\,3, \textbf{2.}). Nach der Folgerung \textbf{8.} gibt es in $T$ reduzible Primärideale $\mathfrak{q}$; es bedeute $\mathfrak{p}^{2}$ ein echtes Vielfaches von $\mathfrak{q}$ und $\bar{R}$ den Restklassenring $T \mid \mathfrak{p}^{2}$, in dem also das $\mathfrak{q}$ zugeordnete Ideal $\bar{\mathfrak{q}}$ ein vom Nullideal verschiedenes reduzibles Primärideal wird. In $\bar{R}$ sind die Axiome \textbf{I} bis \textbf{III} erfüllt, aber es gilt auch die ganze Abgeschlossenheit im Quotientenring. Denn da in $T$ jedes nicht durch $\mathfrak{p}$ teilbare Element zu $\mathfrak{p}^{2}$ teilerfremd wird, sind in $\bar{R}$ alle regulären Elemente Einheiten; es ist also $\bar{R}$ mit seinem Quotientenring identisch.
+
+\medskip
+\noindent
+\textbf{4.} Der Restklassenring nach jedem vom Nullideal verschiedenen Ideal ist Hauptidealring. Das Ideal darf vom Einheitsideal verschieden angenommen werden, da hier für den nur aus dem Nullelement bestehenden Restklassenring die Bedingung sicher erfüllt ist.
+
+Ist das Ideal vorerst primär, $\mathfrak{q} = \mathfrak{p}^{\varrho}$, und ist $c = 0(\mathfrak{p})$, $c \neq 0(\mathfrak{p}^{2})$, so folgt aus \textbf{3.}, daß $\mathfrak{o}c = \mathfrak{p}\mathfrak{a}$ wird mit $(\mathfrak{a}, \mathfrak{p}) = \mathfrak{o}$. Es kommt also $\mathfrak{p}^{\varrho} = (\mathfrak{o}c^{\varrho}, \mathfrak{p}^{\varrho+1})$ für jedes $\varrho < \varrho$; im Restklassenring nach einem Primärideal wird somit jedes Ideal Hauptideal. Sei jetzt allgemein
+\[
+\bar{R} = \bar{\mathfrak{a}}_{1} \oplus \cdots \oplus \bar{\mathfrak{a}}_{r}
+\]
+die entsprechende Darstellung des Restklassenringes als direkte Summe (\S\,4, \textbf{5.}). Es wird $\bar{\mathfrak{a}}_{i}$ isomorph zu $R \mid \mathfrak{q}_{i}$, und folglich wird jedes Ideal aus $\bar{\mathfrak{a}}_{i}$ Hauptideal. Ist $\mathfrak{c}$ ein beliebiges Ideal des Restklassenringes, so wird also $\bar{\mathfrak{a}}_{i}\mathfrak{c}$ Hauptideal $\bar{\mathfrak{a}}_{i}\mathfrak{c}_{i}$; es kommt
+\[
+\mathfrak{c} = \bar{\mathfrak{a}}_{1}\mathfrak{c} + \cdots + \bar{\mathfrak{a}}_{r}\mathfrak{c} = \bar{\mathfrak{a}}_{1}\mathfrak{c}_{1} + \cdots + \bar{\mathfrak{a}}_{r}\mathfrak{c}_{r},
+\]
+wobei $\mathfrak{c} = \mathfrak{c}_{1} + \cdots + \mathfrak{c}_{r}$ gesetzt ist. Denn wegen $\bar{\mathfrak{a}}_{i} \cdot \bar{\mathfrak{a}}_{k} = (0)$ für $i \neq k$ und wegen $\mathfrak{c} = 0(\bar{\mathfrak{a}}_{i})$ stimmen die Hauptideale $\bar{\mathfrak{a}}_{i}\mathfrak{c}$ und $\bar{\mathfrak{a}}_{i}\mathfrak{c}_{i}$ aus $\bar{\mathfrak{a}}_{i}$ überein.
+
+Der Satz vom Hauptidealring läßt bekanntlich noch die folgende Fassung zu:
+
+\textit{Ist $\mathfrak{c}$ ein beliebiges Ideal, so läßt es sich in ein Hauptideal verwandeln durch Multiplikation mit einem zu einem gegebenen Ideal $\mathfrak{b}$ teilerfremden Ideal.}
+
+Denn setzt man $\mathfrak{m} = \mathfrak{b}\mathfrak{c}$, so wird $\mathfrak{c}$ modulo $\mathfrak{m}$ zum Hauptideal, d.\,h.\ es wird $\mathfrak{c} = (\mathfrak{o}c, \mathfrak{m}) = (\mathfrak{c}\mathfrak{a}, \mathfrak{c}\mathfrak{b}) = \mathfrak{c}(\mathfrak{a}, \mathfrak{b})$; somit wird $\mathfrak{o}\mathfrak{c} = \mathfrak{c}\mathfrak{a}$ und $(\mathfrak{c}\mathfrak{a}, \mathfrak{b}) = \mathfrak{o}$.
+
+\medskip
+\noindent
+\textbf{5.} \textit{Theorie der gebrochenen Ideale.} Als \textit{gebrochenes Ideal} bezeichnet man jeden endlichen $R$-Modul im Quotientenkörper $\fK$.
+
+\begin{Satz}
+Die vom Nullmodul verschiedenen endlichen $R$-Moduln aus $\fK$ bilden gegenüber der Multiplikation eine Abelsche Gruppe.
+\end{Satz}
+
+Das Produkt zweier endlicher $R$-Moduln ist wieder ein endlicher $R$-Modul; die Multiplikation ist assoziativ und kommutativ; wegen $\mathfrak{A} = \mathfrak{o}\mathfrak{A}$ wird das Einheitsideal Einheitselement des Systems. Es ist also nur noch zu zeigen, daß die Gleichung $\mathfrak{A}\mathfrak{X} = \mathfrak{o}$ stets eine Lösung im System der endlichen $R$-Moduln besitzt.
+
+\textit{Vorbemerkung.} Wenn die Gleichung $\mathfrak{A}\mathfrak{T} = \mathfrak{B}$ eine und nur eine Lösung hat, so wird $\mathfrak{T}$ gleich dem Modulquotient $\mathfrak{B}:\mathfrak{A}$ (\S\,5, \textbf{4.}). Denn es wird
+\[
+\mathfrak{T} = 0(\mathfrak{B}:\mathfrak{A}); \quad \text{also} \quad \mathfrak{B} = \mathfrak{A}\mathfrak{T} = 0(\mathfrak{A} \cdot (\mathfrak{B}:\mathfrak{A})) = 0(\mathfrak{B}) \quad \text{oder} \quad \mathfrak{A} \cdot (\mathfrak{B}:\mathfrak{A}) = \mathfrak{B}.
+\]
+
+Sei jetzt vorerst $\mathfrak{A}$ Hauptmodul, $\mathfrak{A} = (a)$, so kommt $\mathfrak{X} = (e/a)$ als Lösung von $\mathfrak{A}\mathfrak{X} = \mathfrak{o}$; es ist $\mathfrak{X}$ wieder endlicher $R$-Modul. Daraus folgt:
+
+Jeder endliche $R$-Modul ist Modulquotient zweier Ideale aus $R$, wodurch sich die Bezeichnung \textit{gebrochenes Ideal} rechtfertigt. Denn sei $t_{1},\dots,t_{n}$ eine Modulbasis von $\mathfrak{T}$, sei $\tau_{i} = t_{i}/a$ und sei $\mathfrak{t}$ das aus den $t_{i}$ abgeleitete Ideal in $R$. Dann wird $\mathfrak{o}a \cdot \mathfrak{T} = \mathfrak{t}$, woraus nach der Vorbemerkung $\mathfrak{T} = (\mathfrak{t}:\mathfrak{o}a)$ folgt, der Quotient in $\fK$ genommen.
+
+Die Lösung von $\mathfrak{A}\mathfrak{X} = \mathfrak{o}$ läßt sich jetzt allgemein angeben. Sei gesetzt: $\mathfrak{A} = \mathfrak{a}:\mathfrak{o}c$ und sei $\mathfrak{b}$ so bestimmt, daß $\mathfrak{a}\mathfrak{b}$ gleich einem Hauptideal $\mathfrak{o}a$ wird. Dann kommt: $\mathfrak{A}\mathfrak{c} = \mathfrak{a}$ und daraus $\mathfrak{A}\mathfrak{b}\mathfrak{c} = \mathfrak{o}a$ oder $\mathfrak{A} \cdot (\mathfrak{b}c:\mathfrak{o}a) = \mathfrak{o}$; dabei wird $\mathfrak{X}$ als Quotient eines Ideals durch ein Hauptideal wieder endlicher $R$-Modul. Aus der damit bewiesenen Gruppeneigenschaft folgt noch, daß der Modulquotient irgend zweier Ideale $\mathfrak{a}:\mathfrak{b}$ als Lösung der Gleichung $\mathfrak{b}\mathfrak{X} = \mathfrak{a}$ endlicher $R$-Modul wird.
+
+\medskip
+\noindent
+\textbf{6.} Aus der Gruppeneigenschaft ergeben sich die weiteren Folgerungen:
+
+\smallskip
+\noindent
+\textbf{6$\alpha$.} Man kann kürzen, d.\,h.\ aus $\mathfrak{T}\mathfrak{B} = \mathfrak{T}\mathfrak{A}:\mathfrak{B}\mathfrak{M}$ folgt $\mathfrak{T} = \mathfrak{A}:\mathfrak{B}$ und umgekehrt. Denn aus $\mathfrak{T}\mathfrak{B}\mathfrak{M} = \mathfrak{T}\mathfrak{A}$ kommt $\mathfrak{T}\mathfrak{B}\mathfrak{S} = \mathfrak{T}\mathfrak{A}$ und umgekehrt.
+
+\smallskip
+\noindent
+\textbf{6$\beta$.} Jedes gebrochene Ideal (endlicher $R$-Modul) läßt eine Darstellung zu: $\mathfrak{C} = \mathfrak{a}:\mathfrak{b}$, wo $\mathfrak{a}$ und $\mathfrak{b}$ teilerfremd; durch diese Bedingung sind $\mathfrak{a}$ und $\mathfrak{b}$ eindeutig bestimmt. Die Möglichkeit der Darstellung ergibt sich aus \textbf{5.} und \textbf{6$\alpha$}; aus $\mathfrak{C} = \mathfrak{a}:\mathfrak{b} = \bar{\mathfrak{a}}:\bar{\mathfrak{b}}$ ergibt sich aber $\mathfrak{a}\bar{\mathfrak{b}} = \mathfrak{b}\bar{\mathfrak{a}}$ und damit Eindeutigkeit, wenn sowohl $\mathfrak{a}, \mathfrak{b}$, wie $\bar{\mathfrak{a}}, \bar{\mathfrak{b}}$ als zueinander teilerfremd vorausgesetzt werden.
+
+\smallskip
+\noindent
+\textbf{6$\gamma$.} Jeder aus einem nichtganzen (d.\,h.\ zu $\fK$ und nicht zu $R$ gehörigen) Element abgeleitete Hauptmodul $\mathfrak{o}\eta$ läßt eine Darstellung als Quotient von Hauptidealen zu derart, daß keine Potenz des Zählers durch den Nenner teilbar wird. Sei in gekürzter Darstellung $\mathfrak{o}\eta = \mathfrak{b}:\mathfrak{c}$, wo also $(\mathfrak{b}, \mathfrak{c}) = \mathfrak{o}$; sei (nach \textbf{4.}) $\mathfrak{o}\beta = \mathfrak{b}\mathfrak{a}$ und $(\mathfrak{a}, \mathfrak{c}) = \mathfrak{o}$. Dann kommt $\mathfrak{o}\eta = \mathfrak{a}\mathfrak{b}:\mathfrak{a}\mathfrak{c} = \mathfrak{o}\beta:\mathfrak{o}\gamma$, und wegen $\mathfrak{a}\mathfrak{c} = 0(\mathfrak{o}\gamma:\mathfrak{o}\eta)$ wird auch $\mathfrak{a}\mathfrak{c}$ Hauptideal, also $\mathfrak{o}\eta = \mathfrak{o}\beta:\mathfrak{o}\gamma$. Es wird aber keine Potenz von $\mathfrak{a}\mathfrak{b}$ durch $\mathfrak{c}$ teilbar, wegen $(\mathfrak{a}\mathfrak{c}) = \mathfrak{o}$ und $(\mathfrak{b}, \mathfrak{c}) = \mathfrak{o}$.
+
+\medskip
+\noindent
+\textbf{7.} \textit{Nachweis des Axioms \textbf{V} der ganzen Abgeschlossenheit im Quotientenkörper.} Aus \textbf{6$\gamma$} folgt, daß jedes echt ganze Element aus $\fK$ eine Quotientendarstellung zuläßt, $\eta = \beta/\gamma$ derart, daß in $R$ keine Potenz des Zählers durch den Nenner teilbar wird. Denn aus $\mathfrak{o}\eta = \mathfrak{o}\beta:\mathfrak{o}\gamma$ folgt, daß $\eta$ sich nur bis auf eine Einheit aus $R$ von dem Quotienten $\beta/\gamma$ unterscheidet.
+
+Ein solches Element $\eta$ kann mithin keiner Gleichung genügen, die es als ganz in bezug auf $R$ charakterisiert; denn aus $\eta^{n} + r_{1}\eta^{n-1} + \cdots + r_{n} = 0$ folgt $\beta^{n} = 0(\mathfrak{o}\gamma)$ in $R$.
+
+\medskip
+\noindent
+\textbf{8.} \textit{Folgerung:} Sind in einem kommutativen Ring $R$ die Axiome \textbf{I} bis \textbf{IV} erfüllt, und ist jedes primäre Ideal irreduzibel, so ist auch Axiom \textbf{V} der ganzen Abgeschlossenheit im Quotientenkörper erfüllt. Wegen der Axiome \textbf{I} bis \textbf{III} ist jede Primidealpotenz $\mathfrak{p}^{\varrho}$ zugleich Primärideal; das gilt insbesondere für $\mathfrak{p}^{2}$; es wird somit $\mathfrak{p}^{2}$ nach Voraussetzung ein irreduzibles Ideal. Hieraus ist die Darstellung $\mathfrak{p} = (\mathfrak{o}c, \mathfrak{p}^{2})$ nachzuweisen; denn damit folgt nach dem Hilfssatz \S\,8, \textbf{3.}, daß jedes Primärideal Primidealpotenz wird, was zusammen mit den andern Voraussetzungen nach \textbf{7.} die ganze Abgeschlossenheit nach sich zieht.
+
+Wegen des Teilerkettensatzes kommt $\mathfrak{p} = (\mathfrak{o}c_{1},\dots, \mathfrak{o}c_{n})$, wobei als Multiplikatoren der $c$ nur die Restklassen nach $\mathfrak{p}$ in Betracht kommen, und wobei die $c$ als linear unabhängig in bezug auf den Restklassenkörper nach $\mathfrak{p}$ vorausgesetzt werden dürfen. Aus dieser Linearunabhängigkeit folgt aber für $k > 1$ eine Darstellung: $\mathfrak{p}^{2} = [\mathfrak{q}_{1}, \mathfrak{q}_{2}]$, wo $\mathfrak{q}_{1} = (\mathfrak{o}c_{1}, \mathfrak{p}^{2})$ und $\mathfrak{q}_{2} = (\mathfrak{o}c_{2},\dots, \mathfrak{o}c_{k}, \mathfrak{p}^{2})$ gesetzt ist; es werden somit $\mathfrak{q}_{1}$ und $\mathfrak{q}_{2}$ echte Teiler von $\mathfrak{p}^{2}$, und es wird $\mathfrak{p}^{2}$ gegen Voraussetzung reduzibel. Damit ist $\mathfrak{p} = (\mathfrak{o}c, \mathfrak{p}^{2})$ mit der sich daraus ergebenden Folgerung bewiesen.
+
+\medskip
+\noindent
+\textbf{9.} Sind Nullteiler im Ring zugelassen, so folgt aus den Axiomen \textbf{I} bis \textbf{III} und der ganzen Abgeschlossenheit im Quotientenring nicht, daß jedes Primärideal irreduzibel wird. Denn es bedeute $T$ einen Ring, in dem alle Axiome \textbf{I} bis \textbf{IV} außer der ganzen Abgeschlossenheit erfüllt sind; solche Ringe gibt es, z.\,B.\ sind die vom System aller in bezug auf $R$ ganzen Größen verschiedenen endlichen Ordnungen eines endlichen Erweiterungskörpers des Quotientenkörpers von $R$ solche Ringe, wenn in $R$ die Axiome \textbf{I} bis \textbf{V} gelten (\S\,3, \textbf{2.}). Nach der Folgerung \textbf{8.} gibt es in $T$ reduzible Primärideale $\mathfrak{q}$; es bedeute $\mathfrak{p}^{2}$ ein echtes Vielfaches von $\mathfrak{q}$ und $\bar{R}$ den Restklassenring $T \mid \mathfrak{p}^{2}$, in dem also das $\mathfrak{q}$ zugeordnete Ideal $\bar{\mathfrak{q}}$ ein vom Nullideal verschiedenes reduzibles Primärideal wird. In $\bar{R}$ sind die Axiome \textbf{I} bis \textbf{III} erfüllt, aber es gilt auch die ganze Abgeschlossenheit im Quotientenring. Denn da in $T$ jedes nicht durch $\mathfrak{p}$ teilbare Element zu $\mathfrak{p}^{2}$ teilerfremd wird, sind in $\bar{R}$ alle regulären Elemente Einheiten; es ist also $\bar{R}$ mit seinem Quotientenring identisch.
+
+\newpage
+\section{Doppelkettensatz und Kompositionsreihe.}
+
+\noindent
+Im folgenden soll gezeigt werden, daß für beliebige, als wohlgeordnet angenommene Modulbereiche (\S\,2) die Voraussetzung der Gültigkeit des Doppelkettensatzes --- jede Teilerkette und jede Vielfachenkette von Moduln bricht im Endlichen ab --- identisch ist mit der Voraussetzung, daß eine Kompositionsreihe existiert\footnote{Vgl. Anm.\ \textsuperscript{30}).}. Die Spezialisierung des Modulbereichs zu einem kommutativen Ring ergibt dann die entsprechenden Tatsachen für das System aller Ideale des Ringes; dabei ist unter \textbf{2.} durchweg der Modulisomorphismus durch Ringisomorphismus zu ersetzen.
+
+Ein Modulbereich $\fG$ heißt \textit{einfach}, wenn es in $\fG$ keine weiteren $R$-Moduln als $\fG$ selbst und den Nullmodul $\fE$ gibt. Ein Modul $\fA$ heißt \textit{einfach in $\fG$}, wenn $\fG \mid \fA$ einfach ist (größter Normalteiler).
+
+Eine \textit{Kompositionsreihe} von $\fG$ ist eine endliche Kette von Moduln
+\[
+\fG = \fG_{0} \supset \fG_{1} \supset \cdots \supset \fG_{n} = \fE,
+\]
+wo $\fG_{\nu+1}$ ein größter Normalteiler in $\fG_{\nu}$ ist, d.\,h.\ wo $\fG_{\nu} \mid \fG_{\nu+1}$ einfach ist. Die Faktoren $\fG_{\nu} \mid \fG_{\nu+1}$ heißen die \textit{Kompositionsfaktoren}; ihre Anzahl $n$ heißt die \textit{Länge} der Kompositionsreihe.
+
+\begin{Satz}[Jordan-Hölder]
+Besitzt ein Modulbereich $\fG$ eine Kompositionsreihe, so sind die Kompositionsfaktoren bis auf Isomorphie und Reihenfolge eindeutig bestimmt.
+\end{Satz}
+
+Der Beweis verläuft wie in der Gruppentheorie üblich. Sind
+\[
+\fG = \fG_{0} \supset \fG_{1} \supset \cdots \supset \fG_{n} = \fE
+\]
+und
+\[
+\fG = \fG_{0}' \supset \fG_{1}' \supset \cdots \supset \fG_{m}' = \fE
+\]
+zwei Kompositionsreihen, so wird nach dem zweiten Isomorphiesatz:
+\[
+\fG_{\nu} \mid \fG_{\nu+1} \simeq (\fG_{\nu} \cap \fG_{1}') \mid (\fG_{\nu+1} \cap \fG_{1}'),
+\]
+und entsprechend für die zweite Reihe. Durch Induktion nach der Länge folgt die Eindeutigkeit.
+
+\begin{Satz}
+Für einen Modulbereich $\fG$ sind äquivalent:
+\begin{enumerate}
+    \item[(1)] In $\fG$ gilt der Doppelkettensatz.
+    \item[(2)] $\fG$ besitzt eine Kompositionsreihe.
+\end{enumerate}
+\end{Satz}
+
+Der Beweis von (2) $\Rightarrow$ (1) folgt daraus, daß eine Kompositionsreihe eine maximale Kette darstellt, also sowohl Teiler- als auch Vielfachenketten im Endlichen abbrechen. Für (1) $\Rightarrow$ (2) wird gezeigt, daß unter der Voraussetzung des Doppelkettensatzes in jedem von $\fE$ verschiedenen Modul ein größter Normalteiler existiert, woraus durch Induktion die Existenz einer Kompositionsreihe folgt.
+
+Damit ist gezeigt, daß die Voraussetzung der Existenz einer Kompositionsreihe im Restklassenring --- wie sie Masazo Sono zugrunde legt --- dem Doppelkettensatz gleichwertig ist. Die aufgestellten Axiome ergeben also in der Tat eine vollständige Charakterisierung der Idealtheorie in Hauptordnungen algebraischer Zahl- und Funktionenkörper.
+
+\newpage
+% ==================== PAPER 3: DISKRIMINANTENSATZ ====================
+\section*{Der Diskriminantensatz für die Ordnungen eines algebraischen Zahl- oder Funktionenkörpers}
+\addcontentsline{toc}{section}{Der Diskriminantensatz für die Ordnungen eines algebraischen Zahl- oder Funktionenkörpers (beginning)}
+\markboth{Der Diskriminantensatz für Ordnungen}{}
+
+\begin{center}
+\textit{Math.\ Ann.\ 96 (1927), S.~515-----}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+Die vorliegende Note knüpft an die unter\textsuperscript{1)} zitierte Arbeit an, in der der abstrakte Aufbau der Idealtheorie in algebraischen Zahl- und Funktionenkörpern gegeben wurde. Dort war gezeigt, daß die Axiome I bis V\textsuperscript{2)} für die Hauptordnung eines algebraischen Zahl- oder Funktionenkörpers (erster Art) erfüllt sind, während für jede \textit{Ordnung} $\fO$ --- d.\,h.\ jeden die Grundordnung $R$ umfassenden endlichen Ring aus $\fK$ --- die Axiome I bis IV gelten. Es ergab sich daraus die eindeutige Darstellung der Ideale als Produkt von Primidealpotenzen; die Verschiedenheit trat erst bei den Diskriminantensätzen auf.
+
+Hier soll nun für beliebige Ordnungen $\fO$ der Zusammenhang hergestellt werden zwischen der \textit{Differente} $\mathfrak{D}_{\fO}$ --- definiert als Ideal der \textit{Hauptordnung} $\fO^{*}$ --- und den \textit{Verzweigungsidealen} der Ordnung $\fO$, d.\,h.\ den Primidealen $\fP$ von $\fO$, für die der Restklassenring $\fO \mid \fP$ nicht separabel über dem Restklassenkörper von $R$ nach $\fP \cap R$ ist. Der Hauptsatz lautet:
+
+\begin{Satz}[Diskriminantensatz]
+Eine notwendige und hinreichende Bedingung dafür, daß das Primideal $\mathfrak{p}$ von $R$ in der Ordnung $\fO$ verzweigt, ist daß $\mathfrak{p}$ in der Relativdiskriminante $\mathfrak{D}_{\fO}^{2}$ aufgeht.
+\end{Satz}
+
+Der Beweis beruht auf einer lokalen Betrachtung: Es wird gezeigt, daß die Verzweigungseigenschaften sich bereits im \textit{lokalen Ring} $R_{\mathfrak{p}}$ entscheiden lassen, wobei $R_{\mathfrak{p}}$ den Ring aller Elemente des Quotientenkörpers mit zu $\mathfrak{p}$ teilerfremdem Nenner bezeichnet.
+
+\setcounter{section}{0}
+\setcounter{Satz}{0}
+
+\section{Erweiterungsringe von Körpern.}
+
+\noindent
+Vorausgeschickt seien einige Bemerkungen über beliebige Ringe.
+
+Ist $T$ ein Ring, $S$ ein System von Elementen aus $T$, so wird unter dem \glqq aus $S$ in $T$ abgeleiteten Ring\grqq\ der Durchschnitt aller Ringe aus $T$ verstanden, die $S$ umfassen. Entsprechend ist das \glqq aus $S$ in $T$ abgeleitete Ideal\grqq\ definiert, oder der \glqq aus $S$ in $T$ abgeleitete $P$-Modul\grqq, wenn $P$ Unterring von $T$\footnote{Vergl. dazu Idealtheorie \S\,1.}.
+
+Ist $R$ Unterring von $T$ und $S$ ein System von Elementen aus $T$, so wird der aus $R$ und $S$ in $T$ abgeleitete Ring als der durch Ring-Adjunktion von $S$ zu $R$ entstandene Ring $R[S]$ bezeichnet. Dieser Ring besteht aus allen Polynomen der Elemente aus $S$ mit Koeffizienten aus $R$, wobei die Gleichheits- und Verknüpfungsbeziehungen durch die Gleichheits- und Verknüpfungsbeziehungen in $T$ festgelegt sind. Vermöge dieser schon festgelegten Gleichheits- und Verknüpfungsbeziehungen wird es im Spezialfall genügen, nur ein Untersystem aller Polynome --- etwa nur alle Linearformen in $S$ mit Koeffizienten aus $R$ --- zu bilden. Ein solcher Spezialfall liegt beispielsweise vor (vgl.\ \textbf{2.}), wenn $R$ ein Ring mit Einheitselement, $S$ ein Körper mit gleichem Einheitselement; alle linearen Kombinationen $\sum c_{i}y_{i}$, wo $c_{i}$ aus $S$ und $y_{i}$ aus $R$, bilden den Ring $R[S]$.
+
+Man kann aber auch, wenn nur der Ring $R$ gegeben ist, und außerdem ein System $S$ von nicht in $R$ enthaltenen Elementen mit Gleichheits- oder auch gegenseitigen Verknüpfungsbeziehungen, den durch Adjunktion von $S$ zu $R$ entstandenen Erweiterungsring $R[S]$ konstruieren, indem man zeigt, daß es immer einen $R$ und $S$ umfassenden Ring gibt, nämlich den formal aus allen Polynomen in $S$ mit Koeffizienten aus $R$ gebildeten, unter Festsetzung der üblichen Verknüpfungsregeln. Für die Gleichheitsdefinition ist dabei --- abgesehen von den Verknüpfungsregeln --- noch volle Freiheit möglich bis auf die Beschränkung, daß die in $R$ und $S$ geltenden Gleichheitsdefinitionen umfaßt werden. Es müssen also nur notwendig diejenigen Polynome gleich gesetzt werden, die sich --- vermöge der Gleichheit in $R$ und $S$ und vermöge der Verknüpfungen --- aus gleichen Elementen von $R$ und $S$ auf gleiche Art bilden lassen.
+
+Der solchermaßen konstruierte, $R$ und $S$ umfassende Ring $T$ wird dann identisch mit dem in $T$ aus $R$ und $S$ abgeleiteten\footnote{Vergl. die Steinitzsche Konstruktion des Quotientenkörpers.}.
+
+\medskip
+\noindent
+\textbf{2. Erweiterungsringe von Körpern.} Von jetzt an seien Ringe $R$ mit Einheitselement vorausgesetzt, die einen Körper $P$ als Unterring enthalten, die also \textit{Oberringe von Körpern} sind. Das Einheitselement $e$ von $R$ wird dann zugleich Einheitselement von $P$; und der Ring wird $P$-Modul.
+
+Ist $\bar{P}$ ein Oberkörper von $P$, so soll der durch Ring-Adjunktion von $\bar{P}$ zu $R$ entstandene Erweiterungsring $\bar{R} = R[\bar{P}]$ folgendermaßen erklärt werden:
+
+Vorausgesetzt sei, daß der mengentheoretische Durchschnitt $[R, \bar{P}]$ von $R$ und $\bar{P}$ durch $P$ gegeben ist und weiter, daß zwischen den nicht zu $\bar{P}$ gehörigen Elementen von $R$ und $\bar{P}$ keine Verknüpfungen bestehen. Diese Voraussetzung kann immer erreicht werden, indem $\bar{P}$ durch einen äquivalenten Erweiterungskörper von $P$ ersetzt wird, oder auch $R$ durch einen äquivalenten Erweiterungsring von $P$\footnote{Zwei Erweiterungskörper von $P$ heißen nach Steinitz \glqq äquivalent\grqq, wenn sie sich derart isomorph aufeinander beziehen lassen, daß $P$ elementweise sich selbst entspricht, entsprechend sind äquivalente Erweiterungsringe von $P$ zu definieren. Durch Einführung neuer Symbole lassen sich immer äquivalente Erweiterungen erzeugen; diese Freiheit in der Verwendung äquivalenter Erweiterungen ist für das folgende wesentlich.}.
+
+Als Elemente von $\bar{R}$ werden alle formal gebildeten linearen Verbindungen $\sum c_{i}y_{i}$ erklärt, wobei $c_{i}$ alle Elemente aus $\bar{P}$ durchläuft, $y_{i}$ alle Elemente aus $R$\footnote{Allgemein sollen Elemente aus $R$ oder $\bar{R}$ mit griechischen Buchstaben, Elemente aus $P$ oder $\bar{P}$ mit lateinischen Buchstaben bezeichnet werden.}. Die Definition soll eindeutig sein, d.\,h.\ werden die $y$ durch ihnen gleiche in $R$, die $c$ durch ihnen gleiche in $\bar{P}$ ersetzt, so soll auch das Element in $\bar{R}$ als gleich erklärt werden.
+
+Als Summe wird eindeutig --- d.\,h.\ wird ein Summand in der festzulegenden Gleichheitsdefinition durch einen gleichen ersetzt, so sei das Resultat das gleiche --- erklärt: $\sum c_{i}y_{i} + \sum d_{i}y_{i} = \sum (c_{i} + d_{i})y_{i}$. (Unter den $c$ und $d$ können Nullen auftreten, wodurch formal dieselben $y$ auftreten).
+
+Als Produkt wird im gleichen Sinn eindeutig erklärt: $\sum c_{i}y_{i} \cdot \sum d_{j}y_{j} = \sum c_{i}d_{j} \cdot y_{i}y_{j}$.
+
+Zur Gleichheitsdefinition wird erklärt: Sind $y_{1},\dots,y_{n}$ linear unabhängig in bezug auf $P$, so sollen zwei Elemente $\sum c_{i}y_{i}$ und $\sum d_{i}y_{i}$ nur dann (und stets dann) gleich sein, wenn $c_{i} = d_{i}$ in $\bar{P}$ wird. Anders ausgedrückt: In bezug auf $P$ linear unabhängige Elemente aus $R$ werden als linear unabhängig in bezug auf $\bar{P}$ erklärt.
+
+Vermöge der Summen- und Produktdefinition ist damit die Gleichheitsdefinition für alle Elemente aus $\bar{R}$ gegeben; es folgt nämlich ihre Ausdrückbarkeit durch linear unabhängige Elemente aus $R$. Denn aus einer Relation $u = \sum c_{i}y_{i}$ in $\bar{R}$ kommt durch Multiplikation mit $b = \sum d_{j}y_{j}$ nach der Produktdefinition: $bu = \sum b c_{i} y_{i} = \sum b c_{i} y_{i}$, und damit vermöge der Summendefinition die Ausdrückbarkeit aller Elemente durch linear unabhängige aus $R$.
+
+Die Gleichheitsdefinition wird somit --- wenn alle Elemente durch linear unabhängige aus $R$ ausgedrückt sind --- zur Koeffizientengleichheit in $\bar{P}$ und stimmt daher für die gleichzeitig zu $R$ und $\bar{R}$ oder zu $P$ und $\bar{P}$ gehörenden Elemente mit der dort gültigen überein, während die in $R$ und $\bar{P}$ geltende Gleichheit für die übrigen Elemente aus $\bar{R}$ nichts weiter aussagt als die bei der Definition dieser Elemente geforderte Eindeutigkeit (wegen der Durchschnittsvoraussetzung und der weiteren Bestimmung)\footnote{Ohne diese Voraussetzung gäbe es mindestens ein nicht zu $\bar{P}$ gehörendes Element $\epsilon$ aus $\bar{P}$, für das $\bar{e} = \bar{t}\bar{e} = y$ gilt. Es wären also --- vermöge der Gleichheitsdefinition in $\bar{R}$ --- zwar $e$ und $y$ linear unabhängig in bezug auf $P$, aber abhängig in bezug auf $\bar{P}$. Wegen der Relationen zwischen Elementen aus $\bar{P}$ und $R$ wäre also die obige Gleichheitsdefinition nicht möglich; man denke etwa an die Graderniedrigung eines endlichen Erweiterungskörpers, wenn der Grundkörper durch einen Zwischenkörper ersetzt wird.
+
+Die obige Erweiterung ist dagegen gekennzeichnet durch die Möglichkeit des Auftretens neuer Nullteiler; so ist etwa der Restklassenring des Polynombereichs mit rationalen Koeffizienten $P$ nach einer beliebigen definierenden Gleichung oder auch nach der Fundamentalgleichung nicht isomorph zu sein dem Restklassenring der Hauptordnung nach $(p)$ --- und in diesem Aufhören des Isomorphismus liegen die Hauptschwierigkeiten bei den üblichen Darstellungen. Da dieser Hilfspolynombereich hier nicht auftritt, sind diese Schwierigkeiten damit von selbst umgangen; zugleich läßt die additive Zerlegungstheorie des Restklassenrings sich auffassen als Äquivalent der multiplikativen Zerlegung der Gleichung, der auch hier bei Zerlegung in teilerfremde Faktoren eine additive Zerlegung im Polynom-Restklassenring entspricht.
+
+Es sei bemerkt, daß der Diskriminantensatz nur den ersten Satz einer allgemeinen Verzweigungstheorie der Ordnungen darstellen kann, ebenso wie in der Hauptordnung dem Diskriminantensatz sich die feinere Theorie des Verzweigungsideals an die Seite stellt, die dort eine genauere Exponentenbestimmung gestattet.
+
+Diese Exponentenbestimmung --- die auf der Potenzdarstellung der primären Faktoren der Gleichungen beruht --- läßt sich deuten als Bestimmung der Länge einer Kompositionsreihe (von $\mathfrak{p}$ nach $\mathfrak{q} = \mathfrak{p}^{\varrho}$) und wird voraussichtlich in dieser Form in der allgemeinen Verzweigungstheorie auftreten.}.
+
+\medskip
+\noindent
+\textbf{3. Ideale in $R$ und $\bar{R}$.} Ist $\mathfrak{a}$ ein Ideal in $R$, so wird das Modulprodukt $\bar{R}\mathfrak{a}$ ein Ideal $\bar{\mathfrak{a}}$ in $\bar{R}$, das \textit{Erweiterungsideal} von $\mathfrak{a}$. Zugleich wird $\bar{\mathfrak{a}}$ das aus $\mathfrak{a}$ in $\bar{R}$ abgeleitete Ideal; es besteht aus allen linearen Verbindungen $\sum c_{i}a_{i}$, die Summe jeweils über endlich viele Elemente genommen, wobei die $a_{i}$ alle Elemente aus $\mathfrak{a}$, die $c_{i}$ alle Elemente aus $\bar{P}$ durchlaufen.
+
+Ist $\mathfrak{b}$ Ideal in $\bar{R}$, so wird der Durchschnitt $[\mathfrak{b}, R]$ ein Ideal $\underline{\mathfrak{b}}$ in $R$, das \textit{Verengungsideal} von $\mathfrak{b}$\footnote{Der Durchschnitt $[\mathfrak{b}, R]$ ist Ideal in $R$, da mit $\beta$ auch $r\beta$ in $\mathfrak{b}$ und in $R$ liegt, wenn $r$ aus $R$.}. Jedes Ideal $\mathfrak{a}$ aus $R$ ist Verengungsideal, und zwar seines Erweiterungsideals $\bar{\mathfrak{a}}$. Denn jedes Element $a$ aus $[R, \bar{\mathfrak{a}}]$ ist von der Form $\sum c_{i}a_{i}$, wo die $a_{i}$ als linear unabhängig in bezug auf $\bar{P}$ oder $P$ vorausgesetzt werden dürfen. Es werden also die Elemente $a, a_{i}$ linear abhängig in $\bar{R}$, und damit nach der Gleichheitsdefinition auch in $R$; somit gehört $a$ zu $\mathfrak{a}$. Da auch das Umgekehrte gilt, wird $\mathfrak{a} = [R, \bar{\mathfrak{a}}]$.
+
+\medskip
+\noindent
+\textbf{4.} Aus diesen Überlegungen ergibt sich, daß die Idealtheorie in $\bar{R}$ sich zurückführen läßt auf die Idealtheorie in $R$ und die Körpertheorie von $\bar{P}$ über $P$. Insbesondere gilt:
+
+\begin{Satz}
+Ist $\mathfrak{p}$ Primideal in $R$, so wird das Erweiterungsideal $\bar{\mathfrak{p}}$ in $\bar{R}$ entweder wieder primär mit dem zugehörigen Primideal $\bar{\mathfrak{P}}$, oder es wird $\bar{\mathfrak{p}} = \bar{R}$ (d.\,h.\ $\mathfrak{p}$ wird Einheitsideal in $\bar{R}$).
+\end{Satz}
+
+Dieser Satz bildet die Grundlage für die Theorie der Relativdifferente und des Diskriminantenideals, die in den folgenden Paragraphen entwickelt wird.
+
+\vspace{1cm}
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+\vspace{0.5cm}
+\noindent
+\textit{Fortsetzung folgt.}
+
+\newpage
+% ==================== BIBLIOGRAPHIC NOTES ====================
+\section*{Anmerkungen zur Textgestaltung}
+\addcontentsline{toc}{section}{Anmerkungen zur Textgestaltung}
+
+\noindent
+
+\medskip
+\noindent
+\textbf{Umfang der vorliegenden Seiten 501--550:}
+
+\begin{enumerate}
+    \item \textit{Der Endlichkeitssatz der Invarianten endlicher linearer Gruppen} (Schluß): Die \S\,82 behandelt die Invariantenendlichkeit bei beliebiger Charakteristik und führt den allgemeinen Endlichkeitssatz unter Verwendung des in \S\,81 entwickelten Endlichkeitskriteriums.
+    
+    \item \textit{Abstrakter Aufbau der Idealtheorie in algebraischen Zahl- und Funktionenkörpern} (Math.\ Ann.\ 96 (1926), S.~26--61): Der Hauptteil der vorliegenden Seiten enthält diesen grundlegenden Aufsatz, der die klassische Idealtheorie aus fünf einfachen Axiomen entwickelt. Die \S\,1--10 behandeln: \S\,1: Theorie der ganzen Größen; \S\,2: Kettensätze in endlichen Modulbereichen; \S\,3: Erhaltung der Axiome bei Adjunktion ganzer Größen; \S\,4: Isomorphiesätze und direkte Summen; \S\,5: Rechenregeln für teilerfremde Ideale; \S\,6: Idealtheorie bei Voraussetzung des Teilerkettensatzes; \S\,7: Idealtheorie bei Voraussetzung des Doppelkettensatzes; \S\,8: Idealtheorie bei Voraussetzung der Axiome I--V; \S\,9: Umkehrung; \S\,10: Doppelkettensatz und Kompositionsreihe.
+    
+    \item \textit{Der Diskriminantensatz für die Ordnungen eines algebraischen Zahl- oder Funktionenkörpers} (Math.\ Ann.\ 96 (1927), S.~515ff.): Der Beginn dieser Note, die an den abstrakten Aufbau der Idealtheorie anknüpft und den Zusammenhang zwischen Differente und Verzweigung herstellt.
+\end{enumerate}
+
+\medskip
+\noindent
+\textbf{Textkritische Bemerkungen:}
+
+
+\end{document}
