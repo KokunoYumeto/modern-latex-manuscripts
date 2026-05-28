@@ -1,14 +1,12 @@
-# SGA Translation Worklog — translation segment
+# SGA Translation Worklog — working draft section
 
 Date: 2026-05-27
 
 ## Inputs used
 
 - Primary source: `SGA4-master-71766d9/01/01.tex` from the SGA 4 Orgogozo/Laszlo re-edition snapshot in the source package packet.
-- continuation point from translation segment: SGA 4, Exposé I, Section 2, “Limites projectives et inductives.”
-- Style reference newly supplied by the user: `Deligne.zip`. I inspected the completed English translations in `completed_translations/tex/` and adopted the same working principle where appropriate: literal mathematical translation, modern standard terminology, conservative notation, and self-contained compileable LaTeX.
 
-## Translation completed in this translation segment
+## Translation completed in this working draft section
 
 Fresh translation:
 
@@ -48,6 +46,5 @@ I corrected evident working-source typographical slips where the categorical mea
 - Render validation: all 19 pages rendered with `/home/oai/skills/pdfs/scripts/render_pdf.py` at 140 dpi.
 - Render spot checks: first, middle, and final pages were visually inspected. No missing pages, clipping, black boxes, or broken glyphs were observed.
 
-## Next continuation point
 
 Continue at SGA 4, Exposé I, Section 6, “Foncteurs fidèles et foncteurs pleinement fidèles.” In the source snapshot this begins at line 1739 of `01/01.tex`.

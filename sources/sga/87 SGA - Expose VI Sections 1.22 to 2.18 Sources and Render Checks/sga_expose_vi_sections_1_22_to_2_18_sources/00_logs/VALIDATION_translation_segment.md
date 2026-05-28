@@ -1,4 +1,4 @@
-# Validation - translation segment
+# Validation - working draft section
 
 - `pdflatex` compile: completed successfully, two passes.
 - Output PDF: 17 pages.

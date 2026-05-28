@@ -1,4 +1,4 @@
-# Worklog — translation segment redelivery
+# Worklog — working draft section redelivery
 
 Generated: 2026-05-27T21:35:57
 
@@ -8,9 +8,9 @@ Generated: 2026-05-27T21:35:57
 - Work: SGA 4, Exposé IV, Section 9.
 - Title: Subtopoi and gluing of topoi.
 - French source: `04/04.tex`, lines 5254--8245.
-- English LaTeX: `02_new_translation_latex/translation segment/SGA4_Expose_IV_section_9_en.tex`.
-- Rendered PDF: `02_new_translation_latex/translation segment/SGA4_Expose_IV_section_9_en.pdf`.
-- French source extract: `05_source_extracts/translation segment/SGA4_Expose_IV_section_9_source_lines_5254_8245_fr.tex`.
+- English LaTeX: `02_new_translation_latex/working draft section/SGA4_Expose_IV_section_9_en.tex`.
+- Rendered PDF: `02_new_translation_latex/working draft section/SGA4_Expose_IV_section_9_en.pdf`.
+- French source extract: `05_source_extracts/working draft section/SGA4_Expose_IV_section_9_source_lines_5254_8245_fr.tex`.
 
 ## Build notes
 

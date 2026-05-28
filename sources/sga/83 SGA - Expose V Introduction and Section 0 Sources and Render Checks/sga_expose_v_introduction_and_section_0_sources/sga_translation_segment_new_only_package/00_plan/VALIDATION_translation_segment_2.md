@@ -1,4 +1,4 @@
-# Validation - translation segment fresh-only
+# Validation - working draft section fresh-only
 
 - TeX compiled with `pdflatex` twice without fatal errors.
 - Rendered PDF pages to PNG for visual checking.

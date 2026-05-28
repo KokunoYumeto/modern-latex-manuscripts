@@ -1,4 +1,4 @@
-# Validation — translation segment redelivery
+# Validation — working draft section redelivery
 
 Generated: 2026-05-27T21:35:57
 
@@ -7,13 +7,13 @@ Generated: 2026-05-27T21:35:57
 - Engine: `pdflatex`
 - Result: clean PDF generated.
 - PDF page count: 19 pages according to `pdfinfo`.
-- PDF path: `02_new_translation_latex/translation segment/SGA4_Expose_IV_section_9_en.pdf`.
+- PDF path: `02_new_translation_latex/working draft section/SGA4_Expose_IV_section_9_en.pdf`.
 
 ## Render check
 
 - Renderer: `pdftoppm -png -r 120`
 - Rendered pages: 19
-- Render directory: `04_render_checks/translation segment/SGA4_Expose_IV_section_9_render/`.
+- Render directory: `04_render_checks/working draft section/SGA4_Expose_IV_section_9_render/`.
 
 ## Scope check
 

@@ -1,4 +1,4 @@
-# Validation - translation segment standalone
+# Validation - working draft section standalone
 
 - TeX compiled with `pdflatex` twice without fatal errors.
 - Rendered PDF pages to PNG for visual checking.

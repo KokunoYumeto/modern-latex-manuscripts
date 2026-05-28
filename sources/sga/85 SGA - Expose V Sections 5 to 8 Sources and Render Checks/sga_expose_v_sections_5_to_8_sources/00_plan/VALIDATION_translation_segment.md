@@ -1,8 +1,8 @@
-# Validation - translation segment
+# Validation - working draft section
 
 ## Compile
 
-Command run from `02_new_translation_latex/translation segment/`:
+Command run from `02_new_translation_latex/working draft section/`:
 
 ```bash
 pdflatex -interaction=nonstopmode -halt-on-error SGA4_Expose_V_sections_5_to_8_en.tex

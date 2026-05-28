@@ -1,6 +1,6 @@
 # SGA 3: Group Schemes
 
-> Consolidated from the jcreinhold LLM-generated Markdown snapshot included in the source package packet. Not mathematically proofed in this translation segment.
+> Consolidated from the jcreinhold LLM-generated Markdown snapshot included in the source package packet. Not mathematically proofed in this working draft section.
 
 
 

@@ -1,4 +1,4 @@
-# Worklog translation segment
+# Worklog working draft section
 
 Generated: 2026-05-27T18:13:51Z
 
@@ -14,4 +14,3 @@ Fresh material:
 
 Packaging policy:
 
-continuation point:

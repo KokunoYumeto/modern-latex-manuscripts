@@ -1,4 +1,4 @@
-# Worklog -- translation segment
+# Worklog -- working draft section
 
 ## Inputs inspected
 
@@ -31,4 +31,4 @@ The SGA 4 and SGA 5 files are fresh draft translations prepared directly from th
 
 The two fresh translation files were compile-checked with `pdflatex` and rendered to PNG using the PDF skill render script. The rendered pages were spot-checked visually for obvious clipping or broken glyphs. The preview PDFs are included in the package, but the LaTeX sources remain the primary deliverables.
 
-The SGA 1--3 Pandoc conversion files were not compiled in this translation segment; they are too large for a quick proofing pass and should be treated as converted source material rather than final typeset volumes.
+The SGA 1--3 Pandoc conversion files were not compiled in this working draft section; they are too large for a quick proofing pass and should be treated as converted source material rather than final typeset volumes.

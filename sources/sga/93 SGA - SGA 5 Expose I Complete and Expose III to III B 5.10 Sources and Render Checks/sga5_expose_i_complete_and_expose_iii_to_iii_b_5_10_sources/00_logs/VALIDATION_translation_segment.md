@@ -1,4 +1,4 @@
-# Validation -- translation segment
+# Validation -- working draft section
 
 Main PDF: `SGA5_Expose_I_complete_and_Expose_III_to_III_B_5_10_en.pdf`
 
@@ -14,7 +14,6 @@ Visual checks:
 - Page 1: title/opening and mathematical notation visible.
 - Page 26: Expose I appendix source-fragment note visible and readable.
 - Page 35: transition through Expose III cup-products/complements visible and readable.
-- Page 53: final non-commutative trace diagrams and continuation point visible and readable.
 
 Known caveats:
 

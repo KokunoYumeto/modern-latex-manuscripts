@@ -1,4 +1,4 @@
-# Validation - translation segment
+# Validation - working draft section
 
 - Both TeX files compiled successfully with `pdflatex` in two passes.
 - Rendered PDFs:

@@ -1,9 +1,9 @@
-# Validation Report — translation segment
+# Validation Report — working draft section
 
 ## Files checked
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_2_to_5_en.tex`
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_2_to_5_en.pdf`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_2_to_5_en.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_2_to_5_en.pdf`
 
 ## Compile check
 
@@ -24,7 +24,7 @@ Command:
 ```bash
 python /home/oai/skills/pdfs/scripts/render_pdf.py \
   SGA4_Expose_I_sections_2_to_5_en.pdf \
-  --out_dir 04_render_checks/translation segment/SGA4_Expose_I_sections_2_to_5_en_render \
+  --out_dir 04_render_checks/working draft section/SGA4_Expose_I_sections_2_to_5_en_render \
   --dpi 140
 ```
 

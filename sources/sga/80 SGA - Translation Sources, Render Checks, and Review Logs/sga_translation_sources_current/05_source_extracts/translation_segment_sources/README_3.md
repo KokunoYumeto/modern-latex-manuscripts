@@ -1,6 +1,6 @@
-# translation segment source extract
+# working draft section source extract
 
-French source range translated in translation segment:
+French source range translated in working draft section:
 
 - SGA 4, Exposé IV, Sections 7--8.8
 - Source file: `04/04.tex`

@@ -1,10 +1,10 @@
-# Worklog — translation segment
+# Worklog — working draft section
 
 Date: 2026-05-27
 
 ## Scope
 
-Continued the SGA translation project from the translation segment anchor.
+Continued the SGA translation project from the working draft section anchor.
 
 Fresh translation added:
 
@@ -18,10 +18,10 @@ Source range translated: Orgogozo/Laszlo SGA 4 TeX source `01/01.tex`, lines 462
 
 ## Output files
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_8_9_to_8_13_en.tex`
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_8_9_to_8_13_en.pdf`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_8_9_to_8_13_en.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_8_9_to_8_13_en.pdf`
 - `02_new_translation_latex/cumulative/SGA4_Expose_I_sections_0_to_8_13_cumulative_en.pdf`
-- `05_source_extracts/translation segment/SGA4_Expose_I_sections_8_9_to_8_13_source_lines_4626_5804_fr.tex`
+- `05_source_extracts/working draft section/SGA4_Expose_I_sections_8_9_to_8_13_source_lines_4626_5804_fr.tex`
 
 ## Notes
 
@@ -29,5 +29,4 @@ The translation corrects a small number of evident typographical slips in the re
 
 The SGA 4 Exposé I cumulative reading PDF now runs through the end of Section 8, stopping immediately before Section 9, “Accessible functors, cardinal filtrations, and construction of small generating subcategories.”
 
-## continuation point
 

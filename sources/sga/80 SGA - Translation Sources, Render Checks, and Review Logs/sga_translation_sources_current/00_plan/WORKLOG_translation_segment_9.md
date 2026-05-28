@@ -1,10 +1,10 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 Date: 2026-05-27
 
 ## Scope
 
-Fresh translation added in this translation segment:
+Fresh translation added in this working draft section:
 
 - SGA 4, Expose II, opening overview.
 - SGA 4, Expose II, Section 1, "Topologies, covering families, pretopologies".
@@ -16,10 +16,10 @@ This starts the translated draft of SGA 4, Expose II.
 
 ## Files added
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_II_opening_sections_1_to_2_7_en.tex`
-- `02_new_translation_latex/translation segment/SGA4_Expose_II_opening_sections_1_to_2_7_en.pdf`
+- `02_new_translation_latex/working draft section/SGA4_Expose_II_opening_sections_1_to_2_7_en.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_II_opening_sections_1_to_2_7_en.pdf`
 - `02_new_translation_latex/cumulative/SGA4_Expose_II_opening_sections_1_to_2_7_cumulative_en.pdf`
-- `05_source_extracts/translation segment/SGA4_Expose_II_opening_sections_1_to_2_7_source_lines_23_421_fr.tex`
+- `05_source_extracts/working draft section/SGA4_Expose_II_opening_sections_1_to_2_7_source_lines_23_421_fr.tex`
 
 ## Notes
 
@@ -27,5 +27,4 @@ Terminology is aligned with current English usage: `sieve` for `crible`, `coveri
 
 The source's references to Expose I are preserved in their compact internal form, e.g. `I 3.3`, pending later cross-reference normalization across the whole volume.
 
-## continuation point
 
