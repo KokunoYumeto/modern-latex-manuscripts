@@ -19,7 +19,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 - SGA working translation: https://zenodo.org/records/20423267
 - Heinrich Weber author record: https://zenodo.org/records/20422935
 - Emmy Noether author record: https://zenodo.org/records/20422936
-- Non-European mathematics consolidated corpus: https://zenodo.org/records/20422507
+- Non-European mathematics consolidated corpus: https://zenodo.org/records/20423975
 - Chinese mathematical classics: https://zenodo.org/records/20421647
 - Indian and Sanskrit mathematical classics: https://zenodo.org/records/20421650
 - Islamic and Arabic mathematical texts: https://zenodo.org/records/20421656
