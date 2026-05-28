@@ -11,7 +11,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 - Metadata or filename flags: 0
 - PDF process-note flags: 0
 - PDF surface-health flags: 0
-- Non-European consolidated record comparison against current live record `20434098`: 66 matched PDFs, visible translator-note labels removed from reader surfaces, 0 known regressions in the promoted public package
+- Non-European consolidated record comparison against current live record `20434750`: 66 matched PDFs, visible translator-note labels removed from reader surfaces, duplicate aliases removed, 0 known regressions in the promoted public package
 
 ## Current Records
 
@@ -20,7 +20,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 | Main landing and raw source backstop | [20430709](https://zenodo.org/records/20430709) | 100 | 53 | 45 | clean |
 | EGA | [20432146](https://zenodo.org/records/20432146) | 14 | 9 | 3 | clean |
 | SGA | [20434592](https://zenodo.org/records/20434592) | 58 | 37 | 20 | clean |
-| Non-European consolidated corpus | [20434098](https://zenodo.org/records/20434098) | 72 | 66 | 5 | clean |
+| Non-European consolidated corpus | [20434750](https://zenodo.org/records/20434750) | 73 | 66 | 6 | clean |
 | Chinese mathematical classics | [20421647](https://zenodo.org/records/20421647) | 29 | 27 | 1 | clean |
 | Indian and Sanskrit mathematical classics | [20421650](https://zenodo.org/records/20421650) | 13 | 11 | 1 | clean |
 | Islamic and Arabic mathematical texts | [20421656](https://zenodo.org/records/20421656) | 19 | 17 | 1 | clean |
@@ -38,5 +38,6 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 - The main landing record is the preservation backstop for current raw working inputs. Its file list includes ten `99 Raw Source Drops` ZIP parts plus a manifest and README.
 - The author and corpus records are cleaner public views for readers who want individual PDFs, TeX/source ZIPs, and status summaries without downloading the whole raw-source archive.
 - These audits are mechanical checks, not mathematical proofreading. Remaining work includes source comparison, theorem and reference checking, translation completion, and typography repair where inherited drafts are uneven.
+
 
 
