@@ -8,7 +8,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 - Main landing page: https://zenodo.org/records/20415117
 - EGA working translation: https://zenodo.org/records/20421162
-- SGA working translation: https://zenodo.org/records/20421057
+- SGA working translation: https://zenodo.org/records/20421261
 - Heinrich Weber author record: https://zenodo.org/records/20421148
 - Emmy Noether author record: https://zenodo.org/records/20421149
 - Non-European mathematics consolidated corpus: https://zenodo.org/records/20420947
@@ -30,5 +30,15 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 ## Status
 
 This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+
+## Contributing
+
+Useful contributions include:
+
+- Pull requests correcting TeX, typography, theorem numbering, cross-references, translations, or metadata.
+- Issues pointing to better public scans, existing TeX, existing translations, or obvious PDF rendering errors.
+- Work-level review notes comparing a reader PDF against the source witness.
+
+Please keep corrections narrowly scoped and cite the source page or file when possible. Large raw scans and preservation ZIPs live on Zenodo; GitHub is meant to stay forkable and reviewable.
 
 Default dedication is CC0/public-domain dedication to the extent possible; upstream projects retain their own credit history and license context where applicable.
