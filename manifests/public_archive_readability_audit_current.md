@@ -1,6 +1,6 @@
 # Public Archive Readability Audit
 
-Generated: 2026-05-29T01:15:09
+Generated: 2026-05-29T01:45:10
 
 ## Summary
 
@@ -9,7 +9,7 @@ Generated: 2026-05-29T01:15:09
 | main | [20435272](https://zenodo.org/records/20435272) | 100 | 53 | 45 | 20698.32 | none | 0 |
 | ega | [20434859](https://zenodo.org/records/20434859) | 14 | 9 | 3 | 462.28 | none | 0 |
 | sga | [20434868](https://zenodo.org/records/20434868) | 58 | 37 | 20 | 586.77 | none | 0 |
-| non_european_consolidated | [20435110](https://zenodo.org/records/20435110) | 73 | 66 | 6 | 2207.19 | none | 0 |
+| non_european_consolidated | [20436420](https://zenodo.org/records/20436420) | 74 | 66 | 7 | 4090.3 | none | 0 |
 | chinese | [20435670](https://zenodo.org/records/20435670) | 29 | 27 | 1 | 121.81 | none | 0 |
 | indian_sanskrit | [20435677](https://zenodo.org/records/20435677) | 13 | 11 | 1 | 699.28 | none | 0 |
 | islamic_arabic | [20435687](https://zenodo.org/records/20435687) | 19 | 17 | 1 | 98.46 | none | 0 |
@@ -28,14 +28,14 @@ No public metadata or filename flags found for the configured internal/stale pat
 ## First Files
 
 ### main (20435272)
+- `10 Reader PDF - Qin Jiushao - Shushu Jiuzhang.pdf`
+- `10 Reader PDF - Al-Tusi - Shakl al-Qatta.pdf`
+- `10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part II.pdf`
+- `90 Artifacts - Hecke - Lectures on Algebraic Number Theory.zip`
+- `10 Reader PDF - Fricke and Klein - Automorphic Functions Volume II.pdf`
 - `99 Raw Source Drops - Current Working Inputs - Part 04 of 10.zip`
 - `99 Raw Source Drops - Current Working Inputs - Part 10 of 10.zip`
 - `99 Raw Source Drops - Current Working Inputs - Part 06 of 10.zip`
-- `99 Raw Source Drops - Current Working Inputs - Part 09 of 10.zip`
-- `99 Raw Source Drops - Current Working Inputs - Part 07 of 10.zip`
-- `99 Raw Source Drops - README.txt`
-- `99 Raw Source Drops - Current Working Inputs - Part 02 of 10.zip`
-- `99 Raw Source Drops - Current Working Inputs - Part 01 of 10.zip`
 
 ### ega (20434859)
 - `16 EGA IV Part 3 - French Original (NUMDAM PMIHES 28, 1966).pdf`
@@ -57,15 +57,15 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `00 SGA 1 - Existing English Translation Snapshot.pdf`
 - `12 SGA 4 - Expose V English Draft sections 5 to 8.pdf`
 
-### non_european_consolidated (20435110)
-- `84 Non-European Mathematics - Audit and Repair Notes.zip`
-- `00 Index - Non-European Mathematics Corpus.pdf`
+### non_european_consolidated (20436420)
+- `85 Non-European Mathematics - Additional Source Refinement Packets.zip`
+- `90 Non-European Mathematics - Public Summary.json`
+- `99 Non-European Mathematics - As-Received Source and Provenance Archive.zip`
+- `10-19 English Translation - Ibn al-Nadim - Kitab al-Fihrist.pdf`
+- `50-03 Indian Original - Bhaskara II - Lilavati.pdf`
+- `30-03 Arabic Translation - Yang Hui - Xiangjie, part 1.pdf`
 - `60-01 Islamic Original - al-Kashi - Miftah al-Hisab.pdf`
-- `30-05 Arabic Translation - al-Khwarizmi - Algebra.pdf`
-- `30-06 Arabic Translation - Omar Khayyam - Treatise on Algebra.pdf`
-- `10-08 English Translation - Bhaskara II - Bijaganita, parts 1-3.pdf`
-- `10-15 English Translation - Omar Khayyam - Treatise on Algebra.pdf`
-- `10-14 English Translation - Robert of Chester and Karpinski.pdf`
+- `40-07 Chinese Original - Yang Hui - Xiangjie, parts 1-3.pdf`
 
 ### chinese (20435670)
 - `40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf`
