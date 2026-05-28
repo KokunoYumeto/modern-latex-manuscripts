@@ -2,8 +2,8 @@
 set -euo pipefail
 # Run from the root of an extracted source work folder containing:
 # input/01_SGA_1_4_BASELINES_TRANSLATIONS_AND_REPOS/05_SOURCE_REPOS/jcreinhold_sga_llm_translation
-BASE="${1:-input/01_SGA_1_4_BASELINES_TRANSLATIONS_AND_REPOS/05_SOURCE_REPOS/jcreinhold_sga_llm_translation}"
-OUT="${2:-output/01_existing_translations_latex}"
+BASE="${1:-/mnt/data/sga_work/input/01_SGA_1_4_BASELINES_TRANSLATIONS_AND_REPOS/05_SOURCE_REPOS/jcreinhold_sga_llm_translation}"
+OUT="${2:-/mnt/data/sga_work/output/01_existing_translations_latex}"
 mkdir -p "$OUT"
 python - <<PY
 from pathlib import Path
