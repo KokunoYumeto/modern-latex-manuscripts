@@ -42,5 +42,9 @@ Useful contributions include:
 
 Please keep corrections narrowly scoped and cite the source page or file when possible. Large raw scans and preservation ZIPs live on Zenodo; GitHub is meant to stay forkable and reviewable.
 
-Default dedication is CC0/public-domain dedication to the extent possible; upstream projects retain their own credit history and license context where applicable.
+## License and Citation
+
+Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
+
+For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20415117.
 
