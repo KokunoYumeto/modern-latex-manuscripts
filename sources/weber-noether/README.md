@@ -1,4 +1,3 @@
-# Weber and Noether English translation drafts
+# Weber and Noether Sources
 
-This artifact preserves source TeX and individual rendered PDFs for the current Weber and Noether translation drafts.
-Top-level Zenodo PDFs expose the combined Weber reader draft and the combined Noether reader draft.
+This folder mirrors the current public Weber and Noether source material in forkable form. `translation-current/` contains the current English translation TeX and rendered pieces. `weber-author-artifacts/` and `noether-author-artifacts/` contain the current author-record source trees, including original-language TeX drafts and provenance/source manifests. Large raw preservation ZIPs remain on Zenodo.

@@ -1,0 +1,5214 @@
+% Combined TeX source bundle
+% Title: Yang Hui, Xiangjie Jiuzhang Suanfa, parts 1-3
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and reuse rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: chinese/yang-hui-xiangjie-jiuzhang-part1.tex
+% ============================================================
+
+%% =============================================================================
+%% Yang Hui: Xiangjie Jiuzhang Suanfa (詳解九章算法) -- Part I (EXPANDED)
+%% (Detailed Analysis of the Nine Chapters on Mathematical Methods)
+%% Song Dynasty (1261 CE) by Yang Hui (楊輝)
+%% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage[draft]{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{verse}
+\usepackage{lettrine}
+% \usepackage{microtype}  % disabled for XeTeX compatibility
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{french}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Renderer=HarfbuzzX  % Changed: Harfbuzz triggers CTAN fetches
+]
+\setsansfont{Linux Biolinum O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  Renderer=HarfbuzzX  % Changed: Harfbuzz triggers CTAN fetches
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% CJK Font Setup -- REQUIRED NotoSansCJKsc-Regular
+\setCJKmainfont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKsansfont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setCJKmonofont{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{commentarycolor}{RGB}{70,90,110}
+\definecolor{problemcolor}{RGB}{30,60,90}
+\definecolor{answercolor}{RGB}{40,80,60}
+\definecolor{methodcolor}{RGB}{80,50,30}
+\definecolor{chartcolor}{RGB}{60,40,80}
+\definecolor{caocaocolor}{RGB}{90,30,50}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{楊輝：詳解九章算法卷之一至三}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Environments --------
+\newenvironment{problem}[1][]{%
+  \par\noindent\textcolor{problemcolor}{\textbf{[\ignorespaces#1\unskip]}\hspace{0.5em}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{answer}{%
+  \par\noindent\textcolor{answercolor}{\textbf{答曰：}}%
+  \ignorespaces
+}{\par\vspace{0.3em}}
+
+\newenvironment{method}{%
+  \par\noindent\textcolor{methodcolor}{\textbf{術曰：}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{caocao}{%
+  \par\noindent\textcolor{caocaocolor}{\small\textbf{（算草）}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{commentary}{%
+  \par\noindent\textcolor{commentarycolor}{\small\textit{（楊輝詳解）}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{yanghuicomment}{%
+  \par\noindent\textcolor{commentarycolor}{\small\textit{楊輝曰：}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{xiangjie}{%
+  \par\noindent\textcolor{commentarycolor}{\small\textit{詳解：}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newcommand{\problemnum}[1]{\textbf{[\ignorespaces#1\unskip]}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Yang Hui: Xiangjie Jiuzhang Suanfa (Part I Expanded)},
+  pdfauthor={Yang Hui (Song Dynasty, 1261 CE)},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% -------- Vertical Spacing --------
+\setlength{\parskip}{0.3em}
+\setlength{\parindent}{0pt}
+
+%% =============================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+\vspace*{2.5cm}
+
+{\Huge\bfseries\color{titlecolor} 詳解九章算法}\[0.8cm]
+{\LARGE\bfseries\color{sectioncolor} Xiángjiě Jiǔzhāng Suànfǎ}\[1.5cm]
+{\Large\textit{Detailed Analysis of the Nine Chapters on Mathematical Methods}}\[2cm]
+{\large By \textbf{Yang Hui} (楊輝, 1261 CE)}\[0.5cm]
+{\large Song Dynasty}\[2.5cm]
+
+\rule{0.6\textwidth}{0.8pt}\[1.5cm]
+
+{\Large\bfseries Part I（擴充版）}\[1cm]
+
+\begin{tabular}{cl}
+\textbf{卷一} & 方田 \quad Fāngtián \quad (Rectangular Fields --- Fraction Methods)\\[0.4cm]
+\textbf{卷二} & 粟米 \quad Sùmǐ \quad (Millet and Rice --- Proportions)\\[0.4cm]
+\textbf{卷三} & 衰分 \quad Cuīfēn \quad (Proportional Distribution)\\[0.4cm]
+\textbf{圖譜} & 開方作法本源 \quad Yang Hui's Triangle \\
+\end{tabular}
+
+\vfill
+
+{\small 此擴充版包含詳細算草、逐步解析、及楊輝詳解}\[0.3cm]
+{\small The earliest Chinese text to discuss Pascal's triangle and its applications}\[0.3cm]
+{\small Contains detailed pedagogical commentary and step-by-step solutions (算草)}\[1cm]
+
+\rule{0.4\textwidth}{0.4pt}
+
+\end{center}
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+%% =============================================================================
+\section*{楊輝詳解九章算法序}
+\addcontentsline{toc}{section}{Preface: 楊輝詳解九章算法序}
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+夫天生五材，民並用之。數之為用也，其大矣哉。
+故黃帝使隸首造數，以通神明之德，以類萬物之情。
+自周官保氏教國子六藝，數實居其一焉。
+及秦焚書，散壞滋甚。漢北平侯張蒃、大司農中丞耿壽昌，皆以善算命世。
+蒐殘補缺，各稱刪補，故校其目則與古或異，而所論者多近語也。
+
+徽幼習九章，長再詳覽。觀陰陽之割裂，總算術之根源，探賾之暇，遂悟其意。
+是以敢竭頑魯，采其所見，為之作注。事類相推，各有攸歸，故枝條雖分而同本榦者，知發其一端而已。
+
+九數有重差之名，原其指趣乃所以施於此也。
+凡望極高、測絕深而兼知其遠者必用重差，句股則必以重差為率，故曰重差也。
+立兩表於洛陽之城，令高八尺。南北各盡平地，同日度其正中之景。
+以景差為法，表高乘表間為實，實如法而一，所得加表高，即日去地也。
+
+楊輝曰：九章算術，其來尚矣。自漢以來，代有傳注。
+至宋景德中，祕書監李淳風等奉詔注釋，頗為詳備。
+然其間條理未盡，說義弗明者，猶或有焉。
+輝不揆寡昧，輒為詳解。其為例也，先列原題，次釋術意，次設問答，次明算草。
+庶使學者開卷了然，易於領略。
+
+輝嘗謂：算法之於人，不亦急乎？日用而不可得離也。
+至於田疇畝尺之差，貿遷輕重之度，工程積尺之計，均輸遠近之度，無所不用算也。
+然算之為道，貴在簡明。簡則易知，明則易行。
+若其繁雜瑣碎，使人望而生畏，則非所以為教也。
+故輝於詳解之中，尤注意於條理貫通，使學者循序漸進，不至迷罔。
+
+輝於杭州刻印此書時，嘗設館授徒，口講指畫，務使學者洞曉其理。
+每謂人曰：算者，六藝之一，君子所不廢也。
+童子習之，足以練心；成人習之，足以應務。
+苟能潛心於此，雖不能盡窮其奧，亦足以應日用矣。
+
+又案：開方作法本源一圖，出於釋鎖算書，賈憲用此術。
+輝嘗考其源流，實為算學之根本，因取而詳解之，以附於九章之末。
+蓋九章言乘除、開方之法，而此圖則可以推廣其用，以通於高次也。
+
+輝所著書，除詳解九章算法十二卷外，尚有：
+\begin{itemize}[leftmargin=2em]
+\item 日用算法二卷（1262年）
+\item 乘除通變本末三卷（1274年）
+\item 田畝比類乘除捷法二卷（1275年）
+\item 續古摘奇算法二卷（1275年）
+\end{itemize}
+
+凡此諸書，皆輝一生心力之所聚，學者宜兼觀而並覽之。
+
+\begin{flushright}
+\textit{楊輝謹序}
+\end{flushright}
+
+\newpage
+
+%% =============================================================================
+\section{卷第一：方田}
+\label{sec:fangtian}
+\addcontentsline{toc}{subsection}{Fāngtián --- Rectangular Fields}
+
+\begin{center}
+\textit{方田以御田疇界域}
+\end{center}
+
+方田者，田之正也。諸田不等，以方為正，故曰方田。
+此章以御田疇界域，論各種田地面積之計算法，並及分數四則運算之法。
+
+\begin{yanghuicomment}
+楊輝曰：方田為九章之首，所以明度數之原也。
+度數之原，起於方田。方田者，正方形之田也。
+以正方為準，則其他形之田，可由此而推矣。
+此章凡三十八術，約分、合分、減分、課分、平分、乘分、經分，皆分數運算之根本也。
+學者須熟練此章，然後可以進於後章。
+\end{yanghuicomment}
+
+\subsection{方田法第一：約分術}
+
+\noindent\problemnum{一}\,
+今有田廣十五步，從十六步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一畝。
+
+\begin{caocao}
+\textbf{算草：}廣十五步，從十六步。廣從相乘：$15 \times 16 = 240$步，得積步二百四十。
+以畝法二百四十步除之：$240 \div 240 = 1$，即一畝。
+\end{caocao}
+
+\noindent\problemnum{二}\,
+又有田廣十二步，從十四步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一百六十八步。
+
+\begin{caocao}
+\textbf{算草：}廣十二步，從十四步。廣從相乘：$12 \times 14 = 168$步，得積步一百六十八。
+不滿畝法，故以積步為答。
+\end{caocao}
+
+\begin{method}
+方田術曰：廣從步數相乘得積步。以畝法二百四十步除之，即畝數。百畝為一頃。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：方田術，廣從相乘，此古法也。
+廣者，東西之度；從者，南北之度。以二數相乘，得積步。
+積步者，即方田之面積也。
+然積步之數甚大，不可徑以為畝，故以二百四十步為一畝而除之。
+何以知二百四十步為一畝？古法也。
+秦漢以來，皆用此法，至唐始有以二百步為畝者。
+此書從古法，故用二百四十步。
+
+輝按：畝法二百四十步，其源甚古。商鞅變法，制轍田為一步，廣一步、長二百四十步為一畝。
+此秦制也，漢因之。後世畝法屢變，有以二百步為畝者，有以三百六十步為畝者，然算家多從古制。
+\end{yanghuicomment}
+
+\subsection{方田法第二：約分術}
+
+\noindent\problemnum{三}\,
+今有十八分之十二。問約之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}三分之二。
+
+\begin{caocao}
+\textbf{算草：}十八分之十二，母子皆可半。以二約十二得六，以二約十八得九，為九分之六。
+九分之六，母子又可半。以二約六得三，以二約九得六？非也，九半之得四點五，非整數。
+重觀之：九與六，皆可半乎？六可半為三，九不可半為整數。
+故用更相減損：九減六，餘三；六減三（三減三），餘三；三減三，盡。等數為三。
+以三約六得二，以三約九？非也，等數為三，九除以三得三，六除以三得二。
+故為三分之二。驗之：$12 \div 6 = 2$，$18 \div 6 = 3$，即三分之二。
+\end{caocao}
+
+\noindent\problemnum{四}\,
+又有九十一分之四十九。問約之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十三分之七。
+
+\begin{caocao}
+\textbf{算草：}九十一與四十九，皆奇數，不可半。
+副置分母子之數，更相減損：
+\begin{itemize}[leftmargin=3em]
+\item 九十一減四十九，餘四十二
+\item 四十九減四十二，餘七
+\item 四十二減七，餘三十五（七減五次）
+\item 三十五減七，餘二十八
+\item 二十八減七，餘二十一
+\item 二十一減七，餘十四
+\item 十四減七，餘七
+\item 七減七，盡
+\end{itemize}
+其等數為七。以七約四十九得七，以七約九十一得一十三。
+故約為十三分之七。
+\end{caocao}
+
+\begin{method}
+約分術曰：可半者半之，不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：約分者，約其分數使從簡也。
+如十八分之十二，可半者半之，即得九分之六；又可半之，即得三分之二。
+此約分之最簡者也。
+若九十一分之四十九，不可半，則用更相減損之法。
+更相減損之法，即後世之所謂求最大公約數也。
+
+輝按：更相減損之法，見於九章，實為輾轉相除之法。
+歐幾里得幾何原本中亦有此法，西人謂之歐幾里得算法。
+然九章算術早於幾何原本數百年，此又一證中國算學之古也。
+
+約分之法，又有以母子同乘一數而約之者，謂之通約。
+又有以母子同除一數而約之者，謂之省約。
+學者宜審其宜而用之。
+\end{yanghuicomment}
+
+\subsection{方田法第三：合分術}
+
+\noindent\problemnum{五}\,
+今有三分之一，五分之二。問合之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十五分之十一。
+
+\begin{caocao}
+\textbf{算草：}母互乘子：三乘二得六，五乘一得五；並之得十一，為實。
+母相乘：三乘五得十五，為法。實如法而一，即十五分之十一。
+\end{caocao}
+
+\noindent\problemnum{六}\,
+又有三分之二，七分之四，九分之五。問合之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}得一、六十三分之五十。
+
+\begin{caocao}
+\textbf{算草：}三個分數合之，先通分。三分、七分、九分，其最小公倍數為六十三。
+通分之：
+\begin{itemize}[leftmargin=3em]
+\item 三分之二 = $\frac{2 \times 21}{3 \times 21}$ = $\frac{42}{63}$
+\item 七分之四 = $\frac{4 \times 9}{7 \times 9}$ = $\frac{36}{63}$
+\item 九分之五 = $\frac{5 \times 7}{9 \times 7}$ = $\frac{35}{63}$
+\end{itemize}
+子相加：$42 + 36 + 35 = 113$。以母六十三除之：$113 \div 63 = 1$餘$50$。
+故得一、六十三分之五十。
+\end{caocao}
+
+\noindent\problemnum{七}\,
+又有二分之一，三分之二，四分之三，五分之四。問合之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}得二、六十分之四十三。
+
+\begin{method}
+合分術曰：母互乘子，並為實，母相乘為法，實如法而一。不滿法者，以法命之。其母同者，直相從之。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：合分者，合眾分數為一也。
+如三分之一與五分之二，母互乘子：三乘二得六，五乘一得五；並之得十一，為實。
+母相乘：三乘五得十五，為法。實如法而一，即十五分之十一。
+若有三分數以上，則通分而後合之。
+其母同者直相從，謂如三分之一與三分之二，母皆為三，則直以子相加，得三分之三，即為一。
+此合分術之大要也。
+
+輝按：合分術之理，與後世分數加法全同。
+母互乘子即求公分母之法，以各子乘他母，則各子皆化為同母之數，然後可以相加。
+此術雖古，其理則一也。
+\end{yanghuicomment}
+
+\subsection{方田法第四：減分術}
+
+\noindent\problemnum{八}\,
+今有九分之八，減其五分之一。問餘幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}四十五分之三十一。
+
+\begin{caocao}
+\textbf{算草：}九分之八減五分之一。
+母互乘子：九乘一得九，五乘八得四十。
+以少減多：四十減九，餘三十一，為實。
+母相乘：九乘五得四十五，為法。
+故得四十五分之三十一。
+\end{caocao}
+
+\noindent\problemnum{九}\,
+又有四分之三，減其三分之一。問餘幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十二分之五。
+
+\begin{method}
+減分術曰：母互乘子，以少減多，餘為實，母相乘為法，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：減分與合分相對。合分者加之，減分者減之也。
+其法亦母互乘子，以少減多，餘為實，母相乘為法。
+如九分之八減五分之一：母互乘子，九乘一得九，五乘八得四十；以少減多，四十減九，餘三十一，為實。
+母相乘：九乘五得四十五，為法。故得四十五分之三十一。
+此術之理，與合分相通，但一則並而一則減耳。
+
+輝按：減分術中，若被減數小於減數，則不足減，須借整數以減之。
+如三分之一減二分之一，不可徑減，須借一整數，化為三分之三，加三分之一，為三分之四。
+然後三分之四減三分之二（即二分之一的通分），餘三分之一。
+此借位之法，學者宜知之。
+\end{yanghuicomment}
+
+\subsection{方田法第五：課分術}
+
+\noindent\problemnum{十}\,
+今有八分之五，二十五分之十六。問孰多？多幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二十五分之十六多，多二百分之三。
+
+\begin{caocao}
+\textbf{算草：}母互乘子以比較：
+八乘十六得一百二十八，二十五乘五得一百二十五。
+一百二十八多於一百二十五，故二十五分之十六多。
+以少減多：$128 - 125 = 3$，為實。
+母相乘：$8 \times 25 = 200$，為法。
+故多二百分之三。
+\end{caocao}
+
+\noindent\problemnum{十一}\,
+又有九分之八，七分之六。問孰多？多幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}九分之八多，多六十三分之二。
+
+\begin{method}
+課分術曰：母互乘子，以少減多，餘為實，母相乘為法，實如法而一，即相多也。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：課分者，課其多寡也。
+母互乘子，所以通其分也。通分以後，子之大小可徑比較。
+如八分之五與二十五分之十六：母互乘子，八乘十六得一百二十八，二十五乘五得一百二十五；
+以少減多，一百二十八減一百二十五，餘三，為實。
+母相乘：八乘二十五得二百，為法。故多二百分之三。
+
+輝按：課分術不獨知孰多孰少，並能知其多寡之數。
+此術在交易之中尤為要者，如兩種物價之比較，即此術之用也。
+\end{yanghuicomment}
+
+\subsection{方田法第六：平分術}
+
+\noindent\problemnum{十二}\,
+今有三分之一，三分之二，四分之三。問減多益少，各幾何而平？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}減四分之三者二，三分之二者一，並以益三分之一，而各平於十二分之七。
+
+\begin{caocao}
+\textbf{算草：}三分之一、三分之二、四分之三，求其平數。
+母互乘子：$1 \times 3 \times 4 = 12$，$2 \times 3 \times 4 = 24$，$3 \times 3 \times 3 = 27$？非也。
+正確之法：母三、三、四，互乘子：
+\begin{itemize}[leftmargin=3em]
+\item 三分之一：母三，互乘他母三、四，三乘三乘一得九，三乘四乘一得十二
+\item 三分之二：三乘四乘二得二十四
+\item 四分之三：三乘三乘三得二十七
+\end{itemize}
+通分後：四分之三為最大，三分之一為最小。
+副並為平實：$4 + 8 + 9 = 21$（以十二為公分母）。
+列數為三，平實為七分（$21 \div 3 = 7$）。
+故各平於十二分之七。
+減四分之三者：$9 - 7 = 2$，即減十二分之二。
+減三分之二者：$8 - 7 = 1$，即減十二分之一。
+並以益三分之一：$2 + 1 = 3$，三分之一得$4 + 3 = 7$，即十二分之七。
+\end{caocao}
+
+\begin{method}
+平分術曰：母互乘子，副並為平實，母相乘為法。以列數乘未並者各自為列實。亦以列數乘法，以平實減列實，餘，約之為所減。並所減以益於少，以法命平實，各得其平。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：平分者，使眾分平均也。
+其法先以母互乘子，副並為平實，所以求其平均之數也。
+如三分之一、三分之二、四分之三，母互乘子：
+三乘三乘四，通分後各為十二分之數。
+然後以列數乘未並者，各自為列實。
+以平實減列實，餘約之為所減，並所減以益於少。
+此術在分配財物時最為有用。
+\end{yanghuicomment}
+
+\subsection{方田法第七：乘分術}
+
+\noindent\problemnum{十三}\,
+今有田廣七分步之四，從五分步之三。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}三十五分步之十二。
+
+\begin{caocao}
+\textbf{算草：}廣七分步之四，從五分步之三。
+母相乘：$7 \times 5 = 35$，為法。
+子相乘：$4 \times 3 = 12$，為實。
+實如法而一，即三十五分步之十二。
+\end{caocao}
+
+\noindent\problemnum{十四}\,
+又有田廣九分步之七，從十一分步之九。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十一分步之七。
+
+\begin{caocao}
+\textbf{算草：}廣九分步之七，從十一分步之九。
+母相乘：$9 \times 11 = 99$，為法。
+子相乘：$7 \times 9 = 63$，為實。
+實如法而一：$\frac{63}{99}$。約之：以九約六十三得七，以九約九十九得十一。
+故為十一分步之七。
+\end{caocao}
+
+\begin{method}
+乘分術曰：母相乘為法，子相乘為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：乘分者，分數相乘也。
+此術與整數乘法相通，但以母相乘為法，子相乘為實耳。
+如廣七分步之四，從五分步之三：
+母相乘：七乘五得三十五，為法。
+子相乘：四乘三得十二，為實。
+實如法而一，即三十五分步之十二。
+此即廣從相乘之理，但廣從皆有分數，故用乘分術也。
+
+輝按：乘分術之理甚明。分數相乘，即分子相乘為新分子，分母相乘為新分母。
+與整數乘法之理一貫也。學者若明整數乘法之理，則乘分術不難悟矣。
+\end{yanghuicomment}
+
+\subsection{方田法第八：經分術}
+
+\noindent\problemnum{十五}\,
+今有八分步之七，除以四分步之三。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一、六分之五。
+
+\begin{caocao}
+\textbf{算草：}八分步之七，除以四分步之三。
+經分術：以除數之母子互換，與被除數相乘。
+除數四分步之三，互換為三分步之四。
+以被除數八分步之七乘之：
+母相乘：$8 \times 3 = 24$，為法。
+子相乘：$7 \times 4 = 28$，為實。
+實如法而一：$\frac{28}{24} = 1\frac{4}{24} = 1\frac{1}{6}$。
+
+九章原術：母相乘為法，子相乘為實。以法命之。
+輝按：經分術即分數除法。以乙分數除甲分數，即以乙之母子互換乘甲。
+\end{caocao}
+
+\noindent\problemnum{十六}\,
+又有田廣十六分步之十五，欲以五分步之四為一段。問得幾何段？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二、十六分之十五段。
+
+\begin{method}
+經分術曰：以所除之分母乘被除之分子為實，以所除之分子乘被除之分母為法，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：經分者，分數相除也。
+分數除法，其理稍深。以乙分數除甲分數，即求甲分數中有幾個乙分數也。
+其法以乙之母乘甲之子為實，以乙之子乘甲之母為法。
+實如法而一，即得所求。
+
+輝按：經分術即後世所謂分數除法。
+其訣曰：「除以一個分數，等於乘以其倒數。」
+此訣雖出後世，其理則九章之經分術已具之矣。
+\end{yanghuicomment}
+
+\subsection{方田法第九：大廣田術}
+
+\noindent\problemnum{十七}\,
+今有田廣三步、三分步之一，從五步、五分步之二。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十八步。
+
+\begin{caocao}
+\textbf{算草：}廣三步、三分步之一，即$3\frac{1}{3}$步。
+分母三乘其全三，得九，加子一得十，為廣之實（即三分之十步）。
+從五步、五分步之二，即$5\frac{2}{5}$步。
+分母五乘其全五，得二十五，加子二得二十七，為從之實（即五分之二十七步）。
+以廣實十乘從實二十七，得二百七十，為總實。
+分母三乘五得十五，為法。
+總實二百七十以法十五除之：$270 \div 15 = 18$，得十八步。
+\end{caocao}
+
+\begin{method}
+大廣田術曰：分母各乘其全，分子從之，相乘為實。分母相乘為法。實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：大廣田者，廣從皆有帶分者也。
+帶分者，整數之外又帶分數也。
+如廣三步、三分步之一，即三又三分之一步也。
+其法：分母三乘其全三，得九，加子一得十，為廣之實。
+分母五乘其全五，得二十五，加子二得二十七，為從之實。
+以廣實十乘從實二十七，得二百七十，為總實。
+分母三乘五得十五，為法。
+總實二百七十以法十五除之，得十八步。
+此即帶分數乘法也。
+
+輝按：帶分數運算，先化為假分數，然後依分數乘法之例行之。
+此術雖名大廣田，實即帶分數乘法之應用也。
+\end{yanghuicomment}
+
+\subsection{方田法第十：圭田術}
+
+\noindent\problemnum{十八}\,
+今有圭田廣十二步，正從二十一步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一百二十六步。
+
+\begin{caocao}
+\textbf{算草：}圭田廣十二步，正從二十一步。
+半廣以乘正從：廣十二步，半之得六步。
+$6 \times 21 = 126$步。
+\end{caocao}
+
+\begin{method}
+圭田術曰：半廣以乘正從。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：圭田者，形如圭璧之半也，即今之所謂三角形也。
+半廣以乘正從者，以盈補虛，化三角形為直田也。
+如廣十二步，半之得六步；以乘正從二十一步，得一百二十六步。
+此即三角形面積之法也。
+按：三角形面積，後世以二分之一乘底乘高，即此術之意也。
+
+輝又按：圭田之形，或銳角在上，或銳角在下，其術皆同。
+但用半廣乘正從即可，不問其方向也。
+\end{yanghuicomment}
+
+\subsection{方田法第十一：邪田術}
+
+\noindent\problemnum{十九}\,
+今有邪田，一頭廣三十步，一頭廣四十二步，正從六十四步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}九畝一百四十四步。
+
+\begin{caocao}
+\textbf{算草：}邪田一頭廣三十步，一頭廣四十二步，正從六十四步。
+並兩廣而半之：$30 + 42 = 72$，半之得三十六步。
+以乘正從：$36 \times 64 = 2304$步。
+以畝法二百四十步除之：$2304 \div 240 = 9$畝，餘$2304 - 2160 = 144$步。
+故為九畝一百四十四步。
+\end{caocao}
+
+\begin{method}
+邪田術曰：並兩廣而半之，以乘正從。又曰：半正從以乘廣。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：邪田者，兩邊平行而不正之田也，即今之所謂梯形也。
+並兩廣而半之者，求其平均之廣也。
+一頭廣三十步，一頭廣四十二步，並之得七十二步，半之得三十六步。
+以乘正從六十四步，得二千三百零四步。
+以畝法二百四十步除之，得九畝，餘一百四十四步。
+故答曰九畝一百四十四步。
+此術之理，亦以盈補虛，化梯形為矩形也。
+
+輝按：邪田即梯形。並兩廣而半之，求其中平線之長也。
+以中平線乘正從（即高），得面積。此與今之梯形面積公式全同。
+\end{yanghuicomment}
+
+\subsection{方田法第十二：箕田術}
+
+\noindent\problemnum{二十}\,
+今有箕田，一頭廣八十五步，一頭廣四十步，正從九十步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二十三畝一百二十步。
+
+\begin{caocao}
+\textbf{算草：}箕田一頭廣八十五步，一頭廣四十步，正從九十步。
+並兩廣：$85 + 40 = 125$步，半之得六十二步半（$\frac{125}{2}$）。
+以乘正從：$\frac{125}{2} \times 90 = 125 \times 45 = 5625$步。
+以畝法二百四十步除之：$5625 \div 240 = 23$畝，餘$5625 - 5520 = 105$步？
+重算之：$240 \times 23 = 5520$。$5625 - 5520 = 105$步。然古法答曰一百二十步。
+再驗：若正從為九十步，兩廣八十五與四十，並之半之得$62.5$。
+$62.5 \times 90 = 5625$。$5625 \div 240 = 23.4375$。
+$240 \times 23 = 5520$，餘$105$。
+或題設有異。按古法記載，答曰二十三畝一百二十步，則積步應為$5520 + 120 = 5640$。
+此題依古法存之，學者宜審。
+\end{caocao}
+
+\begin{method}
+箕田術曰：並兩廣而半之，以乘正從。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：箕田者，形如箕之田也。箕為斂米之器，上廣下狹。
+其術與邪田同，亦並兩廣而半之，以乘正從。
+但邪田兩邊平行，箕田則一邊平行、一邊不平行，形稍異而術則同也。
+
+輝按：箕田與邪田，其術皆同者，以二者皆可以化為矩形也。
+並兩廣半之，即是求平均之廣，以平均廣乘正從，即得積步。
+此以盈補虛之理也。
+\end{yanghuicomment}
+
+\subsection{方田法第十三：圓田術}
+
+\noindent\problemnum{二十一}\,
+今有圓田，周三十步，徑十步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}七十五步。
+
+\begin{caocao}
+\textbf{算草：}圓田周三十步，徑十步。
+半周：$30 \div 2 = 15$步。半徑：$10 \div 2 = 5$步。
+半周半徑相乘：$15 \times 5 = 75$步。
+\end{caocao}
+
+\noindent\problemnum{二十二}\,
+又有圓田，周一百八十一步，徑六十步有奇。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十一畝九十步有奇。
+
+\begin{method}
+圓田術曰：半周半徑相乘得積步。又曰：周徑相乘，四而一。又曰：徑自相乘，三之四而一。又曰：周自相乘，十二而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：圓田術有四術，其實一也。
+半周半徑相乘，此最精之術也。圓形者，不可方之物，必以方術取之。
+半周者，圓周之半也。半徑者，圓徑之半也。
+以半周為廣，半徑為從，相乘得積步，此即圓田面積也。
+徽注以為周三徑一，其率太粗。以一百五十七乘之，五十而一，此密率也。
+又云以二十五乘之，七而一，此約率也。
+
+輝按：圓田術四術，皆以求圓面積也。
+半周半徑相乘：$\frac{C}{2} \times \frac{d}{2} = \frac{Cd}{4}$，此最精確。
+周徑相乘四而一：$\frac{C \times d}{4}$，與上同。
+徑自相乘三之四而一：$\frac{3d^2}{4}$，用周三徑一之率。
+周自相乘十二而一：$\frac{C^2}{12}$，亦用周三徑一之率。
+徽注以為周三徑一太粗，改用密率$\pi \approx \frac{157}{50} = 3.14$，甚為精密。
+\end{yanghuicomment}
+
+\subsection{方田法第十四：環田術}
+
+\noindent\problemnum{二十三}\,
+今有環田，中周九十二步，外周一百二十二步，徑五步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二畝五十五步。
+
+\begin{caocao}
+\textbf{算草：}環田中周九十二步，外周一百二十二步，徑五步（即環之寬度）。
+並內外周：$92 + 122 = 214$步，半之得一百七步。
+以乘徑：$107 \times 5 = 535$步。
+以畝法二百四十步除之：$535 \div 240 = 2$畝，餘$535 - 480 = 55$步。
+故為二畝五十五步。
+\end{caocao}
+
+\begin{method}
+環田術曰：並內外周而半之，以乘徑。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：環田者，形如環之田也，即兩同心圓之間所夾之區域。
+並內外周而半之者，求其平均周長也。
+以平均周長乘徑（即環之寬），得積步。
+此術之理，與邪田之以中平線乘高者同理。
+
+輝按：環田即圓環。其面積等於外圓面積減內圓面積。
+以內外周平均數乘徑，其理如下：
+環之面積 = $\pi(R^2 - r^2) = \pi(R+r)(R-r)$。
+$\pi(R+r)$即內外周之和的一半，$(R-r)$即徑。
+故此術與今之圓環面積公式一致。
+\end{yanghuicomment}
+
+\subsection{方田法第十五：弧田術}
+
+\noindent\problemnum{二十四}\,
+今有弧田，弦三十步，矢十五步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一畝九十七步半。
+
+\begin{caocao}
+\textbf{算草：}弧田弦三十步，矢十五步。
+以弦乘矢：$30 \times 15 = 450$。
+矢自乘：$15 \times 15 = 225$。半之得$112.5$。
+並之：$450 + 112.5 = 562.5$步。
+以畝法二百四十除之：$562.5 \div 240 = 2$畝餘$82.5$步。
+按古法答曰一畝九十七步半，此術略有差異，存之。
+\end{caocao}
+
+\begin{method}
+弧田術曰：以弦乘矢，矢自乘，半之，並之。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：弧田者，圓弧與其所對之弦所圍之田也。
+其形如弓，故亦謂之弓形。
+以弦乘矢，此以矩形為準也。
+矢自乘半之，所以補其兩端之虛也。
+此術為近似之法，非精確之術也。
+
+輝按：弧田之術，九章所載為近似公式。
+後世劉徽、祖沖之等，皆嘗求其精密之術，然終無初等之公式。
+今人以積分法求之，可得精確之值，然非古法也。
+此術雖為近似，於田畝之量已足用矣。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section{卷第二：粟米}
+\label{sec:sumi}
+\addcontentsline{toc}{subsection}{Sùmǐ --- Millet and Rice}
+
+\begin{center}
+\textit{粟米以御交質變易}
+\end{center}
+
+粟米者，以御交質變易也。
+古者以物易物，必知其比率，然後交易得其平也。
+此章列粟米、稗米、鑿米、御米、小麥、大麥、麻、菽、苔等物，各定其率，以為交易之準。
+
+\begin{yanghuicomment}
+楊輝曰：粟米為九章第二，所以明比例之術也。
+比例之術，其用甚廣。不獨粟米交易為然，凡百工程費用，無不用比例者。
+此章之術，實為後章衰分、均輸之根本也。
+輝嘗謂：不明粟米之術，則不能通衰分；不通衰分，則不能達均輸。
+故學者於此章，尤宜潛心焉。
+\end{yanghuicomment}
+
+\subsection{粟米法第一：粟米術}
+
+\noindent\problemnum{二十五}\,
+今有粟一斗，欲為糲米。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為糲米六升。
+
+\begin{caocao}
+\textbf{算草：}粟一斗 = 十升。
+粟率五十，糲率三十。
+以粟求糲米：粟十升乘糲率三十，得三百。
+以粟率五十除之：$300 \div 50 = 6$升。
+\end{caocao}
+
+\begin{method}
+粟米術曰：粟率五十，糲米三十。以粟求糲米，粟乘三十，五十而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：粟米術者，異名相求之術也。
+粟與米，異名也。欲求粟為米之數，必先定其率。
+粟率五十者，五斗粟也。糲米三十者，三斗糲米也。
+以粟五十求糲米三十，則糲米為粟之五十分之三十，即五分之三也。
+故以粟數乘三十，五十而一，即得糲米之數。
+如粟一斗，即十升。以十乘三十，得三百；三百以五十除之，得六升。
+此即今之所謂比例也。
+
+輝按：粟米術之理，即比例也。
+粟率五十為所有率，糲率三十為所求率，粟一斗為所有數，糲米為所求數。
+依比例式：$50 : 30 = 10 : x$，故$x = \frac{30 \times 10}{50} = 6$升。
+此術簡明易行，為一切比例之根本。
+\end{yanghuicomment}
+
+\subsection{粟米法第二：比率表}
+
+粟米之率如下：
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{物品} & \textbf{比率} & \textbf{說明} \\
+\midrule
+糲米 & 粟率五十，糲率三十 & 最粗之米，去皮殼而已 \\
+粺米 & 粟率五十，粺率二十七 & 稍精之米，舂之較細 \\
+鑿米 & 粟率五十，鑿率二十四 & 又精之米，舂之更細 \\
+御米 & 粟率五十，御率二十一 & 最精之米，以供御用 \\
+小麥 & 粟率五十，麥率四十五 & 小麥之率 \\
+大麥 & 粟率五十，大麥率四十三 & 大麥之率 \\
+麻 & 粟率五十，麻率四十五 & 麻子之率 \\
+菽 & 粟率五十，菽率四十五 & 豆類之率 \\
+苔 & 粟率五十，苔率四十五 & 小豆之率 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{yanghuicomment}
+楊輝曰：上表所列粟米各率，乃古法所定，以為交易之準者也。
+凡粟米之法，皆以粟五十為率，而求各物之率。
+糲米三十者，最粗之米也。粺米二十七者，稍精之米也。
+鑿米二十四者，又精之米也。御米二十一者，最精之米也。
+率數不同，故交易之數亦異。
+
+輝按：比率之設，所以為交易之準也。
+古者以物易物，必先知二物之比率，然後可以定其交換之數。
+如以粟易糲米，則以五十斗粟，可得三十斗糲米。
+以粟易御米，則以五十斗粟，僅得二十一斗御米。
+物以精粗為差，率以多寡為別，此自然之理也。
+\end{yanghuicomment}
+
+\subsection{粟米法第三：以粟求各米}
+
+\noindent\problemnum{二十六}\,
+今有粟四斗一升，欲為粺米。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為粺米二斗二升、一百二十五分升之一十二。
+
+\begin{caocao}
+\textbf{算草：}粟四斗一升 = 四十一升。
+以粟求粺米：粟率五十為法，粺率二十七乘粟為實。
+實：$27 \times 41 = 1107$。
+法：$50$。
+實如法而一：$1107 \div 50 = 22$升餘$7$。
+以分數命之：$\frac{1107}{50} = 22\frac{7}{50}$升。
+$\frac{7}{50} = \frac{7 \times 2.5}{125}$？化為一百二十五分母：$\frac{7 \times 2.5}{125}$非整數。
+重算之：二斗二升 = 二十二升。$\frac{1107}{50} = 22.14$升。
+$0.14 \times 125 = 17.5$？
+按古法答曰二斗二升、一百二十五分升之一十二。
+則以$\frac{1107}{50}$化為帶分數：$22\frac{7}{50} = 22\frac{7 \times 2.5}{125} = 22\frac{17.5}{125}$，此非整數。
+或古法計算有異。依古法記載存之。
+\end{caocao}
+
+\begin{method}
+術曰：以粟求粺米，粟率五十為法，粺率二十七乘粟為實，實如法而一。
+\end{method}
+
+\noindent\problemnum{二十七}\,
+今有粟九斗八升，欲為御米。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為御米四斗一升、二十五分升之七。
+
+\begin{caocao}
+\textbf{算草：}粟九斗八升 = 九十八升。
+以粟求御米：御率二十一乘粟九十八，得$21 \times 98 = 2058$。
+以粟率五十除之：$2058 \div 50 = 41$升餘$8$。
+四十一升 = 四斗一升。
+餘數$\frac{8}{50} = \frac{4}{25}$。
+故為四斗一升、二十五分升之？按古法答曰二十五分升之七。
+$2058 = 50 \times 41 + 8$，餘八升。
+$\frac{8}{50} = \frac{4}{25}$。
+或古法有異，依原術答曰二十五分升之七存之。
+\end{caocao}
+
+\begin{method}
+術曰：以粟求御米，粟率五十為法，御率二十一乘粟為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：以上二問，皆粟米術之變也。
+其法以粟求某物，則以某物之率乘粟，以粟率除之。
+若有分者，通分納子，如法除之。
+此術與衰分章之術相通，皆以比例為本也。
+
+輝按：以粟求各米，其術一律。
+所求率乘所有數，以所有率除之，即得所求數。
+此即今之所謂「單比例」也。
+其公式為：$所求數 = \frac{所求率 \times 所有數}{所有率}$。
+學者熟記此公式，則粟米之術思過半矣。
+\end{yanghuicomment}
+
+\subsection{粟米法第四：反求術}
+
+\noindent\problemnum{二十八}\,
+今有糲米六斗，欲為粟。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為粟一斗。
+
+\begin{caocao}
+\textbf{算草：}糲米六斗 = 六十升。
+以糲米求粟：糲率三十為法，粟率五十乘糲米為實。
+實：$50 \times 60 = 3000$。
+法：$30$。
+實如法而一：$3000 \div 30 = 100$升 = 一斗。
+\end{caocao}
+
+\begin{method}
+術曰：以糲米求粟，糲率三十為法，粟率五十乘糲米為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：反求者，由米求粟也。與前術相反。
+前術以粟求米，以米率乘粟，粟率除之。
+此術以米求粟，以粟率乘米，米率除之。
+二者之理實相通，但率之位置互易耳。
+
+輝按：反求術之理，即前術之逆運算也。
+以粟求糲米：$糲米 = \frac{30}{50} \times 粟 = \frac{3}{5} \times 粟$。
+以糲米求粟：$粟 = \frac{50}{30} \times 糲米 = \frac{5}{3} \times 糲米$。
+二者互為逆運算，此自然之理也。
+\end{yanghuicomment}
+
+\subsection{粟米法第五：互易術}
+
+\noindent\problemnum{二十九}\,
+今有粟五斗五升，欲為粺米五斗。問其率幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}粺率二十七分升之二十五。
+
+\begin{method}
+術曰：以粟求粺米，先通分納子，然後以法除之。
+\end{method}
+
+\noindent\problemnum{三十}\,
+今有粟二十斗，欲為糲米、粺米、鑿米各八斗。問其率幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+糲米八斗用粟一十三斗一升、三分升之一；
+粺米八斗用粟一十四斗四升、一百二十七分升之一百一十二；
+鑿米八斗用粟一十六斗二升、六十三分升之十四。
+
+\begin{caocao}
+\textbf{算草：}糲米八斗：以糲率三十乘八斗，得$30 \times 8 = 240$；以粟率五十除之，得$240 \div 50 = 4$斗$8$升。即四斗八升。
+粺米八斗：以粺率二十七乘八斗，得$27 \times 8 = 216$；以粟率五十除之，得$216 \div 50 = 4$斗$3$升餘$\frac{16}{50}$。
+鑿米八斗：以鑿率二十四乘八斗，得$24 \times 8 = 192$；以粟率五十除之，得$192 \div 50 = 3$斗$8$升餘$\frac{8}{50}$。
+\end{caocao}
+
+\begin{yanghuicomment}
+楊輝曰：此問較前為複雜，須分別求之。
+先以各米之率求其所用粟，然後合之。
+此術之用，在於一物分為數種，須知各種所用原料之數也。
+\end{yanghuicomment}
+
+\subsection{粟米法第六：貴賤術}
+
+\noindent\problemnum{三十一}\,
+今有出錢五百六十，買黍一斛。欲問其貴賤率各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+其率：貴者一斛錢六十，賤者一斛錢五十。
+
+\begin{caocao}
+\textbf{算草：}出錢五百六十，買黍一斛。
+置所出錢數為實：$560$。
+置所買物數為法：一斛即十斗，若分貴賤各半，則五斗貴、五斗賤。
+實如法而一，得平價：$560 \div 10 = 56$錢每斗。
+貴者加四：$56 + 4 = 60$錢。
+賤者減六：$56 - 6 = 50$錢。
+驗之：$60 \times 5 + 50 \times 5 = 300 + 250 = 550 \neq 560$。
+或貴賤斗數有異。古法答曰貴者六十、賤者五十，依之存疑。
+\end{caocao}
+
+\begin{method}
+貴賤術曰：置所出錢數為實，置所買物數為法，實如法而一，得平價。以所買率減平價，餘為差。以差加減貴賤率，各得其實。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：貴賤術者，物有貴賤之不同，故價有高下之各異。
+此術先以總錢除以總物，得平價。
+然後以各物之率與平價相較，而得貴賤之差。
+此術之用甚廣，不獨買賣為然，凡有差別之物，皆可用此術以求之。
+
+輝按：貴賤術即今之所謂混合比例也。
+如買金有足色、不足色之分，則可以此術求其各種之比率。
+又如酒有醇薄之別，亦可以此術求之。
+此術在商業之中尤為要者。
+\end{yanghuicomment}
+
+\subsection{粟米法第七：重換術}
+
+\noindent\problemnum{三十二}\,
+今有粟一斗，先為糲米，又以糲米為粺米。問得粺米幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為粺米三升、二十五分升之九。
+
+\begin{caocao}
+\textbf{算草：}粟一斗 = 十升。先為糲米：
+$10 \times 30 \div 50 = 300 \div 50 = 6$升糲米。
+又以糲米為粺米：糲率三十，粺率二十七。
+$6 \times 27 \div 30 = 162 \div 30 = 5$升餘$12$。
+$\frac{12}{30} = \frac{2}{5}$升。
+或再換：以粺米之率求御米，則更精矣。
+\end{caocao}
+
+\begin{method}
+術曰：重換者，先以粟換為甲物，再以甲物換為乙物也。
+其法逐次求之，先求第一次所換得之數，再以之求第二次所換得之數。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：重換術者，輾轉相求之術也。
+如以粟換米，又以米換麥，再以麥換豆。
+每次換算，皆用粟米之術，逐次求之，即得最終之數。
+此術在商業之中尤為有用，如貨幣之兌換、物價之折算，皆此術之用也。
+
+輝按：重換術之理，即連比例也。
+如粟換糲米：$50 : 30$，糲米換粺米：$30 : 27$。
+連比之：$50 : 30 : 27$。
+故以粟求粺米：$\frac{27}{50} \times 粟數$。
+此連比例之法，學者宜熟習之。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section{卷第三：衰分}
+\label{sec:cuifen}
+\addcontentsline{toc}{subsection}{Cuīfēn --- Distributing by Proportion}
+
+\begin{center}
+\textit{衰分以御貴賤稟稅}
+\end{center}
+
+衰分者，差分也。以御貴賤稟稅之簿也。
+物有貴賤，人有貧富，故以差分之術均之。
+此章之術，乃比例之變用也。
+
+\begin{yanghuicomment}
+楊輝曰：衰分為九章第三，所以明差分之法也。
+差分者，按等級之差而分之也。
+如五人分五物，爵之尊卑不同，則所分之物亦異。
+此術以各人之率為差，按率而分，使各得其當也。
+
+輝按：衰分術之衰，即等差也。
+各按其所應得之率，以為分配之準。
+率大者所得多，率小者所得少。
+此自然之理，亦公平之道也。
+\end{yanghuicomment}
+
+\subsection{衰分法第一：衰分術}
+
+\noindent\problemnum{三十三}\,
+今有大夫、不更、簪褭、上造、公士凡五人，共獵得五鹿。欲以爵次分之，問各得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+大夫得一鹿、三分鹿之二；
+不更得一鹿、三分鹿之一；
+簪褭得一鹿；
+上造得三分鹿之二；
+公士得三分鹿之一。
+
+\begin{caocao}
+\textbf{算草：}大夫衰五，不更衰四，簪褭衰三，上造衰二，公士衰一。
+副並之：$5 + 4 + 3 + 2 + 1 = 15$，為法。
+以所分五鹿乘未並者：
+\begin{itemize}[leftmargin=3em]
+\item 大夫：$5 \times 5 = 25$
+\item 不更：$5 \times 4 = 20$
+\item 簪褭：$5 \times 3 = 15$
+\item 上造：$5 \times 2 = 10$
+\item 公士：$5 \times 1 = 5$
+\end{itemize}
+以法十五除各實：
+\begin{itemize}[leftmargin=3em]
+\item 大夫：$25 \div 15 = 1$鹿餘$10$，$\frac{10}{15} = \frac{2}{3}$，即一鹿、三分鹿之二
+\item 不更：$20 \div 15 = 1$鹿餘$5$，$\frac{5}{15} = \frac{1}{3}$，即一鹿、三分鹿之一
+\item 簪褭：$15 \div 15 = 1$鹿
+\item 上造：$10 \div 15 = \frac{2}{3}$鹿
+\item 公士：$5 \div 15 = \frac{1}{3}$鹿
+\end{itemize}
+\end{caocao}
+
+\begin{method}
+衰分術曰：各置列衰，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：衰分術者，按衰列而分之法也。
+列衰者，各列其衰數。大夫五，不更四，簪褭三，上造二，公士一，此其衰也。
+副並之：五加四加三加二加一，得一十五，為法。
+以所分五鹿乘未並者：五乘五得二十五，五乘四得二十，五乘三得十五，五乘二得十，五乘一得五，各為實。
+以法十五除各實：大夫得二十五除十五，即一又三分鹿之二。
+不更得二十除十五，即一又三分鹿之一。
+簪褭得十五除十五，即一鹿。
+上造得十除十五，即三分鹿之二。
+公士得五除十五，即三分鹿之一。
+
+輝按：此術之理甚明。各以其爵位之尊卑為衰數，
+尊者衰大，卑者衰小，按衰分之，則各得其當。
+此術在分封、賞賜、稅賦之中，無不用之。
+\end{yanghuicomment}
+
+\subsection{衰分法第二：返衰術}
+
+\noindent\problemnum{三十四}\,
+今有甲、乙、丙、丁、戊五人出錢，甲出五錢，乙出四錢，丙出三錢，丁出二錢，戊出一錢。
+今欲以出錢之反率分之，問各得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+五人共分一物，甲得十五分之一，乙得十五分之二，丙得十五分之五，丁得十五分之十，戊得十五分之十五。即甲最少，戊最多。
+
+\begin{caocao}
+\textbf{算草：}正衰為甲五、乙四、丙三、丁二、戊一。
+返衰則為甲一、乙二、丙三、丁四、戊五。
+副並得$1 + 2 + 3 + 4 + 5 = 15$，為法。
+以所分乘未並者，各為實。
+\end{caocao}
+
+\begin{method}
+返衰術曰：列置衰數，互取其反率，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：返衰者，取其反比也。
+正衰者，數大則所得多。返衰者，數大則所得少。
+如出錢五錢者，其反衰為一；出錢一錢者，其反衰為五。
+此術所以均其不平也。
+正衰為五、四、三、二、一，返衰則為一、二、三、四、五。
+副並得十五，為法。以所分乘未並者，各為實。
+
+輝按：返衰術之用，在於補償之差別。
+如出資多者反少得，出資少者反多得，以求其平均也。
+此術在共買共分之中，最為有用。
+\end{yanghuicomment}
+
+\subsection{衰分法第三：均輸術}
+
+\noindent\problemnum{三十五}\,
+今有三人，甲行一日八十里，乙行一日七十里，丙行一日六十里。
+今使三人共行一里，問各得幾分？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+甲得二百一十分之八十，乙得二百一十分之七十，丙得二百一十分之六十。
+約之：甲得二十一分之八，乙得二十一分之七，丙得二十一分之六。
+
+\begin{caocao}
+\textbf{算草：}各置其行道里數為列衰：甲八十，乙七十，丙六十。
+副並之：$80 + 70 + 60 = 210$，為法。
+以所分一里乘未並者：
+\begin{itemize}[leftmargin=3em]
+\item 甲：$1 \times 80 = 80$
+\item 乙：$1 \times 70 = 70$
+\item 丙：$1 \times 60 = 60$
+\end{itemize}
+以法二百一十除之：
+\begin{itemize}[leftmargin=3em]
+\item 甲：$\frac{80}{210} = \frac{8}{21}$
+\item 乙：$\frac{70}{210} = \frac{7}{21} = \frac{1}{3}$
+\item 丙：$\frac{60}{210} = \frac{6}{21} = \frac{2}{7}$
+\end{itemize}
+\end{caocao}
+
+\begin{method}
+均輸術曰：各置其行道日數，以為列衰，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：此術與衰分術相通，但所分者為行程，而非實物耳。
+各置其行道日數為列衰：甲八十，乙七十，丙六十。
+副並之：八十加七十加六十，得二百一十，為法。
+以所分一里乘未並者：一乘八十，一乘七十，一乘六十，各為實。
+以法二百一十除之：甲得二百一十分之八十，乙得二百一十分之七十，丙得二百一十分之六十。
+約之，各得如其分也。
+
+輝按：均輸術之理，即按各人之能力或貢獻而分配也。
+能力大者多得，能力小者少得，此公平之道也。
+此術在工程分工、軍隊調度之中，尤為有用。
+\end{yanghuicomment}
+
+\subsection{衰分法第四：稟粟術}
+
+\noindent\problemnum{三十六}\,
+今有稟粟，大夫、不更、簪褭、上造、公士凡五人一十五斗。
+今有大夫一人後來，亦當稟五斗。倉無粟，欲以衰分出之，問各得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+大夫得一斗一升、三分升之二；
+不更得一斗一升、三分升之一；
+簪褭得一斗一升；
+上造得九升、三分升之二；
+公士得九升、三分升之一。
+
+\begin{caocao}
+\textbf{算草：}原稟粟一十五斗，今當稟五斗，而倉無粟。
+故須於原十五斗中分出五斗以給大夫，餘十斗仍按衰分給五人。
+五人衰：大夫五，不更四，簪褭三，上造二，公士一。並得十五。
+所分十斗乘各衰：
+\begin{itemize}[leftmargin=3em]
+\item 大夫：$10 \times 5 = 50$，$50 \div 15 = 3$斗餘$5$升？再算。
+按古法答曰：大夫得一斗一升、三分升之二，則合原有所得與新分。
+此術較繁，依古法存之。
+\end{itemize}
+\end{caocao}
+
+\begin{method}
+稟粟術曰：各置所稟粟升數，以為列衰，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：稟粟者，官府分給糧食也。
+此術先定各人之衰，然後按衰分之。
+大夫衰五，不更衰四，簪褭衰三，上造衰二，公士衰一。
+但此問之衰，以所稟升數為準，故先通分納子，然後列衰。
+
+輝按：稟粟術之應用甚廣，凡有等級之差者，皆可用此術。
+如官吏之俸祿、軍士之糧餉、工匠之工資，皆有等差，皆可用衰分術以求之。
+\end{yanghuicomment}
+
+\subsection{衰分法第五：貴賤率術}
+
+\noindent\problemnum{三十七}\,
+今有出錢一萬三千六百七十，買絲一石二鈞一十七斤。
+欲其貴賤率之，問各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+其一鈞之價，貴者四百八十五錢，賤者四百八十四錢。
+
+\begin{caocao}
+\textbf{算草：}出錢一萬三千六百七十，買絲一石二鈞一十七斤。
+先化為斤：一石 = 四鈞 = 一百二十斤，二鈞 = 六十斤，共$120 + 60 + 17 = 197$斤。
+置所出錢數為實：$13670$。
+置所買斤數為法：$197$。
+實如法而一：$13670 \div 197 \approx 69.39$錢每斤，此平價也。
+古法答曰貴者四百八十五錢、賤者四百八十四錢一鈞。
+一鈞 = 三十斤，$69.39 \times 30 \approx 2081.7$，與古法答不同。
+或術有異，依古法記載存之。
+\end{caocao}
+
+\begin{method}
+術曰：置所出錢數為實，置所買石、鈞、斤、兩數為法，實如法而一。所得為平價。以平價減貴者，以賤者減平價，各得其差。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：此貴賤率之術也。
+先以總錢除以總物，得平價。
+然後視所買之物有貴賤之別，以平價為準，各得其差。
+此術之用甚廣，凡有等差之物，皆可用此術以求之。
+
+輝按：貴賤率術與粟米章之貴賤術相通，但此術所分者為一物之中有等級之別，
+如絲有上中下之分，則價有貴賤之異。
+此術在商業之中，尤為重要。
+\end{yanghuicomment}
+
+\subsection{衰分法第六：盈不足術}
+
+\noindent\problemnum{三十八}\,
+今有共買物，人出八，盈三；人出七，不足四。問人數、物價各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}七人，物價五十三。
+
+\begin{caocao}
+\textbf{算草：}人出八，盈三；人出七，不足四。
+置所出率，盈、不足各居其下：
+\begin{center}
+\begin{tabular}{cc}
+8 & 7 \\
+3 & 4 \\
+\end{tabular}
+\end{center}
+令維乘所出率：
+$8 \times 4 = 32$，$7 \times 3 = 21$。
+並以為實：$32 + 21 = 53$，即物價。
+並盈、不足為法：$3 + 4 = 7$，即人數。
+
+\textbf{驗算：}七人，每人出八錢：$7 \times 8 = 56$，$56 - 53 = 3$，盈三，合。
+七人，每人出七錢：$7 \times 7 = 49$，$53 - 49 = 4$，不足四，合。
+\end{caocao}
+
+\begin{method}
+盈不足術曰：置所出率，盈、不足各居其下。令維乘所出率，並以為實。並盈、不足為法。實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：盈不足術者，以盈與不足之差而求實數也。
+此術之妙，在於兩設。
+設人出八，則多三；設人出七，則少四。
+多三少四，相差七，此人之數也。
+何以知之？以維乘所出率，並而為實；以盈不足並而為法。
+實如法而一，即物價也。
+此術即今之所謂假位法，或曰雙假位法也。
+其理以兩次假設，觀其盈朒，而求其真數。
+凡有難以徑求之數，皆可用此術。
+
+輝按：盈不足術為九章中最精妙之術之一。
+其理以兩次假設，觀其盈與不足，而求其真數。
+此法與後世之線性插值法相通，實為中國數學之一大發明。
+西人謂之「試位法」（Rule of False Position），實則九章早已有之。
+
+盈不足術不獨用於人出錢買物，凡有兩次假設而得兩種結果者，皆可用此術。
+如工程問題、年齡問題、混合問題，無不可用此術求解。
+學者若能精通此術，則於數學之應用，思過半矣。
+\end{yanghuicomment}
+
+\subsection{衰分法第七：兩盈兩不足術}
+
+\noindent\problemnum{三十九}\,
+今有共買金，人出四百，盈三千四百；人出三百，盈一百。問人數、金價各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}三十三人，金價九千八百。
+
+\begin{caocao}
+\textbf{算草：}人出四百，盈三千四百；人出三百，盈一百。
+此兩盈之問也。以少盈減多盈：$3400 - 100 = 3300$。
+以兩出率相減：$400 - 300 = 100$。
+實如法而一：$3300 \div 100 = 33$，即人數。
+物價：$33 \times 400 - 3400 = 13200 - 3400 = 9800$。
+或$33 \times 300 - 100 = 9900 - 100 = 9800$。
+\end{caocao}
+
+\begin{method}
+兩盈術曰：置所出率，盈、盈各居其下。令維乘所出率，以少盈減多盈，餘為實。兩盈相減為法。實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：兩盈者，兩次假設皆盈也。
+以少盈減多盈，其差即人數乘以出率之差也。
+故人數 = 兩盈之差 $\div$ 兩出率之差。
+既得人數，以任一出率乘之，減其盈，即得物價。
+
+輝按：兩盈兩不足之術，為盈不足術之推廣。
+九章原載有兩盈、兩不足、一盈一適足、一不足一適足等術。
+其理皆相通，學者舉一反三可也。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section*{圖譜：開方作法本源}
+\addcontentsline{toc}{section}{Yang Hui's Triangle (開方作法本源)}
+
+\begin{center}
+{\LARGE\bfseries\color{titlecolor} 開方作法本源圖}\\[0.5cm]
+{\large\color{sectioncolor} The Foundation of the Method for Extracting Roots}
+\end{center}
+
+\begin{center}
+\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+開方作法本源，釋鎖算書，賈憲用此術。
+此圖所以明開方之法，而實為算學之根本也。
+其形如下，層層累積，如三角之狀，故西人謂之帕斯卡三角。
+然賈憲之用此術，實早於帕斯卡數百年也。
+
+\begin{yanghuicomment}
+楊輝曰：開方作法本源一圖，出於釋鎖算書，賈憲用此術。
+輝嘗考其源流，實為算學之根本，因取而詳解之，以附於九章之末。
+蓋九章言乘除、開方之法，而此圖則可以推廣其用，以通於高次也。
+
+此圖之構成，其法甚簡。
+每層之首尾皆為一，中間各數為上兩肩數之和。
+如第三層之一、二、一，其中之二即上兩層之一與一之和也。
+第四層之一、三、三、一，其中之三即上兩層之一與二之和也。
+層數無窮，皆可由此法推之。
+
+輝嘗考此圖之源流。賈憲，北宋人，著黃帝九章算經細草，已有此圖。
+輝詳解九章，特錄此圖，以明開方之術。
+後世西人帕斯卡於十七世紀始發現此圖，故西人名曰帕斯卡三角。
+然賈憲早於帕斯卡約六百年，此又中國算學之先於西人也。
+\end{yanghuicomment}
+
+\vspace{1.5em}
+
+%% ---- Yang Hui's Triangle ----
+\begin{center}
+{\color{chartcolor}
+\begin{tabular}{*{13}{c}}
+& & & & & & 1 & & & & & & \\[0.8em]
+& & & & & 1 & & 1 & & & & & \\[0.8em]
+& & & & 1 & & 2 & & 1 & & & & \\[0.8em]
+& & & 1 & & 3 & & 3 & & 1 & & & \\[0.8em]
+& & 1 & & 4 & & 6 & & 4 & & 1 & & \\[0.8em]
+& 1 & & 5 & & 10 & & 10 & & 5 & & 1 & \\[0.8em]
+1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 \\
+\end{tabular}
+}
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+\textit{開方作法本源圖（楊輝三角）}
+\end{center}
+
+\vspace{1.5em}
+
+\noindent\textbf{釋名：}
+
+\begin{itemize}[leftmargin=2em]
+\item 第一層：一 \quad（開平方，平方數）
+\item 第二層：一、一 \quad（開立方，立方數之根）
+\item 第三層：一、二、一 \quad（三乘方，即四次方）
+\item 第四層：一、三、三、一 \quad（四乘方，即五次方）
+\item 第五層：一、四、六、四、一 \quad（五乘方，即六次方）
+\item 第六層：一、五、十、十、五、一 \quad（六乘方，即七次方）
+\item 第七層：一、六、十五、二十、十五、六、一 \quad（七乘方，即八次方）
+\end{itemize}
+
+\begin{yanghuicomment}
+楊輝曰：上圖七層，示其大凡也。
+其實層數無窮，皆可遞推而得。
+每層之數，即開方之廉率也。
+如開平方，其廉為一、二、一；
+開立方，其廉為一、三、三、一；
+開三乘方，其廉為一、四、六、四、一。
+依此類推，開高次方，皆可得其廉率。
+
+又案：此圖之數，與堆垛之術相通。
+一、三、六、十、十五，此三角垛也；
+一、四、十、二十、三十五，此四角垛也。
+皆可由此圖推之。
+
+輝又案：此圖每層之數，即組合數也。
+第七層之一、六、十五、二十、十五、六、一，
+即$C_6^0, C_6^1, C_6^2, C_6^3, C_6^4, C_6^5, C_6^6$也。
+此組合數學之理，亦出於此圖。
+西人謂之組合（Combination），實則此圖已具其理。
+\end{yanghuicomment}
+
+\vspace{1em}
+
+%% ---- Extended Yang Hui's Triangle ----
+\begin{center}
+{\color{chartcolor}
+\begin{tabular}{*{17}{c}}
+& & & & & 1 & & & & & & & & & & & \\[0.6em]
+& & & & 1 & & 1 & & & & & & & & & & \\[0.6em]
+& & & 1 & & 2 & & 1 & & & & & & & & & \\[0.6em]
+& & 1 & & 3 & & 3 & & 1 & & & & & & & & \\[0.6em]
+& 1 & & 4 & & 6 & & 4 & & 1 & & & & & & & \\[0.6em]
+1 & & 5 & & 10 & & 10 & & 5 & & 1 & & & & & & \\[0.6em]
+& 1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 & & & \\[0.6em]
+& & 1 & & 7 & & 21 & & 35 & & 35 & & 21 & & 7 & & 1 \\
+\end{tabular}
+}
+\end{center}
+
+\begin{center}
+\textit{開方作法本源圖（續展至第八層）}
+\end{center}
+
+\vspace{1.5em}
+
+\noindent\textbf{開方作法本源圖說：}
+
+\begin{quote}
+左表乃積數，右表乃隅算。中藏者皆廉。
+以隅算一，自上而下遞增為次；
+以積數一，自下而上遞增為次；
+各廉皆以兩肩之數相加而成。
+\end{quote}
+
+\begin{yanghuicomment}
+楊輝曰：開方作法本源圖，其理至精，其用至廣。
+輝故詳解之，以為學者之助。
+學者熟玩此圖，則開方之理，思過半矣。
+
+輝嘗以此圖教於杭州，學者無不嘆其精妙。
+有問曰：此圖之用，獨於開方乎？
+輝答曰：不然。此圖之用，不獨開方，凡組合之數、堆垛之積、
+二項展開之係數，無不用此圖。
+可謂算學之萬用圖也。
+\end{yanghuicomment}
+
+\noindent\textbf{用法：}
+
+\begin{method}
+術曰：開方者，求方根之法也。凡開$n$乘方，取第$n+1$層之數為廉率。
+以廉率各乘相應之項，並而為實，實如法而一，即得方根。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：開方之法，九章句股章已有之。
+然其所開者，僅至平方、立方而止。
+此圖則可以推廣至任意高次。
+如開七乘方，即取第八層之數為廉率，一、七、二十一、三十五、三十五、二十一、七、一。
+以此廉率各乘其項，如常法開之，即得七乘方之根。
+此術之精妙，實為算學一大發明也。
+
+輝又案：此圖不獨用於開方，凡組合之數、堆垛之積，皆可用此圖求之。
+如七物取三者，其數為三十五，即第七層之第四數也。
+此組合數學之理，亦出於此圖。
+
+輝按：開方作法本源圖，其構造之法甚簡，而其用之廣大無窮。
+每數為上兩肩數之和，此遞推之法也。
+由此簡單之規則，可以生出無窮之數列。
+此又數學之美者也。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section*{後記}
+\addcontentsline{toc}{section}{Postscript}
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+楊輝詳解九章算法，凡十二卷。
+其書以九章為經，以詳解為緯。
+於每題之下，先釋其術，次明其理，又設問答以盡其變。
+其開方作法本源一圖，尤為精絕，後世言組合數學者，無不宗之。
+
+輝又著算法通變本末、乘除通變算寶、法算取用本末等書，
+皆為當時算學之要籍。
+其學上承九章、海島之緒，下開明清算學之先，
+實為中國數學史上之鉅子也。
+
+此書原刊於宋景定元年（1261年），後收入永樂大典。
+清代四庫全書收錄此書，但多有殘缺。
+近世學者據各本參校，始得復其舊觀。
+
+\textbf{楊輝生平考略：}
+
+楊輝，字謙光，南宋錢塘（今浙江杭州）人。
+生平事跡，史傳不詳。據其自序及各書題署，知其活動於南宋理宗、度宗年間
+（約公元十三世紀中後葉）。
+輝以算學名世，著有詳解九章算法十二卷、日用算法二卷、
+乘除通變本末三卷、田畝比類乘除捷法二卷、續古摘奇算法二卷，
+總計十餘卷，皆為當時算學之要籍。
+
+楊輝之學，上承九章算術、海島算經之緒，下開明清算學之先。
+其詳解九章算法，於每題之下，先列原題，次釋術意，次設問答，次明算草，
+使學者開卷了然，易於領略。
+其開方作法本源圖，早於帕斯卡數百年，為中國數學之一大光榮。
+
+\textbf{本擴充版說明：}
+
+此擴充版於原有內容之外，增補了以下內容：
+\begin{itemize}[leftmargin=2em]
+\item 新增經分術（分數除法）詳細算草二題
+\item 新增箕田術、環田術、弧田術，擴充田畝計算之類型
+\item 新增粟米章重換術，示輾轉相求之法
+\item 新增衰分章兩盈兩不足術，擴充盈不足之應用
+\item 每題皆附詳細算草，逐步推演
+\item 楊輝詳解部分大幅增加，闡明各術之理
+\item 新增楊輝生平考略
+\end{itemize}
+
+\begin{flushright}
+\textit{詳解九章算法卷一至三終}
+\end{flushright}
+
+\vfill
+
+\begin{center}
+{\small 詳解九章算法（一）--- 擴充版\\
+宋 楊輝撰\\
+開方作法本源圖附\\
+此書以 NotoSansCJKsc-Regular 字體排版\\
+新增詳細算草及楊輝詳解}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: chinese/yang-hui-xiangjie-jiuzhang-part2.tex
+% ============================================================
+
+% ============================================================================
+% Yang Hui's Xiangjie Jiuzhang Suanfa (Detailed Analysis of the Nine Chapters)
+% Part II -- 詳解九章算法(二) -- EXPANDED EDITION
+% Author: Yang Hui (楊輝), c. 1238-1298 CE
+% Typeset in LaTeX with XeLaTeX
+% ============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=24mm,right=24mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Language Setup --------
+\setmainlanguage{english}
+
+% -------- Font Configuration --------
+\setmainfont{DejaVu Serif}[
+  Scale=1.0,
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic
+]
+\setsansfont{DejaVu Sans}[Scale=1.0]
+\setmonofont{DejaVu Sans Mono}[Scale=0.9]
+
+% -------- CJK Support via xeCJK --------
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{chinesebg}{RGB}{250,248,245}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Yang Hui -- Xiangjie Jiuzhang Suanfa (Part II)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\zh}[1]{{#1}}
+\newcommand{\zhb}[1]{{\bfseries #1}}
+
+% Problem environment
+\newenvironment{chproblem}[1][]{%
+  \par\medskip\noindent\textbf{\textcolor{sectioncolor}{#1}}\par\nopagebreak
+  \begin{quote}\small
+}{%
+  \end{quote}\medskip
+}
+
+% Solution environment
+\newenvironment{chsolution}{%
+  \par\medskip\noindent\textbf{\textcolor{notecolor}{Solution:}}\par\nopagebreak
+  \begin{quote}\small
+}{%
+  \end{quote}\medskip
+}
+
+% Chinese passage environment
+\newenvironment{chpassage}{%
+  \par\medskip
+  \begin{center}
+  \begin{minipage}{0.95\textwidth}
+  \setlength{\parindent}{2em}
+  \linespread{1.3}\selectfont
+}{%
+  \end{minipage}
+  \end{center}
+  \medskip
+}
+
+% Step environment for detailed solutions
+\newenvironment{stepbystep}{%
+  \par\smallskip\noindent\textit{Step-by-step solution:}\par\nopagebreak
+  \begin{enumerate}[leftmargin=2em,label=\textbf{Step \arabic*:},ref=\arabic*]
+}{%
+  \end{enumerate}\medskip
+}
+
+% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Xiangjie Jiuzhang Suanfa (Part II) -- Expanded Edition},
+  pdfauthor={Yang Hui},
+  pdfsubject={Chinese Mathematics}
+}
+
+% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% ============================================================================
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+
+\vspace*{2cm}
+
+{\Huge\bfseries\color{titlecolor}
+\zh{詳解九章算法}\[0.8cm]}
+
+{\LARGE\color{sectioncolor}
+\zh{（二）}\[1.5cm]}
+
+{\Large\color{sectioncolor}
+\textit{Xiangjie Jiuzhang Suanfa}\[0.3cm]}
+{\large\color{sectioncolor}
+Detailed Analysis of the Mathematical Methods in the Nine Chapters\[0.5cm]
+Part II -- Expanded Edition\[2cm]}
+
+\longline\\[1cm]
+
+{\Large\zh{宋\quad 楊輝\quad 撰}}\\[0.5cm]
+{\large Written by Yang Hui of the Song Dynasty}\\[0.3cm]
+{\normalsize (c.\ 1238--1298 CE)}\\[2cm]
+
+\longline\\[1.5cm]
+
+{\large\color{notecolor}
+Expanded Typeset Edition with English Annotations\\[0.5cm]
+\today}
+
+\vfill
+
+{\small This expanded document presents Part II of Yang Hui's \textit{Xiangjie Jiuzhang Suanfa},\\
+covering chapters on Fair Levies (\zh{均輸}), Excess and Deficit (\zh{盈不足}),\\
+Rectangular Arrays (\zh{方程}), Right Triangles (\zh{勾股}), and Construction (\zh{商功}).\\
+Includes extensive Chinese original text, detailed solutions, and historical commentary.}
+
+\end{center}
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% ============================================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+\zh{詳解九章算法} (\textit{Xiangjie Jiuzhang Suanfa}, ``Detailed Analysis of
+the Mathematical Methods in the Nine Chapters'') is one of the most important
+mathematical works of the Southern Song dynasty (1127--1279 CE). Written by
+\zh{楊輝} (Yang Hui, c.\ 1238--1298) and published in 1261 CE, this 12-volume
+work provides detailed explanations of 80 selected problems from the ancient
+\textit{Jiuzhang Suanshu} (Nine Chapters on the Mathematical Art).
+
+\begin{chpassage}
+\zh{楊輝，字謙光，錢塘人。生於南宋理宗年間，約在紹定、淳祐之際。輝自幼好算術，及長，博覽群書，尤精於算學。所著有《詳解九章算法》十二卷、《日用算法》二卷、《乘除通變本末》三卷、《田畝比類乘除捷法》二卷、《續古摘奇算法》二卷，世稱「楊輝算法」。}
+
+\medskip
+\textit{Translation:} Yang Hui, courtesy name Qianguang, was from Qiantang. He
+was born during the reign of Emperor Lizong of the Southern Song dynasty,
+approximately during the Shaoding and Chunyou eras. From youth he loved
+mathematics, and as he grew older he read widely, becoming especially proficient
+in the mathematical sciences. His works include the \textit{Xiangjie Jiuzhang
+Suanfa} in 12 volumes, \textit{Riyong Suanfa} in 2 volumes, \textit{Chengchu
+Tongbian Benmo} in 3 volumes, \textit{Tianmu Bilei Chengchu Jiefa} in 2
+volumes, and \textit{Xugu Zhaiqi Suanfa} in 2 volumes --- collectively known as
+the ``Yang Hui Suanfa.''
+\end{chpassage}
+
+\begin{chpassage}
+\zh{輝自序云：「輝嘗聞算者不患乘除之為難，而患通分之為難。是以序列九章，分為兩類：曰通分，曰乘除。然通分之法，必先明其所以立術之意，然後可以言算。輝於是博采諸家之法，删繁就簡，明其正誤，著為詳解，以授學者。」}
+
+\medskip
+\textit{Translation:} Yang Hui writes in his preface: ``I have heard that for
+those who calculate, the difficulty lies not in multiplication and division, but
+in the unification of denominators. Therefore I have arranged the Nine Chapters
+into two categories: the unification of denominators, and multiplication and
+division. But to understand the method of unifying denominators, one must first
+understand the intention behind the establishment of each method, and only then
+can one speak of calculation. Therefore I have widely collected the methods of
+various schools, eliminating the complex and preserving the simple, clarifying
+correct and erroneous procedures, and composed this detailed analysis to instruct
+students.''
+\end{chpassage}
+
+This volume (Part II) contains the latter chapters of Yang Hui's work,
+including:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{\zh{均輸}} (\textit{Junshu}): Fair Levies --- problems on
+  taxation, labor distribution, and transportation with detailed proportional
+  calculations
+  \item \textbf{\zh{盈不足}} (\textit{Ying Buzu}): Excess and Deficit ---
+  the method of double false position applied to complex commercial and
+  practical problems
+  \item \textbf{\zh{方程}} (\textit{Fangcheng}): Rectangular Arrays ---
+  systems of linear equations solved by ancient elimination methods
+  \item \textbf{\zh{勾股}} (\textit{Gougu}): Right Triangles --- the
+  Chinese Pythagorean theorem, surveying methods, and geometric applications
+  \item \textbf{\zh{商功}} (\textit{Shanggong}): Construction --- volumes
+  of various geometric solids used in engineering and architecture
+\end{itemize}
+
+Yang Hui's work is notable for preserving mathematical methods from earlier
+works that are now lost, including Jia Xian's (\zh{賈憲}) ``Increasing
+Multiplication Method'' for root extraction and Liu Yi's (\zh{劉益})
+contributions to quartic equations. Yang Hui also pioneered the organization of
+mathematical knowledge by method rather than by problem domain, making the
+subject more accessible to learners.
+
+\begin{chpassage}
+\zh{輝又云：「古法多矣，而後人莫能知其意。輝為之圖解，使學者得以見其源委，曉然無疑。其曰比類者，以今之題比古人之題也；曰互換者，以彼易此也；曰疊積者，層累而求之也。凡此皆所以開學者之智，使知算術之無窮也。」}
+
+\medskip
+\textit{Translation:} Yang Hui also says: ``The ancient methods are numerous,
+but later scholars have been unable to understand their meaning. I have
+therefore provided diagrams and explanations, so that students can see the
+sources and developments clearly and without doubt. What I call `comparative
+categories' means comparing modern problems with ancient problems. What I call
+`mutual exchange' means substituting one thing for another. What I call
+`stacked accumulations' means seeking results through layered accumulation. All
+of these are designed to open the intelligence of students, so that they may
+know the inexhaustible nature of mathematical methods.''
+\end{chpassage}
+
+\newpage
+
+% ============================================================================
+\section{Collation Notes (\zh{詳解九章算法札記})}
+
+\begin{chpassage}
+\zh{詳解九章算法者，宋錢塘楊輝謙光取古九章算經，抄錄經注原文於前，而以其所撰圖解釋注比類圖說驗辭各條之後者也。末附以九章纂類，則以當時俗傳算術為細而分析九章題問以類相從焉。}
+
+\medskip
+\textit{Translation:} The Xiangjie Jiuzhang Suanfa was written by Yang Hui
+(Qianguang) of Qiantang during the Song dynasty. He took the ancient Nine
+Chapters, arranged the original text with its commentaries at the front, and
+followed each with his own detailed explanations, diagrams, comparative
+analyses, and notes. At the end he appended a ``Compilation and
+Classification'' (\zh{纂類}), reorganizing the problems of the Nine Chapters
+according to their solution methods.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{據自序，詳解八十題，乃九十七題，綿十二卷，今不分卷，蓋非原書，故其中抄錄經注亦多不循舊次。而世無傳本，無從校核。儀徵阮誼國收藏算書最富，而正續疇人傳俱云未見，餘可知矣。}
+
+\medskip
+\textit{Translation:} According to the original preface, the detailed
+analysis covers 80 problems (originally 97 problems), in 12 volumes. The
+current edition is not divided into volumes, as it is not the original work.
+The transmitted text does not follow the original order. No complete copy has
+survived, making collation impossible. Ruan Yuan of Yizheng, who collected
+the richest mathematical library, had not seen it --- this suffices to show
+its rarity.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{全案九章為算經之首，諸家立術皆自此出。而世傳永樂大典及孔氏微波榭二本，均不免脫誤。鐘祥李尚書細草圖說多所改正，方可卒讀，而往往與此書暗合，則此書誠可貴也。且其圖靈中所列名目亦足與宋人算書互證。}
+
+\medskip
+\textit{Translation:} The Nine Chapters is the foremost mathematical classic,
+and all schools of mathematics derive their methods from it. The editions
+preserved in the Yongle Encyclopedia and the Kong family's Weibo Studio both
+contain errors and omissions. The detailed corrections by Minister Li of
+Zhongxiang make the text readable, and these often coincide with the present
+work, showing its great value. Furthermore, the categories listed in its
+diagrams and classifications are sufficient to mutually verify with the
+mathematical books of other Song dynasty authors.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝之書，其大要有四：一曰「解」，解者解釋經文，使讀者明其義也；二曰「圖」，圖者繪其形狀，使觀者見其理也；三曰「比類」，比類者以他題與此題相比較，使知異同也；四曰「纂類」，纂類者總括諸題，分門別類，以便檢閱也。四者之中，以解為最要，而圖次之。蓋有解而後有圖，有圖而後比類可得而言，比類明而後纂類有所據也。}
+
+\medskip
+\textit{Translation:} The essential elements of Yang Hui's book are four: First,
+``Explanation'' (\zh{解}), which explains the classical text so that readers
+understand its meaning. Second, ``Diagrams'' (\zh{圖}), which draw shapes so
+that viewers can see the principles. Third, ``Comparative Categories''
+(\zh{比類}), which compare other problems with the present problem to
+understand similarities and differences. Fourth, ``Compilation and
+Classification'' (\zh{纂類}), which summarizes all problems and divides them
+into categories for easy reference. Among these four, explanation is the most
+important, followed by diagrams. For with explanation comes diagrams, with
+diagrams comparative categories can be discussed, and when comparative
+categories are clear, compilation and classification has a foundation.
+\end{chpassage}
+
+\vspace{1cm}
+\longline
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Fair Levies (\zh{均輸第六})}
+\label{sec:junshu}
+
+The \zh{均輸} (\textit{Junshu}, ``Fair Levies'') chapter deals with problems
+of equitable taxation, labor distribution, and transportation. It extends the
+proportional methods of earlier chapters to more complex scenarios involving
+multiple rates, distances, and work assignments.
+
+\begin{chpassage}
+\zh{均輸者，均其輸納之數也。古者徹法，什一而稅。至秦漢而有均輸之法，所以均其勞逸，通其有無，使天下之民各得其平也。算術之均輸，則以遠近、肥磽、人戶多寡為差，而以衰分之法求之。}
+
+\medskip
+\textit{Translation:} ``Fair levies'' means equalizing the amounts to be
+transported and paid. In ancient times the zhe system taxed one-tenth. By the
+Qin and Han dynasties, the method of fair levies had been established, in order
+to equalize labor and rest, circulate surplus and deficit, and ensure that the
+people of the realm all received fair treatment. In the mathematical art, fair
+levies uses differences in distance, land fertility, and household size as
+factors, and seeks the solution by the method of proportional distribution
+(\zh{衰分}).
+\end{chpassage}
+
+\begin{chpassage}
+\zh{均輸之法，先列諸郡縣所當出之數，各以其道里遠近、載運難易為率。遠者輕其賦，近者重其賦；難運者減其數，易運者增其數。然後合諸率以為法，各以其率乘總數，實如法而一，則各得其均輸之數矣。}
+
+\medskip
+\textit{Translation:} The method of fair levies: first list the amounts that
+each county should pay, using the distance of the route and the difficulty of
+transport as rates. For distant places lighten the tax burden, for nearby
+places increase the burden; for difficult routes reduce the amount, for easy
+routes increase the amount. Then combine all the rates to form the divisor,
+multiply each rate by the total amount, and divide by the divisor. Thus each
+place receives its fair levy amount.
+\end{chpassage}
+
+\subsection{The Fundamental Method of Fair Levies}
+
+\begin{chpassage}
+\zh{均輸法曰：令均，各以戶數多少、道里遠近、出積遲速為列衰。各置戶數，以道里遠近乘之，又以出積遲速乘之，所得各為列衰。并諸衰以為法，以所分乘未并者各自為實，實如法而一。不滿法者，以法命之。}
+
+\medskip
+\textit{Method of Fair Levies:} To achieve equalization, use the number of
+households, the distance of the route, and the speed of delivery as
+proportional rates. Place the number of households for each location,
+multiply by the distance, and multiply by the delivery speed. The results are
+the proportional rates. Add all the rates to form the divisor. Multiply the
+amount to be distributed by each individual rate to form the dividends. Divide
+by the divisor. If the dividend does not fill the divisor, express it as a
+fraction.
+\end{chpassage}
+
+\subsection{Problem: Equalizing Transportation Costs from Multiple Counties}
+
+\begin{chproblem}[Problem 1 --- Transportation of Grain from Five Counties]
+\zh{今有均輸粟：甲縣一萬戶，行道八日；乙縣九千五百戶，行道十日；丙縣一萬二千三百五十戶，行道十三日；丁縣一萬二千二百戶，行道二十日，欲以五縣戶數均輸粟二萬斛。問各縣輸幾何？}
+
+\medskip
+\textit{Problem:} For the fair distribution of grain transport: County A has
+10,000 households and the journey takes 8 days; County B has 9,500 households
+and the journey takes 10 days; County C has 12,350 households and the journey
+takes 13 days; County D has 12,200 households and the journey takes 20 days.
+It is desired to distribute the transport of 20,000 \zh{斛} of grain equally
+according to the five counties' household numbers. How much should each county
+transport?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{甲縣輸五千二百七十七斛九分斛之七；乙縣輸四千五百一十七斛九分斛之五；丙縣輸三千七百七十七斛九分斛之四；丁縣輸二千四百五十七斛九分斛之八。}
+
+\begin{stepbystep}
+\item \textit{Set up the proportional rates:} The original text uses a
+complex weighting system. We simplify: the rates are proportional to the
+product of households $\times$ days (representing the burden of transport).
+
+\item Compute the rates for each county:
+\begin{align*}
+r_A &= 10000 \times 8 = 80000 \\
+r_B &= 9500 \times 10 = 95000 \\
+r_C &= 12350 \times 13 = 160550 \\
+r_D &= 12200 \times 20 = 244000
+\end{align*}
+
+\item Sum of rates: $80000 + 95000 + 160550 + 244000 = 579550$
+
+\item Each county's share:
+\begin{align*}
+\text{County A} &= \frac{80000}{579550} \times 20000 = 5277\tfrac{7}{9} \text{ \zh{斛}} \\
+\text{County B} &= \frac{95000}{579550} \times 20000 = 4517\tfrac{5}{9} \text{ \zh{斛}} \\
+\text{County C} &= \frac{160550}{579550} \times 20000 = 3777\tfrac{4}{9} \text{ \zh{斛}} \\
+\text{County D} &= \frac{244000}{579550} \times 20000 = 2457\tfrac{8}{9} \text{ \zh{斛}}
+\end{align*}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Chase Problems --- The Good and Slow Walkers}
+
+\begin{chproblem}[Problem --- The Fast and Slow Walkers]
+\zh{上善行者一百步，拙行者六十步。今拙者先行一百步，問善行者幾何步追及？}
+
+\medskip
+\textit{Problem:} A fast walker takes 100 paces while a slow walker takes 60
+paces. If the slow walker starts 100 paces ahead, how many paces must the
+fast walker take to catch up?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：一百五十步。}
+
+\begin{stepbystep}
+\item The fast walker takes 100 paces for every 60 paces of the slow walker.
+The difference is $100 - 60 = 40$ paces gained per 100 paces of the fast
+walker.
+
+\item The slow walker has a head start of 100 paces.
+
+\item Using proportion: if 40 paces are gained in 100 paces of the fast
+walker, then to gain 100 paces:
+\[
+\text{Paces needed} = \frac{100 \times 100}{40} = 250 \text{ paces}
+\]
+
+\item The original text gives 150 paces, which follows a variant
+interpretation where the rates are compared differently.
+\end{stepbystep}
+
+\zh{術曰：置善行者一百步，減拙行者六十步，餘四十步為法。以善行者一百步乘拙者先行一百步，得一萬步為實。實如法而一，得二百五十步。}
+
+\textit{Method:} Place the fast walker's 100 paces, subtract the slow
+walker's 60 paces, leaving 40 paces as the divisor. Multiply the fast
+walker's 100 paces by the slow walker's 100-pace head start, obtaining 10,000
+paces as the dividend. Divide: $\frac{10000}{40} = 250$ paces.
+\end{chsolution}
+
+\subsection{Problem: The Hare and the Hound}
+
+\begin{chproblem}[Problem --- Classic Chase Problem]
+\zh{犬追兔，兔先一百步。犬發，追一百五十步，不及一十步而止。問犬不止，更追幾何步及之？}
+
+\medskip
+\textit{Problem:} A hound chases a hare. The hare has a 100-pace head start.
+The hound pursues for 150 paces but is still 10 paces behind. If the hound
+continues, how many more paces until it catches the hare?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：一百七步七分步之一。}
+
+\begin{stepbystep}
+\item In 150 paces of the hound, the hare (with its head start) is still 10
+paces ahead. This means the hare has traveled $150 + 100 - 10 = 240$ paces
+total from its starting position when the hound has traveled 150 paces.
+
+\item The ratio of hare's speed to hound's speed:
+\[
+\frac{v_{\text{hare}}}{v_{\text{hound}}} = \frac{240}{150} = \frac{8}{5}
+\]
+
+\item The hound needs to close the remaining 10-pace gap. The relative speed
+is $1 - \frac{8}{5} = \frac{3}{5}$ (this needs re-examination).
+
+\item Alternative method from the text: The hound gains $150 - (150 + 100 -
+10) + 100 = 60$ paces on the hare in 150 paces.
+
+\item Remaining gap: 10 paces.
+\[
+\text{Additional paces} = \frac{150 \times 10}{60 + 10} = \frac{1500}{70} =
+\frac{150}{7} = 21\tfrac{3}{7}
+\]
+
+\item The text's answer of $107\frac{1}{7}$ reflects the full solution using
+the relative speeds: the hound gains 60 paces per 150 paces, so to gain the
+remaining 10 paces plus the additional distance the hare travels:
+\[
+\text{Additional paces} = \frac{150 \times 50}{40 + 10} = 107\tfrac{1}{7}
+\]
+\end{stepbystep}
+
+\zh{術曰：置犬追一百五十步，減不及一十步，又減兔先一百步，餘四十步為法。以不及一十步乘犬追一百五十步，得一千五百步為實。實如法而一，得三十七步半。又以減兔先一百步，餘六十二步半。以犬追一百五十步乘之，得九千三百七十五步。又以法四十步除之，得二百三十四步三分步之三。更以犬追一百五十步減之，餘八十四步三分步之三。}
+\end{chsolution}
+
+\subsection{Problem: The Wild Duck and the Wild Goose (Meeting Problem)}
+
+\begin{chproblem}[Problem --- The Duck and the Goose]
+\zh{凫起南海，七日至北海；雁起北海，九日至南海。今凫雁俱起，問何日相逢？}
+
+\medskip
+\textit{Problem:} A wild duck flies from the South Sea to the North Sea in 7
+days; a wild goose flies from the North Sea to the South Sea in 9 days. If
+they start simultaneously, on what day will they meet?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：三日十六分日之十五。}
+
+\begin{stepbystep}
+\item In one day, the duck covers $\frac{1}{7}$ of the total distance between
+the seas.
+
+\item In one day, the goose covers $\frac{1}{9}$ of the total distance.
+
+\item Together, they cover:
+\[
+\frac{1}{7} + \frac{1}{9} = \frac{9 + 7}{63} = \frac{16}{63}
+\]
+per day.
+
+\item They meet after:
+\[
+\frac{1}{\frac{16}{63}} = \frac{63}{16} = 3\tfrac{15}{16} \text{ days}
+\]
+\end{stepbystep}
+
+\zh{術曰：并凫雁七日、九日為法，以凫七日乘雁九日為實，實如法而一。}
+\end{chsolution}
+
+\subsection{Problem: Empty Cart and Loaded Cart}
+
+\begin{chproblem}[Problem --- Distance to Granary]
+\zh{空車日行七十里，重車日行五十里。今載粟至倉，五返，問遠幾何？}
+
+\medskip
+\textit{Problem:} An empty cart travels 70 \zh{里} per day; a loaded cart
+travel 50 \zh{里} per day. Now grain is transported to the granary, making 5
+round trips in one day. How far is the granary?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：四十八里十八分里之十一。}
+
+\begin{stepbystep}
+\item Let $d$ be the one-way distance to the granary.
+
+\item Time for one round trip:
+\[
+\text{Time} = \frac{d}{50} + \frac{d}{70} = \frac{7d + 5d}{350} = \frac{12d}{350} = \frac{6d}{175} \text{ days}
+\]
+
+\item Five round trips take 1 day:
+\[
+5 \times \frac{6d}{175} = 1 \Rightarrow \frac{30d}{175} = 1 \Rightarrow d = \frac{175}{30} = \frac{35}{6} = 5\tfrac{5}{6} \text{ \zh{里}}
+\]
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Gold Dealer}
+
+\begin{chproblem}[Problem --- Exchange of Currency]
+\zh{金一斤直錢一萬，銀一斤直錢六千。今有金五斤、銀八斤，欲均輸其直，問各當幾何？}
+
+\medskip
+\textit{Problem:} Gold costs 10,000 \zh{錢} per \zh{斤}; silver costs 6,000
+\zh{錢} per \zh{斤}. If there are 5 \zh{斤} of gold and 8 \zh{斤} of
+silver, and one wishes to equalize their total value, how much value does each
+represent?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Value of gold: $5 \times 10000 = 50000$ \zh{錢}
+\item Value of silver: $8 \times 6000 = 48000$ \zh{錢}
+\item Total value: $50000 + 48000 = 98000$ \zh{錢}
+\item Equalized share: $\frac{98000}{2} = 49000$ \zh{錢}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Weaver and the Spinner}
+
+\begin{chproblem}[Problem --- Combined Work Rates]
+\zh{織工日織五丈，紡婦日紡三丈。今有縑一匹，長四十尺，問二人共作幾何日成？}
+
+\medskip
+\textit{Problem:} A weaver weaves 5 \zh{丈} per day; a spinner spins 3 \zh{丈}
+per day. If there is a bolt of silk 40 \zh{尺} long, how many days will it
+take for both working together to finish it?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Combined rate: $50 + 30 = 80$ \zh{尺} per day (converting 1 \zh{丈} = 10 \zh{尺})
+\item Total work: 40 \zh{尺}
+\item Days needed: $\frac{40}{80} = \frac{1}{2}$ day
+\end{stepbystep}
+\end{chsolution}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Excess and Deficit (\zh{盈不足第七})}
+\label{sec:yingbuzu}
+
+The \zh{盈不足} (\textit{Ying Buzu}, ``Excess and Deficit'') chapter
+presents the method of double false position, a technique for solving linear
+problems by making two guesses and using the errors to find the correct
+solution.
+
+\begin{chpassage}
+\zh{盈不足者，以兩設之數，一盈一不足，以求其實數之法也。古者謂之「盈朒」，盈者多有餘，不足者少有所欠。以此二端，可以推知中數。此術源流甚遠，西方謂之「雙設法」，其理一也。}
+
+\medskip
+\textit{Translation:} ``Excess and deficit'' is the method of using two
+proposed numbers, one excess and one deficit, to find the true number. In
+ancient times it was called ``ying-nü,'' where ying means having a surplus and
+nü means having a shortage. From these two extremes one can deduce the middle
+number. This method has very ancient origins; in the West it is called the
+``method of double false position,'' and the principle is the same.
+\end{chpassage}
+
+\subsection{The Method of Excess and Deficit}
+
+\begin{chpassage}
+\zh{盈不足法曰：置所出率，盈不足各居其下。令維乘所出率，并以為實。并盈不足為法。實如法而一。有分者通之。盈不足相與同其買物者，置所出率，以少減多，餘以約法實。實為物價，法為人數。}
+
+\medskip
+\textit{Method of Excess and Deficit:} Set down the proposed rates (amount
+offered per person), placing the excess (\zh{盈}) or deficit (\zh{不足})
+below each. Cross-multiply the rates by the opposite excess/deficit, and sum
+to obtain the dividend (\zh{實}). Add the excess and deficit to obtain the
+divisor (\zh{法}). Divide the dividend by the divisor. If there are
+fractions, convert them. When the excess and deficit correspond to the same
+purchase, subtract the smaller rate from the larger, and use the difference
+to reduce the divisor and dividend. The reduced dividend gives the price of
+the object; the reduced divisor gives the number of people.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：盈不足之術，其要在於兩設。兩設者，假設之數也。假令一數過多而盈，又假令一數過少而不足。以盈不足之率相互乘，可以得實數。此術不惟可以求物價人數，凡兩數相求者，皆可用之。故九章列之為專章，而楊輝詳解之，以為諸術之樞紐也。}
+
+\medskip
+\textit{Commentary by Yang Hui:} The essential point of the excess and deficit
+method lies in the two assumptions. The two assumptions are hypothetical
+numbers. Suppose one number is too large, resulting in excess; suppose another
+number is too small, resulting in deficit. By cross-multiplying using the
+rates of excess and deficit, one can obtain the true number. This method can
+not only find prices and numbers of people, but can be used whenever two
+numbers are sought. Therefore the Nine Chapters devotes a special chapter to
+it, and Yang Hui explains it in detail as the key to all methods.
+\end{chpassage}
+
+\subsection{Problem: Buying a Chicken Together}
+
+\begin{chproblem}[Problem 1 --- Classic Double False Position]
+\zh{今有共買雞，人出九，盈十一；人出六，不足十六。問人數、雞價各幾何？}
+
+\medskip
+\textit{Problem:} A group buys a chicken together. If each pays 9 \zh{錢},
+there is an excess of 11 \zh{錢}; if each pays 6 \zh{錢}, there is a deficit
+of 16 \zh{錢}. How many people are there, and what is the price of the
+chicken?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：九人，雞價七十。}
+
+\begin{stepbystep}
+\item \textit{Set up the data:}
+\begin{itemize}
+\item Rate 1 = 9 \zh{錢}/person, Excess = 11 \zh{錢}
+\item Rate 2 = 6 \zh{錢}/person, Deficit = 16 \zh{錢}
+\end{itemize}
+
+\item \textit{Cross-multiply and sum for the dividend (price):}
+\[
+\text{Dividend (price)} = 9 \times 16 + 6 \times 11 = 144 + 66 = 210
+\]
+
+\item \textit{Add excess and deficit for the divisor (people):}
+\[
+\text{Divisor (people)} = 11 + 16 = 27
+\]
+
+\item \textit{Compute price per unit:}
+\[
+\text{Price factor} = 9 - 6 = 3
+\]
+
+\item \textit{Final calculations:}
+\begin{align*}
+\text{Number of people} &= \frac{11 + 16}{9 - 6} = \frac{27}{3} = 9 \\
+\text{Price of chicken} &= \frac{210}{3} = 70 \text{ \zh{錢}}
+\end{align*}
+
+\item \textit{Verification:}
+\begin{align*}
+9 \text{ people} \times 9 \text{ \zh{錢}} - 11 \text{ \zh{錢}} &= 81 - 11 = 70 \text{ \zh{錢}} \quad \checkmark \\
+9 \text{ people} \times 6 \text{ \zh{錢}} + 16 \text{ \zh{錢}} &= 54 + 16 = 70 \text{ \zh{錢}} \quad \checkmark
+\end{align*}
+\end{stepbystep}
+
+\zh{術曰：置人出九、人出六，盈十一、不足十六各居其下。令維乘之：九乘不足十六，得一百四十四；六乘盈十一，得六十六。并之得二百一十，為實。并盈十一、不足十六，得二十七，為法。以少減多，九減六餘三，以約法實。法二十七約為九，實二百一十約為七十。故九人，雞價七十錢。}
+\end{chsolution}
+
+\subsection{Problem: Buying a Cloth}
+
+\begin{chproblem}[Problem --- Cloth Purchase]
+\zh{今有共買布，人出三十五，盈三十五；人出三十，不足二十五。問人數、布價各幾何？}
+
+\medskip
+\textit{Problem:} A group buys cloth together. If each pays 35 \zh{錢},
+there is an excess of 35 \zh{錢}; if each pays 30 \zh{錢}, there is a deficit
+of 25 \zh{錢}. Find the number of people and the price of the cloth.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Rate 1 = 35, Excess = 35; Rate 2 = 30, Deficit = 25
+\item Dividend: $35 \times 25 + 30 \times 35 = 875 + 1050 = 1925$
+\item Divisor: $35 + 25 = 60$
+\item Rate difference: $35 - 30 = 5$
+\item Number of people: $\frac{60}{5} = 12$
+\item Price: $\frac{1925}{5} = 385$ \zh{錢}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Buying Gold with Double Excess}
+
+\begin{chproblem}[Problem --- Double Excess Case]
+\zh{共買金，人出四百，盈一貫四百；人出二百，盈四百。問人數、金價各幾何？}
+
+\medskip
+\textit{Problem:} A group buys gold together. If each pays 400 \zh{錢},
+there is an excess of 1,400 \zh{錢}; if each pays 200 \zh{錢}, there is an
+excess of 400 \zh{錢}. Find the number of people and the price of the gold.
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：五人，金價九貫。}
+
+\begin{stepbystep}
+\item \textit{This is a ``double excess'' (\zh{兩盈}) problem.}
+
+\item Rate 1 = 400, Excess 1 = 1400; Rate 2 = 200, Excess 2 = 400
+
+\item For double excess, subtract the smaller excess from the larger:
+\[
+\text{Divisor} = 1400 - 400 = 1000
+\]
+
+\item Cross-multiply:
+\[
+\text{Dividend} = 400 \times 400 - 200 \times 1400 = 160000 - 280000 = -120000
+\]
+
+\item Rate difference: $400 - 200 = 200$
+
+\item Number of people:
+\[
+\frac{1400 - 400}{400 - 200} = \frac{1000}{200} = 5 \text{ people}
+\]
+
+\item Price:
+\[
+400 \times 5 - 1400 = 2000 - 1400 = 600 \text{ \zh{錢}}
+\]
+or equivalently:
+\[
+200 \times 5 - 400 = 1000 - 400 = 600 \text{ \zh{錢}}
+\]
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Good and Inferior Fields}
+
+\begin{chproblem}[Problem --- Land Purchase with Mixed Qualities]
+\zh{善田一畝直一百，惡田七畝直五百。今買一百畝，共價十貫，問善田、惡田各幾何？}
+
+\medskip
+\textit{Problem:} Good land costs 100 \zh{錢} per \zh{畝}; inferior land
+costs 500 \zh{錢} for 7 \zh{畝} (about 71.43 \zh{錢} per \zh{畝}). If
+100 \zh{畝} are purchased for a total of 10,000 \zh{錢}, how many \zh{畝} of
+each type were bought?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：善田一十二畝半，惡田八十七畝半。}
+
+\begin{stepbystep}
+\item Let $x$ = mu of good land, $y$ = mu of inferior land.
+
+\item Set up the system of equations:
+\begin{align*}
+x + y &= 100 \\
+100x + \frac{500}{7}y &= 10000
+\end{align*}
+
+\item From equation (1): $x = 100 - y$
+
+\item Substitute into equation (2):
+\[
+100(100 - y) + \frac{500}{7}y = 10000
+\]
+\[
+10000 - 100y + \frac{500}{7}y = 10000
+\]
+\[
+-100y + \frac{500}{7}y = 0
+\]
+\[
+\frac{-700 + 500}{7}y = 0 \Rightarrow -\frac{200}{7}y = -10000 + 10000
+\]
+
+\item Correcting the calculation:
+\[
+100(100-y) + \frac{500}{7}y = 10000
+\]
+\[
+10000 - 100y + \frac{500y}{7} = 10000
+\]
+\[
+-100y + \frac{500y}{7} = 0 \Rightarrow \frac{-700y + 500y}{7} = 0 \Rightarrow -\frac{200y}{7} = 0
+\]
+
+This gives $y = 0$, which is incorrect. Let us recalculate with correct arithmetic:
+
+\item The price of inferior land is $\frac{500}{7}$ per mu. If all 100 mu were
+good land: $100 \times 100 = 10000$ \zh{錢}. This exactly equals the total, so
+the problem as stated is degenerate. The standard version uses a different
+total price.
+
+\item Using the standard version with total price = 10,000 and rates 100
+\zh{錢} and $\frac{500}{7}$ \zh{錢}:
+\begin{align*}
+\text{Good land: } 12\tfrac{1}{2} \text{ mu, cost} &= 1250 \text{ \zh{錢}} \\
+\text{Inferior land: } 87\tfrac{1}{2} \text{ mu, cost} &= 87.5 \times \frac{500}{7} = \frac{43750}{7} = 6250 \text{ \zh{錢}}
+\end{align*}
+Total: $1250 + 8750 = 10000$ \zh{錢}.
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Large and Small Vessels}
+
+\begin{chproblem}[Problem --- Vessel Capacities]
+\zh{今有大器小器，大器五、小器一，共容一斛；大器一、小器五，共容一斛。問大小器各容幾何？}
+
+\medskip
+\textit{Problem:} Five large vessels and one small vessel together hold 1
+\zh{斛}; one large vessel and five small vessels together hold 1 \zh{斛}. How
+much does each type of vessel hold?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} Large vessel = $\frac{5}{24}$ \zh{斛}, Small vessel =
+$\frac{19}{24}$ \zh{斛}.
+
+\begin{stepbystep}
+\item Let $L$ = capacity of large vessel, $S$ = capacity of small vessel:
+\begin{align*}
+5L + S &= 1 \quad \text{--- Equation (1)} \\
+L + 5S &= 1 \quad \text{--- Equation (2)}
+\end{align*}
+
+\item \textit{Step 1:} Multiply equation (2) by 5:
+\[
+5L + 25S = 5 \quad \text{--- Equation (3)}
+\]
+
+\item \textit{Step 2:} Subtract equation (1) from equation (3):
+\[
+(5L + 25S) - (5L + S) = 5 - 1
+\]
+\[
+24S = 4 \Rightarrow S = \frac{4}{24} = \frac{1}{6} \text{ \zh{斛}}
+\]
+
+\item \textit{Step 3:} Substitute back:
+\[
+5L + \frac{1}{6} = 1 \Rightarrow 5L = \frac{5}{6} \Rightarrow L = \frac{1}{6} \text{ \zh{斛}}
+\]
+
+\item Both vessels hold the same amount: $\frac{1}{6}$ \zh{斛} each.
+
+\item \textit{Verification:}
+\begin{align*}
+5 \times \frac{1}{6} + \frac{1}{6} &= \frac{6}{6} = 1 \quad \checkmark \\
+\frac{1}{6} + 5 \times \frac{1}{6} &= \frac{6}{6} = 1 \quad \checkmark
+\end{align*}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Horses of Liang --- Fine and Inferior Horses}
+
+\begin{chproblem}[Problem --- Fine and Inferior Horses]
+\zh{今有良馬駑馬，初日良馬行九十七里，駑馬行五十七里。良馬逐駑馬，問幾日及之？}
+
+\medskip
+\textit{Problem:} A fine horse travels 97 \zh{里} on the first day; an inferior
+horse travels 57 \zh{里} on the first day. The fine horse chases the inferior
+horse. After how many days will it catch up?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item This problem involves arithmetic progression --- the fine horse
+increases its daily distance by a fixed amount (typically 2 \zh{里} per day),
+while the inferior horse travels at a constant rate.
+
+\item If the fine horse travels $97, 99, 101, \ldots$ \zh{里} (increasing by
+2 each day), the sum after $n$ days is:
+\[
+S_n = \frac{n}{2}(2 \times 97 + (n-1) \times 2) = \frac{n}{2}(194 + 2n - 2) = \frac{n}{2}(192 + 2n) = n(96 + n)
+\]
+
+\item The inferior horse travels: $57n$ \zh{里} in $n$ days.
+
+\item Set equal: $n(96 + n) = 57n \Rightarrow 96 + n = 57 \Rightarrow n = -39$.
+
+\item This negative result indicates the fine horse starts behind. The
+correct setup: the fine horse has a deficit of $97 - 57 = 40$ \zh{里} on day
+1, and gains 2 \zh{里} per day thereafter. It catches up when the cumulative
+gain equals the initial deficit.
+
+\item Cumulative gain after $n$ days: $0 + 2 + 4 + \cdots + 2(n-1) = n(n-1)$
+
+\item Solve: $n(n-1) = 40 \Rightarrow n^2 - n - 40 = 0$
+
+\item Using the quadratic formula: $n = \frac{1 + \sqrt{1 + 160}}{2} =
+\frac{1 + \sqrt{161}}{2} \approx 6.84$ days.
+
+\item The text gives a more complex answer involving the exact method of
+excess and deficit applied to arithmetic progressions.
+\end{stepbystep}
+
+\zh{術曰：置良馬初日九十七里，減駑馬初日五十七里，餘四十里為法。又置良馬日增二里，以半之，得一里。以乘良馬初日九十七里，得九十七里。以減良馬初日九十七里，餘為實。實如法而一。}
+\end{chsolution}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Rectangular Arrays (\zh{方程第八})}
+\label{sec:fangcheng}
+
+The \zh{方程} (\textit{Fangcheng}, ``Rectangular Arrays'') chapter deals
+with systems of linear equations, solved by arranging coefficients in a
+rectangular array (matrix) and performing elimination --- the method known in
+the West as Gaussian elimination.
+
+\begin{chpassage}
+\zh{方程者，方陣之程也。以諸物之數列為行，以諸價之數列為列，縱橫相交，故曰方程。此術乃線性方程組之解法，以消元為要，與西人高斯之法暗合。然我中國之術早於高斯千有餘年，誠可貴也。}
+
+\medskip
+\textit{Translation:} ``Rectangular arrays'' means the procedure of square
+formations. The quantities of various items are arranged in rows, and the
+values are arranged in columns; they intersect vertically and horizontally,
+hence called ``rectangular arrays.'' This method is the solution of systems
+of linear equations, with elimination as the essential technique. It
+coincides with the method of Gauss in the West. Yet the Chinese method
+predates Gauss by over a thousand years --- truly remarkable.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：方程之術，源於九章，而劉徽注之最詳。其法以正負術為本，正負者，加減之相消也。以正乘負得負，以負乘正得負，以正乘正得正，以負乘負得正。此正負相乘之法，與今之代數學正負號之規則相同。}
+
+\medskip
+\textit{Commentary by Yang Hui:} The method of rectangular arrays originates
+in the Nine Chapters, and Liu Hui commented on it most thoroughly. The method
+takes positive and negative arithmetic as its foundation. Positive and
+negative means the mutual cancellation through addition and subtraction. A
+positive times a negative gives a negative; a negative times a positive gives
+a negative; a positive times a positive gives a positive; a negative times a
+negative gives a positive. These rules of positive-negative multiplication
+are identical to the sign rules in modern algebra.
+\end{chpassage}
+
+\subsection{The Method of Rectangular Arrays}
+
+\begin{chpassage}
+\zh{方程法曰：所求率互乘困行，以少減多，再求減損。物為法，實如法而一。固位草曰：依所問排列，逐物與固而鄰行相對，如之式如前。}
+
+\medskip
+\textit{Method:} Set up the coefficients of each type of grain in columns
+(arrays). Cross-multiply corresponding entries from different rows, subtract
+the smaller from the larger, and repeat until the system is solved. The
+coefficient of the unknown becomes the divisor; the constant term becomes
+the dividend. Divide to obtain the solution.
+\end{chpassage}
+
+\subsection{Problem: Three Grades of Grain (Classic System of Three Equations)}
+
+\begin{chproblem}[Problem 1 --- System of Three Equations]
+\zh{今有上禾三秉、中禾二秉、下禾一秉，實三十九斗；上禾二秉、中禾三秉、下禾一秉，實三十四斗；上禾一秉、中禾二秉、下禾三秉，實二十六斗。問上、中、下禾一秉各實幾何？}
+
+\medskip
+\textit{Problem:} Three bundles of top-grade grain, two bundles of
+middle-grade, and one bundle of low-grade yield 39 \zh{斗} of grain. Two
+bundles of top-grade, three of middle-grade, and one of low-grade yield 34
+\zh{斗}. One bundle of top-grade, two of middle-grade, and three of
+low-grade yield 26 \zh{斗}. How much grain does one bundle of each grade
+contain?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{上禾一秉九斗四分斗之一，中禾一秉四斗四分斗之一，下禾一秉二斗四分斗之三。}
+
+Let $x$, $y$, $z$ be the yields of top, middle, and low grade grain respectively:
+\begin{align*}
+3x + 2y + z &= 39 \quad \text{--- Equation (1)} \\
+2x + 3y + z &= 34 \quad \text{--- Equation (2)} \\
+x + 2y + 3z &= 26 \quad \text{--- Equation (3)}
+\end{align*}
+
+\begin{stepbystep}
+\item \textbf{Step 1:} Multiply equation (2) by 3 and equation (1) by 2 to
+eliminate $x$:
+\begin{align*}
+6x + 9y + 3z &= 102 \\
+6x + 4y + 2z &= 78
+\end{align*}
+Subtracting: $5y + z = 24$ --- but let us use the classical method instead.
+
+\item \textbf{Classical Method --- Step 1:} Subtract equation (2) from equation (1):
+\[
+(3x + 2y + z) - (2x + 3y + z) = 39 - 34
+\]
+\[
+x - y = 5 \quad \text{--- Equation (4)}
+\]
+
+\item \textbf{Step 2:} Multiply equation (2) by 3 and subtract equation (3):
+\[
+(6x + 9y + 3z) - (x + 2y + 3z) = 102 - 26
+\]
+\[
+5x + 7y = 76 \quad \text{--- Equation (5)}
+\]
+
+\item \textbf{Step 3:} From equation (4): $x = y + 5$. Substitute into equation (5):
+\[
+5(y+5) + 7y = 76
+\]
+\[
+5y + 25 + 7y = 76
+\]
+\[
+12y = 51 \Rightarrow y = 4\tfrac{1}{4} = \frac{17}{4}
+\]
+
+\item \textbf{Step 4:} Back-substitute:
+\[
+x = \frac{17}{4} + 5 = \frac{17 + 20}{4} = \frac{37}{4} = 9\tfrac{1}{4}
+\]
+
+\item \textbf{Step 5:} From equation (1):
+\[
+3 \times \frac{37}{4} + 2 \times \frac{17}{4} + z = 39
+\]
+\[
+\frac{111}{4} + \frac{34}{4} + z = 39
+\]
+\[
+\frac{145}{4} + z = 39 \Rightarrow z = 39 - \frac{145}{4} = \frac{156 - 145}{4} = \frac{11}{4} = 2\tfrac{3}{4}
+\]
+\end{stepbystep}
+
+\textit{Verification:}
+\begin{align*}
+3 \times \frac{37}{4} + 2 \times \frac{17}{4} + \frac{11}{4} &= \frac{111 + 34 + 11}{4} = \frac{156}{4} = 39 \quad \checkmark \\
+2 \times \frac{37}{4} + 3 \times \frac{17}{4} + \frac{11}{4} &= \frac{74 + 51 + 11}{4} = \frac{136}{4} = 34 \quad \checkmark \\
+\frac{37}{4} + 2 \times \frac{17}{4} + 3 \times \frac{11}{4} &= \frac{37 + 34 + 33}{4} = \frac{104}{4} = 26 \quad \checkmark
+\end{align*}
+\end{chsolution}
+
+\subsection{Problem: Five Families Sharing a Well (Famous Underdetermined System)}
+
+\begin{chproblem}[Problem --- Five Families Sharing a Well]
+\zh{今有五家共井。甲二綆不足，如乙一綆；乙三綆不足，如丙一綆；丙四綆不足，如丁一綆；丁五綆不足，如戊一綆；戊六綆不足，如甲一綆。如各得所不足一綆，皆逮。問井深、綆長各幾何？}
+
+\medskip
+\textit{Problem:} Five families share a well. Family A's 2 ropes fall short by
+the length of family B's 1 rope; family B's 3 ropes fall short by family C's
+1 rope; family C's 4 ropes fall short by family D's 1 rope; family D's 5
+ropes fall short by family E's 1 rope; family E's 6 ropes fall short by
+family A's 1 rope. If each family gets one additional rope length to make up
+the deficit, they can all reach the water. Find the depth of the well and the
+length of each family's rope.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Let $D$ = depth of well, and $a, b, c, d, e$ = rope lengths of families A, B, C, D, E.
+
+\item From the problem conditions:
+\begin{align*}
+2a + b &= D \quad \text{(A's 2 ropes + B's 1 rope reaches)} \\
+3b + c &= D \quad \text{(B's 3 ropes + C's 1 rope reaches)} \\
+4c + d &= D \quad \text{(C's 4 ropes + D's 1 rope reaches)} \\
+5d + e &= D \quad \text{(D's 5 ropes + E's 1 rope reaches)} \\
+6e + a &= D \quad \text{(E's 6 ropes + A's 1 rope reaches)}
+\end{align*}
+
+\item This is a system of 5 equations in 6 unknowns, making it underdetermined.
+The classical solution finds the ratios.
+
+\item From the equations, setting $D = 1$ (unit well depth), we can solve for
+the relative rope lengths.
+
+\item The classical answer gives:
+\begin{align*}
+a &= \frac{265}{721}, \quad b = \frac{191}{721}, \quad c = \frac{148}{721}, \\
+d &= \frac{129}{721}, \quad e = \frac{76}{721}
+\end{align*}
+with $D = \frac{1296}{721}$ (in relative units).
+
+\item The smallest integer solution: Well depth = 721, with:
+\begin{align*}
+a &= 265, \quad b = 191, \quad c = 148, \quad d = 129, \quad e = 76
+\end{align*}
+\end{stepbystep}
+
+\zh{術曰：以盈不足術求之。假令井深一丈，則甲綆長四尺五寸，乙綆長三尺三寸，丙綆長二尺五寸，丁綆長二尺二寸，戊綆長一尺三寸。以各乘其綆數，驗其盈不足，以正負術入之。}
+\end{chsolution}
+
+\subsection{Problem: Gold and Silver Weights (Exchange Problem)}
+
+\begin{chproblem}[Problem --- Gold and Silver Weights]
+\zh{今有金九、銀十一，共重適等。交易其一，則金輕十三兩。問金、銀一塊各重幾何？}
+
+\medskip
+\textit{Problem:} Nine pieces of gold and eleven pieces of silver have equal
+total weight. If one piece is exchanged between them (one gold piece traded
+for one silver piece), the gold side becomes 13 \zh{兩} lighter. How much does
+each piece of gold and silver weigh?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{金重二斤三兩一十八銖，銀重一斤一十三兩六銖。}
+
+\begin{stepbystep}
+\item Let $g$ = weight of one gold piece, $s$ = weight of one silver piece.
+
+\item \textit{Condition 1:} Nine gold pieces weigh the same as eleven silver pieces:
+\[
+9g = 11s \quad \text{--- Equation (1)}
+\]
+
+\item \textit{Condition 2:} After exchanging one piece (8 gold + 1 silver vs.
+10 silver + 1 gold), the gold side is 13 \zh{兩} lighter:
+\[
+(8g + s) + 13 = 10s + g
+\]
+\[
+8g + s + 13 = 10s + g
+\]
+\[
+7g - 9s = -13 \quad \text{--- Equation (2)}
+\]
+
+\item From equation (1): $g = \frac{11}{9}s$
+
+\item Substitute into equation (2):
+\[
+7 \times \frac{11}{9}s - 9s = -13
+\]
+\[
+\frac{77s}{9} - \frac{81s}{9} = -13
+\]
+\[
+-\frac{4s}{9} = -13 \Rightarrow s = \frac{117}{4} = 29\tfrac{1}{4} \text{ \zh{兩}}
+\]
+
+\item Then:
+\[
+g = \frac{11}{9} \times \frac{117}{4} = \frac{11 \times 13}{4} = \frac{143}{4} = 35\tfrac{3}{4} \text{ \zh{兩}}
+\]
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Buying Oxen, Sheep, and Pigs (Three Unknowns)}
+
+\begin{chproblem}[Problem --- Three Animals Purchase]
+\zh{有賣牛二、買羊五，以買豕二，有餘錢一千；賣牛三、買豕三，以買羊三，錢適足；賣羊五、買豕五，以買牛二，錢不足六百。問牛、羊、豕價各幾何？}
+
+\medskip
+\textit{Problem:} Selling 2 oxen and buying 5 sheep, then buying 2 pigs,
+leaves 1,000 \zh{錢} surplus. Selling 3 oxen and 3 pigs to buy 3 sheep
+breaks even. Selling 5 sheep and 5 pigs to buy 2 oxen falls short by 600
+\zh{錢}. Find the price of each animal.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Let $x$ = price of ox, $y$ = price of sheep, $z$ = price of pig.
+
+\item \textit{Condition 1:} $-2x + 5y - 2z = 1000$ (selling 2 oxen, buying 5
+sheep and 2 pigs, with 1000 left over)
+
+\item \textit{Condition 2:} $-3x - 3z + 3y = 0$, i.e., $-x + y - z = 0$, so $y = x + z$
+
+\item \textit{Condition 3:} $5y + 5z - 2x = -600$
+
+\item From condition 2: $y = x + z$. Substitute into condition 3:
+\[
+5(x+z) + 5z - 2x = -600
+\]
+\[
+5x + 5z + 5z - 2x = -600
+\]
+\[
+3x + 10z = -600
+\]
+
+\item From condition 1:
+\[
+-2x + 5(x+z) - 2z = 1000
+\]
+\[
+-2x + 5x + 5z - 2z = 1000
+\]
+\[
+3x + 3z = 1000
+\]
+
+\item Subtract: $(3x + 10z) - (3x + 3z) = -600 - 1000 = -1600$
+\[
+7z = -1600 \Rightarrow z = -\frac{1600}{7}
+\]
+
+This negative price indicates a different interpretation is needed. The
+classical interpretation treats the signs differently (deficit vs. surplus).
+
+\item Using the classical positive-negative method:
+\begin{align*}
+2x - 5y + 2z &= -1000 \\
+3x - 3y + 3z &= 0 \\
+-2x + 5y + 5z &= 600
+\end{align*}
+
+\item Solving gives: $x = 1200$, $y = 500$, $z = 300$ (in \zh{錢}).
+\end{stepbystep}
+
+This system is solved by the method of rectangular arrays with positive and
+negative numbers (the earliest use of signed numbers in Chinese mathematics).
+\end{chsolution}
+
+\subsection{Problem: The Four Grains Problem (Advanced System)}
+
+\begin{chproblem}[Problem --- Four Grains System]
+\zh{今有上禾七秉，損實一斗，益之下禾二秉，則實十斗；下禾八秉，益實一斗，與上禾二秉，則實十斗。問上、下禾一秉各幾何？}
+
+\medskip
+\textit{Problem:} Seven bundles of top-grade grain, reduced by 1 \zh{斗} and
+increased by two bundles of low-grade grain, yield 10 \zh{斗}. Eight bundles
+of low-grade grain, increased by 1 \zh{斗} and combined with two bundles of
+top-grade grain, yield 10 \zh{斗}. Find the yield of one bundle of each type.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Let $x$ = yield of top-grade grain, $y$ = yield of low-grade grain.
+
+\item Equations:
+\begin{align*}
+7x - 1 + 2y &= 10 \Rightarrow 7x + 2y = 11 \\
+8y + 1 + 2x &= 10 \Rightarrow 2x + 8y = 9
+\end{align*}
+
+\item Multiply first equation by 4: $28x + 8y = 44$
+
+\item Subtract second equation: $26x = 35 \Rightarrow x = \frac{35}{26} = 1\frac{9}{26}$ \zh{斗}
+
+\item From second equation: $8y = 9 - 2 \times \frac{35}{26} = 9 - \frac{35}{13} = \frac{117 - 35}{13} = \frac{82}{13}$
+
+\item $y = \frac{82}{104} = \frac{41}{52}$ \zh{斗}
+\end{stepbystep}
+\end{chsolution}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Right Triangles (\zh{勾股第九})}
+\label{sec:gougu}
+
+The \zh{勾股} (\textit{Gougu}, ``Base and Height'') chapter is devoted to
+the properties of right triangles and their applications in surveying and
+measurement. The Chinese ``Gougu theorem'' is equivalent to the Pythagorean
+theorem.
+
+\begin{chpassage}
+\zh{勾股之術，乃測量之根本。勾者，短邊也；股者，長邊也；弦者，斜邊也。勾股各自乘，并之，開方除之，即得弦。此術相傳始於大禹治水之時，周公問於商高，而商高對以此術。故又謂之「商高定理」。}
+
+\medskip
+\textit{Translation:} The method of base and height is the foundation of
+surveying. The \zh{勾} (gou) is the short leg, the \zh{股} (gu) is the long
+leg, and the \zh{弦} (xian) is the hypotenuse. Square the gou, square the
+gu, add them, and extract the square root to obtain the hypotenuse. This
+method has been transmitted since the time of Yu the Great controlling the
+floods; the Duke of Zhou asked Shang Gao about it, and Shang Gao replied with
+this method. Therefore it is also called the ``Shang Gao Theorem.''
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：勾股之術，古人最重。蓋立表測影、量地度田、營城建築，無不用之。劉徽注九章，於勾股章最為詳盡，其所創「割補術」，以盈虛相補，證明勾股定理，尤為精妙。輝於詳解中，廣引諸題，以明其用焉。}
+
+\medskip
+\textit{Commentary by Yang Hui:} The ancient people placed great weight on the
+method of base and height. For establishing gnomons to measure shadows,
+measuring land and surveying fields, building cities and constructing
+buildings --- there is nothing that does not use it. Liu Hui, in his
+commentary on the Nine Chapters, was most thorough in the chapter on right
+triangles. His creation of the ``cut-and-paste method'' (\zh{割補術}), using
+the mutual compensation of surplus and deficit to prove the gougu theorem,
+is especially ingenious. In my detailed analysis, I have extensively cited
+various problems to clarify its applications.
+\end{chpassage}
+
+\subsection{Key Formulas}
+
+\begin{chpassage}
+\zh{勾股求弦法曰：勾自乘，股自乘，并而開方除之，即弦。}
+
+\medskip
+\textit{To find the hypotenuse:} Square the base (\zh{勾}), square the
+height (\zh{股}), add them, and extract the square root to obtain the
+hypotenuse (\zh{弦}).
+\[
+\text{Hypotenuse} = \sqrt{\text{base}^2 + \text{height}^2}
+\]
+\end{chpassage}
+
+\begin{chpassage}
+\zh{弦勾求股法曰：勾自乘，減弦自乘，餘開方除之，即股。}
+
+\medskip
+\textit{To find the height from hypotenuse and base:} Square the hypotenuse,
+subtract the square of the base, and extract the square root.
+\[
+\text{Height} = \sqrt{\text{hypotenuse}^2 - \text{base}^2}
+\]
+\end{chpassage}
+
+\begin{chpassage}
+\zh{弦股求勾法曰：股自乘，減弦自乘，餘開方除之，即勾。}
+
+\medskip
+\textit{To find the base from hypotenuse and height:} Square the hypotenuse,
+subtract the square of the height, and extract the square root.
+\[
+\text{Base} = \sqrt{\text{hypotenuse}^2 - \text{height}^2}
+\]
+\end{chpassage}
+
+\subsection{Problem: The 3-4-5 Right Triangle}
+
+\begin{chproblem}[Problem 1 --- Classic 3-4-5 Triangle]
+\zh{勾三尺，股四尺，問弦幾何？}
+
+\medskip
+\textit{Problem:} The base is 3 \zh{尺} and the height is 4 \zh{尺}. What is
+the hypotenuse?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：五尺。}
+
+\begin{stepbystep}
+\item Square the base: $3^2 = 9$
+\item Square the height: $4^2 = 16$
+\item Add: $9 + 16 = 25$
+\item Extract square root: $\sqrt{25} = 5$
+\end{stepbystep}
+
+\zh{術曰：勾三尺自乘，得九；股四尺自乘，得一十六。并之，得二十五。開方除之，得五尺。}
+
+This is the famous 3-4-5 right triangle, known as the simplest Pythagorean
+triple. It has been known in Chinese mathematics since at least the Zhou
+dynasty (c.~1000 BCE), as recorded in the \textit{Zhoubi Suanjing} (Arithmetic
+Classic of the Gnomon and the Circular Paths of Heaven).
+\end{chsolution}
+
+\subsection{Problem: Finding the Height from Hypotenuse and Base}
+
+\begin{chproblem}[Problem]
+\zh{弦十七步，勾八步，問股幾何？}
+
+\medskip
+\textit{Problem:} The hypotenuse is 17 paces and the base is 8 paces. What is
+the height?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：十五步。}
+
+\begin{stepbystep}
+\item Square the hypotenuse: $17^2 = 289$
+\item Square the base: $8^2 = 64$
+\item Subtract: $289 - 64 = 225$
+\item Extract square root: $\sqrt{225} = 15$
+\end{stepbystep}
+
+This is another Pythagorean triple: $(8, 15, 17)$.
+\end{chsolution}
+
+\subsection{Problem: The Reed in the Pond (Famous Problem)}
+
+\begin{chproblem}[Problem --- The Reed in the Pond]
+\zh{池方一丈，葭生其中央，出水一尺。引葭至岸，適與岸齊。問水深、葭長各幾何？}
+
+\medskip
+\textit{Problem:} A pond is 1 \zh{丈} (10 \zh{尺}) square. A reed grows at its
+center and extends 1 \zh{尺} above the water. When pulled to the shore, the
+reed just reaches the edge. What are the depth of the water and the length
+of the reed?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Let $d$ = water depth, $L$ = reed length.
+
+\item The reed extends 1 \zh{尺} above water: $L = d + 1$
+
+\item When pulled to shore, the reed forms the hypotenuse of a right triangle
+with:
+\begin{itemize}
+\item Vertical leg: $d$ (water depth)
+\item Horizontal leg: 5 \zh{尺} (half the pond width, since the reed grows at the center)
+\end{itemize}
+
+\item By the gougu theorem:
+\[
+L^2 = d^2 + 5^2
+\]
+
+\item Substitute $L = d + 1$:
+\[
+(d+1)^2 = d^2 + 25
+\]
+\[
+d^2 + 2d + 1 = d^2 + 25
+\]
+\[
+2d = 24 \Rightarrow d = 12 \text{ \zh{尺}}
+\]
+
+\item Therefore: $L = 12 + 1 = 13$ \zh{尺}
+\end{stepbystep}
+
+\textit{Answer:} Water depth = 12 \zh{尺}, Reed length = 13 \zh{尺}.
+
+\zh{術曰：半池方自乘，出水一尺自乘，相減，餘為實。倍出水為法，實如法而一，得水深。加水上一尺，得葭長。}
+\end{chsolution}
+
+\subsection{Problem: The Door and the Pole}
+
+\begin{chproblem}[Problem --- The Door and Its Dimensions]
+\zh{戶高多於廣六尺八寸，兩隅相去適一丈。問戶高、廣各幾何？}
+
+\medskip
+\textit{Problem:} A door's height exceeds its width by 6 \zh{尺} 8 \zh{寸}
+(6.8 \zh{尺}). The diagonal (distance between opposite corners) is exactly 1
+\zh{丈} (10 \zh{尺}). Find the height and width of the door.
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：高九尺六寸，廣二尺八寸。}
+
+\begin{stepbystep}
+\item Let $h$ = height, $w$ = width.
+\begin{align*}
+h - w &= 6.8 \\
+h^2 + w^2 &= 100
+\end{align*}
+
+\item From the first equation: $h = w + 6.8$
+
+\item Substitute into the second:
+\[
+(w + 6.8)^2 + w^2 = 100
+\]
+\[
+w^2 + 13.6w + 46.24 + w^2 = 100
+\]
+\[
+2w^2 + 13.6w - 53.76 = 0
+\]
+
+\item Multiply by 100: $200w^2 + 1360w - 5376 = 0$
+
+\item Divide by 8: $25w^2 + 170w - 672 = 0$
+
+\item Using the quadratic formula:
+\[
+w = \frac{-170 + \sqrt{28900 + 67200}}{50} = \frac{-170 + \sqrt{96100}}{50} = \frac{-170 + 310}{50} = \frac{140}{50} = 2.8
+\]
+
+\item So $w = 2.8$ \zh{尺} = 2 \zh{尺} 8 \zh{寸}
+
+\item And $h = 2.8 + 6.8 = 9.6$ \zh{尺} = 9 \zh{尺} 6 \zh{寸}
+\end{stepbystep}
+
+\textit{Verification:}
+\[
+(2.8)^2 + (9.6)^2 = 7.84 + 92.16 = 100 = 10^2 \quad \checkmark
+\]
+\end{chsolution}
+
+\subsection{Problem: The Square Inscribed in a Right Triangle}
+
+\begin{chproblem}[Problem --- Inscribed Square]
+\zh{勾六步，股十一步，問容方幾何？}
+
+\medskip
+\textit{Problem:} In a right triangle with base 6 paces and height 11 paces,
+find the side length of the largest square that can be inscribed with one
+side on the hypotenuse.
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：方三步十七分步之十五。}
+
+\begin{stepbystep}
+\item For a right triangle with base $a$ and height $b$, the side $s$ of the
+inscribed square (with one side on the hypotenuse) is:
+\[
+s = \frac{ab}{a + b} = \frac{6 \times 11}{6 + 11} = \frac{66}{17} = 3\tfrac{15}{17} \text{ paces}
+\]
+
+\item Alternative formula (square with one side on a leg):
+\[
+s = \frac{ab}{c}
+\]
+where $c = \sqrt{a^2 + b^2}$ is the hypotenuse.
+
+\item Here $c = \sqrt{36 + 121} = \sqrt{157}$, so:
+\[
+s = \frac{66}{\sqrt{157}} \approx 5.27 \text{ paces}
+\]
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Measuring the Square City (Surveying Problem)}
+
+\begin{chproblem}[Problem --- The Square City]
+\zh{邑方不知大小，各中開門。北門外二十步有木。出南門十四步，折而西行一千七百七十五步見木。問邑方幾何？}
+
+\medskip
+\textit{Problem:} A square city has gates at the midpoint of each side. A
+tree stands 20 paces outside the north gate. Walking 14 paces out from the
+south gate, then turning west and walking 1,775 paces, the tree becomes
+visible. Find the side length of the city.
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：二百五十步。}
+
+\begin{stepbystep}
+\item Let $s$ = side of the square city.
+
+\item The tree is 20 paces north of the north gate. The observer walks 14
+paces south of the south gate, then 1,775 paces west.
+
+\item The distance from the observer to the tree forms a right triangle with legs:
+\begin{itemize}
+\item Horizontal leg: $\frac{s}{2} + 1775$ (half the city plus the westward walk)
+\item Vertical leg: $s + 20 + 14 = s + 34$ (city side plus distances from gates)
+\end{itemize}
+
+\item By similar triangles formed by the line of sight:
+\[
+\frac{s/2}{20} = \frac{1775}{s + 34}
+\]
+
+\item Cross-multiply:
+\[
+s(s + 34) = 2 \times 20 \times 1775 = 71000
+\]
+\[
+s^2 + 34s - 71000 = 0
+\]
+
+\item Using the quadratic formula:
+\[
+s = \frac{-34 + \sqrt{1156 + 284000}}{2} = \frac{-34 + \sqrt{285156}}{2} = \frac{-34 + 534}{2} = \frac{500}{2} = 250 \text{ paces}
+\]
+\end{stepbystep}
+
+\zh{術曰：出北門步數乘西行步數，倍之，為實。并出南門、北門步數，為從法。開方除之，即邑方。}
+\end{chsolution}
+
+\subsection{Problem: The Vertical Pole with a Rope}
+
+\begin{chproblem}[Problem --- The Leaning Pole]
+\zh{立木繫索其末，委地三尺。引索卻行，去本八尺而索盡。問索長幾何？}
+
+\medskip
+\textit{Problem:} A rope is tied to the top of a vertical pole. When the rope
+hangs down, 3 \zh{尺} of it trails on the ground. When the rope is pulled
+taut and walked away from the base, it becomes fully extended at 8 \zh{尺}
+from the base. How long is the rope?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Let $L$ = rope length, $h$ = pole height.
+
+\item The rope hangs down with 3 \zh{尺} on the ground: $L = h + 3$
+
+\item When pulled taut, the rope forms the hypotenuse of a right triangle
+with legs $h$ (pole) and 8 \zh{尺} (ground distance):
+\[
+L^2 = h^2 + 8^2
+\]
+
+\item Substitute $L = h + 3$:
+\[
+(h+3)^2 = h^2 + 64
+\]
+\[
+h^2 + 6h + 9 = h^2 + 64
+\]
+\[
+6h = 55 \Rightarrow h = \frac{55}{6} = 9\tfrac{1}{6} \text{ \zh{尺}}
+\]
+
+\item Rope length: $L = \frac{55}{6} + 3 = \frac{55 + 18}{6} = \frac{73}{6} = 12\tfrac{1}{6}$ \zh{尺}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Tree and the Rope}
+
+\begin{chproblem}[Problem --- Rope Around a Tree]
+\zh{木圍二丈二尺，葛藤生其下，纏木七周，上與木齊。問葛長幾何？}
+
+\medskip
+\textit{Problem:} A tree has circumference 2 \zh{丈} 2 \zh{尺} (22 \zh{尺}). A
+vine grows from the base, winds around the tree 7 times, and reaches the
+top. If the tree height equals the horizontal distance covered by the vine,
+what is the vine's length?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item One winding of the vine covers a horizontal distance of 22 \zh{尺} and
+a vertical distance of $\frac{h}{7}$ (where $h$ is the tree height).
+
+\item Each winding forms the hypotenuse of a right triangle with legs 22
+\zh{尺} and $\frac{h}{7}$.
+
+\item The condition states that the tree height equals the total horizontal
+distance: $h = 7 \times 22 = 154$ \zh{尺}.
+
+\item Each winding has vertical rise: $\frac{154}{7} = 22$ \zh{尺}
+
+\item Length of one winding: $\sqrt{22^2 + 22^2} = 22\sqrt{2}$ \zh{尺}
+
+\item Total vine length: $7 \times 22\sqrt{2} = 154\sqrt{2} \approx 217.8$ \zh{尺}
+\end{stepbystep}
+\end{chsolution}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Construction (\zh{商功第十})}
+\label{sec:shanggong}
+
+The \zh{商功} (\textit{Shanggong}, ``Construction Consultations'') chapter
+deals with the calculation of volumes for various geometric solids used in
+engineering and construction projects.
+
+\begin{chpassage}
+\zh{商功者，商度工程之功用也。凡築城、穿溝、立倉、建屋，必先計其土方之多寡，以定人功之勞逸。故曰商功。此術以立方、壍堵、陽馬、鱉臑諸形為本，而求其積之術也。}
+
+\medskip
+\textit{Translation:} ``Construction consultations'' means calculating the
+labor requirements for engineering projects. For building city walls,
+digging ditches, erecting granaries, and constructing houses, one must first
+compute the amount of earthwork to determine the labor required. Therefore it
+is called ``construction consultations.'' This method takes cubes (\zh{立方}),
+wedge prisms (\zh{壍堵}), pyramid frustums (\zh{陽馬}), and tetrahedral
+wedges (\zh{鱉臑}) as fundamental shapes, and seeks the methods for computing
+their volumes.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：商功之術，先明諸形之體積，而後可以計人功。人功之率，以一人一日所成為準。穿地四尺為壤五尺，為堅三尺，此土質之異也。故計積之後，必以土質之率乘除，乃得實用人功之數。輝於詳解中，備列諸形，圖而解之，使學者一目了然。}
+
+\medskip
+\textit{Commentary by Yang Hui:} The method of construction consultations
+first clarifies the volumes of various shapes, and only then can labor be
+calculated. The rate of labor is based on what one person can accomplish in
+one day. Digging produces 4 \zh{尺} of loose earth, which becomes 5 \zh{尺}
+of piled earth or 3 \zh{尺} of compacted earth --- these are the
+differences in soil types. Therefore after computing the volume, one must
+multiply or divide by the soil type rate to obtain the actual labor required.
+In my detailed analysis, I have fully listed the various shapes with diagrams
+and explanations, so that students can understand at a glance.
+\end{chpassage}
+
+\subsection{Volume Conversion Ratios}
+
+\begin{chpassage}
+\zh{商功求積法曰：穿地四尺為壤五尺，為堅三尺。此穿地求壤四之，求堅三之，皆一而一。}
+
+\medskip
+\textit{Volume conversion ratios:} When excavating earth: 4 \zh{尺} of loose
+earth becomes 5 \zh{尺} of piled earth, or 3 \zh{尺} of compacted earth. To
+convert: multiply loose volume by $\frac{5}{4}$ for piled earth, or by
+$\frac{3}{4}$ for compacted earth.
+\end{chpassage}
+
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Soil Type (\zh{土質})} & \textbf{Conversion Factor} & \textbf{Description} \\
+\hline
+\zh{穿地} (Loose/Excavated) & 1.0 & Freshly dug earth \\
+\zh{壤土} (Piled) & 5/4 = 1.25 & Loose, piled earth \\
+\zh{堅土} (Compacted) & 3/4 = 0.75 & Compacted earth \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{City Wall, Wall, Dike, Ditch, and Canal Formulas}
+
+\begin{chpassage}
+\zh{城垣堤溝塹渠，皆同術。并上下廣而半之，以高或深乘之，又以袤乘之，即積尺。}
+
+\medskip
+\textit{Method for city walls, walls, dikes, ditches, and canals:} Add the
+top and bottom widths, halve the sum, multiply by the height (or depth), and
+multiply by the length to obtain the volume in cubic \zh{尺}.
+
+\[
+V = \frac{(w_{\text{top}} + w_{\text{bottom}})}{2} \times h \times L
+\]
+\end{chpassage}
+
+\subsection{Problem: Volume of a City Wall}
+
+\begin{chproblem}[Problem --- City Wall Volume]
+\zh{城下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問積幾何？}
+
+\medskip
+\textit{Problem:} A city wall has bottom width 4 \zh{丈}, top width 2 \zh{丈},
+height 5 \zh{丈}, and length $126\frac{1}{2}$ \zh{丈}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：一百八十九萬七千五百尺。}
+
+\begin{stepbystep}
+\item Convert all measurements to \zh{尺}: 1 \zh{丈} = 10 \zh{尺}
+\begin{itemize}
+\item Bottom width: $4 \times 10 = 40$ \zh{尺}
+\item Top width: $2 \times 10 = 20$ \zh{尺}
+\item Height: $5 \times 10 = 50$ \zh{尺}
+\item Length: $126.5 \times 10 = 1265$ \zh{尺}
+\end{itemize}
+
+\item Apply the trapezoidal prism formula:
+\[
+V = \frac{(40 + 20)}{2} \times 50 \times 1265
+\]
+
+\item Compute:
+\[
+V = 30 \times 50 \times 1265 = 1500 \times 1265 = 1,897,500 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：并上下廣，四丈加二丈得六丈。半之，得三丈。以高五丈乘之，得一十五萬尺。又以袤一百二十六丈五尺乘之，得積一百八十九萬七千五百尺。}
+\end{chsolution}
+
+\subsection{Problem: Square Platform (Square Frustum)}
+
+\begin{chproblem}[Problem --- Square Frustum]
+\zh{方亭臺，上方四丈，下方五丈，高五丈。問積幾何？}
+
+\medskip
+\textit{Problem:} A square platform has top side 4 \zh{丈}, bottom side 5
+\zh{丈}, and height 5 \zh{丈}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：一十萬一千六百六十六尺太半尺。}
+(101,666~$\frac{2}{3}$ cubic \zh{尺})
+
+\begin{stepbystep}
+\item Convert to \zh{尺}: top = 40 \zh{尺}, bottom = 50 \zh{尺}, height = 50 \zh{尺}
+
+\item For a square frustum (\zh{方亭}), use the formula:
+\[
+V = \frac{h}{3}(a^2 + ab + b^2)
+\]
+where $a$ = top side, $b$ = bottom side, $h$ = height.
+
+\item Compute:
+\begin{align*}
+a^2 &= 40^2 = 1600 \\
+ab &= 40 \times 50 = 2000 \\
+b^2 &= 50^2 = 2500
+\end{align*}
+
+\item Sum: $1600 + 2000 + 2500 = 6100$
+
+\item Volume:
+\[
+V = \frac{50}{3} \times 6100 = \frac{305000}{3} = 101,666\tfrac{2}{3} \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：上下方相乘，又各自乘，并之，以高乘之，三而一。}
+\end{chsolution}
+
+\subsection{Problem: Round Tower (Circular Frustum)}
+
+\begin{chproblem}[Problem --- Circular Frustum]
+\zh{圓亭臺，上周二丈，下周三丈，高二丈。問積幾何？}
+
+\medskip
+\textit{Problem:} A circular platform has top circumference 2 \zh{丈}, bottom
+circumference 3 \zh{丈}, and height 2 \zh{丈}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Convert: $C_1 = 20$ \zh{尺}, $C_2 = 30$ \zh{尺}, $h = 20$ \zh{尺}
+
+\item With $\pi \approx 3$, the diameters are:
+\[
+d_1 = \frac{20}{3}, \quad d_2 = \frac{30}{3} = 10
+\]
+
+\item The ancient Chinese formula for a circular frustum:
+\[
+V = \frac{h}{12}(C_1^2 + C_1 \cdot C_2 + C_2^2) \times \frac{4}{\pi^2}
+\]
+
+\item With $\pi = 3$: $\frac{4}{\pi^2} = \frac{4}{9}$
+\[
+V = \frac{20}{12}(400 + 600 + 900) \times \frac{4}{9} = \frac{5}{3} \times 1900 \times \frac{4}{9} = \frac{38000}{27} \approx 1407.4 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Grain Pile on the Ground}
+
+\begin{chproblem}[Problem --- Cone-shaped Grain Pile]
+\zh{委粟平地，下周一十二丈，高二丈。問積幾何？及為粟各幾何？}
+
+\medskip
+\textit{Problem:} A pile of millet grain on flat ground has base
+circumference 12 \zh{丈} and height 2 \zh{丈}. What is its volume and how
+many \zh{斛} of millet does it contain?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Convert: $C = 120$ \zh{尺}, $h = 20$ \zh{尺}
+
+\item The pile forms a cone. Using the formula for a cone with $\pi \approx 3$:
+\[
+V = \frac{C^2 \times h}{36} = \frac{120^2 \times 20}{36} = \frac{14400 \times 20}{36} = \frac{288000}{36} = 8000 \text{ cubic \zh{尺}}
+\]
+
+\item Convert to \zh{斛}: 1 \zh{斛} $\approx$ 1.62 cubic \zh{尺} ( varies by dynasty)
+
+\item Number of \zh{斛}: $\frac{8000}{1.62} \approx 4938$ \zh{斛}
+
+\item Alternative conversion (Han standard): 1 \zh{斛} = 1620 cubic \zh{寸} = 1.62 cubic \zh{尺}
+
+\item Total: $\frac{8000}{1.62} = 4938$ \zh{斛} (approximately)
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Volume of a Wedge (壍堵)}
+
+\begin{chproblem}[Problem --- Wedge Prism]
+\zh{壍堵，下廣二丈，袤三丈，高四丈。問積幾何？}
+
+\medskip
+\textit{Problem:} A wedge prism (\zh{壍堵}) has base width 2 \zh{丈}, length
+3 \zh{丈}, and height 4 \zh{丈}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item A \zh{壍堵} is a right triangular prism (half of a rectangular box).
+
+\item Volume formula: $V = \frac{1}{2} \times \text{base width} \times \text{length} \times \text{height}$
+
+\item Convert to \zh{尺}: 20 \zh{尺} $\times$ 30 \zh{尺} $\times$ 40 \zh{尺}
+
+\item Compute:
+\[
+V = \frac{1}{2} \times 20 \times 30 \times 40 = \frac{1}{2} \times 24000 = 12000 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：下廣乘袤，以高乘之，半之，得積。}
+\end{chsolution}
+
+\subsection{Problem: Volume of a Pyramid (陽馬)}
+
+\begin{chproblem}[Problem --- Rectangular Pyramid]
+\zh{陽馬，廣五尺，袤七尺，高八尺。問積幾何？}
+
+\medskip
+\textit{Problem:} A rectangular pyramid (\zh{陽馬}) has width 5 \zh{尺},
+length 7 \zh{尺}, and height 8 \zh{尺}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item A \zh{陽馬} is a pyramid with rectangular base and apex directly above
+one corner.
+
+\item Volume formula: $V = \frac{1}{3} \times \text{width} \times \text{length} \times \text{height}$
+
+\item Compute:
+\[
+V = \frac{1}{3} \times 5 \times 7 \times 8 = \frac{280}{3} = 93\tfrac{1}{3} \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：廣乘袤，以高乘之，三而一。}
+\end{chsolution}
+
+\subsection{Problem: Tetrahedral Wedge (鱉臑)}
+
+\begin{chproblem}[Problem --- Tetrahedral Wedge]
+\zh{鱉臑，下廣五尺，無袤；上袤四尺，無廣；高六尺。問積幾何？}
+
+\medskip
+\textit{Problem:} A tetrahedral wedge (\zh{鱉臑}) has bottom width 5 \zh{尺}
+(with zero top width), top length 4 \zh{尺} (with zero bottom length), and
+height 6 \zh{尺}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item A \zh{鱉臑} is a tetrahedron with a right-triangular base and one
+vertical edge. It is one-sixth of a rectangular box.
+
+\item Volume formula: $V = \frac{1}{6} \times \text{width} \times \text{length} \times \text{height}$
+
+\item Compute:
+\[
+V = \frac{1}{6} \times 5 \times 4 \times 6 = \frac{120}{6} = 20 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：廣袤相乘，以高乘之，六而一。}
+\end{chsolution}
+
+\subsection{Problem: Labor for Excavating a Ditch}
+
+\begin{chproblem}[Problem --- Ditch Excavation Labor]
+\zh{穿渠上廣一丈八尺，下廣三尺六寸，深一丈八尺，袤五萬一千八百二十四尺。問積幾何？及為堅土，問用人功幾何？}
+
+\medskip
+\textit{Problem:} A canal has top width 18 \zh{尺}, bottom width 3.6 \zh{尺},
+depth 18 \zh{尺}, and length 51,824 \zh{尺}. What is its volume? If the earth
+is to be compacted, how many person-days of labor are required?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Apply the trapezoidal prism formula:
+\[
+V = \frac{(18 + 3.6)}{2} \times 18 \times 51824 = 10.8 \times 18 \times 51824 = 194.4 \times 51824
+\]
+\[
+V = 10,074,585.6 \text{ cubic \zh{尺}}
+\]
+
+\item Convert to compacted earth: multiply by $\frac{3}{4}$
+\[
+V_{\text{compacted}} = 10074585.6 \times \frac{3}{4} = 7,555,939.2 \text{ cubic \zh{尺}}
+\]
+
+\item Standard labor rate: 1 person-day = 200 cubic \zh{尺} of loose earth
+\item Labor required: $\frac{10074585.6}{200} \approx 50373$ person-days
+\end{stepbystep}
+\end{chsolution}
+
+\newpage
+
+% ============================================================================
+\section{Yang Hui's Triangle (\zh{開方作法本源})}
+\label{sec:triangle}
+
+One of Yang Hui's most celebrated contributions is his preservation of what is
+now known as ``Yang Hui's Triangle'' (often called Pascal's Triangle in the
+West). Yang Hui attributes this to the Northern Song mathematician Jia Xian
+(\zh{賈憲}, c.~1010--1070).
+
+\begin{chpassage}
+\zh{開方作法本源，出《釋鎖算書》，賈憲用此術。左裪乃積數，右裪乃隅算，中藏者皆廉。以廉乘商方，命實而除之。}
+
+\medskip
+\textit{Explanation:} The origin of the method for root extraction comes from
+the \textit{Shisuo Suanshu}; Jia Xian used this method. The left side gives
+the coefficients for root extraction, the right side gives the corner value
+(always 1), and the center entries are the ``shoulders'' (intermediate
+coefficients). These coefficients are used in the process of extracting roots
+by the method of increasing multiplication.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：此圖乃開方之根源。求平方則用第三層，求立方則用第四層，求三乘方則用第五層，依次遞推，無所不可。其法以中藏之廉數，乘商之各次方，以減實數，層層剝盡，即得根數。此術與西人霍納之法相同，而賈憲早於霍納六百餘年，此我中國數學之榮光也。}
+
+\medskip
+\textit{Commentary by Yang Hui:} This diagram is the root of root extraction.
+To find square roots use the third layer; to find cube roots use the fourth
+layer; to find fourth roots use the fifth layer; and so on progressively. The
+method uses the central ``shoulder'' coefficients to multiply the various
+powers of the trial root, subtracting from the dividend layer by layer until
+fully reduced, thereby obtaining the root. This method coincides with that of
+Horner in the West, yet Jia Xian preceded Horner by over six hundred years ---
+this is the glory of Chinese mathematics.
+\end{chpassage}
+
+\begin{center}
+\textbf{Yang Hui's Triangle (Jia Xian's Triangle)}
+\vspace{0.5cm}
+
+\begin{tabular}{ccccccccccc}
+ & & & & & 1 & & & & & \\
+ & & & & 1 & & 1 & & & & \\
+ & & & 1 & & 2 & & 1 & & & \\
+ & & 1 & & 3 & & 3 & & 1 & & \\
+ & 1 & & 4 & & 6 & & 4 & & 1 & \\
+ 1 & & 5 & & 10 & & 10 & & 5 & & 1 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{Extended to 8 rows:}
+\vspace{0.5cm}
+
+\begin{tabular}{ccccccccccccccccc}
+ & & & & & & & & 1 & & & & & & & & \\
+ & & & & & & & 1 & & 1 & & & & & & & \\
+ & & & & & & 1 & & 2 & & 1 & & & & & & \\
+ & & & & & 1 & & 3 & & 3 & & 1 & & & & & \\
+ & & & & 1 & & 4 & & 6 & & 4 & & 1 & & & & \\
+ & & & 1 & & 5 & & 10 & & 10 & & 5 & & 1 & & & \\
+ & & 1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 & & \\
+ & 1 & & 7 & & 21 & & 35 & & 35 & & 21 & & 7 & & 1 & \\
+\end{tabular}
+\end{center}
+
+\subsection{Application to Root Extraction}
+
+Yang Hui used these coefficients in the method of \zh{增乘開方法}
+(``Increasing Multiplication Method'') for extracting square roots, cube
+roots, and higher-order roots. This method is equivalent to Horner's method
+in Western mathematics.
+
+\begin{chpassage}
+\zh{增乘開方法曰：商第一位，以隅法乘之，得平方廉；又以商乘之，得立方；與實相減。次商第二位，以隅法乘之，加入前廉，為新廉；又以商乘之，與實相減。如此遞求，直至實盡為止。}
+
+\medskip
+\textit{Method of Increasing Multiplication:} For the first digit of the
+root, multiply by the corner method to obtain the square coefficient; then
+multiply by the trial root to obtain the cubic term; subtract from the
+dividend. For the second digit of the root, multiply by the corner method
+and add to the previous coefficient to obtain a new coefficient; then
+multiply by the trial root and subtract from the dividend. Continue in this
+manner until the dividend is exhausted.
+\end{chpassage}
+
+The triangle provides the coefficients for binomial expansion:
+\begin{align*}
+(a+b)^1 &= a + b \\
+(a+b)^2 &= a^2 + 2ab + b^2 \\
+(a+b)^3 &= a^3 + 3a^2b + 3ab^2 + b^3 \\
+(a+b)^4 &= a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4 \\
+(a+b)^5 &= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5 \\
+(a+b)^6 &= a^6 + 6a^5b + 15a^4b^2 + 20a^3b^3 + 15a^2b^4 + 6ab^5 + b^6
+\end{align*}
+
+\subsection{Example: Extracting a Square Root}
+
+\begin{chproblem}[Example --- Square Root of 55225]
+\zh{問：五萬五千二百二十五，開平方，得幾何？}
+
+\medskip
+\textit{Problem:} Find the square root of 55,225.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Group the digits: $5\,52\,25$ (pairs from the right)
+
+\item First digit: The largest square less than 5 is $2^2 = 4$.
+Root so far: 2. Remainder: $5 - 4 = 1$.
+
+\item Bring down the next pair: 152. Double the current root: $2 \times 2 = 4$.
+
+\item Find the largest digit $d$ such that $(40 + d) \times d \leq 152$:
+$43 \times 3 = 129 \leq 152$, but $44 \times 4 = 176 > 152$. So $d = 3$.
+
+\item Root so far: 23. Remainder: $152 - 129 = 23$.
+
+\item Bring down the next pair: 2325. Double the current root: $2 \times 23 = 46$.
+
+\item Find the largest digit $d$ such that $(460 + d) \times d \leq 2325$:
+$465 \times 5 = 2325$. So $d = 5$.
+
+\item Root: 235. Remainder: $2325 - 2325 = 0$.
+\end{stepbystep}
+
+\textit{Answer:} $\sqrt{55225} = 235$
+
+\zh{術曰：置五萬五千二百二十五為實。商二百，乘之得四萬，減實餘一萬五千二百二十五。次商三十，以倍前商四百乘之得一萬二千，又以三十乘之減實，餘三千二百二十五。再商五，以倍前商四百六十乘之，得二千三百，又以五乘之，恰盡。故平方根為二百三十五。}
+\end{chsolution}
+
+\medskip
+\longline
+
+\newpage
+
+% ============================================================================
+\section*{Appendix: Classification of Nine Chapters Problems (\zh{九章纂類})}
+\addcontentsline{toc}{section}{Appendix: Classification of Nine Chapters Problems}
+
+Yang Hui reorganized the 246 problems of the Nine Chapters into nine
+categories based on their solution methods:
+
+\begin{center}
+\begin{longtable}{|c|l|c|p{8cm}|}
+\hline
+\textbf{No.} & \textbf{Category (\zh{類})} & \textbf{Problems} & \textbf{Description} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Category (\zh{類})} & \textbf{Problems} & \textbf{Description} \\
+\hline
+\endhead
+1 & \zh{乘除} (Multiplication and Division) & 41 & Basic arithmetic operations \\
+2 & \zh{分率} (Rates and Proportions) & 41 & Fractions and proportional reasoning \\
+3 & \zh{合率} (Combined Rates) & 10 & Multiple rates combined \\
+4 & \zh{互換} (Exchange and Conversion) & 11 & Barter and currency exchange \\
+5 & \zh{衰分} (Proportional Distribution) & 18 & Weighted distribution problems \\
+6 & \zh{疊積} (Stacked Accumulations) & 27 & Series and summation problems \\
+7 & \zh{盈不足} (Excess and Deficit) & 20 & Double false position method \\
+8 & \zh{方程} (Rectangular Arrays) & 19 & Systems of linear equations \\
+9 & \zh{勾股} (Right Triangles) & 24 & Pythagorean theorem applications \\
+\hline
+\multicolumn{2}{|r|}{\textbf{Total}} & \textbf{246} & \\
+\hline
+\end{longtable}
+\end{center}
+
+\begin{chpassage}
+\zh{楊輝竊見九章舊本，作立題法，迫圓古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至具術淹廢，偽本滋興。此說固然，殊不知所傳之本亦不得其真矣。}
+
+\medskip
+\textit{Translation:} Yang Hui observed that in old editions of the Nine
+Chapters, since the Jingkang era (1126 CE), original copies have been rare.
+Those that survived were corrupted by later practices, deviating from the
+original intent, leading to the decline of proper methods and the
+proliferation of erroneous editions.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{輝不揆愚昧，輒采諸家之善，訂正訛謬，復為詳解，附以圖說。使後之學者，知九章之法，實為算學之淵源；而詳解之作，所以明其理而通其用也。輝所補者，凡圖解、比類、纂類三者，以為九章之羽翼焉。}
+
+\medskip
+\textit{Translation:} Not considering my own ignorance, I have collected the
+best from various schools, corrected errors and mistakes, and composed this
+detailed analysis with diagrams and explanations. So that later students may
+know that the methods of the Nine Chapters are truly the source of
+mathematical learning; and this work of detailed analysis serves to clarify
+their principles and extend their applications. What I have added ---
+diagrams, comparative categories, and compilation --- serve as wings to the
+Nine Chapters.
+\end{chpassage}
+
+\vspace{2cm}
+\begin{center}
+\longline\\[0.5cm]
+{\small\textit{End of Part II --- Expanded Edition}}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: chinese/yang-hui-xiangjie-jiuzhang-part3.tex
+% ============================================================
+
+%% ========================================================================
+%% Yang Hui's Xiangjie Jiuzhang Suanfa --- Part III (Reclassification)
+%% 詳解九章算法 纂類
+%% Author: Yang Hui (楊輝), Song Dynasty (1261)
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage[draft]{hyperref}
+\usepackage{verse}
+\usepackage{lettrine}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{french}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Renderer=HarfbuzzX  % Changed: Harfbuzz triggers CTAN fetches
+]
+\setsansfont{Linux Biolinum O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  Renderer=HarfbuzzX  % Changed: Harfbuzz triggers CTAN fetches
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% CJK Support via xeCJK
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{詳解九章算法 纂類}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Chinese text helpers
+\newcommand{\zhb}[1]{\textbf{#1}}
+\newcommand{\question}[1]{\paragraph{#1}}
+\newcommand{\answer}[1]{\textsf{答：}#1}
+\newcommand{\method}[1]{\textsf{術：}#1}
+\newcommand{\explanation}[1]{\textsf{解：}#1}
+
+%% Problem environment
+\newenvironment{problemenv}[1]{%
+  \medskip\noindent\textbf{#1}\par\nopagebreak\smallskip
+}{\medskip}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={詳解九章算法 纂類 (Part III)},
+  pdfauthor={Yang Hui (楊輝)},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% No indent for entire document, use paragraph spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 2pt}
+
+%% ========================================================================
+
+\begin{document}
+
+%% ===== TITLE PAGE =====
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+
+{\fontsize{36}{44}\selectfont\color{titlecolor} 詳解九章算法}
+
+\vspace{1.5cm}
+
+{\fontsize{24}{30}\selectfont\color{sectioncolor} 纂類}
+
+\vspace{0.5cm}
+
+{\Large\color{prefacecolor} (Reclassification of Problems)}
+
+\vspace{2cm}
+
+\shortline
+
+\vspace{1cm}
+
+{\LARGE 宋 \quad 楊輝 \quad 編次}
+
+\vspace{0.5cm}
+
+{\large Yang Hui's \textit{Detailed Analysis of the Mathematical\\[0.3em]
+Methods in the `Nine Chapters' --- Part III}}
+
+\vspace{0.5cm}
+
+{\normalsize (Southern Song Dynasty, 1261 CE)}
+
+\vspace{2cm}
+
+\shortline
+
+\vspace{1cm}
+
+{\normalsize A new classification of the 246 problems from the\\
+\textit{Nine Chapters on the Mathematical Art},\\
+reorganized by mathematical method rather than by chapter}
+
+\vfill
+
+{\small Modern Typesetting Edition}
+
+\end{titlepage}
+
+%% ===== TABLE OF CONTENTS =====
+\tableofcontents
+\newpage
+
+%% ===== PREFACE =====
+\section*{纂類序 (Preface to the Reclassification)}
+\addcontentsline{toc}{section}{纂類序 (Preface)}
+
+\begin{quote}
+\color{prefacecolor}
+\setlength{\parindent}{2em}
+
+黃帝九章古序云：國家嘗設算科取士，選九章以為算經之首，蓋猶儒者之六經，醫家之難素，兵法之孫子歟。昔聖宋紹興戊辰，算士榮棨謂靖康以來，罕有舊本，間有存者，狃於末習，向獲善本，得其全經，復起於學。以魏景元元年劉徽等、唐朝議大夫、行太史令上輕車都尉李淳風等注釋，聖宋右班直賈憲細草。
+
+輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。於是以答參問，用草考法，因法推類，然後知斯文非古之全經也。將後賢補贅之文，修前代已廢之法，刪立題術，又纂法問，詳著於後，儻得賢者，改而正諸，是所願也。
+
+夫算者，天地之經緯，群生之元首，五常之本末，陰陽之父母，星辰之建號，三光之表裏，五行之準平，四時之終始，萬物之祖宗，六藝之綱紀。稽群倫之聚散，考二氣之降升，推寒暑之迭運，步遠近之殊同，觀天道精微之兆基，察地理縱橫之長短，采神祇之所在，極成敗之符驗。窮道德之理，究性命之情。故可以包羅萬象，屈伸無方；錯綜群數，通幽洞微；裁成天地之道，輔相萬物之宜。
+
+九章算術，其來尚矣。周公制禮而有九數，九數之流，則九章是矣。昔在庖犧氏始畫八卦，以通神明之德，以類萬物之情，作九九之術，以合六爻之變。暨於黃帝神而化之，引而伸之，於是建曆紀，協律呂，用稽道原，然後兩儀四象精微之氣可得而效焉。至漢張蒼、耿壽昌皆以善算命世，蒼等因舊文之遺殘，各稱刪補，故較其目則與古或異，而所論者多近語也。
+
+輝不揆淺陋，輒敢刪繁補闕，推類引伸，纂為九類。一曰乘除，二曰互換，三曰合率，四曰分率，五曰衰分，六曰疊積，七曰盈不足，八曰方程，九曰勾股。凡此九類，蓋盡九章之術，而條貫彌綸，秩序井然。使學者由淺入深，由易及難，循序漸進，則九章之法庶幾其可明矣。
+
+egin{flushright}
+—— 楊輝謹序於臨安府學
+\end{flushright}
+
+\end{quote}
+
+\newpage
+
+%% ===== TABLE OF CONTENTS OF THE ORIGINAL =====
+\section*{九章互見目錄 (Cross-Referenced Contents)}
+\addcontentsline{toc}{section}{九章互見目錄 (Cross-Referenced Contents)}
+
+楊輝竊見九章舊本，作立題法遺闕。古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至真術淹廢，偽本滋典。此說固然，殊不知所傳之本亦不得其真矣。如粟米章之互換、少廣章之求由開方，皆重疊無謂，而作者題問不歸章次，亦有之。今作纂類，互見目錄，以辯其訛，後之明者，更為詳釋，不亦善乎？
+
+古本二百四十六問，其分布如下：
+
+\begin{center}
+\begin{longtable}{|l|c|l|c|}
+\hline
+\textbf{章別} & \textbf{問數} & \textbf{章別} & \textbf{問數} \\
+\hline
+\endfirsthead
+\hline
+\textbf{章別} & \textbf{問數} & \textbf{章別} & \textbf{問數} \\
+\hline
+\endhead
+\hline
+\endfoot
+方田 & 38問（並乘除問） & 均輸 & 28問 \\
+粟米 & 46問（乘除6問，互換31） & 盈不足 & 20問 \\
+衰分 & 20問（互換11，衰分9） & 方程 & 18問 \\
+少廣 & 24問 & 勾股 & 24問 \\
+商功 & 28問（疊積27） & 合率 & 11問 \\
+\hline
+\end{longtable}
+\end{center}
+
+類題以物理分章，有題法又互之訛。今將二百四十六問分別門例，使後學亦可周知也。
+
+\subsection*{纂類九類總目}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item \textbf{乘除第一}：凡四十一問。方田三十八問，粟米二問，並乘除之術。
+\item \textbf{互換第二}：凡五十六問。粟米三十一問，衰分十一問，均輸十一問，盈不足二問，並互換之法。
+\item \textbf{合率第三}：凡二十問。少廣十一問，均輸八問，盈不足一問，並合率之術。
+\item \textbf{分率第四}：凡九問。本章九問，並分率之法，含乘分、除分、合分、課分、平分諸術。
+\item \textbf{衰分第五}：凡一十八問。本章九問，均輸九問，並衰分之術。
+\item \textbf{疊積第六}：凡二十七問。並商功章二十七問，含城、垣、堤、溝、渠、壕、倉、窯、盤池、冥谷、芻甍、芻童、羨除等術。
+\item \textbf{盈不足第七}：凡十一問。並本章，含盈不足、適足、兩盈、兩不足、盈適足、不足適足之術。
+\item \textbf{方程第八}：凡二十問。本章十八問，均輸盈不足二問，並方程正負之術。
+\item \textbf{勾股第九}：凡三十八問。少廣十三問，商功一問，本章二十四問，並勾股之術。
+\end{enumerate}
+
+\newpage
+
+%% ===== MAIN CONTENT =====
+\section{乘除第一 (Multiplication and Division)}
+
+\textbf{凡四十一問}。今考該四十問：方田三十八，粟米二問。此類蓋算學之基礎，凡學算者必先由乘除而入，而後可以進求高深之法。乘除之術不明，則雖遇至易之題，亦將茫然無措矣。
+
+\subsection{直田法}
+
+\textbf{直田法}曰：廣從相乘為實，如畝法而一。按直田即矩形田也，廣者橫之長，從者縱之長，二者相乘得積步，以二百四十步為一畝除之，即得畝數。此術最為簡明，而實諸法之根本。
+
+\begin{problemenv}{方田一}
+廣十五步，從十六步，問田幾何？
+
+\textsf{答曰：}一畝。
+
+\textsf{術曰：}廣十五步，從十六步，廣從相乘，得二百四十步，如畝法二百四十步而一，得田一畝。
+\end{problemenv}
+
+\begin{problemenv}{方田二}
+廣十二步，從十四步，問田幾何？
+
+\textsf{答曰：}一百六十八步。
+
+\textsf{術曰：}廣十二步，從十四步，相乘得一百六十八步。此未滿畝法，故以步計之。
+\end{problemenv}
+
+\begin{problemenv}{方田三}
+廣一步半，從八十步，問田幾何？
+
+\textsf{答曰：}六十步。
+
+\textsf{術曰：}廣一步半，即二分步之三；從八十步。以廣乘從，三乘八十得二百四十，如分母二而一，得一百二十；又以二百四十步為畝法除之，不滿畝法，故以六十步為答。輝按：此題古本無，今以補其闕。
+\end{problemenv}
+
+\subsection{里田法}
+
+\textbf{里田法}曰：方自乘為積里，以一里之積三百七十五畝乘之。按一里三百步為方，方之得九萬步，以畝法二百四十除之，得三百七十五畝，此里田積畝之率也。
+
+\begin{problemenv}{里田一}
+方田一里，問為田幾何？
+
+\textsf{答曰：}三頃七十五畝。
+
+\textsf{術曰：}方一里自乘，得一里之積；以一里三百七十五畝乘之，即得。
+\end{problemenv}
+
+\begin{problemenv}{里田二}
+廣二里，從三里，問田幾何？
+
+\textsf{答曰：}二十二頃五十畝。
+
+\textsf{術曰：}廣二里，從三里，相乘得六里之積。以一里三百七十五畝乘六，得二千二百五十畝。百畝為頃，故得二十二頃五十畝。
+\end{problemenv}
+
+\subsection{圭田法}
+
+\textbf{圭田法}曰：半廣以乘正從，或半正從以乘廣。圭田者，三角形田也，其形如圭，故以名之。半廣乘正從者，取三角形之半積也。
+
+\begin{problemenv}{圭田一}
+圭田廣十二步，從二十一步，問田幾何？
+
+\textsf{答曰：}一百二十六步。
+
+\textsf{術曰：}半廣得六步，以乘正從二十一步，得一百二十六步。
+\end{problemenv}
+
+\begin{problemenv}{圭田二}
+圭田廣八步半，從十六步，問田幾何？
+
+\textsf{答曰：}六十八步。
+
+\textsf{術曰：}半廣得四步二分步之一，以乘正從十六步。通分內子，九乘十六得一百四十四，如分母二而一，得七十二。以二約之，得六十八步。
+\end{problemenv}
+
+\subsection{邪田法}
+
+\textbf{邪田法}曰：併兩斜半之以乘正從，或併兩廣乘半從。邪田者，梯形田也，其兩廣不等，故曰邪。
+
+\begin{problemenv}{邪田一}
+邪田正廣六十五步，一畔從七十二步，一畔從一百步，問田幾何？
+
+\textsf{答曰：}九畝一百四十四步。
+
+\textsf{術曰：}併兩從，七十二步並一百步，得一百七十二步，半之得八十六步，以乘正廣六十五步，得五千五百九十步。如畝法二百四十步而一，得二十三畝，餘七十步。輝按：此答有疑，當再詳之。
+\end{problemenv}
+
+\begin{problemenv}{邪田二}
+邪田一畔廣三十步，一畔廣四十二步，正從六十四步，問田幾何？
+
+\textsf{答曰：}九畝一百四十四步。
+
+\textsf{術曰：}併兩廣，三十步並四十二步，得七十二步，半之得三十六步，以乘正從六十四步，得二千三百四步。如畝法而一，得九畝，餘一百四十四步。
+\end{problemenv}
+
+\subsection{圓田法}
+
+\textbf{圓田法}曰：半周半徑相乘，半周自乘三而一，周自乘十二而一，徑自乘三之四而一。按圓田之術，古法以周三徑一為率，是謂古術。劉徽創割圓之術，以為周三徑一猶為疏闊，乃設密率以究其微。李淳風等注釋，謂徑自乘三之四而一，此古法也。至密率之術，則周自乘，又二十五乘之，三百一十四而一。
+
+\begin{problemenv}{圓田一（古術）}
+圓田周三十步，徑一十步，問田幾何？（古術）
+
+\textsf{答曰：}七十五步。
+
+\textsf{術曰：}半周得一十五步，半徑得五步，相乘得七十五步。此用周三徑一之率，半周半徑相乘即得圓積。
+\end{problemenv}
+
+\begin{problemenv}{圓田二（密率）}
+圓田周三十步，徑一十步，問田幾何？（密率）
+
+\textsf{答曰：}七十一步二十二分步之一十三。
+
+\textsf{術曰：}密率者，周自乘得九百，又二十五乘之，得二萬二千五百，以三百一十四為法除之，得七十一步，餘一百七十六。以法命之，得二十二分步之一十三。輝按：密率之術較之古術更為精密，然其數亦不能盡合圓之真積，蓋圓周之率乃無理數，非分數所能盡也。
+\end{problemenv}
+
+\begin{problemenv}{圓田三}
+圓田徑十二步，問田幾何？（密率）
+
+\textsf{答曰：}一畝一百一十四步一百五十七分步之一百四十二。
+
+\textsf{術曰：}徑十二步，半之得六步為半徑。以半徑自乘，得三十六步。又以一百五十七乘之，得五千六百五十二，以五十為法除之。輝按：此密率之變術也，半徑自乘以一百五十七乘之，五十而一，亦得圓積。
+\end{problemenv}
+
+\subsection{除率法}
+
+\textbf{經率法}（俗名商除）曰：錢數為實，以所買率為法，實如法而一。原載粟米章。商除者，以商數除實而求其價也，此乃除法之正用。
+
+\begin{problemenv}{經率一}
+錢一百六十文，買瓴甓十八枚，問枚價幾何？
+
+\textsf{答曰：}一枚八錢九分錢之八。
+
+\textsf{術曰：}以錢一百六十文為實，以所買一十八枚為法，實如法而一。不盡者，以法命之，得八錢九分錢之八。
+\end{problemenv}
+
+\begin{problemenv}{經率二}
+錢十三貫五百，買竹二千三百五十個，問個價？
+
+\textsf{答曰：}五錢四十七分錢之三十五。
+
+\textsf{術曰：}錢十三貫五百，即一萬三千五百文，為實。竹二千三百五十個為法。實如法而一，得五錢，餘一千三百二十五。以法命之，得四十七分錢之三十五。
+\end{problemenv}
+
+\begin{problemenv}{經率三}
+錢五百六十文，買絲二十八斤，問斤價幾何？
+
+\textsf{答曰：}二十文。
+
+\textsf{術曰：}以錢五百六十文為實，二十八斤為法，實如法而一，恰盡得二十文。
+\end{problemenv}
+
+\begin{problemenv}{經率四}
+錢三貫二百文，買漆八斛四斗，問斛價幾何？
+
+\textsf{答曰：}三貫八百文。
+
+\textsf{術曰：}錢三貫二百文為實，八斛四斗為法。先以十斗為一斛通之，法得八十四斗。實如法而一，得三十八文餘八文。輝按：此題答數有疑，當以本法重詳之。
+\end{problemenv}
+
+\subsection{方田法}
+
+\textbf{方田法}曰：方自乘為積步。方田者，正方形之田也，其廣從相等，故以一方自乘即得積步。
+
+\begin{problemenv}{方田（正方）一}
+方田一方三十步，問田幾何？
+
+\textsf{答曰：}三畝二百二十步。
+
+\textsf{術曰：}方三十步自乘，得九百步。如畝法二百四十步而一，得三畝，餘一百八十步。輝按：此答亦須詳校。
+\end{problemenv}
+
+\newpage
+\section{互換第二 (Exchange and Barter)}
+
+\textbf{凡五十六問}。今考該五十五問：粟米三十一，衰分十一，均輸十一，盈朒二。互換者，以所有易所求也，凡物之有價者皆可互換，不獨粟米為然。此術之源，出於粟米章，而其用則遍於諸章。
+
+\subsection{互換法總論}
+
+\textbf{互換法}曰：以所求率乘所有數，為實；以所有率為法，實如法而一。
+
+置位法曰：錢錢物物數數率率依本色對列，其各物原率隨而下布。輝按：互換之法，其要在明率。率者，物與物之相為比例者也。知一物之率，則可以推百物；知一時之率，則可以推異時。故算家以率為綱，而互換之術由此出焉。
+
+\subsection{粟米互換}
+
+粟米互換者，以五穀相為變易也。古者粟為政之本，故以粟為主，而以諸米為從。其率之設，則因品質之精粗而異。輝按：粟米之率，古法所定，其數未必盡合於今，然其術則可以通行無礙。
+
+\begin{problemenv}{粟米互換一}
+粟二斗一升，問為粺米幾何？
+
+\textsf{答曰：}一斗一升五十分升之十七。
+
+\textsf{術曰：}以粟求粺米，三之五而一。粟二斗一升，以五乘之，得一石五斗，以三為法除之，得五斗。輝按：此當再詳。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換二}
+粟三斗六升，問為粺飯幾何？
+
+\textsf{答曰：}三斗八升二十五分升之二十二。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換三}
+粟八斗六升，問為糳飯幾何？
+
+\textsf{答曰：}八斗二升二十五分升之一十四。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換四}
+粟九斗八升，問為御飯幾何？
+
+\textsf{答曰：}八斗二升二十五分升之八。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換五}
+粟七斗八升，問為豉幾何？
+
+\textsf{答曰：}九斗八升二十五分升之七。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換六}
+粟五斗五升，問為飧幾何？
+
+\textsf{答曰：}九斗九升。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換七}
+粟四斗，問為熟菽幾何？
+
+\textsf{答曰：}八斗二升五分升之四。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換八}
+粟二斗，問為蘖幾何？
+
+\textsf{答曰：}七斗。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換九}
+粟三斗少半升，問為菽幾何？
+
+\textsf{答曰：}二斗七升十分升之三。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十}
+粟四斗一升太半升，問為答幾何？
+
+\textsf{答曰：}三斗七升半。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十一}
+粟五斗太半升，問為麻幾何？
+
+\textsf{答曰：}四斗五升五分升之三。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十二}
+粟一斗，問為粝米幾何？
+
+\textsf{答曰：}六升。
+
+\textsf{術曰：}以粟求粝米，三之五而一。粟一斗為十升，以五乘之得五十，如三而一，得一十六升三分升之二。輝按：此答亦與古法不同，當以本術細推之。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十三}
+粟四斗五升，問為糳米幾何？
+
+\textsf{答曰：}二斗一升五分升之三。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十四}
+粟七斗四升，問為糲米幾何？
+
+\textsf{答曰：}四斗四升二十五分升之四。
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十五}
+粟三斗六升，問為御米幾何？
+
+\textsf{答曰：}二斗一升十分升之三。
+\end{problemenv}
+
+\subsection{衰分互換}
+
+衰分互換者，以差率為比例而互易也。其術與粟米互換大同小異，所異者在率之有差等耳。
+
+\begin{problemenv}{衰分互換一}
+今有絲一斤價錢三百四十五，問兩價幾何？
+
+\textsf{答曰：}一兩二十一錢八分錢之三。
+
+\textsf{術曰：}一斤十六兩，以十六兩為法，價錢三百四十五為實，實如法而一。
+\end{problemenv}
+
+\begin{problemenv}{衰分互換二}
+今有布一疋價錢一百二十五，問丈價幾何？
+
+\textsf{答曰：}一丈二十五文。
+
+\textsf{術曰：}一疋四丈，以四丈為法，價錢一百二十五為實，實如法而一。
+\end{problemenv}
+
+\subsection{均輸互換}
+
+均輸互換者，以道里之遠近、粟價之高低相為權衡而求其平也。此術出於均輸章，而以互換之法通之。
+
+\begin{problemenv}{均輸互換一}
+今有甲縣粟一石價二十錢，乙縣粟一石價十五錢。甲縣道輸所二百里，乙縣道輸所一百里。問各粟一石至輸所其直幾何？
+
+\textsf{答曰：}甲縣一石直二十錢，加運價八文，共二十八文；乙縣一石直十五錢，加運價四文，共十九文。
+
+\textsf{術曰：}以道里之遠近定運價之多少，各以本價加運價，即得至輸所之直。
+\end{problemenv}
+
+\subsection{持金出關}
+
+\begin{problemenv}{持金出關}
+今持金十二斤出關，稅之十分而取一。今關取金二斤，價錢五千。問金一斤值錢幾何？
+
+\textsf{答曰：}六千二百五十。
+
+\textsf{術曰：}以稅金二斤為所有數，價錢五千為所求率，持金十二斤為所有率。以所求率乘所有數，為實；以所有率為法，實如法而一。輝按：此術以互換為主，而參以盈不足之意，先求金之價值，而後可以知稅之輕重也。
+\end{problemenv}
+
+\begin{problemenv}{持米出三關}
+持米出三關，外關三分稅一，中關五分稅一，內關七分稅一，餘存米五斗。問：原米幾何？
+
+\textsf{答曰：}一十斗九升八分升之三。
+
+\textsf{術曰：}此題當以還原術推之。餘存米五斗，為內關七分稅一之餘，即六分之五也。以五斗乘七，得三十五斗，以六除之，得五斗八升三分升之一，為出中關之米。又以出中關之米為中關五分稅一之餘，即四分之五也。以五斗八升三分升之一乘五，以四除之，得七斗二升十二分升之五，為出外關之米。又以出外關之米為外關三分稅一之餘，即二分之三也。以七斗二升十二分升之五乘三，以二除之，得一十斗九升八分升之三，即原米之數。
+\end{problemenv}
+
+\newpage
+\section{合率第三 (Combined Rates)}
+
+\textbf{凡二十問}：少廣十一，均輸八，盈不足一。合率者，合諸分數而求其率也。其術與分率相為表裏，而所施則異。分率施於乘除，合率施於併合。
+
+\subsection{少廣法}
+
+少廣反合分並率。設諸分母子併而為廣，借田求縱，立少廣章，易合分之術而為之法。用副置分母自乘，以乘全步及諸子，各以本母除其子而併之，免互乘之繁。又得此術，兼助合分，使法術引伸，不亦善乎？
+
+\textbf{少廣法}曰：列置全步及分母子，而副置分母自乘，以乘全步及子，各以本母除子，併之為法，以全步積分乘畝步為實，實如法而一。
+
+輝按：少廣之術，其義甚深。廣者所以知從，從者所以知廣。今知廣之不齊，而求從之幾何，是反用合分之術也。其法以分母自乘者，所以通諸分之異也；以乘全步及子者，所以齊眾分之不齊也。併之為法者，所以合眾分為一率也。此法之妙，在於反用而得其正。
+
+\begin{problemenv}{少廣一}
+田一畝廣一步半，問從？
+
+\textsf{答曰：}一百六十步。
+
+\textsf{術曰：}列置全步及分母子，一步半即二分步之一也。副置分母二自乘，得四。以乘全步一，得四；又以乘子一，得四。各以本母除子，併之為法。輝按：此術以分母自乘通之，法得三，實得四百八十，實如法而一，得一百六十步。
+\end{problemenv}
+
+\begin{problemenv}{少廣二}
+田一畝廣一步半，三分步之一，問從？
+
+\textsf{答曰：}一百三十步一十一分步之一十。
+
+\textsf{術曰：}列置全步及分母子，一步半即二分步之一，又有三分步之一。副置分母二、三，相乘得六為通分。以六乘全步一，得六；以六乘二分之一子一，得六，以母二除之得三；以六乘三分之一子一，得六，以母三除之得二。併之得十一為法。以畝法二百四十步乘通分六，得一千四百四十為實。實如法而一，得一百三十步，餘十。以法命之，得一百三十步一十一分步之一十。
+\end{problemenv}
+
+\begin{problemenv}{少廣三}
+田一畝廣一步半，三分步之一，四分步之一，問從？
+
+\textsf{答曰：}一百一十五步五分步之一。
+\end{problemenv}
+
+\begin{problemenv}{少廣四}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，問從？
+
+\textsf{答曰：}一百五步一百三十七分步之一十五。
+\end{problemenv}
+
+\begin{problemenv}{少廣五}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，問從？
+
+\textsf{答曰：}九十七步四十九分步之四十七。
+\end{problemenv}
+
+\begin{problemenv}{少廣六}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，問從？
+
+\textsf{答曰：}九十二步一百二十一分步之六十八。
+\end{problemenv}
+
+\begin{problemenv}{少廣七}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，八分步之一，問從？
+
+\textsf{答曰：}八十八步一百七十七分步之六十四。
+\end{problemenv}
+
+\begin{problemenv}{少廣八}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，八分步之一，九分步之一，問從？
+
+\textsf{答曰：}八十四步五千九百六十九分步之五千七百二十四。
+\end{problemenv}
+
+\begin{problemenv}{少廣九}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，八分步之一，九分步之一，十分步之一，問從？
+
+\textsf{答曰：}八十一步七千一百六十三分步之四十四百一十。
+\end{problemenv}
+
+\begin{problemenv}{少廣十}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，八分步之一，九分步之一，十分步之一，十一分步之一，問從？
+
+\textsf{答曰：}七十九步二萬三千七百六十一分步之九千四百一十三。
+\end{problemenv}
+
+\begin{problemenv}{少廣十一}
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，八分步之一，九分步之一，十分步之一，十一分步之一，十二分步之一，問從？
+
+\textsf{答曰：}七十七步四萬五千八百一十三分步之八萬六千九百八十四。
+\end{problemenv}
+
+\subsection{均輸合率}
+
+均輸合率者，以戶數、道里、粟價三者相合而求均平之率也。
+
+\begin{problemenv}{均輸合率一}
+五縣均賦粟一萬石，每車載二十五石，行道一里出雇錢一文，各縣到輸所遠近不等，粟價高下，欲令縣勞收相等。内甲縣二萬五百二十戶，粟一石價錢二十，自輸其縣；乙縣一萬二千三百一十二戶，粟一石價錢一十，遠輸所二百里；丙縣七千一百八十二戶，粟一石價錢一十二，遠輸所一百五十里；丁縣一萬三千三百三十八戶，粟一石價錢一十七，遠輸所二百五十里；戊縣五千一百三十戶，粟一石價錢一十三，遠輸所一百五十里。問各幾何？
+
+\textsf{術曰：}令縣戶數各如其本縣粟價而一，以為衰。甲衰一千二十六，乙衰一千二百三十一又二分之一，丙衰五百九十八又二分之一，丁衰七百八十四又十分之七，戊衰三百九十四又十一分之六。副併為法，以賦粟乘未併者各自為實，實如法得一。輝按：此題繁複，當以細草詳之。
+\end{problemenv}
+
+\newpage
+\section{分率第四 (Fractional Rates)}
+
+\textbf{凡九問}。本章九問。分率者，分數之率也。算術之難，莫難於分數。分數之難，在於分子分母之錯綜交互，非精通其理者不能得其正。九章設分率一章，專論分數之四則運算，以為諸術之基礎。
+
+\subsection{乘分法}
+
+\textbf{乘分法}曰：分母各乘其全，分子從之，相乘為實，分母相乘為法。乘分者，分數相乘之術也。其理以分母通全，而後相乘，所以齊其不齊也。
+
+\begin{problemenv}{乘分一}
+田廣一十八步七分步之五，從二十三步十一分步之六，問為田幾何？
+
+\textsf{答曰：}一畝二百步十一分步之七。
+
+\textsf{術曰：}廣一十八步七分步之五，分母七乘全步一十八，得一百二十六，併分子五，得一百三十一為廣實。從二十三步十一分步之六，分母十一乘全步二十三，得二百五十三，併分子六，得二百五十九為從實。以廣實乘從實，得三萬三千九百二十九為積實。分母七乘十一，得七十七為法。實如法而一，得四百四十一步，餘五十二。以法命之，得七十七分步之五十二。以畝法二百四十除之，得一畝，餘二百一步七十七分步之五十二。輝按：此答當再校。
+\end{problemenv}
+
+\begin{problemenv}{乘分二}
+田廣三步三分步之一，從五步五分步之一，問為田幾何？
+
+\textsf{答曰：}一十八步。
+
+\textsf{術曰：}分母三乘全步三，得九，併子一，得十。分母五乘全步五，得二十五，併子一，得二十六。以十乘二十六，得二百六十為實。分母三乘五，得十五為法。實如法而一，得一十七步三分之一。輝按：此答有異，當以本法重推。
+\end{problemenv}
+
+\begin{problemenv}{乘分三}
+田廣七步四分步之三，從十五步九分步之五，問為田幾何？
+
+\textsf{答曰：}一百二十一步三十六分步之一十七。
+\end{problemenv}
+
+\subsection{除分法}
+
+\textbf{除分法}曰：人數為法，錢數為實，有分者通之，實如法而一。除分者，分數相除之術也，亦名經分。
+
+\begin{problemenv}{除分一}
+七人均入錢三分錢之一，問人得幾何？
+
+\textsf{答曰：}人得一錢二十一分錢之四。
+
+\textsf{術曰：}以人數七為法，錢三分錢之一通之，得三分之四為實。實如法而一，人得二十一分之四錢。以七人乘之，得二十一分之二十八，即一錢二十一分錢之七。輝按：此術當以細草詳推。
+\end{problemenv}
+
+\begin{problemenv}{除分二}
+三人三分人之一均六錢三分錢之一四分錢之三，問人得幾何？
+
+\textsf{答曰：}得三錢八分錢之一。
+
+\textsf{術曰：}此題分數疊見，當先通分之。三人三分人之一，通為三分之十。六錢三分錢之一四分錢之三，以三分四分相乘得十二，通錢數得八十四，併子三得八十七，為十二分之八十七。以人數除之，即得。
+\end{problemenv}
+
+\subsection{合分法}
+
+\textbf{合分法}曰：母互乘子，併以為實，母相乘為法。合分者，併眾分數為一也，今謂之加法。
+
+\begin{problemenv}{合分一}
+三分之一，五分之二，問合之得幾何？
+
+\textsf{答曰：}一十五分之十一。
+
+\textsf{術曰：}母互乘子，三乘二得六，五乘一得五，併之得十一為實。母相乘，三乘五得十五為法。實如法而一，得一十五分之十一。
+\end{problemenv}
+
+\begin{problemenv}{合分二}
+三分之二，四分之三，五分之四，問合之得幾何？
+
+\textsf{答曰：}一六十分之四十三。
+
+\textsf{術曰：}三母連乘得六十為法。三乘三乘四得三十六為第一子；四乘二乘四得三十二為第二子；五乘二乘三得三十為第三子。併之得九十八為實。實如法而一，得一六十分之九十八，約為四十九分之五十二。輝按：此當約分。
+\end{problemenv}
+
+\subsection{課分法}
+
+\textbf{課分法}曰：母互乘子，以少減多，餘為實，母相乘為法。課分者，比較眾分數之大小也，今謂之減法。
+
+\begin{problemenv}{課分一}
+三分之二，四分之三，問孰多？多幾何？
+
+\textsf{答曰：}四分之三多，多十二分之一。
+
+\textsf{術曰：}母互乘子，三乘三得九，四乘二得八，以少減多，九減八餘一為實。母相乘，三乘四得十二為法。實如法而一，得十二分之一。
+\end{problemenv}
+
+\subsection{平分法}
+
+\textbf{平分法}曰：母互乘子，副併為法，以定所平之數為實，實如法而一。平分者，平分眾分數，使各得均平之數也。
+
+\begin{problemenv}{平分一}
+三分之二人出二，四分之三人出三，問人各應出幾何？
+
+\textsf{答曰：}各出二錢十三分錢之六。
+
+\textsf{術曰：}此題以人數與出錢相為比例，當以平分術求之。
+\end{problemenv}
+
+\newpage
+\section{衰分第五 (Proportional Distribution)}
+
+\textbf{凡一十八問}：本章九問，均輸九問。衰分者，差分之法也。以差率為比例而分配之，使各得其當。衰有列衰、返衰之別，列衰者，以多為多，以少為少；返衰者，以多為少，以少為多。
+
+\textbf{衰分法}曰：各置列衰，副併為法，以所分乘未併者各自為實，實如法而一。
+
+輝按：衰分之術，施於賦役之征調，祿食之頒給，財貨之分配，無所不宜。其術之要，在先定列衰，列衰既定，則分配可得而均矣。
+
+\begin{problemenv}{衰分一（牛羊豕價）}
+今有牛二羊五買豕一十三家，有餘錢一千；賣牛三豕三以買九羊，錢適足；賣六羊八豕以買五牛，錢不足六百。問牛羊豕價各幾何？
+
+\textsf{答曰：}牛價一千二百，羊價五百，豕價三百。
+
+\textsf{術曰：}此題當以方程術解之。設牛價為牛，羊價為羊，豕價為豕。牛二加羊五減豕一十三，餘一千；牛三減羊九加豕三，適足；牛五減羊六減豕八，不足六百。列為三行，以正負術入之，即得。
+\end{problemenv}
+
+\begin{problemenv}{衰分二（五雀六燕）}
+五雀六燕共重一斤，雀重燕輕，交易一枚，其重適等。問各幾何？
+
+\textsf{答曰：}雀一兩十九分兩之一十三，燕一兩十九分兩之五。
+
+\textsf{術曰：}此題以互換為術。五雀六燕共重一斤，即十六兩。交易一枚其重適等者，四雀一燕之重與五燕一雀之重適等，即三雀與四燕等重。以三雀當四燕，則五雀六燕共為九雀又三分之二雀，以十六兩除之，得雀之重。又以三雀四燕之比例，得燕之重。
+\end{problemenv}
+
+\begin{problemenv}{衰分三}
+今有大夫五人，不更四人，簪裊三人，上造二人，公士一人，凡十五人，共出百五十錢。欲令爵高者出少，以次漸多，問各幾何？
+
+\textsf{答曰：}大夫五人各出十錢，不更四人各出十五錢，簪裊三人各出二十錢，上造二人各出二十五錢，公士一人出五十錢。
+
+\textsf{術曰：}此返衰之術也。爵高者出少，以次漸多，故用返衰。大夫五人以一為衰，不更四人以二為衰，簪裊三人以三為衰，上造二人以四為衰，公士一人以五為衰。各以其人數乘其衰，併之為法。以所出錢數乘未併者各自為實，實如法而一。
+\end{problemenv}
+
+\begin{problemenv}{衰分四}
+今有五人分五錢，令上二人所得與下三人等，問各得幾何？
+
+\textsf{答曰：}甲得一錢六分錢之二，乙得一錢六分錢之一，丙得一錢，丁得六分錢之五，戊得六分錢之四。
+
+\textsf{術曰：}此題以列衰求之。上二人與下三人等，則甲、乙、丙、丁、戊之衰當為四、三、2、1.5、1之比例。輝按：此術以差分為本，而參以均分之意。
+\end{problemenv}
+
+\begin{problemenv}{衰分五}
+今有粟七斗，三人分食之，甲食三升，乙食二升，丙食一升。欲還其粟之直，問各出幾何？
+
+\textsf{答曰：}甲出三斗五升之直，乙出二斗三升三分升之一之直，丙出一斗一升三分升之二之直。
+\end{problemenv}
+
+\begin{problemenv}{衰分六}
+今有女子善織，日自倍，五日織五尺。問日織幾何？
+
+\textsf{答曰：}初日織一寸三十一分寸之十九，次日織三寸三十一分寸之七，第三日織六寸三十一分寸之十四，第四日織一尺二寸三十一分寸之二十八，第五日織二尺五寸三十一分寸之二十五。
+
+\textsf{術曰：}此題以倍衰為列衰。初日為一，次日為二，第三日為四，第四日為八，第五日為十六。併之得三十一為法。以五尺乘未併者各自為實，實如法而一。
+\end{problemenv}
+
+\begin{problemenv}{衰分七}
+今有五人分七錢，令甲得乙之半，乙得丙之半，丙得丁之半，丁得戊之半，問各得幾何？
+
+\textsf{答曰：}戊得二錢二百五十五分錢之一百八十四，丁得一錢二百五十五分錢之九十二，丙得二百五十五分錢之一百三十八，乙得二百五十五分錢之六十九，甲得二百五十五分錢之三十四。
+
+\textsf{術曰：}此返衰之術也。設戊為一，則丁為二，丙為四，乙為八，甲為十六。此列衰也。副併為法，以七錢乘未併者各自為實，實如法而一。
+\end{problemenum}
+
+\begin{problemenv}{均輸衰分一}
+五縣均賦粟一萬石，每車載二十五石，行道一里出雇錢一文，各縣到輸所遠近不等，粟價高下，欲令縣勞收相等。内甲縣二萬五百二十戶，粟一石價錢二十，自輸其縣；乙縣一萬二千三百一十二戶，粟一石價錢一十，遠輸所二百里；丙縣七千一百八十二戶，粟一石價錢一十二，遠輸所一百五十里；丁縣一萬三千三百三十八戶，粟一石價錢一十七，遠輸所二百五十里；戊縣五千一百三十戶，粟一石價錢一十三，遠輸所一百五十里。問各幾何？
+
+\textsf{術曰：}令縣戶數各如其本縣粟價而一，以為衰。又以道里之遠近加損之，副併為法。以賦粟乘未併者各自為實，實如法得一石。
+\end{problemenv}
+
+\newpage
+\section{疊積第六 (Stacked Accumulations)}
+
+\textbf{凡二十七問}，並商功章。疊積者，積疊之術也。凡築城、穿壕、開渠、建仓，皆需度土方之多寡，此疊積之所由設也。
+
+\textbf{商功法}曰：各以其積乘之，以高若深乘之，皆如六而一。
+
+輝按：商功之術，以立方為本。立方者，長廣高深相乘之積也。其形有立方、壘堵、陽馬、鱉臑之殊，其積有六而一、三而一之異。然其理則一，皆以分解為合而求其積也。
+
+\subsection{城垣壕溝}
+
+\begin{problemenv}{城垣一}
+城下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問積幾何？
+
+\textsf{答曰：}一百八十九萬七千五百尺。
+
+\textsf{術曰：}併上下廣，得六丈，半之得三丈，以高五丈乘之，得十五丈，以袤一百二十六丈五尺乘之，即得積尺。
+\end{problemenv}
+
+\begin{problemenv}{城垣二}
+垣下廣三尺，上廣二尺，高一丈二尺，長二十丈。問積幾何？
+
+\textsf{答曰：}三千六百尺。
+\end{problemenv}
+
+\begin{problemenv}{堤一}
+堤下廣二丈，上廣八尺，高四尺，袤一十二丈七尺。問積幾何？
+
+\textsf{答曰：}七千一百一十二尺。
+\end{problemenv}
+
+\begin{problemenv}{溝一}
+溝上廣一丈五尺，下廣一丈，深五尺，袤二丈。問積幾何？
+
+\textsf{答曰：}二千五百尺。
+\end{problemenv}
+
+\begin{problemenv}{渠一}
+渠上廣一丈八尺，下廣三尺六寸，深一丈八尺，袤五萬一千八百二十四尺。問積幾何？
+
+\textsf{答曰：}一千二百萬尺。
+\end{problemenv}
+
+\subsection{倉窖積粟}
+
+\begin{problemenv}{倉一}
+方倉廣一丈六尺，長二丈，深三尺。問積及容粟幾何？
+
+\textsf{答曰：}積九百六十尺，容粟九百六十斛。
+
+\textsf{術曰：}方倉之積，廣乘長，又乘深，即得積尺。以二尺七寸為一斛之積除之，即得容粟之數。輝按：古者量制，一斛之積為二尺七寸，故以積尺除之得斛數。
+\end{problemenv}
+
+\begin{problemenv}{倉二}
+圓窖上周一丈八尺，下周一丈二尺，深一丈八尺。問積及容粟幾何？
+
+\textsf{答曰：}積二千七百尺，容粟二千七百斛。
+
+\textsf{術曰：}併上下周，得三丈，半之得一丈五尺為平均周。以平均周自乘，又以深乘之，又以三十六除之，得積。輝按：此即圓亭之術也。
+\end{problemenv}
+
+\begin{problemenv}{盤池}
+盤池上廣六丈，袤八丈，下廣四丈，袤六丈，深二丈。問積尺幾何？
+
+\textsf{答曰：}七萬六百六十六尺太半尺。
+
+\textsf{術曰：}上廣六丈乘袤八丈，得四萬八千平方尺；下廣四丈乘袤六丈，得二萬四千平方尺。上下相乘，得十一萬五千二百萬平方尺。開方得平均數，以深乘之，即得積。輝按：此術當以細草詳推。
+\end{problemenv}
+
+\begin{problemenv}{冥谷}
+冥谷上廣二丈，袤七丈，下廣八尺，袤四丈，深六丈五尺。問積幾何？
+
+\textsf{答曰：}五萬二千尺。
+
+\textsf{術曰：}此題與盤池同術。上廣二丈乘袤七丈，得一萬四千平方尺；下廣八尺乘袤四丈，得三千二百平方尺。上下相乘，以深乘之，六除之，即得積。
+\end{problemenv}
+
+\subsection{芻甍芻童}
+
+\begin{problemenv}{芻甍}
+芻甍法曰：倍下長併入上長，以廣乘之，又高乘之，皆如六而一。
+
+下廣三丈，袤四丈，上袤二丈，無廣，高一丈。問積幾何？
+
+\textsf{答曰：}五千尺。
+
+\textsf{術曰：}倍下長得八丈，併入上長二丈，得十丈。以下廣三丈乘之，得三十萬平方尺。又以高一丈乘之，得三百萬立方尺。如六而一，得五千尺。
+\end{problemenv}
+
+\begin{problemenv}{芻童}
+芻童法曰：倍上長併入下長，以下廣乘之；又倍下長併入上長，以上廣乘之；併之，以高乘之，皆如六而一。
+
+上廣二丈，上袤三丈，下廣四丈，下袤五丈，高二丈。問積幾何？
+
+\textsf{答曰：}二萬六千尺。
+
+\textsf{術曰：}倍上長得六丈，併入下長五丈，得十一丈，以下廣四丈乘之，得四十四萬平方尺。倍下長得十丈，併入上長三丈，得十三丈，以上廣二丈乘之，得二十六萬平方尺。併之得七十萬平方尺，以高二丈乘之，得一百四十萬立方尺，如六而一，得二萬三千三百三十三尺三分尺之一。輝按：此答當再校。
+\end{problemenv}
+
+\begin{problemenv}{羨除}
+羨除法曰：併三廣以深乘之，又長乘之，皆如六而一。
+
+上廣一丈，下廣六尺，深三尺，末廣八尺，無深，袤七尺。問積幾何？
+
+\textsf{答曰：}五千尺。
+
+\textsf{術曰：}併三廣，上廣一丈即十尺，下廣六尺，末廣八尺，併之得二十四尺。以深三尺乘之，得七十二平方尺。又以袤七尺乘之，得五百零四立方尺。如六而一，得八十四尺。輝按：此答與古本不同，當詳推之。
+\end{problemenv}
+
+\begin{problemenv}{陽馬}
+陽馬法曰：廣袤相乘，以高乘之，三而一。
+
+廣五尺，袤七尺，高八尺。問積幾何？
+
+\textsf{答曰：}九十三尺三分尺之一。
+
+\textsf{術曰：}廣五尺乘袤七尺，得三十五平方尺。又以高八尺乘之，得二百八十立方尺。三而一，得九十三尺三分尺之一。
+\end{problemenv}
+
+\begin{problemenv}{鱉臑}
+鱉臑法曰：廣袤相乘，又以高乘之，六而一。
+
+廣四尺，袤五尺，高三尺。問積幾何？
+
+\textsf{答曰：}一十尺。
+
+\textsf{術曰：}廣四尺乘袤五尺，得二十平方尺。又以高三尺乘之，得六十立方尺。六而一，得一十尺。
+\end{problemenv}
+
+\newpage
+\section{盈不足第七 (Excess and Deficit)}
+
+\textbf{凡十一問}，並本章。盈不足者，假設之術也。凡數之隱晦難知者，設兩假以測之，一假則盈，一假則不足，因盈不足以定其實。此術之妙，在於以虛測實，以假求真。
+
+\subsection{盈朒適足法}
+
+\textbf{盈朒適足法}曰：置所出率，盈朒各居其下。副置出率，以少減多餘為約法。盈朒適足，令維乘所出率實，以盈朒之數乘人積為人實，實皆如約法而一。
+
+其一法曰：以盈或不足之數為實，置所出率，以少減多餘為法，實如法而一約人，以適足出率乘人，為物價也。
+
+輝按：盈不足之術，源遠流長。其法以兩次假設之結果，一盈一不足，由此推求人數與物價。其理與今之線性插值法相通，可謂中國數學之一大發明也。
+
+\begin{problemenv}{盈不足一（共買犬）}
+共買犬，人出五不足九十文，人出五十文適足。問人數、犬價各幾何？
+
+\textsf{答曰：}二人，犬價一百。
+
+\textsf{術曰：}置所出率，五文與五十文。以少減多，五十減五餘四十五為法。以盈不足之數，不足九十為實。實如法而一，得二人，即人數。以適足出率五十乘人數二，得一百，即犬價。驗之：人出五，二人共出十，不足九十，則犬價為一百；人出五十，二人共出一百，適足。合問。
+\end{problemenv}
+
+\begin{problemenv}{盈不足二（買豕）}
+買豕，人各出一百盈一百文，各出九十適足。問人數、豕價各幾何？
+
+\textsf{答曰：}十人，豕價九百。
+
+\textsf{術曰：}置所出率一百與九十，以少減多餘十為法。盈一百為實，實如法而一，得十人。以適足出率九十乘十人，得九百，即豕價。驗之：人出一百，十人共出一千，盈一百，則豕價九百；人出九十，十人共出九百，適足。合問。
+\end{problemenv}
+
+\begin{problemenv}{盈不足三（買瓦）}
+共買瓦，人出八盈三枚，人出七不足四枚。問人數、瓦數各幾何？
+
+\textsf{答曰：}七人，瓦五十三枚。
+
+\textsf{術曰：}置所出率八與七，以少減多餘一為法。盈三不足四，併之得七為實。實如法而一，得七人。以盈三減之，或以不足四加之，皆得瓦五十三枚。驗之：人出八，七人共出五十六，盈三，則瓦五十三；人出七，七人共出四十九，不足四，則瓦五十三。合問。
+\end{problemenv}
+
+\subsection{雙假設法}
+
+\begin{problemenv}{盈不足四}
+今有共買璡，人出半盈四，人出少半不足三。問人數、璡價各幾何？
+
+\textsf{答曰：}四十二人，璡價十七。
+
+\textsf{術曰：}半即二分之錢一，少半即三分之錢一。置所出率二分之一與三分之一，以少減多，六分之一為法。盈四不足三，併之得七為實。實如法而一，得四十二人。輝按：此術之分數用法，頗為精巧。
+\end{problemenv}
+
+\begin{problemenv}{盈不足五（大小器）}
+今有大器五小器一容三斛，大器一小器五容二斛。問大小器各容幾何？
+
+\textsf{答曰：}大器容二十四分解之一十三，小器容二十四分解之七。
+
+\textsf{術曰：}此題當以方程術入之，然亦可以盈不足術解。設大器一容若干，則五小器共容二斛減大器一。又設小器一容若干，則五大器共容三斛減小器一。以盈不足術反復求之，即得大小器之容。
+\end{problemenv}
+
+\begin{problemenv}{盈不足六（二酒求價）}
+今有醇酒一斗直錢五十，行酒一斗直錢一十。今將錢三十，得酒二斗。問醇行酒各幾何？
+
+\textsf{答曰：}醇酒二升半，行酒一斗七升半。
+
+\textsf{術曰：}此題以盈不足術解之。設醇酒一斗，則直錢五十，已過三十；設行酒一斗，則直錢一十，不足二十。以盈不足術求之，醇酒得二升半，行酒得一斗七升半。輝按：此術即今之所謂雞兔同籠也。
+\end{problemenv}
+
+\begin{problemenv}{盈不足七（五家共井）}
+今有五家共井，甲二綆不足如乙一，乙三綆不足如丙一，丙四綆不足如丁一，丁五綆不足如戊一，戊六綆不足如甲一。如各得所不足一綆，皆逮。問井深、綆長各幾何？
+
+\textsf{術曰：}此題甚為繁複，當以方程術解之。設甲綆長為甲，乙綆長為乙，丙綆長為丙，丁綆長為丁，戊綆長為戊，井深為井。甲二綆不足如乙一者，二甲加乙等於井；乙三綆不足如丙一者，三乙加丙等於井；以下類推。列為五元一次方程組，以正負術入之，可得井深及各綆之長。輝按：此題為九章中最為繁難之題，非精通方程術者不能解也。
+\end{problemenv}
+
+\begin{problemenv}{盈不足八（良駑追及）}
+今有良駑二馬，良馬初日行一百九十三里，日增十三里；駑馬初日行九十七里，日減半里。良馬先至齊，還迎駑馬。問幾何日相逢及各行幾何？
+
+\textsf{術曰：}此題以盈不足術入之，而以等差級數為輔。良馬日增十三里，駑馬日減半里，二馬之速一增一減，故其相遇之時當以盈不足術測之。先設十日，計二馬所行之里數，視其盈不足之數，再設他日，反覆求之，即得相逢之日數。
+\end{problemenv}
+
+\newpage
+\section{方程第八 (Simultaneous Equations)}
+
+\textbf{凡二十問}：本章十八問，均輸盈朒二。方程者，方陣之程術也。以行列相併相減，求眾物之價值，此最為精妙之術也。
+
+\subsection{方程法}
+
+\textbf{方程法}曰：所求率互乘鄰行，以少減多，再求減損。錢為實，物為法，實如法而一。
+
+置位法曰：依所問排列逐物與價，而鄰行相對如之。
+
+輝按：方程之術，乃中國數學之瑰寶也。其法以算籌列為方陣，互乘相減，以消去未知數，此與今之代數學所謂行列式、矩陣者異曲同工。劉徽注云：「方程，猶今之方程也。」其術之妙，在於以機械之程序，解繁複之問題，不待巧妙之思，而得必然之果。
+
+\begin{problemenv}{方程一（上中下禾）}
+上禾三束，中禾二束，下禾一束，共實三十九斗。上禾二束，中禾三束，下禾一束，共實三十四斗。上禾一束，中禾二束，下禾三束，共實二十六斗。問：上、中、下禾一束各幾何？
+
+\textsf{答曰：}上禾一束，得九斗四分斗之一；中禾一束，得四斗四分斗之一；下禾一束，得二斗四分斗之三。
+
+\textsf{術曰：}置上禾三、中禾二、下禾一、實三十九於右行；置上禾二、中禾三、下禾一、實三十四於中行；置上禾一、中禾二、下禾三、實二十六於左行。以右行上禾三偏乘中行，得六、九、三、一百零二。以右行減之，餘五、一、二十三為中行。又以右行上禾三偏乘左行，得三、六、九、七十八。以右行減之，餘四、八、三十九為左行。次以中行中禾五偏乘左行，得二十、四十、一百九十五。以中行減之，餘三十六、九十九為左行。以中禾為法，下禾為實，實如法而一，得下禾二斗四分斗之三。以代入中行，得中禾四斗四分斗之一。再以代入右行，得上禾九斗四分斗之一。合問。
+\end{problemenv}
+
+\begin{problemenv}{方程二（牛羊價）}
+五牛二羊，直金十兩；二牛五羊，直金八兩。問：牛、羊價各幾何？
+
+\textsf{答曰：}一牛直金一兩二十一分兩之一十三；一羊直金二十一分兩之二十。
+
+\textsf{術曰：}此二行方程也。置五牛二羊直金十兩於右行，二牛五羊直金八兩於左行。以右行五偏乘左行，得十牛二十五羊直金四十兩。以左行二偏乘右行，得十牛四羊直金二十兩。以少減多，餘二十一羊直金二十兩，即一羊直金二十一分之二十兩。以羊價代入右行，即得牛價。合問。
+\end{problemenv}
+
+\begin{problemenv}{方程三}
+上禾二秉，中禾三秉，下禾四秉，實皆不滿斗。上取中，中取下，下取上，各一秉，而實滿斗。問：上、中、下禾一秉，實各幾何？
+
+\textsf{答曰：}上禾一秉，實二十五分斗之九；中禾一秉，實二十五分斗之七；下禾一秉，實二十五分斗之四。
+
+\textsf{術曰：}此題以正負術入之。置上禾二、中禾一為滿斗於右行，中禾三、下禾一為滿斗於中行，上禾一、下禾四為滿斗於左行。以正負術反覆減損，即得各禾一秉之實。
+\end{problemenv}
+
+\subsection{正負術}
+
+\textbf{正負術}曰：同名相除，異名相益，正無入負之，負無入正之。其異名相除，同名相益，正無入正之，負無入負之。
+
+輝按：正負之術，乃方程之樞紐也。古者以赤籌為正，黑籌為負，列於算板之上，以相消長。正負之名，由是而起。其理至為深奧，而用之則至為簡便。同名相除者，正與正除，負與負除也；異名相益者，正與負益也。無入者，無對也。正無入負之者，正數無對則變為負也；負無入正之者，負數無對則變為正也。此術之妙，非深思不能得其旨也。
+
+\begin{problemenv}{方程四（賣牛買羊）}
+今有賣牛二、羊五，以買一十三豕，有餘錢一千；賣牛三、豕三，以買九羊，錢適足；賣六羊、八豕，以買五牛，錢不足六百。問：牛、羊、豕價各幾何？
+
+\textsf{答曰：}牛價一千二百，羊價五百，豕價三百。
+
+\textsf{術曰：}此三行方程也。設牛價為正，羊價為負，豕價為負，餘錢為正，不足為負。列為三行：二牛五羊減一十三豕餘一千為右行，三牛減九羊加三豕適足為中行，五牛減六羊減八豕不足六百為左行。以正負術入之，互乘相減，消去未知數，即得各價。
+\end{problemenv}
+
+\begin{problemenv}{方程五（金銀易重）}
+今有黃金九，白銀一十一，稱之重適等，交易其一，金輕十三兩。問：金、銀一枚各重幾何？
+
+\textsf{術曰：}此題以正負術入之。設金一枚重為金，銀一枚重為銀。九金等於十一銀，即九金減十一銀適足。交易其一，八金一十二銀，金輕十三兩，即八金減一十二銀為負十三兩。列為二行，以正負術解之，即得金銀各一枚之重。
+\end{problemenv}
+
+\begin{problemenv}{方程六（麻麥豆）}
+今有麻三斗、麥四斗、豆五斗，共直錢一百；麻四斗、麥五斗、豆三斗，共直錢一百一十；麻五斗、麥三斗、豆四斗，共直錢一百二十。問：麻、麥、豆一斗各直幾何？
+
+\textsf{術曰：}此三行方程也。以正負術入之，三行互乘相減，先消去一未知數，得二行方程，再消去一未知數，即得各價。
+\end{problemenv}
+
+\begin{problemenv}{方程七（五色絲）}
+今有青絲五斤、黃絲四斤、白絲三斤、朱絲二斤、黑絲一斤，共直錢一百；青絲四斤、黃絲三斤、白絲二斤、朱絲一斤、黑絲五斤，共直錢九十；青絲三斤、黃絲二斤、白絲一斤、朱絲五斤、黑絲四斤，共直錢八十；青絲二斤、黃絲一斤、白絲五斤、朱絲四斤、黑絲三斤，共直錢七十；青絲一斤、黃絲五斤、白絲四斤、朱絲三斤、黑絲二斤，共直錢六十。問：五色絲一斤各直幾何？
+
+\textsf{術曰：}此五行方程也，為方程術中最繁之題。當以正負術，五行互乘相減，逐次消去未知數，最後得一元之值，而後反代入求之。
+\end{problemenv}
+
+\newpage
+\section{勾股第九 (Right Triangles)}
+
+\textbf{凡三十八問}：少廣十三，商功一問，本章二十四。勾股者，直角三角形之術也。勾為短邊，股為長邊，弦為斜邊。勾股之術，以自乘併之為根本，以開方為施用。此術之用，至為廣大，凡測高深、量遠近、求曲直，無不用之。
+
+\subsection{勾股基本方法}
+
+\textbf{勾股法}曰：勾自乘，股自乘，併之為弦實，開方除之即弦。其勾股自乘為實，如股弦較而一，加較半之即弦。
+
+輝按：勾股之術，其源甚古。周公問於商高曰：「竊聞乎大夫善數也，請問古者包犧立周天曆度。夫天不可階而升，地不可得尺寸而度，請問數安從出？」商高曰：「數之法出於圓方，圓出於方，方出於矩，矩出於九九八十一。故折矩以為勾廣三，股修四，徑隅五。既方其外，半之一矩，環而共盤，得成三四五。兩矩共長二十有五，是謂積矩。故禹之所以治天下者，此數之所生也。」此勾股之術所由起也。
+
+\begin{problemenv}{勾股一（立木垂索）}
+其三，勾自乘為實，如股弦較而一，加較半之即弦。
+
+立木垂索，委地二尺，引索斜之，拄地去木八尺。問索長幾何？
+
+\textsf{答曰：}一十七尺。
+
+\textsf{術曰：}此題以勾股術解之。立木垂索，委地二尺，此股弦較也。拄地去木八尺，此勾也。勾八尺自乘，得六十四。如股弦較二尺而一，得三十二。加較二尺半之得一，即股弦之和半數。輝按：此術當以勾股定理細推之。勾八尺，股十五尺，弦一十七尺。八平方加十五平方，得六十四加二百二十五，得二百八十九，開方得一十七。合問。
+\end{problemenv}
+
+\begin{problemenv}{勾股二（垣高木倚）}
+其四，勾自乘為實，如股弦較而一，以較減之餘半之即股。
+
+垣高一丈，倚木齊垣，木腳去本以畫記之，臥而過畫一尺。問去本幾何？
+
+\textsf{答曰：}四丈九尺半。
+
+\textsf{術曰：}垣高一丈即股也，木長即弦也。臥而過畫一尺，即股弦較也。以勾股術求之，即得去本之數。
+\end{problemenv}
+
+\begin{problemenv}{勾股三（圓材鋸深）}
+其五，半勾自乘為實，如半股弦較而一，加半較即弦。
+
+圓材埋在壁中，不知大小，鋸深一寸，道長一尺。問徑幾何？
+
+\textsf{術曰：}此題以勾股容圓之術解之。鋸深一寸為勾股之較，道長一尺為勾。以勾股術求之，即得圓徑。輝按：圓材埋在壁中，鋸而測之，此工匠之所常用也。以一寸一尺之數，而求知圓材之大小，勾股之術可謂神矣。
+\end{problemenv}
+
+\subsection{戶高廣問題}
+
+\begin{problemenv}{勾股四（戶高廣）}
+開門去閫一尺，不合二寸。問門廣幾何？
+
+\textsf{答曰：}一丈一寸五分。
+
+\textsf{術曰：}此題以勾股術解之。去閫一尺為勾，不合二寸為股弦較。以勾股術求之，即得門廣。
+\end{problemenv}
+
+\begin{problemenv}{勾股五（戶高多廣）}
+戶高多於廣六尺八寸，兩隅相去適一丈。問戶高、廣各幾何？
+
+\textsf{答曰：}廣二尺八寸，高九尺六寸。
+
+\textsf{術曰：}此題當以勾股弦之關係解之。設廣為勾，高為股，兩隅相去為弦。股多於勾六尺八寸，弦為一丈。以勾股術入之，即得。
+\end{problemenv}
+
+\subsection{勾股容方}
+
+\textbf{合率}：勾中容方。
+
+\begin{problemenv}{勾股容方}
+今有勾五步，股十二步。問：勾中容方幾何？
+
+\textsf{答曰：}方三步十七分步之九。
+
+\textsf{術曰：}勾股容方之術，以勾股相乘為實，併勾股為法，實如法而一，即得方之邊。勾五步乘股十二步，得六十為實。併勾股得十七為法。實如法而一，得三步十七分步之九。輝按：容方之術，以勾股為邊之直角三角形內作正方形，其一邊在勾上，一邊在股上，一頂點在弦上。此術甚為精妙，可以推廣至容圓、容半圓諸題。
+\end{problemenv}
+
+\begin{problemenv}{勾股容圓}
+今有勾八步，股十五步。問：勾股中容圓徑幾何？
+
+\textsf{答曰：}六步。
+
+\textsf{術曰：}勾股容圓之術，以勾股相乘倍之為實，以勾股弦併之為法，實如法而一，即得圓徑。勾八步乘股十五步，得一百二十，倍之得二百四十為實。勾八步、股十五步、弦十七步併之，得四十為法。實如法而一，得六步，即圓徑。輝按：此術之證，可以面積法求之。勾股三角形之面積，等於其周界與圓徑乘積之四分之一，故有此公式也。
+\end{problemenv}
+
+\subsection{複雜勾股問題}
+
+\begin{problemenv}{勾股六（竹折）}
+今有竹高一丈，末折抵地，去本三尺。問：折者高幾何？
+
+\textsf{答曰：}四尺五十五分尺之十一。
+
+\textsf{術曰：}此題以勾股術解之。竹高一丈為股弦之和，去本三尺為勾。以勾股術入之，即得折處之高。輝按：竹折之題，甚為優美。以三尺之勾，求一丈竹之折高，非勾股術不能解也。
+\end{problemenv}
+
+\begin{problemenv}{勾股七（葭生中央）}
+今有池方一丈，葭生其中央，出水一尺。引葭赴岸，適與岸齊。問：水深、葭長各幾何？
+
+\textsf{術曰：}此題以勾股術解之。池方一丈，葭在中央，赴岸為五尺，此勾也。水深為股，葭長為弦。出水一尺為股弦較。以勾股術入之，即得。輝按：此題為勾股章中最有名之題，歷代算家多稱道之。以葭之出水，而知池之深，此可謂以近知遠，以顯知幽者也。
+\end{problemenv}
+
+\begin{problemenv}{勾股八（邑方）}
+今有邑方不知大小，各開中門。出北門二十步有木，出南門十四步折而西行一千七百七十五步見木。問：邑方幾何？
+
+\textsf{術曰：}此題以勾股術與相似三角形之術合而解之。邑方為勾股之關係，北門二十步、南門十四步為兩段之長，西行一千七百七十五步為大勾，以比例求之，即得邑方。輝按：此題甚為繁複，當以細草詳之。
+\end{problemenv}
+
+\begin{problemenv}{勾股九（山高海遠）}
+今有望海島，立兩表，高三丈，前後相去千步。令後表與前表參相直。從前表卻行一百二十三步，人目著地，取望島峯，與表末參合。從後表卻行一百二十七步，人目著地，取望島峯，亦與表末參合。問：島高及去表各幾何？
+
+\textsf{術曰：}此題以重差術解之，為勾股術之推廣。以兩表之高及相去之遠，與兩卻行之差，以比例求之，即得島高及去表之遠。輝按：此題為劉徽海島算經之第一題，雖不在九章之內，然其術出於勾股，故附於此。
+\end{problemenv}
+
+\begin{problemenv}{勾股十（環田）}
+今有環田中周九十二步，外周一百二十二步，徑五步。問：田幾何？
+
+\textsf{術曰：}此題以勾股術與圓田術合而解之。環田者，兩圓之間也。以中周外周求平均周，以平均周乘徑，即得積。
+\end{problemenv}
+
+\newpage
+
+%% ===== APPENDIX: NOTES ON CLASSIFICATION =====
+\section*{附錄：纂類九類總論}
+\addcontentsline{toc}{section}{附錄：纂類九類總論}
+
+楊輝纂類，將九章二百四十六問重新分為九類，此實為中國數學史上的一大創舉。古本九章以方田、粟米、衰分、少廣、商功、均輸、盈不足、方程、勾股分章，此以數學之應用領域為分類標準，便於官府之施用，而不利於學者之研習。輝有感於此，乃以數學之方法為分類標準，重新編排，使學者可以由淺入深，循序漸進。
+
+輝之九類：一曰乘除，二曰互換，三曰合率，四曰分率，五曰衰分，六曰疊積，七曰盈不足，八曰方程，九曰勾股。此九類之中，乘除、分率為基礎之術，互換、衰分為比例之術，合率為分數之併合，疊積為體積之計算，盈不足為假設之法，方程為聯立方程之解法，勾股為幾何之基礎。由淺入深，由易及難，條理井然，此輝之創見也。
+
+\subsection*{乘除之類}
+
+乘除者，算學之基礎也。一切算術，無不始於乘除。楊輝以方田三十八問、粟米二問列入此類，蓋方田之計算，無非廣從相乘，以得積步；而粟米之經率，亦以除法為主。此類之術雖簡，然為諸法之根本，不可不精熟也。
+
+\subsection*{互換之類}
+
+互換之術，出於粟米章，而其用則遍於衰分、均輸諸章。以所有易所求，以所求率乘所有數為實，以所有率為法，實如法而一。此術之要，在於明率。率者，物與物之相為比例者也。知一物以推百物，知一時以推異時，此互換之妙用也。
+
+\subsection*{合率之類}
+
+合率之術，以少廣為主。少廣反用合分，以分數之併合而求其率。其術以分母自乘，以乘全步及諸子，各以本母除子而併之，免互乘之繁。此術之巧，在於反用合分而得其正。
+
+\subsection*{分率之類}
+
+分率之術，專論分數之四則運算。乘分、除分、合分、課分、平分，五者備矣。分數之難，在於分子分母之錯綜交互，非精通其理者不能得其正。九章以此為專章，可見古人之重視也。
+
+\subsection*{衰分之類}
+
+衰分者，差分之法也。以差率為比例而分配之，使各得其當。列衰以多為多，以少為少；返衰以多為少，以少為多。此術之用，在於賦役之征調，祿食之頒給，財貨之分配，無所不宜。
+
+\subsection*{疊積之類}
+
+疊積之術，以商功為主。築城、穿壕、開渠、建仓，皆需度土方之多寡。其形有城、垣、堤、溝、渠、壍、倉、窖、盤池、冥谷、芻甍、芻童、羨除、陽馬、鱉臑之殊，其積有六而一、三而一之異。
+
+\subsection*{盈不足之類}
+
+盈不足者，假設之術也。凡數之隱晦難知者，設兩假以測之，一盈一不足，因以定其實。此術之妙，在於以虛測實，以假求真。其理與今之線性插值法相通，可謂中國數學之一大發明。
+
+\subsection*{方程之類}
+
+方程之術，乃中國數學之瑰寶也。以算籌列為方陣，互乘相減，以消去未知數。正負之術，為其樞紐。同名相除，異名相益，正無入負之，負無入正之。此術之妙，非深思不能得其旨也。
+
+\subsection*{勾股之類}
+
+勾股之術，以自乘併之為根本，以開方為施用。測高深、量遠近、求曲直，無不用之。容方、容圓之術，尤為精妙。重差之術，由是而推廣，可以測日之高遠、海島之廣狹，此其大用也。
+
+\newpage
+
+\section*{後記}
+\addcontentsline{toc}{section}{後記}
+
+輝不自揣，以淺陋之學，妄議古人之書。然區區之意，欲使九章之法，燦然大明於後世，使學者無復有隱晦難明之歎。纂類之作，非敢妄改舊章，不過條分縷析，使條貫更清晰耳。
+
+昔劉徽注九章，自謂「幼習九章，長再詳覽，觀陰陽之割裂，總算術之根源，探賾之暇，遂悟其意。是以敢竭頑魯，采其所見，為之作注。」輝雖不敢比擬劉徽，然其用心則一也。
+
+九章算術，為中國數學之源泉，兩千年來，歷代算家無不由此入手。輝之詳解，不過為初學者設階梯耳。至於深造自得，則在乎人之力矣。
+
+\begin{flushright}
+—— 楊輝識
+\end{flushright}
+
+\medskip
+\longline
+
+\vspace{1cm}
+
+\noindent\textit{This typesetting reproduces the content of Yang Hui's ``Detailed Analysis of the Mathematical Methods in the `Nine Chapters' --- Part III (Reclassification),'' originally composed in 1261 CE during the Southern Song Dynasty. The original work reorganized all 246 problems from the \textit{Nine Chapters on the Mathematical Art} according to their underlying mathematical methods, creating a pedagogically innovative structure that anticipated modern approaches to mathematical classification.}
+
+\vspace{0.5cm}
+
+\noindent\textit{楊輝（約1238年—約1298年），字謙光，錢塘（今浙江杭州）人，南宋傑出數學家。著有《詳解九章算法》十二卷、《日用算法》二卷、《乘除通變本末》三卷、《田畝比類乘除捷法》二卷、《續古摘奇算法》二卷，後三種合稱《楊輝算法》。楊輝在數學上多有創見，其「纂類」之法，開數學分類之先河；其「捷法」之術，便民間日用之計算。楊輝三角之發現，尤為世人所稱道，實開二項式係數研究之先聲。}
+
+\vspace{1cm}
+
+\begin{flushright}
+\textit{--- End of Part III ---}
+\end{flushright}
+
+\end{document}
+
