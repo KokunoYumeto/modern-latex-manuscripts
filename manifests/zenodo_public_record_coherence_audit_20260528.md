@@ -19,7 +19,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 |---|---:|---:|---:|---:|---|
 | Main landing and raw source backstop | [20430709](https://zenodo.org/records/20430709) | 100 | 53 | 45 | clean |
 | EGA | [20432146](https://zenodo.org/records/20432146) | 14 | 9 | 3 | clean |
-| SGA | [20432263](https://zenodo.org/records/20432263) | 58 | 37 | 20 | clean |
+| SGA | [20434295](https://zenodo.org/records/20434295) | 58 | 37 | 20 | clean |
 | Non-European consolidated corpus | [20434098](https://zenodo.org/records/20434098) | 72 | 66 | 5 | clean |
 | Chinese mathematical classics | [20421647](https://zenodo.org/records/20421647) | 29 | 27 | 1 | clean |
 | Indian and Sanskrit mathematical classics | [20421650](https://zenodo.org/records/20421650) | 13 | 11 | 1 | clean |
@@ -27,7 +27,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 | Historical reference texts | [20421657](https://zenodo.org/records/20421657) | 15 | 13 | 1 | clean |
 | Heinrich Weber | [20431945](https://zenodo.org/records/20431945) | 6 | 4 | 1 | clean |
 | Emmy Noether | [20431948](https://zenodo.org/records/20431948) | 4 | 2 | 1 | clean |
-| Bernhard Riemann | [20431305](https://zenodo.org/records/20431305) | 4 | 2 | 2 | clean |
+| Bernhard Riemann | [20434317](https://zenodo.org/records/20434317) | 4 | 2 | 2 | clean |
 | Carl Friedrich Gauss | [20433382](https://zenodo.org/records/20433382) | 10 | 8 | 1 | clean |
 | Deligne working record | [20414959](https://zenodo.org/records/20414959) | 93 | 91 | 1 | clean |
 | Classical algebra and arithmetic shelf | [20418609](https://zenodo.org/records/20418609) | 23 | 21 | 1 | clean |
@@ -38,4 +38,5 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 - The main landing record is the preservation backstop for current raw working inputs. Its file list includes ten `99 Raw Source Drops` ZIP parts plus a manifest and README.
 - The author and corpus records are cleaner public views for readers who want individual PDFs, TeX/source ZIPs, and status summaries without downloading the whole raw-source archive.
 - These audits are mechanical checks, not mathematical proofreading. Remaining work includes source comparison, theorem and reference checking, translation completion, and typography repair where inherited drafts are uneven.
+
 
