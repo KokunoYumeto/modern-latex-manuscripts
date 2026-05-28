@@ -17,7 +17,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 
 | Corpus | Zenodo record | Files | PDFs | ZIPs | Public audit status |
 |---|---:|---:|---:|---:|---|
-| Main landing and raw source backstop | [20430709](https://zenodo.org/records/20430709) | 100 | 53 | 45 | clean |
+| Main landing and raw source backstop | [20435272](https://zenodo.org/records/20435272) | 100 | 53 | 45 | clean |
 | EGA | [20434859](https://zenodo.org/records/20434859) | 14 | 9 | 3 | clean |
 | SGA | [20434868](https://zenodo.org/records/20434868) | 58 | 37 | 20 | clean |
 | Non-European consolidated corpus | [20435110](https://zenodo.org/records/20435110) | 73 | 66 | 6 | clean |
@@ -38,6 +38,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 - The main landing record is the preservation backstop for current raw working inputs. Its file list includes ten `99 Raw Source Drops` ZIP parts plus a manifest and README.
 - The author and corpus records are cleaner public views for readers who want individual PDFs, TeX/source ZIPs, and status summaries without downloading the whole raw-source archive.
 - These audits are mechanical checks, not mathematical proofreading. Remaining work includes source comparison, theorem and reference checking, translation completion, and typography repair where inherited drafts are uneven.
+
 
 
 

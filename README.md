@@ -6,7 +6,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 ## Current Public Records
 
-- Main landing, bulk preservation, and raw source backstop: https://zenodo.org/records/20430709
+- Main landing, bulk preservation, and raw source backstop: https://zenodo.org/records/20435272
 - EGA working English translation and French originals: https://zenodo.org/records/20434859
 - SGA working English translation and French references: https://zenodo.org/records/20434868
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20435110
@@ -51,7 +51,8 @@ Please keep corrections narrowly scoped and cite the source page or file when po
 
 Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
 
-For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20430709.
+For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20435272.
+
 
 
 
