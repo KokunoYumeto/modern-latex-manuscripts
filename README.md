@@ -11,7 +11,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 - SGA working translation: https://zenodo.org/records/20421894
 - Heinrich Weber author record: https://zenodo.org/records/20421148
 - Emmy Noether author record: https://zenodo.org/records/20421149
-- Non-European mathematics consolidated corpus: https://zenodo.org/records/20421441
+- Non-European mathematics consolidated corpus: https://zenodo.org/records/20422507
 - Chinese mathematical classics: https://zenodo.org/records/20421647
 - Indian and Sanskrit mathematical classics: https://zenodo.org/records/20421650
 - Islamic and Arabic mathematical texts: https://zenodo.org/records/20421656
@@ -47,4 +47,5 @@ Please keep corrections narrowly scoped and cite the source page or file when po
 Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
 
 For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20415117.
+
 
