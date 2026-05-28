@@ -7,7 +7,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 ## Current Public Records
 
 - Main landing page: https://zenodo.org/records/20415117
-- EGA working translation: https://zenodo.org/records/20421340
+- EGA working translation: https://zenodo.org/records/20421561
 - SGA working translation: https://zenodo.org/records/20421261
 - Heinrich Weber author record: https://zenodo.org/records/20421148
 - Emmy Noether author record: https://zenodo.org/records/20421149
@@ -30,7 +30,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 ## Status
 
-This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader currently includes EGA 0_IV sections 15 through 23 and EGA IV sections 1 through 9 as local continuation work, alongside the inherited community translation base. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
 
 ## Contributing
 

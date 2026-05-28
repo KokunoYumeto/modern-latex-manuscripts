@@ -11507,7 +11507,7 @@ Then, by 4.35.1, one has:
 
 [Fr64] P. Freyd, *Abelian categories*, Harper and Row, 1964.
 
-<!-- TRANSLATOR NOTE: The footnote bodies for N.D.E-III-65 through N.D.E-III-143 follow the same numbering scheme as the original; they record editorial additions, corrections, and clarifications. They are listed below for reference. -->
+<!-- Editorial note: The footnote bodies for N.D.E-III-65 through N.D.E-III-143 follow the same numbering scheme as the original; they record editorial additions, corrections, and clarifications. They are listed below for reference. -->
 
 <!-- LEDGER DELTA — Exposé III — for consolidation in Phase 3
 | French | English | Note |
@@ -39282,7 +39282,7 @@ implications, which results from the corresponding relations between the topolog
             locally trivial ⇐    trivial
 ```
 
-<!-- TRANSLATOR NOTE: original diagram is degraded by OCR; the implications are reconstructed from the surrounding text
+<!-- Editorial note: original diagram is degraded by OCR; the implications are reconstructed from the surrounding text
 and from the standard implications between the five notions. -->
 
 From the practical point of view, let us point out at once that all the groups of multiplicative type we shall encounter
@@ -44513,7 +44513,7 @@ that one could also prove 4.2 directly by exactly the same method as 4.1.
 
 <!-- label: III.XI.4.3 -->
 
-<!-- TRANSLATOR NOTE: In the source, the footnote (∗) is marked at this point of the text; the OCR has fused it with the
+<!-- Editorial note: In the source, the footnote (∗) is marked at this point of the text; the OCR has fused it with the
 N.D.E. (4). They are rendered here as XI-4-1 and N.D.E-XI-4. -->
 
 Let us now prove 4.1. Since the functor $F$ is evidently of local nature, one may suppose $S$ affine, so that
@@ -56262,7 +56262,7 @@ and $H$ is separated over $S$ (Exp. VI_A 0.3), one deduces immediately that $u =
 [^N.D.E-XVI-1]: N.D.E.: S. Koizumi & G. Shimura, Specialization of abelian varieties, *Sci. Papers Coll. Gen. Ed. Univ.
     Tokyo* **9** (1959), 187–211.
 
-[^XVI-1]: TRANSLATOR NOTE: the source reads "1.2 a)" here, which appears to be a typo for "1.3 a)" (the connected-fiber
+[^XVI-1]: Editorial note: the source reads "1.2 a)" here, which appears to be a typo for "1.3 a)" (the connected-fiber
     case of the immersion criterion stated and proved above).
 
 
@@ -75333,7 +75333,7 @@ Amer. Math. Soc., 1997).
     used in the previous section; here Demazure exploits the resulting formula
     $s_{\beta}(t_{\alpha}) = t_{\alpha} t^{-2}_{\beta} = t_{\alpha}$ (using $t^{2}_{\beta} = e$, which holds in `B_2`).
 
-    <!-- TRANSLATOR NOTE: the source displays "(α^*, β) = 2"; this is a sign-convention discrepancy that does not
+    <!-- Editorial note: the source displays "(α^*, β) = 2"; this is a sign-convention discrepancy that does not
     affect the conclusion `s_β(t_α) = t_α` since `t_β^{(α^*, β)}` is computed via the involution `t_β^2 = e`. -->
 
 [^N.D.E-XXIII-7]: N.D.E.: We introduce here absolute constants $A, B, \cdots, J$. These constants will be determined in
@@ -79516,7 +79516,7 @@ One then sets
 π((v, t, u), (v′, t′, u′)) = (v · ᵗv′′ t⁻¹, t t′′ t′, t′⁻¹ u′′ t′ · u′).
 ```
 
-<!-- TRANSLATOR NOTE: source has `v · tv′′ t⁻¹` and `t′⁻¹ u′′ t′ · u′`; the leading `t` (resp. `t′⁻¹`) denotes conjugation, rendered here with a leading raised `ᵗ`/`t′⁻¹` to indicate the conjugation action. -->
+<!-- Editorial note: source has `v · tv′′ t⁻¹` and `t′⁻¹ u′′ t′ · u′`; the leading `t` (resp. `t′⁻¹`) denotes conjugation, rendered here with a leading raised `ᵗ`/`t′⁻¹` to indicate the conjugation action. -->
 
 The verification of (i) is immediate (by 2.8 (ii)). To verify the condition in (iii) bearing on $\pi$, one sees that
 
@@ -79559,7 +79559,7 @@ section), one has:*
 Indeed, the two sides of each of these formulas define morphisms between smooth $\mathbb{Z}$-schemes of finite
 presentation, which coincide on the generic fibers, by 2.10 (iii).
 
-<!-- TRANSLATOR NOTE: source says "par 2.10 (iii)" but the reference should be to 2.9 (iii); kept as in source. -->
+<!-- Editorial note: source says "par 2.10 (iii)" but the reference should be to 2.9 (iii); kept as in source. -->
 
 **Corollary 2.11.** *Let $\alpha \in R$. For all $S$ and all $x, y \in \mathbb{G}_{a}(S)$ such that
 $(p_{\alpha}(x), p_{-\alpha}(y)) \in V_{1}(S)$ and $1 + xy \in \mathbb{G}_{m}(S)$ (which defines an open subset of
@@ -80842,7 +80842,7 @@ figure):
 
 *Figure 3.15.1.*
 
-<!-- TRANSLATOR NOTE: The cube diagram in the source has many visual lines/arrows that are difficult to render in plain text; the labels and key adjacencies are preserved above. -->
+<!-- Editorial note: The cube diagram in the source has many visual lines/arrows that are difficult to render in plain text; the labels and key adjacencies are preserved above. -->
 
 <!-- original page 451 -->
 
@@ -82815,7 +82815,7 @@ Let $P \supset Q$ be as above. Consider the relative root datum (7.5) of $G$ ove
 f : (M, M^*, R, R^*, R^+) ⥲ (M, M^*, R, R^*, R^+).
 ```
 
-<!-- TRANSLATOR NOTE: The source writes f as an automorphism of (M, M^*, R, R^*, R^+) with itself; presumably the identifications are over different bases or models. -->
+<!-- Editorial note: The source writes f as an automorphism of (M, M^*, R, R^*, R^+) with itself; presumably the identifications are over different bases or models. -->
 
 The set $\Delta$ of simple roots of $R^{+}$ is transformed into the set $\Delta$ of simple roots of $R^{+}$, hence every
 subset $A$ of $\Delta$ into a subset $f(A) \subset \Delta$.
@@ -84133,3 +84133,4 @@ A combined index of notation and terminology for Tome III. Page numbers refer to
 | $Z_{\alpha}$                                                   | 7                                           |
 | $Z(R)$                                                         | 98                                          |
 | $Z^{1}(S'/S, G)$                                               | 262                                         |
+
