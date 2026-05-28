@@ -12,6 +12,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20432922
 - Heinrich Weber author record: https://zenodo.org/records/20431945
 - Emmy Noether author record: https://zenodo.org/records/20431948
+- Carl Friedrich Gauss author record: https://zenodo.org/records/20433382
 - Bernhard Riemann author record: https://zenodo.org/records/20431305
 - Deligne working record: https://zenodo.org/records/20414959
 - Classical algebra/arithmetic shelf: https://zenodo.org/records/20418609
@@ -27,6 +28,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - `sources/non-european/`: extracted TeX source bundles from the non-European corpus. Large page-image, OCR, raw-provenance, and source-scan zips stay on Zenodo.
 - `reader-pdfs/weber/` and `sources/weber/`: Weber original-language readers and current English translation drafts, with Volume II through section 124.
 - `reader-pdfs/noether/` and `sources/noether/`: Noether selected-paper reader and current English translation drafts.
+- `reader-pdfs/gauss/` and `sources/gauss/`: Gauss Werke reader drafts for Bands I, I alternate, II, III, VI, VII, XI Part I, and individual papers, plus TeX sources and audit reports.
 - `reader-pdfs/riemann/` and `sources/riemann/`: Riemann selected/complete-draft readers and source packets.
 - `zenodo-metadata/`: public metadata JSON used for the current records.
 - `manifests/`: public summaries and a GitHub file inventory.
@@ -35,7 +37,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity.
 
-EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader. The non-European corpus has 66 repaired top-level reader PDFs; the latest pass also promoted complete public-domain scan PDFs for the Rosen and Robert/Karpinski reference originals where sparse derived readers were not useful as public-facing originals. Weber and Noether have current author pages with original-language readers, English readers, and source artifacts.
+EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader. The non-European corpus has 66 repaired top-level reader PDFs; the latest pass also promoted complete public-domain scan PDFs for the Rosen and Robert/Karpinski reference originals where sparse derived readers were not useful as public-facing originals. Weber, Noether, Gauss, and Riemann have current author pages with reader PDFs and source artifacts.
 
 Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, translation completion, and replacing imperfect machine-generated passages with verified text.
 
