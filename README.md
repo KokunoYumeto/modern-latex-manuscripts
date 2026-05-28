@@ -8,7 +8,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 - Main landing, bulk preservation, and raw source backstop: https://zenodo.org/records/20430709
 - EGA working English translation and French originals: https://zenodo.org/records/20432146
-- SGA working English translation and French references: https://zenodo.org/records/20434295
+- SGA working English translation and French references: https://zenodo.org/records/20434592
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20434098
 - Heinrich Weber author record: https://zenodo.org/records/20434469
 - Emmy Noether author record: https://zenodo.org/records/20434473
