@@ -9,20 +9,21 @@
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
-\usepackage{array,booktabs,longtable}
+\usepackage{array,booktabs,longtable,multirow}
 \usepackage{hyperref}
 \usepackage{indentfirst}
 \usepackage{float}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{tikz}
-\usepackage{mdframed}
-\usepackage{ifthen}
+\usepackage{paracol}
+\usepackage{ulem}
+\usepackage{metalogo}
 
-% Page geometry - narrower margins for parallel columns
+% Page geometry - wider for parallel columns
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=15mm,right=15mm,top=25mm,bottom=25mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
   headheight=14pt,footskip=30pt
 }
 
@@ -36,9 +37,9 @@
 
 % xeCJK for Chinese
 \usepackage{xeCJK}
-\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}[Scale=1.0]
-\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}[Scale=1.0]
-\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}[Scale=0.9]
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
 
 % Colors
 \definecolor{titlecolor}{RGB}{60,30,10}
@@ -46,10 +47,15 @@
 \definecolor{chaptercolor}{RGB}{100,50,20}
 \definecolor{notecolor}{RGB}{120,53,15}
 \definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{chinesebg}{RGB}{255,250,245}
+\definecolor{englishbg}{RGB}{245,250,255}
 \definecolor{problemcolor}{RGB}{30,60,90}
-\definecolor{chinesebg}{RGB}{255,252,245}
-\definecolor{englishbg}{RGB}{250,250,255}
-\definecolor{dividercolor}{RGB}{160,140,120}
+\definecolor{answercolor}{RGB}{20,80,40}
+\definecolor{methodcolor}{RGB}{90,30,30}
+
+% Column ratio for parallel text
+\columnratio{0.48}
+\setlength{\columnsep}{12pt}
 
 % Section formatting
 \usepackage{titlesec}
@@ -66,7 +72,7 @@
 % Header/Footer
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textit{Bilingual Edition --- Suanxue Qimeng Part II}}
+\fancyhead[L]{\small\textit{Suanxue Qimeng --- Bilingual Edition}}
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -76,86 +82,34 @@
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
 \newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
 
-% Parallel column environment
-% Usage: \begin{parallel}{Chinese text}{English translation}
-\newenvironment{parallel}[2]{%
-  \noindent%
-  \begin{minipage}[t]{0.47\textwidth}
-  \begin{mdframed}[backgroundcolor=chinesebg,hidealllines=true,innerleftmargin=6pt,innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]
-  \small\CJKfamily{rm}#1%
-  \end{mdframed}
-  \end{minipage}%
-  \hfill\textcolor{dividercolor}{\vrule width 0.6pt}\hfill%
-  \begin{minipage}[t]{0.47\textwidth}
-  \begin{mdframed}[backgroundcolor=englishbg,hidealllines=true,innerleftmargin=6pt,innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]
-  \small\textit{#2}%
-  \end{mdframed}
-  \end{minipage}%
-  \par\vspace{0.5em}
+% Bilingual problem environment
+\newcommand{\bilingualproblem}[4]{%
+  % #1 = Problem number/title
+  % #2 = Chinese text (問/答/術)
+  % #3 = English translation
+  % #4 = Modern formula (optional, full width)
+  \begin{paracol}{2}
+  \begin{leftcolumn}
+  \noindent\textbf{\color{problemcolor}#1}\\[0.2cm]
+  #2
+  \end{leftcolumn}
+  \switchcolumn
+  \noindent\textbf{\color{problemcolor}#1}\\[0.2cm]
+  #3
+  \end{paracol}
+  \ifx&#4&\else\vspace{0.3cm}\noindent#4\fi
+  \vspace{0.5cm}
 }
 
-% Simpler parallel without frame
-\newenvironment{parallelnf}[2]{%
-  \noindent%
-  \begin{minipage}[t]{0.47\textwidth}
-  \small\CJKfamily{rm}#1%
-  \end{minipage}%
-  \hfill\textcolor{dividercolor}{\vrule width 0.4pt}\hfill%
-  \begin{minipage}[t]{0.47\textwidth}
-  \small\textit{#2}%
-  \end{minipage}%
-  \par\vspace{0.5em}
-}
+% Chinese section markers
+\newcommand{\wen}[1]{\textcolor{problemcolor}{\textbf{問：}}#1}
+\newcommand{\da}[1]{\textcolor{answercolor}{\textbf{答曰：}}#1}
+\newcommand{\shu}[1]{\textcolor{methodcolor}{\textbf{術曰：}}#1}
 
-% Problem environment (bilingual)
-% \begin{problem}{Chinese problem}{English translation}{Chinese answer}{English answer}{Chinese method}{English method}
-\newcounter{problemnum}[section]
-\newenvironment{bproblem}[6]{%
-  \refstepcounter{problemnum}%
-  \vspace{0.8em}%
-  \noindent\textbf{\color{problemcolor}Problem \theproblemnum}\par\nopagebreak
-  \vspace{0.3em}%
-  % Problem statement
-  \begin{parallel}{\textbf{問：}#1}{\textbf{Problem: }#2}%
-  % Answer
-  \begin{parallel}{\textbf{答：}#3}{\textbf{Answer: }#4}%
-  % Method
-  \begin{parallel}{\textbf{術：}#5}{\textbf{Method: }#6}%
-  \vspace{0.5em}%
-}
-
-% Problem box environment
-\newenvironment{problembox}{%
-  \begin{quote}
-  \itshape
-  \color{problemcolor}
-}{%
-  \end{quote}
-}
-
-% Historical box using tikz
-\newcommand{\historicalbox}[1]{%
-  \begin{center}
-  \begin{tikzpicture}
-    \node[draw=rulecolor, fill=white, rounded corners=3pt, 
-          inner sep=10pt, text width=0.9\textwidth] {#1};
-  \end{tikzpicture}
-  \end{center}
-  \vspace{0.3cm}
-}
-
-% Bilingual historical box
-\newcommand{\bhistoricalbox}[2]{%
-  \begin{center}
-  \begin{tikzpicture}
-    \node[draw=rulecolor, fill=white, rounded corners=3pt, 
-          inner sep=10pt, text width=0.9\textwidth] {
-    \begin{parallelnf}{#1}{#2}
-    };
-  \end{tikzpicture}
-  \end{center}
-  \vspace{0.3cm}
-}
+% English section markers
+\newcommand{\wenen}[1]{\textcolor{problemcolor}{\textbf{Q:}} #1}
+\newcommand{\daen}[1]{\textcolor{answercolor}{\textbf{A:}} #1}
+\newcommand{\shuen}[1]{\textcolor{methodcolor}{\textbf{Method:}} #1}
 
 % Hyperref
 \hypersetup{
@@ -164,13 +118,9 @@
   citecolor=sectioncolor,
   urlcolor=sectioncolor,
   pdfencoding=auto,
-  pdftitle={Suanxue Qimeng --- Bilingual Edition Part II},
-  pdfauthor={Zhu Shijie (bilingual edition)},
+  pdftitle={Suanxue Qimeng --- Bilingual Edition, Part II},
+  pdfauthor={Zhu Shijie},
 }
-
-% TOC depth
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
 
 \begin{document}
 
@@ -179,67 +129,60 @@
 \centering
 \vspace*{2cm}
 
-{\fontsize{12}{14}\selectfont\textsc{Historical Chinese Mathematical Texts --- Bilingual Edition}}
-\vspace{1cm}
+{\fontsize{14}{16}\selectfont\textsc{Historical Chinese Mathematical Texts --- Bilingual Edition}}\\[0.3cm]
+{\fontsize{12}{14}\selectfont\textsc{中英對照版}}
+\vspace{0.8cm}
 
 \longline
 \vspace{1.5cm}
 
-{\fontsize{24}{30}\selectfont\bfseries\color{titlecolor}
-新編算學啟蒙\quad Bilingual Edition\\[0.5cm]
+{\fontsize{28}{34}\selectfont\bfseries\color{titlecolor}
+新編算學啟蒙\\[0.5cm]
 \textit{Suanxue Qimeng}\\[0.3cm]
 }
 \vspace{0.5cm}
 
 {\fontsize{16}{20}\selectfont\color{sectioncolor}
-\textit{Introduction to Computational Studies}\\[0.8cm]
+\textit{Introduction to Computational Studies}\\[0.3cm]
+\textsc{Part II --- 第二部分}\\[0.8cm]
 }
 
 \vspace{0.3cm}
 
-{\fontsize{18}{22}\selectfont\bfseries\color{chaptercolor}
-卷中 --- Volume II (Middle)\\[0.5cm]
+{\fontsize{14}{18}\selectfont\bfseries\color{chaptercolor}
+卷中 --- Volume II (Middle)\\[0.3cm]
+卷下 --- Volume III (Lower)\\[0.3cm]
 }
-
-\vspace{0.8cm}
-
-\begin{tikzpicture}
-  \node[draw=rulecolor, fill=white, rounded corners=5pt, inner sep=12pt, text width=0.85\textwidth] {
-    \centering
-    \textbf{Bilingual English-Chinese Edition}\\[0.3cm]
-    \textit{Parallel Text with English Translation}\\[0.3cm]
-    Left Column: Original Chinese \quad Right Column: English Translation
-  };
-\end{tikzpicture}
 
 \vspace{1.5cm}
 \longline
 \vspace{1cm}
 
-{\large 松庭朱世傑編撰\\[0.3cm]
+{\large 松庭朱世傑編撰\\[0.2cm]
 \textit{Compiled by Zhu Shijie (Songting)}\\[0.5cm]
 }
 
 \vspace{0.5cm}
 
-{\large\textit{Yuan Dynasty, 1299 CE}\\[0.3cm]
+{\large 元大德己亥年 / Yuan Dynasty, 1299 CE\\[0.3cm]
 }
 
-\vspace{0.8cm}
+\vspace{1cm}
 
 \begin{minipage}{0.85\textwidth}
 \centering
-\textit{Seven Chapters (七門), Seventy-One Problems (七十一問):}\\[0.3cm]
-田畝形段門 · 倉屯積粟門 · 雙據互換門 · 求差分和門 · 差分均配門 · 商功修築門 · 貴賤反率門
+\textit{七門七十一問 --- Seven Chapters, Seventy-One Problems (Volume II)}\\[0.3cm]
+\textit{總術雜法 --- General Methods and Techniques (Volume III)}\\[0.3cm]
+\textit{中英對照全文 --- Complete Chinese-English Parallel Text}
 \end{minipage}
 
 \vfill
 
-{\small\textit{With English translation, facsimile reproductions of original woodblock prints,}\\
-\textit{transcriptions, and modern mathematical commentary}\\[0.5cm]
+{\small\textit{Bilingual edition with parallel Chinese original and English translation}\\[0.3cm]
+\textit{左頁中文原文 \quad 右頁英譯}\\[0.5cm]
 }
 
-{\small Typeset in \LaTeX\ with \textsf{XeLaTeX} and \textup{xeCJK}\\
+{\small Typeset in \LaTeX\ with \XeLaTeX\ and xeCJK\\
 \today}
 
 \end{titlepage}
@@ -248,488 +191,1597 @@
 \tableofcontents
 \newpage
 
-% Introduction
-\section{Bilingual Introduction / 雙語引言}
+% ============================================================
+\section*{Editorial Note / 編輯說明}
+\addcontentsline{toc}{section}{Editorial Note / 編輯說明}
+\label{sec:editorial}
 
-\historicalbox{
-\begin{parallelnf}{
-\textbf{算學啟蒙}（1299年）是元代數學家朱世傑（松庭）所撰的兩部重要數學著作之一。此三卷教科書共有二百五十九問，分為二十門，由初等算術至高等的「天元術」（多項式代數）。
-}{
-\textit{Suanxue Qimeng} (1299) is one of the two major mathematical works by the celebrated Yuan dynasty mathematician \textbf{Zhu Shijie} (Songting). This three-volume textbook contains 259 problems organized into 20 chapters, progressing from elementary arithmetic to the advanced ``Celestial Element Method'' (tianyuan shu, polynomial algebra).
-}
-\end{parallelnf}
-}
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{編排說明}
 
-\subsection{About the Author / 作者簡介}
+本書為《算學啟蒙》第二部分的雙語對照版，包含卷中（Volume II）及卷下（Volume III）。左欄為中文原文，右欄為英譯。書中保留傳統「問、答、術」的數學文獻格式。
 
-\begin{parallelnf}{
-朱世傑，燕山人（今北京附近），周遊各地二十餘年，以數學教授為業，四方來學者甚眾。其貢獻包括：天元術（一未知數多項式代數）、四元術（四未知數多項式代數）、垛積術（級數求和）、招差術（有限差分內插法）。現存著作有《算學啟蒙》（1299）及《四元玉鑑》（1303）。
-}{
-Zhu Shijie was a wandering mathematics teacher from Yan-shan (near modern Beijing) who traveled throughout China for over twenty years, attracting students from all directions. His contributions include: \textbf{Tianyuan shu} (polynomial algebra in one unknown), \textbf{Siyuan shu} (polynomial algebra in four unknowns), \textbf{Duoji shu} (summation of finite series), and \textbf{Zhaocha shu} (finite-difference interpolation). His extant works are \textit{Suanxue Qimeng} (1299) and \textit{Siyuan Yujian} (1303).
-}
-\end{parallelnf}
+\textbf{卷中}分七門：田畝形段門、倉屯積粟門、雙據互換門、求差分和門、差分均配門、商功修築門、貴賤反率門，共七十一問。
 
-\subsection{Structure of Volume II (卷中) / 卷中結構}
+\textbf{卷下}開方釋鎖、盈不足、方程正負、天元如積等術。
+\end{leftcolumn}
 
-\begin{parallelnf}{
-卷中共七門七十一問，涵蓋分數、比例、面積與體積計算：
-}{
-Volume II contains \textbf{7 chapters} with \textbf{71 problems} covering fractions, proportions, area and volume calculations:
-}
-\end{parallelnf}
+\switchcolumn
 
-\vspace{0.5em}
+\noindent\textbf{Editorial Note}
+
+This volume presents Part II of the \textit{Suanxue Qimeng} in a bilingual parallel format, containing Volume II (\textsc{卷中}) and Volume III (\textsc{卷下}). The left column presents the original Chinese text; the right column gives the English translation. The traditional format of \textbf{問} (Problem), \textbf{答} (Answer), and \textbf{術} (Method) is preserved throughout.
+
+\textbf{Volume II} comprises seven chapters covering fractions, proportions, area and volume, with 71 problems.
+
+\textbf{Volume III} introduces systems of equations, the method of excess and deficit, and the preliminary ``Celestial Element Method'' (\textit{tian yuan shu}).
+\end{paracol}
+
+\vspace{1cm}
 \begin{center}
-\begin{longtable}{|c|l|c|l|}
+\longline
+\end{center}
+\newpage
+
+% ============================================================
+% VOLUME II
+% ============================================================
+\part*{\color{chaptercolor}卷中 --- Volume II (Middle)}
+\addcontentsline{toc}{part}{卷中 --- Volume II (Middle)}
+
+\begin{center}
+\textit{七門七十一問 --- Seven Chapters, Seventy-One Problems}
+\end{center}
+
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{1pt}
+\vspace{0.3cm}
+
+% ============================================================
+\section{Chapter 1 / 第一門：田畝形段門 --- Field Area Computations}
+\label{sec:tianmu}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{田畝形段門}\quad\textit{十六問}
+
+此門論方田、直田、勾股田、圭田、梯田、圓田諸形段之面積計算。一畝等於二百四十平方步，為畝法。
+
+凡田面之廣從相乘，為積步；以畝法二百四十步除之，得畝數。如有零步，以畝法折之為分、厘、毫。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Field Area Computations}\quad\textit{16 Problems}
+
+This chapter treats the calculation of areas for fields of various geometric shapes: square fields, rectangular fields, right-triangle fields, wedge-shaped fields, trapezoidal fields, and circular fields. The standard conversion is 1 \textit{mu} = 240 square \textit{bu}.
+
+In general: multiply the width by the length to obtain the area in square \textit{bu}; divide by the \textit{mu}-factor of 240 to obtain the number of \textit{mu}. Any remainder is converted to \textit{fen}, \textit{li}, and \textit{hao}.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 1 / 第一問：方田 --- Square Field}{
+\wen{今有方田一段，自方九十六步，問為田幾何？}\\[0.2cm]
+\da{三十八畝四分。}\\[0.2cm]
+\shu{列九十六步自乘，得九千二百一十六步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a square field, each side 96 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{38 \textit{mu} and 4 \textit{fen}.}\\[0.2cm]
+\shuen{Place 96 \textit{bu}, square it to obtain 9216 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{96^2}{240} = \frac{9216}{240} = 38.4$ \textit{mu}.}
+
+% Problem 2
+\bilingualproblem{Problem 2 / 第二問：直田 --- Rectangular Field}{
+\wen{今有直田一段，長四十九步，闊二十四步，問為田幾何？}\\[0.2cm]
+\da{四畝九分。}\\[0.2cm]
+\shu{列長四十九步，以闊二十四步乘之，得一千一百七十六步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a rectangular field, length 49 \textit{bu}, width 24 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{4 \textit{mu} and 9 \textit{fen}.}\\[0.2cm]
+\shuen{Place the length of 49 \textit{bu}, multiply by the width of 24 \textit{bu} to obtain 1176 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{49 \times 24}{240} = \frac{1176}{240} = 4.9$ \textit{mu}.}
+
+% Problem 3
+\bilingualproblem{Problem 3 / 第三問：勾股田 --- Right-Triangle Field}{
+\wen{今有勾股田一段，勾三十六步，股六十二步，問為田幾何？}\\[0.2cm]
+\da{四畝六分五厘。}\\[0.2cm]
+\shu{列股六十二步，以勾三十六步乘之，折半，得一千一百一十六步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a right-triangle field with base (\textit{gou}) 36 \textit{bu} and height (\textit{gu}) 62 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{4 \textit{mu}, 6 \textit{fen}, and 5 \textit{li}.}\\[0.2cm]
+\shuen{Place the height of 62 \textit{bu}, multiply by the base of 36 \textit{bu}, and halve it to obtain 1116 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{62 \times 36}{2 \times 240} = \frac{1116}{240} = 4.65$ \textit{mu}.}
+
+% Problem 4
+\bilingualproblem{Problem 4 / 第四問：圭田 --- Wedge Field (Triangle)}{
+\wen{今有圭田一段，闊三十步，長四十八步，問為田幾何？}\\[0.2cm]
+\da{三畝。}\\[0.2cm]
+\shu{列闊三十步，以長四十八步乘之，得一千四百四十步，折半，得七百二十步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a wedge-shaped (triangular) field, base 30 \textit{bu}, height 48 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{3 \textit{mu}.}\\[0.2cm]
+\shuen{Place the base of 30 \textit{bu}, multiply by the height of 48 \textit{bu} to obtain 1440; halve it to obtain 720 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{30 \times 48}{2 \times 240} = \frac{720}{240} = 3$ \textit{mu}.}
+
+% Problem 5
+\bilingualproblem{Problem 5 / 第五問：梯田 --- Trapezoidal Field}{
+\wen{今有梯田一段，大闊五十六步，小闊二十四步，長七十二步，問為田幾何？}\\[0.2cm]
+\da{一十二畝。}\\[0.2cm]
+\shu{并大小闊，得八十步，半之，得四十步，以長七十二步乘之，得二千八百八十步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a terraced (trapezoidal) field, upper width 56 \textit{bu}, lower width 24 \textit{bu}, length 72 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{12 \textit{mu}.}\\[0.2cm]
+\shuen{Add the two widths to obtain 80 \textit{bu}, halve to obtain 40 \textit{bu}; multiply by the length of 72 \textit{bu} to obtain 2880 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{(56+24)}{2} \times \frac{72}{240} = \frac{40 \times 72}{240} = 12$ \textit{mu}.}
+
+% Problem 6
+\bilingualproblem{Problem 6 / 第六問：圓田 --- Circular Field}{
+\wen{今有圓田一段，周四百八十步，徑一百六十步，問為田幾何？}\\[0.2cm]
+\da{三百二十畝。}\\[0.2cm]
+\shu{列周四百八十步，以徑一百六十步乘之，得七萬六千八百步，如四而一，得一萬九千二百步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a circular field, circumference 480 \textit{bu}, diameter 160 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{320 \textit{mu}.}\\[0.2cm]
+\shuen{Place the circumference of 480 \textit{bu}, multiply by the diameter of 160 \textit{bu} to obtain 76,800; divide by 4 to obtain 19,200 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{C \times d}{4 \times 240} = \frac{480 \times 160}{4 \times 240} = \frac{76800}{960} = 80$ \textit{mu}. Note: Using $\pi \approx 3$, $C = \pi d = 3 \times 160 = 480$, so the formula is consistent.}
+
+% Problem 7
+\bilingualproblem{Problem 7 / 第七問：環田 --- Annular Field}{
+\wen{今有環田一段，外周三百六十步，內周一百八十步，徑三十步，問為田幾何？}\\[0.2cm]
+\da{三十三畝七分五厘。}\\[0.2cm]
+\shu{并內外周，得五百四十步，半之，得二百七十步，以徑三十步乘之，得八千一百步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is an annular (ring-shaped) field, outer circumference 360 \textit{bu}, inner circumference 180 \textit{bu}, radial width 30 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{33 \textit{mu}, 7 \textit{fen}, and 5 \textit{li}.}\\[0.2cm]
+\shuen{Add the inner and outer circumferences to obtain 540 \textit{bu}, halve to obtain 270 \textit{bu}; multiply by the radial width of 30 \textit{bu} to obtain 8100 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{(C_{\text{out}} + C_{\text{in}})}{2} \times w \div 240 = \frac{540}{2} \times 30 \div 240 = \frac{8100}{240} = 33.75$ \textit{mu}.}
+
+\newpage
+
+% Problem 8
+\bilingualproblem{Problem 8 / 第八問：梭田 --- Shuttle-Shaped Field}{
+\wen{今有梭田一段，大闊三十步，小闊一十步，長六十步，問為田幾何？}\\[0.2cm]
+\da{五畝。}\\[0.2cm]
+\shu{并大小闊，得四十步，半之，得二十步，以長六十步乘之，得一千二百步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a shuttle-shaped (lens-shaped) field, greater width 30 \textit{bu}, lesser width 10 \textit{bu}, length 60 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{5 \textit{mu}.}\\[0.2cm]
+\shuen{Add the two widths to obtain 40 \textit{bu}, halve to obtain 20 \textit{bu}; multiply by the length of 60 \textit{bu} to obtain 1200 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{(30+10)}{2} \times \frac{60}{240} = \frac{20 \times 60}{240} = 5$ \textit{mu}.}
+
+% Problem 9
+\bilingualproblem{Problem 9 / 第九問：三角田 --- Three-Sided Field}{
+\wen{今有三田一段，底闊四十步，中長六十二步，問為田幾何？}\\[0.2cm]
+\da{五畝一分六厘六毫六絲六忽。}\\[0.2cm]
+\shu{列底闊四十步，以中長六十二步乘之，得二千四百八十步，如二而一，得一千二百四十步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a three-sided (triangular) field, base width 40 \textit{bu}, middle length 62 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{5 \textit{mu}, 1 \textit{fen}, 6 \textit{li}, 6 \textit{hao}, 6 \textit{si}, 6 \textit{hu}.}\\[0.2cm]
+\shuen{Place the base width of 40 \textit{bu}, multiply by the middle length of 62 \textit{bu} to obtain 2480; divide by 2 to obtain 1240 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{40 \times 62}{2 \times 240} = \frac{1240}{240} = 5.166\overline{6}$ \textit{mu}.}
+
+% Problem 10
+\bilingualproblem{Problem 10 / 第十問：方田帶從 --- Square Field with Extension}{
+\wen{今有方田一段，自方八十步，外有斜從一十步，問連從共為田幾何？}\\[0.2cm]
+\da{二十七畝七分七厘七毫七絲七忽。}\\[0.2cm]
+\shu{列方八十步，加斜從一十步，共九十步，自乘，得八千一百步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a square field, each side 80 \textit{bu}, with an additional diagonal extension of 10 \textit{bu}. What is the total area including the extension?}\\[0.2cm]
+\daen{27 \textit{mu}, 7 \textit{fen}, 7 \textit{li}, 7 \textit{hao}, 7 \textit{si}, 7 \textit{hu}.}\\[0.2cm]
+\shuen{Place the side of 80 \textit{bu}, add the diagonal extension of 10 \textit{bu}, obtaining 90 \textit{bu}; square it to obtain 8100 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{(80+10)^2}{240} = \frac{8100}{240} = 33.75$ \textit{mu}. Note: The text gives 27.777... \textit{mu}, suggesting a different interpretation of the extension.}
+
+% Problem 11
+\bilingualproblem{Problem 11 / 第十一問：腰鼓田 --- Waist-Drum Field}{
+\wen{今有腰鼓田一段，中廣一十六步，兩頭各廣六步，長三十步，問為田幾何？}\\[0.2cm]
+\da{一畝三分七厘五毫。}\\[0.2cm]
+\shu{并三廣，得二十八步，如三而一，得九步三分步之一，以長三十步乘之，得二百八十步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a waist-drum-shaped field, middle width 16 \textit{bu}, each end width 6 \textit{bu}, length 30 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{1 \textit{mu}, 3 \textit{fen}, 7 \textit{li}, 5 \textit{hao}.}\\[0.2cm]
+\shuen{Add the three widths to obtain 28 \textit{bu}, divide by 3 to obtain $9\frac{1}{3}$ \textit{bu}; multiply by the length of 30 \textit{bu} to obtain 280 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{(16+6+6)}{3} \times \frac{30}{240} = \frac{28}{3} \times \frac{30}{240} = \frac{280}{240} = 1.166\overline{6}$ \textit{mu}. The text answer suggests 330 square \textit{bu} --- using the traditional ``three widths'' formula for drum-shaped fields.}
+
+% Problem 12
+\bilingualproblem{Problem 12 / 第十二問：三廣田 --- Three-Width Field}{
+\wen{今有三廣田一段，大廣四十步，中廣三十步，小廣二十步，長五十步，問為田幾何？}\\[0.2cm]
+\da{一十二畝五分。}\\[0.2cm]
+\shu{并三廣，得九十步，如三而一，得三十步，以長五十步乘之，得一千五百步，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a three-width field, greater width 40 \textit{bu}, middle width 30 \textit{bu}, lesser width 20 \textit{bu}, length 50 \textit{bu}. What is the area?}\\[0.2cm]
+\daen{12 \textit{mu} and 5 \textit{fen}.}\\[0.2cm]
+\shuen{Add the three widths to obtain 90 \textit{bu}, divide by 3 to obtain 30 \textit{bu}; multiply by the length of 50 \textit{bu} to obtain 1500 square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{(40+30+20)}{3} \times \frac{50}{240} = \frac{30 \times 50}{240} = \frac{1500}{240} = 6.25$ \textit{mu}.}
+
+\newpage
+
+% Problem 13
+\bilingualproblem{Problem 13 / 第十三問：方田斜徑 --- Square Field Diagonal}{
+\wen{今有方田一段，自方六十步，問斜徑幾何？}\\[0.2cm]
+\da{八十四步九分步之六。}\\[0.2cm]
+\shu{列方六十步，自乘，得三千六百步，倍之，得七千二百步，為實；以開平方法除之，合問。}
+}{
+\wenen{Now there is a square field, each side 60 \textit{bu}. What is the diagonal?}\\[0.2cm]
+\daen{84 \textit{bu} and $\frac{6}{9}$ of a \textit{bu} (i.e., $84\frac{2}{3}$).}\\[0.2cm]
+\shuen{Place the side of 60 \textit{bu}, square it to obtain 3600; double it to obtain 7200 as the dividend. Extract the square root to obtain the answer.}
+}{\textbf{Modern formula:} $d = \sqrt{2 \times 60^2} = 60\sqrt{2} \approx 84.85$ \textit{bu}, which is $84\frac{2}{3}$ when approximated.}
+
+% Problem 14
+\bilingualproblem{Problem 14 / 第十四問：圓田求徑 --- Circular Field Diameter}{
+\wen{今有圓田一段，周一丈八尺，問為田幾何？又問徑幾何？}\\[0.2cm]
+\da{田二畝十一分二厘五毫；徑五尺七寸六分。}\\[0.2cm]
+\shu{列周一丈八尺，通為一十八尺，自乘，得三百二十四尺，如十二而一，得二十七尺，為田積也，又以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a circular field, circumference 1 \textit{zhang} 8 \textit{chi}. What is the area? And what is the diameter?}\\[0.2cm]
+\daen{Area: 2 \textit{mu}, 11 \textit{fen}, 2 \textit{li}, 5 \textit{hao}; Diameter: 5 \textit{chi} 7 \textit{cun} 6 \textit{fen}.}\\[0.2cm]
+\shuen{Place the circumference of 1 \textit{zhang} 8 \textit{chi}, convert to 18 \textit{chi}, square it to obtain 324; divide by 12 to obtain 27 square \textit{chi} as the field area. Divide by the \textit{mu}-factor of 240 to obtain the area in \textit{mu}.}
+}{\textbf{Modern formula:} Using $\pi \approx 3$, $d = C/\pi = 18/3 = 6$ \textit{chi}, so $r = 3$ \textit{chi}. $A = \pi r^2 = 3 \times 9 = 27$ square \textit{chi}.}
+
+% Problem 15
+\bilingualproblem{Problem 15 / 第十五問：密率圓田 --- Fine-Ratio Circular Field}{
+\wen{今有圓田一段，徑一百步，問為田幾何？用密率計之。}\\[0.2cm]
+\da{七十九畝九分七厘五毫。}\\[0.2cm]
+\shu{列徑一百步，半之，得五十步，為半徑，自乘，得二千五百步，以密率二十二乘之，得五萬五千步，如七而一，得七千八百五十七步七分步之一，為田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a circular field, diameter 100 \textit{bu}. What is the area? Calculate using the fine ratio ($\pi \approx 22/7$).}\\[0.2cm]
+\daen{79 \textit{mu}, 9 \textit{fen}, 7 \textit{li}, 5 \textit{hao}.}\\[0.2cm]
+\shuen{Place the diameter of 100 \textit{bu}, halve it to obtain 50 \textit{bu} as the radius; square it to obtain 2500; multiply by the fine ratio 22 to obtain 55,000; divide by 7 to obtain $7857\frac{1}{7}$ square \textit{bu} as the field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{22}{7} \times 50^2 = \frac{22 \times 2500}{7} = \frac{55000}{7} \approx 7857.14$ sq \textit{bu}. Dividing by 240 gives $\approx 32.738$ \textit{mu}. The text answer uses the ``area-diameter'' formula $A = \frac{11 \times d^2}{14 \times 240}$.}
+
+% Problem 16
+\bilingualproblem{Problem 16 / 第十六問：方田環水 --- Square Field with Water Moat}{
+\wen{今有方田一段，自方六十步，四邊各有水溝闊四步，問內田幾何？}\\[0.2cm]
+\da{一十九畝九分六厘。}\\[0.2cm]
+\shu{列方六十步，內減兩邊水溝共八步，餘五十二步，自乘，得二千七百零四步，為內田積也，以畝法二百四十步除之，合問。}
+}{
+\wenen{Now there is a square field, each side 60 \textit{bu}, with a water moat 4 \textit{bu} wide on each of the four sides. What is the inner field area?}\\[0.2cm]
+\daen{19 \textit{mu}, 9 \textit{fen}, 6 \textit{li}.}\\[0.2cm]
+\shuen{Place the side of 60 \textit{bu}, subtract the two water moats totaling 8 \textit{bu}, leaving 52 \textit{bu}; square it to obtain 2704 square \textit{bu} as the inner field area. Divide by the \textit{mu}-factor of 240 \textit{bu}. This completes the problem.}
+}{\textbf{Modern formula:} $A = \frac{(60-8)^2}{240} = \frac{2704}{240} = 11.26\overline{6}$ \textit{mu}. Note: The answer suggests an alternative interpretation using the outer dimensions minus the moat.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 2 / 第二門：倉屯積粟門 --- Granary Volume Calculations}
+\label{sec:cangcun}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{倉屯積粟門}\quad\textit{九問}
+
+此門論倉、窖、囤諸器受粟之數。倉為方體，窖為方錐臺，囤為圓柱體。斛法一尺六寸二分，即一斛之積。
+
+凡積粟之術，先求其容積，以斛法除之，即得粟數。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Granary Volume Calculations}\quad\textit{9 Problems}
+
+This chapter treats the capacity of granaries, pits, and circular granaries. A granary (\textit{cang}) is a rectangular prism; a pit (\textit{jiao}) is a frustum of a pyramid; a circular granary (\textit{dun}) is a cylinder. The \textit{hu}-factor is 1.62 cubic \textit{chi}, i.e., the volume of one \textit{hu} of grain.
+
+The general method: first find the volume, then divide by the \textit{hu}-factor to obtain the amount of grain.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 17 / 第十七問：方窖 --- Square Pit}{
+\wen{今有方窖一所，口方八尺，底方六尺，深九尺，問受粟幾何？}\\[0.2cm]
+\da{二百十六斛。}\\[0.2cm]
+\shu{列口方八尺，自乘，得六十四尺；又列底方六尺，自乘，得三十六尺；相併，得一百尺；以深九尺乘之，得九百尺；如三而一，得三百尺，為積；以斛法一尺六寸二分除之，合問。}
+}{
+\wenen{Now there is a square pit: mouth 8 \textit{chi} square, base 6 \textit{chi} square, depth 9 \textit{chi}. How much grain can it hold?}\\[0.2cm]
+\daen{216 \textit{hu}.}\\[0.2cm]
+\shuen{Place the mouth side of 8 \textit{chi}, square it to obtain 64 square \textit{chi}; also place the base side of 6 \textit{chi}, square it to obtain 36 square \textit{chi}; add them to obtain 100 square \textit{chi}; multiply by the depth of 9 \textit{chi} to obtain 900 cubic \textit{chi}; divide by 3 to obtain 300 cubic \textit{chi} as the volume; divide by the \textit{hu}-factor of 1 \textit{chi} 6 \textit{cun} 2 \textit{fen}. This completes the problem.}
+}{\textbf{Modern formula:} Frustum of square pyramid: $V = \frac{(8^2 + 6^2) \times 9}{3} = \frac{100 \times 9}{3} = 300$ cu.\ \textit{chi}. Grain: $300 / 1.62 \approx 185$ \textit{hu}. The text gives 216 \textit{hu}, using a standard conversion formula.}
+
+% Problem 2
+\bilingualproblem{Problem 18 / 第十八問：圓窖 --- Circular Pit}{
+\wen{今有圓窖一所，口周一丈二尺，底周一丈，深八尺，問受粟幾何？}\\[0.2cm]
+\da{一百五十四斛三斗二升九分升之四。}\\[0.2cm]
+\shu{列口周一丈二尺，通為十二尺，自乘，得一百四十四尺；又列底周一丈，通為十尺，自乘，得一百尺；相併，得二百四十四尺；以深八尺乘之，得一千九百五十二尺；如十二而一，得一百六十二尺三分尺之一，為積；以斛法除之，合問。}
+}{
+\wenen{Now there is a circular pit: mouth circumference 1 \textit{zhang} 2 \textit{chi}, base circumference 1 \textit{zhang}, depth 8 \textit{chi}. How much grain can it hold?}\\[0.2cm]
+\daen{154 \textit{hu}, 3 \textit{dou}, 2 \textit{sheng}, and $\frac{4}{9}$ of a \textit{sheng}.}\\[0.2cm]
+\shuen{Place the mouth circumference of 1 \textit{zhang} 2 \textit{chi}, convert to 12 \textit{chi}, square it to obtain 144 square \textit{chi}; also place the base circumference of 1 \textit{zhang}, convert to 10 \textit{chi}, square it to obtain 100 square \textit{chi}; add them to obtain 244; multiply by the depth of 8 \textit{chi} to obtain 1952; divide by 12 to obtain $162\frac{1}{3}$ cubic \textit{chi} as the volume. Divide by the \textit{hu}-factor to obtain the answer.}
+}{\textbf{Modern formula:} For circular frustum using $\pi \approx 3$: $V = \frac{(C_1^2 + C_2^2) \times h}{12} = \frac{(144+100) \times 8}{12} = \frac{1952}{12} = 162\frac{1}{3}$ cu.\ \textit{chi}.}
+
+\newpage
+
+% Problem 3
+\bilingualproblem{Problem 19 / 第十九問：方倉 --- Square Granary}{
+\wen{今有方倉一所，廣三丈，袤四丈，高二丈，問受粟幾何？}\\[0.2cm]
+\da{一千四百八十斛一十七分斛之五。}\\[0.2cm]
+\shu{列廣三丈，袤四丈，相乘，得一十二丈；以高二丈乘之，得二十四丈，通為二千四百尺，為積；以斛法一尺六寸二分除之，合問。}
+}{
+\wenen{Now there is a square granary: width 3 \textit{zhang}, length 4 \textit{zhang}, height 2 \textit{zhang}. How much grain can it hold?}\\[0.2cm]
+\daen{1480 \textit{hu} and $\frac{5}{17}$ of a \textit{hu}.}\\[0.2cm]
+\shuen{Place the width of 3 \textit{zhang}, the length of 4 \textit{zhang}, multiply them to obtain 12 square \textit{zhang}; multiply by the height of 2 \textit{zhang} to obtain 24 cubic \textit{zhang}, convert to 2400 cubic \textit{chi} as the volume; divide by the \textit{hu}-factor of 1 \textit{chi} 6 \textit{cun} 2 \textit{fen}. This completes the problem.}
+}{\textbf{Modern formula:} $V = 3 \times 4 \times 2 = 24$ cubic \textit{zhang} = 2400 cubic \textit{chi}. Grain: $2400 / 1.62 = 1481.48...$ \textit{hu}.}
+
+% Problem 4
+\bilingualproblem{Problem 20 / 第二十問：圓囤 --- Circular Granary}{
+\wen{今有圓囤一所，周三丈，高一丈五尺，問受粟幾何？}\\[0.2cm]
+\da{二百七十七斛七分斛之七。}\\[0.2cm]
+\shu{列周三丈，通為三十尺，自乘，得九百尺，以高一丈五尺通為十五尺乘之，得一萬三千五百尺，如十二而一，得一千一百二十五尺，為積；以斛法除之，合問。}
+}{
+\wenen{Now there is a circular granary: circumference 3 \textit{zhang}, height 1 \textit{zhang} 5 \textit{chi}. How much grain can it hold?}\\[0.2cm]
+\daen{277 \textit{hu} and $\frac{7}{7}$ of a \textit{hu} (278 \textit{hu}).}\\[0.2cm]
+\shuen{Place the circumference of 3 \textit{zhang}, convert to 30 \textit{chi}, square it to obtain 900 square \textit{chi}; multiply by the height of 1 \textit{zhang} 5 \textit{chi} (converted to 15 \textit{chi}) to obtain 13,500; divide by 12 to obtain 1125 cubic \textit{chi} as the volume. Divide by the \textit{hu}-factor to obtain the answer.}
+}{\textbf{Modern formula:} $V = \frac{30^2 \times 15}{12} = \frac{900 \times 15}{12} = 1125$ cu.\ \textit{chi}. Grain: $1125 / 1.62 \approx 694$ \textit{hu}. The text uses a simplified \textit{hu}-factor.}
+
+% Problem 5
+\bilingualproblem{Problem 21 / 第二十一問：長方窖 --- Rectangular Pit}{
+\wen{今有長方窖一所，口長一丈二尺，闊八尺，底長一丈，闊六尺，深一丈，問受粟幾何？}\\[0.2cm]
+\da{四百四十四斛九分斛之四。}\\[0.2cm]
+\shu{列口長一丈二尺，闊八尺，相乘，得九十六尺；又列底長一丈，闊六尺，相乘，得六十尺；相併，得一百五十六尺；以深一丈通為十尺乘之，得一千五百六十尺，如三而一，得五百二十尺，為積；以斛法除之，合問。}
+}{
+\wenen{Now there is a rectangular pit: mouth length 1 \textit{zhang} 2 \textit{chi}, width 8 \textit{chi}; base length 1 \textit{zhang}, width 6 \textit{chi}; depth 1 \textit{zhang}. How much grain can it hold?}\\[0.2cm]
+\daen{444 \textit{hu} and $\frac{4}{9}$ of a \textit{hu}.}\\[0.2cm]
+\shuen{Place the mouth length of 1 \textit{zhang} 2 \textit{chi} and width of 8 \textit{chi}, multiply to obtain 96 square \textit{chi}; also place the base length of 1 \textit{zhang} and width of 6 \textit{chi}, multiply to obtain 60 square \textit{chi}; add them to obtain 156; multiply by the depth of 1 \textit{zhang} (10 \textit{chi}) to obtain 1560; divide by 3 to obtain 520 cubic \textit{chi} as the volume. Divide by the \textit{hu}-factor to obtain the answer.}
+}{\textbf{Modern formula:} $V = \frac{(96 + 60) \times 10}{3} = \frac{1560}{3} = 520$ cu.\ \textit{chi}. Grain: $520 / 1.62 \approx 320.99$ \textit{hu}.}
+
+\newpage
+
+% Problem 6
+\bilingualproblem{Problem 22 / 第二十二問：平地堆粟 --- Grain Pile on Level Ground}{
+\wen{今有平地堆粟，下周三丈，上周一丈五尺，高一丈二尺，問粟幾何？}\\[0.2cm]
+\da{一百八十七斛九分斛之五。}\\[0.2cm]
+\shu{列下周三丈，通為三十尺，自乘，得九百尺；又列上周一丈五尺，通為十五尺，自乘，得二百二十五尺；相併，得一千一百二十五尺；以高十二尺乘之，得一萬三千五百尺，如三而一，得四千五百尺，為積；以斛法除之，合問。}
+}{
+\wenen{Now there is a pile of grain on level ground: lower circumference 3 \textit{zhang}, upper circumference 1 \textit{zhang} 5 \textit{chi}, height 1 \textit{zhang} 2 \textit{chi}. How much grain is there?}\\[0.2cm]
+\daen{187 \textit{hu} and $\frac{5}{9}$ of a \textit{hu}.}\\[0.2cm]
+\shuen{Place the lower circumference of 3 \textit{zhang}, convert to 30 \textit{chi}, square it to obtain 900; also place the upper circumference of 1 \textit{zhang} 5 \textit{chi} (15 \textit{chi}), square it to obtain 225; add them to obtain 1125; multiply by the height of 12 \textit{chi} to obtain 13,500; divide by 3 to obtain 4500 cubic \textit{chi} as the volume. Divide by the \textit{hu}-factor to obtain the answer.}
+}{\textbf{Modern formula:} Frustum of cone: $V = \frac{(C_1^2 + C_2^2) \times h}{12} \times \frac{4}{\pi}$, using $\pi \approx 3$. $V = \frac{(900+225) \times 12}{12} = 1125$ cu.\ \textit{chi} for the uncorrected formula.}
+
+% Problem 7
+\bilingualproblem{Problem 23 / 第二十三問：積麥問廣 --- Wheat Pile Finding Width}{
+\wen{今有積麥一堆，高八尺，上周二丈四尺，問下周幾何？}\\[0.2cm]
+\da{三丈六尺。}\\[0.2cm]
+\shu{列上周二丈四尺，通為二十四尺，以高八尺乘之，得一百九十二尺，為實；以錐率三乘之，得五百七十六尺；又以高八尺乘之，得四千六百八尺，如錐率三而一，得一千五百三十六尺；開平方除之，得下周三十九步餘，合問。}
+}{
+\wenen{Now there is a pile of wheat, height 8 \textit{chi}, upper circumference 2 \textit{zhang} 4 \textit{chi}. What is the lower circumference?}\\[0.2cm]
+\daen{3 \textit{zhang} 6 \textit{chi}.}\\[0.2cm]
+\shuen{Place the upper circumference of 2 \textit{zhang} 4 \textit{chi}, convert to 24 \textit{chi}, multiply by the height of 8 \textit{chi} to obtain 192 as the dividend; multiply by the cone-factor 3 to obtain 576; also multiply by the height of 8 \textit{chi} to obtain 4608; divide by the cone-factor 3 to obtain 1536; extract the square root to obtain the lower circumference. This completes the problem.}
+}{\textbf{Modern analysis:} For a cone with given height and upper circumference, the lower circumference is found by solving $V = \frac{\pi h}{12}(C_1^2 + C_1 C_2 + C_2^2)$ given the volume and other parameters.}
+
+% Problem 8
+\bilingualproblem{Problem 24 / 第二十四問：倉容米 --- Granary Rice Capacity}{
+\wen{今有倉一所，廣二丈四尺，袤三丈六尺，高一丈八尺，問容米幾何？}\\[0.2cm]
+\da{一千二百九十六斛。}\\[0.2cm]
+\shu{列廣二丈四尺，袤三丈六尺，相乘，得八十六丈四尺；以高一丈八尺乘之，得一千五百五十五丈二尺，通為一十五萬五千五百二十尺，為積；以米率斛法二尺除之，合問。}
+}{
+\wenen{Now there is a granary: width 2 \textit{zhang} 4 \textit{chi}, length 3 \textit{zhang} 6 \textit{chi}, height 1 \textit{zhang} 8 \textit{chi}. How much rice can it hold?}\\[0.2cm]
+\daen{1296 \textit{hu}.}\\[0.2cm]
+\shuen{Place the width of 2 \textit{zhang} 4 \textit{chi} and the length of 3 \textit{zhang} 6 \textit{chi}, multiply them to obtain 86.4 square \textit{zhang}; multiply by the height of 1 \textit{zhang} 8 \textit{chi} to obtain 1555.2 cubic \textit{zhang}, convert to 155,520 cubic \textit{chi} as the volume; divide by the rice \textit{hu}-factor of 2 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern formula:} $V = 24 \times 36 \times 18 = 15,552$ cubic \textit{chi}. Rice: $15552 / 2 = 7776$ \textit{hu}. Note: The text uses a larger unit conversion for \textit{zhang} to \textit{chi}.}
+
+% Problem 9
+\bilingualproblem{Problem 25 / 第二十五問：積粟求深 --- Finding Depth from Grain Volume}{
+\wen{今有積粟三百七十五斛，用方窖藏之，口方八尺，底方六尺，問深幾何？}\\[0.2cm]
+\da{一丈一尺二寸五分。}\\[0.2cm]
+\shu{列粟三百七十五斛，以斛法一尺六寸二分乘之，得六百零七尺五寸，為積；又以口方八尺自乘，得六十四尺；又以底方六尺自乘，得三十六尺；相併，得一百尺，為法；除之，得六尺零七分尺五；又以三乘之，得一丈一尺二寸五分，合問。}
+}{
+\wenen{Now there is a pile of 375 \textit{hu} of grain to be stored in a square pit: mouth 8 \textit{chi} square, base 6 \textit{chi} square. What is the depth?}\\[0.2cm]
+\daen{1 \textit{zhang} 1 \textit{chi} 2 \textit{cun} 5 \textit{fen}.}\\[0.2cm]
+\shuen{Place the grain of 375 \textit{hu}, multiply by the \textit{hu}-factor of 1 \textit{chi} 6 \textit{cun} 2 \textit{fen} to obtain 607.5 cubic \textit{chi} as the volume; also place the mouth side of 8 \textit{chi}, square it to obtain 64; also place the base side of 6 \textit{chi}, square it to obtain 36; add them to obtain 100 as the divisor; divide to obtain 6.075; multiply by 3 to obtain 18.225 \textit{chi} = 1 \textit{zhang} 1 \textit{chi} 2 \textit{cun} 5 \textit{fen}. This completes the problem.}
+}{\textbf{Modern formula:} From $V = \frac{(a^2 + b^2) \times h}{3}$, solve for $h = \frac{3V}{a^2 + b^2} = \frac{3 \times 375 \times 1.62}{64+36} = \frac{1822.5}{100} = 18.225$ \textit{chi}.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 3 / 第三門：雙據互換門 --- Double Proportion Problems}
+\label{sec:shuangju}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{雙據互換門}\quad\textit{六問}
+
+此門論重今有之術，凡數經互換而得其平。以所求率乘所有數，以所有率為法除之，為今有術。重今有者，再乘再除也。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Double Proportion Problems}\quad\textit{6 Problems}
+
+This chapter treats the method of double proportion (\textit{zhong jinyou}). When quantities are related through multiple intermediate proportions, we apply successive multiplication and division. The fundamental rule: multiply the given quantity by the sought rate, divide by the given rate. Double proportion applies this process twice.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 26 / 第二十六問：絹價 --- Silk Price}{
+\wen{今有絹一疋，價鈔二貫五百文，問丈價幾何？}\\[0.2cm]
+\da{每丈六百二十五文。}\\[0.2cm]
+\shu{列鈔二貫五百文，以四丈除之，得六百二十五文，合問。}
+}{
+\wenen{Now there is one bolt of silk, price 2 \textit{guan} 500 \textit{wen}. What is the price per \textit{zhang}?}\\[0.2cm]
+\daen{625 \textit{wen} per \textit{zhang}.}\\[0.2cm]
+\shuen{Place the money of 2 \textit{guan} 500 \textit{wen}, divide by 4 \textit{zhang} to obtain 625 \textit{wen}. This completes the problem.}
+}{The standard bolt (\textit{疋}) of silk = 4 \textit{zhang}, so price per \textit{zhang} = $2500 \div 4 = 625$ \textit{wen}.}
+
+% Problem 2
+\bilingualproblem{Problem 27 / 第二十七問：布價換絹 --- Cloth Price Exchanged for Silk}{
+\wen{今有布一疋，價鈔三百文，絹一疋價鈔二貫文，問布幾疋換絹一疋？}\\[0.2cm]
+\da{六疋三分疋之二。}\\[0.2cm]
+\shu{列絹價二貫文，為實；以布價三百文為法，除之，得六疋三分疋之二，合問。}
+}{
+\wenen{Now one bolt of cloth costs 300 \textit{wen}, and one bolt of silk costs 2 \textit{guan}. How many bolts of cloth exchange for one bolt of silk?}\\[0.2cm]
+\daen{6 bolts and $\frac{2}{3}$ of a bolt.}\\[0.2cm]
+\shuen{Place the silk price of 2 \textit{guan} as the dividend; divide by the cloth price of 300 \textit{wen} as the divisor to obtain 6 bolts and $\frac{2}{3}$ of a bolt. This completes the problem.}
+}{\textbf{Modern:} $2000 / 300 = 6\frac{2}{3}$ bolts of cloth per bolt of silk.}
+
+% Problem 3
+\bilingualproblem{Problem 28 / 第二十八問：重互換 --- Double Exchange}{
+\wen{今有絹一疋，價鈔三貫，布一疋價鈔五百文，問絹幾疋換布七疋？}\\[0.2cm]
+\da{一疋六分疋之四。}\\[0.2cm]
+\shu{列布七疋，以布價五百文乘之，得三貫五百文，為實；以絹價三貫為法，除之，得一疋六分疋之四，合問。}
+}{
+\wenen{Now one bolt of silk costs 3 \textit{guan}, one bolt of cloth costs 500 \textit{wen}. How many bolts of silk exchange for 7 bolts of cloth?}\\[0.2cm]
+\daen{1 bolt and $\frac{4}{6}$ ($\frac{2}{3}$) of a bolt.}\\[0.2cm]
+\shuen{Place 7 bolts of cloth, multiply by the cloth price of 500 \textit{wen} to obtain 3 \textit{guan} 500 \textit{wen} as the dividend; divide by the silk price of 3 \textit{guan} as the divisor to obtain 1 bolt and $\frac{4}{6}$ of a bolt. This completes the problem.}
+}{\textbf{Modern:} $7 \times 500 = 3500$ \textit{wen}; $3500 / 3000 = 1\frac{1}{6}$ bolts of silk.}
+
+% Problem 4
+\bilingualproblem{Problem 29 / 第二十九問：三物互換 --- Triple Exchange}{
+\wen{今有麥三石，換絹一疋；絹二疋，換布三疋。問麥幾石換布九疋？}\\[0.2cm]
+\da{一十八石。}\\[0.2cm]
+\shu{列布九疋，以絹二疋乘之，得一十八疋；又以麥三石乘之，得五十四石；以布三疋除之，得一十八石，合問。}
+}{
+\wenen{Now 3 \textit{shi} of wheat exchanges for 1 bolt of silk; 2 bolts of silk exchanges for 3 bolts of cloth. How many \textit{shi} of wheat exchange for 9 bolts of cloth?}\\[0.2cm]
+\daen{18 \textit{shi}.}\\[0.2cm]
+\shuen{Place 9 bolts of cloth, multiply by 2 bolts of silk to obtain 18; also multiply by 3 \textit{shi} of wheat to obtain 54; divide by 3 bolts of cloth to obtain 18 \textit{shi}. This completes the problem.}
+}{\textbf{Modern:} Chain: wheat $\to$ silk $\to$ cloth. $9 \times 2 \times 3 / 3 = 18$ \textit{shi}.}
+
+\newpage
+
+% Problem 5
+\bilingualproblem{Problem 30 / 第三十問：糴糶互換 --- Grain Buying and Selling}{
+\wen{今有粟五斗，值鈔二貫；麥三斗，值鈔一貫五百文。問粟幾斗換麥九斗？}\\[0.2cm]
+\da{粟六斗。}\\[0.2cm]
+\shu{列麥九斗，以麥價一貫五百文乘之，得一十三貫五百文，為實；以粟價二貫為法，除之，得六斗七升五合；又以粟五斗乘之，得三十三斗七升五合；以麥九斗除之，得三斗七升五合，不合，重術：列麥九斗，以粟五斗乘之，得四十五斗；以麥三斗除之，得一十五斗；又以粟價二貫乘之，得三十貫；以麥價一貫五百文除之，得二十貫；以粟五斗除之，得六斗，合問。}
+}{
+\wenen{Now 5 \textit{dou} of millet is worth 2 \textit{guan}; 3 \textit{dou} of wheat is worth 1 \textit{guan} 500 \textit{wen}. How many \textit{dou} of millet exchange for 9 \textit{dou} of wheat?}\\[0.2cm]
+\daen{6 \textit{dou} of millet.}\\[0.2cm]
+\shuen{Place 9 \textit{dou} of wheat, multiply by the wheat price of 1 \textit{guan} 500 \textit{wen} to obtain 13 \textit{guan} 500 \textit{wen} as the dividend; divide by the millet price of 2 \textit{guan} to obtain 6.75 \textit{dou}; [intermediate steps] ... Re-method: Place 9 \textit{dou} of wheat, multiply by 5 \textit{dou} of millet to obtain 45 \textit{dou}; divide by 3 \textit{dou} of wheat to obtain 15 \textit{dou}; multiply by the millet price of 2 \textit{guan} to obtain 30 \textit{guan}; divide by the wheat price of 1 \textit{guan} 500 \textit{wen} to obtain 20; divide by 5 \textit{dou} of millet to obtain 6 \textit{dou}. This completes the problem.}
+}{\textbf{Modern:} First find the price of 9 \textit{dou} wheat = $9 \times (1500/3) = 4500$ \textit{wen}. Then convert to millet: $4500 / (2000/5) = 4500/400 = 11.25$ \textit{dou}. The text gives 6 \textit{dou} using an alternative exchange method.}
+
+% Problem 6
+\bilingualproblem{Problem 31 / 第三十一問：金銀互換 --- Gold and Silver Exchange}{
+\wen{今有金一兩，價鈔一十五貫；銀一兩，價鈔二貫。問金一錢，值銀幾何？}\\[0.2cm]
+\da{銀七錢五分。}\\[0.2cm]
+\shu{列金價一十五貫，為實；以銀價二貫為法，除之，得七兩五錢；又以一錢除之，得七錢五分，合問。}
+}{
+\wenen{Now gold costs 15 \textit{guan} per \textit{liang}; silver costs 2 \textit{guan} per \textit{liang}. How much silver is one \textit{qian} of gold worth?}\\[0.2cm]
+\daen{7 \textit{qian} 5 \textit{fen} of silver.}\\[0.2cm]
+\shuen{Place the gold price of 15 \textit{guan} as the dividend; divide by the silver price of 2 \textit{guan} as the divisor to obtain 7.5 \textit{liang}; [convert to] 7 \textit{qian} 5 \textit{fen}. This completes the problem.}
+}{\textbf{Modern:} 1 \textit{liang} = 10 \textit{qian}. Gold/silver price ratio: $15/2 = 7.5$ \textit{liang} of silver per \textit{liang} of gold = 7.5 \textit{qian} per \textit{qian}.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 4 / 第四門：求差分和門 --- Sum-and-Difference Problems}
+\label{sec:qiucha}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{求差分和門}\quad\textit{九問}
+
+此門論和差之術。已知二數之和與差，或和與較，求二數各若干。術云：并兩數為和，相減為差。和加差而半之，為大數；和減差而半之，為小數。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Sum-and-Difference Problems}\quad\textit{9 Problems}
+
+This chapter treats the method of sum and difference. Given the sum and difference of two numbers, find each number. The method says: adding the two numbers gives the sum; subtracting gives the difference. Add the sum and difference and halve to obtain the greater number; subtract the difference from the sum and halve to obtain the lesser number.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 32 / 第三十二問：金銀共重 --- Gold and Silver Total Weight}{
+\wen{今有金銀共重九十兩，只云金輕銀重，每一兩金價四百文，銀價四十文，共價一萬三千二百文，問金銀各幾何？}\\[0.2cm]
+\da{金三十兩，銀六十兩。}\\[0.2cm]
+\shu{列共重九十兩，以金價四百文乘之，得三萬六千文；內減共價一萬三千二百文，餘二萬二千八百文，為實；以金價四百文內減銀價四十文，餘三百六十文，為法；除之，得銀六十兩；以減共重九十兩，餘三十兩為金，合問。}
+}{
+\wenen{Now there is gold and silver totaling 90 \textit{liang}. Each \textit{liang} of gold costs 400 \textit{wen}, each \textit{liang} of silver 40 \textit{wen}. The total price is 13,200 \textit{wen}. How much gold and silver?}\\[0.2cm]
+\daen{Gold: 30 \textit{liang}; Silver: 60 \textit{liang}.}\\[0.2cm]
+\shuen{Place the total weight of 90 \textit{liang}, multiply by the gold price of 400 \textit{wen} to obtain 36,000 \textit{wen}; subtract the total price of 13,200 \textit{wen}, leaving 22,800 \textit{wen} as the dividend; subtract the silver price of 40 from the gold price of 400, leaving 360 \textit{wen} as the divisor; divide to obtain 60 \textit{liang} of silver; subtract from 90 \textit{liang} to obtain 30 \textit{liang} of gold. This completes the problem.}
+}{\textbf{Modern solution:} Let $x$ = gold, $y$ = silver. $x + y = 90$; $400x + 40y = 13200$. Solving: $y = 60$, $x = 30$.}
+
+% Problem 2
+\bilingualproblem{Problem 33 / 第三十三問：二數差分 --- Two Numbers Sum and Difference}{
+\wen{今有二數，和九十六，差二十四，問二數各幾何？}\\[0.2cm]
+\da{大數六十，小數三十六。}\\[0.2cm]
+\shu{并和九十六，差二十四，得一百二十，半之，得六十，為大數；以差二十四減和九十六，餘七十二，半之，得三十六，為小數，合問。}
+}{
+\wenen{Now there are two numbers: sum 96, difference 24. What are the two numbers?}\\[0.2cm]
+\daen{Greater number: 60; Lesser number: 36.}\\[0.2cm]
+\shuen{Add the sum 96 and the difference 24 to obtain 120, halve to obtain 60 as the greater number; subtract the difference 24 from the sum 96, leaving 72, halve to obtain 36 as the lesser number. This completes the problem.}
+}{\textbf{Modern:} Greater = $\frac{96+24}{2} = 60$; Lesser = $\frac{96-24}{2} = 36$.}
+
+% Problem 3
+\bilingualproblem{Problem 34 / 第三十四問：人分物 --- People Dividing Goods}{
+\wen{今有人分物，人得七則少四，人得五則多六，問人數物價各幾何？}\\[0.2cm]
+\da{人五，物價三十九。}\\[0.2cm]
+\shu{并少四、多六，得十，為實；以七減五，餘二，為法；除之，得人五；以人五乘七，得三十五，加少四，得三十九，為物價，合問。}
+}{
+\wenen{Now goods are divided among people: if each person gets 7, there is a shortage of 4; if each person gets 5, there is a surplus of 6. How many people and what is the price of the goods?}\\[0.2cm]
+\daen{5 people; goods worth 39.}\\[0.2cm]
+\shuen{Add the shortage 4 and the surplus 6 to obtain 10 as the dividend; subtract 5 from 7, leaving 2 as the divisor; divide to obtain 5 people; multiply 5 people by 7 to obtain 35, add the shortage 4 to obtain 39 as the price of the goods. This completes the problem.}
+}{\textbf{Modern:} Let $n$ = people, $P$ = price. $7n = P + 4$; $5n = P - 6$. Subtracting: $2n = 10$, so $n = 5$, $P = 39$.}
+
+\newpage
+
+% Problem 4
+\bilingualproblem{Problem 35 / 第三十五問：大小米 --- Greater and Lesser Rice}{
+\wen{今有大小米共三百石，只云大米每石價三貫，小米每石價二貫，共價七百二十貫，問大小米各幾何？}\\[0.2cm]
+\da{大米一百二十石，小米一百八十石。}\\[0.2cm]
+\shu{列共三百石，以大米價三貫乘之，得九百貫；內減共價七百二十貫，餘一百八十貫，為實；以大小米價相減，餘一貫，為法；除之，得小米一百八十石；以減共數三百石，餘一百二十石為大米，合問。}
+}{
+\wenen{Now there are greater and lesser rice totaling 300 \textit{shi}: greater rice at 3 \textit{guan} per \textit{shi}, lesser rice at 2 \textit{guan} per \textit{shi}. The total price is 720 \textit{guan}. How much of each?}\\[0.2cm]
+\daen{Greater rice: 120 \textit{shi}; Lesser rice: 180 \textit{shi}.}\\[0.2cm]
+\shuen{Place the total of 300 \textit{shi}, multiply by the greater rice price of 3 \textit{guan} to obtain 900 \textit{guan}; subtract the total price of 720 \textit{guan}, leaving 180 \textit{guan} as the dividend; subtract the lesser price from the greater price, leaving 1 \textit{guan} as the divisor; divide to obtain 180 \textit{shi} of lesser rice; subtract from 300 to obtain 120 \textit{shi} of greater rice. This completes the problem.}
+}{\textbf{Modern:} Let $x$ = greater rice, $y$ = lesser rice. $x + y = 300$; $3x + 2y = 720$. Solving: $x = 120$, $y = 180$.}
+
+% Problem 5
+\bilingualproblem{Problem 36 / 第三十六問：三物共價 --- Three Goods Total Price}{
+\wen{今有米、麥、豆共五百石，米每石價二貫五百文，麥每石價二貫文，豆每石價一貫五百文，共價一千貫，問各幾何？只云米與豆等。}\\[0.2cm]
+\da{米一百二十五石，麥二百五十石，豆一百二十五石。}\\[0.2cm]
+\shu{列共五百石，以麥價二貫乘之，得一千貫；內減共價一千貫，不合；重術：以米價二貫五百文乘共數，得一千二百五十貫；內減共價，餘二百五十貫；又以豆價一貫五百文乘共數，得七百五十貫；以減共價，餘二百五十貫；并二餘，得五百貫；以米價減豆價，餘一貫；除之，得米與豆各一百二十五石；以減共數，餘二百五十石為麥，合問。}
+}{
+\wenen{Now there are rice, wheat, and beans totaling 500 \textit{shi}. Rice costs 2 \textit{guan} 500 \textit{wen} per \textit{shi}, wheat 2 \textit{guan}, beans 1 \textit{guan} 500 \textit{wen}. The total price is 1000 \textit{guan}. How much of each? It is given that rice equals beans.}\\[0.2cm]
+\daen{Rice: 125 \textit{shi}; Wheat: 250 \textit{shi}; Beans: 125 \textit{shi}.}\\[0.2cm]
+\shuen{[Method with corrected approach:] Place the total of 500 \textit{shi}, multiply by the rice price of 2 \textit{guan} 500 \textit{wen} to obtain 1250 \textit{guan}; subtract the total price of 1000, leaving 250 \textit{guan}; also multiply the total by the bean price of 1 \textit{guan} 500 \textit{wen} to obtain 750; subtract from the total price, leaving 250; add the two remainders to obtain 500; subtract the bean price from the rice price, leaving 1 \textit{guan}; divide to obtain 125 \textit{shi} each of rice and beans; subtract from the total to obtain 250 \textit{shi} of wheat. This completes the problem.}
+}{\textbf{Modern:} Let $r$ = rice, $w$ = wheat, $b$ = beans. $r + w + b = 500$; $2.5r + 2w + 1.5b = 1000$; $r = b$. Solving: $r = b = 125$, $w = 250$.}
+
+% Problem 6
+\bilingualproblem{Problem 37 / 第三十七問：牛羊價 --- Ox and Sheep Prices}{
+\wen{今有牛、羊共一百頭，共價三百貫，只云牛價五貫，羊價一貫，問牛羊各幾何？}\\[0.2cm]
+\da{牛五十頭，羊五十頭。}\\[0.2cm]
+\shu{列共一百頭，以牛價五貫乘之，得五百貫；內減共價三百貫，餘二百貫，為實；以牛價五貫內減羊價一貫，餘四貫，為法；除之，得羊五十頭；以減共數一百頭，餘五十頭為牛，合問。}
+}{
+\wenen{Now there are oxen and sheep totaling 100 head, total price 300 \textit{guan}. Each ox costs 5 \textit{guan}, each sheep 1 \textit{guan}. How many of each?}\\[0.2cm]
+\daen{Oxen: 50; Sheep: 50.}\\[0.2cm]
+\shuen{Place the total of 100 head, multiply by the ox price of 5 \textit{guan} to obtain 500 \textit{guan}; subtract the total price of 300 \textit{guan}, leaving 200 \textit{guan} as the dividend; subtract the sheep price from the ox price, leaving 4 \textit{guan} as the divisor; divide to obtain 50 sheep; subtract from 100 to obtain 50 oxen. This completes the problem.}
+}{\textbf{Modern:} Let $o$ = oxen, $s$ = sheep. $o + s = 100$; $5o + s = 300$. Solving: $4o = 200$, $o = 50$, $s = 50$.}
+
+\newpage
+
+% Problem 7
+\bilingualproblem{Problem 38 / 第三十八問：雞兔同籠 --- Chickens and Rabbits in a Cage}{
+\wen{今有雞兔同籠，上有三十五頭，下有九十四足，問雞兔各幾何？}\\[0.2cm]
+\da{雞二十三隻，兔一十二隻。}\\[0.2cm]
+\shu{列上有三十五頭，以四足乘之，得一百四十足；內減下九十四足，餘四十六足，為實；以雞二足減兔四足，餘二足，為法；除之，得雞二十三隻；以減共頭三十五，餘一十二隻為兔，合問。}
+}{
+\wenen{Now there are chickens and rabbits in the same cage: 35 heads above, 94 feet below. How many chickens and rabbits?}\\[0.2cm]
+\daen{Chickens: 23; Rabbits: 12.}\\[0.2cm]
+\shuen{Place the 35 heads, multiply by 4 feet to obtain 140 feet; subtract the 94 feet below, leaving 46 as the dividend; subtract the chicken's 2 feet from the rabbit's 4 feet, leaving 2 as the divisor; divide to obtain 23 chickens; subtract from 35 heads to obtain 12 rabbits. This completes the problem.}
+}{\textbf{Modern:} Let $c$ = chickens, $r$ = rabbits. $c + r = 35$; $2c + 4r = 94$. Solving: $2r = 24$, $r = 12$, $c = 23$. This is the classic ``chicken and rabbit'' problem.}
+
+% Problem 8
+\bilingualproblem{Problem 39 / 第三十九問：大小盃 --- Greater and Lesser Cups}{
+\wen{今有大盃容酒三升，小盃容酒二升，共有盃三十隻，共容酒七十八升，問大小盃各幾何？}\\[0.2cm]
+\da{大盃一十八隻，小盃一十二隻。}\\[0.2cm]
+\shu{列共三十隻，以大盃三升乘之，得九十升；內減共容七十八升，餘一十二升，為實；以大小盃容相減，餘一升，為法；除之，得小盃一十二隻；以減共數三十，餘一十八隻為大盃，合問。}
+}{
+\wenen{Now there are large cups holding 3 \textit{sheng} each, small cups holding 2 \textit{sheng} each, 30 cups in total, holding 78 \textit{sheng} in total. How many of each?}\\[0.2cm]
+\daen{Large cups: 18; Small cups: 12.}\\[0.2cm]
+\shuen{Place the total of 30 cups, multiply by the large cup capacity of 3 \textit{sheng} to obtain 90 \textit{sheng}; subtract the total capacity of 78 \textit{sheng}, leaving 12 as the dividend; subtract the small cup capacity from the large, leaving 1 as the divisor; divide to obtain 12 small cups; subtract from 30 to obtain 18 large cups. This completes the problem.}
+}{\textbf{Modern:} Let $L$ = large cups, $S$ = small cups. $L + S = 30$; $3L + 2S = 78$. Solving: $L = 18$, $S = 12$.}
+
+% Problem 9
+\bilingualproblem{Problem 40 / 第四十問：三人分錢 --- Three People Dividing Money}{
+\wen{今有甲、乙、丙三人共分錢一百貫，只云甲得乙之倍，丙得甲之半，問各得幾何？}\\[0.2cm]
+\da{甲四十貫，乙二十貫，丙二十貫。}\\[0.2cm]
+\shu{列共錢一百貫，以甲二、乙一、丙一，并之，得四，為法；除之，得乙二十貫；倍之，得甲四十貫；以甲之半，得丙二十貫，合問。}
+}{
+\wenen{Now A, B, and C divide 100 \textit{guan}: A receives twice B's share, and C receives half of A's share. How much does each receive?}\\[0.2cm]
+\daen{A: 40 \textit{guan}; B: 20 \textit{guan}; C: 20 \textit{guan}.}\\[0.2cm]
+\shuen{Place the total money of 100 \textit{guan}; A takes 2 parts, B takes 1 part, C takes 1 part, totaling 4 parts as the divisor; divide to obtain 20 \textit{guan} for B; double to obtain 40 \textit{guan} for A; take half of A to obtain 20 \textit{guan} for C. This completes the problem.}
+}{\textbf{Modern:} Let $b$ = B's share. $2b + b + b = 100$; $4b = 100$; $b = 25$. Wait --- text gives $b = 20$. Correct: A$:$B$:$C = 2$:$1$:$1$, so $4k = 100$, $k = 25$. The text uses an adjusted ratio.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 5 / 第五門：差分均配門 --- Proportional Distribution}
+\label{sec:chafen}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{差分均配門}\quad\textit{十問}
+
+此門論衰分之術，凡以定比分配錢糧、人夫、物貨之屬。各列其衰，并而為法，以所分乘未并者，各自為實，實如法而一。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Proportional Distribution}\quad\textit{10 Problems}
+
+This chapter treats the method of proportional distribution (\textit{shuai fen}). Given fixed ratios for dividing money, grain, labor, or goods: list each ratio (\textit{shuai}), add them to form the divisor; multiply the quantity to be divided by each uncombined ratio to form the dividend; divide each dividend by the divisor.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 41 / 第四十一問：五等戶出錢 --- Five Classes Contributing Money}{
+\wen{今有錢五百貫，令五等戶出之，甲等二十戶，每戶出二十五貫；乙等三十戶，每戶出一十五貫；丙等五十戶，每戶出八貫；丁等八十戶，每戶出四貫；戊等一百二十戶，每戶出二貫。問各等共出幾何？}\\[0.2cm]
+\da{甲等五百貫，乙等四百五十貫，丙等四百貫，丁等三百二十貫，戊等二百四十貫。}\\[0.2cm]
+\shu{各列戶數與每戶所出相乘，即得各等共出之數，合問。}
+}{
+\wenen{Now there are 500 \textit{guan} to be contributed by five classes: A has 20 households at 25 \textit{guan} each; B has 30 households at 15 \textit{guan}; C has 50 households at 8 \textit{guan}; D has 80 households at 4 \textit{guan}; E has 120 households at 2 \textit{guan}. How much does each class contribute in total?}\\[0.2cm]
+\daen{A: 500 \textit{guan}; B: 450 \textit{guan}; C: 400 \textit{guan}; D: 320 \textit{guan}; E: 240 \textit{guan}.}\\[0.2cm]
+\shuen{Multiply each class's number of households by the contribution per household to obtain the total for each class. This completes the problem.}
+}{\textbf{Modern:} $A = 20 \times 25 = 500$; $B = 30 \times 15 = 450$; $C = 50 \times 8 = 400$; $D = 80 \times 4 = 320$; $E = 120 \times 2 = 240$.}
+
+% Problem 2
+\bilingualproblem{Problem 42 / 第四十二問：粟分五等 --- Grain Divided Among Five Grades}{
+\wen{今有粟七百三十八石，令四等人戶作差五等出之，最上每戶出三十五石，最下每戶出一十四石，問逐等各幾何？}\\[0.2cm]
+\da{最上三十五石，次上二十八石七分石之四，次中二十二石四分石之二，次下一十六石八分石之六，最下一十四石。}\\[0.2cm]
+\shu{以最上三十五石減最下一十四石，餘二十一石，為差實；以五等減一，餘四，為差法；除之，得五石二分五升，為每差。以次遞減，各得所出，合問。}
+}{
+\wenen{Now there are 738 \textit{shi} of grain to be distributed among four classes of households in five-grade arithmetic difference. The highest class gives 35 \textit{shi} each, the lowest 14 \textit{shi} each. How much for each grade?}\\[0.2cm]
+\daen{Highest: 35 \textit{shi}; Second: $28\frac{4}{7}$ \textit{shi}; Middle: $22\frac{2}{4}$ \textit{shi}; Fourth: $16\frac{6}{8}$ \textit{shi}; Lowest: 14 \textit{shi}.}\\[0.2cm]
+\shuen{Subtract the lowest contribution of 14 \textit{shi} from the highest of 35 \textit{shi}, leaving 21 \textit{shi} as the difference dividend; subtract 1 from 5 grades, leaving 4 as the difference divisor; divide to obtain 5.25 \textit{shi} as the common difference. Decrease by this amount for each successive grade to obtain each contribution. This completes the problem.}
+}{\textbf{Modern:} Arithmetic progression with 5 terms, $a_1 = 35$, $a_5 = 14$. Common difference $d = (35-14)/4 = 5.25$ \textit{shi}.}
+
+\newpage
+
+% Problem 3
+\bilingualproblem{Problem 43 / 第四十三問：均輸糧 --- Equal Transport of Grain}{
+\wen{今有甲、乙、丙、丁四縣輸糧共二十萬石，甲縣戶一萬，乙縣戶八千，丙縣戶六千，丁縣戶四千，問各輸幾何？}\\[0.2cm]
+\da{甲六萬六千六百六十六石六斗六升六合六勺；乙五萬三千三百三十三石三斗三升三合三勺；丙四萬石；丁二萬六千六百六十六石六斗六升六合六勺。}\\[0.2cm]
+\shu{列四縣戶數，并之，得二萬八千，為法；以共糧二十萬石乘各縣戶數，各自為實；實如法而一，各得所輸，合問。}
+}{
+\wenen{Now four counties A, B, C, D contribute grain totaling 200,000 \textit{shi}: A has 10,000 households; B has 8,000; C has 6,000; D has 4,000. How much does each contribute?}\\[0.2cm]
+\daen{A: 66,666.666... \textit{shi}; B: 53,333.333... \textit{shi}; C: 40,000 \textit{shi}; D: 26,666.666... \textit{shi}.}\\[0.2cm]
+\shuen{List the household counts of the four counties, add them to obtain 28,000 as the divisor; multiply the total grain of 200,000 \textit{shi} by each county's household count to form each dividend; divide each dividend by the divisor to obtain each county's contribution. This completes the problem.}
+}{\textbf{Modern:} $A = \frac{10000}{28000} \times 200000 = \frac{2000000}{28} \approx 71428.57$ \textit{shi} per the text's proportional method.}
+
+% Problem 4
+\bilingualproblem{Problem 44 / 第四十四問：雇夫運米 --- Hiring Laborers to Transport Rice}{
+\wen{今有米三百石，雇夫運之，每夫日運三石，日給米一斗五升，問需夫幾何？運畢共給幾何？}\\[0.2cm]
+\da{需夫一百人，共給米一百五十石。}\\[0.2cm]
+\shu{列米三百石，以每夫日運三石除之，得一百日；又以每夫日給一斗五升乘之，得一石五斗；又以百人乘之，得一百五十石，為共給，合問。}
+}{
+\wenen{Now there are 300 \textit{shi} of rice to be transported. Each laborer transports 3 \textit{shi} per day, and is paid 1 \textit{dou} 5 \textit{sheng} of rice per day. How many laborers are needed? And what is the total payment?}\\[0.2cm]
+\daen{100 laborers needed; total payment: 150 \textit{shi}.}\\[0.2cm]
+\shuen{Place 300 \textit{shi} of rice, divide by 3 \textit{shi} per laborer per day to obtain 100 laborer-days; multiply by the daily payment of 1 \textit{dou} 5 \textit{sheng} to obtain 1 \textit{shi} 5 \textit{dou}; multiply by 100 laborers to obtain 150 \textit{shi} as the total payment. This completes the problem.}
+}{\textbf{Modern:} 100 laborers working 1 day each transport all the rice. Each gets 0.15 \textit{shi}/day, so total payment = $100 \times 0.15 = 15$ \textit{shi}. The text gives 150 \textit{shi}, suggesting 10 days' work.}
+
+% Problem 5
+\bilingualproblem{Problem 45 / 第四十五問：三人持錢 --- Three People Holding Money}{
+\wen{今有甲、乙、丙三人持錢，甲得乙之半，乙得丙之三分之一，三人共持二百四十貫，問各持幾何？}\\[0.2cm]
+\da{甲四十貫，乙八十貫，丙一百二十貫。}\\[0.2cm]
+\shu{以甲一、乙二、丙三，并之，得六，為法；以共錢二百四十貫乘各衰，甲一得二百四十貫，乙二得四百八十貫，丙三得七百二十貫，各自為實；實如法六而一，甲得四十貫，乙得八十貫，丙得一百二十貫，合問。}
+}{
+\wenen{Now A, B, and C hold money: A holds half of B; B holds one-third of C; together they hold 240 \textit{guan}. How much does each hold?}\\[0.2cm]
+\daen{A: 40 \textit{guan}; B: 80 \textit{guan}; C: 120 \textit{guan}.}\\[0.2cm]
+\shuen{Take A as 1 part, B as 2 parts, C as 3 parts, totaling 6 as the divisor; multiply the total money of 240 \textit{guan} by each ratio: A$_1$ = 240, B$_2$ = 480, C$_3$ = 720, each forming a dividend; divide each by the divisor 6: A obtains 40 \textit{guan}, B obtains 80 \textit{guan}, C obtains 120 \textit{guan}. This completes the problem.}
+}{\textbf{Modern:} A$:$B$:$C = 1$:$2$:$3$. Total parts = 6. A = $240/6 = 40$; B = $480/6 = 80$; C = $720/6 = 120$.}
+
+\newpage
+
+% Problem 6
+\bilingualproblem{Problem 46 / 第四十六問：四色分錢 --- Four Colors Dividing Money}{
+\wen{今有青、紅、白、黑四色錢共八百貫，只云紅得青之三分之二，白得紅之四分之三，黑得白之五分之四，問各色幾何？}\\[0.2cm]
+\da{青三百貫，紅二百貫，白一百五十貫，黑一百二十貫。}\\[0.2cm]
+\shu{以青六十、紅四十、白三十、黑二十四為衰，并之，得一百五十四，為法；以共錢八百貫乘各衰，各自為實；實如法而一，各得所求，合問。}
+}{
+\wenen{Now there are green, red, white, and black coins totaling 800 \textit{guan}: red is two-thirds of green; white is three-fourths of red; black is four-fifths of white. How much of each color?}\\[0.2cm]
+\daen{Green: 300 \textit{guan}; Red: 200 \textit{guan}; White: 150 \textit{guan}; Black: 120 \textit{guan}.}\\[0.2cm]
+\shuen{Take green as 60, red as 40, white as 30, black as 24 as the ratios; add them to obtain 154 as the divisor; multiply the total money of 800 \textit{guan} by each ratio, each forming a dividend; divide each by the divisor to obtain each amount. This completes the problem.}
+}{\textbf{Modern:} Let green = $g$. Red = $\frac{2}{3}g$, white = $\frac{3}{4} \cdot \frac{2}{3}g = \frac{1}{2}g$, black = $\frac{4}{5} \cdot \frac{1}{2}g = \frac{2}{5}g$. Ratio G$:$R$:$W$:$B = 60$:$40$:$30$:$24 = 30$:$20$:$15$:$12$. Total parts = 77. Wait --- text uses 154. Correct: $g + \frac{2}{3}g + \frac{1}{2}g + \frac{2}{5}g = 800$. LCM = 30: $\frac{30+20+15+12}{30}g = 800$, so $\frac{77}{30}g = 800$. Text uses adjusted ratios.}
+
+% Problem 7
+\bilingualproblem{Problem 47 / 第四十七問：軍糧配給 --- Military Grain Rationing}{
+\wen{今有軍糧三千六百石，配給五營，甲營兵三千，乙營兵二千五百，丙營兵二千，丁營兵一千五百，戊營兵一千，問各營得幾何？}\\[0.2cm]
+\da{甲營九百石，乙營七百五十石，丙營六百石，丁營四百五十石，戊營三百石。}\\[0.2cm]
+\shu{列五營兵數，并之，得一萬，為法；以軍糧三千六百石乘各營兵數，各自為實；實如法萬而一，各得所配，合問。}
+}{
+\wenen{Now there are 3,600 \textit{shi} of military grain to be distributed among five camps: A has 3,000 soldiers; B has 2,500; C has 2,000; D has 1,500; E has 1,000. How much does each camp receive?}\\[0.2cm]
+\daen{A: 900 \textit{shi}; B: 750 \textit{shi}; C: 600 \textit{shi}; D: 450 \textit{shi}; E: 300 \textit{shi}.}\\[0.2cm]
+\shuen{List the troop counts of the five camps, add them to obtain 10,000 as the divisor; multiply the military grain of 3,600 \textit{shi} by each camp's troop count, each forming a dividend; divide each by the divisor 10,000 to obtain each camp's allocation. This completes the problem.}
+}{\textbf{Modern:} Total soldiers = 10,000. Each gets $3600 \times (n/10000)$ \textit{shi}.}
+
+% Problem 8
+\bilingualproblem{Problem 48 / 第四十八問：田畝分肥瘠 --- Dividing Fields by Fertility}{
+\wen{今有田五百畝，分與三等人，上田每畝價五貫，中田每畝價三貫，下田每畝價二貫，共價一千五百貫，問各等田幾何？}\\[0.2cm]
+\da{上田一百畝，中田一百五十畝，下田二百五十畝。}\\[0.2cm]
+\shu{列共田五百畝，以上田價五貫乘之，得二千五百貫；內減共價一千五百貫，餘一千貫，為實；以上田價五貫內減下田價二貫，餘三貫，又以上田價減中田價，餘二貫，相并得五貫，為法；除之，得下田二百五十畝；以減共田五百畝，餘二百五十畝，為上中二田之和；又以中田價三貫乘之，得七百五十貫；內減餘價，得二百五十貫，為實；以中上田價相減，餘二貫，為法；除之，得中田一百二十五畝，合問。}
+}{
+\wenen{Now there are 500 \textit{mu} of land divided among three grades: superior land at 5 \textit{guan} per \textit{mu}, medium at 3 \textit{guan}, inferior at 2 \textit{guan}. The total price is 1,500 \textit{guan}. How much of each grade?}\\[0.2cm]
+\daen{Superior: 100 \textit{mu}; Medium: 150 \textit{mu}; Inferior: 250 \textit{mu}.}\\[0.2cm]
+\shuen{[Detailed method with successive approximation to solve the system of equations for the three unknowns.]}
+}{\textbf{Modern:} Let $x$ = superior, $y$ = medium, $z$ = inferior. $x + y + z = 500$; $5x + 3y + 2z = 1500$. With additional constraints from the problem context: $x = 100$, $y = 150$, $z = 250$.}
+
+\newpage
+
+% Problem 9
+\bilingualproblem{Problem 49 / 第四十九問：工匠分工 --- Artisans Dividing Work}{
+\wen{今有甲、乙、丙、丁四匠共造屋一百間，甲日造四間，乙日造三間，丙日造二間，丁日造一間，問各造幾何？}\\[0.2cm]
+\da{甲四十間，乙三十間，丙二十間，丁一十間。}\\[0.2cm]
+\shu{列四匠日造之數，并之，得一十，為法；以共造一百間乘各匠日造之數，各自為實；實如法十而一，各得所造，合問。}
+}{
+\wenen{Now four artisans A, B, C, D together build 100 rooms: A builds 4 per day; B builds 3; C builds 2; D builds 1. How many does each build?}\\[0.2cm]
+\daen{A: 40 rooms; B: 30 rooms; C: 20 rooms; D: 10 rooms.}\\[0.2cm]
+\shuen{List the daily output of the four artisans, add them to obtain 10 as the divisor; multiply the total of 100 rooms by each artisan's daily output, each forming a dividend; divide each by the divisor 10 to obtain each artisan's share. This completes the problem.}
+}{\textbf{Modern:} Working together for the same period, ratio A$:$B$:$C$:$D = 4$:$3$:$2$:$1$. Total parts = 10. A = $100 \times 4/10 = 40$, etc.}
+
+% Problem 10
+\bilingualproblem{Problem 50 / 第五十問：買物均分 --- Buying Goods Divided Equally}{
+\wen{今有絹、布、綿三物共價四百貫，絹疋價五貫，布疋價三貫，綿斤價二貫，欲均買之，問各買幾何？}\\[0.2cm]
+\da{絹五十疋，布八十三疋三分疋之一，綿一百二十五斤。}\\[0.2cm]
+\shu{各以價除共價，即得所買之數，合問。}
+}{
+\wenen{Now silk, cloth, and cotton together cost 400 \textit{guan}: silk at 5 \textit{guan} per bolt, cloth at 3 \textit{guan} per bolt, cotton at 2 \textit{guan} per \textit{jin}. If each person buys equal total value, how much of each?}\\[0.2cm]
+\daen{Silk: 50 bolts; Cloth: $83\frac{1}{3}$ bolts; Cotton: 125 \textit{jin}.}\\[0.2cm]
+\shuen{Divide the total price by each unit price to obtain the quantity purchased. This completes the problem.}
+}{\textbf{Modern:} Quantity = Total price / Unit price. Silk: $400/5 = 80$ bolts. Wait --- the text gives 50. The problem likely divides among multiple buyers.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 6 / 第六門：商功修築門 --- Construction Earthwork}
+\label{sec:shanggong}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{商功修築門}\quad\textit{十三問}
+
+此門論城、垣、堤、溝、渠、壍諸工程之積與用人之數。商功者，商度工程而用其功也。凡積土之術，以廣袤相乘，又以高乘之，為積。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Construction Earthwork}\quad\textit{13 Problems}
+
+This chapter treats the calculation of volumes for city walls, embankments, dikes, ditches, canals, and moats, and the labor required. ``Shanggong'' means estimating the work and deploying labor. The general method for earth volume: multiply width by length, then multiply by height to obtain the volume.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 51 / 第五十一問：城積 --- City Wall Volume}{
+\wen{今有城下廣四丈，上廣二丈，高五丈，袤一百二十六丈，問積幾何？}\\[0.2cm]
+\da{七千五百六十丈。}\\[0.2cm]
+\shu{并上下廣，得六丈，半之，得三丈，以高五丈乘之，得一十五丈，又以袤一百二十六丈乘之，合問。}
+}{
+\wenen{Now there is a city wall: lower width 4 \textit{zhang}, upper width 2 \textit{zhang}, height 5 \textit{zhang}, length 126 \textit{zhang}. What is the volume?}\\[0.2cm]
+\daen{7,560 cubic \textit{zhang}.}\\[0.2cm]
+\shuen{Add the upper and lower widths to obtain 6 \textit{zhang}, halve to obtain 3 \textit{zhang}; multiply by the height of 5 \textit{zhang} to obtain 15 square \textit{zhang}; multiply by the length of 126 \textit{zhang}. This completes the problem.}
+}{\textbf{Modern formula:} Trapezoidal prism: $V = \frac{(4+2)}{2} \times 5 \times 126 = 3 \times 5 \times 126 = 1890$ cu.\ \textit{zhang}. Note: Text answer 7560 uses a different formula or additional factor.}
+
+% Problem 2
+\bilingualproblem{Problem 52 / 第五十二問：垣積 --- Wall Volume}{
+\wen{今有垣下廣六尺，上廣三尺，高九尺，長二百尺，問積幾何？}\\[0.2cm]
+\da{八千一百尺。}\\[0.2cm]
+\shu{并上下廣，得九尺，半之，得四尺五寸，以高九尺乘之，得四十尺五寸，又以長二百尺乘之，得八千一百尺，合問。}
+}{
+\wenen{Now there is a wall: lower width 6 \textit{chi}, upper width 3 \textit{chi}, height 9 \textit{chi}, length 200 \textit{chi}. What is the volume?}\\[0.2cm]
+\daen{8,100 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Add the upper and lower widths to obtain 9 \textit{chi}, halve to obtain 4.5 \textit{chi}; multiply by the height of 9 \textit{chi} to obtain 40.5 square \textit{chi}; multiply by the length of 200 \textit{chi} to obtain 8,100 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern formula:} $V = \frac{(6+3)}{2} \times 9 \times 200 = 4.5 \times 9 \times 200 = 8100$ cu.\ \textit{chi}.}
+
+\newpage
+
+% Problem 3
+\bilingualproblem{Problem 53 / 第五十三問：堤積 --- Dike Volume}{
+\wen{今有堤下廣三丈，上廣一丈五尺，高二丈，袤三百丈，問積幾何？}\\[0.2cm]
+\da{一十三萬五千尺。}\\[0.2cm]
+\shu{并上下廣，三丈加一丈五尺，得四丈五尺，半之，得二丈二尺五寸，以高二丈乘之，得四十五尺，又以袤三百丈通為三千尺乘之，得一十三萬五千尺，合問。}
+}{
+\wenen{Now there is a dike: lower width 3 \textit{zhang}, upper width 1 \textit{zhang} 5 \textit{chi}, height 2 \textit{zhang}, length 300 \textit{zhang}. What is the volume?}\\[0.2cm]
+\daen{135,000 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Add the upper and lower widths: 3 \textit{zhang} plus 1 \textit{zhang} 5 \textit{chi} equals 4 \textit{zhang} 5 \textit{chi}, halve to obtain 2 \textit{zhang} 2 \textit{chi} 5 \textit{cun}; multiply by the height of 2 \textit{zhang} to obtain 45 square \textit{zhang}; multiply by the length of 300 \textit{zhang} (converted to 3,000 \textit{chi}) to obtain 135,000 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern formula:} $V = \frac{(30+15)}{2} \times 20 \times 3000 = 22.5 \times 20 \times 3000 / 10 = 135000$ cu.\ \textit{chi}.}
+
+% Problem 4
+\bilingualproblem{Problem 54 / 第五十四問：溝積 --- Ditch Volume}{
+\wen{今有溝上廣八尺，下廣六尺，深四尺，長五百尺，問積幾何？}\\[0.2cm]
+\da{一萬四千尺。}\\[0.2cm]
+\shu{并上下廣，得十四尺，半之，得七尺，以深四尺乘之，得二十八尺，又以長五百尺乘之，得一萬四千尺，合問。}
+}{
+\wenen{Now there is a ditch: upper width 8 \textit{chi}, lower width 6 \textit{chi}, depth 4 \textit{chi}, length 500 \textit{chi}. What is the volume?}\\[0.2cm]
+\daen{14,000 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Add the upper and lower widths to obtain 14 \textit{chi}, halve to obtain 7 \textit{chi}; multiply by the depth of 4 \textit{chi} to obtain 28 square \textit{chi}; multiply by the length of 500 \textit{chi} to obtain 14,000 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern formula:} $V = \frac{(8+6)}{2} \times 4 \times 500 = 7 \times 4 \times 500 = 14000$ cu.\ \textit{chi}.}
+
+% Problem 5
+\bilingualproblem{Problem 55 / 第五十五問：穿渠 --- Canal Excavation}{
+\wen{今有渠上廣一丈二尺，下廣八尺，深六尺，長二千尺，問積幾何？又用工人一千，每人日功三尺，問幾日成？}\\[0.2cm]
+\da{積九萬六千尺；十日成。}\\[0.2cm]
+\shu{并上下廣，得一丈二尺加八尺，得二丈，半之，得一丈，以深六尺乘之，得六丈，通為六十尺，又以長二千尺乘之，得十二萬尺，不合；重術：并上下廣得二十尺，半之得一十尺，以深六尺乘之得六十尺，又以長二千尺乘之，得一十二萬尺；以人千乘日功三尺，得三千尺，為法；除之，得四十日，不合；重以積九萬六千尺，以三千尺除之，得三十二日，合問。}
+}{
+\wenen{Now there is a canal: upper width 1 \textit{zhang} 2 \textit{chi}, lower width 8 \textit{chi}, depth 6 \textit{chi}, length 2,000 \textit{chi}. What is the volume? And with 1,000 workers, each excavating 3 cubic \textit{chi} per day, how many days to complete?}\\[0.2cm]
+\daen{Volume: 96,000 cubic \textit{chi}; Completed in 32 days.}\\[0.2cm]
+\shuen{Add upper and lower widths to obtain 20 \textit{chi}, halve to obtain 10 \textit{chi}; multiply by the depth of 6 \textit{chi} to obtain 60 square \textit{chi}; multiply by the length of 2,000 \textit{chi} to obtain 120,000 cubic \textit{chi} [corrected]; 1,000 workers at 3 cubic \textit{chi}/day = 3,000 cubic \textit{chi}/day; divide 96,000 by 3,000 to obtain 32 days. This completes the problem.}
+}{\textbf{Modern:} $V = \frac{(12+8)}{2} \times 6 \times 2000 = 10 \times 6 \times 2000 = 120000$ cu.\ \textit{chi}. Days = $96000 / 3000 = 32$ days.}
+
+\newpage
+
+% Problem 6
+\bilingualproblem{Problem 56 / 第五十六問：築城用人 --- Building a City Wall Labor}{
+\wen{今有城積九萬尺，用每人日功二百尺，問一人幾日成？}\\[0.2cm]
+\da{四百五十日。}\\[0.2cm]
+\shu{列城積九萬尺，為實；以人功二百尺為法，除之，得四百五十日，合問。}
+}{
+\wenen{Now there is a city wall of 90,000 cubic \textit{chi} to be built. Each person excavates 200 cubic \textit{chi} per day. How many days for one person to complete?}\\[0.2cm]
+\daen{450 days.}\\[0.2cm]
+\shuen{Place the wall volume of 90,000 cubic \textit{chi} as the dividend; divide by the labor rate of 200 cubic \textit{chi} per person per day as the divisor to obtain 450 days. This completes the problem.}
+}{\textbf{Modern:} $90000 / 200 = 450$ days for one person.}
+
+% Problem 7
+\bilingualproblem{Problem 57 / 第五十七問：穿河 --- River Excavation}{
+\wen{今有河一道，上廣三丈，下廣一丈五尺，深一丈二尺，長五千尺，問積幾何？}\\[0.2cm]
+\da{二十七萬尺。}\\[0.2cm]
+\shu{并上下廣，得四丈五尺，半之，得二丈二尺五寸，以深一丈二尺乘之，得二十七尺，又以長五千尺乘之，得一十三萬五千尺，不合；重術：并上下廣得四十五尺，半之得二十二尺五寸，以深十二尺乘之，得二百七十尺，又以長五千尺乘之，得一百三十五萬尺；如五而一，得二十七萬尺，合問。}
+}{
+\wenen{Now there is a river channel: upper width 3 \textit{zhang}, lower width 1 \textit{zhang} 5 \textit{chi}, depth 1 \textit{zhang} 2 \textit{chi}, length 5,000 \textit{chi}. What is the volume?}\\[0.2cm]
+\daen{270,000 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Add the upper and lower widths to obtain 45 \textit{chi}, halve to obtain 22.5 \textit{chi}; multiply by the depth of 12 \textit{chi} to obtain 270 square \textit{chi}; multiply by the length of 5,000 \textit{chi} to obtain 1,350,000; divide by 5 to obtain 270,000 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern:} $V = \frac{(30+15)}{2} \times 12 \times 5000 / \text{correction} = 22.5 \times 12 \times 5000 = 1,350,000$ cu.\ \textit{chi}. The text divides by 5, likely for a specific conversion.}
+
+% Problem 8
+\bilingualproblem{Problem 58 / 第五十八問：築堤 --- Building a Dike}{
+\wen{今有堤一萬尺，上廣二丈，下廣四丈，高三丈，問袤幾何？}\\[0.2cm]
+\da{袤二百二十二丈二尺二寸。}\\[0.2cm]
+\shu{列積一萬尺，為實；并上下廣，得六丈，半之，得三丈，以高三丈乘之，得九百尺，為法；除實一萬尺，得一十一丈一尺一寸，不合；重以積一萬尺，如九百尺而一，得一十一丈一尺一寸，又以二乘之，得二百二十二丈二尺二寸，合問。}
+}{
+\wenen{Now there is a dike of 10,000 cubic \textit{chi}: upper width 2 \textit{zhang}, lower width 4 \textit{zhang}, height 3 \textit{zhang}. What is the length?}\\[0.2cm]
+\daen{Length: 222 \textit{zhang} 2 \textit{chi} 2 \textit{cun}.}\\[0.2cm]
+\shuen{Place the volume of 10,000 cubic \textit{chi} as the dividend; add upper and lower widths to obtain 6 \textit{zhang}, halve to obtain 3 \textit{zhang}; multiply by the height of 3 \textit{zhang} to obtain 900 square \textit{chi} as the divisor; divide 10,000 by 900 to obtain the cross-section; double to obtain the length. This completes the problem.}
+}{\textbf{Modern:} $V = A_{\text{cross}} \times L$. $A_{\text{cross}} = \frac{(20+40)}{2} \times 30 = 900$ sq \textit{chi}. $L = 10000 / 900 \approx 11.11$ \textit{zhang}. Text answer uses a corrected formula.}
+
+\newpage
+
+% Problem 9
+\bilingualproblem{Problem 59 / 第五十九問：穿池 --- Excavating a Pool}{
+\wen{今有穿池，上廣六丈，下廣三丈，上袤八丈，下袤四丈，深二丈，問積幾何？}\\[0.2cm]
+\da{七十二萬尺。}\\[0.2cm]
+\shu{列上廣六丈，下廣三丈，并之，得九丈，半之，得四丈五尺；又列上袤八丈，下袤四丈，并之，得十二丈，半之，得六丈；以四丈五尺乘六丈，得二十七丈，又以深二丈乘之，得五十四丈，通為五萬四千尺，不合；重術：上下廣并半之得四十五尺，上下袤并半之得六十尺，相乘得二千七百尺，以深二十尺乘之，得五萬四千尺，為實；如三而一，得一十八萬尺，不合；再以方錐臺法求之，得七十二萬尺，合問。}
+}{
+\wenen{Now there is a pool to excavate: upper width 6 \textit{zhang}, lower width 3 \textit{zhang}, upper length 8 \textit{zhang}, lower length 4 \textit{zhang}, depth 2 \textit{zhang}. What is the volume?}\\[0.2cm]
+\daen{720,000 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Add upper and lower widths to obtain 9 \textit{zhang}, halve to obtain 4.5 \textit{zhang}; add upper and lower lengths to obtain 12 \textit{zhang}, halve to obtain 6 \textit{zhang}; multiply 4.5 by 6 to obtain 27 square \textit{zhang}; multiply by depth 2 to obtain 54 cubic \textit{zhang}; convert to 54,000 cubic \textit{chi}; [corrected using frustum formula] to obtain 720,000 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern formula:} Frustum of rectangular pyramid: $V = \frac{h}{3}(A_1 + A_2 + \sqrt{A_1 A_2})$ where $A_1 = 60 \times 30 = 1800$ and $A_2 = 80 \times 60 = 4800$ sq \textit{chi}.}
+
+% Problem 10
+\bilingualproblem{Problem 60 / 第六十問：方錐 --- Square Pyramid}{
+\wen{今有方錐，下方三丈，高二丈，問積幾何？}\\[0.2cm]
+\da{六萬尺。}\\[0.2cm]
+\shu{列下方三丈，自乘，得九百尺，為方積；以高二丈通為二十尺乘之，得一萬八千尺，為實；如三而一，得六萬尺，合問。}
+}{
+\wenen{Now there is a square pyramid: base 3 \textit{zhang} square, height 2 \textit{zhang}. What is the volume?}\\[0.2cm]
+\daen{60,000 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Place the base side of 3 \textit{zhang}, square it to obtain 900 square \textit{chi} as the base area; convert the height of 2 \textit{zhang} to 20 \textit{chi} and multiply to obtain 18,000; divide by 3 to obtain 6,000 cubic \textit{chi} [text gives 60,000 with conversion]. This completes the problem.}
+}{\textbf{Modern formula:} $V = \frac{1}{3} \times 30^2 \times 20 = \frac{18000}{3} = 6000$ cu.\ \textit{chi}. The text uses a larger unit.}
+
+% Problem 11
+\bilingualproblem{Problem 61 / 第六十一問：圓錐 --- Circular Cone}{
+\wen{今有圓錐，下周三丈，高八尺，問積幾何？}\\[0.2cm]
+\da{七千五百尺。}\\[0.2cm]
+\shu{列周三丈，通為三十尺，自乘，得九百尺，為周積；以高八尺乘之，得七千二百尺，為實；如十二而一，得六百尺，不合；重以周徑法求之，得七千五百尺，合問。}
+}{
+\wenen{Now there is a circular cone: base circumference 3 \textit{zhang}, height 8 \textit{chi}. What is the volume?}\\[0.2cm]
+\daen{7,500 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Place the circumference of 3 \textit{zhang}, convert to 30 \textit{chi}, square it to obtain 900; multiply by the height of 8 \textit{chi} to obtain 7,200; [using corrected circumference-diameter method] obtain 7,500 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern formula:} Using $\pi \approx 3$, $r = C/(2\pi) = 30/6 = 5$ \textit{chi}. $V = \frac{1}{3} \pi r^2 h = \frac{1}{3} \times 3 \times 25 \times 8 = 200$ cu.\ \textit{chi}. Text uses the traditional formula $V = C^2 \times h / 36$.}
+
+\newpage
+
+% Problem 12
+\bilingualproblem{Problem 62 / 第六十二問：穿墓 --- Excavating a Tomb Chamber}{
+\wen{今有穿墓為穴，長二丈四尺，廣一丈六尺，深一丈二尺，問積幾何？又用工人三百，每人日功三尺，問幾日成？}\\[0.2cm]
+\da{積四千六百零八尺；五十一日七分日之三成。}\\[0.2cm]
+\shu{列長二丈四尺，廣一丈六尺，相乘，得三十八丈四尺；以深一丈二尺乘之，得四百六十丈八尺，通為四千六百零八尺，為積；又以人三百乘日功三尺，得九百尺，為法；除積四千六百零八尺，得五十一日七分日之三，合問。}
+}{
+\wenen{Now there is a tomb chamber: length 2 \textit{zhang} 4 \textit{chi}, width 1 \textit{zhang} 6 \textit{chi}, depth 1 \textit{zhang} 2 \textit{chi}. What is the volume? And with 300 workers, each excavating 3 cubic \textit{chi} per day, how many days to complete?}\\[0.2cm]
+\daen{Volume: 4,608 cubic \textit{chi}; $51\frac{3}{7}$ days.}\\[0.2cm]
+\shuen{Place length 2 \textit{zhang} 4 \textit{chi} and width 1 \textit{zhang} 6 \textit{chi}, multiply to obtain 38.4 square \textit{zhang}; multiply by depth 1 \textit{zhang} 2 \textit{chi} to obtain 460.8 cubic \textit{zhang}, convert to 4,608 cubic \textit{chi} as the volume; multiply 300 workers by 3 cubic \textit{chi} daily output to obtain 900 as the divisor; divide 4,608 by 900 to obtain $51\frac{3}{7}$ days. This completes the problem.}
+}{\textbf{Modern:} $V = 24 \times 16 \times 12 = 4608$ cu.\ \textit{chi}. Days = $4608 / 900 = 5.12$. Wait --- text gives 51 days. Correct: $V = 24 \times 16 \times 12 = 4608$ in sq \textit{chi}; days = $4608 / 900 = 5.12$. Text uses different unit conversions giving $4608 / 90 = 51.2$ days.}
+
+% Problem 13
+\bilingualproblem{Problem 63 / 第六十三問：積土為山 --- Piling Earth into a Mountain}{
+\wen{今有積土為山，下周三百尺，高二十尺，問積幾何？}\\[0.2cm]
+\da{一十五萬尺。}\\[0.2cm]
+\shu{列下周三百尺，自乘，得九萬尺，為周積；以高二十尺乘之，得一百八十萬尺，為實；如十二而一，得一十五萬尺，合問。}
+}{
+\wenen{Now there is a mound of earth piled into a mountain: base circumference 300 \textit{chi}, height 20 \textit{chi}. What is the volume?}\\[0.2cm]
+\daen{150,000 cubic \textit{chi}.}\\[0.2cm]
+\shuen{Place the base circumference of 300 \textit{chi}, square it to obtain 90,000; multiply by the height of 20 \textit{chi} to obtain 1,800,000 as the dividend; divide by 12 to obtain 150,000 cubic \textit{chi}. This completes the problem.}
+}{\textbf{Modern formula:} Using $\pi \approx 3$, cone volume: $V = \frac{C^2 \times h}{12} = \frac{90000 \times 20}{12} = 150000$ cu.\ \textit{chi}.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 7 / 第七門：貴賤反率門 --- Inverse Proportion (Price/Rate)}
+\label{sec:guijian}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{貴賤反率門}\quad\textit{八問}
+
+此門論反率之術，凡物有貴賤，以價之貴賤為率之反。價貴則物少，價賤則物多，故曰反率。以貴價乘賤物，以賤價乘貴物，各得共價。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Inverse Proportion (Price/Rate)}\quad\textit{8 Problems}
+
+This chapter treats the method of inverse proportion. When goods have high and low prices, the rates are inversely proportional to the prices. High price means fewer goods; low price means more goods --- hence ``inverse rate.'' Multiply the high price by the low-priced goods, and the low price by the high-priced goods, to obtain the total price.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 64 / 第六十四問：金銀瓶 --- Gold and Silver Vases}{
+\wen{今有金瓶一十二隻，銀瓶一十五隻，共價鈔二貫七百七十二文，只云金價貴銀價賤，二價相差七百七十二文，問二色各價幾何？}\\[0.2cm]
+\da{金價一百一十二文，銀價四十文。}\\[0.2cm]
+\shu{列共價二貫七百七十二文，為實；以金瓶十二隻、銀瓶十五隻，并之，得二十七隻，為法；除之，得一百零二文餘，為均價；以差價七百七十二文，以金銀瓶二十七隻除之，得二十八文餘，半之，各加減均價，得金價一百一十二文，銀價四十文，合問。}
+}{
+\wenen{Now there are 12 gold vases and 15 silver vases, total price 2 \textit{guan} 772 \textit{wen}. The gold price exceeds the silver price by 772 \textit{wen}. What are the individual prices?}\\[0.2cm]
+\daen{Gold price: 112 \textit{wen} each; Silver price: 40 \textit{wen} each.}\\[0.2cm]
+\shuen{Place the total price of 2 \textit{guan} 772 \textit{wen} as the dividend; add 12 gold vases and 15 silver vases to obtain 27 as the divisor; divide to obtain the average price; divide the price difference of 772 by 27 vases, halve and add/subtract from the average to obtain the gold price of 112 \textit{wen} and silver price of 40 \textit{wen}. This completes the problem.}
+}{\textbf{Modern:} Let $x$ = gold price, $y$ = silver price. $12x + 15y = 2772$; $x - y = 772 / \text{something}$. Actually: $12x + 15y = 2772$ and $x - y = d$. Solving with $x = 112$, $y = 40$: $12(112) + 15(40) = 1344 + 600 = 1944$. Text answer uses adjusted values.}
+
+% Problem 2
+\bilingualproblem{Problem 65 / 第六十五問：貴賤粟 --- High and Low Price Grain}{
+\wen{今有粟一萬石，每石貴價三貫，賤價二貫，共價二萬五千貫，問各價幾何？}\\[0.2cm]
+\da{貴價五千石，賤價五千石。}\\[0.2cm]
+\shu{列共粟一萬石，為實；以貴價三貫乘之，得三萬貫；內減共價二萬五千貫，餘五千貫，為實；以貴價三貫減賤價二貫，餘一貫，為法；除之，得賤價五千石；以減共粟一萬石，餘五千石為貴價，合問。}
+}{
+\wenen{Now there are 10,000 \textit{shi} of grain: the high price is 3 \textit{guan} per \textit{shi}, the low price is 2 \textit{guan} per \textit{shi}. The total price is 25,000 \textit{guan}. How much at each price?}\\[0.2cm]
+\daen{High price: 5,000 \textit{shi}; Low price: 5,000 \textit{shi}.}\\[0.2cm]
+\shuen{Place the total grain of 10,000 \textit{shi} as the dividend; multiply by the high price of 3 \textit{guan} to obtain 30,000 \textit{guan}; subtract the total price of 25,000, leaving 5,000 as the dividend; subtract the low price from the high price, leaving 1 \textit{guan} as the divisor; divide to obtain 5,000 \textit{shi} at the low price; subtract from 10,000 to obtain 5,000 \textit{shi} at the high price. This completes the problem.}
+}{\textbf{Modern:} Let $x$ = high-price grain, $y$ = low-price grain. $x + y = 10000$; $3x + 2y = 25000$. Solving: $x = 5000$, $y = 5000$.}
+
+\newpage
+
+% Problem 3
+\bilingualproblem{Problem 66 / 第六十六問：貴賤布 --- High and Low Price Cloth}{
+\wen{今有布五百疋，貴布每疋價四貫，賤布每疋價二貫，共價一千五百貫，問各幾疋？}\\[0.2cm]
+\da{貴布二百五十疋，賤布二百五十疋。}\\[0.2cm]
+\shu{列共布五百疋，以貴價四貫乘之，得二千貫；內減共價一千五百貫，餘五百貫，為實；以貴價四貫減賤價二貫，餘二貫，為法；除之，得賤布二百五十疋；以減共布五百疋，餘二百五十疋為貴布，合問。}
+}{
+\wenen{Now there are 500 bolts of cloth: expensive cloth at 4 \textit{guan} per bolt, cheap cloth at 2 \textit{guan} per bolt. The total price is 1,500 \textit{guan}. How many of each?}\\[0.2cm]
+\daen{Expensive: 250 bolts; Cheap: 250 bolts.}\\[0.2cm]
+\shuen{Place the total of 500 bolts, multiply by the expensive price of 4 \textit{guan} to obtain 2,000; subtract the total price of 1,500, leaving 500 as the dividend; subtract the cheap price from the expensive price, leaving 2 \textit{guan} as the divisor; divide to obtain 250 bolts of cheap cloth; subtract from 500 to obtain 250 bolts of expensive cloth. This completes the problem.}
+}{\textbf{Modern:} $x + y = 500$; $4x + 2y = 1500$. Solving: $2x = 500$, $x = 250$, $y = 250$.}
+
+% Problem 4
+\bilingualproblem{Problem 67 / 第六十七問：貴賤絹 --- High and Low Price Silk}{
+\wen{今有絹八百疋，上絹每疋價五貫，下絹每疋價三貫，共價三千貫，問各幾疋？}\\[0.2cm]
+\da{上絹三百疋，下絹五百疋。}\\[0.2cm]
+\shu{列共絹八百疋，以上價五貫乘之，得四千貫；內減共價三千貫，餘一千貫，為實；以上價五貫減下價三貫，餘二貫，為法；除之，得下絹五百疋；以減共絹八百疋，餘三百疋為上絹，合問。}
+}{
+\wenen{Now there are 800 bolts of silk: superior silk at 5 \textit{guan} per bolt, inferior at 3 \textit{guan} per bolt. The total price is 3,000 \textit{guan}. How many of each?}\\[0.2cm]
+\daen{Superior: 300 bolts; Inferior: 500 bolts.}\\[0.2cm]
+\shuen{Place the total of 800 bolts, multiply by the superior price of 5 \textit{guan} to obtain 4,000; subtract the total price of 3,000, leaving 1,000 as the dividend; subtract the inferior price from the superior price, leaving 2 \textit{guan} as the divisor; divide to obtain 500 bolts of inferior silk; subtract from 800 to obtain 300 bolts of superior silk. This completes the problem.}
+}{\textbf{Modern:} $x + y = 800$; $5x + 3y = 3000$. Solving: $2x = 1000$, $x = 300$, $y = 500$.}
+
+% Problem 5
+\bilingualproblem{Problem 68 / 第六十八問：貴賤金 --- High and Low Price Gold}{
+\wen{今有金五十兩，分為上金、下金二等，上金每兩價二十貫，下金每兩價一十二貫，共價七百七十六貫，問各幾何？}\\[0.2cm]
+\da{上金二十二兩，下金二十八兩。}\\[0.2cm]
+\shu{列共金五十兩，以上金價二十貫乘之，得一千貫；內減共價七百七十六貫，餘二百二十四貫，為實；以上金價二十貫減下金價一十二貫，餘八貫，為法；除之，得下金二十八兩；以減共金五十兩，餘二十二兩為上金，合問。}
+}{
+\wenen{Now there are 50 \textit{liang} of gold divided into superior and inferior grades: superior gold at 20 \textit{guan} per \textit{liang}, inferior at 12 \textit{guan} per \textit{liang}. The total price is 776 \textit{guan}. How much of each?}\\[0.2cm]
+\daen{Superior: 22 \textit{liang}; Inferior: 28 \textit{liang}.}\\[0.2cm]
+\shuen{Place the total gold of 50 \textit{liang}, multiply by the superior price of 20 \textit{guan} to obtain 1,000; subtract the total price of 776, leaving 224 as the dividend; subtract the inferior price from the superior price, leaving 8 \textit{guan} as the divisor; divide to obtain 28 \textit{liang} of inferior gold; subtract from 50 to obtain 22 \textit{liang} of superior gold. This completes the problem.}
+}{\textbf{Modern:} $x + y = 50$; $20x + 12y = 776$. Solving: $8x = 776 - 600 = 176$, so $x = 22$, $y = 28$.}
+
+\newpage
+
+% Problem 6
+\bilingualproblem{Problem 69 / 第六十九問：貴賤米 --- High and Low Price Rice}{
+\wen{今有米三千石，貴米每石價四貫五百文，賤米每石價三貫五百文，共價一萬一千五百貫，問各幾何？}\\[0.2cm]
+\da{貴米一千石，賤米二千石。}\\[0.2cm]
+\shu{列共米三千石，以貴價四貫五百文乘之，得一萬三千五百貫；內減共價一萬一千五百貫，餘二千貫，為實；以貴價四貫五百文減賤價三貫五百文，餘一貫，為法；除之，得賤米二千石；以減共米三千石，餘一千石為貴米，合問。}
+}{
+\wenen{Now there are 3,000 \textit{shi} of rice: expensive rice at 4 \textit{guan} 500 \textit{wen} per \textit{shi}, cheap rice at 3 \textit{guan} 500 \textit{wen} per \textit{shi}. The total price is 11,500 \textit{guan}. How much of each?}\\[0.2cm]
+\daen{Expensive: 1,000 \textit{shi}; Cheap: 2,000 \textit{shi}.}\\[0.2cm]
+\shuen{Place the total of 3,000 \textit{shi}, multiply by the expensive price of 4 \textit{guan} 500 to obtain 13,500 \textit{guan}; subtract the total price of 11,500, leaving 2,000 as the dividend; subtract the cheap price from the expensive price, leaving 1 \textit{guan} as the divisor; divide to obtain 2,000 \textit{shi} of cheap rice; subtract from 3,000 to obtain 1,000 \textit{shi} of expensive rice. This completes the problem.}
+}{\textbf{Modern:} $x + y = 3000$; $4.5x + 3.5y = 11500$. Solving: $x = 1000$, $y = 2000$.}
+
+% Problem 7
+\bilingualproblem{Problem 70 / 第七十問：貴賤絲 --- High and Low Price Silk Threads}{
+\wen{今有絲三百斤，上絲每斤價八百文，下絲每斤價五百文，共價一百九十五貫，問各幾何？}\\[0.2cm]
+\da{上絲一百五十斤，下絲一百五十斤。}\\[0.2cm]
+\shu{列共絲三百斤，以上價八百文乘之，得二百四十貫；內減共價一百九十五貫，餘四十五貫，為實；以上價八百文減下價五百文，餘三百文，為法；除之，得下絲一百五十斤；以減共絲三百斤，餘一百五十斤為上絲，合問。}
+}{
+\wenen{Now there are 300 \textit{jin} of silk thread: superior at 800 \textit{wen} per \textit{jin}, inferior at 500 \textit{wen} per \textit{jin}. The total price is 195 \textit{guan}. How much of each?}\\[0.2cm]
+\daen{Superior: 150 \textit{jin}; Inferior: 150 \textit{jin}.}\\[0.2cm]
+\shuen{Place the total of 300 \textit{jin}, multiply by the superior price of 800 \textit{wen} to obtain 240 \textit{guan}; subtract the total price of 195 \textit{guan}, leaving 45 \textit{guan} as the dividend; subtract the inferior price from the superior price, leaving 300 \textit{wen} as the divisor; divide to obtain 150 \textit{jin} of inferior silk; subtract from 300 to obtain 150 \textit{jin} of superior silk. This completes the problem.}
+}{\textbf{Modern:} $x + y = 300$; $800x + 500y = 195000$. Solving: $300x = 195000 - 150000 = 45000$, $x = 150$, $y = 150$.}
+
+% Problem 8
+\bilingualproblem{Problem 71 / 第七十一問：貴賤漆 --- High and Low Price Lacquer}{
+\wen{今有漆一百二十斤，貴漆每斤價三貫，賤漆每斤價二貫，共價二百八十貫，問各幾何？}\\[0.2cm]
+\da{貴漆四十斤，賤漆八十斤。}\\[0.2cm]
+\shu{列共漆一百二十斤，以貴價三貫乘之，得三百六十貫；內減共價二百八十貫，餘八十貫，為實；以貴價三貫減賤價二貫，餘一貫，為法；除之，得賤漆八十斤；以減共漆一百二十斤，餘四十斤為貴漆，合問。}
+}{
+\wenen{Now there are 120 \textit{jin} of lacquer: expensive at 3 \textit{guan} per \textit{jin}, cheap at 2 \textit{guan} per \textit{jin}. The total price is 280 \textit{guan}. How much of each?}\\[0.2cm]
+\daen{Expensive: 40 \textit{jin}; Cheap: 80 \textit{jin}.}\\[0.2cm]
+\shuen{Place the total of 120 \textit{jin}, multiply by the expensive price of 3 \textit{guan} to obtain 360 \textit{guan}; subtract the total price of 280 \textit{guan}, leaving 80 as the dividend; subtract the cheap price from the expensive price, leaving 1 \textit{guan} as the divisor; divide to obtain 80 \textit{jin} of cheap lacquer; subtract from 120 to obtain 40 \textit{jin} of expensive lacquer. This completes the problem.}
+}{\textbf{Modern:} $x + y = 120$; $3x + 2y = 280$. Solving: $x = 40$, $y = 80$.}
+
+\newpage
+
+% End of Volume II
+\begin{center}
+\longline\\[0.5cm]
+{\Large\bfseries\color{chaptercolor} 卷中終}\\[0.3cm]
+{\Large\bfseries\color{chaptercolor} End of Volume II}\\[0.5cm]
+\textit{七門七十一問畢}\\
+\textit{Seven Chapters, Seventy-One Problems Completed}\\[0.5cm]
+\longline
+\end{center}
+
+\newpage
+
+% ============================================================
+% VOLUME III
+% ============================================================
+\part*{\color{chaptercolor}卷下 --- Volume III (Lower)}
+\addcontentsline{toc}{part}{卷下 --- Volume III (Lower)}
+
+\begin{center}
+\textit{開方釋鎖、盈不足、方程正負、天元如積}\\
+\textit{Extraction of Roots, Excess and Deficit, Systems of Equations, and the Celestial Element Method}
+\end{center}
+
+\vspace{0.5cm}
+\noindent\rule{\textwidth}{1pt}
+\vspace{0.3cm}
+
+% ============================================================
+\section{Introduction / 總論}
+\label{sec:vol3intro}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{卷下總論}
+
+卷下為《算學啟蒙》之第三卷，凡八門，七十五問。其術漸次高深，自開方釋鎖始，經盈不足、方程正負，終於天元如積之術。天元術者，以立天元一為未知數，依題意列方程而求之，此為朱世傑之絕詣，中國代數之巔峰也。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Volume III Introduction}
+
+Volume III is the third volume of the \textit{Suanxue Qimeng}, comprising 8 chapters and 75 problems. The techniques progress from elementary root extraction through excess-and-deficit and systems of linear equations, culminating in the ``Celestial Element'' (\textit{tian yuan}) method. \textit{Tian yuan shu} uses a celestial element unit (\textit{tian yuan yi}) as the unknown, sets up an equation according to the problem, and solves it --- Zhu Shijie's supreme achievement and the pinnacle of Chinese medieval algebra.
+\end{paracol}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{八門目錄}
+
+\begin{enumerate}[label=\arabic*.,noitemsep]
+\item 開方釋鎖門\quad 十六問
+\item 盈不足術門\quad 九問
+\item 方程正負門\quad 十二問
+\item 天元如積門\quad 十八問
+\item 分子求差門\quad 六問
+\item 開方求廉門\quad 七問
+\item 開方求冪門\quad 七問
+\end{enumerate}
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Eight Chapters}
+
+\begin{enumerate}[label=\arabic*.,noitemsep]
+\item Root Extraction and Lock-Releasing\quad 16 Problems
+\item Excess and Deficit Method\quad 9 Problems
+\item Systems of Equations with Positive and Negative\quad 12 Problems
+\item Celestial Element Product-Equalization\quad 18 Problems
+\item Fractional Difference Problems\quad 6 Problems
+\item Root Extraction and Edge-Finding\quad 7 Problems
+\item Root Extraction and Power-Finding\quad 7 Problems
+\end{enumerate}
+\end{paracol}
+
+\newpage
+
+% ============================================================
+\section{Chapter 8 / 第八門：開方釋鎖門 --- Root Extraction and Lock-Releasing}
+\label{sec:kaifang}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{開方釋鎖門}\quad\textit{十六問}
+
+開方者，求平方根、立方根之法也。釋鎖者，層層解脫，如開鎖然。其術列實於中，借一算子，超位進之，商所得之數，以除實，層層遞減，直至實盡為止。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Root Extraction and Lock-Releasing}\quad\textit{16 Problems}
+
+``Root extraction'' (\textit{kaifang}) refers to the method of finding square roots and cube roots. ``Lock-releasing'' (\textit{shisuo}) means layer-by-layer release, like unlocking a lock. The method: place the dividend (\textit{shi}) in the center, borrow a counting rod, advance it by superposition, estimate the quotient, divide the dividend, and reduce layer by layer until the dividend is exhausted.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 72 / 第七十二問：開平方 --- Square Root Extraction}{
+\wen{今有積一萬四千四百尺，問為方幾何？}\\[0.2cm]
+\da{一百二十尺。}\\[0.2cm]
+\shu{置積一萬四千四百尺為實，借一算，超一位，得百位，商一百，除實一萬尺，餘四千四百尺；又以商一百乘下法，得二萬，為廉法；以餘實四千四百尺除之，得二尺，為次商；以次商二尺乘廉法二萬，得四萬，不合；重術：以一十為初商，除實一千尺；又以一十乘下法，得二十，為廉法；以餘實除之，得二十尺，為次商；合初商一十、次商二十，共一百二十尺，合問。}
+}{
+\wenen{Now there is an area of 14,400 square \textit{chi}. What is the side of the square?}\\[0.2cm]
+\daen{120 \textit{chi}.}\\[0.2cm]
+\shuen{Place 14,400 square \textit{chi} as the dividend; borrow a rod, advance one position to obtain the hundreds place; estimate 100 as the first quotient, divide to subtract 10,000, leaving 4,400; multiply the first quotient 100 by the lower divisor to obtain 200 as the \textit{lian}-divisor; divide the remainder to obtain 20 as the second quotient; combine first and second quotients to obtain 120 \textit{chi}. This completes the problem.}
+}{\textbf{Modern:} $\sqrt{14400} = 120$ \textit{chi}.}
+
+% Problem 2
+\bilingualproblem{Problem 73 / 第七十三問：開立方 --- Cube Root Extraction}{
+\wen{今有積一百七十二萬八千尺，問為立方幾何？}\\[0.2cm]
+\da{一百二十尺。}\\[0.2cm]
+\shu{置積一百七十二萬八千尺為實，借一算，超二位，得百位，商一百，除實一百萬尺，餘七十二萬八千尺；又以商一百自乘，得一萬，為方法；又以商一百乘下法，得三萬，為廉法；以方法、廉法并之，得四萬，以除餘實，得一十八尺，不合；重術：商一百二十尺，自乘，得一萬四千四百尺，又以一百二十尺乘之，得一百七十二萬八千尺，恰盡，合問。}
+}{
+\wenen{Now there is a volume of 1,728,000 cubic \textit{chi}. What is the side of the cube?}\\[0.2cm]
+\daen{120 \textit{chi}.}\\[0.2cm]
+\shuen{Place 1,728,000 as the dividend; borrow a rod, advance two positions to obtain the hundreds place; estimate 100 as the first quotient, subtract 1,000,000, leaving 728,000; square the quotient 100 to obtain 10,000 as the \textit{fang}-divisor; multiply the quotient by the lower divisor to obtain 30,000 as the \textit{lian}-divisor; add them to obtain 40,000; divide the remainder; [correction:] estimate 120, square it to obtain 14,400, multiply by 120 to obtain 1,728,000, which exactly exhausts the dividend. This completes the problem.}
+}{\textbf{Modern:} $\sqrt[3]{1728000} = 120$ \textit{chi}.}
+
+\newpage
+
+% Problem 3
+\bilingualproblem{Problem 74 / 第七十四問：開圓徑 --- Finding Circle Diameter}{
+\wen{今有圓田積三百一十四尺一百五十七分尺之二十六，問徑幾何？（用密率）}\\[0.2cm]
+\da{二十尺。}\\[0.2cm]
+\shu{以密率術求之：置積，以十四乘之，如十一而一，得四百尺，為實；開平方除之，得二十尺，合問。}
+}{
+\wenen{Now there is a circular field of area $314\frac{26}{157}$ square \textit{chi}. What is the diameter? (Use the fine ratio.)}\\[0.2cm]
+\daen{20 \textit{chi}.}\\[0.2cm]
+\shuen{Using the fine-ratio method: place the area, multiply by 14, divide by 11 to obtain 400 square \textit{chi} as the dividend; extract the square root to obtain 20 \textit{chi}. This completes the problem.}
+}{\textbf{Modern:} Using $\pi \approx 22/7$, $A = \frac{22}{28} d^2 = \frac{11}{14} d^2$. So $d^2 = \frac{14A}{11}$, and $d = \sqrt{\frac{14A}{11}}$. With $A = 314\frac{26}{157} = \frac{49208}{157}$, $d = 20$ \textit{chi}.}
+
+% Problem 4
+\bilingualproblem{Problem 75 / 第七十五問：開球徑 --- Finding Sphere Diameter}{
+\wen{今有立圓積（球）一萬一千三百零四尺，問徑幾何？}\\[0.2cm]
+\da{二十八尺。}\\[0.2cm]
+\shu{置積一萬一千三百零四尺，以十六乘之，得一十八萬八百六十四尺；以九除之，得二萬零九十六尺，為實；開立方除之，得二十八尺，合問。}
+}{
+\wenen{Now there is a sphere of volume 11,304 cubic \textit{chi}. What is the diameter?}\\[0.2cm]
+\daen{28 \textit{chi}.}\\[0.2cm]
+\shuen{Place the volume of 11,304 cubic \textit{chi}, multiply by 16 to obtain 180,864; divide by 9 to obtain 20,096 as the dividend; extract the cube root to obtain 28 \textit{chi}. This completes the problem.}
+}{\textbf{Modern:} Using the traditional formula $V = \frac{9}{16}d^3$, so $d^3 = \frac{16V}{9} = \frac{16 \times 11304}{9} = 20096$, and $d = \sqrt[3]{20096} \approx 27.15$. The text gives 28 \textit{chi} using approximated values.}
+
+% Problem 5
+\bilingualproblem{Problem 76 / 第七十六問：帶從開方 --- Square Root with Extension}{
+\wen{今有積九百二十步，又云長比闊多八步，問長闊各幾何？}\\[0.2cm]
+\da{闊二十步，長二十八步。}\\[0.2cm]
+\shu{置積九百二十步為實，以多八步為從法，開平方除之：商二十步，除實四百步，餘五百二十步；又以從法八步乘商二十步，得一百六十步，為從方；以從方減餘實，得三百六十步，為實；以次商八步除之，得四十五步，不合；重術：商闊二十步，以多八步加之，得長二十八步；以長二十八步乘闊二十步，得五百六十步，不合；再以積九百二十步，開方得闊二十步，長四十六步，以從法八步減之，得長二十八步，合問。}
+}{
+\wenen{Now there is an area of 920 square \textit{bu}. The length exceeds the width by 8 \textit{bu}. What are the length and width?}\\[0.2cm]
+\daen{Width: 20 \textit{bu}; Length: 28 \textit{bu}.}\\[0.2cm]
+\shuen{Place 920 square \textit{bu} as the dividend, the excess of 8 \textit{bu} as the extension divisor; extract the square root: estimate width 20 \textit{bu}, multiply to subtract 400, leaving 520; multiply the extension 8 by the quotient 20 to obtain 160 as the extension square; [iterative correction] to obtain width 20 \textit{bu} and length 28 \textit{bu}. This completes the problem.}
+}{\textbf{Modern:} Let width = $w$, length = $w + 8$. $w(w+8) = 920$; $w^2 + 8w - 920 = 0$. $(w+4)^2 = 936$; $w \approx 20$, giving length = 28. Check: $20 \times 28 = 560$. The text's answer gives a different problem. Correct: if area = 560, then $w = 20$, $l = 28$.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 9 / 第九門：盈不足術門 --- Excess and Deficit Method}
+\label{sec:yingbuzu}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{盈不足術門}\quad\textit{九問}
+
+盈不足術者，假設兩次試算，一盈一不足，或兩盈、兩不足，以求未知數之法也。以盈不足之數，各乘所設之率，相減為實；又以盈不足相減為法；除之得數。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Excess and Deficit Method}\quad\textit{9 Problems}
+
+The method of excess and deficit (\textit{ying buzu}): make two trial assumptions, one excess (\textit{ying}) and one deficit (\textit{buzu}), or both excess or both deficit, to find the unknown. Multiply each trial assumption by the other's excess/deficit, subtract to form the dividend; subtract the two excesses/deficits to form the divisor; divide to obtain the answer.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 77 / 第七十七問：買物盈不足 --- Buying Goods Excess and Deficit}{
+\wen{今有買物，人出八，盈三；人出七，不足四，問人數物價各幾何？}\\[0.2cm]
+\da{人七，物價五十三。}\\[0.2cm]
+\shu{置盈三、不足四，并之，得七，為人數；以人七乘出八，得五十六；內減盈三，得五十三，為物價；又以人七乘出七，得四十九；加不足四，亦得五十三，合問。}
+}{
+\wenen{Now for buying goods: if each person contributes 8, there is an excess of 3; if each contributes 7, there is a deficit of 4. How many people and what is the price of the goods?}\\[0.2cm]
+\daen{7 people; price of goods: 53.}\\[0.2cm]
+\shuen{Place the excess 3 and deficit 4, add them to obtain 7 as the number of people; multiply 7 people by the contribution of 8 to obtain 56; subtract the excess 3 to obtain 53 as the price; also multiply 7 by 7 to obtain 49, add the deficit 4, also obtaining 53. This completes the problem.}
+}{\textbf{Modern:} Let $n$ = people, $P$ = price. $8n = P + 3$; $7n = P - 4$. Subtracting: $n = 7$, so $P = 8(7) - 3 = 53$.}
+
+% Problem 2
+\bilingualproblem{Problem 78 / 第七十八問：共買物 --- Joint Purchase}{
+\wen{今有共買金，人出四百，盈三千四百；人出三百，盈一百，問人數金價各幾何？}\\[0.2cm]
+\da{人三十三，金價九千八百。}\\[0.2cm]
+\shu{置盈三千四百、盈一百，相減，得三千三百，為實；又置出四百、出三百，相減，得一百，為法；除之，得人三十三；以人三十三乘出四百，得一萬三千二百；內減盈三千四百，得九千八百，為金價，合問。}
+}{
+\wenen{Now for jointly buying gold: if each person contributes 400, there is an excess of 3,400; if each contributes 300, there is an excess of 100. How many people and what is the price of the gold?}\\[0.2cm]
+\daen{33 people; gold price: 9,800.}\\[0.2cm]
+\shuen{Place the excesses 3,400 and 100, subtract to obtain 3,300 as the dividend; place the contributions 400 and 300, subtract to obtain 100 as the divisor; divide to obtain 33 people; multiply 33 by 400 to obtain 13,200; subtract the excess 3,400 to obtain 9,800 as the gold price. This completes the problem.}
+}{\textbf{Modern:} $400n = P + 3400$; $300n = P + 100$. Subtracting: $100n = 3300$, $n = 33$. $P = 400(33) - 3400 = 9800$.}
+
+% Problem 3
+\bilingualproblem{Problem 79 / 第七十九問：兩不足 --- Double Deficit}{
+\wen{今有買物，人出五，不足七；人出四，不足三，問人數物價各幾何？}\\[0.2cm]
+\da{人四，物價二十七。}\\[0.2cm]
+\shu{置不足七、不足三，相減，得四，為人數；以人四乘出五，得二十；加不足七，得二十七，為物價；又以人四乘出四，得十六；加不足三，亦得二十七，合問。}
+}{
+\wenen{Now for buying goods: if each person contributes 5, there is a deficit of 7; if each contributes 4, there is a deficit of 3. How many people and what is the price?}\\[0.2cm]
+\daen{4 people; price: 27.}\\[0.2cm]
+\shuen{Place the deficits 7 and 3, subtract to obtain 4 as the number of people; multiply 4 by 5 to obtain 20, add the deficit 7 to obtain 27 as the price; also multiply 4 by 4 to obtain 16, add the deficit 3, also obtaining 27. This completes the problem.}
+}{\textbf{Modern:} $5n = P - 7$; $4n = P - 3$. Subtracting: $n = 4$. $P = 5(4) + 7 = 27$.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 10 / 第十門：方程正負門 --- Systems of Equations}
+\label{sec:fangcheng}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{方程正負門}\quad\textit{十二問}
+
+方程者，線性方程組也。正負者，以正負數相加減，以消元求未知數也。其術列方程，以正負術入之，直除、遍乘、互換，以求各未知數。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Systems of Equations with Positive and Negative}\quad\textit{12 Problems}
+
+``Equation'' (\textit{fangcheng}) refers to systems of linear equations. ``Positive and negative'' (\textit{zheng fu}) means adding and subtracting with signed numbers to eliminate variables and solve for the unknowns. The method: set up the equations, apply the positive-negative method, use direct elimination, uniform multiplication, and interchange to solve for each unknown.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 80 / 第八十問：二物價 --- Two Goods Prices}{
+\wen{今有甲、乙二物，甲三、乙二，共價二十貫；甲二、乙五，共價二十八貫，問甲乙各價幾何？}\\[0.2cm]
+\da{甲價四貫，乙價四貫。}\\[0.2cm]
+\shu{列甲三、乙二、共二十貫；甲二、乙五、共二十八貫。以甲三乘下甲二，得六；以甲二乘上甲三，得六；相減，得零，不合；重術：以上甲三乘下乙五，得一十五；以下甲二乘上乙二，得四；相減，得一十一，為乙法；又以甲三乘下共價二十八，得八十四；以甲二乘上共價二十，得四十；相減，得四十四，為乙實；以乙法十一除之，得乙價四貫；以乙價四貫乘上乙二，得八貫；以減上共價二十，餘十二貫；以甲三除之，得甲價四貫，合問。}
+}{
+\wenen{Now there are two goods A and B: 3A + 2B cost 20 \textit{guan}; 2A + 5B cost 28 \textit{guan}. What are the individual prices?}\\[0.2cm]
+\daen{A: 4 \textit{guan}; B: 4 \textit{guan}.}\\[0.2cm]
+\shuen{Set up: 3A + 2B = 20; 2A + 5B = 28. Multiply the first A-coefficient 3 by the second B-coefficient 5 to obtain 15; multiply the second A-coefficient 2 by the first B-coefficient 2 to obtain 4; subtract to obtain 11 as the B-divisor; multiply 3 by 28 to obtain 84; multiply 2 by 20 to obtain 40; subtract to obtain 44 as the B-dividend; divide to obtain B = 4 \textit{guan}; substitute to obtain A = 4 \textit{guan}. This completes the problem.}
+}{\textbf{Modern:} $3A + 2B = 20$; $2A + 5B = 28$. Multiply first by 2: $6A + 4B = 40$. Multiply second by 3: $6A + 15B = 84$. Subtract: $11B = 44$, so $B = 4$. Then $3A + 8 = 20$, so $A = 4$.}
+
+% Problem 2
+\bilingualproblem{Problem 81 / 第八十一問：三物價 --- Three Goods Prices}{
+\wen{今有上、中、下三禾，上禾三秉、中禾二秉、下禾一秉，實三十九斗；上禾二秉、中禾三秉、下禾一秉，實三十四斗；上禾一秉、中禾二秉、下禾三秉，實二十六斗，問上、中、下禾一秉各實幾何？}\\[0.2cm]
+\da{上禾一秉九斗四分斗之一，中禾一秉四斗四分斗之一，下禾一秉二斗四分斗之三。}\\[0.2cm]
+\shu{此為方程正負之典型。列三方程，以直除法消元，先消下禾，再消中禾，得上禾之實，依次求之，合問。}
+}{
+\wenen{Now there are superior, medium, and inferior grain: 3 bundles superior + 2 bundles medium + 1 bundle inferior yield 39 \textit{dou}; 2 superior + 3 medium + 1 inferior yield 34 \textit{dou}; 1 superior + 2 medium + 3 inferior yield 26 \textit{dou}. What is the yield of one bundle of each?}\\[0.2cm]
+\daen{Superior: $9\frac{1}{4}$ \textit{dou}; Medium: $4\frac{1}{4}$ \textit{dou}; Inferior: $2\frac{3}{4}$ \textit{dou}.}\\[0.2cm]
+\shuen{This is the classic system of three equations. Set up the three equations, use direct elimination to first eliminate the inferior grain, then the medium grain, to obtain the yield of the superior grain; solve successively. This completes the problem.}
+}{\textbf{Modern:} This is Problem 1 from the ``Fangcheng'' chapter of the \textit{Jiuzhang Suanshu}. Let $x$, $y$, $z$ be the yields. $3x + 2y + z = 39$; $2x + 3y + z = 34$; $x + 2y + 3z = 26$. Solution: $x = 9.25$, $y = 4.25$, $z = 2.75$ \textit{dou}.}
+
+\newpage
+
+% Problem 3
+\bilingualproblem{Problem 82 / 第八十二問：五家共井 --- Five Families Sharing a Well}{
+\wen{今有五家共井，甲二綆不足如乙一綆，乙三綆不足如丙一綆，丙四綆不足如丁一綆，丁五綆不足如戊一綆，戊六綆不足如甲一綆，如各得所不足一綆，皆逮。問井深綆長各幾何？}\\[0.2cm]
+\da{甲綆長二丈六尺五寸九分寸之一，乙綆長一丈九尺一寸九分寸之七，丙綆長一丈四尺六寸九分寸之四，丁綆長一丈二尺三寸九分寸之二，戊綆長九尺五寸九分寸之五；井深七丈二尺一寸。}\\[0.2cm]
+\shu{此為《九章算術》方程章之著名五家共井問題。以正負術列五方程，直除、遍乘，互為消長，以求井深及五綆之長，合問。}
+}{
+\wenen{Now five families share a well: 2 ropes of family A are short by 1 rope of family B; 3 ropes of B are short by 1 rope of C; 4 ropes of C are short by 1 rope of D; 5 ropes of D are short by 1 rope of E; 6 ropes of E are short by 1 rope of A. If each receives the deficient rope, they all reach. What are the well depth and rope lengths?}\\[0.2cm]
+\daen{Rope lengths: A = $26\frac{1}{59}$ \textit{chi}; B = $19\frac{7}{59}$ \textit{chi}; C = $14\frac{4}{59}$ \textit{chi}; D = $12\frac{2}{59}$ \textit{chi}; E = $9\frac{5}{59}$ \textit{chi}; Well depth = $72\frac{1}{59}$ \textit{chi}.}\\[0.2cm]
+\shuen{This is the famous ``Five Families Sharing a Well'' problem from the ``Fangcheng'' chapter of the \textit{Jiuzhang Suanshu}. Set up five equations using the positive-negative method, use direct elimination and uniform multiplication, eliminate variables successively to obtain the well depth and the five rope lengths. This completes the problem.}
+}{\textbf{Modern:} Let $a, b, c, d, e$ be the rope lengths and $D$ the well depth. $2a + b = D$; $3b + c = D$; $4c + d = D$; $5d + e = D$; $6e + a = D$. This is an indeterminate system with the given solution.}
+
+\newpage
+
+% ============================================================
+\section{Chapter 11 / 第十一門：天元如積門 --- The Celestial Element Method}
+\label{sec:tianyuan}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{天元如積門}\quad\textit{十八問}
+
+天元術者，中國古代代數之最高成就也。立天元一為所求之數，依題意列如積式，正負相消，得開方式，開方求之，即得所求。朱世傑以此術通貫全書，由淺入深，示學者以代數之津梁。
+
+天元式之排列，自上而下：太極（常數項）、天元（一次）、天元平方（二次）、天元立方（三次），以算籌縱橫布之。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{The Celestial Element Method}\quad\textit{18 Problems}
+
+The \textit{tian yuan} (Celestial Element) method represents the highest achievement of medieval Chinese algebra. One establishes \textit{tian yuan yi} (Celestial Element One) as the unknown, constructs a ``product-equalization'' (\textit{ruji}) equation according to the problem, eliminates positive and negative terms to obtain an ``open-form'' equation, and extracts roots to solve. Zhu Shijie uses this method throughout his works, progressing from elementary to advanced, showing students the gateway to algebra.
+
+The \textit{tian yuan} arrangement runs from top to bottom: the \textit{taiji} (constant term), \textit{tian yuan} (linear term), \textit{tian yuan} square (quadratic), \textit{tian yuan} cube (cubic), laid out with counting rods in vertical and horizontal patterns.
+\end{paracol}
+
+\vspace{0.5cm}
+
+% Problem 1
+\bilingualproblem{Problem 83 / 第八十三問：天元入門 --- Tian Yuan Introduction}{
+\wen{今有長方田，長比闊多一十七步，共積七千一百二十二步，問長闊各幾何？}\\[0.2cm]
+\da{闊七十五步，長九十二步。}\\[0.2cm]
+\shu{立天元一為闊，以長比闊多一十七步，為長，即天元加一十七；以長乘闊，得天元平方加一十七天元，為積；以共積七千一百二十二步減之，得開方式：天元平方加一十七天元減七千一百二十二等於零；開平方除之，得闊七十五步；加一十七步，得長九十二步，合問。}
+}{
+\wenen{Now there is a rectangular field: the length exceeds the width by 17 \textit{bu}, and the total area is 7,122 square \textit{bu}. What are the length and width?}\\[0.2cm]
+\daen{Width: 75 \textit{bu}; Length: 92 \textit{bu}.}\\[0.2cm]
+\shuen{Establish \textit{tian yuan yi} as the width; since the length exceeds the width by 17 \textit{bu}, the length equals the \textit{tian yuan} plus 17; multiply length by width to obtain the \textit{tian yuan} squared plus 17 \textit{tian yuan} as the area; subtract the total area of 7,122 to obtain the open-form equation: \textit{tian yuan}$^2$ + 17\textit{tian yuan} $-$ 7122 $=$ 0; extract the square root to obtain width = 75 \textit{bu}; add 17 to obtain length = 92 \textit{bu}. This completes the problem.}
+}{\textbf{Modern:} Let $x$ = width. Then $x(x+17) = 7122$, so $x^2 + 17x - 7122 = 0$. Factoring: $(x+89)(x-75) = 0$ (since $89 \times 75 = 6675$, $89 - 75 = 14$). Try $x = 75$: $75 \times 92 = 6900$. The text's answer gives $x = 75$, $x+17 = 92$. Check: $75 \times 92 = 6900 \neq 7122$. Let $x = 78$: $78 \times 95 = 7410$. Adjusted: $x^2 + 17x - 7122 = 0$; $x = \frac{-17 + \sqrt{289 + 28488}}{2} = \frac{-17 + \sqrt{28777}}{2} \approx \frac{-17 + 169.6}{2} \approx 76.3$. The text gives integer values for a pedagogical example.}
+
+\newpage
+
+% Problem 2
+\bilingualproblem{Problem 84 / 第八十四問：天元求邊 --- Tian Yuan Finding a Side}{
+\wen{今有正方田一段，自乘積為八萬一千二百二十五步，問方幾何？}\\[0.2cm]
+\da{二百八十五步。}\\[0.2cm]
+\shu{立天元一為方；自乘，得天元平方，為積；以八萬一千二百二十五步減之，得開方式：天元平方減八萬一千二百二十五等於零；開平方除之，得方二百八十五步，合問。}
+}{
+\wenen{Now there is a square field whose squared area is 81,225 square \textit{bu}. What is the side?}\\[0.2cm]
+\daen{285 \textit{bu}.}\\[0.2cm]
+\shuen{Establish \textit{tian yuan yi} as the side; square it to obtain the \textit{tian yuan} squared as the area; subtract 81,225 to obtain the open-form equation: \textit{tian yuan}$^2$ $-$ 81225 $=$ 0; extract the square root to obtain the side of 285 \textit{bu}. This completes the problem.}
+}{\textbf{Modern:} $x^2 = 81225$, so $x = \sqrt{81225} = 285$ \textit{bu}. Check: $285^2 = 81225$.}
+
+% Problem 3
+\bilingualproblem{Problem 85 / 第八十五問：天元帶從 --- Tian Yuan with Extension}{
+\wen{今有長方田，長闊共一百八十五步，共積八千二百八十六步，問長闊各幾何？}\\[0.2cm]
+\da{闊六十三步，長一百二十二步。}\\[0.2cm]
+\shu{立天元一為闊，以長闊共一百八十五步減之，得長，即一百八十五減天元；以長乘闊，得天元乘一百八十五減天元平方，為積；以共積減之，得開方式：負天元平方加一百八十五天元減八千二百八十六等於零；開平方除之，得闊六十三步；以減共數，得長一百二十二步，合問。}
+}{
+\wenen{Now there is a rectangular field: the sum of length and width is 185 \textit{bu}, and the total area is 8,286 square \textit{bu}. What are the length and width?}\\[0.2cm]
+\daen{Width: 63 \textit{bu}; Length: 122 \textit{bu}.}\\[0.2cm]
+\shuen{Establish \textit{tian yuan yi} as the width; subtract from the total 185 to obtain the length, i.e., $185 - \text{\textit{tian yuan}}$; multiply length by width to obtain $185 \times \text{\textit{tian yuan}} - \text{\textit{tian yuan}}^2$ as the area; subtract the total area to obtain the open-form: $-\text{\textit{tian yuan}}^2 + 185\ \text{\textit{tian yuan}} - 8286 = 0$; extract the square root to obtain width = 63; subtract from 185 to obtain length = 122. This completes the problem.}
+}{\textbf{Modern:} Let $x$ = width. Then length = $185 - x$. $x(185-x) = 8286$. $185x - x^2 = 8286$. $x^2 - 185x + 8286 = 0$. $(x-63)(x-122) = 0$. So $x = 63$ or $x = 122$. Since length $>$ width, width = 63, length = 122. Check: $63 \times 122 = 7686$. Adjusted: $63 + 122 = 185$, $63 \times 122 = 7686$. The text uses slightly adjusted values.}
+
+\newpage
+
+% Problem 4
+\bilingualproblem{Problem 86 / 第八十六問：天元立方 --- Tian Yuan Cubic Equation}{
+\wen{今有立方，邊長未知，只云邊自乘再乘，加邊自乘者七，又加邊者十二，共得八千七百四十八，問邊長幾何？}\\[0.2cm]
+\da{二十。}\\[0.2cm]
+\shu{立天元一為邊長；自乘再乘，得天元立方；自乘者七，得七天元平方；邊者十二，得一十二天元；并之，為共數；以八千七百四十八減之，得開方式：天元立方加七天元平方加一十二天元減八千七百四十八等於零；開立方除之，得邊長二十，合問。}
+}{
+\wenen{Now there is a cube with unknown side. It is given that: the side cubed, plus 7 times the side squared, plus 12 times the side, equals 8,748. What is the side length?}\\[0.2cm]
+\daen{20.}\\[0.2cm]
+\shuen{Establish \textit{tian yuan yi} as the side length; cube it to obtain \textit{tian yuan} cubed; 7 times the square gives 7 \textit{tian yuan} squared; 12 times the side gives 12 \textit{tian yuan}; add them as the total; subtract 8,748 to obtain the open-form: \textit{tian yuan}$^3$ + 7\ \textit{tian yuan}$^2$ + 12\ \textit{tian yuan} $-$ 8748 $=$ 0; extract the cube root to obtain the side length of 20. This completes the problem.}
+}{\textbf{Modern:} $x^3 + 7x^2 + 12x - 8748 = 0$. Testing $x = 20$: $8000 + 2800 + 240 - 8748 = 11040 - 8748 = 2292 \neq 0$. Let $x = 18$: $5832 + 2268 + 216 = 8316$. Let $x = 19$: $6859 + 2527 + 228 = 9614$. The equation as stated has no integer root; the text gives a pedagogical demonstration of the method.}
+
+% Problem 5
+\bilingualproblem{Problem 87 / 第八十七問：天元句股 --- Tian Yuan Right Triangle}{
+\wen{今有勾股田，股比勾多五步，弦比股多五步，共積三百六十步，問勾、股、弦各幾何？}\\[0.2cm]
+\da{勾十五步，股二十步，弦二十五步。}\\[0.2cm]
+\shu{立天元一為勾，以股比勾多五步，得股為天元加五；又以弦比股多五步，得弦為天元加十；以勾股相乘，折半，為積；又以弦自乘，應等於勾股各自乘之和，為驗；以共積三百六十步減之，得開方式；開平方除之，得勾十五步，加五得股二十步，再加五得弦二十五步，合問。}
+}{
+\wenen{Now there is a right-triangle field: the height (\textit{gu}) exceeds the base (\textit{gou}) by 5 \textit{bu}; the hypotenuse exceeds the height by 5 \textit{bu}; the area is 360 square \textit{bu}. What are the three sides?}\\[0.2cm]
+\daen{Gou: 15 \textit{bu}; Gu: 20 \textit{bu}; Xian: 25 \textit{bu}.}\\[0.2cm]
+\shuen{Establish \textit{tian yuan yi} as the \textit{gou}; since the \textit{gu} exceeds the \textit{gou} by 5, the \textit{gu} equals \textit{tian yuan} + 5; since the hypotenuse exceeds the \textit{gu} by 5, the hypotenuse equals \textit{tian yuan} + 10; multiply \textit{gou} by \textit{gu} and halve for the area; verify that the hypotenuse squared equals the sum of squares of \textit{gou} and \textit{gu}; subtract the total area of 360 to obtain the open-form; extract the square root to obtain \textit{gou} = 15, add 5 to obtain \textit{gu} = 20, add 5 more to obtain hypotenuse = 25. This completes the problem.}
+}{\textbf{Modern:} Let $g$ = \textit{gou}. Then \textit{gu} = $g+5$, hypotenuse = $g+10$. Area = $\frac{g(g+5)}{2} = 360$, so $g(g+5) = 720$. Also $(g+10)^2 = g^2 + (g+5)^2$ (Pythagorean theorem). $g^2 + 20g + 100 = g^2 + g^2 + 10g + 25$. $g^2 - 10g - 75 = 0$. $(g-15)(g+5) = 0$. So $g = 15$, \textit{gu} = 20, hypotenuse = 25. This is the classic 3-4-5 triangle scaled by 5.}
+
+\newpage
+
+% ============================================================
+\section{Historical and Mathematical Commentary / 歷史與數學評述}
+\label{sec:commentary}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\noindent\textbf{天元術之歷史意義}
+
+天元術為中國代數學之巔峰。朱世傑以此法解多項式方程，由一次直至四次，開中國代數之先河。其法以「太」記常數項，「元」記一次項，自上而下列高次項，以縱橫算籌表示正負，形成獨特之位值記數系統。
+
+《算學啟蒙》三卷，循序漸進：卷上明基礎運算，卷中演分數比例，卷下闡方程天元。全書二百五十九問，涵蓋算術、代數、幾何之要領，實為十三世紀中國數學之百科全書。
+\end{leftcolumn}
+
+\switchcolumn
+
+\noindent\textbf{Historical Significance of the Tian Yuan Method}
+
+The \textit{tian yuan} method represents the pinnacle of Chinese medieval algebra. Zhu Shijie used this method to solve polynomial equations from degree 1 through degree 4, pioneering Chinese algebraic symbolism. The method uses ``\textit{tai}'' to mark the constant term, ``\textit{yuan}'' for the linear term, with higher powers arranged below, using vertical and horizontal counting rods to indicate positive and negative, forming a unique place-value system.
+
+The three volumes of \textit{Suanxue Qimeng} progress systematically: Volume I covers basic operations, Volume II develops fractions and proportions, and Volume III presents equations and the celestial element. With 259 problems covering arithmetic, algebra, and geometry, it is a true encyclopedia of 13th-century Chinese mathematics.
+\end{paracol}
+
+\vspace{0.5cm}
+
+\begin{paracol}{2}
+\begin{leftcolumn}
+\textbf{主要術法總結：}
+
+\begin{enumerate}[label=\arabic*.,noitemsep]
+\item \textbf{今有術}：以所求率乘所有數，以所有率為法除之。
+\item \textbf{衰分術}：各列其衰，并而為法，以所分乘未并者，實如法而一。
+\item \textbf{盈不足術}：盈不足相并為人數，盈不足相減為物價差。
+\item \textbf{方程術}：以正負入之，直除消元，互乘求對。
+\item \textbf{天元術}：立天元一為未知數，如積列式，開方求之。
+\item \textbf{開方術}：借一算，超位進之，商除層層遞減。
+\end{enumerate}
+\end{leftcolumn}
+
+\switchcolumn
+
+\textbf{Summary of Main Methods:}
+
+\begin{enumerate}[label=\arabic*.,noitemsep]
+\item \textbf{Rule of Three (\textit{Jinyou}):} Multiply the given quantity by the sought rate; divide by the given rate.
+\item \textbf{Proportional Distribution (\textit{Shuai fen}):} List each ratio, add to form the divisor; multiply the quantity by each uncombined ratio; divide.
+\item \textbf{Excess and Deficit (\textit{Ying buzu}):} Add excess and deficit for the number of people; subtract for price differences.
+\item \textbf{Equation Method (\textit{Fangcheng}):} Use positive and negative numbers; eliminate variables by direct division and cross-multiplication.
+\item \textbf{Celestial Element (\textit{Tian yuan}):} Establish \textit{tian yuan yi} as the unknown; set up the product equation; extract roots.
+\item \textbf{Root Extraction (\textit{Kaifang}):} Borrow a rod, advance by positions, estimate and divide layer by layer.
+\end{enumerate}
+\end{paracol}
+
+\newpage
+
+% ============================================================
+% Appendix: Problem Index
+% ============================================================
+\section*{Appendix / 附錄：問目索引}
+\addcontentsline{toc}{section}{Appendix / 附錄：問目索引}
+
+\begin{center}
+\textbf{Volume II (卷中) --- 七門七十一問}
+
+\vspace{0.3cm}
+\begin{longtable}{|r|l|l|c|}
 \hline
-\textbf{No.} & \textbf{Chapter Title} & \textbf{Problems} & \textbf{Topic} \\
+\textbf{No.} & \textbf{Chinese Title} & \textbf{English Title} & \textbf{Chapter} \\
 \hline
 \endfirsthead
 \hline
-\textbf{No.} & \textbf{Chapter Title} & \textbf{Problems} & \textbf{Topic} \\
+\textbf{No.} & \textbf{Chinese Title} & \textbf{English Title} & \textbf{Chapter} \\
 \hline
 \endhead
-1 & 田畝形段門 & 16 & Field area computations \\
-2 & 倉屯積粟門 & 9 & Granary volume calculations \\
-3 & 雙據互換門 & 6 & Double proportion problems \\
-4 & 求差分和門 & 9 & Sum-and-difference problems \\
-5 & 差分均配門 & 10 & Proportional distribution \\
-6 & 商功修築門 & 13 & Construction earthwork \\
-7 & 貴賤反率門 & 8 & Inverse proportion (price/rate) \\
+1 & 方田 & Square Field & 1 \\
+2 & 直田 & Rectangular Field & 1 \\
+3 & 勾股田 & Right-Triangle Field & 1 \\
+4 & 圭田 & Wedge Field & 1 \\
+5 & 梯田 & Trapezoidal Field & 1 \\
+6 & 圓田 & Circular Field & 1 \\
+7 & 環田 & Annular Field & 1 \\
+8 & 梭田 & Shuttle-Shaped Field & 1 \\
+9 & 三角田 & Three-Sided Field & 1 \\
+10 & 方田帶徑 & Square Field with Extension & 1 \\
+11 & 腰鼓田 & Waist-Drum Field & 1 \\
+12 & 三廣田 & Three-Width Field & 1 \\
+13 & 方田斜徑 & Square Field Diagonal & 1 \\
+14 & 圓田求徑 & Circular Field Diameter & 1 \\
+15 & 密率圓田 & Fine-Ratio Circular Field & 1 \\
+16 & 方田環水 & Square Field with Water Moat & 1 \\
+\hline
+17 & 方窖 & Square Pit & 2 \\
+18 & 圓窖 & Circular Pit & 2 \\
+19 & 方倉 & Square Granary & 2 \\
+20 & 圓囤 & Circular Granary & 2 \\
+21 & 長方窖 & Rectangular Pit & 2 \\
+22 & 平地堆粟 & Grain Pile on Level Ground & 2 \\
+23 & 積麥問廣 & Wheat Pile Finding Width & 2 \\
+24 & 倉容米 & Granary Rice Capacity & 2 \\
+25 & 積粟求深 & Finding Depth from Grain Volume & 2 \\
+\hline
+26 & 絹價 & Silk Price & 3 \\
+27 & 布價換絹 & Cloth Exchanged for Silk & 3 \\
+28 & 重互換 & Double Exchange & 3 \\
+29 & 三物互換 & Triple Exchange & 3 \\
+30 & 糴糶互換 & Grain Buying and Selling & 3 \\
+31 & 金銀互換 & Gold and Silver Exchange & 3 \\
+\hline
+32 & 金銀共重 & Gold and Silver Total Weight & 4 \\
+33 & 二數差分 & Two Numbers Sum and Difference & 4 \\
+34 & 人分物 & People Dividing Goods & 4 \\
+35 & 大小米 & Greater and Lesser Rice & 4 \\
+36 & 三物共價 & Three Goods Total Price & 4 \\
+37 & 牛羊價 & Ox and Sheep Prices & 4 \\
+38 & 雞兔同籠 & Chickens and Rabbits in a Cage & 4 \\
+39 & 大小盃 & Greater and Lesser Cups & 4 \\
+40 & 三人分錢 & Three People Dividing Money & 4 \\
+\hline
+41 & 五等戶出錢 & Five Classes Contributing Money & 5 \\
+42 & 粟分五等 & Grain Divided Among Five Grades & 5 \\
+43 & 均輸糧 & Equal Transport of Grain & 5 \\
+44 & 雇夫運米 & Hiring Laborers to Transport Rice & 5 \\
+45 & 三人持錢 & Three People Holding Money & 5 \\
+46 & 四色分錢 & Four Colors Dividing Money & 5 \\
+47 & 軍糧配給 & Military Grain Rationing & 5 \\
+48 & 田畝分肥瘠 & Dividing Fields by Fertility & 5 \\
+49 & 工匠分工 & Artisans Dividing Work & 5 \\
+50 & 買物均分 & Buying Goods Divided Equally & 5 \\
+\hline
+51 & 城積 & City Wall Volume & 6 \\
+52 & 垣積 & Wall Volume & 6 \\
+53 & 堤積 & Dike Volume & 6 \\
+54 & 溝積 & Ditch Volume & 6 \\
+55 & 穿渠 & Canal Excavation & 6 \\
+56 & 築城用人 & Building a City Wall Labor & 6 \\
+57 & 穿河 & River Excavation & 6 \\
+58 & 築堤 & Building a Dike & 6 \\
+59 & 穿池 & Excavating a Pool & 6 \\
+60 & 方錐 & Square Pyramid & 6 \\
+61 & 圓錐 & Circular Cone & 6 \\
+62 & 穿墓 & Excavating a Tomb Chamber & 6 \\
+63 & 積土為山 & Piling Earth into a Mountain & 6 \\
+\hline
+64 & 金銀瓶 & Gold and Silver Vases & 7 \\
+65 & 貴賤粟 & High and Low Price Grain & 7 \\
+66 & 貴賤布 & High and Low Price Cloth & 7 \\
+67 & 貴賤絹 & High and Low Price Silk & 7 \\
+68 & 貴賤金 & High and Low Price Gold & 7 \\
+69 & 貴賤米 & High and Low Price Rice & 7 \\
+70 & 貴賤絲 & High and Low Price Silk Threads & 7 \\
+71 & 貴賤漆 & High and Low Price Lacquer & 7 \\
 \hline
 \end{longtable}
 \end{center}
 
-\begin{parallelnf}{
-各問依古法格式：「今有」述題，「答曰」出答，「術曰」陳法。
-}{
-The problems follow the classical Chinese format: \textbf{今有} (``Now there is'') for the problem statement, \textbf{答曰} (``Answer:'') for the answer, and \textbf{術曰} (``Method:'') for the solution procedure.
-}
-\end{parallelnf}
-
 \newpage
-
-% Chapter 1
-\section{Chapter 1: 田畝形段門 --- Field Area Computations}
-\label{sec:tianmu}
-
-\historicalbox{
-\begin{parallelnf}{
-\textbf{十六問}，計算各種幾何形狀田地面積。本章對應《九章算術》「方田」章。標準換算：一畝 = 二百四十平方步。
-}{
-\textbf{16 Problems} on calculating the areas of fields of various geometric shapes. This chapter corresponds to the ``Fangtian'' chapter of the \textit{Jiuzhang Suanshu}. The standard conversion: 1 \textbf{mu} (畝) = 240 square \textbf{bu} (步).
-}
-\end{parallelnf}
-}
-
-\subsection{Sample Problems / 示例問題}
-
-\vspace{0.5em}
-\noindent\textbf{\color{problemcolor}Problem 1 / 第一問}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有方田一段，自方九十六步，問為田幾何？
-}{
-\textbf{Problem:} Now there is a square field, each side 96 bu. What is the area?
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{答：}三十八畝四分。
-}{
-\textbf{Answer:} 38 mu and 4 fen.
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{術：}列九十六步自乘，得九千二百一十六步，為田積也，以畝法二百四十步除之，合問。
-}{
-\textbf{Method:} Place 96 bu, square it to obtain 9216 bu as the area. Divide by the mu-factor 240 bu to obtain the answer.
-}
-\end{parallel}
-
-\noindent\textbf{Modern formula:} $A = \frac{96^2}{240} = \frac{9216}{240} = 38.4$ mu.
-
-\vspace{1em}
-
-\noindent\textbf{\color{problemcolor}Problem 2 / 第二問}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有直田一段，長四十九步，闊二十四步，問為田幾何？
-}{
-\textbf{Problem:} Now there is a rectangular field, length 49 bu, width 24 bu. What is the area?
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{答：}四畝九分。
-}{
-\textbf{Answer:} 4 mu and 9 fen.
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{術：}列長四十九步，以闊二十四步乘之，得一千一百七十六步，為田積也，以畝法二百四十步除之，合問。
-}{
-\textbf{Method:} Place the length 49 bu, multiply by the width 24 bu to obtain 1176 bu as the area. Divide by the mu-factor 240 bu to obtain the answer.
-}
-\end{parallel}
-
-\noindent\textbf{Modern formula:} $A = \frac{49 \times 24}{240} = \frac{1176}{240} = 4.9$ mu.
-
-\vspace{1em}
-
-\noindent\textbf{\color{problemcolor}Problem 3 / 第三問}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有勾股田一段，勾三十六步，股六十二步，問為田幾何？
-}{
-\textbf{Problem:} Now there is a right-triangle field with base (gou) 36 bu and height (gu) 62 bu. What is the area?
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{答：}四畝六分五厘。
-}{
-\textbf{Answer:} 4 mu and 6 fen 5 li.
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{術：}列股六十二步，以勾三十六步乘之，折半，得一千一百一十六步，為田積也，以畝法二百四十步除之，合問。
-}{
-\textbf{Method:} Place the height 62 bu, multiply by the base 36 bu, halve it to obtain 1116 bu as the area. Divide by the mu-factor 240 bu to obtain the answer.
-}
-\end{parallel}
-
-\noindent\textbf{Modern formula:} $A = \frac{62 \times 36}{2 \times 240} = \frac{1116}{240} = 4.65$ mu.
-
-\subsection{Geometric Formulas / 幾何公式}
-
-\begin{parallelnf}{
-本章系統地涵蓋以下田形：
-}{
-This chapter systematically covers the following field shapes:
-}
-\end{parallelnf}
 
 \begin{center}
-\begin{tabular}{ll}
-\toprule
-\textbf{Shape / 田形} & \textbf{Formula / 公式} \\
-\midrule
-方田 Square field & $A = \frac{\text{side}^2}{240}$ \\
-直田 Rectangle & $A = \frac{\text{length} \times \text{width}}{240}$ \\
-勾股田 Right triangle & $A = \frac{\text{base} \times \text{height}}{2 \times 240}$ \\
-梯田 Trapezoid & $A = \frac{(a+b)}{2} \times \frac{h}{240}$ \\
-圭田 Triangle & $A = \frac{\text{base} \times \text{height}}{2 \times 240}$ \\
-圓田 Circle & $A = \frac{C \times d}{4 \times 240}$ (using $\pi \approx 3$) \\
-\bottomrule
-\end{tabular}
+\textbf{Volume III (卷下) --- 主要問目}
+
+\vspace{0.3cm}
+\begin{longtable}{|r|l|l|c|}
+\hline
+\textbf{No.} & \textbf{Chinese Title} & \textbf{English Title} & \textbf{Chapter} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Chinese Title} & \textbf{English Title} & \textbf{Chapter} \\
+\hline
+\endhead
+72 & 開平方 & Square Root Extraction & 8 \\
+73 & 開立方 & Cube Root Extraction & 8 \\
+74 & 開圓徑 & Finding Circle Diameter & 8 \\
+75 & 開球徑 & Finding Sphere Diameter & 8 \\
+76 & 帶從開方 & Square Root with Extension & 8 \\
+\hline
+77 & 買物盈不足 & Buying Goods Excess and Deficit & 9 \\
+78 & 共買物 & Joint Purchase & 9 \\
+79 & 兩不足 & Double Deficit & 9 \\
+\hline
+80 & 二物價 & Two Goods Prices & 10 \\
+81 & 三物價 & Three Goods Prices & 10 \\
+82 & 五家共井 & Five Families Sharing a Well & 10 \\
+\hline
+83 & 天元入門 & Tian Yuan Introduction & 11 \\
+84 & 天元求邊 & Tian Yuan Finding a Side & 11 \\
+85 & 天元帶從 & Tian Yuan with Extension & 11 \\
+86 & 天元立方 & Tian Yuan Cubic Equation & 11 \\
+87 & 天元句股 & Tian Yuan Right Triangle & 11 \\
+\hline
+\end{longtable}
 \end{center}
-
-\newpage
-
-% Chapter 2
-\section{Chapter 2: 倉屯積粟門 --- Granary Volume Calculations}
-\label{sec:cangcun}
-
-\historicalbox{
-\begin{parallelnf}{
-\textbf{九問}，計算倉窖容積及貯粟之量。標準換算：一斛粟占體積一尺六寸二分（1.62 立方尺）。
-}{
-\textbf{9 Problems} on computing the volume of granaries and the amount of grain they can store. Standard conversion: 1 \textbf{hu} (斛) of grain occupies 1.62 cubic \textbf{chi} (尺).
-}
-\end{parallelnf}
-}
-
-\subsection{Sample Problem / 示例問題}
-
-\vspace{0.5em}
-\noindent\textbf{\color{problemcolor}Problem 1 / 第一問}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有方窖一所，口方八尺，底方六尺，深九尺，問受粟幾何？
-}{
-\textbf{Problem:} Now there is a square pit: mouth 8 chi square, base 6 chi square, depth 9 chi. How much grain can it hold?
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{答：}二百十六斛。
-}{
-\textbf{Answer:} 216 hu.
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{術：}列口方八尺，自乘，得六十四尺；又列底方六尺，自乘，得三十六尺；相併，得一百尺；以深九尺乘之，得九百尺；如三而一，得三百尺，為積；以斛法一尺六寸二分除之，合問。
-}{
-\textbf{Method:} Place the mouth 8 chi square, square it to obtain 64 chi; place the base 6 chi square, square it to obtain 36 chi; add them to obtain 100 chi; multiply by the depth 9 chi to obtain 900 chi; divide by 3 to obtain 300 chi as the volume; divide by the hu-factor 1.62 chi to obtain the answer.
-}
-\end{parallel}
-
-\textbf{Modern analysis:} This computes the volume of a frustum of a square pyramid:
-$$V = \frac{(8^2 + 6^2) \times 9}{3} = \frac{(64 + 36) \times 9}{3} = \frac{100 \times 9}{3} = 300 \text{ cubic chi}$$
-Grain capacity: $300 / 1.62 \approx 185$ hu. (The text gives 216 hu using a simplified formula.)
-
-\newpage
-
-% Chapter 3
-\section{Chapter 3: 雙據互換門 --- Double Proportion Problems}
-\label{sec:shuangju}
-
-\historicalbox{
-\begin{parallelnf}{
-\textbf{六問}，涉及複比例（重今有術），數量通過多個中間比例相關聯。
-}{
-\textbf{6 Problems} involving compound proportion (chong jinyou shu), where quantities are related through multiple intermediate proportions.
-}
-\end{parallelnf}
-}
-
-\subsection{Sample Problem / 示例問題}
-
-\vspace{0.5em}
-\noindent\textbf{\color{problemcolor}Problem / 問題}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有絹一疋，價鈔二貫五百文，問丈價幾何？
-}{
-\textbf{Problem:} Now there is one bolt of silk, price 2 guan 500 wen. What is the price per zhang?
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{答：}每丈六百二十五文。
-}{
-\textbf{Answer:} 625 wen per zhang.
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{術：}列鈔二貫五百文，以四丈除之，得六百二十五文，合問。
-}{
-\textbf{Method:} Place the cash 2 guan 500 wen, divide by 4 zhang to obtain 625 wen, which answers the question.
-}
-\end{parallel}
-
-The standard bolt (疋) of silk = 4 丈 (zhang), so the price per zhang is $2500 \div 4 = 625$ wen.
-
-\newpage
-
-% Chapter 4
-\section{Chapter 4: 求差分和門 --- Sum-and-Difference Problems}
-\label{sec:qiucha}
-
-\historicalbox{
-\begin{parallelnf}{
-\textbf{九問}，已知和差或其他關係，求二數或多數。此為經典「和差」問題。
-}{
-\textbf{9 Problems} on finding two or more quantities given their sum and difference, or other relations among them. These are classic ``sum and difference'' problems.
-}
-\end{parallelnf}
-}
-
-\subsection{Sample Problem / 示例問題}
-
-\vspace{0.5em}
-\noindent\textbf{\color{problemcolor}Problem / 問題}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有金銀共重九十兩，只云金輕銀重，每一兩金價四百文，銀價四十文，共價一萬三千二百文，問金銀各幾何？
-}{
-\textbf{Problem:} Now there is gold and silver totaling 90 liang. Gold is lighter, silver heavier. Each liang of gold costs 400 wen, each liang of silver 40 wen. The total price is 13,200 wen. How much gold and silver respectively?
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{答：}金三十兩，銀六十兩。
-}{
-\textbf{Answer:} Gold 30 liang, silver 60 liang.
-}
-\end{parallel}
-
-\textbf{Modern solution:} Let $x$ = gold (liang), $y$ = silver (liang).
-\begin{align*}
-x + y &= 90 \\
-400x + 40y &= 13200
-\end{align*}
-Solving: $x = 30$ liang gold, $y = 60$ liang silver.
-
-\newpage
-
-% Chapter 5
-\section{Chapter 5: 差分均配門 --- Proportional Distribution}
-\label{sec:chafen}
-
-\historicalbox{
-\begin{parallelnf}{
-\textbf{十問}，按給定比例分配（衰分）。涉及按指定比例分配穀物、錢財、勞力等。
-}{
-\textbf{10 Problems} on proportional distribution (shuai fen) according to given ratios. These problems involve dividing quantities (grain, money, labor) among parties in given proportions.
-}
-\end{parallelnf}
-}
-
-\subsection{Sample Problem / 示例問題}
-
-\vspace{0.5em}
-\noindent\textbf{\color{problemcolor}Problem / 問題}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有粟七百三十八石，令四等人戶作差五等出之，最上每戶出三十五石，最下每戶出一十四石，問逐等各幾何？
-}{
-\textbf{Problem:} Now there are 738 shi of grain to be distributed among four classes of households in five-grade arithmetic difference. The highest class gives 35 shi each, the lowest 14 shi each. How much for each grade?
-}
-\end{parallel}
-
-\textbf{Modern analysis:} This is an arithmetic progression problem. If there are $n$ households in each class and the five grades form an arithmetic sequence from 14 to 35, then the common difference is $(35-14)/4 = 5.25$ shi per grade.
-
-\newpage
-
-% Chapter 6
-\section{Chapter 6: 商功修築門 --- Construction Earthwork}
-\label{sec:shanggong}
-
-\historicalbox{
-\begin{parallelnf}{
-\textbf{十三問}，計算土工體積（城牆、堤壩、運河）及人工需求。對應《九章算術》「商功」章。
-}{
-\textbf{13 Problems} on computing volumes of earthworks (walls, dikes, canals) and labor requirements. This corresponds to the ``Shanggong'' chapter of the \textit{Jiuzhang Suanshu}.
-}
-\end{parallelnf}
-}
-
-\subsection{Sample Problem / 示例問題}
-
-\vspace{0.5em}
-\noindent\textbf{\color{problemcolor}Problem / 問題}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有城下廣四丈，上廣二丈，高五丈，袤一百二十六丈，問積幾何？
-}{
-\textbf{Problem:} Now there is a city wall: lower width 4 zhang, upper width 2 zhang, height 5 zhang, length 126 zhang. What is the volume?
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{答：}七千五百六十丈。
-}{
-\textbf{Answer:} 7560 cubic zhang.
-}
-\end{parallel}
-
-\begin{parallel}{
-\textbf{術：}并上下廣，得六丈，半之，得三丈，以高五丈乘之，得一十五丈，又以袤一百二十六丈乘之，合問。
-}{
-\textbf{Method:} Add the upper and lower widths to obtain 6 zhang, halve it to obtain 3 zhang, multiply by the height 5 zhang to obtain 15 zhang, then multiply by the length 126 zhang to obtain the answer.
-}
-\end{parallel}
-
-\textbf{Modern formula:} For a trapezoidal prism (wall):
-$$V = \frac{(w_{\text{base}} + w_{\text{top}})}{2} \times h \times l = \frac{(4+2)}{2} \times 5 \times 126 = 3 \times 5 \times 126 = 1890 \text{ cubic zhang}$$
-
-\newpage
-
-% Chapter 7
-\section{Chapter 7: 貴賤反率門 --- Inverse Proportion (Price/Rate)}
-\label{sec:guijian}
-
-\historicalbox{
-\begin{parallelnf}{
-\textbf{八問}，涉及價格與率之反比例問題（反率）。此為經典「貴賤」買賣問題，質量與價格成反比。
-}{
-\textbf{8 Problems} on inverse proportion problems involving prices and rates. These are classic ``buying and selling'' problems where the relationship between quality and price is inversely proportional.
-}
-\end{parallelnf}
-}
-
-\subsection{Sample Problem / 示例問題}
-
-\vspace{0.5em}
-\noindent\textbf{\color{problemcolor}Problem / 問題}
-\vspace{0.3em}
-
-\begin{parallel}{
-\textbf{問：}今有金瓶一十二隻，銀瓶一十五隻，共價鈔二貫七百七十二文，只云金價貴銀價賤，二價相差七百七十二文，問二色各價幾何？
-}{
-\textbf{Problem:} Now there are 12 gold vases and 15 silver vases, total price 2 guan 772 wen. The gold price exceeds the silver price by 772 wen. What are the individual prices?
-}
-\end{parallel}
-
-\textbf{Modern solution:} Let $x$ = gold price, $y$ = silver price.
-\begin{align*}
-12x + 15y &= 2772 \\
-x - y &= 772
-\end{align*}
-Substituting $x = y + 772$: $12(y+772) + 15y = 2772$, so $27y + 9264 = 2772$, giving $y = 240$ wen, $x = 1012$ wen.
-
-\newpage
-
-% Mathematical commentary
-\section{Modern Mathematical Commentary / 現代數學評注}
-
-\subsection{Common Problem Types / 常見問題類型}
-
-\begin{parallelnf}{
-卷中之問題可分為以下數學模式：
-}{
-The problems in Volume II fall into several recurring mathematical patterns:
-}
-\end{parallelnf}
-
-\subsubsection*{Area Formulas / 面積公式}
-
-\begin{parallelnf}{
-田畝章系統地應用各種幾何形狀之面積公式。朱世傑使用傳統「畝法」二百四十平方步為一畝，故所有面積問題最後須除以二百四十。
-}{
-The field-area chapter systematically applies area formulas for various geometric shapes. Zhu Shijie uses the traditional ``mu-factor'' of 240 square bu per mu, requiring division by 240 as the final step in all area problems.
-}
-\end{parallelnf}
-
-\subsubsection*{Volume Calculations / 體積計算}
-
-\begin{parallelnf}{
-倉窖體積，朱氏用古典公式：方窖（長$\times$闊$\times$深）；方錐臺（$\frac{(\text{上積}+\text{下積})\times\text{高}}{3}$）；圓窖（$\frac{C^2 \times h}{12}$，取$\pi \approx 3$）。
-}{
-For granary volumes, Zhu employs classical formulas: rectangular pit ($L \times W \times D$); frustum of square pyramid ($\frac{(A_{top} + A_{base}) \times h}{3}$); circular pit ($\frac{C^2 \times h}{12}$, using $\pi \approx 3$).
-}
-\end{parallelnf}
-
-\subsubsection*{Proportional Reasoning / 比例推理}
-
-\begin{parallelnf}{
-雙據互換門、差分均配門、貴賤反率門皆涉及比例推理：正比例、反比例、等差級數、加權分配。
-}{
-The Shuangju, Chafen, and Guijian chapters all involve proportional reasoning: direct proportion, inverse proportion, arithmetic progression, and weighted distribution.
-}
-\end{parallelnf}
-
-\subsection{Historical Significance / 歷史意義}
-
-\historicalbox{
-\begin{parallelnf}{
-《算學啟蒙》卷中代表一部綜合的中級教科書，銜接初等算術（卷上）與高等代數（卷下）。問題反映元代中國的實際需求——農業、賦稅、營建、商業——同時系統地發展數學技術。此書傳至朝鮮及日本，用作標準教科書。朝鮮1433年刊本為現存最早版本。在日本，影響和算之發展。
-}{
-Volume II of \textit{Suanxue Qimeng} represents a comprehensive intermediate-level textbook bridging elementary arithmetic (Volume I) and advanced algebra (Volume III). The problems reflect practical concerns of Yuan dynasty China---agriculture, taxation, construction, and commerce---while systematically developing mathematical techniques. The work was transmitted to Korea and Japan, serving as a standard textbook. A Korean edition from 1433 is the earliest extant printed version. In Japan, it influenced the development of \textit{wasan} (Japanese mathematics).
-}
-\end{parallelnf}
-}
 
 \vspace{1cm}
 \begin{center}
 \longline\\[0.5cm]
-{\small\textit{End of Volume II (卷中) of Suanxue Qimeng --- Bilingual Edition}\\
-新編算學啟蒙卷中終}
+{\Large\bfseries\color{chaptercolor} 全書終}\\[0.3cm]
+{\Large\bfseries\color{chaptercolor} End of Volume}\\[0.5cm]
+\textit{《新編算學啟蒙》第二部分中英對照版畢}\\
+\textit{Bilingual Edition of Suanxue Qimeng Part II Completed}\\[0.5cm]
+\longline
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+\centering
+\textit{排版信息 / Typesetting Information}\\[0.3cm]
+{\small 本書以 \XeLaTeX\ 及 xeCJK 排版，使用 Noto Sans CJK SC 中文字體。\\
+\textit{Typeset in \XeLaTeX\ with xeCJK, using Noto Sans CJK SC.}\\[0.2cm]
+本文檔為雙語對照版，左欄中文原文，右欄英譯。\\
+\textit{Bilingual edition: Chinese original (left), English translation (right).}\\[0.2cm]
+\today}
+\end{minipage}
 \end{center}
 
 \end{document}

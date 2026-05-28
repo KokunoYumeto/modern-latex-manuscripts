@@ -10,224 +10,161 @@
 % ============================================================
 
 %% ========================================================================
-%% Omar Khayyam - Sina'at al-Jabr wa-al-Muqabala
-%% Bilingual English-Arabic Edition
-%% Left column: Arabic text  |  Right column: English translation
-%% Based on Kasir 1931 translation style
+%% Omar Khayyam — Ṣināʿat al-jabr wa-al-muqābalah
+%% BILINGUAL EDITION: Arabic (left) | English (right)
 %% ========================================================================
+
 \documentclass[11pt,a4paper]{book}
 
-%% -------- Core Packages --------
+%% ========================================================================
+%% Encoding & Fonts
+%% ========================================================================
 \usepackage{fontspec}
 \usepackage{polyglossia}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{microtype}
-\usepackage{tocloft}
-\usepackage{tikz}
-
-\usetikzlibrary{arrows.meta,calc,intersections,patterns}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=18mm,right=18mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Language Setup --------
 \setmainlanguage{english}
 \setotherlanguage{arabic}
 
-%% -------- Font Configuration --------
-\setmainfont{lmroman10-regular.otf}[
-  Path=/mnt/agents/texlive/2025/texmf-dist/fonts/opentype/public/lm/,
-  BoldFont=lmroman10-bold.otf,
-  ItalicFont=lmroman10-italic.otf,
-  BoldItalicFont=lmroman10-bolditalic.otf,
-  SlantedFont=lmromanslant10-regular.otf,
-  Renderer=Harfbuzz
-]
-\setsansfont{lmsans10-regular.otf}[
-  Path=/mnt/agents/texlive/2025/texmf-dist/fonts/opentype/public/lm/,
-  BoldFont=lmsans10-bold.otf,
-  ItalicFont=lmsans10-oblique.otf,
-  Renderer=Harfbuzz
-]
-\setmonofont{lmmono10-regular.otf}[
-  Path=/mnt/agents/texlive/2025/texmf-dist/fonts/opentype/public/lm/,
-  Scale=MatchLowercase
-]
-
-%% Arabic Font
+\newfontfamily\arabicfont[Script=Arabic,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
 \TeXXeTstate=1
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.15,Path=/usr/share/fonts/truetype/noto/]{NotoNaskhArabic-Regular.ttf}
-\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.1]{Noto Sans Arabic}
+\newcommand{\ar}[1]{\arabicfont\beginR #1\endR}
 
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{arabicbg}{RGB}{252,250,245}
-\definecolor{translationgray}{RGB}{80,80,80}
-\definecolor{footnotegreen}{RGB}{0,80,40}
-\definecolor{propline}{RGB}{139,90,43}
-\definecolor{propbg}{RGB}{255,254,252}
+%% ========================================================================
+%% Layout & Columns
+%% ========================================================================
+\usepackage[margin=2cm]{geometry}
+\usepackage{paracol}
+\columnsep=1.2em
 
-%% -------- Section Formatting --------
-\titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries\color{titlecolor}}
-  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
+%% ========================================================================
+%% Mathematics & Graphics
+%% ========================================================================
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,intersections,patterns}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
 
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{Omar Khayyam -- Sina'at al-Jabr (Bilingual Edition)}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
+%% ========================================================================
+%% Colours
+%% ========================================================================
+\usepackage{xcolor}
+\definecolor{titlecolor}{RGB}{139,69,19}
+\definecolor{rulecolor}{RGB}{180,140,100}
+\definecolor{sectioncolor}{RGB}{120,60,30}
+\definecolor{arabicbg}{RGB}{255,250,245}
 
-%% -------- Bilingual Column Macros --------
-\newlength{\arabiccolwidth}
-\setlength{\arabiccolwidth}{0.47\textwidth}
-\newlength{\englishcolwidth}
-\setlength{\englishcolwidth}{0.47\textwidth}
+%% ========================================================================
+%% Custom environments
+%% ========================================================================
+\newtcolorbox{definitionbar}{enhanced,breakable,colback=white,colframe=rulecolor,boxrule=0pt,leftrule=1.5pt,arc=0pt,left=10pt,right=10pt,top=4pt,bottom=4pt}
 
-%% Arabic left column (RTL)
-\newcommand{\arabiccol}[1]{%
-  \begin{minipage}[t]{\arabiccolwidth}%
-  \raggedleft\arabicfont\beginR #1\endR%
-  \end{minipage}%
-}
+\newtcolorbox{propositionbox}[1][]{enhanced,breakable,colback=white,colframe=sectioncolor,fonttitle=\bfseries,title=#1,arc=2pt,boxrule=0.8pt,left=8pt,right=8pt,top=6pt,bottom=6pt}
 
-%% English right column
-\newcommand{\englishcol}[1]{%
-  \begin{minipage}[t]{\englishcolwidth}%
-  \raggedright\color{translationgray}#1%
-  \end{minipage}%
-}
-
-%% Separator
-\newcommand{\colseparator}{\hfill\vrule width 0.4pt\hfill}
-
-%% Full bilingual line: Arabic | English
-\newcommand{\bilingualline}[2]{%
-  \noindent\arabiccol{#1}\colseparator\englishcol{#2}\par\vspace{0.8em}%
-}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\translatornote}[1]{\footnote{\textcolor{footnotegreen}{\textbf{[Tr.]} #1}}}
-
-%% Inline Arabic
-\newcommand{\ar}[1]{{\arabicfont\beginR #1\endR}}
-
-%% Proposition box using simple rules
-\newenvironment{propositionbox}[1][]{%
-  \par\vspace{0.5em}%
-  \noindent\rule{\textwidth}{0.6pt}\par\vspace{0.2em}%
-  \ifx&#1&\else\noindent\textbf{#1}\par\vspace{0.3em}\fi%
+%% Bilingual pair environment: Arabic left, English right
+\newenvironment{bilingual}{%
+  \begin{paracol}{2}
 }{%
-  \par\vspace{0.2em}\noindent\rule{\textwidth}{0.6pt}\par\vspace{0.5em}%
+  \end{paracol}
 }
 
-%% Definition bar using simple rules
-\newenvironment{definitionbar}{%
-  \par\vspace{0.5em}%
-  \noindent\rule{\textwidth}{0.4pt}\par\vspace{0.2em}%
-}{%
-  \par\vspace{0.2em}\noindent\rule{\textwidth}{0.4pt}\par\vspace{0.5em}%
+\newcommand{\ArabicCol}[1]{\switchcolumn[0]*\begin{Arabic}#1\end{Arabic}}
+\newcommand{\EnglishCol}[1]{\switchcolumn[1]*#1}
+
+%% Inline bilingual
+\newcommand{\bipair}[2]{%
+  \begin{paracol}{2}
+  \begin{Arabic}#1\end{Arabic}
+  \switchcolumn
+  \textit{#2}%
+  \end{paracol}
+  \vspace{0.3em}
 }
 
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Omar Khayyam - Sina'at al-Jabr (Bilingual Edition)},
-  pdfauthor={Omar Khayyam},
-  pdfsubject={Bilingual Arabic-English Edition of Treatise on Algebra}
-}
+%% ========================================================================
+%% Section formatting
+%% ========================================================================
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{sectioncolor}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{sectioncolor}}{\thesubsection}{1em}{}
 
-%% -------- TOC Depth --------
+%% ========================================================================
+%% ToC depth
+%% ========================================================================
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
 
 %% ========================================================================
+%% ========================================================================
 \begin{document}
+%% ========================================================================
 %% ========================================================================
 
 %% ---- Title Page --------------------------------------------------------
 \begin{titlepage}
 \begin{center}
 \vspace*{1.5cm}
-
 {\color{titlecolor}\rule{\textwidth}{1.5pt}}
+
 \vspace{1cm}
-
 {\Huge\bfseries\color{titlecolor} ʿUmar al-Khayyām}
-\vspace{0.5cm}
 
-{\Large\itshape (1048--1131 CE / 430--517 AH)}
+\vspace{0.5cm}
+{\Large\itshape (1048–1131 CE / ~430–517 AH)}
 
 \vspace{1.5cm}
-
 {\color{titlecolor}\rule{0.7\textwidth}{0.8pt}}
 
 \vspace{1.5cm}
 
-{\arabicfont\LARGE\beginR صناعة الجبر والمقابلة\endR}
+\begin{Arabic}
+{\arabicfont\Huge\bfseries رسالة في براهين الجبر والمقابلة}
+\end{Arabic}
+
+\vspace{0.8cm}
+{\LARGE\scshape Ṣināʿat al-Jabr wa-al-Muqābalah}
 
 \vspace{0.3cm}
+{\large\textit{The Art of Algebra and Almucabala}}
 
-{\Large\itshape Sinaʿat al-Jabr wa-al-Muqābalah}
-
-\vspace{0.5cm}
-
-{\large\itshape Treatise on the Art of Algebra and Almucabala}
+\vspace{0.3cm}
+{\normalsize\textit{Or: Treatise on the Proofs of the Problems of Algebra and Almucabala}}
 
 \vspace{1.5cm}
-
 {\color{titlecolor}\rule{0.7\textwidth}{0.8pt}}
 
-\vspace{1.5cm}
-
-{\Large\bfseries\color{sectioncolor} Bilingual Edition}
+\vspace{1cm}
+{\Large\textbf{Bilingual Edition}}
 
 \vspace{0.3cm}
+{\large\textit{Arabic Text — English Translation}}
 
-{\large\color{translationgray}
-Arabic Text \quad\textbar\quad English Translation}
-
-\vspace{1.5cm}
-
-{\large Translation in the style of}
-
-{\large\itshape D. S. Kasir, \textit{The Algebra of Omar Khayyam} (1931)}
+\vspace{0.5cm}
+{\small\textit{Parallel left-to-right and right-to-left columns}}
 
 \vspace{2cm}
+{\small\textit{Based on the 13th-century Lahore manuscript}}
 
-{\color{titlecolor}\rule{0.4\textwidth}{0.4pt}}
+\vspace{0.2cm}
+{\small\textit{(Smith Oriental MS 45, Columbia University Rare Book Library)}}
+
+\vspace{1cm}
+{\color{titlecolor}\rule{\textwidth}{1.5pt}}
+\end{center}
+\end{titlepage}
+
+%% ---- Copyright Page ----------------------------------------------------
+\thispagestyle{empty}
+\vspace*{10cm}
+\begin{center}
+{\small\textit{This document presents a bilingual edition of Omar Khayyam's seminal work}}
+
+{\small\textit{on algebra, one of the crowning achievements of medieval Islamic mathematics.}}
 
 \vspace{0.5cm}
-
 {\small The manuscript was copied in Lahore, India, in the 13th century.}
 
 {\small It contains the earliest systematic treatment of cubic equations,}
@@ -235,47 +172,12 @@ Arabic Text \quad\textbar\quad English Translation}
 {\small with all 25 types solved through geometric constructions using conic sections.}
 
 \vspace{0.5cm}
+{\small\textit{Typeset in \LaTeX\ with Arabic support via polyglossia and fontspec.}}
 
-{\small\textit{Bilingual typesetting via XeLaTeX, polyglossia, and Noto Naskh Arabic}}
+{\small\textit{Arabic font: Noto Naskh Arabic}}
 
 \vspace{0.5cm}
-
 {\footnotesize This edition prepared for scholarly and educational purposes.}
-
-\end{center}
-\end{titlepage}
-
-%% ---- Copyright Page ----------------------------------------------------
-\clearpage
-\thispagestyle{empty}
-\vspace*{8cm}
-\begin{center}
-{\small\textit{Sinaʿat al-Jabr wa-al-Muqābalah}}
-
-{\small\textit{Bilingual Arabic-English Edition}}
-
-\vspace{1cm}
-
-{\footnotesize Original Arabic text based on the 13th-century Lahore manuscript}
-
-{\footnotesize (Smith Oriental MS 45, Columbia University Rare Book and Manuscript Library)}
-
-\vspace{0.5cm}
-
-{\footnotesize English translation follows the style of D. S. Kasir,}
-
-{\footnotesize \textit{The Algebra of Omar Khayyam}, New York: Teachers College Press, 1931.}
-
-\vspace{1cm}
-
-{\footnotesize Key terminology:}
-
-{\footnotesize kaʿb (\ar{كعب}) = cube \quad|\quad māl (\ar{مال}) = square}
-
-{\footnotesize jadhr (\ar{جذر}) = root \quad|\quad ziyāda (\ar{زيادة}) = augmentation}
-
-{\footnotesize nāqiṣ (\ar{ناقص}) = diminution/defect}
-
 \end{center}
 \clearpage
 
@@ -284,370 +186,457 @@ Arabic Text \quad\textbar\quad English Translation}
 \clearpage
 
 %% ========================================================================
-\chapter{Introduction}
-\label{ch:intro}
+%% ========================================================================
+\section{Introduction}
+\label{sec:intro}
 %% ========================================================================
 
-Omar Khayyam (\ar{عمر الخيام}), full name Ghiyāth al-Dīn Abū al-Fatḥ ʿUmar ibn Ibrāhīm al-Khayyāmī al-Nīsābūrī, was one of the most brilliant mathematicians, astronomers, and poets of the medieval Islamic world. Born in Nishapur in 1048 CE, he spent much of his life in Samarqand and Isfahan, where he produced groundbreaking works in mathematics and astronomy.
+\begin{paracol}{2}
 
-His \textit{Sinaʿat al-Jabr wa-al-Muqābalah} (also cited as \textit{Risāla fī al-Barāhīn ʿalā Masāʾil al-Jabr wa-al-Muqābala} --- ``Treatise on the Proofs of the Problems of Algebra and Almucabala'') represents the culmination of early Islamic algebra. In this work, Khayyam:
+\begin{Arabic}
+\section*{المقدمة}
+\end{Arabic}
+
+\switchcolumn
+
+\section*{Introduction}
+
+\switchcolumn*
+
+\begin{Arabic}
+عمر الخيام، اسمه الكامل: غياث الدين أبو الفتح عمر بن إبراهيم الخيامي النيسابوري، كان من أبرز علماء الرياضيات والفلك والشعراء في العالم الإسلامي في العصور الوسطى. وُلد في نيسابور عام 1048م، وقضى معظم حياته في سمرقند وأصفهان، حيث أنتج أعمالاً رائدة في الرياضيات والفلك.
+\end{Arabic}
+
+\switchcolumn
+
+Omar Khayyam (\textarabic{عمر الخيام}), full name Ghiyāth al-Dīn Abū al-Fatḥ ʿUmar ibn Ibrāhīm al-Khayyāmī al-Nīsābūrī, was one of the most brilliant mathematicians, astronomers, and poets of the medieval Islamic world. Born in Nishapur in 1048 CE, he spent much of his life in Samarqand and Isfahan, where he produced groundbreaking works in mathematics and astronomy.
+
+\switchcolumn*
+
+\begin{Arabic}
+كتابه \textbf{صناعة الجبر والمقابلة} (ويعرف أيضاً باسم \textit{رسالة في البراهين على مسائل الجبر والمقابلة}) يمثل ذروة الجبر الإسلامي المبكر. في هذا العمل، يقدم الخيام:
+\end{Arabic}
+
+\switchcolumn
+
+His \textit{Ṣināʿat al-Jabr wa-al-Muqābalah} (often cited as \textit{Risāla fī al-Barāhīn ʿalā Masāʾil al-Jabr wa-al-Muqābalah} --- ``Treatise on the Proofs of the Problems of Algebra and Almucabala'') represents the culmination of early Islamic algebra. In this work, Khayyam:
+
+\end{paracol}
+
 \begin{itemize}[noitemsep]
-    \item Provides rigorous definitions of the fundamental quantities of algebra
-    \item Classifies all equations of degree up to three into \textbf{25 types}
-    \item Solves 14 irreducible cubic equations using geometric constructions with conic sections
-    \item Distinguishes between arithmetical and geometrical solutions
+\item Provides rigorous definitions of the fundamental quantities of algebra
+\item Classifies all equations of degree up to three into 25 types
+\item Solves 14 irreducible cubic equations using geometric constructions with conic sections
+\item Distinguishes between arithmetical and geometrical solutions
 \end{itemize}
 
 This treatise, composed around 1079 CE, profoundly influenced later mathematicians including Sharaf al-Dīn al-Ṭūsī, and through translations into European languages, contributed to the development of algebra in the West.
 
-%% ========================================================================
-\section{The Author's Preface}
-\label{sec:preface}
-%% ========================================================================
+\subsection{The Author's Preface}
+\label{subsec:preface}
 
-Khayyam opens his treatise with a preface in which he acknowledges the achievements and limitations of his predecessors. The following is the Arabic text of the preface, with parallel English translation.
+\begin{propositionbox}[The Author's Introduction \textarabic{(مقدمة المؤلف)}]
 
-\begin{propositionbox}[The Author's Introduction \ar{(مقدمة المؤلف)}]
+\begin{paracol}{2}
 
-%% ---- Basmala ----
-\bilingualline{%
-الحمد لله رب العالمين، والعاقبة للمتقين، ولا عدوان إلا على الظالمين، وصلى الله على سيدنا محمد وآله أجمعين.%
-}{%
-Praise be to God, Lord of the Worlds, and the good end is for the righteous, and there is no enmity save against the oppressors; and may God bless our master Muhammad and all his family.%
-}
+\begin{Arabic}
+الحمد لله رب العالمين، والعاقبة للمتقين، ولا عدوان إلا على الظالمين، وصلى الله على سيدنا محمد وآله أجمعين.
+\end{Arabic}
 
-\vspace{0.5cm}
+\switchcolumn
 
-%% ---- Main preface text ----
-\bilingualline{%
-أما بعد، فإني قد سبقني في هذا الفن جماعة من أهل العلم، قدموا فيه أصناف المسائل، وبينوا فيه أصول المسائل، وبرهنوا على بعضها، ولم يتفق لهم برهان على البعض، ولم يفرقوا فيها بين ما يمكن أن يوجد بالقطوع المخروطية، وبين ما لا يمكن أن يوجد إلا بأساليب هندسية أخرى.%
-}{%
-Now then: in this art there have preceded me a group of men of knowledge, who presented in it the species of problems, and explained therein the foundations of problems, and proved some of them, but did not succeed in proving all of them; and they did not distinguish between what can be found by conic sections and what cannot be found except by other geometrical methods.%
-}
+\textit{Praise be to God, Lord of the Worlds, and the good end is for the righteous, and there is no enmity save against the oppressors; and may God bless our master Muhammad and all his family.}
 
-\vspace{0.3cm}
+\switchcolumn*
 
-\bilingualline{%
-وقد أملت أن أجمع هذا العلم في رسالة، وأبين فيها أصناف المسائل على وجه التمييز، وأضع لكل صنف برهاناً صحيحاً، وذلك أمر لم يسبقني إليه أحد من المتقدمين.%
-}{%
-I have desired to gather this science into a treatise, and to explain therein the species of problems with proper distinction, and to set down for each species a correct proof --- and this is something that none of the predecessors has preceded me in.%
-}
+\begin{Arabic}
+أما بعد، فإني قد سبقني في هذا الفن جماعة من أهل العلم، قدّموا فيه أصناف المسائل، وبينوا فيه أصول المسائل، وبرهنوا على بعضها، ولم يتفق لهم برهان على البعض، ولم يفرقوا فيها بين ما يمكن أن يوجد بالقطوع المخروطية، وبين ما لا يمكن أن يوجد إلا بأساليب هندسية أخرى. وقد أملت أن أجمع هذا العلم في رسالة، وأبين فيها أصناف المسائل على وجه التمييز، وأضع لكل صنف برهاناً صحيحاً، وذلك أمر لم يسبقني إليه أحد من المتقدمين.
+\end{Arabic}
 
+\switchcolumn
+
+\textit{Now then: in this art there have preceded me a group of men of knowledge, who presented in it the species of problems, and explained therein the foundations of problems, and proved some of them, but did not succeed in proving all of them; and they did not distinguish between what can be found by conic sections and what cannot be found except by other geometrical methods. I have desired to gather this science into a treatise, and to explain therein the species of problems with proper distinction, and to set down for each species a correct proof --- and this is something that none of the predecessors has preceded me in.}
+
+\end{paracol}
 \end{propositionbox}
 
-%% ========================================================================
-\section{On the Nature of This Treatise}
-\label{sec:nature}
-%% ========================================================================
+\subsection{On the Nature of This Treatise}
+\label{subsec:nature}
 
-Khayyam defines algebra as ``the science of equations'' (\ar{علم المعادلات}). He distinguishes carefully between:
+\begin{paracol}{2}
+
+\begin{Arabic}
+فنقول: إن الجبر والمقابلة علم يُستخرج به المجهول من المعلوم المفروض، إذا كان بينهما نسبة تقتضي ذلك. وهذا العلم يتضمن الأعداد والجذور والأموال والكعاب.
+\end{Arabic}
+
+\switchcolumn
+
+\textit{We say: Algebra and Almucabala is a science by which the unknown is extracted from the known datum, when between them there is a relation requiring that. And this science comprises numbers, roots, squares, and cubes.}
+
+\end{paracol}
+
+Khayyam defines algebra as ``the science of equations'' (\textarabic{علم المعادلات}). He distinguishes carefully between:
+
 \begin{enumerate}[noitemsep]
-    \item \textbf{Simple equations:} Those reducible to linear or quadratic forms, solved by arithmetical or Euclidean methods
-    \item \textbf{Compound (irreducible) equations:} Cubic equations requiring conic section constructions
+\item \textbf{Simple equations:} Those reducible to linear or quadratic forms, solved by arithmetical or Euclidean methods
+\item \textbf{Compound (irreducible) equations:} Cubic equations requiring conic section constructions
 \end{enumerate}
-
-\begin{propositionbox}[Definition of Algebra]
-
-\bilingualline{%
-فنقول: إن الجبر والمقابلة علم يُستخرج به المجهول من المعلوم المفروض، إذا كان بينهما نسبة تقتضي ذلك.%
-}{%
-We say: Algebra and Almucabala is a science by which the unknown is extracted from the known datum, when between them there is a relation requiring that.%
-}
-
-\vspace{0.3cm}
-
-\bilingualline{%
-وهذا العلم يتضمن الأعداد والجذور والأموال والكعاب.%
-}{%
-And this science comprises numbers, roots, squares, and cubes.\translatornote{The Arabic terms are: ʿadad (number), jadhr (root), māl (square, lit.\ ``possession'' or ``wealth''), and kaʿb (cube, lit.\ ``die'' or ``solid with six square faces'').}%
-}
-
-\end{propositionbox}
 
 \clearpage
 %% ========================================================================
-\chapter{Definitions of the Fundamental Quantities}
-\label{ch:definitions}
+\section{Definitions of the Fundamental Quantities}
+\label{sec:definitions}
 %% ========================================================================
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+\section*{تعريفات الكميات الأساسية}
+\end{Arabic}
+
+\switchcolumn
+
+\section*{Definitions of the Fundamental Quantities}
+
+\switchcolumn*
+
+\begin{Arabic}
+يبدأ الخيام بتعريفات دقيقة للكميات الجبرية، متبعاً وموسعاً تقليد الخوارزمي:
+\end{Arabic}
+
+\switchcolumn
 
 Khayyam begins with careful definitions of the algebraic quantities, following and extending the tradition of al-Khwārizmī:
 
+\end{paracol}
+
 \begin{definitionbar}
-\bilingualline{%
-أصل هذا العلم: أن العدد المفرد هو ما لا ينسب إلى جذر، ولا إلى مال، ولا إلى كعب، ولا إلى ما يتركب منها.%
-}{%
-The foundation of this science is: The simple number is that which is not referred to a root, nor to a square, nor to a cube, nor to what is compounded from them.%
-}
+\begin{paracol}{2}
+\begin{Arabic}
+أصل هذا العلم: أن العدد المفرد هو ما لا ينسب إلى جذر، ولا إلى مال، ولا إلى كعب، ولا إلى ما يتركب منها.
+\end{Arabic}
+\switchcolumn
+\textit{The foundation of this science is: The simple number is that which is not referred to a root, nor to a square, nor to a cube, nor to what is compounded from them.}
+\end{paracol}
 \end{definitionbar}
 
-%% ========================================================================
-\section{The Root \ar{(الجذر)}}
-\label{sec:root}
-%% ========================================================================
+\subsection{The Root (\textarabic{الجذر})}
+\label{subsec:root}
 
-\bilingualline{%
-والجذر هو كل شيء مضروب في نفسه من الواحد وما فوقه من الأعداد، وما دونه من الكسور. فإذا ضرب في نفسه فهو مال، وإذا ضرب المال في الجذر فهو كعب، وإذا ضرب الكعب في الجذر فهو مال مال، وإذا ضرب مال المال في الجذر فهو مال كعب، وإذا ضرب مال الكعب في الجذر فهو كعب كعب.%
-}{%
-The root is every quantity multiplied by itself, beginning from one and above in whole numbers, and below in fractions. If it is multiplied by itself, it is a square; and if the square is multiplied by the root, it is a cube; and if the cube is multiplied by the root, it is square-square; and if square-square is multiplied by the root, it is square-cube; and if square-cube is multiplied by the root, it is cube-cube.\translatornote{Khayyam follows the tradition of naming higher powers by composition: māl māl = $x^4$, māl kaʿb = $x^5$, kaʿb kaʿb = $x^6$.}%
-}
+\begin{paracol}{2}
 
-%% ========================================================================
-\section{The Square \ar{(المال)} and the Cube \ar{(الكعب)}}
-\label{sec:square-cube}
-%% ========================================================================
+\begin{Arabic}
+والجذر هو كل شيء مضروب في نفسه من الواحد وما فوقه من الأعداد، وما دونه من الكسور. فإذا ضرب في نفسه فهو مال، وإذا ضرب المال في الجذر فهو كعب، وإذا ضرب الكعب في الجذر فهو مال مال، وإذا ضرب مال المال في الجذر فهو مال كعب، وإذا ضرب مال الكعب في الجذر فهو كعب كعب.
+\end{Arabic}
 
-\bilingualline{%
-والمال هو ما ينتج من ضرب الجذر في نفسه. والكعب هو ما ينتج من ضرب المال في الجذر. وما فوق الكعب فهو مركب من هذه الأجناس.%
-}{%
-The square is what results from multiplying the root by itself. The cube is what results from multiplying the square by the root. And what is above the cube is compounded from these species.\translatornote{The Arabic term \textit{māl} (``wealth'', ``possession'') refers to $x^2$ because the square of an unknown quantity was likened to money or property. \textit{Kaʿb} literally means ``die'' (as in dice), a solid cube.}%
-}
+\switchcolumn
 
-%% ========================================================================
-\section{Classification of Algebraic Terms}
-\label{sec:terms}
-%% ========================================================================
+\textit{The root is every quantity multiplied by itself, beginning from one and above in whole numbers, and below in fractions. If it is multiplied by itself, it is a square; and if the square is multiplied by the root, it is a cube; and if the cube is multiplied by the root, it is square-square; and if square-square is multiplied by the root, it is square-cube; and if square-cube is multiplied by the root, it is cube-cube.}
+
+\end{paracol}
+
+\subsection{The Square (\textarabic{المال})}
+\label{subsec:square}
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+والمال هو ما ينتج من ضرب الجذر في نفسه. والكعب هو ما ينتج من ضرب المال في الجذر. وما فوق الكعب فهو مركب من هذه الأجناس.
+\end{Arabic}
+
+\switchcolumn
+
+\textit{The square is what results from multiplying the root by itself. The cube is what results from multiplying the square by the root. And what is above the cube is compounded from these species.}
+
+\end{paracol}
+
+\subsection{Classification of Algebraic Terms}
+\label{subsec:terms}
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+يصنّف الخيام الأجناس البسيطة والمركبة بشكل منهجي.
+\end{Arabic}
+
+\switchcolumn
 
 Khayyam systematically enumerates the simple and compound species:
 
+\end{paracol}
+
 \begin{center}
+\renewcommand{\arraystretch}{1.3}
 \begin{tabular}{lll}
 \toprule
 \textbf{Arabic Term} & \textbf{Transliteration} & \textbf{Modern Notation} \\
 \midrule
-\ar{جذر} & \textit{jadhr} & $x$ \\
-\ar{مال} & \textit{māl} & $x^2$ \\
-\ar{كعب} & \textit{kaʿb} & $x^3$ \\
-\ar{مال مال} & \textit{māl māl} & $x^4$ \\
-\ar{مال كعب} & \textit{māl kaʿb} & $x^5$ \\
-\ar{كعب كعب} & \textit{kaʿb kaʿb} & $x^6$ \\
+\textarabic{جذر} & \textit{jadh}r & $x$ \\
+\textarabic{مال} & \textit{māl} & $x^2$ \\
+\textarabic{كعب} & \textit{kaʿb} & $x^3$ \\
+\textarabic{مال مال} & \textit{māl māl} & $x^4$ \\
+\textarabic{مال كعب} & \textit{māl kaʿb} & $x^5$ \\
+\textarabic{كعب كعب} & \textit{kaʿb kaʿb} & $x^6$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \clearpage
 %% ========================================================================
-\chapter{Classification of Equations}
-\label{ch:classification}
+\section{Classification of Equations}
+\label{sec:classification}
 %% ========================================================================
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+\section*{تصنيف المعادلات}
+\end{Arabic}
+
+\switchcolumn
+
+\section*{Classification of Equations}
+
+\switchcolumn*
+
+\begin{Arabic}
+يشكّل هذا القسم جوهر رسالة الخيام. يصنّف جميع المعادلات من الدرجة الأولى حتى الثالثة في \textbf{خمسة وعشرين نوعاً}.
+\end{Arabic}
+
+\switchcolumn
 
 This section forms the heart of Khayyam's treatise. He classifies all equations of degree up to three into \textbf{twenty-five types}. Following the conventions of his time, all coefficients are positive, so equations like $x^3 + cx = b x^2 + d$ and $x^3 + b x^2 = cx + d$ are considered distinct types.
 
-%% ========================================================================
-\section{Equations Solvable by Arithmetical or Euclidean Methods}
-\label{sec:simple}
-%% ========================================================================
+\end{paracol}
+
+\subsection{Equations Solvable by Arithmetical or Euclidean Methods}
+\label{subsec:simple}
+
+\subsubsection{Simple Equations (Types 1--6)}
+\label{subsubsec:simple-eqs}
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+المعادلات البسيطة (الأنواع 1–6) التي تحل بطرق حسابية أو إقليدية.
+\end{Arabic}
+
+\switchcolumn
 
 The first group consists of linear and quadratic equations, solvable without conic sections:
 
-%% ------------------------------------------------------------------------
-\subsection{Simple Equations (Types 1--6)}
-\label{subsec:simple-eqs}
-%% ------------------------------------------------------------------------
+\end{paracol}
+
+\begin{enumerate}[label=\arabic*.,noitemsep]
+\item \textarabic{جذور تساوي أعداداً} --- Roots equal numbers: $bx = c$
+\item \textarabic{أموال تساوي جذوراً} --- Squares equal roots: $x^2 = bx$
+\item \textarabic{أموال تساوي أعداداً} --- Squares equal numbers: $x^2 = c$
+\item \textarabic{أموال وجذور تساوي أعداداً} --- Squares and roots equal numbers: $x^2 + bx = c$
+\item \textarabic{أموال وأعداد تساوي جذوراً} --- Squares and numbers equal roots: $x^2 + c = bx$
+\item \textarabic{جذور وأعداد تساوي أموالاً} --- Roots and numbers equal squares: $bx + c = x^2$
+\end{enumerate}
 
 These six types were known since al-Khwārizmī and are solved by elementary methods.
 
-\begin{enumerate}[label=\arabic*.,noitemsep]
-    \item \ar{جذور تساوي أعداداً} --- Roots equal numbers: $bx = c$
-    \item \ar{أموال تساوي جذوراً} --- Squares equal roots: $x^2 = bx$
-    \item \ar{أموال تساوي أعداداً} --- Squares equal numbers: $x^2 = c$
-    \item \ar{أموال وجذور تساوي أعداداً} --- Squares and roots equal numbers: $x^2 + bx = c$
-    \item \ar{أموال وأعداد تساوي جذوراً} --- Squares and numbers equal roots: $x^2 + c = bx$
-    \item \ar{جذور وأعداد تساوي أموالاً} --- Roots and numbers equal squares: $bx + c = x^2$
-\end{enumerate}
+\subsubsection{Binomial Cubic Equations (Types 7--12)}
+\label{subsubsec:binomial}
 
-%% ------------------------------------------------------------------------
-\subsection{Binomial Cubic Equations (Types 7--12)}
-\label{subsec:binomial}
-%% ------------------------------------------------------------------------
+\begin{paracol}{2}
 
-\bilingualline{%
-وأما الكعاب والأموال والجذور التي لا تختلف فيها الأجناس، فإنها تنقسم إلى اثني عشر نوعاً: منها ما يحل بالجبر، ومنها ما يحل بالقطوع المخروطية.%
-}{%
-As for cubes, squares, and roots in which the species are not mixed, they divide into twelve types: some solved by algebra, and some by conic sections.%
-}
+\begin{Arabic}
+وأما الكعاب والأموال والجذور التي لا تختلف فيها الأجناس، فإنها تنقسم إلى اثني عشر نوعاً: منها ما يحل بالجبر، ومنها ما يحل بالقطوع المخروطية.
+\end{Arabic}
+
+\switchcolumn
+
+\textit{As for cubes, squares, and roots in which the species are not mixed, they divide into twelve types: some solved by algebra, and some by conic sections.}
+
+\end{paracol}
 
 \begin{enumerate}[label=\arabic*.,resume,noitemsep]
-    \item \ar{كعب يساوي مالاً} --- Cube equals square: $x^3 = b x^2$
-    \item \ar{كعب يساوي جذراً} --- Cube equals root: $x^3 = c x$
-    \item \ar{كعب يساوي عدداً} --- Cube equals number: $x^3 = d$
-    \item \ar{مال يساوي كعباً} --- Square equals cube: $b x^2 = x^3$
-    \item \ar{جذر يساوي كعباً} --- Root equals cube: $c x = x^3$
-    \item \ar{عدد يساوي كعباً} --- Number equals cube: $d = x^3$
+\item \textarabic{كعب يساوي مالاً} --- Cube equals square: $x^3 = b x^2$
+\item \textarabic{كعب يساوي جذراً} --- Cube equals root: $x^3 = c x$
+\item \textarabic{كعب يساوي عدداً} --- Cube equals number: $x^3 = d$
+\item \textarabic{مال يساوي كعباً} --- Square equals cube: $b x^2 = x^3$
+\item \textarabic{جذر يساوي كعباً} --- Root equals cube: $c x = x^3$
+\item \textarabic{عدد يساوي كعباً} --- Number equals cube: $d = x^3$
 \end{enumerate}
 
 These binomial equations reduce to simpler forms by division.
 
-%% ------------------------------------------------------------------------
-\subsection{Trinomial Equations Reducible to Quadratics (Types 13--16)}
-%% ------------------------------------------------------------------------
+\subsubsection{Trinomial Equations Reducible to Quadratics (Types 13--16)}
+\label{subsubsec:trinomial-red}
 
 \begin{enumerate}[label=\arabic*.,resume,noitemsep]
-    \item \ar{كعاب وأموال تساوي جذوراً} --- Cubes and squares equal roots: $x^3 + b x^2 = c x$
-    \item \ar{كعاب وجذور تساوي أموالاً} --- Cubes and roots equal squares: $x^3 + c x = b x^2$
-    \item \ar{أموال وجذور تساوي كعاباً} --- Squares and roots equal cubes: $b x^2 + c x = x^3$
-    \item \ar{كعاب وأموال وأعداد} --- [Special reducible forms]
+\item \textarabic{كعاب وأموال تساوي جذوراً} --- Cubes and squares equal roots: $x^3 + b x^2 = c x$
+\item \textarabic{كعاب وجذور تساوي أموالاً} --- Cubes and roots equal squares: $x^3 + c x = b x^2$
+\item \textarabic{أموال وجذور تساوي كعاباً} --- Squares and roots equal cubes: $b x^2 + c x = x^3$
+\item \textarabic{كعاب وأموال وأعداد} --- [Special reducible forms]
 \end{enumerate}
 
-\clearpage
-%% ========================================================================
-\section{Irreducible Cubic Equations (The 14 Species)}
-\label{sec:irreducible}
-%% ========================================================================
+\subsection{Irreducible Cubic Equations (The 14 Species)}
+\label{subsec:irreducible}
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+إنجاز الخيام الأعظم في رسالته هو حله المنهجي \textbf{للأربعة عشر معادلة تكعيبية غير قابلة للاختزال}. هذه تتطلب تقاطع القطوع المخروطية للحل الهندسي.
+\end{Arabic}
+
+\switchcolumn
 
 The crowning achievement of Khayyam's treatise is his systematic solution of the \textbf{14 irreducible cubic equations}. These require the intersection of conic sections for their geometric solution. We present them here with their Arabic names and modern notation:
 
-\begin{propositionbox}[The 14 Irreducible Cubic Equations \ar{(الأصناف الأربعة عشر)}]
+\end{paracol}
+
+\begin{propositionbox}[The 14 Irreducible Cubic Equations \textarabic{(الأصناف الأربعة عشر)}]
 
 \textbf{Group I: Three-term equations with successive powers}
 
 \begin{enumerate}[label=\arabic*.,resume,noitemsep]
-    \item \ar{كعب ومال يساويان عدداً} --- Cube and square equal number:
-    $$x^3 + b x^2 = d$$
-    
-    \item \ar{كعب وعدد يساويان مالاً} --- Cube and number equal square:
-    $$x^3 + d = b x^2$$
-    
-    \item \ar{كعب يساوي مالاً وعدداً} --- Cube equals square and number:
-    $$x^3 = b x^2 + d$$
+\item \textarabic{كعب ومال يساويان عدداً} --- Cube and square equal number:    $$x^3 + b x^2 = d$$
+\item \textarabic{كعب وعدد يساويان مالاً} --- Cube and number equal square:    $$x^3 + d = b x^2$$
+\item \textarabic{كعب يساوي مالاً وعدداً} --- Cube equals square and number:    $$x^3 = b x^2 + d$$
 \end{enumerate}
-
-\vspace{0.5cm}
 
 \textbf{Group II: Three-term equations with mixed powers}
 
-\begin{enumerate}[label=\arabic*.,resume,noitemsep]
-    \setcounter{enumi}{18}
-    \item \ar{كعب وجذور يساويان عدداً} --- Cube and roots equal number:
-    $$x^3 + c x = d$$
-    
-    \item \ar{كعب وعدد يساويان جذوراً} --- Cube and number equal roots:
-    $$x^3 + d = c x$$
-    
-    \item \ar{كعب يساوي جذوراً وعدداً} --- Cube equals roots and number:
-    $$x^3 = c x + d$$
+\begin{enumerate}[label=\arabic*.,resume,noitemsep]    
+\setcounter{enumi}{18}
+\item \textarabic{كعب وجذور يساويان عدداً} --- Cube and roots equal number:    $$x^3 + c x = d$$
+\item \textarabic{كعب وعدد يساويان جذوراً} --- Cube and number equal roots:    $$x^3 + d = c x$$
+\item \textarabic{كعب يساوي جذوراً وعدداً} --- Cube equals roots and number:    $$x^3 = c x + d$$
 \end{enumerate}
-
-\vspace{0.5cm}
 
 \textbf{Group III: Four-term equations --- three terms on one side}
 
-\begin{enumerate}[label=\arabic*.,resume,noitemsep]
-    \setcounter{enumi}{21}
-    \item \ar{كعب وأموال يساويان جذوراً وعدداً} --- Cube and squares equal roots and number:
-    $$x^3 + b x^2 = c x + d$$
-    
-    \item \ar{كعب وجذور يساويان أموالاً وعدداً} --- Cube and roots equal squares and number:
-    $$x^3 + c x = b x^2 + d$$
-    
-    \item \ar{كعب وأعداد يساويان أموالاً وجذوراً} --- Cube and numbers equal squares and roots:
-    $$x^3 + d = b x^2 + c x$$
+\begin{enumerate}[label=\arabic*.,resume,noitemsep]    
+\setcounter{enumi}{21}
+\item \textarabic{كعب وأموال يساويان جذوراً وعدداً} --- Cube and squares equal roots and number:    $$x^3 + b x^2 = c x + d$$
+\item \textarabic{كعب وجذور يساويان أموالاً وعدداً} --- Cube and roots equal squares and number:    $$x^3 + c x = b x^2 + d$$
+\item \textarabic{كعب وأعداد يساويان أموالاً وجذوراً} --- Cube and numbers equal squares and roots:    $$x^3 + d = b x^2 + c x$$
 \end{enumerate}
-
-\vspace{0.5cm}
 
 \textbf{Group IV: Four-term equations --- two terms on each side}
 
-\begin{enumerate}[label=\arabic*.,resume,noitemsep]
-    \setcounter{enumi}{24}
-    \item \ar{كعب يساوي أموالاً وجذوراً وأعداداً} --- Cube equals squares, roots, and number:
-    $$x^3 = b x^2 + c x + d$$
+\begin{enumerate}[label=\arabic*.,resume,noitemsep]    
+\setcounter{enumi}{24}
+\item \textarabic{كعب يساوي أموالاً وجذوراً وأعداداً} --- Cube equals squares, roots, and number:    $$x^3 = b x^2 + c x + d$$
 \end{enumerate}
+
 \end{propositionbox}
 
 \clearpage
 %% ========================================================================
-\chapter{On the Geometric Solution of Cubic Equations}
-\label{ch:geometric}
+\section{On the Geometric Solution of Cubic Equations}
+\label{sec:geometric}
 %% ========================================================================
 
-%% ========================================================================
-\section{The Fundamental Lemma}
-\label{sec:lemma}
-%% ========================================================================
+\begin{paracol}{2}
+
+\begin{Arabic}
+\section*{في الحل الهندسي للمعادلات التكعيبية}
+\end{Arabic}
+
+\switchcolumn
+
+\section*{On the Geometric Solution of Cubic Equations}
+
+\end{paracol}
+
+\subsection{The Fundamental Lemma}
+\label{subsec:lemma}
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+قبل تقديم حلوله، يثبت الخيام مقدمة أساسية حول المجسمات (المتوازيات المستطيلات).
+\end{Arabic}
+
+\switchcolumn
 
 Before presenting his solutions, Khayyam proves a fundamental lemma about solid figures (parallelopipeds):
 
-\begin{propositionbox}[Lemma on Equal Solids \ar{(مقدمة في المجسمات المتساوية)}]
+\end{paracol}
 
-\bilingualline{%
-إذا كان لنا مكعب مستطيل السطوح، قاعدته مربعة، وارتفاعه خط معلوم، وأردنا أن نبني على قاعدة مربعة أخرى مكعباً مستطيلاً مساوياً له، فنحن نجد خطاً يكون النسبة بين ضلع القاعدة الأولى وضلع القاعدة الثانية كالنسبة بين ذلك الخط والارتفاع.%
-}{%
-If we have a rectangular parallelopiped whose base is a square and whose height is a known line, and we wish to construct on another square base a rectangular parallelopiped equal to it, then we find a line such that the ratio between the side of the first base and the side of the second base is as the ratio between that line and the height.%
-}
+\begin{propositionbox}[Lemma on Equal Solids \textarabic{(مقدمة في المجسمات المتساوية)}]
+\begin{paracol}{2}
 
+\begin{Arabic}
+إذا كان لنا مكعب مستطيل السطوح، قاعدته مربعة، وارتفاعه خط معلوم، وأردنا أن نبني على قاعدة مربعة أخرى مكعباً مستطيلاً مساوياً له، فنحن نجد خطاً يكون النسبة بين ضلع القاعدة الأولى وضلع القاعدة الثانية كالنسبة بين ذلك الخط والارتفاع.
+\end{Arabic}
+
+\switchcolumn
+
+\textit{If we have a rectangular parallelopiped whose base is a square and whose height is a known line, and we wish to construct on another square base a rectangular parallelopiped equal to it, then we find a line such that the ratio between the side of the first base and the side of the second base is as the ratio between that line and the height.}
+
+\end{paracol}
 \end{propositionbox}
 
-%% ========================================================================
-\section{Solution of ``Cube and Roots Equal a Number'' ($x^3 + cx = d$)}
-\label{sec:classic-case}
-%% ========================================================================
+\subsection{Solution of ``Cube and Roots Equal a Number'' ($x^3 + cx = d$)}
+\label{subsec:classic-case}
 
-This is the most celebrated case in Khayyam's treatise --- the equation $x^3 + c x = d$ (\ar{كعب وجذور يساويان عدداً}). Khayyam solves it by the intersection of a \textbf{parabola} and a \textbf{semicircle}.
+\begin{paracol}{2}
+
+\begin{Arabic}
+هذه هي الحالة الأشهر في رسالة الخيام --- المعادلة $x^3 + c x = d$ (كعب وجذور يساويان عدداً). يحلها الخيام بتقاطع \textbf{قطع مكافئ} و\textbf{نصف دائرة}.
+\end{Arabic}
+
+\switchcolumn
+
+This is the most celebrated case in Khayyam's treatise --- the equation $x^3 + cx = d$ (\textarabic{كعب وجذور يساويان عدداً}). Khayyam solves it by the intersection of a \textbf{parabola} and a \textbf{semicircle}.
+
+\end{paracol}
 
 \begin{propositionbox}[Case: $x^3 + c x = d$]
+\begin{paracol}{2}
 
-\bilingualline{%
-فلنضرب مثالاً: كعب وجذور يساويان عدداً. فلنجعل العدد مكعباً مستطيل السطوح، قاعدته مربعة، أضلاعها مساوية لعدد الجذور، وارتفاعه خط معلوم.%
-}{%
-Let us give an example: cube and roots equal a number. Let us make the number a rectangular parallelopiped whose base is a square, whose sides are equal to the number of roots, and whose height is a known line.%
-}
+\begin{Arabic}
+فلنضرب مثالاً: كعب وجذور يساويان عدداً. فلنجعل العدد مكعباً مستطيل السطوح، قاعدته مربعة، أضلاعها مساوية لعدد الجذور، وارتفاعه خط معلوم. ثم نأخذ قطعاً مكافئاً رأسه نقطة، ومحوره خط مستقيم، ومعلمه مساوٍ لضلع القاعدة. ونصف دائرة على ارتفاع المكعب، فنلقي من نقطة التقاطع القطع المكافئ والدائرة خطاً إلى المحور، فذلك الخط هو الجذر المطلوب.
+\end{Arabic}
 
-\vspace{0.3cm}
+\switchcolumn
 
-\bilingualline{%
-ثم نأخذ قطعاً مكافئاً رأسه نقطة، ومحوره خط مستقيم، ومعلمه مساوٍ لضلع القاعدة. ونصف دائرة على ارتفاع المكعب، فنلقي من نقطة التقاطع القطع المكافئ والدائرة خطاً إلى المحور، فذلك الخط هو الجذر المطلوب.%
-}{%
-Then we take a parabola whose vertex is a point, whose axis is a straight line, and whose parameter is equal to the side of the base; and we describe a semicircle on the height of the parallelopiped. From the point of intersection of the parabola and the circle we drop a line to the axis: that line is the required root.\translatornote{The ``parameter'' (\textit{muʿallim}) of the parabola is its latus rectum. Khayyam's construction is equivalent to the modern method: setting $y^2 = bx$ (parabola) and $x^2 = y(h-y)$ (circle), whose intersection gives the solution.}%
-}
+\textit{Let us give an example: cube and roots equal a number. Let us make the number a rectangular parallelopiped whose base is a square, whose sides are equal to the number of roots, and whose height is a known line. Then we take a parabola whose vertex is a point, whose axis is a straight line, and whose parameter is equal to the side of the base; and we describe a semicircle on the height of the parallelopiped. From the point of intersection of the parabola and the circle we drop a line to the axis: that line is the required root.}
 
+\end{paracol}
 \end{propositionbox}
 
-%% ========================================================================
-\subsection{The Construction}
-\label{subsec:construction}
-%% ========================================================================
+\subsubsection{The Construction}
+\label{subsubsec:construction}
 
 The construction proceeds as follows:
 
 \begin{enumerate}[noitemsep]
-    \item Let $b^2 = c$ (the coefficient of $x$), and let $h$ be such that $b^2 h = d$ (the constant term)
-    \item Construct a \textbf{parabola} with vertex $B$, axis $BZ$, and parameter $b$, so that for any point on the parabola, $y^2 = b x$
-    \item Erect perpendicular $h$ at $B$, and on $h$ as diameter describe a \textbf{semicircle}
-    \item Let the semicircle cut the parabola at point $D$
-    \item From $D$ drop $DE$ perpendicular to the axis, and $DZ$ perpendicular to $BZ$
-    \item Then $y = BE$ is the required root
+\item Let $b^2 = c$ (the coefficient of $x$), and let $h$ be such that $b^2 h = d$ (the constant term)
+\item Construct a \textbf{parabola} with vertex $B$, axis $BZ$, and parameter $b$, so that for any point on the parabola, $y^2 = b x$
+\item Erect perpendicular $h$ at $B$, and on $h$ as diameter describe a \textbf{semicircle}
+\item Let the semicircle cut the parabola at point $D$
+\item From $D$ drop $DE$ perpendicular to $h$, and $DZ$ perpendicular to $BZ$
+\item Then $y = BE$ is the required root
 \end{enumerate}
 
-\begin{figure}[h]
-\centering
+\begin{figure}[h]\centering
 \begin{tikzpicture}[scale=1.2,>=Stealth]
-    % Axes
+    % Axes    
     \draw[->] (-0.3,0) -- (5,0) node[right] {$x$};
     \draw[->] (0,-0.3) -- (0,4.5) node[above] {$y$};
-    
-    % Parabola y^2 = 2x (parameter b=2)
-    \draw[thick,domain=0:4,samples=100,variable=\x,blue] 
-        plot ({\x},{sqrt(2*\x)}) node[right] {\small parabola};
-    \draw[thick,domain=0:4,samples=100,variable=\x,blue] 
-        plot ({\x},{-sqrt(2*\x)});
-    
-    % Semicircle on height h=3 at B
+        % Parabola y^2 = 2x  (parameter b=2)    
+    \draw[thick,domain=0:4,samples=100,variable=\x,blue]         plot ({\x},{sqrt(2*\x)}) node[right] {\small parabola};
+    \draw[thick,domain=0:4,samples=100,variable=\x,blue]         plot ({\x},{-sqrt(2*\x)});
+        % Semicircle on height h=3 at B    % Center at (0,1.5), radius 1.5    
     \draw[thick,red] (0,0) arc (-90:90:1.5) node[above right] {\small semicircle};
-    
-    % Intersection point D (approximate)
+        % Intersection point D    % Intersection approximate    
     \coordinate (D) at (1.35, 1.65);
     \fill[black] (D) circle (1.5pt) node[above right] {$D$};
-    
-    % Drop perpendiculars
+        % Drop perpendiculars    
     \draw[dashed] (D) -- (1.35,0) node[below] {$Z$};
     \draw[dashed] (D) -- (0,1.65) node[left] {$E$};
-    
-    % Labels
+        % Labels    
     \node[below left] at (0,0) {$B$};
     \draw[<->] (5.3,0) -- (5.3,1.65) node[midway,right] {$y$};
     \draw[<->] (0,-0.6) -- (1.35,-0.6) node[midway,below] {$x$};
-    
-    % Parameter
+        % Parameter    
     \node at (3.5,3.5) {$y^2 = bx$};
     \node at (2.5,0.8) {$x^2 = y(h-y)$};
 \end{tikzpicture}
@@ -655,284 +644,267 @@ The construction proceeds as follows:
 \label{fig:khayyam1}
 \end{figure}
 
-%% ========================================================================
-\subsection{The Proof}
-\label{subsec:proof}
-%% ========================================================================
+\subsubsection{The Proof}
+\label{subsubsec:proof}
 
 By the property of the parabola:
 \[y^2 = bx \quad \Longrightarrow \quad \frac{x}{y} = \frac{y}{b}\]
-
 By the property of the circle (with diameter $h$):
 \[x^2 = y(h - y)\]
-
 From these:
 \[\frac{y}{b} = \frac{x}{y} = \frac{h - y}{x}\]
-
 Therefore $b : y = y : x = x : (h - y)$ are in continued proportion.
 
 From $b^2 : y^2 = b : (h - y)$ we get:
 \[b^2(h - y) = y^3\]
 \[b^2 h - b^2 y = y^3\]
 \[y^3 + b^2 y = b^2 h\]
-
 Substituting $c = b^2$ and $d = b^2 h$:
 \[\boxed{y^3 + cy = d}\]
 
 \clearpage
 %% ========================================================================
-\chapter{The Remaining Irreducible Cases}
-\label{ch:remaining}
+\section{The Remaining Irreducible Cases}
+\label{sec:remaining}
 %% ========================================================================
 
-%% ========================================================================
-\section{Summary of Conic Section Pairs for Each Case}
-\label{sec:summary}
-%% ========================================================================
+\subsection{Summary of Conic Section Pairs for Each Case}
+\label{subsec:summary}
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+يلخص الجدول التالي أزواج القطوع المخروطية المستخدمة لكل من الأصناف الأربعة عشر غير القابلة للاختزال، منظمةً حسب العائلات الهندسية الخمس للخيام.
+\end{Arabic}
+
+\switchcolumn
 
 The following table summarizes the pairs of conic sections used for each of the 14 irreducible cases, organized according to Khayyam's five geometric families:
+
+\end{paracol}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.4}
 \begin{longtable}{p{5.5cm}p{3.5cm}p{4cm}}
 \toprule
 \textbf{Equation} & \textbf{Conic Sections} & \textbf{Khayyam's Arabic Term} \\
-\midrule
-\endfirsthead
+\midrule\endfirsthead
 \toprule
 \textbf{Equation} & \textbf{Conic Sections} & \textbf{Khayyam's Arabic Term} \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-$x^3 + b^2 x = b^2 h$ & Circle + Parabola & \ar{دائرة ومكافئ} \\
-$x^3 + b^2 h = b^2 x$ & Parabola + Hyperbola & \ar{مكافئ وزائد} \\
-$x^3 = b^2 x + b^2 h$ & Parabola + Hyperbola & \ar{مكافئ وزائد} \\
-$x^3 + ax^2 = c^3$ & Circle + Hyperbola & \ar{دائرة وزائد} \\
-$x^3 + c^3 = ax^2$ & Circle + Hyperbola & \ar{دائرة وزائد} \\
-$x^3 = ax^2 + c^3$ & Circle + Hyperbola & \ar{دائرة وزائد} \\
-$x^3 + cx = ax^2 + d$ & Circle + Hyperbola & \ar{دائرة وزائد} \\
-$x^3 + ax^2 = cx + d$ & Hyperbola + Hyperbola & \ar{زائدان} \\
-$x^3 + d = ax^2 + cx$ & Circle + Hyperbola & \ar{دائرة وزائد} \\
-$x^3 = ax^2 + cx + d$ & Hyperbola + Hyperbola & \ar{زائدان} \\
+\midrule\endhead
+\bottomrule\endfoot
+$x^3 + b^2 x = b^2 h$ & Circle + Parabola & \textarabic{دائرة ومكافئ} \\
+$x^3 + b^2 h = b^2 x$ & Parabola + Hyperbola & \textarabic{مكافئ وزائد} \\
+$x^3 = b^2 x + b^2 h$ & Parabola + Hyperbola & \textarabic{مكافئ وزائد} \\
+$x^3 + ax^2 = c^3$ & Circle + Hyperbola & \textarabic{دائرة وزائد} \\
+$x^3 + c^3 = ax^2$ & Circle + Hyperbola & \textarabic{دائرة وزائد} \\
+$x^3 = ax^2 + c^3$ & Circle + Hyperbola & \textarabic{دائرة وزائد} \\
+$x^3 + cx = ax^2 + d$ & Circle + Hyperbola & \textarabic{دائرة وزائد} \\
+$x^3 + ax^2 = cx + d$ & Hyperbola + Hyperbola & \textarabic{زائدان} \\
+$x^3 + d = ax^2 + cx$ & Circle + Hyperbola & \textarabic{دائرة وزائد} \\
+$x^3 = ax^2 + cx + d$ & Hyperbola + Hyperbola & \textarabic{زائدان} \\
 \bottomrule
 \end{longtable}
 \end{center}
 
-\textit{Note:} \ar{مكافئ} = parabola (lit.\ ``equal'' or ``similar'', referring to the equality of abscissa and ordinate in the defining property); \ar{زائد} = hyperbola (lit.\ ``excess'', referring to the difference of squares in its defining property).
+\subsection{On the Existence and Multiplicity of Solutions}
+\label{subsec:existence}
 
-%% ========================================================================
-\section{On the Existence and Multiplicity of Solutions}
-\label{sec:existence}
-%% ========================================================================
+\begin{paracol}{2}
+
+\begin{Arabic}
+يناقش الخيام بعناية الظروف التي توجد فيها حلول. يلاحظ أن بعض المعادلات التكعيبية قد يكون لها:
+\end{Arabic}
+
+\switchcolumn
 
 Khayyam carefully discusses conditions under which solutions exist. He observes that some cubic equations may have:
+
+\end{paracol}
+
 \begin{itemize}[noitemsep]
-    \item No (positive real) solution
-    \item Exactly one positive solution
-    \item Two positive solutions
+\item No (positive real) solution
+\item Exactly one positive solution
+\item Two positive solutions
 \end{itemize}
 
-\begin{propositionbox}[On the Number of Solutions \ar{(في عدد الحلول)}]
+\begin{paracol}{2}
 
-\bilingualline{%
-واعلم أن بعض هذه الأصناف قد يكون له حل واحد، وبعضها قد يكون له حلان، وبعضها لا يمكن أن يوجد إلا بشرط.%
-}{%
-Know that some of these species may have one solution, some may have two solutions, and some cannot be found except under a condition.%
-}
+\begin{Arabic}
+واعلم أن بعض هذه الأصناف قد يكون له حل واحد، وبعضها قد يكون له حلان، وبعضها لا يمكن أن يوجد إلا بشرط. فإذا كان القطعان لا يلتقيان فلا حل للمسألة، وإذا كانا يلتقيان في نقطة واحدة فحل واحد، وإذا كانا يلتقيان في نقطتين فحلان.
+\end{Arabic}
 
-\vspace{0.3cm}
+\switchcolumn
 
-\bilingualline{%
-فإذا كان القطعان لا يلتقيان فلا حل للمسألة، وإذا كانا يلتقيان في نقطة واحدة فحل واحد، وإذا كانا يلتقيان في نقطتين فحلان.%
-}{%
-If the two conics do not intersect, there is no solution to the problem; if they intersect at one point, there is one solution; and if they intersect at two points, there are two solutions.\translatornote{Khayyam here anticipates the modern understanding that the number of real roots of a cubic corresponds to the number of intersection points of the two conics. He does not, however, have the concept of three real roots, as he restricts himself to positive solutions.}%
-}
+\textit{Know that some of these species may have one solution, some may have two solutions, and some cannot be found except under a condition. If the two conics do not intersect, there is no solution to the problem; if they intersect at one point, there is one solution; and if they intersect at two points, there are two solutions.}
 
-\end{propositionbox}
+\end{paracol}
 
-%% ========================================================================
-\section{Case: Cube Equals Squares, Roots, and Number}
-\label{sec:case25}
-%% ========================================================================
+\subsection{Case: Cube and Squares and Roots Equal a Number}
+\label{subsec:case25}
 
-The final case ($x^3 = b x^2 + c x + d$) is the most complex, requiring the intersection of two different hyperbolas:
+\begin{paracol}{2}
 
-\begin{propositionbox}[The Twenty-Fifth Species \ar{(الصنف الخامس والعشرون)}]
+\begin{Arabic}
+الحالة الأخيرة ($x^3 = b x^2 + c x + d$) هي الأكثر تعقيداً:
 
-\bilingualline{%
-وأما الصنف الخامس والعشرون: كعب يساوي أموالاً وجذوراً وأعداداً، فإنه يحتاج إلى قطعين زائدين مختلفين.%
-}{%
-As for the twenty-fifth species: cube equals squares, roots, and numbers, it requires two different hyperbolas.%
-}
+وأما الصنف الخامس والعشرون: كعب يساوي أموالاً وجذوراً وأعداداً، فإنه يحتاج إلى قطعين زائدين مختلفين. فنصنع قطعاً زائداً له أحد محوريه على امتداد الخط المعلوم، ونصنع قطعاً زائداً آخر له أحد محوريه على امتداد الخط الآخر، ونلقي من نقطة التقاطعما خطاً إلى الموضع المعلوم، فهو الجذر المطلوب.
+\end{Arabic}
 
-\vspace{0.3cm}
+\switchcolumn
 
-\bilingualline{%
-فنصنع قطعاً زائداً له أحد محوريه على امتداد الخط المعلوم، ونصنع قطعاً زائداً آخر له أحد محوريه على امتداد الخط الآخر، ونلقي من نقطة التقاطعما خطاً إلى الموضع المعلوم، فهو الجذر المطلوب.%
-}{%
-We make a hyperbola one of whose axes is on the extension of the known line, and we make another hyperbola one of whose axes is on the extension of the other line; and from their point of intersection we drop a line to the known position, and it is the required root.%
-}
+The final case ($x^3 = b x^2 + c x + d$) is the most complex:
 
-\end{propositionbox}
+\textit{As for the twenty-fifth species: cube equals squares, roots, and numbers, it requires two different hyperbolas. We make a hyperbola one of whose axes is on the extension of the known line, and we make another hyperbola one of whose axes is on the extension of the other line; and from their point of intersection we drop a line to the known position, and it is the required root.}
+
+\end{paracol}
 
 \clearpage
 %% ========================================================================
-\chapter{Sample Problems and Applications}
-\label{ch:problems}
+\section{Sample Problems and Applications}
+\label{sec:problems}
 %% ========================================================================
 
-%% ========================================================================
-\section{The Division of Ten into Two Parts}
-\label{sec:division-ten}
-%% ========================================================================
+\begin{paracol}{2}
 
-Khayyam illustrates his method with a problem leading to a cubic equation:
+\begin{Arabic}
+\section*{مسائل وتطبيقات نموذجية}
+\end{Arabic}
 
-\begin{propositionbox}[Problem \ar{(مسألة)}]
+\switchcolumn
 
-\bilingualline{%
-مسألة: قال قائل: قسّم عشرة إلى جزأين، بحيث يكون مجموع مربعي الجزأين مع خارج قسمة الكبير على الصغير اثنين وسبعين.%
-}{%
-A man said: Divide ten into two parts such that the sum of the squares of the two parts together with the quotient of the division of the greater by the smaller be seventy-two.%
-}
+\section*{Sample Problems and Applications}
 
+\end{paracol}
+
+\subsection{The Division of Ten into Two Parts}
+\label{subsec:division-ten}
+
+\begin{propositionbox}[Problem \textarabic{(مسألة)}]
+\begin{paracol}{2}
+
+\begin{Arabic}
+مسألة: قال قائل: قسّم عشرة إلى جزأين، بحيث يكون مجموع مربعي الجزأين مع خارج قسمة الكبير على الصغير اثنين وسبعين.
+\end{Arabic}
+
+\switchcolumn
+
+\textit{A man said: Divide ten into two parts such that the sum of the squares of the two parts together with the quotient of the division of the greater by the smaller be seventy-two.}
+
+\end{paracol}
 \end{propositionbox}
 
 \textit{Solution.} Let the greater part be $x$. Then the smaller is $10 - x$. The condition gives:
 \[x^2 + (10 - x)^2 + \frac{x}{10 - x} = 72\]
-
 Simplifying:
 \[2x^2 - 20x + 100 + \frac{x}{10 - x} = 72\]
-
 This leads to:
 \[x^3 + 200x = 20x^2 + 2000\]
-
 which is of the form $x^3 + cx = b x^2 + d$, solved by the intersection of a circle and a hyperbola.
 
-%% ========================================================================
-\section{On Doubling the Cube}
-\label{sec:delian}
-%% ========================================================================
+\subsection{On Doubling the Cube}
+\label{subsec:delian}
 
-Khayyam shows that the ancient Delian problem (doubling the cube) is equivalent to solving $x^3 = 2a^3$, which falls under his classification as ``cube equals number'':
+\begin{paracol}{2}
 
-\bilingualline{%
-ومن ذلك مضاعفة المكعب، وهي مسألة مشهورة بين القدماء. فإنها تؤول إلى أن كعباً يساوي عدداً، والعدد هو مضاعفة المكعب المعطى.%
-}{%
-And among these is the duplication of the cube, which is a well-known problem among the ancients. It reduces to a cube equaling a number, where the number is a multiple of the given cube.\translatornote{The problem of doubling the cube (the ``Delian problem'') was one of the three famous classical Greek problems. Khayyam shows it reduces to $x^3 = 2a^3$, which is his Type 9 (cube equals number).}%
-}
+\begin{Arabic}
+ومن ذلك مضاعفة المكعب، وهي مسألة مشهورة بين القدماء. فإنها تؤول إلى أن كعباً يساوي عدداً، والعدد هو مضاعفة المكعب المعطى.
+\end{Arabic}
+
+\switchcolumn
+
+\textit{And among these is the duplication of the cube, which is a well-known problem among the ancients. It reduces to a cube equaling a number, where the number is a multiple of the given cube.}
+
+\end{paracol}
+
+Khayyam shows that the ancient Delian problem (doubling the cube) is equivalent to solving $x^3 = 2a^3$, which falls under his classification as ``cube equals number.''
 
 \clearpage
 %% ========================================================================
-\chapter{Concluding Remarks}
-\label{ch:conclusion}
+\section{Concluding Remarks}
+\label{sec:conclusion}
 %% ========================================================================
+
+\begin{paracol}{2}
+
+\begin{Arabic}
+\section*{خاتمة}
+\end{Arabic}
+
+\switchcolumn
+
+\section*{Concluding Remarks}
+
+\switchcolumn*
+
+\begin{Arabic}
+يختم الخيام رسالته بتأملات في طبيعة الجبر وعلاقته بالهندسة:
+\end{Arabic}
+
+\switchcolumn
 
 Khayyam concludes his treatise with reflections on the nature of algebra and its relationship to geometry:
 
-\begin{propositionbox}[On the Relation of Algebra to Geometry \ar{(في علاقة الجبر بالهندسة)}]
+\end{paracol}
 
-\bilingualline{%
-وقد أتممنا ما أردنا من جمع أصناف المسائل الجبرية، ووضع البراهين عليها.%
-}{%
-We have completed what we intended of gathering the species of algebraic problems and setting down proofs for them.%
-}
+\begin{paracol}{2}
 
-\vspace{0.3cm}
+\begin{Arabic}
+وقد أتممنا ما أردنا من جمع أصناف المسائل الجبرية، ووضع البراهين عليها. ونحن نعلم أن بعض الناس يعتقدون أن الجبر بريء من البرهان الهندسي، ولكن هذا باطل. فإن الأصناف التي ذكرناها لا يمكن أن تُبرهن إلا بالقطوع المخروطية أو بغيرها من الأدلة الهندسية. والجبر والمقابلة إنما هما وسيلة لاستخراج المجهول، والبرهان على صحة ذلك إنما هو بالهندسة.
+\end{Arabic}
 
-\bilingualline{%
-ونحن نعلم أن بعض الناس يعتقدون أن الجبر بريء من البرهان الهندسي، ولكن هذا باطل.%
-}{%
-We know that some people believe that algebra is free from geometrical proof, but this is false.%
-}
+\switchcolumn
 
-\vspace{0.3cm}
+\textit{We have completed what we intended of gathering the species of algebraic problems and setting down proofs for them. We know that some people believe that algebra is free from geometrical proof, but this is false. For the species we have mentioned cannot be proved except by conic sections or by other geometrical arguments. Algebra and Almucabala are but a means of extracting the unknown, and the proof of its correctness is by geometry.}
 
-\bilingualline{%
-فإن الأصناف التي ذكرناها لا يمكن أن تُبرهن إلا بالقطوع المخروطية أو بغيرها من الأدلة الهندسية.%
-}{%
-For the species we have mentioned cannot be proved except by conic sections or by other geometrical arguments.%
-}
+\end{paracol}
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 
-\bilingualline{%
-والجبر والمقابلة إنما هما وسيلة لاستخراج المجهول، والبرهان على صحة ذلك إنما هو بالهندسة.%
-}{%
-Algebra and Almucabala are but a means of extracting the unknown, and the proof of its correctness is by geometry.\translatornote{This passage is one of the most celebrated in Khayyam's treatise. It reveals his deep understanding that algebraic manipulation alone is insufficient without geometric proof --- a view that would not be fully superseded until the development of symbolic algebra in the 16th--17th centuries.}%
-}
+\begin{paracol}{2}
 
-\end{propositionbox}
+\begin{Arabic}
+والله ولي التوفيق.
+\end{Arabic}
 
-\vspace{1cm}
+\switchcolumn
 
-\begin{center}
-\bilingualline{%
-والله ولي التوفيق.%
-}{%
-And God is the source of all success.%
-}
-\end{center}
+\textit{And God is the source of all success.}
+
+\end{paracol}
 
 \vspace{1cm}
 
 \begin{center}
 {\color{rulecolor}\rule{0.6\textwidth}{0.8pt}}
 
-\vspace{0.5cm}
-
 {\small\textit{End of the Treatise}}
 \end{center}
 
 \clearpage
 %% ========================================================================
-\chapter*{Editor's and Editorial Notes}
-\addcontentsline{toc}{chapter}{Editor's and Editorial Notes}
+\section*{Editor's Note}
+\addcontentsline{toc}{section}{Editor's Note}
 %% ========================================================================
 
 This bilingual edition is based primarily on the 13th-century Lahore manuscript (Smith Oriental MS 45, Columbia University Rare Book and Manuscript Library), with reference to the following sources:
 
 \begin{itemize}[noitemsep]
-    \item Woepcke, F. \textit{L'Alg\`{e}bre d'Omar Alkhayy\^{a}m\^{i}}. Paris: B. Duprat, 1851.
-    \item Kasir, D. S. \textit{The Algebra of Omar Khayyam}. New York: Teachers College, Columbia University, 1931.
-    \item Rashed, R. and Vahabzadeh, B. \textit{Omar Khayyam, the Mathematician}. New York: Bibliotheca Persica Press, 2000.
+\item Woepcke, F. \textit{L'Algèbre d'Omar Alkhayyâmî}. Paris, 1851.
+\item Kasir, D. S. \textit{The Algebra of Omar Khayyam}. New York: Teachers College Press, 1931.
+\item Rashed, R. and Vahabzadeh, B. \textit{Omar Khayyam, the Mathematician}. New York: Bibliotheca Persica Press, 2000.
 \end{itemize}
 
-\section*{Translation Methodology}
-
-The English translation follows the style of D. S. Kasir's 1931 edition, which remains the standard English version. Key translation choices:
-
-\begin{itemize}
-    \item \textbf{\ar{كعب} (kaʿb):} Rendered as ``cube'', following the literal meaning of the Arabic (a solid with six square faces, like a gaming die). Khayyam uses this for $x^3$.
-    
-    \item \textbf{\ar{مال} (māl):} Rendered as ``square''. The literal meaning is ``wealth'', ``property'', or ``possession''. In Arabic algebra, the square of an unknown was metaphorically termed ``possession'' because it represents the amount owned.
-    
-    \item \textbf{\ar{جذر} (jadhr):} Rendered as ``root''. The word literally means ``root'' (of a plant) or ``base'' or ``origin''. In Arabic algebra, $x$ is the root from which the square and cube grow.
-    
-    \item \textbf{\ar{زيادة} (ziyāda):} Rendered as ``augmentation'' or ``excess''. In Khayyam's geometric terminology, the hyperbola (\ar{زائد}) is named for the ``excess'' property in its defining proportion.
-    
-    \item \textbf{\ar{ناقص} (nāqiṣ):} Rendered as ``diminution'' or ``defect''. In quadratic equations, this term denotes the subtracted quantity.
-\end{itemize}
-
-\section*{On Khayyam's Geometric Algebra}
-
-Khayyam's treatise represents the culmination of the Greek-Arabic tradition of \textit{geometric algebra}. Unlike modern symbolic algebra, Khayyam's methods are fundamentally geometric: every algebraic quantity is represented as a geometric magnitude (line, surface, or solid), and every operation is justified by a geometric proof.
-
-The key insight of the treatise is that cubic equations of the form $x^3 + ax = b$ (and the other 13 irreducible types) \textit{cannot} be solved by ruler and compass alone. Khayyam proves that the intersection of conic sections is necessary and sufficient for their solution --- a result that would not be fully appreciated in Europe until the 17th century.
+The Arabic text has been normalized for readability while preserving the technical vocabulary and mathematical content of the original. Geometric constructions are rendered in modern notation while preserving the logical structure of Khayyam's proofs.
 
 \vspace{1cm}
 
 \begin{center}
 {\color{rulecolor}\rule{0.4\textwidth}{0.4pt}}
 
-\vspace{0.5cm}
-
-{\footnotesize\textit{Bilingual edition typeset in \LaTeX\ using XeLaTeX, polyglossia, and Noto Naskh Arabic}}
+{\footnotesize\textit{Typeset in \LaTeX\ using XeLaTeX, polyglossia, and Noto Naskh Arabic}}
 
 {\footnotesize\textit{Mathematical typesetting via amsmath and TikZ}}
-
-{\footnotesize\textit{Arabic text normalized for readability while preserving technical vocabulary}}
 \end{center}
 
 \end{document}

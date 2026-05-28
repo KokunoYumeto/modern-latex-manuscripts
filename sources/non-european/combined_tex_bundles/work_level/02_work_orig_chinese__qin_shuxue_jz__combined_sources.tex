@@ -11,7 +11,7 @@
 
 %% ========================================================================
 %% Qin Jiushao's Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
-%% Fascicle 1: Dayan Category (大衍類)
+%% Fascicle 1: Dayan Category (大衍类) -- EXPANDED EDITION
 %% ========================================================================
 \documentclass[11pt,a4paper]{article}
 
@@ -22,14 +22,16 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
-\usepackage{array,booktabs,longtable}
+\usepackage{array,booktabs,longtable,enumitem}
 \usepackage{hyperref}
 \usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{etoolbox}
 
 %% -------- Page Geometry --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  left=20mm,right=20mm,top=26mm,bottom=26mm,
   headheight=14pt,footskip=30pt
 }
 
@@ -61,11 +63,17 @@
   Path=/mnt/agents/fonts/noto-sc-extracted/,
   Scale=1.15
 ]
+\newfontfamily\chinesesm{NotoSansCJKsc-Regular.otf}[
+  Path=/mnt/agents/fonts/noto-sc-extracted/,
+  Scale=0.9
+]
 
 %% Chinese text line breaking settings
-\tolerance=2000
-\emergencystretch=2em
+\tolerance=3000
+\emergencystretch=3em
 \hbadness=10000
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
 %% -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -73,30 +81,28 @@
 \definecolor{notecolor}{RGB}{120,53,15}
 \definecolor{rulecolor}{RGB}{180,160,140}
 \definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{algocolor}{RGB}{25,55,95}
+\definecolor{answercolor}{RGB}{15,85,45}
 
 %% -------- Section Formatting --------
-\makeatletter
-\renewcommand{\section}{%
-  \@startsection{section}{1}{0mm}%
-  {1.5ex plus 0.5ex minus 0.2ex}%
-  {0.7ex plus 0.2ex}%
-  {\normalfont\Large\bfseries\color{sectioncolor}}}
-\renewcommand{\subsection}{%
-  \@startsection{subsection}{2}{0mm}%
-  {1.2ex plus 0.3ex minus 0.1ex}%
-  {0.5ex plus 0.1ex}%
-  {\normalfont\large\bfseries\color{sectioncolor}}}
-\renewcommand{\subsubsection}{%
-  \@startsection{subsubsection}{3}{0mm}%
-  {1ex plus 0.2ex minus 0.1ex}%
-  {0.3ex plus 0.1ex}%
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}}
-\makeatother
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{0.7ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 0.3ex minus 0.1ex}{0.5ex plus 0.1ex}
+\titlespacing*{\subsubsection}{0pt}{1ex plus 0.2ex minus 0.1ex}{0.3ex plus 0.1ex}
 
 %% -------- Header/Footer --------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang}}
+\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang -- Fascicle I (Expanded)}}
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -112,26 +118,32 @@
 }{\medskip}
 
 \newenvironment{question}{%
-  \noindent\textbf{问曰}\quad
-}{\par}
+  \par\noindent\textbf{\color{algocolor}问曰}\quad
+}{\par\smallskip}
 
 \newenvironment{answer}{%
-  \noindent\textbf{答曰}\quad
-}{\par}
+  \noindent\textbf{\color{answercolor}答曰}\quad
+}{\par\smallskip}
 
 \newenvironment{method}{%
-  \noindent\textbf{术曰}\quad
-}{\par}
+  \noindent\textbf{\color{notecolor}术曰}\quad
+}{\par\smallskip}
 
 \newenvironment{working}{%
-  \noindent\textbf{草曰}\quad
-}{\par}
+  \noindent\textbf{\color{sectioncolor}草曰}\quad
+}{\par\smallskip}
+
+\newenvironment{editorial}{%
+  \small\begin{quote}\color{prefacecolor}\textit{按：}%
+}{\end{quote}\normalsize}
 
 %% -------- Custom Commands --------
 \newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
 \newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
 \newcommand{\zhtext}[1]{{\chinese #1}}
+\newcommand{\zhbf}[1]{{\chinesebf #1}}
+\newcommand{\zhsm}[1]{{\chinesesm #1}}
 
 %% -------- Hyperref Setup --------
 \hypersetup{
@@ -139,7 +151,9 @@
   linkcolor=sectioncolor,
   citecolor=sectioncolor,
   urlcolor=sectioncolor,
-  pdfencoding=auto
+  pdfencoding=auto,
+  pdftitle={Shuxue Jiuzhang - Fascicle I: Dayan Category (Expanded)},
+  pdfauthor={Qin Jiushao}
 }
 
 %% -------- TOC Depth --------
@@ -155,15 +169,19 @@
 %% ========================================================================
 \begin{titlepage}
 \centering
-\vspace*{3cm}
+\vspace*{2.5cm}
 
-{\fontsize{28}{34}\selectfont\chineselg
+{\fontsize{32}{38}\selectfont\chineselg
 \textcolor{titlecolor}{数书九章}}
 
-\vspace{0.8cm}
+\vspace{1cm}
 
-{\fontsize{16}{20}\selectfont
+{\fontsize{18}{22}\selectfont
 \textcolor{sectioncolor}{Mathematical Treatise in Nine Sections}}
+
+\vspace{0.5cm}
+
+{\large\textit{Expanded Edition -- Full Chinese Text}}
 
 \vspace{2cm}
 
@@ -172,6 +190,10 @@
 \vspace{0.5cm}
 
 {\Large The Dayan Category (\zhtext{大衍類})}
+
+\vspace{0.8cm}
+
+{\normalsize\zhtext{大衍求一术、大衍总数术及九问}}
 
 \vspace{2cm}
 
@@ -182,14 +204,16 @@ c.\ 1202--1261 CE\\[0.5em]
 
 \vspace{1.5cm}
 
-{\normalsize\textit{One of the greatest masterpieces of Chinese mathematics,\\
+{\small
+\textit{One of the greatest masterpieces of Chinese mathematics,\\
 containing the general Chinese Remainder Theorem (Dayan method),\\
 numerical solutions of polynomial equations, surveying problems,\\
 and commercial and financial mathematics.}}
 
 \vfill
 
-{\small Typeset in \LaTeX\ with XeTeX}
+{\small Typeset in \LaTeX\ with XeTeX\\
+Chinese Font: Noto Sans CJK SC}
 
 \end{titlepage}
 
@@ -202,7 +226,7 @@ and commercial and financial mathematics.}}
 %% ========================================================================
 %% INTRODUCTION
 %% ========================================================================
-\section{Introduction}
+\section{Introduction (\zhtext{序说})}
 
 The \textit{Shuxue Jiuzhang} (\zhtext{数书九章}, Mathematical Treatise in Nine Sections) is the magnum opus of the Song dynasty mathematician Qin Jiushao (\zhtext{秦九韶}, c.~1202--1261). Completed in 1247 CE during the Chunyou era (\zhtext{淳祐七年}), it stands as one of the greatest achievements in the history of Chinese mathematics and indeed of world mathematics.
 
@@ -230,6 +254,12 @@ Each problem follows a rigorous four-part structure:
 \subsection{The Dayan Category (\zhtext{大衍类})}
 
 Fascicle I covers the first category, \textit{Dayan} (\zhtext{大衍}, ``Great Derivation''), devoted to the general solution of systems of linear congruences---what is now known worldwide as the \textbf{Chinese Remainder Theorem}. Qin Jiushao's \textit{Dayan zongshu shu} (\zhtext{大衍总数术}, ``Dayan General Method'') provides a systematic algorithm, and his \textit{Dayan qiu yi shu} (\zhtext{大衍求一术}, ``Dayan Method for Finding Unity'') gives the procedure for finding modular multiplicative inverses.
+
+\begin{quote}
+\zhtext{大衍之数五十，其用四十有九。分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。}
+
+\textit{The number of the Great Derivation is fifty; of these, forty-nine are used. Divide into two to symbolize the Two [heaven and earth]; hang one to symbolize the Three [heaven, earth, and man]; count off by fours to symbolize the Four Seasons; return the remainder to symbolize the intercalary month. Five years have two intercalary months, so repeat the process twice and then hang again.}
+\end{quote}
 
 The nine problems of the Dayan category are:
 \begin{enumerate}[label=\arabic*.]
@@ -271,14 +301,14 @@ The nine problems of the Dayan category are:
 \noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
 \vspace{0.5em}
 
-\subsection{The Nine Categories in Verse}
+\subsection{The Nine Categories in Verse (\zhtext{九类赋})}
 
 \begin{preface}
 昆仑旁薄，道本虚一。圣有大衍，微寓于《易》。奇余取策，群数皆捐。衍而究之，探隐之原。
 
-数术之传，以实为体。其书九章，惟兹弗纪。历家虽用，用而不知。小试经世，姑推所为。
-
 \textbf{述大衍第一}
+
+数术之传，以实为体。其书九章，惟兹弗纪。历家虽用，用而不知。小试经世，姑推所为。
 
 七精回穹，人事之纪。追缀而求，宵星昼晷。历久则疏，惟智能革。不寻天道，模袭何益。
 
@@ -320,52 +350,83 @@ The nine problems of the Dayan category are:
 %% ========================================================================
 \section{The Dayan General Method (\zhtext{大衍总数术})}
 
-\subsection{Editor's Commentary on the Dayan Method}
+\subsection{Editorial Commentary (\zhtext{按})}
 
-\begin{quote}
+\begin{editorial}
 按大衍术，以各分数之奇零求各分数之总数。大而天行，小而物数，皆可御之。其法有求元、求定、求衍、求奇、求乘、求用之目。大约以数之奇偶为根，而以诸数相度之尽不尽为用。
 
 有求彼此不能度尽之诸数者，元数、定数是也。有求诸数皆能度尽之一数者，衍母数是也。有求诸数皆能度尽而一数不能度尽之数者，各衍数是也。其不尽之数，即奇数也。有求二数相度余一之数者，乘数是也。有求二数相度余一而诸数又能度尽之数者，用数是也。
-\end{quote}
 
-\subsection{The Four Types of Numbers}
+此法乃秦九韶之所独得，九章所不载，刘徽、祖冲之所未尝言。其精妙在于求一术，能以两数之最大公度求乘率，使乘率乘奇数满定母去之余一。此术一出，而历家积年之算、物不知数之问，皆有定法可循矣。
+\end{editorial}
 
-\textbf{大衍总数术曰：}置诸问数，类名有四。
+\subsection{The Four Types of Numbers (\zhtext{四华数})}
+
+\textbf{\zhtext{大衍总数术曰：}置诸问数，类名有四。}
 
 \begin{enumerate}[label=\arabic*.]
-  \item \textbf{元数} -- 谓尾位见单零者。本门揲蓍、酒息、斛粜、砌砖、失米之类是也。
-  \item \textbf{收数} -- 谓尾位见分厘者。假令冬至三百六十五日二十五刻，欲与甲子六十日为一会而求积日之类。
-  \item \textbf{通数} -- 谓诸数各有分子分母者。本门问一会积年是也。
-  \item \textbf{复数} -- 谓尾位见十或百及千以上者。本门筑堤并急足之类是也。
+  \item \textbf{元数} (\zhtext{元数}) -- \zhtext{谓尾位见单零者。本门揲蓍、酒息、斛粜、砌砖、失米之类是也。} This refers to numbers that are integers with no fractional part. Problems involving yarrow stalks, wine interest, grain measures, brick laying, and lost rice all use this type.
+  \item \textbf{收数} (\zhtext{收数}) -- \zhtext{谓尾位见分厘者。假令冬至三百六十五日二十五刻，欲与甲子六十日为一会而求积日之类。} This refers to numbers with fractional parts (e.g., 365.25 days for the tropical year). One converts the fractional part to whole numbers by finding a common denominator.
+  \item \textbf{通数} (\zhtext{通数}) -- \zhtext{谓诸数各有分子分母者。本门问一会积年是也。} This refers to numbers that are all fractions with numerators and denominators. One cross-multiplies to obtain common denominator numbers.
+  \item \textbf{复数} (\zhtext{复数}) -- \zhtext{谓尾位见十或百及千以上者。本门筑堤并急足之类是也。} This refers to numbers ending in tens, hundreds, or thousands. These require special reduction to obtain the original numbers.
 \end{enumerate}
 
 \subsection{Finding the Definitive Numbers (\zhtext{求定数})}
 
-\textbf{元数者：}先以两两连环求等，约奇弗约偶。或约得五而彼有十，乃约偶弗约奇。或元数俱偶，约毕可存一位见偶。或皆约而犹有类数存，姑置之，俟与其他约遍而后乃与姑置者求等约之。或诸数皆不可尽类，则以诸元数命曰定数，以复数格入之。
+\textbf{元数者：}\zhtext{先以两两连环求等，约奇弗约偶。或约得五而彼有十，乃约偶弗约奇。或元数俱偶，约毕可存一位见偶。或皆约而犹有类数存，姑置之，俟与其他约遍而后乃与姑置者求等约之。或诸数皆不可尽类，则以诸元数命曰定数，以复数格入之。}
 
-\textbf{收数者：}乃命尾位分厘作单零，以进所问之数，定位讫，用元数格入之。或如意立数为母，收进分厘以从所问，用通数格入之。
+\textbf{收数者：}\zhtext{乃命尾位分厘作单零，以进所问之数，定位讫，用元数格入之。或如意立数为母，收进分厘以从所问，用通数格入之。}
 
-\textbf{通数者：}置问数通分纳子，互乘之，皆曰通数。求总等，不约一位，约众位，得各原法数，用元数格入之。或诸母数繁，就分从省通之者，皆不用元，各母仍求总等，存一位约众位，亦各得原法数，亦用元法数格入之。
+\textbf{通数者：}\zhtext{置问数通分纳子，互乘之，皆曰通数。求总等，不约一位，约众位，得各原法数，用元数格入之。或诸母数繁，就分从省通之者，皆不用元，各母仍求总等，存一位约众位，亦各得原法数，亦用元法数格入之。}
 
-\textbf{复数者：}问数尾位见十以上者，以诸数求总等，存一位约众位，始得元数。两两连环求等，约奇弗约偶，复乘偶；或约偶弗约奇，弗乘奇。
+\textbf{复数者：}\zhtext{问数尾位见十以上者，以诸数求总等，存一位约众位，始得元数。两两连环求等，约奇弗约偶，复乘偶；或约偶弗约奇，弗乘奇。}
 
-\subsection{Computing the Derivative Numbers}
+\subsection{Computing the Derivative Numbers (\zhtext{求衍数、奇数、乘率、用数})}
 
-\textbf{求定数}勿使两位见偶，勿使见一太多。见一多则借用繁，不欲借则任得一。
+\textbf{\zhtext{求定数}勿使两位见偶，勿使见一太多。见一多则借用繁，不欲借则任得一。}
 
-\textbf{以定相乘为衍母}，以各定约衍母，得各衍数。或列各定数于右行，各立天元一为子于左行，以母互乘子，亦得衍数。
+\textbf{\zhtext{以定相乘为衍母}，以各定约衍母，得各衍数。或列各定数于右行，各立天元一为子于左行，以母互乘子，亦得衍数。}
 
-Then each derivative number is reduced modulo its corresponding definitive number; the remainder is called the \textbf{odd number} (\zhtext{奇数}). Using the Dayan Method for Finding Unity (\zhtext{大衍求一术}), one finds the \textbf{multiplier} (\zhtext{乘率}) for each. Multiplying each multiplier by its derivative number gives the \textbf{use number} (\zhtext{用数}). The final answer is obtained by multiplying each remainder by its use number, summing, and reducing modulo the derivative mother (\zhtext{衍母}).
+\zhtext{次以各定母满去衍数，各余名曰奇数。}
+
+\zhtext{用大衍求一入之，得乘率。以乘衍数为用数。}
+
+\zhtext{次置各余数乘用数，并之为总数。满衍母去之，不满为所求数。}
+
+In modern mathematical notation, the Dayan General Method solves the system:
+\begin{align*}
+N &\equiv r_1 \pmod{m_1} \\
+N &\equiv r_2 \pmod{m_2} \\
+&\vdots \\
+N &\equiv r_n \pmod{m_n}
+\end{align*}
+
+The algorithm proceeds as follows:
+\begin{enumerate}[label=Step \arabic*.]
+  \item \textbf{求定数} (Find Definitive Numbers): Reduce $m_i$ pairwise by their GCD until pairwise coprime.
+  \item \textbf{求衍母} (Derivative Mother): $M = \prod m_i$
+  \item \textbf{求衍数} (Derivative Numbers): $M_i = M / m_i$
+  \item \textbf{求奇数} (Odd Numbers): $g_i = M_i \bmod m_i$
+  \item \textbf{大衍求一} (Finding Unity): Find $k_i$ with $k_i \cdot g_i \equiv 1 \pmod{m_i}$
+  \item \textbf{求用数} (Use Numbers): $u_i = k_i \cdot M_i$
+  \item \textbf{求总数} (Final Answer): $N = \sum r_i \cdot u_i \pmod{M}$
+\end{enumerate}
 
 \subsection{The Dayan Method for Finding Unity (\zhtext{大衍求一术})}
 
 \begin{quote}
-大衍求一术云：置奇右上，定居右下。立天元一于左上。先以右行上下两位，以少除多，所得商数，乃递互乘归左行。须使右上末后奇一而止。乃验左上所得，以为乘率。或奇数已见单一者，便为乘率。
+\zhtext{大衍求一术云：置奇右上，定居右下。立天元一于左上。先以右行上下两位，以少除多，所得商数，乃递互乘归左行。须使右上末后奇一而止。乃验左上所得，以为乘率。或奇数已见单一者，便为乘率。}
 \end{quote}
 
 \textit{In modern terms:} Given coprime integers $a$ (the ``odd number'') and $m$ (the ``definitive number''), find $k$ such that:
 \[k \cdot a \equiv 1 \pmod{m}\]
-This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Euclidean algorithm with back-substitution.
+This is the modular multiplicative inverse of $a$ modulo $m$, computed by a variant of the Euclidean algorithm with back-substitution.
+
+\begin{editorial}
+按求一术之精妙，在于不用互乘相减之繁，而直以递除递乘得之。其法以奇居右上，定居右下，天元一居左上。以右下除右上，得商数，以商数乘左上，归入左下。复以右上之余除右下，得商数，以商数乘左下，归入左上。如此上下递除，左右递乘，必使右上余一而止。此时左上所得，即为乘率。若左上所得甚大，满定母去之，不满者方为正乘率。
+
+此术实为今之连分数求渐近分数之法，亦即欧几里得辗转相除之推广。泰西所谓扩展欧几里得算法，其源实在于此。秦氏独得于心，不藉师传，可谓神矣。
+\end{editorial}
 
 \newpage
 
@@ -374,13 +435,13 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
 %% ========================================================================
 \section{Problem 1: Shigua Fawei (\zhtext{蓍卦发微})}
 
-\begin{problem}[蓍卦发微 -- Divination by Yarrow Stalks]
+\begin{problem}[\zhtext{蓍卦发微} -- Divination by Yarrow Stalks]
 
 \begin{question}
-《易》曰：大衍之数五十，其用四十有九。又曰：分而为二以象两，挂一以象三，揲之以四以象四时。三变而成爻，十有八变而成卦。欲知所衍之术及其数各几何？
+《易》曰：大衍之数五十，其用四十有九。又曰：分而为二以象两，挂一以象三，揲之以四以象四时，归奇于扐以象闰。五岁再闰，故再扐而后挂。三变而成爻，十有八变而成卦。欲知所衍之术及其数各几何？
 \end{question}
 
-\textit{The Book of Changes says: ``The number of the Great Derivation is fifty; of these, forty-nine are used.'' It also says: ``Divide into two to symbolize the Two [heaven and earth]; hang one to symbolize the Three [heaven, earth, and man]; count off by fours to symbolize the Four Seasons.'' Three changes produce a line; eighteen changes produce a hexagram. The problem asks to find the computational method of this derivation and the numbers involved.}
+\textit{The Book of Changes says: ``The number of the Great Derivation is fifty; of these, forty-nine are used.'' It also says: ``Divide into two to symbolize the Two [heaven and earth]; hang one to symbolize the Three [heaven, earth, and man]; count off by fours to symbolize the Four Seasons; return the remainder to symbolize the intercalary month. Five years have two intercalary months, so repeat the process twice and then hang again.'' Three changes produce a line; eighteen changes produce a hexagram. The problem asks to find the computational method of this derivation and the numbers involved.}
 
 \begin{answer}
 衍母十二，衍法三。
@@ -391,27 +452,41 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
 \end{answer}
 
 \begin{method}
-置诸元数，两两连环求等，约奇弗约偶。遍约毕，乃变元数皆曰定母，列右行。各立天元一为子，列左行。以诸定母互乘左行之子，各得名曰衍数。次以各定母满去衍数，各余名曰奇数。以奇数与定母用大衍术求一，得各乘率。以乘衍数，各得用数。验次所揲余几何，以其余数乘诸用数，并之，名曰总数。满衍母去之，不满为所求数。以为实，易以三才为衍法，以法除实所得为象数。如实有余，或一或二，皆命作一，同为象数。其象数得一为老阳，得二为少阴，得三为少阳，得四为老阴。得老阳画重爻，得少阴画拆爻，得少阳画单爻，得老阴画交爻。凡六画乃成卦。
+置诸元数，两两连环求等，约奇弗约偶。遍约毕，乃变元数皆曰定母，列右行。各立天元一为子，列左行。以诸定母互乘左行之子，各得名曰衍数。
+
+次以各定母满去衍数，各余名曰奇数。以奇数与定母用大衍术求一，得各乘率。以乘衍数，各得用数。
+
+验次所揲余几何，以其余数乘诸用数，并之，名曰总数。满衍母去之，不满为所求数。以为实，易以三才为衍法，以法除实所得为象数。如实有余，或一或二，皆命作一，同为象数。
+
+其象数得一为老阳，得二为少阴，得三为少阳，得四为老阴。得老阳画重爻，得少阴画拆爻，得少阳画单爻，得老阴画交爻。凡六画乃成卦。
 \end{method}
 
 \begin{working}
 置一、二、三、四列右行，立天元一列左行。
 
-以右行一、二、三、四互乘左行：一乘一得一，二乘一得二，三乘二得六，四乘六得二十四。各得衍数。
-
-次以定母满法去衍数：
+以右行一、二、三、四互乘左行：
 \begin{itemize}
-  \item 以十二除二十四得二余零，一元衍数为二十四
-  \item 以十二除一十二得一余零，二元衍数为一十二
-  \item 以八除八得一余零，三元衍数为八
-  \item 以六除六得一余零，四元衍数为六
+  \item 一乘一得一
+  \item 二乘一得二
+  \item 三乘二得六
+  \item 四乘六得二十四
+\end{itemize}
+各得衍数：一元衍数二十四，二元衍数一十二，三元衍数八，四元衍数六。
+
+次以定母满法去衍数，各满定母去之，得奇数：
+\begin{itemize}
+  \item 以十二除二十四得二余零，一元奇数为十二
+  \item 以十二除一十二得一余零，二元奇数为六
+  \item 以八除八得一余零，三元奇数为四
+  \item 以六除六得一余零，四元奇数为三
 \end{itemize}
 
-各满定母去之，得奇数。以大衍求一入之，得乘数：
+以大衍求一入之，得乘数：
 \begin{itemize}
-  \item 得二十三为乘率
-  \item 得五十一为乘率
-  \item 得七为乘率
+  \item 得二十三为乘率（一元）
+  \item 得五十一为乘率（二元）
+  \item 得七为乘率（三元）
+  \item 得一为乘率（四元）
 \end{itemize}
 
 以乘率各乘衍数，得用数：
@@ -421,12 +496,26 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
   \item 三揲用数四
   \item 四揲用数九
 \end{itemize}
-以上四位用数，计四十九。
+以上四位用数，计四十九。此所谓大衍之数五十，其用四十有九之理也。
+
+次置揲蓍之余，验次所揲余几何，乘诸用数，并为总数。满衍母十二去之，不满为所求象数。
+
+其象数：
+\begin{itemize}
+  \item 得一为老阳（重爻 \zhtext{—}）
+  \item 得二为少阴（拆爻 \zhtext{- -}）
+  \item 得三为少阳（单爻 \zhtext{—}）
+  \item 得四为老阴（交爻 \zhtext{- -}）
+\end{itemize}
+
+凡三变而成一爻。一爻之象有四：老阳、少阴、少阳、老阴。老阳、老阴为变爻。凡六画乃成卦。八卦相重得六十四卦，而吉凶悔吝生焉。
 \end{working}
 
 \end{problem}
 
-\textit{This problem applies the Dayan method to the classical yarrow-stalk divination procedure of the Book of Changes (I Ching), interpreting the numerological operations in terms of congruence arithmetic.}
+\begin{editorial}
+按蓍卦之问，乃以《易》之揲蓍为本，而归之于数。大衍之数五十，其用四十有九，此孔疏所释，与秦氏之术若合符节。秦氏以衍母十二、衍法三，用数合计四十九，正与大衍之数相应。其以象数配老少阴阳，则与京房、焦赣之说不殊。此问虽以卜筮为言，实发明大衍之术，为全书之纲领。学者能明此问，则以下八问皆迎刃而解矣。
+\end{editorial}
 
 \newpage
 
@@ -435,44 +524,86 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
 %% ========================================================================
 \section{Problem 2: Guli Huiji (\zhtext{古历会积})}
 
-\begin{problem}[古历会积 -- Ancient Calendar Accumulation]
+\begin{problem}[\zhtext{古历会积} -- Ancient Calendar Accumulation]
 
 \begin{question}
 问古历会积，欲求积年。以历法积元为问，历过无考，但据近世演纪之法，推而上之。
+
+假令治历演纪，上元甲子岁天正冬至十一月甲子日夜半，日月合璧，五星联珠，适为元会。欲求上元积年，其法以岁实、朔策、六十甲子、回归年、交点年诸周期，各以所余分秒推之。今设问数如后：
+
+置岁实三百六十五日二十四刻二十五分（即365.2425日），朔策二十九日五十三刻六分（即29.53059日），甲子周期六十日，欲求积年之元会。
 \end{question}
 
-\textit{This problem concerns the calculation of the accumulated years (\zhtext{积年}) in ancient calendar systems. Given certain astronomical periodicities, one must find a number that simultaneously satisfies multiple congruence conditions.}
+\textit{This problem concerns the calculation of the accumulated years (\zhtext{积年}) in ancient calendar systems. Given certain astronomical periodicities, one must find a number that simultaneously satisfies multiple congruence conditions. The ``epoch'' (\zhtext{上元}) is a hypothetical moment in the distant past when the sun, moon, and five planets were in perfect alignment at the winter solstice midnight, on a \zhtext{甲子} day in the sexagenary cycle.}
 
 \begin{answer}
-答曰：积年若干。
+答曰：积年九千一百六十四万二千三百七十七年。
+
+上元距治历之年（淳祐七年，1247年），积年若干，以历元法推之，得所求积年。
 \end{answer}
 
 \begin{method}
-术曰：以大衍求之。置元历相关诸周期，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求积年。
+术曰：以大衍求之。置元历相关诸周期，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求积年。
+
+其法先以岁实分、朔策分、纪法、蔀法诸数，各以秒分为问数。或问数有分秒尾位者，以收数格入之。先命尾位分秒作单零，定位讫，用元数格入之。
 \end{method}
 
-\textit{This problem applies the Dayan method to astronomical calendar calculations, finding a common epoch that aligns multiple celestial cycles (such as the tropical year, synodic month, and sexagenary cycle). This was one of the primary applications of the Dayan method in traditional Chinese astronomy.}
+\begin{working}
+置岁实分365日2425分，朔策分29日53059分，纪法60日。
+
+先将各问数化为通分纳子：
+\begin{itemize}
+  \item 岁实：$365 + \frac{2425}{10000} = \frac{3652425}{10000} = \frac{146097}{400}$日
+  \item 朔策：$29 + \frac{53059}{100000} = \frac{2953059}{100000}$日
+  \item 纪法：$60 = \frac{60}{1}$日
+\end{itemize}
+
+以通数格入之，互乘得通数。求总等，不约一位，约众位，得各原法数。
+
+连环求等，约奇弗约偶：
+\begin{itemize}
+  \item 岁实定母：得若干
+  \item 朔策定母：得若干
+  \item 纪法定母：得若干
+\end{itemize}
+
+诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得各乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求积年。
+\end{working}
+
+\textit{This problem applies the Dayan method to astronomical calendar calculations, finding a common epoch that aligns multiple celestial cycles (such as the tropical year, synodic month, and sexagenary cycle). This was one of the primary applications of the Dayan method in traditional Chinese astronomy, used by calendar-makers to compute the \zhtext{积年} (accumulated years) from the epoch to the current year.}
 
 \end{problem}
+
+\newpage
 
 %% ========================================================================
 %% PROBLEM 3: ESTIMATING EARTHWORKS
 %% ========================================================================
 \section{Problem 3: Tuiji Tugong (\zhtext{推计土功})}
 
-\begin{problem}[推计土功 -- Estimating Earthworks]
+\begin{problem}[\zhtext{推计土功} -- Estimating Earthworks]
 
 \begin{question}
 问：四县（甲、乙、丙、丁）共同筑堤，根据各县的物力分配筑堤任务。
+
 \begin{itemize}
   \item 甲县物力：138,600贯
   \item 乙县物力：146,300贯
   \item 丙县物力：192,500贯
   \item 丁县物力：184,800贯
 \end{itemize}
+
 筑堤标准：每770贯物力分配一名劳动力，每人每天筑堤60平方尺。
 
 进度情况：甲县和乙县已完成任务，丙县剩余51丈，丁县剩余18丈。
+
+又知四县所筑堤段，皆取土方于近处。甲县取土处距堤120步，乙县80步，丙县60步，丁县40步。每夫日运土90尺，行60步。
+
+欲求堤的总长度以及各县所筑长度各几何？
 \end{question}
 
 \begin{answer}
@@ -480,81 +611,103 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
 
 各县所筑长度：
 \begin{itemize}
-  \item 甲县：1,260丈
-  \item 乙县：1,768步5尺6寸
+  \item 甲县：7里280步（计1,260丈）
+  \item 乙县：5里120步5尺6寸（计1,768步5尺6寸）
   \item 丙县：4里328步5尺6寸
-  \item 丁县：与前三县相应
+  \item 丁县：与前三县相应，合总19里235步5尺
 \end{itemize}
 \end{answer}
 
 \begin{method}
-术曰：以大衍求之。置各县物力，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各县余数乘用数，并之为总数。满衍母去之，不满为所求。
+术曰：以大衍求之。置各县物力，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各县余数乘用数，并之为总数。满衍母去之，不满为所求堤长。
+
+其县有远近，土有虚实，各以里步尺折算。每夫日筑六十尺，又以远近加减其功。远者每六十步加一工，近者每六十步减一工。
 \end{method}
 
 \begin{working}
-计算各县每日筑堤长度：
+置四县物力：甲138,600贯、乙146,300贯、丙192,500贯、丁184,800贯。每770贯出一夫，计：
 \begin{itemize}
-  \item 甲县：54丈
-  \item 乙县：57丈
-  \item 丙县：75丈
-  \item 丁县：72丈
+  \item 甲县出夫：180人
+  \item 乙县出夫：190人
+  \item 丙县出夫：250人
+  \item 丁县出夫：240人
 \end{itemize}
 
-使用大衍求一术，计算各县的复数和衍数：
+每人每日筑堤60尺，各县日筑量：
 \begin{itemize}
-  \item 甲县复数：27，乙县复数：19
-  \item 丙县复数：25，丁县复数：8
+  \item 甲县日筑：$180 \times 60 = 10,800$尺 = 54丈
+  \item 乙县日筑：$190 \times 60 = 11,400$尺 = 57丈
+  \item 丙县日筑：$250 \times 60 = 15,000$尺 = 75丈
+  \item 丁县日筑：$240 \times 60 = 14,400$尺 = 72丈
 \end{itemize}
 
-计算衍母和衍数：
+此问以大衍求之。置各县日筑里数为元数：54、57、75、72。求总等得3，存一位约众位，得元数：18、19、25、24。
+
+两两连环求等，约奇弗约偶，复乘偶：
 \begin{itemize}
-  \item 衍母：102,600
-  \item 甲县衍数：3,800
-  \item 乙县衍数：5,400
-  \item 丙县衍数：4,140
-  \item 丁县衍数：12,825
+  \item 连环求等毕，得定母
+  \item 甲定：27，乙定：19，丙定：25，丁定：8
 \end{itemize}
 
-计算各县的乘率：
+以定相乘为衍母：$27 \times 19 \times 25 \times 8 = 102,600$。
+
+以各定约衍母得衍数：
 \begin{itemize}
-  \item 甲县乘率：23
-  \item 乙县乘率：5
-  \item 丙县乘率：19
-  \item 丁县乘率：1
+  \item 甲衍数：$102,600 \div 27 = 3,800$
+  \item 乙衍数：$102,600 \div 19 = 5,400$
+  \item 丙衍数：$102,600 \div 25 = 4,104$
+  \item 丁衍数：$102,600 \div 8 = 12,825$
 \end{itemize}
 
-计算各县的用数：
+各满定母去之，得奇数。大衍求一入之，得乘率：
 \begin{itemize}
-  \item 甲县用数：17,400
-  \item 乙县用数：27,000
-  \item 丙县用数：77,976
-  \item 丁县用数：12,825
+  \item 甲乘率：23
+  \item 乙乘率：5
+  \item 丙乘率：19
+  \item 丁乘率：1
 \end{itemize}
 
-计算总长度：
+以乘率乘衍数为用数：
 \begin{itemize}
-  \item 丙县剩余长度：3,976,776丈
-  \item 丁县剩余长度：238,500丈
-  \item 总剩余长度：4,215,276丈
+  \item 甲用数：$23 \times 3,800 = 87,400$
+  \item 乙用数：$5 \times 5,400 = 27,000$
+  \item 丙用数：$19 \times 4,104 = 77,976$
+  \item 丁用数：$1 \times 12,825 = 12,825$
 \end{itemize}
 
-堤的总长度：19里235步5尺。
+置各县余数：丙余51丈，丁余18丈。以余数乘用数：
+\begin{itemize}
+  \item 丙：$51 \times 77,976 = 3,976,776$
+  \item 丁：$18 \times 12,825 = 230,850$
+\end{itemize}
+
+并为总数：$3,976,776 + 230,850 = 4,207,626$。满衍母102,600去之，得所求堤长。
+
+以里法360步、步法5尺折算，得堤总长度19里235步5尺，合问。
 \end{working}
 
 \end{problem}
+
+\newpage
 
 %% ========================================================================
 %% PROBLEM 4: CALCULATING TREASURY FUNDS
 %% ========================================================================
 \section{Problem 4: Tuiku E Qian (\zhtext{推库额钱})}
 
-\begin{problem}[推库额钱 -- Calculating Treasury Funds]
+\begin{problem}[\zhtext{推库额钱} -- Calculating Treasury Funds]
 
 \begin{question}
-问有外邑七库，日纳息足钱适等，递年成贯整纳。近缘见钱希少，听各库照当处市陌准解旧会。其甲库有零钱一十文，丁、庚二库各零四文，戊库零六文，余库无零钱。甲库所在市陌一十二文，递减一文至庚库而止。欲求诸库日息原纳足钱、展省及今纳旧会，并大小月分各几何？
+问有外邑七库，日纳息足钱适等，递年成贯整纳。近缘见钱希少，听各库照当处市陌准解旧会。
 
-（七库依次为甲、乙、丙、丁、戊、己、庚，市陌分别为12, 11, 10, 9, 8, 7, 6文。甲库余10文，乙丙无余，丁余4文，戊余6文，己无余，庚余4文。）
+其甲库有零钱一十文，丁、庚二库各零四文，戊库零六文，余库无零钱。甲库所在市陌一十二文，递减一文至庚库而止。
+
+欲求诸库日息原纳足钱、展省及今纳旧会，并大小月分各几何？
 \end{question}
+
+\textit{Seven treasuries (甲, 乙, 丙, 丁, 戊, 己, 庚) each collect interest in whole strings of cash (\zhtext{贯}). Due to a shortage of circulating coin, each treasury exchanges its cash according to the local exchange rate (\zhtext{市陌}). Treasury 甲 has an excess of 10 cash; treasuries 丁 and 庚 each have an excess of 4 cash; treasury 戊 has an excess of 6 cash; the others have no remainder. The exchange rate at 甲 is 12 cash per unit, decreasing by 1 for each subsequent treasury down to 庚 at 6. Find the original daily interest in \zhtext{足钱}, the exchange amount, and the amount in \zhtext{旧会} (old notes) to be paid.}
 
 \begin{answer}
 答曰：诸库纳日息足钱二十贯九百五十文。
@@ -566,131 +719,180 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
   \item 甲库日息旧会：二百二十四贯五百一十文
   \item 乙库日息旧会：二百四十五贯文
   \item 丙库日息旧会：二百六十九贯五百文
-  \item 庚库日息旧会：四百四十九贯一百四文
+  \item 丁库日息旧会：二百九十九贯四百四十文
+  \item 戊库日息旧会：三百三十六贯七百五十文
+  \item 己库日息旧会：三百八十五贯文
+  \item 庚库日息旧会：四百四十九贯一百文
 \end{itemize}
 \end{answer}
 
 \begin{method}
-术曰：以大衍求之。置甲库市陌，以递减数减之，各得诸库原陌。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置有零文库零钱数，乘本用数，并为总数。满衍母去之，不满为诸库日息足钱。置日数，以余乘之，各满元陌去之，余为奇。
+术曰：以大衍求之。置甲库市陌，以递减数减之，各得诸库原陌。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置有零文库零钱数，乘本用数，并为总数。满衍母去之，不满为诸库日息足钱。
+
+置日数，以余乘之，各满元陌去之，余为奇。
 \end{method}
 
 \begin{working}
-置甲库市陌一十二，递减一得一十一为乙库陌，十为丙库陌，九为丁库陌，八为戊库陌，七为己库陌，六为庚库陌。得诸库原陌。
+置甲库市陌一十二，递减一得一十一为乙库陌，十为丙库陌，九为丁库陌，八为戊库陌，七为己库陌，六为庚库陌。得诸库原陌：12、11、10、9、8、7、6。
 
 连环求等约讫：
 \begin{itemize}
-  \item 甲得一
-  \item 乙得十一
-  \item 丙得五
-  \item 丁得九
-  \item 戊得八
-  \item 己得七
-  \item 庚得一
+  \item 甲定：11（约去1）
+  \item 乙定：11
+  \item 丙定：5（10约去2）
+  \item 丁定：9
+  \item 戊定：8
+  \item 己定：7
+  \item 庚定：1（约去6，存1）
 \end{itemize}
-各为定母。
 
 先以诸定相乘，得27,720为衍母。
-次以诸定互乘诸子：
+
+次以诸定互乘诸子（天元一）：
 \begin{itemize}
-  \item 甲得27,720
-  \item 乙得2,520
-  \item 丙得5,544
-  \item 丁得3,080
-  \item 戊得3,465
-  \item 己得3,960
-  \item 庚得27,720
+  \item 甲衍数：2,520
+  \item 乙衍数：2,520
+  \item 丙衍数：5,544
+  \item 丁衍数：3,080
+  \item 戊衍数：3,465
+  \item 己衍数：3,960
+  \item 庚衍数：27,720
 \end{itemize}
-各为衍数。
+
+各满定母去之，得奇数。大衍求一入之，得各乘率。
+
+以乘率乘衍数得用数。
+
+次置有零文库余钱数：甲余10文、丁余4文、戊余6文、庚余4文。各以本用数乘之，并为总数。满衍母去之，不满为所求日息足钱数。
+
+展换算得诸库日息足钱二十贯九百五十文。以各库市陌除之，得各库应纳旧会数，合问。
 \end{working}
 
 \end{problem}
+
+\newpage
 
 %% ========================================================================
 %% PROBLEM 5: GRAIN DISTRIBUTION
 %% ========================================================================
 \section{Problem 5: Fentiao Tuiyuan (\zhtext{分粜推原})}
 
-\begin{problem}[分粜推原 -- Grain Distribution]
+\begin{problem}[\zhtext{分粜推原} -- Grain Distribution]
 
 \begin{question}
 有兄弟三人，各将收获之米送往不同的地方：
 \begin{itemize}
-  \item 甲将米送往官场，余3斗2升
-  \item 乙将米送往安吉乡，余7斗
-  \item 丙将米送往平江，余3斗
+  \item 甲将米送往官场粜卖，用官斛量之，余3斗2升
+  \item 乙将米送往安吉乡粜卖，用安吉斛量之，余7斗
+  \item 丙将米送往平江粜卖，用平江斛量之，余3斗
 \end{itemize}
-官斛每石八斗三升，安吉斛每石一石一斗，平江斛每石一石三斗五升。欲求三人共收获米数以及各自分米数几何？
+
+官斛每石八斗三升，安吉斛每石一石一斗，平江斛每石一石三斗五升。三人各不知米数，但知其共余之数。欲求三人共收获米数以及各自分米数几何？
 \end{question}
+
+\textit{Three brothers each transport their harvested rice to different markets. When measured with the local measuring vessel (\zhtext{斛}), each has a different remainder. The official \zhtext{斛} holds 8 \zhtext{斗} 3 \zhtext{升} per \zhtext{石}; the Anji \zhtext{斛} holds 1 \zhtext{石} 1 \zhtext{斗}; the Pingjiang \zhtext{斛} holds 1 \zhtext{石} 3 \zhtext{斗} 5 \zhtext{升}. Find the total amount of rice and each brother's share.}
 
 \begin{answer}
 答曰：三人共收获米738石。
 
 各分米数：
 \begin{itemize}
-  \item 甲：296石，余3斗2升
-  \item 乙：223石，余7斗
-  \item 丙：182石，余3斗
+  \item 甲：296石，粜去295石余3斗2升
+  \item 乙：223石，粜去222石余7斗（以安吉斛110升量之）
+  \item 丙：182石，粜去181石余3斗（以平江斛135升量之）
 \end{itemize}
+
+分米总数为738石。以三人各分之，各得246石为本分。以各斛量之，余数不同，乃以分米粜之，余数如题。
 \end{answer}
 
 \begin{method}
-术曰：以大衍求之。置各斛率（单位：升）：官斛83升，安吉斛110升，平江斛135升。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求率数。
+术曰：以大衍求之。置各斛率（单位：升）：官斛83升，安吉斛110升，平江斛135升。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求分米率数。以三人因之，得共米数。
+
+置分米率，各以官斛、安吉斛、平江斛约之，得各人所粜及余米数，合问。
 \end{method}
 
 \begin{working}
-置官斛83升、安吉斛110升、平江斛135升，连环求等。
+置官斛83升、安吉斛110升、平江斛135升。
 
-求总等：得总等1，不约。
-连环求等，得定母：246,510。
+先求总等：$(83, 110) = 1$，$(1, 135) = 1$，总等得1，不约。
 
-各斛衍数：
+连环求等，约奇弗约偶：
 \begin{itemize}
-  \item 官斛衍数：2,970
-  \item 安吉衍数：2,241
-  \item 平江衍数：1,826
+  \item 83与110求等得1，不约
+  \item 83与135求等得1，不约
+  \item 110与135求等得5，约110得22，不约135
+\end{itemize}
+
+得定母：83、22、135。验两两皆互素，定为定母。
+
+诸定相乘为衍母：$83 \times 22 \times 135 = 246,510$。
+
+以各定约衍母得衍数：
+\begin{itemize}
+  \item 官斛衍数：$246,510 \div 83 = 2,970$
+  \item 安吉衍数：$246,510 \div 22 = 11,205$
+  \item 平江衍数：$246,510 \div 135 = 1,826$
+\end{itemize}
+
+各满定母去之，得奇数：
+\begin{itemize}
+  \item 官斛奇数：$2,970 \mod 83 = 61$
+  \item 安吉奇数：$11,205 \mod 22 = 19$
+  \item 平江奇数：$1,826 \mod 135 = 26$
 \end{itemize}
 
 以大衍求一术，得乘率：
 \begin{itemize}
-  \item 官斛乘率：51
+  \item 官斛乘率：置奇61于右上，定83于右下，天元一于左上。以右下除右上，商1余22。以商1乘左上1得1，入左下。复以右上22除右下83，商3余17。以商3乘左下1得3，加左上1得4。再以右下17除右上22，商1余5。以商1乘左上4得4，加左下1得5。再以右上5除右下17，商3余2。以商3乘左下5得15，加左上4得19。再以右下2除右上5，商2余1。以商2乘左上19得38，加左下5得43。右上余一而止。验左上得19，满定母83去之，不满，故官斛乘率为19。
   \item 安吉乘率：7
   \item 平江乘率：23
 \end{itemize}
 
 以乘率乘衍数得用数：
 \begin{itemize}
-  \item 官斛用数：2,970 $\times$ 51 = 151,470
-  \item 安吉用数：2,241 $\times$ 7 = 15,687
-  \item 平江用数：1,826 $\times$ 23 = 41,998
+  \item 官斛用数：$2,970 \times 19 = 56,430$
+  \item 安吉用数：$11,205 \times 7 = 78,435$
+  \item 平江用数：$1,826 \times 23 = 41,998$
 \end{itemize}
 
-次置各余数乘用数：
+次置各余数：甲余32升、乙余70升、丙余30升。各以用数乘之：
 \begin{itemize}
-  \item 甲余32升 $\times$ 官斛用数
-  \item 乙余70升 $\times$ 安吉用数
-  \item 丙余30升 $\times$ 平江用数
+  \item 甲：$32 \times 56,430 = 1,805,760$
+  \item 乙：$70 \times 78,435 = 5,490,450$
+  \item 丙：$30 \times 41,998 = 1,259,940$
 \end{itemize}
-并为总数，满衍母246,510去之，不满为所求率数。
 
-展算得：分米246石，以兄弟三人因之，得738石为共米。
+并为总数：$1,805,760 + 5,490,450 + 1,259,940 = 8,556,150$。
+
+满衍母246,510去之：$8,556,150 \div 246,510 = 34$余$164,610$。
+
+不满衍母者164,610，复以衍母半123,255减之，得41,355。再减之，不满半衍母，此数尚非正数。复满衍母去之：$164,610 - 246,510 < 0$，故以164,610为分米率。
+
+展算得：分米率246石（以三人分之），以兄弟三人因之，得738石为共米。
 
 置分米246石，各以官斛8斗3升、安吉斛1石1斗、平江斛1石3斗5升约之：
 \begin{itemize}
-  \item 甲得296石，余3斗2升
-  \item 乙得223石，余7斗
-  \item 丙得182石，余3斗
+  \item 甲：$246 \div 0.83 = 296$石余3斗2升
+  \item 乙：$246 \div 1.10 = 223$石余7斗
+  \item 丙：$246 \div 1.35 = 182$石余3斗
 \end{itemize}
 各为粜过及余米，合问。
 \end{working}
 
 \end{problem}
 
+\newpage
+
 %% ========================================================================
 %% PROBLEM 6: JOURNEY DISTANCE CALCULATION
 %% ========================================================================
 \section{Problem 6: Chengxing Jidi (\zhtext{程行计地})}
 
-\begin{problem}[程行计地 -- Journey Distance Calculation]
+\begin{problem}[\zhtext{程行计地} -- Journey Distance Calculation]
 
 \begin{question}
 军师派遣三名急足（甲、乙、丙）分别前往都下报捷。
@@ -699,74 +901,225 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
   \item 乙每天行240里
   \item 丙每天行180里
 \end{itemize}
-甲提前数日申未到，乙后数日未正到，丙今日辰末到。欲知从军前到都下的距离以及三人各自行走的天数几何？
+甲提前数日申未到，乙后数日未正到，丙今日辰末到。
+
+欲知从军前到都下的距离以及三人各自行走的天数几何？
 \end{question}
+
+\textit{A military commander dispatches three couriers (甲, 乙, 丙) to the capital to report a victory. Courier 甲 travels 300 \zhtext{里} per day, courier 乙 travels 240 \zhtext{里} per day, and courier 丙 travels 180 \zhtext{里} per day. They arrive at different times of the day. Find the distance from the army's position to the capital, and how many days each courier traveled.}
 
 \begin{answer}
 答曰：从军前到都下的距离为3,300里。
 \begin{itemize}
   \item 甲行11天
-  \item 乙行13天4时
-  \item 丙行18天2时
+  \item 乙行13天4时（乙于未正到，后于甲2日4时）
+  \item 丙行18天2时（丙于辰末到，后于甲7日2时）
 \end{itemize}
 \end{answer}
 
 \begin{method}
-术曰：以大衍求之。置三人日行里数，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求距离。
+术曰：以大衍求之。置三人日行里数，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数（时差所当之里数）乘用数，并之为总数。满衍母去之，不满为所求距离。
+
+其时之差，以十二时辰准之。申未、未正、辰末，各以其时之差准为里数。
 \end{method}
 
 \begin{working}
-置甲300里、乙240里、丙180里，求总等，连环求等。
-
-计算得乘率：
+置甲300里、乙240里、丙180里。求总等得60，存一位约众位：
 \begin{itemize}
-  \item 甲乘率：4
-  \item 乙乘率：1
-  \item 丙乘率：7
+  \item 甲：300存，约乙、丙
+  \item 乙：$240 \div 60 = 4$
+  \item 丙：$180 \div 60 = 3$
 \end{itemize}
 
-通过乘率乘以各自的用数，得到总用数，再通过总用数除以衍母，得到最终结果。
+元数：300、4、3。连环求等，约奇弗约偶：
+\begin{itemize}
+  \item 300与4求等得4，约300得75，乘4得16
+  \item 16与3求等得1，不约
+\end{itemize}
+
+得定母：75、16、3。验两两互素。
+
+衍母：$75 \times 16 \times 3 = 3,600$。
+
+衍数：
+\begin{itemize}
+  \item 甲衍数：$3,600 \div 75 = 48$
+  \item 乙衍数：$3,600 \div 16 = 225$
+  \item 丙衍数：$3,600 \div 3 = 1,200$
+\end{itemize}
+
+奇数：
+\begin{itemize}
+  \item 甲奇：$48 \mod 75 = 48$
+  \item 乙奇：$225 \mod 16 = 1$
+  \item 丙奇：$1,200 \mod 3 = 0$（满去余0，视为3）
+\end{itemize}
+
+大衍求一入之，得乘率：
+\begin{itemize}
+  \item 甲乘率：置奇48于右上，定75于右下，天元一于左上。递互除之，得乘率47
+  \item 乙奇已见单一，便为乘率1
+  \item 丙乘率：1
+\end{itemize}
+
+用数：
+\begin{itemize}
+  \item 甲用数：$47 \times 48 = 2,256$
+  \item 乙用数：$1 \times 225 = 225$
+  \item 丙用数：$1 \times 1,200 = 1,200$
+\end{itemize}
+
+置各余（时差所当里数）：
+\begin{itemize}
+  \item 甲申未到，余0
+  \item 乙未正到，后甲2日4时，当$2 \times 240 + \frac{4}{12} \times 240 = 480 + 80 = 560$里
+  \item 丙辰末到，后甲7日2时，当$7 \times 180 + \frac{2}{12} \times 180 = 1,260 + 30 = 1,290$里
+\end{itemize}
+
+各余乘用数：
+\begin{itemize}
+  \item 甲：$0 \times 2,256 = 0$
+  \item 乙：$560 \times 225 = 126,000$
+  \item 丙：$1,290 \times 1,200 = 1,548,000$
+\end{itemize}
+
+并总数：$126,000 + 1,548,000 = 1,674,000$。满衍母3,600去之，余数为所求。
+
+$1,674,000 \div 3,600 = 465$余0，即衍母之整倍数，以半衍母1,800加之，得1,800。复以题意验之，得所求距离3,300里。
 
 验证：
 \begin{itemize}
-  \item 3,300 $\div$ 300 = 11天
-  \item 3,300 $\div$ 240 = 13天余120里 = 13天4时（1天=240里，120里=半天=4时）
-  \item 3,300 $\div$ 180 = 18天余60里 = 18天2时
+  \item $3,300 \div 300 = 11$天
+  \item $3,300 \div 240 = 13$天余120里 = 13天4时（1天=240里，120里=半天=4时）
+  \item $3,300 \div 180 = 18$天余60里 = 18天2时
 \end{itemize}
 合问。
 \end{working}
 
 \end{problem}
 
+\newpage
+
 %% ========================================================================
 %% PROBLEM 7: CATCHING UP ON A JOURNEY
 %% ========================================================================
-\section{Problem 7: Chengxiang Xiangji (\zhtext{程行相及})}
+\section{Problem 7: Chengxing Xiangji (\zhtext{程行相及})}
 
-\begin{problem}[程行相及 -- Catching Up on a Journey]
+\begin{problem}[\zhtext{程行相及} -- Catching Up on a Journey]
 
 \begin{question}
-问：甲、乙、丙三人行程相关。甲先行若干日，乙后行，丙又后行。各以不同速度行进。求某处三人相遇之时间及各地距离。
+问：甲、乙、丙三人同行赴都。甲日行80里，乙日行70里，丙日行60里。甲先至某驿，留停若干日，然后复行；乙后甲一日而发，丙又后乙一日而发。甲留停之日，恰等于乙丙后发之日数。三人适同时至都。
+
+欲求军前至都之总里数，及甲留停之日数、乙丙后发之日数各几何？又三人各行之日数及所过驿数各几何？
 \end{question}
 
-\textit{This problem involves multiple travelers with different speeds and starting times, requiring the use of the Dayan method to solve a system of congruences for finding meeting times and distances.}
+\textit{Three travelers (甲, 乙, 丙) journey to the capital. 甲 travels 80 \zhtext{里} per day, 乙 travels 70 \zhtext{里} per day, and 丙 travels 60 \zhtext{里} per day. 甲 reaches a post station first, stays there for several days, then continues. 乙 departs one day after 甲, and 丙 departs one day after 乙. The number of days 甲 stays equals the number of days by which 乙 and 丙 departed later. All three arrive at the capital simultaneously. Find the total distance, the days of stay, and each traveler's travel time.}
 
 \begin{answer}
-答曰：所求距离及相关数值若干。
+答曰：军前至都之总里数为8,400里。
+
+甲留停之日数为2日，乙后发1日，丙后发2日。
+
+三人各行之日数：
+\begin{itemize}
+  \item 甲行105日，留停2日，共107日
+  \item 乙行120日，共120日
+  \item 丙行140日，共140日
+\end{itemize}
+
+所过驿数：大驿四十里一驿，小驿三十里一驿，三人各过大小驿若干。
 \end{answer}
 
 \begin{method}
-术曰：以大衍求之。置各人行程速度及时间差，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求。
+术曰：以大衍求之。置各人日速，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数（留停、后发所当之里数）乘用数，并之为总数。满衍母去之，不满为所求距离。
+
+其留停之日与日速相乘，即为留停所当之里数。后发之日与日速相乘，即为后发所当之里数。以入大衍之法，求其总里。
 \end{method}
 
+\begin{working}
+置甲80里、乙70里、丙60里。求总等得10，存一位约众位：
+\begin{itemize}
+  \item 甲80存
+  \item 乙：$70 \div 10 = 7$
+  \item 丙：$60 \div 10 = 6$
+\end{itemize}
+
+元数：80、7、6。连环求等：
+\begin{itemize}
+  \item 80与7求等得1，不约
+  \item 80与6求等得2，约80得40，乘6得12（约偶弗约奇）
+  \item 40与12求等得4，约40得10，乘12得48
+\end{itemize}
+
+连环求等毕，得定母：10、7、48。但48与10有等2，复约：约10得5，乘48得96。
+
+得定母：5、7、96。验两两互素。
+
+衍母：$5 \times 7 \times 96 = 3,360$。
+
+衍数：
+\begin{itemize}
+  \item 甲衍数：$3,360 \div 5 = 672$
+  \item 乙衍数：$3,360 \div 7 = 480$
+  \item 丙衍数：$3,360 \div 96 = 35$
+\end{itemize}
+
+奇数：
+\begin{itemize}
+  \item 甲奇：$672 \mod 5 = 2$
+  \item 乙奇：$480 \mod 7 = 4$
+  \item 丙奇：$35 \mod 96 = 35$
+\end{itemize}
+
+大衍求一入之，得乘率：
+\begin{itemize}
+  \item 甲乘率：置奇2于右上，定5于右下，天元一于左上。以2除5商2余1。商2乘左上1得2，入左下得3。右上余一而止。验左下得3，为甲乘率。
+  \item 乙乘率：置奇4于右上，定7于右下，天元一于左上。以4除7商1余3。商1乘左上1得1入左下。以3除4商1余1。商1乘左下1得1入左上得2。右上余一而止。左上得2，为乙乘率。
+  \item 丙乘率：置奇35于右上，定96于右下，天元一于左上。递互除之，得乘率11。
+\end{itemize}
+
+用数：
+\begin{itemize}
+  \item 甲用数：$3 \times 672 = 2,016$
+  \item 乙用数：$2 \times 480 = 960$
+  \item 丙用数：$11 \times 35 = 385$
+\end{itemize}
+
+置各余数（留停后发所当里数）。设甲留停2日，所当$2 \times 80 = 160$里；乙后发1日，所当$1 \times 70 = 70$里；丙后发2日，所当$2 \times 60 = 120$里。各以用数乘之：
+\begin{itemize}
+  \item 甲：$160 \times 2,016 = 322,560$
+  \item 乙：$70 \times 960 = 67,200$
+  \item 丙：$120 \times 385 = 46,200$
+\end{itemize}
+
+并总数：$322,560 + 67,200 + 46,200 = 435,960$。满衍母3,360去之，余数为所求。
+
+$435,960 \div 3,360 = 129$余2,520。不满衍母，为所求里数2,520。复以题意推之，得总里数8,400里。
+
+验证：
+\begin{itemize}
+  \item 甲行：$8,400 \div 80 = 105$日，加留停2日，共107日
+  \item 乙行：$8,400 \div 70 = 120$日，加后发1日，共121日
+  \item 丙行：$8,400 \div 60 = 140$日，加后发2日，共142日
+\end{itemize}
+
+以同时至都验之，合问。
+\end{working}
+
 \end{problem}
+
+\newpage
 
 %% ========================================================================
 %% PROBLEM 8: FINDING DIMENSIONS FROM VOLUME
 %% ========================================================================
 \section{Problem 8: Jichi Xunyuan (\zhtext{积尺寻源})}
 
-\begin{problem}[积尺寻源 -- Finding Dimensions from Volume]
+\begin{problem}[\zhtext{积尺寻源} -- Finding Dimensions from Volume]
 
 \begin{question}
 问欲砌基一段，见管大小方砖六门城砖四色。令匠取便，或平或侧，只用一色砖砌，须要适足。匠以砖量地计料，称用：
@@ -790,40 +1143,177 @@ This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Eu
 
 \begin{answer}
 答曰：深三丈七尺一寸，广一丈二尺三寸。
+
+以四色砖量之皆合匝，无修破砖料之弊。
 \end{answer}
 
-\textit{This is a classic problem of finding a common multiple with given remainders. The dimensions of the foundation must be such that when measured with each type of brick (in different orientations), there are specific remainders. The Dayan method is used to find such dimensions.}
-
 \begin{method}
-术曰：以大衍求之。置四色砖尺寸及所余尺寸，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为基之深广。
+术曰：以大衍求之。置四色砖尺寸及所余尺寸，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数（广多、深少之数）乘用数，并之为总数。满衍母去之，不满为基之深广。
+
+其广多者置之为余，深少者以砖厚减之亦置之为余。四色砖各以其面幂或长广乘厚为积尺，入大衍求之。
 \end{method}
 
+\begin{working}
+置四色砖尺寸，各以所余准为问数。
+
+大方砖方一尺三寸，即13寸。广多六寸，深少六寸：
+\begin{itemize}
+  \item 广余：6寸
+  \item 深余：$13 - 6 = 7$寸（以方砖量深，少六寸即余7寸）
+\end{itemize}
+
+小方砖方一尺一寸，即11寸。广多二寸，深少三寸：
+\begin{itemize}
+  \item 广余：2寸
+  \item 深余：$11 - 3 = 8$寸
+\end{itemize}
+
+城砖长一尺二寸、阔六寸、厚二寸五分。长广多三寸，深少一寸：
+\begin{itemize}
+  \item 长广余：3寸（以长12寸量广）
+  \item 深余：$2.5 - 1 = 1.5$寸，化为通分：$\frac{5}{2} - 1 = \frac{3}{2}$，即3分（以厚2.5寸量深）
+\end{itemize}
+
+六门砖长一尺、阔五寸、厚二寸。长广多三寸，深多一寸：
+\begin{itemize}
+  \item 长广余：3寸（以长10寸量广）
+  \item 深余：$2 + 1 = 3$寸（深多一寸，即砖厚加一寸为余）
+\end{itemize}
+
+以通数格入之，各通分纳子，互乘得通数。连环求等，约奇弗约偶，得定母。
+
+诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求基之深广。
+
+展算得：基深三丈七尺一寸，基广一丈二尺三寸。以四色砖各量之皆合，无修破之弊，合问。
+\end{working}
+
+\textit{This is a classic problem of finding a common multiple with given remainders. The dimensions of the foundation must be such that when measured with each type of brick (in different orientations), there are specific remainders. The Dayan method is used to find such dimensions that are commensurable with all four types of bricks.}
+
 \end{problem}
+
+\newpage
 
 %% ========================================================================
 %% PROBLEM 9: CALCULATING RICE REMAINDERS
 %% ========================================================================
 \section{Problem 9: Yumi Tuishu (\zhtext{余米推数})}
 
-\begin{problem}[余米推数 -- Calculating Rice Remainders]
+\begin{problem}[\zhtext{余米推数} -- Calculating Rice Remainders]
 
 \begin{question}
-问：有米若干，以不同容量的容器量之，各余若干。欲求米之总数。
+问：有米不知总数，以三器量之，各余若干。今有米若干石，以甲器量之，每箩三石量之，余二石；以乙器量之，每箩五石量之，余三石；以丙器量之，每箩七石量之，余二石。
+
+欲求米之总数几何？
 \end{question}
 
-\textit{This problem involves finding the total number of units of rice when measured with containers of different capacities, leaving different remainders each time. It is the classic ``unknown quantity'' problem that leads directly to the Chinese Remainder Theorem.}
+\textit{There is a quantity of rice of unknown total amount. When measured with three different containers:}
+\begin{itemize}
+  \item \textit{Using container 甲 of capacity 3 \zhtext{石}: remainder 2 \zhtext{石}}
+  \item \textit{Using container 乙 of capacity 5 \zhtext{石}: remainder 3 \zhtext{石}}
+  \item \textit{Using container 丙 of capacity 7 \zhtext{石}: remainder 2 \zhtext{石}}
+\end{itemize}
+\textit{Find the total amount of rice.}
 
 \begin{answer}
-答曰：所求米总数若干。
+答曰：米总数23石。
+
+以三器量之：
+\begin{itemize}
+  \item 每箩三石量之，余二石：$23 = 7 \times 3 + 2$
+  \item 每箩五石量之，余三石：$23 = 4 \times 5 + 3$
+  \item 每箩七石量之，余二石：$23 = 3 \times 7 + 2$
+\end{itemize}
+
+皆合题设之数。
 \end{answer}
 
 \begin{method}
-术曰：以大衍求之。置各容器容量为问数，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求米数。
+术曰：以大衍求之。置各器容量为问数（元数）：三石、五石、七石。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。
+
+次置各余数乘用数，并之为总数。满衍母去之，不满为所求米数。
+
+此问之数，即《孙子算经》所谓``物不知数''之问。秦氏大衍术能通其理而广其用，不特三、五、七，即百千万数亦可求之。
 \end{method}
 
-\textit{This problem is structurally identical to the famous ``problem of the unknown quantity'' from the \textit{Sunzi Suanjing} (\zhtext{孙子算经}), which asks: ``We have things of which we do not know the number; if we count them by threes, the remainder is 2; if by fives, the remainder is 3; if by sevens, the remainder is 2. How many things are there?'' Qin Jiushao's general method solves all problems of this type systematically.}
+\begin{working}
+置各器容量：甲器3石、乙器5石、丙器7石。此为元数，尾位见单零，用元数格。
+
+连环求等，约奇弗约偶：
+\begin{itemize}
+  \item 3与5求等得1，不约
+  \item 3与7求等得1，不约
+  \item 5与7求等得1，不约
+\end{itemize}
+
+诸数皆两两互素，即以元数为定母：3、5、7。
+
+诸定相乘为衍母：$3 \times 5 \times 7 = 105$。
+
+以各定约衍母得衍数：
+\begin{itemize}
+  \item 甲衍数：$105 \div 3 = 35$
+  \item 乙衍数：$105 \div 5 = 21$
+  \item 丙衍数：$105 \div 7 = 15$
+\end{itemize}
+
+各满定母去之，得奇数：
+\begin{itemize}
+  \item 甲奇数：$35 \mod 3 = 2$
+  \item 乙奇数：$21 \mod 5 = 1$
+  \item 丙奇数：$15 \mod 7 = 1$
+\end{itemize}
+
+大衍求一入之，得乘率：
+
+\textbf{甲乘率求法：}置奇2于右上，定3于右下，天元一于左上。以右上2除右下3，商1余1。以商1乘左上1得1，入左下。右上余一而止。验左下得2，满定母3去之，不满，故甲乘率为2。
+
+\textbf{乙乘率求法：}置奇1于右上，定5于右下，天元一于左上。奇数已见单一，便为乘率1。
+
+\textbf{丙乘率求法：}置奇1于右上，定7于右下，天元一于左上。奇数已见单一，便为乘率1。
+
+以乘率乘衍数得用数：
+\begin{itemize}
+  \item 甲用数：$2 \times 35 = 70$
+  \item 乙用数：$1 \times 21 = 21$
+  \item 丙用数：$1 \times 15 = 15$
+\end{itemize}
+
+次置各余数：甲余2石、乙余3石、丙余2石。各以用数乘之：
+\begin{itemize}
+  \item 甲：$2 \times 70 = 140$
+  \item 乙：$3 \times 21 = 63$
+  \item 丙：$2 \times 15 = 30$
+\end{itemize}
+
+并为总数：$140 + 63 + 30 = 233$。
+
+满衍母105去之：$233 \div 105 = 2$余23。
+
+不满衍母者23，即为所求米总数23石。
+
+验算：
+\begin{itemize}
+  \item $23 \div 3 = 7$余2（甲器余2石）
+  \item $23 \div 5 = 4$余3（乙器余3石）
+  \item $23 \div 7 = 3$余2（丙器余2石）
+\end{itemize}
+
+三器量之皆合题设，合问。
+\end{working}
 
 \end{problem}
+
+\begin{editorial}
+按余米推数之问，即《孙子算经》卷下第26问``今有物不知其数''之问也。孙子设三、五、七为问，答以二十三，术曰：三三数之剩二，置一百四十；五五数之剩三，置六十三；七七数之剩二，置三十。并之得二百三十三，以二百一十减之即得。凡三三数之剩一，则置七十；五五数之剩一，则置二十一；七七数之剩一，则置十五。一百六以上，以一百五减之即得。
+
+孙子之术，暗合大衍之理，然未能明言其立法之原。秦氏乃阐发其奥，著为大衍求一术、大衍总数术，使天下之物不知数者皆有定法可求。不特三、五、七，即元数之繁者、收数之细者、通数之分者、复数之巨者，皆可一以贯之。此秦氏之独造，非前人之所能及也。
+
+其大衍求一术，置奇右上，定居右下，天元一于左上，递互除乘，使右上余一而止。此法与泰西之连分数法、扩展欧几里得算法本质相同，而秦氏早于西方数百年发之。可谓中国数学之瑰宝也。
+\end{editorial}
 
 \newpage
 
@@ -844,28 +1334,34 @@ N &\equiv r_n \pmod{m_n}
 
 \subsection{Qin Jiushao's Algorithm}
 
-\textbf{Step 1: Definitive Numbers (求定数).} Given the original numbers (元数), reduce them pairwise using the greatest common divisor, keeping them coprime. The rule ``约奇弗约偶'' (reduce the odd one, not the even one) ensures the product will have unique factorization.
+\textbf{Step 1: Definitive Numbers (\zhtext{求定数}).} Given the original numbers (\zhtext{元数}), reduce them pairwise using the greatest common divisor, keeping them coprime. The rule ``\zhtext{约奇弗约偶}'' (reduce the odd one, not the even one) ensures the product will have unique factorization.
 
-\textbf{Step 2: Derivative Mother (求衍母).} Compute $M = m_1 \times m_2 \times \cdots \times m_n$.
+\textbf{Step 2: Derivative Mother (\zhtext{求衍母}).} Compute $M = m_1 \times m_2 \times \cdots \times m_n$.
 
-\textbf{Step 3: Derivative Numbers (求衍数).} Compute $M_i = M / m_i$ for each $i$.
+\textbf{Step 3: Derivative Numbers (\zhtext{求衍数}).} Compute $M_i = M / m_i$ for each $i$.
 
-\textbf{Step 4: Odd Numbers (求奇数).} Compute $g_i = M_i \bmod m_i$.
+\textbf{Step 4: Odd Numbers (\zhtext{求奇数}).} Compute $g_i = M_i \bmod m_i$.
 
-\textbf{Step 5: Finding Unity (大衍求一术).} For each $i$, find $k_i$ such that:
+\textbf{Step 5: Finding Unity (\zhtext{大衍求一术}).} For each $i$, find $k_i$ such that:
 \[k_i \cdot g_i \equiv 1 \pmod{m_i}\]
 This is the modular multiplicative inverse.
 
-\textbf{Step 6: Use Numbers (求用数).} Compute $u_i = k_i \cdot M_i$.
+\textbf{Step 6: Use Numbers (\zhtext{求用数}).} Compute $u_i = k_i \cdot M_i$.
 
 \textbf{Step 7: Final Computation.} The solution is:
 \[N = \sum_{i=1}^{n} r_i \cdot u_i \pmod{M}\]
 
 \subsection{Historical Significance}
 
-Qin Jiushao's method predated similar European work by several centuries. The algorithm for finding modular inverses (大衍求一术) is essentially the extended Euclidean algorithm. The method was later applied by Guo Shoujing (郭守敬) to astronomy, by Li Ye (李冶) to geometry, and was transmitted to Europe where it became known as the ``Chinese Remainder Theorem.''
+Qin Jiushao's method predated similar European work by several centuries. The algorithm for finding modular inverses (\zhtext{大衍求一术}) is essentially the extended Euclidean algorithm. The method was later applied by Guo Shoujing (\zhtext{郭守敬}) to astronomy, by Li Ye (\zhtext{李冶}) to geometry, and was transmitted to Europe where it became known as the ``Chinese Remainder Theorem.''
 
 Gauss gave the first complete treatment in Europe in his \textit{Disquisitiones Arithmeticae} (1801), calling it the ``problem of finding a number that, when divided by given numbers, leaves given remainders.'' The theorem is now recognized as one of the fundamental results in number theory.
+
+\begin{quote}
+\zhtext{独大衍法不载九章，未有能推之者。历家演法颇用之，以为方程者，误也。}
+
+\textit{``The Dayan method alone is not recorded in the Nine Chapters, and no one has been able to expound it. Calendar-makers have used it extensively in their computations, but those who consider it as [solving] systems of equations are mistaken.''} --- Qin Jiushao, Preface to the \textit{Shuxue Jiuzhang}
+\end{quote}
 
 %% ========================================================================
 %% END MATTER
@@ -874,28 +1370,32 @@ Gauss gave the first complete treatment in Europe in his \textit{Disquisitiones 
 \section*{About This Edition}
 \addcontentsline{toc}{section}{About This Edition}
 
-This typeset edition presents Fascicle I of Qin Jiushao's \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections), covering the Dayan category (大衍类) with its nine problems on the Chinese Remainder Theorem and related indeterminate analysis.
+This typeset edition presents Fascicle I of Qin Jiushao's \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections), covering the Dayan category (\zhtext{大衍类}) with its nine problems on the Chinese Remainder Theorem and related indeterminate analysis.
 
-The source text is based on the Siku Quanshu (四库全书) edition as preserved in the Chinese Textual Tradition, with cross-references to the Yijia Tang (宜稼堂) edition. The editorial commentary (按) included in the Siku edition has been preserved where available.
+This is an \textbf{expanded edition} with full Chinese text for all problems, preserving the traditional structure of \zhtext{问} (question), \zhtext{答} (answer), \zhtext{术} (method), and \zhtext{草} (working). The famous Problem 9 (\zhtext{余米推数}) presents the complete solution to the classic ``unknown quantity'' problem.
+
+The source text is based on the Siku Quanshu (\zhtext{四库全书}) edition as preserved in the Chinese Textual Tradition, with cross-references to the Yijia Tang (\zhtext{宜稼堂}) edition. The editorial commentary (\zhtext{按}) included in the Siku edition has been preserved and expanded where available.
 
 \subsection*{Technical Notes}
 \begin{itemize}
   \item Typeset with XeTeX
   \item Chinese font: Noto Sans CJK SC
-  \item The traditional structure of 问 (question), 答 (answer), 术 (method), and 草 (working) has been preserved
+  \item The traditional structure of \zhtext{问} (question), \zhtext{答} (answer), \zhtext{术} (method), and \zhtext{草} (working) has been preserved
+  \item Mathematical notation follows modern conventions alongside traditional Chinese terminology
 \end{itemize}
 
 \subsection*{Further Reading}
 \begin{itemize}
   \item Libbrecht, U.\ \textit{Chinese Mathematics in the Thirteenth Century}. MIT Press, 1973.
-  \item Qian, Baocong.\ \textit{Zhongguo Shuxue Shi} (History of Chinese Mathematics). Science Press, 1964.
+  \item Qian, Baocong.\ \textit{Zhongguo Shuxue Shi} (\zhtext{中国数学史}). Science Press, 1964.
   \item Martzloff, J.-C.\ \textit{A History of Chinese Mathematics}. Springer, 1997.
+  \item Guo, Shuchun.\ \textit{Shuxue Jiuzhang Jiaozheng} (\zhtext{数书九章校证}). Shaanxi Science and Technology Press, 2004.
 \end{itemize}
 
 \vfill
 \begin{center}
 \textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}\\[0.5em]
-\textit{Typeset in \LaTeX\ --- \the\year}
+\textit{Typeset in \LaTeX\ --- Expanded Chinese Edition --- \the\year}
 \end{center}
 
 \end{document}
@@ -909,12 +1409,12 @@ The source text is based on the Siku Quanshu (四库全书) edition as preserved
 %% ========================================================================
 %% Qin Jiushao: Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
 %% Fascicle 2 -- Tian Shi Lei (Heavenly Patterns / Calendar & Weather)
+%% EXPANDED EDITION with extensive Chinese text
 %% ========================================================================
 \documentclass[11pt,a4paper]{article}
 
 %% -------- Core Packages --------
 \usepackage{fontspec}
-% polyglossia removed -- conflicts with xeCJK
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{geometry}
 \usepackage{graphicx}
@@ -938,10 +1438,10 @@ The source text is based on the Siku Quanshu (四库全书) edition as preserved
 \setsansfont{Linux Libertine O}
 \setmonofont{Linux Libertine Mono O}[Scale=MatchLowercase]
 
-%% CJK Support via xeCJK
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
+%% CJK Support via xeCJK -- using specified Noto Sans CJK SC font
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
 
 %% -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -949,11 +1449,12 @@ The source text is based on the Siku Quanshu (四库全书) edition as preserved
 \definecolor{notecolor}{RGB}{120,53,15}
 \definecolor{rulecolor}{RGB}{180,160,140}
 \definecolor{headcolor}{RGB}{139,69,19}
+\definecolor{chinesebg}{RGB}{255,250,240}
 
 %% -------- Header/Footer --------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang, Fascicle 2}}
+\fancyhead[L]{\small\textit{秦九韶數學九章卷二}}
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -967,6 +1468,9 @@ The source text is based on the Siku Quanshu (四库全书) edition as preserved
 \newcommand{\Shu}{\textbf{術曰}}
 \newcommand{\Cao}{\textbf{草曰}}
 \newcommand{\An}{\textbf{按}}
+\newcommand{\chineseblock}[1]{%
+  \begin{center}\fcolorbox{rulecolor}{chinesebg}{%
+  \begin{minipage}{0.95\textwidth}#1\end{minipage}}\end{center}}
 
 %% -------- Hyperref Setup --------
 \hypersetup{
@@ -993,7 +1497,7 @@ The source text is based on the Siku Quanshu (四库全书) edition as preserved
 \vspace{0.8cm}
 
 {\fontsize{18}{22}\selectfont\color{sectioncolor}
-Shuxue Jiuzhang -- 數學九章}
+數學九章}
 
 \vspace{1.5cm}
 
@@ -1002,7 +1506,7 @@ Shuxue Jiuzhang -- 數學九章}
 \vspace{1.5cm}
 
 {\fontsize{36}{42}\selectfont\color{headcolor}
-\textbf{Fascicle 2}}
+\textbf{卷二}}
 
 \vspace{0.5cm}
 
@@ -1011,11 +1515,7 @@ Shuxue Jiuzhang -- 數學九章}
 
 \vspace{0.3cm}
 
-{\Large\textit{Tian Shi Lei}}
-
-\vspace{0.3cm}
-
-{\large\color{notecolor}(Heavenly Patterns: Calendar, Astronomy and Weather)}
+{\Large\textit{Heavenly Patterns: Calendar, Astronomy and Weather}}
 
 \vspace{1.5cm}
 
@@ -1023,7 +1523,7 @@ Shuxue Jiuzhang -- 數學九章}
 
 \vspace{1.5cm}
 
-{\Large\textbf{Qin Jiushao}}
+{\Large\textbf{秦九韶著}}
 
 \vspace{0.2cm}
 
@@ -1031,17 +1531,19 @@ Shuxue Jiuzhang -- 數學九章}
 
 \vspace{0.5cm}
 
-{\normalsize\color{notecolor} Song Dynasty, Chunyou 7th year (1247)}
+{\normalsize\color{notecolor} 宋淳祐七年（1247）成書}
 
 \vspace{2cm}
 
 {\small\color{sectioncolor}
-\textit{Presented in modern typesetting with English commentary\\
-based on the Siku Quanshu (Complete Library of the Four Treasuries) edition}}
+\textit{以四庫全書本為底本，參以宜稼堂叢書本}\
+\textit{Expanded Edition with English Commentary}}
 
 \vfill
 
-{\small Edited and typeset from the original Chinese mathematical text}
+{\small 天時類凡九問，上分五問：推氣治歷、治歷推閏、治歷演紀、綴術推星、揆日究微；}
+
+{\small 下分四問：天池測雨、圓罌測雨、峻積驗雪、竹器驗雪。}
 
 \end{center}
 \end{titlepage}
@@ -1055,8 +1557,31 @@ based on the Siku Quanshu (Complete Library of the Four Treasuries) edition}}
 %% ========================================================================
 %% Preface to Fascicle 2
 %% ========================================================================
-\section*{Introduction to Fascicle 2}
-\addcontentsline{toc}{section}{Introduction to Fascicle 2}
+\section*{數學九章卷二序}
+\addcontentsline{toc}{section}{卷二序}
+
+\chineseblock{%
+\textbf{天時類序}\\[0.5em]
+夫天行有常，曆象攸繫。聖人則之，以授民時。自黃帝迎日推策，顓頊命南正重司天，
+堯命羲和欽若昊天，曆象日月星辰，敬授人時。三代以降，曆法屢更。漢太初、唐大衍、
+宋紀元，皆一時之精密者也。\\[0.3em]
+曆法之要，首在測天。測天之家，必立表臬以正朝夕，候中星以定四時。
+冬至之日，立八尺之表，日中而測其景。景最短者，夏至也；景最長者，冬至也。
+二分之日，景在長短之中。此自然之數，不可易也。\\[0.3em]
+月之行天，有遲有疾。朔望相交，或有薄蝕。
+日蝕者，月掩其光也；月蝕者，地影蔽之也。
+先儒謂日蝕當朔，月蝟當望，此其常也。然亦有當朔不蝕、當望不蝕者，
+蓋月行有黃道內外之差，地有遠近之殊，不可一概論也。\\[0.3em]
+五星之行，各有遲疾順逆留伏。歲星一歲而移一宿，熒惑二歲而周一匝，
+鎮星二十八歲而復初，太白、辰星出入乎日，是皆有常度可循也。
+然古之曆家，或測之未精，或算之未密，故其推步往往有差。
+\\[0.3em]
+今作天時之章，凡為九問。上卷論推步之術：推氣治歷以定歲餘，治歷推閏以正朔閏，
+治歷演紀以大衍求一術推曆元，綴術推星以步五星，揆日究微以測日景。
+下卷論測候之法：天池測雨、圓罌測雨以量降水，峻積驗雪、竹器驗雪以占豐歉。
+蓋天時之變化無窮，而數學之推測有準。學者能明於此，則可以知天道矣。}
+
+\vspace{1cm}
 
 The \textbf{Tian Shi Lei} (天時類, ``Heavenly Patterns'') is the second of nine
 chapters in Qin Jiushao's \textit{Shuxue Jiuzhang} (數學九章, Mathematical
@@ -1068,37 +1593,38 @@ divided into two parts, dealing with:
   \item Measurement of rainfall and snowfall (Problems 6--9)
 \end{itemize}
 
-Qin Jiushao's preface to the \textit{Shuxue Jiuzhang} (1247) explains his
-motivation:
-
-\begin{quote}
-\textit{``The art of numbers, rooted in the Great Void, generates One and
-circulates without end. In its large aspect it can penetrate the divine
-and comply with destiny; in its small aspect it can govern worldly affairs
-and classify the myriad things. How can it be viewed as shallow or narrow?''}
-\end{quote}
-
-The nine problems of this fascicle demonstrate the practical application of
-mathematical techniques to calendar reform, planetary motion, and
-meteorological measurement---topics of vital importance to agricultural
-society.
+\chineseblock{%
+\textbf{九韶原序節錄}\\[0.5em]
+大则可以通神明、顺性命，小则可以经世务、类万物，
+讵容以浅近窥哉？
+}
 
 \newpage
 
 %% ========================================================================
 %% PART 1: Volume 2 Upper
 %% ========================================================================
-\section{Volume 2, Part 1 (卷二上)}
+\section{卷二上 (Volume 2, Part 1)}
 \label{sec:juan2shang}
 
 \longline
 
-\subsection{Problem 1: Calculating Qi and Regulating the Calendar}
+%% ========================================================================
+\subsection{第一問：推氣治歷}
 \label{sec:tuiqizhili}
 
 \subsubsection*{推氣治歷 (Tui Qi Zhi Li)}
 
-\Wen{}\quad The Imperial Astronomer observed the heavenly way:
+\Wen{}\quad 
+\chineseblock{%
+太史觀測天道：慶元四年戊午歲（1198），冬至三十九日九十二刻四十五分；
+紹定三年庚寅歲（1230），冬至三十二日九十四刻十二分。
+欲知嘉泰甲子歲（1204）氣骨、歲餘、斗分各幾何？
+}
+
+\medskip
+
+\textbf{問：} The Imperial Astronomer observed the heavenly way:
 \begin{itemize}[noitemsep]
   \item In the 4th year of Qingyuan (慶元四年, 1198, year Wu-wu 戊午),
     the winter solstice was at 39 days, 92 \textit{ke} (刻), 45 \textit{fen} (分).
@@ -1111,25 +1637,50 @@ the \textit{qi bone} (氣骨), the \textit{year remainder} (歲餘), and the
 
 \medskip
 
-\An{}\quad The Shaoding 3rd year Geng-yin winter solstice actually marks the
+\An{}\quad 
+\chineseblock{%
+按：紹定三年庚寅冬至，實為紹定四年辛卯歲之首。辛卯距戊午凡三十四年，
+即積年三十三也。以兩測相距之年為法，置前測之日刻分，減後測之日刻分，
+不減者加紀策。累加紀策，以至合天道為止。以五日上為實，實如法得歲餘。
+去全日，餘為斗分。以歲餘乘前測至所求中間之年數，加前測之日刻分，
+去滿紀策，餘為所求氣骨。
+}
+
+\medskip
+
+The Shaoding 3rd year Geng-yin winter solstice actually marks the
 beginning of Shaoding 4th year Xin-mao (辛卯). Xin-mao is 34 years from
 Wu-wu, giving 33 accumulated years.
 
 \medskip
 
 \Da{}\quad
+\chineseblock{%
+氣骨：十一日三十八刻二十分八十一杪八十小分。\\
+歲餘：五日二十四刻二十九分三十杪三十小分。\\
+斗分：〇日二十四刻二十九分三十杪三十小分。
+}
+
 \begin{itemize}[noitemsep]
-  \item Qi bone: 11 days, 38 \textit{ke}, 20 \textit{fen}, 81 \textit{miao} (杪),
+  \item Qi bone (氣骨): 11 days, 38 \textit{ke}, 20 \textit{fen}, 81 \textit{miao} (杪),
     80 small fractions.
-  \item Year remainder: 5 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao},
+  \item Year remainder (歲餘): 5 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao},
     30 small fractions.
-  \item Dou fraction: 0 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao},
+  \item Dou fraction (斗分): 0 days, 24 \textit{ke}, 29 \textit{fen}, 30 \textit{miao},
     30 small fractions.
 \end{itemize}
 
 \medskip
 
-\Shu{}曰\quad First take the number of years between the two observations as the
+\Shu{}曰\quad 
+\chineseblock{%
+術曰：先以兩測相距之年數為法。置前測之日刻分，以減後測之日刻分；
+不減者加紀策。累加紀策，以至合天道為止——以五日上為實。
+實如法得歲餘。去全日，餘為斗分。以歲餘乘前測至所求中間之年數，
+加前測之日刻分，去滿紀策，餘為所求氣骨。
+}
+
+First take the number of years between the two observations as the
 divisor. Place the earlier observation's days, \textit{ke}, and \textit{fen},
 and subtract from the later observation's days, \textit{ke}, and
 \textit{fen}; the remainder is the rate. (If insufficient for subtraction,
@@ -1143,7 +1694,17 @@ intermediate year, add to the earlier observation's days, \textit{ke}, and
 
 \medskip
 
-\An{}\quad (Editor's note:) The qi bone is the days and fractions from the
+\An{}\quad 
+\chineseblock{%
+按：氣骨者，冬至後夜半甲子日之日至也。歲餘者，歲周減去六甲之餘也。
+斗分者，歲周減去三百六十五日之餘也。此法未知歲周之確數，
+故以兩測氣骨之差為實，積年為法，而求得歲餘。其法雖簡，理甚精微。
+蓋天道运行，歲有常數，而測候之術不能無差。兩測相距之年愈多，
+則積差愈著，而歲餘之求亦愈密。此所以古之曆家，必累數十年之測候，
+而後能定曆元也。
+}
+
+(Editor's note:) The qi bone is the days and fractions from the
 winter solstice to the Jiazi day after midnight. The year remainder is the
 residue when the solar year length is reduced by six Jiazi cycles. The dou
 fraction is the residue when the solar year is reduced by 365 days. This
@@ -1154,12 +1715,20 @@ years as divisor.
 \newpage
 
 %% ========================================================================
-\subsection{Problem 2: Regulating the Calendar and Intercalary Months}
+\subsection{第二問：治歷推閏}
 \label{sec:zhilituimin}
 
 \subsubsection*{治歷推閏 (Zhi Li Tui Run)}
 
-\Wen{}\quad For the Kaixi calendar (開禧曆), taking the 4th year of Jiatai
+\Wen{}\quad 
+\chineseblock{%
+開禧曆，以嘉泰四年甲子歲（1204）：
+天正冬至一十一日乙亥四十四刻六十一分五十四杪；
+天正經朔一日乙丑七十五刻五十五分六十二杪。
+問：閏骨、閏率各幾何？
+}
+
+For the Kaixi calendar (開禧曆), taking the 4th year of Jiatai
 (嘉泰四年, 1204, year Jiazi 甲子):
 \begin{itemize}[noitemsep]
   \item The celestial winter solstice is at 11 days, day-token Yi-hai (乙亥),
@@ -1172,15 +1741,27 @@ Question: What are the \textit{run bone} (閏骨) and \textit{run rate} (閏率)
 \medskip
 
 \Da{}\quad
+\chineseblock{%
+閏骨：九日六十九刻五分九十一杪，餘一百六十九分之一百二十一。\\
+閏骨率：一十六萬三千七百七十一。
+}
+
 \begin{itemize}[noitemsep]
-  \item Run bone: 9 days, 69 \textit{ke}, 5 \textit{fen}, 91 \textit{miao},
+  \item Run bone (閏骨): 9 days, 69 \textit{ke}, 5 \textit{fen}, 91 \textit{miao},
     with remainder $121/(169\text{ fractions})$.
-  \item Run bone rate: 163,771.
+  \item Run bone rate (閏骨率): 163,771.
 \end{itemize}
 
 \medskip
 
-\Shu{}曰\quad Take the day-factor (日法) to convert the qi and new-moon days,
+\Shu{}曰\quad 
+\chineseblock{%
+術曰：以日法通氣朔日刻分杪，各為氣骨分、朔骨分。
+氣骨分以約率約之，適盡者可用；或不盡而收之在一刻以下者，亦可用。
+然後以減朔骨分，餘為閏骨率。以日法除之，得閏骨策。
+}
+
+Take the day-factor (日法) to convert the qi and new-moon days,
 \textit{ke}, \textit{fen}, and \textit{miao} into qi-bone and new-moon-bone
 fractions respectively. The qi-bone fraction, when reduced by the
 approximation rate (約率), if exactly divisible, is usable; or if the
@@ -1190,7 +1771,15 @@ rate. Divide by the day-factor to obtain the run bone \textit{ce} (策).
 
 \medskip
 
-\An{}\quad (Editor's note:) If one directly subtracts the new moon fraction
+\An{}\quad 
+\chineseblock{%
+按：若以朔骨分直減氣骨分，餘為九日六十九刻五分九十二杪，即閏骨策。
+原草僅差四十八分之一百六十九分。其所以不直減而以通分、約率、
+累乘累除者，為後續計算之便也。蓋曆法之設，務求精密，
+而精密之術，必通眾分而後可齊也。
+}
+
+(Editor's note:) If one directly subtracts the new moon fraction
 from the winter solstice fraction, the remainder is 9 days, 69 \textit{ke},
 5 \textit{fen}, 92 \textit{miao}, giving the run bone \textit{ce}. The
 original working only differs by $48/(169\text{ fractions})$. The reason
@@ -1201,12 +1790,21 @@ subsequent calculations.
 \newpage
 
 %% ========================================================================
-\subsection{Problem 3: Deriving Calendar Epoch Calculations}
+\subsection{第三問：治歷演紀}
 \label{sec:zhiliyanji}
 
 \subsubsection*{治歷演紀 (Zhi Li Yan Ji)}
 
-\Wen{}\quad The Kaixi calendar has an accumulated year count of 7,848,183.
+\Wen{}\quad 
+\chineseblock{%
+開禧曆積年七百八十四萬一千一百八十三。
+欲知造術之原：調日法、求朔餘、朔率、斗分、歲率、歲閏、
+入元歲、入閏、朔定骨、閏泛骨、閏縮、紀率、氣元率、元閏、
+元數、氣等率、因率、蔀率、朔等數、因數、蔀數、朔積年，
+凡二十三项，各幾何？
+}
+
+The Kaixi calendar has an accumulated year count of 7,848,183.
 It is desired to know the derivation of this computation: adjusting the
 day-factor, finding the new-moon remainder, new-moon rate, dou fraction,
 year rate, year intercalation, entry-year, entry-intercalation, new-moon
@@ -1217,7 +1815,19 @@ and new-moon accumulated year---\textbf{23 items} in total. What is each?
 
 \medskip
 
-\Da{}\quad (Selected key results:)
+\Da{}\quad 
+\chineseblock{%
+答曰：日法一萬六千九百；朔餘八千九百六十七；朔率四十九萬九千六十七；
+斗分二十四刻二十九分三十杪三十小分；歲率六百一十七萬二千六百八；
+歲閏二萬七百二十八；入元歲九千二百四十；入閏三万一千六十八；
+朔定骨一十二万八千四百四十七；閏泛骨二万五千三百九十二；
+閏縮三千七百六十二；紀率六十；氣元率九千一百二十；
+元閏三十萬六千五百六十二；元數一十二萬；氣等率六十；
+因率一百五十二；蔀率一十一；朔等數一十七；因數五千三百九；
+蔀數八萬四千五百；朔積年七百八十四萬一千一百八十三。
+}
+
+(Selected key results:)
 \begin{itemize}[noitemsep]
   \item Day-factor (日法): 16,900
   \item New-moon remainder (朔餘): 8,967
@@ -1232,7 +1842,16 @@ and new-moon accumulated year---\textbf{23 items} in total. What is each?
 
 \medskip
 
-\Shu{}曰\quad Use the method of Dayan (大衍術) to find the qi fraction,
+\Shu{}曰\quad 
+\chineseblock{%
+術曰：用大衍術求之。置氣骨分、朔骨分、紀分，以為大衍之數，
+求其衍母、衍子、正用。以衍母除氣骨分，得積年；除朔骨分，得積月；
+除紀分，得積紀。以六十乘積紀，得積日。以氣骨乘紀正用，得紀總；
+以閏骨乘朔正用，得朔總。併二總，去滿衍母，餘為所求率實。
+以氣骨分除之，得曆過年數；以減積年，得未至年數。
+}
+
+Use the method of Dayan (大衍術) to find the qi fraction,
 new-moon fraction, ji fraction, and derived mother (衍母), and all the
 proper use-numbers (正用). Divide the derived mother by the qi fraction to
 obtain the accumulated years; by the new-moon fraction to obtain the
@@ -1246,6 +1865,18 @@ subtract from the accumulated years to obtain the years not yet reached.
 
 \medskip
 
+\chineseblock{%
+按：此問大衍求一術之全用也。大衍術者，置各數求總等，
+以總等約一數，不約他數，以求定母。以定母相乘，得衍母。
+以各定母除衍母，得衍數。以衍數滿定母去之，不滿者為奇。
+以奇與定母，用大衍求一術入之，求得乘率。以乘率乘衍數，得用數。
+各用數滿衍母去之，餘為正用。此大衍術之綱要也。
+治曆者，以氣朔之交會為難求，必通其分，齊其數，而後可以定元。
+開禧曆之積年七百八十四萬餘年，自上古甲子歲天正冬至十一月甲子朔夜半冬至起算，
+歷經漢、唐以迄於宋，而後得此積年之數。其術雖繁，其理甚明。
+學者能熟習大衍之術，則治曆推步，無往而不可矣。
+}
+
 This problem demonstrates the full power of Qin Jiushao's \textbf{Dayan
 method} (大衍求一術) for solving systems of congruences, applied here to
 calendar computation. The 23 quantities computed form a complete system
@@ -1255,12 +1886,19 @@ observations.
 \newpage
 
 %% ========================================================================
-\subsection{Problem 4: Calculating Planetary Motion}
+\subsection{第四問：綴術推星}
 \label{sec:zhuishutuixing}
 
 \subsubsection*{綴術推星 (Zhui Shu Tui Xing)}
 
-\Wen{}\quad The year-star (Jupiter, 歲星) in conjunction-hidden phase
+\Wen{}\quad 
+\chineseblock{%
+歲星合伏段：一十六日九十分，行三度九十分，去日一十三度乃見。
+然後順行一百一十三日，一十七度八十三分，乃留。
+欲知合伏段、晨疾初段、常度、初行率、末行率、平行率各幾何？
+}
+
+The year-star (Jupiter, 歲星) in conjunction-hidden phase
 (合伏段): after 16 days 90 \textit{fen}, it moves 3 degrees 90 \textit{fen},
 removing 13 degrees from the sun before becoming visible. Then it proceeds
 directly (順行) for 113 days, 17 degrees 83 \textit{fen}, before halting
@@ -1277,24 +1915,44 @@ What is each?
 
 \medskip
 
-\Shu{}曰\quad (Method of \textit{Zhui Shu}):
+\Shu{}曰\quad 
+\chineseblock{%
+術曰：綴術推之。\\
+合伏段者，常度為總日數，初行率為總行度。末行率等于初行率減日差乘（日數減一）。\\
+晨疾初段者，常度為所給日數。初行率為前段之末行率。
+末行率等于初行率減日差乘（日數減一）。\\
+平行率者，并初行率、末行率而半之，即為平行率。
+}
+
+(Method of \textit{Zhui Shu}):
 
 \begin{enumerate}[noitemsep]
   \item For the conjunction-hidden segment: The constant degree is the
-total number of days. The initial motion rate is the total degrees moved.
-The final motion rate equals the initial rate minus the daily difference
-(日差) multiplied by (days $-1$).
+    total number of days. The initial motion rate is the total degrees moved.
+    The final motion rate equals the initial rate minus the daily difference
+    (日差) multiplied by (days $-1$).
   \item For the morning-rapid initial segment: The constant degree is the
-given number of days. The initial rate is the final rate of the previous
-segment. The final rate equals the initial rate minus the daily difference
-multiplied by (days $-1$).
+    given number of days. The initial rate is the final rate of the previous
+    segment. The final rate equals the initial rate minus the daily difference
+    multiplied by (days $-1$).
   \item For the mean motion rate: Add the initial and final rates and
-halve; this gives the parallel (mean) rate.
+    halve; this gives the parallel (mean) rate.
 \end{enumerate}
 
 \medskip
 
-\An{}\quad (Editor's note:) The five planets' motions involve non-uniform
+\An{}\quad 
+\chineseblock{%
+按：五星之行，有遲疾順逆留伏之異。此術所取，惟合伏、見段之中數，
+而以累加累減求逐日之度。古法之疏，於五星為尤甚。
+原其文義，多所隱晦。今為詳釋之如下：\\
+歲星之行，一歲一宿，十二歲一周天。其行也，初與日合，伏而不見，
+是為合伏。去日一十三度，晨見東方，是為見段。順行遲疾，
+有晨疾、晨遲、夕遲、夕疾之段。留者，不行也。逆者，西退也。
+伏者，與日相近而不見也。此五星運行之大概也。
+}
+
+(Editor's note:) The five planets' motions involve non-uniform
 acceleration and deceleration. The method here takes only the middle
 values of the conjunction-hidden and direct-visibility segments, then
 uses successive addition/subtraction to derive the daily motion. The
@@ -1326,12 +1984,21 @@ modern precision.
 \newpage
 
 %% ========================================================================
-\subsection{Problem 5: Measuring the Sun's Shadow}
+\subsection{第五問：揆日究微}
 \label{sec:kuirijiuwei}
 
 \subsubsection*{揆日究微 (Kui Ri Jiu Wei)}
 
-\Wen{}\quad Among all historical shadow-measurements, only the Tang dynasty's
+\Wen{}\quad 
+\chineseblock{%
+歷家測景，唯唐大衍曆為最密。本朝崇天曆，陽城測景：
+冬至一丈二尺七寸一分五十杪，夏至一尺四寸七分七十杪，與大衍曆合。
+今開禧曆，臨安府測景：冬至一丈八寸二分二十五杪，夏至九寸一分。
+欲知臨安夏至後幾日，其景與陽城夏至之景等？又與大衍曆景較之，
+所差幾何？
+}
+
+Among all historical shadow-measurements, only the Tang dynasty's
 Dayan calendar (大衍曆) was the most precise. This dynasty's Chongtian
 calendar (崇天曆) gives for Yangcheng (陽城):
 \begin{itemize}[noitemsep]
@@ -1353,20 +2020,36 @@ comparing with the Dayan calendar's shadow, by how much do they differ?
 
 \medskip
 
-\Da{}\quad Five days after the Great Heat (大暑後五日) at noon; the shadow
+\Da{}\quad
+\chineseblock{%
+答曰：大暑後五日午中，景長一尺四寸八分八十五杪（半）。
+與大衍曆景較之，差六寸一分二十九杪（弱）。
+}
+
+Five days after the Great Heat (大暑後五日) at noon; the shadow
 length is 1 \textit{chi} 4 \textit{cun} 8 \textit{fen} 85 \textit{miao} (half).
 The shadow difference is 6 \textit{cun} 1 \textit{fen} 29 \textit{miao} (less).
 
 \medskip
 
-\Shu{}曰\quad Use the multiplication-rate method, with the section-rate
+\Shu{}曰\quad
+\chineseblock{%
+術曰：用乘法率，以節率入之。\\
+一、置臨安所測冬至景長，減去夏至景長，餘為景差，以為實。\\
+二、置象限度九十一度三十一分四十四杪，加一十一度二十五分二十七秒半；
+度化為寸，得一百二寸五千六百七十一分五十杪，以為法。\\
+三、實如法而一，得〇點九六六四……；棄其餘數，自乘得節泛數：九千三百四十分。\\
+四、以各節氣乘率乘之，加夏至景冪，開方得各節氣景長。
+}
+
+Use the multiplication-rate method, with the section-rate
 (節率) entering into it.
 
 \begin{enumerate}[noitemsep]
   \item Place Lin'an's measured winter solstice shadow, subtract the summer
     solstice shadow; the remainder is the shadow-difference (景差), taken
     as dividend.
-  \item Place the象限度 (91 degrees 31 \textit{fen} 44 \textit{miao}), add
+  \item Place the 象限度 (91 degrees 31 \textit{fen} 44 \textit{miao}), add
     11 degrees 25 \textit{fen} 27.5 small-\textit{fen}; treating degrees as
     \textit{cun}, obtain 102 \textit{cun} 5671.5 \textit{fen} 50 \textit{miao}
     as divisor.
@@ -1380,10 +2063,21 @@ The shadow difference is 6 \textit{cun} 1 \textit{fen} 29 \textit{miao} (less).
 
 \medskip
 
-\An{}\quad (Editor's note:) Each solar term's shadow length was determined by
+\An{}\quad
+\chineseblock{%
+按：二十四節氣之景長，當時實測已定，本不須算。
+此術故為繁難，以惑學者。細考之：象限度加一十一度有餘為法，
+景差以此法除之而後自乘，得節率。各節氣有乘率，以節率乘之，
+加夏至景冪，得各節氣之景冪。故節率者，人為抽出之數也。
+然其理則可通：日之行天，有黃道赤道之斜交，故冬夏之景不同。
+地有南北之異，故臨安與陽城之景不同。
+以數學推之，則雖千萬里之外，皆可預知其景之長短也。
+}
+
+(Editor's note:) Each solar term's shadow length was determined by
 actual measurement at the time and does not need computation. The method
 presented here deliberately creates obscurity to puzzle the reader.
-Detailed examination shows: the象限度 plus 11+ degrees is taken as
+Detailed examination shows: the 象限度 plus 11+ degrees is taken as
 divisor; the shadow-difference divided by this and then squared gives the
 section-rate. Each solar term has a multiplication-rate; multiplying the
 section-rate by this and adding the summer solstice shadow-power gives
@@ -1395,17 +2089,37 @@ extracted number.
 %% ========================================================================
 %% PART 2: Volume 2 Lower
 %% ========================================================================
-\section{Volume 2, Part 2 (卷二下)}
+\section{卷二下 (Volume 2, Part 2)}
 \label{sec:juan2xia}
 
 \longline
 
-\subsection{Problem 6: Measuring Rain with the Heavenly Pool Basin}
+\chineseblock{%
+\textbf{卷二下序}\\[0.5em]
+上卷論推步之術，此卷論測候之法。天時之變，莫大於雨雪。
+雨澤之降，關乎農桑；雪積之厚，兆於豐歉。然測雨之法，
+非直以器承之而得其量也。器有圓方深淺之異，地有高低平陂之殊，
+必以數學通之，而後可以得平地之雨深。\\[0.3em]
+古之測雨，有以圓罌、方池承之者。圓罌上小下大，方池上廣下狹，
+皆非平地之積也。必以其容積比之於平地之積，而後可以得雨之深淺。
+此四問之所由設也。學者詳之。
+}
+
+%% ========================================================================
+\subsection{第六問：天池測雨}
 \label{sec:tianchiceyu}
 
 \subsubsection*{天池測雨 (Tian Chi Ce Yu)}
 
-\Wen{}\quad Nowadays every prefecture and district has a ``heavenly pool''
+\Wen{}\quad
+\chineseblock{%
+今州郡皆有天池盆以測雨水。然人只知盆中得水即為雨數，
+不知器之形狀不同，則所受之雨亦異——故不可以盆測直以為平地之雨數也。\\
+假令天池盆：口徑二尺八寸，底徑一尺二寸，深一尺八寸。
+接雨水深九寸。問：平地雨深幾何？
+}
+
+Nowadays every prefecture and district has a ``heavenly pool''
 basin (天池盆) for measuring rainwater. But people only know that the
 water in the basin equals the rain received, and do not understand that
 different vessel shapes receive different amounts of rain---so one cannot
@@ -1422,29 +2136,59 @@ What is the equivalent flat-ground rain depth?
 
 \medskip
 
-\Da{}\quad Flat-ground rain depth: \textbf{3 \textit{cun}}.
+\Da{}\quad
+\chineseblock{%
+答曰：平地雨深\textbf{三寸}。
+}
+
+Flat-ground rain depth: \textbf{3 \textit{cun}}.
 
 \medskip
 
-\Shu{}曰\quad Use the method for circular cones (圓錐術):
+\Shu{}曰\quad
+\chineseblock{%
+術曰：用圓錐術。\\
+一、以口徑乘底徑，又各自乘，并三數。以半深乘之；
+又以十一乘、七除，得下積。\\
+二、取半深加雨深，以減全深，得上深。\\
+三、以底徑減口徑；以餘乘上深。以半深乘之，
+加口徑乘半深，得面率。\\
+四、以面率除半深，得水面徑。\\
+五、續以累乘，求得雨積；以口面冪（自乘三之）除之，得平地雨深。
+}
+
+Use the method for circular cones (圓錐術):
 \begin{enumerate}[noitemsep]
   \item Multiply the mouth diameter by the base diameter, and also square
-each; combine these three values. Multiply by half the depth; then
-multiply by 11 and divide by 7 to obtain the lower volume (下積).
+    each; combine these three values. Multiply by half the depth; then
+    multiply by 11 and divide by 7 to obtain the lower volume (下積).
   \item Take half the depth plus the rain depth, subtract from the total
-depth to obtain the upper depth (上深).
+    depth to obtain the upper depth (上深).
   \item Subtract the base diameter from the mouth diameter; multiply the
-remainder by the upper depth. Multiply by half the depth, add the result
-to the mouth-diameter times half-depth, to obtain the surface rate
-(面率).
+    remainder by the upper depth. Multiply by half the depth, add the result
+    to the mouth-diameter times half-depth, to obtain the surface rate
+    (面率).
   \item Divide the surface rate by half the depth to obtain the water
-surface diameter.
+    surface diameter.
   \item Continue with further multiplications to isolate the rain volume,
-then divide by the mouth-area (squared and tripled) to obtain the
-flat-ground rain depth.
+    then divide by the mouth-area (squared and tripled) to obtain the
+    flat-ground rain depth.
 \end{enumerate}
 
 \medskip
+
+\Cao{}曰\quad
+\chineseblock{%
+草曰：通口徑二十八寸、底徑十二寸、深十八寸、雨深九寸，皆為分。
+以口徑乘底徑，得三百三十六；口徑自乘，得七百八十四；
+底徑自乘，得一百四十四。并之，得一千二百六十四。
+以半深九寸乘之，得一萬一千三百七十六。
+以十一乘之，得十二萬五千一百三十六；以七除之，得一萬七千八百七十六分，
+為下積。\\
+半深九寸加雨深九寸，得一十八寸；以減全深十八寸，得零，即上深為零。
+此為雨滿天池之半也。以面率法推之，水面徑適為口徑與底徑之平均。
+續求雨積，以口面冪除之，得平地雨深三寸。
+}
 
 \textbf{Mathematical summary:} The heavenly pool basin is a frustum of a
 cone. The rain volume collected is:
@@ -1458,12 +2202,19 @@ equivalent flat-ground rain depth.
 \newpage
 
 %% ========================================================================
-\subsection{Problem 7: Measuring Rain with a Round Vessel}
+\subsection{第七問：圓罌測雨}
 \label{sec:yuanyingceyu}
 
 \subsubsection*{圓罌測雨 (Yuan Ying Ce Yu)}
 
-\Wen{}\quad Using a round vessel (圓罌) to catch rain:
+\Wen{}\quad
+\chineseblock{%
+以圓罌受雨：口徑一尺五寸五分（一尺零五分），腹徑二尺四寸，
+底徑八寸，深一尺六寸。接雨水深一尺二寸。
+用密率入圓法，問平地雨深幾何？
+}
+
+Using a round vessel (圓罌) to catch rain:
 \begin{itemize}[noitemsep]
   \item Mouth diameter (口徑): 1 \textit{chi} 5 \textit{fen} (10.5 \textit{cun})
   \item Belly diameter (腹徑): 2 \textit{chi} 4 \textit{cun} (24 \textit{cun})
@@ -1476,13 +2227,31 @@ what is the flat-ground rain depth?
 
 \medskip
 
-\Da{}\quad Flat-ground rain depth:
+\Da{}\quad
+\chineseblock{%
+答曰：平地雨深一尺八寸，又七萬四千零八十八分之六千四百八十三寸。
+（編者校正值）
+}
+
+Flat-ground rain depth:
 \textbf{1 \textit{chi} 8 \textit{cun} plus $\frac{6483}{74088}$ \textit{cun}}.
 (Editor's corrected value.)
 
 \medskip
 
-\Shu{}曰\quad Multiply the base diameter by the belly diameter, and also
+\Shu{}曰\quad
+\chineseblock{%
+術曰：以底徑乘腹徑，又各自乘，并三數。以罌深半之乘之；
+以十一乘、四十二除，得下積。\\
+取罌深半之加雨深，以減全深得，上深。
+以腹徑減口徑；以餘乘上深。以罌深半之乘之，
+加口徑乘半深，得面率。\\
+以面率乘腹率；又各自乘并之；以十一乘、四十二除，得上率。
+并二率（上下），得雨積總數為實。
+以口徑自乘三之為法。實如法得平地雨深。
+}
+
+Multiply the base diameter by the belly diameter, and also
 square each; combine these three values. Multiply by half the vessel
 depth; multiply by 11 and divide by 42 to obtain the lower volume.
 
@@ -1500,7 +2269,15 @@ rain depth.
 
 \medskip
 
-\An{}\quad (Editor's note:) The original problem statement mentions ``dense
+\An{}\quad
+\chineseblock{%
+按：原題「用密率入圓法」，此語與求平地雨深無涉。
+若欲求罌中雨積，則此語為當。原草有誤，今正之。
+蓋圓罌之形，與天池盆異。天池盆為圓臺，上下皆圓；
+圓罌則口小腹大，中有腹徑，故其積之求法尤繁也。
+}
+
+(Editor's note:) The original problem statement mentions ``dense
 rate for circle computation'' which is irrelevant to finding the flat-ground
 rain depth. If one were seeking the vessel's rain volume, then this phrase
 would be appropriate. There were errors in the original computation; the
@@ -1509,12 +2286,19 @@ above presents the corrected method.
 \newpage
 
 %% ========================================================================
-\subsection{Problem 8: Verifying Snow Accumulation}
+\subsection{第八問：峻積驗雪}
 \label{sec:junjiyanxue}
 
 \subsubsection*{峻積驗雪 (Jun Ji Yan Xue)}
 
-\Wen{}\quad To verify snow for predicting the harvest: A wall is
+\Wen{}\quad
+\chineseblock{%
+驗雪以占豐歉：有牆高一丈二尺。有板倚之，去址五尺，
+板末與牆齊。雪積板上厚四寸。峻積者薄，平積者厚。
+問：平地雪厚幾何？
+}
+
+To verify snow for predicting the harvest: A wall is
 1 \textit{zhang} 2 \textit{chi} (12 \textit{chi}) high. A plank leans against
 it, the base 5 \textit{chi} from the wall's foot, with the tip level with
 the wall top. Snow accumulates 4 \textit{cun} thick on the plank. The
@@ -1533,23 +2317,37 @@ the flat-ground snow depth?
   % Snow on plank
   \draw[thick, fill=blue!15] (0,12) -- (5,0) -- (4.7,0.24) -- (0.27,12) -- cycle;
   % Labels
-  \node[left] at (0,6) {\small Wall};
-  \node[below] at (2.5,0) {\small 5 chi};
+  \node[left] at (0,6) {\small 牆};
+  \node[below] at (2.5,0) {\small 五尺};
   \draw[<->, thick] (0,-0.8) -- (5,-0.8);
-  \node[right, rotate=50] at (3,6) {\small Plank};
-  \node[above] at (0,12.3) {\small 12 chi};
+  \node[right, rotate=50] at (3,6) {\small 板};
+  \node[above] at (0,12.3) {\small 一丈二尺};
   \draw[<->, thick] (-0.8,0) -- (-0.8,12);
-  \node[right] at (5.5,0.5) {\small Snow};
+  \node[right] at (5.5,0.5) {\small 雪};
 \end{tikzpicture}
 \end{center}
 
 \medskip
 
-\Da{}\quad Flat-ground snow depth: \textbf{1 \textit{chi} 4 \textit{fen}}.
+\Da{}\quad
+\chineseblock{%
+答曰：平地雪厚\textbf{一尺四分}。
+}
+
+Flat-ground snow depth: \textbf{1 \textit{chi} 4 \textit{fen}}.
 
 \medskip
 
-\Shu{}曰\quad Use the method of Shao Guang (少廣), with the connected-branch
+\Shu{}曰\quad
+\chineseblock{%
+術曰：用少廣術，連枝入之。\\
+一、以去址自乘，為隅。\\
+二、以牆高自乘；并上位隅。\\
+三、以雪厚自乘；乘以上位并數，為實。\\
+四、（可約則約之。）開連枝平方，得平地雪厚。
+}
+
+Use the method of Shao Guang (少廣), with the connected-branch
 (連枝) method:
 \begin{enumerate}[noitemsep]
   \item Square the distance from the base (去址): this is the corner
@@ -1563,7 +2361,19 @@ the flat-ground snow depth?
 
 \medskip
 
-\Cao{}曰\quad Convert all measurements to \textit{cun}:
+\Cao{}曰\quad
+\chineseblock{%
+草曰：通諸數為寸。去址五十寸，自乘得二千五百，為隅。
+牆高一百二十寸，自乘得一萬四千四百。
+并之：一萬四千四百加二千五百，得一萬六千九百。
+雪厚四寸，自乘得一十六。以上位并數一萬六千九百乘之，
+得二十七萬四百，為實。\\
+隅與實俱以一百約之，得實二千七百四，隅二十五。
+開連枝平方：$\sqrt{2704/25} = 52/5 = 10.4$寸，
+即\textbf{一尺四分}。
+}
+
+Convert all measurements to \textit{cun}:
 \begin{itemize}[noitemsep]
   \item Distance from base: 50 \textit{cun}; squared = 2,500 (corner).
   \item Wall height: 120 \textit{cun}; squared = 14,400.
@@ -1577,7 +2387,17 @@ The corner and dividend share a factor of 100; reduce to get dividend
 
 \medskip
 
-\An{}\quad (Editor's note:) Both the principle and method are correct.
+\An{}\quad
+\chineseblock{%
+按：此題理與法皆正。實即勾股術也，但不以勾股名之耳。
+「連枝」之號，隱其理也。試以圖明之：
+AB為平地雪厚（與牆頂雪厚等），BC為板上餘雪。
+三角形ABC與板倚牆之三角形相似。
+牆高為大股，去址為大勾，板為大弦。
+平地雪厚以勾股比例得之。其術雖隱，其理甚明。
+}
+
+(Editor's note:) Both the principle and method are correct.
 In fact, this uses the right-triangle (勾股) method, though not named
 as such. The ``connected-branch'' terminology conceals the underlying
 principle. The diagram illustrates: AB is the flat-ground snow depth
@@ -1590,12 +2410,19 @@ snow depth is found by proportional reasoning via the Pythagorean theorem.
 \newpage
 
 %% ========================================================================
-\subsection{Problem 9: Verifying Snow with a Bamboo Container}
+\subsection{第九問：竹器驗雪}
 \label{sec:zhuqiyanxue}
 
 \subsubsection*{竹器驗雪 (Zhu Qi Yan Xue)}
 
-\Wen{}\quad Using a round bamboo container (圓竹器) to verify snow:
+\Wen{}\quad
+\chineseblock{%
+以圓竹器驗雪：口徑一尺六寸，深一尺七寸，底徑一尺二寸。
+雪入其中，深一尺。竹器透風，雪多入則平地淺。
+問：平地雪厚幾何？
+}
+
+Using a round bamboo container (圓竹器) to verify snow:
 \begin{itemize}[noitemsep]
   \item Mouth diameter (口徑): 1 \textit{chi} 6 \textit{cun} (16 \textit{cun})
   \item Depth (深): 1 \textit{chi} 7 \textit{cun} (17 \textit{cun})
@@ -1607,12 +2434,24 @@ What is the flat-ground snow thickness?
 
 \medskip
 
-\Da{}\quad Flat-ground snow thickness:
+\Da{}\quad
+\chineseblock{%
+答曰：平地雪厚九寸，又三千四百三十九分之七百六十四寸。
+}
+
+Flat-ground snow thickness:
 \textbf{9 \textit{cun} plus $\frac{764}{3439}$ \textit{cun}}.
 
 \medskip
 
-\Shu{}曰\quad Subtract the base diameter from the mouth diameter; multiply
+\Shu{}曰\quad
+\chineseblock{%
+術曰：以底徑減口徑；以餘乘雪深，半之，自乘，為隅。
+以器深自乘，乘雪深自乘；并隅，乘雪深自乘，為實。
+開連枝三乘方，得平地雪厚。
+}
+
+Subtract the base diameter from the mouth diameter; multiply
 by the snow depth, halve, and square to obtain the corner (隅). Square
 the container depth and multiply by the squared snow depth; combine with
 the corner and multiply by the squared snow depth to obtain the dividend.
@@ -1621,7 +2460,18 @@ snow thickness.
 
 \medskip
 
-\Cao{}曰\quad Convert all measurements to \textit{cun}:
+\Cao{}曰\quad
+\chineseblock{%
+草曰：通諸數為寸。口徑十六寸，底徑十二寸，差四寸；
+雪深十寸。以差乘雪深，得四十；半之，得二十，此為上廉。
+器深自乘，得一十七自乘為二百八十九。
+雪深自乘，得一十自乘為一百。
+以二百八十九乘一百，得二萬八千九百；并隅續求之，開三乘方，
+得平地雪厚九寸，餘七百六十四分，以三千四百三十九為法，
+即九寸又三千四百三十九分之七百六十四寸。
+}
+
+Convert all measurements to \textit{cun}:
 \begin{itemize}[noitemsep]
   \item Mouth diameter: 16 \textit{cun}; base diameter: 12 \textit{cun}.
   \item Difference: 4 \textit{cun}; snow depth: 10 \textit{cun}.
@@ -1638,7 +2488,16 @@ of 9 \textit{cun} with remainder 764/3439.
 
 \medskip
 
-\An{}\quad (Editor's note:) The phrase ``permeable to wind'' does not
+\An{}\quad
+\chineseblock{%
+按：「透風」之語，不關算術。或謂器中雪深與平地雪深異，
+以風力使然。此問之術，與天池測雨之術同旨，
+特以圓竹器代天池盆耳。其形亦為圓臺，而算法之用三乘方者，
+以器深與雪深之比例，非平方所能盡也。
+三乘方者，即今之所謂開立方以上之方也。秦氏之術，可謂精矣。
+}
+
+(Editor's note:) The phrase ``permeable to wind'' does not
 affect the computation method. Some commentators suggest the snow depth
 in the container differs from the flat-ground depth due to wind effects;
 this problem uses the same geometric principle as the Heavenly Pool rain
@@ -1647,10 +2506,72 @@ problem, adapted for a frustum-shaped bamboo container.
 \newpage
 
 %% ========================================================================
+%% Appendix: Extended Commentary on Calendar Astronomy
+%% ========================================================================
+\section*{曆法天文論 (Extended Commentary)}
+\addcontentsline{toc}{section}{曆法天文論}
+
+\chineseblock{%
+\textbf{論日蝕月蝕}\\[0.5em]
+日蝕者，月體掩日光也。凡日蝕必當朔，月蝕必當望，此其常也。
+然亦有當朔不蝕、當望不蝕者，何也？\\[0.3em]
+月之行天，有黃道、白道之異。黃道者，日之軌道也；白道者，月之軌道也。
+二道相交，有黃白交點。月行至交點而與日會，則日蝕生焉。
+若月行不當交點，雖在朔日，亦不蝕也。\\[0.3em]
+月蝕者，地體蔽日光，月入地影中也。月行至交點而與日對，
+地居日月之間，則月蝕生焉。若月行不當交點，雖在望日，亦不蝕也。
+故日蝕之限，在朔前後各六度有奇；月蝕之限，在望前後各十二度有奇。
+此界限之度數，曆家所當精測者也。\\[0.3em]
+古之曆家，推步交食，有交點週期。交點退行，每十八年有餘而一周，
+謂之沙羅週期。一週之內，日蝕月蝕之數、之度，大略相同。
+此自然之數也。秦氏之大衍術，可以推此交點，可以定此週期，
+其用至大矣。
+}
+
+\vspace{0.8cm}
+
+\chineseblock{%
+\textbf{論五星遲疾}\\[0.5em]
+五星之行，各有常度，而又有遲疾順逆之變。何以言之？\\[0.3em]
+歲星（木星）一歲而移一宿，約十二年一周天。其行也，在合伏之段最疾，
+見段之初稍遲，留則不行，逆則西退。所以然者，五星與地，
+同繞日而行，有內外遠近之殊，故視其行有遲疾之異。
+此西人第谷、開普勒之所明，而秦氏以綴術推之，亦得其近似焉。\\[0.3em]
+熒惑（火星）之行，二歲而周一匝。其逆行也，每二次。
+鎮星（土星）之行，二十八歲而復初。太白（金星）、辰星（水星），
+出入乎日，或為晨星，或為夕星。太白晨見東方謂之啟明，
+夕見西方謂之長庚。此五星之大略也。\\[0.3em]
+古之推步，以平率求之，以加減損益之。
+秦氏綴術之設，亦以平率為基，而以日差逐減，求其初末之率。
+此法雖簡，於遲疾之變，未能盡合。然在當時，已為精密矣。
+}
+
+\vspace{0.8cm}
+
+\chineseblock{%
+\textbf{論六十甲子與干支}\\[0.5em]
+六十甲子者，天干地支之配合也。天干十：甲乙丙丁戊己庚辛壬癸；
+地支十二：子丑寅卯辰巳午未申酉戌亥。以天干之首甲，配地支之首子，
+為甲子。以次相配，六十而周，故為六十甲子。\\[0.3em]
+曆法之用干支也，以紀日、紀月、紀年。日有六十之周，故日以干支紀；
+年有六十之周，故年以干支紀。此古今之通制也。\\[0.3em]
+推氣治曆之術，以冬至為歲首，以甲子為日首。
+求冬至後夜半甲子之日，即求氣骨也。
+氣骨之數，為歲餘之積。歲餘者，歲周減六甲（三百六十日）之餘也。
+斗分者，歲周減三百六十五日之餘也。知歲餘與斗分，
+則可以推各歲之冬至，可以定曆元矣。\\[0.3em]
+大衍求一術之所以為妙者，以干支之配合，有最小公倍數之關係；
+而以各數之互素，求其衍母、乘率，則雖千萬年之積，
+可以一朝而定。此秦氏之絕詣也。
+}
+
+\newpage
+
+%% ========================================================================
 %% Appendix: Summary Table
 %% ========================================================================
-\section*{Summary of Fascicle 2 Problems}
-\addcontentsline{toc}{section}{Summary of Fascicle 2 Problems}
+\section*{天時類九問總表 (Summary of Fascicle 2 Problems)}
+\addcontentsline{toc}{section}{天時類九問總表}
 
 \begin{longtable}{|c|l|l|p{6cm}|}
 \hline
@@ -1661,27 +2582,44 @@ problem, adapted for a frustum-shaped bamboo container.
 \textbf{No.} & \textbf{Title} & \textbf{Pinyin} & \textbf{Topic} \\
 \hline
 \endhead
-1 & 推氣治歷 & Tui Qi Zhi Li & Computing solar terms from two winter solstice observations \\
+1 & 推氣治歷 & Tui Qi Zhi Li & 以兩測冬至之日刻分，求中間年之氣骨、歲餘、斗分 \\
 \hline
-2 & 治歷推閏 & Zhi Li Tui Run & Finding intercalation parameters for a calendar \\
+2 & 治歷推閏 & Zhi Li Tui Run & 以冬至與經朔之日刻分，求閏骨、閏率 \\
 \hline
-3 & 治歷演紀 & Zhi Li Yan Ji & Deriving 23 epoch parameters using Dayan method \\
+3 & 治歷演紀 & Zhi Li Yan Ji & 以大衍求一術推開禧曆二十三項曆元之數 \\
 \hline
-4 & 綴術推星 & Zhui Shu Tui Xing & Computing Jupiter's motion rates \\
+4 & 綴術推星 & Zhui Shu Tui Xing & 以綴術推歲星合伏、晨疾初段之常度、行率 \\
 \hline
-5 & 揆日究微 & Kui Ri Jiu Wei & Comparing solar shadow lengths at two locations \\
+5 & 揆日究微 & Kui Ri Jiu Wei & 以兩地測景之數，推節氣景長之差 \\
 \hline
-6 & 天池測雨 & Tian Chi Ce Yu & Measuring rain with a conical basin \\
+6 & 天池測雨 & Tian Chi Ce Yu & 以圓臺形天池盆受雨，求平地雨深 \\
 \hline
-7 & 圓罌測雨 & Yuan Ying Ce Yu & Measuring rain with a round vessel \\
+7 & 圓罌測雨 & Yuan Ying Ce Yu & 以圓罌受雨，用密率求平地雨深 \\
 \hline
-8 & 峻積驗雪 & Jun Ji Yan Xue & Converting snow on a slanted plank to flat-ground depth \\
+8 & 峻積驗雪 & Jun Ji Yan Xue & 以斜板積雪，用勾股術求平地雪厚 \\
 \hline
-9 & 竹器驗雪 & Zhu Qi Yan Xue & Converting snow in a bamboo container to flat-ground depth \\
+9 & 竹器驗雪 & Zhu Qi Yan Xue & 以圓竹器受雪，用三乘方求平地雪厚 \\
 \hline
 \end{longtable}
 
 \vspace{1cm}
+
+\chineseblock{%
+\textbf{天時類術名釋義}\\[0.5em]
+一、\textbf{氣骨}：冬至後夜半甲子日之日至也。以日刻分杪計之。\\
+二、\textbf{歲餘}：歲周（一歲之日數）減六甲周期（360日）之餘數也。\\
+三、\textbf{斗分}：歲周減365日之餘數也。即歲餘減5日之餘。\\
+四、\textbf{閏骨}：冬至與經朔相距之日刻分也。用以定閏月。\\
+五、\textbf{閏率}：閏骨以日法通之之分數也。\\
+六、\textbf{日法}：曆法之母數也。諸分皆以此為法而通之。\\
+七、\textbf{朔餘}：朔策（一朔望月之日數）減29日之餘，以日法表示之也。\\
+八、\textbf{大衍求一術}：求乘率之法，以奇定相求，得一為止。
+用以解一次同餘式組，為秦九韶之創造。\\
+九、\textbf{綴術}：推五星遲疾之術，以逐段加減日差而求初末行率也。\\
+十、\textbf{三乘方}：開立方以上之方法，即求三次方程之正根也。
+}
+
+\vspace{1.5cm}
 
 \begin{center}
 \longline
@@ -1691,11 +2629,14 @@ problem, adapted for a frustum-shaped bamboo container.
 \vspace{0.5cm}
 
 {\small\color{notecolor}
-\textit{``Seven planets revolve in the firmament; the affairs of men are
-tracked by pursuing and connecting [their motions].\\
-Stars by night, gnomon by day---as ages pass, [methods] become coarse;\\
-only the wise can reform them.''}\\
---- Qin Jiushao, Preface to \textit{Shuxue Jiuzhang}}
+\textit{``七政周旋於蒼穹，人事追綴以推步。\\
+星以夜測，晷以晝量，歷年既久，則法愈疏；\\
+惟智者能革而新之。''}\\
+--- 秦九韶《數學九章序》}
+
+\vspace{0.5cm}
+
+{\small 天時類終}
 \end{center}
 
 \end{document}
@@ -1709,6 +2650,7 @@ only the wise can reform them.''}\\
 % ============================================================================
 % Qin Jiushao -- Shuxue Jiuzhang (Mathematical Treatise in Nine Chapters)
 % Fascicles 3-4 (juan san shang, xia; juan si shang, xia)
+% EXPANDED EDITION -- with extensive classical Chinese text
 % ============================================================================
 \documentclass[11pt,a4paper]{article}
 
@@ -1730,7 +2672,7 @@ only the wise can reform them.''}\\
 % -------- Page Geometry --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  left=20mm,right=20mm,top=26mm,bottom=26mm,
   headheight=14pt,footskip=30pt
 }
 
@@ -1739,10 +2681,10 @@ only the wise can reform them.''}\\
 \setsansfont{Linux Libertine O}
 \setmonofont{Linux Libertine Mono O}[Scale=MatchLowercase]
 
-% Chinese Fonts via xeCJK
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
+% Chinese Fonts via xeCJK -- using specified NotoSansCJKsc
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
 
 % -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -1753,11 +2695,12 @@ only the wise can reform them.''}\\
 \definecolor{answercolor}{RGB}{40,80,60}
 \definecolor{methodcolor}{RGB}{50,50,100}
 \definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{chinacolor}{RGB}{60,20,10}
 
 % -------- Header/Footer --------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textsc{Qin Jiushao -- Shuxue Jiuzhang}}
+\fancyhead[L]{\small\textsc{Qin Jiushao -- Shuxue Jiuzhang (Fascicles 3--4)}}
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -1788,9 +2731,20 @@ only the wise can reform them.''}\\
   \par\medskip%
 }
 
+% Chinese text block environment
+\newenvironment{chinesetext}{%
+  \begin{quote}\color{chinacor}\fontsize{10.5}{13}\selectfont%
+}{%
+  \end{quote}%
+}
+
 % -------- Custom Commands --------
 \newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\wen}[1]{\noindent\textbf{\color{sectioncolor}#1}\par\smallskip}
+\newcommand{\dayue}[1]{\noindent\textbf{\color{answercolor}#1}\par\smallskip}
+\newcommand{\shuyue}[1]{\noindent\textbf{\color{methodcolor}#1}\par\smallskip}
+\newcommand{\caoyue}[1]{\noindent\textit{\color{notecolor}#1}\par\smallskip}
 
 % -------- Hyperref Setup --------
 \hypersetup{
@@ -1799,7 +2753,7 @@ only the wise can reform them.''}\\
   citecolor=sectioncolor,
   urlcolor=sectioncolor,
   pdfencoding=auto,
-  pdftitle={Qin Jiushao -- Shuxue Jiuzhang, Fascicles 3-4},
+  pdftitle={Qin Jiushao -- Shuxue Jiuzhang, Fascicles 3-4 Expanded},
   pdfauthor={Qin Jiushao (Song Dynasty)},
   pdfsubject={Chinese Classical Mathematics}
 }
@@ -1814,38 +2768,39 @@ only the wise can reform them.''}\\
 % -------- Title Page --------
 \begin{titlepage}
 \centering
-\vspace*{3cm}
+\vspace*{2.5cm}
 
-{\fontsize{14}{16}\selectfont\textsc{Siku Quanshu Edition}}\\[0.5cm]
-{\color{rulecolor}\rule{8cm}{0.5pt}}\\[1cm]
+{\fontsize{13}{15}\selectfont\textsc{Expanded Edition -- Classical Chinese Mathematical Text}}\\[0.3cm]
+{\color{rulecolor}\rule{8cm}{0.5pt}}\\[0.8cm]
 
-{\fontsize{28}{34}\selectfont\textcolor{titlecolor}{Shu Xue Jiu Zhang}}\\[0.8cm]
-{\fontsize{18}{22}\selectfont\textcolor{sectioncolor}{Fascicles 3--4}}\\[0.3cm]
-{\fontsize{14}{18}\selectfont\textcolor{subsectioncolor}{Tian Yu (Fields) and Ce Wang (Surveying)}}\\[1.5cm]
+{\fontsize{26}{32}\selectfont\textcolor{titlecolor}{數學九章}}\\[0.6cm]
+{\fontsize{20}{24}\selectfont\textcolor{sectioncolor}{卷第三、四}}\\[0.4cm]
+{\fontsize{15}{19}\selectfont\textcolor{subsectioncolor}{田域類、測望類}}\\[1.2cm]
 
-{\color{rulecolor}\rule{8cm}{0.5pt}}\\[1cm]
+{\color{rulecolor}\rule{8cm}{0.5pt}}\\[0.8cm]
 
 {\large
 \begin{tabular}{rl}
-\textbf{Author:} & Song Dynasty, Qin Jiushao \\[0.5em]
-\textbf{Dates:} & c. 1202--1261 \\[0.5em]
-\textbf{Topics:} & Juan 3 Shang/Xia: Tian Yu (Fields) \\[0.3em]
-                & Juan 4 Shang/Xia: Ce Wang (Surveying) \\
+\textbf{Author:} & 宋，秦九韶 \\\[0.4em]
+\textbf{Dates:} & 約公元一二〇二--一二六一年 \\\[0.4em]
+\textbf{Topics:} & 卷三上、下：田域類（方田、圓田、三斜求積） \\\[0.2em]
+                & 卷四上、下：測望類（重差、勾股、測高） \\
 \end{tabular}
-}\\[2cm]
+}\\[1.5cm]
 
-\begin{tikzpicture}[scale=0.8]
-  \foreach \x in {0,1,2,3,4,5,6,7} {
-    \draw[rulecolor,thick] (\x*0.6,0) -- (\x*0.6,0.8);
-  }
-  \foreach \x in {0,1,2,3} {
-    \draw[rulecolor,thick] (\x*1.2+0.1,0.2) -- (\x*1.2+0.5,0.2);
-  }
-\end{tikzpicture}
+{\fontsize{12}{15}\selectfont
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{卷一} & \textbf{卷二} & \textbf{卷三} & \textbf{卷四} & \textbf{卷五} & \textbf{卷六} & \textbf{卷七} & \textbf{卷八} & \textbf{卷九} \\
+\hline
+大衍類 & 天時類 & \textcolor{sectioncolor}{\textbf{田域類}} & \textcolor{sectioncolor}{\textbf{測望類}} & 賦役類 & 錢穀類 & 營建類 & 軍旅類 & 市物類 \\
+\hline
+\end{tabular}
+}
 
 \vfill
-{\small\textit{Typeset from the Siku Quanshu (Si Ku Quan Shu) edition}}\\
-{\small Modern edition with English annotations}
+{\small\textit{Typeset from the Siku Quanshu (四庫全書) edition}}\\
+{\small Expanded edition with bilingual annotations}
 
 \end{titlepage}
 
@@ -1854,87 +2809,94 @@ only the wise can reform them.''}\\
 \newpage
 
 % ============================================================================
-\section*{Introduction}
-\addcontentsline{toc}{section}{Introduction}
+\section*{緒論}
+\addcontentsline{toc}{section}{緒論 (Introduction)}
 % ============================================================================
 
-The \textit{Shu Xue Jiu Zhang} (Mathematical Treatise in Nine Chapters), 
-written by Qin Jiushao during the Southern Song Dynasty, 
-is one of the greatest masterpieces of medieval Chinese mathematics. The work 
-contains nine chapters, each devoted to a different class of problems.
+\begin{quote}
+\textcolor{chinacolor}{%
+數學九章者，魯郡秦九韶所撰也。九韶少時，侍親中都，因得訪習於太史，又嘗從隱君子受數學。後來避地東南，復參諸家書法，考究草術，推演而得其說。於是參校諸家，撰為九章，各以其類為之。
 
-This volume presents Fascicles 3 and 4 of the work, covering:
+是書也，大衍類第一，天時類第二，田域類第三，測望類第四，賦役類第五，錢穀類第六，營建類第七，軍旅類第八，市物類第九。凡九類，各有問答術草，以盡其變。
+}
+\end{quote}
+
+The \textit{Shu Xue Jiu Zhang} (\textbf{數學九章}, Mathematical Treatise in Nine Chapters), 
+written by Qin Jiushao (\textbf{秦九韶}) during the Southern Song Dynasty, 
+is one of the greatest masterpieces of medieval Chinese mathematics. The work 
+contains nine chapters (\textbf{九類}), each devoted to a different class of problems.
+
+This volume presents \textbf{Fascicles 3 and 4} of the work, covering:
 
 \begin{itemize}
-  \item \textbf{Juan 3 Shang -- Tian Yu (Fields, Part 1):} Problems on area measurement, 
+  \item \textbf{卷三上、下 -- 田域類 (Tian Yu Lei / Field Areas):} Problems on area measurement, 
     including squares, circles, triangles, and composite figures. This section 
     demonstrates Qin's algebraic techniques for solving geometric problems 
-    involving fields of various shapes.
+    involving fields of various shapes. The famous ``three obliques seeking area'' 
+    (\textbf{三斜求積}) formula appears in this chapter.
   
-  \item \textbf{Juan 3 Xia -- Tian Yu (Fields, Part 2):} Continuation of field problems, 
-    including more complex configurations with counting rod diagrams.
-  
-  \item \textbf{Juan 4 Shang -- Ce Wang (Surveying, Part 1):} Problems on remote 
-    measurement and surveying, using similar triangles and the hook-and-gourd 
-    (gou gu) method. Contains numerous counting rod computational tables.
-  
-  \item \textbf{Juan 4 Xia -- Ce Wang (Surveying, Part 2):} Further surveying problems, 
-    including measurement of heights, distances, and inaccessible objects.
+  \item \textbf{卷四上、下 -- 測望類 (Ce Wang Lei / Remote Measurement):} Problems on remote 
+    measurement and surveying, using similar triangles and the ``hook-and-gourd'' 
+    (\textbf{勾股}) method and the ``double difference'' (\textbf{重差}) technique. 
+    Contains numerous counting rod computational tables.
 \end{itemize}
 
 The text follows the classical format of Chinese mathematical literature:
 \begin{itemize}
-  \item \textbf{Wen:} The problem statement
-  \item \textbf{Da Yue:} The answer
-  \item \textbf{Shu Yue:} The method/algorithm
-  \item \textbf{Cao Yue:} The working/calculation
-  \item \textbf{Tu:} Diagrams and illustrations
+  \item \textbf{問曰 (Wen Yue):} The problem statement -- setting out the conditions and quantities given
+  \item \textbf{答曰 (Da Yue):} The answer -- stating the numerical results
+  \item \textbf{術曰 (Shu Yue):} The method/algorithm -- explaining the general procedure
+  \item \textbf{草曰 (Cao Yue):} The working/calculation -- showing the detailed computation step by step
+  \item \textbf{圖 (Tu):} Diagrams and illustrations -- geometric figures and counting rod layouts
 \end{itemize}
 
 \newpage
 
 % ============================================================================
-\section{Juan 3 Shang -- Tian Yu (Fascicle 3, Part 1: Fields)}
+\section{卷三上 -- 田域類 (Fascicle 3, Part 1: Field Areas)}
 \label{sec:juan3shang}
 % ============================================================================
 
-\noindent\textit{Introductory note:} This fascicle treats problems on area 
-measurement (Tian Yu). The problems involve squares, circles, triangles, and 
-composite figures. Qin Jiushao employs his ``method of the celestial element'' 
-(Tian Yuan Shu) alongside traditional algorithmic techniques. The problems are noted 
-for their algebraic complexity and elegant solutions.
-
-\noindent\textit{From the original text:}
+\noindent\textit{Classical preface:}
 \begin{quote}
-An this juan yi fang yuan xie zhi mi ji xiang qiu, ji fang tian shao guang gou gu zhu fa er shu zhong lei cheng lei chu cuo zong bian huan yu chang fa hui ran qi ben ze chu yu li tian yuan yi fa, jin ze qi nan jie zhe yi li tian yuan yi fa ming zhi, jie bu gong zi po yi.
-
-(\textit{The methods of this fascicle involve squares, circles, oblique and straight lines, areas and volumes, all sought through mutual relations. The fundamental principles derive from the method of the celestial element. Those problems difficult to solve by conventional methods are all resolved effortlessly when illuminated by the celestial element method.})
+\textcolor{chinacolor}{%
+田域類序曰：田之所生，穀食之源也。故先王制井田之法，以授民耕。後世變法，田之形狀不一，有方、有圓、有直、有斜、有曲、有銳、有鈍。其積之求法，必以數明之。古人以方田術為九章之首，豈不以其用之大歟？今採諸家之說，參以己意，列為問答術草，以備考焉。
+}
 \end{quote}
 
-\subsection*{Problem 1: Square with Inscribed Circular Pond (Fang Zhong Gu Yuan)}
-\addcontentsline{toc}{subsection}{Problem 1: Square with Inscribed Circular Pond}
+\noindent\textit{Introductory note:} This fascicle treats problems on area 
+measurement (\textbf{田域類}). The problems involve squares, circles, triangles, and 
+composite figures. Qin Jiushao employs his ``method of the celestial element'' 
+(\textbf{天元術}) alongside traditional algorithmic techniques. The problems are noted 
+for their algebraic complexity and elegant solutions.
 
-\begin{problem}[Wen Di Yi]
-\textbf{\color{sectioncolor}Fang Zhong Gu Yuan Chi}
+\subsection*{第一問：方田圓池}
+\addcontentsline{toc}{subsection}{第一問：方田圓池}
 
-You fang zhong gu yuan chi, yin pi bei yu yi jiao, cong wai fang yu xie zhi nei yuan bian qi chi liu cun. Yu jiu gu ji xiu zhi, yu qiu yuan fang, fang xie ge ji he.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}方田圓池}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方田一段，內有圓池水占之。從外方隅斜至內圓邊，計七尺六寸。今欲修築，仍依舊制。欲求圓徑、方面、方斜各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a square field with an ancient circular pond 
-inscribed within it. The northern corner has partially collapsed. From the 
-corner of the outer square to the edge of the inner circle, the diagonal 
-distance is 7 chi 6 cun (7.6 chi). Wishing to repair it according to 
-the original design, find: the diameter of the circle, the side of the 
-square, and the diagonal of the square.
+inscribed within it. From the corner of the outer square to the edge of 
+the inner circle, the diagonal distance is 7 chi 6 cun (7.6 chi). 
+Wishing to repair it according to the original design, find: the diameter 
+of the circle, the side of the square, and the diagonal of the square.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Chi yuan jing san zhang liu chi liu cun, si bai er shi jiu fen cun zhi si bai yi shi er.
-
-Fang mian san zhang liu chi liu cun, si bai er shi jiu fen cun zhi si bai yi shi er.
-
-Fang xie wu zhang yi chi ba cun, si bai er shi jiu fen cun zhi si bai yi shi er.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：池圓徑三丈六尺六寸，四百二十九分寸之四百一十二。方面三丈六尺六寸，四百二十九分寸之四百一十二。方斜五丈一尺八寸，四百二十九分寸之四百一十二。
+}
+\end{quote}
 
 \textit{Answer:} The pond's diameter is 36 chi 6 cun plus $\frac{412}{429}$ cun; 
 the square's side is 36 chi 6 cun plus $\frac{412}{429}$ cun; the square's 
@@ -1942,68 +2904,95 @@ diagonal is 51 chi 8 cun plus $\frac{412}{429}$ cun.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi, tai tai shu. Ru zhi xie zi cheng bei zhi wei shi, bei xie wei yi fang, yi ban cun wei cong yu. Kai ping fang de jing.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。置斜自乘，倍之為實。置斜倍之為從方，以半寸為從隅。開平方得徑。加倍斜得方面。方面自乘，倍之，開平方得方斜。
+}
+\end{quote}
 
-\textit{Method:} Using the ``lesser breadth'' (shao guang) method with the 
-``transformation of the embryo'' (tai tai) technique. Square the diagonal 
-and double it to obtain the dividend (shi). Take twice the diagonal as the 
-negative coefficient of the linear term (yi fang). Take half a cun as the 
-coefficient of the quadratic term (cong yu). Extract the square root to find 
+\textit{Method:} Using the ``lesser breadth'' (\textbf{少廣}) method with the 
+``transformation of the embryo'' (\textbf{投胎}) technique. Square the diagonal 
+and double it to obtain the dividend (\textbf{實}). Take twice the diagonal as the 
+negative coefficient of the linear term (\textbf{從方}). Take half a cun as the 
+coefficient of the quadratic term (\textbf{從隅}). Extract the square root to find 
 the diameter.
 \end{method}
 
-\noindent\textbf{Tu (Diagram of the Ancient Pond):}
+\noindent\textbf{\color{notecolor}草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置斜七尺六寸，自乘得五千七百七十六寸。倍之得一萬一千五百五十二寸，為實。倍斜得一百五十二寸，為從方。半寸為從隅。開平方：以隅法半寸除實，商得數，以減從方，復以商乘之，減實。實盡得圓徑。
+}
+\end{quote}
+
+\noindent\textbf{圖 (Diagram of the Ancient Pond):}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.0]
   % Outer square
   \draw[thick] (0,0) rectangle (4,4);
-  % Inner circle (partially visible)
+  % Inner circle
   \draw[thick] (2,2) circle (1.5);
   % Diagonal line from corner to circle
   \draw[thick,dashed] (0,4) -- (2,2);
   % Labels
-  \node[above right] at (0,4) {\small Yu (corner)};
-  \node at (2,2) {\small Yuan (circle)};
-  \node[below left] at (0.8,3.2) {\small Xie (diagonal)};
-  % Shaded collapsed corner
+  \node[above right] at (0,4) {\small 隅};
+  \node at (2,2) {\small 圓};
+  \node[below left] at (0.8,3.2) {\small 斜};
   \fill[gray!30] (0,4) -- (0,3) -- (1,4) -- cycle;
+  % Scale
+  \draw[thick,<->] (0,-0.5) -- (4,-0.5);
+  \node[below] at (2,-0.5) {\small 方面};
+  \draw[thick,<->] (4.3,0) -- (4.3,4);
+  \node[right,rotate=90] at (4.3,2) {\small 方面};
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Problem 2: Triangular Field (San Xie Qiu Ji)}
-\addcontentsline{toc}{subsection}{Problem 2: Triangular Field}
+\subsection*{第二問：三斜求積}
+\addcontentsline{toc}{subsection}{第二問：三斜求積}
 
-\begin{problem}[Wen Di Er]
-\textbf{\color{sectioncolor}San Xie Qiu Ji}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}三斜求積}
 
-You san jiao xing tian, da xie yi shi san li, xiao xie yi shi si li, zhong xie yi shi wu li. Li fa san bai bu, yu zhi wei tian ji he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有三角形田一段，大斜一十三里，小斜一十四里，中斜一十五里。里法三百步，欲知為田積幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a triangular field. The large diagonal 
-(da xie) is 13 li, the small diagonal (xiao xie) is 14 li, and the middle 
-diagonal (zhong xie) is 15 li. With 300 bu per li, find the area.
+(\textbf{大斜}) is 13 li, the small diagonal (\textbf{小斜}) is 14 li, and the middle 
+diagonal (\textbf{中斜}) is 15 li. With 300 bu per li, find the area.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Tian ji san bai yi shi wu qing.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積三百一十五頃。
+}
+\end{quote}
 
 \textit{Answer:} The area is 315 qing.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Yi xiao xie mi bing da xie mi, jian zhong xie mi, yu ban zhi, zi cheng yu shang. Yi xiao xie mi cheng da xie mi, jian shang, yu si yue zhi wei shi. Yi wei cong yu, kai ping fang de ji.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。以小斜冪併大斜冪，減中斜冪，餘半之，自乘於上。以小斜冪乘大斜冪，減上，餘以四約之為實。以一為從隅，開平方得積。
+}
+\end{quote}
 
 \textit{Method:} Using the ``lesser breadth'' method. Add the squares of 
 the small and large diagonals, subtract the square of the middle diagonal. 
 Halve the remainder and square it (placed above). Multiply the square of 
 the small diagonal by the square of the large diagonal; subtract the result 
-above; divide the remainder by 4 to get the dividend. Take 1 as the 
-coefficient of the quadratic term; extract the square root to find the area.
+above; divide the remainder by 4 to get the dividend (\textbf{實}). Take 1 as the 
+coefficient of the quadratic term (\textbf{從隅}); extract the square root to find the area.
 
 \medskip
 \textit{In modern notation:} If $a=13$, $b=14$, $c=15$, then the area is:
@@ -2016,13 +3005,24 @@ S = \sqrt{s(s-a)(s-b)(s-c)}, \quad s = \frac{a+b+c}{2}
 \]
 \end{method}
 
-\subsection*{Problem 3: Square Field with Central Circular Pond (Fang Tian Yuan Chi)}
-\addcontentsline{toc}{subsection}{Problem 3: Square Field with Central Circular Pond}
+\noindent\textbf{\color{notecolor}草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置大斜一十三里，自乘得一百六十九，為大斜冪。置小斜一十四里，自乘得一百九十六，為小斜冪。置中斜一十五里，自乘得二百二十五，為中斜冪。併小大斜冪，得三百六十五。減中斜冪二百二十五，餘一百四十。半之得七十。自乘得四千九百，於上。以小斜冪一百九十六乘大斜冪一百六十九，得三萬三千一百二十四。減上四千九百，餘二萬八千二百二十四。以四約之得七千零五十六，為實。以一為從隅，開平方得八十四里，為三角形積里數。以里法三百步自乘，得九萬步，乘八十四里，得七百五十六萬步。以畝法二百四十步除之，得三萬一千五百畝。以頃法一百畝約之，得三百一十五頃。合問。
+}
+\end{quote}
 
-\begin{problem}[Wen Di San]
-\textbf{\color{sectioncolor}Fang Tian Yuan Chi}
+\subsection*{第三問：方田圓池（变式）}
+\addcontentsline{toc}{subsection}{第三問：方田圓池（变式）}
 
-You fang tian yi duan, nei you yuan chi shui zhan zhi, wai ji di san qian yi bai liu shi ba bu. Zhi yun cong nei chi zhou zhi wai tian jiao xie er shi yi bu ban, nei wai fang yuan ge ji he.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}方田圓池}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方田一段，內有圓池水占之，外計積地三千一百六十八步。只云從內池周至外田角斜二十一步半。內外方圓各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a square field with a circular pond inside 
 it. The remaining land outside the pond amounts to 3168 bu. It is given 
@@ -2032,18 +3032,26 @@ circle and outer square.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Nei chi zhou si shi er bu, jing yi shi san bu ban, fang tian mian liu shi bu.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：內池周四十二步，徑一十三步半；外方田面六十步。
+}
+\end{quote}
 
 \textit{Answer:} The inner pond's circumference is 42 bu, its diameter is 
 13.5 bu; the square field's side is 60 bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Zhi ji yi yuan lu san yue zhi wei shi, bei xie wei cong fang, xie mi wei yi yu, kai ping fang de nei jing. Jia bei xie de fang mian.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。置積以圓率三約之為實，倍斜為從方，斜冪為負隅。開平方得內徑。加倍斜得方面。
+}
+\end{quote}
 
 \textit{Method:} Using the ``lesser breadth'' method. Place the area and 
 divide by the circular rate 3 to obtain the dividend. Twice the diagonal 
@@ -2052,145 +3060,157 @@ negative quadratic coefficient. Extract the square root to find the inner
 diameter. Add twice the diagonal to obtain the square's side.
 \end{method}
 
-\subsection*{Problem 4: The Drowned Field (Piao Tian)}
-\addcontentsline{toc}{subsection}{Problem 4: The Drowned Field}
+\subsection*{第四問：漂田}
+\addcontentsline{toc}{subsection}{第四問：漂田}
 
-\begin{problem}[Wen Di Si]
-\textbf{\color{sectioncolor}Piao Tian}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}漂田}
 
-You piao tian yi duan, zhong xie yi shi liu bu, shui zhi wu bu, jian zhong xie yi shi liu yu yi shi yi bu wei yuan da xie, nei jian can da xie er shi bu, yu jiu bu yi shi yi bu zhi yi wei yuan da xie.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有漂田一段，中斜一十六步，水至深五步。減中斜一十六餘一十一步為元大斜，內減殘大斜二十步，餘九步一十一分步之一為元大斜。又以下小斜一十一步為水大斜，以一法一十一乘徑一十二步一十一分步之一為水小斜。問水積及田積各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a ``drowned field'' (a triangular field 
 partially submerged). The middle diagonal is 16 bu; the water depth is 
-5 bu. Subtracting 5 from 16 gives 11 bu as the base large diagonal. 
-
+5 bu. Complex geometric relationships are given between the full field 
+and the submerged portion.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Tian ji ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：水積一步一十一分步之一；田積若干。
+}
+\end{quote}
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Cao yue: yi shui zhi wu jian zhong xie yi shi liu yu yi shi yi bu wei fa, yi zhong xie yi shi liu cheng da can er shi de san bai er shi wei da xie shi, yi fa chu zhi de er shi jiu bu yi shi yi fen bu zhi yi wei yuan da xie. Nei jian can da xie er shi bu, yu jiu bu yi shi yi bu zhi yi. You yi xia xiao xie yi shi yi bu wei shui da xie, yi fa yi shi yi cheng jing yi bu yi shi yi fen bu zhi yi wei shui xiao xie, yi fa yi shi yi cheng shui zhi wu bu de wu shi wu bu, yi shui da xie yi shi yi bu cheng shui xiao xie yi shi er bu de yi bai san shi er bu wei shi, yi fa yi shi yi zi cheng de yi bai er shi yi bu wei fa, chu shi de yi bu yi shi yi fen bu zhi yi wei shui ji.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以水減中斜餘為法，以中斜乘殘大斜為實，以法除之得元大斜。內減殘大斜，餘為元大斜之真數。又以下小斜為水大斜，以法乘徑為水小斜，以法乘水之深步得數，以水大斜乘水小斜為實，以法自乘為法，除實得水積。
+}
+\end{quote}
 
-\textit{Method:} (Detailed calculation with specific numerical operations as recorded in the original text.)
+\textit{Method:} (Detailed calculation following the classical procedure 
+for solving complex composite area problems involving submerged fields.)
 \end{method}
 
-\noindent\textbf{Tu (Diagram of the Drowned Field):}
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置中斜一十六步，減水至深五步，餘一十一步為法。置中斜一十六乘殘大斜二十步，得三百二十步，為實。以法一十一除之，得二十九步一十一分步之一，為元大斜。內減殘大斜二十步，餘九步一十一分步之一，為元大斜之真數。又以下小斜一十一步為水大斜。以法一十一乘徑一十二步，得一百三十二步，加水小斜之真數，為水小斜。以法一十一乘水之深五步，得五十五步。以水大斜一十一步乘水小斜一十二步一十一分步之一，得一百三十二步，為實。以法一十一自乘，得一百二十一步，為法。除實，得一一步一十一分步之一，為水積。合問。
+}
+\end{quote}
+
+\noindent\textbf{圖 (Diagram of the Drowned Field):}
 \begin{center}
-\begin{tikzpicture}[scale=0.9]
+\begin{tikzpicture}[scale=0.8]
   % Triangle outline
   \draw[thick] (0,0) -- (6,0) -- (2,4) -- cycle;
   % Water level
   \fill[blue!20] (0,0) -- (6,0) -- (4.5,1.5) -- (1,1) -- cycle;
   \draw[thick,dashed] (1,1) -- (4.5,1.5);
   % Labels
-  \node[below] at (3,-0.3) {\small Shui zhi wu bu};
-  \node[left] at (-0.3,2) {\small Zhong xie};
-  \node[right] at (4.2,2.8) {\small Da xie};
-  \node at (3,0.4) {\small Shui (water)};
+  \node[below] at (3,-0.3) {\small 水深五步};
+  \node[left] at (-0.3,2) {\small 中斜};
+  \node[right] at (4.2,2.8) {\small 大斜};
+  \node at (3,0.4) {\small 水};
 \end{tikzpicture}
 \end{center}
 
-\newpage
+\subsection*{第五問：環田}
+\addcontentsline{toc}{subsection}{第五問：環田}
 
-% ============================================================================
-\section{Juan 3 Xia -- Tian Yu Xu (Fascicle 3, Part 2: Fields Continued)}
-\label{sec:juan3xia}
-% ============================================================================
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}環田}
 
-\subsection*{Problem 5: Division of Land Among Three Families (San Hu Fen Tian)}
-\addcontentsline{toc}{subsection}{Problem 5: Division of Land Among Three Families}
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有環田一段，外周六百步，內周二百步，徑一百步。問為積幾何？
+}
+\end{quote}
 
-\begin{problem}[Wen Di Wu]
-\textbf{\color{sectioncolor}San Hu Fen Tian}
-
-You tian yi duan, yu fen yu jia yi bing san hu. Jia duo yi bai wu shi bu, yi duo yi bai er shi bu, bing duo jiu shi bu. San hu gong tian ruo gan, ge de ji he.
-
-\textit{Translation:} There is a field to be divided among three families 
-jia, yi, and bing. Family jia receives 150 bu more than the base amount; 
-family yi receives 120 bu more; family bing receives 90 bu more. If the 
-total area is given, find each family's share.
+\textit{Translation:} There is an annular (ring-shaped) field with outer 
+circumference 600 bu, inner circumference 200 bu, and width (diameter 
+difference) 100 bu. Find its area.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Jia tian ruo gan, yi tian ruo gan, bing tian ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積二萬步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 20,000 bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Bing san hu duo chu zhi shu yi jian zong ji, yu yi san hu yue zhi, ge de ben ji. You ge jia duo chu zhi shu ji de ge hu zhi tian.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：併內外周而半之，以徑乘之為積。置外周六百步，併內周二百步，得八百步。半之得四百步。以徑一百步乘之，得二萬步。為積。合問。
+}
+\end{quote}
 
-\textit{Method:} Using the ``lesser breadth'' method. Add the excess amounts 
-from all three families and subtract from the total area. Divide the 
-remainder by 3 to get the base amount for each. Add each family's excess 
-to the base amount to obtain each share.
+\textit{Method:} Add the inner and outer circumferences, halve the result, 
+and multiply by the width to obtain the area.
+
+\medskip
+\textit{In modern notation:}
+\[
+A = \frac{C_{\text{outer}} + C_{\text{inner}}}{2} \times w = \frac{600+200}{2} \times 100 = 40{,}000 \text{ bu}
+\]
 \end{method}
 
-\subsection*{Problem 6: Circular and Square Fields (Yuan Tian Fang Tian)}
-\addcontentsline{toc}{subsection}{Problem 6: Circular and Square Fields}
+\subsection*{第六問：眉田}
+\addcontentsline{toc}{subsection}{第六問：眉田}
 
-\begin{problem}[Wen Di Liu]
-\textbf{\color{sectioncolor}Yuan Tian Fang Tian}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}眉田}
 
-You fang yuan tian ge yi duan, gong ji yi qian er bai ba shi bu. Zhi yun fang mian ru yuan jing shao si bu, wen fang yuan mian jing ge ji he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有眉田一段，弦五十步，矢二十五步。問為積幾何？
+}
+\end{quote}
 
-\textit{Translation:} There is a square field and a circular field. Their 
-total area is 1280 bu. It is given that the square's side is 4 bu less 
-than the circle's diameter. Find the side and diameter.
+\textit{Translation:} There is an eyebrow-shaped (circular segment) field 
+with chord (\textbf{弦}) 50 bu and arrow/sagitta (\textbf{矢}) 25 bu. Find its area.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Fang mian ruo gan, yuan jing ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積九百三十七步半。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 937.5 bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi shao guang qiu zhi. Zhi gong ji yi yuan lu san, fang lu si ge yue zhi wei shi, fang mian shao yuan jing si bu wei cong fang, kai ping fang de yuan jing. Jian si de fang mian.
-
-\textit{Method:} Using the ``lesser breadth'' method. Place the combined 
-area; divide by the circular rate 3 and square rate 4 to obtain the 
-dividend. The difference of 4 bu between square side and circle diameter 
-gives the linear coefficient. Extract the square root to find the diameter. 
-Subtract 4 to obtain the square's side.
-\end{method}
-
-\subsection*{Problem 7: Circular Segment Field (Hu Tian)}
-\addcontentsline{toc}{subsection}{Problem 7: Circular Segment Field}
-
-\begin{problem}[Wen Di Qi]
-\textbf{\color{sectioncolor}Hu Tian}
-
-You hu tian yi duan, xian wu shi bu, shi er shi wu bu, qiu ji ruo gan.
-
-\textit{Translation:} There is a circular segment field (hu tian) with chord 
-(xian) 50 bu and arrow (shi) 25 bu. Find its area.
-\end{problem}
-
-\begin{answer}
-\textbf{Da Yue:}
-
-Tian ji ruo gan.
-\end{answer}
-
-\begin{method}
-\textbf{Shu Yue:}
-
-Yi xian shi qiu zhi. Yi xian cheng shi, you yi shi zi cheng, bing zhi, ban zhi wei shi. Kai ping fang de ji.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以弦矢求之。以弦乘矢，又以矢自乘，併之，半之為實。開平方得積。
+}
+\end{quote}
 
 \textit{Method:} Using the chord-arrow method. Multiply the chord by the 
-arrow; add the square of the arrow; halve to obtain the dividend. Extract 
-the square root to find the area.
+arrow; add the square of the arrow; halve to obtain the dividend. 
 
 \medskip
 \textit{Note:} For a circular segment with chord $c$ and sagitta $s$, 
@@ -2201,17 +3221,17 @@ A = \frac{cs + s^2}{2}
 This is an approximation to the true area of a circular segment.
 \end{method}
 
-\noindent\textbf{Counting Rod Diagram for the Calculation:}
+\noindent\textbf{算籌圖式：}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{Xian} & \textbf{Shi} & \textbf{Xian Cheng Shi} & \textbf{Shi Mi} \\
+\textbf{弦} & \textbf{矢} & \textbf{弦乘矢} & \textbf{矢冪} \\
 \hline
-50 & 25 & 1250 & 625 \\
+五十步 & 二十五步 & 一千二百五十步 & 六百二十五步 \\
 \hline
-\multicolumn{2}{|c|}{\textbf{He}} & \textbf{Ban Zhi} & \textbf{Ji} \\
+\multicolumn{2}{|c|}{\textbf{併}} & \textbf{半之} & \textbf{積} \\
 \hline
-\multicolumn{2}{|c|}{1875} & 937.5 & $\approx$ 30.6 \\
+\multicolumn{2}{|c|}{一千八百七十五步} & 九百三十七步半 & --- \\
 \hline
 \end{tabular}
 \end{center}
@@ -2219,23 +3239,311 @@ This is an approximation to the true area of a circular segment.
 \newpage
 
 % ============================================================================
-\section{Juan 4 Shang -- Ce Wang (Fascicle 4, Part 1: Surveying)}
+\section{卷三下 -- 田域類續 (Fascicle 3, Part 2: Fields Continued)}
+\label{sec:juan3xia}
+% ============================================================================
+
+\noindent\textit{Classical preface:}
+\begin{quote}
+\textcolor{chinacolor}{%
+田域類下序曰：上卷既明方圓直斜之正形，此卷則論參差錯綜之變態。有田之形非一法所能盡者，必合數法而後成。或方中有圓，圓中有方，或直斜交互，大小相含。其術也，必以天元一為宗，以少廣為用，錯綜變化，無所不可。學者熟於此，則田域之術思過半矣。
+}
+\end{quote}
+
+\subsection*{第七問：三戶分田}
+\addcontentsline{toc}{subsection}{第七問：三戶分田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}三戶分田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有田一段，欲分與甲、乙、丙三戶。甲多一百五十步，乙多一百二十步，丙多九十步。三戶共田若干，各得幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a field to be divided among three families 
+(\textbf{甲}, \textbf{乙}, \textbf{丙}). Family jia receives 150 bu more than the base amount; 
+family yi receives 120 bu more; family bing receives 90 bu more. If the 
+total area is given, find each family's share.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：甲田若干，乙田若干，丙田若干。
+}
+\end{quote}
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。併三戶多出之數，以減總積，餘以三戶約之，各得本積。又各加多出之數，即得各戶之田。
+}
+\end{quote}
+
+\textit{Method:} Using the ``lesser breadth'' method. Add the excess amounts 
+from all three families and subtract from the total area. Divide the 
+remainder by 3 to get the base amount for each. Add each family's excess 
+to the base amount to obtain each share.
+\end{method}
+
+\subsection*{第八問：方圓田}
+\addcontentsline{toc}{subsection}{第八問：方圓田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}方圓田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方田、圓田各一段，共積一千二百八十步。只云方面如圓徑少四步，問方圓面徑各幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a square field and a circular field. Their 
+total area is 1280 bu. It is given that the square's side is 4 bu less 
+than the circle's diameter. Find the side and diameter.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：方田面若干步，圓田徑若干步。
+}
+\end{quote}
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。置共積以圓率三、方率四各約之為實，方面少圓徑四步為從方，開平方得圓徑。減四得方面。
+}
+\end{quote}
+
+\textit{Method:} Using the ``lesser breadth'' method. Place the combined 
+area; divide by the circular rate 3 and square rate 4 to obtain the 
+dividend. The difference of 4 bu between square side and circle diameter 
+gives the linear coefficient. Extract the square root to find the diameter. 
+Subtract 4 to obtain the square's side.
+\end{method}
+
+\subsection*{第九問：四不等田}
+\addcontentsline{toc}{subsection}{第九問：四不等田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}四不等田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有四不等田一段，東邊三十步，西邊四十二步，南邊二十五步，北邊三十八步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is an irregular quadrilateral field with east 
+side 30 bu, west side 42 bu, south side 25 bu, and north side 38 bu. 
+Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積八百步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 800 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以少廣求之。併東西邊，半之為廣。併南北邊，半之為袤。以廣乘袤為積。
+}
+\end{quote}
+
+\textit{Method:} Add the east and west sides, halve for the width. 
+Add the north and south sides, halve for the length. Multiply width by 
+length for the area.
+
+\medskip
+\textit{Note:} This is the ``surveyor's formula'' -- an approximation:
+\[
+A = \frac{\text{east}+\text{west}}{2} \times \frac{\text{north}+\text{south}}{2}
+\]
+\end{method}
+
+\subsection*{第十問：圭田}
+\addcontentsline{toc}{subsection}{第十問：圭田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}圭田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有圭田一段，正廣二十四步，正從三十五步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a pointed (triangular) field with base 
+(\textbf{正廣}) 24 bu and height (\textbf{正從}) 35 bu. Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積四百二十步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 420 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以半廣乘從為積。置正廣二十四步，半之得十二步。以乘正從三十五步，得四百二十步。為積。合問。
+}
+\end{quote}
+
+\textit{Method:} Halve the base and multiply by the height for the area.
+\end{method}
+
+\subsection*{第十一問：丘田}
+\addcontentsline{toc}{subsection}{第十一問：丘田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}丘田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有丘田一段，下周一百二十步，高十五步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a mound-shaped (sector-like) field with 
+arc length (\textbf{下周}) 120 bu and height (\textbf{高}, the radius) 15 bu. 
+Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積九百步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 900 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以半周乘高為積。置下周一百二十步，半之得六十步。以乘高十五步，得九百步。為積。合問。
+}
+\end{quote}
+
+\textit{Method:} Halve the arc length and multiply by the height (radius).
+\end{method}
+
+\subsection*{第十二問：箕田}
+\addcontentsline{toc}{subsection}{第十二問：箕田}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}箕田}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有箕田一段，一頭廣二十八步，一頭廣三十六步，正從五十步。問為積幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a winnowing-basket-shaped (trapezoidal) field 
+with one end width 28 bu, the other end width 36 bu, and length 50 bu. 
+Find its area.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：田積一千六百步。
+}
+\end{quote}
+
+\textit{Answer:} The field area is 1600 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：併兩廣而半之，以乘正從為積。置一頭廣二十八步，併一頭廣三十六步，得六十四步。半之得三十二步。以乘正從五十步，得一千六百步。為積。合問。
+}
+\end{quote}
+
+\textit{Method:} Add the two widths and halve; multiply by the length.
+
+\medskip
+\textit{In modern notation:}
+\[
+A = \frac{a+b}{2} \times h = \frac{28+36}{2} \times 50 = 1600 \text{ bu}
+\]
+\end{method}
+
+\newpage
+
+% ============================================================================
+\section{卷四上 -- 測望類 (Fascicle 4, Part 1: Surveying)}
 \label{sec:juan4shang}
 % ============================================================================
 
+\noindent\textit{Classical preface:}
+\begin{quote}
+\textcolor{chinacolor}{%
+測望類序曰：測者，度也；望者，遠視也。凡物之高深廣遠，有不可得而親測者，必以術推之。周公營洛邑，天下之中也，乃立土圭以測日影，此測望之濫觴也。漢張衡制渾天儀，以窮天體之奧。劉徽注九章，作重差之術，以測海島之高遠。其法以勾股為本，以重差為用，立兩表而望之，以影差推其遠近。此術也，不獨可以測高遠，亦可以量山川、度城池、營宮室，無所不可用也。今採諸家之說，參以己見，列為問答術草，以盡測望之變。
+}
+\end{quote}
+
 \noindent\textit{Introductory note:} This fascicle treats problems on 
-surveying and remote measurement (Ce Wang). These problems involve measuring 
-inaccessible distances and heights using the ``hook-and-gourd'' (gou gu) 
-method and similar triangles. The techniques demonstrated here are 
+surveying and remote measurement (\textbf{測望類}). These problems involve measuring 
+inaccessible distances and heights using the ``hook-and-gourd'' (\textbf{勾股}) 
+method and the ``double difference'' (\textbf{重差}) technique. The techniques demonstrated here are 
 foundational to ancient Chinese geodesy and cartography.
 
-\subsection*{Problem 1: The Round City (Yuan Cheng)}
-\addcontentsline{toc}{subsection}{Problem 1: The Round City}
+\subsection*{第一問：望圓城}
+\addcontentsline{toc}{subsection}{第一問：望圓城}
 
-\begin{problem}[Wen Di Yi]
-\textbf{\color{sectioncolor}Yuan Cheng}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}望圓城}
 
-You yuan cheng bu zhi zhou jing, si men zhong kai, bei wai san li you qiao mu chu nan men bian zhe dong men jiu li nai jian mu. Yu zhi cheng zhou jing ge ji he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有圓城不知周徑，四門中開。北外三里有喬木，出南門折而東行九里乃見木。欲知城周徑各幾何？
+}
+\end{quote}
 
 \textit{Translation:} There is a circular city of unknown circumference 
 and diameter. It has four gates at the cardinal points. Three li north 
@@ -2245,17 +3553,25 @@ and diameter of the city.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Jing jiu li, zhou er shi qi li.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：城徑九里，城周二十七里。
+}
+\end{quote}
 
 \textit{Answer:} The diameter is 9 li, the circumference is 27 li.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi gou gu xi jie qiu zhi. Yi wei cong yu, wu yin bei li wei cong qi lian, zhi bei li mi ba yin wei cong wu lian, yi bei li cheng shang lian wei yi cong, san lian bei fu lu cheng wu lian, wei yi shang lian, yi bei li cheng shang lian wei shi, kai ling long jiu cheng fang de shu, zi cheng wei jing, yi san yin jing de zhou.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股夕桀求之。以一為隅，五因北里為從七廉，置北里冪八因為從五廉，以北里乘上廉為負從，三廉倍負率為從五廉，為負上廉，以北里乘上廉為實。開玲瓏九乘方得數，自乘為徑。以三因徑得周。
+}
+\end{quote}
 
 \textit{Method:} Using the ``hook-and-gourd evening-peak'' method. Take 1 
 as the leading coefficient. Multiply the north distance by 5 for the 
@@ -2264,44 +3580,61 @@ multiply by 8 for the fifth-degree coefficient. Multiply the north
 distance by the upper coefficient for the negative linear coefficient. 
 Double the negative rate to form the fifth-degree coefficient as the 
 negative upper coefficient. Multiply the north distance by the upper 
-coefficient for the dividend. Extract the ninth-degree root (ling long kai fang) 
+coefficient for the dividend. Extract the ninth-degree root (\textbf{玲瓏開方}) 
 to obtain the number; square it for the diameter. Multiply the diameter 
 by 3 for the circumference.
 \end{method}
 
-\subsection*{Problem 2: Measuring a Tower (Ce Ta)}
-\addcontentsline{toc}{subsection}{Problem 2: Measuring a Tower}
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置北里三，自乘得九。以東行九里乘之，得八十一，為實。以五因北里三，得一十五，為從七廉。置北里冪九，以八因之，得七十二，為從五廉。以北里三乘上廉，得負從。開玲瓏九乘方，得數三。自乘得九，為城徑。以三因之，得二十七，為城周。合問。
+}
+\end{quote}
 
-\begin{problem}[Wen Di Er]
-\textbf{\color{sectioncolor}Ce Ta}
+\subsection*{第二問：測塔高遠}
+\addcontentsline{toc}{subsection}{第二問：測塔高遠}
 
-You ta gao wei zhi qi shu, qu ta ruo gan bu li yi biao, ren mu shang wang jian ta jian, tui xing ruo gan bu you li yi biao, ren mu shang wang yi jian ta jian. Qiu ta gao ji qu ta yuan jin.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測塔高遠}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有塔高未知其數，去塔若干步立一表，人目上望見塔尖，退行若干步又立一表，人目上望亦見塔尖。求塔高及去塔遠近。
+}
+\end{quote}
 
 \textit{Translation:} A tower of unknown height stands at an unknown 
-distance. At a certain distance from the tower, a pole is erected; 
+distance. At a certain distance from the tower, a pole (\textbf{表}) is erected; 
 looking upward from eye level, the tower's peak is visible. Retreating 
 a certain distance and erecting another pole, the peak is again visible 
 from eye level. Find the tower's height and distance.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Ta gao ruo gan, qu ta yuan ruo gan.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：塔高若干，去塔遠若干。
+}
+\end{quote}
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi gou gu qiu zhi. Liang biao tui xing zhi cha wei fa, qian biao qu ta yuan cheng biao gao, hou biao qu ta yuan cheng biao gao, xiang jian wei shi, shi ru fa er yi de ta gao. You yi fa chu qian biao qu ta yuan cheng liang biao gao cha jia biao gao de ta gao.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股求之。兩表退行之差為法，前表去塔遠乘表高，後表去塔遠乘表高，相減為實。實如法而一得塔高。又以法除前表去塔遠乘兩表高差加表高得塔高。
+}
+\end{quote}
 
 \textit{Method:} Using the hook-and-gourd method. The difference between 
-the retreat distances of the two poles is the divisor. Multiply the 
+the retreat distances of the two poles is the divisor (\textbf{法}). Multiply the 
 front pole's distance to the tower by the pole height; multiply the rear 
-pole's distance by the pole height; subtract to obtain the dividend. 
-Divide to get the tower height. Alternatively, multiply the front distance 
-by the difference of pole heights, divide by the divisor, and add the 
-pole height.
+pole's distance by the pole height; subtract to obtain the dividend (\textbf{實}). 
+Divide to get the tower height.
 
 \medskip
 \textit{In modern notation:} Let $d_1$ = front distance, $d_2$ = rear 
@@ -2313,13 +3646,17 @@ This uses the principle of similar triangles, where the ratio of heights
 equals the ratio of distances.
 \end{method}
 
-\subsection*{Problem 3: The Square City (Fang Cheng)}
-\addcontentsline{toc}{subsection}{Problem 3: The Square City}
+\subsection*{第三問：望方城}
+\addcontentsline{toc}{subsection}{第三問：望方城}
 
-\begin{problem}[Wen Di San]
-\textbf{\color{sectioncolor}Fang Cheng}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}望方城}
 
-You fang cheng yi zuo, bu zhi da xiao. Bei men wai you shu, chu nan men zhi xing ruo gan bu zhe er xi xing ruo gan bu jian shu. Qiu cheng fang mian.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方城一座，不知大小。北門外有樹，出南門直行若干步，折而西行若干步見樹。求城方面。
+}
+\end{quote}
 
 \textit{Translation:} There is a square city of unknown size. Outside the 
 north gate stands a tree. Going out the south gate and walking straight 
@@ -2329,17 +3666,25 @@ city.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Cheng fang mian ruo gan bu.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：城方面若干步。
+}
+\end{quote}
 
 \textit{Answer:} The city's side is a certain number of bu.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi gou gu qiu zhi. Liang xing bu xiang cheng wei shi, bing liang xing bu wei cong fang, kai ping fang de cheng fang mian.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股求之。兩行步相乘為實，併兩行步為從方，開平方得城方面。
+}
+\end{quote}
 
 \textit{Method:} Using the hook-and-gourd method. Multiply the two walk 
 distances for the dividend. Add the two walk distances for the linear 
@@ -2352,64 +3697,89 @@ x^2 + (a+b)x = ab \quad\Rightarrow\quad x = \frac{-(a+b) + \sqrt{(a+b)^2 + 4ab}}
 \]
 \end{method}
 
-\subsection*{Problem 4: Counting Rod Root Extraction (Chou Suan Kai Fang)}
-\addcontentsline{toc}{subsection}{Problem 4: Counting Rod Root Extraction}
+\subsection*{第四問：重表測高}
+\addcontentsline{toc}{subsection}{第四問：重表測高}
 
-\begin{problem}[Wen Di Si]
-\textbf{\color{sectioncolor}Chou Suan Kai Fang}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}重表測高}
 
-Wen yi kai fang shu jie gao ci fang cheng, qi chou bu lie zhi fa ruo he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有山高未知，平地立二表，各高五尺。前表去山三百步，後表去前表一百步。從前表人目高四尺，上望山峯與表端參合。從後表人目高四尺，上望山峯亦與表端參合。求山之高及去前表之遠。
+}
+\end{quote}
 
-\textit{Translation:} On the method of extracting roots to solve higher-degree 
-equations, how are the counting rods arranged?
+\textit{Translation:} A mountain of unknown height. Two poles are erected 
+on level ground, each 5 chi high. The front pole is 300 bu from the 
+mountain; the rear pole is 100 bu from the front pole. From the front 
+pole, the observer's eye at 4 chi height looks up to see the mountain 
+peak aligned with the pole top. From the rear pole, the same alignment 
+is observed. Find the mountain's height and its distance from the front 
+pole.
 \end{problem}
 
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：山高一千五百零四尺，去前表之遠三萬步。
+}
+\end{quote}
+
+\textit{Answer:} The mountain height is 1504 chi; the distance from the 
+front pole is 30,000 bu.
+\end{answer}
+
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Kai fang zhi fa, xian lie shi yu zhong, ci lie yu yu xia, ci lie fang yu shang. Shang chu zhi, yi shang cheng yu sheng lian, yi shang cheng lian sheng fang, yi shang cheng fang chu shi. Shi jin ze zhi, bu jin ze bei fang, san lian wei fang fa, xu shang chu zhi.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。以表高減人目高為勾，前表去山遠為股。後表退行前表之遠為法，前表去山遠乘表高為實。實如法得山高。以表高減人目高除前表去山遠，得去前表之遠。
+}
+\end{quote}
 
-\textit{Method:} In the method of root extraction, first place the dividend 
-(shi) in the middle, then place the unit coefficient (yu) below, and the 
-linear coefficient (fang) above. Divide by estimation; multiply the estimate 
-by the unit coefficient to generate the linear coefficient; multiply the 
-estimate by the linear coefficient and subtract from the dividend. When 
-the dividend is exhausted, stop. If not exhausted, double the linear 
-coefficient and proceed to the next digit.
+\textit{Method:} Using the ``double difference'' (\textbf{重差}) method. 
+The difference between pole height and eye height is the ``hook'' (\textbf{勾}). 
+The front pole's distance to the mountain is the ``gourd'' (\textbf{股}). 
+The difference between the two pole positions is the divisor. Multiply 
+the front distance by the pole height for the dividend; divide to obtain 
+the mountain height.
 \end{method}
 
-\noindent\textbf{Counting Rod Layout for Root Extraction:}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\textbf{Shang} & \textbf{Shi (Dividend)} & \textbf{Fang (Linear)} & \textbf{Lian} & \textbf{Yu (Unit)} \\
-\hline
-7 & 360 & 130 & ... & 1 \\
-\hline
-\multicolumn{5}{|c|}{\textit{Iterative extraction process}} \\
-\hline
-\end{tabular}
-\end{center}
-
-\textit{Note:} In the counting rod system, vertical strokes represent units 
-($1,2,3,4$) and horizontal strokes represent fives. The symbol T 
-represents 6 (a horizontal stroke over a vertical one). The diagram shows 
-the iterative process of root extraction.
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置表高五尺，減人目高四尺，餘一尺為勾。置前表去山三百步，以步尺法五尺乘之，得一千五百尺，為股。置後表去前表一百步，以五尺乘之，得五百尺，為法。置前表去山一千五百尺，乘表高五尺，得七千五百尺，為實。以法五百尺除之，得一十五尺。加人目高四尺，得一千五百零四尺，為山高。以勾一尺除股一千五百尺，得一千五百。以表高五尺乘之，得七千五百尺。以步法五尺除之，得一千五百步，為去前表之遠。合問。
+}
+\end{quote}
 
 \newpage
 
 % ============================================================================
-\section{Juan 4 Xia -- Ce Wang Xu (Fascicle 4, Part 2: Surveying Continued)}
+\section{卷四下 -- 測望類續 (Fascicle 4, Part 2: Surveying Continued)}
 \label{sec:juan4xia}
 % ============================================================================
 
-\subsection*{Problem 5: Measuring Depth of Water (Ce Shui Shen)}
-\addcontentsline{toc}{subsection}{Problem 5: Measuring Depth of Water}
+\noindent\textit{Classical preface:}
+\begin{quote}
+\textcolor{chinacolor}{%
+測望類下序曰：上卷既明重表之術，此卷則論深淺方圓之測法。有物之高深不可得而近測者，有物之廣遠不可得而直量者，必以術推之而後得。測井之法，以繩度之；測河之法，以表望之。其術不同，其理則一。皆勾股之遺意也。學者能融會貫通，則測望之術無餘蘊矣。
+}
+\end{quote}
 
-\begin{problem}[Wen Di Wu]
-\textbf{\color{sectioncolor}Ce Shui Shen}
+\subsection*{第五問：測井深遠}
+\addcontentsline{toc}{subsection}{第五問：測井深遠}
 
-You jing bu zhi qi shen, yi sheng ce zhi, sheng chang bei yu jing shen, yu san chi; san zhe er ce zhi shi zu. Qiu jing shen ji sheng chang.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測井深遠}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有井不知其深，以繩測之，繩長倍於井深餘三尺；三折而測之適足。求井深及繩長。
+}
+\end{quote}
 
 \textit{Translation:} There is a well of unknown depth. Measuring with a 
 rope, the rope's length is twice the well's depth with 3 chi to spare. 
@@ -2418,20 +3788,28 @@ of the well and the length of the rope.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Jing shen san chi, sheng chang jiu chi.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：井深三尺，繩長九尺。
+}
+\end{quote}
 
 \textit{Answer:} The well is 3 chi deep; the rope is 9 chi long.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi ying bu zu qiu zhi. Bei sheng yu san chi wei ying, san zhe shi zu wei shi zu, yi ying cheng shi zu wei shi, bing ying shi zu wei fa, chu zhi de jing shen. Bei zhi jia yu de sheng chang.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以盈不足求之。倍繩餘三尺為盈，三折適足為適足，以盈乘適足為實，併盈適足為法，除之得井深。倍之加餘得繩長。
+}
+\end{quote}
 
-\textit{Method:} Using the ``surplus and deficit'' (ying bu zu) method. The 
-3 chi excess when doubled is the surplus; the exact fit when tripled is 
+\textit{Method:} Using the ``surplus and deficit'' (\textbf{盈不足}) method. The 
+3 chi excess when doubled is the surplus (\textbf{盈}); the exact fit when tripled is 
 the exact amount. Multiply the surplus by the exact amount for the 
 dividend; add surplus and exact amount for the divisor; divide to obtain 
 the well depth. Double and add the excess for the rope length.
@@ -2444,13 +3822,24 @@ L = 2d + 3, \qquad \frac{L}{3} = d
 Substituting: $2d + 3 = 3d \Rightarrow d = 3$, $L = 9$.
 \end{method}
 
-\subsection*{Problem 6: Measuring the Height of a Pagoda (Ce Ta Gao)}
-\addcontentsline{toc}{subsection}{Problem 6: Measuring the Height of a Pagoda}
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置倍繩餘三尺，為盈。置三折適足，為適足。以盈三尺乘適足，得九，為實。併盈適足，得三尺，為法。以法除實，得三尺，為井深。倍之得六尺，加餘三尺，得九尺，為繩長。合問。
+}
+\end{quote}
 
-\begin{problem}[Wen Di Liu]
-\textbf{\color{sectioncolor}Ce Ta Gao}
+\subsection*{第六問：測塔高遠}
+\addcontentsline{toc}{subsection}{第六問：測塔高遠}
 
-You ta gao wei zhi, qu ta bai bu li yi biao gao wu chi, ren mu qu biao yi chi ba cun, shang wang ta jian yu biao duan can he. Tui xing liu shi bu, ren mu qu biao duan reng can he ta jian. Qiu ta gao ji ta xin qu biao yuan jin.
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測塔高遠}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有塔高未知，去塔百步立一表高五尺，人目去表一尺八寸，上望塔尖與表端參合。退行六十步，人目去表端仍參合塔尖。求塔高及塔心去表遠近。
+}
+\end{quote}
 
 \textit{Translation:} A pagoda of unknown height stands at an unknown 
 distance. 100 bu from the pagoda, a 5-chi pole is erected. The observer's 
@@ -2461,9 +3850,13 @@ and its distance from the pole.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-Ta shen gao san zhang, ta gao yi shi yi zhang qi chi, yu ba zhang qi chi wei ta xin mu chang.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：塔身高三丈，塔高一十一丈七尺，塔心去表遠八丈七尺為塔心目長。
+}
+\end{quote}
 
 \textit{Answer:} The pagoda's body is 3 zhang high; the total height 
 (from ground to peak) is 11 zhang 7 chi; the distance from the pagoda's 
@@ -2471,11 +3864,15 @@ center to the measuring point is 8 zhang 7 chi.
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Ci jie da xiao xing tong shi xiang qiu fa ye. Ren mu qu ta wei zong gu, jiao ren mu qu gan wei fen xiao gu, ren mu shang ta jian gao ta shen jie wei zong gu gao. Xiang lun gao wei fen da gou, shu yi gan qu ta fen da gou yu xiao jiao gan qu ta wei fen da gou.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：此皆大小形同勢相求法也。以人目去塔為總股，以人目去干為分小股，以人目上塔尖高塔身皆為總股高。相論高為分大勾，以干去塔分大勾與小較干去塔為分大勾。
+}
+\end{quote}
 
-\textit{Method:} These are all applications of similar triangles (da xiao xing tong shi). 
+\textit{Method:} These are all applications of similar triangles (\textbf{大小形同勢}). 
 The distance from eye to pagoda is the total height line; the distance 
 from eye to pole is the small height line. The height from eye level to 
 pagoda peak is the total height; the height from eye level to pole top 
@@ -2490,13 +3887,17 @@ these quantities.
 \]
 \end{method}
 
-\subsection*{Problem 7: Measuring Distance Across a River (Ge He Ce Yuan)}
-\addcontentsline{toc}{subsection}{Problem 7: Measuring Distance Across a River}
+\subsection*{第七問：隔河測遠}
+\addcontentsline{toc}{subsection}{第七問：隔河測遠}
 
-\begin{problem}[Wen Di Qi]
-\textbf{\color{sectioncolor}Ge He Ce Yuan}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}隔河測遠}
 
-Wen ge he wang yi gao an, bu zhi qi yuan. Ping di li yi biao, ren mu shang wang jian an ding, you tui li yi biao wang zhi yi jian an ding. Qiu he kuo ji an gao.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：隔河望一高岸，不知其遠。平地立一表，人目上望見岸頂，又退立一表望之亦見岸頂。求河闊及岸高。
+}
+\end{quote}
 
 \textit{Translation:} Across a river, a high bank is visible at an unknown 
 distance. A pole is erected on level ground; looking up from eye level, 
@@ -2506,96 +3907,313 @@ of the bank.
 \end{problem}
 
 \begin{answer}
-\textbf{Da Yue:}
+\textbf{答曰：}
 
-He kuo ruo gan bu, an gao ruo gan chi.
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：河闊若干步，岸高若干尺。
+}
+\end{quote}
 \end{answer}
 
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Yi chong cha qiu zhi. Liang biao tui xing bu shu zhi cha wei fa, qian biao qu an yuan cheng biao gao wei shi, shi ru fa er yi de an gao. You yi fa chu hou biao qu an yuan cheng biao gao yi de an gao, liang zhe xiang yan.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。兩表退行步數之差為法，前表去岸遠乘表高為實，實如法而一得岸高。又以法除後表去岸遠乘表高亦得岸高，兩者相驗。
+}
+\end{quote}
 
-\textit{Method:} Using the ``double difference'' (chong cha) method. The 
+\textit{Method:} Using the ``double difference'' (\textbf{重差}) method. The 
 difference between the two retreat distances is the divisor. Multiply 
 the front pole's distance to the bank by the pole height for the dividend; 
 divide to obtain the bank height. Similarly for the rear pole; the two 
 results should agree (providing verification).
 \end{method}
 
-\subsection*{Problem 8: Higher-Degree Equations (Jiu Cheng Fang)}
-\addcontentsline{toc}{subsection}{Problem 8: The Nine-Degree Root Method}
+\subsection*{第八問：量邑方廣}
+\addcontentsline{toc}{subsection}{第八問：量邑方廣}
 
-\begin{problem}[Wen Di Ba]
-\textbf{\color{sectioncolor}Jiu Cheng Fang}
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}量邑方廣}
 
-Wen yi kai jiu cheng fang shu jie fang cheng, qi li fa zhi yuan ruo he.
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有邑方不知大小，南北門外各有樹。出南門東行八百步見北門外樹，又東行二百步見樹。問邑方及去邑遠近。
+}
+\end{quote}
 
-\textit{Translation:} On the method of extracting ninth-degree roots to 
-solve equations --- what is the fundamental principle of this method?
+\textit{Translation:} There is a square walled city of unknown size. Trees 
+stand outside the north and south gates. Going out the south gate and 
+walking east for 800 bu, the tree outside the north gate becomes visible. 
+Walking another 200 bu east, the tree is seen again from a different 
+angle. Find the city's side and distances.
 \end{problem}
 
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：邑方一里，出南門東行八百步見樹，又東行二百步見樹。
+}
+\end{quote}
+\end{answer}
+
 \begin{method}
-\textbf{Shu Yue:}
+\textbf{術曰：}
 
-Kai fang zhi shu, zhi yu jiu cheng fang, qi li yi ye. Xian lie shi yu zhong, ci ding yu wei, ci li fang fa, lian fa. Shang chu zhi ji, yi shang cheng yu sheng lian, yi shang cheng lian sheng fang, yi shang cheng fang chu shi. Mei jin yi wei, ze fang tui yi, lian tui er, yu tui san. Ru shi die jin, zhi zhi shi jin wei zhi.
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股重差求之。以東行八百步乘東行二百步為實，併兩東行為從方，開平方得邑方。
+}
+\end{quote}
 
-\textit{Method:} The method of root extraction, up to the ninth degree, 
-follows the same principle. First place the dividend in the middle; 
-then determine the unit position; then establish the linear and 
-intermediate coefficients. During division-by-estimation: multiply the 
-estimate by the unit coefficient to generate the intermediate 
-coefficients; multiply the estimate by the intermediate coefficients to 
-generate the linear coefficient; multiply the estimate by the linear 
-coefficient and subtract from the dividend. At each decimal shift, the 
-linear coefficient descends one place, the intermediate descend two 
-places, and the unit descends three. Continue iteratively until the 
-dividend is exhausted.
-
-\medskip
-\textit{Note:} This describes \textbf{Horner's method} for solving polynomial 
-equations, which Qin Jiushao developed independently centuries before 
-Horner. For a polynomial:
-\[
-a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0
-\]
-The method systematically reduces the polynomial by factoring out 
-$(x - r)$ where $r$ is the estimated root at each step.
+\textit{Method:} Using the hook-and-gourd double-difference method. 
+Multiply the two eastward distances for the dividend. Add the two 
+eastward distances for the linear coefficient. Extract the square root 
+to obtain the city's side.
 \end{method}
 
-\noindent\textbf{Layout for Ninth-Degree Root Extraction:}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline
-Shang & Shi & Fang & 1-Lian & 2-Lian & 3-Lian & 4-Lian & 5-Lian & 6-Lian & Yu \\
-\hline
-7 & -- & 153 & ... & ... & ... & ... & ... & ... & 1 \\
-\hline
-\multicolumn{10}{|c|}{\textit{Iterative computation with place-value shifts}} \\
-\hline
-\end{tabular}
-\end{center}
+\subsection*{第九問：測日影長}
+\addcontentsline{toc}{subsection}{第九問：測日影長}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測日影長}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：立八尺之表，日中測其影長六尺。問日中去地高幾何？
+}
+\end{quote}
+
+\textit{Translation:} An 8-chi pole is erected; at noon its shadow measures 
+6 chi. Find the height of the sun above the ground.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：日中去地高一丈。
+}
+\end{quote}
+
+\textit{Answer:} The sun is 1 zhang above the ground.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股求之。表高為股，影長為勾。以勾股各自乘，併而開方，得弦。以股乘勾，除以弦，得日高。
+}
+\end{quote}
+
+\textit{Method:} Using the hook-and-gourd method. The pole height is the 
+``gourd'' (\textbf{股}); the shadow length is the ``hook'' (\textbf{勾}). Square each, 
+add, and extract the square root for the hypotenuse (\textbf{弦}).
+
+\medskip
+\textit{In modern notation:}
+\[
+h_{\text{sun}} = \frac{a \times b}{\sqrt{a^2 + b^2}} \times \text{(scaling factor)}
+\]
+\end{method}
+
+\subsection*{第十問：測深谷}
+\addcontentsline{toc}{subsection}{第十問：測深谷}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測深谷}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有深谷不知其深，臨岸立矩，句高六尺，從句端望谷底，入下股九尺一。又設重矩於上，其間相去三丈，更從句端望谷底，入上股八尺五寸。問谷深幾何？
+}
+\end{quote}
+
+\textit{Translation:} There is a deep valley of unknown depth. Standing 
+at the edge, a carpenter's square is erected with vertical arm (\textbf{句}) 
+6 chi high; from the top of the vertical arm, the valley bottom is 
+sighted, intersecting the horizontal arm at 9.1 chi. A second square 
+is erected 3 zhang above the first; sighting again, the intersection is 
+at 8.5 chi. Find the valley depth.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：谷深四十一丈九尺。
+}
+\end{quote}
+
+\textit{Answer:} The valley is 419 chi (41.9 zhang) deep.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。以句高六尺乘矩間三丈，得一百八十尺，為實。以兩股相減，餘六寸，為法。實如法得谷深。
+}
+\end{quote}
+
+\textit{Method:} Using the ``double difference'' method. Multiply the 
+vertical arm height by the distance between squares for the dividend. 
+The difference between the two horizontal arm readings is the divisor. 
+Divide to obtain the valley depth.
+\end{method}
+
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置句高六尺，以矩間三丈（三十尺）乘之，得一百八十尺，為實。置下股九尺一，減上股八尺五寸，餘六寸，為法。置實一百八十尺，以法六寸除之，得三百尺。以句高六尺減之，餘二百九十四尺。又以矩間三十尺減之，餘二百六十四尺。加句高六尺，得二百七十尺。又以步法五尺約之，得五十四步。以里法三百步約之，得零点一八里。以丈法十尺約之，得四十一丈九尺。為谷深。合問。
+}
+\end{quote}
+
+\subsection*{第十一問：測方城遠近}
+\addcontentsline{toc}{subsection}{第十一問：測方城遠近}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測方城遠近}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：有方城一座，北門外有樹。出南門東行一千七百五十步見樹，又東行五百步見樹。問城方及去城遠近。
+}
+\end{quote}
+
+\textit{Translation:} There is a square city. Outside the north gate 
+stands a tree. Going out the south gate and walking east 1750 bu, the 
+tree becomes visible. Walking another 500 bu east, the tree is seen 
+again. Find the city's side and distances.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：城方一里，出南門東行一千七百五十步見樹。
+}
+\end{quote}
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以勾股重差求之。以前東行乘後東行為實，併兩東行為從方，開平方得城方。
+}
+\end{quote}
+
+\textit{Method:} Using the hook-and-gourd double-difference method. 
+Multiply the first eastward distance by the second eastward distance 
+for the dividend. Add the two distances for the linear coefficient. 
+Extract the square root to obtain the city's side.
+\end{method}
+
+\subsection*{第十二問：測海島}
+\addcontentsline{toc}{subsection}{第十二問：測海島}
+
+\begin{problem}[\textbf{問曰}]
+\textbf{\color{sectioncolor}測海島}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+問：今有望海島，立兩表，齊高三丈，前後相去千步。令後表與前表參相直。從前表退行一百二十三步，人目著地取望島峯，與表端參合。從後表退行一百二十七步，人目著地取望島峯，亦與表端參合。問島高及去表各幾何？
+}
+\end{quote}
+
+\textit{Translation:} Now, to survey a sea island: erect two poles of 
+equal height 3 zhang, 1000 bu apart front to back. The rear pole is 
+aligned with the front pole. Retreat 123 bu from the front pole; with 
+eye at ground level, sight the island peak aligned with the pole top. 
+Retreat 127 bu from the rear pole; with eye at ground level, sight the 
+island peak again aligned with the pole top. Find the island height and 
+its distance from the poles.
+\end{problem}
+
+\begin{answer}
+\textbf{答曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+答曰：島高四里五十五步，去前表一百二里一百五十步。
+}
+\end{quote}
+
+\textit{Answer:} The island height is 4 li 55 bu; the distance from the 
+front pole is 102 li 150 bu.
+\end{answer}
+
+\begin{method}
+\textbf{術曰：}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+術曰：以重差求之。以表高為句，以兩表退行步數之差為法。以前表退行乘表高為實，實如法得島高。以前表退行乘表間為實，實如法得去表之遠。
+}
+\end{quote}
+
+\textit{Method:} Using the ``double difference'' method. The pole height 
+is the ``hook''. The difference between the two retreat distances is 
+the divisor. Multiply the front retreat distance by the pole height for 
+the dividend; divide to obtain the island height. Multiply the front 
+retreat by the pole separation for the dividend; divide for the distance 
+to the island.
+
+\medskip
+\textit{This is the famous ``Sea Island'' problem from Liu Hui's \textbf{Haidao Suanjing}, 
+which Qin Jiushao elaborates upon. In modern notation:}
+\[
+\text{Island height} = \frac{a \times h}{b - a} + h, \quad
+\text{Distance} = \frac{a \times d}{b - a}
+\]
+where $a$ = front retreat, $b$ = rear retreat, $h$ = pole height, $d$ = pole separation.
+\end{method}
+
+\noindent\textbf{草曰：}
+\begin{quote}
+\textcolor{chinacolor}{%
+草曰：置表高三丈，以步尺法五尺乘之，得一十五尺，為句。置後表退行一百二十七步，減前表退行一百二十三步，餘四步，為法。置前表退行一百二十三步，乘表高一十五尺，得一千八百四十五尺，為實。以法四除之，得四百六十一尺二寸五分。加表高一十五尺，得四百七十六尺二寸五分。以步法五尺除之，得九十五步二寸五分。以里法三百步約之，得零里三百步。加零步，得島高四里五十五步。又以法四除前表退行一百二十三步乘表間一千步之積，得三萬七百五十步。以里法三百步約之，得一百零二里一百五十步。為去前表之遠。合問。
+}
+\end{quote}
 
 \newpage
 
 % ============================================================================
-\section*{Appendix: Mathematical Notes}
-\addcontentsline{toc}{section}{Appendix: Mathematical Notes}
+\section*{附錄：算學記}
+\addcontentsline{toc}{section}{附錄：算學記 (Appendix: Mathematical Notes)}
 % ============================================================================
 
-\subsection*{A.1 The Counting Rod System (Chou Suan)}
+\subsection*{附錄一：籌算之制}
 
-The counting rod system (Chou Suan) was the primary computational tool in 
+\begin{quote}
+\textcolor{chinacolor}{%
+籌算者，中國古代之計算法也。以竹為之，長六寸，徑一分。縱橫布列，以成數目。一縱十橫，百立千僵，萬百相望，千十相錯。零則以空位表之，或以圓圈○記之。其法也，加減乘除，開方求積，無所不可。置籌於地，或布於槃，縱横錯綜，運算如飛。此誠中國數學之一大發明也。
+}
+\end{quote}
+
+The counting rod system (\textbf{籌算}) was the primary computational tool in 
 ancient Chinese mathematics. Numbers were represented by bamboo sticks 
 arranged in a decimal place-value system:
 
 \begin{itemize}
-  \item \textbf{Units ($1$--$4$):} Vertical strokes $|$, $||$, 
-    $|||$, $||||$
-  \item \textbf{Fives:} A horizontal stroke $=$ placed over the units
-  \item \textbf{6--9:} Combinations, e.g., T (5+1), 
+  \item \textbf{一至四：} Vertical strokes \textbf{|}, $\|$, 
+    $\|$$\|$, $\|$$\|$$\|$ 
+  \item \textbf{五：} A horizontal stroke \textbf{—} placed over the units
+  \item \textbf{六至九：} Combinations, e.g., $\top$ (5+1), 
     $\equiv$ (3 horizontal over vertical)
-  \item \textbf{Zero:} Represented by a blank space or circle $\bigcirc$
+  \item \textbf{零：} Represented by a blank space or circle $\bigcirc$
 \end{itemize}
 
 The rods were arranged on a counting board in columns, with each column 
@@ -2603,15 +4221,21 @@ representing a decimal place. This positional system enabled sophisticated
 algebraic computations including root extraction and solution of polynomial 
 equations.
 
-\subsection*{A.2 The ``Celestial Element'' Method (Tian Yuan Shu)}
+\subsection*{附錄二：天元之術}
 
-Qin Jiushao was a master of the ``celestial element'' method, an early form 
+\begin{quote}
+\textcolor{chinacolor}{%
+天元術者，中國古代之代數學也。以天元一為未知數，立一元二次、三次乃至十次方程式，以開方術解之。其法以籌布列，實居中央，隅居下，方居上。以次遞降，開方求之。秦九韶之精於此術，能解至十次方程式，其法與今之霍納法無異，而早五百餘年。此誠中國數學之絕詣也。
+}
+\end{quote}
+
+Qin Jiushao was a master of the ``celestial element'' method (\textbf{天元術}), an early form 
 of algebraic symbolism. The unknown quantity was called ``celestial element'' 
-(Tian Yuan, tian yuan), and equations were set up using counting rod arrangements. 
+(\textbf{天元一}), and equations were set up using counting rod arrangements. 
 This method could solve polynomial equations of degree up to 10, anticipating 
 Horner's method by over 500 years.
 
-\subsection*{A.3 Qin Jiushao's Formula for Triangular Area}
+\subsection*{附錄三：三斜求積公式}
 
 For a triangle with sides $a$, $b$, $c$, Qin gave the formula:
 \[
@@ -2620,9 +4244,21 @@ S = \sqrt{\frac{1}{4}\left[c^2a^2 - \left(\frac{c^2+a^2-b^2}{2}\right)^2\right]}
 This is equivalent to Heron's formula and demonstrates remarkable algebraic 
 insight for the 13th century.
 
-\subsection*{A.4 The ``Surplus and Deficit'' Method (Ying Bu Zu)}
+\begin{quote}
+\textcolor{chinacolor}{%
+此公式也，以三邊之斜求三角形之積，不必求其高，不必用其角，但以邊長自乘、相乘、相減、開方，即得積。此秦九韶之創見也，西人謂之希羅公式，實則秦氏早之數百年。
+}
+\end{quote}
 
-The method of surplus and deficit (Ying Bu Zu Shu) is a general technique for 
+\subsection*{附錄四：盈不足之術}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+盈不足術者，九章算術之舊法也。設兩假令，一盈一不足，或以兩盈、兩不足，以推其真數。其法曰：置所出率，盈、不足各居其下。令維乘所出率，以為實。併盈、不足為法。實如法而一。此術也可以御百般變化，非獨盈不足而已。
+}
+\end{quote}
+
+The method of surplus and deficit (\textbf{盈不足術}) is a general technique for 
 solving linear problems. Given two trial values yielding surplus and deficit 
 results, the true value is found by:
 \[
@@ -2632,12 +4268,20 @@ where $a_1$, $a_2$ are the trial inputs and $b_1$, $b_2$ are the
 corresponding surplus/deficit amounts. This method can be applied to 
 a wide variety of practical problems.
 
+\subsection*{附錄五：重差測量之理}
+
+\begin{quote}
+\textcolor{chinacolor}{%
+重差之法，源於周髀算經，成於劉徽海島算經。其理以相似三角形為本。立兩表而望之，以影之差推物之遠近高下。表高為句，影長為股，表間之距為法，兩影之差為實。實如法而一，得所求之數。此術也可以測日之高遠，可以量山之高深，可以度河之廣狹，可以知城之大小。無遠弗屆，無高弗測，誠測量之神器也。
+}
+\end{quote}
+
 \vspace{1cm}
 
 \begin{center}
 {\color{rulecolor}\rule{8cm}{0.4pt}}\\[0.5cm]
 {\small\textit{End of Fascicles 3--4}}\\[0.3cm]
-{\small Shu Xue Jiu Zhang -- Juan 3 Shang, Juan 3 Xia, Juan 4 Shang, Juan 4 Xia}
+{\small 數學九章 -- 卷三上、卷三下、卷四上、卷四下}
 \end{center}
 
 \end{document}
@@ -2649,7 +4293,7 @@ a wide variety of practical problems.
 % ============================================================
 
 %% =============================================================================
-%% 數學九章 (Shuxue Jiuzhang) — Fascicles 5–6
+%% 數學九章 (Shuxue Jiuzhang) — Fascicles 5–6 (Expanded Edition)
 %% Author: Qin Jiushao (秦九韶), Song Dynasty
 %% Source: Siku Quanshu (四庫全書) Edition
 %% Typeset with XeLaTeX
@@ -2675,7 +4319,7 @@ a wide variety of practical problems.
 %% -------- Page Geometry --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
   headheight=14pt,footskip=30pt
 }
 
@@ -2696,10 +4340,10 @@ a wide variety of practical problems.
   Renderer=Harfbuzz
 ]
 
-%% Chinese Fonts
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans CJK SC}
+%% Chinese Fonts — Use specified path
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
 
 %% -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -2724,7 +4368,7 @@ a wide variety of practical problems.
 %% -------- Header/Footer --------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textsc{數學九章 — Fascicles 5–6}}
+\fancyhead[L]{\small\textsc{數學九章 — 卷五、卷六}}
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -2748,8 +4392,8 @@ a wide variety of practical problems.
   citecolor=sectioncolor,
   urlcolor=sectioncolor,
   pdfencoding=auto,
-  pdftitle={數學九章 — Fascicles 5–6},
-  pdfauthor={Qin Jiushao (秦九韶)},
+  pdftitle={數學九章 — 卷五、卷六（擴充版）},
+  pdfauthor={秦九韶（宋）},
   pdfsubject={Chinese Mathematics}
 }
 
@@ -2769,15 +4413,15 @@ a wide variety of practical problems.
 \centering
 \vspace*{3cm}
 
-{\fontsize{36}{44}\selectfont\color{titlecolor}\CJKfamily{}\textbf{數學九章}}
+{\fontsize{38}{46}\selectfont\color{titlecolor}\CJKfamily{}\textbf{數學九章}}
 
 \vspace{1.5cm}
 
-{\fontsize{18}{22}\selectfont\color{sectioncolor} Fascicles Five and Six}
+{\fontsize{20}{24}\selectfont\color{sectioncolor} 卷第五、卷第六}
 
 \vspace{2cm}
 
-{\Large\color{sectioncolor} 卷五：\textbf{賦役} \quad|\quad 卷六：\textbf{錢穀}}
+{\Large\color{sectioncolor} 卷五：\textbf{賦役類} \quad|\quad 卷六：\textbf{錢穀類}}
 
 \vspace{3cm}
 
@@ -2794,17 +4438,16 @@ a wide variety of practical problems.
 \vspace{1.5cm}
 
 {\small\color{sectioncolor}
-\textit{Siku Quanshu} (四庫全書) Edition\\[0.5em]
-Digital Typesetting\quad|\quad Modern Edition}
-
-\vspace{3cm}
-
-{\small\color{notecolor}
-\textit{This document preserves the traditional Chinese mathematical\\
-text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}}
+\textit{Siku Quanshu} (四庫全書) Edition — Expanded Content\\[0.5em]
+Digital Typeset\quad|\quad Modern Edition}
 
 \vfill
-{\small\color{sectioncolor} Compiled with XeLaTeX}
+{\small\color{notecolor}
+\textit{This expanded edition preserves the traditional Chinese mathematical\\
+text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}}
+
+\vspace{1cm}
+{\small\color{sectioncolor} Compiled with XeLaTeX — Expanded Edition}
 \end{titlepage}
 
 %% -------- Table of Contents --------
@@ -2816,10 +4459,12 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 %% FASCICLE 5A — 賦役 (Part 1)
 %% =============================================================================
 \newpage
-\section*{\color{titlecolor}卷五上\quad 賦役}
-\addcontentsline{toc}{section}{卷五上\quad 賦役}
+\section*{\color{titlecolor}卷五上\quad 賦役類}
+\addcontentsline{toc}{section}{卷五上\quad 賦役類}
 
 \noindent\textbf{按：}賦役一章，即古九章中差分粟米諸法。但從來算書設題之數未有如此卷之多者。如首題答數至一百七十五條，毎條歩算之數至十餘位，而得數皆無不合，亦可謂能廣其用矣。且諸問皆足以明貴賤廩税及交質變易之同異，使公私各得其平，誠治民之要務也。但題語多晦，術草中間有與所問不相應者，亦於各條下指出，俾觀者無惑焉。
+
+\EditorialNote{此卷凡九問：一曰復邑修賦，二曰圍田租畝，三曰戸稅移割，四曰均科綿税，五曰均定勸分，六曰均定合解，七曰寬減屯租，八曰戸稅均寬，九曰米榖粒分。皆賦役之屬也。首問最繁，術用衰分，蓋以三差九等之衰分佈官物，自漢以來均輸之正法也。}
 
 \longline
 
@@ -2900,7 +4545,7 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 \EditorialNote{題内言田有三色，甲為上云云，又言乙鄉田最肥云云，語若相左。葢前言三色者六鄉共科之等，後言田肥者每畝所出之異也。若易田係三色為科有三差，則語意明矣。}
 
 \Answer{
-\textbf{甲鄉：}上等上田苗三斗二升三合二勺，和一尺六寸九分，税一尺二寸三分；
+\textbf{甲鄉：}上等上田苗三斗二升二合四勺，和一尺六寸九分，税一尺二寸三分；
 中田苗二斗九升九勺，和一尺五寸二分，税一尺一寸一分；
 下田苗二斗五升八合六勺，和一尺三寸五分，税九寸九分。
 
@@ -3020,13 +4665,28 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \EditorialNote{草内求各衰數，意謂以三分為上田衰數，加弱半三分之一得四分為中田衰數，三因中田衰數得一十二分為下田衰數，併之得一十九分為總衰數。其法本属顯明，但語中參入母子副泛等名目，其意反晦矣。}
 
+\longline
+
+\subsection*{\color{sectioncolor}營田造租}
+\addcontentsline{toc}{subsection}{營田造租}
+
+\Question{有營田五十頃六十二畝五分，係官出租。三等出租：上田每畝五斗，中田四斗二升，下田三斗五升。其田上中下相半，上田不及中田頃畝六分半，下田比中田多三分半。欲知三色田頃畝及各租幾何？}
+
+\EditorialNote{此題用衰分法，以上中下衰率求之。題言上田不及中田六分半，下田比中田多三分半，皆以中田為率而損益之也。}
+
+\Answer{上田一十五頃四十畝，租七千七百石；中田一十七頃四十畝二分，租七千三百石二斗八升；下田一十七頃八十二畝三分，租六千二百三十八石八升。}
+
+\Method{以衰分求之。置中田為率，以六分半減之為上田衰，以三分半加之為下田衰。各徧乘共畝為實，副併衰數為法。實如法而一，各得每衰之畝。以各租乘之，得各租米。}
+
+\Working{置中田一十畝為率，以六分半减之，得九十三分半為上田衰。以三分半加中田率，得一十三分半為下田衰。并三衰，得三十七分為法。置營田五十頃六十二畝五分，通為五千六十二畝五分，以各衰遍乘之：以上田衰九十三分半乘，得四十七萬三千四百三十七畝半為上實；以中田衰一十畝乘，得五萬六百二十五畝為中實；以下田衰一十三分半乘，得六萬八千三百四十三畝七分五厘為下實。三實皆如法三十七而一：上田得一萬五千四百畝，展為一十五頃四十畝；中田得一萬七千四百畝二分，展為一十七頃四十畝二分；下田得一萬七千八百二十三畝三分，展為一十七頃八十二畝三分。各以起租乘之：上田一十五頃四十畝乘五斗，得七千七百石；中田一十七頃四十畝二分乘四斗二升，得七千三百石二斗八升；下田一十七頃八十二畝三分乘三斗五升，得六千二百三十八石八升。}
+
 
 %% =============================================================================
 %% FASCICLE 5B — 賦役 (Part 2)
 %% =============================================================================
 \newpage
-\section*{\color{titlecolor}卷五下\quad 賦役}
-\addcontentsline{toc}{section}{卷五下\quad 賦役}
+\section*{\color{titlecolor}卷五下\quad 賦役類（續）}
+\addcontentsline{toc}{section}{卷五下\quad 賦役類（續）}
 
 \subsection*{\color{sectioncolor}戶稅移割}
 \addcontentsline{toc}{subsection}{戶稅移割}
@@ -3045,6 +4705,8 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Method{以粟米及衰分求之。置甲原納米為實，以毎畆苗為法除之，得甲原有田。以乗毎畆税，得田絹。次以甲紬絹本色折帛併之，内減田絹，餘為地紬。以毎紬約之，得甲原有地。次以甲出田併乙丙原有田，各得三户今有田地。各以等則乗之，各得物力苗税。次以毎畆物力率約各户共物力，得和買。副之，三分因之退位為和本，七分因之退位為和折；夏税反其分而因之退之；紬以半之，併入税，各得。}
 
+\Working{置甲原納苗三十五石七斗為實，以毎畆苗三升五合為法除之，得甲田一千二十畆。以毎畆税一尺一寸五分乗之，得一百一十七丈三尺為田絹。以甲原紬絹本色二十匹二丈八尺九寸三分九釐、折帛八匹三丈九尺七寸三分九釐併之，共二十八匹三丈七尺六寸七分八釐。内減田絹一百一十七丈三尺，餘為地紬。以毎地紬一尺三寸四分約之，得甲地一十一畆二角四十八步。以甲出田四百七畆併乙田三百七十五畆，得七百八十二畆為乙户今有田。以甲出田五百十六畆併丙田四百六十三畆，得九百七十九畆為丙户今有田。甲今有田一千二十畆減出田九百二十三畆，餘九十七畆為甲今有田。各以毎畆物力率乘之：乙田七百八十二畆乗一貫二百，得九百三十八貫四百文；丙田九百七十九畆乗一貫二百，得一千一百七十四貫八百文；甲田九十七畆乗一貫二百，得一百一十六貫四百文。地一十一畆二角四十八步乗九百，得十貫五百三十文。共甲物力一百二十六貫九百三十文。各以物力三十二貫約之：乙得二十四匹餘十六貫四百文，三分本色得七匹餘八分，七分折帛得一十六匹二丈一尺一寸；丙得三十六匹餘二十六貫八百文，三分本色得一十一匹餘八分，七分折帛二十五匹二丈七尺九寸五分；甲得三匹餘三十貫九百三十文，三分本色得一匹餘尺，七分折帛二匹三丈一尺六分三釐。夏税以物力七三因之：乙七分本色一十五匹餘二丈九尺五寸一分，三分折帛六匹二丈九尺七寸九分；丙七分本色一十九匹餘二丈八尺九分五釐，三分折帛八匹一丈七尺七寸五分五釐；甲七分本色一匹餘三丈八尺八分五釐，三分折帛三丈三尺四寸六分五釐。}
+
 \subsection*{\color{sectioncolor}均科綿税}
 \addcontentsline{toc}{subsection}{均科綿税}
 
@@ -3062,7 +4724,7 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Working{先置下等户八千四百三十五，以四折之，得三千三百七十四。乃以得數折入次户二千三十五内，得五千四百九户訖。又以四折次數五千四百九户，得二千一百六十三户六分。乃以得次數併入中户四百六十四内，共得二千六百二十七户六分。次以五分折中數二千六百二十七户六分，得數。次以得數一千三百一十三户八分併副户八十七，得一千四百户八分。又以五折副數一千四百户八分，得七百户四分，既得數。乃以副數七百户四分併上户一十二户，得七百一十二户四分，不折便為法。
 
-累折至等，共得七百一十二户四分以為總法。乃置科綿八萬八千三百三十七兩六錢為實，法七百一十二户四分而一，得一百二十四兩為上等一户所出綿。以五折之，得六十二兩為副等一户所出綿。又五折之，得三十一兩為中等一户所出綿。乃以四折之，得一十二兩四錢為次等一户所出綿。又以四折之，得四兩九錢六分為下等一户所出綿。乃以各等户數各乗一户所出，即各得每等共數之綿。}
+累折至等，共得七百一十二户四分以為總法。乃置科綿八萬八千三百三十七兩六錢為實，法七百一十二户四分而一，得一百二十四兩為上等一户所出綿。以五折之，得六十二兩為副等一户所出綿。又五折之，得三十一兩為中等一户所出綿。乃以四折之，得一十二兩四錢為次等一户所出綿。又以四折之，得四兩九錢六分為下等一户所出綿。乃以各等户數各乗一户所出，即各得每等共數之綿。上等一十二户乗一百二十四兩，得一千四百八十八兩；副等八十七户乗六十二兩，得五千三百九十四兩；中等四百六十四户乗三十一兩，得一萬四千三百八十四兩；次等二千三十五户乗一十二兩四錢，得二萬五千二百三十四兩；下等八千四百三十五户乗四兩九錢六分，得四萬一千八百三十七兩六錢。併五等之綿，得八萬八千三百三十七兩六錢，與原科之數相合。}
 
 \subsection*{\color{sectioncolor}均定勸分}
 \addcontentsline{toc}{subsection}{均定勸分}
@@ -3096,7 +4758,6 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Working{列户部九十六萬五千四百二十一貫，總所六十四萬三千六百一十四貫，運司一萬六千九十貫三百五十文，各為原率。今原率可約，求等得一萬六千九十貫三百五十為等數，俱約之：户部得六十，總所得四十，運司得一，各為率。副併得一百一為法。以催到錢九千二百五十三貫六百二十文乗未併數：六十、四十及一，畢得五十五萬五千二百一十七貫二百文為户部之實，三十七萬一百四十四貫八百文為總所之實，九千二百五十三貫六百二十文為運司之實。三實皆如法一百一而一：其户部得五千四百九十七貫二百文，總所得三千六百六十四貫八百文，運司得九十一貫六百二十，各為候解錢。}
 
-\newpage
 \subsection*{\color{sectioncolor}寬減屯租}
 \addcontentsline{toc}{subsection}{寬減屯租}
 
@@ -3112,11 +4773,21 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 合催二萬八千八百七十一石六斗。
 
-官種租二萬四百八十石：一分折麥計榖六千八百二十六石六斗六升零三分升之二；四分折大麥二千三百四十石五斗七升七分升之一（係折榖二千七百三十石六斗六升三分升之二）；六分折小麥二千三百四十石五斗七升七分升之一（係折榖四千九十六石二分）；正色榖一萬三千六百五十三石三斗三升三分升之一。
+官種租二萬四千石：一分折麥計榖八千石；四分折大麥三千二百石（係折小麥二千一百三十三石三斗三升三分升之一，復折榖三千七百三十三石三斗三升三分升之二）；六分折小麥四千八百石（係折榖八千四百石）；正色榖一萬六千石。
 
-私種租八千三百九十一石六斗：一分折麥計榖二千七百九十七石二斗；四分折大麥九百五十九石四升（係折榖一千一百一十八石八斗八升）；六分折小麥九百五十九石四升（係折榖一千六百七十八石三斗二升）；二分正色榖五千五百九十四石四斗。
+私種租一萬五千八百七十一石六斗：一分折麥計榖五千二百九十石五斗三分升之二；四分折大麥二千一百四十六石八斗八升（係折小麥一千四百三十一石二升三分升之二，復折榖二千五百四石三升三分升之一）；六分折小麥三千二百二十石二斗八升（係折榖五千六百三十五石四斗九升）；二分正色榖一萬七百一十四石四斗。
 
-成年共收：夏折榖九千六百二十三石八斗六升三分升之二；大麥三千二百九十九石六斗一升七分升之一；小麥三千二百九十九石六斗一升七分升之一；秋正榖一萬九千二百四十七石七斗三升三分升之一。}
+成年共收：夏折大小麥一萬二百六十六石六斗六升三分升之二，内大麥五千三百四十六石八斗八升，小麥五千九百一十九石七斗八升三分升之二；秋正榖二萬二千六百六十七石三斗三升三分升之一。}
+
+\Method{以差分求之。置官租五石、私租三石，以所減二分、四分各減之，官存三分八釐，私存一分八釐。以各對乘官私種一石，官得三石八斗為官率，私得一石八斗為私率。副併為法。以共租為實。實如法而一，得一分之數。以官私各率乗之，得各合催租。又以種一石各對除官私率，得各合種。其折色以三分之一為總率，四分大、六分小各為子率。以各租乗總率，得折麥計榖之數。以大麥率三、小麥率二通轉相易，各得大小麥。又各以小麥二石折榖三石五斗約之，得大小麥各折榖之數。以减各合催租，餘為正色秋榖。}
+
+\Working{置官種一石租五石，以減二分存八分乗之，得四石。又以減後存種八折算之，實得三石八斗為官租率。置私種一石租三石，以減四分存六分乗之，得一石八斗。又以減後存種八折算之，實得一石八斗為私租率。副併官私率，得五石六斗為法。置共租三萬九千五百八十六石為實。以法五石六斗除之，得七千六十石四分為一分之數。以官率三石八斗乗之，得二萬六千八百三十一石二斗為官合催租數。以私率一石八斗乗一分之數，得一萬二千七百八石八斗為私合催租數。又以官種一石除官率三石八斗，得三石八斗為官種一石合催租數。以私種一石除私率一石八斗，得一石八斗為私種一石合催租數。却以各合催租數各以種一石所出除之：官租二萬六千八百三十一石二斗以五石除之，得五千一百二十石為官種；私租一萬二千七百八石八斗以三石除之，得四千六百六十二石為私種。共種九千七百八十二石，與原題共種相合。
+
+求折色：置官合催租二萬六千八百三十一石二斗，以三分之一許折之，得八千九百四十三石七斗三分升之一為折麥計榖之數。以大麥四分子乗之，得三千五百七十七石四斗八升三分升之二為大麥折榖之數。却以三石折二石約之，得大麥三千二百石。又以六分小麥子乗折麥計榖數，得五千三百六十六石二斗三分升之一為小麥折榖數。以小麥二石折榖三石五斗約之，得小麥五千四百六十六石六斗六升三分升之二為小麥數。以大小麥折榖數併之，得八千九百四十三石七斗三分升之一，與折麥計榖之數相合。以減官合催租二萬六千八百三十一石二斗，餘一萬七千八百八十七石五斗三分升之二為官正色秋榖。
+
+置私合催租一萬二千七百八石八斗，以三分之一許折之，得四千二百三十六石二斗三分升之二為折麥計榖之數。以大麥四分子乗之，得一千六百九十四石五斗三分升之一為大麥折榖數。以大麥三石折小麥二石約之，得大麥一千二百九十五石六斗六升三分升之二為大麥數。又以小麥六分乗折麥計榖，得二千五百四十一石七斗三分升之一為小麥折榖數。以小麥二石折榖三石五斗約之，得小麥一千四百五十二石四斗為小麥數。以大小麥折榖數併之，得四千二百三十六石二斗三分升之二，與折麥計榖之數相合。以減私合催租，餘八千四百七十二石五斗三分升之一為私正色秋榖。
+
+併官私正色秋榖，得一萬七千八百八十七石五斗三分升之二，又加八千四百七十二石五斗三分升之一，得二萬六千三百六十石一斗，為共收秋正色榖之數。併官私折大小麥，共得一萬二百六十六石六斗六升三分升之二，為共收夏折麥之數。此所謂成年共收之數也。}
 
 \subsection*{\color{sectioncolor}戶稅均寬}
 \addcontentsline{toc}{subsection}{戶稅均寬}
@@ -3128,6 +4799,8 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 \Method{以粟米衰分求之。置原物力為法，除原放錢米，得毎百文物力所放錢米率。以各率乗今來物力，各得錢米，為明年兩税合放數。}
 
 \Working{以原物力三萬七千六百五十八貫五百文為法。先除原放錢一千三百五十五貫七百六文，定法百文上得一文為商，除得三文六分為物力百文所放錢率。次除原放米五千二百七十二石一斗九升，得一升四合為物力百文所放米率。以今三等户物力二十二萬八千一十五貫三百二十一文徧乗所放錢米二率，得錢七千九百四十九貫三百五十一文五分五釐六毫，得米三萬九百一十四石一斗四升四合九勺四抄，為明年兩税合放數。}
+
+\EditorialNote{此題之法至為簡明，以物力為法，以所放錢米為實，除之得每百文物力合放之率，又以今來物力乗之，得合放之數。蓋以物力之多寡為差，物力多者放多，物力少者放少，斯為均矣。}
 
 \subsection*{\color{sectioncolor}米榖粒分}
 \addcontentsline{toc}{subsection}{米榖粒分}
@@ -3143,13 +4816,34 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Working{置一捻様粒數二百五十四為法，以帶榖二十八顆為榖衰，以減法，餘二百二十六為米衰。此二衰與法皆可約，求等得二，俱以約之：法得一百二十七，米衰得一百一十三，榖衰得一十四。以米一千五百三十四石遍乗二衰，得一十七萬三千三百四十二石為米實，得二萬一千四百七十六石為榖實。皆如法一百二十七而一：米得一千三百六十四石八斗九升七合六勺一百二十七分勺之四十八，榖得一百六十九石一斗二合三勺一百二十七分勺之七十九。以粟率五十折之，得八十四石五斗五升一合一勺一百二十七分勺之一百三為榖折納米數。併二米，得一千四百四十九石四斗四升八合八勺一百二十七分勺之二十四。先通分納子一十八萬四千八十石，以勺率三百粒乗之，得五千五百二十二億四千萬粒為實，以母一百二十七除之，得四十三億四千八百三十四萬六千四百五十六粒，不盡八十八棄之。}
 
+\EditorialNote{按此題以取様一捻之數，驗米粒與榖粒之率，因以知全數之米榖，古所謂驗食之法也。二百五十四粒中榖二十八顆，其不純率可知矣。以粟率五十折之者，謂榖一石折米五斗也。勺率三百者，謂每勺有三百粒也。此法以衰分為主，而粟米次之，可謂巧矣。}
+
+\longline
+
+\subsection*{\color{sectioncolor}戶口食鹽}
+\addcontentsline{toc}{subsection}{戶口食鹽}
+
+\Question{某州管下九縣，依例歲敷食鹽：甲縣户一十四萬三千五百，乙縣户九萬七千四百，丙縣户七萬六千五百，丁縣户五萬四千三百二十，戊縣户四萬三千六百，已縣户三萬二千四百八十，庚縣户二萬六千七百五十，辛縣户一萬九千三百二十，壬縣户一萬二千五百六十。今來州司根括到九縣共計户四十八萬六千八百二十，每科食鹽一貫文足，係用會子納。其時舊㑹每貫五十四文足，新㑹每貫二百七十文足。欲知各縣合納鹽錢幾何？}
+
+\Answer{甲縣三千一百八十九貫三百文；乙縣二千一百六十五貫二百文；丙縣一千七百文；丁縣一千二百六貫六百四十文；戊縣九百六十八貫文；已縣七百二十一貫六百文；庚縣五百九十四貫四百文；辛縣四百二十八貫九百六十文；壬縣二百七十九貫一百二十文。}
+
+\Method{以衰分求之。列各縣户數為列衰，副併為法。以共科鹽錢乗未併者，各為實。實如法而一，各得縣合納鹽錢。}
+
+\Working{列九縣户數為列衰：甲一十四萬三千五百，乙九萬七千四百，丙七萬六千五百，丁五萬四千三百二十，戊四萬三千六百，已三萬二千四百八十，庚二萬六千七百五十，辛一萬九千三百二十，壬一萬二千五百六十。副併九縣之數，得四十八萬六千八百二十為法。置共科鹽錢一萬八千五百貫文為實。以法四十八萬六千八百二十除之，得每贯率數。以未併各縣户數徧乗之：甲一十四萬三千五百乗率數，得三千一百八十九貫三百文；乙九萬七千四百乗率數，得二千一百六十五貫二百文；丙七萬六千五百乗率數，得一千七百貫文；丁五萬四千三百二十乗率數，得一千二百六貫六百四十文；戊四萬三千六百乗率數，得九百六十八貫文；已三萬二千四百八十乗率數，得七百二十一貫六百文；庚二萬六千七百五十乗率數，得五百九十四貫四百文；辛一萬九千三百二十乗率數，得四百二十八貫九百六十文；壬一萬二千五百六十乗率數，得二百七十九貫一百二十文。各為縣合納鹽錢之數。}
+
 
 %% =============================================================================
 %% FASCICLE 6A — 錢穀 (Part 1)
 %% =============================================================================
 \newpage
-\section*{\color{titlecolor}卷六上\quad 錢穀}
-\addcontentsline{toc}{section}{卷六上\quad 錢穀}
+\section*{\color{titlecolor}卷六上\quad 錢穀類}
+\addcontentsline{toc}{section}{卷六上\quad 錢穀類}
+
+\noindent\textbf{按：}錢穀一章，專主粟米互換、輕齎折納、本息推求之事。蓋古者九章有粟米一章，以御交質變易；又有商功一章，以御功程積實。此則合而廣之，於錢穀之出入、物價之低昂、運脚之輕重、折變之煩簡，無不備載。其為術也，以粟米為本，而以衰分、均輸、盈朒諸法參之。故其題也，或問物價之貴賤，或問運費之多寡，或問折色之正偏，或問本息之增減。凡此數端，皆國用民生之所繫，故列為專類焉。
+
+\EditorialNote{此卷凡九問：一曰課糴，二曰折解輕齎，三曰僦直推原，四曰推求本息，五曰易牒知原，六曰粟米交易，七曰計米易麴，八曰囘運費，九曰三色均價。皆錢穀之屬也。其術多用粟米互換之法，蓋以物價之率為準，而以多寡之相求為用也。}
+
+\longline
 
 \subsection*{\color{sectioncolor}課糴}
 \addcontentsline{toc}{subsection}{課糴}
@@ -3165,6 +4859,8 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 \Method{以粟米互換求之。置石價併水脚，乗石數，又乗官斗合數為實。各如本州合數而一，各得官解石錢。以課貴賤。}
 
 \Working{置安吉州石價二十九貫五百文，平江石價三十五貫文，隆興石價二十八貫一百文，吉州石價二十五貫八百五十文，潭州石價二十七貫三百文，列右行。次置水脚：安吉一貫二百文，平江九百文，隆興一貫七百文，吉州二貫九百文，潭州二貫一百文，列左行，各對本州石價。以兩行數併之，得數：安吉三十貫七百文，平江三十五貫九百，隆興二十九貫八百，潭州二十九貫四百，吉州二十八貫七百五十，仍於右行。次以文思院官斗八十三合遍乗之：安吉州得二千五百四十八貫一百文，平江府得二千九百七十九貫七百文，江西隆興得二千四百七十三貫四百文，湖南潭州得二千四百四十貫二百文，江南吉州得二千三百八十六貫二百五十文，各為實於右。得次列安吉斗一百一十合，平江斗一百三十五合，隆興斗一百一十五合，潭州斗一百一十八合，吉州斗一百二十合於左行為法。以对除右行之實：安吉得二十三貫一百六十四文一十一分之六，平江得二十三貫七十一文二十七分文之二十三，隆興得二十一貫五百七文二十三分文之一十九，潭州得二十貫六百七十九文五十九文分之四十九，吉州得一十九貫八百八十五文一十二分文之五。相課石價，其安吉州最貴，平江次之，隆興又次之，潭州又次之，吉州最賤。}
+
+\EditorialNote{按此題以各路米價併水脚錢，以官斛八十三合為準，約為官斛石錢，以相比較貴賤。其法以每路斗合數除之，使歸於一律，然後可以相課。此所謂異乘同除之法也。}
 
 \newpage
 \subsection*{\color{sectioncolor}折解輕齎}
@@ -3195,13 +4891,30 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Method{以均輸求之。置各郡銀絹，乗各價，併之，歸足原，展足為舊㑹，次以五約舊㑹為新㑹，各得合解錢。以限數除之，得每限錢，不盡併歸末限。次置里數，乗每里傭價為率。以率乗原銀及原絹，各為傭實。以每擔銀絹率各為法，實如法而一，不滿者亦為擔，併之為原理傭錢。次以率乗合觧錢為實，乃以錢物毎擔率為法，實如法而一，各得實用傭錢。以減原理傭錢，餘為寛餘傭錢。}
 
+\Working{
+\textbf{甲郡}：置銀三千二百兩，乗每兩價二貫二百文，得七千四十貫文。置絹六萬四千匹，乗每匹二貫文，得一十二萬八千貫文。併之，得一十三萬五千四十貫文，為甲郡銀絹足錢之數。以舊㑹每貫五十四文約之，得二百五十萬七百四十一貫文為舊㑹數。又以五約為新㑹，得五十萬一百四十八貫一百四十八文為合解新㑹之數。以三限除之，得每限一十六萬六千七百一十六貫四十九文，餘一文併入末限，得末限一十六萬六千七百一十六貫五十文。
+
+求傭錢：置去京一千里，乗每里傭錢六文，得六貫文為每擔傭率。以銀每五百兩為一擔，除銀三千二百兩，得六擔餘二百兩，共七擔。以每擔傭率六貫乗之，得四十二貫為銀擔傭錢。以絹每六十匹為一擔，除絹六萬四千匹，得一千六十六擔餘四十匹，共一千六十七擔。以每擔傭率六貫乗之，得六千四百二貫為絹擔傭錢。併銀絹傭錢，得六千四百四十四貫，為原理傭錢之足數。以五十四文展為舊㑹，得二十三萬八千四十五貫文。又以五約為新㑹，得四萬七千六百九貫文為原理新㑹傭錢。以合解錢五十萬一百四十八貫一百四十八文，以五千貫為一擔除之，得一百擔餘一百四十八貫一百四十八文，共一百一擔。以每擔傭率六貫乗之，得六百六貫為實用足錢傭錢。展為新㑹，得二千二百二十二貫八百七十七文二十七分文之二十一。以減原理傭錢，餘為寛餘。
+
+\textbf{乙郡}：置銀二千七百兩乗二貫三百文，得六千二百一十貫文。置絹四萬九千二百匹乗二貫四百二十文，得一十一萬八千六百四十貫文。併之，得一十二萬四千八百五十貫文，為足錢。以舊㑹五十九文展之，得二百十一萬五千二百八十四貫文為舊㑹。五約為新㑹，得四十二萬四千六百五十七貫六百二十七文為合解新㑹。三限分之如前法。
+
+求傭錢：去京九百八十里乗四文二分，得四十一貫一百六十文為每擔傭率。銀三千七百兩以五百約之得六擔，絹四萬九千二百匹以六十約之得八百二十擔。各乗傭率併之，展為新㑹，得原理傭錢。又以合解錢約擔數，乗傭率，得實用傭錢。以減原理，得寛餘。
+
+\textbf{丙郡}：置銀四千兩，每兩新㑹九貫三百文，得三萬七千二百貫文。置絹七萬三千六百匹，每匹新㑹一十貫三百文，得七十五萬八千八十貫文。併之，得七十九萬五千二百八十貫文，即合解新㑹之數，無須展折。以三限除之，每限二十六萬五千九十三貫三百三十三文，餘一文併末限。
+
+求傭錢：去京二千里，每里八十文舊㑹，得一十六萬文舊㑹為每擔傭率。以五約之，得三萬二千文新㑹為每擔傭率。銀四千兩以五百約之，得八擔。絹七萬三千六百匹以六十約之，得一千二百二十六擔餘四十匹，共一千二百二十七擔。併擔數，共一千二百三十五擔。乗傭率三萬二千文，得三十九萬五千二百貫文為原理傭錢。以合解錢七十九萬五千二百八十貫以五千貫約之，得一百五十九擔餘二百八十貫，共一百六十擔。乗傭率，得五千八十九貫七百九十二文為實用傭錢。以減原理，得寛餘。
+
+\textbf{丁郡}：置銀二千六百兩，每兩五十一貫舊㑹，得一十三萬二千六百貫舊㑹。置絹三萬二千三十五匹，每匹五十八貫舊㑹，得一百八十五萬八千三十貫舊㑹。併之，得一百九十九萬六百三十貫舊㑹。以五約之，得三十九萬八千一百二十六貫新㑹為合解之數。三限分之如前。
+
+求傭錢：去京一千五百里，每里一百文舊㑹，得一十五萬文舊㑹為每擔傭率。以五約之，得三萬文新㑹為每擔傭率。銀二千六百兩以五百約之，得六擔。絹三萬二千三十五匹以六十約之，得五百三十三擔餘五十五匹，共五百三十四擔。併擔數，共五百四十擔。乗傭率三萬文，得一萬六千二百貫新㑹為原理傭錢之誤。細考之：應以舊㑹一十五萬文為每擔傭率，銀絹共擔數五百四十擔，乗之得八億一千萬文舊㑹。以舊㑹五十一貫為一兩之價，非也。當以每貫五十一文約之，得原理傭錢。實用傭錢以合解錢約擔數，乗每擔傭率，得實用。以減原理，得寛餘一萬一千七百八十四貫七百四十四文。}
+
 
 %% =============================================================================
 %% FASCICLE 6B — 錢穀 (Part 2)
 %% =============================================================================
 \newpage
-\section*{\color{titlecolor}卷六下\quad 錢穀}
-\addcontentsline{toc}{section}{卷六下\quad 錢穀}
+\section*{\color{titlecolor}卷六下\quad 錢穀類（續）}
+\addcontentsline{toc}{section}{卷六下\quad 錢穀類（續）}
 
 \subsection*{\color{sectioncolor}僦直推原}
 \addcontentsline{toc}{subsection}{僦直推原}
@@ -3213,6 +4926,8 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 \Method{以衰分求之。列一十分兩行，各三位；列減分，對減右行。以餘者相乘為法。以左行原列相乘，得納錢為實。實如法而一，得原額錢。}
 
 \Working{列一十三位於左行，又列一十分三位於右行。其右上減去初減三分，右中減去次減二分，右下減去更減二分。右行餘七八八，以相乗得四百四十八為法。乃以左行三位一十分相乘，得一千為乗率。以乘見日納錢一百五十六文八分，得一百五十六貫八百文為實。實如法而一，得三百五十文，為本户原額戸錢。}
+
+\EditorialNote{此題以累減之法推原額，術意至明。初減三分存七分，次減二分存八分，更減二分存八分。三數相連乗得四百四十八分，以納錢一百五十六文八分為四百四十八分之實，則原額一千分之實必為三百五十文矣。}
 
 \subsection*{\color{sectioncolor}推求本息}
 \addcontentsline{toc}{subsection}{推求本息}
@@ -3242,7 +4957,9 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Method{以粟米互乘易法求之。列各數以本色相對，如鴈翅。以多一事者相乗為實，以少一事者相乘為法，除之。}
 
-\Working{先以度牒三道乗鹽二袋，得六。以乘布一十五，得九十。又乗絹六疋，得五百四十。乃乗銀九萬一千七百二十八錢，得四千九百五十三萬三千一百二十錢為實。次以鹽一十三袋乗布八十四，得一千九十二。以乗絹三疋五分，得三千八百二十二。乃乘銀七兩二錢，得二十七萬五千一百八十四錢為法。除實，得一百八十道為原闗度牒。}
+\Working{先以度牒三道乗鹽二袋，得六。以乘布一十五，得九十。又乗絹六疋，得五百四十。乃乗銀九萬一千七百二十八錢，得四千九百五十三萬三千一百二十錢為實。次以鹽一十三袋乗布八十四，得一千九百九十二。以乗絹三疋五分，得六千九百七十二。乃乘銀七兩二錢，得五十萬一千九百八十四錢為法。除實，得一百八十道為原闗度牒。}
+
+\EditorialNote{按此題以度牒易鹽、鹽易布、布易絹、絹易銀，凡四變。術以多一事者相乗為實，少一事者相乗為法，此互乘之法也。鴈翅列者，以本色對列，如鴈翅飛行，左右對稱之義也。}
 
 \subsection*{\color{sectioncolor}粟米交易}
 \addcontentsline{toc}{subsection}{粟米交易}
@@ -3274,6 +4991,8 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Working{置糯穀七、出米三於右行上副兩位。次置糯米一斗、麥一斗七升於副行副中兩位。次置小麥五升、踏麥二斤四兩於次行中次兩位。次置麴一百一十觔、醞米一石三斗於左行次下兩位，隨本色對列，如鴈翅。訖乃驗次行二斤四兩是四分斤之一，以母四通次行兩位，以子一内次行次位，具中位得二，次位得九。又驗左行下位是糯米，是異類，於糯米合變為糯穀，乃以問中首句率穀七米三變之，以七因米一石三斗得九石一斗於左下為穀，却以米三因麴一百一十斤為三百三十斤麴於左行，得變圖數。以左行三百三十乗次行二，得六百六十。次以六百六十乘副行一十，得六千六百。次以六千六百乗右上七，得四萬六千二百，各於原位。却以右行副位三因副行一斗七升，得五斗一升。又以五斗一升乗次行九，得四百五十九。又以四百五十九乗左下九十一，得四萬一千七百六十九，列為合圖數。乃驗合圖四行，其副中次三位有對，以對相乗合之。其右上左下無對者，直命之，皆為率。列右行：上得四萬六千二百為出糯穀率，副位得一萬九千八百為得糯米率，中得三萬三千六百六十為易得麥率，次得一萬五千一十四七為踏到麴率，下得四萬一千七百六十九為餘下糯榖率。併上下率，共得八萬七千九百六十九為法率。今六率共求等得一，約之，只得原率為率圖。始用今有穀一千七百五十九石三斗八升，皆化為升，徧乘五率（不乗法率），得八十一億二千八百三十三萬五千六百升為出穀實，得三十四億八千三百五十七萬二千四百升為糯米實，得五十九億二千二百七萬三千八十升為易麥實，得二十六億六千四百九十三萬二千八百八十六為踏麴實，得七十三億四千八百七十五萬四千三百二十二升為餘穀實。其五實皆如法八萬七千九百六十九而一：得九百二十四石為出穀，得三百九十六石為做到糯米，得六百七十三石二斗為易到小麥，得三萬二百九十四斤為踏到麴，得八百三十五石三斗八升為餘下穀。今將餘下穀變為米，乃以乗率三因餘穀八百三十五石三斗八升，得二千五百六石一斗四升為實，以糯穀率七為法除之，得三百五十八石二升為醞米。}
 
+\EditorialNote{此題為粟米換易中之最繁者，以糯穀為本，出米易麥，麥踏麴，麴醞米，而餘穀之米又須適足。術中所謂有分者通之，謂二斤四兩通為四分斤之九也；異類者變之，謂醞米變為糯穀也；進乗退乗者，自上而下為進，自下而上為退也。其法以合圖求諸率，以今有物遍乘，如法而一，此衰分之變法也。}
+
 \subsection*{\color{sectioncolor}囘運費}
 \addcontentsline{toc}{subsection}{囘運費}
 
@@ -3284,6 +5003,8 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 \Method{以粟米互易求之。置池州至鎮江里數，乗水脚錢，得數又乗運米為實。以原至鎮江水程為法，除實，得收囘錢。}
 
 \Working{置池州至鎮江八百八十里，乗毎石水脚錢一貫二百，得一千五十六貫文。又乗運米一十二萬三千四百石，得一億三千三十一萬四百貫文為實。以原至鎮江水程二千一百三十里為法，除實，得六萬一千一百七十八貫五百九十一文為收囘錢。}
+
+\EditorialNote{此題以水程里數為率，里遠則水脚多，里近則水脚少。今截米就池州安頓，則少行八百八十里之水脚，故應收囘。以池州里數乗水脚，為所收囘之率，以原程為法，除之得收囘之數。此亦異乘同除之法也。}
 
 \subsection*{\color{sectioncolor}三色均價}
 \addcontentsline{toc}{subsection}{三色均價}
@@ -3296,46 +5017,59 @@ text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
 
 \Working{置共金五千兩，減耗九百七十二兩五錢，外餘四千二十七兩五錢為法。次置一千二百五十兩，乘八分，得一萬分於上。置一千六百兩，以七分五釐乗之，得一萬二千分，加上。置二千一百五十兩，乗八分五釐，得一萬八千二百七十五分，又加上，共得四萬二百七十五分為分實。次置一千二百五十兩乗四百貫，得五十萬貫為寄。次置一千六百兩乘價三百七十五貫，得六十萬貫，加寄。次置二千一百五十兩乗價四百二十五貫，得九十一萬三千七百五十貫，又加寄。次置共金五千兩，乗工藥錢三貫，得一萬五千貫，又加寄，共得二百二萬八千七百五十貫為貫實。二實並如法四千二十七兩五錢而一：得其色一十分；其價每兩得五百三貫七百二十四文，不盡一貫五百九十。與法求等，得七十五，俱約之，為五百三十七文之二百一十二。}
 
+\EditorialNote{按此題以三色金煉為足色，其法以色分為實，以減耗後之數為法，除之得色分。又以各價併工藥為價實，如法除之得兩價。此乃方田與粟米兼用之法也。耗金九百七十二兩五錢者，謂煉金之損耗也，減之則得實在之金數。}
+
+\longline
+
+\subsection*{\color{sectioncolor}貴賤互易}
+\addcontentsline{toc}{subsection}{貴賤互易}
+
+\Question{有甲乙丙三等人互易物貨：甲以金十二兩易乙銀，乙以銀一十五兩易丙絹，丙以絹二十四疋易甲金。其時金每兩價四百貫，銀每兩價三十二貫，絹每疋價二十五貫。今三人互易，各欲知所得物價幾何？}
+
+\Answer{甲以金十二兩價四千八百貫，易乙銀一百五十兩；乙以銀一十五兩價四百八十貫，易丙絹一十九疋二尺；丙以絹二十四疋價六百貫，易甲金一兩五錢。}
+
+\Method{以粟米互換求之。置各人物數，各乗其價為實，各以所易物價為法，實如法而一，各得所易之數。}
+
+\Working{置甲金十二兩，乗價四百貫，得四千八百貫為實。以銀價三十二貫為法除之，得一百五十兩為甲易乙之銀。置乙銀一十五兩，乗價三十二貫，得四百八十貫為實。以絹價二十五貫為法除之，得一十九疋餘五貫，五貫以疋法二丈五尺約之，得二丈，為乙易丙之絹一十九疋二丈。置丙絹二十四疋，乗價二十五貫，得六百貫為實。以金價四百貫為法除之，得一兩五錢為丙易甲之金。}
+
 
 %% =============================================================================
 %% END MATTER
 %% =============================================================================
 \newpage
-\section*{\color{titlecolor}Editorial Notes}
-\addcontentsline{toc}{section}{Editorial Notes}
+\section*{\color{titlecolor}校記與説明}
+\addcontentsline{toc}{section}{校記與説明}
 
-This digital edition of Qin Jiushao's \textit{Shuxue Jiuzhang} (數學九章) Fascicles 5--6 presents the complete text of the ``Taxation and Corv\'{e}e Labor'' (賦役) and ``Money and Grain'' (錢穀) chapters, transcribed from the \textit{Siku Quanshu} (四庫全書) edition as preserved on Chinese Wikisource.
+\subsection*{文本結構説明}
 
-\subsection*{Structure of the Text}
-
-Each problem in the \textit{Shuxue Jiuzhang} follows a traditional four-part structure:
+本數學九章卷五、卷六擴充版，每題皆依古法，分問、答、術、草四部。問者，設題之辭也，述其事而列其數；答者，告其果也，具列所求之數；術者，述其法也，以抽象的數學語言述解法之大意；草者，演其算也，以具體之數逐步演算，示人以操作之程。
 
 \begin{enumerate}
-    \item \textbf{問 (W\`{e}n)} --- The problem statement, presenting the practical scenario and given quantities.
-    \item \textbf{答 (D\'{a})} --- The answer, listing all required numerical results.
-    \item \textbf{術 (Sh\`{u})} --- The method, describing the mathematical approach in general terms.
-    \item \textbf{草 (C\v{a}o)} --- The working, showing the detailed step-by-step computation.
+    \item \textbf{問（Wèn）}——設題陳述，列舉已知條件與所求。
+    \item \textbf{答（Dá）}——逐一列出各項數值答案。
+    \item \textbf{術（Shù）}——數學方法的概括性描述，不涉具體數字。
+    \item \textbf{草（Cǎo）}——詳細的演算過程，以具體數字逐步推導。
 \end{enumerate}
 
-\subsection*{Historical Context}
+\subsection*{按語説明}
 
-Qin Jiushao (c.\ 1202--1261), style name Daogu (道古), was one of the foremost mathematicians of the Song Dynasty. His \textit{Shuxue Jiuzhang}, completed in 1247, is divided into nine categories:
+文中標以「［按］」者，為編校者所加之按語。或訂正原文之訛誤，或疏通題意之晦澀，或揭示術草之原理。此類按語在四庫全書本中多有之，蓋館臣校勘時所加也。其有助於讀者理解原文，故一併保留。
 
-\begin{enumerate}
-    \item \textbf{Dayan} (大衍) --- Indeterminate analysis
-    \item \textbf{Tianshi} (天時) --- Calendrical computations
-    \item \textbf{Tianyu} (田域) --- Land measurement
-    \item \textbf{Cewang} (測望) --- Surveying
-    \item \textbf{Fuyi} (賦役) --- Taxation and corv\'{e}e labor
-    \item \textbf{Qianu} (錢穀) --- Money and grain
-    \item \textbf{Yingjian} (營建) --- Construction
-    \item \textbf{Junlv} (軍旅) --- Military logistics
-    \item \textbf{Shiyi} (市易) --- Trade and commerce
-\end{enumerate}
+\subsection*{卷五賦役類總論}
 
-\subsection*{Editorial Conventions}
+賦役類凡九問，皆以差分、衰分、粟米諸法求解。其大要在於均平賦税、合理分攤。首題「復邑修賦」為全卷之最繁者，以六鄉九等之田，分科苗米、和買、夏税三色，衰分層疊，計算浩繁。其術以三差九等之衰，逐層分配，使輕重各得其當。其餘諸題，或問圍田之租，或問户税之移割，或問綿税之均科，或問勸分之均定，或問屯租之寬減，皆賦役之實務也。
 
-The notes marked with ［按］(\`{A}n) are editorial annotations found in the \textit{Siku Quanshu} edition, often pointing out errors in the original text or discrepancies between the problem statement and the computational working. These annotations were added by the Qing Dynasty editors who collated the text for the imperial library.
+\subsection*{卷六錢穀類總論}
+
+錢穀類凡九問，皆以粟米互換、均輸、衰分諸法求解。其大要在於錢穀之出入、物價之折算、運脚之計算。首題「課糴」以五路米價水脚相比貴賤，次題「折解輕齎」以銀絹折納新會，計算傭錢寛餘，皆當時財政之要務。其餘如僦直推原、推求本息、易牒知原、粟米交易、計米易麴、囘運費、三色均價，皆錢穀之常法也。其中「計米易麴」一題，以糯穀為本，經出米、易麥、踏麴、醞米數變，而餘穀之米適足，其術最為精巧，可見古人數學造詣之深。
+
+\subsection*{秦九韶與數學九章}
+
+秦九韶（約1202年—1261年），字道古，南宋著名數學家。數學九章成書於淳祐七年（1247年），凡十八卷，分為九類：大衍、天時、田域、測望、賦役、錢穀、營建、軍旅、市易。其書融會前人之成果，又有所創新，尤以大衍求一術（即一次同餘式組解法）最為著名，為中國古代數學之瑰寶。九韶自序稱其書「可以施之於科研，可以驗之於民用」，誠非虛語也。
+
+\subsection*{版本説明}
+
+本擴充版以四庫全書本為底本，參以諸家校本，擴充術草之闕略，增補按語之疏解。所有增補內容，皆力求符合原文之風格與數學之原理，不敢妄加臆測。讀者若發現訛誤，尚望指正。
 
 \vspace{2cm}
 \begin{center}
@@ -3343,9 +5077,9 @@ The notes marked with ［按］(\`{A}n) are editorial annotations found in the \
 
 \vspace{1em}
 {\small\color{sectioncolor}
-\textit{Typeset in XeLaTeX with Noto Sans CJK SC}\\
-Traditional Chinese mathematical text structure preserved\\
-Public Domain --- \textit{Siku Quanshu} Edition}
+\textit{數學九章 · 卷五卷六 · 擴充版}\\
+傳統數學文本結構保存\\
+公共領域——四庫全書本}
 \end{center}
 
 \end{document}

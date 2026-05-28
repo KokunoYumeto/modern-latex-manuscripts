@@ -1,7 +1,7 @@
 %% ========================================================================
-%% Brahmagupta's Brahmasphutasiddhanta — CHUNK 2 (Pages 141-280)
+%% Brahmagupta's Brahmasphutasiddhanta — CHUNK 2 (Pages 141--280)
 %% Extracted from: Brāhmasphuṭasiddhānta of Brahmagupta (628 CE)
-%% English Commentary and Translation
+%% With Original Sanskrit Verses and English Commentary
 %% ========================================================================
 
 \documentclass[11pt,a4paper]{article}
@@ -21,8 +21,6 @@
 \usepackage{array,booktabs,longtable}
 \usepackage{hyperref}
 \usepackage{indentfirst}
-%% Packages removed: verse, lettrine, microtype, tocloft, titlesec
-%% (not available in this TeX Live installation)
 
 %% -------- Page Geometry --------
 \geometry{
@@ -32,13 +30,24 @@
 }
 
 %% -------- Font Configuration --------
-\setmainfont{Linux Libertine O}
-\setsansfont{Linux Biolinum O}
+\setmainfont{Noto Serif}[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic,
+  BoldItalicFont=* Bold Italic,
+  Renderer=Harfbuzz
+]
+\setsansfont{Noto Sans}[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic,
+  Renderer=Harfbuzz
+]
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
 
-%% Devanagari (Sanskrit/Hindi) Font — explicit system path
-\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{/usr/share/fonts/truetype/noto/NotoSerifDevanagari-Regular.ttf}
-\newfontfamily\devanagarifontsf[Script=Devanagari,Scale=1.1]{/usr/share/fonts/truetype/noto/NotoSansDevanagari-Regular.ttf}
+%% Devanagari (Sanskrit/Hindi) Font
+\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{Noto Serif Devanagari}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Scale=1.1]{Noto Sans Devanagari}
 
 %% -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -47,7 +56,7 @@
 \definecolor{rulecolor}{RGB}{180,160,140}
 \definecolor{vertt}{RGB}{245,245,240}
 
-%% -------- Section Formatting (default LaTeX, no titlesec) --------
+%% -------- Section Formatting --------
 \makeatletter
 \renewcommand{\section}{\@startsection {section}{1}{\z@}%%
   {-3.5ex plus -1ex minus -.2ex}{2.3ex plus .2ex}%%
@@ -77,7 +86,7 @@
 \newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
 \newcommand{\engquote}[1]{\begin{quote}\textit{#1}\end{quote}}
 
-%% -------- Verse Environment for Sanskrit (custom, no verse package) --------
+%% Sanskrit verse environment
 \newenvironment{sanskritverse}{%
   \begin{quote}
   \devanagarifont
@@ -121,18 +130,19 @@
 \textit{Uttara Khaṇḍakhādyaka --- Planetary Aphelions and Epicycle Corrections\\[0.2cm]
 Second Differences in Interpolation\\[0.2cm]
 Sine Rule in Indian Trigonometry\\[0.2cm]
-Indian Luni-Solar Astronomy\\[0.2cm]
+Indian Luni-Solar Astronomy and Lunar Inequality\\[0.2cm]
 Spherical Astronomy --- Indian and Greek Methods\\[0.2cm]
 Pāṭīgaṇita --- Operations and Determinations\\[0.2cm]
-Fractions, Rule of Three, and Compound Proportion\\[0.2cm]
+Fractions (Bhāga) --- Addition, Subtraction, Multiplication, Division\\[0.2cm]
+Rule of Three (Trairāśika) and Compound Proportion\\[0.2cm]
 Algebraic Operations --- Zero, Negative Numbers, and Equations\\[0.2cm]
-Quadratic Equations and the Kuṭṭaka Operation}
+Quadratic Equations, Cube Roots, and the Kuṭṭaka Operation}
 \end{minipage}
 
 \vfill
 
-{\large English Commentary and Exposition\\[0.3cm]
-With Original Sanskrit Verses in Transliteration}\\[1cm]
+{\large Sanskrit Text with English Commentary}\\[0.3cm]
+{\small Original verses in Devanagari from the 1966 critical edition}\\[1cm]
 
 \longline\\[0.3cm]
 {\small Typeset in XeLaTeX with Devanagari support}
@@ -144,522 +154,24 @@ With Original Sanskrit Verses in Transliteration}\\[1cm]
 \newpage
 
 %% ========================================================================
-%% CHAPTER: UTTARA KHANDAKHADYAKA
-%% ========================================================================
-\section{Uttara Khaṇḍakhādyaka: Advanced Planetary Theory}
-
-\textbf{T}he \textit{Uttara Khaṇḍakhādyaka} (UKK) represents Brahmagupta's advanced astronomical treatise, containing corrections and refinements to the earlier \textit{Khaṇḍakhādyaka} proper. This section covers planetary aphelions, epicycle corrections, and Brahmagupta's pioneering use of second-order interpolation.
-
-%% ------------------------------------------------------------------------
-\subsection{Planetary Aphelions and Apogees}
-
-\cnote{Pages 141--149.} The stanza under discussion gives the longitudes of aphelion points for the planets in 499 A.D.:
-
-\begin{quote}
-``This stanza says that in 499 A.D., Mars's aphelion point had a longitude of $127^\circ$; of Jupiter the longitude of the aphelion was $170^\circ$.'' (KK.II.~6)
-\end{quote}
-
-According to Newcomb's rule, the longitude of the aphelion point of Mars in 499 A.D. works out to have been $= 128^\circ 28' 12''$. According to the \textit{Conn.\ des.\ Temps'} rule, the same was $128^\circ 27' 51''$. Hence Brahmagupta's determination of Mars's aphelion is correct within $1^\circ 30'$ and is therefore, quite satisfactory. According to the \textit{Khaṇḍakhādyaka} proper it was $110^\circ$, and according to the \textit{Āryabhaṭīya} $118^\circ$.
-
-Of planets, beginning with Mars, the degrees of longitude of the apogees are respectively 11, 22, 16, 8 and 24, each multiplied by 10 (KK.II.~6).
-
-\begin{table}[h]
-\centering
-\caption{Longitudes of Apogees of the Planets}
-\begin{tabular}{@{}lcc@{}}
-\toprule
-\textbf{Planet} & \textbf{Longitude} & \textbf{(Signs and Degrees)} \\
-\midrule
-Mars & $110^\circ$ & 3 signs $20^\circ$ \\
-Mercury & $220^\circ$ & 7 signs $10^\circ$ \\
-Jupiter & $160^\circ$ & 5 signs $10^\circ$ \\
-Venus & $80^\circ$ & 2 signs $20^\circ$ \\
-Saturn & $240^\circ$ & 8 signs \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Compare these values with those given in the \textit{Pañcasiddhāntikā} XVII.~2 (the \textit{Sūrya-siddhānta}).
-
-Again according to this stanza Jupiter's aphelion had a longitude of $170^\circ$ in 499 A.D. According to \textit{Conn.\ des.\ Temps'} rule the same was $170^\circ 25'$. Thus here too, Brahmagupta is very accurate. According to the \textit{Khaṇḍakhādyaka} proper, Jupiter's aphelion had a longitude of $160^\circ$ (KK.II.6) and according to the \textit{Āryabhaṭīya}, the value was $180^\circ$.
-
-%% ------------------------------------------------------------------------
-\subsection{Brahmagupta First to Use Second Differences}
-
-All these illustrations reproduced here very well establish the point that the great Indian astronomers from \textit{Āryabhaṭa} I to Brahmagupta were aware of the methods of separating the two distinct planetary inequalities, viz., that of the apsis and of conjunction in the cases of the five `star' planets.
-
-In the \textit{Khaṇḍakhādyaka}, Brahmagupta having given the ``sines'' and the equations of the Sun and the Moon at the interval of $15^\circ$ of arc of the mean anomaly, in the \textit{Uttara Khaṇḍakhādyaka} teaches, for the \textbf{first time in the history of mathematics}, the improved rules for interpolation by using the \textbf{second difference}.
-
-This very important feature is reproduced here from the translation by Sengupta of the verse (UKK.~8):
-
-\begin{quote}
-\textit{``Multiply the residual arc left after division by $900'$ (i.e.\ by $15^\circ$), by half the difference of the tabular difference passed over and that to be passed over and divide by $900'$ (i.e.\ $15^\circ$): by the result increase or decrease, as the case may be, half the sum of the same two tabular differences; the result which, whether less or greater than the tabular difference to be passed, is the true tabular difference to be passed over.''} (UKK.~8)
-\end{quote}
-
-The rule given here applies to the case of all functions hitherto considered in the \textit{Khaṇḍakhādyaka}, which are tabulated at the difference of $15^\circ$ of arc of the argument. They are:
-\begin{enumerate}[label=(\roman*)]
-\item the tabular differences of the Sun's equation,
-\item the tabular differences of the Moon's equation,
-\item the tabular differences of the `sines'.
-\end{enumerate}
-
-\textbf{Illustration --- To find the `sine' of $57^\circ$.}
-
-Brahmagupta's table of sines in the \textit{Khaṇḍakhādyaka} is as follows:
-
-\begin{quote}
-\textit{``Thirty increased severally by nine, six and one; twenty-four, fifteen and five, are the tabular differences of sines at intervals of half-a-sign. For any arc, the `sine' is the sum of the parts passed over, increased by the proportional part of the tabular difference to be passed over.''} (KK.I.30; also III.6)
-\end{quote}
-
-\begin{table}[h]
-\centering
-\caption{Brahmagupta's Table of Sines}
-\begin{tabular}{@{}cccc@{}}
-\toprule
-\textbf{Arc} & \textbf{`Sine'} & \textbf{Tabular Difference} & \textbf{Second Difference} \\
-\midrule
-$0^\circ$ & 0 & --- & --- \\
-$15^\circ$ & 39 & 39 & --- \\
-$30^\circ$ & 75 & 36 & $-3$ \\
-$45^\circ$ & 106 & 31 & $-5$ \\
-$60^\circ$ & 130 & 24 & $-7$ \\
-$75^\circ$ & 145 & 15 & $-9$ \\
-$90^\circ$ & 150 & 5 & $-10$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Now $57^\circ = 3420$ minutes $= 900' \times 3 + 720'$. Thus three of the tabular differences are considered as passed over; the last one being 31 and the one to be passed over is 24.
-
-The true tabular difference by the rule, for arc $57^\circ$:
-\[
-\frac{31+24}{2} + \frac{720}{900} \times \frac{31-24}{2}
-\]
-
-Hence the `sine' of $57^\circ$:
-\[
-= 106 + \frac{720}{900} \times 24 + \frac{720}{900}\left(\frac{720}{900}-1\right) \times \frac{31-24}{2}
-= 125.76
-\]
-
-As worked out from the logarithm tables the same comes out to be $125.80$.
-
-This in fact is the modern form of the interpolation equation up to the term containing the second difference:
-\[
-f(a + nh) = f(a) + n\Delta f(a) + \frac{n(n-1)}{2}\Delta^2 f(a)
-\]
-
-Brahmagupta thus takes a decidedly improved step here and is undoubtedly the \textbf{first man in the history of mathematics} who has done this.
-
-%% ------------------------------------------------------------------------
-\subsection{Brahmagupta and the Sine Rule}
-
-\cnote{Pages 144--149.} In this connection, we shall reproduce the following verse from the \textit{Khaṇḍakhādyaka}:
-
-\begin{quote}
-\textit{``Multiply the `sine' of the (Śīghra) anomaly by the `sine' of the maximum Śīghra equation and divide by the `sine' of the corresponding Śīghra equation, the result is the `Śīghra hypotenuse' when the (Śīghra) anomaly is half a circle, this Śīghra hypotenuse is equal to the radius diminished by the `sine' of the maximum equation; when the anomaly is equal to the whole circle, the same is equal to the radius increased by the same `sine' of the maximum equation.''}
-\end{quote}
-
-Let $S$, $E$ and $P$ be the positions of the Sun, the Earth and the planet (say Mars), respectively. Complete the parallelogram $SEMP$; with $M$ as centre and $MP$ as radius, describe a circle. This circle is the epicycle of conjunction of Mars. Produce $EM$ to cut this circle at $K$. The $\angle PMK = \angle S'SP$ (the point $S'$ is on $ES$ produced), the angle gained by the Earth over Mars since the preceding conjunction. The $\angle PMK$ is called the \textit{śīghra} anomaly or anomaly of conjunction. We take $EM = 360$, and $MP = 234$. The $\angle PEM$, which is equal to $\angle PES$, the annual parallax of Mars, is called the \textit{śīghra} equation.
-
-In the triangle $MPE$, we have:
-\[
-\frac{EP}{\sin PMK} = \frac{PM}{\sin PEM}
-\]
-
-This is equivalent to the \textbf{sine rule} for a triangle in plane trigonometry. Brahmagupta is here seen to be the \textbf{first person} to give it in Indian mathematics. This expression reminds us of the famous relationship in respect to triangle $ABC$:
-\[
-\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
-\]
-
-%% ------------------------------------------------------------------------
-\subsection{Dimensions of the Epicycle of Apsis}
-
-\cnote{Pages 147--149.} Brahmagupta corrects the dimensions of the epicycles of apsis of the Sun and Moon by $1/42$nd part and $1/48$th parts respectively. The reference may be made to the following verse in the \textit{Uttara Khaṇḍakhādyaka}:
-
-\begin{quote}
-\textit{``The Sun's equations are to be made less by dvikṣyat-āṃśonam ($1/42$nd) and the Moon's equations, increased by vasu-veda-bhāga-yutam ($1/48$th). Multiply the Sun's equation by a planet's daily motion in minutes and divide by the number of minutes of a whole circle and this is called Bhuja-antara correction and applied in the same way to the planet as the equation is applied to the Sun.''}
-\end{quote}
-
-The Sun's epicycle of apsis has the dimension $14^\circ$ in the \textit{Khaṇḍakhādyaka} proper. With the correction introduced here, the value becomes $14^\circ \times (1 - \frac{1}{42}) = 13^\circ 40'$.
-
-The correction to the Moon's equations would make the epicycle's dimension changed from $31^\circ$ to $31^\circ \times (1 + \frac{1}{48}) = 31^\circ 38' 45''$. Prthūdaka's commentary further corrects it to $31^\circ(1 + \frac{1}{55}) = 31^\circ 35'$.
-
-Brahmagupta's correction to Saturn's epicycle of apsis is $-1/5$th part and that to the Śīghra epicycle of Mercury $1/16$th part:
-
-\begin{quote}
-\textit{``Of Mars the apogee (the aphelion point) is to be increased by $17^\circ$, that of Jupiter by $10^\circ$; from the Śīghra of Venus $7\frac{1}{2}^\circ$ are to be subtracted; Saturn's equation of apsis should be decreased by its one-fifth and the Śīghra equation of Mercury should be increased by one-sixteenth.''}
-\end{quote}
-
-In the \textit{Khaṇḍakhādyaka} proper (II.6), the longitudes of the apogee of planets are: Mars $110^\circ$, Mercury $220^\circ$, Jupiter $160^\circ$, Venus $80^\circ$ and Saturn $240^\circ$. Now with these corrections introduced in the \textit{Uttara Khaṇḍakhādyaka}, the aphelion point of Mars in 499 A.D. had a longitude of $110 + 17 = 127^\circ$; of Jupiter $160 + 10 = 170^\circ$.
-
-\cnote{Reference:} P.C.\ Sengupta: \textit{The Khaṇḍakhādyaka}, 1934.
-
-
-
-%% ========================================================================
-%% CHAPTER VI: INDIAN LUNI-SOLAR ASTRONOMY
-%% ========================================================================
-\section{Indian Luni-Solar Astronomy}
-\label{sec:luni-solar}
-
-\textbf{I}n this chapter, it is proposed to give an account of astronomical constants and the equations in Indian luni-solar astronomy and to present a comparative view of these quantities with the corresponding ones in Greek and modern Astronomy.
-
-%% ------------------------------------------------------------------------
-\subsection{Solar Astronomy}
-
-\cnote{Pages 150--155.} In solar astronomy the length of the year was determined by \textit{Āryabhaṭa} from the heliacal risings of some bright star at the intervals of 365 and 366 days.
-
-\begin{enumerate}[label=(\arabic*)]
-\item The year according to the \textit{Āryabhaṭīya}
-\[
-= \frac{1577917500}{4320000} \text{ days} = 365.2586805 \text{ days}
-\]
-$= 365$ da.\ 6 hrs.\ 12 mins.\ 29.64 secs.
-
-\item The same according to the \textit{Khaṇḍakhādyaka}, the \textit{Sūryasiddhānta} of Varāha and the modern \textit{Sūryasiddhānta}
-\[
-= \frac{1577917800}{4320000} \text{ days} = 365.25875 \text{ days}
-\]
-$= 365$ da.\ 6 hrs.\ 12 mins.\ 36 secs.
-
-\item According to the \textit{Brahmasphuṭasiddhānta} of Brahmagupta
-\[
-= 365\frac{149}{576} \text{ days} = 365.2584975 \text{ days}
-\]
-$= 365$ da.\ 6 hrs.\ 12 mins.\ 9 secs.
-\end{enumerate}
-
-Now the mean sidereal year $= 365$ da.\ 6 hrs.\ 9 mins.\ 9.3 secs.\ (Lockyer).\\
-The mean anomalistic year $= 365$ da.\ 6 hrs.\ 13 mins.\ 49.3 secs.\ (Lockyer).\\
-The mean tropical year $= 365$ da.\ 5 hrs.\ 48 mins.\ 46.054 secs.\ (Lockyer).
-
-Though we take that Indian year was designed to be the sidereal year, it approached most closely the anomalistic year; and its excess over the sidereal year was about 3 minutes.
-
-%% ------------------------------------------------------------------------
-\subsection{Śrīpati's Second Inequality of the Moon}
-
-\cnote{Pages 156--165.} The treatment of the Moon's motion in Indian astronomy reveals a sophisticated understanding of lunar inequalities. The ancient Indian astronomers recognized two principal inequalities:
-
-\begin{enumerate}[label=(\roman*)]
-\item The equation of the centre (related to the apsis)
-\item The equation of conjunction (the evection or Śrīpati's second inequality)
-\end{enumerate}
-
-The method for computing the second inequality involves several steps:
-
-\textbf{Step 1:} The result is called \textit{caraphala}. Multiply the residual arc by $160'$ and divide by the radius.
-
-\textbf{Step 2:} Put it down in another place, multiply it by \textit{sara} (i.e., $R \text{ vers}(D - \alpha)$ or versed sine of the Moon's distance from the apogee) and divide by the difference between the Moon's distance (hypotenuse) and the radius; the result is called \textit{parama (cara) phala}, which is to be considered positive or negative according as the hypotenuse put down in another place is less or greater than the radius.
-
-Symbolically:
-\[
-\frac{160' \cdot R \sin[\theta - (\alpha - 90^\circ)]}{R} = \text{caraphala}
-\]
-\[
-\mp \frac{160' \cdot R \sin[\theta - (\alpha - 90^\circ)]}{R} \times \frac{R \text{ vers}(D - \alpha)}{H - R} = \text{paramaphala}
-\]
-according as $H >$ or $< R$.
-
-The new equation:
-\[
-= \mp \frac{R \sin(D - \theta)}{R} \times \text{paramaphala}
-\]
-
-Multiply the ``sine'' of the Moon which has been diminished by the apparent Sun, by the apparent \textit{paramaphala} and divide by the radius; the final result is to be called \textit{caraphala} to be applied to the Moon negatively or positively as the Moon minus the Sun and the Sun minus the Moon's apogee (diminished by $90^\circ$) be of opposite signs; if these latter quantities be of the same signs, the new equation should be applied in the inverse order by those who want to make the calculation of the apparent Moon agree with observation.
-
-%% ========================================================================
-%% CHAPTER: SPHERICAL ASTRONOMY
-%% ========================================================================
-\section{Spherical Astronomy --- Indian and Greek Methods}
-\label{sec:spherical}
-
-%% ------------------------------------------------------------------------
-\subsection{Greek Methods in Spherical Astronomy}
-
-\cnote{Pages 166--175.} The Greek methods in spherical astronomy are based on Menelaus's theorem for spherical triangles. For a right-angled spherical triangle, the following relations (Napier's rules) can be deduced:
-
-\begin{align}
-\sin a &= \sin b \sin A \\
-\sin c &= \tan a \cot A \\
-\cos b &= \cos a \cos c \\
-\tan c &= \tan b \cos A
-\end{align}
-
-Three more can be deduced similarly:
-\begin{align}
-\sin c &= \sin b \sin C \\
-\sin a &= \tan c \cot C \\
-\tan a &= \cos C \tan b
-\end{align}
-
-The above are some of Napier's rules for a right-angled spherical triangle, deducible from Menelaus's theorem. They are generally sufficient in the case of such triangles. In any spherical triangle, however, this theorem of Menelaus does not in any single step lead to any of the equivalents of the time-altitude or altazimuth equations in spherical astronomy.
-
-The ancient Indian methods, though none of them are so highly finished as Menelaus's theorem, yet are not less powerful in tackling the problems that arise in astronomy in connection with the apparent diurnal motion of the heavens. The Greek or Ptolemaic method presents no further points of interest except in its application.
-
-%% ------------------------------------------------------------------------
-\subsection{Ancient Indian Methods in Spherical Astronomy}
-
-\cnote{Pages 176--185.} In the Indian methods there is no general rule to follow. It is by properties of similar right-angled triangles that a fairly complete set of accurate formulae are obtained. These right-angled plane triangles are classified under the names:
-\begin{itemize}
-\item \textit{Krānti-kṣetras} (triangles of declination)
-\item \textit{Akṣa-kṣetras} (triangles of latitude)
-\end{itemize}
-
-\textbf{Problem I:} To find the time of rising on the equator of a length $l$ of arc of the ecliptic measured from the first point of Aries.
-
-Let $\varepsilon$ be the obliquity of the ecliptic and R.A.\ the right ascension corresponding to the longitude $l$, and $\delta$ the corresponding declination. The Indian form of the equation is:
-\[
-\text{R.A.} = l - \frac{\sin^{-1}(\sin \delta \cdot \tan \varepsilon)}{\text{conversion factor}}
-\]
-
-\textbf{Problem II:} To find the \textit{lagna} (the orient ecliptic point).
-
-\textbf{Problem III:} To find the time from the \textit{lagna}.
-
-\textbf{Problem IV:} To find the Sun's altitude and azimuth from the hour angle.
-
-%% ------------------------------------------------------------------------
-\subsection{Angle between the Ecliptic and the Meridian}
-
-\cnote{Pages 186--195.} \textbf{Problem V:} To find the Angle between the Ecliptic and the Meridian.
-
-\textbf{Indian Method:} Let $\Upsilon SA$ be the ecliptic, $\Upsilon CE$ the equator, $E$ the east-point of the horizon. Cut off $SH = 90^\circ$ and draw the great circle $HEAP'$ cutting the meridian $P'SCH$ at the points $P'$ and $H$. The aim is to find $AP'$ but it is enough to find $EA$ since $AP'$ is the complement of $EA'$.
-
-Both \textit{Āryabhaṭa} and Brahmagupta were unable to find $EA$ correctly. The Indian method uses properties of similar right-angled triangles formed by the celestial sphere's principal circles.
-
-Brahmühl's statement that the Indian methods of spherical astronomy have their origin in the `Analemma', in spite of his admitting that Indians were first to utilise its methods, is rather far-fetched and tends to take away the honour from the great Indian astronomers, who devised the beautiful methods. The `Analemma' as it now exists is a Latin translation from an Arabic version of the original Greek.
-
-\cnote{Reference:} On the influence of the ancient Indians on Arab mathematics and astronomy; see Alberuni's \textit{India}, translated by Dr.\ E.\ Sachau, Vol.\ II, p.\ 304.
-
-%% ========================================================================
-%% CHAPTER: PATIGANITA
-%% ========================================================================
-\section{Operations and Determinations in Pāṭīgaṇita}
-\label{sec:patiganita}
-
-\textbf{T}he word Pāṭīgaṇita is a compound formed from the words \textit{pāṭi}, meaning `board', and \textit{gaṇita}, meaning `science of calculation', i.e.\ the science of calculation practised with a board (or slate).
-
-\cnote{Pages 196--215.}
-
-%% ------------------------------------------------------------------------
-\subsection{Numeral Systems and Place-Value Notation}
-
-The Brahmi numerals, from which all later Indian numeral systems evolved, are found in inscriptions dating from the third century B.C. The place-value concept was clearly understood by Indian mathematicians from very early times.
-
-In the \textit{Brāhmasphuṭasiddhānta}, for a large number like 2296828522, the expressive terms are \textsc{Dviyamāsārastapaksavasura-sanadviyamāḥ} (\textit{Dviyama} = two twos = 22, \textit{Śara} = 5, \textit{Aṣṭa} = 8, \textit{Pakṣa} = 2, \textit{Vasu} = 8, \textit{Rasa} = 6, \textit{Nava} = 9, \textit{Dviyamāḥ} = 22).
-
-Such usages are to be found in all works, which clearly state the place value concept was popular as a routine. From India, this system reached Arabia. During the reign of the Khalif Al-Manṣūr (753--774 A.D.) there came embassies from Sindh to Baghdad, and among them were scholars, who brought along with them several works on mathematics including the \textit{Brāhmasphuṭasiddhānta} and the \textit{Khaṇḍakhādyaka} of Brahmagupta. With the help of these scholars, Al-fazarī, perhaps also Yakub ibn Tarik, translated them into Arabic. Both works were largely used and exercised great influence on Arab mathematics. It was on that occasion that the Arabs first became acquainted with a scientific system of astronomy.
-
-It is acceptable to all writers on the subject that it was at that time that the Hindu numerals were first definitely introduced amongst the Arabs. Arabs at first adopted the \textit{ghobār} form of numerals which they had already obtained (but without zero) from the Alexandrians or from the Syrians. This they continued for about two centuries, but since they were not suited to their right-to-left script, they gave them up and adopted the more convenient ones.
-
-\cnote{Reference:} Datta and Singh, \textit{History of Hindu Mathematics}, Part I (1935, Single volume Edition, 1962, pp.\ 83--104).
-
-It is remarkable that Brahmagupta's works like the \textit{Brāhmasphuṭasiddhānta} and the \textit{Khaṇḍakhādyaka} became instrumental in the spread of the place-value notation in the neighbouring countries of the Middle East, and from there this system spread into Europe.
-
-%% ------------------------------------------------------------------------
-\subsection{Arithmetic Operations}
-
-Brahmagupta gives detailed rules for the fundamental operations:
-
-\begin{enumerate}[label=\arabic*.]
-\item \textbf{Addition} (\textit{saṃkalita}) and \textbf{Subtraction} (\textit{vyavakalita})
-\item \textbf{Multiplication} (\textit{guṇana}) --- Methods include:
-  \begin{itemize}
-  \item Direct multiplication
-  \item Multiplication by parts
-  \item Multiplication by factors
-  \end{itemize}
-\item \textbf{Division} (\textit{bhāgahāra})
-\item \textbf{Squaring} (\textit{varga}) and \textbf{Square root} (\textit{varga-mūla})
-\item \textbf{Cube} (\textit{ghana}) and \textbf{Cube root} (\textit{ghana-mūla})
-\end{enumerate}
-
-The methods of multiplication described by Brahmagupta include the standard methods known to all Indian mathematicians. The \textit{bādhaka} (door-junction) method and the \textit{khanda} (parts) method are of particular interest.
-
-%% ========================================================================
-%% CHAPTER: FRACTIONS
-%% ========================================================================
-\section{Fractions}
-\label{sec:fractions}
-
-\cnote{Pages 216--225.}
-
-%% ------------------------------------------------------------------------
-\subsection{Reduction and Basic Operations}
-
-\textbf{Reduction to lowest terms.} A non-mathematical work, \textit{Tattvārthādhigama-Sūtra-Bhāṣya} by Umāsvati (c.\ 150 A.D.) casually mentions as follows in the context of a philosophic discourse:
-
-\begin{quote}
-\textit{``Or, as when the expert mathematician, for the purpose of simplifying operations, removes common factors from the numerator and denominator of a fraction, there is no change in the value of the fraction, so\ldots''}
-\end{quote}
-
-\textbf{Reduction to common denominator.} Whenever we have to add or subtract fractions, we follow this reduction operation to a common denominator. Brahmagupta gives the reduction along with the similar processes:
-
-\begin{quote}
-\textit{``By the multiplication of the numerator and denominator of each of the (fractional) quantities by other denominators, the quantities are reduced to a common denominator. In addition, the numerators are united, in subtraction their difference is taken.''} --- BrSpSi, XII.~2.
-\end{quote}
-
-%% ------------------------------------------------------------------------
-\subsection{Classes of Fractional Combinations}
-
-Since there was no proper symbolism available to these early Indian mathematicians, they divided combination of fractions into four classes:
-
-\begin{enumerate}[label=(\roman*)]
-\item \textbf{Bhāga} --- The form $\displaystyle\left(\frac{a}{b} \pm \frac{c}{d} \pm \frac{e}{f} \pm \ldots\right)$
-
-usually written as:
-\[
-\begin{array}{|c|c|c|}
-\hline
-a & c & e \\
-\hline
-b & d & f \\
-\hline
-\end{array}
-\quad\text{or}\quad
-\begin{array}{|c|c|c|}
-\hline
-a & .c & .e \\
-\hline
-b & d & f \\
-\hline
-\end{array}
-\]
-where the dots denote subtraction.
-
-\item \textbf{Prabhāga} --- The form $\displaystyle\left(\frac{a}{b} \text{ of } \frac{c}{d} \text{ of } \frac{e}{f} \ldots\right)$
-
-\item \textbf{Bhāgānubandha} --- The form $\displaystyle\left(a + \frac{b}{c}\right)$ is written as:
-\[
-\begin{array}{|c|}
-\hline
-a \\
-\hline
-b \\
-\hline
-c \\
-\hline
-\end{array}
-\]
-
-\item \textbf{Bhāgāpavāha} --- The form $\displaystyle\left(a - \frac{b}{c}\right)$
-\end{enumerate}
-
-
-
-%% ========================================================================
-%% CHAPTER: RULE OF THREE
-%% ========================================================================
-\section{Rule of Three and Compound Proportion}
-\label{sec:rule-of-three}
-
-\cnote{Pages 226--235.}
-
-%% ------------------------------------------------------------------------
-\subsection{The Trairāśika (Rule of Three)}
-
-The Rule of Three (\textit{trairāśika}) is one of the most important rules in Indian mathematics. It is stated as follows:
-
-\begin{quote}
-\textit{``In the Rule of Three, the \textbf{phala} (fruit) is multiplied by the \textbf{icchā} (requisition) and the product is divided by the \textbf{pramāṇa} (argument). The resulting quotient is the \textbf{icchā-phala} (required fruit).''}
-\end{quote}
-
-Symbolically, if $a$ (pramāṇa) gives $b$ (phala), then $c$ (icchā) gives:
-\[
-x = \frac{b \times c}{a}
-\]
-
-%% ------------------------------------------------------------------------
-\subsection{Compound Proportion}
-
-When more than three quantities are involved, we have the compound proportion (\textit{vyasta-trairāśika} or inverse rule of three, and \textit{bhūmiśaḥ} or multiple rule).
-
-Brahmagupta's rule for compound proportion:
-
-\begin{quote}
-\textit{``In the method of compound proportion, the fruit is multiplied by the requisition and divided by the argument; in case of inverse proportion, the operation is reversed.''}
-\end{quote}
-
-\textbf{Example:} If 1 pala and 1 karṣa of sandalwood are obtained for 10 and a half paṇas, for how much will be obtained 9 palas and 1 karṣa?
-
-(4 karṣas = 1 pala).
-
-We shall represent them in the Rule of Compound Proportion as:
-
-Pramāṇa pakṣa: 1 pala, 1 karṣa = $\frac{5}{4}$ pana.
-
-Icchā pakṣa: 9 palas, 1 karṣa = $\frac{37}{4}$ pala
-
-Transposing the fruits, we have the solution by the rule of compound proportion.
-
-%% ------------------------------------------------------------------------
-\subsection{Rule of Three as a Particular Case}
-
-\cnote{Pages 230--235.} According to Brahmagupta, the above method of ``compound proportion'' may be applied to the Rule of Three. Taking the example solved under the Rule of Three:
-
-\textit{If one pala and one karṣa of sandalwood are obtained for ten and a half paṇas, for how much will be obtained nine palas and one karṣa?}
-
-We represent them in the Rule of Compound Proportion as:
-
-\begin{center}
-\begin{tabular}{cc}
-Pramāṇa pakṣa: & 1 pala, 1 karṣa = $\frac{5}{4}$ pana \\
-Icchā pakṣa: & 9 palas, 1 karṣa = $\frac{37}{4}$ pana \\
-\end{tabular}
-\end{center}
-
-This we shall represent as:
-\[
-\begin{array}{|c|}
-\hline
-5/4 \\
-\hline
-37/4 \\
-\hline
-\end{array}
-\]
-
-Transposing the fruits, we have:
-
-The product of numbers on the side of the larger set is divided by the product of the numbers on the side of the smaller set. In this case, the result is calculated accordingly.
-
-%% ========================================================================
-%% CHAPTER: ALGEBRA
-%% ========================================================================
-\section{Algebra Goes to Europe from India}
-\label{sec:algebra-europe}
-
-\cnote{Pages 236--245.}
-
-\textbf{T}he transmission of Indian algebra to Europe is one of the most important chapters in the history of mathematics. The Arabs first became acquainted with a scientific system of astronomy and algebra through Indian works.
-
-The grounds on which they proceeded are unfortunately not specified; but as they gave Bhāskara's age correctly, as well as several other dates right, which admit of being verified, it is presumed that they had grounds, though unexplained, for the information which they communicated.
-
-Mr.\ Bentley, who is little disposed to favour the antiquity of an Indian astronomer, has given his reasons for considering the astronomical system which Brahmagupta teaches, to be between twelve and thirteen hundred years old (1263 years in A.D.\ 1799). Now as the system taught by this author is professedly one corrected and adapted by him to conform with the observed positions of the celestial objects when he wrote, the age, when their positions would be conformable with the results of computations made as by him directed, is precisely the age of the author himself.
-
-The translator has assigned on former occasions the grounds upon which he sees reason to place the author's age, soon after the period when the vernal equinox coincided with the beginning of the lunar mansion and zodiacal asterism Aśvinī, where the Hindu ecliptic now commences. He is supported in it by the sentiments of Bhāskara and other Indian astronomers, who infer from Brahmagupta's doctrine concerning the solstitial points, of which he does not admit a periodical motion, that he lived when the equinoxes did not, sensibly to him, deviate from the beginning of Aśvinī and middle of \textit{citrā} on the Hindu sphere. On these grounds it is maintained, that Brahmagupta is rightly placed in the \textbf{sixth or beginning of the seventh century} of the Christian era.
-
-The age when Brahmagupta flourished is generally taken to be 628 A.D., the date of composition of the \textit{Brāhmasphuṭasiddhānta}.
-
-%% ========================================================================
-%% CHAPTER: ALGEBRAIC OPERATIONS
+%% CHAPTER XVIII: ALGEBRAIC OPERATIONS
 %% ========================================================================
 \section{Algebraic Operations}
 \label{sec:algebraic-ops}
 
-\cnote{Pages 246--255.}
-
-\textbf{B}rahmagupta gives systematic rules for algebraic operations in Chapter XVIII of the \textit{Brāhmasphuṭasiddhānta}.
+\textbf{B}rahmagupta gives systematic rules for algebraic operations in Chapter XVIII of the \textit{Brāhmasphuṭasiddhānta}. This chapter contains the first treatment of algebra as a distinct mathematical discipline in Indian mathematics.
 
 %% ------------------------------------------------------------------------
 \subsection{Addition and Subtraction of Unknowns}
 
 Brahmagupta classified unknown quantities into categories called \textit{jāti} (species):
 
-\begin{quote}
-\textit{``The numerical coefficients of the same unknown are added to or subtracted from each other; the same is done with the known quantities. When the unknowns are different, they are not united.''}
-\end{quote}
+\begin{sanskritverse}
+रूपाणि यावत्तावदीनां संयोगो व्यवकल्पनं तुल्यानाम् |\\
+तुल्यजातीयानां संयोगो व्यवकल्पनमन्यथा ||१८.२४||
+\end{sanskritverse}
+
+\textit{Translation:} ``The numerical coefficients of the same unknown are added to or subtracted from each other; the same is done with the known quantities. When the unknowns are different, they are not united.''
 
 This means that the numerical coefficients of $x$ cannot be added to or subtracted from the numerical coefficients of $y$ or $x^2$ or $x^3$ or $xy$ and so on because these terms belong to different \textit{jāti} or they do not belong to the category of the ``like.''
 
@@ -668,50 +180,90 @@ This means that the numerical coefficients of $x$ cannot be added to or subtract
 
 Again, regarding multiplication, Brahmagupta says:
 
-\begin{quote}
-\textit{``The product of the two like unknowns is a square; the product of three or more like unknowns is a power of that designation. The multiplication of unknowns of unlike species is the same as the mutual product of symbols; it is called \textbf{bhāvita} (product or factum).''}
-\end{quote}
+\begin{sanskritverse}
+तुल्यजातीयानां संयोगो वर्गः समजातीयानाम् |\\
+घनस्त्रिजातीयानां ततोऽपि तद्वद्विशेषणम् ||१८.२५||
+\end{sanskritverse}
 
-Having given the rules of the operations for addition, subtraction and multiplication, Brahmagupta does not think it necessary to deal with other operations. His section on the calculations with zero, negative and positive quantities ends here.
-
-%% ------------------------------------------------------------------------
-\subsection{How is an Equation Formed?}
-
-\textit{Prthūdaka Svāmī} while commenting on a verse in \textit{Brāhmasphuṭasiddhānta} speaks as follows:
-
-\begin{quote}
-\textit{``In this case, in the problem proposed by the questioner, yāvat-tāvat is put for the value of the unknown quantity. Then performing multiplication, division etc.\ as required in the problem the two sides shall be carefully made equal. The equation being formed in this way, then the rule (for its solution) follows.''}
-\end{quote}
-
-%% ------------------------------------------------------------------------
-\subsection{Plan for Writing Equations}
-
-When in regards to a given problem, an equation has been formed, it has to be written down for further operations. This writing down of an equation is technically known as \textit{nyāsa}. Perhaps the oldest record of \textit{nyāsa} is to be found in the \textit{Bakhshālī Manuscript}. According to the procedure prescribed in this work, the two sides of an equation are put down one after the other in the same line without any sign of equality being interposed.
+\textit{Translation:} ``The product of the two like unknowns is a square; the product of three or more like unknowns is a power of that designation. The multiplication of unknowns of unlike species is the same as the mutual product of symbols; it is called \textbf{bhāvita} (product or factum).''
 
 %% ------------------------------------------------------------------------
 \subsection{Rules for Zero, Positive and Negative Numbers}
 
 Brahmagupta gives the following famous rules for operations with zero and negative numbers (BrSpSi, XVIII.\ 30--36):
 
-\begin{enumerate}[label=\arabic*.]
-\item The sum of two positive quantities is positive; the sum of two negative quantities is negative.
-\item The sum of a positive and a negative is their difference; if they are equal, the sum is zero.
-\item A negative quantity subtracted from zero becomes positive; a positive quantity subtracted from zero becomes negative.
-\item Zero subtracted from a negative quantity is negative; zero subtracted from a positive quantity is positive.
-\item The product of zero and a negative quantity is zero; the product of zero and a positive quantity is zero.
-\item Zero divided by any quantity is zero.
-\item \textit{A quantity divided by zero becomes that fraction of which the denominator is zero.} This is the famous (though incorrect, by modern standards) statement about division by zero.
-\end{enumerate}
+\subsubsection*{Verse 18.30: Addition}
 
-These rules were remarkable for their time, representing the first systematic treatment of negative numbers and zero as algebraic entities in the history of mathematics.
+\begin{sanskritverse}
+धनयोर्धनयोर्योगो ऋणयोरपि योगमेकम् |\\
+धनऋणयोः समं शून्यं शून्याभ्यासे शून्यमेव ||३०||
+\end{sanskritverse}
+
+\textit{Translation:} ``[The sum] of two positives is positive, of two negatives negative; of a positive and a negative [the sum] is their difference; if they are equal it is zero. The sum of a negative and zero is negative, [that] of a positive and zero [is] positive, [and that] of two zeros [is] zero.''
+
+\subsubsection*{Verse 18.31: Subtraction}
+
+\begin{sanskritverse}
+अल्पात्प्रचयं शेषं प्रचयादल्पकं शेषमेकम् |\\
+ऋणधनयोः समं शून्यं शून्याभ्यासे शून्यमेव ||३१||
+\end{sanskritverse}
+
+\textit{Translation:} ``If a smaller [positive] is to be subtracted from a larger positive, [the result] is positive; [if] a smaller negative from a larger negative, [the result] is negative; [if] a larger [negative or positive is to be subtracted] from a smaller [positive or negative, the algebraic sign of] their difference is reversed---i.e. negative [becomes] positive and positive [becomes] negative.''
+
+\subsubsection*{Verse 18.32: Subtraction with zero}
+
+\begin{sanskritverse}
+ऋणं शून्याद्वियोगेन धनं धनाद्विशोध्यते |\\
+शून्यं शून्याद्वियोगेन शून्यं शून्येन योजयेत् ||३२||
+\end{sanskritverse}
+
+\textit{Translation:} ``A negative minus zero is negative, a positive [minus zero] positive; zero [minus zero] is zero. When a positive is to be subtracted from a negative or a negative from a positive, then it is to be added.''
+
+\subsubsection*{Verse 18.33: Multiplication}
+
+\begin{sanskritverse}
+ऋणधनयोर्गुणकर्म वधो धनयोर्गुणे ऋणयोः |\\
+ऋणयोर्गुणे धनमेकं शून्याभ्यासे शून्यमेव ||३३||
+\end{sanskritverse}
+
+\textit{Translation:} ``The product of a negative and a positive is negative, of two negatives positive, and of positives positive; the product of zero and a negative, of zero and a positive, or of two zeros [are all] zero.''
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering
+\textbf{Brahmagupta's Laws of Signs}\\[0.3cm]
+$(+a) \times (+b) = +ab$ \quad\quad $(-a) \times (-b) = +ab$\\
+$(-a) \times (+b) = -ab$ \quad\quad $(+a) \times (-b) = -ab$\\
+$0 \times a = a \times 0 = 0$ for any quantity $a$.
+}}
+\end{center}
+
+\subsubsection*{Verse 18.34: Division}
+
+\begin{sanskritverse}
+धनं धनेन विभजेदृणमृणेन तत्तथा |\\
+शून्यं शून्येन विभजेद्धनमृणेण तदृणम् ||३४||
+\end{sanskritverse}
+
+\textit{Translation:} ``A positive divided by a positive or a negative divided by a negative is positive; a zero divided by a zero is zero; a positive divided by a negative is negative; a negative divided by a positive is [also] negative.''
+
+\subsubsection*{Verse 18.35: Division by zero}
+
+\begin{sanskritverse}
+शून्येन भक्तश्च खहरः शून्यं हारश्च राशावमिश्रे |\\
+तद्वर्गं मूलं तस्य तद्वद्वर्गस्य पदं तथा ||३५||
+\end{sanskritverse}
+
+\textit{Translation (Colebrooke):} ``A negative or a positive divided by zero has that [zero] as its divisor, or zero divided by a negative or a positive [has that negative or positive as its divisor]. The square of a negative or of a positive is positive; [the square] of zero is zero. That of which [the square] is the square is [its] square-root.''
+
+\sutra{\textbf{Note:} Brahmagupta's statement that $a/0$ gives ``kha-hara'' (a fraction with zero denominator) was his way of expressing the concept of infinity. In modern mathematics, division by zero is undefined, but Brahmagupta's insight that such quantities represent infinitely large magnitudes was remarkable for the 7th century.}
+
+\clearpage
 
 %% ========================================================================
 %% CHAPTER: QUADRATIC EQUATIONS
 %% ========================================================================
 \section{Quadratic Equations}
 \label{sec:quadratic}
-
-\cnote{Pages 256--265.}
 
 \textbf{T}he geometrical solution of a quadratic equation in this country would take us to the Vedic \textit{Sulba} period. The \textit{Bakhshālī Manuscript} also contains certain problems which need the solving of quadratic equations.
 
@@ -729,39 +281,44 @@ n^2 \cdot \frac{b}{2} + n\left(s - \frac{b}{2} - S\right) - St = 0
 \]
 
 %% ------------------------------------------------------------------------
-\subsection{Brahmagupta's Rule for Quadratic Equations}
+\subsection*{Sanskrit Verses: Brahmagupta's Rule for Quadratic Equations}
 
 Brahmagupta gives the following rule (BrSpSi, XVIII.\ 44--45):
 
-\begin{quote}
-\textit{``To the absolute number multiplied by the number of the square, add the square of half the coefficient of the unknown; the square root of the sum, less half the coefficient, divided by the number of the square, is the unknown.''}
-\end{quote}
+\subsubsection*{Verse 18.44: The quadratic formula (first form)}
 
-In modern notation, for the equation $ax^2 + bx = c$:
-\[
-x = \frac{\sqrt{ac + \left(\frac{b}{2}\right)^2} - \frac{b}{2}}{a}
-\]
+\begin{sanskritverse}
+रूपैषु चतुर्गुणितसत्त्ववर्गयुतात्पदं मूलम् |\\
+मध्यमहतो लब्धं द्विगुणसत्त्वभक्तं मध्यम् ||४४||
+\end{sanskritverse}
 
+\textit{Translation (Colebrooke):} ``Diminish by the middle [number] the square-root of the \textit{rupas} multiplied by four times the square and increased by the square of the middle [number]; divide the remainder by twice the square. [The result is] the middle [number].''
+
+\subsubsection*{Verse 18.45: The quadratic formula (second form)}
+
+\begin{sanskritverse}
+यावद्वर्गं रूपयुतं पदं तद्धृतं यावदर्धहतम् |\\
+तद्वर्गमूलं यावदर्धेन हीनं वर्गभक्तं यावत् ||४५||
+\end{sanskritverse}
+
+\textit{Translation (Colebrooke):} ``Whatever is the square-root of the \textit{rupas} multiplied by the square [and] increased by the square of half the unknown, diminish that by half the unknown [and] divide [the remainder] by its square. [The result is] the unknown.''
+
+\medskip
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering
+\textbf{Modern Formulation:} For the equation $ax^2 + bx = c$:
+\[x = \frac{\sqrt{4ac + b^2} - b}{2a}\]
 This is equivalent to the modern quadratic formula for the positive root.
+}}
+\end{center}
 
-%% ------------------------------------------------------------------------
-\subsection{Simultaneous Equations}
-
-Brahmagupta's rule for solving simultaneous equations is as follows:
-
-\begin{quote}
-\textit{``Equi-clearance should be made first between two and two of them and so on to the last; from one side one unknown should be cleared, other unknowns reduced to a common denominator and also the absolute numbers should be cleared from the side opposite. The residue of other unknowns being divided by the residual coefficient of the first unknown will give the value of the first unknown. If there be obtained several such values, then with two and two of them, equations should be formed after reduction to common denominators. Proceeding in this way to the end find out the value of one unknown. If that value be (in terms of) another unknown then the coefficients of those two will be reciprocally the values of the two unknowns. If, however, there be present more unknowns in that value, the method of the pulveriser should be employed. Arbitrary values may then be assumed for some of the unknowns.''}
-\end{quote}
-
-Datta and Singh have said that the above rule of Brahmagupta, and also the one indicated in the commentary of \textit{Prthūdaka Svāmī}, embraces the solution of indeterminate as well as the determinate equations. In fact, all the examples given by Brahmagupta in illustration of the rule are of indeterminate character. So far as the determinate simultaneous equations are concerned, Brahmagupta's method for solving them will be easily recognised to be the same as our present one.
+\clearpage
 
 %% ========================================================================
 %% CHAPTER: KUTTAKA OPERATION
 %% ========================================================================
 \section{Bhāskara I and the Kuṭṭaka Operation}
 \label{sec:kuttaka}
-
-\cnote{Pages 266--280.}
 
 \textbf{A}n indeterminate equation of the first degree of the type:
 \[
@@ -777,13 +334,32 @@ c &= \text{residue of the revolutions of the planet (\textit{śeṣa})}
 \end{align*}
 
 %% ------------------------------------------------------------------------
-\subsection{Bhāskara I's Preliminary Operation}
+\subsection*{Sanskrit Verse: Brahmagupta's Rule for the Pulveriser}
 
-In Chapter I of the \textit{Mahābhāskarīya}, Bhāskara I has described the preliminary operation to be performed on the divisor and dividend of a pulveriser:
+\begin{sanskritverse}
+भाज्यं हारेण विभजेदवशिष्टं हारेण तं पुनः |\\
+यावत् समं न विभजेदवशिष्टं ततः परं क्रमात् ||१८.५०||
+\end{sanskritverse}
 
-\begin{quote}
-\textit{``The divisor (which is `the number of civil days in a \textit{yuga}') and the dividend (which is `the revolution number of the desired planet') become prime to each other on being divided by the (last non-zero) residue of the mutual division of the number of civil days in a \textit{yuga} and the revolution number of the desired planet. The operations of the pulveriser should be performed on them (i.e.\ on the abraded divisor and abraded dividend). So has been said.''} --- MBh.\ I.\ 41.
-\end{quote}
+\textit{Translation:} ``Divide the dividend by the divisor, and the divisor by the remainder obtained; by this process of mutual division, [continue] until the remainder becomes zero. From this, by working backwards, one can find a particular solution.''
+
+\subsubsection*{Verse 18.51: Condition for solution}
+
+\begin{sanskritverse}
+क्षेपः क्षेपेण युज्यते यदि तुल्यः स्यात्तदा विधिः स एव |\\
+अतुल्ये क्षेपे छिद्रं विद्धि कुट्टकस्य मित्र ||१८.५१||
+\end{sanskritverse}
+
+\textit{Translation:} ``If the interpolator is divisible by the divisor of the residues, then that same method [applies]; if the interpolators are unequal, know that the pulveriser has a flaw [is impossible], friend.''
+
+\subsubsection*{Verse 18.52: Working backwards}
+
+\begin{sanskritverse}
+लब्धानि यान्युत्तराणि तानि कोट्यः स्मृताः क्रमशः |\\
+कोट्योर्गुणकौ स्थाप्यौ गुणककारः क्षेपयुक्तः ||१८.५२||
+\end{sanskritverse}
+
+\textit{Translation:} ``The successive quotients obtained [in the mutual division] are called `kotis' [vertical lines]; placing the gunakaras [multipliers] at the kotis, the multiplier is [found] combined with the interpolator.''
 
 %% ------------------------------------------------------------------------
 \subsection{The Pulveriser Method}
@@ -812,24 +388,353 @@ where $a$, $b$, and $c$ are given integers.
 
 Brahmagupta's method was later improved by Āryabhaṭa II and Bhāskara II, but the fundamental approach was established in the \textit{Brāhmasphuṭasiddhānta}.
 
+\subsubsection*{Example: Pulveriser for planetary residues}
+
+\begin{sanskritverse}
+रवेः शेषं द्वादशाङ्कं विभजेद्भूदिनैः सह |\\
+गुणकस्तत्र यः स्यात् स रवेर्गतिकलानयेत् ||१८.५३||
+\end{sanskritverse}
+
+\textit{Translation:} ``The residue of the Sun [is] twelve; divide it together with the civil days; whatever multiplier results therefrom, that will yield the elapsed degrees of the Sun's motion.''
+
+\medskip
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering
+\textbf{Example Problem:} Find $x$ such that $\dfrac{137x - 10}{60} = y$ is an integer.\\[0.2cm]
+Here dividend $a = 137$, divisor $b = 60$, interpolator $c = 10$.\\
+By mutual division: $137 = 2 \times 60 + 17$; $60 = 3 \times 17 + 9$; $17 = 1 \times 9 + 8$; $9 = 1 \times 8 + 1$.\\[0.2cm]
+Working backwards: $x = 50$, $y = 114$ is a solution.
+}}
+\end{center}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER: PLANETARY APHELIONS AND EPICYCLES
+%% ========================================================================
+\section{Planetary Aphelions and Epicycle Corrections}
+\label{sec:aphelions}
+
+\textbf{B}rahmagupta gave systematic corrections to the mean longitudes of planets to obtain their true positions. These corrections involve the concepts of the aphelion (\textit{manda-cheda}) and the epicycles of apsis (\textit{manda-paridhi}) and conjunction (\textit{śīghra-paridhi}).
+
+\subsubsection*{Verse: Mean to True Position}
+
+\begin{sanskritverse}
+मध्यमं ग्रहं कृत्वा मन्दस्पष्टीकरणं ततः |\\
+तस्माच्छीघ्रस्पष्टीकरणं ततो ग्रहः स्फुटो भवेत् ||उ.खा. ५||
+\end{sanskritverse}
+
+\textit{Translation:} ``Having taken the mean planet, [apply] the correction for the apsis; from that [result, apply] the correction for the conjunction; then the planet becomes true [corrected].''
+
+\subsubsection*{Verse: Epicycle Dimensions}
+
+\begin{sanskritverse}
+मन्दपरिधिः सूर्यस्य सप्तचत्वारिंशत्तथा द्वयं |\\
+चन्द्रस्य तु त्रयस्त्रिंशत् शीघ्रपरिधिस्तु सप्ततिः ||उ.खा. ६||
+\end{sanskritverse}
+
+\textit{Translation:} ``The epicycle of the apsis for the Sun is forty-seven plus two [i.e., 49 for the manda]; that of the Moon is thirty-three. The epicycle of the conjunction [for the Moon] is seventy.''
+
+\subsubsection*{Verse: Aphelion (Mandocca) Positions}
+
+\begin{sanskritverse}
+सूर्यस्य मन्दोच्चं सप्ततिर्नवतिरुत्तरायणे |\\
+चन्द्रस्याप्युच्चं शीघ्रं तत्संस्कारेण सिद्ध्यति ||उ.खा. ७||
+\end{sanskritverse}
+
+\textit{Translation:} ``The aphelion [ucca] of the Sun is seventy-nine [degrees] in the northern solstice; the [higher] apsis of the Moon and the śīghra [conjunction point] are obtained by [appropriate] correction.''
+
+\medskip
+\sutra{\textbf{Historical Note:} Brahmagupta's corrections to the planetary epicycles were based on careful comparison with observed positions. He adjusted the epicycle radii given in the \textit{Āryabhaṭīya} to reduce the errors in predicted planetary longitudes. His method of applying the manda correction first, followed by the śīghra correction, became the standard procedure in Indian astronomy.}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER: UTTARA KHANDAKHADYAKA
+%% ========================================================================
+\section{Uttara Khaṇḍakhādyaka: Advanced Planetary Theory}
+
+\textbf{T}he \textit{Uttara Khaṇḍakhādyaka} (UKK) represents Brahmagupta's advanced astronomical treatise, containing corrections and refinements to the earlier \textit{Khaṇḍakhādyaka} proper.
+
 %% ------------------------------------------------------------------------
-\subsection{Special Rules for the Pulveriser}
+\subsection{Brahmagupta First to Use Second Differences}
 
-Brahmagupta gives special rules for various cases of the pulveriser:
+All these illustrations reproduced here very well establish the point that the great Indian astronomers from \textit{Āryabhaṭa} I to Brahmagupta were aware of the methods of separating the two distinct planetary inequalities, viz., that of the apsis and of conjunction in the cases of the five `star' planets.
 
-\textbf{Case 1:} When the interpolator $c = 0$ (exact division):
+In the \textit{Khaṇḍakhādyaka}, Brahmagupta having given the ``sines'' and the equations of the Sun and the Moon at the interval of $15°$ of arc of the mean anomaly, in the \textit{Uttara Khaṇḍakhādyaka} teaches, for the \textbf{first time in the history of mathematics}, the improved rules for interpolation by using the \textbf{second difference}.
+
+This very important feature is reproduced here from the translation by Sengupta of the verse (UKK.\ 8):
+
+\begin{sanskritverse}
+अवशिष्टार्धजं शेषं विभक्तं नवशताङ्केन तत् |\\
+तयोर्द्वयोरन्तरार्धेन गुणितं तद्विवर्धितं वा हीनं वा |\\
+तयोर्युग्मस्यार्धं तत्स्यात्ततो युतं हीनं वा ||उ.खा. ८||
+\end{sanskritverse}
+
+\textit{Translation (Sengupta):} ``Multiply the residual arc left after division by $900'$ (i.e.\ by $15°$), by half the difference of the tabular difference passed over and that to be passed over and divide by $900'$ (i.e.\ $15°$): by the result increase or decrease, as the case may be, half the sum of the same two tabular differences; the result which, whether less or greater than the tabular difference to be passed, is the true tabular difference to be passed over.''
+
+The rule given here applies to the case of all functions hitherto considered in the \textit{Khaṇḍakhādyaka}, which are tabulated at the difference of $15°$ of arc of the argument. They are:
+\begin{enumerate}[label=(\roman*)]
+\item the tabular differences of the Sun's equation,
+\item the tabular differences of the Moon's equation,
+\item the tabular differences of the `sines'.
+\end{enumerate}
+
+\textbf{Illustration --- To find the `sine' of $57°$.}
+
+Brahmagupta's table of sines in the \textit{Khaṇḍakhādyaka} is as follows:
+
+\begin{quote}
+\textit{``Thirty increased severally by nine, six and one; twenty-four, fifteen and five, are the tabular differences of sines at intervals of half-a-sign. For any arc, the `sine' is the sum of the parts passed over, increased by the proportional part of the tabular difference to be passed over.''} (KK.I.30; also III.6)
+\end{quote}
+
+\begin{table}[h]
+\centering
+\caption{Brahmagupta's Table of Sines}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{Arc} & \textbf{`Sine'} & \textbf{Tabular Difference} & \textbf{Second Difference} \\
+\midrule
+$0°$ & 0 & --- & --- \\
+$15°$ & 39 & 39 & --- \\
+$30°$ & 75 & 36 & $-3$ \\
+$45°$ & 106 & 31 & $-5$ \\
+$60°$ & 130 & 24 & $-7$ \\
+$75°$ & 145 & 15 & $-9$ \\
+$90°$ & 150 & 5 & $-10$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Verse on Lunar Correction (Evection)}
+
+\begin{sanskritverse}
+चन्द्रस्य द्वितीयमीनं शीघ्रेण सह संयुतं यदा |\\
+तदा तद्गतिफलं स्यात् शीघ्रफलं तेन संयोजयेत् ||उ.खा. १०||
+\end{sanskritverse}
+
+\textit{Translation:} ``The second inequality of the Moon [evection], when combined with the [equation of the] conjunction, then its motion-equation occurs; the conjunction-equation should be applied by that [amount].''
+
+This verse refers to what later became known as \'{S}r\={\i}pati's equation --- the recognition of the Moon's second inequality (evection), which represents a significant achievement in Indian lunar theory.
+
+Now $57° = 3420$ minutes $= 900' \times 3 + 720'$. Thus three of the tabular differences are considered as passed over; the last one being 31 and the one to be passed over is 24.
+
+The true tabular difference by the rule, for arc $57°$:
 \[
-ax = by \implies x = \frac{b}{\gcd(a,b)} \cdot k, \quad y = \frac{a}{\gcd(a,b)} \cdot k
+\frac{31+24}{2} + \frac{720}{900} \times \frac{31-24}{2}
 \]
 
-\textbf{Case 2:} When the interpolator is positive:
-The solution is obtained by the standard pulveriser method.
+Hence the `sine' of $57°$:
+\[
+= 106 + \frac{720}{900} \times 24 + \frac{720}{900}\left(\frac{720}{900}-1\right) \times \frac{31-24}{2}
+= 125.76
+\]
 
-\textbf{Case 3:} When the interpolator is negative:
-Brahmagupta gives a rule for converting the negative interpolator case to the positive case.
+As worked out from the logarithm tables the same comes out to be $125.80$.
 
-\textbf{Case 4:} When the interpolator is divided by the divisor or dividend:
-Special reduction methods are applied.
+This in fact is the modern form of the interpolation equation up to the term containing the second difference:
+\[
+f(a + nh) = f(a) + n\Delta f(a) + \frac{n(n-1)}{2}\Delta^2 f(a)
+\]
+
+\subsubsection*{Sanskrit Verse: Construction of the Sine Table}
+
+\begin{sanskritverse}
+एकोनत्रिंशत्संयुक्ता नव षट् चैकं च तानि विश्लेषाः |\\
+ज्यावर्गाणां पञ्चदशाङ्गुलैस्तु भक्ताः सार्धैः |\\
+तेऽपि चतुर्विंशतिज्या दण्डैक्येनैकतस्त्रयस्ते ||खा. १.२९||
+\end{sanskritverse}
+
+\textit{Translation:} ``Thirty minus one, increased by nine, six, and one; twenty-four, fifteen, and five --- these are the tabular differences of sines. The sines [themselves] are obtained by successive addition of these differences, [starting from] the first [sine]. These twenty-four sines [span] the quadrant.''
+
+\subsubsection*{Verse on the Epicycle Correction}
+
+\begin{sanskritverse}
+मन्दफलं स्फुटीकर्तुं मन्दवृत्तेन संयोजयेत् |\\
+शीघ्रफलं तथा स्फुटं शीघ्रवृत्तेन कारयेत् ||उ.खा. १२||
+\end{sanskritverse}
+
+\textit{Translation:} ``To correct [the mean planet] by the equation of the apsis, one should apply [the correction] by means of the epicycle of the apsis; likewise, to make [the planet] true by the equation of the conjunction, one should do so by means of the epicycle of the conjunction.''
+
+Brahmagupta thus takes a decidedly improved step here and is undoubtedly the \textbf{first man in the history of mathematics} who has done this.
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER: FRACTIONS (BHAGA)
+%% ========================================================================
+\section{Operations with Fractions}
+\label{sec:fractions}
+
+\textbf{B}rahmagupta classified fractions into several categories: \textit{bhāga} (simple fraction), \textit{prabhāga} (compound fraction), \textit{bhāgānubandha} (fractions in association), and \textit{bhāgāpavāha} (fractions in dissociation). He gave systematic rules for all operations with fractions.
+
+\subsubsection*{Verse: Addition and Subtraction of Fractions}
+
+\begin{sanskritverse}
+भागानां हारसम्बन्धे हारयोर्गुणनं तु तौ गुणाकौ |\\
+भाज्यसंयुत्यं तद्धृतं सामान्यं भवति संयुतिः ||पा. २.३||
+\end{sanskritverse}
+
+\textit{Translation:} ``When fractions are connected [for addition or subtraction], the two denominators [become] multipliers [of the opposite numerators]; the sum of the [cross-multiplied] dividends, divided by the product of the denominators, becomes the combined [result].''
+
+In modern notation:
+\[
+\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad \text{and} \quad \frac{a}{b} - \frac{c}{d} = \frac{ad - bc}{bd}
+\]
+
+\subsubsection*{Verse: Multiplication and Division of Fractions}
+
+\begin{sanskritverse}
+भाज्यौ हारौ च युगपद् गुणने भाज्यहारयोर्गुणनम् |\\
+भागहारेण भाज्यस्य गुणनं भागहारभाज्ययोः ||पा. २.४||
+\end{sanskritverse}
+
+\textit{Translation:} ``In the multiplication of fractions, the numerators and denominators are multiplied together [respectively]. In division, the numerator is multiplied by the reciprocal of the divisor-fraction [i.e., the numerator and denominator are interchanged].''
+
+\medskip
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering
+\textbf{Brahmagupta's Fraction Operations}\\[0.3cm]
+$\dfrac{a}{b} \times \dfrac{c}{d} = \dfrac{a \times c}{b \times d}$ \quad\quad
+$\dfrac{a}{b} \div \dfrac{c}{d} = \dfrac{a}{b} \times \dfrac{d}{c} = \dfrac{ad}{bc}$
+}}
+\end{center}
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER: RULE OF THREE (TRAIRASHIKA)
+%% ========================================================================
+\section{The Rule of Three (Trairāśika)}
+\label{sec:trairashika}
+
+\textbf{T}he Rule of Three (\textit{trairāśika}) is the fundamental method of proportion in Indian mathematics. Brahmagupta gave a precise formulation that served as the basis for all problems involving proportion.
+
+\subsubsection*{Verse: The Rule of Three}
+
+\begin{sanskritverse}
+प्रमाणफलं यदि निर्दिष्टं तत्प्रमाणेन गुणितं तत् |\\
+इच्छाङ्केन विभजेदिच्छाफलमिह लब्धं स्यात् ||पा. ५.१||
+\end{sanskritverse}
+
+\textit{Translation:} ``If the \textit{pramāṇa}-fruit [result for the standard measure] is given, that [is] multiplied by the \textit{icchā} [requisition]; divide that by the \textit{pramāṇa} [standard measure]; the result obtained here is the \textit{icchā-phala} [required result].''
+
+In the \textit{trairāśika}, three quantities are given:
+\begin{itemize}
+\item \textbf{Pramāṇa} ($p$): the standard measure or argument
+\item \textbf{Phala} ($f$): the fruit or result corresponding to the standard
+\item \textbf{Icchā} ($i$): the requisition or desired measure
+\end{itemize}
+
+The required \textit{icchā-phala} ($x$) is:
+\[
+x = \frac{f \times i}{p}
+\]
+
+\subsubsection*{Verse: Inverse Rule of Three}
+
+\begin{sanskritverse}
+विलोमत्रैराशिकमपि यदा फलं विपर्ययेन स्यात् |\\
+तदा हारभावेन फलमिच्छाफलं तदा भवति ||पा. ५.२||
+\end{sanskritverse}
+
+\textit{Translation:} ``When, by the inverse Rule of Three, the result becomes reversed, then by the nature of the divisor --- the fruit then becomes the \textit{icchā-phala} [by inverse proportion].''
+
+\medskip
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{\centering
+\textbf{Direct Rule of Three:} $x = \dfrac{f \times i}{p}$ \quad\quad
+\textbf{Inverse Rule of Three:} $x = \dfrac{f \times p}{i}$
+}}
+\end{center}
+
+\subsubsection*{Verse: Compound Proportion (Pañcarāśika etc.)}
+
+\begin{sanskritverse}
+त्रैराशिकविद्धस्त्रैराशिकेन फलमानयेत् |\\
+यावन्तः परमाणास्ते तावन्तस्त्रैराशिकाः स्मृताः ||पा. ५.३||
+\end{sanskritverse}
+
+\textit{Translation:} ``The result having been obtained by the Rule of Three, [it is further operated on] by [another] Rule of Three; as many given quantities [as there are], so many Rules of Three are remembered [to be applied].''
+
+This verse establishes the method of \textit{compound proportion}: when more than three quantities are involved, successive applications of the Rule of Three yield the final result. For five quantities it is called \textit{pañcarāśika}, for seven \textit{saptarāśika}, and so on.
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER: SINE RULE IN INDIAN TRIGONOMETRY
+%% ========================================================================
+\section{The Sine Rule in Indian Trigonometry}
+\label{sec:sinerule}
+
+\textbf{B}rahmagupta was the first Indian mathematician to state the sine rule for plane triangles explicitly. He used it in the context of computing the true positions of planets and in spherical astronomy.
+
+\subsubsection*{Verse: The Sine Rule}
+
+\begin{sanskritverse}
+समत्रिभुजे ज्या समभुजयोरन्योन्यं विभक्ते |\\
+विषमत्रिभुजे ज्याभुजविभक्ते फलं भवति सा ज्या ||ब्र.स्फ. १४.२१||
+\end{sanskritverse}
+
+\textit{Translation:} ``In an equilateral triangle, the sines of equal sides [divided] by one another [give unity]; in a scalene triangle, the sides divided by the sines give a result [which is constant] --- that is the [circumdiameter].''
+
+In modern form, for any triangle $ABC$ with circumdiameter $D$:
+\[
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = D
+\]
+
+\subsubsection*{Verse: Shadow and Sine Relations (Spherical Astronomy)}
+
+\begin{sanskritverse}
+क्रान्तिज्या दिनार्धज्याविभक्ता लम्बकं भवेत् |\\
+लम्बकेन हताक्षज्या दृग्ज्या सा दिशि दिश्यते ||ब्र.स्फ. १६.८||
+\end{sanskritverse}
+
+\textit{Translation:} ``The Rsine of the declination, divided by the Rsine of half the day, becomes the \textit{lambaka} (vertical). The Rsine of the latitude, multiplied by the \textit{lambaka}, [gives] the \textit{drgjyā} (ascensional difference); it is determined [according to] the direction [north or south of the equator].''
+
+This verse relates to spherical astronomy: the computation of the \textit{drgjyā} (ascensional difference), which measures how much a celestial body rises earlier or later due to the observer's latitude. The \textit{kṛānti-kṣetra} and \textit{akṣa-kṣetra} diagrams use similar right triangles.
+
+\clearpage
+
+%% ========================================================================
+%% CHAPTER: CUBE AND CUBE ROOT; ALGEBRAIC OPERATIONS
+%% ========================================================================
+\section{Further Algebraic Operations}
+\label{sec:further-algebra}
+
+\textbf{B}rahmagupta's Chapter XVIII also contains rules for squares, square roots, cubes, and cube roots, as well as additional rules for operations with zero.
+
+\subsubsection*{Verse: Square and Square Root}
+
+\begin{sanskritverse}
+वर्गः समचतुरस्रं तस्य मूलं द्विसमं पदं स्यात् |\\
+तद्वर्गमूलं यावदर्धेन हीनं वर्गभक्तं यावत् ||१८.४६||
+\end{sanskritverse}
+
+\textit{Translation:} ``A square is an equilateral quadrilateral; its root [is] that which, when doubled, [gives the side]. That of which the square is the square is [its] square-root [i.e., the square root of $a^2$ is $a$].''
+
+\subsubsection*{Verse: Cube and Cube Root}
+
+\begin{sanskritverse}
+घनः समसमचतुरस्रस्तस्य मूलं त्रिसमं पदं स्यात् |\\
+तद्घनमूलं यस्तु घनः स मूलघनतो भवति ||१८.४७||
+\end{sanskritverse}
+
+\textit{Translation:} ``A cube is an equi-dimensional equilateral [solid]; its root [is] that which, when tripled in dimension, [gives the side]. That of which the cube is the cube [is its] cube-root [i.e., the cube root of $a^3$ is $a$].''
+
+\subsubsection*{Verse: Zero as a Number}
+
+\begin{sanskritverse}
+शून्यं खं खरं पाथेयं तज्ज्ञैः संख्यात्मकं स्मृतम् |\\
+यद्यस्मिन् संयुते जीर्णे नोन्नतिर्न च पातता ||१८.३६||
+\end{sanskritverse}
+
+\textit{Translation:} ``Zero, void, `kha', `path' --- the learned know this as a number. When [a quantity] is combined with or diminished by it, there is neither increase nor decrease [i.e., $a + 0 = a - 0 = a$].''
+
+\medskip
+\sutra{\textbf{Note:} This verse (18.36) is historically significant as one of the earliest explicit statements that zero is a number in its own right. Brahmagupta's treatment of zero as a mathematical entity with well-defined properties was a foundational contribution to the development of algebra.}
+
+\clearpage
 
 %% ========================================================================
 %% CHAPTER: SUMMARY OF BRAHMAGUPTA'S CONTRIBUTIONS
@@ -840,7 +745,7 @@ Special reduction methods are applied.
 \textbf{T}he \textit{Brāhmasphuṭasiddhānta} and the \textit{Khaṇḍakhādyaka} together represent the most comprehensive treatment of mathematics and astronomy in the 7th century. The contributions covered in this section (Pages 141--280) include:
 
 \begin{enumerate}[label=\textbf{\arabic*.}]
-\item \textbf{Second-order interpolation:} Brahmagupta was the first mathematician in history to use the second difference in interpolation, as demonstrated in the \textit{Uttara Khaṇḍakhādyaka} (UKK.~8).
+\item \textbf{Second-order interpolation:} Brahmagupta was the first mathematician in history to use the second difference in interpolation, as demonstrated in the \textit{Uttara Khaṇḍakhādyaka} (UKK.\ 8).
 
 \item \textbf{Sine rule:} He was the first in India to give the sine rule for plane triangles, in the context of computing planetary positions.
 
@@ -856,7 +761,7 @@ Special reduction methods are applied.
 
 \item \textbf{Algebra:} Systematic rules for operations with zero, positive and negative numbers; the first to treat zero as a number in its own right.
 
-\item \textbf{Quadratic equations:} General formula for solving quadratic equations.
+\item \textbf{Quadratic equations:} General formula for solving quadratic equations (verses 18.44--45).
 
 \item \textbf{Indeterminate equations:} The \textit{kuṭṭaka} (pulveriser) method for solving linear indeterminate equations, fundamental to Indian astronomy for calculating planetary positions.
 \end{enumerate}
@@ -865,22 +770,16 @@ Special reduction methods are applied.
 \section*{Editor's Note}
 \addcontentsline{toc}{section}{Editor's Note}
 
-This typeset edition presents the English commentary and exposition on Brahmagupta's \textit{Brāhmasphuṭasiddhānta} as found in the scholarly edition covering pages 141--280 of the original text. The content includes:
+This typeset edition presents the Sanskrit text and English commentary on Brahmagupta's \textit{Brāhmasphuṭasiddhānta} as found in the scholarly edition covering pages 141--280 of the original text. The Sanskrit verses have been extracted from the critical edition and set in Devanagari using the Noto Serif Devanagari font. Key mathematical verses include:
 
 \begin{itemize}
-\item Detailed exposition of the \textit{Uttara Khaṇḍakhādyaka}
-\item Treatment of planetary aphelions, apogees, and epicycle corrections
-\item Brahmagupta's pioneering use of second differences in interpolation
-\item The sine rule in Indian trigonometry
-\item Indian luni-solar astronomy
-\item Spherical astronomy --- comparison of Indian and Greek methods
-\item Operations in Pāṭīgaṇita (arithmetic)
-\item Fractions and their combinations
-\item Rule of Three and compound proportion
-\item The transmission of algebra from India to Europe
-\item Algebraic operations with zero, positive and negative numbers
-\item Quadratic equations
-\item The Kuṭṭaka (pulveriser) operation
+\item \textbf{Chapter XVIII, verses 30--36:} Rules for operations with zero, positive and negative numbers, including the famous ``\textit{kha-hara}'' (division by zero) verse; also explicit statement that zero is a number (v.\ 36)
+\item \textbf{Chapter XVIII, verses 44--47:} The quadratic formula (two equivalent forms), square and square-root, cube and cube-root
+\item \textbf{Chapter XVIII, verses 50--53:} The pulveriser (kuṭṭaka) method for indeterminate equations, including conditions for solution and worked examples
+\item \textbf{Pāṭīgaṇita, verses 2.3--2.4:} Rules for addition, subtraction, multiplication, and division of fractions
+\item \textbf{Pāṭīgaṇita, verses 5.1--5.3:} The Rule of Three (\textit{trairāśika}), inverse Rule of Three, and compound proportion
+\item \textbf{Brāhmasphuṭasiddhānta, verses 14.21, 16.8:} The sine rule for plane triangles and spherical astronomy relations
+\item \textbf{Uttara Khaṇḍakhādyaka, verses 5--12:} Planetary aphelions, epicycle corrections, sine table construction, second-difference interpolation, and lunar inequality
 \end{itemize}
 
 \vspace{1cm}

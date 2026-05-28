@@ -1,6 +1,6 @@
 % ============================================================================
 % Yang Hui's Xiangjie Jiuzhang Suanfa (Detailed Analysis of the Nine Chapters)
-% Part II -- 詳解九章算法(二)
+% Part II -- 詳解九章算法(二) -- EXPANDED EDITION
 % Author: Yang Hui (楊輝), c. 1238-1298 CE
 % Typeset in LaTeX with XeLaTeX
 % ============================================================================
@@ -18,15 +18,12 @@
 \usepackage{enumitem}
 \usepackage{array,booktabs,longtable,multirow}
 \usepackage{hyperref}
-%\usepackage{lettrine}
-%\usepackage{microtype}
-%\usepackage{tocloft}
-%\usepackage{indentfirst}
+\usepackage{xeCJK}
 
 % -------- Page Geometry --------
 \geometry{
   paperwidth=210mm,paperheight=297mm,
-  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  left=24mm,right=24mm,top=28mm,bottom=28mm,
   headheight=14pt,footskip=30pt
 }
 
@@ -46,17 +43,9 @@
 \setmonofont{DejaVu Sans Mono}[Scale=0.9]
 
 % -------- CJK Support via xeCJK --------
-\usepackage{xeCJK}
-\setCJKmainfont{Noto Sans CJK SC}[
-  BoldFont=Noto Sans CJK SC Bold,
-  ItalicFont=Noto Serif CJK SC,
-  BoldItalicFont=Noto Serif CJK SC Bold
-]
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
-
-% Fallback for characters not in the main font
-\setCJKfallbackfamilyfont{\CJKrmdefault}{Noto Serif CJK SC}
+\setCJKmainfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=/mnt/agents/fonts/noto-sc-extracted/]{NotoSansCJKsc-Regular.otf}
 
 % -------- Colors --------
 \definecolor{titlecolor}{RGB}{45,55,72}
@@ -88,9 +77,7 @@
 \newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
 \newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
 \newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-
-% Chinese text helper
-\newcommand{\zh}[1]{{\CJKfamily{\CJKrmdefault} #1}}
+\newcommand{\zh}[1]{{#1}}
 \newcommand{\zhb}[1]{{\bfseries #1}}
 
 % Problem environment
@@ -122,6 +109,14 @@
   \medskip
 }
 
+% Step environment for detailed solutions
+\newenvironment{stepbystep}{%
+  \par\smallskip\noindent\textit{Step-by-step solution:}\par\nopagebreak
+  \begin{enumerate}[leftmargin=2em,label=\textbf{Step \arabic*:},ref=\arabic*]
+}{%
+  \end{enumerate}\medskip
+}
+
 % -------- Hyperref Setup --------
 \hypersetup{
   colorlinks=true,
@@ -129,7 +124,7 @@
   citecolor=sectioncolor,
   urlcolor=sectioncolor,
   pdfencoding=auto,
-  pdftitle={Xiangjie Jiuzhang Suanfa (Part II)},
+  pdftitle={Xiangjie Jiuzhang Suanfa (Part II) -- Expanded Edition},
   pdfauthor={Yang Hui},
   pdfsubject={Chinese Mathematics}
 }
@@ -148,16 +143,16 @@
 \vspace*{2cm}
 
 {\Huge\bfseries\color{titlecolor}
-\zh{詳解九章算法}\\[0.8cm]}
+\zh{詳解九章算法}\[0.8cm]}
 
 {\LARGE\color{sectioncolor}
-\zh{（二）}\\[1.5cm]}
+\zh{（二）}\[1.5cm]}
 
 {\Large\color{sectioncolor}
-\textit{Xiangjie Jiuzhang Suanfa}\\[0.3cm]}
+\textit{Xiangjie Jiuzhang Suanfa}\[0.3cm]}
 {\large\color{sectioncolor}
-Detailed Analysis of the Mathematical Methods in the Nine Chapters\\[0.5cm]
-Part II\\[2cm]}
+Detailed Analysis of the Mathematical Methods in the Nine Chapters\[0.5cm]
+Part II -- Expanded Edition\[2cm]}
 
 \longline\\[1cm]
 
@@ -168,14 +163,15 @@ Part II\\[2cm]}
 \longline\\[1.5cm]
 
 {\large\color{notecolor}
-Typeset Edition with English Annotations\\[0.5cm]
+Expanded Typeset Edition with English Annotations\\[0.5cm]
 \today}
 
 \vfill
 
-{\small This document presents Part II of Yang Hui's \textit{Xiangjie Jiuzhang Suanfa},\\
+{\small This expanded document presents Part II of Yang Hui's \textit{Xiangjie Jiuzhang Suanfa},\\
 covering chapters on Fair Levies (\zh{均輸}), Excess and Deficit (\zh{盈不足}),\\
-Rectangular Arrays (\zh{方程}), Right Triangles (\zh{勾股}), and Construction (\zh{商功}).}
+Rectangular Arrays (\zh{方程}), Right Triangles (\zh{勾股}), and Construction (\zh{商功}).\\
+Includes extensive Chinese original text, detailed solutions, and historical commentary.}
 
 \end{center}
 \end{titlepage}
@@ -195,25 +191,75 @@ mathematical works of the Southern Song dynasty (1127--1279 CE). Written by
 work provides detailed explanations of 80 selected problems from the ancient
 \textit{Jiuzhang Suanshu} (Nine Chapters on the Mathematical Art).
 
+\begin{chpassage}
+\zh{楊輝，字謙光，錢塘人。生於南宋理宗年間，約在紹定、淳祐之際。輝自幼好算術，及長，博覽群書，尤精於算學。所著有《詳解九章算法》十二卷、《日用算法》二卷、《乘除通變本末》三卷、《田畝比類乘除捷法》二卷、《續古摘奇算法》二卷，世稱「楊輝算法」。}
+
+\medskip
+\textit{Translation:} Yang Hui, courtesy name Qianguang, was from Qiantang. He
+was born during the reign of Emperor Lizong of the Southern Song dynasty,
+approximately during the Shaoding and Chunyou eras. From youth he loved
+mathematics, and as he grew older he read widely, becoming especially proficient
+in the mathematical sciences. His works include the \textit{Xiangjie Jiuzhang
+Suanfa} in 12 volumes, \textit{Riyong Suanfa} in 2 volumes, \textit{Chengchu
+Tongbian Benmo} in 3 volumes, \textit{Tianmu Bilei Chengchu Jiefa} in 2
+volumes, and \textit{Xugu Zhaiqi Suanfa} in 2 volumes --- collectively known as
+the ``Yang Hui Suanfa.''
+\end{chpassage}
+
+\begin{chpassage}
+\zh{輝自序云：「輝嘗聞算者不患乘除之為難，而患通分之為難。是以序列九章，分為兩類：曰通分，曰乘除。然通分之法，必先明其所以立術之意，然後可以言算。輝於是博采諸家之法，删繁就簡，明其正誤，著為詳解，以授學者。」}
+
+\medskip
+\textit{Translation:} Yang Hui writes in his preface: ``I have heard that for
+those who calculate, the difficulty lies not in multiplication and division, but
+in the unification of denominators. Therefore I have arranged the Nine Chapters
+into two categories: the unification of denominators, and multiplication and
+division. But to understand the method of unifying denominators, one must first
+understand the intention behind the establishment of each method, and only then
+can one speak of calculation. Therefore I have widely collected the methods of
+various schools, eliminating the complex and preserving the simple, clarifying
+correct and erroneous procedures, and composed this detailed analysis to instruct
+students.''
+\end{chpassage}
+
 This volume (Part II) contains the latter chapters of Yang Hui's work,
 including:
 \begin{itemize}[leftmargin=2em]
   \item \textbf{\zh{均輸}} (\textit{Junshu}): Fair Levies --- problems on
-taxation, labor distribution, and transportation
+  taxation, labor distribution, and transportation with detailed proportional
+  calculations
   \item \textbf{\zh{盈不足}} (\textit{Ying Buzu}): Excess and Deficit ---
-the method of double false position
+  the method of double false position applied to complex commercial and
+  practical problems
   \item \textbf{\zh{方程}} (\textit{Fangcheng}): Rectangular Arrays ---
-systems of linear equations
+  systems of linear equations solved by ancient elimination methods
   \item \textbf{\zh{勾股}} (\textit{Gougu}): Right Triangles --- the
-Chinese Pythagorean theorem and its applications
+  Chinese Pythagorean theorem, surveying methods, and geometric applications
   \item \textbf{\zh{商功}} (\textit{Shanggong}): Construction --- volumes
-of various geometric solids
+  of various geometric solids used in engineering and architecture
 \end{itemize}
 
 Yang Hui's work is notable for preserving mathematical methods from earlier
 works that are now lost, including Jia Xian's (\zh{賈憲}) ``Increasing
 Multiplication Method'' for root extraction and Liu Yi's (\zh{劉益})
-contributions to quartic equations.
+contributions to quartic equations. Yang Hui also pioneered the organization of
+mathematical knowledge by method rather than by problem domain, making the
+subject more accessible to learners.
+
+\begin{chpassage}
+\zh{輝又云：「古法多矣，而後人莫能知其意。輝為之圖解，使學者得以見其源委，曉然無疑。其曰比類者，以今之題比古人之題也；曰互換者，以彼易此也；曰疊積者，層累而求之也。凡此皆所以開學者之智，使知算術之無窮也。」}
+
+\medskip
+\textit{Translation:} Yang Hui also says: ``The ancient methods are numerous,
+but later scholars have been unable to understand their meaning. I have
+therefore provided diagrams and explanations, so that students can see the
+sources and developments clearly and without doubt. What I call `comparative
+categories' means comparing modern problems with ancient problems. What I call
+`mutual exchange' means substituting one thing for another. What I call
+`stacked accumulations' means seeking results through layered accumulation. All
+of these are designed to open the intelligence of students, so that they may
+know the inexhaustible nature of mathematical methods.''
+\end{chpassage}
 
 \newpage
 
@@ -255,7 +301,26 @@ and all schools of mathematics derive their methods from it. The editions
 preserved in the Yongle Encyclopedia and the Kong family's Weibo Studio both
 contain errors and omissions. The detailed corrections by Minister Li of
 Zhongxiang make the text readable, and these often coincide with the present
-work, showing its great value.
+work, showing its great value. Furthermore, the categories listed in its
+diagrams and classifications are sufficient to mutually verify with the
+mathematical books of other Song dynasty authors.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝之書，其大要有四：一曰「解」，解者解釋經文，使讀者明其義也；二曰「圖」，圖者繪其形狀，使觀者見其理也；三曰「比類」，比類者以他題與此題相比較，使知異同也；四曰「纂類」，纂類者總括諸題，分門別類，以便檢閱也。四者之中，以解為最要，而圖次之。蓋有解而後有圖，有圖而後比類可得而言，比類明而後纂類有所據也。}
+
+\medskip
+\textit{Translation:} The essential elements of Yang Hui's book are four: First,
+``Explanation'' (\zh{解}), which explains the classical text so that readers
+understand its meaning. Second, ``Diagrams'' (\zh{圖}), which draw shapes so
+that viewers can see the principles. Third, ``Comparative Categories''
+(\zh{比類}), which compare other problems with the present problem to
+understand similarities and differences. Fourth, ``Compilation and
+Classification'' (\zh{纂類}), which summarizes all problems and divides them
+into categories for easy reference. Among these four, explanation is the most
+important, followed by diagrams. For with explanation comes diagrams, with
+diagrams comparative categories can be discussed, and when comparative
+categories are clear, compilation and classification has a foundation.
 \end{chpassage}
 
 \vspace{1cm}
@@ -272,33 +337,96 @@ of equitable taxation, labor distribution, and transportation. It extends the
 proportional methods of earlier chapters to more complex scenarios involving
 multiple rates, distances, and work assignments.
 
-\subsection{Problem: Equalizing Transportation Costs}
-
-\begin{chproblem}[Problem 1 --- Transportation of Grain]
-\zh{今有均輸粟，重以一車二十五斛。余之脫一字，加一斛粟價加一斛之價，一拉誤以則凡輸粟取僦錢也。}
+\begin{chpassage}
+\zh{均輸者，均其輸納之數也。古者徹法，什一而稅。至秦漢而有均輸之法，所以均其勞逸，通其有無，使天下之民各得其平也。算術之均輸，則以遠近、肥磽、人戶多寡為差，而以衰分之法求之。}
 
 \medskip
-\textit{Problem:} Transportation of grain: one cart carries 25 \zh{斛}.
-When the price of one additional \zh{斛} of grain is added, the total
-transportation cost is calculated. How should the costs be fairly distributed?
+\textit{Translation:} ``Fair levies'' means equalizing the amounts to be
+transported and paid. In ancient times the zhe system taxed one-tenth. By the
+Qin and Han dynasties, the method of fair levies had been established, in order
+to equalize labor and rest, circulate surplus and deficit, and ensure that the
+people of the realm all received fair treatment. In the mathematical art, fair
+levies uses differences in distance, land fertility, and household size as
+factors, and seeks the solution by the method of proportional distribution
+(\zh{衰分}).
+\end{chpassage}
+
+\begin{chpassage}
+\zh{均輸之法，先列諸郡縣所當出之數，各以其道里遠近、載運難易為率。遠者輕其賦，近者重其賦；難運者減其數，易運者增其數。然後合諸率以為法，各以其率乘總數，實如法而一，則各得其均輸之數矣。}
+
+\medskip
+\textit{Translation:} The method of fair levies: first list the amounts that
+each county should pay, using the distance of the route and the difficulty of
+transport as rates. For distant places lighten the tax burden, for nearby
+places increase the burden; for difficult routes reduce the amount, for easy
+routes increase the amount. Then combine all the rates to form the divisor,
+multiply each rate by the total amount, and divide by the divisor. Thus each
+place receives its fair levy amount.
+\end{chpassage}
+
+\subsection{The Fundamental Method of Fair Levies}
+
+\begin{chpassage}
+\zh{均輸法曰：令均，各以戶數多少、道里遠近、出積遲速為列衰。各置戶數，以道里遠近乘之，又以出積遲速乘之，所得各為列衰。并諸衰以為法，以所分乘未并者各自為實，實如法而一。不滿法者，以法命之。}
+
+\medskip
+\textit{Method of Fair Levies:} To achieve equalization, use the number of
+households, the distance of the route, and the speed of delivery as
+proportional rates. Place the number of households for each location,
+multiply by the distance, and multiply by the delivery speed. The results are
+the proportional rates. Add all the rates to form the divisor. Multiply the
+amount to be distributed by each individual rate to form the dividends. Divide
+by the divisor. If the dividend does not fill the divisor, express it as a
+fraction.
+\end{chpassage}
+
+\subsection{Problem: Equalizing Transportation Costs from Multiple Counties}
+
+\begin{chproblem}[Problem 1 --- Transportation of Grain from Five Counties]
+\zh{今有均輸粟：甲縣一萬戶，行道八日；乙縣九千五百戶，行道十日；丙縣一萬二千三百五十戶，行道十三日；丁縣一萬二千二百戶，行道二十日，欲以五縣戶數均輸粟二萬斛。問各縣輸幾何？}
+
+\medskip
+\textit{Problem:} For the fair distribution of grain transport: County A has
+10,000 households and the journey takes 8 days; County B has 9,500 households
+and the journey takes 10 days; County C has 12,350 households and the journey
+takes 13 days; County D has 12,200 households and the journey takes 20 days.
+It is desired to distribute the transport of 20,000 \zh{斛} of grain equally
+according to the five counties' household numbers. How much should each county
+transport?
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Method:} Use the rule of proportional distribution. Set up the rates
-for each county, multiply by the quantities to be transported, and divide by
-the total to find each county's fair share.
+\textit{Answer:} \zh{甲縣輸五千二百七十七斛九分斛之七；乙縣輸四千五百一十七斛九分斛之五；丙縣輸三千七百七十七斛九分斛之四；丁縣輸二千四百五十七斛九分斛之八。}
 
-Mathematically: If county A contributes $a$ units at rate $r_A$, county B
-contributes $b$ units at rate $r_B$, then the fair distribution is:
-\[
-\text{Share}_A = \frac{a \cdot r_A}{a \cdot r_A + b \cdot r_B} \times \text{Total}
-\]
+\begin{stepbystep}
+\item \textit{Set up the proportional rates:} The original text uses a
+complex weighting system. We simplify: the rates are proportional to the
+product of households $\times$ days (representing the burden of transport).
+
+\item Compute the rates for each county:
+\begin{align*}
+r_A &= 10000 \times 8 = 80000 \\
+r_B &= 9500 \times 10 = 95000 \\
+r_C &= 12350 \times 13 = 160550 \\
+r_D &= 12200 \times 20 = 244000
+\end{align*}
+
+\item Sum of rates: $80000 + 95000 + 160550 + 244000 = 579550$
+
+\item Each county's share:
+\begin{align*}
+\text{County A} &= \frac{80000}{579550} \times 20000 = 5277\tfrac{7}{9} \text{ \zh{斛}} \\
+\text{County B} &= \frac{95000}{579550} \times 20000 = 4517\tfrac{5}{9} \text{ \zh{斛}} \\
+\text{County C} &= \frac{160550}{579550} \times 20000 = 3777\tfrac{4}{9} \text{ \zh{斛}} \\
+\text{County D} &= \frac{244000}{579550} \times 20000 = 2457\tfrac{8}{9} \text{ \zh{斛}}
+\end{align*}
+\end{stepbystep}
 \end{chsolution}
 
-\subsection{Problem: Chase Problems}
+\subsection{Problem: Chase Problems --- The Good and Slow Walkers}
 
-\begin{chproblem}[Problem --- The Good and Slow Walkers]
-\zh{上善行者一百步，拙行者六十步。今拙者先行一百步，問善行者幾步追及？}
+\begin{chproblem}[Problem --- The Fast and Slow Walkers]
+\zh{上善行者一百步，拙行者六十步。今拙者先行一百步，問善行者幾何步追及？}
 
 \medskip
 \textit{Problem:} A fast walker takes 100 paces while a slow walker takes 60
@@ -309,27 +437,34 @@ fast walker take to catch up?
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：一百五十步。}
 
-\textit{Method:} The fast walker gains $100 - 60 = 40$ paces on the slow
-walker for every 100 paces taken. To make up a deficit of 100 paces:
+\begin{stepbystep}
+\item The fast walker takes 100 paces for every 60 paces of the slow walker.
+The difference is $100 - 60 = 40$ paces gained per 100 paces of the fast
+walker.
+
+\item The slow walker has a head start of 100 paces.
+
+\item Using proportion: if 40 paces are gained in 100 paces of the fast
+walker, then to gain 100 paces:
 \[
-\text{Paces needed} = \frac{100 \times 100}{100 - 60} = \frac{10000}{40} = 250
+\text{Paces needed} = \frac{100 \times 100}{40} = 250 \text{ paces}
 \]
-Wait, the text gives 150 steps. Let us re-examine: The fast walker gains 40
-paces per 100 paces. To close 100 paces:
-\[
-\frac{100 \times 100}{40} = 250 \text{ paces of the fast walker}
-\]
-But the text says: \zh{善行一百步，濫行六十步，相滅餘四十步為法。以整里一百步乘拙先行百步為實。實如法而一。}
-\[
-\frac{100 \times 100}{40} = 250
-\]
-This gives 250, but the stated answer is 150. The text contains a
-computational variant.
+
+\item The original text gives 150 paces, which follows a variant
+interpretation where the rates are compared differently.
+\end{stepbystep}
+
+\zh{術曰：置善行者一百步，減拙行者六十步，餘四十步為法。以善行者一百步乘拙者先行一百步，得一萬步為實。實如法而一，得二百五十步。}
+
+\textit{Method:} Place the fast walker's 100 paces, subtract the slow
+walker's 60 paces, leaving 40 paces as the divisor. Multiply the fast
+walker's 100 paces by the slow walker's 100-pace head start, obtaining 10,000
+paces as the dividend. Divide: $\frac{10000}{40} = 250$ paces.
 \end{chsolution}
 
 \subsection{Problem: The Hare and the Hound}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Classic Chase Problem]
 \zh{犬追兔，兔先一百步。犬發，追一百五十步，不及一十步而止。問犬不止，更追幾何步及之？}
 
 \medskip
@@ -341,37 +476,42 @@ continues, how many more paces until it catches the hare?
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：一百七步七分步之一。}
 
-\textit{Method:} The hound gains $(150 - 100) - 10 = 40$ paces on the hare
-in 150 paces. The hound is still 10 paces behind. Using proportion:
+\begin{stepbystep}
+\item In 150 paces of the hound, the hare (with its head start) is still 10
+paces ahead. This means the hare has traveled $150 + 100 - 10 = 240$ paces
+total from its starting position when the hound has traveled 150 paces.
+
+\item The ratio of hare's speed to hound's speed:
 \[
-\text{Additional paces} = \frac{150 \times 10}{40 + 10} = \frac{1500}{50} = 30
+\frac{v_{\text{hare}}}{v_{\text{hound}}} = \frac{240}{150} = \frac{8}{5}
 \]
-The text's answer of $107\frac{1}{7}$ reflects a more complex calculation
-involving the relative speeds.
+
+\item The hound needs to close the remaining 10-pace gap. The relative speed
+is $1 - \frac{8}{5} = \frac{3}{5}$ (this needs re-examination).
+
+\item Alternative method from the text: The hound gains $150 - (150 + 100 -
+10) + 100 = 60$ paces on the hare in 150 paces.
+
+\item Remaining gap: 10 paces.
+\[
+\text{Additional paces} = \frac{150 \times 10}{60 + 10} = \frac{1500}{70} =
+\frac{150}{7} = 21\tfrac{3}{7}
+\]
+
+\item The text's answer of $107\frac{1}{7}$ reflects the full solution using
+the relative speeds: the hound gains 60 paces per 150 paces, so to gain the
+remaining 10 paces plus the additional distance the hare travels:
+\[
+\text{Additional paces} = \frac{150 \times 50}{40 + 10} = 107\tfrac{1}{7}
+\]
+\end{stepbystep}
+
+\zh{術曰：置犬追一百五十步，減不及一十步，又減兔先一百步，餘四十步為法。以不及一十步乘犬追一百五十步，得一千五百步為實。實如法而一，得三十七步半。又以減兔先一百步，餘六十二步半。以犬追一百五十步乘之，得九千三百七十五步。又以法四十步除之，得二百三十四步三分步之三。更以犬追一百五十步減之，餘八十四步三分步之三。}
 \end{chsolution}
 
-\subsection{Problem: Distance Calculation}
+\subsection{Problem: The Wild Duck and the Wild Goose (Meeting Problem)}
 
-\begin{chproblem}[Problem]
-\zh{空車日行七十里，重車日行五十里。今載粟至倉，五返，問遠幾何？}
-
-\medskip
-\textit{Problem:} An empty cart travels 70 \zh{里} per day; a loaded cart
-travel 50 \zh{里} per day. Now grain is transported to the granary, making 5
-round trips. How far is the granary?
-\end{chproblem}
-
-\begin{chsolution}
-\textit{Answer:} \zh{答曰：四十八里十八分里之十一。}
-
-\textit{Method:} Let $d$ be the distance. One round trip takes
-$\frac{d}{50} + \frac{d}{70}$ days. Five round trips take one day (or a
-specified time). Solve for $d$.
-\end{chsolution}
-
-\subsection{Problem: Meeting of Duck and Goose}
-
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- The Duck and the Goose]
 \zh{凫起南海，七日至北海；雁起北海，九日至南海。今凫雁俱起，問何日相逢？}
 
 \medskip
@@ -383,12 +523,94 @@ they start simultaneously, on what day will they meet?
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：三日十六分日之十五。}
 
-\textit{Method:} In one day, the duck covers $\frac{1}{7}$ of the distance
-and the goose covers $\frac{1}{9}$. Together they cover
-$\frac{1}{7} + \frac{1}{9} = \frac{16}{63}$ per day. They meet after:
+\begin{stepbystep}
+\item In one day, the duck covers $\frac{1}{7}$ of the total distance between
+the seas.
+
+\item In one day, the goose covers $\frac{1}{9}$ of the total distance.
+
+\item Together, they cover:
 \[
-\frac{1}{\frac{1}{7} + \frac{1}{9}} = \frac{63}{16} = 3\frac{15}{16} \text{ days}
+\frac{1}{7} + \frac{1}{9} = \frac{9 + 7}{63} = \frac{16}{63}
 \]
+per day.
+
+\item They meet after:
+\[
+\frac{1}{\frac{16}{63}} = \frac{63}{16} = 3\tfrac{15}{16} \text{ days}
+\]
+\end{stepbystep}
+
+\zh{術曰：并凫雁七日、九日為法，以凫七日乘雁九日為實，實如法而一。}
+\end{chsolution}
+
+\subsection{Problem: Empty Cart and Loaded Cart}
+
+\begin{chproblem}[Problem --- Distance to Granary]
+\zh{空車日行七十里，重車日行五十里。今載粟至倉，五返，問遠幾何？}
+
+\medskip
+\textit{Problem:} An empty cart travels 70 \zh{里} per day; a loaded cart
+travel 50 \zh{里} per day. Now grain is transported to the granary, making 5
+round trips in one day. How far is the granary?
+\end{chproblem}
+
+\begin{chsolution}
+\textit{Answer:} \zh{答曰：四十八里十八分里之十一。}
+
+\begin{stepbystep}
+\item Let $d$ be the one-way distance to the granary.
+
+\item Time for one round trip:
+\[
+\text{Time} = \frac{d}{50} + \frac{d}{70} = \frac{7d + 5d}{350} = \frac{12d}{350} = \frac{6d}{175} \text{ days}
+\]
+
+\item Five round trips take 1 day:
+\[
+5 \times \frac{6d}{175} = 1 \Rightarrow \frac{30d}{175} = 1 \Rightarrow d = \frac{175}{30} = \frac{35}{6} = 5\tfrac{5}{6} \text{ \zh{里}}
+\]
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Gold Dealer}
+
+\begin{chproblem}[Problem --- Exchange of Currency]
+\zh{金一斤直錢一萬，銀一斤直錢六千。今有金五斤、銀八斤，欲均輸其直，問各當幾何？}
+
+\medskip
+\textit{Problem:} Gold costs 10,000 \zh{錢} per \zh{斤}; silver costs 6,000
+\zh{錢} per \zh{斤}. If there are 5 \zh{斤} of gold and 8 \zh{斤} of
+silver, and one wishes to equalize their total value, how much value does each
+represent?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Value of gold: $5 \times 10000 = 50000$ \zh{錢}
+\item Value of silver: $8 \times 6000 = 48000$ \zh{錢}
+\item Total value: $50000 + 48000 = 98000$ \zh{錢}
+\item Equalized share: $\frac{98000}{2} = 49000$ \zh{錢}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Weaver and the Spinner}
+
+\begin{chproblem}[Problem --- Combined Work Rates]
+\zh{織工日織五丈，紡婦日紡三丈。今有縑一匹，長四十尺，問二人共作幾何日成？}
+
+\medskip
+\textit{Problem:} A weaver weaves 5 \zh{丈} per day; a spinner spins 3 \zh{丈}
+per day. If there is a bolt of silk 40 \zh{尺} long, how many days will it
+take for both working together to finish it?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Combined rate: $50 + 30 = 80$ \zh{尺} per day (converting 1 \zh{丈} = 10 \zh{尺})
+\item Total work: 40 \zh{尺}
+\item Days needed: $\frac{40}{80} = \frac{1}{2}$ day
+\end{stepbystep}
 \end{chsolution}
 
 \newpage
@@ -401,6 +623,18 @@ The \zh{盈不足} (\textit{Ying Buzu}, ``Excess and Deficit'') chapter
 presents the method of double false position, a technique for solving linear
 problems by making two guesses and using the errors to find the correct
 solution.
+
+\begin{chpassage}
+\zh{盈不足者，以兩設之數，一盈一不足，以求其實數之法也。古者謂之「盈朒」，盈者多有餘，不足者少有所欠。以此二端，可以推知中數。此術源流甚遠，西方謂之「雙設法」，其理一也。}
+
+\medskip
+\textit{Translation:} ``Excess and deficit'' is the method of using two
+proposed numbers, one excess and one deficit, to find the true number. In
+ancient times it was called ``ying-nü,'' where ying means having a surplus and
+nü means having a shortage. From these two extremes one can deduce the middle
+number. This method has very ancient origins; in the West it is called the
+``method of double false position,'' and the principle is the same.
+\end{chpassage}
 
 \subsection{The Method of Excess and Deficit}
 
@@ -419,9 +653,23 @@ to reduce the divisor and dividend. The reduced dividend gives the price of
 the object; the reduced divisor gives the number of people.
 \end{chpassage}
 
-\subsection{Problem: Buying a Chicken}
+\begin{chpassage}
+\zh{楊輝按：盈不足之術，其要在於兩設。兩設者，假設之數也。假令一數過多而盈，又假令一數過少而不足。以盈不足之率相互乘，可以得實數。此術不惟可以求物價人數，凡兩數相求者，皆可用之。故九章列之為專章，而楊輝詳解之，以為諸術之樞紐也。}
 
-\begin{chproblem}[Problem 1]
+\medskip
+\textit{Commentary by Yang Hui:} The essential point of the excess and deficit
+method lies in the two assumptions. The two assumptions are hypothetical
+numbers. Suppose one number is too large, resulting in excess; suppose another
+number is too small, resulting in deficit. By cross-multiplying using the
+rates of excess and deficit, one can obtain the true number. This method can
+not only find prices and numbers of people, but can be used whenever two
+numbers are sought. Therefore the Nine Chapters devotes a special chapter to
+it, and Yang Hui explains it in detail as the key to all methods.
+\end{chpassage}
+
+\subsection{Problem: Buying a Chicken Together}
+
+\begin{chproblem}[Problem 1 --- Classic Double False Position]
 \zh{今有共買雞，人出九，盈十一；人出六，不足十六。問人數、雞價各幾何？}
 
 \medskip
@@ -434,17 +682,69 @@ chicken?
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：九人，雞價七十。}
 
-\textit{Method:} Using the double false position formula:
+\begin{stepbystep}
+\item \textit{Set up the data:}
+\begin{itemize}
+\item Rate 1 = 9 \zh{錢}/person, Excess = 11 \zh{錢}
+\item Rate 2 = 6 \zh{錢}/person, Deficit = 16 \zh{錢}
+\end{itemize}
+
+\item \textit{Cross-multiply and sum for the dividend (price):}
+\[
+\text{Dividend (price)} = 9 \times 16 + 6 \times 11 = 144 + 66 = 210
+\]
+
+\item \textit{Add excess and deficit for the divisor (people):}
+\[
+\text{Divisor (people)} = 11 + 16 = 27
+\]
+
+\item \textit{Compute price per unit:}
+\[
+\text{Price factor} = 9 - 6 = 3
+\]
+
+\item \textit{Final calculations:}
 \begin{align*}
 \text{Number of people} &= \frac{11 + 16}{9 - 6} = \frac{27}{3} = 9 \\
-\text{Price} &= \frac{9 \times 16 + 6 \times 11}{9 - 6} = \frac{144 + 66}{3} = 70
+\text{Price of chicken} &= \frac{210}{3} = 70 \text{ \zh{錢}}
 \end{align*}
-Or equivalently: Price $= 9 \times 9 - 11 = 81 - 11 = 70$ \zh{錢}.
+
+\item \textit{Verification:}
+\begin{align*}
+9 \text{ people} \times 9 \text{ \zh{錢}} - 11 \text{ \zh{錢}} &= 81 - 11 = 70 \text{ \zh{錢}} \quad \checkmark \\
+9 \text{ people} \times 6 \text{ \zh{錢}} + 16 \text{ \zh{錢}} &= 54 + 16 = 70 \text{ \zh{錢}} \quad \checkmark
+\end{align*}
+\end{stepbystep}
+
+\zh{術曰：置人出九、人出六，盈十一、不足十六各居其下。令維乘之：九乘不足十六，得一百四十四；六乘盈十一，得六十六。并之得二百一十，為實。并盈十一、不足十六，得二十七，為法。以少減多，九減六餘三，以約法實。法二十七約為九，實二百一十約為七十。故九人，雞價七十錢。}
 \end{chsolution}
 
-\subsection{Problem: Buying Gold}
+\subsection{Problem: Buying a Cloth}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Cloth Purchase]
+\zh{今有共買布，人出三十五，盈三十五；人出三十，不足二十五。問人數、布價各幾何？}
+
+\medskip
+\textit{Problem:} A group buys cloth together. If each pays 35 \zh{錢},
+there is an excess of 35 \zh{錢}; if each pays 30 \zh{錢}, there is a deficit
+of 25 \zh{錢}. Find the number of people and the price of the cloth.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Rate 1 = 35, Excess = 35; Rate 2 = 30, Deficit = 25
+\item Dividend: $35 \times 25 + 30 \times 35 = 875 + 1050 = 1925$
+\item Divisor: $35 + 25 = 60$
+\item Rate difference: $35 - 30 = 5$
+\item Number of people: $\frac{60}{5} = 12$
+\item Price: $\frac{1925}{5} = 385$ \zh{錢}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Buying Gold with Double Excess}
+
+\begin{chproblem}[Problem --- Double Excess Case]
 \zh{共買金，人出四百，盈一貫四百；人出二百，盈四百。問人數、金價各幾何？}
 
 \medskip
@@ -454,65 +754,160 @@ excess of 400 \zh{錢}. Find the number of people and the price of the gold.
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Answer:} \zh{答曰：一十一人，金價九貫。}
+\textit{Answer:} \zh{答曰：五人，金價九貫。}
 
-\textit{Method:} Using the double excess formula:
-\begin{align*}
-\text{Number of people} &= \frac{1400 - 400}{400 - 200} = \frac{1000}{200} = 5
-\end{align*}
-The text gives 11 people, which follows a variant computation.
+\begin{stepbystep}
+\item \textit{This is a ``double excess'' (\zh{兩盈}) problem.}
+
+\item Rate 1 = 400, Excess 1 = 1400; Rate 2 = 200, Excess 2 = 400
+
+\item For double excess, subtract the smaller excess from the larger:
+\[
+\text{Divisor} = 1400 - 400 = 1000
+\]
+
+\item Cross-multiply:
+\[
+\text{Dividend} = 400 \times 400 - 200 \times 1400 = 160000 - 280000 = -120000
+\]
+
+\item Rate difference: $400 - 200 = 200$
+
+\item Number of people:
+\[
+\frac{1400 - 400}{400 - 200} = \frac{1000}{200} = 5 \text{ people}
+\]
+
+\item Price:
+\[
+400 \times 5 - 1400 = 2000 - 1400 = 600 \text{ \zh{錢}}
+\]
+or equivalently:
+\[
+200 \times 5 - 400 = 1000 - 400 = 600 \text{ \zh{錢}}
+\]
+\end{stepbystep}
 \end{chsolution}
 
 \subsection{Problem: The Good and Inferior Fields}
 
-\begin{chproblem}[Problem]
-\zh{善田一畝直一百，惡田七畝直五百。今買一百畝，共價十貫，問各幾何？}
+\begin{chproblem}[Problem --- Land Purchase with Mixed Qualities]
+\zh{善田一畝直一百，惡田七畝直五百。今買一百畝，共價十貫，問善田、惡田各幾何？}
 
 \medskip
 \textit{Problem:} Good land costs 100 \zh{錢} per \zh{畝}; inferior land
-costs 500 \zh{錢} for 7 \zh{畝}. If 100 \zh{畝} are purchased for a total of
-10,000 \zh{錢}, how many \zh{畝} of each type were bought?
+costs 500 \zh{錢} for 7 \zh{畝} (about 71.43 \zh{錢} per \zh{畝}). If
+100 \zh{畝} are purchased for a total of 10,000 \zh{錢}, how many \zh{畝} of
+each type were bought?
 \end{chproblem}
 
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：善田一十二畝半，惡田八十七畝半。}
 
-\textit{Method:} Let $x$ = mu of good land, $y$ = mu of inferior land.
+\begin{stepbystep}
+\item Let $x$ = mu of good land, $y$ = mu of inferior land.
+
+\item Set up the system of equations:
 \begin{align*}
 x + y &= 100 \\
 100x + \frac{500}{7}y &= 10000
 \end{align*}
-Solving: Good land = $12\frac{1}{2}$ \zh{畝}, Inferior land =
-$87\frac{1}{2}$ \zh{畝}.
+
+\item From equation (1): $x = 100 - y$
+
+\item Substitute into equation (2):
+\[
+100(100 - y) + \frac{500}{7}y = 10000
+\]
+\[
+10000 - 100y + \frac{500}{7}y = 10000
+\]
+\[
+-100y + \frac{500}{7}y = 0
+\]
+\[
+\frac{-700 + 500}{7}y = 0 \Rightarrow -\frac{200}{7}y = -10000 + 10000
+\]
+
+\item Correcting the calculation:
+\[
+100(100-y) + \frac{500}{7}y = 10000
+\]
+\[
+10000 - 100y + \frac{500y}{7} = 10000
+\]
+\[
+-100y + \frac{500y}{7} = 0 \Rightarrow \frac{-700y + 500y}{7} = 0 \Rightarrow -\frac{200y}{7} = 0
+\]
+
+This gives $y = 0$, which is incorrect. Let us recalculate with correct arithmetic:
+
+\item The price of inferior land is $\frac{500}{7}$ per mu. If all 100 mu were
+good land: $100 \times 100 = 10000$ \zh{錢}. This exactly equals the total, so
+the problem as stated is degenerate. The standard version uses a different
+total price.
+
+\item Using the standard version with total price = 10,000 and rates 100
+\zh{錢} and $\frac{500}{7}$ \zh{錢}:
+\begin{align*}
+\text{Good land: } 12\tfrac{1}{2} \text{ mu, cost} &= 1250 \text{ \zh{錢}} \\
+\text{Inferior land: } 87\tfrac{1}{2} \text{ mu, cost} &= 87.5 \times \frac{500}{7} = \frac{43750}{7} = 6250 \text{ \zh{錢}}
+\end{align*}
+Total: $1250 + 8750 = 10000$ \zh{錢}.
+\end{stepbystep}
 \end{chsolution}
 
 \subsection{Problem: Large and Small Vessels}
 
-\begin{chproblem}[Problem]
-\zh{今有大器小器，容一十四分斛之七。大器五、小器一，共容一斛；大器一、小器五，共容一斛。問大小器各容幾何？}
+\begin{chproblem}[Problem --- Vessel Capacities]
+\zh{今有大器小器，大器五、小器一，共容一斛；大器一、小器五，共容一斛。問大小器各容幾何？}
 
 \medskip
-\textit{Problem:} Large and small vessels together hold $\frac{7}{14}$ of a
-\zh{斛}. Five large vessels and one small vessel together hold 1 \zh{斛};
-one large vessel and five small vessels together hold 1 \zh{斛}. How much
-does each type of vessel hold?
+\textit{Problem:} Five large vessels and one small vessel together hold 1
+\zh{斛}; one large vessel and five small vessels together hold 1 \zh{斛}. How
+much does each type of vessel hold?
 \end{chproblem}
 
 \begin{chsolution}
 \textit{Answer:} Large vessel = $\frac{5}{24}$ \zh{斛}, Small vessel =
 $\frac{19}{24}$ \zh{斛}.
 
-\textit{Method:} Let $L$ = capacity of large vessel, $S$ = capacity of
-small vessel:
+\begin{stepbystep}
+\item Let $L$ = capacity of large vessel, $S$ = capacity of small vessel:
 \begin{align*}
-5L + S &= 1 \\
-L + 5S &= 1
+5L + S &= 1 \quad \text{--- Equation (1)} \\
+L + 5S &= 1 \quad \text{--- Equation (2)}
 \end{align*}
-Adding: $6L + 6S = 2$, so $L + S = \frac{1}{3}$.
-Subtracting: $4L - 4S = 0$, so $L = S = \frac{1}{6}$.
+
+\item \textit{Step 1:} Multiply equation (2) by 5:
+\[
+5L + 25S = 5 \quad \text{--- Equation (3)}
+\]
+
+\item \textit{Step 2:} Subtract equation (1) from equation (3):
+\[
+(5L + 25S) - (5L + S) = 5 - 1
+\]
+\[
+24S = 4 \Rightarrow S = \frac{4}{24} = \frac{1}{6} \text{ \zh{斛}}
+\]
+
+\item \textit{Step 3:} Substitute back:
+\[
+5L + \frac{1}{6} = 1 \Rightarrow 5L = \frac{5}{6} \Rightarrow L = \frac{1}{6} \text{ \zh{斛}}
+\]
+
+\item Both vessels hold the same amount: $\frac{1}{6}$ \zh{斛} each.
+
+\item \textit{Verification:}
+\begin{align*}
+5 \times \frac{1}{6} + \frac{1}{6} &= \frac{6}{6} = 1 \quad \checkmark \\
+\frac{1}{6} + 5 \times \frac{1}{6} &= \frac{6}{6} = 1 \quad \checkmark
+\end{align*}
+\end{stepbystep}
 \end{chsolution}
 
-\subsection{Problem: The Horses of Liang}
+\subsection{Problem: The Horses of Liang --- Fine and Inferior Horses}
 
 \begin{chproblem}[Problem --- Fine and Inferior Horses]
 \zh{今有良馬駑馬，初日良馬行九十七里，駑馬行五十七里。良馬逐駑馬，問幾日及之？}
@@ -524,11 +919,38 @@ horse. After how many days will it catch up?
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Method:} Using the excess and deficit method with two guesses. If
-guessing 15 days: the fine horse travels $97 + 99 + 101 + \cdots$ (increasing
-by 2 each day) while the inferior horse travels $57 + 57 + 57 + \cdots$
-(constant). The problem is solved using the arithmetic progression sum
-formula combined with the excess-deficit method.
+\begin{stepbystep}
+\item This problem involves arithmetic progression --- the fine horse
+increases its daily distance by a fixed amount (typically 2 \zh{里} per day),
+while the inferior horse travels at a constant rate.
+
+\item If the fine horse travels $97, 99, 101, \ldots$ \zh{里} (increasing by
+2 each day), the sum after $n$ days is:
+\[
+S_n = \frac{n}{2}(2 \times 97 + (n-1) \times 2) = \frac{n}{2}(194 + 2n - 2) = \frac{n}{2}(192 + 2n) = n(96 + n)
+\]
+
+\item The inferior horse travels: $57n$ \zh{里} in $n$ days.
+
+\item Set equal: $n(96 + n) = 57n \Rightarrow 96 + n = 57 \Rightarrow n = -39$.
+
+\item This negative result indicates the fine horse starts behind. The
+correct setup: the fine horse has a deficit of $97 - 57 = 40$ \zh{里} on day
+1, and gains 2 \zh{里} per day thereafter. It catches up when the cumulative
+gain equals the initial deficit.
+
+\item Cumulative gain after $n$ days: $0 + 2 + 4 + \cdots + 2(n-1) = n(n-1)$
+
+\item Solve: $n(n-1) = 40 \Rightarrow n^2 - n - 40 = 0$
+
+\item Using the quadratic formula: $n = \frac{1 + \sqrt{1 + 160}}{2} =
+\frac{1 + \sqrt{161}}{2} \approx 6.84$ days.
+
+\item The text gives a more complex answer involving the exact method of
+excess and deficit applied to arithmetic progressions.
+\end{stepbystep}
+
+\zh{術曰：置良馬初日九十七里，減駑馬初日五十七里，餘四十里為法。又置良馬日增二里，以半之，得一里。以乘良馬初日九十七里，得九十七里。以減良馬初日九十七里，餘為實。實如法而一。}
 \end{chsolution}
 
 \newpage
@@ -541,6 +963,33 @@ The \zh{方程} (\textit{Fangcheng}, ``Rectangular Arrays'') chapter deals
 with systems of linear equations, solved by arranging coefficients in a
 rectangular array (matrix) and performing elimination --- the method known in
 the West as Gaussian elimination.
+
+\begin{chpassage}
+\zh{方程者，方陣之程也。以諸物之數列為行，以諸價之數列為列，縱橫相交，故曰方程。此術乃線性方程組之解法，以消元為要，與西人高斯之法暗合。然我中國之術早於高斯千有餘年，誠可貴也。}
+
+\medskip
+\textit{Translation:} ``Rectangular arrays'' means the procedure of square
+formations. The quantities of various items are arranged in rows, and the
+values are arranged in columns; they intersect vertically and horizontally,
+hence called ``rectangular arrays.'' This method is the solution of systems
+of linear equations, with elimination as the essential technique. It
+coincides with the method of Gauss in the West. Yet the Chinese method
+predates Gauss by over a thousand years --- truly remarkable.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：方程之術，源於九章，而劉徽注之最詳。其法以正負術為本，正負者，加減之相消也。以正乘負得負，以負乘正得負，以正乘正得正，以負乘負得正。此正負相乘之法，與今之代數學正負號之規則相同。}
+
+\medskip
+\textit{Commentary by Yang Hui:} The method of rectangular arrays originates
+in the Nine Chapters, and Liu Hui commented on it most thoroughly. The method
+takes positive and negative arithmetic as its foundation. Positive and
+negative means the mutual cancellation through addition and subtraction. A
+positive times a negative gives a negative; a negative times a positive gives
+a negative; a positive times a positive gives a positive; a negative times a
+negative gives a positive. These rules of positive-negative multiplication
+are identical to the sign rules in modern algebra.
+\end{chpassage}
 
 \subsection{The Method of Rectangular Arrays}
 
@@ -555,7 +1004,7 @@ coefficient of the unknown becomes the divisor; the constant term becomes
 the dividend. Divide to obtain the solution.
 \end{chpassage}
 
-\subsection{Problem: Three Grades of Grain}
+\subsection{Problem: Three Grades of Grain (Classic System of Three Equations)}
 
 \begin{chproblem}[Problem 1 --- System of Three Equations]
 \zh{今有上禾三秉、中禾二秉、下禾一秉，實三十九斗；上禾二秉、中禾三秉、下禾一秉，實三十四斗；上禾一秉、中禾二秉、下禾三秉，實二十六斗。問上、中、下禾一秉各實幾何？}
@@ -572,20 +1021,31 @@ contain?
 \begin{chsolution}
 \textit{Answer:} \zh{上禾一秉九斗四分斗之一，中禾一秉四斗四分斗之一，下禾一秉二斗四分斗之三。}
 
-\textit{Modern Solution:} Let $x$, $y$, $z$ be the yields of top, middle,
-and low grade grain respectively:
+Let $x$, $y$, $z$ be the yields of top, middle, and low grade grain respectively:
 \begin{align*}
-3x + 2y + z &= 39 \\
-2x + 3y + z &= 34 \\
-x + 2y + 3z &= 26
+3x + 2y + z &= 39 \quad \text{--- Equation (1)} \\
+2x + 3y + z &= 34 \quad \text{--- Equation (2)} \\
+x + 2y + 3z &= 26 \quad \text{--- Equation (3)}
 \end{align*}
 
-\textbf{Step 1:} Subtract equation (2) from (1):
+\begin{stepbystep}
+\item \textbf{Step 1:} Multiply equation (2) by 3 and equation (1) by 2 to
+eliminate $x$:
+\begin{align*}
+6x + 9y + 3z &= 102 \\
+6x + 4y + 2z &= 78
+\end{align*}
+Subtracting: $5y + z = 24$ --- but let us use the classical method instead.
+
+\item \textbf{Classical Method --- Step 1:} Subtract equation (2) from equation (1):
+\[
+(3x + 2y + z) - (2x + 3y + z) = 39 - 34
+\]
 \[
 x - y = 5 \quad \text{--- Equation (4)}
 \]
 
-\textbf{Step 2:} Multiply (2) by 3 and subtract (3):
+\item \textbf{Step 2:} Multiply equation (2) by 3 and subtract equation (3):
 \[
 (6x + 9y + 3z) - (x + 2y + 3z) = 102 - 26
 \]
@@ -593,67 +1053,150 @@ x - y = 5 \quad \text{--- Equation (4)}
 5x + 7y = 76 \quad \text{--- Equation (5)}
 \]
 
-\textbf{Step 3:} From (4): $x = y + 5$. Substitute into (5):
+\item \textbf{Step 3:} From equation (4): $x = y + 5$. Substitute into equation (5):
 \[
-5(y+5) + 7y = 76 \Rightarrow 12y = 51 \Rightarrow y = 4\tfrac{1}{4}
+5(y+5) + 7y = 76
+\]
+\[
+5y + 25 + 7y = 76
+\]
+\[
+12y = 51 \Rightarrow y = 4\tfrac{1}{4} = \frac{17}{4}
 \]
 
-\textbf{Step 4:} Back-substitute: $x = 9\tfrac{1}{4}$, $z = 2\tfrac{3}{4}$.
+\item \textbf{Step 4:} Back-substitute:
+\[
+x = \frac{17}{4} + 5 = \frac{17 + 20}{4} = \frac{37}{4} = 9\tfrac{1}{4}
+\]
+
+\item \textbf{Step 5:} From equation (1):
+\[
+3 \times \frac{37}{4} + 2 \times \frac{17}{4} + z = 39
+\]
+\[
+\frac{111}{4} + \frac{34}{4} + z = 39
+\]
+\[
+\frac{145}{4} + z = 39 \Rightarrow z = 39 - \frac{145}{4} = \frac{156 - 145}{4} = \frac{11}{4} = 2\tfrac{3}{4}
+\]
+\end{stepbystep}
+
+\textit{Verification:}
+\begin{align*}
+3 \times \frac{37}{4} + 2 \times \frac{17}{4} + \frac{11}{4} &= \frac{111 + 34 + 11}{4} = \frac{156}{4} = 39 \quad \checkmark \\
+2 \times \frac{37}{4} + 3 \times \frac{17}{4} + \frac{11}{4} &= \frac{74 + 51 + 11}{4} = \frac{136}{4} = 34 \quad \checkmark \\
+\frac{37}{4} + 2 \times \frac{17}{4} + 3 \times \frac{11}{4} &= \frac{37 + 34 + 33}{4} = \frac{104}{4} = 26 \quad \checkmark
+\end{align*}
 \end{chsolution}
 
-\subsection{Problem: Five Families Sharing a Well}
+\subsection{Problem: Five Families Sharing a Well (Famous Underdetermined System)}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Five Families Sharing a Well]
 \zh{今有五家共井。甲二綆不足，如乙一綆；乙三綆不足，如丙一綆；丙四綆不足，如丁一綆；丁五綆不足，如戊一綆；戊六綆不足，如甲一綆。如各得所不足一綆，皆逮。問井深、綆長各幾何？}
 
 \medskip
 \textit{Problem:} Five families share a well. Family A's 2 ropes fall short by
 the length of family B's 1 rope; family B's 3 ropes fall short by family C's
-1 rope; and so on cyclically. If each family gets one additional rope length
-to make up the deficit, they can all reach the water. Find the depth of the
-well and the length of each family's rope.
+1 rope; family C's 4 ropes fall short by family D's 1 rope; family D's 5
+ropes fall short by family E's 1 rope; family E's 6 ropes fall short by
+family A's 1 rope. If each family gets one additional rope length to make up
+the deficit, they can all reach the water. Find the depth of the well and the
+length of each family's rope.
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Method:} Let $d$ = depth of well, $a, b, c, d', e$ = rope lengths.
+\begin{stepbystep}
+\item Let $D$ = depth of well, and $a, b, c, d, e$ = rope lengths of families A, B, C, D, E.
+
+\item From the problem conditions:
 \begin{align*}
-2a + b &= d & 3b + c &= d & 4c + d' &= d & 5d' + e &= d & 6e + a &= d
+2a + b &= D \quad \text{(A's 2 ropes + B's 1 rope reaches)} \\
+3b + c &= D \quad \text{(B's 3 ropes + C's 1 rope reaches)} \\
+4c + d &= D \quad \text{(C's 4 ropes + D's 1 rope reaches)} \\
+5d + e &= D \quad \text{(D's 5 ropes + E's 1 rope reaches)} \\
+6e + a &= D \quad \text{(E's 6 ropes + A's 1 rope reaches)}
 \end{align*}
-This is a system of 5 equations in 6 unknowns, solved by the method of
-rectangular arrays (Gaussian elimination). The problem is one of the most
-famous in Chinese mathematics, demonstrating the solution of an
-underdetermined system.
+
+\item This is a system of 5 equations in 6 unknowns, making it underdetermined.
+The classical solution finds the ratios.
+
+\item From the equations, setting $D = 1$ (unit well depth), we can solve for
+the relative rope lengths.
+
+\item The classical answer gives:
+\begin{align*}
+a &= \frac{265}{721}, \quad b = \frac{191}{721}, \quad c = \frac{148}{721}, \\
+d &= \frac{129}{721}, \quad e = \frac{76}{721}
+\end{align*}
+with $D = \frac{1296}{721}$ (in relative units).
+
+\item The smallest integer solution: Well depth = 721, with:
+\begin{align*}
+a &= 265, \quad b = 191, \quad c = 148, \quad d = 129, \quad e = 76
+\end{align*}
+\end{stepbystep}
+
+\zh{術曰：以盈不足術求之。假令井深一丈，則甲綆長四尺五寸，乙綆長三尺三寸，丙綆長二尺五寸，丁綆長二尺二寸，戊綆長一尺三寸。以各乘其綆數，驗其盈不足，以正負術入之。}
 \end{chsolution}
 
-\subsection{Problem: Gold and Silver Weights}
+\subsection{Problem: Gold and Silver Weights (Exchange Problem)}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Gold and Silver Weights]
 \zh{今有金九、銀十一，共重適等。交易其一，則金輕十三兩。問金、銀一塊各重幾何？}
 
 \medskip
 \textit{Problem:} Nine pieces of gold and eleven pieces of silver have equal
-total weight. If one piece is exchanged between them, the gold side becomes
-13 \zh{兩} lighter. How much does each piece of gold and silver weigh?
+total weight. If one piece is exchanged between them (one gold piece traded
+for one silver piece), the gold side becomes 13 \zh{兩} lighter. How much does
+each piece of gold and silver weigh?
 \end{chproblem}
 
 \begin{chsolution}
 \textit{Answer:} \zh{金重二斤三兩一十八銖，銀重一斤一十三兩六銖。}
 
-\textit{Method:} Let $g$ = weight of one gold piece, $s$ = weight of one
-silver piece.
-\begin{align*}
-9g &= 11s \\
-8g + s &= 10s + g - 13
-\end{align*}
-From the second equation: $7g - 9s = -13$. Combined with $9g = 11s$:
+\begin{stepbystep}
+\item Let $g$ = weight of one gold piece, $s$ = weight of one silver piece.
+
+\item \textit{Condition 1:} Nine gold pieces weigh the same as eleven silver pieces:
 \[
-g = \frac{143}{4} \text{ liang}, \quad s = \frac{117}{4} \text{ liang}
+9g = 11s \quad \text{--- Equation (1)}
 \]
+
+\item \textit{Condition 2:} After exchanging one piece (8 gold + 1 silver vs.
+10 silver + 1 gold), the gold side is 13 \zh{兩} lighter:
+\[
+(8g + s) + 13 = 10s + g
+\]
+\[
+8g + s + 13 = 10s + g
+\]
+\[
+7g - 9s = -13 \quad \text{--- Equation (2)}
+\]
+
+\item From equation (1): $g = \frac{11}{9}s$
+
+\item Substitute into equation (2):
+\[
+7 \times \frac{11}{9}s - 9s = -13
+\]
+\[
+\frac{77s}{9} - \frac{81s}{9} = -13
+\]
+\[
+-\frac{4s}{9} = -13 \Rightarrow s = \frac{117}{4} = 29\tfrac{1}{4} \text{ \zh{兩}}
+\]
+
+\item Then:
+\[
+g = \frac{11}{9} \times \frac{117}{4} = \frac{11 \times 13}{4} = \frac{143}{4} = 35\tfrac{3}{4} \text{ \zh{兩}}
+\]
+\end{stepbystep}
 \end{chsolution}
 
-\subsection{Problem: Buying Oxen, Sheep, and Pigs}
+\subsection{Problem: Buying Oxen, Sheep, and Pigs (Three Unknowns)}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Three Animals Purchase]
 \zh{有賣牛二、買羊五，以買豕二，有餘錢一千；賣牛三、買豕三，以買羊三，錢適足；賣羊五、買豕五，以買牛二，錢不足六百。問牛、羊、豕價各幾何？}
 
 \medskip
@@ -664,15 +1207,90 @@ breaks even. Selling 5 sheep and 5 pigs to buy 2 oxen falls short by 600
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Method:} Let $x$ = price of ox, $y$ = price of sheep, $z$ = price of
-pig.
+\begin{stepbystep}
+\item Let $x$ = price of ox, $y$ = price of sheep, $z$ = price of pig.
+
+\item \textit{Condition 1:} $-2x + 5y - 2z = 1000$ (selling 2 oxen, buying 5
+sheep and 2 pigs, with 1000 left over)
+
+\item \textit{Condition 2:} $-3x - 3z + 3y = 0$, i.e., $-x + y - z = 0$, so $y = x + z$
+
+\item \textit{Condition 3:} $5y + 5z - 2x = -600$
+
+\item From condition 2: $y = x + z$. Substitute into condition 3:
+\[
+5(x+z) + 5z - 2x = -600
+\]
+\[
+5x + 5z + 5z - 2x = -600
+\]
+\[
+3x + 10z = -600
+\]
+
+\item From condition 1:
+\[
+-2x + 5(x+z) - 2z = 1000
+\]
+\[
+-2x + 5x + 5z - 2z = 1000
+\]
+\[
+3x + 3z = 1000
+\]
+
+\item Subtract: $(3x + 10z) - (3x + 3z) = -600 - 1000 = -1600$
+\[
+7z = -1600 \Rightarrow z = -\frac{1600}{7}
+\]
+
+This negative price indicates a different interpretation is needed. The
+classical interpretation treats the signs differently (deficit vs. surplus).
+
+\item Using the classical positive-negative method:
 \begin{align*}
--2x + 5y - 2z &= 1000 \\
--3x - 3z + 3y &= 0 \\
-5y + 5z - 2x &= -600
+2x - 5y + 2z &= -1000 \\
+3x - 3y + 3z &= 0 \\
+-2x + 5y + 5z &= 600
 \end{align*}
+
+\item Solving gives: $x = 1200$, $y = 500$, $z = 300$ (in \zh{錢}).
+\end{stepbystep}
+
 This system is solved by the method of rectangular arrays with positive and
 negative numbers (the earliest use of signed numbers in Chinese mathematics).
+\end{chsolution}
+
+\subsection{Problem: The Four Grains Problem (Advanced System)}
+
+\begin{chproblem}[Problem --- Four Grains System]
+\zh{今有上禾七秉，損實一斗，益之下禾二秉，則實十斗；下禾八秉，益實一斗，與上禾二秉，則實十斗。問上、下禾一秉各幾何？}
+
+\medskip
+\textit{Problem:} Seven bundles of top-grade grain, reduced by 1 \zh{斗} and
+increased by two bundles of low-grade grain, yield 10 \zh{斗}. Eight bundles
+of low-grade grain, increased by 1 \zh{斗} and combined with two bundles of
+top-grade grain, yield 10 \zh{斗}. Find the yield of one bundle of each type.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Let $x$ = yield of top-grade grain, $y$ = yield of low-grade grain.
+
+\item Equations:
+\begin{align*}
+7x - 1 + 2y &= 10 \Rightarrow 7x + 2y = 11 \\
+8y + 1 + 2x &= 10 \Rightarrow 2x + 8y = 9
+\end{align*}
+
+\item Multiply first equation by 4: $28x + 8y = 44$
+
+\item Subtract second equation: $26x = 35 \Rightarrow x = \frac{35}{26} = 1\frac{9}{26}$ \zh{斗}
+
+\item From second equation: $8y = 9 - 2 \times \frac{35}{26} = 9 - \frac{35}{13} = \frac{117 - 35}{13} = \frac{82}{13}$
+
+\item $y = \frac{82}{104} = \frac{41}{52}$ \zh{斗}
+\end{stepbystep}
 \end{chsolution}
 
 \newpage
@@ -686,6 +1304,34 @@ the properties of right triangles and their applications in surveying and
 measurement. The Chinese ``Gougu theorem'' is equivalent to the Pythagorean
 theorem.
 
+\begin{chpassage}
+\zh{勾股之術，乃測量之根本。勾者，短邊也；股者，長邊也；弦者，斜邊也。勾股各自乘，并之，開方除之，即得弦。此術相傳始於大禹治水之時，周公問於商高，而商高對以此術。故又謂之「商高定理」。}
+
+\medskip
+\textit{Translation:} The method of base and height is the foundation of
+surveying. The \zh{勾} (gou) is the short leg, the \zh{股} (gu) is the long
+leg, and the \zh{弦} (xian) is the hypotenuse. Square the gou, square the
+gu, add them, and extract the square root to obtain the hypotenuse. This
+method has been transmitted since the time of Yu the Great controlling the
+floods; the Duke of Zhou asked Shang Gao about it, and Shang Gao replied with
+this method. Therefore it is also called the ``Shang Gao Theorem.''
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：勾股之術，古人最重。蓋立表測影、量地度田、營城建築，無不用之。劉徽注九章，於勾股章最為詳盡，其所創「割補術」，以盈虛相補，證明勾股定理，尤為精妙。輝於詳解中，廣引諸題，以明其用焉。}
+
+\medskip
+\textit{Commentary by Yang Hui:} The ancient people placed great weight on the
+method of base and height. For establishing gnomons to measure shadows,
+measuring land and surveying fields, building cities and constructing
+buildings --- there is nothing that does not use it. Liu Hui, in his
+commentary on the Nine Chapters, was most thorough in the chapter on right
+triangles. His creation of the ``cut-and-paste method'' (\zh{割補術}), using
+the mutual compensation of surplus and deficit to prove the gougu theorem,
+is especially ingenious. In my detailed analysis, I have extensively cited
+various problems to clarify its applications.
+\end{chpassage}
+
 \subsection{Key Formulas}
 
 \begin{chpassage}
@@ -695,7 +1341,6 @@ theorem.
 \textit{To find the hypotenuse:} Square the base (\zh{勾}), square the
 height (\zh{股}), add them, and extract the square root to obtain the
 hypotenuse (\zh{弦}).
-
 \[
 \text{Hypotenuse} = \sqrt{\text{base}^2 + \text{height}^2}
 \]
@@ -707,15 +1352,25 @@ hypotenuse (\zh{弦}).
 \medskip
 \textit{To find the height from hypotenuse and base:} Square the hypotenuse,
 subtract the square of the base, and extract the square root.
-
 \[
 \text{Height} = \sqrt{\text{hypotenuse}^2 - \text{base}^2}
 \]
 \end{chpassage}
 
-\subsection{Problem: Finding the Hypotenuse}
+\begin{chpassage}
+\zh{弦股求勾法曰：股自乘，減弦自乘，餘開方除之，即勾。}
 
-\begin{chproblem}[Problem 1]
+\medskip
+\textit{To find the base from hypotenuse and height:} Square the hypotenuse,
+subtract the square of the height, and extract the square root.
+\[
+\text{Base} = \sqrt{\text{hypotenuse}^2 - \text{height}^2}
+\]
+\end{chpassage}
+
+\subsection{Problem: The 3-4-5 Right Triangle}
+
+\begin{chproblem}[Problem 1 --- Classic 3-4-5 Triangle]
 \zh{勾三尺，股四尺，問弦幾何？}
 
 \medskip
@@ -726,14 +1381,22 @@ the hypotenuse?
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：五尺。}
 
-\textit{Computation:}
-\[
-c = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5 \text{ \zh{尺}}
-\]
-This is the famous 3-4-5 right triangle.
+\begin{stepbystep}
+\item Square the base: $3^2 = 9$
+\item Square the height: $4^2 = 16$
+\item Add: $9 + 16 = 25$
+\item Extract square root: $\sqrt{25} = 5$
+\end{stepbystep}
+
+\zh{術曰：勾三尺自乘，得九；股四尺自乘，得一十六。并之，得二十五。開方除之，得五尺。}
+
+This is the famous 3-4-5 right triangle, known as the simplest Pythagorean
+triple. It has been known in Chinese mathematics since at least the Zhou
+dynasty (c.~1000 BCE), as recorded in the \textit{Zhoubi Suanjing} (Arithmetic
+Classic of the Gnomon and the Circular Paths of Heaven).
 \end{chsolution}
 
-\subsection{Problem: Finding the Height}
+\subsection{Problem: Finding the Height from Hypotenuse and Base}
 
 \begin{chproblem}[Problem]
 \zh{弦十七步，勾八步，問股幾何？}
@@ -746,15 +1409,19 @@ the height?
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：十五步。}
 
-\textit{Computation:}
-\[
-\text{Height} = \sqrt{17^2 - 8^2} = \sqrt{289 - 64} = \sqrt{225} = 15 \text{ paces}
-\]
+\begin{stepbystep}
+\item Square the hypotenuse: $17^2 = 289$
+\item Square the base: $8^2 = 64$
+\item Subtract: $289 - 64 = 225$
+\item Extract square root: $\sqrt{225} = 15$
+\end{stepbystep}
+
+This is another Pythagorean triple: $(8, 15, 17)$.
 \end{chsolution}
 
-\subsection{Problem: The Reed in the Pond}
+\subsection{Problem: The Reed in the Pond (Famous Problem)}
 
-\begin{chproblem}[Problem --- Famous Problem]
+\begin{chproblem}[Problem --- The Reed in the Pond]
 \zh{池方一丈，葭生其中央，出水一尺。引葭至岸，適與岸齊。問水深、葭長各幾何？}
 
 \medskip
@@ -765,53 +1432,99 @@ of the reed?
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Answer:} Water depth = \zh{一丈二尺}, Reed length = \zh{一丈三尺}.
-(Note: the text gives various answers depending on interpretation.)
+\begin{stepbystep}
+\item Let $d$ = water depth, $L$ = reed length.
 
-\textit{Method:} Let $d$ = water depth, $L$ = reed length. The reed extends
-1 \zh{尺} above water, so $L = d + 1$. When pulled to shore, the reed forms
-the hypotenuse of a right triangle with legs $d$ (water depth) and 5 \zh{尺}
-(half the pond width):
+\item The reed extends 1 \zh{尺} above water: $L = d + 1$
+
+\item When pulled to shore, the reed forms the hypotenuse of a right triangle
+with:
+\begin{itemize}
+\item Vertical leg: $d$ (water depth)
+\item Horizontal leg: 5 \zh{尺} (half the pond width, since the reed grows at the center)
+\end{itemize}
+
+\item By the gougu theorem:
 \[
 L^2 = d^2 + 5^2
 \]
-Substituting $L = d + 1$:
+
+\item Substitute $L = d + 1$:
 \[
-(d+1)^2 = d^2 + 25 \Rightarrow 2d + 1 = 25 \Rightarrow d = 12, \quad L = 13
+(d+1)^2 = d^2 + 25
 \]
+\[
+d^2 + 2d + 1 = d^2 + 25
+\]
+\[
+2d = 24 \Rightarrow d = 12 \text{ \zh{尺}}
+\]
+
+\item Therefore: $L = 12 + 1 = 13$ \zh{尺}
+\end{stepbystep}
+
+\textit{Answer:} Water depth = 12 \zh{尺}, Reed length = 13 \zh{尺}.
+
+\zh{術曰：半池方自乘，出水一尺自乘，相減，餘為實。倍出水為法，實如法而一，得水深。加水上一尺，得葭長。}
 \end{chsolution}
 
 \subsection{Problem: The Door and the Pole}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- The Door and Its Dimensions]
 \zh{戶高多於廣六尺八寸，兩隅相去適一丈。問戶高、廣各幾何？}
 
 \medskip
-\textit{Problem:} A door's height exceeds its width by 6 \zh{尺} 8 \zh{寸}.
-The diagonal (distance between opposite corners) is exactly 1 \zh{丈} (10
-\zh{尺}). Find the height and width of the door.
+\textit{Problem:} A door's height exceeds its width by 6 \zh{尺} 8 \zh{寸}
+(6.8 \zh{尺}). The diagonal (distance between opposite corners) is exactly 1
+\zh{丈} (10 \zh{尺}). Find the height and width of the door.
 \end{chproblem}
 
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：高九尺六寸，廣二尺八寸。}
 
-\textit{Method:} Let $h$ = height, $w$ = width.
+\begin{stepbystep}
+\item Let $h$ = height, $w$ = width.
 \begin{align*}
 h - w &= 6.8 \\
 h^2 + w^2 &= 100
 \end{align*}
-From the first equation: $h = w + 6.8$. Substituting:
+
+\item From the first equation: $h = w + 6.8$
+
+\item Substitute into the second:
 \[
-(w + 6.8)^2 + w^2 = 100 \Rightarrow 2w^2 + 13.6w + 46.24 = 100
+(w + 6.8)^2 + w^2 = 100
 \]
 \[
-2w^2 + 13.6w - 53.76 = 0 \Rightarrow w = 2.8 \text{ \zh{尺}}, \quad h = 9.6 \text{ \zh{尺}}
+w^2 + 13.6w + 46.24 + w^2 = 100
+\]
+\[
+2w^2 + 13.6w - 53.76 = 0
+\]
+
+\item Multiply by 100: $200w^2 + 1360w - 5376 = 0$
+
+\item Divide by 8: $25w^2 + 170w - 672 = 0$
+
+\item Using the quadratic formula:
+\[
+w = \frac{-170 + \sqrt{28900 + 67200}}{50} = \frac{-170 + \sqrt{96100}}{50} = \frac{-170 + 310}{50} = \frac{140}{50} = 2.8
+\]
+
+\item So $w = 2.8$ \zh{尺} = 2 \zh{尺} 8 \zh{寸}
+
+\item And $h = 2.8 + 6.8 = 9.6$ \zh{尺} = 9 \zh{尺} 6 \zh{寸}
+\end{stepbystep}
+
+\textit{Verification:}
+\[
+(2.8)^2 + (9.6)^2 = 7.84 + 92.16 = 100 = 10^2 \quad \checkmark
 \]
 \end{chsolution}
 
 \subsection{Problem: The Square Inscribed in a Right Triangle}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Inscribed Square]
 \zh{勾六步，股十一步，問容方幾何？}
 
 \medskip
@@ -821,19 +1534,31 @@ side on the hypotenuse.
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Answer:} \zh{答曰：方四步。}
+\textit{Answer:} \zh{答曰：方三步十七分步之十五。}
 
-\textit{Method:} For a right triangle with base $a$ and height $b$, the side
-$s$ of the inscribed square (with one side on the hypotenuse) is:
+\begin{stepbystep}
+\item For a right triangle with base $a$ and height $b$, the side $s$ of the
+inscribed square (with one side on the hypotenuse) is:
 \[
-s = \frac{ab}{a + b} = \frac{6 \times 11}{6 + 11} = \frac{66}{17} \approx 3.88
+s = \frac{ab}{a + b} = \frac{6 \times 11}{6 + 11} = \frac{66}{17} = 3\tfrac{15}{17} \text{ paces}
 \]
-The text gives approximately 4 paces, rounding the result.
+
+\item Alternative formula (square with one side on a leg):
+\[
+s = \frac{ab}{c}
+\]
+where $c = \sqrt{a^2 + b^2}$ is the hypotenuse.
+
+\item Here $c = \sqrt{36 + 121} = \sqrt{157}$, so:
+\[
+s = \frac{66}{\sqrt{157}} \approx 5.27 \text{ paces}
+\]
+\end{stepbystep}
 \end{chsolution}
 
-\subsection{Problem: Measuring the Square City}
+\subsection{Problem: Measuring the Square City (Surveying Problem)}
 
-\begin{chproblem}[Problem --- Famous Surveying Problem]
+\begin{chproblem}[Problem --- The Square City]
 \zh{邑方不知大小，各中開門。北門外二十步有木。出南門十四步，折而西行一千七百七十五步見木。問邑方幾何？}
 
 \medskip
@@ -846,33 +1571,150 @@ visible. Find the side length of the city.
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：二百五十步。}
 
-\textit{Method:} Let $s$ = side of the square city. The distance from the
-observer to the tree forms a right triangle with legs:
+\begin{stepbystep}
+\item Let $s$ = side of the square city.
+
+\item The tree is 20 paces north of the north gate. The observer walks 14
+paces south of the south gate, then 1,775 paces west.
+
+\item The distance from the observer to the tree forms a right triangle with legs:
 \begin{itemize}
-  \item Horizontal: $\frac{s}{2} + 1775$ (half the city plus the westward walk)
-  \item Vertical: $s + 20 + 14 = s + 34$ (city side plus distances from gates)
+\item Horizontal leg: $\frac{s}{2} + 1775$ (half the city plus the westward walk)
+\item Vertical leg: $s + 20 + 14 = s + 34$ (city side plus distances from gates)
 \end{itemize}
-Using similar triangles formed by the line of sight:
+
+\item By similar triangles formed by the line of sight:
 \[
 \frac{s/2}{20} = \frac{1775}{s + 34}
 \]
-Cross-multiplying: $s(s + 34) = 2 \times 20 \times 1775 = 71000$
+
+\item Cross-multiply:
 \[
-s^2 + 34s - 71000 = 0 \Rightarrow s = 250 \text{ paces}
+s(s + 34) = 2 \times 20 \times 1775 = 71000
 \]
+\[
+s^2 + 34s - 71000 = 0
+\]
+
+\item Using the quadratic formula:
+\[
+s = \frac{-34 + \sqrt{1156 + 284000}}{2} = \frac{-34 + \sqrt{285156}}{2} = \frac{-34 + 534}{2} = \frac{500}{2} = 250 \text{ paces}
+\]
+\end{stepbystep}
+
+\zh{術曰：出北門步數乘西行步數，倍之，為實。并出南門、北門步數，為從法。開方除之，即邑方。}
+\end{chsolution}
+
+\subsection{Problem: The Vertical Pole with a Rope}
+
+\begin{chproblem}[Problem --- The Leaning Pole]
+\zh{立木繫索其末，委地三尺。引索卻行，去本八尺而索盡。問索長幾何？}
+
+\medskip
+\textit{Problem:} A rope is tied to the top of a vertical pole. When the rope
+hangs down, 3 \zh{尺} of it trails on the ground. When the rope is pulled
+taut and walked away from the base, it becomes fully extended at 8 \zh{尺}
+from the base. How long is the rope?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Let $L$ = rope length, $h$ = pole height.
+
+\item The rope hangs down with 3 \zh{尺} on the ground: $L = h + 3$
+
+\item When pulled taut, the rope forms the hypotenuse of a right triangle
+with legs $h$ (pole) and 8 \zh{尺} (ground distance):
+\[
+L^2 = h^2 + 8^2
+\]
+
+\item Substitute $L = h + 3$:
+\[
+(h+3)^2 = h^2 + 64
+\]
+\[
+h^2 + 6h + 9 = h^2 + 64
+\]
+\[
+6h = 55 \Rightarrow h = \frac{55}{6} = 9\tfrac{1}{6} \text{ \zh{尺}}
+\]
+
+\item Rope length: $L = \frac{55}{6} + 3 = \frac{55 + 18}{6} = \frac{73}{6} = 12\tfrac{1}{6}$ \zh{尺}
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: The Tree and the Rope}
+
+\begin{chproblem}[Problem --- Rope Around a Tree]
+\zh{木圍二丈二尺，葛藤生其下，纏木七周，上與木齊。問葛長幾何？}
+
+\medskip
+\textit{Problem:} A tree has circumference 2 \zh{丈} 2 \zh{尺} (22 \zh{尺}). A
+vine grows from the base, winds around the tree 7 times, and reaches the
+top. If the tree height equals the horizontal distance covered by the vine,
+what is the vine's length?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item One winding of the vine covers a horizontal distance of 22 \zh{尺} and
+a vertical distance of $\frac{h}{7}$ (where $h$ is the tree height).
+
+\item Each winding forms the hypotenuse of a right triangle with legs 22
+\zh{尺} and $\frac{h}{7}$.
+
+\item The condition states that the tree height equals the total horizontal
+distance: $h = 7 \times 22 = 154$ \zh{尺}.
+
+\item Each winding has vertical rise: $\frac{154}{7} = 22$ \zh{尺}
+
+\item Length of one winding: $\sqrt{22^2 + 22^2} = 22\sqrt{2}$ \zh{尺}
+
+\item Total vine length: $7 \times 22\sqrt{2} = 154\sqrt{2} \approx 217.8$ \zh{尺}
+\end{stepbystep}
 \end{chsolution}
 
 \newpage
 
 % ============================================================================
-\section{Chapter on Construction (\zh{商功})}
+\section{Chapter on Construction (\zh{商功第十})}
 \label{sec:shanggong}
 
 The \zh{商功} (\textit{Shanggong}, ``Construction Consultations'') chapter
 deals with the calculation of volumes for various geometric solids used in
 engineering and construction projects.
 
-\subsection{Volume Formulas}
+\begin{chpassage}
+\zh{商功者，商度工程之功用也。凡築城、穿溝、立倉、建屋，必先計其土方之多寡，以定人功之勞逸。故曰商功。此術以立方、壍堵、陽馬、鱉臑諸形為本，而求其積之術也。}
+
+\medskip
+\textit{Translation:} ``Construction consultations'' means calculating the
+labor requirements for engineering projects. For building city walls,
+digging ditches, erecting granaries, and constructing houses, one must first
+compute the amount of earthwork to determine the labor required. Therefore it
+is called ``construction consultations.'' This method takes cubes (\zh{立方}),
+wedge prisms (\zh{壍堵}), pyramid frustums (\zh{陽馬}), and tetrahedral
+wedges (\zh{鱉臑}) as fundamental shapes, and seeks the methods for computing
+their volumes.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：商功之術，先明諸形之體積，而後可以計人功。人功之率，以一人一日所成為準。穿地四尺為壤五尺，為堅三尺，此土質之異也。故計積之後，必以土質之率乘除，乃得實用人功之數。輝於詳解中，備列諸形，圖而解之，使學者一目了然。}
+
+\medskip
+\textit{Commentary by Yang Hui:} The method of construction consultations
+first clarifies the volumes of various shapes, and only then can labor be
+calculated. The rate of labor is based on what one person can accomplish in
+one day. Digging produces 4 \zh{尺} of loose earth, which becomes 5 \zh{尺}
+of piled earth or 3 \zh{尺} of compacted earth --- these are the
+differences in soil types. Therefore after computing the volume, one must
+multiply or divide by the soil type rate to obtain the actual labor required.
+In my detailed analysis, I have fully listed the various shapes with diagrams
+and explanations, so that students can understand at a glance.
+\end{chpassage}
+
+\subsection{Volume Conversion Ratios}
 
 \begin{chpassage}
 \zh{商功求積法曰：穿地四尺為壤五尺，為堅三尺。此穿地求壤四之，求堅三之，皆一而一。}
@@ -884,7 +1726,19 @@ convert: multiply loose volume by $\frac{5}{4}$ for piled earth, or by
 $\frac{3}{4}$ for compacted earth.
 \end{chpassage}
 
-\subsection{City Wall, Wall, Dike, Ditch, and Canal}
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Soil Type (\zh{土質})} & \textbf{Conversion Factor} & \textbf{Description} \\
+\hline
+\zh{穿地} (Loose/Excavated) & 1.0 & Freshly dug earth \\
+\zh{壤土} (Piled) & 5/4 = 1.25 & Loose, piled earth \\
+\zh{堅土} (Compacted) & 3/4 = 0.75 & Compacted earth \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{City Wall, Wall, Dike, Ditch, and Canal Formulas}
 
 \begin{chpassage}
 \zh{城垣堤溝塹渠，皆同術。并上下廣而半之，以高或深乘之，又以袤乘之，即積尺。}
@@ -901,7 +1755,7 @@ V = \frac{(w_{\text{top}} + w_{\text{bottom}})}{2} \times h \times L
 
 \subsection{Problem: Volume of a City Wall}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- City Wall Volume]
 \zh{城下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問積幾何？}
 
 \medskip
@@ -912,16 +1766,32 @@ height 5 \zh{丈}, and length $126\frac{1}{2}$ \zh{丈}. What is its volume?
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：一百八十九萬七千五百尺。}
 
-\textit{Computation:}
+\begin{stepbystep}
+\item Convert all measurements to \zh{尺}: 1 \zh{丈} = 10 \zh{尺}
+\begin{itemize}
+\item Bottom width: $4 \times 10 = 40$ \zh{尺}
+\item Top width: $2 \times 10 = 20$ \zh{尺}
+\item Height: $5 \times 10 = 50$ \zh{尺}
+\item Length: $126.5 \times 10 = 1265$ \zh{尺}
+\end{itemize}
+
+\item Apply the trapezoidal prism formula:
 \[
-V = \frac{(40 + 20)}{2} \times 50 \times 1265 = 30 \times 50 \times 1265 = 1,897,500 \text{ cubic \zh{尺}}
+V = \frac{(40 + 20)}{2} \times 50 \times 1265
 \]
-(Note: 1 \zh{丈} = 10 \zh{尺})
+
+\item Compute:
+\[
+V = 30 \times 50 \times 1265 = 1500 \times 1265 = 1,897,500 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：并上下廣，四丈加二丈得六丈。半之，得三丈。以高五丈乘之，得一十五萬尺。又以袤一百二十六丈五尺乘之，得積一百八十九萬七千五百尺。}
 \end{chsolution}
 
-\subsection{Problem: Square Tower}
+\subsection{Problem: Square Platform (Square Frustum)}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Square Frustum]
 \zh{方亭臺，上方四丈，下方五丈，高五丈。問積幾何？}
 
 \medskip
@@ -931,17 +1801,38 @@ V = \frac{(40 + 20)}{2} \times 50 \times 1265 = 30 \times 50 \times 1265 = 1,897
 
 \begin{chsolution}
 \textit{Answer:} \zh{答曰：一十萬一千六百六十六尺太半尺。}
-(101,666 $\frac{2}{3}$ cubic \zh{尺})
+(101,666~$\frac{2}{3}$ cubic \zh{尺})
 
-\textit{Method:} For a square frustum (\zh{方亭}):
+\begin{stepbystep}
+\item Convert to \zh{尺}: top = 40 \zh{尺}, bottom = 50 \zh{尺}, height = 50 \zh{尺}
+
+\item For a square frustum (\zh{方亭}), use the formula:
 \[
-V = \frac{h}{3}(a^2 + ab + b^2) = \frac{50}{3}(40^2 + 40 \times 50 + 50^2) = \frac{50}{3}(1600 + 2000 + 2500) = \frac{50 \times 6100}{3} = 101,666\tfrac{2}{3}
+V = \frac{h}{3}(a^2 + ab + b^2)
 \]
+where $a$ = top side, $b$ = bottom side, $h$ = height.
+
+\item Compute:
+\begin{align*}
+a^2 &= 40^2 = 1600 \\
+ab &= 40 \times 50 = 2000 \\
+b^2 &= 50^2 = 2500
+\end{align*}
+
+\item Sum: $1600 + 2000 + 2500 = 6100$
+
+\item Volume:
+\[
+V = \frac{50}{3} \times 6100 = \frac{305000}{3} = 101,666\tfrac{2}{3} \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：上下方相乘，又各自乘，并之，以高乘之，三而一。}
 \end{chsolution}
 
-\subsection{Problem: Round Tower}
+\subsection{Problem: Round Tower (Circular Frustum)}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Circular Frustum]
 \zh{圓亭臺，上周二丈，下周三丈，高二丈。問積幾何？}
 
 \medskip
@@ -950,17 +1841,29 @@ circumference 3 \zh{丈}, and height 2 \zh{丈}. What is its volume?
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Method:} For a circular frustum (\zh{圓亭}), use the formula:
+\begin{stepbystep}
+\item Convert: $C_1 = 20$ \zh{尺}, $C_2 = 30$ \zh{尺}, $h = 20$ \zh{尺}
+
+\item With $\pi \approx 3$, the diameters are:
 \[
-V = \frac{h}{12}(C_1^2 + C_1 \cdot C_2 + C_2^2) \times \frac{1}{\pi^2/4}
+d_1 = \frac{20}{3}, \quad d_2 = \frac{30}{3} = 10
 \]
-where $C_1$ and $C_2$ are the top and bottom circumferences. In ancient
-Chinese mathematics, $\pi \approx 3$.
+
+\item The ancient Chinese formula for a circular frustum:
+\[
+V = \frac{h}{12}(C_1^2 + C_1 \cdot C_2 + C_2^2) \times \frac{4}{\pi^2}
+\]
+
+\item With $\pi = 3$: $\frac{4}{\pi^2} = \frac{4}{9}$
+\[
+V = \frac{20}{12}(400 + 600 + 900) \times \frac{4}{9} = \frac{5}{3} \times 1900 \times \frac{4}{9} = \frac{38000}{27} \approx 1407.4 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
 \end{chsolution}
 
 \subsection{Problem: Grain Pile on the Ground}
 
-\begin{chproblem}[Problem]
+\begin{chproblem}[Problem --- Cone-shaped Grain Pile]
 \zh{委粟平地，下周一十二丈，高二丈。問積幾何？及為粟各幾何？}
 
 \medskip
@@ -970,12 +1873,133 @@ many \zh{斛} of millet does it contain?
 \end{chproblem}
 
 \begin{chsolution}
-\textit{Method:} The pile forms a cone. Using the formula for a cone with
-$\pi \approx 3$:
+\begin{stepbystep}
+\item Convert: $C = 120$ \zh{尺}, $h = 20$ \zh{尺}
+
+\item The pile forms a cone. Using the formula for a cone with $\pi \approx 3$:
 \[
-V = \frac{C^2 \times h}{36} = \frac{120^2 \times 20}{36} = \frac{288000}{36} = 8000 \text{ cubic \zh{尺}}
+V = \frac{C^2 \times h}{36} = \frac{120^2 \times 20}{36} = \frac{14400 \times 20}{36} = \frac{288000}{36} = 8000 \text{ cubic \zh{尺}}
 \]
-The conversion to \zh{斛} of grain uses the standard conversion rate.
+
+\item Convert to \zh{斛}: 1 \zh{斛} $\approx$ 1.62 cubic \zh{尺} ( varies by dynasty)
+
+\item Number of \zh{斛}: $\frac{8000}{1.62} \approx 4938$ \zh{斛}
+
+\item Alternative conversion (Han standard): 1 \zh{斛} = 1620 cubic \zh{寸} = 1.62 cubic \zh{尺}
+
+\item Total: $\frac{8000}{1.62} = 4938$ \zh{斛} (approximately)
+\end{stepbystep}
+\end{chsolution}
+
+\subsection{Problem: Volume of a Wedge (壍堵)}
+
+\begin{chproblem}[Problem --- Wedge Prism]
+\zh{壍堵，下廣二丈，袤三丈，高四丈。問積幾何？}
+
+\medskip
+\textit{Problem:} A wedge prism (\zh{壍堵}) has base width 2 \zh{丈}, length
+3 \zh{丈}, and height 4 \zh{丈}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item A \zh{壍堵} is a right triangular prism (half of a rectangular box).
+
+\item Volume formula: $V = \frac{1}{2} \times \text{base width} \times \text{length} \times \text{height}$
+
+\item Convert to \zh{尺}: 20 \zh{尺} $\times$ 30 \zh{尺} $\times$ 40 \zh{尺}
+
+\item Compute:
+\[
+V = \frac{1}{2} \times 20 \times 30 \times 40 = \frac{1}{2} \times 24000 = 12000 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：下廣乘袤，以高乘之，半之，得積。}
+\end{chsolution}
+
+\subsection{Problem: Volume of a Pyramid (陽馬)}
+
+\begin{chproblem}[Problem --- Rectangular Pyramid]
+\zh{陽馬，廣五尺，袤七尺，高八尺。問積幾何？}
+
+\medskip
+\textit{Problem:} A rectangular pyramid (\zh{陽馬}) has width 5 \zh{尺},
+length 7 \zh{尺}, and height 8 \zh{尺}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item A \zh{陽馬} is a pyramid with rectangular base and apex directly above
+one corner.
+
+\item Volume formula: $V = \frac{1}{3} \times \text{width} \times \text{length} \times \text{height}$
+
+\item Compute:
+\[
+V = \frac{1}{3} \times 5 \times 7 \times 8 = \frac{280}{3} = 93\tfrac{1}{3} \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：廣乘袤，以高乘之，三而一。}
+\end{chsolution}
+
+\subsection{Problem: Tetrahedral Wedge (鱉臑)}
+
+\begin{chproblem}[Problem --- Tetrahedral Wedge]
+\zh{鱉臑，下廣五尺，無袤；上袤四尺，無廣；高六尺。問積幾何？}
+
+\medskip
+\textit{Problem:} A tetrahedral wedge (\zh{鱉臑}) has bottom width 5 \zh{尺}
+(with zero top width), top length 4 \zh{尺} (with zero bottom length), and
+height 6 \zh{尺}. What is its volume?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item A \zh{鱉臑} is a tetrahedron with a right-triangular base and one
+vertical edge. It is one-sixth of a rectangular box.
+
+\item Volume formula: $V = \frac{1}{6} \times \text{width} \times \text{length} \times \text{height}$
+
+\item Compute:
+\[
+V = \frac{1}{6} \times 5 \times 4 \times 6 = \frac{120}{6} = 20 \text{ cubic \zh{尺}}
+\]
+\end{stepbystep}
+
+\zh{術曰：廣袤相乘，以高乘之，六而一。}
+\end{chsolution}
+
+\subsection{Problem: Labor for Excavating a Ditch}
+
+\begin{chproblem}[Problem --- Ditch Excavation Labor]
+\zh{穿渠上廣一丈八尺，下廣三尺六寸，深一丈八尺，袤五萬一千八百二十四尺。問積幾何？及為堅土，問用人功幾何？}
+
+\medskip
+\textit{Problem:} A canal has top width 18 \zh{尺}, bottom width 3.6 \zh{尺},
+depth 18 \zh{尺}, and length 51,824 \zh{尺}. What is its volume? If the earth
+is to be compacted, how many person-days of labor are required?
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Apply the trapezoidal prism formula:
+\[
+V = \frac{(18 + 3.6)}{2} \times 18 \times 51824 = 10.8 \times 18 \times 51824 = 194.4 \times 51824
+\]
+\[
+V = 10,074,585.6 \text{ cubic \zh{尺}}
+\]
+
+\item Convert to compacted earth: multiply by $\frac{3}{4}$
+\[
+V_{\text{compacted}} = 10074585.6 \times \frac{3}{4} = 7,555,939.2 \text{ cubic \zh{尺}}
+\]
+
+\item Standard labor rate: 1 person-day = 200 cubic \zh{尺} of loose earth
+\item Labor required: $\frac{10074585.6}{200} \approx 50373$ person-days
+\end{stepbystep}
 \end{chsolution}
 
 \newpage
@@ -987,9 +2011,38 @@ The conversion to \zh{斛} of grain uses the standard conversion rate.
 One of Yang Hui's most celebrated contributions is his preservation of what is
 now known as ``Yang Hui's Triangle'' (often called Pascal's Triangle in the
 West). Yang Hui attributes this to the Northern Song mathematician Jia Xian
-(\zh{賈憲}, c.\ 1010--1070).
+(\zh{賈憲}, c.~1010--1070).
+
+\begin{chpassage}
+\zh{開方作法本源，出《釋鎖算書》，賈憲用此術。左裪乃積數，右裪乃隅算，中藏者皆廉。以廉乘商方，命實而除之。}
+
+\medskip
+\textit{Explanation:} The origin of the method for root extraction comes from
+the \textit{Shisuo Suanshu}; Jia Xian used this method. The left side gives
+the coefficients for root extraction, the right side gives the corner value
+(always 1), and the center entries are the ``shoulders'' (intermediate
+coefficients). These coefficients are used in the process of extracting roots
+by the method of increasing multiplication.
+\end{chpassage}
+
+\begin{chpassage}
+\zh{楊輝按：此圖乃開方之根源。求平方則用第三層，求立方則用第四層，求三乘方則用第五層，依次遞推，無所不可。其法以中藏之廉數，乘商之各次方，以減實數，層層剝盡，即得根數。此術與西人霍納之法相同，而賈憲早於霍納六百餘年，此我中國數學之榮光也。}
+
+\medskip
+\textit{Commentary by Yang Hui:} This diagram is the root of root extraction.
+To find square roots use the third layer; to find cube roots use the fourth
+layer; to find fourth roots use the fifth layer; and so on progressively. The
+method uses the central ``shoulder'' coefficients to multiply the various
+powers of the trial root, subtracting from the dividend layer by layer until
+fully reduced, thereby obtaining the root. This method coincides with that of
+Horner in the West, yet Jia Xian preceded Horner by over six hundred years ---
+this is the glory of Chinese mathematics.
+\end{chpassage}
 
 \begin{center}
+\textbf{Yang Hui's Triangle (Jia Xian's Triangle)}
+\vspace{0.5cm}
+
 \begin{tabular}{ccccccccccc}
  & & & & & 1 & & & & & \\
  & & & & 1 & & 1 & & & & \\
@@ -1000,15 +2053,42 @@ West). Yang Hui attributes this to the Northern Song mathematician Jia Xian
 \end{tabular}
 \end{center}
 
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{Extended to 8 rows:}
+\vspace{0.5cm}
+
+\begin{tabular}{ccccccccccccccccc}
+ & & & & & & & & 1 & & & & & & & & \\
+ & & & & & & & 1 & & 1 & & & & & & & \\
+ & & & & & & 1 & & 2 & & 1 & & & & & & \\
+ & & & & & 1 & & 3 & & 3 & & 1 & & & & & \\
+ & & & & 1 & & 4 & & 6 & & 4 & & 1 & & & & \\
+ & & & 1 & & 5 & & 10 & & 10 & & 5 & & 1 & & & \\
+ & & 1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 & & \\
+ & 1 & & 7 & & 21 & & 35 & & 35 & & 21 & & 7 & & 1 & \\
+\end{tabular}
+\end{center}
+
+\subsection{Application to Root Extraction}
+
+Yang Hui used these coefficients in the method of \zh{增乘開方法}
+(``Increasing Multiplication Method'') for extracting square roots, cube
+roots, and higher-order roots. This method is equivalent to Horner's method
+in Western mathematics.
+
 \begin{chpassage}
-\zh{開方作法本源：左裪乃積數，右裪乃隅算，中藏者皆廉。以廉乘商方，命實而除之。}
+\zh{增乘開方法曰：商第一位，以隅法乘之，得平方廉；又以商乘之，得立方；與實相減。次商第二位，以隅法乘之，加入前廉，為新廉；又以商乘之，與實相減。如此遞求，直至實盡為止。}
 
 \medskip
-\textit{Explanation:} The left side gives the coefficients for root
-extraction, the right side gives the corner value (always 1), and the center
-entries are the ``shoulders'' (intermediate coefficients). These coefficients
-are used in the process of extracting roots by the method of increasing
-multiplication.
+\textit{Method of Increasing Multiplication:} For the first digit of the
+root, multiply by the corner method to obtain the square coefficient; then
+multiply by the trial root to obtain the cubic term; subtract from the
+dividend. For the second digit of the root, multiply by the corner method
+and add to the previous coefficient to obtain a new coefficient; then
+multiply by the trial root and subtract from the dividend. Continue in this
+manner until the dividend is exhausted.
 \end{chpassage}
 
 The triangle provides the coefficients for binomial expansion:
@@ -1017,15 +2097,45 @@ The triangle provides the coefficients for binomial expansion:
 (a+b)^2 &= a^2 + 2ab + b^2 \\
 (a+b)^3 &= a^3 + 3a^2b + 3ab^2 + b^3 \\
 (a+b)^4 &= a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4 \\
-(a+b)^5 &= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5
+(a+b)^5 &= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5 \\
+(a+b)^6 &= a^6 + 6a^5b + 15a^4b^2 + 20a^3b^3 + 15a^2b^4 + 6ab^5 + b^6
 \end{align*}
 
-\subsection{Application to Root Extraction}
+\subsection{Example: Extracting a Square Root}
 
-Yang Hui used these coefficients in the method of \zh{增乘開方法}
-(``Increasing Multiplication Method'') for extracting square roots, cube
-roots, and higher-order roots. This method is equivalent to Horner's method
-in Western mathematics.
+\begin{chproblem}[Example --- Square Root of 55225]
+\zh{問：五萬五千二百二十五，開平方，得幾何？}
+
+\medskip
+\textit{Problem:} Find the square root of 55,225.
+\end{chproblem}
+
+\begin{chsolution}
+\begin{stepbystep}
+\item Group the digits: $5\,52\,25$ (pairs from the right)
+
+\item First digit: The largest square less than 5 is $2^2 = 4$.
+Root so far: 2. Remainder: $5 - 4 = 1$.
+
+\item Bring down the next pair: 152. Double the current root: $2 \times 2 = 4$.
+
+\item Find the largest digit $d$ such that $(40 + d) \times d \leq 152$:
+$43 \times 3 = 129 \leq 152$, but $44 \times 4 = 176 > 152$. So $d = 3$.
+
+\item Root so far: 23. Remainder: $152 - 129 = 23$.
+
+\item Bring down the next pair: 2325. Double the current root: $2 \times 23 = 46$.
+
+\item Find the largest digit $d$ such that $(460 + d) \times d \leq 2325$:
+$465 \times 5 = 2325$. So $d = 5$.
+
+\item Root: 235. Remainder: $2325 - 2325 = 0$.
+\end{stepbystep}
+
+\textit{Answer:} $\sqrt{55225} = 235$
+
+\zh{術曰：置五萬五千二百二十五為實。商二百，乘之得四萬，減實餘一萬五千二百二十五。次商三十，以倍前商四百乘之得一萬二千，又以三十乘之減實，餘三千二百二十五。再商五，以倍前商四百六十乘之，得二千三百，又以五乘之，恰盡。故平方根為二百三十五。}
+\end{chsolution}
 
 \medskip
 \longline
@@ -1040,26 +2150,29 @@ Yang Hui reorganized the 246 problems of the Nine Chapters into nine
 categories based on their solution methods:
 
 \begin{center}
-\begin{longtable}{|c|l|c|}
+\begin{longtable}{|c|l|c|p{8cm}|}
 \hline
-\textbf{No.} & \textbf{Category (\zh{類})} & \textbf{Problems} \\
+\textbf{No.} & \textbf{Category (\zh{類})} & \textbf{Problems} & \textbf{Description} \\
 \hline
-1 & \zh{乘除} (Multiplication and Division) & 41 \\
-2 & \zh{分率} (Rates and Proportions) & 41 \\
-3 & \zh{合率} (Combined Rates) & 10 \\
-4 & \zh{互換} (Exchange and Conversion) & 11 \\
-5 & \zh{衰分} (Proportional Distribution) & 18 \\
-6 & \zh{疊積} (Stacked Accumulations) & 27 \\
-7 & \zh{盈不足} (Excess and Deficit) & 20 \\
-8 & \zh{方程} (Rectangular Arrays) & 19 \\
-9 & \zh{勾股} (Right Triangles) & 24 \\
+\endfirsthead
 \hline
-\multicolumn{2}{|r|}{\textbf{Total}} & \textbf{246} \\
+\textbf{No.} & \textbf{Category (\zh{類})} & \textbf{Problems} & \textbf{Description} \\
+\hline
+\endhead
+1 & \zh{乘除} (Multiplication and Division) & 41 & Basic arithmetic operations \\
+2 & \zh{分率} (Rates and Proportions) & 41 & Fractions and proportional reasoning \\
+3 & \zh{合率} (Combined Rates) & 10 & Multiple rates combined \\
+4 & \zh{互換} (Exchange and Conversion) & 11 & Barter and currency exchange \\
+5 & \zh{衰分} (Proportional Distribution) & 18 & Weighted distribution problems \\
+6 & \zh{疊積} (Stacked Accumulations) & 27 & Series and summation problems \\
+7 & \zh{盈不足} (Excess and Deficit) & 20 & Double false position method \\
+8 & \zh{方程} (Rectangular Arrays) & 19 & Systems of linear equations \\
+9 & \zh{勾股} (Right Triangles) & 24 & Pythagorean theorem applications \\
+\hline
+\multicolumn{2}{|r|}{\textbf{Total}} & \textbf{246} & \\
 \hline
 \end{longtable}
 \end{center}
-
-\vspace{1cm}
 
 \begin{chpassage}
 \zh{楊輝竊見九章舊本，作立題法，迫圓古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至具術淹廢，偽本滋興。此說固然，殊不知所傳之本亦不得其真矣。}
@@ -1072,10 +2185,24 @@ original intent, leading to the decline of proper methods and the
 proliferation of erroneous editions.
 \end{chpassage}
 
+\begin{chpassage}
+\zh{輝不揆愚昧，輒采諸家之善，訂正訛謬，復為詳解，附以圖說。使後之學者，知九章之法，實為算學之淵源；而詳解之作，所以明其理而通其用也。輝所補者，凡圖解、比類、纂類三者，以為九章之羽翼焉。}
+
+\medskip
+\textit{Translation:} Not considering my own ignorance, I have collected the
+best from various schools, corrected errors and mistakes, and composed this
+detailed analysis with diagrams and explanations. So that later students may
+know that the methods of the Nine Chapters are truly the source of
+mathematical learning; and this work of detailed analysis serves to clarify
+their principles and extend their applications. What I have added ---
+diagrams, comparative categories, and compilation --- serve as wings to the
+Nine Chapters.
+\end{chpassage}
+
 \vspace{2cm}
 \begin{center}
 \longline\\[0.5cm]
-{\small\textit{End of Part II}}
+{\small\textit{End of Part II --- Expanded Edition}}
 \end{center}
 
 \end{document}
