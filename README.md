@@ -8,12 +8,12 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 - Main landing, bulk preservation, and raw source backstop: https://zenodo.org/records/20430709
 - EGA working English translation and French originals: https://zenodo.org/records/20432146
-- SGA working English translation and French references: https://zenodo.org/records/20432263
+- SGA working English translation and French references: https://zenodo.org/records/20434295
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20434098
 - Heinrich Weber author record: https://zenodo.org/records/20431945
 - Emmy Noether author record: https://zenodo.org/records/20431948
 - Carl Friedrich Gauss author record: https://zenodo.org/records/20433382
-- Bernhard Riemann author record: https://zenodo.org/records/20431305
+- Bernhard Riemann author record: https://zenodo.org/records/20434317
 - Deligne working record: https://zenodo.org/records/20414959
 - Classical algebra/arithmetic shelf: https://zenodo.org/records/20418609
 - Author cluster shelf: https://zenodo.org/records/20416839
@@ -52,6 +52,7 @@ Please keep corrections narrowly scoped and cite the source page or file when po
 Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
 
 For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20430709.
+
 
 
 
