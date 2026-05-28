@@ -15,7 +15,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 ## Current Public Records
 
 - Main landing page: https://zenodo.org/records/20415117
-- EGA working translation: https://zenodo.org/records/20424211
+- EGA working translation: https://zenodo.org/records/20425537
 - SGA working translation: https://zenodo.org/records/20425251
 - Heinrich Weber author record: https://zenodo.org/records/20425366
 - Emmy Noether author record: https://zenodo.org/records/20422936
@@ -42,7 +42,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 ## Status
 
-This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 850 pages and includes EGA 0_IV sections 15 through 23, EGA IV sections 1 through 18 as substantive working translations, short substantive material for EGA IV section 20, and stubs for EGA IV sections 19 and 21. The SGA mirror includes cleaned reader snapshots for SGA 1-3, a complete current SGA 4 working reader through Exposes I-XIX, and SGA 5 with Expose I complete plus Expose III/III B material through III B section II.5.10. The non-European mirror now includes the current multilingual release: 66 public reader PDFs plus 214 editable TeX files, including author/work-level TeX bundles for translations and original-language drafts. The Weber mirror now includes original-language TeX drafts for Volumes I and III, the current Volume II English translation reader, and a separate Volume I English draft on invariants and finite binary polyhedral groups. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 905 pages and includes EGA 0_IV sections 15 through 23 plus EGA IV sections 1 through 21 as substantive working translations. The SGA mirror includes cleaned reader snapshots for SGA 1-3, a complete current SGA 4 working reader through Exposes I-XIX, and SGA 5 with Expose I complete plus Expose III/III B material through III B section II.5.10. The non-European mirror now includes the current multilingual release: 66 public reader PDFs plus 214 editable TeX files, including author/work-level TeX bundles for translations and original-language drafts. The Weber mirror now includes original-language TeX drafts for Volumes I and III, the current Volume II English translation reader, and a separate Volume I English draft on invariants and finite binary polyhedral groups. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
 
 ## Contributing
 
