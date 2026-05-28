@@ -1,0 +1,524 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: IV, Topoi
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/04/04.tex
+% Range translated in this batch: Expose IV, Sections 7--8.8; source lines 4121--5253.
+% Status: draft translation, compile-checked, not proofed line-by-line against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,hypertexnames=false}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Grp}{\mathbf{Grp}}
+\newcommand{\Sch}{\mathbf{Sch}}
+\newcommand{\Top}{\operatorname{Top}}
+\newcommand{\TOP}{\operatorname{TOP}}
+\newcommand{\Open}{\operatorname{Open}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Ouv}{\operatorname{Open}}
+\newcommand{\ouv}{\operatorname{Open}}
+\newcommand{\Point}{\operatorname{Point}}
+\newcommand{\Pt}{\operatorname{Pt}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\Pro}{\operatorname{Pro}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Cat}{\operatorname{Cat}}
+\newcommand{\Inf}{\operatorname{Inf}}
+\newcommand{\Sup}{\operatorname{Sup}}
+\newcommand{\cat}{\operatorname{cat}}
+\newcommand{\kar}{\operatorname{Kar}}
+\newcommand{\Ppoints}{\operatorname{Pt}}
+\newcommand{\Ppoint}{\operatorname{Pt}}
+\newcommand{\Ppointess}{\operatorname{Pt}_{\mathrm{ess}}}
+\newcommand{\Ffib}{\operatorname{Fib}}
+\newcommand{\Ttors}{\operatorname{Tors}}
+\newcommand{\Hhom}{\mathcal{H}om}
+\newcommand{\Hhomtop}{\mathcal{H}om_{\mathrm{top}}}
+\newcommand{\Hhomtopess}{\mathcal{H}om_{\mathrm{top},\mathrm{ess}}}
+\newcommand{\Homtop}{\operatorname{Hom}_{\mathrm{top}}}
+\newcommand{\Sh}{\operatorname{Sh}}
+\newcommand{\PSh}{\operatorname{PSh}}
+\newcommand{\sob}{\operatorname{sob}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tw}[1]{\widetilde{#1}}
+\newcommand{\fprod}[3]{{#1}\times_{#3}{#2}}
+\newcommand{\ie}{i.e.}
+\newcommand{\cf}{cf.}
+\newcommand{\resp}{respectively}
+\newcommand{\loccit}{loc. cit.}
+\newcommand{\EGA}{EGA}
+\newcommand{\SGA}{SGA}
+\newcommand{\blank}{\,\cdot\,}
+\newcommand{\quav}{\quad\text{and}\quad}
+\newcommand{\qu}{\quad}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e IV. Topoi}}\\[0.35em]
+{\large Draft translation, Sections 7--8.8}\\[0.35em]
+A. Grothendieck and J.-L. Verdier
+\end{center}
+
+\bigskip
+
+\noindent\emph{Translator's status note.} This is a working English translation of SGA~4, Expos\'e~IV, Sections~7--8.8. The range corresponds to source lines 4121--5253 of the Orgogozo--Laszlo TeX snapshot. Terminology is normalized to current mathematical English where this is harmless: \emph{geometric morphism} for French \emph{morphisme de topos}, \emph{fiber functor}, \emph{soberification}, \emph{classifying topos}, \emph{essential morphism}, \emph{dominant morphism}, \emph{open subtopos/open of a topos}, and \emph{local on the source/target}. Numbering follows the source.
+
+\setcounter{section}{6}
+\section{Examples of fiber functors and points of topoi}
+
+\subsection*{7.1. The case of \(\Top(X)\), for a topological space \(X\)}
+
+Let \(x\) be a point of \(X\). Regard the one-point set \(\{x\}\) as a topological space, and consider the inclusion
+\[
+i_x:\{x\}\longrightarrow X.
+\]
+By 4.1.1 it defines a geometric morphism, defined up to unique isomorphism,
+\begin{equation*}
+\Top(i_x):\Top(\{x\})\longrightarrow\Top(X).\tag{7.1.1}
+\end{equation*}
+On the other hand, one may identify \(P\) with \(\Top(\{x\})\) (2.2), and hence obtains a point \(p_x\) of \(\Top(X)\):
+\begin{equation*}
+p_x:P\longrightarrow\Top(X),\tag{7.1.2}
+\end{equation*}
+defined by \(x\) up to unique isomorphism. The associated fiber functor is given by the familiar formula [TF], which follows immediately from I, 5.1:
+\begin{equation*}
+p_x^*(F)=F_x=F_{p_x}=\varinjlim_{U\ni x}F(U),\tag{7.1.3}
+\end{equation*}
+the limit being taken over the open neighborhoods \(U\) of \(x\) in \(X\).
+
+Since \(\Top(X)\) is known to be isomorphic to \(\Top(X_{\sob})\) (4.2.1), one sees more generally that every point of \(X_{\sob}\), \ie\ every irreducible closed subset \(Z\) of \(X\), defines a point of \(\Top(X)\), or equivalently a fiber functor on \(\Top(X)\), still denoted \(F\mapsto F_Z\). Returning to its definition by the formula (7.1.3) on \(X_{\sob}\), one obtains
+\begin{equation*}
+F_Z=\varinjlim_{U\cap Z\ne\varnothing}F(U),\tag{7.1.4}
+\end{equation*}
+the inductive limit being taken over the open subsets \(U\) of \(X\) which meet \(Z\).
+
+\subsubsection*{7.1.5}
+It is well known that the fiber functors \(F\mapsto F_x\), \(x\in X\), already form a conservative family. This is especially clear from the interpretation of sheaves on \(X\) in terms of \'{e}tale spaces: the fiber of \(F\) at \(x\) is then just its fiber in the sense of spaces fibered over \(X\). Notice that the index set of this conservative family of fiber functors is \(X\), and hence is \(\U\)-small.
+
+\subsubsection*{7.1.6}
+By 4.2.3, the category \(\Ppoint(\Top(X))\) is equivalent to the category associated with the set \(X_{\sob}\) ordered by the specialization relation. In other words, every fiber functor on \(\Top(X)\) is isomorphic to a fiber functor \(F\mapsto F_Z\), where \(Z\) is a uniquely determined element of \(X_{\sob}\), \ie\ a uniquely determined irreducible closed subset of \(X\). Moreover, if \(Z,Z'\in X_{\sob}\), then \(\Hom(F_Z,F_{Z'})\) is either empty or reduced to one element; the latter case occurs if and only if \(Z\) is a specialization of \(Z'\) in \(X_{\sob}\), \ie\ if and only if \(Z\subset Z'\) as a subset of \(X\). When \(X\) itself is sober, one may replace \(X_{\sob}\) by \(X\) in these statements.
+
+Observe that the automorphism group of a fiber functor of \(\Top(X)\), opposite to the automorphism group of the corresponding point of \(\Top(X)\), is always the trivial group. More generally, 4.2.3 says the same thing for the automorphism group of any geometric morphism associated with topological spaces. This is a very special phenomenon of the present case; see the example 7.2, as well as VIII, 7. In the case of topoi associated with ``moduli problems'' (cf. for instance [10]), the automorphism groups of the fiber functors have, moreover, a remarkable interpretation: they are the automorphism groups of the algebraic structures over algebraically closed fields which one proposes to classify.
+
+\subsubsection*{7.1.7}
+We have just seen how one can reconstruct a sober space \(X\), or the sober space \(X_{\sob}\) associated with an arbitrary topological space, at least as an ordered set under the specialization relation, from the topos \(\Top(X)\), which it is enough to know up to equivalence, as the set of isomorphism classes of ``points'' of \(\Top(X)\). According to 2.1, one also reconstructs the topology of \(X\), \ie\ the family of its open subsets, as follows. For every subobject \(U\) of the final object \(e_E\) of \(E\), let \(\Pt(U)\) be the set of \(x\in X\) such that \(U_x\ne\varnothing\). By (6.7.2), this also identifies with the set of isomorphism classes of points of the induced topos \(E_{/U}\). Then \(U\mapsto\Pt(U)\) is an isomorphism of ordered sets from the set of subobjects of \(e_E\) onto the set of open subsets of \(X\).
+
+\subsubsection*{7.1.8}
+The determination 7.1.6 of the category of points of the topos \(\Top(X)\) defined by a topological space \(X\) leads to the following terminology for points \(p,p'\) of an arbitrary topos \(E\): one says that \(p\) is a \emph{specialization} of \(p'\), or that \(p'\) is a \emph{generization} of \(p\), if there is a morphism from \(p'\) to \(p\), in the sense of the category \(\Ppoint(E)\) of 6.1. These relations are still transitive, but by 6.8.6 one easily finds examples in which \(p\) and \(p'\) are each a specialization of the other without being isomorphic, much less equal. The category of generizations of a point \(p\) of the topos \(E\), meaning the category \(\Ppoint(E)_{/p}\), plays in some respects a role analogous to localization of a scheme at a point. This role will be made precise in Chapter~VI, 8.4, with the construction of the topos localized at \(p\); its category of points is canonically equivalent to the category of generizations of \(p\).
+
+\begin{remarktext}{Exercise 7.1.9}
+Let \(E\) be a \(\U\)-topos. Prove that \(E\) is equivalent to a topos of the form \(\Top(X)\), where \(X\) is a topological space belonging to \(\U\), if and only if it satisfies the following two conditions:
+\begin{enumerate}[label=\alph*)]
+\item The family of subobjects of the final object \(e_E\) is generating for the topos \(E\).
+\item \(E\) has enough points (6.5). This condition is not superfluous; cf. 7.4.
+\end{enumerate}
+Compare with 7.8 c).
+\end{remarktext}
+
+\begin{remarktext}{Exercise 7.1.10}
+Let \(X\) be a topological space endowed with a group \(G\) of operators, with \(X,G\in\U\), and let \(E=\Top(X,G)\) (2.3).
+\begin{enumerate}[label=\alph*)]
+\item Show that for every object \((X',G)\) of \(E\), the induced topos \(E_{/(X',G)}\) is canonically equivalent to \(\Top(X',G)\) (compare 5.7).
+\item When \(G\) acts properly and freely on \(X'\) (Bourbaki, \emph{General Topology}, Chapter~III, \S4), show that the morphism of spaces with operators \((X',G)\to (X'/G,e)\) induces an equivalence of topoi
+\[
+\Top(X',G)\longrightarrow\Top(X'/G).
+\]
+\item Deduce from b) that there is an object \(Z\) of \(E\) such that the induced topos \(E_{/Z}\) is equivalent to \(\Top(X)\), the localization functor \(E\to E_{/Z}\) being isomorphic to the functor ``forget the operations of \(G\)''. Imitate the argument of 5.8.3.
+\item Deduce from c) that every fiber functor on \(E\) is induced, via the functor ``forget the operations of \(G\)'', by a fiber functor on \(\Top(X)\), and is therefore definable by a point of \(X_{\sob}\).
+\item Determine the structure of the category \(\Ppoint(E)\), up to equivalence, in terms of the space with operators \((X_{\sob},G)\). Conclude in particular that two points of \(X_{\sob}\) define isomorphic fiber functors on \(E\) if and only if they are conjugate under the action of \(G\).
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 7.1.11}
+Let \(X\in\U\) be a topological space. Prove that the \(\V\)-topos \(\TOP(X)\) (2.5) has enough points. More precisely, for every object \(X'\) of \(\TOP(X)\), and every \(x'\in X'\), define a fiber functor \(F\mapsto F_{X',x'}\) on \(\TOP(X)\), depending only on the germ of the space \((X',x')\) over \(X\), and prove that this family of fiber functors is conservative and indexed by a \(\V\)-small set. Using a suitable filtered projective system \((X'_i,x'_i)_{i\in I}\), with \(I\) not \(\U\)-small, show that one does not obtain in this way all the fiber functors of the \(\V\)-topos \(\TOP(X)\). Show that the set of isomorphism classes of such fiber functors does not have cardinal belonging to \(\V\).
+\end{remarktext}
+
+\subsection*{7.2. Points of a classifying topos \(B_G\)}
+
+Let \(E\) be a \(\U\)-topos and let \(G\) be a group object of \(E\), whence a classifying topos \(B_G\) (2.4). If \(e\) is the trivial group object, the morphisms \(e\to G\to e\) define, by 4.5, geometric morphisms, using \(B_e\simeq E\),
+\begin{equation*}
+E\longrightarrow B_G\longrightarrow E,\tag{7.2.1}
+\end{equation*}
+whose composite is isomorphic to \(\id_E\). Passing to categories of points gives functors
+\begin{equation*}
+\Ppoint(E)\longrightarrow\Ppoint(B_G)\longrightarrow\Ppoint(E),\tag{7.2.2}
+\end{equation*}
+whose composite is isomorphic to the identity. Use the fact that the first geometric morphism in (7.2.1) identifies with a localization morphism relative to the object \(E_G=G\) of \(B_G\) (5.8). By (6.7.2), the first functor in (7.2.2) then identifies with the natural ``inclusion'' functor
+\begin{equation*}
+\Ppoint(B_G)_{/\widehat E_G}\longrightarrow\Ppoint(B_G),\tag{7.2.3}
+\end{equation*}
+where \(\widehat E_G\) denotes the presheaf \(p'\mapsto (E_G)_{p'}\) on \(\Ppoint(B_G)\). Since \(E_G\) plainly covers the final object of \(B_G\), its fibers \((E_G)_p\) are non-empty. It follows that (7.2.3) is essentially surjective. Equivalently, \emph{every fiber functor on \(B_G\) is induced, up to isomorphism, by a fiber functor on \(E\), via the functor \(B_G\to E\) which forgets the operations of \(G\).} In particular, \emph{if \(E\) has enough points, respectively a small conservative family of points, then so does \(B_G\).}
+
+\begin{remarktext}{Remark 7.2.4}
+One can go further and determine, up to equivalence, the structure of the category \(C'=\Ppoint(B_G)\) in terms of the category \(C=\Ppoint(E)\) and the presheaf of groups
+\[
+\widehat G:p\longmapsto G_p:C^\circ\longrightarrow (\text{Groups})
+\]
+on it. Define a new category \(C_1\), with the same objects as \(C\), and such that for two objects \(p,q\) of \(C\) one has
+\[
+\Hom_{C_1}(p,q)=\Hom_C(p,q)\times\widehat G(p),
+\]
+composition in \(C_1\) being induced by composition in \(C\), and by the group law of the presheaf \(\widehat G\). The datum of a functor \(\varphi_1:C_1\to D\), for an arbitrary category \(D\), is then equivalent to the datum of a functor \(\varphi:C\to D\) endowed with an action of the presheaf \(\widehat G\) on it, meaning, for every \(p\in\ob C\), an action of \(\widehat G(p)\) on \(\varphi(p)\), satisfying the evident functoriality condition as \(p\) varies. Using this observation, one defines a canonical functor
+\begin{equation*}
+\varphi_1:C_1\longrightarrow C',\tag{7.2.4.1}
+\end{equation*}
+corresponding to the functor \(\varphi:C\to C'\) of (7.2.2), which associates to every point \(p\) of \(E\) the point \(\varphi(p)\) induced on \(B_G\), with the natural actions of \(\widehat G(p)=G_p\) on it, coming from the actions of \(G_p\) on the \(X_p\) as \(X\) ranges over \(B_G\). We leave to the reader the proof that (7.2.4.1) is an equivalence of categories, using the structure (7.2.3) of the first functor in (7.2.2), and observing that the natural inclusion functor \(C\to C_1\) has an analogous structure relative to the inverse image \(P_1\) of the presheaf \(P'=\widehat E_G\) on \(C'\).
+\end{remarktext}
+
+\subsubsection*{7.2.5}
+One concludes in particular that the \emph{isomorphism classes of points of \(B_G\) correspond exactly to the isomorphism classes of points of \(E\): every point of the classifying topos \(B_G\) is induced, up to non-unique isomorphism, by a point of \(E\).} In particular, when \(E\) is the punctual topos \(P\), so that \(G\) is an ordinary group, the category \(\Ppoint(B_G)\) is a connected groupoid with fundamental group \(G\): every fiber functor on \(B_G\) is isomorphic, non-canonically, to the functor \(\omega\) which forgets the operations of \(G\), and the monoid of endomorphisms of this functor is the group \(G\). Thus every endomorphism of \(\omega\) is an automorphism.
+
+\begin{remarktext}{Exercise 7.2.6}
+\begin{enumerate}[label=\alph*)]
+\item Let \((\Ttors)\) be the category of pairs \((\Gamma,P)\in\U\), where \(\Gamma\) is a group and \(P\) is a right torsor under \(\Gamma\). The functor
+\begin{equation*}
+(\Ttors)\longrightarrow(\text{Groups}),\quad (\Gamma,P)\longmapsto\Gamma\tag{7.2.6.1}
+\end{equation*}
+is a cofibered functor. With the notation of 7.2.4, consider the functor
+\[
+\widehat G:C^\circ\longrightarrow(\text{Groups}),
+\]
+and let \(D'\) be the cofibered category over \(C^\circ\) inverse image of the cofibered category (7.2.6.1). Let \(D\) be the corresponding fibered category over \(C\), with the same fiber categories as \(D'\), so that for \(p\in\ob C\),
+\[
+D_p=\text{the category of right }G_p\text{-torsors}.
+\]
+Construct canonical functors
+\begin{equation*}
+D\longrightarrow C'=\Ppoint(B_G)\quav C'\longrightarrow D,\tag{7.2.6.2}
+\end{equation*}
+quasi-inverse to one another. In particular, conclude that the category of points of \(B_G\) lying above a given point \(p\) of \(E\) is canonically equivalent to the category of right torsors under the group \(G_p\).
+
+\item Let \(\mathcal G=(G_i)_{i\in I}\) be a strict projective system of group objects of the \(\U\)-topos \(E\), where \(I\in\U\) is a filtered preordered set, whence a classifying topos \(B_{\mathcal G}\), imitating the definition of 2.7.1. Determine the category of points of \(B_{\mathcal G}\), imitating a). In other words, replace the categories \((\Ttors)\) and \((\text{Groups})\) by the categories of projective systems indexed by \(I\) in these categories. Conclude that if \(I\) admits a countable cofinal subset, then every fiber functor on \(B_{\mathcal G}\) is isomorphic to a functor induced by a fiber functor on \(E\), via the functor which forgets the operations of \(G\); the latter is determined up to non-unique isomorphism.
+
+\item Take \(E\) to be the punctual topos, so that \(\mathcal G\) is an ordinary pro-group. Show that the conclusion of b) is also valid if \(I\) is arbitrary but \(\mathcal G\) is profinite, \ie\ the \(G_i\) are finite: every fiber functor is isomorphic to the functor which forgets the operations of \(G\).
+
+\item Still in the case where \(E\) is the punctual topos, give an example of a fiber functor on \(B_{\mathcal G}\), for a suitable projective system \(\mathcal G=(G_i)_{i\in I}\), which is not isomorphic to the functor which forgets the operations of \(G\).
+
+\item Regard \(\mathcal G=(G_i)\) as a group object of the topos \(\widehat I\), and let \(\mathcal T\) be a \emph{gerbe} on \(I\) with \emph{band} \(G\) [3]. Show how one may ``twist'' the classifying topos \(B_G\) by means of the gerbe \(T\), obtaining a topos \(B^T_{\mathcal G}\), an inductive limit of subcategories \(B^T(i)\) equivalent, non-canonically, to the classifying topoi \(B_{G_i}\). Show that the topos \(B^T_{\mathcal G}\) admits a fiber functor if and only if the gerbe \(T\) is neutral, by establishing an equivalence of categories between the category of fiber functors of \(B^T_{\mathcal G}\) and the category of sections of \(T\) over \(I\). Conclude, if the \(G_i\) are commutative, so that gerbes on \(I\) banded by \(\mathcal G\) are classified by
+\[
+{\varprojlim_I}^{(2)}G_i=H^2(I,\mathcal G)
+\]
+(\loccit), that there is an example of a topos, non-empty in the sense of 2.2, of the form \(B^T_{\mathcal G}\) which has no points. Take an example where \({\varprojlim_I}^{(2)}G_i\ne0\).
+\end{enumerate}
+\end{remarktext}
+
+\subsection*{7.3. Points of the topoi \(\widehat C\); examples of \(\U\)-topoi \(\widehat C\) whose category of points is not equivalent to a small category}
+
+Let \(E\) be a \(\U\)-topos and let \((\varphi_i)_{i\in I}\) be a filtered family of fiber functors on \(E\). It follows from the exactness properties of the functors \(\varinjlim\) (I, 2.8) that \(\varphi=\varinjlim\varphi_i\) is again a fiber functor: \emph{every filtered inductive limit of fiber functors is a fiber functor}. Consequently the category \(\Ffib(E)\) admits \(\U\)-small filtered inductive limits, and the inclusion functor \(\Ffib(E)\to\Hhom(E,(\U\text{-}\Set))\) commutes with them. Equivalently, the category \(\Ppoint(E)\) admits \(\U\)-small filtered projective limits. This fact was already used in Exercises 7.1.10 and 7.1.11 to give examples of large categories of fiber functors.
+
+One can construct much simpler examples, with topoi of the form \(E=\widehat C\), \(C\in\U\), using (6.8.6.1). This immediately gives examples where \(\Ffib(\widehat C)\) is not equivalent to a category belonging to \(\U\), \ie\ where the cardinality of the set of isomorphism classes of objects of this \(\U\)-category is not in \(\U\). This means that the category \(\Pro(C)\) is not equivalent to a category in \(\U\). It suffices, for example, to take \(D=C^\circ\) to be the category of finite sets of the form \([0,n]\), where \(n\ge0\) is an integer. Then \(\Ind(D)\simeq\Pro(C)^\circ\) is equivalent to the category of non-empty sets. In this case the topos \(E\) is the familiar category of \emph{cosimplicial sets}. One could also take for \(C\) the category of non-empty finite sets; then the category of points of the topos \(\widehat C\) of simplicial sets is equivalent to the category of profinite sets, or equivalently to the category of totally disconnected compact spaces.
+
+\subsection*{7.4. Non-empty topoi without points}
+
+The following example is due to P.~Deligne. For another example, cf. 7.2.6 e). Take a compact space \(K\) endowed with a measure \(\mu\), and the ordered set \(U\) of measurable subsets of \(K\), modulo sets of measure zero. Make \(U\) into a category \(\underline U\) with \(\ob\underline U=U\), whose morphisms are the inclusion morphisms among elements of \(U\). Make \(\underline U\) into a site by taking the pretopology in which \(\Cov(E)\), for \(E\in U\), consists of countable families of elements \(E_i\) of \(U\), bounded above by \(E\), such that \(E\) is the union of the \(E_i\), modulo a set of measure zero. One obtains a topos \(\Top(\mu)=\underline U^{\sim}\), which admits the set of subobjects of the final object as a generating family. This topos seems to have escaped the attention of probabilists. It is the empty topos (2.2) if and only if \(\mu=0\). On the other hand, the category of points of this topos is equivalent to the discrete category defined by the set of points \(x\in K\) such that \(\mu(\{x\})\ne0\). The proof is left to the reader. Thus it is empty when \(K\) has no such points, for example when \(K\) is the unit interval on the real line, with the measure induced by Lebesgue measure.
+
+\begin{remarktext}{Exercise 7.5 (Karoubian categories and geometric morphisms)}
+\begin{enumerate}[label=\alph*)]
+\item Let \(C\) be a category, \(X\) an object of \(C\), and \(p\) an endomorphism of \(X\). One says that \(p\) is a \emph{projector} if \(p^2=p\). Prove that, if \(p\) is a projector, then \(\Ker(\id_X,p)\) is representable if and only if \(\Coker(\id_X,p)\) is representable, and the two objects of \(C\) so obtained are canonically isomorphic. One then says that the projector \(p\) \emph{admits an image}, and \(\Ker(\id_X,p)\simeq\Coker(\id_X,p)\) is called the \emph{image of the projector \(p\)}. Depending on the context, it is identified with a subobject or with a quotient object of \(C\). An object isomorphic to \(\im p\), for a suitable projector \(p\) of \(X\), is called a \emph{direct summand of the object \(X\) of \(C\)}. One says that \(C\) is a \emph{category with direct summands}, or a \emph{Karoubian category}, if every projector in an object of \(C\) admits an image. If \(F:C\to C'\) is a functor which commutes with kernels or cokernels, then \(F\) carries a projector admitting an image to a projector admitting an image.\footnote{In fact no condition on \(F\) is needed here: all functors preserve projectors which admit images.}
+
+\item Show that for every category \(C\) one can find a functor \(\varphi:C\to\kar(C)\) from \(C\) into a Karoubian category, determined up to equivalence, such that for every Karoubian category \(C'\), the functor
+\[
+f\longmapsto f\circ\varphi:\Hhom(\kar(C),C')\longrightarrow\Hhom(C,C')
+\]
+is an equivalence of categories. We call \(\kar(C)\) the \emph{Karoubi envelope} of \(C\). Hint: take \(\ob\kar(C)\) to be the set of pairs \((X,p)\), where \(X\in\ob C\) and \(p\) is a projector of \(X\), and take \(\Hom((X,p),(Y,q))\) to be the subset of \(\Hom(X,Y)\) formed by those \(f:X\to Y\) such that \(f=qfp\). Show that \(\varphi\) is fully faithful.
+
+\item Let \(F:E\to E'\) be a functor from one category to another. Show that if \(F\) commutes with a certain type of inductive or projective limits, then the same holds for every direct summand of \(F\). In particular, if \(E\) and \(E'\) are \(\U\)-topoi and if \(F\) is an inverse image functor for a geometric morphism \(E'\to E\), then the same holds for every direct summand of \(F\). Hence the category \(\Hhomtop(E',E)\) is Karoubian, and in particular the category \(\Ppoint(E)\) is Karoubian.
+
+\item Show that for every \(\U\)-category \(C\), the category \(\Ind(C)\) is Karoubian, where \(\Ind(C)\) is formed using inductive systems in \(C\) indexed by a filtered preordered set \(I\in\U\). If \(C\in\U\), use for instance the fact (7.3) that \(\Ind(C)\) is equivalent to the category \(\Ffib((C^\circ)^{\widehat{\phantom{,}}})=\Ppoint((C^\circ)^{\widehat{\phantom{,}}})^\circ\). Deduce another construction of \(\kar(C)\), as the full subcategory of \(\Ind(C)\) formed by the images in \(\Ind(C)\) of projectors of objects \(X\) of \(C\).
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 7.6 (Essential geometric morphisms; essential points)}
+\begin{enumerate}[label=\alph*)]
+\item Let \(f:E\to F\) be a geometric morphism. Show that the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item \(f_!\) exists, \ie\ \(f^*\) admits a left adjoint.
+\item \(f^*\) commutes with \(\U\)-small projective limits.
+\item \(f^*\) commutes with \(\U\)-small products.
+\end{enumerate}
+One then says that \(f\) is an \emph{essential morphism} of topoi from \(E\) to \(F\). Show that if \(f\) satisfies these conditions, then the same holds for every direct summand of \(f\). Use 1.8 and 7.5 c).
+
+\item Let \(E\) be a topos. An \emph{essential point} of \(E\) is a point \(p:P\to E\) such that \(p_!\) exists. Show that if \(E=\Top(X)\), with \(X\) a topological space, and if \(p\) is the point of \(E\) defined by \(x\in X\), then \(p\) is essential if and only if \(x\) admits a smallest open neighborhood \(U\). If the points of \(X\) are closed, this means that \(x\) is an isolated point of \(X\). For a geometric morphism \(f:E\to F\) to be essential, it is necessary that \(f\) carry essential points to essential points; this condition is also sufficient when \(E\) has enough essential points, meaning when these points form a conservative family. Cf. d).
+
+\item A point \(p\) of the topos \(E\) is essential if and only if the associated fiber functor is represented by an object \(X\) of \(E\). For the covariant functor \(\varphi:E\to(\Set)\) represented by a given object \(X\) of \(E\) to be a fiber functor, \ie\ to define a necessarily essential point of \(E\), it is necessary and sufficient that \(X\) be non-empty connected (4.3.5) and projective, \ie\ that \(\varphi\) carry epimorphisms to epimorphisms. Hint: first show that \(\varphi\) commutes with sums if and only if \(X\) is non-empty connected, then use the criterion 4.9.4. Conclude an equivalence between the category \(\Ppointess(E)\) and the full subcategory \(P\) of \(E\) formed by the non-empty connected projective objects.
+
+\item Show that the topology on \(P\) induced by that of \(E\) is the chaotic topology. Deduce the equivalence of the following conditions on \(E\), due to J.~E.~Roos [12 c), Proposition~1]: (i) the family of essential points of \(E\) is conservative; (ii) the full subcategory \(P\) of \(E\) formed by non-empty connected projective objects is generating; (iii) \(E\) is equivalent to a topos of the form \(\widehat C\), where \(C\) is a category equivalent to a category in \(\U\), or, equivalently, one may take \(C\in\U\). Use c) and the fact that, if \(P\) is generating, the natural functor \(E\to P^{\sim}\) is an equivalence of categories.
+
+\item The category of essential points of a topos \(E\) is Karoubian (cf. 7.5 c)). Let \(C\) be a category equivalent to a category in \(\U\). Prove that the canonical fully faithful functor (4.6.2)
+\[
+C\longrightarrow\Ppoint(\widehat C)
+\]
+factors through a functor
+\[
+C\longrightarrow\Ppointess(\widehat C),
+\]
+which makes \(\Ppointess(\widehat C)\) a \emph{Karoubi envelope} of \(C\) (7.5 b)). In particular, this functor is an equivalence of categories if and only if \(C\) is Karoubian. Hint: using c), prove that every isolated point of \(\widehat C\) is isomorphic to a direct summand of an \(X\in\ob C\).
+
+\item Let \(C\) and \(C'\) be two categories equivalent to categories in \(\U\). Prove that the canonical fully faithful functor (4.6.2)
+\[
+\Hhom(C,C')\longrightarrow\Hhomtop(\widehat C,\widehat{C'})
+\]
+takes its values in the full subcategory \(\Hhomtopess(\widehat C,\widehat{C'})\) of essential geometric morphisms, and that the induced functor
+\[
+\Hhom(C,C')\longrightarrow\Hhomtopess(\widehat C,\widehat{C'})
+\]
+is an equivalence of categories if and only if \(C\) is empty or \(C'\) is Karoubian. Use g) below.
+
+\item Let \(C\) be a category equivalent to a category in \(\U\), and let \(E\) be a topos. Define an equivalence between the category \(\Hhomtopess(\widehat C,E)\) of essential geometric morphisms \(\widehat C\to E\), and the category \(\Hhom(C,\Ppointess(E))\). Use b) and the fact that \(\widehat C\) has enough essential points.
+
+\item Let \(C\) be a finite category. Prove that every point of \(\widehat C\) is essential, and that \(\Ppoint(\widehat C)\) is equivalent to a finite category. Noting that the Karoubi envelope of \(C\) is finite and using (6.8.6.1), reduce to proving that if \(C\) is a finite Karoubian category, then the canonical functor \(C\to\Pro(C)\) is an equivalence of categories. Using b), conclude that \emph{every} geometric morphism \(\widehat{C'}\to\widehat C\) is essential, and that \(\Hhom(C,C')\to\Hom(\widehat C,\widehat{C'})\) is an equivalence if and only if \(C\) is empty or \(C'\) is Karoubian.
+
+\item Let \(X\) be a topological space, and let \(f:\Top(X)\to P\) be the geometric morphism induced by the continuous map from \(X\) to the one-point space. Show that \(f\) is essential if and only if \(X\) is \emph{locally connected}, \ie\ satisfies the following condition: for every \(x\in X\) and every open neighborhood \(U\) of \(x\), the connected component of \(x\) in \(U\) is a neighborhood of \(x\); equivalently, for every open subset \(U\) of \(X\), the connected components of \(U\) are open. Cf. 8.7 l) for a generalization.
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 7.7 (Unusual points of a classifying topos)}
+\begin{enumerate}[label=\alph*)]
+\item Let \(G\) be a monoid. The monoid \(G\) contains an element \(g\) such that \(g\ne e\) and \(g^2=g\) if and only if the classifying topos \(B_G\) admits an essential point not isomorphic to the trivial point, the one corresponding to the fiber functor which forgets the operations of \(G\). Use 7.6 e).
+\item Let \(G\) be the additive monoid of integers \(\ge0\). Show that every essential point of the classifying topos \(B_G\) is isomorphic to the trivial point. Construct a point of \(B_G\) which is not isomorphic to the trivial point. Show that the category \(\Ppoint(B_G)\) is not equivalent to a category in \(\U\).
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 7.8 (Topology on \(\Point(E)\), and topoi associated with ordered sets)}
+\begin{enumerate}[label=\alph*)]
+\item Let \(E\) be a topos. Denote by \(\Point(E)\) the set of isomorphism classes of points of \(E\). For every open \(U\) of \(E\), let \(U'\) be the set of classes of points \(p\) of \(E\) such that \(U_p\ne\varnothing\). Show that \(U\mapsto U'\) is an increasing map from the ordered set \(\Ouv(E)\) of open subobjects of \(E\) to the set of subsets of \(X=\Point(E)\), and that this map commutes with finite infima and arbitrary suprema. Deduce that the subsets of \(X\) of the form \(U'\) define a topology on \(X\), called the \emph{canonical topology on the set of classes of points of the topos \(E\)}. Show that if \(E\) has enough points, the map \(U\mapsto U'\) is an isomorphism from the ordered set \(\Ouv(E)\) to the ordered set \(\Ouv(X)\).
+
+\item Let \(\Oo\in\U\) be an ordered set admitting finite infima and arbitrary suprema; it therefore defines a category \(\cat(\Oo)\) having finite products and arbitrary sums. We say that a family of morphisms \(U_i\to U\) with common target \(U\) is covering if \(U\) is the supremum of the \(U_i\). Assuming that sums in \(\cat(\Oo)\) are universal, \ie\ that arbitrary suprema in \(\Oo\) commute with finite infima, this defines a topology on \(\cat(\Oo)\), making it a site. The resulting topos \(\cat(\Oo)^{\sim}\) is also denoted simply \(\Oo^{\sim}\). Show that \(\Oo\) is canonically isomorphic to \(\Ouv(\Oo^{\sim})\).
+
+Show that the category \(\Hhomtop(E,\Oo^{\sim})\) is equivalent to the category associated with the ordered set of morphisms of ordered sets \(\Oo\to\Ouv(E)\) which commute with finite infima and arbitrary suprema. Use the criterion 4.9.4. If \(\Oo'\) is an ordered set satisfying the same conditions as \(\Oo\), conclude that \(\Hhomtop(\Oo^{\sim},{\Oo'}^{\sim})\) is equivalent to the category associated with the ordered set of all morphisms of ordered sets \(\Oo\to\Oo'\) which commute with finite infima and arbitrary suprema.
+
+\item Show that for the topos \(E\) to be equivalent to a topos of the form \(\Oo^{\sim}\), with \(\Oo\) as in b), it is necessary and sufficient that the family of opens of \(E\) be generating in \(E\). For it to be equivalent to \(\Top(X)\) for \(X\in\U\), it is necessary and sufficient that it satisfy the preceding condition and have enough points. Assuming the first condition holds, express the second in terms of the structure of the ordered set \(\Oo=\Ouv(E)\), using the last assertion of b).
+
+\item Define a canonical geometric morphism
+\[
+E\longrightarrow\Ouv(E)^{\sim}
+\]
+which is universal, up to equivalence, for morphisms from \(E\) to topoi generated by their opens (cf. c)).
+
+\item Let \(X'\) be a small subset of \(X=\Point(E)\), endowed with the topology induced from that of \(X\). Define a canonical geometric morphism
+\[
+\Ouv(E)^{\sim}\longrightarrow\Top(X')
+\]
+which is an equivalence when the family \(X'\) of points of \(E\) is conservative. In that case, deduce a canonical geometric morphism
+\[
+E\longrightarrow\Top(X').
+\]
+Give a universal characterization, up to equivalence, of this geometric morphism for morphisms from the topos \(E\) to topoi of the form \(\Top(Y)\). Notice in this connection that, up to equivalence, \(\Top(X')\) does not depend on the small conservative family of fiber functors chosen; equivalently, by 4.2, \(X'_{\sob}\) does not depend, up to homeomorphism, on the choice of such a family.
+
+\item Suppose that the category \(\Ppoint(E)\) is not equivalent to a small category (cf. 7.3), and that \(E\) admits a small conservative family of fiber functors. Show that if such a family is chosen sufficiently large, the subset \(X'\) of \(\Ppoint(E)\) which it defines is not a sober topological space for the induced topology.
+
+\item For the relations with Exercise 7.6, see Section~8.
+\end{enumerate}
+\end{remarktext}
+
+\section{Localization. Opens of a topos}
+
+\subsection*{8.1}
+Let \(C\) be a category, and let \(T(X)\) be a relation involving an object \(X\) of \(C\). One says that the relation \(T(X)\) is \emph{stable under base change}, in \(X\), if for every morphism \(X'\to X\) of \(C\), the relation \(T(X)\) implies \(T(X')\). This is equivalent to saying that the full subcategory \(R\) of \(C\), formed by the objects \(X\) of \(C\) for which \(T(X)\) holds, is a \emph{sieve}.
+
+\begin{remarktext}{Remark 8.1.1}
+Suppose that \(C\) is a \(\U\)-category, so that \(C\) may be identified with a full subcategory of \(\widehat C\) (I, 1.4). It is sometimes convenient to extend the definition of the relation \(T\) on \(\ob C\) to a relation \(\widehat T\) concerning an object \(F\) of \(\widehat C\), by defining \(\widehat T(F)\) to mean: for every arrow \(X\to F\) in \(\widehat C\), with \(X\in\ob C\), one has \(T(X)\). The relation \(\widehat T(F)\) is clearly still stable under base change in \(F\). Still denoting by \(R\) the subobject of the final object \(e\) of \(\widehat C\) defined by the sieve \(R\) of \(C\) (I, 4.2.1), the relation \(\widehat T(F)\) may also be expressed by \(\Hom_{\widehat C}(F,R)\ne\varnothing\), meaning that the unique morphism \(F\to e\) factors through the subobject \(R\) of \(e\).
+\end{remarktext}
+
+\subsection*{8.2}
+Now suppose that \(C\) is a \emph{site}. A relation \(T(X)\), in one argument \(X\in\ob C\), is said to be \emph{stable under descent} if, for every covering family \((X_i\to X)_{i\in I}\) of an object \(X\) of \(C\), the relation ``\(T(X_i)\) for all \(i\in I\)'' implies \(T(X)\). One says that \(T\) is a \emph{relation of local nature} if it is stable under base change (8.1) and stable under descent. When \(C\) is a \(\U\)-category, and \(T\) is already assumed stable under base change, \ie\ definable by a sieve \(R\) of \(C\), which is identified with a subpresheaf of the final presheaf on \(C\), one sees immediately that \(T\) is of local nature if and only if \(R\) is a \emph{sheaf}. Thus \emph{relations of local nature in one argument \(X\in\ob C\) correspond exactly to subsheaves of the final sheaf of \(C\), \ie\ to subobjects of the final object of the topos \(C^{\sim}\).} They therefore essentially depend only on the topos \(C^{\sim}\) defined by the site \(C\), as do all important notions associated with a site. In terms of the subsheaf \(R\) of the final sheaf, the relation \(T(X)\) is expressed as \(\Hom(\varepsilon(X),R)\ne\varnothing\). It extends canonically to the relation \(T^{\sim}(F):\Hom(F,R)\ne\varnothing\) on the topos \(C^{\sim}\).
+
+\begin{remarktext}{Remark 8.2.1}
+With the notation introduced in 8.1.1, for a presheaf \(F\) on \(C\), since \(\Hom(F,R)\simeq\Hom(a(F),R)\), the relation \(\widehat T(F)\) is equivalent to the relation \(\widehat T(a(F))\).
+\end{remarktext}
+
+\begin{statement}{Definition 8.3}
+An \emph{open} of a \(\U\)-topos \(E\) is a subobject of the final object \(e_E\) of \(E\). If \(X\) is an object of \(E\), an \emph{open of \(X\)} sometimes means an open of the induced topos \(E_{/X}\), \ie\ a subobject of \(X\).
+
+An \emph{open} of a \(\U\)-site \(C\) is an open of the associated \(\U\)-topos \(C^{\sim}\).
+\end{statement}
+
+Notice that, since final objects of \(E\) are canonically isomorphic, the ambiguity introduced in 8.3 by the choice of \(e_E\) is harmless. One may also, more intrinsically but less conveniently in practice, define the opens of \(E\) to be the full subcategories \(R\) of \(E\) such that the relation \(F\in\ob R\), for an object \(F\) of \(E\), is a relation of local nature. Likewise, the opens of a \(\U\)-site \(C\) correspond bijectively to full subcategories of \(C\) such that the relation \(F\in\ob R\), for an object of \(C\), is of local nature. Thus this notion is essentially independent of the chosen universe \(\U\). Finally, by 8.2, a relation of local nature on a topos, or on a site, is essentially the same thing as an open of that topos, or of that site.
+
+\subsection*{8.4. Examples of opens}
+
+\subsubsection*{8.4.1}
+Let \(X\) be a topological space, and interpret \(\Top(X)\) (2.1) as the category of \'{e}tale spaces over \(X\). Since monomorphisms in \(\Top(X)\) are plainly the injective maps, it follows that the opens of the topos \(\Top(X)\) identify with the open subsets of the space \(X\). More generally, the opens of a topos \(\Top(X,G)\) (2.4) identify with the open subsets of \(X\) which are invariant under the action of \(G\).
+
+\subsubsection*{8.4.2}
+The opens of a \(\U\)-topos \(E\) form a \(\U\)-small ordered set under inclusion, admitting arbitrary suprema and finite infima. It has the initial object, or empty object, \(\varnothing_E\), as least element, and the final object \(e_E\) of \(E\) as greatest element. These two elements are identical only if \(E\) is an empty topos (2.2).
+
+\subsubsection*{8.4.3}
+Let \(G\) be a monoid object of \(E\), whence a topos \(B_G\) (2.4, 2.6), the category of objects of \(E\) on which \(G\) acts on the left. The final object \(e_G\) of \(B_G\) is the final object \(e_E\) of \(E\), with trivial action of \(G\). It follows that the ordered set of opens of \(B_G\) is canonically isomorphic to the category of opens of \(E\). In particular, if \(E\) is the punctual topos, so that \(G\) is an ordinary monoid, the set of opens of \(B_G\) consists exactly of two elements, namely \(\varnothing_{B_G}\) and \(e_G\).
+
+\subsubsection*{8.4.4}
+If \(E\) is a topos of the form \(\widehat C\), where \(C\) is a \(\U\)-category, then by 8.1 the ordered set of opens of \(E\) is isomorphic to the ordered set of sieves of \(C\).
+
+\subsubsection*{8.4.5}
+Let \(X\) be a sober non-discrete topological space. Show that \(\TOP(X)\) (2.5) has opens which do not come from opens of \(X\), \ie\ from opens of \(\Top(X)\), by inverse image under the canonical morphism (4.10.1) \(\TOP(X)\to\Top(X)\).
+
+\subsection*{8.5. Examples of relations of local nature}
+
+For every object \(X\) of the topos \(E\), denote by \(F\mapsto F_X\) the \emph{localization functor} \(j_X^*:E\to E_{/X}\), \(Y\mapsto Y\times X\) (5.2).
+
+\subsubsection*{8.5.1}
+Let \(u:F\to G\) be a morphism of \(E\). The relation in the argument \(X\in\ob E\):
+\begin{center}
+\(u_X:F_X\to G_X\) is a monomorphism, respectively an epimorphism, respectively an isomorphism,
+\end{center}
+is a relation of local nature. In particular, if \(G\) is a group object of \(E\), the relation ``\(G_X\) is the trivial group over \(X\)'' is of local nature; the open of \(E\) which corresponds to it is called the \emph{cosupport of the group object \(G\)}.
+
+\subsubsection*{8.5.2}
+Let \(u,v:F\rightrightarrows G\) be two morphisms of \(E\). The relation in the argument \(X\in\ob E\)
+\[
+u_X=v_X:F_X\longrightarrow G_X
+\]
+is a relation of local nature. In particular, if \(G\) is a group object of \(E\), and \(u\) is a \emph{section} of \(G\) (4.3.6), the relation in \(X\)
+\begin{center}
+the section \(u_X\) of the group object \(G_X\) of \(E_{/X}\) is zero
+\end{center}
+is of local nature; the open of \(E\) which corresponds to it is called the \emph{cosupport of the section \(u\) of the group object \(G\)}.
+
+\begin{remarktext}{Remark 8.5.3}
+When \(E=\Top(X)\), the cosupport of a sheaf of groups \(G\), respectively of a section of such a sheaf \(G\), is just the open subset of \(X\) complementary to the \emph{support of} \(G\), respectively the \emph{support of} \(u\), in the classical terminology [TF].
+\end{remarktext}
+
+\subsubsection*{8.5.4}
+Let \(P(f)\) be a relation in the argument \(f\in\operatorname{Fl} C\), where \(C\) is a site. When fiber products are representable in \(C\), one says that the relation \(P(f)\) is \emph{stable under base change}, respectively \emph{stable under descent}, respectively \emph{of local nature}, \emph{on the target}, or \emph{on the base}, or ``downstairs'', if for every morphism \(f:X\to Y\) of \(C\), the relation in the argument \(Y'\in\ob C_{/Y}\):
+\begin{center}
+the morphism \(f':X'=X\times_Y Y'\to Y'\), obtained from \(f\) by base change along the structural morphism \(Y'\to Y\), satisfies \(P(f')\),
+\end{center}
+is stable under base change, respectively stable under descent, respectively is of local nature. When the topology of \(C\) is defined by a pretopology, one says that the relation \(P(f)\) is \emph{of local nature on the source}, or ``upstairs'', if for every morphism \(f:X\to Y\) of \(C\) and every family \((g_i:X_i\to X)_{i\in I}\) in \(\Cov(X)\), the relation \(P(f)\) is equivalent to the relation ``\(P(fg_i)\) for all \(i\in I\)''. When \(\Cov(X)\) consists of all covering families of \(C\), this condition also says that the relation in the object \(X'\) of the induced site \(C_{/X}\),
+\begin{center}
+\(P(fg)\), where \(g:X'\to X\) is the structural morphism,
+\end{center}
+is of local nature. Notice that if \(P(f)\) is of local nature upstairs, then it is a fortiori of local nature downstairs.
+
+\subsubsection*{8.5.5}
+For example, take \(C=(\Sch)\), the category of schemes belonging to \(\U\), with the faithfully flat quasi-compact topology (\SGA~3, IV, 6.3) or a less fine topology. Then each of the following properties of a morphism is of local nature on the target:
+\begin{center}
+\begin{minipage}{0.93\linewidth}
+surjective, radicial, universally open, universally closed, proper, quasi-compact, quasi-compact and dominant, universal homeomorphism, separated, quasi-separated, locally of finite type, locally of finite presentation, of finite type, of finite presentation, an isomorphism, a monomorphism, an open immersion, a closed immersion, a quasi-compact immersion, affine, quasi-affine, finite, quasi-finite, integral, flat, faithfully flat, unramified, smooth, \'{e}tale.
+\end{minipage}
+\end{center}
+See \EGA~IV, 2.6.4, 2.7.1, and \EGA~IV, 17.7.1. On the other hand, endow \((\Sch)\) with the pretopology for which, for every scheme \(X\in\U\), \(\Cov(X)\) consists of families of morphisms \((f_i:X_i\to X)_{i\in I}\) which are surjective and such that the \(f_i\) are flat and locally of finite presentation. Then each of the following properties is \emph{of local nature on the source}:
+\begin{center}
+locally of finite type, locally of finite presentation, of finite type, flat, unramified, smooth, \'{e}tale.
+\end{center}
+See \EGA~IV, 17.7.5, 17.7.7.
+
+\begin{remarktext}{Exercise 8.6}
+Let \(f:E\to F\) be a morphism of \(\U\)-topoi. Consider the relation in the argument \(X\in\ob F\): the induced morphism \(E_{/f^*(X)}\to F_{/X}\) is an equivalence of topoi. Prove that this relation is of local nature.
+\end{remarktext}
+
+\begin{remarktext}{Exercise 8.7 (Partitions of a topos; sums of topoi)}
+Let \(E\) be a \(\U\)-topos. A family \((e_i)_{i\in I}\) of opens of \(E\), \ie\ of subobjects of the final object \(e\) of \(E\), is called a \emph{partition of} \(e\), or of the topos \(E\), if the canonical morphism \(\coprod_{i\in I}e_i\to e\) is an isomorphism; equivalently, by II, 4.6.2, \(e\) is the supremum of the \(e_i\) and \(i\ne j\) implies \(e_i\cap e_j=\varnothing_E\).
+\begin{enumerate}[label=\alph*)]
+\item Show that a family \((e_i)_{i\in I}\) of objects of \(E\) is a partition of \(E\) if and only if the functor
+\begin{equation*}
+E\longrightarrow\prod_i E_{/e_i}\tag{8.7.1}
+\end{equation*}
+defined by the localization functors \(E\to E_{/e_i}\) is an equivalence of categories.
+
+\item Conversely, let \((E_i)_{i\in I}\) be a family of \(\U\)-topoi, with \(I\in\U\). Prove that \(E=\prod_{i\in I}E_i\) is a \(\U\)-topos, called the \emph{sum topos} of the family \((E_i)_{i\in I}\). Define a partition \((e_i)_{i\in I}\) of \(E\), and equivalences of categories \(E_{/e_i}\simeq E_i\), in such a way that the projection functors \(E\to E_i\) identify with the localization functors \(E\to E_{/e_i}\).
+
+\item Let \(E\) be the sum topos of the family \((E_i)_{i\in I}\). Show that for every \(i\in I\) the projection functor \(E\to E_i\) has the form \(u_i^*\), where
+\begin{equation*}
+u_i:E_i\longrightarrow E\tag{8.7.2}
+\end{equation*}
+is a geometric morphism. Prove that for every \(\U\)-topos \(F\), the functor \(v\mapsto(v\circ u_i)_{i\in I}\)
+\begin{equation*}
+\Hhomtop(E,F)\longrightarrow\prod_i\Hhomtop(E_i,F)\tag{8.7.3}
+\end{equation*}
+is an equivalence of categories.
+
+\item Let \((e_i)_{i\in I}\) be a partition of the topos \(E\). For every geometric morphism \(g:F\to E\), the family \((f_i)_{i\in I}\), with \(f_i=g^*(e_i)\), is a partition of \(F\), and the induced morphisms \(g_i:E_{/e_i}\to F_{/f_i}\) allow one to reconstruct \(g\), up to unique isomorphism; the functor \(g^*\) identifies with the Cartesian product of the functors \(g_i^*\), using the equivalences of type 8.7.1. Deduce a complete description of the category \(\Hhomtop(F,E)\) in terms of categories of the form \(\Hhomtop(F',E_i)\), where \(F'\) is a topos of the form \(F_{/f}\), with \(f\) a direct summand of the final object of \(F\), and \(E_i=E_{/e_i}\).
+
+\item In particular, if \(F\) is non-empty connected (cf. 4.3.5), \ie\ if for every partition \((f_i)_{i\in I}\) of \(F\) there is exactly one \(i\in I\) with \(f_i\ne\varnothing_F\), prove that the canonical functor
+\begin{equation*}
+\coprod_{i\in I}\Hhomtop(F,E_i)\longrightarrow\Hhomtop(F,E)\tag{8.7.4}
+\end{equation*}
+induced by the geometric morphisms (8.7.2) is an equivalence of categories. More particularly, the family of geometric morphisms (8.7.2) induces an equivalence of categories
+\[
+\coprod_{i\in I}\Ppoint(E_i)\xrightarrow{\sim}\Ppoint(E).
+\]
+
+\item A subset \(I\) of the set of opens of \(E\) is called a \emph{reduced partition} of \(E\) if the identical family \((e_i)_{i\in I}\), indexed by \(I\), is a partition and if each \(e_i\ne\varnothing_E\). Show that the refinement relation (I, 4.3.2) among reduced partitions makes the set \(P\) of reduced partitions into a \(\U\)-small ordered set such that the least upper bound of two elements of \(P\) exists. Thus one obtains a strict projective system \((I_p)_{p\in P}\), regarded as a pro-set and denoted \(\pi_0(E)\). It is called the \emph{pro-\(\pi_0\) of the topos} \(E\).
+
+\item Prove that \(\pi_0(E)\) pro-represents the functor
+\[
+T\longmapsto f_*f^*(T)=\Gamma(E,T_E):(\U\text{-}\Set)\longrightarrow(\U\text{-}\Set)
+\]
+associated with the canonical morphism \(f:E\to P\) from \(E\) to the punctual topos \(P\) (4.3). In particular, this functor is representable if and only if \(\pi_0(E)\) is essentially constant, \ie\ isomorphic, as a pro-set, to an ordinary set, again denoted \(\pi_0(E)\). The pro-set \(\pi_0(E)\) is reduced to one point if and only if \(E\) is non-empty connected. It is empty if and only if \(E\) is the empty topos (2.2).
+
+\item Suppose that \(E\) is quasi-compact, \ie\ every covering of its final object \(e\) admits a finite subcovering. Show that \(\pi_0(E)\) is then a profinite set, and may therefore be identified, via the well-known equivalence between pro-objects of the category of finite sets and totally disconnected compact spaces, with a totally disconnected compact space, also denoted \(\pi_0(E)\).
+
+\item Let \(X\) be a topological space, and let \(\pi_0(X)\) be the set of connected components of \(X\), regarded as a constant pro-set. Define a canonical morphism of pro-sets
+\begin{equation*}
+\pi_0(X)\longrightarrow\pi_0(\Top(X)),\tag{8.7.5}
+\end{equation*}
+or equivalently a canonical map
+\begin{equation*}
+\pi_0(X)\longrightarrow\varprojlim\pi_0(\Top(X)).\tag{8.7.6}
+\end{equation*}
+Show that the first morphism is an isomorphism if and only if \(X\) is homeomorphic to a sum space of connected spaces. This is the case in particular if \(X\) is locally connected.
+
+\item Suppose that \(X\) is a quasi-compact scheme. Prove that (8.7.6) is bijective.
+
+\item Establish the functorial character in \(X\) of the morphisms (8.7.5) and (8.7.6), beginning by specifying the meaning of this expression.
+
+\item Compare 7.6 i). Show that the following two conditions on the \(\U\)-topos \(E\) are equivalent: (i) the canonical morphism from \(E\) to the punctual topos is essential (Exercise 7.6 a)), \ie\ the functor \(I\mapsto I_E\) from \((\U\text{-}\Set)\) to \(E\) commutes with products indexed by sets belonging to \(\U\); (ii) for every object \(X\) of \(E\), the induced topos \(E_{/X}\) has a \(\pi_0(E_{/X})\) which is an ordinary set, \ie\ \(X\) is isomorphic to the sum of a family of connected objects of \(E\). One then says that \(E\) is a \emph{locally connected topos} (compare IV, 2.7.5).
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 8.8 (Dominant geometric morphisms)}
+\begin{enumerate}[label=\alph*)]
+\item Let \(f:E'\to E\) be a geometric morphism. Show that the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item \(f_*(\varnothing_{E'})=\varnothing_E\), where \(\varnothing_E\) and \(\varnothing_{E'}\) denote the initial objects of \(E\) and \(E'\).
+\item For every object \(X\) of \(E\) which is non-empty, \ie\ not isomorphic to \(\varnothing_E\), the object \(f^*(X)\) is non-empty in \(E'\).
+\item As in (ii), with \(X\) a subobject of the final object \(e_E\) of \(E\), \ie\ an open of the topos \(E\).
+\end{enumerate}
+One then says that the geometric morphism \(f\) is \emph{dominant}.
+
+\item Let \(f:X'\to X\) be a continuous map of topological spaces, whence a geometric morphism \(\Top(f):\Top(X')\to\Top(X)\) (4.1). Show that \(\Top(f)\) is dominant if and only if \(f\) is dominant, \ie\ \(f(X')\) is dense in \(X\).
+
+\item Show that if \(f:E'\to E\) is a conservative geometric morphism (6.4.0), \ie\ if \(f^*\) is faithful, then \(f\) is dominant. Show that the converse is not necessarily true, even for a localization morphism \(E_{/U}\to E\), where \(U\) is an open of the topos \(E\). In this case, show that \(f\) is conservative only if \(U\) is the final object of \(E\), hence only if \(f\) is an equivalence of topoi, and use the example b).
+
+\item Let \(f:X'\to X\) be an arrow in a topos \(E\). One says that \(f\) is a \emph{dominant morphism} in the topos \(E\) if the corresponding morphism of induced topoi \(E_{/X'}\to E_{/X}\) (5.5.2) is dominant. Show that this property depends only on the image \(f(X')\) of \(X'\) in \(X\), as an element of the ordered set \(\ouv(X)\) of subobjects of \(X\). Show that the morphism \(E_{/X'}\to E_{/X}\) is conservative if and only if \(f\) is covering.
+\end{enumerate}
+\end{remarktext}
+
+\bigskip
+\noindent\emph{Continuation anchor.} The next untranslated point is SGA~4, Expos\'e~IV, Section~9, ``Subtopoi and gluing of topoi'' (French source line 5254 of \texttt{04/04.tex}).
+
+\end{document}

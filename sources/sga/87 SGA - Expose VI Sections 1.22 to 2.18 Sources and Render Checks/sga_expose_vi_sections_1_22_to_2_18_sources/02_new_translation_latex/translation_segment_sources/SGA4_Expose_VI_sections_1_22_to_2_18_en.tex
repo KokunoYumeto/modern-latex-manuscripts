@@ -1,0 +1,572 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.08in}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,hypertexnames=false}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Sch}{\mathbf{Sch}}
+\newcommand{\Top}{\operatorname{Top}}
+\newcommand{\Open}{\operatorname{Open}}
+\newcommand{\Ouv}{\operatorname{Open}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Imop}{\operatorname{Im}}
+\newcommand{\Pro}{\operatorname{Pro}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Cat}{\operatorname{Cat}}
+\newcommand{\Sup}{\operatorname{Sup}}
+\newcommand{\Inf}{\operatorname{Inf}}
+\newcommand{\Pt}{\operatorname{Pt}}
+\newcommand{\Sh}{\operatorname{Sh}}
+\newcommand{\PSh}{\operatorname{PSh}}
+\newcommand{\qc}{\mathrm{qc}}
+\newcommand{\qs}{\mathrm{qs}}
+\newcommand{\coh}{\mathrm{coh}}
+\newcommand{\cons}{\mathrm{cons}}
+\newcommand{\preNoeth}{\mathrm{preNoeth}}
+\newcommand{\cohalg}{\mathrm{coh.alg}}
+\newcommand{\loc}{\mathrm{loc}}
+\newcommand{\fprod}[3]{{#1}\times_{#3}{#2}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tw}[1]{\widetilde{#1}}
+\newcommand{\ie}{i.e.\ }
+\newcommand{\cf}{cf.}
+\newcommand{\resp}{respectively}
+\newcommand{\loccit}{loc. cit.}
+\newcommand{\SGA}{SGA}
+\newcommand{\EGA}{EGA}
+\newcommand{\qedtext}{\hfill\(\square\)}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\emptytopos}{\Top(\varnothing)}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+\setlist[enumerate]{leftmargin=2.2em}
+\begin{document}
+
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: VI
+% Range translated: Expose VI, Section 1.22 through Section 2.18, source lines 714--2072 of 06/06.tex.
+% Status: draft translation, compile-checked, not proofed line-by-line against scan.
+
+\begin{center}
+{\Large \textbf{SGA 4, Expos\'e VI}}\\[0.35em]
+{\large Finiteness Conditions. Fibred Topoi and Sites. Applications to Questions of Passage to the Limit}\\[0.25em]
+{\normalsize A. Grothendieck and J.-L. Verdier}
+\end{center}
+
+\bigskip
+
+\subsection*{1.22. Examples}
+
+Return to Example 1.6.2, the category \((\Sch)\) endowed with one of the topologies \(T_i\). For a suitable universe \(\V\), this is a \(\V\)-site, and the subcategory of affine schemes is a topological generating category consisting of quasi-compact objects. We leave to the reader the verification that an arrow \(f:X\to Y\) of this site is quasi-compact, respectively quasi-separated, if and only if it is a quasi-compact, respectively quasi-separated, morphism of schemes in the usual sense. Likewise, an object of the site is quasi-compact, respectively quasi-separated, if and only if it is a quasi-compact, respectively quasi-separated, scheme in the usual sense. In fact, as here, one should say \emph{coherent morphism of schemes} and \emph{coherent scheme}, instead of ``quasi-compact and quasi-separated morphism of schemes'' and ``quasi-compact and quasi-separated scheme'', as is done in the second edition of \EGA~I.
+
+\subsubsection*{1.22.1}
+For a given scheme \(X\in\U\), one may also consider the topos \(\Top(X)\) associated with the underlying topological space, or the topos \(\Top(X_{\mathrm{et}})\), respectively \(\Top(X_{\mathrm{fppf}})\), associated with the site of \(X\)-schemes which are etale, respectively locally of finite presentation, belong to \(\U\), and are endowed with the etale, respectively fppf, topology. This is a \(\U\)-topos admitting a generating family consisting of coherent objects, corresponding to the affine objects of the defining site.
+
+With this understood, the final object of this topos is quasi-compact, respectively quasi-separated, respectively coherent, if and only if the scheme \(X\) is quasi-compact, respectively quasi-separated, respectively coherent. Likewise, a morphism in the site of etale spaces over \(X\), respectively in the site \(X_{\mathrm{et}}\) of etale schemes over \(X\), respectively in the site \(X_{\mathrm{fppf}}\) of schemes locally of finite presentation over \(X\), is quasi-compact, respectively quasi-separated, respectively coherent, if and only if it is a morphism of schemes which is quasi-compact, respectively quasi-separated, respectively coherent, in the usual sense.
+
+\begin{statement}{Theorem 1.23}
+Let \(E\) be a \(\U\)-topos and let \(X\) be an object of \(E\).
+\begin{enumerate}[label=(\roman*)]
+\item The object \(X\) is quasi-compact if and only if, for every filtered inductive system \((Y_i)_{i\in I}\) of \(E\), with \(I\in\U\), the natural map
+\[
+\varinjlim \Hom(X,Y_i)\longrightarrow \Hom\bigl(X,\varinjlim Y_i\bigr)
+\tag{1.23.1}
+\]
+is injective.
+\item Assume that \(E\) admits a generating subcategory \(C\) consisting of quasi-compact objects. If \(X\) is coherent, then for every datum as in \emph{(i)} the map \emph{(1.23.1)} is bijective.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+For (i), first prove necessity. Suppose \(X\) quasi-compact. Let \(i\in I\), and let \(f_i,g_i:X\rightrightarrows Y_i\) be such that their composites \(f,g\) with \(Y_i\to Y=\varinjlim Y_j\) are equal. We must show that there exists \(j\geq i\) such that the composites \(f_j,g_j\) with \(Y_i\to Y_j\) are already equal. Since in a topos filtered inductive limits commute with finite projective limits, and in particular with kernels, one has
+\[
+\Ker(f,g)=\varinjlim_{j\geq i}\Ker(f_j,g_j).
+\]
+By hypothesis \(\Ker(f,g)=X\). Thus \(X\) is the union of the filtered increasing family of its subobjects \(\Ker(f_j,g_j)\); since \(X\) is quasi-compact, it is equal to one of them. Hence \(f_j=g_j\) for some \(j\geq i\).
+
+Conversely, to prove that \(X\) is quasi-compact, it is equivalent to prove that every filtered increasing family \((X_i)_{i\in I}\) of subobjects of \(X\) whose inductive limit is \(X\) contains an \(X_i=X\). Since in a topos every monomorphism is effective, one has
+\[
+X_i=\Ker\bigl(f_i,g_i:X\rightrightarrows X\amalg_{X_i}X\bigr).
+\]
+Put \(Y_i=X\amalg_{X_i}X\), and consider the inductive system formed by the \(Y_i\). If \(Y\) is its inductive limit, then
+\[
+Y\simeq X\amalg_{\varinjlim X_i}X=X\amalg_X X=X.
+\]
+For a fixed \(i\), the two arrows \(f_i,g_i\) therefore define the same element of \(\Hom(X,Y)\). By the assumed injectivity there exists \(j\geq i\) such that \(f_j=g_j\), that is, \(X_j=X\).
+
+For (ii), it remains to prove surjectivity: every morphism \(X\to Y=\varinjlim Y_i\) comes from a morphism \(X\to Y_i\) for suitable \(i\). Since \(C\) generates \(E\) and the \(Y_i\) cover \(Y\), we can cover \(X\) by objects \(X_\alpha\) of \(C\) so that each composite \(X_\alpha\to X\to Y\) factors through some \(Y_i\). Since \(X\) is quasi-compact, the family \((X_\alpha)\) may be taken finite, hence all these factorizations may be taken through a fixed \(Y_i\), say as morphisms \(g_{\alpha i}:X_\alpha\to Y_i\).
+
+Since \(X\) is quasi-separated, the objects \(X_\alpha\times_X X_\beta\) are quasi-compact. For each pair \((\alpha,\beta)\), the two composites from \(X_\alpha\times_X X_\beta\) to \(Y_i\) induced by \(X_\alpha\) and \(X_\beta\) become equal after composition with \(Y_i\to Y\). By (i), after replacing \(i\) by some \(j\geq i\), they are already equal. Since there are only finitely many pairs \((\alpha,\beta)\), one may choose a single such \(j\). The morphisms \(g_{\alpha j}\) then glue to a morphism \(g_j:X\to Y_j\), whose composite with \(Y_j\to Y\) is the given morphism \(X\to Y\). This proves the theorem.
+\end{prooftext}
+
+\begin{remarktext}{Remark 1.23.2}
+The hypothesis on \(E\) in (ii) may be replaced by an additional hypothesis on \(X\): namely, that \(X\) admits a fundamental system of covering families by quasi-compact objects.
+\end{remarktext}
+
+\begin{statement}{Corollary 1.24}
+Let \(E\) be a topos, and let \(C\) be a strictly full subcategory of \(E\) consisting of coherent objects. Using the fact that \(\U\)-indexed inductive limits are representable in \(E\), one obtains a canonical functor
+\[
+\Ind(C)\longrightarrow E.
+\tag{1.24.1}
+\]
+This functor is fully faithful. If \(E\) admits a generating subcategory consisting of coherent objects and if \(C\) is stable under direct factors, then the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item The functor \emph{(1.24.1)} is essentially surjective, hence an equivalence of categories.
+\item \(C\) is a generating subcategory of \(E\), stable under finite inductive limits.
+\item The category \(C\) is equal to the full subcategory \(E_{\coh}\) of \(E\) consisting of all coherent objects of \(E\), and the necessary condition \emph{1.23(ii)} for an object of \(E\) to be coherent is also sufficient.
+\end{enumerate}
+\end{statement}
+
+Let \(E_{PF}\) be the full subcategory of \(E\) defined in I, 8.7.6. By I, 8.7.5 a), assertion 1.23(ii) is equivalent to the second inclusion in
+\[
+C\subset E_{\coh}\subset E_{PF},
+\]
+and the inclusion corresponding to full faithfulness is precisely that (1.24.1) be fully faithful. Since by hypothesis \(E_{\coh}\) is a generating subcategory of \(E\), the same is a fortiori true of \(E_{PF}\). Moreover finite projective limits are representable in \(E\), so I, 8.7.7 applies. Condition (iii) above can also be written \(C=E_{\coh}=E_{PF}\), hence is equivalent to \(C=E_{PF}\), which is condition (ii bis) of loc. cit. Similarly, condition (ii) above is condition (iii bis) of loc. cit. The equivalence of (i), (ii bis), and (iii bis) in loc. cit. therefore gives the equivalence of (i), (ii), and (iii) here.
+
+The proof, more precisely the invocation of I, 8.7.7(ii bis), also gives part a) of the following corollary.
+
+\begin{statement}{Corollary 1.24.2}
+Let \(E\) be a topos admitting a generating subfamily consisting of coherent objects, and let \(E_{PF}\) be the strictly full subcategory of the objects \(X\) of \(E\) such that the covariant representable functor \(\Hom(X,-)\) commutes with filtered inductive limits. Then:
+\begin{enumerate}[label=\alph*)]
+\item The natural functor
+\[
+\Ind(E_{PF})\longrightarrow E
+\]
+is an equivalence of categories.
+\item An object \(X\) of \(E\) belongs to \(E_{PF}\) if and only if it is isomorphic to a direct factor, equivalently the image of a projector, of the cokernel of a double arrow \(X_1\rightrightarrows X_0\), with \(X_1\) and \(X_0\) coherent.
+\item The subcategory \(E_{PF}\) of \(E\) is stable under finite inductive limits and is equivalent to a small category.
+\end{enumerate}
+\end{statement}
+
+It remains to prove b) and c). The first assertion of c) is trivial by I, 2.8, and implies the sufficiency in b) by 1.23(ii). For necessity, use 1.23(i), which shows that \(X\) is quasi-compact. Hence there exists an epimorphism \(X_0\to X\), with \(X_0\) coherent, since \(E_{\coh}\) generates \(E\) and is stable under finite sums. Let \(R=X_0\times_X X_0\), so that \(X\) is the cokernel of \(R\rightrightarrows X_0\). By a), \(R=\varinjlim R_i\) is a filtered inductive limit; put \(X'_i=\Coker(R_i\rightrightarrows X_0)\). Since \(X\in\Ob E_{PF}\), for sufficiently large \(i\) the morphism \(u_i:X'_i\to X\) admits a section \(v:X\to X'_i\). Put \(w=vu_i:X'_i\to X'_i\). Then \(w^2=w\), and
+\[
+X\simeq\Coker\bigl(w,\id_{X'_i}:X'_i\rightrightarrows X'_i\bigr).
+\]
+Since \(R_i\) is again quasi-compact, cover it by \(X_1\to R_i\) with \(X_1\) coherent; this gives \(X'_i\simeq\Coker(X_1\rightrightarrows X_0)\), proving b). Finally, since \(E_{PF}\subset E_{\qc}\), the smallness assertion in c) follows from 1.5.3.
+
+\begin{statement}{Corollary 1.25}
+Let \(E\) be a topos such that the full subcategory \(C\) of \(E\) consisting of coherent objects is generating. Consider the canonical functor
+\[
+\varphi:\Ind(C)\longrightarrow E.
+\]
+The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item The functor \(\varphi\) is essentially surjective, \ie every object of \(E\) is a filtered inductive limit of coherent objects.
+\item[(i bis)] The functor \(\varphi\) is an equivalence of categories.
+\item Every finite inductive limit in \(E\) of coherent objects is coherent.
+\item[(ii bis)] The cokernel in \(E\) of a double arrow of coherent objects is coherent.
+\item[(iii)] The converse of \emph{1.23(ii)} holds.
+\end{enumerate}
+\end{statement}
+
+This is a special case of 1.24, since \(C\) is stable under finite sums, which implies the equivalence of (ii) and (ii bis), and since we have the following lemma.
+
+\begin{statement}{Lemma 1.25.1}
+Every direct factor \(X'\) of a coherent object \(X\) of a topos \(E\) is coherent.
+\end{statement}
+
+Indeed, \(X'\) is quasi-compact as a quotient of \(X\), and quasi-separated as a subobject of \(X\).
+
+\begin{statement}{Corollary 1.26}
+Let \(E\) be a topos satisfying the equivalent conditions of \emph{1.25}. Then every induced topos satisfies them as well.
+\end{statement}
+
+This follows immediately from criterion (ii), using 1.20.2 and the fact that if \(E\) has a generating subcategory consisting of coherent objects, then the same is plainly true for every induced topos.
+
+\begin{remarktext}{Remark 1.27}
+Important examples of topoi satisfying the conditions of 1.25 include noetherian topoi (2.14), and the Zariski or etale topos of a scheme (cf. IX, note p. 42). But even when \(E\) is a \emph{coherent} topos (2.3), meaning that the full subcategory \(C\) of coherent objects is generating and stable under finite projective limits, it is not always true that \(C\) is \emph{perfect} (2.9.1), \ie satisfies the equivalent conditions of 1.25; see Exercise 1.28 below.
+\end{remarktext}
+
+\begin{remarktext}{Exercise 1.28}
+Let \(E\) be a topos and let \(p_1,p_2:X_1\rightrightarrows X_0\) be a double arrow in \(E\). Define an increasing sequence of subobjects \(R_n\) \((n\geq0)\) of \(X_0\times X_0\) by
+\[
+R_0=\Sup\bigl(\Imop(p_1,p_2),\Imop(p_2,p_1)\bigr),
+\]
+and, for \(n\geq1\),
+\[
+R_n=\pr_{13}\bigl(\pr_{12}^{-1}(R_{n-1})\cap \pr_{23}^{-1}(R_{n-1})\bigr),
+\]
+where \(\pr_{ij}\), \(1\leq i<j\leq3\), denote the evident projections from the triple product of \(X_0\) to the double product.
+\begin{enumerate}[label=\alph*)]
+\item Show that one obtains an increasing sequence of subobjects of \(X_0\times X_0\), that \(R=\varinjlim R_n\) is an equivalence graph in \(X_0\), and that the canonical morphism
+\[
+X=\Coker(p_1,p_2)\longrightarrow X_0/R
+\]
+is an isomorphism.
+\item Deduce that if \(X_0\) is quasi-compact and \(X=\Coker(p_1,p_2)\) is quasi-separated, hence coherent, then the sequence \((R_n)\) is stationary. Conversely, if this sequence is stationary and if \(X_0\) is coherent and \(X_1\) quasi-compact, then \(X\) is coherent. For the latter point, write
+\[
+R_n\simeq (R_{n-1},\pr_2)\times_{X_0}(R_{n-1},\pr_1)
+\]
+and deduce that \(R_n\) is quasi-compact over \(X_0\) for all \(n\), then use 1.19.
+\item Construct an example of two maps of sets \(p_1,p_2:X_1\rightrightarrows X_0\) for which the sequence \((R_n)\) is not stationary.
+\item Let \(C\) be a small category in which finite inductive and finite projective limits are representable, and in which every morphism factors as an effective epimorphism followed by a monomorphism. Repeat the construction of the \(R_n\) for a double arrow \((p_1,p_2)\) of \(C\). Endowing \(C\) with the canonical topology, show that the canonical functor \(\epsilon:C\to C^\sim\) is exact, hence commutes with formation of the \(R_n\).
+\item Take for \(C\) a small full subcategory of \((\Set)\), stable up to isomorphism under finite projective and finite inductive limits, and containing the sets \(X_0\) and \(X_1\) of c). Deduce that the topos \(C^\sim\), which is coherent, does not satisfy the equivalent conditions of 1.25.
+\item Let \(k\) be a field, and let \(C\) be the fppf site of schemes locally of finite presentation over \(k\) (\SGA~3, IV, 6.3). Show that there exists a reduced affine scheme \(X\) over \(k\) admitting an automorphism \(f\) which is not of finite order; for example take the affine plane with \(f(x)=x\), \(f(y)=x+y\). Show that if \(p_1,p_2:X_1\rightrightarrows X_0\) is a double arrow in \(C\) such that the corresponding double arrow of sets
+\[
+p_1(\bar{k}),p_2(\bar{k}):X_1(\bar{k})\rightrightarrows X_0(\bar{k})
+\]
+gives a non-stationary sequence \((R_n)\), then the same is true of the double arrow of \(C^\sim\) defined by \(p_1,p_2\). Hence, if \(X_0\) is of finite type over \(k\), the cokernel in \(C^\sim\) of \((p_1,p_2)\) is not coherent. Deduce that the cokernel in \(C^\sim\) of \((f,\id_X)\) is not coherent, so that \(C^\sim\) does not satisfy the equivalent conditions of 1.25. More generally, if \(S\) is a non-empty scheme and \(C\) is the fppf site of schemes locally of finite presentation over \(S\), then \(C^\sim\) does not satisfy the conditions of 1.25. Notice that, contrary to appearances, \(C^\sim\) is noetherian only when \(S\) is empty, as follows from the preceding discussion and 2.14.
+\end{enumerate}
+\end{remarktext}
+
+\begin{statement}{Definition 1.30}
+Let \(E\) be a topos. An object \(X\) of \(E\) is called a \emph{pre-noetherian object}\footnote{For the stronger notion of a \emph{noetherian} object, see 2.11 below.} of \(E\) if it satisfies the following two equivalent conditions:
+\begin{enumerate}[label=(\roman*)]
+\item Every subobject of \(X\) is quasi-compact.
+\item Every increasing sequence of subobjects of \(X\) is stationary.
+\end{enumerate}
+\end{statement}
+
+\subsubsection*{1.30.1}
+The equivalence of (i) and (ii) is clear. These conditions again depend only on the induced topos \(E_{/X}\), and even only on the ordered set of opens of \(E_{/X}\), isomorphic to the ordered set of subobjects of \(X\). They are stable under passage to a subobject of \(X\).
+
+\subsection*{1.31}
+As in 1.3 and 1.4 one proves the following facts. If \((X_i\to X)\) is a finite covering family with the \(X_i\) pre-noetherian, then \(X\) is pre-noetherian; in particular a quotient of a pre-noetherian object of \(E\) is pre-noetherian. If \((X_i)_{i\in I}\) is a family of objects of \(E\), then their sum \(X\) is pre-noetherian if and only if all but finitely many of the \(X_i\) are isomorphic to \(\varnothing_E\), and all the \(X_i\) are pre-noetherian.
+
+\subsection*{1.32}
+Plainly a pre-noetherian object of a topos \(E\) is quasi-compact. If \(E\) admits a generating family consisting of pre-noetherian objects, the converse holds: the pre-noetherian objects of \(E\) are then precisely its quasi-compact objects.
+
+Assume that \(E\) admits a generating family \((X_i)_{i\in I}\) consisting of quasi-compact objects. Then the following three conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item The \(X_i\) are pre-noetherian.
+\item Every quasi-compact object of \(E\) is pre-noetherian.
+\item Every monomorphism in \(E\) is quasi-compact.
+\end{enumerate}
+We have just seen the equivalence of (i) and (ii); (ii) \(\Rightarrow\) (iii) is immediate from the definitions, and (iii) \(\Rightarrow\) (ii) follows from Definition 1.30(i).
+
+Note that (iii) implies that \emph{every morphism of \(E\) is quasi-separated}. Hence every object of \(E\) lying over a quasi-separated object of \(E\) is itself quasi-separated.
+
+\begin{remarktext}{Example 1.33: the classifying topos of a group}
+Let \(G\) be a group in \(\U\), and let \(B_G\) be its classifying topos, \ie the category of sets in \(\U\) on which \(G\) acts on the left. The non-empty connected objects of \(B_G\) are precisely the non-empty transitive \(G\)-sets, and every object \(E\) of \(B_G\) is the sum of its connected components, namely the non-empty minimal subobjects of \(E\), or the orbits of \(G\) on \(E\). Thus \(E\) is quasi-compact in \(B_G\) if and only if the set \(\pi_0(E)\) of orbits is finite, and in that case \(E\) is even pre-noetherian. Such objects, indeed even the single non-empty connected object \(G_s\), form a generating subcategory of \(B_G\).
+
+The final object \(e\) of \(B_G\) is quasi-separated, \ie the product of two quasi-compact objects of \(B_G\) is quasi-compact, if and only if \(G_s\times G_s\) is quasi-compact, which is plainly equivalent to \(G\) being finite. More generally, an object \(E\) of \(B_G\) is quasi-separated if and only if the stabilizers of its points are finite subgroups of \(G\), equivalently if it is isomorphic to a sum of homogeneous spaces \(G/H\) with \(H\) finite. Indeed, by 1.15 one may assume \(E\) connected; if \(x\in E\) has stabilizer \(G_x\), then \(B_G/E\) is equivalent to \(B_{G_x}\), and the final object is quasi-separated if and only if \(G_x\) is finite.
+
+It follows from this criterion that every object of \(B_G\) lying over a quasi-separated object is quasi-separated; a fortiori, the product of two quasi-separated objects of \(B_G\) is quasi-separated. The coherent objects of \(B_G\) are the objects isomorphic to finite sums of homogeneous spaces \(G/H\), with \(H\) finite. Since \(G_s\) is coherent, the coherent objects already form a generating subcategory of \(B_G\). Moreover this subcategory is stable under fiber products. In the terminology of 2.11 below, \(B_G\) is a locally noetherian topos, but it is quasi-separated only if \(G\) is finite, in which case \(B_G\) is even noetherian.
+
+One sees at once that a morphism \(f:E'\to E\) is quasi-compact if and only if the induced map \(\pi_0(f):\pi_0(E')\to\pi_0(E)\) on orbit sets is proper, \ie has finite fibers. This recovers the fact that a monomorphism is quasi-compact, hence every morphism is quasi-separated. Therefore coherent morphisms in \(B_G\) are simply the quasi-compact morphisms just characterized.
+
+Let \(E\) be an object of \(B_G\). It is easy to check that \(E\) is a filtered inductive limit of coherent objects of \(B_G\) if and only if the stabilizers of the points of \(E\) are ind-finite groups, \ie filtered inductive limits of their finite subgroups. In particular, if \(G\) is not ind-finite, for example \(G=\mathbb{Z}\), the final object of \(B_G\) is not an inductive limit of coherent objects. More precisely, \(B_G\) satisfies the equivalent conditions of 1.25 if and only if its final object is a filtered inductive limit of coherent objects, equivalently if and only if \(G\) is ind-finite.
+\end{remarktext}
+
+\section*{2. Finiteness conditions for a topos}
+
+\begin{statement}{Proposition 2.1}
+Let \(E\) be a \(\U\)-topos. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item There exists a full generating subcategory \(C\) of \(E\), consisting of quasi-compact objects, and stable under fiber products.
+\item There exists a \(\U\)-site \(C\), every object of which is quasi-compact, in which fiber products are representable, and such that \(E\) is equivalent to the category of sheaves \(C^\sim\).
+\end{enumerate}
+Assume these conditions hold. Then in \emph{(i)}, respectively \emph{(ii)}, one may choose \(C\) \(\U\)-small. Moreover, for every \(X\in\ob C\), the object \(X\), respectively \(\epsilon(X)\), of \(E\) is coherent.
+\end{statement}
+
+The implication (i) \(\Rightarrow\) (ii) follows from IV, 1.2.1, and the fact that one may take \(C\) \(\U\)-small follows immediately from the argument of IV, 1.2.3, applied to a small full subcategory generating in the topological sense. It remains to prove (ii) \(\Rightarrow\) (i) and the last assertion of 2.1, which follow from the next result.
+
+\begin{statement}{Corollary 2.1.1}
+Let \(C\) be a \(\U\)-site in which fiber products are representable and every object is quasi-compact. Let \(E=C^\sim\) and \(\varepsilon:C\to E\) be the canonical functor. Then, for every \(X\in\ob C\), \(\varepsilon(X)\) is a coherent object of \(E\). The full subcategory of \(E\) consisting of coherent objects of \(E\) lying over some \(\varepsilon(X)\) is stable under fiber products, and is of course generating in \(E\).
+\end{statement}
+
+We already know that \(\epsilon(X)\) is quasi-compact. Let us prove that it is quasi-separated. Let \(F\) and \(G\) be quasi-compact objects of \(E\), together with morphisms \(F\to\varepsilon(X)\), \(G\to\epsilon(X)\). We must show that \(F\times_{\epsilon(X)}G\) is quasi-compact. Covering \(F\) and \(G\) by finitely many objects of the form \(\epsilon(Y_i)\), respectively \(\epsilon(Z_j)\), and proceeding as in 1.2 to reduce to the case in which the composites \(\epsilon(Y_i)\to\epsilon(X)\), \(\epsilon(Z_j)\to\epsilon(X)\) come from morphisms \(Y_i\to X\), respectively \(Z_j\to X\), one reduces by 1.3 to the case where \(F\to\epsilon(X)\) and \(G\to\epsilon(X)\) are the images under \(\epsilon\) of morphisms \(Y\to X\), \(Z\to X\). But fiber products are representable in \(C\), and \(\epsilon\) commutes with them; hence the assertion reduces to quasi-compactness of \(\epsilon(Y\times_X Z)\), already known for every object of the form \(\epsilon(U)\).
+
+Now let \(G\to F\), \(H\to F\) be morphisms of coherent objects of \(E\), and assume there exists a morphism \(F\to\epsilon(X)\), for some \(X\in\ob C\). We prove that \(G\times_FH\) is coherent. Since \(G\) and \(H\) are quasi-compact and \(F\) is quasi-separated, this fiber product is already quasi-compact. It remains to see that it is quasi-separated, equivalently by 1.15 that \(G\times_{\epsilon(X)}H\) is quasi-separated. This follows from the more general fact below.
+
+\begin{statement}{Corollary 2.1.2}
+Under the hypotheses of 2.1.1, for every quasi-separated object \(G\) of \(E\), every morphism \(G\to\epsilon(X)\) is quasi-separated. If \(H\to\epsilon(X)\) is a second morphism, with \(H\) quasi-separated, then \(G\times_{\epsilon(X)}H\) is quasi-separated.
+\end{statement}
+
+The first assertion implies the second: by base change \(G\times_{\epsilon(X)}H\) is quasi-separated over \(H\), and since \(H\) is quasi-separated, it is quasi-separated. To prove that \(G\to\epsilon(X)\) is quasi-separated, we use the following lemma.
+
+\begin{statement}{Lemma 2.1.3}
+Let \(E\) be a topos and let \(f:X\to Y\) be a morphism in \(E\). Assume that \(E\) admits a generating family of quasi-compact objects and that there exists a covering family \((g_i:X_i\to X)_{i\in I}\) of \(X\) such that the \(X_i\) are quasi-compact and, for every pair \(i,j\), the object \(X_i\times_YX_j\) is quasi-separated. Then, if \(X\) is quasi-separated, \(f\) is quasi-separated.
+\end{statement}
+
+Indeed, the family
+\[
+\bigl(X_i\times_YX_j\to X\times_YX\bigr)_{(i,j)\in I\times I}
+\]
+is covering. Thus to show that the diagonal \(\Delta_{X/Y}:X\to X\times_YX\) is quasi-compact it suffices to check this after base change by each \(X_i\times_YX_j\to X\times_YX\). The resulting morphism is the canonical morphism
+\[
+X_i\times_X X_j\longrightarrow X_i\times_YX_j.
+\]
+Since \(X\) is quasi-separated and the \(X_i\) are quasi-compact, the source is quasi-compact; since the target is quasi-separated by hypothesis, this morphism is quasi-compact.
+
+We now finish the proof of 2.1.2. Let \(f:G\to\epsilon(X)\) with \(G\) quasi-separated. Cover \(G\) by objects \(\epsilon(X_i)\) such that the composites \(\epsilon(X_i)\to\epsilon(X)\) come from morphisms \(X_i\to X\). By 2.1.3, since the \(\epsilon(X_i)\) are quasi-compact, it suffices to verify that the fiber products
+\[
+\epsilon(X_i)\times_{\epsilon(X)}\epsilon(X_j)=\epsilon(X_i\times_X X_j)
+\]
+are quasi-separated. But we have already seen that every object of \(E\) of the form \(\epsilon(U)\) is coherent. This proves 2.1.2 and completes the proof of 2.1.
+
+\begin{statement}{Proposition 2.2}
+Let \(E\) be a topos containing a full generating subcategory \(C\) consisting of coherent objects. The following conditions on \(E\) are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item Every quasi-separated object of \(E\) is quasi-separated over the final object.
+\item[(i bis)] For every morphism \(f:X\to Y\) in \(E\), \(X\) quasi-separated implies \(f\) quasi-separated.
+\item[(i ter)] Every object \(X\) of \(C\) is quasi-separated over the final object of \(E\), \ie the diagonal morphism \(X\to X\times X\) is quasi-compact.
+\item The product of two quasi-separated objects of \(E\) is quasi-separated.
+\item[(ii bis)] The product in \(E\) of two objects of \(C\) is quasi-separated.
+\end{enumerate}
+These conditions imply that the full subcategory \(E_{\coh}\) of \(E\) consisting of coherent objects is stable under fiber products; a fortiori, \(E\) satisfies the equivalent conditions of 2.1.
+\end{statement}
+
+Plainly (i bis) implies (i), and the converse follows from 1.8(iii). We have (i) \(\Rightarrow\) (ii) by an argument already used: if \(X\) and \(Y\) are quasi-separated, then, by (i), \(X\) is quasi-separated over \(e\); hence \(X\times Y\) is quasi-separated over \(Y\) by base change, and is therefore quasi-separated by 1.14(ii). The same argument shows (i ter) \(\Rightarrow\) (ii bis), while (i) \(\Rightarrow\) (i ter) and (ii) \(\Rightarrow\) (ii bis) are trivial. It remains to prove (ii bis) \(\Rightarrow\) (i). Let \(X\) be a quasi-separated object of \(E\). Cover \(X\) by objects \(X_i\) of \(C\); since the \(X_i\) are quasi-compact, Lemma 2.1.3 applies to the morphism \(X\to e\). We are reduced precisely to checking that the \(X_i\times X_j\) are quasi-separated, which is the hypothesis (ii bis).
+
+\begin{remarktext}{Remark 2.2.1}
+Condition (i ter) is also equivalent to the following condition (i quater): for every double arrow \(g_1,g_2:Y\rightrightarrows X\) in \(C\), its kernel in \(E\) is quasi-compact, equivalently coherent.
+\end{remarktext}
+
+This follows by applying criterion 1.10(i) to the diagonal morphism \(X\to X\times X\) considered in (i ter).
+
+\begin{statement}{Definition 2.3}
+A topos \(E\) satisfying the equivalent conditions of \emph{2.2}, respectively of \emph{2.1}, is called an \emph{algebraic topos}, respectively a \emph{locally algebraic topos}, or \emph{locally coherent topos}. An object \(X\) of a topos \(E\) is called an \emph{algebraic object} of \(E\) if the induced topos \(E_{/X}\) is algebraic. A topos \(E\) is called \emph{quasi-separated}, respectively \emph{coherent}, if it is algebraic and its final object is quasi-separated, respectively coherent.
+\end{statement}
+
+\subsubsection*{2.3.1}
+It is in algebraic topoi that the finiteness notions developed in Section 1 have fully satisfactory properties, analogous to the properties of the notions bearing the same names in the category of schemes. All locally algebraic, equivalently locally coherent, topoi encountered in practice are in fact algebraic, so the practical interest of the former notion seems at present rather limited. Locally algebraic non-algebraic topoi can nevertheless be constructed; see Exercise 2.17 f).
+
+\subsection*{2.4. General remarks}
+Here are several general remarks concerning the notions introduced in 2.3; they should convince the reader that the terminology introduced is coherent.
+
+\subsubsection*{2.4.1}
+Under the conditions of 2.1(i), respectively 2.1(ii), for every \(X\in C\), the object \(X\), respectively \(\epsilon(X)\), is a coherent algebraic object of \(E\). In other words, the induced topos \(E_{/X}\), respectively \(E_{/\epsilon(X)}\simeq (C_{/X})^\sim\), is algebraic, hence coherent. Equivalently, when \(C\) admits a final object, \(E\) itself is algebraic, hence coherent.
+
+\subsubsection*{2.4.2}
+If \(E\) is algebraic, then every induced topos \(E_{/X}\) is algebraic. For \(E\) to be locally algebraic, equivalently locally coherent, it is necessary and sufficient that there exist a family \((X_i)_{i\in I}\) of objects covering the final object such that the \(X_i\) are algebraic, respectively coherent, \ie such that the induced topoi \(E_{/X_i}\) are algebraic, respectively coherent. Sufficiency is immediate from the definitions and necessity follows from 2.4.1. Of course, an algebraic topos is locally algebraic; and if \(E\) is locally algebraic, every induced topos \(E_{/X}\) is locally algebraic.
+
+\subsubsection*{2.4.3}
+If \(X\) is an algebraic object of a topos \(E\), then every object \(X'\) of \(E\) lying over \(X\) is again algebraic. In particular, every object of an algebraic topos is algebraic, and conversely.
+
+\subsubsection*{2.4.4}
+The full subcategory of \(E\) consisting of the quasi-separated objects which are algebraic is stable under fiber products and subobjects, hence also under kernels. If \(E\) is algebraic, this category is just the category of quasi-separated objects of \(E\), and is also stable under products of two objects. If \(E\) is quasi-separated, and only then, this category is stable under arbitrary finite projective limits, equivalently it contains the final object of \(E\).
+
+The full subcategory \(C\) of \(E\) consisting of coherent objects which are algebraic is stable under fiber products. If \(E\) is locally algebraic, equivalently locally coherent, then \(E\) is algebraic if and only if \(C\) is also stable under kernels of double arrows; \(E\) is quasi-separated if and only if, in addition, \(C\) is stable under products of two objects. Finally, \(E\) is coherent if and only if \(C\) is stable under arbitrary finite projective limits, equivalently if it contains the final object of \(E\).
+
+\subsubsection*{2.4.5}
+A topos \(E\) is locally coherent, respectively algebraic, respectively quasi-separated, respectively coherent, if and only if it admits a full generating subcategory \(C\) consisting of quasi-compact objects, automatically coherent by 2.1, and stable under fiber products, respectively under fiber products and kernels, respectively under fiber products and products of two objects, respectively under arbitrary finite projective limits. Equivalently, \(E\) is equivalent to a topos \(C^\sim\), where \(C\) is a \(\U\)-site all of whose objects are quasi-compact and in which fiber products and products of two objects, respectively all finite projective limits, are representable. For necessity, take \(C\) to be the category of objects of \(E\) which are coherent and algebraic, and apply 2.4; for sufficiency, apply 2.2(i ter). In this statement one may of course again suppose \(C\) \(\U\)-small.
+
+\subsubsection*{2.4.6}
+Let \(E\) be a topos. If \(E\) is algebraic, an object \(X\) of \(E\) is quasi-separated, respectively coherent, if and only if the induced topos \(E_{/X}\) is so. When \(E\) is no longer assumed algebraic, one can say only that \(E_{/X}\) is quasi-separated, respectively coherent, if and only if \(X\) is quasi-separated, respectively coherent, and algebraic. This is harmless, since presumably these notions will not have to be used outside the case where \(E\) is algebraic.
+
+\subsubsection*{2.4.7}
+For the notion of a coherent, respectively quasi-separated, object of a topos \(E\) to have satisfactory properties, one must restrict to objects which are also algebraic, a condition automatically satisfied when \(E\) is algebraic. Since we will presumably never have to work with locally algebraic topoi which are not algebraic, the question of revising the terminology introduced in 1.13, by reserving it possibly for algebraic objects only, is not very pressing.
+
+On the other hand, we have refrained from defining the notion of a quasi-compact topos. In the spirit of the present section, one would have to call quasi-compact those algebraic topoi whose final object is quasi-compact. We hesitated to introduce such usage because, if \(X\) is a topological space, it would not be true that \(X\) is quasi-compact if and only if the associated topos \(\Top(X)\) is. In this connection note that \(\Top(X)\) is locally coherent if and only if \(X\) admits a basis of opens consisting of quasi-compact opens \(U\) such that, for \(U_j,U_k\subset U_i\), the intersection \(U_j\cap U_k\) is still quasi-compact. This condition is satisfied by the topological spaces underlying schemes, but rarely by spaces encountered by analysts, even when those spaces are compact.
+
+For ease of reference, we spell out the following.
+
+\begin{statement}{Proposition 2.5}
+Let \(E\) be an algebraic topos and let \(f:X\to Y\) be a morphism in \(E\). If \(Y\) is quasi-separated, respectively coherent, then \(X\) is quasi-separated, respectively coherent, if and only if \(f\) is quasi-separated, respectively coherent.
+\end{statement}
+
+Sufficiency was already proved in 1.14(ii), and holds without any hypothesis on \(E\). Necessity in the quasi-separated case holds even without assuming \(Y\) quasi-separated; it is precisely the definition 2.3 via 2.2(i bis). It remains to prove that if \(Y\) and \(X\) are coherent, then \(f\) is coherent. Since \(f\) is already quasi-separated, it suffices to see that \(f\) is quasi-compact, which follows because \(X\) is quasi-compact and \(Y\) quasi-separated.
+
+\begin{statement}{Corollary 2.6}
+Let \(E\) be an algebraic topos, let \(f:X\to Y\) be a morphism in \(E\), and let \((Y_i\to Y)_{i\in I}\) be a covering family with the \(Y_i\) quasi-separated, respectively coherent. Then \(f\) is quasi-separated, respectively quasi-compact, respectively coherent, if and only if for every \(i\in I\) the object
+\[
+X_i=X\times_Y Y_i
+\]
+is quasi-separated, respectively quasi-compact, respectively coherent, in \(E\).
+\end{statement}
+
+Combine 1.10(ii) with 2.5 in the quasi-separated and coherent cases; the quasi-compact case was already proved in 1.16. Notice that necessity in 2.6 holds without any hypothesis on the topos \(E\).
+
+\begin{statement}{Corollary 2.7}
+Let \(E\) be a coherent topos and let \(X\) be an object of \(E\). Then \(X\) is quasi-compact, respectively quasi-separated, respectively coherent, in \(E\) if and only if it is quasi-compact, respectively quasi-separated, respectively coherent, over the final object.
+\end{statement}
+
+In particular, \(X\) is constructible if and only if it is coherent.
+
+\begin{statement}{Corollary 2.8}
+Let \(E\) be a locally coherent topos, and let \(f:X\to Y\) be a morphism in \(E\). Then \(f\) is quasi-separated if and only if, for every quasi-separated object \(Y'\) of \(E_{/Y}\), the inverse image
+\[
+f^*(Y')=X\times_YY'
+\]
+is quasi-separated in \(E_{/X}\), equivalently in \(E\).
+\end{statement}
+
+Necessity holds without any condition on \(E\): if \(Y'\) is quasi-separated, then \(X'=X\times_YY'\to Y'\) is quasi-separated by base change, hence \(X'\) is quasi-separated. Conversely, there exists a covering family \(Y_i\to Y\) by quasi-separated algebraic objects. By 1.10(ii), to check that \(f\) is quasi-separated it suffices to check that the morphisms \(f_i:X_i=X\times_YY_i\to Y_i\) are quasi-separated. But the hypothesis on \(f^*\) implies that the \(X_i\) are quasi-separated, hence the \(f_i\) are quasi-separated because \(E_{/Y_i}\) is algebraic.
+
+\begin{remarktext}{Remark 2.8.1}
+Statements 2.5 and 2.6 remain valid if one replaces the hypothesis ``\(E\) algebraic'' by the more general hypothesis ``\(Y\) is algebraic'', as is immediate by applying the original statement to the induced topos \(E_{/Y}\), which is algebraic. Similarly, in 2.8 it is enough to suppose that \(E_{/Y}\), rather than \(E\), is locally coherent.
+\end{remarktext}
+
+\begin{statement}{Proposition 2.9}
+Let \(E\) be a topos and \(C\) a subcategory of \(E\). The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item \(E\) is locally coherent, respectively coherent, satisfies the equivalent conditions of 1.25, and \(C\) is the full subcategory \(E_{\coh}\) of \(E\) consisting of coherent objects.
+\item \(C\) is a strictly full generating subcategory of \(E\), stable under finite inductive limits and fiber products, respectively also under finite projective limits, and consists of quasi-compact objects.
+\end{enumerate}
+\end{statement}
+
+The implication (i) \(\Rightarrow\) (ii) follows directly from the definitions and from condition 1.25(ii). Conversely, if \(C\) is full, generating, consists of quasi-compact objects, and is stable under fiber products, respectively under finite projective limits, then by definition \(E\) is locally coherent, respectively coherent. If moreover \(C\) is strictly full and stable under finite inductive limits, then \(C=E_{\coh}\) by 1.24, (ii) \(\Rightarrow\) (iii), and condition 1.25(ii) is satisfied.
+
+\begin{statement}{Definition 2.9.1}
+A \(\U\)-topos \(E\) is called \emph{perfect} if it is coherent and satisfies the equivalent conditions of 1.25, \ie if the subcategory \(E_{\coh}\) of coherent objects of \(E\) is stable under finite inductive limits. It is called \emph{locally perfect} if there exists a family \((X_i)_{i\in I}\) of objects of \(E\) covering the final object such that each induced topos \(E_{/X_i}\) is perfect.
+\end{statement}
+
+\subsubsection*{2.9.2}
+It follows immediately from this definition that a perfect, respectively locally perfect, topos is coherent, respectively locally coherent. Examples of perfect, respectively locally perfect, topoi include the noetherian, respectively locally noetherian, topoi introduced in 2.11 below; the Zariski and etale topoi of a coherent, respectively arbitrary, scheme (IX, note p. 42). As a counterexample, the fppf topos of a scheme \(S\) is locally coherent, and even coherent if \(S\) is a coherent scheme, \ie quasi-compact and quasi-separated, but is not locally perfect if \(S\neq\varnothing\), by Exercise 1.28 f).
+
+In a locally perfect topos, the notion of constructible object is particularly stable, as 2.9.3 below shows; this is one reason why the notion seems interesting. Another is that, like coherent or locally coherent topoi, perfect or locally perfect topoi are stable under formation of the closed subtopos complementary to an open, and behave especially simply with respect to gluing of topoi.
+
+\begin{statement}{Proposition 2.9.3}
+Let \(E\) be a locally perfect topos. Then the full subcategory \(E_{\cons}\) of \(E\) consisting of constructible objects is stable under finite inductive limits, and of course also under finite projective limits.
+\end{statement}
+
+Since constructibility is local on \(E\), we reduce to the case where \(E\) is perfect. Then \(E_{\cons}=E_{\coh}\), and the conclusion follows from Definition 2.9.1.
+
+\begin{statement}{Corollary 2.9.4}
+Let \(E\) be a locally perfect topos. Then \(E\) is perfect if and only if \(E\) is coherent. For every object \(X\) of \(E\), the induced topos \(E_{/X}\) is locally perfect.
+\end{statement}
+
+\begin{remarktext}{Problem 2.9.5}
+It is conceivable that perfect topoi are special enough to admit a quite explicit \emph{structure theory}, following a model proposed by M. Artin at the time of the oral seminar. Call a topos \emph{finite} if it is equivalent to a topos of the form \(\widehat C\), where \(C\) is a finite category, and call a topos \emph{profinite} if it is a filtered projective limit of finite topoi, in the sense of Section 6 below. Since a finite topos is noetherian, hence perfect, and a filtered projective limit of perfect topoi is perfect, a profinite topos is perfect. The question is whether conversely every perfect topos is profinite.
+
+This is equivalent to asking whether every finite subcategory of \(E_{\coh}\) is contained in a full subcategory \(F_0\) of \(E_{\coh}\) equivalent to a category \(F_{\coh}\), where \(F\) is a finite topos. If the answer were negative, one would have to find manageable additional intrinsic conditions on a perfect topos ensuring that it is profinite. Finally, one would still have to study the structure of profinite topoi in terms of a suitable notion of ``Karoubian profinite category'', inspired by IV, 7.6 h). This study has not yet been carried out even in the special case where \(E\) is the Zariski or etale topos of a well-behaved coherent scheme \(X\), and should then give invariants finer than the compact space \(X_{\cons}\) associated with \(X\).
+
+In the same vein, we mention the following question. Let \(E\) be a perfect topos, let \(E'\) be the topos induced on an open of \(E\), and let \(E''\) be the corresponding closed subtopos. If \(E'\) and \(E''\) are finite topoi, is \(E\) also finite?
+\end{remarktext}
+
+\begin{statement}{Proposition 2.10}
+Let \(E\) be a topos. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item \(E\) admits a full generating subcategory, stable under fiber products, consisting of pre-noetherian objects of \(E\).
+\item \(E\) admits a full generating subcategory consisting of pre-noetherian quasi-separated objects, equivalently pre-noetherian coherent objects.
+\item \(E\) is locally coherent and every quasi-compact object of \(E\) is pre-noetherian.
+\item[(iii bis)] \(E\) is locally coherent and admits a generating family consisting of pre-noetherian objects of \(E\).
+\end{enumerate}
+\end{statement}
+
+The equivalence of (iii) and (iii bis) follows from 1.32. It is trivial that (i) \(\Rightarrow\) (iii bis) and (iii) \(\Rightarrow\) (i), so (i), (iii), and (iii bis) are equivalent. Finally, (i) \(\Rightarrow\) (ii) follows from the last assertion of 2.1, and it remains to prove (ii) \(\Rightarrow\) (i). This implication follows because the full subcategory of \(E\) consisting of pre-noetherian quasi-separated objects, if it is generating, is stable under fiber products: such a fiber product is quasi-compact by definition, hence pre-noetherian by 1.32; and it is quasi-separated by the last assertion of 1.32.
+
+\begin{statement}{Definition 2.11}
+A topos \(E\) is called \emph{locally noetherian} if it satisfies the equivalent conditions of 2.10. It is called \emph{noetherian} if, in addition, its final object is coherent, equivalently pre-noetherian and quasi-separated. An object \(X\) of a topos \(E\) is called a \emph{noetherian object} of \(E\) if the induced topos \(E_{/X}\) is noetherian.
+\end{statement}
+
+\subsection*{2.12}
+If \(E\) is locally noetherian, then so is every induced topos \(E_{/X}\). Conversely, if there exists a family \((X_i)\) covering the final object such that the \(E_{/X_i}\) are locally noetherian, then \(E\) is locally noetherian. If \(C\) is a full generating subcategory of \(E\) consisting of pre-noetherian objects and stable under fiber products, then for every \(X\in C\), \(E_{/X}\) is noetherian, \ie the objects of \(C\) are in fact noetherian. Indeed, if \(E\) is locally noetherian and \(X\in\Ob E\), then \(E_{/X}\) is noetherian if and only if \(X\) is coherent. It follows that \(E\) is locally noetherian if and only if the final object of \(E\) can be covered by noetherian objects \(X_i\).
+
+\subsection*{2.13}
+In a locally noetherian topos \(E\), every monomorphism is quasi-compact and every morphism is quasi-separated. A fortiori, \(E\) is an algebraic topos, not merely locally coherent, \ie locally algebraic. Hence \(E\) is noetherian if and only if it is locally noetherian and coherent. In other words, if \(E\) is locally noetherian, then the noetherian objects of \(E\) are precisely the coherent objects of \(E\).
+
+\subsection*{2.14}
+Let \(E\) be a locally noetherian topos. If \(E\) is quasi-separated, \ie if its final object is quasi-separated, then every object of \(E\) is quasi-separated. Thus the pre-noetherian objects of \(E\) are identical with the noetherian, equivalently coherent, objects of \(E\). Since a quotient of a pre-noetherian object is pre-noetherian, it follows that \(E\) satisfies the equivalent conditions of 1.25, because it satisfies condition 1.25(ii bis). In particular, if \(C\) is the full subcategory of \(E\) consisting of noetherian, equivalently coherent, objects, then the natural functor
+\[
+\Ind(C)\longrightarrow E
+\]
+is an equivalence of categories. We conclude that \emph{a noetherian topos is perfect}; hence a locally noetherian topos is locally perfect.
+
+If one assumes only that \(E\) is locally noetherian, it is still true that every object of \(E\) is an inductive limit of its pre-noetherian subobjects, since in a topos admitting a generating subcategory of quasi-compact objects, every object is a filtered inductive limit of its quasi-compact subobjects. But since a pre-noetherian object of \(E\) need not be coherent, this statement has only very limited usefulness; and Example 1.33 shows that the conditions of 1.25 need not hold.
+
+\begin{remarktext}{Example 2.15: topological spaces}
+Let \(X\) be a topological space. The following conditions are equivalent: (i) \(X\) is noetherian, \ie every open subset of \(X\) is quasi-compact, equivalently every increasing sequence of opens of \(X\) is stationary; (ii) the topos \(\Top(X)\) is noetherian; (iii) the final object \(X\) of \(\Top(X)\) is noetherian; (iv) the final object \(X\) of \(\Top(X)\) is pre-noetherian.
+
+Indeed, (ii) \(\Leftrightarrow\) (iii) \(\Rightarrow\) (iv) \(\Leftrightarrow\) (i) is trivial. Moreover (i) implies that the generating subcategory \(\Open(X)\) of \(\Top(X)\), stable under finite projective limits, consists of pre-noetherian objects; hence (ii). Similarly, \(X\) is locally noetherian, \ie a union of noetherian opens, if and only if \(\Top(X)\) is locally noetherian.
+\end{remarktext}
+
+\subsubsection*{2.15.1}
+Thus Definitions 1.30 and 2.11 are compatible with the accepted terminology for topological spaces. On the other hand, in the general case we have chosen to give the term ``noetherian object'' a stronger meaning than the more naive notion of 1.30, so that the properties attached to the notion, rather than only the grammatical structure of the definition, agree with the intuition attached to noetherian topological spaces and noetherian schemes.
+
+The reader will find further examples in the following exercises.
+
+\begin{remarktext}{Exercise 2.16: spaces with operators and classifying topoi}
+Let \(X\) be a topological space on which a discrete group \(G\) acts, giving a topos \(E=\Top(X,G)\). Interpret the objects \(X'\) of this topos as etale spaces over \(X\) with group of operators \(G\), and note that the induced topos \(E_{/X'}\) is canonically equivalent to \(\Top(X',G)\).
+\begin{enumerate}[label=\alph*)]
+\item The final object of \(E\) is quasi-compact if and only if the quotient topological space \(X/G\) is quasi-compact.
+\item Let \(P\) be the object of \(E\) defined by the trivial etale space \(X\times G\) with diagonal action of \(G\). Show that the induced topos \(E_{/P}\) is equivalent to \(\Top(X)\). Deduce that \(E\) is locally coherent, respectively locally noetherian, if and only if \(\Top(X)\) is locally coherent, respectively locally noetherian. Show that if \(E\) is locally coherent, \ie locally algebraic, then it is even algebraic, using the generating family consisting of the objects \(T_U\), where \(U\) is a coherent open of \(X\), \(T_U=G\times U\) with action \(g\cdot(u,g')=(u,gg')\), and structural morphism \(p_U:T_U\to X\) defined by \(p_U(u,g)=g\cdot u\).
+\item Assume \(E\) algebraic, \ie \(\Top(X)\) algebraic. Show that the structural morphism \(P\to e\) is quasi-separated. Show that \(E\) is quasi-separated if and only if \(\Top(X)\) is quasi-separated, equivalently the intersection of two quasi-compact opens of \(X\) is quasi-compact, and \(G\) is finite or \(X\) is empty.
+\item Show that the structural morphism \(P\to e\) is quasi-compact if and only if \(G\) is finite. Show that \(E\) is coherent, respectively noetherian, if and only if \(\Top(X)\) is so and \(G\) is finite or \(X\) is empty.
+\item Let \(E\) be a topos and \(G\) a group of \(E\), hence a classifying topos \(B_G\). Study the finiteness conditions in \(B_G\), taking the preceding analysis as a guide. Do the same for a strict pro-group \(\mathcal{G}=(G_i)_{i\in I}\) of \(E\). In particular, if \(E\) is coherent, respectively noetherian, and the \(G_i\) are coherent, then \(B_{\mathcal{G}}\) is coherent, respectively noetherian.
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 2.17: topoi of the form \(\widehat C\)}
+Let \(C\) be a category equivalent to a category belonging to \(\U\), and let \(E=\widehat C\) be the category of presheaves on \(C\). Through the canonical functor \(\varepsilon:C\to\widehat C\), identify \(C\) with a full subcategory of \(E\).
+\begin{enumerate}[label=\alph*)]
+\item \(C\) is a generating subcategory of \(E\) consisting of quasi-compact objects. These objects are pre-noetherian if and only if, for every object \(X\) of \(C\), every sieve of \(X\) is generated by a finite family of morphisms \(X_i\to X\) of \(C\). The final object of \(E\) is quasi-compact, respectively pre-noetherian, if and only if \(C\) has a final subcategory with finitely many objects, respectively every sieve of \(C\) is generated by a subcategory of \(C\) with finitely many objects.
+\item The topos \(E\) admits a generating subcategory consisting of coherent, equivalently quasi-separated, objects if and only if the objects of \(C\) are coherent in \(E\); equivalently, for any two arrows \(Y\xrightarrow f X\) and \(Z\xrightarrow g X\) in \(C\), the object \(Y\times_XZ\) of \(E\) is quasi-compact. Explicitly, one must be able to find a finite family of commutative squares in \(C\),
+\[
+\xymatrix@=1cm{
+ & T_i\ar[ld]\ar[rd]&\\
+Y\ar[rd]_f&&Z\ar[ld]^g\\
+&X&,
+}
+\]
+such that every other commutative square of the same form comes from a morphism \(T\to T_i\). Notice that if \((F_i)_{i\in I}\) is a generating family of \(E\), every \(X\in\ob C\) is isomorphic to a direct factor of some \(F_i\).
+\item The topos \(E\) is locally coherent, \ie generated by coherent algebraic objects, if and only if the objects \(X\) of \(C\) are coherent and algebraic in \(E\). This means that condition b) holds, and also the following condition: for every double arrow \(f,g:Y\rightrightarrows Z\) of \(C\) over an object \(X\) of \(C\), the kernel of this double arrow in \(E\) is quasi-compact. Equivalently, there exists a finite family of commutative diagrams in \(C\)
+\[
+\xymatrix@C=1.5cm{T_i\ar[r]&Y\ar@<2pt>[r]^f\ar@<-2pt>[r]_g&Z}
+\]
+such that every other commutative diagram of this form comes from a morphism \(T\to T_i\). For \(E\) to be algebraic, the same condition is required for arbitrary double arrows \((f,g)\) of \(C\), not necessarily over an object \(X\) of \(C\). For \(E\) to be quasi-separated, condition b) must hold and, in addition, for two objects \(X,Y\in\ob C\), the product \(X\times Y\) in \(E\) must be quasi-compact. For \(E\) to be coherent, the two preceding conditions must hold, and \(C\) must have a final subcategory with finite underlying set.
+\item Give an example in which the objects of the generating subcategory \(C\) of \(E\) are pre-noetherian, but \(E\) has no generating family consisting of coherent objects. For this take \(C\) to be the category whose objects are \(X\), \(T_i\), \(i=0,1,\ldots\), and \(e\), the final object. Besides identities and the structural morphisms to \(e\), the only morphisms are \(u_i:T_i\to X\), \(v_i:X\to T_i\), subject to \(u_iv_i=\id_X\), and finally \(p_i=v_iu_i\), satisfying necessarily \(p_i^2=\id_{T_i}\). One checks that the only sieves of \(X\) or of a \(T_i\) are the two trivial sieves, and that \(e\) has exactly one non-trivial sieve. Hence by a), the objects of \(C\) are pre-noetherian in \(E\). However, \(X\times X\) in \(E\) is not quasi-compact, since it does not satisfy the criterion in b).
+\item Give an example in which the generating subcategory \(C\) of \(E\) consists of coherent objects of \(E\), but \(E\) is not locally coherent. For this take \(C\) to be the category whose objects are distinct objects \(e\), the final object, \(Y\), \(Z\), and \(T_i\), \(i=0,1,\ldots\), with as only morphisms, besides the morphisms to the final object and identities, morphisms \(u_i:T_i\to Y\) and a double arrow \(f,g:Y\rightrightarrows Z\) subject to \(fu_i=gu_i\). With some patience, one checks that \(C\) satisfies condition b): all fiber products of objects of \(C\) are isomorphic either to \(\varnothing_E\) or to objects of \(C\), except for \(Z\times_e Z\) and \(Y\times_e Z\), which are covered by two elements of \(C\). But plainly \(\Ker(f,g)\) does not satisfy condition c).
+\item Give an example in which \(C\) is stable under fiber products, so that \(E\) is a locally coherent, \ie locally algebraic, topos, but \(E\) is not algebraic. Take the example of d) and the full subcategory \(C'\) of \(E\) consisting of \(Y\), \(Z\), \(T_i\) for \(i>0\), and \(\varnothing_E\).
+\item Assume \(C\) finite. Prove that \(E\) is noetherian; its noetherian, equivalently quasi-compact, objects are the contravariant functors \(F:C^\circ\to\Set\) such that for every object \(X\) of \(C\), \(F(X)\) is a finite set; and the fiber functors on \(E\) send noetherian objects to finite sets.
+\item Assume every morphism \(f:X\to X\) of \(C\) factors as a composite \(ip\), where \(i\) is a monomorphism and \(p\) admits a right inverse. Let \(X\) be an object of \(C\), let \(I(X)\) be the set of its subobjects in the sense of \(C\), regarded as an ordered set, and let \(S(I(X))\) be the set of subsets \(U\) of \(I(X)\) such that if \(X'\in U\) and \(X''\leq X'\), then \(X''\in U\). Show that the ordered set of subobjects of \(X\) in \(E\) is isomorphic to \(S(I(X))\). Deduce that if \(I(X)\) is finite, then \(X\) is pre-noetherian in \(E\). In particular, if in addition to the factorization condition above, \(C\) is stable under fiber products, respectively finite projective limits, and if for every \(X\in\ob C\) the set \(I(X)\) of subobjects of \(X\) in \(C\) is finite, then \(E\) is locally noetherian, respectively noetherian.
+\item Let \(C\) be the category of finite sets, or alternatively of non-empty finite sets, in \(\U\). Then \(E=\widehat C\) is the category of augmented simplicial sets, respectively of ordinary simplicial sets. Show that \(E\) is a noetherian topos, using h). Taking a pro-object \((X_i)_{i\in I}\) of \(C\) which is not essentially constant, show that \(E\) admits fiber functors which do not send noetherian objects to noetherian objects, \ie finite sets.
+\item Consider the following diagram of implications among properties of a topos \(E\):
+\[
+\begin{array}{cccccc}
+E\text{ noetherian} & \Rightarrow & E\text{ locally noetherian} &&&\\
+\Downarrow && \Downarrow && \searrow &\\
+E\text{ coherent} & \Rightarrow & E\text{ algebraic} &&&\\
+&& \Downarrow &&& E_{\preNoeth}\text{ generates }E\\
+&& E\text{ locally coherent, i.e. }E_{\cohalg}\text{ generates }E & \Rightarrow &&\\
+&& \Downarrow &&&\\
+&& E_{\coh}\text{ generates }E &&&\\
+&& \Downarrow &&&\\
+&& E_{\qc}\text{ generates }E.&&&
+\end{array}
+\]
+Show that all implications in this diagram are strict, and that there are no further implications among the notions considered except those obtained by composition in the diagram. Here \(E_{\coh}\), \(E_{\qc}\), \(E_{\preNoeth}\), and \(E_{\cohalg}\) denote respectively the full subcategories of \(E\) consisting of coherent, quasi-compact, pre-noetherian, and coherent algebraic objects. It suffices to restrict to topoi of the form \(\widehat C\), using the results stated in d), e), and f).
+\item Solve the following question, whose answer the writer of these lines does not know: can \(E=\widehat C\) be locally noetherian without the sets \(\Hom(X,Y)\), for \(X,Y\in\ob C\), being finite?
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 2.18}
+Let \(E\) be a topos.
+\begin{enumerate}[label=\alph*)]
+\item Let \(X\) be a pre-noetherian object of \(E\). Show that \(X\) is isomorphic to a finite sum of connected objects of \(E\). Argue by contradiction that every increasing sequence of partitions of \(X\) is stationary.
+\item Let \(X\) be an object of \(E\), and let \((f_i:X_i\to X)_{i\in I}\) be a covering family of \(X\). Show that if each \(X_i\) is isomorphic to a sum of connected objects of \(E\), then the same is true of \(X\). Reduce to the case where the \(X_i\) are connected, then to the case where they are subobjects of \(X\), and consider on the index set \(I\) the equivalence relation \(R\) generated by the relation \(X_i\cap X_j\neq\varnothing_E\). If \(J=I/R\), show that \(X\) is the sum of the objects \(X(j)=\Sup_{i\in j}X_i\).
+\item Deduce from b) that if \((X_i)_{i\in I}\) is a generating family of \(E\), then \(E\) is locally connected if and only if each \(X_i\), \(i\in I\), is isomorphic to a sum of connected objects of \(E\).
+\item Deduce from a) and c) that if \(E\) admits a generating subcategory consisting of pre-noetherian objects, in particular if \(E\) is locally noetherian, then \(E\) is locally connected, and a fortiori is isomorphic to the sum topos of a family of connected topoi, \ie topoi whose final object is connected. In particular one can associate to \(E\), for every morphism \(f:P\to E\), where \(P\) is a ``non-empty connected and simply connected'' topos, a fundamental pro-group \(\pi_1(E,f)\). Notice that if \(E\) is a non-empty locally noetherian topos, one can always find such an \(f\), with \(P\) the punctual topos, by Deligne.
+\end{enumerate}
+\end{remarktext}
+
+\bigskip
+\noindent\emph{Continuation anchor.} The next untranslated point is SGA~4, Expos\'e~VI, Section~3, ``Finiteness conditions for a morphism of topoi,'' source line 2074 of \texttt{06/06.tex}.
+
+\end{document}

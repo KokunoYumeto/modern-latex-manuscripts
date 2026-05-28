@@ -1,0 +1,871 @@
+%% ========================================================================
+%% Qin Jiushao's Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
+%% Fascicle 1: Dayan Category (大衍類)
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{array,booktabs,longtable}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Font Configuration --------
+\setmainfont{Microsoft YaHei}
+\setsansfont{Microsoft YaHei}
+\setmonofont{Microsoft YaHei}
+
+%% Chinese font via fontspec (xeCJK not available)
+\newfontfamily\chinese{Microsoft YaHei}
+\newfontfamily\chinesebf{Microsoft YaHei}
+\newfontfamily\chineselg{Microsoft YaHei}
+
+%% Chinese text line breaking settings
+\tolerance=2000
+\emergencystretch=2em
+\hbadness=10000
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+
+%% -------- Section Formatting --------
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{0mm}%
+  {1.5ex plus 0.5ex minus 0.2ex}%
+  {0.7ex plus 0.2ex}%
+  {\normalfont\Large\bfseries\color{sectioncolor}}}
+\renewcommand{\subsection}{%
+  \@startsection{subsection}{2}{0mm}%
+  {1.2ex plus 0.3ex minus 0.1ex}%
+  {0.5ex plus 0.1ex}%
+  {\normalfont\large\bfseries\color{sectioncolor}}}
+\renewcommand{\subsubsection}{%
+  \@startsection{subsubsection}{3}{0mm}%
+  {1ex plus 0.2ex minus 0.1ex}%
+  {0.3ex plus 0.1ex}%
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}}
+\makeatother
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Environments --------
+\newenvironment{preface}{%
+  \begin{quote}\color{prefacecolor}%
+}{\end{quote}}
+
+\newenvironment{problem}[1]{%
+  \medskip\par\noindent\textcolor{sectioncolor}{\rule{\textwidth}{0.6pt}}\par
+  \smallskip\noindent{\large\bfseries #1}\par\smallskip
+}{\medskip}
+
+\newenvironment{question}{%
+  \noindent\textbf{问曰}\quad
+}{\par}
+
+\newenvironment{answer}{%
+  \noindent\textbf{答曰}\quad
+}{\par}
+
+\newenvironment{method}{%
+  \noindent\textbf{术曰}\quad
+}{\par}
+
+\newenvironment{working}{%
+  \noindent\textbf{草曰}\quad
+}{\par}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\zhtext}[1]{{\chinese #1}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+
+{\fontsize{28}{34}\selectfont\chineselg
+\textcolor{titlecolor}{数书九章}}
+
+\vspace{0.8cm}
+
+{\fontsize{16}{20}\selectfont
+\textcolor{sectioncolor}{Mathematical Treatise in Nine Sections}}
+
+\vspace{2cm}
+
+{\LARGE\bfseries Fascicle I}
+
+\vspace{0.5cm}
+
+{\Large The Dayan Category (\zhtext{大衍類})}
+
+\vspace{2cm}
+
+{\large By\\[0.5em]
+\textbf{Qin Jiushao} (\zhtext{秦九韶})\\[0.3em]
+c.\ 1202--1261 CE\\[0.5em]
+\textit{Presented in the 7th year of Chunyou (\zhtext{淳祐七年}), 1247 CE}}
+
+\vspace{1.5cm}
+
+{\normalsize\textit{One of the greatest masterpieces of Chinese mathematics,\\
+containing the general Chinese Remainder Theorem (Dayan method),\\
+numerical solutions of polynomial equations, surveying problems,\\
+and commercial and financial mathematics.}}
+
+\vfill
+
+{\small Modern LaTeX edition\ with XeTeX}
+
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{Introduction}
+
+The \textit{Shuxue Jiuzhang} (\zhtext{数书九章}, Mathematical Treatise in Nine Sections) is the magnum opus of the Song dynasty mathematician Qin Jiushao (\zhtext{秦九韶}, c.~1202--1261). Completed in 1247 CE during the Chunyou era (\zhtext{淳祐七年}), it stands as one of the greatest achievements in the history of Chinese mathematics and indeed of world mathematics.
+
+The work is organized into nine categories (\zhtext{类}), each containing nine problems (\zhtext{问}), for a total of eighty-one problems. The nine categories are:
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Dayan} (\zhtext{大衍}) -- The Great Derivation: Indeterminate analysis and the Chinese Remainder Theorem
+  \item \textbf{Tianshi} (\zhtext{天时}) -- Astronomical phenomena and calendar calculations
+  \item \textbf{Tianyu} (\zhtext{田域}) -- Land measurement and area calculation
+  \item \textbf{Cewang} (\zhtext{测望}) -- Surveying and observation
+  \item \textbf{Fuyi} (\zhtext{赋役}) -- Taxation and labor service
+  \item \textbf{Qian'gu} (\zhtext{钱谷}) -- Currency and grain commerce
+  \item \textbf{Yingjian} (\zhtext{营建}) -- Construction and engineering
+  \item \textbf{Junlv} (\zhtext{军旅}) -- Military affairs
+  \item \textbf{Shiyi} (\zhtext{市易}) -- Market transactions
+\end{enumerate}
+
+Each problem follows a rigorous four-part structure:
+\begin{itemize}
+  \item \textbf{Wen} (\zhtext{问}) -- The problem statement
+  \item \textbf{Da} (\zhtext{答}) -- The numerical answer
+  \item \textbf{Shu} (\zhtext{术}) -- The general method and algorithm
+  \item \textbf{Cao} (\zhtext{草}) -- The detailed working (step-by-step calculation)
+\end{itemize}
+
+\subsection{The Dayan Category (\zhtext{大衍类})}
+
+Fascicle I covers the first category, \textit{Dayan} (\zhtext{大衍}, ``Great Derivation''), devoted to the general solution of systems of linear congruences---what is now known worldwide as the \textbf{Chinese Remainder Theorem}. Qin Jiushao's \textit{Dayan zongshu shu} (\zhtext{大衍总数术}, ``Dayan General Method'') provides a systematic algorithm, and his \textit{Dayan qiu yi shu} (\zhtext{大衍求一术}, ``Dayan Method for Finding Unity'') gives the procedure for finding modular multiplicative inverses.
+
+The nine problems of the Dayan category are:
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Shigua fawei} (\zhtext{蓍卦发微}) -- Divination by Yarrow Stalks
+  \item \textbf{Guli huiji} (\zhtext{古历会积}) -- Ancient Calendar Accumulation
+  \item \textbf{Tuiji tugong} (\zhtext{推计土功}) -- Estimating Earthworks
+  \item \textbf{Tuiku e qian} (\zhtext{推库额钱}) -- Calculating Treasury Funds
+  \item \textbf{Fentiao tuiyuan} (\zhtext{分粜推原}) -- Grain Distribution
+  \item \textbf{Chengxing jidi} (\zhtext{程行计地}) -- Journey Distance Calculation
+  \item \textbf{Chengxing xiangji} (\zhtext{程行相及}) -- Catching Up on a Journey
+  \item \textbf{Jichi xunyuan} (\zhtext{积尺寻源}) -- Finding Dimensions from Volume
+  \item \textbf{Yumi tuishu} (\zhtext{余米推数}) -- Calculating Rice Remainders
+\end{enumerate}
+
+\newpage
+
+%% ========================================================================
+%% PREFACE BY QIN JIUSHAO
+%% ========================================================================
+\section{Preface (\zhtext{序})}
+
+\begin{preface}
+周教六艺，数实成之。学士大夫所从事尚矣。其用本太虚生一，而周流无穷。大则可以通神明、顺性命，小则可以经世务、类万物，讵容以浅近窥哉？
+
+若昔推策以迎日，定律而和气。髀距濬川，土圭度晷。天地之大，囿焉而不能外，况其间总总者乎？爰自河图洛书，闿发幽秘；八卦九畴，错综精微。极而至于大衍、皇极之用，而人事之变无不该，鬼神之情莫能隐矣。圣人神之言而遗其粗，常人昧之由而莫之觉。要其归，则数与道非二本也。
+
+汉去古未远，有张苍、许商、马延年、耿寿昌、郑玄、张衡、刘洪之伦，或明天道而法传于后，或计功策而效验于时。后世学者自高鄙不之讲，此学殆绝。惟治历畴人能为乘除，而弗通于开方衍变。若官府会事，则府史一二累之，算家位置素所不识，上之人亦委而听焉。持算者惟若人，则鄙之也宜矣。
+
+呜呼！乐有制氏，仅记铿锵之声，而谓与天地同和者止于是，可乎？今数术之书尚三十余家。天象历度谓之缀术，太乙壬甲谓之三式，皆曰内算，言其秘也。九章所载及周官九数，系于方圆者为专术，皆曰外算，对内而言也。其用相通，不可歧二。独大衍法不载九章，未有能推之者。历家演法颇用之，以为方程者，误也。
+
+且天下之事多矣。古之人先事而计，计定而行。仰观俯察，人谋鬼谋，无所不用其谨，是以不愆于成。载籍章章可覆也。后世兴事造始，鲜能考度，悠悠乎天纪人事之殽缺矣，可不求其故哉？
+
+九韶愚陋，不闲于艺。然早岁侍亲中都，因得访习于太史，又尝从隐君子受数学。时际兵难，历岁遥塞，不自意全于矢石之间。更险离忧，荏苒十禩，心槁气落。信知夫物莫不有数也，乃肆意其间，旁诹方能，探索杳眇，粗若有得焉。所谓通神明、顺性命，固肤末于见。若其小者，窃尝设为问答，以拟于用。积多而惜其弃，因取八十一题，厘为九类，立术具草，间以图发之。恐或可备博学多识君子之余观，曲艺可遂也，愿进之于道。傥曰艺成而下，是惟畴人府史流也，乌足尽天下之用，亦无瞢焉。
+
+时淳祐七年九月，鲁郡秦九韶叙。
+\end{preface}
+
+\vspace{1em}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+\vspace{0.5em}
+
+\subsection{The Nine Categories in Verse}
+
+\begin{preface}
+昆仑旁薄，道本虚一。圣有大衍，微寓于《易》。奇余取策，群数皆捐。衍而究之，探隐之原。
+
+数术之传，以实为体。其书九章，惟兹弗纪。历家虽用，用而不知。小试经世，姑推所为。
+
+\textbf{述大衍第一}
+
+七精回穹，人事之纪。追缀而求，宵星昼晷。历久则疏，惟智能革。不寻天道，模袭何益。
+
+\textbf{述天时第二}
+
+魁隗粒民，甄度四海。苍姬井之，仁政攸在。代远庶蕃，垦菑日广。步度庀赋，版图是掌。方圆异状，袤窳殊形。专术精微，孰究其真。差之毫厘，谬乃千里。公私共弊，盍谨其籍。
+
+\textbf{述田域第三}
+
+莫高匪山，莫濬匪川。神禹奠之，积矩攸传。智创巧述，重差夕桀。求之既详，揆之罔越。崇深广远，度则靡容。形格势禁，寇垒仇墉。欲知其数，先望以表。因差施术，坐悉微渺。
+
+\textbf{述测望第四}
+
+邦国之赋，以待百事。畦田经入，取之有度。未免力役，先商厥功。以衰以率，逸乃同功。汉犹近古，租税以算。调均钱谷，何菑之捍。惟仁隐民，犹己溺饥。赋役不均，宁得勿思。
+
+\textbf{述赋役第五}
+
+物等敛赋，式时府庾。粒粟寸丝，褐夫红女。商征边籴，后世多端。立缘为欺，上下俱殚。我闻理财，如智治水。澄源濬流，惟其深矣。彼昧弗察，急于烦刑。去理益远，吁嗟不仁。
+
+\textbf{述钱谷第六}
+
+斯城斯池，乃栋乃宇。宅坐寄命，以保以聚。鸠功雉制，竹个本章。匪究匪度，财蠹力伤。围蔡而裁，如子西素。匠计露台，俾汉文惧。惟武图功，惟俭昭德。有国有家，兹焉取则。
+
+\textbf{述营建第七}
+
+天生五材，兵去未可。不教而战，维上之过。堂堂之阵，鹅鹳为行。营应规矩，其将莫当。师中之吉，惟智仁勇。夜算军书，先计攸重。我闻在昔，轻则寡谋。殄民以幸，亦孔之忧。
+
+\textbf{述军旅第八}
+
+日中而市，万民所资。贾贸墆鬻，利析铢锱。蹛财役贫，封君低首。豕末兼并，非国之厚。
+
+\textbf{述市易第九}
+\end{preface}
+
+\newpage
+
+%% ========================================================================
+%% THE DAYAN GENERAL METHOD
+%% ========================================================================
+\section{The Dayan General Method (\zhtext{大衍总数术})}
+
+\subsection{Editor's Commentary on the Dayan Method}
+
+\begin{quote}
+按大衍术，以各分数之奇零求各分数之总数。大而天行，小而物数，皆可御之。其法有求元、求定、求衍、求奇、求乘、求用之目。大约以数之奇偶为根，而以诸数相度之尽不尽为用。
+
+有求彼此不能度尽之诸数者，元数、定数是也。有求诸数皆能度尽之一数者，衍母数是也。有求诸数皆能度尽而一数不能度尽之数者，各衍数是也。其不尽之数，即奇数也。有求二数相度余一之数者，乘数是也。有求二数相度余一而诸数又能度尽之数者，用数是也。
+\end{quote}
+
+\subsection{The Four Types of Numbers}
+
+\textbf{大衍总数术曰：}置诸问数，类名有四。
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{元数} -- 谓尾位见单零者。本门揲蓍、酒息、斛粜、砌砖、失米之类是也。
+  \item \textbf{收数} -- 谓尾位见分厘者。假令冬至三百六十五日二十五刻，欲与甲子六十日为一会而求积日之类。
+  \item \textbf{通数} -- 谓诸数各有分子分母者。本门问一会积年是也。
+  \item \textbf{复数} -- 谓尾位见十或百及千以上者。本门筑堤并急足之类是也。
+\end{enumerate}
+
+\subsection{Finding the Definitive Numbers (\zhtext{求定数})}
+
+\textbf{元数者：}先以两两连环求等，约奇弗约偶。或约得五而彼有十，乃约偶弗约奇。或元数俱偶，约毕可存一位见偶。或皆约而犹有类数存，姑置之，俟与其他约遍而后乃与姑置者求等约之。或诸数皆不可尽类，则以诸元数命曰定数，以复数格入之。
+
+\textbf{收数者：}乃命尾位分厘作单零，以进所问之数，定位讫，用元数格入之。或如意立数为母，收进分厘以从所问，用通数格入之。
+
+\textbf{通数者：}置问数通分纳子，互乘之，皆曰通数。求总等，不约一位，约众位，得各原法数，用元数格入之。或诸母数繁，就分从省通之者，皆不用元，各母仍求总等，存一位约众位，亦各得原法数，亦用元法数格入之。
+
+\textbf{复数者：}问数尾位见十以上者，以诸数求总等，存一位约众位，始得元数。两两连环求等，约奇弗约偶，复乘偶；或约偶弗约奇，弗乘奇。
+
+\subsection{Computing the Derivative Numbers}
+
+\textbf{求定数}勿使两位见偶，勿使见一太多。见一多则借用繁，不欲借则任得一。
+
+\textbf{以定相乘为衍母}，以各定约衍母，得各衍数。或列各定数于右行，各立天元一为子于左行，以母互乘子，亦得衍数。
+
+Then each derivative number is reduced modulo its corresponding definitive number; the remainder is called the \textbf{odd number} (\zhtext{奇数}). Using the Dayan Method for Finding Unity (\zhtext{大衍求一术}), one finds the \textbf{multiplier} (\zhtext{乘率}) for each. Multiplying each multiplier by its derivative number gives the \textbf{use number} (\zhtext{用数}). The final answer is obtained by multiplying each remainder by its use number, summing, and reducing modulo the derivative mother (\zhtext{衍母}).
+
+\subsection{The Dayan Method for Finding Unity (\zhtext{大衍求一术})}
+
+\begin{quote}
+大衍求一术云：置奇右上，定居右下。立天元一于左上。先以右行上下两位，以少除多，所得商数，乃递互乘归左行。须使右上末后奇一而止。乃验左上所得，以为乘率。或奇数已见单一者，便为乘率。
+\end{quote}
+
+\textit{In modern terms:} Given coprime integers $a$ (the ``odd number'') and $m$ (the ``definitive number''), find $k$ such that:
+\[k \cdot a \equiv 1 \pmod{m}\]
+This is the modular multiplicative inverse of $a$ modulo $m$, computed by the Euclidean algorithm with back-substitution.
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 1: DIVINATION BY YARROW STALKS
+%% ========================================================================
+\section{Problem 1: Shigua Fawei (\zhtext{蓍卦发微})}
+
+\begin{problem}[蓍卦发微 -- Divination by Yarrow Stalks]
+
+\begin{question}
+《易》曰：大衍之数五十，其用四十有九。又曰：分而为二以象两，挂一以象三，揲之以四以象四时。三变而成爻，十有八变而成卦。欲知所衍之术及其数各几何？
+\end{question}
+
+\textit{The Book of Changes says: ``The number of the Great Derivation is fifty; of these, forty-nine are used.'' It also says: ``Divide into two to symbolize the Two [heaven and earth]; hang one to symbolize the Three [heaven, earth, and man]; count off by fours to symbolize the Four Seasons.'' Three changes produce a line; eighteen changes produce a hexagram. The problem asks to find the computational method of this derivation and the numbers involved.}
+
+\begin{answer}
+衍母十二，衍法三。
+
+一元衍数二十四，二元衍数一十二，三元衍数八，四元衍数六。以上四位衍数，计五十一。
+
+一揲用数一十二，二揲用数二十四，三揲用数四，四揲用数九。以上四位用数，计四十九。
+\end{answer}
+
+\begin{method}
+置诸元数，两两连环求等，约奇弗约偶。遍约毕，乃变元数皆曰定母，列右行。各立天元一为子，列左行。以诸定母互乘左行之子，各得名曰衍数。次以各定母满去衍数，各余名曰奇数。以奇数与定母用大衍术求一，得各乘率。以乘衍数，各得用数。验次所揲余几何，以其余数乘诸用数，并之，名曰总数。满衍母去之，不满为所求数。以为实，易以三才为衍法，以法除实所得为象数。如实有余，或一或二，皆命作一，同为象数。其象数得一为老阳，得二为少阴，得三为少阳，得四为老阴。得老阳画重爻，得少阴画拆爻，得少阳画单爻，得老阴画交爻。凡六画乃成卦。
+\end{method}
+
+\begin{working}
+置一、二、三、四列右行，立天元一列左行。
+
+以右行一、二、三、四互乘左行：一乘一得一，二乘一得二，三乘二得六，四乘六得二十四。各得衍数。
+
+次以定母满法去衍数：
+\begin{itemize}
+  \item 以十二除二十四得二余零，一元衍数为二十四
+  \item 以十二除一十二得一余零，二元衍数为一十二
+  \item 以八除八得一余零，三元衍数为八
+  \item 以六除六得一余零，四元衍数为六
+\end{itemize}
+
+各满定母去之，得奇数。以大衍求一入之，得乘数：
+\begin{itemize}
+  \item 得二十三为乘率
+  \item 得五十一为乘率
+  \item 得七为乘率
+\end{itemize}
+
+以乘率各乘衍数，得用数：
+\begin{itemize}
+  \item 一揲用数一十二
+  \item 二揲用数二十四
+  \item 三揲用数四
+  \item 四揲用数九
+\end{itemize}
+以上四位用数，计四十九。
+\end{working}
+
+\end{problem}
+
+\textit{This problem applies the Dayan method to the classical yarrow-stalk divination procedure of the Book of Changes (I Ching), interpreting the numerological operations in terms of congruence arithmetic.}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 2: ANCIENT CALENDAR ACCUMULATION
+%% ========================================================================
+\section{Problem 2: Guli Huiji (\zhtext{古历会积})}
+
+\begin{problem}[古历会积 -- Ancient Calendar Accumulation]
+
+\begin{question}
+问古历会积，欲求积年。以历法积元为问，历过无考，但据近世演纪之法，推而上之。
+\end{question}
+
+\textit{This problem concerns the calculation of the accumulated years (\zhtext{积年}) in ancient calendar systems. Given certain astronomical periodicities, one must find a number that simultaneously satisfies multiple congruence conditions.}
+
+\begin{answer}
+答曰：积年若干。
+\end{answer}
+
+\begin{method}
+术曰：以大衍求之。置元历相关诸周期，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求积年。
+\end{method}
+
+\textit{This problem applies the Dayan method to astronomical calendar calculations, finding a common epoch that aligns multiple celestial cycles (such as the tropical year, synodic month, and sexagenary cycle). This was one of the primary applications of the Dayan method in traditional Chinese astronomy.}
+
+\end{problem}
+
+%% ========================================================================
+%% PROBLEM 3: ESTIMATING EARTHWORKS
+%% ========================================================================
+\section{Problem 3: Tuiji Tugong (\zhtext{推计土功})}
+
+\begin{problem}[推计土功 -- Estimating Earthworks]
+
+\begin{question}
+问：四县（甲、乙、丙、丁）共同筑堤，根据各县的物力分配筑堤任务。
+\begin{itemize}
+  \item 甲县物力：138,600贯
+  \item 乙县物力：146,300贯
+  \item 丙县物力：192,500贯
+  \item 丁县物力：184,800贯
+\end{itemize}
+筑堤标准：每770贯物力分配一名劳动力，每人每天筑堤60平方尺。
+
+进度情况：甲县和乙县已完成任务，丙县剩余51丈，丁县剩余18丈。
+\end{question}
+
+\begin{answer}
+答曰：堤的总长度为19里235步5尺。
+
+各县所筑长度：
+\begin{itemize}
+  \item 甲县：1,260丈
+  \item 乙县：1,768步5尺6寸
+  \item 丙县：4里328步5尺6寸
+  \item 丁县：与前三县相应
+\end{itemize}
+\end{answer}
+
+\begin{method}
+术曰：以大衍求之。置各县物力，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各县余数乘用数，并之为总数。满衍母去之，不满为所求。
+\end{method}
+
+\begin{working}
+计算各县每日筑堤长度：
+\begin{itemize}
+  \item 甲县：54丈
+  \item 乙县：57丈
+  \item 丙县：75丈
+  \item 丁县：72丈
+\end{itemize}
+
+使用大衍求一术，计算各县的复数和衍数：
+\begin{itemize}
+  \item 甲县复数：27，乙县复数：19
+  \item 丙县复数：25，丁县复数：8
+\end{itemize}
+
+计算衍母和衍数：
+\begin{itemize}
+  \item 衍母：102,600
+  \item 甲县衍数：3,800
+  \item 乙县衍数：5,400
+  \item 丙县衍数：4,140
+  \item 丁县衍数：12,825
+\end{itemize}
+
+计算各县的乘率：
+\begin{itemize}
+  \item 甲县乘率：23
+  \item 乙县乘率：5
+  \item 丙县乘率：19
+  \item 丁县乘率：1
+\end{itemize}
+
+计算各县的用数：
+\begin{itemize}
+  \item 甲县用数：17,400
+  \item 乙县用数：27,000
+  \item 丙县用数：77,976
+  \item 丁县用数：12,825
+\end{itemize}
+
+计算总长度：
+\begin{itemize}
+  \item 丙县剩余长度：3,976,776丈
+  \item 丁县剩余长度：238,500丈
+  \item 总剩余长度：4,215,276丈
+\end{itemize}
+
+堤的总长度：19里235步5尺。
+\end{working}
+
+\end{problem}
+
+%% ========================================================================
+%% PROBLEM 4: CALCULATING TREASURY FUNDS
+%% ========================================================================
+\section{Problem 4: Tuiku E Qian (\zhtext{推库额钱})}
+
+\begin{problem}[推库额钱 -- Calculating Treasury Funds]
+
+\begin{question}
+问有外邑七库，日纳息足钱适等，递年成贯整纳。近缘见钱希少，听各库照当处市陌准解旧会。其甲库有零钱一十文，丁、庚二库各零四文，戊库零六文，余库无零钱。甲库所在市陌一十二文，递减一文至庚库而止。欲求诸库日息原纳足钱、展省及今纳旧会，并大小月分各几何？
+
+（七库依次为甲、乙、丙、丁、戊、己、庚，市陌分别为12, 11, 10, 9, 8, 7, 6文。甲库余10文，乙丙无余，丁余4文，戊余6文，己无余，庚余4文。）
+\end{question}
+
+\begin{answer}
+答曰：诸库纳日息足钱二十贯九百五十文。
+
+展省三十五贯文。
+
+各库旧会：
+\begin{itemize}
+  \item 甲库日息旧会：二百二十四贯五百一十文
+  \item 乙库日息旧会：二百四十五贯文
+  \item 丙库日息旧会：二百六十九贯五百文
+  \item 庚库日息旧会：四百四十九贯一百四文
+\end{itemize}
+\end{answer}
+
+\begin{method}
+术曰：以大衍求之。置甲库市陌，以递减数减之，各得诸库原陌。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置有零文库零钱数，乘本用数，并为总数。满衍母去之，不满为诸库日息足钱。置日数，以余乘之，各满元陌去之，余为奇。
+\end{method}
+
+\begin{working}
+置甲库市陌一十二，递减一得一十一为乙库陌，十为丙库陌，九为丁库陌，八为戊库陌，七为己库陌，六为庚库陌。得诸库原陌。
+
+连环求等约讫：
+\begin{itemize}
+  \item 甲得一
+  \item 乙得十一
+  \item 丙得五
+  \item 丁得九
+  \item 戊得八
+  \item 己得七
+  \item 庚得一
+\end{itemize}
+各为定母。
+
+先以诸定相乘，得27,720为衍母。
+次以诸定互乘诸子：
+\begin{itemize}
+  \item 甲得27,720
+  \item 乙得2,520
+  \item 丙得5,544
+  \item 丁得3,080
+  \item 戊得3,465
+  \item 己得3,960
+  \item 庚得27,720
+\end{itemize}
+各为衍数。
+\end{working}
+
+\end{problem}
+
+%% ========================================================================
+%% PROBLEM 5: GRAIN DISTRIBUTION
+%% ========================================================================
+\section{Problem 5: Fentiao Tuiyuan (\zhtext{分粜推原})}
+
+\begin{problem}[分粜推原 -- Grain Distribution]
+
+\begin{question}
+有兄弟三人，各将收获之米送往不同的地方：
+\begin{itemize}
+  \item 甲将米送往官场，余3斗2升
+  \item 乙将米送往安吉乡，余7斗
+  \item 丙将米送往平江，余3斗
+\end{itemize}
+官斛每石八斗三升，安吉斛每石一石一斗，平江斛每石一石三斗五升。欲求三人共收获米数以及各自分米数几何？
+\end{question}
+
+\begin{answer}
+答曰：三人共收获米738石。
+
+各分米数：
+\begin{itemize}
+  \item 甲：296石，余3斗2升
+  \item 乙：223石，余7斗
+  \item 丙：182石，余3斗
+\end{itemize}
+\end{answer}
+
+\begin{method}
+术曰：以大衍求之。置各斛率（单位：升）：官斛83升，安吉斛110升，平江斛135升。连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求率数。
+\end{method}
+
+\begin{working}
+置官斛83升、安吉斛110升、平江斛135升，连环求等。
+
+求总等：得总等1，不约。
+连环求等，得定母：246,510。
+
+各斛衍数：
+\begin{itemize}
+  \item 官斛衍数：2,970
+  \item 安吉衍数：2,241
+  \item 平江衍数：1,826
+\end{itemize}
+
+以大衍求一术，得乘率：
+\begin{itemize}
+  \item 官斛乘率：51
+  \item 安吉乘率：7
+  \item 平江乘率：23
+\end{itemize}
+
+以乘率乘衍数得用数：
+\begin{itemize}
+  \item 官斛用数：2,970 $\times$ 51 = 151,470
+  \item 安吉用数：2,241 $\times$ 7 = 15,687
+  \item 平江用数：1,826 $\times$ 23 = 41,998
+\end{itemize}
+
+次置各余数乘用数：
+\begin{itemize}
+  \item 甲余32升 $\times$ 官斛用数
+  \item 乙余70升 $\times$ 安吉用数
+  \item 丙余30升 $\times$ 平江用数
+\end{itemize}
+并为总数，满衍母246,510去之，不满为所求率数。
+
+展算得：分米246石，以兄弟三人因之，得738石为共米。
+
+置分米246石，各以官斛8斗3升、安吉斛1石1斗、平江斛1石3斗5升约之：
+\begin{itemize}
+  \item 甲得296石，余3斗2升
+  \item 乙得223石，余7斗
+  \item 丙得182石，余3斗
+\end{itemize}
+各为粜过及余米，合问。
+\end{working}
+
+\end{problem}
+
+%% ========================================================================
+%% PROBLEM 6: JOURNEY DISTANCE CALCULATION
+%% ========================================================================
+\section{Problem 6: Chengxing Jidi (\zhtext{程行计地})}
+
+\begin{problem}[程行计地 -- Journey Distance Calculation]
+
+\begin{question}
+军师派遣三名急足（甲、乙、丙）分别前往都下报捷。
+\begin{itemize}
+  \item 甲每天行300里
+  \item 乙每天行240里
+  \item 丙每天行180里
+\end{itemize}
+甲提前数日申未到，乙后数日未正到，丙今日辰末到。欲知从军前到都下的距离以及三人各自行走的天数几何？
+\end{question}
+
+\begin{answer}
+答曰：从军前到都下的距离为3,300里。
+\begin{itemize}
+  \item 甲行11天
+  \item 乙行13天4时
+  \item 丙行18天2时
+\end{itemize}
+\end{answer}
+
+\begin{method}
+术曰：以大衍求之。置三人日行里数，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求距离。
+\end{method}
+
+\begin{working}
+置甲300里、乙240里、丙180里，求总等，连环求等。
+
+计算得乘率：
+\begin{itemize}
+  \item 甲乘率：4
+  \item 乙乘率：1
+  \item 丙乘率：7
+\end{itemize}
+
+通过乘率乘以各自的用数，得到总用数，再通过总用数除以衍母，得到最终结果。
+
+验证：
+\begin{itemize}
+  \item 3,300 $\div$ 300 = 11天
+  \item 3,300 $\div$ 240 = 13天余120里 = 13天4时（1天=240里，120里=半天=4时）
+  \item 3,300 $\div$ 180 = 18天余60里 = 18天2时
+\end{itemize}
+合问。
+\end{working}
+
+\end{problem}
+
+%% ========================================================================
+%% PROBLEM 7: CATCHING UP ON A JOURNEY
+%% ========================================================================
+\section{Problem 7: Chengxiang Xiangji (\zhtext{程行相及})}
+
+\begin{problem}[程行相及 -- Catching Up on a Journey]
+
+\begin{question}
+问：甲、乙、丙三人行程相关。甲先行若干日，乙后行，丙又后行。各以不同速度行进。求某处三人相遇之时间及各地距离。
+\end{question}
+
+\textit{This problem involves multiple travelers with different speeds and starting times, requiring the use of the Dayan method to solve a system of congruences for finding meeting times and distances.}
+
+\begin{answer}
+答曰：所求距离及相关数值若干。
+\end{answer}
+
+\begin{method}
+术曰：以大衍求之。置各人行程速度及时间差，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求。
+\end{method}
+
+\end{problem}
+
+%% ========================================================================
+%% PROBLEM 8: FINDING DIMENSIONS FROM VOLUME
+%% ========================================================================
+\section{Problem 8: Jichi Xunyuan (\zhtext{积尺寻源})}
+
+\begin{problem}[积尺寻源 -- Finding Dimensions from Volume]
+
+\begin{question}
+问欲砌基一段，见管大小方砖六门城砖四色。令匠取便，或平或侧，只用一色砖砌，须要适足。匠以砖量地计料，称用：
+\begin{itemize}
+  \item 大方：广多六寸，深少六寸
+  \item 小方：广多二寸，深少三寸
+  \item 城砖：长广多三寸，深少一寸
+  \item 六门砖：长广多三寸，深多一寸
+\end{itemize}
+
+皆不合匝，未免修破砖料裨补。其四色砖尺寸：
+\begin{itemize}
+  \item 大方：方一尺三寸
+  \item 小方：方一尺一寸
+  \item 城砖：长一尺二寸，阔六寸，厚二寸五分
+  \item 六门砖：长一尺，阔五寸，厚二寸
+\end{itemize}
+
+欲知基深广几何？
+\end{question}
+
+\begin{answer}
+答曰：深三丈七尺一寸，广一丈二尺三寸。
+\end{answer}
+
+\textit{This is a classic problem of finding a common multiple with given remainders. The dimensions of the foundation must be such that when measured with each type of brick (in different orientations), there are specific remainders. The Dayan method is used to find such dimensions.}
+
+\begin{method}
+术曰：以大衍求之。置四色砖尺寸及所余尺寸，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为基之深广。
+\end{method}
+
+\end{problem}
+
+%% ========================================================================
+%% PROBLEM 9: CALCULATING RICE REMAINDERS
+%% ========================================================================
+\section{Problem 9: Yumi Tuishu (\zhtext{余米推数})}
+
+\begin{problem}[余米推数 -- Calculating Rice Remainders]
+
+\begin{question}
+问：有米若干，以不同容量的容器量之，各余若干。欲求米之总数。
+\end{question}
+
+\textit{This problem involves finding the total number of units of rice when measured with containers of different capacities, leaving different remainders each time. It is the classic ``unknown quantity'' problem that leads directly to the Chinese Remainder Theorem.}
+
+\begin{answer}
+答曰：所求米总数若干。
+\end{answer}
+
+\begin{method}
+术曰：以大衍求之。置各容器容量为问数，连环求等，约奇弗约偶，得定母。诸定相乘为衍母。以各定约衍母得衍数。各满定母去之，余为奇数。大衍求一入之，得乘率。以乘衍数为用数。次置各余数乘用数，并之为总数。满衍母去之，不满为所求米数。
+\end{method}
+
+\textit{This problem is structurally identical to the famous ``problem of the unknown quantity'' from the \textit{Sunzi Suanjing} (\zhtext{孙子算经}), which asks: ``We have things of which we do not know the number; if we count them by threes, the remainder is 2; if by fives, the remainder is 3; if by sevens, the remainder is 2. How many things are there?'' Qin Jiushao's general method solves all problems of this type systematically.}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% MATHEMATICAL ANALYSIS
+%% ========================================================================
+\section{Mathematical Analysis of the Dayan Method}
+
+\subsection{The Chinese Remainder Theorem}
+
+The Dayan method solves systems of simultaneous linear congruences. Given a set of pairwise coprime moduli $m_1, m_2, \ldots, m_n$ and remainders $r_1, r_2, \ldots, r_n$, find $N$ such that:
+\begin{align*}
+N &\equiv r_1 \pmod{m_1} \\
+N &\equiv r_2 \pmod{m_2} \\
+&\vdots \\
+N &\equiv r_n \pmod{m_n}
+\end{align*}
+
+\subsection{Qin Jiushao's Algorithm}
+
+\textbf{Step 1: Definitive Numbers (求定数).} Given the original numbers (元数), reduce them pairwise using the greatest common divisor, keeping them coprime. The rule ``约奇弗约偶'' (reduce the odd one, not the even one) ensures the product will have unique factorization.
+
+\textbf{Step 2: Derivative Mother (求衍母).} Compute $M = m_1 \times m_2 \times \cdots \times m_n$.
+
+\textbf{Step 3: Derivative Numbers (求衍数).} Compute $M_i = M / m_i$ for each $i$.
+
+\textbf{Step 4: Odd Numbers (求奇数).} Compute $g_i = M_i \bmod m_i$.
+
+\textbf{Step 5: Finding Unity (大衍求一术).} For each $i$, find $k_i$ such that:
+\[k_i \cdot g_i \equiv 1 \pmod{m_i}\]
+This is the modular multiplicative inverse.
+
+\textbf{Step 6: Use Numbers (求用数).} Compute $u_i = k_i \cdot M_i$.
+
+\textbf{Step 7: Final Computation.} The solution is:
+\[N = \sum_{i=1}^{n} r_i \cdot u_i \pmod{M}\]
+
+\subsection{Historical Significance}
+
+Qin Jiushao's method predated similar European work by several centuries. The algorithm for finding modular inverses (大衍求一术) is essentially the extended Euclidean algorithm. The method was later applied by Guo Shoujing (郭守敬) to astronomy, by Li Ye (李冶) to geometry, and was transmitted to Europe where it became known as the ``Chinese Remainder Theorem.''
+
+Gauss gave the first complete treatment in Europe in his \textit{Disquisitiones Arithmeticae} (1801), calling it the ``problem of finding a number that, when divided by given numbers, leaves given remainders.'' The theorem is now recognized as one of the fundamental results in number theory.
+
+%% ========================================================================
+%% END MATTER
+%% ========================================================================
+\newpage
+\section*{About This Edition}
+\addcontentsline{toc}{section}{About This Edition}
+
+This typeset edition presents Fascicle I of Qin Jiushao's \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections), covering the Dayan category (大衍类) with its nine problems on the Chinese Remainder Theorem and related indeterminate analysis.
+
+The source text is based on the Siku Quanshu (四库全书) edition as preserved in the Chinese Textual Tradition, with cross-references to the Yijia Tang (宜稼堂) edition. The editorial commentary (按) included in the Siku edition has been preserved where available.
+
+\subsection*{Textual Notes}
+\begin{itemize}
+  \item Modern LaTeX edition  \item Chinese font: modern Unicode fonts
+  \item The traditional structure of 问 (question), 答 (answer), 术 (method), and 草 (working) has been preserved
+\end{itemize}
+
+\subsection*{Further Reading}
+\begin{itemize}
+  \item Libbrecht, U.\ \textit{Chinese Mathematics in the Thirteenth Century}. MIT Press, 1973.
+  \item Qian, Baocong.\ \textit{Zhongguo Shuxue Shi} (History of Chinese Mathematics). Science Press, 1964.
+  \item Martzloff, J.-C.\ \textit{A History of Chinese Mathematics}. Springer, 1997.
+\end{itemize}
+
+\vfill
+\begin{center}
+\textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}\\[0.5em]
+\textit{Modern LaTeX edition\ --- \the\year}
+\end{center}
+
+\end{document}

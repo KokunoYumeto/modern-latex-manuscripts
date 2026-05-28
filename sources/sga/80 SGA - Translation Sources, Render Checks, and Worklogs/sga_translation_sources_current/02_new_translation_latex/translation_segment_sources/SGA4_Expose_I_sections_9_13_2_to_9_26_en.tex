@@ -1,0 +1,767 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: I, Presheaves
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/01/01.tex
+% Range translated in this batch: Remark 9.13.2 through Corollary 9.26, source lines 6361--7423.
+% Status: draft translation, compile-checked, not proofed against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,amscd}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fun}{\operatorname{Fun}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Filt}{\operatorname{Filt}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Sup}{\operatorname{Sup}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\Fl}{\operatorname{Fl}}
+\newcommand{\Hhom}{\operatorname{Hom}}
+\newcommand{\Hhomcart}{\operatorname{Hom}^{\mathrm{cart}}}
+\newcommand{\acc}{\mathrm{acc}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\cf}{cf.}
+\newcommand{\ie}{i.e.}
+\newcommand{\resp}{respectively\ }
+\newcommand{\NB}{\textsc{n.b.}}
+\newcommand{\qedtext}{\hfill\(\square\)}
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e I. Presheaves}}\\[0.35em]
+{\large Section 9, Remark 9.13.2 through Corollary 9.26}\\[0.35em]
+A. Grothendieck and J.-L. Verdier
+\end{center}
+
+\bigskip
+
+\noindent\emph{Translator's status note.} This is a working English translation of SGA~4, Expos\'e~I, Section~9 from Remark~9.13.2 through Corollary~9.26. The terminology follows the previous batches: ``large with respect to $\Pi$'' translates \emph{grand devant $\Pi$}; ``accessible'' is used in the sense of 9.2--9.3; and $\card \Fl C$ denotes the cardinal of the set of arrows of a category $C$. A few evident typographical slips in the source have been corrected where the formulas force the correction, notably in some subscripts in 9.14, 9.21, and 9.24.
+
+\setcounter{section}{8}
+\section{Accessible functors, cardinal filtrations, and construction of small generating subcategories}
+
+\setcounter{subsection}{13}
+\subsection*{9.13.2}
+
+\begin{remarktext}{Remark 9.13.2}
+A slight additional effort should make it possible, in Proposition~9.13, to replace the hypothesis that $E$ is stable under small filtered inductive limits by the hypothesis that $E$ satisfies $L$ (9.1), provided that $E$ is stable under small sums, or that in $E$ every epimorphic \emph{family} is universally epimorphic. In the proof of c), one must then choose $\Pi_0$ so that $E$ satisfies $L_{\Pi_0}$, and restrict to those full subcategories $i$ of $C_{/X}$ which are not only filtered, but whose preordered set $\ob i$ is large with respect to $\Pi_0$. Using Section~8 and the hypothesis that $E$ satisfies $L_{\Pi_0}$, one then finds that the $X_i$ exist; one should conclude by means of a suitable variant of Lemma~9.13.1, which the editor has not checked.
+\end{remarktext}
+
+\begin{statement}{Proposition 9.14}
+Let $f:E\to F$ be an accessible functor (9.2) between two categories endowed with cardinal filtrations
+\[
+(\Filt^\Pi(E))_{\Pi\geq\Pi_0}\qquad\hbox{and}\qquad
+(\Filt^\Pi(F))_{\Pi\geq\Pi'_0}.
+\]
+Then there exists a cardinal $\Pi_1\geq \Sup(\Pi_0,\Pi'_0)$ such that, for every cardinal $\Pi\geq \Pi_1$, one has
+\begin{equation}
+ f(\Filt^\Pi(E))\subset \Filt^{\Pi^{\Pi_1}}(F).
+ \tag{9.14.1}
+\end{equation}
+In particular, if $\Pi=2^c$ with $c\geq \Pi_1$, whence
+\[
+ \Pi^{\Pi_1}=2^{c\Pi_1}=2^c=\Pi,
+\]
+then
+\begin{equation}
+ f(\Filt^\Pi(E))\subset \Filt^\Pi(F).
+ \tag{9.14.2}
+\end{equation}
+\end{statement}
+
+Let us immediately record the following consequence.
+
+\begin{statement}{Corollary 9.15}
+Let $E$ be a category endowed with two cardinal filtrations
+\[
+(\Filt^\Pi(E))_{\Pi\geq\Pi_0}
+\qquad\hbox{and}\qquad
+({\Filt'}^\Pi(E))_{\Pi\geq\Pi'_0}.
+\]
+Then there exists a cardinal $\Pi_1\geq \Sup(\Pi_0,\Pi'_0)$ such that, for every cardinal $c\geq\Pi_1$, if $\Pi=2^c$, then
+\[
+ \Filt^\Pi(E)={\Filt'}^\Pi(E).
+\]
+\end{statement}
+
+\begin{prooftext}
+\emph{Proof of Proposition~9.14.}
+Let $c$ be a cardinal such that
+\[
+ c\geq\Sup(\Pi_0,\Pi'_0)
+\]
+and such that $f$ is $c$-admissible. Let also $\Pi_1\geq c$ be such that
+\begin{equation}
+ f(\Filt^c(E))\subset \Filt^{\Pi_1}(F).
+ \tag{$\ast$}
+\end{equation}
+Such a $\Pi_1$ exists because $\Filt^c(E)$ is equivalent to a small category (9.12 a)); hence $f(\Filt^c(E))$ is also essentially small, and one may apply 9.12.1 to the objects of the latter category to find one $\Filt^\Pi(F)$ containing all of them, taking into account that the $\Filt^\Pi(F)$ are full subcategories.
+
+Let $\Pi\geq\Pi_1$, and let $X\in\ob\Filt^\Pi(E)$. We prove that
+\[
+ f(X)\in \Filt^{\Pi^{\Pi_1}}(F).
+\]
+Write
+\[
+ X=\varinjlim_I X_i,
+\]
+where $X_i\in\ob\Filt^c(E)$, where $I$ is large with respect to $c$, and where
+\[
+ \card I\leq \Pi^c\leq \Pi^{\Pi_1}
+\]
+(9.12 c)). Since $f$ is $c$-admissible and $I$ is large with respect to $c$, one has
+\[
+ f(X)\simeq \varinjlim_I f(X_i).
+\]
+Moreover $\card I\leq \Pi^{\Pi_1}$, and $f(X_i)\in\ob\Filt^{\Pi_1}(F)\subset\ob\Filt^{\Pi^{\Pi_1}}(F)$ by $(\ast)$. Therefore $f(X)\in\Filt^{\Pi^{\Pi_1}}(F)$ by 9.12 b). \qedtext
+\end{prooftext}
+
+\subsection*{9.15.1}
+
+The notion of a cardinal filtration (9.12) is of interest only when the objects of $E$ are accessible. Let us point out that Proposition~9.11 implies that this condition is satisfied when, in addition to the hypotheses of Proposition~9.13, one assumes that the functor $\Ker$ on the category of double arrows of $E$ is accessible. We also record the following.
+
+\begin{statement}{Proposition 9.16}
+Let $E$ be a category endowed with a cardinal filtration
+\[
+(\Filt^\Pi(E))_{\Pi\geq\Pi_0}.
+\]
+Suppose that the elements of $\Filt^{\Pi_0}(E)$ are accessible objects of $E$. Then there exists a cardinal $\Pi_1\geq\Pi_0$ in $\U$ such that the objects of $\Filt^{\Pi_0}(E)$ are $\Pi_1$-accessible. If $\Pi_1$ is chosen in this way, then for every cardinal $\Pi\geq\Pi_1$ one has, with the notation of 9.3.1,
+\begin{equation}
+ E_\Pi\subset \Filt^\Pi(E)\subset E_{\Pi^{\Pi_0}}.
+ \tag{9.16.1}
+\end{equation}
+\end{statement}
+
+The existence of $\Pi_1$ follows immediately from the fact that $\Filt^{\Pi_0}(E)$ is equivalent to a small category (9.12 a)). Let $\Pi\geq\Pi_1$. If $X$ belongs to $\Filt^\Pi(E)$, write
+\[
+ X\simeq \varinjlim_I X_i
+\]
+with $\card I\leq\Pi^{\Pi_0}$ and $X_i\in\ob\Filt^{\Pi_0}(E)$ for every $i$ (9.12 c)). It then follows from Corollary~9.9 that $X$ is $\Pi^{\Pi_0}$-accessible; this gives the second inclusion in (9.16.1).
+
+Conversely suppose that $X$ is $\Pi$-accessible, and write
+\[
+ X\simeq \varinjlim_I X_i,
+\]
+where $I$ is large with respect to $\Pi$ and the $X_i$ lie in $\ob\Filt^\Pi(E)$ (9.12 c)). By the hypothesis on $X$, the given isomorphism $X\xto{\sim}\varinjlim_I X_i$ factors through one of the $X_i$; hence $X$ is isomorphic to a direct factor of this $X_i$. We conclude that $X\in\ob\Filt^\Pi(E)$, and hence obtain the first inclusion in (9.16.1), by the following lemma.
+
+\begin{statement}{Lemma 9.16.2}
+Every object of $E$ which is a direct factor of an object of $\Filt^\Pi(E)$ belongs to $\Filt^\Pi(E)$.
+\end{statement}
+
+Indeed, if $X$ is the image of an idempotent $p$ on an object $Y$ of $E$ (\ie an endomorphism $p$ such that $p^2=p$), and if $I$ is a filtered ordered set, then $X$ is the inductive limit of the filtered inductive system $(Y_i)_{i\in I}$ defined by $Y_i=Y$ for every $i$, and with transition map $p:Y_i\to Y_j$ whenever $i<j$. Taking $I$ large with respect to $\Pi_0$ and with $\card I\leq\Pi$, we see that if $Y\in\Filt^\Pi(E)$, then the same is true of $X$ by 9.12 b).
+
+\begin{statement}{Corollary 9.17}
+Under the hypotheses of Proposition~9.16, for every cardinal $c\geq\Pi_1$, if $\Pi=2^c$, then $\Filt^\Pi(E)$ is identical with the strictly full subcategory $E_\Pi$ of $E$ formed by the $\Pi$-accessible objects.
+\end{statement}
+
+\begin{statement}{Corollary 9.18}
+Let $E$ be a category satisfying condition $L_\Pi$ (9.1), where $\Pi$ is a cardinal, and let $C$ be a full subcategory of $E$. Denote by $\Ind(C)_\Pi$ the full subcategory of the category $\Ind(C)$ of ind-objects of $C$ (8.2) formed by ind-objects of the form $(X_i)_{i\in I}$, where $I$ is an ordered set large with respect to $\Pi$. Consider the canonical functor
+\begin{equation}
+ (X_i)_{i\in I}\longmapsto \varinjlim_I X_i:\Ind(C)_\Pi\longrightarrow E.
+ \tag{9.18.1}
+\end{equation}
+\begin{enumerate}[label=\alph*)]
+\item This functor is fully faithful if and only if every object $X$ of $C$ is a $\Pi$-accessible object (9.3) of $E$.
+\item Assume the hypotheses of Corollary~9.17; in particular $\Pi=2^c$, and take $C=\Filt^\Pi(E)$. Then the functor (9.18.1) is an equivalence of categories.
+\end{enumerate}
+\end{statement}
+
+Assertion a) is an immediate generalization of 8.7.5 a), and is proved in the same way. Assertion b) follows from Corollary~9.17 and from condition 9.12 c) in the definition of cardinal filtrations, which implies that the functor under consideration is essentially surjective.
+
+\begin{statement}{Corollary 9.19}
+Under the hypotheses of Corollary~9.17, let $C=\Filt^\Pi(E)$, let $F$ be a $\U$-category, and consider the functor
+\begin{equation}
+ \Hhom(E,F)_\Pi\longrightarrow \Hhom(C,F)
+ \tag{9.19.1}
+\end{equation}
+induced by ``restriction to $C$'', $f\mapsto f|_C$, where the source of (9.19.1) is the category of $\Pi$-accessible functors from $E$ to $F$ (9.2). This functor is fully faithful. If $F$ satisfies condition $L_\Pi$ (9.1), then the functor (9.19.1) is an equivalence of categories.
+\end{statement}
+
+The first assertion is proved as in Proposition~7.8, using Corollary~9.18 b). For the second, one constructs a quasi-inverse to (9.19.1) by associating to a functor $f:C\to F$ the functor
+\[
+ (X_i)_{i\in I}\longmapsto \varinjlim_i f(X_i)
+\]
+from $\Ind(E_\Pi)$ to $F$, and then using Corollary~9.18 b) to obtain a functor $\bar f:E\to F$. It remains only to show that this last functor is $\Pi$-accessible. This is proved as in the analogous assertion 8.7.3.
+
+\begin{statement}{Corollary 9.20}
+Let $E$ be a category admitting a cardinal filtration and such that every object of $E$ is accessible (\cf Proposition~9.16), and let $F$ be a category. Then:
+\begin{enumerate}[label=\alph*)]
+\item The category $\Hhom(E,F)_{\acc}$ of accessible functors from $E$ to $F$ (9.2) is a $\U$-category. (\NB{} the given categories $E,F$ are assumed to be $\U$-categories; see 9.0.)
+\item Suppose that $F$ is stable under small filtered inductive limits. For every full subcategory $C$ of $E$ equivalent to a small category, with inclusion functor $i:C\to E$, consider the corresponding functor
+\[
+ i_!:\Hhom(C,F)\longrightarrow \Hhom(E,F)
+\]
+(5.1). A functor $f:E\to F$ is accessible if and only if there exists a small subcategory $C$ of $E$ such that $f$ lies in the essential image of the preceding functor $i_!$.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+\begin{enumerate}[label=\alph*)]
+\item It is enough to prove that, for every cardinal $\Pi$ such that $E$ satisfies $L_\Pi$, the full subcategory $\Hhom(E,F)_\Pi$ of $\Hhom(E,F)_{\acc}$ is a $\U$-category. It plainly suffices to check this for cardinals of the form $2^c$, with $c$ sufficiently large. But then this follows from Corollary~9.19, since $C=\Filt^\Pi(E)$ is essentially small and therefore $\Hhom(C,F)$ is plainly a $\U$-category.
+
+\item By transitivity in the formation of the functors $i_!$, it suffices in the statement to restrict to subcategories $C$ of the form $\Filt^\Pi(E)$, where $\Pi$ is as in Corollary~9.17. One then sees easily that the composite functor
+\[
+\Hhom(\Filt^\Pi(E),F)\longrightarrow \Hhom(E,F)_\Pi\longrightarrow \Hhom(E,F),
+\]
+where the first arrow is quasi-inverse to (9.19.1) and the second is the inclusion, is none other than the functor $i_!$, up to isomorphism. Thus b) follows from Corollary~9.19.
+\end{enumerate}
+\end{prooftext}
+
+\begin{statement}{Exercise 9.20.1}
+This exercise uses the notions of site and topos, developed in Expos\'es~II and~IV. Let $E$ be a $\U$-topos, let $\V$ be a universe such that $\U\in\V$, let $C$ be a small full generating subcategory of the $\U$-topos $E$, and let $\Pi_0\in\U$ be an infinite cardinal such that $\Pi_0\geq\card \Fl C$. For every cardinal $\Pi\geq\Pi_0$, $\Pi\in\U$, let $\Filt^\Pi(E)$ be the strictly full subcategory of $E$ formed by objects $X$ for which there exists a strict epimorphic family $(X_i\to X)_{i\in I}$ with target $X$, such that $\card I\leq\Pi$ and $X_i\in\Ob C$ for every $i\in I$.
+\begin{enumerate}[label=\alph*)]
+\item Show that $(\Filt^\Pi(E))_{\Pi\geq\Pi_0}$ is a cardinal filtration of the $\U$-category $E$, and that one may choose $\Pi_0$ so that, for every $\Pi\geq\Pi_0$, one has inclusions
+\[
+ E_\Pi\subset \Filt^\Pi(E)\subset E_{\Pi^{\Pi_0}},
+\]
+where for every cardinal $c$, $E_c$ denotes the strictly full subcategory of $E$ formed by the $c$-accessible objects.
+
+\item Choose a cardinal $\Pi\geq\Pi_0$ such that $\Pi=\Pi^{\Pi_0}$, for example a cardinal of the form $2^c$ with $c>\Pi_0$, and put $C=\Filt^\Pi(E)$. Show that one has an equivalence of categories
+\[
+ \Ind(C)_\Pi\xrightarrow{\ \sim\ } E
+\]
+(with the notation $\Ind(C)_\Pi$ of Corollary~9.18).
+
+\item Keep the notation of b), let $\V$ be a universe such that $\U\subset\V$, and let $\widetilde E_{\V}$ be the $\V$-topos of $\V$-sheaves on the site $E$ endowed with its canonical topology. Denote by $\Ind(C,\V)_\Pi$ the category of $\V$-$\Ind$-objects of $C$ indexed by preordered sets of indices which are \emph{large with respect to} $\Pi$. Show that one has an equivalence of categories
+\[
+ \Ind(C,\V)_\Pi\xrightarrow{\ \sim\ }\widetilde E_{\V}.
+\]
+
+\item Let $c\in\V$ be a cardinal, and let $\Ind(E,\V)'_c$ be the full subcategory of $\Ind(E,\V)$ formed by $\V$-ind-objects of $E$ indexed by a preordered set which is large with respect to every cardinal $<c$. Taking $c=\card\U$, show that one has an equivalence of categories
+\[
+ \Ind(E,\V)'_c\xrightarrow{\ \sim\ }\widetilde E_{\V}.
+\]
+\end{enumerate}
+\end{statement}
+
+\subsection*{9.21}
+
+This section develops the technical preliminaries for the proof of Theorem~9.22 below, which is the main result of Section~9. Let
+\begin{equation}
+ p:E\longrightarrow B
+ \tag{9.21.1}
+\end{equation}
+be a fibred functor, where $B$ is a small category, and where the inverse image functors
+\[
+ f^\ast:E_\beta\longrightarrow E_\alpha
+\]
+associated with arrows $f:\alpha\to\beta$ of $B$ are accessible (9.2). In particular, the fibre categories $E_\alpha$ $(\alpha\in\ob B)$ satisfy condition $L$ (9.1). Since $B$ is small, there is a cardinal $\Pi'_0\in\U$ such that all the categories $E_\alpha$ satisfy $L_{\Pi'_0}$. Let $\Pi_0\in\U$ be an infinite cardinal $>\Pi'_0$, so that
+\begin{equation}
+ \Pi_0>\Pi'_0,\qquad E_\alpha\ \hbox{satisfies}\ L_{\Pi'_0}
+ \ \hbox{for all}\ \alpha\in\ob B.
+ \tag{9.21.2}
+\end{equation}
+Moreover, the hypotheses just made immediately imply the existence of a cardinal $c\in\U$ satisfying:
+\begin{equation}
+\left\{
+\begin{array}{ll}
+\text{a)} & c \text{ is infinite},\\
+\text{b)} & c\geq \card\Fl B,\\
+\text{c)} & \text{for every arrow }f:\alpha\to\beta\text{ of }B,\ 
+f^\ast:E_\beta\to E_\alpha\text{ is }c\text{-accessible}.
+\end{array}
+\right.
+\tag{9.21.3}
+\end{equation}
+Suppose also that for each $\alpha\in\ob B$ one can find a full subcategory $C_\alpha$ of $E_\alpha$ satisfying:
+\begin{equation}
+\left\{
+\begin{array}{ll}
+\text{a)} & \text{For every }X\in\ob C_\alpha,\ X\text{ is }c\text{-accessible in }E_\alpha.\\
+\text{b)} & \text{For every }X\in\ob E_\alpha,\text{ there is an isomorphism }
+X\simeq\varinjlim_I X_i\\
+& \text{in }E_\alpha,\text{ where the }X_i\text{ lie in }C_\alpha
+\text{ and }I\text{ is large with respect to }c.
+\end{array}
+\right.
+\tag{9.21.4}
+\end{equation}
+
+Let $\Pi$ be a cardinal such that
+\begin{equation}
+ \Pi\geq\Pi_0,\qquad\hbox{and hence}\qquad \Pi>\Pi'_0,
+ \tag{9.21.5}
+\end{equation}
+and for every $\alpha\in\ob B$ let
+\begin{equation}
+ C^\Pi_\alpha\subset E_\alpha
+ \tag{9.21.6}
+\end{equation}
+be the full subcategory formed by objects which can be represented in the form $\varinjlim_I X_i$, where $I$ is an ordered set large with respect to $\Pi'_0$, $\card I\leq\Pi$, and the $X_i$ lie in $C_\alpha$. It is then clear, by 7.5.2, that $C^\Pi_\alpha$ is essentially small, \ie equivalent to a small category.
+
+Let
+\begin{equation}
+ F=\Hhom_B(B,E)
+ \tag{9.21.7}
+\end{equation}
+be the category of sections of $E$ over $B$, and let
+\begin{equation}
+ F^\Pi\subset F
+ \tag{9.21.8}
+\end{equation}
+be the strictly full subcategory of $F$ formed by sections $X:\alpha\mapsto X(\alpha)$ such that, for every $\alpha\in\ob B$,
+\[
+ X(\alpha)\in C^\Pi_\alpha.
+\]
+Since the $C^\Pi_\alpha$ are essentially small, it is clear that the same is true of $F^\Pi$. We shall show that this category is generating, and more precisely:
+
+\begin{statement}{Lemma 9.21.9}
+Under the preceding hypotheses and with the preceding notation, the following hold.
+\begin{enumerate}[label=(\roman*)]
+\item Every object of $F$ is accessible (9.3). If $d$ is a cardinal $\geq\Pi'_0$, and if $\alpha\mapsto X(\alpha)$ is an element of $F$ such that, for every $\alpha$, $X(\alpha)$ is $d$-accessible in $E_\alpha$, then $X$ is $d$-accessible in $F$.
+
+\item Suppose that $\Pi\leq c$, or that $\Pi'_0$ is finite (\ie that the $E_\alpha$ are stable under small filtered inductive limits). Then every object $X$ of $F$ is isomorphic to an object of the form $\varinjlim_I X_i$, where the $X_i$ lie in $F^\Pi$ and $I$ is large with respect to $\Pi$.
+\end{enumerate}
+\end{statement}
+
+To prove (i), note first that by (9.21.4) and Corollary~9.9, every object of $E_\alpha$ is accessible. On the other hand, $F$ satisfies condition $L_{\Pi'_0}$, by the following lemma.
+
+\begin{statement}{Lemma 9.21.10}
+Let $p:E\to B$ be a fibred functor, let $F=\Hhom_B(B,E)$, let $I$ be a category, and let $i\mapsto X_i$ be a functor from $I$ to $F$. In order that $\varinjlim_I X_i$ be representable in $F$, it is enough that, for every $\alpha\in\ob B$, $\varinjlim_I X_i(\alpha)$ be representable in the fibre category $E_\alpha$. When this is the case, $\varinjlim_I X_i$ is computed ``argument by argument''. In particular, if the fibre categories satisfy condition $L_{\Pi'_0}$, where $\Pi'_0$ is a fixed cardinal, then so does $F$.
+\end{statement}
+
+We leave the easy proof of Lemma~9.21.10 to the reader, merely noting that it is convenient to use the following immediate result.
+
+\begin{statement}{Corollary 9.21.10.1}
+With the hypotheses and notation of Lemma~9.21.10 for $p:E\to B$ and for $I$, for every $\alpha\in\ob B$, the inclusion functor $E_\alpha\to E$ commutes with inductive limits of type $I$.
+\end{statement}
+
+Returning to the general hypotheses of Lemma~9.21.9, let $X$ be an object of $F$. Since for every $\alpha\in\ob B$, $X(\alpha)$ is accessible in $E_\alpha$, there exists a cardinal $d\in\U$ such that for every $\alpha$, $X(\alpha)$ is $d$-accessible in $E_\alpha$. We may choose $d\geq\Pi'_0$, so that $F$ satisfies $L_d$ by Lemma~9.21.10. Using Lemma~9.21.10 again to compute inductive limits $\varinjlim_I Y_i$ in $F$, with $I$ large with respect to $d$, we immediately see that $X$ is $d$-accessible. This proves (i).
+
+We now prove Lemma~9.21.9(ii) in several steps, namely 9.21.11 through 9.21.16.
+
+Let
+\[
+ X:\alpha\longmapsto X(\alpha)
+\]
+be an object of $F$. By (9.21.4 b)), for every $\alpha\in\ob B$ one can find an ordered set $I_\alpha$ large with respect to $c$, and an isomorphism
+\[
+ X(\alpha)=\varinjlim_{i\in I_\alpha}X(\alpha)_i,
+\]
+where $i\mapsto X(\alpha)_i$ is an inductive system of type $I_\alpha$ in $E_\alpha$, with $X(\alpha)_i$ lying in $C_\alpha$. Consider the product ordered set
+\[
+ I=\prod_\alpha I_\alpha.
+\]
+It is clear that it is large with respect to $c$, and that the preceding inductive systems give rise to inductive systems in the categories $E$,
+\begin{equation}
+ i\longmapsto X(\alpha)_i\in\ob C_\alpha,\qquad i\in\ob I,
+ \tag{9.21.11}
+\end{equation}
+indexed by the same ordered set $I$, and to isomorphisms
+\begin{equation}
+ X(\alpha)\xto{\sim}\varinjlim_I X(\alpha)_i
+ \quad\hbox{in }E_\alpha,
+ \tag{9.21.12}
+\end{equation}
+for all $\alpha\in\ob B$. In what follows we fix data (9.21.11) and (9.21.12).
+
+\begin{statement}{Lemma 9.21.13}
+Under the preceding hypotheses, one can find a map $\varphi:I\to I$ such that $\varphi(i)\geq i$ for every $i\in I$, and a map
+\[
+ (i,f)\longmapsto \lambda(i,f)
+\]
+from $I\times\Fl B$ to $\Fl E$, satisfying the following conditions.
+\begin{enumerate}[label=\alph*)]
+\item For $i\in I$ and $f:\alpha\to\beta$ in $\Fl B$, $\lambda(i,f)$ is an $f$-morphism from $X(\alpha)_i$ to $X(\beta)_{\varphi(i)}$, making commutative the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+X(\alpha) \arrow[r,"{X(f)}"] & X(\beta)\\
+& X(\beta)_{\varphi(i)} \arrow[u]\\
+X(\alpha)_i \arrow[uu] \arrow[ru,"{\lambda(i,f)}"'] & \\
+\alpha \arrow[r,"{f}"'] & \beta .
+\end{tikzcd}
+\]
+Here the vertical arrows are the canonical morphisms deduced from (9.21.12).
+
+\item For every $i\in I$ and every $f:\alpha\to\beta$ in $\Fl B$, one has commutativity in
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+& X(\beta)_{\varphi^2(i)}\\
+X(\alpha)_{\varphi(i)} \arrow[ru,"{\lambda(\varphi(i),f)}"] & X(\beta)_{\varphi(i)} \arrow[u]\\
+X(\alpha)_i \arrow[ru,"{\lambda(i,f)}"'] \arrow[u] &\\
+\alpha \arrow[r,"{f}"'] & \beta .
+\end{tikzcd}
+\]
+
+\item For every pair of consecutive arrows
+\[
+ \alpha\xrightarrow{f}\beta\xrightarrow{g}\gamma
+\]
+of $B$, one has commutativity in the following diagram:
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+X(\alpha) \arrow[r,"{X(f)}"] & X(\beta) \arrow[r,"{X(g)}"] & X(\gamma)\\
+& & X(\gamma)_{\varphi^2(i)} \arrow[u]\\
+& X(\beta)_{\varphi(i)} \arrow[uu] \arrow[ru,"{\lambda(\varphi(i),g)}"'] & X(\gamma)_{\varphi(i)} \arrow[u]\\
+X(\alpha)_i \arrow[uuu] \arrow[ru,"{\lambda(i,f)}"] \arrow[rru,"{\lambda(i,gf)}"'] & &\\
+\alpha \arrow[r,"{f}"'] & \beta \arrow[r,"{g}"'] & \gamma .
+\end{tikzcd}
+\]
+Again, the vertical arrows are deduced from (9.21.12).
+\end{enumerate}
+\end{statement}
+
+Notice also that the commutativity of the two upper trapezia in b) is already contained in a); thus b) is really asserting the commutativity of the lower triangle of the diagram considered.
+
+We prove Lemma~9.21.13. Let $i\in I$, and let $f:\alpha\to\beta$ be an arrow of $B$. Consider the composite
+\[
+ X(\alpha)_i\longrightarrow X(\alpha)\xrightarrow{X(f)}X(\beta)
+ \simeq \varinjlim_j X(\beta)_j.
+\]
+It defines a morphism in $E_\alpha$
+\[
+ X(\alpha)_i\longrightarrow f^\ast(X(\beta))\simeq
+ f^\ast\!\left(\varinjlim_j X(\beta)_j\right)
+ \simeq \varinjlim_j f^\ast(X(\beta)_j),
+\]
+where the last equality follows from the fact that $f^\ast$ is $c$-accessible (9.21.3 c)) and that $I$ is large with respect to $c$. By (9.21.4 a)), since $X(\alpha)_i$ lies in $C_\alpha$, the morphism under consideration factors through one of the $f^\ast(X(\beta)_j)$; here $j$ \emph{a priori} depends on $i$ and on $f\in\Fl B$. But by (9.21.3 b)), and since $I$ is large with respect to $c$, we may choose $j$ independently of $f$; write $j=\varphi(i)$. Since $I$ is filtered, we may suppose $\varphi(i)\geq i$. We thus obtain, for $i\in I$ and $f\in\Fl B$, a morphism
+\[
+ X(\alpha)_i\longrightarrow f^\ast(X(\beta)_{\varphi(i)}),
+\]
+or equivalently an $f$-morphism
+\[
+ \lambda(i,f):X(\alpha)_i\longrightarrow X(\beta)_{\varphi(i)}
+\]
+which, by construction, makes the diagram in a) commute.
+
+Next fix $i,f,g$ and consider the lower triangle of the diagram in 9.21.13 c). It is not clear that this triangle commutes, but the two composites
+\[
+ X(\alpha)_i\rightrightarrows X(\gamma)_{\varphi^2(i)}
+\]
+become equal after composition with $X(\gamma)_{\varphi^2(i)}\to X(\gamma)$, as follows from the commutativity of the two upper trapezia and of the outer trapezium; these are respectively the diagrams $D(f)$, $D(g)$, and $D(gf)$. Since $X(\alpha)_i$ is $c$-accessible (9.21.4 a)) and
+\[
+ X(\gamma)\simeq \varinjlim_{j\in I}X(\gamma)_j
+\]
+with $I$ large with respect to $c$, one can find an element $j\geq\varphi^2(i)$ of $I$ such that the two arrows just considered become equal after composition with
+\[
+ X(\gamma)_{\varphi^2(i)}\longrightarrow X(\gamma)_j.
+\]
+A priori $j$ depends on $i,f,g$. But for fixed $i$, the set of possible pairs $f,g$ has cardinal $\leq c^2=c$, by (9.21.3 a) and b)); since $I$ is large with respect to $c$, we may choose $j$ independently of $f$ and $g$. Write $j=\varphi'(i)\geq\varphi^2(i)\geq\varphi(i)$. Define, for every $i\in I$ and every $f:\alpha\to\beta$, $\lambda'(i,f)$ to be the composite $f$-morphism
+\[
+ X(\alpha)_i\longrightarrow X(\beta)_{\varphi(i)}
+ \longrightarrow X(\beta)_{\varphi'(i)},
+\]
+where the second arrow is the transition morphism. It is then immediate from the construction that $(\varphi',\lambda')$ satisfies conditions 9.21.13 a) and c). Proceeding in the same way for condition b), one sees that $\varphi'$ can be chosen so that this condition is also satisfied. This completes the proof of Lemma~9.21.13.
+
+\subsection*{9.21.14}
+
+Let
+\[
+ J\subset I
+\]
+be a subset of $I$ satisfying the following conditions:
+\begin{enumerate}[label=\alph*)]
+\item $J$ is filtered;
+\item for every $j\in J$, one has $\varphi(j)\in J$;
+\item for every $\alpha\in\ob B$, the object
+\[
+ X_J(\alpha)=\varinjlim_{i\in J}X(\alpha)_i
+\]
+is representable in $E_\alpha$.
+\end{enumerate}
+Conditions a) and c) are satisfied in particular if $J$ is large with respect to $\Pi'_0$ (9.21.2). It then follows from Corollary~9.21.10.1 that, for every $\alpha\in\ob B$, $X_J(\alpha)$ is the inductive limit $\varinjlim_{i\in J}X(\alpha)_i$ in $E$. Now for an arrow $f:\alpha\to\beta$ of $B$, the arrows $\lambda(i,f)$, with $i$ varying in $J$, define by 9.21.13 b) a morphism of ind-objects from $(X(\alpha)_i)_{i\in J}$ to $(X(\beta)_i)_{i\in J}$. Hence they induce a homomorphism
+\[
+ X_J(f):X_J(\alpha)\longrightarrow X_J(\beta)
+\]
+on inductive limits, which is visibly an $f$-homomorphism. Using 9.21.13 c), one finds the transitivity relations
+\[
+ X_J(gf)=X_J(g)X_J(f),
+\]
+so that a section $X_J\in\ob F$ of $E$ over $B$ has been defined. Finally, 9.21.13 a) shows that the canonical homomorphisms
+\[
+ X_J(\alpha)\longrightarrow X(\alpha),\qquad \alpha\in\ob B,
+\]
+are functorial in $\alpha$; thus we have a canonical homomorphism
+\[
+ u_J:X_J\longrightarrow X.
+\]
+Moreover, if
+\[
+ J'\supset J
+\]
+is another subset of $I$ satisfying conditions a), b), c) above, one obtains a canonical homomorphism
+\[
+ u_{J',J}:X_J\longrightarrow X_{J'},
+\]
+so that the $X_J$ form an inductive system in $F$, parametrized by the set, ordered by inclusion, of subsets $J$ of $I$ satisfying the conditions under consideration. Finally, the homomorphisms $u_J$ above define a homomorphism from this inductive system to the constant inductive system defined by $X$.
+
+\subsection*{9.21.15}
+
+Let $K$ be a set of subsets $J$ of $I$ satisfying conditions a), b), c) of 9.21.14, and suppose that $K$ is filtered and has union $I$. Then it is clear that
+\[
+ \varinjlim_{J\in K}X_J\xrightarrow{\sim}X,
+\]
+using Corollary~9.21.10.1 to reduce the verification to an isomorphism argument by argument.
+
+For example, take $K$ to be the set of all subsets $J$ of $I$ which are large with respect to $\Pi'_0$, stable under $\varphi$, and such that $\card J\leq\Pi$. Then, by the definition (9.21.6) of $C^\Pi_\alpha$, one has
+\[
+ X_J(\alpha)\in\ob C^\Pi_\alpha
+\]
+for every $\alpha\in\ob B$, and hence $X_J\in\ob F^\Pi$. Therefore Lemma~9.21.9(ii) will be proved if we show that $K$ is large with respect to $\Pi$ (hence filtered) and has union $I$. For this it plainly suffices to prove that every subset $S$ of $I$ with $\card S\leq\Pi$ is contained in some $J\in K$. This follows from the preliminary hypothesis stated in Lemma~9.21.9(ii), and from the following lemma.
+
+\begin{statement}{Lemma 9.21.16}
+Let $I$ be an ordered set, let $\Pi$ be an infinite cardinal, and let $\varphi:I\to I$ be a map.
+\begin{enumerate}[label=\alph*)]
+\item Suppose that $I$ is filtered. Then for every subset $S$ of $I$ such that $\card S\leq\Pi$, there exists a filtered subset $J\supset S$ of $I$ such that $\varphi(J)\subset J$ and $\card J\leq\Pi$.
+\item Let $\Pi'_0$ be a cardinal $<\Pi$, and suppose that $I$ is large with respect to $\Pi$. Then for every subset $S$ of $I$ such that $\card S\leq\Pi$, there exists a subset $J\supset S$ of $I$ which is large with respect to $\Pi'_0$, such that $\varphi(J)\subset J$ and $\card J\leq\Pi$.
+\end{enumerate}
+\end{statement}
+
+We prove b); the proof of a) is analogous and simpler. Let $P$ be the set of subsets of $I$ of cardinal $\leq\Pi$, and let $T\mapsto i_T:P\to I$ be a map such that, for $T\in P$, $i_T$ is an upper bound for $T$ in $I$. The existence of this map is simply the assertion that $I$ is large with respect to $\Pi$. Let $A$ be a well-ordered set such that $\card A=\Pi$ and such that, for every $a\in A$, the set of $a'\leq a$ has cardinal $<\Pi$. In particular, since $\Pi'_0<\Pi$, it follows that $A$ is large with respect to $\Pi'_0$.
+
+Define, by transfinite recursion, maps
+\[
+ S\longmapsto S_a:P\to P\qquad (a\in A)
+\]
+as follows:
+\[
+ S_0=S,\qquad
+ S_{a+1}=S_a\cup\varphi(S_a)\cup\{i_{S_a}\},\qquad
+ S_a=\bigcup_{a'<a}S_{a'} \quad\hbox{if }a\hbox{ is a limit ordinal}.
+\]
+Then put, for $S\in P$,
+\[
+ J(S)=\bigcup_{a\in A}S_a.
+\]
+It is clear that $J(S)\supset S$, that $J(S)$ is stable under $\varphi$, that $\card J(S)\leq\Pi$ (since $\card A=\Pi$), and finally that $J(S)$ is large with respect to $\Pi'_0$ (using that $A$ is large with respect to $\Pi'_0$). This proves Lemma~9.21.16 and completes the proof of Lemma~9.21.9.
+
+We also note the following variant of Lemma~9.21.9.
+
+\begin{statement}{Lemma 9.21.17}
+The notation is that of Lemma~9.21.9. Denote by $F'$ the full subcategory
+\[
+ F'=\Hhomcart_B(B,E)
+\]
+of $F=\Hhom_B(B,E)$ formed by the cartesian sections of $E$ over $B$. Then:
+\begin{enumerate}[label=(\roman*)]
+\item Every object of $F'$ is accessible. More precisely, let $\alpha\mapsto X(\alpha)$ be an element of $F'$, and let $d$ be a cardinal such that $d\geq\Pi'_0$, $d\geq c$, and such that for every $\alpha\in\ob B$, $X(\alpha)$ is a $d$-accessible object of $E_\alpha$. Then $X$ is a $d$-accessible object of $F'$.
+\item Suppose that $\Pi\leq c$ and that the functors $f^\ast:E_\beta\to E_\alpha$ are $\Pi'_0$-accessible, or else that the categories $E_\alpha$ are stable under small filtered inductive limits and that the functors $f^\ast:E_\beta\to E_\alpha$ commute with these inductive limits. Then every object $X$ of $F'$ is isomorphic to an object of the form $\varinjlim_I X_i$, where for every $i\in I$, $X_i$ is an object of the full subcategory
+\[
+ {F'}^\Pi=F'\cap F^\Pi
+\]
+of $F'$, and where $I$ is large with respect to $\Pi$.
+\end{enumerate}
+\end{statement}
+
+The proof being entirely analogous to that of Lemma~9.21.9, we merely indicate where modifications of that proof are necessary. First note the following.
+
+\begin{statement}{Lemma 9.21.18}
+The statement of Lemma~9.21.10 remains valid when one replaces $F=\Hhom_B(B,E)$ by $F'=\Hhomcart_B(B,E)$, provided that one assumes that the inverse image functors
+\[
+ f^\ast:E_\beta\longrightarrow E_\alpha
+\]
+commute with inductive limits of type $I$.
+\end{statement}
+
+Thus, under the hypotheses of Lemma~9.21.17, if $d$ is a cardinal such that $d\geq c$ and $d\geq\Pi'_0$, it follows from what precedes and from hypothesis (9.21.3 c)) that for every ordered set $I$ large with respect to $d$, inductive limits of type $I$ are representable in $F'$ and are computed argument by argument. Lemma~9.21.17(i) follows by an immediate argument.
+
+To prove (ii), one must supplement Lemma~9.21.13.
+
+\begin{statement}{Lemma 9.21.19}
+Under the hypotheses of Lemma~9.21.13, suppose that $X\in\ob F'$, \ie that $X$ is a cartesian section of $E$ over $B$. Then the conclusion can be strengthened as follows: there exists a function $\mu$ which assigns, to every $i\in I$ and every arrow $f:\alpha\to\beta$ of $B$, a morphism
+\[
+ \mu(i,f):f^\ast X(\beta)_i\longrightarrow X(\alpha)_{\varphi(i)}
+\]
+in $E_\alpha$, in such a way that:
+\begin{enumerate}[label=\alph*)]
+\setcounter{enumi}{3}
+\item For every $i\in I$ and every arrow $f:\alpha\to\beta$ of $B$, the two following diagrams commute:
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+& f^\ast X(\beta)_{\varphi^2(i)}\\
+X(\alpha)_{\varphi(i)} \arrow[ru,"{\lambda(\varphi(i),f)}"] &\\
+& f^\ast X(\beta)_i \arrow[lu,"{\mu(i,f)}"'] \arrow[uu]
+\end{tikzcd}
+\qquad\qquad
+\begin{tikzcd}[column sep=large,row sep=small]
+X(\alpha)_{\varphi^2(i)} &\\
+& f^\ast X(\beta)_{\varphi(i)} \arrow[lu,"{\mu(\varphi(i),f)}"']\\
+X(\alpha)_i \arrow[uu]\arrow[ru,"{\lambda(i,f)}"'] &
+\end{tikzcd}
+\]
+where the unlabeled arrows are the evident transition maps.
+\end{enumerate}
+\end{statement}
+
+To prove this, one proceeds as in the proof of 9.21.13, by considering the composite morphism
+\[
+ f^\ast(X(\beta)_i)\longrightarrow f^\ast(X(\beta))
+ \xrightarrow{X(f)^{-1}} X(\alpha),
+\]
+where, as already in the notation for condition d), an $f$-morphism $R\to S$ of $E$ is identified with the corresponding morphism $R\to f^\ast(S)$ in $E_\alpha$. Since
+\[
+ X(\alpha)=\varinjlim_j X(\alpha)_j
+\]
+and $I$ is large with respect to $c$, the preceding morphism can be factored through one of the $X(\alpha)_j$. Here $j$ \emph{a priori} depends on $i$ and on $f$, but can be chosen independently of $f$; write it $\psi(i)$. Enlarging the function $\varphi$ of Lemma~9.21.13 if necessary, we may suppose that $\psi=\varphi$. Proceeding as for conditions b) and c) of Lemma~9.21.13, we see that, after enlarging $\varphi$ again if necessary, the two diagrams of Lemma~9.21.19 d) may be assumed commutative.
+
+\subsection*{9.21.20}
+
+With $\varphi$ chosen as in Lemma~9.21.19, resume the argument of 9.21.14. One must, however, assume that $J$ satisfies, besides conditions a), b), c) stated there, the following condition:
+\begin{enumerate}[label=\alph*)]
+\setcounter{enumi}{3}
+\item For every arrow $f:\alpha\to\beta$ in $B$, the functor $f^\ast:E_\beta\to E_\alpha$ commutes with inductive limits of type $J$.
+\end{enumerate}
+
+I claim that, under this additional condition, the section $X_J$ of $E$ over $B$ is cartesian; that is, for every arrow $f:\alpha\to\beta$ of $B$, the morphism
+\begin{equation}
+ X_J(\alpha)\longrightarrow f^\ast X_J(\beta)
+ \tag{$\ast$}
+\end{equation}
+is an isomorphism. Indeed, by condition d) above, the target of this morphism is identified with
+\[
+ \varinjlim_{i\in J}f^\ast(X(\beta)_i),
+\]
+and the morphism itself is obtained by passing to $\varinjlim_J$ from the morphism of ind-objects in $E_\alpha$
+\[
+ (X(\alpha)_i)_{i\in J}\longrightarrow (f^\ast X(\beta)_i)_{i\in J},
+\]
+deduced from the morphisms
+\[
+ \lambda(i,f):X(\alpha)_i\longrightarrow f^\ast(X(\beta)_{\varphi(i)})
+\]
+for $i\in J$. But the conditions made explicit in Lemma~9.21.19 ensure that this morphism of ind-objects is in fact an isomorphism, with inverse obtained from the morphism deduced from the system of the $\mu(i,f)$, $i\in J$. This proves that $(\ast)$ is an isomorphism, hence that $X_J\in\ob F'$.
+
+\subsection*{9.21.21}
+
+We now assume that the functors $f^\ast:E_\beta\to E_\alpha$ are $\Pi'_0$-\emph{accessible}. Then the conditions on $J$ considered in 9.21.20 are satisfied if $J$ is large with respect to $\Pi'_0$, stable under $\varphi$, and has $\card J\leq\Pi$. The proof of Lemma~9.21.17 is then completed as in 9.21.15.
+
+\begin{statement}{Theorem 9.22}
+Let $p:E\to B$ be a fibred functor, where $B$ is a category essentially equivalent to a small category, and where for every arrow $f:\alpha\to\beta$ of $B$, the inverse image functor
+\[
+ f^\ast:E_\beta\longrightarrow E_\alpha
+\]
+is accessible (9.2). Suppose further that, for every $\alpha\in\ob B$, the fibre category $E_\alpha$ admits a cardinal filtration (9.12), and that every object of $E_\alpha$ is accessible (9.3). Then each of the categories
+\[
+ F=\Hhom_B(B,E),\qquad F'=\Hhomcart_B(B,E)
+\]
+admits a small full subcategory which is generating by strict epimorphisms (7.1), and all of its objects are accessible.
+\end{statement}
+
+It is immediate that the statement is not essentially changed when $B$ is replaced by a full subcategory $B_0$ such that the inclusion functor $B_0\to B$ is an equivalence, and $E$ is replaced by $E_0=E\times_B B_0$. Thus we may suppose that $B$ is a small category.
+
+For every $\alpha\in\ob B$, let
+\[
+(\Filt^\Pi(E_\alpha))_{\Pi\geq\Pi_\alpha}
+\]
+be a cardinal filtration of $E_\alpha$. Let $c_0\in\U$ be a cardinal satisfying:
+\begin{equation}
+\begin{cases}
+c_0\geq \displaystyle\Sup_{\alpha\in\ob B}\Pi_\alpha,\qquad
+c_0\geq \card\Fl B;\\
+\text{for every arrow }f:\alpha\to\beta\text{ of }B,\ 
+f^\ast:E_\beta\to E_\alpha\text{ is }c_0\text{-accessible;}\\
+\text{for every }\alpha\in\ob B,\text{ the objects of }
+\Filt^{\Pi_\alpha}(E_\alpha)\text{ are }c_0\text{-accessible.}
+\end{cases}
+\tag{9.22.1}
+\end{equation}
+Put
+\[
+ c=2^{c_0},
+\]
+so that $c>c_0$, and for every $\alpha\in\ob B$ put
+\[
+ C_\alpha=\Filt^c(E_\alpha).
+\]
+I claim that the preliminary hypotheses of Lemmas~9.21.9 and~9.21.17 are satisfied, taking $\Pi=\Pi_0=c$. This is clear for (9.21.2) and (9.21.3). Condition (9.21.4 a)) follows from Corollary~9.17, and (9.21.4 b)) follows from condition 9.12 c) for a cardinal filtration. Notice also that condition 9.12 b) in the definition of a cardinal filtration implies that, for every $\alpha\in\ob B$, one has
+\[
+ C^\Pi_\alpha=C_\alpha=\Filt^c(E_\alpha),
+\]
+where $C^\Pi_\alpha$ is defined in (9.21.6). Theorem~9.22 therefore follows from Lemmas~9.21.9 and~9.21.17. More precisely, we have proved:
+
+\begin{statement}{Corollary 9.23}
+Under the hypotheses of Theorem~9.22, if $c_0\in\U$ is a cardinal satisfying (9.22.1), and if $c=2^{c_0}$, then the subcategory $F^c$ of $F$ (\resp ${F'}^c$ of $F'$) formed by objects $X$ such that $X(\alpha)\in\ob\Filt^c(E_\alpha)$ for every $\alpha\in\ob B$ is essentially small and generating by strict epimorphisms. More precisely, every object $X$ of $F$ (\resp of $F'$) is isomorphic to an object of the form $\varinjlim_I X_i$, where the $X_i$ lie in $F^c$ (\resp in ${F'}^c$), and where $I$ is an ordered set large with respect to $c$.
+\end{statement}
+
+Under slightly stronger hypotheses in Theorem~9.22, one can also make Theorem~9.22 and Corollary~9.23 considerably more precise.
+
+\begin{statement}{Corollary 9.24}
+Under the hypotheses of Theorem~9.22, suppose that each of the categories $E_\alpha$ $(\alpha\in\ob B)$ is stable under small filtered inductive limits, and that for every $\Pi\geq\Pi_\alpha$, $\Filt^\Pi(E_\alpha)$ is stable under filtered inductive limits indexed by filtered ordered sets $I$ such that $\card I\leq\Pi$; this is a slight strengthening of condition 9.12 b) for cardinal filtrations. In the case where $F'$ is considered, suppose moreover that, for every arrow $f:\alpha\to\beta$ of $B$, the functor
+\[
+ f^\ast:E_\beta\to E_\alpha
+\]
+commutes with small filtered inductive limits. Finally let $c_0\in\U$ be a cardinal satisfying (9.22.1), and for every cardinal $\Pi\geq c=2^{c_0}$ consider the strictly full subcategory $F^\Pi$ (\resp ${F'}^\Pi$) of $F$ (\resp of $F'$) formed by the $X$ such that
+\[
+ X(\alpha)\in \Filt^\Pi(E_\alpha)
+\]
+for every $\alpha\in\ob B$. Then the subcategories under consideration define a cardinal filtration (9.12) of $F$ (\resp of $F'$).
+\end{statement}
+
+One must verify conditions a), b), c) of 9.12. Conditions a) and b) follow from the analogous conditions for the given cardinal filtrations of the $E_\alpha$, and from Lemma~9.21.10 (respectively Lemma~9.21.18, taking into account the second condition in (9.22.1)). It remains to prove c). The first part of c) follows at once from Lemma~9.21.9 (respectively Lemma~9.21.17), by taking $\Pi'_0=0$ and $\Pi_0=c$.
+
+It remains to prove that if $\Pi'\geq\Pi\geq c$ are two cardinals, then for every $X$ in $F^{\Pi'}$ (\resp ${F'}^{\Pi'}$) one has
+\[
+ X\simeq\varinjlim_{i\in K}X_i,
+\]
+where the $X_i$ lie in $F^\Pi$ (\resp in ${F'}^\Pi$), where $K$ is large with respect to $\Pi$, and where $\card K\leq{\Pi'}^\Pi$. To this end, resume the proofs of Lemma~9.21.9(ii) and Lemma~9.21.17(ii). We may suppose that each $I_\alpha$ has cardinal $\leq\Pi'$ by condition 9.12 c) on the cardinal filtration of $E_\alpha$. Hence
+\[
+ \card I\leq ({\Pi'}^\Pi)^{\card\ob B}\leq
+ ({\Pi'}^\Pi)^c={\Pi'}^{\Pi c}={\Pi'}^\Pi.
+\]
+The indexing set $K$ used in 9.21.15, respectively 9.21.21, is the set of subsets $J$ of $I$ which are filtered (\ie large with respect to $\Pi'_0=0$), stable under $\varphi$, and such that $\card J\leq\Pi$. It is then immediate that
+\[
+ \card K\leq(\card I)^\Pi\leq({\Pi'}^\Pi)^\Pi
+   ={\Pi'}^{\Pi^2}={\Pi'}^\Pi,
+\]
+which completes the proof of Corollary~9.24.
+
+To finish, it is appropriate to give a statement freed from the somewhat technical hypotheses of Theorem~9.22, by replacing them, for the $E_\alpha$, by the conjunction of the hypotheses occurring in Proposition~9.11, which ensure accessibility of the objects of the $E_\alpha$, and in Proposition~9.13, which ensure the existence of a cardinal filtration in $E_\alpha$.
+
+\begin{statement}{Corollary 9.25}
+Let $p:E\to B$ be a fibred functor, where $B$ is a category equivalent to a small category, and where for every arrow $f:\alpha\to\beta$ of $B$, the inverse image functor
+\[
+ f^\ast:E_\beta\to E_\alpha
+\]
+is accessible (9.2). Suppose further that, for every $\alpha\in\ob B$, the fibre category $E_\alpha$ satisfies the following conditions:
+\begin{enumerate}[label=\alph*)]
+\item $E_\alpha$ admits a small full subcategory generating by strict epimorphisms (7.1).
+\item $E_\alpha$ is stable under fibre products, under kernels of double arrows, under sums of two objects, under cokernels of double arrows, and finally under small filtered inductive limits.\footnote{This last condition is probably unnecessary; \cf 9.13.2.}
+\item The functor $\Ker(u,v)$ on the category of double arrows of $E_\alpha$ is accessible; for example, it commutes with small filtered inductive limits.
+\item Every strict epimorphism of $E_\alpha$ (10.2) is a universal strict epimorphism.
+\end{enumerate}
+Under these hypotheses, each of the categories
+\[
+ F=\Hhom_B(B,E),\qquad F'=\Hhomcart_B(B,E)
+\]
+admits a small subcategory generating by strict epimorphisms, and all of its objects are accessible (9.3).
+\end{statement}
+
+Moreover, Corollary~9.24 gives:
+
+\begin{statement}{Corollary 9.26}
+Under the hypotheses of 9.25, and in the case where one considers $F'=\Hhomcart_B(B,E)$, suppose that the functors
+\[
+ f^\ast:E_\beta\to E_\alpha
+\]
+commute with small filtered inductive limits. Then $F$ (\resp $F'$) admits a cardinal filtration, which can be made explicit by the procedure of Corollary~9.24.
+\end{statement}
+
+\bigskip
+\noindent\emph{Continuation anchor.} The next part of Expos\'e~I is Section~10, the glossary of terms used in the preceding sections.
+
+\end{document}

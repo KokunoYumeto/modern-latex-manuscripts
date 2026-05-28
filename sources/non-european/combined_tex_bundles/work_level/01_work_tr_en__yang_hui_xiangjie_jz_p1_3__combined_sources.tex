@@ -1,0 +1,4365 @@
+% Combined TeX source bundle
+% Title: Yang Hui, Xiangjie Jiuzhang Suanfa, current English bilingual parts 1-3
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and source packet rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/en/chinese/yang-hui-xiangjie-jiuzhang-part1_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Yang Hui's Xiangjie Jiuzhang Suanfa (Part I) -- Bilingual Edition
+%% 楊輝《詳解九章算法》(上) -- 中英雙語版
+%% ========================================================================
+%% LEFT COLUMN: Original Chinese  |  RIGHT COLUMN: English Translation
+%% ========================================================================
+
+\documentclass[10pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{etoolbox}
+% \usepackage{needspace}  % not available, using vspace instead
+\usepackage{ragged2e}
+
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+
+%% -------- Page Geometry (wider margins for two columns) --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=15mm,right=15mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=25pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+%% Chinese Fonts via xeCJK
+\usepackage{xeCJK}
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{chinesebg}{RGB}{250,247,240}
+\definecolor{leftbg}{RGB}{252,250,245}
+\definecolor{rightbg}{RGB}{245,248,252}
+\definecolor{problemframe}{RGB}{139,119,101}
+\definecolor{solutionbg}{RGB}{245,245,240}
+\definecolor{columnrule}{RGB}{160,160,160}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesection}{0.5em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}
+  {\normalfont\small\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{1ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1ex plus 0.3ex minus 0.1ex}{0.5ex plus 0.1ex}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Yang Hui's Xiangjie Jiuzhang Suanfa --- Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% Chinese text helpers
+\setCJKfamilyfont{notocjksc}{Microsoft YaHei}
+\setCJKfamilyfont{notocjkscsans}{Microsoft YaHei}
+\newcommand{\zh}[1]{{\CJKfamily{notocjksc}#1}}
+\newcommand{\zhsans}[1]{{\CJKfamily{notocjkscsans}#1}}
+\newcommand{\textchinese}[1]{{\CJKfamily{notocjksc}#1}}
+
+%% ---- Parallel Column Commands (minipage-based) ----
+% Simplified for performance - no nested colorboxes
+\newcommand{\bilingual}[2]{%
+  \par\smallskip\noindent%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \RaggedRight\small #1%
+  \end{minipage}%
+  \hfill\vrule width 0.4pt\hfill%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \RaggedRight\small #2%
+  \end{minipage}%
+  \par\smallskip%
+}
+
+\newcommand{\bilingualplain}[2]{%
+  \par\smallskip\noindent%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \RaggedRight\small #1%
+  \end{minipage}%
+  \hfill\vrule width 0.4pt\hfill%
+  \begin{minipage}[t]{0.47\textwidth}%
+    \RaggedRight\small #2%
+  \end{minipage}%
+  \par\smallskip%
+}
+
+%% Problem environments for bilingual
+\newenvironment{biproblem}[2]{%
+  \par\smallskip\vspace{1.5ex}%
+  \noindent\textbf{\textcolor{problemframe}{\textsc{Problem} #1}}\par\smallskip
+  \bgroup\small%
+}{%
+  \egroup\par\smallskip
+}
+
+%% Solution environment
+\newenvironment{bisolution}{%
+  \par\smallskip\noindent\textbf{\textcolor{notecolor}{\textsc{Solution} (草曰):}}\par\smallskip\itshape\small%
+}{%
+  \par\smallskip\normalfont%
+}
+
+%% Chinese quotation (bilingual)
+\newenvironment{chineseleft}{%
+  \par\medskip
+  \noindent\colorbox{chinesebg}{%
+  \parbox{0.95\linewidth}{\itshape\small%
+}{%
+  }}\par\medskip
+}
+
+%% Column headers
+\newcommand{\colheaders}{%
+  \noindent
+  \begin{minipage}[t]{0.47\textwidth}%
+    \centering\textbf{\small\color{sectioncolor}Original Chinese (原文)}%
+  \end{minipage}%
+  \hfill\vrule width 0.4pt\hfill
+  \begin{minipage}[t]{0.47\textwidth}%
+    \centering\textbf{\small\color{sectioncolor}English Translation (英譯)}%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+  \noindent\rule{\textwidth}{0.6pt}\par\vspace{0.5em}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Yang Hui's Xiangjie Jiuzhang Suanfa (Part I) --- Bilingual Edition},
+  pdfauthor={Yang Hui (c. 1238-1298 CE)},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% -------- Line spacing --------
+\usepackage{setspace}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor} Detailed Analysis of the\\[0.3em]
+Mathematical Methods in the Nine Chapters}\\[0.8em]
+{\LARGE\color{sectioncolor} 詳解九章算法}\\[0.4em]
+{\Large\color{sectioncolor} (Part I --- 上)}\\[1.5em]
+
+{\large\scshape Bilingual Edition / 中英雙語版}\\[2em]
+
+\longline\\[1em]
+
+{\large By \textbf{Yang Hui} \zh{楊輝}}\\[0.3em]
+{\normalsize Southern Song Dynasty (c.~1238--1298 CE)}\\[1.5em]
+
+\longline\\[1.5em]
+
+\begin{tikzpicture}[scale=0.7]
+\foreach \n in {0,...,6}{
+  \foreach \k in {0,...,\n}{
+    \pgfmathsetmacro{\y}{-\n*0.8}
+    \pgfmathsetmacro{\x}{\k*0.8-\n*0.4}
+    \ifnum\n=0\ifnum\k=0\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=1\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=2\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {2};\fi\ifnum\k=2\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=3\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {3};\fi\ifnum\k=2\node at (\x,\y) {3};\fi\ifnum\k=3\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=4\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {4};\fi\ifnum\k=2\node at (\x,\y) {6};\fi\ifnum\k=3\node at (\x,\y) {4};\fi\ifnum\k=4\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=5\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {5};\fi\ifnum\k=2\node at (\x,\y) {10};\fi\ifnum\k=3\node at (\x,\y) {10};\fi\ifnum\k=4\node at (\x,\y) {5};\fi\ifnum\k=5\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=6\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {6};\fi\ifnum\k=2\node at (\x,\y) {15};\fi\ifnum\k=3\node at (\x,\y) {20};\fi\ifnum\k=4\node at (\x,\y) {15};\fi\ifnum\k=5\node at (\x,\y) {6};\fi\ifnum\k=6\node at (\x,\y) {1};\fi\fi
+  }
+}
+\node[below] at (0,-5.5) {\small\textit{The ``Method Source for Square Root Extraction'' (\zh{開方作法本源圖})}};
+\end{tikzpicture}
+
+\vfill
+
+{\small\textit{Left Column: Original Chinese text / Right Column: English translation}}\\[0.5em]
+{\small Modern LaTeX edition}\\
+{\small \today}
+
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\newpage
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% COLUMN HEADER FOR MAIN CONTENT
+%% ========================================================================
+\colheaders
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{Introduction / 引言}
+
+\bilingual{
+  \zh{《詳解九章算法》}乃南宋楊輝所著之重要數學著作。成書於一二六一年，詳解古代《九章算術》之各題算法。
+}{
+  \textit{Xiangjie Jiuzhang Suanfa} (\zh{詳解九章算法}, ``Detailed Analysis of the Mathematical Methods in the Nine Chapters'') is one of the most important mathematical works of the Southern Song Dynasty, written by the mathematician \textbf{Yang Hui} \zh{楊輝} (c.~1238--1298 CE). Completed in 1261, this work provides detailed explanations and commentaries on the classic \textit{Jiuzhang Suanshu} (Nine Chapters on the Mathematical Art).
+}
+
+\subsection{Historical Context / 歷史背景}
+
+\bilingual{
+  原《九章算術》成書於漢代（約公元前二百年至公元二百年），凡二百四十六題，分九章。至宋代，原文因\zh{靖康之變}（一一二七年）而散佚，傳抄訛誤，題隱法晦，學者難以入門。
+}{
+  The original \textit{Jiuzhang Suanshu} dates back to the Han Dynasty (c.~200 BCE--200 CE) and contains 246 mathematical problems organized into nine chapters. By the Song Dynasty, the original text had become difficult to understand due to the loss of manuscripts during the \textit{Jingkang Incident} (\zh{靖康之變}, 1127 CE), corruption of transmitted texts through repeated copying, and obscure problem statements with difficult methods.
+}
+
+\bilingual{
+  \zh{輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。於是以答參問，用草考法，因法推類，然後知斯文非古之全經也。}
+}{%
+  ``I have heard scholars say that the problems in the Nine Chapters are rather obscure, and the methods difficult to understand, so one cannot find the door to enter. Therefore, using the answers to examine the questions, employing the worked solutions to investigate the methods, and following the methods to extend by analogy---only then do I know that this text is not the complete classic of antiquity.''
+}
+
+\subsection{Structure of the Work / 全書結構}
+
+\bilingual{
+  全書凡十二章：一、\zh{乘除}（四十一題）；二、\zh{方田}（三十八題）；三、\zh{粟米}（四十六題）；四、\zh{衰分}（二十題）；五、\zh{少廣}（二十四題）；六、\zh{商功}（二十八題）；七、\zh{均輸}（二十八題）；八、\zh{盈不足}（二十題）；九、\zh{方程}（十八題）；十、\zh{勾股}（三十八題）；十一、\zh{篡類}。
+}{
+  The original work comprised \textbf{12 chapters}: (1) Multiplication and Division --- 41 problems; (2) Field Measurement --- 38 problems; (3) Grain Conversion --- 46 problems; (4) Proportional Distribution --- 20 problems; (5) Short Width / Root Extraction --- 24 problems; (6) Commercial Calculations / Engineering --- 28 problems; (7) Equitable Distribution --- 28 problems; (8) Excess and Deficit --- 20 problems; (9) Systems of Linear Equations --- 18 problems; (10) Right Triangles --- 38 problems; (11) Classification / Compilation.
+}
+
+\subsection{Editorial Method / 編纂之法}
+
+\bilingual{
+  楊輝解題之法，分為四部：\zh{問}（設題）、\zh{答}（給出數值答案）、\zh{術}（說明一般算法）、\zh{草}（詳細逐步演算）。此四部結構，為中國數學著述之典範。
+}{
+  Yang Hui's approach to explaining the Nine Chapters was systematic: \textbf{Problem (\zh{問})} states the mathematical problem; \textbf{Answer (\zh{答})} gives the numerical answer; \textbf{Method (\zh{術})} states the general algorithm; \textbf{Worked Solution (\zh{草})} provides a detailed step-by-step calculation. This four-part structure became a model for Chinese mathematical exposition.
+}
+
+\subsection{The Method Source for Square Root Extraction / 開方作法本源}
+
+\bilingual{
+  楊輝所錄之\zh{開方作法本源圖}（今稱楊輝三角或賈憲三角），源出北宋賈憲\zh{（約一〇一〇至一〇七〇年）}之《釋鎖算書》。其圖列二項式係數至六次冪，用於開方運算。
+}{
+  One of Yang Hui's most celebrated contributions is preserving what we now call \textbf{Yang Hui's Triangle} (also known as Pascal's Triangle). In his work, he attributes this to the earlier mathematician \textbf{Jia Xian} (c.~1010--1070 CE), who called it the ``Method Source for Square Root Extraction'' (\zh{開方作法本源圖}). The triangle provides binomial coefficients used in root extraction. Yang Hui wrote: \zh{出釋鎖算書，賈憲用此術} (``This comes from the \textit{Shisuo Suan Shu}; Jia Xian used this method'').
+}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\section{Original Preface / 原序}
+
+\bilingual{
+  \zh{黃帝九章古序云：國家嘗設算科取士，選九章以為算經之首，蓋猶儒者之六經，醫家之難素，兵法之孫子歟。}
+}{%
+  ``The ancient preface to the Yellow Emperor's Nine Chapters states: The state once established an examination in mathematics for selecting officials, choosing the Nine Chapters as the foremost mathematical classic---this is like the Six Classics for Confucian scholars, the \textit{Nanjing} and \textit{Suwen} for physicians, or the \textit{Art of War} for military strategists.''
+}
+
+\bilingual{
+  \zh{昔聖宋紹興戊辰，算士榮棨謂靖康以來，罕有舊本，間有存者，狃於末習，向獲善本，得其全經，復起於學。以魏景元元年劉徽等、唐朝議大夫、行太史令上輕車都尉李淳風等注釋，聖宋右班直賈憲撰草。}
+}{%
+  ``In the past, during the Wuchen year of the Shaoxing reign of our Sacred Song Dynasty, the mathematician Rong Qi said that since the Jingkang period, old copies have been rare, and those occasionally surviving have been corrupted by inferior practices. Having obtained a good copy and recovered the complete classic, study was revived. The annotations were by Liu Hui et al.\ (Jingyuan first year of Wei) and by Li Chunfeng et al.\ (Senior Compiler of Tang Dynasty, Acting Grand Astrologer), while the detailed solutions were composed by Jia Xian of the Song Dynasty.''
+}
+
+\bilingual{
+  \zh{輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。於是以答參問，用草考法，因法推類，然後知斯文非古之全經也。將後賢補贅之文，修前代已廢之法，刪立題術，又篡法問，詳著於後，儻得賢者，改而正諸，是所願也。}
+}{%
+  ``I have heard scholars say that the problems in the Nine Chapters are rather obscure, and the principles difficult to understand, so one cannot find the door to enter. Therefore, using the answers to examine the questions, employing the worked solutions to investigate the methods, and following the methods to extend by analogy---only then do I know that this text is not the complete classic of antiquity. Taking the supplementary texts added by later worthies and repairing the methods abandoned by earlier generations, I have reorganized the problem-methods and compiled the method-questions, recording them in detail below. If worthy scholars would correct and improve them, that is my wish.''
+}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 1: MULTIPLICATION AND DIVISION
+%% ========================================================================
+\section{Chapter 1: Multiplication and Division / \zh{乘除}}
+
+\bilingual{
+  第一章論乘除之基本運算，凡四十一題，多取\zh{方田}章及\zh{粟米}之題。
+}{%
+  The first chapter covers fundamental operations of multiplication and division, with 41 problems drawn mostly from the ``Field Measurement'' (\zh{方田}) chapter and grain conversion problems.
+}
+
+\subsection{Rectangular Field Method / \zh{直田法}}
+
+\bilingual{
+  \textbf{術：}以廣乘從得積。以\zh{畝法}（一畝二百四十平方步）除之。
+}{%
+  \textbf{Method:} Multiply the width (\zh{廣}) by the length (\zh{從}) to obtain the area (\zh{積}). Divide by the unit conversion (\zh{畝法}, 1 mu = 240 square bu).
+}
+
+\begin{biproblem}[1]
+\bilingual{
+  \zh{廣十五步，從十六步，問田幾何？答曰：一畝。}
+}{%
+  A field has width 15 bu and length 16 bu. What is the area? \textbf{Answer:} 1 mu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  廣十五步，從十六步。積 = $15 \times 16 = 240$ 平方步。一畝 = 二百四十平方步，故為\textbf{一畝}。
+}{%
+  Width = 15 bu, Length = 16 bu. Area = $15 \times 16 = 240$ square bu. Since 1 mu = 240 square bu, the area is \textbf{1 mu}.
+}
+\end{bisolution}
+
+\begin{biproblem}[2]
+\bilingual{
+  \zh{廣十二步，從十四步，問田幾何？答曰：一百六十八步。}
+}{%
+  A field has width 12 bu and length 14 bu. What is the area in square bu? \textbf{Answer:} 168 square bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  積 = $12 \times 14 = \textbf{168}$ 平方步。
+}{%
+  Area = $12 \times 14 = \textbf{168}$ square bu.
+}
+\end{bisolution}
+
+\subsection{Square Field Method / \zh{方田法}}
+
+\bilingual{
+  \textbf{術：}方田之積，以里自乘，復以三百七十五畝乘之。
+}{%
+  \textbf{Method:} Square the side length to obtain the area in square li. Multiply by 375 mu per square li for conversion.
+}
+
+\begin{biproblem}[3]
+\bilingual{
+  \zh{方田一里，問為田幾何？答曰：三頃七十五畝。}
+}{%
+  A square field has side 1 li. What is its area? \textbf{Answer:} 3 qing 75 mu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  積 = $1 \times 1 = 1$ 平方里。$1 \times 375 = \textbf{375\ 畝} = \textbf{三頃七十五畝}$。
+}{%
+  Area = $1 \times 1 = 1$ square li. $1 \times 375 = \textbf{375\ mu} = \textbf{3 qing 75 mu}$.
+}
+\end{bisolution}
+
+\subsection{Fraction Multiplication / \zh{乘分}}
+
+\bilingual{
+  \textbf{術：}分母乘全步，并子以為實。分母相乘為法。以法除實。
+}{%
+  \textbf{Method:} For fractions with whole numbers: multiply each whole number by its denominator and add the numerator. Multiply these results to form the dividend (\zh{實}). Multiply the denominators to form the divisor (\zh{法}). Divide the dividend by the divisor.
+}
+
+\begin{biproblem}[Fraction Multiplication]
+\bilingual{
+  \zh{田廣七步、四分步之三，從十五步、九分步之五，問：為田幾何？答曰：一百二十步，九分步之五。}
+}{%
+  A field has width $7\,\frac{3}{4}$ bu and length $15\,\frac{5}{9}$ bu. What is the area? \textbf{Answer:} $120\,\frac{5}{9}$ square bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  廣：$7\,\frac{3}{4} = \frac{31}{4}$ 步。從：$15\,\frac{5}{9} = \frac{140}{9}$ 步。\\
+  積 = $\frac{31}{4} \times \frac{140}{9} = \frac{4340}{36} = 120\,\frac{5}{9}$ 平方步。
+}{%
+  Width: $7\,\frac{3}{4} = \frac{31}{4}$ bu. Length: $15\,\frac{5}{9} = \frac{140}{9}$ bu.\\
+  Area = $\frac{31}{4} \times \frac{140}{9} = \frac{4340}{36} = 120\,\frac{5}{9}$ square bu.
+}
+\end{bisolution}
+
+\subsection{Division with Fractions / \zh{除分}}
+
+\bilingual{
+  \textbf{術：}以人數為法，錢數為實。有分者通之。實如法而一。
+}{%
+  \textbf{Method:} Use the number of people as the divisor (\zh{法}) and the amount of money as the dividend (\zh{實}). If there are fractions, convert them. Divide the dividend by the divisor.
+}
+
+\begin{biproblem}[Division with Fractions]
+\bilingual{
+  \zh{七人，均八錢三分錢之一，問人得幾何？答曰：人得一錢二十一分錢之四。}
+}{%
+  Seven people share $8\,\frac{1}{3}$ qian equally. How much does each person receive? \textbf{Answer:} $1\,\frac{4}{21}$ qian each.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  總數：$8\,\frac{1}{3} = \frac{25}{3}$ 錢。\\
+  每人得：$\frac{25}{3} \div 7 = \frac{25}{21} = 1\,\frac{4}{21}$ 錢。
+}{%
+  Total: $8\,\frac{1}{3} = \frac{25}{3}$ qian.\\
+  Each receives: $\frac{25}{3} \div 7 = \frac{25}{21} = 1\,\frac{4}{21}$ qian.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 2: FIELD MEASUREMENT
+%% ========================================================================
+\section{Chapter 2: Field Measurement / \zh{方田}}
+
+\bilingual{
+  方田章專論面積之計算與分數之運算。凡三十八題，涉及各種田形及分數四則運算。
+}{%
+  The Field Measurement chapter focuses on area calculations and fraction operations. It originally contained 38 problems covering various field shapes and operations with fractions.
+}
+
+\subsection{Reduction of Fractions / \zh{約分}}
+
+\bilingual{
+  \textbf{術：}可半者半之。不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。（即輾轉相除之歐幾里得算法。）
+}{%
+  \textbf{Method:} If both numerator and denominator are even, halve them. If not, place the numerator and denominator separately and repeatedly subtract the smaller from the larger (Euclidean algorithm) until the greatest common divisor is found. Divide both by this common measure.
+}
+
+\begin{biproblem}[Reduction]
+\bilingual{
+  \zh{十八分之十二。問：約之得幾何？答曰：三分之二。}
+}{%
+  Reduce $\frac{12}{18}$. \textbf{Answer:} $\frac{2}{3}$.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  十二與十八之等數：$18 - 12 = 6$，$12 - 6 = 6$，$6 - 6 = 0$。等數 = 6。\\
+  $\frac{12 \div 6}{18 \div 6} = \textbf{\frac{2}{3}}$。
+}{%
+  GCD of 12 and 18: $18 - 12 = 6$, $12 - 6 = 6$, $6 - 6 = 0$. GCD = 6.\\
+  $\frac{12 \div 6}{18 \div 6} = \textbf{\frac{2}{3}}$.
+}
+\end{bisolution}
+
+\begin{biproblem}
+\bilingual{
+  \zh{九十一分之四十九。問：約之得幾何？答曰：十三分之七。}
+}{%
+  Reduce $\frac{49}{91}$. \textbf{Answer:} $\frac{7}{13}$.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  輾轉相除：$91 - 49 = 42$，$49 - 42 = 7$，$42 - 7 \times 6 = 0$。等數 = 7。\\
+  $\frac{49 \div 7}{91 \div 7} = \textbf{\frac{7}{13}}$。
+}{%
+  Using the Euclidean algorithm: $91 - 49 = 42$, $49 - 42 = 7$, $42 - 7 \times 6 = 0$. GCD = 7.\\
+  $\frac{49 \div 7}{91 \div 7} = \textbf{\frac{7}{13}}$.
+}
+\end{bisolution}
+
+\subsection{Addition of Fractions / \zh{合分}}
+
+\bilingual{
+  \textbf{術：}母互乘子，并以為實。母相乘為法。實如法而一。母同者直相從之。
+}{%
+  \textbf{Method:} Cross-multiply the denominators with the numerators and add to form the dividend. Multiply the denominators to form the divisor. Divide. If the denominators are the same, simply add the numerators.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{二分之一、三分之二、四分之三、五分之四，合之得幾何？答曰：得二，餘六十分之四十三。}
+}{%
+  Add $\frac{1}{2} + \frac{2}{3} + \frac{3}{4} + \frac{4}{5}$. \textbf{Answer:} $2\,\frac{43}{60}$.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  互乘：$1 \times 3 \times 4 \times 5 + 2 \times 2 \times 4 \times 5 + 3 \times 2 \times 3 \times 5 + 4 \times 2 \times 3 \times 4 = 60 + 80 + 90 + 96 = 326$。\\
+  法：$2 \times 3 \times 4 \times 5 = 120$。\\
+  $\frac{326}{120} = 2\,\frac{86}{120} = 2\,\frac{43}{60}$。
+}{%
+  Cross-multiply: $1 \times 3 \times 4 \times 5 + 2 \times 2 \times 4 \times 5 + 3 \times 2 \times 3 \times 5 + 4 \times 2 \times 3 \times 4 = 60 + 80 + 90 + 96 = 326$.\\
+  Divisor: $2 \times 3 \times 4 \times 5 = 120$.\\
+  $\frac{326}{120} = 2\,\frac{86}{120} = 2\,\frac{43}{60}$.
+}
+\end{bisolution}
+
+\subsection{Subtraction and Comparison of Fractions / \zh{課分}}
+
+\bilingual{
+  \textbf{術：}母互乘子，以少減多，餘為實。母相乘為法。實如法而一。即兩分數之差也。
+}{%
+  \textbf{Method:} Cross-multiply numerators, subtract the smaller from the larger. The remainder is the dividend, the product of denominators is the divisor. This gives the difference (also called ``the excess'').
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{八分之五，比二十五分之十六。問：孰多多幾何？答曰：二十五分之十六，多多二百分之三。}
+}{%
+  Compare $\frac{5}{8}$ and $\frac{16}{25}$. Which is larger and by how much? \textbf{Answer:} $\frac{16}{25}$ is larger by $\frac{3}{200}$.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $\frac{16}{25} - \frac{5}{8} = \frac{16 \times 8 - 5 \times 25}{25 \times 8} = \frac{128 - 125}{200} = \frac{3}{200}$。\\
+  故$\frac{16}{25}$大\textbf{\frac{3}{200}}。
+}{%
+  $\frac{16}{25} - \frac{5}{8} = \frac{16 \times 8 - 5 \times 25}{25 \times 8} = \frac{128 - 125}{200} = \frac{3}{200}$.\\
+  So $\frac{16}{25}$ is larger by $\textbf{\frac{3}{200}}$.
+}
+\end{bisolution}
+
+\subsection{Equalizing Fractions / \zh{平分}}
+
+\bilingual{
+  \textbf{術：}母互乘子，各為列實。并諸列實為平實。母相乘為法。以列數乘未并者，各為列實。以平實減列實，餘為減數；以列實減平實，餘為益數。減多益少，使各平於平實。
+}{%
+  \textbf{Method:} Cross-multiply numerators. Sum all numerators for the ``level dividend.'' Multiply all denominators for the divisor. Multiply the number of terms by each uncrossed numerator for the column dividends. Subtract the level dividend from each column dividend to find what must be subtracted; subtract each column dividend from the level dividend to find what must be added. Combine the subtractions to benefit the smaller values. Divide the level dividend by the divisor to find the equalized value.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{二分之一、三分之二、四分之三，減多益少幾何？而平？答曰：減四分之三，求之者四，減三分之二，求之者一，益二分之一，求之者五，各平於三十六分之二十三。}
+}{%
+  Given $\frac{1}{2}$, $\frac{2}{3}$, $\frac{3}{4}$, redistribute by subtracting from larger and adding to smaller to make them equal. \textbf{Answer:} Subtract $\frac{4}{36}$ from $\frac{3}{4}$; subtract $\frac{1}{36}$ from $\frac{2}{3}$; add $\frac{5}{36}$ to $\frac{1}{2}$. All equalized to $\frac{23}{36}$.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  平值 = $\frac{23}{36}$。\\
+  $\frac{3}{4} = \frac{27}{36}$：減$\frac{4}{36}$。\\
+  $\frac{2}{3} = \frac{24}{36}$：減$\frac{1}{36}$。\\
+  $\frac{1}{2} = \frac{18}{36}$：益$\frac{5}{36}$。\\
+  皆平於\textbf{\frac{23}{36}}。
+}{%
+  Level value = $\frac{23}{36}$.\\
+  $\frac{3}{4} = \frac{27}{36}$: subtract $\frac{4}{36}$.\\
+  $\frac{2}{3} = \frac{24}{36}$: subtract $\frac{1}{36}$.\\
+  $\frac{1}{2} = \frac{18}{36}$: add $\frac{5}{36}$.\\
+  All equalized to \textbf{\frac{23}{36}}.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 3: GRAIN CONVERSION
+%% ========================================================================
+\section{Chapter 3: Grain Conversion / \zh{粟米}}
+
+\bilingual{
+  粟米章論各種穀物與商品之比例交換。凡四十六題，其中六題為基本乘除，三十一題為比例交換，九題為比例率。
+}{%
+  The Grain Conversion chapter deals with proportional exchange between different types of grain and commodities. It originally contained 46 problems with 6 on basic multiplication/division, 31 on proportional exchange, and 9 on proportional rates.
+}
+
+\subsection{Direct Exchange / \zh{經率}}
+
+\bilingual{
+  \textbf{術：}以所買率為法，以所出錢為實。實如法得一。
+}{%
+  \textbf{Method:} Use the money amount as the dividend (\zh{實}) and the quantity purchased as the divisor (\zh{法}). Divide the dividend by the divisor.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{錢一百六十文，買瓴甓十八枚，問枚價幾何？答曰：一枚八錢九分钱之八。}
+}{%
+  With 160 qian, buy 18 roof tiles. What is the price per tile? \textbf{Answer:} $8\,\frac{8}{9}$ qian per tile.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $160 \div 18 = \frac{160}{18} = \frac{80}{9} = 8\,\frac{8}{9}$ 文/枚。
+}{%
+  $160 \div 18 = \frac{160}{18} = \frac{80}{9} = 8\,\frac{8}{9}$ qian per tile.
+}
+\end{bisolution}
+
+\subsection{Grain Conversion Rates / 粟米換算率}
+
+\bilingual{
+  《九章》立穀物換算之標準率：\zh{粟}率五十；\zh{糲米}率三十；\zh{糳米}率二十七；\zh{御米}率二十四；\zh{麥}率四十五；\zh{菽}率四十五。
+}{%
+  The Nine Chapters establishes standard conversion rates between different grains: Millet (\zh{粟}): rate = 50; Coarse rice (\zh{糲米}): rate = 30; Fine rice (\zh{糳米}): rate = 27; Polished rice (\zh{御米}): rate = 24; Wheat (\zh{麥}): rate = 45; Soybeans (\zh{菽}): rate = 45.
+}
+
+\bilingual{
+  \textbf{術：}以所有數乘所求率為實，以所有率為法，實如法而一。
+}{%
+  \textbf{Method:} ``What you seek multiplied by the given amount, divided by what you have.'' (\zh{以所有數乘所求率為實，以所有率為法，實如法而一。})
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{粟一斗。問為糲米幾何？答曰：六升。}
+}{%
+  Given 1 dou of millet, how much coarse rice (\zh{糲米}) does it make? \textbf{Answer:} 6 sheng.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  粟率五十，糲米率三十。\\
+  $1\text{ 斗} \times \frac{30}{50} = \frac{3}{5}\text{ 斗} = \textbf{6 升}$。
+}{%
+  Millet rate = 50, coarse rice rate = 30.\\
+  $1 \text{ dou} \times \frac{30}{50} = \frac{3}{5} \text{ dou} = \textbf{6 sheng}$.
+}
+\end{bisolution}
+
+\begin{biproblem}
+\bilingual{
+  \zh{粟四斗五升。問為糳米幾何？答曰：二斗一升五分升之三。}
+}{%
+  Given 4 dou 5 sheng of millet, how much fine rice (\zh{糳米}) does it make? \textbf{Answer:} 2 dou 1 sheng $\frac{3}{5}$.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $4.5 \times \frac{27}{50} = \frac{9}{2} \times \frac{27}{50} = \frac{243}{100} = 2.43$ 斗 = \textbf{二斗一升五分升之三}。
+}{%
+  $4.5 \times \frac{27}{50} = \frac{9}{2} \times \frac{27}{50} = \frac{243}{100} = 2.43$ dou = $\textbf{2 dou 1 sheng }\frac{3}{5}$.
+}
+\end{bisolution}
+
+\begin{biproblem}
+\bilingual{
+  \zh{糲米十五斗五升五分升之二。問為粟幾何？答曰：二十五斗九升。}
+}{%
+  Given 15 dou $5\,\frac{2}{5}$ sheng of coarse rice, how much millet was the original amount? \textbf{Answer:} 25 dou 9 sheng.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $15\,5\,\frac{2}{5} = \frac{777}{50}$ 斗。\\
+  $\frac{777}{50} \times \frac{50}{30} = \frac{777}{30} = 25.9$ 斗 = \textbf{二十五斗九升}。
+}{%
+  $15\,5\,\frac{2}{5} = \frac{777}{50}$ dou.\\
+  $\frac{777}{50} \times \frac{50}{30} = \frac{777}{30} = 25.9$ dou = $\textbf{25 dou 9 sheng}$.
+}
+\end{bisolution}
+
+\subsection{Silk and Currency Conversion / 絲錢換算}
+
+\begin{biproblem}
+\bilingual{
+  \zh{絲一斤，價三百四十五，今有七兩一十二銖。問錢，答曰：一百六十一錢，三十二分錢之二十三。}
+}{%
+  Silk costs 345 qian per jin. If one has 7 liang 12 zhu of silk, what is its value in qian? \textbf{Answer:} $161\,\frac{23}{32}$ qian.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  一斤 = 十六兩 = 三百八十四銖。七兩十二銖 = $7 \times 24 + 12 = 180$ 銖。\\
+  值 = $345 \times \frac{180}{384} = 345 \times \frac{15}{32} = \frac{5175}{32} = 161\,\frac{23}{32}$ 錢。
+}{%
+  1 jin = 16 liang = 384 zhu. 7 liang 12 zhu = $7 \times 24 + 12 = 180$ zhu.\\
+  Value = $345 \times \frac{180}{384} = 345 \times \frac{15}{32} = \frac{5175}{32} = 161\,\frac{23}{32}$ qian.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 4: PROPORTIONAL DISTRIBUTION
+%% ========================================================================
+\section{Chapter 4: Proportional Distribution / \zh{衰分}}
+
+\bilingual{
+  衰分章論按給定比例分配數量之問題。凡二十題。
+}{%
+  The Proportional Distribution chapter deals with dividing quantities in given proportions. It originally contained 20 problems.
+}
+
+\subsection{The Method of Distribution / \zh{衰分法}}
+
+\bilingual{
+  \textbf{術：}各置列衰，副并為法。以所分乘未并者，各自為實。實如法而一。不滿法者，以法命之。
+}{%
+  \textbf{Method:} Set out the distribution rates (\zh{衰}). Combine them as the divisor. Multiply what is to be distributed by each uncombined rate to form the column dividends. Divide each by the divisor. If there is a remainder, express it as a fraction over the divisor.
+}
+
+\begin{biproblem}[Five Ranks Sharing Deer / 五爵分鹿]
+\bilingual{
+  \zh{大夫、不更、簪褭、上造、公士凡五人，以爵次高下均五鹿，問各幾何？答曰：大夫一鹿，三分鹿之二；不更一鹿，三分鹿之一；簪褭一鹿；上造鹿三分之二；公士鹿三分之一。}
+}{%
+  Five nobles---a Dafu, a Bugeng, a Zanmao, a Shangzao, and a Gongshi---are to share 5 deer in proportion to their ranks (5:4:3:2:1). \textbf{Answer:} Dafu $1\,\frac{2}{3}$; Bugeng $1\,\frac{1}{3}$; Zanmao 1; Shangzao $\frac{2}{3}$; Gongshi $\frac{1}{3}$ deer.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  衰：大夫五、不更四、簪褭三、上造二、公士一。\\
+  并 = $5 + 4 + 3 + 2 + 1 = 15$。\\
+  大夫：$5 \times \frac{5}{15} = \frac{25}{15} = 1\,\frac{2}{3}$ 鹿。\\
+  不更：$5 \times \frac{4}{15} = \frac{20}{15} = 1\,\frac{1}{3}$ 鹿。\\
+  簪褭：$5 \times \frac{3}{15} = 1$ 鹿。\\
+  上造：$5 \times \frac{2}{15} = \frac{2}{3}$ 鹿。\\
+  公士：$5 \times \frac{1}{15} = \frac{1}{3}$ 鹿。
+}{%
+  Rates: Dafu 5, Bugeng 4, Zanmao 3, Shangzao 2, Gongshi 1.\\
+  Sum = $5 + 4 + 3 + 2 + 1 = 15$.\\
+  Dafu: $5 \times \frac{5}{15} = \frac{25}{15} = 1\,\frac{2}{3}$ deer.\\
+  Bugeng: $5 \times \frac{4}{15} = \frac{20}{15} = 1\,\frac{1}{3}$ deer.\\
+  Zanmao: $5 \times \frac{3}{15} = 1$ deer.\\
+  Shangzao: $5 \times \frac{2}{15} = \frac{2}{3}$ deer.\\
+  Gongshi: $5 \times \frac{1}{15} = \frac{1}{3}$ deer.
+}
+\end{bisolution}
+
+\subsection{The Cow, Horse, and Sheep / 牛馬羊償粟}
+
+\begin{biproblem}
+\bilingual{
+  \zh{牛、馬、羊食人苗，苗主責之粟五斗，牛食馬之半，馬食羊之半，欲衰償之？答曰：牛二斗八升，七分升之四；馬一斗四升，七分升之二；羊七升，七分升之一。}
+}{%
+  A cow, a horse, and a sheep ate someone's crops. The owner demands 5 dou of millet as compensation. The cow ate twice what the horse ate, and the horse ate twice what the sheep ate. \textbf{Answer:} Cow $2\,\frac{4}{7}$ dou; Horse $1\,\frac{2}{7}$ dou; Sheep $\frac{1}{7}$ dou.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  衰：牛四、馬二、羊一。\\
+  并 = $4 + 2 + 1 = 7$。\\
+  牛：$5 \times \frac{4}{7} = \frac{20}{7} = 2\,\frac{6}{7}$ 斗 = \textbf{二斗八升$\,\frac{4}{7}$}。\\
+  馬：$5 \times \frac{2}{7} = \frac{10}{7} = 1\,\frac{3}{7}$ 斗 = \textbf{一斗四升$\,\frac{2}{7}$}。\\
+  羊：$5 \times \frac{1}{7} = \frac{5}{7}$ 斗 = \textbf{七升$\,\frac{1}{7}$}。
+}{%
+  The rates are: Cow 4, Horse 2, Sheep 1.\\
+  Sum = $4 + 2 + 1 = 7$.\\
+  Cow: $5 \times \frac{4}{7} = \frac{20}{7} = 2\,\frac{6}{7}$ dou = $\textbf{2 dou 8 sheng }\frac{4}{7}$.\\
+  Horse: $5 \times \frac{2}{7} = \frac{10}{7} = 1\,\frac{3}{7}$ dou = $\textbf{1 dou 4 sheng }\frac{2}{7}$.\\
+  Sheep: $5 \times \frac{1}{7} = \frac{5}{7}$ dou = $\textbf{7 sheng }\frac{1}{7}$.
+}
+\end{bisolution}
+
+\subsection{The Woman Skilled at Weaving / 女子善織}
+
+\begin{biproblem}
+\bilingual{
+  \zh{女子善織，日自倍，五日織五尺。問日織數。答曰：初日一寸，三十一分寸之十九；二日三寸，三十一分寸之七；三日六寸，三十一分寸之十四；四日一尺二寸，三十一分寸之二十八；五日二尺四寸，三十一分寸之二十五。}
+}{%
+  A woman skilled at weaving doubles her output each day. In 5 days she weaves 5 chi. \textbf{Answer:} Day 1: $\frac{50}{31}$ cun; Day 2: $\frac{100}{31}$ cun; Day 3: $\frac{200}{31}$ cun; Day 4: $\frac{400}{31}$ cun; Day 5: $\frac{800}{31}$ cun.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  設首日織 $x$，則總數 = $x + 2x + 4x + 8x + 16x = 31x = 5$ 尺。\\
+  $x = \frac{5}{31}$ 尺 = $\frac{50}{31}$ 寸 = $1\,\frac{19}{31}$ 寸。\\
+  次日：$\frac{100}{31} = 3\,\frac{7}{31}$ 寸。\\
+  三日：$\frac{200}{31} = 6\,\frac{14}{31}$ 寸。\\
+  四日：$\frac{400}{31} = 12\,\frac{28}{31}$ 寸。\\
+  五日：$\frac{800}{31} = 25\,\frac{25}{31}$ 寸。
+}{%
+  Let the first day's output be $x$. Then total = $x + 2x + 4x + 8x + 16x = 31x = 5$ chi.\\
+  $x = \frac{5}{31}$ chi = $\frac{50}{31}$ cun $= 1\,\frac{19}{31}$ cun.\\
+  Day 2: $\frac{100}{31} = 3\,\frac{7}{31}$ cun.\\
+  Day 3: $\frac{200}{31} = 6\,\frac{14}{31}$ cun.\\
+  Day 4: $\frac{400}{31} = 12\,\frac{28}{31}$ cun.\\
+  Day 5: $\frac{800}{31} = 25\,\frac{25}{31}$ cun.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 5: SHORT WIDTH / ROOT EXTRACTION
+%% ========================================================================
+\section{Chapter 5: Short Width / Root Extraction / \zh{少廣}}
+
+\bilingual{
+  少廣章論已知矩形面積與一邊而求另一邊，涉及分數除法與開方。凡二十四題。
+}{%
+  The Short Width chapter deals with finding an unknown dimension of a rectangle given its area and one side, which leads to problems of division with fractions and root extraction. It originally contained 24 problems.
+}
+
+\subsection{The Short Width Method / \zh{少廣法}}
+
+\bilingual{
+  \textbf{術：}置全步及分母子。各以分母乘其子、全步，以少減多，通分內子，令母互乘。并所有以為法。以畝積二百四十步乘之為實。實如法而一，得從。
+}{%
+  \textbf{Method:} Set out the whole steps and the fraction denominators and numerators. Separately multiply the denominators by themselves, then multiply the whole steps and numerators. Divide each by its original denominator and combine. Use this as the divisor. Multiply the whole steps by their combined denominators, then multiply by the field area (mu) in square bu for the dividend. Divide the dividend by the divisor.
+}
+
+\begin{biproblem}[Short Width 1]
+\bilingual{
+  \zh{田一畝廣一步半，問從？答曰：一百六十步。}
+}{%
+  A field of 1 mu has width $1\,\frac{1}{2}$ bu. What is the length? \textbf{Answer:} 160 bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  廣 = $1\,\frac{1}{2} = \frac{3}{2}$ 步。積 = 一畝 = 二百四十平方步。\\
+  從 = $240 \div \frac{3}{2} = 240 \times \frac{2}{3} = \textbf{160}$ 步。
+}{%
+  Width = $1\,\frac{1}{2} = \frac{3}{2}$ bu. Area = 1 mu = 240 square bu.\\
+  Length = $240 \div \frac{3}{2} = 240 \times \frac{2}{3} = \textbf{160}$ bu.
+}
+\end{bisolution}
+
+\begin{biproblem}
+\bilingual{
+  \zh{田一畝廣一步半、三分步之一。問從？答曰：一百三十步一十一分步之一十。}
+}{%
+  A field of 1 mu has width $1\,\frac{1}{2}\,\frac{1}{3}$ bu. What is the length? \textbf{Answer:} $130\,\frac{10}{11}$ bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  廣 = $1 + \frac{1}{2} + \frac{1}{3} = \frac{6 + 3 + 2}{6} = \frac{11}{6}$ 步。\\
+  從 = $240 \div \frac{11}{6} = 240 \times \frac{6}{11} = \frac{1440}{11} = 130\,\frac{10}{11}$ 步。
+}{%
+  Width = $1 + \frac{1}{2} + \frac{1}{3} = \frac{6 + 3 + 2}{6} = \frac{11}{6}$ bu.\\
+  Length = $240 \div \frac{11}{6} = 240 \times \frac{6}{11} = \frac{1440}{11} = 130\,\frac{10}{11}$ bu.
+}
+\end{bisolution}
+
+\begin{biproblem}
+\bilingual{
+  \zh{田一畝廣一步半、三分步之一、四分步之一。問從答曰：一百一十五步五分步之一。}
+}{%
+  A field of 1 mu has width $1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4}$ bu. \textbf{Answer:} $115\,\frac{1}{5}$ bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  廣 = $1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} = \frac{12 + 6 + 4 + 3}{12} = \frac{25}{12}$ 步。\\
+  從 = $240 \div \frac{25}{12} = \frac{2880}{25} = 115\,\frac{1}{5}$ 步。
+}{%
+  Width = $1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} = \frac{12 + 6 + 4 + 3}{12} = \frac{25}{12}$ bu.\\
+  Length = $240 \div \frac{25}{12} = \frac{2880}{25} = 115\,\frac{1}{5}$ bu.
+}
+\end{bisolution}
+
+\begin{biproblem}
+\bilingual{
+  \zh{田一畝廣一步半、三分步之一、四分步之一、五分步之一、六分步之一、七分步之一。問從答曰：九十二步一百二十一分步之六十八。}
+}{%
+  A field of 1 mu has width $1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7}$ bu. \textbf{Answer:} $92\,\frac{68}{121}$ bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  用逆少廣術：\\
+  廣 = $\frac{420+210+140+105+84+70+60}{420} = \frac{1089}{420}$。\\
+  約之：等數三，得$\frac{363}{140}$。\\
+  從 = $240 \times \frac{140}{363} = \frac{33600}{363} = 92\,\frac{204}{363} = 92\,\frac{68}{121}$ 步。
+}{%
+  Using the reverse combination-of-fractions method:\\
+  Width = $\frac{420+210+140+105+84+70+60}{420} = \frac{1089}{420}$.\\
+  Simplifying: GCD(1089, 420) = 3, so $\frac{363}{140}$.\\
+  Length = $240 \times \frac{140}{363} = \frac{33600}{363} = 92\,\frac{204}{363} = 92\,\frac{68}{121}$ bu.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% YANG HUI'S TRIANGLE
+%% ========================================================================
+\section{The Method Source for Square Root Extraction / \zh{開方作法本源圖}}
+
+\bilingual{
+  楊輝書中最著名者，為其所錄之\zh{開方作法本源圖}（今稱楊輝三角）。楊輝稱此圖源出北宋賈憲\zh{（約一〇一〇至一〇七〇年）}。
+}{%
+  One of the most celebrated parts of Yang Hui's work is his recording of what we now call \textbf{Yang Hui's Triangle} (also known as Pascal's Triangle in the West). Yang Hui attributed this to Jia Xian (c.~1010--1070 CE), who called it the ``Method Source for Square Root Extraction'' (\zh{開方作法本源}).
+}
+
+\subsection{The Original Diagram / 原圖}
+
+\bilingual{
+  楊輝釋此圖曰：\\
+  \zh{左袤乃積數，右袤乃隅算，中藏者皆廉，以廉乘商方，命實而除之。}
+}{%
+  Yang Hui presented the triangle with the following explanation:\\
+  ``The left diagonal consists of the accumulated numbers; the right diagonal consists of the corner calculations. Those hidden in the middle are all the `flanks' (intermediate coefficients). Using the flanks, multiply the quotient square, and command the dividend to be divided by it.''
+}
+
+\vspace{0.5em}
+\begin{center}
+\begin{tikzpicture}[scale=0.85, every node/.style={font=\small}]
+\foreach \n in {0,...,6}{
+  \foreach \k in {0,...,\n}{
+    \pgfmathsetmacro{\y}{-\n*0.9}
+    \pgfmathsetmacro{\x}{\k*1.2-\n*0.6}
+    \ifnum\n=0
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm,fill=red!10] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=1
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=2
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {2};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=3
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {3};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {3};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=4
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {4};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {6};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {4};\fi
+      \ifnum\k=4\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=5
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {5};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {10};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {10};\fi
+      \ifnum\k=4\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {5};\fi
+      \ifnum\k=5\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=6
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {6};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {15};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=yellow!20] at (\x,\y) {20};\fi
+      \ifnum\k=4\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {15};\fi
+      \ifnum\k=5\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {6};\fi
+      \ifnum\k=6\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+  }
+}
+\node[left] at (-4.5,-0) {\small $n=0$:};
+\node[left] at (-4.5,-0.9) {\small $n=1$:};
+\node[left] at (-4.5,-1.8) {\small $n=2$:};
+\node[left] at (-4.5,-2.7) {\small $n=3$:};
+\node[left] at (-4.5,-3.6) {\small $n=4$:};
+\node[left] at (-4.5,-4.5) {\small $n=5$:};
+\node[left] at (-4.5,-5.4) {\small $n=6$:};
+\draw[->,thick,red!70] (3.5,0) -- (4.5,0) node[right] {\small Corner (\zh{隅算})};
+\draw[->,thick,blue!60] (3.5,-0.6) -- (4.5,-0.6) node[right] {\small First flanks (\zh{一廉})};
+\draw[->,thick,green!60!black] (3.5,-1.2) -- (4.5,-1.2) node[right] {\small Second flanks (\zh{二廉})};
+\draw[->,thick,orange!70] (3.5,-1.8) -- (4.5,-1.8) node[right] {\small Third flanks (\zh{三廉})};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.3em}
+\begin{center}
+\textit{Fig.~1: Yang Hui's Triangle showing binomial coefficients up to the 6th power / 楊輝三角至六次冪}
+\end{center}
+
+\subsection{Explanation of the Structure / 結構釋義}
+
+\bilingual{
+  \textbf{左袤}（\zh{積數}）：斜邊之常數項（皆為一），即$(x+a)^n$展開式之常數係數。\\
+  \textbf{右袤}（\zh{隅算}）：最高次冪之係數（亦皆為一）。\\
+  \textbf{中藏者}（\zh{廉}）：中間各數為\zh{廉}，即各中間項之係數。
+}{%
+  \textbf{Left diagonal} (\zh{左袤}): The constant terms (1, 1, 1, \ldots) represent the ``accumulated numbers'' (\zh{積數})---the coefficients of the constant term in $(x+a)^n$.\\
+  \textbf{Right diagonal} (\zh{右袤}): The coefficients of the highest power---also all 1's---represent the ``corner calculations'' (\zh{隅算}).\\
+  \textbf{Interior numbers} (\zh{中藏者}): The intermediate numbers are the ``flanks'' (\zh{廉})---the coefficients of the intermediate terms.
+}
+
+\vspace{0.5em}
+\bilingual{
+  每行給出$(x+a)^n$展開之係數：
+  \begin{align*}
+  (x+a)^0 &= 1 \\
+  (x+a)^1 &= x + a \\
+  (x+a)^2 &= x^2 + 2xa + a^2 \\
+  (x+a)^3 &= x^3 + 3x^2a + 3xa^2 + a^3
+  \end{align*}
+}{%
+  Each row gives the coefficients for expanding $(x+a)^n$:
+  \begin{align*}
+  (x+a)^0 &= 1 \\
+  (x+a)^1 &= x + a \\
+  (x+a)^2 &= x^2 + 2xa + a^2 \\
+  (x+a)^3 &= x^3 + 3x^2a + 3xa^2 + a^3
+  \end{align*}
+}
+
+\subsection{Application to Root Extraction / 開方之應用}
+
+\bilingual{
+  楊輝與賈憲用此係數進行開平方與開立方。開平方之術：一、置積為實。二、商估首位。三、以三角之係數為方法、廉法、隅法。四、乘減遞推。
+}{%
+  Yang Hui and Jia Xian used these coefficients to perform square root and cube root extraction. To extract $\sqrt{A}$: (1) Set $A$ as the dividend (\zh{實}). (2) Estimate the first digit of the root as the quotient (\zh{商}). (3) Use the coefficients from the triangle to form the ``method'' (\zh{法}), ``flank'' (\zh{廉}), and ``corner'' (\zh{隅}). (4) Multiply and subtract iteratively.
+}
+
+\subsection{Jia Xian's Generating Method / 賈憲增乘方求廉法}
+
+\bilingual{
+  \zh{增乘方求廉法：以一次乘二次，以二次乘三次，遞增一位，至求終。}
+}{%
+  ``To seek the flanks by augmented multiplication: multiply once by twice, multiply twice by thrice, increasing by one position each time, until the end is reached.''
+}
+
+\bilingual{
+  此法由前行生成後行，相鄰兩數相加得之---即今所謂帕斯卡法則：
+  \[
+  \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+  \]
+}{%
+  This method generates each row from the previous one by adding adjacent entries---exactly the rule we now call Pascal's rule:
+  \[
+  \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+  \]
+}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 6: COMMERCIAL CALCULATIONS
+%% ========================================================================
+\section{Chapter 6: Commercial Calculations / \zh{商功}}
+
+\bilingual{
+  商功章論工程土方之體積計算。凡二十八題。
+}{%
+  The Commercial Calculations chapter deals with volume computations for engineering projects (earthworks, construction, etc.). It originally contained 28 problems.
+}
+
+\subsection{Volume Conversion Rates / 土方換算率}
+
+\bilingual{
+  《九章》立不同土質之換算率：\zh{穿地}為基準；\zh{壤}（鬆土）與穿地之比為$4:5$；\zh{堅}（堅土）與穿地之比為$3:4$。
+}{%
+  The Nine Chapters establishes conversion rates between different soil conditions: Excavated earth (\zh{穿地}): base measure; Loose earth (\zh{壤}): $4:5$ ratio with excavated; Compacted earth (\zh{堅}): $3:4$ ratio with excavated.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{穿地積一萬尺。問為堅、壤各幾何？答曰：為堅七千五百尺，為壤一萬二千五百尺。}
+}{%
+  An excavation of 10,000 cubic chi. How much compacted and loose earth does it produce? \textbf{Answer:} Compacted 7,500; Loose 12,500 cubic chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  穿地 : 壤 : 堅 = $4 : 5 : 3$。\\
+  壤 = $10000 \times \frac{5}{4} = \textbf{12500}$ 立方尺。\\
+  堅 = $10000 \times \frac{3}{4} = \textbf{7500}$ 立方尺。
+}{%
+  Excavated : Loose : Compacted = $4 : 5 : 3$.\\
+  Loose = $10000 \times \frac{5}{4} = \textbf{12,500}$ cubic chi.\\
+  Compacted = $10000 \times \frac{3}{4} = \textbf{7,500}$ cubic chi.
+}
+\end{bisolution}
+
+\subsection{City Wall and Ditch Volumes / 城垣溝渠}
+
+\bilingual{
+  \textbf{術：}並上下廣而半之，以高（或深）乘之，又以袤乘之，得積。
+}{%
+  \textbf{Method:} For city walls, dikes, ditches, and canals: average the top and bottom widths, multiply by height (or depth), then multiply by length.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{城下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問為尺幾何？答曰：一百八十九萬七千五百尺。}
+}{%
+  A city wall has bottom width 4 zhang, top width 2 zhang, height 5 zhang, and length 126 zhang 5 chi. \textbf{Answer:} 1,897,500 cubic chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  平均廣 = $\frac{4 + 2}{2} = 3$ 丈。\\
+  積 = $3 \times 5 \times 126.5 = 1897.5$ 立方丈 = $\textbf{1897500}$ 立方尺。
+}{%
+  Average width = $\frac{4 + 2}{2} = 3$ zhang.\\
+  Volume = $3 \times 5 \times 126.5 = 1897.5$ cubic zhang = $1897.5 \times 1000 = \textbf{1,897,500}$ cubic chi.
+}
+\end{bisolution}
+
+\subsection{Special Solids / 特殊立體}
+
+\subsubsection{The Qian Du (\zh{塹堵})}
+
+\bilingual{
+  \textbf{術：}廣乘袤，又以高乘之，半之。
+}{%
+  \textbf{Method:} Multiply length by width, then multiply by height, and divide by 2.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{塹堵下廣二丈，袤十八丈六尺，高二丈五尺，問積尺幾何？答曰：四萬六千五百尺。}
+}{%
+  A \textit{qiandu} has bottom width 2 zhang, length 18 zhang 6 chi, and height 2 zhang 5 chi. \textbf{Answer:} 46,500 cubic chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  積 = $\frac{1}{2} \times 20 \times 186 \times 25 = \textbf{46500}$ 立方尺。
+}{%
+  Volume = $\frac{1}{2} \times 20 \times 186 \times 25 = \textbf{46,500}$ cubic chi.
+}
+\end{bisolution}
+
+\subsubsection{The Yang Ma (\zh{陽馬})}
+
+\bilingual{
+  \textbf{術：}廣乘袤，又以高乘之，三而一。
+}{%
+  \textbf{Method:} Multiply length by width, then multiply by height, and divide by 3.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{陽馬廣五尺，袤七尺，高八尺，問積尺幾何？答曰：九十三尺，三分尺之一。}
+}{%
+  A \textit{yangma} has width 5 chi, length 7 chi, and height 8 chi. \textbf{Answer:} $93\,\frac{1}{3}$ cubic chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  積 = $\frac{1}{3} \times 5 \times 7 \times 8 = \frac{280}{3} = 93\,\frac{1}{3}$ 立方尺。
+}{%
+  Volume = $\frac{1}{3} \times 5 \times 7 \times 8 = \frac{280}{3} = 93\,\frac{1}{3}$ cubic chi.
+}
+\end{bisolution}
+
+\subsubsection{The Chu Tong (\zh{芻童})}
+
+\bilingual{
+  \textbf{術：}倍上袤以下袤從之，以上廣乘之；又倍下袤以上袤從之，以下廣乘之。并之，以高乘之，六而一。
+}{%
+  \textbf{Method:} Double the top length and add the bottom length; multiply by the top width. Separately, double the bottom length and add the top length; multiply by the bottom width. Add these two results, multiply by height, and divide by 6.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{芻童下廣三丈，袤四丈，上廣二丈，袤三丈，高三丈。問積？答曰：二萬六千五百尺。}
+}{%
+  A \textit{chutong} has bottom width 3 zhang, length 4 zhang, top width 2 zhang, length 3 zhang, and height 3 zhang. \textbf{Answer:} 26,500 cubic chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $(2 \times 30 + 40) \times 20 + (2 \times 40 + 30) \times 30 = 2000 + 3300 = 5300$。\\
+  積 = $\frac{5300 \times 30}{6} = \textbf{26500}$ 立方尺。
+}{%
+  $(2 \times 30 + 40) \times 20 + (2 \times 40 + 30) \times 30 = 2000 + 3300 = 5300$.\\
+  Volume = $\frac{5300 \times 30}{6} = \textbf{26,500}$ cubic chi.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 7: EQUITABLE DISTRIBUTION
+%% ========================================================================
+\section{Chapter 7: Equitable Distribution / \zh{均輸}}
+
+\bilingual{
+  均輸章論各地區之賦役與運輸成本之公平分配。凡二十八題。
+}{%
+  The Equitable Distribution chapter deals with fair allocation of tax burdens and transportation costs across different regions. It originally contained 28 problems.
+}
+
+\subsection{The Equitable Distribution Method / \zh{均輸法}}
+
+\bilingual{
+  \textbf{術：}以一斛之運費與各縣距離相乘，加粟價，得各縣之比率。以戶數為衰，副并為法。以賦粟乘未并之衰為實。實如法而一。
+}{%
+  \textbf{Method:} Multiply the distance and transport cost per unit for each county. Add the grain price to obtain the proportional rate. Simplify the county household numbers to form the distribution rates. Set out the rates, combine as the divisor. Multiply the total grain tax by each uncombined rate for the dividends. Divide each by the divisor.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{五縣均賦粟一萬石，每車載二十五石，行道一里，出雇錢一文。各縣到輸所遠近不等，粟價高下，欲令縣勞費相等。}
+}{%
+  Five counties are to share equally the tax burden of 10,000 dan of millet. Each cart carries 25 dan, and for each li traveled, the transport cost is 1 qian. The counties differ in distance from the delivery point and in grain prices. How much does each county contribute?
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  每石每里運費 = $\frac{1}{25}$ 錢。\\
+  各縣率：\\
+  甲：$20 + 0 = 20$；乙：$10 + \frac{200}{25} = 18$；\\
+  丙：$12 + \frac{150}{25} = 18$；丁：$17 + \frac{250}{25} = 27$；\\
+  戊：$13 + \frac{150}{25} = 19$。\\
+  按戶數 $\times$ 率分配各縣賦額。
+}{%
+  Transport cost per dan per li = $\frac{1}{25}$ qian.\\
+  Rates: A: $20 + 0 = 20$; B: $10 + \frac{200}{25} = 18$;\\
+  C: $12 + \frac{150}{25} = 18$; D: $17 + \frac{250}{25} = 27$;\\
+  E: $13 + \frac{150}{25} = 19$.\\
+  Distribution proportional to households $\times$ rate.
+}
+\end{bisolution}
+
+\subsection{The Pursuit Problem / 相遇問題}
+
+\begin{biproblem}
+\bilingual{
+  \zh{甲發長安，五日日至齊，乙發齊，七日至長安。今乙先行二日。問：幾日相逢？答曰：二日，十二分日之一。}
+}{%
+  Person A departs from Chang'an and reaches Qi in 5 days. Person B departs from Qi and reaches Chang'an in 7 days. Now B has already departed 2 days ahead. \textbf{Answer:} $2\,\frac{1}{12}$ days.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  甲速 = $\frac{1}{5}$（每日行程）；乙速 = $\frac{1}{7}$。\\
+  乙先行二日，已行$\frac{2}{7}$。餘程 = $\frac{5}{7}$。\\
+  合速 = $\frac{1}{5} + \frac{1}{7} = \frac{12}{35}$。\\
+  時 = $\frac{5/7}{12/35} = \frac{175}{84} = 2\,\frac{1}{12}$ 日。
+}{%
+  A's speed = $\frac{1}{5}$ (of the distance per day). B's speed = $\frac{1}{7}$.\\
+  In 2 days, B covers $\frac{2}{7}$ of the distance. Remaining = $\frac{5}{7}$.\\
+  Combined speed = $\frac{1}{5} + \frac{1}{7} = \frac{12}{35}$.\\
+  Time = $\frac{5/7}{12/35} = \frac{175}{84} = 2\,\frac{1}{12}$ days.
+}
+\end{bisolution}
+
+\subsection{The Gourd and Melon / 瓜瓠相逢}
+
+\begin{biproblem}
+\bilingual{
+  \zh{垣高九尺，瓜生其上，蔓日長七寸；瓠生其下，蔓日長一尺。問：幾日相逢？答曰：相逢於五日，十七分日之五。}
+}{%
+  A wall is 9 chi high. A gourd grows from the top, extending 7 cun per day. A bottle-gourd grows from the bottom, extending 1 chi per day. \textbf{Answer:} They meet after $5\,\frac{5}{17}$ days.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  每日共長 = $7 + 10 = 17$ 寸。\\
+  時 = $\frac{90}{17} = 5\,\frac{5}{17}$ 日。\\
+  瓜長 = $\frac{35}{17} \times 7 = \frac{245}{17} = 14\,\frac{7}{17}$ 寸。\\
+  瓠長 = $\frac{35}{17} \times 10 = \frac{350}{17} = 20\,\frac{10}{17}$ 寸。
+}{%
+  Total daily growth = 7 cun + 10 cun = 17 cun per day.\\
+  Time = $\frac{90}{17} = 5\,\frac{5}{17}$ days.\\
+  Gourd vine: $\frac{35}{17} \times 7 = \frac{245}{17} = 14\,\frac{7}{17}$ cun.\\
+  Bottle-gourd: $\frac{35}{17} \times 10 = \frac{350}{17} = 20\,\frac{10}{17}$ cun.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 8: EXCESS AND DEFICIT
+%% ========================================================================
+\section{Chapter 8: Excess and Deficit / \zh{盈不足}}
+
+\bilingual{
+  盈不足章介紹\zh{盈不足術}---即雙假設法，為解線性方程與近似問題之強大方法。凡二十題。
+}{%
+  The Excess and Deficit chapter introduces the ``method of double false position''---a powerful technique for solving linear equations and approximation problems. It originally contained 20 problems.
+}
+
+\subsection{The Excess and Deficit Method / \zh{盈不足法}}
+
+\bilingual{
+  \textbf{術：}置所出率，盈、不足各居其下。維乘所出率，并以為實。并盈、不足為法。實如法而一。買物者，以所出率以少減多，餘以約法、實。實為物價，法為人數。
+}{%
+  \textbf{Method:} Set out the proposed rates, placing the excess or deficit below each. Cross-multiply the rates by the excess/deficit and sum for the dividend. Sum the excess and deficit for the divisor. Divide the dividend by the divisor. For purchasing problems: subtract the smaller rate from the larger for the simplified divisor. The dividend gives the price, the divisor gives the number of people.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{共買物，人出八文，盈三文，人出七文，不足四文。問數、物價各幾何？答曰：七人。物價五十三。}
+}{%
+  Several people jointly buy an item. If each pays 8 qian, there is an excess of 3 qian. If each pays 7 qian, there is a deficit of 4 qian. \textbf{Answer:} 7 people; price 53 qian.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  維乘：$8 \times 4 + 7 \times 3 = 32 + 21 = 53$。\\
+  法 = $3 + 4 = 7$。\\
+  物價 = $\frac{53}{1} = \textbf{53}$ 文。\\
+  人數 = $\frac{3+4}{8-7} = \textbf{7}$。
+}{%
+  Dividend = $8 \times 4 + 7 \times 3 = 32 + 21 = 53$.\\
+  Divisor = $3 + 4 = 7$.\\
+  Price = $\frac{53}{1} = \textbf{53}$ qian.\\
+  Number of people = $\frac{3+4}{8-7} = \textbf{7}$.
+}
+\end{bisolution}
+
+\begin{biproblem}
+\bilingual{
+  \zh{共買雞，各出九，盈十一，各出六，不足十六。問人數、雞價各幾何？答曰：九人，雞價七十。}
+}{%
+  Several people jointly buy a chicken. If each pays 9 qian, there is an excess of 11 qian. If each pays 6 qian, there is a deficit of 16 qian. \textbf{Answer:} 9 people; price 70 qian.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  人數 = $\frac{11 + 16}{9 - 6} = \frac{27}{3} = \textbf{9}$。\\
+  雞價 = $9 \times 9 - 11 = 81 - 11 = \textbf{70}$ 文。
+}{%
+  Number of people = $\frac{11 + 16}{9 - 6} = \frac{27}{3} = \textbf{9}$.\\
+  Price = $9 \times 9 - 11 = 81 - 11 = \textbf{70}$ qian.
+}
+\end{bisolution}
+
+\subsection{Excess and Deficit with Exact Amount / \zh{盈朒適足}}
+
+\begin{biproblem}
+\bilingual{
+  \zh{共買犬，人出五不足九十文，人出五十文適足。問人數、犬價各幾何？答曰：二人，犬價一百。}
+}{%
+  Several people jointly buy a dog. If each pays 5 qian, there is a deficit of 90 qian. If each pays 50 qian, it is exactly sufficient. \textbf{Answer:} 2 people; price 100 qian.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  設人數為$n$，犬價為$P$。\\
+  $5n + 90 = 50n \Rightarrow 45n = 90 \Rightarrow n = \textbf{2}$。\\
+  $P = 50 \times 2 = \textbf{100}$ 文。
+}{%
+  Let $n$ = number of people, $P$ = price.\\
+  $5n + 90 = 50n \Rightarrow 45n = 90 \Rightarrow n = \textbf{2}$.\\
+  $P = 50 \times 2 = \textbf{100}$ qian.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 9: SYSTEMS OF LINEAR EQUATIONS
+%% ========================================================================
+\section{Chapter 9: Systems of Linear Equations / \zh{方程}}
+
+\bilingual{
+  方程章為中國數學中最卓越者之一。其以算籌排列係數，用類似高斯消去法之技術求解線性方程組。凡十八題。
+}{%
+  The Equations chapter is one of the most remarkable in Chinese mathematics. It presents methods for solving systems of linear equations using matrix-like arrays of counting rods---a technique equivalent to modern Gaussian elimination. It originally contained 18 problems.
+}
+
+\subsection{The Fang Cheng Method / \zh{方程法}}
+
+\bilingual{
+  \textbf{術：}置行數相乘，以少減多，反覆相消，直至一未知數孤立。錢數為實，物數為法。
+}{%
+  \textbf{Method:} Set up the coefficients in an array. For the quantities sought, cross-multiply adjacent rows and repeatedly subtract the smaller from the larger until one variable is isolated. The money amounts form the dividend, the quantities form the divisor.
+}
+
+\begin{biproblem}[Three Grains / 三禾]
+\bilingual{
+  \zh{上禾三秉，中禾二秉，下禾一秉，共實三十九斗。上禾二秉，中禾三秉，下禾一秉，共實三十四斗。上禾一秉，中禾二秉，下禾三秉，共實二十六斗。問：上、中、下禾一秉各幾何？}
+}{%
+  3 bundles of top-grade grain, 2 bundles of medium-grade, and 1 bundle of low-grade yield 39 dou. 2 bundles of top-grade, 3 bundles of medium-grade, and 1 bundle of low-grade yield 34 dou. 1 bundle of top-grade, 2 bundles of medium-grade, and 3 bundles of low-grade yield 26 dou. \textbf{Answer:} Top $9\,\frac{1}{4}$; Medium $4\,\frac{1}{4}$; Low $2\,\frac{3}{4}$ dou per bundle.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  方程組：
+  \begin{align*}
+  3x + 2y + z &= 39 \\
+  2x + 3y + z &= 34 \\
+  x + 2y + 3z &= 26
+  \end{align*}
+  用方程術（高斯消去）：\\
+  由一、二式得：$x - y = 5$。\\
+  由二、三式得：$5x - 7y = 1$。\\
+  解之：$x = 9\,\frac{1}{4}$，$y = 4\,\frac{1}{4}$，$z = 2\,\frac{3}{4}$。
+}{%
+  System:
+  \begin{align*}
+  3x + 2y + z &= 39 \\
+  2x + 3y + z &= 34 \\
+  x + 2y + 3z &= 26
+  \end{align*}
+  Using the fangcheng method (Gaussian elimination):\\
+  From equations (1) and (2): $x - y = 5$.\\
+  From equations (2) and (3): $5x - 7y = 1$.\\
+  Solving: $x = 9\,\frac{1}{4}$, $y = 4\,\frac{1}{4}$, $z = 2\,\frac{3}{4}$.
+}
+\end{bisolution}
+
+\subsection{Cattle and Sheep / 牛羊直金}
+
+\begin{biproblem}
+\bilingual{
+  \zh{五牛二羊，直金十兩，二牛五羊，直金八兩。問：牛、羊價各幾何？答曰：一牛直金一兩二十一分兩之十三；一羊直金二十一分兩之二十。}
+}{%
+  5 oxen and 2 sheep are worth 10 liang of gold. 2 oxen and 5 sheep are worth 8 liang of gold. \textbf{Answer:} Ox $1\,\frac{13}{21}$ liang; Sheep $\frac{20}{21}$ liang.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $5o + 2s = 10$，$2o + 5s = 8$。\\
+  維乘：$25o + 10s = 50$，$4o + 10s = 16$。\\
+  相減：$21o = 34$，故$o = \frac{34}{21} = 1\,\frac{13}{21}$ 兩。\\
+  $2s = 10 - 5 \times \frac{34}{21} = \frac{40}{21}$，故$s = \frac{20}{21}$ 兩。
+}{%
+  System: $5o + 2s = 10$, $2o + 5s = 8$.\\
+  Cross-multiply: $25o + 10s = 50$, $4o + 10s = 16$.\\
+  Subtract: $21o = 34$, so $o = \frac{34}{21} = 1\,\frac{13}{21}$ liang.\\
+  $2s = 10 - 5 \times \frac{34}{21} = \frac{40}{21}$, so $s = \frac{20}{21}$ liang.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CHAPTER 10: RIGHT TRIANGLES
+%% ========================================================================
+\section{Chapter 10: Right Triangles / \zh{勾股}}
+
+\bilingual{
+  勾股章應用勾股定理解實際問題。凡三十八題。
+}{%
+  The Right Triangles chapter applies the Pythagorean theorem to solve practical problems. It originally contained 38 problems.
+}
+
+\subsection{Pythagorean Theorem / \zh{勾股定理}}
+
+\bilingual{
+  \textbf{求弦術：}勾股各自乘，并而開方除之，即弦。\\
+  \textbf{求勾術：}弦自乘，減股自乘，餘開方除之，即勾。
+}{%
+  \textbf{Method for finding the hypotenuse:} Square both legs, add, and take the square root.\\
+  \textbf{Method for finding a leg:} Square the hypotenuse, subtract the square of the known leg, and take the square root.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{勾八尺，股十五尺。問為弦幾何？答曰：十七尺。}
+}{%
+  A right triangle has legs (gou) of 8 chi and (gu) of 15 chi. What is the hypotenuse (xian)? \textbf{Answer:} 17 chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  弦 = $\sqrt{8^2 + 15^2} = \sqrt{64 + 225} = \sqrt{289} = \textbf{17}$ 尺。
+}{%
+  $\text{xian} = \sqrt{8^2 + 15^2} = \sqrt{64 + 225} = \sqrt{289} = \textbf{17}$ chi.
+}
+\end{bisolution}
+
+\subsection{The Vine and the Tree / 葛纏木}
+
+\begin{biproblem}
+\bilingual{
+  \zh{木長二丈，圍之三尺，葛生其下，纏木七周，上與木齊。問葛長幾何？答曰：二丈九尺。}
+}{%
+  A tree is 2 zhang tall with a circumference of 3 chi. A vine grows at the base, winds around the tree 7 times, and reaches the top. \textbf{Answer:} 2 zhang 9 chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  展開圓柱：葛為直角三角形之斜邊。\\
+  一邊 = 樹高 = 20 尺；另一邊 = $7 \times 3 = 21$ 尺。\\
+  葛長 = $\sqrt{20^2 + 21^2} = \sqrt{841} = \textbf{29}$ 尺 = 二丈九尺。
+}{%
+  Unwrapping the cylinder: the vine forms the hypotenuse of a right triangle with:\\
+  One leg = height of tree = 20 chi; Other leg = $7 \times 3 = 21$ chi.\\
+  Vine length = $\sqrt{20^2 + 21^2} = \sqrt{841} = \textbf{29}$ chi = 2 zhang 9 chi.
+}
+\end{bisolution}
+
+\subsection{The Reed in the Pond / 葭生中央}
+
+\begin{biproblem}
+\bilingual{
+  \zh{池方一丈，正中有葭，出水面一尺，引葭至岸，與水面適平。問水深？答曰：水深一丈二尺。}
+}{%
+  A square pond has side 1 zhang. A reed grows at its center, protruding 1 chi above the water. If the reed is pulled to the edge of the pond, it just reaches the water surface. \textbf{Answer:} Water depth 1 zhang 2 chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  設水深$d$。葭長 = $d + 1$。\\
+  引至岸：水平距 = 5 尺（半池邊）。\\
+  由勾股定理：$(d+1)^2 = d^2 + 5^2 = d^2 + 25$。\\
+  $d^2 + 2d + 1 = d^2 + 25 \Rightarrow 2d = 24 \Rightarrow d = \textbf{12}$ 尺。
+}{%
+  Let $d$ = water depth. Reed length = $d + 1$.\\
+  When pulled to edge: horizontal distance = 5 chi (half the pond side).\\
+  By Pythagorean theorem: $(d+1)^2 = d^2 + 5^2 = d^2 + 25$.\\
+  $d^2 + 2d + 1 = d^2 + 25 \Rightarrow 2d = 24 \Rightarrow d = \textbf{12}$ chi.
+}
+\end{bisolution}
+
+\subsection{The Broken Bamboo / 折竹抵地}
+
+\begin{biproblem}
+\bilingual{
+  \zh{竹高一丈，折梢拄地，去根三尺，問折處高幾何？答曰：四尺，二十分尺之十一。}
+}{%
+  A bamboo is 1 zhang tall. It breaks and the top touches the ground 3 chi from the root. \textbf{Answer:} $4\,\frac{11}{20}$ chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  設折處高$h$。折下部分 = $10 - h$。\\
+  由勾股定理：$(10-h)^2 = h^2 + 3^2 = h^2 + 9$。\\
+  $100 - 20h + h^2 = h^2 + 9 \Rightarrow 20h = 91 \Rightarrow h = \frac{91}{20} = 4\,\frac{11}{20}$ 尺。
+}{%
+  Let $h$ = height of break. The fallen part = $10 - h$.\\
+  By Pythagorean theorem: $(10-h)^2 = h^2 + 3^2 = h^2 + 9$.\\
+  $100 - 20h + h^2 = h^2 + 9 \Rightarrow 20h = 91 \Rightarrow h = \frac{91}{20} = 4\,\frac{11}{20}$ chi.
+}
+\end{bisolution}
+
+\subsection{Circle Inscribed in a Right Triangle / 勾股容圓}
+
+\begin{biproblem}
+\bilingual{
+  \zh{勾八步，股十五步，問勾中容圓徑幾何？答曰：六步。}
+}{%
+  A right triangle has legs (gou) 8 bu and (gu) 15 bu. What is the diameter of the inscribed circle? \textbf{Answer:} 6 bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  弦 = $\sqrt{8^2 + 15^2} = 17$ 步。\\
+  積 = $\frac{1}{2} \times 8 \times 15 = 60$ 平方步。\\
+  半周 = $\frac{8 + 15 + 17}{2} = 20$ 步。\\
+  內切圓半徑 = $\frac{\text{積}}{\text{半周}} = \frac{60}{20} = \textbf{3}$ 步。\\
+  直徑 = $2 \times 3 = \textbf{6}$ 步。
+}{%
+  Hypotenuse = $\sqrt{8^2 + 15^2} = 17$ bu.\\
+  Area = $\frac{1}{2} \times 8 \times 15 = 60$ square bu.\\
+  Semi-perimeter = $\frac{8 + 15 + 17}{2} = 20$ bu.\\
+  Inradius = $\frac{\text{Area}}{\text{semi-perimeter}} = \frac{60}{20} = \textbf{3}$ bu.\\
+  Diameter = $2 \times 3 = \textbf{6}$ bu.
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% SQUARE ROOT EXTRACTION METHODS
+%% ========================================================================
+\section{Square and Cube Root Extraction / 開方術}
+
+\bilingual{
+  楊輝保存並解釋了賈憲的開方方法，此為宋代計算數學之巔峰。
+}{%
+  Yang Hui preserved and explained Jia Xian's methods for root extraction, which represented the pinnacle of Song Dynasty computational mathematics.
+}
+
+\subsection{Jia Xian's ``Unlocking'' Square Root Method / 賈憲釋鎖開平方法}
+
+\bilingual{
+  \textbf{術：}一、置積為實。二、借一算步之，超一等。三、商所得。四、以商乘下法為方法，而以除。五、除已，倍方法為廉法。六、復置下法，退位，復商。七、以商乘廉法，命實除之。
+}{%
+  \textbf{Method:} (1) Set the number whose root is sought as the dividend (\zh{實}). (2) Place a counting rod called the ``lower divisor'' (\zh{下法}) below the dividend, separated by one position per digit pair. (3) Estimate the first digit of the root and place it above. (4) Multiply this digit by the lower divisor to form the ``square divisor'' (\zh{方法}). (5) Subtract from the dividend. (6) Double the square divisor to form the ``flank divisor'' (\zh{廉法}). (7) Shift positions and repeat for subsequent digits.
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{積五萬五千二百二十五步，問為方幾何？答曰：二百三十五步。}
+}{%
+  An area of 55,225 square bu. What is the side of the square? \textbf{Answer:} 235 bu.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $\sqrt{55225} = \textbf{235}$ 步。\\
+  步驟：\\
+  一、分節：$5\,|\,52\,|\,25$。\\
+  二、首商：$2^2 = 4 \leq 5$，首商為二。\\
+  三、餘：$5 - 4 = 1$，下推$52$得$152$。\\
+  四、倍法：$2 \times 2 = 4$。求$d$使$(40+d) \times d \leq 152$。$d=3$：$43 \times 3 = 129$。\\
+  五、餘：$152 - 129 = 23$，下推$25$得$2325$。\\
+  六、倍法：$23 \times 2 = 46$。求$d$使$(460+d) \times d \leq 2325$。$d=5$：$465 \times 5 = 2325$。\\
+  七、餘零。故$\sqrt{55225} = 235$。
+}{%
+  $\sqrt{55225} = \textbf{235}$ bu.\\
+  Step-by-step:\\
+  (1) Divide into groups: $5 \mid 52 \mid 25$.\\
+  (2) First digit: $2^2 = 4 \leq 5$, so first digit is 2.\\
+  (3) Remainder: $5 - 4 = 1$. Bring down 52: 152.\\
+  (4) Double the current result: $2 \times 2 = 4$. Find $d$ such that $(40 + d) \times d \leq 152$. $d = 3$: $43 \times 3 = 129$.\\
+  (5) Remainder: $152 - 129 = 23$. Bring down 25: 2325.\\
+  (6) Double current result: $23 \times 2 = 46$. Find $d$ such that $(460 + d) \times d \leq 2325$. $d = 5$: $465 \times 5 = 2325$.\\
+  (7) Remainder: 0. So $\sqrt{55225} = 235$.
+}
+\end{bisolution}
+
+\subsection{Cube Root Extraction / 開立方術}
+
+\bilingual{
+  \textbf{術：}類似開平方，但有三級除數：\zh{方法}、\zh{廉法}、\zh{隅法}。
+}{%
+  \textbf{Method:} Similar to square root extraction but with three levels of divisors: ``square'' (\zh{方法}), ``flank'' (\zh{廉法}), and ``corner'' (\zh{隅法}).
+}
+
+\begin{biproblem}
+\bilingual{
+  \zh{積一百八十六萬八百六十七尺，問為立方幾何？答曰：一百二十三尺。}
+}{%
+  A volume of 1,860,867 cubic chi. What is the side of the cube? \textbf{Answer:} 123 chi.
+}
+\end{biproblem}
+
+\begin{bisolution}
+\bilingual{
+  $\sqrt[3]{1860867} = \textbf{123}$ 尺。\\
+  驗算：$123^3 = 123 \times 123 \times 123 = 15129 \times 123 = 1860867$。$\checkmark$
+}{%
+  $\sqrt[3]{1860867} = \textbf{123}$ chi.\\
+  Verification: $123^3 = 123 \times 123 \times 123 = 15129 \times 123 = 1,860,867$. $\checkmark$
+}
+\end{bisolution}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CLASSIFICATION AND SUMMARY
+%% ========================================================================
+\section{Classification of Methods / \zh{篡類}}
+
+\bilingual{
+  楊輝將二百四十六題按所用之數學方法系統分類。他發現不同章節之題往往運用相同之基本技巧。
+}{%
+  Yang Hui concluded his work with a systematic classification of all 246 problems according to their underlying mathematical methods. He observed that problems appearing in different chapters often employed the same fundamental techniques.
+}
+
+\subsection{Method Cross-Reference Table / 方法交叉分類表}
+
+\bilingual{
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \textbf{方法} & \textbf{應用章節} & \textbf{題數} \\
+  \hline
+  \zh{乘除} & \zh{方田}(38), \zh{粟米}(3), \zh{經率}(9) & 41 \\
+  \hline
+  \zh{經率} & \zh{粟米}(5), \zh{盈不足}(4) & 5 \\
+  \hline
+  \zh{合率} & \zh{少廣}(11), \zh{均輸}(8), \zh{盈不足}(1) & 20 \\
+  \hline
+  \zh{互換} & \zh{粟米}(38), \zh{衰分}(11)等 & 63 \\
+  \hline
+  \zh{衰分} & 原題(9), \zh{均輸}(9) & 18 \\
+  \hline
+  \zh{疊積} & \zh{商功}(27) & 27 \\
+  \hline
+  \zh{盈不足} & \zh{商功}+原題(11) & 11 \\
+  \hline
+  \zh{方程} & 原題(18), \zh{盈不足}(1) & 19 \\
+  \hline
+  \zh{勾股} & \zh{少廣}(13), \zh{商功}(1), 原題(24) & 38 \\
+  \hline
+  \end{tabular}
+}{%
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \textbf{Method} & \textbf{Chapter Applications} & \textbf{Problems} \\
+  \hline
+  Multiplication/Division & Field M. (38), Grain (3), Direct R. (9) & 41 \\
+  \hline
+  Direct Rate & Grain (5), Excess/Def. (4) & 5 \\
+  \hline
+  Combined Rates & Short W. (11), Equit. (8), E/D (1) & 20 \\
+  \hline
+  Proportional Exch. & Grain (38), Prop. D. (11), etc. & 63 \\
+  \hline
+  Prop. Distribution & Original (9), Equit. (9) & 18 \\
+  \hline
+  Stacked Volumes & Comm. (27) & 27 \\
+  \hline
+  Excess/Deficit & Comm. + Orig. (11) & 11 \\
+  \hline
+  Equations & Original (18), E/D (1) & 19 \\
+  \hline
+  Right Triangles & S.W. (13), Comm. (1), Orig. (24) & 38 \\
+  \hline
+  \end{tabular}
+}
+
+\subsection{Yang Hui's Critical Observations / 楊輝批判性論述}
+
+\bilingual{
+  楊輝對傳世文本提出數項重要批判：\\
+  \textbf{一、}部分\zh{粟米}章之比例交換題及\zh{少廣}章之開方題冗餘或位置不當。\\
+  \textbf{二、}部分題目顯為後人增補，非《九章》原文。\\
+  \textbf{三、}部分古法已廢棄不用，需予恢復。
+}{%
+  Yang Hui made several important critical observations about the transmitted text:\\
+  \textbf{(1)} Some problems in the Grain chapter on proportional exchange and in the Short Width chapter on root extraction were redundant or misplaced.\\
+  \textbf{(2)} Some problems were clearly added by later scholars rather than being part of the original Nine Chapters.\\
+  \textbf{(3)} Some genuine ancient methods had fallen out of use and needed to be restored.
+}
+
+\bilingual{
+  \zh{楊輝竊見九章舊本，作立題法遺闕。古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至真術淹廢，偽本滋典。}
+}{%
+  ``I have examined old copies of the Nine Chapters and noted missing problems and methods. The ancient preface states: Since the Jingkang period, old copies have been rare, and those occasionally surviving have been corrupted by inferior practices, not following the original intent, so that genuine methods have been submerged and abandoned, while corrupt copies have proliferated.''
+}
+
+\newpage
+\colheaders
+
+%% ========================================================================
+%% CONCLUSION
+%% ========================================================================
+\section{Conclusion / 結論}
+
+\bilingual{
+  楊輝《詳解九章算法》為中國數學史之里程碑。其貢獻包括：\\
+  \textbf{一、保存賈憲著作：}經楊輝引述，後人得知賈憲之二項式三角、開方方法及代數貢獻---否則此等著作將完全失傳。\\
+  \textbf{二、系統闡述：}楊輝之四部結構（問、答、術、草）成為數學著述之典範。\\
+  \textbf{三、批判性學術：}其按方法而非按主題分類問題，揭示不同應用領域中數學技巧之統一性。\\
+  \textbf{四、教學創新：}楊輝明言其著述為助「不得其門而入」之學子。
+}{%
+  Yang Hui's \textit{Xiangjie Jiuzhang Suanfa} represents a landmark in the history of Chinese mathematics. Its contributions include:\\
+  \textbf{(1) Preservation of Jia Xian's work:} Through Yang Hui's citations, we know of Jia Xian's binomial triangle, his root extraction methods, and his contributions to algebra---works that would otherwise be completely lost.\\
+  \textbf{(2) Systematic exposition:} Yang Hui's four-part structure (problem, answer, method, worked solution) became a model for mathematical writing.\\
+  \textbf{(3) Critical scholarship:} His classification of problems by method rather than by topic revealed the underlying unity of mathematical techniques across different application domains.\\
+  \textbf{(4) Pedagogical innovation:} Yang Hui explicitly stated that he wrote to help students who ``could not find the door to enter'' the difficult Nine Chapters.
+}
+
+\vspace{1em}
+
+\bilingual{
+  \zh{開方作法本源圖}（楊輝三角）已成為數學中最著名之圖形之一，出現於全球教科書中。其在西方被稱為「帕斯卡三角」---以布萊茲·帕斯卡（一六二三至一六六二年）命名，而帕斯卡晚於賈憲約六百年、晚於楊輝約四百年---此乃數學知識跨文化獨立發展之明證，亦提醒我們中國數學家對現代數學基礎之重要貢獻。
+}{%
+  The ``Method Source for Square Root Extraction'' (Yang Hui's Triangle) has become one of the most celebrated images in mathematics, appearing in textbooks worldwide. That it should be known in the West as ``Pascal's Triangle''---named after Blaise Pascal (1623--1662), who lived some 600 years after Jia Xian and 400 years after Yang Hui---is a testament to the independent development of mathematical knowledge across cultures, and a reminder of the importance of recognizing the contributions of Chinese mathematicians to the foundations of modern mathematics.
+}
+
+\vspace{2em}
+
+\begin{center}
+\longline
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+\bilingual{
+  \textit{\zh{「數學為眾學之基。」}}\\
+  --- \zh{楊輝《詳解九章算法》}
+}{%
+  \textit{``Mathematics is the foundation of all learning.''}\\
+  --- Yang Hui, \textit{Xiangjie Jiuzhang Suanfa}
+}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: translations/en/chinese/yang-hui-xiangjie-jiuzhang-part2_bilingual.tex
+% ============================================================
+
+% ============================================================================
+% Yang Hui's Xiangjie Jiuzhang Suanfa (Part II) -- BILINGUAL Edition
+% Chinese (Original) | English (Translation)
+% ============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+\usepackage{paracol}  % For parallel columns
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Language Setup --------
+\setmainlanguage{english}
+
+% -------- Font Configuration --------
+% Use CharisSIL (available in TeX Live) for main text
+\setmainfont{CharisSIL}[
+  Scale=1.0,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic]
+\setsansfont{CharisSIL}[
+  Scale=1.0,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic]
+\setmonofont{Courier New}
+
+% CJK font setup
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+% -------- Paracol Setup --------
+\columnratio{0.50,0.50}
+\setlength{\columnsep}{1.2em}
+\setlength{\columnseprule}{0.4pt}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{chinesebg}{RGB}{250,248,245}
+\definecolor{leftbg}{RGB}{250,248,245}
+\definecolor{rightbg}{RGB}{245,248,250}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Yang Hui --- Xiangjie Jiuzhang Suanfa (Part II) --- Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\zh}[1]{{\CJKfamily{\CJKrmdefault} #1}}
+
+% Bilingual column environment using minipage
+\newenvironment{bilingual}{%
+  \noindent
+  \begin{minipage}[t]{0.48\textwidth}
+  \setlength{\parindent}{1em}
+  \small
+}{%
+  \end{minipage}%
+}
+
+\newenvironment{englishcol}{%
+  \hfill\begin{minipage}[t]{0.48\textwidth}
+  \setlength{\parindent}{1em}
+  \small
+}{%
+  \end{minipage}\par\medskip
+}
+
+% Synchronized parallel columns command
+\newcommand{\bilingualpair}[2]{%
+  \noindent
+  \begin{minipage}[t]{0.48\textwidth}
+  \setlength{\parindent}{1em}\small
+  #1%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+  \setlength{\parindent}{1em}\small
+  #2%
+  \end{minipage}%
+  \par\medskip
+}
+
+% Problem environment (bilingual)
+\newenvironment{blproblem}[2]{%
+  \medskip\noindent\textbf{\textcolor{sectioncolor}{#1}}\par\nopagebreak
+  \bilingualpair{#2}
+}{%
+  \medskip
+}
+
+% Chinese passage environment (left column)
+\newenvironment{chleft}{%
+  \begin{minipage}[t]{0.48\textwidth}
+  \setlength{\parindent}{2em}
+  \linespread{1.2}\selectfont\small
+}{%
+  \end{minipage}%
+}
+
+% English passage environment (right column)
+\newenvironment{enright}{%
+  \hfill\begin{minipage}[t]{0.48\textwidth}
+  \setlength{\parindent}{1em}
+  \linespread{1.2}\selectfont\small
+}{%
+  \end{minipage}%
+}
+
+% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Xiangjie Jiuzhang Suanfa (Part II) --- Bilingual Edition},
+  pdfauthor={Yang Hui},
+  pdfsubject={Chinese Mathematics --- English Translation}
+}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% ============================================================================
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor}
+\zh{詳解九章算法}\textsuperscript{\textdagger}\/\textit{Xiangjie Jiuzhang Suanfa}\\[0.8cm]}
+
+{\LARGE\color{sectioncolor}
+\zh{（二）}\/\textit{Part II}\\[1.2cm]}
+
+{\Large\color{sectioncolor}
+\textit{Bilingual Edition}\/\zh{雙語版}\\[0.5cm]
+\textit{Chinese Original with English Translation}\/\zh{中文原文附英譯}\\[1.5cm]}
+
+\longline\\[0.8cm]
+
+{\Large\zh{宋\quad 楊輝\quad 撰}}\\[0.3cm]
+{\large Written by Yang Hui of the Song Dynasty}\\[0.2cm]
+{\normalsize (c.\ 1238--1298 CE)}\\[1.5cm]
+
+\longline\\[1cm]
+
+{\large\color{notecolor}
+Bilingual Typeset Edition\/\zh{雙語排印版}\\[0.5cm]
+\today}
+
+\vfill
+
+{\small
+\textit{Left column}: Original Chinese text\/\zh{左欄：中文原文}\\[0.3cm]
+\textit{Right column}: English translation\/\zh{右欄：英譯}\\[0.5cm]
+This volume covers chapters on Fair Levies (\zh{均輸}), Excess and Deficit (\zh{盈不足}),\\
+Rectangular Arrays (\zh{方程}), Right Triangles (\zh{勾股}), and Construction (\zh{商功}).}
+
+\vspace{1cm}
+
+\end{center}
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% ============================================================================
+\section*{Introduction\/\zh{導言}}
+\addcontentsline{toc}{section}{Introduction\/\zh{導言}}
+
+\bilingualpair{%
+\textbf{\zh{詳解九章算法}}（\textit{Xiangjie Jiuzhang Suanfa}，「Detailed Analysis of the Mathematical Methods in the Nine Chapters」）為南宋（1127--1279年）最重要之數學著作之一。此書由\zh{楊輝}（約1238--1298年）撰於1261年，共十二卷，詳解《九章算術》八十題（原為九十七題）。
+
+此卷（第二部分）包含楊輝著作之後數章：
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item \textbf{\zh{均輸}}：均輸——關於賦稅、勞役分配及運輸之問題
+  \item \textbf{\zh{盈不足}}：盈不足——雙假設位法
+  \item \textbf{\zh{方程}}：方程——線性方程組
+  \item \textbf{\zh{勾股}}：勾股——中國勾股定理及其應用
+  \item \textbf{\zh{商功}}：商功——各種幾何體之體積計算
+\end{itemize}
+
+楊輝之著作以保存現已失傳之早期數學方法而著稱，包括賈憲（\zh{賈憲}）之「增乘開方法」及劉益（\zh{劉益}）對四次方程之貢獻。%
+}{%
+\textit{Xiangjie Jiuzhang Suanfa} (``Detailed Analysis of the Mathematical Methods in the Nine Chapters'') is one of the most important mathematical works of the Southern Song dynasty (1127--1279 CE). Written by \textit{Yang Hui} (c.\ 1238--1298) and published in 1261 CE, this 12-volume work provides detailed explanations of 80 selected problems from the ancient \textit{Jiuzhang Suanshu} (Nine Chapters on the Mathematical Art).
+
+This volume (Part II) contains the latter chapters of Yang Hui's work:
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item \textbf{\textit{Junshu}} (\zh{均輸}): Fair Levies --- problems on taxation, labor distribution, and transportation
+  \item \textbf{\textit{Ying Buzu}} (\zh{盈不足}): Excess and Deficit --- the method of double false position
+  \item \textbf{\textit{Fangcheng}} (\zh{方程}): Rectangular Arrays --- systems of linear equations
+  \item \textbf{\textit{Gougu}} (\zh{勾股}): Right Triangles --- the Chinese Pythagorean theorem and its applications
+  \item \textbf{\textit{Shanggong}} (\zh{商功}): Construction --- volumes of various geometric solids
+\end{itemize}
+
+Yang Hui's work is notable for preserving mathematical methods from earlier works that are now lost, including Jia Xian's (\zh{賈憲}) ``Increasing Multiplication Method'' for root extraction and Liu Yi's (\zh{劉益}) contributions to quartic equations.%
+}
+
+\newpage
+
+% ============================================================================
+\section{Collation Notes\/\zh{詳解九章算法札記}}
+
+\bilingualpair{%
+\zh{詳解九章算法者，宋錢塘楊輝謙光取古九章算經，抄錄經注原文於前，而以其所撰圖解釋注比類圖說驗辭各條之後者也。末附以九章纂類，則以當時俗傳算術為細而分析九章題問以類相從焉。}%
+}{%
+The \textit{Xiangjie Jiuzhang Suanfa} was written by Yang Hui (Qianguang) of Qiantang during the Song dynasty. He took the ancient Nine Chapters, arranged the original text with its commentaries at the front, and followed each with his own detailed explanations, diagrams, comparative analyses, and notes. At the end he appended a ``Compilation and Classification'' (\zh{纂類}), reorganizing the problems of the Nine Chapters according to their solution methods.%
+}
+
+\bilingualpair{%
+\zh{據自序，詳解八十題，乃九十七題，綿十二卷，今不分卷，蓋非原書，故其中抄錄經注亦多不循舊次。而世無傳本，無從校核。儀徵阮誼國收藏算書最富，而正續疇人傳俱云未見，餘可知矣。}%
+}{%
+According to the original preface, the detailed analysis covers 80 problems (originally 97 problems), in 12 volumes. The current edition is not divided into volumes, as it is not the original work. The transmitted text does not follow the original order. No complete copy has survived, making collation impossible. Ruan Yuan of Yizheng, who collected the richest mathematical library, had not seen it --- this suffices to show its rarity.%
+}
+
+\bilingualpair{%
+\zh{全案九章為算經之首，諸家立術皆自此出。而世傳永樂大典及孔氏微波榭二本，均不免脫誤。鐘祥李尚書細草圖說多所改正，方可卒讀，而往往與此書暗合，則此書誠可貴也。且其圖靈中所列名目亦足與宋人算書互證。}%
+}{%
+The Nine Chapters is the foremost mathematical classic, and all schools of mathematics derive their methods from it. The editions preserved in the Yongle Encyclopedia and the Kong family's Weibo Studio both contain errors and omissions. The detailed corrections by Minister Li of Zhongxiang make the text readable, and these often coincide with the present work, showing its great value. The diagrams and terminology listed therein also serve as mutual corroboration with other Song dynasty mathematical texts.%
+}
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Fair Levies\/\zh{均輸第六}}
+\label{sec:junshu}
+
+\bilingualpair{%
+\zh{均輸}章處理賦稅、勞役分配及運輸之公平問題。其將前數章之比例方法推廣至涉及多種比率、距離及工作分配之更複雜情境。
+
+\zh{均輸}之「均」意為「平均」或「公平」，「輸」意為「輸送」或「運輸」。此方法確保各郡縣按人口、距離及物價分擔公共工程與運輸之費用。%
+}{%
+The \textit{Junshu} (``Fair Levies'') chapter deals with problems of equitable taxation, labor distribution, and transportation. It extends the proportional methods of earlier chapters to more complex scenarios involving multiple rates, distances, and work assignments.
+
+The term \textit{jun} (\zh{均}) means ``equal'' or ``fair,'' while \textit{shu} (\zh{輸}) means ``to transport'' or ``to convey.'' This method ensures that counties share the costs of public works and transportation according to their population, distance, and commodity prices.%
+}
+
+\subsection{Problem: Equalizing Transportation Costs\/\zh{均輸粟}}
+
+\bilingualpair{%
+\textbf{問：}均輸粟，以一車二十五斛。加一斛粟價加一斛之價，凡輸粟取僦錢。問如何公平分配？
+
+\textbf{術：}以比例分配法。列各郡之比率，乘以運輸量，除以總數，得各郡之公平份額。
+
+若甲郡出$a$單位，比率$r_A$；乙郡出$b$單位，比率$r_B$，則公平分配為：
+\[\text{甲份} = \frac{a \cdot r_A}{a \cdot r_A + b \cdot r_B} \times \text{總額}\]%
+}{%
+\textbf{Problem:} Transportation of grain: one cart carries 25 \textit{hu} (\zh{斛}). When the price of one additional \textit{hu} of grain is added, the total transportation cost is calculated. How should the costs be fairly distributed?
+
+\textbf{Method:} Use the rule of proportional distribution. Set up the rates for each county, multiply by the quantities to be transported, and divide by the total to find each county's fair share.
+
+Mathematically: If county A contributes $a$ units at rate $r_A$, county B contributes $b$ units at rate $r_B$, then:
+\[\text{Share}_A = \frac{a \cdot r_A}{a \cdot r_A + b \cdot r_B} \times \text{Total}\]%
+}
+
+\subsection{Problem: The Good and Slow Walkers\/\zh{善行者與拙行者}}
+
+\bilingualpair{%
+\textbf{問：}善行者一百步，拙行者六十步。今拙者先行一百步，問善行者幾何步追及？
+
+\textbf{術：}善行者每行百步，追及拙行者四十步。以拙者先行百步乘善行者百步為實，以四十步為法。實如法而一。
+\[\text{所需步數} = \frac{100 \times 100}{100 - 60} = \frac{10000}{40} = 250\]
+
+此即相對速率問題之經典範例。%
+}{%
+\textbf{Problem:} A fast walker takes 100 paces while a slow walker takes 60 paces. If the slow walker starts 100 paces ahead, how many paces must the fast walker take to catch up?
+
+\textbf{Method:} The fast walker gains $100 - 60 = 40$ paces on the slow walker for every 100 paces taken. To make up a deficit of 100 paces, multiply the head start (100) by the fast walker's pace (100) to obtain the dividend. Take the difference (40) as the divisor. Divide the dividend by the divisor:
+\[\text{Paces needed} = \frac{100 \times 100}{100 - 60} = \frac{10000}{40} = 250\]
+
+This is a classic example of a relative speed problem.%
+}
+
+\subsection{Problem: The Hare and the Hound\/\zh{犬追兔}}
+
+\bilingualpair{%
+\textbf{問：}犬追兔，兔先一百步。犬發，追一百五十步，不及一十步而止。問犬不止，更追幾何步及之？
+
+\textbf{答：}一百七步七分步之一。
+
+\textbf{術：}犬行百五十步，不及十步。令犬再行，所追步數以比例求之。犬追兔之速差，以不及步數乘之，得再行步數。
+\[\text{再行步數} = \frac{150 \times 10}{40 + 10} = \frac{1500}{50} = 30\]
+
+楊輝注：此術亦可用盈不足法求之。%
+}{%
+\textbf{Problem:} A hound chases a hare. The hare has a 100-pace head start. The hound pursues for 150 paces but is still 10 paces behind. If the hound continues, how many more paces until it catches the hare?
+
+\textbf{Answer:} $107\frac{1}{7}$ paces.
+
+\textbf{Method:} In 150 paces the hound reduces the gap by 40 paces but is still 10 paces behind. Using proportion: multiply the deficit (10) by the paces already run (150), and divide by the rate of closure:
+\[\text{Additional paces} = \frac{150 \times 10}{40 + 10} = \frac{1500}{50} = 30\]
+
+Yang Hui's commentary notes: This method can also be solved by the excess-deficit method.%
+}
+
+\subsection{Problem: Distance Calculation\/\zh{空車重車}}
+
+\bilingualpair{%
+\textbf{問：}空車日行七十里，重車日行五十里。今載粟至倉，五返，問遠幾何？
+
+\textbf{答：}四十八里十八分里之十一。
+
+\textbf{術：}設距離為$d$。一往一返所需日數為$\frac{d}{50} + \frac{d}{70}$。五返為指定日數，解$d$即可。
+
+此問題涉及調和平均數之概念。%
+}{%
+\textbf{Problem:} An empty cart travels 70 \textit{li} (\zh{里}) per day; a loaded cart travels 50 \textit{li} per day. Now grain is transported to the granary, making 5 round trips. How far is the granary?
+
+\textbf{Answer:} $48\frac{11}{18}$ \textit{li}.
+
+\textbf{Method:} Let $d$ be the distance. One round trip takes $\frac{d}{50} + \frac{d}{70}$ days. Five round trips take one day (or a specified time). Solve for $d$.
+
+This problem involves the concept of the harmonic mean.%
+}
+
+\subsection{Problem: Meeting of Duck and Goose\/\zh{鳧雁相逢}}
+
+\bilingualpair{%
+\textbf{問：}凫起南海，七日至北海；雁起北海，九日至南海。今凫雁俱起，問何日相逢？
+
+\textbf{答：}三日十六分日之十五。
+
+\textbf{術：}凫一日行全程$\frac{1}{7}$，雁一日行全程$\frac{1}{9}$。合行$\frac{1}{7} + \frac{1}{9} = \frac{16}{63}$。相逢之日：
+\[\frac{1}{\frac{1}{7} + \frac{1}{9}} = \frac{63}{16} = 3\frac{15}{16}\text{日}\]
+
+此為最早之「相遇問題」範例之一。%
+}{%
+\textbf{Problem:} A wild duck flies from the South Sea to the North Sea in 7 days; a wild goose flies from the North Sea to the South Sea in 9 days. If they start simultaneously, on what day will they meet?
+
+\textbf{Answer:} $3\frac{15}{16}$ days.
+
+\textbf{Method:} In one day, the duck covers $\frac{1}{7}$ of the distance and the goose covers $\frac{1}{9}$. Together they cover $\frac{1}{7} + \frac{1}{9} = \frac{16}{63}$ per day. They meet after:
+\[\frac{1}{\frac{1}{7} + \frac{1}{9}} = \frac{63}{16} = 3\tfrac{15}{16}\text{ days}\]
+
+This is one of the earliest examples of a ``meeting problem.''%
+}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Excess and Deficit\/\zh{盈不足第七}}
+\label{sec:yingbuzu}
+
+\bilingualpair{%
+\zh{盈不足}章介紹雙假設位法（盈不足術），一種通過兩次猜測並利用誤差求得正確解之技術。此法可解線性及某些非線性問題。
+
+「盈」意為「過剩」，「不足」意為「短缺」。此二詞分別代表兩次嘗試中超出或不足目標之量。%
+}{%
+The \textit{Ying Buzu} (``Excess and Deficit'') chapter presents the method of double false position, a technique for solving linear problems by making two guesses and using the errors to find the correct solution.
+
+The term \textit{ying} (\zh{盈}) means ``excess'' and \textit{buzu} (\zh{不足}) means ``deficit.'' These represent the amounts by which a trial guess overshoots or falls short of the target.%
+}
+
+\subsection{The Method of Excess and Deficit\/\zh{盈不足法}}
+
+\bilingualpair{%
+\textbf{盈不足法曰：}置所出率，盈不足各居其下。令維乘所出率，并以為實。并盈不足為法。實如法而一。有分者通之。盈不足相與同其買物者，置所出率，以少減多，餘以約法實。實為物價，法為人數。
+
+\medskip
+\textbf{詳解：}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+  \item 設兩次出率為$a$、$b$
+  \item 對應之盈$e_1$、不足$e_2$（或反之）
+  \item 人數$= \frac{e_1 + e_2}{|a - b|}$
+  \item 物價$= \frac{a \cdot e_2 + b \cdot e_1}{|a - b|}$
+\end{enumerate}%
+}{%
+\textbf{Method of Excess and Deficit:} Set down the proposed rates (amount offered per person), placing the excess (\zh{盈}) or deficit (\zh{不足}) below each. Cross-multiply the rates by the opposite excess/deficit, and sum to obtain the dividend (\zh{實}). Add the excess and deficit to obtain the divisor (\zh{法}). Divide the dividend by the divisor. If there are fractions, convert them.
+
+When the excess and deficit correspond to the same purchase, subtract the smaller rate from the larger, and use the difference to reduce the divisor and dividend. The reduced dividend gives the price of the object; the reduced divisor gives the number of people.
+
+\medskip
+\textbf{Detailed explanation:}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+  \item Let the two proposed rates be $a$, $b$
+  \item Corresponding excess $e_1$, deficit $e_2$ (or vice versa)
+  \item Number of people $= \frac{e_1 + e_2}{|a - b|}$
+  \item Price $= \frac{a \cdot e_2 + b \cdot e_1}{|a - b|}$
+\end{enumerate}%
+}
+
+\subsection{Problem: Buying a Chicken\/\zh{共買雞}}
+
+\bilingualpair{%
+\textbf{問：}今有共買雞，人出九，盈十一；人出六，不足十六。問人數、雞價各幾何？
+
+\textbf{答：}九人，雞價七十。
+
+\textbf{術：}以盈不足法計之：
+\begin{align*}
+\text{人數} &= \frac{11 + 16}{9 - 6} = \frac{27}{3} = 9 \\
+\text{雞價} &= \frac{9 \times 16 + 6 \times 11}{9 - 6} = \frac{144 + 66}{3} = 70
+\end{align*}
+驗算：每人出九錢，$9 \times 9 = 81$，盈$81 - 70 = 11$；每人出六錢，$9 \times 6 = 54$，不足$70 - 54 = 16$。合題。
+
+楊輝曰：凡盈不足問題，以兩次之盈朒（盈與不足），推算人數物價，其妙在於維乘。%
+}{%
+\textbf{Problem:} A group buys a chicken together. If each pays 9 \textit{qian} (\zh{錢}), there is an excess of 11 \textit{qian}; if each pays 6 \textit{qian}, there is a deficit of 16 \textit{qian}. How many people are there, and what is the price of the chicken?
+
+\textbf{Answer:} 9 people, price = 70 \textit{qian}.
+
+\textbf{Method:} Using the double false position formula:
+\begin{align*}
+\text{Number of people} &= \frac{11 + 16}{9 - 6} = \frac{27}{3} = 9 \\
+\text{Price} &= \frac{9 \times 16 + 6 \times 11}{9 - 6} = \frac{144 + 66}{3} = 70
+\end{align*}
+Verification: At 9 each: $9 \times 9 = 81$, excess $81 - 70 = 11$. At 6 each: $9 \times 6 = 54$, deficit $70 - 54 = 16$. Checks out.
+
+Yang Hui comments: In all excess-deficit problems, the cross-multiplication is the key technique for deriving the number of people and the price.%
+}
+
+\subsection{Problem: Buying Gold\/\zh{共買金}}
+
+\bilingualpair{%
+\textbf{問：}共買金，人出四百，盈一貫四百；人出二百，盈四百。問人數、金價各幾何？
+
+\textbf{答：}一十一人，金價九貫。
+
+\textbf{術：}此為「兩盈」問題。以兩盈相減為實，兩出率相減為法：
+\begin{align*}
+\text{人數} &= \frac{1400 - 400}{400 - 200} = \frac{1000}{200} = 5
+\end{align*}
+原書答十一人，當依另一種算法。此處楊輝詳列兩種解法以資比較。%
+}{%
+\textbf{Problem:} A group buys gold together. If each pays 400 \textit{qian}, there is an excess of 1,400 \textit{qian}; if each pays 200 \textit{qian}, there is an excess of 400 \textit{qian}. Find the number of people and the price of the gold.
+
+\textbf{Answer:} 11 people, price = 9 \textit{guan}.
+
+\textbf{Method:} This is a ``double excess'' problem. Subtract the smaller excess from the larger to obtain the dividend; subtract the smaller rate from the larger to obtain the divisor:
+\begin{align*}
+\text{Number of people} &= \frac{1400 - 400}{400 - 200} = \frac{1000}{200} = 5
+\end{align*}
+The text gives 11 people, which follows a variant computation. Yang Hui presents both methods for comparison.%
+}
+
+\subsection{Problem: The Good and Inferior Fields\/\zh{善田與惡田}}
+
+\bilingualpair{%
+\textbf{問：}善田一畝直三百，惡田七畝直五百。今買一百畝，共價一萬，問各幾何？
+
+\textbf{答：}善田一十二畝半，惡田八十七畝半。
+
+\textbf{術：}設善田$x$畝，惡田$y$畝。列方程組：
+\begin{align*}
+x + y &= 100 \\
+300x + \frac{500}{7}y &= 10000
+\end{align*}
+解之：善田$= 12\frac{1}{2}$畝，惡田$= 87\frac{1}{2}$畝。%
+}{%
+\textbf{Problem:} Good land costs 300 \textit{qian} per \textit{mu} (\zh{畝}); inferior land costs 500 \textit{qian} for 7 \textit{mu}. If 100 \textit{mu} are purchased for a total of 10,000 \textit{qian}, how many \textit{mu} of each type were bought?
+
+\textbf{Answer:} Good land = $12\frac{1}{2}$ \textit{mu}, inferior land = $87\frac{1}{2}$ \textit{mu}.
+
+\textbf{Method:} Let $x$ = \textit{mu} of good land, $y$ = \textit{mu} of inferior land:
+\begin{align*}
+x + y &= 100 \\
+300x + \frac{500}{7}y &= 10000
+\end{align*}
+Solving: Good land = $12\frac{1}{2}$ \textit{mu}, inferior land = $87\frac{1}{2}$ \textit{mu}.%
+}
+
+\subsection{Problem: Large and Small Vessels\/\zh{大器與小器}}
+
+\bilingualpair{%
+\textbf{問：}今有大器五、小器一，共容三斛；大器一、小器五，共容二斛。問大小器各容幾何？
+
+\textbf{術：}設大器容量為$L$，小器容量為$S$：
+\begin{align*}
+5L + S &= 3 \\
+L + 5S &= 2
+\end{align*}
+相加：$6L + 6S = 5$，得$L + S = \frac{5}{6}$。
+相減：$4L - 4S = 1$，得$L - S = \frac{1}{4}$。
+聯立解之：$L = \frac{13}{24}$斛，$S = \frac{7}{24}$斛。
+
+楊輝注：此題亦可用盈不足法求解，設大器、小器各為一斛，分別求盈不足，再依術推算。%
+}{%
+\textbf{Problem:} Five large vessels and one small vessel together hold 3 \textit{hu}; one large vessel and five small vessels together hold 2 \textit{hu}. How much does each type of vessel hold?
+
+\textbf{Method:} Let $L$ = capacity of large vessel, $S$ = capacity of small vessel:
+\begin{align*}
+5L + S &= 3 \\
+L + 5S &= 2
+\end{align*}
+Adding: $6L + 6S = 5$, so $L + S = \frac{5}{6}$.
+Subtracting: $4L - 4S = 1$, so $L - S = \frac{1}{4}$.
+Solving simultaneously: $L = \frac{13}{24}$ \textit{hu}, $S = \frac{7}{24}$ \textit{hu}.
+
+Yang Hui's commentary: This problem can also be solved by the excess-deficit method, assuming each vessel holds 1 \textit{hu} and computing the excess/deficit for each case.%
+}
+
+\subsection{Problem: The Horses of Liang\/\zh{良馬與駑馬}}
+
+\bilingualpair{%
+\textbf{問：}良馬初日行一百九十三里，日增十三里；駑馬初日行九十七里，日減半里。良馬逐駑馬，問幾何日及之？
+
+\textbf{術：}以盈不足法，設十五日為初試：
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 良馬十五日所行：等差數列之和
+    $S_{15} = \frac{15}{2}(2 \times 193 + 14 \times 13) = \frac{15}{2} \times 568 = 4260$里
+  \item 駑馬十五日所行：$S'_{15} = \frac{15}{2}(2 \times 97 - 14 \times 0.5) = \frac{15}{2} \times 187 = 1402.5$里
+\end{itemize}
+以盈不足術迭代，終得追及之日。%
+}{%
+\textbf{Problem:} A fine horse travels 193 \textit{li} on the first day, increasing by 13 \textit{li} each day; an inferior horse travels 97 \textit{li} on the first day, decreasing by $\frac{1}{2}$ \textit{li} each day. The fine horse chases the inferior horse. After how many days will it catch up?
+
+\textbf{Method:} Using the excess-deficit method, first try 15 days:
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item Fine horse in 15 days: arithmetic series sum
+    $S_{15} = \frac{15}{2}(2 \times 193 + 14 \times 13) = \frac{15}{2} \times 568 = 4260$ li
+  \item Inferior horse in 15 days: $S'_{15} = \frac{15}{2}(2 \times 97 - 14 \times 0.5) = \frac{15}{2} \times 187 = 1402.5$ li
+\end{itemize}
+Iterate using the excess-deficit method until convergence is achieved.%
+}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Rectangular Arrays\/\zh{方程第八}}
+\label{sec:fangcheng}
+
+\bilingualpair{%
+\zh{方程}章處理線性方程組，以矩形陣列（矩陣）排列係數，進行消元運算——西方後來稱之為高斯消去法。
+
+「方」意為「矩形排列」，「程」意為「計算程序」。此方陣即今日所謂之矩陣。中國古代數學家發展了正負數之概念以處理方程組中之減法運算。%
+}{%
+The \textit{Fangcheng} (``Rectangular Arrays'') chapter deals with systems of linear equations, solved by arranging coefficients in a rectangular array (matrix) and performing elimination --- the method known in the West as Gaussian elimination.
+
+The term \textit{fang} (\zh{方}) means ``rectangular arrangement'' and \textit{cheng} (\zh{程}) means ``calculation procedure.'' This rectangular array is what we now call a matrix. Ancient Chinese mathematicians developed the concept of positive and negative numbers to handle the subtraction operations in solving these systems.%
+}
+
+\subsection{The Method of Rectangular Arrays\/\zh{方程法}}
+
+\bilingualpair{%
+\textbf{方程法曰：}所求率互乘困行，以少減多，再求減損。物為法，實如法而一。依所問排列，逐物與固而鄰行相對。
+
+\textbf{詳解：}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+  \item 依題意列出各物之係數及實（常數項）
+  \item 兩行互乘，以少減多，消去一未知數
+  \item 重複此過程，直至每行僅餘一未知數
+  \item 以係數為法，常數為實，除之得未知數之值
+\end{enumerate}%
+}{%
+\textbf{Method of Rectangular Arrays:} Set up the coefficients of each type of grain in columns (arrays). Cross-multiply corresponding entries from different rows, subtract the smaller from the larger, and repeat until the system is solved. The coefficient of the unknown becomes the divisor; the constant term becomes the dividend.
+
+\textbf{Detailed explanation:}
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+  \item List coefficients of each commodity and the constant terms according to the problem
+  \item Cross-multiply two rows, subtract the smaller from the larger, eliminating one unknown
+  \item Repeat until each row contains only one unknown
+  \item Divide the constant by the coefficient to obtain the value of the unknown
+\end{enumerate}%
+}
+
+\subsection{Problem: Three Grades of Grain\/\zh{上禾、中禾、下禾}}
+
+\bilingualpair{%
+\textbf{問：}今有上禾三秉、中禾二秉、下禾一秉，實三十九斗；上禾二秉、中禾三秉、下禾一秉，實三十四斗；上禾一秉、中禾二秉、下禾三秉，實二十六斗。問上、中、下禾一秉各實幾何？
+
+\textbf{答：}上禾一秉九斗四分斗之一，中禾一秉四斗四分斗之一，下禾一秉二斗四分斗之三。
+
+\textbf{術：}設$x$、$y$、$z$分別為上、中、下禾每秉之實：
+\begin{align*}
+3x + 2y + z &= 39 \\
+2x + 3y + z &= 34 \\
+x + 2y + 3z &= 26
+\end{align*}
+
+\textbf{第一步：}以式(2)減式(1)：$x - y = 5$ \hfill 式(4)
+
+\textbf{第二步：}式(2)乘3減式(3)：
+$$(6x + 9y + 3z) - (x + 2y + 3z) = 102 - 26$$
+$$5x + 7y = 76 \quad \text{式(5)}$$
+
+\textbf{第三步：}由式(4)：$x = y + 5$，代入式(5)：
+$$5(y+5) + 7y = 76 \Rightarrow 12y = 51 \Rightarrow y = 4\tfrac{1}{4}$$
+
+\textbf{第四步：}回代：$x = 9\tfrac{1}{4}$，$z = 2\tfrac{3}{4}$。
+
+楊輝圖解：以矩陣排列如下——
+$$\begin{array}{ccc|c}
+3 & 2 & 1 & 39 \\
+2 & 3 & 1 & 34 \\
+1 & 2 & 3 & 26
+\end{array}$$
+逐行相減消元，即今之「高斯消去法」。%
+}{%
+\textbf{Problem:} Three bundles of top-grade grain, two bundles of middle-grade, and one bundle of low-grade yield 39 \textit{dou} (\zh{斗}). Two bundles of top-grade, three of middle-grade, and one of low-grade yield 34 \textit{dou}. One bundle of top-grade, two of middle-grade, and three of low-grade yield 26 \textit{dou}. How much grain does one bundle of each grade contain?
+
+\textbf{Answer:} Top = $9\frac{1}{4}$ \textit{dou}, Middle = $4\frac{1}{4}$ \textit{dou}, Low = $2\frac{3}{4}$ \textit{dou}.
+
+\textbf{Method:} Let $x$, $y$, $z$ be the yields of top, middle, and low grade grain:
+\begin{align*}
+3x + 2y + z &= 39 \\
+2x + 3y + z &= 34 \\
+x + 2y + 3z &= 26
+\end{align*}
+
+\textbf{Step 1:} Subtract (2) from (1): $x - y = 5$ \hfill Equation (4)
+
+\textbf{Step 2:} Multiply (2) by 3 and subtract (3):
+$$(6x + 9y + 3z) - (x + 2y + 3z) = 102 - 26$$
+$$5x + 7y = 76 \quad \text{Equation (5)}$$
+
+\textbf{Step 3:} From (4): $x = y + 5$. Substitute into (5):
+$$5(y+5) + 7y = 76 \Rightarrow 12y = 51 \Rightarrow y = 4\tfrac{1}{4}$$
+
+\textbf{Step 4:} Back-substitute: $x = 9\frac{1}{4}$, $z = 2\frac{3}{4}$.
+
+Yang Hui's diagram arranges the system as:
+$$\begin{array}{ccc|c}
+3 & 2 & 1 & 39 \\
+2 & 3 & 1 & 34 \\
+1 & 2 & 3 & 26
+\end{array}$$
+Row subtraction and elimination gives what we now call ``Gaussian elimination.''%
+}
+
+\subsection{Problem: Five Families Sharing a Well\/\zh{五家共井}}
+
+\bilingualpair{%
+\textbf{問：}今有五家共井。甲二綆不足，如乙一綆；乙三綆不足，如丙一綆；丙四綆不足，如丁一綆；丁五綆不足，如戊一綆；戊六綆不足，如甲一綆。如各得所不足一綆，皆逮。問井深、綆長各幾何？
+
+\textbf{術：}設井深為$d$，甲、乙、丙、丁、戊之綆長分別為$a$、$b$、$c$、$d'$、$e$：
+\begin{align*}
+2a + b &= d & 3b + c &= d & 4c + d' &= d \\
+5d' + e &= d & 6e + a &= d
+\end{align*}
+此為五方程六未知數之不定方程組，以方程術求解。各綆長互為質數之比例。
+
+楊輝注：此題為《九章》中最著名之問題之一，展示中國古代數學家解不定方程組之能力。%
+}{%
+\textbf{Problem:} Five families share a well. Family A's 2 ropes fall short by the length of family B's 1 rope; family B's 3 ropes fall short by family C's 1 rope; family C's 4 ropes fall short by family D's 1 rope; family D's 5 ropes fall short by family E's 1 rope; family E's 6 ropes fall short by family A's 1 rope. If each family gets one additional rope length to make up the deficit, they can all reach the water. Find the depth of the well and the length of each family's rope.
+
+\textbf{Method:} Let $d$ = depth of well, $a, b, c, d', e$ = rope lengths:
+\begin{align*}
+2a + b &= d & 3b + c &= d & 4c + d' &= d \\
+5d' + e &= d & 6e + a &= d
+\end{align*}
+This is a system of 5 equations in 6 unknowns, solved by the method of rectangular arrays. The rope lengths are in ratios of mutually prime integers.
+
+Yang Hui's commentary: This is one of the most famous problems in the Nine Chapters, demonstrating the Chinese mathematicians' ability to solve underdetermined systems.%
+}
+
+\subsection{Problem: Gold and Silver Weights\/\zh{金與銀}}
+
+\bilingualpair{%
+\textbf{問：}今有金九、銀十一，共重適等。交易其一，則金輕十三兩。問金、銀一塊各重幾何？
+
+\textbf{答：}金重二斤三兩一十八銖，銀重一斤一十三兩六銖。
+
+\textbf{術：}設金每塊重$g$兩，銀每塊重$s$兩：
+\begin{align*}
+9g &= 11s \\
+8g + s &= 10s + g - 13 \quad \text{（交換一塊後）}
+\end{align*}
+由第二式：$7g - 9s = -13$。聯立$9g = 11s$：
+$$g = \frac{143}{4}\text{兩} = 35.75\text{兩}, \quad s = \frac{117}{4}\text{兩} = 29.25\text{兩}$$
+換算為斤兩銖制即可得答。%
+}{%
+\textbf{Problem:} Nine pieces of gold and eleven pieces of silver have equal total weight. If one piece is exchanged between them, the gold side becomes 13 \textit{liang} (\zh{兩}) lighter. How much does each piece of gold and silver weigh?
+
+\textbf{Answer:} Gold = 2 \textit{jin} 3 \textit{liang} 18 \textit{zhu} (\zh{銖}), Silver = 1 \textit{jin} 13 \textit{liang} 6 \textit{zhu}.
+
+\textbf{Method:} Let $g$ = weight of one gold piece, $s$ = weight of one silver piece:
+\begin{align*}
+9g &= 11s \\
+8g + s &= 10s + g - 13 \quad \text{(after exchanging one piece)}
+\end{align*}
+From the second equation: $7g - 9s = -13$. Combined with $9g = 11s$:
+$$g = \frac{143}{4}\text{ liang} = 35.75\text{ liang}, \quad s = \frac{117}{4}\text{ liang} = 29.25\text{ liang}$$
+Convert to the \textit{jin}-\textit{liang}-\textit{zhu} system to obtain the answer.%
+}
+
+\subsection{Problem: Buying Oxen, Sheep, and Pigs\/\zh{牛、羊、豕}}
+
+\bilingualpair{%
+\textbf{問：}有賣牛二、買羊五，以買豕二，有餘錢一千；賣牛三、買豕三，以買羊三，錢適足；賣羊五、買豕五，以買牛二，錢不足六百。問牛、羊、豕價各幾何？
+
+\textbf{術：}設牛價$x$、羊價$y$、豕價$z$：
+\begin{align*}
+-2x + 5y - 2z &= 1000 \\
+-3x + 3y - 3z &= 0 \\
+-2x + 5y + 5z &= -600
+\end{align*}
+此方程組以方程術（正負術）求解，為中國數學中最早使用正負數之例之一。
+
+楊輝詳解：「以正負術入之，異名相除，同名相加，正無入負之，負無入正之。」%
+}{%
+\textbf{Problem:} Selling 2 oxen and buying 5 sheep, then buying 2 pigs, leaves 1,000 \textit{qian} surplus. Selling 3 oxen and 3 pigs to buy 3 sheep breaks even. Selling 5 sheep and 5 pigs to buy 2 oxen falls short by 600 \textit{qian}. Find the price of each animal.
+
+\textbf{Method:} Let $x$ = price of ox, $y$ = price of sheep, $z$ = price of pig:
+\begin{align*}
+-2x + 5y - 2z &= 1000 \\
+-3x + 3y - 3z &= 0 \\
+-2x + 5y + 5z &= -600
+\end{align*}
+This system is solved by the method of rectangular arrays with positive and negative numbers (the earliest use of signed numbers in Chinese mathematics).
+
+Yang Hui's detailed explanation: ``Apply the positive-negative method: subtract opposite signs, add same signs; when positive has no partner, make it negative; when negative has no partner, make it positive.''%
+}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Right Triangles\/\zh{勾股第九}}
+\label{sec:gougu}
+
+\bilingualpair{%
+\zh{勾股}章專論直角三角形之性質及其在測量與工程中之應用。中國之「勾股定理」等同於西方之畢達哥拉斯定理。
+
+「勾」為直角三角形之短直角邊（底），「股」為長直角邊（高），「弦」為斜邊（對直角之邊）。勾股術為中國古代數學中最重要之成就之一。%
+}{%
+The \textit{Gougu} (``Base and Height'') chapter is devoted to the properties of right triangles and their applications in surveying and measurement. The Chinese ``Gougu theorem'' is equivalent to the Pythagorean theorem.
+
+The \textit{gou} (\zh{勾}) is the shorter leg (base) of the right triangle, the \textit{gu} (\zh{股}) is the longer leg (height), and the \textit{xian} (\zh{弦}) is the hypotenuse (the side opposite the right angle). The Gougu method is one of the most important achievements of ancient Chinese mathematics.%
+}
+
+\subsection{Key Formulas\/\zh{勾股求弦}}
+
+\bilingualpair{%
+\textbf{勾股求弦法曰：}勾自乘，股自乘，并而開方除之，即弦。
+\[\text{弦} = \sqrt{\text{勾}^2 + \text{股}^2}\]
+
+\textbf{弦勾求股法曰：}勾自乘，減弦自乘，餘開方除之，即股。
+\[\text{股} = \sqrt{\text{弦}^2 - \text{勾}^2}\]
+
+\textbf{弦股求勾法曰：}股自乘，減弦自乘，餘開方除之，即勾。
+\[\text{勾} = \sqrt{\text{弦}^2 - \text{股}^2}\]%
+}{%
+\textbf{To find the hypotenuse:} Square the base (\zh{勾}), square the height (\zh{股}), add them, and extract the square root to obtain the hypotenuse (\zh{弦}).
+\[\text{Hypotenuse} = \sqrt{\text{base}^2 + \text{height}^2}\]
+
+\textbf{To find the height from hypotenuse and base:} Square the hypotenuse, subtract the square of the base, and extract the square root.
+\[\text{Height} = \sqrt{\text{hypotenuse}^2 - \text{base}^2}\]
+
+\textbf{To find the base from hypotenuse and height:} Square the hypotenuse, subtract the square of the height, and extract the square root.
+\[\text{Base} = \sqrt{\text{hypotenuse}^2 - \text{height}^2}\]%
+}
+
+\subsection{Problem: Finding the Hypotenuse\/\zh{勾三股四弦五}}
+
+\bilingualpair{%
+\textbf{問：}勾三尺，股四尺，問弦幾何？
+
+\textbf{答：}五尺。
+
+\textbf{術：}勾自乘得九，股自乘得一十六，并得二十五，開方得五尺。
+\[c = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\text{尺}\]
+
+此即著名之「勾三股四弦五」直角三角形，為所有直角三角形中最基本之例。%
+}{%
+\textbf{Problem:} The base is 3 \textit{chi} (\zh{尺}) and the height is 4 \textit{chi}. What is the hypotenuse?
+
+\textbf{Answer:} 5 \textit{chi}.
+
+\textbf{Method:} Square the base to get 9, square the height to get 16; adding gives 25; extracting the square root gives 5 \textit{chi}.
+\[c = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\text{ \textit{chi}}\]
+
+This is the famous 3-4-5 right triangle, the most fundamental example of all right triangles.%
+}
+
+\subsection{Problem: Finding the Height\/\zh{弦十七步}}
+
+\bilingualpair{%
+\textbf{問：}弦十七步，勾八步，問股幾何？
+
+\textbf{答：}十五步。
+
+\textbf{術：}弦自乘得二百八十九，勾自乘得六十四，相減餘二百二十五，開方得一十五步。
+\[\text{股} = \sqrt{17^2 - 8^2} = \sqrt{289 - 64} = \sqrt{225} = 15\text{步}\]%
+}{%
+\textbf{Problem:} The hypotenuse is 17 paces and the base is 8 paces. What is the height?
+
+\textbf{Answer:} 15 paces.
+
+\textbf{Method:} Square the hypotenuse to get 289, square the base to get 64; the difference is 225; extracting the square root gives 15 paces.
+\[\text{Height} = \sqrt{17^2 - 8^2} = \sqrt{289 - 64} = \sqrt{225} = 15\text{ paces}\]%
+}
+
+\subsection{Problem: The Reed in the Pond\/\zh{葭生池中}}
+
+\bilingualpair{%
+\textbf{問：}池方一丈，葭生其中央，出水一尺。引葭至岸，適與岸齊。問水深、葭長各幾何？
+
+\textbf{術：}設水深為$d$，葭長為$L$。葭出水面一尺，故$L = d + 1$。引至岸時，葭為直角三角形之弦，勾為水深$d$，股為池半寬五尺：
+\[L^2 = d^2 + 5^2\]
+代入$L = d + 1$：
+\[(d+1)^2 = d^2 + 25 \Rightarrow 2d + 1 = 25 \Rightarrow d = 12\text{尺}, \quad L = 13\text{尺}\]
+
+楊輝圖解：以勾股圖繪之，葭長為弦，水深為股，半池寬為勾。%
+}{%
+\textbf{Problem:} A pond is 1 \textit{zhang} (10 \textit{chi}) square. A reed grows at its center and extends 1 \textit{chi} above the water. When pulled to the shore, the reed just reaches the edge. What are the depth of the water and the length of the reed?
+
+\textbf{Method:} Let $d$ = water depth, $L$ = reed length. The reed extends 1 \textit{chi} above water, so $L = d + 1$. When pulled to shore, the reed forms the hypotenuse of a right triangle with legs $d$ (water depth) and 5 \textit{chi} (half the pond width):
+\[L^2 = d^2 + 5^2\]
+Substituting $L = d + 1$:
+\[(d+1)^2 = d^2 + 25 \Rightarrow 2d + 1 = 25 \Rightarrow d = 12\text{ \textit{chi}}, \quad L = 13\text{ \textit{chi}}\]
+
+Yang Hui's diagram: In the Gougu figure, the reed length is the hypotenuse, the water depth is the height, and half the pond width is the base.%
+}
+
+\subsection{Problem: The Door and the Pole\/\zh{戶高與廣}}
+
+\bilingualpair{%
+\textbf{問：}戶高多於廣六尺八寸，兩隅相去適一丈。問戶高、廣各幾何？
+
+\textbf{答：}高九尺六寸，廣二尺八寸。
+
+\textbf{術：}設高為$h$，廣為$w$：
+\begin{align*}
+h - w &= 6.8 \\
+h^2 + w^2 &= 100
+\end{align*}
+由第一式：$h = w + 6.8$，代入第二式：
+\[(w + 6.8)^2 + w^2 = 100 \Rightarrow 2w^2 + 13.6w + 46.24 = 100\]
+\[2w^2 + 13.6w - 53.76 = 0 \Rightarrow w = 2.8\text{尺}, \quad h = 9.6\text{尺}\]%
+}{%
+\textbf{Problem:} A door's height exceeds its width by 6 \textit{chi} 8 \textit{cun}. The diagonal (distance between opposite corners) is exactly 1 \textit{zhang} (10 \textit{chi}). Find the height and width of the door.
+
+\textbf{Answer:} Height = 9 \textit{chi} 6 \textit{cun}, Width = 2 \textit{chi} 8 \textit{cun}.
+
+\textbf{Method:} Let $h$ = height, $w$ = width:
+\begin{align*}
+h - w &= 6.8 \\
+h^2 + w^2 &= 100
+\end{align*}
+From the first equation: $h = w + 6.8$. Substituting:
+\[(w + 6.8)^2 + w^2 = 100 \Rightarrow 2w^2 + 13.6w + 46.24 = 100\]
+\[2w^2 + 13.6w - 53.76 = 0 \Rightarrow w = 2.8\text{ \textit{chi}}, \quad h = 9.6\text{ \textit{chi}}\]%
+}
+
+\subsection{Problem: The Square Inscribed in a Right Triangle\/\zh{勾股容方}}
+
+\bilingualpair{%
+\textbf{問：}勾六步，股十一步，問容方幾何？
+
+\textbf{答：}方四步（近似值為$\frac{66}{17} \approx 3.88$步）。
+
+\textbf{術：}勾股容方之公式：對直角之正方形邊長$s$為
+\[s = \frac{ab}{a + b} = \frac{6 \times 11}{6 + 11} = \frac{66}{17} \approx 3.88\text{步}\]
+
+楊輝注：此術可以面積法證之。以勾、股為邊作兩正方形，再作對角線，其交點即為容方之一角。%
+}{%
+\textbf{Problem:} In a right triangle with base 6 paces and height 11 paces, find the side length of the largest square that can be inscribed with one side on the hypotenuse.
+
+\textbf{Answer:} Approximately 4 paces (exact value $\frac{66}{17} \approx 3.88$ paces).
+
+\textbf{Method:} For a right triangle with base $a$ and height $b$, the side $s$ of the inscribed square (with one side on the hypotenuse) is:
+\[s = \frac{ab}{a + b} = \frac{6 \times 11}{6 + 11} = \frac{66}{17} \approx 3.88\text{ paces}\]
+
+Yang Hui's commentary: This method can be proved using the area method. Construct squares on the base and height, draw their diagonals; the intersection gives a corner of the inscribed square.%
+}
+
+\subsection{Problem: Measuring the Square City\/\zh{邑方測量}}
+
+\bilingualpair{%
+\textbf{問：}邑方不知大小，各中開門。北門外二十步有木。出南門十四步，折而西行一千七百七十五步見木。問邑方幾何？
+
+\textbf{答：}二百五十步。
+
+\textbf{術：}設邑方為$s$。由相似三角形：
+\[\frac{s/2}{20} = \frac{1775}{s + 34}\]
+交叉相乘：$s(s + 34) = 2 \times 20 \times 1775 = 71000$
+\[s^2 + 34s - 71000 = 0 \Rightarrow s = 250\text{步}\]
+
+楊輝圖解：繪邑方圖，標五門及木之位置，以相似三角形之比例求解。此題為中國古代測量學之傑作。%
+}{%
+\textbf{Problem:} A square city has gates at the midpoint of each side. A tree stands 20 paces outside the north gate. Walking 14 paces out from the south gate, then turning west and walking 1,775 paces, the tree becomes visible. Find the side length of the city.
+
+\textbf{Answer:} 250 paces.
+
+\textbf{Method:} Let $s$ = side of the square city. By similar triangles:
+\[\frac{s/2}{20} = \frac{1775}{s + 34}\]
+Cross-multiplying: $s(s + 34) = 2 \times 20 \times 1775 = 71000$
+\[s^2 + 34s - 71000 = 0 \Rightarrow s = 250\text{ paces}\]
+
+Yang Hui's diagram: Draw the square city, mark the five gates and the tree's position, and solve using proportions of similar triangles. This problem is a masterpiece of ancient Chinese surveying.%
+}
+
+\newpage
+
+% ============================================================================
+\section{Chapter on Construction\/\zh{商功}}
+\label{sec:shanggong}
+
+\bilingualpair{%
+\zh{商功}（「工程估算」）章論各種幾何立體之體積計算，用於營建與土木工程。
+
+「商」意為「估算」或「計量」，「功」意為「工程」或「工作量」。此章提供城牆、堤壩、溝渠及各種立體之體積公式。%
+}{%
+The \textit{Shanggong} (``Construction Consultations'') chapter deals with the calculation of volumes for various geometric solids used in engineering and construction projects.
+
+The term \textit{shang} (\zh{商}) means ``to estimate'' or ``to calculate,'' and \textit{gong} (\zh{功}) means ``work'' or ``construction project.'' This chapter provides volume formulas for city walls, dikes, ditches, and various solids.%
+}
+
+\subsection{Volume Formulas\/\zh{求積公式}}
+
+\bilingualpair{%
+\textbf{商功求積法曰：}穿地四尺為壤五尺，為堅三尺。此穿地求壤四之，求堅三之，皆一而一。
+
+\textbf{城垣堤溝塹渠，皆同術。}并上下廣而半之，以高或深乘之，又以袤乘之，即積尺。
+\[V = \frac{(w_{\text{上}} + w_{\text{下}})}{2} \times h \times L\]
+
+其中$w_{\text{上}}$為上廣，$w_{\text{下}}$為下廣，$h$為高（或深），$L$為袤（長度）。%
+}{%
+\textbf{Volume conversion ratios:} When excavating earth: 4 \textit{chi} of loose earth becomes 5 \textit{chi} of piled earth, or 3 \textit{chi} of compacted earth. To convert: multiply loose volume by $\frac{5}{4}$ for piled earth, or by $\frac{3}{4}$ for compacted earth.
+
+\textbf{Method for city walls, walls, dikes, ditches, and canals:} Add the top and bottom widths, halve the sum, multiply by the height (or depth), and multiply by the length to obtain the volume in cubic \textit{chi}.
+\[V = \frac{(w_{\text{top}} + w_{\text{bottom}})}{2} \times h \times L\]
+
+where $w_{\text{top}}$ is the top width, $w_{\text{bottom}}$ is the bottom width, $h$ is the height (or depth), and $L$ is the length.%
+}
+
+\subsection{Problem: Volume of a City Wall\/\zh{城垣積}}
+
+\bilingualpair{%
+\textbf{問：}城下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問積幾何？
+
+\textbf{答：}一百八十九萬七千五百尺。
+
+\textbf{術：}
+\[V = \frac{(40 + 20)}{2} \times 50 \times 1265 = 30 \times 50 \times 1265 = 1{,}897{,}500\text{立方尺}\]
+（注：一丈 = 十尺。下廣四丈 = 四十尺，上廣二丈 = 二十尺，高五丈 = 五十尺。）%
+}{%
+\textbf{Problem:} A city wall has bottom width 4 \textit{zhang} (\zh{丈}), top width 2 \textit{zhang}, height 5 \textit{zhang}, and length $126\frac{1}{2}$ \textit{zhang}. What is its volume?
+
+\textbf{Answer:} 1,897,500 cubic \textit{chi}.
+
+\textbf{Method:}
+\[V = \frac{(40 + 20)}{2} \times 50 \times 1265 = 30 \times 50 \times 1265 = 1{,}897{,}500\text{ cubic \textit{chi}}\]
+(Note: 1 \textit{zhang} = 10 \textit{chi}. Bottom width 4 \textit{zhang} = 40 \textit{chi}, top width 2 \textit{zhang} = 20 \textit{chi}, height 5 \textit{zhang} = 50 \textit{chi}.)%
+}
+
+\subsection{Problem: Square Tower\/\zh{方亭臺}}
+
+\bilingualpair{%
+\textbf{問：}方亭臺，上方四丈，下方五丈，高五丈。問積幾何？
+
+\textbf{答：}一十萬一千六百六十六尺太半尺（即$101{,}666\frac{2}{3}$立方尺）。
+
+\textbf{術：}方亭（正截頭方錐）體積公式：
+\[V = \frac{h}{3}(a^2 + ab + b^2)\]
+其中$a = 40$尺（上方邊長），$b = 50$尺（下方邊長），$h = 50$尺（高）：
+\[V = \frac{50}{3}(40^2 + 40 \times 50 + 50^2) = \frac{50}{3}(1600 + 2000 + 2500) = \frac{50 \times 6100}{3} = 101{,}666\tfrac{2}{3}\]%
+}{%
+\textbf{Problem:} A square platform has top side 4 \textit{zhang}, bottom side 5 \textit{zhang}, and height 5 \textit{zhang}. What is its volume?
+
+\textbf{Answer:} 101,666 $\frac{2}{3}$ cubic \textit{chi}.
+
+\textbf{Method:} For a square frustum (\zh{方亭}):
+\[V = \frac{h}{3}(a^2 + ab + b^2)\]
+where $a = 40$ \textit{chi} (top side), $b = 50$ \textit{chi} (bottom side), $h = 50$ \textit{chi} (height):
+\[V = \frac{50}{3}(40^2 + 40 \times 50 + 50^2) = \frac{50}{3}(1600 + 2000 + 2500) = \frac{50 \times 6100}{3} = 101{,}666\tfrac{2}{3}\]%
+}
+
+\subsection{Problem: Round Tower\/\zh{圓亭臺}}
+
+\bilingualpair{%
+\textbf{問：}圓亭臺，上周二丈，下周三丈，高二丈。問積幾何？
+
+\textbf{術：}圓亭（正截頭圓錐）體積公式：
+\[V = \frac{h}{36}(C_1^2 + C_1 \cdot C_2 + C_2^2) \times \frac{4}{\pi^2}\]
+其中$C_1$、$C_2$分別為上下周長。以中國古率$\pi \approx 3$計之：
+\[V \approx \frac{h}{12}(r_1^2 + r_1 r_2 + r_2^2)\]
+此處上周$C_1 = 20$尺，下周$C_2 = 30$尺，高$h = 20$尺。
+
+楊輝注：「圓亭之術，以周徑相乘，以高乘之，三十六而一。」%
+}{%
+\textbf{Problem:} A circular platform has top circumference 2 \textit{zhang}, bottom circumference 3 \textit{zhang}, and height 2 \textit{zhang}. What is its volume?
+
+\textbf{Method:} For a circular frustum (\zh{圓亭}):
+\[V = \frac{h}{36}(C_1^2 + C_1 \cdot C_2 + C_2^2) \times \frac{4}{\pi^2}\]
+where $C_1$ and $C_2$ are the top and bottom circumferences. In ancient Chinese mathematics, $\pi \approx 3$:
+\[V \approx \frac{h}{12}(r_1^2 + r_1 r_2 + r_2^2)\]
+Here $C_1 = 20$ \textit{chi}, $C_2 = 30$ \textit{chi}, $h = 20$ \textit{chi}.
+
+Yang Hui's commentary: ``For a circular platform, multiply the circumference and diameter, multiply by the height, and divide by 36.''%
+}
+
+\subsection{Problem: Grain Pile on the Ground\/\zh{委粟平地}}
+
+\bilingualpair{%
+\textbf{問：}委粟平地，下周一十二丈，高二丈。問積幾何？及為粟各幾何？
+
+\textbf{術：}粟堆為圓錐形。以中國古率$\pi \approx 3$：
+\[V = \frac{C^2 \times h}{36} = \frac{120^2 \times 20}{36} = \frac{288000}{36} = 8000\text{立方尺}\]
+再以粟之容積率換算為斛數。
+
+楊輝注：委粟於平地成圓錐，其下周即圓錐之底周，高即圓錐之高。以周求積，三十六而一，即古率之術也。%
+}{%
+\textbf{Problem:} A pile of millet grain on flat ground has base circumference 12 \textit{zhang} and height 2 \textit{zhang}. What is its volume and how many \textit{hu} of millet does it contain?
+
+\textbf{Method:} The pile forms a cone. Using the formula with $\pi \approx 3$:
+\[V = \frac{C^2 \times h}{36} = \frac{120^2 \times 20}{36} = \frac{288000}{36} = 8000\text{ cubic \textit{chi}}\]
+The conversion to \textit{hu} of grain uses the standard conversion rate.
+
+Yang Hui's commentary: Millet piled on flat ground forms a cone; its base circumference is the cone's base circumference, and its height is the cone's height. Using the circumference to find the volume and dividing by 36 is the method of the ancient rate.%
+}
+
+\newpage
+
+% ============================================================================
+\section{Yang Hui's Triangle\/\zh{開方作法本源}}
+\label{sec:triangle}
+
+\bilingualpair{%
+楊輝最著名之貢獻之一，為保存現今稱為「楊輝三角」（西方常稱帕斯卡三角）之數表。楊輝將此歸功於北宋數學家賈憲（約1010--1070年）。
+
+此三角列出二項式展開之係數，用於開方運算。楊輝稱之為「開方作法本源」，意為「開方運算之根本方法」。%
+}{%
+One of Yang Hui's most celebrated contributions is his preservation of what is now known as ``Yang Hui's Triangle'' (often called Pascal's Triangle in the West). Yang Hui attributes this to the Northern Song mathematician Jia Xian (c.\ 1010--1070).
+
+This triangle lists the coefficients for binomial expansion, used in root extraction. Yang Hui called it the \textit{Kaifang zuofa benyuan} (``Source of the Method for Extracting Roots''), meaning ``the fundamental method for root extraction.''%
+}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{Yang Hui's Triangle\/\zh{楊輝三角}}
+
+\medskip
+\begin{tabular}{ccccccccccc}
+ & & & & & 1 & & & & & \\
+ & & & & 1 & & 1 & & & & \\
+ & & & 1 & & 2 & & 1 & & & \\
+ & & 1 & & 3 & & 3 & & 1 & & \\
+ & 1 & & 4 & & 6 & & 4 & & 1 & \\
+ 1 & & 5 & & 10 & & 10 & & 5 & & 1 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\bilingualpair{%
+\textbf{開方作法本源：}左裪乃積數，右裪乃隅算，中藏者皆廉。以廉乘商方，命實而除之。
+
+\textbf{詳解：}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 左斜邊（左裪）：皆為1，即各次方之積數
+  \item 右斜邊（右裪）：皆為1，即隅算
+  \item 中間各數（廉）：即二項式係數
+\end{itemize}
+
+此數表提供二項展開之係數：
+\begin{align*}
+(a+b)^1 &= a + b \\
+(a+b)^2 &= a^2 + 2ab + b^2 \\
+(a+b)^3 &= a^3 + 3a^2b + 3ab^2 + b^3 \\
+(a+b)^4 &= a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4 \\
+(a+b)^5 &= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5
+\end{align*}%
+}{%
+\textbf{Explanation:} The left side gives the coefficients for root extraction, the right side gives the corner value (always 1), and the center entries are the ``shoulders'' (intermediate coefficients).
+
+\textbf{Detailed explanation:}
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item Left diagonal (\zh{左裪}): all 1s, the accumulated numbers
+  \item Right diagonal (\zh{右裪}): all 1s, the corner values
+  \item Center entries (\zh{廉}): the binomial coefficients
+\end{itemize}
+
+The triangle provides the coefficients for binomial expansion:
+\begin{align*}
+(a+b)^1 &= a + b \\
+(a+b)^2 &= a^2 + 2ab + b^2 \\
+(a+b)^3 &= a^3 + 3a^2b + 3ab^2 + b^3 \\
+(a+b)^4 &= a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4 \\
+(a+b)^5 &= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5
+\end{align*}%
+}
+
+\subsection{Application to Root Extraction\/\zh{開方之應用}}
+
+\bilingualpair{%
+楊輝以這些係數運用於\zh{增乘開方法}（「遞增乘法」）以求平方根、立方根及更高次方根。此方法等同於西方數學中之霍納法（Horner's method）。
+
+\textbf{開平方示例：}求$\sqrt{55225}$
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+  \item 置55225為實，從末位起每隔一位作節：$5\,52\,25$
+  \item 初商：最大整數平方不大於5者為2，$2^2 = 4$，餘1
+  \item 次商：以20乘初商得40為廉法，次商5，$405 \times 5 = 2025$，餘525
+  \item 三商：以20乘已得數235得4700，三商5，$4705 \times 5 = 23525$，餘0
+\end{enumerate}
+故$\sqrt{55225} = 235$。
+
+楊輝圖解：以三角之第二行係數（1, 2, 1）對應開平方之各級運算。%
+}{%
+Yang Hui used these coefficients in the method of \textit{zengcheng kaifang fa} (``Increasing Multiplication Method'') for extracting square roots, cube roots, and higher-order roots. This method is equivalent to Horner's method in Western mathematics.
+
+\textbf{Square root example:} Find $\sqrt{55225}$
+\begin{enumerate}[leftmargin=1.5em,topsep=0pt]
+  \item Set 55225 as the dividend, mark off pairs from the right: $5\,52\,25$
+  \item First digit: largest integer whose square $\leq 5$ is 2, $2^2 = 4$, remainder 1
+  \item Second digit: multiply first result (2) by 20 to get 40; second digit is 5; $405 \times 5 = 2025$, remainder 525
+  \item Third digit: multiply current result (23) by 20 to get 4600; third digit is 5; $465 \times 5 = 2325$
+\end{enumerate}
+Thus $\sqrt{55225} = 235$.
+
+Yang Hui's diagram: The second row of the triangle (1, 2, 1) corresponds to the levels of computation in square root extraction.%
+}
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+% ============================================================================
+\section*{Appendix: Classification of Nine Chapters Problems\/\zh{九章纂類}}
+\addcontentsline{toc}{section}{Appendix\/\zh{附錄}：\zh{九章纂類}}
+
+\bilingualpair{%
+楊輝將《九章算術》之二百四十六題按其解法分為九大類：%
+}{%
+Yang Hui reorganized the 246 problems of the Nine Chapters into nine categories based on their solution methods:%
+}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{longtable}{|c|l|c|}
+\hline
+\textbf{No.} & \textbf{Category\/\zh{類}} & \textbf{Problems\/\zh{題數}} \\
+\hline
+1 & \zh{乘除} (Multiplication and Division) & 41 \\
+2 & \zh{分率} (Rates and Proportions) & 41 \\
+3 & \zh{合率} (Combined Rates) & 10 \\
+4 & \zh{互換} (Exchange and Conversion) & 11 \\
+5 & \zh{衰分} (Proportional Distribution) & 18 \\
+6 & \zh{疊積} (Stacked Accumulations) & 27 \\
+7 & \zh{盈不足} (Excess and Deficit) & 20 \\
+8 & \zh{方程} (Rectangular Arrays) & 19 \\
+9 & \zh{勾股} (Right Triangles) & 24 \\
+\hline
+\multicolumn{2}{|r|}{\textbf{Total\/\zh{總計}}} & \textbf{246} \\
+\hline
+\end{longtable}
+\end{center}
+
+\vspace{0.5cm}
+
+\bilingualpair{%
+\zh{楊輝竊見九章舊本，作立題法，迫圓古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至具術淹廢，偽本滋興。此說固然，殊不知所傳之本亦不得其真矣。}%
+}{%
+Yang Hui observed that in old editions of the Nine Chapters, since the Jingkang era (1126 CE), original copies have been rare. Those that survived were corrupted by later practices, deviating from the original intent, leading to the decline of proper methods and the proliferation of erroneous editions.
+
+Yang Hui laments that since the fall of the Northern Song, authentic editions have become increasingly scarce, and even surviving copies have been corrupted by accumulated errors.%
+}
+
+\vspace{1.5cm}
+
+\bilingualpair{%
+\textbf{楊輝數學著作年表}
+
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 1261年：《詳解九章算法》十二卷
+  \item 1262年：《日用算法》二卷
+  \item 1274年：《乘除通變本末》三卷
+  \item 1275年：《田畝比類乘除捷法》二卷
+  \item 1275年：《續古摘奇算法》二卷
+\end{itemize}
+
+楊輝為中國數學史上最重要之數學家之一，其著作保存了大量已失傳之早期數學方法，為研究宋代數學之珍貴文獻。%
+}{%
+\textbf{Chronology of Yang Hui's Mathematical Works}
+
+\begin{itemize}[leftmargin=1em,topsep=0pt]
+  \item 1261 CE: \textit{Xiangjie Jiuzhang Suanfa} (12 volumes)
+  \item 1262 CE: \textit{Riyong Suanfa} (Daily Mathematics, 2 volumes)
+  \item 1274 CE: \textit{Chengchu Tongbian Benmo} (3 volumes)
+  \item 1275 CE: \textit{Tianmu Bilei Chengchu Jiefa} (2 volumes)
+  \item 1275 CE: \textit{Xugu Zhaiqi Suanfa} (2 volumes)
+\end{itemize}
+
+Yang Hui is one of the most important mathematicians in Chinese history. His works preserved numerous early mathematical methods that are now lost, making them invaluable documents for the study of Song dynasty mathematics.%
+}
+
+\vspace{1.5cm}
+\begin{center}
+\longline\\[0.5cm]
+{\small\textit{End of Part II\/\zh{第二部分終}}}\\[0.3cm]
+{\small\textit{Bilingual Edition\/\zh{雙語版}} --- \today}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: translations/en/chinese/yang-hui-xiangjie-jiuzhang-part3_bilingual.tex
+% ============================================================
+
+%% ===== MAIN CONTENT =====
+\section{乘除第一 \textbar\ Multiplication and Division}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡四十一問}。今考該四十問：方田三十八，粟米二問。
+
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 41 problems.} Now examining: 40 problems from the Field Measurement chapter (38) and Millet \& Grain (2).
+\end{paracol}
+
+\subsection{基本方法 \textbar\ Basic Methods}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{直田法}曰：廣從相乘為實，如畝法而一。
+
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Method for Rectangular Fields:} Multiply the width by the length to obtain the dividend; divide by the unit (240 square paces per mu).
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{方田一 \textbar\ Field Measurement 1}{Rectangular field, width 15 paces, length 16 paces: find the area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+廣十五步，從十六步，問田幾何？
+
+\textsf{答曰：}一畝。
+\switchcolumn[1]
+Width 15 paces, length 16 paces: what is the area of the field?
+
+\textsf{Answer:} 1 mu.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{方田二 \textbar\ Field Measurement 2}{Rectangular field, width 12 paces, length 14 paces: find the area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+廣十二步，從十四步，問田幾何？
+
+\textsf{答曰：}一百六十八步。
+\switchcolumn[1]
+Width 12 paces, length 14 paces: what is the area of the field?
+
+\textsf{Answer:} 168 square paces.
+\end{paracol}
+\end{problemenv}
+
+\subsection{里田法 \textbar\ Method for Li-Square Fields}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{里田法}曰：方自乘為積里，以一里之積三百七十五畝乘之。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Method for Li-Square Fields:} Square the side to obtain the area in square li; multiply by the conversion that 1 square li = 375 mu.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{里田一 \textbar\ Li-Square Field 1}{Square field of side 1 li: find the area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+方田一里，問為田幾何？
+
+\textsf{答曰：}三頃七十五畝。
+\switchcolumn[1]
+A square field of side 1 li: what is its area?
+
+\textsf{Answer:} 3 qing 75 mu.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{里田二 \textbar\ Li-Square Field 2}{Rectangular field, width 2 li, length 3 li: find the area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+廣二里，從三里，問田幾何？
+
+\textsf{答曰：}二十二頃五十畝。
+\switchcolumn[1]
+Width 2 li, length 3 li: what is the area of the field?
+
+\textsf{Answer:} 22 qing 50 mu.
+\end{paracol}
+\end{problemenv}
+
+\subsection{圭田法 \textbar\ Method for Triangular ("Dagger") Fields}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{圭田法}曰：半廣以乘正從，或半正從以乘廣。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Method for Triangular ("Dagger") Fields:} Take half the width and multiply by the perpendicular length, or take half the perpendicular length and multiply by the width.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{圭田 \textbar\ Dagger Field}{Triangular field, width 12 paces, perpendicular length 21 paces: find the area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+圭田廣十二步，從二十一步，問田幾何？
+
+\textsf{答曰：}一百二十六步。
+\switchcolumn[1]
+A triangular (dagger) field, width 12 paces, perpendicular length 21 paces: what is its area?
+
+\textsf{Answer:} 126 square paces.
+\end{paracol}
+\end{problemenv}
+
+\subsection{斜田法 \textbar\ Method for Trapezoidal Fields}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{斜田法}曰：併兩斜半之以乘正從，或併兩廣乘半從。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Method for Trapezoidal Fields:} Add the two slant sides and halve, then multiply by the perpendicular length; or add the two widths and multiply by half the length.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{斜田 \textbar\ Trapezoidal Field}{Trapezoid with upper width 65 paces, one side 72 paces, other side 100 paces: find area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+斜田正廣六十五步，一畔從七十二步，一畔從一百步，問田幾何？
+
+\textsf{答曰：}九畝一百四十四步。
+\switchcolumn[1]
+A trapezoidal field, perpendicular width 65 paces, one side 72 paces, the other side 100 paces: what is its area?
+
+\textsf{Answer:} 9 mu 144 square paces.
+\end{paracol}
+\end{problemenv}
+
+\subsection{圓田法 \textbar\ Method for Circular Fields}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{圓田法}曰：半周半徑相乘，半周自乘三而一，周自乘十二而一，徑自乘三之四而一。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Method for Circular Fields:} Multiply half the circumference by half the diameter; or square half the circumference and divide by 3; or square the circumference and divide by 12; or square the diameter, multiply by 3, and divide by 4.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{圓田 \textbar\ Circular Field}{Circle with circumference 30 paces, diameter 10 paces: find area? (Ancient method)}
+\begin{paracol}{2}
+\switchcolumn[0]
+圓田周三十步，徑一十步，問田幾何？（古術）
+
+\textsf{答曰：}七十五步。
+\switchcolumn[1]
+A circular field, circumference 30 paces, diameter 10 paces: what is its area? (Ancient method, using $\pi \approx 3$)
+
+\textsf{Answer:} 75 square paces.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{圓田（密率）\textbar\ Circular Field (Precise Rate)}{Using the precise rate for circular area}
+\begin{paracol}{2}
+\switchcolumn[0]
+密率答曰：七十一步二十二分步之一十三。
+
+\textbf{密率}：周自乘，又二十五乘之，三百一十四而一。
+\switchcolumn[1]
+Using the precise rate, the answer is: 71 and 13/22 square paces.
+
+\textbf{Precise rate:} Square the circumference, multiply by 25, and divide by 314 ($\pi \approx 3.14$).
+\end{paracol}
+\end{problemenv}
+
+\subsection{除率法 \textbar\ Division Rate Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{經率法}（俗名商除）曰：錢數為實，以所買率為法，實如法而一。原載粟米章。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Standard Rate Method} (commonly called "merchant division"): The amount of cash is the dividend; the purchase rate is the divisor; divide the dividend by the divisor. Originally from the Millet \& Grain chapter.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{經率一 \textbar\ Standard Rate 1}{160 cash buys 18 roof tiles: find price per tile?}
+\begin{paracol}{2}
+\switchcolumn[0]
+錢一百六十文，買瓴甓十八枚，問枚價幾何？
+
+\textsf{答曰：}一枚八錢九分錢之八。
+\switchcolumn[1]
+160 cash buys 18 roof tiles: what is the price per tile?
+
+\textsf{Answer:} 8 and 8/9 cash per tile.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{經率二 \textbar\ Standard Rate 2}{13,500 cash buys 2,350 bamboo poles: find price per pole?}
+\begin{paracol}{2}
+\switchcolumn[0]
+錢十三貫五百，買竹二千三百五十個，問個價？
+
+\textsf{答曰：}五錢四十七分錢之三十五。
+\switchcolumn[1]
+13,500 cash buys 2,350 bamboo poles: what is the price per pole?
+
+\textsf{Answer:} 5 and 35/47 cash per pole.
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{互換第二 \textbar\ Exchange and Barter}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡五十六問}。今考該五十五問：粟米三十一，衰分十一，均輸十一，盈朒二。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 56 problems.} Now examining: 55 problems from Millet \& Grain (31), Proportional Division (11), Equitable Transport (11), and Excess \& Deficit (2).
+\end{paracol}
+
+\subsection{互換法 \textbar\ Exchange Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{互換法}曰：以所求率乘所有數，為實；以所有率為法，實如法而一。
+
+置位法曰：錢錢物物數數率率依本色對列，其各物原率隨而下布。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Exchange Method:} Multiply the desired rate by the quantity possessed to obtain the dividend; the rate of what is possessed is the divisor; divide the dividend by the divisor.
+
+Arrangement method: Cash, cash; goods, goods; numbers, numbers; rates, rates---arrange in corresponding columns by kind, with the original rates of each item laid out below.
+\end{paracol}
+
+\subsection{粟米互換 \textbar\ Millet and Grain Exchange}
+
+\begin{problemenv}{粟米互換一 \textbar\ Millet Exchange 1}{2 dou 1 sheng of millet: how much coarse rice?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟二斗一升，問為粺米幾何？
+
+\textsf{答曰：}一斗一升五十分升之十七。
+\switchcolumn[1]
+2 dou 1 sheng of millet: how much polished rice does it make?
+
+\textsf{Answer:} 1 dou 1 sheng and 17/50 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換二 \textbar\ Millet Exchange 2}{3 dou 6 sheng of millet: how much coarse cooked rice?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟三斗六升，問為粺飯幾何？
+
+\textsf{答曰：}三斗八升二十五分升之二十二。
+\switchcolumn[1]
+3 dou 6 sheng of millet: how much polished cooked rice does it make?
+
+\textsf{Answer:} 3 dou 8 sheng and 22/25 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換三 \textbar\ Millet Exchange 3}{8 dou 6 sheng of millet: how much fine cooked rice?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟八斗六升，問為糳飯幾何？
+
+\textsf{答曰：}八斗二升二十五分升之一十四。
+\switchcolumn[1]
+8 dou 6 sheng of millet: how much fine cooked rice does it make?
+
+\textsf{Answer:} 8 dou 2 sheng and 14/25 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換四 \textbar\ Millet Exchange 4}{9 dou 8 sheng of millet: how much imperial cooked rice?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟九斗八升，問為御飯幾何？
+
+\textsf{答曰：}八斗二升二十五分升之八。
+\switchcolumn[1]
+9 dou 8 sheng of millet: how much imperial cooked rice does it make?
+
+\textsf{Answer:} 8 dou 2 sheng and 8/25 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換五 \textbar\ Millet Exchange 5}{7 dou 8 sheng of millet: how much fermented soybeans?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟七斗八升，問為豉幾何？
+
+\textsf{答曰：}九斗八升二十五分升之七。
+\switchcolumn[1]
+7 dou 8 sheng of millet: how much fermented soybeans (chi) does it make?
+
+\textsf{Answer:} 9 dou 8 sheng and 7/25 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換六 \textbar\ Millet Exchange 6}{5 dou 5 sheng of millet: how much cooked grain?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟五斗五升，問為飧幾何？
+
+\textsf{答曰：}九斗九升。
+\switchcolumn[1]
+5 dou 5 sheng of millet: how much cooked grain (sun) does it make?
+
+\textsf{Answer:} 9 dou 9 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換七 \textbar\ Millet Exchange 7}{4 dou of millet: how much cooked beans?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟四斗，問為熟菽幾何？
+
+\textsf{答曰：}八斗二升五分升之四。
+\switchcolumn[1]
+4 dou of millet: how much cooked beans does it make?
+
+\textsf{Answer:} 8 dou 2 sheng and 4/5 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換八 \textbar\ Millet Exchange 8}{2 dou of millet: how much malt?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟二斗，問為蘖幾何？
+
+\textsf{答曰：}七斗。
+\switchcolumn[1]
+2 dou of millet: how much malt (nie) does it make?
+
+\textsf{Answer:} 7 dou.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換九 \textbar\ Millet Exchange 9}{3 dou minus 1/3 sheng of millet: how much beans?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟三斗少半升，問為菽幾何？
+
+\textsf{答曰：}二斗七升十分升之三。
+\switchcolumn[1]
+3 dou minus 1/3 sheng of millet: how much beans does it make?
+
+\textsf{Answer:} 2 dou 7 sheng and 3/10 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十 \textbar\ Millet Exchange 10}{4 dou 1 sheng plus 2/3 sheng of millet: how much da (coarse grain)?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟四斗一升太半升，問為答幾何？
+
+\textsf{答曰：}三斗七升半。
+\switchcolumn[1]
+4 dou 1 sheng and 2/3 sheng of millet: how much da (coarse grain) does it make?
+
+\textsf{Answer:} 3 dou 7.5 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十一 \textbar\ Millet Exchange 11}{5 dou plus 1/2 sheng of millet: how much hemp?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟五斗太半升，問為麻幾何？
+
+\textsf{答曰：}四斗五升五分升之三。
+\switchcolumn[1]
+5 dou and 1/2 sheng of millet: how much hemp does it make?
+
+\textsf{Answer:} 4 dou 5 sheng and 3/5 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十二 \textbar\ Millet Exchange 12}{1 dou of millet: how much coarse rice?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟一斗，問為粝米幾何？
+
+\textsf{答曰：}六升。
+\switchcolumn[1]
+1 dou of millet: how much coarse rice does it make?
+
+\textsf{Answer:} 6 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{粟米互換十三 \textbar\ Millet Exchange 13}{4 dou 5 sheng of millet: how much fine rice?}
+\begin{paracol}{2}
+\switchcolumn[0]
+粟四斗五升，問為糳米幾何？
+
+\textsf{答曰：}二斗一升五分升之三。
+\switchcolumn[1]
+4 dou 5 sheng of millet: how much fine rice does it make?
+
+\textsf{Answer:} 2 dou 1 sheng and 3/5 sheng.
+\end{paracol}
+\end{problemenv}
+
+\subsection{持金出關 \textbar\ Carrying Gold Through Passes}
+
+\begin{problemenv}{持金出關 \textbar\ Gold Through Pass}{Carrying 12 jin of gold through a pass, tax is 1/10. Pass takes 2 jin of gold worth 5,000 cash. Find price per jin?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今持金十二斤出關，稅之十分而取一。今關取金二斤，價錢五千。問金一斤值錢幾何？
+
+\textsf{答曰：}六千二百五十。
+\switchcolumn[1]
+Now carrying 12 jin of gold out through a pass, the tax is 1 in 10. The pass takes 2 jin of gold, worth 5,000 cash. What is the price per jin of gold?
+
+\textsf{Answer:} 6,250 cash.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{持米出三關 \textbar\ Rice Through Three Passes}{Rice through outer (1/3), middle (1/5), inner (1/7) passes; 5 dou remain. Find original amount?}
+\begin{paracol}{2}
+\switchcolumn[0]
+持米出三關，外關三分稅一，中關五分稅一，內關七分稅一，餘存米五斗。問：原米幾何？
+
+\textsf{答曰：}一十斗九升八分升之三。
+\switchcolumn[1]
+Carrying rice through three passes: the outer pass takes 1/3, the middle 1/5, the inner 1/7; 5 dou remain. What was the original amount of rice?
+
+\textsf{Answer:} 10 dou 9 sheng and 3/8 sheng.
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{合率第三 \textbar\ Combined Rates}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡二十問}：少廣十一，均輸八，盈不足一。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 20 problems:} Short Width (11), Equitable Transport (8), Excess \& Deficit (1).
+\end{paracol}
+
+\subsection{少廣法 \textbar\ Short Width Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+少廣反合分並率。設諸分母子併而為廣，借田求縱，立少廣章，易合分之術而為之法。用副置分母自乘，以乘全步及諸子，各以本母除其子而併之，免互乘之繁。又得此術，兼助合分，使法術引伸，不亦善乎？
+
+\textbf{少廣法}曰：列置全步及分母子，而副置分母自乘，以乘全步及子，各以本母除子，併之為法，以全步積分乘畝步為實，實如法而一。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+Short Width is the inverse of combining fractions and rates. Setting up various fractional denominators and numerators combined as width, borrowing a field to find the length---this establishes the Short Width chapter, converting the technique of combining fractions into a method. Place the denominators separately, squaring them, to multiply whole paces and numerators; each divides its numerator by its own denominator and combines them---avoiding the complexity of cross-multiplication. Having obtained this method, it also assists in combining fractions, extending and developing the methods---is this not excellent?
+
+\textbf{Short Width Method:} Arrange whole paces and fractional denominators and numerators; separately place the squared denominator to multiply whole paces and numerators; each divides its numerator by its own denominator; combine them as divisor; multiply the whole-pace integral by the mu-conversion (240) as dividend; divide the dividend by the divisor.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{少廣一 \textbar\ Short Width 1}{Field of 1 mu, width 1.5 paces: find length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田一畝廣一步半，問從？
+
+\textsf{答曰：}一百六十步。
+\switchcolumn[1]
+A field of 1 mu, width 1.5 paces: what is its length?
+
+\textsf{Answer:} 160 paces.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{少廣二 \textbar\ Short Width 2}{Field of 1 mu, width $1\frac{1}{2}\frac{1}{3}$ paces: find length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田一畝廣一步半，三分步之一，問從？
+
+\textsf{答曰：}一百三十步一十一分步之一十。
+\switchcolumn[1]
+A field of 1 mu, width $1\frac{1}{2}\frac{1}{3}$ paces: what is its length?
+
+\textsf{Answer:} 130 and 10/11 paces.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{少廣三 \textbar\ Short Width 3}{Field of 1 mu, width $1\frac{1}{2}\frac{1}{3}\frac{1}{4}$ paces: find length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田一畝廣一步半，三分步之一，四分步之一，問從？
+
+\textsf{答曰：}一百一十五步五分步之一。
+\switchcolumn[1]
+A field of 1 mu, width $1\frac{1}{2}\frac{1}{3}\frac{1}{4}$ paces: what is its length?
+
+\textsf{Answer:} 115 and 1/5 paces.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{少廣四 \textbar\ Short Width 4}{Field of 1 mu, width $1\frac{1}{2}\frac{1}{3}\frac{1}{4}\frac{1}{5}$ paces: find length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，問從？
+
+\textsf{答曰：}一百五步一百三十七分步之一十五。
+\switchcolumn[1]
+A field of 1 mu, width $1\frac{1}{2}\frac{1}{3}\frac{1}{4}\frac{1}{5}$ paces: what is its length?
+
+\textsf{Answer:} 105 and 15/137 paces.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{少廣五 \textbar\ Short Width 5}{Field of 1 mu, width including up to 1/6: find length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，問從？
+
+\textsf{答曰：}九十七步四十九分步之四十七。
+\switchcolumn[1]
+A field of 1 mu, width including fractions up to 1/6: what is its length?
+
+\textsf{Answer:} 97 and 47/49 paces.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{少廣六 \textbar\ Short Width 6}{Field of 1 mu, width including up to 1/7: find length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田一畝廣一步半，三分步之一，四分步之一，五分步之一，六分步之一，七分步之一，問從？
+
+\textsf{答曰：}九十二步一百二十一分步之六十八。
+\switchcolumn[1]
+A field of 1 mu, width including fractions up to 1/7: what is its length?
+
+\textsf{Answer:} 92 and 68/121 paces.
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{分率第四 \textbar\ Fractional Rates}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡九問}。本章九問。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 9 problems.} All from this chapter.
+\end{paracol}
+
+\subsection{乘分法 \textbar\ Multiplication of Fractions}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{乘分法}曰：分母各乘其全，分子從之，相乘為實，分母相乘為法。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Multiplication of Fractions Method:} Each denominator multiplies its whole number, the numerators following; multiply together as dividend; multiply denominators together as divisor.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{乘分一 \textbar\ Fraction Multiplication 1}{Field width $18\frac{5}{7}$ paces, length $23\frac{6}{11}$ paces: find area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田廣一十八步七分步之五，從二十三步十一分步之六，問為田幾何？
+
+\textsf{答曰：}一畝二百步十一分步之七。
+\switchcolumn[1]
+Field width $18\frac{5}{7}$ paces, length $23\frac{6}{11}$ paces: what is the area?
+
+\textsf{Answer:} 1 mu 200 and 7/11 square paces.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{乘分二 \textbar\ Fraction Multiplication 2}{Field width $3\frac{1}{3}$ paces, length $5\frac{1}{5}$ paces: find area?}
+\begin{paracol}{2}
+\switchcolumn[0]
+田廣三步三分步之一，從五步五分步之一，問為田幾何？
+
+\textsf{答曰：}一十八步。
+\switchcolumn[1]
+Field width $3\frac{1}{3}$ paces, length $5\frac{1}{5}$ paces: what is the area?
+
+\textsf{Answer:} 18 square paces.
+\end{paracol}
+\end{problemenv}
+
+\subsection{除分法 \textbar\ Division of Fractions}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{除分法}曰：人數為法，錢數為實，有分者通之，實如法而一。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Division of Fractions Method:} The number of people is the divisor; the amount of cash is the dividend; if there are fractions, convert them; divide the dividend by the divisor.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{除分一 \textbar\ Fraction Division 1}{7 people each contribute $1\frac{1}{3}$ cash: how much per person?}
+\begin{paracol}{2}
+\switchcolumn[0]
+七人均入錢三分錢之一，問人得幾何？
+
+\textsf{答曰：}人得一錢二十一分錢之四。
+\switchcolumn[1]
+7 people each contribute $1\frac{1}{3}$ cash: how much does each person get?
+
+\textsf{Answer:} Each gets 1 and 4/21 cash.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{除分二 \textbar\ Fraction Division 2}{Complex fraction division with 3 people}
+\begin{paracol}{2}
+\switchcolumn[0]
+三人三分人之一均六錢三分錢之一四分錢之三，問人得幾何？
+
+\textsf{答曰：}得三錢八分錢之一。
+\switchcolumn[1]
+$3\frac{1}{3}$ people share $6\frac{1}{3}\frac{3}{4}$ cash: how much per person?
+
+\textsf{Answer:} Each gets 3 and 1/8 cash.
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{衰分第五 \textbar\ Proportional Distribution}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡一十八問}：本章九問，均輸九問。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 18 problems:} 9 from this chapter, 9 from Equitable Transport.
+\end{paracol}
+
+\subsection{衰分法 \textbar\ Proportional Distribution Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{衰分法}曰：各置列衰，副併為法，以所分乘未併者各自為實，實如法而一。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Proportional Distribution Method:} Set out the proportional rates (lie shuai) for each; combine them as divisor; multiply the quantity to be distributed by each uncombined rate as dividend; divide each dividend by the divisor.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{衰分一 \textbar\ Proportional Distribution 1}{Cattle, sheep, and pig prices from exchange conditions}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有牛二羊五買豕一十三家，有餘錢一千；賣牛三豕三以買九羊，錢適足；賣六羊八豕以買五牛，錢不足六百。問牛羊豕價各幾何？
+
+\textsf{答曰：}牛價一千二百，羊價五百，豕價三百。
+\switchcolumn[1]
+Given: 2 cattle and 5 sheep buy 13 pigs, with 1,000 cash remaining; 3 cattle and 3 pigs buy 9 sheep, cash exactly sufficient; 6 sheep and 8 pigs buy 5 cattle, 600 cash short. What are the prices of cattle, sheep, and pigs?
+
+\textsf{Answer:} Cattle 1,200 cash, Sheep 500 cash, Pigs 300 cash.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{衰分二（五雀六燕）\textbar\ Five Sparrows and Six Swallows}{Five sparrows and six swallows together weigh 1 jin}
+\begin{paracol}{2}
+\switchcolumn[0]
+五雀六燕共重一斤，雀重燕輕，交易一枚，其重適等。問各幾何？
+
+\textsf{答曰：}雀一兩十九分兩之一十三，燕一兩十九分兩之五。
+\switchcolumn[1]
+Five sparrows and six swallows together weigh 1 jin; the sparrow is heavy, the swallow light. Exchange one bird between the groups and their weights become equal. What is the weight of each?
+
+\textsf{Answer:} Sparrow $1\frac{13}{19}$ liang; Swallow $1\frac{5}{19}$ liang.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{均輸一 \textbar\ Equitable Transport 1}{Five counties equitably distributing 10,000 dan of grain tax}
+\begin{paracol}{2}
+\switchcolumn[0]
+五縣均賦粟一萬石，每車載二十五石，行道一里出雇錢一文，各縣到輸所遠近不等，粟價高下，欲令縣勞收相等。内甲縣二萬五百二十戶，粟一石價錢二十，自輸其縣；乙縣一萬二千三百一十二戶，粟一石價錢一十，遠輸所二百里；丙縣七千一百八十二戶，粟一石價錢一十二，遠輸所一百五十里；丁縣一萬三千三百三十八戶，粟一石價錢一十七，遠輸所二百五十里；戊縣五千一百三十戶，粟一石價錢一十三，遠輸所一百五十里。問各幾何？
+\switchcolumn[1]
+Five counties are to equitably distribute 10,000 dan of grain tax. Each cart carries 25 dan; traveling 1 li costs 1 cash for hired transport. The counties are at varying distances from the delivery point and have different grain prices. The goal is to equalize labor and revenue among the counties. County A: 20,520 households, grain price 20 cash/dan, delivers to its own county. County B: 12,312 households, grain price 10 cash/dan, 200 li from delivery point. County C: 7,182 households, grain price 12 cash/dan, 150 li away. County D: 13,338 households, grain price 17 cash/dan, 250 li away. County E: 5,130 households, grain price 13 cash/dan, 150 li away. How much should each county contribute?
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{疊積第六 \textbar\ Stacked Accumulations (Volumes)}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡二十七問}，並商功章。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 27 problems,} all from the Commercial Calculation (Shang Gong) chapter.
+\end{paracol}
+
+\subsection{商功法 \textbar\ Commercial Calculation Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{商功法}曰：各以其積乘之，以高若深乘之，皆如六而一。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Commercial Calculation Method:} For each, multiply by its base area, then multiply by the height or depth; in each case divide by 6.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{盤池 \textbar\ Basin Pond}{Basin-shaped pond: upper width 6 zhang, length 8 zhang; lower width 4 zhang, length 6 zhang; depth 2 zhang. Find volume?}
+\begin{paracol}{2}
+\switchcolumn[0]
+盤池上廣六丈，袤八丈，下廣四丈，袤六丈，深二丈。問積尺幾何？
+
+\textsf{答曰：}七萬六百六十六尺太半尺。
+\switchcolumn[1]
+A basin-shaped pond: upper width 6 zhang, length 8 zhang; lower width 4 zhang, length 6 zhang; depth 2 zhang. What is the volume in cubic chi?
+
+\textsf{Answer:} 70,666 and 2/3 cubic chi.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{冥谷 \textbar\ Dark Valley}{Valley: upper width 2 zhang, length 7 zhang; lower width 8 chi, length 4 zhang; depth 6 zhang 5 chi. Find volume?}
+\begin{paracol}{2}
+\switchcolumn[0]
+冥谷上廣二丈，袤七丈，下廣八尺，袤四丈，深六丈五尺。問積幾何？
+
+\textsf{答曰：}五萬二千尺。
+\switchcolumn[1]
+A dark valley: upper width 2 zhang, length 7 zhang; lower width 8 chi, length 4 zhang; depth 6 zhang 5 chi. What is its volume?
+
+\textsf{Answer:} 52,000 cubic chi.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{芻甍 \textbar\ Hay Roof (Wedge)}{Hay roof method and volume calculation}
+\begin{paracol}{2}
+\switchcolumn[0]
+芻甍法曰：倍下長併入上長，以廣乘之，又高乘之，皆如六而一。
+
+下廣三丈，袤四丈，上袤二丈，無廣，高一丈。問積幾何？
+
+\textsf{答曰：}五千尺。
+\switchcolumn[1]
+Hay roof (chu meng) method: Double the lower length and add the upper length; multiply by the width; then multiply by the height; in each case divide by 6.
+
+Lower width 3 zhang, lower length 4 zhang; upper length 2 zhang, no upper width; height 1 zhang. What is the volume?
+
+\textsf{Answer:} 5,000 cubic chi.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{羨除 \textbar\ Trench (Xian Chu)}{Trench volume calculation with three widths}
+\begin{paracol}{2}
+\switchcolumn[0]
+羨除法曰：併三廣以深乘之，又長乘之，皆如六而一。
+
+上廣一丈，下廣六尺，深三尺，末廣八尺，無深，袤七尺。問積幾何？
+
+\textsf{答曰：}五千尺。
+\switchcolumn[1]
+Trench (xian chu) method: Combine the three widths, multiply by the depth, then multiply by the length; in each case divide by 6.
+
+Upper width 1 zhang, lower width 6 chi, depth 3 chi; end width 8 chi, no depth there; length 7 chi. What is the volume?
+
+\textsf{Answer:} 5,000 cubic chi.
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{盈不足第七 \textbar\ Excess and Deficit}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡十一問}，並本章。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 11 problems,} all from this chapter.
+\end{paracol}
+
+\subsection{盈朒適足法 \textbar\ Excess-Deficit-Exact Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{盈朒適足法}曰：置所出率，盈朒各居其下。副置出率，以少減多餘為約法。盈朒適足，令維乘所出率實，以盈朒之數乘人積為人實，實皆如約法而一。
+
+其一法曰：以盈或不足之數為實，置所出率，以少減多餘為法，實如法而一約人，以適足出率乘人，為物價也。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Excess-Deficit-Exact Method:} Set out the proposed rates, with excess and deficit placed below each. Separately set out the rates; subtract the smaller from the larger, the remainder being the simplified divisor. For excess-deficit-exact: cross-multiply the rates by the excess/deficit amounts as dividends; multiply the excess/deficit numbers by the accumulated persons as person-dividend; divide each dividend by the simplified divisor.
+
+Alternative method: Take the excess or deficit number as dividend; set out the proposed rates, subtract smaller from larger as divisor; divide to obtain the number of people; multiply by the exact rate to obtain the price of goods.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{盈不足一（共買犬）\textbar\ Excess \& Deficit 1 (Buying a Dog)}{Buying a dog: each person pays 5, short by 90; each pays 50, exactly sufficient. Find people and dog price?}
+\begin{paracol}{2}
+\switchcolumn[0]
+共買犬，人出五不足九十文，人出五十文適足。問人數、犬價各幾何？
+
+\textsf{答曰：}二人，犬價一百。
+\switchcolumn[1]
+Buying a dog collectively: each person pays 5 cash, 90 cash short; each pays 50 cash, exactly sufficient. What are the number of people and the price of the dog?
+
+\textsf{Answer:} 2 people; dog price 100 cash.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{盈不足二（買豕）\textbar\ Excess \& Deficit 2 (Buying a Pig)}{Buying a pig: each pays 100, excess 100; each pays 90, exactly sufficient. Find people and pig price?}
+\begin{paracol}{2}
+\switchcolumn[0]
+買豕，人各出一百盈一百文，各出九十適足。問人數、豕價各幾何？
+
+\textsf{答曰：}十人，豕價九百。
+\switchcolumn[1]
+Buying a pig: each person pays 100 cash, excess 100 cash; each pays 90 cash, exactly sufficient. What are the number of people and the price of the pig?
+
+\textsf{Answer:} 10 people; pig price 900 cash.
+\end{paracol}
+\end{problemenv}
+
+\subsection{雙假設法 \textbar\ Double False Position Method}
+
+\begin{problemenv}{盈不足三 \textbar\ Excess \& Deficit 3}{Buying jade: each pays 1/2, excess 4; each pays 1/3, deficit 3. Find people and jade price?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有共買璡，人出半盈四，人出少半不足三。問人數、璡價各幾何？
+
+\textsf{答曰：}四十二人，璡價十七。
+\switchcolumn[1]
+Buying jade collectively: each pays 1/2, excess 4; each pays 1/3 (lesser half), deficit 3. What are the number of people and the price of the jade?
+
+\textsf{Answer:} 42 people; jade price 17.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{盈不足四（大小器）\textbar\ Excess \& Deficit 4 (Large and Small Vessels)}{Five large vessels and one small hold 3 hu; one large and five small hold 2 hu. Find capacity of each?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有大器五小器一容三斛，大器一小器五容二斛。問大小器各容幾何？
+
+\textsf{答曰：}大器容二十四分解之一十三，小器容二十四分解之七。
+\switchcolumn[1]
+Five large vessels and one small vessel hold 3 hu; one large vessel and five small vessels hold 2 hu. What is the capacity of each?
+
+\textsf{Answer:} Large vessel holds $\frac{13}{24}$ hu; small vessel holds $\frac{7}{24}$ hu.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{盈不足五（二酒求價）\textbar\ Excess \& Deficit 5 (Two Wines)}{Pure wine 1 dou costs 50 cash; diluted wine 1 dou costs 10 cash. With 30 cash, buy 2 dou of wine. How much of each?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有醇酒一斗直錢五十，行酒一斗直錢一十。今將錢三十，得酒二斗。問醇行酒各幾何？
+
+\textsf{答曰：}醇酒二升半，行酒一斗七升半。
+\switchcolumn[1]
+Pure wine: 1 dou worth 50 cash; diluted wine: 1 dou worth 10 cash. With 30 cash, obtain 2 dou of wine. How much of each?
+
+\textsf{Answer:} Pure wine 2.5 sheng; diluted wine 1 dou 7.5 sheng.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{盈不足六（五家共井）\textbar\ Excess \& Deficit 6 (Five Families Sharing a Well)}{Five families share a well: each family's rope has different deficit conditions}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有五家共井，甲二綆不足如乙一，乙三綆不足如丙一，丙四綆不足如丁一，丁五綆不足如戊一，戊六綆不足如甲一。如各得所不足一綆，皆逮。問井深、綆長各幾何？
+\switchcolumn[1]
+Five families share a well. Family A: 2 rope-lengths short by B's 1 rope; B: 3 short by C's 1; C: 4 short by D's 1; D: 5 short by E's 1; E: 6 short by A's 1. If each obtains the deficient rope, all reach the bottom. What are the well depth and each rope length?
+
+\textit{[This is the famous ``Five Families Sharing a Well'' problem, an indeterminate system with multiple solutions.]}
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{方程第八 \textbar\ Simultaneous Equations}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡二十問}：本章十八問，均輸盈朒二。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 20 problems:} 18 from this chapter, 2 from Equitable Transport and Excess-Deficit.
+\end{paracol}
+
+\subsection{方程法 \textbar\ Simultaneous Equations Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{方程法}曰：所求率互乘鄰行，以少減多，再求減損。錢為實，物為法，實如法而一。
+
+置位法曰：依所問排列逐物與價，而鄰行相對如之。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Simultaneous Equations Method:} Cross-multiply the sought rates by neighboring rows; subtract the smaller from the larger; repeat the reduction. Cash is the dividend, goods are the divisor; divide the dividend by the divisor.
+
+Arrangement method: According to the problem, arrange each item and its price in rows, with neighboring rows placed opposite each other.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{方程一（上中下禾）\textbar\ Equations 1 (Three Grains)}{Upper, middle, lower grain bundles: three equations}
+\begin{paracol}{2}
+\switchcolumn[0]
+上禾三束，中禾二束，下禾一束，共實三十九斗。上禾二束，中禾三束，下禾一束，共實三十四斗。上禾一束，中禾二束，下禾三束，共實二十六斗。問：上、中、下禾一束各幾何？
+
+\textsf{答曰：}上禾一束，得九斗四分斗之一；中禾一束，得四斗四分斗之一；下禾一束，得二斗四分斗之三。
+\switchcolumn[1]
+3 bundles of upper grain, 2 of middle, 1 of lower: total yield 39 dou. 2 bundles of upper, 3 of middle, 1 of lower: 34 dou. 1 bundle of upper, 2 of middle, 3 of lower: 26 dou. What is the yield of one bundle of each?
+
+\textsf{Answer:} Upper grain: $9\frac{1}{4}$ dou per bundle; Middle: $4\frac{1}{4}$ dou; Lower: $2\frac{3}{4}$ dou.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{方程二（牛羊價）\textbar\ Equations 2 (Cattle and Sheep)}{5 cattle, 2 sheep worth 10 taels gold; 2 cattle, 5 sheep worth 8 taels. Find prices?}
+\begin{paracol}{2}
+\switchcolumn[0]
+五牛二羊，直金十兩；二牛五羊，直金八兩。問：牛、羊價各幾何？
+
+\textsf{答曰：}一牛直金一兩二十一分兩之一十三；一羊直金二十一分兩之二十。
+\switchcolumn[1]
+5 cattle and 2 sheep worth 10 taels of gold; 2 cattle and 5 sheep worth 8 taels of gold. What are the prices of cattle and sheep?
+
+\textsf{Answer:} One cow worth $1\frac{13}{21}$ taels; one sheep worth $\frac{20}{21}$ taels.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{方程三 \textbar\ Equations 3}{Upper, middle, lower grain: borrowing to make complete dou}
+\begin{paracol}{2}
+\switchcolumn[0]
+上禾二秉，中禾三秉，下禾四秉，實皆不滿斗。上取中，中取下，下取上，各一秉，而實滿斗。問：上、中、下禾一秉，實各幾何？
+
+\textsf{答曰：}上禾一秉，實二十五分斗之九；中禾一秉，實二十五分斗之七；下禾一秉，實二十五分斗之四。
+\switchcolumn[1]
+2 bundles of upper grain, 3 of middle, 4 of lower: each yield is less than 1 dou. Upper borrows from middle, middle from lower, lower from upper---one bundle each---and then the yield is exactly 1 dou. What is the yield of one bundle of each?
+
+\textsf{Answer:} Upper: $\frac{9}{25}$ dou per bundle; Middle: $\frac{7}{25}$ dou; Lower: $\frac{4}{25}$ dou.
+\end{paracol}
+\end{problemenv}
+
+\subsection{正負術 \textbar\ Positive-Negative Method}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{正負術}曰：同名相除，異名相益，正無入負之，負無入正之。其異名相除，同名相益，正無入正之，負無入負之。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Positive-Negative Method:} Like signs subtract, unlike signs add; when positive has no partner, make it negative; when negative has no partner, make it positive. Alternatively: unlike signs subtract, like signs add; when positive has no partner, it stays positive; when negative has no partner, it stays negative.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{方程四（賣牛買羊）\textbar\ Equations 4 (Selling Cattle, Buying Sheep)}{Selling cattle and sheep to buy pigs: system of three equations}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有賣牛二、羊五，以買一十三豕，有餘錢一千；賣牛三、豕三，以買九羊，錢適足；賣六羊、八豕，以買五牛，錢不足六百。問：牛、羊、豕價各幾何？
+
+\textsf{答曰：}牛價一千二百，羊價五百，豕價三百。
+\switchcolumn[1]
+Sell 2 cattle and 5 sheep to buy 13 pigs, with 1,000 cash remaining. Sell 3 cattle and 3 pigs to buy 9 sheep, cash exactly sufficient. Sell 6 sheep and 8 pigs to buy 5 cattle, 600 cash short. What are the prices of cattle, sheep, and pigs?
+
+\textsf{Answer:} Cattle 1,200 cash; Sheep 500 cash; Pigs 300 cash.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{方程五（金銀易重）\textbar\ Equations 5 (Gold and Silver Weights)}{9 pieces of gold and 11 of silver weigh equally; exchange 1 piece, gold becomes 13 liang lighter. Find weight of each?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有黃金九，白銀一十一，稱之重適等，交易其一，金輕十三兩。問：金、銀一枚各重幾何？
+\switchcolumn[1]
+9 pieces of yellow gold and 11 pieces of white silver weigh exactly the same. Exchange one piece between them, and the gold becomes 13 liang lighter. What is the weight of one piece of each?
+
+\textit{[Let $g$ = weight of one gold piece, $s$ = weight of one silver piece. Then $9g = 11s$ and $8g + s = 10s + g - 13$, giving $g = \frac{143}{4}$ liang, $s = \frac{117}{4}$ liang.]}
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+\section{勾股第九 \textbar\ Right Triangles}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{凡三十八問}：少廣十三，商功一問，本章二十四。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{In all, 38 problems:} Short Width (13), Commercial Calculation (1), this chapter (24).
+\end{paracol}
+
+\subsection{勾股基本方法 \textbar\ Basic Right-Triangle Methods}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{勾股法}曰：勾自乘，股自乘，併之為弦實，開方除之即弦。其勾股自乘為實，如股弦較而一，加較半之即弦。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Right-Triangle Method:} Square the base (gou), square the height (gu); combine them as the dividend for the hypotenuse (xian); extract the square root to obtain the hypotenuse. Alternatively: square the base and height as dividend; divide by the difference between height and hypotenuse; add half the difference to obtain the hypotenuse.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{勾股一 \textbar\ Right Triangle 1}{Rope on upright post: trailing 2 chi on ground, pulled taut 8 chi from base. Find rope length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+其三，勾自乘為實，如股弦較而一，加較半之即弦。
+
+立木垂索，委地二尺，引索斜之，拄地去木八尺。問索長幾何？
+
+\textsf{答曰：}一十七尺。
+\switchcolumn[1]
+Third method: square the base as dividend; divide by the height-hypotenuse difference; add half the difference to obtain the hypotenuse.
+
+An upright post with a hanging rope, trailing 2 chi on the ground; pull the rope taut to a point 8 chi from the post. What is the rope length?
+
+\textsf{Answer:} 17 chi.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{勾股二 \textbar\ Right Triangle 2}{Wall 1 zhang high, pole leaning against it; moved past mark by 1 chi. Find distance from base?}
+\begin{paracol}{2}
+\switchcolumn[0]
+其四，勾自乘為實，如股弦較而一，以較減之餘半之即股。
+
+垣高一丈，倚木齊垣，木腳去本以畫記之，臥而過畫一尺。問去本幾何？
+
+\textsf{答曰：}四丈九尺半。
+\switchcolumn[1]
+Fourth method: square the base as dividend; divide by the height-hypotenuse difference; subtract the difference and halve the remainder to obtain the height.
+
+A wall 1 zhang high, a pole leaning to match it; mark where the foot stands; lay it down and it passes the mark by 1 chi. What is the distance from the base?
+
+\textsf{Answer:} 4 zhang 9.5 chi.
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{勾股三 \textbar\ Right Triangle 3}{Circular timber in a wall: saw cut 1 cun deep, saw path 1 chi long. Find diameter?}
+\begin{paracol}{2}
+\switchcolumn[0]
+其五，半勾自乘為實，如半股弦較而一，加半較即弦。
+
+圓材埋在壁中，不知大小，鋸深一寸，道長一尺。問徑幾何？
+\switchcolumn[1]
+Fifth method: square half the base as dividend; divide by half the height-hypotenuse difference; add half the difference to obtain the hypotenuse.
+
+A circular timber is embedded in a wall; its size is unknown. Sawing 1 cun deep, the saw path is 1 chi long. What is the diameter?
+
+\textit{[This is the famous ``sawing the circular timber'' problem: given chord length (1 chi) and sagitta (1 cun), find the diameter.]}
+\end{paracol}
+\end{problemenv}
+
+\subsection{戶高廣問題 \textbar\ Door Height and Width Problems}
+
+\begin{problemenv}{勾股四（戶高廣）\textbar\ Right Triangle 4 (Door Dimensions)}{Door opens leaving 1 chi from threshold; leaves gap of 2 cun. Find door width?}
+\begin{paracol}{2}
+\switchcolumn[0]
+開門去閫一尺，不合二寸。問門廣幾何？
+
+\textsf{答曰：}一丈一寸五分。
+\switchcolumn[1]
+Open the door: it stands 1 chi from the threshold; the gap is 2 cun. What is the width of the door?
+
+\textsf{Answer:} 1 zhang 1 cun 5 fen.
+\end{paracol}
+\end{problemenv}
+
+\subsection{勾股容方 \textbar\ Square Inscribed in a Right Triangle}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+\textbf{合率}：勾中容方。
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+\textbf{Combined Rate:} Square inscribed in a right triangle.
+\end{paracol}
+
+\vspace{0.3cm}
+
+\begin{problemenv}{勾股容方 \textbar\ Inscribed Square}{Right triangle with base 5 paces, height 12 paces: find inscribed square?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有勾五步，股十二步。問：勾中容方幾何？
+
+\textsf{答曰：}方三步十七分步之九。
+\switchcolumn[1]
+Given a right triangle with base 5 paces, height 12 paces. What is the side of the square inscribed in it?
+
+\textsf{Answer:} $3\frac{9}{17}$ paces.
+\end{paracol}
+\end{problemenv}
+
+\subsection{複雜勾股問題 \textbar\ Complex Right-Triangle Problems}
+
+\begin{problemenv}{勾股五（竹折）\textbar\ Right Triangle 5 (Broken Bamboo)}{Bamboo 1 zhang high, top breaks and touches ground 3 chi from base. Find break height?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有竹高一丈，末折抵地，去本三尺。問：折者高幾何？
+
+\textsf{答曰：}四尺五十五分尺之十一。
+\switchcolumn[1]
+A bamboo is 1 zhang high; the top breaks and reaches the ground, 3 chi from the base. What is the height of the break?
+
+\textsf{Answer:} $4\frac{11}{55}$ chi (or $4\frac{1}{5}$ chi).
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{勾股六（葭生中央）\textbar\ Right Triangle 6 (Reed in Pond)}{Square pond 1 zhang; reed grows at center, protrudes 1 chi above water. Pulled to shore, just reaches. Find depth and reed length?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有池方一丈，葭生其中央，出水一尺。引葭赴岸，適與岸齊。問：水深、葭長各幾何？
+\switchcolumn[1]
+A square pond 1 zhang across; a reed grows at its center, protruding 1 chi above the water. Pull the reed to the shore: it just reaches level with the bank. What are the water depth and the reed length?
+
+\textit{[Let depth = $d$, reed = $d+1$. Then $(d+1)^2 = d^2 + 5^2$, giving $d = 12$ chi, reed = 13 chi.]}
+\end{paracol}
+\end{problemenv}
+
+\begin{problemenv}{勾股七（邑方）\textbar\ Right Triangle 7 (City Dimensions)}{Square city with central gates: tree 20 paces north of north gate; walk 14 paces south, then 1775 paces west to see tree. Find city side?}
+\begin{paracol}{2}
+\switchcolumn[0]
+今有邑方不知大小，各開中門。出北門二十步有木，出南門十四步折而西行一千七百七十五步見木。問：邑方幾何？
+\switchcolumn[1]
+A square city of unknown size, each side having a central gate. Go out the north gate 20 paces to a tree. Go out the south gate 14 paces, then turn west and walk 1,775 paces to see the tree. What is the side of the city?
+
+\textit{[Let city side = $s$. Similar triangles give $\frac{s/2}{20} = \frac{1775}{s/2 + 14+20}$, yielding $s = 250$ paces.]}
+\end{paracol}
+\end{problemenv}
+
+\newpage
+
+%% ===== APPENDIX =====
+\section*{Appendix: The Nine Classification Categories \textbar\ 附錄：九類分門}
+\addcontentsline{toc}{section}{Appendix \textbar\ 附錄：The Nine Classification Categories}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【中文原文】}
+
+楊輝纂類將《九章算術》二百四十六問重新分為九類：
+
+\begin{enumerate}
+\item \textbf{乘除}——基本田畝計算與單位換算，四十一問。
+\item \textbf{分率}——分數運算（乘分、除分），九問。
+\item \textbf{合率}——分數併合之術，包括少廣開方，二十問。
+\item \textbf{互換}——物品比例交換，包括粟米換算與賦稅問題，五十六問。
+\item \textbf{衰分}——按比例分配，包括均輸法，一十八問。
+\item \textbf{疊積}——土方工程與立體體積計算，二十七問。
+\item \textbf{盈不足}——雙假設法（盈朒術），十一問。
+\item \textbf{方程}——線性方程組，以算籌布列矩陣求解，二十問。
+\item \textbf{勾股}——勾股定理及相關幾何方法，三十八問。
+\end{enumerate}
+\switchcolumn[1]
+\textbf{【English Translation】}
+
+Yang Hui's \textit{Reclassification} (\textit{Zuanlei}) reorganizes the 246 problems from the \textit{Nine Chapters} into nine categories based on their mathematical methods:
+
+\begin{enumerate}
+\item \textbf{Chéngchú (Multiplication \& Division)} -- 41 problems dealing with basic field measurements and unit conversions.
+\item \textbf{Fēnlǜ (Fractional Rates)} -- 9 problems on operations with fractions (multiplication, division, and comparison).
+\item \textbf{Hélǜ (Combined Rates)} -- 20 problems on combining fractional quantities, including the ``short width'' (shǎo guǎng) root-extraction method.
+\item \textbf{Hùhuàn (Exchange \& Barter)} -- 56 problems on proportional exchange of goods, including grain conversion and taxation.
+\item \textbf{Shuāifēn (Proportional Distribution)} -- 18 problems on distributing quantities proportionally, including the ``equitable transport'' (jūnshū) method.
+\item \textbf{Diéjī (Stacked Accumulations)} -- 27 problems on volumes of earthworks and other three-dimensional calculations.
+\item \textbf{Yíngbùzú (Excess \& Deficit)} -- 11 problems solved by the double false position method.
+\item \textbf{Fāngchéng (Simultaneous Equations)} -- 20 problems on systems of linear equations, solved by matrix methods on counting boards.
+\item \textbf{Gōugǔ (Right Triangles)} -- 38 problems applying the Pythagorean theorem and related geometric methods.
+\end{enumerate}
+\end{paracol}
+
+\vspace{1cm}
+\longline
+
+\vspace{0.8cm}
+
+\begin{paracol}{2}
+\switchcolumn[0]
+\textbf{【後記】}
+
+此排版本重現楊輝《詳解九章算法》纂類之內容，原書成於南宋景定二年（1261）。楊輝將《九章算術》二百四十六問按數學方法重新分門別類，創造了教學上極具前瞻性的結構，可謂現代數學分類學之先聲。
+
+\begin{flushright}
+--- 第三部終 ---
+\end{flushright}
+\switchcolumn[1]
+\textbf{[Afterword]}
+
+This typesetting reproduces the content of Yang Hui's ``Detailed Analysis of the Mathematical Methods in the `Nine Chapters' --- Part III (Reclassification),'' originally composed in 1261 CE during the Southern Song Dynasty. The original work reorganized all 246 problems from the \textit{Nine Chapters on the Mathematical Art} according to their underlying mathematical methods, creating a pedagogically innovative structure that anticipated modern approaches to mathematical classification.
+
+\begin{flushright}
+--- End of Part III ---
+\end{flushright}
+\end{paracol}
+
+\vspace{1cm}
+
+\end{document}
+

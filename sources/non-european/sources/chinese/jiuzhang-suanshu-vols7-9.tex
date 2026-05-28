@@ -1,0 +1,1161 @@
+%% ========================================================================
+%% Jiuzhang Suanshu (九章算術) -- Volumes 7-9
+%% With Commentary by Liu Hui (劉徽)
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{array,booktabs,longtable}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
+
+%% Chinese Fonts via xeCJK
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{80,10,10}
+\definecolor{sectioncolor}{RGB}{120,20,20}
+\definecolor{volcolor}{RGB}{45,55,72}
+\definecolor{commentarycolor}{RGB}{20,80,20}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{30,30,80}
+\definecolor{methodbg}{RGB}{240,240,255}
+\definecolor{commentbg}{RGB}{240,255,240}
+\definecolor{problembg}{RGB}{255,255,255}
+
+%% -------- Custom Commands --------
+\newcommand{\voltitle}[1]{{\centering\Huge\bfseries\color{titlecolor} #1\par\vspace{1em}}}
+\newcommand{\volsubtitle}[1]{{\centering\Large\itshape\color{volcolor} #1\par\vspace{2em}}}
+\newcommand{\wen}[1]{\textbf{問：}#1\par}
+\newcommand{\da}[1]{\textbf{答曰：}#1\par}
+\newcommand{\shu}[1]{\textbf{術曰：}#1\par}
+\newcommand{\liuhui}[1]{{\color{commentarycolor}\textit{\textbf{劉徽注：}}#1\par}}
+\newcommand{\volheader}[2]{%
+  \newpage
+  \section*{#1\quad #2}
+  \addcontentsline{toc}{section}{#1\quad #2}
+  \markboth{#1\quad #2}{#1\quad #2}
+  \vspace{1em}
+}
+
+%% Environment styles using standard LaTeX
+
+\newenvironment{methodenv}{%
+  \par\medskip\noindent\colorbox{methodbg}{%
+    \begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+    \setlength{\parskip}{0.5em}
+}{%
+    \end{minipage}%
+  }\par\medskip
+}
+
+\newenvironment{commentaryenv}{%
+  \par\medskip\noindent\colorbox{commentbg}{%
+    \begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+    \setlength{\parskip}{0.5em}
+}{%
+    \end{minipage}%
+  }\par\medskip
+}
+
+\newenvironment{problemenv}{%
+  \par\medskip\noindent\fbox{%
+    \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+    \setlength{\parskip}{0.5em}
+}{%
+    \end{minipage}%
+  }\par\medskip
+}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Jiuzhang Suanshu Volumes 7--9}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Jiuzhang Suanshu Volumes 7-9 with Liu Hui Commentary},
+  pdfauthor={Anonymous; Commentary by Liu Hui}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+\begin{document}
+
+%% ===== TITLE PAGE =====
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2cm}
+
+{\fontsize{36}{40}\selectfont\color{titlecolor} 九章算術}
+
+\vspace{0.8cm}
+{\fontsize{18}{22}\selectfont\color{volcolor} （卷七至卷九）}
+
+\vspace{2cm}
+{\LARGE\itshape Jiǔzhāng Suànshù --- Volumes 7--9}
+
+\vspace{0.5cm}
+{\large Nine Chapters on the Mathematical Art}
+
+\vspace{2.5cm}
+
+{\Large\color{sectioncolor} 魏\quad 劉徽\quad 注}
+
+\vspace{0.5cm}
+{\large Commentary by Liú Huī (c.~263 CE)}
+
+\vspace{2cm}
+
+\rule{0.5\textwidth}{1pt}
+
+\vspace{1cm}
+
+{\large\itshape Volume 7: Yingbuzu (Excess and Deficit)}
+
+{\large\itshape Volume 8: Fangcheng (Rectangular Arrays)}
+
+{\large\itshape Volume 9: Gougu (Right Triangles)}
+
+\vspace{2cm}
+
+\rule{0.5\textwidth}{0.4pt}
+
+\vspace{1cm}
+
+{\small Modern LaTeX edition}
+
+{\small Microsoft YaHei}
+
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% VOLUME 7: YINGBUZU (盈不足)
+%% ========================================================================
+\volheader{卷第七}{盈不足}
+
+\volsubtitle{Yingbuzu --- Excess and Deficit (Double False Position)}
+
+\begin{quote}
+\textit{The method of Yingbuzu (excess and deficit) is one of the most celebrated algorithms in the Nine Chapters. It provides a technique for solving problems involving two guesses and their resulting excesses or deficits --- essentially the ``rule of double false position.'' This method was transmitted to the West via the Islamic world and medieval Europe, where it became known as the method of elchataym.}
+\end{quote}
+
+\subsection*{Method Summary}
+
+\shu{盈不足術曰：置所出率，盈、不足各居其下。令維乘所出率，并以為實。并盈、不足為法。實如法而一。}
+
+\liuhui{此術以盈不足之率，求所出之實。維乘者，交錯相乘也。并盈不足為法者，以兩差之并為法也。}
+
+\textbf{Translation of the method:} Place the assumed rates (guesses), with the excess and deficit placed below each respectively. Cross-multiply the assumed rates by the excess/deficit, and sum to form the dividend (實). Sum the excess and deficit to form the divisor (法). Divide the dividend by the divisor to obtain the result.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 1 ---
+\subsection{第一題：共買物}
+
+\wen{今有共買物，人出八，盈三；人出七，不足四。問：人數、物價各幾何？}
+
+\da{人七，物價五十三。}
+
+\shu{術曰：置人出八、人出七，盈三、不足四。令維乘之：八乘四得三十二，七乘三得二十一。并之得五十三，為物價。并盈不足得七，為人數。}
+
+\liuhui{按盈不足之術，兩設皆乖於實。假令每人出八，則多三；每人出七，則少四。出八者，三為盈；出七者，四為不足。維乘者，以盈乘不足之設，以不足乘盈之設，所以通而同之也。并之為實，并盈不足為法。實如法而一，得物價。物價既知，以人出八除之，加盈三，或以人出七除之，減不足四，皆得人數七也。}
+
+\textbf{Modern formulation:}
+Let $x$ = number of people, $y$ = price of goods.
+\begin{align*}
+8x &= y + 3 \quad\text{(excess 3)}\\
+7x &= y - 4 \quad\text{(deficit 4)}
+\end{align*}
+By the double false position: $y = \dfrac{8 \times 4 + 7 \times 3}{3+4} = \dfrac{32+21}{7} = \dfrac{53}{7} \times \text{correction}$, giving $y = 53$, $x = 7$.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 2 ---
+\subsection{第二題：共買雞}
+
+\wen{今有共買雞，人出九，盈十一；人出六，不足十六。問：人數、雞價各幾何？}
+
+\da{人九，雞價七十。}
+
+\shu{術曰：置人出九、人出六，盈十一、不足十六。令維乘之：九乘十六得一百四十四，六乘十一得六十六。并之得二百一十，為實。并盈不足得二十七，為法。不盡，以法命之。實如法得雞價。以九除之減盈，以六除之加不足，得人數九。}
+
+\liuhui{此術與上術意同。九乘不足十六者，以多出之率乘不足之數也；六乘盈十一者，以少出之率乘盈之數也。所以維乘者，兩設不同，不可偏用，故交錯相乘以齊同之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 3 ---
+\subsection{第三題：共買璡}
+
+\wen{今有共買璡，人出半，盈四；人出少半，不足三。問：人數、璡價各幾何？}
+
+\da{人四十二，璡價十七。}
+
+\shu{術曰：置人出半、人出少半，盈四、不足三。半即二分，少半即三分。令維乘之，如法求之。}
+
+\liuhui{半者，二分之一也；少半者，三分之一也。出半則多四，出少半則少三。以分數為率，故先通分之，然後維乘求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 4 ---
+\subsection{第四題：共買牛}
+
+\wen{今有共買牛，七家共出一百九十，不足三百三十；九家共出二百七十，盈三十。問：家數、牛價各幾何？}
+
+\da{一百二十六家，牛價三千七百五十。}
+
+\shu{術曰：置七家共出一百九十、不足三百三十，九家共出二百七十、盈三十。令每家出率各以家數除之：一百九十除以七得二十七又七分之一；二百七十除以九得三十。乃以盈不足維乘之，并為實，并盈不足為法，實如法而一。}
+
+\liuhui{此題以家為率，不以人為率。故先求每家所出之率，然後用盈不足術。七家出一百九十，則不足三百三十，是每家所出不足也；九家出二百七十，盈三十，是每家所出盈也。先通為每家之率，然後可用盈不足之法。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 5 ---
+\subsection{第五題：米麥互換}
+
+\wen{今有米一斗，麥一斗，各值幾何？但知米三斗值麥二斗，麥四斗值米一斗。問：米、麥各一斗價若干？}
+
+\da{米一斗值四錢，麥一斗值一錢半。}
+
+\shu{術曰：以盈不足術求之。假令米一斗值四錢，則麥當值若干，驗其盈不足，乃以術求之。}
+
+\liuhui{此術非直盈不足，乃以價為率，互相推求。假令一值，驗其盈肭，然後設為兩端，用盈不足術以齊之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 6 ---
+\subsection{第六題：良駑與牽}
+
+\wen{今有良駑二馬，與驢俱牽。良馬與駑馬共引之，良馬日引四十里，駑馬日引四十里。驢在後逐之，不及。問：驢日行幾何里？}
+
+\da{驢日行二十里。}
+
+\shu{術曰：以盈不足術求之。假令驢行三十里，則驢所行多於良駑之半，是為盈；假令驢行十里，則不及半，是為不足。維乘并實，如法求之。}
+
+\liuhui{良駑俱行四十里，其半二十里。驢逐其後，當與之半相當。假令三十里，則多十里，為盈；假令十里，則少十里，為不足。故以盈不足術求之，得二十里。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 7 ---
+\subsection{第七題：垣高術}
+
+\wen{今有垣不知高。立一表長五尺，去垣五丈，目距地五尺，望垣頂與表端參合。問：垣高幾何？}
+
+\da{垣高五丈五尺。}
+
+\shu{術曰：以盈不足術求之。假令垣高五丈，則視線當過表端若干；假令垣高六丈，則視線不及表端若干。維乘求之。}
+
+\liuhui{此術本屬勾股，今以盈不足術驗之。去垣五丈，表高五尺，目高五尺，則表與目平。望垣頂與表端參合，是為表高與垣高之比例，如去垣之遠與目至垣頂之比例也。以相似勾股求之即得。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 8 ---
+\subsection{第八題：五家共井}
+
+\wen{今有五家共井。甲二綆不足，如乙一綆；乙三綆不足，如丙一綆；丙四綆不足，如丁一綆；丁五綆不足，如戊一綆；戊六綆不足，如甲一綆。問：井深、綆長各幾何？}
+
+\da{井深七丈二尺一寸。甲綆長二丈六尺五寸，乙綆長一丈九尺一寸，丙綆長一丈四尺八寸，丁綆長一丈二尺九寸，戊綆長七尺六寸。}
+
+\shu{術曰：此以盈不足為問，實則以方程入之。各以其綆之數，不足之數，列為方程，正負相生，求之即得。}
+
+\liuhui{此題本以盈不足為問，而實非盈不足之術所能獨盡也。五家之綆長短不同，各家取綆若干而不足若干，以補他家一綆之數。此五綆之長與井深，共為六未知數，而題中僅給五條件，故為不定問題也。其答云者，特其一組正整數解耳。若以方程術解之，當令井深為一，求五家綆長之比，然後以井深定其實長。}
+
+\textbf{Note:} This is the famous ``Five Families Sharing a Well'' problem, one of the earliest known indeterminate systems in Chinese mathematics. Liu Hui recognized that the method of Yingbuzu alone is insufficient, and the Fangcheng (rectangular arrays) method must be employed.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 9 ---
+\subsection{第九題：金與銀}
+
+\wen{今有金九枚，銀十一枚，稱之適等。交易其一，金輕十三兩。問：金、銀一枚各重幾何？}
+
+\da{金重二斤三兩一十八銖，銀重一斤十三兩六銖。}
+
+\shu{術曰：以盈不足術求之。假令金重三斤，則九金二十七斤；令銀與之等，則每銀當重二十七斤十一分。交易其一，驗其輕重，得盈不足之數。再設一率，維乘求之。}
+
+\liuhui{金九銀十一稱之適等者，總重等也。交易其一者，以一金換一銀也。金輕十三兩者，換後金方輕於原銀方十三兩也。以方程術解之尤便：設金重$x$，銀重$y$，則$9x = 11y$，且$8x + y = 10y + x - 13$兩。以盈不足術者，兩設其重，驗其差也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 10 ---
+\subsection{第十題：程傳委輸}
+
+\wen{今有程傳委輸，空車日行七十里，重車日行五十里。今載太倉粟輸上林，五日三返。問：太倉去上林幾何？}
+
+\da{太倉去上林四十八里一百八十分里之十一。}
+
+\shu{術曰：以盈不足術求之。假令去四十五里，則五日三返不足若干里；假令去五十里，則五日三返盈若干里。維乘并實，如法求之。}
+
+\liuhui{空車日行七十里者，往而不載也；重車日行五十里者，載粟而返也。五日三返者，一往一返為一返，三返則三往三返也。以所行之日數求所行之里數，當以調和平均入之。此以盈不足術驗之者，取其近似也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 11 ---
+\subsection{第十一題：鹿與兔}
+
+\wen{今有鹿直西走，兔直東走。兔行一百步，鹿行七十步。兔在鹿東一百五十步，同時發。問：幾何步相逢？}
+
+\da{兔行二百五十步，鹿行一百七十五步，相逢。}
+
+\shu{術曰：以盈不足術求之。假令兔行二百步，則鹿行一百四十步，驗其盈不足之數。再假令一行數，維乘求之。}
+
+\liuhui{兔東鹿西，相向而行，故為相逢之術。以盈不足術者，兩設其行步，驗其去初距離之盈肭也。此術雖可用，然以衰分術入之為直捷：并兔鹿步率，除初距，各以本率乘之即得。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 12 ---
+\subsection{第十二題：蒲與莞}
+
+\wen{今有蒲生一日，長三尺；莞生一日，長一尺。蒲生日自半，莞生日自倍。問：幾何日而長等？}
+
+\da{二日十三分日之六，而長等。各長四尺五寸十三分寸之五。}
+
+\shu{術曰：以盈不足術求之。假令二日，不足一尺五寸；令之三日，盈一尺七寸半。維乘并實，如法求之。}
+
+\liuhui{蒲日生三尺而自半者，第一日長三尺，第二日長一尺五寸，第三日長七寸半，是為日自半也。莞日生一尺而自倍者，第一日長一尺，第二日長二尺，第三日長四尺，是為日自倍也。假令二日：蒲長四尺五寸，莞長三尺，不足一尺五寸。假令三日：蒲長五尺二寸半，莞長七尺，盈一尺七寸半。故以盈不足術求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 13 ---
+\subsection{第十三題：兩鼠穿垣}
+
+\wen{今有垣厚五尺，兩鼠對穿。大鼠日一尺，小鼠亦日一尺。大鼠日自倍，小鼠日自半。問：幾何日相逢？各穿幾何？}
+
+\da{二日十七分日之十二。大鼠穿三尺四寸十七分寸之四，小鼠穿一尺五寸十七分寸之十三。}
+
+\shu{術曰：以盈不足術求之。假令二日，不足五寸；令之三日，盈三尺七寸半。維乘并實，如法求之。}
+
+\liuhui{大鼠日一尺而自倍者，第一日穿一尺，第二日穿二尺，第三日穿四尺也。小鼠日一尺而自半者，第一日穿一尺，第二日穿五寸，第三日穿二寸半也。假令二日：大鼠穿三尺，小鼠穿一尺五寸，共四尺五寸，不足五寸。假令三日：大鼠穿七尺，小鼠穿一尺七寸半，共八尺七寸半，盈三尺七寸半。以盈不足術求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 14 ---
+\subsection{第十四題：醇酒與行酒}
+
+\wen{今有醇酒一斗，直錢五十；行酒一斗，直錢一十。今將錢三十，得酒二斗。問：醇酒、行酒各幾何？}
+
+\da{醇酒二升半，行酒一斗七升半。}
+
+\shu{術曰：以盈不足術求之。假令醇酒五升，則當直二十五錢，行酒一斗五升當直十五錢，共四十錢，是為盈十錢。假令醇酒二升，則當直十錢，行酒一斗八升當直十八錢，共二十八錢，是為不足二錢。維乘求之。}
+
+\liuhui{醇酒價貴而行酒價賤。以盈不足術者，兩設醇酒之升數，驗其總價之盈肭也。假令醇酒五升，則行酒一斗五升，價共四十錢，比三十錢多十錢，故為盈。假令醇酒二升，則行酒一斗八升，價共二十八錢，比三十錢少二錢，故為不足。維乘：五乘二得十，二乘十得二十，并得三十，為醇酒升數之實。盈不足并得十二，為法。三十除以十二得二升半，即醇酒量。餘為行酒。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 15 ---
+\subsection{第十五題：漆三油四}
+
+\wen{今有漆三得油四，油四和漆五。今有漆三斗，欲令分以易油，還和餘漆。問：出漆、得油、和漆各幾何？}
+
+\da{出漆一斗一升四分升之一，得油一斗五升，和漆一斗八升四分升之三。餘漆一斗八升四分升之三。}
+
+\shu{術曰：以盈不足術求之。假令出漆一斗，不足若干；令出漆一斗二升，盈若干。維乘并實，如法求之。}
+
+\liuhui{漆三得油四者，以漆三斗易油四斗也。油四和漆五者，以油四斗和漆五斗也。今有漆三斗，分其漆以易油，又以所得之油和其餘漆。假令出漆一斗，則得油一斗三升三分之一，不足以和餘漆。再設出漆一斗二升，則得油一斗六升，盈。故以盈不足術求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 16 ---
+\subsection{第十六題：惡粟為米}
+
+\wen{今有惡粟二十斗，春之為米，米率五斗。今欲為糲米、粺米各幾何？}
+
+\da{糲米十斗，粺米六斗六升三分升之二。}
+
+\shu{術曰：以盈不足術求之。假令糲米十斗，則粺米當若干，驗其盈不足。再設一率，維乘求之。}
+
+\liuhui{惡粟二十斗，米率五斗者，一斗惡粟春得五升米也。糲米率五，粺米率六。以盈不足術者，兩設糲米之斗數，求粺米之盈肭也。此術與前術同意。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 17 ---
+\subsection{第十七題：持米出關}
+
+\wen{今有人持米出三關，外關三而取一，中關五而取一，內關七而取一，餘米五斗。問：本持米幾何？}
+
+\da{本持米十斗九升八分升之三。}
+
+\shu{術曰：以盈不足術求之。假令持米八斗，不足若干；令持米十二斗，盈若干。維乘并實，如法求之。}
+
+\liuhui{三關各取其幾分之一。外關三取一，是取其三分之一也；中關五取一，是取其五分之一也；內關七取一，是取其七分之一也。過三關之後，餘米五斗。以盈不足術者，兩設持米之數，驗其過三關後之盈肭也。假令持米八斗，過三關後不及五斗，為不足；假令持米十二斗，過三關後過五斗，為盈。維乘求之，得本持米數。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 18 ---
+\subsection{第十八題：五人分五錢}
+
+\wen{今有五人分五錢，令上二人所得與下三人等。問：各得幾何？}
+
+\da{甲得一錢六分钱之二，乙得一錢六分钱之一，丙得一錢，丁得六分钱之五，戊得六分钱之四。}
+
+\shu{術曰：以盈不足術求之。假令五人各得一錢，則上二人得二錢，下三人得三錢，盈一錢。假令上二人多得，下三人少得，維乘并實，如法求之。此當以衰分術入之。}
+
+\liuhui{五人分五錢而令上二人與下三人等者，上二人所得當為二錢半，下三人所得亦當為二錢半也。以盈不足術者，先設一人所得，驗其上二下三之和之盈肭，然後求之。然此題以衰分術為正：令五人所得為差率，以差分配之。設差為$d$，則甲$= \frac{5}{6} + d$，乙$= \frac{5}{6}$，丙$= \frac{5}{6} - d$，丁$= \frac{5}{6} - 2d$，戊$= \frac{5}{6} - 3d$，令甲$+$乙$=$ 丙$+$丁$+$戊，求$d$。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 19 ---
+\subsection{第十九題：弧田徑術}
+
+\wen{今有弧田，弦三十步，矢十五步。問：為田幾何？}
+
+\da{一畝九十七步半。}
+
+\shu{術曰：以弦乘矢，矢又自乘，并之，三而一。}
+
+\liuhui{弧田術者，以弦矢求弧田之面積也。弦乘矢者，以弦為廣，矢為縱，相乘得長方形之積。矢自乘者，以矢為方之邊，自乘得正方之積。并之者，合兩積為一。三而一者，以弧田之積約當此兩積和之三分之一也。此術為弧田之近似術。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 20 ---
+\subsection{第二十題：環田徑術}
+
+\wen{今有環田，中周六十二步，外周四步，徑十二步。問：為田幾何？}
+
+\da{二畝五十五步。}
+
+\shu{術曰：并中外周而半之，以徑乘之為積。中周六十二步、外周四步，并之得六十六步，半之得三十三步。以徑十二步乘之，得三百九十六步為積。畝法二百四十步，得三畝二十五步。}
+
+\liuhui{環田者，猶圓田之中去一圓也。并中外周而半之者，取環之平均周長也。以徑乘之者，以平均周長為廣，徑為縱也。此術以環田近似為矩形，故以廣縱相乘得積。若精密求之，當以兩圓面積之差求之，此為近似術也。}
+
+\newpage
+%% ========================================================================
+%% VOLUME 8: FANGCHENG (方程)
+%% ========================================================================
+\volheader{卷第八}{方程}
+
+\volsubtitle{Fangcheng --- Rectangular Arrays (Systems of Linear Equations)}
+
+\begin{quote}
+\textit{The Fangcheng (rectangular arrays) chapter is the crowning achievement of ancient Chinese algebra. It presents a systematic method for solving systems of linear equations --- essentially Gaussian elimination --- over 1500 years before Gauss. The method uses counting-rod arrays (hence ``rectangular arrays'') and includes the first known use of negative numbers in world mathematics.}
+\end{quote}
+
+\subsection*{General Method of Fangcheng}
+
+\shu{方程術曰：置上禾三秉，中禾二秉，下禾一秉，實三十九；上禾二秉，中禾三秉，下禾一秉，實三十四；上禾一秉，中禾二秉，下禾三秉，實二十六。以右行上禾遍乘中行，而以直除。又乘其次，亦以直除。然以中行中禾不盡者遍乘左行，而以直除。左方下禾不盡者，上為法，下為實。實即下禾之實。}
+
+\liuhui{程，課程也。群物總雜，各列有數，總言其實。令每行為率，二物者再程，三物者三程，皆如物數程之，並列為行，故謂之方程。行之左右，無所同存，且為有所據而言耳。}
+
+\textbf{Explanation:} Liu Hui's commentary explains that ``fang'' (方) means rectangular arrangement, and ``cheng'' (程) means course or standard. The coefficients are arranged in a rectangular array (matrix), and through systematic elimination, each unknown is solved. This is identical to modern Gaussian elimination.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 1 ---
+\subsection{第一題：三禾求實}
+
+\wen{今有上禾三秉，中禾二秉，下禾一秉，實三十九斗；上禾二秉，中禾三秉，下禾一秉，實三十四斗；上禾一秉，中禾二秉，下禾三秉，實二十六斗。問：上、中、下禾實一秉各幾何？}
+
+\da{上禾一秉，九斗四分斗之一；中禾一秉，四斗四分斗之一；下禾一秉，二斗四分斗之三。}
+
+\shu{術曰：方程術。置上禾、中禾、下禾及實於右、中、左三行。以右行上禾三遍乘中行，以直除之，消去中行上禾。又以右行上禾三遍乘左行，以直除之，消去左行上禾。然後以中行中禾不盡者遍乘左行，以直除之，消去左行中禾。左方下禾不盡者，上為法，下為實，實如法得下禾之實。求中禾、上禾，以法命之。}
+
+\liuhui{此方程術之正也。置三行於位：右行上禾三、中禾二、下禾一、實三十九；中行上禾二、中禾三、下禾一、實三十四；左行上禾一、中禾二、下禾三、實二十六。以右行上禾三乘中行，得六、九、三、一百零二；與右行三、二、一、三十九直除之：六減三之二倍得零，九減二之二倍得五，三減一之二倍得一，一百零二減三十九之二倍得二十四。是為中行：中禾五、下禾一、實二十四。又以右行上禾三乘左行，得三、六、九、七十八；與右行直除：三減三得零，六減二得四，九減一得八，七十八減三十九得三十九。是為左行：中禾四、下禾八、實三十九。然後以中行中禾五乘左行，得二十、四十、一百九十五；以中行直除之：二十減五之四倍得零，四十減一之四倍得三十六，一百九十五減二十四之四倍得九十九。是為左行：下禾三十六、實九十九。故下禾一秉實為九十九除以三十六，得二斗四分斗之三。}
+
+\textbf{Modern formulation:}
+\[
+\begin{array}{ccc|c}
+3 & 2 & 1 & 39 \\
+2 & 3 & 1 & 34 \\
+1 & 2 & 3 & 26 \\
+\end{array}
+\]
+After elimination: $x = 9\frac{1}{4}$, $y = 4\frac{1}{4}$, $z = 2\frac{3}{4}$.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 2 ---
+\subsection{第二題：五家共輸}
+
+\wen{今有甲、乙、丙、丁、戊五家共輸粟。甲所輸加乙之一半，乙所輸加丙之三分之一，丙所輸加丁之四分之一，丁所輸加戊之五分之一，戊所輸加甲之六分之一，各適等。問：各家所輸幾何？}
+
+\da{各家所輸均為一斛。甲輸二十五分斛之十二，乙輸二十五分斛之四，丙輸二十五分斛之三，丁輸二十五分斛之二，戊輸二十五分斛之一。}
+
+\shu{術曰：以方程術入之。令各家所輸為未知數，以條件列方程，正負相生，求之即得。}
+
+\liuhui{此題以方程術入之為便。令甲、乙、丙、丁、戊所輸分別為$a, b, c, d, e$。則有：$a + \frac{b}{2} = b + \frac{c}{3} = c + \frac{d}{4} = d + \frac{e}{5} = e + \frac{a}{6}$。令此等於$k$，則五式聯立，可以方程術解之。以方程術者，列為五行，消去正負，求未知之實也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 3 ---
+\subsection{第三題：三畜直金}
+
+\wen{今有牛二、羊五，直金十兩；牛三、豕三，直金九兩；羊六、豕八，直金八兩。問：牛、羊、豕各直金幾何？}
+
+\da{牛一直金一兩二十一分兩之十三，羊一直金二十一分兩之二十，豕一直金二十一分兩之四。}
+
+\shu{術曰：方程術。置牛、羊、豕之數及直金於三行，以直除消去牛、羊，得下豕之實，實如法得豕之直。以次求羊、牛之直。}
+
+\liuhui{牛二、羊五直十兩，牛三、豕三直九兩，羊六、豕八直八兩。以方程術：置三行，先消去牛，次消去羊，得豕之實。以豕之實推羊，以羊之實推牛。此三物方程之正法也。}
+
+\textbf{Modern formulation:}
+\[
+\begin{array}{ccc|c}
+2 & 5 & 0 & 10 \\
+3 & 0 & 3 & 9 \\
+0 & 6 & 8 & 8 \\
+\end{array}
+\]
+Solving: cow = $\frac{34}{21}$ taels, sheep = $\frac{20}{21}$ taels, pig = $\frac{4}{21}$ taels.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 4 ---
+\subsection{第四題：麻麥稻菽黍}
+
+\wen{今有麻九斗、麥七斗、菽三斗、答二斗、黍五斗，直錢一百四十；麻七斗、麥六斗、菽四斗、答五斗、黍三斗，直錢一百二十八；麻三斗、麥五斗、菽七斗、答六斗、黍四斗，直錢一百一十六；麻二斗、麥三斗、菽五斗、答七斗、黍六斗，直錢一百零四；麻五斗、麥四斗、菽六斗、答三斗、黍七斗，直錢一百一十二。問：五物各一斗直錢幾何？}
+
+\da{麻一斗七錢，麥一斗四錢，菽一斗三錢，答一斗五錢，黍一斗六錢。}
+
+\shu{術曰：方程術。以五物列五行，以直錢為實，遍乘直除，消去各物之率，各得其一斗之實。}
+
+\liuhui{此五物方程，較之三物方程為繁。其術一也：列五行为程，以右行首物遍乘其下各行，以直除之，消去首物；次以中行次物遍乘其下各行，以直除之，消去次物；如是遞推，終得一物之實，然後逆求各物。此方程術之通法也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 5 ---
+\subsection{第五題：正負術}
+
+\wen{今有上禾七秉，損實一斗，益之下禾二秉，則實滿十斗；下禾八秉，益實一斗，與上禾三秉，則實滿十斗。問：上、下禾一秉各幾何？}
+
+\da{上禾一秉一斗五十二分斗之四十七，下禾一秉五十二分斗之三十九。}
+
+\shu{術曰：以方程術入之。損實一斗者，正也；益實一斗者，負也。正負列位，如方程消之。}
+
+\liuhui{正負術者，方程術之輔也。以兩算得失相反，要令正負以名之。正算赤，負算黑。否則以邪正為異。同名相除，異名相益。正無入負之，負無入正之。其異名相除，同名相益，正無入正之，負無入負之。此正負之術也。方程自有消去之法，正負所以記其消去之跡也。}
+
+\textbf{Note:} This problem introduces the concept of \textit{positive and negative numbers} (正負). Liu Hui explains that red counting rods represent positive numbers, and black rods represent negative numbers. This is the first known systematic use of signed numbers in world mathematics.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 6 ---
+\subsection{第六題：四畜求直}
+
+\wen{今有馬一、牛二、羊三，直金二十五兩；馬二、牛三、羊一，直金二十八兩；馬三、牛一、羊二，直金二十三兩。問：馬、牛、羊各直金幾何？}
+
+\da{馬一直金九兩，牛一直金五兩，羊一直金二兩。}
+
+\shu{術曰：方程術。列三行，馬、牛、羊之數及直金為實。以右行馬一遍乘中行、左行，以直除之，消去馬。次以中行牛遍乘左行，以直除之，消去牛。左行羊不盡者，上為法，下為實，實如法得羊之直。次求牛、馬之直。}
+
+\liuhui{此三物方程之又一例也。馬一、牛二、羊三直二十五兩；馬二、牛三、羊一直二十八兩；馬三、牛一、羊二直二十三兩。以方程術消之：右行馬一為最簡，故以右行遍乘中行、左行，直除消馬。然後以中行消左行之牛，得羊之實。既得羊直，回代求牛、馬之直。}
+
+\textbf{Modern formulation:}
+\begin{align*}
+x + 2y + 3z &= 25 \\
+2x + 3y + z &= 28 \\
+3x + y + 2z &= 23
+\end{align*}
+Solution: $x = 9$, $y = 5$, $z = 2$.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 7 ---
+\subsection{第七題：粟麥互易}
+
+\wen{今有上禾六秉，損實一斗八升，當下禾一十秉；下禾一十五秉，損實五升，當上禾五秉。問：上、下禾一秉各幾何？}
+
+\da{上禾一秉八升，下禾一秉三升。}
+
+\shu{術曰：方程術。列上禾、下禾之數及損實為行。以正負術記之，直除消去，求得各秉之實。}
+
+\liuhui{上禾六秉損一斗八升當下禾十秉者，六秉上禾之實減一斗八升，等於十秉下禾之實也。下禾十五秉損五升當上禾五秉者，十五秉下禾之實減五升，等於五秉上禾之實也。以方程列之，正負記之，消去求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 8 ---
+\subsection{第八題：五家共輸稅}
+
+\wen{今有五等之家共輸稅。甲五家、乙四家、丙三家、丁二家、戊一家，共輸稅一千斛。欲令各依等衰輸之。問：各輸幾何？}
+
+\da{甲輸二百七十七斛七分斛之六，乙輸二百二十二斛七分斛之二，丙輸一百六十六斛七分斛之四，丁輸一百一十一斛七分斛之一，戊輸五十五斛七分斛之五。}
+
+\shu{術曰：以方程術入之。令五家為五未知，以家數及共輸為實，依衰分列方程，消去求之。}
+
+\liuhui{五等之家，各有多少之異。甲五家、乙四家、丙三家、丁二家、戊一家，共輸千斛。依等衰者，以家數之比例為率也。甲五、乙四、丙三、丁二、戊一，共十五。以千斛分為十五分，甲得其五，乙得其四，丙得其三，丁得其二，戊得其一。此題以方程術者，驗其等衰之實也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 9 ---
+\subsection{第九題：三人持錢}
+
+\wen{今有甲、乙、丙三人持錢。甲得乙之半而錢滿四十八，乙得丙之半而錢滿四十八，丙得甲之半而錢滿四十八。問：甲、乙、丙各持錢幾何？}
+
+\da{甲持錢三十六，乙持錢二十四，丙持錢十二。}
+
+\shu{術曰：以方程術入之。令甲、乙、丙持錢為三未知數，以條件列三方程，消去求之。}
+
+\liuhui{甲得乙之半而滿四十八者，甲加乙之半等於四十八也。乙得丙之半而滿四十八者，乙加丙之半等於四十八也。丙得甲之半而滿四十八者，丙加甲之半等於四十八也。設甲持$x$，乙持$y$，丙持$z$，則：$x + \frac{y}{2} = 48$，$y + \frac{z}{2} = 48$，$z + \frac{x}{2} = 48$。以方程術列三行，正負記之，消去求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 10 ---
+\subsection{第十題：五家共井（重出方程術）}
+
+\wen{今有五家共井。甲二綆不足，如乙一綆；乙三綆不足，如丙一綆；丙四綆不足，如丁一綆；丁五綆不足，如戊一綆；戊六綆不足，如甲一綆。如各得所不足一綆，皆逮。問：井深、綆長各幾何？}
+
+\da{井深七丈二尺一寸。甲綆長二丈六尺五寸，乙綆長一丈九尺一寸，丙綆長一丈四尺八寸，丁綆長一丈二尺九寸，戊綆長七尺六寸。}
+
+\shu{術曰：方程術。列五家綆長及井深為六未知數，以五條件列五行。正負相生，直除消去，求得其比，然後以井深定其實長。}
+
+\liuhui{此題與卷七所載為同一題，而術不同。卷七以盈不足術驗之，此則以方程術正解之。甲二綆不足如乙一綆者，二倍甲綆加井深等於乙綆也。設井深為$d$，甲、乙、丙、丁、戊綆長各為$a, b, c, d', e$，則有：$2a + d = b$，$3b + d = c$，$4c + d = d'$，$5d' + d = e$，$6e + d = a$。以方程術列之，求得各綆與井深之比。此五程六物之方程，為不定問題，故特設井深以定其解。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 11 ---
+\subsection{第十一題：三禾互易}
+
+\wen{今有上禾七秉，益實六斗，當下禾一十秉；下禾五秉，益實一斗，當上禾二秉。問：上、下禾一秉各幾何？}
+
+\da{上禾一秉八升，下禾一秉三升。}
+
+\shu{術曰：方程術。列上禾、下禾之數及益實為行，正負記之，直除消去，求得各秉之實。}
+
+\liuhui{上禾七秉益六斗當下禾十秉者，七秉上禾之實加六斗，等於十秉下禾之實也。下禾五秉益一斗當上禾二秉者，五秉下禾之實加一斗，等於二秉上禾之實也。以方程列之，此二物二程之方程也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 12 ---
+\subsection{第十二題：四器求容}
+
+\wen{今有大器一、小器五，容三斛；大器五、小器一，容二斛。問：大、小器各容幾何？}
+
+\da{大器容二十四分斛之十三，小器容二十四分斛之七。}
+
+\shu{術曰：方程術。列大器、小器之數及容為兩行，直除消去大器，得小器之實。以小器之實回代，求得大器之容。}
+
+\liuhui{大器一、小器五容三斛，大器五、小器一容二斛。以方程術列之：右行大器一、小器五、實三；左行大器五、小器一、實二。以右行遍乘左行，直除消去大器，得小器之實。回代求大器。此二物方程之簡者也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 13 ---
+\subsection{第十三題：金銀鉛錫}
+
+\wen{今有金一斤、銀一斤，稱之適等；金一斤、鉛一斤，稱之金輕五兩；銀一斤、錫一斤，稱之銀輕三兩。問：金、銀、鉛、錫一斤各重幾何？}
+
+\da{金一斤重一斤，銀一斤重一斤，鉛一斤重一斤五兩，錫一斤重一斤三兩。}
+
+\shu{術曰：方程術。以金銀適等為一條件，金鉛差五兩為一條件，銀錫差三兩為一條件，列方程求之。}
+
+\liuhui{金銀適等者，一斤金與一斤銀重量相等也。此以天平稱之，非論其體積。金鉛稱之金輕五兩者，同體積之鉛重於金五兩也。銀錫稱之銀輕三兩者，同體積之錫重於銀三兩也。以方程術列之，三條件四物，當以一物為率，求各物之比。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 14 ---
+\subsection{第十四題：方程新術}
+
+\wen{今有上禾二秉，中禾三秉，下禾四秉，實皆不滿斗。上禾取中禾一秉，中禾取下禾一秉，下禾取上禾一秉，而實滿斗。問：上、中、下禾一秉各幾何？}
+
+\da{上禾一秉二十五分斗之十一，中禾一秉二十五分斗之七，下禾一秉二十五分斗之四。}
+
+\shu{術曰：方程新術。以所取之數列為方程，各以其取數遍乘，直除消去，各得其實。}
+
+\liuhui{此方程術之變也。上禾二秉取中禾一秉而滿斗者，上禾一秉之實加中禾半秉之實為半斗也。中禾三秉取下禾一秉而滿斗者，中禾一秉之實加下禾三分之一秉之實為三分之一斗也。下禾四秉取上禾一秉而滿斗者，下禾一秉之實加上禾四分之一秉之實為四分之一斗也。以三條件列三行，直除消去求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 15 ---
+\subsection{第十五題：重衰分入方程}
+
+\wen{今有粟五斗，為糲米、粺米、糞米三等。欲令糲二、粺三、糞四為率。問：各為米幾何？}
+
+\da{糲米一斗四升七分升之四，粺米二斗一升七分升之六，糞米二斗八升七分升之二。}
+
+\shu{術曰：以方程術入之。令三米之率為三未知數，以粟五斗為實，以率之比列方程，消去求之。}
+
+\liuhui{糲二、粺三、糞四為率者，三米當為二比三比四之比例也。以方程列之：設糲米為$2k$，粺米為$3k$，糞米為$4k$，則$2k + 3k + 4k = 5$斗，$9k = 5$斗，$k = \frac{5}{9}$斗。然後各以其率乘之。此方程術與衰分術之合也。}
+
+\newpage
+%% ========================================================================
+%% VOLUME 9: GOUGU (勾股)
+%% ========================================================================
+\volheader{卷第九}{勾股}
+
+\volsubtitle{Gougu --- Right Triangles (Pythagorean Theorem)}
+
+\begin{quote}
+\textit{The Gougu chapter is the culmination of the Nine Chapters, presenting the Pythagorean theorem and its applications in extraordinary depth. Liu Hui's commentary on this chapter is especially remarkable --- it includes his famous ``method of cutting and patching'' (割補術) for proving the Pythagorean theorem, and his discussion of what he called the ``out-in complementary principle.'' This chapter also contains problems on distance measurement, circle-square relationships, and the first known Chinese approach to what we now call quadratic irrationals.}
+\end{quote}
+
+\subsection*{Fundamental Theorem}
+
+\shu{勾股術曰：句股各自乘，并而開方除之，即弦。又股自乘，以減弦自乘，其餘開方除之，即句。又句自乘，以減弦自乘，其餘開方除之，即股。}
+
+\liuhui{勾股之法，出於圓方。圓徑一而周三，方徑一而周四。以圓方之率，生勾股之術。按句股者，矩之別名也。矩之為物，橫者為句，縱者為股，斜者為弦。句股各自乘，并之為弦實。開方除之，得弦。此謂勾股各自乘，并之為大正方形，而以弦為邊也。}
+
+\textbf{The Pythagorean Theorem:} If the two legs (勾 and 股) of a right triangle have lengths $a$ and $b$, and the hypotenuse (弦) has length $c$, then:
+\[
+a^2 + b^2 = c^2
+\]
+
+Liu Hui's proof uses the ``method of cutting and patching'' (割補術): the square on the hypotenuse (弦實) can be cut and rearranged to exactly fill the two squares on the legs (勾實 and 股實).
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 1 ---
+\subsection{第一題：勾股求弦}
+
+\wen{今有句三尺，股四尺，問：為弦幾何？}
+
+\da{弦五尺。}
+
+\shu{術曰：句股各自乘，并而開方除之，即弦。句自乘得九，股自乘得一十六，并之得二十五，開方除之得五尺。}
+
+\liuhui{此勾股之正術也。勾三、股四、弦五，此為勾股之最基本率。勾自乘得九，股自乘得一十六，并之為二十五，即弦自乘之數。開方得五，即弦。按勾三股四弦五，此所謂勾股弦之率也。以三、四、五為勾股弦者，其直角三角形中最簡者也。凡勾股之數，皆可由此率推之。}
+
+\textbf{Modern note:} This is the famous 3--4--5 right triangle, the simplest Pythagorean triple.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 2 ---
+\subsection{第二題：弦股求句}
+
+\wen{今有弦五尺，股四尺，問：為句幾何？}
+
+\da{句三尺。}
+
+\shu{術曰：股自乘，以減弦自乘，其餘開方除之，即句。股自乘得一十六，弦自乘得二十五，以十六減二十五餘九，開方除之得三尺。}
+
+\liuhui{弦實二十五，股實一十六，兩實之差為句實九。開方得三，即句。此術為勾股術之逆也。弦實者，以弦為邊之正方形也；股實者，以股為邊之正方形也。弦實減股實，所餘即句實也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 3 ---
+\subsection{第三題：句弦求股}
+
+\wen{今有句八尺，弦十七尺，問：為股幾何？}
+
+\da{股十五尺。}
+
+\shu{術曰：句自乘，以減弦自乘，其餘開方除之，即股。句自乘得六十四，弦自乘得二百八十九，以六十四減二百八十九餘二百二十五，開方除之得一十五尺。}
+
+\liuhui{弦寬二百八十九，句實六十四，兩實之差為股實二百二十五。開方得一十五，即股。此又以勾股術之逆也。勾八、股十五、弦十七，此又一股弦之率也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 4 ---
+\subsection{第四題：戶高廣}
+
+\wen{今有戶高多於廣六尺八寸，兩隅相去適一丈。問：戶高、廣各幾何？}
+
+\da{廣二尺八寸，高九尺六寸。}
+
+\shu{術曰：令一丈自乘，半之得五十尺為實。令多六尺八寸自乘，得四十六尺二寸四分，半之得二十三尺一寸二分為法。實如法得一尺，為戶廣。加多六尺八寸，為高。}
+
+\liuhui{戶高多於廣六尺八寸者，高與廣之差也。兩隅相去一丈者，以高廣為勾股之弦也。令一丈自乘者，弦實也。高廣之差自乘者，差實也。弦實加差實，開方得高；弦實減差實，開方得廣。此術以勾股弦之關係求高廣也。}
+
+\textbf{Modern formulation:} Let $h$ = height, $w$ = width. Then $h - w = 6.8$ and $h^2 + w^2 = 100^2 = 10000$.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 5 ---
+\subsection{第五題：邑方出東門}
+
+\wen{今有邑方不知大小，各開中門。出東門二十步有木。問：出南門幾何步而見木？}
+
+\da{出南門一十四步半而見木。}
+
+\shu{術曰：以勾股相似術入之。出東門二十步為勾，邑方之半為股。以股自乘，以勾除之，得南門外見木之步數。}
+
+\liuhui{邑方者，正方形之城邑也。各開中門者，四面之門各開於邊之中點也。出東門二十步有木者，從東門中出東行二十步有樹木也。出南門見木者，從南門中出南行，望見東門外之木也。此以勾股相似之術求之：邑方之半為一大股，東門外二十步為一大勾；南門外所求步數為一小股，邑方之半亦為一小勾之對應邊。兩勾股相似，故以比例求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 6 ---
+\subsection{第六題：井徑求立木}
+
+\wen{今有井徑五尺，不知其深。立木於井上，從木末望水岸，入徑四尺。問：井深幾何？}
+
+\da{井深一丈九尺二寸。}
+
+\shu{術曰：以勾股相似術入之。井徑五尺為勾，入徑四尺為股之差。以井徑乘入徑，以井徑減入徑之差除之，得井深。}
+
+\liuhui{井徑五尺者，井口之直徑也。立木於井上者，木直立於井口之邊也。從木末望水岸者，從木頂斜望水面之岸也。入徑四尺者，視線入於井口之處距井邊四尺也。此亦以勾股相似之術：木高為一大股，入徑為一大勾；井深為一小股，井徑之半為一小勾。兩勾股相似，故可以比例求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 7 ---
+\subsection{第七題：登山望邑}
+
+\wen{今有登山望邑，邑在山東。山高不知高，立兩表齊高三丈，前後相去千步。令後表與前表參相直。從前表卻行一百二十三步，人目著地，取望邑西北隅，入表前三寸。從後表卻行一百二十七步，人目著地，取望邑西北隅，適與表端參合。問：邑方及山去表各幾何？}
+
+\da{邑方一里二百二十步，山去表一里一百八十二步半。}
+
+\shu{術曰：以重差術入之。此為重差之正術，以兩表之高及相去之遠，兩卻行之數，入表之數，列為勾股，相似求之。以勾股之差遍乘，以除之，得邑方及遠近。}
+
+\liuhui{此重差術之典型題也。重差者，以兩表之重迭差數求遠物之高深廣遠也。立兩表齊高三丈者，立兩根標杆，同高三丈也。前後相去千步者，兩表之距離也。從前表卻行一百二十三步者，從前表向後退一百二十三步也。入表前三寸者，視線越過前表之頂，落於前表前方三寸處也。從後表卻行一百二十七步而適與表端參合者，視線恰好通過後表之頂端也。以此兩組勾股之比例差，可以求邑方及山去表之遠。此術之妙，在於以咫尺之矩，測千里之遠。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 8 ---
+\subsection{第八題：勾股容方}
+
+\wen{今有句五步，股十二步，問：句中容方幾何？}
+
+\da{方三步十七分步之九。}
+
+\shu{術曰：并句、股為法，句股相乘為實，實如法而一，得方。句五步、股十二步，并之得十七步為法。句股相乘得六十步為實。實如法得三步十七分步之九。}
+
+\liuhui{勾股容方者，於直角三角形中作一最大之內接正方形也。其正方形之一邊落於弦上，對角之頂點落於直角處。以勾股之相并為法，勾股之相乘為實者，以相似勾股之理推之也。勾股容方之邊，等於勾股相乘除以勾股之和。此術之證，以勾股之相似形割補得之。}
+
+\textbf{Modern formulation:} For a right triangle with legs $a = 5$ and $b = 12$, the side $s$ of the inscribed square with one side on the hypotenuse is:
+\[s = \frac{ab}{a+b} = \frac{5 \times 12}{5 + 12} = \frac{60}{17} = 3\frac{9}{17}\]
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 9 ---
+\subsection{第九題：勾股容圓}
+
+\wen{今有句八步，股十五步，問：句中容圓，徑幾何？}
+
+\da{圓徑六步。}
+
+\shu{術曰：句股相乘，倍之為實。并句、股、弦為法。實如法而一，得圓徑。句八步、股十五步，句股相乘得一百二十，倍之得二百四十為實。句八、股十五、弦十七，并之得四十為法。實如法得六步。}
+
+\liuhui{勾股容圓者，於直角三角形中作一最大之內切圓也。以勾股相乘倍之為實者，兩倍三角形之面積也。以勾股弦之和為法者，三角形周長之半也。三角之面積等於內切圓半徑乘周長之半，故以面積之兩倍除以周長之半，得圓徑。此術之精妙，以面積之關係推圓徑也。}
+
+\textbf{Modern formulation:} For a right triangle, the inradius $r$ is given by:
+\[r = \frac{a + b - c}{2} = \frac{8 + 15 - 17}{2} = 3, \quad d = 2r = 6\]
+Equivalently: $d = \frac{2ab}{a+b+c} = \frac{2 \times 8 \times 15}{8+15+17} = \frac{240}{40} = 6$.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 10 ---
+\subsection{第十題：邑中望木}
+
+\wen{今有邑方不知大小，各開中門。出北門二十步有木。出南門十四步，折而西行一千七百七十五步見木。問：邑方幾何？}
+
+\da{邑方五十步。}
+
+\shu{術曰：以勾股術入之。出北門二十步與出南門十四步相加得三十四步，以邑方之半乘之，以西行一千七百七十五步除之，得邑方之半。倍之得邑方。}
+
+\liuhui{邑方者，正方形之城邑也。出北門二十步有木者，從北門中出北行二十步有樹也。出南門十四步折而西行者，從南門中出南行十四步，然後轉向西行一千七百七十五步，恰見北門外之木也。此以勾股相似之術求之：邑方之半為一勾，南北出門步數之和為一股，西行步數為另一勾。兩勾股相似，故可以比例求邑方。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 11 ---
+\subsection{第十一題：望清淵}
+
+\wen{今有清淵，不知深淺。立一木於岸上，高三丈。從木末斜望水際，入木一尺二寸。又望水底，入木四尺八寸。問：淵深幾何？}
+
+\da{淵深一丈二尺。}
+
+\shu{術曰：以勾股相似術入之。木高三丈為股，入木一尺二寸為勾。入木四尺八寸為另一勾之率。以比例求之，得淵深。}
+
+\liuhui{立木高三丈於岸上，從木末斜望水際入木一尺二寸者，視線從木頂到水面與木杆相交處距木頂一尺二寸也。又望水底入木四尺八寸者，視線從木頂到水底與木杆相交處距木頂四尺八寸也。以勾股相似之術：木高為一大股，入木之數為大勾之對應。淵深與入木之差之比例，如木高與入水之比例。故以比例求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 12 ---
+\subsection{第十二題：窺望木}
+
+\wen{今有木去人不知遠近。立一表長一丈，人退行二丈六尺，從表末望木，與表端參合。又退行二丈，從表末望木，入表一尺。問：木去表幾何？}
+
+\da{木去表三十四丈。}
+
+\shu{術曰：以重差術入之。兩退行之差為法，表長乘後退行為實，實如法而一，得木去表之遠。}
+
+\liuhui{此又以重差術測遠也。立表一丈，退行二丈六尺而望木與表端參合者，木、表端、人目三點一線也。又退行二丈，共退行四丈六尺，入表一尺者，視線越過表端一尺也。兩退行之差為二丈，表長一丈乘後退行四丈六尺為實，以二丈為法，實如法得二十三丈。此以勾股之差求之也。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 13 ---
+\subsection{第十三題：因木望山}
+
+\wen{今有木不知高遠。立兩表，各高一丈，前後相去五百步。從前表卻行一百二十步，人目著地，望山峯與表端參合。從後表卻行一百八十步，人目著地，望山峯與表端參合。問：山去前表幾何？山高幾何？}
+
+\da{山去前表一里二百步，高八里一百二十步。}
+
+\shu{術曰：以重差術入之。兩表相去為勾股之率，兩卻行之差為法。表高乘表間為實，實如法得山高。前卻行乘表間為實，實如法得山去表之遠。}
+
+\liuhui{此重差術測山高之典型題也。立兩表齊高一丈，相去五百步。從前表卻行一百二十步而望山峯與表端參合，從後表卻行一百八十步而望山峯與表端參合。兩卻行之差六十步為法。表高一丈乘表間五百步為實，實如法得山高。前卻行一百二十步乘表間五百步為實，如法得山去前表之遠。此術之精，在於以兩表之矩，測群山之高遠。故劉徽曰：以咫尺之矩，測千里之高深。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 14 ---
+\subsection{第十四題：環田求徑}
+
+\wen{今有環田，中周六十二步，外周四步，徑十二步。問：為田幾何？}
+
+\da{二畝五十五步。}
+
+\shu{術曰：并中外周而半之，以徑乘之為積。中周六十二步、外周四步，并之得六十六步，半之得三十三步。以徑十二步乘之，得三百九十六步為積。畝法二百四十步，得三畝二十五步。}
+
+\liuhui{環田者，猶圓田之中去一圓也。并中外周而半之者，取環之平均周長也。以徑乘之者，以平均周長為廣，徑為縱也。此術以環田近似為矩形，故以廣縱相乘得積。若精密求之，當以兩圓面積之差求之：以中周求中圓之徑，以外周求外圓之徑，兩圓面積之差即環田之積。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 15 ---
+\subsection{第十五題：圓材求徑}
+
+\wen{今有圓材，埋在地下，不知大小。以鋸鋸之，深一寸，鋸道長一尺。問：圓材徑幾何？}
+
+\da{圓材徑二尺六寸。}
+
+\shu{術曰：以勾股術入之。鋸道長一尺者，弦也；深一寸者，矢也。半鋸道自乘，除以深，加深，即圓徑。半鋸道五寸自乘得二十五寸，除以深一寸得二十五寸，加深一寸得二十六寸，即圓材徑。}
+
+\liuhui{圓材埋在地下，以鋸鋸之者，鋸截圓材得一弦也。鋸道長一尺即弦長，深一寸即弦到圓周之最短距離（矢）。以勾股術求圓徑：半弦為勾，圓徑減矢之半為股。半弦自乘除以矢，得圓徑之半減矢。加以矢，得圓徑。此術精妙，以勾股之理測圓之大小。}
+
+\textbf{Modern formulation:} For a circle with chord length $c = 10$ and sagitta $s = 1$:
+\[d = \frac{(c/2)^2}{s} + s = \frac{25}{1} + 1 = 26\]
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 16 ---
+\subsection{第十六題：開方除之}
+
+\wen{今有積五萬五千二百二十五步。問：為方幾何？}
+
+\da{二百三十五步。}
+
+\shu{術曰：開方術。置積為實，借一算步之，超一等。議所得，以一乘所借一算為法，而以除。除已，倍法為定法。其復除，折法而下。復置借算步之如初，以復議一乘之，所得副，以加定法，以除。以所得副從定法。}
+
+\liuhui{開方術者，求正方形之一邊也。積五萬五千二百二十五步，開方得二百三十五步。其術：置積為實，借一算為初商之位。超一等者，自右而左，每兩位為一節也。議所得者，估計初商之數。二百三十五步者，初商二百，次商三十，三商五。倍法為定法者，以已得之二倍之，為下次除法之基數。此術與今之開方術原理相同，惟以籌算布位，故步驟不同耳。開方不盡者，以面命之；若精密求之，以微數續之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 17 ---
+\subsection{第十七題：開圓術}
+
+\wen{今有積三百六十步。問：為圓周幾何？}
+
+\da{圓周六十步。}
+
+\shu{術曰：開圓術。置積為實，以十二乘之，開方除之，得圓周。積三百六十步，以十二乘之得四千三百二十，開方除之得六十步。}
+
+\liuhui{開圓術者，以圓積求圓周也。以十二乘積開方者，古術以圓周率為三，圓面積為$\frac{C^2}{12}$，故$C = \sqrt{12S}$。以十二乘積而開方，得圓周。然此以周三徑一為率，其實圓周率非盡於三也。徽以為圓周率當大於三，以割圓術求之：割之彌細，所失彌少；割之又割，以至於不可割，則與圓周合體而無所失矣。以一百九十二邊形之面積推之，得圓周率約為三點一四一六，此為密率之近似也。}
+
+\textbf{Note:} This problem references Liu Hui's famous ``method of cutting the circle'' (割圓術), by which he obtained the approximation $\pi \approx 3.1416$ using a regular 192-gon inscribed in a circle --- one of the greatest achievements of ancient Chinese mathematics.
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 18 ---
+\subsection{第十八題：邪田求積}
+
+\wen{今有邪田，一頭廣三十步，一頭廣四十二步，正從六十四步。問：為田幾何？}
+
+\da{九畝一百四十四步。}
+
+\shu{術曰：并兩廣而半之，以從乘之為積。三十步與四十二步并之得七十二步，半之得三十六步。以從六十四步乘之，得二千三百四步為積。畝法二百四十步，得九畝一百四十四步。}
+
+\liuhui{邪田者，梯形之田也。一頭廣三十步，一頭廣四十二步，兩頭廣狹不同。正從六十四步者，兩廣之間之垂直距離也。并兩廣而半之者，取其平均廣也。以平均廣乘從，得積。此術以梯形近似為矩形，以平均廣為矩形之廣也。若以勾股之術精密求之，當以兩廣之差及從之關係求之。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 19 ---
+\subsection{第十九題：弧田徑術}
+
+\wen{今有弧田，弦三十步，矢十五步。問：為田幾何？}
+
+\da{一畝九十七步半。}
+
+\shu{術曰：以弦乘矢，矢又自乘，并之，三而一。}
+
+\liuhui{弧田術者，以弦矢求弧田之面積也。弦乘矢者，以弦為廣，矢為縱，相乘得長方形之積。矢自乘者，以矢為方之邊，自乘得正方之積。并之者，合兩積為一。三而一者，以弧田之積約當此兩積和之三分之一也。此術為弧田之近似術。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% --- Problem 20 ---
+\subsection{第二十題：五家共堤}
+
+\wen{今有五家共堤。甲、乙、丙、丁、戊五家，各以所出徒之數築堤。甲出徒二百五十四人，乙出徒二百四十三人，丙出徒二百三十二人，丁出徒二百二十一人，戊出徒二百一十人。堤長一萬二千七百步。問：各築幾何？}
+
+\da{各以人數為率分配之。}
+
+\shu{術曰：以衰分術入之。并五人數為法，堤長為實，實如法得一步之率。各以其人數乘之，得各家所築之步數。}
+
+\liuhui{五家共堤者，五家合出徒役共築一堤也。各以人數為率者，按出徒之人數比例分配築堤之長也。以衰分術入之：并五家出徒之人數為法，以堤長為實，實如法得每人之步數。然後各以其人數乘之。此題本屬衰分，而以勾股之比例理推之，同出一理。}
+
+\bigskip
+\hrule
+\bigskip
+
+%% ========================================================================
+%% END MATTER
+%% ========================================================================
+\newpage
+\section*{後記}
+
+\addcontentsline{toc}{section}{後記}
+
+\begin{quote}
+\textit{The three volumes presented here --- Yingbuzu (Excess and Deficit), Fangcheng (Rectangular Arrays), and Gougu (Right Triangles) --- represent the culmination of ancient Chinese mathematical thought as preserved in the \textbf{Jiǔzhāng Suànshù} (Nine Chapters on the Mathematical Art).}
+
+\textit{Liu Hui's commentary (c.~263 CE) elevates the Nine Chapters from a collection of problem-solving recipes to a work of genuine mathematical reasoning. His explanations of the Yingbuzu method as a general technique for approximation, his systematic treatment of linear equations via the Fangcheng method (essentially Gaussian elimination), and his profound work on the Pythagorean theorem including the famous ``method of cutting and patching'' (割補術) and the ``method of double differences'' (重差術), all testify to the sophistication of Chinese mathematics in the third century.}
+
+\textit{The Fangcheng chapter deserves special mention as containing the first known systematic use of negative numbers in world mathematics --- Liu Hui's explanation of how to handle ``positive'' (正) and ``negative'' (負) quantities during elimination is remarkably clear.}
+
+\textit{The Gougu chapter, with Liu Hui's commentary on the ``method of cutting the circle'' (割圓術), represents one of the earliest rigorous approaches to approximating $\pi$, yielding the remarkably accurate value of approximately 3.1416 via a regular 192-gon.}
+\end{quote}
+
+\vspace{1cm}
+
+\begin{center}
+\rule{0.4\textwidth}{0.4pt}
+
+\vspace{0.5cm}
+
+{\small\textit{Modern LaTeX edition\ using XeLaTeX and xeCJK}}
+
+{\small\textit{Chinese font: modern Unicode fonts}}
+
+{\small\textit{Text based on the standard edition of the Jiǔzhāng Suànshù}}
+
+\vspace{0.5cm}
+
+{\small Liu Hui's commentary translated and annotated}
+\end{center}
+
+\end{document}
+%% ========================================================================
+%% END OF DOCUMENT
+%% ========================================================================

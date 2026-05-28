@@ -1,0 +1,922 @@
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow,colortbl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% Define CJK font for polyglossia
+\newfontfamily\cjkfont{Microsoft YaHei}
+
+%% -------- Font Configuration --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+%% CJK Support via xeCJK
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{Microsoft YaHei}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{volcolor}{RGB}{80,40,20}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{volcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Ceyuan Haijing}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Chinese text helpers
+\newcommand{\ zh}[1]{{\CJKfamily{Microsoft YaHei} #1}}
+
+%% Problem/solution environment for Chinese mathematical texts
+\newenvironment{wenti}{\par\noindent\textbf{問：}}{\par}
+\newenvironment{dayue}{\par\noindent\textbf{答曰：}}{\par}
+\newenvironment{caoyue}{\par\noindent\textbf{草曰：}}{\par}
+\newenvironment{fayue}{\par\noindent\textbf{法曰：}}{\par}
+
+%% Problem number command with Chinese numerals
+\newcounter{probnum}
+\newcommand{\chnum}[1]{%
+  \ifcase#1 零\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\or
+    十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\fi}
+\newcommand{\problem}[1]{\stepcounter{probnum}\par\noindent\textbf{第\chnum{\value{probnum}}問：}#1\par}
+\newcommand{\answer}[1]{\par\noindent\textbf{答：}#1\par}
+\newcommand{\working}[1]{\par\noindent\textbf{草曰：}#1\par}
+\newcommand{\method}[1]{\par\noindent\textbf{法曰：}#1\par}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ===================================================================
+
+\begin{document}
+
+%% ===================================================================
+%% TITLE PAGE
+%% ===================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\fontsize{14}{18}\selectfont 欽定四庫全書}
+
+\vspace{1.5cm}
+
+{\fontsize{12}{16}\selectfont 子部}
+
+\vspace{2cm}
+
+\rule{0.8\textwidth}{1.5pt}
+
+\vspace{1cm}
+
+{\fontsize{28}{36}\selectfont\bfseries\color{titlecolor} 測圓海鏡}
+
+\vspace{0.5cm}
+
+{\fontsize{16}{22}\selectfont 卷四至卷六}
+
+\vspace{1cm}
+
+\rule{0.8\textwidth}{1.5pt}
+
+\vspace{2cm}
+
+{\fontsize{14}{18}\selectfont 元\quad 李冶\quad 撰}
+
+\vspace{3cm}
+
+{\fontsize{11}{15}\selectfont\color{notecolor}
+\begin{tabular}{rl}
+詳校官 & 欽天監博士 臣 張天樞 \\
+靈臺郎 臣 倪廷梅 & 覆勘 \\
+總校官 知縣 臣 繆琪 & \\
+校對官 五官靈臺郎 臣 陳際新 & \\
+謄錄監生 臣 施華 & \\
+\end{tabular}
+}
+
+\vfill
+
+{\small 依《欽定四庫全書》本}
+
+\end{center}
+\end{titlepage}
+
+%% ===================================================================
+%% TABLE OF CONTENTS
+%% ===================================================================
+\tableofcontents
+\newpage
+
+%% ===================================================================
+%% INTRODUCTION
+%% ===================================================================
+\section*{引言}
+\addcontentsline{toc}{section}{引言}
+
+《測圓海鏡》十二卷，元李冶撰。冶字仁卿，號敬齋，眞定欒城人。
+金末進士，入元官翰林學士。此書乃其所著天元術之傑作，以勾股測圓
+之法，設問答以明天元一之術。全書凡一百七十問，皆設城池圓形，以
+人物行步之數推求圓徑。
+
+本編收錄卷四、卷五、卷六三卷：
+\begin{itemize}
+  \item \textbf{卷四}：底勾一十七問
+  \item \textbf{卷五}：大股一十八問  
+  \item \textbf{卷六}：大勾一十八問
+\end{itemize}
+
+書中設問之例：假令有圓城一座，甲乙二人各從城門出行，或東或南，
+行若干步，遙相望見，或斜行相會。只知若干步數，餘皆不知，以求
+圓城之徑。每問皆有\textbf{問}、\textbf{答}、\textbf{草}、\textbf{法}四部分：
+\begin{itemize}
+  \item \textbf{問}：設問條件
+  \item \textbf{答}：所得答案
+  \item \textbf{草曰}：以天元術列方程之詳細演算
+  \item \textbf{法曰}：總結算法之簡要公式
+\end{itemize}
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+%% Reset problem counter for Volume 4
+\setcounter{probnum}{0}
+
+%% ===================================================================
+%% VOLUME 4
+%% ===================================================================
+\section{測圓海鏡卷四}
+\label{sec:vol4}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 底勾一十七問}
+\end{center}
+
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\noindent
+\textbf{【題意總說】}卷四論「底勾」之術。所謂底勾，乃勾股形之最下
+勾股，與圓徑相切之基本勾股形也。凡一十七問，皆以底勾為基，求
+圓城之徑。
+
+\vspace{0.3cm}
+
+%% --- Problem 1 ---
+\problem{
+或問乙出南門東行不知步數而立，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+識別得二行相減餘即乙出南門東行數也。以甲東行減於就乙斜行餘七
+十二步，以乘甲東行步，得一萬四千四百步，又四之，得五萬七千六百
+步為實，以平方開之，得二百四十步，即城徑也。
+}
+
+\method{
+二行差數乘甲東行又四之，為平方實，得全徑。
+}
+
+%% --- Problem 2 ---
+\problem{
+或問乙出南門東行不知步數而立，甲出北門東行二百步見之。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以減於二之甲東行步，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}480\\\hline 1\end{array}$}為兩个小差，以乙
+南行步乘之，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}48000\\\hline 1\end{array}$}為城徑冪，寄左。然後以天元冪
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}與左相消，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c|c|c}0&0&48000\\\hline 1&0&\end{array}$}
+以平方開之，得二百四十步，即城徑也。
+}
+
+\method{
+半之乙南行步乘甲東行為實，半乙南行為從，一步常法，得半徑。
+}
+
+%% --- Problem 3 ---
+\problem{
+或問乙從坤隅南行三百六十步，甲出北門東行二百步見之。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，減於乙東行，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}120\\1\end{array}$}為小差。半乙
+南行步，得一百八十步，以乘小差，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}21600\\\hline 1\end{array}$}
+為半徑冪，寄左。然後以天元冪\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}與左相消，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c|c|c}0&0&21600\\\hline 1&0&\end{array}$}
+以平方開之，得一百二十步，倍之得全徑。
+}
+
+\method{
+兩行步相乘為實，甲東行為從，乙為隅，得半徑。
+}
+
+%% --- Problem 4 ---
+\problem{
+或問乙從坤隅南行三百六十步，甲出北門東行二百步見之。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以減於二之甲東行，餘即乙出南門東行數也。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 5 ---
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，加乙南行，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}135\\1\end{array}$}為股率。
+其甲東行即勾率也。其乙南行為小股，以勾率乘之，合以大弦率除，
+今不受除，便以此為小勾，為母，寄股率。乃先以小弦乘大和，得
+下式\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\end{array}$}
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}12000\\0\end{array}$}
+寄左。又以倍天元減斜步，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}100\\2\end{array}$}
+為小和，以乘大弦，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}12000\\\hline 1\end{array}$}
+為同數，與左相消。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+
+\vspace{0.5cm}
+\noindent\textit{（以下各問草法類推，皆立天元一為半徑或城徑，以各條件建立方程，
+與左式相消，開方得數。）}
+
+%% --- Problem 6-17 summaries ---
+\setcounter{probnum}{5}
+\problem{
+或問乙從坤隅南行三百六十步，甲出北門東行二百步見之，就乙斜行二
+百七十二步與乙相會。問答同前。
+\method{兩行步相乘倍之為實，乙南行為從，一步常法，得半徑。}
+}
+
+\setcounter{probnum}{6}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{7}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{8}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百
+七十二步與乙相會。問答同前。
+\method{倍乙南行乘甲東行冪為實，甲東行為從，倍乙行為廉，一步常法，
+得城徑。}
+}
+
+\setcounter{probnum}{9}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問答同前。
+\method{兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，
+得城徑。}
+}
+
+\setcounter{probnum}{10}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，
+得城徑。}
+}
+
+\setcounter{probnum}{11}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{12}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百
+七十二步與乙相會。問答同前。
+\method{兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，
+得城徑。}
+}
+
+\setcounter{probnum}{13}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{14}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{15}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百
+七十二步與乙相會。問答同前。
+\method{兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，
+得城徑。}
+}
+
+\setcounter{probnum}{16}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，
+得城徑。}
+}
+
+\setcounter{probnum}{17}
+\problem{
+或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。
+\method{倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷四終}
+\end{center}
+
+\newpage
+
+%% Reset problem counter for Volume 5
+\setcounter{probnum}{0}
+
+%% ===================================================================
+%% VOLUME 5
+%% ===================================================================
+\section{測圓海鏡卷五}
+\label{sec:vol5}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 大股一十八問}
+\end{center}
+
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\noindent
+\textbf{【題意總說】}卷五論「大股」之術。所謂大股，乃最大勾股形之
+股邊，即通股也。以大股為主，配以諸勾股形之關係，求圓城之徑。
+凡一十八問。
+
+\vspace{0.3cm}
+
+%% --- Problem 1 ---
+\problem{
+或問乙出南門直行一百三十五步，而立甲從乾隅南行六百步，斜望乙與
+城參相直。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之減於甲南行，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}600\\2\end{array}$}
+為大差也。以自之，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\2400\\4\end{array}$}
+為大差冪也。置甲南行冪\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
+內減大差冪，而半之，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1200\\\hline 2\end{array}$}
+為大弦也。內帶大差為分母。又置甲南行冪內減大差冪，而半之，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\600\\\hline 1\end{array}$}
+為大勾也。帶大差分母。又以大差乘股六百步，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
+併入和，得下式
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1200\\\hline 1\end{array}$}
+為小和，以乘大弦，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\1200\\\hline 1\end{array}$}
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
+寄左。又以倍天元減斜步，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}100\\2\end{array}$}
+為小和，以乘大弦，得同數，與左相消。開立方得一百二十步，即半徑也。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步
+即甲南行也。四之甲南行步內減於甲南行餘二百四十步，即城徑也。
+}
+
+%% --- Problem 2 ---
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以減於甲南行步，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}600\\1\end{array}$}
+為大差。置甲南行冪內減大差冪，而半之，得大弦也。又以大差乘股六
+百步，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元減斜步
+，得小和，以乘大弦，得同數，與左相消。開立方得半徑。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 3 ---
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以二之減於甲南行，餘為大差。以自之得大差冪。
+置甲南行冪內減大差冪而半之，得大弦。內帶大差為分母。又置甲南
+行冪內減大差冪而半之，得大勾。帶大差分母。又以大差乘股六百步
+，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元減斜步，
+得小和，以乘大弦，得同數，與左相消。開立方得一百二十步，即半徑。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步
+即甲南行也。四之甲南行步內減於甲南行餘，即城徑也。
+}
+
+\vspace{0.3cm}
+\noindent\textit{（以下各問草法類推，皆依大股之術，以大差為主，建立方程。）}
+
+%% Continue with brief summaries
+\setcounter{probnum}{3}
+
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{4}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{5}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{6}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{7}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{8}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{9}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{10}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{11}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{12}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{13}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{14}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{15}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{16}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{17}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。
+\method{兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+}
+
+\setcounter{probnum}{18}
+\problem{
+或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問答同前。
+\method{倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。}
+}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷五終}
+\end{center}
+
+\newpage
+
+%% Reset problem counter for Volume 6
+\setcounter{probnum}{0}
+
+%% ===================================================================
+%% VOLUME 6
+%% ===================================================================
+\section{測圓海鏡卷六}
+\label{sec:vol6}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 大勾一十八問}
+\end{center}
+
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\noindent
+\textbf{【題意總說】}卷六論「大勾」之術。所謂大勾，乃最大勾股形之
+勾邊，即通勾也。以大勾為主，配以諸勾股形之關係，求圓城之徑。
+凡一十八問。
+
+\vspace{0.3cm}
+
+%% --- Problem 1 ---
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之加乙東行，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}32\\2\end{array}$}
+為小差。半乙南行步，得一百八十步，以乘小差，得半徑冪，寄左。
+然後以天元冪與左相消，開平方得一百二十步，即半徑。
+}
+
+\method{
+甲東行內減二之乙南行，復以乘甲東行為實。四之東行內減二之乙東
+行為從，四益隅，得半徑。
+}
+
+%% --- Problem 2 ---
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之加乙東行，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}16\\2\end{array}$}
+為小差。半甲東行步，得一百六十步，以乘小差，得
+\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}2560\\320\end{array}$}
+為半徑冪，寄左。然後以天元冪\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+與左相消，開平方得一百二十步，即半徑。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙
+東行為從，四益隅，得半徑。
+}
+
+%% --- Problem 3 ---
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以二之加乙東行，得\raisebox{-0.5ex}{\scriptsize$\begin{array}{c}16\\2\end{array}$}
+為小差。置甲東行冪內減小差冪，而半之，得大弦。帶小差分母。
+又置甲東行冪內減小差冪，而半之，得大股。帶小差分母。又以小差
+乘股，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元加斜
+步，得小和，以乘大弦，得同數，與左相消。開立方得二百四十步，
+即城徑。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙
+東行為從，四益隅，得城徑。
+}
+
+\vspace{0.3cm}
+\noindent\textit{（以下各問草法類推，皆依大勾之術，以小差為主，建立方程。）}
+
+%% Continue with brief summaries
+\setcounter{probnum}{3}
+
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{4}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{5}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{6}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{7}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{8}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{9}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{10}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{11}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{12}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{13}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{14}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{15}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{16}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{17}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\setcounter{probnum}{18}
+\problem{
+或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問答同前。
+\method{甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。}
+}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷六終}
+\end{center}
+
+\newpage
+
+%% ===================================================================
+%% APPENDIX: STRUCTURE OF THE WORK
+%% ===================================================================
+\section*{附錄：全書結構}
+\addcontentsline{toc}{section}{附錄：全書結構}
+
+《測圓海鏡》全書十二卷，共一百七十問：
+
+\begin{center}
+\begin{tabular}{clc}
+\toprule
+\textbf{卷} & \textbf{篇名} & \textbf{問數} \\
+\midrule
+卷一 & 圓城圖式 & --- \\
+卷二 & 正率一十四問 & 14 \\
+卷三 & 邊股一十七問 & 17 \\
+\rowcolor{gray!15}
+卷四 & 底勾一十七問 & 17 \\
+\rowcolor{gray!15}
+卷五 & 大股一十八問 & 18 \\
+\rowcolor{gray!15}
+卷六 & 大勾一十八問 & 18 \\
+卷七 & 明勾一十六問 & 16 \\
+卷八 & 明股一十六問 & 16 \\
+卷九 & 雜題 & 18 \\
+卷十 & 雜題 & 18 \\
+卷十一 & 雜題 & 18 \\
+卷十二 & 雜題 & 10 \\
+\midrule
+ & \textbf{合計} & \textbf{170} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+\noindent\textbf{術語解釋：}
+\begin{itemize}
+  \item \textbf{天元一}：設未知數為一，即現代代數之$x$
+  \item \textbf{寄左}：將某式暫存一邊，相當於方程之一邊
+  \item \textbf{相消}：兩式相減，相當於移項合併
+  \item \textbf{帶分母}：某式含有分母未除
+  \item \textbf{冪}：平方，即現代記號$x^2$
+  \item \textbf{開方}：開平方，即求平方根
+  \item \textbf{開立方}：開立方，即求立方根
+  \item \textbf{實}：常數項
+  \item \textbf{從}：一次項係數
+  \item \textbf{廉}：二次項係數
+  \item \textbf{隅}：三次項係數（立方方程中）
+\end{itemize}
+
+\vspace{1cm}
+\begin{center}
+\rule{0.3\textwidth}{0.4pt}
+
+\textit{--- 全書完 ---}
+\end{center}
+
+\end{document}

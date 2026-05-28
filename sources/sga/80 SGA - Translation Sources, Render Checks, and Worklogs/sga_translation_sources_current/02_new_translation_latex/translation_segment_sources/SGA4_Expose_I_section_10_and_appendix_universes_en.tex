@@ -1,0 +1,750 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: I, Presheaves
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/01/01.tex
+% Range translated in this batch: Section 10 (Glossary) and Appendix II, Universes, source lines 7424--8921.
+% Status: draft translation, compile-checked, not proofed line-by-line against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,amscd}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,hypertexnames=false}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Top}{\mathbf{Top}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Unif}{\mathbf{Unif}}
+\newcommand{\Ord}{\mathbf{Ord}}
+\newcommand{\Gr}{\mathbf{Gr}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fl}{\operatorname{Fl}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\Pset}{\mathcal{P}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\cc}{\mathfrak{c}}
+\newcommand{\dd}{\mathfrak{d}}
+\newcommand{\cf}{cf.}
+\newcommand{\ie}{i.e.}
+\newcommand{\resp}{respectively}
+\newcommand{\NB}{\textsc{n.b.}}
+\newcommand{\qedtext}{\hfill\(\square\)}
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e I. Presheaves}}\\[0.35em]
+{\large Section 10 and Appendix II: Glossary; Universes}\\[0.35em]
+A. Grothendieck and J.-L. Verdier; Appendix attributed to N. Bourbaki
+\end{center}
+
+\bigskip
+
+\noindent\emph{Translator's status note.} This is a working English translation of SGA~4, Expos\'e~I, Section~10 and the appended note ``Universes.'' The range corresponds to source lines 7424--8921 of the Orgogozo--Laszlo TeX snapshot. The translation keeps the period terminology where it is still mathematically useful: \emph{strict epimorphism}, \emph{effective equivalence relation}, \emph{direct factor}, and \emph{base-changeable} for French \emph{quarrable}. A few evident typographical slips in the source have been silently normalized where the formulas force the correction.
+
+\setcounter{section}{9}
+\section{Glossary}
+
+For the convenience of the reader, we collect here the definitions of several terms used in the preceding sections. Throughout this section, \(C\) denotes a category.
+
+\subsection{Cartesian, cocartesian}
+
+A diagram in \(C\)
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+A \arrow[r] \arrow[d] & B \arrow[d] \\
+C \arrow[r] & D
+\end{tikzcd}
+\]
+is called \emph{cartesian} if it is commutative and if the canonical morphism from \(A\) to the fiber product \(C\times_D B\) is an isomorphism. It is called \emph{cocartesian} if the corresponding diagram in the opposite category \(C^\circ\) is cartesian.
+
+\subsection{Epimorphism, strict epimorphism}
+
+See 10.3.
+
+\subsection{Epimorphic family, strictly epimorphic family}
+
+A family
+\[
+ f_i:A_i\longrightarrow B,\qquad i\in I,
+\]
+of arrows with common target in \(C\) is called an \emph{epimorphic family} if, for every object \(T\) of \(C\), the map induced by the \(f_i\),
+\begin{equation}
+ \Hom_C(B,T)\longrightarrow \prod_i \Hom_C(A_i,T),
+ \tag{10.3.1}
+\end{equation}
+is injective.
+
+The family is called \emph{strictly epimorphic} if the image of (10.3.1) consists of those families \((g_i)\) such that, for every object \(R\) of \(C\), every pair of indices \(i,j\in I\), and every pair of arrows \(u:R\to A_i\), \(v:R\to A_j\) satisfying \(f_i u=f_jv\), one also has \(g_i u=g_jv\). When the fiber products \(A_i\times_B A_j\) are representable for \(i,j\in I\), this is equivalent to saying that the image of (10.3.1) consists of those \((g_i)\) such that, for all \(i,j\),
+\[
+ g_i\pr_1=g_j\pr_2,
+\]
+where \(\pr_1,\pr_2\) are the two projections from \(A_i\times_B A_j\). The family \((f_i)_{i\in I}\) is called an \emph{effective epimorphic family} if this condition is satisfied, that is, if it is strictly epimorphic and the fiber products \(A_i\times_B A_j\) are representable.
+
+The family \((f_i)_{i\in I}\) is called \emph{universally epimorphic} (respectively, \emph{universally effectively epimorphic}) if the morphisms \(f_i\) are base-changeable (10.7) and if, for every arrow \(B'\to B\), the family of arrows obtained from \((f_i)\) by base change along \(B'\to B\) is epimorphic (respectively, effective epimorphic).
+
+The notion of a \emph{universally strictly epimorphic} family will be defined in II~2.5--2.6. Note that when the morphisms \(f_i\) are base-changeable, for example if fiber products are representable in \(C\), this notion agrees with that of a universally effectively epimorphic family, using II~2.4. In general, between the six variants of epimorphicity considered here, one has the following logical implications:
+
+
+\[
+\begin{aligned}
+&\text{universally effective epimorphic}\Rightarrow\text{effective epimorphic}\Rightarrow\text{strictly epimorphic}\Rightarrow\text{epimorphic},\\
+&\text{universally effective epimorphic}\Rightarrow\text{universally strictly epimorphic}\Rightarrow\text{strictly epimorphic},\\
+&\text{universally strictly epimorphic}\Rightarrow\text{universally epimorphic}\Rightarrow\text{epimorphic}.
+\end{aligned}
+\]
+
+
+A morphism \(f:A\to B\) of \(C\) is called an \emph{epimorphism} (respectively, a strict epimorphism, effective epimorphism, universal epimorphism, universally effective epimorphism, universally strict epimorphism) if the one-element family consisting of \(f\) is epimorphic (respectively, \ldots).
+
+\subsection{Monomorphic family, strictly monomorphic family}
+
+A family of arrows \(f_i:A_i\to B\) of \(C\) is called \emph{monomorphic} (respectively, strictly monomorphic, \ldots) if, as a family of arrows in the opposite category \(C^\circ\), it is epimorphic (respectively, strictly epimorphic, \ldots). An arrow \(f:A\to B\) of \(C\) is called a \emph{monomorphism} (respectively, a strict monomorphism, \ldots) if the one-element family consisting of \(f\) is monomorphic (respectively, strictly monomorphic, \ldots), that is, if \(f\), viewed as an arrow of \(C^\circ\), is an epimorphism (respectively, a strict epimorphism, \ldots).
+
+\subsection{Monomorphism, strict monomorphism}
+
+See 10.4.
+
+\subsection{Projector, image of a projector, direct factor of an object}
+
+Let \(f:X\to X\) be an endomorphism of an object of \(C\). We say that \(f\) is a \emph{projector} if \(f^2=f\). Then the pair \((f,\id_X)\) admits a representable cokernel \(X'\) if and only if it admits a representable kernel \(X''\); and when this is so, there is a unique isomorphism \(u:X'\to X''\) in \(C\) such that \(iup=f\), where \(p:X\to X'\) and \(i:X''\to X\) are the canonical morphisms. The representability of the kernel, or of the cokernel, is also equivalent to the existence of morphisms \(i,p\) and of an isomorphism \(u\) such that \(iup=f\) and \(pi=u^{-1}\). In particular, this property is preserved by any functor.
+
+One then usually identifies \(X'\) and \(X''\), and calls it the \emph{image of the projector} \(f\). We say that the projector \(f\) \emph{admits an image} if \(\Ker(f,\id_X)\) is representable, equivalently if \(\Coker(f,\id_X)\) is representable. A subobject (respectively, a quotient) \(Y\) of \(X\) is called a \emph{direct factor} of \(X\) if one can find a projector \(f\) in \(X\) which factors through \(Y\), and which admits \(Y\) as image as a subobject (respectively, as a quotient) of \(X\). By abuse of language, one sometimes says that an object of \(C\) is a \emph{direct factor of} \(X\) if it is isomorphic to the image of a projector in \(X\).
+
+\subsection{Base-changeable}
+
+An arrow \(f:A\to B\) of \(C\) is called \emph{base-changeable} (French: \emph{quarrable}) if, for every arrow \(B'\to B\) of \(C\), the fiber product \(A\times_B B'\) is representable in \(C\).
+
+\subsection{Quotient, strict quotient}
+
+Let \(A\) be an object of \(C\). Two epimorphisms \(f:A\to B\), \(f':A\to B'\) with source \(A\) are called \emph{equivalent} if there exists an isomorphism \(u:B\xto{\sim}B'\) such that \(uf=f'\). This gives an equivalence relation on the set of epimorphisms with source \(A\); its classes are called the \emph{quotients}, or \emph{quotient objects}, of \(A\). For every quotient of \(A\) one usually chooses an element of this class, say \(f:A\to B\), and one often speaks, by abuse of language, of the quotient \(B\) of \(A\), or of the quotient \(f:A\to B\) of \(A\). We say that \(B\) is a \emph{strict quotient} (respectively, an effective quotient, universal quotient, \ldots) if the morphism \(f:A\to B\) is a strict epimorphism (respectively, an effective epimorphism, universal epimorphism, \ldots) in the sense of 10.3.
+
+\subsection{Equivalence relations}
+
+Let \(F\) and \(G\) be two presheaves of sets on \(C\). A diagram \(p_1,p_2:F\rightrightarrows G\) is called an \emph{equivalence relation on} \(G\) if, for every object \(A\) of \(C\), the map
+\[
+ (p_1(A),p_2(A)):F(A)\longrightarrow G(A)\times G(A)
+\]
+induces a bijection from \(F(A)\) onto the graph of an equivalence relation on the set \(G(A)\).
+
+A diagram \(p_1,p_2:B\rightrightarrows C\) in \(C\) is called an equivalence relation on \(C\) if the corresponding diagram of presheaves is an equivalence relation. When finite products and fiber products are representable in \(C\), a functor \(\Phi:C\to C'\) commuting with finite products and fiber products carries equivalence relations on \(C\) to equivalence relations on \(\Phi(C)\).
+
+Let \(\Pi:C\to D\) be a morphism of \(C\) such that the fiber product \(C\times_D C\) is representable. Then the diagram
+\[
+ \pr_1,\pr_2:C\times_D C\rightrightarrows C
+\]
+is an equivalence relation on \(C\).
+
+\subsection{Effective equivalence relation, universally effective equivalence relation}
+
+An equivalence relation \(p_1,p_2:R\rightrightarrows A\) on an object \(A\) of \(C\) is called an \emph{effective equivalence relation} if there exists a morphism \(\pi:A\to B\) such that the square
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+R \arrow[r,"p_2"] \arrow[d,"p_1"'] & A \arrow[d,"\pi"] \\
+A \arrow[r] & B
+\end{tikzcd}
+\]
+is cartesian and cocartesian. The morphism \(\pi\) is the cokernel of the pair \((p_1,p_2)\), and is therefore determined up to unique isomorphism. The morphism \(\pi\) is then an effective epimorphism; if it is a universally effective epimorphism in the sense of 10.3, one says that the \emph{equivalence relation} is \emph{universally effective}.
+
+\subsection{Subobject, strict subobject}
+
+These are the notions dual to those of quotient, strict quotient, and so on; see 10.8.
+
+\begin{thebibliography}{1}
+\bibitem{MitchellI} B. Mitchell, \emph{Theory of Categories}, Academic Press, 1965.
+\end{thebibliography}
+
+\newpage
+
+\section*{II. Appendix: Universes (by N. Bourbaki\texorpdfstring{\(^*\)}{*})}
+\addcontentsline{toc}{section}{II. Appendix: Universes}
+
+\noindent\(^*\)We reproduce here, with his permission, secret papers of N. Bourbaki. The references in this text are to his learned work.
+
+\setcounter{section}{0}
+\section{Definition and first properties of universes}
+
+\begin{statement}{Definition 1}
+A set \(U\) is called a \emph{universe} if it satisfies the following conditions:
+\begin{itemize}[leftmargin=3em]
+\item[(U.I)] if \(x\in U\) and \(y\in x\), then \(y\in U\);
+\item[(U.II)] if \(x,y\in U\), then \(\{x,y\}\in U\);
+\item[(U.III)] if \(x\in U\), then \(\Pset(x)\in U\);
+\item[(U.IV)] if \((x_\alpha)_{\alpha\in I}\) is a family of elements of \(U\), and if \(I\in U\), then the union \(\bigcup_{\alpha\in I}x_\alpha\) belongs to \(U\);
+\item[(U.?)] if \(x,y\in U\), then the pair \((x,y)\in U\).
+\end{itemize}
+\end{statement}
+
+\noindent\NB{} Since, I believe, it has been decided for future editions to define the ordered pair \`a la Kuratowski by
+\[
+ (x,y)=\{\{x,y\},\{x\}\},
+\]
+condition (U.?) is useless, because it follows from (U.II).
+
+\begin{remarktext}{Examples}
+\begin{enumerate}[label=\arabic*)]
+\item The empty set is a universe, denoted \(U_0\).
+\item Consider the nonempty finite words formed with the four symbols ``\(\{\)'', ``\(\}\)'', ``,'', and ``\(\emptyset\)'' (\cf{} Alg. I). Define, by induction on the length \(n\) of such a word, the notion of a \emph{meaningful} word:
+\begin{enumerate}[label=(\alph*)]
+\item for \(n=1\), only the word \(\emptyset\) is meaningful;
+\item for a word \(A\) of length \(n\) to be meaningful, it is necessary and sufficient that there exist \(p\) distinct meaningful words \(A_1,\ldots,A_p\), with \(p\geq 1\) and of lengths \(<n\), such that
+\[
+ A=\{A_1,A_2,\ldots,A_p\}.
+\]
+\end{enumerate}
+\end{enumerate}
+\end{remarktext}
+
+For example, \(\emptyset\), \(\{\emptyset\}\), and
+\[
+ \{\{\emptyset\},\{\{\emptyset\}\},\{\emptyset,\{\emptyset\}\}\}
+\]
+are meaningful words. It is clear, by induction on the length, that every meaningful word denotes a term of set theory; for example, if \(A=\{A_1,A_2,\ldots,A_p\}\), then \(A\) denotes the set whose elements are \(A_1,A_2,\ldots,A_p\). These terms are of course \emph{finite sets}. Let \(U_1\) be the set of the sets thus obtained. One easily checks that \(U_1\) satisfies conditions (U.I), (U.II), (U.III), and (U.IV) of Definition~1, though not that idiotic (U.?), which is not serious if one is willing to de-cannulate the pair. Thus \(U_1\) is a \emph{universe}. Notice that the elements of \(U_1\) are finite and that \(U_1\) is countable.
+
+In the statements that follow, \(U\) denotes a universe.
+
+\begin{statement}{Proposition 1}
+If \(x\in U\) and \(y\subset x\), then \(y\in U\).
+\end{statement}
+Indeed \(\Pset(x)\in U\) by (U.III), whence \(y\in\Pset(x)\) and \(y\in U\) by (U.I).
+
+\begin{statement}{Corollary}
+If \(x\in U\), every quotient set \(y\) of \(x\) is an element of \(U\).
+\end{statement}
+Indeed \(y\) is a subset of \(\Pset(x)\). Hence \(y\in U\) by (U.III) and Proposition~1.
+
+\begin{statement}{Proposition 2}
+If \(x\in U\), then \(\{x\}\in U\).
+\end{statement}
+This follows from (U.II), applied with \(y=x\).
+
+\begin{statement}{Proposition 3}
+Every pair, triple, and quadruple of elements of \(U\) is an element of \(U\).
+\end{statement}
+For pairs this is true by the preceding \NB{} or by (U.?). The case of triples follows since \((x,y,z)=((x,y),z)\), and the case of quadruples then follows since \((x,y,z,t)=((x,y,z),t)\).
+
+\begin{statement}{Proposition 4}
+If \(X,Y\in U\), then \(X\times Y\in U\).
+\end{statement}
+Indeed, for \(x\in X\), the set \(\{x\}\times Y\) is the union of the family \(\{(x,y)\}_{y\in Y}\); since \(\{(x,y)\}\in U\) by (U.I), (U.II), and Proposition~3, we have \(\{x\}\times Y\in U\) by (U.IV). Finally, \(X\times Y\) is the union of the family \((\{x\}\times Y)_{x\in X}\), so it is again an element of \(U\) by (U.IV).
+
+\begin{statement}{Corollary 1}
+If \(X,Y,Z,\ldots\) are elements of \(U\), then all sets in the scale built on \(X,Y,Z,\ldots\) are elements of \(U\) (\cf{} Chapter~IV, \S{}).
+\end{statement}
+This follows from successive applications of Proposition~4 and (U.III).
+
+\begin{statement}{Corollary 2}
+If \((x_\alpha)_{\alpha\in I}\) is a family of elements of \(U\), and if \(I\in U\), then the sum set \(\sum_{\alpha\in I}x_\alpha\) is an element of \(U\).
+\end{statement}
+Indeed this sum set is a subset of the product \((\bigcup_{\alpha\in I}x_\alpha)\times I\), whose two factors are elements of \(U\), by (U.IV) and the hypothesis. One then applies Propositions~4 and~1.
+
+\begin{statement}{Proposition 5}
+If \(X\) and \(Y\) are elements of \(U\), then every correspondence between \(X\) and \(Y\), in particular every map from \(X\) to \(Y\), is an element of \(U\).
+\end{statement}
+Indeed such a correspondence \(C\) is a triple \((X,Y,\Gamma)\), where \(\Gamma\) is a subset of \(X\times Y\), the graph of \(C\) (Chapter~II, \S{}). We have \(\Gamma\in U\) by Propositions~4 and~1. Hence \(C\in U\) by Proposition~3.
+
+\begin{statement}{Proposition 6}
+If \(X,Y\in U\), then every set \(Z\) of correspondences between \(X\) and \(Y\), in particular every set of maps from \(X\) to \(Y\), is an element of \(U\).
+\end{statement}
+Indeed \(Z\) is a subset of \(\{X\}\times\{Y\}\times\Pset(X\times Y)\). This product is an element of \(U\), by Proposition~2 and the corollary to Proposition~4. Therefore \(Z\in U\) by Proposition~1.
+
+\begin{statement}{Corollary}
+If \((x_\alpha)_{\alpha\in I}\) is a family of elements of \(U\), and if \(I\in U\), then \(\prod_{\alpha\in I}x_\alpha\in U\).
+\end{statement}
+Indeed this product is a set of maps from \(I\) to \(\bigcup_{\alpha\in I}x_\alpha\), and this union is an element of \(U\) by (U.IV).
+
+\begin{statement}{Proposition 7}
+If \(X\) is a subset of \(U\) whose cardinal is at most that of an element of \(U\), then \(X\) is an element of \(U\).
+\end{statement}
+Let \(I\) be an element of \(U\) such that \(\card(X)\leq\card(I)\). There is a surjection \(i\mapsto x_i\) from a subset \(I'\) of \(I\) onto \(X\). Then \(X\) is the union of the family \((\{x_i\})_{i\in I'}\). This union is an element of \(U\) by Proposition~1, Proposition~2, and (U.IV).
+
+\begin{statement}{Corollary}
+If \(U\) is nonempty, every finite subset of \(U\) is an element of \(U\), and \(U\) has elements of arbitrarily large finite cardinality.
+\end{statement}
+On the other hand, if \(U=\emptyset\), then \(\emptyset\) is a finite subset of \(\emptyset\) but not an element of \(\emptyset\).
+
+Indeed, if \(U\) is nonempty, Proposition~2 shows that a one-element set \(x_0\) belongs to \(U\). By induction on \(n\), put \(x_{n+1}=\Pset(x_n)\). Then \(x_n\in U\) by (U.III), and \(\card(x_{n+1})=2^{\card(x_n)}\), so \(U\) has elements of arbitrarily large finite cardinality.
+
+\begin{remarktext}{Remark}
+It follows from Proposition~2 and the corollary to Proposition~7 that every nonempty universe \(U\) contains the universe \(U_1\) of Example~2; indeed \(\emptyset\in U\) by Proposition~1. Thus \(U_1\) is the intersection of all nonempty universes. More generally:
+\end{remarktext}
+
+\begin{statement}{Proposition 8}
+If \((U_\lambda)_{\lambda\in L}\) is a nonempty family of universes, then \(U=\bigcap_{\lambda\in L}U_\lambda\) is a universe.
+\end{statement}
+This follows immediately from Definition~1.
+
+\section{Universes and species of structures}
+
+Let \(\mathcal E\) be a species of structure. To fix ideas and lighten the exposition, suppose that every structure of species \(\mathcal E\) is defined on one underlying set. Let \((X,S)\) be a structure of species \(\mathcal E\), where \(X\) is the underlying set and \(S\) the structure, and let \(U\) be a universe. If \(X\in U\), then all the constituent objects of the structure \(S\) on \(X\) are elements of \(U\), by Corollary~1 to Proposition~4 of Section~1 and by (U.I); hence the structure \((X,S)\) is an element of \(U\).
+
+Now suppose that \(\mathcal E\) is a species of structure with \emph{morphisms}. If \(X\) and \(X'\) are elements of \(U\) endowed with structures of species \(\mathcal E\), then the set of morphisms from \(X\) to \(X'\) is again an element of \(U\), by Proposition~6 of Section~1.
+
+Consider the category \((U\text{-}\mathcal E)\) defined in Section~1, no.~2, Example~c). Since the objects and arrows of \((U\text{-}\mathcal E)\) are elements of \(U\), \((U\text{-}\mathcal E)\) is a pair of subsets of \(U\), endowed with a quadruple of maps. It is not, in general, an element of \(U\). The notation \(X\in(U\text{-}\mathcal E)\) will mean that \(X\) is an element of \(U\) endowed with a structure of species \(\mathcal E\).
+
+The category \((U\text{-}\mathcal E)\) is stable under many operations:
+\begin{enumerate}[label=\alph*)]
+\item If \(X\in(U\text{-}\mathcal E)\), and if \(X'\) is a subset of \(X\) admitting an \emph{induced structure}, then \(X'\in(U\text{-}\mathcal E)\). This follows from Proposition~1 of Section~1.
+\item If \(X\in(U\text{-}\mathcal E)\), and if \(X''\) is a quotient set of \(X\) admitting a \emph{quotient structure}, then \(X''\in(U\text{-}\mathcal E)\), by the corollary to Proposition~1 of Section~1.
+\item If \(X,Y\in(U\text{-}\mathcal E)\), and if \(X\times Y\) admits a \emph{product structure}, then \(X\times Y\in(U\text{-}\mathcal E)\), by Proposition~4 of Section~1. More generally, if \((X_i)_{i\in I}\) is a family of elements of \((U\text{-}\mathcal E)\), if one has \(I\in U\), and if \(\prod_{i\in I}X_i\) admits a \emph{product structure}, then \(\prod_{i\in I}X_i\in(U\text{-}\mathcal E)\), by the corollary to Proposition~6. The analogous assertions hold for \emph{sum structures}, by Corollary~2 to Proposition~4.
+\item Let \(I\) be a preordered set, and let \((X_i,f_{ij})_{i,j\in I}\) be a \emph{projective} (respectively, \emph{inductive}) system of sets endowed with structures of species \(\mathcal E\) and morphisms. Let \(L\) be the limit of this system, in the sense of Chapter~III. If \(X_i\in U\) for all \(i\), if \(I\in U\), and if \(L\) admits a projective (respectively, inductive) limit structure, then \(L\in(U\text{-}\mathcal E)\): indeed \(L\) is a subset of \(\prod_{i\in I}X_i\) (respectively, a quotient set of \(\sum_{i\in I}X_i\)), and is therefore an element of \(U\) by Section~1.
+\end{enumerate}
+
+Here are a few more particular examples:
+\begin{itemize}[leftmargin=3em]
+\item[* 1)] Let \(X,Y\in(U\text{-}\Top)\) be two \emph{locally compact} spaces. Then the set \(\mathcal C(X,Y)\) of continuous maps from \(X\) to \(Y\), endowed with the compact-open topology (General Topology, X), is an element of \((U\text{-}\Top)\). Indeed \(\mathcal C(X,Y)\in U\) by Proposition~6 of Section~1.
+\item[* 2)] Let \(X,Y\in(U\text{-}\Ab)\). Then the group \(\Hom_{\ZZ}(X,Y)\) is an element of \((U\text{-}\Ab)\) by Proposition~6 of Section~1. If, moreover, \(\ZZ\in U\), then the tensor product \(X\otimes_{\ZZ}Y\) is an element of \((U\text{-}\Ab)\). Indeed, this tensor product is a quotient of the free abelian group \(\ZZ^{(X\times Y)}\), whose underlying set is a subset of \(\ZZ^{X\times Y}\), and the latter is an element of \(U\) by Propositions~4 and~6 of Section~1.
+\item[* 3)] Let \(X\in(U\text{-}\Unif)\) be a uniform space. Then its \emph{completion} \(\widehat X\) is an element of \((U\text{-}\Unif)\). Indeed \(\widehat X\) is a set of equivalence classes of Cauchy filters on \(X\); but a filter on \(X\) is an element of \(\Pset(\Pset(X))\), and hence an equivalence class of filters is an element of \(\Pset(\Pset(\Pset(X)))\). Thus \(\widehat X\) is an element of \(\Pset(\Pset(\Pset(\Pset(X))))\), and therefore an element of \(U\) by (U.III) and (U.I).
+\end{itemize}
+
+\NB{} Moral: Bourbaki must take care to ``canonify'' his constructions. For example, in constructions in which one adjoins an element \(\infty\), such as the Alexandroff compactification or the projective field, it will be useful to take \(\infty=\emptyset\), because \(\emptyset\) is an element of every nonempty universe, and to form the sum set of \(\{\emptyset\}\) and the given set. Of course one should also ``canonify'' the two-element set used to construct sum sets; \(\{\emptyset,\{\emptyset\}\}\) seems to me a good candidate, since it belongs to every nonempty universe.
+
+\section{Universes and categories}
+
+Let \(U\) be a universe and \(C\) a category. We write \(C\in U\) if \(\Ob(C)\in U\) and \(\Fl(C)\in U\). This notation is justified by the fact that \(C\) is the sextuple consisting of \(\Ob(C)\), \(\Fl(C)\), and the four structural maps. Thus if \(\Ob(C)\in U\) and \(\Fl(C)\in U\), these four maps are elements of \(U\), by Corollary~1 to Proposition~4 of Section~1, and so is the sextuple \(C\), by Proposition~3 of Section~1, \emph{cum grano salis}. This is moreover a special case of Section~2 if one considers the species of structure ``category''. With the notation of Section~2, the relation \(C\in U\) is also written \(C\in(U\text{-}\Cat)\).
+
+Notice that a category such as \((U\text{-}\Set)\), \((U\text{-}\Ord)\), \((U\text{-}\Top)\), or \((U\text{-}\Gr)\) is not, in general, an element of \(U\).
+
+Let \(C,D\) be two categories and \(U\) a universe such that \(C,D\in U\). If \(C'\) is a subcategory of \(C\), then \(C'\in U\). The product category \(C\times D\), the sum category of \(C\) and \(D\), and the opposite categories \(C^\circ\) and \(D^\circ\) are also elements of \(U\), by Section~2. The functor category \(E=\Hom(C,D)\) is also an element of \(U\): indeed, \(\Ob(E)\) is a set of pairs of maps \(\Ob(C)\to\Ob(D)\), \(\Fl(C)\to\Fl(D)\), whence \(\Ob(E)\in U\) by Section~1. As for \(\Fl(E)\), it is a set of functorial morphisms, that is, of maps \(\Ob(C)\to\Fl(D)\); hence \(\Fl(E)\in U\) by Proposition~6 of Section~1.
+
+\begin{statement}{Proposition 9}
+Let \(\mathcal E\) be a species of structure with morphisms, and let \(U',U\) be two universes such that \(U'\subset U\). Then \((U'\text{-}\mathcal E)\) is a full subcategory of \((U\text{-}\mathcal E)\).
+\end{statement}
+
+Indeed, if \(x\) and \(y\) are objects of \((U'\text{-}\mathcal E)\), then by definition they are objects of \((U\text{-}\mathcal E)\). As for \(\Hom(x,y)\), it is the same set in the two categories; see Section~1, no.~2, Example~c).
+
+\NB{} The hypothesis that \(U\) and \(U'\) are universes is useless, so Proposition~9 would advantageously belong back in Section~1, no.~4. But the Tribe asked that it be placed here.
+
+\begin{remarktext}{Remark}
+It may happen that the axioms of the species of structure \(\mathcal E\) imply that the cardinals of the sets endowed with structures of species \(\mathcal E\) are \emph{bounded} by a fixed cardinal, say \(\mathfrak c\); for example, the species of finite groups, finitely generated groups, finitely generated modules over a fixed ring \(A\), or algebras of finite type over \(A\). Suppose then that there exists an element \(z\) of \(U'\) such that \(\mathfrak c\leq\card(z)\). Then, for every set \(x\) endowed with a structure of species \(\mathcal E\), there exists an element \(x'\) of \(U'\) equipotent to \(x\), for instance a subset of \(z\). Endow \(x'\) with the structure transported from that of \(x\); one obtains an element of \((U'\text{-}\mathcal E)\). It follows that the inclusion functor from \((U'\text{-}\mathcal E)\) into \((U\text{-}\mathcal E)\) is then essentially surjective (Section~4, no.~2, Definition~2), and is therefore an equivalence of categories (Section~4, no.~3, Theorem~1).
+\end{remarktext}
+
+\section{The axiom of universes}
+
+The very agreeable stability results of Section~2 are of interest only if they can be applied to something other than the two small universes \(U_0\) and \(U_1\) described in Section~1. We will therefore add to the axioms of set theory the following axiom:
+\begin{quote}
+(A.6) \emph{For every set \(x\), there exists a universe \(U\) such that \(x\in U\).}
+\end{quote}
+
+This axiom implies that, if \((x_\alpha)_{\alpha\in I}\) is a \emph{family} of sets, then there exists a universe \(U\) such that \(x_\alpha\in U\) for every \(\alpha\in I\). Indeed, it suffices to apply (A.6) to \(x=\bigcup_{\alpha\in I}x_\alpha\), and then to apply Proposition~1 of Section~1.
+
+In particular, given a category \(C\), there exists a universe \(U\) such that \(C\in U\) in the sense of Section~3: apply the preceding paragraph to the family \((\Ob(C),\Fl(C))\). This applies to categories of the form \((V\text{-}\mathcal E)\), where \(\mathcal E\) is a species of structure with morphisms and \(V\) is a set, for example a universe; in general \(V\neq U\).
+
+For example, if \(V\) is a universe, then \(\Ob(V\text{-}\Set)=V\) and \(\Fl(V\text{-}\Set)\subset V\), by Proposition~5 of Section~1. The universes \(U\) such that \((V\text{-}\Set)\in U\) are therefore those such that \(V\in U\). But the relation \(V\in V\) is impossible for a universe: indeed, for every subset \(A\) of \(V\), one would have \(A\in V\), by Proposition~1 of Section~1, whence \(\card(\Pset(V))\leq\card(V)\), which is impossible.
+
+\section{Universes and strongly inaccessible cardinals}
+
+Let \(U\) be a universe. By condition (U.I) of Definition~1, every element \(x\) of \(U\) is a subset of \(U\); hence \(\card(x)\leq\card(U)\). Since the cardinals of subsets of \(U\) form a well-ordered set, the cardinal
+\begin{equation}
+ \mathfrak c(U)=\sup_{x\in U}\card(x)
+ \tag{1}
+\end{equation}
+exists. Notice that, for every cardinal \(\mathfrak c<\mathfrak c(U)\), there exists an element \(x\) of \(U\) such that \(\card(x)=\mathfrak c\). Indeed, by definition there exists \(y\in U\) such that \(\mathfrak c\leq\card(y)\leq\mathfrak c(U)\), and one takes for \(x\) a suitable subset of \(y\). Conversely, if \(x\in U\), then \(\card(x)<\mathfrak c(U)\): indeed \(\Pset(x)\in U\) by (U.III), whence \(2^{\card(x)}\leq\mathfrak c(U)\). Thus the cardinal \(\mathfrak c(U)\) has the following properties:
+\begin{enumerate}[label=\arabic*)]
+\item If \(\mathfrak c\) is a cardinal \(<\mathfrak c(U)\), then \(2^{\mathfrak c}<\mathfrak c(U)\). Indeed, if \(x\) is an element of \(U\) of cardinal \(\mathfrak c\), then \(\Pset(x)\in U\) by (U.III), whence \(2^{\mathfrak c}<\mathfrak c(U)\).
+\item If \((\mathfrak c_\lambda)_{\lambda\in I}\) is a family of cardinals such that \(\mathfrak c_\lambda<\mathfrak c(U)\) for every \(\lambda\in I\), and if \(\card(I)<\mathfrak c(U)\), then the sum cardinal \(\sum_{\lambda\in I}\mathfrak c_\lambda\) is \(<\mathfrak c(U)\). Indeed, let \(x_\lambda\in U\) be such that \(\card(x_\lambda)=\mathfrak c_\lambda\). Replacing \(I\), if necessary, by an equipotent index set, we may suppose that \(I\in U\). Then the sum set of the \(x_\lambda\) is an element of \(U\), by Corollary~2 to Proposition~4 of Section~1, proving the assertion.
+\end{enumerate}
+
+We make the following definition.
+
+\begin{statement}{Definition 2}
+A cardinal \(\mathfrak d\) is called \emph{strongly inaccessible} if:
+\begin{itemize}[leftmargin=4em]
+\item[(FI.1)] if \(\mathfrak c\) is a cardinal such that \(\mathfrak c<\mathfrak d\), then \(2^{\mathfrak c}<\mathfrak d\);
+\item[(FI.2)] if \((\mathfrak c_\lambda)_{\lambda\in I}\) is a family of cardinals such that \(\mathfrak c_\lambda<\mathfrak d\) for all \(\lambda\in I\), and if \(\card(I)<\mathfrak d\), then \(\sum_{\lambda\in I}\mathfrak c_\lambda<\mathfrak d\).
+\end{itemize}
+\end{statement}
+
+\begin{remarktext}{Examples}
+The cardinal \(0\) and the countably infinite cardinal are strongly inaccessible. No nonzero finite cardinal is strongly inaccessible. Thus we have just proved that the universe axiom (A.6) implies:
+\begin{quote}
+(A'.6) \emph{Every cardinal is strictly dominated by a strongly inaccessible cardinal.}
+\end{quote}
+Conversely:
+\end{remarktext}
+
+\begin{statement}{Theorem 1}
+The assertion (A'.6) implies the axiom of universes (A.6).
+\end{statement}
+
+Indeed, let \(A\) be a set. We must construct a universe \(U\) of which \(A\) is an element. Define by recursion a sequence \((A_n)_{n\geq0}\) of sets by
+\begin{quote}
+(2) \(A_0=A\), and \(A_{n+1}\) is the union of the elements of \(A_n\), that is, the set of elements of elements of \(A_n\).
+\end{quote}
+Put \(B=\bigcup_{n=0}^{\infty}A_n\). By (A'.6), choose a strongly inaccessible cardinal \(\mathfrak c\) such that \(\card(B)<\mathfrak c\).
+
+There exists a well-ordered set \(I\) such that \(\card(I)=\mathfrak c\). Replacing \(I\) by its least segment of cardinal \(\mathfrak c\), we may suppose that every proper segment of \(I\) has cardinal \(<\mathfrak c\). We denote by \(\mathcal E\) the least element of \(I\). It follows from the hypothesis on segments that \(I\) has no largest element, and hence every element of \(I\) has a successor; for \(\alpha\in I\), we denote the successor of \(\alpha\) by \(s(\alpha)\).
+
+Now define, by transfinite recursion, a family \((B_\alpha)_{\alpha\in I}\) of sets by
+\begin{equation}
+\begin{cases}
+B_{\mathcal E}=B,\\
+B_{s(\alpha)}=B_\alpha\cup\Pset(B_\alpha),\\
+B_\alpha=\displaystyle\bigcup_{\beta<\alpha}B_\beta\quad\text{if \(\alpha\) has no predecessor.}
+\end{cases}
+\tag{3}
+\end{equation}
+Put \(U=\bigcup_{\alpha\in I}B_\alpha\). We will show that \(U\) is the required universe.
+
+First \(A\in U\), because \(A=A_0\) is a subset of \(B=B_{\mathcal E}\), and hence an element of \(\Pset(B_{\mathcal E})\subset B_{s(\mathcal E)}\).
+
+Next note that, for every \(\alpha\in I\),
+\begin{equation}
+ \card(B_\alpha)<\mathfrak c.
+ \tag{4}
+\end{equation}
+This is proved by transfinite induction on \(\alpha\). It is true for \(\alpha=\mathcal E\) by hypothesis. From (4) one obtains
+\[
+ \card(B_{s(\alpha)})\leq \card(B_\alpha)+2^{\card(B_\alpha)}<\mathfrak c+\mathfrak c=\mathfrak c,
+\]
+using (FI.1) and the fact that \(\mathfrak c\) is infinite. Finally, if \(\alpha\) has no predecessor, the set \(I'\) of \(\beta<\alpha\) has cardinal \(<\mathfrak c\) by construction. Thus, if \(\card(B_\beta)<\mathfrak c\) for all \(\beta<\alpha\), then
+\[
+ \card(B_\alpha)=\card\Bigl(\bigcup_{\beta\in I'}B_\beta\Bigr)
+ \leq \sum_{\beta\in I'}\card(B_\beta)<\mathfrak c
+\]
+by (FI.2). This proves (4).
+
+We now show that
+\begin{equation}
+ \card(x)<\mathfrak c\quad\text{for every }x\in U.
+ \tag{5}
+\end{equation}
+It is enough to show, for every \(\alpha\in I\), that \(\card(x)<\mathfrak c\) for all \(x\in B_\alpha\). Again proceed by transfinite induction on \(\alpha\). For \(\alpha=\mathcal E\), if \(x\in B_{\mathcal E}=B\), then \(x\in A_n\) for some \(n\geq0\); hence \(x\subset A_{n+1}\), so \(x\subset B\) and \(\card(x)\leq\card(B)<\mathfrak c\). The case where \(\alpha\) has no predecessor is evident. Finally, if \(x\in B_\alpha\) and \(\alpha=s(\beta)\), then either \(x\in B_\beta\), and the assertion follows by induction, or \(x\in\Pset(B_\beta)\), whence \(x\subset B_\beta\), and the assertion follows from (4).
+
+We can now prove that \(U\) is indeed a universe:
+\begin{itemize}[leftmargin=4em]
+\item[(U.I)] Let \(x\in U\) and \(y\in x\). We must show that \(y\in U\). In other words, we must prove, for every \(\alpha\in I\), the relation
+\[
+ x\in B_\alpha\text{ and }y\in x\Longrightarrow y\in B_\alpha.
+\]
+Proceed once more by transfinite induction on \(\alpha\). It is true for \(\alpha=\mathcal E\), since \(x\in B_{\mathcal E}=B\) implies \(x\in A_n\) for some \(n\), and so, if \(y\in x\), then \(y\in A_{n+1}\), whence \(y\in B=B_{\mathcal E}\). The passage to an element with no predecessor is evident. Finally pass from \(\alpha\) to \(s(\alpha)\). If \(x\in B_{s(\alpha)}\) and \(y\in x\), then either \(x\in B_\alpha\), so \(y\in B_\alpha\subset B_{s(\alpha)}\) by induction, or \(x\in\Pset(B_\alpha)\), and again \(y\in B_\alpha\subset B_{s(\alpha)}\).
+
+\item[(U.II)] Let \(x,y\in U\). Since the family \((B_\alpha)_{\alpha\in I}\) is increasing by (3), there exists \(\alpha\in I\) such that \(x,y\in B_\alpha\). Then \(\{x,y\}\in\Pset(B_\alpha)\subset B_{s(\alpha)}\subset U\).
+
+\item[(U.III)] Let \(x\in U\). There exists \(\alpha\in I\) such that \(x\in B_\alpha\). It suffices to show, for every \(\alpha\in I\), that
+\[
+ x\in B_\alpha\Longrightarrow \Pset(x)\in B_{s(s(\alpha))}.
+\]
+Again proceed by transfinite induction on \(\alpha\). If \(\alpha=\mathcal E\), then \(x\in A_n\) for some \(n\), whence every subset \(y\) of \(x\) is contained in \(A_{n+1}\subset B=B_{\mathcal E}\). Thus \(y\in\Pset(B_{\mathcal E})\subset B_{s(\mathcal E)}\) for every \(y\in\Pset(x)\), and hence \(\Pset(x)\subset B_{s(\mathcal E)}\) and \(\Pset(x)\in\Pset(B_{s(\mathcal E)})\subset B_{s(s(\mathcal E))}\). The passage to an element \(\alpha\) with no predecessor is immediate, because \(\beta<\alpha\) then implies \(s(s(\beta))<\alpha\). Finally pass from \(\alpha\) to \(s(\alpha)\). Let \(x\in B_{s(\alpha)}\). If \(x\in B_\alpha\), then \(\Pset(x)\in B_{s(s(\alpha))}\subset B_{s(s(s(\alpha)))}\) by induction. If \(x\in\Pset(B_\alpha)\), then \(x\subset B_\alpha\), so \(\Pset(x)\subset\Pset(B_\alpha)\) and \(\Pset(x)\in\Pset(\Pset(B_\alpha))\in B_{s(s(s(\alpha)))}\).
+
+\item[(U.IV)] Let \((x_\lambda)_{\lambda\in K}\) be a family of elements of \(U\) such that \(K\in U\). We must show that \(x=\bigcup_{\lambda\in K}x_\lambda\) is an element of \(U\). For every \(\lambda\in K\), choose \(\alpha(\lambda)\in I\) such that \(x_\lambda\in B_{\alpha(\lambda)}\). We show that the set \(\alpha(K)\) of the \(\alpha(\lambda)\) is bounded in \(I\). If it were not, then
+\[
+ I=\bigcup_{\lambda\in K}[\mathcal E,\alpha(\lambda)],
+\]
+contradicting (FI.2), since \(\card(K)<\mathfrak c\) by (5) and \(\card([\mathcal E,\alpha(\lambda)])<\mathfrak c\) for every \(\lambda\in K\). Let \(\beta\) be an upper bound for \(\alpha(K)\). Then \(x_\lambda\in B_\beta\) for every \(\lambda\in K\), because the family \((B_\alpha)_{\alpha\in I}\) is increasing. By what was proved in the verification of (U.I), each \(x_\lambda\) is a subset of \(B_\beta\). Hence \(x=\bigcup_{\lambda\in K}x_\lambda\subset B_\beta\). By (3), it follows that \(x\in B_{s(\beta)}\), whence \(x\in U\). \qedtext
+\end{itemize}
+
+\begin{statement}{Definition 3}
+Let \(x,y\) be two sets and let \(n\) be an integer \(\geq0\). We say that \(y\) is a \emph{component of order \(n\)} of \(x\) if there exists a sequence \((x_j)_{j=0,\ldots,n}\) such that \(x_0=x\), \(x_n=y\), and \(x_{j+1}\in x_j\) for \(j=0,\ldots,n-1\).
+\end{statement}
+Thus \(x\) is the only component of order \(0\) of \(x\). The components of order \(1\), respectively \(2\), of \(x\) are the elements of \(x\), respectively the elements of elements of \(x\). We say that \(y\) is a \emph{component} of \(x\) if there exists \(n\geq0\) such that \(y\) is a component of order \(n\) of \(x\). The relation ``\(y\) is a component of \(x\)'' is a preorder relation. By the selection-union scheme (Chapter~II, \ldots), the relation ``\(y\) is a component of \(x\)'' is collectivizing with respect to \(y\), so the components of \(x\) form a set.
+
+\begin{statement}{Definition 4}
+Let \(\mathfrak c\) be a cardinal. A set \(x\) is said to be of \emph{type \(\mathfrak c\)} (respectively, of \emph{strict type \(\mathfrak c\)}, of \emph{finite type}) if all components of \(x\) have cardinal \(\leq\mathfrak c\) (respectively, \(<\mathfrak c\), finite).
+\end{statement}
+
+\begin{remarktext}{Examples}
+The elements of the universe \(U_1\) of Section~1, Example~2, are all of finite type. If \(\mathfrak c\) is a cardinal and \(x\) is of type \(\mathfrak c\) (respectively, strict type \(\mathfrak c\), finite type), then every component of \(x\) and every subset of \(x\) are of type \(\mathfrak c\) (respectively, strict type \(\mathfrak c\), finite type). Similarly, \(\Pset(x)\) is of type \(2^{\mathfrak c}\) (respectively, of strict type \(2^{\mathfrak c}\), of finite type). If \(x\) is of type \(\mathfrak c\) and \(\mathfrak c\leq\mathfrak c'\), then \(x\) is of type \(\mathfrak c'\).
+\end{remarktext}
+
+\begin{statement}{Lemma}
+Let \(\mathfrak c\) be a noncountable strongly inaccessible cardinal, and let \(X\) be a set of strict type \(\mathfrak c\). Then there exists a cardinal \(\mathfrak d<\mathfrak c\) such that \(X\) is of type \(\mathfrak d\).
+\end{statement}
+Indeed, for every integer \(n\), let \(\mathfrak d_n\) be the cardinal of the set \(X_n\) of components of order \(n\) of \(X\). We have \(\mathfrak d_0=1\), \(\mathfrak d_1=\card(X)<\mathfrak c\), and, since \(X_n=\bigcup_{y\in X_{n-1}}y\), it follows by induction on \(n\) and by use of (FI.2) that \(\mathfrak d_n<\mathfrak c\) for every \(n\). Then the \(\mathfrak d_n\) are bounded above by the cardinal \(\mathfrak d=\sum_{j\geq0}\mathfrak d_j\), which is \(<\mathfrak c\) by (FI.2) and the noncountability of \(\mathfrak c\). If \(Y\) is a component of order \(n\) of \(X\), then \(\card(Y)\leq\card(X_{n+1})\leq\mathfrak d\). \qedtext
+
+\begin{statement}{Proposition 10}
+Let \(U\) be a universe and let \(\mathfrak c\) be a strongly inaccessible cardinal. Then the set \(U'\) of those \(x\in U\) which are of strict type \(\mathfrak c\) is a universe.
+\end{statement}
+Indeed, if \(x,y\in U'\) and \(z\in x\), then obviously \(z\in U'\) and \(\{x,y\}\in U'\). If \(x\in U'\), then \(\card(x)<\mathfrak c\), whence \(\card(\Pset(x))<\mathfrak c\) by (FI.1). Since a component of \(\Pset(x)\) is either \(\Pset(x)\), or a subset of \(x\), or a component of \(x\), one has \(\Pset(x)\in U'\). Finally, if \((x_\alpha)_{\alpha\in I}\) is a family of elements of \(U'\) such that \(I\in U'\), then \(\card(\bigcup_\alpha x_\alpha)<\mathfrak c\) by (FI.2); since every component of order \(>0\) of \(\bigcup_\alpha x_\alpha\) is a component of some \(x_\alpha\), we do indeed have \(\bigcup_\alpha x_\alpha\in U'\). \qedtext
+
+\medskip
+\noindent\emph{Remark on the cardinal \(\mathfrak c(U)\).} Let \(U\) be a universe and let \(\mathfrak c(U)\) be the cardinal defined by (1), that is,
+\[
+ \mathfrak c(U)=\sup_{x\in U}\card(x).
+\]
+Obviously \(\mathfrak c(U)\leq\card(U)\), because, recall, \(x\in U\) implies \(x\subset U\). But the equality \(\mathfrak c(U)=\card(U)\) is not always true. For example, let \((x_\alpha)_{\alpha\in I}\) be a noncountable family of symbols with the axioms
+\[
+ ``x_\alpha=\{x_\alpha\}\text{ for every }\alpha\in I''
+ \quad\text{and}\quad
+ ``x_\alpha\neq x_\beta\text{ if }\alpha\neq\beta''.
+\]
+In other words, \(x_\alpha\) is a one-element set, namely itself. As in Example~2 of Section~1, form the ``meaningful words'' made from the symbols \(\emptyset\), \(x_\alpha\), braces, and so on. Each denotes a \emph{finite} set. Let \(U\) be the set of these. One easily checks that the conditions of Definition~1 are satisfied, so \(U\) is a universe. Since meaningful words are finite sequences of elements of a set of cardinal \(\card(I)+4=\card(I)\), we have \(\card(U)=\card(I)\); in fact \(\card(U)\geq\card(I)\) would suffice, and this is evident. On the other hand, \(\mathfrak c(U)\) is the countable cardinal, whence \(\mathfrak c(U)<\card(U)\).
+
+The strict inequality \(\mathfrak c(U)<\card(U)\) is due to the fact that here we have introduced sets \(x_\alpha\) such that \(x_\alpha\in x_\alpha\). If one forbids horrors of this kind, one obtains \(\card(U)=\mathfrak c(U)\) for every universe \(U\), as well as other very pretty results ``which cannot serve any purpose.'' This is what we shall do in the next section.
+
+\section{Artinian sets and artinian universes}
+
+\begin{statement}{Definition 5}
+A set \(x\) is called \emph{artinian} if there exists no infinite sequence \((x_n)_{n\geq0}\) such that \(x_0=x\) and \(x_{n+1}\in x_n\) for every \(n\geq0\).
+\end{statement}
+
+\begin{remarktext}{Examples}
+The sets \(\emptyset\), \(\{\emptyset\}\), \(\{\emptyset,\{\emptyset\}\}\), and more generally the elements of the universe \(U_1\) of Section~1, are artinian.
+\end{remarktext}
+
+In pictorial terms, if \(x\) is artinian and one takes an element \(x_1\) of \(x\), then an element \(x_2\) of \(x_1\), and so on, the process must stop, and one arrives at a component \(x_n\) of \(x\) which is \emph{empty}. In other words, artinian sets are ``built out of \(\emptyset\).'' This will be made precise later (\cf{} (*) in the proof of Theorem~2).
+
+Artinian sets evidently enjoy the following properties:
+\begin{itemize}[leftmargin=4em]
+\item[(AR.I)] If \(x\) is artinian, every subset of \(x\) and every component of \(x\) is artinian. For \(x\) to be artinian, it is necessary and sufficient that every element of \(x\) be artinian.
+\item[(AR.II)] If \(x\) and \(y\) are artinian, then \(\{x,y\}\) is artinian.
+\item[(AR.III)] If \(x\) is artinian, then \(\Pset(x)\) is artinian.
+\item[(AR.IV)] Every union of artinian sets is an artinian set.
+\end{itemize}
+These properties immediately show:
+
+\begin{statement}{Proposition 11}
+If \(U\) is a universe, the set of artinian elements of \(U\) is a universe, necessarily artinian.
+\end{statement}
+
+\begin{statement}{Corollary}
+If \(x\) is an artinian set, there exists an artinian universe \(U\) such that \(x\in U\).
+\end{statement}
+Indeed, by axiom (A.6), \(x\) is an element of a universe \(V\); take for \(U\) the set of artinian elements of \(V\).
+
+The following proposition is still less useful than the rest of the section:
+
+\begin{statement}{Proposition 12}
+Let \(A\) be an artinian set. Then:
+\begin{enumerate}[label=\alph*)]
+\item for every \(x\in A\), one has \(x\notin x\);
+\item if \(x,y\in A\), one cannot have both \(x\in y\) and \(y\in x\);
+\item for every \(x\in A\), the relation ``\(y\) is a component of \(z\)'' between components \(y,z\) of \(x\) is an order relation;
+\item for every nonempty element \(x\) of \(A\), there exists \(y\in x\) such that \(x\cap y=\emptyset\).
+\end{enumerate}
+\end{statement}
+Indeed, the negation of a), respectively of b), entails the existence of an infinite sequence \((x_n)_{n\geq0}\) contradicting Definition~5, namely \((x,x,x,\ldots)\), respectively \((x,y,x,y,x,y,\ldots)\). The negation of c) means that there exist \(x\in A\), distinct components \(y,z\) of \(x\), and membership chains
+\[
+ y\in y_1\in\cdots\in y_q\in z,
+ \qquad
+ z\in z_1\in\cdots\in z_r\in y;
+\]
+then, as in b), one obtains an infinite sequence \((x_n)_{n\geq0}\) contradicting Definition~5. Finally, if d) is false, there exists a nonempty element \(x\) of \(A\) such that \(x\cap y\neq\emptyset\) for every \(y\in x\). Put \(x_0=x\), and choose \(x_1\in x\). Since \(x\cap x_1\neq\emptyset\), choose \(x_2\in x\cap x_1\), and so on. More formally, define by recursion an infinite sequence \((x_n)_{n\geq1}\) of elements of \(x\) by choosing \(x_1\in x\) and \(x_{n+1}\in x_n\cap x\) for \(n\geq1\). Then the sequence \((x_n)_{n\geq0}\) contradicts Definition~5.
+
+\begin{remarktext}{Remark}
+Let \(B\) be a set. For \(B\) to be artinian, it is necessary and sufficient that every set \(A\) of sets of components of \(B\) satisfy condition d) of Proposition~12. Necessity follows from (AR.I) and Proposition~12. Conversely, if \(B\) is not artinian, there exists an infinite sequence \((x_n)_{n\geq0}\) with \(x_0=B\) and \(x_{n+1}\in x_n\) for every \(n\geq0\). Take for \(A\) the singleton consisting of the set \(X\) of the \(x_n\). Thus \(A\) contains a nonempty element \(X\) such that, for every element \(y\) of \(X\), one has \(y\cap X\neq\emptyset\): indeed \(y=x_n\) for some \(n\), and \(x_{n+1}\in y\cap X\).
+\end{remarktext}
+
+\begin{statement}{Theorem 2}
+Let \(\mathfrak c\) be an infinite cardinal. Then:
+\begin{enumerate}[label=\alph*)]
+\item The relation ``\(x\) is an artinian set of type \(\mathfrak c\)'' (respectively, of strict type \(\mathfrak c\)) is collectivizing with respect to \(x\). The set \(A_{\mathfrak c}\) of artinian sets of type \(\mathfrak c\) has cardinal \(2^{\mathfrak c}\).
+\item If \(\mathfrak c\) is strongly inaccessible, the set \(U_{\mathfrak c}\) of artinian sets of strict type \(\mathfrak c\) is a universe of cardinal \(\mathfrak c\); the cardinal \(\mathfrak c(U_{\mathfrak c})=\sup_{x\in U_{\mathfrak c}}\card(x)\) is \(\mathfrak c\).
+\item If a universe \(U\) has an element of cardinal \(\mathfrak c\), then every artinian set of type \(\mathfrak c\) belongs to \(U\), that is, \(A_{\mathfrak c}\subset U\).
+\item[c')] If a universe \(U\) is nonempty, then every artinian set of finite type is an element of \(U\).
+\end{enumerate}
+\end{statement}
+
+Before proving Theorem~2, let us derive a few illuminating corollaries.
+
+\begin{statement}{Corollary 1}
+If a universe \(U\) is artinian, then \(\card(U)\) is strongly inaccessible, and \(U\) is the set of artinian sets of strict type \(\card(U)\).
+\end{statement}
+Indeed put \(\mathfrak c(U)=\sup_{x\in U}\card(x)\). This is a strongly inaccessible cardinal, by the beginning of Section~5. First suppose it is noncountable. Then, for every infinite cardinal \(\mathfrak c<\mathfrak c(U)\), every artinian set of type \(\mathfrak c\) is an element of \(U\) by c); hence every artinian set of strict type \(\mathfrak c(U)\) is an element of \(U\), by the lemma of Section~5. This last assertion remains true if \(\mathfrak c(U)\) is countable, by c'). Conversely, by (U.I), every set of \(U\) is of strict type \(\mathfrak c(U)\). Thus \(U\) is the universe \(U_{\mathfrak c(U)}\) of b), whence \(\mathfrak c(U)=\card(U)\) by b).
+
+It follows from Corollary~1 that an artinian universe is uniquely determined by its cardinal, which is strongly inaccessible. Thus one has a ``one-to-one correspondence'' between artinian universes and strongly inaccessible cardinals. In particular:
+
+\begin{statement}{Corollary 2}
+The inclusion relation \(U\subset U'\) between artinian universes is a well-ordering relation.
+\end{statement}
+Indeed, the relation \(\mathfrak c\leq\mathfrak c'\) between cardinals is a well-ordering relation (Chapter~III), and, with the notation of Theorem~2 b), the relations \(\mathfrak c\leq\mathfrak c'\) and \(U_{\mathfrak c}\subset U_{\mathfrak c'}\) are equivalent.
+
+Note that Theorem~2 b) gives a second proof of Theorem~1.
+
+We now prove Theorem~2. Given a set \(A\), call a \emph{chain} of \(A\) any finite sequence \((x_j)_{j=0,\ldots,n}\) such that \(x_0=A\) and \(x_{j+1}\in x_j\) for \(j=0,\ldots,n-1\). The chains of \(A\) form a set, by the selection-union scheme; denote it by \(G(A)\). Given a chain \(X=(x_j)_{j=0,\ldots,n}\), the chains of the form \((x_i)_{i=0,\ldots,q}\), with \(q\leq n\), are said to be smaller than \(X\). This gives an ordered-set structure on \(G(A)\). For \(A\) to be artinian, it is necessary and sufficient that \(G(A)\) be a noetherian ordered set, in the sense of the equivalent conditions of Chapter~III, \S{}6, no.~5.
+
+We shall show that:
+\begin{quote}
+(*) \emph{If \(A\) is artinian, then \(A\) is uniquely determined by the isomorphism class of the ordered set \(G(A)\).}
+\end{quote}
+Indeed, given an ordered set \(G\) and an element \(g\in G\), write \(S(g)\) for the set of \(g'\in G\) such that \(g<g'\) and such that \(g\leq h\leq g'\) implies \(h=g\) or \(h=g'\). In other words, \(S(g)\) is the set of immediate successors of \(g\). Consider the map \(\theta\) which sends a chain \(X=(x_0,\ldots,x_n)\) of \(A\) to the set \(x_n\). Then, for every \(X\in G(A)\),
+\[
+ \theta(X)=\{\theta(X')\mid X'\in S(X)\}.
+\]
+Since \(A\) is the image under \(\theta\) of the least element \(X_0=(A)\) of \(G(A)\), it will be enough to show that \(\theta\) is uniquely determined by the isomorphism class of the ordered set \(G(A)\). This follows from the following lemma.
+
+\begin{statement}{Lemma 1}
+Let \(G\) be a noetherian ordered set, and let \(\varphi\) be a map on \(G\) such that, for every \(g\in G\),
+\begin{equation}
+ \varphi(g)=\{\varphi(g')\mid g'\in S(g)\}.
+ \tag{1}
+\end{equation}
+Then \(\varphi\) is uniquely determined. Moreover, if \(U\) is a universe containing an element equipotent to \(G\), then \(\varphi\) takes its values in \(U\).
+\end{statement}
+
+The hypothesis implies that \(\varphi(g)=\emptyset\) if \(g\) is a maximal element of \(G\). Indeed, let \(\varphi\) and \(\varphi'\) be two maps satisfying (1). If \(\varphi\neq\varphi'\), the set of \(g\in G\) such that \(\varphi(g)\neq\varphi'(g)\) is nonempty, hence has a maximal element \(h\), since \(G\) is noetherian. Then \(\varphi(g)=\varphi'(g)\) for every \(g>h\), in particular for every successor \(g\in S(h)\), whence \(\varphi(h)=\varphi'(h)\) by (1), a contradiction. Thus \(\varphi=\varphi'\).
+
+Now let \(U\) be a universe containing an element \(x\) equipotent to \(G\). We show that \(\varphi\) takes its values in \(U\). Otherwise, let \(h\) be maximal among the \(g\in G\) such that \(\varphi(g)\notin U\). We have \(\varphi(g')\in U\) for every \(g'\in S(h)\), so
+\[
+ \varphi(h)=\{\varphi(g')\mid g'\in S(h)\}
+\]
+is a subset of \(U\). Since its cardinal is less than or equal to \(\card(G)\), hence to the cardinal of an element of \(U\), one has \(\varphi(h)\in U\) by Proposition~7 of Section~1. This contradiction shows that \(\varphi\) takes its values in \(U\).
+
+We now prove Theorem~2 a). It is enough to treat the non-respective assertion, since the other follows at once. Let \(\mathfrak c\) be an infinite cardinal. If \(A\) is a set of type \(\mathfrak c\), then
+\begin{equation}
+ \card(G(A))\leq\mathfrak c.
+ \tag{2}
+\end{equation}
+Indeed, if \(A_n\) denotes the set of components of order \(n\) of \(A\), then \(\card(A_1)\leq\mathfrak c\) and \(\card(A_{n+1})\leq\mathfrak c\cdot\card(A_n)\). Hence \(\card(A_n)\leq\mathfrak c^n\) by induction; but \(\mathfrak c^n=\mathfrak c\), because \(\mathfrak c\) is infinite (Chapter~III). Therefore
+\[
+ \card\Bigl(\bigcup_{n=0}^{\infty}A_n\Bigr)\leq\card(\NN)\cdot\mathfrak c=\mathfrak c.
+\]
+Since \(G(A)\) is a set of finite sequences of elements of \(\bigcup_n A_n\), inequality (2) follows.
+
+Now let \(E\) be a set of cardinal \(\mathfrak c\). Giving an order structure on a subset \(E'\) of \(E\) is equivalent to giving the subset of \(E\times E\) consisting of the pairs \((x,y)\) such that \(x\in E'\), \(y\in E'\), and \(x\leq y\). Therefore, by (2), the isomorphism classes of ordered sets \(G(A)\), where \(A\) is of type \(\mathfrak c\), form a set \(\mathfrak F_{\mathfrak c}\), and
+\[
+ \card(\mathfrak F_{\mathfrak c})\leq\card(\Pset(E\times E))=2^{\mathfrak c}.
+\]
+Let \(\mathfrak F'_{\mathfrak c}\) be the subset of \(\mathfrak F_{\mathfrak c}\) formed by the classes of noetherian ordered sets having a least element. If, to each \(G\in\mathfrak F'_{\mathfrak c}\), we associate the value of the function \(\varphi\) of Lemma~1 at the least element of \(G\), we obtain a map \(\theta\) on \(\mathfrak F'_{\mathfrak c}\) whose image contains \emph{all} artinian sets of type \(\mathfrak c\). These therefore form a set \(A_{\mathfrak c}\), and
+\[
+ \card(A_{\mathfrak c})\leq\card(\mathfrak F'_{\mathfrak c})
+ \leq\card(\mathfrak F_{\mathfrak c})\leq2^{\mathfrak c}.
+\]
+It remains to see that \(\card(A_{\mathfrak c})=2^{\mathfrak c}\). For this it is enough to see that there exists an artinian set \(B\) of type \(\mathfrak c\) and cardinal \(\mathfrak c\), since the subsets of \(B\) will then be elements of \(A_{\mathfrak c}\). This existence follows from the following lemma.
+
+\begin{statement}{Lemma 2}
+For every cardinal \(\mathfrak c\), there exists an artinian set \(B\) of type \(\mathfrak c\) and cardinal \(\mathfrak c\).
+\end{statement}
+Proceed by transfinite induction on \(\mathfrak c\). For \(\mathfrak c=0\) there is no choice: take \(B=\emptyset\). If \(\mathfrak c\) has a predecessor \(\mathfrak c'\), let \(B'\) be an artinian set of type \(\mathfrak c'\) and of cardinal \(\mathfrak c'\). Then \(\mathfrak c\leq2^{\mathfrak c'}\), so there exists a subset \(B\) of \(\Pset(B')\) of cardinal \(\mathfrak c\). The elements of \(B\) are subsets of \(B'\), and hence have cardinals \(\leq\mathfrak c'\leq\mathfrak c\); the components of higher order of \(B\) are components of \(B'\), and hence also have cardinals \(\leq\mathfrak c'\leq\mathfrak c\). Finally, if \(\mathfrak c\) has no predecessor, choose, for every cardinal \(\mathfrak c_\lambda<\mathfrak c\), an artinian set \(B_\lambda\) of type \(\mathfrak c_\lambda\) and cardinal \(\mathfrak c_\lambda\). Then \(B=\bigcup_\lambda B_\lambda\) has the required property. This proves Lemma~2 and completes the proof of part a).
+
+We turn to b). Let \(\mathfrak c\) be a strongly inaccessible cardinal. We already know, by a), that the artinian sets of strict type \(\mathfrak c\) form a set \(U_{\mathfrak c}\). The fact that \(U_{\mathfrak c}\) is a universe follows immediately from properties (AR.I)--(AR.IV) of artinian sets, at the beginning of this section, and from cardinal estimates analogous to those of Proposition~10 of Section~5. The relation
+\[
+ \sup_{x\in U_{\mathfrak c}}\card(x)=\mathfrak c
+\]
+follows from Lemma~2 applied to cardinals \(<\mathfrak c\). Finally, to prove \(\card(U_{\mathfrak c})=\mathfrak c\), first suppose that \(\mathfrak c\) is noncountable. By the lemma of Section~5, \(U_{\mathfrak c}\) is the union
+\[
+ \bigcup_{\mathfrak d<\mathfrak c} A_{\mathfrak d},
+\]
+where \(A_{\mathfrak d}\) denotes the set of artinian sets of type \(\mathfrak d\). But \(\card(A_{\mathfrak d})=2^{\mathfrak d}<\mathfrak c\) by a); on the other hand, the set of cardinals \(\mathfrak d<\mathfrak c\) has cardinal \(\leq\mathfrak c\) (Chapter~III). Hence
+\[
+ \card(U_{\mathfrak c})\leq\mathfrak c\cdot\mathfrak c=\mathfrak c,
+\]
+and also \(\card(U_{\mathfrak c})\geq\mathfrak c\), since \(\card(U_{\mathfrak c})\geq\card(A_{\mathfrak d})=2^{\mathfrak d}\) for every \(\mathfrak d<\mathfrak c\).
+
+The case \(\mathfrak c=0\) is trivial. It remains to treat the case where \(\mathfrak c\) is the countably infinite cardinal. In this case \(U_{\mathfrak c}\) is the set of artinian sets of finite type, that is, sets which are finite, as are all their components; and one uses a pretty combinatorial result.
+
+\begin{statement}{Lemma 3 (D. K\"onig?)}
+Consider two infinite sequences \((E_n)_{n\geq1}\), \((f_n)_{n\geq1}\) of finite sets \(E_n\) and maps \(f_n:E_{n+1}\to E_n\). If there exists no infinite sequence \((x_n)_{n\geq1}\) such that \(x_n\in E_n\) and \(f_n(x_{n+1})=x_n\) for every \(n\), then \(E_n\) is empty for all sufficiently large \(n\).
+\end{statement}
+In other words, if all sequences \((x_n)\) such that \(f_n(x_{n+1})=x_n\) are finite, then their lengths are bounded. This can be expressed in terms of projective limits: a projective limit of nonempty finite sets is nonempty; see General Topology, Chapter~I, 2nd ed., \S{}9, no.~6, Proposition~8, \(2^\circ\).
+
+Argue by contradiction. If there exist nonempty \(E_n\) for arbitrarily large \(n\), then no \(E_n\) is empty, because \(E_n=\emptyset\) implies \(E_{n+1}=\emptyset\), given the existence of \(f_n:E_{n+1}\to E_n\). Call a finite sequence \((x_j)_{1\leq j\leq n}\) \emph{coherent} if \(f_j(x_{j+1})=x_j\) for \(j=1,\ldots,n-1\). We prove by induction on \(n\) the existence of a coherent sequence \((a_1,\ldots,a_n)\), with \(a_i\in E_i\), which, for every \(q\geq n\), can be extended to a coherent sequence \((a_1,\ldots,a_n,x_{n+1},\ldots,x_q)\) of length \(q\). This is evident for \(n=0\), since no \(E_q\) is empty. Passing from \(n\) to \(n+1\), if, for every \(x\in f_n^{-1}(\{a_n\})\subset E_{n+1}\), all coherent sequences extending \((a_1,\ldots,a_n,x)\) had lengths bounded by an integer \(q(x)\), then all coherent sequences extending \((a_1,\ldots,a_n)\) would have bounded lengths, by \(\sup_x q(x)\), since \(E_{n+1}\) is finite. Hence there exists \(a_{n+1}\in f_n^{-1}(\{a_n\})\) such that the coherent sequence \((a_1,\ldots,a_n,a_{n+1})\) has extensions of arbitrary length. This gives an infinite sequence \((a_n)_{n\geq1}\), contrary to the hypothesis.
+
+It follows from Lemma~3 that if \(A\) is an artinian set of finite type, then the ordered set \(G(A)\) of its chains is \emph{finite}. Indeed, take \(E_n\) to be the set of chains
+\[
+ x_n\in x_{n-1}\in\cdots\in x_1\in A
+\]
+with \(n+1\) terms. This is finite because the components of \(A\) of order \(\leq n+1\) are finite in number and are themselves finite. Take \(f_n\) to be the map which deletes the last term:
+\[
+ (x_{n+1}\in x_n\in\cdots\in x_1\in A)
+ \longmapsto
+ (x_n\in x_{n-1}\in\cdots\in x_1\in A).
+\]
+The set of isomorphism classes of finite ordered sets is countable: indeed, giving an order structure on a finite subset of \(\NN\) is equivalent to giving its graph, a finite subset of \(\NN\times\NN\), and the set of finite subsets of a countable set is countable (Chapter~III). It follows from (*) and Lemma~1 that the set \(\mathfrak a\) of artinian sets of finite type is countable. It is infinite by Lemma~2, or more simply by using the sequence \((z_n)_{n\geq0}\) defined by \(z_0=\emptyset\), \(z_{n+1}=\{z_n\}\). This completes the proof of b).
+
+\begin{remarktext}{Remark}
+We have just proved that, if \(A\) is an artinian set of finite type, then it has only finitely many components. Thus there exists an integer \(n\) such that \(A\) is of type \(n\).
+\end{remarktext}
+
+We now prove c). Let \(\mathfrak c\) be an infinite cardinal, let \(U\) be a universe having an element of cardinal \(\mathfrak c\), and let \(A\) be an artinian set of type \(\mathfrak c\). The ordered set \(G(A)\) has cardinal \(\leq\mathfrak c\), by formula (2). The second assertion of Lemma~1, applied to \(G(A)\), shows that the map
+\[
+ (x_0,\ldots,x_n)\rightsquigarrow x_n
+\]
+from \(G(A)\) takes its values in \(U\). In other words, all components of \(A\) are elements of \(U\). This proves c). The proof of c') is analogous: if \(A\) is an artinian set of finite type, then we have just seen that \(G(A)\) is finite; since \(U\) is nonempty, it contains an element equipotent to \(G(A)\), by the corollary to Proposition~7 of Section~1. \qedtext
+
+\section{Vague metamathematical remarks}
+
+\begin{enumerate}[label=\alph*)]
+\item The axiom ``\emph{every set is artinian}'' is \emph{inoffensive}. Indeed, if one has a model \(M\) of set theory, the set \(M'\) of artinian elements of \(M\) is also a model (\cf{} Proposition~11).
+
+\item The universe axiom (A.6), and the equivalent axiom (A'.6) on strongly inaccessible cardinals, is \emph{independent} of the rest of set theory. Indeed, let \(\mathfrak c\) be the first noncountable strongly inaccessible cardinal. The universe \(U_{\mathfrak c}\) of artinian sets of strict type \(\mathfrak c\) (Theorem~2 b)) is a model of set theory without (A.6): one calls the elements of \(U_{\mathfrak c}\) ``sets,'' the ``membership relation'' is the restriction to \(U_{\mathfrak c}\) of the ordinary one, and so on. The ``universes'' of the model are therefore the ordinary universes which are elements of \(U_{\mathfrak c}\). But we have seen that the only universes which are elements of \(U_{\mathfrak c}\) are the two peque\~nos \(U_0=\emptyset\) and \(U_1\). Thus \(U_1\) is a ``set'' which is an element of no ``universe.'' Hence we have a model of set theory in which (A.6) is false.
+
+\item Bourbaki was too cautious in merely ``presuming'' that the \emph{axiom of infinity} (A.5) is independent of the preceding axioms and schemes. It is indeed independent, because the countable universe \(U_1\) of artinian sets of finite type is a model in which (A.5) is false and in which the preceding axioms and schemes are true.
+
+\item It would be very interesting to prove that the universe axiom (A.6) is inoffensive. This seems difficult, and is even unprovable, says Paul Cohen.
+\end{enumerate}
+
+The adjective ``vague'' in the title means that, in constructing models, one did not take the trouble to cannulate the symbol \(\tau\) so that it does not spill out. The key to this, if one considers a model \(M\), is to replace the ordinary
+\[
+ \tau_x(R(x))
+\]
+by
+\[
+ \tau_x(R(x)\text{ and }x\in M).
+\]
+One still has to check that this really transforms ordinary quantifiers into the quantifiers formerly called ``typical'':
+\[
+ (\forall x\in M)\qquad (\exists x\in M).
+\]
+
+\begin{remarktext}{Exercises}
+\begin{enumerate}[label=\arabic*)]
+\item Let \(n\geq1\) be an integer. Show that the set of artinian sets of type \(n\) is infinite. The sets \(z_0=\emptyset\), \(z_1=\{\emptyset\}\), and \(z_{q+1}=\{z_q\}\) are of type \(1\).
+
+\item Call the \emph{height} of a set \(A\) the least upper bound, finite or infinite, of the integers \(n\) such that there exists a sequence
+\[
+ x_n\in x_{n-1}\in\cdots\in x_0=A.
+\]
+Show that the sets of height \(\leq n\) are finite and form a finite set whose cardinal \(p_n\) is calculated from \(p_0=1\), \(p_{n+1}=2^{p_n}\). Proceed by induction on \(n\), noting that the elements of a set \(A\) of height \(\leq n\) are sets of height \(\leq n-1\).
+
+\item Let \(G\) be a noetherian ordered set having a least element \(g_0\), and such that, for every \(h\in G\), the set of \(g\leq h\) is finite and totally ordered.
+\begin{enumerate}[label=\alph*)]
+\item Show that every element \(h\neq g_0\) of \(G\) has a unique predecessor.
+\item Let \(\varphi\) be the map on \(G\) defined in Lemma~1, that is, \(\varphi(g)\) is the set of the \(\varphi(g')\) where \(g'\) runs over the successors of \(g\). Put \(A=\varphi(g_0)\). Show that \(A\) is an artinian set. For \(g\in G\), let
+\[
+ g_0<g_1<\cdots<g_n=g
+\]
+be the sequence of elements \(\leq g\), and put
+\[
+ f(g)=(\varphi(g_0),\varphi(g_1),\ldots,\varphi(g_n)).
+\]
+Show that \(f\) is an increasing surjective map from \(G\) onto the ordered set \(G(A)\) of the text. Show that, if \(f\) is \emph{injective}, it is an isomorphism from \(G\) onto \(G(A)\).
+\item For \(g\in G\), let \(M_g\) be the set of majorants of \(g\). Suppose that, for every pair of distinct elements \(g,g'\) having the same predecessor \(p\), the ordered sets \(M_g\) and \(M_{g'}\) are not isomorphic. Show that the map \(f\) of b) is then an \emph{isomorphism} from \(G\) onto \(G(A)\). Hint: if \(f(g)=f(g')\) with \(g\neq g'\), and if
+\[
+ g_0<g_1<\cdots<g_n=g,
+ \qquad
+ g'_0<g'_1<\cdots<g'_{n'}=g'
+\]
+are the sequences of elements \(\leq g\) and \(\leq g'\), show that \(n=n'\), and that one may suppose that \(g\) and \(g'\) have the same predecessor \(p\). Then consider the set of \(p\in G\) such that there exist two distinct successors \(g,g'\) of \(p\) with \(f(g)=f(g')\); take a maximal element \(q\) of this set and two distinct successors \(h,h'\) of \(q\) such that \(f(h)=f(h')\). Observe that the restrictions of \(f\) to \(M_h\) and to \(M_{h'}\) are injective, and hence, by b), are isomorphisms from \(M_h\) to \(G(\varphi(h))\) and from \(M_{h'}\) to \(G(\varphi(h'))\). Deduce from the non-isomorphism hypothesis on \(M_h\) and \(M_{h'}\) that \(\varphi(h)\neq\varphi(h')\), contradicting \(f(h)=f(h')\).
+\end{enumerate}
+
+\NB{} Exercise~3 gives very precise information on how artinian sets are ``made.'' We already knew that such a set \(A\) is determined by the isomorphism class of the ordered set \(G(A)\) (Lemma~1). We now know how to \emph{characterize} the ordered sets \(G\) isomorphic to some \(G(A)\):
+\begin{itemize}[leftmargin=4em]
+\item[\(\alpha\))] \(G\) is noetherian and has a least element;
+\item[\(\beta\))] for every \(g\in G\), the set of \(h\leq g\) is totally ordered and finite, whence the existence and uniqueness of the predecessor of \(g\);
+\item[\(\gamma\))] if \(g,g'\) are distinct elements having the same predecessor, then the set \(M_g\) of majorants of \(g\) and the set \(M_{g'}\) of majorants of \(g'\) are not isomorphic.
+\end{itemize}
+
+\item Let \((A_n)_{n\geq0}\) be the sequence of finite ordinals defined by \(A_0=\emptyset\), \(A_{n+1}=A_n\cup\{A_n\}\). Show that the ordered set \(G(A_n)\) has \(2^n\) elements, and that the number of its elements of height \(q\), in the sense of Exercise~2, is \(\binom{n}{q}\).
+\end{enumerate}
+\end{remarktext}
+
+\begin{thebibliography}{10}
+\bibitem{MitchellII} B. Mitchell, \emph{Theory of Categories}, Academic Press, 1965.
+\end{thebibliography}
+
+\end{document}

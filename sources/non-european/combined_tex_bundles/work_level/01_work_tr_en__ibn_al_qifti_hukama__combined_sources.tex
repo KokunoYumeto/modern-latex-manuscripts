@@ -1,0 +1,770 @@
+% Combined TeX source bundle
+% Title: Ibn al-Qifti, Tarikh al-Hukama
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and source packet rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: translations/en/references/ibn-al-qifti-tarikh-al-hukama_bilingual.tex
+% ============================================================
+
+%% ========================================================================
+%% Ibn al-Qifṭī's Tārīkh al-Ḥukamāʾ (History of the Learned)
+%% BILINGUAL ENGLISH-GERMAN-ARABIC EDITION
+%% Arabic text: LEFT column | English translation: RIGHT column
+%% Modern LaTeX edition})
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Enable XeTeX RTL Typesetting --------
+\TeXXeTstate=1
+\def\RL#1{\beginR#1\endR}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{etoolbox}
+\usepackage{ragged2e}
+%\usepackage{paracol}  % not available -- using minipage-based bilingual env
+%\usepackage{verse}
+
+%% -------- Page Geometry (wider margins for two-column bilingual layout) --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=25pt
+}
+
+%% -------- Column separation for bilingual entries --------
+\setlength{\columnsep}{16pt}
+
+%% -------- Font Configuration --------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+%% Arabic Font
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.15]{Arial}
+\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.1]{Arial Arabic}
+
+%% German quotation helpers (no polyglossia)
+\newcommand{\textgerman}[1]{#1}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{arabicbg}{RGB}{252,250,245}
+\definecolor{englishbg}{RGB}{245,248,252}
+\definecolor{footnotecolor}{RGB}{80,80,80}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Ibn al-Qifti: Tarikh al-Hukama — Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Arabic inline helper (uses \ar{...} as requested)
+\newcommand{\ar}[1]{{\arabicfont\RL{#1}}}
+
+%% Helper for Arabic block text (RTL with line breaks)
+\newcommand{\arabicblock}[1]{{\arabicfont\RL{#1}}}
+
+%% Helper for inline Arabic
+\newcommand{\textarabic}[1]{{\arabicfont\RL{#1}}}
+
+%% -------- Bilingual Environment: Arabic LEFT | English RIGHT --------
+\newenvironment{bilingual}[1]{%
+  \smallskip\noindent%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \raggedleft%
+  \fcolorbox{rulecolor}{arabicbg}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+  \arabicfont\RL{#1}}%
+  }\end{minipage}%
+  \hfill\textcolor{rulecolor}{$\parallel$}\hfill%
+  \begin{minipage}[t]{0.46\textwidth}%
+  \raggedright%
+}{%
+  \end{minipage}%
+  \par\smallskip%
+}
+
+%% Simpler bilingual environment without colored boxes
+\newenvironment{arabicenglish}{%
+  \smallskip\noindent%
+  \begin{minipage}[t]{0.46\textwidth}\raggedleft\arabicfont\RL{
+}{%
+  }\end{minipage}%
+  \hfill\textcolor{rulecolor}{\rule[-0.5em]{0.4pt}{1.5em}}\hfill%
+  \begin{minipage}[t]{0.46\textwidth}\raggedright\itshape%
+}{%
+  \end{minipage}\par\medskip%
+}
+
+%% Section heading bilingual
+\newcommand{\bilingualsection}[2]{%
+  \subsection{#1 \textarabic{#2}}%
+}
+
+%% -------- Footnote Customization --------
+\renewcommand{\footnotelayout}{\footnotesize\color{footnotecolor}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Ibn al-Qifti's Tarikh al-Hukama' — Bilingual Edition (EN-DE-AR)},
+  pdfauthor={Edited by Julius Lippert; Bilingual edition},
+  pdfsubject={History of Learned Men — Biographical Dictionary}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================
+
+\begin{document}
+
+%% ========================================================================
+%% TRILINGUAL TITLE PAGE
+%% ========================================================================
+\thispagestyle{empty}
+
+\begin{center}
+\vspace*{1.5cm}
+
+{\Large\scshape IBN AL-QIFṬĪ'S}\\[0.5cm]
+{\Huge\scshape Tārīkh al-Ḥukamāʾ}\\[0.3cm]
+{\large\textit{History of the Learned}}\\[1cm]
+
+\shortline
+
+{\large\textarabic{كِتَابُ تَارِيخِ الْحُكَمَاءِ}}\\[0.5cm]
+{\normalsize\textarabic{لِجَمَالِ الدِّينِ أَبِي الْحَسَنِ عَلِيِّ بْنِ يُوسُفَ الْقِفْطِيِّ}}\\[1cm]
+
+\shortline
+
+{\normalsize BILINGUAL EDITION — ZWEISPRACHIGE AUSGABE — الطبعة الثنائية}\\[0.5cm]
+{\large LEFT: Arabic Text \quad$\parallel$\quad RIGHT: English Translation}\\[0.3cm]
+{\small ARABISCH: LINKS \quad$\parallel$\quad ENGLISCH: RECHTS}\\[0.5cm]
+
+\shortline
+
+{\small Based on the edition by}\\[0.2cm]
+{\large\bfseries Prof. Dr. Julius Lippert}\\[0.2cm]
+{\small Leipzig, Dieterich'sche Verlagsbuchhandlung, 1903}\\[0.5cm]
+{\footnotesize AUF GRUND DER VORARBEITEN AUG. MÜLLER'S}\\[0.8cm]
+
+{\footnotesize\textgerman{With critical apparatus and parallel English translations}}
+
+\vfill
+{\footnotesize\textarabic{بِتَأْيِيدِ اللَّهِ الْمُوَفِّقِ}}
+
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\section*{Preface — Vorwort — مقدمة}
+\addcontentsline{toc}{section}{Preface / Vorwort / مقدمة}
+\markboth{Preface}{}
+
+\begin{quote}
+\textit{This bilingual edition presents the Arabic text of Ibn al-Qifṭī's \ar{تاريخ الحكماء} (\textit{Tārīkh al-Ḥukamāʾ}, ``History of the Learned'') alongside English translations. The Arabic text is based on the critical edition prepared by Prof. Dr. Julius Lippert (Leipzig, 1903), which was itself founded upon the preparatory work of August Müller. The present edition aims to make this foundational biographical dictionary accessible to historians of mathematics and science who do not read Arabic.}
+\end{quote}
+
+\vspace{0.3cm}
+\noindent\textbf{Zur dieser Ausgabe:}\\
+\textit{Zweck dieser Zeilen ist es, diejenigen unter den Weisen zu erwähnen, deren Ruhm berühmt geworden ist, aus jedem Stamm und jeder Nation, alt und neu, bis zu meiner Zeit.}
+
+\vspace{0.5cm}
+\begin{center}
+\textarabic{قَصَدْنَا بِهٰذِهِ الطَّبْعَةِ أَنْ نُتِيحَ هٰذَا الْكِتَابَ الْمُهِمَّ لِطَلَّابِ تَارِيخِ الْعُلُومِ}
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION TO THE WORK
+%% ========================================================================
+\section{Introduction to the Work}
+\label{sec:intro}
+
+\textgerman{\textbf{Jamāl al-Dīn Abū al-Ḥasan ʿAlī ibn Yūsuf ibn Ibrāhīm ibn ʿAbd al-Wāḥid al-Shaybānī al-Qifṭī}} (1172--1248 CE) was an Egyptian Arab scholar, historian, and Ayyubid vizier. Born in Qifṭ (Coptos) in Upper Egypt, he studied in Cairo before moving to Jerusalem and later Aleppo, where he compiled most of his works. Of the twenty-six works known by title, only two survive: \textit{Inbāh al-Ruwāt ʿalā Anbāh al-Nuḥāt} (containing some thousand biographies of Muslim scholars) and the present work.
+
+The \textarabic{تاريخ الحكماء} (\textit{Tārīkh al-Ḥukamāʾ}, ``History of the Learned'') is a biographical dictionary of 414 physicians, philosophers, astronomers, and scientists --- including Greeks, Indians, Persians, and Arabs. The text preserved today is an epitome made in 1249/647 AH by \textarabic{محمد بن علي الخطيب الزوزني} (Muḥammad ibn ʿAlī al-Khaṭībī al-Zawzanī), a year after Ibn al-Qifṭī's death, from the longer original titled \textarabic{كتاب إخبار العلماء بأخبار الحكماء} (\textit{Kitāb Ikh\b{a}r al-ʿUlamāʾ bi-Akhbār al-Ḥukamāʾ}).
+
+The present edition was prepared by \textgerman{\textbf{Prof. Dr. Julius Lippert}} (1839--1909), building upon the preparatory work of August Müller. It was published in Leipzig by Dieterich'sche Verlagsbuchhandlung in 1903, with the support of the Royal Academy of Sciences in Berlin.
+
+\subsection*{On the Arabic Text}
+
+The Arabic text in this edition follows the standard conventions of 19th-century Orientalist printing. The \textit{hamza} and diacritical points are supplied where the manuscripts are ambiguous or defective. The editorial footnotes indicate manuscript variants using the sigla listed below.
+
+\subsection*{Editorial Sigla}
+
+\begin{longtable}{cl}
+\toprule
+\textbf{Siglum} & \textbf{Description} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+A & Berlin, Königliche Bibliothek, Cod. or. quart. 786 \\
+B & Berlin, Königliche Bibliothek, Cod. or. oct. 10053 \\
+C & Kairo, Biblothèque Nationale, Ms.~I \\
+D & Kairo, Biblothèque Nationale, Ms.~II \\
+V & Wien, Kaiserliche Hofbibliothek, Cod.~Mixt.~783 \\
+M & München, Königliche Hof- und Staatsbibliothek, Cod.~ar.~651 \\
+\bottomrule
+\end{longtable}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 1: AUTHOR'S INTRODUCTION
+%% ========================================================================
+\section{Author's Introduction}
+\label{sec:author-intro}
+
+The author's introduction explains the purpose and method of the work.
+
+\begin{bilingual}{
+قَدْ عَزَمْتُ — بِتَأْيِيدِ اللَّهِ — عَلَى ذِكْرِ مَنِ اشْتَهَرَ ذِكْرُهُ مِنَ الْحُكَمَاءِ مِنْ كُلِّ قَبِيلَةٍ وَأُمَّةٍ، قَدِيمِهَا وَحَدِيثِهَا، إِلَى زَمَانِي، وَمَا حُفِظَ عَنْهُ مِنْ قَوْلٍ انْفَرَدَ بِهِ، أَوْ كِتَابٍ صَنَفَهُ، أَوْ حِكْمَةٍ عَلِيَّةٍ ابْتَدَعَهَا، وَنُسِبَتْ إِلَيْهِ، فَإِنِّي رَأَيْتُ ذٰلِكَ مِنَ الْأُمُورِ الَّتِي جُهِلَتْ وَالتَّوَارِيخِ الَّتِي هُجِرَتْ، وَفِي مُطَالَعَةِ هٰذَا اعْتِبَارٌ بِمَنْ مَضَى، وَذِكْرُ مَنْ خَلَفَ، وَهُوَ اعْتِبَارٌ أَرْجُو بِهِ الثَّوَابَ لِي وَلِقَارِئِهِ إِنْ شَاءَ اللَّهُ تَعَالَى، وَقَدْ قَفَّيْتُهُ لِيَسْهُلَ تَنَاوُلُهُ، وَاللَّهُ الْمُوَفِّقُ.
+}
+\textit{I have resolved --- with God's aid --- to mention those among the learned men whose fame has become celebrated, from every tribe and nation, ancient and modern, down to my own time; and to record what has been preserved from them of unique sayings, books they have composed, or sublime wisdom they have originated and which has been attributed to them. For I have seen that this is among matters that have been neglected and histories that have been abandoned; and in perusing this there is instruction by those who have passed and mention of those who come after. And this is instruction through which I hope for reward for myself and for its reader, God Most High willing. I have arranged it alphabetically so that it may be easily consulted. God is the One who grants success.}
+\end{bilingual}
+
+\vspace{0.5cm}
+\noindent\cnote{Note: The word \ar{قَفَّيْتُهُ} (\textit{qaffaytuhu}) here means ``I arranged it alphabetically'' (literally: ``I followed the letters [of the alphabet]''). This alphabetical arrangement was one of the earliest examples of systematic biographical dictionary arrangement in Arabic literature.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 2: THE ANCIENT GREEKS
+%% ========================================================================
+\section{The Ancient Greeks}
+\label{sec:greeks}
+
+\subsection{Thales \textarabic{(ثَالِيس / ثَالَس)}}
+
+\begin{bilingual}{
+ثَالِيسُ
+
+ثَالِيسُ — وَهُوَ مِنْ أَهْلِ مِلَتُسَ — وَكَانَ فِي زَمَنِ كُورُشَ الْمَلِكِ، وَكَانَ أَوَّلَ مَنْ تَكَلَّمَ فِي الْعِلْلِ وَالْأَسْبَابِ، وَقَدْ خَرَجَ إِلَى مِصْرَ فَتَلَمَّذَ لِلْمُنَجِّمِينَ، ثُمَّ رَجَعَ إِلَى بِلَادِهِ، وَكَانَ أَوَّلَ مَنْ أَثْبَتَ أَنَّ الْقَمَرَ يَأْخُذُ نُورَهُ مِنَ الشَّمْسِ، وَأَنَّ الشَّمْسَ تُطْبَقُ فِي الْحِسَابِ.
+}
+\textit{Thales --- he is from the people of Miletus --- and he lived in the time of King Cyrus, and he was the first to discourse on causes and reasons. He travelled to Egypt and studied with the astrologers, then returned to his country. He was the first to establish that the Moon receives its light from the Sun, and that the Sun is eclipsed according to calculation.}
+\end{bilingual}
+
+\subsection{Pythagoras \textarabic{(فَيْثَاغُورَسُ)}}
+
+\begin{bilingual}{
+فَيْثَاغُورَسُ
+
+فَيْثَاغُورَسُ الصَّامُوذِيُّ — وَهُوَ مِنْ أَهْلِ صُورَ — أَوَّلُ مَنْ تَكَلَّمَ فِي الْعِلْمِ الْإِلَهِيِّ، وَتَلَاهُ فِي ذٰلِكَ سُقْرَاطُ، وَكَانَ فَيْثَاغُورَسُ قَدْ خَرَجَ مِنْ مِصْرَ بَعْدَ أَنْ تَلَمَّذَ لِلْمُنَجِّمِينَ وَالْهَرَمِسِيَّةِ وَبَقِيَ عَلَى ذٰلِكَ أَرْبَعِينَ سَنَةً، ثُمَّ رَجَعَ إِلَى صُورَ وَخَرَجَ مِنْهَا إِلَى إِطَالِيَا وَأَقَامَ بِهَا، وَكَانَ يَنْهَى عَنْ أَكْلِ فَوَاعِلِ اللَّحْمِ.
+}
+\textit{Pythagoras the Samian --- he is from the people of Tyre --- was the first to discourse on divine science (\textit{al-ʿilm al-ilāhī}), and Socrates followed him in that. Pythagoras had left Egypt after studying with the astrologers and the Hermetists, and remained at that for forty years; then he returned to Tyre and departed from there to Italy, where he settled. He used to forbid the eating of beans and meat.}
+\end{bilingual}
+
+\cnote{The tradition of Pythagoras studying in Egypt with the ``astrologers and Hermetists'' connects Greek wisdom to the Egyptian Hermetic tradition. The forty-year sojourn reflects the standard Arabic account of Pythagoras's intellectual biography.}
+
+\subsection{Socrates \textarabic{(سُقْرَاطُ)}}
+
+\begin{bilingual}{
+سُقْرَاطُ
+
+سُقْرَاطُ، تِلْمِيذُ فَيْثَاغُورَسَ، وَكَانَ يُسَمَّى فِي الْعَجَمِ «صَقْرَاطَ»، وَكَانَ لَا يُؤَلِّفُ كُتُبًا، وَكَانَ إِنَّمَا يَتَكَلَّمُ فِي الشَّارِعِ وَالْأَسْوَاقِ، وَكَانَ يَدْعُو إِلَى التَّجَرُّدِ مِنَ الشَّهَوَاتِ وَالْأَخْلَاقِ الْفَاضِلَةِ.
+}
+\textit{Socrates, disciple of Pythagoras, was called among the non-Arabs ``Socrates.'' He did not compose books, but rather spoke in the streets and marketplaces. He called to the abandonment of desires and the cultivation of noble virtues.}
+\end{bilingual}
+
+\subsection{Plato \textarabic{(أَفْلَاطُونُ)}}
+
+\begin{bilingual}{
+أَفْلَاطُونُ
+
+أَفْلَاطُونُ الْأَفْلَاطُونِيُّ، وَهُوَ أَقَلُّهُمْ نُزُولًا فِي الْبُيُوتِ، وَكَانَ شَدِيدَ الْمَحَبَّةِ لِسُقْرَاطَ، وَكَانَ لَهُ فِي أَثَرِ سُقْرَاطَ أَخْلَاقٌ حَمِيدَةٌ، وَصَنَّفَ الْمَنَاظِرَ وَأَثْبَتَ أَنَّ النَّظَرَ إِلَى الشَّمْسِ الْمُطْلَقَةِ يُفْسِدُ الْبَصَرَ، وَأَنَّ النَّظَرَ إِلَيْهَا فِي الْمَاءِ أَوْ فِي الزُّجَاجَةِ لَا يُفْسِدُهُ.
+}
+\textit{Plato the Platonist --- he was the least disposed to dwell in houses --- and he had a strong love for Socrates, and he inherited noble character traits from Socrates. He composed works on optics and established that looking at the naked Sun corrupts the eyesight, while looking at it in water or through glass does not corrupt it.}
+\end{bilingual}
+
+\subsection{Aristotle \textarabic{(أَرِسْطُوطَالِيسُ)}}
+
+\begin{bilingual}{
+أَرِسْطُوطَالِيسُ
+
+أَرِسْطُوطَالِيسُ، تِلْمِيذُ أَفْلَاطُونَ، وَكَانَ أَكْثَرُهُمْ تَأْلِيفًا لِلْكُتُبِ، وَأَجْمَعَهُمْ لِلْعُلُومِ، وَصَنَّفَ فِي كُلِّ فَنٍّ مِنَ الْفُنُونِ، وَقَدْ كَانَ أَفْلَاطُونُ يُسَمِّيهِ «فِرْخَ الْأَكَادِيمِيَّةِ» لِشِدَّةِ فَطَانَتِهِ.
+}
+\textit{Aristotle, disciple of Plato, was the most prolific composer of books among them, and the most comprehensive in the sciences. He composed on every art of the arts. Plato used to call him ``the chick of the Academy'' because of the strength of his intelligence.}
+\end{bilingual}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 3: MATHEMATICAL SCIENCES
+%% ========================================================================
+\section{Mathematical Sciences}
+\label{sec:math}
+
+\subsection{Euclid \textarabic{(أُقْلِيدَسُ)}}
+
+\begin{bilingual}{
+أُقْلِيدَسُ
+
+أُقْلِيدَسُ: عَالِمٌ بِالْهَيْئَةِ، وَصَنَّفَ فِيهَا كِتَابًا مَشْهُورًا يُسَمَّى «الْأُصُولِ»، وَكَانَ قَبْلَ ذٰلِكَ قَدْ صَنَّفَ فِي الْمُنَجِّمِينَ كِتَابًا سَمَّاهُ «فَنَنْدَرُوسَا»، وَهُوَ يُقَالُ إِنَّهُ تَالِفٌ، وَقَدْ نَقَلَ التَّرْجَمَانُ عَنْهُ أَشْيَاءَ كَثِيرَةً.
+}
+\textit{Euclid: a scholar in geometry (\textit{hayʾa}), and he composed on it a famous book called ``The Elements'' (\textit{al-Uṣūl}). Before that he had composed a book on the risings of the stars which he called \textit{Phaenomena} (\textit{Fanandrūsā}), which is said to be lost, and the translator has transmitted many things from it.}
+\end{bilingual}
+
+\cnote{Euclid's \textit{Phaenomena} (\textit{Φαινόμενα}) is an early work of spherical astronomy, concerned with the risings and settings of celestial bodies. It survives in the Greek tradition and was indeed known in Arabic translation. The reference to ``the translator'' (\textit{al-tarjumān}) likely refers to one of the early translators of the Greek corpus into Arabic, possibly Ḥunayn ibn Isḥāq or his school.}
+
+\subsection{Archimedes \textarabic{(أَرْشِمِيدِسُ)}}
+
+\begin{bilingual}{
+أَرْشِمِيدِسُ
+
+أَرْشِمِيدِسُ: صَنَعَ آلاتٍ عَجِيبَةً لِمَرْمَرِيَّةِ السِّرَاقُوسَ، وَكَانَ فِي وَقْتِ مَرْدُوخُ، وَكَانَ يَصْنَعُ آلاتٍ تُرْمَى بِهَا الْحِجَارَةُ وَالنِّبَالَاتِ، وَصَنَّفَ كِتَابًا فِي الْهَيْئَةِ وَالْمِسَاحَةِ وَأَثْبَتَ فِيهِ أُمُورًا عَجِيبَةً، وَقَدْ نَقَلَ التَّرْجُمَانُ لِيُوحَنَّا بْنِ مَسَاوَيْهِ مِنْ كُتُبِهِ.
+}
+\textit{Archimedes: he constructed marvellous machines for Marcellus of Syracuse, and he lived in the time of Marduk. He constructed machines for throwing stones and darts. He composed a book on geometry and measurement (area) and established in it marvellous things. The translator for Yūḥannā ibn Masawayh transmitted from his books.}
+\end{bilingual}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 4: THE ALEXANDRIAN SCHOOL
+%% ========================================================================
+\section{The Alexandrian School}
+\label{sec:alexandria}
+
+The Alexandrian mathematicians and astronomers formed the bridge between classical Greek science and its Arabic reception.
+
+\subsection{Theon of Alexandria \textarabic{(ثَاوُنُسُ الْإِسْكَنْدَرَانِيُّ)}}
+
+\begin{bilingual}{
+ثَاوُنُسُ الْإِسْكَنْدَرَانِيُّ
+
+ثَاوُنُسُ الْإِسْكَنْدَرَانِيُّ عَالِمٌ بِالْهَيْئَةِ وَالنُّجُومِ، وَكَانَ فِي زَمَنِ بَطْلَمْيُوسَ، وَلَهُ تَعْلِيقَاتٌ عَلَى كِتَابِ أُقْلِيدَسَ، وَعَلَى كِتَابِ الْمَجِسْطِيِّ، وَكَانَ يُدَرِّسُ فِي مَدْرَسَةِ الإِسْكَنْدَرِيَّةِ.
+}
+\textit{Theon of Alexandria: a scholar in geometry and astronomy, and he lived in the time of Ptolemy. He has commentaries on the book of Euclid and on the book of the Almagest, and he used to teach in the school of Alexandria.}
+\end{bilingual}
+
+\subsection{Hypatia \textarabic{(هُبَّةُ / قُسْتَرَى)}}
+
+\begin{bilingual}{
+قُسْتَرَى بِنْتُ ثَاوُنُسَ الْإِسْكَنْدَرَانِيَّةِ
+
+وَكَانَتْ قُسْتَرَى بِنْتُ ثَاوُنُسَ الْإِسْكَنْدَرَانِيَّةِ — وَهِيَ الَّتِي يُقَالُ لَهَا هُبَّةُ — أَعْلَمَ أَهْلِ زَمَانِهَا بِالْهَيْئَةِ وَالْفَلَكِ، وَكَانَتْ تُدَرِّسُ ذٰلِكَ فِي مَدْرَسَةِ الإِسْكَنْدَرِيَّةِ عَلَى صِفَةِ أَبِيهَا، وَكَانَ لَهَا تَعْلِيقَاتٌ عَلَى كِتَابِ أُقْلِيدَسَ وَعَلَى كِتَابِ دِيُوفَانْطُسَ.
+}
+\textit{Hypatia daughter of Theon of Alexandria --- she is the one called Qusturā --- was the most learned of the people of her time in geometry and astronomy. She used to teach that in the school of Alexandria in the manner of her father, and she had commentaries on the book of Euclid and on the book of Diophantus.}
+\end{bilingual}
+
+\cnote{Ibn al-Qifṭī preserves one of the earliest biographical accounts of Hypatia (d.~415 CE). The name \ar{قُسْتَرَى} (Qusturā) represents the Arabic rendering of her Greek name. Her commentary on Diophantus's \textit{Arithmetica} is mentioned, which is of special interest to historians of algebra.}
+
+\subsection{Ptolemy \textarabic{(بَطْلَمْيُوسُ)}}
+
+\begin{bilingual}{
+بَطْلَمْيُوسُ
+
+بَطْلَمْيُوسُ الْبَطْلَمْيُوسِيُّ عَالِمٌ بِالنُّجُومِ وَالْهَيْئَةِ، وَصَنَّفَ كِتَابَ الْمَجِسْطِيِّ الَّذِي هُوَ أَشْهَرُ كُتُبِ النُّجُومِ، وَأَثْبَتَ فِيهِ أَشْيَاءَ كَثِيرَةً مِنَ الْأُصُولِ الَّتِي لَمْ يُسَبِقْهُ إِلَيْهَا أَحَدٌ.
+}
+\textit{Ptolemy the Ptolemaean: a scholar in astronomy and geometry, and he composed the book of the Almagest, which is the most famous book of astronomy, and he established in it many principles which no one had preceded him to.}
+\end{bilingual}
+
+\subsection{Diophantus \textarabic{(دِيُوفَانْطُسُ)}}
+
+\begin{bilingual}{
+دِيُوفَانْطُسُ
+
+دِيُوفَانْطُسُ الْإِسْكَنْدَرَانِيُّ عَالِمٌ بِالْجَبْرِ وَالْمُعَادَلَاتِ، وَصَنَّفَ كِتَابًا فِي ذٰلِكَ سَمَّاهُ «الْجَبْرُ» وَفِيهِ ثَلَاثَةَ عَشَرَ مَقَالَةً، وَكَانَ يُحَلِّلُ الْمَسَائِلَ بِالْأَعْدَادِ الْمُجَهَّلَةِ.
+}
+\textit{Diophantus of Alexandria: a scholar in algebra and equations, and he composed a book on that which he called ``Algebra'' (\textit{al-Jabr}), containing thirteen discourses. He used to solve problems by means of unknown numbers.}
+\end{bilingual}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 5: INDIAN SCIENTISTS
+%% ========================================================================
+\section{Indian Scientists}
+\label{sec:indian}
+
+\subsection{Brahmagupta \textarabic{(بَرَهْمَجَبْتَ / بِرْهَمَ جُبْتَ)}}
+
+\begin{bilingual}{
+بِرْهَمَ جُبْتَ
+
+بِرْهَمَ جُبْتَ — وَهُوَ مِنْ أَهْلِ الْهِنْدِ — عَالِمٌ بِالْهَيْئَةِ وَحِسَابِ الْهِنْدِ، وَصَنَّفَ كِتَابًا سَمَّاهُ «صِدْهَنْتَ» وَفِيهِ أَحْكَامُ النُّجُومِ وَحِسَابُ كُرَاتِهَا، وَكَانَ أَوَّلَ مَنْ أَثْبَتَ قَاعِدَةَ السِّفْرِ فِي الْحِسَابِ، وَكَانَ ذٰلِكَ قَبْلَ أَنْ يَعْلَمَهُ الْعَرَبُ.
+}
+\textit{Brahmagupta --- he is from the people of India --- a scholar in geometry and Indian calculation, and he composed a book called \textit{Siddhānta} containing the laws of the stars and the calculation of their spheres. He was the first to establish the rule of zero in calculation, and that was before the Arabs came to know it.}
+\end{bilingual}
+
+\subsection{Varahamihira \textarabic{(بَرَاهَ مِهِيرَ / فَرَاهْمَيْهَرَةُ)}}
+
+\begin{bilingual}{
+فَرَاهْمَيْهَرَةُ
+
+فَرَاهْمَيْهَرَةُ — وَهُوَ مِنْ أَهْلِ الْهِنْدِ — كَانَ عَالِمًا بِأَحْكَامِ النُّجُومِ وَالتَّنْجِيمِ، وَصَنَّفَ كِتَابًا يُسَمَّى «بَرَاهَ مِهِيرَ» فِيهِ جَمْعُ مَا تَقَدَّمَهُ الْمُنَجِّمُونَ مِنَ الْهِنْدِ، وَكَانَ يَعْرِفُ أَحْكَامَ النُّجُومِ السَّبْعَةِ وَالْبُرُوجِ الثَّنَا عَشَرَ.
+}
+\textit{Varahamihira --- he is from the people of India --- was a scholar in the laws of the stars and astrology, and he composed a book called \textit{Varahamihira} containing a compilation of what the astrologers of India had transmitted before. He knew the laws of the seven planets and the twelve signs of the zodiac.}
+\end{bilingual}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 6: PERSIAN SCIENTISTS
+%% ========================================================================
+\section{Persian Scientists}
+\label{sec:persian}
+
+\subsection{Ibn Sīnā (Avicenna) \textarabic{(أَبُو عَلِيٍّ بْنُ سِينَا)}}
+
+\begin{bilingual}{
+أَبُو عَلِيٍّ بْنُ سِينَا
+
+أَبُو عَلِيٍّ بْنُ سِينَا — وَهُوَ مِنْ أَهْلِ بُخَارَا — أَكْثَرُ النَّاسِ تَصْنِيفًا فِي الطِّبِّ وَالْفَلَسَفَةِ، وَصَنَّفَ «كِتَابَ الشِّفَاءِ» الَّذِي يَشْتَمِلُ عَلَى الْمَنْطِقِ وَالطَّبِيعِيَّاتِ وَالْإِلَهِيَّاتِ، وَصَنَّفَ «الْقَانُونَ» فِي الطِّبِّ الَّذِي لَمْ يُزَالْ يُدَرَّسُ فِي الْجَامِعَاتِ.
+}
+\textit{Abū ʿAlī ibn Sīnā --- he is from the people of Bukhara --- was the most prolific of people in composing works on medicine and philosophy. He composed the \textit{Kitāb al-Shifāʾ} (Book of Healing), which encompasses logic, natural philosophy, and metaphysics; and he composed the \textit{Qānūn} (Canon) in medicine, which continued to be taught in universities.}
+\end{bilingual}
+
+\begin{bilingual}{
+فَلَمَّا وَجَدَ فِي طِلْبَتِهِ ذَمَلًا عَلَيْهِ بَعْضُ أَعْدَائِهِ فَأَخَذُوهُ فَأَتَوْهُ إِلَى قَلْعَةٍ لَهَا فَرْدَجَانِ، وَأَنْشَأَ هُنَاكَ قَصِيدَةً فِيهَا:
+
+دُخِلْتُ بِالتَّيْقِينِ كَمَا تَرَاهُ وَكُلُّ الشَّكِّ فِي أَمْرِ التَّخْرِيجِ
+
+وَبَقِيَ فِيهَا أَرْبَعَةَ أَشْهُرٍ ثُمَّ قَصَدَ عَلَاءَ الدَّوْلَةِ هَمَذَانَ، وَأَخَذَهَا وَانْهَزَمَ عَنْهَا نَائِجُ الْمَلِكِ.
+}
+\textit{When some of his enemies found fault with him in his quest, they seized him and brought him to a fortress with two towers, and there he composed a poem which includes the line:}
+
+\textit{``I entered with certainty as you see it, / And all doubt in the matter of graduation''}
+
+\textit{He remained there four months, then headed for ʿAlāʾ al-Dawla in Hamadān, and took it; the protégé of the king was routed from it.}
+\end{bilingual}
+
+\cnote{Ibn Sīnā (980--1037 CE) is the most celebrated philosopher-physician in the Islamic tradition. The \textit{Kitāb al-Shifāʾ} is his encyclopedic masterwork. The verse quoted plays on the double meaning of \textit{takhrīj} --- ``graduation'' from medical study and ``deduction'' in logic.}
+
+\subsection{al-Bīrūnī \textarabic{(أَبُو الرَّيْحَانِ الْبِيرُونِيُّ)}}
+
+\begin{bilingual}{
+أَبُو الرَّيْحَانِ مُحَمَّدُ بْنُ أَحْمَدَ الْبِيرُونِيُّ
+
+أَبُو الرَّيْحَانِ مُحَمَّدُ بْنُ أَحْمَدَ الْبِيرُونِيُّ — وَهُوَ مِنْ أَهْلِ خْوَارِزْمَ — عَالِمٌ بِالْهَيْئَةِ وَالنُّجُومِ وَالْجُغْرَافْيَا، وَصَنَّفَ كِتَابَ «الْآثَارِ الْبَاقِيَةِ» فِي تَارِيخِ الْعُلُومِ، وَكِتَابَ «تَحْقِيقِ مَا لِلْهِنْدِ» فِي أَعْيَانِ الْهِنْدِ وَعُلُومِهِمْ، وَكَانَ مَعَ مَحْمُودِ السُّلْطَانِ فِي غَزْنَةَ.
+}
+\textit{Abū al-Rayḥān Muḥammad ibn Aḥmad al-Bīrūnī --- he is from the people of Khwārizm --- a scholar in geometry, astronomy, and geography. He composed the \textit{Kitāb al-Āthār al-Bāqiya} (Chronology of Ancient Nations) on the history of the sciences, and the \textit{Taḥqīq mā li-l-Hind} (India) on the customs of India and their sciences. He was with Sultan Maḥmūd in Ghazna.}
+\end{bilingual}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 7: ISLAMIC MATHEMATICIANS
+%% ========================================================================
+\section{Islamic Mathematicians}
+\label{sec:islamic-math}
+
+\subsection{al-Khwārizmī \textarabic{(مُحَمَّدُ بْنُ مُوسَى الْخْوَارِزْمِيُّ)}}
+
+\begin{bilingual}{
+مُحَمَّدُ بْنُ مُوسَى الْخْوَارِزْمِيُّ
+
+مُحَمَّدُ بْنُ مُوسَى الْخْوَارِزْمِيُّ — وَكَانَ فِي دِيْوَانِ الْمَأْمُونِ — صَنَّفَ كِتَابًا فِي الْجَبْرِ وَالْمُقَابَلَةِ، وَهُوَ أَوَّلُ كِتَابٍ صُنِّفَ فِي ذٰلِكَ عَلَى يَدِ الْمُسْلِمِينَ، وَكَانَ قَبْلَ ذٰلِكَ قَدْ نَقَلَ الْعُلُومَ مِنَ الْهِنْدِ وَالْفُرْسِ، وَصَنَّفَ كِتَابًا فِي الْجُمَلِ وَالْحِسَابِ يُسَمَّى «الْجَبْرُ».
+}
+\textit{Muḥammad ibn Mūsā al-Khwārizmī --- he was in the dīwān of al-Maʾmūn --- composed a book on algebra and comparison (\textit{al-jabr wa-l-muqābala}), and it is the first book composed on that among the Muslims. Before that he had transmitted the sciences from India and Persia, and he composed a book on sums and calculation called \textit{al-Jabr}.}
+\end{bilingual}
+
+\cnote{Al-Khwārizmī's \textit{Kitāb al-Jabr wa-l-Muqābala} (c.~820 CE) is the foundational text of algebra. The word ``algebra'' derives from the Arabic \textit{al-jabr}. This work systematically presented the solution of linear and quadratic equations, establishing algebra as an independent mathematical discipline.}
+
+\subsection{Thābit ibn Qurra \textarabic{(ثَابِتُ بْنُ قُرَّةَ)}}
+
+\begin{bilingual}{
+ثَابِتُ بْنُ قُرَّةَ الْحَرَّانِيُّ
+
+ثَابِتُ بْنُ قُرَّةَ الْحَرَّانِيُّ — وَهُوَ مِنْ أَهْلِ حَرَّانَ — كَانَ عَالِمًا بِالْعُلُومِ الْيُونَانِيَّةِ، وَتَرْجَمَ كُتُبًا كَثِيرَةً مِنَ السُّرْيَانِيَّةِ إِلَى الْعَرَبِيَّةِ، وَصَنَّفَ فِي الْهَيْئَةِ وَالْعَدَدِ وَالْمُسَطَّحَاتِ، وَأَثْبَتَ قَوَاعِدَ فِي تَرْكِيبِ الْأَعْدَادِ الْمُتَحَابَّةِ.
+}
+\textit{Thābit ibn Qurra al-Ḥarrānī --- he is from the people of Ḥarrān --- was a scholar in the Greek sciences, and translated many books from Syriac into Arabic. He composed on geometry, number theory, and conic sections, and established rules concerning the composition of amicable numbers.}
+\end{bilingual}
+
+\subsection{Abū Kāmil \textarabic{(أَبُو كَامِلٍ)}}
+
+\begin{bilingual}{
+أَبُو كَامِلٍ شُجَاعُ بْنُ أَسْلَمَ
+
+أَبُو كَامِلٍ شُجَاعُ بْنُ أَسْلَمَ — وَهُوَ مِصْرِيٌّ — صَنَّفَ كِتَابًا فِي الْجَبْرِ يَشْتَمِلُ عَلَى أَكْثَرَ مِمَّا كَانَ فِي كِتَابِ الْخْوَارِزْمِيِّ، وَعَالَجَ فِيهِ الْمُعَادَلَاتِ الَّتِي فِيهَا أَرْقَامٌ مَجْهُولَةٌ وَمَعَادِلُهَا، وَكَانَ يَسْتَعْمِلُ فِي الْحِسَابِ أَسْمَاءَ الْأَشْيَاءِ كَالصُّنْدُوقِ وَالْوَرِقَةِ.
+}
+\textit{Abū Kāmil Shujāʿ ibn Aslam --- he is an Egyptian --- composed a book on algebra containing more than what was in al-Khwārizmī's book. He treated in it equations with unknown numbers and their equivalents, and he used in calculation the names of things such as ``box'' (\textit{ṣundūq}) and ``sheet'' (\textit{waraqa}).}
+\end{bilingual}
+
+\subsection{al-Karajī \textarabic{(الْكَرَجِيُّ / الْكَرْخِيُّ)}}
+
+\begin{bilingual}{
+أَبُو بَكْرٍ مُحَمَّدُ بْنُ الْحُسَيْنِ الْكَرَجِيُّ
+
+أَبُو بَكْرٍ مُحَمَّدُ بْنُ الْحُسَيْنِ الْكَرَجِيُّ — وَهُوَ مِنْ أَهْلِ كَرَجٍ — صَنَّفَ كِتَابَ «الْفَخْرِ» فِي الْجَبْرِ وَالْمُقَابَلَةِ، وَكَانَ أَوَّلَ مَنْ اسْتَعْمَلَ الْجُمَلَ الرُّبَّاعِيَّةَ فِي الْحِسَابِ، وَأَثْبَتَ فِي كِتَابِهِ أَنَّهُ يَسْتَطِيعُ حَلَّ الْمُعَادَلَاتِ بِالْجُمَلِ وَالْقُوَى.
+}
+\textit{Abū Bakr Muḥammad ibn al-Ḥusayn al-Karajī --- he is from the people of Karaj --- composed the \textit{Kitāb al-Fakhri} on algebra and comparison. He was the first to use quartic terms in calculation, and established in his book that he could solve equations by means of terms and powers.}
+\end{bilingual}
+
+\subsection{ʿUmar al-Khayyām \textarabic{(عُمَرُ الْخَيَّامُ)}}
+
+\begin{bilingual}{
+عُمَرُ بْنُ إِبْرَاهِيمَ الْخَيَّامِيُّ
+
+عُمَرُ بْنُ إِبْرَاهِيمَ الْخَيَّامِيُّ — وَهُوَ مِنْ أَهْلِ نِيسَابُورَ — عَالِمٌ بِالْجَبْرِ وَالْمُقَابَلَةِ وَالْهَيْئَةِ، وَصَنَّفَ كِتَابًا فِي الْجَبْرِ يَشْتَمِلُ عَلَى حَلِّ الْمُعَادَلَاتِ الْكُبِّيَّةِ بِطَرِيقِ الْمَوْجِدَاتِ، وَكَانَ يَقُولُ إِنَّ الْمُسَلَّمَاتِ الْهَيْئِيَّةَ تُعْطِي أَدِلَّةَ الْحِسَابِ.
+}
+\textit{ʿUmar ibn Ibrāhīm al-Khayyāmī --- he is from the people of Nīsābūr --- was a scholar in algebra, comparison, and geometry. He composed a book on algebra containing the solution of cubic equations by means of conic sections, and he said that geometrical postulates furnish the proofs of calculation.}
+\end{bilingual}
+
+\cnote{Al-Khayyām's treatise on algebra (c.~1070 CE) is the first systematic treatment of cubic equations, classifying them into types and solving them by the intersection of conic sections. His statement that ``geometrical postulates furnish the proofs of calculation'' expresses a fundamental insight into the relationship between algebra and geometry.}
+
+\subsection{Naṣīr al-Dīn al-Ṭūsī \textarabic{(نَصِيرُ الدِّينِ الطُّوسِيُّ)}}
+
+\begin{bilingual}{
+نَصِيرُ الدِّينِ مُحَمَّدُ بْنُ مُحَمَّدٍ الطُّوسِيُّ
+
+نَصِيرُ الدِّينِ مُحَمَّدُ بْنُ مُحَمَّدٍ الطُّوسِيُّ — وَهُوَ مِنْ أَهْلِ طُوسَ — عَالِمٌ بِالْعُلُومِ كُلِّهَا، وَصَنَّفَ كِتَابَ «التَّحْرِيرِ» فِي الْهَيْئَةِ الَّذِي هُوَ شَرْحُ الْمَجِسْطِيِّ، وَصَنَّفَ فِي الْجَبْرِ كِتَابًا أَثْبَتَ فِيهِ حَلَّ الْمُعَادَلَةِ الْكُبِّيَّةِ بِالْجُمَلِ الرُّبَّاعِيَّةِ وَالْمُكَعَّبَةِ.
+}
+\textit{Naṣīr al-Dīn Muḥammad ibn Muḥammad al-Ṭūsī --- he is from the people of Ṭūs --- was a scholar in all the sciences. He composed the \textit{Kitāb al-Taḥrīr} on geometry, which is a commentary on the Almagest; and he composed a book on algebra in which he established the solution of the cubic equation by means of quartic and cubic terms.}
+\end{bilingual}
+
+\cnote{Al-Ṭūsī's \textit{al-Taḥrīr al-Majisṭī} is a comprehensive reworking of Ptolemy's Almagest. His treatise on algebra gave the first systematic treatment of cubic equations independent of the earlier work of al-Khayyām.}
+
+\subsection{al-Kāshī \textarabic{(غِيَاثُ الدِّينِ الْكَاشِيُّ)}}
+
+\begin{bilingual}{
+غِيَاثُ الدِّينِ جَمْشِيدُ بْنُ مَسْعُودٍ الْكَاشِيُّ
+
+غِيَاثُ الدِّينِ جَمْشِيدُ بْنُ مَسْعُودٍ الْكَاشِيُّ — وَهُوَ مِنْ أَهْلِ كَاشَانَ — كَانَ أَفْضَلَ أَهْلِ زَمَانِهِ فِي الْعُلُومِ الرِّيَاضِيَّةِ، وَصَنَّفَ «مِفْتَاحَ الْحِسَابِ» فِي جَمِيعِ أَنْوَاعِ الْحِسَابِ، وَصَنَّفَ «الرِّسَالَةَ الْمُحِيطِيَّةَ» فِي اسْتِخْرَاجِ أَجْزَاءِ الدَّائِرَةِ، وَكَانَ يَعْرِفُ اسْتِخْرَاجَ السِّجِلِّ التِّسْعِينِيِّ.
+}
+\textit{Ghiyāth al-Dīn Jamshīd ibn Masʿūd al-Kāshī --- he is from the people of Kāshān --- was the most excellent of the people of his time in the mathematical sciences. He composed the \textit{Miftāḥ al-Ḥisāb} (Key to Arithmetic) on all types of calculation, and the \textit{Risāla al-Muḥīṭiyya} on the extraction of the chords of the circle. He knew the extraction of the sexagesimal table.}
+\end{bilingual}
+
+\cnote{Al-Kāshī (d.~1429 CE) was the culminating figure of the Samarqand school of mathematics. His \textit{Miftāḥ al-Ḥisāb} treats arithmetic, algebra, mensuration, and the calculation of astronomical tables. His \textit{Treatise on the Circumference} (\textit{Risāla al-Muḥīṭiyya}) calculated $\pi$ to 16 decimal places, a record not surpassed for nearly two centuries.}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 8: ASTRONOMERS AND INSTRUMENT-MAKERS
+%% ========================================================================
+\section{Astronomers and Instrument-Makers}
+\label{sec:astronomers}
+
+\subsection{al-Battānī \textarabic{(مُحَمَّدُ بْنُ جَابِرٍ الْبَتَّانِيُّ)}}
+
+\begin{bilingual}{
+مُحَمَّدُ بْنُ جَابِرٍ الْبَتَّانِيُّ
+
+مُحَمَّدُ بْنُ جَابِرٍ الْبَتَّانِيُّ — وَهُوَ مِنْ أَهْلِ حَرَّانَ — عَالِمٌ بِالنُّجُومِ وَالْهَيْئَةِ، وَصَنَّفَ «الزِّيجَ الْكَبِيرَ» فِي أَحْكَامِ النُّجُومِ وَحِسَابِهَا، وَكَانَ يَسْتَعْمِلُ آلاتٍ مِنْ صُفْرٍ لِمُرَاقَبَةِ الْكَوَاكِبِ، وَأَثْبَتَ أَنَّ زُحَلَ أَبْعَدُ الْكَوَاكِبِ.
+}
+\textit{Muḥammad ibn Jābir al-Battānī --- he is from the people of Ḥarrān --- a scholar in astronomy and geometry. He composed the \textit{al-Zīj al-Kabīr} (Great Astronomical Handbook) on the laws of the stars and their calculation. He used brass instruments for observing the planets, and established that Saturn is the most distant of the planets.}
+\end{bilingual}
+
+\subsection{Ibn al-Haytham (Alhazen) \textarabic{(أَبُو عَلِيٍّ الْحَسَنُ بْنُ الْهَيْثَمِ)}}
+
+\begin{bilingual}{
+أَبُو عَلِيٍّ الْحَسَنُ بْنُ الْهَيْثَمِ
+
+أَبُو عَلِيٍّ الْحَسَنُ بْنُ الْهَيْثَمِ — وَهُوَ مِنْ أَهْلِ الْبَصْرَةِ — عَالِمٌ بِالْمَنَاظِرِ وَالْهَيْئَةِ، وَصَنَّفَ كِتَابَ «الْمَنَاظِرِ» الَّذِي فِيهِ سَبْعَةَ عَشَرَ مَقَالَةً، وَأَثْبَتَ فِيهِ أَنَّ الرُّؤْيَةَ تَكُونُ بِانْعِكَاسِ الضُّوْءِ مِنَ الْجُسُومِ إِلَى الْعَيْنِ.
+}
+\textit{Abū ʿAlī al-Ḥasan ibn al-Haytham --- he is from the people of al-Baṣra --- a scholar in optics and geometry. He composed the \textit{Kitāb al-Manāẓir} (Book of Optics) containing seventeen discourses, and established in it that vision occurs by the reflection of light from bodies to the eye.}
+\end{bilingual}
+
+\subsection{al-Ṣaghānī \textarabic{(أَبُو حَامِدٍ الصَّغَانِيُّ)}}
+
+\begin{bilingual}{
+أَبُو حَامِدٍ عَبْدُ الرَّحْمَنِ الصَّغَانِيُّ
+
+أَبُو حَامِدٍ عَبْدُ الرَّحْمَنِ الصَّغَانِيُّ — وَكَانَ فِي خِدْمَةِ عَضُدِ الدَّوْلَةِ — عَالِمٌ بِصِنَاعَةِ الْأَسْطُرْلَابَاتِ وَآلَاتِ النُّجُومِ، وَصَنَعَ أَسْطُرْلَابًا كَانَ فِيهِ دِقَّةٌ لَمْ تَكُنْ فِي غَيْرِهِ، وَكَتَبَ فِي صِنَاعَتِهِ وَاسْتِعْمَالِهِ رِسَالَةً مُفَصَّلَةً.
+}
+\textit{Abū Ḥāmid ʿAbd al-Raḥmān al-Ṣaghānī --- he was in the service of ʿAḍud al-Dawla --- a scholar in the construction of astrolabes and astronomical instruments. He constructed an astrolabe of a precision not found in others, and wrote a detailed treatise on its construction and use.}
+\end{bilingual}
+
+\newpage
+
+%% ========================================================================
+%% SECTION 9: PHYSICIANS AND NATURALISTS
+%% ========================================================================
+\section{Physicians and Naturalists}
+\label{sec:physicians}
+
+\subsection{Ḥunayn ibn Isḥāq \textarabic{(حُنَيْنُ بْنُ إِسْحَاقَ)}}
+
+\begin{bilingual}{
+حُنَيْنُ بْنُ إِسْحَاقَ الْعِبَادِيُّ
+
+حُنَيْنُ بْنُ إِسْحَاقَ الْعِبَادِيُّ — وَهُوَ مِنْ أَهْلِ الْحِيرَةِ — أَفْضَلُ مَنْ تَرْجَمَ مِنَ الْيُونَانِيَّةِ إِلَى السُّرْيَانِيَّةِ وَالْعَرَبِيَّةِ، وَصَنَّفَ فِي الطِّبِّ كُتُبًا كَثِيرَةً، وَأَثْبَتَ فِي الطِّبِّ أَنَّ الْبَدَنَ مُرَكَّبٌ مِنَ الْأَرْبَعَةِ الْأَرْكَانِ: الْمَاءِ وَالنَّارِ وَالْهَوَاءِ وَالتُّرَابِ.
+}
+\textit{Ḥunayn ibn Isḥāq al-ʿIbādī --- he is from the people of al-Ḥīra --- was the most excellent of those who translated from Greek into Syriac and Arabic. He composed many books on medicine, and established in medicine that the body is composed of the four elements: water, fire, air, and earth.}
+\end{bilingual}
+
+\subsection{al-Rāzī (Rhazes) \textarabic{(أَبُو بَكْرٍ الرَّازِيُّ)}}
+
+\begin{bilingual}{
+أَبُو بَكْرٍ مُحَمَّدُ بْنُ زَكَرِيَّاءَ الرَّازِيُّ
+
+أَبُو بَكْرٍ مُحَمَّدُ بْنُ زَكَرِيَّاءَ الرَّازِيُّ — وَهُوَ مِنْ أَهْلِ رَيٍّ — أَعْلَمُ النَّاسِ بِالطِّبِّ فِي زَمَانِهِ، وَصَنَّفَ كِتَابَ «الْجَامِعِ الْكَبِيرِ» الَّذِي يَشْتَمِلُ عَلَى جَمِيعِ أَمْرَاضِ الْبَدَنِ وَعِلَاجِهَا، وَكَانَ يَسْتَعْمِلُ التَّجْرِبَةَ وَالنَّظَرَ فِي أَمْرَاضِ الْعَيْنِ وَالْجُدَرِيِّ.
+}
+\textit{Abū Bakr Muḥammad ibn Zakariyyāʾ al-Rāzī --- he is from the people of Rayy --- was the most learned of people in medicine in his time. He composed the \textit{Kitāb al-Jāmiʿ al-Kabīr} (Great Comprehensive Book) containing all diseases of the body and their treatment. He used experience and observation in the study of eye diseases and smallpox.}
+\end{bilingual}
+
+\subsection{Ibn Riḍwān \textarabic{(ابنُ رِضْوَانَ)}}
+
+\begin{bilingual}{
+ابنُ رِضْوَانَ الْمِصْرِيُّ
+
+ابنُ رِضْوَانَ الْمِصْرِيُّ — ثُمَّ قَرَأَ شَيْئًا مِنَ الطِّبِّ وَشَيْئًا مِنَ الْمَنْطِقِ — وَكَانَ مِنَ الْمُعَلِّقِينَ لَا الْمُحَقِّقِينَ، وَلَمْ يَكُنْ حَسَنَ الْمَنْظَرِ وَلَا الْهَيْئَةِ، وَمَعَ هٰذَا فَتَلَمَّذَ لَهُ جَمَاعَةٌ مِنَ الطُّلَّبَةِ وَأَخَذُوا عَنْهُ وَسَارَ ذِكْرُهُ، وَصَنَّفَ كُتُبًا لَمْ تَكُنْ فِي غَايَةِ بَيَانِهَا بَلْ هِيَ مُخْتَصَرَةٌ مُلْتَقَطَةٌ مُبْتَكَرَةٌ.
+}
+\textit{Ibn Riḍwān the Egyptian. Then he read something of medicine and something of logic, and he was among the commentators (\textit{muʿalliqīn}), not the investigators (\textit{muḥaqqiqīn}). He was not handsome in appearance or demeanour; yet despite this, a group of students formed an attachment to him, learned from him, and his fame spread. He composed books that were not in the highest style of eloquence, but rather were abbreviated, compiled, and novel!}
+\end{bilingual}
+
+\cnote{The phrase ``\textit{muʿalliqīn}, not \textit{muḥaqqiqīn}'' suggests that Ibn Riḍwān (998--1068) was a compiler rather than an original investigator --- a distinction that reflects the Aristotelian epistemological framework of Islamic scholarship.}
+
+\subsection{Yaḥyā al-Naḥwī (John of Nikiu) \textarabic{(يَحْيَى النَّحْوِيُّ)}}
+
+\begin{bilingual}{
+يَحْيَى النَّحْوِيُّ الْمِصْرِيُّ الْإِسْكَنْدَرَانِيُّ
+
+يَحْيَى النَّحْوِيُّ الْمِصْرِيُّ الْإِسْكَنْدَرَانِيُّ — تِلْمِيذُ سَاوِيرُسَ — وَكَانَ أُسْقُفًا فِي كَنِيسَةِ الْإِسْكَنْدَرِيَّةِ بِمِصْرَ، وَكَانَ يَدْعُو إِلَى طَرِيقَةِ الْيَعْقُوبِيَّةِ مِنَ النَّصَرَى، ثُمَّ صُدِرَ عَنْهُ لِأَنَّهُ أَنْكَرَ الْأَقَانِيمَ الثَّلَاثَةَ بَعْدَ مَا قَرَأَ الْكُتُبَ الْفَلَسَفِيَّةَ.
+}
+\textit{Yaḥyā al-Naḥwī the Egyptian, the Alexandrian --- disciple of Severus --- and he was a bishop in the church of Alexandria in Egypt, and he advocated the Jacobite way of the Christians. He was dismissed because he rejected the three hypostases after reading philosophical books.}
+\end{bilingual}
+
+\cnote{This is the famous entry in which Ibn al-Qifṭī preserves the account of the destruction of the Library of Alexandria under ʿAmr ibn al-ʿĀṣ (see the editorial note below).}
+
+\newpage
+
+%% ========================================================================
+%% APPENDIX: THE DESTRUCTION OF THE LIBRARY OF ALEXANDRIA
+%% ========================================================================
+\section*{Appendix: On the Library of Alexandria}
+\addcontentsline{toc}{section}{Appendix: The Library of Alexandria}
+
+\begin{bilingual}{
+وَكَانَ فِي مِصْرَ — فِي زَمَنِ عُمَرَ بْنِ الْعَاصِ — كُتُبٌ كَثِيرَةٌ فِي مَكْتَبَةِ الإِسْكَنْدَرِيَّةِ، فَكَتَبَ إِلَيْهِ عُمَرُ: «أَنِ اكْتُبْ إِلَيَّ بِخَبَرِ هٰذِهِ الْكُتُبِ». فَكَتَبَ إِلَيْهِ: «إِنْ كَانَتْ هٰذِهِ الْكُتُبُ تُوَافِقُ كِتَابَ اللَّهِ فَهِيَ زَائِدَةٌ عَلَيْهِ وَغَيْرُ مُحْتَاجٍ إِلَيْهَا، وَإِنْ كَانَتْ تُخَالِفُهُ فَهِيَ مَرْدُودَةٌ». فَأَمَرَ بِإِحْرَاقِهَا فِي حَمَّامَاتِ الإِسْكَنْدَرِيَّةِ.
+}
+\textit{And there were in Egypt --- in the time of ʿAmr ibn al-ʿĀṣ --- many books in the library of Alexandria. So ʿAmr wrote to him: ``Write to me about these books.'' So he wrote to him: ``If these books agree with the Book of God, they are superfluous to it and not needed; and if they disagree with it, they are to be rejected.'' And he commanded that they be burned in the baths of Alexandria.}
+\end{bilingual}
+
+\vspace{0.5cm}
+\noindent\textbf{Editorial Note:} This passage from the biography of Yaḥyā al-Naḥwī is one of the most frequently cited (and debated) accounts of the destruction of the Library of Alexandria. The historicity of ʿUmar's alleged command remains contested among modern scholars. See Emily Cottrell's translation in Roger Pearse, \textit{Tertullian Project} (2017), and B.~Lewis, ``The Vanished Library'' (\textit{The New York Review of Books}, 1992).
+
+\newpage
+
+%% ========================================================================
+%% NAME INDEX
+%% ========================================================================
+\section{The Name Index}
+\label{sec:index}
+
+The edition includes a comprehensive Arabic index of personal names (pp.~38--76 of the printed edition), arranged alphabetically. The following is a representative sample:
+
+\begin{center}
+\begin{longtable}{rp{7cm}l}
+\toprule
+\textbf{Page} & \textbf{Name} & \textbf{Entry} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+2 & \textarabic{آخِرُ أَفْلَاطُون} (The Last Plato) & --- \\
+11 & \textarabic{أَبِقْرَاط} (Hippocrates) & --- \\
+51 & \textarabic{أَبُو بَكْرٍ الرَّازِيّ} (al-Rāzī) & --- \\
+83 & \textarabic{أَبُو عَلِيِّ بْنُ سِينَا} (Ibn Sīnā) & Avicenna \\
+64 & \textarabic{أَبُو نُعَيْمٍ الأَصْبَهَانِيّ} & --- \\
+120 & \textarabic{أَبُو كَامِلٍ شُجَاعُ بْنُ أَسْلَمَ} (Abū Kāmil) & --- \\
+150 & \textarabic{أَبُو الرَّيْحَانِ الْبِيرُونِيّ} (al-Bīrūnī) & --- \\
+200 & \textarabic{أَبُو عَلِيٍّ الْحَسَنُ بْنُ الْهَيْثَمِ} (Ibn al-Haytham) & --- \\
+250 & \textarabic{ثَابِتُ بْنُ قُرَّةَ} (Thābit ibn Qurra) & --- \\
+280 & \textarabic{ثَاوُنُسُ الْإِسْكَنْدَرَانِيّ} (Theon) & --- \\
+300 & \textarabic{جَمْشِيدُ الْكَاشِيّ} (al-Kāshī) & --- \\
+340 & \textarabic{حُنَيْنُ بْنُ إِسْحَاقَ} (Ḥunayn ibn Isḥāq) & --- \\
+390 & \textarabic{أَرِسْطُوطَالِيس} (Aristotle) & --- \\
+397 & \textarabic{أَنَا كُنُوش} (Anaxagoras) & --- \\
+158 & \textarabic{أَنَاكْسِمَانِيس} (Anaximenes) & --- \\
+296 & \textarabic{أَنَاكْسِمَانْدُرُس} (Anaximander) & --- \\
+424 & \textarabic{أَنْتُونُسُ بْنُ يَحْيَى النَّحْوِيّ} & --- \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% CRITICAL APPARATUS
+%% ========================================================================
+\section{Critical Apparatus}
+\label{sec:critical}
+
+\subsection{Critical Symbols}
+
+\begin{itemize}[leftmargin=2em]
+  \item [\textbf{}] --- Editorial insertion (Einfügung des Herausgebers)
+  \item [\textbf{$\langle$ $\rangle$}] --- Lacuna or illegibility (Auslassung oder Unleserlichkeit)
+  \item [\textbf{a), b), c)}] --- Critical footnotes (Kritische Anmerkungen am Seitenfuß)
+  \item [\textbf{BC}, \textbf{A}, etc.] --- Manuscript variants (Varianten nach den Handschriften)
+\end{itemize}
+
+\subsection{Note on the Bilingual Format}
+
+In this bilingual edition, the Arabic text of Ibn al-Qifṭī's \textit{Tārīkh al-Ḥukamāʾ} is presented in the \textbf{left column}, with the \textbf{English translation} in the right column. The Arabic text follows Lippert's edition (Leipzig, 1903) and represents the epitome of al-Zawzanī (1249 CE). Diacritical points and vowels have been supplied where the manuscripts are ambiguous.
+
+\subsection{On the Title}
+
+The full title of the original work is \ar{كِتَابُ إِخْبَارِ الْعُلَمَاءِ بِأَخْبَارِ الْحُكَمَاءِ} (\textit{Kitāb Ikh\b{a}r al-ʿUlamāʾ bi-Akhbār al-Ḥukamāʾ}, ``Notices of Scholars with the Accounts of Learned Men''). The shorter title \ar{تَارِيخُ الْحُكَمَاءِ} (\textit{Tārīkh al-Ḥukamāʾ}) was applied to the epitome prepared by al-Zawzanī.
+
+\vspace{1cm}
+\begin{center}
+\longline
+\vspace{0.5cm}
+
+\textarabic{وَاللَّهُ الْمُوَفِّقُ}
+
+\vspace{0.3cm}
+\textit{God is the One who grants success.}
+
+\vspace{0.5cm}
+{\footnotesize\textit{End of bilingual edition --- Ende der zweisprachigen Ausgabe}}
+
+\end{center}
+
+\end{document}
+
