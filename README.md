@@ -7,7 +7,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 ## Current Public Records
 
 - Main landing page: https://zenodo.org/records/20415117
-- EGA working translation: https://zenodo.org/records/20421162
+- EGA working translation: https://zenodo.org/records/20421340
 - SGA working translation: https://zenodo.org/records/20421261
 - Heinrich Weber author record: https://zenodo.org/records/20421148
 - Emmy Noether author record: https://zenodo.org/records/20421149
