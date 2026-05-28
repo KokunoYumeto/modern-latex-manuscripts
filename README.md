@@ -2,11 +2,11 @@
 
 This repository is the forkable working mirror for an ongoing project to produce modern, inspectable LaTeX editions and translations of older mathematics and physics manuscripts.
 
-Zenodo is the archival source of record. GitHub keeps editable TeX, public metadata, manifests, and reasonably sized reader PDFs together so people can fork, inspect, correct, and contribute without downloading multi-gigabyte raw archives.
+Zenodo is the archival source of record. GitHub keeps editable TeX, public metadata, manifests, and reasonably sized reader PDFs together so people can fork, inspect, correct, and contribute without downloading multi-gigabyte raw archives. The main Zenodo record is also the preservation backstop for the current raw working inputs, stored there as ten `99 Raw Source Drops` ZIP parts plus a manifest.
 
 ## Current Public Records
 
-- Main landing and bulk preservation record: https://zenodo.org/records/20430709
+- Main landing, bulk preservation, and raw source backstop: https://zenodo.org/records/20430709
 - EGA working English translation and French originals: https://zenodo.org/records/20432146
 - SGA working English translation and French references: https://zenodo.org/records/20432263
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20432922
