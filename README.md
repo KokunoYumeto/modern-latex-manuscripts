@@ -9,7 +9,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - Main landing and bulk preservation record: https://zenodo.org/records/20430709
 - EGA working English translation and French originals: https://zenodo.org/records/20432146
 - SGA working English translation and French references: https://zenodo.org/records/20432263
-- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20432406
+- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20432922
 - Heinrich Weber author record: https://zenodo.org/records/20431945
 - Emmy Noether author record: https://zenodo.org/records/20431948
 - Bernhard Riemann author record: https://zenodo.org/records/20431305
@@ -23,7 +23,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - `sources/ega/`: editable EGA TeX tree, including the current local continuation work.
 - `reader-pdfs/sga/`: SGA 1-3 snapshots, complete current SGA 4 working reader, SGA 5 delivered segments, SGA 6 through Expose XIV end, SGA 7-I opening, and French reference scans.
 - `sources/sga/`: extracted TeX/source/review material from the current SGA artifact packets.
-- `reader-pdfs/non-european/`: cleaned round3 public readers for Chinese, Indian/Sanskrit, Islamic/Arabic, and historical-reference material, including combined language readers and work-level PDFs.
+- `reader-pdfs/non-european/`: repaired round3 public readers for Chinese, Indian/Sanskrit, Islamic/Arabic, and historical-reference material, including combined language readers, work-level PDFs, and complete scan replacements for the Rosen and Robert/Karpinski reference originals.
 - `sources/non-european/`: extracted TeX source bundles from the non-European corpus. Large page-image, OCR, raw-provenance, and source-scan zips stay on Zenodo.
 - `reader-pdfs/weber/` and `sources/weber/`: Weber original-language readers and current English translation drafts, with Volume II through section 124.
 - `reader-pdfs/noether/` and `sources/noether/`: Noether selected-paper reader and current English translation drafts.
@@ -35,7 +35,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity.
 
-EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader. The non-European corpus has 66 cleaned top-level reader PDFs; the latest repair comparison found 64 improved, 0 worsened, and 2 same or inconclusive against the prior public release. Weber and Noether have current author pages with original-language readers, English readers, and source artifacts.
+EGA currently compiles to a 971-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader. The non-European corpus has 66 repaired top-level reader PDFs; the latest pass also promoted complete public-domain scan PDFs for the Rosen and Robert/Karpinski reference originals where sparse derived readers were not useful as public-facing originals. Weber and Noether have current author pages with original-language readers, English readers, and source artifacts.
 
 Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, translation completion, and replacing imperfect machine-generated passages with verified text.
 
