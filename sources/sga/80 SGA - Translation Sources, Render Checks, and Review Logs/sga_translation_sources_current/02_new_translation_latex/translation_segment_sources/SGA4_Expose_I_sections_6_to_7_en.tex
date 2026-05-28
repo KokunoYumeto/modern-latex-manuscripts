@@ -1,0 +1,500 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: I, Presheaves
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/01/01.tex
+% Range translated in this working draft section: Sections 6--7, source lines 1739--2668.
+% Status: draft translation, compile-checked, not proofed against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,amscd}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fun}{\operatorname{Fun}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\Fl}{\operatorname{Fl}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\Hhom}{\operatorname{Hom}}
+\newcommand{\fibprod}[3]{#1\times_{#3}#2}
+\newcommand{\qedtext}{\hfill\(\square\)}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{proofsketch}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e I. Presheaves}}\\[0.35em]
+{\large Sections 6--7}\\[0.35em]
+A. Grothendieck and J.-L. Verdier
+\end{center}
+
+\bigskip
+
+
+\setcounter{section}{5}
+\section{Faithful functors and conservative functors}
+
+\begin{statement}{Definition 6.1}
+Let $E$ be a category, and let
+\[
+(\varphi_i:E\to F_i)_{i\in I}
+\]
+be a family of functors. We say that the family $(\varphi_i)$ is \emph{faithful} if, for every pair of objects $X,Y$ of $E$ and every pair of arrows $u,v:X\rightrightarrows Y$, the equalities $\varphi_i(u)=\varphi_i(v)$ for all $i\in I$ imply $u=v$. In other words, for every $X,Y$ the map
+\[
+\Hom_E(X,Y)\longrightarrow \prod_i \Hom_{F_i}(\varphi_i(X),\varphi_i(Y))
+\]
+defined by the $\varphi_i$ is injective. We say that $(\varphi_i)$ is \emph{conservative} if every arrow $u$ of $E$ such that $\varphi_i(u)$ is an isomorphism for all $i\in I$ is itself an isomorphism. We say that $(\varphi_i)$ is conservative for monomorphisms, respectively for epimorphisms, etc., if the preceding condition is verified whenever $u$ is a monomorphism, respectively an epimorphism, etc.
+\end{statement}
+
+\subsection*{6.1.1}
+If one introduces the single functor
+\[
+\varphi:E\longrightarrow F=\prod_{i\in I}F_i
+\]
+defined by the family $(\varphi_i)$, then it is clear that the family is faithful, respectively conservative, respectively conservative for monomorphisms, etc., if and only if $\varphi$ is faithful, respectively conservative, etc. Here, of course, this means that the one-object family consisting of $\varphi$ has the corresponding property. Thus there would be no serious loss in subsequently restricting to the case of a family consisting of a single functor. For convenience of later reference, however, we give the following statements for families.
+
+The notions of 6.1 are especially useful when the $\varphi_i$ satisfy suitable exactness properties; in that case they tend to coincide.
+
+\begin{statement}{Proposition 6.2}
+The notation is that of 5.1.
+\begin{enumerate}[label=(\roman*)]
+\item Suppose that kernels of pairs of arrows, or cokernels of pairs of arrows, are representable in $E$, and that the $\varphi_i$ commute with them. Then
+\[
+(\varphi_i)\text{ conservative}\quad\Longrightarrow\quad (\varphi_i)\text{ faithful}.
+\]
+
+\item Suppose that fiber products, respectively amalgamated sums, are representable in $E$, and that the $\varphi_i$ commute with them. Suppose that $(\varphi_i)$ is faithful or conservative. Then, for every arrow $u$ of $E$, the arrow $u$ is a monomorphism, respectively an epimorphism, if and only if, for every $i\in I$, the arrow $\varphi_i(u)$ has the corresponding property.
+
+\item Suppose that in $E$ fiber products and amalgamated sums are representable, that the $\varphi_i$ commute with them, and that every arrow in $E$ which is a bimorphism, i.e. both a monomorphism and an epimorphism, is an isomorphism. Then
+\[
+(\varphi_i)\text{ faithful}\quad\Longrightarrow\quad (\varphi_i)\text{ conservative}.
+\]
+
+\item Suppose that in $E$ fiber products, respectively amalgamated sums, are representable, and that the $\varphi_i$ commute with them. If $(\varphi_i)$ is conservative for monomorphisms, respectively for epimorphisms, then $(\varphi_i)$ is conservative.
+
+\item Let $D$ be a diagram type, let $F:d\mapsto F(d)$ be a diagram of type $D$ in $E$, let $X$ be an object of $E$, and let $u=(u_d)_{d\in D}$ be a family of arrows
+\[
+X\longrightarrow F(d)\qquad (\text{respectively }F(d)\longrightarrow X).
+\]
+Suppose that $(\varphi_i)$ is conservative, that projective limits, respectively inductive limits, of type $D$ are representable in $E$, and that the $\varphi_i$ commute with them. Then $u$ makes $X$ a projective limit, respectively an inductive limit, of $F$ in $E$ if and only if, for every $i\in I$, $\varphi_i(u)$ makes $\varphi_i(X)$ a projective limit, respectively an inductive limit, of $\varphi_i(F)$ in $F_i$.
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}
+For (i), in the non-dual statement, given a pair of arrows $u,v:X\rightrightarrows Y$, it suffices to express the equality $u=v$ by the condition that the inclusion
+\[
+\Ker(u,v)\longrightarrow X
+\]
+is an isomorphism. Here, and below, we do not repeat the dual argument for the dual statement.
+
+For (ii), if $(\varphi_i)$ is faithful, one expresses the condition that $u:X\to Y$ be a monomorphism by the equality $\pr_1=\pr_2$ for the fiber product $X\times_YX$. If $(\varphi_i)$ is conservative, one expresses it by the condition that the diagonal morphism
+\[
+\delta:X\longrightarrow X\times_YX
+\]
+be an isomorphism.
+
+For (iv), in the latter argument the morphism $\delta$ is a monomorphism, so it would actually have sufficed to assume that $(\varphi_i)$ is conservative for monomorphisms. This then implies that $(\varphi_i)$ is conservative tout court. Indeed, if $u\in\Fl(E)$ is such that the $\varphi_i(u)$ are isomorphisms, then by what precedes they are monomorphisms, and hence are isomorphisms by the hypothesis on $(\varphi_i)$.
+
+Assertion (iii) is a trivial consequence of (ii), and (v) is a trivial consequence of the definitions.
+\end{proofsketch}
+
+We note the following consequence of (i), (ii), and (iv).
+
+\begin{statement}{Corollary 6.3}
+Suppose that in $E$ fiber products and amalgamated sums are representable and that the $\varphi_i$ commute with them, and that kernels of pairs of arrows or cokernels of pairs of arrows are representable and that the $\varphi_i$ commute with them. It suffices, for example, that finite projective limits and finite inductive limits be representable in $E$, and that the $\varphi_i$ be exact functors. Then the following conditions are equivalent:
+\begin{enumerate}[label=\alph*)]
+\item $(\varphi_i)$ is faithful;
+\item $(\varphi_i)$ is conservative;
+\item $(\varphi_i)$ is conservative for monomorphisms;
+\item[(c')] $(\varphi_i)$ is conservative for epimorphisms.
+\end{enumerate}
+\end{statement}
+
+We also record the following fact.
+
+\begin{statement}{Proposition 6.4}
+Let $\varphi:E\to F$ be a functor admitting a right adjoint $\psi$, so that
+\[
+\Hom_F(\varphi(X),Y)\simeq \Hom_E(X,\psi(Y)).
+\]
+For $\varphi$, respectively $\psi$, to be faithful it is necessary and sufficient that, for every object $X$ of $E$, respectively every object $Y$ of $F$, the adjunction morphism
+\[
+X\longrightarrow \psi\varphi(X)
+\]
+be a monomorphism. For $\varphi$, respectively $\psi$, to be fully faithful it is necessary and sufficient that the preceding adjunction morphism be an isomorphism.
+\end{statement}
+
+Indeed, if $X',X$ are two objects of $E$, the map
+\[
+\Hom_E(X',X)\longrightarrow \Hom_F(\varphi(X'),\varphi(X))\tag{$*$}
+\]
+is identified with the map obtained from
+\[
+X\longrightarrow \psi\varphi(X)\tag{$**$}
+\]
+by applying the functor $\Hom_E(X',-)$. Thus, for $(*)$ to be a monomorphism, respectively an isomorphism, for all $X'$, with $X$ fixed, it is necessary and sufficient that the adjunction morphism $(**)$ be a monomorphism, respectively an isomorphism.
+
+\begin{statement}{Proposition 6.5}
+Let $p:E'\to E$ be a functor. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $p$ is faithful, conservative, and fibred \emph{(SGA 1, VI, 6.1)}.
+\item $p$ is a fibred functor whose fibers are discrete categories.
+\item For every $X'\in\Ob(E')$, the functor
+\[
+E'_{/X'}\longrightarrow E_{/p(X')}
+\]
+induced by $p$ is an equivalence of categories, surjective on objects.
+\item If $E$ is a $\U$-category, there exists an object $F\in\Ob(\widehat E)$ and an equivalence of categories over $E$ \emph{(SGA 1, VI, 4.3)}
+\[
+E'\xrightarrow{\sim}E_{/F},
+\]
+where $E_{/F}$ is the full subcategory of $\widehat E_{/F}$ consisting of the arrows $X\to F$ whose source is in $E$.
+\end{enumerate}
+\end{statement}
+
+\subsection*{6.5.1}
+Recall that a category $C$ is said to be \emph{discrete} if it is a \emph{groupoid}, i.e. every arrow is invertible, and if it is \emph{rigid}, i.e. the automorphism group of every object is reduced to the unit group. Equivalently, the category is equivalent to the category $C'$ defined by a set $I$, with $\Ob(C')=I$ and with identity arrows as its only arrows. When $C$ is already assumed to be a groupoid, saying that $C$ is discrete amounts to saying that, for any two objects $X,Y$ of $C$, there is at most one arrow from $X$ to $Y$, i.e. that $C$ is isomorphic to the category defined by a preordered set.
+
+The equivalence of conditions (i) and (ii) in 6.5 is an immediate consequence of these reminders and of the following lemma.
+
+\begin{statement}{Lemma 6.5.2}
+Let $p:E'\to E$ be a fibred functor. Then:
+\begin{enumerate}[label=(\roman*)]
+\item for $p$ to be conservative it is necessary and sufficient that its fiber categories be groupoids;
+\item for $p$ to be faithful it is necessary and sufficient that its fiber categories be ordered categories.
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}[Proof of 6.5.2]
+Suppose first that $p$ is conservative. For every arrow $u$ in a fiber $E'_X$, one has $p(u)=\id_X$, an isomorphism; hence $u$ is an isomorphism in $E'$, and also in $E'_X$, since an inverse of $u$ in $E'$ is evidently an inverse in $E'_X$. Thus $E'_X$ is a groupoid. Conversely, suppose that the $E'_X$ are groupoids, and let $u'$ be an arrow of $E'$ such that $p(u')$ is an isomorphism. We prove that $u'$ is an isomorphism. Since $p$ is fibred, one can factor
+\[
+u':X'\longrightarrow Y'
+\]
+as a composite
+\[
+X'\longrightarrow u^*(Y')\longrightarrow Y',
+\]
+where the first arrow is an $X$-morphism, with $X=p(X')$ and $u=p(u')$, and the second is a cartesian morphism over $u$. The first arrow is an isomorphism because $E'_X$ is a groupoid, and the second is an isomorphism because a cartesian morphism in a fibred category is evidently an isomorphism as soon as its projection is an isomorphism.
+
+Now suppose that $p$ is faithful, and let $X',Y'$ be two objects of a fiber category $E'_X$. Two arrows from $X'$ to $Y'$ lie over the same arrow $\id_X$ of $E$, hence are identical; therefore $E'_X$ is ordered. Conversely, suppose that the fiber categories are ordered, and prove that $p$ is faithful. Let $u',v':X'\rightrightarrows Y'$ be arrows of $E'$ over the same arrow $u:X\to Y$ of $E$. They factor as
+\[
+X'\rightrightarrows u^*(Y')\longrightarrow Y',
+\]
+where the two arrows $X'\rightrightarrows u^*(Y')$ are arrows of $E'_X$ with the same source and the same target. These are therefore equal, and hence $u'=v'$. \qedtext
+\end{proofsketch}
+
+We return to the proof of 6.5. We have proved (i) $\Leftrightarrow$ (ii). On the other hand, (ii) $\Leftrightarrow$ (iv) is fairly clear: indeed, on one hand the category $E_{/F}$ is fibred over $E$ with fibers the discrete categories defined by the sets $F(X)$, as follows at once from the definitions; on the other hand, if $p$ is as in (ii), then by the sorites of SGA~1, VI, 8, the category $E'$ fibred over $E$ is $E$-equivalent to the split category over $E$ defined by the functor $F:E^{\op}\to\Set$ which sends an object $X$ to the set of isomorphism classes of objects of $E'_X$. This split category is $E$-isomorphic to $E_{/F}$. Since (iv) $\Rightarrow$ (iii) is clear, it remains only to prove (iii) $\Rightarrow$ (i). But it is clear that, for $p$ to be faithful, respectively conservative, it is necessary and sufficient that the induced functors
+\[
+E'_{/X'}\longrightarrow E_{/p(X')}
+\]
+be faithful, respectively conservative; \emph{a fortiori}, it suffices that these functors be fully faithful. It remains only to prove that (iii) implies that $p$ is fibred. But again one sees that a functor $p$ is fibred if and only if the induced functors $E'_{/X'}\to E_{/p(X')}$ are fibred. This is so, in particular, if they are equivalences of categories surjective on objects.
+
+\section{Generating and cogenerating subcategories}
+
+\begin{statement}{Definition 7.1}
+Let $E$ be a category and let $C$ be a full subcategory of $E$. We say that $C$ is a subcategory of $E$ \emph{generating by strict epimorphisms}, respectively \emph{generating by epimorphisms}, if, for every object $X$ of $E$, the family of arrows of $E$ with target $X$ and with source $X'\in\Ob(C)$ is strictly epimorphic, respectively epimorphic (1.3). We say that $C$ is a \emph{generating subcategory}, respectively \emph{generating for monomorphisms}, respectively \emph{generating for strict monomorphisms}, if, for every arrow $u:Y\to X$, respectively every monomorphism of $E$, respectively every strict monomorphism of $E$ (10.5), such that for every $X'\in\Ob(C)$ the corresponding map
+\[
+\Hom_E(X',Y)\longrightarrow \Hom_E(X',X)
+\]
+is bijective, $u$ is an isomorphism. Finally, we say that a family $(X_i)$ of objects of $E$ generates by strict epimorphisms, respectively etc., if the full subcategory $C$ of $E$ generated by this family generates by strict epimorphisms, respectively etc.
+\end{statement}
+
+\subsection*{7.1.1}
+In terms of the family $(h_{X'})_{X'\in\Ob(C)}$ of functors represented by the objects $X'\in\Ob(C)$,
+\[
+h_{X'}:E\longrightarrow \Set\qquad (X'\in\Ob(C)),
+\]
+one can express the condition that $C$ be generating, respectively generating for monomorphisms, respectively generating for strict monomorphisms, by saying that the family $(h_{X'})$ is conservative, respectively conservative for monomorphisms, respectively conservative for strict monomorphisms (6.1). It follows immediately from the definitions as well that $C$ generates by epimorphisms if and only if the family $(h_{X'})_{X'\in\Ob(C)}$ is faithful (6.1). We shall also give below, in 7.2(i), an analogous interpretation of the condition that $C$ generate by strict epimorphisms.
+
+\subsection*{7.1.2}
+As with the notions introduced in 6.1, the notions in 7.1 are especially useful when $E$ has suitable exactness properties; then the various notions introduced have a marked tendency all to be equivalent (7.3). For this reason the question of which of the notions in 7.1 should be considered the most important hardly arises: in the most important cases they coincide, and the term ``generating subcategory'' may therefore be interpreted indifferently as referring to any of the properties considered in 7.1, for example the first one, which is the strongest of all, as we shall see in 7.2(ii).
+
+\subsection*{7.1.3}
+Suppose that $E$ is a $\U$-category, and consider the canonical functor
+\begin{equation*}
+\varphi:E\longrightarrow \widehat C=\Hhom(C,\U\text{-}\Set),\tag{7.1.3.1}
+\end{equation*}
+obtained by composing $E\to\widehat E\to\widehat C$, where the first functor is the canonical functor (1.3.3), and the second is the restriction functor to $C$. It is evident that saying that $\varphi$ is conservative, respectively faithful, is the same as saying that the family of functors
+\[
+h_{X'}:X\longmapsto \Hom_E(X',X)=\varphi(X)(X')
+\]
+for variable $X'\in\Ob(C)$ is a conservative, respectively faithful, family, i.e. also, by 7.1.2, that $C$ is generating, respectively generating by epimorphisms. Similarly, $\varphi$ is conservative for monomorphisms, respectively for strict monomorphisms, if and only if the family of the $h_{X'}$ is conservative for monomorphisms, respectively for strict monomorphisms; equivalently, if and only if the subcategory $C$ of $E$ is generating for monomorphisms, respectively for strict monomorphisms.
+
+\begin{statement}{Proposition 7.2}
+Let $E$ be a $\U$-category, and let $C$ be a full subcategory.
+\begin{enumerate}[label=(\roman*)]
+\item The following conditions are equivalent:
+\begin{enumerate}[label=\alph*)]
+\item $C$ is a subcategory generating by strict epimorphisms.
+\item For every $X\in\Ob(E)$, if $C_{/X}$ denotes the full subcategory of $E_{/X}$ formed by the arrows $X'\to X$ with $X'\in\Ob(C)$, then the natural arrow from the inclusion functor $j:C_{/X}\to E$ to the constant functor on $C_{/X}$ with value $X$ makes $X$ an inductive limit of $j$:
+\[
+X\xleftarrow{\sim}\varinjlim_{C_{/X}}X'.
+\]
+\item The canonical functor $\varphi$ of (7.1.3.1) is fully faithful.
+\end{enumerate}
+
+\item Among the notions of 7.1 one has the following implications:
+\[
+\begin{gathered}
+1)\ C\text{ generates by strict epimorphisms }(\varphi\text{ fully faithful})\\
+\Downarrow\quad\searrow\\
+2)\ C\text{ generates by epimorphisms }(\varphi\text{ faithful})\qquad
+3)\ C\text{ is generating }(\varphi\text{ conservative})\\
+\hfill\Downarrow\\
+4)\ C\text{ generates for monomorphisms }(\varphi\text{ conservative for monomorphisms})\\
+\Downarrow\\
+5)\ C\text{ generates for strict monomorphisms }(\varphi\text{ conservative for strict monomorphisms}).
+\end{gathered}
+\]
+
+\item One has the following conditional implications:
+\begin{enumerate}[label=\alph*)]
+\item If in $E$ epimorphic families of arrows are strictly epimorphic, then $2)\Rightarrow1)$. If in $E$ monomorphisms are strict, then $5)\Rightarrow4)$.
+\item If in $E$ kernels of pairs of arrows, respectively fiber products, are representable, then $3)\Rightarrow2)$, respectively $4)\Rightarrow3)$.
+\item If in $E$ every family of morphisms $X_i\to X$ with common target $X$ factors as a strictly epimorphic, respectively epimorphic, family $X_i\to Y$ followed by a monomorphism, respectively by a strict monomorphism, $Y\to X$, then $4)\Rightarrow1)$, respectively $5)\Rightarrow2)$.
+\end{enumerate}
+\end{enumerate}
+\end{statement}
+
+We immediately record the following corollary.
+
+\begin{statement}{Corollary 7.3}
+All the notions considered in 7.1, and recalled in the implication diagram of 7.2(ii), are equivalent in each of the following two cases:
+\begin{enumerate}[label=(\roman*)]
+\item In $E$, kernels of pairs of arrows and fiber products are representable, monomorphisms are strict, and epimorphic families of arrows are strictly epimorphic.
+\item In $E$, every family $(X_i\to X)_{i\in I}$ of arrows with common target $X$ factors as an epimorphic family $(X_i\to Y)$ followed by a monomorphism $Y\to X$, every monomorphism of $E$ is strict, and every epimorphic family of arrows of $E$ is strict.
+\end{enumerate}
+\end{statement}
+
+Indeed, in case (i) one has $4)\Rightarrow3)$ and $3)\Rightarrow2)$ by (b), and $5)\Rightarrow4)$ and $2)\Rightarrow1)$ by (a). In case (ii) one has, by (c), the implications $4)\Rightarrow1)$ and $5)\Rightarrow2)$. The conclusion follows from the implication diagram 7.2(ii).
+
+\begin{proofsketch}[Proof of 7.2]
+For (i), the implication b) $\Rightarrow$ a) follows at once from the definitions. We prove a) $\Rightarrow$ b). Under hypothesis a), one must prove that, for every $X,Y\in\Ob(E)$, every system of arrows
+\[
+u_{X'}:X'\longrightarrow Y
+\]
+indexed by the $X'\in\Ob(C_{/X})$ such that $u_{X'}f=u_{X''}$ for every arrow $f:X''\to X'$ in $C_{/X}$ factors through an arrow, necessarily unique by hypothesis a), $X\to Y$. By a), it suffices to check that, for every object $Z$ of $E_{/X}$ and every pair of morphisms $v':Z\to X'$ and $v'':Z\to X''$ in $E_{/X}$, with $X'$ and $X''$ in $C_{/X}$, one has $u_{X'}v'=u_{X''}v''$. But by hypothesis a), the family of arrows $w:X'''\to Z$, with $X'''\in\Ob(C)$, is epimorphic; hence it suffices to check that for every such $w$ one has
+\[
+(u_{X'}v')w=(u_{X''}v'')w,
+\]
+which is also written $u_{X'}(v'w)=u_{X''}(v''w)$ and follows immediately from the hypothesis on the family $u$.
+
+We now prove the equivalence of b) and c). For every $X\in\Ob(E)$, the object $\varphi(X)$ of $\widehat C$ is the inductive limit in $\widehat C$ of the canonical functor $\widehat C_{/\varphi(X)}\to\widehat C$ (3.4). But $\widehat C_{/\varphi(X)}$ is canonically isomorphic to $C_{/X}$, so that in $\widehat C$ one has
+\[
+\varphi(X)=\varinjlim_{C_{/X}}X',
+\]
+where the object $X'$ of $C$ is identified with the functor in $\widehat C$ that it represents. Consequently, for a second object $Y$ of $E$, there is a canonical isomorphism
+\begin{align*}
+\Hom_{\widehat C}(\varphi(X),\varphi(Y))
+&\simeq \varprojlim_{C_{/X}}\Hom_{\widehat C}(X',\varphi(Y))\\
+&\simeq \varprojlim_{C_{/X}}\varphi(Y)(X')\\
+&\simeq \varprojlim_{C_{/X}}\Hom_E(X',Y).\tag{$*$}
+\end{align*}
+Thus the map
+\[
+\Hom_E(X,Y)\longrightarrow\Hom_{\widehat C}(\varphi(X),\varphi(Y))
+\]
+defined by $\varphi$ is, through the isomorphism between the extreme terms of $(*)$, exactly the map
+\[
+\Hom_E(X,Y)\longrightarrow\varprojlim_{C_{/X}}\Hom_E(X',Y)
+\]
+induced by the inductive system of arrows $X'\to X$ indexed by $C_{/X}$ considered in 7.2(i)b). Therefore the first map is bijective for every $Y$, with $X$ fixed, if and only if $X$ is an inductive limit of the inclusion functor $j:C_{/X}\to E$. This proves the equivalence of b) and c).
+
+For (ii), the implications $1)\Rightarrow2)$ and $3)\Rightarrow4)\Rightarrow5)$ are trivial by the definitions. The implication $1)\Rightarrow3)$ is obtained by interpreting property $1)$ as the full faithfulness of $\varphi$, by (i), and observing that a fully faithful functor is conservative. We have already observed in 7.1.1 that $3)$ means that $\varphi$ is conservative.
+
+For (iii), assertion (a) is a tautology. Assertion (b) follows from 6.2(i), respectively 6.2(iv), applied to the functor $\varphi$, noting that $\varphi$ is left exact. Finally we prove (c). For $X\in\Ob(E)$, consider the family of all morphisms $X_i\to X$ with $X_i\in\Ob(C)$. By the hypothesis on $E$, it factors as a strictly epimorphic, respectively epimorphic, family $X_i\to Y$ followed by a monomorphism, respectively by a strict monomorphism, $Y\to X$. Then hypothesis $4)$, respectively $5)$, implies that $Y\to X$ is an isomorphism. Thus the family in question is strictly epimorphic, respectively epimorphic. \qedtext
+\end{proofsketch}
+
+\begin{statement}{Proposition 7.4}
+Let $E$ be a category, let $C$ be a full subcategory of $E$, and let $X$ be an object of $E$. Suppose that $C$ is generating in $E$, respectively that $C$ generates for monomorphisms and that the fiber product over $X$ of two subobjects of $X$ is representable in $E$. Then a strict subobject (10.11), respectively a subobject, $X'$ of $X$ is known once, for every $T\in\Ob(C)$, one knows the subset of $\Hom_E(T,X)$ which is the image of $\Hom_E(T,X')$. Consequently, the cardinal of the set of strict subobjects, respectively of the set of subobjects, of $X$ is bounded above by
+\[
+\prod_{T\in\Ob(C)}2^{\card\Hom_E(T,X)},
+\]
+and if $X\in\Ob(C)$, it is bounded above by $2^{\card \Fl(C)}$.
+\end{statement}
+
+We first prove the statement with ``respectively''. Let $X'$ and $X''$ be two subobjects of $X$ such that, for every $T\in\Ob(C)$, the images of $\Hom_E(T,X')$ and $\Hom_E(T,X'')$ in $\Hom_E(T,X)$ are equal. They are therefore also equal to the image of $\Hom_E(T,X''')$, where $X'''$ is the fiber product of $X'$ and $X''$ over $X$. Since $C$ generates for monomorphisms, it follows that the monomorphisms $X'''\to X'$ and $X'''\to X''$ are isomorphisms. Hence $X'$ and $X''$ are equal, each being equal to the subobject $X'''$ of $X$.
+
+We now prove the non-respective assertion. By the definition of strict subobject, it suffices to check that knowing the subset $\Hom_E(T,X')$ of $\Hom_E(T,X)$ for every $T\in\Ob(C)$ determines the set of pairs of arrows $u,v:X\rightrightarrows T$ such that $ui=vi$, where $i:X'\to X$ is the canonical injection. Since $C$ is generating, the relation $ui=vi$ is equivalent to the relation $(ui)f=(vi)f$ for every $f\in\Hom_E(T,X')$, i.e. to $ug=vg$ for every $g\in\Hom_E(T,X)$ coming from $\Hom_E(T,X')$ (that is, of the form $if$ with $f\in\Hom_E(T,X')$). This proves the assertion.
+
+\begin{statement}{Corollary 7.5}
+Let $E$ be a category, let $C$ be a full generating subcategory, and let $X$ be an object of $C$. Then a strict quotient (10.8) $X'$ of $X$ is known once, for every $T\in\Ob(C)$, one knows the subset of $\Hom_E(T,X)^2$ formed by the pairs $(u,v)$ such that $qu=qv$, where $q:X\to X'$ is the canonical morphism. Thus the cardinal of the set of strict quotients of $X$ is bounded above by
+\[
+\prod_{T\in\Ob(C)}2^{\card\Hom_E(T,X)^2}.
+\]
+\end{statement}
+
+Indeed, by definition, a strict quotient $X'$ of $X$ is known once, for every object $Y$ of $E$, one knows the subset of $\Hom_E(Y,X)\times\Hom_E(Y,X)$ formed by the pairs $(u,v)$ such that $qu=qv$, where $q:X\to X'$ is the canonical morphism. But the relation $qu=qv$ is equivalent to $(qu)f=(qv)f$ for every morphism $f:T\to Y$ whose source $T$ lies in $C$, since $C$ is generating. This relation may also be written $q(uf)=q(vf)$, which proves the first assertion of 7.5. The second follows immediately.
+
+\subsection*{7.5.1}
+One can generalize 7.5 by introducing, for a family of objects $(X_i)_{i\in I}$ of $E$, the notion of a \emph{strict quotient in $E$ of the family}. By this we mean a strictly epimorphic family $(p_i:X_i\to X')_{i\in I}$ of morphisms of $E$, with the convention, as for ordinary quotients, that two such families $(p_i:X_i\to X')$ and $(q_i:X_i\to X'')$ are identified if there exists an isomorphism $v:X'\to X''$ (necessarily unique) such that $vp_i=q_i$ for every $i\in I$. With this terminology, the proof of 7.5 applies \emph{mutatis mutandis} to give the following variant.
+
+\begin{statement}{Variant 7.5.2}
+Let $E$ and $C$ be as in 7.5, and let $(X_i)_{i\in I}$ be a family of objects of $E$. Then a strict quotient $X'$ of $(X_i)_{i\in I}$ in $E$ (7.5.1) is known once, for every $T\in\Ob(C)$ and every pair $(i,j)\in I\times I$, one knows the subset of $\Hom_E(T,X_i)\times\Hom_E(T,X_j)$ formed by the pairs $(u,v)$ such that $p_i u=p_j v$, where $p_i:X_i\to X'$ denotes the canonical morphism for each $i\in I$. Consequently, the cardinal of the set of strict quotients of $(X_i)_{i\in I}$ in $E$ is bounded above by
+\[
+\prod_{T\in\Ob(C)}\prod_{i,j\in I}2^{\card\Hom_E(T,X_i)\times \card\Hom_E(T,X_j)}.
+\]
+\end{statement}
+
+\subsection*{7.5.3}
+One sees at once that the analogous conclusion is true if one assumes only that $C$ generates for strict monomorphisms, provided one assumes that the products $X_i\times X_j$ are representable and restricts to \emph{effective} quotients of the family $(X_i)_{i\in I}$, i.e. to strict quotients $X'$ such that the fiber products $X_i\times_{X'}X_j$ are representable in $E$; this is no restriction if $E$ is stable under fiber products.
+
+\begin{statement}{Proposition 7.6}
+Let $E$ be a category, let $C$ be a full subcategory of $E$ generating by epimorphisms (7.1), let $\Pi_0$ be an infinite cardinal $\geq\card\Fl(C)$, let $\Pi\geq\Pi_0$ be a cardinal, and let $(u_i:X_i\to X)_{i\in I}$ be a universal epimorphic family (10.3) in $E$ formed by squareable morphisms (10.7), with sources $X_i\in\Ob(C)$, and such that $\card(I)\leq\Pi$. Then
+\[
+\card\Fl(C_{/X})\leq \Pi^{\Pi_0}.
+\]
+\end{statement}
+
+Let $T\in\Ob(C)$. It will be enough to prove that
+\begin{equation*}
+\card\Hom_E(T,X)\leq\Pi^{\Pi_0}.\tag{7.6.1}
+\end{equation*}
+for then one successively obtains
+\[
+\card\Ob(C_{/X})\leq (\Pi^{\Pi_0})\times\card\Ob(C)\leq (\Pi^{\Pi_0})\times\Pi_0=\Pi^{\Pi_0},
+\]
+and finally
+\[
+\card\Fl(C_{/X})\leq ((\Pi^{\Pi_0})^2)\times\Pi_0=\Pi^{\Pi_0},
+\]
+since for two objects $S,T$ of $C_{/X}$ one has
+\[
+\card\Hom_{C_{/X}}(S,T)\leq\card\Hom_C(S,T)\leq\Pi_0.
+\]
+To prove (7.6.1), first note the following lemma.
+
+\begin{statement}{Lemma 7.6.2}
+Let $J$ be a set such that $\card(J)=\Pi_0$. For every object $T$ of $C$ and every morphism $f:T\to X$, there exists an epimorphic family $(v_j:S_j\to T)_{j\in J}$, with sources $S_j\in\Ob(C)$, and for every $j\in J$ an element $i(j)\in I$ and a morphism $g_j:S_j\to X_{i(j)}$, such that
+\[
+u_{i(j)}g_j=fv_j.
+\]
+\end{statement}
+
+Indeed, the family of projections
+\[
+X_i\times_XT\longrightarrow T
+\]
+is epimorphic by hypothesis. On the other hand, since $C$ generates by epimorphisms, for every $i$ the family of arrows $S\to X_i\times_XT$ with source $S\in\Ob(C)$ is epimorphic. Thus, by transitivity, the family of arrows $v:S\to T$ with source in $C$ which factor through one of the $X_i\times_XT$ is epimorphic. These are precisely the arrows $v:S\to T$ with source in $C$ for which there exist $i\in I$ and $g:S\to X_i$ such that $u_ig=fv$. Since the set of these arrows $v:S\to T$ is contained in $\Fl(C)$ and therefore has cardinal $\leq\Pi_0$, it can be indexed by the index set $J$. This proves the lemma.
+
+Now a morphism $f:T\to X$ is known once the $fv_j$ are known, and these are known once the $g_j$ are known. Thus $\card\Hom_E(T,X)$ is bounded above by the cardinal of the set of families $(i(j),S_j,v_j,g_j)_{j\in J}$. The cardinal of the set of maps $j\mapsto i(j)$ from $J$ to $I$ is $\leq\Pi^{\Pi_0}$; and for such a map fixed, the cardinal of the set of the corresponding families $S_j,g_j,v_j$ is bounded above by the cardinal of the set of maps from $J$ to $\Fl(C)\times\Fl(C)$, which is $\leq\Pi_0^{\Pi_0}$, since $\card(\Fl(C)\times\Fl(C))=\Pi_0^2=\Pi_0$. Thus the left hand side of (7.6.1) is bounded above by
+\[
+\Pi^{\Pi_0}\times\Pi_0^{\Pi_0}=\Pi^{\Pi_0},
+\]
+which completes the proof of 7.6.
+
+\begin{statement}{Proposition 7.7}
+Let $E$ be a category in which fiber products are representable, let $(X_\alpha)_{\alpha\in A}$ be a generating family of objects of $E$, and let $(\varphi_i)_{i\in I}$ be a family of functors $\varphi_i:E\to E_i$ commuting with fiber products. For $(\varphi_i)$ to be conservative (6.1), it is necessary and sufficient that for every $\alpha\in A$ and every subobject $X'$ of $X_\alpha$ distinct from $X_\alpha$, there exist $i\in I$ such that the morphism
+\[
+\varphi_i(X')\longrightarrow \varphi_i(X_\alpha)
+\]
+is not an isomorphism. In this case, if $E$ is a $\U$-category and $A$ is $\U$-small, there exists a $\U$-small subset $J$ of $I$ such that $(\varphi_j)_{j\in J}$ is already a conservative family of functors.
+\end{statement}
+
+The necessity of the condition of conservativity under consideration is evident; we prove its sufficiency. By 6.2(iv), it suffices to prove that $(\varphi_i)$ is conservative for monomorphisms. Let $u:Y'\to Y$ be a monomorphism in $E$ which is not an isomorphism. We must prove that there is an $i\in I$ such that $\varphi_i(u)$ is not an isomorphism. By the hypothesis on $(X_\alpha)$, there exists an $\alpha$ and a morphism $X_\alpha\to Y$ which does not factor through $Y'$. In other words, the inverse image $X'$ of $Y'$ is a subobject of $X_\alpha$ distinct from $X_\alpha$. By hypothesis, there exists an $i\in I$ such that
+\[
+\varphi_i(X')\longrightarrow \varphi_i(X_\alpha)
+\]
+is not an isomorphism. Since
+\[
+\varphi_i(X')\simeq \varphi_i(X_\alpha)\times_{\varphi_i(Y)}\varphi_i(Y'),
+\]
+it follows that $\varphi_i(Y')\to\varphi_i(Y)$ is not an isomorphism.
+
+The second assertion of 7.7 follows at once from the first, taking 7.4 into account.
+
+\begin{statement}{Corollary 7.7.1}
+Let $E$ be a $\U$-category in which fiber products are representable, and suppose that $E$ admits a generating family of objects which is $\U$-small. Then, for every generating family $(Y_i)_{i\in I}$ of $E$, there exists a $\U$-small generating subfamily $(Y_j)_{j\in J}$, with $\card(J)\in\U$.
+\end{statement}
+
+It suffices to apply 7.7 to a $\U$-small generating family $(X_\alpha)_{\alpha\in A}$ of $E$ and to the family of functors $\varphi_i$ represented by the $Y_i$.
+
+\begin{statement}{Proposition 7.8}
+Let $E$ be a category, let $C$ be a full subcategory generating by strict epimorphisms, let $D$ be a category, and let $\Hhom'(E,D)$ be the full subcategory of $\Hhom(E,D)$ consisting of the functors which commute with inductive limits of type $C_{/X}$, where $X$ ranges over the objects of $E$. Then the functor $F\mapsto F|_C$ induces a fully faithful functor
+\[
+\Hhom'(E,D)\longrightarrow\Hhom(C,D).
+\]
+Consequently, if $\Hhom(C,D)$ is a $\U$-category (1.1), for example by (1.1.1 b)) if $C$ is $\U$-small and $D$ is a $\U$-category, then $\Hhom'(E,D)$ is also a $\U$-category.
+\end{statement}
+
+Let $F,G:E\to D$ be two functors in the source category, and let $u:F\to G$ be a morphism. If $X=\varinjlim X_i$ in $E$ and if $F$ and $G$ commute with the inductive limit in question, then $u(X):F(X)\to G(X)$ is identified with the limit of the morphisms $u(X_i):F(X_i)\to G(X_i)$, and hence is known once the $u(X_i)$ are known. This shows that the functor considered in 7.8 is faithful, by the implication a) $\Rightarrow$ b) in 7.2(i). Conversely, let $v:F|_C\to G|_C$ be a morphism; we prove that it comes from a morphism $u:F\to G$. For every $X\in\Ob(E)$ define
+\[
+u(X):F(X)=\varinjlim_{C_{/X}}F(X_i)\longrightarrow G(X)=\varinjlim_{C_{/X}}G(X_i)
+\]
+as the inductive limit of the $v(X_i)$. It is immediate that this gives a morphism functorial in $X$, hence a morphism $u:F\to G$, and finally that the morphism induced by $u$ from $F|_C$ to $G|_C$ is $v$. This completes the proof.
+
+\subsection{Families and subcategories cogenerating}
+
+Let $E$ be a category, and let $C$ be a full subcategory of $E$. We say that $C$ is cogenerating by strict monomorphisms, respectively cogenerating by monomorphisms, respectively cogenerating, respectively cogenerating for epimorphisms, respectively cogenerating for strict epimorphisms, if the full subcategory $C^{\op}$ of $E^{\op}$ generates by strict epimorphisms, respectively etc. The terminology for families is analogous. Thus all the results in this section concerning the notion of generating subcategory and its variants (7.1) give corresponding results for the dual notions, which we leave to the reader to formulate for personal satisfaction.
+
+\begin{statement}{Proposition 7.10}
+Let $E$ be a category, let $C$ be a full generating subcategory (7.1), and let $D$ be a full subcategory of $E$. For $D$ to be cogenerating (7.9), it is necessary and sufficient that, for every pair of arrows
+\[
+T\mathrel{\substack{\xrightarrow{u}\\[-0.6ex]\xrightarrow[v]{}}}X
+\]
+in $E$ with source $T\in\Ob(C)$ and with $u\neq v$, there exist an arrow $w:X\to I$ with target $I\in\Ob(D)$ such that $wu\neq wv$.
+\end{statement}
+
+By definition, to say that $D$ is cogenerating means that for every pair of arrows $Y\rightrightarrows X$ in $E$ such that $u\neq v$, there exists an arrow $w:X\to I$, with $I\in\Ob(D)$, such that $wu\neq wv$. Thus 7.10 simply says that it suffices to test this property when $Y\in\Ob(C)$. Since $C$ is generating, the hypothesis $u\neq v$ implies that there exists $f:T\to Y$ such that $uf\neq vf$. By the hypothesis there exists $w:X\to I$, with target $I\in\Ob(D)$, such that $w(uf)\neq w(vf)$, and hence $wu\neq wv$. \qedtext
+
+\begin{statement}{Corollary 7.11}
+With the notation of 7.10, suppose that the objects $I$ of $D$ are injective objects of $E$, i.e. that for every monomorphism $X\to Y$ in $E$, the corresponding map
+\[
+\Hom_E(Y,I)\longrightarrow\Hom_E(X,I)
+\]
+is surjective. Suppose moreover that every pair of arrows
+\[
+T\mathrel{\substack{\xrightarrow{u}\\[-0.6ex]\xrightarrow[v]{}}}X
+\]
+in $E$ factors as an epimorphic, respectively effective epimorphic, pair $T\rightrightarrows X'$ followed by a monomorphism $i:X'\to X$. Then in the criterion 7.10 for $D$ to be cogenerating, one may restrict to pairs $(u,v)$ which are epimorphic, respectively effective epimorphic.
+\end{statement}
+
+We conclude:
+
+\begin{statement}{Corollary 7.12}
+Let $E$ be a $\U$-category admitting a small generating subcategory $C$, and such that every object of $E$ is the source of a monomorphism into an injective object of $E$. Suppose moreover that, for every $T\in\Ob(C)$, the sum $T\amalg T$ in $E$ is representable, and that every morphism with source $T\amalg T$ factors as an effective epimorphism followed by a monomorphism. Then $E$ admits a small full cogenerating subcategory $D$. More precisely, one may take $D$ such that
+\[
+\card\Ob(D)\leq \prod_{T,T'\in\Ob(C)}2^{\card(\Hom_E(T',T\amalg T))^2}.
+\]
+\end{statement}
+
+Indeed, by 7.11 it is enough, for every $T\in\Ob(C)$ and every effective quotient $X$ of $T\amalg T$, to choose an embedding of $X$ into an injective object $I$ of $E$, and to take for $D$ the full subcategory of $E$ generated by these $I$. The conclusion then follows from 7.5.
+
+\begin{statement}{Examples 7.13}
+To construct small cogenerating subcategories in terms of small generating subcategories, one is therefore led to look for conditions ensuring that a $\U$-category $E$ has ``enough injectives'', i.e. that every object embeds into an injective object by a monomorphism. It is well known [Tohoku] that this condition is satisfied in a $\U$-abelian category with exact small filtered inductive limits (axiom AB5 of \emph{loc. cit.}) admitting a small generating family. The construction of \emph{loc. cit.} is not, moreover, essentially tied to abelian categories, and also works in the category of sheaves of $\U$-sets on a topological space $X\in\U$. We shall not state here the exactness properties which make the construction in question work, and shall limit ourselves to observing that in the special case of the category of sheaves of sets on $X$, one immediately reduces to the case of \emph{loc. cit.} as follows.
+
+Note that if $\mathcal O_X$ is a ring on $X$, then every injective object $I$ of the category of $\mathcal O_X$-modules is also injective as an object of the category of sheaves of sets. Indeed, if $F$ is a sheaf of sets and $\mathcal O_X[F]$ is the ``free $\mathcal O_X$-module generated by $F$'', then by definition there is a homomorphism of sheaves of sets
+\[
+F\longrightarrow \mathcal O_X[F]\tag{$*$}
+\]
+giving an isomorphism, functorial in $F$,
+\[
+\Hom_{\mathcal O_X}(\mathcal O_X[F],I)\xrightarrow{\sim}\Hom(F,I).
+\]
+Since the functor $F\mapsto\mathcal O_X[F]$ plainly carries monomorphisms to monomorphisms, it follows at once that, if $I$ is an injective $\mathcal O_X$-module, then it is also an injective sheaf of sets. It follows that if the morphism $(*)$ is a monomorphism, as happens if one takes for $\mathcal O_X$ a constant ring with value a ring $A\neq0$, then an embedding of $\mathcal O_X[F]$ into an injective $\mathcal O_X$-module $I$ gives an embedding of $F$ into the underlying injective sheaf of sets of $I$.
+\end{statement}
+
+The same argument applies, without change, to the category of sheaves of $\U$-sets on a $\U$-site, which will be introduced in the next expos\'e.
+
+The interest of the existence of a small cogenerating subcategory lies chiefly in the representability criterion 8.12.7 below.
+
+\end{document}

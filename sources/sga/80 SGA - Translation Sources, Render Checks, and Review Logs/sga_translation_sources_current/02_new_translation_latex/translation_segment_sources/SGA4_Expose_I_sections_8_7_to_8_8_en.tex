@@ -1,0 +1,508 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: I, Presheaves
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/01/01.tex
+% Range translated in this working draft section: Section 8.7--8.8, source lines 3797--4625.
+% Status: draft translation, compile-checked, not proofed against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,amscd}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fun}{\operatorname{Fun}}
+\newcommand{\Fl}{\operatorname{Fl}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\SysInd}{\operatorname{SysInd}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\cf}{cf.}
+\newcommand{\ie}{i.e.}
+\newcommand{\resp}{respectively}
+\newcommand{\Hhom}{\operatorname{Hom}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\hatC}{\widehat{C}}
+\newcommand{\hatCp}{\widehat{C'}}
+\newcommand{\qedtext}{\hfill\(\square\)}
+\newcommand{\indlim}{\textrm{``}\!\varinjlim\!\textrm{''}}
+\newcommand{\indlimI}[1]{\textrm{``}\!\varinjlim_{#1}\!\textrm{''}}
+\newcommand{\Kar}[1]{\widetilde{#1}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{proofsketch}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e I. Presheaves}}\\[0.35em]
+{\large Section 8.7--8.8}\\[0.35em]
+A. Grothendieck and J.-L. Verdier
+\end{center}
+
+\bigskip
+
+
+\setcounter{section}{7}
+\section{Ind-objects and pro-objects}
+
+\setcounter{subsection}{6}
+\subsection{The functor \texorpdfstring{$\varinjlim_C:\Ind(C)\to C$}{colim\_C: Ind(C) -> C}. Universal characterizations of \texorpdfstring{$\Ind(C)$}{Ind(C)}}
+
+\subsubsection*{8.7.1}
+Let $C$ again be a $\U$-category, and let
+\[
+ c:C\longrightarrow \Ind(C)
+\tag{8.7.1.1}
+\]
+be the canonical functor. Let $\mathcal X=(X_i)_{i\in I}$ be an object of $\Ind(C)$. It follows immediately from the definition of representable inductive limits (2.1, 2.1.1) that $\varinjlim_i X_i$ is \emph{representable in $C$ if and only if the left adjoint of $c$ is defined at $\mathcal X$}; in that case $\varinjlim_i X_i$, computed in $C$, is precisely the value of that left adjoint at $\mathcal X$:
+\[
+\Hom_C(\varinjlim_i X_i,Y)\simeq
+\Hom_{\Ind(C)}((X_i)_{i\in I},c(Y)).
+\tag{8.7.1.2}
+\]
+Let
+\[
+\Ind(C)'\subset \Ind(C)
+\tag{8.7.1.3}
+\]
+denote the full subcategory of $\Ind(C)$ formed by the ind-objects of $C$ which admit an inductive limit \emph{in} $C$. The preceding observation implies that this subcategory is \emph{strictly full}, and that one has a canonical functor
+\[
+\varinjlim_C:\Ind(C)'\longrightarrow C,
+\tag{8.7.1.4}
+\]
+whose value on an object $(X_i)_{i\in I}$ of $\Ind(C)'$ is its inductive limit in $C$. In the special case in which small filtered inductive limits are representable in $C$, one therefore obtains a natural functor
+\[
+\varinjlim_C:\Ind(C)\longrightarrow C.
+\tag{8.7.1.5}
+\]
+
+\subsubsection*{8.7.1.6}
+Of course, the preceding functors may also be defined for categories of the form $\Ind_{\V}(C,\U)'$ and $\Ind_{\V}(C,\U)$; but, in view of (8.2.4.6), they are already determined, up to unique isomorphism, by the corresponding functors in the case $\V=\U$.
+
+\subsubsection*{8.7.1.7}
+From the preceding construction of $\varinjlim_C$ as a left adjoint, it follows immediately that this functor \emph{commutes with arbitrary inductive limits}, and in particular with small filtered inductive limits, the latter being representable in $\Ind(C)$ by 8.5.1. Notice also that $\Ind(C)'$ always contains the essential image of $c$, formed by the essentially constant ind-objects, and that one has a canonical isomorphism, functorial in $X\in\Ob\Ind(C)'$,
+\[
+\varinjlim_C c(X)\simeq X.
+\tag{8.7.1.8}
+\]
+Equivalently, in the favorable case where $C$ is stable under small inductive limits, one has a canonical isomorphism
+\[
+\varinjlim_C\circ c\simeq \id_C.
+\tag{8.7.1.9}
+\]
+
+\subsubsection*{8.7.2}
+Now consider a functor
+\[
+ f:C\longrightarrow E,
+\tag{8.7.2.1}
+\]
+where $E$ is a $\U$-category in which small inductive limits are representable, so that there is a functor
+\[
+\varinjlim_E:\Ind(E)\longrightarrow E.
+\]
+Since (8.6) also defined
+\[
+\Ind(f):\Ind(C)\longrightarrow \Ind(E),
+\]
+one may consider the composite
+\[
+ \bar f=\varinjlim_E\circ\Ind(f):\Ind(C)\longrightarrow E,
+\tag{8.7.2.2}
+\]
+which is sometimes called the \emph{canonical extension of $f$ to ind-objects}, although it should not be confused with $\Ind(f)$. Since it is a composite of two functors commuting with small filtered inductive limits (8.6.3, 8.7.1.7), it also commutes with small filtered inductive limits. Moreover, from the isomorphism (8.7.1.9), applied to $E$, and from (8.6.2.3), it follows that $\bar f$ \emph{extends} $f$ up to isomorphism; that is, there is a canonical isomorphism
+\[
+ \bar f\circ c_C\simeq f.
+\tag{8.7.2.3}
+\]
+It is also rather clear, taking into account the fact that every object of $\Ind(C)$ is a small filtered inductive limit of objects of $C$, that the two preceding properties still \emph{characterize} $\bar f$ up to unique isomorphism. This can be made precise so as to obtain, at the same time, a universal characterization, up to equivalence, of $\Ind(C)$ among the $\U$-categories $E$ in which small filtered inductive limits are representable. If $E$ and $F$ are two such $\U$-categories, let
+\[
+\Hhom(E,F)'\subset \Hhom(E,F)
+\tag{8.7.2.4}
+\]
+denote the full subcategory of $\Hhom(E,F)$ formed by the functors which commute with small filtered inductive limits. Then one has the following result.
+
+\begin{statement}{Proposition 8.7.3}
+Let $C$ be a $\U$-category, and use the notation above (8.7.2.4). Then the canonical functor
+\[
+ c_C:C\longrightarrow \Ind(C)
+\]
+is $2$-universal among functors with source $C$ and target a $\U$-category in which small filtered inductive limits are representable. In other words, $\Ind(C)$ is such a category (8.2.5, 8.5.1), and if $E$ is such a category, the functor
+\[
+ g\longmapsto g\circ c_C:
+ \Hhom(\Ind(C),E)'\longrightarrow \Hhom(C,E)
+\tag{8.7.3.1}
+\]
+is an equivalence of categories.
+\end{statement}
+
+To prove the last assertion, it is enough to verify that the assignment $f\mapsto \bar f$ defined by (8.7.2.2) can be made into a \emph{functor}
+\[
+ f\longmapsto \bar f=\varinjlim_E\cdot\Ind(f):
+ \Hhom(C,E)\longrightarrow \Hhom(\Ind(C),E)',
+\tag{8.7.3.2}
+\]
+and that this functor is a quasi-inverse of (8.7.3.1). The details of the verification, which are essentially trivial, are left to the reader. One may also invoke 7.8 to conclude first that (8.7.3.1) is fully faithful, and then use (8.7.2.3) to conclude that it is essentially surjective.
+
+\subsubsection*{8.7.4}
+Let us return to a functor between $\U$-categories
+\[
+ f:C\longrightarrow E,
+\tag{8.7.4.1}
+\]
+where $E$ is a $\U$-category in which small filtered inductive limits are representable. This gives a functor
+\[
+ \bar f:(X_i)_{i\in I}\longmapsto \varinjlim_i f(X_i):
+ \Ind(C)\longrightarrow E.
+\tag{8.7.4.2}
+\]
+We shall study conditions on $f$ which ensure that $\bar f$ is fully faithful, respectively an equivalence of categories. Since $f$ is isomorphic to the composite $\bar f\circ c_C$, and since $c_C:C\to\Ind(C)$ is fully faithful, it is \emph{necessary}, for $\bar f$ to be fully faithful, that $f$ be so. Replacing $C$ by its essential image in $E$, we therefore lose no essential generality by assuming, as we shall do below in order to simplify notation, that $f$ is the inclusion functor of a subcategory $C$ of $E$.
+
+\begin{statement}{Proposition 8.7.5}
+The notation is that of 8.7.4.
+\begin{enumerate}[label=\alph*)]
+\item For the functor $\bar f$ to be fully faithful, it is necessary and sufficient that the following condition hold:
+\begin{description}[leftmargin=2.5em]
+\item[\rm(PF)] Every object $X$ of $C$ satisfies the following property: for every small filtered inductive system $(Y_i)_{i\in I}$ in $C$, with inductive limit $\varinjlim_iY_i$ in $E$, the canonical map
+\[
+ \varinjlim_i\Hom(X,Y_i)\longrightarrow \Hom(X,\varinjlim_iY_i)
+\tag{8.7.5.1}
+\]
+is bijective.
+\end{description}
+
+\item For the functor $\bar f$ to be an equivalence of categories, it is necessary and sufficient that $C$ satisfy condition \textup{(PF)} and the following two conditions:
+\begin{description}[leftmargin=2.5em]
+\item[\rm(ii)] $C$ is a subcategory of $E$ generating by strict epimorphisms (7.1).
+\item[\rm(iii)] For every object $X$ of $E$, the full subcategory $C_{/X}$ of $E_{/X}$ formed by objects $X'$ over $X$ whose source is in $\Ob C$ is filtered and essentially small.
+\end{description}
+\end{enumerate}
+Condition \textup{(iii)} holds in particular if $C$ is equivalent to a small category, if finite inductive limits are representable in $C$, and if the inclusion functor $f:C\to E$ commutes with them; that is, for every finite category $J$ and every functor $\varphi:J\to C$, the inductive limit of $f\varphi$ is representable and is isomorphic in $E$ to an object of $C$.
+\end{statement}
+
+\begin{proofsketch}
+\begin{enumerate}[label=\alph*)]
+\item With the notation of condition \textup{(PF)}, if $\mathcal Y$ denotes the ind-object $(Y_i)$ and $\mathcal X$ the constant ind-object defined by $X$, then (8.7.5.1) is precisely the canonical map
+\[
+ \Hom(\mathcal X,\mathcal Y)\longrightarrow
+ \Hom(\bar f(\mathcal X),\bar f(\mathcal Y)).
+\]
+Thus, if $\bar f$ is fully faithful, this map is bijective. Conversely, if $\mathcal X=(X_j)_{j\in J}$ and $\mathcal Y=(Y_i)_{i\in I}$ are arbitrary ind-objects of $C$, then the map
+\[
+ u:\Hom(\mathcal X,\mathcal Y)\longrightarrow
+ \Hom(\bar f(\mathcal X),\bar f(\mathcal Y))
+\]
+is the projective limit over $j$ of the maps
+\[
+ u_j:\Hom(\mathcal X_j,\mathcal Y)\longrightarrow
+ \Hom(\bar f(\mathcal X_j),\bar f(\mathcal Y)),
+\]
+where $\mathcal X_j$ is the constant ind-object with value $X_j$. Hence $u$ is bijective if the $u_j$ are, and condition \textup{(PF)} implies that $\bar f$ is fully faithful.
+
+\item Suppose that \textup{(PF)}, (ii), and (iii) hold, and prove that $\bar f$ is an equivalence. It remains only to prove that it is essentially surjective. Let $X\in\Ob E$. Hypothesis (ii) means precisely that
+\[
+ \varinjlim_{C_{/X}} Z\longrightarrow X
+\]
+is an isomorphism, while (iii) says that the category $C_{/X}$ is filtered and essentially small. Thus $X$ is the image of the ind-object of $C$ defined by the natural functor $C_{/X}\to E$.
+
+Conversely, suppose that $\bar f$ is an equivalence. In view of a), it remains to check (ii) and (iii). We may suppose that $E=\Ind(C)$, with $C$ identified with the subcategory $c(C)$ of $E$. But it is known (8.3.3(ii)) that, for every $X\in\Ind(C)$, identified if desired with the functor $F$ on $C^\op$ which it ind-represents, $C_{/X}=C_{/F}$ is a filtered essentially small category. This proves (iii). Moreover, the inductive limit in $\widehat C$ of the functor $C_{/F}\to\widehat C$ is $F$. A fortiori the same is true in the full subcategory $E$ of $\widehat C$, since $F=X$ lies in $E$. This proves (ii).
+
+It remains to prove the last assertion of b). But the hypothesis made on $C$ plainly implies that finite inductive limits are representable in the category $C_{/X}$; a fortiori $C_{/X}$ is filtered.
+\end{enumerate}
+\end{proofsketch}
+
+\begin{statement}{Remark 8.7.5.2}
+The preceding argument shows more generally that, when condition \textup{(PF)} holds, the essential image of the fully faithful functor $\bar f$ (8.7.4.2) consists of the objects $X\in\Ob E$ such that the category $C_{/X}$ is filtered and essentially small--a condition automatically satisfied if $C$ satisfies the conditions stated at the end of b)--and such that the inductive limit of the canonical functor $C_{/X}\to E$ is $X$.
+\end{statement}
+
+\begin{statement}{Corollary 8.7.6}
+Let $E_{PF}$ be the full subcategory of $E$ formed by the objects satisfying condition \textup{(PF)} of Proposition~8.7.5 a). Then, for every functor $J\to E_{PF}$, with $J$ a finite category, which admits an inductive limit $X$ in $E$, one has $X\in\Ob E_{PF}$. The canonical functor
+\[
+ (X_i)_{i\in I}\longmapsto \varinjlim_{i,E}X_i,
+\]
+obtained from the inclusion $g:E_{PF}\hookrightarrow E$,
+\[
+ \bar g:\Ind(E_{PF})\longrightarrow E
+\tag{8.7.6.1}
+\]
+is fully faithful. If finite inductive limits are representable in $E$ and $E_{PF}$ is equivalent to a small category, then the essential image of $\bar g$ is formed by the objects $X$ of $E$ for which the canonical morphism
+\[
+ \varinjlim_{(E_{PF})_{/X}}Y\longrightarrow X
+\]
+is an isomorphism. If, moreover, the subcategory $E_{PF}$ of $E$ generates by strict epimorphisms (7.1), then the functor (8.7.6.1) is an equivalence of categories.
+\end{statement}
+
+All the assertions are evident, in the order in which they are stated, from 8.7.5, using 2.8 for the first assertion.
+
+\begin{statement}{Corollary 8.7.7}
+Suppose that finite inductive limits are representable in $E$. Let $C$ be a full subcategory of $E$, equivalent to a small category, and consider the functor
+\[
+ \bar f:\Ind(C)\longrightarrow E,
+\qquad
+ (X_i)_{i\in I}\longmapsto \varinjlim_{i,E}X_i.
+\tag{8.7.7.1}
+\]
+Let $E_{PF}$ be as in 8.7.6. The following conditions are equivalent:
+\begin{description}[leftmargin=2.8em]
+\item[\rm(i)] The functor $\bar f:\Ind(C)\to E$ is an equivalence.
+\item[\rm(ii)] The category $C$ is a subcategory of $E$ generating by strict epimorphisms, is contained in $E_{PF}$, and every object of $E_{PF}$ is isomorphic in $E$ (or in $E_{PF}$, which is the same thing by 8.7.6) to a direct factor of an object of $C$.
+\end{description}
+When the subcategory $C$ of $E$ is stable under direct factors (10.6), the preceding conditions are also equivalent to the following:
+\begin{description}[leftmargin=2.8em]
+\item[\rm(ii bis)] $C=E_{PF}$, and $C$ generates in $E$ by strict epimorphisms.
+\item[\rm(iii)] The subcategory $C$ of $E$ generates by strict epimorphisms, is contained in $E_{PF}$, and finite inductive limits are representable in $C$.
+\end{description}
+When, moreover, finite inductive limits are representable in $E$, these conditions are also equivalent to
+\begin{description}[leftmargin=2.8em]
+\item[\rm(iii bis)] The subcategory $C$ of $E$ generates by strict epimorphisms, is contained in $E_{PF}$, and is stable in $E$ under finite inductive limits; equivalently, under finite sums and cokernels of double arrows.
+\end{description}
+\end{statement}
+
+We already know (8.7.5) that condition (i) implies that $C\subset E_{PF}$ and that $C$ generates by strict epimorphisms. Let us also prove that then every object $X$ of $E_{PF}$ is isomorphic to a direct factor of an object of $C$. Indeed, $X$ is a filtered inductive limit $\varinjlim_iX_i$ in $E$ of objects of $C$; by the definition of $E_{PF}$, for a suitable $i$ the canonical homomorphism $X_i\to X$ admits a left inverse, so that $X$ is indeed a direct factor of the object $X_i$ of $C$. This proves (i) $\Rightarrow$ (ii), without any further hypothesis on $C$ or $E$.
+
+Let us prove (ii) $\Rightarrow$ (i). Since $C$ is equivalent to a small category and every object of $E_{PF}$ is a direct factor of an object of $C$, it follows that $E_{PF}$ is also equivalent to a small category. Hence, by 8.7.6, the functor (8.7.6.1) is an equivalence of categories, and one concludes by applying 8.6.4 b) to the inclusion $C\hookrightarrow E_{PF}$.
+
+When every direct factor in $E$ of an object of $C$ lies in $C$, it is clear that (ii) is equivalent to (ii bis). On the other hand, (ii bis) implies (iii), respectively (iii bis), by 8.7.6. Finally, (iii), and \emph{a fortiori} (iii bis), implies (i) by 8.7.5. This completes the proof.
+
+\begin{statement}{Exercise 8.7.8 (Karoubi envelopes)}
+Let $C$ be a $\U$-category, let $E=\Ind(C)$, and let $E_{PF}\supset C$ be the full subcategory of $E$ defined in 8.7.6.
+\begin{enumerate}[label=\alph*)]
+\item Prove that images of projectors are representable in $E_{PF}$, and that every object of $E_{PF}$ is a direct factor of an object of $C$.
+\item Call a category $F$ \emph{Karoubian} if images of projectors are representable in it. Let
+\[
+ \varphi:C\longrightarrow K
+\]
+be a fully faithful functor, with $K$ Karoubian, such that every object of $K$ is a direct factor of an object in the image of $C$. Prove that $\varphi$ is $2$-\emph{universal} among functors from $C$ to Karoubian categories, more precisely: for every Karoubian category $F$, the functor
+\[
+ g\longmapsto g\circ\varphi:
+ \Hhom(K,F)\longrightarrow \Hhom(C,F)
+\]
+is an equivalence of categories. Use the fact that every functor commutes with images of projectors. The category $K$ equipped with $\varphi$, determined up to equivalence, itself determined up to unique isomorphism, by the preceding properties, is called the \emph{Karoubi envelope} $\Kar C$ of $C$. Compare also IV, 7.5.
+\item Deduce from a) and b) that $\Ind(C)_{PF}$, equipped with the functor $C\to\Ind(C)_{PF}$ induced by $c:C\to\Ind(C)$, makes $\Ind(C)_{PF}$ a Karoubi envelope of $C$.
+\item Show that every functor $f:C\to C'$ extends, essentially uniquely, to a functor
+\[
+ \Kar f:\Kar C\longrightarrow \Kar {C'}
+\]
+between the Karoubi envelopes, and that if one takes these Karoubi envelopes as in c), then $\Kar f$ is the functor induced by $\Ind(f):\Ind(C)\to\Ind(C')$. Show that the conditions of 8.5.4 b) are also equivalent to the following condition: $\Kar f$ is an equivalence of categories.
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{Exercise 8.7.9}
+Let $E$ be a $\U$-category.
+\begin{enumerate}[label=\alph*)]
+\item Show that the following conditions are equivalent:
+\begin{description}[leftmargin=3em]
+\item[\rm(i)] $E$ is equivalent to a category of the form $\Ind(C)$, with $C$ a $\U$-category.
+\item[\rm(i bis)] As in (i), with $C$ moreover Karoubian (8.7.8 b)).
+\item[\rm(ii)] The subcategory $E_{PF}$ of $E$ (8.7.6) generates by strict epimorphisms, and for every object $X$ of $E$, $(E_{PF})_{/X}$ is a filtered essentially small category.
+\end{description}
+Show that, if $C$ is a \emph{Karoubian} $\U$-category such that $E$ is equivalent to $\Ind(C)$, then $C$ is equivalent to $E_{PF}$, by an equivalence determined up to unique isomorphism. Establish a $2$-equivalence between the $2$-category formed by the categories $E$ satisfying the preceding conditions, with functors between them \emph{commuting with small filtered inductive limits}, and the $2$-category formed by the \emph{Karoubian} $\U$-categories and arbitrary functors between them.
+
+\item Show that the following conditions are equivalent:
+\begin{description}[leftmargin=3em]
+\item[\rm(i)] $E$ is equivalent to a category of the form $\Ind(C)$, where $C$ is a $\U$-category in which finite inductive limits are representable.
+\item[\rm(i bis)] As in (i), but with $C$ moreover Karoubian.
+\item[\rm(ii)] Finite inductive limits are representable in $E$, the subcategory $E_{PF}$ of $E$ generates by strict epimorphisms, and for every object $X$ of $E$ there exists a small subset $I$ of $\Ob E_{PF/X}$ such that every object of $E_{PF/X}$ is dominated by an object of $I$. Use 8.9.5 b).
+\end{description}
+\end{enumerate}
+\end{statement}
+
+\subsection{Indexed representation of a functor \texorpdfstring{$J\to\Ind(C)$}{J -> Ind(C)}}
+
+\subsubsection*{8.8.1}
+Let
+\[
+ \varphi:J\longrightarrow \Ind(C),\qquad
+ \varphi\in\Ob\Hhom(J,\Ind(C)),
+\]
+be a functor, where $C$ is a $\U$-category. Recall (8.5.4) that an \emph{indexed representation of} $\varphi$ is, by definition, an ind-object of $\Hhom(J,C)$,
+\[
+ \psi:I\longrightarrow \Hhom(J,C),
+\]
+where $I$ is a filtered essentially small category, whose inductive limit in $\Hhom(J,\Ind(C))$ is isomorphic to $\varphi$, by a specified isomorphism. Thus $\varphi$ admits an indexed representation if and only if it is isomorphic to an essentially small filtered inductive limit in $\Hhom(J,\Ind(C))$ of objects of the full subcategory $\Hhom(J,C)$. We shall say that the category $J$ is \emph{admissible for} $C$ if every functor $\varphi:J\to\Ind(C)$ admits an indexed representation.
+
+Since small filtered inductive limits are representable in $\Ind(C)$ (8.5.1), the same is true in $\Hhom(J,\Ind(C))$, and they are computed argument by argument. Consequently, the inclusion functor
+\[
+ \Hhom(J,C)\hookrightarrow \Hhom(J,\Ind(C))
+\tag{8.8.1.1}
+\]
+extends canonically to a functor
+\[
+ \Ind(\Hhom(J,C))\longrightarrow \Hhom(J,\Ind(C))
+\tag{8.8.1.2}
+\]
+by 8.7.2. The elements of the essential image of this functor are then precisely the $\varphi$ which admit an indexed representation. Thus saying that $J$ is admissible for $C$ is the same as saying that the functor (8.8.1.2) is essentially surjective. In this connection we record the following result.
+
+\begin{statement}{Proposition 8.8.2}
+If the category $J$ is equivalent to a finite category, then the canonical functor (8.8.1.2) is fully faithful. Hence $J$ is admissible for $C$ if and only if this functor is an equivalence of categories.
+\end{statement}
+
+By 8.7.5 a), everything reduces to proving that, for every small filtered inductive system $(\varphi_i)_{i\in I}$ in $\Hhom(J,C)$ and every object $\varphi$ of $\Hhom(J,C)$, the canonical map
+\[
+ \varinjlim_i\Hom(\varphi,\varphi_i)\longrightarrow
+ \Hom(\varphi,\varinjlim_i\varphi_i)
+\tag{8.8.2.1}
+\]
+is bijective, where $\varinjlim_i\varphi_i$ denotes the inductive limit taken in $\Hhom(J,\Ind(C))$. But, if $\varphi$ and $\psi$ are two functors $J\to C$, one has an exact diagram of sets, functorial in $\varphi$ and $\psi$,
+\[
+\Hom(\varphi,\psi)\longrightarrow
+\prod_{X\in\Ob J}\Hom(\varphi(X),\psi(X))
+\rightrightarrows
+\prod_{\substack{f\in\Fl J\\ f:X\to Y}}
+\Hom(\varphi(X),\psi(Y)).
+\]
+Since filtered inductive limits commute with kernels of double arrows and with finite products, the bijectivity of (8.8.2.1) follows when $J$ is finite. The case in which $J$ is equivalent to a finite category immediately reduces to this one.
+
+\begin{statement}{Proposition 8.8.3}
+Let $\varphi:J\to\Ind(C)$ be a functor, with $J$ equivalent to a small category. For $\varphi$ to admit an indexed representation, it is sufficient that the following two conditions hold; these conditions are also necessary when $J$ is equivalent to a finite category.
+\begin{enumerate}[label=\alph*)]
+\item The category $\Hhom(J,C)_{/\varphi}$, formed by the arrows of $\Hhom(J,\Ind(C))$ with target $\varphi$ and source in $\Hhom(J,C)$, is filtered.
+\item For every object $j$ of $J$, the functor
+\[
+ \psi\longmapsto \psi(j):
+ \Hhom(J,C)_{/\varphi}\longrightarrow C_{/\varphi(j)}
+\tag{8.8.3.1}
+\]
+is cofinal, i.e. satisfies conditions F 1) and F 2) of 8.1.3.
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}
+Suppose a) and b) hold, and prove that $\varphi$ admits an indexed representation. We may of course suppose that $J$ is small. Put
+\[
+ I=\Hhom(J,C)_{/\varphi},
+\tag{8.8.3.2}
+\]
+which is a filtered category by hypothesis, and first suppose that $I$ is essentially small. Then the ``inclusion'' of $I$ into $\Hhom(J,C)$ defines an ind-object of $\Hhom(J,C)$, say $i\mapsto\psi_i$. Moreover, one has a canonical homomorphism
+\[
+ \varinjlim_i\psi_i\longrightarrow \varphi,
+\tag{8.8.3.3}
+\]
+given argument by argument by the homomorphism
+\[
+ \varinjlim_I\psi_i(j)\longrightarrow
+ \varphi(j)=\varinjlim_{C_{/\varphi(j)}}X
+\]
+deduced from the functor (8.8.3.1). Since the latter functor is cofinal, it follows that (8.8.3.3) is an isomorphism, and hence the conclusion follows.
+
+In the case where $I$ is not assumed essentially small, it is enough to construct an essentially small full subcategory $I'$ such that (8.8.3.3) remains an isomorphism when $\varinjlim_{I'}$ is used instead of $\varinjlim_I$. For this, it is enough that the composite functors
+\[
+ I'\longrightarrow I\longrightarrow C_{/\varphi(j)}
+\]
+induced by the functors (8.8.3.1) all be cofinal. One then concludes by the following lemma, whose proof is immediate from criterion (8.1.3 b)) and is left to the reader.
+\end{proofsketch}
+
+\begin{statement}{Lemma 8.8.3.4}
+Let $I$ be a filtered $\U$-category, and let
+\[
+ f_j:I\longrightarrow I_j \qquad (j\in J)
+\]
+be a small family of cofinal functors from $I$ to essentially small filtered categories. Then there exists a full subcategory $I'$ of $I$ which is filtered and essentially small, and such that the functors induced by the $f_j$ are cofinal.
+\end{statement}
+
+Let us finally prove the necessity in 8.8.3 when $J$ is assumed equivalent to a finite category. An indexed representation of $\varphi$ by means of an essentially small filtered index category $I$ defines a functor $\psi$ and, for each $j$, a functor $\psi_j$:
+\[
+\begin{tikzcd}[column sep=4.4em,row sep=2.2em]
+ I \arrow[r,"\psi"] \arrow[dr,swap,"\psi_j"'] & \Hhom(J,C)_{/\varphi} \arrow[d] \\
+ & C_{/\varphi(j)} .
+\end{tikzcd}
+\tag{8.8.3.5}
+\]
+It is enough to prove that $\psi$ and each of the resulting functors $\psi_j$ are cofinal. By 8.1.3 b), it will then follow that $\Hhom(J,C)_{/\varphi}$ is filtered, and by Definition~8.1.1 that the vertical arrow in (8.8.3.5) is also cofinal. By 8.8.2 one may identify $\varphi$ with an object of $\Ind(E)$, where $E=\Hhom(J,C)$, and the fact that the functor
+\[
+ \psi:I\longrightarrow E_{/\varphi}
+\]
+deduced from the ind-object $\varphi$ of $E$ indexed by $I$ is cofinal is a general fact, verified immediately by means of the criteria F 1) and F 2) of 8.1.3. The same argument, with $E$ and $\varphi$ replaced by $C$ and $\varphi(j)$, shows that $\psi_j$ is cofinal. This completes the proof.
+
+\begin{statement}{Remark 8.8.4}
+\begin{enumerate}[label=\alph*)]
+\item In the case where $J$ is equivalent to a finite category, if $\varphi$ admits an indexed representation, we have seen that (8.8.3.5) is a cofinal functor. This implies that the category $\Hhom(J,C)_{/\varphi}$ itself is essentially small.
+\item Suppose that finite inductive limits are representable in $C$. Then the same is true in $E=\Hhom(J,C)$, where these limits are computed argument by argument; they are also inductive limits in $\Hhom(J,\widehat C)$ and \emph{a fortiori} in $\Hhom(J,\Ind(C))$. It follows immediately that condition a) of 8.8.3 is then automatically satisfied, and everything reduces to condition b). I do not know whether this condition is automatically satisfied when, in addition, $J$ is assumed small.
+\end{enumerate}
+\end{statement}
+
+We now come to the principal result of the present subsection.
+
+\begin{statement}{Proposition 8.8.5}
+Let $J$ be a category equivalent to a finite category, and suppose moreover that $J$ is rigid, i.e. that for every $j\in\Ob J$, every endomorphism of $j$ is the identity. Then $J$ is admissible for $C$, whatever the $\U$-category $C$ may be; equivalently, every functor $J\to\Ind(C)$ admits an indexed representation.
+\end{statement}
+
+Replacing $J$ by an equivalent category, we may suppose that $J$ is \emph{reduced}, i.e. that two isomorphic objects of $J$ are identical. Then $J$ is finite. We proceed by induction on $\operatorname{card}\Ob J$, the case where this cardinal is $\leq0$ being trivial; hence we suppose it is at least $1$. Let $j_0$ be a \emph{maximal} object of $J$, i.e. such that for every arrow $j_0\to j$ there exists an arrow $j\to j_0$. Since $J$ is rigid, this implies that $j_0\to j$ is an isomorphism, and since $J$ is reduced, this implies $j_0=j$. Let $J'$ be the full subcategory obtained from $J$ by removing the object $j_0$, and let $J''$ be the full subcategory reduced to the object $j_0$. The proposition then follows from the following lemma.
+
+\begin{statement}{Lemma 8.8.5.1}
+Let $J$ be a finite category, and let $J'$ and $J''$ be two full subcategories such that
+\[
+ \Ob J=\Ob J'\cup\Ob J'',
+\]
+and such that, for every $j'\in\Ob J'$ and $j''\in\Ob J''$, one has
+\[
+ \Hom(j'',j')=\varnothing.
+\]
+If $J'$ and $J''$ are admissible for $C$, then so is $J$.
+\end{statement}
+
+Everything reduces to proving criteria a) and b) of 8.8.3. This amounts to six elementary verifications: the last two conditions for filtered categories for $\Hhom(J,C)_{/\varphi}$, and the conditions F 1) and F 2) for the functors (8.8.3.1), successively in the case $j\in\Ob J'$ and in the case $j\in\Ob J''$; these latter conditions also imply that $\Hhom(J,C)_{/\varphi}$ is nonempty. The rather tedious verification presents no difficulty and is left to the reader. The editor searched in vain for an elegant proof bypassing these unpleasant verifications.
+
+\begin{statement}{Exercise 8.8.6}
+\begin{enumerate}[label=\alph*)]
+\item Let $J$ and $J'$ be two categories admissible for $C$, one of them finite. Prove that $J\times J'$ is admissible for $C$. Use 8.8.2.
+\item Prove that a small discrete category is admissible for every category $C$.
+\item Let $J$ be a category satisfying the following conditions: \textup{(i)} $J$ is rigid; \textup{(ii)} $\Ob J$ is countable; \textup{(iii)} for any two objects $j,j'$ of $J$, $\Hom(j,j')$ is finite; \textup{(iv)} for every object $j$ of $J$, the set of objects of $J$ which are dominated by $j$, i.e. which are sources of an arrow with target $j$, is finite. Show that $J$ is admissible for every $\U$-category $C$. First show that $J$ can be written as a filtered union of finite full subcategories $J_n$ such that every object of $J$ dominated by an object of $J_n$ lies in $J_n$; then verify criteria a) and b) of 8.8.3.
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{Exercise 8.8.7}
+In the notation, we identify an ordered set with the category it defines.
+\begin{enumerate}[label=\alph*)]
+\item Let $C$ be an ordered set. Let $\widetilde C$ be the set of subsets $A$ of $C$ which are filtered and such that $x\in A$ and $y\leq x$ imply $y\in A$. Let $L_0:C\to\widetilde C$ be the map which sends $x\in C$ to the set $L_0(x)$ of all $y\in C$ such that $y\leq x$. Show that $L_0$ is injective and that the order on $C$ is induced by that on $\widetilde C$. For every $A\in\widetilde C$, consider the inclusion $f(A):A\to C$, which is an ind-object of $C$. For every ind-object $\varphi:I\to C$ of $C$, let $g(\varphi)\in\widetilde C$ be the subset of $C$ formed by the elements of $C$ dominated by an element of the form $\varphi(i)$. Show that in this way one obtains two quasi-inverse equivalences
+\[
+\begin{tikzcd}[column sep=3.0em]
+\Ind(C) \arrow[r,shift left=.55ex,"f"] & \widetilde C \arrow[l,shift left=.55ex,"g"]
+\end{tikzcd}
+\]
+which transform the functor $L_0$ into the canonical functor $L:C\to\Ind(C)$.
+
+\item Suppose that, for every $x\in C$, the set of elements majorizing, respectively minorizing, $x$ is finite. Show that every ind-object, respectively pro-object, of $C$ is essentially constant; more precisely, for every such $\varphi:I\to C$, respectively $\varphi:I^\op\to C$, there exists $i_0\in\Ob I$ such that the induced functor on $I_{/i_0}$ is constant, i.e. sends every arrow to an isomorphism.
+
+\item Let $C\subset\N^\op\times\N$ be the ordered set formed by the pairs of natural numbers $(j,i)$ such that $i\geq j$. Show that $\widetilde\N$ is isomorphic to the ordered set obtained from $\N$, identified with a subset of $\widetilde\N$ as in a), by adjoining a greatest element $\infty$. Show that $\widetilde C$ is isomorphic to $\N^\op\times\widetilde\N$. Consider the functor
+\[
+ \varphi:\N^\op\longrightarrow\widetilde C,
+ \qquad \varphi(j)=(j,\infty).
+\]
+\end{enumerate}
+Show that:
+\begin{enumerate}[label=\arabic*)]
+\item the projective limit of $\varphi$ is not representable in $\widetilde C$, although filtered projective limits in $C$ are representable, and are essentially constant by b);
+\item for every functor $\psi:\N^\op\to C$, one has $\Hom(\psi,\varphi)=\varnothing$, and \emph{a fortiori} the functor $\varphi$ admits no representation in indexed form.
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{Exercise 8.8.8}
+Let $X=\N\amalg\N$ be the disjoint union of two copies of $\N$, let $s$ be the symmetry of $X$, and for every $i\in\N$, let $X_i$ be the subset $\Delta_{i+1}\amalg\Delta_i$ of $X$, where $\Delta_i$ denotes the subset of $\N$ formed by the $j$ such that $j\leq i$. Let $C$ be the subcategory of the category of subsets of $X$ whose objects are the $X_i$ and whose arrows are the maps between the $X_i$ induced either by the identity of $X$ or by its symmetry $s$. Let $\widetilde C$ be the category defined analogously, but in which the object $X$ is also allowed.
+\begin{enumerate}[label=\alph*)]
+\item Show that $\Ind(C)$ is equivalent to $\widetilde C$, with the canonical functor $C\to\Ind(C)$ corresponding to the inclusion $C\to\widetilde C$. Show that there is no pair $(Y,f)$, consisting of an object $Y$ of $C$ and an endomorphism $f$ of $Y$, together with a morphism of objects-with-endomorphism in $\Ind(C)$ from $(Y,f)$ to $(X,s)$.
+\item Conclude that, if $J$ is the category with one object and, besides the identity arrow, a single arrow of order $2$, then the functor $J\to\Ind(C)$ defined by $(X,s)$ admits no indexed representation.
+\end{enumerate}
+\end{statement}
+
+\end{document}

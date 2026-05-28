@@ -1,0 +1,4120 @@
+\ifx\danslelivre\undefined
+\RequirePackage{luatex85}
+\documentclass[10pt]{../fichiers-configuration-latex/smfart}
+\input{../fichiers-configuration-latex/paquets}
+\input{../fichiers-configuration-latex/numerotation}
+\input{../fichiers-configuration-latex/macros}
+
+
+\externaldocument{../01/01.tex}
+\externaldocument{../02/02.tex}
+\externaldocument{../03/03.tex}
+%\externaldocument{../04/04.tex}
+
+\setboolean{original}{false}
+
+\begin{document}
+
+\begin{center}
+IV. Topos\\
+A. Grothendieck et J.-L. Verdier
+\end{center}
+
+\selectlanguage{english}version : \showgitstatus\selectlanguage{french}
+\tableofcontents
+
+\else
+\chapter{Topos}
+%\addtocontents{toc}{A. Grothendieck et J.-L. Verdier}
+\begin{center}
+A. Grothendieck et J.-L. Verdier
+\end{center}
+\fi
+
+\setcounter{pageoriginal}{298}
+\setcounter{section}{-1}
+\section{Introduction}\etiquette[0]{IV.sec0}\pageoriginale
+
+\subsection{}\etiquette[0.1]{IV.subsec0.1}
+Nous avons vu dans \ref{II} diverses propriétés d'exactitude de
+catégories
+de la forme $\widetilde{𝒞}=$ catégorie des faisceaux
+d'ensembles sur $𝒞$, où $𝒞$ est un petit site,
+propriétés qu'on peut exprimer en disant qu'à beaucoup
+d'égards, ces
+catégories (que nous appellerons des \emph{topos}) héritent des
+propriétés familières de la catégorie $(\Ens)$ des (petits)
+ensembles. D'un autre côté, l'expérience a enseigné qu'il y a lieu
+de considérer diverses situations en Mathématique \emph{surtout
+comme un moyen technique pour construire
+  les catégories de faisceaux} (d'ensembles) \emph{correspondantes,} \ie
+\emph{les  « topos »  correspondants.} Il apparaît que toutes
+les notions vraiment importantes liées à un site (par exemple
+ses invariants cohomologiques, étudiés dans \ref{V}, divers autres
+invariants « topologiques », tels ses invariants d'homotopie
+étudiés récemment par M. \textsc{Artin} et B. \textsc{Mazur}
+[1] et les notions étudiées dans le livre de J. \textsc{Giraud}
+sur la cohomologie non commutative) s'expriment en fait directement
+en termes du topos associé. Dans cette optique, il convient de
+regarder deux sites comme étant essentiellement équivalents
+lorsque les topos associés sont des catégories équivalentes,
+et de considérer que la donnée d'un site (du moins dans le cas,
+surtout important en pratique, où sa topologie est moins fine que
+sa topologie canonique) revient à celle d'un topos $ℰ$
+(savoir le topos associé, formé des faisceaux d'ensembles sur le
+site), et d'une famille génératrice d'éléments de
+$ℰ$ (\cf\pageoriginale II 4.9, et \hyperref[IV.cor1.2.1]{1.2.1}
+ci-dessous). Ce point de vue est analogue à celui qui consiste à
+associer un groupe à tout système de générateurs et tout
+système de relations entre ces générateurs, et à attacher
+son intérêt plutôt à la structure de ce groupe qu'au
+système de générateurs et relations qui ont servi à
+l'engendrer (considérés comme des données accessoires de la
+situation). D'ailleurs le « lemme de comparaison »  III 4.1.
+fournit de nombreux exemples de couples de sites $𝒞$,
+$𝒞'$ non isomorphes, et même non équivalents en tant que
+catégories, et donnant naissance à des topos équivalents, de
+sorte qu'il y a lieu de considérer $𝒞$ et $𝒞'$
+comme essentiellement équivalents.
+
+\subsection{}\etiquette[0.2]{IV.subsec0.2}
+Dans le présent exposé, nous donnons une caractérisation des topos
+par des propriétés d'exactitude simples (due à J. \textsc{Giraud}),
+nous étudions la notion naturelle de morphisme de topos, inspirée
+par la notion d'application continue d'un espace topologique dans un
+autre, et nous développons dans le cadre des topos certaines
+constructions familières en théorie des faisceaux habituelle
+(faisceaux $\Hhom$, faisceaux produit tensoriel, supports). Enfin,
+nous montrons (en suivant M. \textsc{Artin}) comment on peut
+reconstituer un topos à partir d'un « ouvert »  de celui-ci, du
+« fermé » complémentaire, et d'un certain foncteur exact à
+gauche qui les relie, qui, a peu de choses près, peut être choisi
+d'ailleurs arbitrairement.
+
+\subsection{}\etiquette[0.3]{IV.subsec0.3}
+On a là un procédé de recollement de topos qui, appliqué à des topos
+provenant d'espaces topologiques ordinaires, donnera en général un
+topos qui ne sera plus du même type. Cela est une première
+indication de la stabilité remarquable de la notion de topos par
+diverses constructions naturelles, qui manque à la notion d'espace
+topologique (dont la notion de\pageoriginale topos est inspirée).
+Pour un deuxième exemple remarquable, signalons aussi celle de topos
+classifiant relatif à un groupe d'un topos (\cf [1] ou
+\hyperref[IV.exer5.9]{5.9} ci-dessous), inspirée de la notion classique
+d'espace classifiant d'un groupe topologique, et la notion de « topos modulaire »  associé à divers « problèmes de modules »
+en Géométrie Algébrique ou en Géométrie Analytique [10] [13].
+
+D'autres topos, tel le \emph{topos étale} d'un schéma (étudié
+systématiquement dans le présent Séminaire, à partir de \Exp
+VII) ou le \emph{topos cristallin} d'un schéma relatif [6]
+s'introduisent de façon naturelle lorsqu'on veut développer
+pour des variétés algébriques abstraites (et plus
+généralement des schémas) des théories de cohomologie
+utilisables, qui remplacent la cohomologie de Betti classique des
+variétés algébriques sur le corps des complexes.
+
+\subsection{}\etiquette[0.4]{IV.subsec0.4}
+On peut donc dire que la notion de topos, dérivé naturel du
+\emph{point de vue faisceautique} en Topologie, constitue à son
+tout un élargissement substantiel de la notion  d'espace
+topologique \footnote[1]{\Cf [9], ou \hyperref[IV.subsec4.1]{4.1} et
+\hyperref[IV.subsec4.2]{4.2} plus bas, pour les relations
+  précises entre la notion de topos et celle d'espace
+  topologique.}, englobant un grand nombre de situations qui
+autrefois n'étaient pas considérées comme relevant de
+l'intuition topologique. Le trait caractéristique de telles
+situations est qu'on y dispose d'une notion de « localisation »,
+notion qui est formalisée précisément par la notion de site
+et, en dernière analyse, par celle de topos (via le topos
+associé au site). Comme le terme de « topos »  lui-même est
+censé précisément le suggérer, il semble raisonnable et
+légitime aux auteurs du présent Séminaire de considérer que
+l'objet de la Topologie est l'étude des \emph{topos} (et non des
+seuls espaces topologiques).
+
+\subsection{}\etiquette[0.5]{IV.subsec0.5}
+Il nous a semblé utile d'inclure dans cet exposé général sur
+les topos un assez grand nombre d'exemples, dont beaucoup n'ont que
+des rapports\pageoriginale lointains avec le but initial que se
+proposait ce séminaire, (c'est-à-dire l'étude de la
+cohomologie étale). Le lecteur pressé, intéressé
+exclusivement par la cohomologie étale, pourra bien entendu
+omettre sans inconvénients la lecture de ces exemples, ainsi
+d'ailleurs que de la plus grande partie du présent exposé,
+auquel il lui suffira de se reporter en cas de besoin.
+
+\section{Définition et caractérisation des topos}\etiquette[1]{IV.sec1}
+
+\begin{enonce*}{Définition 1.1}\etiquette[1.1]{IV.def1.1}
+On appelle $𝒰$-topos, ou simplement topos si aucune
+confusion n'est à craindre, une catégorie $E$ telle qu'il existe
+un site $C\in 𝒰$ tel que $E$ soit équivalente à la
+catégorie $C^{\widetilde{\phantom{,}}}$ des $𝒰$ -faisceaux
+d'ensembles sur $C$.
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[1.1.1]{IV.subsubsec1.1.1}
+Soit $E$ un $𝒰$-topos. Nous considérons toujours $E$ comme
+muni de sa topologie canonique (\hyperrefext[II][II.def2.5]{2.5}), qui en fait donc
+un \emph{site}, et même, en vertu de \hyperref[IV.subsubsec1.1.2]{1.1.2} d)
+ci-dessous, un $𝒰$-site (\hyperrefext[II][II.def3.0.2]{3.0.2}). Sauf mention
+expresse du contraire, nous ne considérerons pas d'autre topologie
+sur $E$ que celle qu'on vient d'expliciter.
+
+\subsubsection{}\etiquette[1.1.2]{IV.subsubsec1.1.2}
+On a vu dans \hyperrefext[II][II.prop4.8]{4.8}, \hyperrefext[II][II.cor4.11]{4.11} qu'un
+$𝒰$-topos $E$ est une $𝒰$-catégorie
+(\hyperrefext[I][I.def1.1]{1.1}) satisfaisant aux conditions suivantes:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Les limites projectives finies sont représentables dans $E$.
+
+\item Les sommes directes indexées par un élément de $𝒰$
+  sont représentables dans $E$. Elles sont disjointes et
+  universelles (\hyperrefext[II][II.def4.5]{4.5}).
+
+\item Les relations d'équivalence dans $E$ sont effectives
+  universelles \sisi{(\hyperrefext[I][I.sec10.9]{10.9}).}{(\hyperrefext[I][I.sec10.10]{10.10}).}
+
+\item $E$ admet une famille génératrice (\hyperrefext[II][II.subsec4.9]{4.9}) indexée par un
+  élément de $𝒰$.
+\end{enumerate}
+
+En\pageoriginale fait, nous allons voir que ces propriétés
+intrinsèques \emph{caractérisent} les $𝒰$-topos:
+
+\begin{enonce*}{Théorème 1.2}\etiquette[1.2]{IV.theo1.2}
+{\rm (J. Giraud).} Soit $E$ une $𝒰$-catégorie. Les
+propriétés suivantes sont équivalentes:
+\begin{itemize}
+\item[i)] $E$ est un $𝒰$-topos $(\hyperref[IV.def1.1]{1.1})$.
+
+\item[ii)] $E$ satisfait aux conditions {\rm a), b), c)} et {\rm d)
+  de \hyperref[IV.subsubsec1.1.2]{1.1.2}.}
+
+\item[iii)] Les $𝒰$-faisceaux sur $E$ pour la topologie
+  canonique sont représentables, et $E$ possède une petite famille
+  génératrice (condition {\rm \hyperref[IV.subsubsec1.1.2]{1.1.2} d)}).
+
+\item[iv)] Il existe une catégorie $C\in 𝒰$ et un foncteur
+  pleinement fidèle $i:E\rightarrow \widehat{C}$ (où $\widehat{C}$
+  désigne la catégorie des $𝒰$-préfaisceaux sur $C$)
+  admettant un adjoint à gauche a qui est exact à gauche.
+
+\item[${\rm i')}$] Il existe un site $C\in 𝒰$, tel que les
+  limites projectives soient représentables dans $C$ et que la
+  topologie de $C$ soit moins fine que sa topologie canonique {\rm (II 2.5),} %% étiquette !
+  tel que $E$ soit équivalent à la catégorie
+  $C^{\widetilde{\phantom{,}}}$ des $𝒰$-faisceaux d'ensembles
+  sur $C$.
+\end{itemize}
+\end{enonce*}
+
+De plus:
+
+\begin{enonce*}{Corollaire 1.2.1}\etiquette[1.2.1]{IV.cor1.2.1}
+Soit $E$ un $𝒰$-topos, $C$ une sous-catégorie pleine de
+$E$, qu'on munit de la topologie induite {\rm (\hyperrefext[III][III.subsec3.1]{3.1})}
+par celle de $E$ (\hyperref[IV.subsubsec1.1.1]{1.1.1}). Considérons le
+foncteur
+$$
+E\longrightarrow C^{\widetilde{\phantom{,}}}
+$$
+qui associe à tout $X\in \ob E$ la restriction à $C$ du foncteur
+représenté par $X$. Ce foncteur est une équivalence de
+catégories si et seulement si $\ob C$ est une famille
+génératrice de $E$.
+\end{enonce*}
+
+L'équivalence\pageoriginale i) $\Leftrightarrow$ iv) résulte
+aussitôt de \hyperrefext[II][II.theo5.5]{5.5}, et on a déjà rappelé plus haut
+qu'on a i) $\Rightarrow$ ii). Comme ${\rm i'}$) $\Rightarrow$ i)
+trivialement, il reste à prouver ii) $\Rightarrow$ iii) et iii)
+$\Rightarrow$ ${\rm i'}$), ce qui sera fait dans
+\hyperref[IV.subsubsec1.2.4]{1.2.4} et \hyperref[IV.subsubsec1.2.3]{1.2.3} ci-dessous. Le
+corollaire s'obtient alors en remarquant que le foncteur envisagé
+se factorise en $E\rightarrow E^{\widetilde{\phantom{,}}}\rightarrow
+C^{\widetilde{\phantom{,}}}$, de sorte que, $E\rightarrow
+E^{\widetilde{\phantom{,}}}$ étant une équivalence en vertu de
+(iii), la question revient à celle de déterminer quand
+$E^{\widetilde{\phantom{,}}}\rightarrow C^{\widetilde{\phantom{,}}}$
+est une équivalence. On conclut alors grâce au « lemme de
+comparaison »  \hyperrefext[III][III.theo4.1]{4.1}, \cf démonstration
+\hyperref[IV.subsubsec1.2.3]{1.2.3} ci-dessous.
+
+\setcounter{subsection}{2} \setcounter{subsubsection}{2}
+\subsubsection{}\etiquette[1.2.3]{IV.subsubsec1.2.3}
+\emph{Démonstration de} iii) $\Rightarrow$ ${\rm i'}$). Soit
+$\mathfrak{X}=(X_i)_{i\in I}$, $I\in 𝒰$, une petite famille
+génératrice de $E$. Comme $E$ est une $𝒰$-catégorie,
+l'ensemble des classes d'isomorphie de diagrammes finis dans $E$
+dont les objets sont des éléments $X_i$ est $𝒰$-petit. Par
+suite le plus petit ensemble $\mathfrak{X}'$ d'objets de $E$,
+contenant les limites projectives finies d'objets de $\mathfrak{X}$,
+est une réunion dénombrable de petits ensembles et est donc
+petit~\footnote[1]{Nous raisonnons ici sur les classes d'objets de
+$E$ à isomorphisme près.}. Posant
+$\mathfrak{X}^{(n+1)}=\sisi{\mathfrak{X}^{(n)(1)}}{(\mathfrak{X}^{(n)})'}$, et
+$\mathfrak{X}=\bigcup_n \mathfrak{X}^{(n)}$, on voit que, quitte à
+augmenter la famille de générateurs, on peut supposer que
+$\mathfrak{X}$ est stable par limites projectives finies. Soit
+$𝒱$ un univers contenant $𝒰$ tel que $E$ soit
+$𝒱$-petite. Pour tout objet $H$ de $E$, notons $I(H)$
+l'ensemble $\amalg_{i\in I}\Hom(X_i, H)$. Soient $H$ un objet de $E$
+et $H'\hookrightarrow H$ le sous-faisceau de $H$, pour la topologie
+canonique, « réunion »  des images des morphismes
+$u:X_i\rightarrow H$, $(u,i)\in I(H)$ (\hyperrefext[II][II.theo4.1]{4.1}). Comme $H'$
+est un sous-faisceau d'un $𝒰$-faisceau, $H'$ est un
+$𝒰$-faisceau. Il est donc représentable. Comme la famille
+$\mathfrak{X}$ est génératrice et que pour tout $i\in I$,
+l'application $\Hom(X_i, H')\rightarrow \Hom(X_i,H)$ est bijective,
+le morphisme $H'\hookrightarrow H$ est un isomorphisme
+(\hyperrefext[II][II.subsec4.9]{4.9}). Par suite (\sisi{\hyperrefext[II][II.def6.1]{6.1}}{\hyperrefext[II][II.def5.2]{5.2}}) la famille
+$(u:X_i\rightarrow H)$, $(u,i)\in I(H)$, est couvrante pour la
+topologie canonique de $E$. Donc\pageoriginale tout objet de $E$
+peut être recouvert, pour la topologie canonique de $E$, par des
+objets de $\mathfrak{X}$. Soient $C$ la sous-catégorie pleine de $E$
+définie par les objets de $\mathfrak{X}$ et $u:C\hookrightarrow E$
+le foncteur d'inclusion. La topologie $\Cc$ induite sur $C$ par la
+topologie canonique de $E$ est moins fine que la topologie canonique
+de $C$, et lorsque $𝒰$ possède un élément de cardinal
+infini, les limites projectives finies sont représentables dans $C$.
+Il résulte de \sisi{\hyperrefext[III][III.subsec5.1]{5.1}}{\ref{III.subsec4.1}} que le foncteur $F\mapsto F\circ
+u$ est une équivalence de $E$ sur la catégorie des
+$𝒰$-faisceaux sur $C$ pour la topologie $\Cc$, \cqfd
+
+\subsubsection{}\etiquette[1.2.4]{IV.subsubsec1.2.4}
+\emph{Démonstration de} ii) $\Rightarrow$ iii). La démonstration
+comporte quatre pas.
+
+Soit $𝒱$ un univers contenant $𝒰$, tel que $E$ soit
+un élément de $𝒱$. Soient $\widetilde{E}$ la catégorie
+des $𝒱$-faisceaux sur $E$ pour la topologie canonique, et
+$J_E:E\rightarrow \widetilde{E}$ le foncteur canonique.
+
+\paragraph{}\etiquette[1.2.4.1]{IV.par1.2.4.1}
+Soit $(g_i:G_i\rightarrow H)$, $i\in I\in 𝒰$, une famille
+épimorphique de $\widetilde{E}$. Si les $G_i$ et les produits
+fibrés $\fprod{G_i}{G_j}{H}$ sont représentables, alors le
+faisceau $H$ est représentable.
+
+En effet, la somme directe $\coprod_{i\in I}G_i$ est représentable
+dans $\widetilde{E}$ (\hyperrefext[II][II.theo4.1]{4.1}) par un faisceau
+représentable $G$ (propriété b) et \hyperrefext[II][II.prop4.6]{4.6}). Il en
+est de même pour la somme directe $K=\coprod_{(i,j)\in I\times
+I}\fprod{G_i}{G_j}{H}$. De plus, le diagramme $K\rightrightarrows
+G\rightarrow H$ est exact et $K$ est le carré fibré de $G$
+au-dessus de $H$. (Cette dernière propriété est vraie dans la
+catégorie des préfaisceaux, donc vraie dans la catégorie des
+faisceaux (\hyperrefext[II][II.theo4.1]{4.1}.) On en déduit, d'après c) et
+\hyperrefext[II][II.prop4.7]{4.7}, que la faisceau $H$ est représentable.
+
+\paragraph{}\etiquette[1.2.4.2]{IV.par1.2.4.2}
+Soit $X_{\alpha}$, $\alpha\in A\in 𝒰$, une famille de
+générateurs de $E$. Pour tout faisceau $H$, désignons par
+$I(H)$ l'ensemble $\coprod_{\alpha \in A}\Hom_E (X_{\alpha}, H)$. La
+famille $(u:X_{\alpha}\rightarrow H, (u,\alpha)\in
+I(H))$\pageoriginale est épimorphique dans $\widetilde{E}$.
+Lorsque $H$ est un $𝒰$-faisceau, $I(H)$ est un élément
+de $𝒰$.
+
+En effet, tout faisceau $H$ étant but d'une famille épimorphique de
+morphismes dont les sources sont des faisceaux représentables (
+\hyperrefext[I][I.prop3.4]{3.4} et \hyperrefext[II][II.theo4.1]{4.1}), il suffit de montrer la
+première assertion lorsque le faisceau $H$ est représentable. Soit
+alors $G$ l'image de la famille $(u:X_{\alpha}\rightarrow H,
+(u,\alpha)\in I(H))$. Le morphisme $G\rightarrow H$ est un
+monomorphisme. Par suite, on est dans la situation du premier pas,
+car $\fprod{X_{\alpha}}{X_{\beta}}{G}$ est isomorphe à
+$\fprod{X_{\alpha}}{X_{\beta}}{H}$ qui est représentable, et de plus
+$I(H)$ est un élément de $𝒰$. On en déduit que $G$ est
+représentable. Mais $X_{\alpha}$ étant une famille génératrice,
+$G\rightarrow H$ est un isomorphisme. La dernière assertion est
+triviale par définition des $𝒰$-faisceaux.
+
+\paragraph{}\etiquette[1.2.4.3]{IV.par1.2.4.3}
+Tout sous-faisceau d'un faisceau représentable est
+représentable.
+
+En effet, soit $G\rightarrow H$ un sous-faisceau d'un faisceau
+représentable. $G$ est alors un $𝒰$-faisceau. La famille
+$(u:X_{\alpha}\rightarrow G, (u,\alpha)\in I(G))$ est donc
+épimorphique dans $\widetilde{E}$ et indexée par un élément
+de $𝒰$. De plus, les produits fibrés
+$\fprod{X_{\alpha}}{X_{\beta}}{G}$ sont isomorphes aux produits
+fibrés $\fprod{X_{\alpha}}{X_{\beta}}{H}$ qui sont
+représentables. Par suite, on est dans la situation du premier pas
+et $G$ est représentable.
+
+\paragraph{}\etiquette[1.2.4.4]{IV.par1.2.4.4}
+Tout $𝒰$-faisceau est représentable.
+
+En effet, en vertu du premier et du deuxième pas, il suffit de
+montrer que les produits fibrés $\fprod{X_{\alpha}}{X_{\beta}}{H}$
+sont représentables. Or, ces produits fibrés sont des
+sous-objets des produits $\fprod{X_{\alpha}}{X_{\beta}}{}$. On
+conclut donc par le troisième pas. Ceci achève la
+démonstration du théorème \hyperref[IV.theo1.2]{1.2}.
+
+\begin{enonce*}[remark]{Remarque 1.3}\etiquette[1.3]{IV.rem1.3}
+Bien\pageoriginale entendu, pour un $𝒰$-topos donné $E$, il
+n'y a pas en général de façon privilégiée de le représenter à
+équivalence près sous la forme $C^{\widetilde{\phantom{,}}}$, avec
+$C$ un \emph{petit} site; ou, ce qui revient essentiellement au même
+en vertu de \hyperref[IV.cor1.2.1]{1.2.1} lorsque l'on se borne aux $C$ dont la
+topologie est moins fine que la topologie canonique, il n'y a pas de
+\emph{petite} famille génératrice privilégiée dans
+$E$. Lorsqu'on
+cesse d'imposer à $C$ la condition que $C$ soit petit, il y a par
+contre (en vertu de \hyperref[IV.theo1.2]{1.2} iii)) un choix tout à fait
+canonique d'un $𝒰$-site $C$ tel que $E$ soit équivalent à
+$C^{\widetilde{\phantom{,}}}$, à savoir $E$ lui-même! Ceci est une
+des raisons techniques pour lesquelles il n'est pas commode en
+pratique de travailler seulement avec des petits sites: en fait, les
+sites les plus importants de tous, savoir les $𝒰$-topos, ne
+sont pas petits! De plus, les sites générateurs de topos qui
+s'introduisent dans de nombreuses questions en géométrie algébrique
+(voire en topologie, \cf \hyperref[IV.subsec2.5]{2.5}) ne sont pas non plus
+petits; exemples: le site étale d'un schéma \sisi{(VIII.1).}{(VII.1).}
+\end{enonce*}
+
+\begin{enonce*}{Proposition 1.4}\etiquette[1.4]{IV.prop1.4}
+Soient $E$ un $𝒰$-topos, $E'$ une catégorie (pas
+nécessairement une $𝒰$-catégorie), $F$ un préfaisceau
+sur $E$ à valeurs dans $E'$. Pour que $F$ soit un faisceau à
+valeurs dans $E'$ {\rm(\hyperrefext[II][II.def6.1]{6.1}),} il faut et il suffit que
+$F$ transforme $𝒰$-limites inductives dans $E$ en limites
+projectives dans $E'$.
+\end{enonce*}
+
+Soit $𝒱$ un univers contenant $𝒰$ et tel que $E'$
+soit une $𝒱$-catégorie. Composant $F$ avec les foncteurs
+$\Hom(X',-):E'\rightarrow 𝒱\text{-}\Ens$ définis pas les
+objets $X'$ de $E'$, on est ramené au cas où
+$E'=𝒱\text{-}\Ens$, où $𝒱$ est un univers.
+Supposons que $F$ transforme $𝒰$-limites inductives en
+limites projectives, alors il résulte aussitôt des définitions
+que $F$ est un faisceau, puisque une famille\pageoriginale couvrante
+$X_i\rightarrow X$ dans $ℰ$, par définition de la
+topologie canonique $ℰ$, permet de considérer $X$ comme
+une limite inductive du diagramme $ \left(
+\fprod{X_i}{X_j}{X}\raise6pt\hbox{$\mathop{\nearrow}^{\mbox{$X_i$}}_{\displaystyle{\kern-10pt\raise-8pt\hbox{$\searrow_{\mbox{$X_j$}}$}}}$}
+\right) $. Supposons que $F$ soit un faisceau, et prouvons qu'il
+transforme $𝒰$-limites inductives en limites projectives. Si
+$𝒱\subset 𝒰$, on peut supposer $𝒱=𝒰$
+et il suffit d'appliquer le critère \hyperref[IV.theo1.2]{1.2} iii). Pour
+traiter le cas général, il faut travailler un peu plus. Soient
+$C$ une sous-catégorie pleine de $E$ engendrée par une famille
+génératrice indexée par un élément de $𝒰$, et
+$u:C\rightarrow E$ le foncteur d'inclusion. Munissons $C$ de la
+topologie induite par la topologie canonique de $E$ \sisi{(III 4.5).}{(III 3.5).}
+Notons $C^{\widetilde{\phantom{,}}}_{𝒰}$,
+$C^{\widetilde{\phantom{,}}}_{𝒱}$ les catégories de
+faisceaux sur $C$, $E^{\widetilde{\phantom{,}}}_{𝒱}$ la
+catégorie des $V$-faisceaux sur $E$ pour la topologie canonique,
+$J_E:E\rightarrow E_{𝒱}$ le foncteur canonique,
+$i_{𝒰,𝒱}:C^{\widetilde{\phantom{,}}}_{𝒰}\rightarrow
+C^{\widetilde{\phantom{,}}}_{𝒱}$ le foncteur d'inclusion. Le
+diagramme:
+\[\vcenter{
+\xymatrix@C=3.25cm@R=1.25cm{
+C^{\widetilde{\phantom{a}}}_{\underline{U}} \ar[r]^{i_{\underline{U},\underline{V}}} & C^{\widetilde{\phantom{a}}}_{\underline{V}}\\
+E  \ar[r]^{J_E} \ar[u]&
+E^{\widetilde{\phantom{a}}}_{\underline{V}}\ar[u]\quad,
+}}\leqno{(*)}
+\]
+où les flèches verticales sont induites par le foncteur
+$F\mapsto F\circ u$, est commutatif. Il résulte de la construction
+explicite du foncteur faisceau associé (\hyperrefext[II][II.sec3]{3}) et de
+\hyperrefext[II][II.theo4.1]{4.1} que le foncteur $i_{𝒰,𝒱}$ commute
+aux $𝒰$-limites inductives. De plus, il résulte de
+\hyperrefext[III][III.subsec5.1]{5.1} et de \hyperref[IV.cor1.5]{1.5} que les flèches
+verticales de $(\ast)$ sont des équivalences de catégories. Par
+suite $J_E:E\rightarrow E^{\widetilde{\phantom{,}}}_{𝒱}$
+commute aux $𝒰$-limites inductives. Pour tout objet $X$ de
+$E$, on a:
+$$
+F(X)\simeq
+\Hom_{E^{\widetilde{\phantom{,}}}_{𝒱}}(J_E(X),F){\quoi}.
+$$
+Donc\pageoriginale $F$ transforme les $𝒰$-limites inductives
+de $E$ en limites projectives.
+
+\begin{enonce*}{Corollaire 1.5}\etiquette[1.5]{IV.cor1.5}
+Soient $E$ un $𝒰$-topos, $E'$ une $𝒰$-catégorie,
+$f:E\rightarrow E'$ un foncteur. Pour que $f$ admette un adjoint à
+droite, il faut et il suffit que $f$ commute aux $𝒰$-limites
+inductives.
+\end{enonce*}
+
+C'est une conséquence immédiate de \hyperref[IV.prop1.4]{1.4} pour le cas
+$E'=𝒰\text{-}\Ens$.
+
+\begin{enonce*}{Corollaire 1.6}\etiquette[1.6]{IV.cor1.6}
+Soient $E$, $E'$ deux $𝒰$-topos, $f:E\rightarrow E'$ un
+foncteur. Les conditions suivantes sont équivalentes:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item $f$ commute aux $𝒰$-limites inductives.
+
+\item $f$ admet un adjoint à droite.
+
+\item $f$ est continu {\rm(\hyperrefext[III][III.def1.1]{1.1}).}
+\end{enumerate}
+\end{enonce*}
+
+L'équivalence i) $\Leftrightarrow$ ii) a été vue dans
+\hyperref[IV.cor1.5]{1.5}. Pour prouver i) $\Leftrightarrow$ iii), appliquons
+la définition des foncteurs continus, en choisissant un univers
+$𝒱$ tel que $𝒰\in 𝒱$ (donc $E$, $E'$ sont
+des sites $𝒱$-petits). Il faut exprimer que pour tout
+$𝒱$-faisceau $F$ sur $E'$, le composé $F\circ f$ est un
+faisceau sur $E$, c'est-à-dire (\hyperref[IV.prop1.4]{1.4}) qu'il transforme
+$𝒰$-limites inductives en limites projectives. Il suffit
+pour ceci que l'on ait i), puisque en vertu de \hyperref[IV.prop1.4]{1.4} $F$
+lui-même transforme $𝒰$-limites inductives en limites
+projectives; c'est aussi nécessaire comme on voit en prenant pour
+$F$ un foncteur représentable.
+
+\begin{enonce*}{Corollaire 1.7}\etiquette[1.7]{IV.cor1.7}
+Avec les notations de $\hyperref[IV.cor1.6]{1.6}$, pour que $f$ soit le
+foncteur image inverse $u^{\ast}$ pour un morphisme de topos
+$(\hyperref[IV.def3.1]{3.1})$ $u:E'\rightarrow E$, il faut et il suffit que
+$f$ soit exact à gauche et transforme familles épimorphiques en
+familles épimorphiques.
+\end{enonce*}
+
+La\pageoriginale nécessité est triviale par définition (NB
+tout foncteur exact à droite transforme épimorphisme en
+épimorphisme). La suffisance résulte de \sisi{\hyperrefext[III][III.prop2.6]{2.6}}{\hyperrefext[III][III.prop1.6]{1.6}}, qui
+implique que $f$ est continu sous les conditions indiquées, donc
+commute aux $𝒰$-limites inductives en vertu de
+\hyperref[IV.cor1.6]{1.6}.
+
+\begin{enonce*}[remark]{Remarque 1.8}\etiquette[1.8]{IV.rem1.8}
+Avec les notations de \hyperref[IV.cor1.5]{1.5}, on peut montrer que $f$ admet
+un adjoint à gauche si et seulement si il commute aux
+$𝒰$-limites projectives. En d'autres termes, un foncteur
+\emph{covariant} $E\rightarrow (𝒰\text{-}\Ens)$ est
+représentable si et seulement si il commute aux $𝒰$-limites
+projectives \footnote[1]{Un énoncé plus général se trouve dans
+\hyperrefext[I][I.cor8.12.8]{8.12.8}, \hyperrefext[I][I.exer8.12.9]{8.12.9}, l'esquisse de démonstration
+qui suit a) à c) correspondant à la démonstration donnée dans
+\loccit}. Nous indiquons seulement le principe de la démonstration,
+qui se fait en deux étapes:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Des arguments standards [5, ${\rm n^{\circ}}$ 195, \S 3]
+montrent que si $F$ commute aux $\varprojlim$, il est
+proreprésentable par un système projectif strict $(T_i)_{i\in
+I}$, où $I$ est un ensemble ordonné filtrant, \emph{pas
+nécessairement petit.} On peut supposer que si $i>j$, alors
+$T_i\rightarrow T_j$ n'est pas un isomorphisme, et sous cette
+hypothèse, $F$ est représentable si et seulement si $I$ est
+petit (ce qui implique en fait que la système projectif est
+essentiellement constant).
+
+\item Pour prouver que $I$ est petit, sachant que pour tout objet $X$
+de $E$, l'ensemble $F(X)=\varinjlim_i \Hom(T_i,X)$ l'est, il suffit
+de disposer d'une \emph{petite famille cogénératrice}
+$(X_j)_{j\in J}$ (\ie qui est génératrice pour la catégorie
+opposée $E^{\circ}$). Or on montre que dans un $𝒰$-topos
+$E$ existe toujours une petite famille cogénératrice.
+
+\item Pour prouver ce dernier point, on note par des arguments
+standards [Toh] que tout objet $X$ de $E$ admet un monomorphisme
+dans un objet « injectif »; puis que pour toute famille
+génératrice $(L_{\alpha})$ de $E$, si\pageoriginale on plonge
+ainsi chaque $L_{\alpha}$ dans un objet injectif $I_{\alpha}$, la
+famille $(I_{\alpha})$ est cogénératrice.
+\end{enumerate}
+\end{enonce*}
+
+\section{Exemples de topos}\etiquette[2]{IV.sec2}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[2.0]{IV.subsec2.0}
+Nous avons réuni dans le présent numéro un assez grand nombre
+d'exemples typiques de topos, que le lecteur aura déjà eu l'occasion
+de rencontrer par ailleurs, et qui sont destinés à lui faciliter
+l'accès au « yoga »  des topos. Pour d'autres exemples (tirés de
+la géométrie algébrique) de topologies sur des sites, donnant lieu à
+autant de topos, il pourra consulter \SGA 3 IV 6, et (pour le topos
+étale) l'exposé VII du présent séminaire. Comme nous ne référerons
+guère par la suite au présent numéro que pour des questions de
+notations ou de terminologie, nous laissons au lecteur le soin de
+faire à titre d'exercice la vérification des énoncés dont nous avons
+assorti ces exemples pour son instruction générale. Tous les
+exemples du présent numéro seront précisés dans 4, où on examinera
+leur dépendance fonctorielle par rapport aux données, et dans les
+numéros suivants à titre d'illustration des notions générales
+relatives aux topos.
+
+\subsection{Topos associé à un espace topologique}\etiquette[2.1]{IV.subsec2.1}
+
+Soient $X$ un petit espace topologique, $\Ouv(X)$ la catégorie des
+ouverts de $X$, munie de la topologie canonique \sisi{(III 2.9.1).}{(III 1.9.1).} Nous
+désignerons par $\Top(X)$ le topos des $𝒰$-faisceaux sur
+$\Ouv(X)$. Ce topos est équivalent à la catégorie des espaces
+topologiques étalés au-dessus de $X$, en associant à tout tel espace
+$X'$ sur $X$ le faisceau $U\mapsto \Gamma(X'/U)=\Hom_X(U,X')$ sur
+$\Ouv(X)$ [TF]\nde{Ici [TF] indique la référence [8]}. On ne pourra pas s'empêcher de noter parfois, par
+abus de\pageoriginale langage, par la même lettre $X$ le topos
+$\Top(X)$ défini par l'espace topologique $X$.
+
+C'est évidemment l'exemple précédent qui a servi
+principalement de guide et de support intuitif pour le
+développement de la théorie des topos. On fera attention
+cependant que les topos déduits des espaces topologiques sont de
+nature très particulière, dû au fait notamment qu'ils ont
+été décrits par des sites $C=\Ouv(X)$ où \emph{tous les
+morphismes sont des monomorphismes} (donc dont la catégorie
+sous-jacente se réduit à un ensemble préordonné). De ceci
+résulte en particulier que les faisceaux représentés par les
+objets de $C$ sont des sous-faisceaux du faisceau final, et par
+suite que \emph{les sous-faisceaux du faisceau final forment une
+famille génératrice du topos envisagé}. Cette propriété
+n'est pas partagée par la plupart des topos qui s'introduisent de
+façon naturelle en géométrie algébrique ou en algèbre,
+\cf exemples plus bas. Elle est à peu de choses près
+caractéristique des topos de la forme $\Top(X)$ (\cf
+\hyperref[IV.exer7.1.9]{7.1.9} plus bas).
+
+On vérifie facilement que l'application $\Ouv(X)\rightarrow
+\Top(X)$, qui associe à tout ouvert de $X$ le faisceau qu'il
+représente, est une \emph{bijection} de $\Ouv(X)$ avec l'ensemble
+des sous-objets de l'objet final de $\Top(X)$, cette bijection étant
+même un isomorphisme pour les structures d'ordre naturelles, \ie
+induisant un isomorphisme des catégories correspondantes. Cela
+suggère qu'il doit être possible de reconstituer à homéomorphisme
+près l'espace topologique $X$, lorsqu'on connaît $\Top(X)$ à
+équivalence près. Nous verrons plus bas (\hyperref[IV.subsec4.2]{4.2}) qu'il
+en est bien ainsi, moyennant une légère restriction sur $X$.
+
+\subsection{Topos ponctuel ou final, et topos vide ou initial}\etiquette[2.2]{IV.subsec2.2}\pageoriginale
+
+Lorsque $X$ est un espace topologique réduit à un seul point, le
+foncteur
+$$
+F\longrightarrow F(X):\Top(X)\longrightarrow 𝒰\mbox{-}\Ens
+$$
+est une équivalence de catégories. Ceci montre en particulier
+que la \emph{catégorie} $𝒰$-$\Ens$ est un
+$𝒰$-\emph{topos.} Nous avons vu sur des exemples dans \Exp
+II que cet $𝒰$-topos est typique du point de vue
+propriétés d'exactitude, en ce que la vérification de beaucoup
+de propriétés (notamment des propriétés d'exactitude) des
+topos généraux se ramène à ce topos particulier.
+L'interprétation que nous en donnons ici en termes de l'espace
+topologique ponctuel justifie l'abus de langage consistant à
+appeler \emph{topos ponctuel} un topos équivalent à la
+catégorie $𝒰$-$\Ens$ (bien que, en tant que catégorie,
+il ne soit pas du tout équivalent à la catégorie ponctuelle
+!). C'est la terminologie qui correspond à l'intuition
+géométrique correcte du rôle joué par ces topos. On appelle
+parfois, par abus de langage également, \emph{topos final} un
+topos ponctuel, \cf \hyperref[IV.subsec4.3]{4.3}; on dira « \emph{le} topos
+final »  pour le topos ($𝒰$-$\Ens$).
+
+Lorsque $X$ est réduit à l'espace topologique vide, donc
+$\Ouv(X)$ à la catégorie ponctuelle, alors un préfaisceau $F$
+sur $\Ouv(X)$ est un faisceau si et seulement si sa valeur en
+l'unique objet $\phi$ de $\Ouv(X)$ est un ensemble réduit à un
+point. Il s'ensuit que $\Top(∅)$ est isomorphe à la catégorie
+des $𝒰$-ensembles réduits à un point, catégorie qui
+est équivalente à la catégorie ponctuelle. De ceci on conclut
+en particulier que la catégorie ponctuelle (ainsi que toute
+$𝒰$-catégorie équivalente à celle-ci) est un
+$𝒰$-topos. On l'appelle parfois, par abus de\pageoriginale
+langage, le \emph{topos vide} ou \emph{topos initial} (\cf
+\hyperref[IV.subsec4.4]{4.4}); on prendra garde qu'il n'est pas équivalent
+à la catégorie vide.
+
+\subsection{Topos associé à un espace à opérateurs}\etiquette[2.3]{IV.subsec2.3}
+
+Soient $X$ un espace topologique, $G$ un groupe discret opérant
+sur $X$ par homéomorphismes. On a défini alors dans \sisi{[Toh.
+\hyperref[IV.subsec5.1]{5.1}]}{[Toh]\nde{Ici [Toh] indique la référence [4].} \hyperref[IV.subsec5.1]{5.1}} la catégorie des $G$-\emph{faisceaux sur} $X$,
+ou comme nous dirons aussi, des faisceaux sur $(X,G)$; ce sont les
+faisceaux (d'ensembles) sur $X$, \emph{munis} d'opérations de $G$
+compatibles avec celles de $G$ sur $X$. On constate aussitôt, à
+l'aide du critère de Giraud \hyperref[IV.theo1.2]{1.2} iii), que cette %% \XXX ii) est probablement plus facile à vérifier
+catégorie est un topos (NB $𝒰$ est sous-entendu dans tout
+ceci), qu'on notera simplement $\Top(X,G)$. Lorsque $G$ est réduit
+au groupe unité, on retrouve l'exemple \hyperref[IV.subsec2.1]{2.1}; lorsque
+$X$ est réduit à l'espace ponctuel, on trouve le topos des
+ensembles sur lesquels $G$ opère à gauche (ou
+$G$-\emph{ensembles}), appelé aussi \emph{topos classifiant du
+groupe discret} $G$, et noté $B_G$. On vérifie facilement que le
+seul sous-objet de l'objet final $e$ du topos $B_G$ est $e$ ou le
+faisceau vide $\phi$, en particulier, si $G$ n'est pas réduit au
+groupe unité, les sous-objets de l'objet final du topos
+classifiant $B_G$ ne forment pas une famille génératrice de
+$B_G$. Donc $B_G$ n'est pas équivalent alors à un topos du type
+$\Top(X)$ envisagé dans \hyperref[IV.subsec2.1]{2.1}.
+
+La notion de $G$-faisceau était introduite dans \loccit pour
+développer la théorie cohomologique des $G$-faisceaux
+abéliens. Interprétant ces derniers comme les faisceaux
+abéliens du topos $(X,G)$, ladite théorie se trouve incluse dans
+celle de \Exp V, développée dans le cadre des topos
+généraux.
+
+On\pageoriginale peut se proposer plus généralement d'attacher
+un topos approprié à un espace topologique $X$, muni d'un groupe
+topologique $G$ (pas nécessairement discret) d'automorphismes, qui
+donnerait naissance à une théorie cohomologique adéquate. De
+même dans le contexte des variétés différentiables, ou
+analytiques réelles ou complexes, ou des schémas. C'est
+effectivement possible, \cf \hyperref[IV.subsec2.5]{2.5} ci-dessous.
+
+\subsection{Topos classifiant d'un Groupe}\etiquette[2.4]{IV.subsec2.4}
+
+Soit $E$ un topos, et $G$ un Groupe de $E$. Soit $(E,G)$ la
+catégorie des objets de $E$ sur lesquels $G$ opère. On voit
+aussitôt, grâce au critère de Giraud, que c'est un topos. On
+l'appelle \emph{topos classifiant} du Groupe $G$, et on le note
+$B_G$. Lorsque $E$ est le topos ponctuel (\hyperref[IV.subsec2.2]{2.2}) \ie
+lorsque $G$ est un groupe ordinaire, on retrouve le topos
+classifiant de \hyperref[IV.subsec2.3]{2.3}.
+
+La terminologie adoptée ici se justifie, du fait que le topos
+$B_G$ joue un rôle universel pour la classification des « torseurs » (ou fibrés principaux homogènes) sous $G$, ou plus
+généralement sous les $G_{E'}=f^{\ast}(G)$, où $E'$ est un
+topos « au-dessus de $E$ »  \ie muni d'un morphisme
+$f:E'\rightarrow E$ (\cf \hyperref[IV.def3.1]{3.1} ci-dessous). Ce rôle,
+explicité dans [3 Chap V] ou dans \hyperref[IV.exer5.9]{5.9} plus bas,
+montre que $B_G$ joue, dans le contexte des topos, le même rôle
+que les classiques espaces classifiants des groupes topologiques en
+théorie homotopique des espaces topologiques. Ces derniers peuvent
+être regardés (\cf \hyperref[IV.subsec2.5]{2.5}) comme une version
+affaiblie des premiers, obtenue en ne retenant du topos classifiant
+que le seul « type d'homotopie »  dudit topos, en un sens
+convenable qu'il n'y a pas lieu de préciser ici.
+
+\subsection{« Gros site »  et « gros topos »  d'un espace
+topologique. Topos classifiant d'un groupe
+topologique}\footnote[1]{L'introduction de ces sites et topos est
+due à M. \textsc{Giraud}, qui a mis également en évidence
+leurs avantages sur le « petit »  site
+traditionnel.}\etiquette[2.5]{IV.subsec2.5}\pageoriginale
+
+Soit $U-\Esp$ ou simplement $(\Esp)$ la catégorie des espaces
+topologiques $\in 𝒰$. On sait que dans $(\Esp)$ les limites
+projectives finies sont représentables. Considérons sur $(\Esp)$
+la prétopologie (\sisi{\hyperrefext[I][I.condef1.3]{1.3}}{\ref{II.condef1.3}}) pour laquelle $\Cov(X)$ est
+l'ensemble des familles surjectives d'immersions ouvertes
+$u_i:X_i\rightarrow X$. Nous considérerons $(\Esp)$ comme un site
+à l'aide de la topologie engendrée par la prétopologie
+précédente. Pour tout objet $X$ de $(\Esp)$, considérons la
+catégorie
+$$
+(\Esp)_{/X}
+$$
+des objets de $(\Esp)$ au-dessus de $X$, \ie des espaces
+topologiques au-dessus de $X$, comme un site, grâce à la topologie
+induite par celle de $(\Esp)$ via le foncteur d'oubli
+$(\Esp)_{/X}\rightarrow (\Esp)$ (\hyperrefext[III][III.prop5.2]{5.2} 4)). Ce site est
+appelé le \emph{gros site} associé à $X$. On fera attention qu'il
+n'est pas $\in 𝒰$; ce n'est pas non plus un $𝒰$-site
+au sens de \hyperrefext[II][II.def3.0.2]{3.0.2}, donc des précautions sont nécessaires
+pour lui appliquer les résultats habituels. Pour pallier cet
+inconvénient, on peut choisir un univers $𝒱$ tel que
+$𝒰\in 𝒱$, de sorte que $(\Esp)_{/X}$ devient un
+$𝒱$-site, et on peut travailler avec le $𝒱$-topos
+associé $(\Esp)_{/X}$, qui pourra être noté $\TOP(X)$ et sera appelé
+le \emph{gros topos de} $X$. Si on répugne à agrandir $𝒰$,
+on peut choisir un cardinal $c$ majorant les cardinaux de $X$ et de
+tous les espaces topologiques qu'on compte faire intervenir dans les
+raisonnements (le plus souvent, 
+\sisi{$\Sup(\card X, \card ℛ)$}{$\Sup(\card X, \card \mathbb{R})$}
+sera suffisant !), et on remplace $(\Esp)_{/X}$ par la
+sous-catégorie $(\Esp)'_{/X}$ formée des $X'$ sur $X$ tels que
+$\card X'\leq c$, munie de la topologie induite, et on note
+$\TOP(X)$ le topos des faisceaux sur ce\pageoriginale site. Pour
+fixer les idées, supposons que ce soit la première définition qui
+ait été adoptée.
+
+L'avantage du gros topos de $X$ sur le petit, c'est que le site qui
+le définit contient $(\Esp)_{/X}$ comme sous-catégorie pleine; comme
+la topologie de ce site est manifestement moins fine que la
+canonique, on voit que le foncteur canonique de $(\Esp)_{/X}$ dans
+$\TOP(X)$, associant à tout espace $X'$ sur $X$ le faisceau qu'il
+représente, est \emph{pleinement fidèle.} Par suite, \emph{un espace
+$X'$ sur $X$ est connu à $X$-isomorphisme près quand on connaît le
+faisceau $(\in \Top(X))$ qu'il définit}; donc la notion de faisceau
+sur (le gros site de) $X$ peut être considéré comme une
+\emph{généralisation} de celle d'espace topologique au-dessus de
+$X$, à l'aide de laquelle toutes les constructions de la théorie des
+faisceaux prennent un sens pour les espaces topologiques sur $X$.
+
+Ainsi, lorsque $G$ est un objet-groupe de la catégorie $(\Esp)_{/X}$
+des espaces topologiques au-dessus de $X$, on peut lui associer le
+topos classifiant $B_G$ (\hyperref[IV.subsec2.4]{2.4}), d'où des groupes de
+cohomologie classifiante, des groupes d'homotopie classifiante \etc
+(définis comme les invariants correspondants du $𝒱$-topos
+$B_G$). En particulier, lorsque $X$ est un espace ponctuel, $G$
+s'identifie à un groupe topologique ordinaire. On peut vérifier,
+moyennant les conditions locales habituelles assurant que la
+cohomologie singulière des produits cartésiens $G^n$ coïncide avec
+la cohomologie au sens des faisceaux (pour des coefficients
+constants, disons), par exemple si $G$ est localement contractible,
+que la cohomologie du topos classifiant de $G$ est canoniquement
+isomorphe à celle de l'espace classifiant de $G$ au sens des
+topologues.
+
+L'introduction\pageoriginale des topos classifiants (via les « gros sites ») a sur les espaces classifiants l'avantage de fournir
+une théorie plus riche, puisqu'ils fournissent notamment des
+invariants cohomologiques utiles pour des coefficients plus
+généraux que les coefficients constants ou localement constants.
+De plus, la définition envisagée ici s'adapte de façon
+évidente aux autres contextes habituels: variétés
+différentiables, variétés ou espaces analytiques (réelles ou
+complexes, au choix), schémas. Ce point de vue permet notamment de
+faire le lien entre l'étude des classes caractéristiques du
+point de vue traditionnel et du point de vue « arithmétique »,
+en considérant les « groupes classiques »  comme provenant de
+schémas définis sur l'anneau des entiers; \cf [\hyperref[IV.sec7]{7}]
+pour des indications dans ce sens. De même, les résultats
+généraux de J. \textsc{Giraud} [\hyperref[IV.sec3]{3}] sur la
+classification des extensions de Groupes, développés dans le
+cadre très général et très souple des topos, peuvent grâce aux « gros topos » se spécialiser en des résultats sur la
+classification d'extensions de groupes topologiques, ou de groupes
+de Lie réels ou complexes, qui ne semblaient guère connus des
+topologues que dans le cas des extensions à noyau abélien
+[\hyperref[IV.sec11]{11}].
+
+\subsection{Topos de la forme $\widehat{C}$}\etiquette[2.6]{IV.subsec2.6}
+
+Soit $C$ une petite catégorie. Alors la catégorie $\widehat{C}$
+des $U$-préfaisceaux sur $C$ est évidemment un
+$𝒰$-topos, puisqu'elle est de la forme
+$C^{\widetilde{\phantom{,}}}$, où on munit $C$ de la topologie
+chaotique. Nous donnerons plus bas quelques détails sur les
+relations entre $C$ et $\widehat{C}$. Notons seulement ici qu'un
+topos $E$ équivalent à un topos de la forme $\widehat{C}$ est de
+nature assez spéciale, du fait qu'\emph{il admet une petite
+famille génératrice $(X_i)$ formée d'objets connexes
+projectifs,} \ie d'objets $X$ tels que le foncteur $Y\mapsto
+\Hom(X,Y)$\pageoriginale transforme épimorphismes en
+épimorphismes et sommes en sommes: il suffit en effet de prendre
+dans $\widehat{C}$ la famille génératrice formée des foncteurs
+représentés par les $X\in \ob C$. Notons d'ailleurs que si dans
+un topos $E$ on a une famille couvrante $X_i\rightarrow X$, avec des
+$X_i$ qui sont projectifs et connexes, alors toute autre famille
+couvrante de $X$ est majorée (\hyperrefext[I][I.sec4.3.2]{4.3.2}, \hyperrefext[I][I.sec4.3.3]{4.3.3})
+par la précédente. Par suite, dans un topos $E$ de la forme
+$\widehat{C}$ tout objet $X$ admet une famille couvrante majorant
+toutes les autres. Un topos de la forme $\Top(X)$
+(\hyperref[IV.subsec2.1]{2.1}), avec $X$ un espace topologique dont les points
+sont fermés, n'a la propriété précédente que si $X$ est
+discret.
+
+Lorsque la catégorie $C$ a un seul objet, $C$ s'identifie à un
+monoïde $G$. Un préfaisceau sur $C$ s'identifie alors à un ensemble
+sur lequel $G$ opère \emph{à droite} (puisque c'est un foncteur
+$G^{\circ}\rightarrow (\Ens)$), et $\widehat{C}$ est le topos des
+ensembles à monoïde d'opérateurs à droite, qu'on pourra aussi noter
+$B_{G^{\circ}}$, compte tenu de \hyperref[IV.subsec2.3]{2.3}: c'est le
+\emph{topos des ensembles à monoïde d'opérateurs $G^{\circ}$ (le
+monoïde opposé à $G$)}. Lorsque $G$ est un groupe, utilisant
+l'isomorphisme $g\mapsto g^{-1}$ de $G$ sur $G^{\circ}$, on retrouve
+le topos classifiant $B_G$ de \hyperref[IV.subsec2.3]{2.3}.
+
+\subsection{Topos classifiant d'un pro-groupe}\etiquette[2.7]{IV.subsec2.7}
+
+\subsubsection{}\etiquette[2.7.1]{IV.subsubsec2.7.1}
+Soit $𝒢=(G_i)_{i\in I}$ un système projectif de groupes,
+avec $G_i$, $I\in 𝒰$. On suppose le système projectif
+\emph{strict}. \ie les morphismes de transition $G_j\rightarrow G_i$
+surjectifs. Si $E$ est un ensemble, on appelle \emph{opération de
+$𝒢$ sur $E$} (à gauche, disons) la structure suivante: a)
+une famille $(E_i)_{i\in I}$ de parties de $E$, de réunion $E$; b)
+pour tout $i\in I$, une opération du groupe $G_i$ sur l'ensemble
+$E_i$; on suppose de plus ces données soumises à\pageoriginale la
+condition suivante: pour $j\geq i$, $E_i$ est le sous-ensemble de
+$E_j$ formé des éléments fixes sous le groupe noyau de
+$G_j\rightarrow G_i$. On dit aussi que $𝒢$ \emph{opère sur}
+$E$ (à gauche) si on s'est donnée une opération de $G$ sur $E$ (à
+gauche). Les ensembles $\in 𝒰$ munis d'une opération de
+$𝒢$ forment une catégorie de façon évidente. On constate
+aussitôt, grâce au critère de Giraud, que cette catégorie est un
+$𝒰$-topos. On le note $B_{𝒢}$ et on l'appelle
+\emph{topos classifiant de} $𝒢$. Lorsque $I$ admet un objet
+initial $i_{\circ}$, posant $G=G_{i_\circ}$, on retrouve le topos
+classifiant de \hyperref[IV.subsec2.3]{2.3}.
+
+\subsubsection{}\etiquette[2.7.2]{IV.subsubsec2.7.2}
+Un autre exemple important est celui où les groupe $G_i$ sont
+finis, de sorte que
+$$
+G=\varprojlim G_i
+$$
+est un groupe topologique compact totalement discontinu, ou
+\emph{groupe profini.} Une opération de $𝒢$ sur $E$
+revient alors à une opération de $G$ sur $E$ qui est continue,
+ou ce qui revient au même, telle que le stabilisateur de tout
+point de $E$ est un sous-groupe ouvert de $G$. Le topos classifiant
+$B_{𝒢}$ sera aussi noté $B_{G}$, où, bien entendu, $G$
+doit être considéré comme muni de sa topologie profinie.
+
+\subsubsection{}\etiquette[2.7.3]{IV.subsubsec2.7.3}
+Il est facile de vérifier, utilisant les remarques de
+\hyperref[IV.subsec2.6]{2.6}, que le topos $B_{𝒢}$ défini par un
+système projectif strict $𝒢=(G_i)_{i\in I}$ de groupes
+n'est équivalent à un topos de la forme $\widehat{C}$ que si ce
+système projectif est essentiellement constant; dans le cas d'un
+groupe profini, cela signifie que ce groupe est en fait fini.
+
+\subsubsection{}\etiquette[2.7.4]{IV.subsubsec2.7.4}
+L'interprétation géométrique suivante du topos classifiant
+$B_G$ d'un groupe discret $G$ est utile, pour donner une intuition
+géométrique correct de ces topos. (\Cf aussi, dans le même
+sens, \hyperref[IV.subsec4.5]{4.5}, \hyperref[IV.subsec5.8]{5.8}, \hyperref[IV.exer5.9]{5.9} et
+\hyperref[IV.subsec7.2]{7.2} ci-dessous.) Soit $X$ un espace topologique
+connexe, localement connexe et\pageoriginale localement simplement
+connexe, $x$ un point de $X$, $G$ son groupe fondamentale en $x$.
+(NB il est connu qu'à isomorphisme près, tout groupe discret $G$
+peut s'obtenir ainsi.) Alors la théorie de Galois des
+revêtements de $X$ fournit une équivalence entre la catégorie
+$B_G$ des $G$-ensembles, et la catégorie des \emph{revêtements
+étales} de $X$, \ie des espaces $X'$ sur $X$ qui sont localement
+$X$-isomorphes à des $X$-espaces de la forme $X\times I$, où $I$
+est un espace discret. (comparer \SGA 1 V 4,5). Cette dernière
+peut d'ailleurs s'interpréter comme la catégorie des faisceaux
+localement constants sur $X$, \ie la catégorie des objets
+localement constants (IX 2.0) du topos $\Top(X)$.
+
+Lorsque $G$ est un groupe profini, on a une interprétation
+géométrique analogue de $B_G$, comme la catégorie des
+$X$-schémas qui sont sommes de revêtements finis étales d'un
+schéma $X$ connexe, muni d'un point géométrique $x$ et d'un
+isomorphisme $G\simeq \pi_1(X,x)$. Il est connu encore que tout
+groupe profini peut s'obtenir comme groupe fondamental d'un schéma
+connexe convenable (spectre d'un corps si on veut). Enfin, ou
+rencontre également des pro-groupes (pas nécessairement profinis
+ni essentiellement constants) pour la classification des
+revêtements des espaces connexes et localement connexes qui ne
+sont pas localement simplement connexes, ou la classification des
+revêtements étales pas nécessairement finis ou ind-finis de
+schémas connexes non normaux. Pour ce dernier cas, \cf \SGA 3 X 6.
+
+\begin{enonce*}[remark]{Exercice 2.7.5}\etiquette[2.7.5]{IV.exer2.7.5}
+Définir pour un topos $E$ la notion de connexité, de locale
+connexité~\footnote[1]{\cf \sisi{\hyperref[IV.exer8.7]{8.7} 1).}{\hyperref[IV.exer8.7]{8.7} l).}}, de simple
+connexité et de simple connexité locale. Définir la notion
+d'objet constant et localement constant de $E$ (\cf IX 2.0). Soit
+$f:E'\rightarrow E$\pageoriginale un morphisme de topos
+(\hyperref[IV.def3.1]{3.1}), avec $E'$ simplement connexe (par exemple $E'$ le
+topos ponctuel (\hyperref[IV.subsec2.2]{2.2})), et $E$ connexe et localement
+connexe. Définir un pro-groupe strict $\pi_1(E,f)=(G_i)_{i\in
+I}=𝒢$ (appelé \emph{pro-groupe fondamental de $E$ en $f$})
+et une équivalence de catégories de $B_{𝒢}$ avec la
+catégorie des objets localement constants de $E$.\footnote[2]{On
+pourra s'inspirer de \SGA 3 X 6.}. Montrer que lorsque $E$ est
+localement simplement connexe, $\pi_1(E,f)$ est essentiellement
+constant et s'identifie donc à un groupe discret ordinaire
+$\pi_1(E,f)$, qui s'appelle le \emph{groupe fondamental de $E$ en
+$f$}. Montrer que tout pro-groupe strict $𝒢$ est isomorphe
+(comme pro-groupe) au pro-groupe fondamental d'un topos connexe et
+localement connexe convenable en un $f$ convenable, avec $E'$ le
+topos ponctuel (prendre $E=B_{𝒢}$, et $f:E'\rightarrow E$
+défini par le foncteur oubli $f^{\ast}:E\rightarrow E'=(\Ens)$).
+Lorsque $𝒢$ est essentiellement constant, \ie isomorphe
+(comme pro-groupe) à un groupe discret ordinaire, prouver qu'on
+peut prendre ci-dessus $E$ localement simplement connexe (prendre
+encore $E=B_G$).
+\end{enonce*}
+
+\subsection{Exemple d'un faux topos}\etiquette[2.8]{IV.subsec2.8}
+
+Soit $𝒢=(G_i)_{i\in I}$ un pro-groupe strict, où $I$ est
+ordonné filtrant et où $i>j$ implique que $G_i\rightarrow G_j$
+n'est pas un isomorphisme. Supposons que l'on ait $\card(I)\not\in
+𝒰$. Considérons la catégorie des ensembles $E\in
+𝒰$ sur lesquels $𝒢$ opère à gauche
+(\hyperref[IV.subsubsec2.7.1]{2.7.1}). C'est une $𝒰$-catégorie, et on
+voit comme dans \hyperref[IV.subsubsec2.7.1]{2.7.1} que cette catégorie
+satisfait aux conditions a), b), c) de \hyperref[IV.subsubsec1.1.2]{1.1.2}.
+Cependant ce n'est pas un $𝒰$-topos, car on voit qu'il
+n'admet pas de famille génératrice qui soit $𝒰$-petite.
+On voit de même que ce n'est un $𝒱$-topos pour aucun
+univers $𝒱$.
+
+\section{Morphismes de topos}\etiquette[3]{IV.sec3}\pageoriginale
+
+\begin{enonce*}{Définition 3.1}\etiquette[3.1]{IV.def3.1}
+Soient $E$ et $E'$ deux $𝒰$-topos. On appelle morphisme\nde{Certains auteurs 
+parlent de \emph{morphisme géométrique}.} de
+$E$ dans $E'$, ou parfois (par abus de langage) application continue
+de $E$ dans $E'$, un triple $u=(u_{\ast}, u^{\ast},\varphi)$,
+formé de foncteurs
+$$
+u_{\ast}:E\longrightarrow E'\quav u^{\ast}:E'\longrightarrow E
+$$
+et d'un isomorphisme $\varphi$ « d'adjonction »  de bifoncteurs
+en $X'\in \Ob E'$, $Y\in \Ob E$:
+$$
+\varphi:\Hom_E (u^{\ast}(X'),Y)\xrightarrow{\sim} \Hom_{E'}(X',
+u_{\ast}(Y)){\quoi},
+$$
+le foncteur $u^{\ast}$ étant de plus soumis à la condition
+d'être exact à gauche, \ie de commuter aux limites projectives
+finies. Le foncteur $u_{\ast}$ est appelé le foncteur image
+directe pour le morphisme de topos $u$, le foncteur $u^{\ast}$ est
+appelé le foncteur image inverse pour le morphisme de topos $u$,
+l'isomorphisme $\varphi$ est appelé l'isomorphisme d'adjonction,
+pour $u$.
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[3.1.1]{IV.subsubsec3.1.1}
+Sauf mention expresse du contraire, on désignera par la suite,
+pour un morphisme de topos $u:E\rightarrow E'$, par $u_{\ast}$ et
+$u^{\ast}$ les foncteurs image directe et image inverse
+correspondants \footnote[1]{Il y a lieu parfois d'écrire aussi
+$u^{-1}$ au lieu de $u^{\ast}$, \cf \hyperref[IV.subsubsec13.2.3]{13.2.3}.}. On notera que, $u_{\ast}$
+étant adjoint à droite de $u^{\ast}$ et $u^{\ast}$ étant
+adjoint à gauche de $u_{\ast}$ par l'isomorphisme d'adjonction
+$\varphi$, chacun des deux foncteurs $u_{\ast}$, $u^{\ast}$
+détermine l'autre à isomorphisme unique près, d'après le
+sorite bien connu des foncteurs adjoints [\hyperref[IV.sec14]{14}]. En
+pratique, suivant les cas, il peut être plus commode de définir
+un morphisme de topos $u:E\rightarrow E'$ soit par la donnée de
+$u^{\ast}:E'\rightarrow E$, soit par la donnée de
+$u_{\ast}:E\rightarrow E'$; dans le premier cas, il faut simplement
+vérifier que le foncteur donné $u^{\ast}$ admet\pageoriginale
+un adjoint à droite, et qu'il est exact à gauche. Dans le
+deuxième, que le foncteur donné $u_{\ast}$ admet un adjoint à
+gauche qui est exact à gauche. Dans l'un ou l'autre cas, on
+déduit de la donnée partielle, grâce au \emph{choix} d'un
+foncteur adjoint et d'un isomorphisme d'adjonction, un morphisme de
+topos $u:E\rightarrow E'$, et ce dernier sera « unique à
+isomorphisme unique près »  en termes de la donnée $u^{\ast}$
+\resp $u_{\ast}$, en un sens assez clair, et qui sera d'ailleurs
+entièrement explicité plus bas (3.2.1).
+
+\subsubsection{}\etiquette[3.1.2]{IV.subsubsec3.1.2}
+Si $u:E\rightarrow E'$ est un morphisme de topos, il résulte des
+propriétés des foncteurs adjoints (\hyperrefext[I][I.prop2.11]{2.11}) que le
+foncteur image directe $u_{\ast}:E\rightarrow E'$ commute aux
+limites projectives, et le foncteur $u^{\ast}:E'\rightarrow E$
+commute aux limites inductives \footnote[2]{D'ailleurs
+(\hyperref[IV.cor1.5]{1.5} et \hyperref[IV.rem1.8]{1.8}), pour un foncteur
+$u_{\ast}:E\rightarrow E'$ \resp $u^{\ast}:E'\rightarrow E$ donné,
+ce foncteur admet un adjoint à gauche (\resp à droite), si et
+seulement si il commute aux $𝒰$-limites projectives (\resp
+aux $𝒰$-limites inductives).}\label{sga4[1]}. Comme on
+suppose de plus que ce dernier est exact à gauche \ie commute aux
+limites projectives finies, on voit donc en particulier que
+$u^{\ast}$ \emph{est exact}. On peut donc dire que \emph{c'est le
+foncteur image inverse $u^{\ast}$}, dans le couple $(u_{\ast},
+u^{\ast})$, \emph{qui possède les propriétés d'exactitude les plus
+remarquables.} Ces propriétés assurent que pour toute espèce de
+structure algébrique $\Sigma$ dont les données peuvent se décrire en
+termes de données de flèches entre les ensembles de base et des
+ensembles déduits de ceux-ci par application répétée d'opérations de
+limites projectives finies et de limites inductives quelconques, et
+pour tout « objet de $ℰ'$ muni d'une structure d'espèce
+$\Sigma$ » (notion qui a un sens grâce aux propriétés d'exactitude
+internes du topos $ℰ'$ (\hyperrefext[II][II.theo4.1]{4.1})), son image par
+$u^{\ast}$ est muni des mêmes structures. Plutôt que d'entrer dans
+la tâche peu engageante de donner un sens précis à cet énoncé et de
+le justifier\pageoriginale de façon formelle, nous conseillons au
+lecteur de l'expliciter et de se convaincre de sa validité pour des
+espèces de structure telles que celle de groupe, d'anneau, de module
+sur un anneau, de comodule sur un coanneau, de bigèbre sur un anneau,
+de torseur sous un groupe. (Dans ces exemples, les trois premières
+espèces de structure se définissent en termes de limites projectives
+finies exclusivement, tandis que les autres notions impliquent
+implicitement des constructions faisant appel également à des
+limites inductives.) De plus, le foncteur $u^{\ast}$ « \emph{commute} »  à toutes les opérations fonctorielles
+habituelles faites en termes de telles structures, plus précisément
+à toutes les opérations qui peuvent s'exprimer en termes de
+$\varinjlim$, et de $\varprojlim$ finies: constructions d'objets
+libres (groupes ou modules libres, p.ex.) engendrés par un objet,
+produits tensoriels (\cf \S 12 plus bas) \etcn
+
+Quant au foncteur image directe $u_{\ast}:E\rightarrow E'$, qui
+commute aux limites projectives, il « respecte »  par suite
+toute structure algébrique sur un objet (ou une famille d'objets)
+de $E$, définissable en termes de limites projectives
+exclusivement (telles que les structures de groupe, d'anneau ou de
+module sur un anneau, parmi les exemples précédents). Par
+contre, le foncteur $u_{\ast}$ n'est en général pas exact à
+droite \ie il ne commute pas en général aux limites inductives
+finies, et même ne transforme pas en général épimorphisme en
+épimorphisme (c'est d'ailleurs ce défaut d'exactitude du
+foncteur $u_{\ast}$ qui est la source de ces propriétés
+cohomologiques, qui seront étudiées (du point de vue de
+l'algèbre homologique commutative) dans l'exposé suivant). Par
+suite, il ne s'étend pas, en général, en un foncteur sur des
+objets du type comodule,\pageoriginale ou bigèbre, ou torseur sous
+un groupe, et ne commute pas en général à des opérations
+telles que « module libre engendré », produit tensoriel de
+modules, \etc
+
+\subsubsection{}\etiquette[3.1.3]{IV.subsubsec3.1.3}
+En pratique, lorsqu'on est en présence d'un foncteur
+$f:E\rightarrow F$ d'un $𝒰$-topos dans un autre, il y a lieu
+d'en expliciter toutes les propriétés d'exactitude, y compris
+l'existence éventuelle de foncteurs adjoints à gauche ou à
+droite (\cf la note de bas de page \pageref{sga4[1]}), pour parvenir
+à une compréhension de la « nature géométrique »  de
+$f$, compréhension qui sera généralement un guide
+indispensable pour une intuition géométrique correcte de la
+situation. Ainsi, s'il s'avère que $f$ commute aux limites
+inductives quelconques et aux limites projectives finies, il y a
+lieu d'écrire $f$ sous la forme
+$$
+f=u^{\ast}{\quoi},
+$$
+où
+$$
+u:F\longrightarrow E
+$$
+est un morphisme de topos, \ie d'interpréter $f$ comme un foncteur
+« image inverse »  par une « application continue »  de
+topos. Lorsque $f$ commute aux limites projectives quelconques, donc
+qu'il admet un adjoint à gauche, et si ce dernier (qui a priori
+commute aux limites inductives quelconques) commute \emph{de plus}
+aux limites projectives finies, il y a lieu d'écrire $f$ sous la
+forme
+$$
+f=v_{\ast}{\quoi},
+$$
+où
+$$
+v:E\longrightarrow F
+$$
+est un morphisme de topos. Dans certains cas, il peut arriver que
+$f$ satisfasse\pageoriginale aussi bien à l'une qu'à l'autre des
+deux propriétés envisagées (\cf \hyperref[IV.subsec4.10]{4.10} pour un
+exemple). Dans ce cas, il y a lieu  d'introduire simultanément les
+morphismes de topos
+$$
+u:F\longrightarrow E \quav v:E\longrightarrow F{\quoi},
+$$
+qui donnent lieu à une suite de trois foncteurs adjoints
+(\hyperrefext[I][I.sec5.3]{5.3}):
+$$
+v^{\ast} \quav v_{\ast}=u^{\ast}=f\quav u_{\ast}{\quoi}.
+$$
+Il convient de distinguer alors soigneusement entre les morphismes
+de topos $u$ et $v$, sous peine de perdre l'intuition
+géométrique de la situation.
+
+On notera à ce propos que lorsque entre deux topos $E$, $F$ on a
+une suite de trois foncteurs adjoints
+$$
+e, f, g\; (e,g: F\rightrightarrows E, f:E\rightarrow F){\quoi},
+$$
+alors $f$ commute aux limites inductives et aux limites projectives
+quelconques, donc il peut toujours se mettre sous la forme
+$u^{\ast}$, où $u:F\rightarrow E$ est un morphisme de topos. Alors
+$g$ s'écrit donc $g=u_{\ast}$. Par contre, bien sûr, $e$ ne peut
+s'écrire sous la forme $v^{\ast}$ (et alors $f$ sous la forme
+$v_{\ast}$) que s'il commute de plus aux limites projectives finies.
+Cela sera évidemment le cas s'il est lui-même l'adjoint à droite
+d'un quatrième foncteur $d$. Sans condition de cette nature, on
+écrira souvent
+$$
+e=u_{!}
+$$
+pour l'adjoint à gauche d'un foncteur image inverse $f=u^{\ast}$ ,
+quand un tel adjoint à gauche existe, cette notation étant
+suggérée par l'exemple d'une immersion ouverte $u:X\rightarrow
+Y$ d'espaces topologiques. De même, si $e$ est de la forme
+$v^{\ast}$, \ie $f$ de la forme $v_{\ast}$, on note parfois
+$g=v^{!}$ l'adjoint à droite d'un foncteur image directe
+$v_{\ast}$, lorsque cet adjoint existe \footnote[1]{\Cf plus bas \hyperref[IV.subsec14.4]{14.4},
+dans le cas de faisceaux abéliens.}.
+
+\subsection{}\etiquette[3.2]{IV.subsec3.2}
+Soient\pageoriginale $E$, $E'$ deux $𝒰$-topos, et
+$$
+u=(u_{\ast},u^{\ast},\varphi)\quav
+v=(v_{\ast},v^{\ast},\Psi):E\rightrightarrows E'
+$$
+deux morphismes de topos de $E$ dans $E'$. On appelle
+\emph{morphisme de $u$ dans $v$} tout morphisme de $u_{\ast}$ dans
+$v_{\ast}$ (au sens de la catégorie $\Hhom(E,E')$ des foncteurs de
+$E$ dans $E'$). Les morphismes de morphismes de topos se composent
+de façon évidente, et on définit de cette façon une catégorie,
+qui est en fait une $\sheaf{\mathcal{U}}$-\emph{catégorie}
+(\hyperrefext[I][I.prop7.8]{7.8}) notée
+$$
+\Hhomtop(E,E'){\quoi},
+$$
+appelée \emph{catégorie des morphismes} (ou \emph{des
+applications continues}) \emph{de $E$ dans $E'$}. On définit alors
+de façon évidente un foncteur
+$$
+u\longmapsto u_{\ast}:\Hhomtop(E,E')\longrightarrow
+\Hhom(E,E'){\quoi},
+$$
+foncteur qui est pleinement fidèle par définition des flèches
+dans le premier membre (mais qui n'est pas injectif sur les objets).
+
+\subsubsection{}
+On fera attention que, si $u$ et $v$ sont donnés comme dessus, la
+théorie des foncteurs adjoints fournit une bijection canonique
+$$
+\Hom(u_{\ast},v_{\ast})\xrightarrow{\sim}\Hom(v^{\ast},
+u^{\ast}){\quoi};
+$$
+en particulier, on obtient un \emph{contrafoncteur} sur
+$\Hhomtop(E,E')$:
+$$
+u\longmapsto u^{\ast}:\Hhomtop(E,E')^{\circ}\longrightarrow
+\Hhom(E,E'){\quoi}.
+$$
+Conformément à l'intuition géométrique, suivant laquelle le
+foncteur image directe $u_{\ast}$ « va dans le même sens »
+que l'application continue qui lui donne naissance, il y a donc lieu
+de définir le sens des flèches pour les morphismes entre
+morphismes de topos \emph{en termes des foncteurs images directes,}
+et non en termes des foncteurs images inverses (bien que ce soient
+ces derniers qui, nous l'avons vu, possèdent les propriétés
+d'exactitude caractéristiques de la notion de morphisme de topos).
+
+\subsubsection{}\etiquette[3.2.2]{IV.subsubsec3.2.2}
+Ayant\pageoriginale  défini la catégorie $\Hhomtop(E,E')$ des
+morphismes du topos $E$ dans le topos $E'$, la notion
+d'\emph{isomorphie} entre deux morphismes $u$, $v$ de $E$ dans $E'$
+est également définie. En pratique, il n'y a pas lieu de
+distinguer essentiellement entre deux morphismes de topos
+isomorphes, tout au moins lorsqu'on dispose d'un isomorphisme
+\emph{canonique} entre les deux (tout comme il n'y a pas lieu
+souvent de distinguer entre deux éléments d'une catégorie,
+lorsqu'on se donne un isomorphisme canonique entre eux). Signalons
+à ce propos que le plus souvent, lorsqu'on traite de diagrammes de
+morphismes de topos et de questions de commutativité de tels
+diagrammes (notion qui a un sens grâce à (3.3)), il ne s'agit
+que de commutativité à isomorphisme (« canonique ») près;
+par abus de langage, on traite alors ces diagrammes comme des
+diagrammes effectivement commutatifs.
+
+On peut songer à justifier cet abus de langage en introduisant
+l'ensemble \\ $\Homtop(E,E')/\Isom$ des morphismes de $E$ dans $E'$ à
+isomorphisme près, et en appelant morphisme une telle classe
+d'isomorphie, au lieu de suivre la définition \hyperref[IV.subsec3.2]{3.2}.
+Mais ceci se heurte aux inconvénients très graves qui se présentent,
+chaque fois qu'on essaie d'identifier deux objets isomorphes d'une
+catégorie, sans disposer d'un isomorphisme canonique entre eux.
+L'expérience prouve qu'un tel point de vue est impraticable, et
+qu'il faut garder la notion « fine » \hyperref[IV.def3.1]{3.1} de la
+notion de morphisme entre morphismes de topos, quitte à être obligé,
+parfois, de se battre avec des compatibilités entre isomorphismes
+canoniques \footnote[1]{Pour des exemples de telles batailles
+(victorieuses, semble-t-il) nous renvoyons le lecteur au livre de
+Mme M. \textsc{Hakim} sur les schémas relatifs [9].}.
+
+\setcounter{subsection}{3} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[3.3.1]{IV.subsubsec3.3.1}
+Soient\pageoriginale $E$, $E'$, $E''$ trois $𝒰$-topos, et
+considérons des morphismes de topos
+$$
+u:E\longrightarrow E'\quav v:E'\longrightarrow E''{\quoi}.
+$$
+La théorie des foncteurs adjoints nous donne alors un isomorphisme
+d'adjonction entre les foncteurs composés $v_{\ast}u_{\ast}$ et
+$u^{\ast}v^{\ast}$, en termes des isomorphismes d'adjonction pour
+les couples $(u_{\ast}, u^{\ast})$ et $(v_{\ast}, v^{\ast})$.
+D'autre part, le foncteur $u^{\ast}v^{\ast}$ exact à gauche, comme
+composé de deux foncteurs exacts à gauche. Par suite, on trouve
+un morphisme de $E$ dans $E''$, qu'on appelle \emph{composé des
+morphismes $u$ et} $v$, et qu'on note $vu$:
+$$
+vu:E\longrightarrow E''{\quoi}.
+$$
+On vérifie alors trivialement que la composition des morphismes
+est associative, et que pour tout $𝒰$-topos $E$, il y a un
+morphisme de $E$ dans lui-même qui est une unité bilatère pour
+la composition: c'est le morphisme $(\id_E, \id_E, \varphi)$, où
+$\varphi$ est l'isomorphisme d'adjonction évident de $\id_E$ avec
+lui-même. Soit alors $𝒱$ un univers tel que $𝒰\in
+𝒱$. On définit une catégorie
+$$
+(𝒱\text{-}𝒰\text{-}\Top){\quoi},
+$$
+dont les objets sont les $𝒰$-topos qui sont $\in 𝒱$,
+les flèches sont les morphismes entre de tels $𝒰$-topos,
+et la composition des flèches étant celle qu'on vient
+d'expliciter.
+
+\subsubsection{}\etiquette[3.3.2]{IV.subsubsec3.3.2}
+En fait, l'application de composition
+$$
+\Homtop(E, E')\times \Homtop(E',E'')\longrightarrow \Homtop(E,E'')
+$$
+est l'application induite sur les objets par un « foncteur
+composition des morphismes »:
+$$
+\Hhomtop(E,E')\times \Hhomtop(E',E'')\longrightarrow
+\Hhomtop(E,E''){\quoi},
+$$
+dont\pageoriginale l'effet sur les flèches est l'opération « produit de convolution »  habituel pour des morphismes entre
+foncteurs (ici des foncteurs image directe). Ces foncteurs
+composition satisfont à une propriété d'associativité
+(stricte), pour quatre topos $E$, $E'$, $E''$, $E'''$, précisant
+l'associativité de la composition des morphismes de topos. On peut
+dire aussi, dans un langage qui commence à devenir familier [2],
+[9], que les $𝒰$-topos sont les objets (ou 0-flèches)
+d'une 2-\emph{catégorie}, dont les 1-flèches sont les morphismes
+de topos, et les 2-flèches sont les morphismes de morphismes de
+topos.
+
+C'est le fait que les $𝒰$-topos (éléments d'un univers
+$𝒱$) forment une 2-catégorie, et non plus seulement une
+catégorie ordinaire comme les espaces topologiques ordinaires, qui
+constitue du point de vue technique la différence la plus
+importante entre la théorie des topos et celle des espaces
+topologiques. Ce fait est la source de certaines complications
+techniques auxquelles on a déjà fait allusion, mais aussi de
+faits essentiellement nouveaux par rapport à la topologie
+traditionnelle.
+
+\subsection{}\etiquette[3.4]{IV.subsec3.4}
+Le fait que les $𝒰$-topos (éléments d'un univers
+$𝒱$) forment une 2-catégorie (\hyperref[IV.subsubsec3.3.2]{3.3.2})
+permet en particulier de définir la notion d'\emph{équivalence de
+deux $𝒰$-topos $E$, $E'$}: on dira que $E$ et $E'$ sont
+\emph{équivalents} s'il existe des morphismes de topos
+$u:E\rightarrow E'$ et $v:E'\rightarrow E$, tels que les composés
+$uv$ et vu soient isomorphes respectivement au morphisme identique
+de $E$ et de $E'$; on dit alors que les morphismes $u$ et $v$ sont
+des\pageoriginale \emph{équivalences quasi-inverses l'une de
+l'autre.}
+
+On constate aussitôt que pour que le morphisme de topos
+$u:E\rightarrow E'$ soit une équivalence, il faut et il suffit que
+$u_{\ast}$ soit une équivalence, ou ce qui revient au même, que
+$u^{\ast}$ soit une équivalence. (Utiliser le fait qu'un foncteur
+$f:E\rightarrow E'$ entre deux topos qui est une équivalence est
+à la fois de la forme $u_{\ast}$ et de la forme $v^{\ast}$, avec
+$u$ et $v$ des morphismes de topos); et pour que $E$ et $E'$ soient
+équivalents au sens de l'alinéa précédent, il faut et il
+suffit qu'ils soient équivalents en tant que catégories (\ie
+comme objets de la 2-catégorie $(𝒱\text{-}\cat)$). Comme
+de juste, cela montre que les notions d'équivalence introduites ne
+dépendent pas du choix de l'univers $𝒱$ de
+\hyperref[IV.subsubsec3.3.1]{3.3.1}.
+
+\subsubsection{}\etiquette[3.4.1]{IV.subsubsec3.4.1}
+Pratiquement, il n'y a pas lieu le plus souvent de distinguer
+essentiellement entre $𝒰$-topos équivalents, tout comme il
+n'y a pas lieu souvent de distinguer essentiellement entre deux
+catégories équivalentes, --- à condition toutefois qu'on
+dispose d'une équivalence explicite de l'un à l'autre, ou tout
+au moins une équivalence définie à isomorphisme unique près.
+C'est la notion d'équivalence de topos qui remplace ici la notion
+traditionnelle d'homéomorphie entre deux espaces topologiques.
+Voir l'exemple \hyperref[IV.subsec4.2]{4.2} plus bas pour les relations
+précises entre ces deux notions.
+
+\section{Exemples de morphismes de topos}\etiquette[4]{IV.sec4}
+
+Nous reprenons ici les exemples de 2, en utilisant la notion de
+morphisme de topos. Les commentaires de \hyperref[IV.subsec2.0]{2.0}
+s'appliquent également au présent numéro. L'univers
+$𝒰$ sera généralement sous-entendu.
+
+\subsection{Le topos $\Top(X)$ pour un espace topologique $X$
+variable}\etiquette[4.1]{IV.subsec4.1}\pageoriginale
+
+\subsubsection{}\etiquette[4.1.1]{IV.subsubsec4.1.1}
+Soit une application continue
+$$
+f:X\longrightarrow Y
+$$
+d'espaces topologiques, on va lui associer canoniquement un
+morphisme de topos
+$$
+\Top(f)\mbox{ ou } f:\Top(X)\rightarrow \Top(Y){\quoi},
+$$
+avec les notations de \hyperref[IV.subsec2.1]{2.1}. Lorsqu'on définit
+$\Top(X)$ comme $\Ouv(X)^{\widetilde{\phantom{,}}}$, la description
+la plus commode de $\Top(f)$ est par le foncteur image directe de
+faisceaux
+$$
+f_{\ast}:\Top(X)\longrightarrow \Top(Y){\quoi},
+$$
+défini par la formule
+$$
+f_{\ast}(F)=F\circ f^{-1}{\quoi},
+$$
+où
+$$
+f^{-1}:\Ouv(Y)\longrightarrow \Ouv(X)
+$$
+est le foncteur évident $U\rightarrow f^{-1}(U)$. On a déjà noté que
+ce foncteur est continu et exact à gauche, dont définit bien un
+foncteur $f_{\ast}$ ci-dessus, admettant un adjoint à droite
+$f^{\ast}$ qui est exact à gauche (\hyperrefext[III][III.exem1.9.1]{1.9.1}). Bien
+entendu, en toute rigueur, le morphisme de Topos $\Top(f)$ dépend du
+choix de l'adjoint à droite $f^{\ast}$ de $f_{\ast}$, donc n'est
+défini qu'à isomorphisme canonique près. On se dispensera par la
+suite de signaler expressément des phénomènes de ce genre.
+
+Lorsqu'on adopte le point de vue « espaces étalés »  pour
+définir $\Top(X)$, c'est le foncteur image inverse
+$$
+f^{\ast}:\Top(Y)\longrightarrow \Top(X)
+$$
+qui\pageoriginale est le plus commode pour définir le morphisme de
+Topos $\Top(f)$, en posant simplement
+$$
+f^{\ast}(Y')=\fprod{X}{Y'}{Y}
+$$
+pour tout espace étalé $Y'$ sur $Y$; il est évident que le
+produit fibré est bien un espace étale sur $X$, et que le
+foncteur $f^{\ast}$ ainsi obtenu est exact à gauche et commute aux
+$\varinjlim$ quelconques, et définit par suite un morphisme de
+topos $\Top(f)$. Pour la compatibilité des deux définitions
+obtenues, nous renvoyons à [TF].
+
+Lorsqu'on a deux applications continues composables
+$$
+X\xrightarrow{f}Y\xrightarrow{g}Z{\quoi},
+$$
+de morphismes de topos. Ces \emph{isomorphismes de transitivité},
+pour trois applications continues composables $f$, $g$, $h$
+satisfont à une relation de compatibilité que nous nous
+dispensons d'écrire ici, et qui n'est autre que celle envisagée
+dans \SGA 1 VI 7.4 B) (pour $\epsilon = (\Esp)^{\circ}$). On peut
+l'exprimer en disant que pour $X$ variable dans la catégorie
+$(\Esp)$,
+$$
+X\longmapsto \Top(X)
+$$
+est un « pseudo-foncteur »
+\begin{equation*}
+(𝒰\text{-}\esp)\longrightarrow
+(𝒱\text{-}𝒰\text{-}\top){\quoi},\tag{4.1.1.1}
+\end{equation*}\etiquette[4.1.1.1]{IV.eq4.1.1.1}
+ou aussi, dans la terminologie des 2-catégories, qu'on a un
+foncteur \emph{non strict} de 2-catégories [9]. En pratique, on se
+permettra le plus souvent l'abus de langage consistant à
+identifier $\Top(gf)$ et $\Top(g)\Top(f)$, c'est-à-dire de
+raisonner comme si \eqhyperref[IV.eq4.1.1.1]{4.1.1.1} était un vrai foncteur de
+catégories\pageoriginale ordinaires. On se permettra les abus de
+langage analogues dans les autres exemples qui seront traités
+ci-dessous.
+
+\subsubsection{}\etiquette[4.1.2]{IV.subsubsec4.1.2}
+Les considérations précédentes s'étendent immédiatement au
+cas des topos associés aux espaces topologiques à groupes
+d'opérateurs (\hyperref[IV.subsec2.3]{2.3}). Si $f=(f^{\es},f^{\gr})$,
+$$
+f:(X,G)\longrightarrow (Y,H)
+$$
+est un morphisme d'espaces à opérateurs (où
+$$
+f^{\es}:X\longrightarrow Y\quav f^{\gr}:G\longrightarrow H
+$$
+sont respectivement des applications continues et des morphismes de
+groupes, compatibles dans un sens évident), on lui associe un
+morphisme de topos
+$$
+\Top(f)\mbox{ ou } f:\Top(X,G)\longrightarrow \Top(Y,H){\quoi},
+$$
+dont la définition est laissée au lecteur. Lorsque les groupes
+$G$ et $H$ sont les groupes unité, on retrouve la définition de
+\hyperref[IV.subsubsec4.1.1]{4.1.1}; lorsque par contre ce sont les espaces $X$
+et $Y$ qui sont réduits à un point, on trouve comme foncteur
+image inverse $f^{\ast}$ le foncteur « restriction du groupe
+d'opérateurs »
+$$
+f^{\ast}:B_H\longrightarrow B_G{\quoi},
+$$
+associant à tout $H$-ensemble le $G$-ensemble qu'il définit
+grâce à $f:G\rightarrow H$. On retrouvera cet exemple sous
+d'autres formes encore dans \hyperref[IV.subsec4.5]{4.5} et
+\hyperref[IV.subsubsec4.6.1]{4.6.1}.
+
+\subsubsection{}\etiquette[4.1.3]{IV.subsubsec4.1.3}
+Étant donné une application continue $f:X\rightarrow Y$ d'espaces
+topologiques, on lui associe également un morphisme sur les « gros
+topos »  correspondants (\hyperref[IV.subsec2.5]{2.5})
+$$
+\TOP(f)\mbox{ ou } f:\TOP(X)\longrightarrow \TOP(Y){\quoi},
+$$
+défini\pageoriginale le plus commodément par le foncteur image
+inverse
+$$
+f^{\ast}:\TOP(Y)\longrightarrow \TOP(X){\quoi},
+$$
+qui n'est autre que le \emph{foncteur restriction}. Ce morphisme
+$\TOP(f)$ est un cas particulier du morphisme dit
+« d'inclusion » pour un topos induit, qui sera étudié dans 5. On voit ainsi
+que, sous les mêmes réserves que dans \hyperref[IV.subsubsec4.1.1]{4.1.1},
+le topos $\TOP(X)$ peut être considéré comme un foncteur en
+$X$, pour $X$ variable dans $(\Esp)$.
+
+\subsection{Propriétés de fidélité de $X\mapsto \Top(X)$}\etiquette[4.2]{IV.subsec4.2}
+
+Nous nous proposons de préciser dans quelle mesure un espace
+topologique $X$ peut se reconstituer en termes du topos $\Top(X)$,
+et dans ce but il convient de décrire, pour deux espaces $X$ et $Y$,
+la catégorie des morphismes de $\Top(X)$ dans $\Top(Y)$
+(\hyperref[IV.subsec3.2]{3.2}), de façon à pouvoir préciser les propriétés
+de fidélité du « foncteur »  $X\mapsto \Top(X)$. Nous nous
+bornons à énoncer les résultats auxquels on parvient, en renvoyant
+le lecteur à [9] pour des détails. Le lecteur qui voudra faire
+l'exercice de vérification lui-même pourra consulter l'exer.
+\hyperref[IV.exer7.8]{7.8}.
+
+\subsubsection{}\etiquette[4.2.1]{IV.subsubsec4.2.1}
+Rappelons qu'un espace topologique $X$ est dit \emph{sobre} si toute
+partie fermée irréductible de $X$ a exactement un point
+générique. Signalons que presque tous les espaces utilisés en
+pratique sont sobres; il en est en particulier ainsi d'un espace
+séparé, plus généralement d'un espace dont tous les points
+sont fermés, ou de l'espace sous-jacent à un schéma. Si $X$
+est un espace topologique, on lui associe (\loccit ou \EGA
+$0_I$, réédition) un espace topologique sobre $X_{\sob}$
+et une application continue\pageoriginale
+\begin{equation*}
+\varphi: X\longrightarrow X_{\sob}\tag{4.2.1.1}
+\end{equation*}\etiquette[4.2.1.1]{IV.eq4.2.1.1}
+qui soit \emph{universelle} pour les applications continues de $X$
+dans des espaces sobres; en d'autres termes, on construit un
+foncteur adjoint à gauche $X\mapsto X_{\sob}$ du foncteur
+d'inclusion $(\Espsob)\rightarrow (\Esp)$ de la catégorie des
+espaces sobres dans celle des espaces topologiques
+« quelconques » (les guillemets rappelant qu'il y a un univers !). La
+construction explicite se fait en prenant comme points de $X_{\sob}$
+les parties fermées irréductibles de $X$, comme ouverts les
+ensembles de la forme $U'$, où $U$ est en ouvert de $X$ et où
+$U'\subset X_{\sob}$ désigne l'ensemble des parties fermées
+irréductibles de $X$ qui rencontrent $U$. L'application
+\eqhyperref[IV.eq4.2.1.1]{4.2.1.1} est obtenue en associant à tout $x\in X$
+l'adhérence de $\{x\}$. L'espace $X$ est sobre si et seulement si
+l'application précédente est bijective, donc un
+homéomorphisme.
+
+On constate que le foncteur
+$$
+\varphi^{-1}:\Ouv(X_{\sob})\longrightarrow \Ouv(X)
+$$
+induit par $\varphi$ est un isomorphisme, ce qui implique que le
+morphisme de topos
+$$
+\Top(\varphi):\Top(X)\longrightarrow \Top(X_{\sob})
+$$
+défini par $\varphi$ est également un isomorphisme. Ceci explique à
+priori pourquoi $X_{\sob}$ doit s'introduire nécessairement dans la
+question de reconstituer $X$ à partir de $\Top(X)$: comme ce dernier
+ne dépend que de $X_{\sob}$ à isomorphisme près, la question ne
+pourra avoir une réponse affirmative que si $X$ est sobre. Nous
+préciserons plus bas (\hyperref[IV.subsec7.1]{7.1}) comment $X_{\sob}$ peut
+effectivement se\pageoriginale reconstituer en termes de $\Top(X)$,
+en interprétant ses points comme des « points »  du topos
+$\Top(X)$ (ou encore comme des foncteurs fibres).
+
+\subsubsection{}\etiquette[4.2.2]{IV.subsubsec4.2.2}
+Sur tout espace topologique, il y a lieu d'introduire la relation
+d'ordre $\leq$ pour laquelle on a
+$$
+x\leq y\Longleftrightarrow \bar{\{x\}}\subset \bar{\{y\}}\mbox{ \ie
+} x\in \bar{\{y\}}
+$$
+(qu'on exprime encore en disant que $x$ est une
+\emph{spécialisation} de $y$, ou que $y$ est une
+\emph{générisation} de $x$). Pour un espace de la forme
+$X_{\sob}$, ce n'est autre que la relation d'inclusion entre parties
+fermées irréductibles de $X$.
+
+Ceci posé, il y a lieu d'introduire, sur l'ensemble des
+applications d'un espace $X$ dans un autre $Y$, la relation d'ordre
+dite de « spécialisation », déduite de celle de $Y$, savoir
+$$
+f\leq g\Longleftrightarrow f(x)\leq g(x)\mbox{ pour tout } x\in
+X{\quoi}.
+$$
+Avec ces conventions, on a le résultat suivant:
+
+\subsubsection{}\etiquette[4.2.3]{IV.subsubsec4.2.3}
+\emph{Soient $X$, $Y$ deux espaces topologiques, avec $Y$ sobre, et
+soient $f$ et $g$ deux applications continues de $X$ dans $Y$. Alors
+il y a au plus un morphisme de $\Top(f)$ dans $\Top(g)$, et pour
+qu'il y en ait un, il faut et il suffit que $g$ soit une
+spécialisation de $f$. Enfin, tout morphisme de topos
+$\Top(X)\rightarrow \Top(Y)$ est isomorphe à un morphisme de la
+forme $\Top(f)$, où $f:X\rightarrow Y$ est une application
+continue (uniquement déterminée grâce à la première assertion).}
+
+Si\pageoriginale on définit la catégorie $\cat(I)$ associé à
+un ensemble ordonné I en déclarant que pour $i\geq j$, il y a
+exactement une flèche de $i$ dans $j$, on peut résumer le
+résultat précédent en disant qu'on a une équivalence de
+catégories canonique
+$$
+\cat(\Hom_{(\esp)}(X,Y))\xrightarrow{\approx}\Hhomtop(\Top(X),\Top(Y))
+$$
+(où le deuxième membre est défini dans \hyperref[IV.subsec3.2]{3.2}).
+
+On conclut formellement de ces résultats:
+
+\begin{enonce*}{Corollaire 4.2.4}\etiquette[4.2.4]{IV.cor4.2.4}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Soit $f:X\rightarrow Y$ une application continue. Alors
+$\Top(f):\Top(X)\rightarrow \Top(Y)$ est une équivalence de topos
+si et seulement si $f_{\sob}:X_{\sob}\rightarrow Y_{\sob}$ est un
+homéomorphisme (donc, lorsque $X$ et $Y$ sont sobres, si et
+seulement si $f$ est un homéomorphisme).
+
+\item Soient $X$ et $Y$ des espaces topologiques. Pour que $\Top(X)$
+et $\Top(Y)$ soient équivalents, il faut et il suffit que
+$X_{\sob}$ et $Y_{\sob}$ soient homéomorphes (donc, si $X$ et $Y$
+sont sobres, il faut et suffit que $X$ et $Y$ soient
+homéomorphes).
+\end{enumerate}
+\end{enonce*}
+
+\subsection{Morphismes dans le topos final: objets constants d'un topos,
+foncteurs sections}\etiquette[4.3]{IV.subsec4.3}
+
+Désignons par $P$ (initiale de « point ») le topos final type,
+\ie $P=(\Ens)$ (\hyperref[IV.subsec2.2]{2.2}). Soit $E$ un topos quelconque,
+on va voir qu'\emph{à isomorphisme unique près, il existe un
+unique morphisme de topos}
+$$
+f:E\rightarrow P
+$$
+plus précisément, que \emph{la catégorie $\Hhomtop(E,P)$ est
+équivalente à la catégorie ponctuelle}: pour deux objets de
+cette catégorie, il existe donc une\pageoriginale unique flèche
+de l'un dans l'autre, et c'est un isomorphisme. (Cela justifie dans
+une certaine mesure l'appellation « topos final »). Pour ceci,
+rappelons (3.2.1) que $\Hhomtop(E,P)$ est équivalente à la
+sous-catégorie pleine de $\Hhom(P,E)^{\circ}$ formée des
+foncteurs
+$$
+f^{\ast}:P=(\Ens)\longrightarrow E
+$$
+qui commutent aux $\varinjlim$ et sont exacts à gauche. Soit $e$ un
+ensemble ponctuel, alors tout ensemble $X$ s'écrit canoniquement
+comme « somme de $X$ copies de $e$ », d'où résulte que la
+catégorie des foncteurs $g:(\Ens)\rightarrow E$ qui commutent aux
+$\varinjlim$ est équivalente à la catégorie $E$, en associant à tout
+$g$ l'objet $g(e)$ de $E$. On reconstitue $g$ en termes de $T=g(e)$,
+à isomorphisme unique près, par $g(I)=T\times I$, où on pose
+$T\times I=\amalg_{i\in I}T_i$, avec $T_i=T$ pour tout $i\in I$. Que
+le foncteur en $I$ ainsi défini par $T$ commute bien aux
+$\varinjlim$ résulte du fait qu'il est manifestement adjoint à
+\sisi{droite}{gauche} du foncteur $X\mapsto \Hom(T,X)$ de $E$ dans $(\Ens)$. Ceci
+dit, pour que $g$ soit exact à gauche, il est évidemment nécessaire
+que $g(e)=T$ soit un objet final de $E$ (puisque $e$ est un objet
+final de $(\Ens)$), et il résulte facilement du fait que dans $E$
+« les sommes sont universelles »  (\hyperref[IV.subsubsec1.1.2]{1.1.2} b))
+que cette condition est aussi suffisante. On trouve donc que la
+catégorie des foncteurs $f^{\ast}$ images inverses est équivalente à
+la catégorie des objets finaux de $E$, qui est évidemment elle-même
+équivalente à la catégorie finale.
+
+D'après ce qui précède, on voit que le choix d'un morphisme
+(4.3.1) équivaut essentiellement à celui d'un objet final de
+$E$, soit $e_E$. En termes de celui-ci, on a alors des isomorphismes
+canoniques de foncteurs
+\begin{equation*}
+ f^{\ast}(I)\simeq e_E\times
+I=\mbox{ somme de } I \mbox{ copies de } e_E \quad \mbox{ pour } I\in \ob
+(\Ens),\tag{4.3.2}
+\end{equation*}\etiquette[4.3.2]{IV.eq4.3.2}
+et\pageoriginale
+\begin{equation*}
+f_{\ast}(X)=\Hom(e_E,X) \quad \quad \mbox{ pour } X\in \Ob E.\tag{4.3.3}
+\end{equation*}\etiquette[4.3.3]{IV.eq4.3.3}
+
+
+\setcounter{subsubsection}{3}
+\subsubsection{}\etiquette[4.3.4]{IV.subsubsec4.3.4}
+Les deux foncteurs précédents joueront par la suite un rôle
+important. Pour un ensemble $I$, on appelle \emph{objet constant de
+valeur} $I$ dans $E$ (ou, lorsque $E$ est réalisé comme une
+catégorie $C^{\widetilde{\phantom{,}}}$ en termes d'un site $C$,
+\emph{faisceau constant de valeur $I$ sur $C$}), l'objet
+$f^{\ast}(I)=e_E\times I$ de \eqhyperref[IV.eq4.3.2]{4.3.2}. On le notera aussi
+souvent $I_E$, où $I_C$ lorsque $E$ est défini par le site $C$.
+Le fait que $I\mapsto I_E$ soit le foncteur image inverse d'un
+morphisme de topos en précise les propriétés d'exactitude, qui
+impliquent en particulier que ce foncteur respecte toutes les
+espèces de structure algébriques habituelles, transformant un
+groupe en un objet groupe de $E$ etc (\hyperref[IV.subsubsec3.1.2]{3.1.2}).
+Lorsqu'on a par exemple un Groupe $G$ de $E$, on dira que c'est un
+\emph{Groupe constant} (ou, le cas échéant, un \emph{faisceau en
+groupes constant}) s'il est isomorphe à un groupe de la forme
+$G_{\circ E'}$ où $G_{\circ}$ est un groupe ordinaire. Même
+terminologie pour toute autre espèce de structure
+« algébrique », au sens précisé (plus ou moins) dans
+\hyperref[IV.subsubsec3.1.2]{3.1.2}.
+
+\subsubsection{}\etiquette[4.3.5]{IV.subsubsec4.3.5}
+On fera attention que le foncteur $I\mapsto I_E$ n'est pas
+nécessairement pleinement fidèle (ni même fidèle: prendre
+pour $E$ le « topos vide »  (\hyperref[IV.subsec2.2]{2.2})), donc un objet
+constant de $E$ ne détermine pas en général à isomorphisme
+unique près l'ensemble $I$ qui lui donne naissance. On dit que $E$
+est $0$-\emph{acyclique}, ou \emph{connexe-non vide}, si le foncteur
+$I\mapsto I_E$ est pleinement fidèle. Il revient au même,
+d'après les propriétés générales des foncteur adjoints, de
+dire que le morphisme d'adjonction
+$$
+I\longrightarrow f_{\ast}(f^{\ast}(I))=f_{\ast}(I_E)=\Hom(e_E, I_E)
+$$
+est\pageoriginale un isomorphisme (de sorte que le foncteur
+\eqhyperref[IV.eq4.3.3]{4.3.3} permet de récupérer la « valeur »  d'un objet
+constant de E). On vérifie facilement qu'il faut et il suffit pour
+cela que $e_E$ ne soit pas l'objet initial $\phi_E$ de $E$, \ie que
+$E$ ne soit pas un « topos vide » (ce qui exprime la
+\emph{fidélité} du foncteur $I\mapsto I_E$ \footnote[1]{ou encore le
+fait que ce foncteur est conservatif (\hyperrefext[I][I.cor6.3]{6.3}).}), \emph{et}
+que $e_E$ soit un objet \emph{connexe} de $E$, \ie ne soit pas somme
+de deux objets de $E$ qui ne soient pas « vides » (\ie qui ne
+soient pas des objets initiaux de $E$).
+
+\subsubsection{}\etiquette[4.3.6]{IV.subsubsec4.3.6}
+Le foncteur \eqhyperref[IV.eq4.3.3]{4.3.3} est aussi souvent appelé \emph{foncteur
+sections} et noté $\Gamma_E$ ou $\Gamma(E,-)$ ou simplement
+$\Gamma$:
+\begin{equation*}
+\Hom(e_E,X)=\Gamma_E(X)=\Gamma(E,X)=\Gamma(X){\quoi}.\tag{4.3.6.1}
+\end{equation*}
+C'est un foncteur commutant aux limites projectives quelconques,
+mais pas exact à droite en général, dont les foncteurs
+dérivés (sur les objets groupes abéliens) seront étudiés
+dans le prochain exposé.
+
+\subsection{Morphismes du « topos vide »}\etiquette[4.4]{IV.subsec4.4}
+
+Soit $\phi_{\text{top}}$ un topos vide, qui correspond donc à une
+catégorie de faisceaux $\Phi$ équivalente à la catégorie finale
+(\hyperref[IV.subsec2.2]{2.2}). Soit $E$ un topos. La catégorie des foncteurs
+de $E$ dans $\Phi$ est évidemment équivalente à la catégorie
+ponctuelle, et tout tel foncteur commute aux limites inductives et
+projectives (sans aucun mérite d'ailleurs), donc peut être considéré
+comme un foncteur image inverse $f$ pour un morphisme de topos
+$\phi_{\text{top}}\rightarrow E$. Il en résulte que la
+\emph{catégorie $\Hhomtop(\phi_{\text{top}},E)$ est équivalente à la
+catégorie ponctuelle,} et en particulier qu'\emph{il existe à
+isomorphisme\pageoriginale unique près un et un seul morphisme de
+topos}
+\begin{equation*}
+\phi_{\text{top}}\longrightarrow E{\quoi}.\tag{4.4.1}
+\end{equation*}\etiquette[4.4.1]{IV.eq4.4.1}
+Ceci justifie dans une certaine mesure la terminologie « topos
+initial »  introduite dans \hyperref[IV.subsec2.2]{2.2}.
+
+On peut aussi déterminer les morphismes de topos
+\begin{equation*}
+E\longrightarrow \phi_{\text{top}}{\quoi}\ ;\tag{4.4.2}
+\end{equation*}\etiquette[4.4.2]{IV.eq4.4.2}
+on vérifie aussitôt qu'il existe un tel morphisme si et
+seulement si l'objet initial de $E$ est aussi un objet final, \ie si
+et seulement si $E$ lui-même est un « topos vide », et que
+dans ce cas la catégorie $\Hhomtop(E,\phi_{\text{top}})$ est
+encore équivalente à la catégorie ponctuelle. L'unique
+morphisme \eqhyperref[IV.eq4.4.2]{4.4.2} (modulo isomorphie) est alors une
+équivalence de topos.
+
+\subsection{Le topos classifiant $B_G$ pour $G$ Groupe variable}\etiquette[4.5]{IV.subsec4.5}
+
+\subsubsection{}\etiquette[4.5.1]{IV.subsubsec4.5.1}
+Soient $E$ un topos, et
+$$
+f:G\longrightarrow H
+$$
+un morphisme de Groupes dans $E$. On en déduit un foncteur « restriction du Groupe d'opérateurs »
+$$
+f^{\ast}:B_H\longrightarrow B_G{\quoi},
+$$
+où les notations sont celles de \hyperref[IV.subsec2.4]{2.4}. Il est trivial
+que ce foncteur commute aux limites inductives et aux limites
+projectives, a fortiori il peut être interprété comme un
+foncteur image inverse associé à un morphisme de topos
+$$
+B_f\mbox{ ou } f:B_G\longrightarrow B_H{\quoi}.
+$$
+On\pageoriginale explicite aisément le foncteur image directe
+correspondant
+$$
+f_{\ast}:B_G\longrightarrow B_H
+$$
+par la formule
+$$
+f_{\ast}(X)=\Hhom_G(H_s,X){\quoi},
+$$
+où $X$ est un objet de \sisi{$X$}{$E$} avec $G$ opérant à gauche, où
+$H_s$ est $H$ regardé comme muni des opérations à gauche par
+$G$ déduites de \sisi{$F$}{$f$}, et où $\Hhom_G$ désigne le sous-objet
+qu'on devine de l'objet $\Hhom$ défini plus bas (\hyperref[IV.subsec10.2]{10.2}); on fait
+opérer $H$ à gauche sur $\Hhom_G(H_s,X)$ grâce aux
+opérations droites de $H$ sur $H_s$ par translations à
+\emph{droite}.
+
+Comme le foncteur image inverse $f^{\ast}$ commute aux \sisi{$\varinjlim$}{$\varprojlim$}
+quelconques (et non seulement aux \sisi{$\varinjlim$}{$\varprojlim$} finies), il est
+lui-même l'adjoint à droite d'un foncteur
+$$
+f_{!}:B_G\longrightarrow B_H{\quoi},
+$$
+de sorte qu'on a une suite de trois foncteurs adjoints comme dans
+\hyperref[IV.subsubsec3.1.3]{3.1.3}:
+$$
+f_{!},f^{\ast}, f_{\ast}{\quoi}.
+$$
+On explicite aisément $f_{!}$ par la formule
+$$
+f_{!}(X)=H\times {}^GX{\quoi},
+$$
+où le deuxième membre désigne le « produit contracté »,
+déduit des opérations de $G$ sur $X$ (à gauche) et sur $H$
+(à droite via translations à droite et $f$), défini comme le
+quotient de $H\times X$ par $G$ opérant par la formule
+$$
+g\circ (h,x)=(hg^{-1}, gx){\quoi}.
+$$
+
+Le foncteur $f_{!}$, étant un adjoint à gauche, commute
+évidemment aux limites inductives, mais il n'est pas en
+général exact à gauche (\ie il\pageoriginale ne peut être
+considéré à son tour comme un foncteur image inverse par un
+morphisme de topos $B_H\rightarrow B_G$). En fait, on vérifie
+facilement qu'il ne peut être exact à gauche que si
+$f:G\rightarrow H$ est un isomorphisme. De même, le foncteur
+$f_{\ast}$, qui commute aux limites projectives, n'est pas en
+général exact à droite, et a fortiori n'admet pas en
+général d'adjoint à droite. Tout au moins lorsque $E$ est le
+topos ponctuel \ie que $G$ et $H$ sont des groupes ordinaires,
+$f_{\ast}$ n'est exact à droite que si $f$ est un isomorphisme.
+
+Lorsqu'on a un deuxième morphisme de groupes $g:H\rightarrow K$,
+on trouve comme dans \hyperref[IV.subsubsec4.1.1]{4.1.1} une transitivité à
+isomorphisme canonique près, de sorte que, sous la réserve
+habituelle, on peut considérer que le topos classifiant $B_G$
+dépend \emph{fonctoriellement} du Groupe $G$. On laisse au lecteur
+le soin de généraliser ce comportement fonctoriel pour le cas où
+on fait varier simultanément $G$ \emph{et} le topos $E$.
+
+\subsubsection{Le topos $B_{𝒢}$ pour un pro-groupe variable
+  $G$}\etiquette[4.5.2]{IV.subsubsec4.5.2}
+
+On laisse au lecteur le soin de préciser le caractère covariant
+du topos $B_{𝒢}$ (\hyperref[IV.subsec2.7]{2.7}) par rapport à
+$𝒢$, en calquant l'exposé que nous en donnons dans
+\hyperref[IV.subsubsec4.5.1]{4.5.1}. On fera attention cependant que dans le cas
+d'un morphisme $f:𝒢\rightarrow ℋ$ de pro-groupes qui
+ne sont pas essentiellement constants, le morphisme de topos
+correspondant $B_{𝒢}\rightarrow B_{ℋ}$ ne permet pas
+en général la définition d'un foncteur $f_{!}$ (dont l'adjoint
+à droite soit le foncteur $f^{\ast}$ de restriction du pro-groupe
+d'opérateurs). Supposant, pour simplifier l'énoncé, que
+$𝒢$ et $ℋ$ soient définis par des groupes
+\emph{profinis} $G$ et $H$, on voit facilement que $f_{!}$ existe si
+et seulement si l'image du morphisme envisagé $f:G\rightarrow H$
+est d'indice fini dans $H$, et  dans\pageoriginale ce cas $f_{!}$
+est donné par la même formule que dans \hyperref[IV.subsec4.5]{4.5}.
+
+\subsection{Le topos $\widehat{C}$ pour $C$ catégorie variable}\etiquette[4.6]{IV.subsec4.6}
+
+\subsubsection{}\etiquette[4.6.1]{IV.subsubsec4.6.1}
+Soit
+$$
+f:C\longrightarrow C'
+$$
+un foncteur d'une catégorie $C\in 𝒰$ dans une autre $C'$,
+d'où un foncteur
+$$
+f^{\ast}:\widehat{C}'\longrightarrow \widehat{C}\quav
+f^{\ast}(F)=F\circ f{\quoi}.
+$$
+Il est trivial que ce foncteur commute aux limites projectives et
+aux limites inductives, a fortiori il peut être considéré
+comme le foncteur image inverse pour un morphisme de topos
+$$
+\widehat{f}\mbox{ ou } f:\widehat{C}\rightarrow \widehat{C}'{\quoi}.
+$$
+Le foncteur image directe correspondant
+$$
+f_{\ast}:\widehat{C}\longrightarrow \widehat{C}'
+$$
+n'est autre que le foncteur également noté $f_{\ast}$ dans I 5.1. De
+plus (comme il était à prévoir du fait que $f^{\ast}$ commute
+également aux $\varprojlim$ quelconques) $f^{\ast}$ admet aussi un
+adjoint à gauche
+$$
+f_{!}:C\longrightarrow C'{\quoi},
+$$
+(qui était noté aussi $f_{!}$ dans \hyperrefext[I][I.prop5.1]{5.1}). On obtient donc
+une suite de trois foncteurs adjoints
+$$
+f_{!}, f^{\ast}, f_{\ast}{\quoi},
+$$
+le premier étant d'ailleurs un prolongement de $f:C\rightarrow C'$
+aux catégories de préfaisceaux (pour le plongement habituel de $C$,
+$C'$ dans les catégories $\widehat{C}$, $\widehat{C}'$). On fera
+attention que le foncteur $f_{!}$ n'est pas en général exact à
+gauche, ni $f_{\ast}$ exact à droite, ce qui lève donc toute
+ambiguïté sur la direction\pageoriginale de la variance du topos
+$\widehat{C}$ associé à la catégorie variable $C$: ce topos est un
+foncteur \emph{covariant} en $C$, sous la réserve habituelle
+provenant des isomorphismes de transitivité (\cf
+\hyperref[IV.subsubsec4.1.1]{4.1.1}). Lorsque l'ensemble des objets de $C$ et de
+$C'$ est réduit à un élément, de sorte que $C$ et $C'$ s'identifient
+à des monoïdes $G$, $G'$, les topos correspondants sont les topos
+classifiants $B_{G^{\circ}}$ et $B_{{G'}^{\circ}}$, et on retrouve
+la variance de ceux-ci pour $G$ variable rencontrée déjà à d'autres
+points de vue dans \hyperref[IV.subsubsec4.1.2]{4.1.2} et \hyperref[IV.subsec4.5]{4.5}
+(où la restriction à des groupes au lieu de monoïdes n'avait rien
+d'essentiel).
+
+\subsubsection{}\etiquette[4.6.2]{IV.subsubsec4.6.2}
+On peut préciser la dépendance 2-fonctorielle du topos
+$\widehat{C}$ par rapport à $C$, en introduisant pour deux
+catégories $C$, $C'\in 𝒰$ un foncteur canonique
+\begin{equation*}
+\Hhom(C,C')\longrightarrow
+\Hhomtop(\widehat{C},\widehat{C}'){\quoi}.\tag{4.6.2.1}
+\end{equation*}\etiquette[4.6.2.1]{IV.eq4.6.2.1}
+Il reste à définir ce foncteur sur les flèches, et pour ceci
+on note que $f\mapsto f^{\ast}$ permet d'identifier (à
+équivalence de catégories près) le deuxième membre à une
+sous-catégorie pleine de $\Hhom(\widehat{C}',
+\widehat{C})^{\circ}$ (3.2.1). Or si $f$, $g:C\rightarrow C'$ sont
+deux foncteurs, tout morphisme $u:f\rightarrow g$ de foncteurs
+définit un morphisme $f\circ g\rightarrow F\circ f$ de foncteurs
+en $F\in \ob \widehat{C}'$ ($F$ étant un \emph{contra}foncteur),
+qui est donc un morphisme $g^{\ast}\rightarrow f^{\ast}$ et
+définit par suite un morphisme $\widehat{f}\rightarrow
+\widehat{g}$ comme annoncé.
+
+Lorsque $C$ est la catégorie ponctuelle, $\widehat{C}$ est le
+topos ponctuel (\hyperref[IV.subsec2.2]{2.2}) noté $P$, et \eqhyperref[IV.eq4.6.2.1]{4.6.2.1}
+s'interprète comme un foncteur naturel
+\begin{equation*}
+C'\longrightarrow \Hhomtop(P,\widehat{C}') \mathop{=}^{\dfn}
+\Ppoints(\widehat{C}')\tag{4.6.2.2}
+\end{equation*}\etiquette[4.6.2.2]{IV.eq4.6.2.2}
+de $C'$ dans la « \emph{catégorie des points} » de
+$\widehat{C}'$, qui sera étudiée dans 6. Ce\pageoriginale
+foncteur n'est pas nécessairement une équivalence de
+catégories (7.3.3), a fortiori \eqhyperref[IV.eq4.6.2.1]{4.6.2.1} n'est pas
+nécessairement une équivalence de catégories.
+
+Par contre, le foncteur \eqhyperref[IV.eq4.6.2.1]{4.6.2.1} est toujours
+\emph{pleinement fidèle.} Pour voir ceci, notons que si $f$,
+$g:E\rightarrow E'$ sont deux morphismes de topos tels que $f_{!}$
+et $g_{!}$ soient définis (\hyperref[IV.subsubsec3.1.3]{3.1.3}), il résulte
+de la théorie des foncteurs adjoints qu'on a des isomorphismes
+canoniques
+$$
+\Hom(f_{!},g_{!})\simeq \Hom(g^{\ast}, f^{\ast})\simeq
+\Hom(f_{\ast}, g_{\ast}) \mathop{=}^{\dfn} \Hom(f,g){\quoi}.
+$$
+Appliquant ceci à des foncteurs de la forme $\widehat{f}$,
+$\widehat{g}$ associés à $f$, $g:C\rightarrow C'$, on trouve le
+résultat annoncé, compte tenu que l'application naturelle de
+prolongement $\Hom(f,g)\rightarrow \Hom(f_{!},g_{!})$ est bijective
+(I 7.8).
+
+\subsubsection{}\etiquette[4.6.3]{IV.subsubsec4.6.3}
+On peut se demander quand le foncteur \eqhyperref[IV.eq4.6.2.1]{4.6.2.1} est une
+équivalence de catégories, \ie quand il est essentiellement
+surjectif, ce qui est un cas particulier de la question de
+déterminer tous les morphismes de topos $\widehat{C}\rightarrow
+\widehat{C}'$. Plus généralement, si $C$ est une catégorie
+$\in 𝒰$ et $E$ un topos, on peut se proposer de déterminer
+les morphismes de topos
+$$
+f:\widehat{C}\longrightarrow E{\quoi}.
+$$
+La catégorie de ces morphismes est équivalente à la
+catégorie opposée de celle des foncteurs $f^{\ast}:E\rightarrow
+\widehat{C}$ commutant aux limites inductives quelconques et aux
+limites projectives finies. Interprétant les foncteurs
+$E\rightarrow \widehat{C}$ comme des foncteurs $E\times
+C^{\circ}\rightarrow (𝒰\text{-}\Ens)=(\Ens)$, ou encore
+comme des foncteurs $F:C^{\circ}\rightarrow \Hhom(E, (\Ens))$, la
+propriété d'exactitude envisagée s'exprime par la condition
+que pour tout objet $X$ de $C$, le foncteur $F(X):E\rightarrow
+(\Ens)$ commute aux limites inductives quelconques et aux limites
+projectives finies, (ou, comme nous dirons dans 6, $F(X)$ est un « \emph{foncteur\pageoriginale fibre} »  sur $E$). Il revient au
+même de dire que $F(X)$ est le foncteur image inverse pour un
+morphisme de topos $P\rightarrow E$, de sorte qu'on trouve
+finalement une équivalence de catégories canonique
+\begin{equation*}
+\Hhomtop(\widehat{C}, E) \xrightarrow{\approx} \Hhom(C,
+\Ppoints(E)){\quoi},\tag{4.6.3.1}
+\end{equation*}\etiquette[4.6.3.1]{IV.eq4.6.3.1}
+où on désigne pour abréger par
+$$
+\Ppoints(E)=\Hhomtop(P,E)
+$$
+la catégorie des points du topos $E$.
+
+Lorsque $E$ est de la forme $\widehat{C}'$, on voit aussitôt à
+partir des définitions que la composé de \eqhyperref[IV.eq4.6.2.1]{4.6.2.1} et de
+l'équivalence précédente \eqhyperref[IV.eq4.6.3.1]{4.6.3.1} est le foncteur
+\begin{equation*}
+\Hhom(C,C')\longrightarrow
+\Hhom(C,\Ppoints(\widehat{C}'))\tag{4.6.3.2}
+\end{equation*}\etiquette[4.6.3.2]{IV.eq4.6.3.2}
+défini par $F\mapsto i\circ F$, où $i:C'\rightarrow
+\Ppoints(\widehat{C}')$ est le plongement canonique \eqhyperref[IV.eq4.6.2.2]{4.6.2.2}.
+Il s'ensuit aussitôt que \emph{pour que} \eqhyperref[IV.eq4.6.2.1]{4.6.2.1}
+         \emph{soit une équivalence, il faut et il suffit que $C$
+         soit vide ou que} \eqhyperref[IV.eq4.6.2.2]{4.6.2.2} \emph{soit essentiellement
+         surjectif} (donc une équivalence de catégories). Cette
+         dernière condition sur $C'$ est satisfaite dans certains
+         cas intéressants, et notamment lorsque $C'$ est la
+         catégorie à un seul objet définie par un groupe $G$
+         (\hyperref[IV.subsubsec7.2.5]{7.2.5}).
+
+
+\begin{enonce*}[remark]{Remarque 4.6.4}\etiquette[4.6.4]{IV.rem4.6.4}\nde{Pour
+un point de vue récent de la notion de type d'homotopie de topos, voir
+[15] $\S$ 7.1.6.}
+Le fait d'avoir associé un topos $\widehat{C}$ à une catégorie
+arbitraire $C$ suggère qu'une catégorie $C$ admet des invariants de
+nature topologique (groupes de cohomologie, d'homotopie \etc), tout
+comme un topos. Les groupes de cohomologie de $\widehat{C}$ à
+coefficients dans un objet groupe abélien $F$ (au sens général
+étudié dans V) ne sont autres que les valeurs des foncteurs
+dérivés $\varprojlim^{(n)}$ du foncteur $\varprojlim$, déjà
+familiers\pageoriginale aux topologues. J. L. Verdier et
+(indépendamment) D. G. Quillen ont vérifié que lorsqu'on se borne
+aux coefficients constants, ou plus généralement localement
+constants, ces groupes de cohomologie s'identifient aux groupes de
+cohomologie de l'ensemble semi-simplicial $\Nerf(C)$ canoniquement
+associé à $C$ [5, ${\rm n^{\circ}}$ 212, prop. 4.1] et que de plus,
+à isomorphie près dans la « catégorie homotopique » de [2], tout
+ensemble semi-simplicial peut être obtenu à l'aide d'une catégorie
+$C$. Moyennant une notion convenable de type d'homotopie pour des
+topos, que nous ne précisons pas ici, on peut dire que les types
+d'homotopie semi-simpliciaux des topologues ne sont autres 
+que
+les types d'homotopie des topos de la forme spéciale $\widehat{C}$,
+plus généralement des topos $E$ où tout objet admette un
+recouvrement qui raffine tous les autres (\hyperref[IV.subsec2.6]{2.6})
+\footnote[1]{et, plus généralement encore, des topos qui sont « localement $\infty$ - connexes »  en un sens évident que nous
+laissons au lecteur le soin de préciser.}. En l'absence de cette
+condition sur $E$, on peut tout au mieux exprimer son type
+d'homotopie par un \emph{système projectif} convenable d'ensembles
+semi-simpliciaux [1].
+\end{enonce*}
+
+\subsection{Le topos $C^{\sim}$ pour un site $C$
+variable (foncteurs cocontinus)}\etiquette[4.7]{IV.subsec4.7}
+
+Soit
+$$
+f:C\longrightarrow C'
+$$
+un foncteur cocontinu (\hyperrefext[III][III.def2.1]{2.1}) entre sites $\in
+𝒰$, \ie un foncteur tel que le foncteur $\widehat{f}_{\ast}$
+de $\widehat{C}$ dans $\widehat{C}'$
+(\hyperref[IV.subsubsec4.6.1]{4.6.1}) applique $C^{\sim}$ dans
+$C'^{\sim}$, c'est-à-dire induise un foncteur
+\begin{equation*}
+\widetilde{f}_{\ast}:\widetilde{C}\longrightarrow
+{C'}^{\widetilde{\phantom{,}}}\tag{4.7.1}
+\end{equation*}\etiquette[4.7.1]{IV.eq4.7.1}
+rendant commutatif le diagramme de foncteurs
+\[\vcenter{
+\xymatrix@C=2.5cm@R=1.25cm{ C^{\widetilde{\phantom{a}}}
+\ar[r]^{\widetilde{f}_{\ast}} \ar[d]_{\sisi{i}{i_{\ast}}}&
+C'^{\widetilde{\phantom{a}}} \ar[d]^{\sisi{i_{\ast}}{i_{\ast}'}}\\
+\widehat{C}  \ar[r]^{\widehat{f}_{\ast}}       & \widehat{C}'\quad,
+}}\leqno{(4.7.2)}
+\]\etiquette[4.7.2]{IV.eq4.7.2}
+où\pageoriginale \sisi{$i$}{$i_{\ast}$}, \sisi{$i'$}{$i_{\ast}'$} sont les foncteurs d'inclusion. On a vu
+alors (\hyperrefext[III][III.prop2.3]{2.3}) que le foncteur $\widetilde{f}_{\ast}$
+admet un adjoint à gauche $\widetilde{f}^{\ast}$, et que ce
+dernier est exact à gauche. En d'autres termes,
+$\widetilde{f}_{\ast}$ est le foncteur image directe associé à
+un morphisme de topos
+$$
+\widetilde{f}\mbox{ ou } f:C^{\sim}\longrightarrow
+{C'}^{\widetilde{\phantom{,}}}{\quoi},
+$$
+le foncteur image inverse correspondant étant bien entendu
+$\widetilde{f}^{\ast}$. Prenant les adjoints à gauche des
+foncteurs en jeu, le diagramme commutatif \eqhyperref[IV.eq4.7.2]{4.7.2} donne
+d'ailleurs un diagramme commutatif à isomorphisme près
+\[\vcenter{
+\xymatrix@C=2.5cm@R=1.5cm{
+C^{\widetilde{\phantom{a}}} &  C'^{\widetilde{\phantom{a}}} \ar[l]_{\widetilde{f}^{\ast}}\\
+\widehat{C}  \ar[u]^{\underline{a}}  & \widehat{C}'
+\ar[l]_{\widehat{f}^{\ast}}\ar[u]_{\underline{a}'}\quad,
+}}\leqno{(4.7.3)}
+\]\etiquette[4.7.3]{IV.eq4.7.3}
+où $\underline{a}$ et $\underline{a}'$ sont les foncteurs « faisceaux
+associés », diagramme qui redonne aussitôt la formule
+(\hyperrefext[III][III.prop2.3]{2.3})
+$$
+\widetilde{f}^{\ast}=\underline{a}\widehat{f}^{\ast} i'{\quoi}.
+$$
+
+La propriété de transitivité pour les morphismes de topos
+$\widehat{f}:\widehat{C}\rightarrow \widehat{C}'$ implique la même
+propriété pour les morphismes de topos
+$\widetilde{f}:C^{\widetilde{\phantom{,}}}\rightarrow
+{C'}^{\widetilde{\phantom{,}}}$ associés à des foncteurs
+cocontinus, de sorte qu'on peut dire que \emph{le topos
+$C^{\widetilde{\phantom{,}}}$ varie fonctoriellement en $C$} de fa\c
+con \emph{covariante}, quand on prend comme « morphismes »  de
+sites les foncteurs cocontinus.
+
+Dans\pageoriginale tous les cas rencontrés jusqu'à présent, le
+foncteur cocontinu $f$ utilisé est également continu,
+c'est-à-dire (\hyperrefext[III][III.def1.1]{1.1}) se « prolonge »  en un
+foncteur
+$$
+\widetilde{f}_{!}:C^{\widetilde{\phantom{,}}}\longrightarrow
+{C'}^{\widetilde{\phantom{,}}}
+$$
+commutant aux limites inductives, et qui est adjoint à gauche de
+$\widetilde{f}^{\ast}$, de sorte qu'on a une suite de trois
+foncteurs adjoints
+$$
+\widetilde{f}_{!}, \widetilde{f}^{\ast},
+\widetilde{f}_{\ast}{\quoi}.
+$$
+On fera attention que le foncteur $\widetilde{f}_{!}$ n'est pas en
+général exact à gauche, ni $\widetilde{f}_{\ast}$ exact à droite, ce
+qui lève toute ambiguïté sur la direction de la variance du topos
+$C^{\widetilde{\phantom{,}}}$, pour $C$ variable par des foncteurs
+dont on suppose seulement qu'ils sont cocontinus, ou même continus
+et cocontinus.
+
+\begin{enonce*}[remark]{Remarque 4.7.4}\etiquette[4.7.4]{IV.rem4.7.4}
+Étant donné un morphisme de topos
+$$
+F:E\longrightarrow E'{\quoi},
+$$
+pour qu'il existe un foncteur $F_{!}$ adjoint à gauche de
+$F^{\ast}$, il faut et il suffit qu'on puisse « réaliser »
+(à équivalence près) $E$ et $E'$ sous la forme
+$C^{\widetilde{\phantom{,}}}$ et ${C'}^{\widetilde{\phantom{,}}}$,
+pour deux sites $C$, $C'\in 𝒰$, et qu'on puisse trouver un
+foncteur \emph{continu et cocontinu} $f:C\rightarrow C'$ tel que $F$
+s'identifie à $\widetilde{f}$. C'est évidemment suffisant, et
+pour la nécessité, il suffit de prendre pour $C$ et $C'$ des
+petites sous-catégories pleines génératrices de $E$ et $E'$
+respectivement, telles que
+$$
+F_{!}(\ob C)\subset \ob C'{\quoi},
+$$
+munies des topologies induites par celles de $E$ et de $E'$, et de
+prendre pour $f$ le foncteur induit par $F_{!}$ (\cf
+\hyperref[IV.cor1.2.1]{1.2.1}). Rappelons (\hyperref[IV.rem1.8]{1.8}) que l'existence de
+$F_{!}$ signifie aussi que $F^{\ast}$ commute aux limites
+projectives, ou,\pageoriginale ce qui revient ici au même puisque
+ce foncteur est exact à gauche, qu'il commute aux produits.
+\end{enonce*}
+
+\setcounter{subsubsection}{4}
+\subsubsection{}\etiquette[4.7.5]{IV.subsubsec4.7.5}
+Si on se demande quels sont les morphismes de topos $F:E\rightarrow
+E'$ qui peuvent se réaliser par un foncteur cocontinu (pas
+nécessairement continu) de sites, on voit de même que la
+réponse est la suivante: l'ensemble des objets $X$ de $E$ tels que
+le foncteur $X'\mapsto \Hom(X,F^{\ast}(X'))$ de $E'$ dans $(\Ens)$
+commute aux limites projectives (ou, ce qui revient au même, aux
+produits) doit être une \emph{famille génératrice de $E$.}\nde{Cet énoncé ne paraît pas
+correct: la condition exprimée est équivalente au fait que $F^{\ast}$ commute aux produits quelconques, 
+ou encore que $F^{\ast}$ possède un adjoint à gauche $F_{!}$. Pour tout site $C$, le foncteur
+identité $F=id : C \longrightarrow C$ est cocontinu lorsque l'on munit le membre de droite
+de la topologie triviale. Le foncteur $F^{\ast} : \hat{C} \longrightarrow \widetilde{C}$ 
+est alors le foncteur faisceau associé, et ne commute pas en général avec les produits quelconques.}
+
+\subsection{Le morphisme de topos $\widetilde{C}\rightarrow
+\widehat{C}$ pour un site $C$}\etiquette[4.8]{IV.subsec4.8}
+
+Soit $C$ un petit site, auquel sont donc associés les deux topos
+$C^{\widetilde{\phantom{,}}}$ et $\widehat{C}$ (le deuxième ne
+dépendant pas de la topologie mise sur $C$). On a défini dans II
+3.4 le foncteur « faisceau associé »
+$$
+\underline{a}:\widehat{C}\longrightarrow
+C^{\widetilde{\phantom{,}}}{\quoi},
+$$
+et établi qu'il est exact à gauche et commute aux limites
+inductives. C'est donc le foncteur image inverse associé à un
+morphisme de topos
+$$
+p:\widetilde{C}\longrightarrow \widehat{C},\;
+p^{\ast}=\underline{a}{\quoi},
+$$
+le foncteur image directe correspondant étant l'inclusion
+canonique
+$$
+i=p_{\ast}:C^{\widetilde{\phantom{,}}}\longrightarrow
+\widehat{C}{\quoi}.
+$$
+Il est bien connu que ce dernier foncteur n'est pas en général exact
+à droite (ces foncteur dérivés sur les objets abéliens donnent
+naissance aux préfaisceaux de cohomologie $\Xx^n(F)$ de V 2), et que
+$\underline{a}$ ne commute pas en général aux $\varprojlim$ quelconques,
+ce qui lève toute ambiguïté sur la direction du morphisme « naturel »  de topos entre $\widehat{C}$ et
+$C^{\widetilde{\phantom{,}}}$.
+
+Lorsqu'on a un foncteur cocontinu
+$$
+f:C\longrightarrow C'
+$$
+de\pageoriginale sites, on en déduit un diagramme de morphismes de
+topos
+\[
+\xymatrix@C=2.25cm@R=1.25cm{ C^{\widetilde{\phantom{a}}} \ar[d]_{\sisi{p}{p_{\ast}}}
+\ar[r]^{\widetilde{f}} &
+C'^{\widetilde{\phantom{a}}} \ar[d]^{\sisi{p'}{p'_{\ast}}}\\
+\widehat{C} \ar[r]^{\widehat{f}}&  \widehat{C}' }
+\]
+qui est commutatif à isomorphisme canonique près: c'est en effet
+ce qu'exprime la commutativité du diagramme de foncteurs
+\eqhyperref[IV.eq4.7.2]{4.7.2}. On peut donc dire que le morphisme de topos
+$p:C^{\widetilde{\phantom{,}}}\rightarrow \widehat{C}$ est
+fonctoriel en $C$, quand on varie $C$ par des foncteurs
+\emph{cocontinus} entre sites.
+
+\subsection{Effet d'un foncteur continu de sites. Morphismes de sites}\etiquette[4.9]{IV.subsec4.9}
+
+\subsubsection{}\etiquette[4.9.1]{IV.subsubsec4.9.1}
+Si
+$$
+f:C\longrightarrow C'
+$$
+est un foncteur continu de $C$ dans $C'$. \ie tel que le foncteur
+$\widehat{f}^{\ast}:\widehat{C}'\rightarrow \widehat{C}$ applique
+${C'}^{\widetilde{\phantom{,}}}$ dans $C^{\widetilde{\phantom{,}}}$,
+donc induise un foncteur
+$$
+f_s:{C'}^{\widetilde{\phantom{,}}}\longrightarrow
+C^{\widetilde{\phantom{,}}}{\quoi},
+$$
+on a vu (\hyperrefext[III][III.prop1.2]{1.2}) que ce dernier admet un adjoint à
+gauche
+$$
+f^s:C^{\widetilde{\phantom{,}}}\longrightarrow
+{C'}^{\widetilde{\phantom{,}}}{\quoi},
+$$
+qui « prolonge »  d'ailleurs $f$ dans un sens évident. On fera
+attention qu'en général $f^s$ n'est pas exact à \sisi{droite}{gauche} (même
+si $f$ est de plus cocontinu), ni $f_s$ ne commute aux limites
+inductives, de sorte que la donnée de $f$ ne permet pas, sans
+autre hypothèse, de décrire un morphisme de topos dans un sens
+ou dans l'autre entre $C^{\widetilde{\phantom{,}}}$ et
+${C'}^{\widetilde{\phantom{,}}}$. Le cas où $f$ est cocontinu, \ie
+où $f_s$ commute aux limites inductives et peut\pageoriginale donc
+être regardé comme un foncteur image inverse pour un morphisme
+de topos $\widetilde{f}:C^{\widetilde{\phantom{,}}}\rightarrow
+{C'}^{\widetilde{\phantom{,}}}$, a été examiné dans
+\hyperref[IV.subsec4.7]{4.7}. Nous allons examiner le cas où le foncteur
+$f^s$ est exact à gauche, donc peut être considéré comme un
+foncteur image inverse pour un morphisme de topos \emph{en sens
+inverse}:
+\begin{equation*}
+\Top(f)=g:{C'}^{\sim}\longrightarrow C^{\sim}{\quoi}. \tag{4.9.1.1}
+\end{equation*}\etiquette[4.9.1.1]{IV.eq4.9.1.1}
+On fera attention qu'\emph{on a pris garde de ne pas noter ce
+morphisme par la lettre $\widetilde{f}$ ou $f$, pour éviter des
+confusions avec la situation de $\hyperref[IV.subsec4.7]{4.7}$, suivant en
+cela les recommandations générales de
+$\hyperref[IV.subsubsec3.1.3]{3.1.3}$.} On dit parfois que le foncteur
+$f:C\rightarrow C'$ est un \emph{morphisme de sites de $C'$ dans
+$C$} (attention, \emph{pas de $C$ dans $C'$}) s'il est continu et si
+le foncteur $f^s$ est exact à gauche, en d'autres termes s'il
+existe un morphisme de topos \eqhyperref[IV.eq4.9.1.1]{4.9.1.1} tel que, le foncteur
+image inverse correspondant
+$$
+g^{\ast}:C^{\widetilde{\phantom{,}}}\longrightarrow
+{C'}^{\widetilde{\phantom{,}}}
+$$
+\emph{prolonge} le foncteur $f$, \ie rende commutatif à
+isomorphisme près le diagramme de foncteurs
+\[
+\xymatrix@C=2cm@R=1.5cm{
+C \ar[d]_{\epsilon} \ar[r]^{f}& C' \ar[d]^{{\epsilon}'}\\
+C^{\widetilde{\phantom{a}}} \ar[r]^{g^{\ast}} &
+C'^{\widetilde{\phantom{a}}} &, }
+\]
+%% widetilde + \phantom : bidouille horrible \XXX
+où $\epsilon$, $\epsilon'$ sont les foncteurs canoniques de II
+4.4.0.
+
+\subsubsection{}\etiquette[4.9.2]{IV.subsubsec4.9.2}
+Pratiquement, on reconnaît qu'un foncteur continu $f:C\rightarrow
+C'$ est un morphisme de sites de $C'$ dans $C$, par le fait que dans
+$C$ les limites projectives finies sont représentables, et que $f$ y
+commute (\hyperrefext[III][III.prop1.3]{1.3} 5)). Moyennant\pageoriginale la condition
+indiquée sur $C$ (presque toujours vérifiée en pratique), et
+supposant de plus que la topologie de $C'$ est moins fine que la
+topologie canonique (presque toujours vérifiée également), la
+condition suffisante précédente ($f$ exact à gauche) pour que $f$
+soit un morphisme de sites de $C'$ dans $C$ est d'ailleurs aussi
+nécessaire.
+
+\subsubsection{}\etiquette[4.9.3]{IV.subsubsec4.9.3}
+Dans l'esprit de ce qui précède, si $C$ et $C'$ sont deux
+$𝒰$-sites, il y a lieu de définir la catégorie des
+morphismes de site $\Mmorsite(C',C)$ de $C$ dans $C'$ comme la
+sous-catégorie pleine de la catégorie \emph{opposée
+$\Hhom(C,C')^{\circ}$} de la catégorie des foncteurs de $C$ dans
+$C'$, formée des foncteurs qui veulent bien être des morphismes
+de sites (de $C'$ dans $C$). De cette façon, on obtient un
+foncteur canonique (défini à isomorphisme unique près)
+$$
+\Mmorsite(C',C)\longrightarrow
+\Hhomtop({C'}^{\widetilde{\phantom{,}}},
+C^{\widetilde{\phantom{,}}}){\quoi}.
+$$
+
+\begin{enonce*}{Proposition 4.9.4}\etiquette[4.9.4]{IV.prop4.9.4}
+Soient $E$ un $𝒰$-topos, $C$ un $𝒰$-site, alors le
+foncteur $f\mapsto f^{\ast}| C=f^{\ast}\circ \epsilon_{C}$,
+associant à tout morphisme de topos $f:E\rightarrow
+C^{\widetilde{\phantom{,}}}$ la « restriction »  à $C$ du
+foncteur image inverse associé
+$f^{\ast}:C^{\widetilde{\phantom{,}}}\rightarrow E$, induit une
+équivalence de catégories
+$$
+\Hhomtop(E,C^{\widetilde{\phantom{,}}})\xrightarrow{\approx}\Mmorsite(E,C)(\hookrightarrow
+\Hhom(C,E)^{\circ}){\quoi}.
+$$
+Lorsque dans $C$ les $\varprojlim$ finies sont représentables, le
+foncteur pleinement fidèle correspondant
+$$
+\Hhomtop(E,C^{\widetilde{\phantom{,}}})\longrightarrow
+\Hhom(C,E)^{\circ}
+$$
+a comme image essentielle l'ensemble des foncteurs $g:C\rightarrow
+E$ qui sont exacts à gauche et continus, ou encore qui sont exacts
+à gauche et transforment\pageoriginale famille couvrante en
+famille couvrante.
+\end{enonce*}
+
+La dernière assertion résulte de la première grâce à
+\hyperref[IV.subsubsec4.9.2]{4.9.2}. D'autre part, on déduit de
+\hyperrefext[III][III.prop1.2]{1.2} iv) et de IV \hyperref[IV.theo1.2]{1.2} iii) que le foncteur
+$G\rightarrow G\circ \epsilon$ induit une équivalence de la
+catégorie des foncteurs \emph{continus} de
+$C^{\widetilde{\phantom{,}}}$ dans $E$, et la catégorie des
+foncteurs \emph{continus} de $C$ dans $E$, un foncteur quasi-inverse
+étant obtenu par $g\rightarrow g^s$ dans les notations de \loccit
+D'autre part, par définition même, $g$ est un morphisme de sites
+si et seulement si $g^s$ est le foncteur image inverse associé à
+un morphisme de topos $E\rightarrow C^{\widetilde{\phantom{,}}}$,
+d'où la conclusion grâce à 3.2.1, le « ou encore »
+provenant de \hyperrefext[III][III.prop1.6]{1.6}.
+
+On retiendra surtout de \hyperref[IV.prop4.9.4]{4.9.4} que (lorsque dans $C$ les
+$\varprojlim$ finies sont représentables) « il revient au même » de se donner un morphisme de topos $f:E\rightarrow
+C^{\widetilde{\phantom{,}}}$, ou un foncteur $g:C\rightarrow E$ qui
+est exact à gauche et transforme familles couvrantes en familles
+couvrantes.
+
+\setcounter{subsubsection}{4}
+\subsubsection{}\etiquette[4.9.5]{IV.subsubsec4.9.5}
+Utilisant les développements \hyperref[IV.subsubsec4.9.1]{4.9.1} et
+\hyperref[IV.subsubsec4.9.3]{4.9.3}, on voit comme d'habitude que pour un
+$𝒰$-site $C$ variable, via la notion de morphisme de sites
+et de morphisme de morphismes de sites qu'on vient d'expliciter, le
+topos $C^{\widetilde{\phantom{,}}}$ dépend fonctoriellement (ou
+plus exactement, 2-fonctoriellement) du site $C$. On notera que
+grâce à la terminologie introduite,
+$C^{\widetilde{\phantom{,}}}$ dépend de façon \emph{covariante}
+du site $C$.
+
+\subsubsection{}\etiquette[4.9.6]{IV.subsubsec4.9.6}
+Il est immédiat que (contrairement à ce qui se passe pour la notion
+de foncteur cocontinu, \cf \hyperref[IV.subsec4.7]{4.7} 4) \emph{tout}
+morphisme de topos $F:E\rightarrow E'$ peut se réaliser à l'aide
+d'un morphisme de sites $f:C\rightarrow C'$ (\ie d'un foncteur
+continu $f:C'\rightarrow C$ tel que\ldots): il suffit de choisir
+dans $E$ et $E'$ des petites sous-catégories pleines génératrices
+$C$\pageoriginale et $C'$ respectivement, munies des topologies
+induites par celles de $E$ et de $E'$, telles que l'on ait
+$$
+F^{\ast}(\ob C')\subset \ob C{\quoi},
+$$
+et de prendre pour $f$ le foncteur induit par $F^{\ast}$. C'est ce
+qui explique que la plupart des morphismes de topos qu'on rencontre
+en pratique sont effectivement décrits à l'aide de morphismes de
+sites (plutôt qu'à l'aide de foncteurs cocontinus comme en
+\hyperref[IV.subsec4.7]{4.7}).
+
+\subsection{Relations entre le petit et le gros topos associés à
+un espace topologique $X$}\etiquette[4.10]{IV.subsec4.10}
+
+On reprend les notations de \hyperref[IV.subsec2.5]{2.5}. En particulier,
+$𝒱$ est un univers tel que $𝒰\in 𝒱$. Nous
+nous écartons de la convention de \hyperref[IV.subsec2.1]{2.1}, en
+désignant par $\Top(X)$ le topos des $𝒱$-faisceaux (et non
+pas des $𝒰$-faisceaux) sur $X$. Ainsi, nous raisonnerons
+avec des $𝒱$-topos et non des $𝒰$-topos. (NB il
+serait possible de garder les $𝒰$-topos, en adoptant la
+convention appropriée pour la définition $\TOP(X)$, de sorte que
+celui-ci soit un $𝒰$-topos, \cf \hyperref[IV.subsec2.5]{2.5}). Ceci
+posé, nous allons définir DEUX morphismes de topos
+\begin{equation*}
+\begin{cases}
+ f: \Top(X)\longrightarrow \TOP(X)\\
+ g: \TOP(X)\longrightarrow \Top(X)\quav gf\simeq \id_{\Top(X)}{\quoi},
+\end{cases}\tag{4.10.1}
+\end{equation*}\etiquette[4.10.1]{IV.eq4.10.1}
+donnant lieu à une suite de trois foncteurs adjoints
+\begin{equation*}
+g^{\ast}=f_{!}\quav g_{\ast}=f^{\ast}\quav
+g^{!}=f_{\ast}{\quoi},\tag{4.10.1.1}
+\end{equation*}\etiquette[4.10.1.1]{IV.eq4.10.1.1}
+les notations étant celles de \hyperref[IV.subsubsec3.1.3]{3.1.3}. Nous allons
+définir successivement les\pageoriginale deux premiers foncteurs
+de cette suite, le troisième étant défini alors comme adjoint
+à droite du deuxième.
+
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[4.10.2]{IV.subsubsec4.10.2}
+Le foncteur
+$$
+g_{\ast}=f^{\ast}:\TOP(X)\longrightarrow \Top(X)
+$$
+est défini simplement comme le \emph{foncteur restriction} de
+$(\Esp)_{/X}$ au site $\Ouv(X)$ des ouverts de $X$, qui transforme
+bien faisceaux en faisceaux, comme il résulte immédiatement de
+la définition. Désignant par des lettres soulignées des
+faisceaux sur le gros site de $X$, on désigne, pour un tel
+faisceau $\underline{F}$, par $\underline{F}_X$ sa restriction au site
+$\Ouv(X)$, d'où un foncteur
+\begin{equation*}
+\Restr:\underline{F}\longmapsto \underline{F}_X:\TOP(X)\longrightarrow
+\Top(X){\quoi}.\tag{4.10.2.1}
+\end{equation*}\etiquette[4.10.2.1]{IV.eq4.10.2.1}
+Il est évident que ce foncteur commute aux $𝒱$-limites
+projectives, puis-que celles-ci se calculent argument par argument
+(on pourrait aussi invoquer l'existence de l'adjoint à gauche,
+construit dans \hyperref[IV.subsubsec4.10.4]{4.10.4} ci-dessous.) Je dis qu'il
+commute également aux $𝒱$-limites inductives. Pour s'en
+convaincre, on va donner une interprétation fort commode des « gros »  faisceaux sur $X$, \ie des objets de $\TOP(X)$, en termes
+de faisceaux ordinaires (NB il s'agit de $𝒱$-faisceaux) sur
+les espaces topologiques $X'$ au-dessus de~$X$.
+
+\subsubsection{}\etiquette[4.10.3]{IV.subsubsec4.10.3}
+Pour un gros faisceaux $\underline{F}$ sur $X$, et pour tout espace $X'$
+sur $X$ (sous-entendu: $X'\in 𝒰$), on définit de façon
+évidente, comme dans \hyperref[IV.subsubsec4.10.2]{4.10.2}, le « petit »
+faisceau $\underline{F}_{X'}$, restriction de $\underline{F}$ à $X'$. Si
+$$
+u:X''\longrightarrow X'
+$$
+est\pageoriginale  un morphisme de $(\Esp)_{/X}$, on définit alors
+de façon évidente un morphisme
+$u_{\ast}(\underline{F}_{X''})\rightarrow \underline{F}_{X'}$, ou ce qui
+revient au même, un « \emph{morphisme de transition} »
+\begin{equation*}
+\varphi_u :u^{\ast}(\underline{F}_{X'})\longrightarrow
+\underline{F}_{X''}{\quoi}. \tag{4.10.3.1}
+\end{equation*}\etiquette[4.10.3.1]{IV.eq4.10.3.1}
+Ces morphismes, pour $u$ variable, satisfont à une condition de
+transitivité évidente pour un composé
+$$
+X'''\xrightarrow{u}X''\xrightarrow{v}X'
+$$
+de morphismes dans $(\Esp)_{/X}$, qu'on laisse au lecteur le soin
+d'expliciter. On obtient de cette façon un foncteur naturel, qui
+va de la catégorie $\TOP(X)$ des gros faisceaux sur $X$, dans la
+catégorie des systèmes
+$$
+(\underline{F}_{X'})\quad(X'\in \ob (\Esp)_{/X}), (\varphi_u)\quad(u\in
+Fl(\Esp)_{/X}){\quoi},
+$$
+satisfaisant à la condition de transitivité envisagée, et tels de
+plus que pour tout morphisme $u:X''\rightarrow X'$ qui est une
+\emph{immersion ouverte} (ou, plus généralement, un étalement), le
+morphisme de transition $\varphi_u$ soit un isomorphisme. Comme les
+foncteurs $u^{\ast}:\Top(X')\rightarrow \Top(X'')$ utilisés pour la
+description des $\varphi_u$ commutent aux $𝒱$-limites
+inductives, il en résulte aussitôt que dans la description
+précédente des objets de $\TOP(X)$ en termes de « petits »
+faisceaux $F_{X'}$, les $𝒱$-limites inductives se calculent
+argument par argument, \ie les foncteurs de la forme
+$\underline{F}\rightarrow \underline{F}_{X'}$ commutent aux
+$𝒱$-limites inductives.
+
+En particulier, il en est ainsi du foncteur $\underline{F}\mapsto
+\underline{F}_X$ envisagé dans \hyperref[IV.subsubsec4.10.2]{4.10.2}. Il admet donc
+bien un adjoint à droite (\hyperref[IV.cor1.5]{1.5}). Il reste à en construire
+un adjoint à gauche (dont l'existence résulte d'ailleurs a priori de
+\hyperref[IV.rem1.8]{1.8}), et de vérifier que ce dernier est exact à gauche.
+Cela\pageoriginale achèvera la définition des morphismes de topos
+annoncés \eqhyperref[IV.eq4.10.1]{4.10.1} en termes des foncteurs \eqhyperref[IV.eq4.10.1.1]{4.10.1.1}
+
+\subsubsection{}\etiquette[4.10.4]{IV.subsubsec4.10.4}
+Le foncteur
+$$
+g^{\ast}=f_{!}:\Top(X)\longrightarrow \TOP(X)
+$$
+s'obtient en associant à tout petit faisceau $F$ sur $X$ le système
+de ses images inverses $(F_{X'})$, $X'\in \ob (\Esp)_{/X}$, par les
+morphismes structuraux $X'\rightarrow X$, le morphisme de transition
+$\varphi_u$ pour un $u:X''\rightarrow X'$ étant l'isomorphisme de
+transitivité pour les images inverses de faisceaux
+(\hyperref[IV.subsubsec4.1.1]{4.1.1}). On voit aussitôt qu'on obtient ainsi un
+foncteur
+$$
+\Prol:\Top(X)\longrightarrow \TOP(X){\quoi},
+$$
+\emph{pleinement fidèle}, dont l'image essentielle est formée
+des gros faisceaux $ℱ$ sur $X$ pour lesquels tous les
+morphismes de transitivité $\varphi_u$ de \sisi{4.11.3}{\eqhyperref[IV.eq4.10.3.1]{4.10.3.1}} sont des
+isomorphismes. Nous laissons au lecteur le soin de définir un
+isomorphisme d'adjonction entre ce foncteur de prolongement
+canonique et le foncteur restriction de \hyperref[IV.subsubsec4.10.2]{4.10.2},
+prouvant que ce dernier est adjoint à droite du premier. C'est
+immédiat en termes de la description \hyperref[IV.subsubsec4.10.3]{4.10.3} de
+la catégorie $\TOP(X)$.
+
+\begin{enonce*}[remark]{Remarques 4.10.5}\etiquette[4.10.5]{IV.rem4.10.5}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item La construction \hyperref[IV.subsubsec4.10.4]{4.10.4} montre en même temps que
+$g^{\ast}=f_{!}$ est pleinement fidèle (ou, ce qui revient au
+même, que $g_{\ast}=f^{\ast}$ est un foncteur de passage à une
+catégorie de fractions, ou enfin que $g^{!}=f_{\ast}$ est
+pleinement fidèle). Les gros faisceaux sur $X$ qui appartiennent
+à l'image essentielle du foncteur $g^{\ast}=f_{!}=\Prol$
+méritent le nom de gros \emph{faisceaux étales} sur $X$,
+puisqu'ils forment une catégorie équivalente à celle des
+faisceaux ordinaires sur $X$, ou encore à celle des espaces
+étalés sur\pageoriginale $X$. On voit d'ailleurs facilement que
+si $X'$ est un espace topologique au-dessus de $X$, alors le gros
+faisceau sur $X$ qu'il représente est étale au sens
+précédent si et seulement si $X'$ et un espace étalé sur
+$X$.
+
+\item On peut encore exprimer la pleine fidélité de $f_{\ast}$ en
+écrivant que la morphisme d'adjonction
+$f^{\ast}f_{\ast}\rightarrow \id_{\Top(X)}$ est un isomorphisme, \ie
+que $g_{\ast}f_{\ast}\simeq \id$, \ie que $gf\simeq \id$. Ainsi $g$
+fait de $\TOP(X)$ un \emph{topos sur} $\Top(X)$, admettant une « section »  $f$ sur $\Top(X)$.
+
+\item Le fait que le foncteur $g^{\ast}=f_{!}$ soit pleinement
+fidèle, exact et qu'il commute aux $𝒱$-limites inductives
+justifie partiellement le point de vue fort commode (dû à J.
+\textsc{Giraud}) suivant lequel il est inoffensif, dans pratiquement
+toutes les questions de théorie des faisceaux sur $X$, de
+remplacer les faisceaux habituels ou « petits »  faisceaux par
+les « gros » faisceaux associés. Il en est en particulier
+ainsi des questions cohomologiques, puisque $g_{\ast}$ étant
+exact, les foncteurs $R^i g_{\ast}$ (\sisi{V\quad}{\hyperrefext[V][V.sec5]{5}}) sont nuls pour $i>0$,
+donc (\sisi{V\quad}{\hyperrefext[V][V.prop5.4]{5.4}}) que pour tout \emph{gros} faisceau $ℱ$ sur
+$X$, on a des isomorphismes canoniques
+$$
+H^i(\TOP(X),ℱ)\simeq H^i(\Top(X),
+ℱ_X)=H^i(X,F){\quoi}.
+$$
+Appliquant ceci à un faisceau de la forme $\Prol(F)$, où $F$ est
+un petit faisceau sur $X$, on en conclut (puisque $\Prol(F)_X\simeq
+F$ canoniquement) un isomorphisme canonique
+$$
+H^i(X,F)=H^i(\TOP(X), \Prol(F)){\quoi}.
+$$
+Ainsi, \emph{les invariants cohomologiques de $X$, calculés via le
+petit ou le gros topos de $X$, sont essentiellement identiques.} Le
+même résultat est d'ailleurs valable en cohomologie non
+commutative.
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{Exercice 4.10.6}\etiquette[4.10.6]{IV.exer4.10.6}
+Soient\pageoriginale $S$ un $𝒰$-site dont la topologie est
+moins fine que la topologie canonique, $\underline{M}$ une partie de
+$Fl$ $S$ satisfaisant les conditions suivantes:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Les morphismes de $ℳ$ sont quarrables (\sisi{\hyperrefext[I][I.sec10.3]{10.3}}{\hyperrefext[I][I.sec10.7]{10.7}}), et
+$\underline{M}$ est stable par changement de base.
+
+\item $\underline{M}$ contient les flèches identiques et est stable par
+composition.
+
+\item Une flèche $u:X\rightarrow Y$ telle qu'il existe une famille
+couvrante $Y_i\rightarrow Y$, avec les $\fprod{X}{Y_i}{Y}\rightarrow
+Y_i$ dans $\underline{M}$, est elle-même élément de $\underline{M}$.
+
+\item Pour tout $X\in \ob S$, toute famille couvrante de $X$ est
+raffinée par une famille couvrante $(f_i:X_i\rightarrow X)$, avec
+les $f_i\in \underline{M}$.
+\end{enumerate}
+
+Pour tout $X\in \ob S$, considérons le site $S(X)$ (« petit site
+de $X$ ») dont la catégorie sous-jacente est la sous-catégorie
+pleine de $S_{/X}$ formée des objets dont le morphisme structural
+est dans $\underline{M}$, munie de la topologie induite
+(\hyperrefext[III][III.subsec3.1]{3.1}) par celle de $S$.
+\begin{itemize}
+\item[$1^{\circ})$] Pour toute flèche $u:X\rightarrow Y$ de $S$,
+montrer que le changement de base par $u$ de $S(Y)$ dans $S(X)$ est
+un foncteur continu, d'où un foncteur commutant aux limites
+inductives (\sisi{III}{\hyperrefext[III][III.prop1.2]{1.2} iv)})
+$$
+S(u)^x:S(Y)^{\sim}\longrightarrow S(X)^{\sim}{\quoi}.
+$$
+
+\item[$2^{\circ})$] Définir une équivalence entre le topos
+$S^{\sim}$ et la catégorie des systèmes
+$$
+(F_X)\quad (X\in \ob S)\quav (\varphi_u)\quad (u\in Fl S)
+$$
+formés\pageoriginale d'objets $F_X\in \ob S(X)^{\sim}$, et pour
+toute flèche $u:X\rightarrow Y$ dans $S$, d'un morphismes
+$\varphi_u:S(u)^x(F_Y)\rightarrow F_X$, ces systèmes étant
+soumis à une condition de transitivité pour un composé $v\circ
+u$ de flèches de $S$, et à la condition que $u\in \underline{M}$ implique
+que $\varphi_u$ soit un isomorphisme.
+
+\item[$3^{\circ})$] Définir des foncteurs « restrictions »  et « prolongement »
+$$
+\Res_X:(S_{/X})^{\sim}\longrightarrow S(X)^{\sim},
+\Prol_X:S(X)^{\sim}\longrightarrow (S_{/X})^{\sim}
+$$
+
+Montrer que $\Res_X$ commute aux petites limites inductives et
+projectives et que $\Prol_X$ est \emph{pleinement fidèle}, son
+image essentielle étant formée des faisceaux $F$ tels que
+$\varphi_u$ soit un isomorphisme pour toute flèche $u$ de
+$S_{/X}$.
+
+\item[$4^{\circ})$] Définir un morphisme d'adjonction faisant de
+$\Res_X$ l'adjoint à droite de $\Prol_X$. En conclure qu'il existe
+un morphisme de topos
+$$
+f:S(X)^{\sim}\rightarrow (S_{/X})^{\sim}{\quoi}
+$$
+faisant de $S(X)^{\sim}$ un sous-topos de $(S_{/X})^{\sim}$ et tel
+que
+\begin{align*}
+f_{!} &= \Prol_X\\
+f^x &= \Res_X{\quoi}.
+\end{align*}
+
+Montrer que $\Prol_X$ transforme faisceaux abéliens en faisceaux
+abéliens.
+
+\item[$5^{\circ})$] Montrer que si $S(X)$ admet des produits
+fibrés, $\Prol_X$ est exact. En déduire qu'il existe alors un
+morphisme de topos $g:(S_{/X})^{\sim}\rightarrow S(X)^{\sim}$ qui
+soit une rétraction à gauche de $f$, \ie tel que
+\begin{align*}
+g^x &= \Prol_X\\
+g_x &= \Res_X{\quoi}.
+\end{align*}
+(Pour\pageoriginale un exemple où $S(X)$ n'admet pas de produits
+fibrés, prendre pour $S$ la catégorie des schémas munie de la
+topologie étale, pour $M$ les morphismes lisses, pour $X$ un
+schéma noethérien de dimension $>0$).
+
+\item[$6^{\circ})$] Montrer que pour tout faisceau abélien $F$ de
+$(S_{/X})^{\sim}$ on a un isomorphisme
+$$
+H^q(X,F)\simeq H^q(X,\Res_X F)\qquad \forall q{\quoi}.
+$$
+Montrer, en utilisant par exemple les hyperrecouvrements, que pour
+tout faisceau abélien $G$ de $S(X)^{\sim}$ on a un isomorphisme
+$$
+H^q(X,G)\simeq H^q(X,\Prol_X G)\qquad \forall q{\quoi}.
+$$
+
+\item[$7^{\circ})$] Acheter une médaille en chocolat pour le rédacteur.
+\end{itemize}
+\end{enonce*}
+
+\section{Topos induit}\etiquette[5]{IV.sec5}
+
+\subsection{}\etiquette[5.1]{IV.subsec5.1}
+Soient $E$ un topos, $X$ un objet de $E$. Alors la catégorie
+$E_{/X}$ des objets de $E$ au-dessous de $X$ est un topos, comme il
+résulte par exemple immédiatement du critère de Giraud
+\hyperref[IV.theo1.2]{1.2} ii). On peut aussi, grâce à \hyperref[IV.cor1.2.1]{1.2.1}
+réaliser $E$ comme une catégorie de faisceaux $C^{\sim}$, où
+$C$ est une sous-catégorie\pageoriginale génératrice de $E$
+qu'on peut choisir telle que $X\in \ob C$; alors on sait que
+$E_{/X}=C^{\sim}_{/X}$ est équivalente à $(C_{/X})^{\sim}$
+(\hyperrefext[III][III.prop5.4]{5.4}), donc c'est un topos.
+
+On appelle le topos $E_{/X}$ le \emph{topos induit} sur l'objet $X$
+de $E$.
+
+\subsection{}\etiquette[5.2]{IV.subsec5.2}
+On va définir un morphisme de topos canonique
+\begin{equation*}
+j_X:E_{/X}\longrightarrow E{\quoi},\tag{5.2.1}
+\end{equation*}\etiquette[5.2.1]{IV.eq5.2.1}
+qui est appelé \emph{morphisme d'inclusion} du topos induit
+$E_{/X}$ dans le topos ambiant $E$, ou mieux (\cf
+\hyperref[IV.subsec5.7]{5.7}), \emph{morphisme de localisation de $E$ en $X$.}
+Ce morphisme correspond à une suite de trois foncteurs adjoints
+(\cf \hyperref[IV.subsubsec3.1.3]{3.1.3})
+\begin{equation*}
+j_{X!}\quav j^{\ast}_X\quav j_{X^{\ast}}{\quoi},\tag{5.2.2}
+\end{equation*}\etiquette[5.2.2]{IV.eq5.2.2}
+qui peuvent s'expliciter de la façon suivante:
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Le foncteur
+$$
+j_{X!}:E_{/X}\longrightarrow E
+$$
+est le foncteur « \emph{oubli de la flèche structurale} » de
+$E_{/X}$ dans $E$.
+
+\item Le foncteur
+$$
+j^{\ast}_X:E\longrightarrow E_{/X}
+$$
+est défini par
+$$
+j^{\ast}_X(Z)=(X\times Z, \pr_1){\quoi},
+$$
+où $\pr_1:X\times Z\rightarrow X$ est la première projection. On
+peut aussi l'interpréter comme le \emph{foncteur changement de
+base} relativement au morphisme
+$$
+X\longrightarrow e_E{\quoi},
+$$
+où $e_E$ est l'objet final de $E$. Il est trivial, par
+définition du foncteur changement de base, que $j^{\ast}_X$ est
+bien adjoint à droite de $j_{X!}$. Il commute en particulier aux
+limites projectives. Il commute également aux limites
+inductives,\pageoriginale en vertu des propriétés d'exactitude
+spéciales des topos (\hyperrefext[II][II.sec4]{4}).
+
+\item De ce dernier fait résulte (\hyperref[IV.cor1.6]{1.6}) que $j^{\ast}_X$ admet un
+adjoint à droite
+$$
+j_{X^{\ast}}:E_{/X}\longrightarrow E{\quoi}.
+$$
+Pour un objet $X'$ au-dessus de $X$, l'objet $j_{X^{\ast}}(X')$ est
+aussi parfois noté par l'un des symboles $\prod_{X/e_E}(X'/X)$, ou
+$\Hhom_{X/e_E}(X,X')$, ou $\Res_{X/e_E}(X'/X)$ (« restriction de
+Weil »), dont l'un ou l'autre est sans doute déjà familier au
+savant lecteur de notre modeste ouvrage.
+\end{enumerate}
+
+\subsection{}\etiquette[5.3]{IV.subsec5.3}
+On fera attention que le foncteur $j_{X!}$ commute aux produits
+fibrés, et transforme monomorphismes en monomorphismes, mais il
+n'est pas en général exact à gauche pour autant. Il ne l'est
+que si $X$ est un objet final de $ℰ$ (puisque
+$X=j_{X!}(X,\id_X)$, et $(X,\id_X)$ est un objet final de $E_{/X}$),
+c'est-à-dire si et seulement si $j_X$ est en fait une
+équivalence de topos (donc si tous les foncteurs \eqhyperref[IV.eq5.2.2]{5.2.2}
+sont des équivalences). \footnote[1]{Pour une propriété de
+commutation de $j_{X!}$ au changement de topos, \cf XVII 5.1.2.}
+
+De même, le foncteur $j_{X^{\ast}}$ n'est pas en général exact
+à droite, et ne transforme pas nécessairement épimorphismes en
+épimorphismes.
+
+On conclut de ces observations que la direction du morphisme de
+topos reliant $E_{/X}$ à $E$, pour un objet $X$ du topos $E$, est
+déterminée sans ambiguïté possible.
+
+\subsection{}\etiquette[5.4]{IV.subsec5.4}
+Le foncteur $j^{\ast}_X$ est souvent appelé \emph{foncteur de
+localisation} ou \emph{foncteur restriction}. Cette dernière
+terminologie se justifie en identifiant les objets de $E$ \resp sur
+$E_{/X}$ aux faisceaux sur $E$ \resp sur $E_{/X}$ (\hyperref[IV.theo1.2]{1.2}
+iii)), et en notant qu'avec cette identification, la formule
+d'adjonction entre $j_{X!}$ (foncteur oubli) et $j^{\ast}_X$
+s'interprète en disant que $j^{\ast}_X(F)$ \emph{est\pageoriginale
+le faisceau restriction à $E_{/X}$ du faisceau $F$ sur $E$} (en
+prenant « restriction »  au sens généralisé: composé avec le
+foncteur « d'inclusion » $j_{X!}:E_{/X}\rightarrow E$).
+Conformément à des notations familières en d'autres contextes, on
+écrira aussi souvent, indifféremment:
+\begin{equation*}
+j^{\ast}_X(F)=F| X=F_X=\mbox{ restriction de } F\mbox{ à }
+X{\quoi}.\tag{5.4.1}
+\end{equation*}\etiquette[5.4.1]{IV.eq5.4.1}
+
+De même, lorsque $E$ est de la forme $C^{\sim}$, où $C$ est un
+(petit) site, et que $X$ est de la forme $\epsilon(S)$ avec $S\in
+\ob C$, de sorte qu'on a une équivalence de catégories rappelée dans
+\hyperref[IV.subsec5.1]{5.1}
+$$
+E_{/X}=C^{\sim}_{/\epsilon(S)}\xrightarrow{\approx}(C_{/S})^{\sim}
+$$
+($C_{/S}$ étant munie de la topologie induite par celle de $C$),
+le foncteur $j^{\ast}_X$ s'identifie simplement au foncteur « restriction »  d'un faisceau variable $F$ sur $C$ à la
+catégorie $C_{/S}$.
+
+Ces réflexions permettent de prévoir d'ailleurs le rôle
+important que joueront les topos induits et les morphismes de
+localisation \eqhyperref[IV.eq5.2.1]{5.2.1} dans toutes les questions où on est
+amené à raisonner par « localisation sur $E$ »  (\cf 8),
+c'est-à-dire pratiquement dans toutes les questions faisant
+intervenir des sites ou des topos.
+
+\subsection{}\etiquette[5.5]{IV.subsec5.5}
+Soit
+$$
+f:X\longrightarrow Y
+$$
+une flèche de $E$, qui permet donc d'interpréter $X$ (ou plus
+correctement, $(X,f)$) comme un objet de $E_{/Y}$. Il est évident
+qu'on a un isomorphisme canonique
+\begin{equation*}
+(E_{/Y})_{/X}\xrightarrow{\sim}E_{/X}\tag{5.5.1}
+\end{equation*}\etiquette[5.5.1]{IV.eq5.5.1}
+(\emph{transitivité des topos induits}). Appliquant la
+construction de \hyperref[IV.subsec5.1]{5.1} à $E_{/Y}$ au lieu de $E$, on
+trouve donc un morphisme de topos canonique
+\begin{equation*}
+\loc(f)\mbox{ ou } f:E_{/X}\longrightarrow E_{/Y}{\quoi},\tag{5.5.2}
+\end{equation*}\etiquette[5.5.2]{IV.eq5.5.2}
+appelé\pageoriginale également \emph{morphisme de localisation
+(associé à $f$).} Lorsque $Y$ est l'objet final de $E$, on
+retrouve essentiellement \eqhyperref[IV.eq5.2.1]{5.2.1}. Le morphisme de localisation
+pour $f$ est associé à une suite de trois foncteurs adjoints
+\begin{equation*}
+f_{!}\quav f^{\ast}\quav f_{\ast}{\quoi},\tag{5.5.3}
+\end{equation*}\etiquette[5.5.3]{IV.eq5.5.3}
+qui peuvent s'interpréter respectivement comme foncteur d'oubli,
+comme foncteur restriction, et comme un foncteur noté au choix ($X'$
+étant l'argument) $\prod_{X/Y}(X'/X)$, $\Hhom_{X/Y}(X,X')$ ou
+$\Res_{X/Y}(X'/X)$.
+
+\subsection{}\etiquette[5.6]{IV.subsec5.6}
+La transitivité des foncteurs oubli implique que pour deux
+morphismes composables
+$$
+X\xrightarrow{f} Y \xrightarrow{g} Z
+$$
+de $E$, on a un isomorphisme canonique de morphismes de topos
+$$
+\loc(gf)\simeq \loc(g)\loc(f):E_{/X}\longrightarrow
+E_{/Y}\longrightarrow E_{/Z}{\quoi}.
+$$
+De plus, pour trois morphismes composables, on a la relation de
+compatibilité habituelle pour les isomorphismes de transitivité
+précédents. Ceci permet donc de considérer, moyennant l'abus de
+langage habituel, que
+$$
+X\longmapsto E_{/X}
+$$
+est un foncteur covariant de $E$ dans la catégorie
+($𝒱$-$𝒰$-$\text{top}$) (\hyperref[IV.subsubsec3.3.1]{3.3.1}).
+Plus précisément, on trouve un 2-foncteur (non strict en
+général) de $E$ dans la 2-catégorie
+($𝒱$-$𝒰$-$\text{top}$).
+
+Avant de continuer les généralités sur les topos induits
+(\hyperref[IV.subsec5.10]{5.10}), donnons quelques exemples instructifs.
+
+\subsection{}\etiquette[5.7]{IV.subsec5.7}
+Soit\pageoriginale $X$ un espace topologique, d'où un topos
+$\Top(X)$ (\hyperref[IV.subsec2.1]{2.1}). Soit $X'$ un objet de $\Top(X)$,
+qu'il sera commode d'interpréter comme un espace étalé sur
+$X$, $p:X'\rightarrow X$. La catégorie $\Top(X)_{/X'}$ s'identifie
+alors à la catégorie des espaces étalés $X''$ sur $X$, munis
+d'un $X$-morphisme $X''\rightarrow X'$. On sait qu'un tel morphisme
+fait de $X''$ un espace étalé sur $X'$, et on trouve de cette
+façon une équivalence de topos canonique
+$$
+\Top(X)_{/X'}\xrightarrow{\approx} \Top(X'){\quoi}.
+$$
+Le morphisme de localisation s'identifie donc à un morphisme de
+topos $\Top(X')\rightarrow \Top(X)$, et on constate aussitôt que
+ce dernier n'est autre que le morphisme
+$$
+\Top(p):\Top(X')\longrightarrow \Top(X)
+$$
+associé à l'application continue structurale $p:X'\rightarrow
+X$. Intuitivement, le morphisme de localisation n'est donc autre que
+la traduction, en langage de topos, du morphisme d'étalement
+$p:X'\rightarrow X$. Ceci explique à la fois le bien-fondé de la
+terminologie « morphisme de localisation », et incite à la
+prudence dans l'emploi du terme de « morphisme d'inclusion »,
+celui-ci semblant surtout approprié dans le cas où $p$ est une
+immersion ouverte. Il sera prudent par conséquent de réserver
+dans \hyperref[IV.subsec5.1]{5.1} le terme de « morphisme d'inclusion »
+au cas où le morphisme $X\rightarrow e_E$ est un monomorphisme,
+\ie où $X$ s'identifie à un sous-objet de l'objet final de $E$.
+
+\subsection{}\etiquette[5.8]{IV.subsec5.8}
+Soient $E$ un topos, $G$ un Groupe de $E$, $H$ un sous-groupe de
+$G$,
+$$
+X=G/H
+$$
+l'espace homogène quotient, qu'on regarde comme un objet de $E$
+avec groupe d'opérateurs gauche $G$, \ie comme un objet du topos
+classifiant $B_G$ (\hyperref[IV.subsec2.4]{2.4}). Nous\pageoriginale allons
+déterminer le topos induit
+$$
+(B_G)_{/X}\quad (X=G/H){\quoi},
+$$
+en définissant une équivalence de topos
+\begin{equation*}
+c:B_H \xrightarrow{\approx} (B_G)_{/X}{\quoi},\tag{5.8.1}
+\end{equation*}\etiquette[5.8.1]{IV.eq5.8.1}
+telle que l'on ait commutativité à isomorphisme canonique près
+dans le diagramme
+\[\vcenter{
+\xymatrix@C=2cm{ B_H \ar[r]^{c} \ar[r] \ar
+@{^{(}->}@<-9pt>[rr]_{B_i}& {(B_{G})_{/X}} \ar[r]^{j_X}& B_G
+}}\leqno{(5.8.2)}
+\]\etiquette[5.8.2]{IV.eq5.8.2}
+où $j_X$ est le morphisme de localisation dans $B_G$, et où
+$$
+B_i:B_H\longrightarrow B_G
+$$
+est le morphisme déduit de l'inclusion $i:H\rightarrow G$
+(\hyperref[IV.subsec4.5]{4.5}).
+
+Pour définir \eqhyperref[IV.eq5.8.1]{5.8.1}, nous allons simplement indiquer la
+description des foncteurs image inverse $c^{\ast}$ et image directe
+$c_{\ast}$, laissant au lecteur le soin de vérifier que ce sont
+bien là des équivalences quasi-inverses l'une de l'autre,
+donnant lieu au diagramme commutatif \eqhyperref[IV.eq5.8.2]{5.8.2} de morphismes de
+topos. Soit $e$ le sous-objet de $E$ sous-jacent à $X$, image de
+la section de $X$ (sur un objet final $e_E$ choisi de $E$) déduite
+de la section unité de $G$. Si $X'$ est un objet de $B_G$
+au-dessus de \sisi{$G$}{$X$}, alors on désigne par $c^{\ast}(X')$ l'image
+inverse de $e$ dans $X'$,
+$$
+c^{\ast}(X')=\fprod{X'}{e}{X}{\quoi},
+$$
+qui est stable par l'opération gauche de $H$ sur $X'$, restriction
+de l'opération donnée de $G$ sur $X'$. Cela définit bien un
+foncteur
+$$
+c^{\ast}:(B_G)_{/X}\longrightarrow B_H{\quoi}.
+$$
+D'autre\pageoriginale part, si $X'$ est un objet de $B_H$, alors le
+morphisme de $X'$ dans l'objet final $e_H$ de $B_H$ (\ie l'objet
+final $e_E$ de $E$ avec opération triviale de $H$) donne, par
+application du foncteur $i_{!}$ (\hyperref[IV.subsec4.5]{4.5}) un morphisme de
+$B_G$
+$$
+i_{!}(X')\longrightarrow i_{!}(e_H)\simeq X{\quoi},
+$$
+qui permet d'interpréter $i_{!}(X')$ comme un objet de
+$(B_G)_{/X}$,  d'où le foncteur cherché
+$$
+c_{\ast}:X'\longmapsto (i_{!}(X')\longrightarrow
+X):B_H\longrightarrow B_G{\quoi}.
+$$
+
+\setcounter{subsubsection}{2}
+\subsubsection{}\etiquette[5.8.3]{IV.subsubsec5.8.3}
+On voit donc, grâce à \eqhyperref[IV.eq5.8.2]{5.8.2} que si $G$ est un Groupe
+d'un topos, $H$ un sous-Groupe, \emph{le foncteur « restriction
+des opérateurs de $G$ à $H$ »  peut s'interpréter comme un
+foncteur de localisation.} En particulier, prenant pour $H$ le
+sous-groupe unité, on voit que le foncteur « \emph{oubli des
+opérations de $G$} » s'interprète comme un foncteur de
+localisation. On en conclut, plus généralement, que si $(X,G)$
+est un objet de $E$ avec opération de $G$ (\ie un objet du topos
+classifiant $B_G$), alors le foncteur « oubli des opérations de
+$G$ »,
+$$
+E'=(B_G)_{/(X,G)}\longrightarrow E_{/X}
+$$
+peut s'interpréter comme un foncteur de localisation, relativement
+à un objet $E_{G,(X,G)}$ de $E'$ convenable couvrant l'objet
+final. Il suffit de prendre $E_{G,(X,G)}=E_G\times (X,G)$, d'où le
+diagramme cartésien (où $E_G=G_S=G$ avec opération de $G$ par
+translation à gauche)
+\[\vcenter{
+\xymatrix@C=2cm@R=1.5cm{
+E_G \ar[d]& **[r]E_{G,(X,G)} = Z \ar[l] \ar[d]\\
+e_G & (X,G) \ar[l]          \quad , }}\leqno{(5.8.3.1)}
+\]\etiquette[5.8.3.1]{IV.eq5.8.3.1}
+et\pageoriginale de noter que par transitivité des topos induits,
+le topos induit $E'=((B_G)_{X/G)/Z}$ est équivalent au topos
+$((B_G)_{/E_G})_{/Z}$; comme $(B_G)_{/E_G}$ est équivalent à $E$
+par le foncteur $c^{\ast}$ de \eqhyperref[IV.eq5.8.1]{5.8.1} (avec $H=e$), il suffit
+de vérifier que cette équivalence transforme $Z$ en l'objet $X$
+de $E$ (ce qui est trivial) pour déduire l'équivalence
+cherchée de catégories
+$$
+E'_{/Z}\xrightarrow{\approx}E_{/X}{\quoi}.
+$$
+On laisse au lecteur le soin de vérifier que le composé de
+celle-ci avec le foncteur de localisation
+$$
+E'=(B_G)_{/(X,G)}\longrightarrow E'_{/Z}
+$$
+est le foncteur « oubli des opérations de $G$ ». On voit ainsi
+que le diagramme cartésien ci-dessus donne, par passage aux topos
+induits, un diagramme, commutatif à isomorphisme canonique près
+(\hyperref[IV.subsec5.6]{5.6}), de morphismes de topos:
+\[\vcenter{
+  \xymatrix@C=1.25cm@R=1cm{
+**[r](B_G)_{/E_G}\approx E \ar[d]_{j} & **[r](B_G)_{/Z} \approx
+E'_{/Z} \ar[l]_(.3){i}
+  \approx E_{/X} \ar[d]^{j'}\\
+B_G & **[r](B_G)_{/(X,G)} =  E' \ar[l]_(.5){f}\quad,
+}}\leqno{(5.8.3.2)}
+\]\etiquette[5.8.3.2]{IV.eq5.8.3.2}
+où les foncteurs images inverses associés aux flèches verticales
+$j$, $j'$ sont les foncteurs « oubli des opérations de $G$ », et
+où le foncteur image inverse $i^{\ast}$ s'identifie au foncteur de
+localisation $E\rightarrow E_{/X}$. Ce diagramme\pageoriginale est
+d'ailleurs « 2-cartésien »  au sens \hyperref[IV.prop5.11]{5.11}
+ci-dessous.
+
+\subsubsection{}\etiquette[5.8.4]{IV.subsubsec5.8.4}
+On laisse au lecteur le soin d'étendre les réflexions qui
+précèdent au cas d'un pro-groupe $𝒢=(G_i)$, dans le cas
+particulier où $H$ est défini comme « noyau »  de
+$𝒢\rightarrow G_{i_{\circ}}$. (Dans le cas des groupes
+pro-finis, cela signifie qu'on se limite aux sous-groupes $H$ de $G$
+\emph{ouverts}, \ie fermés et d'\emph{indice fini}.)
+
+\begin{enonce*}[remark]{Exercice 5.9}\etiquette[5.9]{IV.exer5.9}
+Soient $E$ un topos, $G$ un Groupe de $E$, $B_G$ le topos
+classifiant de $G$ (\hyperref[IV.subsec2.4]{2.4}),
+$$
+\pi:B_G\longrightarrow E
+$$
+le morphisme de topos déduit de l'homomorphisme de $G$ dans le
+Groupe unité $e$ de $E$ (compte tenu que $B_e\approx E$).
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Soit
+$$
+E_G=G_s
+$$
+l'objet de $B_G$ dont le $E$-objet sous-jacent est $G$, les
+opérations de $G$ étant définies par translation à gauche.
+Considérons $\pi^{\ast}(G)$ comme un Groupe de $B_G$ (c'est le
+Groupe $G$ de $E$ avec les opérations triviales de $G$ dessus).
+Montrer que le morphisme de $E$
+$$
+G_s\times G\longrightarrow G_s
+$$
+défini par les translations droites de $G$ sur $G_s$, est
+compatible avec les opérations de $G$ sur $G_s$ et sur
+$G=\pi^{\ast}(G)$, et définit un morphisme de $B_G$
+$$
+E_G\times \pi^{\ast}(G)\longrightarrow E_G{\quoi}.
+$$
+Montrer que ce morphisme fait de $E_G$ un objet de $B_G$ avec une
+opération à droite du $B_G$-Groupe $\pi^{\ast}(G)$, et que cette
+dernière fait de $E_G$ un \emph{torseur} sous\pageoriginale
+$\pi^{\ast}(G)$ (\ie l'objet final de $B_G$ peut se recouvrir par
+des objets $X_i$ tels que pour tout $i$, la restriction de $E_G$ à
+$X_i$ soit isomorphe au fibré à opérateurs trivial
+$(\pi^{\ast}(G)_{X_i})_d$).
+
+\item Soit
+$$
+q:E'\longrightarrow E
+$$
+un topos sur $E$. Pour tout topos $B$ sur $E$, définir la
+catégorie $\Hhomtop_E(E',B)$ des morphismes de topos de $E'$ dans
+$B$ compatibles avec les morphismes structuraux $E'\rightarrow E$ et
+$B\rightarrow E$ à isomorphisme donné près. Prenant $B=B_G$,
+définir par la formule $f\mapsto f^{\ast}(E_G)$ une équivalence
+de catégories
+$$
+\Hhomtop_E(E',B_G)\longrightarrow \Ttors(E,q^{\ast}(G)){\quoi},
+$$
+où le deuxième membre désigne la catégorie des
+$q^{\ast}(G)$-torseurs (à droite) sur $E$.
+
+\item Soit $H$ un sous-Groupe de $G$, de sorte que $\pi^{\ast}(H)$ est
+un sous-Groupe de $p^{\ast}(G)$, et opère donc sur $E_G$ par
+restriction du Groupe d'opérateurs, d'où un objet quotient
+$$
+X=E_G/\pi^{\ast}(H){\quoi},
+$$
+qui n'est autre que l'objet $G/H$ muni de l'opération à gauche
+habituelle de $G$. Soit $e_G$ l'objet final de $B_G$ (\ie l'objet
+final $e_E$ de $E$ avec opération triviale - il n'y a pas le choix
+- de $G$), et considérons dans $B_G$ le diagramme de morphismes
+\[
+\xymatrix@C=-1cm@R=.75cm{
+E_G \ar[dd] \ar[rd]& \\
+    & \qquad\qquad\quad X = E_{G}/\pi^{*}(H)\ar[ld]\\
+e_G & }
+\]
+d'où,\pageoriginale en passant aux topos induits par $B_G$ sur ces
+objets, un diagramme de morphismes de topos, commutatif à
+isomorphisme canonique près (\hyperref[IV.subsec5.6]{5.6}). Montrer que ce
+diagramme est équivalent au diagramme
+\[
+\xymatrix@C=.05cm@R=.85cm{
+E & = & B_e \ar[dd] \ar[rrrd]& & &\\
+  &   &                    &  & &B_H \ar[llld]\\
+  &   & B_G                &  & & &,
+}
+\]
+dont les trois flèches sont les flèches associées par
+\hyperref[IV.subsec4.5]{4.5} aux morphismes de Groupes $e\rightarrow
+H\rightarrow G$ de $E$. (Ainsi, \emph{le topos classifiant $B_H$
+s'interprète intuitivement comme un espace homogène au-dessus de
+$B_G$, de groupe $\pi^{\ast}(G)$, associé au torseur} (= fibré
+principal homogène) \emph{universel $E_G$ sur $B_G$}).
+
+\item Reprendre l'exemple \hyperref[IV.subsec5.7]{5.7} dans le cas où $X'$ est un
+\emph{revêtement} étale (localement trivial, \cf
+\hyperref[IV.subsubsec2.7.4]{2.7.4}) de $X$, en l'interprétant en termes des
+considérations du présent exercice.
+\end{enumerate}
+\end{enonce*}
+
+\setcounter{subsection}{9}
+\subsection{Images inverses de topos induits}\etiquette[5.10]{IV.subsec5.10}
+
+Soient
+$$
+f:E'\rightarrow E
+$$
+un morphisme de $𝒰$-topos, $X$ un objet de $E$, et
+$X'=f^{\ast}(X)$ son image inverse dans $E$. On va alors définir
+un diagramme de morphismes de topos
+\[\vcenter{
+\xymatrix@C=2.5cm@R=1.5cm{
+E_{/X}  \ar[d]_{j_X} & E'_{/X'} \ar[l]_{f_{/X}} \ar[d]^{j_{X'}} \\
+E      &  E'\ar[l]_{f}\quad , }}\leqno{(5.10.1)}
+\]\etiquette[5.10.1]{IV.eq5.10.1}
+où\pageoriginale $j_X$ et $j_{X'}$ sont les morphismes de
+localisation (\hyperref[IV.subsec5.2]{5.2}), et où $f_{/X}$ est défini
+ci-dessous, diagramme qui sera commutatif à isomorphisme canonique
+près. Nous définirons ici $f_{/X}$ à l'aide du foncteur image
+inverse
+\begin{equation*}
+(f_{/X})^{\ast}:E_{/X}\longrightarrow E'_{/X'}{\quoi},\tag{5.10.2}
+\end{equation*}\etiquette[5.10.2]{IV.eq5.10.2}
+pour lequel nous prendrons simplement le foncteur « induit »
+par $f^{\ast}$, en un sens évident. Comme les foncteurs
+d'inclusion $j_{X!}:E_{/X}\rightarrow E$ et
+$j_{X'!}:E_{/X}\rightarrow E$ commutent aux $𝒰$-limites
+inductives et aux produits fibrés, et qu'ils sont conservatifs, il
+s'ensuit aussitôt que le foncteur $(f_{/X})^{\ast}$ commute aux
+$𝒰$-limites inductives et aux produits fibrés tout comme
+le foncteur $f^{\ast}$ qui l'induit; comme de plus $(f_{/X})^{\ast}$
+transforme évidemment objet final $X$ en l'objet final $X'$, il
+est exact à gauche, donc est associé à un morphisme de topos
+\begin{equation*}
+f_{/X}:E'_{/X'}\longrightarrow E_{/X}{\quoi},\tag{5.10.3}
+\end{equation*}\etiquette[5.10.3]{IV.eq5.10.3}
+défini à isomorphisme unique près (\hyperref[IV.subsubsec3.1.1]{3.1.1}).
+D'autre part, le diagramme déduit de \eqhyperref[IV.eq5.10.1]{5.10.1} par passage
+aux foncteurs images inverses est commutatif (à isomorphisme
+canonique près) par construction et grâce au fait que $f^{\ast}$
+commute aux produits $X\times Y$, donc \eqhyperref[IV.eq5.10.1]{5.10.1} lui-même est
+commutatif, à un unique isomorphisme près induisant
+l'isomorphisme canonique sur les foncteurs images réciproques des
+deux composés $f\circ j_{X'}$ et $j_X\circ f_{/X}$ (3.2.1).
+
+\setcounter{subsubsection}{3}
+\subsubsection{}\etiquette[5.10.4]{IV.subsubsec5.10.4}
+Lorsque $f:E'\rightarrow E$ est associé à une application
+continue $Y'\rightarrow Y$ d'espaces topologiques
+(\hyperref[IV.subsec4.1]{4.1}), de sorte que $X$ s'identifie à un espace
+étalé au-dessus de $Y$, et $X'$ au produit fibré
+$\fprod{X}{Y'}{Y}$, alors, identifiant les topos induits
+$\Top(Y)_{/X}$ et $\Top(Y')_{/X'}$ à $\Top(X)$ et $\Top(X')$
+respectivement (\hyperref[IV.subsec5.7]{5.7}), on constate que le morphisme
+$f_{/X}$ qu'on vient de construire\pageoriginale est (à
+isomorphisme unique près) le morphisme $\Top(X')\rightarrow
+\Top(Y')$ déduit de l'application continue canonique
+$X'\rightarrow Y'$. On peut donc dire, à la lumière de cet
+exemple, que le topos $E'_{/X'}$ joue le rôle d'un produit fibré
+de $E_{/X}$ et de $E'$ sur $E$. Cette intuition se précise à
+l'aide du résultat suivant:
+
+\begin{enonce*}{Proposition 5.11}\etiquette[5.11]{IV.prop5.11}
+Les notations étant celles de $\hyperref[IV.subsec5.10]{5.10}$, le diagramme
+$\eqhyperref[IV.eq5.10.1]{5.10.1}$, muni de l'isomorphisme de compatibilité
+$\alpha:f\circ j_{X'}\rightarrow j_X\circ f_{/X}$, est « $2$-cartésien »; de façon précise, pour tout
+$𝒰$-topos $F$, si on associe à tout morphisme de topos
+$g:F\rightarrow E'_{/X'}$ le triplet $(f_{/X}\circ g, j_{X'}\circ g,
+\alpha\ast g)=(g_1, g_2,\beta)$, où $g_1:F\rightarrow E_{/X}$ et
+$g_2:F\rightarrow E'$ sont des morphismes de topos, et
+$\beta:j_X\circ g_1\rightarrow f\circ g_2$ est un isomorphisme de
+morphismes de topos de $F$ dans $E$, on trouve une équivalence de
+catégories de $\Hhomtop(F,E'_{/X})$ avec la catégorie
+\sisi{$\fprod{\Hhomtop(F,E_{/X})^2}{\Hhomtop(F,E')}{\Hhomtop(F,E)}$}{$\Hhomtop(F,E_{/X})\times^{2}_{\Hhomtop(F,E)}\Hhomtop(F,E')$} de
+tous les triples $(g_1,g_2,\beta)$ comme ci-dessus.
+\end{enonce*}
+
+(NB. On a mis un 2 au-dessus du signe du produit cartésien pour
+rappeler qu'il ne s'agit pas d'un produit fibré ordinaire de
+catégories, mais d'un « 2-produit fibré », dans le sens
+explicité dans l'énoncé.)
+
+Pour prouver \hyperref[IV.prop5.11]{5.11}, on explicite les morphismes de topos
+à l'aide des foncteurs image inverse associés. Nous aurons
+besoin pour cela de résultats auxiliaires, donnés dans
+\hyperref[IV.subsubsec5.11.1]{5.11.1} à \hyperref[IV.prop5.12]{5.12} plus bas.
+
+\setcounter{subsection}{11} \setcounter{subsubsection}{0}
+\subsubsection{}\etiquette[5.11.1]{IV.subsubsec5.11.1}
+Considérons de façon générale la situation où on se donne
+deux catégories $E$, $E'$, un objet $X$ de $E$ qu'on suppose
+quarrable \ie tel que le foncteur
+$$
+j:A\longmapsto A\times X:E\longrightarrow E_{/X}
+$$
+soit\pageoriginale défini, enfin un foncteur exact à gauche
+\begin{equation*}
+\varphi:E_{/X}\longrightarrow E'{\quoi}.\tag{$\ast$}
+\end{equation*}
+Comme $E_{/X}$ a un objet final, savoir $(X,\id_X)=X$, il en est
+donc de même de $E'$, qui admet l'objet final
+$$
+e'\simeq \varphi(X){\quoi}.
+$$
+Supposant choisi l'objet final $e'$ de $E'$, on va à tout $\varphi$
+comme ci-dessus associer un couple
+\begin{equation*}
+(\Psi,u),\mbox{ avec } \Psi=\varphi\circ j:E\rightarrow E',\mbox{ et
+} u\in \Hom(e',\Psi(X)){\quoi}.\tag{${\ast}{\ast}$}
+\end{equation*}
+Pour définir $u$, on note que
+$$
+\Psi(X)=X\times X
+$$
+a une section canonique $\delta_X$ sur l'objet final $X$ de
+$E_{/X}$, savoir la section diagonale, et on définit
+$$
+u=\varphi(\delta_X):\varphi(X)=e'\longrightarrow \varphi(X\times
+X)=\Psi(X){\quoi}.
+$$
+Je dis que la connaissance du couple $({\ast}{\ast})$ permet de
+reconstituer le foncteur $\varphi$ de $(\ast)$ à isomorphisme unique
+près. Pour ceci, pour tout objet
+$$
+p:X'\longrightarrow X
+$$
+de $E_{/X}$, considérons le diagramme cartésien suivant de
+$E_{/X}$:
+\[
+\xymatrix@C=1cm@R=1.5cm{
+X' \ar[d] \ar[r] & **[r]j(X') = X'\times X \ar[d]^{j(p)}\\
+X  \ar[r]^{\delta_X}& **[r]j(X) = X \times X   &, }
+\]
+où la première flèche horizontale est le morphisme graphe
+$\Gamma_p=(\id_X,p)$. Appliquant le foncteur exact à gauche
+$\varphi$ à ce diagramme, et utilisant la définition de $\Psi$
+comme $\varphi\circ j$, on trouve un diagramme cartésien
+\[
+\xymatrix@C=2.25cm@R=1.25cm{
+\varphi(X',p) \ar[d] \ar[r]& \Psi (X') \ar[d]^{\Psi(p)}\\
+e'  \ar[r]          & \Psi (X) \quad , }
+\]
+en\pageoriginale d'autres termes on trouve un isomorphisme canonique
+\begin{equation*}
+\varphi(X',p)\simeq
+\fprod{\Psi(X')}{e'}{\Psi(X)}{\quoi}\tag{5.11.1.1}
+\end{equation*}\etiquette[5.11.1.1]{IV.eq5.11.1.1}
+On constate aussitôt qu'il est fonctoriel en l'objet $(X',p)$ de
+$E_{/X}$, ce qui explicite comment on reconstitue à isomorphisme
+près le foncteur $\varphi:E_{/X}\rightarrow E'$ à l'aide du couple
+$(\Psi,u)$ de $({\ast}{\ast})$. Notons d'ailleurs que le foncteur
+$\Psi$ est exact à gauche; plus généralement, $\Psi$ commute à tout
+type de limites projectives auquel commute $\varphi$, car $j$
+commute aux limites projectives.
+
+Inversement, supposant maintenant que dans $E$ et $E'$ les limites
+projectives finies sont représentables, et partant d'un couple
+$$
+(\Psi,u),\Psi:E\longrightarrow E', u\in \Hom(e',\Psi(X)){\quoi},
+$$
+où le foncteur $\Psi$ est exact à gauche, on définit par la
+formule \eqhyperref[IV.eq5.11.1.1]{5.11.1.1} un foncteur $\varphi:E_{/X}\rightarrow E'$.
+On vérifie aussitôt que ce foncteur est exact à gauche, plus
+généralement, qu'il commute à tout type de limites projectives
+représentables dans $E$ auquel commute $\Psi$. Cela résulte
+aussitôt du diagramme cartésien
+\[
+\xymatrix@C=2.5cm@R=1cm{ \displaystyle{\varprojlim^{E}_{I} X'_i}
+\ar[d] &
+\displaystyle{\varprojlim^{E_{/X}}_{I} X'_i} \ar[d] \ar[l]\\
+\displaystyle{\varprojlim^{E}_{I} X} & X \ar[l]_{\delta} }
+\]
+reliant\pageoriginale les limites projectives calculées dans $E$
+ou dans $E_{/X}$ (où $\delta$ désigne le morphisme diagonal dans
+la limites projective du foncteur constant de valeur $X$), en lui
+appliquant le foncteur $\Psi$, d'où un diagramme cartésien dans
+$E'$, et en composant ce dernier avec le carré cartésien
+déduit de $\Psi(X)\leftarrow e'$, faisant apparaître un carré
+cartésien composé qui exprime la compatibilité de $\varphi$
+à la limite projective envisagée.
+
+On reconstitue à isomorphisme près le couple $(\Psi,u)$ à l'aide de
+$\varphi$, en notant que l'on a un isomorphisme canonique
+\begin{equation*}
+\Psi(X')=\varphi(j(X')){\quoi},\tag{5.11.1.2}
+\end{equation*}\etiquette[5.11.1.2]{IV.eq5.11.1.2}
+déduit de \eqhyperref[IV.eq5.11.1.1]{5.11.1.1} en y remplaçant $(X',p)$ par
+$j(X')=(X'\times X, \pr_2)$, et notant que $\Psi(X'\times X)\simeq
+\Psi(X')\times \Psi(X)$. L'isomorphisme précédent est manifestement
+fonctoriel en $X'$, \ie il donne un isomorphisme
+$$
+\Psi\simeq \varphi\circ j{\quoi},
+$$
+et on vérifie de même que moyennant cet isomorphisme,
+$u:e'\rightarrow \Psi(X)$ s'identifie à $\varphi(\delta_X)$. On a
+ainsi obtenu l'essentiel du
+
+\begin{enonce*}{Lemme 5.11.2}\etiquette[5.11.2]{IV.lem5.11.2}
+Soient $E$ et $E'$ deux catégories où les limites projectives
+finies sont représentables, $X$ un objet de $E$, $\Ssex(E,E')$ la
+catégorie des foncteurs exacts à gauche $\Psi$ de $E$ dans $E'$, et
+$\Ssex(E_{/X},E')$ la catégorie analogue des foncteurs exacts à
+gauche $\varphi$ de $E_{/X}$ dans $E'$. On a alors une équivalence
+entre la catégorie $\Ssex(E_{/X},E')$ et la catégorie
+$\Ssex(E,E')_{/\Gamma}$ des couples $(\Psi,u)$, avec $\Psi\in \ob
+\Ssex(E,E')$ et $u:e'\rightarrow \Psi(X)$ (où $e'$ est l'objet
+final de $E'$), dont la définition est explicitée dans
+$\hyperref[IV.subsubsec5.11.1]{5.11.1}$, ainsi que celle d'un foncteur
+quasi-inverse. Si $\varphi$ et $(\Psi,u)$ se correspondent, alors
+$\varphi$ commute à un type déterminé de limites projectives
+si\pageoriginale et seulement si il en est ainsi de $\Psi$. Si dans
+$E$ et $E'$ les foncteurs changement de base commutent à un type
+déterminé de limites inductives, alors pour que $\varphi$ commute
+aux limites inductives dudit type, il faut et il suffit qu'il en
+soit ainsi de $\Psi$.
+\end{enonce*}
+
+Nous laissons au lecteur le soin d'expliciter la structure de
+catégorie $\Ssex(E,E')_{/\Gamma}$ correspondant aux couples
+$(\Psi,u)$. Définissant le foncteur $\Gamma:\Ssex(E,E')\rightarrow
+(\Ens)$ par $\Gamma(\Psi)=\Hom(e',\Psi(X))$, on peut interpréter
+$u$ dans le couple $(\psi,u)$ comme un élément de $\Gamma(\Psi)$
+\ie un homomorphisme $\Psi\rightarrow \Gamma$ dans la catégorie
+des préfaisceaux sur $\Ssex(E,E')^{\circ}$, ce qui justifie la
+notation ${}_{/\Gamma}$ utilisée dans l'énoncé de
+\hyperref[IV.subsubsec5.11.1]{5.11.1}. Il reste, pour prouver \hyperref[IV.lem5.11.2]{5.11.2},
+à expliciter dans \hyperref[IV.subsubsec5.11.1]{5.11.1} le caractère
+fonctoriel des constructions envisagées pour $\varphi$ \resp
+$(\psi,u)$ variable, ce qui est essentiellement trivial et laissé
+au lecteur, et enfin à vérifier l'assertion concernant les
+propriétés de commutation aux limites inductives, ce qui est
+également trivial à l'aide des formules explicites
+\eqhyperref[IV.eq5.11.1.1]{5.11.1.1} et \eqhyperref[IV.eq5.11.1.2]{5.11.1.2} reliant ces foncteurs.
+
+On trouve en particulier, lorsque $E$ et $E'$ sont des
+$𝒰$-topos, et en interprétant les morphismes de topos à
+l'aide des foncteurs images inverses associés:
+
+\begin{enonce*}{Proposition 5.12}\etiquette[5.12]{IV.prop5.12}
+Soient $E$ et $E'$ deux $𝒰$-topos, $X$ un objet de $E$, et
+considérons sur $\Hhomtop(E',E)$ le foncteur contravariant
+$$
+\gamma:f\longmapsto
+\Gamma(E',f^{\ast}(X))=\Hom(e',f^{\ast}(X)):\Hhomtop(E',E)^{\circ}\longrightarrow
+(\Ens){\quoi}.
+$$
+On a alors une équivalence de catégories
+\begin{equation*}
+\Hhomtop(E',E_{/X})\xrightarrow{\approx}\Hhomtop(E',E)_{/\gamma}{\quoi},\tag{5.12.1}
+\end{equation*}\etiquette[5.12.1]{IV.eq5.12.1}
+où \pageoriginale le deuxième membre est la sous-catégorie
+pleine de $\Hhomtop(E',E)^{\widehat{\phantom{,}}}_{/\gamma}$
+formée des couples $(f,u)$, avec $f\in \Homtop(E',E)$ et $u\in
+\gamma(f)$ \ie $u\in \Gamma(E',f^{\ast}(X))$. Ce foncteur s'obtient
+en associant à tout morphisme de topos $h:E'\rightarrow E_{/X}$ le
+couple $(f,u)$ formé du composé
+$$
+f=j_X\circ h:E'\rightarrow E_{/X}\rightarrow E{\quoi},
+$$
+et du morphisme
+$$
+u:e'=h^{\ast}(X,\id_X)\longrightarrow
+f^{\ast}(X)=h^{\ast}(j^{\ast}_X(X))=h^{\ast}(X\times X)
+$$
+déduit du morphisme diagonal $\delta_X:X\rightarrow X\times X$ en
+lui appliquant $h^{\ast}$.
+\end{enonce*}
+
+\setcounter{subsection}{12}
+\subsubsection{}\etiquette[5.12.2]{IV.subsubsec5.12.2}
+Utilisant \hyperref[IV.prop5.12]{5.12}, la démonstration de \hyperref[IV.prop5.11]{5.11}
+devient à peu près évidente, et se réduit essentiellement
+à ceci (qui tiendra lieu d'une démonstration « en forme »
+qui ne serait pas plus instructive): se donner un morphisme de topos
+$g:F\rightarrow E'_{/X'}$ « revient au même »  que de se
+donner un morphisme de topos $g_2:F\rightarrow E'$ et une section
+$u$ de $g^{\ast}_2(X')$; or
+$g^{\ast}_2(X')=g^{\ast}_2(f^{\ast}(X))=(fg_2)^{\ast}(X)$, donc la
+donnée de $u$ équivaut aussi à la donnée d'un relèvement
+du morphisme de topos $fg_2:F\rightarrow E$ en un morphisme de topos
+$g_1:F\rightarrow E_{/X}$. Cela exprime bien que la donnée d'un
+morphisme de topos $g:F\rightarrow E'_{/X'}$ équivaut
+essentiellement à la donnée d'un triple $(g_1,g_2,\alpha)$ comme
+dans \hyperref[IV.prop5.11]{5.11}.
+
+\begin{enonce*}[remark]{Remarque 5.13}\etiquette[5.13]{IV.rem5.13}
+Nous verrons (\S 15\nde{Ce paragraphe n'existe pas. Voir cependant [16] proposition 4.47 pour 
+un énoncé général d'existence de produits fibrés de topos (en notant que tous les morphismes
+géométriques entre topos de Grothendieck sont bornés).}) que pour tout diagramme
+\[
+\xymatrix@C=2cm@R=1.25cm{
+E_1 \ar[d]&\\
+E   & E_2 \ar[l] }
+\]
+de\pageoriginale topos, il existe un 2-produit fibré au sens de la
+2-catégorie ($𝒱$-$𝒰$-$\Top$) des $𝒰$-topos
+$\in 𝒱$ (ne dépendant pas, à équivalence près, du
+choix d'un univers $𝒱$ tel que $𝒰\in𝒱$).
+Pour d'autres exemples naturels que \hyperref[IV.prop5.11]{5.11} de « produits fibrés de topos », voir le dernier chapitre du livre de
+\textsc{Giraud} [3].
+\end{enonce*}
+
+\begin{enonce*}[remark]{Exercice 5.14}\etiquette[5.14]{IV.exer5.14}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Soient $F$, $G$ deux topos au-dessus d'un topos $E$. Définir
+la catégorie $\Hhomtop_E(F,G)$ des couples $(f,\alpha)$, où
+$f:F\rightarrow G$ est un morphisme de topos et $\alpha:p\rightarrow
+q\circ f$ est un isomorphisme de morphismes de topos de $E$ dans $G$
+($p:F\rightarrow E$ et $q:G\rightarrow E$ étant les morphismes de
+topos structuraux). Définir des foncteurs d'accouplement
+$\Hhomtop_E(F,G)\times \Hhomtop_E(G,H)\rightarrow \Hhomtop_E(F,H)$,
+et des isomorphismes d'associativité.
+
+\item Soient $X$ et $Y$ deux objets d'un topos $E$. Définir un
+foncteur naturel de la catégorie discrète définie par
+l'ensemble $\Hom(X,Y)$, dans la catégorie
+$\Hhomtop_E(E_{/X},E_{/Y})$. Compatibilité avec les compositions
+de morphismes dans $E$ et les accouplements envisagés dans a).
+
+\item Prouver que le foncteur envisagé dans b) est une équivalence
+de catégories. En particulier, un objet $X$ d'un topos $E$ se
+reconstitue à isomorphisme unique près, quand on connaît « à
+$E$-équivalence près »  le topos induit $E_{/X}$ comme topos
+\emph{au-dessus de $E$.}~\footnote[1]{Résultat dû à P.
+\textsc{Deligne}. Le cas où $E$ est le topos ponctuel avait été
+traité auparavant par Mme \textsc{Hakim}.}
+\end{enumerate}
+\end{enonce*}
+
+\section{Points d'un topos et foncteurs fibres}\etiquette[6]{IV.sec6}
+
+\setcounter{subsection}{-1}
+\subsection{}\etiquette[6.0]{IV.subsec6.0}
+Soit $P$ le $𝒰$-\emph{topos ponctuel} type
+(\hyperref[IV.subsec2.2]{2.2})
+$$
+P=(𝒰\text{-}\Ens){\quoi}.
+$$
+Étant donné l'intuition assez différente qui s'attache d'une part au
+symbole\pageoriginale $P$, figurant un objet géométrique dans la
+nature d'un point, et d'autre part à $(𝒰\text{-}\Ens)$,
+figurant une « grosse catégorie », qu'on interprétera comme « la catégorie des faisceaux sur $P$ », il y a lieu suivant le
+contexte d'utiliser l'un ou l'autre symbole exclusivement, bien que
+du strict point de vue logique ils désignent un seul et même objet.
+
+\begin{enonce*}{Définition 6.1}\etiquette[6.1]{IV.def6.1}
+Soit $E$ un $𝒰$-topos. On appelle point de $E$ tout
+morphisme de topos $P\rightarrow E$ du topos ponctuel
+$P(\hyperref[IV.subsec6.0]{6.0})$ dans $E$. On appelle catégorie des points
+de $E$, et on note $\Ppoints(E)$ ou $\sheaf{\Pt}(E)$, la catégorie
+$\Hhomtop(P,E)$ $(\hyperref[IV.subsec3.2]{3.2})$. Si $p:P\rightarrow E$ est un
+point de $E$, associé au foncteur image inverse
+$p^{\ast}:E\rightarrow (𝒰\text{-}\Ens)$, et si $F$ est un
+objet de $E$, l'ensemble $p^{\ast}(F)$ est appelé fibre de $E$ en
+$p$, et noté $F_p$.
+\end{enonce*}
+
+\setcounter{subsection}{1}
+\subsubsection{}\etiquette[6.1.1]{IV.subsubsec6.1.1}
+Bien entendu, lorsque $F$ est un objet en groupe (\resp anneau,
+\resp\ldots) de $E$, sa fibre $F_p$ en $p$ est un groupe (\resp un
+anneau, \resp\ldots) (\hyperref[IV.subsubsec3.1.2]{3.1.2}).
+
+\setcounter{subsubsection}{1}
+
+\subsubsection{}\etiquette[6.1.2]{IV.subsubsec6.1.2}
+En vertu de 3.2.1, la catégorie des points de $E$ est
+équivalente, via le foncteur $p\mapsto p^{\ast}$, à la
+catégorie \emph{opposée} à celle des foncteurs
+$$
+\varphi:E\longrightarrow (𝒰\text{-}\Ens)
+$$
+qui commutent aux $𝒰$-limites inductives et qui sont exacts
+à gauche. Il revient donc essentiellement au même de se donner
+un point de $E$, ou un tel foncteur $\varphi$.
+
+\begin{enonce*}{Définition 6.2}\etiquette[6.2]{IV.def6.2}
+On appelle foncteur-fibre du $𝒰$-topos $E$ tout foncteur
+$\varphi:E\rightarrow (𝒰\text{-}\Ens)$ qui commute aux
+$𝒰$-limites inductives et qui est exact à gauche. On
+appelle catégorie des foncteurs fibres sur $E$, et on note
+$\Ffib(E)$, la\pageoriginale sous-catégorie pleine de
+$\Hhom(E,(𝒰\text{-}\Ens))$ formée des foncteurs fibres sur
+$E$.
+\end{enonce*}
+
+\setcounter{subsection}{2}
+\subsubsection{}\etiquette[6.2.1]{IV.subsubsec6.2.1}
+En vertu de \hyperref[IV.subsubsec6.1.2]{6.1.2}, la catégorie $\Ffib(E)$ des
+foncteurs fibres sur $E$ est donc équivalente à
+l'\emph{opposée} de la catégorie $\Ppoint(E)$ des points de $E$,
+via le foncteur $p\mapsto p^{\ast}$ de cette dernière dans la
+première:
+\begin{equation*}
+\Ppoint(E)\xrightarrow{\approx}\Ffib(E)^{\circ}{\quoi}.
+\tag{6.2.1.1}
+\end{equation*}\etiquette[6.2.1.1]{IV.eq6.2.1.1}
+
+Pour qu'un foncteur
+$$
+\varphi:E\longrightarrow (𝒰\text{-}\Ens)
+$$
+soit un foncteur fibre, il faut et il suffit qu'il soit le foncteur
+fibre $F\mapsto F_p$ associé à un point $p$ de $E$
+(\hyperref[IV.def6.1]{6.1}). En d'autres termes, le foncteur \eqhyperref[IV.eq6.2.1.1]{6.2.1.1}
+est surjectif. Signalons aussi qu'un foncteur $\varphi$ est un
+foncteur fibre si et seulement si il est exact à gauche et s'il
+transforme familles couvrantes en familles surjectives
+(\hyperref[IV.cor1.7]{1.7}). Cette dernière condition s'exprime aussi en
+disant que $\varphi$ commute aux $𝒰$-sommes et transforme
+épimorphismes en épimorphismes.
+
+\subsection{}\etiquette[6.3]{IV.subsec6.3}
+Soit $C\in 𝒰$ un site. On appelle \emph{point du site} $C$
+tout point du topos $C^{\sim}$, \emph{catégorie des points du
+site} $C$ la catégorie
+$$
+\Ppoint(C)=\Ppoint(C^{\sim}){\quoi}.
+$$
+Considérons d'autre part le foncteur
+\begin{equation*}
+\varphi\longrightarrow \varphi|
+C=\varphi\circ\epsilon_C:\Ffib(C^{\sim})\longrightarrow
+\Hhom(C,(𝒰\text{-}\Ens)){\quoi},\tag{6.3.1}
+\end{equation*}\etiquette[6.3.1]{IV.eq6.3.1}
+qui est pleinement fidèle et dont l'image essentielle est la
+sous-catégorie pleine
+$\Mmorsite((𝒰\text{-}\Ens),C)^{\circ}$ (\hyperref[IV.prop4.9.4]{4.9.4}),
+que nous noterons aussi $\Ffib(C)$. Un foncteur
+$$
+\Psi:C\longrightarrow (𝒰\text{-}\Ens)
+$$
+est\pageoriginale appelé un \emph{foncteur fibre sur le site} $C$
+s'il est dans l'image essentielle de \eqhyperref[IV.eq6.3.1]{6.3.1}, qu'on vient
+d'expliciter. Un tel foncteur est donc \emph{continu} (a fortiori
+(III 1.6), il transforme familles couvrantes en familles couvrantes,
+\ie en familles surjectives), et il est exact à gauche. Lorsque dans
+$C$ les limites projectives finies sont représentables, (condition
+vérifiée dans la quasi-totalité des cas qu'on rencontre en pratique)
+les propriétés précédentes \emph{caractérisent} les foncteurs fibres
+sur $C$, qui sont alors les foncteurs
+$\Psi:C\rightarrow(𝒰\text{-}\Ens)$ qui sont exacts à gauche
+et qui transforment familles couvrantes en familles surjectives
+(\hyperref[IV.prop4.9.4]{4.9.4}).
+
+On retiendra que le foncteur $\varphi\rightarrow \varphi| C$ est une
+équivalence de catégories
+$$
+\Ffib(C^{\sim})\xrightarrow{\approx}\Ffib(C){\quoi},
+$$
+de sorte qu'\emph{il revient au même essentiellement de se donner un
+foncteur fibre sur le topos $C^{\sim}$} (ou encore un point de ce
+topos), \emph{ou un foncteur fibre sur le site $C$.} Étant donné un
+foncteur fibre $\Psi$ sur $C$, provenant donc à isomorphisme près
+d'un foncteur fibre $\varphi$ sur $C^{\sim}$, on reconstitue ce
+dernier à l'aide de $\Psi$, à isomorphisme canonique près, par la
+formule
+\begin{equation*}
+\varphi(F)\simeq \varinjlim_{C_{/F}}\Psi (X){\quoi},\tag{6.3.2}
+\end{equation*}\etiquette[6.3.2]{IV.eq6.3.2}
+où $C_{/F}$ est la catégorie des objets $X$ de $C$ munis d'un
+morphisme $X\rightarrow F$ (dans $\widehat{C}$), \ie d'un élément de
+$F(X)$. La formule \eqhyperref[IV.eq6.3.2]{6.3.2} est une conséquence immédiate du
+fait que $\varphi$ commute aux limites inductives et qu'on a un
+isomorphisme canonique fonctoriel en $F$ (\hyperrefext[II][II.cor4.1.1]{4.1.1}):
+$$
+F\simeq \varinjlim_{C_{/F}}\epsilon_C(X){\quoi}.
+$$
+Plus\pageoriginale généralement, lorsque $G$ est un préfaisceau sur
+$C$, on a un isomorphisme canonique fonctoriel en $G$:
+\begin{equation*}
+\varphi(\underline{a}G)\simeq
+\varinjlim_{C_{/G}}\Psi(X){\quoi},\tag{6.3.3}
+\end{equation*}\etiquette[6.3.3]{IV.eq6.3.3}
+où $\underline{a}$ $G$ est le faisceau associé à $G$
+(\hyperrefext[II][II.cor4.1.1]{4.1.1}). En effet, on sait qu'on a la formule
+$$
+\underline{a}G\simeq \varinjlim_{C_{/G}}\epsilon_C(X){\quoi}.
+$$
+
+\setcounter{subsection}{4} \setcounter{subsubsection}{-1}
+\subsubsection{}\etiquette[6.4.0]{IV.subsubsec6.4.0}
+Nous renvoyons à \hyperrefext[I][I.def6.1]{6.1} pour la notion de \emph{famille
+conservative de foncteurs}
+$$
+\varphi_i:E\longrightarrow E_i\qquad i\in I{\quoi}.
+$$
+On notera que lorsque $E$ et les $E_i$ sont des $𝒰$-topos,
+et les foncteurs $\varphi_i$ sont des foncteurs images inverses
+$f^{\ast}_i$ associés à des morphismes de topos
+$$
+f_i:E_i\longrightarrow E{\quoi},
+$$
+alors toutes les propriétés d'exactitude postulées dans
+\hyperrefext[I][I.prop6.2]{6.2}, \hyperrefext[I][I.cor6.3]{6.3} et \hyperrefext[I][I.prop6.4]{6.4} sont vérifiées, à
+condition dans \hyperrefext[I][I.prop6.2]{6.2} (v) non respé de supposer que $D$ est
+fini. Il revient alors au même que $(f^{\ast}_i)_{i\in I}$ soit
+conservative, ou conservative pour les \emph{monomorphismes}
+(\hyperrefext[I][I.def6.1]{6.1}), ou conservative pour les \emph{épimorphismes}, ou
+enfin qu'elle soit \emph{fidèle}.
+
+Lorsque\pageoriginale la famille des foncteurs $f^{\ast}_i$ est
+conservative, on dira aussi parfois que \emph{la famille des
+morphismes de topos $(f_i)_{i\in I}$ est conservative}. En
+particulier:
+
+\begin{enonce*}{Définition 6.4.1}\etiquette[6.4.1]{IV.def6.4.1}
+Soient $E$ un $𝒰$-topos, $(p_i:P\rightarrow E)_{i\in I}$ une
+famille de points de $E$. On dit que cette famille de points est
+conservative si la famille des foncteur fibres associés $F\mapsto
+F_{p_i}$ de $E$ dans $(𝒰\text{-}\Ens)$ est conservative
+$(\hyperref[IV.subsubsec6.4.0]{6.4.0})$. On dit que le topos $E$ a suffisamment
+de points lorsqu'il admet une famille conservative de points (\ie
+lorsque la famille de tous les points du topos est conservative).
+\end{enonce*}
+
+\setcounter{subsection}{4} \setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[6.4.2]{IV.subsubsec6.4.2}
+Signalons que tous les $𝒰$-topos utilisés jusqu'à présent
+ont suffisamment de points. On peut cependant « en faisant
+exprès » construire des topos qui n'ont pas suffisamment de points
+(\hyperref[IV.exer7.2.6]{7.2.6} e) et \hyperref[IV.subsec7.4]{7.4}); on notera qu'un tel
+topos est nécessairement non « vide » au sens géométrique de
+\hyperref[IV.subsec2.2]{2.2}. Un topos admettant suffisamment de points admet
+une famille conservative de points indexée par un $I\in𝒰$
+(\hyperref[IV.prop6.5]{6.5}). Noter cependant à ce sujet que si $E$ est un
+$𝒰$-topos, l'ensemble des classes d'isomorphie de points de
+$E$ n'est pas nécessairement $𝒰$-petit (\hyperref[IV.subsec7.3]{7.3}).
+Il l'est cependant dans de nombreux cas rencontrés en pratique.
+Enfin, pour un intéressant théorème d'existence (dû à P. Deligne) de
+suffisamment de points, couvrant tous les cas rencontrés en
+géométrie algébrique\sisi{.}{, voir \hyperrefext[VI][VI.sec9]{9}.}
+
+\subsubsection{}\etiquette[6.4.3]{IV.subsubsec6.4.3}
+Lorsque $(p_i)_{i\in I}$ est une famille conservative de points du
+topos $E$, on peut appliquer les remarques de \hyperrefext[I][I.prop6.2]{6.2}, qui
+impliquent notamment que deux flèches $u$, $v:F\rightrightarrows G$
+de $E$ sont égales si et seulement si pour tout $i\in I$, les
+flèches induites sur les fibres $u_{p_i}$,
+$v_{p_i}:F_{p_i}\rightrightarrows G_{p_i}$ sont\pageoriginale
+égales; qu'une flèche $u:F\rightarrow G$ de $E$ est un monomorphisme
+(\resp un épimorphisme) si et seulement si pour tout $i\in I$, il en
+est ainsi de l'application $u_{p_i}:F_{p_i}\rightarrow G_{p_i}$;
+qu'un objet $F$ de $E$ est initial (\resp final) si et seulement si
+pour tout $i\in I$, $F_{p_i}$ est vide (\resp réduit à un point);
+qu'un objet $F$ est un sous-objet de l'objet final $e_E$ si et
+seulement si pour tout $i\in I$, $F_{p_i}$ a au plus un point.
+
+\begin{enonce*}{Proposition 6.5}\etiquette[6.5]{IV.prop6.5}
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Soient $C$ un $𝒰$-site, $(\varphi_i)_{i\in I}$ une
+famille de foncteurs fibres sur $C$ $(\hyperref[IV.subsec6.3]{6.3})$. Pour que
+la famille $(p_i)_{i\in I}$ des points correspondants du topos
+$E=C^{\sim}$ soit conservative, il faut et il suffit que pour toute
+famille $(X_j\rightarrow X)_{j\in J}$ dans $C$, telle que pour tout
+$i\in I$, la famille correspondante $(\varphi_i(X_j)\rightarrow
+\varphi_i(X))_{j\in J}$ soit surjective, la famille donnée
+$(X_j\rightarrow X)_{j\in J}$ soit couvrante.
+
+\item Soit $E$ un $𝒰$-topos. Si $E$ admet suffisamment de
+points $(\hyperref[IV.def6.4.1]{6.4.1})$, alors $E$ admet une famille
+conservative de points qui est $𝒰$-petite.
+\end{enumerate}
+\end{enonce*}
+
+
+
+L'assertion b) est un cas particulier de \hyperrefext[I][I.prop7.7]{7.7}. Pour
+prouver a), appliquons \hyperrefext[I][I.prop7.7]{7.7} à la famille génératrice dans
+$E$ formée des $\epsilon(X)(X\in \ob C)$. Rappelons
+(\hyperrefext[II][II.theo4.4]{4.4}) que la famille $X_j\rightarrow X$ est couvrante
+si et seulement si la famille $\epsilon(X_j)\rightarrow \epsilon(X)$
+est épimorphique. Si la famille des points $(p_i)_{i\in I}$ est
+conservative, il revient au même (\hyperref[IV.subsubsec6.4.3]{6.4.3}) de dire
+que pour tout $i\in I$, la famille des $(X_j)_{p_i}\rightarrow
+(X)_{p_i}$ soit surjective, \ie que la famille des
+$\varphi_i(X_j)\rightarrow \varphi_i(X)$ soit surjective. Cela
+établit le « il faut »  dans a). Pour le « il suffit », on
+applique le critère \hyperrefext[I][I.prop7.7]{7.7}, qui nous ramène à vérifier que
+tout monomorphisme $F\rightarrow \epsilon(X)$,\pageoriginale tel que
+$F_{p_i}\rightarrow \epsilon(X)_{p_i}$ soit un isomorphisme pour
+tout $i\in I$, est un isomorphisme, ou ce qui revient au même, un
+épimorphisme. Or, on peut trouver une famille couvrante de
+morphismes $\epsilon(X_j)\rightarrow F$, et quitte à raffiner
+encore, on peut supposer que les morphismes
+$\epsilon(X_j)\rightarrow \epsilon(X)$ sont induits par des
+morphismes $X_j\rightarrow X$. Par hypothèse, pour tout $i\in I$,
+les morphismes composés $(X_j)_{p_i}\rightarrow F_{p_i}\rightarrow
+(X)_{p_i}$ forment une famille surjective (comme composée de deux
+familles surjectives), \ie la famille des $\varphi_i(X_j)\rightarrow
+\varphi_{i}(X)$ est surjective. Il en résulte par hypothèse que la
+famille $X_{j}\to X$ est couvrante, donc que la famille des
+$\epsilon(X_j)\rightarrow \epsilon(X)$ est épimorphisme, et a
+fortiori que $F\rightarrow \epsilon(X)$ est épimorphique.
+
+\begin{enonce*}{Corollaire 6.5.1}\etiquette[6.5.1]{IV.cor6.5.1}
+Soit $C$ une catégorie. Une topologie sur $C$ faisant de $C$ un
+$𝒰$-site admettant suffisamment de foncteurs fibres (\ie tel
+que le topos associé admette suffisamment de points) est entièrement
+connue quand on connaît la sous-catégorie pleine $\Phi$ de
+$\Hhom(C,\Ens)$ formée des foncteurs fibres sur $C$.
+\end{enonce*}
+
+En effet, en vertu de \hyperref[IV.prop6.5]{6.5} a) on sait alors décrire les
+familles couvrantes en termes de la famille des foncteurs fibres.
+
+En fait, on va voir plus bas \sisi{\eqhyperref[IV.eq6.8.3]{6.8.3}}{\eqref{IV.eq6.8.5}} que la sous-catégorie
+$\Phi$ est contenue dans la catégorie des foncteurs
+proreprésentables sur $C$, donc $\Phi^{\circ}\simeq
+\Ppoint(C^{\sim})$ s'identifie à équivalence près à une
+sous-catégorie pleine de $\Pro-C$.
+
+On comparera \hyperref[IV.cor6.5.1]{6.5.1} au théorème de \textsc{Giraud}
+\hyperrefext[II][II.theo5.5]{5.5}, qui établit une correspondance biunivoque entre
+l'ensemble des topologies sur $C$ et un certain ensemble de
+sous-catégories pleines de $\Hhom(C^{\circ},\Ens)$.
+
+\begin{enonce*}[remark]{Exercice 6.5.2}\etiquette[6.5.2]{IV.exer6.5.2}
+Soient\pageoriginale $C$ une catégorie équivalente à une catégorie
+$\in 𝒰$, $P$ une sous-catégorie de $\Pro(C)$. Pour tout
+$p\in P$, on désigne par $X\mapsto X_p$ le foncteur proreprésenté
+par $p$. Une famille $(X_i\rightarrow X)_{i\in I}$ dans $C$ est dite
+$P$-\emph{couvrante} si pour tout $p\in P$, la famille
+$(X_{ip}\rightarrow X_p)_{i\in I}$ est surjective. Montrer qu'il
+existe une topologie $T_p$ sur $C$ pour laquelle les familles
+couvrantes soient exactement les familles $P$-couvrantes, et que
+$T_p$ est la topologie la plus fine sur $C$ pour laquelle les
+foncteurs $X\mapsto X_p$ $(p\in P)$ soient des foncteurs fibres.
+Montrer que la topologie $T_p$ fait de $C$ un site ayant
+\emph{suffisamment} de foncteurs fibres. Montrer que pour toute
+topologie $T$ sur $C$, parmi les topologies $T'$ plus fines que $T$
+qui ont assez de foncteurs fibres, il en est une moins fine: c'est
+la topologie $T_p$, où $P$ est la sous-catégorie strictement pleine
+de $\Pro(C)$, équivalente à $\Ppoint(C)$, décrite dans
+\sisi{\eqhyperref[IV.eq6.8.3]{6.8.3}}{\eqref{IV.eq6.8.5}}
+ci-dessous.
+\end{enonce*}
+
+\begin{enonce*}[remark]{Problème 6.5.3}\etiquette[6.5.3]{IV.prop6.5.3}
+Caractériser les sous-catégories (strictement pleines, stables par
+$𝒰$-limites projectives filtrantes\ldots) $P$ de $\Pro(C)$
+qui peuvent se déduire d'une topologie sur $C$ comme image
+essentielle de $\Ppoint(C^{\sim})$ (\hyperref[IV.subsubsec6.8.5]{6.8.5}).
+\footnote[1]{\cf \hyperref[IV.exer9.1.8]{9.1.8} a) et e) pour des conditions
+nécessaires, et \hyperref[IV.exer9.1.12]{9.1.12} b) pour des conditions
+nécessaires et suffisantes dans les cas de $\Top(X)$, $X$ espace
+sobre localement noethérien.}
+\end{enonce*}
+
+\setcounter{subsection}{5}
+\subsection{}\etiquette[6.6]{IV.subsec6.6}
+Soit
+$$
+f:E\longrightarrow E'
+$$
+un morphisme de $𝒰$-topos, on en déduit un foncteur
+canonique
+$$
+\Ppoint(f)=(p\longmapsto f\circ p):\Ppoint(E)\longrightarrow
+\Point(E'){\quoi}.
+$$
+Lorsqu'on a deux morphismes de topos composables
+$$
+E\xrightarrow{f} E'\xrightarrow{g} E'{\quoi},
+$$
+on\pageoriginale vérifie trivialement que l'on a
+$$
+\Ppoint(gf)=\Ppoint(g)\circ\Ppoint(f):\Ppoint(E)\longrightarrow
+\Ppoint(E')\longrightarrow \Ppoint(E''){\quoi}.
+$$
+Cela précise donc la dépendance fonctorielle (sans abus de langage
+pour une fois) de $\Ppoint(E)$ par rapport au topos $E$: si
+$𝒱$ est un univers tel que $𝒰\in𝒱$, on
+trouve un (véritable !) foncteur
+$$
+\Ppoint:(𝒱\text{-}𝒰\text{-}\text{top})\longrightarrow
+(𝒱\text{-}\cat)
+$$
+de la catégorie des $𝒰$-topos qui sont éléments de
+$𝒱$ dans la catégorie des catégories éléments de
+$𝒱$.
+
+\subsection{}\etiquette[6.7]{IV.subsec6.7}
+Soit $E$ un $𝒰$-topos. Alors tout objet $F$ de $E$ définit
+un contrafoncteur
+$$
+p\longmapsto F_p=p^{*}(F):\Ppoint(E)^{\circ}\longrightarrow
+(𝒰\text{-}\Ens){\quoi},
+$$
+d'où pour $F$ variable un foncteur canonique
+\begin{equation*}
+E\longrightarrow
+\Ppoint(E)^{\widehat{\phantom{,}}}=\Hhom(\Ppoint(E)^{\circ},
+(𝒰\text{-}\Ens)){\quoi},\tag{6.7.1}
+\end{equation*}\etiquette[6.7.1]{IV.eq6.7.1}
+qui par définition (\hyperref[IV.prop6.5]{6.5}) est fidèle si et seulement si
+$E$ possède suffisamment de points. (Le foncteur \eqhyperref[IV.eq6.7.1]{6.7.1} a
+une certaine analogie formelle avec une transformation de
+Fourier\ldots)
+
+Soit $X$ un objet de $E$, qui définit donc un préfaisceau
+$\widehat{X}$ sur
+$$
+C=\Ppoint(E){\quoi}.
+$$
+Nous pouvons donc définir la catégorie
+$$
+C_{/\widehat{X}}=\Ppoint(E)_{/\widehat{X}}
+$$
+des morphismes $p\rightarrow \widehat{X}$ dans le catégorie
+$\widehat{C}$ des préfaisceaux sur $C$, \ie la catégorie des couples
+$(p,\xi)$, où $p$ est un point de $E$ et $\xi$ un élément de
+$\widehat{X}(p)=X_p$, fibre de $X$ en $p$. Ceci posé, je dis
+qu'\emph{on a une équivalence de catégories canonique}
+\begin{equation*}
+C'=\Ppoint(E_{/X})\xrightarrow{\approx}C_{/\widehat{X}}\quav \mbox{
+où }\quad C=\Ppoint(E){\quoi},\tag{6.7.2}
+\end{equation*}\etiquette[6.7.2]{IV.eq6.7.2}
+dont\pageoriginale la composée avec le foncteur d'inclusion
+$C_{/\widehat{X}}\rightarrow C$ n'est autre que le foncteur
+$$
+\Ppoint(j_X):C'=\Ppoint(E_{/X})\longrightarrow C=\Ppoint(E)
+$$
+déduit par fonctorialité (\hyperref[IV.subsec6.6]{6.6}) du morphisme de
+localisation \eqhyperref[IV.eq5.2.1]{5.2.1}
+$$
+j_X:E_{/X}\longrightarrow E{\quoi}.
+$$
+C'est simplement le cas particulier de \hyperref[IV.prop5.12]{5.12} obtenu en
+faisant $E'=P=(Ens)$.
+
+\begin{enonce*}{Corollaire 6.7.3}\etiquette[6.7.3]{IV.cor6.7.3}
+Soit $E$ un topos. Si $E$ a suffisamment de points, il en est de
+même de tout topos induit $E_{/X}$ $(X\in \ob E)$. Inversement. si
+$(X_i)_{i\in I}$ est une famille d'objets de $E$ qui couvre l'objet
+final, telle que pour tout $i\in I$, $E_{/X_i}$ ait suffisamment de
+points, alors $E$ a suffisamment de points.
+\end{enonce*}
+
+Pour la première assertion, soit $f:X'\rightarrow X''$ un morphisme
+dans $E_{/X}$ qui n'est pas un isomorphisme, prouvons qu'il existe
+un point $q$ de $E_{/X}$ tel que $f_q$ ne soit pas un isomorphisme.
+Comme $E$ a assez de points, il existe un point $p$ de $E$ tel que
+$f_p:X'_p\rightarrow X''_p$ ne soit pas un isomorphisme. Cela
+implique qu'il existe un $q\in X_p$ tel que le morphisme induit par
+$f_p$ pour les fibres $X'_q$, $X''_q$ de $X'_p$, $X''_p$ sur $X_p$
+en $q$ ne soit pas un isomorphisme. Mais en vertu de l'équivalence
+\eqhyperref[IV.eq6.7.2]{6.7.2}, $q$ peut s'identifier à un point de $E_{/X}$, et
+l'application $X'_q\rightarrow X''_q$ qu'on vient d'envisager n'est
+autre que l'application sur les fibres en $q$ induite par
+$f:X'\rightarrow X''$, d'où la conclusion.
+
+Inversement, supposons que les $X_i$ couvrent l'objet final de $E$,
+et que les $E_{/X_i}$ aient assez de points, prouvons qu'il en est
+de même de $E$. Soit\pageoriginale $f:X'\rightarrow X''$ un
+morphisme dans $E$ qui n'est pas un isomorphisme. Il existe donc un
+$i\in I$ tel que $f_i:X'_i\rightarrow X''_i$ n'est pas un
+isomorphisme, où l'indice $i$ indique la restriction à $X_i$. Il
+existe donc un point $p_i$ de $E_{/X_i}$ tel que
+$f_{ip_i}:X'_{ip_i}\rightarrow X''_{ip_i}$ ne soit pas un
+isomorphisme. Désignant par $p$ l'image de $p_i$ dans $E$ par le
+morphisme de localisation $E_{/X_i}\rightarrow E$, cela signifie que
+$X'_p\rightarrow X''_p$ n'est pas un isomorphisme, ce qui prouve que
+$E$ a assez de points.
+
+\begin{enonce*}[remark]{Remarque 6.7.4}\etiquette[6.7.4]{IV.rem6.7.4}
+L'argument précédent montre que si $(p_{\alpha})$ est une famille
+conservative de points de $E$, alors la famille des points de
+$E_{/X}$ qui sont au-dessus d'un des $p_{\alpha}$ (famille indexée
+par l'ensemble somme des $E_{p_{\alpha}}$) est conservative. De
+même, si les $X_i$ couvrent l'objet final de $E$, et si pour tout
+$i\in I$, $P_i$ est un ensemble conservatif de points de $E_{/X_i}$,
+alors l'ensemble des points de $E$ \emph{images} des $p\in P_i$ pour
+les morphismes de localisation $E_{/X_i}\rightarrow E$ ($(i\in I$ et
+$p$ variables) est conservatif.
+\end{enonce*}
+
+\setcounter{subsection}{7}
+\subsection{}\etiquette[6.8]{IV.subsec6.8}
+Soient $E$ un topos, $p$ un point de $E$. On appelle \emph{voisinage
+du point $p$ du topos $E$} un couple $(X,u)$, où $X\in \ob E$ et
+$u\in X_p$. En vertu de \eqhyperref[IV.eq6.7.2]{6.7.2}, on peut aussi interpréter $u$
+comme un relèvement de $p$ en un point du topos induit $E_{/X}$.
+Introduisant le foncteur fibre $\varphi_p$ associé au point $p$, on
+peut aussi interpréter un voisinage du point $p$ comme un objet de
+la catégorie $E_{/\varphi_p}$ (sous-catégorie pleine de
+$(E^\circ)^{\widehat{\phantom{,}}}_{/\varphi_p}$ formée des objets
+dont la source est dans $E\subset \widehat{E}$). Cette dernière
+catégorie, \ie la catégorie des couples $(X,u)$ comme ci-dessus,
+s'appellera comme de juste la \emph{catégorie des voisinages} du
+point $p$ du topos $E$; on la note aussi $\Vvois(p)$. Comme
+$\varphi_p$\pageoriginale est exact à gauche et que les limites
+projectives finies sont représentables dans $E$, les limites
+projectives finies sont représentables dans la catégorie
+$\Vvois(p)$, et le foncteur canonique $\Vvois(p)\rightarrow E$ y
+commute (\sisi{I\quad }{\ref{I.subsubsec8.10.10}}). A fortiori, la catégorie opposée
+$\Vvois(p)^{\circ}$ est filtrante. De plus, il est clair
+(\hyperrefext[I][I.prop3.4]{3.4}) qu'on a un isomorphisme canonique, fonctoriel en
+$F\in \ob E$
+\begin{equation*}
+\varphi_p(F)=F_p\simeq
+\varinjlim_{\Vvois(p)^{\circ}}F(X){\quoi}.\tag{6.8.1}
+\end{equation*}\etiquette[6.8.1]{IV.eq6.8.1}
+En d'autres termes \emph{le foncteur $\varphi_p$ « fibre en le
+point $p$ »  est isomorphe à la limite inductive filtrante des
+foncteurs représentés dans le topos $E$ par les voisinages du point
+$p$ de $E$.} On voit même que \emph{le foncteur fibre est
+ind-représentable} (\hyperrefext[I][I.sec8]{8}), ce qui signifie aussi qu'il est
+représentable par un pro-objet $(X_i)_{i\in I}$ de $E$, où $I$ est
+un ensemble ordonné filtrant tel que $I\in𝒰$. En effet, en
+vertu de \loccit, il revient au même de dire que la catégorie
+$\Vvois(p)$ admet une petite sous-catégorie pleine cofinale. Or soit
+$C$ une petite sous-catégorie pleine génératrice de $E$, je dis que
+la sous-catégorie pleine $C_{/\varphi_{p}}$ de
+$\Vvois(p)=E_{/\varphi_p}$, formée des voisinages $(X,u)$ de $p$
+tels que $X\in \ob C$ (catégorie qui est évidemment petite) est
+cofinale dans $\Vvois(p)$. Soit en effet $(X,u)$ un voisinage de
+$p$, il faut trouver un voisinage $(X',u')$ de $p$ au-dessus de
+$(X,u)$, avec $X'\in \ob C$. Or il existe une famille couvrante
+$X'_i\rightarrow X$, avec les $X'_i$ dans $C$, d'où résulte que les
+$X'_{ip}$ couvrent $X_p$, donc il existe un $X'=X'_{i_{\circ}}$ et
+un $u'\in X'_p$ tels que $(X',u')$ soit au-dessus de $(X,p)$, ce
+qu'on avait affirmé.
+
+\setcounter{subsubsection}{1}
+\subsubsection{}\etiquette[6.8.2]{IV.subsubsec6.8.2}
+Soient\pageoriginale $C$ un $𝒰$-site, et $p$ un point de
+$C$, \ie un point du topos $C^{\sim}$. Désignons encore, par abus de
+notations, par $\varphi_p$ la « restriction »  du foncteur fibre
+$\varphi_p$ à $C$, \ie le composé $\varphi_p\circ \epsilon$; nous
+écrirons aussi souvent, pour un objet $X$ de $C$
+$$
+X_p=\varphi_p(X)=\epsilon(X)_p{\quoi}.
+$$
+On appelle \emph{voisinage du point $p$ dans le site $C$} un couple
+$(X,u)$, où $X\in \ob C$ et $u\in X_p=\varphi_p(X)$. Ces voisinages
+forment encore une catégorie $C_{/\varphi_p}$, qu'on pourra noter
+$\Vvois_C(p)$. Montrons que \emph{la catégorie $\Vvois_C(p)^{\circ}$
+est encore filtrante, qu'elle admet une sous-catégorie pleine
+cofinale $𝒰$-petite, et qu'on a un isomorphisme fonctoriel
+en le faisceau $F$ sur $C$:}
+\begin{equation*}
+F_p\simeq \varinjlim_{\Vvois_C(p)^{\circ}} F(X){\quoi}.\tag{6.8.3}
+\end{equation*}\etiquette[6.8.3]{IV.eq6.8.3}
+On note d'abord, en reprenant l'argument de \eqhyperref[IV.eq6.8.1]{6.8.1}, que si
+$C'$ est une sous-catégorie pleine de $C$ qui est topologiquement
+génératrice (II 3.0.1), alors $\Vvois_{C'}(p)^{\circ}$ est cofinale
+dans $\Vvois_C(p)^{\circ}$. Prenant $C'\in 𝒰$-petite, on est
+donc ramené, pour établir l'assertion, au cas où $C\in𝒰$.
+Dans ce cas $\widehat{C}$ est un $𝒰$-topos, et on a un
+foncteur faisceau associé $\underline{a}:\widehat{C}\rightarrow
+C^{\sim}$, qui permet de construire sur $\widehat{C}$ le foncteur
+fibre composé $\varphi_p\underline{a}$. Appliquant \eqhyperref[IV.eq6.8.1]{6.8.1} au
+topos $\widehat{C}$ et à la sous-catégorie génératrice
+pleine $C$ de
+celui-ci, on trouve que la catégorie
+$C_{/\varphi_p\underline{a}}^{\circ},$ qui est manifestement isomorphe à
+$\Vvois_C(p)^{\circ}$, est filtrante, et qu'on a un isomorphisme
+fonctoriel en le préfaisceau $P$ sur $C$:
+$$
+\varphi_p\underline{a}(P)\simeq \varinjlim_X P(X){\quoi}.
+$$
+Si $F$ est un faisceau sur $C$, on a $F=\underline{a}F$, et appliquant
+l'isomorphisme  précédent\pageoriginale à $F$ considéré comme
+préfaisceau, on obtient \eqhyperref[IV.eq6.8.3]{6.8.3}. En même temps,
+cet argument
+établit la formule plus générale
+\begin{equation*}
+(\underline{a}P)_p\simeq \varinjlim_{\Vvois_C(p)^{\circ}}
+P(X){\quoi},\tag{6.8.4}
+\end{equation*}\etiquette[6.8.4]{IV.eq6.8.4}
+isomorphisme fonctoriel en le préfaisceau $P$ arbitraire sur $C$, du
+moins lorsque $C$ est petit. Le cas général s'en déduit, en
+introduisant un univers $𝒱$ tel que $C\in𝒱$, en
+considérant $\varphi_p$ sur $C$ comme un foncteur fibre à valeurs
+dans $(𝒱\text{-}\Ens)$, et utilisant la compatibilité de la
+formation du préfaisceau associé avec l'agrandissement des univers
+(\hyperrefext[II][II.prop3.6]{3.6}).
+
+\setcounter{subsubsection}{4}
+\subsubsection{}\etiquette[6.8.5]{IV.subsubsec6.8.5}
+On a associé à tout point $p$ du topos $C^{\sim}$ un pro-objet du
+$𝒰$-site $C$, défini par le foncteur canonique
+$\Vvois_C(p)\rightarrow C$, compte tenu du fait que la catégorie des
+voisinages de $p$ dans $C$ est cofiltrante et admet une petite
+sous-catégorie pleine cofinale. On vérifie aussitôt que pour $p$
+variable, on obtient ainsi un foncteur
+\begin{equation*}
+\Ppoint(C^{\sim})\longrightarrow \Pro(C){\quoi}.\tag{6.8.5.1}
+\end{equation*}\etiquette[6.8.5.1]{IV.eq6.8.5.1}
+Ce foncteur est \emph{pleinement fidèle.} En effet, via les
+foncteurs fibres associés, il s'interprète comme un foncteur
+$\Fib(C)\rightarrow \Fib(C^{\sim})\rightarrow \Pro(C)^{\circ}$. Le
+premier foncteur est une équivalence en vertu de \hyperref[IV.prop4.9.4]{4.9.4}
+(rappelé pour les foncteurs fibres en \hyperref[IV.subsec6.3]{6.3}), et le
+deuxième est pleinement fidèle d'après le sorite général
+(\hyperrefext[I][I.sec8]{8}) des pro-objets.
+
+\subsubsection{}\etiquette[6.8.6]{IV.subsubsec6.8.6}
+Prenons le cas particulier où $C$ est $𝒰$-petite et munie de
+la topologie chaotique, de sorte que $C=\widehat{C}$. Je dis que
+dans ce cas le foncteur précédent est même une équivalence de
+catégories
+\begin{equation*}
+\Ppoint(\widehat{C})\xrightarrow{\approx}\Pro(C){\quoi}.\tag{6.8.6.1}
+\end{equation*}\etiquette[6.8.6.1]{IV.eq6.8.6.1}
+En\pageoriginale effet, il reste à prouver que ce foncteur est
+essentiellement surjectif, ce qui résulte du fait que les foncteurs
+de la forme $P\mapsto P(X)$ sur $\widehat{C}$ sont des foncteurs
+fibres, et du fait évident que toute limite inductive filtrante de
+foncteurs fibres sur un topos est encore un foncteur fibre.
+
+Identifiant $C$ à une sous-catégorie pleine de $\Pro(C)$
+(\hyperrefext[I][I.sec8]{8}), le foncteur
+$$
+C\longrightarrow \Ppoint(\widehat{C})
+$$
+induit par un foncteur quasi-inverse de \sisi{(6.8.5.2)}{\eqhyperref[IV.eq6.8.6.1]{6.8.6.1}} est manifestement
+isomorphe au foncteur canonique déjà envisagé dans
+\eqhyperref[IV.eq4.6.2.2]{4.6.2.2},
+dont le quasi-inverse envisagé peut être considéré comme le
+prolongement canonique (\hyperrefext[I][I.sec8]{8}), compte tenu du fait que
+$\Ppoint(\widehat{C})$ est stable par petites limites projectives.
+
+\subsubsection{}\etiquette[6.8.7]{IV.subsubsec6.8.7}
+Soit de façon générale $(X_i)_{i\in I}$ un pro-objet du
+$𝒰$-site $C$, d'où sur $C^{\sim}$ un foncteur
+\begin{equation*}
+\varphi(F)=\varinjlim_I F(X_i){\quoi},\tag{6.8.7.1}
+\end{equation*}\etiquette[6.8.7.1]{IV.eq6.8.7.1}
+et il est naturel de se demander, vu (\hyperref[IV.subsubsec6.8.5]{6.8.5}),
+quand ce foncteur est un foncteur fibre. On trouve que les
+conditions suivantes sont équivalentes:
+\begin{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item Le foncteur $\varphi$ précédent est un foncteur fibre sur
+$C^{\sim}$.
+
+\item La « restriction »  de $\varphi$ à $C$ est un foncteur fibre
+sur le site $C$ (\hyperref[IV.subsec6.3]{6.3}).
+
+\item Pour toute famille couvrante $Y_{\alpha}\rightarrow Y$ d'un
+objet $Y$ de $C$, tout $i_{\circ}\in I$ et tout morphisme
+$X_{i_{\circ}}\rightarrow Y$, il existe un $i\geq i_{\circ}$, un
+$\alpha$ et un morphisme $X_i\rightarrow Y_{\alpha}$ rendant
+commutatif le diagramme
+\[
+\xymatrix@C=2cm@R=1.25cm{
+X_i \ar[d] \ar[r]& Y_{\alpha} \ar[d]\\
+X_{{i}_{o}} \ar[r]     &  Y \quad . }
+\]
+
+En\pageoriginale fait, la condition (iii) exprime simplement le fait
+que $\varphi| C$ transforme familles couvrantes en familles
+couvrantes. Les implications (i) $\Rightarrow$ (ii) $\Rightarrow$
+(iii) sont triviales, et il reste à prouver (iii) $\Rightarrow$ (i).
+Comme le foncteur $\varphi$ est manifestement exact à gauche, il
+reste à prouver (\hyperref[IV.prop4.9.4]{4.9.4}) qu'il transforme familles
+couvrantes $F_{\alpha}\rightarrow F$ dans $C^{\sim}$ en familles
+couvrantes, \ie que pour tout $i_{\circ}$ et tout $x_{\circ}\in
+F(X_{i_{\circ}})$, il existe un $i\geq i_{\circ}$, un $\alpha$ et un
+$y\in F_{\alpha}(X_i)$, tels que $x_{\circ}$ et $y$ aient même image
+dans $F(X_i)$. Or comme $F_{\alpha}\rightarrow F$ est couvrante, il
+existe une famille couvrante $Z_{\gamma}\rightarrow X_{i_{\circ}}$
+de $X_{i_{\circ}}$, tel que pour tout $\gamma$ l'image inverse de
+$x_{\circ}$ dans $F(Z_{\gamma})$ se remonte en un élément d'un
+$F_{\alpha}(Z_{\gamma})$. Par hypothèse (iii), il existe un $i\geq
+i_{\circ}$ et un $X_{i_{\circ}}$-morphisme $X_i\rightarrow
+Z_{\gamma}$. Alors l'image de $x_{\circ}$ dans $F(X_i)$ se remonte
+donc en un élément $y$ d'un $F_{\alpha}(X_i)$, \cqfd
+\end{enumerate}
+
+\begin{enonce*}[remark]{Exercice 6.9}\etiquette[6.9]{IV.exer6.9}
+Soient $C$ un site $\in 𝒰$, $\varphi$ un foncteur fibre sur
+$C$, proreprésenté par un objet $(X_i)_{i\in I}$ de $\Pro(C)$. Pour
+tout indice $i\in I$, tout objet $Y$ de $C$, tout morphisme
+$u:X_i\rightarrow Y$ et tout crible couvrant $R$ de $Y$, choisissons
+un indice $j\geq i$ tel que le composé $X_j\rightarrow
+X_i\xrightarrow{u}Y$ se factorise par $R$. Pour $i$ fixé, soit
+$J(i)$ l'ensemble formé de $i$, et des $j$ obtenus pour $Y$, $u$,
+$R$ variables; pour une partie $I'$ de $I$, soit de même $J(I')$ la
+réunion des $J(i)$ pour $i\in I'$. D'autre part, si $I'$ est une
+partie finie de $I$, soit $m(I')\in I$ un majorant de $I'$, et pour
+une partie quelconque $I'$ de $I$, soit $M(I')$ la réunion des
+$M(I'')$, où $I''$ parcourt l'ensemble des parties finies
+de\pageoriginale $I'$. On suppose qu'on choisit la fonction
+$I'\rightarrow m(I')$ de façon que pour $I'$ réduit à un élément
+$i$, on ait $m(I')=i$, ce qui implique que pour toute partie $I'$ de
+$I$, on a $I'\subset M(I')$. Considérons les itérés $(MJ)^n$ de
+l'application $MJ$ de l'ensemble des parties de $I$ dans lui-même,
+et soit, pour toute partie $I'$ de $I$, $P(I')$ la réunion des
+$(MJ)^n(I')$.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\item Montrer que pour toute partie $I'$ de $I$, $P(I')$ est une
+partie filtrante de $I$ pour l'ordre induit, et que $I$ est réunion
+filtrante croissante des $P(I')$, lorsque $I'$ parcourt l'ensemble
+des parties \emph{finies} de $I$.
+
+\item Montrer qu'il existe un cardinal $c\in 𝒰$, ne dépendant
+que du cardinal $\card \text{fl}(C)=a$, tel que pour toute partie
+finie $I'$ de $I$, on ait $\card(P(I'))\leq c$. (Si $a$ est infini,
+on peut prendre $c=2^{a}$).
+
+\item Montrer, en utilisant \hyperref[IV.subsubsec6.8.7]{6.8.7}, que pour toute partie $I'$ de $I$
+le foncteur $\varphi_{I'}$ sur $C$ proreprésenté par le pro-objet
+$(X_i)_{i\in I'}$ est un foncteur fibre sur $C$, et que le foncteur
+fibre $\varphi$ est limite inductive filtrante des foncteurs
+$\varphi_{I'}$, lorsque $I'$ parcourt l'ensemble des parties finies
+de $I$.
+
+\item En conclure qu'il existe une petite sous-catégorie pleine $\Phi$
+de $\Ffib(C)\approxeq \Ffib(C)$, telle que tout objet de $\Ffib(C)$
+soit limite inductive filtrante d'objets de $\Phi$. (Si $a$ est
+infini, on peut prendre $\Phi$ de cardinal $\leq 2^{2^{a}}$; si $a$
+est fini, on peut prendre $\Phi=C$ bien sûr).
+\end{enumerate}
+\end{enonce*}
+
+\begin{enonce*}[remark]{Exercice 6.10}\etiquette[6.10]{IV.exer6.10}
+Soient $C$ un $\mathcal{U}$-site, $D$ une
+$\sheaf{\mathcal{U}}$-catégorie où les petites $\varinjlim$
+filtrantes sont représentables, $\Fais(C,D)$ la catégorie des
+faisceaux sur $C$ à valeurs dans $F$ (\hyperrefext[II][II.def6.1]{6.1}). Définir, en
+étendant \eqhyperref[IV.eq6.8.3]{6.8.3}, un « foncteur fibre »
+\begin{equation*}
+F\longrightarrow F_p:\Fais(C,D)\longrightarrow D{\quoi}.\tag{6.10.1}
+\end{equation*}\etiquette[6.10.1]{IV.eq6.10.1}
+Si dans $D$ les $\varprojlim$ finies sont représentables, et
+commutent aux $\varinjlim$ filtrantes, alors le foncteur précédent
+est exact à gauche.
+\end{enonce*}
+

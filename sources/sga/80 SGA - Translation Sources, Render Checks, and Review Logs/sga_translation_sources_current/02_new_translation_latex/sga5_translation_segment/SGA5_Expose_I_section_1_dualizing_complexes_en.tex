@@ -1,0 +1,515 @@
+% SGA TRANSLATION PROJECT
+% working draft section
+% Volume: SGA 5
+% Expose: I, Complexes dualisants
+% Source: page-sliced working TeX, sga5_pages_001_050.tex
+% Range translated: Expose I opening and Section 1 through the definition of dualizing complex and following remarks
+% Status: draft translation, not proofed against scan
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=2.7cm}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ob}{\operatorname{ob}}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\cd}{cd}
+\DeclareMathOperator{\car}{char}
+\newcommand{\uHom}{\underline{\Hom}}
+\newcommand{\uExt}{\underline{\Ext}}
+\newcommand{\uTor}{\underline{\Tor}}
+\newcommand{\RHom}{\mathrm{R}\,\underline{\Hom}}
+\newcommand{\Rfshriek}{\mathrm{R}f^!}
+\newcommand{\Ddual}{\underline{D}}
+\newcommand{\qinjdim}{\dim.\,q.\,\mathrm{inj}}
+\newcommand{\injdim}{\dim.\,\mathrm{inj}}
+\newcommand{\what}{\, .}
+
+\theoremstyle{plain}
+\newtheorem*{propositionstar}{Proposition}
+\newtheorem*{lemmastar}{Lemma}
+\newtheorem*{corollarystar}{Corollary}
+\theoremstyle{definition}
+\newtheorem*{definitionstar}{Definition}
+\newtheorem*{remarkstar}{Remark}
+\newtheorem*{notationstar}{Notation}
+
+\begin{document}
+
+\begin{center}
+{\Large\textbf{SGA 5, Exposé I}}\\[0.35em]
+{\Large\textbf{Dualizing Complexes}}\\[0.35em]
+by A. Grothendieck\\
+(written up by L. Illusie)
+\end{center}
+
+\bigskip
+
+\noindent\textit{Draft English translation. This file starts the translation of SGA 5, Exposé I, following the volume introduction translated in working draft section.}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+This exposé is devoted to the biduality theorem in étale cohomology. The theory developed here and in SGA A XVIII (SGA A = SGA 4), for the étale topology and constructible torsion sheaves on preschemes, is formally very analogous to the theory developed in Hartshorne [H] for the Zariski topology and coherent sheaves; the latter served, to a large extent, as its model. But whereas, in the case of ``continuous'' coefficients, the existence of dualizing complexes presents no difficulty, in the case of ``discrete'' coefficients it is much more delicate to prove, and it seems to require resolution of singularities in an essential way. See, however, Deligne's biduality theorem (SGA $4^{1/2}$, Finiteness Theorem 4.3).
+
+Paragraph 1 contains the definition of dualizing complexes and the formal properties that follow from it, in particular the interpretation of the dualizing functors as ``interchangers of functors''.
+
+In paragraph 2, one shows that, on a connected locally noetherian prescheme, a dualizing complex is determined uniquely, up to translation of degrees and tensoring by an invertible sheaf.
+
+In paragraph 3, one comes to the central theorem of the exposé (3.4.1), which asserts that, on a ``good'' regular prescheme $X$, for example an excellent noetherian regular prescheme of characteristic zero,\footnote{This last restriction will become unnecessary once resolution of singularities à la Hironaka and the ``purity theorem'' are available for such preschemes.} the complex $(\Z/n\Z)_X$ is dualizing.
+
+Paragraph 4 gives applications of the theory to the local duality theorem. The latter says that, on a ``good'' prescheme $X$ equipped with a closed point $x$ whose residue field is separably closed, and for a constructible sheaf $F$, there is a perfect pairing between $\underline{\mathrm H}^i_x(F')$ and $\underline{\mathrm H}^{-i}_x(F)$, where $F'$ is the dual of $F$, that is,
+\[
+F'=\mathrm{R}\,\underline{\Hom}(F,K_X),
+\]
+with $K_X$ a dualizing complex.
+
+Finally, paragraph 5 proves directly that, on a regular prescheme of dimension $1$, the complex $(\Z/n\Z)_X$ is dualizing, where $n$ is prime to the residue characteristics.
+
+\section*{1. Definition and formal properties of dualizing complexes}
+\addcontentsline{toc}{section}{1. Definition and formal properties of dualizing complexes}
+
+Fix a coefficient ring $A=\Z/n\Z$. If $X$ is a prescheme, let $A_X$ denote the constant sheaf on $X_{\mathrm{\acute{e}t}}$ with value $A$, and let $\D(X)$ denote the derived category of the category of $A_X$-modules. We also write $\D_c(X)$ for the full triangulated subcategory of $\D(X)$ consisting of complexes $F$ such that $\mathrm H^i(F)$ is a constructible $A_X$-module for every $i$. Put
+\[
+\D_c^*(X)=\D^*(X)\cap \D_c(X),\qquad *=\varnothing,+,-,\text{ or }b.
+\]
+
+\begin{definitionstar}[1.1]
+An $A_X$-module $I$ is called \emph{quasi-injective} if
+\[
+\uExt^i(F,I)=0
+\]
+for every constructible $A_X$-module $F$ and every $i>0$.
+\end{definitionstar}
+
+\begin{remarkstar}[1.2]
+\begin{enumerate}[label=\alph*)]
+\item Contrary to what happens in the case of ``continuous'' coefficients, cf. [H] II.7.17, a quasi-injective sheaf is not in general injective. For example, let $X=\Spec(\R)$ and $A=\Z/2\Z$. The sheaf $A_X$ is quasi-injective, but is not injective, nor even of finite injective dimension, since
+\[
+\mathrm H^*(X;A_X)=\mathrm H^*(\Z/2\Z;\Z/2\Z)
+\]
+is a polynomial algebra on one generator of dimension $1$.
+
+\item Let $I$ be a quasi-injective $A_X$-module. It is false in general that the relation $\uExt^i(F,I)=0$ for $i>0$, valid for constructible $F$, is valid for every $F$. Indeed take $A=\F_\ell$. Let $k$ be a field, let $\ol{k}$ be a separable closure of $k$, let
+\[
+f:\ol{x}=\Spec(\ol{k})\longrightarrow X=\Spec(k)
+\]
+be the canonical morphism, and suppose that, for every connected étale covering $X'\to X$, there exists a connected étale covering $X''\to X'$ such that $[X'':X']$ is divisible by $\ell$; for instance, take $k=\mathbb Q$. Consider the exact sequence
+\[
+(*)\qquad 0\longrightarrow A_X\xrightarrow{\;\varepsilon\;} f_*f^*A_X\longrightarrow F\longrightarrow 0
+\]
+defined by the adjunction arrow $\varepsilon$. In view of the hypothesis, the section of $\Ext^1(F,A_X)$ defined by $(*)$ vanishes over no étale $U$ over $X$, and hence $\uExt^1(F,A_X)_{\ol{x}}\ne 0$. On the other hand, one checks trivially that $A_X$ is quasi-injective.
+\end{enumerate}
+\end{remarkstar}
+
+\begin{propositionstar}[1.3, cf. Hartshorne 1.7.6]
+Let $X$ be a prescheme and let $N\in\Z$. The following conditions on $K\in\ob\D^+(X)$ are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $K$ is isomorphic, in $\D(X)$, to a bounded complex $I$ such that each $I^i$ is quasi-injective and $I^i=0$ for $i>N$;
+\item for every $F\in\ob\D_c^b(X)$ such that $\mathrm H^i(F)=0$ for $i<0$, one has $\uExt^i(F,K)=0$ for $i>N$;
+\item for every constructible $A_X$-module $F$, one has $\uExt^i(F,K)=0$ for $i>N$.
+\end{enumerate}
+\end{propositionstar}
+
+\begin{proof}
+$(i)\Rightarrow(ii)$. Let $F\in\ob\D_c^b(X)$ be such that $\mathrm H^i(F)=0$ for $i<0$, and let $I\in\ob\D^+(X)$ be bounded, with each $I^i$ quasi-injective and $I^i=0$ for $i>N$. We show that $\uExt^i(F,I)=0$ for $i>N$. Arguing by induction on the number of indices $i$ for which $\mathrm H^i(F)\ne0$, one reduces, by dévissage, to the case where $N=0$ and $I$ is concentrated in degree $0$. Then there is a biregular spectral sequence
+\[
+E_2^{pq}=\uExt^p(\mathrm H^{-q}(F),I)\Rightarrow \uExt^*(F,I).
+\]
+Since $I$ is quasi-injective, $E_2^{pq}=0$ for $p>0$ and all $q$, and therefore
+\[
+E_2^{0i}=\uHom(\mathrm H^{-i}(F),I)\xrightarrow{\sim}\uExt^i(F,I),
+\]
+which gives the conclusion.
+
+$(ii)\Rightarrow(iii)$ is trivial.
+
+$(iii)\Rightarrow(i)$. We may suppose that $K$ is bounded below and has injective components. Applying the hypothesis to $F=A_X$ gives $\mathrm H^i(K)=0$ for $i>N$. Thus $K$ may be replaced by an isomorphic complex $K'$, bounded, with $K'^i$ injective for $i<N$ and $K'^i=0$ for $i>N$. One then sees that $K'^N$ is quasi-injective, which completes the proof.
+\end{proof}
+
+\begin{remarkstar}[1.4]
+The redactor does not know whether (1.3) remains true when, in condition (ii), the hypothesis ``$F\in\ob\D_c^b(X)$'' is replaced by ``$F\in\ob\D_c^+(X)$''.
+\end{remarkstar}
+
+\begin{definitionstar}[1.5]
+The \emph{quasi-injective dimension} of $K$, denoted $\qinjdim(K)$, is the infimum, in $\overline{\mathbb R}$, of the integers $N$ satisfying the equivalent conditions of (1.3).
+\end{definitionstar}
+
+If $K$ has finite quasi-injective dimension, then the functor
+\[
+\RHom(\,\cdot\,,K):\D(X)\longrightarrow \D(X)
+\]
+induces a functor $\D_c^b(X)\to\D^b(X)$.
+
+We shall see below that if $X$ is smooth of dimension $d$ over a field $k$ and $n$ is prime to the characteristic of $k$, then
+\[
+\qinjdim(A_X)=2d.
+\]
+
+The example of (1.2 a) shows that a complex of finite quasi-injective dimension need not be of finite injective dimension. However, one has the following result.
+
+\begin{propositionstar}[1.6]
+Let $X$ be a locally noetherian prescheme and let $K\in\ob\D^+(X)$. Suppose that there exists an integer $N$ such that $\cd_{\mathbf n}(X)\leq N$, where $\mathbf n$ is the set of prime divisors of $n$ (notation of SGA A X 1). Then, for $N'\in\Z$,
+\[
+\qinjdim(K)\leq N'\quad\Longrightarrow\quad \injdim(K)\leq N+N'.
+\]
+\end{propositionstar}
+
+The proof will use the following lemma.
+
+\begin{lemmastar}[1.6.1]
+Let $C$ be an abelian category satisfying (AB5) and possessing a family of generators $(U_i)_{i\in I}$. Let $K\in\ob\D^+(C)$ and $N\in\Z$. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $\injdim(K)\leq N$;
+\item for every $i\in I$ and every quotient $F$ of $U_i$, one has
+\[
+\Ext^n(F,K)=0\qquad\text{for }n>N.
+\]
+\end{enumerate}
+\end{lemmastar}
+
+\begin{proof}
+It is enough to prove $(ii)\Rightarrow(i)$. By a well-known argument, cf. for example [H] 1.7.6, one is reduced to showing that if $K'\in\ob(C)$ is such that $\Ext^1(F,K')=0$ whenever $F$ is a quotient of some $U_i$, then $K'$ is injective. In other words, one must prove that if every morphism from a subobject $V$ of some $U_i$ to $K'$ extends to $U_i$, then $K'$ is injective. This follows immediately from the proof of Lemma 1, p. 136 of Tohoku.
+\end{proof}
+
+\begin{proof}[Proof of (1.6)]
+Suppose $\qinjdim(K)\leq N'$ and prove that $\injdim(K)\leq N+N'$. Since the category of $A_X$-modules has as generators the $A_{U,X}$, where $U$ is étale of finite type over $X$, it is enough, by (1.6.1), to prove that
+\[
+\Ext^i(X;F,K)=0\qquad\text{for }i>N+N'
+\]
+when $F$ is a quotient of such an $A_{U,X}$, hence constructible by SGA A IX 2.9. Consider the spectral sequence
+\[
+E_2^{pq}=\mathrm H^p(X;\uExt^q(F,K))\Rightarrow \Ext^*(X;F,K).
+\]
+The hypothesis $\cd_{\mathbf n}(X)\leq N$, respectively $\qinjdim(K)\leq N'$, implies $E_2^{pq}=0$ for $p>N$, respectively for $q>N'$. Thus $E_2^{pq}=0$ for $p+q>N+N'$, whence the conclusion.
+\end{proof}
+
+\begin{remarkstar}[1.7]
+The hypothesis of (1.6) is satisfied, with $N=2d$, if $X$ is a prescheme of finite type and dimension $d$ over a separably closed field $k$, with $n$ prime to $\car(k)$; see SGA A X 4.
+\end{remarkstar}
+
+\begin{propositionstar}[1.8]
+Let $f:X\to Y$ be a quasi-finite separated morphism of noetherian preschemes, and let $K\in\ob\D^+(Y)$. Then, for $N\in\Z$,
+\[
+\qinjdim(K)\leq N\quad\Longrightarrow\quad \qinjdim(\mathrm{R}f^!K)\leq N.
+\]
+\end{propositionstar}
+
+\begin{proof}
+By the Main Theorem (EGA IV 8.12.6), there exists a factorization $f=uf'$, where $f'$ is an open immersion and $u$ is finite. We have $\mathrm{R}f^!=\mathrm{R}f'^!\,\mathrm{R}u^!$, which reduces us to considering separately the case of an open immersion and the case of a finite morphism. If $f$ is an open immersion, the assertion is trivial, since every constructible sheaf on $X$ is then induced by a constructible sheaf on $Y$. Suppose then that $f$ is finite, and let $F$ be a constructible $A_X$-module. The duality isomorphisms (SGA A XVIII 3.1.9.6) give
+\[
+f_*\uExt^i(F,\mathrm{R}f^!K)\xrightarrow{\sim}\uExt^i(f_*F,K).
+\]
+Since $f_*F$ is constructible by SGA A IX 2.14, it follows that if $\qinjdim(K)\leq N$, then
+\[
+f_*\uExt^i(F,\mathrm{R}f^!K)=0\qquad(i>N),
+\]
+and hence $\uExt^i(F,\mathrm{R}f^!K)=0$ for $i>N$ by SGA A VIII 5.5. This proves the proposition.
+\end{proof}
+
+Let now $X$ be a prescheme and let $K\in\ob\D^+(X)$. Denote by $\Ddual_K$ the functor
+\[
+\RHom(\,\cdot\,,K).
+\]
+We shall define, for $F\in\ob\D(X)$, a functorial homomorphism
+\[
+F\longrightarrow \Ddual_K\Ddual_KF
+\]
+(cf. [H] V.1.2). The construction works more generally on a ringed topos. One may first suppose that $K$ is made up of injectives, which permits one to ``remove the $\mathrm R$''. The identity morphism
+\[
+\uHom(F,K)\longrightarrow \uHom(F,K)
+\]
+defines, by Cartan's beloved formula, a homomorphism
+\[
+F\otimes\uHom(F,K)\longrightarrow K,
+\]
+whence, by applying the same formula a second time, a homomorphism
+\[
+F\longrightarrow \uHom(\uHom(F,K),K).
+\]
+This is the announced homomorphism, and we call it the \emph{canonical homomorphism}. We say that the pair $(F,K)$ is \emph{bidualizing}, or \emph{satisfies biduality}, or also that $F$ is \emph{reflexive} relative to $K$, if the canonical homomorphism
+\[
+F\longrightarrow \Ddual_K\Ddual_KF
+\]
+is an isomorphism.
+
+\medskip
+\noindent\textbf{From now on, all preschemes considered will, unless expressly stated otherwise, be assumed locally noetherian.}
+
+\begin{definitionstar}[1.9]
+Let $X$ be a prescheme. A complex $K\in\ob\D^+(X)$ is called \emph{dualizing} if the following conditions are satisfied:
+\begin{enumerate}[label=(\roman*)]
+\item $K$ has finite quasi-injective dimension;
+\item for every $F\in\ob\D_c^-(X)$, one has $\Ddual_K(F)\in\ob\D_c^+(X)$;
+\item every $F\in\ob\D_c^b(X)$ is reflexive relative to $K$.
+\end{enumerate}
+\end{definitionstar}
+
+\begin{remarkstar}[1.10]
+\begin{enumerate}[label=\alph*)]
+\item By a standard dévissage, truncating $F$ and using the fact that $\D_c(X)$ is triangulated, one sees that condition (ii) is equivalent to:
+
+\smallskip
+\noindent (ii bis) for every constructible $A_X$-module $F$ and every $i\in\Z$, the sheaf $\uExt^i(F,K)$ is constructible.
+
+\item Condition (ii bis) implies $K\in\ob\D_c^+(X)$. Contrary to the example of coherent sheaves (EGA $0_{\mathrm{III}}$ 12.3.3), the converse may not be automatic. It does hold, however, see number 3, in the ``good'' cases, for example when one has resolution of singularities and purity on $X$, in particular if $X$ is an excellent prescheme of characteristic zero.
+
+\item By dévissage on $F$, one sees that condition (iii) is equivalent to:
+
+\smallskip
+\noindent (iii bis) every constructible $A_X$-module $F$ is reflexive relative to $K$.
+
+\item If $K\in\ob\D^+(X)$ satisfies (i) and (ii), respectively is dualizing, the functor $\Ddual_K$ induces a functor, respectively an equivalence of categories,
+\[
+(\D_c^b(X))^{\mathrm{op}}\longrightarrow \D_c^b(X).
+\]
+
+\item If $K\in\ob\D^+(X)$ has finite \emph{injective} dimension, cf. 1.6.1, and satisfies (ii), then for every $F\in\ob\D_c(X)$ one has $\Ddual_K(F)\in\D_c(X)$, and $\Ddual_K$ induces a functor
+\[
+(\D_c^+(X))^{\mathrm{op}}\longrightarrow \D_c^-(X).
+\]
+If, moreover, $K$ is dualizing, every $F\in\ob\D_c(X)$ is reflexive relative to $K$, and $\Ddual_K$ induces equivalences of categories
+\[
+(\D_c(X))^{\mathrm{op}}\xrightarrow{\approx}\D_c(X),\qquad
+(\D_c^-(X))^{\mathrm{op}}\xrightarrow{\approx}\D_c^+(X),\qquad
+(\D_c^+(X))^{\mathrm{op}}\xrightarrow{\approx}\D_c^-(X).
+\]
+It is not known whether this conclusion remains valid without the restriction that $K$ have finite injective dimension.
+\end{enumerate}
+\end{remarkstar}
+
+We now turn to the \\emph{exchange formulae}.
+
+We shall not return to the notion of the Tor-dimension of a complex (SGA A XVII 4.1.9).\footnote{See also SGA 6 I 5.} Let us retain only that, if $X$ is a prescheme and $G\in\ob\D^-(X)$, the relation
+\[
+\uTor_i(F,G)=0\qquad (i>N)
+\]
+for every $A_X$-module $F$ is equivalent to the same relation with $F$ constructible, thanks to SGA A IX 2.9 and to the fact that $\otimes$ commutes with direct limits. Thus there is no need to introduce a notion of ``quasi-Tor-dimension''.
+
+\begin{lemmastar}[1.11, cf. Hartshorne II 4.3]
+\begin{enumerate}[label=\alph*)]
+\item Let $X$ be a prescheme, let $F\in\ob\D_c^-(X)$ and $G\in\ob\D_c^-(X)$. Then
+\[
+F\otimes^{\mathrm L}G\in\ob\D_c(X)
+\]
+if $F\in\ob\D_c^-(X)$ or if $G$ has finite Tor-dimension.\footnote{The first condition is repeated as in the working TeX source. This point should be checked against the scan during proofing.}
+\item Let $f:X\to Y$ be a morphism of preschemes, and let $G\in\ob\D_c^-(Y)$. Then $f^*G\in\ob\D_c(X)$.
+\end{enumerate}
+\end{lemmastar}
+
+\begin{proof}
+Assertion b) follows trivially from SGA A IX 2.4. Let us prove a). Either of the hypotheses on $(F,G)$ implies that the spectral sequence
+\[
+E_2^{pq}=\sum_{q_1+q_2=q}\uTor_{-p}\bigl(\mathrm H^{q_1}(F),\mathrm H^{q_2}(G)\bigr)
+\Rightarrow \mathrm H^*(F\otimes^{\mathrm L}G)
+\]
+is biregular. We are therefore reduced to proving a) when $F$ and $G$ are concentrated in degree $0$, that is, are constructible $A_X$-modules. Since the question is local, we may suppose $X$ noetherian. Then $F$ admits, by SGA A IX 2.7, a left resolution $F'$, where the $F'^i$ are of the form $A_{U,X}$ with $U$ étale and of finite type over $X$. We have
+\[
+F\otimes^{\mathrm L}G\xleftarrow{\sim}F'\otimes G,
+\]
+and the conclusion follows because the $A_{U,X}\otimes G$ are constructible.
+\end{proof}
+
+\begin{notationstar}[1.11.1]
+If $X$ is a prescheme, we shall denote by $\D^b(X)_{\mathrm{torf}}$ (respectively $\D^b(X)_{\mathrm{qinjf}}$) the full subcategory of $\D(X)$ consisting of objects of finite Tor-dimension (respectively finite quasi-injective dimension).
+\end{notationstar}
+
+\begin{propositionstar}[1.12, cf. Hartshorne V 2.6]
+Let $X$ be a prescheme and let $K\in\ob\D^+(X)$.
+\begin{enumerate}[label=\alph*)]
+\item For $F\in\ob\D^-(X)$ and $G\in\ob\D^-(X)$, respectively for $F\in\ob\D(X)$ and $G\in\ob\D^b(X)_{\mathrm{torf}}$, there is a functorial isomorphism
+\[
+\Ddual_K(F\otimes^{\mathrm L}G)\xrightarrow{\sim}\RHom(F,\Ddual_KG).
+\]
+\item If $K$ satisfies conditions (i) and (ii) of (1.9), one has the implication
+\[
+G\in\ob\D_c^b(X)_{\mathrm{torf}}
+\quad\Longrightarrow\quad
+\Ddual_KG\in\ob\D_c^b(X)_{\mathrm{qinjf}}\text{ and }\Ddual_KG\text{ satisfies (1.9)(ii).}
+\]
+\item If $K$ is dualizing, there is, for $F\in\ob\D_c^-(X)$ and $G\in\ob\D_c^b(X)$, respectively for $F\in\ob\D(X)$, $G\in\ob\D_c^b(X)$, and $\Ddual_KG\in\ob\D_c^b(X)_{\mathrm{torf}}$, a functorial isomorphism
+\[
+\Ddual_K\bigl(F\otimes^{\mathrm L}\Ddual_KG\bigr)\xrightarrow{\sim}\RHom(F,G).
+\]
+Moreover one has the implication
+\[
+\Ddual_KG\in\ob\D_c^b(X)_{\mathrm{torf}}
+\quad\Longrightarrow\quad
+G\in\ob\D_c^b(X)_{\mathrm{qinjf}}\text{ and }G\text{ satisfies (1.9)(ii).}
+\]
+\item If $K$ is dualizing and of finite injective dimension, the implications in b) and c) are equivalences.
+\end{enumerate}
+\end{propositionstar}
+
+\begin{proof}
+a) is none other than Cartan's adjunction formula (SGA 6 I 7.4).
+
+b) Let $G\in\ob\D_c^b(X)_{\mathrm{torf}}$. As $F$ ranges over constructible $A_X$-modules, the cohomology objects of $F\otimes^{\mathrm L}G$ are constructible by (1.11) and vanish outside two fixed bounds independent of $F$. Therefore the same is true for the cohomology objects of $\Ddual_K(F\otimes^{\mathrm L}G)$, and the result follows from a).
+
+c) The first assertion follows from formula a), applied to $\Ddual_KG$ in place of $G$, and from the reflexivity of $G$. The second is deduced by an argument analogous to b).
+
+d) Let us prove, for example, the converse implication in b). Suppose that $\Ddual_KG\in\ob\D_c^b(X)_{\mathrm{qinjf}}$ and that $\Ddual_KG$ satisfies (1.9)(ii). Then, as $F$ ranges over constructible modules, the cohomology objects of $\Ddual_K(F\otimes^{\mathrm L}G)$ are constructible and vanish outside two fixed bounds. Thus the same is true for the cohomology objects of
+\[
+\Ddual_K\Ddual_K(F\otimes^{\mathrm L}G),
+\]
+but
+\[
+F\otimes^{\mathrm L}G\xrightarrow{\sim}\Ddual_K\Ddual_K(F\otimes^{\mathrm L}G)
+\]
+since $K$ is dualizing and of finite injective dimension, cf. (1.10 e). Hence $G$ has finite Tor-dimension. The converse implication in c) is proved similarly.
+\end{proof}
+
+\begin{remarkstar}[1.12.1]
+\begin{enumerate}[label=\alph*)]
+\item The redactor does not know whether assertion d) of (1.12) is valid under the sole hypothesis that $K$ is dualizing.
+\item One expresses the preceding proposition figuratively by saying that the dualizing functor $\Ddual_K$ exchanges the functors $\otimes^{\mathrm L}$ and $\RHom$, and also the notions of finite Tor-dimension and finite quasi-injective dimension. This exchange is, moreover, fully satisfactory only when $K$ has finite injective dimension.
+\end{enumerate}
+\end{remarkstar}
+
+\begin{propositionstar}[1.13]
+Let $Y$ be a noetherian prescheme, let $f:X\to Y$ be a morphism of finite type, and let $K_Y\in\ob\D^+(Y)$. Suppose that $n$ is prime to the residue characteristics of $Y$, and put
+\[
+K_X=\mathrm Rf^!K_Y\qquad\text{(SGA A XVIII 3.1)},\qquad
+\Ddual_X=\Ddual_{K_X},\quad \Ddual_Y=\Ddual_{K_Y}.
+\]
+\begin{enumerate}[label=\alph*)]
+\item There is, for $F\in\ob\D^-(X)$, a functorial isomorphism
+\[
+\text{(i)}\qquad \mathrm Rf_*\Ddual_X(F)\xrightarrow{\sim}\Ddual_Y\,\mathrm Rf_*F.
+\]
+If, moreover, $K_X$ and $K_Y$ are dualizing,\footnote{We shall see below that, under fairly general conditions, $K_Y$ dualizing implies $K_X$ dualizing.} there is, for $F\in\ob\D_c^b(X)$, a functorial isomorphism
+\[
+\text{(ii)}\qquad \mathrm Rf_!\Ddual_X(F)\xrightarrow{\sim}\Ddual_Y\,\mathrm Rf_*F.
+\]
+\item There is, for $F\in\D_c^-(Y)$, a functorial isomorphism\footnote{If the functor $\mathrm Rf^!$ has finite cohomological dimension, as is the case for example when $Y$ is of finite type over a field (SGA A X 4.3 and XVIII 3.1.7), the isomorphism b)(i) is valid for $F\in\ob\D_c(Y)$.}
+\[
+\text{(i)}\qquad \mathrm Rf^!\Ddual_Y(F)\xrightarrow{\sim}\Ddual_X f^*F.
+\]
+If, moreover, $K_X$ and $K_Y$ are dualizing, there is, for $F\in\D_c^b(Y)$, a functorial isomorphism
+\[
+\text{(ii)}\qquad f^*\Ddual_YF\xrightarrow{\sim}\Ddual_X\mathrm Rf^!F.
+\]
+\end{enumerate}
+\end{propositionstar}
+
+\begin{proof}
+a)(i) is none other than the duality isomorphism (SGA A XVIII 3.1.9.6).
+
+a)(ii) is obtained by applying $\Ddual_Y$ to the two sides of a)(i), written for the argument $\Ddual_XF$, and by using the finiteness theorem (SGA A XVII 5.3.6), which asserts that
+\[
+\mathrm Rf_*\Ddual_X(F)\in\ob\D_c(Y).
+\]
+
+b)(i) is none other than the ``induction formula'' (SGA A XVIII 3.1.12.2).
+
+b)(ii) is obtained by applying $\Ddual_X$ to the two sides of b)(i), written for the argument $\Ddual_YF$, and using (1.12 b).
+\end{proof}
+
+\begin{remarkstar}[Scholium 1.13.1]
+One may say, figuratively, that the dualizing functors $\Ddual_X$ and $\Ddual_Y$ exchange the usual and unusual direct-image functors, respectively inverse-image functors:
+\[
+\mathrm Rf_*\quad\text{and}\quad \mathrm Rf_!,
+\qquad
+f^*\quad\text{and}\quad \mathrm Rf^!.
+\]
+\end{remarkstar}
+
+\begin{corollarystar}[1.14]
+Under the hypotheses of 1.13, suppose further that $f$ is proper, and let $F\in\ob\D^-(X)$. If $(F,K_X)$ is bidualizing, then $(\mathrm Rf_*F,K_Y)$ is bidualizing. Conversely, if $f$ is finite and $(\mathrm Rf_*F,K_Y)$ is bidualizing, then $(F,K_X)$ is bidualizing.
+\end{corollarystar}
+
+\begin{proof}
+Suppose that $(F,K_X)$ is bidualizing. Applying $\mathrm Rf_*$ to the canonical isomorphism $F\xrightarrow{\sim}\Ddual_X^2F$, one obtains
+\begin{align*}
+\mathrm Rf_*F
+&\xrightarrow{\sim}\mathrm Rf_*\Ddual_X\Ddual_XF\\
+&\xrightarrow{\sim}\Ddual_Y\mathrm Rf_*\Ddual_XF \qquad\text{by a)(i)}\\
+&\xrightarrow{\sim}\Ddual_Y\Ddual_Y\mathrm Rf_*F \qquad\text{by a)(i).}
+\end{align*}
+The courageous reader will convince himself that the isomorphism obtained is the canonical one; this proves the first assertion.
+
+Now suppose $f$ finite and $(f_*F,K_Y)$ bidualizing, since $\mathrm Rf_*=f_*$ for $f$ finite. We prove that the canonical morphism
+\[
+F\longrightarrow \Ddual_X^2F
+\]
+is an isomorphism. By Lemma 1.14.1 a) below, it is enough to show that the induced morphism
+\[
+f_*F\longrightarrow f_*\Ddual_X^2F
+\]
+is an isomorphism. But, by applying a)(i) twice, one convinces oneself that this latter morphism is none other than the canonical isomorphism
+\[
+f_*F\longrightarrow \Ddual_Y^2f_*F,
+\]
+which completes the proof.
+\end{proof}
+
+\begin{lemmastar}[1.14.1]
+Let $f:X\to Y$ be a finite morphism of preschemes.
+\begin{enumerate}[label=\alph*)]
+\item Let $u:F\to G$ be an arrow of $\D(X)$. Then $u$ is an isomorphism if and only if $f_*u$ is an isomorphism.
+\item Let $F\in\ob\D(X)$. Then $F\in\ob\D_c(X)$ if and only if $f_*F\in\ob\D_c(Y)$.
+\end{enumerate}
+\end{lemmastar}
+
+\begin{proof}
+a) Since the functor $f_*$ is exact, one may restrict to the case where $F$ and $G$ are concentrated in degree zero. The assertion then follows immediately from the computation of the fibers of $f_*F$, respectively $f_*G$, in SGA A VIII 5.5.
+
+b) One may again restrict to the case where $F$ is concentrated in degree zero. Necessity is known by SGA A IX 2.14. Let us prove sufficiency, that is, that $f_*F$ constructible implies $F$ constructible. The question is local above, and hence a fortiori below, so we may suppose $Y$, and therefore $X$, affine. There then exists, by EGA IV 17.16.6, a finite family $(Y_i)$ of affine subpreschemes of $Y$, pairwise disjoint and with union $Y$, such that if $X_i=X\times_YY_i$, the induced morphism
+\[
+f_i:X_i\longrightarrow Y_i
+\]
+factors as
+\[
+X_i\xrightarrow{u_i}X'_i\xrightarrow{v_i}Y_i,
+\]
+where $u_i$ is finite, radicial, and surjective, and $v_i$ is finite étale. Put $F|_{X_i}=F_i$. By the base-change theorem for a finite morphism (SGA A VIII 5.5), one has
+\[
+f_{i*}F_i\xrightarrow{\sim}(f_*F)|_{Y_i},
+\]
+and one is reduced, by SGA A IX 2.8, to proving the assertion for $(f_i,F_i)$. Put $F'_i=u_{i*}F_i$, so that $f_{i*}F_i=v_{i*}F'_i$. It is clear from the definition of constructibility, respectively follows from SGA A VIII 1.1, that $F_i$, respectively $F'_i$, is constructible if and only if $F'_i$, respectively $v_{i*}F'_i$, is constructible. This gives the desired conclusion.
+\end{proof}
+
+\begin{corollarystar}[1.15]
+Let $f:X\to Y$ be a quasi-finite separated morphism of noetherian preschemes. Let $K_Y\in\ob\D^+(Y)$, and put, as in 1.13,
+\[
+K_X=\mathrm Rf^!K_Y,
+\qquad
+\Ddual_X=\Ddual_{K_X},
+\qquad
+\Ddual_Y=\Ddual_{K_Y}.
+\]
+If $K_Y$ is dualizing, then $K_X$ is dualizing.
+\end{corollarystar}
+
+\begin{proof}
+We already know from (1.8) that if $K_Y$ has finite quasi-injective dimension, then so does $K_X$. Let us show that, if $K_Y$ satisfies condition (ii), respectively (iii), of (1.9), then $K_X$ satisfies it as well. By the Main Theorem (EGA IV 8.12.6), $f$ factors as $f=f'i$, where $i$ is an open immersion and $f'$ is finite. Since
+\[
+\mathrm Rf^!\simeq \mathrm Ri^!\,\mathrm Rf'^!,
+\]
+one must therefore consider separately the case of an open immersion and that of a finite morphism. If $f$ is an open immersion, the assertion is trivial, since a constructible sheaf on $X$ is induced by a constructible sheaf on $Y$, and the formation of $\RHom$ commutes with restriction to an open. Suppose then that $f$ is finite. We know from (1.14) that if $K_Y$ satisfies (iii), then so does $K_X$, taking account of the finiteness theorem SGA A IX 2.14. It remains to prove that, if $K_Y$ satisfies (ii), then so does $K_X$. Let $F\in\ob\D_c^-(X)$; we must show that $\Ddual_XF\in\ob\D_c^+(X)$. By the finiteness theorem, $f_*F\in\ob\D_c^-(Y)$, hence by hypothesis $\Ddual_Yf_*F\in\ob\D_c^+(Y)$. But
+\[
+\Ddual_Yf_*F\xrightarrow{\sim}f_*\Ddual_XF
+\]
+by (1.13 a)(i), and the conclusion follows from (1.14.1 b).
+\end{proof}
+
+\bigskip
+
+\end{document}
