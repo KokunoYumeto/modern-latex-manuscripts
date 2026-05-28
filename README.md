@@ -7,7 +7,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 ## Current Public Records
 
 - Main landing page: https://zenodo.org/records/20415117
-- EGA working translation: https://zenodo.org/records/20421781
+- EGA working translation: https://zenodo.org/records/20422127
 - SGA working translation: https://zenodo.org/records/20421894
 - Heinrich Weber author record: https://zenodo.org/records/20421148
 - Emmy Noether author record: https://zenodo.org/records/20421149
@@ -30,7 +30,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 ## Status
 
-This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader currently includes EGA 0_IV sections 15 through 23, EGA IV sections 1 through 10, and EGA IV section 11 through Proposition 11.3.5 as local continuation work, alongside the inherited community translation base. The SGA mirror includes cleaned reader snapshots for SGA 1-3, SGA 4 through Expose XVIII section 2, and the current SGA 5 opening material. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 791 pages and includes EGA 0_IV sections 15 through 23, EGA IV sections 1 through 13 as substantive local continuation work, and EGA IV section 14 through Proposition 14.5.3, alongside the inherited community translation base and partial later EGA IV material. The SGA mirror includes cleaned reader snapshots for SGA 1-3, SGA 4 through Expose XVIII section 2, and the current SGA 5 opening material. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
 
 ## Contributing
 
