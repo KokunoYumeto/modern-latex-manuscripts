@@ -19,7 +19,7 @@ This is a public-facing checkpoint for the current Zenodo/GitHub mirror. It veri
 |---|---:|---:|---:|---:|---|
 | Main landing and raw source backstop | [20430709](https://zenodo.org/records/20430709) | 100 | 53 | 45 | clean |
 | EGA | [20432146](https://zenodo.org/records/20432146) | 14 | 9 | 3 | clean |
-| SGA | [20434295](https://zenodo.org/records/20434295) | 58 | 37 | 20 | clean |
+| SGA | [20434592](https://zenodo.org/records/20434592) | 58 | 37 | 20 | clean |
 | Non-European consolidated corpus | [20434098](https://zenodo.org/records/20434098) | 72 | 66 | 5 | clean |
 | Chinese mathematical classics | [20421647](https://zenodo.org/records/20421647) | 29 | 27 | 1 | clean |
 | Indian and Sanskrit mathematical classics | [20421650](https://zenodo.org/records/20421650) | 13 | 11 | 1 | clean |
