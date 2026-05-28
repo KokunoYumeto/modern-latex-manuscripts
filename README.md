@@ -16,14 +16,17 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 - Main landing page: https://zenodo.org/records/20415117
 - EGA working translation: https://zenodo.org/records/20425537
-- SGA working translation: https://zenodo.org/records/20425251
+- SGA working translation: https://zenodo.org/records/20426470
 - Heinrich Weber author record: https://zenodo.org/records/20425697
 - Emmy Noether author record: https://zenodo.org/records/20422936
 - Non-European mathematics consolidated corpus: https://zenodo.org/records/20424994
 - Chinese mathematical classics: https://zenodo.org/records/20421647
 - Indian and Sanskrit mathematical classics: https://zenodo.org/records/20421650
 - Islamic and Arabic mathematical texts: https://zenodo.org/records/20421656
-- Historical reference witnesses: https://zenodo.org/records/20421657
+- Historical reference texts for non-European mathematics: https://zenodo.org/records/20421657
+- Cayley, Dedekind, Dirichlet, Gauss, Weber, and Noether shelf: https://zenodo.org/records/20418609
+- Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing cluster: https://zenodo.org/records/20416839
+- Deligne papers working record: https://zenodo.org/records/20414959
 
 ## Repository Layout
 
@@ -33,16 +36,16 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 - `sources/non-european/`: extracted TeX material from the current non-European corpus source bundle, including combined language/corpus TeX and work-level source bundles.
 - `reader-pdfs/`: small current reader PDFs for quick inspection. Large scans and raw archives live on Zenodo.
 - `reader-pdfs/ega/`: current EGA working English reader.
-- `reader-pdfs/sga/`: SGA translation snapshots, SGA 4 current readers, SGA 5 opening material, and French reference PDFs.
+- `reader-pdfs/sga/`: SGA translation snapshots, SGA 4 current readers, the complete current SGA 5 working reader, and French reference PDFs.
 - `reader-pdfs/weber/`: Weber modern LaTeX readers, the current Volume II English translation reader, and a separate Volume I English draft on inverse substitutions, transformed substitutions, transposed substitutions, permutation substitutions, invariants, and finite binary polyhedral groups.
 - `reader-pdfs/noether/`: Noether modern LaTeX reader and current English translation reader.
-- `reader-pdfs/non-european/`: current work-level and combined reader PDFs for the non-European corpus, with human-readable file names matching the public archive.
+- `reader-pdfs/non-european/`: current work-level and combined reader PDFs for the consolidated non-European/multilingual corpus, with human-readable file names matching the public archive. The Chinese, Indian/Sanskrit, Islamic/Arabic, and historical-reference Zenodo records are focused download slices of this corpus, not competing project pages.
 - `zenodo-metadata/`: public-facing metadata JSON used for the current records.
 - `manifests/`: upload manifests and public summaries.
 
 ## Status
 
-This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 905 pages and includes EGA 0_IV sections 15 through 23 plus EGA IV sections 1 through 21 as substantive working translations. The SGA mirror includes cleaned reader snapshots for SGA 1-3, a complete current SGA 4 working reader through Exposes I-XIX, and SGA 5 with Expose I complete plus Expose III/III B material through III B section II.5.10. The non-European mirror now includes the current multilingual release: 66 public reader PDFs plus 214 editable TeX files, including author/work-level TeX bundles for translations and original-language drafts. The Weber mirror now includes original-language TeX drafts for Volumes I and III, the current Volume II English translation reader, and a separate Volume I English draft on inverse substitutions, transformed substitutions, transposed substitutions, permutation substitutions, invariants, and finite binary polyhedral groups. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 905 pages and includes EGA 0_IV sections 15 through 23 plus EGA IV sections 1 through 21 as substantive working translations. The SGA mirror includes cleaned reader snapshots for SGA 1-3, a complete current SGA 4 working reader through Exposes I-XIX, and a complete current SGA 5 working reader assembled through the end of SGA 5. The non-European mirror now includes the current multilingual release: 66 public reader PDFs plus 214 editable TeX files, including author/work-level TeX bundles for translations and original-language drafts. The Weber mirror now includes original-language TeX drafts for Volumes I and III, the current Volume II English translation reader, and a separate Volume I English draft on inverse substitutions, transformed substitutions, transposed substitutions, permutation substitutions, invariants, and finite binary polyhedral groups. Older cross-author shelves remain for preservation and broad browsing, while cleaner author/corpus pages are the recommended public entry points where they supersede duplicate material. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
 
 ## Contributing
 

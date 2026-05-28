@@ -1,0 +1,1982 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{longtable}
+\geometry{margin=1.03in}
+\setstretch{1.13}
+\setlength{\parskip}{0.58em}
+\setlength{\parindent}{0pt}
+\allowdisplaybreaks
+\sloppy
+
+\newcommand{\bZ}{\mathbb Z}
+\newcommand{\bQ}{\mathbb Q}
+\newcommand{\bN}{\mathbb N}
+\newcommand{\bC}{\mathbb C}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\bF}{\mathbb F}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\R}{\mathrm R}
+\newcommand{\D}{\mathrm D}
+\newcommand{\E}{\mathrm E}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\RHom}{\mathrm R\!\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Imn}{\operatorname{Im}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\fc}{\mathrm{fc}}
+\newcommand{\adn}{\mathrm{adn}}
+\newcommand{\adf}{\mathrm{adf}}
+\newcommand{\adc}{\mathrm{adc}}
+\newcommand{\AR}{\mathrm{AR}}
+\newcommand{\ML}{\mathrm{ML}}
+\newcommand{\MLAR}{\mathrm{MLAR}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\qedtext}{\hfill$\square$}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+
+\begin{document}
+\begin{center}
+{\Large \textbf{SGA 5 -- Working Draft}}\\[0.35em]
+{\large \textbf{Lefschetz formula and local terms; $J$-adic projective systems; beginning of $\ell$-adic cohomology}}\\[0.35em]
+\emph{Working English LaTeX translation}\
+\end{center}
+
+\bigskip
+
+\section*{Exposé III B. Calculation of local terms -- continuation}
+
+\subsection*{5.11. Twisted traces}
+
+Let $A$ be a $K$-algebra, let $E\in\ob D^-(A)$, and let
+$\rho:A\to A$ be an endomorphism of $K$-algebras. Denote by
+$A_\rho$ the ring $A$, regarded as a left $A^e$-module through
+
+\[
+   a \otimes a' \longmapsto \rho(a)a'.
+\]
+
+There is a canonical isomorphism
+\[
+   \Hom_A(E,A_\rho\otimes_A E)\xrightarrow{\sim}\Hom_A(E,E),
+\]
+where the term on the right means the set of left $A$-module homomorphisms
+$E\to E$ which are $\rho$-linear, that is, such that
+\[
+        u(ax)=\rho(a)u(x).
+\]
+For $u\in\Hom_A(E,A_\rho\otimes_A E)$ we shall sometimes write
+$\Tr_A^\rho(u)$, or simply $\Tr_\rho(u)$, for the element
+$\Tr_A(u)\in A_K$.
+
+When $\rho$ is an inner automorphism, say $\rho(a)=gag^{-1}$, one checks that
+$\Tr_\rho(u)$ depends only on the class of $g$ in $A_K^*$, and that for a
+$\rho$-linear $u$ one has
+\begin{equation}\tag{5.13.1}
+   \Tr_\rho(u)=\text{the class of }g\text{ in }A_K\cdot \Tr(g^{-1}u),
+\end{equation}
+where $g^{-1}u$ is the $A$-linear endomorphism $x\mapsto g^{-1}u(x)$.
+
+\subsection*{6. Equivariant correspondences and divisibility of local terms}
+
+\subsubsection*{6.1. Notation}
+
+We return to the notation of Part I and also fix a finite group $G$. We are given
+$S$-schemes with a left action of $G$, denoted $\underline X$ and
+$\underline Y$, together with stable closed subschemes
+\[
+  \underline A,\underline B\subset \underline X\times_S\underline Y.
+\]
+We write $X,Y,A,B$ for the underlying schemes, equivalently for the quotients by
+$G$ in the sense used here. We assume that $A$ and $B$ satisfy the general-position
+hypotheses of I, 1.2. We are also given objects
+\[
+      L_X\in\ob D(X),\qquad L_Y\in\ob D(Y),
+\]
+carrying actions of $G$ above the actions on $X$ and $Y$, and $G$-equivariant
+homomorphisms
+\[
+      u:a_1^*L_X\longrightarrow a_2^!L_Y,
+      \qquad
+      v:b_2^*L_Y\longrightarrow b_1^!L_X.
+\]
+
+Then there are local terms
+\[
+      \langle u_z,v_z\rangle\in\Lambda
+\]
+as in I, 1.1.1. On the other hand, the global cup-product
+$\langle \underline u,\underline v\rangle$ of I, 1.1.2 belongs to
+\[
+      H_c^4(X\times_S Y,K_{X\times_S Y})=\Lambda,
+\]
+and Theorem 1.2 applies to give
+\[
+      \langle u_z,v_z\rangle=\langle \underline u,\underline v\rangle.
+\]
+
+One may also consider the non-commutative traces of $u_z$ and $v_z$. More precisely,
+$(L_X)_x$ and $(L_Y)_y$ are perfect complexes of $\Lambda[G]$-modules, and
+$u_z,v_z$ are homomorphisms of $\Lambda[G]$-modules. Thus, by 5.6.3, one can form
+\[
+       \Tr_{\Lambda[G]}(u_zv_z)\in \Lambda[G]_{\Lambda},
+\]
+where $\Lambda[G]_{\Lambda}$ is the free $\Lambda$-module on the set $G/\sim$ of
+conjugacy classes of $G$. Similarly the global cup-product gives an element
+\[
+       \langle\!\langle\underline u,\underline v\rangle\!\rangle
+       \in H_c^4(X\times_S Y,\underline\Lambda)_{\Lambda[G]},
+\]
+where $\underline\Lambda$ denotes the constant sheaf with value
+$\Lambda[G]_\Lambda$.
+
+\begin{statement}{Theorem 6.2}
+With the preceding notation, assume moreover that $A$ and $B$ are in general
+position in the sense of I, 1.2. Then
+\[
+       \Tr_{\Lambda[G]}(u_zv_z)
+       =\langle\!\langle\underline u,\underline v\rangle\!\rangle .
+\]
+In other words, the non-commutative local term coincides with the non-commutative
+global term.
+\end{statement}
+
+The proof follows the same pattern as the proof of Theorem 1.2. By the same
+reductions as in no. 2, one is first reduced to the case where $A$ and $B$ are
+closed immersions; the matter is then to prove a vanishing analogous to (2.4.1).
+The key lemma is the following.
+
+\begin{statement}{Lemma 6.2.1}
+Under the hypotheses of 6.2, suppose that $(L_X)|_U=0$ and $(L_Y)|_V=0$, with the
+notation of 2.1. Then
+\[
+       \Tr_{\Lambda[G]}(u_zv_z)=\Tr_{\Lambda[G]}(\underline u\cdot\underline v)
+\]
+in $\Lambda[G]_{\Lambda}$.
+\end{statement}
+
+The proof of 6.2.1 is analogous to that of 2.3. One is reduced to the case in which
+$L_X$ and $L_Y$ are concentrated at the closed points, and one applies the
+non-commutative Lefschetz formula for the projections
+$\{x\}\to S$ and $\{y\}\to S$.
+
+To finish the proof of 6.2 one still has to establish the non-commutative analogue
+of 2.5.
+
+\begin{statement}{Proposition 6.2.2}
+Under the hypotheses of 6.2, suppose that $a$ and $b$ are closed immersions and that
+$(L_X)_x=0$, $(L_Y)_y=0$. Let $T$ be the strict localization of
+$X\times_S Y$ at $z=(x,y)$, and identify $A$ and $B$ with closed subschemes of
+$T$. Then the restriction map
+\[
+\Tr_{\Lambda[G]}:
+R\Gamma_A\bigl(T,\RHom(DL_X\otimes L_Y,K_T)\bigr)
+\longrightarrow
+R\Gamma\bigl(B,\RHom(DL_X\otimes L_Y,K_T)|_B\bigr)
+\]
+is zero in $D(\Lambda[G]_{\Lambda})$.
+\end{statement}
+
+The proof occupies the rest of no. 6. As in no. 3, one is reduced to the tame case,
+where the representations of inertia factor through $\ell$-groups. The reduction to
+the tame case is analogous to 3.1--3.3. The remaining tame case is treated by means
+of the purity theorem 4.3 and by an explicit calculation of local terms.
+
+Theorem 6.2 has important consequences for the divisibility of local terms. Let
+$\chi$ be a virtual representation of $G$ over $\Lambda$, i.e. an element of
+$R_\Lambda(G)$. One may consider the local term $\chi(u_z,v_z)$ obtained by
+applying $\chi$ to the non-commutative local term
+$\Tr_{\Lambda[G]}(u_zv_z)$. More precisely, if
+$\chi=\sum n_i[V_i]$, with the $V_i$ irreducible representations of $G$, put
+\[
+   \chi(u_z,v_z)=\sum n_i\Tr\bigl(u_zv_z\mid (L_X)_x\otimes_{\Lambda[G]}V_i\bigr).
+\]
+Then 6.2 implies the following.
+
+\begin{statement}{Corollary 6.3}
+With the notation of 6.2, let $\chi\in R_\Lambda(G)$, and write
+\[
+     e_\chi={1\over |G|}\sum_{g\in G}\chi(g^{-1})g
+\]
+for the central idempotent of $\Lambda[G]$ associated with $\chi$. Then
+\[
+     \chi(u_z,v_z)=e_\chi\cdot
+       \langle\!\langle \underline u,\underline v\rangle\!\rangle .
+\]
+In particular, if $\chi$ is a representation of degree $1$, then
+\[
+     \chi(u_z,v_z)=\chi\bigl(\langle u_z,v_z\rangle^G\bigr),
+\]
+where $\langle u_z,v_z\rangle^G$ denotes the component of
+$\Tr_{\Lambda[G]}(u_zv_z)$ on the trivial conjugacy class.
+\end{statement}
+
+When $G$ is cyclic, and one takes for $L_X$ and $L_Y$ the constant sheaves
+$\Lambda[G]$, and for $u$ and $v$ the correspondences given by left and right
+multiplication, Theorem 6.2 recovers Grothendieck's divisibility formula (XII, 4.5).
+More generally, for every finite group $G$ and every virtual representation $\chi$,
+formula 6.3 gives a canonical way of ``dividing'' ordinary local terms attached to
+equivariant correspondences, as announced in the introduction.
+
+\subsection*{Complementary bibliography}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item H. Cartan and S. Eilenberg, \emph{Homological Algebra}, Princeton University Press, 1956.
+\item A. Grothendieck, ``Formule de Lefschetz et rationalité des fonctions $L$'', Séminaire Bourbaki, exposé 279, 1964/65.
+\item J.-L. Verdier, ``Catégories dérivées (état 0)'', in \emph{SGA $4\frac12$}, Lecture Notes in Mathematics 569, Springer, 1977.
+\item R. P. Langlands, ``Modular forms and $\ell$-adic representations'', in \emph{Modular Functions of One Variable II}, Lecture Notes in Mathematics 349, Springer, 1973.
+\item J. Stallings, ``Centerless groups -- an algebraic formulation of Gottlieb's theorem'', \emph{Topology} 4 (1965), 129--134.
+\item M. Artin and J.-L. Verdier, ``Refinement of the Thomason--Trobaugh theorem'', manuscript.
+\end{enumerate}
+
+\newpage
+
+\subsection*{6.7. Traces and change of scalars}
+
+Let $X$ and $c$ be as in 6.5, and let $A\to B$ be a morphism of flat
+$\Lambda$-algebras. With respect to extension and restriction of scalars, the maps
+$\Tr_A$ of 6.5.3, 6.5.8, and 6.5.9 behave like the maps $\Tr_A$ of 5.6.1 and
+5.6.2. The point is that, if $f$ is an $S$-morphism, the functors
+\[
+       f^*,\quad f_*,\quad f_!,\quad f^!
+\]
+commute with extension and restriction of scalars. Therefore the study of the
+behavior of $\Tr_A$ in 6.5.3 with respect to extension and restriction of scalars is
+reduced to the behavior of the tensor-product map
+\[
+\RHom_A(p_1^{*L},p_1^{*K A_X})\overset{L}{\otimes}_{A\,p_2^{*L}}
+\longrightarrow
+\RHom_A(p_1^{*L},p_1^{*K A_X})\overset{L}{\otimes}_{A\,p_2^{*L}}
+\]
+and of the evaluation map
+\[
+\RHom_A(L,K A_X)\overset{L}{\otimes}_A L\longrightarrow K A_{X,L_\natural}.
+\]
+
+Thus the commutativity of the squares 5.9.1 and 5.9.2 implies the commutativity of
+\begin{equation}\tag{6.7.1}
+\begin{array}{ccc}
+\delta^{*c}{}_*\RHom_A(c_1^{*L},c_2^{!\,L}) & \xrightarrow{\Tr_A} & i_*^c K A_{X^c,L_\natural} \\[6pt]
+\downarrow & & \downarrow \\[6pt]
+\delta^{*c}{}_*\RHom_B(c_1^*(B\overset{L}{\otimes}_A L),c_2^{!}(B\overset{L}{\otimes}_A L)) & \xrightarrow{\Tr_B} & i_*^c K B_{X^c,L_\natural} .
+\end{array}
+\end{equation}
+Here the left vertical map is extension of scalars and the right vertical map is
+defined by the canonical morphism
+\[
+      A\overset{L}{\otimes}_{A^e}A\longrightarrow
+      B\overset{L}{\otimes}_{B^e}B.
+\]
+It follows that, for $u\in\Hom_A(c_1^{*L},c_2^{!\,L})$,
+\begin{equation}\tag{6.7.2}
+      \Tr_B(B\overset{L}{\otimes}_A u)=\varphi\Tr_A(u),
+\end{equation}
+where
+\[
+  \varphi:H^0(X^c,K A_{X^c,L_\natural})\longrightarrow
+  H^0(X^c,K B_{X^c,L_\natural})
+\]
+is the canonical map.
+
+Assume that $A$ is of finite type and flat as a $\Lambda$-module, that $B$ is of
+finite type and flat as a left $A$-module, and that $A_\natural$ and $B_\natural$ are
+flat over $\Lambda$. We then have $\Tr_{B/A}:B_\natural\to A_\natural$, and we again
+write
+\begin{equation}\tag{6.7.3}
+     \Tr_{B/A}:K B_{X,\natural}\longrightarrow K A_{X,\natural}
+\end{equation}
+for the map obtained by applying $K_X\overset{L}{\otimes}-$, as in 6.5.2. It follows
+from 5.10.6 and 5.10.9 that, for $L\in\ob D_{ctf}^{-}(X)$, the square
+\begin{equation}\tag{6.7.4}
+\begin{array}{ccc}
+\delta^{*c}{}_*\RHom_B(c_1^{*L},c_2^{!\,L}) & \xrightarrow{\Tr_B} & i_*^c K B_{X^c,\natural} \\[6pt]
+\downarrow & & \downarrow\scriptstyle \Tr_{B/A} \\[6pt]
+\delta^{*c}{}_*\RHom_A(c_1^{*L},c_2^{!\,L}) & \xrightarrow{\Tr_A} & i_*^c K A_{X^c,\natural}
+\end{array}
+\end{equation}
+is commutative, the left vertical map being restriction of scalars. Consequently, for
+$u\in\Hom_B(c_1^{*L},c_2^{!\,L})$, one has in
+$H^0(X^c,K A_{X^c,\natural})$
+\begin{equation}\tag{6.7.5}
+      \Tr_A(u)=\Tr_{B/A}(\Tr_B(u)).
+\end{equation}
+
+\subsection*{6.8. External products}
+
+Let $A$ and $B$ be flat $\Lambda$-algebras, let $X$ and $Y$ be $S$-schemes, and put
+$Z=X\times_S Y$. Let
+\[
+      c:C\to X^2,\qquad d:D\to Y^2
+\]
+be correspondences, and let
+\[
+      e=c\times_S d:E=C\times_S D\to Z^2
+\]
+be their product. Then $Z^e=X^c\times_S Y^d$. Put $R=A\otimes_\Lambda B$.
+As in III, 5.3, one defines the external tensor product
+\begin{equation}\tag{6.8.1}
+\Hom_A(c_1^{*L},c_2^{!\,L})\otimes
+\Hom_B(d_1^{*M},d_2^{!\,M})
+\xrightarrow{\overset{L}{\otimes}_S}
+\Hom_R(e_1^{*}(L\overset{L}{\otimes}_SM),e_2^{!}(L\overset{L}{\otimes}_SM)).
+\end{equation}
+From the commutativity of 5.12.1 and 5.12.3 it follows easily that, for
+$u\in\Hom_A(c_1^{*L},c_2^{!\,L})$ and
+$v\in\Hom_B(d_1^{*M},d_2^{!\,M})$, one has in
+$H^0(Z^e,K R_{Z^e,L_\natural})$
+\begin{equation}\tag{6.8.2}
+      \Tr_R(u\overset{L}{\otimes}_S v)=\Tr_A(u)\,\Tr_B(v),
+\end{equation}
+where the product on the right is defined by the canonical map
+\begin{equation}\tag{6.8.3}
+H^0(X^c,K A_{X^c,L_\natural})\otimes
+H^0(Y^d,K B_{Y^d,L_\natural})
+\longrightarrow
+H^0(Z^e,K R_{Z^e,L_\natural}).
+\end{equation}
+
+\subsection*{6.9. $G$-schemes and equivariant cohomological correspondences}
+
+Let $G$ be a finite group. If $X$ is a $G$-$S$-scheme, that is, an $S$-scheme endowed
+with an action of $G$ by $S$-automorphisms, and if $A$ is a $\Lambda$-algebra, we
+write $D(G,A^X)$ for the derived category of sheaves of left $G$-$A$-modules on
+$X$ for the étale topology. For the notions of $G$-sheaves of sets, rings, modules,
+etc., we refer to XV, 1. We use the subscripts $c$ and $ctf$ for the full
+subcategories consisting of complexes which, as complexes of $A$-modules, have
+constructible cohomology, respectively finite Tor-dimension and constructible
+cohomology.
+
+Similarly, if $B$ is a $\Lambda$-algebra, we write $D(G,A_B^X)$ for the derived
+category of $G$-$(A,B)$-bimodules on $X$. If $G$ acts trivially on $X$, then a
+left $G$-$A$-module on $X$ is just a left $A[G]$-module on $X$ without operators.
+Thus $D(G,A^X)=D(A[G]^X)$. Since $G$ is finite one also has
+$D_c(A^X)=D_c(A[G]^X)$, but only an inclusion
+\[
+     D_{ctf}(A[G]^X)\subset D_{ctf}(G,A^X).
+\]
+
+The duality formalism of SGA 4, XVII--XVIII extends without difficulty to
+$G$-$S$-schemes. Since the functor forgetting the $G$-action is faithful, it is enough
+to extend naturally the definitions of the six operations
+\[
+   \overset{L}{\otimes},\quad \RHom,\quad f^*,\quad f_*,\quad f_!,\quad f^!
+\]
+and of the canonical morphisms considered there (base change, Künneth, duality,
+etc.). This extension causes no difficulty; for the definition of $f_!$ and $f^!$ one
+uses equivariant compactifications. We leave to the reader the paraphrase of the
+definitions and results of 6.2--6.8 in the setting of $G$-$S$-schemes.
+
+If, for $i=1,2$, $X_i$ is a $G$-$S$-scheme, if
+$c:C\to X=X_1\times_S X_2$ is a $G$-$S$-morphism, and if
+$L_i\in\ob D_{ctf}(G,A_{X_i}^{X_i})$, the elements of
+\[
+     \Hom_A(c_1^{*L_1},c_2^{!\,L_2})
+\]
+(where $\Hom_A$ means $\Hom$ in the relevant equivariant derived category) will be
+called \emph{equivariant cohomological correspondences from $L_1$ to $L_2$ with
+support in $c$}. Notice that, when $G$ acts trivially on the $X_i$ and
+$L_i\in\ob D_{ctf}(A[G]^{X_i})$, the isomorphism 6.4.1 in $D(G,X)$ refines to
+an isomorphism
+\[
+D_{A[G]}L_1\overset{L}{\otimes}_{S,A[G]}L_2
+\xrightarrow{\sim}
+\RHom_{A[G]}(p_1^{*L_1},p_2^{!\,L_2}).
+\]
+Consequently, in an equivariant situation of type 6.5, with $G$ acting trivially on
+the spaces and with $L\in\ob D_{ctf}(A[G]^X)\subset D_{ctf}(G,A^X)$, one can, for
+$u\in\Hom_{A[G]}(c_1^{*L},c_2^{!\,L})$, define a local term
+\[
+     \Tr_{A[G]}(u)\in H^0(X^c,K A[G]_{X^c,L_\natural}),
+\]
+finer in the evident sense than the local term
+\[
+     \Tr_A(u)\in H^0(G,X^c,K A_{X^c,L_\natural})
+\]
+obtained by using only the finite Tor-dimension of $L$ relative to $A$.
+
+\subsection*{6.10. Values on conjugacy classes}
+
+Let $X$ and $c$ be as in 6.5, and let $L\in\ob D_{ctf}(A[G]^X)$. For
+$u\in\Hom_{A[G]}(c_1^{*L},c_2^{!\,L})$, 6.5.9 gives a local trace
+\begin{equation}\tag{6.10.1}
+\Tr_{A[G]}(u)\in H^0(X^c,K A[G]_{X^c,\natural})
+ = H^0(X^c,K_{X^c}\otimes A[G_\natural]),
+\end{equation}
+where $G_\natural$ is the set of conjugacy classes of $G$. For every
+$x\in G_\natural$ one may consider the value
+$\Tr_{A[G]}(u)(x)\in H^0(X^c,K_{X^c})$, obtained by projecting onto the component
+indexed by $x$. From 6.7.5 and 5.11.2 one obtains
+\begin{equation}\tag{6.10.2}
+    \Tr_A(u)=|G|\,\Tr_{A[G]}(u)(e),
+\end{equation}
+where $e$ denotes the identity element of $G$.
+
+More generally, let $g\in G$, let $Z_g$ be the centralizer of $g$, and let
+$gu\in\Hom_{A[Z_g]}(c_1^{*L},c_2^{!\,L})$ be the correspondence obtained by
+composing $u$ with left multiplication by $g$ on $c_1^{*L}$. Then
+$L\in\ob D_{ctf}(A[Z_g]^X)$, and 6.10.2 gives
+\begin{equation}\tag{6.10.3}
+    \Tr_A(gu)=|Z_g|\,\Tr_{A[Z_g]}(gu)(e).
+\end{equation}
+By the same argument as in 5.11.3, 6.7.4 gives
+\begin{equation}\tag{6.10.4}
+    \Tr_{A[Z_g]}(gu)(e)=\Tr_{A[G]}(u)(g^{-1}),
+\end{equation}
+and hence, if desired,
+\begin{equation}\tag{6.10.5}
+    \Tr_A(gu)=|Z_g|\,\Tr_{A[G]}(u)(g^{-1}).
+\end{equation}
+
+\subsection*{6.11--6.13. Direct images and $\ell$-adic passage to the limit}
+
+Let $f:X\to Y$ be a proper $G$-$S$-morphism, and let
+\begin{equation}\tag{6.11.1}
+\begin{array}{ccc}
+X\times_S X & \xleftarrow{\ c\ } & C \\[4pt]
+\downarrow\scriptstyle f\times_S f & & \downarrow \\[6pt]
+Y\times_S Y & \xleftarrow{\ d\ } & D
+\end{array}
+\end{equation}
+be a commutative equivariant square of $G$-$S$-schemes, with $c$ and $d$ proper.
+Assume that $G$ acts trivially on $Y$ and on $D$. Write
+\begin{equation}\tag{6.11.2}
+       f^{c/d}\text{, or }f^c:X^c\longrightarrow Y^d,
+\end{equation}
+for the morphism induced on schemes of fixed points. Let
+$L\in\ob D_{ctf}(G,X)$ and let
+$u\in\Hom(c_1^{*L},c_2^{!\,L})$ be an equivariant correspondence with support in
+$c$. Its direct image is an equivariant correspondence
+\[
+     f_*u\in\Hom_{A[G]}(d_1^{*}f_*L,d_2^{!}f_*L).
+\]
+For $g\in G$, write $Z_g$ for the centralizer of $g$, and let
+\begin{equation}\tag{6.11.3}
+      gu\in\Hom((gc)_1^{*L},c_2^{!\,L})
+\end{equation}
+be the $Z_g$-equivariant correspondence with support in
+\begin{equation}\tag{6.11.4}
+      gc=(gc_1=c_1g,c_2):C\longrightarrow X\times_S X
+\end{equation}
+defined as the composite
+\[
+      g^*(c_1^{*L})\xrightarrow{\alpha_g}c_1^{*L}\xrightarrow{u}c_2^{!\,L},
+\]
+where $\alpha_g$ is the map giving the action of $G$ on $c_1^{*L}$. It is clear that
+\begin{equation}\tag{6.11.5}
+      f_*(gu)=g(f_*u).
+\end{equation}
+
+\begin{statement}{Proposition 6.12}
+Under the hypotheses of 6.11, assume that
+$f_*L\in\ob D_{ctf}(A[G]^Y)$. Then, for every $g\in G$,
+\begin{equation}\tag{6.12.1}
+ f_*^{gc}\Tr_A(gu)=|Z_g|\,\Tr_{A[G]}(f_*u)(g^{-1}),
+\end{equation}
+where
+\[
+      f_*^{gc}:H^0(X^{gc},K_{X^{gc}})\longrightarrow H^0(Y^d,K_{Y^d})
+\]
+is the Gysin morphism defined by the adjunction map
+$f_*^{gc}K_{X^{gc}}=f_*^{gc}f^{gc!}K_{Y^d}\to K_{Y^d}$.
+\end{statement}
+
+Indeed, applying 6.10.5 to $f_*u$ and using 6.11.5 gives
+\[
+     \Tr_A(f_*(gu))=|Z_g|\,\Tr_{A[G]}(f_*u)(g^{-1}),
+\]
+and 6.12.1 follows from the Lefschetz formula III, 4.5.1.
+
+Let now $\ell\ne p$ be a prime. Put $\Lambda_n=\bZ/\ell^n\bZ$ for $n\ge1$.
+Under the hypotheses of 6.11, let $L=(L_n)$ be a projective system of objects of
+$D_{ctf}(G,X,\Lambda_n)$ such that
+\[
+      L_m\overset{L}{\otimes}_{\Lambda_m}\Lambda_n\xrightarrow{\sim}L_n
+      \qquad (m\ge n),
+\]
+and let $u=(u_n)$ be a projective system of equivariant correspondences
+$u_n\in\Hom(c_1^{*L_n},c_2^{!\,L_n})$, compatible under extension of scalars. By
+compatibility of local traces with extension of scalars, the local terms
+\[
+      \Tr_{\Lambda_n}(gu_n)\in H^0(X^{gc},K\Lambda_{n,X^{gc}})
+\]
+define an element
+\[
+      \Tr_{\bZ_\ell}(gu)\in H^0(X^{gc},K_{\ell,X^{gc}})
+      :=\varprojlim_n H^0(X^{gc},K\Lambda_{n,X^{gc}}),
+\]
+and the terms $f_*^{gc}\Tr_{\Lambda_n}(gu_n)=\Tr_{\Lambda_n}(g f_*u_n)$ define an
+element
+\[
+      f_*\Tr_{\bZ_\ell}(gu)\in H^0(Y^d,K_{\ell,Y^d})
+      :=\varprojlim_n H^0(Y^d,K\Lambda_{n,Y^d}).
+\]
+Assume moreover that $f_*M_n\in\ob D_{ctf}(\Lambda_n[G]^Y)$ for all $n$. Then the
+local traces $\Tr_{\Lambda_n[G]}(f_*u_n)$ likewise define
+\[
+      \Tr_{\bZ_\ell[G]}(f_*u)
+      \in H^0(Y^d,K\bZ_\ell[G]_{Y^d,\natural})
+      :=\varprojlim_n H^0(Y^d,K\Lambda_n[G]_{Y^d,\natural}).
+\]
+It follows from 6.12 that
+\begin{equation}\tag{6.13.1}
+      f_*^{gc}\Tr_{\bZ_\ell}(gu)
+      =|Z_g|\,\Tr_{\bZ_\ell[G]}(f_*u)(g^{-1}).
+\end{equation}
+
+\subsection*{6.14--6.17. Open immersions and divisibility}
+
+Let $X$ be a $G$-$S$-scheme, let $j:U\to X$ be an equivariant open immersion, and let
+$c:C\to X\times_S X$ be a morphism of $G$-$S$-schemes such that
+$c_2=p_2c:C\to X$ is quasi-finite and of finite Tor-dimension. Assume that
+$c_1^{-1}(U)\subset c_2^{-1}(U)$. The trace morphism
+\[
+      \Tr_{c_2}:c_{2!}\Lambda_C\longrightarrow \Lambda_X
+\]
+defines an equivariant filtered correspondence
+\begin{equation}\tag{6.14.2}
+      \underline c\in\Hom(c_1^*\Lambda_X,c_2^{!}\Lambda_X),
+\end{equation}
+where $\Lambda_X$ is endowed with the filtration defined by the submodule
+$i_!\Lambda_U$, namely $F^n\Lambda_X=\Lambda_X$ for $n\le0$,
+$F^1\Lambda_X=i_!\Lambda_U$, and $F^n\Lambda_X=0$ for $n\ge1$. Its associated
+graded object consists of two equivariant correspondences
+\begin{align}
+\gr^0\underline c&=\underline c_{X-U,X}
+   \in\Hom(c_1^*\Lambda_{X-U,X},c_2^{!}\Lambda_{X-U,X}),\tag{6.14.3}\
+\gr^1\underline c&=\underline c_{U,X}
+   \in\Hom(c_1^*\Lambda_{U,X},c_2^{!}\Lambda_{X-U,X}),
+\end{align}
+where $\Lambda_{X-U,X}=j_*\Lambda_{X-U}$ and
+$\Lambda_{U,X}=i_!\Lambda_U$. Moreover
+\begin{equation}\tag{6.14.4}
+        \underline c_{X-U,U}=j_*\underline c_{X-U},
+\end{equation}
+where $\underline c_{X-U}$ is the correspondence defined by
+$\Tr_{c_2,X-U}$.
+
+Forgetting the action of $G$, one has local terms
+\begin{equation}\tag{6.14.5}
+\Tr_\Lambda(\underline c),\quad
+\Tr_\Lambda(\underline c_{U,X}),\quad
+\Tr_\Lambda(\underline c_{X-U,X})\in H^0(X^c,K_{X^c}),
+\end{equation}
+which, by additivity of traces (III, 4.13.1), satisfy
+\begin{equation}\tag{6.14.6}
+\Tr_\Lambda(\underline c)=\Tr_\Lambda(\underline c_{U,X})
++\Tr_\Lambda(\underline c_{X-U,X}).
+\end{equation}
+Furthermore, by 6.14.4,
+\begin{equation}\tag{6.14.7}
+\Tr_\Lambda(\underline c_{X-U,X})=j_*^c\Tr_\Lambda(\underline c_{X-U}),
+\end{equation}
+where $j_*^c$ is the direct-image morphism attached to
+$j^c:(X-U)^c\to X^c$.
+
+Recall that if $X$ is smooth, $c$ is a closed immersion, and $X^c$ is finite, then
+$\Tr_\Lambda(\underline c)$ is the image in $\Lambda$ of the intersection multiplicity
+$(C\cdot X)$ of $C$ with the diagonal. If moreover $X-U$ is smooth, then
+$\Tr_\Lambda(\underline c_{X-U})$ is the image in $\Lambda$ of
+$(c_2^{-1}(X-U)\cdot (X-U))$. Also, if $X-U$ is proper over $S$ and
+$c|_{X-U}$ is the diagonal, the Lefschetz formula III, 4.7 gives that
+\[
+     \int_{X-U}\Tr(\underline c_{X-U})\in\Lambda
+\]
+is the Euler-Poincaré characteristic of $X-U$ with values in $\Lambda$.
+
+Now let a diagram 6.11.1 be given, with $f,c,d$ proper, and let
+$U\to X$ be an equivariant open immersion. Assume that $c_2$ is quasi-finite and
+of finite Tor-dimension, that $c_1^{-1}(U)\subset c_2^{-1}(U)$, that $G$ acts
+trivially on $C$ and $D$, and that
+\[
+     f|_U:U\longrightarrow f(U)=V
+\]
+is a Galois étale covering with group $G$. This last hypothesis implies that
+$Rf_*(\Lambda_{U,X})\in\ob D_{ctf}(A[G]^Y)$; indeed it is concentrated in degree
+zero and is the extension by zero of a sheaf on $V$ locally isomorphic to
+$\Lambda[G]$. Thus one can apply 6.12 to
+$L=\Lambda_{U,X}$ and $u=\underline c_{U,X}$, and, using 6.14.6 and 6.14.7, one
+gets:
+
+\begin{statement}{Proposition 6.16}
+Under the hypotheses of 6.15, for every $g\in G$,
+\begin{equation}\tag{6.16.1}
+ f_*^{gc}\Tr_\Lambda(\underline{gc})
+ -(fj)_*^{gc}\Tr_\Lambda(\underline{gc}_{X-U})
+ =|Z_g|\,\Tr_{A[G]}(f_*\underline c_{U,X})(g^{-1}),
+\end{equation}
+where $j:X-U\to X$ is the inclusion and $Z_g$ is the centralizer of $g$.
+\end{statement}
+
+Applying 6.16 to the projective system of correspondences
+$\underline c_\ell=(\underline c^{\Lambda_n})$, with $\Lambda_n=\bZ/\ell^n$ and
+$\ell\ne p$, and passing to the limit in 6.14.6 and 6.14.7, gives:
+
+\begin{statement}{Corollary 6.17}
+Under the hypotheses of 6.15, for every $g\in G$,
+\begin{equation}\tag{6.17.1}
+ f_*^{gc}\Tr_{\bZ_\ell}(\underline{gc}_\ell)
+ -(fj)_*^{gc}\Tr_{\bZ_\ell}(\underline{gc}_{\ell,X-U})
+ =|Z_g|\,\Tr_{\bZ_\ell[G]}(f_*\underline c_{\ell,U,X})(g^{-1}),
+\end{equation}
+with the notation of 6.16.
+\end{statement}
+
+Taking into account compatibility of local traces with localization and the remarks
+made in 6.14, one sees that 6.17 gives an affirmative answer, in a more general
+formulation, to Grothendieck's divisibility conjecture (XII, 4.5) in the case where
+the endomorphism $\varphi$ of $G$ considered there is the identity.
+
+In fact, inspired by 5.13, it is not difficult to formulate analogous divisibility
+statements to 6.12, 6.13, 6.16, and 6.17 in the case where $c$ is not
+$G$-equivariant but $c_2$ is, and $c_1$ satisfies
+\[
+       c_1(xg)=c_1(x)\varphi(g)
+\]
+for every point $x$ of $G$, with a fixed endomorphism $\varphi$ of $G$. The
+formulae then read as above, with $Z_g$ replaced by the $\varphi$-centralizer of
+$g^{-1}$ (5.13.5).
+
+\subsection*{6.18--6.24. Invariants and the comparison with Grothendieck local terms}
+
+Put
+\begin{equation}\tag{6.18.1}
+      N_G=\sum_{g\in G}g\in\Lambda[G].
+\end{equation}
+Let $X$ be an $S$-scheme. For $L\in\ob D(A[G]^X)$, left multiplication by $N_G$
+induces a morphism in $D(X)$
+\begin{equation}\tag{6.18.2}
+      N_G:\Lambda\overset{L}{\otimes}_{A[G]}L
+      \longrightarrow \RHom_{A[G]}(\Lambda,L),
+\end{equation}
+where $\Lambda$ is regarded as a $\Lambda[G]$-algebra through the natural
+augmentation sending every $g$ to $1$.
+
+\begin{statement}{Lemma 6.18.3}
+If $L\in\ob D_{ctf}(A[G]^X)$, the morphism 6.18.2 is an isomorphism.
+\end{statement}
+
+By dévissage one is reduced to the case in which $L$ is perfect, then to
+$L=\Lambda[G]$. The assertion then follows from the fact that $N_G$ is a basis of
+the invariant module of the left $\Lambda[G]$-module $\Lambda[G]$.
+
+\begin{statement}{Proposition 6.19}
+In the situation of 6.11, let $M\in\ob D_{ctf}(Y)$, let
+$v\in\Hom(d_1^{*M},d_2^{!\,M})$, and let
+$a:M\to f_*L$ be a morphism in $D(A[G]^Y)$, where $M$ is regarded as an object of
+$D(A[G]^Y)$ through the augmentation $\Lambda[G]\to\Lambda$. Assume that the square
+\[
+\begin{array}{ccc}
+d_1^{*M} & \xrightarrow{v} & d_2^{!\,M} \\[6pt]
+\downarrow\scriptstyle d_1^{*a} & & \downarrow\scriptstyle d_2^{!a} \\[6pt]
+d_1^{*}f_*L & \xrightarrow{f_*u} & d_2^{!}f_*L
+\end{array}
+\]
+is commutative. Assume moreover that $f_*M\in\ob D_{ctf}(A[G]^Y)$ and that $a$
+induces an isomorphism
+\[
+       M\xrightarrow{\sim}\RHom_{A[G]}(\Lambda,f_*L).
+\]
+Then
+\begin{equation}\tag{6.19.1}
+       \Tr_\Lambda(v)=\sum_{g\in G_\natural}\Tr_{A[G]}(f_*u)(g^{-1}).
+\end{equation}
+\end{statement}
+
+Indeed, by 6.18.3, composing $a$ with $N_G^{-1}$ gives an isomorphism
+\[
+       M\xrightarrow{\sim}\Lambda\overset{L}{\otimes}_{A[G]}f_*L
+\]
+under which $v$ is identified with $\Lambda\overset{L}{\otimes}_{A[G]}f_*u$. By
+6.7.2, $\Tr_\Lambda(v)$ is the image of $\Tr_{A[G]}(f_*u)$ under the map induced
+by the augmentation $\Lambda[G]\to\Lambda$. This map sends each conjugacy class
+to $1$, which proves the formula.
+
+Let $X_i$ for $i=1,2$ be $G$-$S$-schemes, put $X=X_1\times_S X_2$, and let
+$c:C\to X$ be a $G$-$S$-morphism such that $c_2$ is quasi-finite and of finite
+Tor-dimension. For $L_i\in\ob D^+(G,X_i)$, the trace morphism
+$\Tr_{c_2}:c_{2!}c_2^{*L_2}\to L_2$ defines by adjunction a map, again denoted
+\begin{equation}\tag{6.20.1}
+      \Tr_{c_2}:c_2^{*L_2}\longrightarrow c_2^{!\,L_2},
+\end{equation}
+and hence every equivariant morphism
+$u\in\Hom(c_1^{*L_1},c_2^{*L_2})$ determines an equivariant correspondence
+\begin{equation}\tag{6.20.2}
+      u^!=\Tr_{c_2}\circ u\in\Hom(c_1^{*L_1},c_2^{!\,L_2}).
+\end{equation}
+
+\begin{statement}{Proposition 6.21}
+Under the hypotheses of 6.11, assume moreover that an open immersion
+$i:V\hookrightarrow Y$ is given such that $(fc_1)^{-1}(V)$ is connected, that
+$d_1^{-1}(V)\subset d_2^{-1}(V)$, and that $f$ induces a principal Galois covering
+with group $G$,
+\[
+      U=f^{-1}(V)\xrightarrow{f_V}V.
+\]
+Assume also that $M=i_!E$ with $E\in\ob D(V)$, and that one has an isomorphism
+\[
+      \alpha:f_V^*E\xrightarrow{\sim}\Lambda_X\otimes_\Lambda E_0
+\]
+in $D(G,X)$, with $E_0\in\ob D(\Lambda[G])$ perfect over $\Lambda$. Let
+$v\in\Hom(d_1^{*M},d_2^{*M})$ be as above, and let
+$v_0\in\Hom_{\Lambda[G]}(E_0,E_0)$ be the endomorphism defined, via $\alpha$, by
+$f^*v|_{c_1^{-1}(U)}$. If $\underline c_{U,X}$ denotes the correspondence of
+6.14.3, then, with the notation 6.20.2,
+\begin{equation}\tag{6.23.1}
+\Tr_\Lambda(v^!)=
+\sum_{g\in G_\natural}
+\Tr_{A[G]}(f_*\underline c_{U,X})(g^{-1})\,\Tr_\Lambda(gv_0).
+\end{equation}
+\end{statement}
+
+Because of the central character of $\Tr_\Lambda$, the right hand side does not
+depend on the choice of $\alpha$. The projection formula
+$f_*f^*\Lambda_Y\otimes M\xrightarrow{\sim}f_*f^*M$ and 6.15 show that $M$
+satisfies the hypotheses needed above. The isomorphism $\alpha$ identifies
+$(f^*v)^!$ with the external tensor product $\underline c_{U,X}\otimes v_0$.
+Thus $f_*f^*M$ is identified with $f_*(\Lambda_{U,X})\otimes E_0$, and
+$f_*(f^*v)^!$ with $f_*\underline c_{U,X}\otimes v_0$. For $g\in G$, the
+$Z_g$-equivariant correspondence $g f_*(f^*v)^!$ is identified with
+$g f_*\underline c_{U,X}\otimes g v_0$. Since 6.10.4 gives
+\[
+\Tr_{A[G]}(f_*(f^*v)^!)(g^{-1})=
+\Tr_{A[Z_g]}(g f_*(f^*v)^!)(e),
+\]
+it is enough, using 6.22.1, to prove
+\[
+\Tr_{A[Z_g]}(g f_*\underline c_{U,X}\otimes gv_0)(e)=
+\Tr_{A[G]}(f_*\underline c_{U,X})(g^{-1})\,\Tr_\Lambda(gv_0),
+\]
+or equivalently, by 6.10.4,
+\begin{equation}\tag{6.23.2}
+\Tr_{A[Z_g]}(g f_*\underline c_{U,X}\otimes gv_0)(e)=
+\Tr_{A[Z_g]}(g f_*\underline c_{U,X})(e)\,\Tr_\Lambda(gv_0).
+\end{equation}
+Replacing $G$ by $Z_g$, one may suppose $g=e$, and then, returning to the definition
+of traces, it suffices to establish the following lemma.
+
+\begin{statement}{Lemma 6.23.3}
+Let $P$ be a $G_V$-module locally a direct factor of a free module of finite type, put
+$P'=i_!P$, and let $Q$ be a complex of $\Lambda[G]$-modules perfect over
+$\Lambda$. Then $P\overset{L}{\otimes}_\Lambda Q$, with the diagonal action of $G$,
+is perfect over $\Lambda[G]$, and the square
+\[
+\begin{array}{ccc}
+\delta^*\RHom_{\Lambda[G]}(p_1^{*P'},p_2^{!P'})
+\overset{L}{\otimes}\RHom_{\Lambda[G]}(Q,Q)&\xrightarrow{(1)}&K_Y\\[8pt]
+\downarrow\scriptstyle(*) && \parallel\\[8pt]
+\delta^*\RHom_{\Lambda[G]}(p_1^{*P'}\overset{L}{\otimes}Q,
+ p_2^{!P'}\overset{L}{\otimes}Q)&\xrightarrow{(3)}&K_Y
+\end{array}
+\]
+is commutative. Here $\delta:Y\to Y\times_S Y$ is the diagonal; (1) is the tensor
+product of
+\[
+\delta^*\RHom_{\Lambda[G]}(p_1^{*P'},p_2^{!P'})\xrightarrow{6.5.3}
+K\Lambda[G]_{Y,\natural}\xrightarrow{x\mapsto x(e)}K_Y
+\]
+and
+\[
+\RHom_{\Lambda[G]}(Q,Q)\xrightarrow{\Tr_\Lambda}\Lambda;
+\]
+$(*)$ is induced from the external tensor product by restriction along the diagonal
+$\Lambda[G]\to\Lambda[G]\otimes\Lambda[G]$; and (3) is 6.5.3 followed by
+$x\mapsto x(e)$.
+\end{statement}
+
+The first assertion is clear: one is reduced to $P=\Lambda[G]_V$, and then
+$P\overset{L}{\otimes}_\Lambda Q$ is the tensor product of $P$ by $Q$ with trivial
+$G$-action. For the second assertion, 6.5.4 and 6.5.5 give
+\[
+\delta^*\RHom_{\Lambda[G]}(p_1^{*P'},p_2^{!P'})
+\xrightarrow{\sim}
+D_{\Lambda[G]}(i_!P)\overset{L}{\otimes}_{\Lambda[G]}i_!P
+\xrightarrow{\sim}
+i_!(D_{\Lambda[G]}P\overset{L}{\otimes}_{\Lambda[G]}P),
+\]
+so one is reduced to checking the induced square on $V$; thus one may assume
+$V=Y$. The square becomes
+\[
+\begin{array}{ccc}
+\RHom_{\Lambda[G]}(P,K_Y\overset{L}{\otimes}P)
+\overset{L}{\otimes}\RHom_{\Lambda[G]}(Q,Q)&\xrightarrow{(1)}&K_Y\\[8pt]
+\downarrow && \parallel\\[8pt]
+\RHom_{\Lambda[G]}(P\overset{L}{\otimes}Q,
+K_Y\overset{L}{\otimes}P\overset{L}{\otimes}Q)&\xrightarrow{(3)}&K_Y.
+\end{array}
+\]
+Here (1) is given by $\Tr_{\Lambda[G]}(-)(e)\otimes\Tr_\Lambda$, and (3) by
+$\Tr_{\Lambda[G]}(-)(e)$. By descent one is reduced to
+$P=\Lambda[G]_Y$, and then one may suppose that $G$ acts trivially on $Q$. The
+assertion is then an immediate consequence of 5.12.5.
+
+If $\Lambda$ is killed by a power of a prime $\ell\ne p$, the right hand side of
+6.23.1 may be rewritten as
+\[
+\sum_{g\in G_\natural}
+\Tr_{\bZ_\ell[G]}(f_*\underline c_{\ell,U,X})(g^{-1})\,\Tr_\Lambda(gv_0),
+\]
+with the notation of 6.17. Formula 6.17.1 shows that Grothendieck's local terms in
+XII, 6.2 coincide with Verdier's local terms, at least when the endomorphism
+$\varphi$ of $G$ considered there is the identity; as already observed, this
+restriction is not serious. If $Y$ is proper over $S$, combining 6.23.1 with the
+Lefschetz formula for $Y\to S$ (III, 4.7) gives a formula generalizing XII, 6.3,
+and hence in particular the Lefschetz formula for Frobenius proved in SGA
+$4\frac12$, Rapport, and in Part I of the present exposé.
+
+\subsection*{Bibliography}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item H. Cartan and S. Eilenberg, \emph{Homological Algebra}, Princeton University Press, 1956.
+\item A. Grothendieck, \emph{Formule de Lefschetz et rationalité des fonctions $L$}, Séminaire Bourbaki 1964/65, no. 279, in \emph{Dix exposés sur la cohomologie des schémas}, North Holland, 1968.
+\item L. Illusie, \emph{Complexe cotangent et déformations I, II}, Lecture Notes in Mathematics 239 and 283, Springer, 1971--1972.
+\item R. P. Langlands, \emph{Modular forms and $\ell$-adic representations}, in \emph{Modular Functions of One Variable II}, Lecture Notes in Mathematics 349, Springer, 1973.
+\item J. Stallings, \emph{Centerless groups -- an algebraic formulation of Gottlieb's theorem}, Topology 4 (1965), 129--134.
+\item J.-L. Verdier, \emph{The Lefschetz fixed point formula in étale cohomology}, in \emph{Proceedings of a Conference on Local Fields}, Springer, 1967.
+\end{enumerate}
+
+SGA $4\frac12$: \emph{Cohomologie étale}, by P. Deligne, Lecture Notes in Mathematics
+569, Springer, 1977. In SGA $4\frac12$: \emph{Th. Finitude} refers to the finiteness
+theorems in $\ell$-adic cohomology; \emph{Cycle} to the cohomology class associated
+with a cycle; and \emph{Rapport} to the report on the trace formula.
+
+\newpage
+
+\section*{Exposé V. $J$-adic projective systems}
+\begin{center}
+\large J. P. Jouanolou
+\end{center}
+
+\subsection*{1. Generalities on abelian $A$-categories}
+
+\subsubsection*{1.1. Definitions and first properties}
+
+Let $A$ be a commutative ring. An \emph{$A$-category} $\cC$ is a category for which,
+for each pair $(X,Y)$ of objects, the set $\Hom(X,Y)$ is endowed with an
+$A$-module structure, compatibly with composition. Thus for three objects
+$X,Y,Z$ the composition map
+\[
+       \Hom(Y,Z)\times\Hom(X,Y)\longrightarrow\Hom(X,Z)
+\]
+is $A$-bilinear.
+
+An \emph{abelian $A$-category} is an additive $A$-category in which every morphism
+has a kernel and a cokernel and in which every morphism factors canonically as an
+epimorphism followed by a monomorphism. More precisely, one assumes an equivalence
+between $\cC$ and a full subcategory of the category of sheaves of $A$-modules on a
+site, so that finite inverse and direct limits, kernels, cokernels, images, and
+coimages are representable and are computed sheafwise.
+
+An \emph{$A$-functor}, respectively an additive $A$-functor, between $A$-categories
+is a functor, respectively an additive functor, whose action on Hom-sets is
+$A$-linear. An \emph{$(A,B)$-functor} from an $A$-category to a $B$-category consists
+of a ring homomorphism $A\to B$ and a $B$-functor to the target. When $A=B$ and the
+map is the identity, this is simply an $A$-functor.
+
+Let $\cC$ be an abelian $A$-category. An object $M$ of $\cC$ is said to be of
+\emph{finite type} (respectively \emph{noetherian}) if, for every filtered inductive
+system $(N_i)_{i\in I}$ of subobjects of $M$, the canonical morphism
+\[
+       \varinjlim_i N_i\longrightarrow M
+\]
+has the expected finiteness behavior: in the finite-type case the union stabilizes
+as soon as it is all of $M$, and in the noetherian case every increasing sequence of
+subobjects is stationary. An object is \emph{coherent} if it is of finite type and if,
+for every map $u:N\to M$ with $N$ of finite type, $\Ker(u)$ is of finite type. For
+ordinary modules these are the usual notions.
+
+If $J$ is an ideal of $A$, the \emph{canonical $J$-filtration} of an object $M$ is the
+decreasing filtration by the images $J^nM$ of
+$J^n\otimes_A M\to M$. An object is called \emph{$J$-adic} if this filtration is
+$J$-adic: for every $n$, the canonical map
+$J\otimes_A J^nM\to J^{n+1}M$ is an epimorphism and the transition maps
+$M/J^{n+1}M\to M/J^nM$ are epimorphisms.
+
+Throughout the exposé, the ideal $J$ is assumed to satisfy the Artin--Rees condition
+(AR) of 1.1.8(ii). We shall use without further comment the elementary facts that
+the full subcategory of noetherian objects is thick and abelian: it is stable under
+subobjects, quotients, and extensions.
+
+\subsubsection*{1.2--1.3. Projective systems and AR-zero systems}
+
+Let $\Hom(\bN^\circ,\cC)$ denote the category of projective systems indexed by
+$\bN$ with values in $\cC$. A system $X=(X_n)$ is called \emph{AR-zero} if for every
+$n$ there is an integer $m\ge n$ such that the transition map
+$X_m\to X_n$ is zero. The AR-zero systems form a thick subcategory, and in fact a
+localizing subcategory, of $\Hom(\bN^\circ,\cC)$ in the sense of Gabriel.
+
+The quotient category
+\[
+     \Hom(\bN^\circ,\cC)/\Hom(\bN^\circ,\cC)_{\AR\text{-zero}}
+\]
+is therefore abelian, and the canonical functor is exact. If $\cC'$ is a full thick
+abelian subcategory of $\cC$, one writes
+$\Hom_{\AR}(\bN^\circ,\cC')$ for the full subcategory of systems which are
+AR-isomorphic to systems with values in $\cC'$. The usual properties of quotient
+categories then give the corresponding thick abelian subcategory in the quotient.
+
+\subsubsection*{1.4. Examples and constructions}
+
+For an object $M$ of $\cC$, let $\kappa(M)$ denote the constant projective system
+with value $M$. The functor
+\[
+       \kappa:\cC\longrightarrow \Hom(\bN^\circ,\cC)
+\]
+is fully faithful and exact.
+
+For an integer $r\ge0$, the translation functor $[r]$ on projective systems is
+defined by
+\[
+      (X[r])_n=X_{n+r}.
+\]
+It is exact, and there is a canonical monomorphism $X[r]\to X$ whose cokernel is
+AR-zero.
+
+If $\cC$ is complete, the projective limit
+\[
+      \varprojlim X=\varprojlim_n X_n
+\]
+is an exact-left functor. For ordinary countable systems one has the standard exact
+sequence involving $R^1\varprojlim$, and the higher derived functors vanish under
+the hypotheses used below.
+
+The separated $J$-adic completion of an object $M$ is
+\[
+      \widehat M=\varprojlim_n M/J^nM
+\]
+when it exists. If $\cC$ is complete and countable products are exact, completion is
+exact on noetherian objects. A projective system $X$ is \emph{strict $J$-adic} if
+$X_n$ is killed by $J^{n+1}$, the transition maps are epimorphisms, and
+$X_m/J^{n+1}X_m\xrightarrow{\sim}X_n$ for $m\ge n$. Such a system is noetherian,
+respectively artinian, if its components are noetherian, respectively artinian.
+
+The following elementary lemmas will be used repeatedly. A noetherian object has all
+subobjects noetherian. If $M$ is separated and complete for the $J$-adic topology,
+then the system $(M/J^nM)_n$ is strict $J$-adic, and its image in the quotient by
+AR-zero systems is isomorphic to the image of the constant system $\kappa(M)$.
+
+\subsection*{2. Mittag-Leffler--Artin--Rees and calculus of fractions}
+
+In this section $\cC$ is an abelian $A$-category and $J\subset A$ satisfies (AR).
+A projective system $X=(X_n)$ satisfies the \emph{Mittag-Leffler--Artin--Rees
+condition}, abbreviated (MLAR), if for every $n$ there is $m\ge n$ such that for
+all $p\ge m$ the image of $X_p\to X_n$ is equal to the image of $X_m\to X_n$.
+In other words, the family of images
+\[
+       \Imn(X_m\to X_n)_{m\ge n}
+\]
+is stationary. A stricter version asks in addition that this stable image be a
+$J$-adic object of $\cC$.
+
+A system satisfying (MLAR) is AR-isomorphic to a strict projective system whose
+transition maps are epimorphisms. The condition is stable under short exact
+sequences in the familiar way. A $J$-adic projective system satisfies (MLAR) if and
+only if it is strict. Every noetherian projective system satisfies (MLAR).
+
+Let $X$ be a strict $J$-adic system. Its kernel is
+\[
+      \Ker(X)=(\Ker(X_n\to X_0))_n.
+\]
+This is a strict subsystem, and the quotient is the constant system $\kappa(X_0)$.
+If $Y$ is a strict subsystem of $X$, we say that $Y$ is \emph{$J$-adapted} to $X$ if
+for every $n$,
+\[
+      Y_n=X_n\cap Y_0\quad\text{inside }X_0.
+\]
+For such a subsystem, $Y$ is $J$-adic exactly when the associated graded system is a
+module over $\gr_J(A)$ in the evident sense.
+
+The associated graded object of a strict $J$-adic system is
+\[
+      \gr(X)=\bigoplus_{n\ge0} X_n/X_{n+1},
+\]
+viewed as a graded module over $\gr_J(A)$. The system $X$ is noetherian,
+respectively artinian, if and only if $\gr(X)$ is noetherian, respectively artinian,
+as a graded $\gr_J(A)$-module.
+
+Localizing subcategories in the sense of Gabriel will be used to express the
+calculus of fractions. If $\cL$ is a localizing subcategory of an abelian category
+$\cA$, a morphism is a $\cL$-equivalence if its kernel and cokernel belong to
+$\cL$. The quotient $\cA/\cL$ is the localization with respect to these equivalences,
+and the canonical functor $\cA\to\cA/\cL$ is exact and universal for exact functors
+annihilating $\cL$.
+
+Applied to the localizing subcategory of AR-zero systems, this gives the category in
+which AR-isomorphisms are inverted. In particular, for a strict $J$-adic system $X$,
+the functor sending a $J$-adapted strict subsystem $Y\subset X$ to its image in the
+quotient is an equivalence from the category of such subsystems to the category of
+subobjects of the image of $X$ in the quotient.
+
+\subsection*{3. $J$-adic and AR-$J$-adic projective systems}
+
+A projective system is called \emph{$J$-adic} if it is isomorphic to a strict
+$J$-adic system. A system is called \emph{AR-$J$-adic} if it is AR-isomorphic to a
+strict $J$-adic system. We write
+\[
+J\text{-}\adn(\cC),\quad J\text{-}\adf(\cC),\quad
+\AR\text{-}J\text{-}\adn(\cC),\quad \AR\text{-}J\text{-}\adf(\cC)
+\]
+for the corresponding noetherian and artinian subcategories.
+
+A $J$-adic system remains $J$-adic after any translation $[r]$. Moreover, every
+AR-$J$-adic noetherian system is represented, in the quotient by AR-zero systems,
+by a translate $Y[r]$ of an actual $J$-adic noetherian system $Y$.
+
+Assume now that $\cC$ is complete and that countable products are exact. For any
+projective system $X$, the functor $\varprojlim$ is left exact, and its derived
+functors satisfy
+\[
+       R^q\varprojlim X=0\quad(q\ge2).
+\]
+If $X$ is AR-zero, then $R^q\varprojlim X=0$ for all $q\ge0$. If $X$ is
+AR-$J$-adic noetherian, then
+\[
+       R^1\varprojlim X=0.
+\]
+Consequently $\varprojlim X$ is separated and complete for the $J$-adic topology,
+and the canonical morphisms
+\[
+      X_n\longrightarrow \varprojlim X/J^{n+1}\varprojlim X
+\]
+are isomorphisms.
+
+The $J$-adic completion functor
+\[
+      \Lambda_J(M)=\varprojlim_n M/J^nM
+\]
+is additive and left exact. Its left derived functors satisfy
+\[
+      L_i\Lambda_J(M)=0\qquad(i\ge2).
+\]
+For $M$ noetherian, one has $L_1\Lambda_J(M)=0$, and
+$\Lambda_J(M)\cong\varprojlim_n M/J^nM$. If $\cC$ is complete with exact countable
+products and $M$ is noetherian, the canonical map
+\[
+      \widehat A\otimes_A M\longrightarrow \Lambda_J(M)
+\]
+is an isomorphism; this is the familiar exactness of completion for finite modules
+in this categorical setting.
+
+\subsection*{4. Filtrations and gradings}
+
+Let $X=(X_n)$ be a projective system. A filtration of $X$ is a compatible family of
+decreasing filtrations $F^\bullet X_n$. It is called \emph{$J$-good} if, for every
+$n$, the filtration on $X_n$ is $J$-good, i.e. for some $n_0$,
+\[
+       J^pF^{n_0}X_n=F^{n_0+p}X_n\qquad(p\ge0).
+\]
+The associated graded system is
+\[
+       \gr(X)=(\gr(X_n))_n,
+       \qquad \gr(X_n)=\bigoplus_{p\ge0}F^pX_n/F^{p+1}X_n.
+\]
+If $X$ is strict $J$-adic and has a $J$-good filtration, then $\gr(X)$ is a strict
+$\gr_J(A)$-adic projective system. If moreover $X$ is noetherian, so is
+$\gr(X)$.
+
+The Artin--Rees lemma takes the following form. Let $M$ be a noetherian object of
+an abelian $A$-category and $N\subset M$ a subobject. Give $M$ its canonical
+$J$-filtration. Then the induced filtration on $N$ is $J$-adic: for every $n$ there
+exists $m$ such that
+\[
+        N\cap J^mM\subset J^nN.
+\]
+The proof is by applying (MLAR) to the projective system
+$(N/(N\cap J^nM))_n$.
+
+For a noetherian object $M$, the canonical map
+\[
+      J^n\otimes_A M\longrightarrow J^nM
+\]
+is an epimorphism. Moreover, the system $(J^nM)_n$ is AR-zero if and only if $M$
+is killed by a power of $J$. If an AR-$J$-adic noetherian system carries a $J$-good
+filtration, its associated graded object is AR-$\gr_J(A)$-adic and noetherian. In a
+short exact sequence of $J$-adic noetherian systems with $J$-good filtrations, the
+associated sequence of graded systems is exact. Finally, for a noetherian strict
+$J$-adic system $X$, there exists $r\ge0$ such that, for every strict subsystem
+$Y\subset X$, the graded object $\gr(Y[r])$ is a graded $\gr_J(A)$-module.
+
+The Nakayama lemma also has the expected form. If $M$ is separated and complete for
+the $J$-adic topology and $M/JM=0$, then $M=0$. Hence a morphism between separated
+and complete objects is an epimorphism if and only if it is so modulo $J$. Similarly,
+$M$ is of finite type or noetherian if and only if $M/JM$ has the corresponding
+property over $A/J$, with the usual finiteness condition on the kernels of
+$J^n\otimes_A M\to J^nM$ in the noetherian criterion.
+
+\subsection*{5. Noetherian AR-$J$-adic systems}
+
+In this section $\cC$ is an abelian $A$-category, $J$ is an ideal satisfying (AR),
+and $\cC$ has countable direct sums.
+
+A projective system $X=(X_n)$ is \emph{AR-$J$-adic noetherian} (respectively
+artinian) if it is AR-$J$-adic and its components are noetherian (respectively
+artinian). We write
+\[
+     \AR\text{-}J\text{-}\adn(\cC),
+     \qquad
+     \AR\text{-}J\text{-}\adf(\cC)
+\]
+for the corresponding full subcategories of the AR quotient. The canonical functors
+\[
+      p_{\AR}^n:J\text{-}\adn(\cC)\to\AR\text{-}J\text{-}\adn(\cC),
+      \qquad
+      p_{\AR}^f:J\text{-}\adf(\cC)\to\AR\text{-}J\text{-}\adf(\cC)
+\]
+are equivalences of categories.
+
+We shall need Hilbert's theorem in the following form. Let $A$ be a commutative
+ring, $\cC$ an abelian $A$-category, and $M$ an object of finite type,
+respectively noetherian. For every finitely generated $A$-algebra
+$B=\bigoplus_{n\ge0}B_n$ graded by $\bN$, the graded $(B,\cC)$-module
+$B\otimes_AM$ is of finite type, respectively noetherian. The proof reduces at once
+to $B=A[T]$, where submodules of $A[T]\otimes_AM$ correspond to increasing arrays
+of subobjects of $M$; the assertion is then precisely the finite-type or noetherian
+condition on $M$.
+
+If $\cC$ has countable direct sums, the same conclusion holds for an arbitrary
+finitely generated $A$-algebra $B$, not necessarily graded. It follows in particular
+that if $A$ is noetherian and $J\subset A$ is an ideal, then, for every noetherian
+$J$-adic system $X$, the graded object $\gr(X)$ is a noetherian
+$(\gr_J(A),\cC)$-module. Indeed $\gr_J(A)$ is a finitely generated $A$-algebra and
+there is an epimorphism
+\[
+     \gr_J(A)\otimes_A X_0\longrightarrow \gr(X).
+\]
+
+Let $\cE_\cC$ be the full subcategory of $\underline{\Hom}(\bN^\circ,\cC)$ whose
+objects are AR-$J$-adic noetherian systems.
+
+\begin{statement}{Proposition 5.2.1}
+The category $\cE_\cC$ is stable under kernels and cokernels in
+$\underline{\Hom}(\bN^\circ,\cC)$. Thus $\cE_\cC$ is an abelian category and the
+inclusion
+\[
+       \cE_\cC\longrightarrow \underline{\Hom}(\bN^\circ,\cC)
+\]
+is exact.
+\end{statement}
+
+Let $u:X\to Y$ be a morphism in $\cE_\cC$. One proves successively that
+$\Coker(u)$, $\Imn(u)$, and $\Ker(u)$ are AR-$J$-adic and noetherian. For the
+image one uses the following lemma.
+
+\begin{statement}{Lemma 5.2.1.1}
+Let
+\[
+       0\to L\to M\to N\to0
+\]
+be exact in $\underline{\Hom}(\bN^\circ,\cC)$. If $M$ and $N$ are AR-$J$-adic
+noetherian, then $L$ is AR-$J$-adic noetherian.
+\end{statement}
+
+It is enough to prove the AR-$J$-adic assertion. One reduces as in the proof of
+3.2.4 to the case where $M$ and $N$ are strict, and even $J$-adic noetherian. Then
+3.1.3(ii) shows that $L$ is strict. It is adapted to $J$, and its graded object, as
+a graded subobject of $\gr(M)$, is noetherian. The assertion follows from the
+Artin--Rees lemma 4.2.6. Applying this first to
+$0\to\Imn(u)\to Y\to\Coker(u)\to0$ and then to
+$0\to\Ker(u)\to X\to\Imn(u)\to0$ gives the proposition.
+
+\begin{statement}{Proposition 5.2.2}
+The objects of the abelian category $\AR\text{-}J\text{-}\adn(\cC)$ are noetherian.
+\end{statement}
+
+It is enough to show that, for a $J$-adic noetherian object $X$, any increasing
+sequence of subobjects in the AR category is stationary. Such a sequence may be
+represented by morphisms
+\[
+      v_n:Y^n\longrightarrow X
+\]
+which are monomorphisms in the AR category and factor through one another there.
+The assertion that $v_n$ factors through $v_{n+1}$ means that for some $r$ there is
+a morphism $f:Y^n[r]\to Y^{n+1}$ with
+\[
+      v_n\circ a=v_{n+1}\circ f,
+\]
+where $a:Y^n[r]\to Y^n$ is the canonical strict morphism. Hence the image of
+$v_n$ is contained in that of $v_{n+1}$. Replacing $Y^n$ by the image, one is
+reduced to an increasing sequence of strict subsystems of $X$. Since $\gr(X)$ is
+noetherian, the increasing sequence of the corresponding graded systems is
+stationary, and so is the original sequence.
+
+In summary: $\cE_\cC$ is a thick abelian subcategory of
+$\underline{\Hom}(\bN^\circ,\cC)$; passage to the quotient by AR-zero systems
+induces an equivalence
+\[
+\cE_\cC/(\cE_\cC\cap\underline{\Hom}(\bN^\circ,\cC)_{\AR\text{-zero}})
+\xrightarrow{\sim}
+\AR\text{-}J\text{-}\adn(\cC);
+\]
+and the objects of $\AR\text{-}J\text{-}\adn(\cC)$ are noetherian.
+
+Theorem 5.2.3, stated in this language, says that both
+$J\text{-}\adn(\cC)$ and $\AR\text{-}J\text{-}\adn(\cC)$ are abelian and noetherian
+categories. For $\AR\text{-}J\text{-}\adn(\cC)$ this is precisely what has just been
+proved; the category $J\text{-}\adn(\cC)$ is equivalent to it.
+
+\begin{statement}{Proposition 5.2.4. Stability under extensions}
+Let
+\[
+       0\to X\to Y\to Z\to0
+\]
+be exact in $\underline{\Hom}(\bN^\circ,\cC)$, with $J^{n+1}Y_n=0$ for all $n$.
+Assume that $Z$ is AR-$J$-adic and that $X$ is AR-$J$-adic artinian. Then $Y$ is
+AR-$J$-adic.
+\end{statement}
+
+As in the proof of 3.2.4, one reduces to the case in which $Y$ and $Z$ are strict
+and $Z$ is $J$-adic. Then $X$ is strict. For some $r$ the projective system
+\[
+      (X_{n+r}/J^{n+1}X_{n+r})_{n\in\bN}
+\]
+is $J$-adic artinian. Since $X$ is a quotient of it and is AR-isomorphic to it, one
+is reduced to the following lemma.
+
+\begin{statement}{Lemma 5.2.4.1}
+Let
+\[
+       0\to T\to X\to Y\to Z\to0
+\]
+be exact in $\underline{\Hom}(\bN^\circ,\cC)$, with $J^{n+1}Y_n=0$ for all $n$.
+If $X$ is $J$-adic artinian, $Z$ is $J$-adic, and $T$ is AR-zero, then $Y$ is
+AR-$J$-adic.
+\end{statement}
+
+For fixed $n$, the evident system
+\[
+       (Y_{n+k}/J^{n+1}Y_{n+k})_{k\in\bN}
+\]
+is essentially constant. Indeed, let $S_n^k$ be the kernel of
+\[
+       X_{n+k}/J^{n+1}X_{n+k}\longrightarrow
+       Y_{n+k}/J^{n+1}Y_{n+k}.
+\]
+In the exact commutative diagram
+\[
+\begin{array}{ccccccccc}
+0&\to&S_n^k&\to&X_{n+k}/J^{n+1}X_{n+k}&\to&Y_{n+k}/J^{n+1}Y_{n+k}&\to&Z_{n+k}/J^{n+1}Z_{n+k}\to0\\
+ &&\downarrow&&\downarrow\wr&&\downarrow&&\downarrow\wr\\
+0&\to&T_n&\to&X_n&\to&Y_n&\to&Z_n\to0,
+\end{array}
+\]
+the $S_n^k$ are subobjects of the artinian object $T_n$ and form a decreasing
+sequence. Hence they are eventually constant, which gives the essential constancy.
+
+Define a system $Y'$ by
+\[
+       Y'_n=\varprojlim_r Y_{n+r}/J^{n+1}Y_{n+r}.
+\]
+Then $Y'$ is $J$-adic. Passing to the limit gives an exact commutative diagram
+\[
+\begin{array}{ccccccccc}
+0&\to&S&\to&X&\to&Y'&\to&Z\to0\\
+ &&\downarrow&&\downarrow\id&&\downarrow&&\downarrow\id\\
+0&\to&T&\to&X&\to&Y&\to&Z\to0.
+\end{array}
+\]
+Since $T$ is AR-zero, the snake lemma shows that $Y'\to Y$ is an AR-isomorphism.
+Thus $Y$ is AR-$J$-adic.
+
+\begin{statement}{Corollary 5.2.5}
+Let
+\[
+       0\to X\to Y\to Z\to0
+\]
+be exact in $\underline{\Hom}(\bN^\circ,\cC)$, with $J^{n+1}Y_n=0$ for all $n$.
+Assume that $X$ is AR-$J$-adic artinian, respectively artinian and noetherian, and
+that $Z$ is AR-$J$-adic artinian, respectively noetherian. Then $Y$ is
+AR-$J$-adic artinian, respectively noetherian.
+\end{statement}
+
+\subsection*{5.3. AR-$J$-adic noetherian systems and $\partial$-functors}
+
+Let $\cC$ and $\cD$ be two abelian $A$-categories and let
+$F:\cC\to\cD$ be an additive functor. It extends termwise to an additive functor
+\[
+       F:\underline{\Hom}(\bN^\circ,\cC)	o
+       \underline{\Hom}(\bN^\circ,\cD)
+\]
+which commutes with translations.
+
+\begin{statement}{Proposition 5.3.1}
+Let $\cC$ and $\cD$ be abelian $A$-categories, and let
+$T=(T^i)_{i\in\bN}$ be an exact $A$-linear $\partial$-functor from $\cC$ to $\cD$.
+Assume:
+\begin{enumerate}[label=(\roman*)]
+\item for every noetherian object $M$ of $\cC$ killed by a power of $J$, and every
+$n$, the object $T^n(M)$ is noetherian;
+\item for every finitely generated graded $A$-algebra $B$ killed by $J$, and every
+noetherian graded $(B,\cC)$-module $N$, the graded $(B,\cD)$-modules $T^n(N)$ are
+noetherian.
+\end{enumerate}
+Then, for every AR-$J$-adic noetherian object $X$ of
+$\underline{\Hom}(\bN^\circ,\cC)$, the objects $T^n(X)$ are AR-$J$-adic and
+noetherian.
+\end{statement}
+
+Since the $T^n$ commute with translations, it suffices to treat the case where $X$
+is $J$-adic noetherian. Then $\gr_J(X)$ is a noetherian graded
+$\gr_J(A)$-module. By hypothesis (ii) and a variant of a corollary of Shih's theorem
+(Appendix A.3), for each $n$ one has: $T^n(X)$ satisfies (MLAR), and
+$\gr_J T^n(X)$ is a noetherian graded $(\gr_J(A),\cD)$-module. The Artin--Rees
+lemma 4.2.6 completes the proof.
+
+It follows that the $\partial$-functor
+\[
+        T=(T^i)_{i\in\bN}:
+        \underline{\Hom}(\bN^\circ,\cC)	o
+        \underline{\Hom}(\bN^\circ,\cD)
+\]
+induces an exact $A$-linear $\partial$-functor
+\[
+        \cE_\cC\longrightarrow\cE_\cD,
+\]
+commuting with translations, and hence, after passing to the quotient, an exact
+$A$-linear $\partial$-functor, again denoted $(T^i)$,
+\[
+        \AR\text{-}J\text{-}\adn(\cC)\longrightarrow
+        \AR\text{-}J\text{-}\adn(\cD).
+\]
+
+\subsection*{Appendix. Shih's theorem}
+
+The purpose of this appendix is to prove Shih's theorem in the form used in the proof
+of 5.3.1. Since this form is more general than the one stated in EGA $\mathcal O_{\mathrm{III}}$,
+a direct proof, adapted from that of loc. cit., is required.
+
+Fix an integer $r_0\ge1$. The data, for every $r\ge r_0$, of a bigraded object
+$E_r=(E_r^{pq})_{p,q\in\bZ}$, endowed with a differential $d_r$ of bidegree
+$(r,1-r)$, together with isomorphisms
+\[
+        H(E_r)\xrightarrow{\sim}E_{r+1},
+\]
+will be called a \emph{spectral filter}. The notion of morphism of spectral filters
+is evident.
+
+\subsubsection*{A.1. Spectral sequences attached to $\partial$-functors}
+
+Let $\cC$ be an abelian category and let $X$ be an object of $\cC$ with a decreasing
+filtration $(F^pX)_{p\in\bZ}$. For every exact $\partial$-functor from $\cC$ to an
+abelian category $\cD$, the method of exact couples gives a spectral sequence
+\[
+        \mathbb E(X):E_1^{pq}=T^{p+q}(F^pX/F^{p+1}X)
+        \Rightarrow E^n=T^n(X),
+\]
+whose filtration on $E^n$ is
+\[
+        F^p(E^n)=\Imn(T^n(F^pX)\to T^n(X))
+        =\Ker(T^n(X)\to T^n(X/F^pX)).
+\]
+If the filtration on $X$ is finite, this spectral sequence is weakly convergent
+(EGA $\mathcal O_{\mathrm{III}}$, 11.1.3).
+
+The construction is functorial. If $f:X\to Y$ is a morphism of filtered objects,
+there is a morphism of spectral sequences
+\[
+        \mathbb E(f):\mathbb E(X)\to\mathbb E(Y)
+\]
+which is $T^{p+q}(\gr^p f)$ on $E_1^{pq}$ and $T^n(f)$ on the abutment. If
+$u:X\to X$ is an endomorphism with $u(F^pX)\subset F^{p+h}X$ for an integer $h$
+independent of $p$, then $\mathbb E(u)$ is an endomorphism of bidegree $(h,-h)$ of
+the spectral filter, commuting with the differentials.
+
+\subsubsection*{A.2. The case of projective systems}
+
+Let $X=(X_n)_{n\in\bZ}$ be a projective system of objects of $\cC$, with
+$X_i=0$ for $i<0$. If $T$ is an exact $\partial$-functor from $\cC$ to $\cD$, it
+extends naturally to a $\partial$-functor on
+$\underline{\Hom}(\bZ^\circ,\cC)$. Giving $X$ its natural filtration as a projective
+system yields a spectral sequence
+\[
+       \mathbb E(X)=\mathbb E(X_n)_{n\in\bZ},
+\]
+where $\mathbb E(X_n)$ is the spectral sequence associated with $T$ and the induced
+filtration on $X_n$.
+
+If $X$ is strict, the filtration of the abutment $E^n(X)$ in this spectral sequence
+is the natural filtration of the projective system. Indeed,
+\[
+ F^p(E^n(X))=\Imn(T^n(F^pX)\to T^n(X)),
+\]
+and $(F^pX)_k=X_k$ for $k\ge p$ and $0$ for $k<p$.
+
+Suppose a ring $S$ acts on $X$ compatibly with its natural filtration. Then, for each
+$r\ge1$, the bigraded object $E_r(X)$ is canonically a graded
+$(\gr^\bullet S,\cD)$-module; the same holds for
+\[
+       \cE_r^{(n)}(X)=(\cE_r^{p,q}(X))_{p+q=n}.
+\]
+Moreover $S$ acts on $T^n(X)$, and whenever $T^n(X)$ satisfies the Mittag-Leffler
+condition, the strict graded object $\gr_S^\bullet T^n(X)$ is a graded
+$(\gr^\bullet S,\cD)$-module.
+
+\begin{statement}{Theorem A.3}
+Suppose that, for an integer $n$, the graded $(\gr^\bullet S,\cD)$-modules
+\[
+      \cE_1^{(n)}(X)=T^n(\gr_S^\bullet X),
+      \qquad
+      \cE_1^{(n-1)}(X)=T^{n-1}(\gr_S^\bullet X)
+\]
+are noetherian. Then:
+\begin{enumerate}[label=(\roman*)]
+\item $T^n(X)$ satisfies (MLAR);
+\item $\gr_S^\bullet T^n(X)$ is a noetherian graded
+$(\gr^\bullet S,\cD)$-module.
+\end{enumerate}
+\end{statement}
+
+For every pair $(m,r)$ one has
+\[
+      \cE_r^{(m)}(X)=(\cE_r^{p,m-p}(X))_{p\in\bN},
+\]
+a graded submodule of $\cE_1^{(m)}(X)$. Thus, for fixed $m$, the
+$\cE_r^{(m)}(X)$ form an increasing sequence indexed by $r$. Since
+$\cE_1^{(n)}(X)$ and $\cE_1^{(n-1)}(X)$ are noetherian, the corresponding sequences
+are stationary. Hence for some $r_0$ and all $r\ge r_0$,
+\[
+ \cE_r^{(n)}(X)=\cE_{r_0}^{(n)}(X),
+ \qquad
+ \cE_r^{(n-1)}(X)=\cE_{r_0}^{(n-1)}(X).
+\]
+An equivalent characterization of the Mittag-Leffler condition then shows that the
+spectral sequence $\mathbb E(X)$ is weakly convergent in degrees $n$ and $n-1$. It
+follows that the filtration of $E^n(X)=T^n(X)$ is separated and that
+$\cE_\infty^{(n)}(X)$ is a subobject of the noetherian module
+$\cE_{r_0}^{(n)}(X)$.
+
+To prove that $T^n(X)$ satisfies (ML), it is enough to prove that for each $p$ the
+sequence
+\[
+\Imn(T^n(F^pX)\to T^n(X/F^{p+r}X))_{r\ge1}
+\]
+is stationary. Weak convergence identifies these images, for $r$ large, with the
+kernels of maps to $E_\infty^{(n)}(X)$; since these kernels lie in a noetherian
+object, they are stationary. Assertion (ii) follows because
+$\gr_S^\bullet T^n(X)$ is a subquotient of $\cE_\infty^{(n)}(X)$.
+
+\subsubsection*{A.4. Application to $\partial$-functors}
+
+Let $\cC$ and $\cD$ be abelian $A$-categories, and let
+$T=(T^i)_{i\in\bN}$ be an exact $A$-linear $\partial$-functor from $\cC$ to $\cD$.
+Let $X$ be an object of $\underline{\Hom}(\bN^\circ,\cC)$, and let $S$ be a graded
+$A$-algebra acting on $X$ compatibly with the transition maps. Assume that $X$ is
+AR-$J$-adic noetherian; that $T^n(M)$ is noetherian for each noetherian $M$ killed
+by a power of $J$; and that, for every finitely generated graded $A$-algebra $B$
+killed by $J$ and every noetherian graded $(B,\cC)$-module $N$, the graded
+$(B,\cD)$-modules $T^n(N)$ are noetherian.
+
+\begin{statement}{Theorem A.4.1}
+Under these hypotheses, the objects $T^n(X)$ are AR-$J$-adic and noetherian.
+\end{statement}
+
+By translating one is reduced to the case where $X$ is $J$-adic noetherian. Then
+$\gr_J^\bullet(X)$ is a noetherian graded
+$(\gr_J^\bullet(A),\cC)$-module. Hypothesis (iii) makes
+$\cE_1^{(n)}(X)$ and $\cE_1^{(n-1)}(X)$ noetherian, and Theorem A.3 gives the
+conclusion. This completes Exposé V.
+
+\newpage
+
+\section*{Exposé VI. $\ell$-adic cohomology}
+
+\subsection*{1. Categories of constructible $\ell$-adic sheaves}
+
+\subsubsection*{1.1. Generalities}
+
+Let $X$ be a scheme and let $\ell$ be a prime number. We write
+\[
+       \bZ_\ell\text{-}\fc(X)
+\]
+for the category of constructible $\bZ_\ell$-sheaves on $X$, defined in SGA 5, V.
+It is an abelian category. We write
+\[
+       \bQ_\ell\text{-}\fc(X)
+\]
+for the category of constructible $\bQ_\ell$-sheaves, i.e. the quotient of the
+preceding category by the thick subcategory of torsion sheaves. We have also defined
+the categories
+\[
+       \AR\text{-}\bZ_\ell\text{-}\fc(X),
+       \qquad
+       \AR\text{-}\bQ_\ell\text{-}\fc(X).
+\]
+
+Recall that giving a constructible $\bZ_\ell$-sheaf $\cF$ is equivalent to giving a
+projective system $(\cF_n)_{n\in\bN}$ of constructible
+$\bZ/\ell^{n+1}\bZ$-modules on $X$ such that, for every $n$, the transition morphism
+$\cF_{n+1}\to\cF_n$ factors through an isomorphism
+\[
+       \cF_{n+1}/\ell^{n+1}\cF_{n+1}\xrightarrow{\sim}\cF_n.
+\]
+For two such sheaves $\cF=(\cF_n)$ and $\cG=(\cG_n)$,
+\[
+       \Hom(\cF,\cG)=\varprojlim_n\Hom(\cF_n,\cG_n).
+\]
+For each $n$, the canonical map
+\[
+       \Hom(\cF,\cG)\longrightarrow\Hom(\cF_n,\cG_n)
+\]
+is surjective, and its kernel consists of morphisms which factor through a torsion
+object.
+
+The ring $\bZ_\ell$ acts in the evident way on every component of a constructible
+$\ell$-adic sheaf, and hence on the sheaf itself. Every morphism is compatible with
+these actions. Thus the category of constructible $\ell$-adic sheaves is canonically
+an abelian $\bZ_\ell$-category. We shall call these objects constructible
+$\bZ_\ell$-sheaves. This should not be confused with a module over the sheaf of
+rings $(\bZ_\ell)_X$, a notion not used here. The category will also be denoted
+$\bZ_\ell\text{-}\fc(X)$.
+
+\subsubsection*{1.2. Twisted constant constructible $\bZ_\ell$-sheaves}
+
+A constructible $\bZ_\ell$-sheaf
+\[
+       \cF=(\cF_n)_{n\in\bN}
+\]
+is called \emph{twisted constant} if and only if all the components $\cF_n$ are
+locally constant on $X_{\mathrm{et}}$. The category of twisted constant constructible
+$\bZ_\ell$-sheaves is the full subcategory of $\bZ_\ell\text{-}\fc(X)$ generated by
+these objects.
+
+Assume that $\ell$ is invertible on $X$. For each $n$, raising to the $\ell$th power
+gives an endomorphism of $\mathbb G_m$, and the sheaf
+\[
+       \bZ/\ell^{n+1}\bZ(1)
+\]
+is the sheaf $\mu_{\ell^{n+1}}$ of $\ell^{n+1}$st roots of unity. The projective
+system of these sheaves defines a twisted constant $\bZ_\ell$-sheaf denoted
+$\bZ_\ell(1)$.
+
+Let $\cF=(\cF_n)$ be a twisted constant constructible $\bZ_\ell$-sheaf. For every
+geometric point $\bar x$ of $X$, the geometric fiber $\cF_{\bar x}$ is a finite type
+$\bZ_\ell$-module endowed with a continuous action of the fundamental group
+$\pi_1(X,\bar x)$. The fiber functor
+\[
+       \cF\longmapsto\cF_{\bar x}
+\]
+is an equivalence between twisted constant constructible $\bZ_\ell$-sheaves on $X$
+and finite type $\bZ_\ell$-modules with continuous action of $\pi_1(X,\bar x)$.
+
+For a finite type $\bZ_\ell$-module $M$ we write $M_X$ for the corresponding twisted
+constant sheaf. In particular,
+\[
+       \bZ_\ell(r)=\bZ_\ell(1)^{\otimes r}\qquad(r\in\bZ),
+\]
+where for $r<0$ one sets $\bZ_\ell(r)=\bZ_\ell(-r)^{\vee}$. If $\cF$ is a twisted
+constant $\bZ_\ell$-sheaf, define
+\[
+       H^i(X,\cF)=\varprojlim_n H^i(X,\cF_n).
+\]
+These groups are finite type $\bZ_\ell$-modules when $X$ is proper over a
+separably closed field.
+
+\subsubsection*{1.3. Invertible $\ell$-adic sheaves}
+
+Let $\cL$ be a constructible $\bZ_\ell$-sheaf. We say that $\cL$ is \emph{invertible}
+if, for every $n$, the component $\cL_n$ is an invertible
+$(\bZ/\ell^{n+1}\bZ)_X$-module, i.e. locally free of rank one. Equivalently,
+$\cL$ is locally free in the sense of the preceding paragraph and the geometric
+fibers of the $\cL_n$ are non-zero cyclic abelian groups.
+
+For an invertible $\cL$ put
+\[
+      \cL^{-1}=\cH om(\cL,\bZ_\ell).
+\]
+There is then an isomorphism
+\[
+      \cL\otimes\cL^{-1}\xrightarrow{\sim}\bZ_\ell,
+\]
+obtained componentwise. Following EGA $\mathcal O_I$, 5.4.4, set
+$\cL^{\otimes0}=\bZ_\ell$ and, for $n\ge1$,
+$\cL^{\otimes(-n)}=(\cL^{-1})^{\otimes n}$. With this notation there are canonical
+functorial isomorphisms
+\[
+      \cL^{\otimes m}\otimes\cL^{\otimes n}\xrightarrow{\sim}
+      \cL^{\otimes(m+n)}
+\]
+for all integers $m,n$, satisfying the usual associativity rules. Thus
+$(\cL^{\otimes i})_{i\in\bN}$ and $(\cL^{\otimes i})_{i\in\bZ}$ are graded
+$\bZ_\ell$-algebras. The sheaf $\bZ_\ell(1)$ is invertible, and the convention above
+gives $\bZ_\ell(r)=\bZ_\ell(1)^{\otimes r}$ for all $r\in\bZ$.
+
+\subsubsection*{1.4. Categories built from constructible $\bZ_\ell$-sheaves}
+
+Let $A$ be a finite $\bZ_\ell$-algebra. Define the category
+\[
+       A\text{-}\fc(X)
+\]
+of constructible $A$-sheaves as follows. An object is a pair $(\cF,u)$ consisting of
+a constructible $\bZ_\ell$-sheaf $\cF$ and a homomorphism of $\bZ_\ell$-algebras
+\[
+       u:A\longrightarrow \End(\cF).
+\]
+A morphism $(\cF,u)\to(\cF',u')$ is a morphism $f:\cF\to\cF'$ of constructible
+$\bZ_\ell$-sheaves such that, for every $a\in A$, the square
+\[
+\begin{array}{ccc}
+\cF&\xrightarrow{f}&\cF'\\
+\downarrow\scriptstyle u(a)&&\downarrow\scriptstyle u'(a)\\
+\cF&\xrightarrow{f}&\cF'
+\end{array}
+\]
+commutes. The category $A\text{-}\fc(X)$ is abelian, and the forgetful functor to
+$\bZ_\ell\text{-}\fc(X)$ is exact and faithful. The dual of a constructible
+$A$-sheaf $\cF$ is
+\[
+       \cF^\vee=\cH om(\cF,A_X).
+\]
+If $f:X\to Y$ is a morphism of schemes, inverse image and direct image extend in
+the evident way to the corresponding categories of constructible $A$-sheaves.
+
+Let $p:\bZ_\ell\text{-}\fc(X)\to\bQ_\ell\text{-}\fc(X)$ be the quotient functor. For a
+constructible $\bZ_\ell$-sheaf $\cF$, the functor obtained by composing $p$ with
+$\cG\mapsto\cF\otimes\cG$ makes multiplication by non-zero elements of
+$\bZ_\ell$ invertible, and hence defines a right-exact functor
+\[
+       \bQ_\ell\text{-}\fc(X)\longrightarrow\bQ_\ell\text{-}\fc(X).
+\]
+Varying the first argument as well gives a right-exact bifunctor, called tensor
+product,
+\[
+       \bQ_\ell\text{-}\fc(X)\times\bQ_\ell\text{-}\fc(X)
+       \longrightarrow\bQ_\ell\text{-}\fc(X).
+\]
+If $X$ is connected and $\cF,\cG$ are twisted constant constructible
+$\bQ_\ell$-sheaves corresponding to representations $V,W$ of $\pi_1(X)$, then
+$\cF\otimes\cG$ is again locally constant and corresponds to the diagonal
+representation on $V\otimes W$.
+
+\subsubsection*{1.5. Constructible $\ell$-adic sheaves over the spectrum of a field}
+
+If $k$ is separably closed, then
+$\bZ_\ell\text{-}\fc(\Spec k)$ is identified with the category of finite type
+$\bZ_\ell$-modules, and $\bQ_\ell\text{-}\fc(\Spec k)$ with finite-dimensional
+$\bQ_\ell$-vector spaces.
+
+If $k$ is a field and $\bar k$ is a separable closure, the geometric-fiber functor at
+$\Spec(\bar k)\to\Spec(k)$ gives an equivalence
+\[
+\bZ_\ell\text{-}\fc(\Spec k)\xrightarrow{\sim}
+\{\text{finite type }\bZ_\ell\text{-modules with continuous action of }
+\Gal(\bar k/k)\}.
+\]
+After inverting torsion, this identifies $\bQ_\ell\text{-}\fc(\Spec k)$ with the
+category of finite-dimensional continuous $\ell$-adic representations of
+$\Gal(\bar k/k)$.
+
+If $k$ is finite with $q$ elements, let
+\[
+        F_k\in\Gal(\bar k/k)
+\]
+denote the geometric Frobenius. A continuous $\ell$-adic representation of
+$\Gal(\bar k/k)$ is determined by the action of $F_k$. If $V$ is a finite-dimensional
+$\bQ_\ell$-vector space with continuous action of $\Gal(\bar k/k)$, the eigenvalues
+of $F_k$ on $V$ are algebraic numbers whose inverses are integral over $\bZ$.
+
+Let
+\[
+       \bZ_\ell\text{-}\mathrm{modn}(\pi_1)
+\]
+be the category of finite type $\bZ_\ell$-modules endowed with a continuous action of
+$\pi_1$.
+
+\begin{statement}{Lemma 1.2.4.2}
+The preceding projective-limit functor
+\[
+\varprojlim_{\bN}:(\ell\text{-}\bZ)\text{-}\mathrm{ad}(\mathrm{Abf}(\pi_1))
+\longrightarrow
+\bZ_\ell\text{-}\mathrm{modn}(\pi_1)
+\]
+is an equivalence of categories.
+\end{statement}
+
+It is clearly essentially surjective: a finite type $\bZ_\ell$-module $E$ with a
+continuous action of $\pi_1$ is obtained from the projective system
+\[
+       (E/\ell^{n+1}E)_{n\in\bN}
+\]
+with the evident actions of $\pi_1$.
+
+
+\subsection*{2. Formalism of $\ell$-adic cohomology}
+
+\subsubsection*{2.1. Inverse image}
+
+Let $f:X\to Y$ be a morphism of locally noetherian preschemes. The inverse-image
+functor
+\[
+      f^*:\mathrm{Ab}(Y)\longrightarrow \mathrm{Ab}(X)
+\]
+is exact and therefore extends in the evident way to an exact functor, denoted by the
+same symbol,
+\[
+      f^*:\underline{\Hom}(\bN^\circ,\mathrm{Ab}(Y))
+      \longrightarrow\underline{\Hom}(\bN^\circ,\mathrm{Ab}(X)).
+\]
+It plainly carries constructible $\bZ_\ell$-sheaves to constructible
+$\bZ_\ell$-sheaves and locally AR-zero systems to locally AR-zero systems. With the
+notation of 1.5.4 it therefore induces inverse-image functors
+\[
+\begin{array}{rcl}
+ f^*:\bZ_\ell\text{-}\fc(Y)&\longrightarrow&\bZ_\ell\text{-}\fc(X),\\[3pt]
+ f^*:\bQ_\ell\text{-}\fc(Y)&\longrightarrow&\bQ_\ell\text{-}\fc(X).
+\end{array}
+\]
+These functors are exact, commute with tensor products, and preserve twisted
+constant sheaves. If $A$ is a finite $\bZ_\ell$-algebra, the same construction gives
+inverse-image functors for constructible $A$-sheaves.
+
+\subsubsection*{2.2. Direct image}
+
+Let again $f:X\to Y$ be a morphism of locally noetherian preschemes. The direct-image
+functor on étale sheaves is left exact and so has right derived functors. Applying it
+term by term to a projective system gives a left exact functor
+\[
+      f_*:\underline{\Hom}(\bN^\circ,\mathrm{Ab}(X))
+      \longrightarrow\underline{\Hom}(\bN^\circ,\mathrm{Ab}(Y)).
+\]
+The corresponding derived functors are denoted $R^if_*$. When $f$ is proper and of
+finite type, the finiteness theorem for étale cohomology shows that $R^if_*$ carries
+constructible $\bZ_\ell$-sheaves to constructible $\bZ_\ell$-sheaves. Thus one obtains
+functors
+\[
+      R^if_*:\bZ_\ell\text{-}\fc(X)\longrightarrow \bZ_\ell\text{-}\fc(Y)
+\]
+and, after passage to the quotient by torsion,
+\[
+      R^if_*:\bQ_\ell\text{-}\fc(X)\longrightarrow \bQ_\ell\text{-}\fc(Y).
+\]
+They are compatible with formation of fibers in the usual sense: at a geometric point
+$\bar y$ of $Y$, the fiber of $R^if_*\cF$ is the $i$th cohomology of the geometric
+fiber $X_{\bar y}$ with coefficients in the pullback of $\cF$.
+
+\subsubsection*{2.3. Tensor products and internal Hom}
+
+The tensor product of projective systems is defined level by level. If
+$\cF=(\cF_n)$ and $\cG=(\cG_n)$ are constructible $\bZ_\ell$-sheaves, set
+\[
+      (\cF\otimes\cG)_n=\cF_n\otimes_{\bZ/\ell^{n+1}\bZ}\cG_n.
+\]
+This again defines a constructible $\bZ_\ell$-sheaf. The functor is right exact in
+each variable; its left derived functors are denoted $\Tor_i^{\bZ_\ell}(\cF,\cG)$.
+For constructible $\bQ_\ell$-sheaves the tensor product is exact.
+
+The internal Hom is defined similarly by
+\[
+      \cH om(\cF,\cG)_n=
+      \cH om_{\bZ/\ell^{n+1}\bZ}(\cF_n,\cG_n),
+\]
+with the transition morphisms induced in the evident way. Its right derived functors
+are written $\mathcal Ext^i(\cF,\cG)$. The familiar adjunctions between tensor
+product and internal Hom remain valid in the $\ell$-adic setting.
+
+\subsubsection*{2.4. Cohomology}
+
+For a locally noetherian scheme $X$ and a constructible $\bZ_\ell$-sheaf
+$\cF=(\cF_n)$, define
+\[
+      H^i(X,\cF)=\varprojlim_n H^i(X,\cF_n).
+\]
+When $X$ is proper over a separably closed field, these groups are finite
+$\bZ_\ell$-modules. Passing to $\bQ_\ell$ gives
+\[
+      H^i(X,\cF\otimes\bQ_\ell)
+      =H^i(X,\cF)\otimes_{\bZ_\ell}\bQ_\ell.
+\]
+If $X$ is not proper, one uses cohomology with proper supports, defined by
+compactification. For separated morphisms of finite type, the construction is
+independent of the chosen compactification.
+
+\subsubsection*{2.5. Finite cohomological dimension}
+
+Let $X$ be of finite type over a separably closed field and let $\ell$ be invertible
+on $X$. Then $X$ has finite $\ell$-cohomological dimension. More precisely, if
+$\dim X=d$, then for every torsion constructible sheaf $F$ killed by a power of
+$\ell$, one has
+\[
+       H^i(X,F)=0\qquad (i>2d),
+\]
+and similarly for cohomology with proper supports. This is the usual cohomological
+dimension theorem of SGA 4, XIV.
+
+\subsubsection*{2.6. Cohomology with proper supports}
+
+Let $f:X\to S$ be a separated morphism of finite type between locally noetherian
+schemes, and let $\cF$ be a constructible $\bZ_\ell$-sheaf on $X$. The cohomology
+with proper supports
+\[
+      H_c^i(X/S,\cF)
+\]
+is the constructible $\bZ_\ell$-sheaf on $S$ obtained by compactifying $f$ and
+applying the corresponding direct image with extension by zero. If
+$j:U\to X$ is an open immersion and $i:Z\to X$ is the complementary closed
+immersion, then for every constructible $\bZ_\ell$-sheaf $\cF$ on $U$ there is the
+usual long exact localization sequence
+\[
+\cdots\to R^if_!(j_!\cF)\to R^if_!(Rj_*\cF)\to
+R^if_!(i_*i^*Rj_*\cF)\to\cdots .
+\]
+
+\subsection*{3. $\ell$-adic $L$- and $Z$-functions}
+
+\subsubsection*{3.1. Definitions}
+
+Let $\bF_q$ be a finite field with $q$ elements and let $X$ be a scheme of finite
+type over $\bF_q$. Let $|X|$ be the set of closed points of $X$. For
+$x\in|X|$, write $d(x)$ for the degree of the residue field $k(x)$ over $\bF_q$, and
+put $N(x)=q^{d(x)}$.
+
+Let $\cF$ be a constructible $\bQ_\ell$-sheaf on $X$. For each closed point $x$, the
+geometric fiber $\cF_{\bar x}$ is a finite-dimensional $\bQ_\ell$-vector space with
+a continuous action of $\Gal(\overline{k(x)}/k(x))$. Let $F_x$ be geometric
+Frobenius. If the eigenvalues of $F_x$ on $\cF_{\bar x}$ are
+$\alpha_1,\ldots,\alpha_n$, then
+\[
+  \det(1-F_xt^{d(x)}\mid \cF_{\bar x})=\prod_{i=1}^n(1-\alpha_i t^{d(x)}).
+\]
+The associated $Z$-function is
+\[
+      Z(X,\cF;t)=\prod_{x\in|X|}
+      {1\over\det(1-F_xt^{d(x)}\mid\cF_{\bar x})}\in\bQ_\ell[[t]].
+\]
+For $\cF=\bQ_\ell$ one writes simply $Z(X;t)$.
+
+\subsubsection*{3.2. Lefschetz trace formula}
+
+\begin{statement}{Theorem 3.2.1. Lefschetz trace formula}
+Let $X$ be proper and smooth over $\bF_q$ and let $\cF$ be a constructible
+$\bQ_\ell$-sheaf. Then
+\[
+Z(X,\cF;t)=\prod_{i=0}^{2\dim X}
+\det(1-F^*t\mid H^i(X\otimes\overline{\bF}_q,\cF))^{(-1)^{i+1}}.
+\]
+\end{statement}
+
+The proof uses the Lefschetz formula for correspondences on proper smooth varieties,
+as developed in SGA 5, III, together with the Artin--Verdier theory of the
+$L$-functor. The essential point is that the global trace of Frobenius on
+cohomology is equal to the sum of its local terms at the fixed points, which are the
+rational points over finite extensions of $\bF_q$.
+
+\subsubsection*{3.3. The Weil conjectures}
+
+Let $X$ be proper and smooth over a finite field $\bF_q$, and let $\ell$ be different
+from the characteristic of $\bF_q$. The Weil conjectures assert:
+\begin{enumerate}[label=(\roman*)]
+\item the characteristic polynomials
+\[
+   \det(1-F^*t\mid H^i(X\otimes\overline{\bF}_q,\bQ_\ell))
+\]
+have integral coefficients and are independent of $\ell$;
+\item the eigenvalues of $F^*$ on $H^i(X\otimes\overline{\bF}_q,\bQ_\ell)$ are
+algebraic integers all of whose complex absolute values are $q^{i/2}$;
+\item Poincaré duality gives perfect pairings
+\[
+H^i(X\otimes\overline{\bF}_q,\bQ_\ell)\times
+H^{2d-i}(X\otimes\overline{\bF}_q,\bQ_\ell(d))\longrightarrow \bQ_\ell.
+\]
+\end{enumerate}
+These conjectures are proved by Deligne. The proof uses the trace formula and the
+theory of weights.
+
+\subsection*{4. Cohomology of $\ell$-adic completions}
+
+Let $X$ be proper over $\Spec(\bZ[1/\ell])$. For each $n\ge1$, put
+\[
+      X_n=X\otimes_{\bZ[1/\ell]}\bZ[1/\ell,\zeta_{\ell^n}],
+\]
+where $\zeta_{\ell^n}$ is a primitive $\ell^n$th root of unity. The cohomology groups
+\[
+      H^i(X_n,\bZ/\ell^n\bZ)
+\]
+form a projective system, and its limit
+\[
+      H^i_{\ell\text{-}\mathrm{comp}}(X)=
+      \varprojlim_n H^i(X_n,\bZ/\ell^n\bZ)
+\]
+is called the $i$th completed $\ell$-adic cohomology group of $X$. These are finite
+type $\bZ_\ell$-modules and coincide, in the proper smooth case, with the usual
+$\ell$-adic cohomology groups. With coefficients in a constructible
+$\bZ_\ell$-sheaf $\cF$, define similarly
+\[
+      H^i_{\ell\text{-}\mathrm{comp}}(X,\cF)=
+      \varprojlim_n H^i(X_n,\cF/\ell^n\cF).
+\]
+
+There is also an Iwasawa spectral sequence. If
+$G=\Gal(\bQ(\zeta_{\ell^\infty})/\bQ)\cong\bZ_\ell^\times$, then $G$ acts on
+$H^i_{\ell\text{-}\mathrm{comp}}(X)$ by transport of structure. These groups may
+therefore be regarded as modules over the Iwasawa algebra
+\[
+      \Lambda=\bZ_\ell[[G]]=
+      \varprojlim_n\bZ_\ell[G/\ell^n\bZ_\ell^\times].
+\]
+The resulting $\Lambda$-modules $H^i_{\ell\text{-}\mathrm{comp}}(X)$ are of finite
+type. The proof uses the Hochschild--Serre spectral sequence for the covers
+$X_n\to X$ and the finiteness theorem for cohomology of proper schemes.
+
+\subsection*{5. Applications}
+
+\begin{statement}{Theorem 5.1.1. Rationality of $Z$-functions}
+Let $X$ be of finite type over $\bF_q$ and let $\cF$ be a constructible
+$\bQ_\ell$-sheaf on $X$. Then $Z(X,\cF;t)$ is a rational function of $t$.
+\end{statement}
+
+When $X$ is proper and smooth this follows from the Lefschetz trace formula 3.2.1.
+The general case is deduced by dévissage, stratification, and the long exact
+cohomology sequence.
+
+\begin{statement}{Theorem 5.2.1. Unit theorem}
+Let $K$ be a number field, let $\cO_K$ be its ring of integers, and let $\ell$ be a
+prime. Then $\cO_K^\times$ is finitely generated, and its rank is
+\[
+       \operatorname{rank}(\cO_K^\times)=r_1+r_2-1,
+\]
+where $r_1$ is the number of real places and $r_2$ the number of complex places of
+$K$.
+\end{statement}
+
+This classical theorem can be interpreted in terms of $\ell$-adic cohomology. The
+Iwasawa spectral sequence for $\Spec(\cO_K[1/\ell])$ gives a description of the unit
+group in terms of Iwasawa modules.
+
+\begin{statement}{Theorem 5.3.1. Galois structure of cohomology}
+Let $k$ be a number field and let $X$ be a smooth projective variety over $k$. Let
+$\bar k$ be an algebraic closure of $k$. Then the representation of
+$\Gal(\bar k/k)$ on
+\[
+      H^i_{\mathrm{et}}(X\otimes_k\bar k,\bQ_\ell)
+\]
+is semisimple, and its composition factors are independent of $\ell$ for $\ell$
+different from the residual characteristics.
+\end{statement}
+
+The semisimplicity follows from Deligne's theory of weights. The independence of
+$\ell$ is a consequence of the Weil conjectures and the theory of algebraic cycles.
+This completes Exposé VI.
+
+\bigskip
+
+\end{document}
