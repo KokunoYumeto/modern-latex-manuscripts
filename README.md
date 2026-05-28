@@ -15,8 +15,8 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 ## Current Public Records
 
 - Main landing page: https://zenodo.org/records/20415117
-- EGA working translation: https://zenodo.org/records/20422770
-- SGA working translation: https://zenodo.org/records/20423267
+- EGA working translation: https://zenodo.org/records/20424211
+- SGA working translation: https://zenodo.org/records/20424337
 - Heinrich Weber author record: https://zenodo.org/records/20422935
 - Emmy Noether author record: https://zenodo.org/records/20422936
 - Non-European mathematics consolidated corpus: https://zenodo.org/records/20423975
@@ -42,7 +42,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 ## Status
 
-This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 850 pages and includes EGA 0_IV sections 15 through 23, EGA IV sections 1 through 17, EGA IV section 18 through 18.12.17, and substantial current material for EGA IV section 20; EGA IV sections 19 and 21 are still stubs. The SGA mirror includes cleaned reader snapshots for SGA 1-3, SGA 4 through Expose XVIII section 2, and the current SGA 5 opening material. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 850 pages and includes EGA 0_IV sections 15 through 23, EGA IV sections 1 through 18 as substantive working translations, short substantive material for EGA IV section 20, and stubs for EGA IV sections 19 and 21. The SGA mirror includes cleaned reader snapshots for SGA 1-3, a complete current SGA 4 working reader through Exposes I-XIX, and SGA 5 through Expose I section 2. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
 
 ## Contributing
 
