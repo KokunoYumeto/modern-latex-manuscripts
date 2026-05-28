@@ -10,7 +10,7 @@ Public-Domain Mathematics Manuscripts project.
   EGA II, EGA III parts 1-2, and EGA IV parts 1-4.
 - A ZIP containing the EGA 0_IV sections 15 through 23 translation TeX supplement.
 - A ZIP containing the current EGA IV main-text translation TeX supplement:
-  sections 1 through 17 and section 18 through 18.11 as substantive working
+  sections 1 through 17 and section 18 through 18.12.17 as substantive working
   translations, substantial current material for section 20, and stubs for
   sections 19 and 21.
 - A full artifact ZIP containing the current TeX tree, the compiled English
@@ -25,9 +25,9 @@ Public-Domain Mathematics Manuscripts project.
 - EGA 0_IV local continuation: `[##########]` sections 15 through 23 are present
   as substantive working translations.
 - EGA IV local continuation: `[########--]` sections 1 through 17 are present
-  as substantive working translations, section 18 is present through 18.11 with
-  18.12 started, section 20 contains substantial current material, and sections
-  19 and 21 are stubs.
+  as substantive working translations, section 18 is present through 18.12.17,
+  section 20 contains substantial current material, and sections 19 and 21 are
+  stubs.
 - Whole EGA completion against the long-term goal: `[##--------]` the project is
   still far from a complete translated/proofread edition, especially for EGA
   III, EGA IV, and later preliminaries.
