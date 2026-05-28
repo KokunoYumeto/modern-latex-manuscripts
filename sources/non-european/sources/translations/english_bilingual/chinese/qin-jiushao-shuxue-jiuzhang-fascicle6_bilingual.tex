@@ -1,957 +1,967 @@
-%% =============================================================================
-%% 數學九章 (Shuxue Jiuzhang) — Fascicle 6: 錢穀 (Money and Grain)
-%% BILINGUAL English-Chinese Edition
-%% Author: Qin Jiushao (秦九韶), Song Dynasty
-%% Source: Siku Quanshu (四庫全書) Edition
-%% Modern LaTeX edition%% =============================================================================
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{tocloft}
-\usepackage{xeCJK}
-\usepackage{paracol}
-\usepackage{microtype}
-\usepackage{etoolbox}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=18mm,right=18mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-\setotherlanguage{chinese}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-
-%% Chinese Fonts (user-specified path)
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{problemcolor}{RGB}{80,40,20}
-\definecolor{answercolor}{RGB}{20,80,40}
-\definecolor{methodcolor}{RGB}{20,40,80}
-\definecolor{editorialcolor}{RGB}{100,60,80}
-\definecolor{chinesebg}{RGB}{255,252,245}
-\definecolor{englishbg}{RGB}{250,252,255}
-\definecolor{columnsep}{RGB}{200,190,180}
-
-%% -------- Column Settings --------
-\columnsep=8mm
-\setlength{\columnseprule}{0.4pt}
-\def\columnseprulecolor{\color{columnsep}}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textsc{Shuxue Jiuzhang — Fascicle 6 (Qiangu) \hspace{0.5em}|\hspace{0.5em} 數學九章 卷六 錢穀}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-
-%% Bilingual problem structure commands
-%% Chinese originals
-\newcommand{\CnQuestion}[1]{\par\noindent\textbf{\color{problemcolor}問：}#1\par\vspace{0.5ex}}
-\newcommand{\CnAnswer}[1]{\par\noindent\textbf{\color{answercolor}答曰：}#1\par\vspace{0.5ex}}
-\newcommand{\CnMethod}[1]{\par\noindent\textbf{\color{methodcolor}術曰：}#1\par\vspace{0.5ex}}
-\newcommand{\CnWorking}[1]{\par\noindent\textbf{草曰：}#1\par\vspace{0.5ex}}
-\newcommand{\CnEditorial}[1]{\par\noindent\textcolor{editorialcolor}{\textit{［按］#1}}\par\vspace{0.5ex}}
-
-%% English translations
-\newcommand{\EnQuestion}{\par\noindent\textbf{\color{problemcolor}Problem:}\par\vspace{0.5ex}}
-\newcommand{\EnAnswer}{\par\noindent\textbf{\color{answercolor}Answer:}\par\vspace{0.5ex}}
-\newcommand{\EnMethod}{\par\noindent\textbf{\color{methodcolor}Method:}\par\vspace{0.5ex}}
-\newcommand{\EnWorking}{\par\noindent\textbf{Working:}\par\vspace{0.5ex}}
-\newcommand{\EnEditorial}{\par\noindent\textcolor{editorialcolor}{\textit{[Ed. Note] }}\ignorespaces}
-
-%% Switch commands for paracol
-\newcommand{\switchCn}{\switchcolumn[0]*}
-\newcommand{\switchEn}{\switchcolumn[1]*}
-
-%% Problem environment
-\newcounter{problemnum}
-\newenvironment{bilingualproblem}[1]{%
-  \refstepcounter{problemnum}%
-  \par\vspace{1.5ex}%
-  \noindent\rule{\linewidth}{0.6pt}%
-  \par\vspace{0.5ex}%
-  \begin{center}
-    {\large\bfseries\color{sectioncolor} #1}
-  \end{center}
-  \vspace{0.5ex}%
-  \begin{paracol}{2}%
-}{%
-  \end{paracol}%
-  \vspace{1ex}%
-}
-
-%% Editorial note in paracol
-\newcommand{\bilingualeditorial}[2]{%
-  \begin{paracol}{2}%
-    \CnEditorial{#1}%
-    \switchEn%
-    \EnEditorial #2%
-  \end{paracol}%
-}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Shuxue Jiuzhang — Fascicle 6: Qiangu / Money and Grain (Bilingual Edition)},
-  pdfauthor={Qin Jiushao (c. 1202--1261)},
-  pdfsubject={Chinese Mathematics — Bilingual Edition}
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-
-%% Reduce paragraph spacing for dense text
-\setlength{\parskip}{0.5ex plus 0.2ex minus 0.1ex}
-\setlength{\parindent}{0pt}
-
-%% =============================================================================
-\begin{document}
-
-%% -------- Title Page --------
-\begin{titlepage}
-\centering
-\vspace*{2cm}
-
-{\fontsize{32}{40}\selectfont\color{titlecolor}\textbf{數學九章}}
-
-\vspace{0.8cm}
-
-{\fontsize{16}{20}\selectfont\color{sectioncolor} Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)}
-
-\vspace{1.5cm}
-
-{\Large\color{sectioncolor} 卷六：\textbf{錢穀} \enskip|\enskip Fascicle VI: \textbf{Money and Grain}}
-
-\vspace{0.5cm}
-
-{\large\color{notecolor}\textit{Bilingual English--Chinese Edition}}
-
-\vspace{2.5cm}
-
-{\large 宋\quad 秦九韶\quad 撰}
-
-\vspace{0.3cm}
-
-{\normalsize\textit{Qin Jiushao (c.\ 1202--1261)}}
-
-\vspace{0.3cm}
-
-{\small\color{sectioncolor} Translated and edited from the \textit{Siku Quanshu} (四庫全書) Edition}
-
-\vspace{2.5cm}
-
-{\color{rulecolor}\rule{0.55\textwidth}{0.4pt}}
-
-\vspace{1.5cm}
-
-{\small\color{sectioncolor}
-\textit{Digital Scholarly Edition}\\[0.5em]
-Parallel text with original Chinese and English translation\\[0.5em]
-Preserving the traditional structure of 問 / 答 / 術 / 草}
-
-\vspace{2cm}
-
-{\small\color{notecolor}
-\textit{This fascicle covers financial mathematics: interest calculations,}\\
-\textit{currency exchange, grain pricing, commercial transactions,}\\
-\textit{and tribute conversion.}
-}
-
-\vfill
-{\small\color{sectioncolor} Modern LaTeX edition}
-\end{titlepage}
-
-%% -------- Table of Contents --------
-\tableofcontents
-\newpage
-
-%% =============================================================================
-\section*{\color{titlecolor}Introduction}
-\addcontentsline{toc}{section}{Introduction}
-
-\begin{paracol}{2}
-
-\textbf{\color{sectioncolor}卷六 錢穀} 專論財貨之數，即古所謂粟米、差分、均輸諸法也。秦九韶以為治國之要，莫先於理財；而理財之術，必資於算數。故本卷所設諸問，皆關乎國計民生之實務：有和糴之課，以較各地米價之貴賤；有折解之算，以通輕齎之變換；有本息之推，以明貸借之盈虛；有交易之術，以定物貨之等值。凡此數端，皆宋代財政之要務，亦古代商業數學之精髓也。
-
-\switchEn
-
-\textbf{\color{sectioncolor}Fascicle 6: Money and Grain (Qiangu)} treats of financial computation---the classical methods of grain conversion (\textit{su mi}), proportional distribution (\textit{cha fen}), and equitable transport (\textit{jun shu}). Qin Jiushao held that the governance of a state depends above all upon the management of wealth, and that the management of wealth depends upon mathematics. The problems in this fascicle all concern matters of national economy and people's livelihood: comparing grain purchase prices across regions; converting tribute goods to lightweight currency; calculating principal and interest on loans; and determining equivalent values in barter transactions. These were all essential tasks of Song Dynasty fiscal administration, and represent the finest achievements of classical Chinese commercial mathematics.
-
-\switchCn
-
-錢穀之術，大要有四：一曰\textbf{課糴}，以官斛量各州米價，較其貴賤，以為和糴之準；二曰\textbf{折解}，以銀絹之實，折合官會，分限輸納，以省運費；三曰\textbf{推原}，以累減之率，反求原額；四曰\textbf{換易}，以物貨相易之率，鴈翅互乘，以求所當得之數。術雖各異，其歸則同，皆衰分之變法也。
-
-\switchEn
-
-The methods of Money and Grain fall into four main categories: \textbf{First}, \textit{comparing purchase prices} (\textit{ke di}), using the standard measure to compare grain prices across prefectures as a basis for government procurement. \textbf{Second}, \textit{converting tribute payments} (\textit{zhe jie}), converting silver and silk to paper currency payable in installments, thereby reducing transport costs. \textbf{Third}, \textit{restoring original amounts} (\textit{tui yuan}), working backwards from accumulated discount rates to recover an original value. \textbf{Fourth}, \textit{barter exchange} (\textit{huan yi}), using chain-exchange rates in ``goose-wing'' (\textit{yan chi}) formation to determine equivalent quantities. Though the techniques differ, they are all variations of proportional distribution (\textit{shuai fen}).
-
-\switchCn
-
-秦九韶字道古，生於宋寧宗嘉泰二年（約1202年），卒於理宗景定二年（1261年）。所著《數學九章》十八卷，分為九類，各卷分上下。卷六錢穀凡九問，上卷二問，下卷七問。其術或言衰分，或言粟米互換，皆古法也。而題設之繁，計算之密，則又過於前賢。茲編以四庫全書本為底本，參以文淵閣本，並為英文譯注，以便中外學者之研究焉。
-
-\switchEn
-
-Qin Jiushao, styled Daogu, was born in the second year of the Jiatai reign of Emperor Ningzong of Song (c.\ 1202) and died in the second year of the Jingding reign of Emperor Lizong (1261). His \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections) in eighteen books is divided into nine categories, each fascicle having an upper and lower part. Fascicle 6, Money and Grain, contains nine problems: two in the upper part and seven in the lower part. The methods described employ either proportional distribution (\textit{shuai fen}) or grain-exchange conversion (\textit{su mi hu huan}), both being classical techniques. But the complexity of the problem scenarios and the precision of the calculations surpass those of earlier authors. This edition takes the \textit{Siku Quanshu} text as its base, with reference to the Wenyuan Pavilion edition, and provides English translation and notes to facilitate scholarly research.
-
-\end{paracol}
-
-\newpage
-
-%% =============================================================================
-%% FASCICLE 6A — 錢穀 (Part 1)
-%% =============================================================================
-\section*{\color{titlecolor}卷六上 \quad 錢穀}
-\addcontentsline{toc}{section}{卷六上 \quad 錢穀 \quad (Part 1)}
-
-\begin{paracol}{2}
-\begin{center}
-\textbf{\large\color{sectioncolor} Original Chinese}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
-\end{center}
-\switchEn
-\begin{center}
-\textbf{\large\color{sectioncolor} English Translation}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
-\end{center}
-\end{paracol}
-
-\vspace{1em}
-
-%% ==================== PROBLEM 1: 課糴 ====================
-\subsection*{課糴 \quad Comparing Grain Purchase Prices}
-\addcontentsline{toc}{subsection}{課糴 — Comparing Grain Purchase Prices}
-
-\begin{paracol}{2}
-
-\CnQuestion{%
-差人五路和糴。據浙西平江府石價三十五貫文，一百三十五合，至鎮江水脚錢每石九百文；安吉州石價二十九貫五百文，一百一十合，至鎮江水脚錢每石一貫二百文；江西隆興府石價二十八貫一百文，一百一十五合，至建康水脚錢每石一貫七百文；吉州石價二十五貫八百五十文，一百二十合，至建康水脚錢每石二貫九百文；湖南潭州石價二十七貫三百文，一百一十八合，至鄂州水脚錢每石一貫七百文。其錢並十七界官㑹，其米並用文思院斛交量紐數。欲皆以官解計石錢相比貴賤幾何？
-}
-
-\switchEn
-
-\EnQuestion
-Officials are dispatched to five circuits for government grain procurement (\textit{he di}). According to the reports:
-
-\begin{itemize}[leftmargin=1em,itemsep=0.2ex]
-\item \textbf{Pingjiang Prefecture} (Zhexi Circuit): price 35 \textit{guan} per \textit{shi}, measure 135 \textit{ge} per \textit{shi}; transport to Zhenjiang costs 900 \textit{wen} per \textit{shi}.
-\item \textbf{Anji Prefecture}: price 29 \textit{guan} 500 \textit{wen}, measure 110 \textit{ge}; transport to Zhenjiang costs 1 \textit{guan} 200 \textit{wen}.
-\item \textbf{Longxing Prefecture} (Jiangxi Circuit): price 28 \textit{guan} 100 \textit{wen}, measure 115 \textit{ge}; transport to Jiankang costs 1 \textit{guan} 700 \textit{wen}.
-\item \textbf{Jizhou}: price 25 \textit{guan} 850 \textit{wen}, measure 120 \textit{ge}; transport to Jiankang costs 2 \textit{guan} 900 \textit{wen}.
-\item \textbf{Tanzhou} (Hunan Circuit): price 27 \textit{guan} 300 \textit{wen}, measure 118 \textit{ge}; transport to Ezhou costs 1 \textit{guan} 700 \textit{wen}.
-\end{itemize}
-
-All currency is in 17th-series government notes (\textit{guan hui}), and all grain is measured in Wensiyuan \textit{hu} (standard measures). We wish to compare the prices per standard-\textit{shi} at each location, ranked from most to least expensive.
-
-\switchCn
-
-\CnEditorial{按草中係二貫一百文，此訛。文思院解每斗八十三合。}
-
-\switchEn
-
-\EnEditorial The working text gives 2 \textit{guan} 100 \textit{wen} for Tanzhou's transport fee; this is an error. The Wensiyuan standard \textit{hu} measures 83 \textit{ge} per \textit{dou} (i.e., 830 \textit{ge} per \textit{shi}).
-
-\switchCn
-
-\CnAnswer{%
-文思院斛石錢：安吉州二十三貫一百六十四文一十一分文之六；平江府二十二貫七十一文二十七分文之二十三；隆興府二十一貫五百七文二十三分文之一十九；潭州二十貫六百七十九文五十九分文之四十九；吉州一十九貫八百八十五文十二分文之五。
-}
-
-\switchEn
-
-\EnAnswer
-Price per standard-\textit{shi} in Wensiyuan \textit{hu}:
-\begin{itemize}[leftmargin=1em,itemsep=0.2ex]
-\item Anji: 23 \textit{guan} 164 \textit{wen} and $\frac{6}{11}$ \textit{wen}
-\item Pingjiang: 22 \textit{guan} 71 \textit{wen} and $\frac{23}{27}$ \textit{wen}
-\item Longxing: 21 \textit{guan} 507 \textit{wen} and $\frac{19}{23}$ \textit{wen}
-\item Tanzhou: 20 \textit{guan} 679 \textit{wen} and $\frac{49}{59}$ \textit{wen}
-\item Jizhou: 19 \textit{guan} 885 \textit{wen} and $\frac{5}{12}$ \textit{wen}
-\end{itemize}
-
-\switchCn
-
-\CnEditorial{按三十九訛四十九。}
-
-\switchEn
-
-\EnEditorial Note: ``39'' is an error for ``49'' in the answer.
-
-\switchCn
-
-\CnMethod{%
-以粟米互換求之。置石價併水脚，乗石數，又乗官斗合數為實。各如本州合數而一，各得官解石錢。以課貴賤。
-}
-
-\switchEn
-
-\EnMethod
-Use grain-exchange mutual conversion (\textit{su mi hu huan}). Place the price per \textit{shi} together with the water transport cost; multiply by the number of \textit{shi}, and multiply again by the standard-\textit{dou} measure in \textit{ge} to obtain the dividend. Divide each by the respective local measure in \textit{ge} to obtain the price per standard-\textit{shi}. Rank these to determine relative expense.
-
-\switchCn
-
-\CnWorking{%
-置安吉州石價二十九貫五百文，平江石價三十五貫文，隆興石價二十八貫一百文，吉州石價二十五貫八百五十文，潭州石價二十七貫三百文，列右行。次置水脚：安吉一貫二百文，平江九百文，隆興一貫七百文，吉州二貫九百文，潭州二貫一百文，列左行，各對本州石價。以兩行數併之，得數：安吉三十貫七百文，平江三十五貫九百，隆興二十九貫八百，潭州二十九貫四百，吉州二十八貫七百五十，仍於右行。次以文思院官斗八十三合遍乗之：安吉州得二千五百四十八貫一百文，平江府得二千九百七十九貫七百文，江西隆興得二千四百七十三貫四百文，湖南潭州得二千四百四十貫二百文，江南吉州得二千三百八十六貫二百五十文，各為實於右。得次列安吉斗一百一十合，平江斗一百三十五合，隆興斗一百一十五合，潭州斗一百一十八合，吉州斗一百二十合於左行為法。以对除右行之實：安吉得二十三貫一百六十四文一十一分之六，平江得二十三貫七十一文二十七分文之二十三，隆興得二十一貫五百七文二十三分文之一十九，潭州得二十貫六百七十九文五十九文分之四十九，吉州得一十九貫八百八十五文一十二分文之五。相課石價，其安吉州最貴，平江次之，隆興又次之，潭州又次之，吉州最賤。
-}
-
-\switchEn
-
-\EnWorking
-Place the prices per \textit{shi}: Anji at 29 \textit{guan} 500 \textit{wen}, Pingjiang at 35 \textit{guan}, Longxing at 28 \textit{guan} 100 \textit{wen}, Jizhou at 25 \textit{guan} 850 \textit{wen}, and Tanzhou at 27 \textit{guan} 300 \textit{wen} in the right column. Next place the water transport costs: Anji 1 \textit{guan} 200 \textit{wen}, Pingjiang 900 \textit{wen}, Longxing 1 \textit{guan} 700 \textit{wen}, Jizhou 2 \textit{guan} 900 \textit{wen}, Tanzhou 2 \textit{guan} 100 \textit{wen} in the left column, each aligned with its prefecture. Add the two columns: Anji 30 \textit{guan} 700 \textit{wen}, Pingjiang 35 \textit{guan} 900 \textit{wen}, Longxing 29 \textit{guan} 800 \textit{wen}, Tanzhou 29 \textit{guan} 400 \textit{wen}, Jizhou 28 \textit{guan} 750 \textit{wen}, keeping these in the right column.
-
-Next, multiply each by the Wensiyuan standard of 83 \textit{ge}: Anji yields 2,548 \textit{guan} 100 \textit{wen}, Pingjiang 2,979 \textit{guan} 700 \textit{wen}, Longxing 2,473 \textit{guan} 400 \textit{wen}, Tanzhou 2,440 \textit{guan} 200 \textit{wen}, Jizhou 2,386 \textit{guan} 250 \textit{wen}---these are the dividends in the right column. Then place the local measures: Anji 110 \textit{ge}, Pingjiang 135 \textit{ge}, Longxing 115 \textit{ge}, Tanzhou 118 \textit{ge}, Jizhou 120 \textit{ge} in the left column as divisors. Divide the dividends by the divisors: Anji gives 23 \textit{guan} 164 $\frac{6}{11}$ \textit{wen}; Pingjiang 22 \textit{guan} 71 $\frac{23}{27}$ \textit{wen}; Longxing 21 \textit{guan} 507 $\frac{19}{23}$ \textit{wen}; Tanzhou 20 \textit{guan} 679 $\frac{49}{59}$ \textit{wen}; Jizhou 19 \textit{guan} 885 $\frac{5}{12}$ \textit{wen}.
-
-Ranking the prices: Anji is most expensive, followed by Pingjiang, Longxing, Tanzhou, and Jizhou is least expensive.
-
-\end{paracol}
-
-\newpage
-
-%% ==================== PROBLEM 2: 折解輕齎 ====================
-\subsection*{折解輕齎 \quad Converting Tribute to Lightweight Currency}
-\addcontentsline{toc}{subsection}{折解輕齎 — Converting Tribute to Lightweight Currency}
-
-\begin{paracol}{2}
-
-\CnQuestion{%
-有甲乙丙丁四郡，各合起上供銀絹。
-
-\textbf{甲郡}：銀三千二百兩，每兩二貫二百文足；絹六萬四千匹，每匹二貫文足。去京一千里，每擔一里傭錢六文足。其時舊㑹每貫五十四文足。
-
-\textbf{乙郡}：銀二千七百兩，每兩二貫三百文足；絹四萬九千二百匹，每匹二貫四百二十文足。去京九百八十里，每擔一里傭錢四文二分足。舊㑹價五十九文足。
-
-\textbf{丙郡}：銀四千兩，每兩新㑹九貫三百文；絹七萬三千六百匹，每匹新㑹一十貫三百文。去京二千里，每擔一里傭錢八十文舊㑹。
-
-\textbf{丁郡}：銀二千六百兩，每兩五十一貫文舊㑹；絹三萬二千三十五匹，每匹五十八貫文舊㑹。去京一千五百里，每擔一里傭錢一百文舊㑹。
-
-諸郡銀每五百兩、絹每六十匹、新㑹每五千貫為擔。欲並折新㑹，均作三限起解。求各郡每限及本色原理、折解實用、寛餘、傭錢各新㑹幾何？
-}
-
-\switchEn
-
-\EnQuestion
-Four prefectures---Jia, Yi, Bing, and Ding---must each send tribute of silver and silk to the capital.
-
-\textbf{Jia}: Silver 3,200 taels at 2 \textit{guan} 200 \textit{wen} \textit{zu} (full-weight) per tael; silk 64,000 bolts at 2 \textit{guan} per bolt \textit{zu}. Distance to capital 1,000 \textit{li}; porterage 6 \textit{wen} \textit{zu} per \textit{dan} per \textit{li}. Old notes exchange at 54 \textit{wen} \textit{zu} per \textit{guan}.
-
-\textbf{Yi}: Silver 2,700 taels at 2 \textit{guan} 300 \textit{wen} \textit{zu}; silk 49,200 bolts at 2 \textit{guan} 420 \textit{wen} \textit{zu}. Distance 980 \textit{li}; porterage 4.2 \textit{wen} \textit{zu} per \textit{dan} per \textit{li}. Old notes at 59 \textit{wen} \textit{zu} per \textit{guan}.
-
-\textbf{Bing}: Silver 4,000 taels at 9 \textit{guan} 300 \textit{wen} new notes per tael; silk 73,600 bolts at 10 \textit{guan} 300 \textit{wen} new notes. Distance 2,000 \textit{li}; porterage 80 \textit{wen} old notes per \textit{dan} per \textit{li}.
-
-\textbf{Ding}: Silver 2,600 taels at 51 \textit{guan} old notes per tael; silk 32,035 bolts at 58 \textit{guan} old notes. Distance 1,500 \textit{li}; porterage 100 \textit{wen} old notes per \textit{dan} per \textit{li}.
-
-For all prefectures: 500 taels silver = 1 \textit{dan}; 60 bolts silk = 1 \textit{dan}; 5,000 \textit{guan} new notes = 1 \textit{dan}. Convert all to new notes, payable in three equal installments. Find for each prefecture: the amount per installment; the original porterage cost; the actual porterage cost after conversion; the surplus; and all values in new notes.
-
-\switchCn
-
-\CnEditorial{%
-此題貫數分三項：其一足數，每千文為一貫；其一舊㑹數，如甲以五十四文為一貫，乙以五十九文為一貫是也；其一新㑹數，為舊㑹數之五倍，如甲以二百七十文為一貫，乙以二百九十五文為一貫是也。四郡或言足數，或言舊㑹數、新㑹數。並折新㑹數。傭錢原以銀五百兩或絹六十匹各為一擔，今皆折新㑹數，以五千貫為一擔，故有寛餘錢數。題語多未詳，而併為一擔句尤混，略為分析而術草之意大概可見矣。
-}
-
-\switchEn
-
-\EnEditorial
-This problem involves three types of \textit{guan}: (1) \textit{zu} (full-weight) \textit{guan}, where 1,000 \textit{wen} = 1 \textit{guan}; (2) old-note \textit{guan}, where Jia uses 54 \textit{wen} = 1 \textit{guan} and Yi uses 59 \textit{wen} = 1 \textit{guan}; and (3) new-note \textit{guan}, equal to 5 old-note \textit{guan} (Jia: 270 \textit{wen} = 1 \textit{guan}; Yi: 295 \textit{wen} = 1 \textit{guan}). The four prefectures quote in \textit{zu}, old notes, or new notes. All must be converted to new notes. Originally, porterage used 500 taels silver or 60 bolts silk as one \textit{dan}; after conversion, 5,000 \textit{guan} new notes = 1 \textit{dan}, hence a surplus arises. The problem statement is unclear in places, and the phrase ``combining into one \textit{dan}'' is particularly confusing. The following analysis should clarify the method's intent.
-
-\end{paracol}
-
-\begin{paracol}{2}
-
-\CnAnswer{%
-\textbf{甲郡}：合解五十萬一百四十八貫一百四十八文。初限一十六萬六千七百一十六貫四十九文，次限一十六萬六千七百一十六貫四十九文，未限一十六萬六千七百一十六貫五十文。傭錢原理二萬三千八百四十五貫九百二十五文二十七分文之二十五，實用二千二百二十二貫八百七十七文二十七分文之二十一，寛餘二萬一千六百二十三貫四十八文二十七分文之四。
-
-\textbf{乙郡}：合解四十二萬四千六百五十七貫六百二十七文。初限一十四萬一千五百五十二貫五百四十二文，次限一十四萬一千五百五十二貫五百四十二文，末限一十四萬一千五百五十二貫五百四十三文。傭錢原理一萬一千五百一十六貫四百二十八文五十九分文之二十八，實用一千一百八十五貫一十文二百九十五分文之五，寛餘一萬三百三十一貫四百一十八文五十九分文之二十七。
-
-\textbf{丙郡}：合解七十九萬五千二百八十貫文。初限二十六萬五千九十三貫三百三十三文，次限二十六萬五千九十三貫三百三十三文，末限二十六萬五千九十三貫三百三十四文。傭錢原理三萬九千五百九貫三百三十三文三分文之一，實用五千八十九貫七百九十二文，寛餘三萬四千四百一十九貫五百四十一文三分文之一。
-
-\textbf{丁郡}：合解三十九萬八千一百二十六貫文。初限一十三萬二千七百八貫六百六十六文，次限一十三萬二千七百八貫六百六十六文，末限一十三萬二千七百八貫六百六十八文。傭錢原理一萬四千一百七十三貫五百文，實用二千三百八十八貫七百五十六文，寛餘一萬一千七百八十四貫七百四十四文。
-}
-
-\switchEn
-
-\EnAnswer
-\textbf{Jia}: Total payable 500,148 \textit{guan} 148 \textit{wen}. First installment 166,716 \textit{guan} 49 \textit{wen}; second 166,716 \textit{guan} 49 \textit{wen}; final 166,716 \textit{guan} 50 \textit{wen}. Original porterage 23,845 \textit{guan} 925 $\frac{25}{27}$ \textit{wen}; actual porterage 2,222 \textit{guan} 877 $\frac{21}{27}$ \textit{wen}; surplus 21,623 \textit{guan} 48 $\frac{4}{27}$ \textit{wen}.
-
-\textbf{Yi}: Total 424,657 \textit{guan} 627 \textit{wen}. Each of first two installments 141,552 \textit{guan} 542 \textit{wen}; final 141,552 \textit{guan} 543 \textit{wen}. Original porterage 11,516 \textit{guan} 428 $\frac{28}{59}$ \textit{wen}; actual 1,185 \textit{guan} 10 $\frac{5}{295}$ \textit{wen}; surplus 10,331 \textit{guan} 418 $\frac{27}{59}$ \textit{wen}.
-
-\textbf{Bing}: Total 795,280 \textit{guan}. First two installments each 265,093 \textit{guan} 333 \textit{wen}; final 265,093 \textit{guan} 334 \textit{wen}. Original porterage 39,509 \textit{guan} 333 $\frac{1}{3}$ \textit{wen}; actual 5,089 \textit{guan} 792 \textit{wen}; surplus 34,419 \textit{guan} 541 $\frac{1}{3}$ \textit{wen}.
-
-\textbf{Ding}: Total 398,126 \textit{guan}. First two installments each 132,708 \textit{guan} 666 \textit{wen}; final 132,708 \textit{guan} 668 \textit{wen}. Original porterage 14,173 \textit{guan} 500 \textit{wen}; actual 2,388 \textit{guan} 756 \textit{wen}; surplus 11,784 \textit{guan} 744 \textit{wen}.
-
-\end{paracol}
-
-\begin{paracol}{2}
-
-\CnMethod{%
-以均輸求之。置各郡銀絹，乗各價，併之，歸足原，展足為舊㑹，次以五約舊㑹為新㑹，各得合解錢。以限數除之，得每限錢，不盡併歸末限。次置里數，乗每里傭價為率。以率乗原銀及原絹，各為傭實。以每擔銀絹率各為法，實如法而一，不滿者亦為擔，併之為原理傭錢。次以率乗合觧錢為實，乃以錢物毎擔率為法，實如法而一，各得實用傭錢。以減原理傭錢，餘為寛餘傭錢。
-}
-
-\switchEn
-
-\EnMethod
-Use the \textit{equitable transport} (\textit{jun shu}) method. Place each prefecture's silver and silk; multiply by their respective prices and sum. Convert to \textit{zu} (full-weight), then expand to old notes. Next divide old notes by 5 to obtain new notes---this is the total payable. Divide by the number of installments (3); the remainder joins the final installment. Next, place the distance in \textit{li} and multiply by the porterage rate per \textit{li} to obtain a rate. Multiply this rate by the original silver and silk quantities to obtain porterage dividends. Using the \textit{dan} equivalents for silver and silk as divisors, divide---rounding up partial \textit{dan}---and sum to obtain original porterage. Then multiply the rate by the total payable to get a dividend, using the note-\textit{dan} rate (5,000 \textit{guan}) as divisor to obtain actual porterage. Subtract from original porterage; the remainder is the surplus.
-
-\end{paracol}
-
-\newpage
-
-%% =============================================================================
-%% FASCICLE 6B — 錢穀 (Part 2)
-%% =============================================================================
-\section*{\color{titlecolor}卷六下 \quad 錢穀}
-\addcontentsline{toc}{section}{卷六下 \quad 錢穀 \quad (Part 2)}
-
-\begin{paracol}{2}
-\begin{center}
-\textbf{\large\color{sectioncolor} Original Chinese}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
-\end{center}
-\switchEn
-\begin{center}
-\textbf{\large\color{sectioncolor} English Translation}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
-\end{center}
-\end{paracol}
-
-\vspace{1em}
-
-%% ==================== PROBLEM 3: 僦直推原 ====================
-\subsection*{僦直推原 \quad Restoring the Original Rent}
-\addcontentsline{toc}{subsection}{僦直推原 — Restoring the Original Rent}
-
-\begin{paracol}{2}
-
-\CnQuestion{%
-房廊數内，一户日納一百五十六文八分足為準。指揮未曽經減者，減三分；已曽經減三分者，減二分；已曽經減二分者，更減二分。今本户累經減者，欲知原額房錢幾何？
-}
-
-\switchEn
-
-\EnQuestion
-Among the shop-rent accounts, one household currently pays 156.8 \textit{wen} \textit{zu} per day. The regulations state: those who have not yet received a reduction get a reduction of 3/10; those already reduced by 3/10 get a further reduction of 2/10; those already reduced by 2/10 get a further reduction of 2/10. This household has received successive reductions. What was the original rent?
-
-\switchCn
-
-\CnAnswer{原額三百五十文。}
-
-\switchEn
-
-\EnAnswer The original rent was 350 \textit{wen}.
-
-\switchCn
-
-\CnMethod{%
-以衰分求之。列一十分兩行，各三位；列減分，對減右行。以餘者相乘為法。以左行原列相乘，得納錢為實。實如法而一，得原額錢。
-}
-
-\switchEn
-
-\EnMethod
-Use proportional distribution (\textit{shuai fen}). Arrange two rows of 10 parts, each with three positions; place the reduction fractions and subtract them from the right row. Multiply the remainders together to form the divisor. Multiply the entries in the left row together, and multiply by the current payment to form the dividend. Divide the dividend by the divisor to obtain the original rent.
-
-\switchCn
-
-\CnWorking{%
-列一十三位於左行，又列一十分三位於右行。其右上減去初減三分，右中減去次減二分，右下減去更減二分。右行餘七八八，以相乗得四百四十八為法。乃以左行三位一十分相乘，得一千為乗率。以乘見日納錢一百五十六文八分，得一百五十六貫八百文為實。實如法而一，得三百五十文，為本户原額戸錢。
-}
-
-\switchEn
-
-\EnWorking
-Place three 10s in the left row, and three 10s in the right row. From the upper right subtract the first reduction of 3, leaving 7. From the middle right subtract the second reduction of 2, leaving 8. From the lower right subtract the further reduction of 2, leaving 8. The right-row remainders 7, 8, 8 multiply to 448, which is the divisor. The three 10s in the left row multiply to 1,000, which is the multiplier rate. Multiply by the current daily payment of 156.8 \textit{wen} to obtain 156,800 \textit{wen} as the dividend. Divide by the divisor 448: 156,800 $\div$ 448 = 350 \textit{wen}, the original rent.
-
-\end{paracol}
-
-\vspace{1.5em}
-
-%% ==================== PROBLEM 4: 推求本息 ====================
-\subsection*{推求本息 \quad Calculating Principal and Interest}
-\addcontentsline{toc}{subsection}{推求本息 — Calculating Principal and Interest}
-
-\begin{paracol}{2}
-
-\CnQuestion{%
-三庫息例：萬貫以上一釐，千貫以上二釐五毫，百貫以上三釐。甲庫本四十九萬三千八百貫，乙庫本三十七萬三百貫，丙庫本二十四萬六千八百貫。今三庫共約到息錢二萬五千六百四十四貫二百文。其典率：甲反錐差，乙方錐差，丙蒺藜差。欲知原典三例本息各幾何？
-}
-
-\switchEn
-
-\EnQuestion
-Three treasuries have the following interest rates: above 10,000 \textit{guan}: 1 \textit{li} (0.001); above 1,000 \textit{guan}: 2.5 \textit{li} (0.0025); above 100 \textit{guan}: 3 \textit{li} (0.003). Treasury Jia has principal 493,800 \textit{guan}; Yi has 370,300 \textit{guan}; Bing has 246,800 \textit{guan}. The total interest collected from all three is 25,644 \textit{guan} 200 \textit{wen}. The distribution follows: Jia---\textit{inverted cone} (\textit{fan zhui}) difference; Yi---\textit{square cone} (\textit{fang zhui}) difference; Bing---\textit{caltrop} (\textit{ji li}) difference. Find the principal and interest for each treasury at each of the three rates.
-
-\switchCn
-
-\CnEditorial{%
-此即衰分題也。其差有反錐、方錐、蒺藜之名，蓋以一二三遞減如立錐為反錐，以一四九平方遞加為方錐，以一三六三數遞加為蒺藜。是必古有其名也。至以各差求各本，則因各本原依各差入之也。
-}
-
-\switchEn
-
-\EnEditorial
-This is a proportional distribution problem. The differences are named \textit{inverted cone}, \textit{square cone}, and \textit{caltrop}: the inverted cone decreases by 1, 2, 3 (like an inverted pyramid); the square cone increases as squares 1, 4, 9; the caltrop increases as 1, 3, 6. These names must be classical. Each principal is distributed according to its respective difference pattern.
-
-\end{paracol}
-
-\begin{paracol}{2}
-
-\CnAnswer{%
-\textbf{甲庫}共納息九千五十三貫文：一釐息二千四百六十九貫文，二釐半息四千一百一十五貫文，三釐息二千四百六十九貫文。
-
-\textbf{乙庫}共納息一萬五十一貫文：一釐息二百六十四貫五百文，二釐半息二千六百四十五貫文，三釐息七千一百四十一貫五百文。
-
-\textbf{丙庫}共納息六千五百四十貫二百文：一釐息二百四十六貫八百文，二釐半息一千八百五十一貫文，三釐息四千四百四十二貫四百文。
-}
-
-\switchEn
-
-\EnAnswer
-\textbf{Treasury Jia}: Total interest 9,053 \textit{guan}. At 1 \textit{li}: 2,469 \textit{guan}; at 2.5 \textit{li}: 4,115 \textit{guan}; at 3 \textit{li}: 2,469 \textit{guan}.
-
-\textbf{Treasury Yi}: Total interest 10,051 \textit{guan}. At 1 \textit{li}: 264 \textit{guan} 500 \textit{wen}; at 2.5 \textit{li}: 2,645 \textit{guan}; at 3 \textit{li}: 7,141 \textit{guan} 500 \textit{wen}.
-
-\textbf{Treasury Bing}: Total interest 6,540 \textit{guan} 200 \textit{wen}. At 1 \textit{li}: 246 \textit{guan} 800 \textit{wen}; at 2.5 \textit{li}: 1,851 \textit{guan}; at 3 \textit{li}: 4,442 \textit{guan} 400 \textit{wen}.
-
-\end{paracol}
-
-\begin{paracol}{2}
-
-\CnMethod{%
-置諸庫諸色之差，照釐率為三行。縱併之為約率，横命之為乗率。以約率各約自庫之本，各得。以遍乗未併乗率，然後各以釐率横乗之，次以縱併之，為各庫共息。
-}
-
-\switchEn
-
-\EnMethod
-Place the differences for each treasury and each rate, arranged in three rows according to the \textit{li} rates. Sum vertically to obtain reduction rates; read horizontally to obtain multiplication rates. Divide each treasury's principal by its reduction rate to obtain a quotient. Multiply this by the un-summed horizontal rates; then multiply each by the respective \textit{li} rate horizontally, and sum vertically to obtain each treasury's total interest.
-
-\switchCn
-
-\CnWorking{%
-置甲庫反錐差，自下置三二一於右行。次置乙庫方錐差，自上置一四九於中行。次置丙庫蒺藜差，自上置一三六於左行，各為三庫上中下三等乘率。乃縱併甲差三二一，得六為甲約率。縱併乙差一四九，得一十四為乙約率。縱併丙差一三六，得一十為丙約率。直命九位數各為上中下乗率。乃先以約率各約自庫之本：乃以甲約率六約甲本四十九萬三千八百貫，得八萬二千三百貫為甲得。次以乙約率一十四約乙本三十七萬三百貫，得二萬六千四百五十貫為乙得。次以丙約率一十約丙本二十四萬六千八百貫，得二萬四千六百八十貫為丙得。以各得乗未併乗率：其甲所得八萬二千三百貫，乘反錐乗率三二一，得二十四萬六千九百貫為上率，得一十六萬四千六百貫為中率，得八萬二千三百貫為下率。其乙所得二萬六千四百五十貫，以乗方錐差一四九，得二萬六千四百五十貫為上率，得一十萬五千八百貫為中率，得二十三萬八千五十貫為下率。其丙所得二萬四千六百八十貫，以乗蒺藜差一三六，得二萬四千六百八十貫為上率，得七萬四千四十貫為中率，得一十四萬八千八十貫為下率。然後各以息釐數乘各庫三乗：其甲以一釐乗上率二十四萬六千九百貫，得二千四百六十九貫為上息；以二釐五毫乘中率一十六萬四千六百貫，得四千一百一十五貫為中息；以三釐乘下率八萬二千三百貫，得二千四百六十九貫為下息。併上中下三息，得九千五十三貫文為甲庫共息。其乙庫以一釐乗上率二萬六千四百五十貫，得二百六十四貫五百文為上息；以二釐五毫乗中率一十萬五千八百貫，得二千六百四十五貫為中息；以三釐乗下率二十三萬八千五十貫，得七千一百四十一貫五百為下息。併上中下三息，得一萬五十一貫文為乙庫共息。其丙庫以一釐乗上率二萬四千六百八十貫，得二百四十六貫八百為上息；以二釐五毫乘中率七萬四千四十貫，得一千八百五十一貫為中息；以三釐乗下率一十四萬八千八十貫，得四千四百四十二貫四百文為下息。併上中下三息，得六千五百四十貫二百文為丙庫共息。併三庫共息，得二萬五千六百四十四貫二百文為總息。
-}
-
-\switchEn
-
-\EnWorking
-Place Jia's inverted-cone differences 3, 2, 1 (bottom to top) in the right row. Place Yi's square-cone differences 1, 4, 9 (top to bottom) in the middle row. Place Bing's caltrop differences 1, 3, 6 (top to bottom) in the left row---these are the three treasuries' upper/middle/lower multiplication rates. Sum Jia's differences vertically: 3+2+1 = 6, Jia's reduction rate. Sum Yi's: 1+4+9 = 14, Yi's reduction rate. Sum Bing's: 1+3+6 = 10, Bing's reduction rate. The nine numbers are read as upper/middle/lower rates.
-
-Divide each principal: Jia 493,800 $\div$ 6 = 82,300 \textit{guan}; Yi 370,300 $\div$ 14 = 26,450 \textit{guan}; Bing 246,800 $\div$ 10 = 24,680 \textit{guan}.
-
-Multiply each quotient by its differences: Jia 82,300 $\times$ [3,2,1] = [246,900; 164,600; 82,300]. Yi 26,450 $\times$ [1,4,9] = [26,450; 105,800; 238,050]. Bing 24,680 $\times$ [1,3,6] = [24,680; 74,040; 148,080].
-
-Apply interest rates: Jia---1 \textit{li} $\times$ 246,900 = 2,469; 2.5 \textit{li} $\times$ 164,600 = 4,115; 3 \textit{li} $\times$ 82,300 = 2,469. Total: 9,053 \textit{guan}.
-
-Yi---1 \textit{li} $\times$ 26,450 = 264.5; 2.5 \textit{li} $\times$ 105,800 = 2,645; 3 \textit{li} $\times$ 238,050 = 7,141.5. Total: 10,051 \textit{guan}.
-
-Bing---1 \textit{li} $\times$ 24,680 = 246.8; 2.5 \textit{li} $\times$ 74,040 = 1,851; 3 \textit{li} $\times$ 148,080 = 4,442.4. Total: 6,540.2 \textit{guan}.
-
-Grand total: 25,644.2 \textit{guan}.
-
-\end{paracol}
-
-\newpage
-
-%% ==================== PROBLEM 5: 易牒知原 ====================
-\subsection*{易牒知原 \quad Exchanging Travel Permits to Find the Original}
-\addcontentsline{toc}{subsection}{易牒知原 — Exchanging Travel Permits}
-
-\begin{paracol}{2}
-
-\CnEditorial{按舊本此問無題，今増入。}
-
-\switchEn
-
-\EnEditorial This problem had no title in the original; the title has been added.
-
-\switchCn
-
-\CnQuestion{%
-出度牒差人營運：毎三道易鹽一十三袋，鹽二袋易布八十四疋，布一十五疋易絹三疋半，絹六疋易銀七兩二錢。今趂到銀九千一百七十二兩八錢。欲知原闗度牒道數幾何？
-}
-
-\switchEn
-
-\EnQuestion
-Travel permits (\textit{du die}) are issued for commercial operations: every 3 permits exchange for 13 bags of salt; 2 bags of salt exchange for 84 bolts of cloth; 15 bolts of cloth exchange for 3.5 bolts of silk; 6 bolts of silk exchange for 7.2 taels of silver. If 9,172.8 taels of silver have been obtained, how many travel permits were originally issued?
-
-\switchCn
-
-\CnAnswer{度牒一百八十道。}
-
-\switchEn
-
-\EnAnswer 180 travel permits.
-
-\switchCn
-
-\CnMethod{%
-以粟米互乘易法求之。列各數以本色相對，如鴈翅。以多一事者相乗為實，以少一事者相乘為法，除之。
-}
-
-\switchEn
-
-\EnMethod
-Use grain-exchange mutual multiplication (\textit{su mi hu cheng yi fa}). Arrange the numbers with their respective commodities facing each other, like goose wings (\textit{yan chi}). Multiply the items on the side with one more entry to form the dividend; multiply the items on the side with one fewer entry to form the divisor. Divide.
-
-\switchCn
-
-\CnWorking{%
-先以度牒三道乗鹽二袋，得六。以乘布一十五，得九十。又乗絹六疋，得五百四十。乃乗銀九萬一千七百二十八錢，得四千九百五十三萬三千一百二十錢為實。次以鹽一十三袋乗布八十四，得一千九百二。以乗絹三疋五分，得三千八百二十二。乃乘銀七兩二錢，得二十七萬五千一百八十四錢為法。除實，得一百八十道為原闗度牒。
-}
-
-\switchEn
-
-\EnWorking
-First multiply permits 3 by salt 2 bags = 6. Multiply by cloth 15 = 90. Multiply by silk 6 bolts = 540. Multiply by silver 91,728 \textit{qian} (7.2 taels = 72 \textit{qian}, and 9,172.8 taels = 91,728 \textit{qian}) = 4,953,312,000 \textit{qian} as dividend.
-
-Then multiply salt 13 by cloth 84 = 1,092. Multiply by silk 3.5 = 3,822. Multiply by silver 7.2 taels (72 \textit{qian}) = 275,184 \textit{qian} as divisor.
-
-4,953,312,000 $\div$ 275,184 = 180 travel permits.
-
-\end{paracol}
-
-\vspace{1.5em}
-
-%% ==================== PROBLEM 6: 粟米交易 ====================
-\subsection*{粟米交易 \quad Grain and Millet Exchange}
-\addcontentsline{toc}{subsection}{粟米交易 — Grain and Millet Exchange}
-
-\begin{paracol}{2}
-
-\CnEditorial{按舊本此問無題，今増。}
-
-\switchEn
-
-\EnEditorial This problem had no title in the original; the title has been added.
-
-\switchCn
-
-\CnQuestion{%
-菽三升易小麥二升，小麥一升五合易油麻八合，油麻一升二合易粳米一升八合。今將菽一十四石四斗欲易油麻，又將小麥二十一石六斗欲易粳米。問各幾何？
-}
-
-\switchEn
-
-\EnQuestion
-3 \textit{sheng} of beans (\textit{shu}) exchange for 2 \textit{sheng} of wheat; 1.5 \textit{sheng} of wheat exchanges for 8 \textit{ge} of sesame; 1.2 \textit{sheng} of sesame exchanges for 1.8 \textit{sheng} of polished rice (\textit{jing mi}). If 14 \textit{shi} 4 \textit{dou} of beans are to be exchanged for sesame, and 21 \textit{shi} 6 \textit{dou} of wheat for polished rice, how much of each is obtained?
-
-\switchCn
-
-\CnAnswer{油麻五石一斗二升；粳米一十七石二斗八升。}
-
-\switchEn
-
-\EnAnswer Sesame: 5 \textit{shi} 1 \textit{dou} 2 \textit{sheng}; polished rice: 17 \textit{shi} 2 \textit{dou} 8 \textit{sheng}.
-
-\switchCn
-
-\CnMethod{%
-以粟米換易求之。置原易率，本色對列，如鴈翅。以多一事者相乘為實，以少一事者相乗為法，除之。各得或問數，不干其率者不置。
-}
-
-\switchEn
-
-\EnMethod
-Use grain-exchange conversion (\textit{su mi huan yi}). Place the exchange rates with their respective commodities facing each other, like goose wings. Multiply the side with one more entry to form the dividend; multiply the side with one fewer entry to form the divisor. Divide to obtain the answer. Items not involved in a particular chain need not be placed.
-
-\switchCn
-
-\CnWorking{%
-置四色六數，列六位率，如鴈翅，皆化為合。先將菽一十四石四斗化作一萬四千四百合，乃對前二句率數四位，如鴈翅，至欲易油麻止，共五事為上圖。次將小麥二十一石六斗化為二萬一千六百合，乃對後兩句率四位，鴈翅，至欲粳米止，共五事為下圖。
-
-下圖：其上圖以菽一萬四千四百合乘麥二十，得二十八萬八千，又乗油麻八合，得二百三十萬四千合為油麻實。次以菽三十合乘麥一十五合，得四百五十合為法。除之，得五千一百二十合，展為五石一斗二升為油麻。
-
-其下圖以小麥二萬一千六百合乗油麻八合，得一十七萬二千八百合，又乗粳米一十八合，得三百一十一萬四百合為粳米實。以小麥一升五合乗油麻一十二合，得一百八十合為法。除之，得一萬七千二百八十，展作一十七石二斗八升為粳米。
-}
-
-\switchEn
-
-\EnWorking
-Place the four commodities with six rate numbers in goose-wing formation, all converted to \textit{ge}. First convert 14 \textit{shi} 4 \textit{dou} of beans to 14,400 \textit{ge}. Align with the first two exchange rates (four positions) for the upper diagram, ending at sesame---five items total. Next convert 21 \textit{shi} 6 \textit{dou} of wheat to 21,600 \textit{ge}. Align with the last two exchange rates (four positions) for the lower diagram, ending at polished rice---five items total.
-
-\textbf{Upper diagram (beans $\to$ sesame):} 14,400 $\times$ 20 (wheat rate) = 288,000; $\times$ 8 (sesame rate) = 2,304,000 \textit{ge}, the sesame dividend. Divisor: 30 (beans) $\times$ 15 (wheat) = 450 \textit{ge}. 2,304,000 $\div$ 450 = 5,120 \textit{ge} = 5 \textit{shi} 1 \textit{dou} 2 \textit{sheng} of sesame.
-
-\textbf{Lower diagram (wheat $\to$ rice):} 21,600 $\times$ 8 = 172,800; $\times$ 18 (rice rate) = 3,114,000 \textit{ge}, the rice dividend. Divisor: 15 $\times$ 12 = 180 \textit{ge}. 3,114,000 $\div$ 180 = 17,280 \textit{ge} = 17 \textit{shi} 2 \textit{dou} 8 \textit{sheng} of polished rice.
-
-\end{paracol}
-
-\newpage
-
-%% ==================== PROBLEM 7: 計米易麴 ====================
-\subsection*{計米易麴 \quad Calculating Rice for Yeast Exchange}
-\addcontentsline{toc}{subsection}{計米易麴 — Calculating Rice for Yeast Exchange}
-
-\begin{paracol}{2}
-
-\CnEditorial{按舊本此問無題，今増。}
-
-\switchEn
-
-\EnEditorial This problem had no title in the original; the title has been added.
-
-\switchCn
-
-\CnQuestion{%
-庫率：粳榖七石出米三石，糯米一斗易小麥一斗七升，小麥五升踏麴二斤四兩，麴一百一十斤醞糯米一石三斗。今有糯穀一千七百五十九石三斗八升，欲出穀做米，易麥踏麴，還自醞，餘穀之米須令適足。各合幾何？
-}
-
-\switchEn
-
-\EnQuestion
-Storehouse rates: 7 \textit{shi} of glutinous grain yields 3 \textit{shi} of rice; 1 \textit{dou} of glutinous rice exchanges for 1.7 \textit{dou} of wheat; 5 \textit{sheng} of wheat produces 2 \textit{jin} 4 \textit{liang} of yeast (\textit{qu}); 110 \textit{jin} of yeast ferments 1 \textit{shi} 3 \textit{dou} of glutinous rice. There are 1,759 \textit{shi} 3 \textit{dou} 8 \textit{sheng} of glutinous grain. We wish to mill some grain, exchange the rice for wheat, make yeast from the wheat, and ferment the remaining grain into rice such that everything balances exactly. What are the respective quantities?
-
-\switchCn
-
-\CnAnswer{%
-共穀一千七百五十九石三斗八升。出穀九百二十四石，得米三百九十六石。易麥六百七十三石二斗。踏麴三萬二百九十四斤。餘榖八百三十五石三斗八升。醞米三百五十八石二升。
-}
-
-\switchEn
-
-\EnAnswer
-Total grain: 1,759 \textit{shi} 3 \textit{dou} 8 \textit{sheng}. Grain milled: 924 \textit{shi}, yielding 396 \textit{shi} of rice. Wheat obtained: 673 \textit{shi} 2 \textit{dou}. Yeast produced: 30,294 \textit{jin}. Remaining grain: 835 \textit{shi} 3 \textit{dou} 8 \textit{sheng}. Fermented rice: 358 \textit{shi} 2 \textit{sheng}.
-
-\switchCn
-
-\CnMethod{%
-以粟米換易求之。置諸率，隨本色對列，如鴈翅。有分者通之，異類者變之，以頭位者進乗之，以下位退乗之，得合數。有對者相乗之，無對者直命之，為諸率。併上下無對者為法率。以今有物徧乘諸率（不乗法率），各為實。諸實並如法而一，各得其已變者，復互易乗除之，即得所求。
-}
-
-\switchEn
-
-\EnMethod
-Use grain-exchange conversion. Place all rates with their commodities facing each other, like goose wings. Convert fractions to whole numbers; convert different commodity types; multiply from the top down and from the bottom up to obtain \textit{ge}. Multiply paired entries; leave unpaired entries as they are---these are the rate numbers. Sum the unpaired top and bottom entries to form the divisor-rate. Multiply the given quantity by all rates (except the divisor-rate) to obtain dividends. Divide all dividends by the divisor to obtain the converted quantities; further mutual multiplication and division yield the final answers.
-
-\end{paracol}
-
-\newpage
-
-%% ==================== PROBLEM 8: 囘運費 ====================
-\subsection*{囘運費 \quad Returning Transport Fees}
-\addcontentsline{toc}{subsection}{囘運費 — Returning Transport Fees}
-
-\begin{paracol}{2}
-
-\CnQuestion{%
-有江西水運米一十二萬三千四百石，原係鎮江交卸，計水程二千一百三十里，每石水脚錢一貫二百文。今截上件米就池州安頓，池州至鎮江八百八十里。欲收囘不該水脚錢幾何？
-}
-
-\switchEn
-
-\EnQuestion
-123,400 \textit{shi} of grain are being water-transported from Jiangxi, originally destined for unloading at Zhenjiang---a water route of 2,130 \textit{li} at 1 \textit{guan} 200 \textit{wen} per \textit{shi} porterage. Now this shipment is being diverted to Chizhou instead; the distance from Chizhou to Zhenjiang is 880 \textit{li}. How much porterage money should be recovered (since the grain no longer travels the full distance)?
-
-\switchCn
-
-\CnAnswer{收囘錢六萬一千一百七十八貫五百九十一文。}
-
-\switchEn
-
-\EnAnswer Recover 61,178 \textit{guan} 591 \textit{wen}.
-
-\switchCn
-
-\CnMethod{%
-以粟米互易求之。置池州至鎮江里數，乗水脚錢，得數又乗運米為實。以原至鎮江水程為法，除實，得收囘錢。
-}
-
-\switchEn
-
-\EnMethod
-Use grain-exchange mutual conversion. Place the distance from Chizhou to Zhenjiang; multiply by the porterage rate; multiply again by the total grain transported to form the dividend. Use the original distance to Zhenjiang as the divisor. Divide to obtain the recovered amount.
-
-\switchCn
-
-\CnWorking{%
-置池州至鎮江八百八十里，乗毎石水脚錢一貫二百，得一千五十六貫文。又乗運米一十二萬三千四百石，得一億三千三十一萬四百貫文為實。以原至鎮江水程二千一百三十里為法，除實，得六萬一千一百七十八貫五百九十一文為收囘錢。
-}
-
-\switchEn
-
-\EnWorking
-Place Chizhou-to-Zhenjiang distance 880 \textit{li}; multiply by porterage 1.2 \textit{guan} per \textit{shi} = 1,056 \textit{guan}. Multiply by grain 123,400 \textit{shi} = 130,310,400 \textit{guan} as dividend. Original distance 2,130 \textit{li} as divisor. 130,310,400 $\div$ 2,130 = 61,178.59+ \textit{guan} = 61,178 \textit{guan} 591 \textit{wen} to be recovered.
-
-\end{paracol}
-
-\vspace{1.5em}
-
-%% ==================== PROBLEM 9: 三色均價 ====================
-\subsection*{三色均價 \quad Averaging Three Grades of Gold}
-\addcontentsline{toc}{subsection}{三色均價 — Averaging Three Grades of Gold}
-\addcontentsline{toc}{subsubsection}{三色均價 — Averaging Three Grades of Gold}
-
-\begin{paracol}{2}
-
-\CnQuestion{%
-庫有三色金共五千兩：内八分金一千二百五十兩，兩價四百貫文；七分五釐金一千六百兩，兩價三百七十五貫文；八分五釐金二千一百五十兩，兩價四百二十五貫文。並欲煉為足色，每兩工食藥炭錢三貫文，耗金九百七十二兩五錢。欲知色分及兩價各幾何？
-}
-
-\switchEn
-
-\EnQuestion
-A treasury holds 5,000 taels of gold in three grades: 1,250 taels of 80\% gold at 400 \textit{guan} per tael; 1,600 taels of 75\% gold at 375 \textit{guan} per tael; 2,150 taels of 85\% gold at 425 \textit{guan} per tael. All is to be refined to pure gold (100\%). The cost is 3 \textit{guan} per tael for labor, food, medicine, and charcoal; loss from smelting is 972.5 taels. Find the fineness and price per tael of the refined gold.
-
-\switchCn
-
-\CnAnswer{色十分；兩價五百三貫七百二十四文，五百三十七分文之二百一十二。}
-
-\switchEn
-
-\EnAnswer
-Fineness: 10 parts (pure gold). Price per tael: 503 \textit{guan} 724 \textit{wen} and $\frac{212}{537}$ \textit{wen}.
-
-\switchCn
-
-\CnMethod{%
-以方田及粟米求之。置共數，以耗減之，餘為法。以三色分數各乗兩數，併之為色分實。以三色價數各乗兩數為寄，以工藥價乗共金，併寄，共為價實。二實皆如法而一，即各得。
-}
-
-\switchEn
-
-\EnMethod
-Use the \textit{rectangular field} (\textit{fang tian}) and grain-exchange methods. Place the total amount; subtract the loss to obtain the divisor. Multiply each grade's fineness by its weight and sum to form the fineness dividend. Multiply each grade's price by its weight and store; multiply the processing cost by the total gold and add to the stored amounts to form the price dividend. Divide both dividends by the divisor to obtain the answers.
-
-\switchCn
-
-\CnWorking{%
-置共金五千兩，減耗九百七十二兩五錢，外餘四千二十七兩五錢為法。次置一千二百五十兩，乘八分，得一萬分於上。置一千六百兩，以七分五釐乗之，得一萬二千分，加上。置二千一百五十兩，乗八分五釐，得一萬八千二百七十五分，又加上，共得四萬二百七十五分為分實。次置一千二百五十兩乗四百貫，得五十萬貫為寄。次置一千六百兩乘價三百七十五貫，得六十萬貫，加寄。次置二千一百五十兩乗價四百二十五貫，得九十一萬三千七百五十貫，又加寄。次置共金五千兩，乗工藥錢三貫，得一萬五千貫，又加寄，共得二百二萬八千七百五十貫為貫實。二實並如法四千二十七兩五錢而一：得其色一十分；其價每兩得五百三貫七百二十四文，不盡一貫五百九十。與法求等，得七十五，俱約之，為五百三十七文之二百一十二。
-}
-
-\switchEn
-
-\EnWorking
-Place total gold 5,000 taels; subtract loss 972.5 taels, leaving 4,027.5 taels as divisor. Next: 1,250 $\times$ 0.80 = 10,000 parts (upper). 1,600 $\times$ 0.75 = 12,000 parts (add). 2,150 $\times$ 0.85 = 18,275 parts (add again). Total: 40,275 parts = fineness dividend.
-
-Next: 1,250 $\times$ 400 = 500,000 \textit{guan} (stored). 1,600 $\times$ 375 = 600,000 (add). 2,150 $\times$ 425 = 913,750 (add). Processing: 5,000 $\times$ 3 = 15,000 (add). Total: 2,028,750 \textit{guan} = price dividend.
-
-Both dividends divided by 4,027.5: fineness = 10 parts (pure). Price per tael = 503 \textit{guan} 724 \textit{wen}, remainder 1,590 \textit{wen}. GCD of remainder and divisor is 75; reduce: $\frac{212}{537}$ \textit{wen}.
-
-\end{paracol}
-
-\newpage
-
-%% =============================================================================
-%% END MATTER
-%% =============================================================================
-\section*{\color{titlecolor}Editorial Notes on the Translation}
-\addcontentsline{toc}{section}{Editorial Notes on the Translation}
-
-\begin{paracol}{2}
-
-\textbf{\color{sectioncolor}翻譯說明}
-
-\switchEn
-
-\textbf{\color{sectioncolor}Notes on Translation}
-
-\switchCn
-
-本卷九問，皆為宋代財政實務之數學問題。秦九韶以衰分、粟米互換諸法，處理和糴、折解、交易、推原諸務，其術雖本於《九章算術》，而推廣變化，實有過之。
-
-\switchEn
-
-The nine problems in this fascicle all concern practical fiscal matters of the Song Dynasty. Qin Jiushao employed the methods of proportional distribution (\textit{shuai fen}) and grain-exchange conversion (\textit{su mi hu huan}) to handle procurement, tribute conversion, barter, and restoration calculations. Though grounded in the classical \textit{Jiuzhang Suanshu} (Nine Chapters on the Mathematical Art), his extensions and elaborations surpass the original.
-
-\switchCn
-
-\textbf{課糴}之問，比較五路米價，實為現代「比較成本」之先聲。以官斛為標準，統一各地不同之量器，以求可比之價格，其理與現代統一單位以比較國際物價者同。
-
-\switchEn
-
-\textbf{Comparing Grain Prices} (\textit{ke di}) compares prices across five circuits---an anticipation of modern comparative cost analysis. Using the standard \textit{hu} measure to unify different local measures for comparable pricing is analogous to modern standardized international price indices.
-
-\switchCn
-
-\textbf{折解輕齎}之問，處理貨幣換算與分期付款，涉及足錢、舊㑹、新㑹三種貨幣之折算，以及銀、絹、紙幣之換算，實為宋代貨幣史之重要資料。
-
-\switchEn
-
-\textbf{Converting Tribute} (\textit{zhe jie}) deals with currency conversion and installment payments, involving three monetary standards---\textit{zu} (full-weight coin), old notes, and new notes---plus the conversion between silver, silk, and paper currency. This is an important source for Song Dynasty monetary history.
-
-\switchCn
-
-\textbf{推求本息}之問，以反錐、方錐、蒺藜三種差分，配三種利率，計算三庫之利息，實為多變量比例分配之複雜問題。其術以縱併為約率、横命為乗率，頗具矩陣運算之意味。
-
-\switchEn
-
-\textbf{Calculating Principal and Interest} (\textit{tui qiu ben xi}) uses three difference patterns---\textit{inverted cone}, \textit{square cone}, and \textit{caltrop}---matched with three interest rates to compute interest across three treasuries. This is a complex multivariate proportional distribution problem. The method of vertical summation for reduction rates and horizontal reading for multiplication rates has an affinity with matrix operations.
-
-\switchCn
-
-至於\textbf{易牒知原}、\textbf{粟米交易}、\textbf{計米易麴}三問，皆為連比例之連鎖換算，古謂之「鴈翅互乘」，實即現代所謂連鎖比例（continued proportion）之應用。
-
-\switchEn
-
-The problems \textbf{Exchanging Travel Permits}, \textbf{Grain Exchange}, and \textbf{Rice for Yeast} all involve chain proportion calculations in barter exchange, classically called ``goose-wing mutual multiplication'' (\textit{yan chi hu cheng})---essentially the application of continued proportions.
-
-\switchCn
-
-\textbf{囘運費}之問，以比例計算應退之水脚錢，即現代所謂按比例分配之問題。\textbf{三色均價}之問，計算合金之平均成色與價格，實為加權平均數之應用。
-
-\switchEn
-
-\textbf{Returning Transport Fees} uses proportion to calculate refunded porterage---a problem of proportional distribution. \textbf{Averaging Three Grades of Gold} computes the mean fineness and price of an alloy---an application of weighted averages.
-
-\switchCn
-
-綜觀全卷，秦九韶之數學，不獨為抽象之理論，實為實用之技術。其題設之繁複，計算之精密，皆足以見宋代商業數學之發達。譯者於此英譯之中，力求準確傳達原意，並以現代術語註解，以便讀者之理解。
-
-\switchEn
-
-Taken as a whole, this fascicle demonstrates that Qin Jiushao's mathematics was not merely abstract theory but practical technique. The complexity of the problem scenarios and the precision of the calculations reveal the sophistication of Song Dynasty commercial mathematics. This translation seeks to convey the original meaning accurately, with modern annotations to aid comprehension.
-
-\end{paracol}
-
-\vspace{2em}
-\begin{center}
-\textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}
-
-\vspace{1em}
-{\small\color{sectioncolor}
-\textit{Bilingual Edition --- Modern LaTeX edition}\\[0.5em]
-Traditional Chinese mathematical text structure preserved\\[0.5em]
-Source: \textit{Siku Quanshu} (四庫全書) Edition}
-\end{center}
-
-\end{document}
+%% =============================================================================
+%% 數學九章 (Shuxue Jiuzhang) — Fascicle 6: 錢穀 (Money and Grain)
+%% BILINGUAL English-Chinese Edition
+%% Author: Qin Jiushao (秦九韶), Song Dynasty
+%% Source: Siku Quanshu (四庫全書) Edition
+%% Typeset with XeLaTeX
+%% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{microtype}
+\usepackage{etoolbox}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{chinese}
+
+%% -------- Font Configuration --------
+\setmainfont{LinLibertine_R.otf}[
+  BoldFont=LinLibertine_RB.otf,
+  ItalicFont=LinLibertine_RI.otf,
+  BoldItalicFont=LinLibertine_RBI.otf,
+  Renderer=Harfbuzz
+]
+\setsansfont{LinBiolinum_R.otf}[
+  BoldFont=LinBiolinum_RB.otf,
+  ItalicFont=LinBiolinum_RI.otf,
+  Renderer=Harfbuzz
+]
+
+%% Chinese Fonts (user-specified path)
+\setCJKmainfont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{80,40,20}
+\definecolor{answercolor}{RGB}{20,80,40}
+\definecolor{methodcolor}{RGB}{20,40,80}
+\definecolor{editorialcolor}{RGB}{100,60,80}
+\definecolor{chinesebg}{RGB}{255,252,245}
+\definecolor{englishbg}{RGB}{250,252,255}
+\definecolor{columnsep}{RGB}{200,190,180}
+
+%% -------- Column Settings --------
+\columnsep=8mm
+\setlength{\columnseprule}{0.4pt}
+\def\columnseprulecolor{\color{columnsep}}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Shuxue Jiuzhang — Fascicle 6 (Qiangu) \hspace{0.5em}|\hspace{0.5em} 數學九章 卷六 錢穀}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+%% Bilingual problem structure commands
+%% Chinese originals
+\newcommand{\CnQuestion}[1]{\par\noindent\textbf{\color{problemcolor}問：}#1\par\vspace{0.5ex}}
+\newcommand{\CnAnswer}[1]{\par\noindent\textbf{\color{answercolor}答曰：}#1\par\vspace{0.5ex}}
+\newcommand{\CnMethod}[1]{\par\noindent\textbf{\color{methodcolor}術曰：}#1\par\vspace{0.5ex}}
+\newcommand{\CnWorking}[1]{\par\noindent\textbf{草曰：}#1\par\vspace{0.5ex}}
+\newcommand{\CnEditorial}[1]{\par\noindent\textcolor{editorialcolor}{\textit{［按］#1}}\par\vspace{0.5ex}}
+
+%% English translations
+\newcommand{\EnQuestion}{\par\noindent\textbf{\color{problemcolor}Problem:}\par\vspace{0.5ex}}
+\newcommand{\EnAnswer}{\par\noindent\textbf{\color{answercolor}Answer:}\par\vspace{0.5ex}}
+\newcommand{\EnMethod}{\par\noindent\textbf{\color{methodcolor}Method:}\par\vspace{0.5ex}}
+\newcommand{\EnWorking}{\par\noindent\textbf{Working:}\par\vspace{0.5ex}}
+\newcommand{\EnEditorial}{\par\noindent\textcolor{editorialcolor}{\textit{[Ed. Note] }}\ignorespaces}
+
+%% Switch commands for paracol
+\newcommand{\switchCn}{\switchcolumn[0]*}
+\newcommand{\switchEn}{\switchcolumn[1]*}
+
+%% Problem environment
+\newcounter{problemnum}
+\newenvironment{bilingualproblem}[1]{%
+  \refstepcounter{problemnum}%
+  \par\vspace{1.5ex}%
+  \noindent\rule{\linewidth}{0.6pt}%
+  \par\vspace{0.5ex}%
+  \begin{center}
+    {\large\bfseries\color{sectioncolor} #1}
+  \end{center}
+  \vspace{0.5ex}%
+  \begin{paracol}{2}%
+}{%
+  \end{paracol}%
+  \vspace{1ex}%
+}
+
+%% Editorial note in paracol
+\newcommand{\bilingualeditorial}[2]{%
+  \begin{paracol}{2}%
+    \CnEditorial{#1}%
+    \switchEn%
+    \EnEditorial #2%
+  \end{paracol}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Shuxue Jiuzhang — Fascicle 6: Qiangu / Money and Grain (Bilingual Edition)},
+  pdfauthor={Qin Jiushao (c. 1202--1261)},
+  pdfsubject={Chinese Mathematics — Bilingual Edition}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+
+%% Reduce paragraph spacing for dense text
+\setlength{\parskip}{0.5ex plus 0.2ex minus 0.1ex}
+\setlength{\parindent}{0pt}
+
+%% =============================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{32}{40}\selectfont\color{titlecolor}\textbf{數學九章}}
+
+\vspace{0.8cm}
+
+{\fontsize{16}{20}\selectfont\color{sectioncolor} Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)}
+
+\vspace{1.5cm}
+
+{\Large\color{sectioncolor} 卷六：\textbf{錢穀} \enskip|\enskip Fascicle VI: \textbf{Money and Grain}}
+
+\vspace{0.5cm}
+
+{\large\color{notecolor}\textit{Bilingual English--Chinese Edition}}
+
+\vspace{2.5cm}
+
+{\large 宋\quad 秦九韶\quad 撰}
+
+\vspace{0.3cm}
+
+{\normalsize\textit{Qin Jiushao (c.\ 1202--1261)}}
+
+\vspace{0.3cm}
+
+{\small\color{sectioncolor} Translated and edited from the \textit{Siku Quanshu} (四庫全書) Edition}
+
+\vspace{2.5cm}
+
+{\color{rulecolor}\rule{0.55\textwidth}{0.4pt}}
+
+\vspace{1.5cm}
+
+{\small\color{sectioncolor}
+\textit{Digital Scholarly Edition}\\[0.5em]
+Parallel text with original Chinese and English translation\\[0.5em]
+Preserving the traditional structure of 問 / 答 / 術 / 草}
+
+\vspace{2cm}
+
+{\small\color{notecolor}
+\textit{This fascicle covers financial mathematics: interest calculations,}\\
+\textit{currency exchange, grain pricing, commercial transactions,}\\
+\textit{and tribute conversion.}
+}
+
+\vfill
+{\small\color{sectioncolor} Typeset in XeLaTeX with Noto Sans CJK SC}
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+%% =============================================================================
+\section*{\color{titlecolor}Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+\begin{paracol}{2}
+
+\textbf{\color{sectioncolor}卷六 錢穀} 專論財貨之數，即古所謂粟米、差分、均輸諸法也。秦九韶以為治國之要，莫先於理財；而理財之術，必資於算數。故本卷所設諸問，皆關乎國計民生之實務：有和糴之課，以較各地米價之貴賤；有折解之算，以通輕齎之變換；有本息之推，以明貸借之盈虛；有交易之術，以定物貨之等值。凡此數端，皆宋代財政之要務，亦古代商業數學之精髓也。
+
+\switchEn
+
+\textbf{\color{sectioncolor}Fascicle 6: Money and Grain (Qiangu)} treats of financial computation---the classical methods of grain conversion (\textit{su mi}), proportional distribution (\textit{cha fen}), and equitable transport (\textit{jun shu}). Qin Jiushao held that the governance of a state depends above all upon the management of wealth, and that the management of wealth depends upon mathematics. The problems in this fascicle all concern matters of national economy and people's livelihood: comparing grain purchase prices across regions; converting tribute goods to lightweight currency; calculating principal and interest on loans; and determining equivalent values in barter transactions. These were all essential tasks of Song Dynasty fiscal administration, and represent the finest achievements of classical Chinese commercial mathematics.
+
+\switchCn
+
+錢穀之術，大要有四：一曰\textbf{課糴}，以官斛量各州米價，較其貴賤，以為和糴之準；二曰\textbf{折解}，以銀絹之實，折合官會，分限輸納，以省運費；三曰\textbf{推原}，以累減之率，反求原額；四曰\textbf{換易}，以物貨相易之率，鴈翅互乘，以求所當得之數。術雖各異，其歸則同，皆衰分之變法也。
+
+\switchEn
+
+The methods of Money and Grain fall into four main categories: \textbf{First}, \textit{comparing purchase prices} (\textit{ke di}), using the standard measure to compare grain prices across prefectures as a basis for government procurement. \textbf{Second}, \textit{converting tribute payments} (\textit{zhe jie}), converting silver and silk to paper currency payable in installments, thereby reducing transport costs. \textbf{Third}, \textit{restoring original amounts} (\textit{tui yuan}), working backwards from accumulated discount rates to recover an original value. \textbf{Fourth}, \textit{barter exchange} (\textit{huan yi}), using chain-exchange rates in ``goose-wing'' (\textit{yan chi}) formation to determine equivalent quantities. Though the techniques differ, they are all variations of proportional distribution (\textit{shuai fen}).
+
+\switchCn
+
+秦九韶字道古，生於宋寧宗嘉泰二年（約1202年），卒於理宗景定二年（1261年）。所著《數學九章》十八卷，分為九類，各卷分上下。卷六錢穀凡九問，上卷二問，下卷七問。其術或言衰分，或言粟米互換，皆古法也。而題設之繁，計算之密，則又過於前賢。茲編以四庫全書本為底本，參以文淵閣本，並為英文譯注，以便中外學者之研究焉。
+
+\switchEn
+
+Qin Jiushao, styled Daogu, was born in the second year of the Jiatai reign of Emperor Ningzong of Song (c.\ 1202) and died in the second year of the Jingding reign of Emperor Lizong (1261). His \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections) in eighteen books is divided into nine categories, each fascicle having an upper and lower part. Fascicle 6, Money and Grain, contains nine problems: two in the upper part and seven in the lower part. The methods described employ either proportional distribution (\textit{shuai fen}) or grain-exchange conversion (\textit{su mi hu huan}), both being classical techniques. But the complexity of the problem scenarios and the precision of the calculations surpass those of earlier authors. This edition takes the \textit{Siku Quanshu} text as its base, with reference to the Wenyuan Pavilion edition, and provides English translation and notes to facilitate scholarly research.
+
+\end{paracol}
+
+\newpage
+
+%% =============================================================================
+%% FASCICLE 6A — 錢穀 (Part 1)
+%% =============================================================================
+\section*{\color{titlecolor}卷六上 \quad 錢穀}
+\addcontentsline{toc}{section}{卷六上 \quad 錢穀 \quad (Part 1)}
+
+\begin{paracol}{2}
+\begin{center}
+\textbf{\large\color{sectioncolor} Original Chinese}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
+\end{center}
+\switchEn
+\begin{center}
+\textbf{\large\color{sectioncolor} English Translation}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
+\end{center}
+\end{paracol}
+
+\vspace{1em}
+
+%% ==================== PROBLEM 1: 課糴 ====================
+\subsection*{課糴 \quad Comparing Grain Purchase Prices}
+\addcontentsline{toc}{subsection}{課糴 — Comparing Grain Purchase Prices}
+
+\begin{paracol}{2}
+
+\CnQuestion{%
+差人五路和糴。據浙西平江府石價三十五貫文，一百三十五合，至鎮江水脚錢每石九百文；安吉州石價二十九貫五百文，一百一十合，至鎮江水脚錢每石一貫二百文；江西隆興府石價二十八貫一百文，一百一十五合，至建康水脚錢每石一貫七百文；吉州石價二十五貫八百五十文，一百二十合，至建康水脚錢每石二貫九百文；湖南潭州石價二十七貫三百文，一百一十八合，至鄂州水脚錢每石一貫七百文。其錢並十七界官㑹，其米並用文思院斛交量紐數。欲皆以官解計石錢相比貴賤幾何？
+}
+
+\switchEn
+
+\EnQuestion
+Officials are dispatched to five circuits for government grain procurement (\textit{he di}). According to the reports:
+
+\begin{itemize}[leftmargin=1em,itemsep=0.2ex]
+\item \textbf{Pingjiang Prefecture} (Zhexi Circuit): price 35 \textit{guan} per \textit{shi}, measure 135 \textit{ge} per \textit{shi}; transport to Zhenjiang costs 900 \textit{wen} per \textit{shi}.
+\item \textbf{Anji Prefecture}: price 29 \textit{guan} 500 \textit{wen}, measure 110 \textit{ge}; transport to Zhenjiang costs 1 \textit{guan} 200 \textit{wen}.
+\item \textbf{Longxing Prefecture} (Jiangxi Circuit): price 28 \textit{guan} 100 \textit{wen}, measure 115 \textit{ge}; transport to Jiankang costs 1 \textit{guan} 700 \textit{wen}.
+\item \textbf{Jizhou}: price 25 \textit{guan} 850 \textit{wen}, measure 120 \textit{ge}; transport to Jiankang costs 2 \textit{guan} 900 \textit{wen}.
+\item \textbf{Tanzhou} (Hunan Circuit): price 27 \textit{guan} 300 \textit{wen}, measure 118 \textit{ge}; transport to Ezhou costs 1 \textit{guan} 700 \textit{wen}.
+\end{itemize}
+
+All currency is in 17th-series government notes (\textit{guan hui}), and all grain is measured in Wensiyuan \textit{hu} (standard measures). We wish to compare the prices per standard-\textit{shi} at each location, ranked from most to least expensive.
+
+\switchCn
+
+\CnEditorial{按草中係二貫一百文，此訛。文思院解每斗八十三合。}
+
+\switchEn
+
+\EnEditorial The working text gives 2 \textit{guan} 100 \textit{wen} for Tanzhou's transport fee; this is an error. The Wensiyuan standard \textit{hu} measures 83 \textit{ge} per \textit{dou} (i.e., 830 \textit{ge} per \textit{shi}).
+
+\switchCn
+
+\CnAnswer{%
+文思院斛石錢：安吉州二十三貫一百六十四文一十一分文之六；平江府二十二貫七十一文二十七分文之二十三；隆興府二十一貫五百七文二十三分文之一十九；潭州二十貫六百七十九文五十九分文之四十九；吉州一十九貫八百八十五文十二分文之五。
+}
+
+\switchEn
+
+\EnAnswer
+Price per standard-\textit{shi} in Wensiyuan \textit{hu}:
+\begin{itemize}[leftmargin=1em,itemsep=0.2ex]
+\item Anji: 23 \textit{guan} 164 \textit{wen} and $\frac{6}{11}$ \textit{wen}
+\item Pingjiang: 22 \textit{guan} 71 \textit{wen} and $\frac{23}{27}$ \textit{wen}
+\item Longxing: 21 \textit{guan} 507 \textit{wen} and $\frac{19}{23}$ \textit{wen}
+\item Tanzhou: 20 \textit{guan} 679 \textit{wen} and $\frac{49}{59}$ \textit{wen}
+\item Jizhou: 19 \textit{guan} 885 \textit{wen} and $\frac{5}{12}$ \textit{wen}
+\end{itemize}
+
+\switchCn
+
+\CnEditorial{按三十九訛四十九。}
+
+\switchEn
+
+\EnEditorial Note: ``39'' is an error for ``49'' in the answer.
+
+\switchCn
+
+\CnMethod{%
+以粟米互換求之。置石價併水脚，乗石數，又乗官斗合數為實。各如本州合數而一，各得官解石錢。以課貴賤。
+}
+
+\switchEn
+
+\EnMethod
+Use grain-exchange mutual conversion (\textit{su mi hu huan}). Place the price per \textit{shi} together with the water transport cost; multiply by the number of \textit{shi}, and multiply again by the standard-\textit{dou} measure in \textit{ge} to obtain the dividend. Divide each by the respective local measure in \textit{ge} to obtain the price per standard-\textit{shi}. Rank these to determine relative expense.
+
+\switchCn
+
+\CnWorking{%
+置安吉州石價二十九貫五百文，平江石價三十五貫文，隆興石價二十八貫一百文，吉州石價二十五貫八百五十文，潭州石價二十七貫三百文，列右行。次置水脚：安吉一貫二百文，平江九百文，隆興一貫七百文，吉州二貫九百文，潭州二貫一百文，列左行，各對本州石價。以兩行數併之，得數：安吉三十貫七百文，平江三十五貫九百，隆興二十九貫八百，潭州二十九貫四百，吉州二十八貫七百五十，仍於右行。次以文思院官斗八十三合遍乗之：安吉州得二千五百四十八貫一百文，平江府得二千九百七十九貫七百文，江西隆興得二千四百七十三貫四百文，湖南潭州得二千四百四十貫二百文，江南吉州得二千三百八十六貫二百五十文，各為實於右。得次列安吉斗一百一十合，平江斗一百三十五合，隆興斗一百一十五合，潭州斗一百一十八合，吉州斗一百二十合於左行為法。以对除右行之實：安吉得二十三貫一百六十四文一十一分之六，平江得二十三貫七十一文二十七分文之二十三，隆興得二十一貫五百七文二十三分文之一十九，潭州得二十貫六百七十九文五十九文分之四十九，吉州得一十九貫八百八十五文一十二分文之五。相課石價，其安吉州最貴，平江次之，隆興又次之，潭州又次之，吉州最賤。
+}
+
+\switchEn
+
+\EnWorking
+Place the prices per \textit{shi}: Anji at 29 \textit{guan} 500 \textit{wen}, Pingjiang at 35 \textit{guan}, Longxing at 28 \textit{guan} 100 \textit{wen}, Jizhou at 25 \textit{guan} 850 \textit{wen}, and Tanzhou at 27 \textit{guan} 300 \textit{wen} in the right column. Next place the water transport costs: Anji 1 \textit{guan} 200 \textit{wen}, Pingjiang 900 \textit{wen}, Longxing 1 \textit{guan} 700 \textit{wen}, Jizhou 2 \textit{guan} 900 \textit{wen}, Tanzhou 2 \textit{guan} 100 \textit{wen} in the left column, each aligned with its prefecture. Add the two columns: Anji 30 \textit{guan} 700 \textit{wen}, Pingjiang 35 \textit{guan} 900 \textit{wen}, Longxing 29 \textit{guan} 800 \textit{wen}, Tanzhou 29 \textit{guan} 400 \textit{wen}, Jizhou 28 \textit{guan} 750 \textit{wen}, keeping these in the right column.
+
+Next, multiply each by the Wensiyuan standard of 83 \textit{ge}: Anji yields 2,548 \textit{guan} 100 \textit{wen}, Pingjiang 2,979 \textit{guan} 700 \textit{wen}, Longxing 2,473 \textit{guan} 400 \textit{wen}, Tanzhou 2,440 \textit{guan} 200 \textit{wen}, Jizhou 2,386 \textit{guan} 250 \textit{wen}---these are the dividends in the right column. Then place the local measures: Anji 110 \textit{ge}, Pingjiang 135 \textit{ge}, Longxing 115 \textit{ge}, Tanzhou 118 \textit{ge}, Jizhou 120 \textit{ge} in the left column as divisors. Divide the dividends by the divisors: Anji gives 23 \textit{guan} 164 $\frac{6}{11}$ \textit{wen}; Pingjiang 22 \textit{guan} 71 $\frac{23}{27}$ \textit{wen}; Longxing 21 \textit{guan} 507 $\frac{19}{23}$ \textit{wen}; Tanzhou 20 \textit{guan} 679 $\frac{49}{59}$ \textit{wen}; Jizhou 19 \textit{guan} 885 $\frac{5}{12}$ \textit{wen}.
+
+Ranking the prices: Anji is most expensive, followed by Pingjiang, Longxing, Tanzhou, and Jizhou is least expensive.
+
+\end{paracol}
+
+\newpage
+
+%% ==================== PROBLEM 2: 折解輕齎 ====================
+\subsection*{折解輕齎 \quad Converting Tribute to Lightweight Currency}
+\addcontentsline{toc}{subsection}{折解輕齎 — Converting Tribute to Lightweight Currency}
+
+\begin{paracol}{2}
+
+\CnQuestion{%
+有甲乙丙丁四郡，各合起上供銀絹。
+
+\textbf{甲郡}：銀三千二百兩，每兩二貫二百文足；絹六萬四千匹，每匹二貫文足。去京一千里，每擔一里傭錢六文足。其時舊㑹每貫五十四文足。
+
+\textbf{乙郡}：銀二千七百兩，每兩二貫三百文足；絹四萬九千二百匹，每匹二貫四百二十文足。去京九百八十里，每擔一里傭錢四文二分足。舊㑹價五十九文足。
+
+\textbf{丙郡}：銀四千兩，每兩新㑹九貫三百文；絹七萬三千六百匹，每匹新㑹一十貫三百文。去京二千里，每擔一里傭錢八十文舊㑹。
+
+\textbf{丁郡}：銀二千六百兩，每兩五十一貫文舊㑹；絹三萬二千三十五匹，每匹五十八貫文舊㑹。去京一千五百里，每擔一里傭錢一百文舊㑹。
+
+諸郡銀每五百兩、絹每六十匹、新㑹每五千貫為擔。欲並折新㑹，均作三限起解。求各郡每限及本色原理、折解實用、寛餘、傭錢各新㑹幾何？
+}
+
+\switchEn
+
+\EnQuestion
+Four prefectures---Jia, Yi, Bing, and Ding---must each send tribute of silver and silk to the capital.
+
+\textbf{Jia}: Silver 3,200 taels at 2 \textit{guan} 200 \textit{wen} \textit{zu} (full-weight) per tael; silk 64,000 bolts at 2 \textit{guan} per bolt \textit{zu}. Distance to capital 1,000 \textit{li}; porterage 6 \textit{wen} \textit{zu} per \textit{dan} per \textit{li}. Old notes exchange at 54 \textit{wen} \textit{zu} per \textit{guan}.
+
+\textbf{Yi}: Silver 2,700 taels at 2 \textit{guan} 300 \textit{wen} \textit{zu}; silk 49,200 bolts at 2 \textit{guan} 420 \textit{wen} \textit{zu}. Distance 980 \textit{li}; porterage 4.2 \textit{wen} \textit{zu} per \textit{dan} per \textit{li}. Old notes at 59 \textit{wen} \textit{zu} per \textit{guan}.
+
+\textbf{Bing}: Silver 4,000 taels at 9 \textit{guan} 300 \textit{wen} new notes per tael; silk 73,600 bolts at 10 \textit{guan} 300 \textit{wen} new notes. Distance 2,000 \textit{li}; porterage 80 \textit{wen} old notes per \textit{dan} per \textit{li}.
+
+\textbf{Ding}: Silver 2,600 taels at 51 \textit{guan} old notes per tael; silk 32,035 bolts at 58 \textit{guan} old notes. Distance 1,500 \textit{li}; porterage 100 \textit{wen} old notes per \textit{dan} per \textit{li}.
+
+For all prefectures: 500 taels silver = 1 \textit{dan}; 60 bolts silk = 1 \textit{dan}; 5,000 \textit{guan} new notes = 1 \textit{dan}. Convert all to new notes, payable in three equal installments. Find for each prefecture: the amount per installment; the original porterage cost; the actual porterage cost after conversion; the surplus; and all values in new notes.
+
+\switchCn
+
+\CnEditorial{%
+此題貫數分三項：其一足數，每千文為一貫；其一舊㑹數，如甲以五十四文為一貫，乙以五十九文為一貫是也；其一新㑹數，為舊㑹數之五倍，如甲以二百七十文為一貫，乙以二百九十五文為一貫是也。四郡或言足數，或言舊㑹數、新㑹數。並折新㑹數。傭錢原以銀五百兩或絹六十匹各為一擔，今皆折新㑹數，以五千貫為一擔，故有寛餘錢數。題語多未詳，而併為一擔句尤混，略為分析而術草之意大概可見矣。
+}
+
+\switchEn
+
+\EnEditorial
+This problem involves three types of \textit{guan}: (1) \textit{zu} (full-weight) \textit{guan}, where 1,000 \textit{wen} = 1 \textit{guan}; (2) old-note \textit{guan}, where Jia uses 54 \textit{wen} = 1 \textit{guan} and Yi uses 59 \textit{wen} = 1 \textit{guan}; and (3) new-note \textit{guan}, equal to 5 old-note \textit{guan} (Jia: 270 \textit{wen} = 1 \textit{guan}; Yi: 295 \textit{wen} = 1 \textit{guan}). The four prefectures quote in \textit{zu}, old notes, or new notes. All must be converted to new notes. Originally, porterage used 500 taels silver or 60 bolts silk as one \textit{dan}; after conversion, 5,000 \textit{guan} new notes = 1 \textit{dan}, hence a surplus arises. The problem statement is unclear in places, and the phrase ``combining into one \textit{dan}'' is particularly confusing. The following analysis should clarify the method's intent.
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\CnAnswer{%
+\textbf{甲郡}：合解五十萬一百四十八貫一百四十八文。初限一十六萬六千七百一十六貫四十九文，次限一十六萬六千七百一十六貫四十九文，未限一十六萬六千七百一十六貫五十文。傭錢原理二萬三千八百四十五貫九百二十五文二十七分文之二十五，實用二千二百二十二貫八百七十七文二十七分文之二十一，寛餘二萬一千六百二十三貫四十八文二十七分文之四。
+
+\textbf{乙郡}：合解四十二萬四千六百五十七貫六百二十七文。初限一十四萬一千五百五十二貫五百四十二文，次限一十四萬一千五百五十二貫五百四十二文，末限一十四萬一千五百五十二貫五百四十三文。傭錢原理一萬一千五百一十六貫四百二十八文五十九分文之二十八，實用一千一百八十五貫一十文二百九十五分文之五，寛餘一萬三百三十一貫四百一十八文五十九分文之二十七。
+
+\textbf{丙郡}：合解七十九萬五千二百八十貫文。初限二十六萬五千九十三貫三百三十三文，次限二十六萬五千九十三貫三百三十三文，末限二十六萬五千九十三貫三百三十四文。傭錢原理三萬九千五百九貫三百三十三文三分文之一，實用五千八十九貫七百九十二文，寛餘三萬四千四百一十九貫五百四十一文三分文之一。
+
+\textbf{丁郡}：合解三十九萬八千一百二十六貫文。初限一十三萬二千七百八貫六百六十六文，次限一十三萬二千七百八貫六百六十六文，末限一十三萬二千七百八貫六百六十八文。傭錢原理一萬四千一百七十三貫五百文，實用二千三百八十八貫七百五十六文，寛餘一萬一千七百八十四貫七百四十四文。
+}
+
+\switchEn
+
+\EnAnswer
+\textbf{Jia}: Total payable 500,148 \textit{guan} 148 \textit{wen}. First installment 166,716 \textit{guan} 49 \textit{wen}; second 166,716 \textit{guan} 49 \textit{wen}; final 166,716 \textit{guan} 50 \textit{wen}. Original porterage 23,845 \textit{guan} 925 $\frac{25}{27}$ \textit{wen}; actual porterage 2,222 \textit{guan} 877 $\frac{21}{27}$ \textit{wen}; surplus 21,623 \textit{guan} 48 $\frac{4}{27}$ \textit{wen}.
+
+\textbf{Yi}: Total 424,657 \textit{guan} 627 \textit{wen}. Each of first two installments 141,552 \textit{guan} 542 \textit{wen}; final 141,552 \textit{guan} 543 \textit{wen}. Original porterage 11,516 \textit{guan} 428 $\frac{28}{59}$ \textit{wen}; actual 1,185 \textit{guan} 10 $\frac{5}{295}$ \textit{wen}; surplus 10,331 \textit{guan} 418 $\frac{27}{59}$ \textit{wen}.
+
+\textbf{Bing}: Total 795,280 \textit{guan}. First two installments each 265,093 \textit{guan} 333 \textit{wen}; final 265,093 \textit{guan} 334 \textit{wen}. Original porterage 39,509 \textit{guan} 333 $\frac{1}{3}$ \textit{wen}; actual 5,089 \textit{guan} 792 \textit{wen}; surplus 34,419 \textit{guan} 541 $\frac{1}{3}$ \textit{wen}.
+
+\textbf{Ding}: Total 398,126 \textit{guan}. First two installments each 132,708 \textit{guan} 666 \textit{wen}; final 132,708 \textit{guan} 668 \textit{wen}. Original porterage 14,173 \textit{guan} 500 \textit{wen}; actual 2,388 \textit{guan} 756 \textit{wen}; surplus 11,784 \textit{guan} 744 \textit{wen}.
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\CnMethod{%
+以均輸求之。置各郡銀絹，乗各價，併之，歸足原，展足為舊㑹，次以五約舊㑹為新㑹，各得合解錢。以限數除之，得每限錢，不盡併歸末限。次置里數，乗每里傭價為率。以率乗原銀及原絹，各為傭實。以每擔銀絹率各為法，實如法而一，不滿者亦為擔，併之為原理傭錢。次以率乗合觧錢為實，乃以錢物毎擔率為法，實如法而一，各得實用傭錢。以減原理傭錢，餘為寛餘傭錢。
+}
+
+\switchEn
+
+\EnMethod
+Use the \textit{equitable transport} (\textit{jun shu}) method. Place each prefecture's silver and silk; multiply by their respective prices and sum. Convert to \textit{zu} (full-weight), then expand to old notes. Next divide old notes by 5 to obtain new notes---this is the total payable. Divide by the number of installments (3); the remainder joins the final installment. Next, place the distance in \textit{li} and multiply by the porterage rate per \textit{li} to obtain a rate. Multiply this rate by the original silver and silk quantities to obtain porterage dividends. Using the \textit{dan} equivalents for silver and silk as divisors, divide---rounding up partial \textit{dan}---and sum to obtain original porterage. Then multiply the rate by the total payable to get a dividend, using the note-\textit{dan} rate (5,000 \textit{guan}) as divisor to obtain actual porterage. Subtract from original porterage; the remainder is the surplus.
+
+\end{paracol}
+
+\newpage
+
+%% =============================================================================
+%% FASCICLE 6B — 錢穀 (Part 2)
+%% =============================================================================
+\section*{\color{titlecolor}卷六下 \quad 錢穀}
+\addcontentsline{toc}{section}{卷六下 \quad 錢穀 \quad (Part 2)}
+
+\begin{paracol}{2}
+\begin{center}
+\textbf{\large\color{sectioncolor} Original Chinese}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
+\end{center}
+\switchEn
+\begin{center}
+\textbf{\large\color{sectioncolor} English Translation}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.3\columnwidth}{0.3pt}}
+\end{center}
+\end{paracol}
+
+\vspace{1em}
+
+%% ==================== PROBLEM 3: 僦直推原 ====================
+\subsection*{僦直推原 \quad Restoring the Original Rent}
+\addcontentsline{toc}{subsection}{僦直推原 — Restoring the Original Rent}
+
+\begin{paracol}{2}
+
+\CnQuestion{%
+房廊數内，一户日納一百五十六文八分足為準。指揮未曽經減者，減三分；已曽經減三分者，減二分；已曽經減二分者，更減二分。今本户累經減者，欲知原額房錢幾何？
+}
+
+\switchEn
+
+\EnQuestion
+Among the shop-rent accounts, one household currently pays 156.8 \textit{wen} \textit{zu} per day. The regulations state: those who have not yet received a reduction get a reduction of 3/10; those already reduced by 3/10 get a further reduction of 2/10; those already reduced by 2/10 get a further reduction of 2/10. This household has received successive reductions. What was the original rent?
+
+\switchCn
+
+\CnAnswer{原額三百五十文。}
+
+\switchEn
+
+\EnAnswer The original rent was 350 \textit{wen}.
+
+\switchCn
+
+\CnMethod{%
+以衰分求之。列一十分兩行，各三位；列減分，對減右行。以餘者相乘為法。以左行原列相乘，得納錢為實。實如法而一，得原額錢。
+}
+
+\switchEn
+
+\EnMethod
+Use proportional distribution (\textit{shuai fen}). Arrange two rows of 10 parts, each with three positions; place the reduction fractions and subtract them from the right row. Multiply the remainders together to form the divisor. Multiply the entries in the left row together, and multiply by the current payment to form the dividend. Divide the dividend by the divisor to obtain the original rent.
+
+\switchCn
+
+\CnWorking{%
+列一十三位於左行，又列一十分三位於右行。其右上減去初減三分，右中減去次減二分，右下減去更減二分。右行餘七八八，以相乗得四百四十八為法。乃以左行三位一十分相乘，得一千為乗率。以乘見日納錢一百五十六文八分，得一百五十六貫八百文為實。實如法而一，得三百五十文，為本户原額戸錢。
+}
+
+\switchEn
+
+\EnWorking
+Place three 10s in the left row, and three 10s in the right row. From the upper right subtract the first reduction of 3, leaving 7. From the middle right subtract the second reduction of 2, leaving 8. From the lower right subtract the further reduction of 2, leaving 8. The right-row remainders 7, 8, 8 multiply to 448, which is the divisor. The three 10s in the left row multiply to 1,000, which is the multiplier rate. Multiply by the current daily payment of 156.8 \textit{wen} to obtain 156,800 \textit{wen} as the dividend. Divide by the divisor 448: 156,800 $\div$ 448 = 350 \textit{wen}, the original rent.
+
+\end{paracol}
+
+\vspace{1.5em}
+
+%% ==================== PROBLEM 4: 推求本息 ====================
+\subsection*{推求本息 \quad Calculating Principal and Interest}
+\addcontentsline{toc}{subsection}{推求本息 — Calculating Principal and Interest}
+
+\begin{paracol}{2}
+
+\CnQuestion{%
+三庫息例：萬貫以上一釐，千貫以上二釐五毫，百貫以上三釐。甲庫本四十九萬三千八百貫，乙庫本三十七萬三百貫，丙庫本二十四萬六千八百貫。今三庫共約到息錢二萬五千六百四十四貫二百文。其典率：甲反錐差，乙方錐差，丙蒺藜差。欲知原典三例本息各幾何？
+}
+
+\switchEn
+
+\EnQuestion
+Three treasuries have the following interest rates: above 10,000 \textit{guan}: 1 \textit{li} (0.001); above 1,000 \textit{guan}: 2.5 \textit{li} (0.0025); above 100 \textit{guan}: 3 \textit{li} (0.003). Treasury Jia has principal 493,800 \textit{guan}; Yi has 370,300 \textit{guan}; Bing has 246,800 \textit{guan}. The total interest collected from all three is 25,644 \textit{guan} 200 \textit{wen}. The distribution follows: Jia---\textit{inverted cone} (\textit{fan zhui}) difference; Yi---\textit{square cone} (\textit{fang zhui}) difference; Bing---\textit{caltrop} (\textit{ji li}) difference. Find the principal and interest for each treasury at each of the three rates.
+
+\switchCn
+
+\CnEditorial{%
+此即衰分題也。其差有反錐、方錐、蒺藜之名，蓋以一二三遞減如立錐為反錐，以一四九平方遞加為方錐，以一三六三數遞加為蒺藜。是必古有其名也。至以各差求各本，則因各本原依各差入之也。
+}
+
+\switchEn
+
+\EnEditorial
+This is a proportional distribution problem. The differences are named \textit{inverted cone}, \textit{square cone}, and \textit{caltrop}: the inverted cone decreases by 1, 2, 3 (like an inverted pyramid); the square cone increases as squares 1, 4, 9; the caltrop increases as 1, 3, 6. These names must be classical. Each principal is distributed according to its respective difference pattern.
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\CnAnswer{%
+\textbf{甲庫}共納息九千五十三貫文：一釐息二千四百六十九貫文，二釐半息四千一百一十五貫文，三釐息二千四百六十九貫文。
+
+\textbf{乙庫}共納息一萬五十一貫文：一釐息二百六十四貫五百文，二釐半息二千六百四十五貫文，三釐息七千一百四十一貫五百文。
+
+\textbf{丙庫}共納息六千五百四十貫二百文：一釐息二百四十六貫八百文，二釐半息一千八百五十一貫文，三釐息四千四百四十二貫四百文。
+}
+
+\switchEn
+
+\EnAnswer
+\textbf{Treasury Jia}: Total interest 9,053 \textit{guan}. At 1 \textit{li}: 2,469 \textit{guan}; at 2.5 \textit{li}: 4,115 \textit{guan}; at 3 \textit{li}: 2,469 \textit{guan}.
+
+\textbf{Treasury Yi}: Total interest 10,051 \textit{guan}. At 1 \textit{li}: 264 \textit{guan} 500 \textit{wen}; at 2.5 \textit{li}: 2,645 \textit{guan}; at 3 \textit{li}: 7,141 \textit{guan} 500 \textit{wen}.
+
+\textbf{Treasury Bing}: Total interest 6,540 \textit{guan} 200 \textit{wen}. At 1 \textit{li}: 246 \textit{guan} 800 \textit{wen}; at 2.5 \textit{li}: 1,851 \textit{guan}; at 3 \textit{li}: 4,442 \textit{guan} 400 \textit{wen}.
+
+\end{paracol}
+
+\begin{paracol}{2}
+
+\CnMethod{%
+置諸庫諸色之差，照釐率為三行。縱併之為約率，横命之為乗率。以約率各約自庫之本，各得。以遍乗未併乗率，然後各以釐率横乗之，次以縱併之，為各庫共息。
+}
+
+\switchEn
+
+\EnMethod
+Place the differences for each treasury and each rate, arranged in three rows according to the \textit{li} rates. Sum vertically to obtain reduction rates; read horizontally to obtain multiplication rates. Divide each treasury's principal by its reduction rate to obtain a quotient. Multiply this by the un-summed horizontal rates; then multiply each by the respective \textit{li} rate horizontally, and sum vertically to obtain each treasury's total interest.
+
+\switchCn
+
+\CnWorking{%
+置甲庫反錐差，自下置三二一於右行。次置乙庫方錐差，自上置一四九於中行。次置丙庫蒺藜差，自上置一三六於左行，各為三庫上中下三等乘率。乃縱併甲差三二一，得六為甲約率。縱併乙差一四九，得一十四為乙約率。縱併丙差一三六，得一十為丙約率。直命九位數各為上中下乗率。乃先以約率各約自庫之本：乃以甲約率六約甲本四十九萬三千八百貫，得八萬二千三百貫為甲得。次以乙約率一十四約乙本三十七萬三百貫，得二萬六千四百五十貫為乙得。次以丙約率一十約丙本二十四萬六千八百貫，得二萬四千六百八十貫為丙得。以各得乗未併乗率：其甲所得八萬二千三百貫，乘反錐乗率三二一，得二十四萬六千九百貫為上率，得一十六萬四千六百貫為中率，得八萬二千三百貫為下率。其乙所得二萬六千四百五十貫，以乗方錐差一四九，得二萬六千四百五十貫為上率，得一十萬五千八百貫為中率，得二十三萬八千五十貫為下率。其丙所得二萬四千六百八十貫，以乗蒺藜差一三六，得二萬四千六百八十貫為上率，得七萬四千四十貫為中率，得一十四萬八千八十貫為下率。然後各以息釐數乘各庫三乗：其甲以一釐乗上率二十四萬六千九百貫，得二千四百六十九貫為上息；以二釐五毫乘中率一十六萬四千六百貫，得四千一百一十五貫為中息；以三釐乘下率八萬二千三百貫，得二千四百六十九貫為下息。併上中下三息，得九千五十三貫文為甲庫共息。其乙庫以一釐乗上率二萬六千四百五十貫，得二百六十四貫五百文為上息；以二釐五毫乗中率一十萬五千八百貫，得二千六百四十五貫為中息；以三釐乗下率二十三萬八千五十貫，得七千一百四十一貫五百為下息。併上中下三息，得一萬五十一貫文為乙庫共息。其丙庫以一釐乗上率二萬四千六百八十貫，得二百四十六貫八百為上息；以二釐五毫乘中率七萬四千四十貫，得一千八百五十一貫為中息；以三釐乗下率一十四萬八千八十貫，得四千四百四十二貫四百文為下息。併上中下三息，得六千五百四十貫二百文為丙庫共息。併三庫共息，得二萬五千六百四十四貫二百文為總息。
+}
+
+\switchEn
+
+\EnWorking
+Place Jia's inverted-cone differences 3, 2, 1 (bottom to top) in the right row. Place Yi's square-cone differences 1, 4, 9 (top to bottom) in the middle row. Place Bing's caltrop differences 1, 3, 6 (top to bottom) in the left row---these are the three treasuries' upper/middle/lower multiplication rates. Sum Jia's differences vertically: 3+2+1 = 6, Jia's reduction rate. Sum Yi's: 1+4+9 = 14, Yi's reduction rate. Sum Bing's: 1+3+6 = 10, Bing's reduction rate. The nine numbers are read as upper/middle/lower rates.
+
+Divide each principal: Jia 493,800 $\div$ 6 = 82,300 \textit{guan}; Yi 370,300 $\div$ 14 = 26,450 \textit{guan}; Bing 246,800 $\div$ 10 = 24,680 \textit{guan}.
+
+Multiply each quotient by its differences: Jia 82,300 $\times$ [3,2,1] = [246,900; 164,600; 82,300]. Yi 26,450 $\times$ [1,4,9] = [26,450; 105,800; 238,050]. Bing 24,680 $\times$ [1,3,6] = [24,680; 74,040; 148,080].
+
+Apply interest rates: Jia---1 \textit{li} $\times$ 246,900 = 2,469; 2.5 \textit{li} $\times$ 164,600 = 4,115; 3 \textit{li} $\times$ 82,300 = 2,469. Total: 9,053 \textit{guan}.
+
+Yi---1 \textit{li} $\times$ 26,450 = 264.5; 2.5 \textit{li} $\times$ 105,800 = 2,645; 3 \textit{li} $\times$ 238,050 = 7,141.5. Total: 10,051 \textit{guan}.
+
+Bing---1 \textit{li} $\times$ 24,680 = 246.8; 2.5 \textit{li} $\times$ 74,040 = 1,851; 3 \textit{li} $\times$ 148,080 = 4,442.4. Total: 6,540.2 \textit{guan}.
+
+Grand total: 25,644.2 \textit{guan}.
+
+\end{paracol}
+
+\newpage
+
+%% ==================== PROBLEM 5: 易牒知原 ====================
+\subsection*{易牒知原 \quad Exchanging Travel Permits to Find the Original}
+\addcontentsline{toc}{subsection}{易牒知原 — Exchanging Travel Permits}
+
+\begin{paracol}{2}
+
+\CnEditorial{按舊本此問無題，今増入。}
+
+\switchEn
+
+\EnEditorial This problem had no title in the original; the title has been added.
+
+\switchCn
+
+\CnQuestion{%
+出度牒差人營運：毎三道易鹽一十三袋，鹽二袋易布八十四疋，布一十五疋易絹三疋半，絹六疋易銀七兩二錢。今趂到銀九千一百七十二兩八錢。欲知原闗度牒道數幾何？
+}
+
+\switchEn
+
+\EnQuestion
+Travel permits (\textit{du die}) are issued for commercial operations: every 3 permits exchange for 13 bags of salt; 2 bags of salt exchange for 84 bolts of cloth; 15 bolts of cloth exchange for 3.5 bolts of silk; 6 bolts of silk exchange for 7.2 taels of silver. If 9,172.8 taels of silver have been obtained, how many travel permits were originally issued?
+
+\switchCn
+
+\CnAnswer{度牒一百八十道。}
+
+\switchEn
+
+\EnAnswer 180 travel permits.
+
+\switchCn
+
+\CnMethod{%
+以粟米互乘易法求之。列各數以本色相對，如鴈翅。以多一事者相乗為實，以少一事者相乘為法，除之。
+}
+
+\switchEn
+
+\EnMethod
+Use grain-exchange mutual multiplication (\textit{su mi hu cheng yi fa}). Arrange the numbers with their respective commodities facing each other, like goose wings (\textit{yan chi}). Multiply the items on the side with one more entry to form the dividend; multiply the items on the side with one fewer entry to form the divisor. Divide.
+
+\switchCn
+
+\CnWorking{%
+先以度牒三道乗鹽二袋，得六。以乘布一十五，得九十。又乗絹六疋，得五百四十。乃乗銀九萬一千七百二十八錢，得四千九百五十三萬三千一百二十錢為實。次以鹽一十三袋乗布八十四，得一千九百二。以乗絹三疋五分，得三千八百二十二。乃乘銀七兩二錢，得二十七萬五千一百八十四錢為法。除實，得一百八十道為原闗度牒。
+}
+
+\switchEn
+
+\EnWorking
+First multiply permits 3 by salt 2 bags = 6. Multiply by cloth 15 = 90. Multiply by silk 6 bolts = 540. Multiply by silver 91,728 \textit{qian} (7.2 taels = 72 \textit{qian}, and 9,172.8 taels = 91,728 \textit{qian}) = 4,953,312,000 \textit{qian} as dividend.
+
+Then multiply salt 13 by cloth 84 = 1,092. Multiply by silk 3.5 = 3,822. Multiply by silver 7.2 taels (72 \textit{qian}) = 275,184 \textit{qian} as divisor.
+
+4,953,312,000 $\div$ 275,184 = 180 travel permits.
+
+\end{paracol}
+
+\vspace{1.5em}
+
+%% ==================== PROBLEM 6: 粟米交易 ====================
+\subsection*{粟米交易 \quad Grain and Millet Exchange}
+\addcontentsline{toc}{subsection}{粟米交易 — Grain and Millet Exchange}
+
+\begin{paracol}{2}
+
+\CnEditorial{按舊本此問無題，今増。}
+
+\switchEn
+
+\EnEditorial This problem had no title in the original; the title has been added.
+
+\switchCn
+
+\CnQuestion{%
+菽三升易小麥二升，小麥一升五合易油麻八合，油麻一升二合易粳米一升八合。今將菽一十四石四斗欲易油麻，又將小麥二十一石六斗欲易粳米。問各幾何？
+}
+
+\switchEn
+
+\EnQuestion
+3 \textit{sheng} of beans (\textit{shu}) exchange for 2 \textit{sheng} of wheat; 1.5 \textit{sheng} of wheat exchanges for 8 \textit{ge} of sesame; 1.2 \textit{sheng} of sesame exchanges for 1.8 \textit{sheng} of polished rice (\textit{jing mi}). If 14 \textit{shi} 4 \textit{dou} of beans are to be exchanged for sesame, and 21 \textit{shi} 6 \textit{dou} of wheat for polished rice, how much of each is obtained?
+
+\switchCn
+
+\CnAnswer{油麻五石一斗二升；粳米一十七石二斗八升。}
+
+\switchEn
+
+\EnAnswer Sesame: 5 \textit{shi} 1 \textit{dou} 2 \textit{sheng}; polished rice: 17 \textit{shi} 2 \textit{dou} 8 \textit{sheng}.
+
+\switchCn
+
+\CnMethod{%
+以粟米換易求之。置原易率，本色對列，如鴈翅。以多一事者相乘為實，以少一事者相乗為法，除之。各得或問數，不干其率者不置。
+}
+
+\switchEn
+
+\EnMethod
+Use grain-exchange conversion (\textit{su mi huan yi}). Place the exchange rates with their respective commodities facing each other, like goose wings. Multiply the side with one more entry to form the dividend; multiply the side with one fewer entry to form the divisor. Divide to obtain the answer. Items not involved in a particular chain need not be placed.
+
+\switchCn
+
+\CnWorking{%
+置四色六數，列六位率，如鴈翅，皆化為合。先將菽一十四石四斗化作一萬四千四百合，乃對前二句率數四位，如鴈翅，至欲易油麻止，共五事為上圖。次將小麥二十一石六斗化為二萬一千六百合，乃對後兩句率四位，鴈翅，至欲粳米止，共五事為下圖。
+
+下圖：其上圖以菽一萬四千四百合乘麥二十，得二十八萬八千，又乗油麻八合，得二百三十萬四千合為油麻實。次以菽三十合乘麥一十五合，得四百五十合為法。除之，得五千一百二十合，展為五石一斗二升為油麻。
+
+其下圖以小麥二萬一千六百合乗油麻八合，得一十七萬二千八百合，又乗粳米一十八合，得三百一十一萬四百合為粳米實。以小麥一升五合乗油麻一十二合，得一百八十合為法。除之，得一萬七千二百八十，展作一十七石二斗八升為粳米。
+}
+
+\switchEn
+
+\EnWorking
+Place the four commodities with six rate numbers in goose-wing formation, all converted to \textit{ge}. First convert 14 \textit{shi} 4 \textit{dou} of beans to 14,400 \textit{ge}. Align with the first two exchange rates (four positions) for the upper diagram, ending at sesame---five items total. Next convert 21 \textit{shi} 6 \textit{dou} of wheat to 21,600 \textit{ge}. Align with the last two exchange rates (four positions) for the lower diagram, ending at polished rice---five items total.
+
+\textbf{Upper diagram (beans $\to$ sesame):} 14,400 $\times$ 20 (wheat rate) = 288,000; $\times$ 8 (sesame rate) = 2,304,000 \textit{ge}, the sesame dividend. Divisor: 30 (beans) $\times$ 15 (wheat) = 450 \textit{ge}. 2,304,000 $\div$ 450 = 5,120 \textit{ge} = 5 \textit{shi} 1 \textit{dou} 2 \textit{sheng} of sesame.
+
+\textbf{Lower diagram (wheat $\to$ rice):} 21,600 $\times$ 8 = 172,800; $\times$ 18 (rice rate) = 3,114,000 \textit{ge}, the rice dividend. Divisor: 15 $\times$ 12 = 180 \textit{ge}. 3,114,000 $\div$ 180 = 17,280 \textit{ge} = 17 \textit{shi} 2 \textit{dou} 8 \textit{sheng} of polished rice.
+
+\end{paracol}
+
+\newpage
+
+%% ==================== PROBLEM 7: 計米易麴 ====================
+\subsection*{計米易麴 \quad Calculating Rice for Yeast Exchange}
+\addcontentsline{toc}{subsection}{計米易麴 — Calculating Rice for Yeast Exchange}
+
+\begin{paracol}{2}
+
+\CnEditorial{按舊本此問無題，今増。}
+
+\switchEn
+
+\EnEditorial This problem had no title in the original; the title has been added.
+
+\switchCn
+
+\CnQuestion{%
+庫率：粳榖七石出米三石，糯米一斗易小麥一斗七升，小麥五升踏麴二斤四兩，麴一百一十斤醞糯米一石三斗。今有糯穀一千七百五十九石三斗八升，欲出穀做米，易麥踏麴，還自醞，餘穀之米須令適足。各合幾何？
+}
+
+\switchEn
+
+\EnQuestion
+Storehouse rates: 7 \textit{shi} of glutinous grain yields 3 \textit{shi} of rice; 1 \textit{dou} of glutinous rice exchanges for 1.7 \textit{dou} of wheat; 5 \textit{sheng} of wheat produces 2 \textit{jin} 4 \textit{liang} of yeast (\textit{qu}); 110 \textit{jin} of yeast ferments 1 \textit{shi} 3 \textit{dou} of glutinous rice. There are 1,759 \textit{shi} 3 \textit{dou} 8 \textit{sheng} of glutinous grain. We wish to mill some grain, exchange the rice for wheat, make yeast from the wheat, and ferment the remaining grain into rice such that everything balances exactly. What are the respective quantities?
+
+\switchCn
+
+\CnAnswer{%
+共穀一千七百五十九石三斗八升。出穀九百二十四石，得米三百九十六石。易麥六百七十三石二斗。踏麴三萬二百九十四斤。餘榖八百三十五石三斗八升。醞米三百五十八石二升。
+}
+
+\switchEn
+
+\EnAnswer
+Total grain: 1,759 \textit{shi} 3 \textit{dou} 8 \textit{sheng}. Grain milled: 924 \textit{shi}, yielding 396 \textit{shi} of rice. Wheat obtained: 673 \textit{shi} 2 \textit{dou}. Yeast produced: 30,294 \textit{jin}. Remaining grain: 835 \textit{shi} 3 \textit{dou} 8 \textit{sheng}. Fermented rice: 358 \textit{shi} 2 \textit{sheng}.
+
+\switchCn
+
+\CnMethod{%
+以粟米換易求之。置諸率，隨本色對列，如鴈翅。有分者通之，異類者變之，以頭位者進乗之，以下位退乗之，得合數。有對者相乗之，無對者直命之，為諸率。併上下無對者為法率。以今有物徧乘諸率（不乗法率），各為實。諸實並如法而一，各得其已變者，復互易乗除之，即得所求。
+}
+
+\switchEn
+
+\EnMethod
+Use grain-exchange conversion. Place all rates with their commodities facing each other, like goose wings. Convert fractions to whole numbers; convert different commodity types; multiply from the top down and from the bottom up to obtain \textit{ge}. Multiply paired entries; leave unpaired entries as they are---these are the rate numbers. Sum the unpaired top and bottom entries to form the divisor-rate. Multiply the given quantity by all rates (except the divisor-rate) to obtain dividends. Divide all dividends by the divisor to obtain the converted quantities; further mutual multiplication and division yield the final answers.
+
+\end{paracol}
+
+\newpage
+
+%% ==================== PROBLEM 8: 囘運費 ====================
+\subsection*{囘運費 \quad Returning Transport Fees}
+\addcontentsline{toc}{subsection}{囘運費 — Returning Transport Fees}
+
+\begin{paracol}{2}
+
+\CnQuestion{%
+有江西水運米一十二萬三千四百石，原係鎮江交卸，計水程二千一百三十里，每石水脚錢一貫二百文。今截上件米就池州安頓，池州至鎮江八百八十里。欲收囘不該水脚錢幾何？
+}
+
+\switchEn
+
+\EnQuestion
+123,400 \textit{shi} of grain are being water-transported from Jiangxi, originally destined for unloading at Zhenjiang---a water route of 2,130 \textit{li} at 1 \textit{guan} 200 \textit{wen} per \textit{shi} porterage. Now this shipment is being diverted to Chizhou instead; the distance from Chizhou to Zhenjiang is 880 \textit{li}. How much porterage money should be recovered (since the grain no longer travels the full distance)?
+
+\switchCn
+
+\CnAnswer{收囘錢六萬一千一百七十八貫五百九十一文。}
+
+\switchEn
+
+\EnAnswer Recover 61,178 \textit{guan} 591 \textit{wen}.
+
+\switchCn
+
+\CnMethod{%
+以粟米互易求之。置池州至鎮江里數，乗水脚錢，得數又乗運米為實。以原至鎮江水程為法，除實，得收囘錢。
+}
+
+\switchEn
+
+\EnMethod
+Use grain-exchange mutual conversion. Place the distance from Chizhou to Zhenjiang; multiply by the porterage rate; multiply again by the total grain transported to form the dividend. Use the original distance to Zhenjiang as the divisor. Divide to obtain the recovered amount.
+
+\switchCn
+
+\CnWorking{%
+置池州至鎮江八百八十里，乗毎石水脚錢一貫二百，得一千五十六貫文。又乗運米一十二萬三千四百石，得一億三千三十一萬四百貫文為實。以原至鎮江水程二千一百三十里為法，除實，得六萬一千一百七十八貫五百九十一文為收囘錢。
+}
+
+\switchEn
+
+\EnWorking
+Place Chizhou-to-Zhenjiang distance 880 \textit{li}; multiply by porterage 1.2 \textit{guan} per \textit{shi} = 1,056 \textit{guan}. Multiply by grain 123,400 \textit{shi} = 130,310,400 \textit{guan} as dividend. Original distance 2,130 \textit{li} as divisor. 130,310,400 $\div$ 2,130 = 61,178.59+ \textit{guan} = 61,178 \textit{guan} 591 \textit{wen} to be recovered.
+
+\end{paracol}
+
+\vspace{1.5em}
+
+%% ==================== PROBLEM 9: 三色均價 ====================
+\subsection*{三色均價 \quad Averaging Three Grades of Gold}
+\addcontentsline{toc}{subsection}{三色均價 — Averaging Three Grades of Gold}
+\addcontentsline{toc}{subsubsection}{三色均價 — Averaging Three Grades of Gold}
+
+\begin{paracol}{2}
+
+\CnQuestion{%
+庫有三色金共五千兩：内八分金一千二百五十兩，兩價四百貫文；七分五釐金一千六百兩，兩價三百七十五貫文；八分五釐金二千一百五十兩，兩價四百二十五貫文。並欲煉為足色，每兩工食藥炭錢三貫文，耗金九百七十二兩五錢。欲知色分及兩價各幾何？
+}
+
+\switchEn
+
+\EnQuestion
+A treasury holds 5,000 taels of gold in three grades: 1,250 taels of 80\% gold at 400 \textit{guan} per tael; 1,600 taels of 75\% gold at 375 \textit{guan} per tael; 2,150 taels of 85\% gold at 425 \textit{guan} per tael. All is to be refined to pure gold (100\%). The cost is 3 \textit{guan} per tael for labor, food, medicine, and charcoal; loss from smelting is 972.5 taels. Find the fineness and price per tael of the refined gold.
+
+\switchCn
+
+\CnAnswer{色十分；兩價五百三貫七百二十四文，五百三十七分文之二百一十二。}
+
+\switchEn
+
+\EnAnswer
+Fineness: 10 parts (pure gold). Price per tael: 503 \textit{guan} 724 \textit{wen} and $\frac{212}{537}$ \textit{wen}.
+
+\switchCn
+
+\CnMethod{%
+以方田及粟米求之。置共數，以耗減之，餘為法。以三色分數各乗兩數，併之為色分實。以三色價數各乗兩數為寄，以工藥價乗共金，併寄，共為價實。二實皆如法而一，即各得。
+}
+
+\switchEn
+
+\EnMethod
+Use the \textit{rectangular field} (\textit{fang tian}) and grain-exchange methods. Place the total amount; subtract the loss to obtain the divisor. Multiply each grade's fineness by its weight and sum to form the fineness dividend. Multiply each grade's price by its weight and store; multiply the processing cost by the total gold and add to the stored amounts to form the price dividend. Divide both dividends by the divisor to obtain the answers.
+
+\switchCn
+
+\CnWorking{%
+置共金五千兩，減耗九百七十二兩五錢，外餘四千二十七兩五錢為法。次置一千二百五十兩，乘八分，得一萬分於上。置一千六百兩，以七分五釐乗之，得一萬二千分，加上。置二千一百五十兩，乗八分五釐，得一萬八千二百七十五分，又加上，共得四萬二百七十五分為分實。次置一千二百五十兩乗四百貫，得五十萬貫為寄。次置一千六百兩乘價三百七十五貫，得六十萬貫，加寄。次置二千一百五十兩乗價四百二十五貫，得九十一萬三千七百五十貫，又加寄。次置共金五千兩，乗工藥錢三貫，得一萬五千貫，又加寄，共得二百二萬八千七百五十貫為貫實。二實並如法四千二十七兩五錢而一：得其色一十分；其價每兩得五百三貫七百二十四文，不盡一貫五百九十。與法求等，得七十五，俱約之，為五百三十七文之二百一十二。
+}
+
+\switchEn
+
+\EnWorking
+Place total gold 5,000 taels; subtract loss 972.5 taels, leaving 4,027.5 taels as divisor. Next: 1,250 $\times$ 0.80 = 10,000 parts (upper). 1,600 $\times$ 0.75 = 12,000 parts (add). 2,150 $\times$ 0.85 = 18,275 parts (add again). Total: 40,275 parts = fineness dividend.
+
+Next: 1,250 $\times$ 400 = 500,000 \textit{guan} (stored). 1,600 $\times$ 375 = 600,000 (add). 2,150 $\times$ 425 = 913,750 (add). Processing: 5,000 $\times$ 3 = 15,000 (add). Total: 2,028,750 \textit{guan} = price dividend.
+
+Both dividends divided by 4,027.5: fineness = 10 parts (pure). Price per tael = 503 \textit{guan} 724 \textit{wen}, remainder 1,590 \textit{wen}. GCD of remainder and divisor is 75; reduce: $\frac{212}{537}$ \textit{wen}.
+
+\end{paracol}
+
+\newpage
+
+%% =============================================================================
+%% END MATTER
+%% =============================================================================
+\section*{\color{titlecolor}Editorial Notes on the Translation}
+\addcontentsline{toc}{section}{Editorial Notes on the Translation}
+
+\begin{paracol}{2}
+
+\textbf{\color{sectioncolor}翻譯說明}
+
+\switchEn
+
+\textbf{\color{sectioncolor}Notes on Translation}
+
+\switchCn
+
+本卷九問，皆為宋代財政實務之數學問題。秦九韶以衰分、粟米互換諸法，處理和糴、折解、交易、推原諸務，其術雖本於《九章算術》，而推廣變化，實有過之。
+
+\switchEn
+
+The nine problems in this fascicle all concern practical fiscal matters of the Song Dynasty. Qin Jiushao employed the methods of proportional distribution (\textit{shuai fen}) and grain-exchange conversion (\textit{su mi hu huan}) to handle procurement, tribute conversion, barter, and restoration calculations. Though grounded in the classical \textit{Jiuzhang Suanshu} (Nine Chapters on the Mathematical Art), his extensions and elaborations surpass the original.
+
+\switchCn
+
+\textbf{課糴}之問，比較五路米價，實為現代「比較成本」之先聲。以官斛為標準，統一各地不同之量器，以求可比之價格，其理與現代統一單位以比較國際物價者同。
+
+\switchEn
+
+\textbf{Comparing Grain Prices} (\textit{ke di}) compares prices across five circuits---an anticipation of modern comparative cost analysis. Using the standard \textit{hu} measure to unify different local measures for comparable pricing is analogous to modern standardized international price indices.
+
+\switchCn
+
+\textbf{折解輕齎}之問，處理貨幣換算與分期付款，涉及足錢、舊㑹、新㑹三種貨幣之折算，以及銀、絹、紙幣之換算，實為宋代貨幣史之重要資料。
+
+\switchEn
+
+\textbf{Converting Tribute} (\textit{zhe jie}) deals with currency conversion and installment payments, involving three monetary standards---\textit{zu} (full-weight coin), old notes, and new notes---plus the conversion between silver, silk, and paper currency. This is an important source for Song Dynasty monetary history.
+
+\switchCn
+
+\textbf{推求本息}之問，以反錐、方錐、蒺藜三種差分，配三種利率，計算三庫之利息，實為多變量比例分配之複雜問題。其術以縱併為約率、横命為乗率，頗具矩陣運算之意味。
+
+\switchEn
+
+\textbf{Calculating Principal and Interest} (\textit{tui qiu ben xi}) uses three difference patterns---\textit{inverted cone}, \textit{square cone}, and \textit{caltrop}---matched with three interest rates to compute interest across three treasuries. This is a complex multivariate proportional distribution problem. The method of vertical summation for reduction rates and horizontal reading for multiplication rates has an affinity with matrix operations.
+
+\switchCn
+
+至於\textbf{易牒知原}、\textbf{粟米交易}、\textbf{計米易麴}三問，皆為連比例之連鎖換算，古謂之「鴈翅互乘」，實即現代所謂連鎖比例（continued proportion）之應用。
+
+\switchEn
+
+The problems \textbf{Exchanging Travel Permits}, \textbf{Grain Exchange}, and \textbf{Rice for Yeast} all involve chain proportion calculations in barter exchange, classically called ``goose-wing mutual multiplication'' (\textit{yan chi hu cheng})---essentially the application of continued proportions.
+
+\switchCn
+
+\textbf{囘運費}之問，以比例計算應退之水脚錢，即現代所謂按比例分配之問題。\textbf{三色均價}之問，計算合金之平均成色與價格，實為加權平均數之應用。
+
+\switchEn
+
+\textbf{Returning Transport Fees} uses proportion to calculate refunded porterage---a problem of proportional distribution. \textbf{Averaging Three Grades of Gold} computes the mean fineness and price of an alloy---an application of weighted averages.
+
+\switchCn
+
+綜觀全卷，秦九韶之數學，不獨為抽象之理論，實為實用之技術。其題設之繁複，計算之精密，皆足以見宋代商業數學之發達。譯者於此英譯之中，力求準確傳達原意，並以現代術語註解，以便讀者之理解。
+
+\switchEn
+
+Taken as a whole, this fascicle demonstrates that Qin Jiushao's mathematics was not merely abstract theory but practical technique. The complexity of the problem scenarios and the precision of the calculations reveal the sophistication of Song Dynasty commercial mathematics. This translation seeks to convey the original meaning accurately, with modern annotations to aid comprehension.
+
+\end{paracol}
+
+\vspace{2em}
+\begin{center}
+\textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}
+
+\vspace{1em}
+{\small\color{sectioncolor}
+\textit{Bilingual Edition --- Typeset in XeLaTeX with Noto Sans CJK SC}\\[0.5em]
+Traditional Chinese mathematical text structure preserved\\[0.5em]
+Source: \textit{Siku Quanshu} (四庫全書) Edition}
+\end{center}
+
+\end{document}

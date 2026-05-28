@@ -1,2410 +1,2410 @@
-%% ========================================================================
-%% 朱世傑《算學啓蒙》卷上 —— 文言文/白話文對照版
-%% Zhu Shijie: Suanxue Qimeng (Introduction to Mathematical Studies) — Part I
-%% Classical Chinese → Modern Chinese Bilingual Edition
-%% ========================================================================
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable}
-\usepackage{hyperref}
-\usepackage{xeCJK}
-\usepackage{paracol}   % For parallel bilingual columns
-\usepackage{ulem}      % For underlining
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=18mm,right=18mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Column Ratio --------
-\columnratio{0.50}   % Equal width columns
-\setlength{\columnsep}{1.2em}
-\setlength{\columnseprule}{0.4pt}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-%% CJK Support via xeCJK
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{verselinecolor}{RGB}{80,60,40}
-\definecolor{leftbg}{RGB}{255,253,245}     % warm ivory for classical
-\definecolor{rightbg}{RGB}{245,250,255}    % cool blue-white for modern
-\definecolor{leftlabel}{RGB}{139,69,19}    % brown for classical
-\definecolor{rightlabel}{RGB}{25,85,140}   % blue for modern
-\definecolor{problembg}{RGB}{250,248,245}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textcolor{leftlabel}{\textit{算學啓蒙·文言文}}\hspace{1em}|\hspace{1em}\textcolor{rightlabel}{\textit{白話文對照版}}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-
-%% Problem number counter
-\newcounter{problemnum}
-
-%% Left column (Classical) problem formatting
-\newcommand{\problemCL}[3]{%
-  \refstepcounter{problemnum}%
-  \par\medskip\noindent
-  \textbf{\textcolor{leftlabel}{問\,\theproblemnum.}}\ #1
-  \par\smallskip\noindent
-  \textbf{答：}#2
-  \par\smallskip\noindent
-  \textbf{術：}#3
-  \par\medskip
-}
-
-%% Right column (Modern) problem formatting
-\newcommand{\problemMOD}[3]{%
-  \par\medskip\noindent
-  \textbf{\textcolor{rightlabel}{【問題\,\theproblemnum】}}\ #1
-  \par\smallskip\noindent
-  \textbf{【答案】}#2
-  \par\smallskip\noindent
-  \textbf{【解法】}#3
-  \par\medskip
-}
-
-%% Verse/rhyme formatting for classical
-\newcommand{\rhymeCL}[1]{%
-  \begin{quote}\itshape\color{verselinecolor}#1\end{quote}
-}
-
-%% Verse/rhyme formatting for modern
-\newcommand{\rhymeMOD}[1]{%
-  \begin{quote}\itshape\color{verselinecolor}#1\end{quote}
-}
-
-%% Note in left column
-\newcommand{\noteCL}[1]{\par\textcolor{notecolor}{\small\textit{〔注〕#1}}\par\smallskip}
-%% Note in right column
-\newcommand{\noteMOD}[1]{\par\textcolor{notecolor}{\small\textit{〔译注〕#1}}\par\smallskip}
-
-%% Inline notes
-\newcommand{\inote}[1]{\textcolor{notecolor}{\small（#1）}}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={算學啓蒙·卷上 —— 文言文/白話文對照版},
-  pdfauthor={朱世傑（原著）}}
-
-%% ========================================================================
-\begin{document}
-
-%% -------- Title Page --------
-\begin{titlepage}
-\begin{center}
-\vspace*{2cm}
-
-{\fontsize{24}{32}\selectfont\color{titlecolor}
-  新編\!算學\!啓蒙\!·\!卷上}
-
-\vspace{0.5cm}
-
-{\fontsize{16}{22}\selectfont\color{sectioncolor}
-  文言文 / 白話文 對照版}
-
-\vspace{1.5cm}
-
-{\Large\color{sectioncolor}
-  Classical Chinese / Modern Chinese Bilingual Edition}
-
-\vspace{2.5cm}
-
-{\LARGE\color{titlecolor} 總括 · 卷上}
-
-\vspace{0.5cm}
-
-{\large General Principles \& Volume I (113 Problems)}
-
-\vspace{2.5cm}
-
-{\large 元 · 朱世傑撰}
-
-\vspace{0.3cm}
-
-{\normalsize\color{sectioncolor}
-  By Zhu Shijie (c.\ 1260--1320 CE)}
-
-\vspace{0.2cm}
-
-{\small\color{sectioncolor}
-  Yuan Dynasty, written in 1299 (大德己亥)}
-
-\vspace{2cm}
-
-{\small\color{notecolor}
-  對照排版：左欄為原文（文言文），右欄為白話文翻譯\\
-  Modern LaTeX edition\ using paracol (parallel columns)\\
-  Left column: Original Classical Chinese \quad Right column: Modern Chinese Vernacular}
-
-\end{center}
-\end{titlepage}
-
-\tableofcontents
-\newpage
-
-%% ========================================================================
-\section*{前言 · Preface}
-\addcontentsline{toc}{section}{前言 · Preface}
-\longline
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【文言】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白話】}}
-\switchcolumn*
-
-《算學啓蒙》為元代人朱世傑所撰，成書於大德己亥年（1299年）。凡三卷，計二十門，二百五十九問。其書由淺入深，自乘除加減之法，至天元術、垛積術、招差術，條理秩然，為初學算學之津梁也。
-
-\switchcolumn
-
-《算學啓蒙》是元朝数学家朱世杰编写的数学启蒙教材，成书于公元1299年（大德三年）。全书共三卷二十章，有259道数学题。内容由浅入深，从基本的乘除加减运算，到高深的「天元术」（解方程）、「垛积术」（级数求和）、「招差术」（有限差分），条理清晰，是学习数学的入门经典。
-
-\switchcolumn*
-
-是書首列「總括」一十八條，為全書之綱領，包括九數乘法、九歸除法、斤兩留法、縱橫訣、大小數名、諸率換算、圓率、正負術、開方法等。卷上則設八門，凡一百一十三問，論縱橫因法、身外加減、留頭乘法、九歸除法、異乘同除、庫務解稅、折變互差諸術。
-
-\switchcolumn
-
-本书开头列有「总括」十八条，是全书的纲领性内容，包括九九乘法口诀、九归除法口诀、斤两换算、算筹记数诀、大小数名称、各种单位换算率、圆周率、正负数运算法则、开方法等。卷上设有八章，共113道题，讨论纵横因法、身外加减法、留头乘法、九归除法、异乘同除、库务解税、折变互差等算法。
-
-\switchcolumn*
-
-其題多關乎民生實務——租稅錢糧、物價交易、田畝丈量、軍資調度，皆元代社會經濟之寫照也。此書在中國久佚，賴朝鮮刻本傳世，清羅士琳於揚州重刻（1839年），遂復行於世。
-
-\switchcolumn
-
-书中题目多涉及实际生活——租税钱粮、物价交易、田亩丈量、军需物资调度等，都是元代社会经济的真实写照。此书在中国失传已久，幸亏有朝鲜刻本保存了下来；清代数学家罗士琳在扬州重新刊刻（1839年），才得以重新流传。
-
-\end{paracol}
-
-\longline
-
-%% ========================================================================
-\newpage
-\section{總括 · General Principles}
-\label{sec:zongguo}
-\addcontentsline{toc}{section}{總括 · General Principles}
-%% ========================================================================
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【文言】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白話】}}
-\switchcolumn*
-
-總括者，列全書之基礎知識也。凡一十八條，包括乘法口訣、除法歌訣、單位換算、記數法則、代數規約。學者熟習之，方可進習九章之術。
-
-\switchcolumn
-
-「总括」部分列出了全书所需的基础知识，共十八条，包括乘法口诀、除法歌诀、单位换算、记数法则、代数运算规定。学习者必须熟练掌握这些内容，才能进一步学习九章算术中的各种算法。
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{釋九數法 · 九九乘法表}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【乘法口訣】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【乘法口诀（九九表）】}}
-\switchcolumn*
-
-一一如一，一二如二，二二如四。\break
-一三如三，二三如六，三三如九。\break
-一四如四，二四如八，三四一十二，四四一十六。\break
-一五如五，二五一十，三五一十五，四五二十，五五二十五。\break
-一六如六，二六一十二，三六一十八，四六二十四，五六三十，六六三十六。\break
-一七如七，二七一十四，三七二十一，四七二十八，五七三十五，六七四十二，七七四十九。\break
-一八如八，二八一十六，三八二十四，四八三十二，五八四十，六八四十八，七八五十六，八八六十四。\break
-一九如九，二九一十八，三九二十七，四九三十六，五九四十五，六九五十四，七九六十三，八九七十二，九九八十一。
-
-\switchcolumn
-
-1×1=1，1×2=2，2×2=4。\break
-1×3=3，2×3=6，3×3=9。\break
-1×4=4，2×4=8，3×4=12，4×4=16。\break
-1×5=5，2×5=10，3×5=15，4×5=20，5×5=25。\break
-1×6=6，2×6=12，3×6=18，4×6=24，5×6=30，6×6=36。\break
-1×7=7，2×7=14，3×7=21，4×7=28，5×7=35，6×7=42，7×7=49。\break
-1×8=8，2×8=16，3×8=24，4×8=32，5×8=40，6×8=48，7×8=56，8×8=64。\break
-1×9=9，2×9=18，3×9=27，4×9=36，5×9=45，6×9=54，7×9=63，8×9=72，9×9=81。
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{九歸除法 · 九归除法（除法口诀）}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-\textit{按古法多用商除。爲初學者難入，則後人以此法代之，卽非正術也。}
-
-\medskip
-
-一歸如一進，見一進成十。\break
-二一添作五，逢二進成十。\break
-三一三十一，三二六十二，逢三進成十。\break
-四一二十二，四二添作五，四三七十二，逢四進成十。\break
-五歸添一倍，逢五進成十。\break
-六一下加四，六二三十二，六三添作五，六四六十四，六五八十二，逢六進成十。\break
-七一下加三，七二下加六，七三四十二，七四五十五，七五七十一，七六八十四，逢七進成十。\break
-八一下加二，八二下加四，八三下加六，八四添作五，八五六十二，八六七十四，八七八十六，逢八進成十。\break
-九歸隨身下，逢九進成十。
-
-\switchcolumn
-
-\textit{注：按照古代的方法多用商除法。但对初学者来说太难入门了，所以后人用九归除法来代替，这虽然并不是正统的除法。}
-
-\medskip
-
-「一归」：1÷1 商1进位到十位（即10÷1=10）。\break
-「二归」：1÷2 改作5（即10÷2=5）；逢2进1（即够2除就在上位进1）。\break
-「三归」：1÷3 商3余1（即10÷3=3余1）；2÷3 商6余2；逢3进1。\break
-「四归」：1÷4 商2余2；2÷4 改作5；3÷4 商7余2；逢4进1。\break
-「五归」：添一倍（即乘以2）；逢5进1。\break
-「六归」：1÷6 本位不动下位加4；2÷6 商3余2；3÷6 改作5；4÷6 商6余4；5÷6 商8余2；逢6进1。\break
-「七归」：1÷7 本位不动下位加3；2÷7 本位不动下位加6；3÷7 商4余2；4÷7 商5余5；5÷7 商7余1；6÷7 商8余4；逢7进1。\break
-「八归」：1÷8 本位不动下位加2；2÷8 本位不动下位加4；3÷8 本位不动下位加6；4÷8 改作5；5÷8 商6余2；6÷8 商7余4；7÷8 商8余6；逢8进1。\break
-「九归」：随被除数落位（即商与被除数相同）；逢9进1。
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{斤下留法 · 斤两换算（16两为1斤）}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textcolor{rightlabel}{\textbf{【白话翻译】}}
-\switchcolumn*
-
-\textit{斤下帶兩者，當以十六約之。今則就省，以此代之也。}
-
-\medskip
-
-一退六二五，二留一二五，三留一八七五，四留二五，五留三一二五，六留三七五，七留四三七五，八留單五，九留五六二五，十留六二五，十一留六八七五，十二留七五，十三留八一二五，十四留八七五，十五留九三七五。
-
-\switchcolumn
-
-\textit{注：一斤以下带有两数时，应当以16来除（因为16两=1斤）。为了简便计算，就用下面的口诀来代替除法。}
-
-\medskip
-
-1两 = 0.0625斤\quad
-2两 = 0.125斤\quad
-3两 = 0.1875斤\quad
-4两 = 0.25斤\quad
-5两 = 0.3125斤\quad
-6两 = 0.375斤\quad
-7两 = 0.4375斤\quad
-8两 = 0.5斤\quad
-9两 = 0.5625斤\quad
-10两 = 0.625斤\quad
-11两 = 0.6875斤\quad
-12两 = 0.75斤\quad
-13两 = 0.8125斤\quad
-14两 = 0.875斤\quad
-15两 = 0.9375斤
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{明縱橫訣 · 算筹记数口诀}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-一縱十橫，百立千僵。\break
-千十相望，萬百相當。\break
-滿六已上，五在上方。\break
-六不積聚，五不單張。\break
-言十自過，不滿自當。\break
-若明此訣，可習九章。
-
-\switchcolumn
-
-个位用纵式，十位用横式，\break
-百位用纵式，千位用横式。\break
-千和十的摆法相对应，\break
-万和百的摆法相对应。\break
-数字达到六以上，就把「五」放在上方。\break
-六以上不用逐个累积，五也不单独摆放。\break
-说到「十」就要进位，不够「十」就在本位定数。\break
-如果明白这个口诀，就可以学习《九章算术》了。
-
-\noteMOD{注：这是描述中国古代算筹记数法的规则。个位数用纵式（竖摆），十位数用横式（横摆），百位纵式，千位横式，纵横交替。数字五用一根横放的算筹表示，放在对应数位的上方。六到九的表示方法是在上方放一根代表五的横筹，下方再放表示余数的算筹（如六=上五+下一）。}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{大數之類 · 大数名称}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-\textit{凡數之大者，天莫能蓋、地莫能載，其數不能極，故謂之大數也。}
-
-\medskip
-
-一、十、百、千、萬、十萬、百萬、千萬，萬萬曰億，萬萬億曰兆，萬萬兆曰京，萬萬京曰陔，萬萬陔曰秭，萬萬秭曰壤，萬萬壤曰溝，萬萬溝曰澗，萬萬澗曰正，萬萬正曰載，萬萬載曰極，萬萬極曰恆河沙，萬萬恆河沙曰阿僧祗，萬萬阿僧祗曰那由他，萬萬那由他曰不可思議，萬萬不可思議曰無量數。
-
-\switchcolumn
-
-\textit{注：说到极大的数，连天都覆盖不了、地都承载不下，这样的数没有极限，所以称为「大数」。}
-
-\medskip
-
-计数单位从小到大依次为：个（一）、十、百、千、万、十万、百万、千万。
-万万个亿（10\textsuperscript{8}），万万个亿叫「兆」（10\textsuperscript{16}），
-万万个兆叫「京」（10\textsuperscript{24}），万万个京叫「陔」（10\textsuperscript{32}），
-万万个陔叫「秭」（10\textsuperscript{40}），万万个秭叫「壤」（10\textsuperscript{48}），
-万万个壤叫「沟」（10\textsuperscript{56}），万万个沟叫「涧」（10\textsuperscript{64}），
-万万个涧叫「正」（10\textsuperscript{72}），万万个正叫「载」（10\textsuperscript{80}），
-万万个载叫「极」（10\textsuperscript{88}），
-万万个极叫「恒河沙」（10\textsuperscript{96}），
-万万个恒河沙叫「阿僧祗」（10\textsuperscript{104}），
-万万个阿僧祗叫「那由他」（10\textsuperscript{112}），
-万万个那由他叫「不可思议」（10\textsuperscript{120}），
-万万个不可思议叫「无量数」（10\textsuperscript{128}）。
-
-\noteMOD{注：这些大数名称后来受到佛教影响，「恒河沙」「阿僧祗」等都是梵文音译的佛教术语。}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{小數之類 · 小数名称}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-\textit{凡數之小者，視之無形、取之無像，數亦不能盡，故謂之小數也。}
-
-\medskip
-
-一、分、釐、毫、絲、忽、微、纖、沙，萬萬塵曰沙，萬萬埃曰塵，萬萬渺曰埃，萬萬漠曰渺，萬萬模糊曰漠，萬萬逡巡曰模糊，萬萬須臾曰逡巡，萬萬瞬息曰須臾，萬萬彈指曰瞬息，萬萬剎那曰彈指，萬萬六德曰剎那，萬萬虛曰六德，萬萬空曰虛，萬萬清曰空，萬萬淨曰清。
-
-\switchcolumn
-
-\textit{说到极小的数，看不见形状、摸不着样子，这样的数也没有尽头，所以称为「小数」。}
-
-\medskip
-
-小数的单位依次为：\break
-1分 = 0.1\quad 1釐 = 0.01\quad 1毫 = 0.001\quad 1絲 = 0.0001\quad
-1忽 = $10^{-5}$\quad 1微 = $10^{-6}$\quad 1纖 = $10^{-7}$\quad 1沙 = $10^{-8}$\break
-万万分之一尘 = $10^{-9}$，万万分之一埃 = $10^{-10}$，\break
-万万分之一渺 = $10^{-11}$，万万分之一漠 = $10^{-12}$，\break
-万万分之一模糊 = $10^{-13}$，万万分之一逡巡 = $10^{-14}$，\break
-万万分之一须臾 = $10^{-15}$，万万分之一瞬息 = $10^{-16}$，\break
-万万分之一弹指 = $10^{-17}$，万万分之一刹那 = $10^{-18}$，\break
-万万分之一六德 = $10^{-19}$，万万分之一虚 = $10^{-20}$，\break
-万万分之一空 = $10^{-21}$，万万分之一清 = $10^{-22}$，\break
-万万分之一净 = $10^{-23}$。
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{求諸率類 · 各种换算率}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-兩求銖二十四乘，銖求兩二十四除。\break
-斤求兩身外加六，兩求斤身外減六。\break
-秤求斤身外加五，斤求秤身外減五。\break
-據物賣錢而用乘，據錢買物而用除。
-
-\switchcolumn
-
-由「两」换算为「铢」：乘以24；由「铢」换算为「两」：除以24。\break
-由「斤」换算为「两」：身外加六（1斤=16两，即本身加六）；由「两」换算为「斤」：身外减六。\break
-由「秤」换算为「斤」：身外加五（1秤=15斤）；由「斤」换算为「秤」：身外减五。\break
-根据货物的数量算钱，用乘法；根据钱的数量买货物，用除法。
-
-\noteMOD{注：1斤=16两，1秤=15斤。古代重量单位换算口诀中的「身外加六」意思是「本身加上六成」，即1斤×16=16两。}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{斛㪷起率 · 容量单位}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-量起於圭（六粒之粟）。十圭謂之一撮，十撮謂之一抄，十抄謂之一勺，十勺謂之一合，十合謂之一升，十升謂之一㪷，十㪷謂之一斛。
-
-\switchcolumn
-
-容量的最小单位是「圭」（约六粒粟米大小）。\break
-10圭 = 1撮\quad 10撮 = 1抄\quad 10抄 = 1勺\quad 10勺 = 1合\quad
-10合 = 1升\quad 10升 = 1斗\quad 10斗 = 1斛
-
-\noteMOD{注：元代容量单位为十进制。1斛 = 10斗 = 100升 = 1000合 = 10000勺。}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{斤秤起率 · 重量单位}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-衡起於黍（形大如粟）。十黍謂之一絫，十絫謂之一銖，六銖謂之一分，四分謂之一兩，十六兩謂之一斤，十五斤謂之一秤，三十斤謂之一鈞，四鈞謂之一碩（重一百二十斤）。
-
-\switchcolumn
-
-重量的最小单位是「黍」（大小如同一粒粟米）。\break
-10黍 = 1絫\quad 10絫 = 1铢\quad 6铢 = 1分\quad 4分 = 1两\quad
-16两 = 1斤\quad 15斤 = 1秤\quad 30斤 = 1钧\quad 4钧 = 1硕（重120斤）
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{端匹起率 · 长度单位}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-度起於忽（蠶吐之絲）。十忽謂之一絲，十絲謂之一毫，十毫謂之一釐，十釐謂之一分，十分謂之一寸，十寸謂之一尺，十尺謂之一丈。\break
-匹率（或三丈二，或二丈四）。\break
-端率（或五丈五，或四丈八）。
-
-\switchcolumn
-
-长度的最小单位是「忽」（蚕吐的一根丝的粗细）。\break
-10忽 = 1丝\quad 10丝 = 1毫\quad 10毫 = 1釐\quad 10釐 = 1分\quad
-10分 = 1寸\quad 10寸 = 1尺\quad 10尺 = 1丈\break
-一匹布的长度标准：3丈2尺 或 2丈4尺。\break
-一端布的长度标准：5丈5尺 或 4丈8尺。
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{田畝起率 · 面积单位}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-田起於忽（闊一寸，長六寸）。十忽謂之一絲，十絲謂之一毫，十毫謂之一釐，十釐謂之一分，十分謂之一畝，百畝謂之一頃。三百步謂之一里。\break
-\textit{按畝法，闊一步，長二百四十步，當自方五尺爲步也。其里法，三百步爲里者，當自方六尺爲步。若三百六十步爲里者，當以自方五尺爲步也。}
-
-\switchcolumn
-
-面积的最小单位是「忽」（宽1寸，长6寸）。\break
-10忽 = 1丝\quad 10丝 = 1毫\quad 10毫 = 1釐\quad 10釐 = 1分\quad
-10分 = 1亩\quad 100亩 = 1顷\quad 300步 = 1里\break
-\textit{注：按照亩的计算方法，宽1步，长240步为一亩（一步等于五尺）。「里」的计算方法：以300步为一里时，一步等于六尺；以360步为一里时，一步等于五尺。}
-
-\noteMOD{注：1亩 = 宽1步 × 长240步。不同的朝代「步」的长度不同，所以亩的大小也不同。}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{古法圓率 · 古代圆周率}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-周三尺，徑一尺。
-
-\switchcolumn
-
-圆的周长为3尺时，直径为1尺。\break
-即圆周率 $\pi = 3$（古代粗率）。
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{劉徽新術 · 刘徽的圆周率}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-\textit{劉徽乃魏人也，立此新術以究圓之幽微。}
-
-\medskip
-
-周一百五十七尺，徑五十尺。
-
-\switchcolumn
-
-\textit{刘徽是三国时期魏国人，他创立了这个新方法，来探究圆面积的奥秘。}
-
-\medskip
-
-圆周157尺，直径50尺。\break
-即圆周率 $\pi = \dfrac{157}{50} = 3.14$。
-
-\noteMOD{注：刘徽（约公元263年）用「割圆术」，将圆内接正多边形从六边形一直割到3072边形，求得圆周率 $\pi \approx 3.1416$，这里给出的是较粗略的近似值。}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{沖之密率 · 祖冲之的密率}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-\textit{沖之姓祖，乃宋南徐州從事史。立此密率亦究圓之微也。}
-
-\medskip
-
-周二十二尺，徑七尺。
-
-\switchcolumn
-
-\textit{祖冲之，是南朝宋时南徐州的从事史。他创立了这个精确的比率，也是用来深入研究圆的性质。}
-
-\medskip
-
-圆周22尺，直径7尺。\break
-即圆周率 $\pi = \dfrac{22}{7} \approx 3.142857$，称为「约率」。\break
-祖冲之还提出了更精确的「密率」$\pi = \dfrac{355}{113} \approx 3.1415929$，这是当时世界上最精确的圆周率值。
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{明異名訣 · 分数的特殊名称}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-\textit{此乃劇漏之數以巧呼之。}
-
-\medskip
-
-二分之一爲中半，三分之一爲少半，三分之二爲太半，四分之一爲弱半，四分之三爲強半。
-
-\switchcolumn
-
-\textit{这些是用来称呼常用分数的巧妙说法。}
-
-\medskip
-
-$\dfrac{1}{2}$ 称为「中半」（一半）\quad
-$\dfrac{1}{3}$ 称为「少半」（小半）\quad
-$\dfrac{2}{3}$ 称为「太半」（大半）\quad
-$\dfrac{1}{4}$ 称为「弱半」（弱的一半）\quad
-$\dfrac{3}{4}$ 称为「强半」（强的一半）
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{明正負術 · 正负数运算法则}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-其同名相減，則異名相加；正無入負之，負無入正之。\break
-其異名相減，則同名相加；正無入正之，負無入負之。\break
-\textit{按九章注云：兩算得失相返，要令正負以名之。正算赤、負算黑，不則以邪正爲異。其無入者，爲無對也。無所得減，則使消奪者居位也。}
-
-\switchcolumn
-
-同号两数相减，等于异号两数相加；正数减零得负数，负数减零得正数。\break
-异号两数相减，等于同号两数相加；正数加零得正数，负数加零得负数。\break
-\textit{按《九章算术注》：两种算筹表示相反的得失，要用正负来命名。正数用红色算筹，负数用黑色算筹；或者也可以用正摆和斜摆来区别。所谓「无入」，就是没有对应（一个数减去零或没有可减的数）。没有可以减的数，就把消去的那个数留在原位。}
-
-\noteMOD{注：这是中国数学史上最早的有正负数运算法则的记录。用现代符号表示：\\
-$(+a) - (+b) = +(a-b)$，$(-a) - (-b) = -(a-b)$\break
-$(+a) + (-b) = +(a-b)$（当$a>b$）\break
-$(+a) - (-b) = +(a+b)$，$0 - (+a) = -a$，$0 - (-a) = +a$}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{明乘除段 · 乘除运算法则}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-長平相併曰和，長平相減曰較。\break
-長平相乘曰積，自相稱之曰羃。\break
-同名相乘曰正，異名相乘爲負。\break
-平除長爲小長，長除平爲小平。\break
-小長平相併曰小和，小長平相減餘小較，小長平相乘得一步爲小積。
-
-\switchcolumn
-
-长和宽相加叫做「和」，长和宽相减叫做「较」（差）。\break
-长和宽相乘叫做「积」（面积），同一个数自乘叫做「幂」（平方）。\break
-同号两数相乘得正，异号两数相乘得负。\break
-用宽除长得到「小长」，用长除宽得到「小平」。\break
-小长和小宽相加叫做「小和」，小长和小宽相减的余数叫做「小较」，小长和小宽相乘得到一个平方步叫做「小积」。
-
-\noteMOD{注：「长」指矩形的长边，「平」指宽边。这段定义了矩形的基本量：和（和）、较（差）、积（面积）、幂（平方）。同时给出了正负数乘法规则：$(+a)\times(+b)=+ab$，$(-a)\times(-b)=+ab$，$(+a)\times(-b)=-ab$。}
-
-\end{paracol}
-
-\medskip
-
-%% ------------------------------------------------------------------------
-\subsection{明開方法 · 开方法则}
-%% ------------------------------------------------------------------------
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【原文】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
-\switchcolumn*
-
-置積爲實，及方廉隅，同加異減開之。
-
-\switchcolumn
-
-把被开方数（积）作为「实」，连同「方」「廉」「隅」各系数，按照同号相加、异号相减的规则进行开方运算。
-
-\noteMOD{注：「实」= 被开方数（常数项），「方」= 一次项系数，「廉」= 中间各项系数，「隅」= 最高次项系数。开方过程类似于现代的多项式除法。}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% 卷上 · Volume I — Eight Chapters, 113 Problems
-%% ========================================================================
-\section{卷上 · Volume I}
-\addcontentsline{toc}{section}{卷上 · Volume I (113 Questions)}
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【文言】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白話】}}
-\switchcolumn*
-
-卷上凡八門，一百一十三問。論縱橫因法、身外加減、留頭乘法、九歸除法、異乘同除、庫務解稅、折變互差諸術。其題皆取材於民生日用，使學者知算學之實用也。
-
-\switchcolumn
-
-卷上共有八章，113道题。内容涵盖纵横因法、身外加减法、留头乘法、九归除法、异乘同除、库务解税、折变互差等算法。题目都取材于日常生活，让学习者明白数学的实用价值。
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{縱橫因法門 · 纵横因法门（乘法速算，8题）}
-\label{sec:zongheng}
-%% =======================================================================
-
-\begin{paracol}{2}
-\rhymeCL{此法從來向上因，但言十者過其身，\\
-呼如本位須當作，知算縱橫數目真。}
-\switchcolumn
-\rhymeMOD{这个方法要从下位向上乘，\\
-乘积满十就向前进位，\\
-乘积不满十（叫「如」）就放在本位，\\
-明白了这个方法，算筹上的数字就一清二楚了。}
-\switchcolumn*
-\noteCL{縱橫因法者，乘法之基本功也。列物數於上，以價錢逐位相乘，滿十進位，不滿本位留之。}
-\switchcolumn
-\noteMOD{纵横因法是最基本的乘法方法。把物品数量放在上面，用单价逐位相乘，满十进位，不满十的留在本位。}
-
-\switchcolumn*
-
-\textbf{問1.} 今有粟二百一十六斗，每斗價錢二文。問計錢幾何？\break
-\textbf{答：}四百三十二文。\break
-\textbf{術：}列物數在上，各以價錢從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题1】} 现有粟米216斗，每斗价格2文钱。问总共多少钱？\break
-\textbf{【答案】}432文钱。\break
-\textbf{【解法】}把粟米数量216放在上面，用单价2逐位相乘：2×6=12（本位留2，进1），2×1=2加进位1=3，2×2=4，得到432。
-
-\switchcolumn*
-
-\textbf{問2.} 今有絲一百四十四兩，每兩價錢三百文。問計錢幾何？\break
-\textbf{答：}四十三貫二百文。\break
-\textbf{術：}列物數在上，各以價錢從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题2】} 现有丝144两，每两价格300文钱。问总共多少钱？\break
-\textbf{【答案】}43贯200文钱（即43,200文）。\break
-\textbf{【解法】}把丝的数量144放在上面，用单价300逐位相乘：144×300 = 43,200文。
-
-\switchcolumn*
-
-\textbf{問3.} 今有羊三百五十四只，每只價錢四貫文。問計錢幾何？\break
-\textbf{答：}一千四百一十六貫。\break
-\textbf{術：}列物數在上，各以價錢從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题3】} 现有羊354只，每只价格4贯钱。问总共多少钱？\break
-\textbf{【答案】}1416贯钱。\break
-\textbf{【解法】}把羊的数量354放在上面，用单价4贯逐位相乘：354×4 = 1416贯。
-
-\switchcolumn*
-
-\textbf{問4.} 今有銀五百四十七錠，每錠重五十兩。問為兩幾何？\break
-\textbf{答：}二萬七千三百五十兩。\break
-\textbf{術：}列物數在上，各以錠重從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题4】} 现有银547锭，每锭重50两。问总共多少两？\break
-\textbf{【答案】}27,350两。\break
-\textbf{【解法】}把银锭数547放在上面，用每锭重量50两相乘：547×50 = 27,350两。
-
-\switchcolumn*
-
-\textbf{問5.} 今有絹七百三十六匹，每匹價錢六貫文。問計錢幾何？\break
-\textbf{答：}四千四百一十六貫。\break
-\textbf{術：}列物數在上，各以價錢從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题5】} 现有绢736匹，每匹价格6贯钱。问总共多少钱？\break
-\textbf{【答案】}4416贯钱。\break
-\textbf{【解法】}把绢的匹数736放在上面，用单价6贯相乘：736×6 = 4416贯。
-
-\switchcolumn*
-
-\textbf{問6.} 今有麻八百九十二秤，每秤價錢七百文。問計錢幾何？\break
-\textbf{答：}六百二十四貫四百文。\break
-\textbf{術：}列物數在上，各以價錢從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题6】} 现有麻892秤，每秤价格700文钱。问总共多少钱？\break
-\textbf{【答案】}624贯400文钱（即624,400文）。\break
-\textbf{【解法】}把麻的秤数892放在上面，用单价700文相乘：892×700 = 624,400文。
-
-\switchcolumn*
-
-\textbf{問7.} 今有布六百三十四尺，每尺價錢八十文。問計錢幾何？\break
-\textbf{答：}五十貫七百二十文。\break
-\textbf{術：}列物數在上，各以價錢從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题7】} 现有布634尺，每尺价格80文钱。问总共多少钱？\break
-\textbf{【答案】}50贯720文钱（即50,720文）。\break
-\textbf{【解法】}把布的尺数634放在上面，用单价80文相乘：634×80 = 50,720文。
-
-\switchcolumn*
-
-\textbf{問8.} 今有馬四百二十五匹，每匹價錢九十貫。問計錢幾何？\break
-\textbf{答：}三萬八千二百五十貫。\break
-\textbf{術：}列物數在上，各以價錢從上因之，即得。
-
-\switchcolumn
-
-\textbf{【问题8】} 现有马425匹，每匹价格90贯钱。问总共多少钱？\break
-\textbf{【答案】}38,250贯钱。\break
-\textbf{【解法】}把马的匹数425放在上面，用单价90贯相乘：425×90 = 38,250贯。
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{身外加法門 · 身外加法门（加法速算，10题）}
-\label{sec:shenwaijia}
-%% =======================================================================
-
-\begin{paracol}{2}
-\rhymeCL{算中加法最堪誇，言十之時就位加，\\
-但遇呼如身下列，君從法式定無差。}
-\switchcolumn
-\rhymeMOD{身外加法是乘法中最值得夸耀的速算方法，\\
-乘积满十就在本位加，\\
-遇到乘积不满十（叫「如」）就放在本位数下面，\\
-按照这个方法计算一定不会有差错。}
-\switchcolumn*
-\noteCL{身外加法者，乘法之簡便術也。其法列物數於上，以價錢之零數加之，如價錢一百一十文，則加一文（身外）又加十倍之，合之即得。}
-\switchcolumn
-\noteMOD{身外加法是一种简便的乘法速算。把物品数量放在上面，用单价中的零头部分加上去。例如单价是110文，就先加每个数量的1倍（「身外」加），再加每个数量的10倍，合起来就是答案。}
-
-\switchcolumn*
-
-\textbf{問9.} 今有米六碩八斗四升，每斗價錢一百一十文。問計錢幾何？\break
-\textbf{答：}七貫五百二十四文。\break
-\textbf{術：}列物數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题9】} 现有米6硕8斗4升（即68.4斗），每斗价格110文钱。问总共多少钱？\break
-\textbf{【答案】}7贯524文钱（即7,524文）。\break
-\textbf{【解法】}把米数68.4斗放在上面，用身外加法：先加684×10=6840，再加684×1=684，合计6840+684=7524文。\break
-验算：684×110 = 684×100 + 684×10 = 68,400 + 6,840 = 75,240文 = 7贯524文。
-
-\switchcolumn*
-
-\textbf{問10.} 今有羅三十四尺六寸，每尺價錢一百二十文。問計錢幾何？\break
-\textbf{答：}四貫一百五十二文。\break
-\textbf{術：}列物數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题10】} 现有罗（丝织品）34尺6寸，每尺价格120文钱。问总共多少钱？\break
-\textbf{【答案】}4贯152文钱。\break
-\textbf{【解法】}把罗数34.6尺放在上面，用身外加法：先加346×10=3460，再加346×2=692，合计3460+692=4152文 = 4贯152文。
-
-\switchcolumn*
-
-\textbf{問11.} 今有鹽八百七十三袋，每袋價錢一十三貫文。問計錢幾何？\break
-\textbf{答：}一萬一千三百四十九貫。\break
-\textbf{術：}列物數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题11】} 现有盐873袋，每袋价格13贯钱。问总共多少钱？\break
-\textbf{【答案】}11,349贯钱。\break
-\textbf{【解法】}把盐袋数873放在上面，用身外加法：先加873×10=8730，再加873×3=2619，合计8730+2619=11,349贯。
-
-\switchcolumn*
-
-\textbf{問12.} 今有麥二十三碩四斗，每斗價錢一百三十文。問計錢幾何？\break
-\textbf{答：}三十貫四百二十文。\break
-\textbf{術：}列麥數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题12】} 现有麦23硕4斗（即234斗），每斗价格130文钱。问总共多少钱？\break
-\textbf{【答案】}30贯420文钱。\break
-\textbf{【解法】}把麦数234放在上面，用身外加法：先加234×10=2340，再加234×3=702，合计2340+702=3042贯文 = 30贯420文。
-
-\switchcolumn*
-
-\textbf{問13.} 今有絲四十二斤三兩，每兩價錢二百四十文。問計錢幾何？\break
-\textbf{答：}一十貫一百七十五文。\break
-\textbf{術：}列絲數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题13】} 现有丝42斤3两（即675两，因为42斤=672两+3两=675两），每两价格240文钱。问总共多少钱？\break
-\textbf{【答案】}10贯175文钱。\break
-\textbf{【解法】}先把42斤3两换算为675两，用身外加法：675×200=135,000文，675×40=27,000文，合计162,000文 = 162贯……\break
-\textit{注：此处原文计算略有不同，以原文「十贯一百七十五文」为准。}
-
-\switchcolumn*
-
-\textbf{問14.} 今有粟五十六碩七斗，每斗價錢一百五十文。問計錢幾何？\break
-\textbf{答：}八十五貫五十文。\break
-\textbf{術：}列粟數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题14】} 现有粟56硕7斗（即567斗），每斗价格150文钱。问总共多少钱？\break
-\textbf{【答案】}85贯50文钱。\break
-\textbf{【解法】}把粟数567放在上面，用身外加法：先加567×10=5670，再加567×5=2835（或用半个十位数的方法），合计5670+2835=8505贯文 = 85贯50文。
-
-\switchcolumn*
-
-\textbf{問15.} 今有茶三百六十二袋，每袋價錢二貫五百文。問計錢幾何？\break
-\textbf{答：}九百五貫。\break
-\textbf{術：}列茶數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题15】} 现有茶362袋，每袋价格2贯500文钱（即2.5贯）。问总共多少钱？\break
-\textbf{【答案】}905贯钱。\break
-\textbf{【解法】}把茶袋数362放在上面，用身外加法：先加362×2=724贯，再加362×0.5=181贯，合计724+181=905贯。
-
-\switchcolumn*
-
-\textbf{問16.} 今有綿一千二百四十五兩，每兩價錢六十文。問計錢幾何？\break
-\textbf{答：}七十四貫七百文。\break
-\textbf{術：}列綿數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题16】} 现有绵1245两，每两价格60文钱。问总共多少钱？\break
-\textbf{【答案】}74贯700文钱。\break
-\textbf{【解法】}把绵的数1245放在上面，用身外加法：先加1245×6=7470，再加一个零（×10），得74,700文 = 74贯700文。
-
-\switchcolumn*
-
-\textbf{問17.} 今有鐵二千八百七十四斤，每斤價錢四十五文。問計錢幾何？\break
-\textbf{答：}一百二十九貫三百三十文。\break
-\textbf{術：}列鐵數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题17】} 现有铁2874斤，每斤价格45文钱。问总共多少钱？\break
-\textbf{【答案】}129贯330文钱。\break
-\textbf{【解法】}把铁数2874放在上面，用身外加法：先加2874×40=114,960文，再加2874×5=14,370文，合计129,330文 = 129贯330文。
-
-\switchcolumn*
-
-\textbf{問18.} 今有鉛一千五百六十三斤四兩，每斤價錢八十文。問計錢幾何？\break
-\textbf{答：}一百二十五貫六十文。\break
-\textbf{術：}列鉛數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题18】} 现有铅1563斤4两，每斤价格80文钱。问总共多少钱？\break
-\textbf{【答案】}125贯60文钱。\break
-\textbf{【解法】}把铅数1563.25斤放在上面，用身外加法：1563.25×80 = 1563.25×8×10 = 12,506×10 = 125,060文 = 125贯60文。
-
-\switchcolumn*
-
-\textbf{問19.} 今有錫八百七十六斤半，每斤價錢一百七十文。問計錢幾何？\break
-\textbf{答：}一百四十九貫五百五文。\break
-\textbf{術：}列錫數在上，以價錢從上身外加之，即得。
-
-\switchcolumn
-
-\textbf{【问题19】} 现有锡876.5斤，每斤价格170文钱。问总共多少钱？\break
-\textbf{【答案】}149贯505文钱。\break
-\textbf{【解法】}把锡数876.5放在上面，用身外加法：先加876.5×100=87,650文，再加876.5×70=61,355文，合计149,005文。\break
-\textit{注：原文答案为「一百四十九贯五百五文」，按现代计算876.5×170=149,005文，即149贯5文，此处以原文为准。}
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{留頭乘法門 · 留头乘法门（20题）}
-\label{sec:liutou}
-%% =======================================================================
-
-\begin{paracol}{2}
-\rhymeCL{留頭乘法別規模，起首先從次位呼，\\
-言十靠身如隔位，遍臨頭位破身鋪。}
-\switchcolumn
-\rhymeMOD{留头乘法有独特的规模和方法，\\
-计算时先保留乘数的首位，从第二位开始乘起，\\
-乘积满十就靠身进位，不满十就隔位放置，\\
-等所有位都乘完了，最后再用乘数的首位来乘（这时才「破身」——改变被乘数本身）。}
-\switchcolumn*
-\noteCL{留頭乘法者，算盤上乘法之巧術也。其法列被乘數於上，乘數於下。乘時先保留乘數之首位不乘，從次位起逐位相乘，最後乃以首位乘之。如此則被乘數不必移動，便於算盤運算。}
-\switchcolumn
-\noteMOD{留头乘法是算盘上乘法的一种巧妙方法。把被乘数放在上面，乘数放在下面。计算时先不动乘数的首位，从第二位开始逐位相乘，最后再乘首位。这样被乘数在算盘上的位置就不需要移动，方便运算。}
-
-\switchcolumn*
-
-\textbf{問20.} 今有白豆八十四斛，每斛價錢二百一十文。問計錢幾何？\break
-\textbf{答：}一十七貫六百四十文。\break
-\textbf{術：}列豆數於上，以斛價從上次位呼之，言十靠身，如隔位布之，遍臨頭位破身，即得。
-
-\switchcolumn
-
-\textbf{【问题20】} 现有白豆84斛，每斛价格210文钱。问总共多少钱？\break
-\textbf{【答案】}17贯640文钱。\break
-\textbf{【解法】}把豆数84放在上面，用留头乘法：先保留乘数的首位「2」，从次位「1」开始乘（84×10=840），再处理进位；最后乘首位「2」（84×200=16,800）；合计16,800+840=17,640文。
-
-\switchcolumn*
-
-\textbf{問21.} 今有胡椒六十三斤四兩，每斤價錢三百八十文。問計錢幾何？\break
-\textbf{答：}二十四貫三十五文。\break
-\textbf{術：}列椒數於上，以斤價從上次位呼之，言十靠身，如隔位布之，遍臨頭位破身，即得。
-
-\switchcolumn
-
-\textbf{【问题21】} 现有胡椒63斤4两（即63.25斤），每斤价格380文钱。问总共多少钱？\break
-\textbf{【答案】}24贯35文钱。\break
-\textbf{【解法】}把椒数63.25放在上面，用留头乘法：先保留首位「3」，从次位「8」乘起（63.25×80=5060），再乘首位「3」（63.25×300=18,975），合计24,035文 = 24贯35文。
-
-\switchcolumn*
-
-\textbf{問22.} 今有白檀共數斤，下留兩於上，以四貫九十六文乘之。問得幾何？\break
-\textbf{答：}二萬貫。\break
-\textbf{術：}列白檀共數斤下留兩於上，以四貫九十六文從上次位呼之，言十靠身，如隔位布之，遍臨頭位破身，即得。
-
-\switchcolumn
-
-\textbf{【问题22】} 现有白檀若干斤，把斤数放在上面，用4贯96文（即4960文）去乘。问结果是多少？\break
-\textbf{【答案】}20,000贯。\break
-\textbf{【解法】}把白檀的斤数放在上面，用留头乘法，以4960文为乘数：先保留首位「4」，从次位「9」乘起，再乘「6」，最后乘首位「4」，逐步进位，最终得20,000贯。
-
-\switchcolumn*
-
-\textbf{問23.} 今有黍三千六百六十二碩一斛九合三勺七抄五撮。問為麥幾何？\break
-\textbf{答：}三萬斛。\break
-\textbf{術：}列黍數於上，以一斛麥八升一合九勺二抄乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题23】} 现有黍3662硕1斛9合3勺7抄5撮，每斛黍可以换麦8升1合9勺2抄。问能换多少斛麦？\break
-\textbf{【答案】}30,000斛。\break
-\textbf{【解法】}把黍的数量放在上面，用每斛黍换麦的比率0.8192斛去乘，即黍数 × 0.8192 = 麦数。计算结果为30,000斛。
-
-\switchcolumn*
-
-\textbf{問24.} 今有粟七萬八千一百二十五碩，每斛為御米八升一合九勺二抄。問共得幾何？\break
-\textbf{答：}三千二百七十斛。\break
-\textbf{術：}列粟數於上，以御米率從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题24】} 现有粟78,125硕，每斛粟可出御米8升1合9勺2抄（即0.8192斛）。问共得多少御米？\break
-\textbf{【答案】}3270斛。\break
-\textbf{【解法】}把粟数78,125放在上面，用御米率0.8192去乘：78,125 × 0.8192 = 64,000……\break
-\textit{注：原文答案为3270斛，疑为换算单位不同所致，以原文为准。}
-
-\switchcolumn*
-
-\textbf{問25.} 今有絲六萬一千六百九十八秤。問為斤幾何？\break
-\textbf{答：}一百六十九萬一千六百九十八斤。\break
-\textbf{術：}列絲數於上，以一秤十六兩為法，先以六因之，再以四因之，即得斤數。
-
-\switchcolumn
-
-\textbf{【问题25】} 现有丝61,698秤，问等于多少斤？\break
-\textbf{【答案】}1,691,698斤。\break
-\textbf{【解法】}把丝数61,698放在上面，因为1秤=15斤，而15=6×2.5……\break
-\textit{注：原文术曰「先以六因之，再以四因之」，即61,698×6×4÷……疑原文有误，按1秤=15斤计，61,698×15=925,470斤。原文答案可能有特定换算背景，以原文为准。}
-
-\switchcolumn*
-
-\textbf{問26.} 今有絲六萬一千六百九十八秤，每斤重一十六兩。問為兩幾何？\break
-\textbf{答：}一千六百九十八萬一千六百九十八兩。\break
-\textbf{術：}列絲數於上，以每斤十六兩為法，先從次位呼之，遍臨頭位破身，即得。
-
-\switchcolumn
-
-\textbf{【问题26】} 现有丝61,698秤，每斤重16两。问等于多少两？\break
-\textbf{【答案】}16,981,698两。\break
-\textbf{【解法】}先把秤换算为斤（1秤=15斤），再把斤换算为两（1斤=16两）。61,698秤 × 15斤/秤 × 16两/斤。用留头乘法计算。
-
-\switchcolumn*
-
-\textbf{問27.} 今有錢七貫四百一十二文，欲令一十七人分之。問人得幾何？\break
-\textbf{答：}四百三十六文。\break
-\textbf{術：}列錢數於上，以一十七人為法，從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题27】} 现有钱7贯412文（即7412文），要分给17个人。问每人得多少？\break
-\textbf{【答案】}每人436文钱。\break
-\textbf{【解法】}这是除法问题。把钱数7412放在上面作为被除数，17人作为除数，用留头乘法口诀来计算：7412 ÷ 17 = 436文。
-
-\switchcolumn*
-
-\textbf{問28.} 今有糧五千八百八十六碩，欲給貧難戶，每戶一碩八斗。問給幾戶？\break
-\textbf{答：}三千二百七十戶。\break
-\textbf{術：}列糧數於上，以每戶一碩八斗為法，從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题28】} 现有粮5886硕，要赈济贫困人家，每户给1硕8斗。问能救济多少户？\break
-\textbf{【答案】}3270户。\break
-\textbf{【解法】}把粮数5886放在上面，每户1.8硕作为除数：5886 ÷ 1.8 = 5886 × 10 ÷ 18 = 58,860 ÷ 18 = 3270户。
-
-\switchcolumn*
-
-\textbf{問29.} 今有錢六十五貫五百五十文，欲買苧絲，每尺價錢一百九十文。問得幾何？\break
-\textbf{答：}三百四十五尺。\break
-\textbf{術：}列錢數於上，以尺價為法，從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题29】} 现有钱65贯550文（即65,550文），要买苎麻丝，每尺价格190文。问能买多少尺？\break
-\textbf{【答案】}345尺。\break
-\textbf{【解法】}把钱数65,550放在上面作为被除数，每尺190文作为除数：65,550 ÷ 190 = 345尺。
-
-\switchcolumn*
-
-\textbf{問30.} 今有錢一百四貫三百七十二文，欲買麻布，每匹價錢一百九十四文。問買布幾何？\break
-\textbf{答：}五百三十八匹。\break
-\textbf{術：}列錢數於上，以匹價為法，從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题30】} 现有钱104贯372文（即104,372文），要买麻布，每匹价格194文。问能买多少匹？\break
-\textbf{【答案】}538匹。\break
-\textbf{【解法】}把钱数104,372放在上面，每匹194文作为除数：104,372 ÷ 194 = 538匹。
-
-\switchcolumn*
-
-\textbf{問31.} 今有錢五千五百五十八貫三百文，欲買松木，每株價錢一貫七百五文。問買木幾何？\break
-\textbf{答：}三千二百六十株。\break
-\textbf{術：}列錢數於上，以株價為法，從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题31】} 现有钱5558贯300文，要买松木，每株价格1贯705文（即1705文）。问能买多少株？\break
-\textbf{【答案】}3260株。\break
-\textbf{【解法】}把钱数5,558,300文放在上面，每株1705文作为除数：5,558,300 ÷ 1705 = 3260株。
-
-\switchcolumn*
-
-\textbf{問32.} 今有芝麻共數於上，以三斤七分五釐乘之。問得幾何？\break
-\textbf{術：}列芝麻共數於上，以三斤七分五釐為法，從上次位呼之，言十靠身，遍臨頭位破身，即得。
-
-\switchcolumn
-
-\textbf{【问题32】} 现有芝麻若干，用3斤7分5釐（即3.075斤）去乘。问结果是多少？\break
-\textbf{【解法】}把芝麻的数量放在上面，用3.075作为乘数，留头乘法：先保留首位「3」，从次位「0」乘起（其实是从「7」开始），逐位相乘并进位，最后乘首位，即得结果。
-
-\switchcolumn*
-
-\textbf{問33.} 今有小麥五碩九斛二升，每斛磨麵六斤一十四兩。問磨麵幾何？\break
-\textbf{答：}四百單七斤。\break
-\textbf{術：}列麥數於上，以六斤八分七釐半乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题33】} 现有小麦5硕9斛2升，每斛小麦可磨面6斤14两（即6.875斤）。问能磨出多少斤面？\break
-\textbf{【答案】}407斤。\break
-\textbf{【解法】}把麦数放在上面，先把6斤14两化为6.875斤，用留头乘法相乘：麦数 × 6.875 = 面数 = 407斤。
-
-\switchcolumn*
-
-\textbf{問34.} 今有麥數於上，以六斤八分七釐半乘之。問得幾何？\break
-\textbf{術：}列麥數於上，以六斤八分七釐半為法，從上次位呼之，言十靠身，遍臨頭位破身，即得。
-
-\switchcolumn
-
-\textbf{【问题34】} 现有麦若干放在上面，用6斤8分7釐半（即6.875斤）去乘。问结果是多少？\break
-\textbf{【解法】}把麦数放在上面，用6.875作为乘数，留头乘法：先保留首位「6」，从次位「8」乘起，逐位相乘并进位，最后乘首位「6」，即得结果。
-
-\switchcolumn*
-
-\textbf{問35.} 今有菉荳三十二碩七斛三升，每斛造粉五斤六兩。問造粉幾何？\break
-\textbf{答：}一千七百五十九斤三兩八錢。\break
-\textbf{術：}列荳數於上，以五斤六兩為法，從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题35】} 现有绿豆32硕7斛3升，每斛绿豆可造粉5斤6两（即5.375斤）。问能造出多少粉？\break
-\textbf{【答案】}1759斤3两8钱。\break
-\textbf{【解法】}把绿豆数放在上面，先把5斤6两化为5.375斤作为乘数，用留头乘法：豆数 × 5.375 = 粉数 = 1759斤3两8钱。
-
-\switchcolumn*
-
-\textbf{問36.} 今有黃金一萬二千八百兩，每兩買地六畝二分五釐。問買地幾何？\break
-\textbf{答：}八萬畝。\break
-\textbf{術：}列金數於上，以地率從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题36】} 现有黄金12,800两，每两黄金可买地6亩2分5釐（即6.25亩）。问能买多少亩地？\break
-\textbf{【答案】}80,000亩。\break
-\textbf{【解法】}把金数12,800放在上面，用每两买地6.25亩去乘：12,800 × 6.25 = 12,800 × 6 + 12,800 × 0.25 = 76,800 + 3,200 = 80,000亩。
-
-\switchcolumn*
-
-\textbf{問37.} 今有田一百五十六頃二十五畝，每畝收稻五斛。問收稻幾何？\break
-\textbf{答：}九萬斛。\break
-\textbf{術：}列田數於上，以畝產從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题37】} 现有田156顷25亩（即15,625亩），每亩收稻5斛。问共收多少斛稻？\break
-\textbf{【答案】}90,000斛。\break
-\textbf{【解法】}把田亩数15,625放在上面，用每亩产量5斛去乘：15,625 × 5 = 78,125……\break
-\textit{注：按原文计算，疑156顷25亩 = 15,625亩，15,625 × 5 = 78,125斛。原文答案「九万斛」可能有其他换算方式，以原文为准。}
-
-\switchcolumn*
-
-\textbf{問38.} 今有米五十三斛四升，直錢九貫八百七十九文。只有錢六十八貫二百六十文。問得米幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列見錢為實，以米價為法，留頭乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题38】} 已知米53斛4升，值9贯879文钱。现有68贯260文钱，问能买多少米？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把现有的钱68,260文放在上面作为被除数，米价作为除数，用留头乘法（除法）计算：68,260 ÷ (9,879÷53.4) = 所得米数。这是比例问题：先算出每斛米的单价，再用总钱数除以单价。
-
-\switchcolumn*
-
-\textbf{問39.} 今有羅七百六十二匹，每匹價錢三貫二百三十文。問計錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列羅數於上，以匹價從上次位呼之，即得。
-
-\switchcolumn
-
-\textbf{【问题39】} 现有罗762匹，每匹价格3贯230文（即3230文）。问总共多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把罗的匹数762放在上面，用留头乘法，每匹3230文：762 × 3230 = 2,461,260文 = 2461贯260文。
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{身外減法門 · 身外减法门（减法速算/除法，10题）}
-\label{sec:shenwaijian}
-%% =======================================================================
-
-\begin{paracol}{2}
-\rhymeCL{減法根源必要知，即同求一一般推，\\
-呼如身下須當減，言十從身本位除。}
-\switchcolumn
-\rhymeMOD{身外减法的根源一定要知道，它和求一术（归除法）的推算方法是一样的，\\
-遇到不够除时（叫「如」）就在本位下面减，\\
-遇到够除时（叫「十」）就从本位上除去。}
-\switchcolumn*
-\noteCL{身外減法者，除法之簡便術也，乃身外加法之逆運算。其法列被除數（實）於上，除數（法）於下，從上位逐位相減，以減代除，故謂之減法。}
-\switchcolumn
-\noteMOD{身外减法是除法的一种简便速算方法，是身外加法的逆运算。把被除数放在上面，除数放在下面，从上位开始逐位相减，用减法代替除法，所以叫「减法」。}
-
-\switchcolumn*
-
-\textbf{問40.} 今有錢四貫三百二十文，欲糴白豆，每斗價錢二十文。問得幾何？\break
-\textbf{答：}二百一十六斗。\break
-\textbf{術：}列錢數於上，為實，以斗價為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题40】} 现有钱4贯320文（即4320文），要买白豆，每斗价格20文。问能买多少斗？\break
-\textbf{【答案】}216斗。\break
-\textbf{【解法】}把钱数4320放在上面作为被除数（实），每斗20文作为除数（法），用身外减法计算：4320 ÷ 20 = 216斗。
-
-\switchcolumn*
-
-\textbf{問41.} 今有錢四十三貫二百文，欲買細絲，每斤價錢三百文。問得幾何？\break
-\textbf{答：}一百四十四斤。\break
-\textbf{術：}列錢數於上，為實，以斤價為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题41】} 现有钱43贯200文（即43,200文），要买细丝，每斤价格300文。问能买多少斤？\break
-\textbf{【答案】}144斤。\break
-\textbf{【解法】}把钱数43,200放在上面，每斤300文作为除数：43,200 ÷ 300 = 144斤。
-
-\switchcolumn*
-
-\textbf{問42.} 今有錢一千四百一十六貫，欲買絹子，每匹價錢四貫文。問得幾何？\break
-\textbf{答：}三百五十四匹。\break
-\textbf{術：}列錢數於上，為實，以匹價為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题42】} 现有钱1416贯，要买绢，每匹价格4贯。问能买多少匹？\break
-\textbf{【答案】}354匹。\break
-\textbf{【解法】}把钱数1416放在上面，每匹4贯作为除数：1416 ÷ 4 = 354匹。
-
-\switchcolumn*
-
-\textbf{問43.} 今有銀二萬七千三百五十兩，欲為課銀，每錠五十兩。問為幾錠？\break
-\textbf{答：}五百四十七錠。\break
-\textbf{術：}列銀數於上，為實，以錠重為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题43】} 现有银27,350两，要铸成课银锭，每锭50两。问能铸多少锭？\break
-\textbf{【答案】}547锭。\break
-\textbf{【解法】}把银数27,350放在上面，每锭50两作为除数：27,350 ÷ 50 = 547锭。
-
-\switchcolumn*
-
-\textbf{問44.} 今有錢四千四百一十六貫，欲買大羅，每匹價錢六貫文。問得幾何？\break
-\textbf{答：}七百三十六匹。\break
-\textbf{術：}列錢數於上，為實，以匹價為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题44】} 现有钱4416贯，要买大罗（丝织品），每匹价格6贯。问能买多少匹？\break
-\textbf{【答案】}736匹。\break
-\textbf{【解法】}把钱数4416放在上面，每匹6贯作为除数：4416 ÷ 6 = 736匹。
-
-\switchcolumn*
-
-\textbf{問45.} 今有錢六百二十四貫四百文，欲買甘草，每秤價錢七百文。問得幾何？\break
-\textbf{答：}八百九十二秤。\break
-\textbf{術：}列錢數於上，為實，以秤價為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题45】} 现有钱624贯400文（即624,400文），要买甘草，每秤价格700文。问能买多少秤？\break
-\textbf{【答案】}892秤。\break
-\textbf{【解法】}把钱数624,400放在上面，每秤700文作为除数：624,400 ÷ 700 = 892秤。
-
-\switchcolumn*
-
-\textbf{問46.} 今有錢五十貫七百二十文，欲買細布，每尺價錢八十文。問得幾何？\break
-\textbf{答：}六百三十四尺。\break
-\textbf{術：}列錢數於上，為實，以尺價為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题46】} 现有钱50贯720文（即50,720文），要买细布，每尺价格80文。问能买多少尺？\break
-\textbf{【答案】}634尺。\break
-\textbf{【解法】}把钱数50,720放在上面，每尺80文作为除数：50,720 ÷ 80 = 634尺。
-
-\switchcolumn*
-
-\textbf{問47.} 今有錢三萬八千二百五十貫，欲買馬，每匹價錢九十貫。問得幾何？\break
-\textbf{答：}四百二十五匹。\break
-\textbf{術：}列錢數於上，為實，以匹價為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题47】} 现有钱38,250贯，要买马，每匹价格90贯。问能买多少匹？\break
-\textbf{【答案】}425匹。\break
-\textbf{【解法】}把钱数38,250放在上面，每匹90贯作为除数：38,250 ÷ 90 = 425匹。
-
-\switchcolumn*
-
-\textbf{問48.} 今有油六碩八斗四升，每三斤七分五釐直錢一百文。問直錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列油數為實，以三斤七分五釐為法，身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题48】} 现有油6硕8斗4升，每3斤7分5釐（即3.075斤）油值100文钱。问这些油值多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把油的总量放在上面作为被除数，用3.075斤作为除数（因为3.075斤油值100文），身外减法：油数 ÷ 3.075 × 100 = 所值钱数。
-
-\switchcolumn*
-
-\textbf{問49.} 今有麵四百單七斤，每六斤八分七釐半直錢一百文。問直錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列麵數為實，以六斤八分七釐半為法，身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题49】} 现有面407斤，每6斤8分7釐半（即6.875斤）面值100文钱。问这些面值多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把面数407放在上面，用6.875斤作为除数（因为6.875斤面值100文）：407 ÷ 6.875 × 100 = 所值钱数 = 407 × 100 ÷ 6.875 ≈ 5920文。
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{九歸除法門 · 九归除法门（29题）}
-\label{sec:jiugui}
-%% =======================================================================
-
-\begin{paracol}{2}
-\rhymeCL{實少法多從法歸，實多滿法進前居，\\
-常存除數專心記，法實相停九十餘。\\
-但遇無除還頭位，然將釋九數呼除，\\
-流傳故泄真消息，求一穿韜總不如。}
-\switchcolumn
-\rhymeMOD{被除数小于除数时，从除数（法）的归除口诀开始，\\
-被除数大于除数时，够除就向前一位进商，\\
-要始终记住除数，专心运算，\\
-除数和被除数相近时，商在九十几。\\
-遇到不够除的情况就回到头位，\\
-然后用九归口诀来除，\\
-这个方法流传已久，泄露了真正的心算秘诀，\\
-什么求一术、穿韬法都比不上它。}
-\switchcolumn*
-\noteCL{九歸除法者，以九句歌訣（見總括）為基礎之除法也。實為被除數，法為除數。以法之首位定用何歸（一至九），按歌訣逐位求商。此術雖非正統商除，然便於初學，故廣為流傳。}
-\switchcolumn
-\noteMOD{九归除法是以总括中的九句口诀为基础的除法。被除数叫「实」，除数叫「法」。根据除数的首位决定用哪一归（一到九），按照口诀逐位求商。这种方法虽然不是正统的商除法，但对初学者很方便，所以广为流传。}
-
-\switchcolumn*
-
-\textbf{問50.} 今有錢四貫三百二十文，欲糴白豆，每斗價錢二十文。問得幾何？\break
-\textbf{答：}二百一十六斗。\break
-\textbf{術：}列錢物於上為實，各以價錢為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题50】} 现有钱4贯320文（4320文），要买白豆，每斗20文。问能买多少斗？\break
-\textbf{【答案】}216斗。\break
-\textbf{【解法】}把钱数放在上面作为被除数（实），每斗价格作为除数（法），用九归除法（二归）计算：4320 ÷ 20 = 216斗。口诀用「二一添作五，逢二进成十」。
-
-\switchcolumn*
-
-\textbf{問51.} 今有錢四十三貫二百文，欲買細絲，每斤價錢三百文。問得幾何？\break
-\textbf{答：}一百四十四斤。\break
-\textbf{術：}列錢數為實，以斤價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题51】} 现有钱43贯200文（43,200文），要买细丝，每斤300文。问能买多少斤？\break
-\textbf{【答案】}144斤。\break
-\textbf{【解法】}把钱数放在上面作为实，每斤300文作为法，用九归除法（三归）计算：43,200 ÷ 300 = 144斤。口诀用「三一三十一，三二六十二，逢三进成十」。
-
-\switchcolumn*
-
-\textbf{問52.} 今有錢一千四百一十六貫，欲買絹子，每匹價錢四貫文。問得幾何？\break
-\textbf{答：}三百五十四匹。\break
-\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题52】} 现有钱1416贯，要买绢，每匹4贯。问能买多少匹？\break
-\textbf{【答案】}354匹。\break
-\textbf{【解法】}用钱数1416作为实，每匹4贯作为法，九归除法（四归）：1416 ÷ 4 = 354匹。口诀用「四一二十二，四二添作五，逢四进成十」。
-
-\switchcolumn*
-
-\textbf{問53.} 今有銀二萬七千三百五十兩，欲為課銀，每錠五十兩。問為幾錠？\break
-\textbf{答：}五百四十七錠。\break
-\textbf{術：}列銀數為實，以錠重為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题53】} 现有银27,350两，要铸课银锭，每锭50两。问能铸多少锭？\break
-\textbf{【答案】}547锭。\break
-\textbf{【解法】}用银数27,350作为实，每锭50两作为法，九归除法（五归）：27,350 ÷ 50 = 547锭。口诀用「五归添一倍，逢五进成十」。
-
-\switchcolumn*
-
-\textbf{問54.} 今有錢四千四百一十六貫，欲買大羅，每匹價錢六貫文。問得幾何？\break
-\textbf{答：}七百三十六匹。\break
-\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题54】} 现有钱4416贯，要买大罗，每匹6贯。问能买多少匹？\break
-\textbf{【答案】}736匹。\break
-\textbf{【解法】}用钱数4416作为实，每匹6贯作为法，九归除法（六归）：4416 ÷ 6 = 736匹。口诀用「六一下加四，六三添作五，逢六进成十」。
-
-\switchcolumn*
-
-\textbf{問55.} 今有錢六百二十四貫四百文，欲買甘草，每秤價錢七百文。問得幾何？\break
-\textbf{答：}八百九十二秤。\break
-\textbf{術：}列錢數為實，以秤價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题55】} 现有钱624贯400文（624,400文），要买甘草，每秤700文。问能买多少秤？\break
-\textbf{【答案】}892秤。\break
-\textbf{【解法】}用钱数624,400作为实，每秤700文作为法，九归除法（七归）：624,400 ÷ 700 = 892秤。口诀用「七一下加三，七二下加六，逢七进成十」。
-
-\switchcolumn*
-
-\textbf{問56.} 今有錢五十貫七百二十文，欲買細布，每尺價錢八十文。問得幾何？\break
-\textbf{答：}六百三十四尺。\break
-\textbf{術：}列錢數為實，以尺價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题56】} 现有钱50贯720文（50,720文），要买细布，每尺80文。问能买多少尺？\break
-\textbf{【答案】}634尺。\break
-\textbf{【解法】}用钱数50,720作为实，每尺80文作为法，九归除法（八归）：50,720 ÷ 80 = 634尺。口诀用「八一下加二，八四添作五，逢八进成十」。
-
-\switchcolumn*
-
-\textbf{問57.} 今有木幾何，直錢三千二百六十株。問每株價錢幾何？\break
-\textbf{答：}三貫二百六十文。\break
-\textbf{術：}列錢物於上為實，各以價錢為法，從上身外減之，即得。
-
-\switchcolumn
-
-\textbf{【问题57】} 已知买木共花了能买3260株木的钱，每株价格多少？\break
-\textbf{【答案】}3贯260文。\break
-\textbf{【解法】}把总钱数放在上面作为实，3260株作为法，用九归除法计算每株的价格。这是上一题的逆运算。
-
-\switchcolumn*
-
-\textbf{問58.} 今有絹幾何，每匹四貫，共錢一千四百一十六貫。問匹數幾何？\break
-\textbf{答：}三百五十四匹。\break
-\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题58】} 已知每匹绢4贯，共钱1416贯。问买了多少匹？\break
-\textbf{【答案】}354匹。\break
-\textbf{【解法】}用钱数1416作为实，每匹4贯作为法，九归除法：1416 ÷ 4 = 354匹。
-
-\switchcolumn*
-
-\textbf{問59.} 今有銀幾何，每錠五十兩，共二萬七千三百五十兩。問錠數幾何？\break
-\textbf{答：}五百四十七錠。\break
-\textbf{術：}列銀數為實，以錠重為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题59】} 已知每锭银50两，共有27,350两。问有多少锭？\break
-\textbf{【答案】}547锭。\break
-\textbf{【解法】}用银数27,350作为实，每锭50两作为法：27,350 ÷ 50 = 547锭。
-
-\switchcolumn*
-
-\textbf{問60.} 今有甘草幾何，每秤七百文，共錢六百二十四貫四百文。問秤數幾何？\break
-\textbf{答：}八百九十二秤。\break
-\textbf{術：}列錢數為實，以秤價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题60】} 已知每秤甘草700文，共钱624贯400文。问有多少秤？\break
-\textbf{【答案】}892秤。\break
-\textbf{【解法】}用钱数624,400作为实，每秤700文作为法：624,400 ÷ 700 = 892秤。
-
-\switchcolumn*
-
-\textbf{問61.} 今有麻布幾何，每匹一百九十四文，共錢一百四貫三百七十二文。問匹數幾何？\break
-\textbf{答：}五百三十八匹。\break
-\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题61】} 已知每匹麻布194文，共钱104贯372文（104,372文）。问有多少匹？\break
-\textbf{【答案】}538匹。\break
-\textbf{【解法】}用钱数104,372作为实，每匹194文作为法：104,372 ÷ 194 = 538匹。
-
-\switchcolumn*
-
-\textbf{問62.} 今有細布幾何，每尺八十文，共錢五十貫七百二十文。問尺數幾何？\break
-\textbf{答：}六百三十四尺。\break
-\textbf{術：}列錢數為實，以尺價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题62】} 已知每尺细布80文，共钱50贯720文（50,720文）。问有多少尺？\break
-\textbf{【答案】}634尺。\break
-\textbf{【解法】}用钱数50,720作为实，每尺80文作为法：50,720 ÷ 80 = 634尺。
-
-\switchcolumn*
-
-\textbf{問63.} 今有松木幾何，每株一貫七百五文，共錢五千五百五十八貫三百文。問株數幾何？\break
-\textbf{答：}三千二百六十株。\break
-\textbf{術：}列錢數為實，以株價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题63】} 已知每株松木1贯705文（1705文），共钱5558贯300文（5,558,300文）。问有多少株？\break
-\textbf{【答案】}3260株。\break
-\textbf{【解法】}用钱数5,558,300作为实，每株1705文作为法：5,558,300 ÷ 1705 = 3260株。
-
-\switchcolumn*
-
-\textbf{問64.} 今有白豆幾何，每斗二十文，共錢四貫三百二十文。問斗數幾何？\break
-\textbf{答：}二百一十六斗。\break
-\textbf{術：}列錢數為實，以斗價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题64】} 已知每斗白豆20文，共钱4贯320文（4320文）。问有多少斗？\break
-\textbf{【答案】}216斗。\break
-\textbf{【解法】}用钱数4320作为实，每斗20文作为法：4320 ÷ 20 = 216斗。
-
-\switchcolumn*
-
-\textbf{問65.} 今有絲幾何，每斤三百文，共錢四十三貫二百文。問斤數幾何？\break
-\textbf{答：}一百四十四斤。\break
-\textbf{術：}列錢數為實，以斤價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题65】} 已知每斤丝300文，共钱43贯200文（43,200文）。问有多少斤？\break
-\textbf{【答案】}144斤。\break
-\textbf{【解法】}用钱数43,200作为实，每斤300文作为法：43,200 ÷ 300 = 144斤。
-
-\switchcolumn*
-
-\textbf{問66.} 今有馬幾何，每匹九十貫，共錢三萬八千二百五十貫。問匹數幾何？\break
-\textbf{答：}四百二十五匹。\break
-\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题66】} 已知每匹马90贯，共钱38,250贯。问有多少匹？\break
-\textbf{【答案】}425匹。\break
-\textbf{【解法】}用钱数38,250作为实，每匹90贯作为法：38,250 ÷ 90 = 425匹。
-
-\switchcolumn*
-
-\textbf{問67.} 今有羅幾何，每匹價錢三貫二百三十文，共錢一千七百一十一貫四百文。問匹數幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题67】} 已知每匹罗3贯230文（3230文），共钱1711贯400文。问有多少匹？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}用钱数1711贯400文（1,711,400文）作为实，每匹3230文作为法：1,711,400 ÷ 3230 = 530匹。
-
-\switchcolumn*
-
-\textbf{問68.} 今有大羅幾何，每匹六貫，共錢四千四百一十六貫。問匹數幾何？\break
-\textbf{答：}七百三十六匹。\break
-\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题68】} 已知每匹大罗6贯，共钱4416贯。问有多少匹？\break
-\textbf{【答案】}736匹。\break
-\textbf{【解法】}用钱数4416作为实，每匹6贯作为法：4416 ÷ 6 = 736匹。
-
-\switchcolumn*
-
-\textbf{問69.} 今有苧絲幾何，每尺一百九十文，共錢六十五貫五百五十文。問尺數幾何？\break
-\textbf{答：}三百四十五尺。\break
-\textbf{術：}列錢數為實，以尺價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题69】} 已知每尺苎丝190文，共钱65贯550文（65,550文）。问有多少尺？\break
-\textbf{【答案】}345尺。\break
-\textbf{【解法】}用钱数65,550作为实，每尺190文作为法：65,550 ÷ 190 = 345尺。
-
-\switchcolumn*
-
-\textbf{問70.} 今有米幾何，每斗一百一十文，共錢七貫五百二十四文。問斗數幾何？\break
-\textbf{答：}六碩八斗四升。\break
-\textbf{術：}列錢數為實，以斗價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题70】} 已知每斗米110文，共钱7贯524文（7524文）。问有多少斗？\break
-\textbf{【答案】}6硕8斗4升（即68.4斗）。\break
-\textbf{【解法】}用钱数7524作为实，每斗110文作为法：7524 ÷ 110 = 68.4斗 = 6硕8斗4升。
-
-\switchcolumn*
-
-\textbf{問71.} 今有鹽幾何，每袋一十三貫，共錢一萬一千三百四十九貫。問袋數幾何？\break
-\textbf{答：}八百七十三袋。\break
-\textbf{術：}列錢數為實，以袋價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题71】} 已知每袋盐13贯，共钱11,349贯。问有多少袋？\break
-\textbf{【答案】}873袋。\break
-\textbf{【解法】}用钱数11,349作为实，每袋13贯作为法：11,349 ÷ 13 = 873袋。
-
-\switchcolumn*
-
-\textbf{問72.} 今有羊幾何，每只四貫，共錢一千四百一十六貫。問只數幾何？\break
-\textbf{答：}三百五十四只。\break
-\textbf{術：}列錢數為實，以只價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题72】} 已知每只羊4贯，共钱1416贯。问有多少只？\break
-\textbf{【答案】}354只。\break
-\textbf{【解法】}用钱数1416作为实，每只4贯作为法：1416 ÷ 4 = 354只。
-
-\switchcolumn*
-
-\textbf{問73.} 今有油六碩八斗四升，每三斤七分五釐直錢一百文。問直錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列油數為實，以三斤七分五釐為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题73】} 现有油6硕8斗4升，每3斤7分5釐（3.075斤）油值100文。问这些油值多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把油的总数放在上面作为实，用3.075作为法（因为3.075斤油值100文），九归除法计算：油数 ÷ 3.075 × 100 = 所值钱数。
-
-\switchcolumn*
-
-\textbf{問74.} 今有麵四百單七斤，每六斤八分七釐半直錢一百文。問直錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列麵數為實，以六斤八分七釐半為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题74】} 现有面407斤，每6斤8分7釐半（6.875斤）面值100文。问这些面值多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把面数407放在上面作为实，用6.875作为法：407 ÷ 6.875 × 100 = 所值钱数。
-
-\switchcolumn*
-
-\textbf{問75.} 今有羅三十四尺六寸，每尺一百二十文。問計錢幾何？\break
-\textbf{答：}四貫一百五十二文。\break
-\textbf{術：}列羅數於上，以尺價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题75】} 现有罗34尺6寸（34.6尺），每尺120文。问总共多少钱？\break
-\textbf{【答案】}4贯152文。\break
-\textbf{【解法】}把罗数34.6放在上面，每尺120文去乘：34.6 × 120 = 4152文 = 4贯152文。
-
-\switchcolumn*
-
-\textbf{問76.} 今有胡椒六十三斤四兩，每斤三百八十文。問計錢幾何？\break
-\textbf{答：}二十四貫三十五文。\break
-\textbf{術：}列椒數於上，以斤價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题76】} 现有胡椒63斤4两（63.25斤），每斤380文。问总共多少钱？\break
-\textbf{【答案】}24贯35文（24,035文）。\break
-\textbf{【解法】}把椒数63.25放在上面，每斤380文去乘：63.25 × 380 = 24,035文。
-
-\switchcolumn*
-
-\textbf{問77.} 今有馬幾何，每匹價錢九十貫。問計錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列馬數於上，以匹價為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题77】} 现有马若干，每匹90贯。问总共多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把马匹数放在上面，用每匹90贯去乘，即得总钱数。
-
-\switchcolumn*
-
-\textbf{問78.} 今有綿三百四十五斤，欲作綿被，每床用綿七斤。問作幾床？\break
-\textbf{答：}四十九床，餘二斤。\break
-\textbf{術：}列綿數為實，以每床用綿為法，九歸除之，即得。
-
-\switchcolumn
-
-\textbf{【问题78】} 现有绵345斤，要做棉被，每床用绵7斤。问能做多少床？\break
-\textbf{【答案】}49床，余2斤。\break
-\textbf{【解法】}把绵数345放在上面作为实，每床7斤作为法：345 ÷ 7 = 49床余2斤。口诀用「七三四十二，七四五十五，逢七进成十」。
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{異乘同除門 · 异乘同除门（比例运算，8题）}
-\label{sec:yicheng}
-%% =======================================================================
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【章旨】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【章节说明】}}
-\switchcolumn*
-
-此門論異乘同除之術，即比例換算之法也。以物易物、據錢買物、據物賣錢，皆以此術求之。其法：以原物乘今錢為實，以原錢為法，除之即得。
-
-\switchcolumn
-
-这一章讨论异乘同除的算法，也就是比例换算的方法。用物品交换物品、根据钱数买物品、根据物品算价钱，都用这个方法来求解。算法是：用原来的物品数量乘以现在的钱数作为被除数，用原来的钱数作为除数，除之即得。
-
-\switchcolumn*
-
-\textbf{問79.} 今有錢九貫八百七十九文，糴米五碩三斛四升。只有錢六十八貫二百六十文。問得米幾何？\break
-\textbf{答：}六十八貫二百六十五文。\break
-\textbf{術：}列只有米數，以乘今有錢為實，以原錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题79】} 已知9贯879文钱能买米5硕3斛4升。现有68贯260文钱，问能买多少米？\break
-\textbf{【答案】}68贯265文。\break
-\textbf{【解法】}用异乘同除法：现在的钱数68,260 × 原来买的米数5.34 ÷ 原来的钱数9,879 = 现在能买的米数。\break
-即 (68,260 × 5.34) ÷ 9,879 = 所求米数。
-
-\switchcolumn*
-
-\textbf{問80.} 今有絲七匹，通尺內子得二千三十一尺，以乘上位得六百三十七萬九千三百七十一。又以實以斤銖法三百八十四銖除之，得三萬六千五百四十二銖，為實。\break
-\textbf{答：}九千七百六十五斤一十兩四銖。\break
-\textbf{術：}列七匹通尺內子，以乘上位，又以斤銖法除之，即得。
-
-\switchcolumn
-
-\textbf{【问题80】} 现有丝7匹，换算成尺并加上零数共得2031尺，再乘以上位的数得到6,379,371。然后用斤铢法384铢去除，得到36,542铢作为被除数。\break
-\textbf{【答案】}9765斤10两4铢。\break
-\textbf{【解法】}把7匹丝换算为尺数（含零数），再乘以上位给定的数，然后用384铢（1斤=16两=384铢）去除，得到斤数：36,542 ÷ 384 = 95斤余62铢，再换算……\break
-\textit{注：原文答案为「九千七百六十五斤」，疑有更复杂的换算过程。}
-
-\switchcolumn*
-
-\textbf{問81.} 今有絲八斤二兩二十一銖，織錦七匹六尺五寸。只有絲九十五斤三兩六銖。問織錦幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}（匹法同前）列只有絲數，以乘錦數為實，以原絲為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题81】} 已知丝8斤2两21铢可以织锦7匹6尺5寸。现有丝95斤3两6铢。问能织多少锦？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}用异乘同除法：现有的丝数 × 原来织的锦数 ÷ 原来的丝数 = 现在能织的锦数。\break
-先把所有重量统一换算为铢，然后计算：(95斤3两6铢 × 7匹6尺5寸) ÷ (8斤2两21铢) = 所求锦数。
-
-\switchcolumn*
-
-\textbf{問82.} 今有錢五貫八百三十文，買麩八斗五升。只有錢三十七貫七百六十文。問買麩幾何？\break
-\textbf{答：}五碩五斗二升。\break
-\textbf{術：}列只有錢數，以乘原麩為實，以原錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题82】} 已知5贯830文钱能买麸8斗5升。现有37贯760文钱。问能买多少麸？\break
-\textbf{【答案】}5硕5斗2升（即55.2斗）。\break
-\textbf{【解法】}用异乘同除法：现在的钱数37,760 × 原来买的麸数8.5 ÷ 原来的钱数5,830 = 现在能买的麸数。\break
-(37,760 × 8.5) ÷ 5,830 = 55.2斗 = 5硕5斗2升。
-
-\switchcolumn*
-
-\textbf{問83.} 今有錢一貫一百七十五文，買麥五斗四升。只有錢二十三貫五百文。問買麥幾何？\break
-\textbf{答：}十碩八斗。\break
-\textbf{術：}列只有錢數，以乘原麥為實，以原錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题83】} 已知1贯175文钱能买麦5斗4升。现有23贯500文钱。问能买多少麦？\break
-\textbf{【答案】}10硕8斗（即108斗）。\break
-\textbf{【解法】}用异乘同除法：23,500 × 5.4 ÷ 1,175 = 108斗 = 10硕8斗。
-
-\switchcolumn*
-
-\textbf{問84.} 今有錢二貫六百文，買麵三斤四兩。只有錢四十七貫四百五十文。問買麵幾何？\break
-\textbf{答：}六十三斤四兩。\break
-\textbf{術：}列只有錢數，以乘原麵為實，以原錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题84】} 已知2贯600文钱能买面3斤4两。现有47贯450文钱。问能买多少面？\break
-\textbf{【答案】}63斤4两。\break
-\textbf{【解法】}用异乘同除法：47,450 × 3.25 ÷ 2,600 = 63.25斤 = 63斤4两。
-
-\switchcolumn*
-
-\textbf{問85.} 今有錢一貫二百文，買鹽二碩四斗。只有錢三十二貫三百文。問買鹽幾何？\break
-\textbf{答：}六十四碩八斗。\break
-\textbf{術：}列只有錢數，以乘原鹽為實，以原錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题85】} 已知1贯200文钱能买盐2硕4斗。现有32贯300文钱。问能买多少盐？\break
-\textbf{【答案】}64硕8斗（即648斗）。\break
-\textbf{【解法】}用异乘同除法：32,300 × 24 ÷ 1,200 = 646斗……\break
-按原文计算：32,300 × 24 ÷ 1,200 = 646斗。原文答案为「六十四硕八斗」= 648斗。
-
-\switchcolumn*
-
-\textbf{問86.} 今有銀二十四銖，直錢三貫六百文。只有銀五十九兩八銖。問直錢幾何？\break
-\textbf{答：}八十九貫七百文。\break
-\textbf{術：}列只有銀數，以乘原直錢為實，以原銀為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题86】} 已知24铢银值3贯600文钱。现有银59两8铢。问值多少钱？\break
-\textbf{【答案】}89贯700文。\break
-\textbf{【解法】}先把59两8铢换算为铢：59×24 + 8 = 1416 + 8 = 1424铢。\break
-用异乘同除法：1424 × 3600 ÷ 24 = 213,600文 = 213贯600文……\break
-\textit{注：原文答案为89贯700文，疑有不同的换算方式。}
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{庫務解稅門 · 库务解税门（财政税收，11题）}
-\label{sec:kuwu}
-%% =======================================================================
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【章旨】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【章节说明】}}
-\switchcolumn*
-
-此門論庫務、解稅、利息、錢鈔換算之事，皆官府財政之實務也。其題涉及本利計算、錢鈔兌換、合金成色、課稅徵收，反映了元代財政管理之制度。
-
-\switchcolumn
-
-这一章讨论国库管理、税收解送、利息计算、钱币兑换等问题，都是政府财政管理的实际事务。题目涉及本金利息计算、纸币银两兑换、合金成色、课税征收等内容，反映了元代的财政管理制度。
-
-\switchcolumn*
-
-\textbf{問87.} 今有本銀四千五百六兩，經三箇月一十二日，月利銀三百六兩。問本利共幾何？\break
-\textbf{答：}本銀四千五十兩，利銀三百六兩。\break
-\textbf{術：}置本銀以月數乘之，又以日數乘之，以三十日除之，得利息，加入本銀，即得。
-
-\switchcolumn
-
-\textbf{【问题87】} 现有本金4050两，经过3个月12天，每月利息按比例计算。问本金和利息共多少？\break
-\textbf{【答案】}本金4050两，利息306两。\break
-\textbf{【解法】}把本金放在上面，用月数去乘，再用日数去乘，除以30天，得到利息，加入本金，即得本利合计。\break
-计算：利息 = 4050 × 3 × 12 ÷ 30 = 4050 × 36 ÷ 30 = 4860两……\break
-\textit{注：原文「月利銀三百六兩」疑为已知条件，即每月利息按比例相当于306两。实际计算方法为：本金 × 月利率 × 时间 = 利息。}
-
-\switchcolumn*
-
-\textbf{問88.} 今有本銀四千五十兩，月利一分二釐。問三箇月一十二日，利銀幾何？\break
-\textbf{答：}一百四十五兩八錢。\break
-\textbf{術：}置本銀以月利乘之，又以日數乘之，以三十日除之，即得。
-
-\switchcolumn
-
-\textbf{【问题88】} 现有本金4050两，月利率为1分2釐（即1.2\%）。问3个月12天的利息是多少？\break
-\textbf{【答案】}145两8钱。\break
-\textbf{【解法】}把本金4050放在上面，乘以月利率1.2\%：4050 × 0.012 = 48.6两（每月利息）。\break
-3个月利息 = 48.6 × 3 = 145.8两 = 145两8钱。\break
-12天的利息 = 48.6 × 12 ÷ 30 = 19.44两，合计165.24两……\break
-\textit{注：原文答案为145两8钱，疑只计算了3个月（不含12天），4050 × 0.012 × 3 = 145.8两。}
-
-\switchcolumn*
-
-\textbf{問89.} 今有課銀三萬六千兩，每五十兩為一錠。問為幾錠？\break
-\textbf{答：}七百二十錠。\break
-\textbf{術：}置課銀以錠重除之，即得。
-
-\switchcolumn
-
-\textbf{【问题89】} 现有课银36,000两，每50两铸成1锭。问能铸多少锭？\break
-\textbf{【答案】}720锭。\break
-\textbf{【解法】}把课银36,000放在上面，除以每锭50两：36,000 ÷ 50 = 720锭。
-
-\switchcolumn*
-
-\textbf{問90.} 今有鈔二千四百貫，欲換銀，每銀一兩直鈔八貫。問得銀幾何？\break
-\textbf{答：}三百兩。\break
-\textbf{術：}置鈔數為實，以銀價為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题90】} 现有纸币2400贯，要换成白银，每两白银值纸币8贯。问能换多少两？\break
-\textbf{【答案】}300两。\break
-\textbf{【解法】}把钞数2400贯放在上面作为被除数，每两银价8贯作为除数：2400 ÷ 8 = 300两。
-
-\switchcolumn*
-
-\textbf{問91.} 今有銀三百兩，欲換鈔，每兩直鈔八貫。問得鈔幾何？\break
-\textbf{答：}二千四百貫。\break
-\textbf{術：}置銀數為實，以鈔價為法，乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题91】} 现有银300两，要换成纸币，每两银值纸币8贯。问能换多少贯？\break
-\textbf{【答案】}2400贯。\break
-\textbf{【解法】}把银数300放在上面，乘以每两银价8贯：300 × 8 = 2400贯。这是上一题的逆运算。
-
-\switchcolumn*
-
-\textbf{問92.} 今有金一十二兩五錢，內減五十兩，餘即入銀，合同為法。實如法而一，得本銀，反減共還銀數，餘即利銀也。\break
-\textbf{答：}一十二兩五錢。\break
-\textbf{術：}列金數為實，以八分為法，除之，得本銀，反減共還銀數，餘即利銀也。
-
-\switchcolumn
-
-\textbf{【问题92】} 现有金12两5钱，题目涉及合金成色的计算。用特定的方法算出本金银，再用总还款数减去本金，余数就是利息。\break
-\textbf{【答案】}12两5钱。\break
-\textbf{【解法】}把金数放在上面作为被除数，以8分（0.8）为除数相除，得到本银数，再用总还款数反减本银数，余数就是利息。这是一道涉及金融计算的题目。
-
-\switchcolumn*
-
-\textbf{問93.} 今有銀一十二兩五錢，內減五十兩，餘即入銀，合同為法。實如法而一，得六兩，問為顏色分數幾何？\break
-\textbf{答：}八分色。\break
-\textbf{術：}列金數為實，以本銀為法，除之，即得顏色分數。
-
-\switchcolumn
-
-\textbf{【问题93】} 现有银12两5钱，经过某种合金计算得到6两，问合金的成色（纯度）是多少？\break
-\textbf{【答案】}八分色（即80\%的纯度）。\break
-\textbf{【解法】}把金（银）数放在上面作为被除数，以本银为除数：纯度 = 实际银含量 ÷ 总重量。如 10 ÷ 12.5 = 0.8 = 八分色（80\%纯度）。
-
-\switchcolumn*
-
-\textbf{問94.} 今有絲六十二斤半，換金一十兩，內八分半金五兩七分半金五兩。問二色金各得幾何？\break
-\textbf{術：}列絲數為實，以金價為法，除之，即得各金數。
-
-\switchcolumn
-
-\textbf{【问题94】} 现有丝62.5斤，要换成10两金，其中一种是成色8.5分的金5两，另一种是成色7.5分的金5两。问两种金子各得多少？\break
-\textbf{【解法】}把丝数62.5斤放在上面作为被除数，以金价为除数来计算。这是关于不同成色金子的兑换问题：两种金子的平均成色决定了兑换比率。\break
-8.5分金5两 + 7.5分金5两 = 平均成色8分金10两。用62.5斤丝去换，按金价计算各得多少。
-
-\switchcolumn*
-
-\textbf{問95.} 今有銀三千五百六兩，直錢三十五貫六百文。問每兩直錢幾何？\break
-\textbf{答：}一十文。\break
-\textbf{術：}置銀數為實，以直錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题95】} 现有银3506两，总共值35贯600文。问每两值多少钱？\break
-\textbf{【答案】}每两10文。\break
-\textbf{【解法】}把银数3506放在上面，总钱数35,600文为除数：35,600 ÷ 3506 ≈ 10.15文……\break
-\textit{注：原文答案为「一十文」，疑银数应为3560两，则35,600 ÷ 3560 = 10文。}
-
-\switchcolumn*
-
-\textbf{問96.} 今有鈔一百六十五貫五百文，買絲三十七斤八兩。問每斤價鈔幾何？\break
-\textbf{答：}四貫四百文。\break
-\textbf{術：}置鈔數為實，以絲數為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题96】} 现有钞165贯500文（165,500文），买丝37斤8两（即37.5斤）。问每斤丝价格多少？\break
-\textbf{【答案】}每斤4贯400文。\break
-\textbf{【解法】}把钞数165,500文放在上面作为被除数，丝数37.5斤作为除数：165,500 ÷ 37.5 = 4413.33文……\break
-\textit{注：原文答案为每斤4贯400文，即4400文。若165,000 ÷ 37.5 = 4400文，则原文「五百文」应为零数。}
-
-\switchcolumn*
-
-\textbf{問97.} 今有課鈔一千貫，納官每百貫收工墨錢一貫。問工墨錢幾何？\break
-\textbf{答：}十貫。\break
-\textbf{術：}置課鈔為實，以百貫為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题97】} 现有课钞1000贯要缴纳给官府，每100贯收取工墨钱（手续费）1贯。问工墨钱是多少？\break
-\textbf{【答案】}10贯。\break
-\textbf{【解法】}把课钞1000贯放在上面，每100贯为单位：1000 ÷ 100 = 10贯工墨钱。\break
-这是元代税收制度中的手续费计算。
-
-\end{paracol}
-
-\longline
-
-%% =======================================================================
-\subsection{折變互差門 · 折变互差门（比例换算，15题）}
-\label{sec:zhebian}
-%% =======================================================================
-
-\begin{paracol}{2}
-\rhymeCL{折變互差要詳知，多少相乘作實推，\\
-以少求多因作母，除來便見兩無虧。}
-\switchcolumn
-\rhymeMOD{折变互差的方法要详细了解，\\
-把已知的数量和比率相乘作为被除数，\\
-以少求多时就把「少」作为除数，\\
-除出来的结果双方都不亏。}
-\switchcolumn*
-\noteCL{折變互差者，論物價折算、合金成色、田地測量之術也。以已知之數推未知之數，用比例之法求解。}
-\switchcolumn
-\noteMOD{折变互差是讨论物价折算、合金成色、田地测量等算法。用已知数来推算未知数，用比例的方法来求解。}
-
-\switchcolumn*
-
-\textbf{問98.} 今有香油三兩，折菜油四兩，只云香油斤價四百文。問菜油斤價幾何？\break
-\textbf{答：}二十五貫四百二十五文。\break
-\textbf{術：}列香油數為實，以折率乘之，又以香油價為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题98】} 已知3两香油可以折算为4两菜油，又知香油每斤价格400文。问菜油每斤价格多少？\break
-\textbf{【答案】}25贯425文。\break
-\textbf{【解法】}用比例法：香油3两 : 菜油4两 = 香油价 : 菜油价。\break
-菜油价 = 香油价 × 香油量 ÷ 菜油量 = 400 × 3 ÷ 4 = 300文/斤……\break
-\textit{注：原文答案为「二十五贯四百二十五文」，疑有不同的换算方式。}
-
-\switchcolumn*
-
-\textbf{問99.} 今有香油三兩，折菜油四兩，只云菜油八十四斤一十二兩，問香油幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列菜油數為實，以折率除之，即得。
-
-\switchcolumn
-
-\textbf{【问题99】} 已知3两香油折算为4两菜油，现有菜油84斤12两（84.75斤）。问相当于多少香油？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}用比例法：香油 = 菜油 × 3 ÷ 4 = 84.75 × 3 ÷ 4 = 63.5625斤 = 63斤9两。
-
-\switchcolumn*
-
-\textbf{問100.} 今有麵四百單七斤，每六斤八分七釐半直錢一百文。問直錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列麵數為實，以六斤八分七釐半為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题100】} 现有面407斤，每6斤8分7釐半（6.875斤）面值100文。问这些面值多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把面数407放在上面，6.875斤作为除数：407 ÷ 6.875 × 100 = 407 × 100 ÷ 6.875 = 5920文 = 5贯920文。
-
-\switchcolumn*
-
-\textbf{問101.} 今有油六碩八斗四升，每三斤七分五釐直錢一百文。問直錢幾何？\break
-\textbf{答：}如術計之。\break
-\textbf{術：}列油數為實，以三斤七分五釐為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题101】} 现有油6硕8斗4升，每3斤7分5釐（3.075斤）油值100文。问这些油值多少钱？\break
-\textbf{【答案】}按解法计算。\break
-\textbf{【解法】}把油的总数量放在上面，3.075作为除数：油数 ÷ 3.075 × 100 = 所值钱数。
-
-\switchcolumn*
-
-\textbf{問102.} 今有麵數為實，以六斤八分七釐半除之。問得幾何？\break
-\textbf{術：}列麵數為實，以六斤八分七釐半為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题102】} 现有面若干作为被除数，用6斤8分7釐半（6.875斤）去除。问得多少？\break
-\textbf{【解法】}把面数放在上面作为被除数（实），用6.875斤作为除数（法），除之即得。这是面数和单价之间的换算。
-
-\switchcolumn*
-
-\textbf{問103.} 今有羅三十四匹六尺，每尺一百二十文。問計錢幾何？\break
-\textbf{答：}四貫一百五十二文。\break
-\textbf{術：}列羅數通為尺，以尺價乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题103】} 现有罗34匹6尺，每尺120文。问总共多少钱？\break
-\textbf{【答案】}4贯152文。\break
-\textbf{【解法】}先把34匹6尺全部换算为尺数（按1匹=某尺数），再乘以每尺120文：总尺数 × 120 = 总钱数 = 4152文。
-
-\switchcolumn*
-
-\textbf{問104.} 今有絹七匹，每匹四貫。問計錢幾何？\break
-\textbf{答：}二十八貫。\break
-\textbf{術：}列絹數，以匹價乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题104】} 现有绢7匹，每匹4贯。问总共多少钱？\break
-\textbf{【答案】}28贯。\break
-\textbf{【解法】}把绢的匹数7放在上面，乘以每匹4贯：7 × 4 = 28贯。
-
-\switchcolumn*
-
-\textbf{問105.} 今有絲一斤價錢二貫文，問一兩價錢幾何？\break
-\textbf{答：}一百二十五文。\break
-\textbf{術：}置絲斤價為實，以十六兩為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题105】} 现有丝每斤价格2贯（2000文），问每两价格多少？\break
-\textbf{【答案】}125文。\break
-\textbf{【解法】}把丝的斤价2000文放在上面，除以16两：2000 ÷ 16 = 125文/两。
-
-\switchcolumn*
-
-\textbf{問106.} 今有田一畝，闊十五步，長十六步。問為頃畝幾何？\break
-\textbf{答：}一畝。\break
-\textbf{術：}列闊步、長步相乘得積步，以畝法二百四十步除之，即得。
-
-\switchcolumn
-
-\textbf{【问题106】} 现有田1亩，宽15步，长16步。问合多少顷亩？\break
-\textbf{【答案】}1亩。\break
-\textbf{【解法】}把宽15步和长16步相乘得到积步（面积步数）：15 × 16 = 240平方步。\break
-用亩法240平方步去除：240 ÷ 240 = 1亩。\break
-\textit{注：古代1亩 = 宽1步 × 长240步 = 240平方步。这里15×16=240平方步，正好等于1亩。}
-
-\switchcolumn*
-
-\textbf{問107.} 今有粟九斗，每斛直錢一貫二百文。問直錢幾何？\break
-\textbf{答：}一貫八十文。\break
-\textbf{術：}置粟數為實，以斛價為法，乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题107】} 现有粟9斗，每斛价格1贯200文（1200文）。问值多少钱？\break
-\textbf{【答案】}1贯80文（1080文）。\break
-\textbf{【解法】}先把9斗换算为斛：9斗 = 0.9斛。\break
-再用0.9斛 × 每斛1200文 = 1080文 = 1贯80文。
-
-\switchcolumn*
-
-\textbf{問108.} 今有金五十兩，令二八共造，問各幾何？\break
-\textbf{答：}金四十兩，銀一十兩。\break
-\textbf{術：}置共金為實，以分母為法，除之，各以分子乘之，即得。
-
-\switchcolumn
-
-\textbf{【问题108】} 现有金50两，要按「二八」的比例来铸造合金，问金和银各用多少？\break
-\textbf{【答案】}金40两，银10两。\break
-\textbf{【解法】}「二八」即十分之八为金，十分之二为银。\break
-金 = 50 × 8 ÷ 10 = 40两；银 = 50 × 2 ÷ 10 = 10两。
-
-\switchcolumn*
-
-\textbf{問109.} 今有銀二十四兩，直錢三貫六百文。只有銀五十九兩八銖。問直錢幾何？\break
-\textbf{答：}八十九貫七百文。\break
-\textbf{術：}列只有銀數，以乘原直錢為實，以原銀為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题109】} 已知24两银值3贯600文（3600文）。现有银59两8铢。问值多少钱？\break
-\textbf{【答案】}89贯700文。\break
-\textbf{【解法】}先把59两8铢换算：59两8铢 = 59×24 + 8 = 1416 + 8 = 1424铢。\break
-24两 = 24 × 24 = 576铢。\break
-用异乘同除法：1424 × 3600 ÷ 576 = 8900文……\break
-\textit{注：原文答案为89贯700文（89,700文）。}
-
-\switchcolumn*
-
-\textbf{問110.} 今有絲八斤二兩二十一銖，織錦七匹六尺五寸。只有絲九十五斤三兩六銖。問織錦幾何？\break
-\textbf{術：}（匹法同前）列只有絲數，以乘錦數為實，以原絲為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题110】} 已知丝8斤2两21铢可以织锦7匹6尺5寸。现有丝95斤3两6铢。问能织多少锦？\break
-\textbf{【解法】}用异乘同除法：先把所有重量统一换算为铢，然后\break
-现有丝数 × 原来织的锦数 ÷ 原来的丝数 = 现在能织的锦数。
-
-\switchcolumn*
-
-\textbf{問111.} 今有錢五貫八百三十文，買麩八斗五升。只有錢三十七貫七百六十文。問買麩幾何？\break
-\textbf{答：}五碩五斗二升。\break
-\textbf{術：}列只有錢數，以乘原麩為實，以原錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题111】} 已知5贯830文能买麸8斗5升。现有37贯760文。问能买多少麸？\break
-\textbf{【答案】}5硕5斗2升（55.2斗）。\break
-\textbf{【解法】}异乘同除法：37,760 × 8.5 ÷ 5,830 = 55.2斗 = 5硕5斗2升。
-
-\switchcolumn*
-
-\textbf{問112.} 今有錢一貫一百七十五文，買麥五斗四升。只有錢二十三貫五百文。問買麥幾何？\break
-\textbf{答：}十碩八斗。\break
-\textbf{術：}列只有錢數，以乘原麥為實，以原錢為法，除之，即得。
-
-\switchcolumn
-
-\textbf{【问题112】} 已知1贯175文能买麦5斗4升。现有23贯500文。问能买多少麦？\break
-\textbf{【答案】}10硕8斗（108斗）。\break
-\textbf{【解法】}异乘同除法：23,500 × 5.4 ÷ 1,175 = 108斗 = 10硕8斗。
-
-\end{paracol}
-
-\vspace{1cm}
-\longline
-
-%% ========================================================================
-\section*{跋 · 卷上终}
-\addcontentsline{toc}{section}{跋 · 卷上终}
-%% ========================================================================
-
-\begin{paracol}{2}
-\noindent\textbf{\textcolor{leftlabel}{【文言】}}
-\switchcolumn
-\noindent\textbf{\textcolor{rightlabel}{【白話】}}
-\switchcolumn*
-
-右卷上凡八門，計一百一十三問。論縱橫因法、身外加減、留頭乘法、九歸除法、異乘同除、庫務解稅、折變互差之術。由淺入深，循序漸進，使學者習之，庶幾可以進窺卷中、卷下之奧也。
-
-\switchcolumn
-
-以上卷上共八章，计113道题。讨论了纵横因法、身外加减法、留头乘法、九归除法、异乘同除、库务解税、折变互差等算法。由浅入深、循序渐进，使学习者通过练习这些题目，可以为进一步学习卷中、卷下的深奥内容打下基础。
-
-\switchcolumn*
-
-朱氏之書，條理秩然。首列總括一十八條，立全書之綱紀；次分三卷，為初學之階梯。其術雖云啓蒙，實具大匠之規模。後之習算者，當由是而進窺天元、垛積之精微，則算學之能事畢矣。
-
-\switchcolumn
-
-朱世杰的这本书，条理清晰。开头列出总括十八条，确立了全书的纲领；然后分为三卷，作为初学者的阶梯。此书虽说是启蒙，实际上具有大师的格局。后世学习数学的人，应当由此进而探究天元术、垛积术的精妙，那就算数学的精髓都掌握了。
-
-\end{paracol}
-
-\vspace{2cm}
-\begin{center}
-\textcolor{sectioncolor}{\rule{0.3\textwidth}{0.4pt}}\\[0.5cm]
-{\small\color{notecolor} 卷上終 · End of Volume I\\
-總計八門 \quad 一百一十三問 \quad 18 General Principles + 113 Problems = 131 Items}
-\end{center}
-
-\end{document}
+%% ========================================================================
+%% 朱世傑《算學啓蒙》卷上 —— 文言文/白話文對照版
+%% Zhu Shijie: Suanxue Qimeng (Introduction to Mathematical Studies) — Part I
+%% Classical Chinese → Modern Chinese Bilingual Edition
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+\usepackage{paracol}   % For parallel bilingual columns
+\usepackage{ulem}      % For underlining
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Column Ratio --------
+\columnratio{0.50}   % Equal width columns
+\setlength{\columnsep}{1.2em}
+\setlength{\columnseprule}{0.4pt}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}[Scale=MatchLowercase]
+
+%% CJK Support via xeCJK
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{verselinecolor}{RGB}{80,60,40}
+\definecolor{leftbg}{RGB}{255,253,245}     % warm ivory for classical
+\definecolor{rightbg}{RGB}{245,250,255}    % cool blue-white for modern
+\definecolor{leftlabel}{RGB}{139,69,19}    % brown for classical
+\definecolor{rightlabel}{RGB}{25,85,140}   % blue for modern
+\definecolor{problembg}{RGB}{250,248,245}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{leftlabel}{\textit{算學啓蒙·文言文}}\hspace{1em}|\hspace{1em}\textcolor{rightlabel}{\textit{白話文對照版}}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Problem number counter
+\newcounter{problemnum}
+
+%% Left column (Classical) problem formatting
+\newcommand{\problemCL}[3]{%
+  \refstepcounter{problemnum}%
+  \par\medskip\noindent
+  \textbf{\textcolor{leftlabel}{問\,\theproblemnum.}}\ #1
+  \par\smallskip\noindent
+  \textbf{答：}#2
+  \par\smallskip\noindent
+  \textbf{術：}#3
+  \par\medskip
+}
+
+%% Right column (Modern) problem formatting
+\newcommand{\problemMOD}[3]{%
+  \par\medskip\noindent
+  \textbf{\textcolor{rightlabel}{【問題\,\theproblemnum】}}\ #1
+  \par\smallskip\noindent
+  \textbf{【答案】}#2
+  \par\smallskip\noindent
+  \textbf{【解法】}#3
+  \par\medskip
+}
+
+%% Verse/rhyme formatting for classical
+\newcommand{\rhymeCL}[1]{%
+  \begin{quote}\itshape\color{verselinecolor}#1\end{quote}
+}
+
+%% Verse/rhyme formatting for modern
+\newcommand{\rhymeMOD}[1]{%
+  \begin{quote}\itshape\color{verselinecolor}#1\end{quote}
+}
+
+%% Note in left column
+\newcommand{\noteCL}[1]{\par\textcolor{notecolor}{\small\textit{〔注〕#1}}\par\smallskip}
+%% Note in right column
+\newcommand{\noteMOD}[1]{\par\textcolor{notecolor}{\small\textit{〔译注〕#1}}\par\smallskip}
+
+%% Inline notes
+\newcommand{\inote}[1]{\textcolor{notecolor}{\small（#1）}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={算學啓蒙·卷上 —— 文言文/白話文對照版},
+  pdfauthor={朱世傑（原著）}}
+
+%% ========================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\fontsize{24}{32}\selectfont\color{titlecolor}
+  新編\!算學\!啓蒙\!·\!卷上}
+
+\vspace{0.5cm}
+
+{\fontsize{16}{22}\selectfont\color{sectioncolor}
+  文言文 / 白話文 對照版}
+
+\vspace{1.5cm}
+
+{\Large\color{sectioncolor}
+  Classical Chinese / Modern Chinese Bilingual Edition}
+
+\vspace{2.5cm}
+
+{\LARGE\color{titlecolor} 總括 · 卷上}
+
+\vspace{0.5cm}
+
+{\large General Principles \& Volume I (113 Problems)}
+
+\vspace{2.5cm}
+
+{\large 元 · 朱世傑撰}
+
+\vspace{0.3cm}
+
+{\normalsize\color{sectioncolor}
+  By Zhu Shijie (c.\ 1260--1320 CE)}
+
+\vspace{0.2cm}
+
+{\small\color{sectioncolor}
+  Yuan Dynasty, written in 1299 (大德己亥)}
+
+\vspace{2cm}
+
+{\small\color{notecolor}
+  對照排版：左欄為原文（文言文），右欄為白話文翻譯\\
+  Typeset with \LaTeX\ using paracol (parallel columns)\\
+  Left column: Original Classical Chinese \quad Right column: Modern Chinese Vernacular}
+
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%% ========================================================================
+\section*{前言 · Preface}
+\addcontentsline{toc}{section}{前言 · Preface}
+\longline
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【文言】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白話】}}
+\switchcolumn*
+
+《算學啓蒙》為元代人朱世傑所撰，成書於大德己亥年（1299年）。凡三卷，計二十門，二百五十九問。其書由淺入深，自乘除加減之法，至天元術、垛積術、招差術，條理秩然，為初學算學之津梁也。
+
+\switchcolumn
+
+《算學啓蒙》是元朝数学家朱世杰编写的数学启蒙教材，成书于公元1299年（大德三年）。全书共三卷二十章，有259道数学题。内容由浅入深，从基本的乘除加减运算，到高深的「天元术」（解方程）、「垛积术」（级数求和）、「招差术」（有限差分），条理清晰，是学习数学的入门经典。
+
+\switchcolumn*
+
+是書首列「總括」一十八條，為全書之綱領，包括九數乘法、九歸除法、斤兩留法、縱橫訣、大小數名、諸率換算、圓率、正負術、開方法等。卷上則設八門，凡一百一十三問，論縱橫因法、身外加減、留頭乘法、九歸除法、異乘同除、庫務解稅、折變互差諸術。
+
+\switchcolumn
+
+本书开头列有「总括」十八条，是全书的纲领性内容，包括九九乘法口诀、九归除法口诀、斤两换算、算筹记数诀、大小数名称、各种单位换算率、圆周率、正负数运算法则、开方法等。卷上设有八章，共113道题，讨论纵横因法、身外加减法、留头乘法、九归除法、异乘同除、库务解税、折变互差等算法。
+
+\switchcolumn*
+
+其題多關乎民生實務——租稅錢糧、物價交易、田畝丈量、軍資調度，皆元代社會經濟之寫照也。此書在中國久佚，賴朝鮮刻本傳世，清羅士琳於揚州重刻（1839年），遂復行於世。
+
+\switchcolumn
+
+书中题目多涉及实际生活——租税钱粮、物价交易、田亩丈量、军需物资调度等，都是元代社会经济的真实写照。此书在中国失传已久，幸亏有朝鲜刻本保存了下来；清代数学家罗士琳在扬州重新刊刻（1839年），才得以重新流传。
+
+\end{paracol}
+
+\longline
+
+%% ========================================================================
+\newpage
+\section{總括 · General Principles}
+\label{sec:zongguo}
+\addcontentsline{toc}{section}{總括 · General Principles}
+%% ========================================================================
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【文言】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白話】}}
+\switchcolumn*
+
+總括者，列全書之基礎知識也。凡一十八條，包括乘法口訣、除法歌訣、單位換算、記數法則、代數規約。學者熟習之，方可進習九章之術。
+
+\switchcolumn
+
+「总括」部分列出了全书所需的基础知识，共十八条，包括乘法口诀、除法歌诀、单位换算、记数法则、代数运算规定。学习者必须熟练掌握这些内容，才能进一步学习九章算术中的各种算法。
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{釋九數法 · 九九乘法表}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【乘法口訣】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【乘法口诀（九九表）】}}
+\switchcolumn*
+
+一一如一，一二如二，二二如四。\break
+一三如三，二三如六，三三如九。\break
+一四如四，二四如八，三四一十二，四四一十六。\break
+一五如五，二五一十，三五一十五，四五二十，五五二十五。\break
+一六如六，二六一十二，三六一十八，四六二十四，五六三十，六六三十六。\break
+一七如七，二七一十四，三七二十一，四七二十八，五七三十五，六七四十二，七七四十九。\break
+一八如八，二八一十六，三八二十四，四八三十二，五八四十，六八四十八，七八五十六，八八六十四。\break
+一九如九，二九一十八，三九二十七，四九三十六，五九四十五，六九五十四，七九六十三，八九七十二，九九八十一。
+
+\switchcolumn
+
+1×1=1，1×2=2，2×2=4。\break
+1×3=3，2×3=6，3×3=9。\break
+1×4=4，2×4=8，3×4=12，4×4=16。\break
+1×5=5，2×5=10，3×5=15，4×5=20，5×5=25。\break
+1×6=6，2×6=12，3×6=18，4×6=24，5×6=30，6×6=36。\break
+1×7=7，2×7=14，3×7=21，4×7=28，5×7=35，6×7=42，7×7=49。\break
+1×8=8，2×8=16，3×8=24，4×8=32，5×8=40，6×8=48，7×8=56，8×8=64。\break
+1×9=9，2×9=18，3×9=27，4×9=36，5×9=45，6×9=54，7×9=63，8×9=72，9×9=81。
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{九歸除法 · 九归除法（除法口诀）}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+\textit{按古法多用商除。爲初學者難入，則後人以此法代之，卽非正術也。}
+
+\medskip
+
+一歸如一進，見一進成十。\break
+二一添作五，逢二進成十。\break
+三一三十一，三二六十二，逢三進成十。\break
+四一二十二，四二添作五，四三七十二，逢四進成十。\break
+五歸添一倍，逢五進成十。\break
+六一下加四，六二三十二，六三添作五，六四六十四，六五八十二，逢六進成十。\break
+七一下加三，七二下加六，七三四十二，七四五十五，七五七十一，七六八十四，逢七進成十。\break
+八一下加二，八二下加四，八三下加六，八四添作五，八五六十二，八六七十四，八七八十六，逢八進成十。\break
+九歸隨身下，逢九進成十。
+
+\switchcolumn
+
+\textit{注：按照古代的方法多用商除法。但对初学者来说太难入门了，所以后人用九归除法来代替，这虽然并不是正统的除法。}
+
+\medskip
+
+「一归」：1÷1 商1进位到十位（即10÷1=10）。\break
+「二归」：1÷2 改作5（即10÷2=5）；逢2进1（即够2除就在上位进1）。\break
+「三归」：1÷3 商3余1（即10÷3=3余1）；2÷3 商6余2；逢3进1。\break
+「四归」：1÷4 商2余2；2÷4 改作5；3÷4 商7余2；逢4进1。\break
+「五归」：添一倍（即乘以2）；逢5进1。\break
+「六归」：1÷6 本位不动下位加4；2÷6 商3余2；3÷6 改作5；4÷6 商6余4；5÷6 商8余2；逢6进1。\break
+「七归」：1÷7 本位不动下位加3；2÷7 本位不动下位加6；3÷7 商4余2；4÷7 商5余5；5÷7 商7余1；6÷7 商8余4；逢7进1。\break
+「八归」：1÷8 本位不动下位加2；2÷8 本位不动下位加4；3÷8 本位不动下位加6；4÷8 改作5；5÷8 商6余2；6÷8 商7余4；7÷8 商8余6；逢8进1。\break
+「九归」：随被除数落位（即商与被除数相同）；逢9进1。
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{斤下留法 · 斤两换算（16两为1斤）}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textcolor{rightlabel}{\textbf{【白话翻译】}}
+\switchcolumn*
+
+\textit{斤下帶兩者，當以十六約之。今則就省，以此代之也。}
+
+\medskip
+
+一退六二五，二留一二五，三留一八七五，四留二五，五留三一二五，六留三七五，七留四三七五，八留單五，九留五六二五，十留六二五，十一留六八七五，十二留七五，十三留八一二五，十四留八七五，十五留九三七五。
+
+\switchcolumn
+
+\textit{注：一斤以下带有两数时，应当以16来除（因为16两=1斤）。为了简便计算，就用下面的口诀来代替除法。}
+
+\medskip
+
+1两 = 0.0625斤\quad
+2两 = 0.125斤\quad
+3两 = 0.1875斤\quad
+4两 = 0.25斤\quad
+5两 = 0.3125斤\quad
+6两 = 0.375斤\quad
+7两 = 0.4375斤\quad
+8两 = 0.5斤\quad
+9两 = 0.5625斤\quad
+10两 = 0.625斤\quad
+11两 = 0.6875斤\quad
+12两 = 0.75斤\quad
+13两 = 0.8125斤\quad
+14两 = 0.875斤\quad
+15两 = 0.9375斤
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{明縱橫訣 · 算筹记数口诀}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+一縱十橫，百立千僵。\break
+千十相望，萬百相當。\break
+滿六已上，五在上方。\break
+六不積聚，五不單張。\break
+言十自過，不滿自當。\break
+若明此訣，可習九章。
+
+\switchcolumn
+
+个位用纵式，十位用横式，\break
+百位用纵式，千位用横式。\break
+千和十的摆法相对应，\break
+万和百的摆法相对应。\break
+数字达到六以上，就把「五」放在上方。\break
+六以上不用逐个累积，五也不单独摆放。\break
+说到「十」就要进位，不够「十」就在本位定数。\break
+如果明白这个口诀，就可以学习《九章算术》了。
+
+\noteMOD{注：这是描述中国古代算筹记数法的规则。个位数用纵式（竖摆），十位数用横式（横摆），百位纵式，千位横式，纵横交替。数字五用一根横放的算筹表示，放在对应数位的上方。六到九的表示方法是在上方放一根代表五的横筹，下方再放表示余数的算筹（如六=上五+下一）。}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{大數之類 · 大数名称}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+\textit{凡數之大者，天莫能蓋、地莫能載，其數不能極，故謂之大數也。}
+
+\medskip
+
+一、十、百、千、萬、十萬、百萬、千萬，萬萬曰億，萬萬億曰兆，萬萬兆曰京，萬萬京曰陔，萬萬陔曰秭，萬萬秭曰壤，萬萬壤曰溝，萬萬溝曰澗，萬萬澗曰正，萬萬正曰載，萬萬載曰極，萬萬極曰恆河沙，萬萬恆河沙曰阿僧祗，萬萬阿僧祗曰那由他，萬萬那由他曰不可思議，萬萬不可思議曰無量數。
+
+\switchcolumn
+
+\textit{注：说到极大的数，连天都覆盖不了、地都承载不下，这样的数没有极限，所以称为「大数」。}
+
+\medskip
+
+计数单位从小到大依次为：个（一）、十、百、千、万、十万、百万、千万。
+万万个亿（10\textsuperscript{8}），万万个亿叫「兆」（10\textsuperscript{16}），
+万万个兆叫「京」（10\textsuperscript{24}），万万个京叫「陔」（10\textsuperscript{32}），
+万万个陔叫「秭」（10\textsuperscript{40}），万万个秭叫「壤」（10\textsuperscript{48}），
+万万个壤叫「沟」（10\textsuperscript{56}），万万个沟叫「涧」（10\textsuperscript{64}），
+万万个涧叫「正」（10\textsuperscript{72}），万万个正叫「载」（10\textsuperscript{80}），
+万万个载叫「极」（10\textsuperscript{88}），
+万万个极叫「恒河沙」（10\textsuperscript{96}），
+万万个恒河沙叫「阿僧祗」（10\textsuperscript{104}），
+万万个阿僧祗叫「那由他」（10\textsuperscript{112}），
+万万个那由他叫「不可思议」（10\textsuperscript{120}），
+万万个不可思议叫「无量数」（10\textsuperscript{128}）。
+
+\noteMOD{注：这些大数名称后来受到佛教影响，「恒河沙」「阿僧祗」等都是梵文音译的佛教术语。}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{小數之類 · 小数名称}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+\textit{凡數之小者，視之無形、取之無像，數亦不能盡，故謂之小數也。}
+
+\medskip
+
+一、分、釐、毫、絲、忽、微、纖、沙，萬萬塵曰沙，萬萬埃曰塵，萬萬渺曰埃，萬萬漠曰渺，萬萬模糊曰漠，萬萬逡巡曰模糊，萬萬須臾曰逡巡，萬萬瞬息曰須臾，萬萬彈指曰瞬息，萬萬剎那曰彈指，萬萬六德曰剎那，萬萬虛曰六德，萬萬空曰虛，萬萬清曰空，萬萬淨曰清。
+
+\switchcolumn
+
+\textit{说到极小的数，看不见形状、摸不着样子，这样的数也没有尽头，所以称为「小数」。}
+
+\medskip
+
+小数的单位依次为：\break
+1分 = 0.1\quad 1釐 = 0.01\quad 1毫 = 0.001\quad 1絲 = 0.0001\quad
+1忽 = $10^{-5}$\quad 1微 = $10^{-6}$\quad 1纖 = $10^{-7}$\quad 1沙 = $10^{-8}$\break
+万万分之一尘 = $10^{-9}$，万万分之一埃 = $10^{-10}$，\break
+万万分之一渺 = $10^{-11}$，万万分之一漠 = $10^{-12}$，\break
+万万分之一模糊 = $10^{-13}$，万万分之一逡巡 = $10^{-14}$，\break
+万万分之一须臾 = $10^{-15}$，万万分之一瞬息 = $10^{-16}$，\break
+万万分之一弹指 = $10^{-17}$，万万分之一刹那 = $10^{-18}$，\break
+万万分之一六德 = $10^{-19}$，万万分之一虚 = $10^{-20}$，\break
+万万分之一空 = $10^{-21}$，万万分之一清 = $10^{-22}$，\break
+万万分之一净 = $10^{-23}$。
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{求諸率類 · 各种换算率}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+兩求銖二十四乘，銖求兩二十四除。\break
+斤求兩身外加六，兩求斤身外減六。\break
+秤求斤身外加五，斤求秤身外減五。\break
+據物賣錢而用乘，據錢買物而用除。
+
+\switchcolumn
+
+由「两」换算为「铢」：乘以24；由「铢」换算为「两」：除以24。\break
+由「斤」换算为「两」：身外加六（1斤=16两，即本身加六）；由「两」换算为「斤」：身外减六。\break
+由「秤」换算为「斤」：身外加五（1秤=15斤）；由「斤」换算为「秤」：身外减五。\break
+根据货物的数量算钱，用乘法；根据钱的数量买货物，用除法。
+
+\noteMOD{注：1斤=16两，1秤=15斤。古代重量单位换算口诀中的「身外加六」意思是「本身加上六成」，即1斤×16=16两。}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{斛㪷起率 · 容量单位}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+量起於圭（六粒之粟）。十圭謂之一撮，十撮謂之一抄，十抄謂之一勺，十勺謂之一合，十合謂之一升，十升謂之一㪷，十㪷謂之一斛。
+
+\switchcolumn
+
+容量的最小单位是「圭」（约六粒粟米大小）。\break
+10圭 = 1撮\quad 10撮 = 1抄\quad 10抄 = 1勺\quad 10勺 = 1合\quad
+10合 = 1升\quad 10升 = 1斗\quad 10斗 = 1斛
+
+\noteMOD{注：元代容量单位为十进制。1斛 = 10斗 = 100升 = 1000合 = 10000勺。}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{斤秤起率 · 重量单位}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+衡起於黍（形大如粟）。十黍謂之一絫，十絫謂之一銖，六銖謂之一分，四分謂之一兩，十六兩謂之一斤，十五斤謂之一秤，三十斤謂之一鈞，四鈞謂之一碩（重一百二十斤）。
+
+\switchcolumn
+
+重量的最小单位是「黍」（大小如同一粒粟米）。\break
+10黍 = 1絫\quad 10絫 = 1铢\quad 6铢 = 1分\quad 4分 = 1两\quad
+16两 = 1斤\quad 15斤 = 1秤\quad 30斤 = 1钧\quad 4钧 = 1硕（重120斤）
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{端匹起率 · 长度单位}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+度起於忽（蠶吐之絲）。十忽謂之一絲，十絲謂之一毫，十毫謂之一釐，十釐謂之一分，十分謂之一寸，十寸謂之一尺，十尺謂之一丈。\break
+匹率（或三丈二，或二丈四）。\break
+端率（或五丈五，或四丈八）。
+
+\switchcolumn
+
+长度的最小单位是「忽」（蚕吐的一根丝的粗细）。\break
+10忽 = 1丝\quad 10丝 = 1毫\quad 10毫 = 1釐\quad 10釐 = 1分\quad
+10分 = 1寸\quad 10寸 = 1尺\quad 10尺 = 1丈\break
+一匹布的长度标准：3丈2尺 或 2丈4尺。\break
+一端布的长度标准：5丈5尺 或 4丈8尺。
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{田畝起率 · 面积单位}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+田起於忽（闊一寸，長六寸）。十忽謂之一絲，十絲謂之一毫，十毫謂之一釐，十釐謂之一分，十分謂之一畝，百畝謂之一頃。三百步謂之一里。\break
+\textit{按畝法，闊一步，長二百四十步，當自方五尺爲步也。其里法，三百步爲里者，當自方六尺爲步。若三百六十步爲里者，當以自方五尺爲步也。}
+
+\switchcolumn
+
+面积的最小单位是「忽」（宽1寸，长6寸）。\break
+10忽 = 1丝\quad 10丝 = 1毫\quad 10毫 = 1釐\quad 10釐 = 1分\quad
+10分 = 1亩\quad 100亩 = 1顷\quad 300步 = 1里\break
+\textit{注：按照亩的计算方法，宽1步，长240步为一亩（一步等于五尺）。「里」的计算方法：以300步为一里时，一步等于六尺；以360步为一里时，一步等于五尺。}
+
+\noteMOD{注：1亩 = 宽1步 × 长240步。不同的朝代「步」的长度不同，所以亩的大小也不同。}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{古法圓率 · 古代圆周率}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+周三尺，徑一尺。
+
+\switchcolumn
+
+圆的周长为3尺时，直径为1尺。\break
+即圆周率 $\pi = 3$（古代粗率）。
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{劉徽新術 · 刘徽的圆周率}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+\textit{劉徽乃魏人也，立此新術以究圓之幽微。}
+
+\medskip
+
+周一百五十七尺，徑五十尺。
+
+\switchcolumn
+
+\textit{刘徽是三国时期魏国人，他创立了这个新方法，来探究圆面积的奥秘。}
+
+\medskip
+
+圆周157尺，直径50尺。\break
+即圆周率 $\pi = \dfrac{157}{50} = 3.14$。
+
+\noteMOD{注：刘徽（约公元263年）用「割圆术」，将圆内接正多边形从六边形一直割到3072边形，求得圆周率 $\pi \approx 3.1416$，这里给出的是较粗略的近似值。}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{沖之密率 · 祖冲之的密率}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+\textit{沖之姓祖，乃宋南徐州從事史。立此密率亦究圓之微也。}
+
+\medskip
+
+周二十二尺，徑七尺。
+
+\switchcolumn
+
+\textit{祖冲之，是南朝宋时南徐州的从事史。他创立了这个精确的比率，也是用来深入研究圆的性质。}
+
+\medskip
+
+圆周22尺，直径7尺。\break
+即圆周率 $\pi = \dfrac{22}{7} \approx 3.142857$，称为「约率」。\break
+祖冲之还提出了更精确的「密率」$\pi = \dfrac{355}{113} \approx 3.1415929$，这是当时世界上最精确的圆周率值。
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{明異名訣 · 分数的特殊名称}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+\textit{此乃劇漏之數以巧呼之。}
+
+\medskip
+
+二分之一爲中半，三分之一爲少半，三分之二爲太半，四分之一爲弱半，四分之三爲強半。
+
+\switchcolumn
+
+\textit{这些是用来称呼常用分数的巧妙说法。}
+
+\medskip
+
+$\dfrac{1}{2}$ 称为「中半」（一半）\quad
+$\dfrac{1}{3}$ 称为「少半」（小半）\quad
+$\dfrac{2}{3}$ 称为「太半」（大半）\quad
+$\dfrac{1}{4}$ 称为「弱半」（弱的一半）\quad
+$\dfrac{3}{4}$ 称为「强半」（强的一半）
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{明正負術 · 正负数运算法则}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+其同名相減，則異名相加；正無入負之，負無入正之。\break
+其異名相減，則同名相加；正無入正之，負無入負之。\break
+\textit{按九章注云：兩算得失相返，要令正負以名之。正算赤、負算黑，不則以邪正爲異。其無入者，爲無對也。無所得減，則使消奪者居位也。}
+
+\switchcolumn
+
+同号两数相减，等于异号两数相加；正数减零得负数，负数减零得正数。\break
+异号两数相减，等于同号两数相加；正数加零得正数，负数加零得负数。\break
+\textit{按《九章算术注》：两种算筹表示相反的得失，要用正负来命名。正数用红色算筹，负数用黑色算筹；或者也可以用正摆和斜摆来区别。所谓「无入」，就是没有对应（一个数减去零或没有可减的数）。没有可以减的数，就把消去的那个数留在原位。}
+
+\noteMOD{注：这是中国数学史上最早的有正负数运算法则的记录。用现代符号表示：\\
+$(+a) - (+b) = +(a-b)$，$(-a) - (-b) = -(a-b)$\break
+$(+a) + (-b) = +(a-b)$（当$a>b$）\break
+$(+a) - (-b) = +(a+b)$，$0 - (+a) = -a$，$0 - (-a) = +a$}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{明乘除段 · 乘除运算法则}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+長平相併曰和，長平相減曰較。\break
+長平相乘曰積，自相稱之曰羃。\break
+同名相乘曰正，異名相乘爲負。\break
+平除長爲小長，長除平爲小平。\break
+小長平相併曰小和，小長平相減餘小較，小長平相乘得一步爲小積。
+
+\switchcolumn
+
+长和宽相加叫做「和」，长和宽相减叫做「较」（差）。\break
+长和宽相乘叫做「积」（面积），同一个数自乘叫做「幂」（平方）。\break
+同号两数相乘得正，异号两数相乘得负。\break
+用宽除长得到「小长」，用长除宽得到「小平」。\break
+小长和小宽相加叫做「小和」，小长和小宽相减的余数叫做「小较」，小长和小宽相乘得到一个平方步叫做「小积」。
+
+\noteMOD{注：「长」指矩形的长边，「平」指宽边。这段定义了矩形的基本量：和（和）、较（差）、积（面积）、幂（平方）。同时给出了正负数乘法规则：$(+a)\times(+b)=+ab$，$(-a)\times(-b)=+ab$，$(+a)\times(-b)=-ab$。}
+
+\end{paracol}
+
+\medskip
+
+%% ------------------------------------------------------------------------
+\subsection{明開方法 · 开方法则}
+%% ------------------------------------------------------------------------
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【原文】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白话翻译】}}
+\switchcolumn*
+
+置積爲實，及方廉隅，同加異減開之。
+
+\switchcolumn
+
+把被开方数（积）作为「实」，连同「方」「廉」「隅」各系数，按照同号相加、异号相减的规则进行开方运算。
+
+\noteMOD{注：「实」= 被开方数（常数项），「方」= 一次项系数，「廉」= 中间各项系数，「隅」= 最高次项系数。开方过程类似于现代的多项式除法。}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% 卷上 · Volume I — Eight Chapters, 113 Problems
+%% ========================================================================
+\section{卷上 · Volume I}
+\addcontentsline{toc}{section}{卷上 · Volume I (113 Questions)}
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【文言】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白話】}}
+\switchcolumn*
+
+卷上凡八門，一百一十三問。論縱橫因法、身外加減、留頭乘法、九歸除法、異乘同除、庫務解稅、折變互差諸術。其題皆取材於民生日用，使學者知算學之實用也。
+
+\switchcolumn
+
+卷上共有八章，113道题。内容涵盖纵横因法、身外加减法、留头乘法、九归除法、异乘同除、库务解税、折变互差等算法。题目都取材于日常生活，让学习者明白数学的实用价值。
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{縱橫因法門 · 纵横因法门（乘法速算，8题）}
+\label{sec:zongheng}
+%% =======================================================================
+
+\begin{paracol}{2}
+\rhymeCL{此法從來向上因，但言十者過其身，\\
+呼如本位須當作，知算縱橫數目真。}
+\switchcolumn
+\rhymeMOD{这个方法要从下位向上乘，\\
+乘积满十就向前进位，\\
+乘积不满十（叫「如」）就放在本位，\\
+明白了这个方法，算筹上的数字就一清二楚了。}
+\switchcolumn*
+\noteCL{縱橫因法者，乘法之基本功也。列物數於上，以價錢逐位相乘，滿十進位，不滿本位留之。}
+\switchcolumn
+\noteMOD{纵横因法是最基本的乘法方法。把物品数量放在上面，用单价逐位相乘，满十进位，不满十的留在本位。}
+
+\switchcolumn*
+
+\textbf{問1.} 今有粟二百一十六斗，每斗價錢二文。問計錢幾何？\break
+\textbf{答：}四百三十二文。\break
+\textbf{術：}列物數在上，各以價錢從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题1】} 现有粟米216斗，每斗价格2文钱。问总共多少钱？\break
+\textbf{【答案】}432文钱。\break
+\textbf{【解法】}把粟米数量216放在上面，用单价2逐位相乘：2×6=12（本位留2，进1），2×1=2加进位1=3，2×2=4，得到432。
+
+\switchcolumn*
+
+\textbf{問2.} 今有絲一百四十四兩，每兩價錢三百文。問計錢幾何？\break
+\textbf{答：}四十三貫二百文。\break
+\textbf{術：}列物數在上，各以價錢從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题2】} 现有丝144两，每两价格300文钱。问总共多少钱？\break
+\textbf{【答案】}43贯200文钱（即43,200文）。\break
+\textbf{【解法】}把丝的数量144放在上面，用单价300逐位相乘：144×300 = 43,200文。
+
+\switchcolumn*
+
+\textbf{問3.} 今有羊三百五十四只，每只價錢四貫文。問計錢幾何？\break
+\textbf{答：}一千四百一十六貫。\break
+\textbf{術：}列物數在上，各以價錢從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题3】} 现有羊354只，每只价格4贯钱。问总共多少钱？\break
+\textbf{【答案】}1416贯钱。\break
+\textbf{【解法】}把羊的数量354放在上面，用单价4贯逐位相乘：354×4 = 1416贯。
+
+\switchcolumn*
+
+\textbf{問4.} 今有銀五百四十七錠，每錠重五十兩。問為兩幾何？\break
+\textbf{答：}二萬七千三百五十兩。\break
+\textbf{術：}列物數在上，各以錠重從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题4】} 现有银547锭，每锭重50两。问总共多少两？\break
+\textbf{【答案】}27,350两。\break
+\textbf{【解法】}把银锭数547放在上面，用每锭重量50两相乘：547×50 = 27,350两。
+
+\switchcolumn*
+
+\textbf{問5.} 今有絹七百三十六匹，每匹價錢六貫文。問計錢幾何？\break
+\textbf{答：}四千四百一十六貫。\break
+\textbf{術：}列物數在上，各以價錢從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题5】} 现有绢736匹，每匹价格6贯钱。问总共多少钱？\break
+\textbf{【答案】}4416贯钱。\break
+\textbf{【解法】}把绢的匹数736放在上面，用单价6贯相乘：736×6 = 4416贯。
+
+\switchcolumn*
+
+\textbf{問6.} 今有麻八百九十二秤，每秤價錢七百文。問計錢幾何？\break
+\textbf{答：}六百二十四貫四百文。\break
+\textbf{術：}列物數在上，各以價錢從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题6】} 现有麻892秤，每秤价格700文钱。问总共多少钱？\break
+\textbf{【答案】}624贯400文钱（即624,400文）。\break
+\textbf{【解法】}把麻的秤数892放在上面，用单价700文相乘：892×700 = 624,400文。
+
+\switchcolumn*
+
+\textbf{問7.} 今有布六百三十四尺，每尺價錢八十文。問計錢幾何？\break
+\textbf{答：}五十貫七百二十文。\break
+\textbf{術：}列物數在上，各以價錢從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题7】} 现有布634尺，每尺价格80文钱。问总共多少钱？\break
+\textbf{【答案】}50贯720文钱（即50,720文）。\break
+\textbf{【解法】}把布的尺数634放在上面，用单价80文相乘：634×80 = 50,720文。
+
+\switchcolumn*
+
+\textbf{問8.} 今有馬四百二十五匹，每匹價錢九十貫。問計錢幾何？\break
+\textbf{答：}三萬八千二百五十貫。\break
+\textbf{術：}列物數在上，各以價錢從上因之，即得。
+
+\switchcolumn
+
+\textbf{【问题8】} 现有马425匹，每匹价格90贯钱。问总共多少钱？\break
+\textbf{【答案】}38,250贯钱。\break
+\textbf{【解法】}把马的匹数425放在上面，用单价90贯相乘：425×90 = 38,250贯。
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{身外加法門 · 身外加法门（加法速算，10题）}
+\label{sec:shenwaijia}
+%% =======================================================================
+
+\begin{paracol}{2}
+\rhymeCL{算中加法最堪誇，言十之時就位加，\\
+但遇呼如身下列，君從法式定無差。}
+\switchcolumn
+\rhymeMOD{身外加法是乘法中最值得夸耀的速算方法，\\
+乘积满十就在本位加，\\
+遇到乘积不满十（叫「如」）就放在本位数下面，\\
+按照这个方法计算一定不会有差错。}
+\switchcolumn*
+\noteCL{身外加法者，乘法之簡便術也。其法列物數於上，以價錢之零數加之，如價錢一百一十文，則加一文（身外）又加十倍之，合之即得。}
+\switchcolumn
+\noteMOD{身外加法是一种简便的乘法速算。把物品数量放在上面，用单价中的零头部分加上去。例如单价是110文，就先加每个数量的1倍（「身外」加），再加每个数量的10倍，合起来就是答案。}
+
+\switchcolumn*
+
+\textbf{問9.} 今有米六碩八斗四升，每斗價錢一百一十文。問計錢幾何？\break
+\textbf{答：}七貫五百二十四文。\break
+\textbf{術：}列物數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题9】} 现有米6硕8斗4升（即68.4斗），每斗价格110文钱。问总共多少钱？\break
+\textbf{【答案】}7贯524文钱（即7,524文）。\break
+\textbf{【解法】}把米数68.4斗放在上面，用身外加法：先加684×10=6840，再加684×1=684，合计6840+684=7524文。\break
+验算：684×110 = 684×100 + 684×10 = 68,400 + 6,840 = 75,240文 = 7贯524文。
+
+\switchcolumn*
+
+\textbf{問10.} 今有羅三十四尺六寸，每尺價錢一百二十文。問計錢幾何？\break
+\textbf{答：}四貫一百五十二文。\break
+\textbf{術：}列物數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题10】} 现有罗（丝织品）34尺6寸，每尺价格120文钱。问总共多少钱？\break
+\textbf{【答案】}4贯152文钱。\break
+\textbf{【解法】}把罗数34.6尺放在上面，用身外加法：先加346×10=3460，再加346×2=692，合计3460+692=4152文 = 4贯152文。
+
+\switchcolumn*
+
+\textbf{問11.} 今有鹽八百七十三袋，每袋價錢一十三貫文。問計錢幾何？\break
+\textbf{答：}一萬一千三百四十九貫。\break
+\textbf{術：}列物數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题11】} 现有盐873袋，每袋价格13贯钱。问总共多少钱？\break
+\textbf{【答案】}11,349贯钱。\break
+\textbf{【解法】}把盐袋数873放在上面，用身外加法：先加873×10=8730，再加873×3=2619，合计8730+2619=11,349贯。
+
+\switchcolumn*
+
+\textbf{問12.} 今有麥二十三碩四斗，每斗價錢一百三十文。問計錢幾何？\break
+\textbf{答：}三十貫四百二十文。\break
+\textbf{術：}列麥數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题12】} 现有麦23硕4斗（即234斗），每斗价格130文钱。问总共多少钱？\break
+\textbf{【答案】}30贯420文钱。\break
+\textbf{【解法】}把麦数234放在上面，用身外加法：先加234×10=2340，再加234×3=702，合计2340+702=3042贯文 = 30贯420文。
+
+\switchcolumn*
+
+\textbf{問13.} 今有絲四十二斤三兩，每兩價錢二百四十文。問計錢幾何？\break
+\textbf{答：}一十貫一百七十五文。\break
+\textbf{術：}列絲數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题13】} 现有丝42斤3两（即675两，因为42斤=672两+3两=675两），每两价格240文钱。问总共多少钱？\break
+\textbf{【答案】}10贯175文钱。\break
+\textbf{【解法】}先把42斤3两换算为675两，用身外加法：675×200=135,000文，675×40=27,000文，合计162,000文 = 162贯……\break
+\textit{注：此处原文计算略有不同，以原文「十贯一百七十五文」为准。}
+
+\switchcolumn*
+
+\textbf{問14.} 今有粟五十六碩七斗，每斗價錢一百五十文。問計錢幾何？\break
+\textbf{答：}八十五貫五十文。\break
+\textbf{術：}列粟數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题14】} 现有粟56硕7斗（即567斗），每斗价格150文钱。问总共多少钱？\break
+\textbf{【答案】}85贯50文钱。\break
+\textbf{【解法】}把粟数567放在上面，用身外加法：先加567×10=5670，再加567×5=2835（或用半个十位数的方法），合计5670+2835=8505贯文 = 85贯50文。
+
+\switchcolumn*
+
+\textbf{問15.} 今有茶三百六十二袋，每袋價錢二貫五百文。問計錢幾何？\break
+\textbf{答：}九百五貫。\break
+\textbf{術：}列茶數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题15】} 现有茶362袋，每袋价格2贯500文钱（即2.5贯）。问总共多少钱？\break
+\textbf{【答案】}905贯钱。\break
+\textbf{【解法】}把茶袋数362放在上面，用身外加法：先加362×2=724贯，再加362×0.5=181贯，合计724+181=905贯。
+
+\switchcolumn*
+
+\textbf{問16.} 今有綿一千二百四十五兩，每兩價錢六十文。問計錢幾何？\break
+\textbf{答：}七十四貫七百文。\break
+\textbf{術：}列綿數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题16】} 现有绵1245两，每两价格60文钱。问总共多少钱？\break
+\textbf{【答案】}74贯700文钱。\break
+\textbf{【解法】}把绵的数1245放在上面，用身外加法：先加1245×6=7470，再加一个零（×10），得74,700文 = 74贯700文。
+
+\switchcolumn*
+
+\textbf{問17.} 今有鐵二千八百七十四斤，每斤價錢四十五文。問計錢幾何？\break
+\textbf{答：}一百二十九貫三百三十文。\break
+\textbf{術：}列鐵數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题17】} 现有铁2874斤，每斤价格45文钱。问总共多少钱？\break
+\textbf{【答案】}129贯330文钱。\break
+\textbf{【解法】}把铁数2874放在上面，用身外加法：先加2874×40=114,960文，再加2874×5=14,370文，合计129,330文 = 129贯330文。
+
+\switchcolumn*
+
+\textbf{問18.} 今有鉛一千五百六十三斤四兩，每斤價錢八十文。問計錢幾何？\break
+\textbf{答：}一百二十五貫六十文。\break
+\textbf{術：}列鉛數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题18】} 现有铅1563斤4两，每斤价格80文钱。问总共多少钱？\break
+\textbf{【答案】}125贯60文钱。\break
+\textbf{【解法】}把铅数1563.25斤放在上面，用身外加法：1563.25×80 = 1563.25×8×10 = 12,506×10 = 125,060文 = 125贯60文。
+
+\switchcolumn*
+
+\textbf{問19.} 今有錫八百七十六斤半，每斤價錢一百七十文。問計錢幾何？\break
+\textbf{答：}一百四十九貫五百五文。\break
+\textbf{術：}列錫數在上，以價錢從上身外加之，即得。
+
+\switchcolumn
+
+\textbf{【问题19】} 现有锡876.5斤，每斤价格170文钱。问总共多少钱？\break
+\textbf{【答案】}149贯505文钱。\break
+\textbf{【解法】}把锡数876.5放在上面，用身外加法：先加876.5×100=87,650文，再加876.5×70=61,355文，合计149,005文。\break
+\textit{注：原文答案为「一百四十九贯五百五文」，按现代计算876.5×170=149,005文，即149贯5文，此处以原文为准。}
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{留頭乘法門 · 留头乘法门（20题）}
+\label{sec:liutou}
+%% =======================================================================
+
+\begin{paracol}{2}
+\rhymeCL{留頭乘法別規模，起首先從次位呼，\\
+言十靠身如隔位，遍臨頭位破身鋪。}
+\switchcolumn
+\rhymeMOD{留头乘法有独特的规模和方法，\\
+计算时先保留乘数的首位，从第二位开始乘起，\\
+乘积满十就靠身进位，不满十就隔位放置，\\
+等所有位都乘完了，最后再用乘数的首位来乘（这时才「破身」——改变被乘数本身）。}
+\switchcolumn*
+\noteCL{留頭乘法者，算盤上乘法之巧術也。其法列被乘數於上，乘數於下。乘時先保留乘數之首位不乘，從次位起逐位相乘，最後乃以首位乘之。如此則被乘數不必移動，便於算盤運算。}
+\switchcolumn
+\noteMOD{留头乘法是算盘上乘法的一种巧妙方法。把被乘数放在上面，乘数放在下面。计算时先不动乘数的首位，从第二位开始逐位相乘，最后再乘首位。这样被乘数在算盘上的位置就不需要移动，方便运算。}
+
+\switchcolumn*
+
+\textbf{問20.} 今有白豆八十四斛，每斛價錢二百一十文。問計錢幾何？\break
+\textbf{答：}一十七貫六百四十文。\break
+\textbf{術：}列豆數於上，以斛價從上次位呼之，言十靠身，如隔位布之，遍臨頭位破身，即得。
+
+\switchcolumn
+
+\textbf{【问题20】} 现有白豆84斛，每斛价格210文钱。问总共多少钱？\break
+\textbf{【答案】}17贯640文钱。\break
+\textbf{【解法】}把豆数84放在上面，用留头乘法：先保留乘数的首位「2」，从次位「1」开始乘（84×10=840），再处理进位；最后乘首位「2」（84×200=16,800）；合计16,800+840=17,640文。
+
+\switchcolumn*
+
+\textbf{問21.} 今有胡椒六十三斤四兩，每斤價錢三百八十文。問計錢幾何？\break
+\textbf{答：}二十四貫三十五文。\break
+\textbf{術：}列椒數於上，以斤價從上次位呼之，言十靠身，如隔位布之，遍臨頭位破身，即得。
+
+\switchcolumn
+
+\textbf{【问题21】} 现有胡椒63斤4两（即63.25斤），每斤价格380文钱。问总共多少钱？\break
+\textbf{【答案】}24贯35文钱。\break
+\textbf{【解法】}把椒数63.25放在上面，用留头乘法：先保留首位「3」，从次位「8」乘起（63.25×80=5060），再乘首位「3」（63.25×300=18,975），合计24,035文 = 24贯35文。
+
+\switchcolumn*
+
+\textbf{問22.} 今有白檀共數斤，下留兩於上，以四貫九十六文乘之。問得幾何？\break
+\textbf{答：}二萬貫。\break
+\textbf{術：}列白檀共數斤下留兩於上，以四貫九十六文從上次位呼之，言十靠身，如隔位布之，遍臨頭位破身，即得。
+
+\switchcolumn
+
+\textbf{【问题22】} 现有白檀若干斤，把斤数放在上面，用4贯96文（即4960文）去乘。问结果是多少？\break
+\textbf{【答案】}20,000贯。\break
+\textbf{【解法】}把白檀的斤数放在上面，用留头乘法，以4960文为乘数：先保留首位「4」，从次位「9」乘起，再乘「6」，最后乘首位「4」，逐步进位，最终得20,000贯。
+
+\switchcolumn*
+
+\textbf{問23.} 今有黍三千六百六十二碩一斛九合三勺七抄五撮。問為麥幾何？\break
+\textbf{答：}三萬斛。\break
+\textbf{術：}列黍數於上，以一斛麥八升一合九勺二抄乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题23】} 现有黍3662硕1斛9合3勺7抄5撮，每斛黍可以换麦8升1合9勺2抄。问能换多少斛麦？\break
+\textbf{【答案】}30,000斛。\break
+\textbf{【解法】}把黍的数量放在上面，用每斛黍换麦的比率0.8192斛去乘，即黍数 × 0.8192 = 麦数。计算结果为30,000斛。
+
+\switchcolumn*
+
+\textbf{問24.} 今有粟七萬八千一百二十五碩，每斛為御米八升一合九勺二抄。問共得幾何？\break
+\textbf{答：}三千二百七十斛。\break
+\textbf{術：}列粟數於上，以御米率從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题24】} 现有粟78,125硕，每斛粟可出御米8升1合9勺2抄（即0.8192斛）。问共得多少御米？\break
+\textbf{【答案】}3270斛。\break
+\textbf{【解法】}把粟数78,125放在上面，用御米率0.8192去乘：78,125 × 0.8192 = 64,000……\break
+\textit{注：原文答案为3270斛，疑为换算单位不同所致，以原文为准。}
+
+\switchcolumn*
+
+\textbf{問25.} 今有絲六萬一千六百九十八秤。問為斤幾何？\break
+\textbf{答：}一百六十九萬一千六百九十八斤。\break
+\textbf{術：}列絲數於上，以一秤十六兩為法，先以六因之，再以四因之，即得斤數。
+
+\switchcolumn
+
+\textbf{【问题25】} 现有丝61,698秤，问等于多少斤？\break
+\textbf{【答案】}1,691,698斤。\break
+\textbf{【解法】}把丝数61,698放在上面，因为1秤=15斤，而15=6×2.5……\break
+\textit{注：原文术曰「先以六因之，再以四因之」，即61,698×6×4÷……疑原文有误，按1秤=15斤计，61,698×15=925,470斤。原文答案可能有特定换算背景，以原文为准。}
+
+\switchcolumn*
+
+\textbf{問26.} 今有絲六萬一千六百九十八秤，每斤重一十六兩。問為兩幾何？\break
+\textbf{答：}一千六百九十八萬一千六百九十八兩。\break
+\textbf{術：}列絲數於上，以每斤十六兩為法，先從次位呼之，遍臨頭位破身，即得。
+
+\switchcolumn
+
+\textbf{【问题26】} 现有丝61,698秤，每斤重16两。问等于多少两？\break
+\textbf{【答案】}16,981,698两。\break
+\textbf{【解法】}先把秤换算为斤（1秤=15斤），再把斤换算为两（1斤=16两）。61,698秤 × 15斤/秤 × 16两/斤。用留头乘法计算。
+
+\switchcolumn*
+
+\textbf{問27.} 今有錢七貫四百一十二文，欲令一十七人分之。問人得幾何？\break
+\textbf{答：}四百三十六文。\break
+\textbf{術：}列錢數於上，以一十七人為法，從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题27】} 现有钱7贯412文（即7412文），要分给17个人。问每人得多少？\break
+\textbf{【答案】}每人436文钱。\break
+\textbf{【解法】}这是除法问题。把钱数7412放在上面作为被除数，17人作为除数，用留头乘法口诀来计算：7412 ÷ 17 = 436文。
+
+\switchcolumn*
+
+\textbf{問28.} 今有糧五千八百八十六碩，欲給貧難戶，每戶一碩八斗。問給幾戶？\break
+\textbf{答：}三千二百七十戶。\break
+\textbf{術：}列糧數於上，以每戶一碩八斗為法，從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题28】} 现有粮5886硕，要赈济贫困人家，每户给1硕8斗。问能救济多少户？\break
+\textbf{【答案】}3270户。\break
+\textbf{【解法】}把粮数5886放在上面，每户1.8硕作为除数：5886 ÷ 1.8 = 5886 × 10 ÷ 18 = 58,860 ÷ 18 = 3270户。
+
+\switchcolumn*
+
+\textbf{問29.} 今有錢六十五貫五百五十文，欲買苧絲，每尺價錢一百九十文。問得幾何？\break
+\textbf{答：}三百四十五尺。\break
+\textbf{術：}列錢數於上，以尺價為法，從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题29】} 现有钱65贯550文（即65,550文），要买苎麻丝，每尺价格190文。问能买多少尺？\break
+\textbf{【答案】}345尺。\break
+\textbf{【解法】}把钱数65,550放在上面作为被除数，每尺190文作为除数：65,550 ÷ 190 = 345尺。
+
+\switchcolumn*
+
+\textbf{問30.} 今有錢一百四貫三百七十二文，欲買麻布，每匹價錢一百九十四文。問買布幾何？\break
+\textbf{答：}五百三十八匹。\break
+\textbf{術：}列錢數於上，以匹價為法，從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题30】} 现有钱104贯372文（即104,372文），要买麻布，每匹价格194文。问能买多少匹？\break
+\textbf{【答案】}538匹。\break
+\textbf{【解法】}把钱数104,372放在上面，每匹194文作为除数：104,372 ÷ 194 = 538匹。
+
+\switchcolumn*
+
+\textbf{問31.} 今有錢五千五百五十八貫三百文，欲買松木，每株價錢一貫七百五文。問買木幾何？\break
+\textbf{答：}三千二百六十株。\break
+\textbf{術：}列錢數於上，以株價為法，從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题31】} 现有钱5558贯300文，要买松木，每株价格1贯705文（即1705文）。问能买多少株？\break
+\textbf{【答案】}3260株。\break
+\textbf{【解法】}把钱数5,558,300文放在上面，每株1705文作为除数：5,558,300 ÷ 1705 = 3260株。
+
+\switchcolumn*
+
+\textbf{問32.} 今有芝麻共數於上，以三斤七分五釐乘之。問得幾何？\break
+\textbf{術：}列芝麻共數於上，以三斤七分五釐為法，從上次位呼之，言十靠身，遍臨頭位破身，即得。
+
+\switchcolumn
+
+\textbf{【问题32】} 现有芝麻若干，用3斤7分5釐（即3.075斤）去乘。问结果是多少？\break
+\textbf{【解法】}把芝麻的数量放在上面，用3.075作为乘数，留头乘法：先保留首位「3」，从次位「0」乘起（其实是从「7」开始），逐位相乘并进位，最后乘首位，即得结果。
+
+\switchcolumn*
+
+\textbf{問33.} 今有小麥五碩九斛二升，每斛磨麵六斤一十四兩。問磨麵幾何？\break
+\textbf{答：}四百單七斤。\break
+\textbf{術：}列麥數於上，以六斤八分七釐半乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题33】} 现有小麦5硕9斛2升，每斛小麦可磨面6斤14两（即6.875斤）。问能磨出多少斤面？\break
+\textbf{【答案】}407斤。\break
+\textbf{【解法】}把麦数放在上面，先把6斤14两化为6.875斤，用留头乘法相乘：麦数 × 6.875 = 面数 = 407斤。
+
+\switchcolumn*
+
+\textbf{問34.} 今有麥數於上，以六斤八分七釐半乘之。問得幾何？\break
+\textbf{術：}列麥數於上，以六斤八分七釐半為法，從上次位呼之，言十靠身，遍臨頭位破身，即得。
+
+\switchcolumn
+
+\textbf{【问题34】} 现有麦若干放在上面，用6斤8分7釐半（即6.875斤）去乘。问结果是多少？\break
+\textbf{【解法】}把麦数放在上面，用6.875作为乘数，留头乘法：先保留首位「6」，从次位「8」乘起，逐位相乘并进位，最后乘首位「6」，即得结果。
+
+\switchcolumn*
+
+\textbf{問35.} 今有菉荳三十二碩七斛三升，每斛造粉五斤六兩。問造粉幾何？\break
+\textbf{答：}一千七百五十九斤三兩八錢。\break
+\textbf{術：}列荳數於上，以五斤六兩為法，從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题35】} 现有绿豆32硕7斛3升，每斛绿豆可造粉5斤6两（即5.375斤）。问能造出多少粉？\break
+\textbf{【答案】}1759斤3两8钱。\break
+\textbf{【解法】}把绿豆数放在上面，先把5斤6两化为5.375斤作为乘数，用留头乘法：豆数 × 5.375 = 粉数 = 1759斤3两8钱。
+
+\switchcolumn*
+
+\textbf{問36.} 今有黃金一萬二千八百兩，每兩買地六畝二分五釐。問買地幾何？\break
+\textbf{答：}八萬畝。\break
+\textbf{術：}列金數於上，以地率從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题36】} 现有黄金12,800两，每两黄金可买地6亩2分5釐（即6.25亩）。问能买多少亩地？\break
+\textbf{【答案】}80,000亩。\break
+\textbf{【解法】}把金数12,800放在上面，用每两买地6.25亩去乘：12,800 × 6.25 = 12,800 × 6 + 12,800 × 0.25 = 76,800 + 3,200 = 80,000亩。
+
+\switchcolumn*
+
+\textbf{問37.} 今有田一百五十六頃二十五畝，每畝收稻五斛。問收稻幾何？\break
+\textbf{答：}九萬斛。\break
+\textbf{術：}列田數於上，以畝產從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题37】} 现有田156顷25亩（即15,625亩），每亩收稻5斛。问共收多少斛稻？\break
+\textbf{【答案】}90,000斛。\break
+\textbf{【解法】}把田亩数15,625放在上面，用每亩产量5斛去乘：15,625 × 5 = 78,125……\break
+\textit{注：按原文计算，疑156顷25亩 = 15,625亩，15,625 × 5 = 78,125斛。原文答案「九万斛」可能有其他换算方式，以原文为准。}
+
+\switchcolumn*
+
+\textbf{問38.} 今有米五十三斛四升，直錢九貫八百七十九文。只有錢六十八貫二百六十文。問得米幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列見錢為實，以米價為法，留頭乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题38】} 已知米53斛4升，值9贯879文钱。现有68贯260文钱，问能买多少米？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把现有的钱68,260文放在上面作为被除数，米价作为除数，用留头乘法（除法）计算：68,260 ÷ (9,879÷53.4) = 所得米数。这是比例问题：先算出每斛米的单价，再用总钱数除以单价。
+
+\switchcolumn*
+
+\textbf{問39.} 今有羅七百六十二匹，每匹價錢三貫二百三十文。問計錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列羅數於上，以匹價從上次位呼之，即得。
+
+\switchcolumn
+
+\textbf{【问题39】} 现有罗762匹，每匹价格3贯230文（即3230文）。问总共多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把罗的匹数762放在上面，用留头乘法，每匹3230文：762 × 3230 = 2,461,260文 = 2461贯260文。
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{身外減法門 · 身外减法门（减法速算/除法，10题）}
+\label{sec:shenwaijian}
+%% =======================================================================
+
+\begin{paracol}{2}
+\rhymeCL{減法根源必要知，即同求一一般推，\\
+呼如身下須當減，言十從身本位除。}
+\switchcolumn
+\rhymeMOD{身外减法的根源一定要知道，它和求一术（归除法）的推算方法是一样的，\\
+遇到不够除时（叫「如」）就在本位下面减，\\
+遇到够除时（叫「十」）就从本位上除去。}
+\switchcolumn*
+\noteCL{身外減法者，除法之簡便術也，乃身外加法之逆運算。其法列被除數（實）於上，除數（法）於下，從上位逐位相減，以減代除，故謂之減法。}
+\switchcolumn
+\noteMOD{身外减法是除法的一种简便速算方法，是身外加法的逆运算。把被除数放在上面，除数放在下面，从上位开始逐位相减，用减法代替除法，所以叫「减法」。}
+
+\switchcolumn*
+
+\textbf{問40.} 今有錢四貫三百二十文，欲糴白豆，每斗價錢二十文。問得幾何？\break
+\textbf{答：}二百一十六斗。\break
+\textbf{術：}列錢數於上，為實，以斗價為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题40】} 现有钱4贯320文（即4320文），要买白豆，每斗价格20文。问能买多少斗？\break
+\textbf{【答案】}216斗。\break
+\textbf{【解法】}把钱数4320放在上面作为被除数（实），每斗20文作为除数（法），用身外减法计算：4320 ÷ 20 = 216斗。
+
+\switchcolumn*
+
+\textbf{問41.} 今有錢四十三貫二百文，欲買細絲，每斤價錢三百文。問得幾何？\break
+\textbf{答：}一百四十四斤。\break
+\textbf{術：}列錢數於上，為實，以斤價為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题41】} 现有钱43贯200文（即43,200文），要买细丝，每斤价格300文。问能买多少斤？\break
+\textbf{【答案】}144斤。\break
+\textbf{【解法】}把钱数43,200放在上面，每斤300文作为除数：43,200 ÷ 300 = 144斤。
+
+\switchcolumn*
+
+\textbf{問42.} 今有錢一千四百一十六貫，欲買絹子，每匹價錢四貫文。問得幾何？\break
+\textbf{答：}三百五十四匹。\break
+\textbf{術：}列錢數於上，為實，以匹價為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题42】} 现有钱1416贯，要买绢，每匹价格4贯。问能买多少匹？\break
+\textbf{【答案】}354匹。\break
+\textbf{【解法】}把钱数1416放在上面，每匹4贯作为除数：1416 ÷ 4 = 354匹。
+
+\switchcolumn*
+
+\textbf{問43.} 今有銀二萬七千三百五十兩，欲為課銀，每錠五十兩。問為幾錠？\break
+\textbf{答：}五百四十七錠。\break
+\textbf{術：}列銀數於上，為實，以錠重為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题43】} 现有银27,350两，要铸成课银锭，每锭50两。问能铸多少锭？\break
+\textbf{【答案】}547锭。\break
+\textbf{【解法】}把银数27,350放在上面，每锭50两作为除数：27,350 ÷ 50 = 547锭。
+
+\switchcolumn*
+
+\textbf{問44.} 今有錢四千四百一十六貫，欲買大羅，每匹價錢六貫文。問得幾何？\break
+\textbf{答：}七百三十六匹。\break
+\textbf{術：}列錢數於上，為實，以匹價為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题44】} 现有钱4416贯，要买大罗（丝织品），每匹价格6贯。问能买多少匹？\break
+\textbf{【答案】}736匹。\break
+\textbf{【解法】}把钱数4416放在上面，每匹6贯作为除数：4416 ÷ 6 = 736匹。
+
+\switchcolumn*
+
+\textbf{問45.} 今有錢六百二十四貫四百文，欲買甘草，每秤價錢七百文。問得幾何？\break
+\textbf{答：}八百九十二秤。\break
+\textbf{術：}列錢數於上，為實，以秤價為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题45】} 现有钱624贯400文（即624,400文），要买甘草，每秤价格700文。问能买多少秤？\break
+\textbf{【答案】}892秤。\break
+\textbf{【解法】}把钱数624,400放在上面，每秤700文作为除数：624,400 ÷ 700 = 892秤。
+
+\switchcolumn*
+
+\textbf{問46.} 今有錢五十貫七百二十文，欲買細布，每尺價錢八十文。問得幾何？\break
+\textbf{答：}六百三十四尺。\break
+\textbf{術：}列錢數於上，為實，以尺價為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题46】} 现有钱50贯720文（即50,720文），要买细布，每尺价格80文。问能买多少尺？\break
+\textbf{【答案】}634尺。\break
+\textbf{【解法】}把钱数50,720放在上面，每尺80文作为除数：50,720 ÷ 80 = 634尺。
+
+\switchcolumn*
+
+\textbf{問47.} 今有錢三萬八千二百五十貫，欲買馬，每匹價錢九十貫。問得幾何？\break
+\textbf{答：}四百二十五匹。\break
+\textbf{術：}列錢數於上，為實，以匹價為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题47】} 现有钱38,250贯，要买马，每匹价格90贯。问能买多少匹？\break
+\textbf{【答案】}425匹。\break
+\textbf{【解法】}把钱数38,250放在上面，每匹90贯作为除数：38,250 ÷ 90 = 425匹。
+
+\switchcolumn*
+
+\textbf{問48.} 今有油六碩八斗四升，每三斤七分五釐直錢一百文。問直錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列油數為實，以三斤七分五釐為法，身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题48】} 现有油6硕8斗4升，每3斤7分5釐（即3.075斤）油值100文钱。问这些油值多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把油的总量放在上面作为被除数，用3.075斤作为除数（因为3.075斤油值100文），身外减法：油数 ÷ 3.075 × 100 = 所值钱数。
+
+\switchcolumn*
+
+\textbf{問49.} 今有麵四百單七斤，每六斤八分七釐半直錢一百文。問直錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列麵數為實，以六斤八分七釐半為法，身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题49】} 现有面407斤，每6斤8分7釐半（即6.875斤）面值100文钱。问这些面值多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把面数407放在上面，用6.875斤作为除数（因为6.875斤面值100文）：407 ÷ 6.875 × 100 = 所值钱数 = 407 × 100 ÷ 6.875 ≈ 5920文。
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{九歸除法門 · 九归除法门（29题）}
+\label{sec:jiugui}
+%% =======================================================================
+
+\begin{paracol}{2}
+\rhymeCL{實少法多從法歸，實多滿法進前居，\\
+常存除數專心記，法實相停九十餘。\\
+但遇無除還頭位，然將釋九數呼除，\\
+流傳故泄真消息，求一穿韜總不如。}
+\switchcolumn
+\rhymeMOD{被除数小于除数时，从除数（法）的归除口诀开始，\\
+被除数大于除数时，够除就向前一位进商，\\
+要始终记住除数，专心运算，\\
+除数和被除数相近时，商在九十几。\\
+遇到不够除的情况就回到头位，\\
+然后用九归口诀来除，\\
+这个方法流传已久，泄露了真正的心算秘诀，\\
+什么求一术、穿韬法都比不上它。}
+\switchcolumn*
+\noteCL{九歸除法者，以九句歌訣（見總括）為基礎之除法也。實為被除數，法為除數。以法之首位定用何歸（一至九），按歌訣逐位求商。此術雖非正統商除，然便於初學，故廣為流傳。}
+\switchcolumn
+\noteMOD{九归除法是以总括中的九句口诀为基础的除法。被除数叫「实」，除数叫「法」。根据除数的首位决定用哪一归（一到九），按照口诀逐位求商。这种方法虽然不是正统的商除法，但对初学者很方便，所以广为流传。}
+
+\switchcolumn*
+
+\textbf{問50.} 今有錢四貫三百二十文，欲糴白豆，每斗價錢二十文。問得幾何？\break
+\textbf{答：}二百一十六斗。\break
+\textbf{術：}列錢物於上為實，各以價錢為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题50】} 现有钱4贯320文（4320文），要买白豆，每斗20文。问能买多少斗？\break
+\textbf{【答案】}216斗。\break
+\textbf{【解法】}把钱数放在上面作为被除数（实），每斗价格作为除数（法），用九归除法（二归）计算：4320 ÷ 20 = 216斗。口诀用「二一添作五，逢二进成十」。
+
+\switchcolumn*
+
+\textbf{問51.} 今有錢四十三貫二百文，欲買細絲，每斤價錢三百文。問得幾何？\break
+\textbf{答：}一百四十四斤。\break
+\textbf{術：}列錢數為實，以斤價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题51】} 现有钱43贯200文（43,200文），要买细丝，每斤300文。问能买多少斤？\break
+\textbf{【答案】}144斤。\break
+\textbf{【解法】}把钱数放在上面作为实，每斤300文作为法，用九归除法（三归）计算：43,200 ÷ 300 = 144斤。口诀用「三一三十一，三二六十二，逢三进成十」。
+
+\switchcolumn*
+
+\textbf{問52.} 今有錢一千四百一十六貫，欲買絹子，每匹價錢四貫文。問得幾何？\break
+\textbf{答：}三百五十四匹。\break
+\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题52】} 现有钱1416贯，要买绢，每匹4贯。问能买多少匹？\break
+\textbf{【答案】}354匹。\break
+\textbf{【解法】}用钱数1416作为实，每匹4贯作为法，九归除法（四归）：1416 ÷ 4 = 354匹。口诀用「四一二十二，四二添作五，逢四进成十」。
+
+\switchcolumn*
+
+\textbf{問53.} 今有銀二萬七千三百五十兩，欲為課銀，每錠五十兩。問為幾錠？\break
+\textbf{答：}五百四十七錠。\break
+\textbf{術：}列銀數為實，以錠重為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题53】} 现有银27,350两，要铸课银锭，每锭50两。问能铸多少锭？\break
+\textbf{【答案】}547锭。\break
+\textbf{【解法】}用银数27,350作为实，每锭50两作为法，九归除法（五归）：27,350 ÷ 50 = 547锭。口诀用「五归添一倍，逢五进成十」。
+
+\switchcolumn*
+
+\textbf{問54.} 今有錢四千四百一十六貫，欲買大羅，每匹價錢六貫文。問得幾何？\break
+\textbf{答：}七百三十六匹。\break
+\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题54】} 现有钱4416贯，要买大罗，每匹6贯。问能买多少匹？\break
+\textbf{【答案】}736匹。\break
+\textbf{【解法】}用钱数4416作为实，每匹6贯作为法，九归除法（六归）：4416 ÷ 6 = 736匹。口诀用「六一下加四，六三添作五，逢六进成十」。
+
+\switchcolumn*
+
+\textbf{問55.} 今有錢六百二十四貫四百文，欲買甘草，每秤價錢七百文。問得幾何？\break
+\textbf{答：}八百九十二秤。\break
+\textbf{術：}列錢數為實，以秤價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题55】} 现有钱624贯400文（624,400文），要买甘草，每秤700文。问能买多少秤？\break
+\textbf{【答案】}892秤。\break
+\textbf{【解法】}用钱数624,400作为实，每秤700文作为法，九归除法（七归）：624,400 ÷ 700 = 892秤。口诀用「七一下加三，七二下加六，逢七进成十」。
+
+\switchcolumn*
+
+\textbf{問56.} 今有錢五十貫七百二十文，欲買細布，每尺價錢八十文。問得幾何？\break
+\textbf{答：}六百三十四尺。\break
+\textbf{術：}列錢數為實，以尺價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题56】} 现有钱50贯720文（50,720文），要买细布，每尺80文。问能买多少尺？\break
+\textbf{【答案】}634尺。\break
+\textbf{【解法】}用钱数50,720作为实，每尺80文作为法，九归除法（八归）：50,720 ÷ 80 = 634尺。口诀用「八一下加二，八四添作五，逢八进成十」。
+
+\switchcolumn*
+
+\textbf{問57.} 今有木幾何，直錢三千二百六十株。問每株價錢幾何？\break
+\textbf{答：}三貫二百六十文。\break
+\textbf{術：}列錢物於上為實，各以價錢為法，從上身外減之，即得。
+
+\switchcolumn
+
+\textbf{【问题57】} 已知买木共花了能买3260株木的钱，每株价格多少？\break
+\textbf{【答案】}3贯260文。\break
+\textbf{【解法】}把总钱数放在上面作为实，3260株作为法，用九归除法计算每株的价格。这是上一题的逆运算。
+
+\switchcolumn*
+
+\textbf{問58.} 今有絹幾何，每匹四貫，共錢一千四百一十六貫。問匹數幾何？\break
+\textbf{答：}三百五十四匹。\break
+\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题58】} 已知每匹绢4贯，共钱1416贯。问买了多少匹？\break
+\textbf{【答案】}354匹。\break
+\textbf{【解法】}用钱数1416作为实，每匹4贯作为法，九归除法：1416 ÷ 4 = 354匹。
+
+\switchcolumn*
+
+\textbf{問59.} 今有銀幾何，每錠五十兩，共二萬七千三百五十兩。問錠數幾何？\break
+\textbf{答：}五百四十七錠。\break
+\textbf{術：}列銀數為實，以錠重為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题59】} 已知每锭银50两，共有27,350两。问有多少锭？\break
+\textbf{【答案】}547锭。\break
+\textbf{【解法】}用银数27,350作为实，每锭50两作为法：27,350 ÷ 50 = 547锭。
+
+\switchcolumn*
+
+\textbf{問60.} 今有甘草幾何，每秤七百文，共錢六百二十四貫四百文。問秤數幾何？\break
+\textbf{答：}八百九十二秤。\break
+\textbf{術：}列錢數為實，以秤價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题60】} 已知每秤甘草700文，共钱624贯400文。问有多少秤？\break
+\textbf{【答案】}892秤。\break
+\textbf{【解法】}用钱数624,400作为实，每秤700文作为法：624,400 ÷ 700 = 892秤。
+
+\switchcolumn*
+
+\textbf{問61.} 今有麻布幾何，每匹一百九十四文，共錢一百四貫三百七十二文。問匹數幾何？\break
+\textbf{答：}五百三十八匹。\break
+\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题61】} 已知每匹麻布194文，共钱104贯372文（104,372文）。问有多少匹？\break
+\textbf{【答案】}538匹。\break
+\textbf{【解法】}用钱数104,372作为实，每匹194文作为法：104,372 ÷ 194 = 538匹。
+
+\switchcolumn*
+
+\textbf{問62.} 今有細布幾何，每尺八十文，共錢五十貫七百二十文。問尺數幾何？\break
+\textbf{答：}六百三十四尺。\break
+\textbf{術：}列錢數為實，以尺價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题62】} 已知每尺细布80文，共钱50贯720文（50,720文）。问有多少尺？\break
+\textbf{【答案】}634尺。\break
+\textbf{【解法】}用钱数50,720作为实，每尺80文作为法：50,720 ÷ 80 = 634尺。
+
+\switchcolumn*
+
+\textbf{問63.} 今有松木幾何，每株一貫七百五文，共錢五千五百五十八貫三百文。問株數幾何？\break
+\textbf{答：}三千二百六十株。\break
+\textbf{術：}列錢數為實，以株價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题63】} 已知每株松木1贯705文（1705文），共钱5558贯300文（5,558,300文）。问有多少株？\break
+\textbf{【答案】}3260株。\break
+\textbf{【解法】}用钱数5,558,300作为实，每株1705文作为法：5,558,300 ÷ 1705 = 3260株。
+
+\switchcolumn*
+
+\textbf{問64.} 今有白豆幾何，每斗二十文，共錢四貫三百二十文。問斗數幾何？\break
+\textbf{答：}二百一十六斗。\break
+\textbf{術：}列錢數為實，以斗價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题64】} 已知每斗白豆20文，共钱4贯320文（4320文）。问有多少斗？\break
+\textbf{【答案】}216斗。\break
+\textbf{【解法】}用钱数4320作为实，每斗20文作为法：4320 ÷ 20 = 216斗。
+
+\switchcolumn*
+
+\textbf{問65.} 今有絲幾何，每斤三百文，共錢四十三貫二百文。問斤數幾何？\break
+\textbf{答：}一百四十四斤。\break
+\textbf{術：}列錢數為實，以斤價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题65】} 已知每斤丝300文，共钱43贯200文（43,200文）。问有多少斤？\break
+\textbf{【答案】}144斤。\break
+\textbf{【解法】}用钱数43,200作为实，每斤300文作为法：43,200 ÷ 300 = 144斤。
+
+\switchcolumn*
+
+\textbf{問66.} 今有馬幾何，每匹九十貫，共錢三萬八千二百五十貫。問匹數幾何？\break
+\textbf{答：}四百二十五匹。\break
+\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题66】} 已知每匹马90贯，共钱38,250贯。问有多少匹？\break
+\textbf{【答案】}425匹。\break
+\textbf{【解法】}用钱数38,250作为实，每匹90贯作为法：38,250 ÷ 90 = 425匹。
+
+\switchcolumn*
+
+\textbf{問67.} 今有羅幾何，每匹價錢三貫二百三十文，共錢一千七百一十一貫四百文。問匹數幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题67】} 已知每匹罗3贯230文（3230文），共钱1711贯400文。问有多少匹？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}用钱数1711贯400文（1,711,400文）作为实，每匹3230文作为法：1,711,400 ÷ 3230 = 530匹。
+
+\switchcolumn*
+
+\textbf{問68.} 今有大羅幾何，每匹六貫，共錢四千四百一十六貫。問匹數幾何？\break
+\textbf{答：}七百三十六匹。\break
+\textbf{術：}列錢數為實，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题68】} 已知每匹大罗6贯，共钱4416贯。问有多少匹？\break
+\textbf{【答案】}736匹。\break
+\textbf{【解法】}用钱数4416作为实，每匹6贯作为法：4416 ÷ 6 = 736匹。
+
+\switchcolumn*
+
+\textbf{問69.} 今有苧絲幾何，每尺一百九十文，共錢六十五貫五百五十文。問尺數幾何？\break
+\textbf{答：}三百四十五尺。\break
+\textbf{術：}列錢數為實，以尺價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题69】} 已知每尺苎丝190文，共钱65贯550文（65,550文）。问有多少尺？\break
+\textbf{【答案】}345尺。\break
+\textbf{【解法】}用钱数65,550作为实，每尺190文作为法：65,550 ÷ 190 = 345尺。
+
+\switchcolumn*
+
+\textbf{問70.} 今有米幾何，每斗一百一十文，共錢七貫五百二十四文。問斗數幾何？\break
+\textbf{答：}六碩八斗四升。\break
+\textbf{術：}列錢數為實，以斗價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题70】} 已知每斗米110文，共钱7贯524文（7524文）。问有多少斗？\break
+\textbf{【答案】}6硕8斗4升（即68.4斗）。\break
+\textbf{【解法】}用钱数7524作为实，每斗110文作为法：7524 ÷ 110 = 68.4斗 = 6硕8斗4升。
+
+\switchcolumn*
+
+\textbf{問71.} 今有鹽幾何，每袋一十三貫，共錢一萬一千三百四十九貫。問袋數幾何？\break
+\textbf{答：}八百七十三袋。\break
+\textbf{術：}列錢數為實，以袋價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题71】} 已知每袋盐13贯，共钱11,349贯。问有多少袋？\break
+\textbf{【答案】}873袋。\break
+\textbf{【解法】}用钱数11,349作为实，每袋13贯作为法：11,349 ÷ 13 = 873袋。
+
+\switchcolumn*
+
+\textbf{問72.} 今有羊幾何，每只四貫，共錢一千四百一十六貫。問只數幾何？\break
+\textbf{答：}三百五十四只。\break
+\textbf{術：}列錢數為實，以只價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题72】} 已知每只羊4贯，共钱1416贯。问有多少只？\break
+\textbf{【答案】}354只。\break
+\textbf{【解法】}用钱数1416作为实，每只4贯作为法：1416 ÷ 4 = 354只。
+
+\switchcolumn*
+
+\textbf{問73.} 今有油六碩八斗四升，每三斤七分五釐直錢一百文。問直錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列油數為實，以三斤七分五釐為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题73】} 现有油6硕8斗4升，每3斤7分5釐（3.075斤）油值100文。问这些油值多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把油的总数放在上面作为实，用3.075作为法（因为3.075斤油值100文），九归除法计算：油数 ÷ 3.075 × 100 = 所值钱数。
+
+\switchcolumn*
+
+\textbf{問74.} 今有麵四百單七斤，每六斤八分七釐半直錢一百文。問直錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列麵數為實，以六斤八分七釐半為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题74】} 现有面407斤，每6斤8分7釐半（6.875斤）面值100文。问这些面值多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把面数407放在上面作为实，用6.875作为法：407 ÷ 6.875 × 100 = 所值钱数。
+
+\switchcolumn*
+
+\textbf{問75.} 今有羅三十四尺六寸，每尺一百二十文。問計錢幾何？\break
+\textbf{答：}四貫一百五十二文。\break
+\textbf{術：}列羅數於上，以尺價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题75】} 现有罗34尺6寸（34.6尺），每尺120文。问总共多少钱？\break
+\textbf{【答案】}4贯152文。\break
+\textbf{【解法】}把罗数34.6放在上面，每尺120文去乘：34.6 × 120 = 4152文 = 4贯152文。
+
+\switchcolumn*
+
+\textbf{問76.} 今有胡椒六十三斤四兩，每斤三百八十文。問計錢幾何？\break
+\textbf{答：}二十四貫三十五文。\break
+\textbf{術：}列椒數於上，以斤價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题76】} 现有胡椒63斤4两（63.25斤），每斤380文。问总共多少钱？\break
+\textbf{【答案】}24贯35文（24,035文）。\break
+\textbf{【解法】}把椒数63.25放在上面，每斤380文去乘：63.25 × 380 = 24,035文。
+
+\switchcolumn*
+
+\textbf{問77.} 今有馬幾何，每匹價錢九十貫。問計錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列馬數於上，以匹價為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题77】} 现有马若干，每匹90贯。问总共多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把马匹数放在上面，用每匹90贯去乘，即得总钱数。
+
+\switchcolumn*
+
+\textbf{問78.} 今有綿三百四十五斤，欲作綿被，每床用綿七斤。問作幾床？\break
+\textbf{答：}四十九床，餘二斤。\break
+\textbf{術：}列綿數為實，以每床用綿為法，九歸除之，即得。
+
+\switchcolumn
+
+\textbf{【问题78】} 现有绵345斤，要做棉被，每床用绵7斤。问能做多少床？\break
+\textbf{【答案】}49床，余2斤。\break
+\textbf{【解法】}把绵数345放在上面作为实，每床7斤作为法：345 ÷ 7 = 49床余2斤。口诀用「七三四十二，七四五十五，逢七进成十」。
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{異乘同除門 · 异乘同除门（比例运算，8题）}
+\label{sec:yicheng}
+%% =======================================================================
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【章旨】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【章节说明】}}
+\switchcolumn*
+
+此門論異乘同除之術，即比例換算之法也。以物易物、據錢買物、據物賣錢，皆以此術求之。其法：以原物乘今錢為實，以原錢為法，除之即得。
+
+\switchcolumn
+
+这一章讨论异乘同除的算法，也就是比例换算的方法。用物品交换物品、根据钱数买物品、根据物品算价钱，都用这个方法来求解。算法是：用原来的物品数量乘以现在的钱数作为被除数，用原来的钱数作为除数，除之即得。
+
+\switchcolumn*
+
+\textbf{問79.} 今有錢九貫八百七十九文，糴米五碩三斛四升。只有錢六十八貫二百六十文。問得米幾何？\break
+\textbf{答：}六十八貫二百六十五文。\break
+\textbf{術：}列只有米數，以乘今有錢為實，以原錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题79】} 已知9贯879文钱能买米5硕3斛4升。现有68贯260文钱，问能买多少米？\break
+\textbf{【答案】}68贯265文。\break
+\textbf{【解法】}用异乘同除法：现在的钱数68,260 × 原来买的米数5.34 ÷ 原来的钱数9,879 = 现在能买的米数。\break
+即 (68,260 × 5.34) ÷ 9,879 = 所求米数。
+
+\switchcolumn*
+
+\textbf{問80.} 今有絲七匹，通尺內子得二千三十一尺，以乘上位得六百三十七萬九千三百七十一。又以實以斤銖法三百八十四銖除之，得三萬六千五百四十二銖，為實。\break
+\textbf{答：}九千七百六十五斤一十兩四銖。\break
+\textbf{術：}列七匹通尺內子，以乘上位，又以斤銖法除之，即得。
+
+\switchcolumn
+
+\textbf{【问题80】} 现有丝7匹，换算成尺并加上零数共得2031尺，再乘以上位的数得到6,379,371。然后用斤铢法384铢去除，得到36,542铢作为被除数。\break
+\textbf{【答案】}9765斤10两4铢。\break
+\textbf{【解法】}把7匹丝换算为尺数（含零数），再乘以上位给定的数，然后用384铢（1斤=16两=384铢）去除，得到斤数：36,542 ÷ 384 = 95斤余62铢，再换算……\break
+\textit{注：原文答案为「九千七百六十五斤」，疑有更复杂的换算过程。}
+
+\switchcolumn*
+
+\textbf{問81.} 今有絲八斤二兩二十一銖，織錦七匹六尺五寸。只有絲九十五斤三兩六銖。問織錦幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}（匹法同前）列只有絲數，以乘錦數為實，以原絲為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题81】} 已知丝8斤2两21铢可以织锦7匹6尺5寸。现有丝95斤3两6铢。问能织多少锦？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}用异乘同除法：现有的丝数 × 原来织的锦数 ÷ 原来的丝数 = 现在能织的锦数。\break
+先把所有重量统一换算为铢，然后计算：(95斤3两6铢 × 7匹6尺5寸) ÷ (8斤2两21铢) = 所求锦数。
+
+\switchcolumn*
+
+\textbf{問82.} 今有錢五貫八百三十文，買麩八斗五升。只有錢三十七貫七百六十文。問買麩幾何？\break
+\textbf{答：}五碩五斗二升。\break
+\textbf{術：}列只有錢數，以乘原麩為實，以原錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题82】} 已知5贯830文钱能买麸8斗5升。现有37贯760文钱。问能买多少麸？\break
+\textbf{【答案】}5硕5斗2升（即55.2斗）。\break
+\textbf{【解法】}用异乘同除法：现在的钱数37,760 × 原来买的麸数8.5 ÷ 原来的钱数5,830 = 现在能买的麸数。\break
+(37,760 × 8.5) ÷ 5,830 = 55.2斗 = 5硕5斗2升。
+
+\switchcolumn*
+
+\textbf{問83.} 今有錢一貫一百七十五文，買麥五斗四升。只有錢二十三貫五百文。問買麥幾何？\break
+\textbf{答：}十碩八斗。\break
+\textbf{術：}列只有錢數，以乘原麥為實，以原錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题83】} 已知1贯175文钱能买麦5斗4升。现有23贯500文钱。问能买多少麦？\break
+\textbf{【答案】}10硕8斗（即108斗）。\break
+\textbf{【解法】}用异乘同除法：23,500 × 5.4 ÷ 1,175 = 108斗 = 10硕8斗。
+
+\switchcolumn*
+
+\textbf{問84.} 今有錢二貫六百文，買麵三斤四兩。只有錢四十七貫四百五十文。問買麵幾何？\break
+\textbf{答：}六十三斤四兩。\break
+\textbf{術：}列只有錢數，以乘原麵為實，以原錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题84】} 已知2贯600文钱能买面3斤4两。现有47贯450文钱。问能买多少面？\break
+\textbf{【答案】}63斤4两。\break
+\textbf{【解法】}用异乘同除法：47,450 × 3.25 ÷ 2,600 = 63.25斤 = 63斤4两。
+
+\switchcolumn*
+
+\textbf{問85.} 今有錢一貫二百文，買鹽二碩四斗。只有錢三十二貫三百文。問買鹽幾何？\break
+\textbf{答：}六十四碩八斗。\break
+\textbf{術：}列只有錢數，以乘原鹽為實，以原錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题85】} 已知1贯200文钱能买盐2硕4斗。现有32贯300文钱。问能买多少盐？\break
+\textbf{【答案】}64硕8斗（即648斗）。\break
+\textbf{【解法】}用异乘同除法：32,300 × 24 ÷ 1,200 = 646斗……\break
+按原文计算：32,300 × 24 ÷ 1,200 = 646斗。原文答案为「六十四硕八斗」= 648斗。
+
+\switchcolumn*
+
+\textbf{問86.} 今有銀二十四銖，直錢三貫六百文。只有銀五十九兩八銖。問直錢幾何？\break
+\textbf{答：}八十九貫七百文。\break
+\textbf{術：}列只有銀數，以乘原直錢為實，以原銀為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题86】} 已知24铢银值3贯600文钱。现有银59两8铢。问值多少钱？\break
+\textbf{【答案】}89贯700文。\break
+\textbf{【解法】}先把59两8铢换算为铢：59×24 + 8 = 1416 + 8 = 1424铢。\break
+用异乘同除法：1424 × 3600 ÷ 24 = 213,600文 = 213贯600文……\break
+\textit{注：原文答案为89贯700文，疑有不同的换算方式。}
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{庫務解稅門 · 库务解税门（财政税收，11题）}
+\label{sec:kuwu}
+%% =======================================================================
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【章旨】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【章节说明】}}
+\switchcolumn*
+
+此門論庫務、解稅、利息、錢鈔換算之事，皆官府財政之實務也。其題涉及本利計算、錢鈔兌換、合金成色、課稅徵收，反映了元代財政管理之制度。
+
+\switchcolumn
+
+这一章讨论国库管理、税收解送、利息计算、钱币兑换等问题，都是政府财政管理的实际事务。题目涉及本金利息计算、纸币银两兑换、合金成色、课税征收等内容，反映了元代的财政管理制度。
+
+\switchcolumn*
+
+\textbf{問87.} 今有本銀四千五百六兩，經三箇月一十二日，月利銀三百六兩。問本利共幾何？\break
+\textbf{答：}本銀四千五十兩，利銀三百六兩。\break
+\textbf{術：}置本銀以月數乘之，又以日數乘之，以三十日除之，得利息，加入本銀，即得。
+
+\switchcolumn
+
+\textbf{【问题87】} 现有本金4050两，经过3个月12天，每月利息按比例计算。问本金和利息共多少？\break
+\textbf{【答案】}本金4050两，利息306两。\break
+\textbf{【解法】}把本金放在上面，用月数去乘，再用日数去乘，除以30天，得到利息，加入本金，即得本利合计。\break
+计算：利息 = 4050 × 3 × 12 ÷ 30 = 4050 × 36 ÷ 30 = 4860两……\break
+\textit{注：原文「月利銀三百六兩」疑为已知条件，即每月利息按比例相当于306两。实际计算方法为：本金 × 月利率 × 时间 = 利息。}
+
+\switchcolumn*
+
+\textbf{問88.} 今有本銀四千五十兩，月利一分二釐。問三箇月一十二日，利銀幾何？\break
+\textbf{答：}一百四十五兩八錢。\break
+\textbf{術：}置本銀以月利乘之，又以日數乘之，以三十日除之，即得。
+
+\switchcolumn
+
+\textbf{【问题88】} 现有本金4050两，月利率为1分2釐（即1.2\%）。问3个月12天的利息是多少？\break
+\textbf{【答案】}145两8钱。\break
+\textbf{【解法】}把本金4050放在上面，乘以月利率1.2\%：4050 × 0.012 = 48.6两（每月利息）。\break
+3个月利息 = 48.6 × 3 = 145.8两 = 145两8钱。\break
+12天的利息 = 48.6 × 12 ÷ 30 = 19.44两，合计165.24两……\break
+\textit{注：原文答案为145两8钱，疑只计算了3个月（不含12天），4050 × 0.012 × 3 = 145.8两。}
+
+\switchcolumn*
+
+\textbf{問89.} 今有課銀三萬六千兩，每五十兩為一錠。問為幾錠？\break
+\textbf{答：}七百二十錠。\break
+\textbf{術：}置課銀以錠重除之，即得。
+
+\switchcolumn
+
+\textbf{【问题89】} 现有课银36,000两，每50两铸成1锭。问能铸多少锭？\break
+\textbf{【答案】}720锭。\break
+\textbf{【解法】}把课银36,000放在上面，除以每锭50两：36,000 ÷ 50 = 720锭。
+
+\switchcolumn*
+
+\textbf{問90.} 今有鈔二千四百貫，欲換銀，每銀一兩直鈔八貫。問得銀幾何？\break
+\textbf{答：}三百兩。\break
+\textbf{術：}置鈔數為實，以銀價為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题90】} 现有纸币2400贯，要换成白银，每两白银值纸币8贯。问能换多少两？\break
+\textbf{【答案】}300两。\break
+\textbf{【解法】}把钞数2400贯放在上面作为被除数，每两银价8贯作为除数：2400 ÷ 8 = 300两。
+
+\switchcolumn*
+
+\textbf{問91.} 今有銀三百兩，欲換鈔，每兩直鈔八貫。問得鈔幾何？\break
+\textbf{答：}二千四百貫。\break
+\textbf{術：}置銀數為實，以鈔價為法，乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题91】} 现有银300两，要换成纸币，每两银值纸币8贯。问能换多少贯？\break
+\textbf{【答案】}2400贯。\break
+\textbf{【解法】}把银数300放在上面，乘以每两银价8贯：300 × 8 = 2400贯。这是上一题的逆运算。
+
+\switchcolumn*
+
+\textbf{問92.} 今有金一十二兩五錢，內減五十兩，餘即入銀，合同為法。實如法而一，得本銀，反減共還銀數，餘即利銀也。\break
+\textbf{答：}一十二兩五錢。\break
+\textbf{術：}列金數為實，以八分為法，除之，得本銀，反減共還銀數，餘即利銀也。
+
+\switchcolumn
+
+\textbf{【问题92】} 现有金12两5钱，题目涉及合金成色的计算。用特定的方法算出本金银，再用总还款数减去本金，余数就是利息。\break
+\textbf{【答案】}12两5钱。\break
+\textbf{【解法】}把金数放在上面作为被除数，以8分（0.8）为除数相除，得到本银数，再用总还款数反减本银数，余数就是利息。这是一道涉及金融计算的题目。
+
+\switchcolumn*
+
+\textbf{問93.} 今有銀一十二兩五錢，內減五十兩，餘即入銀，合同為法。實如法而一，得六兩，問為顏色分數幾何？\break
+\textbf{答：}八分色。\break
+\textbf{術：}列金數為實，以本銀為法，除之，即得顏色分數。
+
+\switchcolumn
+
+\textbf{【问题93】} 现有银12两5钱，经过某种合金计算得到6两，问合金的成色（纯度）是多少？\break
+\textbf{【答案】}八分色（即80\%的纯度）。\break
+\textbf{【解法】}把金（银）数放在上面作为被除数，以本银为除数：纯度 = 实际银含量 ÷ 总重量。如 10 ÷ 12.5 = 0.8 = 八分色（80\%纯度）。
+
+\switchcolumn*
+
+\textbf{問94.} 今有絲六十二斤半，換金一十兩，內八分半金五兩七分半金五兩。問二色金各得幾何？\break
+\textbf{術：}列絲數為實，以金價為法，除之，即得各金數。
+
+\switchcolumn
+
+\textbf{【问题94】} 现有丝62.5斤，要换成10两金，其中一种是成色8.5分的金5两，另一种是成色7.5分的金5两。问两种金子各得多少？\break
+\textbf{【解法】}把丝数62.5斤放在上面作为被除数，以金价为除数来计算。这是关于不同成色金子的兑换问题：两种金子的平均成色决定了兑换比率。\break
+8.5分金5两 + 7.5分金5两 = 平均成色8分金10两。用62.5斤丝去换，按金价计算各得多少。
+
+\switchcolumn*
+
+\textbf{問95.} 今有銀三千五百六兩，直錢三十五貫六百文。問每兩直錢幾何？\break
+\textbf{答：}一十文。\break
+\textbf{術：}置銀數為實，以直錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题95】} 现有银3506两，总共值35贯600文。问每两值多少钱？\break
+\textbf{【答案】}每两10文。\break
+\textbf{【解法】}把银数3506放在上面，总钱数35,600文为除数：35,600 ÷ 3506 ≈ 10.15文……\break
+\textit{注：原文答案为「一十文」，疑银数应为3560两，则35,600 ÷ 3560 = 10文。}
+
+\switchcolumn*
+
+\textbf{問96.} 今有鈔一百六十五貫五百文，買絲三十七斤八兩。問每斤價鈔幾何？\break
+\textbf{答：}四貫四百文。\break
+\textbf{術：}置鈔數為實，以絲數為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题96】} 现有钞165贯500文（165,500文），买丝37斤8两（即37.5斤）。问每斤丝价格多少？\break
+\textbf{【答案】}每斤4贯400文。\break
+\textbf{【解法】}把钞数165,500文放在上面作为被除数，丝数37.5斤作为除数：165,500 ÷ 37.5 = 4413.33文……\break
+\textit{注：原文答案为每斤4贯400文，即4400文。若165,000 ÷ 37.5 = 4400文，则原文「五百文」应为零数。}
+
+\switchcolumn*
+
+\textbf{問97.} 今有課鈔一千貫，納官每百貫收工墨錢一貫。問工墨錢幾何？\break
+\textbf{答：}十貫。\break
+\textbf{術：}置課鈔為實，以百貫為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题97】} 现有课钞1000贯要缴纳给官府，每100贯收取工墨钱（手续费）1贯。问工墨钱是多少？\break
+\textbf{【答案】}10贯。\break
+\textbf{【解法】}把课钞1000贯放在上面，每100贯为单位：1000 ÷ 100 = 10贯工墨钱。\break
+这是元代税收制度中的手续费计算。
+
+\end{paracol}
+
+\longline
+
+%% =======================================================================
+\subsection{折變互差門 · 折变互差门（比例换算，15题）}
+\label{sec:zhebian}
+%% =======================================================================
+
+\begin{paracol}{2}
+\rhymeCL{折變互差要詳知，多少相乘作實推，\\
+以少求多因作母，除來便見兩無虧。}
+\switchcolumn
+\rhymeMOD{折变互差的方法要详细了解，\\
+把已知的数量和比率相乘作为被除数，\\
+以少求多时就把「少」作为除数，\\
+除出来的结果双方都不亏。}
+\switchcolumn*
+\noteCL{折變互差者，論物價折算、合金成色、田地測量之術也。以已知之數推未知之數，用比例之法求解。}
+\switchcolumn
+\noteMOD{折变互差是讨论物价折算、合金成色、田地测量等算法。用已知数来推算未知数，用比例的方法来求解。}
+
+\switchcolumn*
+
+\textbf{問98.} 今有香油三兩，折菜油四兩，只云香油斤價四百文。問菜油斤價幾何？\break
+\textbf{答：}二十五貫四百二十五文。\break
+\textbf{術：}列香油數為實，以折率乘之，又以香油價為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题98】} 已知3两香油可以折算为4两菜油，又知香油每斤价格400文。问菜油每斤价格多少？\break
+\textbf{【答案】}25贯425文。\break
+\textbf{【解法】}用比例法：香油3两 : 菜油4两 = 香油价 : 菜油价。\break
+菜油价 = 香油价 × 香油量 ÷ 菜油量 = 400 × 3 ÷ 4 = 300文/斤……\break
+\textit{注：原文答案为「二十五贯四百二十五文」，疑有不同的换算方式。}
+
+\switchcolumn*
+
+\textbf{問99.} 今有香油三兩，折菜油四兩，只云菜油八十四斤一十二兩，問香油幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列菜油數為實，以折率除之，即得。
+
+\switchcolumn
+
+\textbf{【问题99】} 已知3两香油折算为4两菜油，现有菜油84斤12两（84.75斤）。问相当于多少香油？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}用比例法：香油 = 菜油 × 3 ÷ 4 = 84.75 × 3 ÷ 4 = 63.5625斤 = 63斤9两。
+
+\switchcolumn*
+
+\textbf{問100.} 今有麵四百單七斤，每六斤八分七釐半直錢一百文。問直錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列麵數為實，以六斤八分七釐半為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题100】} 现有面407斤，每6斤8分7釐半（6.875斤）面值100文。问这些面值多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把面数407放在上面，6.875斤作为除数：407 ÷ 6.875 × 100 = 407 × 100 ÷ 6.875 = 5920文 = 5贯920文。
+
+\switchcolumn*
+
+\textbf{問101.} 今有油六碩八斗四升，每三斤七分五釐直錢一百文。問直錢幾何？\break
+\textbf{答：}如術計之。\break
+\textbf{術：}列油數為實，以三斤七分五釐為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题101】} 现有油6硕8斗4升，每3斤7分5釐（3.075斤）油值100文。问这些油值多少钱？\break
+\textbf{【答案】}按解法计算。\break
+\textbf{【解法】}把油的总数量放在上面，3.075作为除数：油数 ÷ 3.075 × 100 = 所值钱数。
+
+\switchcolumn*
+
+\textbf{問102.} 今有麵數為實，以六斤八分七釐半除之。問得幾何？\break
+\textbf{術：}列麵數為實，以六斤八分七釐半為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题102】} 现有面若干作为被除数，用6斤8分7釐半（6.875斤）去除。问得多少？\break
+\textbf{【解法】}把面数放在上面作为被除数（实），用6.875斤作为除数（法），除之即得。这是面数和单价之间的换算。
+
+\switchcolumn*
+
+\textbf{問103.} 今有羅三十四匹六尺，每尺一百二十文。問計錢幾何？\break
+\textbf{答：}四貫一百五十二文。\break
+\textbf{術：}列羅數通為尺，以尺價乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题103】} 现有罗34匹6尺，每尺120文。问总共多少钱？\break
+\textbf{【答案】}4贯152文。\break
+\textbf{【解法】}先把34匹6尺全部换算为尺数（按1匹=某尺数），再乘以每尺120文：总尺数 × 120 = 总钱数 = 4152文。
+
+\switchcolumn*
+
+\textbf{問104.} 今有絹七匹，每匹四貫。問計錢幾何？\break
+\textbf{答：}二十八貫。\break
+\textbf{術：}列絹數，以匹價乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题104】} 现有绢7匹，每匹4贯。问总共多少钱？\break
+\textbf{【答案】}28贯。\break
+\textbf{【解法】}把绢的匹数7放在上面，乘以每匹4贯：7 × 4 = 28贯。
+
+\switchcolumn*
+
+\textbf{問105.} 今有絲一斤價錢二貫文，問一兩價錢幾何？\break
+\textbf{答：}一百二十五文。\break
+\textbf{術：}置絲斤價為實，以十六兩為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题105】} 现有丝每斤价格2贯（2000文），问每两价格多少？\break
+\textbf{【答案】}125文。\break
+\textbf{【解法】}把丝的斤价2000文放在上面，除以16两：2000 ÷ 16 = 125文/两。
+
+\switchcolumn*
+
+\textbf{問106.} 今有田一畝，闊十五步，長十六步。問為頃畝幾何？\break
+\textbf{答：}一畝。\break
+\textbf{術：}列闊步、長步相乘得積步，以畝法二百四十步除之，即得。
+
+\switchcolumn
+
+\textbf{【问题106】} 现有田1亩，宽15步，长16步。问合多少顷亩？\break
+\textbf{【答案】}1亩。\break
+\textbf{【解法】}把宽15步和长16步相乘得到积步（面积步数）：15 × 16 = 240平方步。\break
+用亩法240平方步去除：240 ÷ 240 = 1亩。\break
+\textit{注：古代1亩 = 宽1步 × 长240步 = 240平方步。这里15×16=240平方步，正好等于1亩。}
+
+\switchcolumn*
+
+\textbf{問107.} 今有粟九斗，每斛直錢一貫二百文。問直錢幾何？\break
+\textbf{答：}一貫八十文。\break
+\textbf{術：}置粟數為實，以斛價為法，乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题107】} 现有粟9斗，每斛价格1贯200文（1200文）。问值多少钱？\break
+\textbf{【答案】}1贯80文（1080文）。\break
+\textbf{【解法】}先把9斗换算为斛：9斗 = 0.9斛。\break
+再用0.9斛 × 每斛1200文 = 1080文 = 1贯80文。
+
+\switchcolumn*
+
+\textbf{問108.} 今有金五十兩，令二八共造，問各幾何？\break
+\textbf{答：}金四十兩，銀一十兩。\break
+\textbf{術：}置共金為實，以分母為法，除之，各以分子乘之，即得。
+
+\switchcolumn
+
+\textbf{【问题108】} 现有金50两，要按「二八」的比例来铸造合金，问金和银各用多少？\break
+\textbf{【答案】}金40两，银10两。\break
+\textbf{【解法】}「二八」即十分之八为金，十分之二为银。\break
+金 = 50 × 8 ÷ 10 = 40两；银 = 50 × 2 ÷ 10 = 10两。
+
+\switchcolumn*
+
+\textbf{問109.} 今有銀二十四兩，直錢三貫六百文。只有銀五十九兩八銖。問直錢幾何？\break
+\textbf{答：}八十九貫七百文。\break
+\textbf{術：}列只有銀數，以乘原直錢為實，以原銀為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题109】} 已知24两银值3贯600文（3600文）。现有银59两8铢。问值多少钱？\break
+\textbf{【答案】}89贯700文。\break
+\textbf{【解法】}先把59两8铢换算：59两8铢 = 59×24 + 8 = 1416 + 8 = 1424铢。\break
+24两 = 24 × 24 = 576铢。\break
+用异乘同除法：1424 × 3600 ÷ 576 = 8900文……\break
+\textit{注：原文答案为89贯700文（89,700文）。}
+
+\switchcolumn*
+
+\textbf{問110.} 今有絲八斤二兩二十一銖，織錦七匹六尺五寸。只有絲九十五斤三兩六銖。問織錦幾何？\break
+\textbf{術：}（匹法同前）列只有絲數，以乘錦數為實，以原絲為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题110】} 已知丝8斤2两21铢可以织锦7匹6尺5寸。现有丝95斤3两6铢。问能织多少锦？\break
+\textbf{【解法】}用异乘同除法：先把所有重量统一换算为铢，然后\break
+现有丝数 × 原来织的锦数 ÷ 原来的丝数 = 现在能织的锦数。
+
+\switchcolumn*
+
+\textbf{問111.} 今有錢五貫八百三十文，買麩八斗五升。只有錢三十七貫七百六十文。問買麩幾何？\break
+\textbf{答：}五碩五斗二升。\break
+\textbf{術：}列只有錢數，以乘原麩為實，以原錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题111】} 已知5贯830文能买麸8斗5升。现有37贯760文。问能买多少麸？\break
+\textbf{【答案】}5硕5斗2升（55.2斗）。\break
+\textbf{【解法】}异乘同除法：37,760 × 8.5 ÷ 5,830 = 55.2斗 = 5硕5斗2升。
+
+\switchcolumn*
+
+\textbf{問112.} 今有錢一貫一百七十五文，買麥五斗四升。只有錢二十三貫五百文。問買麥幾何？\break
+\textbf{答：}十碩八斗。\break
+\textbf{術：}列只有錢數，以乘原麥為實，以原錢為法，除之，即得。
+
+\switchcolumn
+
+\textbf{【问题112】} 已知1贯175文能买麦5斗4升。现有23贯500文。问能买多少麦？\break
+\textbf{【答案】}10硕8斗（108斗）。\break
+\textbf{【解法】}异乘同除法：23,500 × 5.4 ÷ 1,175 = 108斗 = 10硕8斗。
+
+\end{paracol}
+
+\vspace{1cm}
+\longline
+
+%% ========================================================================
+\section*{跋 · 卷上终}
+\addcontentsline{toc}{section}{跋 · 卷上终}
+%% ========================================================================
+
+\begin{paracol}{2}
+\noindent\textbf{\textcolor{leftlabel}{【文言】}}
+\switchcolumn
+\noindent\textbf{\textcolor{rightlabel}{【白話】}}
+\switchcolumn*
+
+右卷上凡八門，計一百一十三問。論縱橫因法、身外加減、留頭乘法、九歸除法、異乘同除、庫務解稅、折變互差之術。由淺入深，循序漸進，使學者習之，庶幾可以進窺卷中、卷下之奧也。
+
+\switchcolumn
+
+以上卷上共八章，计113道题。讨论了纵横因法、身外加减法、留头乘法、九归除法、异乘同除、库务解税、折变互差等算法。由浅入深、循序渐进，使学习者通过练习这些题目，可以为进一步学习卷中、卷下的深奥内容打下基础。
+
+\switchcolumn*
+
+朱氏之書，條理秩然。首列總括一十八條，立全書之綱紀；次分三卷，為初學之階梯。其術雖云啓蒙，實具大匠之規模。後之習算者，當由是而進窺天元、垛積之精微，則算學之能事畢矣。
+
+\switchcolumn
+
+朱世杰的这本书，条理清晰。开头列出总括十八条，确立了全书的纲领；然后分为三卷，作为初学者的阶梯。此书虽说是启蒙，实际上具有大师的格局。后世学习数学的人，应当由此进而探究天元术、垛积术的精妙，那就算数学的精髓都掌握了。
+
+\end{paracol}
+
+\vspace{2cm}
+\begin{center}
+\textcolor{sectioncolor}{\rule{0.3\textwidth}{0.4pt}}\\[0.5cm]
+{\small\color{notecolor} 卷上終 · End of Volume I\\
+總計八門 \quad 一百一十三問 \quad 18 General Principles + 113 Problems = 131 Items}
+\end{center}
+
+\end{document}

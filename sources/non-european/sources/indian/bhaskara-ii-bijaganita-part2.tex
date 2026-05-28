@@ -1,1266 +1,1279 @@
-%% ====================================================================
-%% Bhaskara II: Bijaganita (Part 2: Pages 58-114)
-%% Chapters on Equations with One Unknown, Unknown Squares,
-%% and Many Unknowns
-%% ====================================================================
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{lettrine}
-\usepackage{microtype}
-\usepackage{tocloft}
-\usepackage{indentfirst}
-\usepackage{tikz}
-\usepackage{float}
-\usepackage{caption}
-\usepackage{subcaption}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=25mm,right=25mm,top=30mm,bottom=30mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-\setotherlanguage{sanskrit}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-%% Devanagari (Sanskrit/Hindi) Font
-\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{Nirmala UI}
-\newfontfamily\devanagarifontsf[Script=Devanagari,Scale=1.1]{Nirmala UI}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{versecolor}{RGB}{60,50,40}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{B\={\i}jaga\d{n}ita of Bh\={a}skara II}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-\newcommand{\dev}[1]{{\devanagarifont #1}}
-\newcommand{\vs}{\vspace{0.5em}}
-\newcommand{\shloka}[1]{%
-  \begin{center}
-  \textcolor{versecolor}{\devanagarifont #1}
-  \end{center}
-  \vspace{0.3em}
-}
-\newcommand{\nyasa}[1]{\noindent\textbf{\dev{न्यासः}}---#1}
-\newcommand{\udaharana}[1]{\noindent\textbf{\dev{उदाहरणम्}} #1}
-\newcommand{\commentary}[1]{\noindent\textit{#1}}
-
-%% -------- Verse Environment --------
-\newenvironment{sanskritverse}{%
-  \begin{quote}\devanagarifont\textcolor{versecolor}%
-}{%
-  \end{quote}
-}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
-
-%% ====================================================================
-\begin{document}
-
-%% -------- Title Page --------
-\begin{titlepage}
-\centering
-\vspace*{2cm}
-
-{\Huge\bfseries\color{titlecolor} B\={\i}jaga\d{n}ita\par}
-\vspace{0.5cm}
-{\Large\itshape The Algebra of Bh\={a}skara II\par}
-
-\vspace{1.5cm}
-
-{\LARGE\bfseries\color{sectioncolor} Part II\par}
-\vspace{0.3cm}
-{\large Pages 58--114\par}
-
-\vspace{2cm}
-
-\begin{center}
-\rule{0.6\textwidth}{1pt}
-\end{center}
-
-\vspace{0.5cm}
-
-{\large\devanagarifont
-अथ एकवर्णसमीकरणम्\\
-अव्यक्तवर्गादिसमीकरणम्\\
-अनेकवर्णसमीकरणम्\\[0.5em]
-अनेकवर्णमध्यमाहरणभेदाः
-}
-
-\vspace{0.5cm}
-
-\begin{center}
-\rule{0.6\textwidth}{1pt}
-\end{center}
-
-\vspace{1cm}
-
-{\large\itshape Chapters on:\par}
-\vspace{0.3cm}
-{\normalsize
-1. Equations with One Unknown\\
-2. Equations with Unknown Squares\\
-3. Equations with Many Unknowns\\
-4. Variations of the Elimination Method for Many Unknowns\par}
-
-\vfill
-
-{\large Bh\={a}skara II (1114--1185 CE)\par}
-\vspace{0.5cm}
-{\small Transcribed from the original Sanskrit edition\par}
-
-\end{titlepage}
-
-%% -------- Table of Contents --------
-\tableofcontents
-\newpage
-
-%% ====================================================================
-\section*{Introduction}
-\addcontentsline{toc}{section}{Introduction}
-
-This volume contains the core algebraic chapters from Bh\={a}skara II's
-\textit{B\={\i}jaga\d{n}ita} (``Seed Computation,'' i.e., Algebra), covering
-pages 58--114 of the standard edition. These chapters treat:
-
-\begin{itemize}
-  \item \textbf{Ekavar\d{n}a-sam\={\i}kara\d{n}a:} Linear and quadratic equations
-    in a single unknown (\dev{यावत्तावत्}, \textit{y\={a}vatt\={a}vat});
-  \item \textbf{Avyakta-varg\={a}di-sam\={\i}kara\d{n}a:} Equations involving
-    unknown squares and higher powers;
-  \item \textbf{Anekavar\d{n}a-sam\={\i}kara\d{n}a:} Systems of equations with
-    multiple unknowns, and the \textit{madhyam\={a}hara\d{n}a} (elimination)
-    method in its various forms.
-\end{itemize}
-
-Bh\={a}skara's presentation follows the classical Indian pattern: each topic
-is introduced by a rule (\textit{s\={u}tra}) in verse, followed by worked
-examples (\textit{ud\={a}hara\d{n}a}) and detailed commentary (\textit{v\={a}rttika})
-showing the method of solution step by step. The unknown quantity is denoted
-by \dev{यावत्तावत्} (``as much as''), abbreviated \dev{या} or \dev{याव}.
-\newpage
-
-%% ====================================================================
-\part*{Chapter I: Equations with One Unknown}
-\addcontentsline{toc}{part}{Chapter I: Equations with One Unknown}
-
-\section*{\dev{एकवर्णसमीकरणम्}}
-\addcontentsline{toc}{section}{Ekavar\d{n}a-sam\={\i}kara\d{n}a (pp.~58--76)}
-\markboth{Ekavar\d{n}a-sam\={\i}kara\d{n}am}{Ekavar\d{n}a-sam\={\i}kara\d{n}am}
-
-\lettrine[lines=3, lraise=0.1, nindent=0em, slope=-.5em]{\dev{अ}}{}थैकवर्णसमीकरणम्। अत्र यावत्तावदेको वर्णः प्रकल्प्यते ततो रूपैः सह समीकृत्य यावत्तावन्मानं साध्यते।
-
-\vs
-
-\subsection*{First Example: Simple Linear Equation}
-
-\noindent\dev{अत्राश्वमूल्यमज्ञातं तस्य मानं यावत्तावदेकं प्रकल्प्तं या~१। तत्र}\break
-\dev{श्रेणीशकं यदेकस्य यावत्तावन्मूल्यं तदा पणां किमिति कल्पितच्छागपणां प्रमाणमकं लब्धं पणामश्वानां मूल्यम्। या~६। अत्र}
-\dev{रूपातनये प्रक्षिप्ते जातमाश्चस्य धनं या~६ रूप~२०। एवं दशानां मैल्यं}
-\dev{या~१०। अत्र रूपाते चाणांते प्रक्षिप्ते जातं द्वितीयस्य धनं}
-\dev{या~१० रूप~१००।}
-
-\vs
-
-\noindent\textbf{\dev{एतौ समशोधने छते एव सभी जाते समशोधनार्थं}}
-
-\begin{center}
-\dev{न्यासः---*या~६ रूप~२०।}\\[0.3em]
-\dev{या~१० रूप~१००।}
-\end{center}
-
-\vs
-
-\subsection*{Rule for Elimination}
-
-\shloka{
-अथैकाव्यक्त शोधयेदन्यपक्षादव्ययव्यक्तान् छोधिते।\\
-द्वितीयपदमुक्त्वेषु आचयपक्षतुल्यपक्षः शोधि-\\
-तेषु शेषम् रूप~४००। अथ कल्पितकलवर्ण या~४ रूपैः रूप~४०० उक्ते\\
-लब्धमेकस्य यावत्तावतो मानं व्यक्तम्~१००। यदेकाश्वस्यैतन्मूल्यं\\
-तदा पणां किमिति श्रेणीशकेन लब्धं पणां मूल्यं~६०० रूपातनय-\\
-युतं~१०० जातमाश्चस्य धनम्। एवं द्वितीयस्यापि~१००।
-}
-
-\vs
-
-\subsection*{Second Example}
-
-\noindent\dev{अथ द्वितीयोदाहरणे प्रथमद्वितीययोस्ते एव धने}
-
-\begin{center}
-\dev{या~६ रूप~२००।}\\[0.3em]
-\dev{या~१० रूप~१००।}
-\end{center}
-
-\vs
-
-\noindent\dev{अत्राचयपक्षधनार्थं द्वियुकेन तुल्यमनयस्य धनमुदाहृतमत भा-}
-\dev{ष्यधनार्थं द्वियुक्ते अथवानयधने द्विहीन द्विगुणे छते पक्षौ समी भव-}
-\dev{न्तथा छते शोधनार्थं}
-
-\begin{center}
-\dev{न्यासः---या~२ रूप~१५२।} अथवा \dev{
-$\begin{cases}
-\text{या~६ रूप~२००।}\\
-\text{या~२० रूप~२०४।}
-\end{cases}$}
-\end{center}
-
-\noindent\dev{या~१० रूप~१००।}
-
-\vs
-
-\noindent\dev{उभयोरपि शोधनार्थे छते लब्धं यावत्तावन्मानम्~२६। अनेन}
-\dev{श्रेणीकल्पितानां छते जाते धने~५१२, ~२६०।}
-
-\vs
-
-\noindent\dev{अथ तृतीयोदाहरणं ते एव धने। अत्राचयधनव्यवस्था: परधनमिति}
-\dev{परं विगुणीकृत्य}
-
-\longline
-
-\begin{center}
-\dev{* विरो ध०---संप्रति $\quad 6\text{या} + 200 = 10\text{या} - 100 \therefore 400 = 4\text{या}$}\\[0.3em]
-\dev{$\therefore \text{या} = 100$ एवं समीकरणगतिः सर्वत्र क्रियते।}
-\end{center}
-
-\newpage
-
-%% ====================================================================
-\subsection*{Further Examples in One Unknown}
-
-\nyasa{} \dev{| या~६ रूप~३००।}\\[0.3em]
-\indent\dev{या~२० रूप~३००।}
-
-\vs
-
-\noindent\dev{समीकृत्या लब्धं यावत्तावन्मानम्~२५। अनेनोर्ध्वापिते जाते}
-\dev{धने~४५०, ~१९५०।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-माणिक्यामल्नीलमौक्तिककिमितिः पञ्चाषसममा-\\
-देकस्यान्यतरस्य सप्त नव पट् तद्दलसंख्या सखे।\\
-रूपाणां नवतिद्विषष्ठिर्नयोस्तौ तुल्यवित्तौ तथा\\
-वीजं प्रतिरुज्ञानि कुरुते मौल्यानि शीघ्रं वद ॥३॥
-\end{sanskritverse}
-
-\noindent\dev{अत्राऽऽयकानां बहुत्वे कल्पितानि माणिक्यादीनां मौल्यानि}
-\dev{या(१)~३, या~२, या~१। यदि एकस्य रत्नस्य इदं मूल्यं तदोर्द्ध्वानां}
-\dev{किमिति लब्धानां यावत्तावतां योगे स्वस्वरूपयुते जाते पक्षौ}
-
-\begin{center}
-\dev{या~१९, या~१६, या~७ रूप~९०।}\\[0.3em]
-\dev{या~२१, या~१८, या~६ रूप~६२।}
-\end{center}
-
-\noindent\dev{एतेऽनयोर्धने इति समशोधने छते लब्धं यावत्तावन्मानम्~४।}
-\dev{अनेनोर्ध्वापितानि माणिक्यादीनां मौल्यानि~१२, ~८, ~४। एवं सम्मे-}
-\dev{धनम्~२४२। अथ वा माणिक्यमानं यावत्तावतोऽल्पमुत्कल्प्यमूल्यं}
-\dev{व्यक्तं एव कल्पते~५, ~३। अतः समीकरणेन लब्धं यावत्तावन्मानम्}
-\dev{१२। अनेनोर्ध्वापिते जाते समधनम्~२९६। एवं कल्पनावशादनेकथा।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-एको द्वीति मम द्विहि शतं धनेन\\
-त्वत्तो भवामि हि सखे द्विगुणस्ततोऽस्यः।\\
-भूते द्वयोर्यदसि वैनम बहुगुणोऽहं\\
-त्वत्तस्तयोर्वद धने मम किं प्रमाणे ॥४॥
-\end{sanskritverse}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---``अऽऽयकानां यदिकानामर्पीहि यावत्तावद्व्यादीनां छते}
-\dev{वा।'' इत्यतः ३या, २या, या एवं मानं माणिक्यादीनां तदेव भवितुमर्हति यदि}
-\dev{मौक्तिकमूल्यश्रीलमूल्यं द्विगुणं माणिक्यमूल्यं त्रिगुणमन्यथैकवर्णसमीकृतिः शीघ्र-}
-\dev{ेति स्पष्टम्।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\subsection*{On Quadratic and Higher Equations}
-
-\noindent\dev{किन्तु बहुगुण एव विद्याः शेषविधौ कल्प्ये या $\frac{3}{2}$। वर्गितः=याव $\frac{3}{2}$।}
-\dev{स्वपदार्थां या~३ युतौ जातः = $\frac{\text{याव}~\text{९ या}~\text{१२}}{\text{४}}$। अयं बहु-}
-\dev{कः। अत्रापि प्राग्वद्गुणहरयोः कृत्वा समच्छेदीकृत्य छेदगमे शोधनजाते पक्षौ}
-
-\begin{center}
-\dev{याव~९ या~१२ रूप~०।}\\[0.3em]
-\dev{याव~० या~० रूप~६०।}
-\end{center}
-
-\noindent\dev{एतौ चतुर्गुणौ छतौ मूले गृहीत्वा पुनः समशोधनालब्धं यावत्ता-}
-\dev{वन्मानम्=२।}
-
-\vs
-
-\noindent\dev{तथा चास्त्रपाठेऽत्र गणिते---}
-
-\begin{sanskritverse}
-``बहुः स्यात् बहुगुणः स बहुगुणिर्वर्जयेत् शेषविधौ।\\
-शून्यं गुणके जाते स हरश्चेन पुनस्तथा राशिः॥\\
-अविच्छिन्न एव(ग) विच्छिन्नः सर्वैरेवं विपरिवर्द्धः।''
-\end{sanskritverse}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-राशद्वैदशानिशं राशिद्वयनाल्यक्ष कः समो यः स्यात्।\\
-राशिकृतिः बहुगुणिता पञ्चत्रिंशद्युता विद्ध ॥६॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र राशिः=या~१। अयं द्वादशगुणितो राशिद्वयनाल्यक्ष=याव~१}
-\dev{या~१२। अयं याव~६ रूप~२५ अनेन सम इति शोधने छते}
-\dev{जातमाश्रयपक्षै याव~१ या~६ या~१२। अन्यपक्षे रूप~२५। अन्योक्तैकरूपाऽएकं}
-\dev{प्रक्षिप्य घनमूले या~१ रूप~२।}
-
-\begin{center}
-\dev{या~० रूप~३।}
-\end{center}
-
-\noindent\dev{पुनरनयोः समीकरणेन जातो राशिः=५।}
-
-\newpage
-
-%% ====================================================================
-\udaharana{}
-
-\begin{sanskritverse}
-को राशिद्विरशीतिशून्यो राशिवर्गेण युतो हतः।\\
-द्वाभ्यां तेनोनितो राशिवर्गो वर्गेणयुतो भवेत्॥७॥
-\end{sanskritverse}
-
-\noindent\dev{रूपौ वद ते राशिं वेतसि बीजक्रिया यदि॥७॥}
-
-\vs
-
-\noindent\dev{अत्र राशिः=या~१। द्विरशीतिशून्यः=या~२००। राशिवर्गयुतो जातः}
-\dev{=याव~१ या~२००। अयं द्वाभ्यां गुणितः=याव~२ या~४००। अनेनायं}
-
-\longline
-
-\noindent\footnotesize\dev{(ग) विरो ध०---``द्वियतथैव तेनोनिताभ्यां युतः''---इति पाठेऽत्र पाठः।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\subsection*{Example: The Swallow and the Lotus}
-
-\noindent(१)\dev{ अत्र वा प्रथमप्रमाणकलं द्वितीयप्रमाणकलं विमले प्रल-}
-\dev{म्बये तद्गुणगुणितेन द्वितीयमूललेन तुल्यमेव प्रथममूलधनं स्यात्}
-\dev{कथमन्यथा समे काले सम फले स्यात्। अतो द्वितीयस्यायं गुणः~२।}
-\dev{एकगुणं द्वितीयमूलधनमेकेनगुणागुणितं कलवर्गं बर्धते स एकोन-}
-\dev{गुणेन ईषत्कल्पितकलानतरस्य बर्गं भक्ते द्वितीयमूलधनं स्यात्। तत्}
-\dev{कलवर्गयुतं प्रथममूलधनं स्यात्। अत्र कल्पितकलवर्गः~४। अतः}
-\dev{प्रथमद्वितीयमूलधने~८, ~४। फलम्~२। यदि शतस्य पञ्च कलान-}
-\dev{न्तरं तदा पञ्चानां किमिति लब्धमेकमासपञ्चानां फलम्~२। यथने-}
-\dev{नैको मास-स्तदा द्विकेन किमिति लब्धा मासाः~५।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-एकक्रान्तर्चयनात् फलस्य वर्गं विशोध्य परिशिष्यम्।\\
-पञ्चक्रान्तेन दत्तं तुल्यः कालः फले च तथैः ॥८॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र गुणकः~५। एकोनगुणेन~४ ईषत्कलस्याय वर्गे~१६ मक्ते}
-\dev{जातं द्वितीयधनम्~४। इदं कलवर्गयुतं जातं प्रथमधनम्~२०।}
-
-\begin{center}
-\dev{अतोऽनुपातद्वयेन कालः~२०।}
-\end{center}
-
-\noindent\dev{एवं स्वबुद्धिं बैदं सिद्धंति किं यावत्तावत्कल्पनया। अथ वा}
-\dev{बुद्धिरेव बीजम्। तथा च गोले मथोक्तम्।}
-
-\begin{sanskritverse}
-``नैव वर्गीतमकं बीजं न बीजानि पृथक् पृथक्।\\
-एकमेव मतिर्बीजमनल्पा कल्पना यतः''॥
-\end{sanskritverse}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-माणिक्याणुकणिनीलादीनां मुक्ताफलानां शतं\\
-षड्भागि च पञ्च रत्नवीरां येषां चतुर्णां धनम्।\\
-संग्रहे हयरैन ते निजधनाद्वेकैक मिथो\\
-जातास्तुल्यधनाः पृथग्वद सखे तद्दनमैल्यानि मे ॥२॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र यावत्तावदाद्यो वर्णोऽऽयकानां मानानि कल्प्यन्त इत्यु-}
-\dev{पलक्षणं तज्जामाक्षितानि छत्वा समीकृत्य काष्ठं मतिमतिः। तथा-}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---कल्पये द्वितीयधनम्=हि। इदं गुणगुणितं जातं प्रथमधनम्=}
-\dev{गु० हि, अन्योर्न्तरमेव कलवर्ग इत्यतो जातः कलवर्गः=हि(गु$-1$) अतः}
-\dev{हि $= \dfrac{\text{फव}}{\text{गु}-1}$ इति स्पष्टमुपपद्यते मूलगतं गत्यमिति।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\subsection*{Geometric Application: The Triangle}
-
-\nyasa{} \dev{|}
-
-\begin{center}
-\dev{क्षेत्रव्यवहारात् समभुजत्रिकोणस्य जाते}\\[0.3em]
-\dev{लम्बवर्गः=याव~१ रूप~१५, रूप~२००}\\[0.3em]
-\dev{या~१ या~१ क~१८ रूप~१}
-\end{center}
-
-\noindent\dev{द्वितीयाव्यावावर्गी=याव~१ या~क~६२ या~२ रूप~१९ क~६२।}
-\dev{समभुजत्रिगात् र~६ अपास्ते जातो द्वितीयो लम्बवर्गः}
-
-\begin{center}
-\dev{=याव~१ या~२ या~क~६२ रूप~१३ क~६२।}
-\end{center}
-
-\noindent\dev{एतौ (१) समाविति समशोधने छते जाते पक्षौ}
-
-\begin{center}
-\dev{र~२५ क~५१२।}\\[0.3em]
-\dev{(२)या~२ या~क~६२।}
-\end{center}
-
-\noindent\dev{अत्र (३)भाजकस्याव्यक्तशेषस्य या कारस्य प्रयोजनमवादप्रमे}
-\dev{छते भाज्यभाजको जातो ``अत्र धनर्णताव्ययमीहिततया द्वैते क-}
-\dev{ल्पना असदृश्याय'' इति द्विसमीकरणकल्पना धनत्वे प्रकल्प्य क~४}
-\dev{क~६२। अनया भाज्ये गुणिते जातम्}
-
-\begin{center}
-\dev{क~२६८६४ क~२१३१६ क~५१६४८ क~२०४८।}
-\end{center}
-
-\noindent\dev{एतद्द्वैतयोः क~२६८६४ क~२१३१६। मूले~१९२। ~६५। अन्यो-}
-\dev{र्ध्वगः रूप~१३६।}
-
-\longline
-
-\begin{center}
-\dev{$\therefore \text{या}= 2, \sqrt{\dfrac{९६}{४}} \quad \therefore \text{भू}= ४, \sqrt{२०}$ अतोऽपि}
-\dev{क्रिया प्रसरतेति।}
-\end{center}
-
-\noindent\footnotesize\dev{(१) विरो ध०---लम्बवर्गौ।}\\[0.3em]
-\indent\dev{(२) विरो ध०---या~२ या~० क~६२ = या(र~२, क~६२)}\\[0.3em]
-\indent\dev{(३) विरो ध०---अज्ञातकार्शिमिदम् = र~२ क~६२ अनेन रूपशेषसिमन्}
-\dev{र~१८ क~५१२ भक्ते जातं या-मानम् या $= \dfrac{\text{र}~१८ \text{ क}~५१२}{\text{र}~२ \text{ क}~६२}$ अत्र}\\[0.3em]
-\dev{``भाजकस्याव्यक्तशेषस्य या कारस्य प्रयोजनमवादप्रमे छते जातो भाज्यभाजको''}\\[0.3em]
-\dev{इत्यर्थं गद्यमरोचकम्। ``धनर्णता'' इत्यादिमूलोक्तमुचितम्।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\subsection*{Rule for Completion of the Square}
-
-\noindent\dev{एषां पूर्वमूलानां च सर्वेषां योगः = याव~३ या~३१ रूप~८८। इदमे-}
-\dev{काद्वययुतं प्रयोदशवर्गं---}
-
-\begin{center}
-\dev{याव~३ या~३१ रूप~७५।}\\[0.3em]
-\dev{याव~० या~० रूप~१६९।}
-\end{center}
-
-\noindent\dev{समं छत्वा पक्षयोर्द्वादशाभिः संगुण्य तयोरेकाराशिद्वयं वर्गं~१६९}
-\dev{निर्धिंय मूले या~६ रूप~३१।}
-
-\begin{center}
-\dev{या~० रूप~४३।}
-\end{center}
-
-\noindent\dev{पुनरनयोः समीकरणालब्धेन यावत्तावन्मानेन~२ अनेनोर्ध्वापि-}
-\dev{तानि राशिमूलानि~२, ~५, ~८, ~११। एषां वर्गा राशयः क्षेपेणा}
-\dev{अथवा द्वाराशयो भवन्ति~२, ~२३, ~६२, ~११९।}
-
-\vs
-
-\noindent(१)\dev{ अत्राचयपरिभाषा।}
-
-\begin{sanskritverse}
-``राशिशेषपद्षेषयो यद्गुणक्तार्दोचरम्।\\
-अऽऽयका राशयः कल्प्या वर्गिताः क्षेत्रवर्गिताः ॥''
-\end{sanskritverse}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---अत्र कल्पये, आसन्नयोर्द्वयो राशयः क्षेपयोर्न मूल्मानं कस्मेपि या, का,}
-\dev{तदा विलोमविधिना द्वौ राशी, याव~१ क्षे~१। का~१ क्षे~१। अन्योर्बन्धः=याव। का}
-\dev{याव। क्षे~१ का। क्षे~१ क्षे~१ अत्र यदि याव। क्षे~१ या।का। क्षे~१ का।क्षे~१ लिप्यते}
-\dev{तदा जातोद्वयं याव।का~१ या।का।क्षे~१ क्षे~१ वर्गो यस्य मूलम् या।का~१ क्षे इदम्।}
-\dev{अनेन ``राशिमूलानां यथासंख्यं द्वयोर्द्वयोर्बन्धा राशिक्षेपेण राशिवर्गमूलानि भवन्ति''}
-\dev{इत्यनुपपद्यते। अथ राश्योर्घातो येन योगेन वर्गदो भवति स एव वधक्षेपस्तेन}
-
-\begin{center}
-\dev{वर्गे = क्षे (याव~१ या।का\textsuperscript{`} का~१)}
-\end{center}
-
-\begin{center}
-\dev{अतः $\dfrac{\text{वर्गे}}{\text{क्षे}} = \text{याव}~\text{१ या।का\textsuperscript{`}}~\text{का}~\text{१}$}
-\end{center}
-
-\dev{मूलग्रहणेन जातं राशिमूलान्तरम् = का~१ या~१ $= \sqrt{\dfrac{\text{वर्गे}}{\text{क्षे}}}$ अत उपपन्नं राशि-}
-\dev{क्षेपाद्वयक्षेपो यद्गुण इत्यादि।}
-
-\noindent\dev{अस्य प्रश्नस्योत्तरमसम्बन्ध्यैकेनैव लिखितं तदर्थं वास्तवविचित्रमस्ती मतुरो}
-\dev{दृश्य इति।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\subsection*{Rule for Unknown Squares}
-
-\noindent\dev{अथाऽऽव्यक्तवर्गादिसमीकरणम्।}
-
-\begin{center}
-\dev{***}
-\end{center}
-
-\noindent\dev{तदेव मध्यमाहरणमिति यावत् गैयत्याचार्यः। यतोऽत्र वर्ग-}
-\dev{राशा एकस्य मध्यमस्याहरणमिति।}
-
-\noindent\dev{अत्र सूत्रं ब्रूमः।}
-
-\begin{sanskritverse}
-अव्यक्तवर्गादि यदा द्वयोः पक्षौ तदैकेन निःशेषं किंचित्।\\
-क्षेपं तयोरेन पदप्रदः स्याद्व्यक्तः सहेत परेन भूयः ॥१॥
-\end{sanskritverse}
-
-\begin{sanskritverse}
-व्यक्तस्य मूलस्य समीकृते समव्यक्तमानं बहु लभ्यते तत्।\\
-न निर्वहेत् चेद्धनवर्गयोस्त्वेति तदा क्षेपमिदं स्यबुद्ध्या ॥२॥
-\end{sanskritverse}
-
-\noindent(१)\dev{ अव्यक्तमूलर्कांक ततोऽस्य व्यक्तस्य पक्षस्य पदं यदि स्यात्।}\\
-\indent\dev{मूलं धनं तथा विधाय साव्यमव्यक्तमानं द्विधा कल्पितं स्यात्॥३॥}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---एकवर्णमध्यमाहरणरूपम् = याव। इ $\pm$ या। इ = $\pm$ व्य}\\[0.3em]
-\indent\dev{$\therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} = \pm \dfrac{\text{व्य}}{\text{इ}} \quad \therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} + \left(\dfrac{\text{इ}}{\text{२इ}}\right)^2 =$}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\section*{Avyakta-varg\={a}di-sam\={\i}kara\d{n}a (continued)}
-\addcontentsline{toc}{section}{Avyakta-varg\={a}di-sam\={\i}kara\d{n}a (pp.~77--95)}
-\markboth{Avyakta-varg\={a}di-sam\={\i}kara\d{n}am}{Avyakta-varg\={a}di-sam\={\i}kara\d{n}am}
-
-\subsection*{Further Examples with Unknown Squares}
-
-\noindent\dev{अथ विद्यावतरगार्थमिष्टं वेणुवतनमूलानं कल्पितम्=२०। सुप्रस-}
-\dev{न्नपाताह्लादमानम्=या~१।}
-
-\vs
-
-\nyasa{} \dev{|}
-
-\begin{center}
-\dev{यदि पञ्चदशकोट्या विरशतिमुञ्जस्तदा}\\[0.3em]
-\dev{यावत्तावन्मितया किमिति लब्धा लब्धवर्गा-}\\[0.3em]
-\dev{क्षितावधा या $\frac{10}{3}$। पुनर्यदि दशमितकोट्या}\\[0.3em]
-\dev{विरशतिमुञ्जस्तदा यावन्मितकोट्या किमिति}
-\end{center}
-
-\noindent\dev{लब्धा वृहद्दशाक्षितावधा या~२। अनयोर्ध्वगां या $\frac{10}{3}$ विरशतिसमं छत्वा}
-\dev{छओ लब्धः~६। उद्धारपनेनावधा च~८,१२। अथवा वंशसम्बन्धेनावधा}
-\dev{तदनुतिसंप्रमितिरिति यदि वंशद्वययोगेन~२५ अनेनावधायोगो=२० लभ्यते}
-\dev{तदा वंशाख्या~१५, ~१० किमिति जाते अवधे~८, ~१२। अथानुपा-}
-\dev{तात् सम एव लब्धः~६। किं यावत्तावत्कल्पनया। अथवा वंशयोर्वर्धा}
-\dev{योगहतो यत्र कुत्रापि वंशान्तरं लब्धः स्यादिति किं भूमिकल्पनया-}
-\dev{पि एतद्विषं सूत्राणि प्रसाद्य बुद्धिमतोऽहम्।}
-
-\noindent\dev{इति श्रीभास्कराचार्यविरचिते बीजगणिते एकवर्णसमीकरणं समाप्तम्।}
-
-\begin{center}
-\shortline
-\end{center}
-
-\vs
-
-\noindent\dev{अथाऽव्यक्तवर्गादिसमीकरणम्।}
-
-\begin{center}
-\dev{***}
-\end{center}
-
-\begin{sanskritverse}
-तदेव मध्यमाहरणमिति यावद्गीयत्याचार्याः।
-\end{sanskritverse}
-
-\noindent\dev{यतोऽत्र वर्गराशा एकस्य मध्यमस्याहरणमिति।}
-
-\noindent\dev{अत्र सूत्रं ब्रूमः।}
-
-\begin{sanskritverse}
-अव्यक्तवर्गादि यदा द्वयोः पक्षौ तदैकेन निःशेषं किंचित्।\\
-क्षेपं तयोरेन पदप्रदः स्याद्व्यक्तः सहेत परेन भूयः ॥१॥
-\end{sanskritverse}
-
-\begin{sanskritverse}
-व्यक्तस्य मूलस्य समीकृते समव्यक्तमानं बहु लभ्यते तत्।\\
-न निर्वहेत् चेद्धनवर्गयोस्त्वेति तदा क्षेपमिदं स्यबुद्ध्या ॥२॥
-\end{sanskritverse}
-
-\noindent(१)\dev{ अव्यक्तमूलर्कांक ततोऽस्य व्यक्तस्य पक्षस्य पदं यदि स्यात्।}\\
-\indent\dev{मूलं धनं तथा विधाय साव्यमव्यक्तमानं द्विधा कल्पितं स्यात्॥३॥}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---एकवर्णमध्यमाहरणरूपम् = याव। इ $\pm$ या। इ = $\pm$ व्य}
-
-\begin{center}
-\dev{$\therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} = \pm \dfrac{\text{व्य}}{\text{इ}} \quad \therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} + \left(\dfrac{\text{इ}}{\text{२इ}}\right)^2 = $}
-\end{center}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\udaharana{}
-
-\begin{sanskritverse}
-स्वार्धपञ्चाशनवमैर्युक्ताः के स्युः समाश्रयाः।\\
-अन्यैर्द्वादशहीनाख्य परिशिष्टाख्य तान् वद ॥१४॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र समराशिमानं यावत्तावत्~१। अतो विलोमविधिना ``अथ}
-\dev{स्वार्धादिकोन'' इत्यादिना राशयः या $\frac{2}{5}$, या $\frac{5}{6}$, या $\frac{9}{10}$। ऊहा-}
-\dev{न्यमागद्वयेनाः सर्वेर्द्वयैक शोभाः स्युः या $\frac{2}{5}$। एतत् बहिस्तमं}
-\dev{छत्वाऽऽपञ्चमयावत्तावन्मानेन~१५० उद्धारपिता जाता राशयः~१००,}
-\dev{१२५, ~१३५।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-त्रयोदश तथा पञ्च करण्यो मूजयोनितो।\\
-भूजाता च चत्वारः फले भूमिं वदाऽखु मे ॥१५॥
-\end{sanskritverse}
-
-\noindent(१)\dev{ अत्र भूमेर्व्यावत्तावत्कल्पने क्रिया प्रसरतीति स्वेच्छया व्य-}
-\dev{क्ते~१३ भूमिः कल्प्यते कल्पितशेषभावात्। अतोऽत्र कल्पित व्यक्तम्।}
-
-\begin{center}
-\dev{क~५\\[-0.3em]
-\rule{1.5cm}{0.4pt}\\[-0.2em]
-या~१}
-\quad\dev{न्यासः। अत्र ``लम्बगुणा भुजयर्धं हरं त्रिभुजे}\\[0.3em]
-\dev{कलं भवanti'' इति व्यतिकेन कलानुक्रमो जातः क $\frac{५}{१३}$।}
-\end{center}
-
-\noindent\dev{एतद्वर्गं भुज~५ करणी वर्गित् रूप~५ अस्मादपास्य र~$\frac{५}{१३}$।}
-
-\noindent\dev{मूलं जाताऽऽवधा क~$\frac{५}{१३}$। इमा भूमेरपास्य ``योगे करण्योनितो}
-\dev{प्रकट्य'' इति जातास्याऽऽवधा क~$\frac{१४४}{१३}$। अथवा वर्गित् रूप~$\frac{१४४}{१३}$।}
-\dev{लम्बवर्गं=र~$\frac{६४}{१३}$ युतात् र~$\frac{२०८}{१३}$ मूले जातो भुजः~४। इयमेव भूमिः।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-दशयष्टिकरण्यन्तरमेको बाहुः परक्ष बहुकरणी।\\
-मूलच्छदशाकरणी रूपोना लम्बमानमाचक्ष्व ॥१६॥
-\end{sanskritverse}
-
-\noindent\dev{अत्रावधाज्ञाने लम्बज्ञानमिति लम्बावधा=या~१। एतद्वृता}
-\dev{वृत्तावधाप्रमाणमिति तथा}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---कल्पये भूमानं या~१, तदा भुजयो=क~१३, क~५, तयोर्वर्गान्तरं}
-\dev{रू~८ भुवा हतं लब्धमावधान्तरम् $\dfrac{\text{रू}~८}{\text{या}~१}$। ततो लम्बावधा $\dfrac{\text{याव}~\text{१ र}~\frac{५}{१३}}{\text{या}~\text{२}}$, अवाधापि}
-\dev{जयोनन्तरसमी लम्बवर्ग इति जातो लम्बवर्गः}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\subsection*{Geometric Diagrams}
-
-\noindent\dev{तेषां स्वरूपाणि यथा---}
-
-\begin{center}
-\begin{tikzpicture}[scale=0.5]
-% First square 6x6
-\draw[thick] (0,0) grid (6,6);
-\draw[very thick] (0,0) rectangle (6,6);
-\node at (3,-0.5) {\dev{६}};
-\node at (-0.5,3) {\dev{६}};
-\node at (6.5,3) {\dev{६}};
-\node at (3,6.5) {\dev{६}};
-\end{tikzpicture}
-\hspace{1cm}
-\begin{tikzpicture}[scale=0.5]
-% Second square 3x3
-\draw[thick] (0,0) grid (3,3);
-\draw[very thick] (0,0) rectangle (3,3);
-\node at (1.5,-0.5) {\dev{३}};
-\node at (-0.5,1.5) {\dev{३}};
-\node at (3.5,1.5) {\dev{३}};
-\node at (1.5,3.5) {\dev{३}};
-\end{tikzpicture}
-\end{center}
-
-\vs
-
-\begin{center}
-\begin{tikzpicture}[scale=0.4]
-% Large rectangle
-\draw[very thick] (0,0) rectangle (8,7);
-\draw[thick] (3,0) -- (3,7);
-\draw[thick] (0,3) -- (8,3);
-% Labels
-\node at (1.5,5) {\dev{३}};
-\node at (5.5,5) {\dev{५}};
-\node at (1.5,1.5) {\dev{३}};
-\node at (5.5,1.5) {\dev{५}};
-\node at (1.5,-0.5) {\dev{३}};
-\node at (5.5,-0.5) {\dev{५}};
-\node at (-0.5,1.5) {\dev{३}};
-\node at (-0.5,5) {\dev{५}};
-\node at (8.5,3.5) {\dev{८}};
-\end{tikzpicture}
-\end{center}
-
-\vs
-
-\noindent\dev{अन्यत् करणसूत्रं ब्रूमः।}
-
-\begin{sanskritverse}
-चतुर्गुणस्य घातस्य युतिवर्गस्य चान्तरम्।\\
-राश्यन्तरकृतेस्तुल्यं द्वयोरन्त्यकयोर्यथा ॥१७॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र राशी~३, ~५। अनयोर्युतिवर्गात् चतुर्गुं कोटिषु घातचतुर्गुणे-}
-\dev{यापनेते मध्ये राश्यन्तरवर्गसमानि कोटिकाणि दृश्यन्त इत्युपपक्षम्।}
-
-\newpage
-
-%% ====================================================================
-\noindent\dev{एषां पूर्वमूलानां च सर्वेषां योगः = याव~३ या~३१ रूप~८८। इदमे-}
-\dev{काद्वययुतं प्रयोदशवर्गं---}
-
-\begin{center}
-\dev{याव~३ या~३१ रूप~७५।}\\[0.3em]
-\dev{याव~० या~० रूप~१६९।}
-\end{center}
-
-\noindent\dev{समं छत्वा पक्षयोर्द्वादशाभिः संगुण्य तयोरेकाराशिद्वयं वर्गं~१६९}
-\dev{निर्धिंय मूले या~६ रूप~३१।}
-
-\begin{center}
-\dev{या~० रूप~४३।}
-\end{center}
-
-\noindent\dev{पुनरनयोः समीकरणालब्धेन यावत्तावन्मानेन~२ अनेनोर्ध्वापि-}
-\dev{तानि राशिमूलानि~२, ~५, ~८, ~११। एषां वर्गा राशयः क्षेपेणा}
-\dev{अथवा द्वाराशयो भवन्ति~२, ~२३, ~६२, ~११९।}
-
-\vs
-
-\subsection*{Another Example}
-
-\begin{center}
-\begin{tikzpicture}[scale=0.35]
-% Square 7x7
-\draw[thick] (0,0) grid (7,7);
-\draw[very thick] (0,0) rectangle (7,7);
-\node at (3.5,-0.5) {\dev{७}};
-\node at (-0.5,3.5) {\dev{७}};
-\node at (7.5,3.5) {\dev{७}};
-\end{tikzpicture}
-\end{center}
-
-\vs
-
-\noindent(१)\dev{ अत्राचयपरिभाषा।}
-
-\begin{sanskritverse}
-``राशिशेषपद्षेषयो यद्गुणक्तार्दोचरम्।\\
-अऽऽयका राशयः कल्प्या वर्गिताः क्षेत्रवर्गिताः ॥''
-\end{sanskritverse}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---अत्र कल्पये, आसन्नयोर्द्वयो राशयः क्षेपयोर्न मूल्मानं कस्मेपि या, का,}
-\dev{तदा विलोमविधिना द्वौ राशी, याव~१ क्षे~१। का~१ क्षे~१। अन्योर्बन्धः=याव। का}
-\dev{याव। क्षे~१ का। क्षे~१ क्षे~१ अत्र यदि याव। क्षे~१ या।का। क्षे~१ का।क्षे~१ लिप्यते}
-\dev{तदा जातोद्वयं याव।का~१ या।का।क्षे~१ क्षे~१ वर्गो यस्य मूलम् या।का~१ क्षे इदम्।}
-\dev{अनेन ``राशिमूलानां यथासंख्यं द्वयोर्द्वयोर्बन्धा राशिक्षेपेण राशिवर्गमूलानि भवन्ति''}
-\dev{इत्यनुपपद्यते। अथ राश्योर्घातो येन योगेन वर्गदो भवति स एव वधक्षेपस्तेन}
-
-\begin{center}
-\dev{वर्गे = क्षे (याव~१ या।का\textsuperscript{`} का~१)}
-\end{center}
-
-\begin{center}
-\dev{अतः $\dfrac{\text{वर्गे}}{\text{क्षे}} = \text{याव}~\text{१ या।का\textsuperscript{`}}~\text{का}~\text{१}$}
-\end{center}
-
-\dev{मूलग्रहणेन जातं राशिमूलान्तरम् = का~१ या~१ $= \sqrt{\dfrac{\text{वर्गे}}{\text{क्षे}}}$ अत उपपन्नं राशि-}
-\dev{क्षेपाद्वयक्षेपो यद्गुण इत्यादि।}
-
-\noindent\dev{अस्य प्रश्नस्योत्तरमसम्बन्ध्यैकेनैव लिखितं तदर्थं वास्तवविचित्रमस्ती मतुरो}
-\dev{दृश्य इति।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\subsection*{Transition to Multiple Unknowns}
-
-\noindent\dev{अथ माणिक्यादीनां मौल्यानि यावत्तावदादीनि प्रकल्प्य तद्गु-}
-\dev{णपरितसंख्यां च छत्वा रूपाणि च प्रक्षिप्य समशोधनार्थं}
-
-\begin{center}
-\dev{न्यासः---या~५ का~८ नी~३ रूप~१०।}\\[0.3em]
-\dev{या~३ का~९ नी~५ रूप~६२।}
-\end{center}
-
-\noindent\dev{अत्र वर्गं शोध्येदितयादिना जाता यावत्तावद्विमतिः:}
-
-\begin{center}
-\dev{या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$}
-\end{center}
-
-\noindent\dev{इयमेकैव, एकत्वादियमेवानयाऽऽस्तौ कश्चित् काय्यः। इदं माज्ये}
-\dev{वर्णद्वय वर्धते स्तो नीलकमानमिष्टं रूप~१ कल्पितम्। अनेन नीलक-}
-\dev{मूल्याव्य रूपेषु प्रक्षिप्य जातम् या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{२८}}{\text{२}}$।}
-
-\noindent\dev{अतः कुट्टकविधिना ``हरतपे धनक्षेपे''---इत्यादिना गुणासी}
-\dev{सक्षेपे पी~२ र~१।}
-
-\begin{center}
-\dev{पी~१ र~१४।}
-\end{center}
-
-\noindent\dev{अत्र शून्येन पीतकमूलाव्य जातानि माणिक्यादीनां मौल्यानि}
-\dev{~१४, ~१, ~१। अथवैकेन~१३, ~३, ~१। द्वाभ्यां वा~१२, ~५, ~१। निर्मूला-}
-\dev{~११, ~७, ~१। एवमनुपराशादानन्तर्यम्(१)।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-एको द्वीति मम द्विहि शतमिति ॥२॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र धने या~१, का~१। परधनाच्छुतमपास्य पूर्वधने शतं प्रक्षि-}
-\dev{प्य जातं या~१ रूप~१००, का~१ रूप~१०० परधनाद्वाभ्यां द्विगुणमिति}
-\dev{परधनेन द्विगुणेन समं छत्वा लब्धा यावत्तावद्विमतिः:}
-
-\begin{center}
-\dev{या=का~२ रूप~३००}
-\end{center}
-
-\noindent\dev{पुनराचयधनाद्वादशजनितेषु परधने शिष्टेषु जातम्}
-
-\begin{center}
-\dev{या~१ रूप~१०।}\\[0.3em]
-\dev{का~१ रूप~१०।}
-\end{center}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---चतुर्दशमिते पीतकमाने कल्पितं यामानं शून्यमत इच्छावशादान-}
-\dev{न्तरमितिसमजसमिव। उक्तोदाहरणं या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$ अत्र माज्यस्थवर्णयोर्यदि}
-\dev{का-मानमिष्टं परिकल्प्य यामानमानीयते तदेच्छावशादानन्तर्यमिति सिद्धम्।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\part*{Chapter II: Equations with Many Unknowns}
-\addcontentsline{toc}{part}{Chapter II: Equations with Many Unknowns}
-
-\section*{\dev{अनेकवर्णसमीकरणम्}}
-\addcontentsline{toc}{section}{Anekavar\d{n}a-sam\={\i}kara\d{n}a (pp.~96--114)}
-\markboth{Anekavar\d{n}a-sam\={\i}kara\d{n}am}{Anekavar\d{n}a-sam\={\i}kara\d{n}am}
-
-\lettrine[lines=3, lraise=0.1, nindent=0em, slope=-.5em]{\dev{अ}}{}थाऽनेकवर्णसमीकरणम्। अत्र बहूनां यावत्तावतां सहचरितानां समीकरणं दीयते।
-
-\vs
-
-\subsection*{Introduction to Multiple Unknowns}
-
-\noindent\dev{अतः या=३३ (१५) , लो=२ ,}
-\dev{$\begin{cases} \text{का=५} \\ \text{नी=१४} \end{cases}$}
-
-\begin{center}
-\dev{, या=३६ (१६)}
-\end{center}
-
-\noindent\dev{एवं परावतादीनां शतान्तर्वर्त्तीनि निरवयवमूल्यानि षोडशाथा ततः शतान्तर्वे-}
-\dev{र्त्तीनः पञ्चदशोऽपि तन्मूल्यलब्धाः षोडशाथैव।}
-
-\vs
-
-\noindent\dev{अथ पूर्वदर्शितकालकमानम् = का $= \dfrac{\text{नी}~\text{१० पी}~\text{३५ र}~\text{१७५०}}{\text{६}}$}
-
-\begin{center}
-\dev{$= \dfrac{१७५० - \text{१० नी} - \text{३५ पी}}{\text{६}} = २५० - \text{५ पी} - \text{नी} - \dfrac{\text{३ नी}}{\text{६}}$}
-\end{center}
-
-\vs
-
-\noindent\dev{भयो नीलकमानं समगुणमेव भवेदतः कल्पयेत्}
-
-\begin{center}
-\begin{tabular}{llll}
-\dev{यदि} & \dev{नी=३ तदा} & \dev{का=२५० -- ५पी -- १०} & \dev{=२४० -- ५पी।} \\
-\dev{,} & \dev{नी=१४ ,} & \dev{का=२५० -- ५पी -- १४ -- ६} & \dev{=२३० -- ५पी।} \\
-\dev{,} & \dev{नी=२१ ,} & \dev{का=२५० -- ५पी -- २१ -- ९} & \dev{=२२० -- ५पी।} \\
-\dev{,} & \dev{नी=२८ ,} & \dev{का=२५० -- ५पी -- २८ -- १२} & \dev{=२१० -- ५पी।} \\
-\dev{,} & \dev{नी=३५ ,} & \dev{का=२५० -- ५पी -- ३५ -- १५} & \dev{=२०० -- ५पी।} \\
-\dev{,} & \dev{नी=४२ ,} & \dev{का=२५० -- ५पी -- ४२ -- १८} & \dev{=१९० -- ५पी।} \\
-\dev{,} & \dev{नी=४९ ,} & \dev{का=२५० -- ५पी -- ४९ -- २१} & \dev{=१८० -- ५पी।} \\
-\dev{,} & \dev{नी=५६ ,} & \dev{का=२५० -- ५पी -- ५६ -- २४} & \dev{=१७० -- ५पी।} \\
-\end{tabular}
-\end{center}
-
-\vs
-
-\noindent\dev{प्रथमं नी=३ कल्पिते यदि तत्र पीतकमानं किमपि त्रिगुणितमेव तत् बहुविशत-}
-\dev{पूर्णान्तमस्खलितिरेवतो}
-
-\newpage
-
-%% ====================================================================
-\subsection*{Tabular Solution Method}
-
-\begin{center}
-\begin{tabular}{rclcrclcrcl}
-\dev{यदि} & \dev{पी=३९} & \dev{,} & \dev{का=४५} & \dev{अतः} & \dev{या=१} & \dev{(१)} \\
-\dev{,} & \dev{पी=४२} & \dev{,} & \dev{का=३०} & \dev{,} & \dev{या=२१} & \dev{(२)} \\
-\dev{,} & \dev{पी=४५} & \dev{,} & \dev{का=१५} & \dev{,} & \dev{या=३३} & \dev{(३)} \\
-\end{tabular}
-\end{center}
-
-\begin{center}
-\dev{यदि पी=३९ , नी=१४ तदा का=२५ अतः या=१२ (४)}\\[0.3em]
-\dev{, पी=४२ , नी=१४ , का=२० , या=२४ (५)}\\[0.3em]
-\dev{, पी=४५ , नी=१४ , का=५ , या=३६ (६)}\\[0.3em]
-\dev{यदि पी=३६ , नी=२१ तदा का=२२० -- ५$\times$३६=४०}\\[0.3em]
-\dev{अतः या=३ (७)}
-\end{center}
-
-\vs
-
-\subsection*{The General Rule}
-
-\shloka{
-द्वयोः समीकरणयोर्मूलमेकं यदि विद्यते।\\
-तदा तदन्यत्समीकर्य मूलं तद्वदनुष्ठितम्॥
-}
-
-\vs
-
-\subsection*{Second Example with Three Unknowns}
-
-\noindent\dev{अतः या=३ (३)। , लो=४ ,}
-\dev{$\begin{cases} \text{का=३०} \\ \text{नी=२८} \end{cases}$}
-
-\begin{center}
-\dev{, या=६ (४)। , लो=५ ,}
-\dev{$\begin{cases} \text{का=२०} \\ \text{नी=२५} \end{cases}$}
-\end{center}
-
-\begin{center}
-\dev{, या=९ (५)। , लो=६ ,}
-\dev{$\begin{cases} \text{का=१०} \\ \text{नी=२२} \end{cases}$}
-\end{center}
-
-\begin{center}
-\dev{, या=१२ (६)।}
-\end{center}
-
-\noindent\dev{अथ यदि पी=३९ तदा का $= \dfrac{\text{नी}~\text{१० र}~\text{२८५}}{\text{६}}$ अतः}
-
-\begin{center}
-\begin{tabular}{rclcrcl}
-\dev{का=लो} & \dev{१०} & \dev{रू~५५} & \dev{| अथ यदि लो=१ तदा} & \dev{$\begin{cases} \text{का=४५} \\ \text{नी=७} \end{cases}$} \\
-\dev{नी=लो} & \dev{७} & \dev{रू~५०} & \dev{|} & \dev{$\begin{cases} \text{का=३५} \\ \text{नी=१४} \end{cases}$} \\
-\dev{अतः या=१} & \dev{(७)} & & \dev{, लो=२ ,} & \dev{$\begin{cases} \text{का=२५} \\ \text{नी=२१} \end{cases}$} \\
-\end{tabular}
-\end{center}
-
-\begin{center}
-\dev{, या=१२ (८) , लो=३ ,}
-\dev{$\begin{cases} \text{का=१५} \\ \text{नी=२८} \end{cases}$}
-\end{center}
-
-\begin{center}
-\dev{, या=१५ (९) , लो=४ ,}
-\dev{$\begin{cases} \text{का=५} \\ \text{नी=३५} \end{cases}$}
-\end{center}
-
-\begin{center}
-\dev{, या=१८ (१०) ,}
-\end{center}
-
-\newpage
-
-%% ====================================================================
-\subsection*{The Elimination Method (Madhyam\={a}hara\d{n}a)}
-
-\noindent\dev{अथ यदि पी=४२ तदा का $= \dfrac{\text{नी}~\text{१० र}~\text{२८०}}{\text{६}}$ अतः}
-
-\begin{center}
-\begin{tabular}{rclcrcl}
-\dev{का=लो} & \dev{१०} & \dev{रू~४०} & \dev{| अथ यदि लो=१ तदा} & \dev{$\begin{cases} \text{का=३०} \\ \text{नी=७} \end{cases}$} \\
-\dev{नी=लो} & \dev{७} & \dev{रू~५०} & \dev{|} & \dev{$\begin{cases} \text{का=२०} \\ \text{नी=१४} \end{cases}$} \\
-\dev{अतः या=२१} & \dev{(१२)} & & \dev{, लो=२ ,} & \dev{$\begin{cases} \text{का=१०} \\ \text{नी=२१} \end{cases}$} \\
-\end{tabular}
-\end{center}
-
-\begin{center}
-\dev{, या=२४ (१३)}
-\end{center}
-
-\begin{center}
-\dev{, या=२७ (१४)}
-\end{center}
-
-\noindent\dev{अथ यदि पी=४५ तदा का $= \dfrac{\text{नी}~\text{१० र}~\text{१७५}}{\text{६}}$}
-
-\begin{center}
-\begin{tabular}{rclcrcl}
-\dev{तदा का=लो} & \dev{१०} & \dev{रू~२५} & \dev{| अथ यदि लो=१ तदा} & \dev{$\begin{cases} \text{का=१५} \\ \text{नी=७} \end{cases}$} \\
-\dev{नी=लो} & \dev{७} & \dev{रू~५०} & \dev{|} & \dev{$\begin{cases} \text{का=५} \\ \text{नी=१४} \end{cases}$} \\
-\dev{अतः या=३६} & \dev{(१५)} & & \dev{, लो=२ ,} & \dev{$\begin{cases} \text{का=१०} \\ \text{नी=३५} \end{cases}$} \\
-\end{tabular}
-\end{center}
-
-\begin{center}
-\dev{, या=३९ (१६)}
-\end{center}
-
-\newpage
-
-%% ====================================================================
-\section*{\dev{अनेकवर्णमध्यमाहरणभेदाः}}
-\addcontentsline{toc}{section}{Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}h (pp.~107--114)}
-\markboth{Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}\d{h}}{Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}\d{h}}
-
-\lettrine[lines=3, lraise=0.1, nindent=0em, slope=-.5em]{\dev{अ}}{}थाऽनेकवर्णमध्यमाहरणभेदाः।
-
-\vs
-
-\subsection*{Verse on the Elimination Method}
-
-\begin{sanskritverse}
-इष्टं तयोः प्रथमपक्षादेन\\
-छत्तोकवत् प्रथमवर्णमितिकृत् साध्या।\\
-हृद् यं भवेत् प्रकृतिवर्गमितिः सुखोर्मि-\\
-र्वै कृतिप्रकृतित्रय नियोजनीया ॥५॥
-\end{sanskritverse}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-को राशिद्विगुणो राशिवर्गेः पट्डिमः समन्वितः।\\
-मूलद्वो जायते बीजगणितं वद तत् त्वम् ॥१॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र यावत्तावदाद्योर्द्विगुणो वर्गेः पट्डिमः समन्वितः याव~६ या~२।}
-\noindent\dev{एवं वर्ग इति इति कालकवर्गोणा समीकरणार्थं}
-
-\begin{center}
-\dev{न्यासः---याव~६ या~२ काव~०।}\\[0.3em]
-\dev{याव~० या~० काव~१।}
-\end{center}
-
-\noindent\dev{अत्र समशोधने जातौ पक्षौ याव~६ या~२, काव~१।}
-\noindent\dev{अथैतौ पट्डामः संगुण्य रूपं प्रक्षिप्य प्राप्तं प्रथमपक्षमूलम्}
-\dev{या~६ रूप~१।}
-
-\noindent\dev{अथ द्वितीयपक्षस्य काव~६ रूप~१। वर्गप्रहृत्या मूले क~२}
-\dev{उदे~५, वा का~२० उदे~४९। उद्दिष्टं प्रथमपक्षद्वयेनैन या~६ रूप~१}
-\dev{समं छत्वा लब्धं यावत्तावन्मानम् $\frac{2}{5}$ वा~८। हृद् यं प्रकृतिवर्गेण}
-\dev{कालकस्य मानम्~२ वा~२०। एवं कनिष्ठयोरुभयोरुभयथा।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-राशियोगकृतिर्मित्रा राश्योर्गुणघनेन चेत्।\\
-द्विस्य धनयोगस्य सा तुल्या गणकौच्यताम् ॥२॥
-\end{sanskritverse}
-
-\noindent\dev{अत्र क्रिया यया न विस्तारेण तथा बुद्धिमता राशी कल्प्यो}
-\dev{तथा कल्पितौ (या~१ का~१), (या~१ का~१)। अनयोर्गं यः~२। अस्य}
-\dev{द्विरुद्यैव धनेन मित्रा याव~८ याव~४। अथ राश्योः पृथग् धने।}
-\dev{अथामि याव~१ याव। का।मा~२ काव। या।मा~२ का।मा~१। द्वितीयस्य}
-\dev{भाग~१ याव। का।मा~२ काव। या।मा~२ का।मा~१। अनयोर्गं याव~२}
-\dev{काव। या।मा~६। द्विः याव~४ काव। या।मा~१२ समशोधनार्थं}
-
-\begin{center}
-\dev{न्यासः---}\\[0.3em]
-\dev{याव~८ याव~४ काव। या।मा~० ।}\\[0.3em]
-\dev{याव~४ याव~० काव। या।मा~१२ ।}
-\end{center}
-
-\newpage
-
-%% ====================================================================
-\subsection*{The General Formula}
-
-\noindent\dev{अत्र माणिक्यादीनां मौल्यानि यावत्तावदादीनि प्रकल्प्य तद्गु-}
-\dev{णपरितसंख्यां च छत्वा रूपाणि च प्रक्षिप्य समशोधनार्थं}
-
-\begin{center}
-\dev{न्यासः---या~५ का~८ नी~३ रूप~१०।}\\[0.3em]
-\dev{या~३ का~९ नी~५ रूप~६२।}
-\end{center}
-
-\noindent\dev{अत्र वर्गं शोध्येदितयादिना जाता यावत्तावद्विमतिः:}
-
-\begin{center}
-\dev{या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$}
-\end{center}
-
-\vs
-
-\subsection*{Concluding Verses}
-
-\begin{sanskritverse}
-नवमिः सममिः शुण्णः को राशिकिंवशात् हतः।\\
-यद्वैक्यं फले काल्यं भवेत् बहुविशतेऽमितम् ॥१०॥
-\end{sanskritverse}
-
-\noindent\dev{अथैकहरवाच्छेदयोः कल्पयोरुद्दिशनाच्च गुणयोगो गुणकः}
-\dev{कल्पितः रूप~१६। राशिः=ला~१। लब्धैकप्रमाणं कालकस्तद्गुणितं}
-\dev{हरं गुणगुणिताद्वादशोरगस्य जातं शेषं या~१६ का~३०। एतत् फलं}
-\dev{कालकेन युतं या~१६ का~२६ बहुविशतिसमं छत्वा कुट्टकेन प्राप्त-}
-\dev{जातं यावत्तावन्मानं नी~२९ रूप~२९७। (२) अत्र लब्धयोर्योगस्यैका-}
-\dev{तानिर्देशात् क्षेपो न देयः।}
-
-\vs
-
-\udaharana{}
-
-\begin{sanskritverse}
-कलितसनवशुण्णो राशिकिंवशद्विभाजितः।\\
-यद्वैक्यमपि त्रिशद्दत्तमेकादशाऽऽक्रमम् ॥११॥
-\end{sanskritverse}
-
-\longline
-
-\noindent\footnotesize\dev{(१) विरो ध०---कल्पये प्रथमो राशिर्युक्तः=ओय, पञ्चम एकप्रः। द्वितीयोद्यक्तः}
-\dev{$= 6\text{या} + 2$ तदा द्वितीयालापेन यावत्तावद्विमतिः: या $= \dfrac{3\text{का} + \text{व्य}}{6}$, तृतीयालापेन च}
-\dev{यावत्तावद्विमतिः: या $= \dfrac{9\text{नी} + 3 - \text{व्य}}{6}$ अतः कुट्टकविध्या यः प्रथमो राशिर्युक्तः}
-\dev{कल्पितः स त्रिमिरूपवद्यं इति सिद्धाति चतुर्थालापवर्गेन समभिर्नपवर्ग्येति सूक्ष्मी-}
-\dev{मैर्दृशि चिन्त्यम् । ततः पूर्वेयुक्त्या प्रथमो राशिर्युक्तो~३६ भवितुमर्हति ततो द्वितीयः}
-\dev{ऐये~१२६ रूप~१०४। ~३६ अथमाचार्यकल्पिता--५१ दसमादल्प (१) इति।}
-
-\noindent\dev{(२) विरो ध०---कालकमानं पूर्वकुट्टकादेव का = नी~१६ रूप~१४। अथाऽऽत्र}
-\dev{क्षेपकः=नी~२९ अयं चेद्वीयते तदा या=५६, तथैव का=३०। किन्तु लब्धि-}
-\dev{योगे क्षेपयोगयुक्ते बहुविशतिनिर्देशा सा क्षेपदानाथ भवेदियता: ``क्षेपो न देयः''}
-\dev{इति युक्तमेव।}
-\normalsize
-
-\newpage
-
-%% ====================================================================
-\vspace*{2cm}
-
-\begin{center}
-{\Large\bfseries\color{sectioncolor} End of Part II\par}
-\vspace{1cm}
-{\large Pages 58--114 of the B\={\i}jaga\d{n}ita\par}
-\vspace{0.5cm}
-{\normalsize\itshape To be continued in Part III (pages 115--170)\par}
-\end{center}
-
-\vfill
-
-\begin{center}
-\rule{0.5\textwidth}{0.4pt}\\[0.5em]
-{\small\textsc{Transcribed from the Sanskrit edition of}\par}
-{\small\textsc{Shri Bhaskaracharya}\par}
-{\small\textsc{Circa 1150 CE}\par}
-\end{center}
-
-\end{document}
-%% ====================================================================
+%% ====================================================================
+%% Bhaskara II: Bijaganita (Part 2: Pages 58-114)
+%% Chapters on Equations with One Unknown, Unknown Squares,
+%% and Many Unknowns
+%% ====================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{lettrine}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{sanskrit}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}[
+  UprightFont=LinLibertine_R.otf,
+  BoldFont=LinLibertine_RB.otf,
+  ItalicFont=LinLibertine_RI.otf,
+  BoldItalicFont=LinLibertine_RBI.otf,
+  Path=/usr/share/fonts/opentype/linux-libertine/,
+  Renderer=Harfbuzz
+]
+\setsansfont{Linux Biolinum O}[
+  UprightFont=LinBiolinum_R.otf,
+  BoldFont=LinBiolinum_RB.otf,
+  ItalicFont=LinBiolinum_RI.otf,
+  Path=/usr/share/fonts/opentype/linux-libertine/,
+  Renderer=Harfbuzz
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% Devanagari (Sanskrit/Hindi) Font
+\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{Noto Serif Devanagari}
+\newfontfamily\devanagarifontsf[Script=Devanagari,Scale=1.1]{Noto Sans Devanagari}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{versecolor}{RGB}{60,50,40}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{B\={\i}jaga\d{n}ita of Bh\={a}skara II}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+\newcommand{\vs}{\vspace{0.5em}}
+\newcommand{\shloka}[1]{%
+  \begin{center}
+  \textcolor{versecolor}{\devanagarifont #1}
+  \end{center}
+  \vspace{0.3em}
+}
+\newcommand{\nyasa}[1]{\noindent\textbf{\dev{न्यासः}}---#1}
+\newcommand{\udaharana}[1]{\noindent\textbf{\dev{उदाहरणम्}} #1}
+\newcommand{\commentary}[1]{\noindent\textit{#1}}
+
+%% -------- Verse Environment --------
+\newenvironment{sanskritverse}{%
+  \begin{quote}\devanagarifont\textcolor{versecolor}%
+}{%
+  \end{quote}
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ====================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Huge\bfseries\color{titlecolor} B\={\i}jaga\d{n}ita\par}
+\vspace{0.5cm}
+{\Large\itshape The Algebra of Bh\={a}skara II\par}
+
+\vspace{1.5cm}
+
+{\LARGE\bfseries\color{sectioncolor} Part II\par}
+\vspace{0.3cm}
+{\large Pages 58--114\par}
+
+\vspace{2cm}
+
+\begin{center}
+\rule{0.6\textwidth}{1pt}
+\end{center}
+
+\vspace{0.5cm}
+
+{\large\devanagarifont
+अथ एकवर्णसमीकरणम्\\
+अव्यक्तवर्गादिसमीकरणम्\\
+अनेकवर्णसमीकरणम्\\[0.5em]
+अनेकवर्णमध्यमाहरणभेदाः
+}
+
+\vspace{0.5cm}
+
+\begin{center}
+\rule{0.6\textwidth}{1pt}
+\end{center}
+
+\vspace{1cm}
+
+{\large\itshape Chapters on:\par}
+\vspace{0.3cm}
+{\normalsize
+1. Equations with One Unknown\\
+2. Equations with Unknown Squares\\
+3. Equations with Many Unknowns\\
+4. Variations of the Elimination Method for Many Unknowns\par}
+
+\vfill
+
+{\large Bh\={a}skara II (1114--1185 CE)\par}
+\vspace{0.5cm}
+{\small Transcribed from the original Sanskrit edition\par}
+
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+%% ====================================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+This volume contains the core algebraic chapters from Bh\={a}skara II's
+\textit{B\={\i}jaga\d{n}ita} (``Seed Computation,'' i.e., Algebra), covering
+pages 58--114 of the standard edition. These chapters treat:
+
+\begin{itemize}
+  \item \textbf{Ekavar\d{n}a-sam\={\i}kara\d{n}a:} Linear and quadratic equations
+    in a single unknown (\dev{यावत्तावत्}, \textit{y\={a}vatt\={a}vat});
+  \item \textbf{Avyakta-varg\={a}di-sam\={\i}kara\d{n}a:} Equations involving
+    unknown squares and higher powers;
+  \item \textbf{Anekavar\d{n}a-sam\={\i}kara\d{n}a:} Systems of equations with
+    multiple unknowns, and the \textit{madhyam\={a}hara\d{n}a} (elimination)
+    method in its various forms.
+\end{itemize}
+
+Bh\={a}skara's presentation follows the classical Indian pattern: each topic
+is introduced by a rule (\textit{s\={u}tra}) in verse, followed by worked
+examples (\textit{ud\={a}hara\d{n}a}) and detailed commentary (\textit{v\={a}rttika})
+showing the method of solution step by step. The unknown quantity is denoted
+by \dev{यावत्तावत्} (``as much as''), abbreviated \dev{या} or \dev{याव}.
+\newpage
+
+%% ====================================================================
+\part*{Chapter I: Equations with One Unknown}
+\addcontentsline{toc}{part}{Chapter I: Equations with One Unknown}
+
+\section*{\dev{एकवर्णसमीकरणम्}}
+\addcontentsline{toc}{section}{Ekavar\d{n}a-sam\={\i}kara\d{n}a (pp.~58--76)}
+\markboth{Ekavar\d{n}a-sam\={\i}kara\d{n}am}{Ekavar\d{n}a-sam\={\i}kara\d{n}am}
+
+\lettrine[lines=3, lraise=0.1, nindent=0em, slope=-.5em]{\dev{अ}}{}थैकवर्णसमीकरणम्। अत्र यावत्तावदेको वर्णः प्रकल्प्यते ततो रूपैः सह समीकृत्य यावत्तावन्मानं साध्यते।
+
+\vs
+
+\subsection*{First Example: Simple Linear Equation}
+
+\noindent\dev{अत्राश्वमूल्यमज्ञातं तस्य मानं यावत्तावदेकं प्रकल्प्तं या~१। तत्र}\break
+\dev{श्रेणीशकं यदेकस्य यावत्तावन्मूल्यं तदा पणां किमिति कल्पितच्छागपणां प्रमाणमकं लब्धं पणामश्वानां मूल्यम्। या~६। अत्र}
+\dev{रूपातनये प्रक्षिप्ते जातमाश्चस्य धनं या~६ रूप~२०। एवं दशानां मैल्यं}
+\dev{या~१०। अत्र रूपाते चाणांते प्रक्षिप्ते जातं द्वितीयस्य धनं}
+\dev{या~१० रूप~१००।}
+
+\vs
+
+\noindent\textbf{\dev{एतौ समशोधने छते एव सभी जाते समशोधनार्थं}}
+
+\begin{center}
+\dev{न्यासः---*या~६ रूप~२०।}\\[0.3em]
+\dev{या~१० रूप~१००।}
+\end{center}
+
+\vs
+
+\subsection*{Rule for Elimination}
+
+\shloka{
+अथैकाव्यक्त शोधयेदन्यपक्षादव्ययव्यक्तान् छोधिते।\\
+द्वितीयपदमुक्त्वेषु आचयपक्षतुल्यपक्षः शोधि-\\
+तेषु शेषम् रूप~४००। अथ कल्पितकलवर्ण या~४ रूपैः रूप~४०० उक्ते\\
+लब्धमेकस्य यावत्तावतो मानं व्यक्तम्~१००। यदेकाश्वस्यैतन्मूल्यं\\
+तदा पणां किमिति श्रेणीशकेन लब्धं पणां मूल्यं~६०० रूपातनय-\\
+युतं~१०० जातमाश्चस्य धनम्। एवं द्वितीयस्यापि~१००।
+}
+
+\vs
+
+\subsection*{Second Example}
+
+\noindent\dev{अथ द्वितीयोदाहरणे प्रथमद्वितीययोस्ते एव धने}
+
+\begin{center}
+\dev{या~६ रूप~२००।}\\[0.3em]
+\dev{या~१० रूप~१००।}
+\end{center}
+
+\vs
+
+\noindent\dev{अत्राचयपक्षधनार्थं द्वियुकेन तुल्यमनयस्य धनमुदाहृतमत भा-}
+\dev{ष्यधनार्थं द्वियुक्ते अथवानयधने द्विहीन द्विगुणे छते पक्षौ समी भव-}
+\dev{न्तथा छते शोधनार्थं}
+
+\begin{center}
+\dev{न्यासः---या~२ रूप~१५२।} अथवा \dev{
+$\begin{cases}
+\text{या~६ रूप~२००।}\\
+\text{या~२० रूप~२०४।}
+\end{cases}$}
+\end{center}
+
+\noindent\dev{या~१० रूप~१००।}
+
+\vs
+
+\noindent\dev{उभयोरपि शोधनार्थे छते लब्धं यावत्तावन्मानम्~२६। अनेन}
+\dev{श्रेणीकल्पितानां छते जाते धने~५१२, ~२६०।}
+
+\vs
+
+\noindent\dev{अथ तृतीयोदाहरणं ते एव धने। अत्राचयधनव्यवस्था: परधनमिति}
+\dev{परं विगुणीकृत्य}
+
+\longline
+
+\begin{center}
+\dev{* विरो ध०---संप्रति $\quad 6\text{या} + 200 = 10\text{या} - 100 \therefore 400 = 4\text{या}$}\\[0.3em]
+\dev{$\therefore \text{या} = 100$ एवं समीकरणगतिः सर्वत्र क्रियते।}
+\end{center}
+
+\newpage
+
+%% ====================================================================
+\subsection*{Further Examples in One Unknown}
+
+\nyasa{} \dev{| या~६ रूप~३००।}\\[0.3em]
+\indent\dev{या~२० रूप~३००।}
+
+\vs
+
+\noindent\dev{समीकृत्या लब्धं यावत्तावन्मानम्~२५। अनेनोर्ध्वापिते जाते}
+\dev{धने~४५०, ~१९५०।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+माणिक्यामल्नीलमौक्तिककिमितिः पञ्चाषसममा-\\
+देकस्यान्यतरस्य सप्त नव पट् तद्दलसंख्या सखे।\\
+रूपाणां नवतिद्विषष्ठिर्नयोस्तौ तुल्यवित्तौ तथा\\
+वीजं प्रतिरुज्ञानि कुरुते मौल्यानि शीघ्रं वद ॥३॥
+\end{sanskritverse}
+
+\noindent\dev{अत्राऽऽयकानां बहुत्वे कल्पितानि माणिक्यादीनां मौल्यानि}
+\dev{या(१)~३, या~२, या~१। यदि एकस्य रत्नस्य इदं मूल्यं तदोर्द्ध्वानां}
+\dev{किमिति लब्धानां यावत्तावतां योगे स्वस्वरूपयुते जाते पक्षौ}
+
+\begin{center}
+\dev{या~१९, या~१६, या~७ रूप~९०।}\\[0.3em]
+\dev{या~२१, या~१८, या~६ रूप~६२।}
+\end{center}
+
+\noindent\dev{एतेऽनयोर्धने इति समशोधने छते लब्धं यावत्तावन्मानम्~४।}
+\dev{अनेनोर्ध्वापितानि माणिक्यादीनां मौल्यानि~१२, ~८, ~४। एवं सम्मे-}
+\dev{धनम्~२४२। अथ वा माणिक्यमानं यावत्तावतोऽल्पमुत्कल्प्यमूल्यं}
+\dev{व्यक्तं एव कल्पते~५, ~३। अतः समीकरणेन लब्धं यावत्तावन्मानम्}
+\dev{१२। अनेनोर्ध्वापिते जाते समधनम्~२९६। एवं कल्पनावशादनेकथा।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+एको द्वीति मम द्विहि शतं धनेन\\
+त्वत्तो भवामि हि सखे द्विगुणस्ततोऽस्यः।\\
+भूते द्वयोर्यदसि वैनम बहुगुणोऽहं\\
+त्वत्तस्तयोर्वद धने मम किं प्रमाणे ॥४॥
+\end{sanskritverse}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---``अऽऽयकानां यदिकानामर्पीहि यावत्तावद्व्यादीनां छते}
+\dev{वा।'' इत्यतः ३या, २या, या एवं मानं माणिक्यादीनां तदेव भवितुमर्हति यदि}
+\dev{मौक्तिकमूल्यश्रीलमूल्यं द्विगुणं माणिक्यमूल्यं त्रिगुणमन्यथैकवर्णसमीकृतिः शीघ्र-}
+\dev{ेति स्पष्टम्।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\subsection*{On Quadratic and Higher Equations}
+
+\noindent\dev{किन्तु बहुगुण एव विद्याः शेषविधौ कल्प्ये या $\frac{3}{2}$। वर्गितः=याव $\frac{3}{2}$।}
+\dev{स्वपदार्थां या~३ युतौ जातः = $\frac{\text{याव}~\text{९ या}~\text{१२}}{\text{४}}$। अयं बहु-}
+\dev{कः। अत्रापि प्राग्वद्गुणहरयोः कृत्वा समच्छेदीकृत्य छेदगमे शोधनजाते पक्षौ}
+
+\begin{center}
+\dev{याव~९ या~१२ रूप~०।}\\[0.3em]
+\dev{याव~० या~० रूप~६०।}
+\end{center}
+
+\noindent\dev{एतौ चतुर्गुणौ छतौ मूले गृहीत्वा पुनः समशोधनालब्धं यावत्ता-}
+\dev{वन्मानम्=२।}
+
+\vs
+
+\noindent\dev{तथा चास्त्रपाठेऽत्र गणिते---}
+
+\begin{sanskritverse}
+``बहुः स्यात् बहुगुणः स बहुगुणिर्वर्जयेत् शेषविधौ।\\
+शून्यं गुणके जाते स हरश्चेन पुनस्तथा राशिः॥\\
+अविच्छिन्न एव(ग) विच्छिन्नः सर्वैरेवं विपरिवर्द्धः।''
+\end{sanskritverse}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+राशद्वैदशानिशं राशिद्वयनाल्यक्ष कः समो यः स्यात्।\\
+राशिकृतिः बहुगुणिता पञ्चत्रिंशद्युता विद्ध ॥६॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र राशिः=या~१। अयं द्वादशगुणितो राशिद्वयनाल्यक्ष=याव~१}
+\dev{या~१२। अयं याव~६ रूप~२५ अनेन सम इति शोधने छते}
+\dev{जातमाश्रयपक्षै याव~१ या~६ या~१२। अन्यपक्षे रूप~२५। अन्योक्तैकरूपाऽएकं}
+\dev{प्रक्षिप्य घनमूले या~१ रूप~२।}
+
+\begin{center}
+\dev{या~० रूप~३।}
+\end{center}
+
+\noindent\dev{पुनरनयोः समीकरणेन जातो राशिः=५।}
+
+\newpage
+
+%% ====================================================================
+\udaharana{}
+
+\begin{sanskritverse}
+को राशिद्विरशीतिशून्यो राशिवर्गेण युतो हतः।\\
+द्वाभ्यां तेनोनितो राशिवर्गो वर्गेणयुतो भवेत्॥७॥
+\end{sanskritverse}
+
+\noindent\dev{रूपौ वद ते राशिं वेतसि बीजक्रिया यदि॥७॥}
+
+\vs
+
+\noindent\dev{अत्र राशिः=या~१। द्विरशीतिशून्यः=या~२००। राशिवर्गयुतो जातः}
+\dev{=याव~१ या~२००। अयं द्वाभ्यां गुणितः=याव~२ या~४००। अनेनायं}
+
+\longline
+
+\noindent\footnotesize\dev{(ग) विरो ध०---``द्वियतथैव तेनोनिताभ्यां युतः''---इति पाठेऽत्र पाठः।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\subsection*{Example: The Swallow and the Lotus}
+
+\noindent(१)\dev{ अत्र वा प्रथमप्रमाणकलं द्वितीयप्रमाणकलं विमले प्रल-}
+\dev{म्बये तद्गुणगुणितेन द्वितीयमूललेन तुल्यमेव प्रथममूलधनं स्यात्}
+\dev{कथमन्यथा समे काले सम फले स्यात्। अतो द्वितीयस्यायं गुणः~२।}
+\dev{एकगुणं द्वितीयमूलधनमेकेनगुणागुणितं कलवर्गं बर्धते स एकोन-}
+\dev{गुणेन ईषत्कल्पितकलानतरस्य बर्गं भक्ते द्वितीयमूलधनं स्यात्। तत्}
+\dev{कलवर्गयुतं प्रथममूलधनं स्यात्। अत्र कल्पितकलवर्गः~४। अतः}
+\dev{प्रथमद्वितीयमूलधने~८, ~४। फलम्~२। यदि शतस्य पञ्च कलान-}
+\dev{न्तरं तदा पञ्चानां किमिति लब्धमेकमासपञ्चानां फलम्~२। यथने-}
+\dev{नैको मास-स्तदा द्विकेन किमिति लब्धा मासाः~५।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+एकक्रान्तर्चयनात् फलस्य वर्गं विशोध्य परिशिष्यम्।\\
+पञ्चक्रान्तेन दत्तं तुल्यः कालः फले च तथैः ॥८॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र गुणकः~५। एकोनगुणेन~४ ईषत्कलस्याय वर्गे~१६ मक्ते}
+\dev{जातं द्वितीयधनम्~४। इदं कलवर्गयुतं जातं प्रथमधनम्~२०।}
+
+\begin{center}
+\dev{अतोऽनुपातद्वयेन कालः~२०।}
+\end{center}
+
+\noindent\dev{एवं स्वबुद्धिं बैदं सिद्धंति किं यावत्तावत्कल्पनया। अथ वा}
+\dev{बुद्धिरेव बीजम्। तथा च गोले मथोक्तम्।}
+
+\begin{sanskritverse}
+``नैव वर्गीतमकं बीजं न बीजानि पृथक् पृथक्।\\
+एकमेव मतिर्बीजमनल्पा कल्पना यतः''॥
+\end{sanskritverse}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+माणिक्याणुकणिनीलादीनां मुक्ताफलानां शतं\\
+षड्भागि च पञ्च रत्नवीरां येषां चतुर्णां धनम्।\\
+संग्रहे हयरैन ते निजधनाद्वेकैक मिथो\\
+जातास्तुल्यधनाः पृथग्वद सखे तद्दनमैल्यानि मे ॥२॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र यावत्तावदाद्यो वर्णोऽऽयकानां मानानि कल्प्यन्त इत्यु-}
+\dev{पलक्षणं तज्जामाक्षितानि छत्वा समीकृत्य काष्ठं मतिमतिः। तथा-}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---कल्पये द्वितीयधनम्=हि। इदं गुणगुणितं जातं प्रथमधनम्=}
+\dev{गु० हि, अन्योर्न्तरमेव कलवर्ग इत्यतो जातः कलवर्गः=हि(गु$-1$) अतः}
+\dev{हि $= \dfrac{\text{फव}}{\text{गु}-1}$ इति स्पष्टमुपपद्यते मूलगतं गत्यमिति।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\subsection*{Geometric Application: The Triangle}
+
+\nyasa{} \dev{|}
+
+\begin{center}
+\dev{क्षेत्रव्यवहारात् समभुजत्रिकोणस्य जाते}\\[0.3em]
+\dev{लम्बवर्गः=याव~१ रूप~१५, रूप~२००}\\[0.3em]
+\dev{या~१ या~१ क~१८ रूप~१}
+\end{center}
+
+\noindent\dev{द्वितीयाव्यावावर्गी=याव~१ या~क~६२ या~२ रूप~१९ क~६२।}
+\dev{समभुजत्रिगात् र~६ अपास्ते जातो द्वितीयो लम्बवर्गः}
+
+\begin{center}
+\dev{=याव~१ या~२ या~क~६२ रूप~१३ क~६२।}
+\end{center}
+
+\noindent\dev{एतौ (१) समाविति समशोधने छते जाते पक्षौ}
+
+\begin{center}
+\dev{र~२५ क~५१२।}\\[0.3em]
+\dev{(२)या~२ या~क~६२।}
+\end{center}
+
+\noindent\dev{अत्र (३)भाजकस्याव्यक्तशेषस्य या कारस्य प्रयोजनमवादप्रमे}
+\dev{छते भाज्यभाजको जातो ``अत्र धनर्णताव्ययमीहिततया द्वैते क-}
+\dev{ल्पना असदृश्याय'' इति द्विसमीकरणकल्पना धनत्वे प्रकल्प्य क~४}
+\dev{क~६२। अनया भाज्ये गुणिते जातम्}
+
+\begin{center}
+\dev{क~२६८६४ क~२१३१६ क~५१६४८ क~२०४८।}
+\end{center}
+
+\noindent\dev{एतद्द्वैतयोः क~२६८६४ क~२१३१६। मूले~१९२। ~६५। अन्यो-}
+\dev{र्ध्वगः रूप~१३६।}
+
+\longline
+
+\begin{center}
+\dev{$\therefore \text{या}= 2, \sqrt{\dfrac{९६}{४}} \quad \therefore \text{भू}= ४, \sqrt{२०}$ अतोऽपि}
+\dev{क्रिया प्रसरतेति।}
+\end{center}
+
+\noindent\footnotesize\dev{(१) विरो ध०---लम्बवर्गौ।}\\[0.3em]
+\indent\dev{(२) विरो ध०---या~२ या~० क~६२ = या(र~२, क~६२)}\\[0.3em]
+\indent\dev{(३) विरो ध०---अज्ञातकार्शिमिदम् = र~२ क~६२ अनेन रूपशेषसिमन्}
+\dev{र~१८ क~५१२ भक्ते जातं या-मानम् या $= \dfrac{\text{र}~१८ \text{ क}~५१२}{\text{र}~२ \text{ क}~६२}$ अत्र}\\[0.3em]
+\dev{``भाजकस्याव्यक्तशेषस्य या कारस्य प्रयोजनमवादप्रमे छते जातो भाज्यभाजको''}\\[0.3em]
+\dev{इत्यर्थं गद्यमरोचकम्। ``धनर्णता'' इत्यादिमूलोक्तमुचितम्।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\subsection*{Rule for Completion of the Square}
+
+\noindent\dev{एषां पूर्वमूलानां च सर्वेषां योगः = याव~३ या~३१ रूप~८८। इदमे-}
+\dev{काद्वययुतं प्रयोदशवर्गं---}
+
+\begin{center}
+\dev{याव~३ या~३१ रूप~७५।}\\[0.3em]
+\dev{याव~० या~० रूप~१६९।}
+\end{center}
+
+\noindent\dev{समं छत्वा पक्षयोर्द्वादशाभिः संगुण्य तयोरेकाराशिद्वयं वर्गं~१६९}
+\dev{निर्धिंय मूले या~६ रूप~३१।}
+
+\begin{center}
+\dev{या~० रूप~४३।}
+\end{center}
+
+\noindent\dev{पुनरनयोः समीकरणालब्धेन यावत्तावन्मानेन~२ अनेनोर्ध्वापि-}
+\dev{तानि राशिमूलानि~२, ~५, ~८, ~११। एषां वर्गा राशयः क्षेपेणा}
+\dev{अथवा द्वाराशयो भवन्ति~२, ~२३, ~६२, ~११९।}
+
+\vs
+
+\noindent(१)\dev{ अत्राचयपरिभाषा।}
+
+\begin{sanskritverse}
+``राशिशेषपद्षेषयो यद्गुणक्तार्दोचरम्।\\
+अऽऽयका राशयः कल्प्या वर्गिताः क्षेत्रवर्गिताः ॥''
+\end{sanskritverse}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---अत्र कल्पये, आसन्नयोर्द्वयो राशयः क्षेपयोर्न मूल्मानं कस्मेपि या, का,}
+\dev{तदा विलोमविधिना द्वौ राशी, याव~१ क्षे~१। का~१ क्षे~१। अन्योर्बन्धः=याव। का}
+\dev{याव। क्षे~१ का। क्षे~१ क्षे~१ अत्र यदि याव। क्षे~१ या।का। क्षे~१ का।क्षे~१ लिप्यते}
+\dev{तदा जातोद्वयं याव।का~१ या।का।क्षे~१ क्षे~१ वर्गो यस्य मूलम् या।का~१ क्षे इदम्।}
+\dev{अनेन ``राशिमूलानां यथासंख्यं द्वयोर्द्वयोर्बन्धा राशिक्षेपेण राशिवर्गमूलानि भवन्ति''}
+\dev{इत्यनुपपद्यते। अथ राश्योर्घातो येन योगेन वर्गदो भवति स एव वधक्षेपस्तेन}
+
+\begin{center}
+\dev{वर्गे = क्षे (याव~१ या।का\textsuperscript{`} का~१)}
+\end{center}
+
+\begin{center}
+\dev{अतः $\dfrac{\text{वर्गे}}{\text{क्षे}} = \text{याव}~\text{१ या।का\textsuperscript{`}}~\text{का}~\text{१}$}
+\end{center}
+
+\dev{मूलग्रहणेन जातं राशिमूलान्तरम् = का~१ या~१ $= \sqrt{\dfrac{\text{वर्गे}}{\text{क्षे}}}$ अत उपपन्नं राशि-}
+\dev{क्षेपाद्वयक्षेपो यद्गुण इत्यादि।}
+
+\noindent\dev{अस्य प्रश्नस्योत्तरमसम्बन्ध्यैकेनैव लिखितं तदर्थं वास्तवविचित्रमस्ती मतुरो}
+\dev{दृश्य इति।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\subsection*{Rule for Unknown Squares}
+
+\noindent\dev{अथाऽऽव्यक्तवर्गादिसमीकरणम्।}
+
+\begin{center}
+\dev{***}
+\end{center}
+
+\noindent\dev{तदेव मध्यमाहरणमिति यावत् गैयत्याचार्यः। यतोऽत्र वर्ग-}
+\dev{राशा एकस्य मध्यमस्याहरणमिति।}
+
+\noindent\dev{अत्र सूत्रं ब्रूमः।}
+
+\begin{sanskritverse}
+अव्यक्तवर्गादि यदा द्वयोः पक्षौ तदैकेन निःशेषं किंचित्।\\
+क्षेपं तयोरेन पदप्रदः स्याद्व्यक्तः सहेत परेन भूयः ॥१॥
+\end{sanskritverse}
+
+\begin{sanskritverse}
+व्यक्तस्य मूलस्य समीकृते समव्यक्तमानं बहु लभ्यते तत्।\\
+न निर्वहेत् चेद्धनवर्गयोस्त्वेति तदा क्षेपमिदं स्यबुद्ध्या ॥२॥
+\end{sanskritverse}
+
+\noindent(१)\dev{ अव्यक्तमूलर्कांक ततोऽस्य व्यक्तस्य पक्षस्य पदं यदि स्यात्।}\\
+\indent\dev{मूलं धनं तथा विधाय साव्यमव्यक्तमानं द्विधा कल्पितं स्यात्॥३॥}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---एकवर्णमध्यमाहरणरूपम् = याव। इ $\pm$ या। इ = $\pm$ व्य}\\[0.3em]
+\indent\dev{$\therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} = \pm \dfrac{\text{व्य}}{\text{इ}} \quad \therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} + \left(\dfrac{\text{इ}}{\text{२इ}}\right)^2 =$}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\section*{Avyakta-varg\={a}di-sam\={\i}kara\d{n}a (continued)}
+\addcontentsline{toc}{section}{Avyakta-varg\={a}di-sam\={\i}kara\d{n}a (pp.~77--95)}
+\markboth{Avyakta-varg\={a}di-sam\={\i}kara\d{n}am}{Avyakta-varg\={a}di-sam\={\i}kara\d{n}am}
+
+\subsection*{Further Examples with Unknown Squares}
+
+\noindent\dev{अथ विद्यावतरगार्थमिष्टं वेणुवतनमूलानं कल्पितम्=२०। सुप्रस-}
+\dev{न्नपाताह्लादमानम्=या~१।}
+
+\vs
+
+\nyasa{} \dev{|}
+
+\begin{center}
+\dev{यदि पञ्चदशकोट्या विरशतिमुञ्जस्तदा}\\[0.3em]
+\dev{यावत्तावन्मितया किमिति लब्धा लब्धवर्गा-}\\[0.3em]
+\dev{क्षितावधा या $\frac{10}{3}$। पुनर्यदि दशमितकोट्या}\\[0.3em]
+\dev{विरशतिमुञ्जस्तदा यावन्मितकोट्या किमिति}
+\end{center}
+
+\noindent\dev{लब्धा वृहद्दशाक्षितावधा या~२। अनयोर्ध्वगां या $\frac{10}{3}$ विरशतिसमं छत्वा}
+\dev{छओ लब्धः~६। उद्धारपनेनावधा च~८,१२। अथवा वंशसम्बन्धेनावधा}
+\dev{तदनुतिसंप्रमितिरिति यदि वंशद्वययोगेन~२५ अनेनावधायोगो=२० लभ्यते}
+\dev{तदा वंशाख्या~१५, ~१० किमिति जाते अवधे~८, ~१२। अथानुपा-}
+\dev{तात् सम एव लब्धः~६। किं यावत्तावत्कल्पनया। अथवा वंशयोर्वर्धा}
+\dev{योगहतो यत्र कुत्रापि वंशान्तरं लब्धः स्यादिति किं भूमिकल्पनया-}
+\dev{पि एतद्विषं सूत्राणि प्रसाद्य बुद्धिमतोऽहम्।}
+
+\noindent\dev{इति श्रीभास्कराचार्यविरचिते बीजगणिते एकवर्णसमीकरणं समाप्तम्।}
+
+\begin{center}
+\shortline
+\end{center}
+
+\vs
+
+\noindent\dev{अथाऽव्यक्तवर्गादिसमीकरणम्।}
+
+\begin{center}
+\dev{***}
+\end{center}
+
+\begin{sanskritverse}
+तदेव मध्यमाहरणमिति यावद्गीयत्याचार्याः।
+\end{sanskritverse}
+
+\noindent\dev{यतोऽत्र वर्गराशा एकस्य मध्यमस्याहरणमिति।}
+
+\noindent\dev{अत्र सूत्रं ब्रूमः।}
+
+\begin{sanskritverse}
+अव्यक्तवर्गादि यदा द्वयोः पक्षौ तदैकेन निःशेषं किंचित्।\\
+क्षेपं तयोरेन पदप्रदः स्याद्व्यक्तः सहेत परेन भूयः ॥१॥
+\end{sanskritverse}
+
+\begin{sanskritverse}
+व्यक्तस्य मूलस्य समीकृते समव्यक्तमानं बहु लभ्यते तत्।\\
+न निर्वहेत् चेद्धनवर्गयोस्त्वेति तदा क्षेपमिदं स्यबुद्ध्या ॥२॥
+\end{sanskritverse}
+
+\noindent(१)\dev{ अव्यक्तमूलर्कांक ततोऽस्य व्यक्तस्य पक्षस्य पदं यदि स्यात्।}\\
+\indent\dev{मूलं धनं तथा विधाय साव्यमव्यक्तमानं द्विधा कल्पितं स्यात्॥३॥}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---एकवर्णमध्यमाहरणरूपम् = याव। इ $\pm$ या। इ = $\pm$ व्य}
+
+\begin{center}
+\dev{$\therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} = \pm \dfrac{\text{व्य}}{\text{इ}} \quad \therefore \text{याव} \pm \text{या} \cdot \dfrac{\text{इ}}{\text{इ}} + \left(\dfrac{\text{इ}}{\text{२इ}}\right)^2 = $}
+\end{center}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\udaharana{}
+
+\begin{sanskritverse}
+स्वार्धपञ्चाशनवमैर्युक्ताः के स्युः समाश्रयाः।\\
+अन्यैर्द्वादशहीनाख्य परिशिष्टाख्य तान् वद ॥१४॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र समराशिमानं यावत्तावत्~१। अतो विलोमविधिना ``अथ}
+\dev{स्वार्धादिकोन'' इत्यादिना राशयः या $\frac{2}{5}$, या $\frac{5}{6}$, या $\frac{9}{10}$। ऊहा-}
+\dev{न्यमागद्वयेनाः सर्वेर्द्वयैक शोभाः स्युः या $\frac{2}{5}$। एतत् बहिस्तमं}
+\dev{छत्वाऽऽपञ्चमयावत्तावन्मानेन~१५० उद्धारपिता जाता राशयः~१००,}
+\dev{१२५, ~१३५।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+त्रयोदश तथा पञ्च करण्यो मूजयोनितो।\\
+भूजाता च चत्वारः फले भूमिं वदाऽखु मे ॥१५॥
+\end{sanskritverse}
+
+\noindent(१)\dev{ अत्र भूमेर्व्यावत्तावत्कल्पने क्रिया प्रसरतीति स्वेच्छया व्य-}
+\dev{क्ते~१३ भूमिः कल्प्यते कल्पितशेषभावात्। अतोऽत्र कल्पित व्यक्तम्।}
+
+\begin{center}
+\dev{क~५\\[-0.3em]
+\rule{1.5cm}{0.4pt}\\[-0.2em]
+या~१}
+\quad\dev{न्यासः। अत्र ``लम्बगुणा भुजयर्धं हरं त्रिभुजे}\\[0.3em]
+\dev{कलं भवanti'' इति व्यतिकेन कलानुक्रमो जातः क $\frac{५}{१३}$।}
+\end{center}
+
+\noindent\dev{एतद्वर्गं भुज~५ करणी वर्गित् रूप~५ अस्मादपास्य र~$\frac{५}{१३}$।}
+
+\noindent\dev{मूलं जाताऽऽवधा क~$\frac{५}{१३}$। इमा भूमेरपास्य ``योगे करण्योनितो}
+\dev{प्रकट्य'' इति जातास्याऽऽवधा क~$\frac{१४४}{१३}$। अथवा वर्गित् रूप~$\frac{१४४}{१३}$।}
+\dev{लम्बवर्गं=र~$\frac{६४}{१३}$ युतात् र~$\frac{२०८}{१३}$ मूले जातो भुजः~४। इयमेव भूमिः।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+दशयष्टिकरण्यन्तरमेको बाहुः परक्ष बहुकरणी।\\
+मूलच्छदशाकरणी रूपोना लम्बमानमाचक्ष्व ॥१६॥
+\end{sanskritverse}
+
+\noindent\dev{अत्रावधाज्ञाने लम्बज्ञानमिति लम्बावधा=या~१। एतद्वृता}
+\dev{वृत्तावधाप्रमाणमिति तथा}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---कल्पये भूमानं या~१, तदा भुजयो=क~१३, क~५, तयोर्वर्गान्तरं}
+\dev{रू~८ भुवा हतं लब्धमावधान्तरम् $\dfrac{\text{रू}~८}{\text{या}~१}$। ततो लम्बावधा $\dfrac{\text{याव}~\text{१ र}~\frac{५}{१३}}{\text{या}~\text{२}}$, अवाधापि}
+\dev{जयोनन्तरसमी लम्बवर्ग इति जातो लम्बवर्गः}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\subsection*{Geometric Diagrams}
+
+\noindent\dev{तेषां स्वरूपाणि यथा---}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+% First square 6x6
+\draw[thick] (0,0) grid (6,6);
+\draw[very thick] (0,0) rectangle (6,6);
+\node at (3,-0.5) {\dev{६}};
+\node at (-0.5,3) {\dev{६}};
+\node at (6.5,3) {\dev{६}};
+\node at (3,6.5) {\dev{६}};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[scale=0.5]
+% Second square 3x3
+\draw[thick] (0,0) grid (3,3);
+\draw[very thick] (0,0) rectangle (3,3);
+\node at (1.5,-0.5) {\dev{३}};
+\node at (-0.5,1.5) {\dev{३}};
+\node at (3.5,1.5) {\dev{३}};
+\node at (1.5,3.5) {\dev{३}};
+\end{tikzpicture}
+\end{center}
+
+\vs
+
+\begin{center}
+\begin{tikzpicture}[scale=0.4]
+% Large rectangle
+\draw[very thick] (0,0) rectangle (8,7);
+\draw[thick] (3,0) -- (3,7);
+\draw[thick] (0,3) -- (8,3);
+% Labels
+\node at (1.5,5) {\dev{३}};
+\node at (5.5,5) {\dev{५}};
+\node at (1.5,1.5) {\dev{३}};
+\node at (5.5,1.5) {\dev{५}};
+\node at (1.5,-0.5) {\dev{३}};
+\node at (5.5,-0.5) {\dev{५}};
+\node at (-0.5,1.5) {\dev{३}};
+\node at (-0.5,5) {\dev{५}};
+\node at (8.5,3.5) {\dev{८}};
+\end{tikzpicture}
+\end{center}
+
+\vs
+
+\noindent\dev{अन्यत् करणसूत्रं ब्रूमः।}
+
+\begin{sanskritverse}
+चतुर्गुणस्य घातस्य युतिवर्गस्य चान्तरम्।\\
+राश्यन्तरकृतेस्तुल्यं द्वयोरन्त्यकयोर्यथा ॥१७॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र राशी~३, ~५। अनयोर्युतिवर्गात् चतुर्गुं कोटिषु घातचतुर्गुणे-}
+\dev{यापनेते मध्ये राश्यन्तरवर्गसमानि कोटिकाणि दृश्यन्त इत्युपपक्षम्।}
+
+\newpage
+
+%% ====================================================================
+\noindent\dev{एषां पूर्वमूलानां च सर्वेषां योगः = याव~३ या~३१ रूप~८८। इदमे-}
+\dev{काद्वययुतं प्रयोदशवर्गं---}
+
+\begin{center}
+\dev{याव~३ या~३१ रूप~७५।}\\[0.3em]
+\dev{याव~० या~० रूप~१६९।}
+\end{center}
+
+\noindent\dev{समं छत्वा पक्षयोर्द्वादशाभिः संगुण्य तयोरेकाराशिद्वयं वर्गं~१६९}
+\dev{निर्धिंय मूले या~६ रूप~३१।}
+
+\begin{center}
+\dev{या~० रूप~४३।}
+\end{center}
+
+\noindent\dev{पुनरनयोः समीकरणालब्धेन यावत्तावन्मानेन~२ अनेनोर्ध्वापि-}
+\dev{तानि राशिमूलानि~२, ~५, ~८, ~११। एषां वर्गा राशयः क्षेपेणा}
+\dev{अथवा द्वाराशयो भवन्ति~२, ~२३, ~६२, ~११९।}
+
+\vs
+
+\subsection*{Another Example}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.35]
+% Square 7x7
+\draw[thick] (0,0) grid (7,7);
+\draw[very thick] (0,0) rectangle (7,7);
+\node at (3.5,-0.5) {\dev{७}};
+\node at (-0.5,3.5) {\dev{७}};
+\node at (7.5,3.5) {\dev{७}};
+\end{tikzpicture}
+\end{center}
+
+\vs
+
+\noindent(१)\dev{ अत्राचयपरिभाषा।}
+
+\begin{sanskritverse}
+``राशिशेषपद्षेषयो यद्गुणक्तार्दोचरम्।\\
+अऽऽयका राशयः कल्प्या वर्गिताः क्षेत्रवर्गिताः ॥''
+\end{sanskritverse}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---अत्र कल्पये, आसन्नयोर्द्वयो राशयः क्षेपयोर्न मूल्मानं कस्मेपि या, का,}
+\dev{तदा विलोमविधिना द्वौ राशी, याव~१ क्षे~१। का~१ क्षे~१। अन्योर्बन्धः=याव। का}
+\dev{याव। क्षे~१ का। क्षे~१ क्षे~१ अत्र यदि याव। क्षे~१ या।का। क्षे~१ का।क्षे~१ लिप्यते}
+\dev{तदा जातोद्वयं याव।का~१ या।का।क्षे~१ क्षे~१ वर्गो यस्य मूलम् या।का~१ क्षे इदम्।}
+\dev{अनेन ``राशिमूलानां यथासंख्यं द्वयोर्द्वयोर्बन्धा राशिक्षेपेण राशिवर्गमूलानि भवन्ति''}
+\dev{इत्यनुपपद्यते। अथ राश्योर्घातो येन योगेन वर्गदो भवति स एव वधक्षेपस्तेन}
+
+\begin{center}
+\dev{वर्गे = क्षे (याव~१ या।का\textsuperscript{`} का~१)}
+\end{center}
+
+\begin{center}
+\dev{अतः $\dfrac{\text{वर्गे}}{\text{क्षे}} = \text{याव}~\text{१ या।का\textsuperscript{`}}~\text{का}~\text{१}$}
+\end{center}
+
+\dev{मूलग्रहणेन जातं राशिमूलान्तरम् = का~१ या~१ $= \sqrt{\dfrac{\text{वर्गे}}{\text{क्षे}}}$ अत उपपन्नं राशि-}
+\dev{क्षेपाद्वयक्षेपो यद्गुण इत्यादि।}
+
+\noindent\dev{अस्य प्रश्नस्योत्तरमसम्बन्ध्यैकेनैव लिखितं तदर्थं वास्तवविचित्रमस्ती मतुरो}
+\dev{दृश्य इति।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\subsection*{Transition to Multiple Unknowns}
+
+\noindent\dev{अथ माणिक्यादीनां मौल्यानि यावत्तावदादीनि प्रकल्प्य तद्गु-}
+\dev{णपरितसंख्यां च छत्वा रूपाणि च प्रक्षिप्य समशोधनार्थं}
+
+\begin{center}
+\dev{न्यासः---या~५ का~८ नी~३ रूप~१०।}\\[0.3em]
+\dev{या~३ का~९ नी~५ रूप~६२।}
+\end{center}
+
+\noindent\dev{अत्र वर्गं शोध्येदितयादिना जाता यावत्तावद्विमतिः:}
+
+\begin{center}
+\dev{या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$}
+\end{center}
+
+\noindent\dev{इयमेकैव, एकत्वादियमेवानयाऽऽस्तौ कश्चित् काय्यः। इदं माज्ये}
+\dev{वर्णद्वय वर्धते स्तो नीलकमानमिष्टं रूप~१ कल्पितम्। अनेन नीलक-}
+\dev{मूल्याव्य रूपेषु प्रक्षिप्य जातम् या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{२८}}{\text{२}}$।}
+
+\noindent\dev{अतः कुट्टकविधिना ``हरतपे धनक्षेपे''---इत्यादिना गुणासी}
+\dev{सक्षेपे पी~२ र~१।}
+
+\begin{center}
+\dev{पी~१ र~१४।}
+\end{center}
+
+\noindent\dev{अत्र शून्येन पीतकमूलाव्य जातानि माणिक्यादीनां मौल्यानि}
+\dev{~१४, ~१, ~१। अथवैकेन~१३, ~३, ~१। द्वाभ्यां वा~१२, ~५, ~१। निर्मूला-}
+\dev{~११, ~७, ~१। एवमनुपराशादानन्तर्यम्(१)।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+एको द्वीति मम द्विहि शतमिति ॥२॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र धने या~१, का~१। परधनाच्छुतमपास्य पूर्वधने शतं प्रक्षि-}
+\dev{प्य जातं या~१ रूप~१००, का~१ रूप~१०० परधनाद्वाभ्यां द्विगुणमिति}
+\dev{परधनेन द्विगुणेन समं छत्वा लब्धा यावत्तावद्विमतिः:}
+
+\begin{center}
+\dev{या=का~२ रूप~३००}
+\end{center}
+
+\noindent\dev{पुनराचयधनाद्वादशजनितेषु परधने शिष्टेषु जातम्}
+
+\begin{center}
+\dev{या~१ रूप~१०।}\\[0.3em]
+\dev{का~१ रूप~१०।}
+\end{center}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---चतुर्दशमिते पीतकमाने कल्पितं यामानं शून्यमत इच्छावशादान-}
+\dev{न्तरमितिसमजसमिव। उक्तोदाहरणं या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$ अत्र माज्यस्थवर्णयोर्यदि}
+\dev{का-मानमिष्टं परिकल्प्य यामानमानीयते तदेच्छावशादानन्तर्यमिति सिद्धम्।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\part*{Chapter II: Equations with Many Unknowns}
+\addcontentsline{toc}{part}{Chapter II: Equations with Many Unknowns}
+
+\section*{\dev{अनेकवर्णसमीकरणम्}}
+\addcontentsline{toc}{section}{Anekavar\d{n}a-sam\={\i}kara\d{n}a (pp.~96--114)}
+\markboth{Anekavar\d{n}a-sam\={\i}kara\d{n}am}{Anekavar\d{n}a-sam\={\i}kara\d{n}am}
+
+\lettrine[lines=3, lraise=0.1, nindent=0em, slope=-.5em]{\dev{अ}}{}थाऽनेकवर्णसमीकरणम्। अत्र बहूनां यावत्तावतां सहचरितानां समीकरणं दीयते।
+
+\vs
+
+\subsection*{Introduction to Multiple Unknowns}
+
+\noindent\dev{अतः या=३३ (१५) ,, लो=२ ,,}
+\dev{$\begin{cases} \text{का=५} \\ \text{नी=१४} \end{cases}$}
+
+\begin{center}
+\dev{,, या=३६ (१६)}
+\end{center}
+
+\noindent\dev{एवं परावतादीनां शतान्तर्वर्त्तीनि निरवयवमूल्यानि षोडशाथा ततः शतान्तर्वे-}
+\dev{र्त्तीनः पञ्चदशोऽपि तन्मूल्यलब्धाः षोडशाथैव।}
+
+\vs
+
+\noindent\dev{अथ पूर्वदर्शितकालकमानम् = का $= \dfrac{\text{नी}~\text{१० पी}~\text{३५ र}~\text{१७५०}}{\text{६}}$}
+
+\begin{center}
+\dev{$= \dfrac{१७५० - \text{१० नी} - \text{३५ पी}}{\text{६}} = २५० - \text{५ पी} - \text{नी} - \dfrac{\text{३ नी}}{\text{६}}$}
+\end{center}
+
+\vs
+
+\noindent\dev{भयो नीलकमानं समगुणमेव भवेदतः कल्पयेत्}
+
+\begin{center}
+\begin{tabular}{llll}
+\dev{यदि} & \dev{नी=३ तदा} & \dev{का=२५० -- ५पी -- १०} & \dev{=२४० -- ५पी।} \\
+\dev{,,} & \dev{नी=१४ ,,} & \dev{का=२५० -- ५पी -- १४ -- ६} & \dev{=२३० -- ५पी।} \\
+\dev{,,} & \dev{नी=२१ ,,} & \dev{का=२५० -- ५पी -- २१ -- ९} & \dev{=२२० -- ५पी।} \\
+\dev{,,} & \dev{नी=२८ ,,} & \dev{का=२५० -- ५पी -- २८ -- १२} & \dev{=२१० -- ५पी।} \\
+\dev{,,} & \dev{नी=३५ ,,} & \dev{का=२५० -- ५पी -- ३५ -- १५} & \dev{=२०० -- ५पी।} \\
+\dev{,,} & \dev{नी=४२ ,,} & \dev{का=२५० -- ५पी -- ४२ -- १८} & \dev{=१९० -- ५पी।} \\
+\dev{,,} & \dev{नी=४९ ,,} & \dev{का=२५० -- ५पी -- ४९ -- २१} & \dev{=१८० -- ५पी।} \\
+\dev{,,} & \dev{नी=५६ ,,} & \dev{का=२५० -- ५पी -- ५६ -- २४} & \dev{=१७० -- ५पी।} \\
+\end{tabular}
+\end{center}
+
+\vs
+
+\noindent\dev{प्रथमं नी=३ कल्पिते यदि तत्र पीतकमानं किमपि त्रिगुणितमेव तत् बहुविशत-}
+\dev{पूर्णान्तमस्खलितिरेवतो}
+
+\newpage
+
+%% ====================================================================
+\subsection*{Tabular Solution Method}
+
+\begin{center}
+\begin{tabular}{rclcrclcrcl}
+\dev{यदि} & \dev{पी=३९} & \dev{,,} & \dev{का=४५} & \dev{अतः} & \dev{या=१} & \dev{(१)} \\
+\dev{,,} & \dev{पी=४२} & \dev{,,} & \dev{का=३०} & \dev{,,} & \dev{या=२१} & \dev{(२)} \\
+\dev{,,} & \dev{पी=४५} & \dev{,,} & \dev{का=१५} & \dev{,,} & \dev{या=३३} & \dev{(३)} \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\dev{यदि पी=३९ ,, नी=१४ तदा का=२५ अतः या=१२ (४)}\\[0.3em]
+\dev{,, पी=४२ ,, नी=१४ ,, का=२० ,, या=२४ (५)}\\[0.3em]
+\dev{,, पी=४५ ,, नी=१४ ,, का=५ ,, या=३६ (६)}\\[0.3em]
+\dev{यदि पी=३६ ,, नी=२१ तदा का=२२० -- ५$\times$३६=४०}\\[0.3em]
+\dev{अतः या=३ (७)}
+\end{center}
+
+\vs
+
+\subsection*{The General Rule}
+
+\shloka{
+द्वयोः समीकरणयोर्मूलमेकं यदि विद्यते।\\
+तदा तदन्यत्समीकर्य मूलं तद्वदनुष्ठितम्॥
+}
+
+\vs
+
+\subsection*{Second Example with Three Unknowns}
+
+\noindent\dev{अतः या=३ (३)। ,, लो=४ ,,}
+\dev{$\begin{cases} \text{का=३०} \\ \text{नी=२८} \end{cases}$}
+
+\begin{center}
+\dev{,, या=६ (४)। ,, लो=५ ,,}
+\dev{$\begin{cases} \text{का=२०} \\ \text{नी=२५} \end{cases}$}
+\end{center}
+
+\begin{center}
+\dev{,, या=९ (५)। ,, लो=६ ,,}
+\dev{$\begin{cases} \text{का=१०} \\ \text{नी=२२} \end{cases}$}
+\end{center}
+
+\begin{center}
+\dev{,, या=१२ (६)।}
+\end{center}
+
+\noindent\dev{अथ यदि पी=३९ तदा का $= \dfrac{\text{नी}~\text{१० र}~\text{२८५}}{\text{६}}$ अतः}
+
+\begin{center}
+\begin{tabular}{rclcrcl}
+\dev{का=लो} & \dev{१०} & \dev{रू~५५} & \dev{| अथ यदि लो=१ तदा} & \dev{$\begin{cases} \text{का=४५} \\ \text{नी=७} \end{cases}$} \\
+\dev{नी=लो} & \dev{७} & \dev{रू~५०} & \dev{|} & \dev{$\begin{cases} \text{का=३५} \\ \text{नी=१४} \end{cases}$} \\
+\dev{अतः या=१} & \dev{(७)} & & \dev{,, लो=२ ,,} & \dev{$\begin{cases} \text{का=२५} \\ \text{नी=२१} \end{cases}$} \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\dev{,, या=१२ (८) ,, लो=३ ,,}
+\dev{$\begin{cases} \text{का=१५} \\ \text{नी=२८} \end{cases}$}
+\end{center}
+
+\begin{center}
+\dev{,, या=१५ (९) ,, लो=४ ,,}
+\dev{$\begin{cases} \text{का=५} \\ \text{नी=३५} \end{cases}$}
+\end{center}
+
+\begin{center}
+\dev{,, या=१८ (१०) ,,}
+\end{center}
+
+\newpage
+
+%% ====================================================================
+\subsection*{The Elimination Method (Madhyam\={a}hara\d{n}a)}
+
+\noindent\dev{अथ यदि पी=४२ तदा का $= \dfrac{\text{नी}~\text{१० र}~\text{२८०}}{\text{६}}$ अतः}
+
+\begin{center}
+\begin{tabular}{rclcrcl}
+\dev{का=लो} & \dev{१०} & \dev{रू~४०} & \dev{| अथ यदि लो=१ तदा} & \dev{$\begin{cases} \text{का=३०} \\ \text{नी=७} \end{cases}$} \\
+\dev{नी=लो} & \dev{७} & \dev{रू~५०} & \dev{|} & \dev{$\begin{cases} \text{का=२०} \\ \text{नी=१४} \end{cases}$} \\
+\dev{अतः या=२१} & \dev{(१२)} & & \dev{,, लो=२ ,,} & \dev{$\begin{cases} \text{का=१०} \\ \text{नी=२१} \end{cases}$} \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\dev{,, या=२४ (१३)}
+\end{center}
+
+\begin{center}
+\dev{,, या=२७ (१४)}
+\end{center}
+
+\noindent\dev{अथ यदि पी=४५ तदा का $= \dfrac{\text{नी}~\text{१० र}~\text{१७५}}{\text{६}}$}
+
+\begin{center}
+\begin{tabular}{rclcrcl}
+\dev{तदा का=लो} & \dev{१०} & \dev{रू~२५} & \dev{| अथ यदि लो=१ तदा} & \dev{$\begin{cases} \text{का=१५} \\ \text{नी=७} \end{cases}$} \\
+\dev{नी=लो} & \dev{७} & \dev{रू~५०} & \dev{|} & \dev{$\begin{cases} \text{का=५} \\ \text{नी=१४} \end{cases}$} \\
+\dev{अतः या=३६} & \dev{(१५)} & & \dev{,, लो=२ ,,} & \dev{$\begin{cases} \text{का=१०} \\ \text{नी=३५} \end{cases}$} \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\dev{,, या=३९ (१६)}
+\end{center}
+
+\newpage
+
+%% ====================================================================
+\section*{\dev{अनेकवर्णमध्यमाहरणभेदाः}}
+\addcontentsline{toc}{section}{Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}h (pp.~107--114)}
+\markboth{Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}\d{h}}{Anekavar\d{n}a-madhyam\={a}hara\d{n}a-bhed\={a}\d{h}}
+
+\lettrine[lines=3, lraise=0.1, nindent=0em, slope=-.5em]{\dev{अ}}{}थाऽनेकवर्णमध्यमाहरणभेदाः।
+
+\vs
+
+\subsection*{Verse on the Elimination Method}
+
+\begin{sanskritverse}
+इष्टं तयोः प्रथमपक्षादेन\\
+छत्तोकवत् प्रथमवर्णमितिकृत् साध्या।\\
+हृद् यं भवेत् प्रकृतिवर्गमितिः सुखोर्मि-\\
+र्वै कृतिप्रकृतित्रय नियोजनीया ॥५॥
+\end{sanskritverse}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+को राशिद्विगुणो राशिवर्गेः पट्डिमः समन्वितः।\\
+मूलद्वो जायते बीजगणितं वद तत् त्वम् ॥१॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र यावत्तावदाद्योर्द्विगुणो वर्गेः पट्डिमः समन्वितः याव~६ या~२।}
+\noindent\dev{एवं वर्ग इति इति कालकवर्गोणा समीकरणार्थं}
+
+\begin{center}
+\dev{न्यासः---याव~६ या~२ काव~०।}\\[0.3em]
+\dev{याव~० या~० काव~१।}
+\end{center}
+
+\noindent\dev{अत्र समशोधने जातौ पक्षौ याव~६ या~२, काव~१।}
+\noindent\dev{अथैतौ पट्डामः संगुण्य रूपं प्रक्षिप्य प्राप्तं प्रथमपक्षमूलम्}
+\dev{या~६ रूप~१।}
+
+\noindent\dev{अथ द्वितीयपक्षस्य काव~६ रूप~१। वर्गप्रहृत्या मूले क~२}
+\dev{उदे~५, वा का~२० उदे~४९। उद्दिष्टं प्रथमपक्षद्वयेनैन या~६ रूप~१}
+\dev{समं छत्वा लब्धं यावत्तावन्मानम् $\frac{2}{5}$ वा~८। हृद् यं प्रकृतिवर्गेण}
+\dev{कालकस्य मानम्~२ वा~२०। एवं कनिष्ठयोरुभयोरुभयथा।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+राशियोगकृतिर्मित्रा राश्योर्गुणघनेन चेत्।\\
+द्विस्य धनयोगस्य सा तुल्या गणकौच्यताम् ॥२॥
+\end{sanskritverse}
+
+\noindent\dev{अत्र क्रिया यया न विस्तारेण तथा बुद्धिमता राशी कल्प्यो}
+\dev{तथा कल्पितौ (या~१ का~१), (या~१ का~१)। अनयोर्गं यः~२। अस्य}
+\dev{द्विरुद्यैव धनेन मित्रा याव~८ याव~४। अथ राश्योः पृथग् धने।}
+\dev{अथामि याव~१ याव। का।मा~२ काव। या।मा~२ का।मा~१। द्वितीयस्य}
+\dev{भाग~१ याव। का।मा~२ काव। या।मा~२ का।मा~१। अनयोर्गं याव~२}
+\dev{काव। या।मा~६। द्विः याव~४ काव। या।मा~१२ समशोधनार्थं}
+
+\begin{center}
+\dev{न्यासः---}\\[0.3em]
+\dev{याव~८ याव~४ काव। या।मा~० ।}\\[0.3em]
+\dev{याव~४ याव~० काव। या।मा~१२ ।}
+\end{center}
+
+\newpage
+
+%% ====================================================================
+\subsection*{The General Formula}
+
+\noindent\dev{अत्र माणिक्यादीनां मौल्यानि यावत्तावदादीनि प्रकल्प्य तद्गु-}
+\dev{णपरितसंख्यां च छत्वा रूपाणि च प्रक्षिप्य समशोधनार्थं}
+
+\begin{center}
+\dev{न्यासः---या~५ का~८ नी~३ रूप~१०।}\\[0.3em]
+\dev{या~३ का~९ नी~५ रूप~६२।}
+\end{center}
+
+\noindent\dev{अत्र वर्गं शोध्येदितयादिना जाता यावत्तावद्विमतिः:}
+
+\begin{center}
+\dev{या $= \dfrac{\text{का\textsuperscript{`}}~\text{नी}~\text{१ र}~\text{२८}}{\text{२}}$}
+\end{center}
+
+\vs
+
+\subsection*{Concluding Verses}
+
+\begin{sanskritverse}
+नवमिः सममिः शुण्णः को राशिकिंवशात् हतः।\\
+यद्वैक्यं फले काल्यं भवेत् बहुविशतेऽमितम् ॥१०॥
+\end{sanskritverse}
+
+\noindent\dev{अथैकहरवाच्छेदयोः कल्पयोरुद्दिशनाच्च गुणयोगो गुणकः}
+\dev{कल्पितः रूप~१६। राशिः=ला~१। लब्धैकप्रमाणं कालकस्तद्गुणितं}
+\dev{हरं गुणगुणिताद्वादशोरगस्य जातं शेषं या~१६ का~३०। एतत् फलं}
+\dev{कालकेन युतं या~१६ का~२६ बहुविशतिसमं छत्वा कुट्टकेन प्राप्त-}
+\dev{जातं यावत्तावन्मानं नी~२९ रूप~२९७। (२) अत्र लब्धयोर्योगस्यैका-}
+\dev{तानिर्देशात् क्षेपो न देयः।}
+
+\vs
+
+\udaharana{}
+
+\begin{sanskritverse}
+कलितसनवशुण्णो राशिकिंवशद्विभाजितः।\\
+यद्वैक्यमपि त्रिशद्दत्तमेकादशाऽऽक्रमम् ॥११॥
+\end{sanskritverse}
+
+\longline
+
+\noindent\footnotesize\dev{(१) विरो ध०---कल्पये प्रथमो राशिर्युक्तः=ओय, पञ्चम एकप्रः। द्वितीयोद्यक्तः}
+\dev{$= 6\text{या} + 2$ तदा द्वितीयालापेन यावत्तावद्विमतिः: या $= \dfrac{3\text{का} + \text{व्य}}{6}$, तृतीयालापेन च}
+\dev{यावत्तावद्विमतिः: या $= \dfrac{9\text{नी} + 3 - \text{व्य}}{6}$ अतः कुट्टकविध्या यः प्रथमो राशिर्युक्तः}
+\dev{कल्पितः स त्रिमिरूपवद्यं इति सिद्धाति चतुर्थालापवर्गेन समभिर्नपवर्ग्येति सूक्ष्मी-}
+\dev{मैर्दृशि चिन्त्यम् । ततः पूर्वेयुक्त्या प्रथमो राशिर्युक्तो~३६ भवितुमर्हति ततो द्वितीयः}
+\dev{ऐये~१२६ रूप~१०४। ~३६ अथमाचार्यकल्पिता--५१ दसमादल्प (१) इति।}
+
+\noindent\dev{(२) विरो ध०---कालकमानं पूर्वकुट्टकादेव का = नी~१६ रूप~१४। अथाऽऽत्र}
+\dev{क्षेपकः=नी~२९ अयं चेद्वीयते तदा या=५६, तथैव का=३०। किन्तु लब्धि-}
+\dev{योगे क्षेपयोगयुक्ते बहुविशतिनिर्देशा सा क्षेपदानाथ भवेदियता: ``क्षेपो न देयः''}
+\dev{इति युक्तमेव।}
+\normalsize
+
+\newpage
+
+%% ====================================================================
+\vspace*{2cm}
+
+\begin{center}
+{\Large\bfseries\color{sectioncolor} End of Part II\par}
+\vspace{1cm}
+{\large Pages 58--114 of the B\={\i}jaga\d{n}ita\par}
+\vspace{0.5cm}
+{\normalsize\itshape To be continued in Part III (pages 115--170)\par}
+\end{center}
+
+\vfill
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}\\[0.5em]
+{\small\textsc{Transcribed from the Sanskrit edition of}\par}
+{\small\textsc{Shri Bhaskaracharya}\par}
+{\small\textsc{Circa 1150 CE}\par}
+\end{center}
+
+\end{document}
+%% ====================================================================

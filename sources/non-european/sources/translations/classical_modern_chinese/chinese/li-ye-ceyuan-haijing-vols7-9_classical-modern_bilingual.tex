@@ -1,2925 +1,2925 @@
-% ========================================================================
-% 測圓海鏡 (Ceyuan Haijing / Sea Mirror of Circle Measurements)
-% by Li Ye (李冶), 1248
-% Volumes 7--9
-% BILINGUAL EDITION: Classical Chinese ←→ Modern Chinese
-% 文言文 ↔ 白话文 对照版
-% ========================================================================
-\documentclass[11pt,a4paper]{article}
-
-% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{amsmath,amssymb,amsthm}
-% Make \square work in text mode
-\AtBeginDocument{%
-  \let\origsquare\square
-  \renewcommand{\square}{\ensuremath{\origsquare}}%
-}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{microtype}
-\usepackage{tocloft}
-\usepackage{indentfirst}
-\usepackage{xeCJK}
-\usepackage{etoolbox}
-\usepackage{paracol}
-
-% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=18mm,right=18mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
-}
-
-% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-
-% Chinese Fonts via xeCJK - Classical uses Microsoft YaHei, Modern uses Arial CJK
-\setCJKmainfont{Microsoft YaHei}
-\newCJKfontfamily\tradfont{Microsoft YaHei}
-\newCJKfontfamily\tradfontbf{Microsoft YaHei Bold}
-\newCJKfontfamily\modfont{Microsoft YaHei}
-\newCJKfontfamily\modfontbf{Microsoft YaHei}
-
-% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{problemcolor}{RGB}{80,40,20}
-\definecolor{methodcolor}{RGB}{20,60,80}
-\definecolor{workcolor}{RGB}{40,70,40}
-\definecolor{classicalbg}{RGB}{255,250,245}
-\definecolor{modernbg}{RGB}{245,250,255}
-\definecolor{classicalborder}{RGB}{180,140,120}
-\definecolor{modernborder}{RGB}{120,140,180}
-
-% -------- Column Ratio --------
-\columnsep=16pt
-
-% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}\tradfontbf}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}\tradfontbf}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}\tradfontbf}
-  {\thesubsubsection}{1em}{}
-
-% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\tradfont 測圓海鏡\quad 卷七至卷九}
-\fancyhead[R]{\small\modfont 文言文\,$\boldsymbol{\leftrightarrow}$\,白话文对照版}
-\fancyfoot[C]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-
-% Classical (left column) problem environment
-\newcommand{\clOWEN}[1]{%
-  \par\vspace{0.3em}%
-  \noindent\textcolor{problemcolor}{\textbf{【或問】}}\,{\tradfont #1}\par\nopagebreak%
-}
-% Modern (right column) problem environment
-\newcommand{\mdOWEN}[1]{%
-  \par\vspace{0.3em}%
-  \noindent\textcolor{problemcolor}{\textbf{【问题】}}\,{\modfont #1}\par\nopagebreak%
-}
-
-% Classical method environment
-\newcommand{\clFAYUE}[1]{%
-  \par\noindent\textcolor{methodcolor}{\textbf{【法曰】}}\,{\tradfont #1}\par\nopagebreak%
-}
-% Modern method environment
-\newcommand{\mdFAYUE}[1]{%
-  \par\noindent\textcolor{methodcolor}{\textbf{【解法】}}\,{\modfont #1}\par\nopagebreak%
-}
-
-% Classical working environment
-\newcommand{\clTSAOYUE}[1]{%
-  \par\noindent\textcolor{workcolor}{\textbf{【草曰】}}\,{\tradfont #1}\par%
-}
-% Modern working environment
-\newcommand{\mdTSAOYUE}[1]{%
-  \par\noindent\textcolor{workcolor}{\textbf【演算】}}\,{\modfont #1}\par%
-}
-
-% Inline Chinese helpers
-\newcommand{\zh}[1]{{\tradfont #1}}
-\newcommand{\md}[1]{{\modfont #1}}
-
-% Bilingual pair command: classical + modern
-\newcommand{\bilingual}[2]{%
-  \begin{paracol}{2}%
-  \begin{leftcolumn}%
-    \fcolorbox{classicalborder}{classicalbg}{\parbox{\linewidth}{#1}}%
-  \end{leftcolumn}%
-  \switchcolumn%
-  \begin{rightcolumn}%
-    \fcolorbox{modernborder}{modernbg}{\parbox{\linewidth}{#2}}%
-  \end{rightcolumn}%
-  \end{paracol}%
-}
-
-% Simple parallel content
-\newcommand{\classical}[1]{{\tradfont #1}}
-\newcommand{\modern}[1]{{\modfont #1}}
-
-% Problem number counter
-\newcounter{problemnum}
-\setcounter{problemnum}{104}
-\newcommand{\nextproblem}{\stepcounter{problemnum}\textbf{第\chinese{problemnum}問}}
-
-% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={測圓海鏡 卷七至卷九 文言文白话文对照版},
-  pdfauthor={李冶},
-  pdfsubject={Chinese Mathematics, 1248, Bilingual Edition}
-}
-
-% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
-
-% -------- CJK Tweaks --------
-\xeCJKsetup{PunctStyle=banjiao,CJKmath=true}
-\setlength{\parindent}{2em}
-\setlength{\parskip}{0.3em}
-
-% ========================================================================
-\begin{document}
-
-% ===================================================================
-% TITLE PAGE
-% ===================================================================
-\begin{titlepage}
-\centering
-\vspace*{1.5cm}
-
-{\Huge\bfseries\color{titlecolor}\tradfont 測圓海鏡}
-
-\vspace{0.3cm}
-{\Large\color{sectioncolor}\tradfont （卷七至卷九）}
-
-\vspace{0.8cm}
-{\LARGE\tradfont 李冶\quad 撰}
-
-\vspace{0.2cm}
-{\large 1248}
-
-\vspace{1.5cm}
-
-\fcolorbox{classicalborder}{classicalbg}{%
-  \parbox{0.85\textwidth}{%
-    \centering\vspace{0.3cm}
-    {\Large\tradfontbf 文言文原文}\quad{\large$\longleftrightarrow$}\quad{\Large\modfontbf 白话文译文}
-    \vspace{0.3cm}
-  }%
-}
-
-\vspace{1cm}
-
-{\small\tradfont
-卷七：明前一十八問（第105--122問）\quad 高次方程（四次、五次）\\[0.3em]
-卷八：明後一十六問（第123--138問）\quad 多元天元術\\[0.3em]
-卷九：大斜四問、大和八問（第139--170問）\quad 複雜幾何構形
-}
-
-\vspace{1.5cm}
-
-\fcolorbox{modernborder}{modernbg}{%
-  \parbox{0.85\textwidth}{%
-    \centering\vspace{0.3cm}
-    {\small\modfont
-    \textbf{现代数学术语对照}\\[0.3em]
-    五乘方 $\rightarrow$ 五次方程\quad
-    六乘方 $\rightarrow$ 六次方程\quad
-    連枝同体 $\rightarrow$ 連枝同体（关联方程组）\\[0.2em]
-    玲珑 $\rightarrow$ 玲珑（精巧的方程变换）\quad
-    換骨 $\rightarrow$ 換骨（根本变换）\quad
-    奪項 $\rightarrow$ 奪項（消元法）
-    }
-    \vspace{0.3cm}
-  }%
-}
-
-\vfill
-
-{\small 测圆海镜 卷七至卷九\quad 文言文/白话文对照版\\
-Bilingual Edition: Classical Chinese / Modern Chinese}
-
-\end{titlepage}
-
-% ===================================================================
-% TABLE OF CONTENTS
-% ===================================================================
-\tableofcontents
-\newpage
-
-% ===================================================================
-% BILINGUAL INTRODUCTION
-% ===================================================================
-\section*{引言\quad Introduction}
-\addcontentsline{toc}{section}{引言 Introduction}
-
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\fcolorbox{classicalborder}{classicalbg}{%
-\parbox{\linewidth}{%
-\textbf{\large\tradfont 【文言文原文】}
-
-\vspace{0.3em}
-《測圓海鏡》乃金元數學家李冶（1192--1279）所撰，成書於1248年，為中古代數學之傑作。
-全書凡十二卷，計一百七十問，皆論圓城與勾股形之關係，而以「天元術」立一算求解多項式方程。
-
-卷七至卷九所載如下：
-\begin{itemize}[leftmargin=1.5em,topsep=0pt]
-  \item \textbf{卷七}：明前一十八問
-  \item \textbf{卷八}：明後一十六問
-  \item \textbf{卷九}：大斜四問、大和八問
-\end{itemize}
-
-每問之體例分為三段：
-\begin{itemize}[leftmargin=1.5em,topsep=0pt]
-  \item \textbf{或問}：設問之辭
-  \item \textbf{法曰}：演算之公式
-  \item \textbf{草曰}：詳細之天元推演
-\end{itemize}
-
-書中「■」者，表示算籌佈列之太極、天元位，即古代多項式之記號也。
-}}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\fcolorbox{modernborder}{modernbg}{%
-\parbox{\linewidth}{%
-\textbf{\large\modfont 【白话文译文】}
-
-\vspace{0.3em}
-《测圆海镜》由金元时期数学家李冶（1192--1279）所著，成书于1248年，是中世纪代数学的杰作。
-全书共十二卷，计170题，均讨论圆城与直角三角形的关系，以「天元术」设未知数求解多项式方程。
-
-卷七至卷九内容如下：
-\begin{itemize}[leftmargin=1.5em,topsep=0pt]
-  \item \textbf{卷七}：明前十八问（第105--122题）--- 高次多项式方程（四次、五次）
-  \item \textbf{卷八}：明后十六问（第123--138题）--- 多元天元术
-  \item \textbf{卷九}：大斜四问、大和八问（第139--170题）--- 复杂几何构形
-\end{itemize}
-
-每题的格式分为三段：
-\begin{itemize}[leftmargin=1.5em,topsep=0pt]
-  \item \textbf{【问题】}：问题陈述
-  \item \textbf{【解法】}：计算公式
-  \item \textbf{【演算】}：详细的天元术代数推导
-\end{itemize}
-
-书中的「■」符号表示算筹排列的太极、天元位置，即古代多项式记号的占位符。
-}}
-\end{rightcolumn}
-
-\end{paracol}
-
-\newpage
-
-% ===================================================================
-% VOLUME 7
-% ===================================================================
-\section{\tradfont 卷七\quad 明前一十八問}
-\label{sec:vol7}
-
-\begin{center}
-\fcolorbox{classicalborder}{classicalbg}{\parbox{0.9\textwidth}{\centering
-\textbf{\large 卷七概要}\quad 本卷十八问，多为高次方程求解。以天元一设圆径或半径，通过几何关系建立四次（三乘方）、五次（四乘方）及六次（五乘方）方程，运用增乘开方法求解。
-}}
-\end{center}
-
-\vspace{0.5cm}
-
-% -------------------------------------------------------------------
-% Problem 105
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{出南門東行七十二步有樹，出東門南行三十步見之。問答同前。}
-
-\clFAYUE{倍南行以乘倍東行為平實，並二行又倍之為從，一虛隅。得城徑。}
-
-\clTSAOYUE{%
-識別得此問名為弦外容圓，又為內率求虛積。其二行步相並為虛弦，若以相減即虛較也。
-又倍東行為弦較和，倍南行即弦較較，此二數相乘則兩虛積也。若直以二行相乘，則半個虛積也。
-又倍東行減於城徑，餘即二虛勾也。倍南行減於城徑則二虛股也。虛積上三事和即城徑也。
-乃立天元一為圓徑，便以為三事和也。倍二行步減之，得$\square$為黃方一，天元乘之得$\square$為二虛積（寄左）。
-然後倍東行以乘倍南行，得八千六百四十為同數，與左相消得$\square$。
-益積開平方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{从南门向东走72步有一棵树，从东门向南走30步可以看见它。求城墙直径。}
-
-\mdFAYUE{将南行步数翻倍后乘以东行步数的两倍作为常数项，两步行数相加后再翻倍作为一次项系数，负一为二次项系数。解得城墙直径。}
-
-\mdTSAOYUE{%
-辨识得此题名为「弦外容圆」，又为「内率求虚积」。两步行数相加为虚弦，相减则为虚较。
-东行步数的两倍为弦较和，南行步数的两倍为弦较较，二者相乘等于两倍虚积。直接以二行相乘则为半个虚积。
-以城径减去两倍东行，余数为两倍虚勾；以城径减去两倍南行，余数为两倍虚股。虚积上的三事和即为城径。
-设天元一为圆径，即三事和。减去两倍二行步数得$\square$为黄方，乘以天元得$\square$为两倍虚积（寄左）。
-然后两倍东行乘以两倍南行得8640为同数，与左式相消得$\square$。
-用增积开平方法得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 106
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{丙出南門直行一百三十五步而立，甲出東門直行一十六步見之。問答同前。}
-
-\clFAYUE{%
-以丙行步一百三十五再自之，得二百四十六萬零三百七十五於上。
-又以甲行一十六乘丙行冪一萬八千二百二十五，得二十九萬一千六百，以乘上位，
-得七千一百七十四億四千五百三十五萬為三乘方實；
-以二行步相乘又倍之得四千三百二十，以乘丙行步再自之數，得一百六億二千八百八十二萬為益從；
-第一廉空；以甲行乘丙行冪，得二十九萬一千六百，又倍之得五十八萬三千二百於上，
-四之甲行冪一千零二十四，以乘丙行步，得一十三萬八千二百四十，減上位餘四十四萬四千九百六十為第二廉；
-二行步相乘得二千一百六十為虛常法。得丙行步上勾弦差八十一。}
-
-\clTSAOYUE{%
-識別二數相並，得一百五十一。以減於皇極弦，餘一百三十八，即虛勾虛股並也。
-若以二數相減，餘一百一十九為高弦內減平弦，又為皇極弦內少個小差弦，
-又為大差弦內減個皇極弦也。立天元一為丙行大差數。
-置丙行步一百三十五，自乘得$\square$，用天元除之，得$\square$為勾弦並也。
-上減天元得$\square$為二丙勾也。復用丙南行乘之，得$\square$為二積也。
-又以天元除之，得$\square$為丙勾外容圓半（泛寄）。
-別置丙南行用二甲勾乘之，得$\square$太，合用二丙勾除之。不受除，
-便以此為甲股（內寄二丙勾為分母）。復用二甲勾三十二乘之，得$\square$太為二個甲直積也。
-又置丙南行內減天元，得$\square$為黃方，以自乘得$\square$為丙上勾弦差乘股弦差二段，
-以天元除之得$\square$為兩個丙小差也。乃用甲股乘之，得下式$\square$。
-復用丙南行除之，得$\square$，又折半得下式$\square$為一個甲步股弦差也，
-內亦帶前二丙勾分母。復置兩個甲直積，內已寄此甲股弦差分母，便為甲步股外容圓半（寄左）。
-乃再置先求到泛寄，用甲股弦差分母乘之，得$\square$為同數，
-與左相消得下式$\square$。開三乘方得八十一步，即丙步上勾弦差也。
-《鈐經》載此法，以勾弦差率冪減丙行冪，復以丙行乘之為實，以差率冪為法，如法得徑。
-此法只是以勾外求圓半。合以大差除倍積，而今皆以大差冪為分母也。
-依法求之，勾弦差八十一自之得六千五百六十一，以減於丙行冪一萬八千二百二十五，
-餘一萬一千六百六十四，復以丙行一百三十五乘之，得一百五十七萬四千六百四十為實，
-以大差冪六千五百六十一為法，如法得二百四十步，即城徑也。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{丙出南门直行135步停下，甲出东门直行16步便能看见丙。求城墙直径。}
-
-\mdFAYUE{%
-将丙行步135自乘两次（立方）得2,460,375为上位。
-再以甲行16乘丙行平方18,225得291,600，乘以上位，
-得71,744,535,000,000为四次方程（三乘方）常数项；
-二行步相乘再翻倍得4,320，乘丙行步的立方数，得106,288,200,000为负一次项；
-第一廉系数为零；以甲行乘丙行平方得291,600，翻倍得583,200为上位，
-甲行平方1,024的4倍乘丙行步得138,240，减上位余444,960为第二廉系数；
-二行步相乘得2,160为常数项。解得丙行步上的勾弦差为81。}
-
-\mdTSAOYUE{%
-辨识两数相加得151。从皇极弦中减去，余138即虚勾与虚股之和。
-若两数相减，余119为高弦减平弦，又为皇极弦减去小差弦，
-又为大差弦减去皇极弦。设天元一为丙行的大差数。
-取丙行步135，自乘得$\square$，除以天元，得$\square$为勾弦和。
-减去天元得$\square$为两倍丙勾。再用丙南行乘之，得$\square$为两倍积。
-再除以天元，得$\square$为丙勾外容圆半（泛寄）。
-另取丙南行用两倍甲勾乘之，得$\square$太，应除以两倍丙勾。不除，
-便以此作为甲股（内寄两倍丙勾为分母）。再用两倍甲勾32乘之，得$\square$太为两个甲直积。
-再取丙南行减去天元，得$\square$为黄方，自乘得$\square$为丙上勾弦差乘股弦差两段，
-除以天元得$\square$为两个丙小差。用甲股乘之，得下式$\square$。
-再用丙南行除之，得$\square$，折半得下式$\square$为一个甲步股弦差，
-内亦带前两倍丙勾分母。再置两个甲直积，内已寄此甲股弦差分母，便为甲步股外容圆半（寄左）。
-再置先求到的泛寄，用甲股弦差分母乘之，得$\square$为同数，
-与左式相消得下式$\square$。开四次方（三乘方）得81步，即丙步上勾弦差。
-《钤经》载此法：以勾弦差率平方减丙行平方，再以丙行乘之为被除数，以差率平方为除数，依法得直径。
-此法是以勾外求圆半。应以大差除倍积，而今皆以大差平方为分母。
-依法求之：勾弦差81自乘得6,561，减丙行平方18,225，
-余11,664，再以丙行135乘之，得157,464,000为实，
-以大差平方6,561为法，依法得240步，即城径。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-
-% -------------------------------------------------------------------
-% Problem 107
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{出東門一十六步有樹，出南門東行七十二步見之。問答同前。}
-
-\clFAYUE{二行步相減得數，以自之於上。又以出東門步自之，減上位為平方實，
-二之出南門東行步為益從，一步常法。翻開得半徑。}
-
-\clTSAOYUE{%
-別得人到樹即平弦也，半圓徑即平股也。其東行七十二步則平勾平弦差也。
-乃立天元一為半圓徑，加一十六減七十二，得$\square$為勾也。
-以自之得$\square$為勾冪。又加入天元股冪得$\square$為弦冪（寄左）。
-再立天元一為半徑，加出東門步，得$\square$即弦也。
-以自之得$\square$為同數，與左相消得$\square$。
-翻法開之得一百二十步，即半城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{出东门16步有树，出南门向东走72步看见它。求城墙直径。}
-
-\mdFAYUE{两步行数相减，差数自乘为上位。再以东门步数自乘，减上位为二次方程常数项，
-南门东行步数的两倍为负一次项系数，1为二次项系数。翻法开方得半径。}
-
-\mdTSAOYUE{%
-辨识得：人到达树处即为平弦，半圆径即为平股。东行72步为平勾与平弦之差。
-设天元一为半圆径，加上16减去72，得$\square$为勾。
-自乘得$\square$为勾冪。加上天元的平方（股冪）得$\square$为弦冪（寄左）。
-再设天元一为半径，加出东门步数，得$\square$即弦。
-自乘得$\square$为同数，与左式相消得$\square$。
-翻法开方得120步，即半城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 108
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{出南門一百三十五步有樹，出東門南行三十步見之。問答同前。}
-
-\clFAYUE{樹去城步內減南行步，餘以為冪於上，又以樹去城步為冪內減上位為平實，
-倍樹去城步為從，一虛隅。翻法得半城徑。}
-
-\clTSAOYUE{%
-別得人距樹即高弦也，半圓徑即高勾也，其南行三十步即高弦上小差也。
-乃立天元一為半徑，加樹去城步為弦，內減小差$\square$，得$\square$即股也。
-以自之得$\square$為股冪，內加入天元冪，得$\square$為弦冪（寄左）。
-再置弦$\square$以自之，得$\square$為同數，與左相消，得式$\square$。
-翻開得一百二十步，即半城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{出南门135步有树，出东门向南走30步看见它。求城墙直径。}
-
-\mdFAYUE{树离城的步数减去南行步数，余数自乘为上位，再以树离城步数自乘减上位为二次方程常数项，
-树离城步数的两倍为一次项系数，负一为二次项系数。翻法得半城径。}
-
-\mdTSAOYUE{%
-辨识得：人到树的距离即为高弦，半圆径即为高勾，南行30步为高弦上的小差。
-设天元一为半径，加上树离城步数为弦，减去小差$\square$，得$\square$即股。
-自乘得$\square$为股冪，加上天元冪，得$\square$为弦冪（寄左）。
-再置弦$\square$自乘，得$\square$为同数，与左式相消得式$\square$。
-翻法开方得120步，即半城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 109
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{乙出東門不知遠近而立，甲出南門東行七十二步望見乙，就乙斜行一百三十六步與乙相會。問答同前。}
-
-\clFAYUE{以斜行步自之於上，以二行相減餘自為冪，減上位為平實，從空，一步常法。如法得半徑。}
-
-\clTSAOYUE{%
-別得七十二步即大差也，斜行即弦，半徑即股也。
-立天元一為半徑，以自之為股冪，又以二行差六十四以自之得$\square$為勾冪。
-並二冪得$\square$為弦冪（寄左）。然後以斜行步自之，得$\square$為同數，
-與左相消得$\square$。開平方得一百二十步，倍之即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{乙出东门距离不详停下，甲出南门东行72步望见乙，向乙斜行136步与乙相会。求城墙直径。}
-
-\mdFAYUE{斜行步数自乘为上位，以二行相减余数自乘减上位为二次方程常数项，一次项系数为零，
-二次项系数为一。依法得半径。}
-
-\mdTSAOYUE{%
-辨识得：72步即为大差，斜行即为弦，半径即为股。
-设天元一为半径，自乘为股冪，又以二行差64自乘得$\square$为勾冪。
-二冪相加得$\square$为弦冪（寄左）。然后以斜行步自乘，得$\square$为同数，
-与左式相消得$\square$。开平方得120步，加倍即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 110
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{甲出南門不知遠近而立，乙出東門南行三十步望見甲，卻就甲斜行二百五十五步與甲相會。問答同前。}
-
-\clFAYUE{二行差自之為冪，以減於斜行冪為平實，一虛隅。得半徑。}
-
-\clTSAOYUE{%
-別得南行步即股弦差也，斜步即弦也，半徑即勾也。
-乃立天元一為半城徑，以自之為冪。以二行相減餘二百二十五，以自之得$\square$為股冪。
-二冪相並得$\square$為弦冪（寄左）。然後以斜行步自之，得$\square$為同數，
-與左相消得下$\square$。開平方得一百二十步，即半徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{甲出南门距离不详停下，乙出东门南行30步望见甲，向甲斜行255步与甲相会。求城墙直径。}
-
-\mdFAYUE{二行差的平方作为被减数，从斜行平方中减去它作为二次方程常数项，负一为二次项系数。得半径。}
-
-\mdTSAOYUE{%
-辨识得：南行步即为股弦差，斜步即为弦，半径即为勾。
-设天元一为半城径，自乘为冪。以二行相减余225，自乘得$\square$为股冪。
-二冪相加得$\square$为弦冪（寄左）。然后以斜行步自乘，得$\square$为同数，
-与左式相消得下式$\square$。开平方得120步，即半径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 111
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{甲出南門東行不知步數而立，乙出東門南行三十步望見甲，斜行一百二步相會。問答同前。}
-
-\clFAYUE{二行相減，餘以乘乙南行，四之於上，又加入斜行冪為平實。得虛和一百三十八。}
-
-\clTSAOYUE{%
-別得斜步內減南行為甲東行步也。此問以弦外容圓入之，以二行相減數乘乙南行三十步，
-得$\square$，又四之，得$\square$為二直積也。又加入斜步冪$\square$，
-共得$\square$即和冪也。平方而一，得一百三十八步，即虛和也。
-又加斜步得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{甲出南门东行步数不详停下，乙出东门南行30步望见甲，斜行102步相会。求城墙直径。}
-
-\mdFAYUE{二行相减的余数乘以乙南行步数，四倍后加上斜行平方为常数项。得虚和138。}
-
-\mdTSAOYUE{%
-辨识得：斜步减去南行即为甲东行步数。此题以弦外容圆理解，以二行相减数乘乙南行30步，
-得$\square$，再四倍得$\square$为两倍直积。加入斜步冪$\square$，
-共得$\square$即和冪。开平方得138步，即虚和。
-加上斜步得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 112
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{乙出東門南行不知步數而立，甲出南門東行七十二步望見乙，斜行一百二步與乙相會。問答同前。}
-
-\clFAYUE{%
-倍相減步以乘倍東行，得數復以減於斜步冪，餘為實。平方而一，得較也。
-又以二行相減數乘倍東行為平實，以較為從方，得勾。
-勾較共為長，又以斜步並入勾股共，即城徑。}
-
-\clTSAOYUE{%
-別得二行相減餘$\square$為乙南行步也。以此數又減於甲東行，餘四十二步即較也。
-又以二行相減數$\square$乘倍東行得$\square$為平實，以較為從。
-平方開得四十八即勾也。勾內加較得九十步即股也。
-勾股共得一百三十八，又加入斜步，共得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{乙出东门南行步数不详停下，甲出南门东行72步望见乙，斜行102步与乙相会。求城墙直径。}
-
-\mdFAYUE{%
-两倍相减步数乘以两倍东行步数，得数从斜步平方中减去，余数为被除数。开平方得「较」。
-又以二行相减数乘两倍东行作为二次方程常数项，以「较」为一次项，得勾。
-勾与较共为长，以斜步加入勾股和，即城径。}
-
-\mdTSAOYUE{%
-辨识得：二行相减余$\square$为乙南行步。以此数再从甲东行中减去，余42步即「较」。
-又以二行相减数$\square$乘两倍东行得$\square$为常数项，以「较」为一次项。
-开平方得48即勾。勾加较得90步即股。
-勾股共得138，加上斜步共得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 113
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-乙出南門東行，甲出東門南行，兩相望見。既而乙雲：
-「我東行不及城徑一百六十八步。」甲雲：「我南行不及城徑二百一十步。」問答同前。}
-
-\clFAYUE{%
-半甲不及步以自之為冪，半甲不及步內減差以自之為冪。
-二冪相並內卻減差冪為平實，四之甲不及內減三之乙不及，餘為益從，三步半虛法。得甲南行。}
-
-\clTSAOYUE{%
-別得乙不及為虛勾、半徑共，又為徑內減明勾也。
-甲不及為虛股、半徑共，又為徑內減股也。
-又二雲數相並為虛和、圓徑共也，雲數相減即虛較也。
-乃立天元一為甲南行，以減於甲不及步又半之，得$\square$為虛股也。
-虛股內減虛較得$\square$為虛勾。勾自之得$\square$為勾冪也，
-又股自之下式$\square$為股冪也。二冪相並得$\square$為弦冪（寄左）。
-然後以天元加虛較得$\square$為乙東行。又加入天元甲南行得$\square$為虛弦，
-以自之得$\square$為同數，與左相消得$\square$。
-開平方得三十步，即甲南行也。內加少步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-乙出南门东行，甲出东门南行，两人相望看见。随后乙说：「我东行比城径少168步。」
-甲说：「我南行比城径少210步。」求城墙直径。}
-
-\mdFAYUE{%
-甲不及步的一半自乘为冪，甲不及步的一半减去差再自乘为冪。
-二冪相加再减去差的冪为二次方程常数项，
-四倍甲不及减去三倍乙不及的余数为负一次项，3.5为负二次项系数。得甲南行。}
-
-\mdTSAOYUE{%
-辨识得：乙不及为虚勾与半半径之和，又为径减明勾。
-甲不及为虚股与半半径之和，又为径减股。
-二数相加为虚和与圆径之和，相减即虚较。
-设天元一为甲南行，从甲不及步的一半中减去，得$\square$为虚股。
-虚股减去虚较得$\square$为虚勾。勾自乘得$\square$为勾冪，
-股自乘得$\square$为股冪。二冪相加得$\square$为弦冪（寄左）。
-然后天元加虚较得$\square$为乙东行。再加天元（甲南行）得$\square$为虚弦，
-自乘得$\square$为同数，与左式相消得$\square$。
-开平方得30步，即甲南行。加上少步即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 114
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-丙出南門直行，甲出東門直行，兩相望見。既而丙雲：
-「我行少於城徑一百五步。」甲雲：「我行少於城徑二百二十四步。」問答同前。}
-
-\clFAYUE{%
-二少步相乘訖，又自乘為實；六之共步，乘雲數相乘數為益從；
-十八之雲數相乘於上，又三之共步，自乘加上位，內復減丙少步冪、甲少步冪為從廉；
-四十八之共步為益二廉，六十三步常法。
-翻法開三乘方，得一百二十步，即半徑。}
-
-\clTSAOYUE{%
-別得雲數共減於倍城徑為甲丙共行數。又雲數相減即皇極差，亦為甲行不及丙行數。
-立天元一為半城徑，以三之，副置二位。
-上位減丙少步，得$\square$為皇極股也，下位減甲少步得$\square$為皇極勾也。
-勾股相乘得$\square$，以天元除之，得$\square$為弦也。
-弦自之得$\square$為弦冪（寄左）。然後以股自之下$\square$為股冪於上，
-又以勾自之得$\square$為勾冪，並以加入上位，得$\square$為同數，
-與左相消得$\square$。翻法開三乘方得一百二十步，即半城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-丙出南门直行，甲出东门直行，两人相望看见。随后丙说：「我行比城径少105步。」
-甲说：「我行比城径少224步。」求城墙直径。}
-
-\mdFAYUE{%
-二少步相乘后再自乘为常数项；六倍共步乘以两少步相乘为负一次项；
-十八倍两少步相乘为上位，三倍共步自乘加上位，再减去丙少步冪、甲少步冪为从廉；
-四十八倍共步为负第二廉，63为常数。
-翻法开四次方程（三乘方），得120步，即半径。}
-
-\mdTSAOYUE{%
-辨识得：两少步之和从两倍城径中减去为甲丙共行数。两少步相减即皇极差，亦为甲行不及丙行数。
-设天元一为半城径，三倍后分置两位。
-上位减丙少步，得$\square$为皇极股；下位减甲少步得$\square$为皇极勾。
-勾股相乘得$\square$，除以天元得$\square$为弦。
-弦自乘得$\square$为弦冪（寄左）。然后股自乘得$\square$为股冪于上位，
-勾自乘得$\square$为勾冪，合并加入上位得$\square$为同数，
-与左式相消得$\square$。翻法开四次方程（三乘方）得120步，即半城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 115
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲出東門直行，乙出南門直行，各不知步數而立。
-乙望見甲，就甲斜行了二百八十九步與甲相會。
-其二直行共得一百五十一步。又雲甲直行少於乙直行。問答同前。}
-
-\clFAYUE{斜冪內減共步冪為平實，倍共步內減斜步為從，一常法。得徑。}
-
-\clTSAOYUE{%
-別得共數、城徑並即皇極和也。
-立天元一為圓徑，加共步得$\square$為皇極和，以自之，得$\square$於上。
-以斜行冪$\square$減上位餘$\square$為二直積（寄左）。
-然後以天元乘斜步得$\square$，與左相消得$\square$。
-開平方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲出东门直行，乙出南门直行，各不知步数停下。乙望见甲，向甲斜行289步与甲相会。
-两直行共得151步。又说甲直行少于乙直行。求城墙直径。}
-
-\mdFAYUE{斜行冪减去共步冪为二次方程常数项，两倍共步减去斜步为一次项，1为常数。得城径。}
-
-\mdTSAOYUE{%
-辨识得：共数与城径之和即皇极和。
-设天元一为圆径，加共步得$\square$为皇极和，自乘得$\square$于上位。
-以斜行冪$\square$减上位余$\square$为两倍直积（寄左）。
-然后天元乘斜步得$\square$，与左式相消得$\square$。
-开平方得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 116
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲出東門直行，乙出東門南行，丙出南門直行，丁出南門東行，各不知步數而立。
-四人遙相望，悉與城參相直。
-只雲甲、丙共行了一百五十一步，乙、丁立處相距一百二步。又雲丙直行步多於甲直行步。問答同前。}
-
-\clFAYUE{%
-共步、距步相減，得數自之於上，以共步為冪內減上為平實，
-二之距步內減共步、距步差為從，一步虛法。得城徑。}
-
-\clTSAOYUE{%
-別得共步得城徑即皇極和也，相距步即虛弦也。
-皇極和內減虛弦即皇極弦也。又共步、距步差$\square$即皇極弦內減城徑也（此名旁差）。
-乃立天元一為城徑，加共步得$\square$為皇極和也，以自之得$\square$於上，
-以共步、距步差$\square$加天元得$\square$為皇極弦也，
-以自之下式$\square$，減上位餘得$\square$為二直積（寄左）。
-然後以天元徑乘皇極弦，得$\square$為同數，與左相消得$\square$。
-開平方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲出东门直行，乙出东门南行，丙出南门直行，丁出南门东行，各不知步数停下。
-四人遥遥相望，都与城墙呈直角。
-只说甲、丙共行了151步，乙、丁立处相距102步。又说丙直行步多于甲直行步。求城墙直径。}
-
-\mdFAYUE{%
-共步与距步相减，差数自乘为上位，共步冪减上位为二次方程常数项，
-两倍距步减去共步与距步之差为一次项，负一为二次项系数。得城径。}
-
-\mdTSAOYUE{%
-辨识得：共步加城径即皇极和，相距步即虚弦。
-皇极和减去虚弦即皇极弦。共步与距步之差$\square$即皇极弦减城径（此名「旁差」）。
-设天元一为城径，加共步得$\square$为皇极和，自乘得$\square$于上位。
-共步与距步之差$\square$加天元得$\square$为皇极弦，
-自乘得$\square$，减上位余$\square$为两倍直积（寄左）。
-然后天元径乘皇极弦，得$\square$为同数，与左式相消得$\square$。
-开平方得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 117
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲出南門東行不知步數而立，乙出東門南行望見甲，復就甲斜行，與甲相會。
-乙通計行了一百三十二步，其乙南行步不及斜行七十二步，其甲東行卻多於乙南行。問答同前。}
-
-\clFAYUE{倍不及步在地，以不及步減通步以乘之為實，以四之不及步為法。得乙南行三十步。}
-
-\clTSAOYUE{%
-別得乙南行即股也，以減通步即虛弦也，以減不及步即虛較也，其不及步即甲東行也。
-立天元一為乙南行，置不及步以天元乘之，又四之得$\square$元為二直積（寄左）。
-然後倍不及步以為弦較和於上$\square$。
-以不及步減通步得$\square$為弦較較。
-以乘上位得$\square$太為同數，與左相消得$\square$。
-上法下實，得三十步為乙南行也。餘各以數求之。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲出南门东行步数不详停下，乙出东门南行望见甲，再向甲斜行与甲相会。
-乙共行了132步，乙南行步比斜行少72步，甲东行多于乙南行。求城墙直径。}
-
-\mdFAYUE{两倍不及步作为基数，不及步减通步后乘以基数为被除数，四倍不及步为除数。得乙南行30步。}
-
-\mdTSAOYUE{%
-辨识得：乙南行即为股，从通步中减去即为虚弦，减不及步即为虚较，不及步即甲东行。
-设天元一为乙南行，取不及步以天元乘之，再四倍得$\square$元为两倍直积（寄左）。
-然后两倍不及步作为弦较和于上位$\square$。
-不及步减通步得$\square$为弦较较。
-相乘得$\square$太为同数，与左式相消得$\square$。
-上法下实，得30步为乙南行。其余各以数求之。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 118
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲出南門東行不知步數而立。乙出東門南行，望見甲，復斜行與甲相會。
-二人共行了二百四步，又雲甲行不及共步一百三十二。問答同前。}
-
-\clFAYUE{%
-別得二行共即兩個虛弦也，其不及步即乙南行與一虛弦共也。
-置不及步內減一弦餘三十步，即乙南行也。
-以乙南行反以減虛弦，餘七十二步即甲東行也。
-以乙南行減甲東行餘即虛較也。}
-
-\clTSAOYUE{此問無草。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲出南门东行步数不详停下。乙出东门南行，望见甲，再斜行与甲相会。
-两人共行了204步，又说甲行比共步少132步。求城墙直径。}
-
-\mdFAYUE{%
-辨识得：二行共即两个虚弦，不及步即乙南行与一个虚弦之和。
-从不及步中减去一弦余30步，即乙南行。
-以乙南行从虚弦中减去，余72步即甲东行。
-甲东行减乙南行余即虚较。}
-
-\mdTSAOYUE{此题无演算草文。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 119
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-乙出東門南行，甲出西門南行，甲望見乙，斜行五百一十步相會。
-乙雲：「我南行少於城徑二百一十步。」問答同前。}
-
-\clFAYUE{少步冪為平實，四斜步內減二少步為益從，五步常法。得乙南行。}
-
-\clTSAOYUE{%
-別得少步為徑內減股。
-立天元一為乙南行，以二之減於倍斜行步，得$\square$為梯底也。
-以二之天元乘之，得$\square$為徑冪（寄左）。
-再置天元加少步，得下式$\square$為城徑，以自之得$\square$，
-與左相消得$\square$。開平方得三十步，即乙南行也。加少步即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-乙出东门南行，甲出西门南行，甲望见乙，斜行510步相会。
-乙说：「我南行比城径少210步。」求城墙直径。}
-
-\mdFAYUE{少步冪为二次方程常数项，四倍斜步减去两倍少步为负一次项，5为常数。得乙南行。}
-
-\mdTSAOYUE{%
-辨识得：少步为径减股。
-设天元一为乙南行，两倍后从两倍斜行步中减去，得$\square$为梯底。
-以两倍天元乘之，得$\square$为径冪（寄左）。
-再置天元加少步，得下式$\square$为城径，自乘得$\square$，
-与左式相消得$\square$。开平方得30步，即乙南行。加少步即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 120
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-乙出南門東行，甲出北門東行，甲望見乙，斜行二百七十二步與乙相會。
-乙雲：「我東行不及城徑一百六十八步。」問答同前。}
-
-\clFAYUE{以不及步冪之為實，四斜內減二之不及步為虛從，五常法。平開得乙東行七十二步。}
-
-\clTSAOYUE{%
-別得不及步為城徑減明勾也。
-立天元一為乙東行，以倍之減於二之斜行步，得下$\square$為梯底也。
-倍天元乘之，得$\square$為徑冪（寄左）。
-再置天元加不及步，得$\square$為城徑，以自之得$\square$為同數，
-與左相消得$\square$。開平方得七十二步，即乙東行也。加入少步即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-乙出南门东行，甲出北门东行，甲望见乙，斜行272步与乙相会。
-乙说：「我东行比城径少168步。」求城墙直径。}
-
-\mdFAYUE{不及步冪为被除数，四倍斜步减去两倍不及步为负一次项，5为常数。开平方得乙东行72步。}
-
-\mdTSAOYUE{%
-辨识得：不及步为城径减明勾。
-设天元一为乙东行，两倍后从两倍斜行步中减去，得下式$\square$为梯底。
-两倍天元乘之，得$\square$为径冪（寄左）。
-再置天元加不及步，得$\square$为城径，自乘得$\square$为同数，
-与左式相消得$\square$。开平方得72步，即乙东行。加入少步即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 121
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-乙出南門東行，丁出東門南行，卻有甲丙二人共在西北隅，甲向東行，丙向南行，
-四人遙相望見，俱與城參相直。既而相會，甲雲：「我多乙二百四十八步。」
-丙雲：「我多於丁五百七十步。」問答同前。}
-
-\clFAYUE{二多步相乘為平實，並二多步而半之為從，七分半常法。得城徑。}
-
-\clTSAOYUE{%
-別得甲多步為大勾內減明勾也，丙多步為大股內少股也。
-又乙東行得一虛勾為半徑，丁南行得一虛股為半徑。
-又二多數相並得$\square$為大和內少虛弦也，又二少數相減餘$\square$為兩個角差。
-又甲多步內減半徑即勾方差也，丙多步內減半徑即股方差也。
-立天元一為城徑，以半之減於甲多步得$\square$為勾方差，
-又以半徑減於丙多步得$\square$為股方差。
-二差相乘得$\square$為徑冪（寄左）。然後以天元冪與左相消，得下式$\square$。
-開平方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-乙出南门东行，丁出东门南行，又有甲丙二人同在西北角，甲向东行，丙向南行，
-四人遥遥相望，都与城墙呈直角。随后相会，甲说：「我比乙多248步。」
-丙说：「我比丁多570步。」求城墙直径。}
-
-\mdFAYUE{两多步相乘为二次方程常数项，两多步之和的一半为一次项，7.5为常数。得城径。}
-
-\mdTSAOYUE{%
-辨识得：甲多步为大勾减明勾，丙多步为大股减股。
-乙东行得一虚勾为半径，丁南行得一虚股为半径。
-两多数相加得$\square$为大和减去虚弦，两少数相减余$\square$为两个角差。
-甲多步减去半半径即勾方差，丙多步减去半半径即股方差。
-设天元一为城径，从甲多步中减去其一半得$\square$为勾方差，
-再从丙多步中减去半半径得$\square$为股方差。
-二差相乘得$\square$为径冪（寄左）。然后天元冪与左式相消，得下式$\square$。
-开平方得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 122
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲丙二人俱在西北隅，甲向東行，丙向南行。
-又乙出南門東行，丁出東門南行，各不知步數而立。
-四人遙相望見，悉與城參相直。既而相會，甲雲：
-「我與乙共行了三百九十二步。」丙雲：「我與丁共行了六百三十步。」問答同前。}
-
-\clFAYUE{%
-甲乙共自之為冪，丙丁共自之為冪，二冪又相乘為三乘方實。
-甲乙共自之為冪，以丙丁共乘之於上。
-又以丙丁共自之為冪，以甲乙共乘之加上位為益從。
-甲乙共自之為冪，丙丁共自之為冪，並，以七分半乘之於上。
-又以甲乙共乘丙丁共，得數減上位為第一益廉。
-並二共數，以七分半乘之為第二廉。
-以七分半自之，得五分六厘二毫五絲於上位。
-以一步內減上位，餘四分三厘七毫五絲為虛隅。得城徑。}
-
-\clTSAOYUE{%
-別得甲為大勾，乙為明勾，丙為大股，丁為股也。
-甲乙共內減半徑即是黃長弦也，丙丁共內減半徑即黃廣弦也。
-黃長弦、黃廣弦二數相減，餘為兩個皇極差也。
-乃立天元為城徑，半之副置二位。
-上以減於甲乙共數，得$\square$即黃長弦也，以自之得$\square$為黃長弦冪也，
-內減天元一冪，餘得下式$\square$為勾方差冪也。
-下位以減於丙丁共，得下式$\square$即黃廣弦也，
-以自之得$\square$為黃廣弦冪也，內減天元一冪，餘得$\square$為股方差冪也。
-再以勾方差冪、股方差冪相乘，得$\square$為徑冪（寄左）。
-然後以天元為冪，又以冪自之，與左相消得下式$\square$。
-開三乘方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲丙二人同在西北角，甲向东行，丙向南行。
-乙出南门东行，丁出东门南行，各不知步数停下。
-四人遥遥相望，都与城墙呈直角。随后相会，甲说：「我与乙共行了392步。」
-丙说：「我与丁共行了630步。」求城墙直径。}
-
-\mdFAYUE{%
-甲乙共自乘为冪，丙丁共自乘为冪，二冪再相乘为四次方程（三乘方）常数项。
-甲乙共自乘为冪，以丙丁共乘之于上位。
-又以丙丁共自乘为冪，以甲乙共乘之加上位为负一次项。
-甲乙共自乘为冪，丙丁共自乘为冪，合并以7.5倍乘之于上位。
-又以甲乙共乘丙丁共，得数减上位为第一负廉。
-二共数之和以7.5倍乘之为第二廉。
-7.5自乘得56.25于上位。
-以1减上位，余43.75为负二次项系数。得城径。}
-
-\mdTSAOYUE{%
-辨识得：甲为大勾，乙为明勾，丙为大股，丁为股。
-甲乙共减去半半径即为黄长弦，丙丁共减去半半径即为黄广弦。
-黄长弦、黄广弦二数相减，余为两个皇极差。
-设天元为城径，取半后分置两位。
-上位从甲乙共数中减去，得$\square$即黄长弦，自乘得$\square$为黄长弦冪，
-减去天元一冪，余得下式$\square$为勾方差冪。
-下位从丙丁共中减去，得下式$\square$即黄广弦，
-自乘得$\square$为黄广弦冪，减去天元一冪，余得$\square$为股方差冪。
-再以勾方差冪、股方差冪相乘，得$\square$为径冪（寄左）。
-然后天元自乘，再自乘（四次方），与左式相消得下式$\square$。
-开四次方程（三乘方）得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\newpage
-
-
-% ===================================================================
-% VOLUME 8
-% ===================================================================
-\section{\tradfont 卷八\quad 明後一十六問}
-\label{sec:vol8}
-
-\begin{center}
-\fcolorbox{classicalborder}{classicalbg}{\parbox{0.9\textwidth}{\centering
-\textbf{\large 卷八概要}\quad 本卷十六问，涉及多元天元术（连枝同体），以多个未知量建立关联方程组，求解更复杂的几何构形。方程次数多为四次，间有五次、六次方程。
-}}
-\end{center}
-
-\vspace{0.5cm}
-
-% -------------------------------------------------------------------
-% Problem 123
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-出南門向東有槐樹一株，出東門向南有柳樹一株。
-丙丁俱出南門，丙直行，丁往至槐樹下。
-甲乙俱出東門，甲直行，乙往至柳樹下。
-四人遙相望見，各不知所行步數。
-只雲丙丁共行了二百七步，甲乙共行了四十六步，
-又雲甲丙立處相距二百八十九步。問答同前。}
-
-\clFAYUE{以二共相減數又以減距數為實，二為法。得平勾。}
-
-\clTSAOYUE{%
-識別得丙丁共即明和也，甲乙共即和也，相距步即極弦也。
-二共相並即極弦內少個虛黃也，又為極和內少個虛和也。
-二共相減餘為平勾高股差也，又為虛差極差共也，又為通差內減極差也。
-立天元為平勾，加入二共相減數，得$\square$為高股，又加天元得$\square$為極弦（寄左）。
-以相距步二百八十九與左相消，得$\square$。
-上法下實，如法得六十四，即平勾也。
-以二共相減數加平勾得二百二十五為高股，復以平勾乘之，得一萬四千四百步。
-開平方得一百二十步，即城半徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-出南门向东有槐树一株，出东门向南有柳树一株。
-丙丁都出南门，丙直行，丁前往槐树下。
-甲乙都出东门，甲直行，乙前往柳树下。
-四人遥遥望见，各不知所行步数。
-只说丙丁共行了207步，甲乙共行了46步，
-又说甲丙立处相距289步。求城墙直径。}
-
-\mdFAYUE{以两共数相减的差再从距数中减去为被除数，2为除数。得平勾。}
-
-\mdTSAOYUE{%
-辨识得：丙丁共即明和，甲乙共即和，相距步即极弦。
-两共数相加即极弦内少一个虚黄，又为极和内少一个虚和。
-两共数相减余为平勾与高股之差，又为虚差与极差之和，又为通差减去极差。
-设天元为平勾，加入两共相减数，得$\square$为高股，再加天元得$\square$为极弦（寄左）。
-以相距步289与左式相消，得$\square$。
-上法下实，依法得64，即平勾。
-以两共相减数加平勾得225为高股，再以平勾乘之，得14,400步。
-开平方得120步，即城半半径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 124
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-依前見丙丁共二百七步，甲乙共四十六步。又雲二樹相去一百二步。問答同前。}
-
-\clFAYUE{%
-以甲乙共乘樹相去步，得數又以自之為平實；從空；
-並二共數為冪於上，內減甲乙共自之數、丙丁共自之數為益隅。得弦。}
-
-\clTSAOYUE{%
-識別得兩樹相去步即虛弦也。餘數具前。
-立天元一為弦。置明和以天元乘之，合和除，不除，便以$\square$元為明弦也（內帶和分母）。
-乃置虛弦以分母和乘之，得$\square$太，加入明弦，得$\square$為極股也，內帶和分母。
-以自之得下式$\square$為極股冪（內寄和冪為分母）。
-又以天元加虛弦得下$\square$為極勾，以自之得$\square$。
-又以和冪$\square$乘之，得$\square$為勾冪也。
-勾股冪相並得$\square$為兩積一較冪也，內有和冪分母（寄左）。
-然後置明弦$\square$元於上，以和乘天元加上位，得$\square$元為二弦並也。
-又置虛弦以和乘之得$\square$太，並入上位，得下式$\square$為極弦，
-以自之得$\square$為同數，與左相消得$\square$。
-開平方得三十四步，即弦也。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-如前见丙丁共207步，甲乙共46步。又说两树相距102步。求城墙直径。}
-
-\mdFAYUE{%
-以甲乙共乘树相距步数，得数再自乘为二次方程常数项；一次项为零；
-两共数之和自乘于上位，减去甲乙共自乘数、丙丁共自乘数为负二次项系数。得弦。}
-
-\mdTSAOYUE{%
-辨识得：两树相距步数即虚弦。其余数如前。
-设天元一为弦。取明和以天元乘之，应以和除，不除，便以$\square$元为明弦（内带和分母）。
-取虚弦以分母和乘之，得$\square$太，加入明弦，得$\square$为极股，内带和分母。
-自乘得下式$\square$为极股冪（内寄和冪为分母）。
-又以天元加虚弦得下式$\square$为极勾，自乘得$\square$。
-又以和冪$\square$乘之，得$\square$为勾冪。
-勾股冪合并得$\square$为两积一较冪，内有和冪分母（寄左）。
-然后取明弦$\square$元于上位，以和乘天元加上位，得$\square$元为两弦和。
-再取虚弦以和乘之得$\square$太，合并入上位，得下式$\square$为极弦，
-自乘得$\square$为同数，与左式相消得$\square$。
-开平方得34步，即弦。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 125
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{皇極大小差共一百八十七步，明黃、黃共六十六步。問答同前。}
-
-\clFAYUE{後數自乘為實，前後數相減，餘為法。得虛黃方三十六。}
-
-\clTSAOYUE{%
-別得一百八十七即明弦二弦共也，其六十六即太虛大小差共也。
-又二數相並，得$\square$即明、二和共。若以相減，餘$\square$即明、四差共也。
-立天元一為太虛黃方面，加二黃共，得$\square$即虛弦也。
-倍虛弦又加天元，得$\square$即城徑也。
-又以虛弦加皇極大小差，得$\square$即極弦也，
-以極弦乘城徑得$\square$，為兩段皇極勾股積（寄左）。
-再以極弦虛弦相並，得$\square$，即皇極勾股共也，
-自之得$\square$，內減皇極弦冪$\square$，得$\square$為同數，
-與寄左相消得$\square$。上法下實，如法得三十六步，即太虛黃方面也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{皇极大小差共187步，明黄、黄共66步。求城墙直径。}
-
-\mdFAYUE{后数自乘为被除数，前后数相减余为除数。得虚黄方36。}
-
-\mdTSAOYUE{%
-辨识得：187即明弦与二弦之和，66即太虚大小差之和。
-两数相加得$\square$即明与二和之和。若相减余$\square$即明与四差之和。
-设天元一为太虚黄方面，加二黄共得$\square$即虚弦。
-两倍虚弦再加天元得$\square$即城径。
-又以虚弦加皇极大小差得$\square$即极弦，
-极弦乘城径得$\square$为两段皇极勾股积（寄左）。
-再以极弦虚弦相加得$\square$即皇极勾股之和，
-自乘得$\square$，减去皇极弦冪$\square$得$\square$为同数，
-与寄左相消得$\square$。上法下实，依法得36步，即太虚黄方面。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 126
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-東門南有柳一株，南門東有槐一株。
-甲出東門直行，丙出南門直行。
-甲、丙、柳、槐悉與城參相直，
-既而甲就柳樹斜行三十四步至柳樹下，丙就槐樹斜行一百五十三步至槐樹下。問答同前。}
-
-\clFAYUE{%
-雲數相乘，倍之便為平方實，開方得虛弦一百二步。
-以此弦加甲行步即極勾，以此弦加丙行步即極股。餘各依法求之。}
-
-\clTSAOYUE{%
-識別：甲斜行即弦也，丙斜行即明弦也。無草。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-东门南有柳树一株，南门东有槐树一株。
-甲出东门直行，丙出南门直行。
-甲、丙、柳树、槐树都与城墙呈直角，
-随后甲向柳树斜行34步到柳树下，丙向槐树斜行153步到槐树下。求城墙直径。}
-
-\mdFAYUE{%
-两已知数相乘，翻倍即为二次方程常数项，开平方得虚弦102步。
-以此弦加甲行步即极勾，以此弦加丙行步即极股。其余依法求之。}
-
-\mdTSAOYUE{%
-辨识：甲斜行即弦，丙斜行即明弦。无演算草文。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 127
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-東門南有柳一株，南門東有槐一株。
-甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
-既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
-只雲丙共行了二百八十八步，甲斜行與柳至東門步共得六十四步。問答同前。}
-
-\clFAYUE{%
-二雲數相乘於上，以六十四步自之，又二之，減上位為平實。
-四之六十四於上，倍丙行內減上位為從。二十常法。得甲直行步一十六。}
-
-\clTSAOYUE{%
-別得丙共步即明股、明弦和也，六十四即平勾也，內甲斜行即弦也，柳至東門步即股也。
-又二雲數相並即明差與極弦共也，二雲數相減即明差與平勾高股差共也。
-又平勾內減勾即虛勾也。
-立天元一為勾。置丙共步以天元乘之，復以六十四除之得$\square$為明勾也。
-又以天元減於六十四，得$\square$為虛勾也，並虛明二勾$\square$為半徑也。
-以自之得$\square$，倍之得$\square$為半段圓城徑冪（寄左）。
-乃以天元加六十四，得$\square$為勾圓差於上；
-又以明勾加丙共步，得$\square$為股圓差於下。
-上下相乘得$\square$為同數，與左相消得$\square$。
-開平方得一十六步，即勾也。此勾乃甲出東門直行步也。餘皆依數求之。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-东门南有柳树一株，南门东有槐树一株。
-甲出东门直行，丙出南门直行，二人遥遥相望，槐树柳树与城边都呈直角。
-随后甲再斜行至柳树下，丙再斜行至槐树下，各不知步数。
-只说丙共行了288步，甲斜行与柳至东门步共得64步。求城墙直径。}
-
-\mdFAYUE{%
-两已知数相乘于上位，以64步自乘，再两倍，减上位为二次方程常数项。
-四倍64于上位，两倍丙行减去上位为一次项。20为常数。得甲直行步16。}
-
-\mdTSAOYUE{%
-辨识得：丙共步即明股、明弦之和，64即平勾，其中甲斜行即弦，柳至东门步即股。
-两已知数之和即明差与极弦之和，相减即明差与平勾高股差之和。
-平勾减去勾即虚勾。
-设天元一为勾。取丙共步以天元乘之，再以64除得$\square$为明勾。
-又以天元从64中减去得$\square$为虚勾，虚勾与明勾相加$\square$为半径。
-自乘得$\square$，翻倍得$\square$为半段圆城径冪（寄左）。
-以天元加64得$\square$为勾圆差于上位；
-又以明勾加丙共步得$\square$为股圆差于下位。
-上下相乘得$\square$为同数，与左式相消得$\square$。
-开平方得16步，即勾。此勾即甲出东门直行步。其余依数求之。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 128
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-東門南有柳樹一株，南門東有槐樹一株。
-甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
-既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
-只雲甲共行五十步，丙斜行與槐至南門步共得二百二十五步。問答同前。}
-
-\clFAYUE{%
-以二百二十五步自之為冪，又以此冪自為冪於上。
-置甲共行以二百二十五步三度乘之，得數復折半，減上位為平實。
-置二百二十五步自之數，以二雲數相減數乘之，又倍之於上。
-倍五十步在地，以二百二十五步自之數乘之，復折半加上位為益從。
-雲數相減自乘於上，以雲數相乘，復折半，減上位為常法。得明股。}
-
-\clTSAOYUE{%
-識別得甲共步即勾、弦共也，二百二十五即高股也，內丙斜行即明弦，槐至南門步即明勾也。
-又二雲數相並即極弦內減一個差也，雲數相減即差與高股、平勾差共也。
-又高股內減明股即虛股也。
-立天元一為明股，即丙出南門直行步也。
-置五十步以天元乘之得$\square$元，合高股除。
-不除，便以此$\square$元為股也，內帶高股$\square$分母。
-再置高股內減天元得$\square$為虛股，以分母高股乘之，得下式$\square$，
-加入股得$\square$即半徑也。
-以自增乘得下$\square$為半徑冪也。內帶高股冪為母（寄左）。
-然後置甲共步以分母高股乘之，得$\square$太，加入股得$\square$為勾圓差於上（內帶高股分母）。
-又以天元加高股得$\square$為股圓差於下。
-上、下相乘得$\square$。又以分母高股乘之，得$\square$，
-復折半得$\square$為同數，與左相消得$\square$。
-開平方得一百三十五步，即明股也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-东门南有柳树一株，南门东有槐树一株。
-甲出东门直行，丙出南门直行，二人遥遥相望，槐树柳树与城边都呈直角。
-随后甲再斜行至柳树下，丙再斜行至槐树下，各不知步数。
-只说甲共行50步，丙斜行与槐至南门步共得225步。求城墙直径。}
-
-\mdFAYUE{%
-以225步自乘为冪，再以这冪自乘于上位。
-取甲共行以225步三次乘之（立方），得数折半减上位为二次方程常数项。
-取225步自乘之数，以两已知数相减之差乘之，再两倍于上位。
-50步翻倍作为基数，以225步自乘之数乘之，折半加上位为负一次项。
-两已知数之差自乘于上位，以两已知数相乘折半减上位为常数。得明股。}
-
-\mdTSAOYUE{%
-辨识得：甲共步即勾、弦之和，225即高股，其中丙斜行即明弦，槐至南门步即明勾。
-两已知数之和即极弦内减一个差，相减即差与高股、平勾差之和。
-高股减去明股即虚股。
-设天元一为明股，即丙出南门直行步。
-取50步以天元乘之得$\square$元，应以高股除。
-不除，便以此$\square$元为股，内带高股$\square$分母。
-再取高股减去天元得$\square$为虚股，以分母高股乘之，得下式$\square$，
-加入股得$\square$即半径。
-自乘得下式$\square$为半半径冪。内带高股冪为分母（寄左）。
-然后取甲共步以分母高股乘之，得$\square$太，加入股得$\square$为勾圆差于上位（内带高股分母）。
-又以天元加高股得$\square$为股圆差于下位。
-上下相乘得$\square$。又以分母高股乘之，得$\square$，
-折半得$\square$为同数，与左式相消得$\square$。
-开平方得135步，即明股。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 129
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{通勾、通弦共一千步，勾、弦共五十步。問答同前。}
-
-\clFAYUE{%
-置一千減二之五十步為泛率。以自乘，復半之於上。
-又置泛率復以五十乘之，加上位為平實。
-二十二之泛率於上。以四十二乘五十，得數內減泛率，加上位為益從。
-二百為常法。得股。}
-
-\clTSAOYUE{%
-立天元一為股。
-置一千以天元乘之，以五十除之，得$\square$元為通股也。
-又以天元加五十步，得$\square$即小差也，通股加小差得$\square$即通弦也。
-以通弦減一千得$\square$即通勾也。
-以小差減通勾得$\square$即圓徑也。
-以圓徑減通股得$\square$即大差也。
-置大差以小差乘之得$\square$（寄左）。
-然後置圓徑以自之得$\square$，折半得$\square$，與左相消得$\square$。
-開平方得三十步，即股也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{通勾、通弦共1000步，勾、弦共50步。求城墙直径。}
-
-\mdFAYUE{%
-取1000减去两倍50步为泛率。泛率自乘折半于上位。
-又取泛率再以50乘之，加上位为二次方程常数项。
-22倍泛率于上位。42乘50得数减去泛率，加上位为负一次项。
-200为常数。得股。}
-
-\mdTSAOYUE{%
-设天元一为股。
-取1000以天元乘之，以50除之，得$\square$元为通股。
-又以天元加50步得$\square$即小差，通股加小差得$\square$即通弦。
-以通弦减1000得$\square$即通勾。
-以小差减通勾得$\square$即圆径。
-以圆径减通股得$\square$即大差。
-取大差以小差乘之得$\square$（寄左）。
-然后圆径自乘得$\square$，折半得$\square$，与左式相消得$\square$。
-开平方得30步，即股。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 130
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{通勾、通弦共一千步，明勾、明弦共二百二十五步。問答同前。}
-
-\clFAYUE{%
-以後數再自乘，又以前數乘之為平實；以後數為冪，復以前數乘之為從；
-以前數冪為虛常法。得明股。}
-
-\clTSAOYUE{%
-別得二百二十五步即高股也。
-立天元一為明股。置一千以天元乘之，合以高股除不受除，
-便以此一零零零元為通股（內帶高股為母）。
-以天元加高股，得$\square$即大差也。
-置大差以高股分母乘之，得$\square$，即帶分大差也。
-以此減於通股，餘$\square$即圓徑也。
-以自增乘，得$\square$（寄左。內帶高股冪分母）。
-然後置一千以高股分母通之，得$\square$太，內減帶分大差，
-得$\square$為兩個通勾也。
-內減兩個圓徑得$\square$，為兩個小差也。
-以帶分大差乘之，得下式$\square$為同數，與左相消得$\square$。
-開平方得一百三十五步，即明股也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{通勾、通弦共1000步，明勾、明弦共225步。求城墙直径。}
-
-\mdFAYUE{%
-以后数（225）自乘两次再以前数（1000）乘之为二次方程常数项；
-以后数为冪再以前数乘之为一次项；
-以前数冪为负常数。得明股。}
-
-\mdTSAOYUE{%
-辨识得：225步即高股。
-设天元一为明股。取1000以天元乘之，应以高股除，不除，
-便以此1000元为通股（内带高股为分母）。
-以天元加高股得$\square$即大差。
-取大差以高股分母乘之，得$\square$即带分大差。
-以此减于通股，余$\square$即圆径。
-自乘得$\square$（寄左。内带高股冪分母）。
-然后取1000以高股分母通之，得$\square$太，内减带分大差，
-得$\square$为两个通勾。
-内减两个圆径得$\square$为两个小差。
-以带分大差乘之，得下式$\square$为同数，与左式相消得$\square$。
-开平方得135步，即明股。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 131
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{通股、通弦共一千二百八十步，股、弦共六十四步。問答同前。}
-
-\clFAYUE{%
-雲數相乘為平實，前數為益從。
-置前數以後數除之，得二十為泛率。
-泛率減一以自乘於上，又倍泛率減一加上位為常法。倒積開得勾一十六。}
-
-\clTSAOYUE{%
-別得六十四步即平勾也。
-立天元一為勾。置前數以天元乘之，以後數除之，得$\square$元即通勾也。
-又置天元加後數，得$\square$即小差也。
-以小差減通勾，餘$\square$即圓徑也。
-以自之得$\square$（寄左）。
-然後以小差減於前數，得$\square$為二通股。
-內減兩個圓徑，得$\square$為二大差也。
-以小差乘之得下$\square$，與左相消得$\square$。
-開平方得一十六步，即勾也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{通股、通弦共1280步，股、弦共64步。求城墙直径。}
-
-\mdFAYUE{%
-两已知数相乘为二次方程常数项，前数为负一次项。
-取前数以后数除之得20为泛率。
-泛率减1自乘于上位，两倍泛率减1加上位为常数。倒积开方得勾16。}
-
-\mdTSAOYUE{%
-辨识得：64步即平勾。
-设天元一为勾。取前数以天元乘之，以后数除之，得$\square$元即通勾。
-又取天元加后数得$\square$即小差。
-以小差减通勾，余$\square$即圆径。
-自乘得$\square$（寄左）。
-然后以小差减于前数得$\square$为二通股。
-内减两个圆径得$\square$为二大差。
-以小差乘之得下式$\square$，与左式相消得$\square$。
-开平方得16步，即勾。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 132
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{通股、通弦共一千二百八十步，明股、明弦共二百八十八步。問答同前。}
-
-\clFAYUE{%
-二數相減，以後數乘之，內減後數冪，又半之為泛率。以自之為平實。
-置前數加二之後數而半之為次率，以乘泛率，倍之於上，
-以後數乘泛率減上位為益從。
-次率自乘於上，以前數加次率，復以後數乘之，減上位為隅法。得明勾。}
-
-\clTSAOYUE{%
-別得二數相減，餘$\square$為通勾、通股及明勾共也。
-立天元一為明勾。置前數以天元乘之，合以後數除之。
-不除，便以此$\square$元為通勾也（內寄後數分母）。
-又以二數相減，得數內又減天元得$\square$為通和也。
-乃以分母二百八十八之，得下式$\square$，內減通勾，餘$\square$為通股也。
-又以天元加後數，又以分母（即後數也）通之，得$\square$為大差也。
-以此大差減於通股，得下式$\square$，為一個圓徑也。
-半之得$\square$，以自之得$\square$為半徑冪（寄左）。
-然後以半圓徑減通勾，得$\square$為底勾，又以天元乘之，
-又以分母二百八十八之，得$\square$為同數，與左相消得$\square$。
-開平方得七十二步，即明勾也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{通股、通弦共1280步，明股、明弦共288步。求城墙直径。}
-
-\mdFAYUE{%
-两数相减，以后数乘之，减去后数冪，折半为泛率。泛率自乘为二次方程常数项。
-取前数加两倍后数折半为次率，以次率乘泛率，两倍于上位，
-以后数乘泛率减上位为负一次项。
-次率自乘于上位，以前数加次率再以后数乘之，减上位为二次项系数。得明勾。}
-
-\mdTSAOYUE{%
-辨识得：两数相减余$\square$为通勾、通股及明勾之和。
-设天元一为明勾。取前数以天元乘之，应以后数除之。
-不除，便以此$\square$元为通勾（内寄后数为分母）。
-又以两数相减，得数内再减天元得$\square$为通和。
-以分母288通之，得下式$\square$，内减通勾余$\square$为通股。
-又以天元加后数，再以分母（即后数）通之，得$\square$为大差。
-以此大差减于通股，得下式$\square$为一个圆径。
-折半得$\square$，自乘得$\square$为半半径冪（寄左）。
-然后以半圆径减通勾得$\square$为底勾，再以天元乘之，
-又以分母288通之，得$\square$为同数，与左式相消得$\square$。
-开平方得72步，即明勾。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 133
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-明股、明弦並二百八十八步，勾、弦並五十步。
-又雲明股、勾並多於虛弦四十九步。問答同前。}
-
-\clFAYUE{前二數相並，內減二之多步，即圓徑。又只以前二數相乘，便是半徑冪。}
-
-\clTSAOYUE{%
-識別得前二數相減而半之，即極差也。其多步名傍差，又為圓徑不及極弦數。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-明股、明弦和288步，勾、弦和50步。
-又说明股、勾之和比虚弦多49步。求城墙直径。}
-
-\mdFAYUE{前两数相加，从中减去两倍多步，即圆径。又以前两数相乘，便是半半径冪。}
-
-\mdTSAOYUE{%
-辨识得：前两数相减折半，即极差。其多步名为「傍差」，又为圆径不及极弦之数。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 134
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{平差、高差共一百六十一步，明股、勾並多於虛弦四十九步。問答同前。}
-
-\clFAYUE{二數相減又半之，以自乘為實，後數為法。得平勾。}
-
-\clTSAOYUE{%
-立天元一為平勾。以加前數得$\square$為高股也。
-又以天元加高股得$\square$為極弦，內減後數得$\square$，
-又半之，得$\square$為半徑。
-以自之，得$\square$（寄左）。
-然後以天元乘高股，得$\square$為同數，與左相消得$\square$。
-上法下實，得六十四步，即平勾也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{平差、高差共161步，明股、勾之和比虚弦多49步。求城墙直径。}
-
-\mdFAYUE{两数相减折半，自乘为被除数，后数为除数。得平勾。}
-
-\mdTSAOYUE{%
-设天元一为平勾。加上前数得$\square$为高股。
-又以天元加高股得$\square$为极弦，减去后数得$\square$，
-折半得$\square$为半径。
-自乘得$\square$（寄左）。
-然后以天元乘高股得$\square$为同数，与左式相消得$\square$。
-上法下实，得64步，即平勾。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 135
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-平勾、高股差一百六十一步，明差、差並七十七步。
-又雲極弦多於城徑四十九步。問答同前。}
-
-\clFAYUE{%
-並上二位而半之為平率。其四十九即旁率也。
-副置平率，上加旁率，下減旁率，以相乘為實。倍旁差為法。得勾圓差。}
-
-\clTSAOYUE{%
-立天元一為半徑，又為半之股圓差上弦較較，又為半之勾圓差上弦較和也。
-內減勾圓差上勾股較$\square$，餘$\square$為半之勾圓差上弦較較也。
-置股圓差上勾股較$\square$，以半之勾圓差上弦較較乘之，得$\square$（寄左）。
-然後以半之股圓差上弦較較乘勾圓差上勾股較，
-得$\square$元為同數，與左相消得下式$\square$。
-上法下實，得一百二十步，即半徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-平勾、高股差161步，明差、差共77步。
-又说极弦比城径多49步。求城墙直径。}
-
-\mdFAYUE{%
-合并上两位折半为平率。49即旁率。
-分置平率，上加旁率，下减旁率，相乘为被除数。两倍旁差为除数。得勾圆差。}
-
-\mdTSAOYUE{%
-设天元一为半径，又为半之股圆差上弦较较，又为半之勾圆差上弦较和。
-减去勾圆差上勾股较$\square$，余$\square$为半之勾圆差上弦较较。
-取股圆差上勾股较$\square$，以半之勾圆差上弦较较乘之，得$\square$（寄左）。
-然后以半之股圆差上弦较较乘勾圆差上勾股较，
-得$\square$元为同数，与左式相消得下式$\square$。
-上法下实，得120步，即半径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 136
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-又依前問：見角差一百六十一步，見明差差並七十七步，又見太虛弦較較六十步。問答同前。}
-
-\clFAYUE{%
-前二數相減而半之，得數加入半之太虛弦較較為泛率，以自乘為平實。
-置一百六十一內減二之泛率為從，一常法。得平勾。}
-
-\clTSAOYUE{%
-別得$\square$即二股也。
-立天元一為平勾。先以前二數相減而半之，得$\square$為虛差。
-以虛差加股得$\square$，即明勾也。
-以明勾加天元得$\square$，為平弦，以自之得$\square$，
-內減天元冪，得$\square$為半徑冪（寄左）。
-然後以天元加一百六十一為高股，以天元乘之，得$\square$為同數，
-與左相消得$\square$。開平方得六十四步，即平勾也。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-又如前问：见角差161步，见明差差共77步，又见太虚弦较较60步。求城墙直径。}
-
-\mdFAYUE{%
-前两数相减折半，得数加入太虚弦较较的一半为泛率，泛率自乘为二次方程常数项。
-取161减去两倍泛率为一次项，1为常数。得平勾。}
-
-\mdTSAOYUE{%
-辨识得：$\square$即二股。
-设天元一为平勾。先以前两数相减折半得$\square$为虚差。
-以虚差加股得$\square$即明勾。
-以明勾加天元得$\square$为平弦，自乘得$\square$，
-减去天元冪得$\square$为半半径冪（寄左）。
-然后以天元加161为高股，以天元乘之得$\square$为同数，
-与左式相消得$\square$。开平方得64步，即平勾。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 137
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{高差、平差並一百六十一步，明差、差並七十七步。問答同前。}
-
-\clFAYUE{%
-以前數自乘於上，二數相並而半之，以自乘減上位，得數復自增乘為平實。
-前數自之於上，又以四之前數乘之，寄位。
-以前數自之於上，並二數而半之，以自乘減上位，得數又以四之前數乘，又倍之，減於寄位為從。
-前數自之，又四之於上。又以四之前數為冪，加上位，權寄。
-以前數為冪於上，並二數而半之，以自乘減上位，得數復八之於上。
-又以四之前數為冪加入上位，並以減於權寄為常法。得平勾。}
-
-\clTSAOYUE{%
-識別得二位相並而半之，得$\square$，即極差也。
-立天元一為平勾，加一百六十一得$\square$為高股，高股內又加天元，得$\square$為極弦。
-以自之得$\square$於上，內減極差冪一萬四千一百六十一，
-餘$\square$為兩段極積。合以極弦除，不除寄為母，便以此為城徑。
-以自增乘得$\square$為圓徑冪（內有極弦冪分母。寄左）。
-然後以天元乘高股，又四之得$\square$，又以分母極弦冪$\square$通之，
-得$\square$為同數，與左相消得$\square$。
-開平方得六十四步，即平勾也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{高差、平差共161步，明差、差共77步。求城墙直径。}
-
-\mdFAYUE{%
-以前数自乘于上位，两数相并折半自乘减上位，得数再自乘为二次方程常数项。
-前数自乘于上位，又以四倍前数乘之，寄存。
-前数自乘于上位，两数相并折半自乘减上位，得数又以四倍前数乘，再两倍，减于寄存为一次项。
-前数自乘又四倍于上位。又以四倍前数为冪加上位，暂寄。
-以前数为冪于上位，两数相并折半自乘减上位，得数再八倍于上位。
-又以四倍前数为冪加入上位，一并减于暂寄为常数。得平勾。}
-
-\mdTSAOYUE{%
-辨识得：两位相并折半得$\square$即极差。
-设天元一为平勾，加161得$\square$为高股，高股内再加天元得$\square$为极弦。
-自乘得$\square$于上位，减去极差冪14,161，
-余$\square$为两段极积。应以极弦除，不除寄为分母，便以此为城径。
-自乘得$\square$为圆径冪（内有极弦冪分母。寄左）。
-然后天元乘高股再四倍得$\square$，又以分母极弦冪$\square$通之，
-得$\square$为同数，与左式相消得$\square$。
-开平方得64步，即平勾。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 138
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{見明和二百七步，和四十六步。問答同前。}
-
-\clFAYUE{%
-二和上下相減，數同則止，名為泛率。
-又以二和直相減，餘為泛實（此則角差也）。
-乃以泛率除泛實，所得為差率也。
-以差率加減泛率，若半訖，與勾股相應者，其泛率便為和率，
-其泛實便為較率乘和率也。
-若不相應，則直取差率以消息之，定為相管和率
-（其勾股數少，得見弦黃而相為率者。
-勾三股四，則其和七，而其較一也。
-勾五股十二，則其和一十七，而其較七也。
-勾八股十五，則其和二十三，而其較亦得七也。
-勾七股二十四，則其和三十一，而其較一十七也。
-勾九股四十，則其和四十九，而其較三十一也。
-此消息之大略也。餘皆仿此）。
-乃以和率約二和，其明和所得為明壘率，其和所得為壘率也。
-又副置和率，上加差率而半之，則為股率也；
-下位減差率而半之，則為勾率也。
-既見勾、股及差三率，各以壘率乘之，即各得勾、股及差之真數也。}
-
-\clFAYUE{%
-又法：二雲數相並，以自乘於上。
-二雲數相乘，又四之以減上位為實。
-二雲數相並，以六步半乘之於上，又二數相並，以四步半乘之，又四之，
-以並入上位為從方。
-以七十步零四分三厘七毫五絲為常法。得小差四步。}
-
-\clTSAOYUE{%
-以二和相約分得率一、明率四步半，其兩數大小差率並同。
-又別得明小差、大差俱為半虛黃也。
-立天元一為小差，以四步半乘之得$\square$為大差也，又為明小差，又為半虛黃。
-置此大差又以四步半乘之得$\square$為明大差也。
-其四差相並得$\square$，減於二和並，得$\square$即兩段太虛大小差並也。
-內加三段虛黃方$\square$，得$\square$，合成一個太虛三事和，即圓城徑也。
-以自增乘得$\square$為徑冪（寄左）。
-乃置和加半虛黃，得$\square$為平勾。
-又置明和內加半虛黃，得$\square$為高股，
-勾股相乘得下式$\square$，又四之得$\square$為同數，
-與左相消得下式$\square$。開平方得四步，即小差也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{见明和207步，和46步。求城墙直径。}
-
-\mdFAYUE{%
-两和上下相减，数相同则止，名为泛率。
-又以两和直接相减，余为泛实（此即角差）。
-以泛率除泛实，所得为差率。
-以差率加减泛率，若折半后与勾股相应，则泛率即为和率，
-泛实即为较率乘和率。
-若不相应，则直接取差率以调整之，定为相管和率
-（勾股数少时，得见弦黄而相互为率。
-勾三股四，则和为七，较为一。
-勾五股十二，则和为十七，较为七。
-勾八股十五，则和为二十三，较为七。
-勾七股二十四，则和为三十一，较为十七。
-勾九股四十，则和为四十九，较为三十一。
-此调整之大致方法。余皆仿此）。
-以和率约两和，明和所得为明垒率，和所得为垒率。
-又分置和率，上加差率折半则为股率；
-下位减差率折半则为勾率。
-既得勾、股及差三率，各以垒率乘之，即得勾、股及差之真数。}
-
-\mdFAYUE{%
-另法：两已知数相并自乘于上位。
-两已知数相乘再四倍减上位为被除数。
-两已知数相并以6.5倍乘之于上位，又两数相并以4.5倍乘之再四倍，
-合并入上位为一次项。
-以70.4375为常数。得小差4步。}
-
-\mdTSAOYUE{%
-以两和相约得率一、明率4.5，两数大小差率皆同。
-又辨识得明小差、大差皆为半虚黄。
-设天元一为小差，以4.5乘之得$\square$为大差，又为明小差，又为半虚黄。
-取此大差再以4.5乘之得$\square$为明大差。
-四差相并得$\square$，从两和之和中减去得$\square$即两段太虚大小差之和。
-内加三段虚黄方$\square$得$\square$，合成一个太虚三事和即圆城径。
-自乘得$\square$为径冪（寄左）。
-取和加半虚黄得$\square$为平勾。
-又取明和内加半虚黄得$\square$为高股，
-勾股相乘得下式$\square$，再四倍得$\square$为同数，
-与左式相消得下式$\square$。开平方得4步，即小差。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 139 (last of vol 8)
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{明勾二股共八十八步，明股二勾共一百六十五步。問答同前。}
-
-\clFAYUE{%
-先識別得二大差共、二小差共及四差共。
-乃以二大差、二小差相乘為實，以四差共為法。如法得半之虛黃方一十八。}
-
-\clTSAOYUE{%
-先置前後雲數以約法約之，得一十一即壘率也。
-復各置前後數如壘率而一，前得八即勾率也，後得一十五即股率也。
-再以勾、股率求得較率七，和率二十三，弦率一十七，黃方率六，大差率九，小差率二。
-既見諸率，各以壘率乘之，其二和共得$\square$，二較共得$\square$，
-二弦共得$\square$，二黃共得$\square$，二大差共$\square$，
-二小差共$\square$，四差共$\square$。
-已上皆為明所得之共數也。
-乃立天元一為半虛黃，便為明小差，又為大差也。
-以減於大差共，得$\square$即明大差也。
-又以減於小差共，得$\square$即小差也。
-以二數相增乘，得$\square$（寄左）。
-以天元冪與寄左相消，得$\square$。
-上法下實，得一十八步，即半之虛黃方也。
-以倍之得$\square$，又加於二黃共六十六共得一百二，
-即明勾、股共也，又為極黃方，又為虛弦也。
-又以三十六減於一百八十七，餘一百五十一，即明股勾共也。
-此數內減虛弦，餘$\square$為明二差較也，此名旁差。
-以旁差減二弦共一百八十七，餘得$\square$，即太虛和也。
-卻加入虛弦一百二，並得$\square$，為太虛三事和，即圓城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{明勾与二股共88步，明股与二勾共165步。求城墙直径。}
-
-\mdFAYUE{%
-先辨识得二大差之和、二小差之和及四差之和。
-以二大差、二小差相乘为被除数，以四差之和为除数。依法得半虚黄方18。}
-
-\mdTSAOYUE{%
-先取前后两数以约法约之，得11即垒率。
-再各置前后数除以垒率，前得8即勾率，后得15即股率。
-再以勾、股率求得较率7，和率23，弦率17，黄方率6，大差率9，小差率2。
-既得诸率，各以垒率乘之，其二和共得$\square$，二较共得$\square$，
-二弦共得$\square$，二黄共得$\square$，二大差共$\square$，
-二小差共$\square$，四差共$\square$。
-以上皆为明所得之共数。
-设天元一为半虚黄，即为明小差，又为大差。
-从大差共中减去得$\square$即明大差。
-又从小差共中减去得$\square$即小差。
-两数相乘得$\square$（寄左）。
-以天元冪与寄左相消得$\square$。
-上法下实，得18步即半虚黄方。
-翻倍得$\square$，再加于二黄共66共得102，
-即明勾、股之和，又为极黄方，又为虚弦。
-又以36减于187余151即明股勾之和。
-此数内减虚弦余$\square$为明二差之较，此名「傍差」。
-以傍差减二弦共187余得$\square$即太虚和。
-再加入虚弦102共得$\square$为太虚三事和即圆城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\newpage
-
-
-% ===================================================================
-% VOLUME 9
-% ===================================================================
-\section{\tradfont 卷九\quad 大斜四問、大和八問}
-\label{sec:vol9}
-
-\begin{center}
-\fcolorbox{classicalborder}{classicalbg}{\parbox{0.9\textwidth}{\centering
-\textbf{\large 卷九概要}\quad 本卷十二问，分为大斜四问与大和八问。涉及最复杂的几何构形与最高次的方程——五次方程（四乘方）、六次方程（五乘方），以及玲珑（精巧方程变换）、换骨（根本变换）、连枝同体（关联方程组）等高阶技巧。
-}}
-\end{center}
-
-\vspace{0.5cm}
-
-\subsection{\tradfont 細草卷九上\quad 大斜四問}
-
-\begin{center}
-\fcolorbox{classicalborder}{classicalbg}{\parbox{0.85\textwidth}{\centering
-\textbf{大斜四問}：涉及大斜（通弦）及其相关各形的复杂问题，需运用\textbf{连枝同体}（关联方程组）与\textbf{玲珑}（精巧方程变换）求解。
-}}
-\end{center}
-
-\vspace{0.3cm}
-
-% -------------------------------------------------------------------
-% Problem 140
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲丙俱在中心，丙望南門直行，不知步數而止。
-甲出東門直行，不知步數望見丙，斜行與丙相會。
-二人共行了六百八十步，仍雲甲直行少於丙直行一百一十九步。問答同前。}
-
-\clFAYUE{%
-二數相減，餘以為冪，內卻減差冪為平實；
-二數相減又四之於上，又加入二之差步為益從；二步常法。得皇勾一百三十六。}
-
-\clTSAOYUE{%
-別得共步即皇極三事和，少步即勾股差也。
-立天元一為皇極勾。加少步得$\square$為股也，又以天元加股得$\square$為和也。
-以和減共步得$\square$為弦也，弦自之得$\square$為一段弦冪（寄左）。
-然後置股以天元乘之，又倍之，得$\square$為二直積，
-如入少步冪$\square$共得$\square$為同數，與左相消得$\square$。
-平方而一，得一百三十六即勾也。勾加差為股，勾股相乘，倍之為實，
-勾股和減共步為法。得城徑。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲丙都在中心，丙望南门直行，不知步数停下。
-甲出东门直行，不知步数望见丙，斜行与丙相会。
-两人共行了680步，又说甲直行比丙直行少119步。求城墙直径。}
-
-\mdFAYUE{%
-两数相减余数作为冪，减去差的冪为二次方程常数项；
-两数相减再四倍于上位，再加入两倍差步为负一次项；2为常数。得皇勾136。}
-
-\mdTSAOYUE{%
-辨识得：共步即皇极三事和，少步即勾股差。
-设天元一为皇极勾。加少步得$\square$为股，又以天元加股得$\square$为和。
-以和减共步得$\square$为弦，弦自乘得$\square$为一段弦冪（寄左）。
-然后取股以天元乘之再两倍得$\square$为两倍直积，
-加入少步冪$\square$共得$\square$为同数，与左式相消得$\square$。
-开平方得136即勾。勾加差为股，勾股相乘两倍为被除数，
-勾股和减共步为除数。得城径。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 141
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲丙俱在西北隅起，丙向南行不知步數而立。
-甲向東行望見丙，就丙斜行六百八十步與丙相會。
-丙雲：「我南行步多於甲東行二百八十步。」問答同前。}
-
-\clFAYUE{以雲數差乘雲數並為實，倍多步為從，二為平隅。得大勾三百二十。}
-
-\clTSAOYUE{%
-立天元為大勾。加差得$\square$為股，倍天元乘之，得$\square$為二積（寄左）。
-然後以斜步、多步並$\square$與斜步、多步較$\square$相乘，
-得$\square$為同數，與左相消得$\square$。
-開平方得三百二十步，即大勾也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲丙都在西北角出发，丙向南行不知步数停下。
-甲向东行望见丙，向丙斜行680步与丙相会。
-丙说：「我南行步比甲东行多280步。」求城墙直径。}
-
-\mdFAYUE{以两已知数之差乘两已知数之和为被除数，两倍多步为一次项，2为二次项系数。得大勾320。}
-
-\mdTSAOYUE{%
-设天元为大勾。加差得$\square$为股，两倍天元乘之得$\square$为两倍积（寄左）。
-然后斜步与多步之和$\square$与斜步和多步之差$\square$相乘，
-得$\square$为同数，与左式相消得$\square$。
-开平方得320步，即大勾。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 142
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲乙二人共立於艮隅，乙南行過城門而立，甲東行望乙與城參相直而止。
-丙丁二人共立於坤隅，丁向東行過城門而立，丙向南行望丁及甲乙悉與城俱相直。
-丙復就甲斜行六百八十步與甲相會。
-乙、丁又雲：「吾二人直行共得三百四十二步。」問答同前。}
-
-\clFAYUE{%
-二雲數相乘，倍之為實；倍斜行於上，以二雲數相減加上位為從；一步常法。
-開平方，得城徑。}
-
-\clTSAOYUE{%
-別得斜步即大弦也。其共步則一徑一虛弦共也，
-其二數相並為一大和一虛弦共數也。
-立天元為徑，減於共步得$\square$為虛弦也。
-以虛弦復減於天元，得$\square$為虛和，以斜步乘之，得$\square$（寄左）。
-乃以天元加斜步，得$\square$為大和，以虛弦乘之得$\square$為同數，
-與左相消得$\square$。開平方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲乙二人同立于艮角（东北），乙南行过城门停下，甲东行望乙与城墙呈直角而止。
-丙丁二人同立于坤角（西南），丁东行过城门停下，丙南行望丁及甲乙都与城墙呈直角。
-丙再向甲斜行680步与甲相会。
-乙、丁又说：「我们二人直行共得342步。」求城墙直径。}
-
-\mdFAYUE{%
-两已知数相乘翻倍为被除数；两倍斜行于上位，以两已知数相减加上位为一次项；1为常数。
-开平方得城径。}
-
-\mdTSAOYUE{%
-辨识得：斜步即大弦。共步即一径一虚弦之和，
-两数相并为一大和一虚弦之共数。
-设天元为径，从共步中减去得$\square$为虚弦。
-以虚弦再从天元中减去得$\square$为虚和，以斜步乘之得$\square$（寄左）。
-以天元加斜步得$\square$为大和，以虚弦乘之得$\square$为同数，
-与左式相消得$\square$。开平方得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 143
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲從北門向東直行，庚從西門穿城東行，丙從西門向南直行，壬從北門穿城南行。
-四人遙相望，悉與城參相直。
-只雲甲丙相望處六百八十步，庚壬穿城共行了六百三十一步。問答同前。}
-
-\clFAYUE{%
-共步自之得數。以共步減斜，餘自乘以減上為實。
-二之斜步加入共步減斜，餘數為從。一步常法。得城徑。}
-
-\clTSAOYUE{%
-共行步為一徑與皇和共也，又為大和皇弦差也。甲丙相望即大弦也。
-以共步減大弦，餘$\square$為皇極弦上減一徑也。
-立天元一為圓徑，減於共步，得$\square$為皇極和也，以自之得$\square$於上。
-弦內減共步餘$\square$，又以天元加之為皇弦，以自之得$\square$，
-減上位，餘得$\square$為兩個皇直積（寄左）。
-乃以天元乘皇弦得下式$\square$為同數，與左相消得$\square$。
-平方而一，得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲从北门向东直行，庚从西门穿城东行，丙从西门向南直行，壬从北门穿城南行。
-四人遥遥相望，都与城墙呈直角。
-只说甲丙相望处680步，庚壬穿城共行了631步。求城墙直径。}
-
-\mdFAYUE{%
-共步自乘得数。以共步减斜步，余数自乘减上位为被除数。
-两倍斜步加入共步减斜之余数为一次项。1为常数。得城径。}
-
-\mdTSAOYUE{%
-共行步为一径与皇极之和，又为大和与皇弦之差。甲丙相望即大弦。
-以共步减大弦余$\square$为皇极弦上减一径。
-设天元一为圆径，从共步中减去得$\square$为皇极和，自乘得$\square$于上位。
-弦内减共步余$\square$，再加天元为皇弦，自乘得$\square$，
-减上位余得$\square$为两个皇极直积（寄左）。
-以天元乘皇弦得下式$\square$为同数，与左式相消得$\square$。
-开平方得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\newpage
-
-\subsection{\tradfont 細草卷九下\quad 大和八問}
-
-\begin{center}
-\fcolorbox{classicalborder}{classicalbg}{\parbox{0.85\textwidth}{\centering
-\textbf{大和八問}：以「大和」（通勾通股之和）為已知條件，涉及\textbf{換骨}（根本變換）與\textbf{奪項}（消元法）等高階代數技巧，方程多達五次（四乘方）、六次（五乘方）。
-}}
-\end{center}
-
-\vspace{0.3cm}
-
-% -------------------------------------------------------------------
-% Problem 144
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-庚從西門穿城東行二百五十六步而立，壬從北門穿城南行三百七十五步而立。
-又有甲丙二人俱在乾隅，甲向東行，丙向南行，各不知步數而立。
-四人遙相望，只雲甲丙共行了九百二十步。問答同前。}
-
-\clFAYUE{%
-庚東行冪、壬南行冪相並於上，並庚壬步而倍之，內減大和，
-餘復減於庚壬共，得數以自乘減上位為平實。
-並庚壬步為益從，半步為隅法。得城徑。}
-
-\clTSAOYUE{%
-立天元一為圓徑，以半之副置二位。
-上以減於庚東行，得下$\square$為平弦也；下以減於壬南行，得$\square$為高弦也。
-二弦相並得$\square$為皇弦、虛弦共也。
-倍此數得$\square$為大弦、虛弦共也。
-以大弦、虛弦共減於大和，餘$\square$為虛勾虛股共也。
-天元內減虛勾、虛股共，餘$\square$即虛弦也。
-復置皇弦虛弦共內減虛弦，餘$\square$即皇極弦也，
-以自之得$\square$（寄左）。
-然後以平弦自之，得下式$\square$為勾冪也，又以高弦自之，
-得$\square$為股冪也。
-二冪相並得$\square$為同數，與左相消得$\square$。
-平方而一，得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-庚从西门穿城东行256步停下，壬从北门穿城南行375步停下。
-又有甲丙二人同在乾角（西北），甲向东行，丙向南行，各不知步数停下。
-四人遥遥相望，只说甲丙共行了920步。求城墙直径。}
-
-\mdFAYUE{%
-庚东行冪、壬南行冪合并于上位，庚壬步数相加翻倍，从中减去大和，
-余数再从庚壬共中减去，得数自乘减上位为二次方程常数项。
-庚壬步数之和为负一次项，0.5为二次项系数。得城径。}
-
-\mdTSAOYUE{%
-设天元一为圆径，取半后分置两位。
-上位从庚东行中减去得下式$\square$为平弦；下位从壬南行中减去得$\square$为高弦。
-两弦相加得$\square$为皇弦与虚弦之和。
-此数翻倍得$\square$为大弦与虚弦之和。
-以大弦、虚弦之和减于大和余$\square$为虚勾与虚股之和。
-天元内减虚勾、虚股之和余$\square$即虚弦。
-再取皇弦虚弦之和减去虚弦余$\square$即皇极弦，
-自乘得$\square$（寄左）。
-然后平弦自乘得下式$\square$为勾冪，高弦自乘
-得$\square$为股冪。
-两冪合并得$\square$为同数，与左式相消得$\square$。
-开平方得240步，即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 145
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲丙俱在西北隅，甲向東行不知步數而立，丙向南行望見甲，就甲斜行與甲相會。
-甲直行、丙直行共九百二十步（甲步少於丙步）。
-又：出東門南行有柳樹一株，出南門東行有槐樹一株。
-戊己二人同在巽隅，戊就柳樹，己就槐樹，亦與甲、乙遙相望。
-只雲己行少於戊行數與兩樹相距數相並，得一百四十四步，其二數相減餘六十步。問答同前。}
-
-\clFAYUE{%
-二雲數相並而半之為虛弦，以乘大和九百二十步於上。
-以一百四十四減大和，以虛較乘之，減上位為平實。
-以一百四十四減大和，又二之於上，以二之虛較減上位為從。四虛隅。得太虛勾四十八。}
-
-\clTSAOYUE{%
-別得甲丙直行共即大和也，戊就柳樹步即虛股也，己就槐樹步即虛勾也。
-其一百四十四步即二明勾，其六十步即二股也。
-立天元一為虛勾，加明勾得$\square$為半徑也，
-倍之得$\square$即城徑也（又為虛弦上三事和）。
-二雲數相並而半之，得$\square$即小弦也。
-相減而半之，得$\square$即小較也。
-以天元加較得$\square$即小股也，小勾股共得$\square$即小和也。
-以小三事減大和得$\square$即大弦也。
-乃先置小和以大弦乘之，得下式$\square$（寄左）。
-次以小弦乘大和，得$\square$，與左相消得下式$\square$。
-開平方得四十八步，即虛勾也。加明勾又倍之得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲丙都在西北角，甲向东行不知步数停下，丙向南行望见甲，向甲斜行与甲相会。
-甲直行、丙直行共920步（甲步少于丙步）。
-又：出东门南行有柳树一株，出南门东行有槐树一株。
-戊己二人同在巽角（东南），戊到柳树，己到槐树，也与甲、乙遥遥相望。
-只说己行比戊行之数与两树相距之数相加得144步，两数相减余60步。求城墙直径。}
-
-\mdFAYUE{%
-两已知数相并折半为虚弦，乘以大和920步于上位。
-以144减大和，以虚较乘之减上位为二次方程常数项。
-以144减大和再两倍于上位，以两倍虚较减上位为一次项。负4为二次项系数。得太虚勾48。}
-
-\mdTSAOYUE{%
-辨识得：甲丙直行共即大和，戊到柳树步即虚股，己到槐树步即虚勾。
-144步即两倍明勾，60步即两倍股。
-设天元一为虚勾，加明勾得$\square$为半径，
-翻倍得$\square$即城径（又为虚弦上三事和）。
-两已知数相并折半得$\square$即小弦。
-相减折半得$\square$即小较。
-天元加较得$\square$即小股，小勾股共得$\square$即小和。
-以小三事减大和得$\square$即大弦。
-先置小和以大弦乘之得下式$\square$（寄左）。
-次以小弦乘大和得$\square$，与左式相消得下式$\square$。
-开平方得48步即虚勾。加明勾再翻倍得240步即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 146
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-甲從乾隅東行，乙從艮隅南行，丙從乾隅南行，丁從坤隅東行，四人遙相望見。
-既而甲還至艮隅就乙，丙還至坤隅就丁。
-甲丙直行共九百二十步，甲還就乙共二百三十步，丙還就丁共五百五十二步。問答同前。}
-
-\clFAYUE{%
-並就數以減直行共，復以所並就數乘之為實；
-並就數減直行共，得數復加入直行共為法。得虛弦。}
-
-\clTSAOYUE{%
-別得甲丙直行共為大和也，甲還就乙步為小差勾股共也，丙還就丁步為大差勾股共也。
-以大差勾股共減於大股，餘即虛勾也。
-以小差勾股共減於大勾，餘即虛股也。
-二數相並得$\square$為大弦虛弦共也，
-二數相減，餘$\square$為通差及太虛勾股差共也。
-又並二數而半之，得$\square$為皇極弦虛弦共，又為皇極勾股共也。
-立天元一為虛弦。
-先以二共數減於大和，餘$\square$為虛勾虛股和於上。
-次以虛弦減於二共數，餘$\square$為大弦，
-以乘上位，得下$\square$（寄左）。
-然後以天元乘大和，得$\square$元為同數，與左相消得$\square$。
-上法下實，得一百二步，即虛弦也。加入虛和得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-甲从乾角（西北）东行，乙从艮角（东北）南行，丙从乾角南行，丁从坤角（西南）东行，四人遥遥相望。
-随后甲回到艮角靠近乙，丙回到坤角靠近丁。
-甲丙直行共920步，甲靠近乙共230步，丙靠近丁共552步。求城墙直径。}
-
-\mdFAYUE{%
-并就数减直行共，再以并就数乘之为被除数；
-并就数减直行共，得数再加入直行共为除数。得虚弦。}
-
-\mdTSAOYUE{%
-辨识得：甲丙直行共为大和，甲靠近乙步为小差勾股之和，丙靠近丁步为大差勾股之和。
-以大差勾股之和减于大股余即虚勾。
-以小差勾股之和减于大勾余即虚股。
-两数相并得$\square$为大弦虚弦之和，
-两数相减余$\square$为通差及太虚勾股差之和。
-又两数相并折半得$\square$为皇极弦虚弦之和，又为皇极勾股之和。
-设天元一为虚弦。
-先以二共数减于大和余$\square$为虚勾虚股之和于上位。
-次以虚弦减于二共数余$\square$为大弦，
-乘上位得下式$\square$（寄左）。
-然后天元乘大和得$\square$元为同数，与左式相消得$\square$。
-上法下实，得102步即虚弦。加入虚和得240步即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 147
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-依前見大和，只雲股圓差上勾弦差二百一十六，勾圓差上股弦差二十步。問答同前。}
-
-\clFAYUE{%
-以雲數二十步減通和，復以二十步乘之於上。
-以雲數二百一十六減九百步而半之，乘上位為立實。
-三因二十步以減通和得八百六十，
-以二百一十六及二十共得二百三十六，減通和而半之，得三百四十二。
-二數相乘訖，內減二十之九百步。
-又以三百四十二及二百一十六共得五百五十八，又二十之以減之為從方。
-以二百三十六減通和，又以三之二十步減通和，相並於上。
-以二之五百五十八內卻減二十步，餘以加上位為益廉。
-四步常法。得小差股一百五十。}
-
-\clTSAOYUE{%
-別得小差上股弦差$\square$加二股為大勾也，大差上勾弦差$\square$加二勾為大股也。
-立天元一為小差股，加$\square$得$\square$為小差弦也，
-小差弦上又加天元得$\square$為通勾，以減於和步得$\square$為通股也。
-通股內減$\square$得$\square$，半之得下式$\square$即大差之勾也。
-大差勾上又加$\square$，得$\square$為大差弦也。
-再置通股以小差弦乘之，得$\square$，以天元除之，得$\square$為一個大弦也（泛寄）。
-再置通勾以大差弦乘之，得$\square$，合以大差勾除。
-不除寄為母，便以為大弦（寄左）。
-乃以大差勾乘泛寄，得$\square$為同數，與左相消得$\square$。
-益積開立方，得一百五十步，為小差股也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-如前见大和（通勾通股之和），只说股圆差上勾弦差216，勾圆差上股弦差20步。求城墙直径。}
-
-\mdFAYUE{%
-以已知数20步减通和，再以20步乘之于上位。
-以已知数216减900步折半，乘上位为三次方程（立方）常数项。
-三倍20步减通和得860，
-216与20共得236，减通和折半得342。
-两数相乘毕，减去20乘900。
-又以342及216共得558，再乘20减之为一次项。
-以236减通和，又以三倍20步减通和，相并于上位。
-以两倍558减去20步，余加上位为负廉。
-4为常数。得小差股150。}
-
-\mdTSAOYUE{%
-辨识得：小差上股弦差$\square$加两倍股为大勾，大差上勾弦差$\square$加两倍勾为大股。
-设天元一为小差股，加$\square$得$\square$为小差弦，
-小差弦上又加天元得$\square$为通勾，从和步中减去得$\square$为通股。
-通股内减$\square$得$\square$，折半得下式$\square$即大差之勾。
-大差勾上加$\square$得$\square$为大差弦。
-再取通股以小差弦乘之得$\square$，除以天元得$\square$为一个大弦（泛寄）。
-再取通勾以大差弦乘之得$\square$，应以大差勾除。
-不除寄为分母，便以为大弦（寄左）。
-以大差勾乘泛寄得$\square$为同数，与左式相消得$\square$。
-益积开立方得150步，即为小差股。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 148
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-依前見大和，只雲高弦、平弦共得三百九十一步，高弦、平弦相較得一百一十九步。問答同前。}
-
-\clFAYUE{%
-以較數冪減於共數冪，又半之為實，以共數減大和為益從，一常法。
-開平方，得圓徑。}
-
-\clTSAOYUE{%
-別得高弦減於通股為邊股內減明股也，平弦減於通勾為邊勾內減明勾也。
-其共數即大弦內減皇極弦，又為皇極勾股共也，其相較步即皇極差也。
-二雲數相並得$\square$，即黃廣弦也。
-二雲數相減，餘即黃長弦也。
-以共數減於大和，餘$\square$為皇極弦、圓徑共。
-立天元一為圓徑，以減於$\square$為皇極弦也。
-以共數自之得$\square$於上。
-以相較數自之得$\square$，減上位，餘$\square$，
-又半之得$\square$為兩段皇極積（寄左）。
-乃以天元乘皇極弦，得$\square$為同數，
-與左相消得下$\square$。開平方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-如前见大和，只说高弦、平弦共得391步，高弦、平弦相差119步。求城墙直径。}
-
-\mdFAYUE{%
-以较数冪从共数冪中减去，折半为被除数，以共数减大和为负一次项，1为常数。
-开平方得圆径。}
-
-\mdTSAOYUE{%
-辨识得：高弦减于通股为边股内减明股，平弦减于通勾为边勾内减明勾。
-共数即大弦内减皇极弦，又为皇极勾股之和，相差步即皇极差。
-两已知数相并得$\square$即黄广弦。
-两已知数相减余即黄长弦。
-以共数减于大和余$\square$为皇极弦、圆径之和。
-设天元一为圆径，从$\square$中减去为皇极弦。
-以共数自乘得$\square$于上位。
-以相较数自乘得$\square$，减上位余$\square$，
-折半得$\square$为两段皇极积（寄左）。
-以天元乘皇极弦得$\square$为同数，
-与左式相消得下式$\square$。开平方得240步即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 149
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-依前見大和，只雲大差弦四百零八步，小差弦一百七十步。問答同前。}
-
-\clFAYUE{%
-以並雲數減大和，復以相並數乘之為實。
-三之通和於上，又以並雲數減大和，加上位為從。二步虛法。得圓徑。}
-
-\clTSAOYUE{%
-大差弦減和步，餘$\square$為大勾、大差勾共也。
-以小差弦減大和，餘$\square$為大股、小差股共也。
-雲數相並得即大弦內減虛弦也，雲數相減得$\square$為虛弦平弦共也。
-以相並數減於大和，餘$\square$為大差勾、小差股共，又為圓徑、虛弦共也。
-立天元一為圓徑，減於$\square$得$\square$為虛弦也。
-反以減於圓徑得$\square$為小和也。
-以天元減大和得$\square$為大弦，以乘小和，得$\square$（寄左）。
-乃再置虛弦以通和乘之，得$\square$，與左相消得$\square$。
-開平方得二百四十步，即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-如前见大和，只说大差弦408步，小差弦170步。求城墙直径。}
-
-\mdFAYUE{%
-以两已知数之和减大和，再以相并数乘之为被除数。
-三倍通和于上位，又以并数减大和加上位为一次项。负2为常数。得圆径。}
-
-\mdTSAOYUE{%
-大差弦减和步余$\square$为大勾、大差勾之和。
-以小差弦减大和余$\square$为大股、小差股之和。
-两数相并得即大弦内减虚弦，相减得$\square$为虚弦平弦之和。
-以相并数减于大和余$\square$为大差勾、小差股之和，又为圆径、虚弦之和。
-设天元一为圆径，从$\square$中减去得$\square$为虚弦。
-反过来从圆径中减去得$\square$为小和。
-天元减大和得$\square$为大弦，乘小和得$\square$（寄左）。
-再取虚弦以通和乘之得$\square$，与左式相消得$\square$。
-开平方得240步即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 150
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-依前見大和，只雲黃廣弦五百一十步，黃長弦二百七十二步。問答同前。}
-
-\clFAYUE{%
-雲數相並減大和，復以相並數乘之為實。
-雲數相並減大和，得數復以加大和為法。得虛弦一百二。}
-
-\clTSAOYUE{%
-別得黃廣弦又為大差弦、虛弦共，又為邊股、股共也。
-黃長弦又為小差弦、虛弦共，又為底勾、明勾共也。
-以黃廣弦減於大股，餘$\square$即虛股，以黃長弦減於大勾，餘$\square$即虛勾。
-故並數以減於大和，餘$\square$為虛和也。
-以虛和減徑即虛弦也。
-二雲數相並得$\square$為大弦、虛弦共也，雲數相減餘$\square$為虛弦、平弦共。
-立天元一為虛弦，以減於七百八十二，得$\square$為大弦也，
-以小和乘之得$\square$（寄左）。
-乃以天元虛弦乘大和，得$\square$為同數，與左相消得$\square$。
-上法下實，得一百二步，即虛弦也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-如前见大和，只说黄广弦510步，黄长弦272步。求城墙直径。}
-
-\mdFAYUE{%
-两已知数相并减大和，再以相并数乘之为被除数。
-两数相并减大和，得数再加入大和为除数。得虚弦102。}
-
-\mdTSAOYUE{%
-辨识得：黄广弦又为大差弦、虚弦之和，又为边股、股之和。
-黄长弦又为小差弦、虚弦之和，又为底勾、明勾之和。
-以黄广弦减于大股余$\square$即虚股，以黄长弦减于大勾余$\square$即虚勾。
-故两数相并以减于大和余$\square$为虚和。
-以虚和减径即虚弦。
-两已知数相并得$\square$为大弦、虚弦之和，相减余$\square$为虚弦、平弦之和。
-设天元一为虚弦，从782中减去得$\square$为大弦，
-乘小和得$\square$（寄左）。
-以天元虚弦乘大和得$\square$为同数，与左式相消得$\square$。
-上法下实，得102步即虚弦。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{0.3cm}
-\begin{center}\longline\end{center}
-
-% -------------------------------------------------------------------
-% Problem 151
-% -------------------------------------------------------------------
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\clOWEN{%
-依前見大和，只雲邊弦五百四十四步，底弦四百二十五步。問答同前。}
-
-\clFAYUE{雲數相減自之為實，以大和減並數為法。得皇極弦。}
-
-\clTSAOYUE{%
-別得以邊弦減大股，餘$\square$為半徑內減平勾，又為平弦內減勾圓差也。
-以大勾減於底弦，餘$\square$為高股內少半徑，又為股圓差內少高弦也。
-二雲數相並，得九百六十九為大弦、皇極弦共也。
-二雲數相減，得$\square$為皇極勾股差也。
-並數內減通和，餘$\square$為皇極弦內減圓徑也。
-立天元一為皇極弦，以自之於上。
-以一百一十九自之得$\square$，減上位得$\square$為二皇積（寄左）。
-復置天元內減四十九得下式$\square$為黃方。
-復以天元乘之，得$\square$，與左相消得$\square$。
-上法下實，得二百八十九步，即皇極弦也。內減四十九，餘即城徑也。合問。}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\mdOWEN{%
-如前见大和，只说边弦544步，底弦425步。求城墙直径。}
-
-\mdFAYUE{两已知数相减自乘为被除数，以大和减并数为除数。得皇极弦。}
-
-\mdTSAOYUE{%
-辨识得：以边弦减大股余$\square$为半径内减平勾，又为平弦内减勾圆差。
-以大勾减于底弦余$\square$为高股内少半径，又为股圆差内少高弦。
-两已知数相并得969为大弦、皇极弦之和。
-两已知数相减得$\square$为皇极勾股之差。
-并数内减通和余$\square$为皇极弦内减圆径。
-设天元一为皇极弦，自乘于上位。
-以119自乘得$\square$，减上位得$\square$为两倍皇极积（寄左）。
-再取天元内减49得下式$\square$为黄方。
-再以天元乘之得$\square$，与左式相消得$\square$。
-上法下实，得289步即皇极弦。内减49余即城径。符合所问。}
-\end{rightcolumn}
-
-\end{paracol}
-
-\newpage
-
-% ===================================================================
-% COLOPHON / 跋
-% ===================================================================
-\section*{跋\quad Colophon}
-\addcontentsline{toc}{section}{跋 Colophon}
-
-\begin{paracol}{2}
-
-\begin{leftcolumn}
-\fcolorbox{classicalborder}{classicalbg}{%
-\parbox{\linewidth}{%
-\textbf{\large\tradfont 【文言文】}
-
-\vspace{0.3em}
-《測圓海鏡》十二卷，金元李冶撰，成書於1248年。此書為現存最早系統運用「天元術」
-求解多項式方程之數學專著，堪稱中世紀代數學之巔峰。
-
-全書以圓城與勾股形為基本構架，設十五種直角三角形，各邊對角皆有專名。
-以天元一為未知數，借算籌佈列太極、天元之位，建立高次方程，
-用增乘開方法求解。其方程式之高次，可達\textbf{五乘方}（六次方程）。
-
-書中尤多精妙之處：
-\begin{itemize}[leftmargin=1.5em,topsep=0pt]
-  \item \textbf{連枝同体}：关联方程组之法
-  \item \textbf{玲珑}：精巧的方程变换之术
-  \item \textbf{換骨}：根本变换之法
-  \item \textbf{奪項}：消元之法
-\end{itemize}
-
-此皆中算之瑰寶，值得後人深入研習。
-
-\vspace{0.3em}
-\textit{測圓海鏡 卷七至九 文言文/白话文对照版}
-}}
-\end{leftcolumn}
-
-\switchcolumn
-
-\begin{rightcolumn}
-\fcolorbox{modernborder}{modernbg}{%
-\parbox{\linewidth}{%
-\textbf{\large\modfont 【白话文】}
-
-\vspace{0.3em}
-《测圆海镜》十二卷，金元时期李冶所著，成书于1248年。此书为现存最早系统运用「天元术」
-求解多项式方程的数学专著，堪称中世纪代数学的巅峰之作。
-
-全书以圆城与直角三角形为基本构架，设立十五种直角三角形，各边对角皆有专名。
-以天元一为未知数，借算筹排列太极、天元之位，建立高次方程，
-用增乘开方法求解。其方程的最高次数可达\textbf{六次方程（五乘方）}。
-
-书中尤为精妙之处：
-\begin{itemize}[leftmargin=1.5em,topsep=0pt]
-  \item \textbf{连枝同体（关联方程组）}：处理多变量联立方程的方法
-  \item \textbf{玲珑（精巧的方程变换）}：巧妙的代数变形技巧
-  \item \textbf{换骨（根本变换）}：从根本上转换问题视角的技巧
-  \item \textbf{夺项（消元法）}：消去变量的方法
-\end{itemize}
-
-这些都是中国数学的瑰宝，值得后人深入研习。
-
-\vspace{0.3em}
-\textit{测圆海镜 卷七至九 文言文白话文对照版}
-}}
-\end{rightcolumn}
-
-\end{paracol}
-
-\vspace{1cm}
-
-\begin{center}
-\longline
-
-\vspace{0.5cm}
-
-{\small\tradfont 原文來源：Chinese Wikisource（\url{https://zh.wikisource.org/wiki/測圓海鏡}）}
-
-\vspace{0.2cm}
-
-{\small\modfont 排版：Xe\LaTeX\ + xeCJK + Microsoft YaHei 字体族}
-
-\vspace{0.2cm}
-
-{\small 測圓海鏡 卷七至卷九 \quad 文言文\,$\boldsymbol{\leftrightarrow}$\,白话文 對照版}
-
-{\small \textit{Bilingual Edition: Classical Chinese / Modern Chinese}}
-
-\vspace{0.3cm}
-
-{\footnotesize 術語對照：五乘方$\to$五次方程\quad 六乘方$\to$六次方程\quad 連枝同体$\to$連枝同体（关联方程组）\quad 玲珑$\to$玲珑（精巧的方程变换）\quad 換骨$\to$換骨（根本变换）\quad 奪項$\to$奪項（消元法）}
-\end{center}
-
-\end{document}
+% ========================================================================
+% 測圓海鏡 (Ceyuan Haijing / Sea Mirror of Circle Measurements)
+% by Li Ye (李冶), 1248
+% Volumes 7--9
+% BILINGUAL EDITION: Classical Chinese ←→ Modern Chinese
+% 文言文 ↔ 白话文 对照版
+% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+% Make \square work in text mode
+\AtBeginDocument{%
+  \let\origsquare\square
+  \renewcommand{\square}{\ensuremath{\origsquare}}%
+}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{etoolbox}
+\usepackage{paracol}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+
+% Chinese Fonts via xeCJK - Classical uses Noto Serif CJK, Modern uses Noto Sans CJK
+\setCJKmainfont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+\newCJKfontfamily\tradfont{Noto Serif CJK SC}
+\newCJKfontfamily\tradfontbf{Noto Serif CJK SC Bold}
+\newCJKfontfamily\modfont{Noto Sans CJK SC}
+\newCJKfontfamily\modfontbf{Noto Sans CJK SC Bold}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{80,40,20}
+\definecolor{methodcolor}{RGB}{20,60,80}
+\definecolor{workcolor}{RGB}{40,70,40}
+\definecolor{classicalbg}{RGB}{255,250,245}
+\definecolor{modernbg}{RGB}{245,250,255}
+\definecolor{classicalborder}{RGB}{180,140,120}
+\definecolor{modernborder}{RGB}{120,140,180}
+
+% -------- Column Ratio --------
+\columnsep=16pt
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}\tradfontbf}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}\tradfontbf}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}\tradfontbf}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\tradfont 測圓海鏡\quad 卷七至卷九}
+\fancyhead[R]{\small\modfont 文言文\,$\boldsymbol{\leftrightarrow}$\,白话文对照版}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+% Classical (left column) problem environment
+\newcommand{\clOWEN}[1]{%
+  \par\vspace{0.3em}%
+  \noindent\textcolor{problemcolor}{\textbf{【或問】}}\,{\tradfont #1}\par\nopagebreak%
+}
+% Modern (right column) problem environment
+\newcommand{\mdOWEN}[1]{%
+  \par\vspace{0.3em}%
+  \noindent\textcolor{problemcolor}{\textbf{【问题】}}\,{\modfont #1}\par\nopagebreak%
+}
+
+% Classical method environment
+\newcommand{\clFAYUE}[1]{%
+  \par\noindent\textcolor{methodcolor}{\textbf{【法曰】}}\,{\tradfont #1}\par\nopagebreak%
+}
+% Modern method environment
+\newcommand{\mdFAYUE}[1]{%
+  \par\noindent\textcolor{methodcolor}{\textbf{【解法】}}\,{\modfont #1}\par\nopagebreak%
+}
+
+% Classical working environment
+\newcommand{\clTSAOYUE}[1]{%
+  \par\noindent\textcolor{workcolor}{\textbf{【草曰】}}\,{\tradfont #1}\par%
+}
+% Modern working environment
+\newcommand{\mdTSAOYUE}[1]{%
+  \par\noindent\textcolor{workcolor}{\textbf【演算】}}\,{\modfont #1}\par%
+}
+
+% Inline Chinese helpers
+\newcommand{\zh}[1]{{\tradfont #1}}
+\newcommand{\md}[1]{{\modfont #1}}
+
+% Bilingual pair command: classical + modern
+\newcommand{\bilingual}[2]{%
+  \begin{paracol}{2}%
+  \begin{leftcolumn}%
+    \fcolorbox{classicalborder}{classicalbg}{\parbox{\linewidth}{#1}}%
+  \end{leftcolumn}%
+  \switchcolumn%
+  \begin{rightcolumn}%
+    \fcolorbox{modernborder}{modernbg}{\parbox{\linewidth}{#2}}%
+  \end{rightcolumn}%
+  \end{paracol}%
+}
+
+% Simple parallel content
+\newcommand{\classical}[1]{{\tradfont #1}}
+\newcommand{\modern}[1]{{\modfont #1}}
+
+% Problem number counter
+\newcounter{problemnum}
+\setcounter{problemnum}{104}
+\newcommand{\nextproblem}{\stepcounter{problemnum}\textbf{第\chinese{problemnum}問}}
+
+% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={測圓海鏡 卷七至卷九 文言文白话文对照版},
+  pdfauthor={李冶},
+  pdfsubject={Chinese Mathematics, 1248, Bilingual Edition}
+}
+
+% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% -------- CJK Tweaks --------
+\xeCJKsetup{PunctStyle=banjiao,CJKmath=true}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.3em}
+
+% ========================================================================
+\begin{document}
+
+% ===================================================================
+% TITLE PAGE
+% ===================================================================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor}\tradfont 測圓海鏡}
+
+\vspace{0.3cm}
+{\Large\color{sectioncolor}\tradfont （卷七至卷九）}
+
+\vspace{0.8cm}
+{\LARGE\tradfont 李冶\quad 撰}
+
+\vspace{0.2cm}
+{\large 1248}
+
+\vspace{1.5cm}
+
+\fcolorbox{classicalborder}{classicalbg}{%
+  \parbox{0.85\textwidth}{%
+    \centering\vspace{0.3cm}
+    {\Large\tradfontbf 文言文原文}\quad{\large$\longleftrightarrow$}\quad{\Large\modfontbf 白话文译文}
+    \vspace{0.3cm}
+  }%
+}
+
+\vspace{1cm}
+
+{\small\tradfont
+卷七：明前一十八問（第105--122問）\quad 高次方程（四次、五次）\\[0.3em]
+卷八：明後一十六問（第123--138問）\quad 多元天元術\\[0.3em]
+卷九：大斜四問、大和八問（第139--170問）\quad 複雜幾何構形
+}
+
+\vspace{1.5cm}
+
+\fcolorbox{modernborder}{modernbg}{%
+  \parbox{0.85\textwidth}{%
+    \centering\vspace{0.3cm}
+    {\small\modfont
+    \textbf{现代数学术语对照}\\[0.3em]
+    五乘方 $\rightarrow$ 五次方程\quad
+    六乘方 $\rightarrow$ 六次方程\quad
+    連枝同体 $\rightarrow$ 連枝同体（关联方程组）\\[0.2em]
+    玲珑 $\rightarrow$ 玲珑（精巧的方程变换）\quad
+    換骨 $\rightarrow$ 換骨（根本变换）\quad
+    奪項 $\rightarrow$ 奪項（消元法）
+    }
+    \vspace{0.3cm}
+  }%
+}
+
+\vfill
+
+{\small 测圆海镜 卷七至卷九\quad 文言文/白话文对照版\\
+Bilingual Edition: Classical Chinese / Modern Chinese}
+
+\end{titlepage}
+
+% ===================================================================
+% TABLE OF CONTENTS
+% ===================================================================
+\tableofcontents
+\newpage
+
+% ===================================================================
+% BILINGUAL INTRODUCTION
+% ===================================================================
+\section*{引言\quad Introduction}
+\addcontentsline{toc}{section}{引言 Introduction}
+
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\fcolorbox{classicalborder}{classicalbg}{%
+\parbox{\linewidth}{%
+\textbf{\large\tradfont 【文言文原文】}
+
+\vspace{0.3em}
+《測圓海鏡》乃金元數學家李冶（1192--1279）所撰，成書於1248年，為中古代數學之傑作。
+全書凡十二卷，計一百七十問，皆論圓城與勾股形之關係，而以「天元術」立一算求解多項式方程。
+
+卷七至卷九所載如下：
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+  \item \textbf{卷七}：明前一十八問
+  \item \textbf{卷八}：明後一十六問
+  \item \textbf{卷九}：大斜四問、大和八問
+\end{itemize}
+
+每問之體例分為三段：
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+  \item \textbf{或問}：設問之辭
+  \item \textbf{法曰}：演算之公式
+  \item \textbf{草曰}：詳細之天元推演
+\end{itemize}
+
+書中「■」者，表示算籌佈列之太極、天元位，即古代多項式之記號也。
+}}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\fcolorbox{modernborder}{modernbg}{%
+\parbox{\linewidth}{%
+\textbf{\large\modfont 【白话文译文】}
+
+\vspace{0.3em}
+《测圆海镜》由金元时期数学家李冶（1192--1279）所著，成书于1248年，是中世纪代数学的杰作。
+全书共十二卷，计170题，均讨论圆城与直角三角形的关系，以「天元术」设未知数求解多项式方程。
+
+卷七至卷九内容如下：
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+  \item \textbf{卷七}：明前十八问（第105--122题）--- 高次多项式方程（四次、五次）
+  \item \textbf{卷八}：明后十六问（第123--138题）--- 多元天元术
+  \item \textbf{卷九}：大斜四问、大和八问（第139--170题）--- 复杂几何构形
+\end{itemize}
+
+每题的格式分为三段：
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+  \item \textbf{【问题】}：问题陈述
+  \item \textbf{【解法】}：计算公式
+  \item \textbf{【演算】}：详细的天元术代数推导
+\end{itemize}
+
+书中的「■」符号表示算筹排列的太极、天元位置，即古代多项式记号的占位符。
+}}
+\end{rightcolumn}
+
+\end{paracol}
+
+\newpage
+
+% ===================================================================
+% VOLUME 7
+% ===================================================================
+\section{\tradfont 卷七\quad 明前一十八問}
+\label{sec:vol7}
+
+\begin{center}
+\fcolorbox{classicalborder}{classicalbg}{\parbox{0.9\textwidth}{\centering
+\textbf{\large 卷七概要}\quad 本卷十八问，多为高次方程求解。以天元一设圆径或半径，通过几何关系建立四次（三乘方）、五次（四乘方）及六次（五乘方）方程，运用增乘开方法求解。
+}}
+\end{center}
+
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------
+% Problem 105
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{出南門東行七十二步有樹，出東門南行三十步見之。問答同前。}
+
+\clFAYUE{倍南行以乘倍東行為平實，並二行又倍之為從，一虛隅。得城徑。}
+
+\clTSAOYUE{%
+識別得此問名為弦外容圓，又為內率求虛積。其二行步相並為虛弦，若以相減即虛較也。
+又倍東行為弦較和，倍南行即弦較較，此二數相乘則兩虛積也。若直以二行相乘，則半個虛積也。
+又倍東行減於城徑，餘即二虛勾也。倍南行減於城徑則二虛股也。虛積上三事和即城徑也。
+乃立天元一為圓徑，便以為三事和也。倍二行步減之，得$\square$為黃方一，天元乘之得$\square$為二虛積（寄左）。
+然後倍東行以乘倍南行，得八千六百四十為同數，與左相消得$\square$。
+益積開平方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{从南门向东走72步有一棵树，从东门向南走30步可以看见它。求城墙直径。}
+
+\mdFAYUE{将南行步数翻倍后乘以东行步数的两倍作为常数项，两步行数相加后再翻倍作为一次项系数，负一为二次项系数。解得城墙直径。}
+
+\mdTSAOYUE{%
+辨识得此题名为「弦外容圆」，又为「内率求虚积」。两步行数相加为虚弦，相减则为虚较。
+东行步数的两倍为弦较和，南行步数的两倍为弦较较，二者相乘等于两倍虚积。直接以二行相乘则为半个虚积。
+以城径减去两倍东行，余数为两倍虚勾；以城径减去两倍南行，余数为两倍虚股。虚积上的三事和即为城径。
+设天元一为圆径，即三事和。减去两倍二行步数得$\square$为黄方，乘以天元得$\square$为两倍虚积（寄左）。
+然后两倍东行乘以两倍南行得8640为同数，与左式相消得$\square$。
+用增积开平方法得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 106
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{丙出南門直行一百三十五步而立，甲出東門直行一十六步見之。問答同前。}
+
+\clFAYUE{%
+以丙行步一百三十五再自之，得二百四十六萬零三百七十五於上。
+又以甲行一十六乘丙行冪一萬八千二百二十五，得二十九萬一千六百，以乘上位，
+得七千一百七十四億四千五百三十五萬為三乘方實；
+以二行步相乘又倍之得四千三百二十，以乘丙行步再自之數，得一百六億二千八百八十二萬為益從；
+第一廉空；以甲行乘丙行冪，得二十九萬一千六百，又倍之得五十八萬三千二百於上，
+四之甲行冪一千零二十四，以乘丙行步，得一十三萬八千二百四十，減上位餘四十四萬四千九百六十為第二廉；
+二行步相乘得二千一百六十為虛常法。得丙行步上勾弦差八十一。}
+
+\clTSAOYUE{%
+識別二數相並，得一百五十一。以減於皇極弦，餘一百三十八，即虛勾虛股並也。
+若以二數相減，餘一百一十九為高弦內減平弦，又為皇極弦內少個小差弦，
+又為大差弦內減個皇極弦也。立天元一為丙行大差數。
+置丙行步一百三十五，自乘得$\square$，用天元除之，得$\square$為勾弦並也。
+上減天元得$\square$為二丙勾也。復用丙南行乘之，得$\square$為二積也。
+又以天元除之，得$\square$為丙勾外容圓半（泛寄）。
+別置丙南行用二甲勾乘之，得$\square$太，合用二丙勾除之。不受除，
+便以此為甲股（內寄二丙勾為分母）。復用二甲勾三十二乘之，得$\square$太為二個甲直積也。
+又置丙南行內減天元，得$\square$為黃方，以自乘得$\square$為丙上勾弦差乘股弦差二段，
+以天元除之得$\square$為兩個丙小差也。乃用甲股乘之，得下式$\square$。
+復用丙南行除之，得$\square$，又折半得下式$\square$為一個甲步股弦差也，
+內亦帶前二丙勾分母。復置兩個甲直積，內已寄此甲股弦差分母，便為甲步股外容圓半（寄左）。
+乃再置先求到泛寄，用甲股弦差分母乘之，得$\square$為同數，
+與左相消得下式$\square$。開三乘方得八十一步，即丙步上勾弦差也。
+《鈐經》載此法，以勾弦差率冪減丙行冪，復以丙行乘之為實，以差率冪為法，如法得徑。
+此法只是以勾外求圓半。合以大差除倍積，而今皆以大差冪為分母也。
+依法求之，勾弦差八十一自之得六千五百六十一，以減於丙行冪一萬八千二百二十五，
+餘一萬一千六百六十四，復以丙行一百三十五乘之，得一百五十七萬四千六百四十為實，
+以大差冪六千五百六十一為法，如法得二百四十步，即城徑也。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{丙出南门直行135步停下，甲出东门直行16步便能看见丙。求城墙直径。}
+
+\mdFAYUE{%
+将丙行步135自乘两次（立方）得2,460,375为上位。
+再以甲行16乘丙行平方18,225得291,600，乘以上位，
+得71,744,535,000,000为四次方程（三乘方）常数项；
+二行步相乘再翻倍得4,320，乘丙行步的立方数，得106,288,200,000为负一次项；
+第一廉系数为零；以甲行乘丙行平方得291,600，翻倍得583,200为上位，
+甲行平方1,024的4倍乘丙行步得138,240，减上位余444,960为第二廉系数；
+二行步相乘得2,160为常数项。解得丙行步上的勾弦差为81。}
+
+\mdTSAOYUE{%
+辨识两数相加得151。从皇极弦中减去，余138即虚勾与虚股之和。
+若两数相减，余119为高弦减平弦，又为皇极弦减去小差弦，
+又为大差弦减去皇极弦。设天元一为丙行的大差数。
+取丙行步135，自乘得$\square$，除以天元，得$\square$为勾弦和。
+减去天元得$\square$为两倍丙勾。再用丙南行乘之，得$\square$为两倍积。
+再除以天元，得$\square$为丙勾外容圆半（泛寄）。
+另取丙南行用两倍甲勾乘之，得$\square$太，应除以两倍丙勾。不除，
+便以此作为甲股（内寄两倍丙勾为分母）。再用两倍甲勾32乘之，得$\square$太为两个甲直积。
+再取丙南行减去天元，得$\square$为黄方，自乘得$\square$为丙上勾弦差乘股弦差两段，
+除以天元得$\square$为两个丙小差。用甲股乘之，得下式$\square$。
+再用丙南行除之，得$\square$，折半得下式$\square$为一个甲步股弦差，
+内亦带前两倍丙勾分母。再置两个甲直积，内已寄此甲股弦差分母，便为甲步股外容圆半（寄左）。
+再置先求到的泛寄，用甲股弦差分母乘之，得$\square$为同数，
+与左式相消得下式$\square$。开四次方（三乘方）得81步，即丙步上勾弦差。
+《钤经》载此法：以勾弦差率平方减丙行平方，再以丙行乘之为被除数，以差率平方为除数，依法得直径。
+此法是以勾外求圆半。应以大差除倍积，而今皆以大差平方为分母。
+依法求之：勾弦差81自乘得6,561，减丙行平方18,225，
+余11,664，再以丙行135乘之，得157,464,000为实，
+以大差平方6,561为法，依法得240步，即城径。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+
+% -------------------------------------------------------------------
+% Problem 107
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{出東門一十六步有樹，出南門東行七十二步見之。問答同前。}
+
+\clFAYUE{二行步相減得數，以自之於上。又以出東門步自之，減上位為平方實，
+二之出南門東行步為益從，一步常法。翻開得半徑。}
+
+\clTSAOYUE{%
+別得人到樹即平弦也，半圓徑即平股也。其東行七十二步則平勾平弦差也。
+乃立天元一為半圓徑，加一十六減七十二，得$\square$為勾也。
+以自之得$\square$為勾冪。又加入天元股冪得$\square$為弦冪（寄左）。
+再立天元一為半徑，加出東門步，得$\square$即弦也。
+以自之得$\square$為同數，與左相消得$\square$。
+翻法開之得一百二十步，即半城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{出东门16步有树，出南门向东走72步看见它。求城墙直径。}
+
+\mdFAYUE{两步行数相减，差数自乘为上位。再以东门步数自乘，减上位为二次方程常数项，
+南门东行步数的两倍为负一次项系数，1为二次项系数。翻法开方得半径。}
+
+\mdTSAOYUE{%
+辨识得：人到达树处即为平弦，半圆径即为平股。东行72步为平勾与平弦之差。
+设天元一为半圆径，加上16减去72，得$\square$为勾。
+自乘得$\square$为勾冪。加上天元的平方（股冪）得$\square$为弦冪（寄左）。
+再设天元一为半径，加出东门步数，得$\square$即弦。
+自乘得$\square$为同数，与左式相消得$\square$。
+翻法开方得120步，即半城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 108
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{出南門一百三十五步有樹，出東門南行三十步見之。問答同前。}
+
+\clFAYUE{樹去城步內減南行步，餘以為冪於上，又以樹去城步為冪內減上位為平實，
+倍樹去城步為從，一虛隅。翻法得半城徑。}
+
+\clTSAOYUE{%
+別得人距樹即高弦也，半圓徑即高勾也，其南行三十步即高弦上小差也。
+乃立天元一為半徑，加樹去城步為弦，內減小差$\square$，得$\square$即股也。
+以自之得$\square$為股冪，內加入天元冪，得$\square$為弦冪（寄左）。
+再置弦$\square$以自之，得$\square$為同數，與左相消，得式$\square$。
+翻開得一百二十步，即半城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{出南门135步有树，出东门向南走30步看见它。求城墙直径。}
+
+\mdFAYUE{树离城的步数减去南行步数，余数自乘为上位，再以树离城步数自乘减上位为二次方程常数项，
+树离城步数的两倍为一次项系数，负一为二次项系数。翻法得半城径。}
+
+\mdTSAOYUE{%
+辨识得：人到树的距离即为高弦，半圆径即为高勾，南行30步为高弦上的小差。
+设天元一为半径，加上树离城步数为弦，减去小差$\square$，得$\square$即股。
+自乘得$\square$为股冪，加上天元冪，得$\square$为弦冪（寄左）。
+再置弦$\square$自乘，得$\square$为同数，与左式相消得式$\square$。
+翻法开方得120步，即半城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 109
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{乙出東門不知遠近而立，甲出南門東行七十二步望見乙，就乙斜行一百三十六步與乙相會。問答同前。}
+
+\clFAYUE{以斜行步自之於上，以二行相減餘自為冪，減上位為平實，從空，一步常法。如法得半徑。}
+
+\clTSAOYUE{%
+別得七十二步即大差也，斜行即弦，半徑即股也。
+立天元一為半徑，以自之為股冪，又以二行差六十四以自之得$\square$為勾冪。
+並二冪得$\square$為弦冪（寄左）。然後以斜行步自之，得$\square$為同數，
+與左相消得$\square$。開平方得一百二十步，倍之即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{乙出东门距离不详停下，甲出南门东行72步望见乙，向乙斜行136步与乙相会。求城墙直径。}
+
+\mdFAYUE{斜行步数自乘为上位，以二行相减余数自乘减上位为二次方程常数项，一次项系数为零，
+二次项系数为一。依法得半径。}
+
+\mdTSAOYUE{%
+辨识得：72步即为大差，斜行即为弦，半径即为股。
+设天元一为半径，自乘为股冪，又以二行差64自乘得$\square$为勾冪。
+二冪相加得$\square$为弦冪（寄左）。然后以斜行步自乘，得$\square$为同数，
+与左式相消得$\square$。开平方得120步，加倍即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 110
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{甲出南門不知遠近而立，乙出東門南行三十步望見甲，卻就甲斜行二百五十五步與甲相會。問答同前。}
+
+\clFAYUE{二行差自之為冪，以減於斜行冪為平實，一虛隅。得半徑。}
+
+\clTSAOYUE{%
+別得南行步即股弦差也，斜步即弦也，半徑即勾也。
+乃立天元一為半城徑，以自之為冪。以二行相減餘二百二十五，以自之得$\square$為股冪。
+二冪相並得$\square$為弦冪（寄左）。然後以斜行步自之，得$\square$為同數，
+與左相消得下$\square$。開平方得一百二十步，即半徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{甲出南门距离不详停下，乙出东门南行30步望见甲，向甲斜行255步与甲相会。求城墙直径。}
+
+\mdFAYUE{二行差的平方作为被减数，从斜行平方中减去它作为二次方程常数项，负一为二次项系数。得半径。}
+
+\mdTSAOYUE{%
+辨识得：南行步即为股弦差，斜步即为弦，半径即为勾。
+设天元一为半城径，自乘为冪。以二行相减余225，自乘得$\square$为股冪。
+二冪相加得$\square$为弦冪（寄左）。然后以斜行步自乘，得$\square$为同数，
+与左式相消得下式$\square$。开平方得120步，即半径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 111
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{甲出南門東行不知步數而立，乙出東門南行三十步望見甲，斜行一百二步相會。問答同前。}
+
+\clFAYUE{二行相減，餘以乘乙南行，四之於上，又加入斜行冪為平實。得虛和一百三十八。}
+
+\clTSAOYUE{%
+別得斜步內減南行為甲東行步也。此問以弦外容圓入之，以二行相減數乘乙南行三十步，
+得$\square$，又四之，得$\square$為二直積也。又加入斜步冪$\square$，
+共得$\square$即和冪也。平方而一，得一百三十八步，即虛和也。
+又加斜步得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{甲出南门东行步数不详停下，乙出东门南行30步望见甲，斜行102步相会。求城墙直径。}
+
+\mdFAYUE{二行相减的余数乘以乙南行步数，四倍后加上斜行平方为常数项。得虚和138。}
+
+\mdTSAOYUE{%
+辨识得：斜步减去南行即为甲东行步数。此题以弦外容圆理解，以二行相减数乘乙南行30步，
+得$\square$，再四倍得$\square$为两倍直积。加入斜步冪$\square$，
+共得$\square$即和冪。开平方得138步，即虚和。
+加上斜步得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 112
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{乙出東門南行不知步數而立，甲出南門東行七十二步望見乙，斜行一百二步與乙相會。問答同前。}
+
+\clFAYUE{%
+倍相減步以乘倍東行，得數復以減於斜步冪，餘為實。平方而一，得較也。
+又以二行相減數乘倍東行為平實，以較為從方，得勾。
+勾較共為長，又以斜步並入勾股共，即城徑。}
+
+\clTSAOYUE{%
+別得二行相減餘$\square$為乙南行步也。以此數又減於甲東行，餘四十二步即較也。
+又以二行相減數$\square$乘倍東行得$\square$為平實，以較為從。
+平方開得四十八即勾也。勾內加較得九十步即股也。
+勾股共得一百三十八，又加入斜步，共得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{乙出东门南行步数不详停下，甲出南门东行72步望见乙，斜行102步与乙相会。求城墙直径。}
+
+\mdFAYUE{%
+两倍相减步数乘以两倍东行步数，得数从斜步平方中减去，余数为被除数。开平方得「较」。
+又以二行相减数乘两倍东行作为二次方程常数项，以「较」为一次项，得勾。
+勾与较共为长，以斜步加入勾股和，即城径。}
+
+\mdTSAOYUE{%
+辨识得：二行相减余$\square$为乙南行步。以此数再从甲东行中减去，余42步即「较」。
+又以二行相减数$\square$乘两倍东行得$\square$为常数项，以「较」为一次项。
+开平方得48即勾。勾加较得90步即股。
+勾股共得138，加上斜步共得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 113
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+乙出南門東行，甲出東門南行，兩相望見。既而乙雲：
+「我東行不及城徑一百六十八步。」甲雲：「我南行不及城徑二百一十步。」問答同前。}
+
+\clFAYUE{%
+半甲不及步以自之為冪，半甲不及步內減差以自之為冪。
+二冪相並內卻減差冪為平實，四之甲不及內減三之乙不及，餘為益從，三步半虛法。得甲南行。}
+
+\clTSAOYUE{%
+別得乙不及為虛勾、半徑共，又為徑內減明勾也。
+甲不及為虛股、半徑共，又為徑內減股也。
+又二雲數相並為虛和、圓徑共也，雲數相減即虛較也。
+乃立天元一為甲南行，以減於甲不及步又半之，得$\square$為虛股也。
+虛股內減虛較得$\square$為虛勾。勾自之得$\square$為勾冪也，
+又股自之下式$\square$為股冪也。二冪相並得$\square$為弦冪（寄左）。
+然後以天元加虛較得$\square$為乙東行。又加入天元甲南行得$\square$為虛弦，
+以自之得$\square$為同數，與左相消得$\square$。
+開平方得三十步，即甲南行也。內加少步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+乙出南门东行，甲出东门南行，两人相望看见。随后乙说：「我东行比城径少168步。」
+甲说：「我南行比城径少210步。」求城墙直径。}
+
+\mdFAYUE{%
+甲不及步的一半自乘为冪，甲不及步的一半减去差再自乘为冪。
+二冪相加再减去差的冪为二次方程常数项，
+四倍甲不及减去三倍乙不及的余数为负一次项，3.5为负二次项系数。得甲南行。}
+
+\mdTSAOYUE{%
+辨识得：乙不及为虚勾与半半径之和，又为径减明勾。
+甲不及为虚股与半半径之和，又为径减股。
+二数相加为虚和与圆径之和，相减即虚较。
+设天元一为甲南行，从甲不及步的一半中减去，得$\square$为虚股。
+虚股减去虚较得$\square$为虚勾。勾自乘得$\square$为勾冪，
+股自乘得$\square$为股冪。二冪相加得$\square$为弦冪（寄左）。
+然后天元加虚较得$\square$为乙东行。再加天元（甲南行）得$\square$为虚弦，
+自乘得$\square$为同数，与左式相消得$\square$。
+开平方得30步，即甲南行。加上少步即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 114
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+丙出南門直行，甲出東門直行，兩相望見。既而丙雲：
+「我行少於城徑一百五步。」甲雲：「我行少於城徑二百二十四步。」問答同前。}
+
+\clFAYUE{%
+二少步相乘訖，又自乘為實；六之共步，乘雲數相乘數為益從；
+十八之雲數相乘於上，又三之共步，自乘加上位，內復減丙少步冪、甲少步冪為從廉；
+四十八之共步為益二廉，六十三步常法。
+翻法開三乘方，得一百二十步，即半徑。}
+
+\clTSAOYUE{%
+別得雲數共減於倍城徑為甲丙共行數。又雲數相減即皇極差，亦為甲行不及丙行數。
+立天元一為半城徑，以三之，副置二位。
+上位減丙少步，得$\square$為皇極股也，下位減甲少步得$\square$為皇極勾也。
+勾股相乘得$\square$，以天元除之，得$\square$為弦也。
+弦自之得$\square$為弦冪（寄左）。然後以股自之下$\square$為股冪於上，
+又以勾自之得$\square$為勾冪，並以加入上位，得$\square$為同數，
+與左相消得$\square$。翻法開三乘方得一百二十步，即半城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+丙出南门直行，甲出东门直行，两人相望看见。随后丙说：「我行比城径少105步。」
+甲说：「我行比城径少224步。」求城墙直径。}
+
+\mdFAYUE{%
+二少步相乘后再自乘为常数项；六倍共步乘以两少步相乘为负一次项；
+十八倍两少步相乘为上位，三倍共步自乘加上位，再减去丙少步冪、甲少步冪为从廉；
+四十八倍共步为负第二廉，63为常数。
+翻法开四次方程（三乘方），得120步，即半径。}
+
+\mdTSAOYUE{%
+辨识得：两少步之和从两倍城径中减去为甲丙共行数。两少步相减即皇极差，亦为甲行不及丙行数。
+设天元一为半城径，三倍后分置两位。
+上位减丙少步，得$\square$为皇极股；下位减甲少步得$\square$为皇极勾。
+勾股相乘得$\square$，除以天元得$\square$为弦。
+弦自乘得$\square$为弦冪（寄左）。然后股自乘得$\square$为股冪于上位，
+勾自乘得$\square$为勾冪，合并加入上位得$\square$为同数，
+与左式相消得$\square$。翻法开四次方程（三乘方）得120步，即半城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 115
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲出東門直行，乙出南門直行，各不知步數而立。
+乙望見甲，就甲斜行了二百八十九步與甲相會。
+其二直行共得一百五十一步。又雲甲直行少於乙直行。問答同前。}
+
+\clFAYUE{斜冪內減共步冪為平實，倍共步內減斜步為從，一常法。得徑。}
+
+\clTSAOYUE{%
+別得共數、城徑並即皇極和也。
+立天元一為圓徑，加共步得$\square$為皇極和，以自之，得$\square$於上。
+以斜行冪$\square$減上位餘$\square$為二直積（寄左）。
+然後以天元乘斜步得$\square$，與左相消得$\square$。
+開平方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲出东门直行，乙出南门直行，各不知步数停下。乙望见甲，向甲斜行289步与甲相会。
+两直行共得151步。又说甲直行少于乙直行。求城墙直径。}
+
+\mdFAYUE{斜行冪减去共步冪为二次方程常数项，两倍共步减去斜步为一次项，1为常数。得城径。}
+
+\mdTSAOYUE{%
+辨识得：共数与城径之和即皇极和。
+设天元一为圆径，加共步得$\square$为皇极和，自乘得$\square$于上位。
+以斜行冪$\square$减上位余$\square$为两倍直积（寄左）。
+然后天元乘斜步得$\square$，与左式相消得$\square$。
+开平方得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 116
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲出東門直行，乙出東門南行，丙出南門直行，丁出南門東行，各不知步數而立。
+四人遙相望，悉與城參相直。
+只雲甲、丙共行了一百五十一步，乙、丁立處相距一百二步。又雲丙直行步多於甲直行步。問答同前。}
+
+\clFAYUE{%
+共步、距步相減，得數自之於上，以共步為冪內減上為平實，
+二之距步內減共步、距步差為從，一步虛法。得城徑。}
+
+\clTSAOYUE{%
+別得共步得城徑即皇極和也，相距步即虛弦也。
+皇極和內減虛弦即皇極弦也。又共步、距步差$\square$即皇極弦內減城徑也（此名旁差）。
+乃立天元一為城徑，加共步得$\square$為皇極和也，以自之得$\square$於上，
+以共步、距步差$\square$加天元得$\square$為皇極弦也，
+以自之下式$\square$，減上位餘得$\square$為二直積（寄左）。
+然後以天元徑乘皇極弦，得$\square$為同數，與左相消得$\square$。
+開平方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲出东门直行，乙出东门南行，丙出南门直行，丁出南门东行，各不知步数停下。
+四人遥遥相望，都与城墙呈直角。
+只说甲、丙共行了151步，乙、丁立处相距102步。又说丙直行步多于甲直行步。求城墙直径。}
+
+\mdFAYUE{%
+共步与距步相减，差数自乘为上位，共步冪减上位为二次方程常数项，
+两倍距步减去共步与距步之差为一次项，负一为二次项系数。得城径。}
+
+\mdTSAOYUE{%
+辨识得：共步加城径即皇极和，相距步即虚弦。
+皇极和减去虚弦即皇极弦。共步与距步之差$\square$即皇极弦减城径（此名「旁差」）。
+设天元一为城径，加共步得$\square$为皇极和，自乘得$\square$于上位。
+共步与距步之差$\square$加天元得$\square$为皇极弦，
+自乘得$\square$，减上位余$\square$为两倍直积（寄左）。
+然后天元径乘皇极弦，得$\square$为同数，与左式相消得$\square$。
+开平方得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 117
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲出南門東行不知步數而立，乙出東門南行望見甲，復就甲斜行，與甲相會。
+乙通計行了一百三十二步，其乙南行步不及斜行七十二步，其甲東行卻多於乙南行。問答同前。}
+
+\clFAYUE{倍不及步在地，以不及步減通步以乘之為實，以四之不及步為法。得乙南行三十步。}
+
+\clTSAOYUE{%
+別得乙南行即股也，以減通步即虛弦也，以減不及步即虛較也，其不及步即甲東行也。
+立天元一為乙南行，置不及步以天元乘之，又四之得$\square$元為二直積（寄左）。
+然後倍不及步以為弦較和於上$\square$。
+以不及步減通步得$\square$為弦較較。
+以乘上位得$\square$太為同數，與左相消得$\square$。
+上法下實，得三十步為乙南行也。餘各以數求之。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲出南门东行步数不详停下，乙出东门南行望见甲，再向甲斜行与甲相会。
+乙共行了132步，乙南行步比斜行少72步，甲东行多于乙南行。求城墙直径。}
+
+\mdFAYUE{两倍不及步作为基数，不及步减通步后乘以基数为被除数，四倍不及步为除数。得乙南行30步。}
+
+\mdTSAOYUE{%
+辨识得：乙南行即为股，从通步中减去即为虚弦，减不及步即为虚较，不及步即甲东行。
+设天元一为乙南行，取不及步以天元乘之，再四倍得$\square$元为两倍直积（寄左）。
+然后两倍不及步作为弦较和于上位$\square$。
+不及步减通步得$\square$为弦较较。
+相乘得$\square$太为同数，与左式相消得$\square$。
+上法下实，得30步为乙南行。其余各以数求之。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 118
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲出南門東行不知步數而立。乙出東門南行，望見甲，復斜行與甲相會。
+二人共行了二百四步，又雲甲行不及共步一百三十二。問答同前。}
+
+\clFAYUE{%
+別得二行共即兩個虛弦也，其不及步即乙南行與一虛弦共也。
+置不及步內減一弦餘三十步，即乙南行也。
+以乙南行反以減虛弦，餘七十二步即甲東行也。
+以乙南行減甲東行餘即虛較也。}
+
+\clTSAOYUE{此問無草。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲出南门东行步数不详停下。乙出东门南行，望见甲，再斜行与甲相会。
+两人共行了204步，又说甲行比共步少132步。求城墙直径。}
+
+\mdFAYUE{%
+辨识得：二行共即两个虚弦，不及步即乙南行与一个虚弦之和。
+从不及步中减去一弦余30步，即乙南行。
+以乙南行从虚弦中减去，余72步即甲东行。
+甲东行减乙南行余即虚较。}
+
+\mdTSAOYUE{此题无演算草文。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 119
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+乙出東門南行，甲出西門南行，甲望見乙，斜行五百一十步相會。
+乙雲：「我南行少於城徑二百一十步。」問答同前。}
+
+\clFAYUE{少步冪為平實，四斜步內減二少步為益從，五步常法。得乙南行。}
+
+\clTSAOYUE{%
+別得少步為徑內減股。
+立天元一為乙南行，以二之減於倍斜行步，得$\square$為梯底也。
+以二之天元乘之，得$\square$為徑冪（寄左）。
+再置天元加少步，得下式$\square$為城徑，以自之得$\square$，
+與左相消得$\square$。開平方得三十步，即乙南行也。加少步即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+乙出东门南行，甲出西门南行，甲望见乙，斜行510步相会。
+乙说：「我南行比城径少210步。」求城墙直径。}
+
+\mdFAYUE{少步冪为二次方程常数项，四倍斜步减去两倍少步为负一次项，5为常数。得乙南行。}
+
+\mdTSAOYUE{%
+辨识得：少步为径减股。
+设天元一为乙南行，两倍后从两倍斜行步中减去，得$\square$为梯底。
+以两倍天元乘之，得$\square$为径冪（寄左）。
+再置天元加少步，得下式$\square$为城径，自乘得$\square$，
+与左式相消得$\square$。开平方得30步，即乙南行。加少步即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 120
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+乙出南門東行，甲出北門東行，甲望見乙，斜行二百七十二步與乙相會。
+乙雲：「我東行不及城徑一百六十八步。」問答同前。}
+
+\clFAYUE{以不及步冪之為實，四斜內減二之不及步為虛從，五常法。平開得乙東行七十二步。}
+
+\clTSAOYUE{%
+別得不及步為城徑減明勾也。
+立天元一為乙東行，以倍之減於二之斜行步，得下$\square$為梯底也。
+倍天元乘之，得$\square$為徑冪（寄左）。
+再置天元加不及步，得$\square$為城徑，以自之得$\square$為同數，
+與左相消得$\square$。開平方得七十二步，即乙東行也。加入少步即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+乙出南门东行，甲出北门东行，甲望见乙，斜行272步与乙相会。
+乙说：「我东行比城径少168步。」求城墙直径。}
+
+\mdFAYUE{不及步冪为被除数，四倍斜步减去两倍不及步为负一次项，5为常数。开平方得乙东行72步。}
+
+\mdTSAOYUE{%
+辨识得：不及步为城径减明勾。
+设天元一为乙东行，两倍后从两倍斜行步中减去，得下式$\square$为梯底。
+两倍天元乘之，得$\square$为径冪（寄左）。
+再置天元加不及步，得$\square$为城径，自乘得$\square$为同数，
+与左式相消得$\square$。开平方得72步，即乙东行。加入少步即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 121
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+乙出南門東行，丁出東門南行，卻有甲丙二人共在西北隅，甲向東行，丙向南行，
+四人遙相望見，俱與城參相直。既而相會，甲雲：「我多乙二百四十八步。」
+丙雲：「我多於丁五百七十步。」問答同前。}
+
+\clFAYUE{二多步相乘為平實，並二多步而半之為從，七分半常法。得城徑。}
+
+\clTSAOYUE{%
+別得甲多步為大勾內減明勾也，丙多步為大股內少股也。
+又乙東行得一虛勾為半徑，丁南行得一虛股為半徑。
+又二多數相並得$\square$為大和內少虛弦也，又二少數相減餘$\square$為兩個角差。
+又甲多步內減半徑即勾方差也，丙多步內減半徑即股方差也。
+立天元一為城徑，以半之減於甲多步得$\square$為勾方差，
+又以半徑減於丙多步得$\square$為股方差。
+二差相乘得$\square$為徑冪（寄左）。然後以天元冪與左相消，得下式$\square$。
+開平方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+乙出南门东行，丁出东门南行，又有甲丙二人同在西北角，甲向东行，丙向南行，
+四人遥遥相望，都与城墙呈直角。随后相会，甲说：「我比乙多248步。」
+丙说：「我比丁多570步。」求城墙直径。}
+
+\mdFAYUE{两多步相乘为二次方程常数项，两多步之和的一半为一次项，7.5为常数。得城径。}
+
+\mdTSAOYUE{%
+辨识得：甲多步为大勾减明勾，丙多步为大股减股。
+乙东行得一虚勾为半径，丁南行得一虚股为半径。
+两多数相加得$\square$为大和减去虚弦，两少数相减余$\square$为两个角差。
+甲多步减去半半径即勾方差，丙多步减去半半径即股方差。
+设天元一为城径，从甲多步中减去其一半得$\square$为勾方差，
+再从丙多步中减去半半径得$\square$为股方差。
+二差相乘得$\square$为径冪（寄左）。然后天元冪与左式相消，得下式$\square$。
+开平方得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 122
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲丙二人俱在西北隅，甲向東行，丙向南行。
+又乙出南門東行，丁出東門南行，各不知步數而立。
+四人遙相望見，悉與城參相直。既而相會，甲雲：
+「我與乙共行了三百九十二步。」丙雲：「我與丁共行了六百三十步。」問答同前。}
+
+\clFAYUE{%
+甲乙共自之為冪，丙丁共自之為冪，二冪又相乘為三乘方實。
+甲乙共自之為冪，以丙丁共乘之於上。
+又以丙丁共自之為冪，以甲乙共乘之加上位為益從。
+甲乙共自之為冪，丙丁共自之為冪，並，以七分半乘之於上。
+又以甲乙共乘丙丁共，得數減上位為第一益廉。
+並二共數，以七分半乘之為第二廉。
+以七分半自之，得五分六厘二毫五絲於上位。
+以一步內減上位，餘四分三厘七毫五絲為虛隅。得城徑。}
+
+\clTSAOYUE{%
+別得甲為大勾，乙為明勾，丙為大股，丁為股也。
+甲乙共內減半徑即是黃長弦也，丙丁共內減半徑即黃廣弦也。
+黃長弦、黃廣弦二數相減，餘為兩個皇極差也。
+乃立天元為城徑，半之副置二位。
+上以減於甲乙共數，得$\square$即黃長弦也，以自之得$\square$為黃長弦冪也，
+內減天元一冪，餘得下式$\square$為勾方差冪也。
+下位以減於丙丁共，得下式$\square$即黃廣弦也，
+以自之得$\square$為黃廣弦冪也，內減天元一冪，餘得$\square$為股方差冪也。
+再以勾方差冪、股方差冪相乘，得$\square$為徑冪（寄左）。
+然後以天元為冪，又以冪自之，與左相消得下式$\square$。
+開三乘方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲丙二人同在西北角，甲向东行，丙向南行。
+乙出南门东行，丁出东门南行，各不知步数停下。
+四人遥遥相望，都与城墙呈直角。随后相会，甲说：「我与乙共行了392步。」
+丙说：「我与丁共行了630步。」求城墙直径。}
+
+\mdFAYUE{%
+甲乙共自乘为冪，丙丁共自乘为冪，二冪再相乘为四次方程（三乘方）常数项。
+甲乙共自乘为冪，以丙丁共乘之于上位。
+又以丙丁共自乘为冪，以甲乙共乘之加上位为负一次项。
+甲乙共自乘为冪，丙丁共自乘为冪，合并以7.5倍乘之于上位。
+又以甲乙共乘丙丁共，得数减上位为第一负廉。
+二共数之和以7.5倍乘之为第二廉。
+7.5自乘得56.25于上位。
+以1减上位，余43.75为负二次项系数。得城径。}
+
+\mdTSAOYUE{%
+辨识得：甲为大勾，乙为明勾，丙为大股，丁为股。
+甲乙共减去半半径即为黄长弦，丙丁共减去半半径即为黄广弦。
+黄长弦、黄广弦二数相减，余为两个皇极差。
+设天元为城径，取半后分置两位。
+上位从甲乙共数中减去，得$\square$即黄长弦，自乘得$\square$为黄长弦冪，
+减去天元一冪，余得下式$\square$为勾方差冪。
+下位从丙丁共中减去，得下式$\square$即黄广弦，
+自乘得$\square$为黄广弦冪，减去天元一冪，余得$\square$为股方差冪。
+再以勾方差冪、股方差冪相乘，得$\square$为径冪（寄左）。
+然后天元自乘，再自乘（四次方），与左式相消得下式$\square$。
+开四次方程（三乘方）得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\newpage
+
+
+% ===================================================================
+% VOLUME 8
+% ===================================================================
+\section{\tradfont 卷八\quad 明後一十六問}
+\label{sec:vol8}
+
+\begin{center}
+\fcolorbox{classicalborder}{classicalbg}{\parbox{0.9\textwidth}{\centering
+\textbf{\large 卷八概要}\quad 本卷十六问，涉及多元天元术（连枝同体），以多个未知量建立关联方程组，求解更复杂的几何构形。方程次数多为四次，间有五次、六次方程。
+}}
+\end{center}
+
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------
+% Problem 123
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+出南門向東有槐樹一株，出東門向南有柳樹一株。
+丙丁俱出南門，丙直行，丁往至槐樹下。
+甲乙俱出東門，甲直行，乙往至柳樹下。
+四人遙相望見，各不知所行步數。
+只雲丙丁共行了二百七步，甲乙共行了四十六步，
+又雲甲丙立處相距二百八十九步。問答同前。}
+
+\clFAYUE{以二共相減數又以減距數為實，二為法。得平勾。}
+
+\clTSAOYUE{%
+識別得丙丁共即明和也，甲乙共即和也，相距步即極弦也。
+二共相並即極弦內少個虛黃也，又為極和內少個虛和也。
+二共相減餘為平勾高股差也，又為虛差極差共也，又為通差內減極差也。
+立天元為平勾，加入二共相減數，得$\square$為高股，又加天元得$\square$為極弦（寄左）。
+以相距步二百八十九與左相消，得$\square$。
+上法下實，如法得六十四，即平勾也。
+以二共相減數加平勾得二百二十五為高股，復以平勾乘之，得一萬四千四百步。
+開平方得一百二十步，即城半徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+出南门向东有槐树一株，出东门向南有柳树一株。
+丙丁都出南门，丙直行，丁前往槐树下。
+甲乙都出东门，甲直行，乙前往柳树下。
+四人遥遥望见，各不知所行步数。
+只说丙丁共行了207步，甲乙共行了46步，
+又说甲丙立处相距289步。求城墙直径。}
+
+\mdFAYUE{以两共数相减的差再从距数中减去为被除数，2为除数。得平勾。}
+
+\mdTSAOYUE{%
+辨识得：丙丁共即明和，甲乙共即和，相距步即极弦。
+两共数相加即极弦内少一个虚黄，又为极和内少一个虚和。
+两共数相减余为平勾与高股之差，又为虚差与极差之和，又为通差减去极差。
+设天元为平勾，加入两共相减数，得$\square$为高股，再加天元得$\square$为极弦（寄左）。
+以相距步289与左式相消，得$\square$。
+上法下实，依法得64，即平勾。
+以两共相减数加平勾得225为高股，再以平勾乘之，得14,400步。
+开平方得120步，即城半半径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 124
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+依前見丙丁共二百七步，甲乙共四十六步。又雲二樹相去一百二步。問答同前。}
+
+\clFAYUE{%
+以甲乙共乘樹相去步，得數又以自之為平實；從空；
+並二共數為冪於上，內減甲乙共自之數、丙丁共自之數為益隅。得弦。}
+
+\clTSAOYUE{%
+識別得兩樹相去步即虛弦也。餘數具前。
+立天元一為弦。置明和以天元乘之，合和除，不除，便以$\square$元為明弦也（內帶和分母）。
+乃置虛弦以分母和乘之，得$\square$太，加入明弦，得$\square$為極股也，內帶和分母。
+以自之得下式$\square$為極股冪（內寄和冪為分母）。
+又以天元加虛弦得下$\square$為極勾，以自之得$\square$。
+又以和冪$\square$乘之，得$\square$為勾冪也。
+勾股冪相並得$\square$為兩積一較冪也，內有和冪分母（寄左）。
+然後置明弦$\square$元於上，以和乘天元加上位，得$\square$元為二弦並也。
+又置虛弦以和乘之得$\square$太，並入上位，得下式$\square$為極弦，
+以自之得$\square$為同數，與左相消得$\square$。
+開平方得三十四步，即弦也。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+如前见丙丁共207步，甲乙共46步。又说两树相距102步。求城墙直径。}
+
+\mdFAYUE{%
+以甲乙共乘树相距步数，得数再自乘为二次方程常数项；一次项为零；
+两共数之和自乘于上位，减去甲乙共自乘数、丙丁共自乘数为负二次项系数。得弦。}
+
+\mdTSAOYUE{%
+辨识得：两树相距步数即虚弦。其余数如前。
+设天元一为弦。取明和以天元乘之，应以和除，不除，便以$\square$元为明弦（内带和分母）。
+取虚弦以分母和乘之，得$\square$太，加入明弦，得$\square$为极股，内带和分母。
+自乘得下式$\square$为极股冪（内寄和冪为分母）。
+又以天元加虚弦得下式$\square$为极勾，自乘得$\square$。
+又以和冪$\square$乘之，得$\square$为勾冪。
+勾股冪合并得$\square$为两积一较冪，内有和冪分母（寄左）。
+然后取明弦$\square$元于上位，以和乘天元加上位，得$\square$元为两弦和。
+再取虚弦以和乘之得$\square$太，合并入上位，得下式$\square$为极弦，
+自乘得$\square$为同数，与左式相消得$\square$。
+开平方得34步，即弦。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 125
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{皇極大小差共一百八十七步，明黃、黃共六十六步。問答同前。}
+
+\clFAYUE{後數自乘為實，前後數相減，餘為法。得虛黃方三十六。}
+
+\clTSAOYUE{%
+別得一百八十七即明弦二弦共也，其六十六即太虛大小差共也。
+又二數相並，得$\square$即明、二和共。若以相減，餘$\square$即明、四差共也。
+立天元一為太虛黃方面，加二黃共，得$\square$即虛弦也。
+倍虛弦又加天元，得$\square$即城徑也。
+又以虛弦加皇極大小差，得$\square$即極弦也，
+以極弦乘城徑得$\square$，為兩段皇極勾股積（寄左）。
+再以極弦虛弦相並，得$\square$，即皇極勾股共也，
+自之得$\square$，內減皇極弦冪$\square$，得$\square$為同數，
+與寄左相消得$\square$。上法下實，如法得三十六步，即太虛黃方面也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{皇极大小差共187步，明黄、黄共66步。求城墙直径。}
+
+\mdFAYUE{后数自乘为被除数，前后数相减余为除数。得虚黄方36。}
+
+\mdTSAOYUE{%
+辨识得：187即明弦与二弦之和，66即太虚大小差之和。
+两数相加得$\square$即明与二和之和。若相减余$\square$即明与四差之和。
+设天元一为太虚黄方面，加二黄共得$\square$即虚弦。
+两倍虚弦再加天元得$\square$即城径。
+又以虚弦加皇极大小差得$\square$即极弦，
+极弦乘城径得$\square$为两段皇极勾股积（寄左）。
+再以极弦虚弦相加得$\square$即皇极勾股之和，
+自乘得$\square$，减去皇极弦冪$\square$得$\square$为同数，
+与寄左相消得$\square$。上法下实，依法得36步，即太虚黄方面。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 126
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+東門南有柳一株，南門東有槐一株。
+甲出東門直行，丙出南門直行。
+甲、丙、柳、槐悉與城參相直，
+既而甲就柳樹斜行三十四步至柳樹下，丙就槐樹斜行一百五十三步至槐樹下。問答同前。}
+
+\clFAYUE{%
+雲數相乘，倍之便為平方實，開方得虛弦一百二步。
+以此弦加甲行步即極勾，以此弦加丙行步即極股。餘各依法求之。}
+
+\clTSAOYUE{%
+識別：甲斜行即弦也，丙斜行即明弦也。無草。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+东门南有柳树一株，南门东有槐树一株。
+甲出东门直行，丙出南门直行。
+甲、丙、柳树、槐树都与城墙呈直角，
+随后甲向柳树斜行34步到柳树下，丙向槐树斜行153步到槐树下。求城墙直径。}
+
+\mdFAYUE{%
+两已知数相乘，翻倍即为二次方程常数项，开平方得虚弦102步。
+以此弦加甲行步即极勾，以此弦加丙行步即极股。其余依法求之。}
+
+\mdTSAOYUE{%
+辨识：甲斜行即弦，丙斜行即明弦。无演算草文。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 127
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+東門南有柳一株，南門東有槐一株。
+甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
+既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
+只雲丙共行了二百八十八步，甲斜行與柳至東門步共得六十四步。問答同前。}
+
+\clFAYUE{%
+二雲數相乘於上，以六十四步自之，又二之，減上位為平實。
+四之六十四於上，倍丙行內減上位為從。二十常法。得甲直行步一十六。}
+
+\clTSAOYUE{%
+別得丙共步即明股、明弦和也，六十四即平勾也，內甲斜行即弦也，柳至東門步即股也。
+又二雲數相並即明差與極弦共也，二雲數相減即明差與平勾高股差共也。
+又平勾內減勾即虛勾也。
+立天元一為勾。置丙共步以天元乘之，復以六十四除之得$\square$為明勾也。
+又以天元減於六十四，得$\square$為虛勾也，並虛明二勾$\square$為半徑也。
+以自之得$\square$，倍之得$\square$為半段圓城徑冪（寄左）。
+乃以天元加六十四，得$\square$為勾圓差於上；
+又以明勾加丙共步，得$\square$為股圓差於下。
+上下相乘得$\square$為同數，與左相消得$\square$。
+開平方得一十六步，即勾也。此勾乃甲出東門直行步也。餘皆依數求之。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+东门南有柳树一株，南门东有槐树一株。
+甲出东门直行，丙出南门直行，二人遥遥相望，槐树柳树与城边都呈直角。
+随后甲再斜行至柳树下，丙再斜行至槐树下，各不知步数。
+只说丙共行了288步，甲斜行与柳至东门步共得64步。求城墙直径。}
+
+\mdFAYUE{%
+两已知数相乘于上位，以64步自乘，再两倍，减上位为二次方程常数项。
+四倍64于上位，两倍丙行减去上位为一次项。20为常数。得甲直行步16。}
+
+\mdTSAOYUE{%
+辨识得：丙共步即明股、明弦之和，64即平勾，其中甲斜行即弦，柳至东门步即股。
+两已知数之和即明差与极弦之和，相减即明差与平勾高股差之和。
+平勾减去勾即虚勾。
+设天元一为勾。取丙共步以天元乘之，再以64除得$\square$为明勾。
+又以天元从64中减去得$\square$为虚勾，虚勾与明勾相加$\square$为半径。
+自乘得$\square$，翻倍得$\square$为半段圆城径冪（寄左）。
+以天元加64得$\square$为勾圆差于上位；
+又以明勾加丙共步得$\square$为股圆差于下位。
+上下相乘得$\square$为同数，与左式相消得$\square$。
+开平方得16步，即勾。此勾即甲出东门直行步。其余依数求之。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 128
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+東門南有柳樹一株，南門東有槐樹一株。
+甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
+既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
+只雲甲共行五十步，丙斜行與槐至南門步共得二百二十五步。問答同前。}
+
+\clFAYUE{%
+以二百二十五步自之為冪，又以此冪自為冪於上。
+置甲共行以二百二十五步三度乘之，得數復折半，減上位為平實。
+置二百二十五步自之數，以二雲數相減數乘之，又倍之於上。
+倍五十步在地，以二百二十五步自之數乘之，復折半加上位為益從。
+雲數相減自乘於上，以雲數相乘，復折半，減上位為常法。得明股。}
+
+\clTSAOYUE{%
+識別得甲共步即勾、弦共也，二百二十五即高股也，內丙斜行即明弦，槐至南門步即明勾也。
+又二雲數相並即極弦內減一個差也，雲數相減即差與高股、平勾差共也。
+又高股內減明股即虛股也。
+立天元一為明股，即丙出南門直行步也。
+置五十步以天元乘之得$\square$元，合高股除。
+不除，便以此$\square$元為股也，內帶高股$\square$分母。
+再置高股內減天元得$\square$為虛股，以分母高股乘之，得下式$\square$，
+加入股得$\square$即半徑也。
+以自增乘得下$\square$為半徑冪也。內帶高股冪為母（寄左）。
+然後置甲共步以分母高股乘之，得$\square$太，加入股得$\square$為勾圓差於上（內帶高股分母）。
+又以天元加高股得$\square$為股圓差於下。
+上、下相乘得$\square$。又以分母高股乘之，得$\square$，
+復折半得$\square$為同數，與左相消得$\square$。
+開平方得一百三十五步，即明股也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+东门南有柳树一株，南门东有槐树一株。
+甲出东门直行，丙出南门直行，二人遥遥相望，槐树柳树与城边都呈直角。
+随后甲再斜行至柳树下，丙再斜行至槐树下，各不知步数。
+只说甲共行50步，丙斜行与槐至南门步共得225步。求城墙直径。}
+
+\mdFAYUE{%
+以225步自乘为冪，再以这冪自乘于上位。
+取甲共行以225步三次乘之（立方），得数折半减上位为二次方程常数项。
+取225步自乘之数，以两已知数相减之差乘之，再两倍于上位。
+50步翻倍作为基数，以225步自乘之数乘之，折半加上位为负一次项。
+两已知数之差自乘于上位，以两已知数相乘折半减上位为常数。得明股。}
+
+\mdTSAOYUE{%
+辨识得：甲共步即勾、弦之和，225即高股，其中丙斜行即明弦，槐至南门步即明勾。
+两已知数之和即极弦内减一个差，相减即差与高股、平勾差之和。
+高股减去明股即虚股。
+设天元一为明股，即丙出南门直行步。
+取50步以天元乘之得$\square$元，应以高股除。
+不除，便以此$\square$元为股，内带高股$\square$分母。
+再取高股减去天元得$\square$为虚股，以分母高股乘之，得下式$\square$，
+加入股得$\square$即半径。
+自乘得下式$\square$为半半径冪。内带高股冪为分母（寄左）。
+然后取甲共步以分母高股乘之，得$\square$太，加入股得$\square$为勾圆差于上位（内带高股分母）。
+又以天元加高股得$\square$为股圆差于下位。
+上下相乘得$\square$。又以分母高股乘之，得$\square$，
+折半得$\square$为同数，与左式相消得$\square$。
+开平方得135步，即明股。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 129
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{通勾、通弦共一千步，勾、弦共五十步。問答同前。}
+
+\clFAYUE{%
+置一千減二之五十步為泛率。以自乘，復半之於上。
+又置泛率復以五十乘之，加上位為平實。
+二十二之泛率於上。以四十二乘五十，得數內減泛率，加上位為益從。
+二百為常法。得股。}
+
+\clTSAOYUE{%
+立天元一為股。
+置一千以天元乘之，以五十除之，得$\square$元為通股也。
+又以天元加五十步，得$\square$即小差也，通股加小差得$\square$即通弦也。
+以通弦減一千得$\square$即通勾也。
+以小差減通勾得$\square$即圓徑也。
+以圓徑減通股得$\square$即大差也。
+置大差以小差乘之得$\square$（寄左）。
+然後置圓徑以自之得$\square$，折半得$\square$，與左相消得$\square$。
+開平方得三十步，即股也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{通勾、通弦共1000步，勾、弦共50步。求城墙直径。}
+
+\mdFAYUE{%
+取1000减去两倍50步为泛率。泛率自乘折半于上位。
+又取泛率再以50乘之，加上位为二次方程常数项。
+22倍泛率于上位。42乘50得数减去泛率，加上位为负一次项。
+200为常数。得股。}
+
+\mdTSAOYUE{%
+设天元一为股。
+取1000以天元乘之，以50除之，得$\square$元为通股。
+又以天元加50步得$\square$即小差，通股加小差得$\square$即通弦。
+以通弦减1000得$\square$即通勾。
+以小差减通勾得$\square$即圆径。
+以圆径减通股得$\square$即大差。
+取大差以小差乘之得$\square$（寄左）。
+然后圆径自乘得$\square$，折半得$\square$，与左式相消得$\square$。
+开平方得30步，即股。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 130
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{通勾、通弦共一千步，明勾、明弦共二百二十五步。問答同前。}
+
+\clFAYUE{%
+以後數再自乘，又以前數乘之為平實；以後數為冪，復以前數乘之為從；
+以前數冪為虛常法。得明股。}
+
+\clTSAOYUE{%
+別得二百二十五步即高股也。
+立天元一為明股。置一千以天元乘之，合以高股除不受除，
+便以此一零零零元為通股（內帶高股為母）。
+以天元加高股，得$\square$即大差也。
+置大差以高股分母乘之，得$\square$，即帶分大差也。
+以此減於通股，餘$\square$即圓徑也。
+以自增乘，得$\square$（寄左。內帶高股冪分母）。
+然後置一千以高股分母通之，得$\square$太，內減帶分大差，
+得$\square$為兩個通勾也。
+內減兩個圓徑得$\square$，為兩個小差也。
+以帶分大差乘之，得下式$\square$為同數，與左相消得$\square$。
+開平方得一百三十五步，即明股也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{通勾、通弦共1000步，明勾、明弦共225步。求城墙直径。}
+
+\mdFAYUE{%
+以后数（225）自乘两次再以前数（1000）乘之为二次方程常数项；
+以后数为冪再以前数乘之为一次项；
+以前数冪为负常数。得明股。}
+
+\mdTSAOYUE{%
+辨识得：225步即高股。
+设天元一为明股。取1000以天元乘之，应以高股除，不除，
+便以此1000元为通股（内带高股为分母）。
+以天元加高股得$\square$即大差。
+取大差以高股分母乘之，得$\square$即带分大差。
+以此减于通股，余$\square$即圆径。
+自乘得$\square$（寄左。内带高股冪分母）。
+然后取1000以高股分母通之，得$\square$太，内减带分大差，
+得$\square$为两个通勾。
+内减两个圆径得$\square$为两个小差。
+以带分大差乘之，得下式$\square$为同数，与左式相消得$\square$。
+开平方得135步，即明股。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 131
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{通股、通弦共一千二百八十步，股、弦共六十四步。問答同前。}
+
+\clFAYUE{%
+雲數相乘為平實，前數為益從。
+置前數以後數除之，得二十為泛率。
+泛率減一以自乘於上，又倍泛率減一加上位為常法。倒積開得勾一十六。}
+
+\clTSAOYUE{%
+別得六十四步即平勾也。
+立天元一為勾。置前數以天元乘之，以後數除之，得$\square$元即通勾也。
+又置天元加後數，得$\square$即小差也。
+以小差減通勾，餘$\square$即圓徑也。
+以自之得$\square$（寄左）。
+然後以小差減於前數，得$\square$為二通股。
+內減兩個圓徑，得$\square$為二大差也。
+以小差乘之得下$\square$，與左相消得$\square$。
+開平方得一十六步，即勾也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{通股、通弦共1280步，股、弦共64步。求城墙直径。}
+
+\mdFAYUE{%
+两已知数相乘为二次方程常数项，前数为负一次项。
+取前数以后数除之得20为泛率。
+泛率减1自乘于上位，两倍泛率减1加上位为常数。倒积开方得勾16。}
+
+\mdTSAOYUE{%
+辨识得：64步即平勾。
+设天元一为勾。取前数以天元乘之，以后数除之，得$\square$元即通勾。
+又取天元加后数得$\square$即小差。
+以小差减通勾，余$\square$即圆径。
+自乘得$\square$（寄左）。
+然后以小差减于前数得$\square$为二通股。
+内减两个圆径得$\square$为二大差。
+以小差乘之得下式$\square$，与左式相消得$\square$。
+开平方得16步，即勾。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 132
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{通股、通弦共一千二百八十步，明股、明弦共二百八十八步。問答同前。}
+
+\clFAYUE{%
+二數相減，以後數乘之，內減後數冪，又半之為泛率。以自之為平實。
+置前數加二之後數而半之為次率，以乘泛率，倍之於上，
+以後數乘泛率減上位為益從。
+次率自乘於上，以前數加次率，復以後數乘之，減上位為隅法。得明勾。}
+
+\clTSAOYUE{%
+別得二數相減，餘$\square$為通勾、通股及明勾共也。
+立天元一為明勾。置前數以天元乘之，合以後數除之。
+不除，便以此$\square$元為通勾也（內寄後數分母）。
+又以二數相減，得數內又減天元得$\square$為通和也。
+乃以分母二百八十八之，得下式$\square$，內減通勾，餘$\square$為通股也。
+又以天元加後數，又以分母（即後數也）通之，得$\square$為大差也。
+以此大差減於通股，得下式$\square$，為一個圓徑也。
+半之得$\square$，以自之得$\square$為半徑冪（寄左）。
+然後以半圓徑減通勾，得$\square$為底勾，又以天元乘之，
+又以分母二百八十八之，得$\square$為同數，與左相消得$\square$。
+開平方得七十二步，即明勾也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{通股、通弦共1280步，明股、明弦共288步。求城墙直径。}
+
+\mdFAYUE{%
+两数相减，以后数乘之，减去后数冪，折半为泛率。泛率自乘为二次方程常数项。
+取前数加两倍后数折半为次率，以次率乘泛率，两倍于上位，
+以后数乘泛率减上位为负一次项。
+次率自乘于上位，以前数加次率再以后数乘之，减上位为二次项系数。得明勾。}
+
+\mdTSAOYUE{%
+辨识得：两数相减余$\square$为通勾、通股及明勾之和。
+设天元一为明勾。取前数以天元乘之，应以后数除之。
+不除，便以此$\square$元为通勾（内寄后数为分母）。
+又以两数相减，得数内再减天元得$\square$为通和。
+以分母288通之，得下式$\square$，内减通勾余$\square$为通股。
+又以天元加后数，再以分母（即后数）通之，得$\square$为大差。
+以此大差减于通股，得下式$\square$为一个圆径。
+折半得$\square$，自乘得$\square$为半半径冪（寄左）。
+然后以半圆径减通勾得$\square$为底勾，再以天元乘之，
+又以分母288通之，得$\square$为同数，与左式相消得$\square$。
+开平方得72步，即明勾。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 133
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+明股、明弦並二百八十八步，勾、弦並五十步。
+又雲明股、勾並多於虛弦四十九步。問答同前。}
+
+\clFAYUE{前二數相並，內減二之多步，即圓徑。又只以前二數相乘，便是半徑冪。}
+
+\clTSAOYUE{%
+識別得前二數相減而半之，即極差也。其多步名傍差，又為圓徑不及極弦數。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+明股、明弦和288步，勾、弦和50步。
+又说明股、勾之和比虚弦多49步。求城墙直径。}
+
+\mdFAYUE{前两数相加，从中减去两倍多步，即圆径。又以前两数相乘，便是半半径冪。}
+
+\mdTSAOYUE{%
+辨识得：前两数相减折半，即极差。其多步名为「傍差」，又为圆径不及极弦之数。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 134
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{平差、高差共一百六十一步，明股、勾並多於虛弦四十九步。問答同前。}
+
+\clFAYUE{二數相減又半之，以自乘為實，後數為法。得平勾。}
+
+\clTSAOYUE{%
+立天元一為平勾。以加前數得$\square$為高股也。
+又以天元加高股得$\square$為極弦，內減後數得$\square$，
+又半之，得$\square$為半徑。
+以自之，得$\square$（寄左）。
+然後以天元乘高股，得$\square$為同數，與左相消得$\square$。
+上法下實，得六十四步，即平勾也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{平差、高差共161步，明股、勾之和比虚弦多49步。求城墙直径。}
+
+\mdFAYUE{两数相减折半，自乘为被除数，后数为除数。得平勾。}
+
+\mdTSAOYUE{%
+设天元一为平勾。加上前数得$\square$为高股。
+又以天元加高股得$\square$为极弦，减去后数得$\square$，
+折半得$\square$为半径。
+自乘得$\square$（寄左）。
+然后以天元乘高股得$\square$为同数，与左式相消得$\square$。
+上法下实，得64步，即平勾。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 135
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+平勾、高股差一百六十一步，明差、差並七十七步。
+又雲極弦多於城徑四十九步。問答同前。}
+
+\clFAYUE{%
+並上二位而半之為平率。其四十九即旁率也。
+副置平率，上加旁率，下減旁率，以相乘為實。倍旁差為法。得勾圓差。}
+
+\clTSAOYUE{%
+立天元一為半徑，又為半之股圓差上弦較較，又為半之勾圓差上弦較和也。
+內減勾圓差上勾股較$\square$，餘$\square$為半之勾圓差上弦較較也。
+置股圓差上勾股較$\square$，以半之勾圓差上弦較較乘之，得$\square$（寄左）。
+然後以半之股圓差上弦較較乘勾圓差上勾股較，
+得$\square$元為同數，與左相消得下式$\square$。
+上法下實，得一百二十步，即半徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+平勾、高股差161步，明差、差共77步。
+又说极弦比城径多49步。求城墙直径。}
+
+\mdFAYUE{%
+合并上两位折半为平率。49即旁率。
+分置平率，上加旁率，下减旁率，相乘为被除数。两倍旁差为除数。得勾圆差。}
+
+\mdTSAOYUE{%
+设天元一为半径，又为半之股圆差上弦较较，又为半之勾圆差上弦较和。
+减去勾圆差上勾股较$\square$，余$\square$为半之勾圆差上弦较较。
+取股圆差上勾股较$\square$，以半之勾圆差上弦较较乘之，得$\square$（寄左）。
+然后以半之股圆差上弦较较乘勾圆差上勾股较，
+得$\square$元为同数，与左式相消得下式$\square$。
+上法下实，得120步，即半径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 136
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+又依前問：見角差一百六十一步，見明差差並七十七步，又見太虛弦較較六十步。問答同前。}
+
+\clFAYUE{%
+前二數相減而半之，得數加入半之太虛弦較較為泛率，以自乘為平實。
+置一百六十一內減二之泛率為從，一常法。得平勾。}
+
+\clTSAOYUE{%
+別得$\square$即二股也。
+立天元一為平勾。先以前二數相減而半之，得$\square$為虛差。
+以虛差加股得$\square$，即明勾也。
+以明勾加天元得$\square$，為平弦，以自之得$\square$，
+內減天元冪，得$\square$為半徑冪（寄左）。
+然後以天元加一百六十一為高股，以天元乘之，得$\square$為同數，
+與左相消得$\square$。開平方得六十四步，即平勾也。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+又如前问：见角差161步，见明差差共77步，又见太虚弦较较60步。求城墙直径。}
+
+\mdFAYUE{%
+前两数相减折半，得数加入太虚弦较较的一半为泛率，泛率自乘为二次方程常数项。
+取161减去两倍泛率为一次项，1为常数。得平勾。}
+
+\mdTSAOYUE{%
+辨识得：$\square$即二股。
+设天元一为平勾。先以前两数相减折半得$\square$为虚差。
+以虚差加股得$\square$即明勾。
+以明勾加天元得$\square$为平弦，自乘得$\square$，
+减去天元冪得$\square$为半半径冪（寄左）。
+然后以天元加161为高股，以天元乘之得$\square$为同数，
+与左式相消得$\square$。开平方得64步，即平勾。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 137
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{高差、平差並一百六十一步，明差、差並七十七步。問答同前。}
+
+\clFAYUE{%
+以前數自乘於上，二數相並而半之，以自乘減上位，得數復自增乘為平實。
+前數自之於上，又以四之前數乘之，寄位。
+以前數自之於上，並二數而半之，以自乘減上位，得數又以四之前數乘，又倍之，減於寄位為從。
+前數自之，又四之於上。又以四之前數為冪，加上位，權寄。
+以前數為冪於上，並二數而半之，以自乘減上位，得數復八之於上。
+又以四之前數為冪加入上位，並以減於權寄為常法。得平勾。}
+
+\clTSAOYUE{%
+識別得二位相並而半之，得$\square$，即極差也。
+立天元一為平勾，加一百六十一得$\square$為高股，高股內又加天元，得$\square$為極弦。
+以自之得$\square$於上，內減極差冪一萬四千一百六十一，
+餘$\square$為兩段極積。合以極弦除，不除寄為母，便以此為城徑。
+以自增乘得$\square$為圓徑冪（內有極弦冪分母。寄左）。
+然後以天元乘高股，又四之得$\square$，又以分母極弦冪$\square$通之，
+得$\square$為同數，與左相消得$\square$。
+開平方得六十四步，即平勾也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{高差、平差共161步，明差、差共77步。求城墙直径。}
+
+\mdFAYUE{%
+以前数自乘于上位，两数相并折半自乘减上位，得数再自乘为二次方程常数项。
+前数自乘于上位，又以四倍前数乘之，寄存。
+前数自乘于上位，两数相并折半自乘减上位，得数又以四倍前数乘，再两倍，减于寄存为一次项。
+前数自乘又四倍于上位。又以四倍前数为冪加上位，暂寄。
+以前数为冪于上位，两数相并折半自乘减上位，得数再八倍于上位。
+又以四倍前数为冪加入上位，一并减于暂寄为常数。得平勾。}
+
+\mdTSAOYUE{%
+辨识得：两位相并折半得$\square$即极差。
+设天元一为平勾，加161得$\square$为高股，高股内再加天元得$\square$为极弦。
+自乘得$\square$于上位，减去极差冪14,161，
+余$\square$为两段极积。应以极弦除，不除寄为分母，便以此为城径。
+自乘得$\square$为圆径冪（内有极弦冪分母。寄左）。
+然后天元乘高股再四倍得$\square$，又以分母极弦冪$\square$通之，
+得$\square$为同数，与左式相消得$\square$。
+开平方得64步，即平勾。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 138
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{見明和二百七步，和四十六步。問答同前。}
+
+\clFAYUE{%
+二和上下相減，數同則止，名為泛率。
+又以二和直相減，餘為泛實（此則角差也）。
+乃以泛率除泛實，所得為差率也。
+以差率加減泛率，若半訖，與勾股相應者，其泛率便為和率，
+其泛實便為較率乘和率也。
+若不相應，則直取差率以消息之，定為相管和率
+（其勾股數少，得見弦黃而相為率者。
+勾三股四，則其和七，而其較一也。
+勾五股十二，則其和一十七，而其較七也。
+勾八股十五，則其和二十三，而其較亦得七也。
+勾七股二十四，則其和三十一，而其較一十七也。
+勾九股四十，則其和四十九，而其較三十一也。
+此消息之大略也。餘皆仿此）。
+乃以和率約二和，其明和所得為明壘率，其和所得為壘率也。
+又副置和率，上加差率而半之，則為股率也；
+下位減差率而半之，則為勾率也。
+既見勾、股及差三率，各以壘率乘之，即各得勾、股及差之真數也。}
+
+\clFAYUE{%
+又法：二雲數相並，以自乘於上。
+二雲數相乘，又四之以減上位為實。
+二雲數相並，以六步半乘之於上，又二數相並，以四步半乘之，又四之，
+以並入上位為從方。
+以七十步零四分三厘七毫五絲為常法。得小差四步。}
+
+\clTSAOYUE{%
+以二和相約分得率一、明率四步半，其兩數大小差率並同。
+又別得明小差、大差俱為半虛黃也。
+立天元一為小差，以四步半乘之得$\square$為大差也，又為明小差，又為半虛黃。
+置此大差又以四步半乘之得$\square$為明大差也。
+其四差相並得$\square$，減於二和並，得$\square$即兩段太虛大小差並也。
+內加三段虛黃方$\square$，得$\square$，合成一個太虛三事和，即圓城徑也。
+以自增乘得$\square$為徑冪（寄左）。
+乃置和加半虛黃，得$\square$為平勾。
+又置明和內加半虛黃，得$\square$為高股，
+勾股相乘得下式$\square$，又四之得$\square$為同數，
+與左相消得下式$\square$。開平方得四步，即小差也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{见明和207步，和46步。求城墙直径。}
+
+\mdFAYUE{%
+两和上下相减，数相同则止，名为泛率。
+又以两和直接相减，余为泛实（此即角差）。
+以泛率除泛实，所得为差率。
+以差率加减泛率，若折半后与勾股相应，则泛率即为和率，
+泛实即为较率乘和率。
+若不相应，则直接取差率以调整之，定为相管和率
+（勾股数少时，得见弦黄而相互为率。
+勾三股四，则和为七，较为一。
+勾五股十二，则和为十七，较为七。
+勾八股十五，则和为二十三，较为七。
+勾七股二十四，则和为三十一，较为十七。
+勾九股四十，则和为四十九，较为三十一。
+此调整之大致方法。余皆仿此）。
+以和率约两和，明和所得为明垒率，和所得为垒率。
+又分置和率，上加差率折半则为股率；
+下位减差率折半则为勾率。
+既得勾、股及差三率，各以垒率乘之，即得勾、股及差之真数。}
+
+\mdFAYUE{%
+另法：两已知数相并自乘于上位。
+两已知数相乘再四倍减上位为被除数。
+两已知数相并以6.5倍乘之于上位，又两数相并以4.5倍乘之再四倍，
+合并入上位为一次项。
+以70.4375为常数。得小差4步。}
+
+\mdTSAOYUE{%
+以两和相约得率一、明率4.5，两数大小差率皆同。
+又辨识得明小差、大差皆为半虚黄。
+设天元一为小差，以4.5乘之得$\square$为大差，又为明小差，又为半虚黄。
+取此大差再以4.5乘之得$\square$为明大差。
+四差相并得$\square$，从两和之和中减去得$\square$即两段太虚大小差之和。
+内加三段虚黄方$\square$得$\square$，合成一个太虚三事和即圆城径。
+自乘得$\square$为径冪（寄左）。
+取和加半虚黄得$\square$为平勾。
+又取明和内加半虚黄得$\square$为高股，
+勾股相乘得下式$\square$，再四倍得$\square$为同数，
+与左式相消得下式$\square$。开平方得4步，即小差。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 139 (last of vol 8)
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{明勾二股共八十八步，明股二勾共一百六十五步。問答同前。}
+
+\clFAYUE{%
+先識別得二大差共、二小差共及四差共。
+乃以二大差、二小差相乘為實，以四差共為法。如法得半之虛黃方一十八。}
+
+\clTSAOYUE{%
+先置前後雲數以約法約之，得一十一即壘率也。
+復各置前後數如壘率而一，前得八即勾率也，後得一十五即股率也。
+再以勾、股率求得較率七，和率二十三，弦率一十七，黃方率六，大差率九，小差率二。
+既見諸率，各以壘率乘之，其二和共得$\square$，二較共得$\square$，
+二弦共得$\square$，二黃共得$\square$，二大差共$\square$，
+二小差共$\square$，四差共$\square$。
+已上皆為明所得之共數也。
+乃立天元一為半虛黃，便為明小差，又為大差也。
+以減於大差共，得$\square$即明大差也。
+又以減於小差共，得$\square$即小差也。
+以二數相增乘，得$\square$（寄左）。
+以天元冪與寄左相消，得$\square$。
+上法下實，得一十八步，即半之虛黃方也。
+以倍之得$\square$，又加於二黃共六十六共得一百二，
+即明勾、股共也，又為極黃方，又為虛弦也。
+又以三十六減於一百八十七，餘一百五十一，即明股勾共也。
+此數內減虛弦，餘$\square$為明二差較也，此名旁差。
+以旁差減二弦共一百八十七，餘得$\square$，即太虛和也。
+卻加入虛弦一百二，並得$\square$，為太虛三事和，即圓城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{明勾与二股共88步，明股与二勾共165步。求城墙直径。}
+
+\mdFAYUE{%
+先辨识得二大差之和、二小差之和及四差之和。
+以二大差、二小差相乘为被除数，以四差之和为除数。依法得半虚黄方18。}
+
+\mdTSAOYUE{%
+先取前后两数以约法约之，得11即垒率。
+再各置前后数除以垒率，前得8即勾率，后得15即股率。
+再以勾、股率求得较率7，和率23，弦率17，黄方率6，大差率9，小差率2。
+既得诸率，各以垒率乘之，其二和共得$\square$，二较共得$\square$，
+二弦共得$\square$，二黄共得$\square$，二大差共$\square$，
+二小差共$\square$，四差共$\square$。
+以上皆为明所得之共数。
+设天元一为半虚黄，即为明小差，又为大差。
+从大差共中减去得$\square$即明大差。
+又从小差共中减去得$\square$即小差。
+两数相乘得$\square$（寄左）。
+以天元冪与寄左相消得$\square$。
+上法下实，得18步即半虚黄方。
+翻倍得$\square$，再加于二黄共66共得102，
+即明勾、股之和，又为极黄方，又为虚弦。
+又以36减于187余151即明股勾之和。
+此数内减虚弦余$\square$为明二差之较，此名「傍差」。
+以傍差减二弦共187余得$\square$即太虚和。
+再加入虚弦102共得$\square$为太虚三事和即圆城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\newpage
+
+
+% ===================================================================
+% VOLUME 9
+% ===================================================================
+\section{\tradfont 卷九\quad 大斜四問、大和八問}
+\label{sec:vol9}
+
+\begin{center}
+\fcolorbox{classicalborder}{classicalbg}{\parbox{0.9\textwidth}{\centering
+\textbf{\large 卷九概要}\quad 本卷十二问，分为大斜四问与大和八问。涉及最复杂的几何构形与最高次的方程——五次方程（四乘方）、六次方程（五乘方），以及玲珑（精巧方程变换）、换骨（根本变换）、连枝同体（关联方程组）等高阶技巧。
+}}
+\end{center}
+
+\vspace{0.5cm}
+
+\subsection{\tradfont 細草卷九上\quad 大斜四問}
+
+\begin{center}
+\fcolorbox{classicalborder}{classicalbg}{\parbox{0.85\textwidth}{\centering
+\textbf{大斜四問}：涉及大斜（通弦）及其相关各形的复杂问题，需运用\textbf{连枝同体}（关联方程组）与\textbf{玲珑}（精巧方程变换）求解。
+}}
+\end{center}
+
+\vspace{0.3cm}
+
+% -------------------------------------------------------------------
+% Problem 140
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲丙俱在中心，丙望南門直行，不知步數而止。
+甲出東門直行，不知步數望見丙，斜行與丙相會。
+二人共行了六百八十步，仍雲甲直行少於丙直行一百一十九步。問答同前。}
+
+\clFAYUE{%
+二數相減，餘以為冪，內卻減差冪為平實；
+二數相減又四之於上，又加入二之差步為益從；二步常法。得皇勾一百三十六。}
+
+\clTSAOYUE{%
+別得共步即皇極三事和，少步即勾股差也。
+立天元一為皇極勾。加少步得$\square$為股也，又以天元加股得$\square$為和也。
+以和減共步得$\square$為弦也，弦自之得$\square$為一段弦冪（寄左）。
+然後置股以天元乘之，又倍之，得$\square$為二直積，
+如入少步冪$\square$共得$\square$為同數，與左相消得$\square$。
+平方而一，得一百三十六即勾也。勾加差為股，勾股相乘，倍之為實，
+勾股和減共步為法。得城徑。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲丙都在中心，丙望南门直行，不知步数停下。
+甲出东门直行，不知步数望见丙，斜行与丙相会。
+两人共行了680步，又说甲直行比丙直行少119步。求城墙直径。}
+
+\mdFAYUE{%
+两数相减余数作为冪，减去差的冪为二次方程常数项；
+两数相减再四倍于上位，再加入两倍差步为负一次项；2为常数。得皇勾136。}
+
+\mdTSAOYUE{%
+辨识得：共步即皇极三事和，少步即勾股差。
+设天元一为皇极勾。加少步得$\square$为股，又以天元加股得$\square$为和。
+以和减共步得$\square$为弦，弦自乘得$\square$为一段弦冪（寄左）。
+然后取股以天元乘之再两倍得$\square$为两倍直积，
+加入少步冪$\square$共得$\square$为同数，与左式相消得$\square$。
+开平方得136即勾。勾加差为股，勾股相乘两倍为被除数，
+勾股和减共步为除数。得城径。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 141
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲丙俱在西北隅起，丙向南行不知步數而立。
+甲向東行望見丙，就丙斜行六百八十步與丙相會。
+丙雲：「我南行步多於甲東行二百八十步。」問答同前。}
+
+\clFAYUE{以雲數差乘雲數並為實，倍多步為從，二為平隅。得大勾三百二十。}
+
+\clTSAOYUE{%
+立天元為大勾。加差得$\square$為股，倍天元乘之，得$\square$為二積（寄左）。
+然後以斜步、多步並$\square$與斜步、多步較$\square$相乘，
+得$\square$為同數，與左相消得$\square$。
+開平方得三百二十步，即大勾也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲丙都在西北角出发，丙向南行不知步数停下。
+甲向东行望见丙，向丙斜行680步与丙相会。
+丙说：「我南行步比甲东行多280步。」求城墙直径。}
+
+\mdFAYUE{以两已知数之差乘两已知数之和为被除数，两倍多步为一次项，2为二次项系数。得大勾320。}
+
+\mdTSAOYUE{%
+设天元为大勾。加差得$\square$为股，两倍天元乘之得$\square$为两倍积（寄左）。
+然后斜步与多步之和$\square$与斜步和多步之差$\square$相乘，
+得$\square$为同数，与左式相消得$\square$。
+开平方得320步，即大勾。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 142
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲乙二人共立於艮隅，乙南行過城門而立，甲東行望乙與城參相直而止。
+丙丁二人共立於坤隅，丁向東行過城門而立，丙向南行望丁及甲乙悉與城俱相直。
+丙復就甲斜行六百八十步與甲相會。
+乙、丁又雲：「吾二人直行共得三百四十二步。」問答同前。}
+
+\clFAYUE{%
+二雲數相乘，倍之為實；倍斜行於上，以二雲數相減加上位為從；一步常法。
+開平方，得城徑。}
+
+\clTSAOYUE{%
+別得斜步即大弦也。其共步則一徑一虛弦共也，
+其二數相並為一大和一虛弦共數也。
+立天元為徑，減於共步得$\square$為虛弦也。
+以虛弦復減於天元，得$\square$為虛和，以斜步乘之，得$\square$（寄左）。
+乃以天元加斜步，得$\square$為大和，以虛弦乘之得$\square$為同數，
+與左相消得$\square$。開平方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲乙二人同立于艮角（东北），乙南行过城门停下，甲东行望乙与城墙呈直角而止。
+丙丁二人同立于坤角（西南），丁东行过城门停下，丙南行望丁及甲乙都与城墙呈直角。
+丙再向甲斜行680步与甲相会。
+乙、丁又说：「我们二人直行共得342步。」求城墙直径。}
+
+\mdFAYUE{%
+两已知数相乘翻倍为被除数；两倍斜行于上位，以两已知数相减加上位为一次项；1为常数。
+开平方得城径。}
+
+\mdTSAOYUE{%
+辨识得：斜步即大弦。共步即一径一虚弦之和，
+两数相并为一大和一虚弦之共数。
+设天元为径，从共步中减去得$\square$为虚弦。
+以虚弦再从天元中减去得$\square$为虚和，以斜步乘之得$\square$（寄左）。
+以天元加斜步得$\square$为大和，以虚弦乘之得$\square$为同数，
+与左式相消得$\square$。开平方得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 143
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲從北門向東直行，庚從西門穿城東行，丙從西門向南直行，壬從北門穿城南行。
+四人遙相望，悉與城參相直。
+只雲甲丙相望處六百八十步，庚壬穿城共行了六百三十一步。問答同前。}
+
+\clFAYUE{%
+共步自之得數。以共步減斜，餘自乘以減上為實。
+二之斜步加入共步減斜，餘數為從。一步常法。得城徑。}
+
+\clTSAOYUE{%
+共行步為一徑與皇和共也，又為大和皇弦差也。甲丙相望即大弦也。
+以共步減大弦，餘$\square$為皇極弦上減一徑也。
+立天元一為圓徑，減於共步，得$\square$為皇極和也，以自之得$\square$於上。
+弦內減共步餘$\square$，又以天元加之為皇弦，以自之得$\square$，
+減上位，餘得$\square$為兩個皇直積（寄左）。
+乃以天元乘皇弦得下式$\square$為同數，與左相消得$\square$。
+平方而一，得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲从北门向东直行，庚从西门穿城东行，丙从西门向南直行，壬从北门穿城南行。
+四人遥遥相望，都与城墙呈直角。
+只说甲丙相望处680步，庚壬穿城共行了631步。求城墙直径。}
+
+\mdFAYUE{%
+共步自乘得数。以共步减斜步，余数自乘减上位为被除数。
+两倍斜步加入共步减斜之余数为一次项。1为常数。得城径。}
+
+\mdTSAOYUE{%
+共行步为一径与皇极之和，又为大和与皇弦之差。甲丙相望即大弦。
+以共步减大弦余$\square$为皇极弦上减一径。
+设天元一为圆径，从共步中减去得$\square$为皇极和，自乘得$\square$于上位。
+弦内减共步余$\square$，再加天元为皇弦，自乘得$\square$，
+减上位余得$\square$为两个皇极直积（寄左）。
+以天元乘皇弦得下式$\square$为同数，与左式相消得$\square$。
+开平方得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\newpage
+
+\subsection{\tradfont 細草卷九下\quad 大和八問}
+
+\begin{center}
+\fcolorbox{classicalborder}{classicalbg}{\parbox{0.85\textwidth}{\centering
+\textbf{大和八問}：以「大和」（通勾通股之和）為已知條件，涉及\textbf{換骨}（根本變換）與\textbf{奪項}（消元法）等高階代數技巧，方程多達五次（四乘方）、六次（五乘方）。
+}}
+\end{center}
+
+\vspace{0.3cm}
+
+% -------------------------------------------------------------------
+% Problem 144
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+庚從西門穿城東行二百五十六步而立，壬從北門穿城南行三百七十五步而立。
+又有甲丙二人俱在乾隅，甲向東行，丙向南行，各不知步數而立。
+四人遙相望，只雲甲丙共行了九百二十步。問答同前。}
+
+\clFAYUE{%
+庚東行冪、壬南行冪相並於上，並庚壬步而倍之，內減大和，
+餘復減於庚壬共，得數以自乘減上位為平實。
+並庚壬步為益從，半步為隅法。得城徑。}
+
+\clTSAOYUE{%
+立天元一為圓徑，以半之副置二位。
+上以減於庚東行，得下$\square$為平弦也；下以減於壬南行，得$\square$為高弦也。
+二弦相並得$\square$為皇弦、虛弦共也。
+倍此數得$\square$為大弦、虛弦共也。
+以大弦、虛弦共減於大和，餘$\square$為虛勾虛股共也。
+天元內減虛勾、虛股共，餘$\square$即虛弦也。
+復置皇弦虛弦共內減虛弦，餘$\square$即皇極弦也，
+以自之得$\square$（寄左）。
+然後以平弦自之，得下式$\square$為勾冪也，又以高弦自之，
+得$\square$為股冪也。
+二冪相並得$\square$為同數，與左相消得$\square$。
+平方而一，得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+庚从西门穿城东行256步停下，壬从北门穿城南行375步停下。
+又有甲丙二人同在乾角（西北），甲向东行，丙向南行，各不知步数停下。
+四人遥遥相望，只说甲丙共行了920步。求城墙直径。}
+
+\mdFAYUE{%
+庚东行冪、壬南行冪合并于上位，庚壬步数相加翻倍，从中减去大和，
+余数再从庚壬共中减去，得数自乘减上位为二次方程常数项。
+庚壬步数之和为负一次项，0.5为二次项系数。得城径。}
+
+\mdTSAOYUE{%
+设天元一为圆径，取半后分置两位。
+上位从庚东行中减去得下式$\square$为平弦；下位从壬南行中减去得$\square$为高弦。
+两弦相加得$\square$为皇弦与虚弦之和。
+此数翻倍得$\square$为大弦与虚弦之和。
+以大弦、虚弦之和减于大和余$\square$为虚勾与虚股之和。
+天元内减虚勾、虚股之和余$\square$即虚弦。
+再取皇弦虚弦之和减去虚弦余$\square$即皇极弦，
+自乘得$\square$（寄左）。
+然后平弦自乘得下式$\square$为勾冪，高弦自乘
+得$\square$为股冪。
+两冪合并得$\square$为同数，与左式相消得$\square$。
+开平方得240步，即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 145
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲丙俱在西北隅，甲向東行不知步數而立，丙向南行望見甲，就甲斜行與甲相會。
+甲直行、丙直行共九百二十步（甲步少於丙步）。
+又：出東門南行有柳樹一株，出南門東行有槐樹一株。
+戊己二人同在巽隅，戊就柳樹，己就槐樹，亦與甲、乙遙相望。
+只雲己行少於戊行數與兩樹相距數相並，得一百四十四步，其二數相減餘六十步。問答同前。}
+
+\clFAYUE{%
+二雲數相並而半之為虛弦，以乘大和九百二十步於上。
+以一百四十四減大和，以虛較乘之，減上位為平實。
+以一百四十四減大和，又二之於上，以二之虛較減上位為從。四虛隅。得太虛勾四十八。}
+
+\clTSAOYUE{%
+別得甲丙直行共即大和也，戊就柳樹步即虛股也，己就槐樹步即虛勾也。
+其一百四十四步即二明勾，其六十步即二股也。
+立天元一為虛勾，加明勾得$\square$為半徑也，
+倍之得$\square$即城徑也（又為虛弦上三事和）。
+二雲數相並而半之，得$\square$即小弦也。
+相減而半之，得$\square$即小較也。
+以天元加較得$\square$即小股也，小勾股共得$\square$即小和也。
+以小三事減大和得$\square$即大弦也。
+乃先置小和以大弦乘之，得下式$\square$（寄左）。
+次以小弦乘大和，得$\square$，與左相消得下式$\square$。
+開平方得四十八步，即虛勾也。加明勾又倍之得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲丙都在西北角，甲向东行不知步数停下，丙向南行望见甲，向甲斜行与甲相会。
+甲直行、丙直行共920步（甲步少于丙步）。
+又：出东门南行有柳树一株，出南门东行有槐树一株。
+戊己二人同在巽角（东南），戊到柳树，己到槐树，也与甲、乙遥遥相望。
+只说己行比戊行之数与两树相距之数相加得144步，两数相减余60步。求城墙直径。}
+
+\mdFAYUE{%
+两已知数相并折半为虚弦，乘以大和920步于上位。
+以144减大和，以虚较乘之减上位为二次方程常数项。
+以144减大和再两倍于上位，以两倍虚较减上位为一次项。负4为二次项系数。得太虚勾48。}
+
+\mdTSAOYUE{%
+辨识得：甲丙直行共即大和，戊到柳树步即虚股，己到槐树步即虚勾。
+144步即两倍明勾，60步即两倍股。
+设天元一为虚勾，加明勾得$\square$为半径，
+翻倍得$\square$即城径（又为虚弦上三事和）。
+两已知数相并折半得$\square$即小弦。
+相减折半得$\square$即小较。
+天元加较得$\square$即小股，小勾股共得$\square$即小和。
+以小三事减大和得$\square$即大弦。
+先置小和以大弦乘之得下式$\square$（寄左）。
+次以小弦乘大和得$\square$，与左式相消得下式$\square$。
+开平方得48步即虚勾。加明勾再翻倍得240步即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 146
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+甲從乾隅東行，乙從艮隅南行，丙從乾隅南行，丁從坤隅東行，四人遙相望見。
+既而甲還至艮隅就乙，丙還至坤隅就丁。
+甲丙直行共九百二十步，甲還就乙共二百三十步，丙還就丁共五百五十二步。問答同前。}
+
+\clFAYUE{%
+並就數以減直行共，復以所並就數乘之為實；
+並就數減直行共，得數復加入直行共為法。得虛弦。}
+
+\clTSAOYUE{%
+別得甲丙直行共為大和也，甲還就乙步為小差勾股共也，丙還就丁步為大差勾股共也。
+以大差勾股共減於大股，餘即虛勾也。
+以小差勾股共減於大勾，餘即虛股也。
+二數相並得$\square$為大弦虛弦共也，
+二數相減，餘$\square$為通差及太虛勾股差共也。
+又並二數而半之，得$\square$為皇極弦虛弦共，又為皇極勾股共也。
+立天元一為虛弦。
+先以二共數減於大和，餘$\square$為虛勾虛股和於上。
+次以虛弦減於二共數，餘$\square$為大弦，
+以乘上位，得下$\square$（寄左）。
+然後以天元乘大和，得$\square$元為同數，與左相消得$\square$。
+上法下實，得一百二步，即虛弦也。加入虛和得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+甲从乾角（西北）东行，乙从艮角（东北）南行，丙从乾角南行，丁从坤角（西南）东行，四人遥遥相望。
+随后甲回到艮角靠近乙，丙回到坤角靠近丁。
+甲丙直行共920步，甲靠近乙共230步，丙靠近丁共552步。求城墙直径。}
+
+\mdFAYUE{%
+并就数减直行共，再以并就数乘之为被除数；
+并就数减直行共，得数再加入直行共为除数。得虚弦。}
+
+\mdTSAOYUE{%
+辨识得：甲丙直行共为大和，甲靠近乙步为小差勾股之和，丙靠近丁步为大差勾股之和。
+以大差勾股之和减于大股余即虚勾。
+以小差勾股之和减于大勾余即虚股。
+两数相并得$\square$为大弦虚弦之和，
+两数相减余$\square$为通差及太虚勾股差之和。
+又两数相并折半得$\square$为皇极弦虚弦之和，又为皇极勾股之和。
+设天元一为虚弦。
+先以二共数减于大和余$\square$为虚勾虚股之和于上位。
+次以虚弦减于二共数余$\square$为大弦，
+乘上位得下式$\square$（寄左）。
+然后天元乘大和得$\square$元为同数，与左式相消得$\square$。
+上法下实，得102步即虚弦。加入虚和得240步即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 147
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+依前見大和，只雲股圓差上勾弦差二百一十六，勾圓差上股弦差二十步。問答同前。}
+
+\clFAYUE{%
+以雲數二十步減通和，復以二十步乘之於上。
+以雲數二百一十六減九百步而半之，乘上位為立實。
+三因二十步以減通和得八百六十，
+以二百一十六及二十共得二百三十六，減通和而半之，得三百四十二。
+二數相乘訖，內減二十之九百步。
+又以三百四十二及二百一十六共得五百五十八，又二十之以減之為從方。
+以二百三十六減通和，又以三之二十步減通和，相並於上。
+以二之五百五十八內卻減二十步，餘以加上位為益廉。
+四步常法。得小差股一百五十。}
+
+\clTSAOYUE{%
+別得小差上股弦差$\square$加二股為大勾也，大差上勾弦差$\square$加二勾為大股也。
+立天元一為小差股，加$\square$得$\square$為小差弦也，
+小差弦上又加天元得$\square$為通勾，以減於和步得$\square$為通股也。
+通股內減$\square$得$\square$，半之得下式$\square$即大差之勾也。
+大差勾上又加$\square$，得$\square$為大差弦也。
+再置通股以小差弦乘之，得$\square$，以天元除之，得$\square$為一個大弦也（泛寄）。
+再置通勾以大差弦乘之，得$\square$，合以大差勾除。
+不除寄為母，便以為大弦（寄左）。
+乃以大差勾乘泛寄，得$\square$為同數，與左相消得$\square$。
+益積開立方，得一百五十步，為小差股也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+如前见大和（通勾通股之和），只说股圆差上勾弦差216，勾圆差上股弦差20步。求城墙直径。}
+
+\mdFAYUE{%
+以已知数20步减通和，再以20步乘之于上位。
+以已知数216减900步折半，乘上位为三次方程（立方）常数项。
+三倍20步减通和得860，
+216与20共得236，减通和折半得342。
+两数相乘毕，减去20乘900。
+又以342及216共得558，再乘20减之为一次项。
+以236减通和，又以三倍20步减通和，相并于上位。
+以两倍558减去20步，余加上位为负廉。
+4为常数。得小差股150。}
+
+\mdTSAOYUE{%
+辨识得：小差上股弦差$\square$加两倍股为大勾，大差上勾弦差$\square$加两倍勾为大股。
+设天元一为小差股，加$\square$得$\square$为小差弦，
+小差弦上又加天元得$\square$为通勾，从和步中减去得$\square$为通股。
+通股内减$\square$得$\square$，折半得下式$\square$即大差之勾。
+大差勾上加$\square$得$\square$为大差弦。
+再取通股以小差弦乘之得$\square$，除以天元得$\square$为一个大弦（泛寄）。
+再取通勾以大差弦乘之得$\square$，应以大差勾除。
+不除寄为分母，便以为大弦（寄左）。
+以大差勾乘泛寄得$\square$为同数，与左式相消得$\square$。
+益积开立方得150步，即为小差股。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 148
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+依前見大和，只雲高弦、平弦共得三百九十一步，高弦、平弦相較得一百一十九步。問答同前。}
+
+\clFAYUE{%
+以較數冪減於共數冪，又半之為實，以共數減大和為益從，一常法。
+開平方，得圓徑。}
+
+\clTSAOYUE{%
+別得高弦減於通股為邊股內減明股也，平弦減於通勾為邊勾內減明勾也。
+其共數即大弦內減皇極弦，又為皇極勾股共也，其相較步即皇極差也。
+二雲數相並得$\square$，即黃廣弦也。
+二雲數相減，餘即黃長弦也。
+以共數減於大和，餘$\square$為皇極弦、圓徑共。
+立天元一為圓徑，以減於$\square$為皇極弦也。
+以共數自之得$\square$於上。
+以相較數自之得$\square$，減上位，餘$\square$，
+又半之得$\square$為兩段皇極積（寄左）。
+乃以天元乘皇極弦，得$\square$為同數，
+與左相消得下$\square$。開平方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+如前见大和，只说高弦、平弦共得391步，高弦、平弦相差119步。求城墙直径。}
+
+\mdFAYUE{%
+以较数冪从共数冪中减去，折半为被除数，以共数减大和为负一次项，1为常数。
+开平方得圆径。}
+
+\mdTSAOYUE{%
+辨识得：高弦减于通股为边股内减明股，平弦减于通勾为边勾内减明勾。
+共数即大弦内减皇极弦，又为皇极勾股之和，相差步即皇极差。
+两已知数相并得$\square$即黄广弦。
+两已知数相减余即黄长弦。
+以共数减于大和余$\square$为皇极弦、圆径之和。
+设天元一为圆径，从$\square$中减去为皇极弦。
+以共数自乘得$\square$于上位。
+以相较数自乘得$\square$，减上位余$\square$，
+折半得$\square$为两段皇极积（寄左）。
+以天元乘皇极弦得$\square$为同数，
+与左式相消得下式$\square$。开平方得240步即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 149
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+依前見大和，只雲大差弦四百零八步，小差弦一百七十步。問答同前。}
+
+\clFAYUE{%
+以並雲數減大和，復以相並數乘之為實。
+三之通和於上，又以並雲數減大和，加上位為從。二步虛法。得圓徑。}
+
+\clTSAOYUE{%
+大差弦減和步，餘$\square$為大勾、大差勾共也。
+以小差弦減大和，餘$\square$為大股、小差股共也。
+雲數相並得即大弦內減虛弦也，雲數相減得$\square$為虛弦平弦共也。
+以相並數減於大和，餘$\square$為大差勾、小差股共，又為圓徑、虛弦共也。
+立天元一為圓徑，減於$\square$得$\square$為虛弦也。
+反以減於圓徑得$\square$為小和也。
+以天元減大和得$\square$為大弦，以乘小和，得$\square$（寄左）。
+乃再置虛弦以通和乘之，得$\square$，與左相消得$\square$。
+開平方得二百四十步，即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+如前见大和，只说大差弦408步，小差弦170步。求城墙直径。}
+
+\mdFAYUE{%
+以两已知数之和减大和，再以相并数乘之为被除数。
+三倍通和于上位，又以并数减大和加上位为一次项。负2为常数。得圆径。}
+
+\mdTSAOYUE{%
+大差弦减和步余$\square$为大勾、大差勾之和。
+以小差弦减大和余$\square$为大股、小差股之和。
+两数相并得即大弦内减虚弦，相减得$\square$为虚弦平弦之和。
+以相并数减于大和余$\square$为大差勾、小差股之和，又为圆径、虚弦之和。
+设天元一为圆径，从$\square$中减去得$\square$为虚弦。
+反过来从圆径中减去得$\square$为小和。
+天元减大和得$\square$为大弦，乘小和得$\square$（寄左）。
+再取虚弦以通和乘之得$\square$，与左式相消得$\square$。
+开平方得240步即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 150
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+依前見大和，只雲黃廣弦五百一十步，黃長弦二百七十二步。問答同前。}
+
+\clFAYUE{%
+雲數相並減大和，復以相並數乘之為實。
+雲數相並減大和，得數復以加大和為法。得虛弦一百二。}
+
+\clTSAOYUE{%
+別得黃廣弦又為大差弦、虛弦共，又為邊股、股共也。
+黃長弦又為小差弦、虛弦共，又為底勾、明勾共也。
+以黃廣弦減於大股，餘$\square$即虛股，以黃長弦減於大勾，餘$\square$即虛勾。
+故並數以減於大和，餘$\square$為虛和也。
+以虛和減徑即虛弦也。
+二雲數相並得$\square$為大弦、虛弦共也，雲數相減餘$\square$為虛弦、平弦共。
+立天元一為虛弦，以減於七百八十二，得$\square$為大弦也，
+以小和乘之得$\square$（寄左）。
+乃以天元虛弦乘大和，得$\square$為同數，與左相消得$\square$。
+上法下實，得一百二步，即虛弦也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+如前见大和，只说黄广弦510步，黄长弦272步。求城墙直径。}
+
+\mdFAYUE{%
+两已知数相并减大和，再以相并数乘之为被除数。
+两数相并减大和，得数再加入大和为除数。得虚弦102。}
+
+\mdTSAOYUE{%
+辨识得：黄广弦又为大差弦、虚弦之和，又为边股、股之和。
+黄长弦又为小差弦、虚弦之和，又为底勾、明勾之和。
+以黄广弦减于大股余$\square$即虚股，以黄长弦减于大勾余$\square$即虚勾。
+故两数相并以减于大和余$\square$为虚和。
+以虚和减径即虚弦。
+两已知数相并得$\square$为大弦、虚弦之和，相减余$\square$为虚弦、平弦之和。
+设天元一为虚弦，从782中减去得$\square$为大弦，
+乘小和得$\square$（寄左）。
+以天元虚弦乘大和得$\square$为同数，与左式相消得$\square$。
+上法下实，得102步即虚弦。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{0.3cm}
+\begin{center}\longline\end{center}
+
+% -------------------------------------------------------------------
+% Problem 151
+% -------------------------------------------------------------------
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\clOWEN{%
+依前見大和，只雲邊弦五百四十四步，底弦四百二十五步。問答同前。}
+
+\clFAYUE{雲數相減自之為實，以大和減並數為法。得皇極弦。}
+
+\clTSAOYUE{%
+別得以邊弦減大股，餘$\square$為半徑內減平勾，又為平弦內減勾圓差也。
+以大勾減於底弦，餘$\square$為高股內少半徑，又為股圓差內少高弦也。
+二雲數相並，得九百六十九為大弦、皇極弦共也。
+二雲數相減，得$\square$為皇極勾股差也。
+並數內減通和，餘$\square$為皇極弦內減圓徑也。
+立天元一為皇極弦，以自之於上。
+以一百一十九自之得$\square$，減上位得$\square$為二皇積（寄左）。
+復置天元內減四十九得下式$\square$為黃方。
+復以天元乘之，得$\square$，與左相消得$\square$。
+上法下實，得二百八十九步，即皇極弦也。內減四十九，餘即城徑也。合問。}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\mdOWEN{%
+如前见大和，只说边弦544步，底弦425步。求城墙直径。}
+
+\mdFAYUE{两已知数相减自乘为被除数，以大和减并数为除数。得皇极弦。}
+
+\mdTSAOYUE{%
+辨识得：以边弦减大股余$\square$为半径内减平勾，又为平弦内减勾圆差。
+以大勾减于底弦余$\square$为高股内少半径，又为股圆差内少高弦。
+两已知数相并得969为大弦、皇极弦之和。
+两已知数相减得$\square$为皇极勾股之差。
+并数内减通和余$\square$为皇极弦内减圆径。
+设天元一为皇极弦，自乘于上位。
+以119自乘得$\square$，减上位得$\square$为两倍皇极积（寄左）。
+再取天元内减49得下式$\square$为黄方。
+再以天元乘之得$\square$，与左式相消得$\square$。
+上法下实，得289步即皇极弦。内减49余即城径。符合所问。}
+\end{rightcolumn}
+
+\end{paracol}
+
+\newpage
+
+% ===================================================================
+% COLOPHON / 跋
+% ===================================================================
+\section*{跋\quad Colophon}
+\addcontentsline{toc}{section}{跋 Colophon}
+
+\begin{paracol}{2}
+
+\begin{leftcolumn}
+\fcolorbox{classicalborder}{classicalbg}{%
+\parbox{\linewidth}{%
+\textbf{\large\tradfont 【文言文】}
+
+\vspace{0.3em}
+《測圓海鏡》十二卷，金元李冶撰，成書於1248年。此書為現存最早系統運用「天元術」
+求解多項式方程之數學專著，堪稱中世紀代數學之巔峰。
+
+全書以圓城與勾股形為基本構架，設十五種直角三角形，各邊對角皆有專名。
+以天元一為未知數，借算籌佈列太極、天元之位，建立高次方程，
+用增乘開方法求解。其方程式之高次，可達\textbf{五乘方}（六次方程）。
+
+書中尤多精妙之處：
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+  \item \textbf{連枝同体}：关联方程组之法
+  \item \textbf{玲珑}：精巧的方程变换之术
+  \item \textbf{換骨}：根本变换之法
+  \item \textbf{奪項}：消元之法
+\end{itemize}
+
+此皆中算之瑰寶，值得後人深入研習。
+
+\vspace{0.3em}
+\textit{測圓海鏡 卷七至九 文言文/白话文对照版}
+}}
+\end{leftcolumn}
+
+\switchcolumn
+
+\begin{rightcolumn}
+\fcolorbox{modernborder}{modernbg}{%
+\parbox{\linewidth}{%
+\textbf{\large\modfont 【白话文】}
+
+\vspace{0.3em}
+《测圆海镜》十二卷，金元时期李冶所著，成书于1248年。此书为现存最早系统运用「天元术」
+求解多项式方程的数学专著，堪称中世纪代数学的巅峰之作。
+
+全书以圆城与直角三角形为基本构架，设立十五种直角三角形，各边对角皆有专名。
+以天元一为未知数，借算筹排列太极、天元之位，建立高次方程，
+用增乘开方法求解。其方程的最高次数可达\textbf{六次方程（五乘方）}。
+
+书中尤为精妙之处：
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+  \item \textbf{连枝同体（关联方程组）}：处理多变量联立方程的方法
+  \item \textbf{玲珑（精巧的方程变换）}：巧妙的代数变形技巧
+  \item \textbf{换骨（根本变换）}：从根本上转换问题视角的技巧
+  \item \textbf{夺项（消元法）}：消去变量的方法
+\end{itemize}
+
+这些都是中国数学的瑰宝，值得后人深入研习。
+
+\vspace{0.3em}
+\textit{测圆海镜 卷七至九 文言文白话文对照版}
+}}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{1cm}
+
+\begin{center}
+\longline
+
+\vspace{0.5cm}
+
+{\small\tradfont 原文來源：Chinese Wikisource（\url{https://zh.wikisource.org/wiki/測圓海鏡}）}
+
+\vspace{0.2cm}
+
+{\small\modfont 排版：Xe\LaTeX\ + xeCJK + Noto CJK 字体族}
+
+\vspace{0.2cm}
+
+{\small 測圓海鏡 卷七至卷九 \quad 文言文\,$\boldsymbol{\leftrightarrow}$\,白话文 對照版}
+
+{\small \textit{Bilingual Edition: Classical Chinese / Modern Chinese}}
+
+\vspace{0.3cm}
+
+{\footnotesize 術語對照：五乘方$\to$五次方程\quad 六乘方$\to$六次方程\quad 連枝同体$\to$連枝同体（关联方程组）\quad 玲珑$\to$玲珑（精巧的方程变换）\quad 換骨$\to$換骨（根本变换）\quad 奪項$\to$奪項（消元法）}
+\end{center}
+
+\end{document}

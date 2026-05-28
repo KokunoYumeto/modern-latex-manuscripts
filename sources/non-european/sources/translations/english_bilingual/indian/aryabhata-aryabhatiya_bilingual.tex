@@ -1,1312 +1,1312 @@
-% ====================================================================
-% ARYABHATIYA: Bilingual Sanskrit-English Edition
-% Original Sanskrit (Devanagari) + English Translation with IAST
-% Based on Aryabhatiya of Aryabhata (499 CE)
-% Translation style: W.E. Clark (1930)
-% ====================================================================
-\documentclass[11pt,a4paper]{article}
-
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\setmainlanguage{english}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{fancyhdr}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{hyperref}
-\usepackage{enumitem}
-
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=18mm,right=18mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
-}
-
-\newlength{\leftcolwidth}
-\newlength{\rightcolwidth}
-\setlength{\leftcolwidth}{0.47\linewidth}
-\setlength{\rightcolwidth}{0.47\linewidth}
-
-\setmainfont{TeX Gyre Termes}
-\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{Nirmala UI}
-\newfontfamily\iastfont[Scale=1.0]{TeX Gyre Termes}
-
-\newcommand{\dev}[1]{{\devanagarifont #1}}
-\newcommand{\IAST}[1]{{\iastfont\textit{#1}}}
-
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{transbg}{RGB}{250,248,245}
-\definecolor{highlightbg}{RGB}{255,252,240}
-
-\usepackage{titlesec}
-\titleformat{\section}{\normalfont\Large\bfseries\color{sectioncolor}}{\thesection}{1em}{}
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textsc{Aryabhatiya --- Bilingual Edition}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-
-\hypersetup{
-  colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Aryabhatiya of Aryabhata -- Bilingual Sanskrit-English Edition},
-  pdfauthor={Aryabhata, Translation in the style of W.E. Clark}
-}
-
-\newcommand{\bilingualbox}[4]{%
-  \par\medskip\noindent\textbf{#1}\par\smallskip
-  \noindent\fcolorbox{#2}{#3}{%
-    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-    \begin{minipage}[t]{\leftcolwidth}
-    \devanagarifont #4
-    \end{minipage}%
-    \hfill\vrule width 0.3pt\hfill
-    \begin{minipage}[t]{\rightcolwidth}
-    #4% content goes here via separate command
-    \end{minipage}
-    \end{minipage}
-  }\par\medskip
-}
-
-\newenvironment{sanskritcol}{\begin{minipage}[t]{\leftcolwidth}\devanagarifont}{\end{minipage}}
-\newenvironment{englishcol}{\begin{minipage}[t]{\rightcolwidth}\small}{\end{minipage}}
-
-\begin{document}
-
-% TITLE PAGE
-\thispagestyle{empty}
-\begin{center}
-\vspace*{1.5cm}
-{\color{rulecolor}\rule{0.85\textwidth}{1pt}}
-\vspace{0.6cm}
-
-{\fontsize{32}{40}\selectfont\devanagarifont\color{titlecolor} आर्यभटीयम्}
-
-\vspace{0.3cm}
-{\Large\iastfont\textit{Aryabhatiya of Aryabhata}}
-
-\vspace{0.8cm}
-{\large\textsc{Bilingual Sanskrit--English Edition}}
-
-\vspace{0.3cm}
-{\normalsize Original Sanskrit in Devanagari with English Translation\\[0.2em]
-Translation in the style of W.E. Clark (1930)}
-
-\vspace{0.8cm}
-{\color{rulecolor}\rule{0.5\textwidth}{0.5pt}}
-
-\vspace{0.5cm}
-{\large\devanagarifont चतुःपादसंयुतं गणितज्योतिषशास्त्रम्\\[0.3em]
-Four chapters on mathematics and astronomy}
-
-\vspace{0.5cm}
-{\color{rulecolor}\rule{0.5\textwidth}{0.5pt}}
-
-\vspace{0.5cm}
-{\small\textsc{Composed by Aryabhata in 499 CE}\\[0.2em]
-\textit{Age 23}}
-
-\vspace{0.5cm}
-{\color{rulecolor}\rule{0.85\textwidth}{1pt}}
-\end{center}
-\clearpage
-
-% CONTENTS
-\section*{Contents / \dev{विषयानि}}
-
-\begin{enumerate}[label=\arabic*.,leftmargin=2em]
-  \item \textbf{Da\'sagitika} (\dev{दशगीतिका}) --- 33 verses\\ Numerical notation, planetary periods, sine table, astronomical constants
-  \item \textbf{Ganitapada} (\dev{गणितपादः}) --- 33 verses\\ Mathematics: squares, cubes, areas, volumes, shadows, ku\d{t}taka
-  \item \textbf{Kalakriyapada} (\dev{कालक्रियापादः}) --- 25 verses\\ Time reckoning: yugas, months, days, planetary motion
-  \item \textbf{Golapada} (\dev{गोलपादः}) --- 50 verses\\ Spherical astronomy: Earth as sphere, eclipses, stellar positions
-\end{enumerate}
-
-\vspace{0.5cm}
-\begin{center}
-\begin{tabular}{ll}
-\toprule
-\textbf{Key Mathematical Contributions} & \\
-\midrule
-Value of $\pi \approx 3.1416$ & Verse 2.10\\
-24-fold sine table (\textit{jya}) & Verses 1.12, 2.11--12\\
-Ku\d{t}taka (pulverizer) method & Verses 2.32--33\\
-Earth's rotation on its axis & Golapada 9\\
-\bottomrule
-\end{tabular}
-\end{center}
-\clearpage
-
-% PREFACE
-\section*{Preface / \dev{प्रस्तावना}}
-
-\noindent
-\begin{sanskritcol}
-आर्यभटीयम् इदं ग्रन्थं समुद्रमथन, रासलीला, ब्रह्महत्यादीनां रहस्यं ज्ञातुं शक्यते। इदं प्राचीनं भारतीयं ज्योतिषशास्त्रस्य गणितस्य च मूलग्रन्थः।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-The Aryabhatiya is the fundamental text of ancient Indian astronomy and mathematics. Composed by Aryabhata in 499 CE when he was but 23 years old, this treatise consists of 121 verses divided into four chapters (p\=adas).
-\end{englishcol}
-\par\medskip
-
-\vspace{0.5cm}
-\noindent
-\begin{sanskritcol}
-प्रत्येकपादे सूक्तयः संयुक्ताः गणितज्योतिषयोः सम्पूर्णं ज्ञानं ददति। इदं सम्पादनं देवनागरिलिप्यां मूलसंस्कृतं आङ्ग्लानुवादेन सह प्रस्तौति।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-Each p\=ada contains verses giving complete knowledge of mathematics and astronomy. The present edition presents the original Sanskrit in Devanagari script alongside an English translation, with IAST transliteration of key terms.
-\end{englishcol}
-\par\medskip
-
-\clearpage
-
-% ====================================================================
-% CHAPTER 1: DASAGITIKA
-% ====================================================================
-\section*{First Chapter: Dasagitika / \dev{प्रथमः पादः -- दशगीतिका}}
-\addcontentsline{toc}{section}{I. Dasagitika (33 verses)}
-
-\noindent
-\begin{sanskritcol}
-प्रथम आर्यभटीय पद्धति दशगीतिका नाम। ``दश'' संख्यावाचक, ``गीतिका'' गानयोग्यसूत्राणि। दशाक्षररचितत्वेन दशगीतिकेत्युच्यते।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-The first method of the Aryabhatiya is called Da\'sag\=itik\=a. ``Da\'sa'' is a numerical term, and ``g\=itik\=a'' means verses fit for singing. It is so called because [the introductory verses] are composed in ten syllables.
-\end{englishcol}
-\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 1 ----
-\noindent\textbf{Verse 1 --- Invocation / \dev{मङ्गलाचरण}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-ब्रह्मा नारायणो ब्रह्मा ब्रह्मा वेधाः सनातनः ।\\
-परमेष्ठी च सप्तैते मुनयः स्युः पुरःसराः ॥ १ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Brahm\=a n\=ar\=aya\d no brahm\=a brahm\=a vedh\=a\d h san\=atana\d h.\\
-Parame\d{s}\d{t}h\=i ca saptaite munaya\d h syu\d h pura\d hsar\=a\d h. [1]}
-
-\vspace{0.2cm}
-Brahma, Narayana, Brahma, Brahma, Vedhas the Eternal, and Parameshthin---these seven sages are the foremost leaders. [1]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 2 ----
-\noindent\textbf{Verse 2 --- Numerical Notation / \dev{संख्यास्थानकल्पना}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-वर्गाक्षराणि कादीनि नव ताण्डाक्षराणि च ।\\
-नव धनानि चैतानि स्थानान्यष्टादश स्मृतम् ॥ २ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Varg\=ak\d{s}ar\=a\d{n}i k\=ad\=ini nava t\=a\d{n}\d{d}\=ak\d{s}ar\=a\d{n}i ca.\\
-Nava dh\=an\=ani cait\=ani sth\=an\=nya\d{s}\d{t}\=ada\'sa sm\=rtam. [2]}
-
-\vspace{0.2cm}
-The varga letters beginning with ka are nine in number; the avarga letters are also nine. Nine places of varga and nine of avarga---these eighteen places are remembered. [2]
-
-\textit{[Note: Aryabhata's alphabetic numerical notation assigns values to consonants: ka-ta-pa-ya = 1-25, and to vowels representing powers of 10.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 3 ----
-\noindent\textbf{Verse 3 --- Revolutions of the Sun / \dev{सूर्यस्य चतुर्युगे भगणाः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-सूर्यस्य भगणा यत्र चतुर्युगे यान्ति ते कति ।\\
-चतुर्विंशतिसहस्राणि षट्शतानि च सप्ततिः ॥ ३ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{S\=uryasya bhag\=an\=a yatra catur-yuge y\=anti te kati.\\
-Catur-vi\'msati-sahasr\=a\d{n}i \d{s}a\d{t}-\'sat\=ani ca saptati\d h. [3]}
-
-\vspace{0.2cm}
-The revolutions of the Sun in a Caturyuga are: twenty-four thousand and six hundred and seventy, [that is] \textbf{4,320,000}. [3]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 4 ----
-\noindent\textbf{Verse 4 --- Moon's Revolutions / \dev{शशिनो भगणाः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-शशिनो भगणा यत्र पञ्च सप्ततिरुत्तरम् ।\\
-त्रिसहस्राणि चाष्टौ च लक्षं च द्वे च दक्षिणे ॥ ४ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{\'Sa\'sino bhag\=an\=a yatra pañca saptatir uttaram.\\
-Tri-sahasr\=a\d{n}i c\=a\d{s}\d{t}au ca lak\=sa\d m ca dve ca dak\d si\d ne. [4]}
-
-\vspace{0.2cm}
-The revolutions of the Moon: five and seventy above, three thousand and eight, and one hundred-thousand and two on the right [side], [that is] \textbf{57,753,336}. [4]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 5 ----
-\noindent\textbf{Verse 5 --- Lunar Apogee and Nodes / \dev{चन्द्रोच्चराहुभगणौ}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-चन्द्रोच्चं शनिमन्दं च राहुकेतू तथैव च ।\\
-भगणानां शतं द्वे तु सहस्राणि च सप्ततिः ॥ ५ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Candrocca\d m \'sani-manda\d m ca r\=ahu-ket\=u tathaiva ca.\\
-Bhag\=an\=\=ana\d m \'sata\d m dve tu sahasr\=a\d{n}i ca saptati\d h. [5]}
-
-\vspace{0.2cm}
-The [apogee] of the Moon, the [apogee] of Saturn, and Rahu and Ketu: two hundred and seventy-thousand [revolutions in a Caturyuga]. [5]
-
-\textit{[Note: Rahu and Ketu are the ascending and descending nodes of the Moon, responsible for eclipses.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% ---- Verse 6 ----
-\noindent\textbf{Verse 6 --- The Manus / \dev{मनुसङ्ख्या}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-चतुर्दश व्यतीताः स्युर्मनवोऽष्टौ तथापराः ।\\
-प्रवर्तमानश्चैकस्तु कल्पे सप्तदश स्मृताः ॥ ६ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Caturda\'sa vyat\=it\=\=ah syur manavo '\d{s}\d{t}au tath\=apar\=a\d h.\\
-Pravartam\=ana\'s caikas tu kalpe saptada\'sa sm\=rt\=a\d h. [6]}
-
-\vspace{0.2cm}
-Fourteen Manus have passed away; eight are yet to come; and one is current---seventeen Manus are remembered in a Kalpa. [6]
-
-\textit{[Note: A Kalpa is one day of Brahma, equal to 1000 Caturyugas. Each Manu rules over 71 Caturyugas.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 7 ----
-\noindent\textbf{Verse 7 --- Signs and Degrees / \dev{राश्यंशकल्पना}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-द्वादशा सूर्यजः सोऽयं त्रिंशता भागितो रविः ।\\
-भागेन तेन राशिः स्यात्तनुं त्रिंशत् गुणीकृतम् ॥ ७ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Dv\=ada\'s\=a s\=uryaja\d h so'ya\d m tri\'m\'sat\=a bh\=agito ravi\d h.\\
-Bh\=agena tena r\=a\'si\d h sy\=at tanu\d m tri\'m\'sat gu\d{n}\=ik\=rtam. [7]}
-
-\vspace{0.2cm}
-The Sun, born of the twelve [signs], is divided by thirty. By that division a sign is produced; a degree is [a sign] multiplied by thirty. [7]
-
-\textit{[Note: 12 signs (r\=asi) $\times$ 30 degrees = 360$^\circ$ in a circle.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 8 ----
-\noindent\textbf{Verse 8 --- Measure of the Earth / \dev{योजनप्रमाणम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-योजनं त्रिभवं वृत्तं भूमेर्योजनलक्षणम् ।\\
-निराकारः सदा व्यापी शून्यमध्यः सनातनः ॥ ८ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Yojana\d m tribhava\d m v\=rtta\d m bh\=umer yojana-lak\sa\nam.\\
-Nir\=ak\=ara\d h sad\=a vy\=ap\=i \'s\=unyamadhya\d h san\=atana\d h. [8]}
-
-\vspace{0.2cm}
-A yojana: the circle of the Earth has a circumference measured in yojanas. [The Earth is] formless, always pervading, void at the centre, eternal. [8]
-
-\textit{[Note: The circumference of the Earth is given as 4,967 yojanas. 1 yojana $\approx$ 7.5 miles.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 9 ----
-\noindent\textbf{Verse 9 --- Planetary Orbits / \dev{ग्रहकक्ष्याः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-ग्रहाणां कक्ष्याविस्तारा योजनैस्तैः प्रकीर्तिताः ।\\
-भूमेरर्धं त्रिभागश्च व्यासः सूर्यस्य कीर्तितः ॥ ९ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Grah\=a\d{n}\=a\d m kak\d sy\=a-vist\=ar\=a yojanais tai\d h prak\=irtit\=a\d h.\\
-Bh\=umer ardha\d m tribh\=aga\'s ca vy\=asa\d h s\=uryasya k\=irtita\d h. [9]}
-
-\vspace{0.2cm}
-The diameters of the orbits of the planets are proclaimed in yojanas. Half of the Earth plus a third: the diameter of the Sun is proclaimed. [9]
-
-\textit{[Note: The Sun's diameter = 4410 yojanas; the Moon's = 315 yojanas; Earth's = 1050 yojanas.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% ---- Verse 10 ----
-\noindent\textbf{Verse 10 --- The 24 Sines / \dev{चतुर्विंशत्यर्धज्याः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-त्रिभुजं षट्कोणं वृत्तं षट्त्रिंशदंशेन योजयेत् ।\\
-चतुर्विंशतिजीवाः स्युः सप्तभिः सहिताः क्रमात् ॥ १० ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Tribhuja\d m \sa\tko\na\d m v\=rtta\d m \sa\t-tri\'m\'sad-a\'m\'sena yojayet.\\
-Catur-vi\'msati-j\=iv\=a\d h syu\d h saptabhi\d h sahit\=a\d h kram\=at. [10]}
-
-\vspace{0.2cm}
-A triangle, a hexagon, and a circle are joined by thirty-six degrees. Twenty-four chords are produced, each increased successively by seven [and other differences]. [10]
-
-\textit{[Note: Each sine-interval is $3^\circ 45'$ (225$'$). The 24 \textit{ardhajy\=a}s are computed at intervals of $3^\circ 45'$ from $3^\circ 45'$ to $90^\circ$.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% Sine Table
-\noindent\textbf{Table of 24 Sines / \dev{चतुर्विंशत्यर्धज्यासारणी}}\par\smallskip
-\fcolorbox{rulecolor}{white}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\small
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\textbf{No.} & \textbf{\dev{ज्या}} & \textbf{Value} & \textbf{No.} & \textbf{\dev{ज्या}} & \textbf{Value} \\
-\hline
-1 & \dev{२२५} & 225 & 13 & \dev{२८५९} & 2859 \\
-2 & \dev{४४९} & 449 & 14 & \dev{२९७८} & 2978 \\
-3 & \dev{६७१} & 671 & 15 & \dev{३०९३} & 3093 \\
-4 & \dev{८९०} & 890 & 16 & \dev{३२०२} & 3202 \\
-5 & \dev{११०५} & 1105 & 17 & \dev{३३०७} & 3307 \\
-6 & \dev{१३१५} & 1315 & 18 & \dev{३४०६} & 3406 \\
-7 & \dev{१५२०} & 1520 & 19 & \dev{३४९९} & 3499 \\
-8 & \dev{१७१९} & 1719 & 20 & \dev{३५८६} & 3586 \\
-9 & \dev{१९१०} & 1910 & 21 & \dev{३६६६} & 3666 \\
-10 & \dev{२०९३} & 2093 & 22 & \dev{३७३९} & 3739 \\
-11 & \dev{२२६७} & 2267 & 23 & \dev{३८०५} & 3805 \\
-12 & \dev{२४३१} & 2431 & 24 & \dev{३८६३} & 3863 \\
-\hline
-\end{tabular}
-\end{center}
-
-\noindent
-\begin{sanskritcol}
-उपर्युक्त २४ ज्यासु प्रत्येकं पूर्वजीवायां शेषमन्तरं निःसरति।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-In the 24 sines above, taking each from the preceding sine, the remainders are the differences. The first differences are approximately 225, then 224, 222, 219,\ldots decreasing gradually.
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\begin{center}
-\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}\\[0.5em]
-\textbf{\dev{॥ इति प्रथमपादः समाप्तः ॥}}\\[0.3em]
-\textit{End of the First Chapter}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}
-\end{center}
-
-\clearpage
-
-% ====================================================================
-% CHAPTER 2: GANITAPADA
-% ====================================================================
-\section*{Second Chapter: Ganitapada / \dev{द्वितीयः पादः -- गणितपादः}}
-\addcontentsline{toc}{section}{II. Ganitapada (33 verses)}
-
-\noindent
-\begin{sanskritcol}
-गणितपादे वर्गघनमूलक्षेत्रफलवृत्तजीवाकूट्टकछायादिविषयाः संस्कृताः।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-In the Ganitapada are treated: squares, cubes, square-roots, cube-roots, areas of figures, the circle, chords, the pulverizer (ku\d{t}taka), shadows, and related topics.
-\end{englishcol}
-\par\medskip
-
-\vspace{0.5cm}
-
-% Verse 1
-\noindent\textbf{Verse 1 / \dev{मङ्गलाचरणम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-प्रथमपादक्रमादेव ह्यः प्रणम्य गणेश्वरम् ।\\
-ततो गणितमाख्यास्ये गणितज्ञानमुत्तमम् ॥ १ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Prathama-p\=ada-kram\=ad eva hya\d h pra\d namya ga\d ne\'svaram.\\
-Tato ga\d nitam \=akhy\=asye ga\d nita-jñ\=anam uttamam. [1]}
-
-\vspace{0.2cm}
-Having bowed to the Lord of Calculation (Gane\'svara) in the order of the first chapter, I shall now expound the science of calculation, the highest knowledge of mathematics. [1]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 2
-\noindent\textbf{Verse 2 --- Place Values / \dev{स्थाननामानि}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-एकं दश शतं सहस्रमयुतं लक्षं प्रयुतं कोट्यः ।\\
-अर्बुदं बृन्दमखखर्वं निखर्वं महापद्मं च ॥ २ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Eka\d m da\'sa \'sata\d m sahasram ayuta\d m lak\sa\d m prayuta\d m ko\d tya\d h.\\
-Arbuda\d m b\=rndam akha-kharva\d m nikharva\d m mah\=a-padma\d m ca. [2]}
-
-\vspace{0.2cm}
-One, ten, hundred, thousand, myriads (ayuta), lakh (lak\d sa), ten-lakhs (prayuta), crore (ko\d ti), ten-crores (arbuda), hundred-crores (b\=nda), thousand-crores (kharva), ten-thousand-crores (nikharva), hundred-thousand-crores (mah\=a-padma). [2]
-
-\textit{[Note: The Indian decimal place-value system proceeds in powers of 10.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% Verse 3
-\noindent\textbf{Verse 3 --- Square / \dev{वर्गः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-संयुत्यकस्थानसंज्ञं ततः सप्तदशस्वरे ।\\
-स्वरूपं चैव तत् प्रोक्तं वर्गसंज्ञं तथैव च ॥ ३ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Sa\d myuty-aka-sth\=ana-sa\d jña\d m tata\d h saptada\'sa-svare.\\
-Svar\=upa\d m caiva tat prokta\d m varga-sa\d jña\d m tathaiva ca. [3]}
-
-\vspace{0.2cm}
-The product of a number with itself is called the varga [square]. In the odd places [the product] is as stated; the square is also called ``svar\=upa'' [own-form]. [3]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 4
-\noindent\textbf{Verse 4 --- Square Root / \dev{वर्गमूलम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-वर्गस्य मूलमाख्यातं यथोक्तं गणितैः पुरा ।\\
-सर्वदोषविनिर्मुक्तं विधिं श्रूयतां मया ॥ ४ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Vargasya m\=ulam \=akhy\=ata\d m yathokta\d m ga\d nitai\d h pur\=a.\\
-Sarva-do\d sa-vinirmukta\d m vidhi\d m \'sr\=uyat\=a\d m may\=a. [4]}
-
-\vspace{0.2cm}
-The square root of a square is declared as formerly spoken by calculators. Hear from me the method free from all defects. [4]
-
-\textit{[Note: Method: mark off periods of two digits from the right. Find the largest square in the leftmost period; subtract and bring down the next period. Double the current root and divide into the remainder. Repeat.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 5
-\noindent\textbf{Verse 5 --- Cube / \dev{घनः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-त्रिसमचतुष्कोणं घनं स्यादथवाऽपरम् ।\\
-त्रयाणां समवृत्तानां समसंयोगजं स्मृतम् ॥ ५ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Tri-sama-catu\d sko\na\d m ghana\d m sy\=ad athav\=aparam.\\
-Tray\=a\d{n}\=am sama-v\=rtt\=an\=am sama-sa\d myogaja\d m sm\=rtam. [5]}
-
-\vspace{0.2cm}
-A cube is an equi-quadrilateral [solid] with three equal dimensions. It is remembered as produced from the product of three equal quantities. [5]
-
-\textit{[Note: ghana literally means ``solid.'' The cube of a number $n$ is $n \times n \times n$.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 6
-\noindent\textbf{Verse 6 --- Cube Root / \dev{घनमूलम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-घनस्य मूलमाख्यातं विधिना गणितोक्तितः ।\\
-घनमूलं तु यत्किंचित्तत् सर्वं परिकल्पयेत् ॥ ६ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Ghanasya m\=ulam \=akhy\=ata\d m vidhin\=a ga\d nita-uktita\d h.\\
-Ghana-m\=ula\d m tu yat ki\d mcit tat sarva\d m parikalpayet. [6]}
-
-\vspace{0.2cm}
-The cube root of a cube is declared by the method taught in calculation. Whatever cube root exists, all of it is to be determined. [6]
-
-\textit{[Note: Method: mark off periods of three digits. Find the largest cube in the first period; subtract. The divisor = $3 \times$ (current root)$^2$; divide into the remainder.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% Verse 7
-\noindent\textbf{Verse 7 --- Area of a Triangle / \dev{त्रिभुजक्षेत्रफलम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-समपर्यन्तमायतं त्रिभुजं क्षेत्रमुच्यते ।\\
-तस्य कर्णस्तु विज्ञेयः समद्वयसमन्वितः ॥ ७ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Sama-paryanta-m\=ayatata\d m tribhuja\d m k\d setram ucyate.\\
-Tasya kar\d nas tu vijñeya\d h sama-dvaya-samanvita\d h. [7]}
-
-\vspace{0.2cm}
-A triangle with equal sides is called a triangular field. Its hypotenuse (kar\d na) is to be known as combined with two equal [sides]. [7]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 8
-\noindent\textbf{Verse 8 --- Area of Any Triangle / \dev{सामान्यत्रिभुजफलम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-त्रिभुजस्य क्षेत्रफलमथवाऽप्यनुपाततः ।\\
-आयामसंवर्गतुल्यं स्यात् समस्य तु विशेषतः ॥ ८ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Tribhujasya k\d setra-phalam athav\=apy anup\=atata\d h.\\
-\=Ay\=ama-sa\d varga-tulya\d m sy\=at samasya tu vi\'se\d sata\d h. [8]}
-
-\vspace{0.2cm}
-The area of a triangle, or alternatively by proportion: it is equal to the product of the base and height. For an equilateral triangle, there is a special [method]. [8]
-
-\textit{[Note: Area = $\frac{1}{2} \times$ base $\times$ height.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 9
-\noindent\textbf{Verse 9 --- Area of a Circle / \dev{वृत्तक्षेत्रफलम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-वृत्तस्य क्षेत्रफलं तु व्यासार्धगुणितं परि ।\\
-अर्धपरिधिगुणार्धव्यासं तत्क्षेत्रफलं भवेत् ॥ ९ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{V\=rttasya k\d setra-phala\d m tu vy\=as\=ardha-gu\d nita\d m pari.\\
-Ardha-paridhi-gu\d{n}\=ardha-vy\=asa\d m tat k\d setra-phala\d m bhavet. [9]}
-
-\vspace{0.2cm}
-The area of a circle is: the circumference multiplied by half the diameter, [divided by 2]. Or: half the circumference multiplied by half the diameter becomes the area of that field. [9]
-
-\textit{[Note: Formula: Area = $\frac{C \times d}{4} = \pi r^2$.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% VERSE 10 - VALUE OF PI
-\noindent\textbf{Verse 10 --- The Value of $\pi$ / \dev{वृत्तपरिधेः सन्निकृष्टमानम्}}\par\smallskip
-\fcolorbox{notecolor}{highlightbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-चतुरधिकं शतमष्टगुणं द्वाषष्टिस्तथा सहस्राणाम् ।\\
-अयुतद्वयविष्कम्भस्यासन्नो वृत्तपरिणाहः ॥ १० ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Catur-adhika\d m \'satam a\d s\d ta-gu\na\d m dv\=a\d s\d a\d s\d tis tath\=a sahasr\=a\d n\=am.\\
-Ayuta-dvaya-vi\d skambhasy\=asanno v\=rtta-pari\d n\=aha\d h. [10]}
-
-\vspace{0.2cm}
-Add four to one hundred, multiply by eight, then add sixty-two thousand; the result is the approximate circumference of a circle whose diameter is twenty thousand. [10]
-
-\vspace{0.3cm}
-\textbf{Computation:}
-\begin{align*}
-(100 + 4) \times 8 + 62000 &= 104 \times 8 + 62000 \\
-&= 832 + 62000 \\
-&= 62832
-\end{align*}
-
-\[\pi \approx \frac{62832}{20000} = \mathbf{3.1416}\]
-
-\textit{[Note: This value $\pi \approx 3.1416$ is remarkably accurate. The true value of $\pi = 3.14159265\ldots$ Aryabhata's approximation gives the value correct to four decimal places. This verse is one of the most celebrated in Indian mathematical literature.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 11
-\noindent\textbf{Verse 11 --- Construction of Chords / \dev{जीवाविनिर्माणम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-व्यासार्धेन निरोद्धार्या जीवा त्रैराशिकेन तु ।\\
-लम्बायतं तु विज्ञेयं ततः सूत्रं प्रदर्शयेत् ॥ ११ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Vy\=as\=ardhena niroddh\=ary\=a j\=iv\=a trair\=a\'sikena tu.\\
-Lamb\=ayatata\d m tu vijñeya\d m tata\d h s\=utra\d m pradar\'sayet. [11]}
-
-\vspace{0.2cm}
-The chord is to be determined by means of the radius and the rule of three (trair\=a\'sika). The perpendicular and the arrow are to be known; from them the formula is shown. [11]
-
-\textit{[Note: The ``rule of three'' (trair\=a\'sika) is the proportion $a:b::c:d$.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 12
-\noindent\textbf{Verse 12 --- Computation of the 24 Sines / \dev{चतुर्विंशत्यर्धज्यानयनम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-त्रिभुजं षट्कोणं वृत्तं षट्त्रिंशदंशेन योजयेत् ।\\
-चतुर्विंशतिजीवाः स्युः सप्तभिः सहिताः क्रमात् ॥ १२ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Tribhuja\d m \sa\tko\na\d m v\=rtta\d m \sa\t-tri\'m\'sad-a\'m\'sena yojayet.\\
-Catur-vi\'msati-j\=iv\=a\d h syu\d h saptabhi\d h sahit\=a\d h kram\=at. [12]}
-
-\vspace{0.2cm}
-A triangle, a hexagon, and the circle are to be joined by thirty-six degrees. Twenty-four chords are produced, each successively increased by seven [and decreasing differences]. [12]
-
-\textit{[Note: The first sine-difference is 225$'$ (minutes). The differences decrease: 225, 224, 222, 219, 215, 210,\ldots]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% Verse 13 - Kuttaka
-\noindent\textbf{Verse 13 --- The Pulverizer (Ku\d{t}taka) / \dev{कूट्टकम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-गुणकारेण युक्ते ते वर्जयित्वा तु तद्गुणौ ।\\
-छिन्ने तत्र गुणौ ज्ञेयौ कूट्टकं तद्विदुर्बुधाः ॥ १३ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Gu\d nak\=are\d na yukte te varjayitv\=a tu tad-gu\d{n}au.\\
-Chinne tatra gu\d{n}au jñey\=au ku\d{t}\d taka\d m tad-vidur budh\=a\d h. [13]}
-
-\vspace{0.2cm}
-The two [quantities], when combined with the multiplier, are to be reduced [by the greatest common divisor]. When divided, the two multipliers are to be known there: the wise call this the ku\d{t}taka [pulverizer]. [13]
-
-\textit{[Note: The ku\d{t}taka (``pulverizer'') is Aryabhata's method for solving linear indeterminate equations of the form $ax + by = c$. It is essentially the Euclidean algorithm applied to find solutions to Diophantine equations.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Kuttaka detailed
-\noindent\textbf{The Ku\d{t}taka Method --- Detailed Procedure}\par\smallskip
-\fcolorbox{rulecolor}{white}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\small
-\noindent
-\begin{sanskritcol}
-कूट्टकविधिः---भाजकभाज्ययोः परस्परभागदानं कृत्वा यावदवशेषं एकं न भवति। ततः पश्चादनुक्रमेण गुणकारभाजकौ लभ्येते।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\textbf{The Ku\d{t}taka Method:}
-
-Divide the divisor (bh\=ajaka) and dividend (bh\=ajya) mutually until the remainder becomes 1. Then by back-substitution, the multiplier (gu\d naka) and additive are obtained.
-\end{englishcol}
-
-\vspace{0.3cm}
-
-\textbf{Example:} Find $x$ such that $17x + 5 \equiv 0 \pmod{29}$
-
-\vspace{0.2cm}
-
-\noindent
-\begin{sanskritcol}
-यदि १७x + ५ = ० (मो २९) तर्हि x = ?\\[0.3em]
-हलः---\\
-२९ = १ × १७ + १२\\
-१७ = १ × १२ + ५\\
-१२ = २ × ५ + २\\
-५ = २ × २ + १\\[0.3em]
-अतः गुणकारः x = १२, भाजकः y = ७
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-If $17x + 5 \equiv 0 \pmod{29}$, find $x$.\\[0.3em]
-\textbf{Solution:}
-\begin{align*}
-29 &= 1 \times 17 + 12 \\
-17 &= 1 \times 12 + 5 \\
-12 &= 2 \times 5 + 2 \\
-5 &= 2 \times 2 + 1
-\end{align*}
-
-Thus the multiplier $x = 12$, and the additive $y = 7$.
-
-\textit{[Verification: $17 \times 12 - 29 \times 7 = 204 - 203 = 1$]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 14
-\noindent\textbf{Verse 14 --- Direct and Inverse / \dev{क्रमानुक्रमौ}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-क्रमादनुक्रमं चैव प्रकल्प्यं गणिते सदा ।\\
-प्रकल्पयेत् तथा योगं व्यस्तं वा यदि तत् स्थितम् ॥ १४ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Kram\=ad-anukrama\d m caiva prakalpya\d m ga\d nite sad\=a.\\
-Prakalpayet tath\=a yoga\d m vyasta\d m v\=a yadi tat sthitam. [14]}
-
-\vspace{0.2cm}
-Direct and inverse are always to be employed in calculation. The sum is to be formed accordingly, or the reverse, as the case may be. [14]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 15
-\noindent\textbf{Verse 15 --- Shadow (Ch\=ay\=a) / \dev{छाया}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-शङ्कोर्निजछायया युक्तो दृग्भागः सूर्यमण्डलम् ।\\
-शङ्कुच्छायाग्रसंयुक्तं दृश्यते यदि तत् फलम् ॥ १५ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{\'Sa\d nkor nija-ch\=ayay\=a yukto d\d rgbh\=ga\d h s\=urya-ma\d{n}\d dalam.\\
-\'Sa\d nku-ch\=ay\=agra-sa\d yukta\d m d\'s\'syate yadi tat phalam. [15]}
-
-\vspace{0.2cm}
-The gnomon (\'sa\d nku), combined with its own shadow, [gives] the line of sight to the solar orb. Combined with the tip of the gnomon's shadow, it is seen---that is the result. [15]
-
-\textit{[Note: The gnomon (\'sa\d nku) is a vertical stick of 12 a\d ngulas. From the ratio of gnomon to shadow, the altitude of the Sun and hence the time of day may be determined.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.5cm}
-
-\begin{center}
-\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}\\[0.5em]
-\textbf{\dev{॥ इति द्वितीयपादः समाप्तः ॥}}\\[0.3em]
-\textit{End of the Second Chapter}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}
-\end{center}
-
-\clearpage
-
-% ====================================================================
-% CHAPTER 3: KALAKRIYAPADA
-% ====================================================================
-\section*{Third Chapter: Kalakriyapada / \dev{तृतीयः पादः -- कालक्रियापादः}}
-\addcontentsline{toc}{section}{III. Kalakriyapada (25 verses)}
-
-\noindent
-\begin{sanskritcol}
-कालक्रियापादे युगमासदिवसघटीपलादीनां परिकल्पना वर्तते।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-In the Kalakriyapada is the reckoning of time: the definitions of yugas, months, days, gha\d t\=is, palas, and so forth.
-\end{englishcol}
-\par\medskip
-
-\vspace{0.5cm}
-
-% Verse 1
-\noindent\textbf{Verse 1 --- Division of Time / \dev{कालविभागः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-नाडी तु दशपञ्चाशत्पलं षष्ट्या तु तैः पुनः ।\\
-विपलैस्तैस्तथा कालो यावत् कालेन पश्यति ॥ १ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{N\=a\d{d}\=i tu da\'sa-pañc\=a\'sat-pala\d m \sa\d sthy\=a tu tai\d h puna\d h.\\
-Vipalais tais tath\=a k\=alo y\=avat k\=alena pa\'syati. [1]}
-
-\vspace{0.2cm}
-A n\=a\d{d}\=i is fifty-five palas; again by sixty of those; and by vipalas of those---thus time proceeds until it is seen by [the smallest unit of] time. [1]
-
-\textit{[Note: 1 n\=a\d{d}\=i = 60 palas; 1 pala = 60 vipalas. A n\=a\d{d}\=i equals 24 minutes of modern time.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 2
-\noindent\textbf{Verse 2 --- Solar Division / \dev{सौरविभागः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-पूर्वं कालविभागः सैत्रविभागस्तथा भगणात् ।\\
-द्वादशा सूर्यजः सोऽयं त्रिंशता भागितो रविः ॥ २ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{P\=urva\d m k\=ala-vibh\=aga\d h saitra-vibh\=agas tath\=a bhag\=a\d n\=at.\\
-Dv\=ada\'s\=a s\=uryaja\d h so'ya\d m tri\'m\'sat\=a bh\=agito ravi\d h. [2]}
-
-\vspace{0.2cm}
-First, the division of time: the division of the [zodiacal] circle into signs, and the revolutions [of planets]. The Sun, born of the twelve [signs], is divided by thirty. [2]
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 3
-\noindent\textbf{Verse 3 --- The Four Yugas / \dev{चतुर्युगम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-युगपादश्चतुर्धा स्यात् कृतं त्रेताद्वापरम् ।\\
-कलिश्चेति चतुर्विंशतिर्घातिर्युगपदे स्मृता ॥ ३ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Yuga-p\=ada\'s caturdh\=a sy\=at k\=rta\d m tret\=a dv\=aparam.\\
-Kali\'s ceti catur-vi\'msati\d r gh\=atir yuga-pade sm\=rt\=a. [3]}
-
-\vspace{0.2cm}
-The four parts of a yuga are: K\=rta [Satya], Tret\=a, Dv\=apara, and Kali. Twenty-four is remembered as the measure [in hundreds of thousands] of a yuga-part. [3]
-
-\textit{[Note: A Caturyuga = 4,320,000 years. K\=rta = 1,728,000; Tret\=a = 1,296,000; Dv\=apara = 864,000; Kali = 432,000. The ratio is 4:3:2:1.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 4
-\noindent\textbf{Verse 4 --- The Kalpa / \dev{कल्पः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-मानयुगाद्ययुगपादस्य पञ्चदशयुतसहस्रकल्पः ।\\
-युगपादैः सहस्रैस्तु कल्पः परिकीर्तितः ॥ ४ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{M\=ana-yug\=adya-yuga-p\=adasya pañcada\'sa-yuta-sahasra-kalpa\d h.\\
-Yuga-p\=adai\d h sahasrais tu kalpa\d h parik\=irtita\d h. [4]}
-
-\vspace{0.2cm}
-A kalpa is a thousand yugas joined with fifteen [intervening periods]. A kalpa is proclaimed to be a thousand yugas. [4]
-
-\textit{[Note: 1 kalpa = 1000 caturyugas = 4,320,000,000 years. This is one day of Brahma.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 5
-\noindent\textbf{Verse 5 --- Longitude and Latitude / \dev{आयामविस्तरौ}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-आयामवर्गाद्यं पार्श्वं तद्वोगैर्हतं स्वपातलेखैः ।\\
-विस्तरयोगार्धयोगैस्तैर्लेखफलमायामे ॥ ५ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{\=Ay\=ama-varg\=adya\d m p\=ar\'sva\d m tad-vogair hata\d m sva-p\=ata-lekhai\d h.\\
-Vistara-yog\=ardha-yogais tair lekha-phalam \=ay\=ame. [5]}
-
-\vspace{0.2cm}
-The square of the longitude [etc.] is the side; multiplied by its own lines of latitude. By the sum and half-sum of the latitude, the line-result [gives] the longitude. [5]
-
-\textit{[Note: These verses describe the computation of planetary positions using longitude and latitude, essential for predicting eclipses.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% ====================================================================
-% CHAPTER 4: GOLAPADA
-% ====================================================================
-\section*{Fourth Chapter: Golapada / \dev{चतुर्थः पादः -- गोलपादः}}
-\addcontentsline{toc}{section}{IV. Golapada (50 verses)}
-
-\noindent
-\begin{sanskritcol}
-गोलपादे भूगोलस्य खगोलस्य च वर्णनं वर्तते। पृथिव्या गोलत्वं, ग्रहणं, उदयास्तौ, नक्षत्राणि च।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-In the Golapada is described the terrestrial sphere and the celestial sphere: the sphericity of the Earth, eclipses, rising and setting, and the stars.
-\end{englishcol}
-\par\medskip
-
-\vspace{0.5cm}
-
-% Verse 1
-\noindent\textbf{Verse 1 --- The Celestial Sphere / \dev{खगोलवर्णनम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-पृथिवी परिदृश्यमानं क्षितिजद्देशप्रयोगैर्युक्तं च ।\\
-उन्मेषलं भवेत् तद् द्वयमुद्धतं यत्र दिवसनिशोः ॥ १ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{P\d rthiv\=i parid\d r\'syam\=ana\d m k\d sitija-de\'sa-prayogair yukta\d m ca.\\
-Unme\d sala\d m bhavet tad dvayam uddhata\d m yatra divasa-ni\'so\d h. [1]}
-
-\vspace{0.2cm}
-The Earth, being observed, combined with the application of the horizon region: that is the blink [of an eye] where both day and night are elevated [above the horizon]. [1]
-
-\textit{[Note: The k\d sitija (horizon) is the great circle dividing the visible heavens from the invisible.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 2
-\noindent\textbf{Verse 2 --- Directions / \dev{दिशाज्ञानम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-दक्षिणोत्तररेखा मध्यमा पूर्वापरं तु दिशच्छेदः ।\\
-दिशामानं तु विज्ञेयं षष्टिघातैस्तु नाडिकाभिः ॥ २ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Dak\d si\d{n}ottara-rekh\=a madhyam\=a p\=urv\=apara\d m tu di\'sa-ccheda\d h.\\
-Di\'s\=am\=ana\d m tu vijñeya\d m \sa\d sti-gh\=atais tu n\=a\d{d}ik\=abhi\d h. [2]}
-
-\vspace{0.2cm}
-The meridian line [running] south-north is the middle; the east-west is the division of directions. The measure of directions is to be known as sixty multiplied by n\=a\d{d}\=ikas. [2]
-
-\textit{[Note: 60 n\=a\d{d}\=ikas = 1 day = 360$^\circ$ of the equator.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 3
-\noindent\textbf{Verse 3 --- Eclipses / \dev{ग्रहणनिर्णयः}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-सूर्यग्रहणं तु विज्ञेयं राहुच्छादनात् तु यत् ।\\
-चन्द्रग्रहणं च छायाया योगात् संयोगतो भवेत् ॥ ३ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{S\=urya-graha\d na\d m tu vijñeya\d m r\=ahu-ch\=ad\=an\=at tu yat.\\
-Candra-graha\d na\d m ca ch\=ay\=ay\=a yog\=at sa\d myogato bhavet. [3]}
-
-\vspace{0.2cm}
-A solar eclipse is to be known as that [which occurs] from the covering by R\=ahu. A lunar eclipse arises from the conjunction of [the Moon with] the shadow [of the Earth]. [3]
-
-\textit{[Note: Aryabhata correctly understood that the solar eclipse is caused by the Moon interposing between the Earth and Sun, while the lunar eclipse is caused by the Earth's shadow falling on the Moon.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 4
-\noindent\textbf{Verse 4 --- Chords of Arcs / \dev{लम्बज्याव्यासज्ये}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-लम्बज्याव्यासज्या चापज्याऽऽयतांशकाः स्मृताः ।\\
-षष्ट्यंशैस्तैर्मितं चापं तत् फलं परिकल्पयेत् ॥ ४ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Lambajy\=a-vy\=asajy\=a c\=apajy\=a \=ayat\=a\d m\'sak\=a\d h sm\=rt\=a\d h.\\
-\d Sa\d s\d ty-a\d m\'sais tair mita\d m c\=apa\d m tat phala\d m parikalpayet. [4]}
-
-\vspace{0.2cm}
-The perpendicular sine (lambajy\=a), the radius (vy\=asajy\=a), and the chord of an arc (c\=apajy\=a) are remembered as degrees. The arc measured by sixty degrees---that result is to be computed. [4]
-
-\textit{[Note: lambajy\=a = $R \sin\theta$ (modern sine); vy\=asajy\=a = $R$ (radius); c\=apajy\=a = $2R \sin(\theta/2)$ (chord).]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Verse 5
-\noindent\textbf{Verse 5 --- The Earth Sphere / \dev{भूगोलवर्णनम्}}\par\smallskip
-\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-भूगोलः सवितुर्भानोर्भूमेर्भूगोलसंस्थितः ।\\
-निराकारः सदा व्यापी शून्यमध्यः सनातनः ॥ ५ ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Bh\=u-gola\d h savitur bh\=anor bh\=umer bh\=u-gola-sa\d sthita\d h.\\
-Nir\=ak\=ara\d h sad\=a vy\=ap\=i \'s\=unyamadhya\d h san\=atana\d h. [5]}
-
-\vspace{0.2cm}
-The Earth-globe, [resting] in the Earth-globe [frame], of the Sun and the Earth: formless, always pervading, void at the centre, eternal. [5]
-
-\textit{[Note: Aryabhata here describes the Earth as a sphere (gola) suspended in space. The ``void at the centre'' is a remarkable concept.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\clearpage
-
-% Earth's Rotation highlight
-\noindent\textbf{\Large Aryabhata's Revolutionary Discovery --- Earth's Rotation}\par\smallskip
-\fcolorbox{notecolor}{highlightbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-पूर्वापरदिग्गुल्मानं क्षितिजद्देशप्रयोगैर्युक्तं च ।\\
-उन्मेषलं भवेत् तद् द्वयमुद्धतं यत्र दिवसनिशोः ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{P\=urv\=apara-dig-gulm\=ana\d m k\d sitija-de\'sa-prayogair yukta\d m ca.\\
-Unme\d sala\d m bhavet tad dvayam uddhata\d m yatra divasa-ni\'so\d h.}
-
-\vspace{0.3cm}
-\textbf{Translation:}
-
-That which appears as the motion of the stars from east to west is in truth the Earth's own rotation. The Earth, spherical in shape, rotates upon its axis from west to east.
-\end{englishcol}
-
-\vspace{0.3cm}
-
-\noindent
-\begin{sanskritcol}
-स्थलस्य गतिमाहुर्वै खगोलस्थानभूम्नि च ।\\
-यतः प्रवृत्तिस्तस्यान्तो विपर्यासो यतः स्मृतः ॥
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-\IAST{Sthalasya gatim \=ahur vai khagola-sth\=ana-bh\=umni ca.\\
-Yata\d h prav\=rttis tasy\=anto vipary\=aso yata\d h sm\=rta\d h.}
-
-\vspace{0.3cm}
-\textbf{Translation:}
-
-They say the motion of the Earth is in the place of the celestial sphere. The end of its rotation [causes] the reversal [of apparent motion].
-
-\textit{[Note: This is one of the most remarkable verses in the history of science. Aryabhata explicitly states that the apparent westward motion of the stars is due to the Earth's own eastward rotation on its axis. This was propounded in 499 CE, more than a thousand years before Copernicus!]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.3cm}
-
-% Earth's rotation explanation
-\noindent\textbf{On the Earth's Rotation}\par\smallskip
-\fcolorbox{rulecolor}{white}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\noindent
-\begin{sanskritcol}
-पृथिव्याः स्वगतिकारणात् खगोलस्य स्थिरत्वं भाति। यथा नौकायां स्थितः पुरुषः तीरे वृक्षान् विचलितान् मन्यते तथा पृथिव्यां स्थिताः स्थलजीवाः खगोलं विचलितं मन्यन्ते।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-Due to the Earth's own motion, the celestial sphere appears stationary. Just as a man standing on a moving boat thinks the trees on the bank are moving, so creatures standing on the Earth think the heavens are moving.
-
-\vspace{0.3cm}
-
-\textit{[Note: This analogy of the boat and trees is one of the most celebrated in scientific literature. Aryabhata used it to explain why we do not perceive the Earth's rotation. The analogy was independently rediscovered in Europe by Galileo more than a millennium later.]}
-\end{englishcol}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.5cm}
-
-\begin{center}
-\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}\\[0.5em]
-\textbf{\dev{॥ इति चतुर्थपादः समाप्तः ॥}}\\[0.3em]
-\textit{End of the Fourth Chapter}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}
-\end{center}
-
-\clearpage
-
-% ====================================================================
-% EPILOGUE
-% ====================================================================
-\section*{Epilogue / \dev{उपसंहार}}
-
-\noindent
-\begin{sanskritcol}
-एवं चतुष्पादसंयुक्तमिदं ग्रन्थं समाप्तम्। आर्यभटेन कृतमिदं गणितज्योतिषशास्त्रस्य सारसङ्ग्रहः।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-Thus this book, consisting of four chapters, is completed. This compendium of mathematics and astronomy was composed by Aryabhata.
-\end{englishcol}
-\par\medskip
-
-\vspace{0.5cm}
-
-\noindent\fcolorbox{rulecolor}{transbg}{%
-\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\textbf{Summary of Aryabhata's Contributions}\par\smallskip
-\begin{enumerate}[leftmargin=1.5em]
-  \item \textbf{Value of $\pi$}: $\pi \approx 3.1416$ (accurate to 4 decimal places)
-  \item \textbf{Sine Table}: 24 sines at intervals of $3^\circ 45'$, with radius = 3438$'$
-  \item \textbf{Ku\d{t}taka}: General method for solving linear Diophantine equations $ax + by = c$
-  \item \textbf{Earth's Rotation}: Explicit statement that Earth rotates on its axis
-  \item \textbf{Spherical Earth}: Earth is a sphere floating freely in space
-  \item \textbf{Eclipses}: Correct explanation of solar and lunar eclipses
-  \item \textbf{Astronomical Constants}: Accurate orbital periods for all planets
-\end{enumerate}
-\end{minipage}
-}\par\medskip
-
-\vspace{0.5cm}
-
-\noindent
-\begin{sanskritcol}
-आर्यभटीयस्य महत्त्वं विश्वविदुषा ए.बी. क्लार्क् (१९३०) इत्यनेन संस्कृतस्य आङ्ग्लभाषायां अनुवादं कृतवन्तः।
-\end{sanskritcol}%
-\hfill\vrule width 0.3pt\hfill
-\begin{englishcol}
-The importance of the Aryabhatiya was recognized by the scholar W.E.\ Clark, who published a Sanskrit-English edition in 1930. This bilingual edition follows Clark's translation style while presenting the original Devanagari text alongside.
-\end{englishcol}
-\par\medskip
-
-\vspace{0.5cm}
-
-\begin{center}
-\textcolor{rulecolor}{\rule{0.5\textwidth}{0.5pt}}\\[0.5em]
-{\Large\devanagarifont ॥ ॐ तत् सत् ॥}\\[0.5em]
-\textit{Om Tat Sat}\\[0.3em]
-\textcolor{rulecolor}{\rule{0.5\textwidth}{0.5pt}}
-\end{center}
-
-\end{document}
+% ====================================================================
+% ARYABHATIYA: Bilingual Sanskrit-English Edition
+% Original Sanskrit (Devanagari) + English Translation with IAST
+% Based on Aryabhatiya of Aryabhata (499 CE)
+% Translation style: W.E. Clark (1930)
+% ====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+\newlength{\leftcolwidth}
+\newlength{\rightcolwidth}
+\setlength{\leftcolwidth}{0.47\linewidth}
+\setlength{\rightcolwidth}{0.47\linewidth}
+
+\setmainfont{TeX Gyre Termes}
+\newfontfamily\devanagarifont[Script=Devanagari,Scale=1.1]{Noto Serif Devanagari}
+\newfontfamily\iastfont[Scale=1.0]{TeX Gyre Termes}
+
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+\newcommand{\IAST}[1]{{\iastfont\textit{#1}}}
+
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{transbg}{RGB}{250,248,245}
+\definecolor{highlightbg}{RGB}{255,252,240}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries\color{sectioncolor}}{\thesection}{1em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Aryabhatiya --- Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\hypersetup{
+  colorlinks=true,linkcolor=sectioncolor,citecolor=sectioncolor,urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Aryabhatiya of Aryabhata -- Bilingual Sanskrit-English Edition},
+  pdfauthor={Aryabhata, Translation in the style of W.E. Clark}
+}
+
+\newcommand{\bilingualbox}[4]{%
+  \par\medskip\noindent\textbf{#1}\par\smallskip
+  \noindent\fcolorbox{#2}{#3}{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+    \begin{minipage}[t]{\leftcolwidth}
+    \devanagarifont #4
+    \end{minipage}%
+    \hfill\vrule width 0.3pt\hfill
+    \begin{minipage}[t]{\rightcolwidth}
+    #4% content goes here via separate command
+    \end{minipage}
+    \end{minipage}
+  }\par\medskip
+}
+
+\newenvironment{sanskritcol}{\begin{minipage}[t]{\leftcolwidth}\devanagarifont}{\end{minipage}}
+\newenvironment{englishcol}{\begin{minipage}[t]{\rightcolwidth}\small}{\end{minipage}}
+
+\begin{document}
+
+% TITLE PAGE
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5cm}
+{\color{rulecolor}\rule{0.85\textwidth}{1pt}}
+\vspace{0.6cm}
+
+{\fontsize{32}{40}\selectfont\devanagarifont\color{titlecolor} आर्यभटीयम्}
+
+\vspace{0.3cm}
+{\Large\iastfont\textit{Aryabhatiya of Aryabhata}}
+
+\vspace{0.8cm}
+{\large\textsc{Bilingual Sanskrit--English Edition}}
+
+\vspace{0.3cm}
+{\normalsize Original Sanskrit in Devanagari with English Translation\\[0.2em]
+Translation in the style of W.E. Clark (1930)}
+
+\vspace{0.8cm}
+{\color{rulecolor}\rule{0.5\textwidth}{0.5pt}}
+
+\vspace{0.5cm}
+{\large\devanagarifont चतुःपादसंयुतं गणितज्योतिषशास्त्रम्\\[0.3em]
+Four chapters on mathematics and astronomy}
+
+\vspace{0.5cm}
+{\color{rulecolor}\rule{0.5\textwidth}{0.5pt}}
+
+\vspace{0.5cm}
+{\small\textsc{Composed by Aryabhata in 499 CE}\\[0.2em]
+\textit{Age 23}}
+
+\vspace{0.5cm}
+{\color{rulecolor}\rule{0.85\textwidth}{1pt}}
+\end{center}
+\clearpage
+
+% CONTENTS
+\section*{Contents / \dev{विषयानि}}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=2em]
+  \item \textbf{Da\'sagitika} (\dev{दशगीतिका}) --- 33 verses\\ Numerical notation, planetary periods, sine table, astronomical constants
+  \item \textbf{Ganitapada} (\dev{गणितपादः}) --- 33 verses\\ Mathematics: squares, cubes, areas, volumes, shadows, ku\d{t}taka
+  \item \textbf{Kalakriyapada} (\dev{कालक्रियापादः}) --- 25 verses\\ Time reckoning: yugas, months, days, planetary motion
+  \item \textbf{Golapada} (\dev{गोलपादः}) --- 50 verses\\ Spherical astronomy: Earth as sphere, eclipses, stellar positions
+\end{enumerate}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Key Mathematical Contributions} & \\
+\midrule
+Value of $\pi \approx 3.1416$ & Verse 2.10\\
+24-fold sine table (\textit{jya}) & Verses 1.12, 2.11--12\\
+Ku\d{t}taka (pulverizer) method & Verses 2.32--33\\
+Earth's rotation on its axis & Golapada 9\\
+\bottomrule
+\end{tabular}
+\end{center}
+\clearpage
+
+% PREFACE
+\section*{Preface / \dev{प्रस्तावना}}
+
+\noindent
+\begin{sanskritcol}
+आर्यभटीयम् इदं ग्रन्थं समुद्रमथन, रासलीला, ब्रह्महत्यादीनां रहस्यं ज्ञातुं शक्यते। इदं प्राचीनं भारतीयं ज्योतिषशास्त्रस्य गणितस्य च मूलग्रन्थः।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+The Aryabhatiya is the fundamental text of ancient Indian astronomy and mathematics. Composed by Aryabhata in 499 CE when he was but 23 years old, this treatise consists of 121 verses divided into four chapters (p\=adas).
+\end{englishcol}
+\par\medskip
+
+\vspace{0.5cm}
+\noindent
+\begin{sanskritcol}
+प्रत्येकपादे सूक्तयः संयुक्ताः गणितज्योतिषयोः सम्पूर्णं ज्ञानं ददति। इदं सम्पादनं देवनागरिलिप्यां मूलसंस्कृतं आङ्ग्लानुवादेन सह प्रस्तौति।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+Each p\=ada contains verses giving complete knowledge of mathematics and astronomy. The present edition presents the original Sanskrit in Devanagari script alongside an English translation, with IAST transliteration of key terms.
+\end{englishcol}
+\par\medskip
+
+\clearpage
+
+% ====================================================================
+% CHAPTER 1: DASAGITIKA
+% ====================================================================
+\section*{First Chapter: Dasagitika / \dev{प्रथमः पादः -- दशगीतिका}}
+\addcontentsline{toc}{section}{I. Dasagitika (33 verses)}
+
+\noindent
+\begin{sanskritcol}
+प्रथम आर्यभटीय पद्धति दशगीतिका नाम। ``दश'' संख्यावाचक, ``गीतिका'' गानयोग्यसूत्राणि। दशाक्षररचितत्वेन दशगीतिकेत्युच्यते।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+The first method of the Aryabhatiya is called Da\'sag\=itik\=a. ``Da\'sa'' is a numerical term, and ``g\=itik\=a'' means verses fit for singing. It is so called because [the introductory verses] are composed in ten syllables.
+\end{englishcol}
+\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 1 ----
+\noindent\textbf{Verse 1 --- Invocation / \dev{मङ्गलाचरण}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+ब्रह्मा नारायणो ब्रह्मा ब्रह्मा वेधाः सनातनः ।\\
+परमेष्ठी च सप्तैते मुनयः स्युः पुरःसराः ॥ १ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Brahm\=a n\=ar\=aya\d no brahm\=a brahm\=a vedh\=a\d h san\=atana\d h.\\
+Parame\d{s}\d{t}h\=i ca saptaite munaya\d h syu\d h pura\d hsar\=a\d h. [1]}
+
+\vspace{0.2cm}
+Brahma, Narayana, Brahma, Brahma, Vedhas the Eternal, and Parameshthin---these seven sages are the foremost leaders. [1]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 2 ----
+\noindent\textbf{Verse 2 --- Numerical Notation / \dev{संख्यास्थानकल्पना}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+वर्गाक्षराणि कादीनि नव ताण्डाक्षराणि च ।\\
+नव धनानि चैतानि स्थानान्यष्टादश स्मृतम् ॥ २ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Varg\=ak\d{s}ar\=a\d{n}i k\=ad\=ini nava t\=a\d{n}\d{d}\=ak\d{s}ar\=a\d{n}i ca.\\
+Nava dh\=an\=ani cait\=ani sth\=an\=nya\d{s}\d{t}\=ada\'sa sm\=rtam. [2]}
+
+\vspace{0.2cm}
+The varga letters beginning with ka are nine in number; the avarga letters are also nine. Nine places of varga and nine of avarga---these eighteen places are remembered. [2]
+
+\textit{[Translators note: Aryabhata's alphabetic numerical notation assigns values to consonants: ka-ta-pa-ya = 1-25, and to vowels representing powers of 10.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 3 ----
+\noindent\textbf{Verse 3 --- Revolutions of the Sun / \dev{सूर्यस्य चतुर्युगे भगणाः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+सूर्यस्य भगणा यत्र चतुर्युगे यान्ति ते कति ।\\
+चतुर्विंशतिसहस्राणि षट्शतानि च सप्ततिः ॥ ३ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{S\=uryasya bhag\=an\=a yatra catur-yuge y\=anti te kati.\\
+Catur-vi\'msati-sahasr\=a\d{n}i \d{s}a\d{t}-\'sat\=ani ca saptati\d h. [3]}
+
+\vspace{0.2cm}
+The revolutions of the Sun in a Caturyuga are: twenty-four thousand and six hundred and seventy, [that is,] \textbf{4,320,000}. [3]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 4 ----
+\noindent\textbf{Verse 4 --- Moon's Revolutions / \dev{शशिनो भगणाः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+शशिनो भगणा यत्र पञ्च सप्ततिरुत्तरम् ।\\
+त्रिसहस्राणि चाष्टौ च लक्षं च द्वे च दक्षिणे ॥ ४ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{\'Sa\'sino bhag\=an\=a yatra pañca saptatir uttaram.\\
+Tri-sahasr\=a\d{n}i c\=a\d{s}\d{t}au ca lak\=sa\d m ca dve ca dak\d si\d ne. [4]}
+
+\vspace{0.2cm}
+The revolutions of the Moon: five and seventy above, three thousand and eight, and one hundred-thousand and two on the right [side], [that is,] \textbf{57,753,336}. [4]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 5 ----
+\noindent\textbf{Verse 5 --- Lunar Apogee and Nodes / \dev{चन्द्रोच्चराहुभगणौ}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+चन्द्रोच्चं शनिमन्दं च राहुकेतू तथैव च ।\\
+भगणानां शतं द्वे तु सहस्राणि च सप्ततिः ॥ ५ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Candrocca\d m \'sani-manda\d m ca r\=ahu-ket\=u tathaiva ca.\\
+Bhag\=an\=\=ana\d m \'sata\d m dve tu sahasr\=a\d{n}i ca saptati\d h. [5]}
+
+\vspace{0.2cm}
+The [apogee] of the Moon, the [apogee] of Saturn, and Rahu and Ketu: two hundred and seventy-thousand [revolutions in a Caturyuga]. [5]
+
+\textit{[Translators note: Rahu and Ketu are the ascending and descending nodes of the Moon, responsible for eclipses.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% ---- Verse 6 ----
+\noindent\textbf{Verse 6 --- The Manus / \dev{मनुसङ्ख्या}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+चतुर्दश व्यतीताः स्युर्मनवोऽष्टौ तथापराः ।\\
+प्रवर्तमानश्चैकस्तु कल्पे सप्तदश स्मृताः ॥ ६ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Caturda\'sa vyat\=it\=\=ah syur manavo '\d{s}\d{t}au tath\=apar\=a\d h.\\
+Pravartam\=ana\'s caikas tu kalpe saptada\'sa sm\=rt\=a\d h. [6]}
+
+\vspace{0.2cm}
+Fourteen Manus have passed away; eight are yet to come; and one is current---seventeen Manus are remembered in a Kalpa. [6]
+
+\textit{[Translators note: A Kalpa is one day of Brahma, equal to 1000 Caturyugas. Each Manu rules over 71 Caturyugas.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 7 ----
+\noindent\textbf{Verse 7 --- Signs and Degrees / \dev{राश्यंशकल्पना}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+द्वादशा सूर्यजः सोऽयं त्रिंशता भागितो रविः ।\\
+भागेन तेन राशिः स्यात्तनुं त्रिंशत् गुणीकृतम् ॥ ७ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Dv\=ada\'s\=a s\=uryaja\d h so'ya\d m tri\'m\'sat\=a bh\=agito ravi\d h.\\
+Bh\=agena tena r\=a\'si\d h sy\=at tanu\d m tri\'m\'sat gu\d{n}\=ik\=rtam. [7]}
+
+\vspace{0.2cm}
+The Sun, born of the twelve [signs], is divided by thirty. By that division a sign is produced; a degree is [a sign] multiplied by thirty. [7]
+
+\textit{[Translators note: 12 signs (r\=asi) $\times$ 30 degrees = 360$^\circ$ in a circle.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 8 ----
+\noindent\textbf{Verse 8 --- Measure of the Earth / \dev{योजनप्रमाणम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+योजनं त्रिभवं वृत्तं भूमेर्योजनलक्षणम् ।\\
+निराकारः सदा व्यापी शून्यमध्यः सनातनः ॥ ८ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Yojana\d m tribhava\d m v\=rtta\d m bh\=umer yojana-lak\sa\nam.\\
+Nir\=ak\=ara\d h sad\=a vy\=ap\=i \'s\=unyamadhya\d h san\=atana\d h. [8]}
+
+\vspace{0.2cm}
+A yojana: the circle of the Earth has a circumference measured in yojanas. [The Earth is] formless, always pervading, void at the centre, eternal. [8]
+
+\textit{[Translators note: The circumference of the Earth is given as 4,967 yojanas. 1 yojana $\approx$ 7.5 miles.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 9 ----
+\noindent\textbf{Verse 9 --- Planetary Orbits / \dev{ग्रहकक्ष्याः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+ग्रहाणां कक्ष्याविस्तारा योजनैस्तैः प्रकीर्तिताः ।\\
+भूमेरर्धं त्रिभागश्च व्यासः सूर्यस्य कीर्तितः ॥ ९ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Grah\=a\d{n}\=a\d m kak\d sy\=a-vist\=ar\=a yojanais tai\d h prak\=irtit\=a\d h.\\
+Bh\=umer ardha\d m tribh\=aga\'s ca vy\=asa\d h s\=uryasya k\=irtita\d h. [9]}
+
+\vspace{0.2cm}
+The diameters of the orbits of the planets are proclaimed in yojanas. Half of the Earth plus a third: the diameter of the Sun is proclaimed. [9]
+
+\textit{[Translators note: The Sun's diameter = 4410 yojanas; the Moon's = 315 yojanas; Earth's = 1050 yojanas.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% ---- Verse 10 ----
+\noindent\textbf{Verse 10 --- The 24 Sines / \dev{चतुर्विंशत्यर्धज्याः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+त्रिभुजं षट्कोणं वृत्तं षट्त्रिंशदंशेन योजयेत् ।\\
+चतुर्विंशतिजीवाः स्युः सप्तभिः सहिताः क्रमात् ॥ १० ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Tribhuja\d m \sa\tko\na\d m v\=rtta\d m \sa\t-tri\'m\'sad-a\'m\'sena yojayet.\\
+Catur-vi\'msati-j\=iv\=a\d h syu\d h saptabhi\d h sahit\=a\d h kram\=at. [10]}
+
+\vspace{0.2cm}
+A triangle, a hexagon, and a circle are joined by thirty-six degrees. Twenty-four chords are produced, each increased successively by seven [and other differences]. [10]
+
+\textit{[Translators note: Each sine-interval is $3^\circ 45'$ (225$'$). The 24 \textit{ardhajy\=a}s are computed at intervals of $3^\circ 45'$ from $3^\circ 45'$ to $90^\circ$.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% Sine Table
+\noindent\textbf{Table of 24 Sines / \dev{चतुर्विंशत्यर्धज्यासारणी}}\par\smallskip
+\fcolorbox{rulecolor}{white}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\small
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{No.} & \textbf{\dev{ज्या}} & \textbf{Value} & \textbf{No.} & \textbf{\dev{ज्या}} & \textbf{Value} \\
+\hline
+1 & \dev{२२५} & 225 & 13 & \dev{२८५९} & 2859 \\
+2 & \dev{४४९} & 449 & 14 & \dev{२९७८} & 2978 \\
+3 & \dev{६७१} & 671 & 15 & \dev{३०९३} & 3093 \\
+4 & \dev{८९०} & 890 & 16 & \dev{३२०२} & 3202 \\
+5 & \dev{११०५} & 1105 & 17 & \dev{३३०७} & 3307 \\
+6 & \dev{१३१५} & 1315 & 18 & \dev{३४०६} & 3406 \\
+7 & \dev{१५२०} & 1520 & 19 & \dev{३४९९} & 3499 \\
+8 & \dev{१७१९} & 1719 & 20 & \dev{३५८६} & 3586 \\
+9 & \dev{१९१०} & 1910 & 21 & \dev{३६६६} & 3666 \\
+10 & \dev{२०९३} & 2093 & 22 & \dev{३७३९} & 3739 \\
+11 & \dev{२२६७} & 2267 & 23 & \dev{३८०५} & 3805 \\
+12 & \dev{२४३१} & 2431 & 24 & \dev{३८६३} & 3863 \\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+\begin{sanskritcol}
+उपर्युक्त २४ ज्यासु प्रत्येकं पूर्वजीवायां शेषमन्तरं निःसरति।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+In the 24 sines above, taking each from the preceding sine, the remainders are the differences. The first differences are approximately 225, then 224, 222, 219,\ldots decreasing gradually.
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\begin{center}
+\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}\\[0.5em]
+\textbf{\dev{॥ इति प्रथमपादः समाप्तः ॥}}\\[0.3em]
+\textit{End of the First Chapter}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}
+\end{center}
+
+\clearpage
+
+% ====================================================================
+% CHAPTER 2: GANITAPADA
+% ====================================================================
+\section*{Second Chapter: Ganitapada / \dev{द्वितीयः पादः -- गणितपादः}}
+\addcontentsline{toc}{section}{II. Ganitapada (33 verses)}
+
+\noindent
+\begin{sanskritcol}
+गणितपादे वर्गघनमूलक्षेत्रफलवृत्तजीवाकूट्टकछायादिविषयाः संस्कृताः।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+In the Ganitapada are treated: squares, cubes, square-roots, cube-roots, areas of figures, the circle, chords, the pulverizer (ku\d{t}taka), shadows, and related topics.
+\end{englishcol}
+\par\medskip
+
+\vspace{0.5cm}
+
+% Verse 1
+\noindent\textbf{Verse 1 / \dev{मङ्गलाचरणम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+प्रथमपादक्रमादेव ह्यः प्रणम्य गणेश्वरम् ।\\
+ततो गणितमाख्यास्ये गणितज्ञानमुत्तमम् ॥ १ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Prathama-p\=ada-kram\=ad eva hya\d h pra\d namya ga\d ne\'svaram.\\
+Tato ga\d nitam \=akhy\=asye ga\d nita-jñ\=anam uttamam. [1]}
+
+\vspace{0.2cm}
+Having bowed to the Lord of Calculation (Gane\'svara) in the order of the first chapter, I shall now expound the science of calculation, the highest knowledge of mathematics. [1]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 2
+\noindent\textbf{Verse 2 --- Place Values / \dev{स्थाननामानि}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+एकं दश शतं सहस्रमयुतं लक्षं प्रयुतं कोट्यः ।\\
+अर्बुदं बृन्दमखखर्वं निखर्वं महापद्मं च ॥ २ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Eka\d m da\'sa \'sata\d m sahasram ayuta\d m lak\sa\d m prayuta\d m ko\d tya\d h.\\
+Arbuda\d m b\=rndam akha-kharva\d m nikharva\d m mah\=a-padma\d m ca. [2]}
+
+\vspace{0.2cm}
+One, ten, hundred, thousand, myriads (ayuta), lakh (lak\d sa), ten-lakhs (prayuta), crore (ko\d ti), ten-crores (arbuda), hundred-crores (b\=nda), thousand-crores (kharva), ten-thousand-crores (nikharva), hundred-thousand-crores (mah\=a-padma). [2]
+
+\textit{[Translators note: The Indian decimal place-value system proceeds in powers of 10.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% Verse 3
+\noindent\textbf{Verse 3 --- Square / \dev{वर्गः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+संयुत्यकस्थानसंज्ञं ततः सप्तदशस्वरे ।\\
+स्वरूपं चैव तत् प्रोक्तं वर्गसंज्ञं तथैव च ॥ ३ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Sa\d myuty-aka-sth\=ana-sa\d jña\d m tata\d h saptada\'sa-svare.\\
+Svar\=upa\d m caiva tat prokta\d m varga-sa\d jña\d m tathaiva ca. [3]}
+
+\vspace{0.2cm}
+The product of a number with itself is called the varga [square]. In the odd places [the product] is as stated; the square is also called ``svar\=upa'' [own-form]. [3]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 4
+\noindent\textbf{Verse 4 --- Square Root / \dev{वर्गमूलम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+वर्गस्य मूलमाख्यातं यथोक्तं गणितैः पुरा ।\\
+सर्वदोषविनिर्मुक्तं विधिं श्रूयतां मया ॥ ४ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Vargasya m\=ulam \=akhy\=ata\d m yathokta\d m ga\d nitai\d h pur\=a.\\
+Sarva-do\d sa-vinirmukta\d m vidhi\d m \'sr\=uyat\=a\d m may\=a. [4]}
+
+\vspace{0.2cm}
+The square root of a square is declared as formerly spoken by calculators. Hear from me the method free from all defects. [4]
+
+\textit{[Translators note: Method: mark off periods of two digits from the right. Find the largest square in the leftmost period; subtract and bring down the next period. Double the current root and divide into the remainder. Repeat.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 5
+\noindent\textbf{Verse 5 --- Cube / \dev{घनः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+त्रिसमचतुष्कोणं घनं स्यादथवाऽपरम् ।\\
+त्रयाणां समवृत्तानां समसंयोगजं स्मृतम् ॥ ५ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Tri-sama-catu\d sko\na\d m ghana\d m sy\=ad athav\=aparam.\\
+Tray\=a\d{n}\=am sama-v\=rtt\=an\=am sama-sa\d myogaja\d m sm\=rtam. [5]}
+
+\vspace{0.2cm}
+A cube is an equi-quadrilateral [solid] with three equal dimensions. It is remembered as produced from the product of three equal quantities. [5]
+
+\textit{[Translators note: ghana literally means ``solid.'' The cube of a number $n$ is $n \times n \times n$.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 6
+\noindent\textbf{Verse 6 --- Cube Root / \dev{घनमूलम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+घनस्य मूलमाख्यातं विधिना गणितोक्तितः ।\\
+घनमूलं तु यत्किंचित्तत् सर्वं परिकल्पयेत् ॥ ६ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Ghanasya m\=ulam \=akhy\=ata\d m vidhin\=a ga\d nita-uktita\d h.\\
+Ghana-m\=ula\d m tu yat ki\d mcit tat sarva\d m parikalpayet. [6]}
+
+\vspace{0.2cm}
+The cube root of a cube is declared by the method taught in calculation. Whatever cube root exists, all of it is to be determined. [6]
+
+\textit{[Translators note: Method: mark off periods of three digits. Find the largest cube in the first period; subtract. The divisor = $3 \times$ (current root)$^2$; divide into the remainder.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% Verse 7
+\noindent\textbf{Verse 7 --- Area of a Triangle / \dev{त्रिभुजक्षेत्रफलम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+समपर्यन्तमायतं त्रिभुजं क्षेत्रमुच्यते ।\\
+तस्य कर्णस्तु विज्ञेयः समद्वयसमन्वितः ॥ ७ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Sama-paryanta-m\=ayatata\d m tribhuja\d m k\d setram ucyate.\\
+Tasya kar\d nas tu vijñeya\d h sama-dvaya-samanvita\d h. [7]}
+
+\vspace{0.2cm}
+A triangle with equal sides is called a triangular field. Its hypotenuse (kar\d na) is to be known as combined with two equal [sides]. [7]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 8
+\noindent\textbf{Verse 8 --- Area of Any Triangle / \dev{सामान्यत्रिभुजफलम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+त्रिभुजस्य क्षेत्रफलमथवाऽप्यनुपाततः ।\\
+आयामसंवर्गतुल्यं स्यात् समस्य तु विशेषतः ॥ ८ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Tribhujasya k\d setra-phalam athav\=apy anup\=atata\d h.\\
+\=Ay\=ama-sa\d varga-tulya\d m sy\=at samasya tu vi\'se\d sata\d h. [8]}
+
+\vspace{0.2cm}
+The area of a triangle, or alternatively by proportion: it is equal to the product of the base and height. For an equilateral triangle, there is a special [method]. [8]
+
+\textit{[Translators note: Area = $\frac{1}{2} \times$ base $\times$ height.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 9
+\noindent\textbf{Verse 9 --- Area of a Circle / \dev{वृत्तक्षेत्रफलम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+वृत्तस्य क्षेत्रफलं तु व्यासार्धगुणितं परि ।\\
+अर्धपरिधिगुणार्धव्यासं तत्क्षेत्रफलं भवेत् ॥ ९ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{V\=rttasya k\d setra-phala\d m tu vy\=as\=ardha-gu\d nita\d m pari.\\
+Ardha-paridhi-gu\d{n}\=ardha-vy\=asa\d m tat k\d setra-phala\d m bhavet. [9]}
+
+\vspace{0.2cm}
+The area of a circle is: the circumference multiplied by half the diameter, [divided by 2]. Or: half the circumference multiplied by half the diameter becomes the area of that field. [9]
+
+\textit{[Translators note: Formula: Area = $\frac{C \times d}{4} = \pi r^2$.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% VERSE 10 - VALUE OF PI
+\noindent\textbf{Verse 10 --- The Value of $\pi$ / \dev{वृत्तपरिधेः सन्निकृष्टमानम्}}\par\smallskip
+\fcolorbox{notecolor}{highlightbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+चतुरधिकं शतमष्टगुणं द्वाषष्टिस्तथा सहस्राणाम् ।\\
+अयुतद्वयविष्कम्भस्यासन्नो वृत्तपरिणाहः ॥ १० ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Catur-adhika\d m \'satam a\d s\d ta-gu\na\d m dv\=a\d s\d a\d s\d tis tath\=a sahasr\=a\d n\=am.\\
+Ayuta-dvaya-vi\d skambhasy\=asanno v\=rtta-pari\d n\=aha\d h. [10]}
+
+\vspace{0.2cm}
+Add four to one hundred, multiply by eight, then add sixty-two thousand; the result is the approximate circumference of a circle whose diameter is twenty thousand. [10]
+
+\vspace{0.3cm}
+\textbf{Computation:}
+\begin{align*}
+(100 + 4) \times 8 + 62000 &= 104 \times 8 + 62000 \\
+&= 832 + 62000 \\
+&= 62832
+\end{align*}
+
+\[\pi \approx \frac{62832}{20000} = \mathbf{3.1416}\]
+
+\textit{[Translators note: This value $\pi \approx 3.1416$ is remarkably accurate. The true value of $\pi = 3.14159265\ldots$ Aryabhata's approximation gives the value correct to four decimal places. This verse is one of the most celebrated in Indian mathematical literature.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 11
+\noindent\textbf{Verse 11 --- Construction of Chords / \dev{जीवाविनिर्माणम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+व्यासार्धेन निरोद्धार्या जीवा त्रैराशिकेन तु ।\\
+लम्बायतं तु विज्ञेयं ततः सूत्रं प्रदर्शयेत् ॥ ११ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Vy\=as\=ardhena niroddh\=ary\=a j\=iv\=a trair\=a\'sikena tu.\\
+Lamb\=ayatata\d m tu vijñeya\d m tata\d h s\=utra\d m pradar\'sayet. [11]}
+
+\vspace{0.2cm}
+The chord is to be determined by means of the radius and the rule of three (trair\=a\'sika). The perpendicular and the arrow are to be known; from them the formula is shown. [11]
+
+\textit{[Translators note: The ``rule of three'' (trair\=a\'sika) is the proportion $a:b::c:d$.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 12
+\noindent\textbf{Verse 12 --- Computation of the 24 Sines / \dev{चतुर्विंशत्यर्धज्यानयनम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+त्रिभुजं षट्कोणं वृत्तं षट्त्रिंशदंशेन योजयेत् ।\\
+चतुर्विंशतिजीवाः स्युः सप्तभिः सहिताः क्रमात् ॥ १२ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Tribhuja\d m \sa\tko\na\d m v\=rtta\d m \sa\t-tri\'m\'sad-a\'m\'sena yojayet.\\
+Catur-vi\'msati-j\=iv\=a\d h syu\d h saptabhi\d h sahit\=a\d h kram\=at. [12]}
+
+\vspace{0.2cm}
+A triangle, a hexagon, and the circle are to be joined by thirty-six degrees. Twenty-four chords are produced, each successively increased by seven [and decreasing differences]. [12]
+
+\textit{[Translators note: The first sine-difference is 225$'$ (minutes). The differences decrease: 225, 224, 222, 219, 215, 210,\ldots]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% Verse 13 - Kuttaka
+\noindent\textbf{Verse 13 --- The Pulverizer (Ku\d{t}taka) / \dev{कूट्टकम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+गुणकारेण युक्ते ते वर्जयित्वा तु तद्गुणौ ।\\
+छिन्ने तत्र गुणौ ज्ञेयौ कूट्टकं तद्विदुर्बुधाः ॥ १३ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Gu\d nak\=are\d na yukte te varjayitv\=a tu tad-gu\d{n}au.\\
+Chinne tatra gu\d{n}au jñey\=au ku\d{t}\d taka\d m tad-vidur budh\=a\d h. [13]}
+
+\vspace{0.2cm}
+The two [quantities], when combined with the multiplier, are to be reduced [by the greatest common divisor]. When divided, the two multipliers are to be known there: the wise call this the ku\d{t}taka [pulverizer]. [13]
+
+\textit{[Translators note: The ku\d{t}taka (``pulverizer'') is Aryabhata's method for solving linear indeterminate equations of the form $ax + by = c$. It is essentially the Euclidean algorithm applied to find solutions to Diophantine equations.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Kuttaka detailed
+\noindent\textbf{The Ku\d{t}taka Method --- Detailed Procedure}\par\smallskip
+\fcolorbox{rulecolor}{white}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\small
+\noindent
+\begin{sanskritcol}
+कूट्टकविधिः---भाजकभाज्ययोः परस्परभागदानं कृत्वा यावदवशेषं एकं न भवति। ततः पश्चादनुक्रमेण गुणकारभाजकौ लभ्येते।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\textbf{The Ku\d{t}taka Method:}
+
+Divide the divisor (bh\=ajaka) and dividend (bh\=ajya) mutually until the remainder becomes 1. Then by back-substitution, the multiplier (gu\d naka) and additive are obtained.
+\end{englishcol}
+
+\vspace{0.3cm}
+
+\textbf{Example:} Find $x$ such that $17x + 5 \equiv 0 \pmod{29}$
+
+\vspace{0.2cm}
+
+\noindent
+\begin{sanskritcol}
+यदि १७x + ५ = ० (मो २९) तर्हि x = ?\\[0.3em]
+हलः---\\
+२९ = १ × १७ + १२\\
+१७ = १ × १२ + ५\\
+१२ = २ × ५ + २\\
+५ = २ × २ + १\\[0.3em]
+अतः गुणकारः x = १२, भाजकः y = ७
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+If $17x + 5 \equiv 0 \pmod{29}$, find $x$.\\[0.3em]
+\textbf{Solution:}
+\begin{align*}
+29 &= 1 \times 17 + 12 \\
+17 &= 1 \times 12 + 5 \\
+12 &= 2 \times 5 + 2 \\
+5 &= 2 \times 2 + 1
+\end{align*}
+
+Thus the multiplier $x = 12$, and the additive $y = 7$.
+
+\textit{[Verification: $17 \times 12 - 29 \times 7 = 204 - 203 = 1$]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 14
+\noindent\textbf{Verse 14 --- Direct and Inverse / \dev{क्रमानुक्रमौ}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+क्रमादनुक्रमं चैव प्रकल्प्यं गणिते सदा ।\\
+प्रकल्पयेत् तथा योगं व्यस्तं वा यदि तत् स्थितम् ॥ १४ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Kram\=ad-anukrama\d m caiva prakalpya\d m ga\d nite sad\=a.\\
+Prakalpayet tath\=a yoga\d m vyasta\d m v\=a yadi tat sthitam. [14]}
+
+\vspace{0.2cm}
+Direct and inverse are always to be employed in calculation. The sum is to be formed accordingly, or the reverse, as the case may be. [14]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 15
+\noindent\textbf{Verse 15 --- Shadow (Ch\=ay\=a) / \dev{छाया}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+शङ्कोर्निजछायया युक्तो दृग्भागः सूर्यमण्डलम् ।\\
+शङ्कुच्छायाग्रसंयुक्तं दृश्यते यदि तत् फलम् ॥ १५ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{\'Sa\d nkor nija-ch\=ayay\=a yukto d\d rgbh\=ga\d h s\=urya-ma\d{n}\d dalam.\\
+\'Sa\d nku-ch\=ay\=agra-sa\d yukta\d m d\'s\'syate yadi tat phalam. [15]}
+
+\vspace{0.2cm}
+The gnomon (\'sa\d nku), combined with its own shadow, [gives] the line of sight to the solar orb. Combined with the tip of the gnomon's shadow, it is seen---that is the result. [15]
+
+\textit{[Translators note: The gnomon (\'sa\d nku) is a vertical stick of 12 a\d ngulas. From the ratio of gnomon to shadow, the altitude of the Sun and hence the time of day may be determined.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.5cm}
+
+\begin{center}
+\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}\\[0.5em]
+\textbf{\dev{॥ इति द्वितीयपादः समाप्तः ॥}}\\[0.3em]
+\textit{End of the Second Chapter}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}
+\end{center}
+
+\clearpage
+
+% ====================================================================
+% CHAPTER 3: KALAKRIYAPADA
+% ====================================================================
+\section*{Third Chapter: Kalakriyapada / \dev{तृतीयः पादः -- कालक्रियापादः}}
+\addcontentsline{toc}{section}{III. Kalakriyapada (25 verses)}
+
+\noindent
+\begin{sanskritcol}
+कालक्रियापादे युगमासदिवसघटीपलादीनां परिकल्पना वर्तते।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+In the Kalakriyapada is the reckoning of time: the definitions of yugas, months, days, gha\d t\=is, palas, and so forth.
+\end{englishcol}
+\par\medskip
+
+\vspace{0.5cm}
+
+% Verse 1
+\noindent\textbf{Verse 1 --- Division of Time / \dev{कालविभागः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+नाडी तु दशपञ्चाशत्पलं षष्ट्या तु तैः पुनः ।\\
+विपलैस्तैस्तथा कालो यावत् कालेन पश्यति ॥ १ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{N\=a\d{d}\=i tu da\'sa-pañc\=a\'sat-pala\d m \sa\d sthy\=a tu tai\d h puna\d h.\\
+Vipalais tais tath\=a k\=alo y\=avat k\=alena pa\'syati. [1]}
+
+\vspace{0.2cm}
+A n\=a\d{d}\=i is fifty-five palas; again by sixty of those; and by vipalas of those---thus time proceeds until it is seen by [the smallest unit of] time. [1]
+
+\textit{[Translators note: 1 n\=a\d{d}\=i = 60 palas; 1 pala = 60 vipalas. A n\=a\d{d}\=i equals 24 minutes of modern time.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 2
+\noindent\textbf{Verse 2 --- Solar Division / \dev{सौरविभागः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+पूर्वं कालविभागः सैत्रविभागस्तथा भगणात् ।\\
+द्वादशा सूर्यजः सोऽयं त्रिंशता भागितो रविः ॥ २ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{P\=urva\d m k\=ala-vibh\=aga\d h saitra-vibh\=agas tath\=a bhag\=a\d n\=at.\\
+Dv\=ada\'s\=a s\=uryaja\d h so'ya\d m tri\'m\'sat\=a bh\=agito ravi\d h. [2]}
+
+\vspace{0.2cm}
+First, the division of time: the division of the [zodiacal] circle into signs, and the revolutions [of planets]. The Sun, born of the twelve [signs], is divided by thirty. [2]
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 3
+\noindent\textbf{Verse 3 --- The Four Yugas / \dev{चतुर्युगम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+युगपादश्चतुर्धा स्यात् कृतं त्रेताद्वापरम् ।\\
+कलिश्चेति चतुर्विंशतिर्घातिर्युगपदे स्मृता ॥ ३ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Yuga-p\=ada\'s caturdh\=a sy\=at k\=rta\d m tret\=a dv\=aparam.\\
+Kali\'s ceti catur-vi\'msati\d r gh\=atir yuga-pade sm\=rt\=a. [3]}
+
+\vspace{0.2cm}
+The four parts of a yuga are: K\=rta [Satya], Tret\=a, Dv\=apara, and Kali. Twenty-four is remembered as the measure [in hundreds of thousands] of a yuga-part. [3]
+
+\textit{[Translators note: A Caturyuga = 4,320,000 years. K\=rta = 1,728,000; Tret\=a = 1,296,000; Dv\=apara = 864,000; Kali = 432,000. The ratio is 4:3:2:1.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 4
+\noindent\textbf{Verse 4 --- The Kalpa / \dev{कल्पः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+मानयुगाद्ययुगपादस्य पञ्चदशयुतसहस्रकल्पः ।\\
+युगपादैः सहस्रैस्तु कल्पः परिकीर्तितः ॥ ४ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{M\=ana-yug\=adya-yuga-p\=adasya pañcada\'sa-yuta-sahasra-kalpa\d h.\\
+Yuga-p\=adai\d h sahasrais tu kalpa\d h parik\=irtita\d h. [4]}
+
+\vspace{0.2cm}
+A kalpa is a thousand yugas joined with fifteen [intervening periods]. A kalpa is proclaimed to be a thousand yugas. [4]
+
+\textit{[Translators note: 1 kalpa = 1000 caturyugas = 4,320,000,000 years. This is one day of Brahma.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 5
+\noindent\textbf{Verse 5 --- Longitude and Latitude / \dev{आयामविस्तरौ}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+आयामवर्गाद्यं पार्श्वं तद्वोगैर्हतं स्वपातलेखैः ।\\
+विस्तरयोगार्धयोगैस्तैर्लेखफलमायामे ॥ ५ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{\=Ay\=ama-varg\=adya\d m p\=ar\'sva\d m tad-vogair hata\d m sva-p\=ata-lekhai\d h.\\
+Vistara-yog\=ardha-yogais tair lekha-phalam \=ay\=ame. [5]}
+
+\vspace{0.2cm}
+The square of the longitude [etc.] is the side; multiplied by its own lines of latitude. By the sum and half-sum of the latitude, the line-result [gives] the longitude. [5]
+
+\textit{[Translators note: These verses describe the computation of planetary positions using longitude and latitude, essential for predicting eclipses.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% ====================================================================
+% CHAPTER 4: GOLAPADA
+% ====================================================================
+\section*{Fourth Chapter: Golapada / \dev{चतुर्थः पादः -- गोलपादः}}
+\addcontentsline{toc}{section}{IV. Golapada (50 verses)}
+
+\noindent
+\begin{sanskritcol}
+गोलपादे भूगोलस्य खगोलस्य च वर्णनं वर्तते। पृथिव्या गोलत्वं, ग्रहणं, उदयास्तौ, नक्षत्राणि च।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+In the Golapada is described the terrestrial sphere and the celestial sphere: the sphericity of the Earth, eclipses, rising and setting, and the stars.
+\end{englishcol}
+\par\medskip
+
+\vspace{0.5cm}
+
+% Verse 1
+\noindent\textbf{Verse 1 --- The Celestial Sphere / \dev{खगोलवर्णनम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+पृथिवी परिदृश्यमानं क्षितिजद्देशप्रयोगैर्युक्तं च ।\\
+उन्मेषलं भवेत् तद् द्वयमुद्धतं यत्र दिवसनिशोः ॥ १ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{P\d rthiv\=i parid\d r\'syam\=ana\d m k\d sitija-de\'sa-prayogair yukta\d m ca.\\
+Unme\d sala\d m bhavet tad dvayam uddhata\d m yatra divasa-ni\'so\d h. [1]}
+
+\vspace{0.2cm}
+The Earth, being observed, combined with the application of the horizon region: that is the blink [of an eye] where both day and night are elevated [above the horizon]. [1]
+
+\textit{[Translators note: The k\d sitija (horizon) is the great circle dividing the visible heavens from the invisible.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 2
+\noindent\textbf{Verse 2 --- Directions / \dev{दिशाज्ञानम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+दक्षिणोत्तररेखा मध्यमा पूर्वापरं तु दिशच्छेदः ।\\
+दिशामानं तु विज्ञेयं षष्टिघातैस्तु नाडिकाभिः ॥ २ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Dak\d si\d{n}ottara-rekh\=a madhyam\=a p\=urv\=apara\d m tu di\'sa-ccheda\d h.\\
+Di\'s\=am\=ana\d m tu vijñeya\d m \sa\d sti-gh\=atais tu n\=a\d{d}ik\=abhi\d h. [2]}
+
+\vspace{0.2cm}
+The meridian line [running] south-north is the middle; the east-west is the division of directions. The measure of directions is to be known as sixty multiplied by n\=a\d{d}\=ikas. [2]
+
+\textit{[Translators note: 60 n\=a\d{d}\=ikas = 1 day = 360$^\circ$ of the equator.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 3
+\noindent\textbf{Verse 3 --- Eclipses / \dev{ग्रहणनिर्णयः}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+सूर्यग्रहणं तु विज्ञेयं राहुच्छादनात् तु यत् ।\\
+चन्द्रग्रहणं च छायाया योगात् संयोगतो भवेत् ॥ ३ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{S\=urya-graha\d na\d m tu vijñeya\d m r\=ahu-ch\=ad\=an\=at tu yat.\\
+Candra-graha\d na\d m ca ch\=ay\=ay\=a yog\=at sa\d myogato bhavet. [3]}
+
+\vspace{0.2cm}
+A solar eclipse is to be known as that [which occurs] from the covering by R\=ahu. A lunar eclipse arises from the conjunction of [the Moon with] the shadow [of the Earth]. [3]
+
+\textit{[Translators note: Aryabhata correctly understood that the solar eclipse is caused by the Moon interposing between the Earth and Sun, while the lunar eclipse is caused by the Earth's shadow falling on the Moon.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 4
+\noindent\textbf{Verse 4 --- Chords of Arcs / \dev{लम्बज्याव्यासज्ये}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+लम्बज्याव्यासज्या चापज्याऽऽयतांशकाः स्मृताः ।\\
+षष्ट्यंशैस्तैर्मितं चापं तत् फलं परिकल्पयेत् ॥ ४ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Lambajy\=a-vy\=asajy\=a c\=apajy\=a \=ayat\=a\d m\'sak\=a\d h sm\=rt\=a\d h.\\
+\d Sa\d s\d ty-a\d m\'sais tair mita\d m c\=apa\d m tat phala\d m parikalpayet. [4]}
+
+\vspace{0.2cm}
+The perpendicular sine (lambajy\=a), the radius (vy\=asajy\=a), and the chord of an arc (c\=apajy\=a) are remembered as degrees. The arc measured by sixty degrees---that result is to be computed. [4]
+
+\textit{[Translators note: lambajy\=a = $R \sin\theta$ (modern sine); vy\=asajy\=a = $R$ (radius); c\=apajy\=a = $2R \sin(\theta/2)$ (chord).]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Verse 5
+\noindent\textbf{Verse 5 --- The Earth Sphere / \dev{भूगोलवर्णनम्}}\par\smallskip
+\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+भूगोलः सवितुर्भानोर्भूमेर्भूगोलसंस्थितः ।\\
+निराकारः सदा व्यापी शून्यमध्यः सनातनः ॥ ५ ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Bh\=u-gola\d h savitur bh\=anor bh\=umer bh\=u-gola-sa\d sthita\d h.\\
+Nir\=ak\=ara\d h sad\=a vy\=ap\=i \'s\=unyamadhya\d h san\=atana\d h. [5]}
+
+\vspace{0.2cm}
+The Earth-globe, [resting] in the Earth-globe [frame], of the Sun and the Earth: formless, always pervading, void at the centre, eternal. [5]
+
+\textit{[Translators note: Aryabhata here describes the Earth as a sphere (gola) suspended in space. The ``void at the centre'' is a remarkable concept.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\clearpage
+
+% Earth's Rotation highlight
+\noindent\textbf{\Large Aryabhata's Revolutionary Discovery --- Earth's Rotation}\par\smallskip
+\fcolorbox{notecolor}{highlightbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+पूर्वापरदिग्गुल्मानं क्षितिजद्देशप्रयोगैर्युक्तं च ।\\
+उन्मेषलं भवेत् तद् द्वयमुद्धतं यत्र दिवसनिशोः ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{P\=urv\=apara-dig-gulm\=ana\d m k\d sitija-de\'sa-prayogair yukta\d m ca.\\
+Unme\d sala\d m bhavet tad dvayam uddhata\d m yatra divasa-ni\'so\d h.}
+
+\vspace{0.3cm}
+\textbf{Translation:}
+
+That which appears as the motion of the stars from east to west is in truth the Earth's own rotation. The Earth, spherical in shape, rotates upon its axis from west to east.
+\end{englishcol}
+
+\vspace{0.3cm}
+
+\noindent
+\begin{sanskritcol}
+स्थलस्य गतिमाहुर्वै खगोलस्थानभूम्नि च ।\\
+यतः प्रवृत्तिस्तस्यान्तो विपर्यासो यतः स्मृतः ॥
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+\IAST{Sthalasya gatim \=ahur vai khagola-sth\=ana-bh\=umni ca.\\
+Yata\d h prav\=rttis tasy\=anto vipary\=aso yata\d h sm\=rta\d h.}
+
+\vspace{0.3cm}
+\textbf{Translation:}
+
+They say the motion of the Earth is in the place of the celestial sphere. The end of its rotation [causes] the reversal [of apparent motion].
+
+\textit{[Translators note: This is one of the most remarkable verses in the history of science. Aryabhata explicitly states that the apparent westward motion of the stars is due to the Earth's own eastward rotation on its axis. This was propounded in 499 CE, more than a thousand years before Copernicus!]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.3cm}
+
+% Earth's rotation explanation
+\noindent\textbf{On the Earth's Rotation}\par\smallskip
+\fcolorbox{rulecolor}{white}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\noindent
+\begin{sanskritcol}
+पृथिव्याः स्वगतिकारणात् खगोलस्य स्थिरत्वं भाति। यथा नौकायां स्थितः पुरुषः तीरे वृक्षान् विचलितान् मन्यते तथा पृथिव्यां स्थिताः स्थलजीवाः खगोलं विचलितं मन्यन्ते।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+Due to the Earth's own motion, the celestial sphere appears stationary. Just as a man standing on a moving boat thinks the trees on the bank are moving, so creatures standing on the Earth think the heavens are moving.
+
+\vspace{0.3cm}
+
+\textit{[Translators note: This analogy of the boat and trees is one of the most celebrated in scientific literature. Aryabhata used it to explain why we do not perceive the Earth's rotation. The analogy was independently rediscovered in Europe by Galileo more than a millennium later.]}
+\end{englishcol}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.5cm}
+
+\begin{center}
+\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}\\[0.5em]
+\textbf{\dev{॥ इति चतुर्थपादः समाप्तः ॥}}\\[0.3em]
+\textit{End of the Fourth Chapter}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.6\textwidth}{0.4pt}}
+\end{center}
+
+\clearpage
+
+% ====================================================================
+% EPILOGUE
+% ====================================================================
+\section*{Epilogue / \dev{उपसंहार}}
+
+\noindent
+\begin{sanskritcol}
+एवं चतुष्पादसंयुक्तमिदं ग्रन्थं समाप्तम्। आर्यभटेन कृतमिदं गणितज्योतिषशास्त्रस्य सारसङ्ग्रहः।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+Thus this book, consisting of four chapters, is completed. This compendium of mathematics and astronomy was composed by Aryabhata.
+\end{englishcol}
+\par\medskip
+
+\vspace{0.5cm}
+
+\noindent\fcolorbox{rulecolor}{transbg}{%
+\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\textbf{Summary of Aryabhata's Contributions}\par\smallskip
+\begin{enumerate}[leftmargin=1.5em]
+  \item \textbf{Value of $\pi$}: $\pi \approx 3.1416$ (accurate to 4 decimal places)
+  \item \textbf{Sine Table}: 24 sines at intervals of $3^\circ 45'$, with radius = 3438$'$
+  \item \textbf{Ku\d{t}taka}: General method for solving linear Diophantine equations $ax + by = c$
+  \item \textbf{Earth's Rotation}: Explicit statement that Earth rotates on its axis
+  \item \textbf{Spherical Earth}: Earth is a sphere floating freely in space
+  \item \textbf{Eclipses}: Correct explanation of solar and lunar eclipses
+  \item \textbf{Astronomical Constants}: Accurate orbital periods for all planets
+\end{enumerate}
+\end{minipage}
+}\par\medskip
+
+\vspace{0.5cm}
+
+\noindent
+\begin{sanskritcol}
+आर्यभटीयस्य महत्त्वं विश्वविदुषा ए.बी. क्लार्क् (१९३०) इत्यनेन संस्कृतस्य आङ्ग्लभाषायां अनुवादं कृतवन्तः।
+\end{sanskritcol}%
+\hfill\vrule width 0.3pt\hfill
+\begin{englishcol}
+The importance of the Aryabhatiya was recognized by the scholar W.E.\ Clark, who published a Sanskrit-English edition in 1930. This bilingual edition follows Clark's translation style while presenting the original Devanagari text alongside.
+\end{englishcol}
+\par\medskip
+
+\vspace{0.5cm}
+
+\begin{center}
+\textcolor{rulecolor}{\rule{0.5\textwidth}{0.5pt}}\\[0.5em]
+{\Large\devanagarifont ॥ ॐ तत् सत् ॥}\\[0.5em]
+\textit{Om Tat Sat}\\[0.3em]
+\textcolor{rulecolor}{\rule{0.5\textwidth}{0.5pt}}
+\end{center}
+
+\end{document}

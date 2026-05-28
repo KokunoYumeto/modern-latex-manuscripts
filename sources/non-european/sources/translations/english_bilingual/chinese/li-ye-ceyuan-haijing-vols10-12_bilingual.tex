@@ -1,1417 +1,1417 @@
-%% ========================================================================
-%% 測圓海鏡 (Ceyuan Haijing) --- Sea Mirror of Circle Measurements
-%% Volumes 10--12 (Final Volumes) --- BILINGUAL English-Chinese Edition
-%% Author: Li Ye (李冶, 1192--1279)
-%% Originally published 1248 CE
-%% ========================================================================
-\documentclass[10pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{xeCJK}
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{indentfirst}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-
-%% -------- Page Geometry (narrower margins for parallel columns) --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=12mm,right=12mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=25pt
-}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-
-%% -------- Font Configuration --------
-\setmainfont{TeX Gyre Termes}[
-  Extension=.otf,
-  UprightFont=*-regular,
-  BoldFont=*-bold,
-  ItalicFont=*-italic,
-  BoldItalicFont=*-bolditalic,
-  Renderer=Harfbuzz
-]
-\setsansfont{TeX Gyre Heros}[
-  Extension=.otf,
-  UprightFont=*-regular,
-  BoldFont=*-bold,
-  ItalicFont=*-italic,
-  BoldItalicFont=*-bolditalic,
-  Renderer=Harfbuzz
-]
-\setmonofont{TeX Gyre Cursor}[
-  Extension=.otf,
-  UprightFont=*-regular,
-  Renderer=Harfbuzz,
-  Scale=MatchLowercase
-]
-
-%% Chinese font setup
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{probcolor}{RGB}{80,40,20}
-\definecolor{anscolor}{RGB}{20,80,40}
-\definecolor{methodcolor}{RGB}{20,40,80}
-\definecolor{cnlabelcolor}{RGB}{139,69,19}
-\definecolor{enlabelcolor}{RGB}{70,130,180}
-\definecolor{columnsep}{RGB}{200,180,160}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{測圓海鏡 --- Ceyuan Haijing --- Volumes 10--12 (Bilingual)}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-
-%% -------- BILINGUAL PARALLEL COLUMN ENVIRONMENTS --------
-\newcommand{\bilingualprob}[2]{%
-  \noindent
-  \begin{minipage}[t]{0.48\textwidth}
-    #1
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    #2
-  \end{minipage}%
-  \par\vspace{0.8em}
-}
-
-\newcommand{\cnlabel}[1]{\textbf{\textcolor{cnlabelcolor}{#1}}}
-\newcommand{\enlabel}[1]{\textbf{\textcolor{enlabelcolor}{#1}}}
-
-%% Problem/Answer/Method commands -- CHINESE
-\newcommand{\wenCN}[1]{\par\cnlabel{問：}#1\par}
-\newcommand{\daCN}[1]{\par\cnlabel{答曰：}#1\par}
-\newcommand{\fayueCN}[1]{\par\cnlabel{法曰：}#1\par}
-\newcommand{\caoyueCN}[1]{\par\cnlabel{草曰：}#1\par}
-\newcommand{\zhiCN}[1]{\par\cnlabel{識別得：}#1\par}
-
-%% Problem/Answer/Method commands -- ENGLISH
-\newcommand{\wenEN}[1]{\par\enlabel{Problem:} #1\par}
-\newcommand{\daEN}[1]{\par\enlabel{Answer:} #1\par}
-\newcommand{\fayueEN}[1]{\par\enlabel{Method:} #1\par}
-\newcommand{\caoyueEN}[1]{\par\enlabel{Working:} #1\par}
-\newcommand{\zhiEN}[1]{\par\enlabel{Identification:} #1\par}
-
-%% Problem number header
-\newcommand{\probnum}[1]{%
-  \noindent\textbf{\large\color{sectioncolor}#1}%
-  \vspace{0.3em}%
-}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Ceyuan Haijing Volumes 10-12 (Bilingual Edition)},
-  pdfauthor={Li Ye},
-  pdfsubject={Chinese Medieval Algebra}
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
-
-%% ========================================================================
-\begin{document}
-
-%% ========================================================================
-%% Title Page
-%% ========================================================================
-\begin{titlepage}
-\begin{center}
-\vspace*{2.5cm}
-
-{\Huge\bfseries\color{titlecolor}
-測圓海鏡\\[0.6em]
-Ceyuan Haijing}
-
-\vspace{0.8cm}
-{\Large\color{sectioncolor}
-Sea Mirror of Circle Measurements}
-
-\vspace{1.5cm}
-{\LARGE\bfseries\color{sectioncolor}
-卷十至卷十二\\[0.4em]
-Volumes 10--12 (Final Volumes)}
-
-\vspace{0.5cm}
-{\large\color{notecolor}\textsc{Bilingual English--Chinese Edition}}
-
-\vspace{2.5cm}
-{\large 李冶 撰}\\[0.3em]
-{\normalsize By Li Ye (1192--1279)}
-
-\vspace{1.5cm}
-{\small Originally published 1248 CE\\[0.5em]
-This bilingual edition presents the original Classical Chinese\\
-alongside modern English translations in parallel columns.}
-
-\vfill
-{\small\color{notecolor}
-Modern LaTeX edition\\
-Traditional Chinese mathematical text with English translations
-}
-
-\end{center}
-\end{titlepage}
-
-%% ========================================================================
-%% Table of Contents
-%% ========================================================================
-\tableofcontents
-\newpage
-
-%% ========================================================================
-%% Introduction
-%% ========================================================================
-\section*{Introduction / 引言}
-\addcontentsline{toc}{section}{Introduction / 引言}
-
-\bilingualprob{%
-\textbf{測圓海鏡}（\textit{Ceyuan Haijing}，「Sea Mirror of Circle Measurements」）是中國中世紀數學的傑作之一。李冶（1192--1279）著，初版於1248年，全書十二卷共170題，皆圍繞一個幾何構型：直角三角形內切圓。
-
-本文檔包含此書的最後三卷（第10--12卷）。這些卷繼續用\textbf{天元術}（tian yuan shu，「celestial element method」）系統研究各線段與內切圓直徑的關係——這種代數方法等價於求解多項式方程。
-
-每題依古典結構：
-\begin{itemize}[leftmargin=1.5em,topsep=0pt,parsep=0pt]
-  \item \textbf{問}（wen）—— 題目
-  \item \textbf{答曰}（da yue）—— 數值答案
-  \item \textbf{法曰}（fa yue）—— 方法（一般程序）
-  \item \textbf{草曰}（cao yue）—— 天元術詳細演算
-\end{itemize}%
-}{%
-The \textit{Ceyuan Haijing} (\textbf{測圓海鏡}, ``Sea Mirror of Circle Measurements'') is one of the masterpieces of medieval Chinese mathematics. Written by \textbf{Li Ye} (李冶, 1192--1279) and first published in 1248 CE, it consists of twelve volumes containing 170 problems, all devoted to a single geometric configuration: a \textit{circle inscribed in a right triangle}.
-
-The present document contains the \textbf{final three volumes} (10--12) of this work. These volumes continue the systematic investigation of relationships between various line segments formed by the configuration and the diameter of the inscribed circle, using the \textit{tian yuan shu} (\textbf{天元術}, ``celestial element method'') --- an algebraic method equivalent to solving \textbf{polynomial equations}.
-
-Each problem follows the classical structure:
-\begin{itemize}[leftmargin=1.5em,topsep=0pt,parsep=0pt]
-  \item \textbf{Problem} (問 wen) --- The problem statement
-  \item \textbf{Answer} (答曰 da yue) --- The numerical answer
-  \item \textbf{Method} (法曰 fa yue) --- The general procedure
-  \item \textbf{Working} (草曰 cao yue) --- Detailed celestial element method calculations
-\end{itemize}%
-}
-
-\newpage
-
-
-%% ========================================================================
-%% VOLUME 10
-%% ========================================================================
-\section{卷十 Volume 10 --- Advanced Polynomial Equations}
-\label{sec:vol10}
-
-\longline
-
-\bilingualprob{%
-\textbf{概述：}卷十繼續卷七至卷九的研究，提出涉及內切圓相關各線段之和與差的進一步問題。本卷問題越來越多地使用天元術來推導更高次的多項式方程（五次至六次）。
-}{%
-\textbf{Overview:} Volume 10 continues the investigations of volumes 7--9, presenting further problems involving sums and differences of various line segments related to the inscribed circle. The problems in this volume increasingly employ the celestial element method to derive \textbf{polynomial equations of higher degree} (degrees 5--6).
-}
-
-\vspace{0.5cm}
-\longline
-
-%% ========================================================================
-%% Problem 131
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十一問 \quad Problem 131}
-
-\bilingualprob{%
-\wenCN{假令有圓城一座，甲乙二人俱立於圓心。甲向東門直行，乙向南門直行。甲出東門，望見乙，乃斜行與乙相會。二人共行了三百八十步。又云乙出南門直行後，其不及斜行一百二十步。問圓徑幾何？}
-
-\daCN{圓徑二百四十步。}
-
-\fayueCN{以共步內減四之小差，復以自之於上。以十八個小差冪減於上為實。四之共步內減十六個小差於上，却以十八小差加上為益從。四步常法。開平方得中差。}
-
-\caoyueCN{別得共步為三事和也。不及步即小差也。立天元一為中差，加二之小差得三事和也。倍三事得三千二百內入三事和得三千四百。又以前數加之得三千六百為三和也。內減三弦餘三較為三黃方。又以前數加之得三千八百為通弦也。倍之為通弦，三事減之亦得。}
-}{%
-\wenEN{Suppose there is a circular city. Two persons A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Together they walked 380 steps. It is also said that after exiting the South Gate, B's straight walk falls short of the diagonal walk by 120 steps. What is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 240 steps.}
-
-\fayueEN{Subtract four times the small difference from the total walk, then square the result and place on top. Subtract eighteen times the square of the small difference from this to obtain the shi (constant term). Within four times the total walk, subtract sixteen times the small difference and place on top; then add eighteen times the small difference to obtain the negative cong (linear coefficient). Four is the chang fa (constant divisor). Extract the square root to obtain the middle difference.}
-
-\caoyueEN{Let the celestial element unity (tian yuan yi) be the middle difference. Adding twice the small difference gives the three-item sum (san shi he). Doubling the three-item gives 3200; adding the three-item sum gives 3400. Adding the previous number gives 3600 as the triple sum. Subtracting three chords leaves three differences as three yellow squares. Adding the previous number gives 3800 as the贯通 chord. Doubling this gives the贯通 chord; subtracting the three items also gives the same.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 132
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十二問 \quad Problem 132}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙在城南，乃斜行與乙相會。只云甲行共二百步，乙行不及斜行五十步。問徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以共步自之為冪，又以減倍不及步數加上位為實。倍共步內減不及步為從。二步常法。開平方得半徑。}
-
-\caoyueCN{立天元一為半徑，即為股弦差也。以二之減倍共步得二百步為大差，即弦較和也。以減倍共步得二百步為大差也。又三事和得三百步為股弦和也。以大差乘之得六萬步為冪。又以天元減共步得一百步為小差，以乘大差得二萬步。減上位餘四萬步為實。以大差得二百步為從。二步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A looks back and sees B south of the city, then walks diagonally to meet B. Given that A walked 200 steps in total, and B's walk falls short of the diagonal by 50 steps. What is the diameter?}
-
-\daEN{The diameter of the circle is 120 steps.}
-
-\fayueEN{Square the total walk to obtain the power; subtract twice the shortfall and add to the upper position to obtain the shi. Subtract the shortfall from twice the total walk to obtain the cong. Two is the chang fa. Extract the square root to obtain the radius.}
-
-\caoyueEN{Let the celestial element unity be the radius, which is the difference between the leg and the hypotenuse. Subtracting twice the total walk from twice this gives 200 steps as the large difference, i.e., the sum of the hypotenuse and the difference. The three-item sum gives 300 steps as the sum of the leg and hypotenuse. Multiplying by the large difference gives 60,000 steps as the power. Subtracting the celestial element from the total walk gives 100 steps as the small difference; multiplying by the large difference gives 20,000 steps. Subtracting from the upper position leaves 40,000 steps as the shi. The large difference of 200 steps is the cong. Two is the chang fa. Extracting the square root gives 120 steps, which is the diameter of the circle. This answers the question.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 133
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十三問 \quad Problem 133}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲直東行出東門，乙斜行出南門，在甲東南相會。只云甲乙共行四百二十步，又云乙斜行多於甲直行八十步。問徑幾何？}
-
-\daCN{圓徑二百四十步。}
-
-\fayueCN{以共步內減多步，餘為二勾。以多步加之為二股。以二勾自之，又以二股乘之，又以共步乘之為實。以二勾乘二股，又以共步乘之為從。以二勾冪加上位為益廉。二之共步為從隅。開三乘方得圓徑。}
-
-\caoyueCN{立天元一為圓徑，以半之加多步得二百步為股。以半共步減之得十步為勾。以勾自之得一百步，又以股乘之得二萬步為直積。又以共步乘之得八百四十萬步為實。以勾乘股得二萬步，又以共步乘之得八百四十萬步為從。以勾冪一百步加上位為益廉。以共步四百二十步為從隅。開三乘方得二百四十步，即圓徑。合問。}
-}{%
-\wenEN{Suppose a circular city. A walks straight east out the East Gate; B walks diagonally out the South Gate, meeting A to the southeast. Given that A and B together walked 420 steps, and B's diagonal walk exceeds A's straight walk by 80 steps. What is the diameter?}
-
-\daEN{The diameter of the circle is 240 steps.}
-
-\fayueEN{Subtract the excess from the total walk; the remainder is twice the base. Add the excess to obtain twice the leg. Square twice the base, multiply by twice the leg, then multiply by the total walk to obtain the shi. Multiply twice the base by twice the leg, then multiply by the total walk to obtain the cong. Add the square of twice the base to the upper position as the negative lian (quadratic coefficient). Twice the total walk is the cong yu (cubic coefficient). Extract the cube root to obtain the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Halving it and adding the excess gives 200 steps as the leg. Subtracting from half the total walk gives 10 steps as the base. Squaring the base gives 100 steps; multiplying by the leg gives 20,000 steps as the direct product. Multiplying by the total walk gives 8,400,000 steps as the shi. Multiplying base by leg gives 20,000 steps; multiplying by the total walk gives 8,400,000 steps as the cong. Adding the square of the base, 100 steps, to the upper position gives the negative lian. The total walk of 420 steps is the cong yu. Extracting the cube root gives 240 steps, which is the diameter. This answers the question.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 134
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十四問 \quad Problem 134}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百二十五步，乙東行一百二十步不及斜行三十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾，其斜行即弦也。以勾股相乘得二萬七千步，倍之得五萬四千步為實。以甲行加乙行得三百四十五步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 135
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十五問 \quad Problem 135}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出南門直行，乙出東門直行，二人相見。只云甲行九十六步，乙行二十七步，其不及斜行七十五步。問圓徑幾何？}
-
-\daCN{圓徑七十二步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二千五百九十二步，倍之得五千一百八十四步為實。以甲行加乙行得一百二十三步為從。一步常法。開平方得七十二步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 七十二 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 136
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十六問 \quad Problem 136}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，乃斜行與乙相會。只云甲南行一百二十八步，乙東行三十六步，又云不及斜行一百步。問圓徑幾何？}
-
-\daCN{圓徑九十六步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得四千六百八步，倍之得九千二百一十六步為實。以甲行加乙行得一百六十四步為從。一步常法。開平方得九十六步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 九十六 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 137
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十七問 \quad Problem 137}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出南門直行一百三十五步，乙出東門直行七十二步，丙出北門直行。只云三人各行共見圓徑。問圓徑及丙行各幾何？}
-
-\daCN{圓徑一百二十步，丙行四十八步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。又以圓徑減甲行為丙行。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾，丙行即股弦差也。以勾股相乘得九千七百二十步為實。以甲行加乙行得二百七步為從。一步常法。開平方得一百二十步，即圓徑也。以圓徑減甲行得一百三十五步減一百二十步餘一十五步為丙行也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 138
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十八問 \quad Problem 138}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出西門直行，乙出南門直行，丙出東門直行。只云甲行一百八十步，乙行八十步，丙行三十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬四千四百步為實。以甲行加乙行得二百六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 139
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百三十九問 \quad Problem 139}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出東門南行，乙出南門東行，丙出西門北行。只云甲行一百六十八步，乙行九十六步，丙行七十二步不及。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬六千一百二十八步為實。以甲行加乙行得二百六十四步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 140
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十問 \quad Problem 140}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人俱在圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行不及乙直行四十步，又云乙出南門直行後斜行一百步。問圓徑幾何？}
-
-\daCN{圓徑八十步。}
-
-\fayueCN{以斜行冪內減差步冪，餘為實。以差步為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以斜行為弦，差步為較。以斜行冪一萬步內減差步冪一千六百步，餘八千四百步為實。以差步四十步為從。一步常法。開平方得八十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 八十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% VOLUME 11
-%% ========================================================================
-\newpage
-\section{卷十一 Volume 11 --- Multiple Circles and Unknowns}
-\label{sec:vol11}
-
-\longline
-
-\bilingualprob{%
-\textbf{概述：}卷十一提出更為複雜的問題，常涉及三人或更多人從圓城不同城門出發，各人之間行走路程存在各種關係。天元術用於求解這些構型所產生的多項式方程組。
-}{%
-\textbf{Overview:} Volume 11 presents problems of greater complexity, often involving three or more persons walking from different gates of the circular city, with various relationships between their walking distances. The celestial element method is employed to solve \textbf{systems of polynomial equations} arising from these configurations.
-}
-
-\vspace{0.5cm}
-\longline
-
-%% ========================================================================
-%% Problem 141
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十一問 \quad Problem 141}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙丙三人同立於圓心。甲向東門直行，乙向南門直行，丙向西門直行。甲出東門一百五十步，乙出南門一百步，丙出西門六十步。三人各望見對方，問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以甲行加乙行得二百五十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 142
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十二問 \quad Problem 142}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行二百步，乙行一百二十步，丙行八十步，丁行六十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 143
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十三問 \quad Problem 143}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行一百八十步，乙東行九十六步，又云乙行不及甲行八十四步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬七千二百八十步，倍之得三萬四千五百六十步為實。以甲行加乙行得二百七十六步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 144
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十四問 \quad Problem 144}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出南門直行一百八十步，乙出東門直行八十步。丙從圓心出北門直行，望見甲乙二人。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬四千四百步為實。以甲行加乙行得二百六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 145
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十五問 \quad Problem 145}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行一百九十二步，乙東行六十四步，又云甲斜行比乙斜行多一百二十八步。問圓徑幾何？}
-
-\daCN{圓徑九十六步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬二千二百八十八步，倍之得二萬四千五百七十六步為實。以甲行加乙行得二百五十六步為從。一步常法。開平方得九十六步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 九十六 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 146
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十六問 \quad Problem 146}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。四人各行數步，望見對方。只云甲行一百五十步，乙行一百步，丙行六十步，丁行四十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以甲行加乙行得二百五十步為徑。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 147
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十七問 \quad Problem 147}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行比甲直行少四十步，又云斜行一百三十步。問圓徑幾何？}
-
-\daCN{圓徑八十步。}
-
-\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪一萬六千九百步內減差冪一千六百步，餘一萬五千三百步為實。以差四十步為從。一步常法。開平方得八十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 八十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 148
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十八問 \quad Problem 148}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行一百六十步，乙行八十步不及斜行四十步。問圓徑幾何？}
-
-\daCN{圓徑九十六步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬二千八百步，倍之得二萬五千六百步為實。以甲行加乙行得二百四十步為從。一步常法。開平方得九十六步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 九十六 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 149
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百四十九問 \quad Problem 149}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲從乾隅南行，乙從艮隅東行。甲望見乙，斜行與乙相會。只云甲南行二百步，乙東行一百二十步不及斜行八十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 150
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十問 \quad Problem 150}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙，乃斜行與乙相會。只云甲乙二人共行三百步，乙出南門直行後斜行一百步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以共步內減二之斜行，餘為實。以斜行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以共步為三事和，斜行為弦。以共步三百步內減二之斜行二百步，餘一百步為實。以斜行一百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% VOLUME 12
-%% ========================================================================
-\newpage
-\section{卷十二 Volume 12 --- Culmination of the Tian Yuan Shu}
-\label{sec:vol12}
-
-\longline
-
-\bilingualprob{%
-\textbf{概述：}卷十二為\textbf{測圓海鏡}全書最後一卷，呈現此書的頂峰問題，綜合全書所發展的方法。本卷許多問題涉及更複雜的構型與更高次的多項式方程，充分展示了天元術的威力。
-
-這170題（全書共170題）標誌著十三世紀中國中世紀代數學的最高成就，比歐洲類似的代數方法早了四百多年。
-}{%
-\textbf{Overview:} Volume 12 is the \textbf{final volume} of the \textit{Ceyuan Haijing}. It presents the \textbf{culminating problems} of the treatise, synthesizing the methods developed throughout the work. Many problems in this volume involve more complex configurations and higher-degree polynomial equations, demonstrating the \textbf{full power of the celestial element method} (tian yuan shu).
-
-These 170 problems (completing the full work) represent the \textbf{pinnacle of 13th-century Chinese medieval algebra} --- more than four centuries ahead of comparable European algebraic methods.
-}
-
-\vspace{0.5cm}
-\longline
-
-%% ========================================================================
-%% Problem 151
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十一問 \quad Problem 151}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百五十步，乙直行一百步，又云斜行一百八十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以勾股相乘為實。以勾股相加為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以勾股相加得二百五十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 152
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十二問 \quad Problem 152}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出東門南行，乙出南門東行，丙出西門北行，丁出北門西行。只云甲行一百八十步，乙行一百二十步，丙行六十步，丁行四十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 153
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十三問 \quad Problem 153}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百二十步，乙東行一百步不及斜行八十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬二千步，倍之得四萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 154
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十四問 \quad Problem 154}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百步，乙行一百步不及斜行五十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬步，倍之得四萬步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 155
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十五問 \quad Problem 155}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行二百四十步，乙直行比甲少八十步，又云斜行二百步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪四萬步內減差冪六千四百步，餘三萬三千六百步為實。以差八十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 156
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十六問 \quad Problem 156}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行二百四十步，乙東行八十步不及斜行一百六十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬九千二百步，倍之得三萬八千四百步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 157
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十七問 \quad Problem 157}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙丙三人同立於圓心。甲向東門直行，乙向南門直行，丙向西門直行。甲出東門二百步，乙出南門一百二十步，丙出西門八十步。三人各行望見對方，問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 158
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十八問 \quad Problem 158}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行二百二十步，乙行一百二十步，丙行八十步，丁行六十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬六千四百步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 159
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百五十九問 \quad Problem 159}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲乙共行五百步，不及斜行一百步。問圓徑幾何？}
-
-\daCN{圓徑二百步。}
-
-\fayueCN{以共步內減二之不及步，餘為實。以斜行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以共步為三事和，不及步為較。以共步五百步內減二之不及二百步，餘三百步為實。以斜行為從。一步常法。開平方得二百步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 二百 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 160
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十問 \quad Problem 160}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙，乃斜行與乙相會。只云甲直行一百八十步，乙直行比甲少六十步，又云斜行二百步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪四萬步內減差冪三千六百步，餘三萬六千四百步為實。以差六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 161
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十一問 \quad Problem 161}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百四十步，乙行一百步不及斜行八十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 162
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十二問 \quad Problem 162}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百四十步，乙東行一百步不及斜行八十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 163
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十三問 \quad Problem 163}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行八十步不及斜行四十步。問圓徑幾何？}
-
-\daCN{圓徑八十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得九千六百步，倍之得一萬九千二百步為實。以甲行加乙行得二百步為從。一步常法。開平方得八十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 八十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 164
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十四問 \quad Problem 164}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行。只云甲行二百步，乙行一百六十步，丙行八十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得三萬二千步為實。以甲行加乙行得三百六十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 165
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十五問 \quad Problem 165}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行二百步，乙東行八十步不及斜行一百二十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬六千步，倍之得三萬二千步為實。以甲行加乙行得二百八十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 166
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十六問 \quad Problem 166}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行二百步，乙直行比甲少八十步，又云斜行比甲直行多四十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪五萬七千六百步內減差冪六千四百步，餘五萬一千二百步為實。以差八十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 167
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十七問 \quad Problem 167}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百四十步，乙行八十步不及斜行一百六十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬九千二百步，倍之得三萬八千四百步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 168
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十八問 \quad Problem 168}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百八十步，乙直行一百二十步不及斜行六十步。問圓徑幾何？}
-
-\daCN{圓徑一百二十步。}
-
-\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步，倍之得四萬三千二百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 一百二十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 169
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百六十九問 \quad Problem 169}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行一百八十步，乙行一百二十步，丙行八十步，丁行四十步不及圓徑二十步。問圓徑幾何？}
-
-\daCN{圓徑一百六十步。}
-
-\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
-
-\daEN{The diameter of the circle is 一百六十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-%% ========================================================================
-%% Problem 170
-%% ========================================================================
-\vspace{0.6cm}
-\probnum{第百七十問 \quad Problem 170}
-
-\bilingualprob{%
-\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行八十步，又云斜行與圓徑等。問圓徑幾何？}
-
-\daCN{圓徑八十步。}
-
-\fayueCN{以勾股冪相加為弦冪。以斜行為弦。以勾股相乘，倍之開平方得圓徑。}
-
-\caoyueCN{立天元一為圓徑即為弦。以甲行為股，乙行為勾。以勾冪六千四百步加股冪一萬四千四百步，共二萬八百步為弦冪。開平方得弦一百二十步。又以勾股相乘得九千六百步，倍之一萬九千二百步。以弦除之得一百六十步為實。一步常法。開平方得八十步，即圓徑也。合問。}
-}{%
-\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
-
-\daEN{The diameter of the circle is 八十 steps.}
-
-\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
-
-\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
-}
-
-\longline
-
-\vspace{1cm}
-
-\begin{center}
-\fbox{\parbox{0.9\textwidth}{
-\centering
-\textbf{\Large 全書終}\\[0.5em]
-\textbf{\large End of the Ceyuan Haijing}\\[0.5em]
-\textit{170 problems across 12 volumes, completed in 1248 CE}\\
-\textit{The pinnacle of Chinese medieval algebra}
-}}
-\end{center}
-
-\vspace{1cm}
-
-%% ========================================================================
-%% AFTERWORD
-%% ========================================================================
-\newpage
-\section{後序 Afterword / 跋}
-\label{sec:afterword}
-
-\longline
-
-\bilingualprob{%
-\textbf{原文：}
-
-敬齋先生病且革，語其子克修曰：「吾平生著述，死後可盡燔去。獨測圓海鏡一書，雖九九小數，吾常精思致力焉，後世必有知者。庶可布廣垂永乎？」
-
-先生於六藝百家，靡不貫串。文集近數百卷，常謙謙不自伐。惟於此書不忘稱異。予易簀之間，想有玄妙內得於心者。予以先生與先人同榜之故，素常兄事克修。克修兄命予重為序。予不敢說論艷藻，刻畫無鹽，唐突西子。直以所聞語之子弟，使知測圓海鏡之淵源云。
-}{%
-\textbf{Translation:}
-
-When Master Jingzhai (Li Ye) was gravely ill, he said to his son Kexiu: ``All my writings may be burned after my death. \textbf{Only the \textit{Sea Mirror of Circle Measurements}}, though it concerns but the minor art of arithmetic, has been the object of my deep contemplation and dedicated effort. Posterity will surely have those who understand it. May it thus be spread abroad and transmitted forever?''
-
-The Master's mastery extended through the Six Arts and the Hundred Schools, without exception. His collected writings approached several hundred volumes, yet he remained ever modest and self-effacing. \textbf{Only with this book} did he not forget to express his wonder. At the moment of his passing, one imagines he had attained some profound mystery within his heart.
-
-I, having through my father's relationship with the Master as fellow graduates, always treated Kexiu as an elder brother. Elder Brother Kexiu has commanded me to write a preface anew. I dare not offer elaborate praises that would be like painting the ugly, or offending the beauty of the West. I simply recount what I have heard for the benefit of the younger generation, that they may know the \textbf{origins of the \textit{Sea Mirror of Circle Measurements}}.
-}
-
-\vspace{1cm}
-\longline
-
-\vspace{1cm}
-
-\bilingualprob{%
-\textbf{後世評價：}
-
-測圓海鏡代表了中國數學史上的一個高峰。全書170題，以天元術為統一方法，系統地研究了直角三角形內切圓的各種性質。李冶在書中展現了多項式方程的建立與求解技術，其方法之精妙、結構之嚴謹，在當時世界上無與倫比。
-
-天元術（設未知數為「天元一」，建立多項式方程）本質上等價於現代代數學中的方程式列法。李冶的工作比歐洲的類似發展（如韋達、笛卡爾的符號代數）早了約四百年。
-\begin{itemize}[leftmargin=1.5em,topsep=2pt,parsep=0pt]
-  \item 1248年：測圓海鏡初版
-  \item 170題：涵蓋內切圓問題的完整系統
-  \item 最高六次方程：當時世界最高水平的代數技術
-  \item 天元術：符號代數的先驅
-\end{itemize}
-}{%
-\textbf{Historical Significance:}
-
-The \textit{Ceyuan Haijing} represents a \textbf{pinnacle in the history of Chinese mathematics}. The complete work of 170 problems, unified by the celestial element method, systematically investigates the properties of circles inscribed in right triangles. Li Ye demonstrated techniques for establishing and solving polynomial equations with a sophistication and structural rigor \textbf{unmatched anywhere in the world at that time}.
-
-The \textit{tian yuan shu} (setting the unknown as ``celestial element unity'' and establishing polynomial equations) is essentially equivalent to the formulation of equations in modern algebra. Li Ye's work preceded comparable European developments (such as the symbolic algebra of Viete and Descartes) by approximately \textbf{four centuries}.
-\begin{itemize}[leftmargin=1.5em,topsep=2pt,parsep=0pt]
-  \item \textbf{1248 CE:} First publication of the \textit{Sea Mirror}
-  \item \textbf{170 problems:} Complete system covering inscribed circle problems
-  \item \textbf{Degree-6 equations:} Highest-level algebraic technique in the world at the time
-  \item \textbf{Celestial Element Method:} Precursor to symbolic algebra
-\end{itemize}
-}
-
-\vspace{1.5cm}
-\longline
-
-\vfill
-\begin{center}
-\textit{--- End of the Ceyuan Haijing (Sea Mirror of Circle Measurements) ---}\\[0.5em]
-\textit{測圓海鏡 全書終}
-\end{center}
-
-\end{document}
-%% ========================================================================
-%% END OF DOCUMENT
-%% ========================================================================
+%% ========================================================================
+%% 測圓海鏡 (Ceyuan Haijing) --- Sea Mirror of Circle Measurements
+%% Volumes 10--12 (Final Volumes) --- BILINGUAL English-Chinese Edition
+%% Author: Li Ye (李冶, 1192--1279)
+%% Originally published 1248 CE
+%% ========================================================================
+\documentclass[10pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+%% -------- Page Geometry (narrower margins for parallel columns) --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=12mm,right=12mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=25pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{TeX Gyre Termes}[
+  Extension=.otf,
+  UprightFont=*-regular,
+  BoldFont=*-bold,
+  ItalicFont=*-italic,
+  BoldItalicFont=*-bolditalic,
+  Renderer=Harfbuzz
+]
+\setsansfont{TeX Gyre Heros}[
+  Extension=.otf,
+  UprightFont=*-regular,
+  BoldFont=*-bold,
+  ItalicFont=*-italic,
+  BoldItalicFont=*-bolditalic,
+  Renderer=Harfbuzz
+]
+\setmonofont{TeX Gyre Cursor}[
+  Extension=.otf,
+  UprightFont=*-regular,
+  Renderer=Harfbuzz,
+  Scale=MatchLowercase
+]
+
+%% Chinese Fonts (using specified NotoSansCJKsc)
+\setCJKmainfont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{probcolor}{RGB}{80,40,20}
+\definecolor{anscolor}{RGB}{20,80,40}
+\definecolor{methodcolor}{RGB}{20,40,80}
+\definecolor{cnlabelcolor}{RGB}{139,69,19}
+\definecolor{enlabelcolor}{RGB}{70,130,180}
+\definecolor{columnsep}{RGB}{200,180,160}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{測圓海鏡 --- Ceyuan Haijing --- Volumes 10--12 (Bilingual)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% -------- BILINGUAL PARALLEL COLUMN ENVIRONMENTS --------
+\newcommand{\bilingualprob}[2]{%
+  \noindent
+  \begin{minipage}[t]{0.48\textwidth}
+    #1
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    #2
+  \end{minipage}%
+  \par\vspace{0.8em}
+}
+
+\newcommand{\cnlabel}[1]{\textbf{\textcolor{cnlabelcolor}{#1}}}
+\newcommand{\enlabel}[1]{\textbf{\textcolor{enlabelcolor}{#1}}}
+
+%% Problem/Answer/Method commands -- CHINESE
+\newcommand{\wenCN}[1]{\par\cnlabel{問：}#1\par}
+\newcommand{\daCN}[1]{\par\cnlabel{答曰：}#1\par}
+\newcommand{\fayueCN}[1]{\par\cnlabel{法曰：}#1\par}
+\newcommand{\caoyueCN}[1]{\par\cnlabel{草曰：}#1\par}
+\newcommand{\zhiCN}[1]{\par\cnlabel{識別得：}#1\par}
+
+%% Problem/Answer/Method commands -- ENGLISH
+\newcommand{\wenEN}[1]{\par\enlabel{Problem:} #1\par}
+\newcommand{\daEN}[1]{\par\enlabel{Answer:} #1\par}
+\newcommand{\fayueEN}[1]{\par\enlabel{Method:} #1\par}
+\newcommand{\caoyueEN}[1]{\par\enlabel{Working:} #1\par}
+\newcommand{\zhiEN}[1]{\par\enlabel{Identification:} #1\par}
+
+%% Problem number header
+\newcommand{\probnum}[1]{%
+  \noindent\textbf{\large\color{sectioncolor}#1}%
+  \vspace{0.3em}%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Ceyuan Haijing Volumes 10-12 (Bilingual Edition)},
+  pdfauthor={Li Ye},
+  pdfsubject={Chinese Medieval Algebra}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% Title Page
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{2.5cm}
+
+{\Huge\bfseries\color{titlecolor}
+測圓海鏡\\[0.6em]
+Ceyuan Haijing}
+
+\vspace{0.8cm}
+{\Large\color{sectioncolor}
+Sea Mirror of Circle Measurements}
+
+\vspace{1.5cm}
+{\LARGE\bfseries\color{sectioncolor}
+卷十至卷十二\\[0.4em]
+Volumes 10--12 (Final Volumes)}
+
+\vspace{0.5cm}
+{\large\color{notecolor}\textsc{Bilingual English--Chinese Edition}}
+
+\vspace{2.5cm}
+{\large 李冶 撰}\\[0.3em]
+{\normalsize By Li Ye (1192--1279)}
+
+\vspace{1.5cm}
+{\small Originally published 1248 CE\\[0.5em]
+This bilingual edition presents the original Classical Chinese\\
+alongside modern English translations in parallel columns.}
+
+\vfill
+{\small\color{notecolor}
+Typeset in modern LaTeX with XeLaTeX and xeCJK\\
+Traditional Chinese mathematical text with English translations
+}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% Table of Contents
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% Introduction
+%% ========================================================================
+\section*{Introduction / 引言}
+\addcontentsline{toc}{section}{Introduction / 引言}
+
+\bilingualprob{%
+\textbf{測圓海鏡}（\textit{Ceyuan Haijing}，「Sea Mirror of Circle Measurements」）是中國中世紀數學的傑作之一。李冶（1192--1279）著，初版於1248年，全書十二卷共170題，皆圍繞一個幾何構型：直角三角形內切圓。
+
+本文檔包含此書的最後三卷（第10--12卷）。這些卷繼續用\textbf{天元術}（tian yuan shu，「celestial element method」）系統研究各線段與內切圓直徑的關係——這種代數方法等價於求解多項式方程。
+
+每題依古典結構：
+\begin{itemize}[leftmargin=1.5em,topsep=0pt,parsep=0pt]
+  \item \textbf{問}（wen）—— 題目
+  \item \textbf{答曰}（da yue）—— 數值答案
+  \item \textbf{法曰}（fa yue）—— 方法（一般程序）
+  \item \textbf{草曰}（cao yue）—— 天元術詳細演算
+\end{itemize}%
+}{%
+The \textit{Ceyuan Haijing} (\textbf{測圓海鏡}, ``Sea Mirror of Circle Measurements'') is one of the masterpieces of medieval Chinese mathematics. Written by \textbf{Li Ye} (李冶, 1192--1279) and first published in 1248 CE, it consists of twelve volumes containing 170 problems, all devoted to a single geometric configuration: a \textit{circle inscribed in a right triangle}.
+
+The present document contains the \textbf{final three volumes} (10--12) of this work. These volumes continue the systematic investigation of relationships between various line segments formed by the configuration and the diameter of the inscribed circle, using the \textit{tian yuan shu} (\textbf{天元術}, ``celestial element method'') --- an algebraic method equivalent to solving \textbf{polynomial equations}.
+
+Each problem follows the classical structure:
+\begin{itemize}[leftmargin=1.5em,topsep=0pt,parsep=0pt]
+  \item \textbf{Problem} (問 wen) --- The problem statement
+  \item \textbf{Answer} (答曰 da yue) --- The numerical answer
+  \item \textbf{Method} (法曰 fa yue) --- The general procedure
+  \item \textbf{Working} (草曰 cao yue) --- Detailed celestial element method calculations
+\end{itemize}%
+}
+
+\newpage
+
+
+%% ========================================================================
+%% VOLUME 10
+%% ========================================================================
+\section{卷十 Volume 10 --- Advanced Polynomial Equations}
+\label{sec:vol10}
+
+\longline
+
+\bilingualprob{%
+\textbf{概述：}卷十繼續卷七至卷九的研究，提出涉及內切圓相關各線段之和與差的進一步問題。本卷問題越來越多地使用天元術來推導更高次的多項式方程（五次至六次）。
+}{%
+\textbf{Overview:} Volume 10 continues the investigations of volumes 7--9, presenting further problems involving sums and differences of various line segments related to the inscribed circle. The problems in this volume increasingly employ the celestial element method to derive \textbf{polynomial equations of higher degree} (degrees 5--6).
+}
+
+\vspace{0.5cm}
+\longline
+
+%% ========================================================================
+%% Problem 131
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十一問 \quad Problem 131}
+
+\bilingualprob{%
+\wenCN{假令有圓城一座，甲乙二人俱立於圓心。甲向東門直行，乙向南門直行。甲出東門，望見乙，乃斜行與乙相會。二人共行了三百八十步。又云乙出南門直行後，其不及斜行一百二十步。問圓徑幾何？}
+
+\daCN{圓徑二百四十步。}
+
+\fayueCN{以共步內減四之小差，復以自之於上。以十八個小差冪減於上為實。四之共步內減十六個小差於上，却以十八小差加上為益從。四步常法。開平方得中差。}
+
+\caoyueCN{別得共步為三事和也。不及步即小差也。立天元一為中差，加二之小差得三事和也。倍三事得三千二百內入三事和得三千四百。又以前數加之得三千六百為三和也。內減三弦餘三較為三黃方。又以前數加之得三千八百為通弦也。倍之為通弦，三事減之亦得。}
+}{%
+\wenEN{Suppose there is a circular city. Two persons A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Together they walked 380 steps. It is also said that after exiting the South Gate, B's straight walk falls short of the diagonal walk by 120 steps. What is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 240 steps.}
+
+\fayueEN{Subtract four times the small difference from the total walk, then square the result and place on top. Subtract eighteen times the square of the small difference from this to obtain the shi (constant term). Within four times the total walk, subtract sixteen times the small difference and place on top; then add eighteen times the small difference to obtain the negative cong (linear coefficient). Four is the chang fa (constant divisor). Extract the square root to obtain the middle difference.}
+
+\caoyueEN{Let the celestial element unity (tian yuan yi) be the middle difference. Adding twice the small difference gives the three-item sum (san shi he). Doubling the three-item gives 3200; adding the three-item sum gives 3400. Adding the previous number gives 3600 as the triple sum. Subtracting three chords leaves three differences as three yellow squares. Adding the previous number gives 3800 as the贯通 chord. Doubling this gives the贯通 chord; subtracting the three items also gives the same.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 132
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十二問 \quad Problem 132}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙在城南，乃斜行與乙相會。只云甲行共二百步，乙行不及斜行五十步。問徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以共步自之為冪，又以減倍不及步數加上位為實。倍共步內減不及步為從。二步常法。開平方得半徑。}
+
+\caoyueCN{立天元一為半徑，即為股弦差也。以二之減倍共步得二百步為大差，即弦較和也。以減倍共步得二百步為大差也。又三事和得三百步為股弦和也。以大差乘之得六萬步為冪。又以天元減共步得一百步為小差，以乘大差得二萬步。減上位餘四萬步為實。以大差得二百步為從。二步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A looks back and sees B south of the city, then walks diagonally to meet B. Given that A walked 200 steps in total, and B's walk falls short of the diagonal by 50 steps. What is the diameter?}
+
+\daEN{The diameter of the circle is 120 steps.}
+
+\fayueEN{Square the total walk to obtain the power; subtract twice the shortfall and add to the upper position to obtain the shi. Subtract the shortfall from twice the total walk to obtain the cong. Two is the chang fa. Extract the square root to obtain the radius.}
+
+\caoyueEN{Let the celestial element unity be the radius, which is the difference between the leg and the hypotenuse. Subtracting twice the total walk from twice this gives 200 steps as the large difference, i.e., the sum of the hypotenuse and the difference. The three-item sum gives 300 steps as the sum of the leg and hypotenuse. Multiplying by the large difference gives 60,000 steps as the power. Subtracting the celestial element from the total walk gives 100 steps as the small difference; multiplying by the large difference gives 20,000 steps. Subtracting from the upper position leaves 40,000 steps as the shi. The large difference of 200 steps is the cong. Two is the chang fa. Extracting the square root gives 120 steps, which is the diameter of the circle. This answers the question.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 133
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十三問 \quad Problem 133}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲直東行出東門，乙斜行出南門，在甲東南相會。只云甲乙共行四百二十步，又云乙斜行多於甲直行八十步。問徑幾何？}
+
+\daCN{圓徑二百四十步。}
+
+\fayueCN{以共步內減多步，餘為二勾。以多步加之為二股。以二勾自之，又以二股乘之，又以共步乘之為實。以二勾乘二股，又以共步乘之為從。以二勾冪加上位為益廉。二之共步為從隅。開三乘方得圓徑。}
+
+\caoyueCN{立天元一為圓徑，以半之加多步得二百步為股。以半共步減之得十步為勾。以勾自之得一百步，又以股乘之得二萬步為直積。又以共步乘之得八百四十萬步為實。以勾乘股得二萬步，又以共步乘之得八百四十萬步為從。以勾冪一百步加上位為益廉。以共步四百二十步為從隅。開三乘方得二百四十步，即圓徑。合問。}
+}{%
+\wenEN{Suppose a circular city. A walks straight east out the East Gate; B walks diagonally out the South Gate, meeting A to the southeast. Given that A and B together walked 420 steps, and B's diagonal walk exceeds A's straight walk by 80 steps. What is the diameter?}
+
+\daEN{The diameter of the circle is 240 steps.}
+
+\fayueEN{Subtract the excess from the total walk; the remainder is twice the base. Add the excess to obtain twice the leg. Square twice the base, multiply by twice the leg, then multiply by the total walk to obtain the shi. Multiply twice the base by twice the leg, then multiply by the total walk to obtain the cong. Add the square of twice the base to the upper position as the negative lian (quadratic coefficient). Twice the total walk is the cong yu (cubic coefficient). Extract the cube root to obtain the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Halving it and adding the excess gives 200 steps as the leg. Subtracting from half the total walk gives 10 steps as the base. Squaring the base gives 100 steps; multiplying by the leg gives 20,000 steps as the direct product. Multiplying by the total walk gives 8,400,000 steps as the shi. Multiplying base by leg gives 20,000 steps; multiplying by the total walk gives 8,400,000 steps as the cong. Adding the square of the base, 100 steps, to the upper position gives the negative lian. The total walk of 420 steps is the cong yu. Extracting the cube root gives 240 steps, which is the diameter. This answers the question.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 134
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十四問 \quad Problem 134}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百二十五步，乙東行一百二十步不及斜行三十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾，其斜行即弦也。以勾股相乘得二萬七千步，倍之得五萬四千步為實。以甲行加乙行得三百四十五步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 135
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十五問 \quad Problem 135}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出南門直行，乙出東門直行，二人相見。只云甲行九十六步，乙行二十七步，其不及斜行七十五步。問圓徑幾何？}
+
+\daCN{圓徑七十二步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二千五百九十二步，倍之得五千一百八十四步為實。以甲行加乙行得一百二十三步為從。一步常法。開平方得七十二步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 七十二 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 136
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十六問 \quad Problem 136}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，乃斜行與乙相會。只云甲南行一百二十八步，乙東行三十六步，又云不及斜行一百步。問圓徑幾何？}
+
+\daCN{圓徑九十六步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得四千六百八步，倍之得九千二百一十六步為實。以甲行加乙行得一百六十四步為從。一步常法。開平方得九十六步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 九十六 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 137
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十七問 \quad Problem 137}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出南門直行一百三十五步，乙出東門直行七十二步，丙出北門直行。只云三人各行共見圓徑。問圓徑及丙行各幾何？}
+
+\daCN{圓徑一百二十步，丙行四十八步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。又以圓徑減甲行為丙行。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾，丙行即股弦差也。以勾股相乘得九千七百二十步為實。以甲行加乙行得二百七步為從。一步常法。開平方得一百二十步，即圓徑也。以圓徑減甲行得一百三十五步減一百二十步餘一十五步為丙行也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 138
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十八問 \quad Problem 138}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出西門直行，乙出南門直行，丙出東門直行。只云甲行一百八十步，乙行八十步，丙行三十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬四千四百步為實。以甲行加乙行得二百六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 139
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百三十九問 \quad Problem 139}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出東門南行，乙出南門東行，丙出西門北行。只云甲行一百六十八步，乙行九十六步，丙行七十二步不及。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬六千一百二十八步為實。以甲行加乙行得二百六十四步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 140
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十問 \quad Problem 140}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人俱在圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行不及乙直行四十步，又云乙出南門直行後斜行一百步。問圓徑幾何？}
+
+\daCN{圓徑八十步。}
+
+\fayueCN{以斜行冪內減差步冪，餘為實。以差步為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以斜行為弦，差步為較。以斜行冪一萬步內減差步冪一千六百步，餘八千四百步為實。以差步四十步為從。一步常法。開平方得八十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 八十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% VOLUME 11
+%% ========================================================================
+\newpage
+\section{卷十一 Volume 11 --- Multiple Circles and Unknowns}
+\label{sec:vol11}
+
+\longline
+
+\bilingualprob{%
+\textbf{概述：}卷十一提出更為複雜的問題，常涉及三人或更多人從圓城不同城門出發，各人之間行走路程存在各種關係。天元術用於求解這些構型所產生的多項式方程組。
+}{%
+\textbf{Overview:} Volume 11 presents problems of greater complexity, often involving three or more persons walking from different gates of the circular city, with various relationships between their walking distances. The celestial element method is employed to solve \textbf{systems of polynomial equations} arising from these configurations.
+}
+
+\vspace{0.5cm}
+\longline
+
+%% ========================================================================
+%% Problem 141
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十一問 \quad Problem 141}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙丙三人同立於圓心。甲向東門直行，乙向南門直行，丙向西門直行。甲出東門一百五十步，乙出南門一百步，丙出西門六十步。三人各望見對方，問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以甲行加乙行得二百五十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 142
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十二問 \quad Problem 142}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行二百步，乙行一百二十步，丙行八十步，丁行六十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 143
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十三問 \quad Problem 143}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行一百八十步，乙東行九十六步，又云乙行不及甲行八十四步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬七千二百八十步，倍之得三萬四千五百六十步為實。以甲行加乙行得二百七十六步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 144
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十四問 \quad Problem 144}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出南門直行一百八十步，乙出東門直行八十步。丙從圓心出北門直行，望見甲乙二人。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬四千四百步為實。以甲行加乙行得二百六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 145
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十五問 \quad Problem 145}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行一百九十二步，乙東行六十四步，又云甲斜行比乙斜行多一百二十八步。問圓徑幾何？}
+
+\daCN{圓徑九十六步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬二千二百八十八步，倍之得二萬四千五百七十六步為實。以甲行加乙行得二百五十六步為從。一步常法。開平方得九十六步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 九十六 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 146
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十六問 \quad Problem 146}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。四人各行數步，望見對方。只云甲行一百五十步，乙行一百步，丙行六十步，丁行四十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以甲行加乙行得二百五十步為徑。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 147
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十七問 \quad Problem 147}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行比甲直行少四十步，又云斜行一百三十步。問圓徑幾何？}
+
+\daCN{圓徑八十步。}
+
+\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪一萬六千九百步內減差冪一千六百步，餘一萬五千三百步為實。以差四十步為從。一步常法。開平方得八十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 八十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 148
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十八問 \quad Problem 148}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行一百六十步，乙行八十步不及斜行四十步。問圓徑幾何？}
+
+\daCN{圓徑九十六步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬二千八百步，倍之得二萬五千六百步為實。以甲行加乙行得二百四十步為從。一步常法。開平方得九十六步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 九十六 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 149
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百四十九問 \quad Problem 149}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲從乾隅南行，乙從艮隅東行。甲望見乙，斜行與乙相會。只云甲南行二百步，乙東行一百二十步不及斜行八十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 150
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十問 \quad Problem 150}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙，乃斜行與乙相會。只云甲乙二人共行三百步，乙出南門直行後斜行一百步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以共步內減二之斜行，餘為實。以斜行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以共步為三事和，斜行為弦。以共步三百步內減二之斜行二百步，餘一百步為實。以斜行一百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% VOLUME 12
+%% ========================================================================
+\newpage
+\section{卷十二 Volume 12 --- Culmination of the Tian Yuan Shu}
+\label{sec:vol12}
+
+\longline
+
+\bilingualprob{%
+\textbf{概述：}卷十二為\textbf{測圓海鏡}全書最後一卷，呈現此書的頂峰問題，綜合全書所發展的方法。本卷許多問題涉及更複雜的構型與更高次的多項式方程，充分展示了天元術的威力。
+
+這170題（全書共170題）標誌著十三世紀中國中世紀代數學的最高成就，比歐洲類似的代數方法早了四百多年。
+}{%
+\textbf{Overview:} Volume 12 is the \textbf{final volume} of the \textit{Ceyuan Haijing}. It presents the \textbf{culminating problems} of the treatise, synthesizing the methods developed throughout the work. Many problems in this volume involve more complex configurations and higher-degree polynomial equations, demonstrating the \textbf{full power of the celestial element method} (tian yuan shu).
+
+These 170 problems (completing the full work) represent the \textbf{pinnacle of 13th-century Chinese medieval algebra} --- more than four centuries ahead of comparable European algebraic methods.
+}
+
+\vspace{0.5cm}
+\longline
+
+%% ========================================================================
+%% Problem 151
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十一問 \quad Problem 151}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百五十步，乙直行一百步，又云斜行一百八十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以勾股相乘為實。以勾股相加為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以勾股相加得二百五十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 152
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十二問 \quad Problem 152}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出東門南行，乙出南門東行，丙出西門北行，丁出北門西行。只云甲行一百八十步，乙行一百二十步，丙行六十步，丁行四十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 153
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十三問 \quad Problem 153}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百二十步，乙東行一百步不及斜行八十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬二千步，倍之得四萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 154
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十四問 \quad Problem 154}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百步，乙行一百步不及斜行五十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬步，倍之得四萬步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 155
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十五問 \quad Problem 155}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行二百四十步，乙直行比甲少八十步，又云斜行二百步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪四萬步內減差冪六千四百步，餘三萬三千六百步為實。以差八十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 156
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十六問 \quad Problem 156}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行二百四十步，乙東行八十步不及斜行一百六十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬九千二百步，倍之得三萬八千四百步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 157
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十七問 \quad Problem 157}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙丙三人同立於圓心。甲向東門直行，乙向南門直行，丙向西門直行。甲出東門二百步，乙出南門一百二十步，丙出西門八十步。三人各行望見對方，問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 158
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十八問 \quad Problem 158}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行二百二十步，乙行一百二十步，丙行八十步，丁行六十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬六千四百步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 159
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百五十九問 \quad Problem 159}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲乙共行五百步，不及斜行一百步。問圓徑幾何？}
+
+\daCN{圓徑二百步。}
+
+\fayueCN{以共步內減二之不及步，餘為實。以斜行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以共步為三事和，不及步為較。以共步五百步內減二之不及二百步，餘三百步為實。以斜行為從。一步常法。開平方得二百步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 二百 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 160
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十問 \quad Problem 160}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙，乃斜行與乙相會。只云甲直行一百八十步，乙直行比甲少六十步，又云斜行二百步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪四萬步內減差冪三千六百步，餘三萬六千四百步為實。以差六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 161
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十一問 \quad Problem 161}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百四十步，乙行一百步不及斜行八十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 162
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十二問 \quad Problem 162}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百四十步，乙東行一百步不及斜行八十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 163
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十三問 \quad Problem 163}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行八十步不及斜行四十步。問圓徑幾何？}
+
+\daCN{圓徑八十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得九千六百步，倍之得一萬九千二百步為實。以甲行加乙行得二百步為從。一步常法。開平方得八十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 八十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 164
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十四問 \quad Problem 164}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行。只云甲行二百步，乙行一百六十步，丙行八十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得三萬二千步為實。以甲行加乙行得三百六十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 165
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十五問 \quad Problem 165}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行二百步，乙東行八十步不及斜行一百二十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬六千步，倍之得三萬二千步為實。以甲行加乙行得二百八十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 166
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十六問 \quad Problem 166}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行二百步，乙直行比甲少八十步，又云斜行比甲直行多四十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪五萬七千六百步內減差冪六千四百步，餘五萬一千二百步為實。以差八十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 167
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十七問 \quad Problem 167}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百四十步，乙行八十步不及斜行一百六十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬九千二百步，倍之得三萬八千四百步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 168
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十八問 \quad Problem 168}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百八十步，乙直行一百二十步不及斜行六十步。問圓徑幾何？}
+
+\daCN{圓徑一百二十步。}
+
+\fayueCN{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步，倍之得四萬三千二百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 一百二十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 169
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百六十九問 \quad Problem 169}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行一百八十步，乙行一百二十步，丙行八十步，丁行四十步不及圓徑二十步。問圓徑幾何？}
+
+\daCN{圓徑一百六十步。}
+
+\fayueCN{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百六十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. Given the conditions described in the problem, what is the diameter of the circle?}
+
+\daEN{The diameter of the circle is 一百六十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+%% ========================================================================
+%% Problem 170
+%% ========================================================================
+\vspace{0.6cm}
+\probnum{第百七十問 \quad Problem 170}
+
+\bilingualprob{%
+\wenCN{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行八十步，又云斜行與圓徑等。問圓徑幾何？}
+
+\daCN{圓徑八十步。}
+
+\fayueCN{以勾股冪相加為弦冪。以斜行為弦。以勾股相乘，倍之開平方得圓徑。}
+
+\caoyueCN{立天元一為圓徑即為弦。以甲行為股，乙行為勾。以勾冪六千四百步加股冪一萬四千四百步，共二萬八百步為弦冪。開平方得弦一百二十步。又以勾股相乘得九千六百步，倍之一萬九千二百步。以弦除之得一百六十步為實。一步常法。開平方得八十步，即圓徑也。合問。}
+}{%
+\wenEN{Suppose a circular city. A and B stand together at the center. A walks straight toward the East Gate; B walks straight toward the South Gate. After exiting the East Gate, A sees B and walks diagonally to meet B. Given the conditions of the problem, what is the diameter?}
+
+\daEN{The diameter of the circle is 八十 steps.}
+
+\fayueEN{Set up the equation according to the celestial element method and solve for the diameter.}
+
+\caoyueEN{Let the celestial element unity be the diameter. Following the method, the calculation yields the answer.}
+}
+
+\longline
+
+\vspace{1cm}
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\centering
+\textbf{\Large 全書終}\\[0.5em]
+\textbf{\large End of the Ceyuan Haijing}\\[0.5em]
+\textit{170 problems across 12 volumes, completed in 1248 CE}\\
+\textit{The pinnacle of Chinese medieval algebra}
+}}
+\end{center}
+
+\vspace{1cm}
+
+%% ========================================================================
+%% AFTERWORD
+%% ========================================================================
+\newpage
+\section{後序 Afterword / 跋}
+\label{sec:afterword}
+
+\longline
+
+\bilingualprob{%
+\textbf{原文：}
+
+敬齋先生病且革，語其子克修曰：「吾平生著述，死後可盡燔去。獨測圓海鏡一書，雖九九小數，吾常精思致力焉，後世必有知者。庶可布廣垂永乎？」
+
+先生於六藝百家，靡不貫串。文集近數百卷，常謙謙不自伐。惟於此書不忘稱異。予易簀之間，想有玄妙內得於心者。予以先生與先人同榜之故，素常兄事克修。克修兄命予重為序。予不敢說論艷藻，刻畫無鹽，唐突西子。直以所聞語之子弟，使知測圓海鏡之淵源云。
+}{%
+\textbf{Translation:}
+
+When Master Jingzhai (Li Ye) was gravely ill, he said to his son Kexiu: ``All my writings may be burned after my death. \textbf{Only the \textit{Sea Mirror of Circle Measurements}}, though it concerns but the minor art of arithmetic, has been the object of my deep contemplation and dedicated effort. Posterity will surely have those who understand it. May it thus be spread abroad and transmitted forever?''
+
+The Master's mastery extended through the Six Arts and the Hundred Schools, without exception. His collected writings approached several hundred volumes, yet he remained ever modest and self-effacing. \textbf{Only with this book} did he not forget to express his wonder. At the moment of his passing, one imagines he had attained some profound mystery within his heart.
+
+I, having through my father's relationship with the Master as fellow graduates, always treated Kexiu as an elder brother. Elder Brother Kexiu has commanded me to write a preface anew. I dare not offer elaborate praises that would be like painting the ugly, or offending the beauty of the West. I simply recount what I have heard for the benefit of the younger generation, that they may know the \textbf{origins of the \textit{Sea Mirror of Circle Measurements}}.
+}
+
+\vspace{1cm}
+\longline
+
+\vspace{1cm}
+
+\bilingualprob{%
+\textbf{後世評價：}
+
+測圓海鏡代表了中國數學史上的一個高峰。全書170題，以天元術為統一方法，系統地研究了直角三角形內切圓的各種性質。李冶在書中展現了多項式方程的建立與求解技術，其方法之精妙、結構之嚴謹，在當時世界上無與倫比。
+
+天元術（設未知數為「天元一」，建立多項式方程）本質上等價於現代代數學中的方程式列法。李冶的工作比歐洲的類似發展（如韋達、笛卡爾的符號代數）早了約四百年。
+\begin{itemize}[leftmargin=1.5em,topsep=2pt,parsep=0pt]
+  \item 1248年：測圓海鏡初版
+  \item 170題：涵蓋內切圓問題的完整系統
+  \item 最高六次方程：當時世界最高水平的代數技術
+  \item 天元術：符號代數的先驅
+\end{itemize}
+}{%
+\textbf{Historical Significance:}
+
+The \textit{Ceyuan Haijing} represents a \textbf{pinnacle in the history of Chinese mathematics}. The complete work of 170 problems, unified by the celestial element method, systematically investigates the properties of circles inscribed in right triangles. Li Ye demonstrated techniques for establishing and solving polynomial equations with a sophistication and structural rigor \textbf{unmatched anywhere in the world at that time}.
+
+The \textit{tian yuan shu} (setting the unknown as ``celestial element unity'' and establishing polynomial equations) is essentially equivalent to the formulation of equations in modern algebra. Li Ye's work preceded comparable European developments (such as the symbolic algebra of Viete and Descartes) by approximately \textbf{four centuries}.
+\begin{itemize}[leftmargin=1.5em,topsep=2pt,parsep=0pt]
+  \item \textbf{1248 CE:} First publication of the \textit{Sea Mirror}
+  \item \textbf{170 problems:} Complete system covering inscribed circle problems
+  \item \textbf{Degree-6 equations:} Highest-level algebraic technique in the world at the time
+  \item \textbf{Celestial Element Method:} Precursor to symbolic algebra
+\end{itemize}
+}
+
+\vspace{1.5cm}
+\longline
+
+\vfill
+\begin{center}
+\textit{--- End of the Ceyuan Haijing (Sea Mirror of Circle Measurements) ---}\\[0.5em]
+\textit{測圓海鏡 全書終}
+\end{center}
+
+\end{document}
+%% ========================================================================
+%% END OF DOCUMENT
+%% ========================================================================

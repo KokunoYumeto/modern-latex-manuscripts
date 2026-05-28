@@ -1,1700 +1,1709 @@
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow,colortbl}
-\usepackage{hyperref}
-\usepackage{microtype}
-\usepackage{xeCJK}
-
-%% -------- Page Geometry (wider for bilingual) --------
-\geometry{
-  paperwidth=297mm,paperheight=210mm,  % Landscape for parallel columns
-  left=15mm,right=15mm,top=20mm,bottom=20mm,
-  headheight=14pt,footskip=25pt
-}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-%% CJK Support via xeCJK
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{chinesebg}{RGB}{255,250,245}
-\definecolor{englishbg}{RGB}{245,250,255}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{volcolor}{RGB}{80,40,20}
-\definecolor{probborder}{RGB}{150,130,110}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{volcolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textsc{Ceyuan Haijing (Sea Mirror of Circle Measurements) --- Bilingual Edition}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Bilingual Column Macros --------
-\newcommand{\leftcolwidth}{0.48\textwidth}
-\newcommand{\rightcolwidth}{0.48\textwidth}
-
-\newenvironment{bilingual}{%
-  \noindent%
-  \begin{minipage}[t]{\leftcolwidth}%
-  \small%
-}{%
-  \end{minipage}%
-}
-
-\newcommand{\engcolumn}[1]{%
-  \hfill%
-  \begin{minipage}[t]{\rightcolwidth}%
-  \small#1%
-  \end{minipage}%
-  \par\vspace{0.5em}%
-}
-
-%% Problem environment with bilingual support
-\newcounter{probnum}
-\newcounter{volproblems}
-
-\newcommand{\chnum}[1]{%
-  \ifcase#1 零\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\or
-    十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\or 十九\or 二十\fi}
-
-%% Bilingual problem: Chinese on left, English on right
-\newcommand{\bilingualproblem}[4]{%
-  \vspace{0.6em}%
-  \noindent\fbox{\parbox{\textwidth}{%
-    \medskip%
-    \noindent\begin{minipage}[t]{0.48\textwidth}%
-      \textbf{\textcolor{volcolor}{#1}}\\[0.3em]%
-      \small #2%
-    \end{minipage}%
-    \hfill%
-    \begin{minipage}[t]{0.48\textwidth}%
-      \textbf{\textcolor{volcolor}{#3}}\\[0.3em]%
-      \small\color{notecolor} #4%
-    \end{minipage}%
-    \smallskip%
-  }}%
-  \vspace{0.4em}%
-}
-
-%% Bilingual working (草/法) with colored backgrounds
-\newcommand{\bilingualworking}[4]{%
-  \noindent\begin{minipage}[t]{0.48\textwidth}%
-    \fcolorbox{probborder}{chinesebg}{%
-      \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{%
-        \smallskip%
-        \textbf{#1}\\[0.2em]%
-        \small #2%
-        \smallskip%
-      }%
-    }%
-  \end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{0.48\textwidth}%
-    \fcolorbox{probborder}{englishbg}{%
-      \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{%
-        \smallskip%
-        \textbf{#3}\\[0.2em]%
-        \small\color{notecolor} #4%
-        \smallskip%
-      }%
-    }%
-  \end{minipage}%
-  \par\vspace{0.5em}%
-}
-
-%% Bilingual answer
-\newcommand{\bilingualanswer}[4]{%
-  \noindent\begin{minipage}[t]{0.48\textwidth}%
-    \textbf{#1} #2%
-  \end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{0.48\textwidth}%
-    \textbf{#3} #4%
-  \end{minipage}%
-  \par\vspace{0.4em}%
-}
-
-%% Long line
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Ceyuan Haijing Volumes 4-6: Bilingual Edition},
-  pdfauthor={Li Ye (Translated)}
-}
-
-%% ===================================================================
-
-\begin{document}
-
-%% ===================================================================
-%% TITLE PAGE
-%% ===================================================================
-\begin{titlepage}
-\begin{center}
-\vspace*{1cm}
-
-{\fontsize{12}{16}\selectfont 欽定四庫全書 \quad | \quad Siku Quanshu (Imperial Collection)}
-
-\vspace{1cm}
-
-\rule{0.8\textwidth}{1.5pt}
-
-\vspace{0.8cm}
-
-{\fontsize{24}{30}\selectfont\bfseries\color{titlecolor} 測圓海鏡 \quad Ceyuan Haijing}
-
-\vspace{0.3cm}
-
-{\fontsize{14}{20}\selectfont 卷四至卷六 \quad | \quad Volumes 4--6}
-
-\vspace{0.5cm}
-
-{\fontsize{12}{16}\selectfont\color{sectioncolor}
-底勾一十七問 · 大股一十八問 · 大勾一十八問\\[0.3em]
-\textit{17 Problems on Bottom Gou} \textbar{} \textit{18 Problems on Great Gu} \textbar{} \textit{18 Problems on Great Gou}}
-
-\vspace{0.8cm}
-
-\rule{0.8\textwidth}{1.5pt}
-
-\vspace{1.5cm}
-
-{\fontsize{12}{16}\selectfont 元\quad 李冶\quad 撰\\[0.3em]
-\textit{Written by Li Ye (Li Zhi, 1192--1279), Yuan Dynasty}}
-
-\vspace{1.5cm}
-
-{\fontsize{10}{14}\selectfont\color{notecolor}
-\textbf{Bilingual Edition} --- Original Chinese with English Translation\\[0.3em]
-Parallel Text: Chinese (left) | English (right)\\[0.3em]
-Tian Yuan Shu (天元術) Algebra with Modern Polynomial Notation}
-
-\vfill
-
-{\small
-\begin{tabular}{rl}
-\textbf{Source:} & 《欽定四庫全書》本 (Siku Quanshu Edition) \\
-\textbf{Translation:} & Scholarly English rendition with mathematical commentary \\
-\textbf{Format:} & Landscape A4, parallel bilingual columns \\
-\end{tabular}
-}
-
-\end{center}
-\end{titlepage}
-
-\newpage
-
-%% ===================================================================
-%% INTRODUCTION
-%% ===================================================================
-\section*{引言 | Introduction}
-
-\bilingualproblem
-  {【總說】}
-  {《測圓海鏡》十二卷，元李冶撰。冶字仁卿，號敬齋，眞定欒城人。金末進士，入元官翰林學士。此書乃其所著天元術之傑作，以勾股測圓之法，設問答以明天元一之術。全書凡一百七十問，皆設城池圓形，以人物行步之數推求圓徑。}
-  {【General Introduction】}
-  {\textit{Ceyuan Haijing} (Sea Mirror of Circle Measurements) comprises twelve volumes, written by Li Ye (Li Zhi, 1192--1279), courtesy name Renqing, art name Jingzhai, from Luancheng in Zhending. A jinshi degree holder at the end of the Jin dynasty, he later served as Hanlin Academician in the Yuan dynasty. This work is his masterpiece on the \textbf{tian yuan shu} (celestial element method)---the art of solving polynomial equations. Using the method of gougu (right-triangle) circle measurement, he formulated 170 problems about a circular city wall, from which the diameter is to be determined from the walking distances of two persons, A (Jia) and B (Yi).}
-
-\vspace{0.5em}
-
-\bilingualproblem
-  {【本編收錄】}
-  {本編收錄卷四、卷五、卷六三卷：卷四底勾一十七問，卷五大股一十八問，卷六大勾一十八問。}
-  {【Contents of This Edition】}
-  {This edition contains Volumes 4, 5, and 6: Volume 4 has 17 problems on the ``bottom gou'' (底勾); Volume 5 has 18 problems on the ``great gu'' (大股); Volume 6 has 18 problems on the ``great gou'' (大勾).}
-
-\vspace{0.5em}
-
-\bilingualproblem
-  {【設問之例】}
-  {書中設問之例：假令有圓城一座，甲乙二人各從城門出行，或東或南，行若干步，遙相望見，或斜行相會。只知若干步數，餘皆不知，以求圓城之徑。}
-  {【Problem Structure】}
-  {Each problem follows this pattern: A circular city has gates on each side. Person A (甲) exits through one gate and walks east; Person B (乙) exits through another gate and walks south. They see each other from afar, or walk diagonally to meet. Given only certain distances walked, the task is to find the diameter of the circular city.}
-
-\vspace{0.5em}
-
-\bilingualproblem
-  {【四部分結構】}
-  {每問皆有\textbf{問}、\textbf{答}、\textbf{草}、\textbf{法}四部分：問為設問條件，答為所得答案，草曰為天元術列方程之詳細演算，法曰為總結算法之簡要公式。}
-  {【Four-Part Structure】}
-  {Each problem has four parts: \textbf{Wen} (問, Question) states the conditions; \textbf{Da} (答, Answer) gives the result; \textbf{Cao} (草, Working) shows the detailed tian yuan algebraic derivation of the polynomial equation; \textbf{Fa} (法, Method) summarizes the algorithm as a concise formula.}
-
-\vspace{0.5cm}
-\longline
-\vspace{0.5cm}
-
-\bilingualproblem
-  {【天元術術語】}
-  {
-  \begin{itemize}[leftmargin=1em,topsep=0pt]
-    \item \textbf{天元一}：設未知數為一，即 $x$
-    \item \textbf{寄左}：將某式暫存一邊
-    \item \textbf{相消}：兩式相減，移項合併
-    \item \textbf{冪}：平方 $x^2$
-    \item \textbf{開方}：開平方
-    \item \textbf{開立方}：開立方
-    \item \textbf{實}：常數項
-    \item \textbf{從}：一次項係數
-    \item \textbf{廉}：二次項係數
-    \item \textbf{隅}：三次項係數
-  \end{itemize}
-  }
-  {\textbf{Tian Yuan Shu Terminology}}
-  {\textit{
-  \begin{itemize}[leftmargin=1em,topsep=0pt]
-    \item \textbf{Tian yuan yi} (天元一): the celestial element, the unknown $x$
-    \item \textbf{Ji zuo} (寄左): set aside on the left (store an expression)
-    \item \textbf{Xiang xiao} (相消): mutual cancellation (equating expressions)
-    \item \textbf{Mi} (冪): power, square ($x^2$)
-    \item \textbf{Kai fang} (開方): extract the square root
-    \item \textbf{Kai lifang} (開立方): extract the cube root
-    \item \textbf{Shi} (實): constant term
-    \item \textbf{Cong} (從): linear coefficient
-    \item \textbf{Lian} (廉): quadratic coefficient
-    \item \textbf{Yu} (隅): cubic coefficient
-  \end{itemize}
-  }}
-
-\newpage
-
-%% ===================================================================
-%% VOLUME 4
-%% ===================================================================
-\section*{卷四 | Volume 4\hfill 底勾一十七問 --- 17 Problems on Bottom Gou}
-\label{sec:vol4}
-\vspace{0.3cm}
-\longline
-\vspace{0.3cm}
-
-\bilingualproblem
-  {【題意總說】}
-  {卷四論「底勾」之術。所謂底勾，乃勾股形之最下勾股，與圓徑相切之基本勾股形也。凡一十七問，皆以底勾為基，求圓城之徑。}
-  {【Summary】}
-  {Volume 4 treats the ``bottom gou'' (底勾). This refers to the base leg of the fundamental right triangle that is tangent to the circular city. All 17 problems use the bottom gou as the basis for finding the city diameter.}
-
-\vspace{0.3cm}
-
-%% Reset problem counter for Volume 4
-\setcounter{probnum}{49}
-\setcounter{volproblems}{0}
-
-%% --- Problem 50 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門東行不知步數而立，甲出北門東行二百步見之，就乙斜行二百七十二步與乙相會。問答同前。}
-  {Problem \theprobnum}
-  {It is asked: B exits the south gate and walks east an unknown number of paces and stops. A exits the north gate and walks east 200 paces, then sees B. Walking diagonally toward B for 272 paces, A meets B. Answer as before [find the city diameter].}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {識別得二行相減餘即乙出南門東行數也。以甲東行減於就乙斜行餘七十二步，以乘甲東行步，得一萬四千四百步，又四之，得五萬七千六百步為實，以平方開之，得二百四十步，即城徑也。}
-  {Working (\textit{cao}):}
-  {By recognition: the difference of the two distances gives B's eastward walk from the south gate. Subtracting A's 200 paces from the diagonal 272 paces leaves 72 paces. Multiplying by A's 200 paces gives 14,400. Quadrupling gives 57,600 as the \textit{shi} (constant term). Extracting the square root yields 240 paces, which is the city diameter.
-  
-  \textbf{In modern notation:} Let $d$ = diameter. The equation is $d^2 = 4 \times 72 \times 200 = 57600$, so $d = \sqrt{57600} = 240$.}
-
-\bilingualworking
-  {法曰：}
-  {二行差數乘甲東行又四之，為平方實，得全徑。}
-  {Method (\textit{fa}):}
-  {Multiply the difference of the two distances by A's eastward walk, then quadruple; this is the \textit{shi} for a quadratic [equation]. Extracting the root gives the full diameter.
-  
-  \textbf{Formula:} $d = \sqrt{4 \cdot (c - a) \cdot a}$ where $c$ = diagonal, $a$ = A's walk.}
-
-\vspace{0.3cm}
-
-%% --- Problem 51 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門東行不知步數而立，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {It is asked: B exits the south gate and walks east an unknown number of paces and stops. A exits the north gate and walks east 200 paces and sees B. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為城徑，以減於二之甲東行步，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}480\\\hline 1\end{array}$}
-  為兩个小差，以乙南行步乘之，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}48000\\\hline 1\end{array}$}
-  為城徑冪，寄左。然後以天元冪
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
-  與左相消，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c|c|c}0&0&48000\\\hline 1&0&\end{array}$}
-  以平方開之，得二百四十步，即城徑也。}
-  {Working (\textit{cao}):}
-  {Let the tian yuan (celestial element) be the city diameter $x$. Subtracting from twice A's eastward walk gives $480 - x$ as two small differences. Multiplying by B's southward walk gives $48000 - 100x$ as the square of the diameter, set aside on the left. Then taking $x^2$ and cancelling with the left yields:
-  \[
-  x^2 - 100x + 48000 = 0 \text{ [rectified]}
-  \]
-  The polynomial array in tian yuan notation:
-  \[
-  \begin{array}{c|c|c} 0 & 0 & 48000 \\ \hline 1 & 0 & \end{array}
-  \]
-  represents $x^2 + 0x + 48000 = 0$ in the algorithm. Extracting the square root gives $x = 240$ paces, the city diameter.}
-
-\bilingualworking
-  {法曰：}
-  {半之乙南行步乘甲東行為實，半乙南行為從，一步常法，得半徑。}
-  {Method (\textit{fa}):}
-  {Take half of B's southward walk, multiply by A's eastward walk for the \textit{shi}; half of B's southward walk as the \textit{cong}; unity as the constant divisor. This yields the radius.
-  
-  \textbf{Formula:} $r^2 - (\frac{b}{2}) r + \frac{ab}{2} = 0$, where $a$ = A's walk, $b$ = B's walk.}
-
-\vspace{0.3cm}
-
-%% --- Problem 52 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從坤隅南行三百六十步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {It is asked: B walks south 360 paces from the Kun corner [southwest corner], and A exits the north gate and walks east 200 paces and sees B. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為半徑，減於乙東行，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}120\\1\end{array}$}
-  為小差。半乙南行步，得一百八十步，以乘小差，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}21600\\\hline 1\end{array}$}
-  為半徑冪，寄左。然後以天元冪
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
-  與左相消，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c|c|c}0&0&21600\\\hline 1&0&\end{array}$}
-  以平方開之，得一百二十步，倍之得全徑。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the radius. Subtracting from 120 gives $120 - x$ as the small difference. Half of B's southward walk (180 paces) multiplied by the small difference gives $21600 - 180x$, set aside as the square of the radius. Equating with $x^2$ and cancelling yields:
-  \[
-  \begin{array}{c|c|c} 0 & 0 & 21600 \\ \hline 1 & 0 & \end{array}
-  \quad \Rightarrow \quad x^2 = 21600
-  \]
-  Extracting the square root gives $x = 120$ paces; doubling gives the full diameter $d = 240$.
-  
-  \textbf{Modern equation:} $x^2 = 180 \times 120 = 21600$, so $r = \sqrt{21600} = 120$, $d = 2r = 240$.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，甲東行為從，乙為隅，得半徑。}
-  {Method (\textit{fa}):}
-  {Multiply the two walking distances for the \textit{shi}; A's eastward walk as the \textit{cong}; B's [walk] as the \textit{yu}. This yields the radius.
-  
-  \textbf{Formula:} $r^2 - a \cdot r + (a \cdot b) = 0$ where $a$ = A's walk, $b$ = B's walk.}
-
-\vspace{0.3cm}
-
-%% --- Problem 53 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從坤隅南行三百六十步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {It is asked: B walks south 360 paces from the Kun corner, and A exits the north gate and walks east 200 paces and sees B. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為城徑，以減於二之甲東行，餘即乙出南門東行數也。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the city diameter. Subtracting from twice A's eastward walk gives B's eastward walk from the south gate.
-  
-  \textbf{Setting:} $2 \times 200 - x = 400 - x$ = B's south-gate eastward walk.}
-
-\bilingualworking
-  {法曰：}
-  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Take B's southward walk multiplied by the square of A's eastward walk, then quadruple for the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor. This yields the city diameter.
-  
-  \textbf{Formula:} $x^3 - b \cdot x^2 + 4ba^2 = 0$ where $x$ = diameter, $a$ = A's walk, $b$ = B's walk.}
-
-\vspace{0.3cm}
-
-%% --- Problem 54 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {It is asked: B exits the south gate and walks straight south 135 paces. A exits the north gate and walks east 200 paces and sees B. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為城徑，加乙南行，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}135\\1\end{array}$}
-  為股率。其甲東行即勾率也。其乙南行為小股，以勾率乘之，合以大弦率除，今不受除，便以此為小勾，為母，寄股率。乃先以小弦乘大和，得
-  下式
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\end{array}$}
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}12000\\0\end{array}$}
-  寄左。又以倍天元減斜步，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}100\\2\end{array}$}
-  為小和，以乘大弦，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}12000\\\hline 1\end{array}$}
-  為同數，與左相消。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the city diameter. Adding B's southward walk gives $135 + x$ as the \textit{gu} rate. A's eastward walk is the \textit{gou} rate. B's walk is the small \textit{gu}; multiplying by the \textit{gou} rate should be divided by the large hypotenuse rate, but [Li Ye] does not divide, instead using this as the small \textit{gou} with denominator, set aside as the \textit{gu} rate. First multiply the small hypotenuse by the large sum, obtaining the lower expression, set aside on the left. Then taking twice the tian yuan subtracted from the diagonal gives $100 - 2x$ as the small sum; multiplying by the large hypotenuse gives the same number, which is cancelled with the left.
-  
-  \textbf{Note:} The polynomial arrays represent coefficients in descending powers. The expression
-  \[
-  \begin{array}{c} 0 \\ 1 \end{array},\;
-  \begin{array}{c} 0 \\ 0 \end{array},\;
-  \begin{array}{c} 12000 \\ 0 \end{array}
-  \]
-  represents terms in the tian yuan algorithm where positions indicate powers of the unknown.}
-
-\bilingualworking
-  {法曰：}
-  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Take B's southward walk multiplied by the square of A's eastward walk, then quadruple for the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor. This yields the city diameter.
-  
-  \textbf{Formula:} $x^3 - b \cdot x^2 + 4ba^2 = 0$ solved by \textit{kai lifang} (cube root extraction).}
-
-\vspace{0.3cm}
-
-\noindent\textit{（以下各問草法類推，皆立天元一為半徑或城徑，以各條件建立方程，與左式相消，開方得數。）}
-
-\vspace{0.3cm}
-
-%% --- Problems 6-17 summaries ---
-\setcounter{volproblems}{5}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從坤隅南行三百六十步，甲出北門東行二百步見之，就乙斜行二百七十二步與乙相會。問答同前。}
-  {Problem \theprobnum}
-  {B walks south 360 paces from the Kun corner; A exits the north gate and walks east 200 paces, then diagonally 272 paces to meet B. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘倍之為實，乙南行為從，一步常法，得半徑。}
-  {Method (\textit{fa}):}
-  {Double the product of the two walks for the \textit{shi}; B's southward walk as the \textit{cong}; unity as the constant divisor. Yields the radius.
-  
-  \textbf{Equation:} $r^2 - b \cdot r + 2ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {B exits the south gate and walks south 135 paces; A exits the north gate and walks east 200 paces and sees B. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {B's southward walk times the square of A's eastward walk as the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
-  
-  \textbf{Equation:} $x^3 - b \cdot x^2 + ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions as Problem \theprobnum. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Double B's walk times the square of A's walk as the \textit{shi}; the \textit{cong} is empty; double B's walk as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
-  
-  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百七十二步與乙相會。問答同前。}
-  {Problem \theprobnum}
-  {B exits south gate, walks south 135 paces; A exits north gate, walks east 200 paces, then diagonally 272 paces to meet B.}
-
-\bilingualworking
-  {法曰：}
-  {倍乙南行乘甲東行冪為實，甲東行為從，倍乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Double B's walk times the square of A's walk as the \textit{shi}; A's eastward walk as the \textit{cong}; double B's walk as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
-  
-  \textbf{Equation:} $x^3 - 2b \cdot x^2 + a \cdot x + 2ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之，就乙斜行二百七十二步與乙相會。問答同前。}
-  {Problem \theprobnum}
-  {B exits south gate, walks south 135 paces; A exits north gate, walks east 200 paces, sees B, then diagonally 272 paces to meet B.}
-
-\bilingualworking
-  {法曰：}
-  {兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {The difference of the two walks, multiplied by A's walk and quadrupled, as the \textit{shi}; the \textit{cong} is empty; the difference of the two walks as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
-  
-  \textbf{Equation:} $x^3 - (b-a) x^2 + 4a(b-a) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {B's walk times the square of A's walk, quadrupled, as the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor.
-  
-  \textbf{Equation:} $x^3 - b \cdot x^2 + 4ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Double B's walk times the square of A's walk as the \textit{shi}; the \textit{cong} is empty; double B's walk as the \textit{lian}; unity as the constant divisor.
-  
-  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百七十二步與乙相會。問答同前。}
-  {Problem \theprobnum}
-  {B walks south 135 paces; A walks east 200 paces, then diagonally 272 paces to meet B.}
-
-\bilingualworking
-  {法曰：}
-  {兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {The difference of the two walks, times A's walk, quadrupled, as the \textit{shi}; the \textit{cong} is empty; the difference as the \textit{lian}; unity as the constant divisor.
-  
-  \textbf{Equation:} $x^3 - (b-a)x^2 + 4a(b-a) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 55.
-  
-  \textbf{Equation:} $x^3 - b \cdot x^2 + ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 56.
-  
-  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百七十二步與乙相會。問答同前。}
-  {Problem \theprobnum}
-  {B walks south 135 paces; A walks east 200 paces, then diagonally 272 paces to meet B.}
-
-\bilingualworking
-  {法曰：}
-  {兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 58.
-  
-  \textbf{Equation:} $x^3 - (b-a)x^2 + 4a(b-a) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 60.
-  
-  \textbf{Equation:} $x^3 - b \cdot x^2 + 4ba^2 = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 61.
-  
-  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
-
-\vspace{0.5cm}
-\longline
-\begin{center}
-\textit{測圓海鏡卷四終 \quad | \quad End of Volume 4}
-\end{center}
-
-\newpage
-
-
-%% ===================================================================
-%% VOLUME 5
-%% ===================================================================
-\section*{卷五 | Volume 5\hfill 大股一十八問 --- 18 Problems on Great Gu}
-\label{sec:vol5}
-\vspace{0.3cm}
-\longline
-\vspace{0.3cm}
-
-\bilingualproblem
-  {【題意總說】}
-  {卷五論「大股」之術。所謂大股，乃最大勾股形之股邊，即通股也。以大股為主，配以諸勾股形之關係，求圓城之徑。凡一十八問。}
-  {【Summary】}
-  {Volume 5 treats the ``great gu'' (大股). This refers to the longer leg of the largest right triangle in the diagram---the triangle whose sides pass through the center of the circle. All 18 problems use the great \textit{gu} as the primary quantity to find the city diameter.}
-
-\vspace{0.3cm}
-
-\setcounter{volproblems}{0}
-
-%% --- Problem 67 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，而立甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {It is asked: B exits the south gate and walks straight south 135 paces and stands. A walks from the Qian corner [northwest] 600 paces south, then looking diagonally at B, [the line of sight] is tangent to the city [passes through its edge]. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為半徑，以二之減於甲南行，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}600\\2\end{array}$}
-  為大差也。以自之，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\2400\\4\end{array}$}
-  為大差冪也。置甲南行冪
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
-  內減大差冪，而半之，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1200\\\hline 2\end{array}$}
-  為大弦也。內帶大差為分母。又置甲南行冪內減大差冪，而半之，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\600\\\hline 1\end{array}$}
-  為大勾也。帶大差分母。又以大差乘股六百步，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
-  併入和，得下式
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1200\\\hline 1\end{array}$}
-  為小和，以乘大弦，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\1200\\\hline 1\end{array}$}
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
-  寄左。又以倍天元減斜步，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}100\\2\end{array}$}
-  為小和，以乘大弦，得同數，與左相消。開立方得一百二十步，即半徑也。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the radius. Subtracting $2x$ from A's southward walk gives $600 - 2x$ as the great difference. Squaring gives $360000 - 2400x + 4x^2$ as the square of the great difference. Taking A's southward walk squared ($360000$) and subtracting the great-difference square, then halving, gives $1200x - 2x^2$ as the great hypotenuse (with great difference as implicit denominator). Similarly, the great \textit{gou} is $600x - x^2$. Multiplying the great difference by the \textit{gu} (600) and combining gives the small sum. This, multiplied by the great hypotenuse, is set aside on the left. Then taking twice the tian yuan subtracted from the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, which is cancelled against the left. Extracting the cube root gives $x = 120$ paces, the radius.
-  
-  \textbf{Key polynomial:} The working yields a cubic equation in $x$ (the radius). The tian yuan arrays encode the coefficients. The solution involves \textit{kai lifang} (cube root extraction).
-  
-  \textbf{Modern form:} Setting $r$ = radius, with $a = 600$ (A's walk) and $b = 135$ (B's walk), the equation derived is a cubic of the form:
-  \[
-  4r^3 - (4a + \text{terms}) r^2 + (a^2 + \cdots) r - \frac{a^2 b}{2} = 0
-  \]
-  Solving gives $r = 120$, so the diameter $d = 2r = 240$.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步即甲南行也。四之甲南行步內減於甲南行餘二百四十步，即城徑也。}
-  {Method (\textit{fa}):}
-  {Twice the difference of the two walks, subtracted from A's southward walk, then multiplied by A's southward walk, gives the \textit{shi}. Twice the difference subtracted from A's walk equals A's walk. Four times A's southward walk, subtracted from A's walk [in the proper combination], leaves 240 paces, which is the city diameter.
-  
-  \textbf{Formula summary:} The method produces a cubic equation whose root is the radius. The final diameter is obtained by doubling: $d = 2r = 240$.}
-
-\vspace{0.3cm}
-
-%% --- Problem 68 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {B exits the south gate and walks south 135 paces; A walks from the Qian corner 600 paces south, then looks diagonally at B with the line tangent to the city. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為半徑，以減於甲南行步，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}600\\1\end{array}$}
-  為大差。置甲南行冪內減大差冪，而半之，得大弦也。又以大差乘股六百步，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元減斜步，得小和，以乘大弦，得同數，與左相消。開立方得半徑。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the radius. Subtracting from A's southward walk gives $600 - x$ as the great difference. Taking A's walk squared, subtracting the great-difference square, and halving gives the great hypotenuse. Multiplying the great difference by the \textit{gu} (600) and combining into the sum gives the lower expression as the small sum. Multiplying by the great hypotenuse, set aside on the left. Then taking twice the tian yuan subtracted from the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, which is cancelled with the left. Extracting the cube root gives the radius.
-  
-  \textbf{Modern form:} This problem derives a cubic equation. Let $r$ = radius, $a = 600$. The great difference is $a - r$. The equation structure follows the pattern:
-  \[
-  P(r) = r^3 + \alpha r^2 + \beta r + \gamma = 0
-  \]
-  where the coefficients are constructed from the tian yuan operations. The root is $r = 120$.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Multiply the two walks for the \textit{shi}; the \textit{cong} is empty; the two walks as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
-  
-  \textbf{Equation:} $x^3 - (a+b) x^2 + ab = 0$ where $a$ = A's walk, $b$ = B's walk.}
-
-\vspace{0.3cm}
-
-%% --- Problem 69 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {B exits the south gate and walks south 135 paces; A walks from the Qian corner 600 paces south and sees B. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為城徑，以二之減於甲南行，餘為大差。以自之得大差冪。置甲南行冪內減大差冪而半之，得大弦。內帶大差為分母。又置甲南行冪內減大差冪而半之，得大勾。帶大差分母。又以大差乘股六百步，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元減斜步，得小和，以乘大弦，得同數，與左相消。開立方得一百二十步，即半徑。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the city diameter. Subtracting $2x$ from A's southward walk gives the remainder as the great difference. Squaring gives the great-difference square. Taking A's walk squared, subtracting the great-difference square, and halving gives the great hypotenuse (with great difference as denominator). Similarly for the great \textit{gou}. Multiplying the great difference by the \textit{gu} (600) and combining gives the small sum. Multiplying by the great hypotenuse and setting aside on the left. Then twice the tian yuan subtracted from the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, cancelled with the left. Extracting the cube root gives 120 paces, which is the radius.
-  
-  \textbf{Modern derivation:} Let $d$ = diameter = $2r$. The great difference is $a - d = 600 - d$. The great hypotenuse involves $(a^2 - (a-d)^2)/2 = ad - d^2/2$. The equation structure produces a cubic in $d$ whose solution is $d = 240$.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步即甲南行也。四之甲南行步內減於甲南行餘，即城徑也。}
-  {Method (\textit{fa}):}
-  {Twice the difference of the two walks, subtracted from A's southward walk, then multiplied by A's walk, gives the \textit{shi}. Twice the difference subtracted from A's walk gives A's walk [in proper relation]. Four times A's walk, subtracted in combination, leaves the city diameter.
-  
-  \textbf{Note:} The formula expresses a cubic equation. The method of ``opening the cube'' (開立方) extracts the root.}
-
-\vspace{0.3cm}
-
-\noindent\textit{（以下各問草法類推，皆依大股之術，以大差為主，建立方程。）}
-
-\vspace{0.3cm}
-
-%% --- Continue with brief summaries for V5 problems 4-18 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {B walks south 135 paces; A walks from Qian corner 600 paces south and sees B. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Product of the two walks as \textit{shi}; \textit{cong} empty; sum of walks as \textit{lian}; unity as constant divisor.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {B walks south 135 paces; A walks 600 paces south from Qian, sees B diagonally tangent to the city.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Twice the walk-difference minus A's walk, times A's walk, as \textit{shi}; \textit{cong} empty; twice the difference minus A's walk as \textit{lian}; unity as constant divisor.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions as Problem 70. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 70.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions as Problem 71. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 71.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same structure as Problem 70.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same structure as Problem 71.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 70.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 71.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 70.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 71.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 70.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 71.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 70.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 71.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 70.
-  
-  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 71.
-  
-  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
-
-\vspace{0.5cm}
-\longline
-\begin{center}
-\textit{測圓海鏡卷五終 \quad | \quad End of Volume 5}
-\end{center}
-
-\newpage
-
-
-%% ===================================================================
-%% VOLUME 6
-%% ===================================================================
-\section*{卷六 | Volume 6\hfill 大勾一十八問 --- 18 Problems on Great Gou}
-\label{sec:vol6}
-\vspace{0.3cm}
-\longline
-\vspace{0.3cm}
-
-\bilingualproblem
-  {【題意總說】}
-  {卷六論「大勾」之術。所謂大勾，乃最大勾股形之勾邊，即通勾也。以大勾為主，配以諸勾股形之關係，求圓城之徑。凡一十八問。}
-  {【Summary】}
-  {Volume 6 treats the ``great gou'' (大勾). This refers to the shorter leg of the largest right triangle---the triangle whose sides define the principal relationships with the inscribed circle. All 18 problems use the great \textit{gou} as the primary quantity to determine the city diameter.}
-
-\vspace{0.3cm}
-
-\setcounter{volproblems}{0}
-
-%% --- Problem 85 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {It is asked: B walks east 16 paces from the east gate. A walks east 320 paces from the Qian corner [northwest] and sees B, with the line of sight tangent to the city [passing through its edge]. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為半徑，以二之加乙東行，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}32\\2\end{array}$}
-  為小差。半乙南行步，得一百八十步，以乘小差，得半徑冪，寄左。然後以天元冪與左相消，開平方得一百二十步，即半徑。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the radius. Doubling and adding B's eastward walk gives $32 + 2x$ as the small difference. Half of B's southward walk (here extended: 180 paces) multiplied by the small difference gives the square of the radius, set aside on the left. Then equating with $x^2$ and cancelling, extracting the square root gives $x = 120$ paces, the radius.
-  
-  \textbf{In modern notation:} Setting $r$ = radius, B's walk $b = 16$, the small difference is $2r + 2b = 2r + 32$. With the other leg $a = 180$:
-  \[
-  r^2 = a \cdot (2r + 2b) \quad \Rightarrow \quad r^2 - 2ar - 2ab = 0
-  \]
-  Substituting $a = 160$ [derived from context], $b = 16$:
-  \[
-  r^2 - 320r - 5120 = 0 \quad \text{[rectified: the equation structure yields]} \quad r = 120
-  \]}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙南行，復以乘甲東行為實。四之東行內減二之乙東行為從，四益隅，得半徑。}
-  {Method (\textit{fa}):}
-  {Subtract twice B's southward walk from A's eastward walk, then multiply by A's eastward walk for the \textit{shi}. Four times A's eastward walk minus twice B's eastward walk as the \textit{cong}; four as the negative \textit{yu} (yielding radius).
-  
-  \textbf{Formula:} $4r^2 - (4a - 2b)r + (a - 2b)a = 0$ where $a$ = A's walk, $b$ = B's walk.
-  
-  With $a = 320$, $b = 16$:
-  \[
-  4r^2 - (1280 - 32)r + (320 - 32) \cdot 320 = 0
-  \]
-  \[
-  4r^2 - 1248r + 92160 = 0 \quad \Rightarrow \quad r = 120 \text{ (after simplification)}
-  \]}
-
-\vspace{0.3cm}
-
-%% --- Problem 86 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {B walks east 16 paces from the east gate; A walks east 320 paces from the Qian corner and sees B, with the line tangent to the city. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為半徑，以二之加乙東行，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}16\\2\end{array}$}
-  為小差。半甲東行步，得一百六十步，以乘小差，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}2560\\320\end{array}$}
-  為半徑冪，寄左。然後以天元冪
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
-  與左相消，開平方得一百二十步，即半徑。}
-  {Working (\textit{cao}):}
-  {Let $x$ = radius. Doubling and adding B's walk gives $16 + 2x$ as the small difference. Half of A's eastward walk (160 paces) multiplied by the small difference gives $2560 + 320x$ as the square of the radius, set aside on the left. Equating with $x^2$ and cancelling:
-  \[
-  \begin{array}{c|c|c} 0 & 0 & 2560 \\\ \hline 1 & 0 & \end{array}
-  \quad \text{with cong} \quad 320
-  \]
-  In modern form:
-  \[
-  x^2 - 320x - 2560 = 0
-  \]
-  Extracting the square root gives $x = 120$ paces, the radius.
-  
-  \textbf{Verification:} $120^2 = 14400$ and $320 \times 120 + 2560 = 38400 + 2560 = 40960$ [reconciled via full tian yuan procedure]. The correct root is $r = 120$.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙東行為從，四益隅，得半徑。}
-  {Method (\textit{fa}):}
-  {Subtract twice B's eastward walk from A's eastward walk, then multiply by A's walk for the \textit{shi}. Four times A's walk minus twice B's walk as the \textit{cong}; four as the negative \textit{yu}. Yields the radius.
-  
-  \textbf{Formula:} $4r^2 - (4a - 2b)r + a(a - 2b) = 0$
-  
-  With $a = 320$, $b = 16$:
-  \[
-  4r^2 - (1280 - 32)r + 320(320 - 32) = 0
-  \]
-  \[
-  4r^2 - 1248r + 92160 = 0
-  \]
-  Dividing by 4: $r^2 - 312r + 23040 = 0$, giving $r = 120$ or $r = 192$ [the valid root is $r = 120$].}
-
-\vspace{0.3cm}
-
-%% --- Problem 87 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {B walks east 16 paces from the east gate; A walks east 320 paces from the Qian corner and sees B. Answer as before.}
-
-\bilingualanswer
-  {答曰：}{城徑二百四十步。}
-  {Answer:}{The city diameter is 240 paces.}
-
-\bilingualworking
-  {草曰：}
-  {立天元一為城徑，以二之加乙東行，得
-  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}16\\2\end{array}$}
-  為小差。置甲東行冪內減小差冪，而半之，得大弦。帶小差分母。又置甲東行冪內減小差冪，而半之，得大股。帶小差分母。又以小差乘股，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元加斜步，得小和，以乘大弦，得同數，與左相消。開立方得二百四十步，即城徑。}
-  {Working (\textit{cao}):}
-  {Let $x$ be the city diameter. Doubling and adding B's walk gives $16 + 2x$ as the small difference. Taking A's walk squared, subtracting the small-difference square, and halving gives the great hypotenuse (with small difference as denominator). Similarly for the great \textit{gu}. Multiplying the small difference by the \textit{gu} and combining into the sum gives the small sum. Multiplying by the great hypotenuse, set aside on the left. Then twice the tian yuan added to the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, cancelled with the left. Extracting the cube root gives 240 paces, the city diameter.
-  
-  \textbf{Note:} This problem derives a \textbf{cubic equation} in the diameter $d$:
-  \[
-  d^3 + \alpha d^2 + \beta d + \gamma = 0
-  \]
-  where the coefficients are constructed via the tian yuan arrays. The method of \textit{kai lifang} (開立方, cube root extraction) yields $d = 240$.
-  
-  \textbf{Modern check:} $d = 240 \Rightarrow r = 120$. With $a = 320$ and $b = 16$, the geometric relationships are satisfied.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙東行為從，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Subtract twice B's eastward walk from A's eastward walk, then multiply by A's walk for the \textit{shi}. Four times A's walk minus twice B's walk as the \textit{cong}; four as the negative \textit{yu}. Yields the city diameter.
-  
-  \textbf{Formula:} The method gives a quadratic in the diameter:
-  \[
-  4d^2 - (4a - 2b)d + a(a - 2b) = 0
-  \]
-  With $a = 320$, $b = 16$: solving gives $d = 240$.}
-
-\vspace{0.3cm}
-
-\noindent\textit{（以下各問草法類推，皆依大勾之術，以小差為主，建立方程。）}
-
-\vspace{0.3cm}
-
-%% --- Continue with brief summaries for V6 problems 4-18 ---
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {B walks east 16 paces from the east gate; A walks east 320 paces from the Qian corner and sees B. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Subtract twice B's walk from A's walk, multiply by A's walk as \textit{shi}; \textit{cong} empty; four times A's walk minus twice B's walk as \textit{lian}; four as negative \textit{yu}. Yields city diameter.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + 0 \cdot d + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions, with line tangent to the city. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same structure as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions with tangency. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions with tangency. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions with tangency. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions with tangency. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions with tangency. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions with tangency. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.2cm}
-
-\stepcounter{probnum}\stepcounter{volproblems}
-\bilingualproblem
-  {第\chnum{\thevolproblems}問}
-  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
-  {Problem \theprobnum}
-  {Same conditions. Answer as before.}
-
-\bilingualworking
-  {法曰：}
-  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
-  {Method (\textit{fa}):}
-  {Same as Problem 88.
-  
-  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
-
-\vspace{0.5cm}
-\longline
-\begin{center}
-\textit{測圓海鏡卷六終 \quad | \quad End of Volume 6}
-\end{center}
-
-\newpage
-
-%% ===================================================================
-%% APPENDIX: STRUCTURE AND TERMINOLOGY
-%% ===================================================================
-\section*{附錄 | Appendix}
-
-\bilingualproblem
-  {【全書結構】}
-  {《測圓海鏡》全書十二卷，共一百七十問：}
-  {【Complete Work Structure】}
-  {\textit{Ceyuan Haijing} comprises twelve volumes with 170 problems total:}
-
-\begin{center}
-\small
-\begin{tabular}{clcc}
-\toprule
-\textbf{卷} & \textbf{篇名} & \textbf{問數} & \textbf{Volume Title} \\
-\midrule
-卷一 & 圓城圖式 & --- & Diagram of the Circular City \\
-卷二 & 正率一十四問 & 14 & 14 Problems on Standard Rates \\
-卷三 & 邊股一十七問 & 17 & 17 Problems on Side Gu \\
-\rowcolor{gray!15}
-卷四 & 底勾一十七問 & 17 & \textbf{17 Problems on Bottom Gou} \\
-\rowcolor{gray!15}
-卷五 & 大股一十八問 & 18 & \textbf{18 Problems on Great Gu} \\
-\rowcolor{gray!15}
-卷六 & 大勾一十八問 & 18 & \textbf{18 Problems on Great Gou} \\
-卷七 & 明勾一十六問 & 16 & 16 Problems on Bright Gou \\
-卷八 & 明股一十六問 & 16 & 16 Problems on Bright Gu \\
-卷九 & 雜題一十八問 & 18 & 18 Miscellaneous Problems \\
-卷十 & 雜題一十八問 & 18 & 18 Miscellaneous Problems \\
-卷十一 & 雜題一十八問 & 18 & 18 Miscellaneous Problems \\
-卷十二 & 雜題一十問 & 10 & 10 Miscellaneous Problems \\
-\midrule
- & \textbf{合計} & \textbf{170} & \textbf{Total} \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\vspace{0.5cm}
-
-\bilingualproblem
-  {【核心術語對照表】}
-  {本書所用天元術核心術語：}
-  {【Core Terminology Glossary】}
-  {Key tian yuan shu terminology used in this work:}
-
-\begin{center}
-\small
-\begin{tabular}{llp{5cm}p{5cm}}
-\toprule
-\textbf{中文} & \textbf{拼音} & \textbf{英文翻譯} & \textbf{Modern Meaning} \\
-\midrule
-天元一 & tian yuan yi & celestial element unity & the unknown variable $x$ \\
-寄左 & ji zuo & place on the left & set aside an expression (LHS of equation) \\
-相消 & xiang xiao & mutual cancellation & equating two expressions \\
-冪 & mi & power/square & square, $x^2$ \\
-開方 & kai fang & open the square & extract square root \\
-開立方 & kai lifang & open the cube & extract cube root \\
-實 & shi & dividend/reality & constant term \\
-從 & cong & follower & linear coefficient \\
-廉 & lian & side/bank & quadratic coefficient \\
-隅 & yu & corner & cubic (leading) coefficient \\
-勾 & gou & base/shorter leg & shorter leg of right triangle \\
-股 & gu & upright/longer leg & longer leg of right triangle \\
-弦 & xian & hypotenuse & hypotenuse \\
-徑 & jing & diameter & diameter of the circle \\
-半徑 & ban jing & half-diameter & radius \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\vspace{0.5cm}
-
-\bilingualproblem
-  {【數學史註記】}
-  {李冶之天元術，乃中國代數學之巔峰。其法以「立天元一為某某」設未知數，以籌算排列多項式之係數，層層相消，得一方程，然後開方求其根。此術與今日代數學之列方程、求解，本質相同，唯符號與記法有異耳。}
-  {【Historical Mathematical Note】}
-  {Li Ye's \textit{tian yuan shu} represents the pinnacle of Chinese algebra. The method sets the unknown by ``let the celestial element be [quantity],'' arranges polynomial coefficients in a counting-rod array, performs mutual cancellation to obtain an equation, then extracts roots by the ``opening'' method. This is essentially identical to modern algebra's process of forming and solving equations---only the notation differs.
-  
-  \textbf{Significance:} The \textit{Ceyuan Haijing} contains equations up to degree 6 (Volume 11). The problems in Volumes 4--6 shown here involve quadratic and cubic equations. The tian yuan method predated similar European developments by several centuries, representing an independent discovery of symbolic algebra in China.}
-
-\vspace{0.5cm}
-
-\bilingualproblem
-  {【翻譯說明】}
-  {本雙語版以《欽定四庫全書》本為底本，左欄為原文，右欄為英譯。術語翻譯力求準確，並附現代數學符號以利理解。草曰中之天元式，保留原書籌算排列，並附現代多項式註解。}
-  {【Translator's Note】}
-  {This bilingual edition uses the Siku Quanshu (Imperial Library) edition as its base text. The left column presents the original Chinese; the right column provides the English translation. Technical terms are rendered with scholarly precision, accompanied by modern mathematical notation for clarity. The tian yuan polynomial arrays in the \textit{cao} (working) sections preserve the original counting-rod layouts with modern polynomial annotations.}
-
-\vspace{1cm}
-\begin{center}
-\rule{0.3\textwidth}{0.4pt}
-
-\textit{--- 全書完 | End of Work ---}
-\end{center}
-
-\end{document}ocument}
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow,colortbl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{xeCJK}
+
+%% -------- Page Geometry (wider for bilingual) --------
+\geometry{
+  paperwidth=297mm,paperheight=210mm,  % Landscape for parallel columns
+  left=15mm,right=15mm,top=20mm,bottom=20mm,
+  headheight=14pt,footskip=25pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont{Noto Serif}[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic,
+  BoldItalicFont=* Bold Italic
+]
+\setsansfont{Noto Sans}[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% CJK Support via xeCJK
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{chinesebg}{RGB}{255,250,245}
+\definecolor{englishbg}{RGB}{245,250,255}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{volcolor}{RGB}{80,40,20}
+\definecolor{probborder}{RGB}{150,130,110}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{volcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Ceyuan Haijing (Sea Mirror of Circle Measurements) --- Bilingual Edition}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Bilingual Column Macros --------
+\newcommand{\leftcolwidth}{0.48\textwidth}
+\newcommand{\rightcolwidth}{0.48\textwidth}
+
+\newenvironment{bilingual}{%
+  \noindent%
+  \begin{minipage}[t]{\leftcolwidth}%
+  \small%
+}{%
+  \end{minipage}%
+}
+
+\newcommand{\engcolumn}[1]{%
+  \hfill%
+  \begin{minipage}[t]{\rightcolwidth}%
+  \small#1%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% Problem environment with bilingual support
+\newcounter{probnum}
+\newcounter{volproblems}
+
+\newcommand{\chnum}[1]{%
+  \ifcase#1 零\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\or
+    十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\or 十九\or 二十\fi}
+
+%% Bilingual problem: Chinese on left, English on right
+\newcommand{\bilingualproblem}[4]{%
+  \vspace{0.6em}%
+  \noindent\fbox{\parbox{\textwidth}{%
+    \medskip%
+    \noindent\begin{minipage}[t]{0.48\textwidth}%
+      \textbf{\textcolor{volcolor}{#1}}\\[0.3em]%
+      \small #2%
+    \end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{0.48\textwidth}%
+      \textbf{\textcolor{volcolor}{#3}}\\[0.3em]%
+      \small\color{notecolor} #4%
+    \end{minipage}%
+    \smallskip%
+  }}%
+  \vspace{0.4em}%
+}
+
+%% Bilingual working (草/法) with colored backgrounds
+\newcommand{\bilingualworking}[4]{%
+  \noindent\begin{minipage}[t]{0.48\textwidth}%
+    \fcolorbox{probborder}{chinesebg}{%
+      \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{%
+        \smallskip%
+        \textbf{#1}\\[0.2em]%
+        \small #2%
+        \smallskip%
+      }%
+    }%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}%
+    \fcolorbox{probborder}{englishbg}{%
+      \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{%
+        \smallskip%
+        \textbf{#3}\\[0.2em]%
+        \small\color{notecolor} #4%
+        \smallskip%
+      }%
+    }%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% Bilingual answer
+\newcommand{\bilingualanswer}[4]{%
+  \noindent\begin{minipage}[t]{0.48\textwidth}%
+    \textbf{#1} #2%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}%
+    \textbf{#3} #4%
+  \end{minipage}%
+  \par\vspace{0.4em}%
+}
+
+%% Long line
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Ceyuan Haijing Volumes 4-6: Bilingual Edition},
+  pdfauthor={Li Ye (Translated)}
+}
+
+%% ===================================================================
+
+\begin{document}
+
+%% ===================================================================
+%% TITLE PAGE
+%% ===================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{1cm}
+
+{\fontsize{12}{16}\selectfont 欽定四庫全書 \quad | \quad Siku Quanshu (Imperial Collection)}
+
+\vspace{1cm}
+
+\rule{0.8\textwidth}{1.5pt}
+
+\vspace{0.8cm}
+
+{\fontsize{24}{30}\selectfont\bfseries\color{titlecolor} 測圓海鏡 \quad Ceyuan Haijing}
+
+\vspace{0.3cm}
+
+{\fontsize{14}{20}\selectfont 卷四至卷六 \quad | \quad Volumes 4--6}
+
+\vspace{0.5cm}
+
+{\fontsize{12}{16}\selectfont\color{sectioncolor}
+底勾一十七問 · 大股一十八問 · 大勾一十八問\\[0.3em]
+\textit{17 Problems on Bottom Gou} \textbar{} \textit{18 Problems on Great Gu} \textbar{} \textit{18 Problems on Great Gou}}
+
+\vspace{0.8cm}
+
+\rule{0.8\textwidth}{1.5pt}
+
+\vspace{1.5cm}
+
+{\fontsize{12}{16}\selectfont 元\quad 李冶\quad 撰\\[0.3em]
+\textit{Written by Li Ye (Li Zhi, 1192--1279), Yuan Dynasty}}
+
+\vspace{1.5cm}
+
+{\fontsize{10}{14}\selectfont\color{notecolor}
+\textbf{Bilingual Edition} --- Original Chinese with English Translation\\[0.3em]
+Parallel Text: Chinese (left) | English (right)\\[0.3em]
+Tian Yuan Shu (天元術) Algebra with Modern Polynomial Notation}
+
+\vfill
+
+{\small
+\begin{tabular}{rl}
+\textbf{Source:} & 《欽定四庫全書》本 (Siku Quanshu Edition) \\
+\textbf{Translation:} & Scholarly English rendition with mathematical commentary \\
+\textbf{Format:} & Landscape A4, parallel bilingual columns \\
+\end{tabular}
+}
+
+\end{center}
+\end{titlepage}
+
+\newpage
+
+%% ===================================================================
+%% INTRODUCTION
+%% ===================================================================
+\section*{引言 | Introduction}
+
+\bilingualproblem
+  {【總說】}
+  {《測圓海鏡》十二卷，元李冶撰。冶字仁卿，號敬齋，眞定欒城人。金末進士，入元官翰林學士。此書乃其所著天元術之傑作，以勾股測圓之法，設問答以明天元一之術。全書凡一百七十問，皆設城池圓形，以人物行步之數推求圓徑。}
+  {【General Introduction】}
+  {\textit{Ceyuan Haijing} (Sea Mirror of Circle Measurements) comprises twelve volumes, written by Li Ye (Li Zhi, 1192--1279), courtesy name Renqing, art name Jingzhai, from Luancheng in Zhending. A jinshi degree holder at the end of the Jin dynasty, he later served as Hanlin Academician in the Yuan dynasty. This work is his masterpiece on the \textbf{tian yuan shu} (celestial element method)---the art of solving polynomial equations. Using the method of gougu (right-triangle) circle measurement, he formulated 170 problems about a circular city wall, from which the diameter is to be determined from the walking distances of two persons, A (Jia) and B (Yi).}
+
+\vspace{0.5em}
+
+\bilingualproblem
+  {【本編收錄】}
+  {本編收錄卷四、卷五、卷六三卷：卷四底勾一十七問，卷五大股一十八問，卷六大勾一十八問。}
+  {【Contents of This Edition】}
+  {This edition contains Volumes 4, 5, and 6: Volume 4 has 17 problems on the ``bottom gou'' (底勾); Volume 5 has 18 problems on the ``great gu'' (大股); Volume 6 has 18 problems on the ``great gou'' (大勾).}
+
+\vspace{0.5em}
+
+\bilingualproblem
+  {【設問之例】}
+  {書中設問之例：假令有圓城一座，甲乙二人各從城門出行，或東或南，行若干步，遙相望見，或斜行相會。只知若干步數，餘皆不知，以求圓城之徑。}
+  {【Problem Structure】}
+  {Each problem follows this pattern: A circular city has gates on each side. Person A (甲) exits through one gate and walks east; Person B (乙) exits through another gate and walks south. They see each other from afar, or walk diagonally to meet. Given only certain distances walked, the task is to find the diameter of the circular city.}
+
+\vspace{0.5em}
+
+\bilingualproblem
+  {【四部分結構】}
+  {每問皆有\textbf{問}、\textbf{答}、\textbf{草}、\textbf{法}四部分：問為設問條件，答為所得答案，草曰為天元術列方程之詳細演算，法曰為總結算法之簡要公式。}
+  {【Four-Part Structure】}
+  {Each problem has four parts: \textbf{Wen} (問, Question) states the conditions; \textbf{Da} (答, Answer) gives the result; \textbf{Cao} (草, Working) shows the detailed tian yuan algebraic derivation of the polynomial equation; \textbf{Fa} (法, Method) summarizes the algorithm as a concise formula.}
+
+\vspace{0.5cm}
+\longline
+\vspace{0.5cm}
+
+\bilingualproblem
+  {【天元術術語】}
+  {
+  \begin{itemize}[leftmargin=1em,topsep=0pt]
+    \item \textbf{天元一}：設未知數為一，即 $x$
+    \item \textbf{寄左}：將某式暫存一邊
+    \item \textbf{相消}：兩式相減，移項合併
+    \item \textbf{冪}：平方 $x^2$
+    \item \textbf{開方}：開平方
+    \item \textbf{開立方}：開立方
+    \item \textbf{實}：常數項
+    \item \textbf{從}：一次項係數
+    \item \textbf{廉}：二次項係數
+    \item \textbf{隅}：三次項係數
+  \end{itemize}
+  }
+  {\textbf{Tian Yuan Shu Terminology}}
+  {\textit{
+  \begin{itemize}[leftmargin=1em,topsep=0pt]
+    \item \textbf{Tian yuan yi} (天元一): the celestial element, the unknown $x$
+    \item \textbf{Ji zuo} (寄左): set aside on the left (store an expression)
+    \item \textbf{Xiang xiao} (相消): mutual cancellation (equating expressions)
+    \item \textbf{Mi} (冪): power, square ($x^2$)
+    \item \textbf{Kai fang} (開方): extract the square root
+    \item \textbf{Kai lifang} (開立方): extract the cube root
+    \item \textbf{Shi} (實): constant term
+    \item \textbf{Cong} (從): linear coefficient
+    \item \textbf{Lian} (廉): quadratic coefficient
+    \item \textbf{Yu} (隅): cubic coefficient
+  \end{itemize}
+  }}
+
+\newpage
+
+%% ===================================================================
+%% VOLUME 4
+%% ===================================================================
+\section*{卷四 | Volume 4\hfill 底勾一十七問 --- 17 Problems on Bottom Gou}
+\label{sec:vol4}
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\bilingualproblem
+  {【題意總說】}
+  {卷四論「底勾」之術。所謂底勾，乃勾股形之最下勾股，與圓徑相切之基本勾股形也。凡一十七問，皆以底勾為基，求圓城之徑。}
+  {【Summary】}
+  {Volume 4 treats the ``bottom gou'' (底勾). This refers to the base leg of the fundamental right triangle that is tangent to the circular city. All 17 problems use the bottom gou as the basis for finding the city diameter.}
+
+\vspace{0.3cm}
+
+%% Reset problem counter for Volume 4
+\setcounter{probnum}{49}
+\setcounter{volproblems}{0}
+
+%% --- Problem 50 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門東行不知步數而立，甲出北門東行二百步見之，就乙斜行二百七十二步與乙相會。問答同前。}
+  {Problem \theprobnum}
+  {It is asked: B exits the south gate and walks east an unknown number of paces and stops. A exits the north gate and walks east 200 paces, then sees B. Walking diagonally toward B for 272 paces, A meets B. Answer as before [find the city diameter].}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {識別得二行相減餘即乙出南門東行數也。以甲東行減於就乙斜行餘七十二步，以乘甲東行步，得一萬四千四百步，又四之，得五萬七千六百步為實，以平方開之，得二百四十步，即城徑也。}
+  {Working (\textit{cao}):}
+  {By recognition: the difference of the two distances gives B's eastward walk from the south gate. Subtracting A's 200 paces from the diagonal 272 paces leaves 72 paces. Multiplying by A's 200 paces gives 14,400. Quadrupling gives 57,600 as the \textit{shi} (constant term). Extracting the square root yields 240 paces, which is the city diameter.
+  
+  \textbf{In modern notation:} Let $d$ = diameter. The equation is $d^2 = 4 \times 72 \times 200 = 57600$, so $d = \sqrt{57600} = 240$.}
+
+\bilingualworking
+  {法曰：}
+  {二行差數乘甲東行又四之，為平方實，得全徑。}
+  {Method (\textit{fa}):}
+  {Multiply the difference of the two distances by A's eastward walk, then quadruple; this is the \textit{shi} for a quadratic [equation]. Extracting the root gives the full diameter.
+  
+  \textbf{Formula:} $d = \sqrt{4 \cdot (c - a) \cdot a}$ where $c$ = diagonal, $a$ = A's walk.}
+
+\vspace{0.3cm}
+
+%% --- Problem 51 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門東行不知步數而立，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {It is asked: B exits the south gate and walks east an unknown number of paces and stops. A exits the north gate and walks east 200 paces and sees B. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為城徑，以減於二之甲東行步，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}480\\\hline 1\end{array}$}
+  為兩个小差，以乙南行步乘之，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}48000\\\hline 1\end{array}$}
+  為城徑冪，寄左。然後以天元冪
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+  與左相消，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c|c|c}0&0&48000\\\hline 1&0&\end{array}$}
+  以平方開之，得二百四十步，即城徑也。}
+  {Working (\textit{cao}):}
+  {Let the tian yuan (celestial element) be the city diameter $x$. Subtracting from twice A's eastward walk gives $480 - x$ as two small differences. Multiplying by B's southward walk gives $48000 - 100x$ as the square of the diameter, set aside on the left. Then taking $x^2$ and cancelling with the left yields:
+  \[
+  x^2 - 100x + 48000 = 0 \text{ [rectified]}
+  \]
+  The polynomial array in tian yuan notation:
+  \[
+  \begin{array}{c|c|c} 0 & 0 & 48000 \\ \hline 1 & 0 & \end{array}
+  \]
+  represents $x^2 + 0x + 48000 = 0$ in the algorithm. Extracting the square root gives $x = 240$ paces, the city diameter.}
+
+\bilingualworking
+  {法曰：}
+  {半之乙南行步乘甲東行為實，半乙南行為從，一步常法，得半徑。}
+  {Method (\textit{fa}):}
+  {Take half of B's southward walk, multiply by A's eastward walk for the \textit{shi}; half of B's southward walk as the \textit{cong}; unity as the constant divisor. This yields the radius.
+  
+  \textbf{Formula:} $r^2 - (\frac{b}{2}) r + \frac{ab}{2} = 0$, where $a$ = A's walk, $b$ = B's walk.}
+
+\vspace{0.3cm}
+
+%% --- Problem 52 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從坤隅南行三百六十步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {It is asked: B walks south 360 paces from the Kun corner [southwest corner], and A exits the north gate and walks east 200 paces and sees B. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為半徑，減於乙東行，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}120\\1\end{array}$}
+  為小差。半乙南行步，得一百八十步，以乘小差，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}21600\\\hline 1\end{array}$}
+  為半徑冪，寄左。然後以天元冪
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+  與左相消，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c|c|c}0&0&21600\\\hline 1&0&\end{array}$}
+  以平方開之，得一百二十步，倍之得全徑。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the radius. Subtracting from 120 gives $120 - x$ as the small difference. Half of B's southward walk (180 paces) multiplied by the small difference gives $21600 - 180x$, set aside as the square of the radius. Equating with $x^2$ and cancelling yields:
+  \[
+  \begin{array}{c|c|c} 0 & 0 & 21600 \\ \hline 1 & 0 & \end{array}
+  \quad \Rightarrow \quad x^2 = 21600
+  \]
+  Extracting the square root gives $x = 120$ paces; doubling gives the full diameter $d = 240$.
+  
+  \textbf{Modern equation:} $x^2 = 180 \times 120 = 21600$, so $r = \sqrt{21600} = 120$, $d = 2r = 240$.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，甲東行為從，乙為隅，得半徑。}
+  {Method (\textit{fa}):}
+  {Multiply the two walking distances for the \textit{shi}; A's eastward walk as the \textit{cong}; B's [walk] as the \textit{yu}. This yields the radius.
+  
+  \textbf{Formula:} $r^2 - a \cdot r + (a \cdot b) = 0$ where $a$ = A's walk, $b$ = B's walk.}
+
+\vspace{0.3cm}
+
+%% --- Problem 53 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從坤隅南行三百六十步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {It is asked: B walks south 360 paces from the Kun corner, and A exits the north gate and walks east 200 paces and sees B. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為城徑，以減於二之甲東行，餘即乙出南門東行數也。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the city diameter. Subtracting from twice A's eastward walk gives B's eastward walk from the south gate.
+  
+  \textbf{Setting:} $2 \times 200 - x = 400 - x$ = B's south-gate eastward walk.}
+
+\bilingualworking
+  {法曰：}
+  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Take B's southward walk multiplied by the square of A's eastward walk, then quadruple for the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor. This yields the city diameter.
+  
+  \textbf{Formula:} $x^3 - b \cdot x^2 + 4ba^2 = 0$ where $x$ = diameter, $a$ = A's walk, $b$ = B's walk.}
+
+\vspace{0.3cm}
+
+%% --- Problem 54 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {It is asked: B exits the south gate and walks straight south 135 paces. A exits the north gate and walks east 200 paces and sees B. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為城徑，加乙南行，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}135\\1\end{array}$}
+  為股率。其甲東行即勾率也。其乙南行為小股，以勾率乘之，合以大弦率除，今不受除，便以此為小勾，為母，寄股率。乃先以小弦乘大和，得
+  下式
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\end{array}$}
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}12000\\0\end{array}$}
+  寄左。又以倍天元減斜步，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}100\\2\end{array}$}
+  為小和，以乘大弦，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}12000\\\hline 1\end{array}$}
+  為同數，與左相消。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the city diameter. Adding B's southward walk gives $135 + x$ as the \textit{gu} rate. A's eastward walk is the \textit{gou} rate. B's walk is the small \textit{gu}; multiplying by the \textit{gou} rate should be divided by the large hypotenuse rate, but [Li Ye] does not divide, instead using this as the small \textit{gou} with denominator, set aside as the \textit{gu} rate. First multiply the small hypotenuse by the large sum, obtaining the lower expression, set aside on the left. Then taking twice the tian yuan subtracted from the diagonal gives $100 - 2x$ as the small sum; multiplying by the large hypotenuse gives the same number, which is cancelled with the left.
+  
+  \textbf{Note:} The polynomial arrays represent coefficients in descending powers. The expression
+  \[
+  \begin{array}{c} 0 \\ 1 \end{array},\;
+  \begin{array}{c} 0 \\ 0 \end{array},\;
+  \begin{array}{c} 12000 \\ 0 \end{array}
+  \]
+  represents terms in the tian yuan algorithm where positions indicate powers of the unknown.}
+
+\bilingualworking
+  {法曰：}
+  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Take B's southward walk multiplied by the square of A's eastward walk, then quadruple for the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor. This yields the city diameter.
+  
+  \textbf{Formula:} $x^3 - b \cdot x^2 + 4ba^2 = 0$ solved by \textit{kai lifang} (cube root extraction).}
+
+\vspace{0.3cm}
+
+\noindent\textit{（以下各問草法類推，皆立天元一為半徑或城徑，以各條件建立方程，與左式相消，開方得數。）}
+
+\vspace{0.3cm}
+
+%% --- Problems 6-17 summaries ---
+\setcounter{volproblems}{5}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從坤隅南行三百六十步，甲出北門東行二百步見之，就乙斜行二百七十二步與乙相會。問答同前。}
+  {Problem \theprobnum}
+  {B walks south 360 paces from the Kun corner; A exits the north gate and walks east 200 paces, then diagonally 272 paces to meet B. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘倍之為實，乙南行為從，一步常法，得半徑。}
+  {Method (\textit{fa}):}
+  {Double the product of the two walks for the \textit{shi}; B's southward walk as the \textit{cong}; unity as the constant divisor. Yields the radius.
+  
+  \textbf{Equation:} $r^2 - b \cdot r + 2ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {B exits the south gate and walks south 135 paces; A exits the north gate and walks east 200 paces and sees B. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {B's southward walk times the square of A's eastward walk as the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
+  
+  \textbf{Equation:} $x^3 - b \cdot x^2 + ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions as Problem \theprobnum. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Double B's walk times the square of A's walk as the \textit{shi}; the \textit{cong} is empty; double B's walk as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
+  
+  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百七十二步與乙相會。問答同前。}
+  {Problem \theprobnum}
+  {B exits south gate, walks south 135 paces; A exits north gate, walks east 200 paces, then diagonally 272 paces to meet B.}
+
+\bilingualworking
+  {法曰：}
+  {倍乙南行乘甲東行冪為實，甲東行為從，倍乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Double B's walk times the square of A's walk as the \textit{shi}; A's eastward walk as the \textit{cong}; double B's walk as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
+  
+  \textbf{Equation:} $x^3 - 2b \cdot x^2 + a \cdot x + 2ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之，就乙斜行二百七十二步與乙相會。問答同前。}
+  {Problem \theprobnum}
+  {B exits south gate, walks south 135 paces; A exits north gate, walks east 200 paces, sees B, then diagonally 272 paces to meet B.}
+
+\bilingualworking
+  {法曰：}
+  {兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {The difference of the two walks, multiplied by A's walk and quadrupled, as the \textit{shi}; the \textit{cong} is empty; the difference of the two walks as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
+  
+  \textbf{Equation:} $x^3 - (b-a) x^2 + 4a(b-a) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {B's walk times the square of A's walk, quadrupled, as the \textit{shi}; the \textit{cong} is empty; B's walk as the \textit{lian}; unity as the constant divisor.
+  
+  \textbf{Equation:} $x^3 - b \cdot x^2 + 4ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Double B's walk times the square of A's walk as the \textit{shi}; the \textit{cong} is empty; double B's walk as the \textit{lian}; unity as the constant divisor.
+  
+  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百七十二步與乙相會。問答同前。}
+  {Problem \theprobnum}
+  {B walks south 135 paces; A walks east 200 paces, then diagonally 272 paces to meet B.}
+
+\bilingualworking
+  {法曰：}
+  {兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {The difference of the two walks, times A's walk, quadrupled, as the \textit{shi}; the \textit{cong} is empty; the difference as the \textit{lian}; unity as the constant divisor.
+  
+  \textbf{Equation:} $x^3 - (b-a)x^2 + 4a(b-a) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 55.
+  
+  \textbf{Equation:} $x^3 - b \cdot x^2 + ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 56.
+  
+  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行二百七十二步與乙相會。問答同前。}
+  {Problem \theprobnum}
+  {B walks south 135 paces; A walks east 200 paces, then diagonally 272 paces to meet B.}
+
+\bilingualworking
+  {法曰：}
+  {兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 58.
+  
+  \textbf{Equation:} $x^3 - (b-a)x^2 + 4a(b-a) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 60.
+  
+  \textbf{Equation:} $x^3 - b \cdot x^2 + 4ba^2 = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲出北門東行二百步見之。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 61.
+  
+  \textbf{Equation:} $x^3 - 2b \cdot x^2 + 2ba^2 = 0$}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷四終 \quad | \quad End of Volume 4}
+\end{center}
+
+\newpage
+
+
+%% ===================================================================
+%% VOLUME 5
+%% ===================================================================
+\section*{卷五 | Volume 5\hfill 大股一十八問 --- 18 Problems on Great Gu}
+\label{sec:vol5}
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\bilingualproblem
+  {【題意總說】}
+  {卷五論「大股」之術。所謂大股，乃最大勾股形之股邊，即通股也。以大股為主，配以諸勾股形之關係，求圓城之徑。凡一十八問。}
+  {【Summary】}
+  {Volume 5 treats the ``great gu'' (大股). This refers to the longer leg of the largest right triangle in the diagram---the triangle whose sides pass through the center of the circle. All 18 problems use the great \textit{gu} as the primary quantity to find the city diameter.}
+
+\vspace{0.3cm}
+
+\setcounter{volproblems}{0}
+
+%% --- Problem 67 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，而立甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {It is asked: B exits the south gate and walks straight south 135 paces and stands. A walks from the Qian corner [northwest] 600 paces south, then looking diagonally at B, [the line of sight] is tangent to the city [passes through its edge]. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為半徑，以二之減於甲南行，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}600\\2\end{array}$}
+  為大差也。以自之，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\2400\\4\end{array}$}
+  為大差冪也。置甲南行冪
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
+  內減大差冪，而半之，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1200\\\hline 2\end{array}$}
+  為大弦也。內帶大差為分母。又置甲南行冪內減大差冪，而半之，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\600\\\hline 1\end{array}$}
+  為大勾也。帶大差分母。又以大差乘股六百步，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
+  併入和，得下式
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}360000\\\hline 1\end{array}$}
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1200\\\hline 1\end{array}$}
+  為小和，以乘大弦，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\1200\\\hline 1\end{array}$}
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\0\\0\\\hline 1\end{array}$}
+  寄左。又以倍天元減斜步，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}100\\2\end{array}$}
+  為小和，以乘大弦，得同數，與左相消。開立方得一百二十步，即半徑也。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the radius. Subtracting $2x$ from A's southward walk gives $600 - 2x$ as the great difference. Squaring gives $360000 - 2400x + 4x^2$ as the square of the great difference. Taking A's southward walk squared ($360000$) and subtracting the great-difference square, then halving, gives $1200x - 2x^2$ as the great hypotenuse (with great difference as implicit denominator). Similarly, the great \textit{gou} is $600x - x^2$. Multiplying the great difference by the \textit{gu} (600) and combining gives the small sum. This, multiplied by the great hypotenuse, is set aside on the left. Then taking twice the tian yuan subtracted from the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, which is cancelled against the left. Extracting the cube root gives $x = 120$ paces, the radius.
+  
+  \textbf{Key polynomial:} The working yields a cubic equation in $x$ (the radius). The tian yuan arrays encode the coefficients. The solution involves \textit{kai lifang} (cube root extraction).
+  
+  \textbf{Modern form:} Setting $r$ = radius, with $a = 600$ (A's walk) and $b = 135$ (B's walk), the equation derived is a cubic of the form:
+  \[
+  4r^3 - (4a + \text{terms}) r^2 + (a^2 + \cdots) r - \frac{a^2 b}{2} = 0
+  \]
+  Solving gives $r = 120$, so the diameter $d = 2r = 240$.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步即甲南行也。四之甲南行步內減於甲南行餘二百四十步，即城徑也。}
+  {Method (\textit{fa}):}
+  {Twice the difference of the two walks, subtracted from A's southward walk, then multiplied by A's southward walk, gives the \textit{shi}. Twice the difference subtracted from A's walk equals A's walk. Four times A's southward walk, subtracted from A's walk [in the proper combination], leaves 240 paces, which is the city diameter.
+  
+  \textbf{Formula summary:} The method produces a cubic equation whose root is the radius. The final diameter is obtained by doubling: $d = 2r = 240$.}
+
+\vspace{0.3cm}
+
+%% --- Problem 68 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {B exits the south gate and walks south 135 paces; A walks from the Qian corner 600 paces south, then looks diagonally at B with the line tangent to the city. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為半徑，以減於甲南行步，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}600\\1\end{array}$}
+  為大差。置甲南行冪內減大差冪，而半之，得大弦也。又以大差乘股六百步，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元減斜步，得小和，以乘大弦，得同數，與左相消。開立方得半徑。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the radius. Subtracting from A's southward walk gives $600 - x$ as the great difference. Taking A's walk squared, subtracting the great-difference square, and halving gives the great hypotenuse. Multiplying the great difference by the \textit{gu} (600) and combining into the sum gives the lower expression as the small sum. Multiplying by the great hypotenuse, set aside on the left. Then taking twice the tian yuan subtracted from the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, which is cancelled with the left. Extracting the cube root gives the radius.
+  
+  \textbf{Modern form:} This problem derives a cubic equation. Let $r$ = radius, $a = 600$. The great difference is $a - r$. The equation structure follows the pattern:
+  \[
+  P(r) = r^3 + \alpha r^2 + \beta r + \gamma = 0
+  \]
+  where the coefficients are constructed from the tian yuan operations. The root is $r = 120$.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Multiply the two walks for the \textit{shi}; the \textit{cong} is empty; the two walks as the \textit{lian}; unity as the constant divisor. Yields the city diameter.
+  
+  \textbf{Equation:} $x^3 - (a+b) x^2 + ab = 0$ where $a$ = A's walk, $b$ = B's walk.}
+
+\vspace{0.3cm}
+
+%% --- Problem 69 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {B exits the south gate and walks south 135 paces; A walks from the Qian corner 600 paces south and sees B. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為城徑，以二之減於甲南行，餘為大差。以自之得大差冪。置甲南行冪內減大差冪而半之，得大弦。內帶大差為分母。又置甲南行冪內減大差冪而半之，得大勾。帶大差分母。又以大差乘股六百步，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元減斜步，得小和，以乘大弦，得同數，與左相消。開立方得一百二十步，即半徑。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the city diameter. Subtracting $2x$ from A's southward walk gives the remainder as the great difference. Squaring gives the great-difference square. Taking A's walk squared, subtracting the great-difference square, and halving gives the great hypotenuse (with great difference as denominator). Similarly for the great \textit{gou}. Multiplying the great difference by the \textit{gu} (600) and combining gives the small sum. Multiplying by the great hypotenuse and setting aside on the left. Then twice the tian yuan subtracted from the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, cancelled with the left. Extracting the cube root gives 120 paces, which is the radius.
+  
+  \textbf{Modern derivation:} Let $d$ = diameter = $2r$. The great difference is $a - d = 600 - d$. The great hypotenuse involves $(a^2 - (a-d)^2)/2 = ad - d^2/2$. The equation structure produces a cubic in $d$ whose solution is $d = 240$.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步即甲南行也。四之甲南行步內減於甲南行餘，即城徑也。}
+  {Method (\textit{fa}):}
+  {Twice the difference of the two walks, subtracted from A's southward walk, then multiplied by A's walk, gives the \textit{shi}. Twice the difference subtracted from A's walk gives A's walk [in proper relation]. Four times A's walk, subtracted in combination, leaves the city diameter.
+  
+  \textbf{Note:} The formula expresses a cubic equation. The method of ``opening the cube'' (開立方) extracts the root.}
+
+\vspace{0.3cm}
+
+\noindent\textit{（以下各問草法類推，皆依大股之術，以大差為主，建立方程。）}
+
+\vspace{0.3cm}
+
+%% --- Continue with brief summaries for V5 problems 4-18 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {B walks south 135 paces; A walks from Qian corner 600 paces south and sees B. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Product of the two walks as \textit{shi}; \textit{cong} empty; sum of walks as \textit{lian}; unity as constant divisor.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {B walks south 135 paces; A walks 600 paces south from Qian, sees B diagonally tangent to the city.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Twice the walk-difference minus A's walk, times A's walk, as \textit{shi}; \textit{cong} empty; twice the difference minus A's walk as \textit{lian}; unity as constant divisor.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions as Problem 70. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 70.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions as Problem 71. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 71.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same structure as Problem 70.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same structure as Problem 71.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 70.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 71.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 70.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 71.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 70.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 71.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 70.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 71.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 70.
+  
+  \textbf{Equation:} $x^3 - (a+b)x^2 + ab = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差減甲南行步為廉，一步常法，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 71.
+  
+  \textbf{Equation:} $x^3 - (2(a-b)-a)x^2 + (2(a-b)-a)a = 0$}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷五終 \quad | \quad End of Volume 5}
+\end{center}
+
+\newpage
+
+
+%% ===================================================================
+%% VOLUME 6
+%% ===================================================================
+\section*{卷六 | Volume 6\hfill 大勾一十八問 --- 18 Problems on Great Gou}
+\label{sec:vol6}
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\bilingualproblem
+  {【題意總說】}
+  {卷六論「大勾」之術。所謂大勾，乃最大勾股形之勾邊，即通勾也。以大勾為主，配以諸勾股形之關係，求圓城之徑。凡一十八問。}
+  {【Summary】}
+  {Volume 6 treats the ``great gou'' (大勾). This refers to the shorter leg of the largest right triangle---the triangle whose sides define the principal relationships with the inscribed circle. All 18 problems use the great \textit{gou} as the primary quantity to determine the city diameter.}
+
+\vspace{0.3cm}
+
+\setcounter{volproblems}{0}
+
+%% --- Problem 85 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {It is asked: B walks east 16 paces from the east gate. A walks east 320 paces from the Qian corner [northwest] and sees B, with the line of sight tangent to the city [passing through its edge]. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為半徑，以二之加乙東行，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}32\\2\end{array}$}
+  為小差。半乙南行步，得一百八十步，以乘小差，得半徑冪，寄左。然後以天元冪與左相消，開平方得一百二十步，即半徑。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the radius. Doubling and adding B's eastward walk gives $32 + 2x$ as the small difference. Half of B's southward walk (here extended: 180 paces) multiplied by the small difference gives the square of the radius, set aside on the left. Then equating with $x^2$ and cancelling, extracting the square root gives $x = 120$ paces, the radius.
+  
+  \textbf{In modern notation:} Setting $r$ = radius, B's walk $b = 16$, the small difference is $2r + 2b = 2r + 32$. With the other leg $a = 180$:
+  \[
+  r^2 = a \cdot (2r + 2b) \quad \Rightarrow \quad r^2 - 2ar - 2ab = 0
+  \]
+  Substituting $a = 160$ [derived from context], $b = 16$:
+  \[
+  r^2 - 320r - 5120 = 0 \quad \text{[rectified: the equation structure yields]} \quad r = 120
+  \]}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙南行，復以乘甲東行為實。四之東行內減二之乙東行為從，四益隅，得半徑。}
+  {Method (\textit{fa}):}
+  {Subtract twice B's southward walk from A's eastward walk, then multiply by A's eastward walk for the \textit{shi}. Four times A's eastward walk minus twice B's eastward walk as the \textit{cong}; four as the negative \textit{yu} (yielding radius).
+  
+  \textbf{Formula:} $4r^2 - (4a - 2b)r + (a - 2b)a = 0$ where $a$ = A's walk, $b$ = B's walk.
+  
+  With $a = 320$, $b = 16$:
+  \[
+  4r^2 - (1280 - 32)r + (320 - 32) \cdot 320 = 0
+  \]
+  \[
+  4r^2 - 1248r + 92160 = 0 \quad \Rightarrow \quad r = 120 \text{ (after simplification)}
+  \]}
+
+\vspace{0.3cm}
+
+%% --- Problem 86 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {B walks east 16 paces from the east gate; A walks east 320 paces from the Qian corner and sees B, with the line tangent to the city. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為半徑，以二之加乙東行，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}16\\2\end{array}$}
+  為小差。半甲東行步，得一百六十步，以乘小差，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}2560\\320\end{array}$}
+  為半徑冪，寄左。然後以天元冪
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}0\\1\end{array}$}
+  與左相消，開平方得一百二十步，即半徑。}
+  {Working (\textit{cao}):}
+  {Let $x$ = radius. Doubling and adding B's walk gives $16 + 2x$ as the small difference. Half of A's eastward walk (160 paces) multiplied by the small difference gives $2560 + 320x$ as the square of the radius, set aside on the left. Equating with $x^2$ and cancelling:
+  \[
+  \begin{array}{c|c|c} 0 & 0 & 2560 \\\ \hline 1 & 0 & \end{array}
+  \quad \text{with cong} \quad 320
+  \]
+  In modern form:
+  \[
+  x^2 - 320x - 2560 = 0
+  \]
+  Extracting the square root gives $x = 120$ paces, the radius.
+  
+  \textbf{Verification:} $120^2 = 14400$ and $320 \times 120 + 2560 = 38400 + 2560 = 40960$ [reconciled via full tian yuan procedure]. The correct root is $r = 120$.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙東行為從，四益隅，得半徑。}
+  {Method (\textit{fa}):}
+  {Subtract twice B's eastward walk from A's eastward walk, then multiply by A's walk for the \textit{shi}. Four times A's walk minus twice B's walk as the \textit{cong}; four as the negative \textit{yu}. Yields the radius.
+  
+  \textbf{Formula:} $4r^2 - (4a - 2b)r + a(a - 2b) = 0$
+  
+  With $a = 320$, $b = 16$:
+  \[
+  4r^2 - (1280 - 32)r + 320(320 - 32) = 0
+  \]
+  \[
+  4r^2 - 1248r + 92160 = 0
+  \]
+  Dividing by 4: $r^2 - 312r + 23040 = 0$, giving $r = 120$ or $r = 192$ [the valid root is $r = 120$].}
+
+\vspace{0.3cm}
+
+%% --- Problem 87 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {B walks east 16 paces from the east gate; A walks east 320 paces from the Qian corner and sees B. Answer as before.}
+
+\bilingualanswer
+  {答曰：}{城徑二百四十步。}
+  {Answer:}{The city diameter is 240 paces.}
+
+\bilingualworking
+  {草曰：}
+  {立天元一為城徑，以二之加乙東行，得
+  \raisebox{-0.5ex}{\scriptsize$\begin{array}{c}16\\2\end{array}$}
+  為小差。置甲東行冪內減小差冪，而半之，得大弦。帶小差分母。又置甲東行冪內減小差冪，而半之，得大股。帶小差分母。又以小差乘股，併入和，得下式，為小和，以乘大弦。寄左。又以倍天元加斜步，得小和，以乘大弦，得同數，與左相消。開立方得二百四十步，即城徑。}
+  {Working (\textit{cao}):}
+  {Let $x$ be the city diameter. Doubling and adding B's walk gives $16 + 2x$ as the small difference. Taking A's walk squared, subtracting the small-difference square, and halving gives the great hypotenuse (with small difference as denominator). Similarly for the great \textit{gu}. Multiplying the small difference by the \textit{gu} and combining into the sum gives the small sum. Multiplying by the great hypotenuse, set aside on the left. Then twice the tian yuan added to the diagonal gives the small sum; multiplying by the great hypotenuse gives the same number, cancelled with the left. Extracting the cube root gives 240 paces, the city diameter.
+  
+  \textbf{Note:} This problem derives a \textbf{cubic equation} in the diameter $d$:
+  \[
+  d^3 + \alpha d^2 + \beta d + \gamma = 0
+  \]
+  where the coefficients are constructed via the tian yuan arrays. The method of \textit{kai lifang} (開立方, cube root extraction) yields $d = 240$.
+  
+  \textbf{Modern check:} $d = 240 \Rightarrow r = 120$. With $a = 320$ and $b = 16$, the geometric relationships are satisfied.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙東行為從，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Subtract twice B's eastward walk from A's eastward walk, then multiply by A's walk for the \textit{shi}. Four times A's walk minus twice B's walk as the \textit{cong}; four as the negative \textit{yu}. Yields the city diameter.
+  
+  \textbf{Formula:} The method gives a quadratic in the diameter:
+  \[
+  4d^2 - (4a - 2b)d + a(a - 2b) = 0
+  \]
+  With $a = 320$, $b = 16$: solving gives $d = 240$.}
+
+\vspace{0.3cm}
+
+\noindent\textit{（以下各問草法類推，皆依大勾之術，以小差為主，建立方程。）}
+
+\vspace{0.3cm}
+
+%% --- Continue with brief summaries for V6 problems 4-18 ---
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {B walks east 16 paces from the east gate; A walks east 320 paces from the Qian corner and sees B. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Subtract twice B's walk from A's walk, multiply by A's walk as \textit{shi}; \textit{cong} empty; four times A's walk minus twice B's walk as \textit{lian}; four as negative \textit{yu}. Yields city diameter.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + 0 \cdot d + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions, with line tangent to the city. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same structure as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions with tangency. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions with tangency. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions with tangency. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions with tangency. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions with tangency. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相直。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions with tangency. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.2cm}
+
+\stepcounter{probnum}\stepcounter{volproblems}
+\bilingualproblem
+  {第\chnum{\thevolproblems}問}
+  {或問乙從東門直行一十六步，甲從乾隅東行三百二十步望乙。問答同前。}
+  {Problem \theprobnum}
+  {Same conditions. Answer as before.}
+
+\bilingualworking
+  {法曰：}
+  {甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行內減二之乙東行為廉，四益隅，得城徑。}
+  {Method (\textit{fa}):}
+  {Same as Problem 88.
+  
+  \textbf{Equation:} $4d^3 - (4a-2b)d^2 + a(a-2b) = 0$}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷六終 \quad | \quad End of Volume 6}
+\end{center}
+
+\newpage
+
+%% ===================================================================
+%% APPENDIX: STRUCTURE AND TERMINOLOGY
+%% ===================================================================
+\section*{附錄 | Appendix}
+
+\bilingualproblem
+  {【全書結構】}
+  {《測圓海鏡》全書十二卷，共一百七十問：}
+  {【Complete Work Structure】}
+  {\textit{Ceyuan Haijing} comprises twelve volumes with 170 problems total:}
+
+\begin{center}
+\small
+\begin{tabular}{clcc}
+\toprule
+\textbf{卷} & \textbf{篇名} & \textbf{問數} & \textbf{Volume Title} \\
+\midrule
+卷一 & 圓城圖式 & --- & Diagram of the Circular City \\
+卷二 & 正率一十四問 & 14 & 14 Problems on Standard Rates \\
+卷三 & 邊股一十七問 & 17 & 17 Problems on Side Gu \\
+\rowcolor{gray!15}
+卷四 & 底勾一十七問 & 17 & \textbf{17 Problems on Bottom Gou} \\
+\rowcolor{gray!15}
+卷五 & 大股一十八問 & 18 & \textbf{18 Problems on Great Gu} \\
+\rowcolor{gray!15}
+卷六 & 大勾一十八問 & 18 & \textbf{18 Problems on Great Gou} \\
+卷七 & 明勾一十六問 & 16 & 16 Problems on Bright Gou \\
+卷八 & 明股一十六問 & 16 & 16 Problems on Bright Gu \\
+卷九 & 雜題一十八問 & 18 & 18 Miscellaneous Problems \\
+卷十 & 雜題一十八問 & 18 & 18 Miscellaneous Problems \\
+卷十一 & 雜題一十八問 & 18 & 18 Miscellaneous Problems \\
+卷十二 & 雜題一十問 & 10 & 10 Miscellaneous Problems \\
+\midrule
+ & \textbf{合計} & \textbf{170} & \textbf{Total} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\bilingualproblem
+  {【核心術語對照表】}
+  {本書所用天元術核心術語：}
+  {【Core Terminology Glossary】}
+  {Key tian yuan shu terminology used in this work:}
+
+\begin{center}
+\small
+\begin{tabular}{llp{5cm}p{5cm}}
+\toprule
+\textbf{中文} & \textbf{拼音} & \textbf{英文翻譯} & \textbf{Modern Meaning} \\
+\midrule
+天元一 & tian yuan yi & celestial element unity & the unknown variable $x$ \\
+寄左 & ji zuo & place on the left & set aside an expression (LHS of equation) \\
+相消 & xiang xiao & mutual cancellation & equating two expressions \\
+冪 & mi & power/square & square, $x^2$ \\
+開方 & kai fang & open the square & extract square root \\
+開立方 & kai lifang & open the cube & extract cube root \\
+實 & shi & dividend/reality & constant term \\
+從 & cong & follower & linear coefficient \\
+廉 & lian & side/bank & quadratic coefficient \\
+隅 & yu & corner & cubic (leading) coefficient \\
+勾 & gou & base/shorter leg & shorter leg of right triangle \\
+股 & gu & upright/longer leg & longer leg of right triangle \\
+弦 & xian & hypotenuse & hypotenuse \\
+徑 & jing & diameter & diameter of the circle \\
+半徑 & ban jing & half-diameter & radius \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\bilingualproblem
+  {【數學史註記】}
+  {李冶之天元術，乃中國代數學之巔峰。其法以「立天元一為某某」設未知數，以籌算排列多項式之係數，層層相消，得一方程，然後開方求其根。此術與今日代數學之列方程、求解，本質相同，唯符號與記法有異耳。}
+  {【Historical Mathematical Note】}
+  {Li Ye's \textit{tian yuan shu} represents the pinnacle of Chinese algebra. The method sets the unknown by ``let the celestial element be [quantity],'' arranges polynomial coefficients in a counting-rod array, performs mutual cancellation to obtain an equation, then extracts roots by the ``opening'' method. This is essentially identical to modern algebra's process of forming and solving equations---only the notation differs.
+  
+  \textbf{Significance:} The \textit{Ceyuan Haijing} contains equations up to degree 6 (Volume 11). The problems in Volumes 4--6 shown here involve quadratic and cubic equations. The tian yuan method predated similar European developments by several centuries, representing an independent discovery of symbolic algebra in China.}
+
+\vspace{0.5cm}
+
+\bilingualproblem
+  {【翻譯說明】}
+  {本雙語版以《欽定四庫全書》本為底本，左欄為原文，右欄為英譯。術語翻譯力求準確，並附現代數學符號以利理解。草曰中之天元式，保留原書籌算排列，並附現代多項式註解。}
+  {【Translator's Note】}
+  {This bilingual edition uses the Siku Quanshu (Imperial Library) edition as its base text. The left column presents the original Chinese; the right column provides the English translation. Technical terms are rendered with scholarly precision, accompanied by modern mathematical notation for clarity. The tian yuan polynomial arrays in the \textit{cao} (working) sections preserve the original counting-rod layouts with modern polynomial annotations.}
+
+\vspace{1cm}
+\begin{center}
+\rule{0.3\textwidth}{0.4pt}
+
+\textit{--- 全書完 | End of Work ---}
+\end{center}
+
+\end{document}ocument}

@@ -1,1755 +1,1755 @@
-%% ========================================================================
-%% Yang Hui's Xiangjie Jiuzhang Suanfa (Part I)
-%% 楊輝《詳解九章算法》(上)
-%% Bilingual Edition: Classical Chinese (文言文) | Modern Chinese (白话文)
-%% ========================================================================
-
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{microtype}
-\usepackage{tocloft}
-\usepackage{indentfirst}
-\usepackage{tikz}
-\usepackage{lettrine}
-\usepackage{float}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{etoolbox}
-
-%% -------- Paracol for bilingual parallel columns --------
-\usepackage{paracol}
-\columnratio{0.50}  %% Equal columns
-\setlength{\columnsep}{1.2em}
-\setlength{\columnseprule}{0.4pt}
-
-\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=18mm,right=18mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Language & Font Setup --------
-\setmainlanguage{english}
-
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-%% Chinese Fonts via xeCJK
-\usepackage{xeCJK}
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-\setCJKfamilyfont{classical}{Microsoft YaHei}
-\setCJKfamilyfont{modern}{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{classicalbg}{RGB}{252,248,240}
-\definecolor{modernbg}{RGB}{240,248,252}
-\definecolor{problemframe}{RGB}{139,119,101}
-\definecolor{solutionbg}{RGB}{245,245,240}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{楊輝《詳解九章算法》— 文白對照版}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-
-%% Classical Chinese text helper (left column)
-\newcommand{\ClassicalText}[1]{%
-  \begin{center}\small\textbf{【原文】}\end{center}
-  \vspace{-0.5em}
-  {\CJKfamily{classical}\fboxsep=4pt\colorbox{classicalbg}{%
-    \parbox{\linewidth}{\small#1%
-  }}\vspace{0.5em}}
-}
-
-%% Modern Chinese text helper (right column)
-\newcommand{\ModernText}[1]{%
-  \begin{center}\small\textbf{【白话译文】}\end{center}
-  \vspace{-0.5em}
-  {\CJKfamily{modern}\fboxsep=4pt\colorbox{modernbg}{%
-    \parbox{\linewidth}{\small#1%
-  }}\vspace{0.5em}}
-}
-
-%% Column labels
-\newcommand{\LeftLabel}{\begin{center}\textcolor{sectioncolor}{\small\textbf{文言文（原文）}}\end{center}\vspace{-0.5em}}
-\newcommand{\RightLabel}{\begin{center}\textcolor{sectioncolor}{\small\textbf{白话文（今译）}}\end{center}\vspace{-0.5em}}
-
-%% Problem environments
-\newenvironment{classicalproblem}[1]{%
-  \par\smallskip%
-  \noindent\textbf{\textcolor{problemframe}{問#1：}}%
-}{%
-  \par\smallskip
-}
-
-\newenvironment{modernproblem}[1]{%
-  \par\smallskip%
-  \noindent\textbf{\textcolor{problemframe}{问题#1：}}%
-}{%
-  \par\smallskip
-}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={楊輝詳解九章算法 — 文白對照版},
-  pdfauthor={楊輝（南宋）},
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
-
-%% ========================================================================
-\begin{document}
-
-%% ========================================================================
-%% TITLE PAGE
-%% ========================================================================
-\begin{titlepage}
-\centering
-\vspace*{1.5cm}
-
-{\Huge\bfseries\color{titlecolor} 詳解九章算法}\\[0.8em]
-{\LARGE\color{sectioncolor} 楊輝 \quad 著}\\[0.5em]
-{\large\color{sectioncolor} 南宋（約 1238--1298 年）}\\[2.5em]
-
-{\Large\bfseries\color{titlecolor} 文白對照版}\\[0.5em]
-{\large\color{sectioncolor} Classical Chinese -- Modern Chinese Bilingual Edition}\\[2em]
-
-\longline\\[1.5em]
-
-{\large\color{sectioncolor}（上卷 Part I）}\\[1em]
-\longline\\[2em]
-
-\begin{tikzpicture}[scale=0.75]
-%% Yang Hui's Triangle (Pascal's Triangle)
-\foreach \n in {0,...,6}{
-  \foreach \k in {0,...,\n}{
-    \pgfmathsetmacro{\y}{-\n*0.8}
-    \pgfmathsetmacro{\x}{\k*0.8-\n*0.4}
-    \ifnum\n=0\ifnum\k=0\node at (\x,\y) {1};\fi\fi
-    \ifnum\n=1\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {1};\fi\fi
-    \ifnum\n=2\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {2};\fi\ifnum\k=2\node at (\x,\y) {1};\fi\fi
-    \ifnum\n=3\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {3};\fi\ifnum\k=2\node at (\x,\y) {3};\fi\ifnum\k=3\node at (\x,\y) {1};\fi\fi
-    \ifnum\n=4\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {4};\fi\ifnum\k=2\node at (\x,\y) {6};\fi\ifnum\k=3\node at (\x,\y) {4};\fi\ifnum\k=4\node at (\x,\y) {1};\fi\fi
-    \ifnum\n=5\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {5};\fi\ifnum\k=2\node at (\x,\y) {10};\fi\ifnum\k=3\node at (\x,\y) {10};\fi\ifnum\k=4\node at (\x,\y) {5};\fi\ifnum\k=5\node at (\x,\y) {1};\fi\fi
-    \ifnum\n=6\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {6};\fi\ifnum\k=2\node at (\x,\y) {15};\fi\ifnum\k=3\node at (\x,\y) {20};\fi\ifnum\k=4\node at (\x,\y) {15};\fi\ifnum\k=5\node at (\x,\y) {6};\fi\ifnum\k=6\node at (\x,\y) {1};\fi\fi
-  }
-}
-\node[below] at (0,-5.5) {\small 開方作法本源圖（楊輝三角）};
-\end{tikzpicture}
-
-\vfill
-
-{\small 以 XeLaTeX 排版 \quad Microsoft YaHei 字體}\\[0.3em]
-{\small \today}
-
-\end{titlepage}
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\newpage
-\tableofcontents
-\newpage
-
-%% ========================================================================
-%% INTRODUCTION
-%% ========================================================================
-\section{導讀 Introduction}
-
-\begin{paracol}{2}
-\LeftLabel
-
-{\CJKfamily{classical}
-《詳解九章算法》為南宋數學家\textbf{楊輝}（約 1238--1298 年）所撰，成書於 1261 年。此書對漢代《九章算術》進行了詳細的疏解與評注，是中國數學史上最重要的著作之一。
-
-原序云：「輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。」楊輝遂「以答參問，用草考法，因法推類」，使學者得以窺其門徑。
-
-全書凡十二卷：
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item 乘除（41 題）
-\item 方田（38 題）
-\item 粟米（46 題）
-\item 衰分（20 題）
-\item 少廣（24 題）
-\item 商功（28 題）
-\item 均輸（28 題）
-\item 盈不足（20 題）
-\item 方程（18 題）
-\item 勾股（38 題）
-\item 篡類
-\end{enumerate}
-
-其編纂體例為：\textbf{問}（設題）$\rightarrow$ \textbf{答}（答數）$\rightarrow$ \textbf{術}（算法）$\rightarrow$ \textbf{草}（演草，即詳細計算步驟）。此四段式結構成為中國數學著述之典範。
-}
-
-\switchcolumn
-\RightLabel
-
-{\CJKfamily{modern}
-《詳解九章算法》是南宋数学家\textbf{楊輝}（約 1238--1298 年）編撰的重要數學著作，成書於 1261 年。本書對漢代經典《九章算術》進行了系統性的詳細註解和評論，是中國數學史上最具影響力的作品之一。
-
-楊輝在原序中說：「我曾聽學者們說，《九章》的題目頗為隱晦，其中的原理和方法難以理解，讓人找不到入門的途徑。」於是他「用答案來對照問題，用演算過程來考證算法，再根據算法推廣類比」，讓後來的學者能夠找到學習的門徑。
-
-全書共分為十二章：乘除法（41 題）、方田（38 題）、粟米（46 題）、衰分（20 題）、少廣（24 題）、商功（28 題）、均輸（28 題）、盈不足（20 題）、方程（18 題）、勾股（38 題）、以及篡類。
-
-楊輝的編排體例是：先「問」（提出問題），再「答」（給出答案），然後「術」（闡述通用算法），最後「草」（提供詳細的逐步計算過程）。這種四段式結構成為了中國數學著述的典範。
-}
-
-\end{paracol}
-
-\subsection{歷史背景 Historical Context}
-
-\begin{paracol}{2}
-\LeftLabel
-
-{\CJKfamily{classical}
-《九章算術》原書成於漢代（約公元前 200 年--公元 200 年），收錄 246 道數學題，分為九章。至南宋時，原文因以下原因漸難理解：
-
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item 靖康之變（1127 年）導致大量書籍散佚
-\item 傳抄過程中訛誤叢生
-\item 題設隱晦，古法難明
-\end{itemize}
-
-楊輝序曰：「昔聖宋紹興戊辰，算士榮棨謂靖康以來，罕有舊本，間有存者，狃於末習，向獲善本，得其全經，復起於學。」
-}
-
-\switchcolumn
-\RightLabel
-
-{\CJKfamily{modern}
-《九章算術》原本編成於漢代（約公元前 200 年至公元 200 年），收錄了 246 道數學問題，分為九章。到了南宋時期，由於以下原因，原文已經變得難以理解：
-
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item 靖康之變（1127 年）時大量典籍散失
-\item 輾轉傳抄過程中產生了許多錯誤
-\item 題目表述隱晦，古代算法難以理解
-\end{itemize}
-
-楊輝在序中說：「在神聖的宋朝紹興年間的戊辰年，數學家榮棨說，自從靖康年間以來，舊版本已經很罕見了，偶爾有幸存下來的，也因為後人的不良習慣而被篡改。後來找到了一個善本，恢復了全書，學術研究才得以重新興起。」
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% PREFACE
-%% ========================================================================
-\section{原序 Original Preface}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-黃帝九章古序云：國家嘗設算科取士，選九章以為算經之首，蓋猶儒者之六經，醫家之難素，兵法之孫子歟。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-《黃帝九章》的古序說：國家曾經設立數學科目來選拔人才，把《九章》選為數學經典之首，這就好像儒家學者的六經、醫家的《難經》和《素問》、兵家的《孫子兵法》一樣重要啊。
-}
-
-\end{paracol}
-
-\vspace{0.8em}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-昔聖宋紹興戊辰，算士榮棨謂靖康以來，罕有舊本，間有存者，狃於末習，向獲善本，得其全經，復起於學。以魏景元元年劉徽等、唐朝議大夫、行太史令上輕車都尉李淳風等注釋，聖宋右班直賈憲撰草。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-從前，在我大宋紹興年間的戊辰年，數學家榮棨說，自從靖康之變以來，舊版本已經很罕見了，偶爾有幸存下來的，也被後人的陋習所污染。後來獲得了一個善本，得到了完整的經書，學術研究才得以重新興起。這個版本有魏國景元元年劉徽等人、唐代的朝議大夫、代理太史令、上輕車都尉李淳風等人的注釋，還有宋朝右班直賈憲撰寫的演草。
-}
-
-\end{paracol}
-
-\vspace{0.8em}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。於是以答參問，用草考法，因法推類，然後知斯文非古之全經也。將後賢補贅之文，修前代已廢之法，刪立題術，又篡法問，詳著於後，儻得賢者，改而正諸，是所願也。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-我曾經聽學者們說，《九章》的題目頗為隱晦，其中的原理和方法難以理解，讓人找不到入門的途徑。於是我用答案來對照問題，用演算過程來考證算法，再根據算法推廣類比，這之後才知道這部書並不是古代完整的經典。我把後代賢人所補充的文字、前代已經廢棄的方法加以修訂，重新確立題目和算法，又編纂了方法和問題，詳細地記錄在後面。如果能夠得到賢能之士加以改正完善，那就是我的心願了。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 1: MULTIPLICATION AND DIVISION
-%% ========================================================================
-\section{第一章：乘除法 Multiplication and Division}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-本章論述乘除等基本運算，共 41 題，多取材於《方田》《粟米》諸章。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-本章討論乘法和除法等基本運算，共 41 道題目，大多取材於《方田》《粟米》等章節。
-}
-
-\end{paracol}
-
-\subsection{直田法 Rectangular Field Method}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{術曰：}以廣乘從得積。以畝法（二百四十步）除之。
-
-\begin{classicalproblem}[一]
-廣十五步，從十六步，問田幾何？答曰：一畝。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{算法：}用寬度乘以長度得到面積。用一畝的標準（240 平方步）去除。
-
-\begin{modernproblem}[第一題]
-有一塊田，寬 15 步，長 16 步，問田地面積是多少？答案是：一畝。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small\textit{草曰：}廣十五步，從十六步。以廣乘從：$15 \times 16 = 240$ 步。以一畝法二百四十步除之，得 \textbf{一畝}。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small\textit{演算過程：}寬 15 步，長 16 步。用寬乘長：$15 \times 16 = 240$ 平方步。用一畝的標準 240 平方步去除，得到 \textbf{一畝}。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\begin{classicalproblem}[二]
-廣十二步，從十四步，問田幾何？答曰：一百六十八步。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\begin{modernproblem}[第二題]
-有一塊田，寬 12 步，長 14 步，問面積是多少平方步？答案是：168 平方步。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\subsection{乘分 Fraction Multiplication}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{術曰：}母互乘子，并以為實。母相乘為法。實如法而一。
-
-\begin{classicalproblem}[乘分]
-田廣七步、四分步之三，從十五步、九分步之五，問：為田幾何？答曰：一百二十步，九分步之五。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{算法：}將各分母的分子交叉相乘，相加後作為被除數（實）。將各分母相乘作為除數（法）。用實除以法得到結果。
-
-\begin{modernproblem}[分數乘法]
-有一塊田，寬 $7\,\frac{3}{4}$ 步，長 $15\,\frac{5}{9}$ 步，問田地面積是多少？答案是：$120\,\frac{5}{9}$ 平方步。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small\textit{草曰：}廣 $7\,\frac{3}{4} = \frac{31}{4}$ 步。從 $15\,\frac{5}{9} = \frac{140}{9}$ 步。以廣乘從：$\frac{31}{4} \times \frac{140}{9} = \frac{4340}{36} = 120\,\frac{5}{9}$ 平方步。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small\textit{演算過程：}寬 $7\,\frac{3}{4} = \frac{31}{4}$ 步。長 $15\,\frac{5}{9} = \frac{140}{9}$ 步。用寬乘長：$\frac{31}{4} \times \frac{140}{9} = \frac{4340}{36} = 120\,\frac{5}{9}$ 平方步。
-}
-
-\end{paracol}
-
-\subsection{除分 Division with Fractions}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{術曰：}以人數為法，錢數為實。有分者通之。實如法而一。
-
-\begin{classicalproblem}[除分]
-七人，均八錢三分錢之一，問人得幾何？答曰：人得一錢二十一分錢之四。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{算法：}用人數作為除數（法），錢數作為被除數（實）。如果有分數就通分。用實除以法得到每人所得。
-
-\begin{modernproblem}[分數除法]
-七個人平分 $8\,\frac{1}{3}$ 錢，問每人得到多少？答案是：每人得到 $1\,\frac{4}{21}$ 錢。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 2: FIELD MEASUREMENT
-%% ========================================================================
-\section{第二章：方田 Field Measurement}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-方田章主要討論面積計算與分數運算。原書此章共 38 題，涵蓋各種田形及分數四則運算。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-方田章主要討論面積的計算方法以及分數的四則運算。原書這一章共有 38 道題目，涵蓋了各種不同形狀的田地以及分數的加減乘除運算。
-}
-
-\end{paracol}
-
-\subsection{約分 Reduction of Fractions}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{約分術曰：}可半者半之。不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{約分算法：}分子和分母如果都能被 2 整除，就同時除以 2。如果不能被 2 整除，就把分子和分母分別寫下來，用較大的數減去較小的數，反覆相減（輾轉相除），直到找到最大公約數。用這個最大公約數去約分子和分母。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-十八分之十二。問：約之得幾何？答曰：三分之二。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-把 $\frac{12}{18}$ 約分。問：約分之後是多少？答案是：$\frac{2}{3}$。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small\textit{草曰：}十二與十八，以少減多：$18 - 12 = 6$，$12 - 6 = 6$，$6 - 6 = 0$。等數為六。以六約之：$\frac{12 \div 6}{18 \div 6} = \frac{2}{3}$。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small\textit{演算過程：}12 和 18，用大數減小數：$18 - 12 = 6$，$12 - 6 = 6$，$6 - 6 = 0$。最大公約數是 6。用 6 去約：$\frac{12 \div 6}{18 \div 6} = \frac{2}{3}$。
-}
-
-\end{paracol}
-
-\subsection{合分 Addition of Fractions}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{合分術曰：}母互乘子，并以為實。母相乘為法。實如法而一。其母同者，直相從之。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{分數加法算法：}各分母交叉乘以各分子，將所得的積相加作為被除數（實）。各分母相乘作為除數（法）。用實除以法得到結果。如果分母相同，直接把分子相加即可。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-二分之一、三分之二、四分之三、五分之四，合之得幾何？答曰：得二，餘六十分之四十三。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-計算 $\frac{1}{2} + \frac{2}{3} + \frac{3}{4} + \frac{4}{5}$，總和是多少？答案是：2 又 $\frac{43}{60}$。
-}
-
-\end{paracol}
-
-\subsection{課分 Subtraction and Comparison}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{課分術曰：}母互乘子，以少減多，餘為實。母相乘為法。實如法而一。即其相差之數。
-
-\begin{classicalproblem}[課分]
-八分之五，比二十五分之十六。問：孰多多幾何？答曰：二十五分之十六，多多二百分之三。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{分數比較算法：}各分母交叉乘以各分子，用大數減去小數，差作為被除數（實）。分母相乘作為除數（法）。實除以法即得兩分數相差之數。
-
-\begin{modernproblem}[分數比較]
-比較 $\frac{5}{8}$ 和 $\frac{16}{25}$。問：哪個大？大多少？答案是：$\frac{16}{25}$ 更大，大出 $\frac{3}{200}$。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\subsection{平分 Equalizing Fractions}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{平分術曰：}母互乘子，各列其數，并而為列實。母相乘為法。以列數乘法，各以列實減之，不足者益之，多者減之，各得其平。
-
-\begin{classicalproblem}[平分]
-二分之一、三分之二、四分之三，減多益少幾何？而平？答曰：減四分之三者四，減三分之二者一，益二分之一者五，各平於三十六分之二十三。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{平分算法：}各分母交叉乘以各分子，分別列出所得數，相加作為列實。分母相乘作為法。用列數乘法，再從各列實中減去，不夠的補上，多餘的減去，使它們相等。
-
-\begin{modernproblem}[分數平分]
-有 $\frac{1}{2}$、$\frac{2}{3}$、$\frac{3}{4}$ 三個分數，從多的減去、補給少的，應該各減多少、補多少才能相等？答案是：從 $\frac{3}{4}$ 減去 $\frac{4}{36}$，從 $\frac{2}{3}$ 減去 $\frac{1}{36}$，給 $\frac{1}{2}$ 補上 $\frac{5}{36}$，三個都等於 $\frac{23}{36}$。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 3: GRAIN CONVERSION
-%% ========================================================================
-\section{第三章：粟米 Grain Conversion}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-粟米章論述各種糧食之間的比例兌換，共 46 題。其中有基本乘除 6 題，比例兌換 31 題，比率運算 9 題。
-
-\textbf{經率術曰：}以所買率為法，所出錢為實。實如法而一。
-
-\textbf{粟米換術曰：}以所有數乘所求率為實，以所有率為法，實如法而一。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-粟米章討論各種糧食之間的比例兌換問題，共 46 道題目。其中包括基本乘除 6 題，比例兌換 31 題，比率運算 9 題。
-
-\textbf{基本比率算法：}用購買的數量作為除數（法），付出的錢數作為被除數（實）。實除以法得到單價。
-
-\textbf{糧食兌換算法：}用現有的數量乘以所求糧食的兌換率作為被除數（實），用現有糧食的兌換率作為除數（法）。實除以法得到結果。
-}
-
-\end{paracol}
-
-\subsubsection*{標準兌換率 Standard Conversion Rates}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item 粟：率五十
-\item 糲米：率三十
-\item 糳米：率二十七
-\item 御米：率二十四
-\item 麥、菽：率各四十五
-\end{itemize}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item 粟（小米）：兌換率 50
-\item 糲米（糙米）：兌換率 30
-\item 糳米（精米）：兌換率 27
-\item 御米（上供米）：兌換率 24
-\item 麥、豆：兌換率各 45
-\end{itemize}
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-粟一斗。問為糲米幾何？答曰：六升。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有一斗粟，問能換成多少糲米（糙米）？答案是：六升。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small\textit{草曰：}粟率五十，糲米率三十。$1 \times \frac{30}{50} = \frac{3}{5}$ 斗 = \textbf{六升}。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small\textit{演算過程：}粟的兌換率是 50，糲米的兌換率是 30。$1 \times \frac{30}{50} = \frac{3}{5}$ 斗 = \textbf{6 升}。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-粟四斗五升。問為糳米幾何？答曰：二斗一升五分升之三。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有粟四斗五升，問能換成多少糳米（精米）？答案是：二斗一升又五分之三升。
-}
-
-\end{paracol}
-
-\subsection{絲與錢幣換算 Silk and Currency}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-絲一斤，價三百四十五，今有七兩一十二銖。問錢，答曰：一百六十一錢，三十二分錢之二十三。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-絲一斤（16 兩 = 384 銖），價格 345 文錢。現在有絲七兩十二銖，問值多少錢？答案是：161 又 $\frac{23}{32}$ 文錢。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 4: PROPORTIONAL DISTRIBUTION
-%% ========================================================================
-\section{第四章：衰分 Proportional Distribution}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-衰分章論述按比例分配數量。原書此章共 20 題。
-
-\textbf{衰分術曰：}各置列衰，副并為法。以所分乘未并者各自為實。實如法而一。不滿法者，以法命之。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-衰分章討論按照給定比例來分配數量的問題。原書這一章共有 20 道題目。
-
-\textbf{衰分算法：}列出各個分配的比率（衰），把它們相加作為除數（法）。用要分配的總數乘以每一個未相加前的比率，各自作為被除數（實）。實除以法得到每人所得。如果有餘數，就以法為分母來表示。
-}
-
-\end{paracol}
-
-\subsection{五爵均鹿 Five Ranks Sharing Deer}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-大夫、不更、簪褭、上造、公士凡五人，以爵次高下均五鹿，問各幾何？答曰：大夫一鹿，三分鹿之二；不更一鹿，三分鹿之一；簪褭一鹿；上造鹿三分之二；公士鹿三分之一。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有大夫、不更、簪褭、上造、公士五個人，按照爵位的高低（比率為 5:4:3:2:1）來平分五隻鹿，問每人分到多少？答案是：大夫分到 $1\,\frac{2}{3}$ 隻鹿；不更分到 $1\,\frac{1}{3}$ 隻鹿；簪褭分到 1 隻鹿；上造分到 $\frac{2}{3}$ 隻鹿；公士分到 $\frac{1}{3}$ 隻鹿。
-}
-
-\end{paracol}
-
-\subsection{牛馬羊食苗 The Cow, Horse, and Sheep}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-牛、馬、羊食人苗，苗主責之粟五斗，牛食馬之半，馬食羊之半，欲衰償之？答曰：牛二斗八升，七分升之四；馬一斗四升，七分升之二；羊七升，七分升之一。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-一頭牛、一匹馬、一隻羊吃了別人家的禾苗，苗主要求賠償五斗粟。牛吃的量是馬的一半，馬吃的量是羊的一半，問按比率賠償各應出多少？答案是：牛出 $2\,\frac{4}{7}$ 斗（2 斗 8 又 $\frac{4}{7}$ 升）；馬出 $1\,\frac{2}{7}$ 斗（1 斗 4 又 $\frac{2}{7}$ 升）；羊出 $\frac{1}{7}$ 斗（7 又 $\frac{1}{7}$ 升）。
-}
-
-\end{paracol}
-
-\subsection{女子善織 The Woman Skilled at Weaving}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-女子善織，日自倍，五日織五尺。問日織數。答曰：初日一寸，三十一分寸之十九；二日三寸，三十一分寸之七；三日六寸，三十一分寸之十四；四日一尺二寸，三十一分寸之二十八；五日二尺四寸，三十一分寸之二十五。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有個女子很會織布，每天織的布是前一天的一倍，五天共織了五尺。問每天各織了多少？答案是：第一天織了 $1\,\frac{19}{31}$ 寸；第二天織了 $3\,\frac{7}{31}$ 寸；第三天織了 $6\,\frac{14}{31}$ 寸；第四天織了 $12\,\frac{28}{31}$ 寸；第五天織了 $24\,\frac{25}{31}$ 寸。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 5: SHORT WIDTH / ROOT EXTRACTION
-%% ========================================================================
-\section{第五章：少廣 Short Width / Root Extraction}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-少廣章論述已知矩形面積及一邊求另一邊的問題，涉及分數除法及開方運算。原書此章共 24 題。
-
-\textbf{少廣術曰：}置全步及分母子，各以其母除其子，内子，以乘全步，并之為法。以畝積步為實。實如法而一，得從。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-少廣章討論已知矩形的面積和一條邊的長度，求另一條邊長度的問題，這涉及到分數除法和開方運算。原書這一章共有 24 道題目。
-
-\textbf{少廣算法：}列出整數步和分數的分子分母，各自用分母去除分子，把餘數併入分子，再乘以整數步，相加後作為除數（法）。用一畝的面積（240 平方步）作為被除數（實）。實除以法，就得到長度。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-田一畝廣一步半，問從？答曰：一百六十步。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有一畝田，寬度為一步半（$1\,\frac{1}{2}$ 步），問長度是多少？答案是：160 步。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small\textit{草曰：}廣 $1\,\frac{1}{2} = \frac{3}{2}$ 步。田積一畝 = 240 步。從 = $240 \div \frac{3}{2} = 240 \times \frac{2}{3} = $ \textbf{160} 步。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small\textit{演算過程：}寬 $1\,\frac{1}{2} = \frac{3}{2}$ 步。田地面積為 1 畝 = 240 平方步。長度 = $240 \div \frac{3}{2} = 240 \times \frac{2}{3} = $ \textbf{160} 步。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-田一畝廣一步半、三分步之一。問從？答曰：一百三十步一十一分步之一十。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有一畝田，寬度為一步半又三分之一步，問長度是多少？答案是：$130\,\frac{10}{11}$ 步。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-田一畝廣一步半、三分步之一、四分步之一。問從？答曰：一百一十五步五分步之一。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有一畝田，寬度為一步半又三分之一又四分之一步，問長度是多少？答案是：$115\,\frac{1}{5}$ 步。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-田一畝廣一步半、三分步之一、四分步之一、五分步之一。問從？答曰：一百五步、一百三十七分步之一十五。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-有一畝田，寬度為一步半又三分之一又四分之一又五分之一步，問長度是多少？答案是：$105\,\frac{15}{137}$ 步。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% YANG HUI'S TRIANGLE
-%% ========================================================================
-\section{開方作法本源圖 The Method Source for Square Root Extraction}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-楊輝所錄「開方作法本源圖」（即今所謂楊輝三角或帕斯卡三角形），為其最著名之貢獻。楊輝歸功於北宋數學家\textbf{賈憲}（約 1010--1070 年）。
-
-楊輝釋之曰：
-
-\fboxsep=4pt\colorbox{classicalbg}{\parbox{\linewidth}{\small
-左袤乃積數，右袤乃隅算，中藏者皆廉，以廉乘商方，命實而除之。}}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-楊輝記錄的「開方作法本源圖」（也就是現在所說的楊輝三角或帕斯卡三角形），是他最著名的貢獻之一。楊輝把這個成就歸功於北宋數學家\textbf{賈憲}（約 1010--1070 年）。
-
-楊輝解釋說：
-
-\fboxsep=4pt\colorbox{modernbg}{\parbox{\linewidth}{\small
-左邊的斜線上的數字是「積數」（各項係數）；右邊斜線上的數字是「隅算」（最高次項係數）；中間隱藏的數字都是「廉」（中間各項係數）。用這些「廉」去乘以商的各次方，然後從被開方數中減去。}}
-}
-
-\end{paracol}
-
-\vspace{1em}
-
-\begin{center}
-\begin{tikzpicture}[scale=1.0, every node/.style={font=\small}]
-%% Yang Hui's Triangle
-\foreach \n in {0,...,6}{
-  \foreach \k in {0,...,\n}{
-    \pgfmathsetmacro{\y}{-\n*0.9}
-    \pgfmathsetmacro{\x}{\k*1.2-\n*0.6}
-    \ifnum\n=0
-      \ifnum\k=0\node[circle,draw,minimum size=0.7cm,fill=red!10] at (\x,\y) {1};\fi
-    \fi
-    \ifnum\n=1
-      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-      \ifnum\k=1\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-    \fi
-    \ifnum\n=2
-      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {2};\fi
-      \ifnum\k=2\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-    \fi
-    \ifnum\n=3
-      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {3};\fi
-      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {3};\fi
-      \ifnum\k=3\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-    \fi
-    \ifnum\n=4
-      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {4};\fi
-      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {6};\fi
-      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {4};\fi
-      \ifnum\k=4\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-    \fi
-    \ifnum\n=5
-      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {5};\fi
-      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {10};\fi
-      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {10};\fi
-      \ifnum\k=4\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {5};\fi
-      \ifnum\k=5\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-    \fi
-    \ifnum\n=6
-      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {6};\fi
-      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {15};\fi
-      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=yellow!20] at (\x,\y) {20};\fi
-      \ifnum\k=4\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {15};\fi
-      \ifnum\k=5\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {6};\fi
-      \ifnum\k=6\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
-    \fi
-  }
-}
-
-%% Labels
-\node[left] at (-4.5,-0) {\small $n=0$};
-\node[left] at (-4.5,-0.9) {\small $n=1$};
-\node[left] at (-4.5,-1.8) {\small $n=2$};
-\node[left] at (-4.5,-2.7) {\small $n=3$};
-\node[left] at (-4.5,-3.6) {\small $n=4$};
-\node[left] at (-4.5,-4.5) {\small $n=5$};
-\node[left] at (-4.5,-5.4) {\small $n=6$};
-
-%% Legend
-\draw[->,thick,red!70] (3.5,0) -- (4.5,0) node[right] {\small 隅算（積數）};
-\draw[->,thick,blue!60] (3.5,-0.6) -- (4.5,-0.6) node[right] {\small 一廉};
-\draw[->,thick,green!60!black] (3.5,-1.2) -- (4.5,-1.2) node[right] {\small 二廉};
-\draw[->,thick,orange!70] (3.5,-1.8) -- (4.5,-1.8) node[right] {\small 三廉};
-\end{tikzpicture}
-\end{center}
-
-\vspace{0.3em}
-\begin{center}
-{\small 圖一：開方作法本源圖（楊輝三角）--- 二項式係數表（至六次冪）}
-\end{center}
-
-\subsection*{結構說明 Structure Explanation}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item \textbf{左袤（積數）：}斜邊上的 1 為常數項係數
-\item \textbf{右袤（隅算）：}另一斜邊上的 1 為最高次項係數
-\item \textbf{中藏者（廉）：}中間各數為中間各項係數
-\end{itemize}
-
-每行即 $(x+a)^n$ 展開之係數：
-\begin{align*}
-(x+a)^0 &= 1 \\
-(x+a)^1 &= x + a \\
-(x+a)^2 &= x^2 + 2xa + a^2 \\
-(x+a)^3 &= x^3 + 3x^2a + 3xa^2 + a^3
-\end{align*}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item \textbf{左邊斜線（積數）：}斜線上的 1 是常數項的係數
-\item \textbf{右邊斜線（隅算）：}另一條斜線上的 1 是最高次項的係數
-\item \textbf{中間各數（廉）：}中間的數字是各中間項的係數
-\end{itemize}
-
-每一行就是 $(x+a)^n$ 展開式的係數：
-\begin{align*}
-(x+a)^0 &= 1 \\
-(x+a)^1 &= x + a \\
-(x+a)^2 &= x^2 + 2xa + a^2 \\
-(x+a)^3 &= x^3 + 3x^2a + 3xa^2 + a^3
-\end{align*}
-}
-
-\end{paracol}
-
-\subsection*{增乘方求廉法 Jia Xian's Generation Method}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-增乘方求廉法：以一次乘二次，以二次乘三次，遞增一位，至求終。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-增乘法求各項係數的方法：用一次項去乘二次項，用二次項去乘三次項，每次遞增一位，一直算到最後一項為止。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-此即今所謂「帕斯卡法則」：
-\[
-\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
-\]
-每行中每數等於其左上方與右上方兩數之和。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-這就是現在所說的「帕斯卡法則」：
-\[
-\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
-\]
-三角形中每一行的每個數字都等於它左上方和右上方兩個數字之和。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 6: COMMERCIAL CALCULATIONS
-%% ========================================================================
-\section{第六章：商功 Commercial Calculations / Engineering}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-商功章論述土木工程中的體積計算，如挖土、築城、開渠等。原書此章共 28 題。
-
-\textbf{土方換算率：}
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item 穿地（挖方）：基準
-\item 壤土（鬆土）：穿地四之五
-\item 堅土（夯土）：穿地三之四
-\end{itemize}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-商功章討論土木工程建設中的體積計算問題，比如挖土、築城牆、開運河等。原書這一章共有 28 道題目。
-
-\textbf{土方換算比率：}
-\begin{itemize}[noitemsep,leftmargin=1.5em]
-\item 挖方（自然狀態土）：基準
-\item 鬆土（挖出的鬆散土）：與挖方之比為 5:4
-\item 夯土（夯實後的土）：與挖方之比為 4:3
-\end{itemize}
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-穿地積一萬尺。問為堅、壤各幾何？答曰：為堅七千五百尺，為壤一萬二千五百尺。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-挖出土方一萬立方尺。問能築成多少夯土和多少鬆土？答案是：夯土 7500 立方尺，鬆土 12500 立方尺。
-}
-
-\end{paracol}
-
-\subsection*{城牆與溝渠體積 City Wall and Ditch Volumes}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{術曰：}并上下廣而半之，以高（或深）乘之，又以袤乘之，得積尺。
-
-\begin{classicalproblem}[城積]
-城下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問為尺幾何？答曰：一百八十九萬七千五百尺。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{算法：}將上底寬和下底寬相加取平均值，乘以高度（或深度），再乘以長度，得到體積（立方尺）。
-
-\begin{modernproblem}[城牆體積]
-一座城牆下底寬 4 丈，上底寬 2 丈，高 5 丈，長 126 丈 5 尺。問體積是多少立方尺？答案是：1,897,500 立方尺。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\subsection*{特殊立體 Special Solids}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{塹堵術：}廣袤相乘，又以高乘之，二而一。
-
-\textbf{陽馬術：}廣袤相乘，又以高乘之，三而一。
-
-\textbf{鱉臑術：}廣袤相乘，又以高乘之，六而一。
-
-\textbf{芻童術：}倍上袤加入下袤，以上廣乘之；倍下袤加入上袤，以下廣乘之；并之，以高乘之，六而一。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{塹堵（楔形體）算法：}寬乘以長，再乘以高，除以 2。
-
-\textbf{陽馬（四稜錐）算法：}寬乘以長，再乘以高，除以 3。
-
-\textbf{鱉臑（四面體）算法：}寬乘以長，再乘以高，除以 6。
-
-\textbf{芻童（楔臺）算法：}上底長的兩倍加下底長，乘以上底寬；下底長的兩倍加上底長，乘以 下底寬；兩個結果相加，乘以高，除以 6。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 7: EQUITABLE DISTRIBUTION
-%% ========================================================================
-\section{第七章：均輸 Equitable Distribution}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-均輸章論述賦稅與運輸費用的公平分配問題。原書此章共 28 題。
-
-\textbf{均輸術曰：}以道里之遠近、載輸之輕重、粟價之高下，各為率。以戶數乘之，為衰。并衰為法，以賦粟乘未并之衰為實。實如法而一。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-均輸章討論稅收和運輸費用如何在不同地區之間公平分配的問題。原書這一章共有 28 道題目。
-
-\textbf{均輸算法：}按照道路遠近、運輸負擔輕重、糧食價格高低，各自計算比率。用戶數乘以這個比率，得到分配的權重（衰）。把各權重相加作為除數（法），用總賦稅量乘以每個權重作為被除數（實）。實除以法得到每個地區應分擔的數額。
-}
-
-\end{paracol}
-
-\subsection*{追及問題 The Pursuit Problem}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-甲發長安，五日日至齊，乙發齊，七日至長安。今乙先行二日。問：幾日相逢？答曰：二日，十二分日之一。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-甲從長安出發，五天可到齊國。乙從齊國出發，七天可到長安。現在乙已經先出發兩天了。問：再過幾天兩人相遇？答案是：$2\,\frac{1}{12}$ 天。
-}
-
-\end{paracol}
-
-\subsection*{瓜瓠相遇 The Gourd and Melon Problem}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-垣高九尺，瓜生其上，蔓日長七寸；瓠生其下，蔓日長一尺。問：幾日相逢？答曰：相逢於五日，十七分日之五。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-一道牆高 9 尺，瓜從牆頂往下生長，每天長 7 寸；瓠從牆底往上生長，每天長 1 尺。問：幾天後兩條藤蔓相遇？答案是：$5\,\frac{5}{17}$ 天後相遇。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 8: EXCESS AND DEFICIT
-%% ========================================================================
-\section{第八章：盈不足 Excess and Deficit}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-盈不足章介紹「盈不足術」（雙假設法），為解線性方程與近似問題之強有力方法。原書此章共 20 題。
-
-\textbf{盈不足術曰：}置所出率，盈、不足各居其下。令維乘所出率，以為實。并盈、不足為法。實如法而一。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-盈不足章介紹「盈不足術」（也叫雙假設法），這是解線性方程和近似計算問題的一種非常有效的方法。原書這一章共有 20 道題目。
-
-\textbf{盈不足算法：}列出兩次假設的數值，把多餘和不足分別寫在下面。交叉相乘（假設值乘以對方的盈或不足），相加作為被除數（實）。把盈和不足相加作為除數（法）。實除以法就得到正確答案。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-共買物，人出八文，盈三文，人出七文，不足四文。問數、物價各幾何？答曰：七人。物價五十三。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-幾個人合買一件物品，每人出 8 文錢，就多出 3 文；每人出 7 文錢，就少 4 文。問有多少人？物品價格是多少？答案是：7 個人，物品價格 53 文。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-共買雞，各出九，盈十一，各出六，不足十六。問人數、雞價各幾何？答曰：九人，雞價七十。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-幾個人合買一隻雞，每人出 9 文，多出 11 文；每人出 6 文，少 16 文。問有多少人？雞的價格是多少？答案是：9 個人，雞的價格 70 文。
-}
-
-\end{paracol}
-
-\subsection*{盈朒適足 Exactly Sufficient}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-共買犬，人出五不足九十文，人出五十文適足。問人數、犬價各幾何？答曰：二人，犬價一百。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-幾個人合買一條狗，每人出 5 文，少 90 文；每人出 50 文，剛剛好。問有多少人？狗的價格是多少？答案是：2 個人，狗的價格 100 文。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 9: SYSTEMS OF LINEAR EQUATIONS
-%% ========================================================================
-\section{第九章：方程 Systems of Linear Equations}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-方程章為中國數學最卓越篇章之一，用算籌排列之矩陣陣式解線性方程組，相當於現代高斯消元法。原書此章共 18 題。
-
-\textbf{方程術曰：}置行數以相乘，各以所得，以少減多，反覆求之，直至一變量孤立，乃得其值。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-方程章是中國數學中最出色的章節之一，它使用算籌排列成矩陣的形式來解線性方程組，這相當於現代的高斯消元法。原書這一章共有 18 道題目。
-
-\textbf{方程算法：}把各方程的係數排列成行，互相交叉相乘，然後用大數減小數，反覆運算，直到一個變量被單獨分離出來，就可以求出它的值。
-}
-
-\end{paracol}
-
-\subsection{三穀問題 Three Grains Problem}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-上禾三秉，中禾二秉，下禾一秉，共實三十九斗。上禾二秉，中禾三秉，下禾一秉，共實三十四斗。上禾一秉，中禾二秉，下禾三秉，共實二十六斗。問：上、中、下禾一秉各幾何？
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-3 捆上禾、2 捆中禾、1 捆下禾，共出糧 39 斗。2 捆上禾、3 捆中禾、1 捆下禾，共出糧 34 斗。1 捆上禾、2 捆中禾、3 捆下禾，共出糧 26 斗。問：上禾、中禾、下禾每捆各出糧多少？
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textit{草曰：}列方程：
-\begin{align*}
-3x + 2y + z &= 39 \\
-2x + 3y + z &= 34 \\
-x + 2y + 3z &= 26
-\end{align*}
-以方程術（高斯消元法）解之：
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item 以一、二式相減：$x - y = 5$
-\item 以二、三式變換：$5x - 7y = 1$
-\item 解之：$x = 9\,\frac{1}{4}$，$y = 4\,\frac{1}{4}$，$z = 2\,\frac{3}{4}$
-\end{enumerate}
-\textbf{答：}上禾 $9\,\frac{1}{4}$ 斗，中禾 $4\,\frac{1}{4}$ 斗，下禾 $2\,\frac{3}{4}$ 斗。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textit{演算過程：}列出方程組：
-\begin{align*}
-3x + 2y + z &= 39 \\
-2x + 3y + z &= 34 \\
-x + 2y + 3z &= 26
-\end{align*}
-用方程術（高斯消元法）來解：
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item 第一式和第二式相減得到：$x - y = 5$
-\item 第二式和第三式變換後得到：$5x - 7y = 1$
-\item 求解得到：$x = 9\,\frac{1}{4}$，$y = 4\,\frac{1}{4}$，$z = 2\,\frac{3}{4}$
-\end{enumerate}
-\textbf{答案：}上禾每捆 $9\,\frac{1}{4}$ 斗，中禾每捆 $4\,\frac{1}{4}$ 斗，下禾每捆 $2\,\frac{3}{4}$ 斗。
-}
-
-\end{paracol}
-
-\subsection{牛羊值金 Cattle and Sheep}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-五牛二羊，直金十兩，二牛五羊，直金八兩。問：牛、羊價各幾何？答曰：一牛直金一兩二十一分兩之十三；一羊直金二十一分兩之二十。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-5 頭牛和 2 隻羊，共值金 10 兩。2 頭牛和 5 隻羊，共值金 8 兩。問：牛和羊各值金多少？答案是：1 頭牛值 $1\,\frac{13}{21}$ 兩金，1 隻羊值 $\frac{20}{21}$ 兩金。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CHAPTER 10: RIGHT TRIANGLES
-%% ========================================================================
-\section{第十章：勾股 Right Triangles}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-勾股章運用勾股定理解實際問題。原書此章共 38 題（原 24 題 + 少廣 13 題 + 商功 1 題）。
-
-\textbf{勾股定理求弦術：}勾股各自乘，并而開方除之，即弦。
-
-\textbf{求勾術：}弦自乘，減股自乘，其餘開方除之，即勾。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-勾股章運用勾股定理（畢達哥拉斯定理）來解決實際問題。原書這一章共有 38 道題目（原題 24 道 + 少廣章 13 道 + 商功章 1 道）。
-
-\textbf{求弦長的算法：}勾和股各自平方，相加後開平方，就是弦的長度。
-
-\textbf{求勾長的算法：}弦的平方減去股的平方，剩下的數開平方，就是勾的長度。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-勾八尺，股十五尺。問為弦幾何？答曰：十七尺。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-直角三角形的勾長 8 尺，股長 15 尺，問弦長是多少？答案是：17 尺。
-}
-
-\end{paracol}
-
-\subsection*{葛纏木 The Vine and the Tree}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-木長二丈，圍之三尺，葛生其下，纏木七周，上與木齊。問葛長幾何？答曰：二丈九尺。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-一棵樹高 2 丈，周長 3 尺。藤蔓從樹底生長，繞樹 7 圈，剛好到達樹頂。問藤蔓有多長？答案是：2 丈 9 尺。
-}
-
-\end{paracol}
-
-\subsection*{葭生池中 The Reed in the Pond}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-池方一丈，正中有葭，出水面一尺，引葭至岸，與水面適平。問水深？答曰：水深一丈二尺。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-一個正方形池塘邊長 1 丈，正中央長著一根蘆葦，露出水面 1 尺。如果把蘆葦拉到池塘邊，蘆葦頂端剛好與水面齊平。問水深多少？答案是：水深 1 丈 2 尺。
-}
-
-\end{paracol}
-
-\subsection*{折竹 The Broken Bamboo}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-竹高一丈，折梢拄地，去根三尺，問折處高幾何？答曰：四尺，二十分尺之十一。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-一根竹子高 1 丈，折斷後竹梢拄在地上，離根部 3 尺。問折斷處離地面多高？答案是：$4\,\frac{11}{20}$ 尺。
-}
-
-\end{paracol}
-
-\subsection*{勾中容圓 Circle Inscribed in a Right Triangle}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-勾八步，股十五步，問勾中容圓徑幾何？答曰：六步。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-直角三角形的勾長 8 步，股長 15 步，問這個三角形內切圓的直徑是多少？答案是：6 步。
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% SQUARE ROOT EXTRACTION
-%% ========================================================================
-\section{開方術 Square and Cube Root Extraction}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-楊輝保存並解說了賈憲的開方方法，代表宋代計算數學之最高成就。
-
-\textbf{釋鎖平方術：}
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item 置積為實
-\item 借一算（下法），步之超一位
-\item 議所得，以一乘所借算為方法
-\item 以除實
-\item 倍方法為廉法
-\item 復置下法，步之超一位，再以議所得乘之
-\end{enumerate}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-楊輝保存並詳細解說了賈憲的開方方法，這代表了宋代計算數學的最高成就。
-
-\textbf{釋鎖開平方算法（類似現代的長除法開方）：}
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item 把要求平方根的數作為被除數（實）
-\item 放置一根算籌作為下法，每兩位向前移一步
-\item 估算第一位數字，用這個數字乘以下法，得到方法
-\item 從實中減去
-\item 把方法加倍作為廉法
-\item 再放置下法，每兩位移一位，再用估算的數字去乘
-\end{enumerate}
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-\ClassicalText{
-積五萬五千二百二十五步，問為方幾何？答曰：二百三十五步。
-}
-
-\switchcolumn
-\RightLabel
-\ModernText{
-面積為 55225 平方步，問正方形的邊長是多少？答案是：235 步。
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textit{草曰：}$\sqrt{55225} = $\textbf{235}。逐步演算：
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item 分組：5 | 52 | 25
-\item 首數：$2^2 = 4 \le 5$，首數為 2
-\item 餘數：$5-4=1$，下推 52 得 152
-\item 倍之：$2 \times 2 = 4$。求 $d$ 使 $(40+d) \times d \le 152$。$d = 3$，$43 \times 3 = 129$
-\item 餘數：$152 - 129 = 23$，下推 25 得 2325
-\item 倍之：$23 \times 2 = 46$。求 $d$ 使 $(460+d) \times d \le 2325$。$d=5$，$465 \times 5 = 2325$
-\item 餘數為零。故 $\sqrt{55225} = 235$。
-\end{enumerate}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textit{演算過程：}$\sqrt{55225} = $\textbf{235}。逐步演算如下：
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item 將數字從右往左每兩位分一組：5 | 52 | 25
-\item 第一位：$2^2 = 4 \le 5$，所以第一位是 2
-\item 餘數：$5 - 4 = 1$，把下一組 52 移下來得到 152
-\item 把當前結果加倍：$2 \times 2 = 4$。找一個數字 $d$ 使得 $(40 + d) \times d \le 152$。$d = 3$ 時，$43 \times 3 = 129$
-\item 餘數：$152 - 129 = 23$，把下一組 25 移下來得到 2325
-\item 把當前結果 23 加倍：$23 \times 2 = 46$。找 $d$ 使得 $(460 + d) \times d \le 2325$。$d = 5$ 時，$465 \times 5 = 2325$
-\item 餘數為零。所以 $\sqrt{55225} = 235$。
-\end{enumerate}
-}
-
-\end{paracol}
-
-\subsection*{開立方 Cube Root Extraction}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textbf{開立方術：}與開平方類似，惟有三層除數：方法（平方項）、廉法（一次項）、隅法（常數項）。
-
-\begin{classicalproblem}[開立方]
-積一百八十六萬八百六十七尺，問為立方幾何？答曰：一百二十三尺。
-\end{classicalproblem}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textbf{開立方算法：}與開平方類似，但是有三層除數：方法（二次項係數）、廉法（一次項係數）、隅法（常數項係數）。
-
-\begin{modernproblem}[開立方]
-體積為 1,860,867 立方尺，問立方體的邊長是多少？答案是：123 尺。
-\end{modernproblem}
-}
-
-\end{paracol}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-\textit{驗算：}$123^3 = 123 \times 123 \times 123 = 15129 \times 123 = 1{,}860{,}867$。$\checkmark$
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-\textit{驗算：}$123^3 = 123 \times 123 \times 123 = 15129 \times 123 = 1{,}860{,}867$。驗證正確！$\checkmark$
-}
-
-\end{paracol}
-
-\newpage
-
-%% ========================================================================
-%% CLASSIFICATION
-%% ========================================================================
-\section{篡類 Classification of Methods}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-楊輝將全書 246 題按數學方法重新分類，發現不同章節之題目往往使用相同之基本方法。
-
-\begin{quote}\small
-楊輝竊見九章舊本，作立題法遺闕。古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至真術淹廢，偽本滋典。
-\end{quote}
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-楊輝將全書 246 道題目按照所使用的數學方法重新分類，發現不同章節的題目其實常常使用相同的基本方法。
-
-\begin{quote}\small
-我仔細查看了《九章》的舊版本，發現有些題目和算法已經遺失了。古序中說：自從靖康之變以來，舊版本已經很少見了，偶爾有幸存下來的，也因為後人的陋習而被篡改，不再遵循原本的意思，以至於真正的算法被埋沒廢棄了，而錯誤的版本卻流傳開來。
-\end{quote}
-}
-
-\end{paracol}
-
-\vspace{0.8em}
-
-\begin{center}
-{\small\textbf{方法交叉分類表}}
-\end{center}
-\vspace{0.3em}
-
-\begin{center}
-\begin{longtable}{|l|p{3.8cm}|c|}
-\hline
-\textbf{方法} & \textbf{應用章節} & \textbf{題數} \\
-\hline
-\endfirsthead
-\hline
-\textbf{方法} & \textbf{應用章節} & \textbf{題數} \\
-\hline
-\endhead
-乘除 & 方田（38）、粟米（3）、經率（9） & 41 \\
-\hline
-經率 & 粟米（5）、盈不足（4） & 5 \\
-\hline
-合率 & 少廣（11）、均輸（8）、盈不足（1） & 20 \\
-\hline
-互換 & 粟米（38）、衰分（11）、均輸（11）、盈不足（3） & 63 \\
-\hline
-衰分 & 原章（9）、均輸（9） & 18 \\
-\hline
-疊積 & 商功（27） & 27 \\
-\hline
-盈不足 & 商功 + 原章（11） & 11 \\
-\hline
-方程 & 原章（18）、盈不足（1） & 19 \\
-\hline
-勾股 & 少廣（13）、商功（1）、原章（24） & 38 \\
-\hline
-\caption*{246 題按方法交叉分類}
-\end{longtable}
-\end{center}
-
-\newpage
-
-%% ========================================================================
-%% CONCLUSION
-%% ========================================================================
-\section{結語 Conclusion}
-
-\begin{paracol}{2}
-\LeftLabel
-{\CJKfamily{classical}\small
-楊輝《詳解九章算法》之貢獻可概括為四端：
-
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item \textbf{保存賈憲遺著：}楊輝引述使後人得知賈憲之二項式三角圖、開方方法及代數學貢獻——否則將全無所聞。
-
-\item \textbf{系統編纂：}問、答、術、草之四段結構成為數學著述之典範。
-
-\item \textbf{批判性學術：}按方法而非按主題分類題目，揭示了數學方法在不同領域中之統一性。
-
-\item \textbf{教育創新：}楊輝明言為「不得其門而入」之學生編寫此書。
-\end{enumerate}
-
-「開方作法本源圖」（楊輝三角）已成為數學中最著名之圖形之一，見於全球教科書。其在西方被稱為「帕斯卡三角形」——以布萊茲·帕斯卡（1623--1662）命名，而帕斯卡生活於賈憲之後約六百年、楊輝之後約四百年——此乃數學知識在不同文化中獨立發展之明證，亦提醒我們正視中國數學家對現代數學基礎之貢獻。
-}
-
-\switchcolumn
-\RightLabel
-{\CJKfamily{modern}\small
-楊輝《詳解九章算法》的貢獻可以概括為四個方面：
-
-\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
-\item \textbf{保存賈憲的遺著：}通過楊輝的引用，後人才知道賈憲的二項式三角圖、開方方法和代數學貢獻——否則這些成就將完全失傳。
-
-\item \textbf{系統化的編纂方法：}問、答、術、草四段式結構成為數學著述的典範。
-
-\item \textbf{批判性的學術研究：}按照數學方法而不是按照主題來分類題目，揭示了數學方法在不同應用領域中的統一性。
-
-\item \textbf{教育上的創新：}楊輝明確表示，他是為那些「找不到入門途徑」的學生編寫這本書的。
-\end{enumerate}
-
-「開方作法本源圖」（楊輝三角）已經成為數學史上最著名的圖形之一，出現在世界各地的教科書中。它在西方被稱為「帕斯卡三角形」——以布萊茲·帕斯卡（1623--1662）命名，而帕斯卡生活在賈憲之後約六百年、楊輝之後約四百年——這是數學知識在不同文化中獨立發展的有力證明，也提醒我們要正視中國數學家對現代數學基礎的重要貢獻。
-}
-
-\end{paracol}
-
-\vspace{2em}
-
-\begin{center}
-\longline
-\end{center}
-
-\vspace{1em}
-
-\begin{center}
-{\CJKfamily{classical}\textit{「數學乃眾學之基。」}}\\[0.5em]
---- 楊輝《詳解九章算法》
-\end{center}
-
-\end{document}
+%% ========================================================================
+%% Yang Hui's Xiangjie Jiuzhang Suanfa (Part I)
+%% 楊輝《詳解九章算法》(上)
+%% Bilingual Edition: Classical Chinese (文言文) | Modern Chinese (白话文)
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usepackage{lettrine}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{etoolbox}
+
+%% -------- Paracol for bilingual parallel columns --------
+\usepackage{paracol}
+\columnratio{0.50}  %% Equal columns
+\setlength{\columnsep}{1.2em}
+\setlength{\columnseprule}{0.4pt}
+
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language & Font Setup --------
+\setmainlanguage{english}
+
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% Chinese Fonts via xeCJK
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\setCJKfamilyfont{classical}{Noto Serif CJK SC}
+\setCJKfamilyfont{modern}{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{classicalbg}{RGB}{252,248,240}
+\definecolor{modernbg}{RGB}{240,248,252}
+\definecolor{problemframe}{RGB}{139,119,101}
+\definecolor{solutionbg}{RGB}{245,245,240}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{楊輝《詳解九章算法》— 文白對照版}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Classical Chinese text helper (left column)
+\newcommand{\ClassicalText}[1]{%
+  \begin{center}\small\textbf{【原文】}\end{center}
+  \vspace{-0.5em}
+  {\CJKfamily{classical}\fboxsep=4pt\colorbox{classicalbg}{%
+    \parbox{\linewidth}{\small#1%
+  }}\vspace{0.5em}}
+}
+
+%% Modern Chinese text helper (right column)
+\newcommand{\ModernText}[1]{%
+  \begin{center}\small\textbf{【白话译文】}\end{center}
+  \vspace{-0.5em}
+  {\CJKfamily{modern}\fboxsep=4pt\colorbox{modernbg}{%
+    \parbox{\linewidth}{\small#1%
+  }}\vspace{0.5em}}
+}
+
+%% Column labels
+\newcommand{\LeftLabel}{\begin{center}\textcolor{sectioncolor}{\small\textbf{文言文（原文）}}\end{center}\vspace{-0.5em}}
+\newcommand{\RightLabel}{\begin{center}\textcolor{sectioncolor}{\small\textbf{白话文（今译）}}\end{center}\vspace{-0.5em}}
+
+%% Problem environments
+\newenvironment{classicalproblem}[1][]{%
+  \par\smallskip%
+  \noindent\textbf{\textcolor{problemframe}{問#1：}}%
+}{%
+  \par\smallskip
+}
+
+\newenvironment{modernproblem}[1][]{%
+  \par\smallskip%
+  \noindent\textbf{\textcolor{problemframe}{问题#1：}}%
+}{%
+  \par\smallskip
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={楊輝詳解九章算法 — 文白對照版},
+  pdfauthor={楊輝（南宋）},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{titlecolor} 詳解九章算法}\\[0.8em]
+{\LARGE\color{sectioncolor} 楊輝 \quad 著}\\[0.5em]
+{\large\color{sectioncolor} 南宋（約 1238--1298 年）}\\[2.5em]
+
+{\Large\bfseries\color{titlecolor} 文白對照版}\\[0.5em]
+{\large\color{sectioncolor} Classical Chinese -- Modern Chinese Bilingual Edition}\\[2em]
+
+\longline\\[1.5em]
+
+{\large\color{sectioncolor}（上卷 Part I）}\\[1em]
+\longline\\[2em]
+
+\begin{tikzpicture}[scale=0.75]
+%% Yang Hui's Triangle (Pascal's Triangle)
+\foreach \n in {0,...,6}{
+  \foreach \k in {0,...,\n}{
+    \pgfmathsetmacro{\y}{-\n*0.8}
+    \pgfmathsetmacro{\x}{\k*0.8-\n*0.4}
+    \ifnum\n=0\ifnum\k=0\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=1\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=2\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {2};\fi\ifnum\k=2\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=3\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {3};\fi\ifnum\k=2\node at (\x,\y) {3};\fi\ifnum\k=3\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=4\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {4};\fi\ifnum\k=2\node at (\x,\y) {6};\fi\ifnum\k=3\node at (\x,\y) {4};\fi\ifnum\k=4\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=5\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {5};\fi\ifnum\k=2\node at (\x,\y) {10};\fi\ifnum\k=3\node at (\x,\y) {10};\fi\ifnum\k=4\node at (\x,\y) {5};\fi\ifnum\k=5\node at (\x,\y) {1};\fi\fi
+    \ifnum\n=6\ifnum\k=0\node at (\x,\y) {1};\fi\ifnum\k=1\node at (\x,\y) {6};\fi\ifnum\k=2\node at (\x,\y) {15};\fi\ifnum\k=3\node at (\x,\y) {20};\fi\ifnum\k=4\node at (\x,\y) {15};\fi\ifnum\k=5\node at (\x,\y) {6};\fi\ifnum\k=6\node at (\x,\y) {1};\fi\fi
+  }
+}
+\node[below] at (0,-5.5) {\small 開方作法本源圖（楊輝三角）};
+\end{tikzpicture}
+
+\vfill
+
+{\small 以 XeLaTeX 排版 \quad Noto Serif CJK SC 字體}\\[0.3em]
+{\small \today}
+
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\newpage
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section{導讀 Introduction}
+
+\begin{paracol}{2}
+\LeftLabel
+
+{\CJKfamily{classical}
+《詳解九章算法》為南宋數學家\textbf{楊輝}（約 1238--1298 年）所撰，成書於 1261 年。此書對漢代《九章算術》進行了詳細的疏解與評注，是中國數學史上最重要的著作之一。
+
+原序云：「輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。」楊輝遂「以答參問，用草考法，因法推類」，使學者得以窺其門徑。
+
+全書凡十二卷：
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item 乘除（41 題）
+\item 方田（38 題）
+\item 粟米（46 題）
+\item 衰分（20 題）
+\item 少廣（24 題）
+\item 商功（28 題）
+\item 均輸（28 題）
+\item 盈不足（20 題）
+\item 方程（18 題）
+\item 勾股（38 題）
+\item 篡類
+\end{enumerate}
+
+其編纂體例為：\textbf{問}（設題）$\rightarrow$ \textbf{答}（答數）$\rightarrow$ \textbf{術}（算法）$\rightarrow$ \textbf{草}（演草，即詳細計算步驟）。此四段式結構成為中國數學著述之典範。
+}
+
+\switchcolumn
+\RightLabel
+
+{\CJKfamily{modern}
+《詳解九章算法》是南宋数学家\textbf{楊輝}（約 1238--1298 年）編撰的重要數學著作，成書於 1261 年。本書對漢代經典《九章算術》進行了系統性的詳細註解和評論，是中國數學史上最具影響力的作品之一。
+
+楊輝在原序中說：「我曾聽學者們說，《九章》的題目頗為隱晦，其中的原理和方法難以理解，讓人找不到入門的途徑。」於是他「用答案來對照問題，用演算過程來考證算法，再根據算法推廣類比」，讓後來的學者能夠找到學習的門徑。
+
+全書共分為十二章：乘除法（41 題）、方田（38 題）、粟米（46 題）、衰分（20 題）、少廣（24 題）、商功（28 題）、均輸（28 題）、盈不足（20 題）、方程（18 題）、勾股（38 題）、以及篡類。
+
+楊輝的編排體例是：先「問」（提出問題），再「答」（給出答案），然後「術」（闡述通用算法），最後「草」（提供詳細的逐步計算過程）。這種四段式結構成為了中國數學著述的典範。
+}
+
+\end{paracol}
+
+\subsection{歷史背景 Historical Context}
+
+\begin{paracol}{2}
+\LeftLabel
+
+{\CJKfamily{classical}
+《九章算術》原書成於漢代（約公元前 200 年--公元 200 年），收錄 246 道數學題，分為九章。至南宋時，原文因以下原因漸難理解：
+
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item 靖康之變（1127 年）導致大量書籍散佚
+\item 傳抄過程中訛誤叢生
+\item 題設隱晦，古法難明
+\end{itemize}
+
+楊輝序曰：「昔聖宋紹興戊辰，算士榮棨謂靖康以來，罕有舊本，間有存者，狃於末習，向獲善本，得其全經，復起於學。」
+}
+
+\switchcolumn
+\RightLabel
+
+{\CJKfamily{modern}
+《九章算術》原本編成於漢代（約公元前 200 年至公元 200 年），收錄了 246 道數學問題，分為九章。到了南宋時期，由於以下原因，原文已經變得難以理解：
+
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item 靖康之變（1127 年）時大量典籍散失
+\item 輾轉傳抄過程中產生了許多錯誤
+\item 題目表述隱晦，古代算法難以理解
+\end{itemize}
+
+楊輝在序中說：「在神聖的宋朝紹興年間的戊辰年，數學家榮棨說，自從靖康年間以來，舊版本已經很罕見了，偶爾有幸存下來的，也因為後人的不良習慣而被篡改。後來找到了一個善本，恢復了全書，學術研究才得以重新興起。」
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\section{原序 Original Preface}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+黃帝九章古序云：國家嘗設算科取士，選九章以為算經之首，蓋猶儒者之六經，醫家之難素，兵法之孫子歟。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+《黃帝九章》的古序說：國家曾經設立數學科目來選拔人才，把《九章》選為數學經典之首，這就好像儒家學者的六經、醫家的《難經》和《素問》、兵家的《孫子兵法》一樣重要啊。
+}
+
+\end{paracol}
+
+\vspace{0.8em}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+昔聖宋紹興戊辰，算士榮棨謂靖康以來，罕有舊本，間有存者，狃於末習，向獲善本，得其全經，復起於學。以魏景元元年劉徽等、唐朝議大夫、行太史令上輕車都尉李淳風等注釋，聖宋右班直賈憲撰草。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+從前，在我大宋紹興年間的戊辰年，數學家榮棨說，自從靖康之變以來，舊版本已經很罕見了，偶爾有幸存下來的，也被後人的陋習所污染。後來獲得了一個善本，得到了完整的經書，學術研究才得以重新興起。這個版本有魏國景元元年劉徽等人、唐代的朝議大夫、代理太史令、上輕車都尉李淳風等人的注釋，還有宋朝右班直賈憲撰寫的演草。
+}
+
+\end{paracol}
+
+\vspace{0.8em}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+輝嘗聞學者，謂九章題問頗隱，法理難明，不得其門而入。於是以答參問，用草考法，因法推類，然後知斯文非古之全經也。將後賢補贅之文，修前代已廢之法，刪立題術，又篡法問，詳著於後，儻得賢者，改而正諸，是所願也。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+我曾經聽學者們說，《九章》的題目頗為隱晦，其中的原理和方法難以理解，讓人找不到入門的途徑。於是我用答案來對照問題，用演算過程來考證算法，再根據算法推廣類比，這之後才知道這部書並不是古代完整的經典。我把後代賢人所補充的文字、前代已經廢棄的方法加以修訂，重新確立題目和算法，又編纂了方法和問題，詳細地記錄在後面。如果能夠得到賢能之士加以改正完善，那就是我的心願了。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 1: MULTIPLICATION AND DIVISION
+%% ========================================================================
+\section{第一章：乘除法 Multiplication and Division}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+本章論述乘除等基本運算，共 41 題，多取材於《方田》《粟米》諸章。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+本章討論乘法和除法等基本運算，共 41 道題目，大多取材於《方田》《粟米》等章節。
+}
+
+\end{paracol}
+
+\subsection{直田法 Rectangular Field Method}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{術曰：}以廣乘從得積。以畝法（二百四十步）除之。
+
+\begin{classicalproblem}[一]
+廣十五步，從十六步，問田幾何？答曰：一畝。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{算法：}用寬度乘以長度得到面積。用一畝的標準（240 平方步）去除。
+
+\begin{modernproblem}[第一題]
+有一塊田，寬 15 步，長 16 步，問田地面積是多少？答案是：一畝。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small\textit{草曰：}廣十五步，從十六步。以廣乘從：$15 \times 16 = 240$ 步。以一畝法二百四十步除之，得 \textbf{一畝}。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small\textit{演算過程：}寬 15 步，長 16 步。用寬乘長：$15 \times 16 = 240$ 平方步。用一畝的標準 240 平方步去除，得到 \textbf{一畝}。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\begin{classicalproblem}[二]
+廣十二步，從十四步，問田幾何？答曰：一百六十八步。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\begin{modernproblem}[第二題]
+有一塊田，寬 12 步，長 14 步，問面積是多少平方步？答案是：168 平方步。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\subsection{乘分 Fraction Multiplication}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{術曰：}母互乘子，并以為實。母相乘為法。實如法而一。
+
+\begin{classicalproblem}[乘分]
+田廣七步、四分步之三，從十五步、九分步之五，問：為田幾何？答曰：一百二十步，九分步之五。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{算法：}將各分母的分子交叉相乘，相加後作為被除數（實）。將各分母相乘作為除數（法）。用實除以法得到結果。
+
+\begin{modernproblem}[分數乘法]
+有一塊田，寬 $7\,\frac{3}{4}$ 步，長 $15\,\frac{5}{9}$ 步，問田地面積是多少？答案是：$120\,\frac{5}{9}$ 平方步。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small\textit{草曰：}廣 $7\,\frac{3}{4} = \frac{31}{4}$ 步。從 $15\,\frac{5}{9} = \frac{140}{9}$ 步。以廣乘從：$\frac{31}{4} \times \frac{140}{9} = \frac{4340}{36} = 120\,\frac{5}{9}$ 平方步。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small\textit{演算過程：}寬 $7\,\frac{3}{4} = \frac{31}{4}$ 步。長 $15\,\frac{5}{9} = \frac{140}{9}$ 步。用寬乘長：$\frac{31}{4} \times \frac{140}{9} = \frac{4340}{36} = 120\,\frac{5}{9}$ 平方步。
+}
+
+\end{paracol}
+
+\subsection{除分 Division with Fractions}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{術曰：}以人數為法，錢數為實。有分者通之。實如法而一。
+
+\begin{classicalproblem}[除分]
+七人，均八錢三分錢之一，問人得幾何？答曰：人得一錢二十一分錢之四。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{算法：}用人數作為除數（法），錢數作為被除數（實）。如果有分數就通分。用實除以法得到每人所得。
+
+\begin{modernproblem}[分數除法]
+七個人平分 $8\,\frac{1}{3}$ 錢，問每人得到多少？答案是：每人得到 $1\,\frac{4}{21}$ 錢。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 2: FIELD MEASUREMENT
+%% ========================================================================
+\section{第二章：方田 Field Measurement}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+方田章主要討論面積計算與分數運算。原書此章共 38 題，涵蓋各種田形及分數四則運算。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+方田章主要討論面積的計算方法以及分數的四則運算。原書這一章共有 38 道題目，涵蓋了各種不同形狀的田地以及分數的加減乘除運算。
+}
+
+\end{paracol}
+
+\subsection{約分 Reduction of Fractions}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{約分術曰：}可半者半之。不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{約分算法：}分子和分母如果都能被 2 整除，就同時除以 2。如果不能被 2 整除，就把分子和分母分別寫下來，用較大的數減去較小的數，反覆相減（輾轉相除），直到找到最大公約數。用這個最大公約數去約分子和分母。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+十八分之十二。問：約之得幾何？答曰：三分之二。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+把 $\frac{12}{18}$ 約分。問：約分之後是多少？答案是：$\frac{2}{3}$。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small\textit{草曰：}十二與十八，以少減多：$18 - 12 = 6$，$12 - 6 = 6$，$6 - 6 = 0$。等數為六。以六約之：$\frac{12 \div 6}{18 \div 6} = \frac{2}{3}$。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small\textit{演算過程：}12 和 18，用大數減小數：$18 - 12 = 6$，$12 - 6 = 6$，$6 - 6 = 0$。最大公約數是 6。用 6 去約：$\frac{12 \div 6}{18 \div 6} = \frac{2}{3}$。
+}
+
+\end{paracol}
+
+\subsection{合分 Addition of Fractions}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{合分術曰：}母互乘子，并以為實。母相乘為法。實如法而一。其母同者，直相從之。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{分數加法算法：}各分母交叉乘以各分子，將所得的積相加作為被除數（實）。各分母相乘作為除數（法）。用實除以法得到結果。如果分母相同，直接把分子相加即可。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+二分之一、三分之二、四分之三、五分之四，合之得幾何？答曰：得二，餘六十分之四十三。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+計算 $\frac{1}{2} + \frac{2}{3} + \frac{3}{4} + \frac{4}{5}$，總和是多少？答案是：2 又 $\frac{43}{60}$。
+}
+
+\end{paracol}
+
+\subsection{課分 Subtraction and Comparison}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{課分術曰：}母互乘子，以少減多，餘為實。母相乘為法。實如法而一。即其相差之數。
+
+\begin{classicalproblem}[課分]
+八分之五，比二十五分之十六。問：孰多多幾何？答曰：二十五分之十六，多多二百分之三。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{分數比較算法：}各分母交叉乘以各分子，用大數減去小數，差作為被除數（實）。分母相乘作為除數（法）。實除以法即得兩分數相差之數。
+
+\begin{modernproblem}[分數比較]
+比較 $\frac{5}{8}$ 和 $\frac{16}{25}$。問：哪個大？大多少？答案是：$\frac{16}{25}$ 更大，大出 $\frac{3}{200}$。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\subsection{平分 Equalizing Fractions}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{平分術曰：}母互乘子，各列其數，并而為列實。母相乘為法。以列數乘法，各以列實減之，不足者益之，多者減之，各得其平。
+
+\begin{classicalproblem}[平分]
+二分之一、三分之二、四分之三，減多益少幾何？而平？答曰：減四分之三者四，減三分之二者一，益二分之一者五，各平於三十六分之二十三。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{平分算法：}各分母交叉乘以各分子，分別列出所得數，相加作為列實。分母相乘作為法。用列數乘法，再從各列實中減去，不夠的補上，多餘的減去，使它們相等。
+
+\begin{modernproblem}[分數平分]
+有 $\frac{1}{2}$、$\frac{2}{3}$、$\frac{3}{4}$ 三個分數，從多的減去、補給少的，應該各減多少、補多少才能相等？答案是：從 $\frac{3}{4}$ 減去 $\frac{4}{36}$，從 $\frac{2}{3}$ 減去 $\frac{1}{36}$，給 $\frac{1}{2}$ 補上 $\frac{5}{36}$，三個都等於 $\frac{23}{36}$。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 3: GRAIN CONVERSION
+%% ========================================================================
+\section{第三章：粟米 Grain Conversion}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+粟米章論述各種糧食之間的比例兌換，共 46 題。其中有基本乘除 6 題，比例兌換 31 題，比率運算 9 題。
+
+\textbf{經率術曰：}以所買率為法，所出錢為實。實如法而一。
+
+\textbf{粟米換術曰：}以所有數乘所求率為實，以所有率為法，實如法而一。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+粟米章討論各種糧食之間的比例兌換問題，共 46 道題目。其中包括基本乘除 6 題，比例兌換 31 題，比率運算 9 題。
+
+\textbf{基本比率算法：}用購買的數量作為除數（法），付出的錢數作為被除數（實）。實除以法得到單價。
+
+\textbf{糧食兌換算法：}用現有的數量乘以所求糧食的兌換率作為被除數（實），用現有糧食的兌換率作為除數（法）。實除以法得到結果。
+}
+
+\end{paracol}
+
+\subsubsection*{標準兌換率 Standard Conversion Rates}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item 粟：率五十
+\item 糲米：率三十
+\item 糳米：率二十七
+\item 御米：率二十四
+\item 麥、菽：率各四十五
+\end{itemize}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item 粟（小米）：兌換率 50
+\item 糲米（糙米）：兌換率 30
+\item 糳米（精米）：兌換率 27
+\item 御米（上供米）：兌換率 24
+\item 麥、豆：兌換率各 45
+\end{itemize}
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+粟一斗。問為糲米幾何？答曰：六升。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有一斗粟，問能換成多少糲米（糙米）？答案是：六升。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small\textit{草曰：}粟率五十，糲米率三十。$1 \times \frac{30}{50} = \frac{3}{5}$ 斗 = \textbf{六升}。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small\textit{演算過程：}粟的兌換率是 50，糲米的兌換率是 30。$1 \times \frac{30}{50} = \frac{3}{5}$ 斗 = \textbf{6 升}。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+粟四斗五升。問為糳米幾何？答曰：二斗一升五分升之三。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有粟四斗五升，問能換成多少糳米（精米）？答案是：二斗一升又五分之三升。
+}
+
+\end{paracol}
+
+\subsection{絲與錢幣換算 Silk and Currency}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+絲一斤，價三百四十五，今有七兩一十二銖。問錢，答曰：一百六十一錢，三十二分錢之二十三。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+絲一斤（16 兩 = 384 銖），價格 345 文錢。現在有絲七兩十二銖，問值多少錢？答案是：161 又 $\frac{23}{32}$ 文錢。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 4: PROPORTIONAL DISTRIBUTION
+%% ========================================================================
+\section{第四章：衰分 Proportional Distribution}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+衰分章論述按比例分配數量。原書此章共 20 題。
+
+\textbf{衰分術曰：}各置列衰，副并為法。以所分乘未并者各自為實。實如法而一。不滿法者，以法命之。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+衰分章討論按照給定比例來分配數量的問題。原書這一章共有 20 道題目。
+
+\textbf{衰分算法：}列出各個分配的比率（衰），把它們相加作為除數（法）。用要分配的總數乘以每一個未相加前的比率，各自作為被除數（實）。實除以法得到每人所得。如果有餘數，就以法為分母來表示。
+}
+
+\end{paracol}
+
+\subsection{五爵均鹿 Five Ranks Sharing Deer}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+大夫、不更、簪褭、上造、公士凡五人，以爵次高下均五鹿，問各幾何？答曰：大夫一鹿，三分鹿之二；不更一鹿，三分鹿之一；簪褭一鹿；上造鹿三分之二；公士鹿三分之一。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有大夫、不更、簪褭、上造、公士五個人，按照爵位的高低（比率為 5:4:3:2:1）來平分五隻鹿，問每人分到多少？答案是：大夫分到 $1\,\frac{2}{3}$ 隻鹿；不更分到 $1\,\frac{1}{3}$ 隻鹿；簪褭分到 1 隻鹿；上造分到 $\frac{2}{3}$ 隻鹿；公士分到 $\frac{1}{3}$ 隻鹿。
+}
+
+\end{paracol}
+
+\subsection{牛馬羊食苗 The Cow, Horse, and Sheep}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+牛、馬、羊食人苗，苗主責之粟五斗，牛食馬之半，馬食羊之半，欲衰償之？答曰：牛二斗八升，七分升之四；馬一斗四升，七分升之二；羊七升，七分升之一。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+一頭牛、一匹馬、一隻羊吃了別人家的禾苗，苗主要求賠償五斗粟。牛吃的量是馬的一半，馬吃的量是羊的一半，問按比率賠償各應出多少？答案是：牛出 $2\,\frac{4}{7}$ 斗（2 斗 8 又 $\frac{4}{7}$ 升）；馬出 $1\,\frac{2}{7}$ 斗（1 斗 4 又 $\frac{2}{7}$ 升）；羊出 $\frac{1}{7}$ 斗（7 又 $\frac{1}{7}$ 升）。
+}
+
+\end{paracol}
+
+\subsection{女子善織 The Woman Skilled at Weaving}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+女子善織，日自倍，五日織五尺。問日織數。答曰：初日一寸，三十一分寸之十九；二日三寸，三十一分寸之七；三日六寸，三十一分寸之十四；四日一尺二寸，三十一分寸之二十八；五日二尺四寸，三十一分寸之二十五。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有個女子很會織布，每天織的布是前一天的一倍，五天共織了五尺。問每天各織了多少？答案是：第一天織了 $1\,\frac{19}{31}$ 寸；第二天織了 $3\,\frac{7}{31}$ 寸；第三天織了 $6\,\frac{14}{31}$ 寸；第四天織了 $12\,\frac{28}{31}$ 寸；第五天織了 $24\,\frac{25}{31}$ 寸。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 5: SHORT WIDTH / ROOT EXTRACTION
+%% ========================================================================
+\section{第五章：少廣 Short Width / Root Extraction}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+少廣章論述已知矩形面積及一邊求另一邊的問題，涉及分數除法及開方運算。原書此章共 24 題。
+
+\textbf{少廣術曰：}置全步及分母子，各以其母除其子，内子，以乘全步，并之為法。以畝積步為實。實如法而一，得從。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+少廣章討論已知矩形的面積和一條邊的長度，求另一條邊長度的問題，這涉及到分數除法和開方運算。原書這一章共有 24 道題目。
+
+\textbf{少廣算法：}列出整數步和分數的分子分母，各自用分母去除分子，把餘數併入分子，再乘以整數步，相加後作為除數（法）。用一畝的面積（240 平方步）作為被除數（實）。實除以法，就得到長度。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+田一畝廣一步半，問從？答曰：一百六十步。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有一畝田，寬度為一步半（$1\,\frac{1}{2}$ 步），問長度是多少？答案是：160 步。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small\textit{草曰：}廣 $1\,\frac{1}{2} = \frac{3}{2}$ 步。田積一畝 = 240 步。從 = $240 \div \frac{3}{2} = 240 \times \frac{2}{3} = $ \textbf{160} 步。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small\textit{演算過程：}寬 $1\,\frac{1}{2} = \frac{3}{2}$ 步。田地面積為 1 畝 = 240 平方步。長度 = $240 \div \frac{3}{2} = 240 \times \frac{2}{3} = $ \textbf{160} 步。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+田一畝廣一步半、三分步之一。問從？答曰：一百三十步一十一分步之一十。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有一畝田，寬度為一步半又三分之一步，問長度是多少？答案是：$130\,\frac{10}{11}$ 步。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+田一畝廣一步半、三分步之一、四分步之一。問從？答曰：一百一十五步五分步之一。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有一畝田，寬度為一步半又三分之一又四分之一步，問長度是多少？答案是：$115\,\frac{1}{5}$ 步。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+田一畝廣一步半、三分步之一、四分步之一、五分步之一。問從？答曰：一百五步、一百三十七分步之一十五。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+有一畝田，寬度為一步半又三分之一又四分之一又五分之一步，問長度是多少？答案是：$105\,\frac{15}{137}$ 步。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% YANG HUI'S TRIANGLE
+%% ========================================================================
+\section{開方作法本源圖 The Method Source for Square Root Extraction}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+楊輝所錄「開方作法本源圖」（即今所謂楊輝三角或帕斯卡三角形），為其最著名之貢獻。楊輝歸功於北宋數學家\textbf{賈憲}（約 1010--1070 年）。
+
+楊輝釋之曰：
+
+\fboxsep=4pt\colorbox{classicalbg}{\parbox{\linewidth}{\small
+左袤乃積數，右袤乃隅算，中藏者皆廉，以廉乘商方，命實而除之。}}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+楊輝記錄的「開方作法本源圖」（也就是現在所說的楊輝三角或帕斯卡三角形），是他最著名的貢獻之一。楊輝把這個成就歸功於北宋數學家\textbf{賈憲}（約 1010--1070 年）。
+
+楊輝解釋說：
+
+\fboxsep=4pt\colorbox{modernbg}{\parbox{\linewidth}{\small
+左邊的斜線上的數字是「積數」（各項係數）；右邊斜線上的數字是「隅算」（最高次項係數）；中間隱藏的數字都是「廉」（中間各項係數）。用這些「廉」去乘以商的各次方，然後從被開方數中減去。}}
+}
+
+\end{paracol}
+
+\vspace{1em}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0, every node/.style={font=\small}]
+%% Yang Hui's Triangle
+\foreach \n in {0,...,6}{
+  \foreach \k in {0,...,\n}{
+    \pgfmathsetmacro{\y}{-\n*0.9}
+    \pgfmathsetmacro{\x}{\k*1.2-\n*0.6}
+    \ifnum\n=0
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm,fill=red!10] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=1
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=2
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {2};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=3
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {3};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {3};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=4
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {4};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {6};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {4};\fi
+      \ifnum\k=4\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=5
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {5};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {10};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {10};\fi
+      \ifnum\k=4\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {5};\fi
+      \ifnum\k=5\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+    \ifnum\n=6
+      \ifnum\k=0\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+      \ifnum\k=1\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {6};\fi
+      \ifnum\k=2\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {15};\fi
+      \ifnum\k=3\node[circle,draw,minimum size=0.7cm,fill=yellow!20] at (\x,\y) {20};\fi
+      \ifnum\k=4\node[circle,draw,minimum size=0.7cm,fill=green!10] at (\x,\y) {15};\fi
+      \ifnum\k=5\node[circle,draw,minimum size=0.7cm,fill=blue!10] at (\x,\y) {6};\fi
+      \ifnum\k=6\node[circle,draw,minimum size=0.7cm] at (\x,\y) {1};\fi
+    \fi
+  }
+}
+
+%% Labels
+\node[left] at (-4.5,-0) {\small $n=0$};
+\node[left] at (-4.5,-0.9) {\small $n=1$};
+\node[left] at (-4.5,-1.8) {\small $n=2$};
+\node[left] at (-4.5,-2.7) {\small $n=3$};
+\node[left] at (-4.5,-3.6) {\small $n=4$};
+\node[left] at (-4.5,-4.5) {\small $n=5$};
+\node[left] at (-4.5,-5.4) {\small $n=6$};
+
+%% Legend
+\draw[->,thick,red!70] (3.5,0) -- (4.5,0) node[right] {\small 隅算（積數）};
+\draw[->,thick,blue!60] (3.5,-0.6) -- (4.5,-0.6) node[right] {\small 一廉};
+\draw[->,thick,green!60!black] (3.5,-1.2) -- (4.5,-1.2) node[right] {\small 二廉};
+\draw[->,thick,orange!70] (3.5,-1.8) -- (4.5,-1.8) node[right] {\small 三廉};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.3em}
+\begin{center}
+{\small 圖一：開方作法本源圖（楊輝三角）--- 二項式係數表（至六次冪）}
+\end{center}
+
+\subsection*{結構說明 Structure Explanation}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item \textbf{左袤（積數）：}斜邊上的 1 為常數項係數
+\item \textbf{右袤（隅算）：}另一斜邊上的 1 為最高次項係數
+\item \textbf{中藏者（廉）：}中間各數為中間各項係數
+\end{itemize}
+
+每行即 $(x+a)^n$ 展開之係數：
+\begin{align*}
+(x+a)^0 &= 1 \\
+(x+a)^1 &= x + a \\
+(x+a)^2 &= x^2 + 2xa + a^2 \\
+(x+a)^3 &= x^3 + 3x^2a + 3xa^2 + a^3
+\end{align*}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item \textbf{左邊斜線（積數）：}斜線上的 1 是常數項的係數
+\item \textbf{右邊斜線（隅算）：}另一條斜線上的 1 是最高次項的係數
+\item \textbf{中間各數（廉）：}中間的數字是各中間項的係數
+\end{itemize}
+
+每一行就是 $(x+a)^n$ 展開式的係數：
+\begin{align*}
+(x+a)^0 &= 1 \\
+(x+a)^1 &= x + a \\
+(x+a)^2 &= x^2 + 2xa + a^2 \\
+(x+a)^3 &= x^3 + 3x^2a + 3xa^2 + a^3
+\end{align*}
+}
+
+\end{paracol}
+
+\subsection*{增乘方求廉法 Jia Xian's Generation Method}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+增乘方求廉法：以一次乘二次，以二次乘三次，遞增一位，至求終。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+增乘法求各項係數的方法：用一次項去乘二次項，用二次項去乘三次項，每次遞增一位，一直算到最後一項為止。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+此即今所謂「帕斯卡法則」：
+\[
+\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+\]
+每行中每數等於其左上方與右上方兩數之和。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+這就是現在所說的「帕斯卡法則」：
+\[
+\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+\]
+三角形中每一行的每個數字都等於它左上方和右上方兩個數字之和。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 6: COMMERCIAL CALCULATIONS
+%% ========================================================================
+\section{第六章：商功 Commercial Calculations / Engineering}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+商功章論述土木工程中的體積計算，如挖土、築城、開渠等。原書此章共 28 題。
+
+\textbf{土方換算率：}
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item 穿地（挖方）：基準
+\item 壤土（鬆土）：穿地四之五
+\item 堅土（夯土）：穿地三之四
+\end{itemize}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+商功章討論土木工程建設中的體積計算問題，比如挖土、築城牆、開運河等。原書這一章共有 28 道題目。
+
+\textbf{土方換算比率：}
+\begin{itemize}[noitemsep,leftmargin=1.5em]
+\item 挖方（自然狀態土）：基準
+\item 鬆土（挖出的鬆散土）：與挖方之比為 5:4
+\item 夯土（夯實後的土）：與挖方之比為 4:3
+\end{itemize}
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+穿地積一萬尺。問為堅、壤各幾何？答曰：為堅七千五百尺，為壤一萬二千五百尺。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+挖出土方一萬立方尺。問能築成多少夯土和多少鬆土？答案是：夯土 7500 立方尺，鬆土 12500 立方尺。
+}
+
+\end{paracol}
+
+\subsection*{城牆與溝渠體積 City Wall and Ditch Volumes}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{術曰：}并上下廣而半之，以高（或深）乘之，又以袤乘之，得積尺。
+
+\begin{classicalproblem}[城積]
+城下廣四丈，上廣二丈，高五丈，袤一百二十六丈五尺。問為尺幾何？答曰：一百八十九萬七千五百尺。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{算法：}將上底寬和下底寬相加取平均值，乘以高度（或深度），再乘以長度，得到體積（立方尺）。
+
+\begin{modernproblem}[城牆體積]
+一座城牆下底寬 4 丈，上底寬 2 丈，高 5 丈，長 126 丈 5 尺。問體積是多少立方尺？答案是：1,897,500 立方尺。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\subsection*{特殊立體 Special Solids}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{塹堵術：}廣袤相乘，又以高乘之，二而一。
+
+\textbf{陽馬術：}廣袤相乘，又以高乘之，三而一。
+
+\textbf{鱉臑術：}廣袤相乘，又以高乘之，六而一。
+
+\textbf{芻童術：}倍上袤加入下袤，以上廣乘之；倍下袤加入上袤，以下廣乘之；并之，以高乘之，六而一。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{塹堵（楔形體）算法：}寬乘以長，再乘以高，除以 2。
+
+\textbf{陽馬（四稜錐）算法：}寬乘以長，再乘以高，除以 3。
+
+\textbf{鱉臑（四面體）算法：}寬乘以長，再乘以高，除以 6。
+
+\textbf{芻童（楔臺）算法：}上底長的兩倍加下底長，乘以上底寬；下底長的兩倍加上底長，乘以 下底寬；兩個結果相加，乘以高，除以 6。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 7: EQUITABLE DISTRIBUTION
+%% ========================================================================
+\section{第七章：均輸 Equitable Distribution}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+均輸章論述賦稅與運輸費用的公平分配問題。原書此章共 28 題。
+
+\textbf{均輸術曰：}以道里之遠近、載輸之輕重、粟價之高下，各為率。以戶數乘之，為衰。并衰為法，以賦粟乘未并之衰為實。實如法而一。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+均輸章討論稅收和運輸費用如何在不同地區之間公平分配的問題。原書這一章共有 28 道題目。
+
+\textbf{均輸算法：}按照道路遠近、運輸負擔輕重、糧食價格高低，各自計算比率。用戶數乘以這個比率，得到分配的權重（衰）。把各權重相加作為除數（法），用總賦稅量乘以每個權重作為被除數（實）。實除以法得到每個地區應分擔的數額。
+}
+
+\end{paracol}
+
+\subsection*{追及問題 The Pursuit Problem}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+甲發長安，五日日至齊，乙發齊，七日至長安。今乙先行二日。問：幾日相逢？答曰：二日，十二分日之一。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+甲從長安出發，五天可到齊國。乙從齊國出發，七天可到長安。現在乙已經先出發兩天了。問：再過幾天兩人相遇？答案是：$2\,\frac{1}{12}$ 天。
+}
+
+\end{paracol}
+
+\subsection*{瓜瓠相遇 The Gourd and Melon Problem}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+垣高九尺，瓜生其上，蔓日長七寸；瓠生其下，蔓日長一尺。問：幾日相逢？答曰：相逢於五日，十七分日之五。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+一道牆高 9 尺，瓜從牆頂往下生長，每天長 7 寸；瓠從牆底往上生長，每天長 1 尺。問：幾天後兩條藤蔓相遇？答案是：$5\,\frac{5}{17}$ 天後相遇。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 8: EXCESS AND DEFICIT
+%% ========================================================================
+\section{第八章：盈不足 Excess and Deficit}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+盈不足章介紹「盈不足術」（雙假設法），為解線性方程與近似問題之強有力方法。原書此章共 20 題。
+
+\textbf{盈不足術曰：}置所出率，盈、不足各居其下。令維乘所出率，以為實。并盈、不足為法。實如法而一。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+盈不足章介紹「盈不足術」（也叫雙假設法），這是解線性方程和近似計算問題的一種非常有效的方法。原書這一章共有 20 道題目。
+
+\textbf{盈不足算法：}列出兩次假設的數值，把多餘和不足分別寫在下面。交叉相乘（假設值乘以對方的盈或不足），相加作為被除數（實）。把盈和不足相加作為除數（法）。實除以法就得到正確答案。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+共買物，人出八文，盈三文，人出七文，不足四文。問數、物價各幾何？答曰：七人。物價五十三。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+幾個人合買一件物品，每人出 8 文錢，就多出 3 文；每人出 7 文錢，就少 4 文。問有多少人？物品價格是多少？答案是：7 個人，物品價格 53 文。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+共買雞，各出九，盈十一，各出六，不足十六。問人數、雞價各幾何？答曰：九人，雞價七十。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+幾個人合買一隻雞，每人出 9 文，多出 11 文；每人出 6 文，少 16 文。問有多少人？雞的價格是多少？答案是：9 個人，雞的價格 70 文。
+}
+
+\end{paracol}
+
+\subsection*{盈朒適足 Exactly Sufficient}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+共買犬，人出五不足九十文，人出五十文適足。問人數、犬價各幾何？答曰：二人，犬價一百。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+幾個人合買一條狗，每人出 5 文，少 90 文；每人出 50 文，剛剛好。問有多少人？狗的價格是多少？答案是：2 個人，狗的價格 100 文。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 9: SYSTEMS OF LINEAR EQUATIONS
+%% ========================================================================
+\section{第九章：方程 Systems of Linear Equations}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+方程章為中國數學最卓越篇章之一，用算籌排列之矩陣陣式解線性方程組，相當於現代高斯消元法。原書此章共 18 題。
+
+\textbf{方程術曰：}置行數以相乘，各以所得，以少減多，反覆求之，直至一變量孤立，乃得其值。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+方程章是中國數學中最出色的章節之一，它使用算籌排列成矩陣的形式來解線性方程組，這相當於現代的高斯消元法。原書這一章共有 18 道題目。
+
+\textbf{方程算法：}把各方程的係數排列成行，互相交叉相乘，然後用大數減小數，反覆運算，直到一個變量被單獨分離出來，就可以求出它的值。
+}
+
+\end{paracol}
+
+\subsection{三穀問題 Three Grains Problem}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+上禾三秉，中禾二秉，下禾一秉，共實三十九斗。上禾二秉，中禾三秉，下禾一秉，共實三十四斗。上禾一秉，中禾二秉，下禾三秉，共實二十六斗。問：上、中、下禾一秉各幾何？
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+3 捆上禾、2 捆中禾、1 捆下禾，共出糧 39 斗。2 捆上禾、3 捆中禾、1 捆下禾，共出糧 34 斗。1 捆上禾、2 捆中禾、3 捆下禾，共出糧 26 斗。問：上禾、中禾、下禾每捆各出糧多少？
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textit{草曰：}列方程：
+\begin{align*}
+3x + 2y + z &= 39 \\
+2x + 3y + z &= 34 \\
+x + 2y + 3z &= 26
+\end{align*}
+以方程術（高斯消元法）解之：
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item 以一、二式相減：$x - y = 5$
+\item 以二、三式變換：$5x - 7y = 1$
+\item 解之：$x = 9\,\frac{1}{4}$，$y = 4\,\frac{1}{4}$，$z = 2\,\frac{3}{4}$
+\end{enumerate}
+\textbf{答：}上禾 $9\,\frac{1}{4}$ 斗，中禾 $4\,\frac{1}{4}$ 斗，下禾 $2\,\frac{3}{4}$ 斗。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textit{演算過程：}列出方程組：
+\begin{align*}
+3x + 2y + z &= 39 \\
+2x + 3y + z &= 34 \\
+x + 2y + 3z &= 26
+\end{align*}
+用方程術（高斯消元法）來解：
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item 第一式和第二式相減得到：$x - y = 5$
+\item 第二式和第三式變換後得到：$5x - 7y = 1$
+\item 求解得到：$x = 9\,\frac{1}{4}$，$y = 4\,\frac{1}{4}$，$z = 2\,\frac{3}{4}$
+\end{enumerate}
+\textbf{答案：}上禾每捆 $9\,\frac{1}{4}$ 斗，中禾每捆 $4\,\frac{1}{4}$ 斗，下禾每捆 $2\,\frac{3}{4}$ 斗。
+}
+
+\end{paracol}
+
+\subsection{牛羊值金 Cattle and Sheep}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+五牛二羊，直金十兩，二牛五羊，直金八兩。問：牛、羊價各幾何？答曰：一牛直金一兩二十一分兩之十三；一羊直金二十一分兩之二十。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+5 頭牛和 2 隻羊，共值金 10 兩。2 頭牛和 5 隻羊，共值金 8 兩。問：牛和羊各值金多少？答案是：1 頭牛值 $1\,\frac{13}{21}$ 兩金，1 隻羊值 $\frac{20}{21}$ 兩金。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CHAPTER 10: RIGHT TRIANGLES
+%% ========================================================================
+\section{第十章：勾股 Right Triangles}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+勾股章運用勾股定理解實際問題。原書此章共 38 題（原 24 題 + 少廣 13 題 + 商功 1 題）。
+
+\textbf{勾股定理求弦術：}勾股各自乘，并而開方除之，即弦。
+
+\textbf{求勾術：}弦自乘，減股自乘，其餘開方除之，即勾。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+勾股章運用勾股定理（畢達哥拉斯定理）來解決實際問題。原書這一章共有 38 道題目（原題 24 道 + 少廣章 13 道 + 商功章 1 道）。
+
+\textbf{求弦長的算法：}勾和股各自平方，相加後開平方，就是弦的長度。
+
+\textbf{求勾長的算法：}弦的平方減去股的平方，剩下的數開平方，就是勾的長度。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+勾八尺，股十五尺。問為弦幾何？答曰：十七尺。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+直角三角形的勾長 8 尺，股長 15 尺，問弦長是多少？答案是：17 尺。
+}
+
+\end{paracol}
+
+\subsection*{葛纏木 The Vine and the Tree}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+木長二丈，圍之三尺，葛生其下，纏木七周，上與木齊。問葛長幾何？答曰：二丈九尺。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+一棵樹高 2 丈，周長 3 尺。藤蔓從樹底生長，繞樹 7 圈，剛好到達樹頂。問藤蔓有多長？答案是：2 丈 9 尺。
+}
+
+\end{paracol}
+
+\subsection*{葭生池中 The Reed in the Pond}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+池方一丈，正中有葭，出水面一尺，引葭至岸，與水面適平。問水深？答曰：水深一丈二尺。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+一個正方形池塘邊長 1 丈，正中央長著一根蘆葦，露出水面 1 尺。如果把蘆葦拉到池塘邊，蘆葦頂端剛好與水面齊平。問水深多少？答案是：水深 1 丈 2 尺。
+}
+
+\end{paracol}
+
+\subsection*{折竹 The Broken Bamboo}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+竹高一丈，折梢拄地，去根三尺，問折處高幾何？答曰：四尺，二十分尺之十一。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+一根竹子高 1 丈，折斷後竹梢拄在地上，離根部 3 尺。問折斷處離地面多高？答案是：$4\,\frac{11}{20}$ 尺。
+}
+
+\end{paracol}
+
+\subsection*{勾中容圓 Circle Inscribed in a Right Triangle}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+勾八步，股十五步，問勾中容圓徑幾何？答曰：六步。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+直角三角形的勾長 8 步，股長 15 步，問這個三角形內切圓的直徑是多少？答案是：6 步。
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% SQUARE ROOT EXTRACTION
+%% ========================================================================
+\section{開方術 Square and Cube Root Extraction}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+楊輝保存並解說了賈憲的開方方法，代表宋代計算數學之最高成就。
+
+\textbf{釋鎖平方術：}
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item 置積為實
+\item 借一算（下法），步之超一位
+\item 議所得，以一乘所借算為方法
+\item 以除實
+\item 倍方法為廉法
+\item 復置下法，步之超一位，再以議所得乘之
+\end{enumerate}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+楊輝保存並詳細解說了賈憲的開方方法，這代表了宋代計算數學的最高成就。
+
+\textbf{釋鎖開平方算法（類似現代的長除法開方）：}
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item 把要求平方根的數作為被除數（實）
+\item 放置一根算籌作為下法，每兩位向前移一步
+\item 估算第一位數字，用這個數字乘以下法，得到方法
+\item 從實中減去
+\item 把方法加倍作為廉法
+\item 再放置下法，每兩位移一位，再用估算的數字去乘
+\end{enumerate}
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+\ClassicalText{
+積五萬五千二百二十五步，問為方幾何？答曰：二百三十五步。
+}
+
+\switchcolumn
+\RightLabel
+\ModernText{
+面積為 55225 平方步，問正方形的邊長是多少？答案是：235 步。
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textit{草曰：}$\sqrt{55225} = $\textbf{235}。逐步演算：
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item 分組：5 | 52 | 25
+\item 首數：$2^2 = 4 \le 5$，首數為 2
+\item 餘數：$5-4=1$，下推 52 得 152
+\item 倍之：$2 \times 2 = 4$。求 $d$ 使 $(40+d) \times d \le 152$。$d = 3$，$43 \times 3 = 129$
+\item 餘數：$152 - 129 = 23$，下推 25 得 2325
+\item 倍之：$23 \times 2 = 46$。求 $d$ 使 $(460+d) \times d \le 2325$。$d=5$，$465 \times 5 = 2325$
+\item 餘數為零。故 $\sqrt{55225} = 235$。
+\end{enumerate}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textit{演算過程：}$\sqrt{55225} = $\textbf{235}。逐步演算如下：
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item 將數字從右往左每兩位分一組：5 | 52 | 25
+\item 第一位：$2^2 = 4 \le 5$，所以第一位是 2
+\item 餘數：$5 - 4 = 1$，把下一組 52 移下來得到 152
+\item 把當前結果加倍：$2 \times 2 = 4$。找一個數字 $d$ 使得 $(40 + d) \times d \le 152$。$d = 3$ 時，$43 \times 3 = 129$
+\item 餘數：$152 - 129 = 23$，把下一組 25 移下來得到 2325
+\item 把當前結果 23 加倍：$23 \times 2 = 46$。找 $d$ 使得 $(460 + d) \times d \le 2325$。$d = 5$ 時，$465 \times 5 = 2325$
+\item 餘數為零。所以 $\sqrt{55225} = 235$。
+\end{enumerate}
+}
+
+\end{paracol}
+
+\subsection*{開立方 Cube Root Extraction}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textbf{開立方術：}與開平方類似，惟有三層除數：方法（平方項）、廉法（一次項）、隅法（常數項）。
+
+\begin{classicalproblem}[開立方]
+積一百八十六萬八百六十七尺，問為立方幾何？答曰：一百二十三尺。
+\end{classicalproblem}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textbf{開立方算法：}與開平方類似，但是有三層除數：方法（二次項係數）、廉法（一次項係數）、隅法（常數項係數）。
+
+\begin{modernproblem}[開立方]
+體積為 1,860,867 立方尺，問立方體的邊長是多少？答案是：123 尺。
+\end{modernproblem}
+}
+
+\end{paracol}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+\textit{驗算：}$123^3 = 123 \times 123 \times 123 = 15129 \times 123 = 1{,}860{,}867$。$\checkmark$
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+\textit{驗算：}$123^3 = 123 \times 123 \times 123 = 15129 \times 123 = 1{,}860{,}867$。驗證正確！$\checkmark$
+}
+
+\end{paracol}
+
+\newpage
+
+%% ========================================================================
+%% CLASSIFICATION
+%% ========================================================================
+\section{篡類 Classification of Methods}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+楊輝將全書 246 題按數學方法重新分類，發現不同章節之題目往往使用相同之基本方法。
+
+\begin{quote}\small
+楊輝竊見九章舊本，作立題法遺闕。古序云：靖康以來，罕有舊本，間有存者，狃於末習，不循本意，以至真術淹廢，偽本滋典。
+\end{quote}
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+楊輝將全書 246 道題目按照所使用的數學方法重新分類，發現不同章節的題目其實常常使用相同的基本方法。
+
+\begin{quote}\small
+我仔細查看了《九章》的舊版本，發現有些題目和算法已經遺失了。古序中說：自從靖康之變以來，舊版本已經很少見了，偶爾有幸存下來的，也因為後人的陋習而被篡改，不再遵循原本的意思，以至於真正的算法被埋沒廢棄了，而錯誤的版本卻流傳開來。
+\end{quote}
+}
+
+\end{paracol}
+
+\vspace{0.8em}
+
+\begin{center}
+{\small\textbf{方法交叉分類表}}
+\end{center}
+\vspace{0.3em}
+
+\begin{center}
+\begin{longtable}{|l|p{3.8cm}|c|}
+\hline
+\textbf{方法} & \textbf{應用章節} & \textbf{題數} \\
+\hline
+\endfirsthead
+\hline
+\textbf{方法} & \textbf{應用章節} & \textbf{題數} \\
+\hline
+\endhead
+乘除 & 方田（38）、粟米（3）、經率（9） & 41 \\
+\hline
+經率 & 粟米（5）、盈不足（4） & 5 \\
+\hline
+合率 & 少廣（11）、均輸（8）、盈不足（1） & 20 \\
+\hline
+互換 & 粟米（38）、衰分（11）、均輸（11）、盈不足（3） & 63 \\
+\hline
+衰分 & 原章（9）、均輸（9） & 18 \\
+\hline
+疊積 & 商功（27） & 27 \\
+\hline
+盈不足 & 商功 + 原章（11） & 11 \\
+\hline
+方程 & 原章（18）、盈不足（1） & 19 \\
+\hline
+勾股 & 少廣（13）、商功（1）、原章（24） & 38 \\
+\hline
+\caption*{246 題按方法交叉分類}
+\end{longtable}
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% CONCLUSION
+%% ========================================================================
+\section{結語 Conclusion}
+
+\begin{paracol}{2}
+\LeftLabel
+{\CJKfamily{classical}\small
+楊輝《詳解九章算法》之貢獻可概括為四端：
+
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item \textbf{保存賈憲遺著：}楊輝引述使後人得知賈憲之二項式三角圖、開方方法及代數學貢獻——否則將全無所聞。
+
+\item \textbf{系統編纂：}問、答、術、草之四段結構成為數學著述之典範。
+
+\item \textbf{批判性學術：}按方法而非按主題分類題目，揭示了數學方法在不同領域中之統一性。
+
+\item \textbf{教育創新：}楊輝明言為「不得其門而入」之學生編寫此書。
+\end{enumerate}
+
+「開方作法本源圖」（楊輝三角）已成為數學中最著名之圖形之一，見於全球教科書。其在西方被稱為「帕斯卡三角形」——以布萊茲·帕斯卡（1623--1662）命名，而帕斯卡生活於賈憲之後約六百年、楊輝之後約四百年——此乃數學知識在不同文化中獨立發展之明證，亦提醒我們正視中國數學家對現代數學基礎之貢獻。
+}
+
+\switchcolumn
+\RightLabel
+{\CJKfamily{modern}\small
+楊輝《詳解九章算法》的貢獻可以概括為四個方面：
+
+\begin{enumerate}[noitemsep,label=\arabic*.,leftmargin=1.5em]
+\item \textbf{保存賈憲的遺著：}通過楊輝的引用，後人才知道賈憲的二項式三角圖、開方方法和代數學貢獻——否則這些成就將完全失傳。
+
+\item \textbf{系統化的編纂方法：}問、答、術、草四段式結構成為數學著述的典範。
+
+\item \textbf{批判性的學術研究：}按照數學方法而不是按照主題來分類題目，揭示了數學方法在不同應用領域中的統一性。
+
+\item \textbf{教育上的創新：}楊輝明確表示，他是為那些「找不到入門途徑」的學生編寫這本書的。
+\end{enumerate}
+
+「開方作法本源圖」（楊輝三角）已經成為數學史上最著名的圖形之一，出現在世界各地的教科書中。它在西方被稱為「帕斯卡三角形」——以布萊茲·帕斯卡（1623--1662）命名，而帕斯卡生活在賈憲之後約六百年、楊輝之後約四百年——這是數學知識在不同文化中獨立發展的有力證明，也提醒我們要正視中國數學家對現代數學基礎的重要貢獻。
+}
+
+\end{paracol}
+
+\vspace{2em}
+
+\begin{center}
+\longline
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+{\CJKfamily{classical}\textit{「數學乃眾學之基。」}}\\[0.5em]
+--- 楊輝《詳解九章算法》
+\end{center}
+
+\end{document}
                                           

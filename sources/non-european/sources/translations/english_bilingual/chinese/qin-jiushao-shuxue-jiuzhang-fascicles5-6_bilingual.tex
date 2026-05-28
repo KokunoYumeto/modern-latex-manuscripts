@@ -1,1565 +1,1574 @@
-%% =============================================================================
-%% 數學九章 (Shuxue Jiuzhang) — Fascicles 5-6: Bilingual Edition
-%% LEFT: Original Chinese  |  RIGHT: English Translation
-%% Author: Qin Jiushao (秦九韶), Song Dynasty
-%% Source: Siku Quanshu (四庫全書) Edition
-%% =============================================================================
-\documentclass[10pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{tocloft}
-\usepackage{indentfirst}
-\usepackage{xeCJK}
-\usepackage{paracol}
-\usepackage{tikz}
-\usepackage{microtype}
-
-%% -------- Page Geometry (wider for two-column bilingual) --------
-\geometry{
-  paperwidth=297mm,paperheight=210mm,  % Landscape A4
-  left=18mm,right=18mm,top=20mm,bottom=20mm,
-  headheight=14pt,footskip=20pt
-}
-
-%% -------- Column separator --------
-\setlength{\columnsep}{4mm}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-\setotherlanguage{chinese}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-
-%% Chinese Fonts (using specified CJK font)
-\setCJKmainfont{Microsoft YaHei}
-\setCJKsansfont{Microsoft YaHei}
-\setCJKmonofont{Microsoft YaHei}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{problemcolor}{RGB}{80,40,20}
-\definecolor{answercolor}{RGB}{20,80,40}
-\definecolor{methodcolor}{RGB}{20,40,80}
-\definecolor{editorcolor}{RGB}{100,60,40}
-\definecolor{workingcolor}{RGB}{60,60,60}
-
-%% -------- Section Formatting --------
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries\color{problemcolor}}
-  {\thesubsubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textsc{Shuxue Jiuzhang 數學九章 --- Fascicles 5--6 (Bilingual Edition)}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-
-%% Bilingual section header
-\newcommand{\BilingualHeader}[2]{%
-  \vspace{1em}%
-  \noindent\begin{center}%
-  \begin{minipage}[t]{0.45\textwidth}\centering\textbf{\color{sectioncolor}#1}\end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{0.45\textwidth}\centering\textbf{\color{sectioncolor}#2}\end{minipage}%
-  \end{center}%
-  \vspace{0.5em}%
-}
-
-%% Small bilingual header for subsections
-\newcommand{\BilingualSubheader}[2]{%
-  \vspace{0.8em}%
-  \noindent\begin{center}%
-  \begin{minipage}[t]{0.45\textwidth}\centering\large\bfseries\color{sectioncolor}#1\end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{0.45\textwidth}\centering\large\bfseries\color{sectioncolor}#2\end{minipage}%
-  \end{center}%
-  \vspace{0.3em}%
-}
-
-%% -------- Problem structure commands (Chinese - LEFT) --------
-\newcommand{\QuestionCn}[1]{\par\noindent\textbf{\color{problemcolor}問：}#1\par}
-\newcommand{\AnswerCn}[1]{\par\noindent\textbf{\color{answercolor}答曰：}#1\par}
-\newcommand{\MethodCn}[1]{\par\noindent\textbf{\color{methodcolor}術曰：}#1\par}
-\newcommand{\WorkingCn}[1]{\par\noindent\textbf{\color{workingcolor}草曰：}#1\par}
-\newcommand{\EditorialCn}[1]{\par\noindent\textit{\color{editorcolor}［按］#1}\par}
-
-%% -------- Problem structure commands (English - RIGHT) --------
-\newcommand{\QuestionEn}[1]{\par\noindent\textbf{\color{problemcolor}Problem: }#1\par}
-\newcommand{\AnswerEn}[1]{\par\noindent\textbf{\color{answercolor}Answer: }#1\par}
-\newcommand{\MethodEn}[1]{\par\noindent\textbf{\color{methodcolor}Method: }#1\par}
-\newcommand{\WorkingEn}[1]{\par\noindent\textbf{\color{workingcolor}Working: }#1\par}
-\newcommand{\EditorialEn}[1]{\par\noindent\textit{\color{editorcolor}[Ed.\ Note] #1}\par}
-
-%% -------- Bilingual environment --------
-\newenvironment{Bilingual}{%
-  \par\vspace{0.5em}%
-  \noindent%
-  \begin{minipage}[t]{0.47\textwidth}%
-}{%
-  \end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{0.47\textwidth}%
-}{%
-  \end{minipage}%
-  \par\vspace{0.5em}%
-}
-
-\newcommand{\ChineseCol}[1]{%
-  \begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
-}
-\newcommand{\EnglishCol}[1]{%
-  \begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
-}
-
-%% -------- Vertical divider --------
-\newcommand{\vdivider}{%
-  \tikz[remember picture,overlay]\draw[rulecolor,line width=0.4pt] (current page header area.south -| 0.5\paperwidth,0) -- (current page footer area.north -| 0.5\paperwidth,0);%
-}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Shuxue Jiuzhang --- Fascicles 5-6 (Bilingual Edition)},
-  pdfauthor={Qin Jiushao (秦九韶)},
-  pdfsubject={Chinese Mathematics}
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
-
-%% Reduce paragraph spacing for dense text
-\setlength{\parskip}{0.4ex plus 0.2ex minus 0.1ex}
-\setlength{\parindent}{1.5em}
-
-%% =============================================================================
-\begin{document}
-
-%% -------- Title Page --------
-\begin{titlepage}
-\centering
-\vspace*{2cm}
-
-{\fontsize{28}{34}\selectfont\color{titlecolor}\textbf{數學九章}}
-
-\vspace{0.8cm}
-
-{\fontsize{14}{18}\selectfont\color{sectioncolor} Mathematical Treatise in Nine Sections}
-
-\vspace{1.5cm}
-
-{\Large\color{sectioncolor}
-\textbf{Bilingual Edition} / 雙語版}
-
-\vspace{1.5cm}
-
-{\large\color{sectioncolor}
-卷五：\textbf{賦役} (Fascicle 5: Taxation and Corv\'{e}e)\quad|\quad
-卷六：\textbf{錢穀} (Fascicle 6: Money and Grain)
-}
-
-\vspace{2cm}
-
-{\large 宋\quad 秦九韶\quad 撰}
-
-\vspace{0.3cm}
-
-{\normalsize\textit{Qin Jiushao (c.\ 1202--1261)}}
-
-\vspace{0.3cm}
-
-{\small\color{sectioncolor} Translated and Annotated}
-
-\vspace{2cm}
-
-{\color{rulecolor}\rule{0.5\textwidth}{0.4pt}}
-
-\vspace{1cm}
-
-{\small\color{sectioncolor}
-\textit{Siku Quanshu} (四庫全書) Edition\\[0.5em]
-Digital Scholarly Edition\quad|\quad Bilingual Layout: Chinese (Left) $\|$ English (Right)
-}
-
-\vspace{2cm}
-
-{\small\color{notecolor}
-\textit{This document preserves the traditional Chinese mathematical\\
-text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
-}
-
-\vfill
-{\small\color{sectioncolor} Modern LaTeX edition}
-\end{titlepage}
-
-%% -------- Table of Contents --------
-\tableofcontents
-\newpage
-
-%% =============================================================================
-%% BILINGUAL MACRO SETUP
-%% =============================================================================
-%% We use a two-column layout: LEFT = Chinese, RIGHT = English
-%% Each "BilingualSection" takes {ChineseContent}{EnglishContent}
-\newcommand{\BilingualSection}[4]{%
-  \newpage
-  \subsection*{#1 \hfill #2}
-  \addcontentsline{toc}{subsection}{#3}
-  \vspace{0.5em}
-  \longline
-  \vspace{0.5em}
-}
-
-\newcommand{\BilingualBlock}[2]{%
-  \noindent\begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
-  \hfill\vrule width 0.4pt\hfill%
-  \noindent\begin{minipage}[t]{0.47\textwidth}#2\end{minipage}%
-  \par\vspace{0.8em}%
-}
-
-\newcommand{\ProblemBlock}[2]{%
-  \noindent\begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
-  \hfill\hfill%
-  \noindent\begin{minipage}[t]{0.47\textwidth}#2\end{minipage}%
-  \par\vspace{0.5em}%
-}
-
-%% =============================================================================
-%% EDITORIAL PREFACE
-%% =============================================================================
-\section*{Editorial Preface / 編輯前言}
-\addcontentsline{toc}{section}{Editorial Preface / 編輯前言}
-
-\ProblemBlock{%
-\textbf{\color{sectioncolor}卷五上：賦役}\quad 賦役一章，即古九章中差分粟米諸法。但從來算書設題之數未有如此卷之多者。如首題答數至一百七十五條，毎條歩算之數至十餘位，而得數皆無不合，亦可謂能廣其用矣。且諸問皆足以明貴賤廩税及交質變易之同異，使公私各得其平，誠治民之要務也。
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}卷五下：賦役}\quad 題語多晦，術草中間有與所問不相應者，亦於各條下指出，俾觀者無惑焉。
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}卷六上：錢穀}\quad 差人五路和糴，課貴賤，折輕齎，皆國家理財之要道。
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}卷六下：錢穀}\quad 推求本息，易牒知原，粟米交易，計米易麴，囘運費，三色均價。凡此皆市易之術，亦古粟米章之遺意也。%
-}{%
-\textbf{\color{sectioncolor}Fascicle 5 (Upper): Fuyi (Tax and Corv\'{e}e)}\\
-The chapter on Tax and Corv\'{e}e Labor draws upon the classical Nine Chapters' methods of \textit{proportional distribution} (差分, \textit{chaifen}) and \textit{millet and rice} (粟米, \textit{sumi}). Never before has a mathematical treatise presented problems of such complexity---the first problem alone yields 175 separate numerical results, each calculated to more than ten digits, all mutually consistent. These problems illuminate the principles of fair taxation, grain assessment, and commercial exchange, ensuring equity between public and private interests---truly essential matters of governance.
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}Fascicle 5 (Lower): Fuyi}\\
-The problem statements are often obscure, and occasionally the methods and workings do not fully correspond to the questions asked. These discrepancies are noted in the editorial annotations below.
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}Fascicle 6 (Upper): Qiangu (Money and Grain)}\\
-Government grain procurement across five circuits, price comparison, and currency conversion---all essential methods of state financial management.
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}Fascicle 6 (Lower): Qiangu}\\
-Calculating principal and interest, chain-exchange problems, grain transactions, rice-for-yeast calculations, return shipping costs, and averaging gold of three purity grades---these are all commercial methods, inheriting the spirit of the classical Millet and Rice chapter.%
-}
-
-\newpage
-%% =============================================================================
-%% FASCICLE 5 — 賦役 (TAXATION AND CORVÉE LABOR)
-%% =============================================================================
-\section*{\color{titlecolor}卷五\quad 賦役類 / Fascicle 5: Taxation and Corv\'{e}e Labor}
-\addcontentsline{toc}{section}{卷五\quad 賦役類 / Fascicle 5: Taxation and Corv\'{e}e Labor}
-
-\noindent\rule{\textwidth}{1pt}
-\vspace{0.3em}
-
-%% ---------------------------------------------------------------------------
-%% PROBLEM 1: 復邑修賦
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}復邑修賦 / Restoring a District and Calculating Tax Obligations}
-\addcontentsline{toc}{subsection}{復邑修賦 / Restoring a District}
-
-\ProblemBlock{%
-\QuestionCn{%
-有海坍縣地，今有復漲，歳乆鄉井再成，申諸剏邑。稱土排到六鄉，以附郭為甲，最逺為已，各有田九等，開具下項：
-
-\vspace{0.3em}
-甲鄉共計田十四萬一百九十三畝三角一十二步。上等：上田五千六百七十八畝一角四十八歩；中田四千八百九十二畝三十歩；下田六千六百二十一畝五十四歩。中等：上田八千二百二十五畝二十四歩；中田一萬三十五畝六歩；下田一萬六千五百三十畝。下等：上田二萬一千九十畝二十四歩；中田三萬二千六十畝三歩；下田三萬五千六十一畝三角三歩。
-
-乙鄉田共計八萬四千一十畝二角二歩。丙鄉田共計一十二萬九百三十五畝五十八歩五分。丁鄉田共計八萬九千六十六畝二歩三分。戊鄉田共計二十萬四千四百七十四畝一角二十四歩四分。已鄉田共計一十五萬八千四百六十畝三角一十八歩二分。
-
-照得昨來本縣原科苗米一十萬三千五百六十七石八斗四升四合三勺，和買一萬三千四百九十八匹一丈七尺三寸七分六釐，夏税九千八百七十六匹三丈二尺六寸五分八釐。其六鄉田係三色，甲為上，乙丙為次，丁戊己又為次。先令官物為三差，使上比中、中比下皆十分外差一，次令各鄉九等皆於十分内差一，抛科用合租額。其乙鄉田最肥，次丁，次甲，次丙，次己，次戊。欲知三色九等毎畝等則及共科數各鄉幾何？
-}
-}{%
-\QuestionEn{%
-A coastal county's land had eroded into the sea; now new land has re-emerged from the tides. After many years, villages and settlements have re-formed, and a petition has been submitted to establish a new county. The land survey has classified six villages (xiang), with village Jia (甲) nearest the city walls and village Ji (己) furthest away. Each village has land of nine grades. The details are as follows:
-
-\vspace{0.3em}
-\textbf{Village Jia:} Total land 140,193 mu 3 jiao 12 bu. Upper grade: upper fields 5,678 mu 1 jiao 48 bu; middle fields 4,892 mu 30 bu; lower fields 6,621 mu 54 bu. Middle grade: upper fields 8,225 mu 24 bu; middle fields 10,035 mu 6 bu; lower fields 16,530 mu. Lower grade: upper fields 21,090 mu 24 bu; middle fields 32,060 mu 3 bu; lower fields 35,061 mu 3 jiao 3 bu.
-
-\textbf{Villages Yi, Bing, Ding, Wu, Ji:} [similar detailed land classifications follow, with Yi totaling 84,010 mu 2 jiao 2 bu; Bing 120,935 mu 58\nicefrac{5}{10} bu; Ding 89,066 mu 2\nicefrac{3}{10} bu; Wu 204,474 mu 1 jiao 24\nicefrac{4}{10} bu; Ji 158,460 mu 3 jiao 18\nicefrac{2}{10} bu.]
-
-The county's original tax quotas were: seedling rice (苗米) 103,567 shi 8 dou 4 sheng 4 ge 3 shao; harmonized purchase (和買) 13,498 pi 1 zhang 7 chi 3 cun 7 fen 6 li; summer tax (夏税) 9,876 pi 3 zhang 2 chi 6 cun 5 fen 8 li. The six villages are grouped into three tiers: Jia is upper tier; Yi and Bing are middle tier; Ding, Wu, and Ji are lower tier. First, the official goods are divided into three graduated differentials (san chai), with upper to middle and middle to lower each differing by one part in ten. Then each village's nine grades differ by one part in ten. The land quality ranks: Yi has the most fertile land, followed by Ding, Jia, Bing, Ji, and Wu. Find: the tax rate per mu for each of the three tiers and nine grades, and the total tax collected from each village.
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-題内言田有三色，甲為上云云，又言乙鄉田最肥云云，語若相左。葢前言三色者六鄉共科之等，後言田肥者每畝所出之異也。若易田係三色為科有三差，則語意明矣。%
-}
-}{%
-\EditorialEn{%
-The problem states that the fields are of three colors (tiers), with Jia as the upper tier, but also states that Yi village has the most fertile land---these two statements appear contradictory. The former refers to the collective tax tier of the six villages; the latter refers to the per-mu yield of each village's land. Replacing ``fields are of three colors'' with ``taxation has three graduated differentials'' would clarify the meaning.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-甲鄉：上等上田苗三斗二升三合二勺，和一尺六寸九分，税一尺二寸三分；中田苗二斗九升九勺，和一尺五寸二分，税一尺一寸一分；下田苗二斗五升八合六勺，和一尺三寸五分，税九寸九分。
-
-中等上田苗二斗二升六合二勺，和一尺一寸八分，税八寸六分；中田苗一斗九升三合九勺，和一尺一分，税七寸四分；下田苗一斗六升一合六勺，和八寸四分，税六寸二分。
-
-下等上田苗一斗二升九合三勺，和六寸七分，税四寸九分；中田苗九升六合九勺，和五寸一分，税三寸七分；下田苗六升四合六勺，和三寸四分，税二寸五分。
-
-\textit{[Similar detailed results follow for villages Yi, Bing, Ding, Wu, and Ji, each with rates for all nine grades of land.]}
-
-各鄉共科數：甲鄉苗米一萬九千五百五十石二斗四升八合三勺；和買一萬一百九十二丈二尺六寸五分六釐；夏税七千四百五十七丈六尺八寸九分八釐。
-
-乙、丙、丁、戊、己各鄉共科數依上法求之。
-}
-}{%
-\AnswerEn{%
-\textbf{Village Jia:} Upper-grade upper fields: rice 3 dou 2 sheng 3 ge 2 shao; silk 1 chi 6 cun 9 fen; tax silk 1 chi 2 cun 3 fen. Upper-grade middle fields: rice 2 dou 9 sheng 0 ge 9 shao; silk 1 chi 5 cun 2 fen; tax silk 1 chi 1 cun 1 fen. Upper-grade lower fields: rice 2 dou 5 sheng 8 ge 6 shao; silk 1 chi 3 cun 5 fen; tax silk 9 cun 9 fen.
-
-Middle-grade upper fields: rice 2 dou 2 sheng 6 ge 2 shao; silk 1 chi 1 cun 8 fen; tax silk 8 cun 6 fen. Middle-grade middle fields: rice 1 dou 9 sheng 3 ge 9 shao; silk 1 chi 1 cun 0 fen; tax silk 7 cun 4 fen. Middle-grade lower fields: rice 1 dou 6 sheng 1 ge 6 shao; silk 8 cun 4 fen; tax silk 6 cun 2 fen.
-
-Lower-grade upper fields: rice 1 dou 2 sheng 9 ge 3 shao; silk 6 cun 7 fen; tax silk 4 cun 9 fen. Lower-grade middle fields: rice 9 sheng 6 ge 9 shao; silk 5 cun 1 fen; tax silk 3 cun 7 fen. Lower-grade lower fields: rice 6 sheng 4 ge 6 shao; silk 3 cun 4 fen; tax silk 2 cun 5 fen.
-
-\textit{[Similar results for villages Yi, Bing, Ding, Wu, and Ji follow.]}
-
-\textbf{Village Jia totals:} Seedling rice 19,550 shi 2 dou 4 sheng 8 ge 3 shao; Harmonized purchase 10,192 zhang 2 chi 6 cun 5 fen 6 li; Summer tax 7,457 zhang 6 chi 8 cun 9 fen 8 li.
-
-The totals for villages Yi, Bing, Ding, Wu, and Ji are found by the same method.
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以衰分求之。先列本縣色位，自下錐行列之，又以鄉數對列而乗之，副併為法，以除官物數，得一分之率。以率數乗未併者，各得諸鄉之數。次列各鄉等位，自上等置十分，每以内分錐行九折之，至九等止，又各以畝歩乗之，副併為鄉法，以除諸各鄉所得官物數，所得為一分之率，以乗未併者，各得毎畝税色。%
-}
-}{%
-\MethodEn{%
-Use the method of proportional distribution (衰分, \textit{chuifen}). First arrange the county's tier positions in a descending cone array; multiply by the corresponding village counts. Sum these to form the divisor; divide the official goods by this divisor to obtain the rate for one part. Multiply the rate by the un-summed terms to obtain each village's quota. Next, arrange each village's nine grades, starting from the upper grade at 10 parts, successively reducing by one-tenth for each grade down to the ninth grade. Multiply each by the field area in mu and bu. Sum these as the village divisor; divide each village's goods by this divisor to obtain the rate per grade. Multiply by the un-summed terms to obtain the tax per mu for each grade.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-列本縣色位三，自下色例十分中十一分，上比中身外加一，上得一百二十一，中得一百一十，下得一百，為上中下三率，列之右行。乃列甲一對上率，乙丙共二對中率，丁戊己共三對下率，列左行。乃以左行列數各相對乗右行率數，其上得一百二十一，其十得二百二十，其下得三百，乃副置而併之，得六百四十一為法。
-
-置元科苗米一十萬三千五百六十七石八斗四升四合三勺為寔，以法除之，得一百六十一石五斗七升二合三勺為一分之率。以未併下率一百乗率，得一萬六千一百五十七石二斗三升為丁戊己三鄉各科數。於身下加一，得一萬七千七百七十二石九斗五升三合為乙丙二鄉各科數。又於身下加一，得一萬九千五百五十石二斗四升八合三勺為甲合科數。
-
-求和買亦用六百四十一為法，置元科和買一萬三千四百九十八匹，以匹法四丈通之，得五萬三千九百九十二丈，内零一丈七尺三寸七分六釐，得五萬三千九百九十三丈七尺三寸七分六釐為寔，以法除之，得八十四丈二尺三寸三分六釐為一分之率。亦以未併下率一百乗之，得八千四百二十三丈三尺六寸為丁戊己三鄉各科數。次於身下加一，得九千二百六十五丈六尺九寸六分為乙丙二鄉各科數。又於身下加一，得一萬一百九十二丈二尺六寸五分六釐為甲鄉合科數。
-
-求夏税亦置六百四十一為法，置元科九千八百七十六匹，以匹法四丈通之，得三萬九千五百四丈，内零三丈二尺六寸五分八釐，得三萬九千五百七丈二尺六寸五分八釐為寔，以法除之，得六十一丈六尺三寸三分八釐為一分率。亦以未併下率一百乗之，得六千一百六十三丈三尺八寸為丁戊己三鄉各科數。次於身下加一，得六千七百七十九丈七尺一寸八分为乙丙二鄉各科數。又於身下加一，得七千四百五十七丈六尺八寸九分八釐為甲鄉數。%
-}
-}{%
-\WorkingEn{%
-Arrange the three county tiers in a descending cone array, with the lower tier as 100, middle as 110 (adding one-tenth), and upper as 121 (adding another one-tenth), yielding the three rates for upper, middle, and lower tiers in the right column. In the left column, pair Jia (1) with the upper rate, Yi and Bing (2) with the middle rate, and Ding, Wu, and Ji (3) with the lower rate. Cross-multiply: upper yields 121, middle yields 220, lower yields 300. Sum these to obtain 641 as the divisor.
-
-Take the original seedling rice quota 103,567 shi 8 dou 4 sheng 4 ge 3 shao as the dividend; divide by 641 to obtain 161 shi 5 dou 7 sheng 2 ge 3 shao as the rate for one part. Multiply the unsummed lower rate of 100: 16,157 shi 2 dou 3 sheng for Ding, Wu, and Ji villages. Add one-tenth: 17,772 shi 9 dou 5 sheng 3 ge for Yi and Bing. Add another one-tenth: 19,550 shi 2 dou 4 sheng 8 ge 3 shao for Jia.
-
-For the harmonized purchase: again use 641 as divisor. Convert the original 13,498 pi to zhang (at 4 zhang per pi): 53,992 zhang, plus the remainder 1 zhang 7 chi 3 cun 7 fen 6 li = 53,993 zhang 7 chi 3 cun 7 fen 6 li. Divide by 641: 84 zhang 2 chi 3 cun 3 fen 6 li as the unit rate. Multiply by lower rate 100: 8,423 zhang 3 chi 6 cun for Ding, Wu, Ji. Add one-tenth: 9,265 zhang 6 chi 9 cun 6 fen for Yi, Bing. Add one-tenth: 10,192 zhang 2 chi 6 cun 5 fen 6 li for Jia.
-
-For summer tax: use 641 as divisor. Convert 9,876 pi to zhang: 39,504 zhang, plus remainder 3 zhang 2 chi 6 cun 5 fen 8 li = 39,507 zhang 2 chi 6 cun 5 fen 8 li. Divide by 641: 61 zhang 6 chi 3 cun 3 fen 8 li as the rate. Multiply by lower rate 100: 6,163 zhang 3 chi 8 cun for Ding, Wu, Ji. Add one-tenth: 6,779 zhang 7 chi 1 cun 8 fen for Yi, Bing. Add one-tenth: 7,457 zhang 6 chi 8 cun 9 fen 8 li for Jia.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 2: 圍田租畝
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}圍田租畝 / Rental Calculations for Enclosed Fields}
-\addcontentsline{toc}{subsection}{圍田租畝 / Rental Calculations for Enclosed Fields}
-
-\ProblemBlock{%
-\QuestionCn{%
-有興復圍田已成，共計三千二十一頃五十一畝一十五歩，分三等。其上等毎畆起租六斗，中等四斗五升，下等四斗。中田多上田弱半，不及下田太半。欲知三色田畝及各租幾何？%
-}
-}{%
-\QuestionEn{%
-A newly reclaimed enclosed polder field has been completed, totaling 3,021 qing 51 mu 15 bu, divided into three grades. The upper grade pays rent of 6 dou per mu; the middle grade 4 dou 5 sheng; the lower grade 4 dou. The middle-grade fields exceed the upper-grade fields by one weak half (weak half = one-third); the middle-grade fields fall short of the lower-grade fields by one great half (great half = two-thirds). Find: the area of each grade of field and the rental grain for each.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-題言中田多上田弱半，不及下田太半。蓋以弱半為三分之一，太半為三分之二也。多上田弱半者，即比上田多三分之一也。不及下田太半者，即比下田少三分之二也。是上田加三分之一為中田，即下田三分之一也。轉言之，則中田為下田三分之一，上田為中田四分之三也。%
-}
-}{%
-\EditorialEn{%
-The problem states that middle-grade fields exceed upper-grade fields by one ``weak half,'' and fall short of lower-grade fields by one ``great half.'' Here ``weak half'' means one-third, and ``great half'' means two-thirds. Exceeding the upper fields by one weak half means exceeding by one-third; falling short of the lower fields by one great half means falling short by two-thirds. Thus: upper fields plus one-third equals middle fields, which equals one-third of the lower fields. Equivalently: middle fields are one-third of lower fields, and upper fields are three-quarters of middle fields.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-上田四百七十七頃八畝一十五歩，米二萬八千六百二十四石八斗三升七合五勺；
-中田六百三十六頃一十畝三角，米二萬八千六百二十四石八斗三升七合五勺；
-下田一千九百八頃三十二畝一角，米七萬六千三百三十二石九斗。%
-}
-}{%
-\AnswerEn{%
-Upper fields: 477 qing 8 mu 15 bu, grain 28,624 shi 8 dou 3 sheng 7 ge 5 shao;
-Middle fields: 636 qing 10 mu 3 jiao, grain 28,624 shi 8 dou 3 sheng 7 ge 5 shao;
-Lower fields: 1,908 qing 32 mu 1 jiao, grain 76,332 shi 9 dou.\par
-\textit{Note: Upper and middle fields happen to yield equal total rents because the area difference compensates for the rate difference.}%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以衰分求之。列母子求田率，副併為法，以共田為寔，寔如法而一，得一分之率。以徧乗未併者，得三等田。各以起租乗之，各得米。%
-}
-}{%
-\MethodEn{%
-Use proportional distribution (衰分, \textit{chuifen}). Arrange the numerators and denominators to find the field ratios. Sum these as the divisor; take the total fields as the dividend. Divide to obtain the rate for one part. Multiply the un-summed terms by this rate to obtain the three grades of fields. Multiply each by its rental rate to obtain the grain for each grade.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置弱半母四為中率，子三為上率。以太半子二减母三，餘一，以乗中率四，只得四為中泛。又以餘一乗上率三，只得三為上泛。次以太半母三乗中泛四，得一十二為下泛。副併三泛，得一十九為法。置田三千二十一頃五十一畆，以畝法二百四十通之，得七千二百五十一萬六千二百四十歩，内子一十五歩，得七千二百五十一萬六千二百五十五歩為寔。以法一十九除之，得三百八十一萬六千六百四十五歩為一分之數。以上泛三因之，得一千一百四十四萬九千九百三十五歩為上積。又以中泛四因之一分數，得一千五百二十六萬六千五百八十歩為中積。又以下泛一十二乗一分數，得四千五百七十九萬九千七百四十歩為下積。其三積各以畝法二百四十約之為畆。其上田得四百七十七頃八畝一十五歩，其中田得六百三十六頃一十畝三角，其下積得一千九百八頃三十二畝一角。各以起租，三積為三寔。其上積一千一百四十四萬九千九百三十五歩乗上積六斗，得六百八十六萬九千九百六十一石為寔，以畝法二百四十除之，得二萬八千六百二十四石八斗三升七合五勺為上田租。其中積一千五百二十六萬六千五百八十歩乗中田租四斗五升，得六百八十六萬九千九百六十一石為寔，以畝法二百四十除之，得二萬八千六百二十四石八斗三升七合五勺。其下積四千五百七十九萬九千七百四十歩乗下租四斗，得一千八百三十一萬九千八百九十六石為寔，以畝法二百四十除之，得七萬六千三百三十二石九斗為下田米。%
-}
-}{%
-\WorkingEn{%
-Take the ``weak half'' denominator 4 as the middle rate, numerator 3 as the upper rate. From the ``great half'' subtract numerator 2 from denominator 3, remainder 1; multiply by middle rate 4 to obtain 4 as the middle ``pan.'' Multiply remainder 1 by upper rate 3 to obtain 3 as the upper ``pan.'' Then multiply the ``great half'' denominator 3 by middle pan 4 to obtain 12 as the lower pan. Sum the three pans: 19 as the divisor.
-
-Take the fields 3,021 qing 51 mu; convert to bu at 240 bu per mu: 72,516,240 bu, plus 15 bu = 72,516,255 bu as the dividend. Divide by 19: 3,816,645 bu as the unit rate. Multiply by upper pan 3: 11,449,935 bu as the upper product. Multiply by middle pan 4: 15,266,580 bu as the middle product. Multiply by lower pan 12: 45,799,740 bu as the lower product. Convert back to mu at 240 bu/mu: upper fields = 477 qing 8 mu 15 bu; middle = 636 qing 10 mu 3 jiao; lower = 1,908 qing 32 mu 1 jiao.
-
-For rents: Upper product 11,449,935 bu $\times$ 6 dou = 68,699,610 shi (as dividend), divided by 240 = 28,624 shi 8 dou 3 sheng 7 ge 5 shao. Middle product $\times$ 4 dou 5 sheng gives same total by coincidence. Lower product 45,799,740 bu $\times$ 4 dou = 1,831,989,600 shi, divided by 240 = 76,332 shi 9 dou.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-草内求各衰數，意謂以三分為上田衰數，加弱半三分之一得四分為中田衰數，三因中田衰數得一十二分為下田衰數，併之得一十九分為總衰數。其法本属顯明，但語中參入母子副泛等名目，其意反晦矣。%
-}
-}{%
-\EditorialEn{%
-The working's method of finding the distribution ratios means: taking 3 parts as the upper field ratio, adding one-third (weak half) to obtain 4 parts as the middle field ratio, tripling the middle ratio to obtain 12 parts as the lower field ratio, summing to 19 parts as the total ratio. The method is essentially clear, but the introduction of ``numerator/denominator,'' ``auxiliary,'' and ``pan'' terminology obscures the underlying simplicity.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 3: 戶稅移割
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}戶稅移割 / Transferring Household Tax Obligations}
-\addcontentsline{toc}{subsection}{戶稅移割 / Transferring Household Tax Obligations}
-
-\ProblemBlock{%
-\QuestionCn{%
-某縣據甲稱：本户田地原納苗三十五石七斗，和買本色一十一匹二丈二尺九寸四分八釐七毫五絲，折帛二十七匹二寸一分三釐七毫五絲，紬絹折帛八匹三丈九寸七寸三分九釐，紬絹本色二十匹二丈八尺九寸三分九釐。已将田四百七畆出與乙，五百十六畆出與丙。訖乞移割本户所出田上税賦，歸併乙丙兩户送納。㑹到乙原有田三百七十五畆，丙原有田四百六十三畆，並係本鄉本等。毎畆苗三升五合，税一尺一寸五分，物力一貫二百；本等田紬一尺三寸四分，物力九百；物力及三十二貫數和買一匹，内三分本色七分折帛；夏税七分本色三分折帛；紬五分本色五分折帛，併絹紬。欲知甲田地及甲乙丙分割合納苗米、和買、夏税、折帛、本色、畸零各幾何？%
-}
-}{%
-\QuestionEn{%
-In a certain county, household Jia reports: originally the household paid seedling rice 35 shi 7 dou on fields; harmonized purchase in kind 11 pi 2 zhang 2 chi 9 cun 4 fen 8 li 7 hao 5 si of silk, converted silk 27 pi 2 cun 1 fen 3 li 7 hao 5 si; pongee silk (in kind and converted) [further details]. Jia has already sold 407 mu to household Yi and 516 mu to household Bing. He petitions to transfer the tax obligations on the sold land so that Yi and Bing assume the tax payments.
-
-Investigation reveals: Yi originally had 375 mu; Bing originally had 463 mu. All fields are of the same local grade. Per mu: seedling rice 3 sheng 5 ge; tax silk 1 chi 1 cun 5 fen; property value 1 guan 200 wen; grade-appropriate pongee silk 1 chi 3 cun 4 fen; property value 900 wen. For every 32 guan of property value: 1 pi of harmonized purchase, 3 parts in kind and 7 parts converted. Summer tax: 7 parts in kind, 3 parts converted. Pongee silk: 5 parts in kind, 5 parts converted, combined with plain silk. Find: Jia's remaining fields, and the divided tax obligations (seedling rice, harmonized purchase, summer tax, converted silk, in-kind silk, and remainders) for all three households.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-此題科税分田地二項。田有科米、税絹、物力三色，地只有税紬、物力二色，絹與紬折色不同，物力和買合田地總計之。又甲户有田者有地，乙丙二户有田無地。此等皆不可不明言者，題中殊未分晰。%
-}
-}{%
-\EditorialEn{%
-This problem's tax assessment has two categories: fields (田) and land (地). Fields are assessed for rice, tax silk, and property value (three items); land is assessed only for pongee silk tax and property value (two items). Plain silk and pongee silk have different conversion rates. Property value for harmonized purchase combines both fields and land. Furthermore, household Jia possesses both fields and land, while households Yi and Bing possess only fields with no land. These distinctions should have been stated explicitly but were not.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-甲原有田一千二十畆，地一十一畆二角四十八步。
-
-甲今有田九十七畆，苗米三石三斗九升五合，夏税折帛三丈三尺四寸六分五釐，本色一匹畸零三丈八尺八分五釐，物力一百一十六貫四百文。地一十一畆二角四十八步，税紬折帛七尺八寸三分九釐，税紬畸零七尺八寸三分九釐，物力一十貫五百三十文，田地共物力一百二十六貫九百三十文。和買折帛二匹三丈一尺六分三釐七毫五絲，本色一疋畸零七尺五寸九分八釐七毫五絲。
-
-乙今有田七百八十二畆，苗米二十七石三斗七升，夏税折帛六匹二丈九尺七寸九分，本色一十五匹畸零二丈九尺五寸一分，物力九百三十八貫四百文，和買折帛二十匹二丈一尺一寸，本色八匹畸零三丈一尺九寸。
-
-丙今有田九百七十九畆，苗米三十四石二斗六升五合，夏税折帛八匹一丈七尺七寸五分五釐，本色一十九匹畸零二丈八尺九分五釐，物力一千一百七十四貫八百文，和買折帛二十五匹二丈七尺九寸五分，本色一十一匹畸零五寸五分。%
-}
-}{%
-\AnswerEn{%
-\textbf{Jia originally:} Fields 1,020 mu, land 11 mu 2 jiao 48 bu.
-
-\textbf{Jia now:} Fields 97 mu; seedling rice 3 shi 3 dou 9 sheng 5 ge; summer tax converted silk 3 zhang 3 chi 4 cun 6 fen 5 li; in-kind silk 1 pi remainder 3 zhang 8 chi 8 cun 5 fen; property value 116 guan 400 wen. Land 11 mu 2 jiao 48 bu; pongee converted silk 7 chi 8 cun 3 fen 9 li; pongee remainder 7 chi 8 cun 3 fen 9 li; land property value 10 guan 530 wen. Combined property value 126 guan 930 wen. Harmonized purchase: converted silk 2 pi 3 zhang 1 chi 6 cun 3 fen 7 hao 5 si; in-kind 1 pi remainder 7 chi 5 cun 9 fen 8 li 7 hao 5 si.
-
-\textbf{Yi now:} Fields 782 mu; seedling rice 27 shi 3 dou 7 sheng; summer tax converted silk 6 pi 2 zhang 9 chi 7 cun 9 fen; in-kind silk 15 pi remainder 2 zhang 9 chi 5 cun 1 fen; property value 938 guan 400 wen; harmonized purchase converted silk 20 pi 2 zhang 1 chi 1 cun; in-kind 8 pi remainder 3 zhang 1 chi 9 cun.
-
-\textbf{Bing now:} Fields 979 mu; seedling rice 34 shi 2 dou 6 sheng 5 ge; summer tax converted silk 8 pi 1 zhang 7 chi 7 cun 5 fen 5 li; in-kind silk 19 pi remainder 2 zhang 8 chi 9 cun 5 fen; property value 1,174 guan 800 wen; harmonized purchase converted silk 25 pi 2 zhang 7 chi 9 cun 5 fen; in-kind 11 pi remainder 5 cun 5 fen.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米及衰分求之。置甲原納米為實，以毎畆苗為法除之，得甲原有田。以乗毎畆税，得田絹。次以甲紬絹本色折帛併之，内減田絹，餘為地紬。以毎紬約之，得甲原有地。次以甲出田併乙丙原有田，各得三户今有田地。各以等則乗之，各得物力苗税。次以毎畆物力率約各户共物力，得和買。副之，三分因之退位為和本，七分因之退位為和折；夏税反其分而因之退之；紬以半之，併入税，各得。%
-}
-}{%
-\MethodEn{%
-Use the methods of Millet and Rice (粟米, \textit{sumi}) and proportional distribution (衰分, \textit{chuifen}). Take Jia's original rice payment as dividend; divide by the per-mu seedling rate to obtain Jia's original fields. Multiply by per-mu tax silk to obtain the field silk. Combine Jia's pongee and plain silk (in-kind and converted), subtract the field silk; the remainder is land pongee. Divide by per-unit pongee to obtain Jia's original land. Add Jia's sold fields to Yi and Bing's original fields to obtain each household's current holdings. Multiply by the grade rates to obtain property values and taxes. Use the per-mu property value rate to find each household's total property value, thence the harmonized purchase. Split this: 3 parts in-kind, 7 parts converted; summer tax reverses these proportions (7 in-kind, 3 converted); pongee silk is halved (5 in-kind, 5 converted), combined with plain silk tax. These yield the final results.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 4: 均科綿税
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}均科綿税 / Equalizing Cotton Tax Assessment}
-\addcontentsline{toc}{subsection}{均科綿税 / Equalizing Cotton Tax Assessment}
-
-\ProblemBlock{%
-\QuestionCn{%
-縣科綿有五等户，共一萬一千三十三户，共科綿八萬八千三百三十七兩六錢。上等一十二户，副等八十七户，中等四百六十四户，次等二千三十五户，下等八千四百三十五户。欲令上三等折半差，下二等比中等六四折差。科率求之，問各户納及各等幾何？%
-}
-}{%
-\QuestionEn{%
-A county levies cotton floss (綿) tax on five grades of households, totaling 11,033 households, with a total assessment of 88,337 liang 6 qian. The household counts are: upper grade 12 households; sub-upper grade 87 households; middle grade 464 households; sub-middle grade 2,035 households; lower grade 8,435 households. It is desired that the upper three grades differ by successive halving (折半差), while the lower two grades are set at four-sixths (六四折) of the middle grade. Using these rates, find: the amount paid by each household grade and the total for each grade.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-題言下二等比中等六四折差，是次等為中等六分之四，下等又為次等六分之四也。乃術草中皆以十分之四收之，是四分折差而非四六折差矣。集中題與術不相應者多類此，豈成書之後未能重加校正歟？%
-}
-}{%
-\EditorialEn{%
-The problem states that the lower two grades are at four-sixths (\nicefrac{4}{6}) of the middle grade, meaning the sub-middle grade is \nicefrac{4}{6} of the middle grade, and the lower grade is \nicefrac{4}{6} of the sub-middle grade. However, in the method and working, both are reduced by four-tenths (\nicefrac{4}{10}), which is a four-tenths reduction rather than a four-sixths reduction. Many problems in this collection have such discrepancies between the stated problem and the computational method---perhaps the author was unable to perform a thorough revision after completion.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-上等一户一百二十四兩，一十二户計一千四百八十八兩；
-副等一户六十二兩，八十七户計五千三百九十四兩；
-中等一户三十一兩，四百六十四户計一萬四千三百八十四兩；
-次等一户一十二兩四錢，二千三十五户計二萬五千二百三十四兩；
-下等一户四兩九錢六分，八千四百三十五户計四萬一千八百三十七兩六錢。%
-}
-}{%
-\AnswerEn{%
-Upper grade: 124 liang per household, 12 households totaling 1,488 liang;
-Sub-upper grade: 62 liang per household, 87 households totaling 5,394 liang;
-Middle grade: 31 liang per household, 464 households totaling 14,384 liang;
-Sub-middle grade: 12 liang 4 qian per household, 2,035 households totaling 25,234 liang;
-Lower grade: 4 liang 9 qian 6 fen per household, 8,435 households totaling 41,837 liang 6 qian.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-列五等户數，先以四折下等數，加次等户，又以四折之，加中等户數，却以半折之，加二等户，又以半折之，加上等户數，不折便為法。除科綿，得上等一户之綿。復半之為副等，又半之為中等，又四折之為次等，又四折之為下等。各一户綿，却各以户數乗之，各得五等共出綿。%
-}
-}{%
-\MethodEn{%
-Arrange the five household grades. First reduce the lower grade by four-tenths, add to the sub-middle grade, reduce again by four-tenths, add to the middle grade. Then halve, add to the sub-upper grade; halve again, add to the upper grade. The undiscounted sum is the divisor. Divide the total cotton by this to obtain the upper-grade household's assessment. Halve for sub-upper; halve again for middle; reduce by four-tenths for sub-middle; reduce by four-tenths again for lower. Multiply each per-household amount by the respective household count to obtain each grade's total contribution.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-先置下等户八千四百三十五，以四折之，得三千三百七十四。乃以得數折入次户二千三十五内，得五千四百九户訖。又以四折次數五千四百九户，得二千一百六十三户六分。乃以得次數併入中户四百六十四内，共得二千六百二十七户六分。次以五分折中數二千六百二十七户六分，得數。次以得數一千三百一十三户八分併副户八十七，得一千四百户八分。又以五折副數一千四百户八分，得七百户四分，既得數。乃以副數七百户四分併上户一十二户，得七百一十二户四分，不折便為法。
-
-累折至等，共得七百一十二户四分以為總法。乃置科綿八萬八千三百三十七兩六錢為實，法七百一十二户四分而一，得一百二十四兩為上等一户所出綿。以五折之，得六十二兩為副等一户所出綿。又五折之，得三十一兩為中等一户所出綿。乃以四折之，得一十二兩四錢為次等一户所出綿。又以四折之，得四兩九錢六分為下等一户所出綿。乃以各等户數各乗一户所出，即各得每等共數之綿。%
-}
-}{%
-\WorkingEn{%
-Take lower-grade households 8,435; reduce by four-tenths: 3,374. Add to sub-middle households 2,035: 5,409. Reduce by four-tenths: 2,163.6. Add to middle households 464: 2,627.6. Halve: 1,313.8. Add to sub-upper households 87: 1,400.8. Halve: 700.4. Add to upper households 12: 712.4; this is the divisor.
-
-The cumulative reduction yields 712.4 as the total divisor. Take the cotton assessment 88,337 liang 6 qian as dividend; divide by 712.4: 124 liang as the upper-grade per-household assessment. Halve: 62 liang (sub-upper). Halve: 31 liang (middle). Reduce by four-tenths: 12 liang 4 qian (sub-middle). Reduce by four-tenths: 4 liang 9 qian 6 fen (lower). Multiply each by the respective household count to obtain each grade's total contribution.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 5: 均定勸分
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}均定勸分 / Equalizing Charitable Contribution Quotas}
-\addcontentsline{toc}{subsection}{均定勸分 / Equalizing Charitable Contribution Quotas}
-
-\ProblemBlock{%
-\QuestionCn{%
-欲勸糶賑濟，據甲民户物力畆步排定，共計一百六十二户，作九等：上等三户，第二等五户，第三等七户，第四等八户，第五等十三户，第六等二十一户，第七等二十六户，第八等三十四户，第九等四十五户。今先觀諭，第一等上户願糶五千石，第九等户願糶二百石。欲知各等抛差石數併數認米數各幾何？%
-}
-}{%
-\QuestionEn{%
-It is desired to encourage households to sell grain for famine relief. Household Jia's property values and land have been surveyed, totaling 162 households divided into nine grades: upper grade 3 households; 2nd grade 5 households; 3rd grade 7 households; 4th grade 8 households; 5th grade 13 households; 6th grade 21 households; 7th grade 26 households; 8th grade 34 households; 9th grade 45 households. The uppermost household voluntarily offers 5,000 shi; the 9th-grade household offers 200 shi. Find: the graduated difference in grain quotas between grades, and the total recognized grain contribution for each grade.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-認該米二十三萬七千六百石。
-
-上等一户米五千石，三户計一萬五千石；
-二等一户米四千四百石，五户計二萬二千石；
-三等一户米三千八百石，七户計二萬六千六百石；
-四等一户米三千二百石，八户計二萬五千六百石；
-五等一户米二千六百石，一十三户計三萬三千八百石；
-六等一户米二千石，二十一户計四萬二千石；
-七等一户米一千四百石，二十六户計三萬六千四百石；
-八等一户米八百石，三十四户計二萬七千二百石；
-九等一户米二百石，四十五户計九千石。%
-}
-}{%
-\AnswerEn{%
-Total recognized grain: 237,600 shi.
-
-Upper grade: 5,000 shi per household, 3 households totaling 15,000 shi;
-2nd grade: 4,400 shi per household, 5 households totaling 22,000 shi;
-3rd grade: 3,800 shi per household, 7 households totaling 26,600 shi;
-4th grade: 3,200 shi per household, 8 households totaling 25,600 shi;
-5th grade: 2,600 shi per household, 13 households totaling 33,800 shi;
-6th grade: 2,000 shi per household, 21 households totaling 42,000 shi;
-7th grade: 1,400 shi per household, 26 households totaling 36,400 shi;
-8th grade: 800 shi per household, 34 households totaling 27,200 shi;
-9th grade: 200 shi per household, 45 households totaling 9,000 shi.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以衰分求之。置上下户米，減餘為實。列等數減一，餘為法。除之，得抛差石數。以差累減上等米，各得諸等米。以各等户乗之，併之為總數。%
-}
-}{%
-\MethodEn{%
-Use proportional distribution (衰分, \textit{chuifen}). Take the difference between the upper-grade and lower-grade grain quotas as the dividend. Subtract 1 from the number of grades to obtain the divisor. Divide to obtain the graduated difference in shi. Successively subtract this difference from the upper-grade quota to obtain each grade's quota. Multiply by each grade's household count and sum to obtain the total.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置上等户米五千石，減下等户二百石，餘四千八百石為實。以九等減一，餘八為法。除實，得六百石為每等抛差。用減上等，餘四千四百石為二等米。又減六百，得三千八百石為三等米。又減六百，得三千二百石為四等米。又減六百，得二千六百石為五等米。又減六百，得二千石為六等米。又減六百，得一千四百石為七等米。又減六百，得八百石為八等米。又減六百，得二百石為九等米。又各乗户數，併之，得總認米石數二十三萬七千六百石。%
-}
-}{%
-\WorkingEn{%
-Take upper-grade quota 5,000 shi; subtract lower-grade 200 shi: remainder 4,800 shi as dividend. Nine grades minus 1: 8 as divisor. Divide: 600 shi as the graduated difference per grade. Subtract from upper grade: 4,400 shi (2nd grade). Subtract 600: 3,800 shi (3rd grade). Subtract 600: 3,200 shi (4th grade). Subtract 600: 2,600 shi (5th grade). Subtract 600: 2,000 shi (6th grade). Subtract 600: 1,400 shi (7th grade). Subtract 600: 800 shi (8th grade). Subtract 600: 200 shi (9th grade). Multiply each by the respective household count and sum: total recognized grain 237,600 shi.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 6: 均定合解
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}均定合解 / Equalizing Government Revenue Remittances}
-\addcontentsline{toc}{subsection}{均定合解 / Equalizing Government Revenue Remittances}
-
-\ProblemBlock{%
-\QuestionCn{%
-州郡合解諸司窠名錢：户部九十六萬五千四百二十一貫文，總所六十四萬三千六百一十四貫文，運司一萬六千九十貫三百五十文。今諸窠名先催到九千二百五十三貫六百二十文，欲照原額分數均定樁收解，合各幾何？%
-}
-}{%
-\QuestionEn{%
-A prefecture must remit funds to three government offices: the Ministry of Revenue (戶部) 965,421 guan; the General Office (總所) 643,614 guan; the Transport Office (運司) 16,090 guan 350 wen. From these accounts, 9,253 guan 620 wen has been collected in advance. It is desired to distribute this advance collection proportionally according to the original quotas. How much should each office receive?%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-户部五千四百九十七貫二百文；總所三千六百六十四貫八百文；運司九十一貫六百二十文。%
-}
-}{%
-\AnswerEn{%
-Ministry of Revenue: 5,497 guan 200 wen;
-General Office: 3,664 guan 800 wen;
-Transport Office: 91 guan 620 wen.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以衰分求之。置諸原率，可約約之。副併為法。以催到錢乗未併者，各為實。實如法而一。%
-}
-}{%
-\MethodEn{%
-Use proportional distribution (衰分, \textit{chuifen}). Arrange the original quotas; reduce by common factors if possible. Sum these as the divisor. Multiply the collected amount by each un-summed quota as respective dividends. Divide each dividend by the divisor.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-列户部九十六萬五千四百二十一貫，總所六十四萬三千六百一十四貫，運司一萬六千九十貫三百五十文，各為原率。今原率可約，求等得一萬六千九十貫三百五十為等數，俱約之：户部得六十，總所得四十，運司得一，各為率。副併得一百一為法。以催到錢九千二百五十三貫六百二十文乗未併數：六十、四十及一，畢得五十五萬五千二百一十七貫二百文為户部之實，三十七萬一百四十四貫八百文為總所之實，九千二百五十三貫六百二十文為運司之實。三實皆如法一百一而一：其户部得五千四百九十七貫二百文，總所得三千六百六十四貫八百文，運司得九十一貫六百二十，各為候解錢。%
-}
-}{%
-\WorkingEn{%
-Arrange: Ministry 965,421 guan; General Office 643,614 guan; Transport Office 16,090 guan 350 wen as original rates. These can be reduced: the greatest common divisor is 16,090 guan 350 wen. Reducing: Ministry = 60; General Office = 40; Transport Office = 1. Sum: 101 as divisor.
-
-Multiply the collected 9,253 guan 620 wen by each un-summed rate: by 60: 555,217 guan 200 wen (Ministry's dividend); by 40: 370,144 guan 800 wen (General Office's dividend); by 1: 9,253 guan 620 wen (Transport Office's dividend). Divide each by 101: Ministry = 5,497 guan 200 wen; General Office = 3,664 guan 800 wen; Transport Office = 91 guan 620 wen. These are the amounts to be remitted.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 7: 寬減屯租
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}寬減屯租 / Reducing Military Colony Rent}
-\addcontentsline{toc}{subsection}{寬減屯租 / Reducing Military Colony Rent}
-
-\ProblemBlock{%
-\QuestionCn{%
-屯租欲議寬減，仍聴以夏麥折納分數。官牛種者與減二分，私牛種者與減四分。每嵗租榖以三分之一許夏折二麥，内四分大六分小折色。每大麥三石折小麥二石，小麥二石折榖三石五斗。屯租舊額官種一石納租五石，私種一石納租三石。今某州屯田去年計官私種共九千七百八十二石，共合收租榖三萬九千五百八十六石。欲知官私種各數、原額、今減、合催、成年夏麥秋榖幾何？%
-}
-}{%
-\QuestionEn{%
-It is proposed to grant rent reduction on military colony lands, allowing summer wheat to be substituted for a portion of the grain rent. For land farmed with official oxen, a reduction of two-tenths; for land with private oxen, four-tenths. Each year, one-third of the rent grain may be substituted with summer wheat (two types of wheat): four parts barley and six parts wheat by substitution value. Three shi of barley is equivalent to 2 shi of wheat; 2 shi of wheat is equivalent to 3 shi 5 dou of grain. The old regulations: official seed 1 shi pays rent 5 shi; private seed 1 shi pays rent 3 shi. This year a certain prefecture's colony fields yielded official and private seed totaling 9,782 shi, with total rent grain due of 39,586 shi. Find: the amounts of official and private seed; original quotas; current reduction; amount collectible after reduction; and the adult year's summer wheat and autumn grain amounts.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-此題有官私共種數、租數，有種一石租數，求各種數租數，古謂之差分，今謂之和較比例。折色亦差分也，今謂之和數比例。大小麥與榖相易，古謂之異乗同乗，今謂之和率比列。%
-}
-}{%
-\EditorialEn{%
-This problem gives the total official and private seed amounts and total rent, with the per-seed rent rates, to find the individual seed and rent amounts. Classically called \textit{proportional distribution} (差分, \textit{chaifen}); in modern terms, ratio and proportion. The substitution rates (折色) are also proportional distribution. The barley-wheat-grain exchange is classically called \textit{different multiplication, same multiplication} (異乗同乗, \textit{yicheng tongcheng}); in modern terms, chained ratios.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-官種五千一百二十石，私出種四千六百六十二石。
-
-原租額共三萬九千五百八十六石：官種二萬五千六百石，私種一萬三千九百八十六石。
-
-今減一萬七百一十四石四斗：官種五千一百二十石，私種五千五百九十四石四斗。
-
-合催二萬八千八百七十一石六斗。
-
-官種租二萬四百八十石：一分折麥計榖六千八百二十六石六斗六升零三分升之二；四分折大麥二千三百四十石五斗七升七分升之一（係折榖二千七百三十石六斗六升三分升之二）；六分折小麥二千三百四十石五斗七升七分升之一（係折榖四千九十六石二分）；正色榖一萬三千六百五十三石三斗三升三分升之一。
-
-私種租八千三百九十一石六斗：一分折麥計榖二千七百九十七石二斗；四分折大麥九百五十九石四升（係折榖一千一百一十八石八斗八升）；六分折小麥九百五十九石四升（係折榖一千六百七十八石三斗二升）；二分正色榖五千五百九十四石四斗。
-
-成年共收：夏折榖九千六百二十三石八斗六升三分升之二；大麥三千二百九十九石六斗一升七分升之一；小麥三千二百九十九石六斗一升七分升之一；秋正榖一萬九千二百四十七石七斗三升三分升之一。%
-}
-}{%
-\AnswerEn{%
-\textbf{Official seed:} 5,120 shi; \textbf{Private seed:} 4,662 shi.
-
-\textbf{Original rent quota:} 39,586 shi total---official seed 25,600 shi; private seed 13,986 shi.
-
-\textbf{Current reduction:} 10,714 shi 4 dou---official seed 5,120 shi; private seed 5,594 shi 4 dou.
-
-\textbf{Net collectible:} 28,871 shi 6 dou.
-
-\textbf{Official seed rent} 20,480 shi: one-third wheat substitution = 6,826 shi 6 dou 6 sheng plus \nicefrac{2}{3}; four parts barley = 2,340 shi 5 dou 7 sheng plus \nicefrac{1}{7} (= 2,730 shi 6 dou 6 sheng plus \nicefrac{2}{3} grain equivalent); six parts wheat = 2,340 shi 5 dou 7 sheng plus \nicefrac{1}{7} (= 4,096 shi 0\nicefrac{2}{10}); standard grain 13,653 shi 3 dou 3 sheng plus \nicefrac{1}{3}.
-
-\textbf{Private seed rent} 8,391 shi 6 dou: one-third wheat substitution = 2,797 shi 2 dou; four parts barley = 959 shi 0\nicefrac{4}{10} (= 1,118 shi 8 dou 8 sheng); six parts wheat = 959 shi 0\nicefrac{4}{10} (= 1,678 shi 3 dou 2 sheng); two parts standard grain = 5,594 shi 4 dou.
-
-\textbf{Adult year total collection:} Summer substituted grain 9,623 shi 8 dou 6 sheng plus \nicefrac{2}{3}; Barley 3,299 shi 6 dou 1 sheng plus \nicefrac{1}{7}; Wheat 3,299 shi 6 dou 1 sheng plus \nicefrac{1}{7}; Autumn standard grain 19,247 shi 7 dou 3 sheng plus \nicefrac{1}{3}.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以衰分求之。置共種數，以官種一石納五石、私種一石納三石為列衰，併之為法。以共租乗未併者為實，實如法而一。各得官私種數。次以各一石租數乗種數，得原額。以減分乗各原額，得今減數。以減原額，餘為合催。次以三分折數乗各催租，得折麥計榖。又於折内分大麥四分、小麥六分，各得麥數。以大麥率三石折小麥二石、小麥二石折榖三石五斗變之，得榖數。以減折麥計榖，餘為正色榖。併之，得成年共收數。%
-}
-}{%
-\MethodEn{%
-Use proportional distribution (衰分, \textit{chuifen}). Take the total seed amount; use the official seed rent rate 5 shi and private seed rent rate 3 shi as proportional rates. Sum as divisor. Multiply total rent by each un-summed rate as dividends; divide to obtain official and private seed amounts. Multiply each seed amount by its per-shi rent rate to obtain the original quota. Apply the reduction rates to obtain the current reduction. Subtract from original quota for the net collectible. Take one-third of each collectible rent for wheat substitution; within this, four parts barley and six parts wheat. Convert barley to grain at 3:2 barley-to-wheat then 2:\nicefrac{7}{2} wheat-to-grain; convert wheat similarly. Subtract converted grain from the total substitution amount; remainder is standard grain. Sum all to obtain the adult year's total collection.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 8: 戶稅均寬
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}戶稅均寬 / Equalizing Household Tax Relief}
-\addcontentsline{toc}{subsection}{戶稅均寬 / Equalizing Household Tax Relief}
-
-\ProblemBlock{%
-\QuestionCn{%
-州郡寬恤，近将某縣下三等税户秋科餘欠錢米，已與蠲放：共錢一千三百五十五貫七百六文，米五千二百七十二石一斗九升。某本縣下三等物力計三萬七千六百五十八貫五百文。今來官員陳述：本縣多有樂輸無欠之户，今䝉蠲放税尾，似反寬潤頑輸之户，於理未均。遂議将樂輸三等户於明年兩税與照昨來體例減免。契勘得三等無欠户物力二十二萬八千一十五貫三百二十一文。欲知每百文合減免錢米及共減各幾何？%
-}
-}{%
-\QuestionEn{%
-The prefecture, in a gesture of benevolence, has recently remitted the outstanding autumn tax debts of the lower three grades of households in a certain county: total money 1,355 guan 706 wen, grain 5,272 shi 1 dou 9 sheng. The property value (物力) of these lower three grades in the county is 37,658 guan 500 wen. Now an official reports: there are many households in this county who paid willingly and have no arrears; granting remission of tax arrears appears to benefit only delinquent payers, which is inequitable. It is proposed that the compliant households of the three grades be granted proportional reduction in next year's two-tax payment according to the same precedent. Investigation reveals the property value of compliant non-delinquent households of the three grades is 228,015 guan 321 wen. Find: the reduction per 100 wen of property value, and the total reduction in money and grain.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-毎物力一百文，放錢三文六分，放米一升四合。明年兩税放免：錢七千九百四十九貫三百五十一文五分五釐六毫；米三萬九百一十四石一斗四升四合九勺四抄。%
-}
-}{%
-\AnswerEn{%
-For every 100 wen of property value: remit 3 wen 6 fen of money; remit 1 sheng 4 ge of grain. Next year's two-tax remission: money 7,949 guan 351 wen 5 fen 5 li 6 hao; grain 30,914 shi 1 dou 4 sheng 4 ge 9 shao 4 chao.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米衰分求之。置原物力為法，除原放錢米，得毎百文物力所放錢米率。以各率乗今來物力，各得錢米，為明年兩税合放數。%
-}
-}{%
-\MethodEn{%
-Use the methods of Millet and Rice and proportional distribution (粟米衰分, \textit{sumi chuifen}). Take the original property value as the divisor; divide the original remitted money and grain to obtain the remission rate per 100 wen of property value. Multiply each rate by the current property value to obtain the money and grain amounts for next year's two-tax remission.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-以原物力三萬七千六百五十八貫五百文為法。先除原放錢一千三百五十五貫七百六文，定法百文上得一文為商，除得三文六分為物力百文所放錢率。次除原放米五千二百七十二石一斗九升，得一升四合為物力百文所放米率。以今三等户物力二十二萬八千一十五貫三百二十一文徧乗所放錢米二率，得錢七千九百四十九貫三百五十一文五分五釐六毫，得米三萬九百一十四石一斗四升四合九勺四抄，為明年兩税合放數。%
-}
-}{%
-\WorkingEn{%
-Take the original property value 37,658 guan 500 wen as the divisor. First divide the remitted money 1,355 guan 706 wen: for each 100 wen of the divisor, obtain 3 wen 6 fen as the money remission rate per 100 wen. Next divide the remitted grain 5,272 shi 1 dou 9 sheng: obtain 1 sheng 4 ge as the grain remission rate per 100 wen.
-
-Multiply both rates by the current property value of compliant households, 228,015 guan 321 wen: money = 7,949 guan 351 wen 5 fen 5 li 6 hao; grain = 30,914 shi 1 dou 4 sheng 4 ge 9 shao 4 chao. These are the amounts to be remitted from next year's two-tax.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 9: 米榖粒分
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}米榖粒分 / Separating Rice from Mixed Grain by Granules}
-\addcontentsline{toc}{subsection}{米榖粒分 / Separating Rice from Mixed Grain by Granules}
-
-\ProblemBlock{%
-\QuestionCn{%
-開倉受約，有甲户米一千五百三十四石。到廊驗得米内夾榖，乃於様内取米一捻，數計二百五十四粒，内有榖二十八顆。凡粒米率每勺三百。今欲知米内雜榖多少，以折米數科貴及粒各幾何？%
-}
-}{%
-\QuestionEn{%
-When opening the granary to receive grain, household Jia delivers 1,534 shi of rice. Upon inspection at the corridor, the rice is found to be mixed with unhusked grain (穀). A pinch is taken as a sample: 254 grains total, containing 28 grains of husked grain. The standard rate is 300 grains per shao. It is desired to know: how much grain is mixed in the rice, the amount of rice to be deducted (折米), and the total number of grains.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-米一千三百六十四石八斗九升七合六勺一百二十七分勺之四十八；
-榖一百六十九石一斗二合三勺一百二十七分勺之七十九。
-合折米八十四石五斗五升一合一勺一百二十七分勺之一百三。
-原米折米共計四十三億四千八百三十四萬六千四百五十六粒。%
-}
-}{%
-\AnswerEn{%
-Pure rice: 1,364 shi 8 dou 9 sheng 7 ge 6 shao plus \nicefrac{48}{127} shao;
-Mixed grain: 169 shi 1 dou 0 sheng 2 ge 3 shao plus \nicefrac{79}{127} shao.
-Grain converted to rice equivalent: 84 shi 5 dou 5 sheng 1 ge 1 shao plus \nicefrac{103}{127} shao.
-Total grains (original rice plus converted): 4,348,346,456 grains.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米求之，衰分入之。置様米粒數為法，以常榖顆數減之，餘與榖為列衰。可約約之。以共米乗列衰為各實，實如法而一，各得米數榖數。置榖數以粟率折之，為榖所折米。次以勺率遍乗米數折米，得粒數。%
-}
-}{%
-\MethodEn{%
-Use the Millet and Rice (粟米, \textit{sumi}) method, with proportional distribution (衰分, \textit{chuifen}). Take the sample grain count as the divisor; subtract the husked grain count; the remainder and the grain count form the proportional rates. Reduce if possible. Multiply the total rice by each rate as respective dividends; divide by the divisor to obtain the rice and grain amounts. Convert the grain amount to rice equivalent using the grain-to-rice rate. Then multiply both rice amounts by the grains-per-shao rate to obtain the total grain count.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置一捻様粒數二百五十四為法，以帶榖二十八顆為榖衰，以減法，餘二百二十六為米衰。此二衰與法皆可約，求等得二，俱以約之：法得一百二十七，米衰得一百一十三，榖衰得一十四。以米一千五百三十四石遍乗二衰，得一十七萬三千三百四十二石為米實，得二萬一千四百七十六石為榖實。皆如法一百二十七而一：米得一千三百六十四石八斗九升七合六勺一百二十七分勺之四十八，榖得一百六十九石一斗二合三勺一百二十七分勺之七十九。以粟率五十折之，得八十四石五斗五升一合一勺一百二十七分勺之一百三為榖折納米數。併二米，得一千四百四十九石四斗四升八合八勺一百二十七分勺之二十四。先通分納子一十八萬四千八十石，以勺率三百粒乗之，得五千五百二十二億四千萬粒為實，以母一百二十七除之，得四十三億四千八百三十四萬六千四百五十六粒，不盡八十八棄之。%
-}
-}{%
-\WorkingEn{%
-Take the sample count 254 as divisor; the 28 mixed grains as the grain rate; subtract from divisor: 226 as the rice rate. These two rates and the divisor can all be reduced: divide by 2---divisor = 127, rice rate = 113, grain rate = 14.
-
-Multiply the total rice 1,534 shi by both rates: rice dividend = 173,342 shi; grain dividend = 21,476 shi. Divide both by 127: pure rice = 1,364 shi 8 dou 9 sheng 7 ge 6 shao + \nicefrac{48}{127}; grain = 169 shi 1 dou 0 sheng 2 ge 3 shao + \nicefrac{79}{127}.
-
-Convert grain to rice equivalent at rate 50\%: 84 shi 5 dou 5 sheng 1 ge 1 shao + \nicefrac{103}{127}.
-
-Combine both rice amounts: 1,449 shi 4 dou 4 sheng 8 ge 8 shao + \nicefrac{24}{127}. Convert to improper fraction: dividend 184,080 shi. Multiply by grain rate 300 grains/shao: 55,224,000,000 grains as dividend; divide by 127: 434,834,6456 grains (remainder 88, discarded).%
-}
-}
-
-\newpage
-%% =============================================================================
-%% FASCICLE 6 — 錢穀 (MONEY AND GRAIN)
-%% =============================================================================
-\section*{\color{titlecolor}卷六\quad 錢穀類 / Fascicle 6: Money and Grain}
-\addcontentsline{toc}{section}{卷六\quad 錢穀類 / Fascicle 6: Money and Grain}
-
-\noindent\rule{\textwidth}{1pt}
-\vspace{0.3em}
-
-%% ---------------------------------------------------------------------------
-%% PROBLEM 1: 課糴
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}課糴 / Government Grain Purchase}
-\addcontentsline{toc}{subsection}{課糴 / Government Grain Purchase}
-
-\ProblemBlock{%
-\QuestionCn{%
-差人五路和糴。據浙西平江府石價三十五貫文，一百三十五合，至鎮江水脚錢每石九百文；安吉州石價二十九貫五百文，一百一十合，至鎮江水脚錢每石一貫二百文；江西隆興府石價二十八貫一百文，一百一十五合，至建康水脚錢每石一貫七百文；吉州石價二十五貫八百五十文，一百二十合，至建康水脚錢每石二貫九百文；湖南潭州石價二十七貫三百文，一百一十八合，至鄂州水脚錢每石一貫七百文。其錢並十七界官㑹，其米並用文思院斛交量紐數。欲皆以官解計石錢相比貴賤幾何？%
-}
-}{%
-\QuestionEn{%
-Officials are dispatched to purchase grain across five circuits. The data are:
-
-\textbf{Zhexi--Pingjiang Prefecture:} grain price 35 guan per shi, 135 ge per dou; water transport to Zhenjiang 900 wen per shi.
-
-\textbf{Anji Prefecture:} grain price 29 guan 500 wen per shi, 110 ge per dou; water transport to Zhenjiang 1 guan 200 wen per shi.
-
-\textbf{Jiangxi--Longxing Prefecture:} grain price 28 guan 100 wen per shi, 115 ge per dou; water transport to Jiankang 1 guan 700 wen per shi.
-
-\textbf{Jizhou:} grain price 25 guan 850 wen per shi, 120 ge per dou; water transport to Jiankang 2 guan 900 wen per shi.
-
-\textbf{Hunan--Tanzhou:} grain price 27 guan 300 wen per shi, 118 ge per dou; water transport to Ezhou 1 guan 700 wen per shi.
-
-All payments use 17th-series official certificates (官會); all grain is measured with the Wensiyuan official hu. It is desired to compute the comparable price per shi (in official hu) for each source, ranking them from most to least expensive.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-按草中係二貫一百文，此訛。文思院解每斗八十三合。%
-}
-}{%
-\EditorialEn{%
-The working contains ``2 guan 100 wen'' [for Tanzhou transport]; this is an error. The Wensiyuan official hu measures 83 ge per dou.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-文思院斛石錢：安吉州二十三貫一百六十四文一十一分文之六；平江府二十二貫七十一文二十七分文之二十三；隆興府二十一貫五百七文二十三分文之一十九；潭州二十貫六百七十九文五十九分文之四十九；吉州一十九貫八百八十五文十二分文之五。%
-}
-}{%
-\AnswerEn{%
-Comparable prices per shi (Wensiyuan hu): Anji Prefecture 23 guan 164 wen + \nicefrac{6}{11}; Pingjiang Prefecture 22 guan 71 wen + \nicefrac{23}{27}; Longxing Prefecture 21 guan 507 wen + \nicefrac{19}{23}; Tanzhou 20 guan 679 wen + \nicefrac{49}{59}; Jizhou 19 guan 885 wen + \nicefrac{5}{12}.
-
-Ranking from most to least expensive: Anji, Pingjiang, Longxing, Tanzhou, Jizhou.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-按三十九訛四十九。%
-}
-}{%
-\EditorialEn{%
-[Note: The answer has ``49'' where it should read ``39.'' This is a textual error.]%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米互換求之。置石價併水脚，乗石數，又乗官斗合數為實。各如本州合數而一，各得官解石錢。以課貴賤。%
-}
-}{%
-\MethodEn{%
-Use the Millet and Rice mutual conversion method (粟米互換, \textit{sumi huhuan}). Add the grain price and water transport cost per shi; multiply by the standard shi measure, then by the official dou's ge count as dividend. Divide by each locality's dou measure in ge to obtain the comparable price per shi. Rank by price to determine relative expense.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置安吉州石價二十九貫五百文，平江石價三十五貫文，隆興石價二十八貫一百文，吉州石價二十五貫八百五十文，潭州石價二十七貫三百文，列右行。次置水脚：安吉一貫二百文，平江九百文，隆興一貫七百文，吉州二貫九百文，潭州二貫一百文，列左行，各對本州石價。以兩行數併之，得數：安吉三十貫七百文，平江三十五貫九百，隆興二十九貫八百，潭州二十九貫四百，吉州二十八貫七百五十，仍於右行。次以文思院官斗八十三合遍乗之：安吉州得二千五百四十八貫一百文，平江府得二千九百七十九貫七百文，江西隆興得二千四百七十三貫四百文，湖南潭州得二千四百四十貫二百文，江南吉州得二千三百八十六貫二百五十文，各為實於右。得次列安吉斗一百一十合，平江斗一百三十五合，隆興斗一百一十五合，潭州斗一百一十八合，吉州斗一百二十合於左行為法。以对除右行之實：安吉得二十三貫一百六十四文一十一分之六，平江得二十三貫七十一文二十七分文之二十三，隆興得二十一貫五百七文二十三分文之一十九，潭州得二十貫六百七十九文五十九文分之四十九，吉州得一十九貫八百八十五文一十二分文之五。相課石價，其安吉州最貴，平江次之，隆興又次之，潭州又次之，吉州最賤。%
-}
-}{%
-\WorkingEn{%
-Arrange the grain prices (right column): Anji 29 guan 500 wen, Pingjiang 35 guan, Longxing 28 guan 100 wen, Jizhou 25 guan 850 wen, Tanzhou 27 guan 300 wen. Arrange water transport costs (left column): Anji 1 guan 200 wen, Pingjiang 900 wen, Longxing 1 guan 700 wen, Jizhou 2 guan 900 wen, Tanzhou 2 guan 100 wen.
-
-Add the two columns: Anji 30 guan 700 wen, Pingjiang 35 guan 900 wen, Longxing 29 guan 800 wen, Tanzhou 29 guan 400 wen, Jizhou 28 guan 750 wen. Multiply by the Wensiyuan official dou 83 ge: Anji 2,548 guan 100 wen; Pingjiang 2,979 guan 700 wen; Longxing 2,473 guan 400 wen; Tanzhou 2,440 guan 200 wen; Jizhou 2,386 guan 250 wen. These are the dividends.
-
-Arrange the local dou measures (divisors): Anji 110 ge, Pingjiang 135 ge, Longxing 115 ge, Tanzhou 118 ge, Jizhou 120 ge. Divide each dividend by its divisor to obtain the comparable prices. Rank: Anji most expensive, Pingjiang next, Longxing next, Tanzhou next, Jizhou least expensive.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 2: 折解輕齎
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}折解輕齎 / Converting to Lightweight Currency for Remittance}
-\addcontentsline{toc}{subsection}{折解輕齎 / Converting to Lightweight Currency}
-
-\ProblemBlock{%
-\QuestionCn{%
-有甲乙丙丁四郡，各合起上供銀絹。
-
-甲郡：銀三千二百兩，每兩二貫二百文足；絹六萬四千匹，每匹二貫文足。去京一千里，每擔一里傭錢六文足。其時舊㑹每貫五十四文足。
-
-乙郡：銀二千七百兩，每兩二貫三百文足；絹四萬九千二百匹，每匹二貫四百二十文足。去京九百八十里，每擔一里傭錢四文二分足。舊㑹價五十九文足。
-
-丙郡：銀四千兩，每兩新㑹九貫三百文；絹七萬三千六百匹，每匹新㑹一十貫三百文。去京二千里，每擔一里傭錢八十文舊㑹。
-
-丁郡：銀二千六百兩，每兩五十一貫文舊㑹；絹三萬二千三十五匹，每匹五十八貫文舊㑹。去京一千五百里，每擔一里傭錢一百文舊㑹。
-
-諸郡銀每五百兩、絹每六十匹、新㑹每五千貫為擔。欲並折新㑹，均作三限起解。求各郡每限及本色原理、折解實用、寛餘、傭錢各新㑹幾何？%
-}
-}{%
-\QuestionEn{%
-Four prefectures (Jia, Yi, Bing, Ding) must each remit silver and silk as tribute to the capital:
-
-\textbf{Jia:} Silver 3,200 liang at 2 guan 200 wen per liang (``full'' value); silk 64,000 pi at 2 guan per pi. Distance to capital 1,000 li; porterage 6 wen per dan per li. Old certificates exchange at 54 wen per guan.
-
-\textbf{Yi:} Silver 2,700 liang at 2 guan 300 wen per liang; silk 49,200 pi at 2 guan 420 wen per pi. Distance 980 li; porterage 4 wen 2 fen per dan per li. Old certificates at 59 wen per guan.
-
-\textbf{Bing:} Silver 4,000 liang at 9 guan 300 wen new certificates per liang; silk 73,600 pi at 10 guan 300 wen new certificates per pi. Distance 2,000 li; porterage 80 wen old certificates per dan per li.
-
-\textbf{Ding:} Silver 2,600 liang at 51 guan old certificates per liang; silk 32,035 pi at 58 guan old certificates per pi. Distance 1,500 li; porterage 100 wen old certificates per dan per li.
-
-Each dan = 500 liang silver, or 60 pi silk, or 5,000 guan new certificates. All values are to be converted to new certificates and remitted in three equal installments. Find: each prefecture's per-installment amount; original porterage calculation; converted practical porterage; surplus; and all amounts in new certificates.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-此題貫數分三項：其一足數，每千文為一貫；其一舊㑹數，如甲以五十四文為一貫，乙以五十九文為一貫是也；其一新㑹數，為舊㑹數之五倍，如甲以二百七十文為一貫，乙以二百九十五文為一貫是也。四郡或言足數，或言舊㑹數、新㑹數。並折新㑹數。傭錢原以銀五百兩或絹六十匹各為一擔，今皆折新㑹數，以五千貫為一擔，故有寛餘錢數。題語多未詳，而併為一擔句尤混，略為分析而術草之意大概可見矣。%
-}
-}{%
-\EditorialEn{%
-This problem involves three monetary systems: (1) ``full'' value (足), where 1,000 wen = 1 guan; (2) old certificates (舊會), where Jia's rate is 54 wen = 1 guan and Yi's rate is 59 wen = 1 guan; (3) new certificates (新會), worth five times the old certificates (Jia: 270 wen = 1 guan; Yi: 295 wen = 1 guan). The four prefectures express values in different systems, all to be converted to new certificates.
-
-Originally, porterage was calculated with one dan = 500 liang silver or 60 pi silk. After converting everything to new certificates, one dan = 5,000 guan, hence there is a ``surplus'' (寬餘) in the porterage calculation. The problem statement is somewhat unclear, especially the ``combined as one dan'' clause; this analysis clarifies the method's intent.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-甲郡：合解五十萬一百四十八貫一百四十八文。初限一十六萬六千七百一十六貫四十九文，次限一十六萬六千七百一十六貫四十九文，未限一十六萬六千七百一十六貫五十文。傭錢原理二萬三千八百四十五貫九百二十五文二十七分文之二十五，實用二千二百二十二貫八百七十七文二十七分文之二十一，寛餘二萬一千六百二十三貫四十八文二十七分文之四。
-
-乙郡：合解四十二萬四千六百五十七貫六百二十七文。初限一十四萬一千五百五十二貫五百四十二文，次限一十四萬一千五百五十二貫五百四十二文，末限一十四萬一千五百五十二貫五百四十三文。傭錢原理一萬一千五百一十六貫四百二十八文五十九分文之二十八，實用一千一百八十五貫一十文二百九十五分文之五，寛餘一萬三百三十一貫四百一十八文五十九分文之二十七。
-
-丙郡：合解七十九萬五千二百八十貫文。初限二十六萬五千九十三貫三百三十三文，次限二十六萬五千九十三貫三百三十三文，末限二十六萬五千九十三貫三百三十四文。傭錢原理三萬九千五百九貫三百三十三文三分文之一，實用五千八十九貫七百九十二文，寛餘三萬四千四百一十九貫五百四十一文三分文之一。
-
-丁郡：合解三十九萬八千一百二十六貫文。初限一十三萬二千七百八貫六百六十六文，次限一十三萬二千七百八貫六百六十六文，末限一十三萬二千七百八貫六百六十八文。傭錢原理一萬四千一百七十三貫五百文，實用二千三百八十八貫七百五十六文，寛餘一萬一千七百八十四貫七百四十四文。%
-}
-}{%
-\AnswerEn{%
-\textbf{Jia:} Total remittance 500,148 guan 148 wen. Installment 1: 166,716 guan 49 wen; Installment 2: 166,716 guan 49 wen; Installment 3: 166,716 guan 50 wen. Porterage original calculation: 23,845 guan 925 wen + \nicefrac{25}{27}; practical: 2,222 guan 877 wen + \nicefrac{21}{27}; surplus: 21,623 guan 48 wen + \nicefrac{4}{27}.
-
-\textbf{Yi:} Total 424,657 guan 627 wen. Per installment: 141,552 guan 542 wen; 141,552 guan 542 wen; 141,552 guan 543 wen. Original porterage: 11,516 guan 428 wen + \nicefrac{28}{59}; practical: 1,185 guan 10 wen + \nicefrac{5}{295}; surplus: 10,331 guan 418 wen + \nicefrac{27}{59}.
-
-\textbf{Bing:} Total 795,280 guan. Per installment: 265,093 guan 333 wen; 265,093 guan 333 wen; 265,093 guan 334 wen. Original porterage: 39,509 guan 333 wen + \nicefrac{1}{3}; practical: 5,089 guan 792 wen; surplus: 34,419 guan 541 wen + \nicefrac{1}{3}.
-
-\textbf{Ding:} Total 398,126 guan. Per installment: 132,708 guan 666 wen; 132,708 guan 666 wen; 132,708 guan 668 wen. Original porterage: 14,173 guan 500 wen; practical: 2,388 guan 756 wen; surplus: 11,784 guan 744 wen.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以均輸求之。置各郡銀絹，乗各價，併之，歸足原，展足為舊㑹，次以五約舊㑹為新㑹，各得合解錢。以限數除之，得每限錢，不盡併歸末限。次置里數，乗每里傭價為率。以率乗原銀及原絹，各為傭實。以每擔銀絹率各為法，實如法而一，不滿者亦為擔，併之為原理傭錢。次以率乗合觧錢為實，乃以錢物毎擔率為法，實如法而一，各得實用傭錢。以減原理傭錢，餘為寛餘傭錢。%
-}
-}{%
-\MethodEn{%
-Use the equitable transport (均輸, \textit{junshu}) method. Take each prefecture's silver and silk; multiply by their respective prices; combine and convert to ``full'' value, then extend to old certificates, then divide by 5 to obtain new certificates---these are the amounts to be remitted. Divide by 3 installments; remainder goes to the final installment. Next, take the distance in li; multiply by per-li porterage rate as the factor. Multiply this factor by the original silver and silk amounts as porterage dividends; divide by the respective dan rates (500 liang silver or 60 pi silk); round up to whole dan; sum to obtain the original porterage. Then multiply the factor by the total remittance as dividend; use the new-certificate dan rate (5,000 guan) as divisor; this gives the practical porterage. Subtract from original porterage; remainder is the surplus.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 3: 僦直推原
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}僦直推原 / Working Backwards from Rent to Find Original Amount}
-\addcontentsline{toc}{subsection}{僦直推原 / Working Backwards from Rent}
-
-\ProblemBlock{%
-\QuestionCn{%
-房廊數内，一户日納一百五十六文八分足為準。指揮未曽經減者，減三分；已曽經減三分者，減二分；已曽經減二分者，更減二分。今本户累經減者，欲知原額房錢幾何？%
-}
-}{%
-\QuestionEn{%
-Among the rental properties, one household currently pays 156 wen 8 fen per day (in ``full'' currency) as the assessed rent. An order states: those never previously reduced shall have a reduction of 3 parts in 10; those already reduced by 3 parts shall have a further reduction of 2 parts in 10; those already reduced by 2 parts shall have yet another reduction of 2 parts in 10. This household has been subject to successive reductions. Find: the original rent amount.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-原額三百五十文。%
-}
-}{%
-\AnswerEn{%
-Original rent: 350 wen.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以衰分求之。列一十分兩行，各三位；列減分，對減右行。以餘者相乘為法。以左行原列相乘，得納錢為實。實如法而一，得原額錢。%
-}
-}{%
-\MethodEn{%
-Use proportional distribution (衰分, \textit{chuifen}). Arrange two rows of 10 (representing the full amount), each with three positions. Arrange the reduction rates and subtract from the right row. Multiply the remainders as the divisor. Multiply the original left row entries; multiply by the current payment as dividend. Divide to obtain the original rent.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-列一十三位於左行，又列一十分三位於右行。其右上減去初減三分，右中減去次減二分，右下減去更減二分。右行餘七八八，以相乗得四百四十八為法。乃以左行三位一十分相乘，得一千為乗率。以乘見日納錢一百五十六文八分，得一百五十六貫八百文為實。實如法而一，得三百五十文，為本户原額戸錢。%
-}
-}{%
-\WorkingEn{%
-Arrange three 10s in the left row; arrange three 10s in the right row. From the upper right subtract the first reduction 3 (3/10): remainder 7. From the middle right subtract the second reduction 2 (2/10): remainder 8. From the lower right subtract the further reduction 2 (2/10): remainder 8. The right row remainders are 7, 8, 8; multiply: $7 \times 8 \times 8 = 448$ as divisor.
-
-Multiply the three 10s in the left row: $10 \times 10 \times 10 = 1,000$ as the multiplier. Multiply by the current daily payment 156 wen 8 fen: 156,800 wen as dividend. Divide by 448: 350 wen as the original rent.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 4: 推求本息
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}推求本息 / Calculating Principal and Interest}
-\addcontentsline{toc}{subsection}{推求本息 / Calculating Principal and Interest}
-
-\ProblemBlock{%
-\QuestionCn{%
-三庫息例：萬貫以上一釐，千貫以上二釐五毫，百貫以上三釐。甲庫本四十九萬三千八百貫，乙庫本三十七萬三百貫，丙庫本二十四萬六千八百貫。今三庫共約到息錢二萬五千六百四十四貫二百文。其典率：甲反錐差，乙方錐差，丙蒺藜差。欲知原典三例本息各幾何？%
-}
-}{%
-\QuestionEn{%
-Three treasuries have the following interest rates: for capital of 10,000 guan or more, 1 li (\nicefrac{1}{1000}); for 1,000 guan or more, 2.5 li; for 100 guan or more, 3 li. Treasury Jia has capital 493,800 guan; Treasury Yi has 370,300 guan; Treasury Bing has 246,800 guan. The three treasuries together have collected interest of 25,644 guan 200 wen.
-
-The distribution rates are: Jia uses the ``inverted cone'' (反錐, \textit{fanzhui}) differential; Yi uses the ``square cone'' (方錐, \textit{fangzhui}) differential; Bing uses the ``caltrop'' (蒺藜, \textit{jili}) differential. Find: the original capital distribution across the three rate tiers and the interest from each treasury.%
-}
-}
-
-\ProblemBlock{%
-\EditorialCn{%
-此即衰分題也。其差有反錐、方錐、蒺藜之名，蓋以一二三遞減如立錐為反錐，以一四九平方遞加為方錐，以一三六三數遞加為蒺藜。是必古有其名也。至以各差求各本，則因各本原依各差入之也。%
-}
-}{%
-\EditorialEn{%
-This is fundamentally a proportional distribution (衰分) problem. The differentials have classical names: ``inverted cone'' means decreasing as 3, 2, 1 (like an upside-down cone); ``square cone'' means increasing as squares 1, 4, 9; ``caltrop'' means increasing as 1, 3, 6 (triangular numbers). These names must be ancient. The capital amounts are distributed according to these differentials.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-甲庫共納息九千五十三貫文：一釐息二千四百六十九貫文，二釐半息四千一百一十五貫文，三釐息二千四百六十九貫文。
-
-乙庫共納息一萬五十一貫文：一釐息二百六十四貫五百文，二釐半息二千六百四十五貫文，三釐息七千一百四十一貫五百文。
-
-丙庫共納息六千五百四十貫二百文：一釐息二百四十六貫八百文，二釐半息一千八百五十一貫文，三釐息四千四百四十二貫四百文。%
-}
-}{%
-\AnswerEn{%
-\textbf{Treasury Jia} total interest: 9,053 guan. At 1 li rate: 2,469 guan; at 2.5 li rate: 4,115 guan; at 3 li rate: 2,469 guan.
-
-\textbf{Treasury Yi} total interest: 10,051 guan. At 1 li rate: 264 guan 500 wen; at 2.5 li rate: 2,645 guan; at 3 li rate: 7,141 guan 500 wen.
-
-\textbf{Treasury Bing} total interest: 6,540 guan 200 wen. At 1 li rate: 246 guan 800 wen; at 2.5 li rate: 1,851 guan; at 3 li rate: 4,442 guan 400 wen.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-置諸庫諸色之差，照釐率為三行。縱併之為約率，横命之為乗率。以約率各約自庫之本，各得。以遍乗未併乗率，然後各以釐率横乗之，次以縱併之，為各庫共息。%
-}
-}{%
-\MethodEn{%
-Arrange each treasury's three-tier differentials in three rows, corresponding to the three interest rates. Sum vertically to obtain the reduction rates; read horizontally as the multiplication rates. Divide each treasury's capital by its reduction rate. Multiply the results by the un-summed horizontal rates; then multiply horizontally by the interest rates; finally sum vertically to obtain each treasury's total interest.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置甲庫反錐差，自下置三二一於右行。次置乙庫方錐差，自上置一四九於中行。次置丙庫蒺藜差，自上置一三六於左行，各為三庫上中下三等乘率。乃縱併甲差三二一，得六為甲約率。縱併乙差一四九，得一十四為乙約率。縱併丙差一三六，得一十為丙約率。直命九位數各為上中下乗率。
-
-乃先以約率各約自庫之本：乃以甲約率六約甲本四十九萬三千八百貫，得八萬二千三百貫為甲得。次以乙約率一十四約乙本三十七萬三百貫，得二萬六千四百五十貫為乙得。次以丙約率一十約丙本二十四萬六千八百貫，得二萬四千六百八十貫為丙得。
-
-以各得乗未併乗率：其甲所得八萬二千三百貫，乘反錐乗率三二一，得二十四萬六千九百貫為上率，得一十六萬四千六百貫為中率，得八萬二千三百貫為下率。其乙所得二萬六千四百五十貫，以乗方錐差一四九，得二萬六千四百五十貫為上率，得一十萬五千八百貫為中率，得二十三萬八千五十貫為下率。其丙所得二萬四千六百八十貫，以乗蒺藜差一三六，得二萬四千六百八十貫為上率，得七萬四千四十貫為中率，得一十四萬八千八十貫為下率。
-
-然後各以息釐數乘各庫三乗：其甲以一釐乗上率二十四萬六千九百貫，得二千四百六十九貫為上息；以二釐五毫乘中率一十六萬四千六百貫，得四千一百一十五貫為中息；以三釐乘下率八萬二千三百貫，得二千四百六十九貫為下息。併上中下三息，得九千五十三貫文為甲庫共息。其乙庫以一釐乗上率二萬六千四百五十貫，得二百六十四貫五百文為上息；以二釐五毫乗中率一十萬五千八百貫，得二千六百四十五貫為中息；以三釐乗下率二十三萬八千五十貫，得七千一百四十一貫五百為下息。併上中下三息，得一萬五十一貫文為乙庫共息。其丙庫以一釐乗上率二萬四千六百八十貫，得二百四十六貫八百為上息；以二釐五毫乘中率七萬四千四十貫，得一千八百五十一貫為中息；以三釐乗下率一十四萬八千八十貫，得四千四百四十二貫四百文為下息。併上中下三息，得六千五百四十貫二百文為丙庫共息。併三庫共息，得二萬五千六百四十四貫二百文為總息。%
-}
-}{%
-\WorkingEn{%
-Arrange Jia's inverted-cone differential 3, 2, 1 in the right row; Yi's square-cone differential 1, 4, 9 in the middle row; Bing's caltrop differential 1, 3, 6 in the left row. These are the three-tier multiplication rates for each treasury. Sum vertically: Jia $3+2+1=6$ (Jia's reduction rate); Yi $1+4+9=14$ (Yi's); Bing $1+3+6=10$ (Bing's).
-
-Divide each treasury's capital by its reduction rate: Jia $493,800 \div 6 = 82,300$ guan; Yi $370,300 \div 14 = 26,450$ guan; Bing $246,800 \div 10 = 24,680$ guan.
-
-Multiply each result by its un-summed rates: Jia: $82,300 \times 3 = 246,900$ (upper), $82,300 \times 2 = 164,600$ (middle), $82,300 \times 1 = 82,300$ (lower). Yi: $26,450 \times 1 = 26,450$ (upper), $26,450 \times 4 = 105,800$ (middle), $26,450 \times 9 = 238,050$ (lower). Bing: $24,680 \times 1 = 24,680$ (upper), $24,680 \times 3 = 74,040$ (middle), $24,680 \times 6 = 148,080$ (lower).
-
-Apply interest rates: Jia upper $246,900 \times 0.001 = 2,469$ guan; middle $164,600 \times 0.0025 = 4,115$ guan; lower $82,300 \times 0.003 = 2,469$ guan. Total: 9,053 guan. Yi upper $26,450 \times 0.001 = 264.5$ guan; middle $105,800 \times 0.0025 = 2,645$ guan; lower $238,050 \times 0.003 = 7,141.5$ guan. Total: 10,051 guan. Bing upper $24,680 \times 0.001 = 246.8$ guan; middle $74,040 \times 0.0025 = 1,851$ guan; lower $148,080 \times 0.003 = 4,442.4$ guan. Total: 6,540.2 guan. Combined: 25,644 guan 200 wen.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 5: 易牒知原
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}易牒知原 / Exchanging Documents to Find the Original Amount}
-\addcontentsline{toc}{subsection}{易牒知原 / Exchanging Documents}
-
-\ProblemBlock{%
-\EditorialCn{%
-按舊本此問無題，今増入。%
-}
-}{%
-\EditorialEn{%
-[Note: The original edition lacked the problem statement; it has been restored here.]%
-}
-}
-
-\ProblemBlock{%
-\QuestionCn{%
-出度牒差人營運：毎三道易鹽一十三袋，鹽二袋易布八十四疋，布一十五疋易絹三疋半，絹六疋易銀七兩二錢。今趂到銀九千一百七十二兩八錢。欲知原闗度牒道數幾何？%
-}
-}{%
-\QuestionEn{%
-Official certificates (度牒) are issued for commercial operations: every 3 certificates exchange for 13 bags of salt; 2 bags of salt exchange for 84 bolts of cloth; 15 bolts of cloth exchange for 3.5 bolts of silk; 6 bolts of silk exchange for 7.2 liang of silver. Now 9,172 liang 8 qian of silver has been obtained. Find: the original number of certificates issued.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-度牒一百八十道。%
-}
-}{%
-\AnswerEn{%
-Original certificates: 180 dao (documents).%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米互乘易法求之。列各數以本色相對，如鴈翅。以多一事者相乗為實，以少一事者相乘為法，除之。%
-}
-}{%
-\MethodEn{%
-Use the Millet and Rice mutual multiplication exchange method (粟米互乘易法). Arrange the values with their commodities paired opposite, like a goose-wing formation (雁翅, \textit{yanchi}). Multiply the column with more items as the dividend; multiply the column with fewer items as the divisor. Divide to obtain the answer.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-先以度牒三道乗鹽二袋，得六。以乘布一十五，得九十。又乗絹六疋，得五百四十。乃乗銀九萬一千七百二十八錢（將九千一百七十二兩八錢化為錢），得四千九百五十三萬三千一百二十錢為實。次以鹽一十三袋乗布八十四，得一千九十二。以乗絹三疋五分，得三千八百二十二。乃乘銀七兩二錢（化為七十二錢），得二十七萬五千一百八十四錢為法。除實，得一百八十道為原闗度牒。%
-}
-}{%
-\WorkingEn{%
-Multiply 3 certificates by 2 salt bags: 6. Multiply by 15 cloth bolts: 90. Multiply by 6 silk bolts: 540. Multiply by 91,728 wen (converting 9,172 liang 8 qian to wen): 495,331,200 wen as dividend.
-
-Multiply 13 salt bags by 84 cloth bolts: 1,092. Multiply by 3.5 silk bolts: 3,822. Multiply by 72 wen (converting 7.2 liang): 275,184 wen as divisor.
-
-Divide: $495,331,200 \div 275,184 = 180$ certificates as the original amount issued.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 6: 粟米交易
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}粟米交易 / Grain Exchange Transactions}
-\addcontentsline{toc}{subsection}{粟米交易 / Grain Exchange Transactions}
-
-\ProblemBlock{%
-\EditorialCn{%
-按舊本此問無題，今増。%
-}
-}{%
-\EditorialEn{%
-[Note: The original edition lacked the problem statement; it has been restored here.]%
-}
-}
-
-\ProblemBlock{%
-\QuestionCn{%
-菽三升易小麥二升，小麥一升五合易油麻八合，油麻一升二合易粳米一升八合。今將菽一十四石四斗欲易油麻，又將小麥二十一石六斗欲易粳米。問各幾何？%
-}
-}{%
-\QuestionEn{%
-3 sheng of beans exchanges for 2 sheng of wheat; 1 sheng 5 ge of wheat exchanges for 8 ge of sesame; 1 sheng 2 ge of sesame exchanges for 1 sheng 8 ge of polished rice. Now: 14 shi 4 dou of beans is to be exchanged for sesame; and 21 shi 6 dou of wheat is to be exchanged for polished rice. Find: the respective amounts obtained.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-油麻五石一斗二升；粳米一十七石二斗八升。%
-}
-}{%
-\AnswerEn{%
-Sesame obtained: 5 shi 1 dou 2 sheng;
-Polished rice obtained: 17 shi 2 dou 8 sheng.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米換易求之。置原易率，本色對列，如鴈翅。以多一事者相乘為實，以少一事者相乗為法，除之。各得或問數，不干其率者不置。%
-}
-}{%
-\MethodEn{%
-Use the Millet and Rice exchange method (粟米換易). Arrange the original exchange rates with commodities paired opposite, like a goose-wing formation. Multiply the column with more items as dividend; multiply the column with fewer items as divisor. Divide. Only include rates relevant to each question.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置四色六數，列六位率，如鴈翅，皆化為合。先將菽一十四石四斗化作一萬四千四百合，乃對前二句率數四位，如鴈翅，至欲易油麻止，共五事為上圖。次將小麥二十一石六斗化為二萬一千六百合，乃對後兩句率四位，鴈翅，至欲粳米止，共五事為下圖。
-
-上圖：以菽一萬四千四百合乘麥二十（二升化為二十合），得二十八萬八千，又乗油麻八合，得二百三十萬四千合為油麻實。次以菽三十合（三升化）乘麥一十五合，得四百五十合為法。除之，得五千一百二十合，展為五石一斗二升為油麻。
-
-下圖：以小麥二萬一千六百合乗油麻八合，得一十七萬二千八百合，又乗粳米一十八合，得三百一十一萬四百合為粳米實。以小麥一升五合（十五合）乗油麻一十二合，得一百八十合為法。除之，得一萬七千二百八十合，展作一十七石二斗八升為粳米。%
-}
-}{%
-\WorkingEn{%
-Convert all measures to ge. Beans 14 shi 4 dou = 14,400 ge; wheat 21 shi 6 dou = 21,600 ge. Arrange rates in goose-wing formation.
-
-\textbf{Upper diagram} (beans to sesame): Beans 14,400 ge $\times$ 20 ge (2 sheng wheat) = 288,000; $\times$ 8 ge sesame = 2,304,000 ge as sesame dividend. Beans 30 ge (3 sheng) $\times$ wheat 15 ge = 450 ge as divisor. $2,304,000 \div 450 = 5,120$ ge = 5 shi 1 dou 2 sheng sesame.
-
-\textbf{Lower diagram} (wheat to rice): Wheat 21,600 ge $\times$ 8 ge sesame = 172,800; $\times$ 18 ge rice = 3,114,000 ge as rice dividend. Wheat 15 ge $\times$ sesame 12 ge = 180 ge as divisor. $3,114,000 \div 180 = 17,280$ ge = 17 shi 2 dou 8 sheng rice.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 7: 計米易麴
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}計米易麴 / Calculating Rice to Exchange for Yeast}
-\addcontentsline{toc}{subsection}{計米易麴 / Calculating Rice for Yeast}
-
-\ProblemBlock{%
-\EditorialCn{%
-按舊本此問無題，今増。%
-}
-}{%
-\EditorialEn{%
-[Note: The original edition lacked the problem statement; it has been restored here.]%
-}
-}
-
-\ProblemBlock{%
-\QuestionCn{%
-庫率：粳榖七石出米三石，糯米一斗易小麥一斗七升，小麥五升踏麴二斤四兩，麴一百一十斤醞糯米一石三斗。今有糯穀一千七百五十九石三斗八升，欲出穀做米，易麥踏麴，還自醞，餘穀之米須令適足。各合幾何？%
-}
-}{%
-\QuestionEn{%
-The granary rates are: 7 shi of glutinous paddy yields 3 shi of rice; 1 dou of glutinous rice exchanges for 1 dou 7 sheng of wheat; 5 sheng of wheat produces 2 jin 4 liang of yeast; 110 jin of yeast ferments 1 shi 3 dou of glutinous rice. There are 1,759 shi 3 dou 8 sheng of glutinous paddy. It is desired to: hull the paddy to obtain rice; exchange rice for wheat; use wheat to produce yeast; ferment the yeast back into glutinous rice; and have the rice from the remaining paddy exactly match the fermented rice. Find: each amount.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-共穀一千七百五十九石三斗八升。出穀九百二十四石，得米三百九十六石。易麥六百七十三石二斗。踏麴三萬二百九十四斤。餘榖八百三十五石三斗八升。醞米三百五十八石二升。%
-}
-}{%
-\AnswerEn{%
-Total paddy: 1,759 shi 3 dou 8 sheng. Paddy hulled: 924 shi; rice obtained: 396 shi. Wheat exchanged: 673 shi 2 dou. Yeast produced: 30,294 jin. Remaining paddy: 835 shi 3 dou 8 sheng. Fermented rice: 358 shi 2 sheng.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米換易求之。置諸率，隨本色對列，如鴈翅。有分者通之，異類者變之，以頭位者進乗之，以下位退乗之，得合數。有對者相乗之，無對者直命之，為諸率。併上下無對者為法率。以今有物徧乘諸率（不乗法率），各為實。諸實並如法而一，各得其已變者，復互易乗除之，即得所求。%
-}
-}{%
-\MethodEn{%
-Use the Millet and Rice exchange method (粟米換易). Arrange the rates with their commodities paired opposite, like a goose-wing formation. Convert fractions to common denominators; convert different commodities to equivalent types; multiply forward from the head position; multiply backward from the tail position; obtain combined numbers. Multiply paired values; leave unpaired values as-is---these become the rates. Sum the unpaired upper and lower values as the divisor rate. Multiply the given amount by all rates (except the divisor rate) as respective dividends. Divide all dividends by the divisor to obtain the converted amounts; then perform mutual exchanges to obtain the final results.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 8: 囘運費
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}囘運費 / Return Transport Costs}
-\addcontentsline{toc}{subsection}{囘運費 / Return Transport Costs}
-
-\ProblemBlock{%
-\QuestionCn{%
-有江西水運米一十二萬三千四百石，原係鎮江交卸，計水程二千一百三十里，每石水脚錢一貫二百文。今截上件米就池州安頓，池州至鎮江八百八十里。欲收囘不該水脚錢幾何？%
-}
-}{%
-\QuestionEn{%
-123,400 shi of grain is being transported by water from Jiangxi, originally destined for unloading at Zhenjiang---a water route of 2,130 li, with porterage of 1 guan 200 wen per shi. Now this shipment is diverted to Chizhou for storage; the distance from Chizhou to Zhenjiang is 880 li. Find: the transport fee that should be recovered (since the grain no longer travels the full route).%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-收囘錢六萬一千一百七十八貫五百九十一文。%
-}
-}{%
-\AnswerEn{%
-Recoverable fee: 61,178 guan 591 wen.%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以粟米互易求之。置池州至鎮江里數，乗水脚錢，得數又乗運米為實。以原至鎮江水程為法，除實，得收囘錢。%
-}
-}{%
-\MethodEn{%
-Use the Millet and Rice mutual conversion method (粟米互易). Take the distance from Chizhou to Zhenjiang in li; multiply by the porterage rate per shi; multiply again by the total grain as dividend. Use the original distance to Zhenjiang as divisor. Divide to obtain the recoverable transport fee.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置池州至鎮江八百八十里，乗毎石水脚錢一貫二百，得一千五十六貫文。又乗運米一十二萬三千四百石，得一億三千三十一萬四百貫文為實。以原至鎮江水程二千一百三十里為法，除實，得六萬一千一百七十八貫五百九十一文為收囘錢。%
-}
-}{%
-\WorkingEn{%
-Take Chizhou-to-Zhenjiang distance 880 li; multiply by porterage 1 guan 200 wen: 1,056 guan per shi. Multiply by grain 123,400 shi: 130,310,400 guan as dividend. Divide by original distance 2,130 li: 61,178 guan 591 wen as the recoverable transport fee.%
-}
-}
-
-\newpage
-%% ---------------------------------------------------------------------------
-%% PROBLEM 9: 三色均價
-%% ---------------------------------------------------------------------------
-\subsection*{\color{sectioncolor}三色均價 / Averaging Three Grades of Gold}
-\addcontentsline{toc}{subsection}{三色均價 / Averaging Three Grades of Gold}
-
-\ProblemBlock{%
-\QuestionCn{%
-庫有三色金共五千兩：内八分金一千二百五十兩，兩價四百貫文；七分五釐金一千六百兩，兩價三百七十五貫文；八分五釐金二千一百五十兩，兩價四百二十五貫文。並欲煉為足色，每兩工食藥炭錢三貫文，耗金九百七十二兩五錢。欲知色分及兩價各幛何？%
-}
-}{%
-\QuestionEn{%
-The treasury holds three grades of gold totaling 5,000 liang: 8-tenths (八分) purity gold 1,250 liang at 400 guan per liang; 7.5-tenths purity gold 1,600 liang at 375 guan per liang; 8.5-tenths purity gold 2,150 liang at 425 guan per liang. All is to be refined to pure (足色) gold. The cost for labor, food, medicine, and charcoal is 3 guan per liang; expected loss (耗金) is 972.5 liang. Find: the final purity grade and the price per liang.%
-}
-}
-
-\ProblemBlock{%
-\AnswerCn{%
-色十分；兩價五百三貫七百二十四文，五百三十七分文之二百一十二。%
-}
-}{%
-\AnswerEn{%
-Purity: 10 tenths (full purity). Price per liang: 503 guan 724 wen + \nicefrac{212}{537} wen.\par
-\textit{In modern terms: the refined pure gold has a value of approximately 503.395 guan per liang.}%
-}
-}
-
-\ProblemBlock{%
-\MethodCn{%
-以方田及粟米求之。置共數，以耗減之，餘為法。以三色分數各乗兩數，併之為色分實。以三色價數各乗兩數為寄，以工藥價乗共金，併寄，共為價實。二實皆如法而一，即各得。%
-}
-}{%
-\MethodEn{%
-Use the Square Fields (方田, \textit{fangtian}) and Millet and Rice methods. Take the total amount; subtract the loss; remainder is the divisor. Multiply each grade's purity fraction by its weight; sum as the purity dividend. Multiply each grade's price by its weight and accumulate; add the labor/medicine cost (3 guan $\times$ total gold) to this accumulation; this is the price dividend. Divide both dividends by the divisor to obtain the final purity and price per liang.%
-}
-}
-
-\ProblemBlock{%
-\WorkingCn{%
-置共金五千兩，減耗九百七十二兩五錢，外餘四千二十七兩五錢為法。次置一千二百五十兩，乘八分，得一萬分於上。置一千六百兩，以七分五釐乗之，得一萬二千分，加上。置二千一百五十兩，乗八分五釐，得一萬八千二百七十五分，又加上，共得四萬二百七十五分為分實。
-
-次置一千二百五十兩乗四百貫，得五十萬貫為寄。次置一千六百兩乘價三百七十五貫，得六十萬貫，加寄。次置二千一百五十兩乗僡四百二十五貫，得九十一萬三千七百五十貫，又加寄。次置共金五千兩，乗工藥錢三貫，得一萬五千貫，又加寄，共得二百二萬八千七百五十貫為貫實。二實並如法四千二十七兩五錢而一：得其色一十分；其價每兩得五百三貫七百二十四文，不盡一貫五百九十。與法求等，得七十五，俱約之，為五百三十七文之二百一十二。%
-}
-}{%
-\WorkingEn{%
-Total gold 5,000 liang; subtract loss 972.5 liang: remainder 4,027.5 liang as divisor.
-
-Purity calculation: $1,250 \times 0.8 = 10,000$; $1,600 \times 0.75 = 12,000$; $2,150 \times 0.85 = 18,275$. Sum: 40,275 as purity dividend. $40,275 \div 4,027.5 = 10$ (full purity).
-
-Price calculation: $1,250 \times 400 = 500,000$ guan; $1,600 \times 375 = 600,000$ guan; $2,150 \times 425 = 913,750$ guan. Labor cost: $5,000 \times 3 = 15,000$ guan. Total: 2,028,750 guan as price dividend.
-
-$2,028,750 \div 4,027.5 = 503$ guan 724 wen; remainder 1.59 guan. Reduce fraction: GCD = 75; simplified to \nicefrac{212}{537}. Final price: 503 guan 724\nicefrac{212}{537} wen per liang.%
-}
-}
-
-\newpage
-%% =============================================================================
-%% END MATTER / EDITORIAL NOTES
-%% =============================================================================
-\newpage
-\section*{\color{titlecolor}Editorial Notes / 編輯說明}
-\addcontentsline{toc}{section}{Editorial Notes / 編輯說明}
-
-\ProblemBlock{%
-\textbf{\color{sectioncolor}一、文本來源}\par
-本文以四庫全書本數學九章為底本，參校永樂大典殘卷及宜稼堂叢書本。四庫本雖經館臣整理，然訛誤脫漏之處尚多，題與術不相應者尤為習見。故編輯者於各條下加按語，以明其得失。
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}二、術語對照}\par
-本文採用雙欄對照形式，左欄為原文，右欄為英譯。問答術草四部結構一仍其舊，按語以方括號標出。度量衡名詞保留音譯，加以解釋；數學術語則酌用現代英語對應詞，並附拉丁轉寫。
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}三、算理說明}\par
-卷五賦役類多涉及差分之法，即今之所謂比例分配也。卷六錢穀類多涉及粟米換易，即今之所謂連鎖比例也。秦九韶於古術多所推廣，數位繁賾而條理分明，可謂造詣精深矣。
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}四、校勘記}\par
-本文校勘以四庫全書本為主，凡有訛誤者，編輯按語中隨文指出。如課糴題「三十九訛四十九」之類，皆據前後術草推算所得，非臆斷也。%
-}{%
-\textbf{\color{sectioncolor}I. Textual Sources}\\
-This edition is based on the \textit{Siku Quanshu} (Complete Library of the Four Treasuries) text of the \textit{Shuxue Jiuzhang}, collated against surviving portions of the \textit{Yongle Dadian} and the \textit{Yijiatang Congshu} edition. Although the \textit{Siku} editors collated the text, numerous errors, omissions, and discrepancies between problems and methods remain. Editorial notes are appended to individual problems to clarify these issues.
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}II. Terminology}\\
-This edition employs a bilingual two-column format: original Chinese on the left, English translation on the right. The classical four-part structure (問/答/術/草) is preserved; editorial annotations are marked with brackets. Metrological terms are transliterated with explanatory notes; mathematical terms are rendered in modern English equivalents with Latin transcription where appropriate.
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}III. Mathematical Analysis}\\
-Fascicle 5 (Tax and Corv\'{e}e) extensively employs the method of proportional distribution (衰分, \textit{chuifen}), equivalent to modern ratio and proportion. Fascicle 6 (Money and Grain) primarily uses millet-and-rice exchange (粟米換易), equivalent to modern chained proportions. Qin Jiushao's elaborations on classical methods demonstrate remarkable computational sophistication, handling multi-digit calculations with systematic precision.
-
-\vspace{0.5em}
-\textbf{\color{sectioncolor}IV. Collation Notes}\\
-Collation is based primarily on the \textit{Siku Quanshu} edition. Errors are identified in editorial notes through systematic verification against the computational workings. For example, in the ``Government Grain Purchase'' problem, the correction of ``49'' to ``39'' is derived from calculation, not conjecture.%
-}
-
-\vspace{2em}
-\ProblemBlock{%
-\textbf{\color{sectioncolor}五、參考文獻}\par
-\begin{enumerate}[leftmargin=2em]
-\item 秦九韶原著，四庫全書本數學九章
-\item 錢寶琮主編，中國數學史，1964
-\item 李儼，中國古代數學史料，1954
-\item Libbrecht, U. \textit{Chinese Mathematics in the Thirteenth Century}. MIT Press, 1973.
-\item Martzloff, J.-C. \textit{A History of Chinese Mathematics}. Springer, 1997.
-\end{enumerate}%
-}{%
-\textbf{\color{sectioncolor}V. References}\\
-\begin{enumerate}[leftmargin=2em]
-\item Qin Jiushao, \textit{Shuxue Jiuzhang} (\textit{Siku Quanshu} edition)
-\item Qian Baocong, ed. \textit{Zhongguo Shuxue Shi} (History of Chinese Mathematics), 1964
-\item Li Yan, \textit{Zhongguo Gudai Shuxue Shiliao} (Historical Materials on Ancient Chinese Mathematics), 1954
-\item Libbrecht, U. \textit{Chinese Mathematics in the Thirteenth Century: The Shu-shu chiu-chang of Ch'in Chiu-shao}. MIT Press, 1973.
-\item Martzloff, J.-C. \textit{A History of Chinese Mathematics}. Springer, 1997.
-\end{enumerate}%
-}
-
-\vspace{2em}
-\begin{center}
-\textcolor{rulecolor}{\rule{0.4\textwidth}{0.4pt}}
-
-\vspace{1em}
-{\small\color{sectioncolor}
-\textit{Shuxue Jiuzhang} (數學九章) --- Fascicles 5--6: Bilingual Edition\\
-Modern LaTeX edition\\
-Traditional Chinese mathematical text structure preserved\\
-Public Domain --- \textit{Siku Quanshu} Edition\\
-\vspace{0.5em}
-\textsc{End of Document} / 全文完
-}
-\end{center}
-
-\end{document}
+%% =============================================================================
+%% 數學九章 (Shuxue Jiuzhang) — Fascicles 5-6: Bilingual Edition
+%% LEFT: Original Chinese  |  RIGHT: English Translation
+%% Author: Qin Jiushao (秦九韶), Song Dynasty
+%% Source: Siku Quanshu (四庫全書) Edition
+%% =============================================================================
+\documentclass[10pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{paracol}
+\usepackage{tikz}
+\usepackage{microtype}
+
+%% -------- Page Geometry (wider for two-column bilingual) --------
+\geometry{
+  paperwidth=297mm,paperheight=210mm,  % Landscape A4
+  left=18mm,right=18mm,top=20mm,bottom=20mm,
+  headheight=14pt,footskip=20pt
+}
+
+%% -------- Column separator --------
+\setlength{\columnsep}{4mm}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{chinese}
+
+%% -------- Font Configuration --------
+\setmainfont{LinLibertine_R.otf}[
+  BoldFont=LinLibertine_RB.otf,
+  ItalicFont=LinLibertine_RI.otf,
+  BoldItalicFont=LinLibertine_RBI.otf,
+  Renderer=Harfbuzz
+]
+\setsansfont{LinBiolinum_R.otf}[
+  BoldFont=LinBiolinum_RB.otf,
+  ItalicFont=LinBiolinum_RI.otf,
+  Renderer=Harfbuzz
+]
+
+%% Chinese Fonts (using specified CJK font)
+\setCJKmainfont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+\setCJKsansfont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+\setCJKmonofont[Path=fonts/noto-cjk/]{NotoSansCJKsc-Regular.otf}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{80,40,20}
+\definecolor{answercolor}{RGB}{20,80,40}
+\definecolor{methodcolor}{RGB}{20,40,80}
+\definecolor{editorcolor}{RGB}{100,60,40}
+\definecolor{workingcolor}{RGB}{60,60,60}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{problemcolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Shuxue Jiuzhang 數學九章 --- Fascicles 5--6 (Bilingual Edition)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Bilingual section header
+\newcommand{\BilingualHeader}[2]{%
+  \vspace{1em}%
+  \noindent\begin{center}%
+  \begin{minipage}[t]{0.45\textwidth}\centering\textbf{\color{sectioncolor}#1}\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.45\textwidth}\centering\textbf{\color{sectioncolor}#2}\end{minipage}%
+  \end{center}%
+  \vspace{0.5em}%
+}
+
+%% Small bilingual header for subsections
+\newcommand{\BilingualSubheader}[2]{%
+  \vspace{0.8em}%
+  \noindent\begin{center}%
+  \begin{minipage}[t]{0.45\textwidth}\centering\large\bfseries\color{sectioncolor}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.45\textwidth}\centering\large\bfseries\color{sectioncolor}#2\end{minipage}%
+  \end{center}%
+  \vspace{0.3em}%
+}
+
+%% -------- Problem structure commands (Chinese - LEFT) --------
+\newcommand{\QuestionCn}[1]{\par\noindent\textbf{\color{problemcolor}問：}#1\par}
+\newcommand{\AnswerCn}[1]{\par\noindent\textbf{\color{answercolor}答曰：}#1\par}
+\newcommand{\MethodCn}[1]{\par\noindent\textbf{\color{methodcolor}術曰：}#1\par}
+\newcommand{\WorkingCn}[1]{\par\noindent\textbf{\color{workingcolor}草曰：}#1\par}
+\newcommand{\EditorialCn}[1]{\par\noindent\textit{\color{editorcolor}［按］#1}\par}
+
+%% -------- Problem structure commands (English - RIGHT) --------
+\newcommand{\QuestionEn}[1]{\par\noindent\textbf{\color{problemcolor}Problem: }#1\par}
+\newcommand{\AnswerEn}[1]{\par\noindent\textbf{\color{answercolor}Answer: }#1\par}
+\newcommand{\MethodEn}[1]{\par\noindent\textbf{\color{methodcolor}Method: }#1\par}
+\newcommand{\WorkingEn}[1]{\par\noindent\textbf{\color{workingcolor}Working: }#1\par}
+\newcommand{\EditorialEn}[1]{\par\noindent\textit{\color{editorcolor}[Ed.\ Note] #1}\par}
+
+%% -------- Bilingual environment --------
+\newenvironment{Bilingual}{%
+  \par\vspace{0.5em}%
+  \noindent%
+  \begin{minipage}[t]{0.47\textwidth}%
+}{%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.47\textwidth}%
+}{%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+\newcommand{\ChineseCol}[1]{%
+  \begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
+}
+\newcommand{\EnglishCol}[1]{%
+  \begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
+}
+
+%% -------- Vertical divider --------
+\newcommand{\vdivider}{%
+  \tikz[remember picture,overlay]\draw[rulecolor,line width=0.4pt] (current page header area.south -| 0.5\paperwidth,0) -- (current page footer area.north -| 0.5\paperwidth,0);%
+}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Shuxue Jiuzhang --- Fascicles 5-6 (Bilingual Edition)},
+  pdfauthor={Qin Jiushao (秦九韶)},
+  pdfsubject={Chinese Mathematics}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% Reduce paragraph spacing for dense text
+\setlength{\parskip}{0.4ex plus 0.2ex minus 0.1ex}
+\setlength{\parindent}{1.5em}
+
+%% =============================================================================
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{28}{34}\selectfont\color{titlecolor}\textbf{數學九章}}
+
+\vspace{0.8cm}
+
+{\fontsize{14}{18}\selectfont\color{sectioncolor} Mathematical Treatise in Nine Sections}
+
+\vspace{1.5cm}
+
+{\Large\color{sectioncolor}
+\textbf{Bilingual Edition} / 雙語版}
+
+\vspace{1.5cm}
+
+{\large\color{sectioncolor}
+卷五：\textbf{賦役} (Fascicle 5: Taxation and Corv\'{e}e)\quad|\quad
+卷六：\textbf{錢穀} (Fascicle 6: Money and Grain)
+}
+
+\vspace{2cm}
+
+{\large 宋\quad 秦九韶\quad 撰}
+
+\vspace{0.3cm}
+
+{\normalsize\textit{Qin Jiushao (c.\ 1202--1261)}}
+
+\vspace{0.3cm}
+
+{\small\color{sectioncolor} Translated and Annotated}
+
+\vspace{2cm}
+
+{\color{rulecolor}\rule{0.5\textwidth}{0.4pt}}
+
+\vspace{1cm}
+
+{\small\color{sectioncolor}
+\textit{Siku Quanshu} (四庫全書) Edition\\[0.5em]
+Digital Scholarly Edition\quad|\quad Bilingual Layout: Chinese (Left) $\|$ English (Right)
+}
+
+\vspace{2cm}
+
+{\small\color{notecolor}
+\textit{This document preserves the traditional Chinese mathematical\\
+text structure of 問 (Problem), 答 (Answer), 術 (Method), and 草 (Working).}
+}
+
+\vfill
+{\small\color{sectioncolor} Typeset in XeLaTeX with Noto Sans CJK SC \& Libertine}
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+%% =============================================================================
+%% BILINGUAL MACRO SETUP
+%% =============================================================================
+%% We use a two-column layout: LEFT = Chinese, RIGHT = English
+%% Each "BilingualSection" takes {ChineseContent}{EnglishContent}
+\newcommand{\BilingualSection}[4]{%
+  \newpage
+  \subsection*{#1 \hfill #2}
+  \addcontentsline{toc}{subsection}{#3}
+  \vspace{0.5em}
+  \longline
+  \vspace{0.5em}
+}
+
+\newcommand{\BilingualBlock}[2]{%
+  \noindent\begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
+  \hfill\vrule width 0.4pt\hfill%
+  \noindent\begin{minipage}[t]{0.47\textwidth}#2\end{minipage}%
+  \par\vspace{0.8em}%
+}
+
+\newcommand{\ProblemBlock}[2]{%
+  \noindent\begin{minipage}[t]{0.47\textwidth}#1\end{minipage}%
+  \hfill\hfill%
+  \noindent\begin{minipage}[t]{0.47\textwidth}#2\end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+%% =============================================================================
+%% EDITORIAL PREFACE
+%% =============================================================================
+\section*{Editorial Preface / 編輯前言}
+\addcontentsline{toc}{section}{Editorial Preface / 編輯前言}
+
+\ProblemBlock{%
+\textbf{\color{sectioncolor}卷五上：賦役}\quad 賦役一章，即古九章中差分粟米諸法。但從來算書設題之數未有如此卷之多者。如首題答數至一百七十五條，毎條歩算之數至十餘位，而得數皆無不合，亦可謂能廣其用矣。且諸問皆足以明貴賤廩税及交質變易之同異，使公私各得其平，誠治民之要務也。
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}卷五下：賦役}\quad 題語多晦，術草中間有與所問不相應者，亦於各條下指出，俾觀者無惑焉。
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}卷六上：錢穀}\quad 差人五路和糴，課貴賤，折輕齎，皆國家理財之要道。
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}卷六下：錢穀}\quad 推求本息，易牒知原，粟米交易，計米易麴，囘運費，三色均價。凡此皆市易之術，亦古粟米章之遺意也。%
+}{%
+\textbf{\color{sectioncolor}Fascicle 5 (Upper): Fuyi (Tax and Corv\'{e}e)}\\
+The chapter on Tax and Corv\'{e}e Labor draws upon the classical Nine Chapters' methods of \textit{proportional distribution} (差分, \textit{chaifen}) and \textit{millet and rice} (粟米, \textit{sumi}). Never before has a mathematical treatise presented problems of such complexity---the first problem alone yields 175 separate numerical results, each calculated to more than ten digits, all mutually consistent. These problems illuminate the principles of fair taxation, grain assessment, and commercial exchange, ensuring equity between public and private interests---truly essential matters of governance.
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}Fascicle 5 (Lower): Fuyi}\\
+The problem statements are often obscure, and occasionally the methods and workings do not fully correspond to the questions asked. These discrepancies are noted in the editorial annotations below.
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}Fascicle 6 (Upper): Qiangu (Money and Grain)}\\
+Government grain procurement across five circuits, price comparison, and currency conversion---all essential methods of state financial management.
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}Fascicle 6 (Lower): Qiangu}\\
+Calculating principal and interest, chain-exchange problems, grain transactions, rice-for-yeast calculations, return shipping costs, and averaging gold of three purity grades---these are all commercial methods, inheriting the spirit of the classical Millet and Rice chapter.%
+}
+
+\newpage
+%% =============================================================================
+%% FASCICLE 5 — 賦役 (TAXATION AND CORVÉE LABOR)
+%% =============================================================================
+\section*{\color{titlecolor}卷五\quad 賦役類 / Fascicle 5: Taxation and Corv\'{e}e Labor}
+\addcontentsline{toc}{section}{卷五\quad 賦役類 / Fascicle 5: Taxation and Corv\'{e}e Labor}
+
+\noindent\rule{\textwidth}{1pt}
+\vspace{0.3em}
+
+%% ---------------------------------------------------------------------------
+%% PROBLEM 1: 復邑修賦
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}復邑修賦 / Restoring a District and Calculating Tax Obligations}
+\addcontentsline{toc}{subsection}{復邑修賦 / Restoring a District}
+
+\ProblemBlock{%
+\QuestionCn{%
+有海坍縣地，今有復漲，歳乆鄉井再成，申諸剏邑。稱土排到六鄉，以附郭為甲，最逺為已，各有田九等，開具下項：
+
+\vspace{0.3em}
+甲鄉共計田十四萬一百九十三畝三角一十二步。上等：上田五千六百七十八畝一角四十八歩；中田四千八百九十二畝三十歩；下田六千六百二十一畝五十四歩。中等：上田八千二百二十五畝二十四歩；中田一萬三十五畝六歩；下田一萬六千五百三十畝。下等：上田二萬一千九十畝二十四歩；中田三萬二千六十畝三歩；下田三萬五千六十一畝三角三歩。
+
+乙鄉田共計八萬四千一十畝二角二歩。丙鄉田共計一十二萬九百三十五畝五十八歩五分。丁鄉田共計八萬九千六十六畝二歩三分。戊鄉田共計二十萬四千四百七十四畝一角二十四歩四分。已鄉田共計一十五萬八千四百六十畝三角一十八歩二分。
+
+照得昨來本縣原科苗米一十萬三千五百六十七石八斗四升四合三勺，和買一萬三千四百九十八匹一丈七尺三寸七分六釐，夏税九千八百七十六匹三丈二尺六寸五分八釐。其六鄉田係三色，甲為上，乙丙為次，丁戊己又為次。先令官物為三差，使上比中、中比下皆十分外差一，次令各鄉九等皆於十分内差一，抛科用合租額。其乙鄉田最肥，次丁，次甲，次丙，次己，次戊。欲知三色九等毎畝等則及共科數各鄉幾何？
+}
+}{%
+\QuestionEn{%
+A coastal county's land had eroded into the sea; now new land has re-emerged from the tides. After many years, villages and settlements have re-formed, and a petition has been submitted to establish a new county. The land survey has classified six villages (xiang), with village Jia (甲) nearest the city walls and village Ji (己) furthest away. Each village has land of nine grades. The details are as follows:
+
+\vspace{0.3em}
+\textbf{Village Jia:} Total land 140,193 mu 3 jiao 12 bu. Upper grade: upper fields 5,678 mu 1 jiao 48 bu; middle fields 4,892 mu 30 bu; lower fields 6,621 mu 54 bu. Middle grade: upper fields 8,225 mu 24 bu; middle fields 10,035 mu 6 bu; lower fields 16,530 mu. Lower grade: upper fields 21,090 mu 24 bu; middle fields 32,060 mu 3 bu; lower fields 35,061 mu 3 jiao 3 bu.
+
+\textbf{Villages Yi, Bing, Ding, Wu, Ji:} [similar detailed land classifications follow, with Yi totaling 84,010 mu 2 jiao 2 bu; Bing 120,935 mu 58\nicefrac{5}{10} bu; Ding 89,066 mu 2\nicefrac{3}{10} bu; Wu 204,474 mu 1 jiao 24\nicefrac{4}{10} bu; Ji 158,460 mu 3 jiao 18\nicefrac{2}{10} bu.]
+
+The county's original tax quotas were: seedling rice (苗米) 103,567 shi 8 dou 4 sheng 4 ge 3 shao; harmonized purchase (和買) 13,498 pi 1 zhang 7 chi 3 cun 7 fen 6 li; summer tax (夏税) 9,876 pi 3 zhang 2 chi 6 cun 5 fen 8 li. The six villages are grouped into three tiers: Jia is upper tier; Yi and Bing are middle tier; Ding, Wu, and Ji are lower tier. First, the official goods are divided into three graduated differentials (san chai), with upper to middle and middle to lower each differing by one part in ten. Then each village's nine grades differ by one part in ten. The land quality ranks: Yi has the most fertile land, followed by Ding, Jia, Bing, Ji, and Wu. Find: the tax rate per mu for each of the three tiers and nine grades, and the total tax collected from each village.
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+題内言田有三色，甲為上云云，又言乙鄉田最肥云云，語若相左。葢前言三色者六鄉共科之等，後言田肥者每畝所出之異也。若易田係三色為科有三差，則語意明矣。%
+}
+}{%
+\EditorialEn{%
+The problem states that the fields are of three colors (tiers), with Jia as the upper tier, but also states that Yi village has the most fertile land---these two statements appear contradictory. The former refers to the collective tax tier of the six villages; the latter refers to the per-mu yield of each village's land. Replacing ``fields are of three colors'' with ``taxation has three graduated differentials'' would clarify the meaning.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+甲鄉：上等上田苗三斗二升三合二勺，和一尺六寸九分，税一尺二寸三分；中田苗二斗九升九勺，和一尺五寸二分，税一尺一寸一分；下田苗二斗五升八合六勺，和一尺三寸五分，税九寸九分。
+
+中等上田苗二斗二升六合二勺，和一尺一寸八分，税八寸六分；中田苗一斗九升三合九勺，和一尺一分，税七寸四分；下田苗一斗六升一合六勺，和八寸四分，税六寸二分。
+
+下等上田苗一斗二升九合三勺，和六寸七分，税四寸九分；中田苗九升六合九勺，和五寸一分，税三寸七分；下田苗六升四合六勺，和三寸四分，税二寸五分。
+
+\textit{[Similar detailed results follow for villages Yi, Bing, Ding, Wu, and Ji, each with rates for all nine grades of land.]}
+
+各鄉共科數：甲鄉苗米一萬九千五百五十石二斗四升八合三勺；和買一萬一百九十二丈二尺六寸五分六釐；夏税七千四百五十七丈六尺八寸九分八釐。
+
+乙、丙、丁、戊、己各鄉共科數依上法求之。
+}
+}{%
+\AnswerEn{%
+\textbf{Village Jia:} Upper-grade upper fields: rice 3 dou 2 sheng 3 ge 2 shao; silk 1 chi 6 cun 9 fen; tax silk 1 chi 2 cun 3 fen. Upper-grade middle fields: rice 2 dou 9 sheng 0 ge 9 shao; silk 1 chi 5 cun 2 fen; tax silk 1 chi 1 cun 1 fen. Upper-grade lower fields: rice 2 dou 5 sheng 8 ge 6 shao; silk 1 chi 3 cun 5 fen; tax silk 9 cun 9 fen.
+
+Middle-grade upper fields: rice 2 dou 2 sheng 6 ge 2 shao; silk 1 chi 1 cun 8 fen; tax silk 8 cun 6 fen. Middle-grade middle fields: rice 1 dou 9 sheng 3 ge 9 shao; silk 1 chi 1 cun 0 fen; tax silk 7 cun 4 fen. Middle-grade lower fields: rice 1 dou 6 sheng 1 ge 6 shao; silk 8 cun 4 fen; tax silk 6 cun 2 fen.
+
+Lower-grade upper fields: rice 1 dou 2 sheng 9 ge 3 shao; silk 6 cun 7 fen; tax silk 4 cun 9 fen. Lower-grade middle fields: rice 9 sheng 6 ge 9 shao; silk 5 cun 1 fen; tax silk 3 cun 7 fen. Lower-grade lower fields: rice 6 sheng 4 ge 6 shao; silk 3 cun 4 fen; tax silk 2 cun 5 fen.
+
+\textit{[Similar results for villages Yi, Bing, Ding, Wu, and Ji follow.]}
+
+\textbf{Village Jia totals:} Seedling rice 19,550 shi 2 dou 4 sheng 8 ge 3 shao; Harmonized purchase 10,192 zhang 2 chi 6 cun 5 fen 6 li; Summer tax 7,457 zhang 6 chi 8 cun 9 fen 8 li.
+
+The totals for villages Yi, Bing, Ding, Wu, and Ji are found by the same method.
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以衰分求之。先列本縣色位，自下錐行列之，又以鄉數對列而乗之，副併為法，以除官物數，得一分之率。以率數乗未併者，各得諸鄉之數。次列各鄉等位，自上等置十分，每以内分錐行九折之，至九等止，又各以畝歩乗之，副併為鄉法，以除諸各鄉所得官物數，所得為一分之率，以乗未併者，各得毎畝税色。%
+}
+}{%
+\MethodEn{%
+Use the method of proportional distribution (衰分, \textit{chuifen}). First arrange the county's tier positions in a descending cone array; multiply by the corresponding village counts. Sum these to form the divisor; divide the official goods by this divisor to obtain the rate for one part. Multiply the rate by the un-summed terms to obtain each village's quota. Next, arrange each village's nine grades, starting from the upper grade at 10 parts, successively reducing by one-tenth for each grade down to the ninth grade. Multiply each by the field area in mu and bu. Sum these as the village divisor; divide each village's goods by this divisor to obtain the rate per grade. Multiply by the un-summed terms to obtain the tax per mu for each grade.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+列本縣色位三，自下色例十分中十一分，上比中身外加一，上得一百二十一，中得一百一十，下得一百，為上中下三率，列之右行。乃列甲一對上率，乙丙共二對中率，丁戊己共三對下率，列左行。乃以左行列數各相對乗右行率數，其上得一百二十一，其十得二百二十，其下得三百，乃副置而併之，得六百四十一為法。
+
+置元科苗米一十萬三千五百六十七石八斗四升四合三勺為寔，以法除之，得一百六十一石五斗七升二合三勺為一分之率。以未併下率一百乗率，得一萬六千一百五十七石二斗三升為丁戊己三鄉各科數。於身下加一，得一萬七千七百七十二石九斗五升三合為乙丙二鄉各科數。又於身下加一，得一萬九千五百五十石二斗四升八合三勺為甲合科數。
+
+求和買亦用六百四十一為法，置元科和買一萬三千四百九十八匹，以匹法四丈通之，得五萬三千九百九十二丈，内零一丈七尺三寸七分六釐，得五萬三千九百九十三丈七尺三寸七分六釐為寔，以法除之，得八十四丈二尺三寸三分六釐為一分之率。亦以未併下率一百乗之，得八千四百二十三丈三尺六寸為丁戊己三鄉各科數。次於身下加一，得九千二百六十五丈六尺九寸六分為乙丙二鄉各科數。又於身下加一，得一萬一百九十二丈二尺六寸五分六釐為甲鄉合科數。
+
+求夏税亦置六百四十一為法，置元科九千八百七十六匹，以匹法四丈通之，得三萬九千五百四丈，内零三丈二尺六寸五分八釐，得三萬九千五百七丈二尺六寸五分八釐為寔，以法除之，得六十一丈六尺三寸三分八釐為一分率。亦以未併下率一百乗之，得六千一百六十三丈三尺八寸為丁戊己三鄉各科數。次於身下加一，得六千七百七十九丈七尺一寸八分为乙丙二鄉各科數。又於身下加一，得七千四百五十七丈六尺八寸九分八釐為甲鄉數。%
+}
+}{%
+\WorkingEn{%
+Arrange the three county tiers in a descending cone array, with the lower tier as 100, middle as 110 (adding one-tenth), and upper as 121 (adding another one-tenth), yielding the three rates for upper, middle, and lower tiers in the right column. In the left column, pair Jia (1) with the upper rate, Yi and Bing (2) with the middle rate, and Ding, Wu, and Ji (3) with the lower rate. Cross-multiply: upper yields 121, middle yields 220, lower yields 300. Sum these to obtain 641 as the divisor.
+
+Take the original seedling rice quota 103,567 shi 8 dou 4 sheng 4 ge 3 shao as the dividend; divide by 641 to obtain 161 shi 5 dou 7 sheng 2 ge 3 shao as the rate for one part. Multiply the unsummed lower rate of 100: 16,157 shi 2 dou 3 sheng for Ding, Wu, and Ji villages. Add one-tenth: 17,772 shi 9 dou 5 sheng 3 ge for Yi and Bing. Add another one-tenth: 19,550 shi 2 dou 4 sheng 8 ge 3 shao for Jia.
+
+For the harmonized purchase: again use 641 as divisor. Convert the original 13,498 pi to zhang (at 4 zhang per pi): 53,992 zhang, plus the remainder 1 zhang 7 chi 3 cun 7 fen 6 li = 53,993 zhang 7 chi 3 cun 7 fen 6 li. Divide by 641: 84 zhang 2 chi 3 cun 3 fen 6 li as the unit rate. Multiply by lower rate 100: 8,423 zhang 3 chi 6 cun for Ding, Wu, Ji. Add one-tenth: 9,265 zhang 6 chi 9 cun 6 fen for Yi, Bing. Add one-tenth: 10,192 zhang 2 chi 6 cun 5 fen 6 li for Jia.
+
+For summer tax: use 641 as divisor. Convert 9,876 pi to zhang: 39,504 zhang, plus remainder 3 zhang 2 chi 6 cun 5 fen 8 li = 39,507 zhang 2 chi 6 cun 5 fen 8 li. Divide by 641: 61 zhang 6 chi 3 cun 3 fen 8 li as the rate. Multiply by lower rate 100: 6,163 zhang 3 chi 8 cun for Ding, Wu, Ji. Add one-tenth: 6,779 zhang 7 chi 1 cun 8 fen for Yi, Bing. Add one-tenth: 7,457 zhang 6 chi 8 cun 9 fen 8 li for Jia.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 2: 圍田租畝
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}圍田租畝 / Rental Calculations for Enclosed Fields}
+\addcontentsline{toc}{subsection}{圍田租畝 / Rental Calculations for Enclosed Fields}
+
+\ProblemBlock{%
+\QuestionCn{%
+有興復圍田已成，共計三千二十一頃五十一畝一十五歩，分三等。其上等毎畆起租六斗，中等四斗五升，下等四斗。中田多上田弱半，不及下田太半。欲知三色田畝及各租幾何？%
+}
+}{%
+\QuestionEn{%
+A newly reclaimed enclosed polder field has been completed, totaling 3,021 qing 51 mu 15 bu, divided into three grades. The upper grade pays rent of 6 dou per mu; the middle grade 4 dou 5 sheng; the lower grade 4 dou. The middle-grade fields exceed the upper-grade fields by one weak half (weak half = one-third); the middle-grade fields fall short of the lower-grade fields by one great half (great half = two-thirds). Find: the area of each grade of field and the rental grain for each.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+題言中田多上田弱半，不及下田太半。蓋以弱半為三分之一，太半為三分之二也。多上田弱半者，即比上田多三分之一也。不及下田太半者，即比下田少三分之二也。是上田加三分之一為中田，即下田三分之一也。轉言之，則中田為下田三分之一，上田為中田四分之三也。%
+}
+}{%
+\EditorialEn{%
+The problem states that middle-grade fields exceed upper-grade fields by one ``weak half,'' and fall short of lower-grade fields by one ``great half.'' Here ``weak half'' means one-third, and ``great half'' means two-thirds. Exceeding the upper fields by one weak half means exceeding by one-third; falling short of the lower fields by one great half means falling short by two-thirds. Thus: upper fields plus one-third equals middle fields, which equals one-third of the lower fields. Equivalently: middle fields are one-third of lower fields, and upper fields are three-quarters of middle fields.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+上田四百七十七頃八畝一十五歩，米二萬八千六百二十四石八斗三升七合五勺；
+中田六百三十六頃一十畝三角，米二萬八千六百二十四石八斗三升七合五勺；
+下田一千九百八頃三十二畝一角，米七萬六千三百三十二石九斗。%
+}
+}{%
+\AnswerEn{%
+Upper fields: 477 qing 8 mu 15 bu, grain 28,624 shi 8 dou 3 sheng 7 ge 5 shao;
+Middle fields: 636 qing 10 mu 3 jiao, grain 28,624 shi 8 dou 3 sheng 7 ge 5 shao;
+Lower fields: 1,908 qing 32 mu 1 jiao, grain 76,332 shi 9 dou.\par
+\textit{Note: Upper and middle fields happen to yield equal total rents because the area difference compensates for the rate difference.}%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以衰分求之。列母子求田率，副併為法，以共田為寔，寔如法而一，得一分之率。以徧乗未併者，得三等田。各以起租乗之，各得米。%
+}
+}{%
+\MethodEn{%
+Use proportional distribution (衰分, \textit{chuifen}). Arrange the numerators and denominators to find the field ratios. Sum these as the divisor; take the total fields as the dividend. Divide to obtain the rate for one part. Multiply the un-summed terms by this rate to obtain the three grades of fields. Multiply each by its rental rate to obtain the grain for each grade.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置弱半母四為中率，子三為上率。以太半子二减母三，餘一，以乗中率四，只得四為中泛。又以餘一乗上率三，只得三為上泛。次以太半母三乗中泛四，得一十二為下泛。副併三泛，得一十九為法。置田三千二十一頃五十一畆，以畝法二百四十通之，得七千二百五十一萬六千二百四十歩，内子一十五歩，得七千二百五十一萬六千二百五十五歩為寔。以法一十九除之，得三百八十一萬六千六百四十五歩為一分之數。以上泛三因之，得一千一百四十四萬九千九百三十五歩為上積。又以中泛四因之一分數，得一千五百二十六萬六千五百八十歩為中積。又以下泛一十二乗一分數，得四千五百七十九萬九千七百四十歩為下積。其三積各以畝法二百四十約之為畆。其上田得四百七十七頃八畝一十五歩，其中田得六百三十六頃一十畝三角，其下積得一千九百八頃三十二畝一角。各以起租，三積為三寔。其上積一千一百四十四萬九千九百三十五歩乗上積六斗，得六百八十六萬九千九百六十一石為寔，以畝法二百四十除之，得二萬八千六百二十四石八斗三升七合五勺為上田租。其中積一千五百二十六萬六千五百八十歩乗中田租四斗五升，得六百八十六萬九千九百六十一石為寔，以畝法二百四十除之，得二萬八千六百二十四石八斗三升七合五勺。其下積四千五百七十九萬九千七百四十歩乗下租四斗，得一千八百三十一萬九千八百九十六石為寔，以畝法二百四十除之，得七萬六千三百三十二石九斗為下田米。%
+}
+}{%
+\WorkingEn{%
+Take the ``weak half'' denominator 4 as the middle rate, numerator 3 as the upper rate. From the ``great half'' subtract numerator 2 from denominator 3, remainder 1; multiply by middle rate 4 to obtain 4 as the middle ``pan.'' Multiply remainder 1 by upper rate 3 to obtain 3 as the upper ``pan.'' Then multiply the ``great half'' denominator 3 by middle pan 4 to obtain 12 as the lower pan. Sum the three pans: 19 as the divisor.
+
+Take the fields 3,021 qing 51 mu; convert to bu at 240 bu per mu: 72,516,240 bu, plus 15 bu = 72,516,255 bu as the dividend. Divide by 19: 3,816,645 bu as the unit rate. Multiply by upper pan 3: 11,449,935 bu as the upper product. Multiply by middle pan 4: 15,266,580 bu as the middle product. Multiply by lower pan 12: 45,799,740 bu as the lower product. Convert back to mu at 240 bu/mu: upper fields = 477 qing 8 mu 15 bu; middle = 636 qing 10 mu 3 jiao; lower = 1,908 qing 32 mu 1 jiao.
+
+For rents: Upper product 11,449,935 bu $\times$ 6 dou = 68,699,610 shi (as dividend), divided by 240 = 28,624 shi 8 dou 3 sheng 7 ge 5 shao. Middle product $\times$ 4 dou 5 sheng gives same total by coincidence. Lower product 45,799,740 bu $\times$ 4 dou = 1,831,989,600 shi, divided by 240 = 76,332 shi 9 dou.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+草内求各衰數，意謂以三分為上田衰數，加弱半三分之一得四分為中田衰數，三因中田衰數得一十二分為下田衰數，併之得一十九分為總衰數。其法本属顯明，但語中參入母子副泛等名目，其意反晦矣。%
+}
+}{%
+\EditorialEn{%
+The working's method of finding the distribution ratios means: taking 3 parts as the upper field ratio, adding one-third (weak half) to obtain 4 parts as the middle field ratio, tripling the middle ratio to obtain 12 parts as the lower field ratio, summing to 19 parts as the total ratio. The method is essentially clear, but the introduction of ``numerator/denominator,'' ``auxiliary,'' and ``pan'' terminology obscures the underlying simplicity.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 3: 戶稅移割
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}戶稅移割 / Transferring Household Tax Obligations}
+\addcontentsline{toc}{subsection}{戶稅移割 / Transferring Household Tax Obligations}
+
+\ProblemBlock{%
+\QuestionCn{%
+某縣據甲稱：本户田地原納苗三十五石七斗，和買本色一十一匹二丈二尺九寸四分八釐七毫五絲，折帛二十七匹二寸一分三釐七毫五絲，紬絹折帛八匹三丈九寸七寸三分九釐，紬絹本色二十匹二丈八尺九寸三分九釐。已将田四百七畆出與乙，五百十六畆出與丙。訖乞移割本户所出田上税賦，歸併乙丙兩户送納。㑹到乙原有田三百七十五畆，丙原有田四百六十三畆，並係本鄉本等。毎畆苗三升五合，税一尺一寸五分，物力一貫二百；本等田紬一尺三寸四分，物力九百；物力及三十二貫數和買一匹，内三分本色七分折帛；夏税七分本色三分折帛；紬五分本色五分折帛，併絹紬。欲知甲田地及甲乙丙分割合納苗米、和買、夏税、折帛、本色、畸零各幾何？%
+}
+}{%
+\QuestionEn{%
+In a certain county, household Jia reports: originally the household paid seedling rice 35 shi 7 dou on fields; harmonized purchase in kind 11 pi 2 zhang 2 chi 9 cun 4 fen 8 li 7 hao 5 si of silk, converted silk 27 pi 2 cun 1 fen 3 li 7 hao 5 si; pongee silk (in kind and converted) [further details]. Jia has already sold 407 mu to household Yi and 516 mu to household Bing. He petitions to transfer the tax obligations on the sold land so that Yi and Bing assume the tax payments.
+
+Investigation reveals: Yi originally had 375 mu; Bing originally had 463 mu. All fields are of the same local grade. Per mu: seedling rice 3 sheng 5 ge; tax silk 1 chi 1 cun 5 fen; property value 1 guan 200 wen; grade-appropriate pongee silk 1 chi 3 cun 4 fen; property value 900 wen. For every 32 guan of property value: 1 pi of harmonized purchase, 3 parts in kind and 7 parts converted. Summer tax: 7 parts in kind, 3 parts converted. Pongee silk: 5 parts in kind, 5 parts converted, combined with plain silk. Find: Jia's remaining fields, and the divided tax obligations (seedling rice, harmonized purchase, summer tax, converted silk, in-kind silk, and remainders) for all three households.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+此題科税分田地二項。田有科米、税絹、物力三色，地只有税紬、物力二色，絹與紬折色不同，物力和買合田地總計之。又甲户有田者有地，乙丙二户有田無地。此等皆不可不明言者，題中殊未分晰。%
+}
+}{%
+\EditorialEn{%
+This problem's tax assessment has two categories: fields (田) and land (地). Fields are assessed for rice, tax silk, and property value (three items); land is assessed only for pongee silk tax and property value (two items). Plain silk and pongee silk have different conversion rates. Property value for harmonized purchase combines both fields and land. Furthermore, household Jia possesses both fields and land, while households Yi and Bing possess only fields with no land. These distinctions should have been stated explicitly but were not.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+甲原有田一千二十畆，地一十一畆二角四十八步。
+
+甲今有田九十七畆，苗米三石三斗九升五合，夏税折帛三丈三尺四寸六分五釐，本色一匹畸零三丈八尺八分五釐，物力一百一十六貫四百文。地一十一畆二角四十八步，税紬折帛七尺八寸三分九釐，税紬畸零七尺八寸三分九釐，物力一十貫五百三十文，田地共物力一百二十六貫九百三十文。和買折帛二匹三丈一尺六分三釐七毫五絲，本色一疋畸零七尺五寸九分八釐七毫五絲。
+
+乙今有田七百八十二畆，苗米二十七石三斗七升，夏税折帛六匹二丈九尺七寸九分，本色一十五匹畸零二丈九尺五寸一分，物力九百三十八貫四百文，和買折帛二十匹二丈一尺一寸，本色八匹畸零三丈一尺九寸。
+
+丙今有田九百七十九畆，苗米三十四石二斗六升五合，夏税折帛八匹一丈七尺七寸五分五釐，本色一十九匹畸零二丈八尺九分五釐，物力一千一百七十四貫八百文，和買折帛二十五匹二丈七尺九寸五分，本色一十一匹畸零五寸五分。%
+}
+}{%
+\AnswerEn{%
+\textbf{Jia originally:} Fields 1,020 mu, land 11 mu 2 jiao 48 bu.
+
+\textbf{Jia now:} Fields 97 mu; seedling rice 3 shi 3 dou 9 sheng 5 ge; summer tax converted silk 3 zhang 3 chi 4 cun 6 fen 5 li; in-kind silk 1 pi remainder 3 zhang 8 chi 8 cun 5 fen; property value 116 guan 400 wen. Land 11 mu 2 jiao 48 bu; pongee converted silk 7 chi 8 cun 3 fen 9 li; pongee remainder 7 chi 8 cun 3 fen 9 li; land property value 10 guan 530 wen. Combined property value 126 guan 930 wen. Harmonized purchase: converted silk 2 pi 3 zhang 1 chi 6 cun 3 fen 7 hao 5 si; in-kind 1 pi remainder 7 chi 5 cun 9 fen 8 li 7 hao 5 si.
+
+\textbf{Yi now:} Fields 782 mu; seedling rice 27 shi 3 dou 7 sheng; summer tax converted silk 6 pi 2 zhang 9 chi 7 cun 9 fen; in-kind silk 15 pi remainder 2 zhang 9 chi 5 cun 1 fen; property value 938 guan 400 wen; harmonized purchase converted silk 20 pi 2 zhang 1 chi 1 cun; in-kind 8 pi remainder 3 zhang 1 chi 9 cun.
+
+\textbf{Bing now:} Fields 979 mu; seedling rice 34 shi 2 dou 6 sheng 5 ge; summer tax converted silk 8 pi 1 zhang 7 chi 7 cun 5 fen 5 li; in-kind silk 19 pi remainder 2 zhang 8 chi 9 cun 5 fen; property value 1,174 guan 800 wen; harmonized purchase converted silk 25 pi 2 zhang 7 chi 9 cun 5 fen; in-kind 11 pi remainder 5 cun 5 fen.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米及衰分求之。置甲原納米為實，以毎畆苗為法除之，得甲原有田。以乗毎畆税，得田絹。次以甲紬絹本色折帛併之，内減田絹，餘為地紬。以毎紬約之，得甲原有地。次以甲出田併乙丙原有田，各得三户今有田地。各以等則乗之，各得物力苗税。次以毎畆物力率約各户共物力，得和買。副之，三分因之退位為和本，七分因之退位為和折；夏税反其分而因之退之；紬以半之，併入税，各得。%
+}
+}{%
+\MethodEn{%
+Use the methods of Millet and Rice (粟米, \textit{sumi}) and proportional distribution (衰分, \textit{chuifen}). Take Jia's original rice payment as dividend; divide by the per-mu seedling rate to obtain Jia's original fields. Multiply by per-mu tax silk to obtain the field silk. Combine Jia's pongee and plain silk (in-kind and converted), subtract the field silk; the remainder is land pongee. Divide by per-unit pongee to obtain Jia's original land. Add Jia's sold fields to Yi and Bing's original fields to obtain each household's current holdings. Multiply by the grade rates to obtain property values and taxes. Use the per-mu property value rate to find each household's total property value, thence the harmonized purchase. Split this: 3 parts in-kind, 7 parts converted; summer tax reverses these proportions (7 in-kind, 3 converted); pongee silk is halved (5 in-kind, 5 converted), combined with plain silk tax. These yield the final results.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 4: 均科綿税
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}均科綿税 / Equalizing Cotton Tax Assessment}
+\addcontentsline{toc}{subsection}{均科綿税 / Equalizing Cotton Tax Assessment}
+
+\ProblemBlock{%
+\QuestionCn{%
+縣科綿有五等户，共一萬一千三十三户，共科綿八萬八千三百三十七兩六錢。上等一十二户，副等八十七户，中等四百六十四户，次等二千三十五户，下等八千四百三十五户。欲令上三等折半差，下二等比中等六四折差。科率求之，問各户納及各等幾何？%
+}
+}{%
+\QuestionEn{%
+A county levies cotton floss (綿) tax on five grades of households, totaling 11,033 households, with a total assessment of 88,337 liang 6 qian. The household counts are: upper grade 12 households; sub-upper grade 87 households; middle grade 464 households; sub-middle grade 2,035 households; lower grade 8,435 households. It is desired that the upper three grades differ by successive halving (折半差), while the lower two grades are set at four-sixths (六四折) of the middle grade. Using these rates, find: the amount paid by each household grade and the total for each grade.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+題言下二等比中等六四折差，是次等為中等六分之四，下等又為次等六分之四也。乃術草中皆以十分之四收之，是四分折差而非四六折差矣。集中題與術不相應者多類此，豈成書之後未能重加校正歟？%
+}
+}{%
+\EditorialEn{%
+The problem states that the lower two grades are at four-sixths (\nicefrac{4}{6}) of the middle grade, meaning the sub-middle grade is \nicefrac{4}{6} of the middle grade, and the lower grade is \nicefrac{4}{6} of the sub-middle grade. However, in the method and working, both are reduced by four-tenths (\nicefrac{4}{10}), which is a four-tenths reduction rather than a four-sixths reduction. Many problems in this collection have such discrepancies between the stated problem and the computational method---perhaps the author was unable to perform a thorough revision after completion.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+上等一户一百二十四兩，一十二户計一千四百八十八兩；
+副等一户六十二兩，八十七户計五千三百九十四兩；
+中等一户三十一兩，四百六十四户計一萬四千三百八十四兩；
+次等一户一十二兩四錢，二千三十五户計二萬五千二百三十四兩；
+下等一户四兩九錢六分，八千四百三十五户計四萬一千八百三十七兩六錢。%
+}
+}{%
+\AnswerEn{%
+Upper grade: 124 liang per household, 12 households totaling 1,488 liang;
+Sub-upper grade: 62 liang per household, 87 households totaling 5,394 liang;
+Middle grade: 31 liang per household, 464 households totaling 14,384 liang;
+Sub-middle grade: 12 liang 4 qian per household, 2,035 households totaling 25,234 liang;
+Lower grade: 4 liang 9 qian 6 fen per household, 8,435 households totaling 41,837 liang 6 qian.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+列五等户數，先以四折下等數，加次等户，又以四折之，加中等户數，却以半折之，加二等户，又以半折之，加上等户數，不折便為法。除科綿，得上等一户之綿。復半之為副等，又半之為中等，又四折之為次等，又四折之為下等。各一户綿，却各以户數乗之，各得五等共出綿。%
+}
+}{%
+\MethodEn{%
+Arrange the five household grades. First reduce the lower grade by four-tenths, add to the sub-middle grade, reduce again by four-tenths, add to the middle grade. Then halve, add to the sub-upper grade; halve again, add to the upper grade. The undiscounted sum is the divisor. Divide the total cotton by this to obtain the upper-grade household's assessment. Halve for sub-upper; halve again for middle; reduce by four-tenths for sub-middle; reduce by four-tenths again for lower. Multiply each per-household amount by the respective household count to obtain each grade's total contribution.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+先置下等户八千四百三十五，以四折之，得三千三百七十四。乃以得數折入次户二千三十五内，得五千四百九户訖。又以四折次數五千四百九户，得二千一百六十三户六分。乃以得次數併入中户四百六十四内，共得二千六百二十七户六分。次以五分折中數二千六百二十七户六分，得數。次以得數一千三百一十三户八分併副户八十七，得一千四百户八分。又以五折副數一千四百户八分，得七百户四分，既得數。乃以副數七百户四分併上户一十二户，得七百一十二户四分，不折便為法。
+
+累折至等，共得七百一十二户四分以為總法。乃置科綿八萬八千三百三十七兩六錢為實，法七百一十二户四分而一，得一百二十四兩為上等一户所出綿。以五折之，得六十二兩為副等一户所出綿。又五折之，得三十一兩為中等一户所出綿。乃以四折之，得一十二兩四錢為次等一户所出綿。又以四折之，得四兩九錢六分為下等一户所出綿。乃以各等户數各乗一户所出，即各得每等共數之綿。%
+}
+}{%
+\WorkingEn{%
+Take lower-grade households 8,435; reduce by four-tenths: 3,374. Add to sub-middle households 2,035: 5,409. Reduce by four-tenths: 2,163.6. Add to middle households 464: 2,627.6. Halve: 1,313.8. Add to sub-upper households 87: 1,400.8. Halve: 700.4. Add to upper households 12: 712.4; this is the divisor.
+
+The cumulative reduction yields 712.4 as the total divisor. Take the cotton assessment 88,337 liang 6 qian as dividend; divide by 712.4: 124 liang as the upper-grade per-household assessment. Halve: 62 liang (sub-upper). Halve: 31 liang (middle). Reduce by four-tenths: 12 liang 4 qian (sub-middle). Reduce by four-tenths: 4 liang 9 qian 6 fen (lower). Multiply each by the respective household count to obtain each grade's total contribution.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 5: 均定勸分
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}均定勸分 / Equalizing Charitable Contribution Quotas}
+\addcontentsline{toc}{subsection}{均定勸分 / Equalizing Charitable Contribution Quotas}
+
+\ProblemBlock{%
+\QuestionCn{%
+欲勸糶賑濟，據甲民户物力畆步排定，共計一百六十二户，作九等：上等三户，第二等五户，第三等七户，第四等八户，第五等十三户，第六等二十一户，第七等二十六户，第八等三十四户，第九等四十五户。今先觀諭，第一等上户願糶五千石，第九等户願糶二百石。欲知各等抛差石數併數認米數各幾何？%
+}
+}{%
+\QuestionEn{%
+It is desired to encourage households to sell grain for famine relief. Household Jia's property values and land have been surveyed, totaling 162 households divided into nine grades: upper grade 3 households; 2nd grade 5 households; 3rd grade 7 households; 4th grade 8 households; 5th grade 13 households; 6th grade 21 households; 7th grade 26 households; 8th grade 34 households; 9th grade 45 households. The uppermost household voluntarily offers 5,000 shi; the 9th-grade household offers 200 shi. Find: the graduated difference in grain quotas between grades, and the total recognized grain contribution for each grade.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+認該米二十三萬七千六百石。
+
+上等一户米五千石，三户計一萬五千石；
+二等一户米四千四百石，五户計二萬二千石；
+三等一户米三千八百石，七户計二萬六千六百石；
+四等一户米三千二百石，八户計二萬五千六百石；
+五等一户米二千六百石，一十三户計三萬三千八百石；
+六等一户米二千石，二十一户計四萬二千石；
+七等一户米一千四百石，二十六户計三萬六千四百石；
+八等一户米八百石，三十四户計二萬七千二百石；
+九等一户米二百石，四十五户計九千石。%
+}
+}{%
+\AnswerEn{%
+Total recognized grain: 237,600 shi.
+
+Upper grade: 5,000 shi per household, 3 households totaling 15,000 shi;
+2nd grade: 4,400 shi per household, 5 households totaling 22,000 shi;
+3rd grade: 3,800 shi per household, 7 households totaling 26,600 shi;
+4th grade: 3,200 shi per household, 8 households totaling 25,600 shi;
+5th grade: 2,600 shi per household, 13 households totaling 33,800 shi;
+6th grade: 2,000 shi per household, 21 households totaling 42,000 shi;
+7th grade: 1,400 shi per household, 26 households totaling 36,400 shi;
+8th grade: 800 shi per household, 34 households totaling 27,200 shi;
+9th grade: 200 shi per household, 45 households totaling 9,000 shi.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以衰分求之。置上下户米，減餘為實。列等數減一，餘為法。除之，得抛差石數。以差累減上等米，各得諸等米。以各等户乗之，併之為總數。%
+}
+}{%
+\MethodEn{%
+Use proportional distribution (衰分, \textit{chuifen}). Take the difference between the upper-grade and lower-grade grain quotas as the dividend. Subtract 1 from the number of grades to obtain the divisor. Divide to obtain the graduated difference in shi. Successively subtract this difference from the upper-grade quota to obtain each grade's quota. Multiply by each grade's household count and sum to obtain the total.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置上等户米五千石，減下等户二百石，餘四千八百石為實。以九等減一，餘八為法。除實，得六百石為每等抛差。用減上等，餘四千四百石為二等米。又減六百，得三千八百石為三等米。又減六百，得三千二百石為四等米。又減六百，得二千六百石為五等米。又減六百，得二千石為六等米。又減六百，得一千四百石為七等米。又減六百，得八百石為八等米。又減六百，得二百石為九等米。又各乗户數，併之，得總認米石數二十三萬七千六百石。%
+}
+}{%
+\WorkingEn{%
+Take upper-grade quota 5,000 shi; subtract lower-grade 200 shi: remainder 4,800 shi as dividend. Nine grades minus 1: 8 as divisor. Divide: 600 shi as the graduated difference per grade. Subtract from upper grade: 4,400 shi (2nd grade). Subtract 600: 3,800 shi (3rd grade). Subtract 600: 3,200 shi (4th grade). Subtract 600: 2,600 shi (5th grade). Subtract 600: 2,000 shi (6th grade). Subtract 600: 1,400 shi (7th grade). Subtract 600: 800 shi (8th grade). Subtract 600: 200 shi (9th grade). Multiply each by the respective household count and sum: total recognized grain 237,600 shi.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 6: 均定合解
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}均定合解 / Equalizing Government Revenue Remittances}
+\addcontentsline{toc}{subsection}{均定合解 / Equalizing Government Revenue Remittances}
+
+\ProblemBlock{%
+\QuestionCn{%
+州郡合解諸司窠名錢：户部九十六萬五千四百二十一貫文，總所六十四萬三千六百一十四貫文，運司一萬六千九十貫三百五十文。今諸窠名先催到九千二百五十三貫六百二十文，欲照原額分數均定樁收解，合各幾何？%
+}
+}{%
+\QuestionEn{%
+A prefecture must remit funds to three government offices: the Ministry of Revenue (戶部) 965,421 guan; the General Office (總所) 643,614 guan; the Transport Office (運司) 16,090 guan 350 wen. From these accounts, 9,253 guan 620 wen has been collected in advance. It is desired to distribute this advance collection proportionally according to the original quotas. How much should each office receive?%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+户部五千四百九十七貫二百文；總所三千六百六十四貫八百文；運司九十一貫六百二十文。%
+}
+}{%
+\AnswerEn{%
+Ministry of Revenue: 5,497 guan 200 wen;
+General Office: 3,664 guan 800 wen;
+Transport Office: 91 guan 620 wen.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以衰分求之。置諸原率，可約約之。副併為法。以催到錢乗未併者，各為實。實如法而一。%
+}
+}{%
+\MethodEn{%
+Use proportional distribution (衰分, \textit{chuifen}). Arrange the original quotas; reduce by common factors if possible. Sum these as the divisor. Multiply the collected amount by each un-summed quota as respective dividends. Divide each dividend by the divisor.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+列户部九十六萬五千四百二十一貫，總所六十四萬三千六百一十四貫，運司一萬六千九十貫三百五十文，各為原率。今原率可約，求等得一萬六千九十貫三百五十為等數，俱約之：户部得六十，總所得四十，運司得一，各為率。副併得一百一為法。以催到錢九千二百五十三貫六百二十文乗未併數：六十、四十及一，畢得五十五萬五千二百一十七貫二百文為户部之實，三十七萬一百四十四貫八百文為總所之實，九千二百五十三貫六百二十文為運司之實。三實皆如法一百一而一：其户部得五千四百九十七貫二百文，總所得三千六百六十四貫八百文，運司得九十一貫六百二十，各為候解錢。%
+}
+}{%
+\WorkingEn{%
+Arrange: Ministry 965,421 guan; General Office 643,614 guan; Transport Office 16,090 guan 350 wen as original rates. These can be reduced: the greatest common divisor is 16,090 guan 350 wen. Reducing: Ministry = 60; General Office = 40; Transport Office = 1. Sum: 101 as divisor.
+
+Multiply the collected 9,253 guan 620 wen by each un-summed rate: by 60: 555,217 guan 200 wen (Ministry's dividend); by 40: 370,144 guan 800 wen (General Office's dividend); by 1: 9,253 guan 620 wen (Transport Office's dividend). Divide each by 101: Ministry = 5,497 guan 200 wen; General Office = 3,664 guan 800 wen; Transport Office = 91 guan 620 wen. These are the amounts to be remitted.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 7: 寬減屯租
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}寬減屯租 / Reducing Military Colony Rent}
+\addcontentsline{toc}{subsection}{寬減屯租 / Reducing Military Colony Rent}
+
+\ProblemBlock{%
+\QuestionCn{%
+屯租欲議寬減，仍聴以夏麥折納分數。官牛種者與減二分，私牛種者與減四分。每嵗租榖以三分之一許夏折二麥，内四分大六分小折色。每大麥三石折小麥二石，小麥二石折榖三石五斗。屯租舊額官種一石納租五石，私種一石納租三石。今某州屯田去年計官私種共九千七百八十二石，共合收租榖三萬九千五百八十六石。欲知官私種各數、原額、今減、合催、成年夏麥秋榖幾何？%
+}
+}{%
+\QuestionEn{%
+It is proposed to grant rent reduction on military colony lands, allowing summer wheat to be substituted for a portion of the grain rent. For land farmed with official oxen, a reduction of two-tenths; for land with private oxen, four-tenths. Each year, one-third of the rent grain may be substituted with summer wheat (two types of wheat): four parts barley and six parts wheat by substitution value. Three shi of barley is equivalent to 2 shi of wheat; 2 shi of wheat is equivalent to 3 shi 5 dou of grain. The old regulations: official seed 1 shi pays rent 5 shi; private seed 1 shi pays rent 3 shi. This year a certain prefecture's colony fields yielded official and private seed totaling 9,782 shi, with total rent grain due of 39,586 shi. Find: the amounts of official and private seed; original quotas; current reduction; amount collectible after reduction; and the adult year's summer wheat and autumn grain amounts.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+此題有官私共種數、租數，有種一石租數，求各種數租數，古謂之差分，今謂之和較比例。折色亦差分也，今謂之和數比例。大小麥與榖相易，古謂之異乗同乗，今謂之和率比列。%
+}
+}{%
+\EditorialEn{%
+This problem gives the total official and private seed amounts and total rent, with the per-seed rent rates, to find the individual seed and rent amounts. Classically called \textit{proportional distribution} (差分, \textit{chaifen}); in modern terms, ratio and proportion. The substitution rates (折色) are also proportional distribution. The barley-wheat-grain exchange is classically called \textit{different multiplication, same multiplication} (異乗同乗, \textit{yicheng tongcheng}); in modern terms, chained ratios.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+官種五千一百二十石，私出種四千六百六十二石。
+
+原租額共三萬九千五百八十六石：官種二萬五千六百石，私種一萬三千九百八十六石。
+
+今減一萬七百一十四石四斗：官種五千一百二十石，私種五千五百九十四石四斗。
+
+合催二萬八千八百七十一石六斗。
+
+官種租二萬四百八十石：一分折麥計榖六千八百二十六石六斗六升零三分升之二；四分折大麥二千三百四十石五斗七升七分升之一（係折榖二千七百三十石六斗六升三分升之二）；六分折小麥二千三百四十石五斗七升七分升之一（係折榖四千九十六石二分）；正色榖一萬三千六百五十三石三斗三升三分升之一。
+
+私種租八千三百九十一石六斗：一分折麥計榖二千七百九十七石二斗；四分折大麥九百五十九石四升（係折榖一千一百一十八石八斗八升）；六分折小麥九百五十九石四升（係折榖一千六百七十八石三斗二升）；二分正色榖五千五百九十四石四斗。
+
+成年共收：夏折榖九千六百二十三石八斗六升三分升之二；大麥三千二百九十九石六斗一升七分升之一；小麥三千二百九十九石六斗一升七分升之一；秋正榖一萬九千二百四十七石七斗三升三分升之一。%
+}
+}{%
+\AnswerEn{%
+\textbf{Official seed:} 5,120 shi; \textbf{Private seed:} 4,662 shi.
+
+\textbf{Original rent quota:} 39,586 shi total---official seed 25,600 shi; private seed 13,986 shi.
+
+\textbf{Current reduction:} 10,714 shi 4 dou---official seed 5,120 shi; private seed 5,594 shi 4 dou.
+
+\textbf{Net collectible:} 28,871 shi 6 dou.
+
+\textbf{Official seed rent} 20,480 shi: one-third wheat substitution = 6,826 shi 6 dou 6 sheng plus \nicefrac{2}{3}; four parts barley = 2,340 shi 5 dou 7 sheng plus \nicefrac{1}{7} (= 2,730 shi 6 dou 6 sheng plus \nicefrac{2}{3} grain equivalent); six parts wheat = 2,340 shi 5 dou 7 sheng plus \nicefrac{1}{7} (= 4,096 shi 0\nicefrac{2}{10}); standard grain 13,653 shi 3 dou 3 sheng plus \nicefrac{1}{3}.
+
+\textbf{Private seed rent} 8,391 shi 6 dou: one-third wheat substitution = 2,797 shi 2 dou; four parts barley = 959 shi 0\nicefrac{4}{10} (= 1,118 shi 8 dou 8 sheng); six parts wheat = 959 shi 0\nicefrac{4}{10} (= 1,678 shi 3 dou 2 sheng); two parts standard grain = 5,594 shi 4 dou.
+
+\textbf{Adult year total collection:} Summer substituted grain 9,623 shi 8 dou 6 sheng plus \nicefrac{2}{3}; Barley 3,299 shi 6 dou 1 sheng plus \nicefrac{1}{7}; Wheat 3,299 shi 6 dou 1 sheng plus \nicefrac{1}{7}; Autumn standard grain 19,247 shi 7 dou 3 sheng plus \nicefrac{1}{3}.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以衰分求之。置共種數，以官種一石納五石、私種一石納三石為列衰，併之為法。以共租乗未併者為實，實如法而一。各得官私種數。次以各一石租數乗種數，得原額。以減分乗各原額，得今減數。以減原額，餘為合催。次以三分折數乗各催租，得折麥計榖。又於折内分大麥四分、小麥六分，各得麥數。以大麥率三石折小麥二石、小麥二石折榖三石五斗變之，得榖數。以減折麥計榖，餘為正色榖。併之，得成年共收數。%
+}
+}{%
+\MethodEn{%
+Use proportional distribution (衰分, \textit{chuifen}). Take the total seed amount; use the official seed rent rate 5 shi and private seed rent rate 3 shi as proportional rates. Sum as divisor. Multiply total rent by each un-summed rate as dividends; divide to obtain official and private seed amounts. Multiply each seed amount by its per-shi rent rate to obtain the original quota. Apply the reduction rates to obtain the current reduction. Subtract from original quota for the net collectible. Take one-third of each collectible rent for wheat substitution; within this, four parts barley and six parts wheat. Convert barley to grain at 3:2 barley-to-wheat then 2:\nicefrac{7}{2} wheat-to-grain; convert wheat similarly. Subtract converted grain from the total substitution amount; remainder is standard grain. Sum all to obtain the adult year's total collection.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 8: 戶稅均寬
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}戶稅均寬 / Equalizing Household Tax Relief}
+\addcontentsline{toc}{subsection}{戶稅均寬 / Equalizing Household Tax Relief}
+
+\ProblemBlock{%
+\QuestionCn{%
+州郡寬恤，近将某縣下三等税户秋科餘欠錢米，已與蠲放：共錢一千三百五十五貫七百六文，米五千二百七十二石一斗九升。某本縣下三等物力計三萬七千六百五十八貫五百文。今來官員陳述：本縣多有樂輸無欠之户，今䝉蠲放税尾，似反寬潤頑輸之户，於理未均。遂議将樂輸三等户於明年兩税與照昨來體例減免。契勘得三等無欠户物力二十二萬八千一十五貫三百二十一文。欲知每百文合減免錢米及共減各幾何？%
+}
+}{%
+\QuestionEn{%
+The prefecture, in a gesture of benevolence, has recently remitted the outstanding autumn tax debts of the lower three grades of households in a certain county: total money 1,355 guan 706 wen, grain 5,272 shi 1 dou 9 sheng. The property value (物力) of these lower three grades in the county is 37,658 guan 500 wen. Now an official reports: there are many households in this county who paid willingly and have no arrears; granting remission of tax arrears appears to benefit only delinquent payers, which is inequitable. It is proposed that the compliant households of the three grades be granted proportional reduction in next year's two-tax payment according to the same precedent. Investigation reveals the property value of compliant non-delinquent households of the three grades is 228,015 guan 321 wen. Find: the reduction per 100 wen of property value, and the total reduction in money and grain.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+毎物力一百文，放錢三文六分，放米一升四合。明年兩税放免：錢七千九百四十九貫三百五十一文五分五釐六毫；米三萬九百一十四石一斗四升四合九勺四抄。%
+}
+}{%
+\AnswerEn{%
+For every 100 wen of property value: remit 3 wen 6 fen of money; remit 1 sheng 4 ge of grain. Next year's two-tax remission: money 7,949 guan 351 wen 5 fen 5 li 6 hao; grain 30,914 shi 1 dou 4 sheng 4 ge 9 shao 4 chao.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米衰分求之。置原物力為法，除原放錢米，得毎百文物力所放錢米率。以各率乗今來物力，各得錢米，為明年兩税合放數。%
+}
+}{%
+\MethodEn{%
+Use the methods of Millet and Rice and proportional distribution (粟米衰分, \textit{sumi chuifen}). Take the original property value as the divisor; divide the original remitted money and grain to obtain the remission rate per 100 wen of property value. Multiply each rate by the current property value to obtain the money and grain amounts for next year's two-tax remission.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+以原物力三萬七千六百五十八貫五百文為法。先除原放錢一千三百五十五貫七百六文，定法百文上得一文為商，除得三文六分為物力百文所放錢率。次除原放米五千二百七十二石一斗九升，得一升四合為物力百文所放米率。以今三等户物力二十二萬八千一十五貫三百二十一文徧乗所放錢米二率，得錢七千九百四十九貫三百五十一文五分五釐六毫，得米三萬九百一十四石一斗四升四合九勺四抄，為明年兩税合放數。%
+}
+}{%
+\WorkingEn{%
+Take the original property value 37,658 guan 500 wen as the divisor. First divide the remitted money 1,355 guan 706 wen: for each 100 wen of the divisor, obtain 3 wen 6 fen as the money remission rate per 100 wen. Next divide the remitted grain 5,272 shi 1 dou 9 sheng: obtain 1 sheng 4 ge as the grain remission rate per 100 wen.
+
+Multiply both rates by the current property value of compliant households, 228,015 guan 321 wen: money = 7,949 guan 351 wen 5 fen 5 li 6 hao; grain = 30,914 shi 1 dou 4 sheng 4 ge 9 shao 4 chao. These are the amounts to be remitted from next year's two-tax.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 9: 米榖粒分
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}米榖粒分 / Separating Rice from Mixed Grain by Granules}
+\addcontentsline{toc}{subsection}{米榖粒分 / Separating Rice from Mixed Grain by Granules}
+
+\ProblemBlock{%
+\QuestionCn{%
+開倉受約，有甲户米一千五百三十四石。到廊驗得米内夾榖，乃於様内取米一捻，數計二百五十四粒，内有榖二十八顆。凡粒米率每勺三百。今欲知米内雜榖多少，以折米數科貴及粒各幾何？%
+}
+}{%
+\QuestionEn{%
+When opening the granary to receive grain, household Jia delivers 1,534 shi of rice. Upon inspection at the corridor, the rice is found to be mixed with unhusked grain (穀). A pinch is taken as a sample: 254 grains total, containing 28 grains of husked grain. The standard rate is 300 grains per shao. It is desired to know: how much grain is mixed in the rice, the amount of rice to be deducted (折米), and the total number of grains.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+米一千三百六十四石八斗九升七合六勺一百二十七分勺之四十八；
+榖一百六十九石一斗二合三勺一百二十七分勺之七十九。
+合折米八十四石五斗五升一合一勺一百二十七分勺之一百三。
+原米折米共計四十三億四千八百三十四萬六千四百五十六粒。%
+}
+}{%
+\AnswerEn{%
+Pure rice: 1,364 shi 8 dou 9 sheng 7 ge 6 shao plus \nicefrac{48}{127} shao;
+Mixed grain: 169 shi 1 dou 0 sheng 2 ge 3 shao plus \nicefrac{79}{127} shao.
+Grain converted to rice equivalent: 84 shi 5 dou 5 sheng 1 ge 1 shao plus \nicefrac{103}{127} shao.
+Total grains (original rice plus converted): 4,348,346,456 grains.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米求之，衰分入之。置様米粒數為法，以常榖顆數減之，餘與榖為列衰。可約約之。以共米乗列衰為各實，實如法而一，各得米數榖數。置榖數以粟率折之，為榖所折米。次以勺率遍乗米數折米，得粒數。%
+}
+}{%
+\MethodEn{%
+Use the Millet and Rice (粟米, \textit{sumi}) method, with proportional distribution (衰分, \textit{chuifen}). Take the sample grain count as the divisor; subtract the husked grain count; the remainder and the grain count form the proportional rates. Reduce if possible. Multiply the total rice by each rate as respective dividends; divide by the divisor to obtain the rice and grain amounts. Convert the grain amount to rice equivalent using the grain-to-rice rate. Then multiply both rice amounts by the grains-per-shao rate to obtain the total grain count.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置一捻様粒數二百五十四為法，以帶榖二十八顆為榖衰，以減法，餘二百二十六為米衰。此二衰與法皆可約，求等得二，俱以約之：法得一百二十七，米衰得一百一十三，榖衰得一十四。以米一千五百三十四石遍乗二衰，得一十七萬三千三百四十二石為米實，得二萬一千四百七十六石為榖實。皆如法一百二十七而一：米得一千三百六十四石八斗九升七合六勺一百二十七分勺之四十八，榖得一百六十九石一斗二合三勺一百二十七分勺之七十九。以粟率五十折之，得八十四石五斗五升一合一勺一百二十七分勺之一百三為榖折納米數。併二米，得一千四百四十九石四斗四升八合八勺一百二十七分勺之二十四。先通分納子一十八萬四千八十石，以勺率三百粒乗之，得五千五百二十二億四千萬粒為實，以母一百二十七除之，得四十三億四千八百三十四萬六千四百五十六粒，不盡八十八棄之。%
+}
+}{%
+\WorkingEn{%
+Take the sample count 254 as divisor; the 28 mixed grains as the grain rate; subtract from divisor: 226 as the rice rate. These two rates and the divisor can all be reduced: divide by 2---divisor = 127, rice rate = 113, grain rate = 14.
+
+Multiply the total rice 1,534 shi by both rates: rice dividend = 173,342 shi; grain dividend = 21,476 shi. Divide both by 127: pure rice = 1,364 shi 8 dou 9 sheng 7 ge 6 shao + \nicefrac{48}{127}; grain = 169 shi 1 dou 0 sheng 2 ge 3 shao + \nicefrac{79}{127}.
+
+Convert grain to rice equivalent at rate 50\%: 84 shi 5 dou 5 sheng 1 ge 1 shao + \nicefrac{103}{127}.
+
+Combine both rice amounts: 1,449 shi 4 dou 4 sheng 8 ge 8 shao + \nicefrac{24}{127}. Convert to improper fraction: dividend 184,080 shi. Multiply by grain rate 300 grains/shao: 55,224,000,000 grains as dividend; divide by 127: 434,834,6456 grains (remainder 88, discarded).%
+}
+}
+
+\newpage
+%% =============================================================================
+%% FASCICLE 6 — 錢穀 (MONEY AND GRAIN)
+%% =============================================================================
+\section*{\color{titlecolor}卷六\quad 錢穀類 / Fascicle 6: Money and Grain}
+\addcontentsline{toc}{section}{卷六\quad 錢穀類 / Fascicle 6: Money and Grain}
+
+\noindent\rule{\textwidth}{1pt}
+\vspace{0.3em}
+
+%% ---------------------------------------------------------------------------
+%% PROBLEM 1: 課糴
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}課糴 / Government Grain Purchase}
+\addcontentsline{toc}{subsection}{課糴 / Government Grain Purchase}
+
+\ProblemBlock{%
+\QuestionCn{%
+差人五路和糴。據浙西平江府石價三十五貫文，一百三十五合，至鎮江水脚錢每石九百文；安吉州石價二十九貫五百文，一百一十合，至鎮江水脚錢每石一貫二百文；江西隆興府石價二十八貫一百文，一百一十五合，至建康水脚錢每石一貫七百文；吉州石價二十五貫八百五十文，一百二十合，至建康水脚錢每石二貫九百文；湖南潭州石價二十七貫三百文，一百一十八合，至鄂州水脚錢每石一貫七百文。其錢並十七界官㑹，其米並用文思院斛交量紐數。欲皆以官解計石錢相比貴賤幾何？%
+}
+}{%
+\QuestionEn{%
+Officials are dispatched to purchase grain across five circuits. The data are:
+
+\textbf{Zhexi--Pingjiang Prefecture:} grain price 35 guan per shi, 135 ge per dou; water transport to Zhenjiang 900 wen per shi.
+
+\textbf{Anji Prefecture:} grain price 29 guan 500 wen per shi, 110 ge per dou; water transport to Zhenjiang 1 guan 200 wen per shi.
+
+\textbf{Jiangxi--Longxing Prefecture:} grain price 28 guan 100 wen per shi, 115 ge per dou; water transport to Jiankang 1 guan 700 wen per shi.
+
+\textbf{Jizhou:} grain price 25 guan 850 wen per shi, 120 ge per dou; water transport to Jiankang 2 guan 900 wen per shi.
+
+\textbf{Hunan--Tanzhou:} grain price 27 guan 300 wen per shi, 118 ge per dou; water transport to Ezhou 1 guan 700 wen per shi.
+
+All payments use 17th-series official certificates (官會); all grain is measured with the Wensiyuan official hu. It is desired to compute the comparable price per shi (in official hu) for each source, ranking them from most to least expensive.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+按草中係二貫一百文，此訛。文思院解每斗八十三合。%
+}
+}{%
+\EditorialEn{%
+The working contains ``2 guan 100 wen'' [for Tanzhou transport]; this is an error. The Wensiyuan official hu measures 83 ge per dou.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+文思院斛石錢：安吉州二十三貫一百六十四文一十一分文之六；平江府二十二貫七十一文二十七分文之二十三；隆興府二十一貫五百七文二十三分文之一十九；潭州二十貫六百七十九文五十九分文之四十九；吉州一十九貫八百八十五文十二分文之五。%
+}
+}{%
+\AnswerEn{%
+Comparable prices per shi (Wensiyuan hu): Anji Prefecture 23 guan 164 wen + \nicefrac{6}{11}; Pingjiang Prefecture 22 guan 71 wen + \nicefrac{23}{27}; Longxing Prefecture 21 guan 507 wen + \nicefrac{19}{23}; Tanzhou 20 guan 679 wen + \nicefrac{49}{59}; Jizhou 19 guan 885 wen + \nicefrac{5}{12}.
+
+Ranking from most to least expensive: Anji, Pingjiang, Longxing, Tanzhou, Jizhou.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+按三十九訛四十九。%
+}
+}{%
+\EditorialEn{%
+[Note: The answer has ``49'' where it should read ``39.'' This is a textual error.]%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米互換求之。置石價併水脚，乗石數，又乗官斗合數為實。各如本州合數而一，各得官解石錢。以課貴賤。%
+}
+}{%
+\MethodEn{%
+Use the Millet and Rice mutual conversion method (粟米互換, \textit{sumi huhuan}). Add the grain price and water transport cost per shi; multiply by the standard shi measure, then by the official dou's ge count as dividend. Divide by each locality's dou measure in ge to obtain the comparable price per shi. Rank by price to determine relative expense.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置安吉州石價二十九貫五百文，平江石價三十五貫文，隆興石價二十八貫一百文，吉州石價二十五貫八百五十文，潭州石價二十七貫三百文，列右行。次置水脚：安吉一貫二百文，平江九百文，隆興一貫七百文，吉州二貫九百文，潭州二貫一百文，列左行，各對本州石價。以兩行數併之，得數：安吉三十貫七百文，平江三十五貫九百，隆興二十九貫八百，潭州二十九貫四百，吉州二十八貫七百五十，仍於右行。次以文思院官斗八十三合遍乗之：安吉州得二千五百四十八貫一百文，平江府得二千九百七十九貫七百文，江西隆興得二千四百七十三貫四百文，湖南潭州得二千四百四十貫二百文，江南吉州得二千三百八十六貫二百五十文，各為實於右。得次列安吉斗一百一十合，平江斗一百三十五合，隆興斗一百一十五合，潭州斗一百一十八合，吉州斗一百二十合於左行為法。以对除右行之實：安吉得二十三貫一百六十四文一十一分之六，平江得二十三貫七十一文二十七分文之二十三，隆興得二十一貫五百七文二十三分文之一十九，潭州得二十貫六百七十九文五十九文分之四十九，吉州得一十九貫八百八十五文一十二分文之五。相課石價，其安吉州最貴，平江次之，隆興又次之，潭州又次之，吉州最賤。%
+}
+}{%
+\WorkingEn{%
+Arrange the grain prices (right column): Anji 29 guan 500 wen, Pingjiang 35 guan, Longxing 28 guan 100 wen, Jizhou 25 guan 850 wen, Tanzhou 27 guan 300 wen. Arrange water transport costs (left column): Anji 1 guan 200 wen, Pingjiang 900 wen, Longxing 1 guan 700 wen, Jizhou 2 guan 900 wen, Tanzhou 2 guan 100 wen.
+
+Add the two columns: Anji 30 guan 700 wen, Pingjiang 35 guan 900 wen, Longxing 29 guan 800 wen, Tanzhou 29 guan 400 wen, Jizhou 28 guan 750 wen. Multiply by the Wensiyuan official dou 83 ge: Anji 2,548 guan 100 wen; Pingjiang 2,979 guan 700 wen; Longxing 2,473 guan 400 wen; Tanzhou 2,440 guan 200 wen; Jizhou 2,386 guan 250 wen. These are the dividends.
+
+Arrange the local dou measures (divisors): Anji 110 ge, Pingjiang 135 ge, Longxing 115 ge, Tanzhou 118 ge, Jizhou 120 ge. Divide each dividend by its divisor to obtain the comparable prices. Rank: Anji most expensive, Pingjiang next, Longxing next, Tanzhou next, Jizhou least expensive.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 2: 折解輕齎
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}折解輕齎 / Converting to Lightweight Currency for Remittance}
+\addcontentsline{toc}{subsection}{折解輕齎 / Converting to Lightweight Currency}
+
+\ProblemBlock{%
+\QuestionCn{%
+有甲乙丙丁四郡，各合起上供銀絹。
+
+甲郡：銀三千二百兩，每兩二貫二百文足；絹六萬四千匹，每匹二貫文足。去京一千里，每擔一里傭錢六文足。其時舊㑹每貫五十四文足。
+
+乙郡：銀二千七百兩，每兩二貫三百文足；絹四萬九千二百匹，每匹二貫四百二十文足。去京九百八十里，每擔一里傭錢四文二分足。舊㑹價五十九文足。
+
+丙郡：銀四千兩，每兩新㑹九貫三百文；絹七萬三千六百匹，每匹新㑹一十貫三百文。去京二千里，每擔一里傭錢八十文舊㑹。
+
+丁郡：銀二千六百兩，每兩五十一貫文舊㑹；絹三萬二千三十五匹，每匹五十八貫文舊㑹。去京一千五百里，每擔一里傭錢一百文舊㑹。
+
+諸郡銀每五百兩、絹每六十匹、新㑹每五千貫為擔。欲並折新㑹，均作三限起解。求各郡每限及本色原理、折解實用、寛餘、傭錢各新㑹幾何？%
+}
+}{%
+\QuestionEn{%
+Four prefectures (Jia, Yi, Bing, Ding) must each remit silver and silk as tribute to the capital:
+
+\textbf{Jia:} Silver 3,200 liang at 2 guan 200 wen per liang (``full'' value); silk 64,000 pi at 2 guan per pi. Distance to capital 1,000 li; porterage 6 wen per dan per li. Old certificates exchange at 54 wen per guan.
+
+\textbf{Yi:} Silver 2,700 liang at 2 guan 300 wen per liang; silk 49,200 pi at 2 guan 420 wen per pi. Distance 980 li; porterage 4 wen 2 fen per dan per li. Old certificates at 59 wen per guan.
+
+\textbf{Bing:} Silver 4,000 liang at 9 guan 300 wen new certificates per liang; silk 73,600 pi at 10 guan 300 wen new certificates per pi. Distance 2,000 li; porterage 80 wen old certificates per dan per li.
+
+\textbf{Ding:} Silver 2,600 liang at 51 guan old certificates per liang; silk 32,035 pi at 58 guan old certificates per pi. Distance 1,500 li; porterage 100 wen old certificates per dan per li.
+
+Each dan = 500 liang silver, or 60 pi silk, or 5,000 guan new certificates. All values are to be converted to new certificates and remitted in three equal installments. Find: each prefecture's per-installment amount; original porterage calculation; converted practical porterage; surplus; and all amounts in new certificates.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+此題貫數分三項：其一足數，每千文為一貫；其一舊㑹數，如甲以五十四文為一貫，乙以五十九文為一貫是也；其一新㑹數，為舊㑹數之五倍，如甲以二百七十文為一貫，乙以二百九十五文為一貫是也。四郡或言足數，或言舊㑹數、新㑹數。並折新㑹數。傭錢原以銀五百兩或絹六十匹各為一擔，今皆折新㑹數，以五千貫為一擔，故有寛餘錢數。題語多未詳，而併為一擔句尤混，略為分析而術草之意大概可見矣。%
+}
+}{%
+\EditorialEn{%
+This problem involves three monetary systems: (1) ``full'' value (足), where 1,000 wen = 1 guan; (2) old certificates (舊會), where Jia's rate is 54 wen = 1 guan and Yi's rate is 59 wen = 1 guan; (3) new certificates (新會), worth five times the old certificates (Jia: 270 wen = 1 guan; Yi: 295 wen = 1 guan). The four prefectures express values in different systems, all to be converted to new certificates.
+
+Originally, porterage was calculated with one dan = 500 liang silver or 60 pi silk. After converting everything to new certificates, one dan = 5,000 guan, hence there is a ``surplus'' (寬餘) in the porterage calculation. The problem statement is somewhat unclear, especially the ``combined as one dan'' clause; this analysis clarifies the method's intent.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+甲郡：合解五十萬一百四十八貫一百四十八文。初限一十六萬六千七百一十六貫四十九文，次限一十六萬六千七百一十六貫四十九文，未限一十六萬六千七百一十六貫五十文。傭錢原理二萬三千八百四十五貫九百二十五文二十七分文之二十五，實用二千二百二十二貫八百七十七文二十七分文之二十一，寛餘二萬一千六百二十三貫四十八文二十七分文之四。
+
+乙郡：合解四十二萬四千六百五十七貫六百二十七文。初限一十四萬一千五百五十二貫五百四十二文，次限一十四萬一千五百五十二貫五百四十二文，末限一十四萬一千五百五十二貫五百四十三文。傭錢原理一萬一千五百一十六貫四百二十八文五十九分文之二十八，實用一千一百八十五貫一十文二百九十五分文之五，寛餘一萬三百三十一貫四百一十八文五十九分文之二十七。
+
+丙郡：合解七十九萬五千二百八十貫文。初限二十六萬五千九十三貫三百三十三文，次限二十六萬五千九十三貫三百三十三文，末限二十六萬五千九十三貫三百三十四文。傭錢原理三萬九千五百九貫三百三十三文三分文之一，實用五千八十九貫七百九十二文，寛餘三萬四千四百一十九貫五百四十一文三分文之一。
+
+丁郡：合解三十九萬八千一百二十六貫文。初限一十三萬二千七百八貫六百六十六文，次限一十三萬二千七百八貫六百六十六文，末限一十三萬二千七百八貫六百六十八文。傭錢原理一萬四千一百七十三貫五百文，實用二千三百八十八貫七百五十六文，寛餘一萬一千七百八十四貫七百四十四文。%
+}
+}{%
+\AnswerEn{%
+\textbf{Jia:} Total remittance 500,148 guan 148 wen. Installment 1: 166,716 guan 49 wen; Installment 2: 166,716 guan 49 wen; Installment 3: 166,716 guan 50 wen. Porterage original calculation: 23,845 guan 925 wen + \nicefrac{25}{27}; practical: 2,222 guan 877 wen + \nicefrac{21}{27}; surplus: 21,623 guan 48 wen + \nicefrac{4}{27}.
+
+\textbf{Yi:} Total 424,657 guan 627 wen. Per installment: 141,552 guan 542 wen; 141,552 guan 542 wen; 141,552 guan 543 wen. Original porterage: 11,516 guan 428 wen + \nicefrac{28}{59}; practical: 1,185 guan 10 wen + \nicefrac{5}{295}; surplus: 10,331 guan 418 wen + \nicefrac{27}{59}.
+
+\textbf{Bing:} Total 795,280 guan. Per installment: 265,093 guan 333 wen; 265,093 guan 333 wen; 265,093 guan 334 wen. Original porterage: 39,509 guan 333 wen + \nicefrac{1}{3}; practical: 5,089 guan 792 wen; surplus: 34,419 guan 541 wen + \nicefrac{1}{3}.
+
+\textbf{Ding:} Total 398,126 guan. Per installment: 132,708 guan 666 wen; 132,708 guan 666 wen; 132,708 guan 668 wen. Original porterage: 14,173 guan 500 wen; practical: 2,388 guan 756 wen; surplus: 11,784 guan 744 wen.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以均輸求之。置各郡銀絹，乗各價，併之，歸足原，展足為舊㑹，次以五約舊㑹為新㑹，各得合解錢。以限數除之，得每限錢，不盡併歸末限。次置里數，乗每里傭價為率。以率乗原銀及原絹，各為傭實。以每擔銀絹率各為法，實如法而一，不滿者亦為擔，併之為原理傭錢。次以率乗合觧錢為實，乃以錢物毎擔率為法，實如法而一，各得實用傭錢。以減原理傭錢，餘為寛餘傭錢。%
+}
+}{%
+\MethodEn{%
+Use the equitable transport (均輸, \textit{junshu}) method. Take each prefecture's silver and silk; multiply by their respective prices; combine and convert to ``full'' value, then extend to old certificates, then divide by 5 to obtain new certificates---these are the amounts to be remitted. Divide by 3 installments; remainder goes to the final installment. Next, take the distance in li; multiply by per-li porterage rate as the factor. Multiply this factor by the original silver and silk amounts as porterage dividends; divide by the respective dan rates (500 liang silver or 60 pi silk); round up to whole dan; sum to obtain the original porterage. Then multiply the factor by the total remittance as dividend; use the new-certificate dan rate (5,000 guan) as divisor; this gives the practical porterage. Subtract from original porterage; remainder is the surplus.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 3: 僦直推原
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}僦直推原 / Working Backwards from Rent to Find Original Amount}
+\addcontentsline{toc}{subsection}{僦直推原 / Working Backwards from Rent}
+
+\ProblemBlock{%
+\QuestionCn{%
+房廊數内，一户日納一百五十六文八分足為準。指揮未曽經減者，減三分；已曽經減三分者，減二分；已曽經減二分者，更減二分。今本户累經減者，欲知原額房錢幾何？%
+}
+}{%
+\QuestionEn{%
+Among the rental properties, one household currently pays 156 wen 8 fen per day (in ``full'' currency) as the assessed rent. An order states: those never previously reduced shall have a reduction of 3 parts in 10; those already reduced by 3 parts shall have a further reduction of 2 parts in 10; those already reduced by 2 parts shall have yet another reduction of 2 parts in 10. This household has been subject to successive reductions. Find: the original rent amount.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+原額三百五十文。%
+}
+}{%
+\AnswerEn{%
+Original rent: 350 wen.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以衰分求之。列一十分兩行，各三位；列減分，對減右行。以餘者相乘為法。以左行原列相乘，得納錢為實。實如法而一，得原額錢。%
+}
+}{%
+\MethodEn{%
+Use proportional distribution (衰分, \textit{chuifen}). Arrange two rows of 10 (representing the full amount), each with three positions. Arrange the reduction rates and subtract from the right row. Multiply the remainders as the divisor. Multiply the original left row entries; multiply by the current payment as dividend. Divide to obtain the original rent.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+列一十三位於左行，又列一十分三位於右行。其右上減去初減三分，右中減去次減二分，右下減去更減二分。右行餘七八八，以相乗得四百四十八為法。乃以左行三位一十分相乘，得一千為乗率。以乘見日納錢一百五十六文八分，得一百五十六貫八百文為實。實如法而一，得三百五十文，為本户原額戸錢。%
+}
+}{%
+\WorkingEn{%
+Arrange three 10s in the left row; arrange three 10s in the right row. From the upper right subtract the first reduction 3 (3/10): remainder 7. From the middle right subtract the second reduction 2 (2/10): remainder 8. From the lower right subtract the further reduction 2 (2/10): remainder 8. The right row remainders are 7, 8, 8; multiply: $7 \times 8 \times 8 = 448$ as divisor.
+
+Multiply the three 10s in the left row: $10 \times 10 \times 10 = 1,000$ as the multiplier. Multiply by the current daily payment 156 wen 8 fen: 156,800 wen as dividend. Divide by 448: 350 wen as the original rent.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 4: 推求本息
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}推求本息 / Calculating Principal and Interest}
+\addcontentsline{toc}{subsection}{推求本息 / Calculating Principal and Interest}
+
+\ProblemBlock{%
+\QuestionCn{%
+三庫息例：萬貫以上一釐，千貫以上二釐五毫，百貫以上三釐。甲庫本四十九萬三千八百貫，乙庫本三十七萬三百貫，丙庫本二十四萬六千八百貫。今三庫共約到息錢二萬五千六百四十四貫二百文。其典率：甲反錐差，乙方錐差，丙蒺藜差。欲知原典三例本息各幾何？%
+}
+}{%
+\QuestionEn{%
+Three treasuries have the following interest rates: for capital of 10,000 guan or more, 1 li (\nicefrac{1}{1000}); for 1,000 guan or more, 2.5 li; for 100 guan or more, 3 li. Treasury Jia has capital 493,800 guan; Treasury Yi has 370,300 guan; Treasury Bing has 246,800 guan. The three treasuries together have collected interest of 25,644 guan 200 wen.
+
+The distribution rates are: Jia uses the ``inverted cone'' (反錐, \textit{fanzhui}) differential; Yi uses the ``square cone'' (方錐, \textit{fangzhui}) differential; Bing uses the ``caltrop'' (蒺藜, \textit{jili}) differential. Find: the original capital distribution across the three rate tiers and the interest from each treasury.%
+}
+}
+
+\ProblemBlock{%
+\EditorialCn{%
+此即衰分題也。其差有反錐、方錐、蒺藜之名，蓋以一二三遞減如立錐為反錐，以一四九平方遞加為方錐，以一三六三數遞加為蒺藜。是必古有其名也。至以各差求各本，則因各本原依各差入之也。%
+}
+}{%
+\EditorialEn{%
+This is fundamentally a proportional distribution (衰分) problem. The differentials have classical names: ``inverted cone'' means decreasing as 3, 2, 1 (like an upside-down cone); ``square cone'' means increasing as squares 1, 4, 9; ``caltrop'' means increasing as 1, 3, 6 (triangular numbers). These names must be ancient. The capital amounts are distributed according to these differentials.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+甲庫共納息九千五十三貫文：一釐息二千四百六十九貫文，二釐半息四千一百一十五貫文，三釐息二千四百六十九貫文。
+
+乙庫共納息一萬五十一貫文：一釐息二百六十四貫五百文，二釐半息二千六百四十五貫文，三釐息七千一百四十一貫五百文。
+
+丙庫共納息六千五百四十貫二百文：一釐息二百四十六貫八百文，二釐半息一千八百五十一貫文，三釐息四千四百四十二貫四百文。%
+}
+}{%
+\AnswerEn{%
+\textbf{Treasury Jia} total interest: 9,053 guan. At 1 li rate: 2,469 guan; at 2.5 li rate: 4,115 guan; at 3 li rate: 2,469 guan.
+
+\textbf{Treasury Yi} total interest: 10,051 guan. At 1 li rate: 264 guan 500 wen; at 2.5 li rate: 2,645 guan; at 3 li rate: 7,141 guan 500 wen.
+
+\textbf{Treasury Bing} total interest: 6,540 guan 200 wen. At 1 li rate: 246 guan 800 wen; at 2.5 li rate: 1,851 guan; at 3 li rate: 4,442 guan 400 wen.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+置諸庫諸色之差，照釐率為三行。縱併之為約率，横命之為乗率。以約率各約自庫之本，各得。以遍乗未併乗率，然後各以釐率横乗之，次以縱併之，為各庫共息。%
+}
+}{%
+\MethodEn{%
+Arrange each treasury's three-tier differentials in three rows, corresponding to the three interest rates. Sum vertically to obtain the reduction rates; read horizontally as the multiplication rates. Divide each treasury's capital by its reduction rate. Multiply the results by the un-summed horizontal rates; then multiply horizontally by the interest rates; finally sum vertically to obtain each treasury's total interest.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置甲庫反錐差，自下置三二一於右行。次置乙庫方錐差，自上置一四九於中行。次置丙庫蒺藜差，自上置一三六於左行，各為三庫上中下三等乘率。乃縱併甲差三二一，得六為甲約率。縱併乙差一四九，得一十四為乙約率。縱併丙差一三六，得一十為丙約率。直命九位數各為上中下乗率。
+
+乃先以約率各約自庫之本：乃以甲約率六約甲本四十九萬三千八百貫，得八萬二千三百貫為甲得。次以乙約率一十四約乙本三十七萬三百貫，得二萬六千四百五十貫為乙得。次以丙約率一十約丙本二十四萬六千八百貫，得二萬四千六百八十貫為丙得。
+
+以各得乗未併乗率：其甲所得八萬二千三百貫，乘反錐乗率三二一，得二十四萬六千九百貫為上率，得一十六萬四千六百貫為中率，得八萬二千三百貫為下率。其乙所得二萬六千四百五十貫，以乗方錐差一四九，得二萬六千四百五十貫為上率，得一十萬五千八百貫為中率，得二十三萬八千五十貫為下率。其丙所得二萬四千六百八十貫，以乗蒺藜差一三六，得二萬四千六百八十貫為上率，得七萬四千四十貫為中率，得一十四萬八千八十貫為下率。
+
+然後各以息釐數乘各庫三乗：其甲以一釐乗上率二十四萬六千九百貫，得二千四百六十九貫為上息；以二釐五毫乘中率一十六萬四千六百貫，得四千一百一十五貫為中息；以三釐乘下率八萬二千三百貫，得二千四百六十九貫為下息。併上中下三息，得九千五十三貫文為甲庫共息。其乙庫以一釐乗上率二萬六千四百五十貫，得二百六十四貫五百文為上息；以二釐五毫乗中率一十萬五千八百貫，得二千六百四十五貫為中息；以三釐乗下率二十三萬八千五十貫，得七千一百四十一貫五百為下息。併上中下三息，得一萬五十一貫文為乙庫共息。其丙庫以一釐乗上率二萬四千六百八十貫，得二百四十六貫八百為上息；以二釐五毫乘中率七萬四千四十貫，得一千八百五十一貫為中息；以三釐乗下率一十四萬八千八十貫，得四千四百四十二貫四百文為下息。併上中下三息，得六千五百四十貫二百文為丙庫共息。併三庫共息，得二萬五千六百四十四貫二百文為總息。%
+}
+}{%
+\WorkingEn{%
+Arrange Jia's inverted-cone differential 3, 2, 1 in the right row; Yi's square-cone differential 1, 4, 9 in the middle row; Bing's caltrop differential 1, 3, 6 in the left row. These are the three-tier multiplication rates for each treasury. Sum vertically: Jia $3+2+1=6$ (Jia's reduction rate); Yi $1+4+9=14$ (Yi's); Bing $1+3+6=10$ (Bing's).
+
+Divide each treasury's capital by its reduction rate: Jia $493,800 \div 6 = 82,300$ guan; Yi $370,300 \div 14 = 26,450$ guan; Bing $246,800 \div 10 = 24,680$ guan.
+
+Multiply each result by its un-summed rates: Jia: $82,300 \times 3 = 246,900$ (upper), $82,300 \times 2 = 164,600$ (middle), $82,300 \times 1 = 82,300$ (lower). Yi: $26,450 \times 1 = 26,450$ (upper), $26,450 \times 4 = 105,800$ (middle), $26,450 \times 9 = 238,050$ (lower). Bing: $24,680 \times 1 = 24,680$ (upper), $24,680 \times 3 = 74,040$ (middle), $24,680 \times 6 = 148,080$ (lower).
+
+Apply interest rates: Jia upper $246,900 \times 0.001 = 2,469$ guan; middle $164,600 \times 0.0025 = 4,115$ guan; lower $82,300 \times 0.003 = 2,469$ guan. Total: 9,053 guan. Yi upper $26,450 \times 0.001 = 264.5$ guan; middle $105,800 \times 0.0025 = 2,645$ guan; lower $238,050 \times 0.003 = 7,141.5$ guan. Total: 10,051 guan. Bing upper $24,680 \times 0.001 = 246.8$ guan; middle $74,040 \times 0.0025 = 1,851$ guan; lower $148,080 \times 0.003 = 4,442.4$ guan. Total: 6,540.2 guan. Combined: 25,644 guan 200 wen.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 5: 易牒知原
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}易牒知原 / Exchanging Documents to Find the Original Amount}
+\addcontentsline{toc}{subsection}{易牒知原 / Exchanging Documents}
+
+\ProblemBlock{%
+\EditorialCn{%
+按舊本此問無題，今増入。%
+}
+}{%
+\EditorialEn{%
+[Note: The original edition lacked the problem statement; it has been restored here.]%
+}
+}
+
+\ProblemBlock{%
+\QuestionCn{%
+出度牒差人營運：毎三道易鹽一十三袋，鹽二袋易布八十四疋，布一十五疋易絹三疋半，絹六疋易銀七兩二錢。今趂到銀九千一百七十二兩八錢。欲知原闗度牒道數幾何？%
+}
+}{%
+\QuestionEn{%
+Official certificates (度牒) are issued for commercial operations: every 3 certificates exchange for 13 bags of salt; 2 bags of salt exchange for 84 bolts of cloth; 15 bolts of cloth exchange for 3.5 bolts of silk; 6 bolts of silk exchange for 7.2 liang of silver. Now 9,172 liang 8 qian of silver has been obtained. Find: the original number of certificates issued.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+度牒一百八十道。%
+}
+}{%
+\AnswerEn{%
+Original certificates: 180 dao (documents).%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米互乘易法求之。列各數以本色相對，如鴈翅。以多一事者相乗為實，以少一事者相乘為法，除之。%
+}
+}{%
+\MethodEn{%
+Use the Millet and Rice mutual multiplication exchange method (粟米互乘易法). Arrange the values with their commodities paired opposite, like a goose-wing formation (雁翅, \textit{yanchi}). Multiply the column with more items as the dividend; multiply the column with fewer items as the divisor. Divide to obtain the answer.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+先以度牒三道乗鹽二袋，得六。以乘布一十五，得九十。又乗絹六疋，得五百四十。乃乗銀九萬一千七百二十八錢（將九千一百七十二兩八錢化為錢），得四千九百五十三萬三千一百二十錢為實。次以鹽一十三袋乗布八十四，得一千九十二。以乗絹三疋五分，得三千八百二十二。乃乘銀七兩二錢（化為七十二錢），得二十七萬五千一百八十四錢為法。除實，得一百八十道為原闗度牒。%
+}
+}{%
+\WorkingEn{%
+Multiply 3 certificates by 2 salt bags: 6. Multiply by 15 cloth bolts: 90. Multiply by 6 silk bolts: 540. Multiply by 91,728 wen (converting 9,172 liang 8 qian to wen): 495,331,200 wen as dividend.
+
+Multiply 13 salt bags by 84 cloth bolts: 1,092. Multiply by 3.5 silk bolts: 3,822. Multiply by 72 wen (converting 7.2 liang): 275,184 wen as divisor.
+
+Divide: $495,331,200 \div 275,184 = 180$ certificates as the original amount issued.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 6: 粟米交易
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}粟米交易 / Grain Exchange Transactions}
+\addcontentsline{toc}{subsection}{粟米交易 / Grain Exchange Transactions}
+
+\ProblemBlock{%
+\EditorialCn{%
+按舊本此問無題，今増。%
+}
+}{%
+\EditorialEn{%
+[Note: The original edition lacked the problem statement; it has been restored here.]%
+}
+}
+
+\ProblemBlock{%
+\QuestionCn{%
+菽三升易小麥二升，小麥一升五合易油麻八合，油麻一升二合易粳米一升八合。今將菽一十四石四斗欲易油麻，又將小麥二十一石六斗欲易粳米。問各幾何？%
+}
+}{%
+\QuestionEn{%
+3 sheng of beans exchanges for 2 sheng of wheat; 1 sheng 5 ge of wheat exchanges for 8 ge of sesame; 1 sheng 2 ge of sesame exchanges for 1 sheng 8 ge of polished rice. Now: 14 shi 4 dou of beans is to be exchanged for sesame; and 21 shi 6 dou of wheat is to be exchanged for polished rice. Find: the respective amounts obtained.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+油麻五石一斗二升；粳米一十七石二斗八升。%
+}
+}{%
+\AnswerEn{%
+Sesame obtained: 5 shi 1 dou 2 sheng;
+Polished rice obtained: 17 shi 2 dou 8 sheng.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米換易求之。置原易率，本色對列，如鴈翅。以多一事者相乘為實，以少一事者相乗為法，除之。各得或問數，不干其率者不置。%
+}
+}{%
+\MethodEn{%
+Use the Millet and Rice exchange method (粟米換易). Arrange the original exchange rates with commodities paired opposite, like a goose-wing formation. Multiply the column with more items as dividend; multiply the column with fewer items as divisor. Divide. Only include rates relevant to each question.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置四色六數，列六位率，如鴈翅，皆化為合。先將菽一十四石四斗化作一萬四千四百合，乃對前二句率數四位，如鴈翅，至欲易油麻止，共五事為上圖。次將小麥二十一石六斗化為二萬一千六百合，乃對後兩句率四位，鴈翅，至欲粳米止，共五事為下圖。
+
+上圖：以菽一萬四千四百合乘麥二十（二升化為二十合），得二十八萬八千，又乗油麻八合，得二百三十萬四千合為油麻實。次以菽三十合（三升化）乘麥一十五合，得四百五十合為法。除之，得五千一百二十合，展為五石一斗二升為油麻。
+
+下圖：以小麥二萬一千六百合乗油麻八合，得一十七萬二千八百合，又乗粳米一十八合，得三百一十一萬四百合為粳米實。以小麥一升五合（十五合）乗油麻一十二合，得一百八十合為法。除之，得一萬七千二百八十合，展作一十七石二斗八升為粳米。%
+}
+}{%
+\WorkingEn{%
+Convert all measures to ge. Beans 14 shi 4 dou = 14,400 ge; wheat 21 shi 6 dou = 21,600 ge. Arrange rates in goose-wing formation.
+
+\textbf{Upper diagram} (beans to sesame): Beans 14,400 ge $\times$ 20 ge (2 sheng wheat) = 288,000; $\times$ 8 ge sesame = 2,304,000 ge as sesame dividend. Beans 30 ge (3 sheng) $\times$ wheat 15 ge = 450 ge as divisor. $2,304,000 \div 450 = 5,120$ ge = 5 shi 1 dou 2 sheng sesame.
+
+\textbf{Lower diagram} (wheat to rice): Wheat 21,600 ge $\times$ 8 ge sesame = 172,800; $\times$ 18 ge rice = 3,114,000 ge as rice dividend. Wheat 15 ge $\times$ sesame 12 ge = 180 ge as divisor. $3,114,000 \div 180 = 17,280$ ge = 17 shi 2 dou 8 sheng rice.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 7: 計米易麴
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}計米易麴 / Calculating Rice to Exchange for Yeast}
+\addcontentsline{toc}{subsection}{計米易麴 / Calculating Rice for Yeast}
+
+\ProblemBlock{%
+\EditorialCn{%
+按舊本此問無題，今増。%
+}
+}{%
+\EditorialEn{%
+[Note: The original edition lacked the problem statement; it has been restored here.]%
+}
+}
+
+\ProblemBlock{%
+\QuestionCn{%
+庫率：粳榖七石出米三石，糯米一斗易小麥一斗七升，小麥五升踏麴二斤四兩，麴一百一十斤醞糯米一石三斗。今有糯穀一千七百五十九石三斗八升，欲出穀做米，易麥踏麴，還自醞，餘穀之米須令適足。各合幾何？%
+}
+}{%
+\QuestionEn{%
+The granary rates are: 7 shi of glutinous paddy yields 3 shi of rice; 1 dou of glutinous rice exchanges for 1 dou 7 sheng of wheat; 5 sheng of wheat produces 2 jin 4 liang of yeast; 110 jin of yeast ferments 1 shi 3 dou of glutinous rice. There are 1,759 shi 3 dou 8 sheng of glutinous paddy. It is desired to: hull the paddy to obtain rice; exchange rice for wheat; use wheat to produce yeast; ferment the yeast back into glutinous rice; and have the rice from the remaining paddy exactly match the fermented rice. Find: each amount.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+共穀一千七百五十九石三斗八升。出穀九百二十四石，得米三百九十六石。易麥六百七十三石二斗。踏麴三萬二百九十四斤。餘榖八百三十五石三斗八升。醞米三百五十八石二升。%
+}
+}{%
+\AnswerEn{%
+Total paddy: 1,759 shi 3 dou 8 sheng. Paddy hulled: 924 shi; rice obtained: 396 shi. Wheat exchanged: 673 shi 2 dou. Yeast produced: 30,294 jin. Remaining paddy: 835 shi 3 dou 8 sheng. Fermented rice: 358 shi 2 sheng.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米換易求之。置諸率，隨本色對列，如鴈翅。有分者通之，異類者變之，以頭位者進乗之，以下位退乗之，得合數。有對者相乗之，無對者直命之，為諸率。併上下無對者為法率。以今有物徧乘諸率（不乗法率），各為實。諸實並如法而一，各得其已變者，復互易乗除之，即得所求。%
+}
+}{%
+\MethodEn{%
+Use the Millet and Rice exchange method (粟米換易). Arrange the rates with their commodities paired opposite, like a goose-wing formation. Convert fractions to common denominators; convert different commodities to equivalent types; multiply forward from the head position; multiply backward from the tail position; obtain combined numbers. Multiply paired values; leave unpaired values as-is---these become the rates. Sum the unpaired upper and lower values as the divisor rate. Multiply the given amount by all rates (except the divisor rate) as respective dividends. Divide all dividends by the divisor to obtain the converted amounts; then perform mutual exchanges to obtain the final results.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 8: 囘運費
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}囘運費 / Return Transport Costs}
+\addcontentsline{toc}{subsection}{囘運費 / Return Transport Costs}
+
+\ProblemBlock{%
+\QuestionCn{%
+有江西水運米一十二萬三千四百石，原係鎮江交卸，計水程二千一百三十里，每石水脚錢一貫二百文。今截上件米就池州安頓，池州至鎮江八百八十里。欲收囘不該水脚錢幾何？%
+}
+}{%
+\QuestionEn{%
+123,400 shi of grain is being transported by water from Jiangxi, originally destined for unloading at Zhenjiang---a water route of 2,130 li, with porterage of 1 guan 200 wen per shi. Now this shipment is diverted to Chizhou for storage; the distance from Chizhou to Zhenjiang is 880 li. Find: the transport fee that should be recovered (since the grain no longer travels the full route).%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+收囘錢六萬一千一百七十八貫五百九十一文。%
+}
+}{%
+\AnswerEn{%
+Recoverable fee: 61,178 guan 591 wen.%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以粟米互易求之。置池州至鎮江里數，乗水脚錢，得數又乗運米為實。以原至鎮江水程為法，除實，得收囘錢。%
+}
+}{%
+\MethodEn{%
+Use the Millet and Rice mutual conversion method (粟米互易). Take the distance from Chizhou to Zhenjiang in li; multiply by the porterage rate per shi; multiply again by the total grain as dividend. Use the original distance to Zhenjiang as divisor. Divide to obtain the recoverable transport fee.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置池州至鎮江八百八十里，乗毎石水脚錢一貫二百，得一千五十六貫文。又乗運米一十二萬三千四百石，得一億三千三十一萬四百貫文為實。以原至鎮江水程二千一百三十里為法，除實，得六萬一千一百七十八貫五百九十一文為收囘錢。%
+}
+}{%
+\WorkingEn{%
+Take Chizhou-to-Zhenjiang distance 880 li; multiply by porterage 1 guan 200 wen: 1,056 guan per shi. Multiply by grain 123,400 shi: 130,310,400 guan as dividend. Divide by original distance 2,130 li: 61,178 guan 591 wen as the recoverable transport fee.%
+}
+}
+
+\newpage
+%% ---------------------------------------------------------------------------
+%% PROBLEM 9: 三色均價
+%% ---------------------------------------------------------------------------
+\subsection*{\color{sectioncolor}三色均價 / Averaging Three Grades of Gold}
+\addcontentsline{toc}{subsection}{三色均價 / Averaging Three Grades of Gold}
+
+\ProblemBlock{%
+\QuestionCn{%
+庫有三色金共五千兩：内八分金一千二百五十兩，兩價四百貫文；七分五釐金一千六百兩，兩價三百七十五貫文；八分五釐金二千一百五十兩，兩價四百二十五貫文。並欲煉為足色，每兩工食藥炭錢三貫文，耗金九百七十二兩五錢。欲知色分及兩價各幛何？%
+}
+}{%
+\QuestionEn{%
+The treasury holds three grades of gold totaling 5,000 liang: 8-tenths (八分) purity gold 1,250 liang at 400 guan per liang; 7.5-tenths purity gold 1,600 liang at 375 guan per liang; 8.5-tenths purity gold 2,150 liang at 425 guan per liang. All is to be refined to pure (足色) gold. The cost for labor, food, medicine, and charcoal is 3 guan per liang; expected loss (耗金) is 972.5 liang. Find: the final purity grade and the price per liang.%
+}
+}
+
+\ProblemBlock{%
+\AnswerCn{%
+色十分；兩價五百三貫七百二十四文，五百三十七分文之二百一十二。%
+}
+}{%
+\AnswerEn{%
+Purity: 10 tenths (full purity). Price per liang: 503 guan 724 wen + \nicefrac{212}{537} wen.\par
+\textit{In modern terms: the refined pure gold has a value of approximately 503.395 guan per liang.}%
+}
+}
+
+\ProblemBlock{%
+\MethodCn{%
+以方田及粟米求之。置共數，以耗減之，餘為法。以三色分數各乗兩數，併之為色分實。以三色價數各乗兩數為寄，以工藥價乗共金，併寄，共為價實。二實皆如法而一，即各得。%
+}
+}{%
+\MethodEn{%
+Use the Square Fields (方田, \textit{fangtian}) and Millet and Rice methods. Take the total amount; subtract the loss; remainder is the divisor. Multiply each grade's purity fraction by its weight; sum as the purity dividend. Multiply each grade's price by its weight and accumulate; add the labor/medicine cost (3 guan $\times$ total gold) to this accumulation; this is the price dividend. Divide both dividends by the divisor to obtain the final purity and price per liang.%
+}
+}
+
+\ProblemBlock{%
+\WorkingCn{%
+置共金五千兩，減耗九百七十二兩五錢，外餘四千二十七兩五錢為法。次置一千二百五十兩，乘八分，得一萬分於上。置一千六百兩，以七分五釐乗之，得一萬二千分，加上。置二千一百五十兩，乗八分五釐，得一萬八千二百七十五分，又加上，共得四萬二百七十五分為分實。
+
+次置一千二百五十兩乗四百貫，得五十萬貫為寄。次置一千六百兩乘價三百七十五貫，得六十萬貫，加寄。次置二千一百五十兩乗僡四百二十五貫，得九十一萬三千七百五十貫，又加寄。次置共金五千兩，乗工藥錢三貫，得一萬五千貫，又加寄，共得二百二萬八千七百五十貫為貫實。二實並如法四千二十七兩五錢而一：得其色一十分；其價每兩得五百三貫七百二十四文，不盡一貫五百九十。與法求等，得七十五，俱約之，為五百三十七文之二百一十二。%
+}
+}{%
+\WorkingEn{%
+Total gold 5,000 liang; subtract loss 972.5 liang: remainder 4,027.5 liang as divisor.
+
+Purity calculation: $1,250 \times 0.8 = 10,000$; $1,600 \times 0.75 = 12,000$; $2,150 \times 0.85 = 18,275$. Sum: 40,275 as purity dividend. $40,275 \div 4,027.5 = 10$ (full purity).
+
+Price calculation: $1,250 \times 400 = 500,000$ guan; $1,600 \times 375 = 600,000$ guan; $2,150 \times 425 = 913,750$ guan. Labor cost: $5,000 \times 3 = 15,000$ guan. Total: 2,028,750 guan as price dividend.
+
+$2,028,750 \div 4,027.5 = 503$ guan 724 wen; remainder 1.59 guan. Reduce fraction: GCD = 75; simplified to \nicefrac{212}{537}. Final price: 503 guan 724\nicefrac{212}{537} wen per liang.%
+}
+}
+
+\newpage
+%% =============================================================================
+%% END MATTER / EDITORIAL NOTES
+%% =============================================================================
+\newpage
+\section*{\color{titlecolor}Editorial Notes / 編輯說明}
+\addcontentsline{toc}{section}{Editorial Notes / 編輯說明}
+
+\ProblemBlock{%
+\textbf{\color{sectioncolor}一、文本來源}\par
+本文以四庫全書本數學九章為底本，參校永樂大典殘卷及宜稼堂叢書本。四庫本雖經館臣整理，然訛誤脫漏之處尚多，題與術不相應者尤為習見。故編輯者於各條下加按語，以明其得失。
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}二、術語對照}\par
+本文採用雙欄對照形式，左欄為原文，右欄為英譯。問答術草四部結構一仍其舊，按語以方括號標出。度量衡名詞保留音譯，加以解釋；數學術語則酌用現代英語對應詞，並附拉丁轉寫。
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}三、算理說明}\par
+卷五賦役類多涉及差分之法，即今之所謂比例分配也。卷六錢穀類多涉及粟米換易，即今之所謂連鎖比例也。秦九韶於古術多所推廣，數位繁賾而條理分明，可謂造詣精深矣。
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}四、校勘記}\par
+本文校勘以四庫全書本為主，凡有訛誤者，編輯按語中隨文指出。如課糴題「三十九訛四十九」之類，皆據前後術草推算所得，非臆斷也。%
+}{%
+\textbf{\color{sectioncolor}I. Textual Sources}\\
+This edition is based on the \textit{Siku Quanshu} (Complete Library of the Four Treasuries) text of the \textit{Shuxue Jiuzhang}, collated against surviving portions of the \textit{Yongle Dadian} and the \textit{Yijiatang Congshu} edition. Although the \textit{Siku} editors collated the text, numerous errors, omissions, and discrepancies between problems and methods remain. Editorial notes are appended to individual problems to clarify these issues.
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}II. Terminology}\\
+This edition employs a bilingual two-column format: original Chinese on the left, English translation on the right. The classical four-part structure (問/答/術/草) is preserved; editorial annotations are marked with brackets. Metrological terms are transliterated with explanatory notes; mathematical terms are rendered in modern English equivalents with Latin transcription where appropriate.
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}III. Mathematical Analysis}\\
+Fascicle 5 (Tax and Corv\'{e}e) extensively employs the method of proportional distribution (衰分, \textit{chuifen}), equivalent to modern ratio and proportion. Fascicle 6 (Money and Grain) primarily uses millet-and-rice exchange (粟米換易), equivalent to modern chained proportions. Qin Jiushao's elaborations on classical methods demonstrate remarkable computational sophistication, handling multi-digit calculations with systematic precision.
+
+\vspace{0.5em}
+\textbf{\color{sectioncolor}IV. Collation Notes}\\
+Collation is based primarily on the \textit{Siku Quanshu} edition. Errors are identified in editorial notes through systematic verification against the computational workings. For example, in the ``Government Grain Purchase'' problem, the correction of ``49'' to ``39'' is derived from calculation, not conjecture.%
+}
+
+\vspace{2em}
+\ProblemBlock{%
+\textbf{\color{sectioncolor}五、參考文獻}\par
+\begin{enumerate}[leftmargin=2em]
+\item 秦九韶原著，四庫全書本數學九章
+\item 錢寶琮主編，中國數學史，1964
+\item 李儼，中國古代數學史料，1954
+\item Libbrecht, U. \textit{Chinese Mathematics in the Thirteenth Century}. MIT Press, 1973.
+\item Martzloff, J.-C. \textit{A History of Chinese Mathematics}. Springer, 1997.
+\end{enumerate}%
+}{%
+\textbf{\color{sectioncolor}V. References}\\
+\begin{enumerate}[leftmargin=2em]
+\item Qin Jiushao, \textit{Shuxue Jiuzhang} (\textit{Siku Quanshu} edition)
+\item Qian Baocong, ed. \textit{Zhongguo Shuxue Shi} (History of Chinese Mathematics), 1964
+\item Li Yan, \textit{Zhongguo Gudai Shuxue Shiliao} (Historical Materials on Ancient Chinese Mathematics), 1954
+\item Libbrecht, U. \textit{Chinese Mathematics in the Thirteenth Century: The Shu-shu chiu-chang of Ch'in Chiu-shao}. MIT Press, 1973.
+\item Martzloff, J.-C. \textit{A History of Chinese Mathematics}. Springer, 1997.
+\end{enumerate}%
+}
+
+\vspace{2em}
+\begin{center}
+\textcolor{rulecolor}{\rule{0.4\textwidth}{0.4pt}}
+
+\vspace{1em}
+{\small\color{sectioncolor}
+\textit{Shuxue Jiuzhang} (數學九章) --- Fascicles 5--6: Bilingual Edition\\
+Typeset in XeLaTeX with Noto Sans CJK SC \& Libertine\\
+Traditional Chinese mathematical text structure preserved\\
+Public Domain --- \textit{Siku Quanshu} Edition\\
+\vspace{0.5em}
+\textsc{End of Document} / 全文完
+}
+\end{center}
+
+\end{document}

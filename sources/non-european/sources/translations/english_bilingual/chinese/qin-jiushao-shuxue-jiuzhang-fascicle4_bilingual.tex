@@ -1,877 +1,897 @@
-%% ========================================================================
-%% Qin Jiushao's Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
-%% Fascicle 4: Cewang Category (测望类 / Surveying)
-%% Bilingual English-Chinese Edition
-%% ========================================================================
-\documentclass[11pt,a4paper]{article}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{fancyhdr}
-\usepackage{array,booktabs,longtable}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage{indentfirst}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=18mm,right=18mm,top=25mm,bottom=25mm,
-  headheight=14pt,footskip=30pt
-}
-
-%% -------- Font Configuration --------
-\setmainfont{Microsoft YaHei}
-\setsansfont{Microsoft YaHei}
-\setmonofont{Microsoft YaHei}
-
-%% Chinese font via fontspec (xeCJK not available)
-\newfontfamily\chinese{Microsoft YaHei}
-\newfontfamily\chinesebf{Microsoft YaHei}
-\newfontfamily\chineselg{Microsoft YaHei}
-
-%% English font
-\newfontfamily\englishfont{Times New Roman}
-\newfontfamily\englishbf{Times New Roman}
-
-%% Chinese text line breaking settings
-\tolerance=2000
-\emergencystretch=2em
-\hbadness=10000
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{prefacecolor}{RGB}{80,60,40}
-\definecolor{cnblue}{RGB}{30,60,90}
-\definecolor{enbrown}{RGB}{90,60,40}
-
-%% -------- Section Formatting --------
-\makeatletter
-\renewcommand{\section}{%
-  \@startsection{section}{1}{0mm}%
-  {1.5ex plus 0.5ex minus 0.2ex}%
-  {0.7ex plus 0.2ex}%
-  {\normalfont\Large\bfseries\color{titlecolor}}}
-\renewcommand{\subsection}{%
-  \@startsection{subsection}{2}{0mm}%
-  {1.2ex plus 0.3ex minus 0.1ex}%
-  {0.5ex plus 0.1ex}%
-  {\normalfont\large\bfseries\color{sectioncolor}}}
-\renewcommand{\subsubsection}{%
-  \@startsection{subsubsection}{3}{0mm}%
-  {1ex plus 0.2ex minus 0.1ex}%
-  {0.3ex plus 0.1ex}%
-  {\normalfont\normalsize\bfseries\color{sectioncolor}}}
-\makeatother
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang -- Fascicle IV (测望类)}}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Parallel Column Commands --------
-\newcommand{\bilingual}[2]{%
-  \noindent%
-  \begin{minipage}[t]{0.47\textwidth}
-    \chinese #1
-  \end{minipage}%
-  \hfill%
-  \vrule\hspace{0.5em}%
-  \begin{minipage}[t]{0.47\textwidth}
-    \englishfont #2
-  \end{minipage}%
-  \par\medskip
-}
-
-\newcommand{\bilingualheader}[2]{%
-  \noindent%
-  \begin{minipage}[t]{0.47\textwidth}
-    \centering\chinesebf\large #1
-  \end{minipage}%
-  \hfill%
-  \begin{minipage}[t]{0.47\textwidth}
-    \centering\englishfont\bfseries\large #2
-  \end{minipage}%
-  \par\medskip
-}
-
-\newcommand{\cnlabel}[1]{{\chinesebf\color{cnblue}#1}}
-\newcommand{\enlabel}[1]{{\englishbf\color{enbrown}#1}}
-
-%% -------- Problem Environment --------
-\newenvironment{problem}[1]{%
-  \medskip\par\noindent\textcolor{sectioncolor}{\rule{\textwidth}{0.6pt}}\par
-  \smallskip\noindent{\large\bfseries #1}\par\smallskip
-}{\medskip}
-
-%% -------- Hyperref Setup --------
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto
-}
-
-%% -------- TOC Depth --------
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{2}
-
-%% ========================================================================
-
-\begin{document}
-
-%% ========================================================================
-%% TITLE PAGE
-%% ========================================================================
-\begin{titlepage}
-\centering
-\vspace*{2cm}
-
-{\fontsize{24}{30}\selectfont\chineselg
-\textcolor{titlecolor}{数书九章}}
-
-\vspace{0.5cm}
-
-{\fontsize{14}{18}\selectfont\englishfont
-\textcolor{sectioncolor}{Mathematical Treatise in Nine Sections}}
-
-\vspace{1.5cm}
-
-{\fontsize{18}{22}\selectfont\bfseries Fascicle IV}
-
-\vspace{0.3cm}
-
-{\fontsize{14}{18}\selectfont
-\textcolor{sectioncolor}{The Cewang Category}}
-
-\vspace{0.3cm}
-
-{\fontsize{13}{16}\selectfont\chinese
-\textcolor{sectioncolor}{测望类 -- Remote Measurement \& Surveying}}
-
-\vspace{1.5cm}
-
-\begin{minipage}{0.85\textwidth}
-\centering
-{\englishfont\textit{Bilingual English-Chinese Edition}}
-
-\vspace{0.5cm}
-
-{\small\englishfont
-Measuring heights of distant objects using similar triangles,\\
-the double-difference method (重差术), sea-island sighting,\\
-and applications of gnomons and sighting tubes.
-}
-\end{minipage}
-
-\vspace{1.5cm}
-
-{\large By\\[0.5em]
-\textbf{Qin Jiushao} (\chinese{秦九韶})\\[0.3em]
-c.\ 1202--1261 CE\\[0.5em]
-\textit{Presented in the 7th year of Chunyou (\chinese{淳祐七年}), 1247 CE}}
-
-\vfill
-
-{\small\englishfont
-\textit{Left column: Chinese original (Siku Quanshu edition)}\\[0.3em]
-\textit{Right column: English translation}
-}
-
-\vspace{0.5cm}
-
-{\small Modern LaTeX edition\ with XeTeX}
-
-\end{titlepage}
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\tableofcontents
-\newpage
-
-%% ========================================================================
-%% INTRODUCTION
-%% ========================================================================
-\section*{Introduction / 引言}
-\addcontentsline{toc}{section}{Introduction / 引言}
-
-\bilingual{
-\cnlabel{测望类序}
-
-测望之法，其来尚矣。昔者周公述圭表之制，以正日景；刘徽造重差之术，以测海岛。皆以勾股为宗，以相似为法。置表于平地，窥管以望远，因其高下之差，以推远近之数。
-
-\medskip
-\textbf{测望类}凡九问：一曰望海岛，测山岛之高远；二曰望松生山上，测乔木之修短；三曰望邑，测城郭之广袤；四曰望谷，测壑深之几何；五曰望楼，测崇台之层级；六曰望波口，测河流之广狭；七曰望清渊，测潭水之深浅；八曰望津，测渡口之远近；九曰望 material 料，测工料之多少。
-}{
-\enlabel{Introduction to the Surveying Category}
-
-The methods of remote measurement (\textit{cewang}) have a long and venerable history. In antiquity, the Duke of Zhou established the gnomon-and-shadow system to correct the sundial; Liu Hui created the double-difference (\textit{chongcha}) method to measure sea islands. Both take the right triangle (\textit{gougu}) as their foundation and similar triangles as their method. One sets up sighting poles on level ground and looks through sighting tubes to distant objects; from differences in height one deduces distances.
-
-\medskip
-The \textbf{Surveying Category} contains nine problems: (1) Sea-Island Sighting -- measuring the height and distance of mountains and islands; (2) Pine on a Mountain -- measuring the height of tall trees; (3) Sighting a Walled City -- measuring the extent of city walls; (4) Valley Sighting -- measuring the depth of ravines; (5) Tower Sighting -- measuring the levels of lofty terraces; (6) River-Mouth Sighting -- measuring the width of rivers; (7) Clear-Depth Sighting -- measuring the depth of pools; (8) Ford Sighting -- measuring the distance to ferry crossings; (9) Material Estimation -- calculating labor and materials.
-}
-
-\vspace{1em}
-
-\bilingual{
-凡测望之要，先立两表，前后相望。以人目所至为勾，以表间之距为股，以表末之景为弦。因两表之景差，名曰重差。以勾股求之，以重差御之，虽千寻之峻、万仞之深，皆可坐而致其算焉。
-}{
-The essential principle of all surveying is to erect two sighting poles (\textit{biao}), front and rear, looking toward each other. The line from the observer's eye to the pole-top forms the base (\textit{gou}); the distance between the poles forms the upright (\textit{gu}); the sight-line from pole-top to eye forms the hypotenuse (\textit{xian}). From the difference between the sight-lines of the two poles arises what is called the \textbf{double difference} (\textit{chongcha}). Using right triangles and applying double differences, even heights of a thousand fathoms and depths of ten thousand \textit{ren} can be calculated while seated.
-}
-
-\newpage
-
-%% ========================================================================
-%% THE DOUBLE-DIFFERENCE METHOD
-%% ========================================================================
-\section*{The Double-Difference Method / 重差术}
-\addcontentsline{toc}{section}{The Double-Difference Method / 重差术}
-
-\bilingual{
-\cnlabel{重差术总说}
-
-术曰：凡望极高、测绝深，而兼知其远者，必用重差。勾股则必以重差为率，故曰重差。
-
-立两表于平地，前后相去若干步，令后表与前表参相直。从后表却行若干步，遥望前表末，以望标的物，使三者在一直线。记其却行步数。
-
-次从前表却行若干步，遥望后表末，以望标的物，使三者在一直线。记其却行步数。
-}{
-\enlabel{General Account of the Double-Difference Method}
-
-\textit{Method:} When one wishes to sight an extreme height, measure an unfathomable depth, and simultaneously know the distance, one must employ the double-difference method. Since right triangles require double differences as their ratio, it is called ``double difference.''
-
-Erect two sighting poles on level ground, separated front-to-rear by a certain number of \textit{bu} (paces), such that the rear pole is aligned directly with the front pole. Walk backward from the rear pole by a certain number of \textit{bu}, and sight the top of the front pole and the target object so that all three lie on one straight line. Record the number of backward paces.
-
-Then walk backward from the front pole by a certain number of \textit{bu}, and sight the top of the rear pole and the target object so that all three lie on one straight line. Record the number of backward paces.
-}
-
-\vspace{1em}
-
-\bilingual{
-以两表之距为法，以两却行之差为实，以表高乘之，所得一以勾率乘之，一以股率乘之，各得高深之数。
-
-其理何也？盖两表相直，与两却行，成两相似勾股形。其大勾股与小勾股之比例等，故可以互求也。
-}{
-Take the distance between the two poles as the divisor (\textit{fa}), take the difference between the two backward distances as the dividend (\textit{shi}), and multiply by the pole height. Multiply one result by the base ratio and one by the upright ratio; each yields the height or depth sought.
-
-Why does this work? The two poles in alignment with the two backward distances form two similar right triangles. The proportions of the larger right triangle and the smaller right triangle are equal, so one may mutually derive them.
-}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 1: SEA ISLAND SIGHTING
-%% ========================================================================
-\section{Problem 1: Wang Haidao / 望海岛}
-
-\begin{problem}[望海岛 -- Sea Island Sighting]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望海岛，立两表齐高三丈，前后相去千步。令后表与前表参相直。从前表却行一百二十三步，人目著地取望岛峰，与表末参合。从后表却行一百二十七步，人目著地取望岛峰，亦与表末参合。问岛高及去表各几何？
-}{
-Suppose there is a sea island to be measured. Two sighting poles of equal height, each 3 \textit{zhang} (30 feet), are erected 1,000 \textit{bu} apart, with the rear pole directly aligned behind the front pole. Walking backward 123 \textit{bu} from the front pole, the observer's eye at ground level sights the island peak exactly in line with the top of the front pole. Walking backward 127 \textit{bu} from the rear pole, the observer's eye at ground level again sights the island peak exactly in line with the top of the rear pole. What are the height of the island and its distance from the poles?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：岛高四里五十五步。
-
-去前表一百二里一百五十步。
-}{
-The height of the island is 4 \textit{li} 55 \textit{bu}.
-
-The distance from the front pole is 102 \textit{li} 150 \textit{bu}.
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以表高乘表间为实，以两却行差为法，实如法而一，得岛高。
-
-求前表去岛远近者：以表间乘前却行步数为实，以两却行差为法，实如法而一，得岛去前表之步数。
-}{
-\textit{Method:} Multiply the pole height by the distance between the poles to obtain the dividend. Take the difference between the two backward distances as the divisor. Divide the dividend by the divisor to obtain the island height.
-
-To find the distance from the front pole to the island: Multiply the distance between poles by the front backward distance as the dividend. Take the difference between the two backward distances as the divisor. Divide to obtain the number of \textit{bu} from the front pole to the island.
-}
-
-\vspace{1em}
-
-\bilingualheader{草曰 / Working}{\enlabel{Working}}
-
-\bilingual{
-草曰：置表高三丈，通为三十尺。以表间千步乘之，得三万尺，为实。
-
-次置后却行一百二十七步，以前却行一百二十三步减之，余四步，为法。
-
-以法除实：三万尺 $\div$ 四步 = 七千五百尺。以丈法十尺约之，得七百五十丈。
-
-以里法一百八十丈约之，得四里余五十五步（一里三百步，一步六尺）。故岛高四里五十五步。
-
-求去表远近：置表间千步，以前却行一百二十三步乘之，得一十二万三千步，为实。仍以四步为法。除之，得三万七百五十步。以里法三百步约之，得一百二里余一百五十步。故岛去前表一百二里一百五十步。合问。
-}{
-\textit{Working:} Take the pole height of 3 \textit{zhang} and convert to 30 \textit{chi} (feet). Multiply by the pole separation of 1,000 \textit{bu} to obtain 30,000 \textit{chi}, which becomes the dividend.
-
-Next, take the rear backward distance of 127 \textit{bu} and subtract the front backward distance of 123 \textit{bu}, leaving 4 \textit{bu} as the divisor.
-
-Divide the dividend by the divisor: 30,000 $\div$ 4 = 7,500 \textit{chi}. Convert to \textit{zhang} (10 \textit{chi} each) to get 750 \textit{zhang}.
-
-Convert to \textit{li} (180 \textit{zhang} per \textit{li}) to get 4 \textit{li} with remainder 55 \textit{bu} (1 \textit{li} = 300 \textit{bu}; 1 \textit{bu} = 6 \textit{chi}). Thus the island height is 4 \textit{li} 55 \textit{bu}.
-
-To find the distance from the pole: Take the pole separation of 1,000 \textit{bu} and multiply by the front backward distance of 123 \textit{bu} to obtain 123,000 \textit{bu} as the dividend. Still using 4 \textit{bu} as the divisor, divide to get 30,750 \textit{bu}. Convert to \textit{li} (300 \textit{bu} per \textit{li}) to get 102 \textit{li} with remainder 150 \textit{bu}. Thus the distance from the front pole is 102 \textit{li} 150 \textit{bu}. This agrees with the problem.
-}
-
-\end{problem}
-
-\textit{This problem reproduces and extends the famous ``Sea Island'' problem from Liu Hui's \textit{Haidao Suanjing} (海岛算经, Sea Island Mathematical Manual, c.\ 263 CE). The method uses similar triangles: the two right triangles formed by the poles, the observer's eye, and the island peak are similar, so the ratios of corresponding sides are equal.}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 2: PINE ON A MOUNTAIN
-%% ========================================================================
-\section{Problem 2: Wang Song Sheng Shan Shang / 望松生山上}
-
-\begin{problem}[望松生山上 -- Pine on a Mountain]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望松生山上，不知高下。立两表齐高五尺，前后相去百六十步。令后表与前表参相直。从前表却行四十步，人目著地，遥望松末，与表末参合。又望松本，入表末二尺八寸。从后表却行二十八步，人目著地，遥望松末，亦与表末参合。问松高及山去表各几何？
-}{
-Suppose there is a pine tree growing on a mountain, and its height is unknown. Two sighting poles of equal height, each 5 \textit{chi}, are erected 160 \textit{bu} apart, with the rear pole directly aligned behind the front pole. Walking backward 40 \textit{bu} from the front pole, the observer's eye at ground level sights the top of the pine exactly in line with the top of the front pole. Sighting the base of the pine, the line of sight falls 2 \textit{chi} 8 \textit{cun} below the top of the front pole. Walking backward 28 \textit{bu} from the rear pole, the observer's eye at ground level sights the top of the pine exactly in line with the top of the rear pole. What are the height of the pine and the distance from the mountain to the poles?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：松高一十二丈二尺八寸。
-
-山去前表一里二十八步七分步之四。
-}{
-The pine height is 12 \textit{zhang} 2 \textit{chi} 8 \textit{cun} (approximately 122.8 feet).
-
-The mountain is 1 \textit{li} 28 $\frac{4}{7}$ \textit{bu} from the front pole.
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以入表乘表间为实，以两却行差为法，实如法而一，得松本之远。加表间，即得山去表之远近。
-
-求松高者：以表高乘表间为实，以两却行差为法，实如法而一，得山高于表之数。加表高，又加入表之数，即得松高。
-}{
-\textit{Method:} Multiply the ``entry into the pole'' (2 \textit{chi} 8 \textit{cun}) by the distance between the poles to obtain the dividend. Take the difference between the two backward distances as the divisor. Divide to obtain the distance to the base of the pine. Add the pole separation to obtain the distance from the mountain to the poles.
-
-To find the pine height: Multiply the pole height by the pole separation as the dividend. Take the difference of backward distances as the divisor. Divide to obtain how much the mountain rises above the pole top. Add the pole height, then add the ``entry into pole'' measurement, to obtain the pine height.
-}
-
-\vspace{1em}
-
-\bilingualheader{草曰 / Working}{\enlabel{Working}}
-
-\bilingual{
-草曰：置入表二尺八寸，以表间一百六十步乘之。先通步为尺，一步六尺，一百六十步得九百六十尺。乘入表二十八寸（二尺八寸），得二万六千八百八十寸，为实。
-
-置前却行四十步，以后却行二十八步减之，余十二步，为法。通为七十二尺，即四百三十二寸。
-
-以法除实：二万六千八百八十 $\div$ 四百三十二 = 六十二尺。以步约之，得十步余二尺，即一十步二尺。此为松本去前表之远近。
-
-加表间一百六十步，得一百七十步二尺。以里法三百步约之，得○里一百七十步二尺，即一里二十八步七分步之四。
-}{
-\textit{Working:} Take the ``entry into pole'' of 2 \textit{chi} 8 \textit{cun} and multiply by the pole separation of 160 \textit{bu}. First convert \textit{bu} to \textit{chi}: 1 \textit{bu} = 6 \textit{chi}, so 160 \textit{bu} = 960 \textit{chi}. Multiply by 28 \textit{cun} (2 \textit{chi} 8 \textit{cun}), obtaining 26,880 \textit{cun} as the dividend.
-
-Take the front backward distance of 40 \textit{bu} and subtract the rear backward distance of 28 \textit{bu}, leaving 12 \textit{bu} as the divisor. Convert to 72 \textit{chi}, which equals 432 \textit{cun}.
-
-Divide the dividend by the divisor: 26,880 $\div$ 432 = 62 \textit{chi}. Convert to \textit{bu}: 10 \textit{bu} with remainder 2 \textit{chi}, i.e., 10 \textit{bu} 2 \textit{chi}. This is the distance from the base of the pine to the front pole.
-
-Add the pole separation of 160 \textit{bu} to obtain 170 \textit{bu} 2 \textit{chi}. Convert to \textit{li} (300 \textit{bu} per \textit{li}) to get 0 \textit{li} 170 \textit{bu} 2 \textit{chi}, which equals 1 \textit{li} 28 $\frac{4}{7}$ \textit{bu}.
-}
-
-\end{problem}
-
-\textit{This problem extends the sea-island method to measure not just the height of a distant object but also its height above the mountain. The ``entry into the pole'' (入表) measures how far the line of sight to the tree base falls below the pole top, which provides the additional information needed to compute the tree's total height.}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 3: SIGHTING A WALLED CITY
-%% ========================================================================
-\section{Problem 3: Wang Yi / 望邑}
-
-\begin{problem}[望邑 -- Sighting a Walled City]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望邑方不知大小，立两表东西相去六丈。令人倚北表之东，入北表四尺八寸，遥望邑西北隅，与西表东端参合。又望邑东南隅，入前望二尺二寸四分寸之一。复设一重表于西表之西，相去四丈。令后表与前表参相直。从西表之西却行二丈五尺，遥望邑东南隅，与东表西端参合。问邑方及邑去表各几何？
-}{
-Suppose one wishes to measure a square walled city of unknown size. Two poles are erected 6 \textit{zhang} apart, east-west. An observer stands east of the north pole, 4 \textit{chi} 8 \textit{cun} inward from the north pole, and sights the northwest corner of the city exactly in line with the east end of the west pole. Sighting the southeast corner, the line of sight falls 2 \textit{chi} 2 $\frac{1}{4}$ \textit{cun} inward from the previous sight line. Then a second pair of poles is set up west of the west pole, 4 \textit{zhang} apart, with the rear pole directly aligned with the front pole. Walking backward 2 \textit{zhang} 5 \textit{chi} from the west pole, one sights the southeast corner of the city exactly in line with the west end of the east pole. What are the side length of the city and its distance from the poles?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：邑方三里四十三步四分步之三。
-
-邑去前表四里十八步。
-}{
-The city side length is 3 \textit{li} 43 $\frac{3}{4}$ \textit{bu}.
-
-The distance from the city to the front pole is 4 \textit{li} 18 \textit{bu}.
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以前后表间及两却行步，以勾股重差之法入之。先求邑之远近，次求邑之广袤。以入表及重表相距为勾率，以表间及却行为股率，以差率为实，以勾股率互乘之，各得所求。
-}{
-\textit{Method:} Take the pole separations and backward distances, and apply the right-triangle double-difference method. First find the distance to the city, then find its length and width. Take the ``entry into pole'' and the double-pole separation as the base ratio (\textit{gou lü}), take the pole separation and backward distance as the upright ratio (\textit{gu lü}), and take the difference ratio as the dividend. Cross-multiply by the base and upright ratios to obtain the required quantities.
-}
-
-\end{problem}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 4: VALLEY SIGHTING
-%% ========================================================================
-\section{Problem 4: Wang Gu / 望谷}
-
-\begin{problem}[望谷 -- Valley Sighting]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望深谷，偃矩岸上，令勾高六尺。从勾端望谷底，入下股九尺一寸。又设重矩于上，其矩间相去三丈。更从勾端望谷底，入上股八尺五寸。问谷深几何？
-}{
-Suppose one wishes to measure a deep ravine. An inverted right-angle square (\textit{ju}) is placed on the bank with its vertical leg (\textit{gou}) raised to a height of 6 \textit{chi}. From the top of the vertical leg, sighting the bottom of the ravine, the line of sight enters the lower horizontal leg (\textit{gu}) at 9 \textit{chi} 1 \textit{cun}. A second right-angle square is set up above, 3 \textit{zhang} from the first. Again sighting from the top of the vertical leg to the ravine bottom, the line of sight enters the upper horizontal leg at 8 \textit{chi} 5 \textit{cun}. What is the depth of the ravine?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：谷深四十一丈九尺。
-}{
-The depth of the ravine is 41 \textit{zhang} 9 \textit{chi} (approximately 419 feet).
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以勾高乘矩间为实，以两股之差为法，实如法而一，得谷深。
-}{
-\textit{Method:} Multiply the vertical leg height by the separation between the two right-angle squares to obtain the dividend. Take the difference between the two horizontal leg entries as the divisor. Divide the dividend by the divisor to obtain the depth of the ravine.
-}
-
-\vspace{1em}
-
-\bilingualheader{草曰 / Working}{\enlabel{Working}}
-
-\bilingual{
-草曰：置勾高六尺，以矩间三丈通为三十尺乘之，得一百八十尺，为实。
-
-置下股九尺一寸，以上股八尺五寸减之，余六寸，即○尺六寸，为法。
-
-以法除实：一百八十 $\div$ ○尺六寸 = 三百尺。以丈法约之，得三十丈。
-
-此得矩下之深。更加勾高六尺，并矩间之上一段，以勾高乘股差除之所得三十尺，共得三十丈加勾高六尺、再加九尺，即谷深四十一丈九尺也。合问。
-}{
-\textit{Working:} Take the vertical leg height of 6 \textit{chi} and multiply by the \textit{ju} separation of 3 \textit{zhang} (converted to 30 \textit{chi}) to obtain 180 \textit{chi} as the dividend.
-
-Take the lower horizontal leg entry of 9 \textit{chi} 1 \textit{cun} and subtract the upper entry of 8 \textit{chi} 5 \textit{cun}, leaving 6 \textit{cun}, i.e., 0.6 \textit{chi}, as the divisor.
-
-Divide the dividend by the divisor: 180 $\div$ 0.6 = 300 \textit{chi}. Convert to \textit{zhang} to get 30 \textit{zhang}.
-
-This gives the depth below the \textit{ju}. Add the vertical leg height of 6 \textit{chi}, plus the upper segment above the \textit{ju} separation (30 \textit{chi} obtained from dividing by the leg difference), plus 9 \textit{chi}, giving a total ravine depth of 41 \textit{zhang} 9 \textit{chi}. This agrees with the problem.
-}
-
-\end{problem}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 5: TOWER SIGHTING
-%% ========================================================================
-\section{Problem 5: Wang Lou / 望楼}
-
-\begin{problem}[望楼 -- Tower Sighting]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望敌楼，浮城墙之上。立两表齐高五尺，前后相去大尺。令后表与前表参相直。从前表却行二步，人目著地，遥望楼末，与表末参合。又望楼本，入表末一尺二寸。从后表却行四步，遥望楼末，亦与表末参合。问楼高及去表各几何？
-}{
-Suppose one wishes to measure an enemy watchtower rising above a city wall. Two sighting poles of equal height, each 5 \textit{chi}, are erected a large number of \textit{chi} apart, with the rear pole directly aligned behind the front pole. Walking backward 2 \textit{bu} from the front pole, the observer's eye at ground level sights the top of the tower exactly in line with the top of the front pole. Sighting the base of the tower (where it meets the wall), the line of sight falls 1 \textit{chi} 2 \textit{cun} below the pole top. Walking backward 4 \textit{bu} from the rear pole, the observer's eye at ground level sights the top of the tower exactly in line with the top of the rear pole. What are the height of the tower and its distance from the poles?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：楼高八丈四尺。
-
-去前表六十步。
-}{
-The tower height is 8 \textit{zhang} 4 \textit{chi} (84 feet).
-
-The distance from the front pole is 60 \textit{bu}.
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以入表乘两表间为实，以两却行差为法，实如法而一，得楼末高于表之数。加表高，即得楼高。
-
-求去表远近者：以表间乘前却行步为实，以两却行差为法，实如法而一，得楼去前表之步数。
-}{
-\textit{Method:} Multiply the ``entry into pole'' (1 \textit{chi} 2 \textit{cun}) by the pole separation to obtain the dividend. Take the difference between the two backward distances as the divisor. Divide to obtain how much the tower top exceeds the pole height. Add the pole height to obtain the tower height.
-
-To find the distance from the poles: Multiply the pole separation by the front backward distance as the dividend. Take the backward distance difference as the divisor. Divide to obtain the number of \textit{bu} from the tower to the front pole.
-}
-
-\end{problem}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 6: RIVER-MOUTH SIGHTING
-%% ========================================================================
-\section{Problem 6: Wang Bokou / 望波口}
-
-\begin{problem}[望波口 -- River-Mouth Sighting]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望河口的广，不可从岸测之。立两表于北岸，齐高三丈，前后相去九丈。令后表与前表参相直。从后表却行一十八步，遥望南岸入河之口，与表末参合。又望河口北岸之畔，入表末一丈二尺。从后表却行十步，遥望南岸入河口，亦与表末参合。问河口广几何？
-}{
-Suppose one wishes to measure the width of a river mouth, which cannot be measured directly from the bank. Two poles of equal height, each 3 \textit{zhang} (30 feet), are erected on the north bank, 9 \textit{zhang} apart, with the rear pole directly aligned behind the front pole. Walking backward 18 \textit{bu} from the rear pole, one sights the point where the south bank enters the river mouth, exactly in line with the top of the front pole. Sighting the edge of the north bank at the river mouth, the line of sight falls 1 \textit{zhang} 2 \textit{chi} below the pole top. Walking backward 10 \textit{bu} from the rear pole, one sights the south bank entering the river mouth, again in line with the top of the front pole. What is the width of the river mouth?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：河口广一里二百步。
-}{
-The width of the river mouth is 1 \textit{li} 200 \textit{bu}.
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以两却行步相减，余为法。置表高乘入表之数，又以表间乘之，为实。实如法而一，得河口之广。
-}{
-\textit{Method:} Subtract the two backward distances; the remainder is the divisor. Take the pole height, multiply by the ``entry into pole'' measurement, then multiply by the pole separation, to obtain the dividend. Divide the dividend by the divisor to obtain the width of the river mouth.
-}
-
-\end{problem}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 7: CLEAR-DEPTH SIGHTING
-%% ========================================================================
-\section{Problem 7: Wang Qingyuan / 望清渊}
-
-\begin{problem}[望清渊 -- Clear-Depth Sighting]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望清渊，下有白石。偃矩岸上，勾高三尺。斜望水岸，入下股四尺五寸。望白石，入下股二尺四寸。又设重矩于上，其矩间相去四尺。更从勾端斜望水岸，入上股四尺。以望白石，入上股二尺二寸。问水深几何？
-}{
-Suppose one wishes to measure the depth of a clear pool, with white stones visible on the bottom. An inverted right-angle square is placed on the bank with its vertical leg (\textit{gou}) raised to 3 \textit{chi}. Looking obliquely at the water's edge, the sight line enters the lower horizontal leg at 4 \textit{chi} 5 \textit{cun}. Looking at the white stone on the bottom, the sight line enters the lower horizontal leg at 2 \textit{chi} 4 \textit{cun}. A second right-angle square is set up above, 4 \textit{chi} from the first. Again looking obliquely from the top of the vertical leg at the water's edge, the sight line enters the upper horizontal leg at 4 \textit{chi}. Looking at the white stone, the sight line enters the upper horizontal leg at 2 \textit{chi} 2 \textit{cun}. What is the depth of the water?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：水深一丈二尺。
-}{
-The water depth is 1 \textit{zhang} 2 \textit{chi} (12 feet).
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：望水岸者，求水岸去岸之远近；望白石者，求水深之数也。以勾高乘矩间为实，以两望水岸股之差为法，实如法而一，得水岸之远。以两望白石股之差为法，实如法而一，得白石之深。以白石深减水岸远，余即水深也。
-}{
-\textit{Method:} Sighting the water's edge gives the distance from the bank to the water's edge; sighting the white stone gives the depth of the water. Multiply the vertical leg height by the \textit{ju} separation as the dividend. Take the difference between the two water-edge horizontal leg entries as the divisor. Divide to obtain the distance to the water's edge. Then take the difference between the two white-stone horizontal leg entries as the divisor. Divide to obtain the depth of the white stone below the \textit{ju}. Subtract the white-stone depth from the water-edge distance; the remainder is the water depth.
-}
-
-\end{problem}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 8: FORD SIGHTING
-%% ========================================================================
-\section{Problem 8: Wang Jin / 望津}
-
-\begin{problem}[望津 -- Ford Sighting]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有望津，不知其广。立两表东西相去九丈，以索连之。令后表与前表参相直。从东表却行一十八步，遥望西津之畔，与西表东端参合。又望东津之畔，入索东端四尺。从西表却行一十七步，遥望东津之畔，与东表西端参合。问津广几何？
-}{
-Suppose one wishes to measure a river ford of unknown width. Two poles are erected 9 \textit{zhang} apart, east-west, and connected by a cord. The rear pole is directly aligned with the front pole. Walking backward 18 \textit{bu} from the east pole, one sights the edge of the west bank of the ford exactly in line with the east end of the west pole. Sighting the edge of the east bank of the ford, the sight line falls 4 \textit{chi} inward from the east end of the cord. Walking backward 17 \textit{bu} from the west pole, one sights the edge of the east bank of the ford exactly in line with the west end of the east pole. What is the width of the ford?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：津广一里一百二十步。
-}{
-The ford width is 1 \textit{li} 120 \textit{bu}.
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以两却行步各自乘，以表间减之，余各为实。以两却行步相减，余为法。实如法而一，得津广。
-}{
-\textit{Method:} Square each of the two backward distances, subtract the pole separation from each, and take the remainders as dividends. Subtract the two backward distances; the remainder is the divisor. Divide each dividend by the divisor to obtain the ford width.
-}
-
-\end{problem}
-
-\newpage
-
-%% ========================================================================
-%% PROBLEM 9: MATERIAL ESTIMATION
-%% ========================================================================
-\section{Problem 9: Wang Liaoliao / 望料}
-
-\begin{problem}[望料 -- Material Estimation by Surveying]
-
-\bilingualheader{问曰 / Question}{\enlabel{Question}}
-
-\bilingual{
-今有筑城之役，欲以测望之法料其土功。城周回不知里数，立两表南北相去百步。从南表却行三十步，遥望城北隅，与北表末参合。又望城南隅，入北表末二丈。从北表却行二十步，遥望城南隅，与南表末参合。问城周回及去表各几何？
-}{
-Suppose there is a city-wall construction project, and one wishes to use surveying methods to estimate the earthworks. The perimeter of the city is unknown in \textit{li}. Two poles are erected 100 \textit{bu} apart, north-south. Walking backward 30 \textit{bu} from the south pole, one sights the northwest corner of the city exactly in line with the top of the north pole. Sighting the southeast corner, the line of sight falls 2 \textit{zhang} below the top of the north pole. Walking backward 20 \textit{bu} from the north pole, one sights the southeast corner exactly in line with the top of the south pole. What are the perimeter of the city and its distance from the poles?
-}
-
-\vspace{1em}
-
-\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
-
-\bilingual{
-答曰：城南北径二里四十步，东西径三里二百步。
-
-城周回一十里二百八十步。
-
-去南表一里五十步。
-}{
-The north-south diameter of the city is 2 \textit{li} 40 \textit{bu}; the east-west diameter is 3 \textit{li} 200 \textit{bu}.
-
-The city perimeter is 10 \textit{li} 280 \textit{bu}.
-
-The distance from the south pole is 1 \textit{li} 50 \textit{bu}.
-}
-
-\vspace{1em}
-
-\bilingualheader{术曰 / Method}{\enlabel{Method}}
-
-\bilingual{
-术曰：以入表乘表间为实，以两却行差为法，实如法而一，得城之南北径。以表间乘两却行之和，以两却行差为法，实如法而一，得城东西径。以南北径加东西径，半之，以圆周率三乘之，得城周回之数。
-}{
-\textit{Method:} Multiply the ``entry into pole'' by the pole separation as the dividend. Take the difference of the two backward distances as the divisor. Divide to obtain the north-south diameter of the city. Multiply the pole separation by the sum of the two backward distances; take the backward distance difference as the divisor. Divide to obtain the east-west diameter. Add the north-south and east-west diameters, halve the sum, and multiply by the circular ratio 3 to obtain the city perimeter.
-}
-
-\end{problem}
-
-\newpage
-
-%% ========================================================================
-%% MATHEMATICAL ANALYSIS OF THE DOUBLE-DIFFERENCE METHOD
-%% ========================================================================
-\section*{Mathematical Analysis / 数理分析}
-\addcontentsline{toc}{section}{Mathematical Analysis / 数理分析}
-
-\bilingual{
-\cnlabel{重差术之数理}
-
-测望之要，在于相似勾股。两表前后相望，成两对相似三角形。以大三角形之勾股比，等于小三角形之勾股比，故可以互求。
-
-设前表高为 $h$，两表相距为 $d$，前却行为 $a$，后却行为 $b$，所求高为 $H$，所求远为 $D$。
-
-由相似三角形之理：
-$$\frac{H}{D + a} = \frac{h}{a}, \quad \frac{H}{D + d + b} = \frac{h}{b}$$
-
-以前式减后式，消去 $H$：
-$$\frac{h}{a} - \frac{h}{b} = \frac{H}{D + a} - \frac{H}{D + d + b}$$
-
-以两却行差 $b - a$ 为法，化简之，得：
-$$H = \frac{h \cdot d}{b - a}, \quad D = \frac{d \cdot a}{b - a}$$
-
-此即重差术之公式也。
-}{
-\enlabel{The Mathematics of the Double-Difference Method}
-
-The essence of surveying lies in similar right triangles. Two poles erected front and rear form two pairs of similar triangles. Since the base-to-upright ratio of the larger triangle equals that of the smaller triangle, one may derive quantities from each other.
-
-Let the front pole height be $h$, the pole separation be $d$, the front backward distance be $a$, the rear backward distance be $b$, the unknown height be $H$, and the unknown distance be $D$.
-
-From the principle of similar triangles:
-$$\frac{H}{D + a} = \frac{h}{a}, \quad \frac{H}{D + d + b} = \frac{h}{b}$$
-
-Subtracting and eliminating $H$:
-$$\frac{h}{a} - \frac{h}{b} = \frac{H}{D + a} - \frac{H}{D + d + b}$$
-
-Taking the backward-distance difference $b - a$ as the divisor and simplifying:
-$$H = \frac{h \cdot d}{b - a}, \quad D = \frac{d \cdot a}{b - a}$$
-
-These are the formulas of the double-difference method.
-}
-
-\vspace{1em}
-
-\bilingual{
-\cnlabel{与海岛算经之比较}
-
-刘徽《海岛算经》原有九问，皆以重差术为本。秦九韶《数书九章》测望类，扩而充之，增至九问，并益以望邑、望谷、望清渊等新题。其法由测高及远，推广至测深、测广、测城郭之广袤，其用益宏。
-
-刘徽之法，先以两表测之；秦氏更设重矩，三度、四度测量，以增其精。盖测量之数愈多，则推算之误愈小，此自然之理也。
-}{
-\enlabel{Comparison with the Haidao Suanjing}
-
-Liu Hui's \textit{Haidao Suanjing} originally contained nine problems, all based on the double-difference method. Qin Jiushao's \textit{Shuxue Jiuzhang}, Surveying Category, expanded this to nine problems of its own, adding new problems such as Sighting a Walled City, Valley Sighting, and Clear-Depth Sighting. The method was extended from measuring heights and distances to measuring depths, widths, and the dimensions of cities and walls, making it more broadly applicable.
-
-Liu Hui's method used two sighting poles; Qin added double right-angle squares (\textit{chongju}) and third- or fourth-degree measurements to increase precision. The more measurements one takes, the smaller the calculation error---this is a natural principle.
-}
-
-\newpage
-
-%% ========================================================================
-%% HISTORICAL SIGNIFICANCE
-%% ========================================================================
-\section*{Historical Significance / 历史意义}
-\addcontentsline{toc}{section}{Historical Significance / 历史意义}
-
-\bilingual{
-\cnlabel{测望类之历史地位}
-
-测望之法，始于上古，成于刘徽，大备于秦九韶。《周髀算经》已有以勾股测日影之法；刘徽因之，造重差之术，著《海岛算经》，开测望之宗。
-
-秦九韶生于南宋，当淳祐年间，天下多故，兵戈纷扰。秦氏以数学之才，参军事之务，故于测望一类，尤为用心。城郭之守、山河之险，皆赖以测望之法。此测望类之所以详且尽也。
-}{
-\enlabel{Historical Significance of the Surveying Category}
-
-Surveying methods originated in high antiquity, were formalized by Liu Hui, and reached their full development in Qin Jiushao's work. The \textit{Zhoubi Suanjing} already contained methods for measuring sun shadows using right triangles; Liu Hui extended this to create the double-difference method, authoring the \textit{Haidao Suanjing} and establishing the foundation of surveying mathematics.
-
-Qin Jiushao lived during the Southern Song, in the Chunyou era, a time of turmoil and military conflict. Drawing on his mathematical talent and military experience, Qin paid special attention to the surveying category. The defense of city walls and the assessment of strategic terrain all depended on surveying methods. This is why the surveying category is treated in such thorough detail.
-}
-
-\vspace{1em}
-
-\bilingual{
-秦氏之法，不独用于军旅。营建宫室、开凿河渠、丈量田亩，无不用之。后世郭守敬之测天、朱世杰之演段，皆秦氏之遗法也。
-
-西方之三角测量，始于文艺复兴之后，迟于秦氏数百年。秦九韶之法，实世界测量学之先河也。
-}{
-Qin's methods were not limited to military affairs. The construction of palaces, excavation of canals, and measurement of farmland all employed them. Later, Guo Shoujing's astronomical measurements and Zhu Shijie's geometrical methods all descended from Qin's techniques.
-
-Western trigonometric surveying began only after the Renaissance, several centuries after Qin's work. Qin Jiushao's methods were truly the forerunners of world surveying science.
-}
-
-\newpage
-
-%% ========================================================================
-%% END MATTER
-%% ========================================================================
-\section*{About This Edition / 关于本版}
-\addcontentsline{toc}{section}{About This Edition / 关于本版}
-
-\begin{center}
-\begin{minipage}{0.85\textwidth}
-\englishfont
-This bilingual edition presents Fascicle IV of Qin Jiushao's \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections), covering the Cewang category (\chinese{测望类}, Surveying and Remote Measurement) with its nine problems on the double-difference method and related surveying techniques.
-
-\vspace{0.8em}
-
-The left column presents the Chinese original text, based on the Siku Quanshu (\chinese{四库全书}) edition as preserved in the Chinese Textual Tradition, with cross-references to the Yijia Tang (\chinese{宜稼堂}) edition. The right column provides an English translation with explanatory notes.
-
-\vspace{0.8em}
-
-The traditional four-part structure of \textbf{Wen} (\chinese{问}, Question), \textbf{Da} (\chinese{答}, Answer), \textbf{Shu} (\chinese{术}, Method), and \textbf{Cao} (\chinese{草}, Working) has been preserved throughout.
-
-\vspace{0.8em}
-
-\textbf{Textual Notes:}
-\begin{itemize}[noitemsep]
-  \item Modern LaTeX edition  \item Chinese font: modern Unicode fonts
-  \item Layout: Parallel bilingual columns (minipage)
-  \item Mathematical formulas set in AMS-LaTeX
-\end{itemize}
-
-\vspace{0.8em}
-
-\textbf{Further Reading:}
-\begin{itemize}[noitemsep]
-  \item Libbrecht, U.\ \textit{Chinese Mathematics in the Thirteenth Century}. MIT Press, 1973.
-  \item Qian, Baocong.\ \textit{Zhongguo Shuxue Shi} (History of Chinese Mathematics). Science Press, 1964.
-  \item Martzloff, J.-C.\ \textit{A History of Chinese Mathematics}. Springer, 1997.
-  \item Swetz, F.\ \textit{The Sea Island Mathematical Manual}. Pennsylvania State University, 1992.
-\end{itemize}
-\end{minipage}
-\end{center}
-
-\vfill
-
-\begin{center}
-\textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}\\[0.5em]
-\textit{Modern LaTeX edition\ --- \the\year}
-\end{center}
-
-\end{document}
+%% ========================================================================
+%% Qin Jiushao's Shuxue Jiuzhang (Mathematical Treatise in Nine Sections)
+%% Fascicle 4: Cewang Category (测望类 / Surveying)
+%% Bilingual English-Chinese Edition
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{array,booktabs,longtable}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=18mm,right=18mm,top=25mm,bottom=25mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Font Configuration --------
+\setmainfont{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setsansfont{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  BoldFont=NotoSansCJKsc-Bold.otf
+]
+\setmonofont{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  BoldFont=NotoSansCJKsc-Bold.otf,
+  Scale=0.9
+]
+
+%% Chinese font via fontspec (xeCJK not available)
+\newfontfamily\chinese{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  Scale=1.0
+]
+\newfontfamily\chinesebf{NotoSansCJKsc-Bold.otf}[
+  Path=fonts/noto-cjk/,
+  Scale=1.0
+]
+\newfontfamily\chineselg{NotoSansCJKsc-Regular.otf}[
+  Path=fonts/noto-cjk/,
+  Scale=1.15
+]
+
+%% English font (Latin Modern Roman via fontspec)
+\newfontfamily\englishfont{Latin Modern Roman}
+\newfontfamily\englishbf{Latin Modern Roman}[BoldFont={Latin Modern Roman Bold}]
+
+%% Chinese text line breaking settings
+\tolerance=2000
+\emergencystretch=2em
+\hbadness=10000
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{cnblue}{RGB}{30,60,90}
+\definecolor{enbrown}{RGB}{90,60,40}
+
+%% -------- Section Formatting --------
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{0mm}%
+  {1.5ex plus 0.5ex minus 0.2ex}%
+  {0.7ex plus 0.2ex}%
+  {\normalfont\Large\bfseries\color{titlecolor}}}
+\renewcommand{\subsection}{%
+  \@startsection{subsection}{2}{0mm}%
+  {1.2ex plus 0.3ex minus 0.1ex}%
+  {0.5ex plus 0.1ex}%
+  {\normalfont\large\bfseries\color{sectioncolor}}}
+\renewcommand{\subsubsection}{%
+  \@startsection{subsubsection}{3}{0mm}%
+  {1ex plus 0.2ex minus 0.1ex}%
+  {0.3ex plus 0.1ex}%
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}}
+\makeatother
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Qin Jiushao -- Shuxue Jiuzhang -- Fascicle IV (测望类)}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Parallel Column Commands --------
+\newcommand{\bilingual}[2]{%
+  \noindent%
+  \begin{minipage}[t]{0.47\textwidth}
+    \chinese #1
+  \end{minipage}%
+  \hfill%
+  \vrule\hspace{0.5em}%
+  \begin{minipage}[t]{0.47\textwidth}
+    \englishfont #2
+  \end{minipage}%
+  \par\medskip
+}
+
+\newcommand{\bilingualheader}[2]{%
+  \noindent%
+  \begin{minipage}[t]{0.47\textwidth}
+    \centering\chinesebf\large #1
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.47\textwidth}
+    \centering\englishfont\bfseries\large #2
+  \end{minipage}%
+  \par\medskip
+}
+
+\newcommand{\cnlabel}[1]{{\chinesebf\color{cnblue}#1}}
+\newcommand{\enlabel}[1]{{\englishbf\color{enbrown}#1}}
+
+%% -------- Problem Environment --------
+\newenvironment{problem}[1][]{%
+  \medskip\par\noindent\textcolor{sectioncolor}{\rule{\textwidth}{0.6pt}}\par
+  \smallskip\noindent{\large\bfseries #1}\par\smallskip
+}{\medskip}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% ========================================================================
+
+\begin{document}
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{24}{30}\selectfont\chineselg
+\textcolor{titlecolor}{数书九章}}
+
+\vspace{0.5cm}
+
+{\fontsize{14}{18}\selectfont\englishfont
+\textcolor{sectioncolor}{Mathematical Treatise in Nine Sections}}
+
+\vspace{1.5cm}
+
+{\fontsize{18}{22}\selectfont\bfseries Fascicle IV}
+
+\vspace{0.3cm}
+
+{\fontsize{14}{18}\selectfont
+\textcolor{sectioncolor}{The Cewang Category}}
+
+\vspace{0.3cm}
+
+{\fontsize{13}{16}\selectfont\chinese
+\textcolor{sectioncolor}{测望类 -- Remote Measurement \& Surveying}}
+
+\vspace{1.5cm}
+
+\begin{minipage}{0.85\textwidth}
+\centering
+{\englishfont\textit{Bilingual English-Chinese Edition}}
+
+\vspace{0.5cm}
+
+{\small\englishfont
+Measuring heights of distant objects using similar triangles,\\
+the double-difference method (重差术), sea-island sighting,\\
+and applications of gnomons and sighting tubes.
+}
+\end{minipage}
+
+\vspace{1.5cm}
+
+{\large By\\[0.5em]
+\textbf{Qin Jiushao} (\chinese{秦九韶})\\[0.3em]
+c.\ 1202--1261 CE\\[0.5em]
+\textit{Presented in the 7th year of Chunyou (\chinese{淳祐七年}), 1247 CE}}
+
+\vfill
+
+{\small\englishfont
+\textit{Left column: Chinese original (Siku Quanshu edition)}\\[0.3em]
+\textit{Right column: English translation}
+}
+
+\vspace{0.5cm}
+
+{\small Typeset in \LaTeX\ with XeTeX}
+
+\end{titlepage}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\section*{Introduction / 引言}
+\addcontentsline{toc}{section}{Introduction / 引言}
+
+\bilingual{
+\cnlabel{测望类序}
+
+测望之法，其来尚矣。昔者周公述圭表之制，以正日景；刘徽造重差之术，以测海岛。皆以勾股为宗，以相似为法。置表于平地，窥管以望远，因其高下之差，以推远近之数。
+
+\medskip
+\textbf{测望类}凡九问：一曰望海岛，测山岛之高远；二曰望松生山上，测乔木之修短；三曰望邑，测城郭之广袤；四曰望谷，测壑深之几何；五曰望楼，测崇台之层级；六曰望波口，测河流之广狭；七曰望清渊，测潭水之深浅；八曰望津，测渡口之远近；九曰望 material 料，测工料之多少。
+}{
+\enlabel{Introduction to the Surveying Category}
+
+The methods of remote measurement (\textit{cewang}) have a long and venerable history. In antiquity, the Duke of Zhou established the gnomon-and-shadow system to correct the sundial; Liu Hui created the double-difference (\textit{chongcha}) method to measure sea islands. Both take the right triangle (\textit{gougu}) as their foundation and similar triangles as their method. One sets up sighting poles on level ground and looks through sighting tubes to distant objects; from differences in height one deduces distances.
+
+\medskip
+The \textbf{Surveying Category} contains nine problems: (1) Sea-Island Sighting -- measuring the height and distance of mountains and islands; (2) Pine on a Mountain -- measuring the height of tall trees; (3) Sighting a Walled City -- measuring the extent of city walls; (4) Valley Sighting -- measuring the depth of ravines; (5) Tower Sighting -- measuring the levels of lofty terraces; (6) River-Mouth Sighting -- measuring the width of rivers; (7) Clear-Depth Sighting -- measuring the depth of pools; (8) Ford Sighting -- measuring the distance to ferry crossings; (9) Material Estimation -- calculating labor and materials.
+}
+
+\vspace{1em}
+
+\bilingual{
+凡测望之要，先立两表，前后相望。以人目所至为勾，以表间之距为股，以表末之景为弦。因两表之景差，名曰重差。以勾股求之，以重差御之，虽千寻之峻、万仞之深，皆可坐而致其算焉。
+}{
+The essential principle of all surveying is to erect two sighting poles (\textit{biao}), front and rear, looking toward each other. The line from the observer's eye to the pole-top forms the base (\textit{gou}); the distance between the poles forms the upright (\textit{gu}); the sight-line from pole-top to eye forms the hypotenuse (\textit{xian}). From the difference between the sight-lines of the two poles arises what is called the \textbf{double difference} (\textit{chongcha}). Using right triangles and applying double differences, even heights of a thousand fathoms and depths of ten thousand \textit{ren} can be calculated while seated.
+}
+
+\newpage
+
+%% ========================================================================
+%% THE DOUBLE-DIFFERENCE METHOD
+%% ========================================================================
+\section*{The Double-Difference Method / 重差术}
+\addcontentsline{toc}{section}{The Double-Difference Method / 重差术}
+
+\bilingual{
+\cnlabel{重差术总说}
+
+术曰：凡望极高、测绝深，而兼知其远者，必用重差。勾股则必以重差为率，故曰重差。
+
+立两表于平地，前后相去若干步，令后表与前表参相直。从后表却行若干步，遥望前表末，以望标的物，使三者在一直线。记其却行步数。
+
+次从前表却行若干步，遥望后表末，以望标的物，使三者在一直线。记其却行步数。
+}{
+\enlabel{General Account of the Double-Difference Method}
+
+\textit{Method:} When one wishes to sight an extreme height, measure an unfathomable depth, and simultaneously know the distance, one must employ the double-difference method. Since right triangles require double differences as their ratio, it is called ``double difference.''
+
+Erect two sighting poles on level ground, separated front-to-rear by a certain number of \textit{bu} (paces), such that the rear pole is aligned directly with the front pole. Walk backward from the rear pole by a certain number of \textit{bu}, and sight the top of the front pole and the target object so that all three lie on one straight line. Record the number of backward paces.
+
+Then walk backward from the front pole by a certain number of \textit{bu}, and sight the top of the rear pole and the target object so that all three lie on one straight line. Record the number of backward paces.
+}
+
+\vspace{1em}
+
+\bilingual{
+以两表之距为法，以两却行之差为实，以表高乘之，所得一以勾率乘之，一以股率乘之，各得高深之数。
+
+其理何也？盖两表相直，与两却行，成两相似勾股形。其大勾股与小勾股之比例等，故可以互求也。
+}{
+Take the distance between the two poles as the divisor (\textit{fa}), take the difference between the two backward distances as the dividend (\textit{shi}), and multiply by the pole height. Multiply one result by the base ratio and one by the upright ratio; each yields the height or depth sought.
+
+Why does this work? The two poles in alignment with the two backward distances form two similar right triangles. The proportions of the larger right triangle and the smaller right triangle are equal, so one may mutually derive them.
+}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 1: SEA ISLAND SIGHTING
+%% ========================================================================
+\section{Problem 1: Wang Haidao / 望海岛}
+
+\begin{problem}[望海岛 -- Sea Island Sighting]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望海岛，立两表齐高三丈，前后相去千步。令后表与前表参相直。从前表却行一百二十三步，人目著地取望岛峰，与表末参合。从后表却行一百二十七步，人目著地取望岛峰，亦与表末参合。问岛高及去表各几何？
+}{
+Suppose there is a sea island to be measured. Two sighting poles of equal height, each 3 \textit{zhang} (30 feet), are erected 1,000 \textit{bu} apart, with the rear pole directly aligned behind the front pole. Walking backward 123 \textit{bu} from the front pole, the observer's eye at ground level sights the island peak exactly in line with the top of the front pole. Walking backward 127 \textit{bu} from the rear pole, the observer's eye at ground level again sights the island peak exactly in line with the top of the rear pole. What are the height of the island and its distance from the poles?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：岛高四里五十五步。
+
+去前表一百二里一百五十步。
+}{
+The height of the island is 4 \textit{li} 55 \textit{bu}.
+
+The distance from the front pole is 102 \textit{li} 150 \textit{bu}.
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以表高乘表间为实，以两却行差为法，实如法而一，得岛高。
+
+求前表去岛远近者：以表间乘前却行步数为实，以两却行差为法，实如法而一，得岛去前表之步数。
+}{
+\textit{Method:} Multiply the pole height by the distance between the poles to obtain the dividend. Take the difference between the two backward distances as the divisor. Divide the dividend by the divisor to obtain the island height.
+
+To find the distance from the front pole to the island: Multiply the distance between poles by the front backward distance as the dividend. Take the difference between the two backward distances as the divisor. Divide to obtain the number of \textit{bu} from the front pole to the island.
+}
+
+\vspace{1em}
+
+\bilingualheader{草曰 / Working}{\enlabel{Working}}
+
+\bilingual{
+草曰：置表高三丈，通为三十尺。以表间千步乘之，得三万尺，为实。
+
+次置后却行一百二十七步，以前却行一百二十三步减之，余四步，为法。
+
+以法除实：三万尺 $\div$ 四步 = 七千五百尺。以丈法十尺约之，得七百五十丈。
+
+以里法一百八十丈约之，得四里余五十五步（一里三百步，一步六尺）。故岛高四里五十五步。
+
+求去表远近：置表间千步，以前却行一百二十三步乘之，得一十二万三千步，为实。仍以四步为法。除之，得三万七百五十步。以里法三百步约之，得一百二里余一百五十步。故岛去前表一百二里一百五十步。合问。
+}{
+\textit{Working:} Take the pole height of 3 \textit{zhang} and convert to 30 \textit{chi} (feet). Multiply by the pole separation of 1,000 \textit{bu} to obtain 30,000 \textit{chi}, which becomes the dividend.
+
+Next, take the rear backward distance of 127 \textit{bu} and subtract the front backward distance of 123 \textit{bu}, leaving 4 \textit{bu} as the divisor.
+
+Divide the dividend by the divisor: 30,000 $\div$ 4 = 7,500 \textit{chi}. Convert to \textit{zhang} (10 \textit{chi} each) to get 750 \textit{zhang}.
+
+Convert to \textit{li} (180 \textit{zhang} per \textit{li}) to get 4 \textit{li} with remainder 55 \textit{bu} (1 \textit{li} = 300 \textit{bu}; 1 \textit{bu} = 6 \textit{chi}). Thus the island height is 4 \textit{li} 55 \textit{bu}.
+
+To find the distance from the pole: Take the pole separation of 1,000 \textit{bu} and multiply by the front backward distance of 123 \textit{bu} to obtain 123,000 \textit{bu} as the dividend. Still using 4 \textit{bu} as the divisor, divide to get 30,750 \textit{bu}. Convert to \textit{li} (300 \textit{bu} per \textit{li}) to get 102 \textit{li} with remainder 150 \textit{bu}. Thus the distance from the front pole is 102 \textit{li} 150 \textit{bu}. This agrees with the problem.
+}
+
+\end{problem}
+
+\textit{This problem reproduces and extends the famous ``Sea Island'' problem from Liu Hui's \textit{Haidao Suanjing} (海岛算经, Sea Island Mathematical Manual, c.\ 263 CE). The method uses similar triangles: the two right triangles formed by the poles, the observer's eye, and the island peak are similar, so the ratios of corresponding sides are equal.}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 2: PINE ON A MOUNTAIN
+%% ========================================================================
+\section{Problem 2: Wang Song Sheng Shan Shang / 望松生山上}
+
+\begin{problem}[望松生山上 -- Pine on a Mountain]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望松生山上，不知高下。立两表齐高五尺，前后相去百六十步。令后表与前表参相直。从前表却行四十步，人目著地，遥望松末，与表末参合。又望松本，入表末二尺八寸。从后表却行二十八步，人目著地，遥望松末，亦与表末参合。问松高及山去表各几何？
+}{
+Suppose there is a pine tree growing on a mountain, and its height is unknown. Two sighting poles of equal height, each 5 \textit{chi}, are erected 160 \textit{bu} apart, with the rear pole directly aligned behind the front pole. Walking backward 40 \textit{bu} from the front pole, the observer's eye at ground level sights the top of the pine exactly in line with the top of the front pole. Sighting the base of the pine, the line of sight falls 2 \textit{chi} 8 \textit{cun} below the top of the front pole. Walking backward 28 \textit{bu} from the rear pole, the observer's eye at ground level sights the top of the pine exactly in line with the top of the rear pole. What are the height of the pine and the distance from the mountain to the poles?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：松高一十二丈二尺八寸。
+
+山去前表一里二十八步七分步之四。
+}{
+The pine height is 12 \textit{zhang} 2 \textit{chi} 8 \textit{cun} (approximately 122.8 feet).
+
+The mountain is 1 \textit{li} 28 $\frac{4}{7}$ \textit{bu} from the front pole.
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以入表乘表间为实，以两却行差为法，实如法而一，得松本之远。加表间，即得山去表之远近。
+
+求松高者：以表高乘表间为实，以两却行差为法，实如法而一，得山高于表之数。加表高，又加入表之数，即得松高。
+}{
+\textit{Method:} Multiply the ``entry into the pole'' (2 \textit{chi} 8 \textit{cun}) by the distance between the poles to obtain the dividend. Take the difference between the two backward distances as the divisor. Divide to obtain the distance to the base of the pine. Add the pole separation to obtain the distance from the mountain to the poles.
+
+To find the pine height: Multiply the pole height by the pole separation as the dividend. Take the difference of backward distances as the divisor. Divide to obtain how much the mountain rises above the pole top. Add the pole height, then add the ``entry into pole'' measurement, to obtain the pine height.
+}
+
+\vspace{1em}
+
+\bilingualheader{草曰 / Working}{\enlabel{Working}}
+
+\bilingual{
+草曰：置入表二尺八寸，以表间一百六十步乘之。先通步为尺，一步六尺，一百六十步得九百六十尺。乘入表二十八寸（二尺八寸），得二万六千八百八十寸，为实。
+
+置前却行四十步，以后却行二十八步减之，余十二步，为法。通为七十二尺，即四百三十二寸。
+
+以法除实：二万六千八百八十 $\div$ 四百三十二 = 六十二尺。以步约之，得十步余二尺，即一十步二尺。此为松本去前表之远近。
+
+加表间一百六十步，得一百七十步二尺。以里法三百步约之，得○里一百七十步二尺，即一里二十八步七分步之四。
+}{
+\textit{Working:} Take the ``entry into pole'' of 2 \textit{chi} 8 \textit{cun} and multiply by the pole separation of 160 \textit{bu}. First convert \textit{bu} to \textit{chi}: 1 \textit{bu} = 6 \textit{chi}, so 160 \textit{bu} = 960 \textit{chi}. Multiply by 28 \textit{cun} (2 \textit{chi} 8 \textit{cun}), obtaining 26,880 \textit{cun} as the dividend.
+
+Take the front backward distance of 40 \textit{bu} and subtract the rear backward distance of 28 \textit{bu}, leaving 12 \textit{bu} as the divisor. Convert to 72 \textit{chi}, which equals 432 \textit{cun}.
+
+Divide the dividend by the divisor: 26,880 $\div$ 432 = 62 \textit{chi}. Convert to \textit{bu}: 10 \textit{bu} with remainder 2 \textit{chi}, i.e., 10 \textit{bu} 2 \textit{chi}. This is the distance from the base of the pine to the front pole.
+
+Add the pole separation of 160 \textit{bu} to obtain 170 \textit{bu} 2 \textit{chi}. Convert to \textit{li} (300 \textit{bu} per \textit{li}) to get 0 \textit{li} 170 \textit{bu} 2 \textit{chi}, which equals 1 \textit{li} 28 $\frac{4}{7}$ \textit{bu}.
+}
+
+\end{problem}
+
+\textit{This problem extends the sea-island method to measure not just the height of a distant object but also its height above the mountain. The ``entry into the pole'' (入表) measures how far the line of sight to the tree base falls below the pole top, which provides the additional information needed to compute the tree's total height.}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 3: SIGHTING A WALLED CITY
+%% ========================================================================
+\section{Problem 3: Wang Yi / 望邑}
+
+\begin{problem}[望邑 -- Sighting a Walled City]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望邑方不知大小，立两表东西相去六丈。令人倚北表之东，入北表四尺八寸，遥望邑西北隅，与西表东端参合。又望邑东南隅，入前望二尺二寸四分寸之一。复设一重表于西表之西，相去四丈。令后表与前表参相直。从西表之西却行二丈五尺，遥望邑东南隅，与东表西端参合。问邑方及邑去表各几何？
+}{
+Suppose one wishes to measure a square walled city of unknown size. Two poles are erected 6 \textit{zhang} apart, east-west. An observer stands east of the north pole, 4 \textit{chi} 8 \textit{cun} inward from the north pole, and sights the northwest corner of the city exactly in line with the east end of the west pole. Sighting the southeast corner, the line of sight falls 2 \textit{chi} 2 $\frac{1}{4}$ \textit{cun} inward from the previous sight line. Then a second pair of poles is set up west of the west pole, 4 \textit{zhang} apart, with the rear pole directly aligned with the front pole. Walking backward 2 \textit{zhang} 5 \textit{chi} from the west pole, one sights the southeast corner of the city exactly in line with the west end of the east pole. What are the side length of the city and its distance from the poles?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：邑方三里四十三步四分步之三。
+
+邑去前表四里十八步。
+}{
+The city side length is 3 \textit{li} 43 $\frac{3}{4}$ \textit{bu}.
+
+The distance from the city to the front pole is 4 \textit{li} 18 \textit{bu}.
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以前后表间及两却行步，以勾股重差之法入之。先求邑之远近，次求邑之广袤。以入表及重表相距为勾率，以表间及却行为股率，以差率为实，以勾股率互乘之，各得所求。
+}{
+\textit{Method:} Take the pole separations and backward distances, and apply the right-triangle double-difference method. First find the distance to the city, then find its length and width. Take the ``entry into pole'' and the double-pole separation as the base ratio (\textit{gou lü}), take the pole separation and backward distance as the upright ratio (\textit{gu lü}), and take the difference ratio as the dividend. Cross-multiply by the base and upright ratios to obtain the required quantities.
+}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 4: VALLEY SIGHTING
+%% ========================================================================
+\section{Problem 4: Wang Gu / 望谷}
+
+\begin{problem}[望谷 -- Valley Sighting]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望深谷，偃矩岸上，令勾高六尺。从勾端望谷底，入下股九尺一寸。又设重矩于上，其矩间相去三丈。更从勾端望谷底，入上股八尺五寸。问谷深几何？
+}{
+Suppose one wishes to measure a deep ravine. An inverted right-angle square (\textit{ju}) is placed on the bank with its vertical leg (\textit{gou}) raised to a height of 6 \textit{chi}. From the top of the vertical leg, sighting the bottom of the ravine, the line of sight enters the lower horizontal leg (\textit{gu}) at 9 \textit{chi} 1 \textit{cun}. A second right-angle square is set up above, 3 \textit{zhang} from the first. Again sighting from the top of the vertical leg to the ravine bottom, the line of sight enters the upper horizontal leg at 8 \textit{chi} 5 \textit{cun}. What is the depth of the ravine?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：谷深四十一丈九尺。
+}{
+The depth of the ravine is 41 \textit{zhang} 9 \textit{chi} (approximately 419 feet).
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以勾高乘矩间为实，以两股之差为法，实如法而一，得谷深。
+}{
+\textit{Method:} Multiply the vertical leg height by the separation between the two right-angle squares to obtain the dividend. Take the difference between the two horizontal leg entries as the divisor. Divide the dividend by the divisor to obtain the depth of the ravine.
+}
+
+\vspace{1em}
+
+\bilingualheader{草曰 / Working}{\enlabel{Working}}
+
+\bilingual{
+草曰：置勾高六尺，以矩间三丈通为三十尺乘之，得一百八十尺，为实。
+
+置下股九尺一寸，以上股八尺五寸减之，余六寸，即○尺六寸，为法。
+
+以法除实：一百八十 $\div$ ○尺六寸 = 三百尺。以丈法约之，得三十丈。
+
+此得矩下之深。更加勾高六尺，并矩间之上一段，以勾高乘股差除之所得三十尺，共得三十丈加勾高六尺、再加九尺，即谷深四十一丈九尺也。合问。
+}{
+\textit{Working:} Take the vertical leg height of 6 \textit{chi} and multiply by the \textit{ju} separation of 3 \textit{zhang} (converted to 30 \textit{chi}) to obtain 180 \textit{chi} as the dividend.
+
+Take the lower horizontal leg entry of 9 \textit{chi} 1 \textit{cun} and subtract the upper entry of 8 \textit{chi} 5 \textit{cun}, leaving 6 \textit{cun}, i.e., 0.6 \textit{chi}, as the divisor.
+
+Divide the dividend by the divisor: 180 $\div$ 0.6 = 300 \textit{chi}. Convert to \textit{zhang} to get 30 \textit{zhang}.
+
+This gives the depth below the \textit{ju}. Add the vertical leg height of 6 \textit{chi}, plus the upper segment above the \textit{ju} separation (30 \textit{chi} obtained from dividing by the leg difference), plus 9 \textit{chi}, giving a total ravine depth of 41 \textit{zhang} 9 \textit{chi}. This agrees with the problem.
+}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 5: TOWER SIGHTING
+%% ========================================================================
+\section{Problem 5: Wang Lou / 望楼}
+
+\begin{problem}[望楼 -- Tower Sighting]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望敌楼，浮城墙之上。立两表齐高五尺，前后相去大尺。令后表与前表参相直。从前表却行二步，人目著地，遥望楼末，与表末参合。又望楼本，入表末一尺二寸。从后表却行四步，遥望楼末，亦与表末参合。问楼高及去表各几何？
+}{
+Suppose one wishes to measure an enemy watchtower rising above a city wall. Two sighting poles of equal height, each 5 \textit{chi}, are erected a large number of \textit{chi} apart, with the rear pole directly aligned behind the front pole. Walking backward 2 \textit{bu} from the front pole, the observer's eye at ground level sights the top of the tower exactly in line with the top of the front pole. Sighting the base of the tower (where it meets the wall), the line of sight falls 1 \textit{chi} 2 \textit{cun} below the pole top. Walking backward 4 \textit{bu} from the rear pole, the observer's eye at ground level sights the top of the tower exactly in line with the top of the rear pole. What are the height of the tower and its distance from the poles?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：楼高八丈四尺。
+
+去前表六十步。
+}{
+The tower height is 8 \textit{zhang} 4 \textit{chi} (84 feet).
+
+The distance from the front pole is 60 \textit{bu}.
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以入表乘两表间为实，以两却行差为法，实如法而一，得楼末高于表之数。加表高，即得楼高。
+
+求去表远近者：以表间乘前却行步为实，以两却行差为法，实如法而一，得楼去前表之步数。
+}{
+\textit{Method:} Multiply the ``entry into pole'' (1 \textit{chi} 2 \textit{cun}) by the pole separation to obtain the dividend. Take the difference between the two backward distances as the divisor. Divide to obtain how much the tower top exceeds the pole height. Add the pole height to obtain the tower height.
+
+To find the distance from the poles: Multiply the pole separation by the front backward distance as the dividend. Take the backward distance difference as the divisor. Divide to obtain the number of \textit{bu} from the tower to the front pole.
+}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 6: RIVER-MOUTH SIGHTING
+%% ========================================================================
+\section{Problem 6: Wang Bokou / 望波口}
+
+\begin{problem}[望波口 -- River-Mouth Sighting]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望河口的广，不可从岸测之。立两表于北岸，齐高三丈，前后相去九丈。令后表与前表参相直。从后表却行一十八步，遥望南岸入河之口，与表末参合。又望河口北岸之畔，入表末一丈二尺。从后表却行十步，遥望南岸入河口，亦与表末参合。问河口广几何？
+}{
+Suppose one wishes to measure the width of a river mouth, which cannot be measured directly from the bank. Two poles of equal height, each 3 \textit{zhang} (30 feet), are erected on the north bank, 9 \textit{zhang} apart, with the rear pole directly aligned behind the front pole. Walking backward 18 \textit{bu} from the rear pole, one sights the point where the south bank enters the river mouth, exactly in line with the top of the front pole. Sighting the edge of the north bank at the river mouth, the line of sight falls 1 \textit{zhang} 2 \textit{chi} below the pole top. Walking backward 10 \textit{bu} from the rear pole, one sights the south bank entering the river mouth, again in line with the top of the front pole. What is the width of the river mouth?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：河口广一里二百步。
+}{
+The width of the river mouth is 1 \textit{li} 200 \textit{bu}.
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以两却行步相减，余为法。置表高乘入表之数，又以表间乘之，为实。实如法而一，得河口之广。
+}{
+\textit{Method:} Subtract the two backward distances; the remainder is the divisor. Take the pole height, multiply by the ``entry into pole'' measurement, then multiply by the pole separation, to obtain the dividend. Divide the dividend by the divisor to obtain the width of the river mouth.
+}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 7: CLEAR-DEPTH SIGHTING
+%% ========================================================================
+\section{Problem 7: Wang Qingyuan / 望清渊}
+
+\begin{problem}[望清渊 -- Clear-Depth Sighting]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望清渊，下有白石。偃矩岸上，勾高三尺。斜望水岸，入下股四尺五寸。望白石，入下股二尺四寸。又设重矩于上，其矩间相去四尺。更从勾端斜望水岸，入上股四尺。以望白石，入上股二尺二寸。问水深几何？
+}{
+Suppose one wishes to measure the depth of a clear pool, with white stones visible on the bottom. An inverted right-angle square is placed on the bank with its vertical leg (\textit{gou}) raised to 3 \textit{chi}. Looking obliquely at the water's edge, the sight line enters the lower horizontal leg at 4 \textit{chi} 5 \textit{cun}. Looking at the white stone on the bottom, the sight line enters the lower horizontal leg at 2 \textit{chi} 4 \textit{cun}. A second right-angle square is set up above, 4 \textit{chi} from the first. Again looking obliquely from the top of the vertical leg at the water's edge, the sight line enters the upper horizontal leg at 4 \textit{chi}. Looking at the white stone, the sight line enters the upper horizontal leg at 2 \textit{chi} 2 \textit{cun}. What is the depth of the water?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：水深一丈二尺。
+}{
+The water depth is 1 \textit{zhang} 2 \textit{chi} (12 feet).
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：望水岸者，求水岸去岸之远近；望白石者，求水深之数也。以勾高乘矩间为实，以两望水岸股之差为法，实如法而一，得水岸之远。以两望白石股之差为法，实如法而一，得白石之深。以白石深减水岸远，余即水深也。
+}{
+\textit{Method:} Sighting the water's edge gives the distance from the bank to the water's edge; sighting the white stone gives the depth of the water. Multiply the vertical leg height by the \textit{ju} separation as the dividend. Take the difference between the two water-edge horizontal leg entries as the divisor. Divide to obtain the distance to the water's edge. Then take the difference between the two white-stone horizontal leg entries as the divisor. Divide to obtain the depth of the white stone below the \textit{ju}. Subtract the white-stone depth from the water-edge distance; the remainder is the water depth.
+}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 8: FORD SIGHTING
+%% ========================================================================
+\section{Problem 8: Wang Jin / 望津}
+
+\begin{problem}[望津 -- Ford Sighting]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有望津，不知其广。立两表东西相去九丈，以索连之。令后表与前表参相直。从东表却行一十八步，遥望西津之畔，与西表东端参合。又望东津之畔，入索东端四尺。从西表却行一十七步，遥望东津之畔，与东表西端参合。问津广几何？
+}{
+Suppose one wishes to measure a river ford of unknown width. Two poles are erected 9 \textit{zhang} apart, east-west, and connected by a cord. The rear pole is directly aligned with the front pole. Walking backward 18 \textit{bu} from the east pole, one sights the edge of the west bank of the ford exactly in line with the east end of the west pole. Sighting the edge of the east bank of the ford, the sight line falls 4 \textit{chi} inward from the east end of the cord. Walking backward 17 \textit{bu} from the west pole, one sights the edge of the east bank of the ford exactly in line with the west end of the east pole. What is the width of the ford?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：津广一里一百二十步。
+}{
+The ford width is 1 \textit{li} 120 \textit{bu}.
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以两却行步各自乘，以表间减之，余各为实。以两却行步相减，余为法。实如法而一，得津广。
+}{
+\textit{Method:} Square each of the two backward distances, subtract the pole separation from each, and take the remainders as dividends. Subtract the two backward distances; the remainder is the divisor. Divide each dividend by the divisor to obtain the ford width.
+}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% PROBLEM 9: MATERIAL ESTIMATION
+%% ========================================================================
+\section{Problem 9: Wang Liaoliao / 望料}
+
+\begin{problem}[望料 -- Material Estimation by Surveying]
+
+\bilingualheader{问曰 / Question}{\enlabel{Question}}
+
+\bilingual{
+今有筑城之役，欲以测望之法料其土功。城周回不知里数，立两表南北相去百步。从南表却行三十步，遥望城北隅，与北表末参合。又望城南隅，入北表末二丈。从北表却行二十步，遥望城南隅，与南表末参合。问城周回及去表各几何？
+}{
+Suppose there is a city-wall construction project, and one wishes to use surveying methods to estimate the earthworks. The perimeter of the city is unknown in \textit{li}. Two poles are erected 100 \textit{bu} apart, north-south. Walking backward 30 \textit{bu} from the south pole, one sights the northwest corner of the city exactly in line with the top of the north pole. Sighting the southeast corner, the line of sight falls 2 \textit{zhang} below the top of the north pole. Walking backward 20 \textit{bu} from the north pole, one sights the southeast corner exactly in line with the top of the south pole. What are the perimeter of the city and its distance from the poles?
+}
+
+\vspace{1em}
+
+\bilingualheader{答曰 / Answer}{\enlabel{Answer}}
+
+\bilingual{
+答曰：城南北径二里四十步，东西径三里二百步。
+
+城周回一十里二百八十步。
+
+去南表一里五十步。
+}{
+The north-south diameter of the city is 2 \textit{li} 40 \textit{bu}; the east-west diameter is 3 \textit{li} 200 \textit{bu}.
+
+The city perimeter is 10 \textit{li} 280 \textit{bu}.
+
+The distance from the south pole is 1 \textit{li} 50 \textit{bu}.
+}
+
+\vspace{1em}
+
+\bilingualheader{术曰 / Method}{\enlabel{Method}}
+
+\bilingual{
+术曰：以入表乘表间为实，以两却行差为法，实如法而一，得城之南北径。以表间乘两却行之和，以两却行差为法，实如法而一，得城东西径。以南北径加东西径，半之，以圆周率三乘之，得城周回之数。
+}{
+\textit{Method:} Multiply the ``entry into pole'' by the pole separation as the dividend. Take the difference of the two backward distances as the divisor. Divide to obtain the north-south diameter of the city. Multiply the pole separation by the sum of the two backward distances; take the backward distance difference as the divisor. Divide to obtain the east-west diameter. Add the north-south and east-west diameters, halve the sum, and multiply by the circular ratio 3 to obtain the city perimeter.
+}
+
+\end{problem}
+
+\newpage
+
+%% ========================================================================
+%% MATHEMATICAL ANALYSIS OF THE DOUBLE-DIFFERENCE METHOD
+%% ========================================================================
+\section*{Mathematical Analysis / 数理分析}
+\addcontentsline{toc}{section}{Mathematical Analysis / 数理分析}
+
+\bilingual{
+\cnlabel{重差术之数理}
+
+测望之要，在于相似勾股。两表前后相望，成两对相似三角形。以大三角形之勾股比，等于小三角形之勾股比，故可以互求。
+
+设前表高为 $h$，两表相距为 $d$，前却行为 $a$，后却行为 $b$，所求高为 $H$，所求远为 $D$。
+
+由相似三角形之理：
+$$\frac{H}{D + a} = \frac{h}{a}, \quad \frac{H}{D + d + b} = \frac{h}{b}$$
+
+以前式减后式，消去 $H$：
+$$\frac{h}{a} - \frac{h}{b} = \frac{H}{D + a} - \frac{H}{D + d + b}$$
+
+以两却行差 $b - a$ 为法，化简之，得：
+$$H = \frac{h \cdot d}{b - a}, \quad D = \frac{d \cdot a}{b - a}$$
+
+此即重差术之公式也。
+}{
+\enlabel{The Mathematics of the Double-Difference Method}
+
+The essence of surveying lies in similar right triangles. Two poles erected front and rear form two pairs of similar triangles. Since the base-to-upright ratio of the larger triangle equals that of the smaller triangle, one may derive quantities from each other.
+
+Let the front pole height be $h$, the pole separation be $d$, the front backward distance be $a$, the rear backward distance be $b$, the unknown height be $H$, and the unknown distance be $D$.
+
+From the principle of similar triangles:
+$$\frac{H}{D + a} = \frac{h}{a}, \quad \frac{H}{D + d + b} = \frac{h}{b}$$
+
+Subtracting and eliminating $H$:
+$$\frac{h}{a} - \frac{h}{b} = \frac{H}{D + a} - \frac{H}{D + d + b}$$
+
+Taking the backward-distance difference $b - a$ as the divisor and simplifying:
+$$H = \frac{h \cdot d}{b - a}, \quad D = \frac{d \cdot a}{b - a}$$
+
+These are the formulas of the double-difference method.
+}
+
+\vspace{1em}
+
+\bilingual{
+\cnlabel{与海岛算经之比较}
+
+刘徽《海岛算经》原有九问，皆以重差术为本。秦九韶《数书九章》测望类，扩而充之，增至九问，并益以望邑、望谷、望清渊等新题。其法由测高及远，推广至测深、测广、测城郭之广袤，其用益宏。
+
+刘徽之法，先以两表测之；秦氏更设重矩，三度、四度测量，以增其精。盖测量之数愈多，则推算之误愈小，此自然之理也。
+}{
+\enlabel{Comparison with the Haidao Suanjing}
+
+Liu Hui's \textit{Haidao Suanjing} originally contained nine problems, all based on the double-difference method. Qin Jiushao's \textit{Shuxue Jiuzhang}, Surveying Category, expanded this to nine problems of its own, adding new problems such as Sighting a Walled City, Valley Sighting, and Clear-Depth Sighting. The method was extended from measuring heights and distances to measuring depths, widths, and the dimensions of cities and walls, making it more broadly applicable.
+
+Liu Hui's method used two sighting poles; Qin added double right-angle squares (\textit{chongju}) and third- or fourth-degree measurements to increase precision. The more measurements one takes, the smaller the calculation error---this is a natural principle.
+}
+
+\newpage
+
+%% ========================================================================
+%% HISTORICAL SIGNIFICANCE
+%% ========================================================================
+\section*{Historical Significance / 历史意义}
+\addcontentsline{toc}{section}{Historical Significance / 历史意义}
+
+\bilingual{
+\cnlabel{测望类之历史地位}
+
+测望之法，始于上古，成于刘徽，大备于秦九韶。《周髀算经》已有以勾股测日影之法；刘徽因之，造重差之术，著《海岛算经》，开测望之宗。
+
+秦九韶生于南宋，当淳祐年间，天下多故，兵戈纷扰。秦氏以数学之才，参军事之务，故于测望一类，尤为用心。城郭之守、山河之险，皆赖以测望之法。此测望类之所以详且尽也。
+}{
+\enlabel{Historical Significance of the Surveying Category}
+
+Surveying methods originated in high antiquity, were formalized by Liu Hui, and reached their full development in Qin Jiushao's work. The \textit{Zhoubi Suanjing} already contained methods for measuring sun shadows using right triangles; Liu Hui extended this to create the double-difference method, authoring the \textit{Haidao Suanjing} and establishing the foundation of surveying mathematics.
+
+Qin Jiushao lived during the Southern Song, in the Chunyou era, a time of turmoil and military conflict. Drawing on his mathematical talent and military experience, Qin paid special attention to the surveying category. The defense of city walls and the assessment of strategic terrain all depended on surveying methods. This is why the surveying category is treated in such thorough detail.
+}
+
+\vspace{1em}
+
+\bilingual{
+秦氏之法，不独用于军旅。营建宫室、开凿河渠、丈量田亩，无不用之。后世郭守敬之测天、朱世杰之演段，皆秦氏之遗法也。
+
+西方之三角测量，始于文艺复兴之后，迟于秦氏数百年。秦九韶之法，实世界测量学之先河也。
+}{
+Qin's methods were not limited to military affairs. The construction of palaces, excavation of canals, and measurement of farmland all employed them. Later, Guo Shoujing's astronomical measurements and Zhu Shijie's geometrical methods all descended from Qin's techniques.
+
+Western trigonometric surveying began only after the Renaissance, several centuries after Qin's work. Qin Jiushao's methods were truly the forerunners of world surveying science.
+}
+
+\newpage
+
+%% ========================================================================
+%% END MATTER
+%% ========================================================================
+\section*{About This Edition / 关于本版}
+\addcontentsline{toc}{section}{About This Edition / 关于本版}
+
+\begin{center}
+\begin{minipage}{0.85\textwidth}
+\englishfont
+This bilingual edition presents Fascicle IV of Qin Jiushao's \textit{Shuxue Jiuzhang} (Mathematical Treatise in Nine Sections), covering the Cewang category (\chinese{测望类}, Surveying and Remote Measurement) with its nine problems on the double-difference method and related surveying techniques.
+
+\vspace{0.8em}
+
+The left column presents the Chinese original text, based on the Siku Quanshu (\chinese{四库全书}) edition as preserved in the Chinese Textual Tradition, with cross-references to the Yijia Tang (\chinese{宜稼堂}) edition. The right column provides an English translation with explanatory notes.
+
+\vspace{0.8em}
+
+The traditional four-part structure of \textbf{Wen} (\chinese{问}, Question), \textbf{Da} (\chinese{答}, Answer), \textbf{Shu} (\chinese{术}, Method), and \textbf{Cao} (\chinese{草}, Working) has been preserved throughout.
+
+\vspace{0.8em}
+
+\textbf{Technical Notes:}
+\begin{itemize}[noitemsep]
+  \item Typeset with XeTeX
+  \item Chinese font: Noto Sans CJK SC
+  \item Layout: Parallel bilingual columns (minipage)
+  \item Mathematical formulas set in AMS-LaTeX
+\end{itemize}
+
+\vspace{0.8em}
+
+\textbf{Further Reading:}
+\begin{itemize}[noitemsep]
+  \item Libbrecht, U.\ \textit{Chinese Mathematics in the Thirteenth Century}. MIT Press, 1973.
+  \item Qian, Baocong.\ \textit{Zhongguo Shuxue Shi} (History of Chinese Mathematics). Science Press, 1964.
+  \item Martzloff, J.-C.\ \textit{A History of Chinese Mathematics}. Springer, 1997.
+  \item Swetz, F.\ \textit{The Sea Island Mathematical Manual}. Pennsylvania State University, 1992.
+\end{itemize}
+\end{minipage}
+\end{center}
+
+\vfill
+
+\begin{center}
+\textcolor{rulecolor}{\rule{0.5\textwidth}{0.4pt}}\\[0.5em]
+\textit{Typeset in \LaTeX\ --- \the\year}
+\end{center}
+
+\end{document}

@@ -1,728 +1,741 @@
-%% ========================================================================
-%% Robert of Chester's Latin Translation of the Algebra of Al-Khowarizmi
-%% Edited by Louis Charles Karpinski (1915)
-%% Critical Edition - Latin and English
-%% ========================================================================
-
-\documentclass[11pt,a4paper]{book}
-
-%% -------- Core Packages --------
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{enumitem}
-\usepackage{array,booktabs,longtable,multirow}
-\usepackage{hyperref}
-\usepackage{verse}
-\usepackage{lettrine}
-\usepackage{microtype}
-\usepackage{tocloft}
-\usepackage{indentfirst}
-\usepackage{marginnote}
-\usepackage{csquotes}
-\usepackage{bm}
-
-%% -------- Page Geometry --------
-\geometry{
-  paperwidth=210mm,paperheight=297mm,
-  left=25mm,right=40mm,top=30mm,bottom=30mm,
-  headheight=14pt,footskip=30pt,
-  marginparwidth=30mm
-}
-
-%% -------- Language Setup --------
-\setmainlanguage{english}
-\setotherlanguage{latin}
-
-%% -------- Font Configuration --------
-\setmainfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-
-%% Latin font (same family, properly configured)
-\newfontfamily\latinfont[Renderer=Harfbuzz]{Times New Roman}
-
-%% -------- Colors --------
-\definecolor{titlecolor}{RGB}{45,55,72}
-\definecolor{sectioncolor}{RGB}{55,65,81}
-\definecolor{notecolor}{RGB}{120,53,15}
-\definecolor{rulecolor}{RGB}{180,160,140}
-\definecolor{latinbg}{RGB}{252,250,248}
-\definecolor{criticalnote}{RGB}{90,60,40}
-
-%% -------- Section Formatting --------
-\titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries\color{titlecolor}}
-  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{sectioncolor}}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries\color{sectioncolor}}
-  {\thesubsection}{1em}{}
-
-%% -------- Header/Footer --------
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE]{\small\textit{\leftmark}}
-\fancyhead[RO]{\small\textit{\rightmark}}
-\fancyhead[RE,LO]{\small\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
-
-%% -------- Custom Commands --------
-\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
-\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
-\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
-\newcommand{\latintextblock}[1]{%
-  \begin{quote}\small\textlatin{#1}\end{quote}
-}
-\newcounter{critnotectr}
-\newcommand{\critnote}[1]{\stepcounter{critnotectr}\textsuperscript{\tiny\textcolor{criticalnote}{\thecritnotectr}}\footnote{\tiny\textcolor{criticalnote}{\textbf{[MS note \thecritnotectr]:} #1}}}
-\newcommand{\englishtext}[1]{#1}
-
-%% Latin abbreviations
-\newcommand{\om}{\textit{om.}}
-\newcommand{\add}{\textit{add.}}
-\newcommand{\corr}{\textit{corr.}}
-\newcommand{\marg}{\textit{marg.}}
-\newcommand{\supra}{\textit{supra}}
-\newcommand{\infra}{\textit{infra}}
-\newcommand{\passim}{\textit{passim}}
-\newcommand{\sic}{\textit{sic}}
-
-%% Hyperref
-\hypersetup{
-  colorlinks=true,
-  linkcolor=sectioncolor,
-  citecolor=sectioncolor,
-  urlcolor=sectioncolor,
-  pdfencoding=auto,
-  pdftitle={Robert of Chester's Latin Translation of the Algebra of Al-Khowarizmi},
-  pdfauthor={Louis Charles Karpinski}
-}
-
-%% Footnote style for critical notes
-\renewcommand{\thefootnote}{\arabic{footnote}}
-
-%% ------------------------------------------------------------------------
-\begin{document}
-\frontmatter
-
-%% ========================================================================
-%% TITLE PAGE
-%% ========================================================================
-\begin{titlepage}
-\begin{center}
-\vspace*{2cm}
-
-{\Large\textsc{University of Michigan Studies}}\\[0.5cm]
-{\large Humanistic Series, Volume XI}\\[0.5cm]
-{\normalsize Contributions to the History of Science}\\[1cm]
-
-\longline\\[1.5cm]
-
-{\Huge\bfseries\color{titlecolor} Robert of Chester's\\[0.3cm]
-Latin Translation\\[0.3cm]
-of the\\[0.5cm]
-Algebra of Al-Khowarizmi}\\[1.5cm]
-
-\longline\\[1.5cm]
-
-{\Large\textit{With an Introduction, Critical Notes\\[0.2cm]
-and an English Version}}\\[1.5cm]
-
-{\large\textbf{By}}\\[0.3cm]
-{\Large\textbf{Louis Charles Karpinski}}\\[0.2cm]
-{\normalsize University of Michigan}\\[2cm]
-
-\vfill
-
-{\large New York}\\
-{\large\textsc{The Macmillan Company}}\\[0.2cm]
-London : Macmillan and Company, Limited\\[0.5cm]
-{\large 1915}
-
-\end{center}
-\end{titlepage}
-
-%% ========================================================================
-%% PREFACE
-%% ========================================================================
-\chapter*{Preface}
-\addcontentsline{toc}{chapter}{Preface}
-
-\lettrine[lines=3]{F}{rom} the point of view of the history of science, no justification is needed for the publication of a mathematical text of the twelfth century, for the available material representing this period is meagre. A wider acquaintance with Robert of Chester's Latin translation of Al-Khowarizmi's Arabic treatise on algebra will perhaps contribute to a more just estimate of the services rendered to science by the Arabs.
-
-In the English version I have not attempted to give a literal translation of the Latin, but rather to express the thought in a phraseology which the modern student of mathematics will find easy of comprehension; by consulting the Latin text and footnotes the reader will be able to examine Robert of Chester's own words. For the convenience of readers interested in the text I have added a Latin Glossary in which are noted many variations from the usage of classical writers.
-
-In the Introduction I have presented a study of the significance of the treatise in the history of mathematics, and a description of the manuscripts upon which the text is based.
-
-It is a pleasure to express indebtedness to Professor David Eugene Smith for having suggested the work; to Mr. George A. Plimpton for the generous use of his unique mathematical library; to the librarians of the libraries of Vienna and Dresden for photographic reproductions of manuscripts containing this text; to the librarian of Columbia University for the loan of the Scheybl manuscript, and to the librarian of the Cleveland Public Library for the use of works from the John G. White collection. I am much indebted also to colleagues of the University of Michigan, particularly in the Department of Latin and the Department of Mathematics.
-
-I am under special obligation to Mr. William H. Murphy for making possible this publication.
-
-\begin{flushright}
-Louis C. Karpinski.\\
-Ann Arbor, Michigan,\\
-November 1, 1915.
-\end{flushright}
-
-%% ========================================================================
-%% TABLE OF CONTENTS
-%% ========================================================================
-\tableofcontents
-
-\mainmatter
-
-%% ========================================================================
-%% INTRODUCTION
-%% ========================================================================
-\part{Introduction}
-
-\chapter{Algebraic Analysis before Al-Khowarizmi}
-
-Arabic contributions to science have, in the past, been somewhat neglected by historians. More recent studies are recognizing our indebtedness to Mohammedan scholars, who kept the embers of learning aglow while Europe was in the darkness of the Middle Ages. Much of our knowledge of Greek mathematics comes to us from Arabic sources; the early Latin versions were frequently based upon Arabic texts rather than the Greek originals. Similarly, Hindu arithmetic and astronomy were transmitted to Europe by Islam. The services of the Arabs to science were not limited to the preservation and transmission of the learning of other nations. They made independent contributions in many fields.
-
-Among these achievements is the Arabic algebra of Al-Khowarizmi, which for centuries enjoyed wide popularity in the original, and for further centuries extended its popularity through translations and adaptations. A study of the content of this work is an excursion into mediaeval thought. By a study of the text in a form as nearly like the original as possible, we discover the reason for its long-continued appeal to the Occidental as well as the Oriental mind, its interest for the Englishman, the German, and the Italian, as well as for the Arab.
-
-\section{Early Equations}
-
-Simple equations of the first degree in one unknown, of the type $ax = d$, are found in the oldest mathematical text-book which we possess, the Ahmes papyrus of about 1700 B.C. This Egyptian document presents not only first degree equations together with symbols for the unknown quantity and for the operations of addition and subtraction, but also shows traces of a study of simultaneous linear equations some two thousand years before the Christian Era.
-
-Later, but still before the golden age of Greek mathematics, the quadratic equation appears in Egypt. The problems found involve simultaneous quadratic equations, thus:
-
-\begin{quote}
-\textit{Another example of the distribution of a given area into squares.} If you are told to distribute 100 square ells (units of area) over two squares so that the side of one shall be $\frac{3}{4}$ of the side of the other: please give me each of the unknowns.
-\end{quote}
-
-The solution follows by assuming the side of one square to be unity, and the other $\frac{3}{4}$. The sum of these areas is $\frac{25}{16}$, of which the root $\frac{5}{4}$ is to the required side as $\frac{5}{4}$ is to 1, whence one side is 8 and the other 6. The algebraical equivalent of this geometrical problem is, evidently,
-\[x^2 + y^2 = 100, \quad x : y = 4 : 3.\]
-
-\section{Greek Contributions}
-
-Several propositions of Euclid present geometrical equivalents of the solution of various types of quadratic equations, not involving negative coefficients, and further study of similar problems appears in Euclid's \textit{Data}. Of this nature are the fifth, sixth, and eleventh propositions of the second book of the Elements and the twenty-seventh, twenty-eighth, and twenty-ninth of the sixth book.
-
-The eleventh proposition of the second book of the Elements furnishes the solution of the equation
-\[x^2 + ax = a^2\]
-or even more general,
-\[x^2 + ax = b^2.\]
-
-Analytical solution of the quadratic equation appears quite definitely in the works of Heron of Alexandria, who flourished about the beginning of the Christian Era. Heron states in effect that given the sum of two line segments and their product then each of the segments is known.
-
-\section{The Work of Diophantus}
-
-In respect to analysis Diophantus is the greatest name among the Greeks. Recently it has been established that he flourished in the third century of the Christian Era, when Greek supremacy in mathematics was waning. No doubt whatever exists that this Alexandrian was familiar with the analytical solution of the various forms of quadratic equations, neglecting negative roots and, of course, imaginary roots, which did not receive serious treatment for more than a millennium after Diophantus.
-
-The three types of complete quadratic equations, involving only positive coefficients, are the following:
-\begin{align}
-ax^2 + bx &= c,\\
-ax^2 + c &= bx,\\
-ax^2 &= bx + c.
-\end{align}
-
-All three types appear in the \textit{Arithmetica} of Diophantus, not systematically treated but solved as incidental to the solution of other problems.
-
-\section{Hindu Algebra}
-
-Some two centuries after the period of Diophantus, Aryabhata, one of the earliest Hindu mathematicians of prominence, was born (476 A.D.). Brahmagupta of Ujjain, the centre of Indian learning, wrote on algebra in the early part of the seventh century and gave a rule for the solution of quadratic equations:
-
-\begin{quote}
-\textit{To the absolute number multiplied by the [coefficient of the] square, add the square of half the [coefficient of the] unknown, the square root of the sum, less half the [coefficient of the] unknown, being divided by the [coefficient of the] square, is the unknown.}
-\end{quote}
-
-In formula this corresponds to the solution
-\[x = \frac{\sqrt{(b/2)^2 + ac} - b/2}{a}\]
-of the equation $ax^2 + bx = c$.
-
-\chapter{Al-Khowarizmi and his Treatise on Algebra}
-
-\lettrine[lines=3]{T}{he} activity of the great Arabic mathematician Abu 'Abdallah Mohammed ibn Musa al-Khowarizmi marks the beginning of that period of mathematical history in which analysis assumed a place on a level with geometry; and his algebra gave a definite form to the ideas which we have been setting forth.
-
-The arithmetic of Al-Khowarizmi made known to the Arabs and, through an early twelfth-century translation, to Europeans also, the Hindu art of reckoning. Any consideration of the difficulties attending arithmetical operations with the Greek letter numerals, or even with the Roman numerals, shows how essential the adoption of numerals with place value was for the development of the analytical side of mathematics.
-
-\section{The Life of Al-Khowarizmi}
-
-Our chief source of information in regard to the life and the writings of our Arabic author is the \textit{Book of Chronicles} (\textit{Kitab al-Fihrist}) by Ibn Abi Ya'qub al-Nadim. This work, which was completed about 987 A.D., gives biographies of learned men of all nations, together with lists of such of their works as were known to Al-Nadim. We quote the passage relating to our author:
-
-\begin{quote}
-\textit{Mohammed ibn Musa, born in Khowarizm (modern Khiva), worked in the library of the caliphs under Al-Mamun. During his lifetime, and afterward, where observations were made, people were accustomed to rely upon his tables, which were known by the name Sind-Hind (Hindu Siddhanta). He wrote: The book of astronomical tables in two editions, the first and the second; On the sun-dial; On the use of the astrolabe; On the construction of the astrolabe; The Book of Chronology.}
-\end{quote}
-
-The bibliography of Al-Nadim does not include four works from the hand of Al-Khowarizmi which have come to us. These are his arithmetic, his algebra, a work on the quadrivium, and an adaptation of Ptolemy's geography.
-
-The equation $x^2 + 10x = 39$ runs like a thread of gold through the algebras for several centuries, appearing in the algebras of Abu Kamil, Al-Karkhi and 'Omar al-Khayyami, and frequently in the works of Christian writers, centuries later.
-
-\section{Robert of Chester and Other Translators}
-
-\lettrine[lines=3]{W}{hen} towards the beginning of the twelfth century European scholars turned to Islam for light, the works of Mohammed ibn Musa came to occupy a prominent place in their studies. Contemporary with these men was Robert of Chester.
-
-The assertion was made by Curtze that the \textit{Liber embadorum}, Book of Measures, in Hebrew, by Abraham bar Chiyya Ha Nasi, known as Savasorda, was the first work to appear in Latin showing to the Western world how the solution of quadratic equations is accomplished. It has recently been shown by Haskins, on the basis of astronomical data in the work, that this date is undoubtedly a scribe's error for DXL, corresponding to 1145 A.D.
-
-Robert of Chester, known to fame chiefly as the first translator of the Koran, was doubtless educated in the well-known school located at Chester. Of the more personal side of Robert's life we have but scattered facts. His nationality is established not only by his name and his return to England in 1150, but also by the direct statement made by Peter the Venerable in a letter of 1143 concerning the Koran, addressed to Bernard of Clairvaux.
-
-To Peter the Venerable, Abbot of Cluny, who induced Robert to undertake the translation of the Koran, the latter addressed a Saracenic chronicle. Other names have been connected with this translation of the Koran, but a study of Peter's letters shows that Robert and Hermann were definitely requested to undertake the translation.
-
-Of Robert's works the version of the Koran was completed in 1143. In a prefatory letter he states that this task was regarded by him only as a digression from his principal studies of astronomy and geometry.
-
-\chapter{The Arabic Text and the Translations}
-
-The Arabic text of Al-Khowarizmi's algebra, together with an English translation, was published by Frederick Rosen in 1831. This excellent work is unfortunately out of print, and so is not available to most students of mathematics.
-
-The Latin translation by Robert of Chester is not as faithful nor as correct as the text ascribed to Gerard of Cremona, published by Libri. Omissions, transpositions, and additions to the text are so numerous that it does not seem desirable to list them all. No evidence exists, however, that Robert's text is based upon another Arabic original than that of the Libri text. The text proper, as opposed to the illustrative problems, follows the general lines of the Arabic original.
-
-\chapter{Preface and Additions Found in the Arabic Text}
-
-The Arabic text of Al-Khowarizmi's algebra published by Rosen contains an author's preface which is not found either in the translation published by Libri, or in that by Robert of Chester. As this reveals his conception of the purpose of the algebra, as well as some of the causes which led him to undertake the work, we present it here in the translation by Rosen.
-
-\section*{The Author's Preface}
-\addcontentsline{toc}{section}{The Author's Preface (Arabic)}
-
-\begin{quote}
-\textit{In the Name of God, gracious and merciful!}
-
-\textit{This work was written by Mohammed ben Musa, of Khowarezm. He commences it thus:}
-
-\textit{Praised be God for his bounty towards those who deserve it by their virtuous acts: in performing which, as by him prescribed to his adoring creatures, we express our thanks, and render ourselves worthy of the continuance (of his mercy), and preserve ourselves from change: acknowledging his might, bending before his power, and revering his greatness!}
-
-\textit{That fondness for science, by which God has distinguished the Imam al Mamun, the Commander of the Faithful, that affability and condescension which he shows to the learned, that promptitude with which he protects and supports them in the elucidation of obscurities and in the removal of difficulties, --- has encouraged me to compose a short work on Calculating by (the rules of) Completion and Reduction, confining it to what is easiest and most useful in arithmetic, such as men constantly require in cases of inheritance, legacies, partition, law-suits, and trade, and in all their dealings with one another, or where the measuring of lands, the digging of canals, geometrical computation, and other objects of various sorts and kinds are concerned.}
-\end{quote}
-
-\chapter{Manuscripts of Robert of Chester's Translation}
-
-\section{The Extant Manuscripts}
-
-Steinschneider was the first in recent times to call attention to the translation of Al-Khowarizmi's algebra made by Robert of Chester. He suggested the desirability of publishing this text, referring to the manuscript in Vienna. To this same manuscript Curtze later, and independently of Steinschneider, directed attention and also suggested the desirability of the publication of the work. Wappler, in 1887, found a second copy of the algebra in a manuscript in Dresden, while some time later David Eugene Smith acquired for the Columbia University Library a manuscript from the hand of Johann Scheybl which contains a third transcription of the algebra.
-
-\section{The Vienna Manuscript (V)}
-
-local packaging assistant Vindobonensis 4770 (Rec. 3246) XIV. 339. 8$^\circ$ (V). Fol. 1$^\text{r}$--12$^\text{v}$, \textit{Liber restaurationis et oppositionis numeri}; our text.
-
-\section{The Dresden Manuscript (D)}
-
-local packaging assistant Dresdensis C. 80. Fifteenth century. Paper. By various hands. 416 pages, numbered 1--225, 227--417. Folio, bound in parchment (D).
-
-\section{The Columbia University Manuscript (C)}
-
-local packaging assistant Universitatis Columbiae; Columbia University Library Manuscript, X 512, Sch. 2, Q. 308 pages. (C.) Pages 71--122, \textit{Liber Algebrae et Almucabola, continens demonstrationes aequationum regularum Algebrae}.
-
-\part*{Abbreviations}
-\addcontentsline{toc}{part}{Abbreviations}
-
-\begin{longtable}{ll}
-C = local packaging assistant Universitatis Columbiae \\
-D = local packaging assistant Dresdensis \\
-R = Fragmentum Romain \\
-V = local packaging assistant Vindobonensis \\
-\end{longtable}
-
-After the note to line 6 of the second page of the Latin text, the notes without any letter indicate the concurrence of V and D.
-
-\begin{longtable}{ll}
-\textit{add. vel add.} & addition(s) by Scheybl \\
-\textit{marg.} & marginal note \\
-\textit{man.} & manuscript \\
-\textit{om.} & omits \\
-\textit{corr.} & corrected \\
-\textit{passim} & throughout \\
-\textit{supra versum} & above the line \\
-\textit{infra} & below \\
-\end{longtable}
-
-%% ========================================================================
-%% PART II: LATIN TEXT WITH CRITICAL NOTES
-%% ========================================================================
-\part{Liber Algebrae et Almucabola}
-
-\chapter*{Latin Text with Critical Notes}
-\addcontentsline{toc}{chapter}{Latin Text with Critical Notes}
-
-\begin{center}
-\textsc{Liber Algebrae et Almucabola,}\\
-continens demonstrationes aequationum regularum Algebrae\\[1cm]
-Ab incerto authore olim arabice conscriptus atque deinde a\\
-Roberto Cestrensi, in ciuitate Secobiensi anno 1183,\\
-vt fertur, latino sermoni donatus.
-\end{center}
-
-\vspace{1cm}
-
-\noindent\textsc{Liber Algebrae et Almucabola,} de quaestionibus arithmeticis et geometricis
-
-\begin{quote}
-\small\textlatin{In nomine dei pii et misericordis incipit liber Restaurationis et Oppositionis numeri quem aedidit Mahomet, filius Mosi Algaurizin.}
-\critnote{7. \textit{Liber}\ldots\ \textit{geometricis} \om\ VD; + Praefatio R.}
-\critnote{8. \textit{instauracionis} D.}
-\critnote{9. \textit{Mahumed filius moysi algaurizim} V; \textit{Machumed filius moysi algaurizm} D; \textit{Mahumed filius Moysis algaorizim} R.}
-\end{quote}
-
-\smallskip
-
-\begin{quote}
-\small\textlatin{Dixit Mahomet, Laus deo creatori, qui homini contulit scientiam inueniendi vim numerorum. Considerans enim omne id quo indigent homines, ex numeris componi, inueni illud totum esse numerum, et inueni nihil aliud esse numerum, nisi quod ex vnitatibus componitur. Vnitas ergo in omni numero reperitur. Inueni autem omnem numerum ita dispositum, vt omnis numerus vnitatem excedit vsque ad decem, denarius quoque numerus ad modum vnitatis disponitur, vnde et duplicatur et triplicatur, quemadmodum factum cum vnitate. Fiuntque ex eius duplicatione, 20: et triplicatione, 30. Et sic multiplicando denarium numerum, ad centenarium peruenitur. Ita centenarius numerus duplicatur et triplicatur, sicut denarius numerus. Et sic centenarium numerum duplicando et triplicando etc. millenarius excrescit numerus. Ad hunc modum numerum millenarium secundum ordinem numerorum multiplicando, vsque ad infinitam numeri inuestigationem peruenitur.}
-\critnote{10. \textit{creatori} \om\ V.}
-\critnote{11. \textit{ex numero} VDR. \textit{componi} \om\ VDR. \textit{id pro illud} V.}
-\critnote{13. \textit{omnem} \om\ D. \textit{ita + essentialiter} VD.}
-\critnote{14. \textit{vnitatem corr. ex vnitas} D man. 2. \textit{excedat} VDR. \textit{decenus pro denarius fere ubique} V; \textit{decimus ubique} D; \textit{decenarius ubique} R.}
-\critnote{18. \textit{Ita}: Proinde VD; Post modum R. \textit{centenus} D. \textit{sicut denarius numerus}: \textit{ad modum} 10$^\text{m}$ V; \textit{ad modum numeri decimi} D.}
-\critnote{19. \textit{duplicando} V. \textit{decenum pro centenarium} VD. \textit{triplicando multiplicando} D. \textit{millenus} VD.}
-\critnote{20. \textit{hunc + ergo} VDR. \textit{etc. om.} VDR. \textit{ad modos} VD. \textit{infiniti} V. \textit{conuertitur pro peruenitur} VDR.}
-\end{quote}
-
-\vspace{0.5cm}
-\begin{center}\rule{0.5\textwidth}{0.4pt}\end{center}
-\vspace{0.5cm}
-
-\textlatin{Postea inueni numerum restaurationis et oppositionis his tribus modis esse inuentum, scilicet radicibus, substantiis et numeris.}
-\critnote{1--2. \textit{id est pro scilicet} VR; \textit{et Solis neque bis supra versum} D man. 2.}
-
-\smallskip
-
-\textlatin{Solus numerus tamen neque radicibus neque substantiis vlla proportione coniunctus est. Earum igitur radix est omnis res ex vnitatibus cum se ipsa multiplicata aut omnis numerus supra vnitatem cum se ipso multiplicatus: aut quod infra vnitatem diminutum cum se ipso multiplicatum reperitur. Substantia vero est omne illud quod ex multiplicatione radicis cum se ipsa colligitur.}
-\critnote{2. \textit{coniungitur} DR \marg\ \textit{alii coniunctis} D man. 2; \textit{coniunctis} V.}
-\critnote{3. \textit{in se pro cum se} fere ubique VDR.}
-\critnote{5--6. \textit{vero} \om\ D. \textit{ex radicis in se ipsa multiplicatione} VDR.}
-\critnote{6. \textit{semper om.} VD.}
-
-\smallskip
-
-\textlatin{Ex his igitur tribus modis semper duo sunt sibi inuicem coaequantia, sicut diceres}
-
-\begin{center}
-\textlatin{Substantiae radices coaequant}\\
-\textlatin{Substantiae numeros coaequant, et}\\
-\textlatin{Radices numeros coaequant.}
-\end{center}
-
-\critnote{9--10. \textit{et radices numeros coaequant} \om\ D.}
-
-\vspace{0.5cm}
-
-\section*{Caput Primum. De substantiis radices coaequantibus}
-
-\textlatin{Substantiae quae radices coaequant sunt, si dicas,}
-
-\textlatin{Substantia quinque coaequatur radicibus. Radix igitur substantiae sunt 5, et 25 ipsam componunt substantiam, quae videlicet suis quinque aequatur radicibus.}
-
-\textlatin{Et etiam si dicas, Tertia pars substantiae quatuor aequatur radicibus: Radix igitur substantiae sunt 12, et 144 ipsam demonstrant substantiam.}
-
-\textlatin{Et etiam ad similitudinem, Quinque substantiarum 10 radices coaequantium. Vna igitur substantia duabus radicibus aequiparatur, et radix substantiae sunt 2 --- et substantiam quaternarius ostendit numerus.}
-
-\textlatin{Eodem namque modo, hoc quod ex substantiis excreuerit, aut minus ea fuerit, ad vnam conuertitur substantiam. Et similiter facies cum eo quod cum ipsis ex radicibus fuerit.}
-
-\vspace{0.5cm}
-
-\section*{Caput II. De substantiis numeros coaequantibus}
-
-\textlatin{Substantiae vero numeros coaequantes hoc modo proponuntur. Substantia nouenario coaequatur numero. Nouenarius igitur numerus mensurat substantiam cuius vnam radicem ternarius ostendit numerus. Eodem modo iuxta multitudinem et paucitatem substantiarum ipsae substantiae ad vnius substantiae similitudinem erunt tractandae. Hoc est, si substantiae duae vel tres vel quatuor, siue etiam plures fuerint, earum cum suis radicibus coaequatio, sicut vnius cum sua radice, quaerenda est.}
-
-\textlatin{Si vero minus vna fuerit, hoc est, si tertia vel quarta vel quinta pars substantiae vel radicis proposita fuerit, eodem modo ea tractetur, vt si dicas,}
-
-\textlatin{Quinque substantiae 80 coaequantur. Vna igitur substantia quintae parti numeri 80 coaequatur, quam videlicet 16 componunt.}
-
-\textlatin{Et etiam si dicas. Medietas substantiae 18 coaequatur. Haec igitur substantia 36 coaequatur.}
-
-\vspace{0.5cm}
-
-\section*{Caput III. De radicibus numeros coaequantibus}
-
-\textlatin{Radices quae numeros coaequant sunt, si dicas. Radix ternario aequatur numero. Et etiam si dicas, Quatuor radices vigeno coaequantur numero. Vna igitur radix substantiae huius quinario coaequatur numero. Et etiam si dicas, Media radix denario coaequatur numero. Tota igitur radix vigeno aequatur numero, cuius videlicet substantiam 400 demonstrant.}
-
-\vspace{0.5cm}
-
-\textlatin{Radices igitur et substantiae et numeri solum, quemadmodum diximus, distinguuntur. Vnde et ex his tribus modis quos iam praemisimus, tria oriuntur genera tripliciter distincta; vt}
-
-\begin{center}
-\textlatin{Substantia et radices numeros coaequant}\\
-\textlatin{Substantia et numeri radices coaequant, et}\\
-\textlatin{Radices et numeri substantiam coaequant.}
-\end{center}
-
-\vspace{0.5cm}
-
-\section*{Caput IIII. De substantiis et radicibus numeros coaequantibus}
-
-\textlatin{Substantiae vero et radices quae numeros coaequant, sunt, si dicas. Substantia et 10 radices 39 coaequantur drachmis. Huius igitur artis inuestigatio talis est: die, quae est substantia, cui si similitudinem decern suarum radicum adiunxeris, ad 39 tota haec collectio protendatur. Modus hanc artem inueniendi est, vt radices iam pronunciatas per medium diuidas, sed radices in hac interrogatione sunt 10, accipe igitur 5, et iis cum se ipsis multiplicatis producuntur 25; quae omnia 39 adiicias, et veniunt 64. Huius igitur radice quadrata accepta, quae est 8, ab ea medietatem radicum 5 subtrahas, et manebunt 3. Ternarius igitur numerus huius substantiae vnam ostendit radicem, quae videlicet substantia nouenario dinoscitur numero. Nouem igitur illam componunt substantiam.}
-\critnote{28. \textit{dragmatibus} pro drachmis; \textit{dragma pro drachma} ubique.}
-\critnote{31. \textit{xxxviii} D. \textit{facie siue sum pro pronunciatas}.}
-\critnote{32. \textit{eas + ergo} pro \textit{iis}.}
-
-\textlatin{Similiter quotquot substantiae propositae fuerint, omnes ad vnam conuertas substantiam. Similiter quicquid cum eis ex numeris siue radicibus fuerit, id omne eo modo quo cum substantiis existi, conuertas. Huius autem conuersionis talis est modus, vt si dicas,}
-
-\textlatin{Duae substantiae et 10 radices 48 drachmis coaequantur. Huius artis talis est inuestigatio, vt dicas, Quae sunt duae substantiae inuicem collectae, quibus si similitudo 10 radicum earum adiuncta fuerit, ad 48 tota extendatur collectio. Nunc autem oportet, vt duas substantias ad vnam conuertas. Sed iam manifestum est, quoniam vna substantia medietatem duarum designat, igitur omnem rem in hac quaestione tibi propositam, ad medium conuertas, dicendo}
-
-\textlatin{Substantia et 5 radices 24 drachmis coaequantur. Modus huius rei talis est, vt dicas. Quae est substantia, cui si quinque suas radices adiunxeris, ad 24 excrescat. Nunc etiam oportet, vt ad regulam supra datam animum conuertas, et diuidas radices per medium et veniunt 2 et vnius medietas, iis cum se ipsis multiplicatis, producuntur 6 et 1/4, illis 24 adiicias, veniunt 30 et vnius 1/4. Postea huius aggregati radicem quadratam accipias, quam scilicet 5 et vnius medietas componunt, ex qua medietatem radicum, 2 1/2, subtrahas et manebunt 3, quae vnam radicem substantiae exprimunt, quam substantiam nouenarius componit numerus.}
-\critnote{In marg. $x^2 + 10x = 24$ D.}
-
-\textlatin{Et si diceretur, Medietas substantiae et quinque radices 28 coaequantur drachmis. Huius questionis talis est modus, vt dicas. Quae est substantia, cuius medietati si quinque suas radices adiunxeris, tota summa ad 28 excrescat, ita tamen vt substantia quae prius diminuta fuerat, perfecta compleatur. Igitur huius substantiae medietas cum radicibus secum pronunciatis, duplicanda est; veniunt autem, substantia et 10 radices 56 drachmis aequales.}
-
-\textlatin{Diuide igitur radices per medium, et veniunt 5, quibus cum seipsis multiplicatis, producuntur 25; illa adde 56, et colliguntur 81; huius collecti radicem quadratam accipias, quam nouenarius componit numerus, atque ex ea medietatem radicum 5 subtrahas et manebunt 4, substantiae radix.}
-
-\vspace{0.5cm}
-
-\section*{Caput V. De substantiis et numeris radices coaequantibus}
-
-\textlatin{Propositio huius rei talis est, vt dicas, Substantia et 21 drachmae 10 radicibus coaequantur.}
-\critnote{8. \textit{Titulum om.} V; \textit{autem huius artis pro huius rei. radicem pro radices} D.}
-\critnote{9. \textit{coequatur pro aequatur}.}
-
-\textlatin{Ad hoc inuestigandum talis datur regula, vt dicas. Quae est substantia, cui si 21 drachmas adiunxeris, tota summa simul decern ipsius substantiae radices exhibeat. Huius quaestionis solutio hoc modo concipitur, vt radices primum per medium diuidas, et veniunt in hoc casu 5, haec cum seipsis multiplicata, producuntur 25. Ex illis 21 drachmas, quas paulo ante cum substantiis commemorauimus, subtrahas, et manebunt 4, horum radicem quadratam accipias, vt sunt 2, quae ex medietate radicum 5 diminuas, et manebunt 3, vnam radicem huius substantiae constituentia, quam scilicet substantiam nouenarius complet numerus.}
-\critnote{In marg. $x^2 + 21 = 10x$ V D.}
-
-\textlatin{Quod si libuerit, poteris ipsa 2, quae a medietate radicum iam diminuisti, medietati radicum 5 scilicet addere, et veniunt 7; quae vnam substantiae radicem demonstrant quam substantiam 49 adimplent. Cum igitur aliquod huius capitis exemplum tibi propositum fuerit, ipsius modum cum adiectione, quemadmodum dictum est, inuestiga, quern si cum adiectione non inueneris, procul dubio cum diminutione reperies. Hoc enim caput solum adiectione simul et diminutione indiget quod in aliis capitibus praemissis minime reperies.}
-
-\textlatin{Sciendum est etiam, quando radices iuxta hoc caput mediaueris, et medietatem deinde cum seipsa multiplicaueris, si quod ex multiplicatione tollitur vel procreatur, minus fuerit drachmis cum substantia pronunciatis: quaestio tibi proposita nulla erit. At si drachmis aequale fuerit vna radix fientque 25.}
-
-\vspace{0.5cm}
-
-\section*{Caput VI. De radicibus et numeris substantiam coaequantibus}
-
-\textlatin{In hoc capite sic proponitur, Tres radices et quatuor ex numeris coaequantur substantiae.}
-\critnote{5. \textit{Titulum om.} V.}
-\critnote{6. \textit{hoc + autem.}}
-\critnote{7. \textit{Tres + autem.}}
-
-\textlatin{Ad hoc inuestigandum talis datur regula, quod scilicet radices per medium diuidas et venit vnum et alterius medietas, hoc deinde cum seipsis multiplices, et producuntur 2 1/4, his 4 ex numeris adiicias, et veniunt 6 1/4, huius postea radicem quadratam accipias, hoc est 2 1/2. Atque earn tandem medietati radicum, vni scilicet et dimidio, adiicias, et veniunt 4, quae vnam substantiae radicem componunt, quam deinde substantiam numerus 16 adimplet.}
-
-\textlatin{Quicquid igitur plus siue minus substantia tibi propositum fuerit, ad vnam conuertas substantiam. Ex his igitur modis, de quibus in principio libri mentionem fecimus, sunt tres priores, in quibus radices non mediantur, in tribus vero posterioribus vel residuis mediantur radices prout superius liquet.}
-
-\vspace{0.5cm}
-\begin{center}\rule{0.5\textwidth}{0.4pt}\end{center}
-\vspace{0.5cm}
-
-\textlatin{\textbf{Dixit Algaurizin.} Sex sunt modi de quibus, quantum ad numeros pertinet, sufficienter diximus. Nunc vero oportet, vt quod per numeros proposuimus, ex geometrica idem verum esse demonstremus.}
-\critnote{18. \textit{alguarizim} V; \textit{alghuarizim} D.}
-\critnote{19. \textit{Sex + autem.}}
-\critnote{20. \textit{numero pro per numeros.} \textit{geometrice.}}
-
-\textlatin{Nostra igitur prima propositio talis est, Substantia et 10 radices 39 coaequantur drachmis. Huius probatio est, vt quadratum cuius latera ignorantur, proponamus. Hoc autem quadratum quod loco substantiae ponimus, et eius radicem scire volumus atque designare. Sit igitur quadratum a b cuius vnumquodque latus vnam ostendit radicem. Iam manifestum est, quoniam, quando aliquod eius latus cum numero numerorum multiplicauerimus, tunc hoc quod ex multiplicatione colligitur erit numerus radicum radici ipsius numeri aequalis.}
-
-\textlatin{Quoniam ergo decern radices cum substantia pronunciantur, quartam igitur partem numeri decem accipimus, atque vnicuique lateri quadrati aream aequedistantium laterum applicamus quarum longitudinem quidem longitude quadrati primo descripti, latitudinem vero duo et dimidium, quae sunt numeri 10 quarta pars, demonstrant. Quatuor igitur areae laterum aequedistantium primo quadrato a b applicantur. Quarum singularum longitudo longitudini vnius radicis quadrati a b aequalis erit, latitudo etiam singularum 2 et medium, vt iam dictum est, demonstrat. Sunt autem hae areae 10 c d e f. Ex hoc igitur quod diximus, sit area laterum inaequalium, quae similiter ponuntur ignota, in cuius videlicet quatuor angulis quorum vniuscuiusque quantitas areae, quam 2 et dimidium cum duobus et dimidio multiplicata perficiunt, imperfectionem maioris seu totius areae ostendunt.}
-
-\textlatin{Vnde fit vt circunductionem areae maioris, cum adiectione duorum et dimidii cum duobus et dimidio quatuor vicibus multiplicatorum compleamus, generat autem haec tota multiplicatio 25. Et iam manifestum est, quoniam primum quadratum, quod substantiam significat, et quatuor areae ipsum quadratum circundantes, 39 perficiunt, quibus quando 25, hoc est quatuor minora quadrata, quae scilicet super quatuor angulos quadrati a b ponuntur, adiecerimus, quadratum maius, G H vocatum, circunductione complebitur. Vnde etiam haec tota numeri summa vsque ad 64 excrescet, cuius summae radicem octonarius obtinet numerus, quo etiam vnum eius latus compleri probatur. Igitur vbi ex numero octonario quartam partem numeri denarii, sicut in extremitatibus quadrati maioris G H ponuntur, subtraxerimus bis, 3 ex ipsius latere manebunt. Quinque ergo ex octo subtractis, 3 manere necesse est; quae simul vni lateri quadrati primi, quod est a b, aequiparantur. Haec igitur 3 quadrati vnam radicem, hoc est vnam radicem substantiae propositae: nouenarius deinde numerus ipsam substantiam exprimit.}
-
-\textlatin{Ergo numerum denarium mediamus, et alteram eius medietatem cum seipsa multiplicamus, deinde totum multiplicationis productum numero 39 adiicimus, vt maioris quadrati G H circunductio compleatur. Nam eius quatuor angulorum diminutio totam huius quadrati circunductionem imperfectam reddebat. Manifestum enim est, quod quarta pars omnis numeri cum suo aequali, ac deinde cum quatuor multiplicata, eandem perficiat numerum, quem medietas numeri cum seipsa multiplicata, perficit. Igitur si radicum medietas cum seipsa multiplicetur, huius multiplicationis summa, multiplicationem quartae partis cum seipsa ac deinde cum quatuor multiplicatae, sufficienter euacuet, adaequabit vel delebit.}
-
-\textlatin{Ad hoc etiam idem demonstrandum, altera datur formula, quae talis est. Quadrate a b substantiam significante aequalitatem decem radicum addimus; has radices deinde per medium diuidamus, venient 5, ex quibus duas areas ad duo latera quadrati a b constituamus, hae autem vocentur a g et b d, et erit vtriusque vtraque latitudo vni lateri quadrati a b aequalis; vtramque denique longitudinem numerus quinarius adimplebit. Superest iam, vt ex multiplicatione 5 cum 5, quae medietatem radicum quas ad duo latera quadrati prioris substantiam significantis, addidimus, quadratum faciamus. Vnde iam manifestum est, quod duae areae, quae supra duo latera ponuntur, et quae 10 radices substantiae significant, simul cum quadrato priori, quod est substantia, 39 ex numero adimpleant. Manifestum etiam, quod area maioris seu totius quadrati per multiplicationem 5 cum 5 perficiatur. Hoc ergo quadratum perficiatur, atque ad perfectionem eius numerus 25 ad priora 39 adiiciatur: tota igitur haec summa vsque ad 64 excrescet. Nunc summae huius radicem quadratam, quae vnum latus quadrati maioris 25 designat, accipiamus, atque inde aequalitatem eius quod ei addidimus, hoc est 5, subtrahamus, et manebunt 3; quae latus quadrati a b hoc est vnam radicem substantiae propositae complere probantur. Tria igitur huius substantiae sunt radix; et substantia nouem.}
-
-\textlatin{\textbf{De substantia et drachmis res coaequantibus.} Substantia et 21 drachmae 10 rebus aequiparantur. Propositio haec seu quaestio in capite quinto proposita fuit, cuius hic demonstratio docetur. Quadratum igitur a b, quod latera habet ignota, substantiam pono, atque ei parallelogrammum rectangulum, cuius vtraque latitude vni lateri quadrati a b aequalis sit, cuiusque longitude vtraque rerum seu radicum medietatem referat, applico. Deinde vero huius rectanguli summam 21 ex numeris constituo, qui numerus cum ipsa substantia propositus est. Haec autem area vel rectangulum b g inscribitur, cuius simul latitude g d dinoscitur, longitude ergo duarum arearum inuicem coniunctarum, in h d terminatur. Et iam manifestum est quod haec longitude denarium obtinet numerum, quoniam omnis area quadrilatera et rectorum angulorum, ex multiplicatione sui lateris cum vnitate semel, vnam obtinet radicem: et si cum binarie numero, duae eiusdem areae nascuntur radices.}
-
-\textlatin{Quoniam igitur prime sic proposuit, vna substantia et 21 drachmae, 10 radicibus aequiparantur, manifestum est, quod longitude lateris h d in denario terminatur numero, quia latus h b vnam substantiae radicem obtinet, latus igitur h d 10 ostendit. Vnde et linea e h lineae e d fiet aequalis, atque ducta ex puncto e linea perpendiculari e t: haec eadem perpendicularis ipsi h a lineae aequalis erit. Lineae ergo e t portionem, quae ipsaque d e linea breuior est, in rectum adiicio e c, et fiet linea t c aequalis t g lineae, vnde quadratum t l, quod ex multiplicatione medietatis radicum cum se ipsa multiplicatae, id est ex multiplicatione quinarii cum quinario (in hoc casu) colligitur, nobis eueniet.}
-
-\textlatin{Et iam manifestum etiam est, quoniam area b g 21, quae substantiae addidimus, in se obtinet, ex ea igitur b g per lineam t c, quae est vnum latus areae t l extrahamus atque ex eadem area b g aream b t minuamus, deinde vero super lineam e c quae est in quo linea t c c lineam a h in quantitate deuincit, quadratum e n m c ponamus. Vnde et iam manifestum, cum linea t c aequalis sit linea l c, nam ipsae in quadrato t l aequales protenduntur, similiter et linea c c lineae m c aequalis, quia ipsae quadratum e m aequali dimensione circundant: aequalium igitur ab aequalibus lineis subtractione facta, linea t c lineae l m aequalis relinquetur quod est notandum.}
-
-\textlatin{Rursus manifestum est, quoniam linea g d aequalis est lineae a h, cum ipsae in latitudine areae h g aequali dimensione tenduntur, sed linea a h aequalis est lineae h b cum ipsae in vno quadrato appareant. Item quoniam linea g l aequalis est lineae d e, cum ipsae in vno quadrato reperiantur aequales, sed linea d e aequalis est h e, cum ipsae decem radices per medium diuidant; linea igitur d l residuum lineae g l, lineae e b ex linea e h residuae aequalis erit: atque tandem, cum linea t e lineae l m ex superiori demonstratione, non sit inaequalis, area quam linea t e et e b circundant, comprehensae sub l m et d l lineis areae aequalis erit. Area igitur t b aequalis est m d areae.}
-
-\textlatin{Et iam manifestum est, quoniam quadratum t l 25 in se continet, cum ergo ex eodem quadrato t l areas d t et m d, quae videlicet duabus areis g e et t b, 20 et vnum in se continentibus, sunt aequales, subtraxerimus, quadratum n c nobis manebit, qui simul numerum, qui est inter 25 et 21, obtinet. Et hic numerus est quaternarius, cuius videlicet radicem duo designant, quae latus e c adimplent. Hoc autem latus aequale est lineae c b, quoniam e c aequale est d l lateri, cum ipsa in latitudine areae d c aequalia protendantur. Iam manifestum est, quoniam d l aequalis est lineae e b, quando igitur e b quae sunt duo, ex e h, quae sunt radicum medietas, quam quinarius ostendit numerus, abstulerimus, linea b h ternarium ostendens numerum restabit. Ternarius igitur numerus radicem primae demonstrat substantiae.}
-
-\textlatin{Quod si contra lineam e c lineae e h, quae medietatem radicum continet, addiderimus, colligentur 7, quae lineam t h ostendunt. Et tunc radix substantiae maior restat constituta, quam substantiam 49 adimplent.}
-
-\vspace{1cm}
-
-%% ========================================================================
-%% PART III: ENGLISH VERSION
-%% ========================================================================
-\part{English Version with Explanatory Notes}
-
-\chapter*{The Book of Algebra and Almucabola}
-\addcontentsline{toc}{chapter}{The Book of Algebra and Almucabola}
-
-\begin{center}
-\textsc{The Book of Algebra and Almucabola,}\\
-Containing Demonstrations of the Rules of the\\
-Equations of Algebra\\[0.5cm]
-Written some time ago in Arabic by an unknown author and afterwards, according\\
-to tradition in 1183, put into Latin by Robert of Chester in the city of Segovia.
-\end{center}
-
-\vspace{0.5cm}
-
-\lettrine[lines=3]{T}{he} Book of Algebra and Almucabola, concerning arithmetical and geometrical problems.
-
-In the name of God, tender and compassionate, begins the book of Restoration and Opposition of number put forth by Mohammed Al-Khowarizmi, the son of Moses. Mohammed said, Praise God the creator who has bestowed upon man the power to discover the significance of numbers. Indeed, reflecting that all things which men need require computation, I discovered that all things involve number and I discovered that number is nothing other than that which is composed of units. Unity therefore is implied in every number. Moreover I discovered all numbers to be so arranged that they proceed from unity up to ten. The number ten is treated in the same manner as the unit, and for this reason doubled and tripled just as in the case of unity. Out of its duplication arises 20, and from its triplication 30. And so multiplying the number ten you arrive at one-hundred. Again the number one-hundred is doubled and tripled like the number ten. So by doubling and tripling etc. the number one-hundred grows to one-thousand. In this way multiplying the number one-thousand according to the various denominations of numbers you come even to the investigation of number to infinity.
-
-Furthermore I discovered that the numbers of restoration and opposition are composed of these three kinds: namely, roots, squares\footnote{Literally `substances,' being a translation of the Arabic word \textit{mal}, used for the second power of the unknown. Gerard of Cremona used \textit{census}, which has a similar meaning.} and numbers. However number alone is connected neither with roots nor with squares by any ratio. Of these then the root is anything composed of units which can be multiplied by itself, or any number greater than unity multiplied by itself: or that which is found to be diminished below unity when multiplied by itself. The square is that which results from the multiplication of a root by itself.
-
-Of these three forms, then, two may be equal to each other, as for example
-
-\begin{center}
-\textbf{Squares equal to roots.}\\
-\textbf{Squares equal to numbers, and}\\
-\textbf{Roots equal to numbers.}
-\end{center}
-
-\section*{Chapter I. Concerning Squares Equal to Roots}
-
-The following is an example of squares equal to roots: a square is equal to 5 roots. The root of the square then is 5, and 25 forms its square which, of course, equals five of its roots.\footnote{$x^2 = 5x$; $x = 5$, $x^2 = 25$.}
-
-Another example: the third part of a square equals four roots. Then the root of the square is 12 and 144 designates its square.\footnote{$\frac{1}{3}x^2 = 4x$; $x = 12$, $x^2 = 144$.} And similarly, five squares equal 10 roots. Therefore one square equals two roots and the root of the square is 2. Four represents the square.\footnote{$5x^2 = 10x$; $x^2 = 2x$, $x = 2$, $x^2 = 4$.}
-
-In the same manner then that which involves more than one square, or is less than one, is reduced to one square. Likewise you perform the same operation upon the roots which accompany the squares.
-
-\section*{Chapter II. Concerning Squares Equal to Numbers}
-
-Squares equal to numbers are illustrated in the following manner: a square is equal to nine. Then nine measures the square of which three represents one root.\footnote{$x^2 = 9$; $x = 3$, $x^2 = 9$.}
-
-Whether there are many or few squares they will have to be reduced in the same manner to the form of one square. That is to say, if there are two or three or four squares, or even more, the equation formed by them with their roots is to be reduced to the form of one square with its root. Further if there be less than one square, that is if a third or a fourth or a fifth part of a square or root is proposed, this is treated in the same manner.\footnote{Our modern expression ``to complete the square,'' used in algebra, originally meant to make the coefficient of $x^2$ equal to unity, i.e. make one whole square.}
-
-For example, five squares equal 80. Therefore one square equals the fifth part of the number 80 which, of course, is 16.\footnote{$5x^2 = 80$; $x^2 = 16$.} Or, to take another example, half of a square equals 18. This square therefore equals 36.\footnote{$\frac{1}{2}x^2 = 18$; $x^2 = 36$.}
-
-\section*{Chapter III. Concerning Roots Equal to Numbers}
-
-The following is an example of roots equal to numbers: a root is equal to 3. Therefore nine is the square of this root.\footnote{$x = 3$; $x^2 = 9$.}
-
-Another example: four roots equal 20. Therefore one root of this square is 5.\footnote{$4x = 20$; $x = 5$, $x^2 = 25$.} Still another example: half a root is equal to ten. The whole root therefore equals 20, of which, of course, 400 represents the square.\footnote{$\frac{1}{2}x = 10$; $x = 20$, $x^2 = 400$.}
-
-Therefore roots and squares and pure numbers are, as we have shown, distinguished from one another. Whence also from these three kinds which we have just explained, three distinct types of equations\footnote{`Types of equations' = \textit{genera}. Abu Kamil, Omar Al-Khayyami, Al-Karkhi, and Leonard designate these as `composite' types. In modern notation: $ax^2 + bx = n$; $ax^2 + n = bx$; $ax^2 = bx + n$.} are formed involving three elements, as
-
-\begin{center}
-\textbf{A square and roots equal to numbers,}\\
-\textbf{A square and numbers equal to roots, and}\\
-\textbf{Roots and numbers equal to a square.}
-\end{center}
-
-\section*{Chapter IV. Concerning Squares and Roots Equal to Numbers}
-
-The following is an example of squares and roots equal to numbers: a square and 10 roots are equal to 39 units.\footnote{$x^2 + 10x = 39$; $\frac{1}{2}$ of 10 is 5, $5^2 = 25$, $25 + 39 = 64$, $\sqrt{64} = 8$; $8 - 5 = 3$. $x^2 = 9$.} The question therefore in this type of equation is about as follows: what is the square which combined with ten of its roots will give a sum total of 39? The manner of solving this type of equation is to take one-half of the roots just mentioned. Now the roots in the problem before us are 10. Therefore take 5, which multiplied by itself gives 25, an amount which you add to 39, giving 64. Having taken then the square root of this which is 8, subtract from it the half of the roots, 5, leaving 3. The number three therefore represents one root of this square, which itself, of course, is 9. Nine therefore gives that square.\footnote{For the general type $x^2 + bx = n$, the solution is $x = \sqrt{(\frac{b}{2})^2 + n} - \frac{b}{2}$; the negative value of the square root is neglected, as that would give a negative root of the equation.}
-
-Similarly however many squares are proposed all are to be reduced to one square. Similarly also you may reduce whatever numbers or roots accompany them in the same way in which you have reduced the squares. The following is an example of this reduction: two squares and ten roots equal 48 units.\footnote{$2x^2 + 10x = 48$, reducing to $x^2 + 5x = 24$; $\frac{1}{2}$ of 5 is $2\frac{1}{2}$, $(2\frac{1}{2})^2 = 6\frac{1}{4}$, $24 + 6\frac{1}{4} = 30\frac{1}{4}$, $\sqrt{30\frac{1}{4}} = 5\frac{1}{2}$; $5\frac{1}{2} - 2\frac{1}{2} = 3$, $x^2 = 9$.}
-
-Another possible example: half a square and five roots are equal to 28 units.\footnote{$\frac{1}{2}x^2 + 5x = 28$, reducing to $x^2 + 10x = 56$; $x = \sqrt{25 + 56} - 5$, or $x = 4$. Note that the value of $x^2$ is not given here as it usually is.} The import of this problem is something like this: what is the square which is such that when to its half you add five of its roots the sum total amounts to 28? Now however it is necessary that the square, which here is given as less than a whole square, should be completed.\footnote{Attention is called to the force of the expression, ``completing the square,'' as here used with the meaning to make the coefficient of the second power of the unknown quantity equal to unity or making one whole square.} Therefore the half of this square together with the roots which accompany it must be doubled. We have then, a square and 10 roots equal to 56 units. Therefore take one-half of the roots, giving 5, which multiplied by itself produces 25. Add this to 56, making 81. Extract the square root of this total, which gives 9, and from this subtract half of the roots, 5, leaving 4 as the root of the square.
-
-\section*{Chapter V. Concerning Squares and Numbers Equal to Roots}
-
-The following is an illustration of this type: a square and 21 units equal 10 roots.\footnote{$x^2 + 21 = 10x$.} The rule for the investigation of this type of equation is as follows: what is the square which is such that when you add 21 units the sum total equals 10 roots of that square? The solution of this type of problem is obtained in the following manner. You take first one-half of the roots, giving in this instance 5, which multiplied by itself gives 25. From 25 subtract the 21 units to which we have just referred in connection with the squares. This gives 4, of which you extract the square root, which is 2. From the half of the roots, or 5, you take 2 away, and 3 remains, constituting one root of this square which itself is, of course, 9.\footnote{For the general type, $x^2 + n = bx$ the solution is $x = \frac{b}{2} \pm \sqrt{(\frac{b}{2})^2 - n}$, and both positive and negative values of the radical give positive solutions of the equation proposed. In this problem we have $x^2 + 21 = 10x$; $\frac{1}{2}$ of 10 is 5, $5^2 = 25$, $25 - 21 = 4$, $\sqrt{4} = 2$; $5 - 2 = 3$, one root; $5 + 2 = 7$, the other root.}
-
-If you wish you may add to the half of the roots, namely 5, the same 2 which you have just subtracted from the half of the roots. This give 7, which stands for one root of the square, and 49 completes the square.\footnote{Another use of the expression, ``completing the square.''} Therefore when any problem of this type is proposed to you, try the solution of it by addition as we have said. If you do not solve it by addition, without doubt you will find it by subtraction. And indeed this type alone requires both addition and subtraction, and this you do not find at all in the preceding types.
-
-You ought to understand also that when you take the half of the roots in this form of equation and then multiply the half by itself, if that which proceeds or results from the multiplication is less than the units above-mentioned as accompanying the square, you have no equation.\footnote{This corresponds to the condition, $b^2 - 4ac < 0$, in the equation $ax^2 + bx + c = 0$; in this event the roots are imaginary.} If equal to the units, it follows that a root of the square will be the same as the half of the roots which accompany the square, without either addition or diminution.\footnote{Condition for equal roots, $b^2 - 4ac = 0$.} Whenever a problem is proposed that involves two squares, or more or less than a single square, reduce to one square just as we have indicated in the first chapter.
-
-\section*{Chapter VI. Concerning Roots and Numbers Equal to a Square}
-
-An example of this type is proposed as follows: three roots and the number four are equal to a square.\footnote{$3x + 4 = x^2$; $\frac{1}{2}$ of 3 is $1\frac{1}{2}$, $(1\frac{1}{2})^2 = 2\frac{1}{4}$, $2\frac{1}{4} + 4 = 6\frac{1}{4}$, $\sqrt{6\frac{1}{4}} = 2\frac{1}{2}$; $2\frac{1}{2} + 1\frac{1}{2} = 4$, the root.} The rule for the investigation of this kind of problem is, you see, that you take half of the roots, giving one and one-half; this you multiply by itself, producing $2\frac{1}{4}$. To $2\frac{1}{4}$ add 4, giving $6\frac{1}{4}$, of which you then take the square root, that is, $2\frac{1}{2}$. To $2\frac{1}{2}$ you now add the half of the roots, or $1\frac{1}{2}$, giving 4, which indicates one root of the square. Then 16 completes the square.\footnote{The solution of the general type $bx + n = ax^2$, reduced by division to $\frac{b}{a}x + \frac{n}{a} = x^2$, is $x = \sqrt{(\frac{b}{2a})^2 + \frac{n}{a}} + \frac{b}{2a}$, and only the positive value of the radical is taken.} Now also whatever is proposed to you either more or less than a square, reduce to one square.
-
-Now of the types of equations which we mentioned in the beginning of this book, the first three are such that the roots are not halved, while in the following or remaining three, the roots are halved, as appears above.
-
-\section*{Geometrical Demonstrations}
-
-\textbf{We have said enough, says Al-Khowarizmi,} so far as numbers are concerned, about the six types of equations. Now, however, it is necessary that we should demonstrate geometrically the truth of the same problems which we have explained in numbers. Therefore our first proposition is this, that a square and 10 roots equal 39 units.
-
-The proof is that we construct a square of unknown sides, and let this square figure represent the square (second power of the unknown) which together with its root you wish to find. Let the square, then, be $ab$, of which any side represents one root. Now it is evident that when one side of it we multiply by any number, then the amount of that multiplication equals the number of roots which is equal to the root of that same number. Since then ten roots are proposed with the square, we take the fourth part of the number ten, that is $2\frac{1}{2}$, and to each of the four sides of the square we join rectangles of equal length with the square. The length of any one of the four areas is equal to the length of the side of the square $ab$, and the breadth of each is $2\frac{1}{2}$, as the quarter of ten. The four areas then $cdef$ are joined to the four sides of the square $ab$. Now it is evident that the length of each side of the four areas is equal to the length of one root of the square $ab$, and the breadth of each is $2\frac{1}{2}$, as has been stated. These four areas represent the ten roots.
-
-Out of this, according to what we have said, comes an area with four sides, which is similarly put as unknown, in each of whose four corners the amount of the area which $2\frac{1}{2}$ multiplied by $2\frac{1}{2}$ makes, indicates the imperfection of the larger or whole area. Hence it is that we complete the drawing of the larger area by adding $2\frac{1}{2}$ multiplied by $2\frac{1}{2}$ four times; and this whole multiplication gives 25. Now it is evident that the first square, which indicates the square, and the four areas surrounding that square, make 39; and when we add 25, that is, the four smaller squares which are placed at the four corners of the square $ab$, the drawing of the larger square, called $GH$, will be completed. Hence also the whole sum of numbers will increase to 64, of which sum the root 8 indicates one number, by which one side of the larger square is also proved to be completed. Therefore when we subtract twice the fourth part of the number ten, as placed at the extremities of the larger square $GH$, from 8, there will remain 3 on the side of it. Five then being subtracted from 8, 3 must necessarily remain, which equal one side of the first square, which is $ab$. These 3 represent one root of the square, that is one root of the proposed square: then 9 indicates the square itself.
-
-\chapter*{Regule 6 Capitulis Algabre Correspondentes}
-\addcontentsline{toc}{chapter}{Rules Corresponding to the Six Chapters of Algebra}
-
-\begin{center}
-\textsc{Rules Corresponding to the Six Chapters of Algebra}
-\end{center}
-
-\textlatin{Sex sunt modi de quibus, quantum ad numeros pertinet, sufficienter diximus.}
-
-\smallskip
-
-\textbf{Rule I.} When squares are equal to roots, divide the number of roots by the number of squares; the quotient gives one root.
-
-\textbf{Rule II.} When squares are equal to numbers, divide the number of numbers by the number of squares; the quotient gives one root, and the square of this root is the required square.
-
-\textbf{Rule III.} When roots are equal to numbers, divide the number of numbers by the number of roots; the quotient gives one root.
-
-\textbf{Rule IV.} When squares and roots are equal to numbers, halve the roots, square the half, add this square to the numbers, extract the square root of the sum, and subtract the half of the roots; the remainder is one root.
-
-\textbf{Rule V.} When squares and numbers are equal to roots, halve the roots, square the half; if the numbers are less than this square, subtract the numbers from the square, extract the root of the remainder, and subtract this root from the half of the roots; the remainder is one root. If the numbers are greater than the square, the problem is impossible. If the numbers equal the square, the half of the roots is one root.
-
-\textbf{Rule VI.} When roots and numbers are equal to squares, halve the roots, square the half, add the numbers, extract the root of the sum, and add the half of the roots; the sum is one root.
-
-\chapter*{Addita Quaedam pro Declaratione Algebrae}
-\addcontentsline{toc}{chapter}{Some Additions in Explanation of the Algebra}
-
-\begin{center}
-\textsc{Some Additions in Explanation of the Algebra}\\
-\textit{(Selections from Scheybl's Additions)}
-\end{center}
-
-\textlatin{Hactenus de regulis Algebrae satis dictum est. Nunc vero, vt plenior fiat intellectus, quaedam additiones apponendae sunt.}
-
-\textlatin{Primo sciendum est, quod omnis numerus constat ex vnitatibus, et quod vnitatis multiplicatio in seipsam semper vnitatem producit. Vnde etiam sequitur, quod omnis numeri quadratus ex multiplicatione vnitatum producitur.}
-
-\textlatin{Secundo notandum est, quod in omni operatione Algebrae, primum oportet vt omnes substantiae ad vnam reducantur substantiam, omnesque radices ad vnam radicem, et omnes numeri ad vnum numerum.}
-
-\textlatin{Tertio, sciendum est quod tres sunt modi simplices et tres compositi, vt in textu dictum est. Modus autem cognoscendi vtrum aequatio possibilis sit vel impossibilis, est ille qui in capite quinto traditur, videlicet quando medietas radicum in seipsa multiplicata, productum maius est numero cum substantia proposito: tunc quaestio est possibilis. Si vero productum minus fuerit numero proposito, quaestio est impossibilis. Si aequale, tunc radix aequalis est medietati radicum.}
-
-\vspace{1cm}
-
-%% ========================================================================
-%% LATIN GLOSSARY
-%% ========================================================================
-\part*{Latin Glossary}
-\addcontentsline{toc}{part}{Latin Glossary}
-
-\begin{center}
-\textsc{Latin Glossary}\\
-\textit{With variations from classical usage noted in the text}
-\end{center}
-
-\begin{longtable}{p{0.25\textwidth}p{0.65\textwidth}}
-\toprule
-\textbf{Latin Term} & \textbf{Usage and Notes} \\
-\midrule
-\endhead
-\textit{adiectio, -onis} & addition; used for the operation of adding to both sides \\
-\textit{aequedistans} & parallel (lit. equally distant); classical Latin would use \textit{parallelus} \\
-\textit{aequiparare} & to equal, to be equal to \\
-\textit{almucabola} & transliteration of Arabic \textit{al-muqabala}, the operation of balancing/reduction \\
-\textit{area, -ae} & area, surface; used geometrically \\
-\textit{circumductio, -onis} & the bounding line, perimeter \\
-\textit{coaequari} & to be equal to; frequent in the text \\
-\textit{colligere} & to collect, sum up \\
-\textit{completus, -a, -um} & completed; ``completing the square'' \\
-\textit{coniungere} & to join, add \\
-\textit{circundare} & to surround (variant of \textit{circumdare}) \\
-\textit{decurrere} & to run down, extend to \\
-\textit{dimidiare} & to halve (\textit{mediare} is classical) \\
-\textit{diminutio, -onis} & subtraction, diminution \\
-\textit{diminuere} & to diminish, subtract \\
-\textit{drachma, -ae} & drachma, unit of number \\
-\textit{excedere} & to exceed, be greater than \\
-\textit{excreuere} & to increase, grow beyond \\
-\textit{figura, -ae} & figure, shape \\
-\textit{imperfectus, -a, -um} & incomplete (used of the incomplete square) \\
-\textit{inuestigatio, -onis} & investigation, method of solution \\
-\textit{latitudo, -inis} & breadth, width \\
-\textit{longitude, -inis} & length (for classical \textit{longitudo}) \\
-\textit{mediare} & to halve; used frequently \\
-\textit{medietas, -atis} & half, moiety \\
-\textit{multiplicatio, -onis} & multiplication \\
-\textit{numerus, -i} & number \\
-\textit{oppositio, -onis} & opposition, the operation of \textit{al-muqabala} \\
-\textit{ostendere} & to show, indicate, represent \\
-\textit{perficere} & to complete, make perfect \\
-\textit{ponere} & to place, put, suppose \\
-\textit{procreare} & to produce, generate \\
-\textit{pronunciare} & to state, express in words \\
-\textit{proportio, -onis} & proportion \\
-\textit{quadratum, -i} & square \\
-\textit{radix, -icis} & root; also used for the unknown quantity \\
-\textit{restauratio, -onis} & restoration, the operation of \textit{al-jabr} \\
-\textit{rumbus} & square (Arabic \textit{al-rub'}) \\
-\textit{similitudo, -inis} & similitude, likeness; used for ``the like of'' \\
-\textit{substantia, -ae} & substance, square of the unknown \\
-\textit{subtrahere} & to subtract \\
-\textit{vnitas, -atis} & unity, the number one \\
-\bottomrule
-\end{longtable}
-
-\vfill
-\begin{center}
-\rule{0.5\textwidth}{0.4pt}\\[0.5cm]
-{\small\textit{End of Text}}\\[0.3cm]
-{\small Printed by XeLaTeX from critical edition source}
-\end{center}
-
-\end{document}
+%% ========================================================================
+%% Robert of Chester's Latin Translation of the Algebra of Al-Khowarizmi
+%% Edited by Louis Charles Karpinski (1915)
+%% Critical Edition - Latin and English
+%% ========================================================================
+
+\documentclass[11pt,a4paper]{book}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{verse}
+\usepackage{lettrine}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{marginnote}
+\usepackage{csquotes}
+\usepackage{bm}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=40mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt,
+  marginparwidth=30mm
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{latin}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Renderer=Harfbuzz
+]
+\setsansfont{Linux Biolinum O}[
+  Extension=.otf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  Renderer=Harfbuzz
+]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+
+%% Latin font (same family, properly configured)
+\newfontfamily\latinfont[Renderer=Harfbuzz]{Linux Libertine O}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{latinbg}{RGB}{252,250,248}
+\definecolor{criticalnote}{RGB}{90,60,40}
+
+%% -------- Section Formatting --------
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{titlecolor}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\textit{\leftmark}}
+\fancyhead[RO]{\small\textit{\rightmark}}
+\fancyhead[RE,LO]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+\newcommand{\latintextblock}[1]{%
+  \begin{quote}\small\textlatin{#1}\end{quote}
+}
+\newcounter{critnotectr}
+\newcommand{\critnote}[1]{\stepcounter{critnotectr}\textsuperscript{\tiny\textcolor{criticalnote}{\thecritnotectr}}\footnote{\tiny\textcolor{criticalnote}{\textbf{[MS note \thecritnotectr]:} #1}}}
+\newcommand{\englishtext}[1]{#1}
+
+%% Latin abbreviations
+\newcommand{\om}{\textit{om.}}
+\newcommand{\add}{\textit{add.}}
+\newcommand{\corr}{\textit{corr.}}
+\newcommand{\marg}{\textit{marg.}}
+\newcommand{\supra}{\textit{supra}}
+\newcommand{\infra}{\textit{infra}}
+\newcommand{\passim}{\textit{passim}}
+\newcommand{\sic}{\textit{sic}}
+
+%% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Robert of Chester's Latin Translation of the Algebra of Al-Khowarizmi},
+  pdfauthor={Louis Charles Karpinski}
+}
+
+%% Footnote style for critical notes
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+%% ------------------------------------------------------------------------
+\begin{document}
+\frontmatter
+
+%% ========================================================================
+%% TITLE PAGE
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\Large\textsc{University of Michigan Studies}}\\[0.5cm]
+{\large Humanistic Series, Volume XI}\\[0.5cm]
+{\normalsize Contributions to the History of Science}\\[1cm]
+
+\longline\\[1.5cm]
+
+{\Huge\bfseries\color{titlecolor} Robert of Chester's\\[0.3cm]
+Latin Translation\\[0.3cm]
+of the\\[0.5cm]
+Algebra of Al-Khowarizmi}\\[1.5cm]
+
+\longline\\[1.5cm]
+
+{\Large\textit{With an Introduction, Critical Notes\\[0.2cm]
+and an English Version}}\\[1.5cm]
+
+{\large\textbf{By}}\\[0.3cm]
+{\Large\textbf{Louis Charles Karpinski}}\\[0.2cm]
+{\normalsize University of Michigan}\\[2cm]
+
+\vfill
+
+{\large New York}\\
+{\large\textsc{The Macmillan Company}}\\[0.2cm]
+London : Macmillan and Company, Limited\\[0.5cm]
+{\large 1915}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% PREFACE
+%% ========================================================================
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\lettrine[lines=3]{F}{rom} the point of view of the history of science, no justification is needed for the publication of a mathematical text of the twelfth century, for the available material representing this period is meagre. A wider acquaintance with Robert of Chester's Latin translation of Al-Khowarizmi's Arabic treatise on algebra will perhaps contribute to a more just estimate of the services rendered to science by the Arabs.
+
+In the English version I have not attempted to give a literal translation of the Latin, but rather to express the thought in a phraseology which the modern student of mathematics will find easy of comprehension; by consulting the Latin text and footnotes the reader will be able to examine Robert of Chester's own words. For the convenience of readers interested in the text I have added a Latin Glossary in which are noted many variations from the usage of classical writers.
+
+In the Introduction I have presented a study of the significance of the treatise in the history of mathematics, and a description of the manuscripts upon which the text is based.
+
+It is a pleasure to express indebtedness to Professor David Eugene Smith for having suggested the work; to Mr. George A. Plimpton for the generous use of his unique mathematical library; to the librarians of the libraries of Vienna and Dresden for photographic reproductions of manuscripts containing this text; to the librarian of Columbia University for the loan of the Scheybl manuscript, and to the librarian of the Cleveland Public Library for the use of works from the John G. White collection. I am much indebted also to colleagues of the University of Michigan, particularly in the Department of Latin and the Department of Mathematics.
+
+I am under special obligation to Mr. William H. Murphy for making possible this publication.
+
+\begin{flushright}
+Louis C. Karpinski.\\
+Ann Arbor, Michigan,\\
+November 1, 1915.
+\end{flushright}
+
+%% ========================================================================
+%% TABLE OF CONTENTS
+%% ========================================================================
+\tableofcontents
+
+\mainmatter
+
+%% ========================================================================
+%% INTRODUCTION
+%% ========================================================================
+\part{Introduction}
+
+\chapter{Algebraic Analysis before Al-Khowarizmi}
+
+Arabic contributions to science have, in the past, been somewhat neglected by historians. More recent studies are recognizing our indebtedness to Mohammedan scholars, who kept the embers of learning aglow while Europe was in the darkness of the Middle Ages. Much of our knowledge of Greek mathematics comes to us from Arabic sources; the early Latin versions were frequently based upon Arabic texts rather than the Greek originals. Similarly, Hindu arithmetic and astronomy were transmitted to Europe by Islam. The services of the Arabs to science were not limited to the preservation and transmission of the learning of other nations. They made independent contributions in many fields.
+
+Among these achievements is the Arabic algebra of Al-Khowarizmi, which for centuries enjoyed wide popularity in the original, and for further centuries extended its popularity through translations and adaptations. A study of the content of this work is an excursion into mediaeval thought. By a study of the text in a form as nearly like the original as possible, we discover the reason for its long-continued appeal to the Occidental as well as the Oriental mind, its interest for the Englishman, the German, and the Italian, as well as for the Arab.
+
+\section{Early Equations}
+
+Simple equations of the first degree in one unknown, of the type $ax = d$, are found in the oldest mathematical text-book which we possess, the Ahmes papyrus of about 1700 B.C. This Egyptian document presents not only first degree equations together with symbols for the unknown quantity and for the operations of addition and subtraction, but also shows traces of a study of simultaneous linear equations some two thousand years before the Christian Era.
+
+Later, but still before the golden age of Greek mathematics, the quadratic equation appears in Egypt. The problems found involve simultaneous quadratic equations, thus:
+
+\begin{quote}
+\textit{Another example of the distribution of a given area into squares.} If you are told to distribute 100 square ells (units of area) over two squares so that the side of one shall be $\frac{3}{4}$ of the side of the other: please give me each of the unknowns.
+\end{quote}
+
+The solution follows by assuming the side of one square to be unity, and the other $\frac{3}{4}$. The sum of these areas is $\frac{25}{16}$, of which the root $\frac{5}{4}$ is to the required side as $\frac{5}{4}$ is to 1, whence one side is 8 and the other 6. The algebraical equivalent of this geometrical problem is, evidently,
+\[x^2 + y^2 = 100, \quad x : y = 4 : 3.\]
+
+\section{Greek Contributions}
+
+Several propositions of Euclid present geometrical equivalents of the solution of various types of quadratic equations, not involving negative coefficients, and further study of similar problems appears in Euclid's \textit{Data}. Of this nature are the fifth, sixth, and eleventh propositions of the second book of the Elements and the twenty-seventh, twenty-eighth, and twenty-ninth of the sixth book.
+
+The eleventh proposition of the second book of the Elements furnishes the solution of the equation
+\[x^2 + ax = a^2\]
+or even more general,
+\[x^2 + ax = b^2.\]
+
+Analytical solution of the quadratic equation appears quite definitely in the works of Heron of Alexandria, who flourished about the beginning of the Christian Era. Heron states in effect that given the sum of two line segments and their product then each of the segments is known.
+
+\section{The Work of Diophantus}
+
+In respect to analysis Diophantus is the greatest name among the Greeks. Recently it has been established that he flourished in the third century of the Christian Era, when Greek supremacy in mathematics was waning. No doubt whatever exists that this Alexandrian was familiar with the analytical solution of the various forms of quadratic equations, neglecting negative roots and, of course, imaginary roots, which did not receive serious treatment for more than a millennium after Diophantus.
+
+The three types of complete quadratic equations, involving only positive coefficients, are the following:
+\begin{align}
+ax^2 + bx &= c,\\
+ax^2 + c &= bx,\\
+ax^2 &= bx + c.
+\end{align}
+
+All three types appear in the \textit{Arithmetica} of Diophantus, not systematically treated but solved as incidental to the solution of other problems.
+
+\section{Hindu Algebra}
+
+Some two centuries after the period of Diophantus, Aryabhata, one of the earliest Hindu mathematicians of prominence, was born (476 A.D.). Brahmagupta of Ujjain, the centre of Indian learning, wrote on algebra in the early part of the seventh century and gave a rule for the solution of quadratic equations:
+
+\begin{quote}
+\textit{To the absolute number multiplied by the [coefficient of the] square, add the square of half the [coefficient of the] unknown, the square root of the sum, less half the [coefficient of the] unknown, being divided by the [coefficient of the] square, is the unknown.}
+\end{quote}
+
+In formula this corresponds to the solution
+\[x = \frac{\sqrt{(b/2)^2 + ac} - b/2}{a}\]
+of the equation $ax^2 + bx = c$.
+
+\chapter{Al-Khowarizmi and his Treatise on Algebra}
+
+\lettrine[lines=3]{T}{he} activity of the great Arabic mathematician Abu 'Abdallah Mohammed ibn Musa al-Khowarizmi marks the beginning of that period of mathematical history in which analysis assumed a place on a level with geometry; and his algebra gave a definite form to the ideas which we have been setting forth.
+
+The arithmetic of Al-Khowarizmi made known to the Arabs and, through an early twelfth-century translation, to Europeans also, the Hindu art of reckoning. Any consideration of the difficulties attending arithmetical operations with the Greek letter numerals, or even with the Roman numerals, shows how essential the adoption of numerals with place value was for the development of the analytical side of mathematics.
+
+\section{The Life of Al-Khowarizmi}
+
+Our chief source of information in regard to the life and the writings of our Arabic author is the \textit{Book of Chronicles} (\textit{Kitab al-Fihrist}) by Ibn Abi Ya'qub al-Nadim. This work, which was completed about 987 A.D., gives biographies of learned men of all nations, together with lists of such of their works as were known to Al-Nadim. We quote the passage relating to our author:
+
+\begin{quote}
+\textit{Mohammed ibn Musa, born in Khowarizm (modern Khiva), worked in the library of the caliphs under Al-Mamun. During his lifetime, and afterward, where observations were made, people were accustomed to rely upon his tables, which were known by the name Sind-Hind (Hindu Siddhanta). He wrote: The book of astronomical tables in two editions, the first and the second; On the sun-dial; On the use of the astrolabe; On the construction of the astrolabe; The Book of Chronology.}
+\end{quote}
+
+The bibliography of Al-Nadim does not include four works from the hand of Al-Khowarizmi which have come to us. These are his arithmetic, his algebra, a work on the quadrivium, and an adaptation of Ptolemy's geography.
+
+The equation $x^2 + 10x = 39$ runs like a thread of gold through the algebras for several centuries, appearing in the algebras of Abu Kamil, Al-Karkhi and 'Omar al-Khayyami, and frequently in the works of Christian writers, centuries later.
+
+\section{Robert of Chester and Other Translators}
+
+\lettrine[lines=3]{W}{hen} towards the beginning of the twelfth century European scholars turned to Islam for light, the works of Mohammed ibn Musa came to occupy a prominent place in their studies. Contemporary with these men was Robert of Chester.
+
+The assertion was made by Curtze that the \textit{Liber embadorum}, Book of Measures, in Hebrew, by Abraham bar Chiyya Ha Nasi, known as Savasorda, was the first work to appear in Latin showing to the Western world how the solution of quadratic equations is accomplished. It has recently been shown by Haskins, on the basis of astronomical data in the work, that this date is undoubtedly a scribe's error for DXL, corresponding to 1145 A.D.
+
+Robert of Chester, known to fame chiefly as the first translator of the Koran, was doubtless educated in the well-known school located at Chester. Of the more personal side of Robert's life we have but scattered facts. His nationality is established not only by his name and his return to England in 1150, but also by the direct statement made by Peter the Venerable in a letter of 1143 concerning the Koran, addressed to Bernard of Clairvaux.
+
+To Peter the Venerable, Abbot of Cluny, who induced Robert to undertake the translation of the Koran, the latter addressed a Saracenic chronicle. Other names have been connected with this translation of the Koran, but a study of Peter's letters shows that Robert and Hermann were definitely requested to undertake the translation.
+
+Of Robert's works the version of the Koran was completed in 1143. In a prefatory letter he states that this task was regarded by him only as a digression from his principal studies of astronomy and geometry.
+
+\chapter{The Arabic Text and the Translations}
+
+The Arabic text of Al-Khowarizmi's algebra, together with an English translation, was published by Frederick Rosen in 1831. This excellent work is unfortunately out of print, and so is not available to most students of mathematics.
+
+The Latin translation by Robert of Chester is not as faithful nor as correct as the text ascribed to Gerard of Cremona, published by Libri. Omissions, transpositions, and additions to the text are so numerous that it does not seem desirable to list them all. No evidence exists, however, that Robert's text is based upon another Arabic original than that of the Libri text. The text proper, as opposed to the illustrative problems, follows the general lines of the Arabic original.
+
+\chapter{Preface and Additions Found in the Arabic Text}
+
+The Arabic text of Al-Khowarizmi's algebra published by Rosen contains an author's preface which is not found either in the translation published by Libri, or in that by Robert of Chester. As this reveals his conception of the purpose of the algebra, as well as some of the causes which led him to undertake the work, we present it here in the translation by Rosen.
+
+\section*{The Author's Preface}
+\addcontentsline{toc}{section}{The Author's Preface (Arabic)}
+
+\begin{quote}
+\textit{In the Name of God, gracious and merciful!}
+
+\textit{This work was written by Mohammed ben Musa, of Khowarezm. He commences it thus:}
+
+\textit{Praised be God for his bounty towards those who deserve it by their virtuous acts: in performing which, as by him prescribed to his adoring creatures, we express our thanks, and render ourselves worthy of the continuance (of his mercy), and preserve ourselves from change: acknowledging his might, bending before his power, and revering his greatness!}
+
+\textit{That fondness for science, by which God has distinguished the Imam al Mamun, the Commander of the Faithful, that affability and condescension which he shows to the learned, that promptitude with which he protects and supports them in the elucidation of obscurities and in the removal of difficulties, --- has encouraged me to compose a short work on Calculating by (the rules of) Completion and Reduction, confining it to what is easiest and most useful in arithmetic, such as men constantly require in cases of inheritance, legacies, partition, law-suits, and trade, and in all their dealings with one another, or where the measuring of lands, the digging of canals, geometrical computation, and other objects of various sorts and kinds are concerned.}
+\end{quote}
+
+\chapter{Manuscripts of Robert of Chester's Translation}
+
+\section{The Extant Manuscripts}
+
+Steinschneider was the first in recent times to call attention to the translation of Al-Khowarizmi's algebra made by Robert of Chester. He suggested the desirability of publishing this text, referring to the manuscript in Vienna. To this same manuscript Curtze later, and independently of Steinschneider, directed attention and also suggested the desirability of the publication of the work. Wappler, in 1887, found a second copy of the algebra in a manuscript in Dresden, while some time later David Eugene Smith acquired for the Columbia University Library a manuscript from the hand of Johann Scheybl which contains a third transcription of the algebra.
+
+\section{The Vienna Manuscript (V)}
+
+Codex Vindobonensis 4770 (Rec. 3246) XIV. 339. 8$^\circ$ (V). Fol. 1$^\text{r}$--12$^\text{v}$, \textit{Liber restaurationis et oppositionis numeri}; our text.
+
+\section{The Dresden Manuscript (D)}
+
+Codex Dresdensis C. 80. Fifteenth century. Paper. By various hands. 416 pages, numbered 1--225, 227--417. Folio, bound in parchment (D).
+
+\section{The Columbia University Manuscript (C)}
+
+Codex Universitatis Columbiae; Columbia University Library Manuscript, X 512, Sch. 2, Q. 308 pages. (C.) Pages 71--122, \textit{Liber Algebrae et Almucabola, continens demonstrationes aequationum regularum Algebrae}.
+
+\part*{Abbreviations}
+\addcontentsline{toc}{part}{Abbreviations}
+
+\begin{longtable}{ll}
+C = Codex Universitatis Columbiae \\
+D = Codex Dresdensis \\
+R = Fragmentum Romain \\
+V = Codex Vindobonensis \\
+\end{longtable}
+
+After the note to line 6 of the second page of the Latin text, the notes without any letter indicate the concurrence of V and D.
+
+\begin{longtable}{ll}
+\textit{add. vel add.} & addition(s) by Scheybl \\
+\textit{marg.} & marginal note \\
+\textit{man.} & manuscript \\
+\textit{om.} & omits \\
+\textit{corr.} & corrected \\
+\textit{passim} & throughout \\
+\textit{supra versum} & above the line \\
+\textit{infra} & below \\
+\end{longtable}
+
+%% ========================================================================
+%% PART II: LATIN TEXT WITH CRITICAL NOTES
+%% ========================================================================
+\part{Liber Algebrae et Almucabola}
+
+\chapter*{Latin Text with Critical Notes}
+\addcontentsline{toc}{chapter}{Latin Text with Critical Notes}
+
+\begin{center}
+\textsc{Liber Algebrae et Almucabola,}\\
+continens demonstrationes aequationum regularum Algebrae\\[1cm]
+Ab incerto authore olim arabice conscriptus atque deinde a\\
+Roberto Cestrensi, in ciuitate Secobiensi anno 1183,\\
+vt fertur, latino sermoni donatus.
+\end{center}
+
+\vspace{1cm}
+
+\noindent\textsc{Liber Algebrae et Almucabola,} de quaestionibus arithmeticis et geometricis
+
+\begin{quote}
+\small\textlatin{In nomine dei pii et misericordis incipit liber Restaurationis et Oppositionis numeri quem aedidit Mahomet, filius Mosi Algaurizin.}
+\critnote{7. \textit{Liber}\ldots\ \textit{geometricis} \om\ VD; + Praefatio R.}
+\critnote{8. \textit{instauracionis} D.}
+\critnote{9. \textit{Mahumed filius moysi algaurizim} V; \textit{Machumed filius moysi algaurizm} D; \textit{Mahumed filius Moysis algaorizim} R.}
+\end{quote}
+
+\smallskip
+
+\begin{quote}
+\small\textlatin{Dixit Mahomet, Laus deo creatori, qui homini contulit scientiam inueniendi vim numerorum. Considerans enim omne id quo indigent homines, ex numeris componi, inueni illud totum esse numerum, et inueni nihil aliud esse numerum, nisi quod ex vnitatibus componitur. Vnitas ergo in omni numero reperitur. Inueni autem omnem numerum ita dispositum, vt omnis numerus vnitatem excedit vsque ad decem, denarius quoque numerus ad modum vnitatis disponitur, vnde et duplicatur et triplicatur, quemadmodum factum cum vnitate. Fiuntque ex eius duplicatione, 20: et triplicatione, 30. Et sic multiplicando denarium numerum, ad centenarium peruenitur. Ita centenarius numerus duplicatur et triplicatur, sicut denarius numerus. Et sic centenarium numerum duplicando et triplicando etc. millenarius excrescit numerus. Ad hunc modum numerum millenarium secundum ordinem numerorum multiplicando, vsque ad infinitam numeri inuestigationem peruenitur.}
+\critnote{10. \textit{creatori} \om\ V.}
+\critnote{11. \textit{ex numero} VDR. \textit{componi} \om\ VDR. \textit{id pro illud} V.}
+\critnote{13. \textit{omnem} \om\ D. \textit{ita + essentialiter} VD.}
+\critnote{14. \textit{vnitatem corr. ex vnitas} D man. 2. \textit{excedat} VDR. \textit{decenus pro denarius fere ubique} V; \textit{decimus ubique} D; \textit{decenarius ubique} R.}
+\critnote{18. \textit{Ita}: Proinde VD; Post modum R. \textit{centenus} D. \textit{sicut denarius numerus}: \textit{ad modum} 10$^\text{m}$ V; \textit{ad modum numeri decimi} D.}
+\critnote{19. \textit{duplicando} V. \textit{decenum pro centenarium} VD. \textit{triplicando multiplicando} D. \textit{millenus} VD.}
+\critnote{20. \textit{hunc + ergo} VDR. \textit{etc. om.} VDR. \textit{ad modos} VD. \textit{infiniti} V. \textit{conuertitur pro peruenitur} VDR.}
+\end{quote}
+
+\vspace{0.5cm}
+\begin{center}\rule{0.5\textwidth}{0.4pt}\end{center}
+\vspace{0.5cm}
+
+\textlatin{Postea inueni numerum restaurationis et oppositionis his tribus modis esse inuentum, scilicet radicibus, substantiis et numeris.}
+\critnote{1--2. \textit{id est pro scilicet} VR; \textit{et Solis neque bis supra versum} D man. 2.}
+
+\smallskip
+
+\textlatin{Solus numerus tamen neque radicibus neque substantiis vlla proportione coniunctus est. Earum igitur radix est omnis res ex vnitatibus cum se ipsa multiplicata aut omnis numerus supra vnitatem cum se ipso multiplicatus: aut quod infra vnitatem diminutum cum se ipso multiplicatum reperitur. Substantia vero est omne illud quod ex multiplicatione radicis cum se ipsa colligitur.}
+\critnote{2. \textit{coniungitur} DR \marg\ \textit{alii coniunctis} D man. 2; \textit{coniunctis} V.}
+\critnote{3. \textit{in se pro cum se} fere ubique VDR.}
+\critnote{5--6. \textit{vero} \om\ D. \textit{ex radicis in se ipsa multiplicatione} VDR.}
+\critnote{6. \textit{semper om.} VD.}
+
+\smallskip
+
+\textlatin{Ex his igitur tribus modis semper duo sunt sibi inuicem coaequantia, sicut diceres}
+
+\begin{center}
+\textlatin{Substantiae radices coaequant}\\
+\textlatin{Substantiae numeros coaequant, et}\\
+\textlatin{Radices numeros coaequant.}
+\end{center}
+
+\critnote{9--10. \textit{et radices numeros coaequant} \om\ D.}
+
+\vspace{0.5cm}
+
+\section*{Caput Primum. De substantiis radices coaequantibus}
+
+\textlatin{Substantiae quae radices coaequant sunt, si dicas,}
+
+\textlatin{Substantia quinque coaequatur radicibus. Radix igitur substantiae sunt 5, et 25 ipsam componunt substantiam, quae videlicet suis quinque aequatur radicibus.}
+
+\textlatin{Et etiam si dicas, Tertia pars substantiae quatuor aequatur radicibus: Radix igitur substantiae sunt 12, et 144 ipsam demonstrant substantiam.}
+
+\textlatin{Et etiam ad similitudinem, Quinque substantiarum 10 radices coaequantium. Vna igitur substantia duabus radicibus aequiparatur, et radix substantiae sunt 2 --- et substantiam quaternarius ostendit numerus.}
+
+\textlatin{Eodem namque modo, hoc quod ex substantiis excreuerit, aut minus ea fuerit, ad vnam conuertitur substantiam. Et similiter facies cum eo quod cum ipsis ex radicibus fuerit.}
+
+\vspace{0.5cm}
+
+\section*{Caput II. De substantiis numeros coaequantibus}
+
+\textlatin{Substantiae vero numeros coaequantes hoc modo proponuntur. Substantia nouenario coaequatur numero. Nouenarius igitur numerus mensurat substantiam cuius vnam radicem ternarius ostendit numerus. Eodem modo iuxta multitudinem et paucitatem substantiarum ipsae substantiae ad vnius substantiae similitudinem erunt tractandae. Hoc est, si substantiae duae vel tres vel quatuor, siue etiam plures fuerint, earum cum suis radicibus coaequatio, sicut vnius cum sua radice, quaerenda est.}
+
+\textlatin{Si vero minus vna fuerit, hoc est, si tertia vel quarta vel quinta pars substantiae vel radicis proposita fuerit, eodem modo ea tractetur, vt si dicas,}
+
+\textlatin{Quinque substantiae 80 coaequantur. Vna igitur substantia quintae parti numeri 80 coaequatur, quam videlicet 16 componunt.}
+
+\textlatin{Et etiam si dicas. Medietas substantiae 18 coaequatur. Haec igitur substantia 36 coaequatur.}
+
+\vspace{0.5cm}
+
+\section*{Caput III. De radicibus numeros coaequantibus}
+
+\textlatin{Radices quae numeros coaequant sunt, si dicas. Radix ternario aequatur numero. Et etiam si dicas, Quatuor radices vigeno coaequantur numero. Vna igitur radix substantiae huius quinario coaequatur numero. Et etiam si dicas, Media radix denario coaequatur numero. Tota igitur radix vigeno aequatur numero, cuius videlicet substantiam 400 demonstrant.}
+
+\vspace{0.5cm}
+
+\textlatin{Radices igitur et substantiae et numeri solum, quemadmodum diximus, distinguuntur. Vnde et ex his tribus modis quos iam praemisimus, tria oriuntur genera tripliciter distincta; vt}
+
+\begin{center}
+\textlatin{Substantia et radices numeros coaequant}\\
+\textlatin{Substantia et numeri radices coaequant, et}\\
+\textlatin{Radices et numeri substantiam coaequant.}
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{Caput IIII. De substantiis et radicibus numeros coaequantibus}
+
+\textlatin{Substantiae vero et radices quae numeros coaequant, sunt, si dicas. Substantia et 10 radices 39 coaequantur drachmis. Huius igitur artis inuestigatio talis est: die, quae est substantia, cui si similitudinem decern suarum radicum adiunxeris, ad 39 tota haec collectio protendatur. Modus hanc artem inueniendi est, vt radices iam pronunciatas per medium diuidas, sed radices in hac interrogatione sunt 10, accipe igitur 5, et iis cum se ipsis multiplicatis producuntur 25; quae omnia 39 adiicias, et veniunt 64. Huius igitur radice quadrata accepta, quae est 8, ab ea medietatem radicum 5 subtrahas, et manebunt 3. Ternarius igitur numerus huius substantiae vnam ostendit radicem, quae videlicet substantia nouenario dinoscitur numero. Nouem igitur illam componunt substantiam.}
+\critnote{28. \textit{dragmatibus} pro drachmis; \textit{dragma pro drachma} ubique.}
+\critnote{31. \textit{xxxviii} D. \textit{facie siue sum pro pronunciatas}.}
+\critnote{32. \textit{eas + ergo} pro \textit{iis}.}
+
+\textlatin{Similiter quotquot substantiae propositae fuerint, omnes ad vnam conuertas substantiam. Similiter quicquid cum eis ex numeris siue radicibus fuerit, id omne eo modo quo cum substantiis existi, conuertas. Huius autem conuersionis talis est modus, vt si dicas,}
+
+\textlatin{Duae substantiae et 10 radices 48 drachmis coaequantur. Huius artis talis est inuestigatio, vt dicas, Quae sunt duae substantiae inuicem collectae, quibus si similitudo 10 radicum earum adiuncta fuerit, ad 48 tota extendatur collectio. Nunc autem oportet, vt duas substantias ad vnam conuertas. Sed iam manifestum est, quoniam vna substantia medietatem duarum designat, igitur omnem rem in hac quaestione tibi propositam, ad medium conuertas, dicendo}
+
+\textlatin{Substantia et 5 radices 24 drachmis coaequantur. Modus huius rei talis est, vt dicas. Quae est substantia, cui si quinque suas radices adiunxeris, ad 24 excrescat. Nunc etiam oportet, vt ad regulam supra datam animum conuertas, et diuidas radices per medium et veniunt 2 et vnius medietas, iis cum se ipsis multiplicatis, producuntur 6 et 1/4, illis 24 adiicias, veniunt 30 et vnius 1/4. Postea huius aggregati radicem quadratam accipias, quam scilicet 5 et vnius medietas componunt, ex qua medietatem radicum, 2 1/2, subtrahas et manebunt 3, quae vnam radicem substantiae exprimunt, quam substantiam nouenarius componit numerus.}
+\critnote{In marg. $x^2 + 10x = 24$ D.}
+
+\textlatin{Et si diceretur, Medietas substantiae et quinque radices 28 coaequantur drachmis. Huius questionis talis est modus, vt dicas. Quae est substantia, cuius medietati si quinque suas radices adiunxeris, tota summa ad 28 excrescat, ita tamen vt substantia quae prius diminuta fuerat, perfecta compleatur. Igitur huius substantiae medietas cum radicibus secum pronunciatis, duplicanda est; veniunt autem, substantia et 10 radices 56 drachmis aequales.}
+
+\textlatin{Diuide igitur radices per medium, et veniunt 5, quibus cum seipsis multiplicatis, producuntur 25; illa adde 56, et colliguntur 81; huius collecti radicem quadratam accipias, quam nouenarius componit numerus, atque ex ea medietatem radicum 5 subtrahas et manebunt 4, substantiae radix.}
+
+\vspace{0.5cm}
+
+\section*{Caput V. De substantiis et numeris radices coaequantibus}
+
+\textlatin{Propositio huius rei talis est, vt dicas, Substantia et 21 drachmae 10 radicibus coaequantur.}
+\critnote{8. \textit{Titulum om.} V; \textit{autem huius artis pro huius rei. radicem pro radices} D.}
+\critnote{9. \textit{coequatur pro aequatur}.}
+
+\textlatin{Ad hoc inuestigandum talis datur regula, vt dicas. Quae est substantia, cui si 21 drachmas adiunxeris, tota summa simul decern ipsius substantiae radices exhibeat. Huius quaestionis solutio hoc modo concipitur, vt radices primum per medium diuidas, et veniunt in hoc casu 5, haec cum seipsis multiplicata, producuntur 25. Ex illis 21 drachmas, quas paulo ante cum substantiis commemorauimus, subtrahas, et manebunt 4, horum radicem quadratam accipias, vt sunt 2, quae ex medietate radicum 5 diminuas, et manebunt 3, vnam radicem huius substantiae constituentia, quam scilicet substantiam nouenarius complet numerus.}
+\critnote{In marg. $x^2 + 21 = 10x$ V D.}
+
+\textlatin{Quod si libuerit, poteris ipsa 2, quae a medietate radicum iam diminuisti, medietati radicum 5 scilicet addere, et veniunt 7; quae vnam substantiae radicem demonstrant quam substantiam 49 adimplent. Cum igitur aliquod huius capitis exemplum tibi propositum fuerit, ipsius modum cum adiectione, quemadmodum dictum est, inuestiga, quern si cum adiectione non inueneris, procul dubio cum diminutione reperies. Hoc enim caput solum adiectione simul et diminutione indiget quod in aliis capitibus praemissis minime reperies.}
+
+\textlatin{Sciendum est etiam, quando radices iuxta hoc caput mediaueris, et medietatem deinde cum seipsa multiplicaueris, si quod ex multiplicatione tollitur vel procreatur, minus fuerit drachmis cum substantia pronunciatis: quaestio tibi proposita nulla erit. At si drachmis aequale fuerit vna radix fientque 25.}
+
+\vspace{0.5cm}
+
+\section*{Caput VI. De radicibus et numeris substantiam coaequantibus}
+
+\textlatin{In hoc capite sic proponitur, Tres radices et quatuor ex numeris coaequantur substantiae.}
+\critnote{5. \textit{Titulum om.} V.}
+\critnote{6. \textit{hoc + autem.}}
+\critnote{7. \textit{Tres + autem.}}
+
+\textlatin{Ad hoc inuestigandum talis datur regula, quod scilicet radices per medium diuidas et venit vnum et alterius medietas, hoc deinde cum seipsis multiplices, et producuntur 2 1/4, his 4 ex numeris adiicias, et veniunt 6 1/4, huius postea radicem quadratam accipias, hoc est 2 1/2. Atque earn tandem medietati radicum, vni scilicet et dimidio, adiicias, et veniunt 4, quae vnam substantiae radicem componunt, quam deinde substantiam numerus 16 adimplet.}
+
+\textlatin{Quicquid igitur plus siue minus substantia tibi propositum fuerit, ad vnam conuertas substantiam. Ex his igitur modis, de quibus in principio libri mentionem fecimus, sunt tres priores, in quibus radices non mediantur, in tribus vero posterioribus vel residuis mediantur radices prout superius liquet.}
+
+\vspace{0.5cm}
+\begin{center}\rule{0.5\textwidth}{0.4pt}\end{center}
+\vspace{0.5cm}
+
+\textlatin{\textbf{Dixit Algaurizin.} Sex sunt modi de quibus, quantum ad numeros pertinet, sufficienter diximus. Nunc vero oportet, vt quod per numeros proposuimus, ex geometrica idem verum esse demonstremus.}
+\critnote{18. \textit{alguarizim} V; \textit{alghuarizim} D.}
+\critnote{19. \textit{Sex + autem.}}
+\critnote{20. \textit{numero pro per numeros.} \textit{geometrice.}}
+
+\textlatin{Nostra igitur prima propositio talis est, Substantia et 10 radices 39 coaequantur drachmis. Huius probatio est, vt quadratum cuius latera ignorantur, proponamus. Hoc autem quadratum quod loco substantiae ponimus, et eius radicem scire volumus atque designare. Sit igitur quadratum a b cuius vnumquodque latus vnam ostendit radicem. Iam manifestum est, quoniam, quando aliquod eius latus cum numero numerorum multiplicauerimus, tunc hoc quod ex multiplicatione colligitur erit numerus radicum radici ipsius numeri aequalis.}
+
+\textlatin{Quoniam ergo decern radices cum substantia pronunciantur, quartam igitur partem numeri decem accipimus, atque vnicuique lateri quadrati aream aequedistantium laterum applicamus quarum longitudinem quidem longitude quadrati primo descripti, latitudinem vero duo et dimidium, quae sunt numeri 10 quarta pars, demonstrant. Quatuor igitur areae laterum aequedistantium primo quadrato a b applicantur. Quarum singularum longitudo longitudini vnius radicis quadrati a b aequalis erit, latitudo etiam singularum 2 et medium, vt iam dictum est, demonstrat. Sunt autem hae areae 10 c d e f. Ex hoc igitur quod diximus, sit area laterum inaequalium, quae similiter ponuntur ignota, in cuius videlicet quatuor angulis quorum vniuscuiusque quantitas areae, quam 2 et dimidium cum duobus et dimidio multiplicata perficiunt, imperfectionem maioris seu totius areae ostendunt.}
+
+\textlatin{Vnde fit vt circunductionem areae maioris, cum adiectione duorum et dimidii cum duobus et dimidio quatuor vicibus multiplicatorum compleamus, generat autem haec tota multiplicatio 25. Et iam manifestum est, quoniam primum quadratum, quod substantiam significat, et quatuor areae ipsum quadratum circundantes, 39 perficiunt, quibus quando 25, hoc est quatuor minora quadrata, quae scilicet super quatuor angulos quadrati a b ponuntur, adiecerimus, quadratum maius, G H vocatum, circunductione complebitur. Vnde etiam haec tota numeri summa vsque ad 64 excrescet, cuius summae radicem octonarius obtinet numerus, quo etiam vnum eius latus compleri probatur. Igitur vbi ex numero octonario quartam partem numeri denarii, sicut in extremitatibus quadrati maioris G H ponuntur, subtraxerimus bis, 3 ex ipsius latere manebunt. Quinque ergo ex octo subtractis, 3 manere necesse est; quae simul vni lateri quadrati primi, quod est a b, aequiparantur. Haec igitur 3 quadrati vnam radicem, hoc est vnam radicem substantiae propositae: nouenarius deinde numerus ipsam substantiam exprimit.}
+
+\textlatin{Ergo numerum denarium mediamus, et alteram eius medietatem cum seipsa multiplicamus, deinde totum multiplicationis productum numero 39 adiicimus, vt maioris quadrati G H circunductio compleatur. Nam eius quatuor angulorum diminutio totam huius quadrati circunductionem imperfectam reddebat. Manifestum enim est, quod quarta pars omnis numeri cum suo aequali, ac deinde cum quatuor multiplicata, eandem perficiat numerum, quem medietas numeri cum seipsa multiplicata, perficit. Igitur si radicum medietas cum seipsa multiplicetur, huius multiplicationis summa, multiplicationem quartae partis cum seipsa ac deinde cum quatuor multiplicatae, sufficienter euacuet, adaequabit vel delebit.}
+
+\textlatin{Ad hoc etiam idem demonstrandum, altera datur formula, quae talis est. Quadrate a b substantiam significante aequalitatem decem radicum addimus; has radices deinde per medium diuidamus, venient 5, ex quibus duas areas ad duo latera quadrati a b constituamus, hae autem vocentur a g et b d, et erit vtriusque vtraque latitudo vni lateri quadrati a b aequalis; vtramque denique longitudinem numerus quinarius adimplebit. Superest iam, vt ex multiplicatione 5 cum 5, quae medietatem radicum quas ad duo latera quadrati prioris substantiam significantis, addidimus, quadratum faciamus. Vnde iam manifestum est, quod duae areae, quae supra duo latera ponuntur, et quae 10 radices substantiae significant, simul cum quadrato priori, quod est substantia, 39 ex numero adimpleant. Manifestum etiam, quod area maioris seu totius quadrati per multiplicationem 5 cum 5 perficiatur. Hoc ergo quadratum perficiatur, atque ad perfectionem eius numerus 25 ad priora 39 adiiciatur: tota igitur haec summa vsque ad 64 excrescet. Nunc summae huius radicem quadratam, quae vnum latus quadrati maioris 25 designat, accipiamus, atque inde aequalitatem eius quod ei addidimus, hoc est 5, subtrahamus, et manebunt 3; quae latus quadrati a b hoc est vnam radicem substantiae propositae complere probantur. Tria igitur huius substantiae sunt radix; et substantia nouem.}
+
+\textlatin{\textbf{De substantia et drachmis res coaequantibus.} Substantia et 21 drachmae 10 rebus aequiparantur. Propositio haec seu quaestio in capite quinto proposita fuit, cuius hic demonstratio docetur. Quadratum igitur a b, quod latera habet ignota, substantiam pono, atque ei parallelogrammum rectangulum, cuius vtraque latitude vni lateri quadrati a b aequalis sit, cuiusque longitude vtraque rerum seu radicum medietatem referat, applico. Deinde vero huius rectanguli summam 21 ex numeris constituo, qui numerus cum ipsa substantia propositus est. Haec autem area vel rectangulum b g inscribitur, cuius simul latitude g d dinoscitur, longitude ergo duarum arearum inuicem coniunctarum, in h d terminatur. Et iam manifestum est quod haec longitude denarium obtinet numerum, quoniam omnis area quadrilatera et rectorum angulorum, ex multiplicatione sui lateris cum vnitate semel, vnam obtinet radicem: et si cum binarie numero, duae eiusdem areae nascuntur radices.}
+
+\textlatin{Quoniam igitur prime sic proposuit, vna substantia et 21 drachmae, 10 radicibus aequiparantur, manifestum est, quod longitude lateris h d in denario terminatur numero, quia latus h b vnam substantiae radicem obtinet, latus igitur h d 10 ostendit. Vnde et linea e h lineae e d fiet aequalis, atque ducta ex puncto e linea perpendiculari e t: haec eadem perpendicularis ipsi h a lineae aequalis erit. Lineae ergo e t portionem, quae ipsaque d e linea breuior est, in rectum adiicio e c, et fiet linea t c aequalis t g lineae, vnde quadratum t l, quod ex multiplicatione medietatis radicum cum se ipsa multiplicatae, id est ex multiplicatione quinarii cum quinario (in hoc casu) colligitur, nobis eueniet.}
+
+\textlatin{Et iam manifestum etiam est, quoniam area b g 21, quae substantiae addidimus, in se obtinet, ex ea igitur b g per lineam t c, quae est vnum latus areae t l extrahamus atque ex eadem area b g aream b t minuamus, deinde vero super lineam e c quae est in quo linea t c c lineam a h in quantitate deuincit, quadratum e n m c ponamus. Vnde et iam manifestum, cum linea t c aequalis sit linea l c, nam ipsae in quadrato t l aequales protenduntur, similiter et linea c c lineae m c aequalis, quia ipsae quadratum e m aequali dimensione circundant: aequalium igitur ab aequalibus lineis subtractione facta, linea t c lineae l m aequalis relinquetur quod est notandum.}
+
+\textlatin{Rursus manifestum est, quoniam linea g d aequalis est lineae a h, cum ipsae in latitudine areae h g aequali dimensione tenduntur, sed linea a h aequalis est lineae h b cum ipsae in vno quadrato appareant. Item quoniam linea g l aequalis est lineae d e, cum ipsae in vno quadrato reperiantur aequales, sed linea d e aequalis est h e, cum ipsae decem radices per medium diuidant; linea igitur d l residuum lineae g l, lineae e b ex linea e h residuae aequalis erit: atque tandem, cum linea t e lineae l m ex superiori demonstratione, non sit inaequalis, area quam linea t e et e b circundant, comprehensae sub l m et d l lineis areae aequalis erit. Area igitur t b aequalis est m d areae.}
+
+\textlatin{Et iam manifestum est, quoniam quadratum t l 25 in se continet, cum ergo ex eodem quadrato t l areas d t et m d, quae videlicet duabus areis g e et t b, 20 et vnum in se continentibus, sunt aequales, subtraxerimus, quadratum n c nobis manebit, qui simul numerum, qui est inter 25 et 21, obtinet. Et hic numerus est quaternarius, cuius videlicet radicem duo designant, quae latus e c adimplent. Hoc autem latus aequale est lineae c b, quoniam e c aequale est d l lateri, cum ipsa in latitudine areae d c aequalia protendantur. Iam manifestum est, quoniam d l aequalis est lineae e b, quando igitur e b quae sunt duo, ex e h, quae sunt radicum medietas, quam quinarius ostendit numerus, abstulerimus, linea b h ternarium ostendens numerum restabit. Ternarius igitur numerus radicem primae demonstrat substantiae.}
+
+\textlatin{Quod si contra lineam e c lineae e h, quae medietatem radicum continet, addiderimus, colligentur 7, quae lineam t h ostendunt. Et tunc radix substantiae maior restat constituta, quam substantiam 49 adimplent.}
+
+\vspace{1cm}
+
+%% ========================================================================
+%% PART III: ENGLISH VERSION
+%% ========================================================================
+\part{English Version with Explanatory Notes}
+
+\chapter*{The Book of Algebra and Almucabola}
+\addcontentsline{toc}{chapter}{The Book of Algebra and Almucabola}
+
+\begin{center}
+\textsc{The Book of Algebra and Almucabola,}\\
+Containing Demonstrations of the Rules of the\\
+Equations of Algebra\\[0.5cm]
+Written some time ago in Arabic by an unknown author and afterwards, according\\
+to tradition in 1183, put into Latin by Robert of Chester in the city of Segovia.
+\end{center}
+
+\vspace{0.5cm}
+
+\lettrine[lines=3]{T}{he} Book of Algebra and Almucabola, concerning arithmetical and geometrical problems.
+
+In the name of God, tender and compassionate, begins the book of Restoration and Opposition of number put forth by Mohammed Al-Khowarizmi, the son of Moses. Mohammed said, Praise God the creator who has bestowed upon man the power to discover the significance of numbers. Indeed, reflecting that all things which men need require computation, I discovered that all things involve number and I discovered that number is nothing other than that which is composed of units. Unity therefore is implied in every number. Moreover I discovered all numbers to be so arranged that they proceed from unity up to ten. The number ten is treated in the same manner as the unit, and for this reason doubled and tripled just as in the case of unity. Out of its duplication arises 20, and from its triplication 30. And so multiplying the number ten you arrive at one-hundred. Again the number one-hundred is doubled and tripled like the number ten. So by doubling and tripling etc. the number one-hundred grows to one-thousand. In this way multiplying the number one-thousand according to the various denominations of numbers you come even to the investigation of number to infinity.
+
+Furthermore I discovered that the numbers of restoration and opposition are composed of these three kinds: namely, roots, squares\footnote{Literally `substances,' being a translation of the Arabic word \textit{mal}, used for the second power of the unknown. Gerard of Cremona used \textit{census}, which has a similar meaning.} and numbers. However number alone is connected neither with roots nor with squares by any ratio. Of these then the root is anything composed of units which can be multiplied by itself, or any number greater than unity multiplied by itself: or that which is found to be diminished below unity when multiplied by itself. The square is that which results from the multiplication of a root by itself.
+
+Of these three forms, then, two may be equal to each other, as for example
+
+\begin{center}
+\textbf{Squares equal to roots.}\\
+\textbf{Squares equal to numbers, and}\\
+\textbf{Roots equal to numbers.}
+\end{center}
+
+\section*{Chapter I. Concerning Squares Equal to Roots}
+
+The following is an example of squares equal to roots: a square is equal to 5 roots. The root of the square then is 5, and 25 forms its square which, of course, equals five of its roots.\footnote{$x^2 = 5x$; $x = 5$, $x^2 = 25$.}
+
+Another example: the third part of a square equals four roots. Then the root of the square is 12 and 144 designates its square.\footnote{$\frac{1}{3}x^2 = 4x$; $x = 12$, $x^2 = 144$.} And similarly, five squares equal 10 roots. Therefore one square equals two roots and the root of the square is 2. Four represents the square.\footnote{$5x^2 = 10x$; $x^2 = 2x$, $x = 2$, $x^2 = 4$.}
+
+In the same manner then that which involves more than one square, or is less than one, is reduced to one square. Likewise you perform the same operation upon the roots which accompany the squares.
+
+\section*{Chapter II. Concerning Squares Equal to Numbers}
+
+Squares equal to numbers are illustrated in the following manner: a square is equal to nine. Then nine measures the square of which three represents one root.\footnote{$x^2 = 9$; $x = 3$, $x^2 = 9$.}
+
+Whether there are many or few squares they will have to be reduced in the same manner to the form of one square. That is to say, if there are two or three or four squares, or even more, the equation formed by them with their roots is to be reduced to the form of one square with its root. Further if there be less than one square, that is if a third or a fourth or a fifth part of a square or root is proposed, this is treated in the same manner.\footnote{Our modern expression ``to complete the square,'' used in algebra, originally meant to make the coefficient of $x^2$ equal to unity, i.e. make one whole square.}
+
+For example, five squares equal 80. Therefore one square equals the fifth part of the number 80 which, of course, is 16.\footnote{$5x^2 = 80$; $x^2 = 16$.} Or, to take another example, half of a square equals 18. This square therefore equals 36.\footnote{$\frac{1}{2}x^2 = 18$; $x^2 = 36$.}
+
+\section*{Chapter III. Concerning Roots Equal to Numbers}
+
+The following is an example of roots equal to numbers: a root is equal to 3. Therefore nine is the square of this root.\footnote{$x = 3$; $x^2 = 9$.}
+
+Another example: four roots equal 20. Therefore one root of this square is 5.\footnote{$4x = 20$; $x = 5$, $x^2 = 25$.} Still another example: half a root is equal to ten. The whole root therefore equals 20, of which, of course, 400 represents the square.\footnote{$\frac{1}{2}x = 10$; $x = 20$, $x^2 = 400$.}
+
+Therefore roots and squares and pure numbers are, as we have shown, distinguished from one another. Whence also from these three kinds which we have just explained, three distinct types of equations\footnote{`Types of equations' = \textit{genera}. Abu Kamil, Omar Al-Khayyami, Al-Karkhi, and Leonard designate these as `composite' types. In modern notation: $ax^2 + bx = n$; $ax^2 + n = bx$; $ax^2 = bx + n$.} are formed involving three elements, as
+
+\begin{center}
+\textbf{A square and roots equal to numbers,}\\
+\textbf{A square and numbers equal to roots, and}\\
+\textbf{Roots and numbers equal to a square.}
+\end{center}
+
+\section*{Chapter IV. Concerning Squares and Roots Equal to Numbers}
+
+The following is an example of squares and roots equal to numbers: a square and 10 roots are equal to 39 units.\footnote{$x^2 + 10x = 39$; $\frac{1}{2}$ of 10 is 5, $5^2 = 25$, $25 + 39 = 64$, $\sqrt{64} = 8$; $8 - 5 = 3$. $x^2 = 9$.} The question therefore in this type of equation is about as follows: what is the square which combined with ten of its roots will give a sum total of 39? The manner of solving this type of equation is to take one-half of the roots just mentioned. Now the roots in the problem before us are 10. Therefore take 5, which multiplied by itself gives 25, an amount which you add to 39, giving 64. Having taken then the square root of this which is 8, subtract from it the half of the roots, 5, leaving 3. The number three therefore represents one root of this square, which itself, of course, is 9. Nine therefore gives that square.\footnote{For the general type $x^2 + bx = n$, the solution is $x = \sqrt{(\frac{b}{2})^2 + n} - \frac{b}{2}$; the negative value of the square root is neglected, as that would give a negative root of the equation.}
+
+Similarly however many squares are proposed all are to be reduced to one square. Similarly also you may reduce whatever numbers or roots accompany them in the same way in which you have reduced the squares. The following is an example of this reduction: two squares and ten roots equal 48 units.\footnote{$2x^2 + 10x = 48$, reducing to $x^2 + 5x = 24$; $\frac{1}{2}$ of 5 is $2\frac{1}{2}$, $(2\frac{1}{2})^2 = 6\frac{1}{4}$, $24 + 6\frac{1}{4} = 30\frac{1}{4}$, $\sqrt{30\frac{1}{4}} = 5\frac{1}{2}$; $5\frac{1}{2} - 2\frac{1}{2} = 3$, $x^2 = 9$.}
+
+Another possible example: half a square and five roots are equal to 28 units.\footnote{$\frac{1}{2}x^2 + 5x = 28$, reducing to $x^2 + 10x = 56$; $x = \sqrt{25 + 56} - 5$, or $x = 4$. Note that the value of $x^2$ is not given here as it usually is.} The import of this problem is something like this: what is the square which is such that when to its half you add five of its roots the sum total amounts to 28? Now however it is necessary that the square, which here is given as less than a whole square, should be completed.\footnote{Attention is called to the force of the expression, ``completing the square,'' as here used with the meaning to make the coefficient of the second power of the unknown quantity equal to unity or making one whole square.} Therefore the half of this square together with the roots which accompany it must be doubled. We have then, a square and 10 roots equal to 56 units. Therefore take one-half of the roots, giving 5, which multiplied by itself produces 25. Add this to 56, making 81. Extract the square root of this total, which gives 9, and from this subtract half of the roots, 5, leaving 4 as the root of the square.
+
+\section*{Chapter V. Concerning Squares and Numbers Equal to Roots}
+
+The following is an illustration of this type: a square and 21 units equal 10 roots.\footnote{$x^2 + 21 = 10x$.} The rule for the investigation of this type of equation is as follows: what is the square which is such that when you add 21 units the sum total equals 10 roots of that square? The solution of this type of problem is obtained in the following manner. You take first one-half of the roots, giving in this instance 5, which multiplied by itself gives 25. From 25 subtract the 21 units to which we have just referred in connection with the squares. This gives 4, of which you extract the square root, which is 2. From the half of the roots, or 5, you take 2 away, and 3 remains, constituting one root of this square which itself is, of course, 9.\footnote{For the general type, $x^2 + n = bx$ the solution is $x = \frac{b}{2} \pm \sqrt{(\frac{b}{2})^2 - n}$, and both positive and negative values of the radical give positive solutions of the equation proposed. In this problem we have $x^2 + 21 = 10x$; $\frac{1}{2}$ of 10 is 5, $5^2 = 25$, $25 - 21 = 4$, $\sqrt{4} = 2$; $5 - 2 = 3$, one root; $5 + 2 = 7$, the other root.}
+
+If you wish you may add to the half of the roots, namely 5, the same 2 which you have just subtracted from the half of the roots. This give 7, which stands for one root of the square, and 49 completes the square.\footnote{Another use of the expression, ``completing the square.''} Therefore when any problem of this type is proposed to you, try the solution of it by addition as we have said. If you do not solve it by addition, without doubt you will find it by subtraction. And indeed this type alone requires both addition and subtraction, and this you do not find at all in the preceding types.
+
+You ought to understand also that when you take the half of the roots in this form of equation and then multiply the half by itself, if that which proceeds or results from the multiplication is less than the units above-mentioned as accompanying the square, you have no equation.\footnote{This corresponds to the condition, $b^2 - 4ac < 0$, in the equation $ax^2 + bx + c = 0$; in this event the roots are imaginary.} If equal to the units, it follows that a root of the square will be the same as the half of the roots which accompany the square, without either addition or diminution.\footnote{Condition for equal roots, $b^2 - 4ac = 0$.} Whenever a problem is proposed that involves two squares, or more or less than a single square, reduce to one square just as we have indicated in the first chapter.
+
+\section*{Chapter VI. Concerning Roots and Numbers Equal to a Square}
+
+An example of this type is proposed as follows: three roots and the number four are equal to a square.\footnote{$3x + 4 = x^2$; $\frac{1}{2}$ of 3 is $1\frac{1}{2}$, $(1\frac{1}{2})^2 = 2\frac{1}{4}$, $2\frac{1}{4} + 4 = 6\frac{1}{4}$, $\sqrt{6\frac{1}{4}} = 2\frac{1}{2}$; $2\frac{1}{2} + 1\frac{1}{2} = 4$, the root.} The rule for the investigation of this kind of problem is, you see, that you take half of the roots, giving one and one-half; this you multiply by itself, producing $2\frac{1}{4}$. To $2\frac{1}{4}$ add 4, giving $6\frac{1}{4}$, of which you then take the square root, that is, $2\frac{1}{2}$. To $2\frac{1}{2}$ you now add the half of the roots, or $1\frac{1}{2}$, giving 4, which indicates one root of the square. Then 16 completes the square.\footnote{The solution of the general type $bx + n = ax^2$, reduced by division to $\frac{b}{a}x + \frac{n}{a} = x^2$, is $x = \sqrt{(\frac{b}{2a})^2 + \frac{n}{a}} + \frac{b}{2a}$, and only the positive value of the radical is taken.} Now also whatever is proposed to you either more or less than a square, reduce to one square.
+
+Now of the types of equations which we mentioned in the beginning of this book, the first three are such that the roots are not halved, while in the following or remaining three, the roots are halved, as appears above.
+
+\section*{Geometrical Demonstrations}
+
+\textbf{We have said enough, says Al-Khowarizmi,} so far as numbers are concerned, about the six types of equations. Now, however, it is necessary that we should demonstrate geometrically the truth of the same problems which we have explained in numbers. Therefore our first proposition is this, that a square and 10 roots equal 39 units.
+
+The proof is that we construct a square of unknown sides, and let this square figure represent the square (second power of the unknown) which together with its root you wish to find. Let the square, then, be $ab$, of which any side represents one root. Now it is evident that when one side of it we multiply by any number, then the amount of that multiplication equals the number of roots which is equal to the root of that same number. Since then ten roots are proposed with the square, we take the fourth part of the number ten, that is $2\frac{1}{2}$, and to each of the four sides of the square we join rectangles of equal length with the square. The length of any one of the four areas is equal to the length of the side of the square $ab$, and the breadth of each is $2\frac{1}{2}$, as the quarter of ten. The four areas then $cdef$ are joined to the four sides of the square $ab$. Now it is evident that the length of each side of the four areas is equal to the length of one root of the square $ab$, and the breadth of each is $2\frac{1}{2}$, as has been stated. These four areas represent the ten roots.
+
+Out of this, according to what we have said, comes an area with four sides, which is similarly put as unknown, in each of whose four corners the amount of the area which $2\frac{1}{2}$ multiplied by $2\frac{1}{2}$ makes, indicates the imperfection of the larger or whole area. Hence it is that we complete the drawing of the larger area by adding $2\frac{1}{2}$ multiplied by $2\frac{1}{2}$ four times; and this whole multiplication gives 25. Now it is evident that the first square, which indicates the square, and the four areas surrounding that square, make 39; and when we add 25, that is, the four smaller squares which are placed at the four corners of the square $ab$, the drawing of the larger square, called $GH$, will be completed. Hence also the whole sum of numbers will increase to 64, of which sum the root 8 indicates one number, by which one side of the larger square is also proved to be completed. Therefore when we subtract twice the fourth part of the number ten, as placed at the extremities of the larger square $GH$, from 8, there will remain 3 on the side of it. Five then being subtracted from 8, 3 must necessarily remain, which equal one side of the first square, which is $ab$. These 3 represent one root of the square, that is one root of the proposed square: then 9 indicates the square itself.
+
+\chapter*{Regule 6 Capitulis Algabre Correspondentes}
+\addcontentsline{toc}{chapter}{Rules Corresponding to the Six Chapters of Algebra}
+
+\begin{center}
+\textsc{Rules Corresponding to the Six Chapters of Algebra}
+\end{center}
+
+\textlatin{Sex sunt modi de quibus, quantum ad numeros pertinet, sufficienter diximus.}
+
+\smallskip
+
+\textbf{Rule I.} When squares are equal to roots, divide the number of roots by the number of squares; the quotient gives one root.
+
+\textbf{Rule II.} When squares are equal to numbers, divide the number of numbers by the number of squares; the quotient gives one root, and the square of this root is the required square.
+
+\textbf{Rule III.} When roots are equal to numbers, divide the number of numbers by the number of roots; the quotient gives one root.
+
+\textbf{Rule IV.} When squares and roots are equal to numbers, halve the roots, square the half, add this square to the numbers, extract the square root of the sum, and subtract the half of the roots; the remainder is one root.
+
+\textbf{Rule V.} When squares and numbers are equal to roots, halve the roots, square the half; if the numbers are less than this square, subtract the numbers from the square, extract the root of the remainder, and subtract this root from the half of the roots; the remainder is one root. If the numbers are greater than the square, the problem is impossible. If the numbers equal the square, the half of the roots is one root.
+
+\textbf{Rule VI.} When roots and numbers are equal to squares, halve the roots, square the half, add the numbers, extract the root of the sum, and add the half of the roots; the sum is one root.
+
+\chapter*{Addita Quaedam pro Declaratione Algebrae}
+\addcontentsline{toc}{chapter}{Some Additions in Explanation of the Algebra}
+
+\begin{center}
+\textsc{Some Additions in Explanation of the Algebra}\\
+\textit{(Selections from Scheybl's Additions)}
+\end{center}
+
+\textlatin{Hactenus de regulis Algebrae satis dictum est. Nunc vero, vt plenior fiat intellectus, quaedam additiones apponendae sunt.}
+
+\textlatin{Primo sciendum est, quod omnis numerus constat ex vnitatibus, et quod vnitatis multiplicatio in seipsam semper vnitatem producit. Vnde etiam sequitur, quod omnis numeri quadratus ex multiplicatione vnitatum producitur.}
+
+\textlatin{Secundo notandum est, quod in omni operatione Algebrae, primum oportet vt omnes substantiae ad vnam reducantur substantiam, omnesque radices ad vnam radicem, et omnes numeri ad vnum numerum.}
+
+\textlatin{Tertio, sciendum est quod tres sunt modi simplices et tres compositi, vt in textu dictum est. Modus autem cognoscendi vtrum aequatio possibilis sit vel impossibilis, est ille qui in capite quinto traditur, videlicet quando medietas radicum in seipsa multiplicata, productum maius est numero cum substantia proposito: tunc quaestio est possibilis. Si vero productum minus fuerit numero proposito, quaestio est impossibilis. Si aequale, tunc radix aequalis est medietati radicum.}
+
+\vspace{1cm}
+
+%% ========================================================================
+%% LATIN GLOSSARY
+%% ========================================================================
+\part*{Latin Glossary}
+\addcontentsline{toc}{part}{Latin Glossary}
+
+\begin{center}
+\textsc{Latin Glossary}\\
+\textit{With variations from classical usage noted in the text}
+\end{center}
+
+\begin{longtable}{p{0.25\textwidth}p{0.65\textwidth}}
+\toprule
+\textbf{Latin Term} & \textbf{Usage and Notes} \\
+\midrule
+\endhead
+\textit{adiectio, -onis} & addition; used for the operation of adding to both sides \\
+\textit{aequedistans} & parallel (lit. equally distant); classical Latin would use \textit{parallelus} \\
+\textit{aequiparare} & to equal, to be equal to \\
+\textit{almucabola} & transliteration of Arabic \textit{al-muqabala}, the operation of balancing/reduction \\
+\textit{area, -ae} & area, surface; used geometrically \\
+\textit{circumductio, -onis} & the bounding line, perimeter \\
+\textit{coaequari} & to be equal to; frequent in the text \\
+\textit{colligere} & to collect, sum up \\
+\textit{completus, -a, -um} & completed; ``completing the square'' \\
+\textit{coniungere} & to join, add \\
+\textit{circundare} & to surround (variant of \textit{circumdare}) \\
+\textit{decurrere} & to run down, extend to \\
+\textit{dimidiare} & to halve (\textit{mediare} is classical) \\
+\textit{diminutio, -onis} & subtraction, diminution \\
+\textit{diminuere} & to diminish, subtract \\
+\textit{drachma, -ae} & drachma, unit of number \\
+\textit{excedere} & to exceed, be greater than \\
+\textit{excreuere} & to increase, grow beyond \\
+\textit{figura, -ae} & figure, shape \\
+\textit{imperfectus, -a, -um} & incomplete (used of the incomplete square) \\
+\textit{inuestigatio, -onis} & investigation, method of solution \\
+\textit{latitudo, -inis} & breadth, width \\
+\textit{longitude, -inis} & length (for classical \textit{longitudo}) \\
+\textit{mediare} & to halve; used frequently \\
+\textit{medietas, -atis} & half, moiety \\
+\textit{multiplicatio, -onis} & multiplication \\
+\textit{numerus, -i} & number \\
+\textit{oppositio, -onis} & opposition, the operation of \textit{al-muqabala} \\
+\textit{ostendere} & to show, indicate, represent \\
+\textit{perficere} & to complete, make perfect \\
+\textit{ponere} & to place, put, suppose \\
+\textit{procreare} & to produce, generate \\
+\textit{pronunciare} & to state, express in words \\
+\textit{proportio, -onis} & proportion \\
+\textit{quadratum, -i} & square \\
+\textit{radix, -icis} & root; also used for the unknown quantity \\
+\textit{restauratio, -onis} & restoration, the operation of \textit{al-jabr} \\
+\textit{rumbus} & square (Arabic \textit{al-rub'}) \\
+\textit{similitudo, -inis} & similitude, likeness; used for ``the like of'' \\
+\textit{substantia, -ae} & substance, square of the unknown \\
+\textit{subtrahere} & to subtract \\
+\textit{vnitas, -atis} & unity, the number one \\
+\bottomrule
+\end{longtable}
+
+\vfill
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}\\[0.5cm]
+{\small\textit{End of Text}}\\[0.3cm]
+{\small Printed by XeLaTeX from critical edition source}
+\end{center}
+
+\end{document}
