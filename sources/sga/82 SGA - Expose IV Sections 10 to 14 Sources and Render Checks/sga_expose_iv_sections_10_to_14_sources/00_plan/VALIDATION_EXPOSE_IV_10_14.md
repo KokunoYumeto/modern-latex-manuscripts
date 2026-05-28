@@ -1,4 +1,4 @@
-# Validation - Batch 016
+# Validation - translation segment
 
 Fresh TeX file:
 

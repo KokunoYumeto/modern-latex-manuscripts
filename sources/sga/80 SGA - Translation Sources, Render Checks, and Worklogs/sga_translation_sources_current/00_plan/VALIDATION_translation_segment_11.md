@@ -1,4 +1,4 @@
-# Validation - Batch 012
+# Validation - translation segment
 
 ## Compile checks
 

@@ -1,4 +1,4 @@
-# Validation Report — Batch 003
+# Validation Report — translation segment
 
 Artifact validated: `SGA4_Expose_I_sections_6_to_7_en.pdf`
 
@@ -7,7 +7,7 @@ Artifact validated: `SGA4_Expose_I_sections_6_to_7_en.pdf`
 Command:
 
 ```bash
-cd /mnt/data/sga_work/output/02_new_translation_latex/batch_003
+cd /mnt/data/sga_work/output/02_new_translation_latex/translation segment
 latexmk -pdf -interaction=nonstopmode -halt-on-error SGA4_Expose_I_sections_6_to_7_en.tex
 ```
 
@@ -33,8 +33,8 @@ Command:
 
 ```bash
 python /home/oai/skills/pdfs/scripts/render_pdf.py \
-  /mnt/data/sga_work/output/02_new_translation_latex/batch_003/SGA4_Expose_I_sections_6_to_7_en.pdf \
-  --out_dir /mnt/data/sga_work/output/04_render_checks/batch_003/SGA4_Expose_I_sections_6_to_7_en_render \
+  /mnt/data/sga_work/output/02_new_translation_latex/translation segment/SGA4_Expose_I_sections_6_to_7_en.pdf \
+  --out_dir /mnt/data/sga_work/output/04_render_checks/translation segment/SGA4_Expose_I_sections_6_to_7_en_render \
   --dpi 140
 ```
 

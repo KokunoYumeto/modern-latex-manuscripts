@@ -1,4 +1,4 @@
-# Validation - Batch 015 standalone
+# Validation - translation segment standalone
 
 - TeX compiled with `pdflatex` twice without fatal errors.
 - Rendered PDF pages to PNG for visual checking.

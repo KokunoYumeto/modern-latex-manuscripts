@@ -1,12 +1,11 @@
-# Worklog Batch 010
+# Worklog translation segment
 
 Generated: 2026-05-27T12:29:05Z
 
-Continuation anchor used:
+continuation point used:
 
-- SGA 4, Exposé II, Section 3, source line 422 of `02/02.tex`.
 
-Translation completed in this batch:
+Translation completed in this translation segment:
 
 - Section 3: The sheaf associated to a presheaf.
 - Section 4: Exactness properties of the category of sheaves.
@@ -22,6 +21,6 @@ Packaging policy followed:
 - Fresh PDFs, cumulative PDFs, TeX source, French source extract, render-check PNGs, PDF info, validation, coverage, file list, and checksums were added.
 - `06_all_rendered_pdfs/` was updated with flat copies of all newly generated PDFs.
 
-Next continuation anchor:
+Next continuation point:
 
 - SGA 4, Exposé III, opening line of `03/03.tex`.

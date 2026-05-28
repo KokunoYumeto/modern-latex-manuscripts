@@ -1,4 +1,4 @@
-# Worklog - Expose XVII Completion and Expose XVIII Section 2
+# Worklog - translation segment
 
 Fresh-only SGA translation package.
 
@@ -14,10 +14,8 @@ Source ranges:
 
 Main output:
 
-- `02_new_translation_latex/expose_xvii_completion_and_expose_xviii_section_2/SGA4_Expose_XVII_5_2_4_to_XVIII_section_2_en.tex`
-- `02_new_translation_latex/expose_xvii_completion_and_expose_xviii_section_2/SGA4_Expose_XVII_5_2_4_to_XVIII_section_2_en.pdf`
+- `02_new_translation_latex/translation segment/SGA4_Expose_XVII_5_2_4_to_XVIII_section_2_en.tex`
+- `02_new_translation_latex/translation segment/SGA4_Expose_XVII_5_2_4_to_XVIII_section_2_en.pdf`
 
 Rendered output: 52 pages.
-
-Next continuation anchor: SGA 4, Exposé XVIII, Section 3, "The global duality theorem," source line 4691 of `18_fr.tex`.
 

@@ -1,6 +1,6 @@
-# Batch 011 source extract
+# translation segment source extract
 
-Current source extract for the delivered Batch 011 translation:
+Current source extract for the delivered translation segment translation:
 
 - `SGA4_Expose_III_complete_source_lines_23_1551_fr.tex`
 

@@ -1,6 +1,6 @@
-# Worklog Batch 024
+# Worklog translation segment
 
-Fresh-only package. Continued from Batch 023 continuation anchor at SGA 4, Exposé XII, Section 6.
+source package. Continued from translation segment continuation point at SGA 4, Exposé XII, Section 6.
 
 Translated range:
 
@@ -13,9 +13,8 @@ Translated range:
 
 Main TeX/PDF:
 
-- `02_new_translation_latex/batch_024/SGA4_Expose_XII_6_to_XVII_5_2_4_en.tex`
-- `02_new_translation_latex/batch_024/SGA4_Expose_XII_6_to_XVII_5_2_4_en.pdf`
+- `02_new_translation_latex/translation segment/SGA4_Expose_XII_6_to_XVII_5_2_4_en.tex`
+- `02_new_translation_latex/translation segment/SGA4_Expose_XII_6_to_XVII_5_2_4_en.pdf`
 
 PDF page count: 52.
 
-Next continuation anchor: SGA 4, Exposé XVII, continuation of Section 5.2, source line 4315 of `17_fr.tex`.

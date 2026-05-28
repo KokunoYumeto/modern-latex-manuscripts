@@ -16,7 +16,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 - Main landing page: https://zenodo.org/records/20415117
 - EGA working translation: https://zenodo.org/records/20422770
-- SGA working translation: https://zenodo.org/records/20421894
+- SGA working translation: https://zenodo.org/records/20423127
 - Heinrich Weber author record: https://zenodo.org/records/20422935
 - Emmy Noether author record: https://zenodo.org/records/20422936
 - Non-European mathematics consolidated corpus: https://zenodo.org/records/20422507
@@ -28,7 +28,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 ## Repository Layout
 
 - `sources/ega/`: current editable EGA TeX tree, including local continuation work.
-- `sources/sga/`: extracted SGA TeX/source material from current public source packets.
+- `sources/sga/`: extracted SGA TeX/source material from current public source packets, with process notes stripped or normalized for the public mirror.
 - `sources/weber-noether/`: current Weber and Noether translation TeX.
 - `sources/non-european/`: extracted TeX material from the current non-European corpus source bundle, including combined language/corpus TeX and work-level source bundles.
 - `reader-pdfs/`: small current reader PDFs for quick inspection. Large scans and raw archives live on Zenodo.

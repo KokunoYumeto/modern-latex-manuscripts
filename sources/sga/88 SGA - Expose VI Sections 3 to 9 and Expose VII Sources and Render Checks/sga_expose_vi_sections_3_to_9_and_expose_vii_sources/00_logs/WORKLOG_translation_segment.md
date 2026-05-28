@@ -1,6 +1,5 @@
-# Worklog - Batch 022
+# Worklog - translation segment
 
-Fresh/new-only translation batch.
 
 Translated material:
 
