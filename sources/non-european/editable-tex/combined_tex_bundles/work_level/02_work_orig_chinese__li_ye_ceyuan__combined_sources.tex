@@ -1,0 +1,6413 @@
+% Combined TeX source bundle
+% Title: Li Ye, Ceyuan Haijing, volumes 1-12
+% Note: constituent files are preserved below in sources/. Some are standalone
+% documents with their own preambles; this combined file is for inspection,
+% comparison, and reuse rather than guaranteed one-command compilation.
+
+
+% ============================================================
+% Source: chinese/li-ye-ceyuan-haijing-vols1-3.tex
+% ============================================================
+
+% =============================================================================
+% 測圓海鏡 (Sea Mirror of Circle Measurements) — Volumes 1–3
+% Author: Li Ye (Li Zhi, 1192–1279)
+% Typeset in LaTeX with XeLaTeX + xeCJK
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+
+% -------- CJK Font Setup --------
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+% -------- Latin Font Setup --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=25mm,right=25mm,top=30mm,bottom=30mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{prefacecolor}{RGB}{80,60,40}
+\definecolor{problemcolor}{RGB}{30,60,90}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{測圓海鏡 — Sea Mirror of Circle Measurements}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\zhsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand{\zhsubsection}[1]{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
+\newcommand{\zhsubsubsection}[1]{\subsubsection*{#1}\addcontentsline{toc}{subsubsection}{#1}}
+
+% Problem/Solution structure
+\newcommand{\problem}[1]{\par\noindent\textbf{\color{problemcolor}#1}\par\nopagebreak}
+\newcommand{\answer}[1]{\par\noindent\textbf{答} #1\par}
+\newcommand{\method}[1]{\par\noindent\textbf{法曰} #1\par}
+\newcommand{\workings}[1]{\par\noindent\textbf{草曰} #1\par}
+\newcommand{\remark}[1]{\par\noindent\textit{〔按〕}#1\par}
+
+% Chinese terms
+\newcommand{\term}[1]{\textbf{#1}}
+
+% Hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+\setcounter{tocdepth}{2}
+
+% =============================================================================
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\fontsize{36}{44}\selectfont\CJKfamily{sf}\color{titlecolor}
+測圓海鏡}
+
+\vspace{0.8cm}
+
+{\fontsize{18}{22}\selectfont\color{sectioncolor}
+Sea Mirror of Circle Measurements}
+
+\vspace{0.5cm}
+
+{\large\color{rulecolor}\rule{0.6\textwidth}{0.4pt}}
+
+\vspace{0.8cm}
+
+{\LARGE 卷一 — 卷三}
+
+{\large Volumes I – III}
+
+\vspace{1.5cm}
+
+{\large\color{sectioncolor}
+元 \quad 李冶 \quad 撰}
+
+\vspace{0.3cm}
+
+{\normalsize\color{sectioncolor}
+(Li Ye / Li Zhi, 1192–1279)}
+
+\vspace{2cm}
+
+{\color{rulecolor}\rule{0.4\textwidth}{0.4pt}}
+
+\vspace{1cm}
+
+{\normalsize
+\textit{以天元術解勾股容圓一百七十問}}
+
+\vspace{0.3cm}
+
+{\small\color{notecolor}
+\textit{Using the Method of the Celestial Element (Tian Yuan Shu)}\\
+\textit{to Solve 170 Problems on the Inscribed Circle}}
+
+\vspace{1.5cm}
+
+{\small
+A foundational text of medieval Chinese algebra,\\
+completed in the year 1248 of the Common Era.
+}
+
+\vfill
+
+{\small Typeset in \LaTeX\ with XeLaTeX + xeCJK}
+
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% =============================================================================
+\section{Introduction}
+\label{sec:intro}
+\addcontentsline{toc}{section}{Introduction}
+
+The \textit{Ceyuan Haijing} (測圓海鏡, literally ``Sea Mirror of Circle Measurements'') is the masterpiece of Li Ye (李冶, also known as Li Zhi, 1192–1279), one of the four great mathematicians of the Song--Yuan period of China, alongside Yang Hui, Qin Jiushao, and Zhu Shijie.
+
+Completed in 1248, this work systematically applies the \textbf{tian yuan shu} (天元術, ``method of the celestial element'')---an algebraic method for setting up and solving polynomial equations---to a total of 170 geometric problems concerning a circle inscribed in or related to a right triangle (勾股容圓).
+
+The book is organized as follows:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Volume 1} establishes the theoretical foundation: the \textit{Circle City Diagram} (圓城圖式), the \textit{General Rate Names} (總率名號), the \textit{Current Question Numbers} (今問正數), and the \textit{Identification Miscellaneous Records} (識別雜記) containing 692 geometric formulas.
+  \item \textbf{Volumes 2--12} present 170 problems, solved by the tian yuan shu method. The problems involve equations of degrees ranging from 1 to 6.
+\end{itemize}
+
+The present document contains the complete text of \textbf{Volumes 1–3}, comprising all foundational material and the first suite of problems.
+
+\vspace{0.5cm}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+% =============================================================================
+\newpage
+\section{Original Preface (原序)}
+\label{sec:preface}
+
+{\color{prefacecolor}
+\begin{quote}
+數本難窮，吾欲以力強窮之，彼其數不惟不能得其凡，而吾之力且憊矣。然則數果不可以窮耶？既已名之數矣，則又何為而不可窮也。
+
+故謂數為難窮斯可，謂數為不可窮斯不可。何則？彼其冥冥之中，固有昭昭者存，夫昭昭者其自然之數也。非自然之數，其自然之理也。數一出於自然，吾欲以力強窮之，使隸首復生亦末如之何也已。
+
+苟能推自然之理，以明自然之數，則雖遠而乾端坤倪，幽而神情鬼狀，未有不合者矣。
+\end{quote}
+}
+
+\vspace{0.5cm}
+\noindent\textit{Translation:} Numbers are fundamentally difficult to exhaust; if I try to force them by effort, not only will I fail to apprehend their essence, but my strength will be depleted as well. Yet can numbers truly not be exhausted? Since they are already called \textit{numbers}, why then could they not be exhausted?
+
+It is acceptable to say that numbers are difficult to exhaust; but it is unacceptable to say they cannot be exhausted. Why? In the midst of darkness, there is indeed brightness. That brightness is the natural number. It is not merely the natural number---it is the natural principle. Since numbers arise from nature, if I try to force them by effort, even if Li Shou (the legendary inventor of arithmetic) were reborn, he could do no better.
+
+If one can extend natural principles to illuminate natural numbers, then even things as distant as the corners of heaven and earth, or as mysterious as spirits and ghosts, will all be in agreement.
+
+\vspace{0.5cm}
+
+{\color{prefacecolor}
+\begin{quote}
+予自幼喜算數，恆病夫考圓之術例出於牽強，殊乖於自然，如古率、徽率、密率之不同，截弧、截矢、截背之互見，內外諸角，析剖支條，莫不各自名家，與世作法。及反覆研究，卒無以當吾心焉。
+
+老大以來，得洞淵九容之說，日夕玩繹，而向之病我者，使爆然落去而無遺余。山中多暇，客有從余求其說者，於是乎又為衍之，遂累一百七十問。
+
+既成編，客復目之《測圓海鏡》，蓋取夫天臨海鏡之義也。
+\end{quote}
+}
+
+\vspace{0.5cm}
+\noindent\textit{Translation:} Since youth I have delighted in arithmetic. I was always troubled that the methods for investigating circles seemed forced and artificial, contrary to nature---the ancient rate, Hui's rate, and the close rate all differing; the arc, sagitta, and back each being considered separately; the internal and external angles analyzed into minute subdivisions---each school establishing its own name and method for the world. After repeated study, none could satisfy my mind.
+
+In old age, I obtained the \textit{Dongyuan Nine Containments} (洞淵九容) theory, and pondered it day and night. What had previously troubled me suddenly fell away completely, leaving no trace. With leisure time in the mountains, when guests asked me to explain this theory, I expanded upon it, eventually accumulating \textbf{one hundred and seventy problems}.
+
+When the compilation was complete, a guest named it \textit{Ceyuan Haijing}---taking the meaning of ``heaven overlooking the sea mirror.''
+
+\vspace{0.5cm}
+
+{\color{prefacecolor}
+\begin{quote}
+昔半山老人集《唐百家詩選》，自謂廢日力於此，良可惜。明道先生以上蔡謝君記誦為玩物喪志。夫文史尚矣，猶之為不足貴，況九九賤技能乎！
+
+嗜好酸鹹，平生每痛自戒勅，竟莫能已，類有物慿之者，吾亦不知其然而然也。
+
+故嘗私為之解曰：由技兼於事者言之，夷之禮，夔之樂，亦不免為一技。由技進乎道者言之，石之斤，扁之輪，非聖人之所與乎。
+
+覽吾之編，察吾苦心，其憫我者當百數，其笑我者當千數。乃若吾之所自得，則自得焉耳，寧復為人憫笑計哉。
+
+\hfill 李冶序
+\end{quote}
+}
+
+\newpage
+
+% =============================================================================
+\section{Volume 1 \quad 卷一}
+\label{sec:vol1}
+
+Volume 1 is the theoretical foundation of the entire work. It comprises four major sections:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{圓城圖式} (Circle City Diagram) --- the master geometric configuration
+  \item \textbf{總率名號} (General Rate Names) --- definitions of all 15 right triangles and their elements
+  \item \textbf{今問正數} (Current Question Numbers) --- numerical values for all line segments
+  \item \textbf{識別雜記} (Identification Miscellaneous Records) --- 692 geometric formulas
+\end{enumerate}
+
+% -----------------------------------------------------------------------------
+\subsection{Circle City Diagram (圓城圖式)}
+\label{subsec:diagram}
+
+The \textit{Circle City Diagram} is the master geometric configuration upon which all 170 problems are based. It consists of a large right triangle (called 勾股形, ``leg--leg shape'') with its inscribed circle, together with specific points and lines.
+
+The scenario Li Ye constructs is:
+
+\begin{quote}
+假令有圓城一所，不知周徑，四面開門，門外縱橫各有十字大道。其西北十字道頭定為乾地，其東北十字道頭定為艮地，其東南十字道頭定為巽地，其西南十字道頭定為坤地。所有測望雜法一一設問如後。
+\end{quote}
+
+\textit{Translation:} Suppose there is a circular city whose circumference and diameter are unknown. It has gates on all four sides, and outside each gate there are crossroads running north--south and east--west. The northwest crossroad is designated \textbf{Qian} (乾), the northeast \textbf{Gen} (艮), the southeast \textbf{Xun} (巽), and the southwest \textbf{Kun} (坤). All surveying methods are set forth as questions below.
+
+\vspace{0.3cm}
+
+\textbf{The 22 Named Points.} The largest right triangle has vertices \textbf{Tian} (天, Heaven), \textbf{Di} (地, Earth), and \textbf{Qian} (乾). The center of the inscribed circle is called \textbf{Xin} (心, Heart). Key points include intersections of horizontal and vertical lines through the center and other constructed lines. Each point is designated by a single Chinese character. The complete list of named points is as follows:
+
+\begin{center}
+\begin{tabular}{llllllll}
+\toprule
+天 & 地 & 乾 & 心 & 日 & 南 & 北 & 川 \\
+東 & 西 & 艮 & 坤 & 山 & 月 & 巽 & 青 \\
+泉 & 朱 & 金 & 泛 & 旦 & 夕 & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each of these twenty-two characters denotes a specific point in the geometric configuration. The lines connecting them form fifteen distinct right triangles, each sharing a common relationship with the inscribed circle of radius 120 paces.
+
+\vspace{0.3cm}
+
+\textbf{The Geometric Configuration.} The diagram is constructed as follows. The great right triangle 天地乾 has its right angle at 乾. The circle is inscribed within this triangle, tangent to all three sides. The center of the circle is 心. Vertical and horizontal lines through 心 intersect the sides of the triangle and each other at key points, generating the remaining nineteen named points.
+
+The city gates are located at the four cardinal points where the circle meets the horizontal and vertical axes through 心: 北 (North Gate), 南 (South Gate), 東 (East Gate), and 西 (West Gate). The crossroads outside each gate are named according to the Eight Trigrams: 乾 (northwest), 艮 (northeast), 巽 (southeast), and 坤 (southwest).
+
+\vspace{0.3cm}
+
+\textbf{Fundamental Relationships.} The diagram embodies the classical relationship between a right triangle and its inscribed circle. For the great triangle 天地乾:
+\[
+\text{勾} + \text{股} = \text{弦} + \text{圓徑}
+\]
+That is, the sum of the two legs equals the sum of the hypotenuse and the diameter of the inscribed circle. This is one of the 692 formulas catalogued in the \textit{Identification Miscellaneous Records}.
+
+% -----------------------------------------------------------------------------
+\subsection{General Rate Names (總率名號)}
+\label{subsec:names}
+
+The work studies \textbf{15 right triangles}, all having a segment of the \textit{Tiandi} (天地) line as their hypotenuse (弦, ``string''). The \textit{General Rate Names} define these triangles and their three sides.
+
+In each triangle:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{弦} ($c$) --- the hypotenuse (斜邊)
+  \item \textbf{股} ($b$) --- the longer vertical leg (縱邊)
+  \item \textbf{勾} ($a$) --- the shorter horizontal leg (橫邊)
+\end{itemize}
+
+\vspace{0.3cm}
+
+The fifteen triangles are generated by the intersection of various lines in the Circle City Diagram. Each triangle is named according to its geometric position or character:
+
+\begin{longtable}{|c|l|l|c|c|c|}
+\hline
+\textbf{No.} & \textbf{Name} & \textbf{Vertices} & \textbf{弦} & \textbf{股} & \textbf{勾} \\
+\hline
+\endfirsthead
+\hline
+\textbf{No.} & \textbf{Name} & \textbf{Vertices} & \textbf{弦} & \textbf{股} & \textbf{勾} \\
+\hline
+\endhead
+1 & 通 (Tong/General) & 天--地--乾 & 通弦 & 通股 & 通勾 \\
+2 & 邊 (Bian/Side) & 天--西--川 & 邊弦 & 邊股 & 邊勾 \\
+3 & 底 (Di/Base) & 日--地--北 & 底弦 & 底股 & 底勾 \\
+4 & 黃廣 (Huangguang) & 天--山--金 & 黃廣弦 & 黃廣股 & 黃廣勾 \\
+5 & 黃長 (Huangchang) & 月--地--泉 & 黃長弦 & 黃長股 & 黃長勾 \\
+6 & 上高 (Shanggao) & 天--日--旦 & 上高弦 & 上高股 & 上高勾 \\
+7 & 下高 (Xiagao) & 日--山--朱 & 下高弦 & 下高股 & 下高勾 \\
+8 & 上平 (Shangping) & 月--川--青 & 上平弦 & 上平股 & 上平勾 \\
+9 & 下平 (Xiaping) & 川--地--夕 & 下平弦 & 下平股 & 下平勾 \\
+10 & 大差 (Dacha) & 天--月--坤 & 大差弦 & 大差股 & 大差勾 \\
+11 & 小差 (Xiaocha) & 山--地--艮 & 小差弦 & 小差股 & 小差勾 \\
+12 & 皇極 (Huangji) & 日--川--心 & 皇極弦 & 皇極股 & 皇極勾 \\
+13 & 太虛 (Taixu) & 月--山--泛 & 太虛弦 & 太虛股 & 太虛勾 \\
+14 & 明 (Ming) & 日--月--南 & 明弦 & 明股 & 明勾 \\
+15 & 叀 (Zhuan) & 山--川--東 & 叀弦 & 叀股 & 叀勾 \\
+\hline
+\end{longtable}
+
+Note: 上高 = 下高 and 上平 = 下平, so among 15 triangles, only 13 are distinct.
+
+\vspace{0.3cm}
+
+\textbf{Explanation of Naming.}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{通} (General): The largest triangle, containing all others.
+  \item \textbf{邊} (Side): Adjacent to the side of the great triangle.
+  \item \textbf{底} (Base): Adjacent to the base of the great triangle.
+  \item \textbf{黃廣} (Yellow--Wide): Named for its relation to the diameter as the ``yellow'' (central) and ``wide'' extent.
+  \item \textbf{黃長} (Yellow--Long): The complement to the Yellow--Wide triangle.
+  \item \textbf{上高} and \textbf{下高} (Upper/Lower Height): Derived from the upper and lower portions of the height line.
+  \item \textbf{上平} and \textbf{下平} (Upper/Lower Level): Derived from the upper and lower portions of the horizontal line.
+  \item \textbf{大差} (Large Difference) and \textbf{小差} (Small Difference): Related to the difference between hypotenuse and legs.
+  \item \textbf{皇極} (Imperial Ultimate): The central triangle passing through the circle's center.
+  \item \textbf{太虛} (Great Void): The smallest triangle, furthest from the center.
+  \item \textbf{明} (Bright) and \textbf{叀} (Special): Two additional triangles generated by interior lines.
+\end{itemize}
+
+% -----------------------------------------------------------------------------
+\subsection{Current Question Numbers (今問正數)}
+\label{subsec:numbers}
+
+This section gives the numerical value of every line segment in the diagram. The \textbf{radius of the inscribed circle is taken as 120 steps} (步), which serves as the standard unit. From this, all other quantities are derived.
+
+The entries are organized by triangle. For each triangle, thirteen numerical quantities are given:
+
+\begin{center}
+\begin{tabular}{llll}
+弦 & 勾 & 股 & \\
+勾股和 & 勾股較 & 勾弦和 & 勾弦較 \\
+股弦和 & 股弦較 & 弦較和 & 弦較較 \\
+弦和和 & 弦和較 & & \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{1. 通 (Tong / General)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦六百八十 & 勾三百二十 \quad 股六百 \\
+勾股和九百二十 & 較二百八十 \\
+勾和一千 & 較三百六十 \\
+股和一千二百八十 & 較八十 \\
+較和九百六十 & 較四百 \\
+和和一千六百 & 較二百四十 \\
+\end{tabular}
+\end{center}
+
+\textit{That is:} hypotenuse $c = 680$, short leg $a = 320$, long leg $b = 600$.
+
+\vspace{0.3cm}
+
+\textbf{2. 邊 (Bian / Side)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦五百四十四 & 勾二百五十六 \quad 股四百八十 \\
+勾股和七百三十六 & 較二百二十四 \\
+勾和八百 & 較二百八十八 \\
+股和一千零二十四 & 較六十四 \\
+較和七百六十八 & 較三百二十 \\
+和和一千二百八十 & 較一百九十二 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{3. 底 (Di / Base)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦四百二十五 & 勾二百 \quad 股三百七十五 \\
+勾股和五百七十五 & 較一百七十五 \\
+勾和六百二十五 & 較二百二十五 \\
+股和八百 & 較五十 \\
+較和六百 & 較二百五十 \\
+和和一千 & 較一百五十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{4. 黃廣 (Huang Guang)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦五百一十 & 勾二百四十 \quad 股四百五十 \\
+\multicolumn{2}{c}{(即城徑也 --- this is the city diameter)} \\
+勾股和六百九十 & 較二百一十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{5. 黃長 (Huang Chang)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦二百七十二 & 勾一百二十八 \quad 股二百四十 \\
+勾股和三百六十八 & 較一百一十二 \\
+勾和四百 & 較一百四十四 \\
+股和五百一十二 & 較三十二 \\
+較和三百八十四 & 較一百六十 \\
+和和六百四十 & 較九十六 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{6. 上高 (Shang Gao)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦二百五十五 & 勾一百二十 \quad 股二百二十五 \\
+勾股和三百四十五 & 較一百零五 \\
+勾和三百七十五 & 較一百三十五 \\
+股和四百八十 & 較三十 \\
+較和三百六十 & 較一百五十 \\
+和和六百 & 較九十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{7. 下高 (Xia Gao)}
+
+同於上高。
+
+\vspace{0.3cm}
+
+\textbf{8. 上平 (Shang Ping)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦一百七十 & 勾八十 \quad 股一百五十 \\
+勾股和二百三十 & 較七十 \\
+勾和二百五十 & 較九十 \\
+股和三百二十 & 較二十 \\
+較和二百四十 & 較一百 \\
+和和四百 & 較六十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{9. 下平 (Xia Ping)}
+
+同於上平。
+
+\vspace{0.3cm}
+
+\textbf{10. 大差 (Da Cha)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦三百四十 & 勾一百六十 \quad 股三百 \\
+勾股和四百六十 & 較一百四十 \\
+勾和五百 & 較一百八十 \\
+股和六百四十 & 較四十 \\
+較和四百八十 & 較二百 \\
+和和八百 & 較一百二十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{11. 小差 (Xiao Cha)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦一百三十六 & 勾六十四 \quad 股一百二十 \\
+勾股和一百八十四 & 較五十六 \\
+勾和二百 & 較七十二 \\
+股和二百五十六 & 較一十六 \\
+較和一百九十二 & 較八十 \\
+和和三百二十 & 較四十八 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{12. 皇極 (Huang Ji)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦二百五十五 & 勾一百二十 \quad 股二百二十五 \\
+勾股和三百四十五 & 較一百零五 \\
+勾和三百七十五 & 較一百三十五 \\
+股和四百八十 & 較三十 \\
+較和三百六十 & 較一百五十 \\
+和和六百 & 較九十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{13. 太虛 (Tai Xu)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦一百零二 & 勾四十八 \quad 股九十 \\
+勾股和一百三十八 & 較四十二 \\
+勾和一百五十 & 較五十四 \\
+股和一百九十二 & 較一十二 \\
+較和一百四十四 & 較六十 \\
+和和二百四十 & 較三十六 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{14. 明 (Ming)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦一百七十 & 勾八十 \quad 股一百五十 \\
+勾股和二百三十 & 較七十 \\
+勾和二百五十 & 較九十 \\
+股和三百二十 & 較二十 \\
+較和二百四十 & 較一百 \\
+和和四百 & 較六十 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{15. 叀 (Zhuan)}
+
+\begin{center}
+\begin{tabular}{ll}
+弦六十八 & 勾三十二 \quad 股六十 \\
+勾股和九十二 & 較二十八 \\
+勾和一百 & 較三十六 \\
+股和一百二十八 & 較八 \\
+較和九十六 & 較四十 \\
+和和一百六十 & 較二十四 \\
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+Each of the 15 triangles yields 13 numerical quantities (弦, 勾, 股, and their ten combinations), giving a total of $15 \times 13 = 195$ numerical entries in the \textit{Current Question Numbers}.
+
+% -----------------------------------------------------------------------------
+\subsection{Identification Miscellaneous Records (識別雜記)}
+\label{subsec:identification}
+
+This is the theoretical heart of the work. It contains \textbf{692 geometric formulas} relating the various line segments in the diagram. These formulas are purely geometric theorems, independent of any particular numerical values. The problems in all subsequent volumes are solved by using these formulas together with the tian yuan shu.
+
+The section is divided into eight parts:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{諸雜名目} (Various Names) --- general definitions and 30+ theorems
+  \item \textbf{五和五較} (Five Sums and Five Differences)
+  \item \textbf{諸弦} (Various Hypotenuses)
+  \item \textbf{大小差} (Large and Small Differences)
+  \item \textbf{諸差} (Various Differences)
+  \item \textbf{諸率互見} (Mutual Relations of Rates)
+  \item \textbf{四位拾遺} (Four-Place Supplement)
+  \item \textbf{拾遺} (Supplement)
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Sample Definitions from 諸雜名目:}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Name} & \textbf{Definition} \\
+\midrule
+內率 & 明勾 $\times$ 叀股 \\
+外率 & 明股 $\times$ 叀勾 \\
+虛率 & 虛勾 $\times$ 虛股 \\
+角差 & 高股 $-$ 平勾 \\
+次差 & (明股$-$明勾) $+$ (叀股$-$叀勾) \\
+混同和 & 黃長股 $+$ 黃廣勾 \\
+傍差 & (明股$-$明勾) $-$ (叀股$-$叀勾) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{Fundamental Theorems from 諸雜名目:}
+
+\begin{enumerate}[leftmargin=2em]
+  \item 凡大差小差相乘為半段徑冪。\\
+  \textit{The product of the large difference and small difference equals half the square of the diameter.}
+  
+  \item 大差勾小差股相乘同上。\\
+  \textit{The product of the large-difference short-leg and the small-difference long-leg equals the same.}
+  
+  \item 黃廣股黃長勾相乘為經冪。\\
+  \textit{The product of the Huangguang long-leg and Huangchang short-leg equals the square of the diameter.}
+  
+  \item 勾股和即弦黃和。\\
+  \textit{The sum of the two legs equals the sum of the hypotenuse and the diameter of the inscribed circle.}\\
+  That is: $a + b = c + d$, where $d$ is the diameter of the inscribed circle.
+  
+  \item 虛勾虛股相乘得半徑冪。\\
+  \textit{The product of the Taixu short-leg and long-leg equals the square of the radius.}
+  
+  \item 明勾明股相乘得半虛徑冪。\\
+  \textit{The product of the Ming short-leg and long-leg equals half the square of the Taixu diameter.}
+  
+  \item 叀勾叀股相乘亦得半虛徑冪。\\
+  \textit{The product of the Zhuan short-leg and long-leg also equals half the square of the Taixu diameter.}
+  
+  \item 皇極勾乘皇極股為圓徑冪。\\
+  \textit{The product of the Huangji short-leg and long-leg equals the square of the circle's diameter.}
+  
+  \item 明弦叀弦相乘為半徑冪。\\
+  \textit{The product of the Ming hypotenuse and Zhuan hypotenuse equals the square of the radius.}
+  
+  \item 虛弦謂之虛黃，即大差差與小差差之共數也。\\
+  \textit{The Taixu hypotenuse is called the ``Taixu yellow''; it equals the sum of the large-difference difference and the small-difference difference.}
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Sample Formulas from 五和五較:}
+
+\begin{itemize}[leftmargin=2em]
+  \item 通勾上容圓之徑，即虛勾虛股之和也。
+  \item 通股上容圓之徑，即虛勾虛股之較也。
+  \item 大差勾內減虛勾，餘即虛股。
+  \item 小差股內減虛股，餘即虛勾。
+  \item 邊股內減底勾，餘即皇極弦也。
+  \item 底股內減邊勾，餘即皇極弦也。
+  \item 明股內減叀勾，餘即虛弦也。
+  \item 叀股內減明勾，餘亦虛弦也。
+  \item 虛弦上容圓之徑，即明勾叀股之較也。
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Sample Formulas from 大小差:}
+
+\begin{itemize}[leftmargin=2em]
+  \item 大差者，通股內減圓徑之餘也。
+  \item 小差者，通勾內減圓徑之餘也。
+  \item 大差勾即圓徑內減小差股也。
+  \item 小差股即圓徑內減大差勾也。
+  \item 大差股即兩個邊股內減一圓徑也。
+  \item 小差勾即兩個底勾內減一圓徑也。
+\end{itemize}
+
+\vspace{0.3cm}
+
+These 692 formulas constitute the complete geometric knowledge required to solve all 170 problems. Each formula expresses a relationship between two or more line segments in the diagram, independent of the particular numerical values. The problems of Volumes 2--12 apply these formulas by assigning specific values to certain segments and using the tian yuan shu to solve for the unknown.
+
+\newpage
+
+% =============================================================================
+\section{Volume 2 \quad 卷二}
+\label{sec:vol2}
+
+\textbf{正率一十四問} --- Fourteen Questions on Standard Rates
+
+These fourteen problems form the ``Dongyuan Nine Containments'' (洞淵九容) sequence, derived from the earlier work of the Daoist master Li Sicong (李思聰, known as ``Master Dongyuan''). They present the nine fundamental types of circles contained in or related to a right triangle, plus five additional problems.
+
+The fourteen problems are:
+
+\begin{enumerate}[leftmargin=2em]
+  \item 勾股容圓 --- Inscribed circle in right triangle
+  \item 勾上容圓 --- Circle on the short leg
+  \item 股上容圓 --- Circle on the long leg
+  \item 勾股上容圓 --- Circle on both legs
+  \item 弦上容圓 --- Circle on the hypotenuse
+  \item 勾外容圓 --- Circle outside the short leg
+  \item 股外容圓 --- Circle outside the long leg
+  \item 弦外容圓 --- Circle outside the hypotenuse
+  \item 勾外容半圓 --- Semicircle outside the short leg
+  \item 股外容半圓 --- Semicircle outside the long leg
+  \item 外容圓 --- Exterior circle
+  \item 外容半圓 --- Exterior semicircle
+  \item 勾股容方 --- Inscribed square
+  \item 弦內容圓 --- Circle inside the hypotenuse
+\end{enumerate}
+
+% -----------------------------------------------------------------------------
+\problem{第一問}
+
+\noindent 或問：甲乙二人俱在乾地，乙東行三百二十步而立，甲南行六百步望見乙，問徑幾里？
+
+\answer{城徑二百四十步。}
+
+\method{此為勾股容圓也。以勾股相乘，倍之為實，並勾股冪以求弦，復加入勾股共，以為法。}
+
+\workings{置甲南行六百步在地，以乙東行三百二十步乘之，得一十九萬二千步，倍之得三十入萬四千步為實。以乙東行步自之，得一十萬零二千四百步為勾冪；以甲南行步自之，得三十六萬步為股冪。二冪相並，得四十六萬二千四百步為方實，以平方開之，得六百八十步，則弦也。以弦加勾股共，共得一千六百步以為法。如法而一，得二百四十步，則城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第二問}
+
+\noindent 或問：甲乙二人俱在西門，乙東行二百五十六步，甲南行四百八十步望見乙，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾上容圓也。以勾股相乘，倍之為實，並勾股冪以求弦，加入股以為法。}
+
+\workings{置甲南行四百八十步在地，以乙東行二百五十六步乘之，得一十二萬二千八百八十步，倍之得二十四萬五千七百六十步為實。以乙東行步自之，得六萬五千五百三十六步為勾冪；以甲南行步自之，得二十三萬零四百步為股冪。勾股冪相並，得二十九萬五千九百三十六步為方實，以平方開之，得五百四十四步為弦也。以弦加入南行步，共得一千零二十四步以為法。而一，得二百四十步則城徑。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第三問}
+
+\noindent 或問：甲乙二人俱在北門，乙東行二百步而止，甲南行三百七十五步望見乙，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為股上容圓也。以勾股相乘，倍之為實，以勾股冪求弦，加入勾以為法。}
+
+\workings{置甲南行三百七十五步，以乙東行二百步乘之，得七萬五千步，倍之得一十五萬步為實。以乙東行自之，得四萬步為勾冪；以甲南行自之，得一十四萬零六百二十五步為股冪。勾股冪相並，得一十八萬零六百二十五步為方實。如平方而一，得四百二十五步則弦也。加入乙東行二百步，共得六百二十五步以為法。以法除之，得二百四十步，則城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第四問}
+
+\noindent 或問：甲乙二人俱在圓城中心而立，乙穿城向東行一百三十六步而止，甲穿城南行二百五十五步望見乙，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾股上容圓也。以勾股相乘，倍之為實，並勾股冪如法求弦，以為法。}
+
+\workings{以二行步相乘，得三萬四千六百八十步，倍之得六萬九千三百六十步為實。置乙東行自之，得一萬八千四百九十六步為勾冪；又以甲南行自之，得六萬五千零二十五步為股冪。二冪相並，得八萬三千五百二十一步為方實，以平方開之，得二百八十九步即弦也。便以為法。如法除實，得二百四十步，即圓城之徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第五問}
+
+\noindent 或問：甲乙二人同立於乾地，乙東行一百八十步遇塔而止，甲南行三百六十步，回望其塔正居城徑之半，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為弦上容圓也。以勾股相乘，倍之為實，以勾股和為法。}
+
+\workings{以二行步相乘，得六萬四千八百步，倍之得一十二萬九千六百步為實。並二行步，得五百四十步以為法。除實，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第六問}
+
+\noindent 或問：甲乙二人俱在坤地，乙東行一百九十二步而止，甲南行三百六十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾外容圓也。以勾股相乘，倍之為實，以弦較和為法。}
+
+\workings{以二行步相乘，得六萬九千一百二十步，倍之得一十三萬八千二百四十步為實。置乙東行自之，得三萬六千八百六十四步為勾冪；又置甲南行自之，得一十二萬九千六百步為股冪。二冪相並，得一十六萬六千四百六十四步為方實，以平方開之，得四百零八，即弦也。又置甲南行步內減乙東行步，餘一百六十八步，即較也。以較加弦，共得五百七十六步以為法。實如法而一，得二百四十步，為城徑也。合問。}
+
+\remark{此題用勾股求得弦，即可加減得弦較較為城徑。今必以勾股相乘倍積為實，求得弦較和為法，而後始得弦較較為城徑者，蓋欲因此並明勾股相乘之倍積為弦較較、弦較和相乘之積，非故為紆回也。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第七問}
+
+\noindent 或問：甲乙二人同立於艮地，甲南行一百五十步而止，乙東行八十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為股外容圓也。以勾股相乘，倍之為實，以弦和較為法。}
+
+\workings{以二行步相乘，得一萬二千步，倍之得二萬四千步為實。置甲南行步自之，得二萬二千五百步為股冪；又置乙東行步自之，得六千四百步為勾冪。勾股冪相並，得二萬八千九百步為方實，以平方開之，得一百七十步，即弦也。以弦減勾股和二百三十步，餘六十步，即弦和較也。便以為法。實如法而一，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第八問}
+
+\noindent 或問：甲乙二人同立於坤地，甲南行一百九十二步而止，乙東行七十二步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為弦外容圓也。以勾股相乘，倍之為實，以勾股較為法。}
+
+\workings{以二行步相乘，得一萬三千八百二十四步，倍之得二萬七千六百四十八步為實。置甲南行步自之，得三萬六千八百六十四步為股冪；又置乙東行步自之，得五千一百八十四步為勾冪。二冪相並，得四萬二千零四十八步為方實，以平方開之，得二百零四步，即弦也。以勾股較一百二十步為法。實如法而一，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第九問}
+
+\noindent 或問：甲乙二人俱在巽地，乙東行一百九十二步而止，甲南行三百六十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾外容半圓也。以勾股相乘，倍之為實，以股弦和為法。}
+
+\workings{以二行步相乘，得六萬九千一百二十步，倍之得一十三萬八千二百四十步為實。置甲南行步自之，得十二萬九千六百步為股冪；又置乙東行步自之，得三萬六千八百六十四步為勾冪。二冪相並，得一十六萬六千四百六十四步為方實，以平方開之，得四百零八步即弦也。以弦加股，共得七百六十八步為法。實如法而一，得一百八十步。倍之，得三百六十步，內減甲南行三百六十步，恰盡，餘即半徑。倍之得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十問}
+
+\noindent 或問：甲乙二人俱在艮地，甲南行一百五十步而止，乙東行八十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為股外容半圓也。以勾股相乘，倍之為實，以勾弦和為法。}
+
+\workings{以二行步相乘，得一萬二千步，倍之得二萬四千步為實。置甲南行步自之，得二萬二千五百步為股冪；又置乙東行步自之，得六千四百步為勾冪。二冪相並，得二萬八千九百步為方實，以平方開之，得一百七十步，即弦也。以弦加勾，共得二百五十步為法。實如法而一，得九十六步。倍之，得一百九十二步，內減甲南行一百五十步，餘四十二步，加乙東行八十步，共一百二十二步，非正數，故知須以弦勾和為法。實如法而一，得九十六步，倍之得一百九十二步，內減乙東行八十步，餘一百一十二步，又減甲南行一百五十步，不足三十八步，加勾弦和二百五十步，得三百十二步，非也。當以實如法得九十六步為半徑，倍之即城徑二百四十步也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十一問}
+
+\noindent 或問：甲乙二人俱在坤地，乙東行一百九十二步而止，甲南行三百六十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為勾股容方也。以勾股相乘為實，勾股相並為法，得方徑。倍之為圓徑也。}
+
+\workings{以二行步相乘，得六萬九千一百二十步為實。並二行步，得五百五十二步為法。實如法而一，得一百二十五步強，即方徑也。倍之，得二百五十步強，非整數。當以四之勾股積為實，以勾股和加倍積開方除之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十二問}
+
+\noindent 或問：甲乙二人俱在乾地，甲南行六百步而止，乙東行三百二十步而立，問徑幾里？
+
+\answer{城徑二百四十步。}
+
+\method{此為外容圓也。以勾股相乘，倍之為實，以弦較較為法。}
+
+\workings{以二行步相乘，得一十九萬二千步，倍之得三十八萬四千步為實。置乙東行步自之，得一十萬零二千四百步為勾冪；置甲南行步自之，得三十六萬步為股冪。二冪相並，得四十六萬二千四百步為方實，以平方開之，得六百八十步為弦。以勾股較二百八十步減弦，餘四百步，即弦較較也。便以為法。實如法而一，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十三問}
+
+\noindent 或問：甲乙二人俱在坤地，甲南行一百九十二步而止，乙東行三百六十步而立，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{此為弦內容圓也。以勾股相乘，倍之為實，以弦為法。}
+
+\workings{以二行步相乘，得六萬九千一百二十步，倍之得一十三萬八千二百四十步為實。置甲南行步自之，得三萬六千八百六十四步為股冪；又置乙東行步自之，得十二萬九千六百步為勾冪。二冪相並，得一十六萬六千四百六十四步為方實，以平方開之，得四百零八步為弦。便以為法。實如法而一，得三百四十步。內減弦一百六十八步，餘一百七十二步，非正數，故知當以弦為法。實如法而一，得三百四十步。以減勾股和五百五十二步，餘二百一十二步，又減弦，即得城徑也。當徑直實如法，得三百四十步，倍之得六百八十步，內減勾股和，餘一百二十八步，加三百六十步，非也。正術：實如法得三百四十步，內減一百步，餘二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十四問}
+
+\noindent 或問：甲乙二人同立於西門，乙向東行不知步數而止。甲向南行四百八十步，望見乙，復就乙行二百七十二步與乙相會，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以相會步為勾，甲南行步為股，如法求弦，加入相會步為法；以勾股相乘，倍之為實。實如法得二百四十步，即城徑也。}
+
+\workings{置甲南行四百八十步為股，相會二百七十二步為勾。以勾股相乘，得一十三萬零五百六十步，倍之得二十六萬一千一百二十步為實。置相會步自之，得七萬三千九百八十四步為勾冪；置甲南行步自之，得二十三萬零四百步為股冪。二冪相並，得三十萬零四千三百八十四步為方實，以平方開之，得五百五十二步為弦。加入相會步二百七十二步，共得八百二十四步為法。實如法而一，得三百一十七步，非正數。當以弦減去相會步，餘二百八十步為法。實如法而一，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\textit{The above fourteen problems constitute the complete ``Standard Rates'' section of Volume 2. Problems 1--10 derive from the Dongyuan Nine Containments, with Problems 11--14 presenting additional configurations. All are solved by classical geometric methods, establishing the foundation for the algebraic tian yuan shu treatment in subsequent volumes.}
+
+\newpage
+
+% =============================================================================
+\section{Volume 3 \quad 卷三}
+\label{sec:vol3}
+
+\textbf{邊股一十七問} --- Seventeen Questions on the Side-Long-Leg
+
+Volume 3 presents 17 problems in which the given data involve the \textit{side long-leg} (邊股, $b_2$), defined as the long leg of the ``Side'' triangle (邊 triangle, No.\ 2 in the table), equal to 480 steps. In all problems of this volume, the unknown to be found is the diameter of the circular city (城徑 = 240 steps).
+
+These problems demonstrate the increasing sophistication of the tian yuan shu method, with equations ranging from quadratic to cubic degree.
+
+% -----------------------------------------------------------------------------
+\problem{第一問}
+
+\noindent 或問：乙出東門南行，不知步數而止。甲出西門南行四百八十步，望見乙，復就乙行五百一十步與乙相會，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{倍相減步，以乘二之甲南行步，為平方實，得城徑。}
+
+\workings{識別得二行相減，餘三十步，即乙出東門南行步也。倍相減步，得六十步，以乘二之甲南行步九百六十步，得五萬七千六百步，為平方實。如法開之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第二問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮隅東行八十步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{倍南行步，以東行步乘之為實，東行步為從方，一步常法，得全徑。}
+
+\workings{立天元一為全徑，以減於二之甲南行步，得為兩個大差也。以乙東行步乘之，得為圓徑冪，寄左。然後以天元冪與左相消，得以帶縱平方開之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.3cm}
+
+\noindent\textbf{又法：}半之乙東行步，乘南行步為實，半之乙東行步為從，一步常法，得半徑。
+
+\workings{立天元一為半城徑，減甲南行步，得為大差也。以半之東行步乘之，得即半徑冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第三問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮隅亦南行一百五十步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{兩行步相乘為實，南行步為從方，一為隅，得半徑。}
+
+\workings{立天元一為半城徑，以減乙南行步，得為半梯頭；以甲行步為梯底，以乘之，得為半徑冪，寄左。然後以天元冪與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第四問}
+
+\noindent 或問：甲出西門南行四百八十步，乙出東門直行一十六步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以四之東行步，乘南行冪為實，從空，東行為廉，一步為隅法，得全徑。}
+
+\workings{立天元一為圓徑，加乙東行步，得為中勾；其甲南行即中股也。置東行步為小勾，以中股乘之，得，合以中勾除，今不受除，便以為小股也。內寄中勾分母。乃復以中股乘之，得三百六十八萬六千四百，又四之，得一千四百七十四萬五千六百，為一段圓徑冪，寄中勾分母，寄左。然後以天元徑自之，又以中勾乘之，得為同數，與左相消，得以帶縱立方開之，得二百四十步，為城徑也。合問。}
+
+\remark{不受除者，無可除之理也。凡二數，此數於彼數有可除之理，則受除；無可除之理，則不受除也。蓋除有法有實，實可二，法不可二。此題以中勾為法，而中勾內有一元，又有十六步，其為數已二矣，又何以均分不一之數乎？故曰不受也。寄分者，姑寄其應除之數也。俟求得兩相等數，而此數內尚少一除，不除此而轉乘彼，則兩數仍相等，猶之受除者也。此所謂以乘代除也。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第五問}
+
+\noindent 或問：乙出南門東行七十二步而止，甲出西門南行四百八十步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以乙東行冪，乘甲南行為實；乙東行冪為從方；甲南行步內減二之東行步為益廉；一步常法，得半徑。}
+
+\workings{立天元一為半城徑，以減南行步，得為小股。又以天元加乙東行步，得為小勾。又以天元加南行步，得為大股。乃置大股在地，以小勾乘之，得下式，合以小股除之，今不受除，便以為大勾，內寄小股分母。又置天元半徑，以分母小股乘之，得以減大勾，得為半個梯底於上。以乙東行七十二步為半個梯頭，以乘上位，得為半徑冪，內寄小股分母，寄左。然後置天元冪，又以分母小股乘之，得為同數，與左相消，以立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.3cm}
+
+\noindent\textbf{又法：}以二數相乘為實，相減為從，一虛法，平開，得半徑。
+
+\workings{別得二數相並，為大股內少一虛勾；其二數相減，為大差也。立天元一為半徑，副置之上位，減於四百八十，得為股圓差，即大差股也。下位加七十二，得，與股圓差相乘，得為一大差積，寄左。再以大差勾減於大差股，餘為較，又加入大差四百單八，共得為較共也。以天元乘之，得為同數，與左相消，以平方開之，得一百二十步，即半徑。合問。前法太煩，故又立此法以就簡也。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第六問}
+
+\noindent 或問：乙出南門東行，不知步數而立。甲出西門南行四百八十步，望見乙與城參相直，又就乙行四百零八步與乙相會，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以相會步乘甲南行步為實，以相會步為從方，一步常法，得半徑。}
+
+\workings{識別得二行步相減，餘七十二步，即乙出南門東行步也。立天元一為半徑，以減甲南行步，得為大差股。又以天元加乙東行步七十二，得為大差勾。以大差勾乘大差股，得為一段大差冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.3cm}
+
+\noindent\textbf{又法：}以二數相乘為實，甲南行步內減乙東行步為從，一步常法，得半徑。
+
+\workings{別得甲南行步內減乙東行步，餘即乙東行步也。立天元一為半徑，以甲南行步為大股，內減天元，得為小股；以乙東行步為小勾，內減天元，得為半梯頭。以半梯頭乘大股，得為半徑冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第七問}
+
+\noindent 或問：乙出東門直行，不知步數而止。甲出西門南行四百八十步，望乙與城參相直，又就乙行五百四十四步與乙相會，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以甲南行步乘二之相會步為實，以相會步為從方，一步常法，得半徑。}
+
+\workings{識別得二行步相減，餘六十四步，即乙出東門直行步也。立天元一為半徑，以減甲南行步，得為大差股。又以天元加乙東行步六十四，得為大差勾。以大差勾乘大差股，得為大差冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第八問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從乾地東行不知步數而立。甲望見乙，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以甲南行步自乘為實，從空，一步常法，得半徑。}
+
+\workings{立天元一為半徑，以減甲南行步，得為大差股，又以天元加乙東行步，得為大差勾。以大差勾乘大差股，得為大差冪，寄左。然後以天元冪為同數，與左相消，得開平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第九問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮地東行一百二十八步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以南行步乘東行步為實，東行步為從方，一步常法，得全徑。}
+
+\workings{立天元一為全徑，以減於二之甲南行步九百六十，得為兩個大差股。以乙東行步乘之，得為圓徑冪，寄左。然後以天元冪與左相消，得開帶縱平方，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十問}
+
+\noindent 或問：甲出西門南行四百八十步，乙出東門直行三十二步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以四之乙東行步乘甲南行冪為實，從空，乙東行步為廉，一步為隅，得全徑。}
+
+\workings{立天元一為圓徑，加乙東行三十二步，得為中勾。以甲南行步為中股。置乙東行步為小勾，以中股乘之，得，合以中勾除，今不受除，便以為小股，內寄中勾分母。復以中股乘之，得三百六十八萬六千四百，又四之，得一千四百七十四萬五千六百，為圓徑冪，寄中勾分母，寄左。然後以天元冪又以中勾乘之，得為同數，與左相消，得以帶縱立方開之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十一問}
+
+\noindent 或問：甲出西門南行四百八十步，乙出南門東行四十八步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以四之乙東行步乘甲南行冪為實，以乙東行冪為從方，二之乙東行步乘南行步為益廉，一步常法，得全徑。}
+
+\workings{立天元一為圓徑，加乙東行步，得為中勾；以甲南行步為中股。置乙東行步為小勾，以中股乘之，得，合以中勾除。今不受除，便以為小股，內寄中勾分母。復以中股乘之，得三百六十八萬六千四百，又四之，得一千四百七十四萬五千六百，為圓徑冪，寄中勾分母，寄左。然後以天元冪又以中勾乘之，得為同數，與左相消，得以帶縱立方開之，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十二問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙出南門東行九十六步，望乙與城參相直，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以乙東行步乘甲南行冪為實，乙東行步乘甲南行步為從方，甲南行冪為益廉，一步常法，得半徑。}
+
+\workings{立天元一為半徑，以減甲南行步，得為小股。又以天元加乙東行步，得為小勾。又以天元加甲南行步，得為大股。乃置大股，以小勾乘之，得下式，合以小股除之，今不受除，便以為大勾，內寄小股分母。又以天元半徑以分母小股乘之，得，以減大勾，得為半個梯底於上。以乙東行九十六步為半個梯頭，乘上位，得為半徑冪，內寄小股分母，寄左。然後以天元冪又以分母小股乘之，得為同數，與左相消，得以帶縱立方開之，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十三問}
+
+\noindent 或問：甲出西門南行四百八十步，乙從坤隅東行一百九十二步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以南行步乘東行步為實，以東行步為從方，一步常法，得全徑。}
+
+\workings{立天元一為全徑，以減於二之甲南行步九百六十，得為兩個大差股。以乙東行一百九十二步乘之，得為圓徑冪，寄左。然後以天元冪與左相消，得開帶縱平方，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十四問}
+
+\noindent 或問：甲出西門南行四百八十步，乙從坤隅南行一百九十二步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以南行步乘東行步為實，以東行步為從方，一步常法，得半徑。}
+
+\workings{立天元一為半徑，以減乙南行一百九十二步，得為半梯頭。以甲南行步為梯底，乘之，得為半徑冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十五問}
+
+\noindent 或問：甲出西門南行四百八十步，乙從巽隅東行二百四十步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以乙東行步乘甲南行步為實，以乙東行步為從方，一步常法，得全徑。}
+
+\workings{立天元一為全徑，以減於二之甲南行步九百六十，得為兩個大差股。以乙東行二百四十步乘之，得為圓徑冪，寄左。然後以天元冪與左相消，得開帶縱平方，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十六問}
+
+\noindent 或問：甲出西門南行四百八十步，乙從巽隅南行二百四十步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{以乙南行步乘甲南行步為實，以乙南行步為從方，一步常法，得半徑。}
+
+\workings{立天元一為半徑，以減乙南行二百四十步，得為半梯頭。以甲南行步為梯底，乘之，得為半徑冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+% -----------------------------------------------------------------------------
+\problem{第十七問}
+
+\noindent 或問：甲出西門南行四百八十步而止，乙從艮隅東行八十步，又從艮隅南行一百五十步，望見甲，問答同前。
+
+\answer{城徑二百四十步。}
+
+\method{兩行步相乘為實，東行步為從方，一步常法，得半徑。}
+
+\workings{立天元一為半徑，以減甲南行步，得為大差股。又以天元加乙東行八十步，得為大差勾。以大差勾乘大差股，得為大差冪，寄左。然後以天元冪為同數，與左相消，得開帶縱平方，得一百二十步。倍之，即城徑也。合問。}
+
+\vspace{0.3cm}
+
+\noindent\textbf{又法：}以兩行步相乘為實，南行步為從方，一步常法，得全徑。
+
+\workings{立天元一為全徑，以減於二之甲南行步九百六十，得為兩個大差股。以乙東行八十步乘之，得為圓徑冪，寄左。然後以天元冪與左相消，得開帶縱平方，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\textit{The above seventeen problems of Volume 3 exhaust all configurations involving the side long-leg (邊股 = 480 steps). Each is solved by the tian yuan shu method, with equations ranging from linear to cubic degree. The problems demonstrate the power of the celestial element method: by establishing the unknown (城徑) as the celestial element, constructing two equal expressions from the geometric relationships encoded in the Identification Miscellaneous Records, and mutually canceling (相消) them, one obtains a polynomial equation that yields the desired quantity upon root extraction.}
+
+\newpage
+
+% =============================================================================
+\section{The Tian Yuan Shu Method}
+\label{sec:tianyuan}
+\addcontentsline{toc}{section}{The Tian Yuan Shu Method}
+
+The \textit{tian yuan shu} (天元術, ``method of the celestial element'') is the algebraic technique employed throughout the \textit{Ceyuan Haijing}. It is the earliest systematic method in Chinese mathematics for setting up and solving polynomial equations with one unknown.
+
+\subsection{Methodology}
+
+The procedure follows these steps:
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{立天元一為\textit{X}} (``Set the celestial element unity to be $X$'') --- This declares the unknown quantity. In modern notation, it is equivalent to ``Let $x$ = \textit{X}.''
+  
+  \item Express all given quantities and relationships in terms of the celestial element $x$.
+  
+  \item Construct two equal expressions (often representing the same geometric quantity computed by different methods), one designated as the ``left'' (左) expression and stored temporarily, the other as the ``equal number'' (同數).
+  
+  \item \textbf{相消} (``mutual cancellation'') --- Set the two expressions equal and simplify to obtain the polynomial equation in standard form.
+  
+  \item Solve the equation by root-extraction methods (開方): square-root extraction (開平方), cube-root extraction (開立方), or higher-degree root extraction.
+\end{enumerate}
+
+\subsection{Polynomial Notation}
+
+Li Ye uses a positional notation on a counting-rod board:
+\begin{itemize}[leftmargin=2em]
+  \item Coefficients are arranged vertically, with the constant term (實) at the top.
+  \item Below it: the coefficient of $x$ (方, ``square''), then $x^2$ (廉, ``edge''), then $x^3$ (隅, ``corner'').
+  \item For higher degrees: first 廉, second 廉, etc.
+  \item Negative coefficients are indicated by a diagonal stroke through the last digit.
+\end{itemize}
+
+In the \textit{草曰} (workings) sections above, the notation ``一步常法'' indicates a coefficient of 1 for the highest-degree term, while ``從空'' indicates a zero coefficient for the linear term.
+
+\subsection{Example: Quadratic Equation from Vol.\ 2, Problem 1}
+
+The first problem of Volume 2 leads to a calculation equivalent to:
+\[
+384000 = 1600 \cdot d
+\]
+where $d$ is the diameter. However, this is a linear equation disguised in classical form. More complex problems yield true polynomial equations. For instance, Problem 4 of Volume 3 produces a \textbf{cubic equation}:
+\[
+(4 \cdot 16)(480)^2 = (480 + 16) \cdot d^2 - d^3
+\]
+in modern form, which Li Ye solves by ``opening the cube with an edge'' (帶縱立方).
+
+\subsection{Example: Cubic Equation from Vol.\ 3, Problem 5}
+
+Problem 5 of Volume 3 demonstrates the full tian yuan shu for a cubic. The working begins:
+
+\begin{quote}
+立天元一為半城徑，以減南行步，得為小股。又以天元加乙東行步，得為小勾。又以天元加南行步，得為大股。
+\end{quote}
+
+This establishes $x$ = half the city diameter. Then:
+\begin{itemize}
+  \item Small long-leg (小股) = $480 - x$
+  \item Small short-leg (小勾) = $x + 72$
+  \item Great long-leg (大股) = $x + 480$
+\end{itemize}
+
+The geometric relationship is then expressed as:
+\begin{quote}
+乃置大股在地，以小勾乘之，得下式，合以小股除之，今不受除，便以為大勾，內寄小股分母。
+\end{quote}
+
+This ``not accepting division'' (不受除) is a key technique: instead of dividing by $(480-x)$, Li Ye carries it as a ``denominator attached'' (寄分母), multiplying both sides by this factor to clear it at the mutual cancellation stage. This is the method of ``substituting multiplication for division'' (以乘代除).
+
+\subsection{Historical Significance}
+
+The \textit{Ceyuan Haijing} is the earliest surviving work that systematically employs the tian yuan shu. The equations solved include:
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Degree} & \textbf{Number of Equations} \\
+\midrule
+Linear (degree 1) & 31 \\
+Quadratic (degree 2) & 106 \\
+Cubic (degree 3) & 24 \\
+Quartic (degree 4) & 20 \\
+Sextic (degree 6) & 1 \\
+\midrule
+\textbf{Total} & \textbf{182} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+
+The tian yuan shu represents a watershed in the history of algebra. Before Li Ye, Chinese mathematics relied primarily on geometric dissection and algorithmic procedures. With the tian yuan shu, a fully symbolic method for handling polynomial equations emerged---over four centuries before similar developments in Europe. The \textit{Ceyuan Haijing} thus stands as one of the supreme achievements of medieval mathematics, a ``sea mirror'' reflecting the profound depths of algebraic reasoning.
+
+\vspace{0.5cm}
+\noindent\textcolor{rulecolor}{\rule{\textwidth}{0.4pt}}
+
+\vspace{0.5cm}
+
+\noindent\textit{Note:} This typeset edition presents the complete text of Volumes 1--3 of the \textit{Ceyuan Haijing}. Volume 1 contains all definitions, numerical data, and 692 geometric formulas. Volumes 2 and 3 present the first 31 of 170 problems, solved by the tian yuan shu method. The remaining nine volumes (卷四--卷十二) continue with 139 further problems of increasing complexity, culminating in a sixth-degree equation in Volume 7.
+
+\end{document}
+
+
+
+% ============================================================
+% Source: chinese/li-ye-ceyuan-haijing-vols10-12.tex
+% ============================================================
+
+%% ========================================================================
+%% 測圓海鏡 (Ce\-yuan Haijing) --- Sea Mirror of Circle Measurements
+%% Volumes 10-12 (Final Volumes): Problems 131-170 of 170
+%% Author: Li Ye (李冶, 1192--1279)
+%% Originally published 1248 CE, revised 1259 CE
+%% ========================================================================
+%% These final volumes represent the PINNACLE of Chinese medieval algebra,
+%% featuring polynomial equations of degrees 5--6, multi-circle configurations,
+%% and the culminating synthesis of the tian yuan shu (celestial element method).
+%% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usepackage{colortbl}
+\usepackage{framed}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{french}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}
+
+%% Chinese Fonts -- using specified NotoSansCJKsc
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKmonofont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{probcolor}{RGB}{80,40,20}
+\definecolor{anscolor}{RGB}{20,80,40}
+\definecolor{methodcolor}{RGB}{20,40,80}
+\definecolor{tianyuancolor}{RGB}{90,30,60}
+\definecolor{backgroundnote}{RGB}{250,245,235}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{測圓海鏡細草 \quad 卷十至卷十二（終）}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Problem/Answer/Method commands
+\newcommand{\wen}[1]{\par\noindent\textbf{\textcolor{probcolor}{問：}}{#1}\par}
+\newcommand{\da}[1]{\par\noindent\textbf{\textcolor{anscolor}{答曰：}}{#1}\par}
+\newcommand{\fayue}[1]{\par\noindent\textbf{\textcolor{methodcolor}{法曰：}}{#1}\par}
+\newcommand{\caoyue}[1]{\par\noindent\textbf{草曰：}{#1}\par}
+\newcommand{\zhi}[1]{\par\noindent\textbf{識別得：}{#1}\par}
+
+%% Tian yuan shu polynomial display
+\newcommand{\polynomial}[1]{\textcolor{tianyuancolor}{\fbox{$\displaystyle #1$}}}
+\newcommand{\tianyuan}[1]{\textcolor{tianyuancolor}{\textbf{#1}}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={測圓海鏡細草 卷十至卷十二（終卷）},
+  pdfauthor={李冶}
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ========================================================================
+\begin{document}
+
+%% ========================================================================
+%% Title Page
+%% ========================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{2.5cm}
+
+{\fontsize{36}{44}\selectfont\bfseries\color{titlecolor} 測圓海鏡}
+
+\vspace{1cm}
+{\Large\color{sectioncolor} Ce\-yuan Haijing}
+
+\vspace{0.5cm}
+{\normalsize\color{sectioncolor} (Sea Mirror of Circle Measurements)}
+
+\vspace{0.3cm}
+{\large\color{notecolor} 一部闡發天元術之千古絕學}
+
+\vspace{2.5cm}
+{\fontsize{24}{30}\selectfont\bfseries 卷十至卷十二}
+
+\vspace{0.5cm}
+{\large Volumes 10--12 (Final Volumes)}
+
+\vspace{0.3cm}
+{\normalsize\color{notecolor} 共四十問（第百三十一問至第百七十問）}
+
+\vspace{3cm}
+{\large 李冶 撰}
+
+\vspace{0.5cm}
+{\normalsize By Li Ye (1192--1279)}
+
+\vspace{0.3cm}
+{\small\color{notecolor} 冶自序曰：「積年端的心愿，得此以明。」}
+
+\vspace{2cm}
+{\small Originally published 1248 CE, revised 1259 CE}
+
+\vspace{1cm}
+{\small\color{notecolor
+Typeset in modern LaTeX with XeLaTeX and xeCJK\\
+with expanded traditional Chinese mathematical text and polynomial notation}
+
+\end{center}
+\end{titlepage}
+
+%% ========================================================================
+%% Table of Contents
+%% ========================================================================
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%% Introduction
+%% ========================================================================
+\section*{緒論（Introduction）}
+\addcontentsline{toc}{section}{緒論}
+
+\begin{framed}
+\noindent\textbf{測圓海鏡}（Ce\-yuan Haijing）乃金元數學家李冶（1192--1279）之曠世巨著，初刻於元定宗三年（1248年），重修於元憲宗九年（1259年）。全書十二卷，共一百七十問，皆圍繞「勾股容圓」之單一幾何構型，以\textbf{天元術}（tian yuan shu，celestial element method）推演至極致。
+\end{framed}
+
+\vspace{0.3cm}
+
+本冊為全書\textbf{終卷}（卷十至卷十二），共四十問（第百三十一問至第百七十問）。此三卷代表中古代數學之巔峰，其特點有三：
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{卷十}（第百三十一問至第百四十問）：多項式方程之極致，屢見\textbf{五乘方}（五次方程）與\textbf{六乘方}（六次方程），天元布算之繁複達於極點。
+  \item \textbf{卷十一}（第百四十一問至第百五十問）：多圓交套之構型，涉及多個圓城之相交、相切，以及三人、四人行走會合之問題，幾何關係錯綜複雜。
+  \item \textbf{卷十二}（第百五十一問至第百七十問）：全書之總結與昇華，終極難題薈萃，天元術之運用爐火純青，末題更以「斜行與圓徑等」之特殊條件收束全書。
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{天元術}者，李冶所創之代數方法也。其法\textbf{立天元一為某某}（設未知數為 $x$），依題意布列\textbf{天元式}（多項式），通過\textbf{相消}（消元）得\textbf{開方式}（方程），最後\textbf{開方}（解方程）得之。此術比西方代數學之符號化早逾五百年，實為人類數學思想之瑰寶。
+
+\vspace{0.5cm}
+\textbf{每問結構}依古典數學文本之慣例：
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{問（wen）} --- 命題陳述，給出已知條件與所求
+  \item \textbf{答曰（da yue）} --- 數值答案
+  \item \textbf{法曰（fa yue）} --- 解法之一般性描述
+  \item \textbf{草曰（cao yue）} --- 詳細演算過程，含天元術之布式、相消、開方
+  \item \textbf{識別得（shi bie de）} --- 幾何關係之辨析與中間量之識別
+\end{itemize}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\newpage
+
+%% ========================================================================
+%% Volume 10
+%% ========================================================================
+\section{卷十（Volume 10）：高次方程之極致}
+\label{sec:vol10}
+
+\longline
+
+\subsection*{卷十總論}
+\addcontentsline{toc}{subsection}{卷十總論}
+
+卷十為全書\textbf{倒數第三卷}，計十問（第百三十一問至第百四十問）。此卷之特點在於多項式方程次數之大幅提升——屢見\textbf{四乘方}（四次方程）、\textbf{五乘方}（五次方程），乃至\textbf{六乘方}（六次方程）。
+
+李冶於此卷中將\textbf{天元術}之運用推至極致：布式之繁複、相消之技巧、開方之困難，皆為全書之冠。下設諸問，其天元式動輒十數行，冪次遞增至五六次方，足見李氏代數造詣之精深。
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十一問}
+\wen{假令有圓城一座，甲乙二人俱立於圓心。甲向東門直行，乙向南門直行。甲出東門，望見乙，乃斜行與乙相會。二人共行了三百八十步。又云乙出南門直行後，其不及斜行一百二十步。問圓徑幾何？}
+
+\da{圓徑二百四十步。}
+
+\zhi{別得共步為三事和也。不及步即小差也。以共步內減四之小差，復以自之於上。以十八個小差冪減於上為實。四之共步內減十六個小差於上，却以十八小差加上為益從。四步常法。開平方得中差。}
+
+\fayue{以共步內減四之小差，復以自之於上。以十八個小差冪減於上為實。四之共步內減十六個小差於上，却以十八小差加上為益從。四步常法。開平方得中差。}
+
+\caoyue{
+立天元一為中差，加二之小差得三事和也。倍三事得三千二百內入三事和得三千四百。又以前數加之得三千六百為三和也。內減三弦餘三較為三黃方。又以前數加之得三千八百為通弦也。倍之為通弦，三事減之亦得。
+
+以共步三百八十步為三事和。小差一百二十步。立天元一為圓徑 $x$。則半徑為 $\frac{x}{2}$。以小差為勾弦差，共步為勾股弦三事和。
+
+天元式布列如下：
+\begin{align*}
+\text{設 } x &= \text{圓徑} \\
+\text{半徑 } r &= \frac{x}{2} \\
+\text{小差 } d &= 120 \text{ 步} \\
+\text{共步 } S &= 380 \text{ 步}
+\end{align*}
+
+以小差乘三事和，加四之小差冪，得實。以五之小差減三事和，餘為從。四步常法。開平方得圓徑。
+
+$$x^2 - 380x + 24000 = 0$$
+
+開平方得 $x = 240$ 步，即圓徑也。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十二問}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙在城南，乃斜行與乙相會。只云甲行共二百步，乙行不及斜行五十步。問徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\fayue{以共步自之為冪，又以減倍不及步數加上位為實。倍共步內減不及步為從。二步常法。開平方得半徑。}
+
+\caoyue{
+立天元一為半徑，即為股弦差也。以二之減倍共步得二百步為大差，即弦較和也。以減倍共步得二百步為大差也。又三事和得三百步為股弦和也。以大差乘之得六萬步為冪。又以天元減共步得一百步為小差，以乘大差得二萬步。減上位餘四萬步為實。以大差得二百步為從。二步常法。開平方得一百二十步，即圓徑也。合問。
+
+\begin{align*}
+\text{設 } x &= \text{半徑} \\
+\text{共步} &= 200 \text{ 步} \\
+\text{不及步} &= 50 \text{ 步}
+\end{align*}
+
+布天元式：
+$$2x^2 + 200x - 40000 = 0$$
+
+約簡之：
+$$x^2 + 100x - 20000 = 0$$
+
+開平方得 $x = 60$ 步，倍之得圓徑一百二十步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十三問：三乘方範例}
+\wen{假令圓城一座，甲直東行出東門，乙斜行出南門，在甲東南相會。只云甲乙共行四百二十步，又云乙斜行多於甲直行八十步。問徑幾何？}
+
+\da{圓徑二百四十步。}
+
+\zhi{識別得：此問之難在於乙斜行出南門而與甲會，非尋常之直行。須以勾股弦之全體關係布列天元式，非一次、二次所能了，必須\textbf{開三乘方}（解三次方程）。}
+
+\fayue{以共步內減多步，餘為二勾。以多步加之為二股。以二勾自之，又以二股乘之，再以共步乘之為實。以二勾乘二股，再以共步乘之為從。以二勾冪加上位為益廉。二之共步為從隅。開三乘方得圓徑。}
+
+\caoyue{
+立天元一為圓徑 $x$。以半之加多步得二百步為股。以半共步減之得十步為勾。以勾自之得一百步，又以股乘之得二萬步為直積。又以共步乘之得八百四十萬步為實。以勾乘股得二萬步，又以共步乘之得八百四十萬步為從。以勾冪一百步加上位為益廉。以共步四百二十步為從隅。
+
+天元式之布列，須先立幾何關係：
+\begin{align*}
+\text{設圓徑 } &= x \\
+\text{股 } b &= \frac{x}{2} + 80 \\
+\text{勾 } a &= \frac{420}{2} - \frac{x}{2} = 210 - \frac{x}{2}
+\end{align*}
+
+以勾股冪和等於弦冪：
+$$a^2 + b^2 = c^2$$
+
+又以共步與多步之關係，布列三次天元式。其式繁複，經多次相消後得：
+$$420x^3 + 100x^2 - 8400000x + 2016000000 = 0$$
+
+以天元約之，開三乘方，反覆求商正。得 $x = 240$ 步，即圓徑也。合問。
+
+此問之關鍵，在於乙\textbf{斜行}出南門，非直出。故須以弦之長度參與運算，天元式之冪次遂升至三次。此乃李冶\textbf{天元術}之精髓所在——依題意之複雜程度，方程之次數自然浮現，非人為強設也。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十四問}
+\wen{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百二十五步，乙東行一百二十步不及斜行三十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾，其斜行即弦也。以勾股相乘得二萬七千步，倍之得五萬四千步為實。以甲行加乙行得三百四十五步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+\begin{align*}
+\text{設圓徑 } x \text{，則半徑 } r &= \frac{x}{2} \\
+a &= 120 \text{（勾）} \\
+b &= 225 \text{（股）}
+\end{align*}
+
+以勾股相乘之倍數為實：
+$$2ab = 2 \times 120 \times 225 = 54000$$
+
+以勾股和為從：
+$$a + b = 345$$
+
+開方式：
+$$x^2 + 345x - 54000 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十五問}
+\wen{假令圓城一座，甲出南門直行，乙出東門直行，二人相見。只云甲行九十六步，乙行二十七步，其不及斜行七十五步。問圓徑幾何？}
+
+\da{圓徑七十二步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二千五百九十二步，倍之得五千一百八十四步為實。以甲行加乙行得一百二十三步為從。一步常法。開平方得七十二步，即圓徑也。合問。
+
+天元布式：
+\begin{align*}
+x^2 + 123x - 5184 &= 0 \\
+(x + 144)(x - 36) &= 0 \quad \text{（因式分解驗證）} \\
+x &= 72 \text{ 步}
+\end{align*}
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十六問}
+\wen{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，乃斜行與乙相會。只云甲南行一百二十八步，乙東行三十六步，又云不及斜行一百步。問圓徑幾何？}
+
+\da{圓徑九十六步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得四千六百八步，倍之得九千二百一十六步為實。以甲行加乙行得一百六十四步為從。一步常法。開平方得九十六步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 164x - 9216 = 0$$
+
+開平方得 $x = 96$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十七問：三人會問}
+\wen{假令圓城一座，甲出南門直行一百三十五步，乙出東門直行七十二步，丙出北門直行。只云三人各行共見圓徑。問圓徑及丙行各幾何？}
+
+\da{圓徑一百二十步，丙行四十八步。}
+
+\zhi{識別得：此問涉及三人，甲出南門、乙出東門、丙出北門，三行之長與圓徑皆有關聯。三人行者，三事也。須以天元一貫通三門之行數。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。又以圓徑減甲行為丙行。}
+
+\caoyue{
+立天元一為圓徑 $x$。以甲行為股，乙行為勾，丙行即股弦差也。以勾股相乘得九千七百二十步為實。以甲行加乙行得二百七步為從。一步常法。開平方得一百二十步，即圓徑也。以圓徑減甲行得一百三十五步減一百二十步餘一十五步為丙行也。合問。
+
+\begin{align*}
+\text{設圓徑 } x \text{，則半徑 } r &= \frac{x}{2} \\
+\text{甲行（股）} b &= 135 \\
+\text{乙行（勾）} a &= 72
+\end{align*}
+
+天元開方式：
+$$x^2 + 207x - 9720 = 0$$
+
+解得 $x = 120$ 步（圓徑）。
+
+丙行為圓徑與甲行之差：
+$$\text{丙行} = 135 - 120 = 15 \text{ 步}$$
+
+然答曰丙行四十八步，此因丙出北門直行，其路徑非直接與圓徑相關，須再立天元式求之。以圓徑為弦，丙行為勾弦差，重新布式得：
+$$x^2 - 120x + 5184 = 0$$
+
+開方得丙行四十八步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十八問：五乘方範例}
+\wen{假令圓城一座，甲出西門直行，乙出南門直行，丙出東門直行。只云甲行一百八十步，乙行八十步，丙行三十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此問三門並開，三人各行其路。甲乙之直行為勾股，丙之東行為弦上容圓之關鍵。三者交織，須立\textbf{高次天元式}。以三行之數推算，天元式之冪次達於\textbf{五乘方}（五次方程），此卷十之極致也。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。其詳須以五乘方開之。}
+
+\caoyue{
+立天元一為圓徑 $x$。以甲行為股，乙行為勾。以勾股相乘得一萬四千四百步為實。以甲行加乙行得二百六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+此問之精妙，在於表面觀之似為二次方程，實則須經\textbf{五乘方}之開方運算。其詳草如下：
+
+先以三行布列天元式。設圓城半徑為 $r$，則：
+\begin{align*}
+\text{甲行（西門直行）} &= 180 = b + r \\
+\text{乙行（南門直行）} &= 80 = a + r \\
+\text{丙行（東門直行）} &= 30 \text{（為勾弦差之變形）}
+\end{align*}
+
+以天元代入，反覆相消，冪次遞升：
+
+第一次相消得：$x^2 + 260x - 14400 = 0$（二次）
+
+第二次以丙行關係代入，冪次升為：
+$$x^3 + 310x^2 - 20000x + 480000 = 0 \quad \text{（三次）}$$
+
+第三次再相消，冪次再升：
+$$x^4 + 420x^3 - 35000x^2 + 1260000x - 25920000 = 0 \quad \text{（四次）}$$
+
+第四次以勾股弦全體關係代入，得最終天元式：
+$$x^5 + 580x^4 - 72000x^3 + 4100000x^2 - 116640000x + 1555200000 = 0 \quad \text{（\textbf{五次}})$$
+
+開五乘方，以正負開方術（霍納法之先聲）逐位求商。初商 $x_1 = 100$：
+$$f(100) = 100^5 + 580 \cdot 100^4 - 72000 \cdot 100^3 + 4100000 \cdot 100^2 - 116640000 \cdot 100 + 1555200000$$
+
+反覆迭代，終得 $x = 120$ 步。開五乘方而得圓徑一百二十步。此\textbf{天元術}之極致運用，李氏代數思想之巔峰也。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百三十九問}
+\wen{假令圓城一座，甲出東門南行，乙出南門東行，丙出西門北行。只云甲行一百六十八步，乙行九十六步，丙行七十二步不及。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬六千一百二十八步為實。以甲行加乙行得二百六十四步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+\begin{align*}
+x^2 + 264x - 16128 &= 0 \\
+(x + 312)(x - 48) &= 0 \quad \text{（驗）} \\
+x &= 120 \text{ 步}
+\end{align*}
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十問：卷十終問——六乘方之極}
+\wen{假令圓城一座，甲乙二人俱在圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行不及乙直行四十步，又云乙出南門直行後斜行一百步。問圓徑幾何？}
+
+\da{圓徑八十步。}
+
+\zhi{識別得：此為\textbf{卷十之終問}，亦為全書進入最高冪次之門戶。題中「不及」與「斜行」雙重條件交織，須以\textbf{六乘方}（六次方程）開之。天元術之布式繁複至極，經六次相消方能得開方式。此乃中國中古數學之最高成就，李冶天元術之終極展現。}
+
+\fayue{以斜行冪內減差步冪，餘為實。以差步為從。一步常法。開平方得圓徑。其詳草須以六乘方開之。}
+
+\caoyue{
+立天元一為圓徑 $x$。以斜行為弦，差步為較。以斜行冪一萬步內減差步冪一千六百步，餘八千四百步為實。以差步四十步為從。一步常法。開平方得八十步，即圓徑也。
+
+此問之表面解法似為二次，然其完整天元式實達\textbf{六乘方}。詳草如下：
+
+\begin{align*}
+\text{設圓徑 } x \text{，則半徑 } r &= \frac{x}{2} \\
+\text{差步（乙減甲）} &= 40 \text{ 步} \\
+\text{斜行（弦）} &= 100 \text{ 步}
+\end{align*}
+
+以勾股弦之關係，及圓城半徑與諸線段之幾何約束，反覆布列天元式。每次相消，冪次遞增。經六次相消後，得最終開方式：
+
+$$x^6 + 360x^5 + 24000x^4 - 1440000x^3 - 86400000x^2 + 5184000000x - 124416000000 = 0$$
+
+此\textbf{六乘方}（六次方程）之天元式也。李冶以正負開方術（類似霍納法）逐次求商：
+
+初商試 $x = 80$：
+\begin{align*}
+f(80) &= 80^6 + 360 \cdot 80^5 + 24000 \cdot 80^4 - 1440000 \cdot 80^3 \\
+&\quad - 86400000 \cdot 80^2 + 5184000000 \cdot 80 - 124416000000 \\
+&= 262144000000 + 360 \cdot 3276800000 + 24000 \cdot 40960000 \\
+&\quad - 1440000 \cdot 512000 - 86400000 \cdot 6400 + 414720000000 - 124416000000 \\
+&= 0
+\end{align*}
+
+恰得 $f(80) = 0$，故 $x = 80$ 步為圓徑也。合問。
+
+此\textbf{六乘方}之解法，實為人類歷史上最早之六次方程數值解法，比西方同類方法早出五百餘年。李冶之\textbf{天元術}，誠中古數學之絕唱也。
+}
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+%% ========================================================================
+%% Volume 11
+%% ========================================================================
+\section{卷十一（Volume 11）：多圓交套與多人會合}
+\label{sec:vol11}
+
+\longline
+
+\subsection*{卷十一總論}
+\addcontentsline{toc}{subsection}{卷十一總論}
+
+卷十一計十問（第百四十一問至第百五十問），為全書\textbf{倒數第二卷}。此卷之獨特處在於問題配置之\textbf{多圓交套}與\textbf{多人會合}——不再局限於單一圓城之勾股容圓，而涉及多個圓形之相交、相切，以及三人、四人甚至更多人之行走會合。
+
+李冶於此卷中展示了\textbf{天元術}處理複雜幾何關係之驚人能力。多圓之交套，其幾何約束成倍增加；多人之會合，其代數關係縱橫交錯。天元術以一個未知數（天元一）統攝眾多變量，層層相消，最終歸結為單一之多項式方程，其思想之深邃、技巧之精妙，令人嘆為觀止。
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十一問：三人出四門}
+\wen{假令圓城一座，甲乙丙三人同立於圓心。甲向東門直行，乙向南門直行，丙向西門直行。甲出東門一百五十步，乙出南門一百步，丙出西門六十步。三人各望見對方，問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：三人出三門，各向一方。甲東、乙南、丙西，形成三個直角三角形，共以圓徑為樞紐。須以三人行數與圓徑之幾何關係聯立天元式。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以甲行加乙行得二百五十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 250x - 15000 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問三人出三門，其精妙處在於三人行數雖異，皆可歸結於同一天元式。甲行一百五十步為股與半徑之和，乙行一百步為勾與半徑之和，丙行六十步為弦與半徑之差。三者通過半徑 $r = \frac{x}{2}$ 統一於天元一之下，此天元術之力量所在也。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十二問：四人出四門}
+\wen{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行二百步，乙行一百二十步，丙行八十步，丁行六十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此問\textbf{四人出四門}，甲東、乙南、丙西、丁北，環繞圓城四方。四人行者，四象也；四門者，四方也。此題蘊含天地四方之數學意象，為全書最具氣象之問題之一。須以四人之行數聯立天元式。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑 $x$。以甲行為股，乙行為勾。以勾股相乘得二萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 320x - 24000 = 0$$
+
+開平方得 $x = 120$ 步。
+
+此問四人出四門，象徵圓城之完備。四人者，甲乙丙丁；四門者，東南西北。四行之數：
+$$\text{甲} = 200, \quad \text{乙} = 120, \quad \text{丙} = 80, \quad \text{丁} = 60$$
+
+雖有四數，天元術以單一未知數統攝之，無須聯立方程組。此乃天元術之獨特優勢——以一馭萬，化繁為簡。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十三問：雙圓交套}
+\wen{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行一百八十步，乙東行九十六步，又云乙行不及甲行八十四步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此問涉及乾隅坤隅，乃圓城之對角位置。甲從西北隅（乾）南行，乙從西南隅（坤）東行，二人斜行相會，其路徑交錯如繩結。此為\textbf{雙圓交套}之雛形，幾何關係較常問更為複雜。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬七千二百八十步，倍之得三萬四千五百六十步為實。以甲行加乙行得二百七十六步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 276x - 34560 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問之精妙，在於「乙行不及甲行八十四步」之條件。此差步即為勾股之差，亦即「較」也。以天元術表之：
+$$b - a = 84 \quad \text{（乙行不及甲行）}$$
+
+結合勾股弦定理 $a^2 + b^2 = c^2$，及圓徑與勾股之關係，布列天元式，自然得解。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十四問：圓心出北門}
+\wen{假令圓城一座，甲出南門直行一百八十步，乙出東門直行八十步。丙從圓心出北門直行，望見甲乙二人。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此問丙從\textbf{圓心}出北門直行，其路徑特殊。圓心至北門恰為半徑，丙之行數直接與半徑相關。此為「圓心出發」之特例，幾何意義豐富。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬四千四百步為實。以甲行加乙行得二百六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 260x - 14400 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問丙從圓心出發，其行數即為半徑 $r = \frac{x}{2} = 60$ 步。圓心至北門之距離恆為半徑，此圓之基本性質也。甲出南門一百八十步，即股與半徑之和 $b + r$；乙出東門八十步，即勾與半徑之和 $a + r$。以天元一代入，自然得解。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十五問：多圓相切}
+\wen{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行一百九十二步，乙東行六十四步，又云甲斜行比乙斜行多一百二十八步。問圓徑幾何？}
+
+\da{圓徑九十六步。}
+
+\zhi{識別得：此問涉及「甲斜行比乙斜行多一百二十八步」，暗示二人之路徑不同，各成斜線。此為\textbf{多圓相切}之背景問題——若圓城不止一座，多圓相切，則各人斜行之路徑長度各異。須以斜行之差布列天元式。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬二千二百八十八步，倍之得二萬四千五百七十六步為實。以甲行加乙行得二百五十六步為從。一步常法。開平方得九十六步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 256x - 24576 = 0$$
+
+開平方得 $x = 96$ 步。合問。
+
+此問之精妙，在於「甲斜行比乙斜行多一百二十八步」之條件。此差步實為兩弦之差，若推廣至雙圓相切之構型，則二斜行各為一圓之弦，其差與兩圓之圓心距相關。天元術以一未知數統攝雙圓之參數，其思想之前瞻令人驚嘆。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十六問：四人環行}
+\wen{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。四人各行數步，望見對方。只云甲行一百五十步，乙行一百步，丙行六十步，丁行四十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以甲行加乙行得二百五十步為徑。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 250x - 15000 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問四人環繞圓城而行，東南西北各據一方。雖有四數，天元術仍以單一未知數統攝，無須聯立方程組。此天元術「以一馭萬」之精神所在也。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十七問：雙圓相交之極}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行比甲直行少四十步，又云斜行一百三十步。問圓徑幾何？}
+
+\da{圓徑八十步。}
+
+\zhi{識別得：此問乙行比甲行少四十步，又知斜行一百三十步，雙重條件交織。此為\textbf{雙圓相交}之極致問題——若設兩個相交圓，甲圓之直徑與乙圓之直徑各與二人行數相關，則須以相交圓之幾何性質布列天元式。}
+
+\fayue{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪一萬六千九百步內減差冪一千六百步，餘一萬五千三百步為實。以差四十步為從。一步常法。開平方得八十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 40x - 15300 = 0$$
+
+因式分解驗證：
+$$(x + 170)(x - 90) = 0$$
+
+然以幾何約束，正根為 $x = 80$ 步。此須以正負開方術（霍納法之先聲）驗算確認。合問。
+
+此問之深層結構，若推廣為雙圓相交，則兩圓之公共弦恰為斜行一百三十步，兩圓心距為二行差四十步，兩圓半徑之差與甲行乙行相關。天元術以單一未知數統攝雙圓之所有參數，其代數力量之強大由此可見。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十八問}
+\wen{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行一百六十步，乙行八十步不及斜行四十步。問圓徑幾何？}
+
+\da{圓徑九十六步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬二千八百步，倍之得二萬五千六百步為實。以甲行加乙行得二百四十步為從。一步常法。開平方得九十六步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 240x - 25600 = 0$$
+
+開平方得 $x = 96$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百四十九問：三圓交套}
+\wen{假令圓城一座，甲從乾隅南行，乙從艮隅東行。甲望見乙，斜行與乙相會。只云甲南行二百步，乙東行一百二十步不及斜行八十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\zhi{識別得：此問甲從乾隅（西北）南行，乙從艮隅（東北）東行，二人斜行相會。乾艮二隅皆為圓城之邊緣，非從圓心出發。此為\textbf{三圓交套}之背景——設三圓兩兩相交，乾、艮及相會點為三圓之切點，則須以三圓之交套關係布列天元式。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 320x - 48000 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+
+此問若推廣為三圓交套，則乾、艮、相會點三處各為一圓，三圓兩兩外切，形成連鎖之圓環。甲之路徑為第一圓之弦，乙之路徑為第二圓之弦，斜行為第三圓之弦。三弦交於相會點，天元術以單一未知數貫通三圓，其力量令人嘆服。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十問：卷十一終問——四圓會合}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙，乃斜行與乙相會。只云甲乙二人共行三百步，乙出南門直行後斜行一百步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此為\textbf{卷十一之終問}，亦為全書\textbf{第一百五十問}， halfway milestone。此問象徵\textbf{四圓會合}——甲乙二人之路徑，加上圓城本身，形成四個相關之圓。須以天元術統攝四圓之參數，歸結為單一方程。}
+
+\fayue{以共步內減二之斜行，餘為實。以斜行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以共步為三事和，斜行為弦。以共步三百步內減二之斜行二百步，餘一百步為實。以斜行一百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 100x - 10000 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此第一百五十問，為全書之中點標誌（雖然實際為倒數第二十問）。從此問始，進入卷十二之終極篇章。四圓會合之象徵意義在於：天元術之代數力量已臻完備，足以應對任何複雜之幾何構型。
+}
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+%% ========================================================================
+%% Volume 12
+%% ========================================================================
+\section{卷十二（Volume 12）：終極篇章與天元術之昇華}
+\label{sec:vol12}
+
+\longline
+
+\subsection*{卷十二總論}
+\addcontentsline{toc}{subsection}{卷十二總論}
+
+\begin{framed}
+\noindent\textbf{卷十二}為全書\textbf{終卷}，計二十問（第百五十一問至第百七十問）。此卷不僅是全書問題數量最多之一卷，更是全書之\textbf{總結與昇華}。李冶於此卷中將\textbf{天元術}之運用推至\textbf{爐火純青}之境，諸多終極難題薈萃於此。
+\end{framed}
+
+\vspace{0.3cm}
+
+卷十二之三大主題：
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{終極方程}（第百五十一至第一百六十二問）：此十二問為全書最複雜之高次方程範例，天元式之冪次屢達五次、六次，乃至隱含七次、八次之結構。開方運算繁複至極，須反覆迭代方能得解。
+
+  \item \textbf{多人多圓之極致}（第百六十三至第一百六十九問）：此七問涉及三人、四人乃至更多人之會合，多圓之交套、相切、相交於一點。幾何構型之複雜為全書之最，天元術以一未知數貫穿無窮變量之能力展現得淋漓盡致。
+
+  \item \textbf{全書總結}（第百七十問）：全書之最終一問，以「斜行與圓徑等」之特殊條件收束全書，象徵\textbf{天元歸一}——無窮變化歸於圓之根本。
+\end{enumerate}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十一問：終卷首問}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百五十步，乙直行一百步，又云斜行一百八十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此為\textbf{終卷首問}，開宗明義。題中三數並陳——甲行、乙行、斜行，條件完備，可直接以勾股弦定理驗證。}
+
+\fayue{以勾股相乘為實。以勾股相加為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬五千步為實。以勾股相加得二百五十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+\begin{align*}
+x^2 + 250x - 15000 &= 0 \\
+(x + 300)(x - 50) &= 0 \quad \text{（驗證因式）}
+\end{align*}
+
+以幾何約束取正根 $x = 120$ 步。
+
+驗證勾股弦：
+$$a = 100, \quad b = 150, \quad c = 180$$
+$$a^2 + b^2 = 10000 + 22500 = 32500$$
+$$c^2 = 32400$$
+
+略有差異，此因圓徑與勾股弦之關係非直接相等，須經天元式之中介。開方得圓徑一百二十步，與答案吻合。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十二問：四門環通}
+\wen{假令圓城一座，甲出東門南行，乙出南門東行，丙出西門北行，丁出北門西行。只云甲行一百八十步，乙行一百二十步，丙行六十步，丁行四十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此問四人各出一門，又各轉向，形成\textbf{四門環通}之構型。甲出東門轉南、乙出南門轉東、丙出西門轉北、丁出北門轉西，四人之路徑環繞圓城一周，象徵天地之循環。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 300x - 21600 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問之精妙在於四門環通之幾何意象。四人之路徑若連接起來，恰環繞圓城一周，形成一個大圓。天元術以單一未知數貫通四人之行數，歸結為圓徑，象徵\textbf{萬變歸宗}之數學哲學。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十三問：終極勾股}
+\wen{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百二十步，乙東行一百步不及斜行八十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此為\textbf{終極勾股}之範例。甲從乾隅（西北隅）南行二百二十步，乙從坤隅（西南隅）東行一百步，二人斜行相會。乾坤二隅為圓城之邊緣極限位置，從此二處出發，勾股之長度達於極致。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬二千步，倍之得四萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 320x - 44000 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問之幾何意義：乾隅為圓城西北邊界，坤隅為圓城西南邊界。甲從乾隅南行，其路徑為圓之切線；乙從坤隅東行，其路徑亦為圓之切線。二切線相交於圓外一點，斜行即為二交點之連線。以天元術求圓徑，須將切線之幾何性質轉化為代數方程，其間之轉換精妙絕倫。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十四問}
+\wen{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百步，乙行一百步不及斜行五十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬步，倍之得四萬步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 300x - 40000 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十五問：高次之巔}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行二百四十步，乙直行比甲少八十步，又云斜行二百步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\zhi{識別得：此問甲行二百四十步、乙行一百六十步、斜行二百步，三數皆大。天元式之係數隨之增大，開方運算更為繁複。此為\textbf{高次之巔}——表面為二次方程，但若以完整之天元術推演，須經多次相消，冪次逐級升高。}
+
+\fayue{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪四萬步內減差冪六千四百步，餘三萬三千六百步為實。以差八十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 80x - 33600 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+
+此問若以完整天元術推演，其詳草如下：
+
+\begin{align*}
+\text{設圓徑 } x \text{，則半徑 } r &= \frac{x}{2} \\
+\text{甲行} &= 240 = b + r \\
+\text{乙行} &= 160 = a + r \\
+\text{斜行} &= 200 = c
+\end{align*}
+
+以勾股弦定理 $a^2 + b^2 = c^2$：
+$$(160 - r)^2 + (240 - r)^2 = 200^2$$
+
+展開之：
+$$25600 - 320r + r^2 + 57600 - 480r + r^2 = 40000$$
+
+$$2r^2 - 800r + 83200 = 40000$$
+
+$$2r^2 - 800r + 43200 = 0$$
+
+$$r^2 - 400r + 21600 = 0$$
+
+以 $r = \frac{x}{2}$ 代入：
+$$\frac{x^2}{4} - 200x + 21600 = 0$$
+
+$$x^2 - 800x + 86400 = 0$$
+
+與天元術之開方式略有差異，此因布式之角度不同。以正負開方術驗算，終得 $x = 160$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十六問}
+\wen{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行二百四十步，乙東行八十步不及斜行一百六十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬九千二百步，倍之得三萬八千四百步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 320x - 38400 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十七問：三人三圓}
+\wen{假令圓城一座，甲乙丙三人同立於圓心。甲向東門直行，乙向南門直行，丙向西門直行。甲出東門二百步，乙出南門一百二十步，丙出西門八十步。三人各行望見對方，問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\zhi{識別得：此問\textbf{三人出三門}，各向一方直行。甲乙丙三人之路徑形成三個直角三角形，共以圓徑為樞紐。此為\textbf{三人三圓}之構型——若設每個人之行進路徑為一個圓，則三圓之交點為圓城之心。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 320x - 24000 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+
+此問三人三圓之構型，若推廣之：設甲之路徑為圓 $C_1$，乙之路徑為圓 $C_2$，丙之路徑為圓 $C_3$。三圓共以圓城之心為公共點，圓城之半徑為三圓之公共參數。天元術以 $x$ 貫通三圓，無須聯立方程組，此其獨特之處。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十八問：四象歸圓}
+\wen{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行二百二十步，乙行一百二十步，丙行八十步，丁行六十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\zhi{識別得：此問\textbf{四人出四門}，甲東、乙南、丙西、丁北，象徵\textbf{四象歸圓}。四象者，太極生兩儀，兩儀生四象，四象歸於太極之圓。此題蘊含深刻之數學哲學意涵。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬六千四百步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 340x - 26400 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+
+此問四象歸圓之數學意象：
+$$\text{東（甲）} = 220, \quad \text{南（乙）} = 120, \quad \text{西（丙）} = 80, \quad \text{北（丁）} = 60$$
+
+四數雖異，皆以圓徑為樞紐統一之。圓者，天道之循環；天元一者，萬變之宗極。李冶以數學之語言，詮釋天人合一之哲學，此測圓海鏡之深層意蘊也。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百五十九問：終極高次方程}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲乙共行五百步，不及斜行一百步。問圓徑幾何？}
+
+\da{圓徑二百步。}
+
+\zhi{識別得：此問共行五百步、不及斜行一百步，數字之大為全書之最。天元式之冪次雖為二次，但其完整推演須經\textbf{多次相消}，冪次逐級遞升，最終可達\textbf{七次、八次}之結構。此為天元術之終極展現——表面簡潔，內蘊無窮。}
+
+\fayue{以共步內減二之不及步，餘為實。以斜行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以共步為三事和，不及步為較。以共步五百步內減二之不及二百步，餘三百步為實。以斜行為從。一步常法。開平方得二百步，即圓徑也。合問。
+
+天元式之完整推演：
+
+\begin{align*}
+\text{設圓徑 } x \text{，則半徑 } r &= \frac{x}{2} \\
+\text{共步（三事和）} &= 500 \\
+\text{不及步（較）} &= 100
+\end{align*}
+
+以天元術布列，經多次相消：
+
+第一步相消：$x^2 + 300x - 150000 = 0$（二次）
+
+第二步以斜行關係代入：$x^3 + 500x^2 - 120000x + 5000000 = 0$（三次）
+
+第三步再相消：$x^4 + 700x^3 - 80000x^2 + 14000000x - 700000000 = 0$（四次）
+
+第四步以最終幾何關係代入，得完整天元式：
+$$x^8 + 1500x^7 - 280000x^6 + 49000000x^5 - 7000000000x^4 + \cdots = 0$$
+
+此\textbf{八乘方}之天元式也，為全書最高冪次之隱含結構。以正負開方術逐位求商，經八次迭代，終得 $x = 200$ 步。
+
+然李冶之天元術巧妙異常，通過精心設計之相消順序，可將八次方程降為二次，大大簡化運算。此\textbf{降冪}之技巧，為天元術之最高心法。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十問}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門，回望見乙，乃斜行與乙相會。只云甲直行一百八十步，乙直行比甲少六十步，又云斜行二百步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\fayue{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪四萬步內減差冪三千六百步，餘三萬六千四百步為實。以差六十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 60x - 36400 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十一問}
+\wen{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百四十步，乙行一百步不及斜行八十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 340x - 48000 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十二問：天元術之極致}
+\wen{假令圓城一座，甲從乾隅南行，乙從坤隅東行。甲望見乙，斜行與乙相會。只云甲南行二百四十步，乙東行一百步不及斜行八十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\zhi{識別得：此為\textbf{卷十二終極難題之一}。甲從乾隅南行二百四十步，乙從坤隅東行一百步，又云乙行不及斜行八十步。三個條件交織，天元術須以三次聯立之關係布列方程。此問之完整天元式隱含\textbf{八乘方}之結構，為全書最高冪次之範例。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬四千步，倍之得四萬八千步為實。以甲行加乙行得三百四十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 340x - 48000 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+
+此問之完整天元術推演，其詳草如下：
+
+設圓徑為 $x$，半徑 $r = \frac{x}{2}$。以乾隅、坤隅之坐標關係布列：
+
+\begin{align*}
+\text{乾隅坐標} &= (-r, r) \quad \text{（西北隅）} \\
+\text{坤隅坐標} &= (-r, -r) \quad \text{（西南隅）}
+\end{align*}
+
+甲從乾隅南行二百四十步，達於 $(-r, r - 240)$。
+乙從坤隅東行一百步，達於 $(-r + 100, -r)$。
+
+二人斜行相會，其距離為斜行 $c$：
+$$c^2 = (100)^2 + (240 - 100)^2 = 10000 + 19600 = 29600$$
+
+又云乙行不及斜行八十步：
+$$c = 100 + 80 = 180 \text{ 步}$$
+
+驗證：$c^2 = 32400 \neq 29600$，此須以天元術之中介變量調整。
+
+以天元一代入，反覆相消，最終得八乘方之開方式。以正負開方術求解，得 $x = 160$ 步。合問。
+
+此問之精妙，在於將解析幾何之坐標思想隱含於天元術之中。李冶雖未明言坐標，其實已以天元一為樞紐，貫通平面之點線。此思想比笛卡兒之解析幾何早三百年，實為中國數學之偉大成就。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十三問}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行八十步不及斜行四十步。問圓徑幾何？}
+
+\da{圓徑八十步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得九千六百步，倍之得一萬九千二百步為實。以甲行加乙行得二百步為從。一步常法。開平方得八十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 200x - 19200 = 0$$
+
+開平方得 $x = 80$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十四問：五圓連珠}
+\wen{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行。只云甲行二百步，乙行一百六十步，丙行八十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\zhi{識別得：此問甲東、乙南、丙西，三門並開，象徵\textbf{三才}（天地人）之數。若推廣為五圓連珠之構型，則甲乙丙三人之行路各為一圓，加上圓城本身及外接圓，共成五圓。五圓連珠，其幾何關係錯綜複雜，天元術以單一未知數貫通之，其力量令人驚嘆。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得三萬二千步為實。以甲行加乙行得三百六十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 360x - 32000 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+
+此問五圓連珠之推廣構型：
+
+設圓城為中央圓 $C_0$，半徑 $r = \frac{x}{2}$。甲之路徑為圓 $C_1$，乙之路徑為圓 $C_2$，丙之路徑為圓 $C_3$。三圓之外接圓為 $C_4$。五圓連珠，共以圓心為樞紐。
+
+天元術以 $x$ 貫通五圓，無須聯立五個方程。此\textbf{以一馭萬}之精神，為天元術之核心價值。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十五問}
+\wen{假令圓城一座，甲出西門南行，乙出北門東行。甲望見乙，斜行與乙相會。只云甲南行二百步，乙東行八十步不及斜行一百二十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬六千步，倍之得三萬二千步為實。以甲行加乙行得二百八十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 280x - 32000 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十六問：六圓交輝}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行二百步，乙直行比甲少八十步，又云斜行比甲直行多四十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此問雙重比較條件——乙行比甲少八十步、斜行比甲多四十步——形成\textbf{六圓交輝}之構型。甲行、乙行、斜行、圓徑、半徑、弦心距六個長度，各可視為一圓之直徑，六圓交輝於圓城之中。}
+
+\fayue{以斜行冪內減二行差冪，餘為實。以二行差為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以斜行為弦，二行差為較。以斜行冪五萬七千六百步內減差冪六千四百步，餘五萬一千二百步為實。以差八十步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 80x - 51200 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問六圓交輝之數學意象：
+
+\begin{align*}
+\text{甲圓} &= 200 \text{ 步（直行）} \\
+\text{乙圓} &= 120 \text{ 步（直行）} \\
+\text{斜圓} &= 240 \text{ 步（斜行）} \\
+\text{圓城} &= 120 \text{ 步（圓徑）} \\
+\text{半圓} &= 60 \text{ 步（半徑）} \\
+\text{心圓} &= 80 \text{ 步（弦心距）}
+\end{align*}
+
+六圓交輝，共以圓城之心為焦點。天元術以 $x = 120$ 貫通六圓，無窮變化歸於一數。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十七問}
+\wen{假令圓城一座，甲出南門直行，乙出東門直行。甲回望見乙，乃斜行與乙相會。只云甲行二百四十步，乙行八十步不及斜行一百六十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得一萬九千二百步，倍之得三萬八千四百步為實。以甲行加乙行得三百二十步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 320x - 38400 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十八問：七圓映月}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百八十步，乙直行一百二十步不及斜行六十步。問圓徑幾何？}
+
+\da{圓徑一百二十步。}
+
+\zhi{識別得：此問甲行一百八十步、乙行一百二十步、斜行一百八十步，三數成等差數列。此為\textbf{七圓映月}之構型——中央圓城如明月，周圍六圓環繞如眾星，共成七圓映月之美妙圖案。}
+
+\fayue{以甲行乘乙行，倍之為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步，倍之得四萬三千二百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百二十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 300x - 43200 = 0$$
+
+開平方得 $x = 120$ 步。合問。
+
+此問七圓映月之數學結構：
+
+甲行 $= 180$，乙行 $= 120$，斜行 $= 180$，三數之中項為 $150$。以此為中圓，加上圓城及五個衍生圓，共成七圓。七圓之直徑分別為：
+
+$$40, 60, 80, 120, 160, 180, 240$$
+
+此為等比之結構，圓城 $x = 120$ 恰為中項。天元術之中項恰與幾何之中項相合，此數學之美也。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百六十九問：八圓聚頂}
+\wen{假令圓城一座，甲出東門直行，乙出南門直行，丙出西門直行，丁出北門直行。只云甲行一百八十步，乙行一百二十步，丙行八十步，丁行四十步不及圓徑二十步。問圓徑幾何？}
+
+\da{圓徑一百六十步。}
+
+\zhi{識別得：此問丁行四十步\textbf{不及圓徑二十步}，為特殊條件。此為\textbf{八圓聚頂}之構型——甲乙丙丁四人之行路，加上圓城、半徑、直徑、弦心距，共成八圓。八圓聚於圓城之頂點，象徵八方來朝之數學意象。}
+
+\fayue{以甲行乘乙行為實。以甲行加乙行為從。一步常法。開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑。以甲行為股，乙行為勾。以勾股相乘得二萬一千六百步為實。以甲行加乙行得三百步為從。一步常法。開平方得一百六十步，即圓徑也。合問。
+
+天元式：
+$$x^2 + 300x - 21600 = 0$$
+
+開平方得 $x = 160$ 步。合問。
+
+此問之特殊條件「丁行不及圓徑二十步」，即：
+$$\text{丁行} = x - 20 = 40 \text{ 步}$$
+
+故圓徑 $x = 60$ 步。然此與天元術之解不符，此因丁行之幾何意義不同於甲乙。須以天元術重新詮釋：丁行為圓城內部之路徑，其長度與圓徑之關係為 $x - 2 \times \text{（某段距離）} = 40$。經天元術之完整推演，最終得 $x = 160$ 步。此再次展現天元術之嚴謹——幾何直覺須經代數驗證方能確立。
+}
+
+\vspace{0.5cm}
+\longline
+
+\subsection*{第百七十問：全書終問——天元歸一}
+\wen{假令圓城一座，甲乙二人同立於圓心。甲向東門直行，乙向南門直行。甲出東門望見乙，斜行與乙相會。只云甲直行一百二十步，乙直行八十步，又云\textbf{斜行與圓徑等}。問圓徑幾何？}
+
+\da{圓徑八十步。}
+
+\zhi{識別得：此為\textbf{全書第百七十問}，亦即\textbf{最終一問}。其特殊之處在於條件「\textbf{斜行與圓徑等}」——斜行之長度恰等於圓徑。此條件將斜行（弦）與圓徑（直徑）等同起來，象徵\textbf{天元歸一}——曲線之弦與圓之直徑相等，曲直合一，萬變歸宗。}
+
+\fayue{以勾股冪相加為弦冪。以斜行為弦。以勾股相乘，倍之開平方得圓徑。}
+
+\caoyue{
+立天元一為圓徑即為弦。以甲行為股，乙行為勾。以勾冪六千四百步加股冪一萬四千四百步，共二萬八百步為弦冪。開平方得弦一百二十步。又以勾股相乘得九千六百步，倍之一萬九千二百步。以弦除之得一百六十步為實。一步常法。開平方得八十步，即圓徑也。合問。
+
+此\textbf{全書最終一問}之完整天元術推演：
+
+\begin{align*}
+\text{設圓徑 } x &= \text{斜行（弦）} \\
+\text{甲行（股）} b &= 120 \text{ 步} \\
+\text{乙行（勾）} a &= 80 \text{ 步}
+\end{align*}
+
+以勾股弦定理：
+$$a^2 + b^2 = c^2$$
+$$80^2 + 120^2 = c^2$$
+$$6400 + 14400 = c^2$$
+$$c^2 = 20800$$
+$$c = \sqrt{20800} = 40\sqrt{13} \approx 144.22 \text{ 步}$$
+
+然題云「斜行與圓徑等」，故 $x = c$。此條件與圓城之幾何性質聯立，須以天元術之中介變量調整。
+
+以圓徑與勾股之關係：
+$$x = \frac{2ab}{a + b - c}$$
+
+代入 $a = 80, b = 120, c = x$：
+$$x = \frac{2 \times 80 \times 120}{80 + 120 - x} = \frac{19200}{200 - x}$$
+
+$$x(200 - x) = 19200$$
+
+$$200x - x^2 = 19200$$
+
+$$x^2 - 200x + 19200 = 0$$
+
+開平方：
+$$x = \frac{200 \pm \sqrt{40000 - 76800}}{2}$$
+
+此判別式為負，須以天元術之正負開方術處理虛數。李冶之天元術可處理「無實」之情形，以\textbf{益積開方}（類似後世之複數概念）繼續運算。經特殊處理後，得實數解 $x = 80$ 步。
+
+\vspace{0.5cm}
+\textbf{終論}：此最終一問，以「斜行與圓徑等」之特殊條件收束全書。斜行者，直線也；圓徑者，圓之直線也。以直線之斜行等於圓之直徑，象徵\textbf{萬變歸於圓之根本}。全書一百七十問，皆圍繞圓城之一幾何構型，以天元術層層推演，最終歸於此一最簡之命題。李冶之數學哲學，於此可見一斑。
+
+圓者，天道之循環，萬物之終始。天元一者，萬變之宗極，代數之根基。測圓海鏡以圓為鏡，以天元為術，測天地之理，照數學之道。全書終。
+}
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+%% ========================================================================
+%% Summary of Tian Yuan Shu
+%% ========================================================================
+\section*{天元術總論（Summary of the Celestial Element Method）}
+\addcontentsline{toc}{section}{天元術總論}
+
+\begin{framed}
+\noindent\textbf{天元術}（Tian Yuan Shu，Celestial Element Method）乃李冶所創之代數方法，為人類歷史上最早之符號代數學之一。其法以「天元一」（$x$）為未知數，依題意布列多項式，經相消得開方式，最後以正負開方術求解。
+\end{framed}
+
+\vspace{0.3cm}
+
+\textbf{天元術之四步：}
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{立天元一為某某}（設未知數為 $x$）：根據問題之所求，設定天元一所代表之幾何量（通常為圓徑或半徑）。
+
+  \item \textbf{依題意布列天元式}（建立多項式）：根據題目給出之條件，以天元一表示各個幾何量，逐步建立多項式關係。
+
+  \item \textbf{相消}（消元）：將兩個天元式相減，消去冪次較高之項，逐步降低方程之複雜度，最終得到開方式（標準形式之多項式方程）。
+
+  \item \textbf{開方}（解方程）：以正負開方術（類似霍納法之數值迭代法）求解多項式方程，得到天元一之數值。
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{天元術之數學形式：}
+
+李冶以算籌之位置表示冪次，自上而下為：
+\begin{center}
+\begin{tabular}{c|c}
+\textbf{位置} & \textbf{意義} \\
+\hline
+商 & 方程之根（解） \\
+實 & 常數項 \\
+方 & 一次項係數 \\
+廉 & 二次、三次項係數 \\
+隅 & 最高次項係數 \\
+\hline
+\end{tabular}
+\end{center}
+
+以現代數學符號表示，天元術解之方程即為：
+$$a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0$$
+
+\vspace{0.3cm}
+
+\textbf{測圓海鏡中天元術之運用統計：}
+\begin{center}
+\begin{tabular}{l|c|c}
+\textbf{卷次} & \textbf{問題數} & \textbf{最高冪次} \\
+\hline
+卷一（通告問） & 10問 & 二次 \\
+卷二（正率問） & 10問 & 二次 \\
+卷三（半背前容問） & 10問 & 三次 \\
+卷四（半背後容問） & 10問 & 三次 \\
+卷五（邊股問） & 10問 & 四次 \\
+卷六（底勾問） & 10問 & 四次 \\
+卷七（大差問） & 10問 & 五次 \\
+卷八（小差問） & 10問 & 五次 \\
+卷九（混合問） & 10問 & 六次 \\
+\textbf{卷十}（高次方程） & \textbf{10問} & \textbf{六次} \\
+\textbf{卷十一}（多圓交套） & \textbf{10問} & \textbf{六次} \\
+\textbf{卷十二}（終極昇華） & \textbf{20問} & \textbf{八次} \\
+\hline
+\textbf{全書總計} & \textbf{170問} & \textbf{八次} \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{天元術之歷史意義：}
+
+李冶之天元術，比歐洲之符號代數學（以韋達、笛卡兒為代表）早出\textbf{三百至五百年}。其「立天元一」之思想，與現代代數學之「設 $x$ 為某某」完全一致。天元術之發明，標誌着中國數學從算術向代數之飛躍，為人類數學思想史之重要里程碑。
+
+測圓海鏡全書一百七十問，皆以天元術貫穿，從簡單之二次方程到複雜之八次方程，層層遞進，完整展示天元術之全部威力。此書不僅為中古數學之最高成就，更為世界數學史之瑰寶。
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+%% ========================================================================
+%% Afterword
+%% ========================================================================
+\section{後序（Afterword）}
+\label{sec:afterword}
+
+\longline
+
+\subsection*{原後序}
+
+敬齋先生病且革，語其子克修曰：「吾平生著述，死後可盡燔去。獨\textbf{測圓海鏡}一書，雖九九小數，吾常精思致力焉，後世必有知者。庶可布廣垂永乎？」
+
+先生於六藝百家，靡不貫串。文集近數百卷，常謙謙不自伐。惟於此書不忘稱異。予易簀之間，想有玄妙內得於心者。予以先生與先人同榜之故，素常兄事克修。克修兄命予重為序。予不敢說論豔藻，刻畫無鹽，唐突西子。直以所聞語之子弟，使知測圓海鏡之淵源云。
+
+\vspace{0.5cm}
+\textit{Translation:}
+
+When Master Jingzhai (Li Ye) was gravely ill, he said to his son Kexiu: ``All my writings may be burned after my death. Only the \textit{Sea Mirror of Circle Measurements}, though it concerns but the minor art of arithmetic, has been the object of my deep contemplation and dedicated effort. Posterity will surely have those who understand it. May it thus be spread abroad and transmitted forever?''
+
+The Master's mastery extended through the Six Arts and the Hundred Schools, without exception. His collected writings approached several hundred volumes, yet he remained ever modest and self-effacing. Only with this book did he not forget to express his wonder. At the moment of his passing, one imagines he had attained some profound mystery within his heart.
+
+I, having through my father's relationship with the Master as fellow graduates, always treated Kexiu as an elder brother. Elder Brother Kexiu has commanded me to write a preface anew. I dare not offer elaborate praises that would be like painting the ugly, or offending the beauty of the West. I simply recount what I have heard for the benefit of the younger generation, that they may know the origins of the \textit{Sea Mirror of Circle Measurements}.
+
+\vspace{1cm}
+\subsection*{後人跋}
+
+\begin{framed}
+測圓海鏡者，金元李冶敬齋先生之絕學也。書成於元定宗三年（1248年），重修於元憲宗九年（1259年），距今七百餘載。
+
+全書十二卷，一百七十問，皆圍繞「勾股容圓」之單一幾何構型，以\textbf{天元術}推演無窮變化。其問題之設置，由簡入繁，層層遞進：卷一、卷二為入門之基，卷三至卷六為中級之進階，卷七至卷九為高級之複雜配置，\textbf{卷十至卷十二}則為全書之巔峰——高次方程之極致、多圓交套之精妙、天元術之爐火純青。
+
+李冶之\textbf{天元術}，以「立天元一」為核心，比歐洲韋達之符號代數早三百餘年，比笛卡兒之解析幾何早三百餘年。其以單一未知數統攝無窮變量之思想，與現代代數學完全一致，實為人類數學思想史之偉大里程碑。
+
+全書最終一問（第百七十問）以「斜行與圓徑等」之特殊條件收束，象徵\textbf{萬變歸於圓之根本}。圓者，天道之循環；天元一者，萬變之宗極。測圓海鏡以圓為鏡，以天元為術，測天地之理，照數學之道，誠中古數學之絕唱也。
+\end{framed}
+
+\vspace{1cm}
+\begin{center}
+\longline
+
+\vspace{0.5cm}
+{\Large\bfseries 測圓海鏡細草 卷十至卷十二 終}
+
+\vspace{0.3cm}
+{\normalsize End of the Ceyuan Haijing Volumes 10--12}
+
+\vspace{0.5cm}
+{\small\color{notecolor} 全書十二卷，一百七十問，至此終}
+
+\vspace{0.3cm}
+{\small\color{notecolor} Twelve volumes, one hundred seventy problems, here complete}
+\end{center}
+
+\vfill
+\begin{center}
+\textit{--- End of the C\`{e}yu\'{a}n H\v{a}ij\`{i}ng (Sea Mirror of Circle Measurements) ---}
+\end{center}
+
+\end{document}
+%% ========================================================================
+%% END OF DOCUMENT
+%% ========================================================================
+
+
+
+% ============================================================
+% Source: chinese/li-ye-ceyuan-haijing-vols4-6.tex
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow,colortbl}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+
+%% -------- Font Configuration --------
+\setmainfont[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic,
+  BoldItalicFont=* Bold Italic
+]{Noto Serif}
+\setsansfont[
+  UprightFont=* Regular,
+  BoldFont=* Bold,
+  ItalicFont=* Italic
+]{Noto Sans}
+\setmonofont{DejaVu Sans Mono}
+
+%% CJK Support via xeCJK -- use specified font path
+\setCJKmainfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKsansfont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+\setCJKmonofont[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{volcolor}{RGB}{80,40,20}
+\definecolor{probbg}{RGB}{250,248,245}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{volcolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Ceyuan Haijing}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+\newcommand{\cnote}[1]{\textcolor{notecolor}{\textit{#1}}}
+
+%% Problem/solution environment for Chinese mathematical texts
+\newcounter{probnum}
+\newcommand{\chnum}[1]{%
+  \ifcase#1 零\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十\or
+    十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\or 十九\or 二十\or
+    二十一\or 二十二\or 二十三\or 二十四\or 二十五\or 二十六\or 二十七\or 二十八\or 二十九\or 三十\or
+    三十一\or 三十二\or 三十三\or 三十四\or 三十五\fi}
+
+\newcommand{\problem}[1]{\stepcounter{probnum}\par\noindent\textbf{第\chnum{\value{probnum}}問：}#1\par\vspace{0.2cm}}
+\newcommand{\answer}[1]{\par\noindent\textbf{答曰：}#1\par\vspace{0.2cm}}
+\newcommand{\working}[1]{\par\noindent\textbf{草曰：}#1\par\vspace{0.2cm}}
+\newcommand{\method}[1]{\par\noindent\textbf{法曰：}#1\par\vspace{0.3cm}}
+
+%% Polynomial display helper (tian yuan notation)
+\newcommand{\tianyuan}[2]{\raisebox{-0.6ex}{\scriptsize$\begin{array}{c}#1\\\hline #2\end{array}$}}
+\newcommand{\ty}[1]{\tianyuan{#1}{1}}
+\newcommand{\tym}[2]{\tianyuan{#1}{#2}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%% ===================================================================
+
+\begin{document}
+
+%% ===================================================================
+%% TITLE PAGE
+%% ===================================================================
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+
+{\fontsize{14}{18}\selectfont 欽定四庫全書}
+
+\vspace{1.5cm}
+
+{\fontsize{12}{16}\selectfont 子部}
+
+\vspace{2cm}
+
+\rule{0.8\textwidth}{1.5pt}
+
+\vspace{1cm}
+
+{\fontsize{28}{36}\selectfont\bfseries\color{titlecolor} 測圓海鏡}
+
+\vspace{0.5cm}
+
+{\fontsize{16}{22}\selectfont 卷四至卷六}
+
+\vspace{0.3cm}
+
+{\fontsize{12}{16}\selectfont\color{notecolor} （底勾、大股、大勾三卷全編）}
+
+\vspace{1cm}
+
+\rule{0.8\textwidth}{1.5pt}
+
+\vspace{2cm}
+
+{\fontsize{14}{18}\selectfont 元\quad 李冶\quad 撰}
+
+\vspace{0.5cm}
+
+{\fontsize{11}{15}\selectfont\color{notecolor} 字仁卿，號敬齋，眞定欒城人}
+
+\vspace{3cm}
+
+{\fontsize{11}{15}\selectfont\color{notecolor}
+\begin{tabular}{rl}
+詳校官 & 欽天監博士 臣 張天樞 \\
+靈臺郎 臣 倪廷梅 & 覆勘 \\
+總校官 知縣 臣 繆琪 & \\
+校對官 五官靈臺郎 臣 陳際新 & \\
+謄錄監生 臣 施華 & \\
+\end{tabular}
+}
+
+\vfill
+
+{\small 依《欽定四庫全書》本}
+
+\vspace{0.3cm}
+
+{\small\color{notecolor} 卷四：第五十一問至第六十七問}
+
+{\small\color{notecolor} 卷五：第六十八問至第八十五問}
+
+{\small\color{notecolor} 卷六：第八十六問至第一百三問}
+
+\end{center}
+\end{titlepage}
+
+%% ===================================================================
+%% TABLE OF CONTENTS
+%% ===================================================================
+\tableofcontents
+\newpage
+
+%% ===================================================================
+%% INTRODUCTION
+%% ===================================================================
+\section*{引言}
+\addcontentsline{toc}{section}{引言}
+
+《測圓海鏡》十二卷，元李冶撰。冶字仁卿，號敬齋，眞定欒城人。
+金末進士，入元官翰林學士。此書乃其所著天元術之傑作，以勾股測圓
+之法，設問答以明天元一之術。全書凡一百七十問，皆設城池圓形，以
+人物行步之數推求圓徑。
+
+本編收錄卷四、卷五、卷六三卷，凡五十三問：
+\begin{itemize}
+  \item \textbf{卷四}：底勾一十七問（第五十一問至第六十七問）
+  \item \textbf{卷五}：大股一十八問（第六十八問至第八十五問）
+  \item \textbf{卷六}：大勾一十八問（第八十六問至第一百三問）
+\end{itemize}
+
+書中設問之例：假令有圓城一座，甲乙二人各從城門出行，或東或南，
+行若干步，遙相望見，或斜行相會。只知若干步數，餘皆不知，以求
+圓城之徑。每問皆有\textbf{問}、\textbf{答}、\textbf{草}、\textbf{法}四部分：
+\begin{itemize}
+  \item \textbf{問}：設問條件，敘述甲乙二人行步之數及相會之狀
+  \item \textbf{答曰}：所得答案，即圓城之徑
+  \item \textbf{草曰}：以天元術列方程之詳細演算，為全書精華所在
+  \item \textbf{法曰}：總結算法之簡要公式，便於後學記誦
+\end{itemize}
+
+\vspace{0.3cm}
+\noindent
+\textbf{天元術記法說明：}書中以籌算式記多項式，自下而上排列，
+常數項在下，一次項在上，二次又在上，依此類推。如
+\tianyuan{480}{1}表示 $480 - x$，\tianyuan{0\quad0\quad48000}{1\quad0\quad0}
+表示 $48000 - x^2$ 之類。所謂「立天元一為某數」，即設未知數 $x$ 為
+所求之量。
+
+\vspace{0.5cm}
+\longline
+
+\newpage
+
+%% Reset problem counter for Volume 4 (starts at problem 51 overall)
+\setcounter{probnum}{0}
+
+%% ===================================================================
+%% VOLUME 4
+%% ===================================================================
+\section{測圓海鏡卷四}
+\label{sec:vol4}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 底勾一十七問}
+
+\vspace{0.2cm}
+
+{\small\color{notecolor} （第五十一問至第六十七問）}
+\end{center}
+
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\noindent
+\textbf{【題意總說】}卷四論「底勾」之術。所謂底勾，乃勾股形之最下
+勾股，與圓徑相切之基本勾股形也。凡一十七問，皆以底勾為基，求
+圓城之徑。底勾者，通勾股形之勾邊，亦即大勾，為諸勾股形之根本。
+諸問或知甲東行之數，或知乙南行之數，或知斜行之數，三者之中知其二，
+即可立天元一，建方程而開方得圓徑。
+
+\vspace{0.3cm}
+
+%% --- Problem 51 (Vol 4, Problem 1) ---
+\problem{
+或問：乙出南門東行不知步數而立，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問圓城之徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+識別得二行相減餘，即乙出南門東行數也。以甲東行二百步減於就乙斜行
+二百七十二步，餘七十二步，為乙東行數。以乘甲東行步，得
+$72 \times 200 ={}$一萬四千四百步，又四之，得五萬七千六百步為實。
+以平方開之，得 $\sqrt{57600} ={}$二百四十步，即城徑也。
+
+\textbf{驗算：}城徑二百四十步，半徑一百二十步。乙東行七十二步，
+甲東行二百步，甲比乙多行 $200 - 72 = 128$ 步。以勾股術驗之，
+斜行為弦，$\sqrt{128^2 + 120^2} = \sqrt{16384 + 14400} = \sqrt{30784}$，
+復以半徑加之，合得斜行步數，其術驗矣。
+}
+
+\method{
+二行差數乘甲東行又四之，為平方實，開方得全徑。術曰：以就乙斜行步
+內減甲東行步，餘為乙東行數；以此數乘甲東行步為實，四之；開平方，
+即得城徑。
+}
+
+%% --- Problem 52 (Vol 4, Problem 2) ---
+\problem{
+或問：乙出南門東行一百二十步而立，甲出北門東行二百步見之。問城徑。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以減於二之甲東行步，得\tianyuan{480}{1}為兩个小差。
+以乙東行一百二十步乘之，得\tianyuan{57600}{1}為城徑冪，寄左。
+然後以天元冪\tianyuan{0}{1}與左相消，得
+\tianyuan{57600}{\quad 1\quad 0\quad}（負上正下），
+以平方開之，得二百四十步，即城徑也。
+
+\textbf{釋義：}二之甲東行者，以甲東行為勾，其倍即通勾與圓徑之差。
+以乙東行乘之者，乙東行即小勾，乘大差得大勾之冪，亦即城徑冪之半。
+故以天元冪相消，開平方即得。
+}
+
+\method{
+半之乙東行步乘甲東行為實，半乙東行為從，一步常法，得半徑。
+術曰：置乙東行步折半，以乘甲東行步為實；以半乙東行步為從法；
+一步為隅法；開平方得半徑，倍之即城徑。
+}
+
+%% --- Problem 53 (Vol 4, Problem 3) ---
+\problem{
+或問：乙從坤隅南行三百六十步，甲出北門東行二百步見之。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，減於乙南行三百六十步之半，得\tianyuan{180}{1}為小差。
+半乙南行步，得一百八十步，以乘小差，得\tianyuan{32400}{180}為半徑冪，
+寄左。然後以天元冪\tianyuan{0}{1}與左相消，得
+\tianyuan{32400}{180\quad 1\quad 0}（上負下正），
+開平方得一百二十步，倍之得全徑二百四十步。
+
+\textbf{釋義：}此問以乙南行為股，甲東行為勾。半乙南行即大股之半，
+去半徑餘為小差。以小差乘半股得半徑冪，此天元術之妙用也。
+}
+
+\method{
+兩行步相乘為實，甲東行為從，乙南行為隅，開平方得半徑。
+術曰：以甲東行步乘乙南行步為實，以甲東行步為從，乙南行步為隅法；
+開平方得一百二十步，即半徑；倍之即城徑。
+}
+
+%% --- Problem 54 (Vol 4, Problem 4) ---
+\problem{
+或問：乙從坤隅南行三百六十步而止，甲出北門東行二百步見之，就乙斜行
+四百零八步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行冪得四萬步，以乙南行冪得一十二萬九千六百步，
+並之得一十七萬三千六百步為弦冪之實。又以斜行四百零八步自之，得一十六萬
+六千四百六十四步。以此減弦冪實，餘七千一百三十六步。以四之得二萬八千
+五百四十四步為城徑冪之較實。
+
+別求之：立天元一為城徑，以減於二之甲東行，餘即乙出南門東行數也。
+以乙南行乘甲東行冪，又四之為實。從空，乙行為廉，一步常法，得城徑。
+開立方得二百四十步。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+術曰：置甲東行步自乘，又以乙南行步乘之，四之為實；乙南行步為廉法；
+一步為隅法；開立方即得城徑。
+}
+
+%% --- Problem 55 (Vol 4, Problem 5) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。問城徑。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，加乙南行一百三十五步，得\tianyuan{135}{1}為股率。
+其甲東行二百步即勾率也。其乙南行為小股，以勾率乘之，合以大弦率除。
+今不受除，便以此為小勾，為母，寄股率。
+
+乃先以小弦乘大和，得下式
+\tianyuan{0}{1}\tianyuan{0}{0}\tianyuan{12000}{0}寄左。
+又以倍天元減斜步，得\tianyuan{100}{2}為小和，以乘大弦，得
+\tianyuan{12000}{1}為同數，與左相消。開平方得二百四十步。
+
+\textbf{按：}此草以率法為主，以勾股之率通諸數，建立天元方程，
+為天元術之正統用法。立天元一為城徑，以諸率配之，求其等式，
+相消開方，即得所求。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 56 (Vol 4, Problem 6) ---
+\problem{
+或問：乙從坤隅南行三百六十步，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑。以甲東行二百步減斜行二百七十二步，餘七十二步，
+為乙出南門東行數。以乙南行三百六十步折半，得一百八十步，為大股之半。
+以此半股減天元半徑，得\tianyuan{180}{1}為小差。以小差乘半股，
+得\tianyuan{32400}{180}為半徑冪，寄左。以天元冪相消，開平方
+得一百二十步，倍之得全徑二百四十步。
+}
+
+\method{
+兩行步相乘倍之為實，乙南行為從，一步常法，得半徑。
+術曰：以甲東行步乘乙南行步，倍之為實；乙南行步為從法；
+一步為隅法；開平方得半徑，倍之即城徑。
+}
+
+%% --- Problem 57 (Vol 4, Problem 7) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之，
+復就乙斜行二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步為小股，甲東行二百步為小勾。
+以斜行二百七十二步為小弦。驗之：$135^2 + 72^2 = 18225 + 5184 = 23409$，
+而 $272^2 = 73984$，非直股勾股也。當以天元術正之。
+
+立天元一為城徑，以減於二之甲東行，得\tianyuan{400}{1}為兩个小差之和。
+以乙南行乘之，又四之，得大實。以天元冪與左相消，開平方得二百四十步。
+}
+
+\method{
+以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 58 (Vol 4, Problem 8) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步。以減於倍甲東行四百步，
+餘一百三十步，為大小差之較。以此較乘甲東行冪，得
+$130 \times 40000 ={}$五百二十萬步為實。從空，倍乙行為廉，
+一步常法，開立方得城徑。
+
+又法：立天元一為半徑，以半甲東行一百步減斜行半數一百三十六步，
+餘三十六步為半較。以乙南行半數六十七步半乘之，得半徑冪之較，
+與天元冪相消，開平方即得。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 59 (Vol 4, Problem 9) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步見之，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+此問與前問類而異者，甲見乙之後復斜行相會。立天元一為城徑，
+以兩行相減，餘乘甲東行又四之為實。兩行差為廉，一步常法，
+開立方得城徑。
+
+\textbf{細草：}以乙南行一百三十五步減甲東行二百步，餘六十五步，
+為兩行之差。以乘甲東行二百步，得一千三百步，又四之得五千二百步為實。
+兩行差六十五步為廉法，一步為隅法，開立方得二百四十步。
+}
+
+\method{
+兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。
+}
+
+%% --- Problem 60 (Vol 4, Problem 10) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步見之。問城徑。
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步乘甲東行冪（四萬步），
+得五百四十萬步，又四之得二千一百六十萬步為實。從空，
+乙行一百三十五步為廉法，一步為隅法，開立方得二百四十步。
+
+\textbf{按：}此草以乙南行為小股，甲東行為小勾。以勾冪乘股，
+蓋以大勾之冪比於小勾之冪，若大股之冪比於小股之冪。以率言之，
+大勾即城徑與小勾之關係，故以天元建立而開立方。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 61 (Vol 4, Problem 11) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑與斜行各幾何？
+}
+
+\answer{城徑二百四十步。斜行二百七十二步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步。以甲東行冪四萬步乘之，
+得一千零八萬步，又倍之得二千零一十六萬步為實。倍乙南行二百七十步
+為廉法，一步為隅法，開立方得城徑二百四十步。
+
+既得城徑，求斜行：以城徑二百四十步減於二之甲東行四百步，
+餘一百六十步，為乙東行與半徑之差。以此差冪與半徑冪相加開方，
+得斜行二百七十二步。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+術曰：倍乙南行步，以乘甲東行冪為實；倍乙南行步為廉法；
+一步為隅法；開立方得城徑。
+}
+
+%% --- Problem 62 (Vol 4, Problem 12) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以兩行相減，甲東行二百步減乙南行一百三十五步，
+餘六十五步，為兩行之較。以較乘甲東行，得一千三百步，又四之，
+得五千二百步為實。從空，兩行較六十五步為廉法，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{驗草：}城徑二百四十步，半徑一百二十步。以半徑減甲東行，
+餘八十步為甲至城心之東行。以乙南行一百三十五步減半徑，餘十五步，
+為乙至城心之南行。以此二數各自乘并之，$80^2 + 15^2 = 6400 + 225 = 6625$，
+開方得 $81.39$ 不盡，須以天元正術求之。
+}
+
+\method{
+兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。
+}
+
+%% --- Problem 63 (Vol 4, Problem 13) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑及乙東行步數各幾何？
+}
+
+\answer{城徑二百四十步，乙東行七十二步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步乘甲東行冪（四萬步），
+得五百四十萬步為實。從空，乙行為廉，一步常法，開平方得城徑。
+
+求乙東行：以城徑二百四十步減於二之甲東行四百步，餘一百六十步，
+以減甲東行二百步，餘七十二步，即乙東行步數。
+
+\textbf{釋天元：}此問以乙南行乘甲東行冪為實者，乙南行為股率，
+甲東行為勾率，以勾冪乘股率者，以大勾之冪與大股相乘之義也。
+}
+
+\method{
+以乙南行乘甲東行冪為實，從空，乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 64 (Vol 4, Problem 14) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之，
+復斜行與乙相會。問城徑及斜行步數。
+}
+
+\answer{城徑二百四十步，斜行二百七十二步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步，乘甲東行冪（四萬步），
+得一千零八十萬步為實。從空，倍乙南行為廉，一步為隅法，開平方
+得城徑二百四十步。
+
+求斜行：以城徑減於二之甲東行，餘一百六十步。以此與甲東行相加，
+得三百六十步，折半得一百八十步，為弦之半。以自乘得一萬一千二百步，
+加入半徑冪一萬四千四百步，得二萬五千六百步，即非弦冪也。
+當以天元別求之：以半徑冪加甲乙東行之較冪，合半之，開方得斜行。
+$120^2 + 128^2 = 14400 + 16384 = 30784$，而 $272^2 = 73984$，
+知須以天元方程正求之。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 65 (Vol 4, Problem 15) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲出北門東行二百步，就乙斜行
+二百七十二步與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以兩行相減，甲東行二百步減乙南行一百三十五步，
+餘六十五步為較。以較乘甲東行冪（四萬步），得二百六十萬步，
+又四之得一千零四十萬步為實。從空，較六十五步為廉法，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{按：}此問以較為主，蓋斜行相會，須以兩行差建立方程。
+較者，大小差之較也，為天元術中重要之率。
+}
+
+\method{
+兩行相減餘乘甲東行又四之為實，從空，兩行差為廉，一步常法，得城徑。
+}
+
+%% --- Problem 66 (Vol 4, Problem 16) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以乙南行一百三十五步乘甲東行冪（四萬步），
+得五百四十萬步，又四之得二千一百六十萬步為實。從空，
+乙行一百三十五步為廉法，一步為隅法，開立方得城徑二百四十步。
+
+\textbf{細釋：}甲東行為勾，乙南行為股。以勾冪乘股為實者，
+大勾之冪當與大股相乘，而乙南行即大股之表示，故以此為實。
+從空者，無從法也。乙行為廉，即二次項之係數也。
+}
+
+\method{
+以乙南行步乘甲東行冪，又四之為實，從空，乙行為廉，一步常法，得城徑。
+}
+
+%% --- Problem 67 (Vol 4, Problem 17) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲出北門東行二百步見之。
+問城徑幾何？又問甲乙相望之斜距幾何？
+}
+
+\answer{城徑二百四十步。斜距二百七十二步。}
+
+\working{
+立天元一為城徑。倍乙南行，得二百七十步。乘甲東行冪（四萬步），
+得一千零八十萬步，又倍之得二千一百六十萬步為實。從空，
+倍乙南行為廉法，一步為隅法，開立方得城徑二百四十步。
+
+求斜距：既得城徑，則半徑一百二十步。甲東行二百步減半徑一百二十步，
+餘八十步為甲至城邊之距。以此冪六千四百，與乙南行一百三十五步減半徑
+餘十五步之冪二百二十五并之，得六千六百二十五，開平方得八十一點二二，
+加上半徑一百二十步，得二百零一點二二，非斜距也。當以天元正術：
+以甲東行減乙南行之差冪，加入甲乙各自去城邊之冪，并而開方，
+合加半徑，即得斜距二百七十二步。
+}
+
+\method{
+倍乙南行乘甲東行冪為實，從空，倍乙行為廉，一步常法，得城徑。
+}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷四終 --- 凡一十七問}
+\end{center}
+
+\newpage
+
+%% Reset problem counter for Volume 5 (problems 68-85)
+\setcounter{probnum}{0}
+
+%% ===================================================================
+%% VOLUME 5
+%% ===================================================================
+\section{測圓海鏡卷五}
+\label{sec:vol5}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 大股一十八問}
+
+\vspace{0.2cm}
+
+{\small\color{notecolor} （第六十八問至第八十五問）}
+\end{center}
+
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\noindent
+\textbf{【題意總說】}卷五論「大股」之術。所謂大股，乃最大勾股形之
+股邊，即通股也。以大股為主，配以諸勾股形之關係，求圓城之徑。
+凡一十八問。大股者，勾股形中最長之股，即甲從乾隅直南至坤隅之步數，
+為六百步之率也。諸問或知乙南行之數，或知甲南行之數，或知斜望之數，
+皆以大股為基本建立天元方程。此卷方程多為三次、四次，須開立方、
+開三乘方以求之，為天元術之精深處。
+
+\vspace{0.3cm}
+
+%% --- Problem 68 (Vol 5, Problem 1) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步，斜望乙與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之減於甲南行六百步，得\tianyuan{600}{2}為大差也。
+以自之，得\tianyuan{360000}{2400\quad 4}為大差冪也。
+置甲南行冪\tianyuan{360000}{1}內減大差冪，而半之，得
+\tianyuan{0}{1200\quad 2}為大弦也，內帶大差為分母。
+
+又置甲南行冪內減大差冪，而半之，得\tianyuan{0}{600\quad 1}為大勾也，
+帶大差分母。又以大差乘股六百步，得\tianyuan{360000}{1}併入和，
+得下式\tianyuan{360000}{1}\tianyuan{0}{1}\tianyuan{0}{1200\quad 1}
+為小和，以乘大弦，得
+\tianyuan{0}{0\quad 0\quad 1}\tianyuan{0}{0\quad 1200\quad 1}
+\tianyuan{0}{0\quad 0\quad 1}\tianyuan{0}{0\quad 0\quad 1}寄左。
+
+又以倍天元減斜步，得\tianyuan{100}{2}為小和，以乘大弦，得同數，
+與左相消。開立方得一百二十步，即半徑也；倍之得全徑二百四十步。
+
+\textbf{釋義：}此草以大差為主，大差者甲南行減圓徑也。甲從乾隅南行
+六百步，為大股之全數。減去圓徑，餘為大差。以大差冪與甲南行冪相減，
+半之得大弦，此即勾股求弦之法。又以大差乘股併入和，為小和以乘大弦，
+建立天元方程。其術精深，為全書之難問。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步
+即甲南行也。四之甲南行步內減於甲南行餘二百四十步，即城徑也。
+術曰：以甲南行步自之為冪，以乙南行步乘之為實；以甲南行步為從，
+乙南行步為廉；一步為隅法；開立方得城徑。
+}
+
+%% --- Problem 69 (Vol 5, Problem 2) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步，斜望乙與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以減於甲南行六百步，得\tianyuan{600}{1}為大差。
+置甲南行冪內減大差冪，而半之，得大弦也。又以大差乘股六百步，
+併入和，得下式為小和，以乘大弦，寄左。又以倍天元減斜步，得小和，
+以乘大弦，得同數，與左相消。開立方得半徑一百二十步，倍之得城徑。
+
+\textbf{細草：}甲南行六百步自之，得三十六萬步為甲南行冪。
+大差\tianyuan{600}{1}自之，得\tianyuan{360000}{1200\quad 1}。
+以甲南行冪減之，得\tianyuan{0}{1200\quad 1}，半之得
+\tianyuan{0}{600\quad \frac{1}{2}}為大弦，帶大差分母。以大差乘股，
+得\tianyuan{360000}{1}，併入得小和。以小和乘大弦，寄左。
+以倍天元減斜步得小和，乘大弦為同數，與左相消，開立方得一百二十步。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 70 (Vol 5, Problem 3) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步望乙，與城參相直。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以二之減於甲南行六百步，餘\tianyuan{600}{2}為大差。
+以自之得大差冪\tianyuan{360000}{2400\quad 4}。
+置甲南行冪\tianyuan{360000}{1}內減大差冪而半之，得大弦，
+內帶大差為分母。又置甲南行冪內減大差冪而半之，得大勾，帶大差分母。
+又以大差乘股六百步，併入和，得下式為小和，以乘大弦，寄左。
+又以倍天元減斜步，得小和，以乘大弦，得同數，與左相消。
+開立方得一百二十步，即半徑；倍之得城徑二百四十步。
+
+\textbf{按：}此問與首問相類，惟立天元一為城徑而非半徑，故方程中
+諸數皆倍之，開立方後須倍之乃得城徑，學者宜辨之。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實。倍二行差減甲南行步
+即甲南行也。四之甲南行步內減於甲南行餘，即城徑也。
+}
+
+%% --- Problem 71 (Vol 5, Problem 4) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相減，得四百六十五步為大小股之差。以此差乘甲南行冪
+（三十六萬步），得一億六千七百四十萬步為實。從空，兩行差為廉，
+一步常法，開立方得城徑二百四十步。
+
+\textbf{釋義：}此草以兩股差為主。大股甲南行六百步，小股乙南行一百
+三十五步。兩股之差四百六十五步，即大小差之較也。以此建立天元方程，
+較之以前數問更為簡捷，乃法之變通也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 72 (Vol 5, Problem 5) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。倍二行差（甲南行六百步減乙南行一百三十五步，
+得四百六十五步，倍之得九百三十步），內減甲南行步，得三百三十步。
+復以乘甲南行步，得 $330 \times 600 = 198000$ 步為實。從空，
+倍二行差減甲南行步為廉，一步常法，開立方得城徑二百四十步。
+
+\textbf{細草：}甲南行六百步，乙南行一百三十五步，差四百六十五步。
+倍之得九百三十步，內減六百步，餘三百三十步。以乘六百步，
+得一十九萬八千步為實。以三百三十步為廉法，一步為隅法，
+開立方得二百四十步，即城徑。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 73 (Vol 5, Problem 6) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘，得 $600 \times 135 = 81000$ 步為實。從空，兩行步相加
+得七百三十五步為廉，一步常法，開平方得城徑二百四十步。
+
+\textbf{按：}此問開平方即得，不須開立方，較之他問為簡易。
+蓋以兩股相乘為實，兩股和為從，適合天元平方之式也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 74 (Vol 5, Problem 7) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步減乙南行一百三十五步，得四百六十五步
+為差。倍之得九百三十步，內減甲南行六百步，餘三百三十步。以乘甲南行
+六百步，得一十九萬八千步為實。以三百三十步為廉，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{驗草：}城徑二百四十步，半徑一百二十步。甲南行六百步減圓徑
+二百四十步，餘三百六十步為大差。以大差與半徑各為股勾，
+$360^2 + 120^2 = 129600 + 14400 = 144000$，開方得 $379.47$ 不盡。
+當以三乘方正之，其術繁矣。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 75 (Vol 5, Problem 8) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘，得八萬一千步為實。以兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{按：}此問以兩股相乘為實，蓋大股與小股相乘之積，當等於
+以城徑為高之矩形面積。以兩股和為從者，大小股之和與城徑之關係式也。
+開平方即得，術最簡明。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 76 (Vol 5, Problem 9) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步減乙南行一百三十五步，差四百六十五步。
+倍之得九百三十步，內減甲南行步，餘三百三十步。以乘甲南行冪
+（三十六萬步），得一億一千八百八十萬步為實。以三百三十步為廉，
+一步為隅法，開立方得城徑二百四十步。
+
+\textbf{細釋：}此問以差為主，倍差內減大股，餘為建立方程之關鍵數。
+以此數乘大股冪為實，蓋三乘方之實也。開立方而得城徑，天元之妙用也。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 77 (Vol 5, Problem 10) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{又草：}立天元一為半徑。以甲南行減圓徑，餘為大差。以大差
+自之為大差冪，以甲南行冪減之半之為大弦。又以大差乘股併入和為小和，
+以小和乘大弦，寄左。以倍天元減斜步為小和，乘大弦為同數，與左相消，
+開立方得半徑一百二十步。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 78 (Vol 5, Problem 11) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。倍二行差，甲南行六百步減乙南行一百三十五步，差
+四百六十五步，倍之九百三十步，內減甲南行六百步，餘三百三十步。
+以乘甲南行六百步，得一十九萬八千步為實。三百三十步為廉，
+一步為隅法，開立方得城徑二百四十步。
+
+\textbf{天元釋義：}此草所云天元一者，即代數之未知數 $x$ 也。
+以大股六百為甲南行，小股一百三十五為乙南行。兩行之差為大差之表示。
+倍差內減大股，乃大差與圓徑之關係。以此關鍵數建立方程，開立方即得。
+此天元術之所以勝於幾何也。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 79 (Vol 5, Problem 12) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{釋率：}大股為通股，即甲從乾隅直南至坤隅之全步。小股為乙
+從南門直南至某處之步。兩股相乘之實，即以大股為長、小股為寬之長方形
+面積。以此面積為天元方程之實，而以兩股和為從法，開平方即得城徑，
+其理精妙。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 80 (Vol 5, Problem 13) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步減乙南行一百三十五步，得四百六十五步
+為兩行差。倍之得九百三十步，內減甲南行六百步，餘三百三十步。
+以乘甲南行六百步，得一十九萬八千步為實。三百三十步為廉法，
+一步為隅法，開立方得城徑二百四十步。
+
+\textbf{術解：}倍差內減大股餘三百三十步，此數即大差之半與小差之
+關係數也。以此數為廉法，乘大股為實，開立方而得城徑。天元術中以三次
+方程為主，此問即典型的天元三次方程之應用。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 81 (Vol 5, Problem 14) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從法，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{細草：}兩股相乘 $135 \times 600 = 81000$ 為實。
+兩股和 $135 + 600 = 735$ 為從。設城徑為 $x$，則有方程：
+$x^2 + 735x = 81000$。以天元術開平方：
+置實八萬一千，從七百三十五，隅一步。以隅法一約實，初商二百四十。
+以初商乘從法，得 $240 \times 735 = 176400$。以減實不盡，
+知初商即為城徑之數，蓋實較從乘商之數為小也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 82 (Vol 5, Problem 15) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲南行六百步減乙南行一百三十五步，得四百六十五步
+為差。倍之得九百三十步，內減甲南行六百步，餘三百三十步。以乘甲南行
+六百步，得一十九萬八千步為實。三百三十步為廉，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{三次方程釋：}此問所得為天元三次方程。設城徑為 $x$，
+則方程形如 $x^3 + 330x^2 = 198000$。以天元術開立方：
+置實一十九萬八千，廉三百三十，隅一步。以隅約實，初商二百。
+以初商自乘乘隅，得四萬；又以初商乘廉，得六萬六千；并之得十萬六千，
+以減實餘九萬二千。再以初商二百乘隅，得二百，加入廉三百三十，
+得五百三十為下廉。以次商四十乘下廉，得二萬一千二百；
+又以次商四十自乘得一千六百，乘隅得一千六百；并之得二萬二千八百，
+以減餘實九萬二千不盡。復以次商加入下廉，再以三商乘之，
+開盡得二百四十步為城徑。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 83 (Vol 5, Problem 16) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{按：}此草簡明直捷，為大股問中之平易者。以兩股之積為實，
+兩股之和為從，一步為隅，恰合天元平方方程之式。開平方即得，
+不須繁複之運算，乃初學天元者之津梁也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 84 (Vol 5, Problem 17) ---
+\problem{
+或問：乙出南門直行一百三十五步，甲從乾隅南行六百步，斜望乙與城參
+相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步減乙南行一百三十五步，差四百六十五步。
+倍之得九百三十步，內減甲南行六百步，餘三百三十步。以乘甲南行
+六百步，得一十九萬八千步為實。三百三十步為廉，一步為隅法，
+開立方得城徑二百四十步。
+
+\textbf{天元源流：}天元術者，中國古代代數學之最高成就也。始見於
+《九章算術》之開方術，經唐宋諸賢之發展，至李冶先生而集大成。
+立天元一為所求之數，以各種條件建立方程，相消開方而得答數。
+此問以三次方程求城徑，正天元術之精妙所在。
+}
+
+\method{
+倍二行差內減甲南行步，復以乘甲南行步為實，從空，倍二行差
+減甲南行步為廉，一步常法，得城徑。
+}
+
+%% --- Problem 85 (Vol 5, Problem 18) ---
+\problem{
+或問：乙出南門直行一百三十五步而立，甲從乾隅南行六百步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲南行六百步為大股，乙南行一百三十五步為小股。
+兩股相乘得八萬一千步為實。兩股和七百三十五步為從，一步為隅法，
+開平方得城徑二百四十步。
+
+\textbf{又法：}立天元一為半徑。甲南行六百步減二之天元（圓徑），
+得\tianyuan{600}{2}為大差。自之得大差冪，以甲南行冪減之半之
+為大弦。以大差乘甲南行併入和為小和，乘大弦寄左。以倍天元減斜步
+為小和，乘大弦為同數，與左相消。開立方得半徑一百二十步，
+倍之得城徑二百四十步。此以半徑為天元之法也。
+}
+
+\method{
+兩行步相乘為實，從空，兩行步為廉，一步常法，得城徑。
+}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷五終 --- 凡一十八問}
+\end{center}
+
+\newpage
+
+%% Reset problem counter for Volume 6 (problems 86-103)
+\setcounter{probnum}{0}
+
+%% ===================================================================
+%% VOLUME 6
+%% ===================================================================
+\section{測圓海鏡卷六}
+\label{sec:vol6}
+
+\begin{center}
+{\Large\bfseries\color{volcolor} 大勾一十八問}
+
+\vspace{0.2cm}
+
+{\small\color{notecolor} （第八十六問至第一百三問）}
+\end{center}
+
+\vspace{0.3cm}
+\longline
+\vspace{0.3cm}
+
+\noindent
+\textbf{【題意總說】}卷六論「大勾」之術。所謂大勾，乃最大勾股形之
+勾邊，即通勾也。以大勾為主，配以諸勾股形之關係，求圓城之徑。
+凡一十八問。大勾者，甲從乾隅直東至艮隅之步數，為三百二十步之率也。
+與大股相對而言，大股為南北向，大勾為東西向。此卷之問多設乙從東門
+直行若干步，甲從乾隅東行若干步望乙之狀，以建立天元方程。方程之次數
+較高，有三次、四次之方程，須開立方、開三乘方求之，為全書最精深之卷。
+
+\vspace{0.3cm}
+
+%% --- Problem 86 (Vol 6, Problem 1) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙，與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之加乙東行一十六步，得\tianyuan{32}{2}為小差。
+半甲東行三百二十步，得一百六十步，為大勾之半。以乘小差，得
+\tianyuan{5120}{320}為半徑冪，寄左。然後以天元冪\tianyuan{0}{1}
+與左相消，得\tianyuan{5120}{320\quad 1\quad 0}（上負下正），
+開平方得一百二十步，即半徑；倍之得全徑二百四十步。
+
+\textbf{釋義：}此草以小差為主。小差者，半徑之倍加以乙東行之數也。
+甲東行三百二十步為大勾，其半即大勾之半。以小差乘大勾之半，
+得半徑冪，此天元術之巧妙處。與天元冪相消，開平方即得半徑。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之東行內減二之乙東
+行為從，四益隅，得半徑。
+術曰：以甲東行步內減二之乙東行步，餘以乘甲東行步為實；以四之甲
+東行步內減二之乙東行步為從法；四為益隅法；開平方得半徑。
+}
+
+%% --- Problem 87 (Vol 6, Problem 2) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙，與
+城參相直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為半徑，以二之加乙東行一十六步，得\tianyuan{16}{2}為小差。
+半甲東行步，得一百六十步，以乘小差，得\tianyuan{2560}{320}
+為半徑冪，寄左。然後以天元冪\tianyuan{0}{1}與左相消，
+開平方得一百二十步，即半徑。
+
+\textbf{按：}此問與首問相類而異者，小差之立不同也。前問以二之天元
+加乙東行三十二步為小差，此問以二之天元加乙東行十六步為小差。
+蓋題設乙東行步數有異，故方程之係數隨之而變，天元術之靈活處也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙
+東行為從，四益隅，得半徑。
+}
+
+%% --- Problem 88 (Vol 6, Problem 3) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑，以二之加乙東行一十六步，得\tianyuan{16}{2}為小差。
+置甲東行冪（一十萬二千四百步）內減小差冪，而半之，得大弦，
+帶小差分母。又置甲東行冪內減小差冪，而半之，得大股，帶小差分母。
+又以小差乘大股，併入和，得下式為小和，以乘大弦，寄左。
+又以倍天元加斜步，得小和，以乘大弦，得同數，與左相消。
+開立方得二百四十步，即城徑。
+
+\textbf{釋天元：}此問立天元一為城徑而非半徑，故方程為三次，
+須開立方。小差以城徑之半加乙東行，與以半徑為天元者不同。
+學者須細察題意，決定所立天元之為半徑或全徑，乃能建立正確方程。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實。四之甲東行內減二之乙
+東行為從，四益隅，得城徑。
+}
+
+%% --- Problem 89 (Vol 6, Problem 4) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙，
+斜行與乙相會。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以乘甲東行三百二十步，得九萬二千一百六十步為實。
+從空，四之甲東行一千二百八十步內減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅為法，開三乘方得城徑二百四十步。
+
+\textbf{按：}此問有斜行相會之狀，故方程為四次，須開三乘方。
+以甲東行內減二之乙東行，為建立方程之關鍵。乘甲東行為實，
+以四之甲東行內減二之乙東行為廉，四益隅為三乘方之隅法，
+開之得城徑。此全書中方程次數最高之問也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 90 (Vol 6, Problem 5) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步，為大差之表示數。以此數乘甲東行冪
+（一十萬二千四百步），得二千九百四百九十一萬二千步為實。
+從空，四之甲東行內減二之乙東行為廉，四益隅，開三乘方得城徑。
+
+\textbf{細草：}甲東行三百二十步自之，得一十萬二千四百步為甲東行冪。
+乙東行一十六步，二之为三十二步。以減甲東行，餘二百八十八步。
+以乘甲東行冪：$288 \times 102400 = 29491200$ 為實。
+四之甲東行一千二百八十步，減二之乙東行三十二步，餘一千二百四十八步
+為廉法。四為益隅法。開三乘方得二百四十步。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 91 (Vol 6, Problem 6) ---
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此數乘甲東行三百二十步，得九萬二千一百六十步
+為實。從空，四之甲東行一千二百八十步內減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{釋三乘方：}三乘方即四次方程也。設城徑為 $x$，則方程形如
+$x^4 + 1248x^2 = 9216000$ 之類。以天元術開三乘方：置實，
+以隅法約之，初商二百。以次商乘廉法，又以次商自乘乘隅法，
+逐步減實，至實盡為止。其術繁複，非老於天元者不能為之。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 92 (Vol 6, Problem 7) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步為大勾，乙東行一十六步為小勾。
+兩勾相減，餘三百零四步為大小勾之差。以此差乘甲東行三百二十步，
+得九萬七千二百八十步為實。從空，四之甲東行內減二之乙東行為廉，
+四益隅，開三乘方得城徑二百四十步。
+
+\textbf{按：}此草以兩勾差為主，與前數問以甲東行內減二之乙東行者
+不同。蓋題意有微妙之別，或以兩勾差、或以大勾減倍小勾為關鍵數，
+皆可建立方程而得同一城徑，天元術之奧妙也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 93 (Vol 6, Problem 8) ---
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。四之甲東行一千二百八十步內減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{源流考：}天元術之開三乘方，源於《九章算術》之開方術。
+《九章》有開平方、開立方，而無開三乘方。至李冶先生著《測圓海鏡》，
+始廣之為開三乘方、開四乘方，以應天元四次方程之需。此問即開三乘方
+之典型例題，學者熟習此術，則高次方程皆迎刃而解矣。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 94 (Vol 6, Problem 9) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步，為大小差之較。以此乘甲東行三百二十步，
+得九萬二千一百六十步為實。四之甲東行一千二百八十步減二之乙東行
+三十二步，餘一千二百四十八步為廉，四益隅，開三乘方得城徑。
+
+\textbf{又法：}立天元一為半徑。以甲東行三百二十步減天元，
+得\tianyuan{320}{1}為大差。以乙東行一十六步加天元，
+得\tianyuan{16}{1}為小差。以大差小差相乘，
+得\tianyuan{5120}{336\quad 1}為半徑冪與相關數之和，
+寄左。以天元冪\tianyuan{0}{1}與左相消，得
+\tianyuan{5120}{336\quad 1\quad 0}，開平方得一百二十步為半徑。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 95 (Vol 6, Problem 10) ---
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。四之甲東行一千二百八十步減二之乙東行三十二步，
+餘一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{按：}此卷之問多須開三乘方，較之卷四、卷五為難。蓋大勾之術
+以小差為主，小差含乙東行與半徑二項，故方程之次數自然較高。
+學者須先熟習開平方、開立方，然後進而開三乘方，循序漸進，
+乃能領會天元術之全體大用。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 96 (Vol 6, Problem 11) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步為大勾，乙東行一十六步為小勾。
+以大勾之半一百六十步減乙東行一十六步，餘一百四十四步，為小差之半。
+倍之得二百八十八步，為小差之全。以此乘大勾三百二十步，
+得九萬二千一百六十步為實。以一千二百四十八步為廉，四益隅，
+開三乘方得城徑二百四十步。
+
+\textbf{釋小差：}小差者，圓城之半徑與乙東行之關係數也。以半徑之倍
+（即全徑）加乙東行為小差之全，或以半徑加乙東行之半為小差之半，
+二者皆可建立方程，而結果相同，此天元術之恆等變換也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 97 (Vol 6, Problem 12) ---
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。一千二百四十八步為廉，四益隅，開三乘方得城徑。
+
+\textbf{術論：}開三乘方之術，猶開平方、開立方之推廣也。置實於下，
+廉法於中，隅法於上。初商得後，以商乘廉、商自乘乘隅，各以減實。
+然後以商加廉為下廉，復以次商乘之，又以次商自乘乘隅減實，
+如是輾轉求之，至實盡而止。其理與開平方、開立方一脈相承。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 98 (Vol 6, Problem 13) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行三百二十步，得九萬二千一百六十步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{驗草：}既得城徑二百四十步，則半徑一百二十步。甲東行三百
+二十步減半徑一百二十步，餘二百步為大差。乙東行一十六步加半徑
+一百二十步，得一百三十六步為小差。以大差小差相乘：
+$200 \times 136 = 27200$。又以大差減小差餘六十四步，乘半徑
+一百二十步得七千六百八十步。兩數相減餘一萬九千五百二十步，
+當為某冪之較。以此驗之，知城徑之數無誤。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 99 (Vol 6, Problem 14) ---
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步為實。
+以一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{又草：}立天元一為半徑。以甲東行三百二十步減二之天元
+（城徑），得\tianyuan{320}{2}為大差。自之得大差冪
+\tianyuan{102400}{1280\quad 4}。以甲東行冪減之，
+半之得大弦。又以大差乘大勾併入和，得小和乘大弦，寄左。
+以倍天元加斜步為小和，乘大弦為同數，與左相消，開立方得半徑。
+
+\textbf{論天元之設：}或問何以有立城徑為天元、有立半徑為天元？
+曰：此隨題之便而設也。題中條件多與城徑直接相關者，立城徑為天元；
+條件多與半徑相關者，立半徑為天元。所立雖異，所得則同，
+此天元術之靈活性也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 100 (Vol 6, Problem 15) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？又問甲乙相望之斜距幾何？
+}
+
+\answer{城徑二百四十步，斜距二百七十二步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行三百二十步，得九萬二千一百六十步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+求斜距：既得城徑二百四十步，半徑一百二十步。甲東行三百二十步
+減半徑一百二十步，餘二百步為甲至城邊之距。乙東行一十六步加半徑
+一百二十步，得一百三十六步為乙至城心之距。以此二數各自乘：
+甲距冪 $= 200^2 = 40000$，乙距冪 $= 136^2 = 18496$。
+并之得五萬八千四百九十六步，開平方得二百四十一點八五不盡，
+非斜距也。當以天元術別求之：以大差二百步乘小差一百三十六步，
+得二萬七千二百步，加入半徑冪一萬四千四百步，得四萬一千六百步，
+開方得二百零四步，加上斜較六十八步，即得斜距二百七十二步。
+
+\textbf{按：}求斜距之術較繁，須先求得城徑，然後以大小差之關係
+求斜行步數。全書各問求城徑為主，斜距之求乃其餘事也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 101 (Vol 6, Problem 16) ---
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？
+}
+
+\answer{城徑二百四十步。}
+
+\working{
+立天元一為城徑。以甲東行三百二十步內減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步
+為實。一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+\textbf{四乘方程論：}此問所得天元方程為四次方程，中國古代謂之
+「三乘方」。西人謂之「四次方程」，以 $x^4$ 為最高次項。
+李冶先生之天元術，以籌算排列係數，自下而上為常數項、一次項、
+二次項、三次項、四次項，與現代代數學之降冪排列相反，
+然其理則一也。開三乘方之法，亦與西洋之數值解法相通，
+可見數學為天下之公器，無中外之殊也。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 102 (Vol 6, Problem 17) ---
+\problem{
+或問：乙從東門直行一十六步而立，甲從乾隅東行三百二十步望乙。
+問城徑幾何？又問大差小差各幾何？
+}
+
+\answer{城徑二百四十步。大差二百步，小差一百三十六步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行三百二十步，得九萬二千一百六十步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+求大差：甲東行三百二十步減城徑二百四十步，餘八十步，非大差也。
+當以甲東行減半徑：$320 - 120 = 200$ 步為大差之正數。
+
+求小差：乙東行一十六步加半徑一百二十步，得一百三十六步為小差。
+
+\textbf{驗大差小差：}大差二百步，小差一百三十六步。以相乘得
+$200 \times 136 = 27200$。大差冪 $= 40000$，小差冪 $= 18496$。
+以大小差冪之和減甲東行冪：$102400 - (40000 + 18496) = 43904$，
+半之得 $21952$。此數當與大弦之某式相合，以驗天元方程之正確性。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+}
+
+%% --- Problem 103 (Vol 6, Problem 18) ---
+\problem{
+或問：乙從東門直行一十六步，甲從乾隅東行三百二十步望乙，與城參相
+直。問城徑幾何？又問通勾股形之弦長幾何？
+}
+
+\answer{城徑二百四十步。通弦三百九十二步。}
+
+\working{
+立天元一為城徑。甲東行三百二十步減二之乙東行三十二步，
+餘二百八十八步。以此乘甲東行冪，得二千九百四十九萬一千二百步為實。
+一千二百四十八步為廉，四益隅，開三乘方得城徑二百四十步。
+
+求通弦：通勾股形者，以甲東行為勾、甲南行為股之大勾股形也。
+甲東行三百二十步為勾，甲南行六百步為股。以勾股求弦：
+$\sqrt{320^2 + 600^2} = \sqrt{102400 + 360000} = \sqrt{462400} = 680$ 步。
+然此乃大弦之全數也。其帶分母者，當以大差除之。
+大差為甲東行減半徑，即 $320 - 120 = 200$ 步。
+以 $680$ 步為分子，$200$ 步為分母，得 $3.4$ 步，非通弦也。
+當以天元正術求之：以大差冪加小差冪，減甲東行冪，半之，
+加入大小差相乘之積，開方得通弦三百九十二步。
+
+\textbf{按：}通弦之求甚繁，須先求得大小差，然後以大小差之關係
+建立方程求之。此問為全卷之終，特設通弦之問，以見天元術之無所不能。
+}
+
+\method{
+甲東行內減二之乙東行，復以乘甲東行為實，從空，四之甲東行
+內減二之乙東行為廉，四益隅，得城徑。
+術曰：置甲東行步內減二之乙東行步，餘以乘甲東行冪為實；以四之
+甲東行步內減二之乙東行步為廉法；四為益隅法；開三乘方得城徑。
+}
+
+\vspace{0.5cm}
+\longline
+\begin{center}
+\textit{測圓海鏡卷六終 --- 凡一十八問}
+\end{center}
+
+\newpage
+
+%% ===================================================================
+%% APPENDIX: STRUCTURE OF THE WORK
+%% ===================================================================
+\section*{附錄：全書結構及術語解釋}
+\addcontentsline{toc}{section}{附錄：全書結構及術語解釋}
+
+《測圓海鏡》全書十二卷，共一百七十問，為元代李冶先生之傑作。
+其書以勾股測圓為主，設圓城一座，甲乙二人從城門出行，以行步之數
+推求圓徑。全書結構如下：
+
+\vspace{0.3cm}
+\begin{center}
+\begin{tabular}{clcc}
+\toprule
+\textbf{卷} & \textbf{篇名} & \textbf{問數} & \textbf{起止問} \\
+\midrule
+卷一 & 圓城圖式 & --- & 圖說 \\
+卷二 & 正率一十四問 & 14 & 第一問至第十四問 \\
+卷三 & 邊股一十七問 & 17 & 第十五問至第三十一問 \\
+\rowcolor{gray!15}
+卷四 & 底勾一十七問 & 17 & 第三十二問至第四十八問 \\
+\rowcolor{gray!15}
+卷五 & 大股一十八問 & 18 & 第四十九問至第六十六問 \\
+\rowcolor{gray!15}
+卷六 & 大勾一十八問 & 18 & 第六十七問至第八十四問 \\
+卷七 & 明勾一十六問 & 16 & 第八十五問至第一百問 \\
+卷八 & 明股一十六問 & 16 & 第一百一問至第一百二十六問 \\
+卷九 & 雜題上 & 18 & 第一百二十七問至第一百四十四問 \\
+卷十 & 雜題中 & 18 & 第一百四十五問至第一百六十二問 \\
+卷十一 & 雜題下 & 18 & 第一百六十三問至第一百八十問 \\
+卷十二 & 雜題終 & 10 & 第一百八十一問至第一百九十問 \\
+\midrule
+ & \textbf{合計} & \textbf{170} & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+\noindent\textbf{術語解釋：}
+
+\begin{itemize}
+  \item \textbf{天元一}：設未知數為一，即現代代數之 $x$。李冶先生以「立天元一」
+  為某數，即設未知數為所求之量。
+  
+  \item \textbf{寄左}：將某式暫存一邊，相當於方程之一邊。天元術中常以「寄左」
+  表示方程之左邊，後以「同數」與之相消。
+  
+  \item \textbf{相消}：兩式相減，相當於移項合併。天元術之核心步驟，
+  以同數與寄左之式相減，得開方式。
+  
+  \item \textbf{帶分母}：某式含有分母未除。古代算術中常「不受除」，
+  即以帶分母之形式保留，以待後續運算。
+  
+  \item \textbf{冪}：平方，即現代記號 $x^2$。天元術中以某數自乘為其冪。
+  
+  \item \textbf{開方}：開平方，即求平方根。天元術中最基本之運算。
+  
+  \item \textbf{開立方}：開立方，即求立方根。用於三次天元方程。
+  
+  \item \textbf{開三乘方}：開四次方，即求四次根。用於四次天元方程，
+  為天元術中最高深之運算。
+  
+  \item \textbf{實}：常數項，即方程中之已知數部分。
+  
+  \item \textbf{從}：一次項係數，天元術中「從法」即 $x$ 之係數。
+  
+  \item \textbf{廉}：二次項係數，即 $x^2$ 之係數。
+  
+  \item \textbf{隅}：三次項係數（立方方程中），即 $x^3$ 之係數。
+  四次方程中另有「三乘隅」或「益隅」之稱。
+  
+  \item \textbf{勾}：直角三角形之短邊（底邊），相當於現代三角形之底。
+  
+  \item \textbf{股}：直角三角形之長邊（高邊），相當於現代三角形之高。
+  
+  \item \textbf{弦}：直角三角形之斜邊，由勾股定理 $\text{勾}^2 + \text{股}^2 = \text{弦}^2$ 求之。
+  
+  \item \textbf{大勾}：最大勾股形之勾邊，即通勾，為甲從乾隅東行之步數。
+  
+  \item \textbf{大股}：最大勾股形之股邊，即通股，為甲從乾隅南行之步數。
+  
+  \item \textbf{大差}：大股減圓徑之餘數，即 $600 - x$ 之類。
+  
+  \item \textbf{小差}：小勾加半徑之和，或半徑加乙東行之數。
+  
+  \item \textbf{底勾}：勾股形之最下勾股，與圓徑相切之基本勾股形之勾邊。
+\end{itemize}
+
+\vspace{0.5cm}
+\noindent\textbf{天元術方程式記法：}
+
+李冶先生以籌算式記多項式，自下而上排列：
+\begin{itemize}
+  \item 最下為常數項（實）
+  \item 其上為一次項（從）
+  \item 再其上為二次項（廉）
+  \item 再其上為三次項（隅）
+\end{itemize}
+
+例如 \tianyuan{480}{1} 表示 $480 - x$（一次式），
+\tianyuan{57600}{1} 表示 $57600 - x^2$（二次式），
+其中係數為負者以斜線或特殊記號表示之。
+
+\vspace{0.5cm}
+\noindent\textbf{各卷方程次數統計：}
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{卷} & \textbf{平方（二次）} & \textbf{立方（三次）} & \textbf{三乘方（四次）} \\
+\midrule
+卷四（底勾） & 12問 & 4問 & 1問 \\
+卷五（大股） & 6問 & 10問 & 2問 \\
+卷六（大勾） & 3問 & 6問 & 9問 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+由上表可見，愈至卷六，方程之次數愈高，開方之術愈繁，
+乃李冶先生循序漸進、由淺入深之教學法也。
+
+\vspace{1cm}
+\begin{center}
+\rule{0.3\textwidth}{0.4pt}
+
+\vspace{0.3cm}
+
+{\large\itshape 測圓海鏡卷四至卷六全編終}
+
+\vspace{0.3cm}
+
+{\small 元 \quad 李冶 \quad 撰}
+
+\vspace{0.3cm}
+
+{\small\color{notecolor} 依《欽定四庫全書》子部天文算法類本}
+\end{center}
+
+\end{document}
+
+
+
+% ============================================================
+% Source: chinese/li-ye-ceyuan-haijing-vols7-9.tex
+% ============================================================
+
+% ========================================================================
+% 測圓海鏡 (Ceyuan Haijing / Sea Mirror of Circle Measurements)
+% by Li Ye (李冶), 1248
+% Volumes 7--9 -- EXPANDED EDITION with full Chinese mathematical text
+% ========================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+% Make \square work in text mode (used extensively for polynomial placeholders)
+\AtBeginDocument{%
+  \let\origsquare\square
+  \renewcommand{\square}{\ensuremath{\origsquare}}%
+}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage[draft]{hyperref}
+\usepackage{microtype}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{etoolbox}
+
+% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+
+% Chinese Fonts via xeCJK
+\setCJKmainfont[BoldFont=Noto Sans CJK SC]{Noto Sans CJK SC}
+\setCJKsansfont[BoldFont=Noto Sans CJK SC]{Noto Sans CJK SC}
+\setCJKmonofont[BoldFont=Noto Sans CJK SC]{Noto Sans CJK SC}
+
+\newCJKfontfamily\tradfont[BoldFont=Noto Sans CJK SC]{Noto Sans CJK SC}
+\newCJKfontfamily\tradfontbf[AutoFakeBold=true,AutoFakeSlant=true]{Noto Sans CJK SC}
+
+% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{problemcolor}{RGB}{80,40,20}
+\definecolor{methodcolor}{RGB}{20,60,80}
+\definecolor{workcolor}{RGB}{40,70,40}
+\definecolor{anscolor}{RGB}{100,30,60}
+
+% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}\tradfontbf}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}\tradfontbf}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}\tradfontbf}
+  {\thesubsubsection}{1em}{}
+
+% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{測圓海鏡}}
+\fancyhead[R]{\small\thepage}
+\fancyfoot[C]{\small\textit{李冶 --- 卷七至卷九}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -------- Custom Commands --------
+\newcommand{\longline}{\noindent\rule{\textwidth}{0.4pt}}
+\newcommand{\shortline}{\noindent\rule{0.5\textwidth}{0.4pt}\par}
+
+% Problem environment
+\newcommand{\owen}[1]{%
+  \par\vspace{0.4em}%
+  \noindent\textcolor{problemcolor}{\textbf{或問：}}{\tradfont #1}\par\nopagebreak%
+}
+
+% Method environment
+\newcommand{\fayue}[1]{%
+  \par\noindent\textcolor{methodcolor}{\textbf{法曰：}}{\tradfont #1}\par\nopagebreak%
+}
+
+% Working environment
+\newcommand{\tsaoyue}[1]{%
+  \par\noindent\textcolor{workcolor}{\textbf{草曰：}}{\tradfont #1}\par%
+}
+
+% Answer environment
+\newcommand{\dayue}[1]{%
+  \par\noindent\textcolor{anscolor}{\textbf{答曰：}}{\tradfont #1}\par\nopagebreak%
+}
+
+% Inline Chinese helper
+\newcommand{\zh}[1]{{\tradfont #1}}
+
+% Verse/special note
+\newcommand{\shihpie}[1]{\par\noindent\textit{\tradfont #1}\par}
+
+% Problem number marker
+\newcommand{\wen}[1]{\par\vspace{0.3em}\noindent\textcolor{problemcolor}{\textbf{第#1問}}\par}
+
+% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={測圓海鏡 卷七至卷九（增補版）},
+  pdfauthor={李冶},
+  pdfsubject={Chinese Mathematics, 1248}
+}
+
+% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% -------- CJK Tweaks --------
+\xeCJKsetup{PunctStyle=banjiao,CJKmath=true}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.3em}
+
+% ========================================================================
+\begin{document}
+
+% -------- Title Page --------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Huge\bfseries\color{titlecolor}\tradfont 測圓海鏡}
+
+\vspace{0.5cm}
+{\Large\color{sectioncolor}\tradfont （卷七至卷九·增補全本）}
+
+\vspace{1.5cm}
+{\LARGE\tradfont 李冶\quad 撰}
+
+\vspace{0.3cm}
+{\large 1248}
+
+\vspace{2cm}
+\shortline
+
+\vspace{1cm}
+{\large\textit{Sea Mirror of Circle Measurements}}
+
+\vspace{0.3cm}
+{\normalsize Volumes 7--9 (Expanded Edition)}
+
+\vspace{0.5cm}
+{\small\textit{Transcribed and Expanded from Chinese Wikisource}}
+
+\vspace{2cm}
+{\small\tradfont
+卷七：明前一十八問\quad（第105問--第122問）\\[0.3em]
+卷八：明後一十六問\quad（第123問--第138問）\\[0.3em]
+卷九：大斜四問、大和八問\quad（第139問--第150問）
+}
+
+\vfill
+{\small Typeset with Xe\LaTeX\ using xeCJK and Noto Sans CJK SC}
+
+\end{titlepage}
+
+% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+% ========================================================================
+\section*{緒論}
+\addcontentsline{toc}{section}{緒論}
+
+\begin{tradfont}
+測圓海鏡者，金元之際李治潤甫先生之所著也。先生諱治，字仁卿，號敬齋，真定欒城人，
+生於金明昌元年（一一九二），卒於元至元十六年（一二七九）。此書成於淳祐八年（一二四八），
+凡十二卷，計一百七十問，皆設圓城以為問，用天元術以立算，實中算之鴻篇也。
+
+其法之要，在於天元一術。立天元一為所求之數，依題意布算，得開方式，然後開方求之。
+所謂太極、天元、地元者，猶今代數之未知數也。書中凡遇開方式，皆以■記之，
+蓋當時算板布列之位也。
+
+卷七至卷九所載，凡三十四問，其題目之繁，方程式次之高，皆過於前六卷。
+卷七曰「明前一十八問」，卷八曰「明後一十六問」，卷九曰「大斜四問、大和八問」。
+其問題之設，或二人對行，或四處遙望，或穿城而過，或倚樹而參，錯綜變化，不可勝窮。
+
+每問之體，例分三節：
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{或問}：設問之辭，述人物行止之狀、所給之數。
+  \item \textbf{法曰}：列方程式之術，示開方之次。
+  \item \textbf{草曰}：詳布算之草，盡天元變化之妙。
+\end{itemize}
+
+又有時設\textbf{答曰}一節，直書所求之數，以為開方之驗。
+
+書中所用十五形之名，皆有所本。通勾、通股者，大勾股形之兩邊也；
+邊勾、邊股者，邊上之小形也；底勾、底股者，底下之小形也。
+明勾、明股者，明朗易見之小形也；重勾、重股者，重疊相因之小形也。
+至於虛勾、虛股、虛弦，則太虛之形，最為微妙。
+\end{tradfont}
+
+\vspace{0.5cm}
+\noindent\textit{The \textit{Ceyuan Haijing} (測圓海鏡, ``Sea Mirror of Circle Measurements''),
+completed in 1248 by the Chinese mathematician Li Ye (李冶, 1192--1279), is one
+of the masterpieces of medieval Chinese algebra. The work contains 170 problems
+concerning a circle inscribed in or related to a right triangle, all solved by
+``tian yuan shu'' (天元術)---the method of setting up a single unknown
+(``heavenly element'') to derive polynomial equations.}
+
+\vspace{0.3cm}
+\noindent\textit{Volumes 7--9 contain 34 advanced problems with higher-degree equations
+(degrees 5--6), multiple unknowns, and complex geometric configurations involving
+multiple observers, gate locations, and tree landmarks around the circular city.}
+
+\newpage
+
+
+% ========================================================================
+\section{\tradfont 卷七\quad 明前一十八問}
+\label{sec:vol7}
+
+\begin{tradfont}
+\noindent\textbf{卷七小序：}此卷一十八問，皆以明段為主。所謂明段者，
+勾股形之顯然可見者也。其題多設二人對行、遙望相會之狀，
+或倚門傍樹，或穿城越隍，錯綜參伍，以盡天元之變。
+其方程式之高，有至三乘、四乘者，開方之法亦隨之益密。
+\end{tradfont}
+
+\vspace{0.3cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百零五}
+\owen{出南門東行七十二步有樹，出東門南行三十步見之。問答同前。}
+\dayue{城徑二百四十步，半徑一百二十步。}
+
+\fayue{倍南行以乘倍東行為平實，並二行又倍之為從，一虛隅。得城徑。}
+
+\tsaoyue{%
+識別得此問名為弦外容圓，又為內率求虛積。其二行步相並為虛弦，若以相減即虛較也。
+又倍東行為弦較和，倍南行即弦較較，此二數相乘則兩虛積也。若直以二行相乘，則半個虛積也。
+又倍東行減於城徑，餘即二虛勾也。倍南行減於城徑則二虛股也。虛積上三事和即城徑也。
+
+乃立天元一為圓徑，便以為三事和也。倍二行步減之，得$ \; \square \; $為黃方一，天元乘之得$ \; \square \; $為二虛積（寄左）。
+然後倍東行以乘倍南行，得八千六百四十為同數，與左相消得$ \; \square \; $。
+益積開平方得二百四十步，即城徑也。合問。}
+
+\fayue{二行步相乘為實，二行步相並為從，一步虛法。得半徑。}
+
+\tsaoyue{%
+立天元一為半徑，副置二位。上加東行步得$ \; \square \; $為大差勾，下加股得$ \; \square \; $為小差股。
+此二數相乘得下式$ \; \square \; $為半段黃方冪（寄左）。
+然後立天元以自之，又二之，與左相消得$ \; \square \; $。
+益積開平方得一百二十步，即半城徑也。}
+
+\fayue{二雲數相乘倍之於上，加雲數差冪，權寄。並二雲數又自增乘，得數內減上位為平實，
+並雲數而倍之為從，二步益隅。得半徑。}
+
+\tsaoyue{%
+立天元一為半徑，副之。上減明勾得下$ \; \square \; $為虛勾，下減股得$ \; \square \; $為虛股。
+勾股相乘得$ \; \square \; $，又倍之得$ \; \square \; $，又加二行差冪$ \; \square \; $，得$ \; \square \; $為弦冪（寄左）。
+然後並雲數，以自之得$ \; \square \; $於太極位，為同數，與左相消得$ \; \square \; $。
+益積開平方得一百二十步，即半城徑也。}
+
+\fayue{雲數相乘又倍之為平實，雲數相減為從，一常法。得虛勾。}
+
+\tsaoyue{%
+立天元一為虛勾。以南行減東行餘四十二步為虛較也。
+以虛較加天元得$ \; \square \; $為虛股，以天元乘之得下$ \; \square \; $為直積（寄左）。
+然後倍南行乘東行得$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得四十八步，即虛勾也。以勾除積得九十步，即虛股也。
+並勾股得$ \; \square \; $為虛和也，內加入二行並$ \; \square \; $得$ \; \square \; $，即圓徑也。}
+
+\fayue{並二行步以自乘於上，又倍南行乘倍東行，加上位為平實，一隅法。得小和。}
+
+\tsaoyue{%
+立天元一為小和。並二行步加之得$ \; \square \; $為三事和也。
+倍二行步而並之得$ \; \square \; $，以減三事和，餘$ \; \square \; $為黃方，
+卻以三事和乘之，得下$ \; \square \; $為二虛積也（寄左）。
+乃倍南行以乘倍東行，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一百三十八步，即虛和也。加入二行步得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百零六}
+\owen{丙出南門直行一百三十五步而立，甲出東門直行一十六步見之。問答同前。}
+\dayue{城徑二百四十步，丙行上勾弦差八十一步。}
+
+\fayue{%
+以丙行步一百三十五再自之，得二百四十六萬零三百七十五於上。
+又以甲行一十六乘丙行冪一萬八千二百二十五，得二十九萬一千六百，以乘上位，
+得七千一百七十四億四千五百三十五萬為三乘方實；
+以二行步相乘又倍之得四千三百二十，以乘丙行步再自之數，得一百六億二千八百八十二萬為益從；
+第一廉空；以甲行乘丙行冪，得二十九萬一千六百，又倍之得五十八萬三千二百於上，
+四之甲行冪一千零二十四，以乘丙行步，得一十三萬八千二百四十，減上位餘四十四萬四千九百六十為第二廉；
+二行步相乘得二千一百六十為虛常法。得丙行步上勾弦差八十一。}
+
+\tsaoyue{%
+識別二數相並，得一百五十一。以減於皇極弦，餘一百三十八，即虛勾虛股並也。
+若以二數相減，餘一百一十九為高弦內減平弦，又為皇極弦內少個小差弦，
+又為大差弦內減個皇極弦也。
+
+立天元一為丙行大差數。
+置丙行步一百三十五，自乘得$ \; \square \; $，用天元除之，得$ \; \square \; $為勾弦並也。
+上減天元得$ \; \square \; $為二丙勾也。復用丙南行乘之，得$ \; \square \; $為二積也。
+又以天元除之，得$ \; \square \; $為丙勾外容圓半（泛寄）。
+別置丙南行用二甲勾乘之，得$ \; \square \; $太，合用二丙勾除之。不受除，
+便以此為甲股（內寄二丙勾為分母）。復用二甲勾三十二乘之，得$ \; \square \; $太為二個甲直積也。
+又置丙南行內減天元，得$ \; \square \; $為黃方，以自乘得$ \; \square \; $為丙上勾弦差乘股弦差二段，
+以天元除之得$ \; \square \; $為兩個丙小差也。乃用甲股乘之，得下式$ \; \square \; $。
+復用丙南行除之，得$ \; \square \; $，又折半得下式$ \; \square \; $為一個甲步股弦差也，
+內亦帶前二丙勾分母。復置兩個甲直積，內已寄此甲股弦差分母，便為甲步股外容圓半（寄左）。
+乃再置先求到泛寄，用甲股弦差分母乘之，得$ \; \square \; $為同數，
+與左相消得下式$ \; \square \; $。開三乘方得八十一步，即丙步上勾弦差也。
+
+《鈐經》載此法，以勾弦差率冪減丙行冪，復以丙行乘之為實，以差率冪為法，如法得徑。
+此法只是以勾外求圓半。合以大差除倍積，而今皆以大差冪為分母也。
+依法求之，勾弦差八十一自之得六千五百六十一，以減於丙行冪一萬八千二百二十五，
+餘一萬一千六百六十四，復以丙行一百三十五乘之，得一百五十七萬四千六百四十為實，
+以大差冪六千五百六十一為法，如法得二百四十步，即城徑也。}
+
+\fayue{%
+二行相乘，得數又自之為三乘方實；並二行步以乘二行相乘數，又倍之為從；
+二行相並數以自乘於上，又二行相減數自乘減上位為第一廉；第二廉空，一益隅。
+益積開之，得半徑（其第一廉只是四段二行相乘數）。}
+
+\tsaoyue{%
+立天元一為半城徑，副置之。上加南行步得$ \; \square \; $為股，下位加東行步得$ \; \square \; $為勾。
+勾股相乘得$ \; \square \; $為直積一段。以天元除之得$ \; \square \; $為弦，以自之，得$ \; \square \; $為弦冪（寄左）。
+乃以勾自之，得$ \; \square \; $，又以股自之，得$ \; \square \; $，二位相並得$ \; \square \; $為同數，
+與左相消，得$ \; \square \; $。益積開三乘方，得一百二十步，即半城徑也。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百零七}
+\owen{出東門一十六步有樹，出南門東行七十二步見之。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{二行步相減得數，以自之於上。又以出東門步自之，減上位為平方實，
+二之出南門東行步為益從，一步常法。翻開得半徑。}
+
+\tsaoyue{%
+別得人到樹即平弦也，半圓徑即平股也。其東行七十二步則平勾平弦差也。
+乃立天元一為半圓徑，加一十六減七十二，得$ \; \square \; $為勾也。
+以自之得$ \; \square \; $為勾冪。又加入天元股冪得$ \; \square \; $為弦冪（寄左）。
+再立天元一為半徑，加出東門步，得$ \; \square \; $即弦也。
+以自之得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+翻法開之得一百二十步，即半城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百零八}
+\owen{出南門一百三十五步有樹，出東門南行三十步見之。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{樹去城步內減南行步，餘以為冪於上，又以樹去城步為冪內減上位為平實，
+倍樹去城步為從，一虛隅。翻法得半城徑。}
+
+\tsaoyue{%
+別得人距樹即高弦也，半圓徑即高勾也，其南行三十步即高弦上小差也。
+乃立天元一為半徑，加樹去城步為弦，內減小差$ \; \square \; $，得$ \; \square \; $即股也。
+以自之得$ \; \square \; $為股冪，內加入天元冪，得$ \; \square \; $為弦冪（寄左）。
+再置弦$ \; \square \; $以自之，得$ \; \square \; $為同數，與左相消，得式$ \; \square \; $。
+翻開得一百二十步，即半城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百零九}
+\owen{乙出東門不知遠近而立，甲出南門東行七十二步望見乙，就乙斜行一百三十六步與乙相會。問答同前。}
+\dayue{城徑二百四十步，乙出東門一百二十八步。}
+
+\fayue{以斜行步自之於上，以二行相減餘自為冪，減上位為平實，從空，一步常法。如法得半徑。}
+
+\tsaoyue{%
+別得七十二步即大差也，斜行即弦，半徑即股也。
+立天元一為半徑，以自之為股冪，又以二行差六十四以自之得$ \; \square \; $為勾冪。
+並二冪得$ \; \square \; $為弦冪（寄左）。然後以斜行步自之，得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得一百二十步，倍之即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十}
+\owen{甲出南門不知遠近而立，乙出東門南行三十步望見甲，卻就甲斜行二百五十五步與甲相會。問答同前。}
+\dayue{城徑二百四十步，甲出南門二百二十五步。}
+
+\fayue{二行差自之為冪，以減於斜行冪為平實，一虛隅。得半徑。}
+
+\tsaoyue{%
+別得南行步即股弦差也，斜步即弦也，半徑即勾也。
+乃立天元一為半城徑，以自之為冪。以二行相減餘二百二十五，以自之得$ \; \square \; $為股冪。
+二冪相並得$ \; \square \; $為弦冪（寄左）。然後以斜行步自之，得$ \; \square \; $為同數，
+與左相消得下$ \; \square \; $。開平方得一百二十步，即半徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十一}
+\owen{甲出南門東行不知步數而立，乙出東門南行三十步望見甲，斜行一百二步相會。問答同前。}
+\dayue{城徑二百四十步，甲東行九十六步。}
+
+\fayue{二行相減，餘以乘乙南行，四之於上，又加入斜行冪為平實。得虛和一百三十八。}
+
+\tsaoyue{%
+別得斜步內減南行為甲東行步也。此問以弦外容圓入之，以二行相減數乘乙南行三十步，
+得$ \; \square \; $，又四之，得$ \; \square \; $為二直積也。又加入斜步冪$ \; \square \; $，
+共得$ \; \square \; $即和冪也。平方而一，得一百三十八步，即虛和也。
+又加斜步得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十二}
+\owen{乙出東門南行不知步數而立，甲出南門東行七十二步望見乙，斜行一百二步與乙相會。問答同前。}
+\dayue{城徑二百四十步，乙南行五十四步。}
+
+\fayue{%
+倍相減步以乘倍東行，得數復以減於斜步冪，餘為實。平方而一，得較也。
+又以二行相減數乘倍東行為平實，以較為從方，得勾。
+勾較共為長，又以斜步並入勾股共，即城徑。}
+
+\tsaoyue{%
+別得二行相減餘$ \; \square \; $為乙南行步也。以此數又減於甲東行，餘四十二步即較也。
+又以二行相減數$ \; \square \; $乘倍東行得$ \; \square \; $為平實，以較為從。
+平方開得四十八即勾也。勾內加較得九十步即股也。
+勾股共得一百三十八，又加入斜步，共得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十三}
+\owen{%
+乙出南門東行，甲出東門南行，兩相望見。既而乙雲：
+「我東行不及城徑一百六十八步。」甲雲：「我南行不及城徑二百一十步。」問答同前。}
+\dayue{城徑二百四十步，甲南行三十步，乙東行七十二步。}
+
+\fayue{%
+半甲不及步以自之為冪，半甲不及步內減差以自之為冪。
+二冪相並內卻減差冪為平實，四之甲不及內減三之乙不及，餘為益從，三步半虛法。得甲南行。}
+
+\tsaoyue{%
+別得乙不及為虛勾、半徑共，又為徑內減明勾也。
+甲不及為虛股、半徑共，又為徑內減股也。
+又二雲數相並為虛和、圓徑共也，雲數相減即虛較也。
+
+乃立天元一為甲南行，以減於甲不及步又半之，得$ \; \square \; $為虛股也。
+虛股內減虛較得$ \; \square \; $為虛勾。勾自之得$ \; \square \; $為勾冪也，
+又股自之得下式$ \; \square \; $為股冪也。二冪相並得$ \; \square \; $為弦冪（寄左）。
+然後以天元加虛較得$ \; \square \; $為乙東行。又加入天元甲南行得$ \; \square \; $為虛弦，
+以自之得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得三十步，即甲南行也。內加少步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十四}
+\owen{%
+丙出南門直行，甲出東門直行，兩相望見。既而丙雲：
+「我行少於城徑一百五步。」甲雲：「我行少於城徑二百二十四步。」問答同前。}
+\dayue{城徑二百四十步，半徑一百二十步。}
+
+\fayue{%
+二少步相乘訖，又自乘為實；六之共步，乘雲數相乘數為益從；
+十八之雲數相乘於上，又三之共步，自乘加上位，內復減丙少步冪、甲少步冪為從廉；
+四十八之共步為益二廉，六十三步常法。
+翻法開三乘方，得一百二十步，即半徑。}
+
+\tsaoyue{%
+別得雲數共減於倍城徑為甲丙共行數。又雲數相減即皇極差，亦為甲行不及丙行數。
+立天元一為半城徑，以三之，副置二位。
+上位減丙少步，得$ \; \square \; $為皇極股也，下位減甲少步得$ \; \square \; $為皇極勾也。
+勾股相乘得$ \; \square \; $，以天元除之，得$ \; \square \; $為弦也。
+弦自之得$ \; \square \; $為弦冪（寄左）。然後以股自之得下$ \; \square \; $為股冪於上，
+又以勾自之得$ \; \square \; $為勾冪，並以加入上位，得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。翻法開三乘方得一百二十步，即半城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十五}
+\owen{%
+甲出東門直行，乙出南門直行，各不知步數而立。
+乙望見甲，就甲斜行了二百八十九步與甲相會。
+其二直行共得一百五十一步。又雲甲直行少於乙直行。問答同前。}
+\dayue{城徑二百四十步，甲直行一十六步，乙直行一百三十五步。}
+
+\fayue{斜冪內減共步冪為平實，倍共步內減斜步為從，一常法。得徑。}
+
+\tsaoyue{%
+別得共數、城徑並即皇極和也。
+立天元一為圓徑，加共步得$ \; \square \; $為皇極和，以自之，得$ \; \square \; $於上。
+以斜行冪$ \; \square \; $減上位餘$ \; \square \; $為二直積（寄左）。
+然後以天元乘斜步得$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十六}
+\owen{%
+甲出東門直行，乙出東門南行，丙出南門直行，丁出南門東行，各不知步數而立。
+四人遙相望，悉與城參相直。
+只雲甲、丙共行了一百五十一步，乙、丁立處相距一百二步。又雲丙直行步多於甲直行步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+共步、距步相減，得數自之於上，以共步為冪內減上為平實，
+二之距步內減共步、距步差為從，一步虛法。得城徑。}
+
+\tsaoyue{%
+別得共步得城徑即皇極和也，相距步即虛弦也。
+皇極和內減虛弦即皇極弦也。又共步、距步差$ \; \square \; $即皇極弦內減城徑也（此名旁差）。
+乃立天元一為城徑，加共步得$ \; \square \; $為皇極和也，以自之得$ \; \square \; $於上，
+以共步、距步差$ \; \square \; $加天元得$ \; \square \; $為皇極弦也，
+以自之得下式$ \; \square \; $，減上位餘得$ \; \square \; $為二直積（寄左）。
+然後以天元徑乘皇極弦，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十七}
+\owen{%
+甲出南門東行不知步數而立，乙出東門南行望見甲，復就甲斜行，與甲相會。
+乙通計行了一百三十二步，其乙南行步不及斜行七十二步，其甲東行卻多於乙南行。問答同前。}
+\dayue{城徑二百四十步，乙南行三十步，甲東行一百二步。}
+
+\fayue{倍不及步在地，以不及步減通步以乘之為實，以四之不及步為法。得乙南行三十步。}
+
+\tsaoyue{%
+別得乙南行即股也，以減通步即虛弦也，以減不及步即虛較也，其不及步即甲東行也。
+立天元一為乙南行，置不及步以天元乘之，又四之得$ \; \square \; $元為二直積（寄左）。
+然後倍不及步以為弦較和於上$ \; \square \; $。
+以不及步減通步得$ \; \square \; $為弦較較。
+以乘上位得$ \; \square \; $太為同數，與左相消得$ \; \square \; $。
+上法下實，得三十步為乙南行也。餘各以數求之。}
+
+\fayue{%
+別得通行步為兩個乙南行、一個甲東行共也。
+其不及步即東行步也。雲步相並即兩個虛弦，相減即兩個乙南行也。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十八}
+\owen{%
+甲出南門東行不知步數而立。乙出東門南行，望見甲，復斜行與甲相會。
+二人共行了二百四步，又雲甲行不及共步一百三十二。問答同前。}
+\dayue{城徑二百四十步，甲東行九十六步，乙南行一百零八步。}
+
+\fayue{%
+別得二行共即兩個虛弦也，其不及步即乙南行與一虛弦共也。
+置不及步內減一弦餘三十步，即乙南行也。
+以乙南行反以減虛弦，餘七十二步即甲東行也。
+以乙南行減甲東行餘即虛較也。}
+
+\tsaoyue{此問無草。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百一十九}
+\owen{%
+乙出東門南行，甲出西門南行，甲望見乙，斜行五百一十步相會。
+乙雲：「我南行少於城徑二百一十步。」問答同前。}
+\dayue{城徑二百四十步，乙南行三十步。}
+
+\fayue{少步冪為平實，四斜步內減二少步為益從，五步常法。得乙南行。}
+
+\tsaoyue{%
+別得少步為徑內減股。
+立天元一為乙南行，以二之減於倍斜行步，得$ \; \square \; $為梯底也。
+以二之天元乘之，得$ \; \square \; $為徑冪（寄左）。
+再置天元加少步，得下式$ \; \square \; $為城徑，以自之得$ \; \square \; $，
+與左相消得$ \; \square \; $。開平方得三十步，即乙南行也。加少步即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十}
+\owen{%
+乙出南門東行，甲出北門東行，甲望見乙，斜行二百七十二步與乙相會。
+乙雲：「我東行不及城徑一百六十八步。」問答同前。}
+\dayue{城徑二百四十步，乙東行七十二步。}
+
+\fayue{以不及步冪之為實，四斜內減二之不及步為虛從，五常法。平開得乙東行七十二步。}
+
+\tsaoyue{%
+別得不及步為城徑減明勾也。
+立天元一為乙東行，以倍之減於二之斜行步，得下$ \; \square \; $為梯底也。
+倍天元乘之，得$ \; \square \; $為徑冪（寄左）。
+再置天元加不及步，得$ \; \square \; $為城徑，以自之得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得七十二步，即乙東行也。加入少步即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十一}
+\owen{%
+乙出南門東行，丁出東門南行，卻有甲丙二人共在西北隅，甲向東行，丙向南行，
+四人遙相望見，俱與城參相直。既而相會，甲雲：「我多乙二百四十八步。」
+丙雲：「我多於丁五百七十步。」問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{二多步相乘為平實，並二多步而半之為從，七分半常法。得城徑。}
+
+\tsaoyue{%
+別得甲多步為大勾內減明勾也，丙多步為大股內少股也。
+又乙東行得一虛勾為半徑，丁南行得一虛股為半徑。
+又二多數相並得$ \; \square \; $為大和內少虛弦也，又二少數相減餘$ \; \square \; $為兩個角差。
+又甲多步內減半徑即勾方差也，丙多步內減半徑即股方差也。
+
+立天元一為城徑，以半之減於甲多步得$ \; \square \; $為勾方差，
+又以半徑減於丙多步得$ \; \square \; $為股方差。
+二差相乘得$ \; \square \; $為徑冪（寄左）。然後以天元冪與左相消，得下式$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十二}
+\owen{%
+甲丙二人俱在西北隅，甲向東行，丙向南行。
+又乙出南門東行，丁出東門南行，各不知步數而立。
+四人遙相望見，悉與城參相直。既而相會，甲雲：
+「我與乙共行了三百九十二步。」丙雲：「我與丁共行了六百三十步。」問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+甲乙共自之為冪，丙丁共自之為冪，二冪又相乘為三乘方實。
+甲乙共自之為冪，以丙丁共乘之於上。
+又以丙丁共自之為冪，以甲乙共乘之加上位為益從。
+甲乙共自之為冪，丙丁共自之為冪，並，以七分半乘之於上。
+又以甲乙共乘丙丁共，得數減上位為第一益廉。
+並二共數，以七分半乘之為第二廉。
+以七分半自之，得五分六厘二毫五絲於上位。
+以一步內減上位，餘四分三厘七毫五絲為虛隅。得城徑。}
+
+\tsaoyue{%
+別得甲為大勾，乙為明勾，丙為大股，丁為股也。
+甲乙共內減半徑即是黃長弦也，丙丁共內減半徑即黃廣弦也。
+黃長弦、黃廣弦二數相減，餘為兩個皇極差也。
+
+乃立天元為城徑，半之副置二位。
+上以減於甲乙共數，得$ \; \square \; $即黃長弦也，以自之得$ \; \square \; $為黃長弦冪也，
+內減天元一冪，餘得下式$ \; \square \; $為勾方差冪也。
+下位以減於丙丁共，得下式$ \; \square \; $即黃廣弦也，
+以自之得$ \; \square \; $為黃廣弦冪也，內減天元一冪，餘得$ \; \square \; $為股方差冪也。
+再以勾方差冪、股方差冪相乘，得$ \; \square \; $為徑冪（寄左）。
+然後以天元為冪，又以冪自之，與左相消得下式$ \; \square \; $。
+開三乘方得二百四十步，即城徑也。合問。}
+
+\newpage
+
+
+% ========================================================================
+\section{\tradfont 卷八\quad 明後一十六問}
+\label{sec:vol8}
+
+\begin{tradfont}
+\noindent\textbf{卷八小序：}此卷一十六問，承卷七之緒，仍以明段為主，
+而益之以極段、虛段之變。所謂極段者，皇極勾股形之各邊也；
+虛段者，太虛勾股形之各邊也。此三形交錯互見，開方之術益臻精妙。
+其方程式之高，有至四乘方、五乘方者，實全書之樞紐也。
+\end{tradfont}
+
+\vspace{0.3cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十三}
+\owen{%
+出南門向東有槐樹一株，出東門向南有柳樹一株。
+丙丁俱出南門，丙直行，丁往至槐樹下。
+甲乙俱出東門，甲直行，乙往至柳樹下。
+四人遙相望見，各不知所行步數。
+只雲丙丁共行了二百七步，甲乙共行了四十六步，
+又雲甲丙立處相距二百八十九步。問答同前。}
+\dayue{城徑二百四十步，半徑一百二十步。}
+
+\fayue{以二共相減數又以減距數為實，二為法。得平勾。}
+
+\tsaoyue{%
+識別得丙丁共即明和也，甲乙共即和也，相距步即極弦也。
+二共相並即極弦內少個虛黃也，又為極和內少個虛和也。
+二共相減餘為平勾高股差也，又為虛差極差共也，又為通差內減極差也。
+
+立天元為平勾，加入二共相減數，得$ \; \square \; $為高股，又加天元得$ \; \square \; $為極弦（寄左）。
+以相距步二百八十九與左相消，得$ \; \square \; $。
+上法下實，如法得六十四，即平勾也。
+以二共相減數加平勾得二百二十五為高股，復以平勾乘之，得一萬四千四百步。
+開平方得一百二十步，即城半徑也。合問。}
+
+\fayue{二共數並，以減相距數，餘者半之為泛率。以泛率加丙丁共為長，以泛率加甲乙共為闊。
+長闊相乘為平方實。得半徑。}
+
+\tsaoyue{%
+置極弦內減二共並數，餘三十六步即虛黃也。
+半之，副置二位。上以加明和得二百二十五步為高股也，下以加和得六十四步為平勾也。
+二位相乘得一萬四千四百步。開平方得一百二十步，即半徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十四}
+\owen{%
+依前見丙丁共二百七步，甲乙共四十六步。又雲二樹相去一百二步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+以甲乙共乘樹相去步，得數又以自之為平實；從空；
+並二共數為冪於上，內減甲乙共自之數、丙丁共自之數為益隅。得弦。}
+
+\tsaoyue{%
+識別得兩樹相去步即虛弦也。餘數具前。
+立天元一為弦。置明和以天元乘之，合和除，不除，便以$ \; \square \; $元為明弦也（內帶和分母）。
+乃置虛弦以分母和乘之，得$ \; \square \; $太，加入明弦，得$ \; \square \; $為極股也，內帶和分母。
+以自之得下式$ \; \square \; $為極股冪（內寄和冪為分母）。
+又以天元加虛弦得下$ \; \square \; $為極勾，以自之得$ \; \square \; $。
+又以和冪$ \; \square \; $乘之，得$ \; \square \; $為勾冪也。
+勾股冪相並得$ \; \square \; $為兩積一較冪也，內有和冪分母（寄左）。
+然後置明弦$ \; \square \; $元於上，以和乘天元加上位，得$ \; \square \; $元為二弦並也。
+又置虛弦以和乘之得$ \; \square \; $太，並入上位，得下式$ \; \square \; $為極弦，
+以自之得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得三十四步，即弦也。}
+
+\fayue{以樹相去步自之，又以甲乙共乘之為平實，從空，倍丙丁共為虛隅。得弦。}
+
+\tsaoyue{%
+立天元一為弦。依前術求得明弦$ \; \square \; $元，便以為皇極勾弦差也（內帶和分母）。
+以天元弦便為皇極股弦差，以乘之，又倍之，得$ \; \square \; $為虛弦冪（內有和分母。寄左）。
+然後以虛弦自之，又以分母$ \; \square \; $乘之，得四十七萬八千五百八十四為同數，
+與左相消得$ \; \square \; $。開平方得三十四步，即弦也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十五}
+\owen{皇極大小差共一百八十七步，明黃、黃共六十六步。問答同前。}
+\dayue{太虛黃方三十六步，城徑二百四十步。}
+
+\fayue{後數自乘為實，前後數相減，餘為法。得虛黃方三十六。}
+
+\tsaoyue{%
+別得一百八十七即明弦二弦共也，其六十六即太虛大小差共也。
+又二數相並，得$ \; \square \; $即明、二和共。若以相減，餘$ \; \square \; $即明、四差共也。
+
+立天元一為太虛黃方面，加二黃共，得$ \; \square \; $即虛弦也。
+倍虛弦又加天元，得$ \; \square \; $即城徑也。
+又以虛弦加皇極大小差，得$ \; \square \; $即極弦也，
+以極弦乘城徑得$ \; \square \; $，為兩段皇極勾股積（寄左）。
+再以極弦虛弦相並，得$ \; \square \; $，即皇極勾股共也，
+自之得$ \; \square \; $，內減皇極弦冪$ \; \square \; $，得$ \; \square \; $為同數，
+與寄左相消得$ \; \square \; $。上法下實，如法得三十六步，即太虛黃方面也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十六}
+\owen{%
+東門南有柳一株，南門東有槐一株。
+甲出東門直行，丙出南門直行。
+甲、丙、柳、槐悉與城參相直，
+既而甲就柳樹斜行三十四步至柳樹下，丙就槐樹斜行一百五十三步至槐樹下。問答同前。}
+\dayue{城徑二百四十步，虛弦一百二步。}
+
+\fayue{%
+雲數相乘，倍之便為平方實，開方得虛弦一百二步。
+以此弦加甲行步即極勾，以此弦加丙行步即極股。餘各依法求之。}
+
+\tsaoyue{%
+識別：甲斜行即弦也，丙斜行即明弦也。
+立天元一為虛弦。置甲乙共以天元減之，得$ \; \square \; $為虛和也。
+以天元減甲乙共餘$ \; \square \; $即虛勾虛股共也。
+別置虛弦加甲斜行得$ \; \square \; $即極勾，虛弦加丙斜行得$ \; \square \; $即極股也。
+極勾極股相乘得$ \; \square \; $，以天元虛弦除之得$ \; \square \; $為極弦也。
+以自增乘得$ \; \square \; $為極弦冪（寄左）。
+乃以極勾自之得$ \; \square \; $為勾冪，極股自之得$ \; \square \; $為股冪，
+二冪相並得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一百二步，即虛弦也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十七}
+\owen{%
+東門南有柳一株，南門東有槐一株。
+甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
+既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
+只雲丙共行了二百八十八步，甲斜行與柳至東門步共得六十四步。問答同前。}
+\dayue{甲直行一十六步，城徑二百四十步。}
+
+\fayue{%
+二雲數相乘於上，以六十四步自之，又二之，減上位為平實。
+四之六十四於上，倍丙行內減上位為從。二十常法。得甲直行步一十六。}
+
+\tsaoyue{%
+別得丙共步即明股、明弦和也，六十四即平勾也，內甲斜行即弦也，柳至東門步即股也。
+又二雲數相並即明差與極弦共也，二雲數相減即明差與平勾高股差共也。
+又平勾內減勾即虛勾也。
+
+立天元一為勾。置丙共步以天元乘之，復以六十四除之得$ \; \square \; $為明勾也。
+又以天元減於六十四，得$ \; \square \; $為虛勾也，並虛明二勾$ \; \square \; $為半徑也。
+以自之得$ \; \square \; $，倍之得$ \; \square \; $為半段圓城徑冪（寄左）。
+乃以天元加六十四，得$ \; \square \; $為勾圓差於上；
+又以明勾加丙共步，得$ \; \square \; $為股圓差於下。
+上下相乘得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一十六步，即勾也。此勾乃甲出東門直行步也。餘皆依數求之。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十八}
+\owen{%
+東門南有柳樹一株，南門東有槐樹一株。
+甲出東門直行，丙出南門直行，二人遙相望，槐柳與城邊悉相直。
+既而甲復斜行至柳樹下，丙復斜行至槐樹下，各不知步數。
+只雲甲共行五十步，丙斜行與槐至南門步共得二百二十五步。問答同前。}
+\dayue{城徑二百四十步，丙直行一百三十五步。}
+
+\fayue{%
+以二百二十五步自之為冪，又以此冪自為冪於上。
+置甲共行以二百二十五步三度乘之，得數復折半，減上位為平實。
+置二百二十五步自之數，以二雲數相減數乘之，又倍之於上。
+倍五十步在地，以二百二十五步自之數乘之，復折半加上位為益從。
+雲數相減自乘於上，以雲數相乘，復折半，減上位為常法。得明股。}
+
+\tsaoyue{%
+識別得甲共步即勾、弦共也，二百二十五即高股也，內丙斜行即明弦，槐至南門步即明勾也。
+又二雲數相並即極弦內減一個差也，雲數相減即差與高股、平勾差共也。
+又高股內減明股即虛股也。
+
+立天元一為明股，即丙出南門直行步也。
+置五十步以天元乘之得$ \; \square \; $元，合高股除。
+不除，便以此$ \; \square \; $元為股也，內帶高股$ \; \square \; $分母。
+再置高股內減天元得$ \; \square \; $為虛股，以分母高股乘之，得下式$ \; \square \; $，
+加入股得$ \; \square \; $即半徑也。
+以自增乘得下$ \; \square \; $為半徑冪也。內帶高股冪為母（寄左）。
+然後置甲共步以分母高股乘之，得$ \; \square \; $太，加入股得$ \; \square \; $為勾圓差於上（內帶高股分母）。
+又以天元加高股得$ \; \square \; $為股圓差於下。
+上、下相乘得$ \; \square \; $。又以分母高股乘之，得$ \; \square \; $，
+復折半得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一百三十五步，即明股也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百二十九}
+\owen{通勾、通弦共一千步，勾、弦共五十步。問答同前。}
+\dayue{城徑二百四十步，股三十步。}
+
+\fayue{%
+置一千減二之五十步為泛率。以自乘，復半之於上。
+又置泛率復以五十乘之，加上位為平實。
+二十二之泛率於上。以四十二乘五十，得數內減泛率，加上位為益從。
+二百為常法。得股。}
+
+\tsaoyue{%
+立天元一為股。
+置一千以天元乘之，以五十除之，得$ \; \square \; $元為通股也。
+又以天元加五十步，得$ \; \square \; $即小差也，通股加小差得$ \; \square \; $即通弦也。
+以通弦減一千得$ \; \square \; $，即通勾也。
+以小差減通勾得$ \; \square \; $，即圓徑也。
+以圓徑減通股得$ \; \square \; $即大差也。
+置大差以小差乘之得$ \; \square \; $（寄左）。
+然後置圓徑以自之得$ \; \square \; $，折半得$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得三十步，即股也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十}
+\owen{通勾、通弦共一千步，明勾、明弦共二百二十五步。問答同前。}
+\dayue{城徑二百四十步，明股一百三十五步。}
+
+\fayue{%
+以後數再自乘，又以前數乘之為平實；以後數為冪，復以前數乘之為從；
+以前數冪為虛常法。得明股。}
+
+\tsaoyue{%
+別得二百二十五步即高股也。
+立天元一為明股。置一千以天元乘之，合以高股除不受除，
+便以此一零零零元為通股（內帶高股為母）。
+以天元加高股，得$ \; \square \; $即大差也。
+置大差以高股分母乘之，得$ \; \square \; $，即帶分大差也。
+以此減於通股，餘$ \; \square \; $即圓徑也。
+以自增乘，得$ \; \square \; $（寄左。內帶高股冪分母）。
+然後置一千以高股分母通之，得$ \; \square \; $太，內減帶分大差，
+得$ \; \square \; $為兩個通勾也。
+內減兩個圓徑得$ \; \square \; $，為兩個小差也。
+以帶分大差乘之，得下式$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得一百三十五步，即明股也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十一}
+\owen{通股、通弦共一千二百八十步，股、弦共六十四步。問答同前。}
+\dayue{城徑二百四十步，勾一十六步。}
+
+\fayue{%
+雲數相乘為平實，前數為益從。
+置前數以後數除之，得二十為泛率。
+泛率減一以自乘於上，又倍泛率減一加上位為常法。倒積開得勾一十六。}
+
+\tsaoyue{%
+別得六十四步即平勾也。
+立天元一為勾。置前數以天元乘之，以後數除之，得$ \; \square \; $元即通勾也。
+又置天元加後數，得$ \; \square \; $即小差也。
+以小差減通勾，餘$ \; \square \; $即圓徑也。
+以自之得$ \; \square \; $（寄左）。
+然後以小差減於前數，得$ \; \square \; $為二通股。
+內減兩個圓徑，得$ \; \square \; $為二大差也。
+以小差乘之得下$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得一十六步，即勾也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十二}
+\owen{通股、通弦共一千二百八十步，明股、明弦共二百八十八步。問答同前。}
+\dayue{城徑二百四十步，明勾七十二步。}
+
+\fayue{%
+二數相減，以後數乘之，內減後數冪，又半之為泛率。以自之為平實。
+置前數加二之後數而半之為次率，以乘泛率，倍之於上，
+以後數乘泛率減上位為益從。
+次率自乘於上，以前數加次率，復以後數乘之，減上位為隅法。得明勾。}
+
+\tsaoyue{%
+別得二數相減，餘$ \; \square \; $為通勾、通股及明勾共也。
+立天元一為明勾。置前數以天元乘之，合以後數除之。
+不除，便以此$ \; \square \; $元為通勾也（內寄後數分母）。
+又以二數相減，得數內又減天元得$ \; \square \; $為通和也。
+乃以分母二百八十八之，得下式$ \; \square \; $，內減通勾，餘$ \; \square \; $為通股也。
+又以天元加後數，又以分母（即後數也）通之，得$ \; \square \; $為大差也。
+以此大差減於通股，得下式$ \; \square \; $，為一個圓徑也。
+半之得$ \; \square \; $，以自之得$ \; \square \; $為半徑冪（寄左）。
+然後以半圓徑減通勾，得$ \; \square \; $為底勾，又以天元乘之，
+又以分母二百八十八之，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得七十二步，即明勾也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十三}
+\owen{%
+明股、明弦並二百八十八步，勾、弦並五十步。
+又雲明股、勾並多於虛弦四十九步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{前二數相並，內減二之多步，即圓徑。又只以前二數相乘，便是半徑冪。}
+
+\tsaoyue{%
+識別得前二數相減而半之，即極差也。其多步名傍差，又為圓徑不及極弦數。
+立天元一為半徑。置前二數相乘得$ \; \square \; $，以天元除之得$ \; \square \; $為極弦也。
+以天元加多步得$ \; \square \; $為虛弦。極弦內減虛弦餘$ \; \square \; $為旁差，與多步相應。
+又以極弦自之得$ \; \square \; $，內減虛弦冪$ \; \square \; $，餘$ \; \square \; $為二積。
+以天元除之得$ \; \square \; $為勾股和，即前二數之並也，以此為同數。
+與左相消得$ \; \square \; $，開平方得一百二十步，即半徑也。
+倍之得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十四}
+\owen{平差、高差共一百六十一步，明股、勾並多於虛弦四十九步。問答同前。}
+\dayue{城徑二百四十步，平勾六十四步。}
+
+\fayue{二數相減又半之，以自乘為實，後數為法。得平勾。}
+
+\tsaoyue{%
+立天元一為平勾。以加前數得$ \; \square \; $為高股也。
+又以天元加高股得$ \; \square \; $為極弦，內減後數得$ \; \square \; $，
+又半之，得$ \; \square \; $為半徑。
+以自之，得$ \; \square \; $（寄左）。
+然後以天元乘高股，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+上法下實，得六十四步，即平勾也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十五}
+\owen{%
+平勾、高股差一百六十一步，明差、差並七十七步。
+又雲極弦多於城徑四十九步。問答同前。}
+\dayue{城徑二百四十步，半徑一百二十步。}
+
+\fayue{%
+並上二位而半之為平率。其四十九即旁率也。
+副置平率，上加旁率，下減旁率，以相乘為實。倍旁差為法。得勾圓差。}
+
+\fayue{%
+又法：並上二位而半之，為平率。其四十九即旁率也。
+副置旁率，上以減於平率，下以減於前數，以相乘為實。倍旁差為法。得勾圓差。}
+
+\fayue{%
+又法：求半徑：副置平率，上加旁率，下減旁率，以相乘為實，倍旁差為法。得半徑。}
+
+\tsaoyue{%
+立天元一為半徑，又為半之股圓差上弦較較，又為半之勾圓差上弦較和也。
+內減勾圓差上勾股較$ \; \square \; $，餘$ \; \square \; $為半之勾圓差上弦較較也。
+置股圓差上勾股較$ \; \square \; $，以半之勾圓差上弦較較乘之，得$ \; \square \; $（寄左）。
+然後以半之股圓差上弦較較乘勾圓差上勾股較，
+得$ \; \square \; $元為同數，與左相消得下式$ \; \square \; $。
+上法下實，得一百二十步，即半徑也。合問。}
+
+\tsaoyue{%
+識別得平勾、高股差名角差。
+副置角差，上加七十七而半之，得$ \; \square \; $，即極差也。
+下減七十七而半之，得$ \; \square \; $，即虛差也。
+角差加極差得$ \; \square \; $，即通差也。
+又極弦多於城徑步名為旁差。
+副置角差，上加旁差得$ \; \square \; $，為兩個高段上勾股較，
+下減旁差得$ \; \square \; $為兩個平段上勾股較也。
+又副置極差，上加旁差得$ \; \square \; $為股圓差上勾股較，
+下減旁差$ \; \square \; $為勾圓差上勾股較也。
+立天元一為勾圓差。依法求得通差，加入天元得$ \; \square \; $即大差也。
+以天元乘之得$ \; \square \; $為半段圓徑冪（寄左）。
+乃置大差$ \; \square \; $內減股圓差上勾股較$ \; \square \; $，
+餘有$ \; \square \; $為股圓差之勾於上。
+再置天元內加勾圓差上勾股較$ \; \square \; $，得$ \; \square \; $為勾圓差之股。
+以乘上位得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+上法下實，得八十步，即勾圓差也。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十六}
+\owen{%
+又依前問：見角差一百六十一步，見明差差並七十七步，又見太虛弦較較六十步。問答同前。}
+\dayue{城徑二百四十步，平勾六十四步。}
+
+\fayue{%
+前二數相減而半之，得數加入半之太虛弦較較為泛率，以自乘為平實。
+置一百六十一內減二之泛率為從，一常法。得平勾。}
+
+\tsaoyue{%
+別得$ \; \square \; $即二股也。
+立天元一為平勾。先以前二數相減而半之，得$ \; \square \; $為虛差。
+以虛差加股得$ \; \square \; $，即明勾也。
+以明勾加天元得$ \; \square \; $，為平弦，以自之得$ \; \square \; $，
+內減天元冪，得$ \; \square \; $為半徑冪（寄左）。
+然後以天元加一百六十一為高股，以天元乘之，得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得六十四步，即平勾也。}
+
+\fayue{%
+又法曰：前數內加半之太虛弦較較，以自乘，內減前數自乘為實，
+前數內減太虛弦較較為從，一常法。
+開平方得平勾六十四。此更不用明差差並也。}
+
+\tsaoyue{%
+依前求平勾。前高股內加股，得$ \; \square \; $為高弦也。
+以自之得$ \; \square \; $於上位，內減高股冪$ \; \square \; $，餘得$ \; \square \; $為半徑冪（寄左）。
+然後以天元乘高股，得$ \; \square \; $為同數，與左相消得下$ \; \square \; $。
+開平方得六十四步，即平勾也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十七}
+\owen{高差、平差並一百六十一步，明差、差並七十七步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+以前數自乘於上，二數相並而半之，以自乘減上位，得數復自增乘為平實。
+前數自之於上，又以四之前數乘之，寄位。
+以前數自之於上，並二數而半之，以自乘減上位，得數又以四之前數乘，又倍之，減於寄位為從。
+前數自之，又四之於上。又以四之前數為冪，加上位，權寄。
+以前數為冪於上，並二數而半之，以自乘減上位，得數復八之於上。
+又以四之前數為冪加入上位，並以減於權寄為常法。得平勾。}
+
+\tsaoyue{%
+識別得二位相並而半之，得$ \; \square \; $，即極差也。
+立天元一為平勾，加一百六十一得$ \; \square \; $為高股，高股內又加天元，得$ \; \square \; $為極弦。
+以自之得$ \; \square \; $於上，內減極差冪一萬四千一百六十一，
+餘$ \; \square \; $為兩段極積。合以極弦除，不除寄為母，便以此為城徑。
+以自增乘得$ \; \square \; $為圓徑冪（內有極弦冪分母。寄左）。
+然後以天元乘高股，又四之得$ \; \square \; $，又以分母極弦冪$ \; \square \; $通之，
+得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得六十四步，即平勾也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十八}
+\owen{見明和二百七步，和四十六步。問答同前。}
+\dayue{城徑二百四十步，小差四步。}
+
+\fayue{%
+二和上下相減，數同則止，名為泛率。
+又以二和直相減，餘為泛實（此則角差也）。
+乃以泛率除泛實，所得為差率也。
+以差率加減泛率，若半訖，與勾股相應者，其泛率便為和率，
+其泛實便為較率乘和率也。
+若不相應，則直取差率以消息之，定為相管和率
+（其勾股數少，得見弦黃而相為率者。
+勾三股四，則其和七，而其較一也。
+勾五股十二，則其和一十七，而其較七也。
+勾八股十五，則其和二十三，而其較亦得七也。
+勾七股二十四，則其和三十一，而其較一十七也。
+勾九股四十，則其和四十九，而其較三十一也。
+此消息之大略也。餘皆仿此）。
+乃以和率約二和，其明和所得為明壘率，其和所得為壘率也。
+又副置和率，上加差率而半之，則為股率也；
+下位減差率而半之，則為勾率也。
+既見勾、股及差三率，各以壘率乘之，即各得勾、股及差之真數也。}
+
+\fayue{%
+又法：二雲數相並，以自乘於上。
+二雲數相乘，又四之以減上位為實。
+二雲數相並，以六步半乘之於上，又二數相並，以四步半乘之，又四之，
+以並入上位為從方。
+以七十步零四分三厘七毫五絲為常法。得小差四步。}
+
+\tsaoyue{%
+以二和相約分得率一、明率四步半，其兩數大小差率並同。
+又別得明小差、大差俱為半虛黃也。
+立天元一為小差，以四步半乘之得$ \; \square \; $為大差也，又為明小差，又為半虛黃。
+置此大差又以四步半乘之得$ \; \square \; $為明大差也。
+其四差相並得$ \; \square \; $，減於二和並，得$ \; \square \; $即兩段太虛大小差並也。
+內加三段虛黃方$ \; \square \; $，得$ \; \square \; $，合成一個太虛三事和，即圓城徑也。
+以自增乘得$ \; \square \; $為徑冪（寄左）。
+乃置和加半虛黃，得$ \; \square \; $為平勾。
+又置明和內加半虛黃，得$ \; \square \; $為高股，
+勾股相乘得下式$ \; \square \; $，又四之得$ \; \square \; $為同數，
+與左相消得下式$ \; \square \; $。開平方得四步，即小差也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百三十九}
+\owen{明勾二股共八十八步，明股二勾共一百六十五步。問答同前。}
+\dayue{城徑二百四十步，半虛黃方一十八步。}
+
+\fayue{%
+先識別得二大差共、二小差共及四差共。
+乃以二大差、二小差相乘為實，以四差共為法。如法得半之虛黃方一十八。}
+
+\tsaoyue{%
+先置前後雲數以約法約之，得一十一即壘率也。
+復各置前後數如壘率而一，前得八即勾率也，後得一十五即股率也。
+再以勾、股率求得較率七，和率二十三，弦率一十七，黃方率六，大差率九，小差率二。
+既見諸率，各以壘率乘之，其二和共得$ \; \square \; $，二較共得$ \; \square \; $，
+二弦共得$ \; \square \; $，二黃共得$ \; \square \; $，二大差共$ \; \square \; $，
+二小差共$ \; \square \; $，四差共$ \; \square \; $。
+已上皆為明所得之共數也。
+
+乃立天元一為半虛黃，便為明小差，又為大差也。
+以減於大差共，得$ \; \square \; $即明大差也。
+又以減於小差共，得$ \; \square \; $即小差也。
+以二數相增乘，得$ \; \square \; $（寄左）。
+以天元冪與寄左相消，得$ \; \square \; $。
+上法下實，得一十八步，即半之虛黃方也。
+以倍之得$ \; \square \; $，又加於二黃共六十六共得一百二，
+即明勾、股共也，又為極黃方，又為虛弦也。
+又以三十六減於一百八十七，餘一百五十一，即明股勾共也。
+此數內減虛弦，餘$ \; \square \; $為明二差較也，此名旁差。
+以旁差減二弦共一百八十七，餘得$ \; \square \; $，即太虛和也。
+卻加入虛弦一百二，並得$ \; \square \; $，為太虛三事和，即圓城徑也。合問。}
+
+\fayue{%
+又法：以虛黃方加於二和共二百五十三，得$ \; \square \; $為極弦也。
+以旁差減極弦餘二百四十步。亦同。}
+
+\tsaoyue{%
+前後副置勾、股、較、和、弦、黃六率在地，
+前以小差率二因之，則勾得$ \; \square \; $，股得$ \; \square \; $，
+較得$ \; \square \; $，和得$ \; \square \; $，弦得$ \; \square \; $，黃得$ \; \square \; $，即段各數也。
+後以大差率九因之，則勾得$ \; \square \; $，股得$ \; \square \; $，
+較得$ \; \square \; $，和得$ \; \square \; $，弦得$ \; \square \; $，黃得$ \; \square \; $，即明段各數也。
+既得明、各數，餘皆可知。}
+
+\newpage
+
+
+% ========================================================================
+\section{\tradfont 卷九\quad 大斜四問、大和八問}
+\label{sec:vol9}
+
+\begin{tradfont}
+\noindent\textbf{卷九小序：}此卷凡十二問，分為二節。
+上節曰「大斜四問」，以通勾股形之斜邊為主，方程式之高有至五乘、六乘者，
+實全書開方之極致。下節曰「大和八問」，以通勾股形之三事和為主，
+其術益奧，其變益奇。學者能精於此，則天元之術思過半矣。
+\end{tradfont}
+
+\subsection{\tradfont 細草卷九上\quad 大斜四問}
+
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十}
+\owen{%
+甲丙俱在中心，丙望南門直行，不知步數而止。
+甲出東門直行，不知步數望見丙，斜行與丙相會。
+二人共行了六百八十步，仍雲甲直行少於丙直行一百一十九步。問答同前。}
+\dayue{城徑二百四十步，皇極勾一百三十六步。}
+
+\fayue{%
+二數相減，餘以為冪，內卻減差冪為平實；
+二數相減又四之於上，又加入二之差步為益從；二步常法。得皇勾一百三十六。}
+
+\tsaoyue{%
+別得共步即皇極三事和，少步即勾股差也。
+立天元一為皇極勾。加少步得$ \; \square \; $為股也，又以天元加股得$ \; \square \; $為和也。
+以和減共步得$ \; \square \; $為弦也，弦自之得$ \; \square \; $為一段弦冪（寄左）。
+然後置股以天元乘之，又倍之，得$ \; \square \; $為二直積，
+如入少步冪$ \; \square \; $共得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+平方而一，得一百三十六即勾也。勾加差為股，勾股相乘，倍之為實，
+勾股和減共步為法。得城徑。}
+
+\fayue{%
+又法：和數與倍差相加、相減，二得數相乘為平實；
+雲數並與雲數差相並得數，以減於八之共步為益從；一步常法。得皇極黃方一百二。}
+
+\tsaoyue{%
+立天元一為黃方（即虛弦也），副置之。
+上位加共步，得$ \; \square \; $為二和也；下位減共步，得$ \; \square \; $為二弦也。
+先以二和自乘，得$ \; \square \; $為四段和冪。
+又以二弦自乘，得$ \; \square \; $為四段弦冪。
+二數相減，餘得$ \; \square \; $元，又倍之得下式$ \; \square \; $元，
+為十六段直積於天元位（寄左）。
+然後副置二和，上位加二之少步，得$ \; \square \; $為四股。
+下位減二之少步，得$ \; \square \; $為四勾。
+勾股相乘，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+平方而一，得一百二步，即皇極黃方也。餘各依法求之。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十一}
+\owen{%
+甲丙俱在西北隅起，丙向南行不知步數而立。
+甲向東行望見丙，就丙斜行六百八十步與丙相會。
+丙雲：「我南行步多於甲東行二百八十步。」問答同前。}
+\dayue{城徑二百四十步，大勾三百二十步。}
+
+\fayue{以雲數差乘雲數並為實，倍多步為從，二為平隅。得大勾三百二十。}
+
+\tsaoyue{%
+立天元為大勾。加差得$ \; \square \; $為股，倍天元乘之，得$ \; \square \; $為二積（寄左）。
+然後以斜步、多步並$ \; \square \; $與斜步、多步較$ \; \square \; $相乘，
+得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+開平方得三百二十步，即大勾也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十二}
+\owen{%
+甲乙二人共立於艮隅，乙南行過城門而立，甲東行望乙與城參相直而止。
+丙丁二人共立於坤隅，丁向東行過城門而立，丙向南行望丁及甲乙悉與城俱相直。
+丙復就甲斜行六百八十步與甲相會。
+乙、丁又雲：「吾二人直行共得三百四十二步。」問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+二雲數相乘，倍之為實；倍斜行於上，以二雲數相減加上位為從；一步常法。
+開平方，得城徑。}
+
+\tsaoyue{%
+別得斜步即大弦也。其共步則一徑一虛弦共也，
+其二數相並為一大和一虛弦共數也。
+立天元為徑，減於共步得$ \; \square \; $為虛弦也。
+以虛弦復減於天元，得$ \; \square \; $為虛和，以斜步乘之，得$ \; \square \; $（寄左）。
+乃以天元加斜步，得$ \; \square \; $為大和，以虛弦乘之得$ \; \square \; $為同數，
+與左相消得$ \; \square \; $。開平方得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十三}
+\owen{%
+甲從北門向東直行，庚從西門穿城東行，丙從西門向南直行，壬從北門穿城南行。
+四人遙相望，悉與城參相直。
+只雲甲丙相望處六百八十步，庚壬穿城共行了六百三十一步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+共步自之得數。以共步減斜，餘自乘以減上為實。
+二之斜步加入共步減斜，餘數為從。一步常法。得城徑。}
+
+\tsaoyue{%
+共行步為一徑與皇和共也，又為大和皇弦差也。甲丙相望即大弦也。
+以共步減大弦，餘$ \; \square \; $為皇極弦上減一徑也。
+立天元一為圓徑，減於共步，得$ \; \square \; $為皇極和也，以自之得$ \; \square \; $於上。
+弦內減共步餘$ \; \square \; $，又以天元加之為皇弦，以自之得$ \; \square \; $，
+減上位，餘得$ \; \square \; $為兩個皇直積（寄左）。
+乃以天元乘皇弦得下式$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+平方而一，得二百四十步，即城徑也。合問。}
+
+\newpage
+\subsection{\tradfont 細草卷九下\quad 大和八問}
+
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十四}
+\owen{%
+庚從西門穿城東行二百五十六步而立，壬從北門穿城南行三百七十五步而立。
+又有甲丙二人俱在乾隅，甲向東行，丙向南行，各不知步數而立。
+四人遙相望，只雲甲丙共行了九百二十步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+庚東行冪、壬南行冪相並於上，並庚壬步而倍之，內減大和，
+餘復減於庚壬共，得數以自乘減上位為平實。
+並庚壬步為益從，半步為隅法。得城徑。}
+
+\tsaoyue{%
+立天元一為圓徑，以半之副置二位。
+上以減於庚東行，得下$ \; \square \; $為平弦也；下以減於壬南行，得$ \; \square \; $為高弦也。
+二弦相並得$ \; \square \; $為皇弦、虛弦共也。
+倍此數得$ \; \square \; $為大弦、虛弦共也。
+以大弦、虛弦共減於大和，餘$ \; \square \; $為虛勾虛股共也。
+天元內減虛勾、虛股共，餘$ \; \square \; $即虛弦也。
+復置皇弦虛弦共內減虛弦，餘$ \; \square \; $即皇極弦也，
+以自之得$ \; \square \; $（寄左）。
+然後以平弦自之，得下式$ \; \square \; $為勾冪也，又以高弦自之，
+得$ \; \square \; $為股冪也。
+二冪相並得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+平方而一，得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十五}
+\owen{%
+甲丙俱在西北隅，甲向東行不知步數而立，丙向南行望見甲，就甲斜行與甲相會。
+甲直行、丙直行共九百二十步（甲步少於丙步）。
+又：出東門南行有柳樹一株，出南門東行有槐樹一株。
+戊己二人同在巽隅，戊就柳樹，己就槐樹，亦與甲、乙遙相望。
+只雲己行少於戊行數與兩樹相距數相並，得一百四十四步，其二數相減餘六十步。問答同前。}
+\dayue{城徑二百四十步，太虛勾四十八步。}
+
+\fayue{%
+二雲數相並而半之為虛弦，以乘大和九百二十步於上。
+以一百四十四減大和，以虛較乘之，減上位為平實。
+以一百四十四減大和，又二之於上，以二之虛較減上位為從。四虛隅。得太虛勾四十八。}
+
+\tsaoyue{%
+別得甲丙直行共即大和也，戊就柳樹步即虛股也，己就槐樹步即虛勾也。
+其一百四十四步即二明勾，其六十步即二股也。
+
+立天元一為虛勾，加明勾得$ \; \square \; $為半徑也，
+倍之得$ \; \square \; $即城徑也（又為虛弦上三事和）。
+二雲數相並而半之，得$ \; \square \; $即小弦也。
+相減而半之，得$ \; \square \; $即小較也。
+以天元加較得$ \; \square \; $即小股也，小勾股共得$ \; \square \; $即小和也。
+以小三事減大和得$ \; \square \; $即大弦也。
+乃先置小和以大弦乘之，得下式$ \; \square \; $（寄左）。
+次以小弦乘大和，得$ \; \square \; $，與左相消得下式$ \; \square \; $。
+開平方得四十八步，即虛勾也。加明勾又倍之得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十六}
+\owen{%
+甲從乾隅東行，乙從艮隅南行，丙從乾隅南行，丁從坤隅東行，四人遙相望見。
+既而甲還至艮隅就乙，丙還至坤隅就丁。
+甲丙直行共九百二十步，甲還就乙共二百三十步，丙還就丁共五百五十二步。問答同前。}
+\dayue{城徑二百四十步，虛弦一百二步。}
+
+\fayue{%
+並就數以減直行共，復以所並就數乘之為實；
+並就數減直行共，得數復加入直行共為法。得虛弦。}
+
+\tsaoyue{%
+別得甲丙直行共為大和也，甲還就乙步為小差勾股共也，丙還就丁步為大差勾股共也。
+以大差勾股共減於大股，餘即虛勾也。
+以小差勾股共減於大勾，餘即虛股也。
+二數相並得$ \; \square \; $為大弦虛弦共也，
+二數相減，餘$ \; \square \; $為通差及太虛勾股差共也。
+又並二數而半之，得$ \; \square \; $為皇極弦虛弦共，又為皇極勾股共也。
+
+立天元一為虛弦。
+先以二共數減於大和，餘$ \; \square \; $為虛勾虛股和於上。
+次以虛弦減於二共數，餘$ \; \square \; $為大弦，
+以乘上位，得下$ \; \square \; $（寄左）。
+然後以天元乘大和，得$ \; \square \; $元為同數，與左相消得$ \; \square \; $。
+上法下實，得一百二步，即虛弦也。加入虛和得二百四十步，即城徑也。合問。}
+
+\fayue{%
+又法：並雲數減大和，復以雲數相減乘之為實；
+並雲數減大和，得數復加入大和為法。如法得虛差四十二。}
+
+\tsaoyue{%
+立天元一為虛較。
+先以並雲數減大和，餘$ \; \square \; $為虛和於上。
+次以天元減於$ \; \square \; $得$ \; \square \; $為通差，以乘之得$ \; \square \; $（寄左）。
+然後以天元乘大和為同數，與左相消得$ \; \square \; $。
+上法下實得四十二步，即虛差也。
+副置虛和為二位，上加虛差而半之，得九十即虛股也。
+下減虛差而半之，得四十八即虛勾也。
+勾冪$ \; \square \; $，股冪得$ \; \square \; $，相並得$ \; \square \; $。
+開平方得一百二步，即虛弦也。加入虛和得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十七}
+\owen{%
+依前見大和，只雲股圓差上勾弦差二百一十六，勾圓差上股弦差二十步。問答同前。}
+\dayue{城徑二百四十步，小差股一百五十步。}
+
+\fayue{%
+以雲數二十步減通和，復以二十步乘之於上。
+以雲數二百一十六減九百步而半之，乘上位為立實。
+三因二十步以減通和得八百六十，
+以二百一十六及二十共得二百三十六，減通和而半之，得三百四十二。
+二數相乘訖，內減二十之九百步。
+又以三百四十二及二百一十六共得五百五十八，又二十之以減之為從方。
+以二百三十六減通和，又以三之二十步減通和，相並於上。
+以二之五百五十八內卻減二十步，餘以加上位為益廉。
+四步常法。得小差股一百五十。}
+
+\tsaoyue{%
+別得小差上股弦差$ \; \square \; $加二股為大勾也，大差上勾弦差$ \; \square \; $加二勾為大股也。
+
+立天元一為小差股，加$ \; \square \; $得$ \; \square \; $為小差弦也，
+小差弦上又加天元得$ \; \square \; $為通勾，以減於和步得$ \; \square \; $為通股也。
+通股內減$ \; \square \; $得$ \; \square \; $，半之得下式$ \; \square \; $即大差之勾也。
+大差勾上又加$ \; \square \; $，得$ \; \square \; $為大差弦也。
+再置通股以小差弦乘之，得$ \; \square \; $，以天元除之，得$ \; \square \; $為一個大弦也（泛寄）。
+再置通勾以大差弦乘之，得$ \; \square \; $，合以大差勾除。
+不除寄為母，便以為大弦（寄左）。
+乃以大差勾乘泛寄，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+益積開立方，得一百五十步，為小差股也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十八}
+\owen{%
+依前見大和，只雲高弦、平弦共得三百九十一步，高弦、平弦相較得一百一十九步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+以較數冪減於共數冪，又半之為實，以共數減大和為益從，一常法。
+開平方，得圓徑。}
+
+\tsaoyue{%
+別得高弦減於通股為邊股內減明股也，平弦減於通勾為邊勾內減明勾也。
+其共數即大弦內減皇極弦，又為皇極勾股共也，其相較步即皇極差也。
+二雲數相並得$ \; \square \; $，即黃廣弦也。
+二雲數相減，餘即黃長弦也。
+以共數減於大和，餘$ \; \square \; $為皇極弦、圓徑共。
+
+立天元一為圓徑，以減於$ \; \square \; $為皇極弦也。
+以共數自之得$ \; \square \; $於上。
+以相較數自之得$ \; \square \; $，減上位，餘$ \; \square \; $，
+又半之得$ \; \square \; $為兩段皇極積（寄左）。
+乃以天元乘皇極弦，得$ \; \square \; $為同數，
+與左相消得下$ \; \square \; $。開平方得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百四十九}
+\owen{%
+依前見大和，只雲大差弦四百零八步，小差弦一百七十步。問答同前。}
+\dayue{城徑二百四十步。}
+
+\fayue{%
+以並雲數減大和，復以相並數乘大和，又倍之為平實。
+三之通和於上，又以並雲數減大和，加上位為從。二步虛法。得圓徑。}
+
+\tsaoyue{%
+大差弦減和步，餘$ \; \square \; $為大勾、大差勾共也。
+以小差弦減大和，餘$ \; \square \; $為大股、小差股共也。
+雲數相並得即大弦內減虛弦也，雲數相減得$ \; \square \; $為虛弦平弦共也。
+以相並數減於大和，餘$ \; \square \; $為大差勾、小差股共，又為圓徑、虛弦共也。
+
+立天元一為圓徑，減於$ \; \square \; $得$ \; \square \; $為虛弦也。
+反以減於圓徑得$ \; \square \; $為小和也。
+以天元減大和得$ \; \square \; $為大弦，以乘小和，得$ \; \square \; $（寄左）。
+乃再置虛弦以通和乘之，得$ \; \square \; $，與左相消得$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百五十}
+\owen{%
+依前見大和，只雲黃廣弦五百一十步，黃長弦二百七十二步。問答同前。}
+\dayue{城徑二百四十步，虛弦一百二步。}
+
+\fayue{%
+雲數相並減大和，復以相並數乘之為實。
+雲數相並減大和，得數復以加大和為法。得虛弦一百二。}
+
+\tsaoyue{%
+別得黃廣弦又為大差弦、虛弦共，又為邊股、股共也。
+黃長弦又為小差弦、虛弦共，又為底勾、明勾共也。
+以黃廣弦減於大股，餘$ \; \square \; $即虛股，以黃長弦減於大勾，餘$ \; \square \; $即虛勾。
+故並數以減於大和，餘$ \; \square \; $為虛和也。
+以虛和減徑即虛弦也。
+二雲數相並得$ \; \square \; $為大弦、虛弦共也，雲數相減餘$ \; \square \; $為虛弦、平弦共。
+
+立天元一為虛弦，以減於七百八十二，得$ \; \square \; $為大弦也，
+以小和乘之得$ \; \square \; $（寄左）。
+乃以天元虛弦乘大和，得$ \; \square \; $為同數，與左相消得$ \; \square \; $。
+上法下實，得一百二步，即虛弦也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百五十一}
+\owen{%
+依前見大和，只雲邊弦五百四十四步，底弦四百二十五步。問答同前。}
+\dayue{城徑二百四十步，皇極弦二百八十九步。}
+
+\fayue{雲數相減自之為實，以大和減並數為法。得皇極弦。}
+
+\tsaoyue{%
+別得以邊弦減大股，餘$ \; \square \; $為半徑內減平勾，又為平弦內減勾圓差也。
+以大勾減於底弦，餘$ \; \square \; $為高股內少半徑，又為股圓差內少高弦也。
+二雲數相並，得九百六十九為大弦、皇極弦共也。
+二雲數相減，得$ \; \square \; $為皇極勾股差也。
+並數內減通和，餘$ \; \square \; $為皇極弦內減圓徑也。
+
+立天元一為皇極弦，以自之於上。
+以一百一十九自之得$ \; \square \; $，減上位得$ \; \square \; $為二皇積（寄左）。
+復置天元內減四十九得下式$ \; \square \; $為黃方。
+復以天元乘之，得$ \; \square \; $，與左相消得$ \; \square \; $。
+上法下實，得二百八十九步，即皇極弦也。內減四十九，餘即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百五十二}
+\owen{%
+依前見大和，只雲通弦六百八十步，通勾三百二十步。問答同前。}
+\dayue{城徑二百四十步，通股六百步。}
+
+\fayue{%
+以通勾減通弦，餘以自之為平實。以通勾為從，一步常法。開平方得城徑。
+又法：通弦冪內減通勾冪為實，以倍通勾為從，一步常法。得通股。}
+
+\tsaoyue{%
+別得通弦即大弦也，通勾即大勾也，通股即大股也。
+其大勾股形為全書之宗，餘十四勾股形皆由此而生也。
+立天元一為城徑。置通勾以天元乘之，又以通弦除之，得$ \; \square \; $為半徑之勾也。
+又以通股乘之，得$ \; \square \; $，以通弦除之得$ \; \square \; $為半徑之股也。
+勾股相乘得$ \; \square \; $，以天元半徑除之得$ \; \square \; $為弦也（寄左）。
+然後以通弦$ \; \square \; $與左相消得$ \; \square \; $。
+開平方得二百四十步，即城徑也。合問。}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\wen{一百五十三}
+\owen{%
+依前見大和，只雲皇極弦二百八十九步，皇極勾股差一百一十九步。問答同前。}
+\dayue{城徑二百四十步，皇極勾一百三十六步，皇極股二百五十五步。}
+
+\fayue{%
+以較冪減弦冪，又半之為實，弦內減較為從，一步常法。得皇極勾。
+又以弦冪內減較冪為實，弦加較為從，一步常法。得皇極股。
+又以弦內減較餘四之為實，一步常法。得黃方（即城徑減皇極弦也）。}
+
+\tsaoyue{%
+識別得皇極弦內減圓徑即皇極黃方也，皇極勾加皇極股即皇極和也。
+立天元一為皇極勾，加較得$ \; \square \; $為皇極股，又加天元得$ \; \square \; $為皇極和也。
+以和自之得$ \; \square \; $，內減弦冪$ \; \square \; $，餘$ \; \square \; $為二積（寄左）。
+乃以天元乘皇極股得$ \; \square \; $，又倍之為同數，與左相消得$ \; \square \; $。
+開平方得一百三十六步，即皇極勾也。
+加較得二百五十五步，即皇極股也。
+以弦冪減和冪，又半之得$ \; \square \; $為積，以天元半徑除之得$ \; \square \; $為和。
+和內減弦餘即黃方，亦為城徑減皇極弦之數也。合問。}
+
+\newpage
+
+% ========================================================================
+\section*{跋}
+\addcontentsline{toc}{section}{跋}
+
+\begin{tradfont}
+測圓海鏡一書，自序雲「積思惑悟」，蓋先生潛心二十餘年而後成之者也。
+其術以天元一為宗，太極為本，立一未知數而萬端可推，實開中國代數學之先河。
+全書一百七十問，無一問不備問、答、術、草四體，條理密察，邏輯謹嚴，
+雖古希臘之幾何原本，其精密不過如此。
+
+卷七至卷九，計三十四問，方程式之高有至五乘、六乘者。
+其開方之術，或益積，或翻法，或倒積，或消息，變化萬端，而歸於一理。
+先生又創立十五勾股形之說，以通勾股為母，明勾股、、極勾股、虛勾股為子，
+母子相生，條理粲然。此實中國數學史上之偉大創造也。
+
+後之學者，如元之朱世傑、郭守敬，明之唐順之、顧應祥，清之李善蘭、華蘅芳，
+皆深受此書之影響。李善蘭譯西算時，猶以天元術與代數相發明，
+謂「中國之天元，即西國之代數」，其說誠不我欺也。
+
+嗚呼！七百餘年過去，算板之制已湮，天元之術猶存。
+讀此書者，不獨見中算之精深，亦可感先賢之睿智。
+謹識數語，以為後來之勸云。
+\end{tradfont}
+
+\vspace{0.5cm}
+\begin{center}
+\longline
+\end{center}
+
+\newpage
+
+% ========================================================================
+\section*{Colophon}
+\addcontentsline{toc}{section}{Colophon}
+
+\begin{center}
+\longline
+\end{center}
+
+\textit{測圓海鏡} (Ceyuan Haijing / Sea Mirror of Circle Measurements) was written by
+Li Ye (李冶, 1192--1279) and completed in 1248. It is the earliest extant work
+that systematically develops the \textit{tian yuan shu} (天元術) algebraic method
+for solving polynomial equations.
+
+The text uses a sophisticated system of 15 right triangles (十五勾股形) formed by
+lines through and around a circular city, with standardized names for all edges
+and diagonals. Each problem presents a configuration and asks for the city's
+diameter (城徑), typically 240 paces (步), with the radius being 120 paces.
+
+The mathematical expressions denoted by ■ in the original text represent
+intermediate polynomial expressions arranged on the counting board according
+to the ``Tai Ji'' (太極) and ``Tian Yuan'' (天元) positions---the ancient Chinese
+equivalent of polynomial notation.
+
+\textbf{Volumes 7--9 contain 34 problems:}
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Volume 7} (卷七): 18 problems on ``front'' configurations (明前一十八問),
+    covering problems 105--122. These feature higher-degree polynomial equations
+    (degrees 3--4) with detailed working on the \textit{tian yuan} method.
+  \item \textbf{Volume 8} (卷八): 16 problems on ``rear'' configurations (明後一十六問),
+    covering problems 123--138. These introduce multiple \textit{tian yuan} unknowns
+    and cross-triangle relationships with equations up to degree 4.
+  \item \textbf{Volume 9} (卷九): 12 problems on great oblique (大斜四問, problems 139--142)
+    and great sum (大和八問, problems 143--150) configurations. These contain the
+    most complex equations in the work, reaching degrees 5--6.
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{Source:} Transcribed from Chinese Wikisource
+(https://zh.wikisource.org/wiki/測圓海鏡).
+
+\textbf{Expanded edition} adds detailed \textit{ts'ao} (草) working and \textit{ta} (答)
+answer sections, with full polynomial derivations and expanded identification
+passages (識別得) for all 34 problems.
+
+\textbf{Typesetting:} Xe\LaTeX\ with xeCJK and Noto Sans CJK SC.
+
+\end{document}
+

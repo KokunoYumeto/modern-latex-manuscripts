@@ -19,7 +19,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 - SGA working translation: https://zenodo.org/records/20426470
 - Heinrich Weber author record: https://zenodo.org/records/20425697
 - Emmy Noether author record: https://zenodo.org/records/20422936
-- Non-European mathematics consolidated corpus: https://zenodo.org/records/20424994
+- Non-European mathematics consolidated corpus: https://zenodo.org/records/20427329
 - Chinese mathematical classics: https://zenodo.org/records/20421647
 - Indian and Sanskrit mathematical classics: https://zenodo.org/records/20421650
 - Islamic and Arabic mathematical texts: https://zenodo.org/records/20421656
@@ -33,7 +33,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 - `sources/ega/`: current editable EGA TeX tree, including local continuation work.
 - `sources/sga/`: extracted SGA TeX/source material from current public source packets, normalized for public inspection and correction.
 - `sources/weber-noether/`: current Weber and Noether TeX/source material, including Weber original-language chapter TeX and English translation drafts.
-- `sources/non-european/`: extracted TeX material from the current non-European corpus source bundle, including combined language/corpus TeX and work-level source bundles.
+- `sources/non-european/`: extracted TeX material and repair notes from the current cleaned non-European corpus source bundle, including combined language/corpus TeX and work-level source bundles.
 - `reader-pdfs/`: small current reader PDFs for quick inspection. Large scans and raw archives live on Zenodo.
 - `reader-pdfs/ega/`: current EGA working English reader.
 - `reader-pdfs/sga/`: SGA translation snapshots, SGA 4 current readers, the complete current SGA 5 working reader, and French reference PDFs.
@@ -45,7 +45,7 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 
 ## Status
 
-This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 905 pages and includes EGA 0_IV sections 15 through 23 plus EGA IV sections 1 through 21 as substantive working translations. The SGA mirror includes cleaned reader snapshots for SGA 1-3, a complete current SGA 4 working reader through Exposes I-XIX, and a complete current SGA 5 working reader assembled through the end of SGA 5. The non-European mirror now includes the current multilingual release: 66 public reader PDFs plus 214 editable TeX files, including author/work-level TeX bundles for translations and original-language drafts. The Weber mirror now includes original-language TeX drafts for Volumes I and III, the current Volume II English translation reader, and a separate Volume I English draft on inverse substitutions, transformed substitutions, transposed substitutions, permutation substitutions, invariants, and finite binary polyhedral groups. Older cross-author shelves remain for preservation and broad browsing, while cleaner author/corpus pages are the recommended public entry points where they supersede duplicate material. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
+This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity. The EGA working reader is currently 905 pages and includes EGA 0_IV sections 15 through 23 plus EGA IV sections 1 through 21 as substantive working translations. The SGA mirror includes cleaned reader snapshots for SGA 1-3, a complete current SGA 4 working reader through Exposes I-XIX, and a complete current SGA 5 working reader assembled through the end of SGA 5. The non-European mirror now tracks the cleaned multilingual release: 66 public reader PDFs, 214 editable TeX files, 40 regenerated component PDFs, repair notes, and text-sweep reports, including author/work-level TeX bundles for translations and original-language drafts. The Weber mirror now includes original-language TeX drafts for Volumes I and III, the current Volume II English translation reader, and a separate Volume I English draft on inverse substitutions, transformed substitutions, transposed substitutions, permutation substitutions, invariants, and finite binary polyhedral groups. Older cross-author shelves remain for preservation and broad browsing, while cleaner author/corpus pages are the recommended public entry points where they supersede duplicate material. Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, and translation completion.
 
 ## Contributing
 

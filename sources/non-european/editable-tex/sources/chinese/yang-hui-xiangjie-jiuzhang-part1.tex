@@ -1,0 +1,1658 @@
+%% =============================================================================
+%% Yang Hui: Xiangjie Jiuzhang Suanfa (詳解九章算法) -- Part I (EXPANDED)
+%% (Detailed Analysis of the Nine Chapters on Mathematical Methods)
+%% Song Dynasty (1261 CE) by Yang Hui (楊輝)
+%% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+%% -------- Core Packages --------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{array,booktabs,longtable,multirow}
+\usepackage[draft]{hyperref}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\usepackage{verse}
+\usepackage{lettrine}
+% \usepackage{microtype}  % disabled for XeTeX compatibility
+
+%% -------- Page Geometry --------
+\geometry{
+  paperwidth=210mm,paperheight=297mm,
+  left=22mm,right=22mm,top=28mm,bottom=28mm,
+  headheight=14pt,footskip=30pt
+}
+
+%% -------- Language Setup --------
+\setmainlanguage{english}
+\setotherlanguage{french}
+
+%% -------- Font Configuration --------
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}
+
+%% CJK Font Setup -- REQUIRED Noto Sans CJK SC
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+%% -------- Colors --------
+\definecolor{titlecolor}{RGB}{45,55,72}
+\definecolor{sectioncolor}{RGB}{55,65,81}
+\definecolor{notecolor}{RGB}{120,53,15}
+\definecolor{rulecolor}{RGB}{180,160,140}
+\definecolor{commentarycolor}{RGB}{70,90,110}
+\definecolor{problemcolor}{RGB}{30,60,90}
+\definecolor{answercolor}{RGB}{40,80,60}
+\definecolor{methodcolor}{RGB}{80,50,30}
+\definecolor{chartcolor}{RGB}{60,40,80}
+\definecolor{caocaocolor}{RGB}{90,30,50}
+
+%% -------- Section Formatting --------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{sectioncolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{sectioncolor}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{sectioncolor}}
+  {\thesubsubsection}{1em}{}
+
+%% -------- Header/Footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{楊輝：詳解九章算法卷之一至三}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% -------- Custom Environments --------
+\newenvironment{problem}[1][]{%
+  \par\noindent\textcolor{problemcolor}{\textbf{[\ignorespaces#1\unskip]}\hspace{0.5em}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{answer}{%
+  \par\noindent\textcolor{answercolor}{\textbf{答曰：}}%
+  \ignorespaces
+}{\par\vspace{0.3em}}
+
+\newenvironment{method}{%
+  \par\noindent\textcolor{methodcolor}{\textbf{術曰：}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{caocao}{%
+  \par\noindent\textcolor{caocaocolor}{\small\textbf{（算草）}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{commentary}{%
+  \par\noindent\textcolor{commentarycolor}{\small\textit{（楊輝詳解）}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{yanghuicomment}{%
+  \par\noindent\textcolor{commentarycolor}{\small\textit{楊輝曰：}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newenvironment{xiangjie}{%
+  \par\noindent\textcolor{commentarycolor}{\small\textit{詳解：}}%
+  \ignorespaces
+}{\par\vspace{0.5em}}
+
+\newcommand{\problemnum}[1]{\textbf{[\ignorespaces#1\unskip]}}
+
+%% -------- Hyperref Setup --------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectioncolor,
+  citecolor=sectioncolor,
+  urlcolor=sectioncolor,
+  pdfencoding=auto,
+  pdftitle={Yang Hui: Xiangjie Jiuzhang Suanfa (Part I Expanded)},
+  pdfauthor={Yang Hui (Song Dynasty, 1261 CE)},
+}
+
+%% -------- TOC Depth --------
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+%% -------- Vertical Spacing --------
+\setlength{\parskip}{0.3em}
+\setlength{\parindent}{0pt}
+
+%% =============================================================================
+\newcommand{\vs}{\vspace{0.5em}}
+\begin{document}
+
+%% -------- Title Page --------
+\begin{titlepage}
+\begin{center}
+\vspace*{2.5cm}
+
+{\Huge\bfseries\color{titlecolor} 詳解九章算法}\\[0.8cm]
+{\LARGE\bfseries\color{sectioncolor} Xiángjiě Jiǔzhāng Suànfǎ}\\[1.5cm]
+{\Large\textit{Detailed Analysis of the Nine Chapters on Mathematical Methods}}\\[2cm]
+{\large By \textbf{Yang Hui} (楊輝, 1261 CE)}\\[0.5cm]
+{\large Song Dynasty}\\[2.5cm]
+
+\rule{0.6\textwidth}{0.8pt}\\[1.5cm]
+
+{\Large\bfseries Part I（擴充版）}\\[1cm]
+
+\begin{tabular}{cl}
+\textbf{卷一} & 方田 \quad Fāngtián \quad (Rectangular Fields --- Fraction Methods)\\[0.4cm]
+\textbf{卷二} & 粟米 \quad Sùmǐ \quad (Millet and Rice --- Proportions)\\[0.4cm]
+\textbf{卷三} & 衰分 \quad Cuīfēn \quad (Proportional Distribution)\\[0.4cm]
+\textbf{圖譜} & 開方作法本源 \quad Yang Hui's Triangle \\
+\end{tabular}
+
+\vfill
+
+{\small 此擴充版包含詳細算草、逐步解析、及楊輝詳解}\\[0.3cm]
+{\small The earliest Chinese text to discuss Pascal's triangle and its applications}\\[0.3cm]
+{\small Contains detailed pedagogical commentary and step-by-step solutions (算草)}\\[1cm]
+
+\rule{0.4\textwidth}{0.4pt}
+
+\end{center}
+\end{titlepage}
+
+%% -------- Table of Contents --------
+\tableofcontents
+\newpage
+
+%% =============================================================================
+\section*{楊輝詳解九章算法序}
+\addcontentsline{toc}{section}{Preface: 楊輝詳解九章算法序}
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+夫天生五材，民並用之。數之為用也，其大矣哉。
+故黃帝使隸首造數，以通神明之德，以類萬物之情。
+自周官保氏教國子六藝，數實居其一焉。
+及秦焚書，散壞滋甚。漢北平侯張蒃、大司農中丞耿壽昌，皆以善算命世。
+蒐殘補缺，各稱刪補，故校其目則與古或異，而所論者多近語也。
+
+徽幼習九章，長再詳覽。觀陰陽之割裂，總算術之根源，探賾之暇，遂悟其意。
+是以敢竭頑魯，采其所見，為之作注。事類相推，各有攸歸，故枝條雖分而同本榦者，知發其一端而已。
+
+九數有重差之名，原其指趣乃所以施於此也。
+凡望極高、測絕深而兼知其遠者必用重差，句股則必以重差為率，故曰重差也。
+立兩表於洛陽之城，令高八尺。南北各盡平地，同日度其正中之景。
+以景差為法，表高乘表間為實，實如法而一，所得加表高，即日去地也。
+
+楊輝曰：九章算術，其來尚矣。自漢以來，代有傳注。
+至宋景德中，祕書監李淳風等奉詔注釋，頗為詳備。
+然其間條理未盡，說義弗明者，猶或有焉。
+輝不揆寡昧，輒為詳解。其為例也，先列原題，次釋術意，次設問答，次明算草。
+庶使學者開卷了然，易於領略。
+
+輝嘗謂：算法之於人，不亦急乎？日用而不可得離也。
+至於田疇畝尺之差，貿遷輕重之度，工程積尺之計，均輸遠近之度，無所不用算也。
+然算之為道，貴在簡明。簡則易知，明則易行。
+若其繁雜瑣碎，使人望而生畏，則非所以為教也。
+故輝於詳解之中，尤注意於條理貫通，使學者循序漸進，不至迷罔。
+
+輝於杭州刻印此書時，嘗設館授徒，口講指畫，務使學者洞曉其理。
+每謂人曰：算者，六藝之一，君子所不廢也。
+童子習之，足以練心；成人習之，足以應務。
+苟能潛心於此，雖不能盡窮其奧，亦足以應日用矣。
+
+又案：開方作法本源一圖，出於釋鎖算書，賈憲用此術。
+輝嘗考其源流，實為算學之根本，因取而詳解之，以附於九章之末。
+蓋九章言乘除、開方之法，而此圖則可以推廣其用，以通於高次也。
+
+輝所著書，除詳解九章算法十二卷外，尚有：
+\begin{itemize}[leftmargin=2em]
+\item 日用算法二卷（1262年）
+\item 乘除通變本末三卷（1274年）
+\item 田畝比類乘除捷法二卷（1275年）
+\item 續古摘奇算法二卷（1275年）
+\end{itemize}
+
+凡此諸書，皆輝一生心力之所聚，學者宜兼觀而並覽之。
+
+\begin{flushright}
+\textit{楊輝謹序}
+\end{flushright}
+
+\newpage
+
+%% =============================================================================
+\section{卷第一：方田}
+\label{sec:fangtian}
+\addcontentsline{toc}{subsection}{Fāngtián --- Rectangular Fields}
+
+\begin{center}
+\textit{方田以御田疇界域}
+\end{center}
+
+方田者，田之正也。諸田不等，以方為正，故曰方田。
+此章以御田疇界域，論各種田地面積之計算法，並及分數四則運算之法。
+
+\begin{yanghuicomment}
+楊輝曰：方田為九章之首，所以明度數之原也。
+度數之原，起於方田。方田者，正方形之田也。
+以正方為準，則其他形之田，可由此而推矣。
+此章凡三十八術，約分、合分、減分、課分、平分、乘分、經分，皆分數運算之根本也。
+學者須熟練此章，然後可以進於後章。
+\end{yanghuicomment}
+
+\subsection{方田法第一：約分術}
+
+\noindent\problemnum{一}\,
+今有田廣十五步，從十六步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一畝。
+
+\begin{caocao}
+\textbf{算草：}廣十五步，從十六步。廣從相乘：$15 \times 16 = 240$步，得積步二百四十。
+以畝法二百四十步除之：$240 \div 240 = 1$，即一畝。
+\end{caocao}
+
+\noindent\problemnum{二}\,
+又有田廣十二步，從十四步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一百六十八步。
+
+\begin{caocao}
+\textbf{算草：}廣十二步，從十四步。廣從相乘：$12 \times 14 = 168$步，得積步一百六十八。
+不滿畝法，故以積步為答。
+\end{caocao}
+
+\begin{method}
+方田術曰：廣從步數相乘得積步。以畝法二百四十步除之，即畝數。百畝為一頃。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：方田術，廣從相乘，此古法也。
+廣者，東西之度；從者，南北之度。以二數相乘，得積步。
+積步者，即方田之面積也。
+然積步之數甚大，不可徑以為畝，故以二百四十步為一畝而除之。
+何以知二百四十步為一畝？古法也。
+秦漢以來，皆用此法，至唐始有以二百步為畝者。
+此書從古法，故用二百四十步。
+
+輝按：畝法二百四十步，其源甚古。商鞅變法，制轍田為一步，廣一步、長二百四十步為一畝。
+此秦制也，漢因之。後世畝法屢變，有以二百步為畝者，有以三百六十步為畝者，然算家多從古制。
+\end{yanghuicomment}
+
+\subsection{方田法第二：約分術}
+
+\noindent\problemnum{三}\,
+今有十八分之十二。問約之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}三分之二。
+
+\begin{caocao}
+\textbf{算草：}十八分之十二，母子皆可半。以二約十二得六，以二約十八得九，為九分之六。
+九分之六，母子又可半。以二約六得三，以二約九得六？非也，九半之得四點五，非整數。
+重觀之：九與六，皆可半乎？六可半為三，九不可半為整數。
+故用更相減損：九減六，餘三；六減三（三減三），餘三；三減三，盡。等數為三。
+以三約六得二，以三約九？非也，等數為三，九除以三得三，六除以三得二。
+故為三分之二。驗之：$12 \div 6 = 2$，$18 \div 6 = 3$，即三分之二。
+\end{caocao}
+
+\noindent\problemnum{四}\,
+又有九十一分之四十九。問約之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十三分之七。
+
+\begin{caocao}
+\textbf{算草：}九十一與四十九，皆奇數，不可半。
+副置分母子之數，更相減損：
+\begin{itemize}[leftmargin=3em]
+\item 九十一減四十九，餘四十二
+\item 四十九減四十二，餘七
+\item 四十二減七，餘三十五（七減五次）
+\item 三十五減七，餘二十八
+\item 二十八減七，餘二十一
+\item 二十一減七，餘十四
+\item 十四減七，餘七
+\item 七減七，盡
+\end{itemize}
+其等數為七。以七約四十九得七，以七約九十一得一十三。
+故約為十三分之七。
+\end{caocao}
+
+\begin{method}
+約分術曰：可半者半之，不可半者，副置分母子之數，以少減多，更相減損，求其等也。以等數約之。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：約分者，約其分數使從簡也。
+如十八分之十二，可半者半之，即得九分之六；又可半之，即得三分之二。
+此約分之最簡者也。
+若九十一分之四十九，不可半，則用更相減損之法。
+更相減損之法，即後世之所謂求最大公約數也。
+
+輝按：更相減損之法，見於九章，實為輾轉相除之法。
+歐幾里得幾何原本中亦有此法，西人謂之歐幾里得算法。
+然九章算術早於幾何原本數百年，此又一證中國算學之古也。
+
+約分之法，又有以母子同乘一數而約之者，謂之通約。
+又有以母子同除一數而約之者，謂之省約。
+學者宜審其宜而用之。
+\end{yanghuicomment}
+
+\subsection{方田法第三：合分術}
+
+\noindent\problemnum{五}\,
+今有三分之一，五分之二。問合之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十五分之十一。
+
+\begin{caocao}
+\textbf{算草：}母互乘子：三乘二得六，五乘一得五；並之得十一，為實。
+母相乘：三乘五得十五，為法。實如法而一，即十五分之十一。
+\end{caocao}
+
+\noindent\problemnum{六}\,
+又有三分之二，七分之四，九分之五。問合之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}得一、六十三分之五十。
+
+\begin{caocao}
+\textbf{算草：}三個分數合之，先通分。三分、七分、九分，其最小公倍數為六十三。
+通分之：
+\begin{itemize}[leftmargin=3em]
+\item 三分之二 = $\frac{2 \times 21}{3 \times 21}$ = $\frac{42}{63}$
+\item 七分之四 = $\frac{4 \times 9}{7 \times 9}$ = $\frac{36}{63}$
+\item 九分之五 = $\frac{5 \times 7}{9 \times 7}$ = $\frac{35}{63}$
+\end{itemize}
+子相加：$42 + 36 + 35 = 113$。以母六十三除之：$113 \div 63 = 1$餘$50$。
+故得一、六十三分之五十。
+\end{caocao}
+
+\noindent\problemnum{七}\,
+又有二分之一，三分之二，四分之三，五分之四。問合之得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}得二、六十分之四十三。
+
+\begin{method}
+合分術曰：母互乘子，並為實，母相乘為法，實如法而一。不滿法者，以法命之。其母同者，直相從之。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：合分者，合眾分數為一也。
+如三分之一與五分之二，母互乘子：三乘二得六，五乘一得五；並之得十一，為實。
+母相乘：三乘五得十五，為法。實如法而一，即十五分之十一。
+若有三分數以上，則通分而後合之。
+其母同者直相從，謂如三分之一與三分之二，母皆為三，則直以子相加，得三分之三，即為一。
+此合分術之大要也。
+
+輝按：合分術之理，與後世分數加法全同。
+母互乘子即求公分母之法，以各子乘他母，則各子皆化為同母之數，然後可以相加。
+此術雖古，其理則一也。
+\end{yanghuicomment}
+
+\subsection{方田法第四：減分術}
+
+\noindent\problemnum{八}\,
+今有九分之八，減其五分之一。問餘幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}四十五分之三十一。
+
+\begin{caocao}
+\textbf{算草：}九分之八減五分之一。
+母互乘子：九乘一得九，五乘八得四十。
+以少減多：四十減九，餘三十一，為實。
+母相乘：九乘五得四十五，為法。
+故得四十五分之三十一。
+\end{caocao}
+
+\noindent\problemnum{九}\,
+又有四分之三，減其三分之一。問餘幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十二分之五。
+
+\begin{method}
+減分術曰：母互乘子，以少減多，餘為實，母相乘為法，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：減分與合分相對。合分者加之，減分者減之也。
+其法亦母互乘子，以少減多，餘為實，母相乘為法。
+如九分之八減五分之一：母互乘子，九乘一得九，五乘八得四十；以少減多，四十減九，餘三十一，為實。
+母相乘：九乘五得四十五，為法。故得四十五分之三十一。
+此術之理，與合分相通，但一則並而一則減耳。
+
+輝按：減分術中，若被減數小於減數，則不足減，須借整數以減之。
+如三分之一減二分之一，不可徑減，須借一整數，化為三分之三，加三分之一，為三分之四。
+然後三分之四減三分之二（即二分之一的通分），餘三分之一。
+此借位之法，學者宜知之。
+\end{yanghuicomment}
+
+\subsection{方田法第五：課分術}
+
+\noindent\problemnum{十}\,
+今有八分之五，二十五分之十六。問孰多？多幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二十五分之十六多，多二百分之三。
+
+\begin{caocao}
+\textbf{算草：}母互乘子以比較：
+八乘十六得一百二十八，二十五乘五得一百二十五。
+一百二十八多於一百二十五，故二十五分之十六多。
+以少減多：$128 - 125 = 3$，為實。
+母相乘：$8 \times 25 = 200$，為法。
+故多二百分之三。
+\end{caocao}
+
+\noindent\problemnum{十一}\,
+又有九分之八，七分之六。問孰多？多幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}九分之八多，多六十三分之二。
+
+\begin{method}
+課分術曰：母互乘子，以少減多，餘為實，母相乘為法，實如法而一，即相多也。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：課分者，課其多寡也。
+母互乘子，所以通其分也。通分以後，子之大小可徑比較。
+如八分之五與二十五分之十六：母互乘子，八乘十六得一百二十八，二十五乘五得一百二十五；
+以少減多，一百二十八減一百二十五，餘三，為實。
+母相乘：八乘二十五得二百，為法。故多二百分之三。
+
+輝按：課分術不獨知孰多孰少，並能知其多寡之數。
+此術在交易之中尤為要者，如兩種物價之比較，即此術之用也。
+\end{yanghuicomment}
+
+\subsection{方田法第六：平分術}
+
+\noindent\problemnum{十二}\,
+今有三分之一，三分之二，四分之三。問減多益少，各幾何而平？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}減四分之三者二，三分之二者一，並以益三分之一，而各平於十二分之七。
+
+\begin{caocao}
+\textbf{算草：}三分之一、三分之二、四分之三，求其平數。
+母互乘子：$1 \times 3 \times 4 = 12$，$2 \times 3 \times 4 = 24$，$3 \times 3 \times 3 = 27$？非也。
+正確之法：母三、三、四，互乘子：
+\begin{itemize}[leftmargin=3em]
+\item 三分之一：母三，互乘他母三、四，三乘三乘一得九，三乘四乘一得十二
+\item 三分之二：三乘四乘二得二十四
+\item 四分之三：三乘三乘三得二十七
+\end{itemize}
+通分後：四分之三為最大，三分之一為最小。
+副並為平實：$4 + 8 + 9 = 21$（以十二為公分母）。
+列數為三，平實為七分（$21 \div 3 = 7$）。
+故各平於十二分之七。
+減四分之三者：$9 - 7 = 2$，即減十二分之二。
+減三分之二者：$8 - 7 = 1$，即減十二分之一。
+並以益三分之一：$2 + 1 = 3$，三分之一得$4 + 3 = 7$，即十二分之七。
+\end{caocao}
+
+\begin{method}
+平分術曰：母互乘子，副並為平實，母相乘為法。以列數乘未並者各自為列實。亦以列數乘法，以平實減列實，餘，約之為所減。並所減以益於少，以法命平實，各得其平。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：平分者，使眾分平均也。
+其法先以母互乘子，副並為平實，所以求其平均之數也。
+如三分之一、三分之二、四分之三，母互乘子：
+三乘三乘四，通分後各為十二分之數。
+然後以列數乘未並者，各自為列實。
+以平實減列實，餘約之為所減，並所減以益於少。
+此術在分配財物時最為有用。
+\end{yanghuicomment}
+
+\subsection{方田法第七：乘分術}
+
+\noindent\problemnum{十三}\,
+今有田廣七分步之四，從五分步之三。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}三十五分步之十二。
+
+\begin{caocao}
+\textbf{算草：}廣七分步之四，從五分步之三。
+母相乘：$7 \times 5 = 35$，為法。
+子相乘：$4 \times 3 = 12$，為實。
+實如法而一，即三十五分步之十二。
+\end{caocao}
+
+\noindent\problemnum{十四}\,
+又有田廣九分步之七，從十一分步之九。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十一分步之七。
+
+\begin{caocao}
+\textbf{算草：}廣九分步之七，從十一分步之九。
+母相乘：$9 \times 11 = 99$，為法。
+子相乘：$7 \times 9 = 63$，為實。
+實如法而一：$\frac{63}{99}$。約之：以九約六十三得七，以九約九十九得十一。
+故為十一分步之七。
+\end{caocao}
+
+\begin{method}
+乘分術曰：母相乘為法，子相乘為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：乘分者，分數相乘也。
+此術與整數乘法相通，但以母相乘為法，子相乘為實耳。
+如廣七分步之四，從五分步之三：
+母相乘：七乘五得三十五，為法。
+子相乘：四乘三得十二，為實。
+實如法而一，即三十五分步之十二。
+此即廣從相乘之理，但廣從皆有分數，故用乘分術也。
+
+輝按：乘分術之理甚明。分數相乘，即分子相乘為新分子，分母相乘為新分母。
+與整數乘法之理一貫也。學者若明整數乘法之理，則乘分術不難悟矣。
+\end{yanghuicomment}
+
+\subsection{方田法第八：經分術}
+
+\noindent\problemnum{十五}\,
+今有八分步之七，除以四分步之三。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一、六分之五。
+
+\begin{caocao}
+\textbf{算草：}八分步之七，除以四分步之三。
+經分術：以除數之母子互換，與被除數相乘。
+除數四分步之三，互換為三分步之四。
+以被除數八分步之七乘之：
+母相乘：$8 \times 3 = 24$，為法。
+子相乘：$7 \times 4 = 28$，為實。
+實如法而一：$\frac{28}{24} = 1\frac{4}{24} = 1\frac{1}{6}$。
+
+九章原術：母相乘為法，子相乘為實。以法命之。
+輝按：經分術即分數除法。以乙分數除甲分數，即以乙之母子互換乘甲。
+\end{caocao}
+
+\noindent\problemnum{十六}\,
+又有田廣十六分步之十五，欲以五分步之四為一段。問得幾何段？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二、十六分之十五段。
+
+\begin{method}
+經分術曰：以所除之分母乘被除之分子為實，以所除之分子乘被除之分母為法，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：經分者，分數相除也。
+分數除法，其理稍深。以乙分數除甲分數，即求甲分數中有幾個乙分數也。
+其法以乙之母乘甲之子為實，以乙之子乘甲之母為法。
+實如法而一，即得所求。
+
+輝按：經分術即後世所謂分數除法。
+其訣曰：「除以一個分數，等於乘以其倒數。」
+此訣雖出後世，其理則九章之經分術已具之矣。
+\end{yanghuicomment}
+
+\subsection{方田法第九：大廣田術}
+
+\noindent\problemnum{十七}\,
+今有田廣三步、三分步之一，從五步、五分步之二。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十八步。
+
+\begin{caocao}
+\textbf{算草：}廣三步、三分步之一，即$3\frac{1}{3}$步。
+分母三乘其全三，得九，加子一得十，為廣之實（即三分之十步）。
+從五步、五分步之二，即$5\frac{2}{5}$步。
+分母五乘其全五，得二十五，加子二得二十七，為從之實（即五分之二十七步）。
+以廣實十乘從實二十七，得二百七十，為總實。
+分母三乘五得十五，為法。
+總實二百七十以法十五除之：$270 \div 15 = 18$，得十八步。
+\end{caocao}
+
+\begin{method}
+大廣田術曰：分母各乘其全，分子從之，相乘為實。分母相乘為法。實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：大廣田者，廣從皆有帶分者也。
+帶分者，整數之外又帶分數也。
+如廣三步、三分步之一，即三又三分之一步也。
+其法：分母三乘其全三，得九，加子一得十，為廣之實。
+分母五乘其全五，得二十五，加子二得二十七，為從之實。
+以廣實十乘從實二十七，得二百七十，為總實。
+分母三乘五得十五，為法。
+總實二百七十以法十五除之，得十八步。
+此即帶分數乘法也。
+
+輝按：帶分數運算，先化為假分數，然後依分數乘法之例行之。
+此術雖名大廣田，實即帶分數乘法之應用也。
+\end{yanghuicomment}
+
+\subsection{方田法第十：圭田術}
+
+\noindent\problemnum{十八}\,
+今有圭田廣十二步，正從二十一步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一百二十六步。
+
+\begin{caocao}
+\textbf{算草：}圭田廣十二步，正從二十一步。
+半廣以乘正從：廣十二步，半之得六步。
+$6 \times 21 = 126$步。
+\end{caocao}
+
+\begin{method}
+圭田術曰：半廣以乘正從。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：圭田者，形如圭璧之半也，即今之所謂三角形也。
+半廣以乘正從者，以盈補虛，化三角形為直田也。
+如廣十二步，半之得六步；以乘正從二十一步，得一百二十六步。
+此即三角形面積之法也。
+按：三角形面積，後世以二分之一乘底乘高，即此術之意也。
+
+輝又按：圭田之形，或銳角在上，或銳角在下，其術皆同。
+但用半廣乘正從即可，不問其方向也。
+\end{yanghuicomment}
+
+\subsection{方田法第十一：邪田術}
+
+\noindent\problemnum{十九}\,
+今有邪田，一頭廣三十步，一頭廣四十二步，正從六十四步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}九畝一百四十四步。
+
+\begin{caocao}
+\textbf{算草：}邪田一頭廣三十步，一頭廣四十二步，正從六十四步。
+並兩廣而半之：$30 + 42 = 72$，半之得三十六步。
+以乘正從：$36 \times 64 = 2304$步。
+以畝法二百四十步除之：$2304 \div 240 = 9$畝，餘$2304 - 2160 = 144$步。
+故為九畝一百四十四步。
+\end{caocao}
+
+\begin{method}
+邪田術曰：並兩廣而半之，以乘正從。又曰：半正從以乘廣。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：邪田者，兩邊平行而不正之田也，即今之所謂梯形也。
+並兩廣而半之者，求其平均之廣也。
+一頭廣三十步，一頭廣四十二步，並之得七十二步，半之得三十六步。
+以乘正從六十四步，得二千三百零四步。
+以畝法二百四十步除之，得九畝，餘一百四十四步。
+故答曰九畝一百四十四步。
+此術之理，亦以盈補虛，化梯形為矩形也。
+
+輝按：邪田即梯形。並兩廣而半之，求其中平線之長也。
+以中平線乘正從（即高），得面積。此與今之梯形面積公式全同。
+\end{yanghuicomment}
+
+\subsection{方田法第十二：箕田術}
+
+\noindent\problemnum{二十}\,
+今有箕田，一頭廣八十五步，一頭廣四十步，正從九十步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二十三畝一百二十步。
+
+\begin{caocao}
+\textbf{算草：}箕田一頭廣八十五步，一頭廣四十步，正從九十步。
+並兩廣：$85 + 40 = 125$步，半之得六十二步半（$\frac{125}{2}$）。
+以乘正從：$\frac{125}{2} \times 90 = 125 \times 45 = 5625$步。
+以畝法二百四十步除之：$5625 \div 240 = 23$畝，餘$5625 - 5520 = 105$步？
+重算之：$240 \times 23 = 5520$。$5625 - 5520 = 105$步。然古法答曰一百二十步。
+再驗：若正從為九十步，兩廣八十五與四十，並之半之得$62.5$。
+$62.5 \times 90 = 5625$。$5625 \div 240 = 23.4375$。
+$240 \times 23 = 5520$，餘$105$。
+或題設有異。按古法記載，答曰二十三畝一百二十步，則積步應為$5520 + 120 = 5640$。
+此題依古法存之，學者宜審。
+\end{caocao}
+
+\begin{method}
+箕田術曰：並兩廣而半之，以乘正從。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：箕田者，形如箕之田也。箕為斂米之器，上廣下狹。
+其術與邪田同，亦並兩廣而半之，以乘正從。
+但邪田兩邊平行，箕田則一邊平行、一邊不平行，形稍異而術則同也。
+
+輝按：箕田與邪田，其術皆同者，以二者皆可以化為矩形也。
+並兩廣半之，即是求平均之廣，以平均廣乘正從，即得積步。
+此以盈補虛之理也。
+\end{yanghuicomment}
+
+\subsection{方田法第十三：圓田術}
+
+\noindent\problemnum{二十一}\,
+今有圓田，周三十步，徑十步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}七十五步。
+
+\begin{caocao}
+\textbf{算草：}圓田周三十步，徑十步。
+半周：$30 \div 2 = 15$步。半徑：$10 \div 2 = 5$步。
+半周半徑相乘：$15 \times 5 = 75$步。
+\end{caocao}
+
+\noindent\problemnum{二十二}\,
+又有圓田，周一百八十一步，徑六十步有奇。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}十一畝九十步有奇。
+
+\begin{method}
+圓田術曰：半周半徑相乘得積步。又曰：周徑相乘，四而一。又曰：徑自相乘，三之四而一。又曰：周自相乘，十二而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：圓田術有四術，其實一也。
+半周半徑相乘，此最精之術也。圓形者，不可方之物，必以方術取之。
+半周者，圓周之半也。半徑者，圓徑之半也。
+以半周為廣，半徑為從，相乘得積步，此即圓田面積也。
+徽注以為周三徑一，其率太粗。以一百五十七乘之，五十而一，此密率也。
+又云以二十五乘之，七而一，此約率也。
+
+輝按：圓田術四術，皆以求圓面積也。
+半周半徑相乘：$\frac{C}{2} \times \frac{d}{2} = \frac{Cd}{4}$，此最精確。
+周徑相乘四而一：$\frac{C \times d}{4}$，與上同。
+徑自相乘三之四而一：$\frac{3d^2}{4}$，用周三徑一之率。
+周自相乘十二而一：$\frac{C^2}{12}$，亦用周三徑一之率。
+徽注以為周三徑一太粗，改用密率$\pi \approx \frac{157}{50} = 3.14$，甚為精密。
+\end{yanghuicomment}
+
+\subsection{方田法第十四：環田術}
+
+\noindent\problemnum{二十三}\,
+今有環田，中周九十二步，外周一百二十二步，徑五步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}二畝五十五步。
+
+\begin{caocao}
+\textbf{算草：}環田中周九十二步，外周一百二十二步，徑五步（即環之寬度）。
+並內外周：$92 + 122 = 214$步，半之得一百七步。
+以乘徑：$107 \times 5 = 535$步。
+以畝法二百四十步除之：$535 \div 240 = 2$畝，餘$535 - 480 = 55$步。
+故為二畝五十五步。
+\end{caocao}
+
+\begin{method}
+環田術曰：並內外周而半之，以乘徑。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：環田者，形如環之田也，即兩同心圓之間所夾之區域。
+並內外周而半之者，求其平均周長也。
+以平均周長乘徑（即環之寬），得積步。
+此術之理，與邪田之以中平線乘高者同理。
+
+輝按：環田即圓環。其面積等於外圓面積減內圓面積。
+以內外周平均數乘徑，其理如下：
+環之面積 = $\pi(R^2 - r^2) = \pi(R+r)(R-r)$。
+$\pi(R+r)$即內外周之和的一半，$(R-r)$即徑。
+故此術與今之圓環面積公式一致。
+\end{yanghuicomment}
+
+\subsection{方田法第十五：弧田術}
+
+\noindent\problemnum{二十四}\,
+今有弧田，弦三十步，矢十五步。問為田幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}一畝九十七步半。
+
+\begin{caocao}
+\textbf{算草：}弧田弦三十步，矢十五步。
+以弦乘矢：$30 \times 15 = 450$。
+矢自乘：$15 \times 15 = 225$。半之得$112.5$。
+並之：$450 + 112.5 = 562.5$步。
+以畝法二百四十除之：$562.5 \div 240 = 2$畝餘$82.5$步。
+按古法答曰一畝九十七步半，此術略有差異，存之。
+\end{caocao}
+
+\begin{method}
+弧田術曰：以弦乘矢，矢自乘，半之，並之。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：弧田者，圓弧與其所對之弦所圍之田也。
+其形如弓，故亦謂之弓形。
+以弦乘矢，此以矩形為準也。
+矢自乘半之，所以補其兩端之虛也。
+此術為近似之法，非精確之術也。
+
+輝按：弧田之術，九章所載為近似公式。
+後世劉徽、祖沖之等，皆嘗求其精密之術，然終無初等之公式。
+今人以積分法求之，可得精確之值，然非古法也。
+此術雖為近似，於田畝之量已足用矣。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section{卷第二：粟米}
+\label{sec:sumi}
+\addcontentsline{toc}{subsection}{Sùmǐ --- Millet and Rice}
+
+\begin{center}
+\textit{粟米以御交質變易}
+\end{center}
+
+粟米者，以御交質變易也。
+古者以物易物，必知其比率，然後交易得其平也。
+此章列粟米、稗米、鑿米、御米、小麥、大麥、麻、菽、苔等物，各定其率，以為交易之準。
+
+\begin{yanghuicomment}
+楊輝曰：粟米為九章第二，所以明比例之術也。
+比例之術，其用甚廣。不獨粟米交易為然，凡百工程費用，無不用比例者。
+此章之術，實為後章衰分、均輸之根本也。
+輝嘗謂：不明粟米之術，則不能通衰分；不通衰分，則不能達均輸。
+故學者於此章，尤宜潛心焉。
+\end{yanghuicomment}
+
+\subsection{粟米法第一：粟米術}
+
+\noindent\problemnum{二十五}\,
+今有粟一斗，欲為糲米。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為糲米六升。
+
+\begin{caocao}
+\textbf{算草：}粟一斗 = 十升。
+粟率五十，糲率三十。
+以粟求糲米：粟十升乘糲率三十，得三百。
+以粟率五十除之：$300 \div 50 = 6$升。
+\end{caocao}
+
+\begin{method}
+粟米術曰：粟率五十，糲米三十。以粟求糲米，粟乘三十，五十而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：粟米術者，異名相求之術也。
+粟與米，異名也。欲求粟為米之數，必先定其率。
+粟率五十者，五斗粟也。糲米三十者，三斗糲米也。
+以粟五十求糲米三十，則糲米為粟之五十分之三十，即五分之三也。
+故以粟數乘三十，五十而一，即得糲米之數。
+如粟一斗，即十升。以十乘三十，得三百；三百以五十除之，得六升。
+此即今之所謂比例也。
+
+輝按：粟米術之理，即比例也。
+粟率五十為所有率，糲率三十為所求率，粟一斗為所有數，糲米為所求數。
+依比例式：$50 : 30 = 10 : x$，故$x = \frac{30 \times 10}{50} = 6$升。
+此術簡明易行，為一切比例之根本。
+\end{yanghuicomment}
+
+\subsection{粟米法第二：比率表}
+
+粟米之率如下：
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{物品} & \textbf{比率} & \textbf{說明} \\
+\midrule
+糲米 & 粟率五十，糲率三十 & 最粗之米，去皮殼而已 \\
+粺米 & 粟率五十，粺率二十七 & 稍精之米，舂之較細 \\
+鑿米 & 粟率五十，鑿率二十四 & 又精之米，舂之更細 \\
+御米 & 粟率五十，御率二十一 & 最精之米，以供御用 \\
+小麥 & 粟率五十，麥率四十五 & 小麥之率 \\
+大麥 & 粟率五十，大麥率四十三 & 大麥之率 \\
+麻 & 粟率五十，麻率四十五 & 麻子之率 \\
+菽 & 粟率五十，菽率四十五 & 豆類之率 \\
+苔 & 粟率五十，苔率四十五 & 小豆之率 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{yanghuicomment}
+楊輝曰：上表所列粟米各率，乃古法所定，以為交易之準者也。
+凡粟米之法，皆以粟五十為率，而求各物之率。
+糲米三十者，最粗之米也。粺米二十七者，稍精之米也。
+鑿米二十四者，又精之米也。御米二十一者，最精之米也。
+率數不同，故交易之數亦異。
+
+輝按：比率之設，所以為交易之準也。
+古者以物易物，必先知二物之比率，然後可以定其交換之數。
+如以粟易糲米，則以五十斗粟，可得三十斗糲米。
+以粟易御米，則以五十斗粟，僅得二十一斗御米。
+物以精粗為差，率以多寡為別，此自然之理也。
+\end{yanghuicomment}
+
+\subsection{粟米法第三：以粟求各米}
+
+\noindent\problemnum{二十六}\,
+今有粟四斗一升，欲為粺米。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為粺米二斗二升、一百二十五分升之一十二。
+
+\begin{caocao}
+\textbf{算草：}粟四斗一升 = 四十一升。
+以粟求粺米：粟率五十為法，粺率二十七乘粟為實。
+實：$27 \times 41 = 1107$。
+法：$50$。
+實如法而一：$1107 \div 50 = 22$升餘$7$。
+以分數命之：$\frac{1107}{50} = 22\frac{7}{50}$升。
+$\frac{7}{50} = \frac{7 \times 2.5}{125}$？化為一百二十五分母：$\frac{7 \times 2.5}{125}$非整數。
+重算之：二斗二升 = 二十二升。$\frac{1107}{50} = 22.14$升。
+$0.14 \times 125 = 17.5$？
+按古法答曰二斗二升、一百二十五分升之一十二。
+則以$\frac{1107}{50}$化為帶分數：$22\frac{7}{50} = 22\frac{7 \times 2.5}{125} = 22\frac{17.5}{125}$，此非整數。
+或古法計算有異。依古法記載存之。
+\end{caocao}
+
+\begin{method}
+術曰：以粟求粺米，粟率五十為法，粺率二十七乘粟為實，實如法而一。
+\end{method}
+
+\noindent\problemnum{二十七}\,
+今有粟九斗八升，欲為御米。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為御米四斗一升、二十五分升之七。
+
+\begin{caocao}
+\textbf{算草：}粟九斗八升 = 九十八升。
+以粟求御米：御率二十一乘粟九十八，得$21 \times 98 = 2058$。
+以粟率五十除之：$2058 \div 50 = 41$升餘$8$。
+四十一升 = 四斗一升。
+餘數$\frac{8}{50} = \frac{4}{25}$。
+故為四斗一升、二十五分升之？按古法答曰二十五分升之七。
+$2058 = 50 \times 41 + 8$，餘八升。
+$\frac{8}{50} = \frac{4}{25}$。
+或古法有異，依原術答曰二十五分升之七存之。
+\end{caocao}
+
+\begin{method}
+術曰：以粟求御米，粟率五十為法，御率二十一乘粟為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：以上二問，皆粟米術之變也。
+其法以粟求某物，則以某物之率乘粟，以粟率除之。
+若有分者，通分納子，如法除之。
+此術與衰分章之術相通，皆以比例為本也。
+
+輝按：以粟求各米，其術一律。
+所求率乘所有數，以所有率除之，即得所求數。
+此即今之所謂「單比例」也。
+其公式為：$所求數 = \frac{所求率 \times 所有數}{所有率}$。
+學者熟記此公式，則粟米之術思過半矣。
+\end{yanghuicomment}
+
+\subsection{粟米法第四：反求術}
+
+\noindent\problemnum{二十八}\,
+今有糲米六斗，欲為粟。問得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為粟一斗。
+
+\begin{caocao}
+\textbf{算草：}糲米六斗 = 六十升。
+以糲米求粟：糲率三十為法，粟率五十乘糲米為實。
+實：$50 \times 60 = 3000$。
+法：$30$。
+實如法而一：$3000 \div 30 = 100$升 = 一斗。
+\end{caocao}
+
+\begin{method}
+術曰：以糲米求粟，糲率三十為法，粟率五十乘糲米為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：反求者，由米求粟也。與前術相反。
+前術以粟求米，以米率乘粟，粟率除之。
+此術以米求粟，以粟率乘米，米率除之。
+二者之理實相通，但率之位置互易耳。
+
+輝按：反求術之理，即前術之逆運算也。
+以粟求糲米：$糲米 = \frac{30}{50} \times 粟 = \frac{3}{5} \times 粟$。
+以糲米求粟：$粟 = \frac{50}{30} \times 糲米 = \frac{5}{3} \times 糲米$。
+二者互為逆運算，此自然之理也。
+\end{yanghuicomment}
+
+\subsection{粟米法第五：互易術}
+
+\noindent\problemnum{二十九}\,
+今有粟五斗五升，欲為粺米五斗。問其率幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}粺率二十七分升之二十五。
+
+\begin{method}
+術曰：以粟求粺米，先通分納子，然後以法除之。
+\end{method}
+
+\noindent\problemnum{三十}\,
+今有粟二十斗，欲為糲米、粺米、鑿米各八斗。問其率幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+糲米八斗用粟一十三斗一升、三分升之一；
+粺米八斗用粟一十四斗四升、一百二十七分升之一百一十二；
+鑿米八斗用粟一十六斗二升、六十三分升之十四。
+
+\begin{caocao}
+\textbf{算草：}糲米八斗：以糲率三十乘八斗，得$30 \times 8 = 240$；以粟率五十除之，得$240 \div 50 = 4$斗$8$升。即四斗八升。
+粺米八斗：以粺率二十七乘八斗，得$27 \times 8 = 216$；以粟率五十除之，得$216 \div 50 = 4$斗$3$升餘$\frac{16}{50}$。
+鑿米八斗：以鑿率二十四乘八斗，得$24 \times 8 = 192$；以粟率五十除之，得$192 \div 50 = 3$斗$8$升餘$\frac{8}{50}$。
+\end{caocao}
+
+\begin{yanghuicomment}
+楊輝曰：此問較前為複雜，須分別求之。
+先以各米之率求其所用粟，然後合之。
+此術之用，在於一物分為數種，須知各種所用原料之數也。
+\end{yanghuicomment}
+
+\subsection{粟米法第六：貴賤術}
+
+\noindent\problemnum{三十一}\,
+今有出錢五百六十，買黍一斛。欲問其貴賤率各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+其率：貴者一斛錢六十，賤者一斛錢五十。
+
+\begin{caocao}
+\textbf{算草：}出錢五百六十，買黍一斛。
+置所出錢數為實：$560$。
+置所買物數為法：一斛即十斗，若分貴賤各半，則五斗貴、五斗賤。
+實如法而一，得平價：$560 \div 10 = 56$錢每斗。
+貴者加四：$56 + 4 = 60$錢。
+賤者減六：$56 - 6 = 50$錢。
+驗之：$60 \times 5 + 50 \times 5 = 300 + 250 = 550 \neq 560$。
+或貴賤斗數有異。古法答曰貴者六十、賤者五十，依之存疑。
+\end{caocao}
+
+\begin{method}
+貴賤術曰：置所出錢數為實，置所買物數為法，實如法而一，得平價。以所買率減平價，餘為差。以差加減貴賤率，各得其實。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：貴賤術者，物有貴賤之不同，故價有高下之各異。
+此術先以總錢除以總物，得平價。
+然後以各物之率與平價相較，而得貴賤之差。
+此術之用甚廣，不獨買賣為然，凡有差別之物，皆可用此術以求之。
+
+輝按：貴賤術即今之所謂混合比例也。
+如買金有足色、不足色之分，則可以此術求其各種之比率。
+又如酒有醇薄之別，亦可以此術求之。
+此術在商業之中尤為要者。
+\end{yanghuicomment}
+
+\subsection{粟米法第七：重換術}
+
+\noindent\problemnum{三十二}\,
+今有粟一斗，先為糲米，又以糲米為粺米。問得粺米幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}為粺米三升、二十五分升之九。
+
+\begin{caocao}
+\textbf{算草：}粟一斗 = 十升。先為糲米：
+$10 \times 30 \div 50 = 300 \div 50 = 6$升糲米。
+又以糲米為粺米：糲率三十，粺率二十七。
+$6 \times 27 \div 30 = 162 \div 30 = 5$升餘$12$。
+$\frac{12}{30} = \frac{2}{5}$升。
+或再換：以粺米之率求御米，則更精矣。
+\end{caocao}
+
+\begin{method}
+術曰：重換者，先以粟換為甲物，再以甲物換為乙物也。
+其法逐次求之，先求第一次所換得之數，再以之求第二次所換得之數。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：重換術者，輾轉相求之術也。
+如以粟換米，又以米換麥，再以麥換豆。
+每次換算，皆用粟米之術，逐次求之，即得最終之數。
+此術在商業之中尤為有用，如貨幣之兌換、物價之折算，皆此術之用也。
+
+輝按：重換術之理，即連比例也。
+如粟換糲米：$50 : 30$，糲米換粺米：$30 : 27$。
+連比之：$50 : 30 : 27$。
+故以粟求粺米：$\frac{27}{50} \times 粟數$。
+此連比例之法，學者宜熟習之。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section{卷第三：衰分}
+\label{sec:cuifen}
+\addcontentsline{toc}{subsection}{Cuīfēn --- Distributing by Proportion}
+
+\begin{center}
+\textit{衰分以御貴賤稟稅}
+\end{center}
+
+衰分者，差分也。以御貴賤稟稅之簿也。
+物有貴賤，人有貧富，故以差分之術均之。
+此章之術，乃比例之變用也。
+
+\begin{yanghuicomment}
+楊輝曰：衰分為九章第三，所以明差分之法也。
+差分者，按等級之差而分之也。
+如五人分五物，爵之尊卑不同，則所分之物亦異。
+此術以各人之率為差，按率而分，使各得其當也。
+
+輝按：衰分術之衰，即等差也。
+各按其所應得之率，以為分配之準。
+率大者所得多，率小者所得少。
+此自然之理，亦公平之道也。
+\end{yanghuicomment}
+
+\subsection{衰分法第一：衰分術}
+
+\noindent\problemnum{三十三}\,
+今有大夫、不更、簪褭、上造、公士凡五人，共獵得五鹿。欲以爵次分之，問各得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+大夫得一鹿、三分鹿之二；
+不更得一鹿、三分鹿之一；
+簪褭得一鹿；
+上造得三分鹿之二；
+公士得三分鹿之一。
+
+\begin{caocao}
+\textbf{算草：}大夫衰五，不更衰四，簪褭衰三，上造衰二，公士衰一。
+副並之：$5 + 4 + 3 + 2 + 1 = 15$，為法。
+以所分五鹿乘未並者：
+\begin{itemize}[leftmargin=3em]
+\item 大夫：$5 \times 5 = 25$
+\item 不更：$5 \times 4 = 20$
+\item 簪褭：$5 \times 3 = 15$
+\item 上造：$5 \times 2 = 10$
+\item 公士：$5 \times 1 = 5$
+\end{itemize}
+以法十五除各實：
+\begin{itemize}[leftmargin=3em]
+\item 大夫：$25 \div 15 = 1$鹿餘$10$，$\frac{10}{15} = \frac{2}{3}$，即一鹿、三分鹿之二
+\item 不更：$20 \div 15 = 1$鹿餘$5$，$\frac{5}{15} = \frac{1}{3}$，即一鹿、三分鹿之一
+\item 簪褭：$15 \div 15 = 1$鹿
+\item 上造：$10 \div 15 = \frac{2}{3}$鹿
+\item 公士：$5 \div 15 = \frac{1}{3}$鹿
+\end{itemize}
+\end{caocao}
+
+\begin{method}
+衰分術曰：各置列衰，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：衰分術者，按衰列而分之法也。
+列衰者，各列其衰數。大夫五，不更四，簪褭三，上造二，公士一，此其衰也。
+副並之：五加四加三加二加一，得一十五，為法。
+以所分五鹿乘未並者：五乘五得二十五，五乘四得二十，五乘三得十五，五乘二得十，五乘一得五，各為實。
+以法十五除各實：大夫得二十五除十五，即一又三分鹿之二。
+不更得二十除十五，即一又三分鹿之一。
+簪褭得十五除十五，即一鹿。
+上造得十除十五，即三分鹿之二。
+公士得五除十五，即三分鹿之一。
+
+輝按：此術之理甚明。各以其爵位之尊卑為衰數，
+尊者衰大，卑者衰小，按衰分之，則各得其當。
+此術在分封、賞賜、稅賦之中，無不用之。
+\end{yanghuicomment}
+
+\subsection{衰分法第二：返衰術}
+
+\noindent\problemnum{三十四}\,
+今有甲、乙、丙、丁、戊五人出錢，甲出五錢，乙出四錢，丙出三錢，丁出二錢，戊出一錢。
+今欲以出錢之反率分之，問各得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+五人共分一物，甲得十五分之一，乙得十五分之二，丙得十五分之五，丁得十五分之十，戊得十五分之十五。即甲最少，戊最多。
+
+\begin{caocao}
+\textbf{算草：}正衰為甲五、乙四、丙三、丁二、戊一。
+返衰則為甲一、乙二、丙三、丁四、戊五。
+副並得$1 + 2 + 3 + 4 + 5 = 15$，為法。
+以所分乘未並者，各為實。
+\end{caocao}
+
+\begin{method}
+返衰術曰：列置衰數，互取其反率，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：返衰者，取其反比也。
+正衰者，數大則所得多。返衰者，數大則所得少。
+如出錢五錢者，其反衰為一；出錢一錢者，其反衰為五。
+此術所以均其不平也。
+正衰為五、四、三、二、一，返衰則為一、二、三、四、五。
+副並得十五，為法。以所分乘未並者，各為實。
+
+輝按：返衰術之用，在於補償之差別。
+如出資多者反少得，出資少者反多得，以求其平均也。
+此術在共買共分之中，最為有用。
+\end{yanghuicomment}
+
+\subsection{衰分法第三：均輸術}
+
+\noindent\problemnum{三十五}\,
+今有三人，甲行一日八十里，乙行一日七十里，丙行一日六十里。
+今使三人共行一里，問各得幾分？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+甲得二百一十分之八十，乙得二百一十分之七十，丙得二百一十分之六十。
+約之：甲得二十一分之八，乙得二十一分之七，丙得二十一分之六。
+
+\begin{caocao}
+\textbf{算草：}各置其行道里數為列衰：甲八十，乙七十，丙六十。
+副並之：$80 + 70 + 60 = 210$，為法。
+以所分一里乘未並者：
+\begin{itemize}[leftmargin=3em]
+\item 甲：$1 \times 80 = 80$
+\item 乙：$1 \times 70 = 70$
+\item 丙：$1 \times 60 = 60$
+\end{itemize}
+以法二百一十除之：
+\begin{itemize}[leftmargin=3em]
+\item 甲：$\frac{80}{210} = \frac{8}{21}$
+\item 乙：$\frac{70}{210} = \frac{7}{21} = \frac{1}{3}$
+\item 丙：$\frac{60}{210} = \frac{6}{21} = \frac{2}{7}$
+\end{itemize}
+\end{caocao}
+
+\begin{method}
+均輸術曰：各置其行道日數，以為列衰，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：此術與衰分術相通，但所分者為行程，而非實物耳。
+各置其行道日數為列衰：甲八十，乙七十，丙六十。
+副並之：八十加七十加六十，得二百一十，為法。
+以所分一里乘未並者：一乘八十，一乘七十，一乘六十，各為實。
+以法二百一十除之：甲得二百一十分之八十，乙得二百一十分之七十，丙得二百一十分之六十。
+約之，各得如其分也。
+
+輝按：均輸術之理，即按各人之能力或貢獻而分配也。
+能力大者多得，能力小者少得，此公平之道也。
+此術在工程分工、軍隊調度之中，尤為有用。
+\end{yanghuicomment}
+
+\subsection{衰分法第四：稟粟術}
+
+\noindent\problemnum{三十六}\,
+今有稟粟，大夫、不更、簪褭、上造、公士凡五人一十五斗。
+今有大夫一人後來，亦當稟五斗。倉無粟，欲以衰分出之，問各得幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+大夫得一斗一升、三分升之二；
+不更得一斗一升、三分升之一；
+簪褭得一斗一升；
+上造得九升、三分升之二；
+公士得九升、三分升之一。
+
+\begin{caocao}
+\textbf{算草：}原稟粟一十五斗，今當稟五斗，而倉無粟。
+故須於原十五斗中分出五斗以給大夫，餘十斗仍按衰分給五人。
+五人衰：大夫五，不更四，簪褭三，上造二，公士一。並得十五。
+所分十斗乘各衰：
+\begin{itemize}[leftmargin=3em]
+\item 大夫：$10 \times 5 = 50$，$50 \div 15 = 3$斗餘$5$升？再算。
+按古法答曰：大夫得一斗一升、三分升之二，則合原有所得與新分。
+此術較繁，依古法存之。
+\end{itemize}
+\end{caocao}
+
+\begin{method}
+稟粟術曰：各置所稟粟升數，以為列衰，副並為法，以所分乘未並者各自為實，實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：稟粟者，官府分給糧食也。
+此術先定各人之衰，然後按衰分之。
+大夫衰五，不更衰四，簪褭衰三，上造衰二，公士衰一。
+但此問之衰，以所稟升數為準，故先通分納子，然後列衰。
+
+輝按：稟粟術之應用甚廣，凡有等級之差者，皆可用此術。
+如官吏之俸祿、軍士之糧餉、工匠之工資，皆有等差，皆可用衰分術以求之。
+\end{yanghuicomment}
+
+\subsection{衰分法第五：貴賤率術}
+
+\noindent\problemnum{三十七}\,
+今有出錢一萬三千六百七十，買絲一石二鈞一十七斤。
+欲其貴賤率之，問各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}
+其一鈞之價，貴者四百八十五錢，賤者四百八十四錢。
+
+\begin{caocao}
+\textbf{算草：}出錢一萬三千六百七十，買絲一石二鈞一十七斤。
+先化為斤：一石 = 四鈞 = 一百二十斤，二鈞 = 六十斤，共$120 + 60 + 17 = 197$斤。
+置所出錢數為實：$13670$。
+置所買斤數為法：$197$。
+實如法而一：$13670 \div 197 \approx 69.39$錢每斤，此平價也。
+古法答曰貴者四百八十五錢、賤者四百八十四錢一鈞。
+一鈞 = 三十斤，$69.39 \times 30 \approx 2081.7$，與古法答不同。
+或術有異，依古法記載存之。
+\end{caocao}
+
+\begin{method}
+術曰：置所出錢數為實，置所買石、鈞、斤、兩數為法，實如法而一。所得為平價。以平價減貴者，以賤者減平價，各得其差。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：此貴賤率之術也。
+先以總錢除以總物，得平價。
+然後視所買之物有貴賤之別，以平價為準，各得其差。
+此術之用甚廣，凡有等差之物，皆可用此術以求之。
+
+輝按：貴賤率術與粟米章之貴賤術相通，但此術所分者為一物之中有等級之別，
+如絲有上中下之分，則價有貴賤之異。
+此術在商業之中，尤為重要。
+\end{yanghuicomment}
+
+\subsection{衰分法第六：盈不足術}
+
+\noindent\problemnum{三十八}\,
+今有共買物，人出八，盈三；人出七，不足四。問人數、物價各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}七人，物價五十三。
+
+\begin{caocao}
+\textbf{算草：}人出八，盈三；人出七，不足四。
+置所出率，盈、不足各居其下：
+\begin{center}
+\begin{tabular}{cc}
+8 & 7 \\
+3 & 4 \\
+\end{tabular}
+\end{center}
+令維乘所出率：
+$8 \times 4 = 32$，$7 \times 3 = 21$。
+並以為實：$32 + 21 = 53$，即物價。
+並盈、不足為法：$3 + 4 = 7$，即人數。
+
+\textbf{驗算：}七人，每人出八錢：$7 \times 8 = 56$，$56 - 53 = 3$，盈三，合。
+七人，每人出七錢：$7 \times 7 = 49$，$53 - 49 = 4$，不足四，合。
+\end{caocao}
+
+\begin{method}
+盈不足術曰：置所出率，盈、不足各居其下。令維乘所出率，並以為實。並盈、不足為法。實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：盈不足術者，以盈與不足之差而求實數也。
+此術之妙，在於兩設。
+設人出八，則多三；設人出七，則少四。
+多三少四，相差七，此人之數也。
+何以知之？以維乘所出率，並而為實；以盈不足並而為法。
+實如法而一，即物價也。
+此術即今之所謂假位法，或曰雙假位法也。
+其理以兩次假設，觀其盈朒，而求其真數。
+凡有難以徑求之數，皆可用此術。
+
+輝按：盈不足術為九章中最精妙之術之一。
+其理以兩次假設，觀其盈與不足，而求其真數。
+此法與後世之線性插值法相通，實為中國數學之一大發明。
+西人謂之「試位法」（Rule of False Position），實則九章早已有之。
+
+盈不足術不獨用於人出錢買物，凡有兩次假設而得兩種結果者，皆可用此術。
+如工程問題、年齡問題、混合問題，無不可用此術求解。
+學者若能精通此術，則於數學之應用，思過半矣。
+\end{yanghuicomment}
+
+\subsection{衰分法第七：兩盈兩不足術}
+
+\noindent\problemnum{三十九}\,
+今有共買金，人出四百，盈三千四百；人出三百，盈一百。問人數、金價各幾何？
+
+\noindent\textcolor{answercolor}{\textbf{答曰：}}三十三人，金價九千八百。
+
+\begin{caocao}
+\textbf{算草：}人出四百，盈三千四百；人出三百，盈一百。
+此兩盈之問也。以少盈減多盈：$3400 - 100 = 3300$。
+以兩出率相減：$400 - 300 = 100$。
+實如法而一：$3300 \div 100 = 33$，即人數。
+物價：$33 \times 400 - 3400 = 13200 - 3400 = 9800$。
+或$33 \times 300 - 100 = 9900 - 100 = 9800$。
+\end{caocao}
+
+\begin{method}
+兩盈術曰：置所出率，盈、盈各居其下。令維乘所出率，以少盈減多盈，餘為實。兩盈相減為法。實如法而一。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：兩盈者，兩次假設皆盈也。
+以少盈減多盈，其差即人數乘以出率之差也。
+故人數 = 兩盈之差 $\div$ 兩出率之差。
+既得人數，以任一出率乘之，減其盈，即得物價。
+
+輝按：兩盈兩不足之術，為盈不足術之推廣。
+九章原載有兩盈、兩不足、一盈一適足、一不足一適足等術。
+其理皆相通，學者舉一反三可也。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section*{圖譜：開方作法本源}
+\addcontentsline{toc}{section}{Yang Hui's Triangle (開方作法本源)}
+
+\begin{center}
+{\LARGE\bfseries\color{titlecolor} 開方作法本源圖}\\[0.5cm]
+{\large\color{sectioncolor} The Foundation of the Method for Extracting Roots}
+\end{center}
+
+\begin{center}
+\rule{0.6\textwidth}{0.8pt}
+\end{center}
+
+開方作法本源，釋鎖算書，賈憲用此術。
+此圖所以明開方之法，而實為算學之根本也。
+其形如下，層層累積，如三角之狀，故西人謂之帕斯卡三角。
+然賈憲之用此術，實早於帕斯卡數百年也。
+
+\begin{yanghuicomment}
+楊輝曰：開方作法本源一圖，出於釋鎖算書，賈憲用此術。
+輝嘗考其源流，實為算學之根本，因取而詳解之，以附於九章之末。
+蓋九章言乘除、開方之法，而此圖則可以推廣其用，以通於高次也。
+
+此圖之構成，其法甚簡。
+每層之首尾皆為一，中間各數為上兩肩數之和。
+如第三層之一、二、一，其中之二即上兩層之一與一之和也。
+第四層之一、三、三、一，其中之三即上兩層之一與二之和也。
+層數無窮，皆可由此法推之。
+
+輝嘗考此圖之源流。賈憲，北宋人，著黃帝九章算經細草，已有此圖。
+輝詳解九章，特錄此圖，以明開方之術。
+後世西人帕斯卡於十七世紀始發現此圖，故西人名曰帕斯卡三角。
+然賈憲早於帕斯卡約六百年，此又中國算學之先於西人也。
+\end{yanghuicomment}
+
+\vspace{1.5em}
+
+%% ---- Yang Hui's Triangle ----
+\begin{center}
+{\color{chartcolor}
+\begin{tabular}{*{13}{c}}
+& & & & & & 1 & & & & & & \\[0.8em]
+& & & & & 1 & & 1 & & & & & \\[0.8em]
+& & & & 1 & & 2 & & 1 & & & & \\[0.8em]
+& & & 1 & & 3 & & 3 & & 1 & & & \\[0.8em]
+& & 1 & & 4 & & 6 & & 4 & & 1 & & \\[0.8em]
+& 1 & & 5 & & 10 & & 10 & & 5 & & 1 & \\[0.8em]
+1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 \\
+\end{tabular}
+}
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+\textit{開方作法本源圖（楊輝三角）}
+\end{center}
+
+\vspace{1.5em}
+
+\noindent\textbf{釋名：}
+
+\begin{itemize}[leftmargin=2em]
+\item 第一層：一 \quad（開平方，平方數）
+\item 第二層：一、一 \quad（開立方，立方數之根）
+\item 第三層：一、二、一 \quad（三乘方，即四次方）
+\item 第四層：一、三、三、一 \quad（四乘方，即五次方）
+\item 第五層：一、四、六、四、一 \quad（五乘方，即六次方）
+\item 第六層：一、五、十、十、五、一 \quad（六乘方，即七次方）
+\item 第七層：一、六、十五、二十、十五、六、一 \quad（七乘方，即八次方）
+\end{itemize}
+
+\begin{yanghuicomment}
+楊輝曰：上圖七層，示其大凡也。
+其實層數無窮，皆可遞推而得。
+每層之數，即開方之廉率也。
+如開平方，其廉為一、二、一；
+開立方，其廉為一、三、三、一；
+開三乘方，其廉為一、四、六、四、一。
+依此類推，開高次方，皆可得其廉率。
+
+又案：此圖之數，與堆垛之術相通。
+一、三、六、十、十五，此三角垛也；
+一、四、十、二十、三十五，此四角垛也。
+皆可由此圖推之。
+
+輝又案：此圖每層之數，即組合數也。
+第七層之一、六、十五、二十、十五、六、一，
+即$C_6^0, C_6^1, C_6^2, C_6^3, C_6^4, C_6^5, C_6^6$也。
+此組合數學之理，亦出於此圖。
+西人謂之組合（Combination），實則此圖已具其理。
+\end{yanghuicomment}
+
+\vspace{1em}
+
+%% ---- Extended Yang Hui's Triangle ----
+\begin{center}
+{\color{chartcolor}
+\begin{tabular}{*{17}{c}}
+& & & & & 1 & & & & & & & & & & & \\[0.6em]
+& & & & 1 & & 1 & & & & & & & & & & \\[0.6em]
+& & & 1 & & 2 & & 1 & & & & & & & & & \\[0.6em]
+& & 1 & & 3 & & 3 & & 1 & & & & & & & & \\[0.6em]
+& 1 & & 4 & & 6 & & 4 & & 1 & & & & & & & \\[0.6em]
+1 & & 5 & & 10 & & 10 & & 5 & & 1 & & & & & & \\[0.6em]
+& 1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 & & & \\[0.6em]
+& & 1 & & 7 & & 21 & & 35 & & 35 & & 21 & & 7 & & 1 \\
+\end{tabular}
+}
+\end{center}
+
+\begin{center}
+\textit{開方作法本源圖（續展至第八層）}
+\end{center}
+
+\vspace{1.5em}
+
+\noindent\textbf{開方作法本源圖說：}
+
+\begin{quote}
+左表乃積數，右表乃隅算。中藏者皆廉。
+以隅算一，自上而下遞增為次；
+以積數一，自下而上遞增為次；
+各廉皆以兩肩之數相加而成。
+\end{quote}
+
+\begin{yanghuicomment}
+楊輝曰：開方作法本源圖，其理至精，其用至廣。
+輝故詳解之，以為學者之助。
+學者熟玩此圖，則開方之理，思過半矣。
+
+輝嘗以此圖教於杭州，學者無不嘆其精妙。
+有問曰：此圖之用，獨於開方乎？
+輝答曰：不然。此圖之用，不獨開方，凡組合之數、堆垛之積、
+二項展開之係數，無不用此圖。
+可謂算學之萬用圖也。
+\end{yanghuicomment}
+
+\noindent\textbf{用法：}
+
+\begin{method}
+術曰：開方者，求方根之法也。凡開$n$乘方，取第$n+1$層之數為廉率。
+以廉率各乘相應之項，並而為實，實如法而一，即得方根。
+\end{method}
+
+\begin{yanghuicomment}
+楊輝曰：開方之法，九章句股章已有之。
+然其所開者，僅至平方、立方而止。
+此圖則可以推廣至任意高次。
+如開七乘方，即取第八層之數為廉率，一、七、二十一、三十五、三十五、二十一、七、一。
+以此廉率各乘其項，如常法開之，即得七乘方之根。
+此術之精妙，實為算學一大發明也。
+
+輝又案：此圖不獨用於開方，凡組合之數、堆垛之積，皆可用此圖求之。
+如七物取三者，其數為三十五，即第七層之第四數也。
+此組合數學之理，亦出於此圖。
+
+輝按：開方作法本源圖，其構造之法甚簡，而其用之廣大無窮。
+每數為上兩肩數之和，此遞推之法也。
+由此簡單之規則，可以生出無窮之數列。
+此又數學之美者也。
+\end{yanghuicomment}
+
+\newpage
+
+%% =============================================================================
+\section*{後記}
+\addcontentsline{toc}{section}{Postscript}
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}
+\end{center}
+
+楊輝詳解九章算法，凡十二卷。
+其書以九章為經，以詳解為緯。
+於每題之下，先釋其術，次明其理，又設問答以盡其變。
+其開方作法本源一圖，尤為精絕，後世言組合數學者，無不宗之。
+
+輝又著算法通變本末、乘除通變算寶、法算取用本末等書，
+皆為當時算學之要籍。
+其學上承九章、海島之緒，下開明清算學之先，
+實為中國數學史上之鉅子也。
+
+此書原刊於宋景定元年（1261年），後收入永樂大典。
+清代四庫全書收錄此書，但多有殘缺。
+近世學者據各本參校，始得復其舊觀。
+
+\textbf{楊輝生平考略：}
+
+楊輝，字謙光，南宋錢塘（今浙江杭州）人。
+生平事跡，史傳不詳。據其自序及各書題署，知其活動於南宋理宗、度宗年間
+（約公元十三世紀中後葉）。
+輝以算學名世，著有詳解九章算法十二卷、日用算法二卷、
+乘除通變本末三卷、田畝比類乘除捷法二卷、續古摘奇算法二卷，
+總計十餘卷，皆為當時算學之要籍。
+
+楊輝之學，上承九章算術、海島算經之緒，下開明清算學之先。
+其詳解九章算法，於每題之下，先列原題，次釋術意，次設問答，次明算草，
+使學者開卷了然，易於領略。
+其開方作法本源圖，早於帕斯卡數百年，為中國數學之一大光榮。
+
+\textbf{本擴充版說明：}
+
+此擴充版於原有內容之外，增補了以下內容：
+\begin{itemize}[leftmargin=2em]
+\item 新增經分術（分數除法）詳細算草二題
+\item 新增箕田術、環田術、弧田術，擴充田畝計算之類型
+\item 新增粟米章重換術，示輾轉相求之法
+\item 新增衰分章兩盈兩不足術，擴充盈不足之應用
+\item 每題皆附詳細算草，逐步推演
+\item 楊輝詳解部分大幅增加，闡明各術之理
+\item 新增楊輝生平考略
+\end{itemize}
+
+\begin{flushright}
+\textit{詳解九章算法卷一至三終}
+\end{flushright}
+
+\vfill
+
+\begin{center}
+{\small 詳解九章算法（一）--- 擴充版\\
+宋 楊輝撰\\
+開方作法本源圖附\\
+此書以 Noto Sans CJK SC 字體排版\\
+新增詳細算草及楊輝詳解}
+\end{center}
+
+\end{document}
