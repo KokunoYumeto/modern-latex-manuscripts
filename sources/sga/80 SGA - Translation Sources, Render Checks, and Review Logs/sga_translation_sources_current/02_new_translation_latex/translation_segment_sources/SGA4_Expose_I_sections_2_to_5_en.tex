@@ -1,0 +1,874 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: I, Presheaves
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/01/01.tex
+% Range translated in this working draft section: Sections 2--5, source lines 411--1738.
+% Status: draft translation, compile-checked, not proofed against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,amscd}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fun}{\operatorname{Fun}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\source}{\operatorname{source}}
+\newcommand{\target}{\operatorname{target}}
+\newcommand{\Fl}{\operatorname{Fl}}
+\newcommand{\can}{\operatorname{can}}
+\newcommand{\esj}{\operatorname{und}}
+\newcommand{\Lib}{\operatorname{Free}}
+\newcommand{\resp}{respectively}
+\newcommand{\ie}{i.e.}
+\newcommand{\cf}{cf.}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\hatC}{\widehat{C}}
+\newcommand{\hatCp}{\widehat{C'}}
+\newcommand{\Hhom}{\operatorname{Hom}}
+\newcommand{\fibprod}[3]{#1\times_{#3}#2}
+\newcommand{\qedtext}{\hfill\(\square\)}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{proofsketch}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e I. Presheaves}}\\[0.35em]
+{\large Sections 2--5}\\[0.35em]
+A. Grothendieck and J.-L. Verdier
+\end{center}
+
+\bigskip
+
+
+\setcounter{section}{1}
+\section{Projective and inductive limits}
+
+Let $C$ be a $\U$-category and let $I$ be a small category. Write $\Fun(I,C)$ for the category of functors from $I$ to $C$. The category $\Fun(I,C)$ is a $\U$-category. To every object $X$ of $C$ associate the subcategory $\Xcal$ of $C$ having $X$ as its only object and the identity of $X$ as its only arrow. Let $i_X:\Xcal\to C$ be the inclusion functor. There is a unique functor $e_X:I\to \Xcal$, and we shall denote by $k_X:I\to C$ the functor $i_X\circ e_X$. We shall say that $k_X$ is the constant functor with value $X$. The correspondence $X\mapsto k_X$ is visibly functorial in $X$, which enables us to define, for every functor $G:I\to C$, the presheaf
+\[
+X\longmapsto \Hom_{\Fun(I,C)}(k_X,G).
+\]
+
+\begin{statement}{Definition 2.1}
+The \emph{projective limit} of $G$, denoted $\varprojlim_I G$, is the presheaf
+\[
+X\longmapsto \Hom_{\Fun(I,C)}(k_X,G).
+\]
+When the presheaf $\varprojlim_I G$ is representable, we again denote by $\varprojlim_I G$ an object of $C$ representing it. The object $\varprojlim_I G$ is therefore defined only up to isomorphism. When no confusion can result, we use the abbreviated notation $\varprojlim G$.
+\end{statement}
+
+As $G$ varies, $\varprojlim G$ is a functor from $\Fun(I,C)$ to $\widehat C$.
+
+\subsection*{2.1.1}
+By symmetry, reversing the direction of the arrows in $C$, one defines similarly the inductive limit of a functor: it is a covariant functor on $C$ with values in the category of $\U$-sets. We shall use the notations $\varinjlim_I G$ and $\varinjlim G$.
+
+Products, fiber products, and kernels are projective limits. Similarly, sums, amalgamated sums, and cokernels are inductive limits.
+
+\begin{statement}{Definition 2.2}
+Let $I$ and $C$ be two categories, and let $G:I\to C$ be a functor. We say that the projective limit of $G$ is \emph{representable} if there exists a universe $\U$ such that:
+\begin{enumerate}[label=\arabic*)]
+\item the category $I$ is $\U$-small;
+\item the category $C$ is a $\U$-category;
+\item the presheaf $\varprojlim G$, with values in the category of $\U$-sets, is representable.
+\end{enumerate}
+\end{statement}
+
+It follows from no.~1 that the object $\varprojlim G$ representing the presheaf $\varprojlim G$ does not depend, up to isomorphism, on the universe $\U$. Note also that there is a smallest universe $\U'$ having properties (1) and (2), and that the presheaf $\varprojlim G$ necessarily takes values in the category of $\U'$-sets.
+
+\subsection*{2.2.1}
+Let $I$ and $C$ be two categories. We say that \emph{$I$-projective limits in $C$ are representable} if, for every functor $G:I\to C$, the projective limit of $G$ is representable. Finally, let $C$ be a category and let $\U$ be a universe. We say that \emph{$\U$-projective limits in $C$ are representable} if, for every $\U$-small category $I$ and every functor $G:I\to C$, the projective limit of $G$ is representable.
+
+\begin{statement}{Proposition 2.3}
+Let $C$ be a category and let $\U$ be a universe. The following assertions are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item $\U$-projective limits in $C$ are representable.
+\item Products indexed by a small set are representable, and kernels of pairs of arrows are representable.
+\item Products indexed by a small set are representable, and fiber products are representable.
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}
+It suffices to observe that there is an isomorphism, functorial in $G$,
+\[
+\varprojlim G=\Ker\left(\prod_{i\in\Ob(I)}G(i)\rightrightarrows \prod_{u\in\Fl(I)}G(\target(u))\right),
+\]
+where the pair of arrows is defined by the morphisms
+\begin{align*}
+\prod_{i\in\Ob(I)}G(i)&\xrightarrow{\pr_{\target(u)}}G(\target(u)),\\
+\prod_{i\in\Ob(I)}G(i)&\xrightarrow{\pr_{\source(u)}}G(\source(u))\xrightarrow{G(u)}G(\target(u)).
+\end{align*}
+Moreover, it is clear that
+\[
+\Ker\bigl(X\mathrel{\substack{\xrightarrow{u}\\[-.4ex]\xrightarrow[v]{}}}Y\bigr)=X\times_{X\times Y}X,
+\]
+where the two morphisms from $X$ to $X\times Y$ are $\id_X\times u$ and $\id_X\times v$.
+\end{proofsketch}
+
+\subsection*{2.3.1}
+There are, of course, analogous definitions and assertions for inductive limits, which we shall not spell out. The same applies to finite projective and inductive limits, that is, those relative to a finite category $I$.
+
+\begin{statement}{Corollary 2.3.2}
+Let $\U$-$\Set$ denote the category of $\U$-sets, and let $\U$-$\Ab$ denote the category of abelian-group objects of $\U$-$\Set$. The $\U$-projective and $\U$-inductive limits in $\U$-$\Set$ and in $\U$-$\Ab$ are representable.
+\end{statement}
+
+\begin{statement}{Proposition 2.3.3}
+Let $I$ be a small category, let $F:I\to\U$-$\Set$ be a functor, and let $G\subset\Ob(I)$ be a small set of objects of $I$ such that, for every object $X$ of $I$, there exists an object $Y\in G$ and a morphism $Y\to X$ (respectively $X\to Y$). Then $\varprojlim_I F$ (respectively $\varinjlim_I F$) is representable, and
+\[
+\operatorname{card}(\varprojlim_I F)\leq \prod_{Y\in G}\operatorname{card}(F(Y))
+\]
+respectively
+\[
+\operatorname{card}(\varinjlim_I F)\leq \sum_{Y\in G}\operatorname{card}(F(Y)).
+\]
+\end{statement}
+
+\begin{proofsketch}
+One checks immediately that $\varprojlim_I F$ (respectively $\varinjlim_I F$) is isomorphic to a subobject of $\prod_{Y\in G}F(Y)$ (respectively to a quotient of $\coprod_{Y\in G}F(Y)$), whence the proposition.
+\end{proofsketch}
+
+\begin{statement}{Definition 2.4.1}
+Let $C$ be a category in which finite projective (respectively inductive) limits are representable, and let $u:C\to C'$ be a functor. We say that $u$ is \emph{left exact} (respectively \emph{right exact}) if it ``commutes'' with finite projective (respectively finite inductive) limits. A functor that is both left and right exact is called \emph{exact}.
+\end{statement}
+
+\subsection*{2.4.2}
+It follows from 2.3 that, for a functor to be left exact, it is necessary and sufficient that it carry the final object, i.e. the empty product, to the final object, the product of two objects to the product of their images, and the kernel of a pair of arrows to the kernel of the image pair; equivalently, that it carry the final object to the final object and fiber products to fiber products. Here it is assumed that finite projective limits in $C$ are representable.
+
+\subsection*{2.5.0}
+Let $I$, $J$, and $C$ be three categories, and let $G:I\times J\to C$ be a functor, i.e. a functor from $I$ with values in the category of functors from $J$ to $C$. Suppose that the projective limits of the functors
+\begin{align*}
+G_i:J&\longrightarrow C\qquad (i\in\Ob(I))\\
+j&\longmapsto G(i,j)
+\end{align*}
+are representable, and that the functor
+\[
+i\longmapsto \varprojlim_J G_i
+\]
+admits a representable projective limit. Then it is clear that the functor $G$ admits a representable projective limit and that there is a canonical isomorphism
+\[
+\varprojlim_{I\times J}G\xrightarrow{\sim}\varprojlim_I\varprojlim_J G_i,
+\]
+and hence a canonical isomorphism
+\[
+\varprojlim_I\varprojlim_JG_i\xrightarrow{\sim}\varprojlim_J\varprojlim_I G_j.
+\]
+We shall say more briefly that projective limits commute with projective limits. One sees in the same way that inductive limits commute with inductive limits. But it is not true in general that inductive limits commute with projective limits.
+
+\begin{statement}{Definition 2.5}
+Let $C$ be a category with representable fiber products, let $I$ be a category, let $G:I\to C$ be a functor, let $g:G\to X$ be a morphism from $G$ to an object of $C$, i.e. a morphism from $G$ to the constant functor associated with $X$, and let $m:Y\to X$ be a morphism of $C$. Let
+\[
+G\times_XY:I\longrightarrow C
+\]
+be the functor
+\[
+i\longmapsto G(i)\times_XY.
+\]
+We say that the inductive limit of $G$ is \emph{universal} if, for every object $X$, every morphism $g:G\to X$, and every morphism $m:Y\to X$,
+\begin{enumerate}[label=\alph*)]
+\item the inductive limit of the functor $G\times_XY$ is representable;
+\item the canonical morphism
+\[
+\varinjlim(G\times_XY)\longrightarrow (\varinjlim G)\times_XY
+\]
+is an isomorphism.
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{Proposition 2.6}
+Let $\U$ be a universe. Inductive limits in $\U$-$\Set$ that are representable, in particular $\U$-inductive limits (2.2.1) in $\U$-$\Set$, are universal.
+\end{statement}
+
+We shall also use another commutation result between projective and inductive limits, which we now present.
+
+\begin{statement}{Definition 2.7}
+A category $I$ is \emph{pseudo-filtered} if it has the following properties:
+\begin{itemize}
+\item[PS 1)] Every diagram of the form
+\[
+\begin{tikzcd}[column sep=small]
+& j\\
+i\arrow[ur]\arrow[dr] & \\
+& j'
+\end{tikzcd}
+\]
+can be inserted into a commutative diagram
+\[
+\begin{tikzcd}[column sep=small]
+& j\arrow[dr] & \\
+i\arrow[ur]\arrow[dr] && k\\
+& j'\arrow[ur] &
+\end{tikzcd}.
+\]
+
+\item[PS 2)] Every diagram of the form
+\[
+\begin{tikzcd}
+i\arrow[r,shift left=.45ex,"u"]\arrow[r,shift right=.45ex,"v"']&j
+\end{tikzcd}
+\]
+can be inserted into a diagram
+\[
+\begin{tikzcd}
+i\arrow[r,shift left=.45ex,"u"]\arrow[r,shift right=.45ex,"v"']&j\arrow[r,"w"]&k
+\end{tikzcd}
+\]
+such that $w\circ u=w\circ v$.
+\end{itemize}
+A category $I$ is called \emph{filtered} if it is pseudo-filtered, nonempty, and connected, i.e. if any two objects of $I$ can be joined by a finite chain of arrows, with no condition imposed on the directions of the arrows. Equivalently, in the presence of PS~2, this means that $I\ne\varnothing$ and that, for any two objects $a,b$ of $I$, there is always an object $c$ of $I$ and arrows $a\to c$ and $b\to c$. A category $I$ is called \emph{cofiltered} if $I^{\op}$ is filtered.
+\end{statement}
+
+\begin{statement}{Example 2.7.1}
+If, in $I$, amalgamated sums (respectively sums of two objects) and cokernels of double arrows are representable, then $I$ is pseudo-filtered (respectively filtered).
+\end{statement}
+
+\begin{statement}{Proposition 2.8}
+Let $\U$ be a universe. Filtered $\U$-inductive limits in $\U$-$\Set$ commute with finite projective limits.
+\end{statement}
+
+One is immediately reduced to proving that filtered $\U$-inductive limits commute with fiber products. The proof is left to the reader. One may use the following description of the limit.
+
+\begin{statement}{Lemma 2.8.1}
+Let $I$ be a small filtered category, and let $i\mapsto X_i$ be a functor from $I$ to $\U$-$\Set$. On the sum set $\coprod_{i\in\Ob I}X_i$, let $R$ be the following relation:
+\begin{itemize}
+\item[(R)] Two elements $x_i\in X_i$ and $x_j\in X_j$ are related if there exist an object $k\in\Ob I$ and two morphisms $u:i\to k$ and $v:j\to k$ such that the images in $X_k$ of $x_i$ and $x_j$ under the transition maps $u$ and $v$, respectively, are equal.
+\end{itemize}
+Then:
+\begin{enumerate}[label=\arabic*)]
+\item $R$ is an equivalence relation.
+\item The quotient $\coprod_{i\in\Ob I}X_i/R$ is canonically isomorphic to $\varinjlim_I X_i$.
+\item Two elements $x_i\in X_i$ and $x_j\in X_j$ are respectively equivalent, modulo $R$, to two elements of one and the same $X_k$.
+\item For every $i\in\Ob I$, two elements $\alpha$ and $\beta$ of $X_i$ are equivalent modulo $R$ if and only if there exists a morphism $u:i\to j$ such that $u(\alpha)=u(\beta)$.
+\end{enumerate}
+\end{statement}
+
+Assertion 1) follows from PS~1 (2.7). To prove 2), one checks that $\coprod_{i\in\Ob I}X_i/R$ has the universal property of the inductive limit; here only PS~1 is used. Assertion 3) follows from the fact that $I$ is connected. Assertion 4) follows from PS~2.
+
+\begin{statement}{Corollary 2.9}
+Let $\gamma$ be a species of algebraic structure ``defined by finite projective limits.'' The reader is asked to give a mathematical meaning to the preceding phrase; let us merely note that the structures of groups, abelian groups, rings, modules, etc. are structures of this kind. Let $\U$-$\gamma$ denote the category of $\gamma$-objects of $\U$-$\Set$. The functor that associates with every object of $\U$-$\gamma$ its underlying set commutes with filtered $\U$-inductive limits. Consequently filtered $\U$-inductive limits in $\U$-$\gamma$ commute with finite projective limits.
+\end{statement}
+
+\begin{statement}{Corollary 2.10}
+Pseudo-filtered $\U$-inductive limits in $\U$-$\Ab$ commute with finite projective limits.
+\end{statement}
+
+One is reduced to filtered limits by decomposing the indexing category into its connected components.
+
+We now record a result that we shall use constantly. Let $C$ and $C'$ be two $\U$-categories, and let
+\[
+\begin{tikzcd}
+C\arrow[r,shift left=.45ex,"u"]&C'\arrow[l,shift left=.45ex,"v"]
+\end{tikzcd}
+\]
+be two functors, with $u$ \emph{left adjoint} to $v$. Recall that this means that there is an isomorphism of bifunctors with values in $\U$-$\Set$,
+\[
+\Hom_{C'}(u(X),X')\xrightarrow{\sim}\Hom_C(X,v(X')).
+\]
+
+\begin{statement}{Proposition 2.11}
+The functor $u$ commutes with representable inductive limits; the functor $v$ commutes with representable projective limits.
+\end{statement}
+
+This assertion means that, for every category $I$ and every functor $G:I\to C'$ such that the projective limit of $G$ is representable, the functor $v\circ G$ admits a representable projective limit and there is a canonical isomorphism
+\[
+v(\varprojlim G)\longrightarrow \varprojlim(v\circ G).
+\]
+The reader will write out for himself the assertion concerning the functor $u$.
+
+Finally, let us point out a computation of projective limits in the case where the indexing category admits products.
+
+\begin{statement}{Proposition 2.12}
+Let $I$ and $C$ be two categories, and let $\V$ be a universe. Suppose that $\V$-projective limits in $C$ are representable and that there exists in $I$ a family of objects $(i_\alpha)_{\alpha\in A}$, with $A\in\V$, such that:
+\begin{enumerate}[label=\arabic*)]
+\item the products $i_\alpha\times i_\beta$ are representable for every pair $(\alpha,\beta)\in A\times A$;
+\item every object of $I$ maps to at least one of the $i_\alpha$.
+\end{enumerate}
+Then, for every contravariant functor
+\[
+F:I^{\op}\longrightarrow C,
+\]
+the projective limit of $F$ exists and there is an isomorphism, functorial in $F$,
+\[
+\varprojlim F\xrightarrow{\sim}\Ker\left(\prod_{\alpha\in A}F(i_\alpha)\rightrightarrows \prod_{(\alpha,\beta)\in A\times A}F(i_\alpha\times i_\beta)\right),
+\]
+where the two arrows are defined by the projections of the products $i_\alpha\times i_\beta$ onto the factors.
+\end{statement}
+
+\section{Exactness properties of the category of presheaves}
+
+Let $C$ be a $\U$-category, and let $\widehat C$ be the category of presheaves on $C$. The exactness properties of $\widehat C$ are all deduced from the following proposition.
+
+\begin{statement}{Proposition 3.1}
+The $\U$-projective and $\U$-inductive limits in $\widehat C$ are representable. For every object $X$ of $C$, the functor on $\widehat C$
+\[
+F\longmapsto F(X),\qquad F\in\widehat C,
+\]
+commutes with inductive and projective limits.
+
+In other words, inductive and projective limits in $\widehat C$ are computed argument by argument. We list a few corollaries.
+\end{statement}
+
+\begin{statement}{Corollary 3.2}
+Let $\gamma$ be an algebraic structure defined by finite projective limits. The category of contravariant functors with values in $\U$-$\gamma$ is equivalent to the category of $\gamma$-objects of $\widehat C$.
+\end{statement}
+
+\begin{statement}{Corollary 3.3}
+A morphism of $\widehat C$ that is both a monomorphism and an epimorphism is an isomorphism. A morphism of $\widehat C$ factors uniquely as an epimorphism followed by a monomorphism. Representable inductive limits in $\widehat C$ are universal. Filtered $\U$-inductive limits in $\widehat C$ commute with finite projective limits. The canonical functor $C\to\widehat C$ commutes with representable projective limits.
+\end{statement}
+
+More generally, one may say that the category $\widehat C$ inherits all the properties of the category of $\U$-sets that involve inductive and projective limits.
+
+\subsection*{3.4.0}
+Let $F$ be an object of $\widehat C$. We denote by $C/F$ the following category. Its objects are pairs consisting of an object $X$ of $C$ and a morphism $u$ from $X$ to $F$. Given two objects $(X,u)$ and $(Y,v)$, a morphism from $(X,u)$ to $(Y,v)$ is a morphism $g:X\to Y$ such that the following diagram is commutative:
+\[
+\begin{tikzcd}
+X\arrow[rr,"g"]\arrow[dr,"u"']&&Y\arrow[dl,"v"]\\
+&F&
+\end{tikzcd}
+\]
+
+\begin{statement}{Proposition 3.4}
+With the notation of (3.4.0), the source functor $C/F\to\widehat C$ admits a representable inductive limit in $\widehat C$. The canonical morphism
+\[
+\varinjlim_{C/F}\mathrm{source}(.)\longrightarrow F
+\]
+is an isomorphism.
+\end{statement}
+
+\begin{statement}{Corollary 3.5}
+Let $F$ and $H$ be two objects of $\widehat C$. There is a canonical isomorphism
+\[
+\Hom(F,H)\xrightarrow{\sim}\varprojlim_{(X,u)\in\Ob(C/F)}H(X).
+\]
+\end{statement}
+
+\begin{proofsketch}
+The corollary follows immediately from 3.4 and 1.2.
+\end{proofsketch}
+
+\begin{statement}{Proposition 3.6}
+Let $C$ be a $\U$-category, let $\V$ be a universe containing $\U$, and let
+\[
+i:\widehat C_{\U}\longrightarrow \widehat C_{\V}
+\]
+be the natural inclusion functor between the corresponding categories of presheaves (1.3). The functor $i$ commutes with inductive and projective limits. Moreover, for every object $F$ of $\widehat C_{\U}$, every subobject of $i(F)$ is isomorphic to the image under $i$ of a unique subobject of $F$; thus one obtains a bijection from the set of subobjects of $F$ to the set of subobjects of $i(F)$.
+\end{statement}
+
+\section{Sieves}
+
+\begin{statement}{Definition 4.1}
+Let $C$ be a category. A \emph{sieve} of the category $C$ is a full subcategory $D$ of $C$ having the following property: every object of $C$ admitting a morphism to an object of $D$ belongs to $D$. If $X$ is an object of $C$, the sieves of the category $C/X$ will be called, by abuse of language, \emph{sieves of $X$}.
+\end{statement}
+
+Let $\U$ be a universe such that $C$ is a $\U$-category, and let $\widehat C$ be the corresponding category of presheaves. To every sieve of $X$ one associates a subobject of $X$ in $\widehat C$ as follows: to every object $Y$ of $C$ one assigns the set of morphisms $f:Y\to X$ such that the object $(Y,f)$ belongs to the sieve.
+
+\begin{statement}{Proposition 4.2}
+The map defined above establishes a bijection between the set of sieves of $X$ and the set of subobjects of $X$ in $\widehat C$.
+\end{statement}
+
+\begin{proofsketch}
+We only indicate the inverse map. To every subfunctor $R$ of $X$ one associates the category $C/R$ of objects of $C$ over $R$ (3.4). One checks immediately that $C/R$ is a sieve of $X$.
+\end{proofsketch}
+
+\begin{statement}{Remark 4.2.1}
+One sees in the same way that the sieves of $C$ are in canonical one-to-one correspondence with the set of subfunctors of the final functor on $C$, the final object of $\widehat C$.
+\end{statement}
+
+\subsection*{4.3}
+Let $C$ be a $\U$-category. By abuse of language, we shall also call the subobjects of $X$ in the category $\widehat C$ the sieves of $X$. This abuse of language allows us, for every presheaf $F$ and every sieve $R$ of $X$, to define $\Hom_{\widehat C}(R,F)$ as the set of morphisms from the functor $R$ to $F$. There is, moreover, an isomorphism canonical and functorial in $F$ (3.5):
+\[
+\Hom_{\widehat C}(R,F)\xrightarrow{\sim}\varprojlim_{C/R}F(.),
+\]
+which also gives a direct definition.\footnote{More simply, $C/R$ identifies with $R$, so that one has the formula $\Hom_{\widehat C}(R,F)\xrightarrow{\sim}\varprojlim_R F$, where $F$ abusively denotes the composite of $F$ with the tautological source functor $R\to C/X\to C$.} Similarly, Proposition 4.2 allows us to transpose the usual operations on functors to sieves. We mention the following.
+
+\subsubsection*{4.3.1 Base change}
+Let $R$ be a sieve of $X$, and let $f:Y\to X$ be a morphism of objects of $C$. The fiber product $R\times_XY$ is a sieve of $Y$, called the \emph{sieve deduced from $R$ by base change}. The corresponding subcategory of $C/Y$ is the inverse image of the subcategory of $C/X$ defined by $R$, under the canonical functor $C/Y\to C/X$ defined by $f$.
+
+\subsubsection*{4.3.2 Order relation, intersection, union}
+The inclusion relation on subfunctors of $X$ is an order relation. One may define the union and intersection of a family of sieves indexed by an arbitrary set as the least upper bound and greatest lower bound of the corresponding family of subpresheaves.
+
+\subsubsection*{4.3.3 Image, generated sieve}
+Let $(F_\alpha)_{\alpha\in A}$ be a family of presheaves, and for each $\alpha\in A$ let $f_\alpha:F_\alpha\to X$ be a morphism, where $X$ is an object of $C$. The \emph{image} of this family of morphisms is the union of the images of the $f_\alpha$. The image of this family is therefore a sieve of $X$. In particular, if all the $F_\alpha$ are objects of $C$, the image sieve will be called the sieve generated by the morphisms $f_\alpha$. The category $C/R$ is the full subcategory of $C/X$ formed by those objects $X'\to X$ over $X$ for which there exists an $X$-morphism from $X'$ to one of the $F_\alpha$.
+
+As an exercise, the reader may translate the relations and operations just defined on subfunctors into terms of the categories $C/R$. He will then see that these relations and operations do not depend on the universe $\U$ such that $C$ is a $\U$-category, and that they are therefore defined for every category, without requiring one to specify the universe to which the sets of morphisms belong. This was in any case already foreseeable \emph{a priori} from 3.6.
+
+\section{Functoriality of categories of presheaves}
+
+\subsection*{5.0}
+Let $C$, $C'$, and $D$ be three categories, and let $u:C\to C'$ be a functor. We denote by $u^*$ the functor obtained by composition with $u$:
+\[
+u^*: \Hhom((C')^{\op},D)\longrightarrow \Hhom(C^{\op},D),\qquad G\longmapsto G\circ u.
+\]
+The functor $u^*$ commutes with inductive and projective limits.
+
+\begin{statement}{Proposition 5.1}
+Suppose that $C$ is small and that, in $D$, $\U$-inductive limits (respectively projective limits) are representable. The functor $u^*$ admits a left adjoint $u_!$ (respectively a right adjoint $u_* $). Thus one has an isomorphism
+\begin{gather*}
+\Hom_{\Hhom(C^{\op},D)}(F,u^*G)\xrightarrow{\sim}\Hom_{\Hhom((C')^{\op},D)}(u_!F,G),\\
+\bigl(\text{respectively }\Hom_{\Hhom(C^{\op},D)}(u^*G,F)\simeq \Hom_{\Hhom((C')^{\op},D)}(G,u_*F)\bigr).
+\end{gather*}
+\end{statement}
+
+\begin{proofsketch}
+We indicate only the proof of the existence of the left adjoint. The corresponding part of the proposition follows formally from the isomorphisms
+\[
+\Hhom(C^{\op},D)\xrightarrow{\sim}\Hhom(C,D^{\op})^{\op}\xrightarrow{\sim}\Hhom((C^{\op})^{\op},D^{\op})^{\op}.
+\]
+\end{proofsketch}
+
+Let $Y$ be an object of $C'$. Denote by $I_u^Y$ the following category. Its objects are pairs $(X,m)$, where $X$ is an object of $C$ and $m$ is a morphism $Y\to u(X)$. If $(X,m)$ and $(X',m')$ are two objects of $I_u^Y$, a morphism from $(X,m)$ to $(X',m')$ is a morphism $\xi:X\to X'$ such that $m'=u(\xi)m$. Composition is defined in the evident way.
+
+Let $f:Y\to Y'$ be a morphism of $C'$. By composition, $f$ defines a functor $I_u^f:I_u^Y\to I_u^{Y'}$.
+
+We also have a functor $\pr_Y:I_u^Y\to C$ which sends the object $(X,m)$ to the object $X$. Then the evident diagram
+\[
+\begin{tikzcd}[column sep=large]
+& I_u^Y\arrow[r,"I_u^f"]\arrow[d,"\pr_Y"']& I_u^{Y'}\arrow[dl,"\pr_{Y'}"]\\
+& C &
+\end{tikzcd}
+\tag{*}
+\]
+is commutative.
+
+Now let $F$ be a presheaf on $C$ and set
+\[
+\tag{5.1.1}
+u_!F(Y)=\varinjlim_{I_u^Y}F\circ \pr_Y.
+\]
+The commutativity of diagram $(*)$ and the functoriality of inductive limits make $u_!F$ into a presheaf on $C'$. Let us show that the functor $u_!$ is left adjoint to $u^*$. For this it is enough to show that, for every presheaf $G$ on $C'$, there is a functorial isomorphism
+\[
+\Hom(u_!F,G)\xrightarrow{\sim}\Hom(F,u^*G).
+\]
+Let $\xi\in\Hom(u_!F,G)$. For every object $X$ of $C$, we have a morphism
+\[
+\xi_{u(X)}:u_!F(u(X))\longrightarrow G(u(X)).
+\]
+But $(X,\id_{u(X)})$ is an object of $I_u^{u(X)}$, and by the definition of the inductive limit there is a canonical morphism
+\[
+F(X)\longrightarrow u_!F(u(X)).
+\]
+We obtain, for every object $X$ of $C$, a morphism
+\[
+\eta_X:F(X)\longrightarrow G(u(X)),
+\]
+which is visibly functorial in $X$. Hence a morphism
+\[
+\eta:F\longrightarrow u^*G.
+\]
+
+Conversely, let $\eta\in\Hom(F,u^*G)$. One obtains, for every object $Y$ of $C'$, a morphism of functors
+\[
+\eta_Y:F\circ \pr_Y\longrightarrow (u^*G)\circ \pr_Y,
+\]
+and hence, by composing with the evident morphism from the functor $(u^*G)\circ\pr_Y$ to the constant functor $G(Y)$, a morphism
+\[
+\xi_Y:u_!F(Y)\longrightarrow G(Y),
+\]
+which is functorial in $Y$. Hence a morphism
+\[
+\xi:u_!F\longrightarrow G.
+\]
+The reader will check that the two maps thus defined are inverse to one another, completing the proof.
+
+\begin{statement}{Proposition 5.2}
+Suppose that in $D$ the $\U$-inductive limits are representable, the finite projective limits are representable, and filtered $\U$-inductive limits commute with finite projective limits. Suppose moreover that, in $C$, finite projective limits are representable and that the functor $u$ is left exact (2.3.2). Then finite projective limits are representable in $\Hhom(C^{\op},D)$ and in $\Hhom((C')^{\op},D)$, and the functor $u_!$ is left exact.
+\end{statement}
+
+\begin{proofsketch}
+The first assertion is trivial. Let us prove the second. By the proof of 5.1, for every presheaf $F$ on $C$ and every object $Y$ of $C'$ one has
+\[
+u_!F(Y)\xrightarrow{\sim}\varinjlim_{I_u^Y}F\circ\pr_Y.
+\]
+It is therefore enough to show that the category $(I_u^Y)^{\op}$ satisfies axioms PS~1 and PS~2 (2.7), and that this category is connected. The verification is left to the reader.
+\end{proofsketch}
+
+\subsection*{5.3}
+Specializing these results to the case where $D$ is the category of $\U$-sets, one obtains a sequence of three functors
+\[
+u_!,\quad u^*,\quad u_*,
+\]
+which is a ``sequence of adjoint functors'' in the sense that, for two consecutive functors in the sequence, the one on the right is right adjoint to the other. Their essential properties are summarized in the following proposition.
+
+\begin{statement}{Proposition 5.4}
+Let $C$ be a small category, let $C'$ be a $\U$-category, and let $u:C\to C'$ be a functor.
+\begin{enumerate}[label=\arabic*)]
+\item The functor $u^*:\widehat{C'}\to\widehat C$ commutes with inductive and projective limits.
+\item The functor $u_*:\widehat C\to\widehat{C'}$ commutes with projective limits. For every presheaf $F$ on $C$ and every object $Y$ of $C'$, one has
+\[
+u_*F(Y)\xrightarrow{\sim}\Hom_{\widehat C}(u^*(Y),F).
+\]
+\item The functor $u_!:\widehat C\to\widehat{C'}$ commutes with inductive limits. The functor $u_!$ is defined only up to isomorphism, but it can always be chosen so that the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+C\arrow[r,"u"]\arrow[d,"h"']&C'\arrow[d,"h'"]\\
+\widehat C\arrow[r,"u_!"']&\widehat{C'}
+\end{tikzcd}
+\]
+is commutative, where $h$ and $h'$ are the canonical inclusion functors.
+
+For every presheaf $F$ on $C$, one has
+\[
+u_!F\xrightarrow{\sim}\varinjlim_{C/F}h'\circ u.
+\]
+\item If finite projective limits are representable in $C$ and if $u$ is left exact (2.3.2), then the functor $u_!$ is left exact.
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}
+Assertion (1) is trivial. Assertion (2) follows from the fact that $u_*$ is a right adjoint, by 2.11 and 1.4. The same applies to assertion (3), but one also uses 3.4. Finally, assertion (4) is precisely 5.2, which applies by 2.7.
+\end{proofsketch}
+
+\begin{statement}{Proposition 5.5}
+Let $C$ and $C'$ be two small categories, and let
+\[
+\begin{tikzcd}
+C\arrow[r,shift left=.45ex,"u"]&C'\arrow[l,shift left=.45ex,"v"]
+\end{tikzcd}
+\]
+be a pair of functors, where $v$ is left adjoint to $u$. Then there exist isomorphisms, compatible with the adjunction isomorphisms,
+\[
+v^*\xrightarrow{\sim}u_!,\qquad v_*\xrightarrow{\sim}u^*.
+\]
+\end{statement}
+
+\begin{proofsketch}
+It is enough to exhibit an isomorphism $v^*\xrightarrow{\sim}u_!$; the other isomorphism will follow by adjunction. Let $F$ be a presheaf on $C$ and let $Y$ be an object of $C'$. Then
+\[
+v^*F(Y)\xrightarrow{\sim}\Hom(v(Y),F).
+\]
+Using 3.4, we get
+\[
+\Hom(v(Y),F)\xrightarrow{\sim}\varinjlim_{C/F}\Hom(v(Y),.).
+\]
+Since $v$ is left adjoint to $u$, it follows that
+\[
+\varinjlim_{C/F}\Hom(v(Y),.)\xrightarrow{\sim}\varinjlim_{C/F}\Hom(Y,u(.)).
+\]
+Using 5.4.3), we then obtain
+\[
+\varinjlim_{C/F}\Hom(Y,u(.))\xrightarrow{\sim}\Hom(Y,u_!F)\xrightarrow{\sim}u_!F(Y).
+\]
+Thus, for every object $Y$ of $C'$, we have determined an isomorphism $v^*F(Y)\xrightarrow{\sim}u_!F(Y)$, visibly functorial in $Y$ and in $F$.
+\end{proofsketch}
+
+\begin{statement}{Corollary 5.5.1}
+Let $u:C\to C'$ be a functor that admits a left adjoint. The functor $u_!:\widehat C\to\widehat{C'}$ commutes with projective limits; recall that it commutes with inductive limits by 5.4.3.
+\end{statement}
+
+\begin{statement}{Remark 5.5.2}
+One thus obtains a ``sequence of \emph{four} adjoint functors'' (cf. 5.3):
+\[
+v_!,\quad v^*=u_!,\quad v_*=u^*,\quad u_*,
+\]
+of which the first three (respectively the last three) commute with inductive limits (respectively projective limits).
+\end{statement}
+
+\begin{statement}{Proposition 5.6}
+The hypotheses are those of 5.4. The following conditions are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item the functor $u$ is fully faithful;
+\item the functor $u_!$ is fully faithful;
+\item the adjunction morphism $\id_{\widehat C}\to u^*u_!$ is an isomorphism;
+\item the functor $u_*$ is fully faithful;
+\item the adjunction morphism $u^*u_*\to\id_{\widehat C}$ is an isomorphism.
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}
+It is clear that ii) $\Leftrightarrow$ iii) and iv) $\Leftrightarrow$ v), by general properties of adjoint functors, and that ii) $\Rightarrow$ i), by 5.4.3). Let us prove that i) $\Rightarrow$ iii). The functors $\id_{\widehat C}$, $u^*$, and $u_!$ commute with inductive limits. By 3.4, it is therefore enough to prove that $H\to u^*u_!H$ is an isomorphism when $H$ is representable, which is evident.
+
+It remains to show that iii) is equivalent to v). For every object $H$ (respectively $K$) of $\widehat C$, denote by $\Phi(H):H\to u^*u_!H$ (respectively by $\Psi(K):u^*u_*K\to K$) the adjunction morphism. Then one has a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\Hom_{\widehat C}(H,u^*u_*K)\arrow[r,"{\Hom(H,\Psi(K))}"]\arrow[d,"\sim"']&\Hom_{\widehat C}(H,K)\\
+\Hom_{\widehat{C'}}(u_!H,u_*K)\arrow[d,"\sim"']&{}\\
+\Hom_{\widehat C}(u^*u_!H,K)\arrow[uur,"{\Hom(\Phi(H),K)}"']&{}
+\end{tikzcd}
+\]
+Hence $\Phi(H)$ is an isomorphism for every $H$ if and only if $\Psi(K)$ is an isomorphism for every $K$.
+\end{proofsketch}
+
+\begin{statement}{Remark 5.7}
+\begin{enumerate}[label=\alph*)]
+\item The equivalences ii) $\Leftrightarrow$ iii) $\Leftrightarrow$ iv) $\Leftrightarrow$ v) are general facts about adjoint functors.
+\item The explicit form of $u_!$, respectively $u_*$, given in the proof of 5.1 shows immediately that, under the general hypotheses of 5.1, if $u$ is fully faithful, then the adjunction morphism $\id\to u^*u_!$ (respectively $u^*u_*\to\id$) is an isomorphism; equivalently, $u_!$ (respectively $u_*$) is fully faithful.
+\end{enumerate}
+\end{statement}
+
+\subsection*{5.8.0}
+Let $\gamma$ be a species of algebraic structure defined by finite projective limits. Let $\U$-$\gamma$-$\Set$ be the category of $\gamma$-objects of $\U$-$\Set$, and let
+\[
+\esj:\U\text{-}\gamma\text{-}\Set\longrightarrow\U\text{-}\Set
+\]
+be the underlying-set functor. For simplicity, we assume that the species of structure under consideration has a single underlying set. Let $C$ be a category. Composition with $\esj$ gives a functor denoted
+\[
+\widehat{\esj}:\Hhom(C^{\op},\U\text{-}\gamma\text{-}\Set)\longrightarrow\widehat C.
+\]
+Since in $\widehat C$ projective limits are computed argument by argument, the functor $\widehat{\esj}$ factors as an equivalence
+\[
+\tag{5.8.1}
+\Hhom(C^{\op},\U\text{-}\gamma\text{-}\Set)\xrightarrow{\approx}\widehat C_\gamma,
+\]
+where $\widehat C_\gamma$ is the category of $\gamma$-objects of $\widehat C$, followed by a functor again denoted
+\[
+\widehat{\esj}:\widehat C_\gamma\longrightarrow\widehat C,
+\]
+and called the \emph{underlying presheaf of sets} functor.
+
+\subsection*{5.8.2}
+Suppose that the functor
+\[
+\U\text{-}\gamma\text{-}\Set\longrightarrow\U\text{-}\Set
+\]
+admits a left adjoint
+\[
+\Lib:\U\text{-}\Set\longrightarrow\U\text{-}\gamma\text{-}\Set,
+\]
+the functor of ``freely generated $\gamma$-objects.'' Examples are the free group, free commutative group, free $A$-module, and so on. In fact one can show that this condition is always satisfied. Composition with $\Lib$ gives a functor
+\[
+\widehat{\Lib}:\widehat C\longrightarrow\Hhom(C^{\op},\U\text{-}\gamma\text{-}\Set),
+\]
+and, by composing with the equivalence (5.8.1), a functor again denoted
+\[
+\widehat{\Lib}:\widehat C\longrightarrow\widehat C_\gamma,
+\]
+and called the functor ``presheaf of freely generated $\gamma$-objects.'' The functor $\widehat{\Lib}$ is left adjoint to $\widehat{\esj}$.
+
+\begin{statement}{Proposition 5.8.3}
+Let $\gamma$ be a species of algebraic structure defined by finite projective limits such that, in the category of $\gamma$-objects of $\U$-$\Set$, $\U$-inductive limits are representable.\footnote{One can show that this condition is always satisfied.} Let $C$ be a category belonging to $\U$, let $C'$ be a $\U$-category, and let $u:C\to C'$ be a functor. Denote by $\widehat C_\gamma$ (respectively $\widehat{C'}_\gamma$) the category of $\gamma$-objects of $\widehat C$ (respectively $\widehat{C'}$), and by $(u^*)^\gamma$ the functor on $\gamma$-objects deduced from $u^*$. It follows from 5.1 and the equivalence 5.8.1 that there exists a functor left adjoint (respectively right adjoint) to $(u^*)^\gamma$. This functor is denoted $u_{!\gamma}$ (respectively $u_{*\gamma}$).
+\begin{enumerate}[label=\arabic*)]
+\item The functor $(u^*)^\gamma$ commutes with inductive and projective limits. The diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\widehat{C'}_\gamma\arrow[r,"(u^*)^\gamma"]\arrow[d,"\widehat{\esj'}"']&\widehat C_\gamma\arrow[d,"\widehat{\esj}"]\\
+\widehat{C'}\arrow[r,"u^*"']&\widehat C
+\end{tikzcd}
+\tag{*}
+\]
+is commutative; here $\widehat{\esj'}$ and $\widehat{\esj}$ denote the underlying-set functors.
+\item The functor $u_{*\gamma}$ commutes with projective limits. The diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\widehat C_\gamma\arrow[r,"u_{*\gamma}"]\arrow[d,"\widehat{\esj}"']&\widehat{C'}_\gamma\arrow[d,"\widehat{\esj'}"]\\
+\widehat C\arrow[r,"u_*"']&\widehat{C'}
+\end{tikzcd}
+\tag{**}
+\]
+is commutative up to isomorphism.
+\item The functor $u_{!\gamma}$ commutes with inductive limits. Suppose that $\widehat{\esj}$ (respectively $\widehat{\esj'}$) admits a left adjoint $\widehat{\Lib}$ (respectively $\widehat{\Lib'}$), as in (5.8.2). The diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\widehat C\arrow[r,"u_!"]\arrow[d,"\widehat{\Lib}"']&\widehat{C'}\arrow[d,"\widehat{\Lib'}"]\\
+\widehat C_\gamma\arrow[r,"u_{!\gamma}"']&\widehat{C'}_\gamma
+\end{tikzcd}
+\tag{***}
+\]
+is commutative up to isomorphism.
+\end{enumerate}
+Suppose that $u_!$ commutes with finite projective limits (5.4 and 5.6). Then the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\widehat C_\gamma\arrow[r,"u_{!\gamma}"]\arrow[d,"\widehat{\esj}"']&\widehat{C'}_\gamma\arrow[d,"\widehat{\esj'}"]\\
+\widehat C\arrow[r,"u_!"']&\widehat{C'}
+\end{tikzcd}
+\tag{****}
+\]
+is commutative up to isomorphism, and $u_{!\gamma}$ commutes with finite projective limits.
+\end{statement}
+
+\begin{proofsketch}
+Assertion (1) is evident. Assertion (2) is also evident, since $u_*$ is a right adjoint and hence, by 2.11, commutes with projective limits and in particular with finite projective limits; this gives the commutativity of diagram (**). The commutativity of diagram (***) follows from the uniqueness, up to isomorphism, of the left adjoint functor. Finally, the commutativity of diagram (****) follows immediately from the fact that $u_!$ commutes with finite projective limits.
+\end{proofsketch}
+
+\begin{statement}{Notation 5.9}
+By abuse of notation, the functors $(u^*)^\gamma$ and $u_{*\gamma}$ will often be denoted by $u^*$ and $u_*$; this risks no confusion in view of the commutativity of diagrams $(*)$ and $(**)$. In contrast, when $u_!$ does not commute with finite projective limits, diagram $(****)$ is not commutative up to isomorphism, and the notations $u_!$ and $u_{!\gamma}$ must be used to avoid confusion.
+\end{statement}
+
+\subsection*{5.10}
+Let $C$ be a small category. For every object $X$ of $\widehat C$, let $C/X$ denote the category of arrows whose target is $X$ and whose source is an object of $C$. The source functor defines a functor $j_X:C/X\to C$. Let $m:Y\to X$ be a morphism of $\widehat C$. Composition of morphisms defines a functor $j_m:C/Y\to C/X$. The diagram
+\[
+\begin{tikzcd}
+C/Y\arrow[rr,"j_m"]\arrow[dr,"j_Y"']&&C/X\arrow[dl,"j_X"]\\
+&C&
+\end{tikzcd}
+\]
+is commutative. It follows from 5.1 that, for every object $F$ of $\widehat{C/X}$ and every object $Y$ of $C$, one has
+\[
+\tag{5.10.1}
+j_{X!}F(Y)=\coprod_{u\in\Hom_{\widehat C}(Y,X)}F(u).
+\]
+Formula (5.10.1) allows one to define $j_{X!}$ when $C$ is a $\U$-category, and one verifies that the functor $j_{X!}$ thus defined is always left adjoint to the functor
+\[
+j_X^*:\widehat C\longrightarrow\widehat{C/X}.
+\]
+
+\begin{statement}{Proposition 5.11}
+Let $C$ be a $\U$-category, and let $X$ be a presheaf on $C$.
+\begin{enumerate}[label=\arabic*)]
+\item The functor
+\[
+j_{X!}:\widehat{C/X}\longrightarrow\widehat C
+\]
+factors through the category $\widehat C/X$:
+\[
+\widehat{C/X}\xrightarrow{e_X}\widehat C/X\longrightarrow\widehat C.
+\]
+The functor $e_X$ is an equivalence of categories.
+\item The functor
+\[
+e_X\circ j_X^*:\widehat C\longrightarrow\widehat C/X
+\]
+is canonically isomorphic to the functor
+\[
+H\longmapsto (H\times X\xrightarrow{\pr_2}X).
+\]
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}
+\begin{enumerate}[label=\arabic*)]
+\item Let $f$ be the final object of $\widehat{C/X}$. One has a canonical isomorphism
+\[
+f\xrightarrow{\sim}\varinjlim_{Y\in\Ob(C/X)}Y,
+\]
+and hence $j_{X!}(f)=\varinjlim_{Y\in\Ob(C/X)}j_X(Y)$ by 5.4. But $j_{X!}(f)\simeq X$, which gives the factorization. To show that $e_X$ is an equivalence, we merely exhibit a quasi-inverse: to every object $H\to X$ of $\widehat C/X$ associate the presheaf on $C/X$
+\[
+(Y\to X)\longmapsto \Hom_{\widehat C/X}((Y\to X),(H\to X)).
+\]
+\item The functor $e_X\circ j_X^*$ is right adjoint to the forgetful functor, and therefore $e_X\circ j_X^*$ is canonically isomorphic to the functor $H\mapsto (H\times X\xrightarrow{\pr_2}X)$.
+\end{enumerate}
+\end{proofsketch}
+
+\subsection*{5.12}
+Let $m:Y\to X$ be a morphism of $\widehat C$. By (5.11), the morphism $m$ is canonically isomorphic to the image under $e_X$ of an object of $\widehat{C/X}$, which we shall denote by $[m]$. By restriction to subcategories, the functor $e_X$ defines an equivalence
+\[
+(C/X)/[m]\xrightarrow{e_m}C/Y.
+\]
+The diagram
+\[
+\begin{tikzcd}
+(C/X)/[m]\arrow[rr,"e_m"]\arrow[dr,"j_{[m]}"']&&C/Y\arrow[dl,"j_m"]\\
+&C/X&
+\end{tikzcd}
+\]
+is commutative up to canonical isomorphism.
+
+\subsection*{5.13}
+We record a result that will be useful in Expos\'e~VI. Let $u:C\to C'$ be a functor between small categories. For every object $H$ of $\widehat C$, denote by
+\[
+u/H:C/H\longrightarrow C'/u_!H
+\]
+the functor which associates to every morphism $m:X\to H$ the morphism
+\[
+u_!X\xrightarrow{u_!m}u_!H
+\]
+(one knows from 5.4 that one may always set $u_!X=uX$). The following diagram is commutative:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+C/H\arrow[r,"u/H"]\arrow[d,"j_H"']&C'/u_!H\arrow[d,"j_{u_!H}"]\\
+C\arrow[r,"u"']&C'.
+\end{tikzcd}
+\tag{5.13.1}
+\]
+We therefore have a diagram commutative up to isomorphism; and, since $(u/H)_!$ carries the final object of $\widehat{C/H}$ to the final object of $\widehat{C'/u_!H}$, the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\widehat{C/H}\arrow[r,"(u/H)_!"]\arrow[d,"e_H"']&\widehat{C'/u_!H}\arrow[d,"e_{u_!H}"]\\
+\widehat C/H\arrow[r,"u_!/H"']&\widehat{C'}/u_!H
+\end{tikzcd}
+\tag{5.13.3}
+\]
+is commutative up to isomorphism.
+
+\begin{statement}{Proposition 5.14}
+Let $u:C\to C'$ be a functor between small categories. Suppose that $u$ has the following property:
+
+\smallskip
+\noindent\textup{(PPF)} For every object $X$ of $C$, the functor
+\[
+u/X:C/X\longrightarrow C'/uX
+\]
+is fully faithful.
+
+Then:
+\begin{enumerate}[label=\arabic*)]
+\item Let $f$ be the final object of $\widehat C$. The functor $u$ factors as
+\[
+C=C/f\xrightarrow{u/f}C'/u_!f\xrightarrow{j_{u_!f}}C'.
+\]
+The functor $u/f$ is fully faithful.
+\item The functor $u_!:\widehat C\to\widehat{C'}$ factors as
+\[
+\widehat C=\widehat{C/f}\xrightarrow{(u/f)_!}\widehat{C'/u_!f}\xrightarrow{e_{u_!f}}\widehat{C'}/u_!f\longrightarrow\widehat{C'},
+\]
+where the functor $(u/f)_!$ is fully faithful, the functor $e_{u_!f}$ is an equivalence, and $\widehat{C'}/u_!f\to\widehat{C'}$ is the forgetful functor.
+\item In particular, the functor $u_!$ is faithful and consequently the adjunction morphism $\id\xrightarrow{\Phi}u^*u_!$ is a monomorphism. Moreover, for every morphism $\alpha:H\to K$ of $\widehat C$, the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+H\arrow[r,hook,"\Phi(H)"]\arrow[d,"\alpha"']&u^*u_!H\arrow[d,"u^*u_!(\alpha)"]\\
+K\arrow[r,hook,"\Phi(K)"']&u^*u_!K
+\end{tikzcd}
+\]
+is cartesian.
+\end{enumerate}
+\end{statement}
+
+\begin{proofsketch}
+\begin{enumerate}[label=\arabic*)]
+\item The factorization comes from diagram (5.13.1). The functor $u$ is faithful. Hence $u/f$ is faithful. Let us show that it is fully faithful. Let $X$ and $Y$ be two objects of $C$, let $\can_X:uX\to u_!f$ and $\can_Y:uY\to u_!f$ be the canonical morphisms, and let
+\[
+\begin{tikzcd}
+uX\arrow[rr,"m"]\arrow[dr,"\can_X"']&&uY\arrow[dl,"\can_Y"]\\
+&u_!f&
+\end{tikzcd}
+\]
+be a morphism of $C'/u_!f$. We have $u_!f=\varinjlim_{Z\in\Ob C}uZ$, hence by 3.1,
+\[
+\Hom_{\widehat{C'}}(uX,u_!f)=\varinjlim_{Z\in\Ob C}\Hom_{C'}(uX,uZ).
+\]
+By the definition of the inductive limit, to say that $\can_Ym=\can_X$ is equivalent to saying that there exist
+\begin{enumerate}[label=\alph*)]
+\item a finite sequence of objects $X_i$ of $C$, $i\in[0,n]$, with $X_0=X$ and $X_n=Y$;
+\item for every $i$, a morphism $m_i:uX\to uX_i$, with $m_0=\id_X$ and $m_n=m$;
+\item for every pair $(i,i+1)$, a morphism $f_i:X_i\to X_{i+1}$ or a morphism $f_i:X_{i+1}\to X_i$;
+\end{enumerate}
+such that the corresponding triangular diagrams
+\[
+\begin{tikzcd}[column sep=large]
+&uX\arrow[dl,"m_i"']\arrow[dr,"m_{i+1}"]&\\
+uX_i\arrow[rr,"u(f_i)"']&&uX_{i+1}
+\end{tikzcd}
+\qquad\text{or}\qquad
+\begin{tikzcd}[column sep=large]
+&uX\arrow[dl,"m_i"']\arrow[dr,"m_{i+1}"]&\\
+uX_i&&uX_{i+1}\arrow[ll,"u(f_i)"]
+\end{tikzcd}
+\]
+are commutative. One then proves immediately, by induction on $i$ and using property (PPF), that $m_i$ is of the form $u(p_i)$. In particular $m=u(p)$, and hence $u/f$ is fully faithful.
+\item The factorization is immediate. The functor $(u/f)_!$ is fully faithful by 5.6. The other assertions follow from 5.11.
+\item The functor $u_!$ is the composite of the forgetful functor, which is faithful, and fully faithful functors. It is therefore faithful. It follows, from the general properties of adjoint functors, that the adjunction morphism $\id\to u^*u_!$ is a monomorphism. By 2), the functor $u_!$ appears as the composite of a fully faithful functor $v:\widehat C\to\widehat{C'}/u_!f$ and the forgetful functor. The functor $u^*$, right adjoint to $u_!$, is therefore the composite of the ``product by $u_!f$'' functor, right adjoint to the forgetful functor, and a functor $w$ right adjoint to $v$. Moreover, since $v$ is fully faithful, the adjunction morphism $\id\to wv$ is an isomorphism. The last assertion follows easily.
+\end{enumerate}
+\end{proofsketch}
+
+\end{document}

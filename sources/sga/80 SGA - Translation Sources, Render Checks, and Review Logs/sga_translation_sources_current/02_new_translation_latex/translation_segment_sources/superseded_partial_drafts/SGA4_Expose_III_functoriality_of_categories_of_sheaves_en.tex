@@ -1,0 +1,988 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: III, Functoriality of Categories of Sheaves
+% Author: J.-L. Verdier
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/03/03.tex
+% Range translated in this working draft section: complete Expose III; source lines 34--1540.
+% Status: draft translation, compile-checked, not proofed line-by-line against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.08in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,hypertexnames=false}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Open}{\operatorname{Open}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\whC}{\widehat{C}}
+\newcommand{\twC}{\widetilde{C}}
+\newcommand{\whCp}{\widehat{C'}}
+\newcommand{\twCp}{\widetilde{C'}}
+\newcommand{\wh}{\widehat{\phantom{C}}}
+\newcommand{\tw}{\widetilde{\phantom{C}}}
+\newcommand{\aC}{\underline{a}}
+\newcommand{\aCp}{\underline{a}'}
+\newcommand{\eps}{\epsilon}
+\newcommand{\resp}{respectively}
+\newcommand{\ie}{i.e.}
+\newcommand{\cf}{cf.}
+\newcommand{\loccit}{loc. cit.}
+\newcommand{\qedtext}{\hfill\(\square\)}
+\newcommand{\blank}{\,\cdot\,}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e III. Functoriality of Categories of Sheaves}}\\[0.35em]
+J.-L. Verdier
+\end{center}
+
+\bigskip
+
+
+\bigskip
+
+In Expos\'e~I, Section~5, the behaviour of categories of presheaves with respect to functors between the categories of arguments was studied. In this expos\'e this study is extended to sites and to categories of sheaves (Sections~1 and~2). After introducing the induced topology (Section~3), we turn in Section~4 to the comparison lemma, which will play an important role in Expos\'e~IV. In Section~5, for the patient reader, we study certain commutative diagrams attached to localized categories of the form \(C/X\). In Theorem~I.5.1 smallness hypotheses are imposed on the categories under consideration. These hypotheses are not, in general, satisfied by the sites encountered in practice, namely \(\U\)-sites. This forces a few contortions in Sections~4.2, 4.3, and~4.4.
+
+\section{Continuous functors}
+
+\begin{statement}{Definition 1.1}
+Let \(C\) and \(C'\) be two \(\U\)-sites and let
+\(u:C\to C'\) be a functor between the underlying categories. One says that \(u\) is \emph{continuous} if, for every sheaf of sets \(F\) on \(C'\), the presheaf
+\[
+X\longmapsto F(u(X))
+\]
+on \(C\) is a sheaf.
+\end{statement}
+
+This notion of continuity depends a priori on the universe \(\U\) for which the two sites are \(\U\)-sites. Proposition~1.5 shows that it is independent of that universe.
+
+\subsection*{1.1.1}
+Let
+\[
+i:\widetilde C\to \widehat C,
+\qquad
+ i':\widetilde{C'}\to \widehat{C'}
+\]
+denote the canonical inclusion functors from sheaves to presheaves. By Definition~1.1, the functor \(u\) is continuous if and only if there exists a functor
+\[
+u_s:\widetilde{C'}\to\widetilde C
+\]
+such that
+\[
+i u_s=u^\flat i',\qquad u^\flat F=F\circ u.
+\]
+Here \(u^\flat\) is the inverse-image functor on presheaves of Expos\'e~I, 5.0.
+
+\begin{statement}{Proposition 1.2}
+Let \(C\) be a small site, let \(C'\) be a \(\U\)-site, and let \(u:C\to C'\) be a functor between the underlying categories. The following properties are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item The functor \(u\) is continuous.
+\item For every object \(X\) of \(C\) and every covering sieve \(R\hookrightarrow X\), the morphism
+\[
+u_!R\hookrightarrow u(X)
+\]
+is bicov\-ering in \(\widehat{C'}\) (Expos\'e~II, 5.2 and Expos\'e~I, 5.1). \emph{Covering} in place of \emph{bicov\-ering} would not necessarily suffice; see Example~1.9.3 below.
+\item For every bicov\-ering family \(H_i\to K\), \(i\in I\), in \(\widehat C\), the family
+\[
+u_!H_i\to u_!K,
+\qquad i\in I,
+\]
+is bicov\-ering in \(\widehat{C'}\).
+\item There exists a functor
+\[
+u^s:\widetilde C\to\widetilde{C'}
+\]
+which commutes with inductive limits and ``extends \(u\)'', in the sense that the diagram of canonical functors
+\[
+\begin{array}{ccc}
+C&\xrightarrow{u}&C'\\
+\downarrow \epsilon_C&&\downarrow\epsilon_{C'}\\
+\widetilde C&\xrightarrow{u^s}&\widetilde{C'}
+\end{array}
+\]
+commutes up to isomorphism.
+\end{enumerate}
+Moreover, when \(C\) is no longer necessarily a small site but only a \(\U\)-site, one still has \emph{i) \(\Leftrightarrow\) iv)}, and the functor \(u^s\) in \emph{iv)} is necessarily left adjoint to
+\[
+u_s:\widetilde{C'}\to\widetilde C,
+\]
+and is therefore determined up to a unique isomorphism.
+\end{statement}
+
+\begin{prooftext}
+The proof of \(\mathrm{i}\Leftrightarrow\mathrm{iv}\) when \(C\) is a \(\U\)-site will be given in Section~4.2. Suppose first that \(C\) is small. Clearly \(\mathrm{iii}\Rightarrow\mathrm{ii}\).
+
+\emph{\(\mathrm{i}\Rightarrow\mathrm{iii}\).} Let \(H_i\to K\), \(i\in I\), be a bicov\-ering family in \(\widehat C\). For every sheaf \(F\) on \(C'\), the presheaf \(u^\flat F\) is a sheaf on \(C\). Hence, by Expos\'e~II, 5.3, the canonical map
+\[
+\Hom(K,u^\flat F)\longrightarrow\prod_i\Hom(H_i,u^\flat F)
+\]
+is bijective. By adjunction (Expos\'e~I, 5.1), the canonical map
+\[
+\Hom(u_!K,F)\longrightarrow\prod_i\Hom(u_!H_i,F)
+\]
+is bijective. Consequently, again by Expos\'e~II, 5.3, the family \(u_!H_i\to u_!K\) is bicov\-ering.
+
+\emph{\(\mathrm{ii}\Rightarrow\mathrm{i}\).} Let \(X\) be an object of \(C\), let \(R\hookrightarrow X\) be a covering sieve, and let \(F\) be a sheaf on \(C'\). By Expos\'e~II, 5.3, the map
+\[
+\Hom(u_!X,F)\longrightarrow\Hom(u_!R,F)
+\]
+is bijective. By adjunction, the map
+\[
+\Hom(X,u^\flat F)\longrightarrow\Hom(R,u^\flat F)
+\]
+is bijective. Hence \(u^\flat F\) is a sheaf.
+
+\emph{\(\mathrm{i}\Rightarrow\mathrm{iv}\).} We use the usual notation \(\underline a\) and \(i\), respectively \(\underline a'\) and \(i'\), for the associated-sheaf functor and the inclusion into presheaves. For every sheaf \(G\) on \(C\), put
+\[
+u^sG=\underline a' u_! iG.
+\]
+For every sheaf \(F\) on \(C'\), one has natural isomorphisms
+\[
+\begin{aligned}
+\Hom(G,u_sF)&\simeq\Hom(iG,iu_sF)
+\simeq \Hom(iG,u^\flat i'F)\\
+&\simeq \Hom(u_!iG,i'F)
+\simeq \Hom(\underline a'u_!iG,F).
+\end{aligned}
+\]
+The first isomorphism comes from the full faithfulness of \(i\), the second from the definition of \(u_s\), and the third and fourth from adjunction. Thus \(u^s\) is left adjoint to \(u_s\). In particular \(u^s\) commutes with inductive limits.
+
+For every presheaf \(K\) on \(C\) and every sheaf \(F\) on \(C'\), one has natural isomorphisms
+\[
+\Hom(u^s\underline aK,F)
+\simeq \Hom(\underline aK,u_sF)
+\simeq \Hom(K,iu_sF)
+\simeq \Hom(K,u^\flat i'F)
+\simeq \Hom(u_!K,i'F)
+\simeq \Hom(\underline a'u_!K,F).
+\]
+The third isomorphism comes from the definition of \(u_s\), and the others from adjunction. Hence there is a functorial isomorphism
+\[
+u^s\underline aK\simeq \underline a'u_!K.
+\]
+Using this isomorphism when \(K\) is representable, and Expos\'e~I, 5.4(3), one obtains the diagram in \(\mathrm{iv}\), commutative up to isomorphism.
+
+\emph{\(\mathrm{iv}\Rightarrow\mathrm{ii}\).} Let \(h:C\to\widehat C\), respectively \(h':C'\to\widehat{C'}\), be the functor which associates to an object the presheaf it represents. For every object \(K\) of \(\widehat C\), there is a canonical isomorphism
+\[
+\varinjlim_{(h(X)\to K)\in\ob(C/K)}h(X)\xrightarrow{\sim}K.
+\]
+Since \(u_!\), \(u^s\), \(\underline a\), and \(\underline a'\) commute with inductive limits, and since \(u_!h=h'u\), the assumed commutativity in \(\mathrm{iv}\) gives a functorial isomorphism
+\[
+u^s\underline aK\simeq\underline a'u_!K.
+\]
+Thus the diagram
+\[
+\begin{array}{ccc}
+\widehat C&\xrightarrow{u_!}&\widehat{C'}\\
+\downarrow\underline a&&\downarrow\underline a'\\
+\widetilde C&\xrightarrow{u^s}&\widetilde{C'}
+\end{array}
+\]
+commutes up to isomorphism. Since \(\underline ai\) is isomorphic to the identity functor, one has \(u^s\simeq\underline a'u_!i\), proving uniqueness of \(u^s\). If \(v:H\to K\) is a bicov\-ering morphism in \(\widehat C\), then \(\underline a(v)\) is an isomorphism. Hence \(\underline a'u_!(v)\), isomorphic to \(u^s\underline a(v)\), is an isomorphism. It follows that \(u_!(v)\) is bicov\-ering, whence \(\mathrm{ii}\).
+
+The supplementary assertion in the case where \(C\) is small was proved during the proof. \qedtext
+\end{prooftext}
+
+\subsubsection*{1.2.1}
+The functor \(u^s:\widetilde C\to\widetilde{C'}\) of Proposition~1.2(iv) can often be interpreted as an ``inverse-image'' functor attached to a ``morphism of topoi'' \(\widetilde{C'}\to\widetilde C\), cf. Expos\'e~IV, 4.9. Its properties are summarized in the following proposition.
+
+\begin{statement}{Proposition 1.3}
+Let \(u:C\to C'\) be a continuous functor from a small site \(C\) to a \(\U\)-site \(C'\).
+\begin{enumerate}[label=\arabic*)]
+\item The functor \(u^s\) is left adjoint to \(u_s\).
+\item There is a canonical isomorphism
+\[
+u^s\simeq\underline a'u_!i.
+\]
+\item There is a canonical isomorphism
+\[
+u^s\underline a\simeq \underline a'u_!.
+\]
+\item The functor \(u^s\) commutes with inductive limits.
+\item When the functor \(u_!\) is left exact, \(u^s\) is left exact as well. More generally, \(u^s\) commutes with those types of finite projective limits with which \(u_!\) commutes.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+Assertions (1)--(4) were proved during the proof of Proposition~1.2. Assertion (5) follows from the isomorphism in (2), using the fact that \(i\) commutes with projective limits and that \(\underline a'\) commutes with finite projective limits (Expos\'e~II, 4.1).
+\end{prooftext}
+
+\begin{remarktext}{Remark 1.4}
+Combining Expos\'e~I, 5.4(3) with Proposition~1.3(3), one obtains a diagram
+\[
+\begin{array}{ccc}
+C&\xrightarrow{u}&C'\\
+\downarrow h&&\downarrow h'\\
+\widehat C&\xrightarrow{u_!}&\widehat{C'}\\
+\downarrow\underline a&&\downarrow\underline a'\\
+\widetilde C&\xrightarrow{u^s}&\widetilde{C'}
+\end{array}
+\]
+in which the upper square is commutative and the lower square is commutative up to isomorphism. But the functors \(\underline a\), \(\underline a'\), \(u_!\), and \(u^s\) are defined only up to isomorphism. The reader may verify that \(\underline a\), \(\underline a'\), and \(u^s\) can be chosen so that:
+\begin{enumerate}[label=\arabic*)]
+\item the composite functors \(\underline ah\) and \(\underline a'h'\) are injective on object sets;
+\item the diagram
+\[
+\begin{array}{ccc}
+C&\xrightarrow{u}&C'\\
+\downarrow\underline ah&&\downarrow\underline a'h'\\
+\widetilde C&\xrightarrow{u^s}&\widetilde{C'}
+\end{array}
+\]
+is strictly commutative.
+\end{enumerate}
+More precisely, one may choose \(\underline a\) and \(\underline a'\) so as to satisfy (1). Once \(\underline a\) and \(\underline a'\) are chosen, one may choose \(u^s\) so as to satisfy (2).
+\end{remarktext}
+
+\begin{statement}{Proposition 1.5}
+Let \(\U\subset\V\) be two universes, let \(C\) and \(C'\) be two \(\U\)-sites, and let \(u:C\to C'\) be a functor between the underlying categories. Then \(u\) is continuous relative to \(\U\) if and only if it is continuous relative to \(\V\). Moreover, when \(u\) is continuous, let \(u^s_{\U}\), respectively \(u^s_{\V}\), denote the functor between categories of \(\U\)-sheaves, respectively \(\V\)-sheaves, introduced in Proposition~1.2(iv). Then the diagram
+\[
+\begin{array}{ccc}
+\widetilde C_{\U}&\xrightarrow{u^s_{\U}}&\widetilde{C'}_{\U}\\
+\downarrow&&\downarrow\\
+\widetilde C_{\V}&\xrightarrow{u^s_{\V}}&\widetilde{C'}_{\V}
+\end{array}\tag{1.5.1}
+\]
+where the vertical functors are the canonical inclusion functors, is commutative up to canonical isomorphism.
+\end{statement}
+
+\begin{prooftext}
+We give the proof only in the case where \(C\) is \(\U\)-small. The general case will be proved in Section~4.3. It is clear that if \(u^\flat\) transforms every \(\V\)-sheaf on \(C'\) into a \(\V\)-sheaf on \(C\), then it transforms every \(\U\)-sheaf on \(C'\) into a \(\U\)-sheaf on \(C\).
+
+Conversely, suppose that \(u^\flat\) transforms every \(\U\)-sheaf on \(C'\) into a \(\U\)-sheaf on \(C\). Let
+\[
+\widehat C_{\U}\hookrightarrow\widehat C_{\V},
+\qquad
+\widehat{C'}_{\U}\hookrightarrow\widehat{C'}_{\V}
+\]
+denote the categories of \(\U\)-presheaves and \(\V\)-presheaves, and let \(u_{\U!}\) and \(u_{\V!}\) be the inverse-image functors for \(\U\)-presheaves and \(\V\)-presheaves respectively. From the explicit construction of \(u_!\) in Expos\'e~I, 5.1, one has a commutative diagram
+\[
+\begin{array}{ccc}
+\widehat C_{\U}&\xrightarrow{u_{\U!}}&\widehat{C'}_{\U}\\
+\downarrow&&\downarrow\\
+\widehat C_{\V}&\xrightarrow{u_{\V!}}&\widehat{C'}_{\V}.
+\end{array}\tag{*}
+\]
+The inclusion functors from \(\U\)-presheaves to \(\V\)-presheaves are fully faithful and commute with projective limits. It follows from Expos\'e~II, 5.1(i) that a bicov\-ering morphism of \(\U\)-presheaves is a bicov\-ering morphism of \(\V\)-presheaves. If \(R\hookrightarrow X\) is a covering sieve of an object \(X\) of \(C\), then by Proposition~1.2(ii) the morphism \(u_{\U!}R\to u_{\U!}X\) is bicov\-ering. Using \((*)\), it follows that \(u_{\V!}R\to u_{\V!}X\) is bicov\-ering. Hence, by Proposition~1.2, the functor \(u^\flat\) transforms \(\V\)-sheaves on \(C'\) into \(\V\)-sheaves on \(C\). The commutativity of (1.5.1) follows from the commutativity of \((*)\), Expos\'e~II, 3.6, and Proposition~1.3(2).
+\end{prooftext}
+
+\begin{statement}{Proposition 1.6}
+Let \(C\) and \(C'\) be two \(\U\)-sites, and let \(u:C\to C'\) be a functor between the underlying categories. Consider the conditions:
+\begin{enumerate}[label=\roman*)]
+\item \(u\) is continuous.
+\item For every covering family \((X_i\to X)_{i\in I}\) in \(C\), the family \((uX_i\to uX)_{i\in I}\) in \(C'\) is covering.
+\item The functor \(u\) transforms the covering families of a pretopology \(T\) defining the topology of \(C\) into covering families of \(C'\).
+\end{enumerate}
+One always has \emph{i) \(\Rightarrow\) ii)}. Suppose that the topology of \(C\) can be defined by a pretopology \(T\), and that \(u\) commutes with fiber products. It is enough that \(u\) commute with the fiber products which occur in base changes of morphisms belonging to covering families of \(T\). Then \emph{i)}, \emph{ii)}, and \emph{iii)} are equivalent. In particular, if fiber products are representable in \(C\) and \(u\) commutes with them, then \emph{i)} and \emph{ii)} are equivalent.
+\end{statement}
+
+\begin{prooftext}
+We first prove \(\mathrm{i}\Rightarrow\mathrm{ii}\). Let \((X_i\to X)_{i\in I}\) be a covering family in \(C\). For every sheaf \(F\) on \(C'\), \(u^\flat F\) is a sheaf. Hence the map
+\[
+\Hom(X,u^\flat F)\longrightarrow\prod_i\Hom(X_i,u^\flat F)
+\]
+is injective. Therefore
+\[
+\Hom(u_!X,F)\longrightarrow\prod_i\Hom(u_!X_i,F)
+\]
+is injective. Thus the family \(u_!X_i\to u_!X\), \(i\in I\), is covering in \(C'\).
+
+Every covering family of the pretopology \(T\) is a covering family in \(C\), whence \(\mathrm{ii}\Rightarrow\mathrm{iii}\). We prove \(\mathrm{iii}\Rightarrow\mathrm{i}\). Let \(X\) be an object of \(C\), and let \((X_i\to X)_{i\in I}\) be a covering family of \(\operatorname{Cov}(X)\). The morphisms \(X_i\to X\) are base-changeable, and \(u\) commutes with fiber products. Hence the fiber products \(u(X_i)\times_{u(X)}u(X_j)\) are representable and are canonically isomorphic to \(u(X_i\times_X X_j)\). If \(F\) is a sheaf on \(C'\), the diagram of sets
+\[
+F(u(X))\longrightarrow\prod_iF(u(X_i))\rightrightarrows\prod_{i,j}F(u(X_i\times_XX_j))
+\]
+is exact. Consequently
+\[
+u^\flat F(X)\longrightarrow\prod_i u^\flat F(X_i)\rightrightarrows\prod_{i,j}u^\flat F(X_i\times_X X_j)
+\]
+is exact. Thus \(u^\flat F\) is a sheaf, hence \(u\) is continuous. The final assertion follows from what has just been proved and from the fact that, when fiber products are representable in \(C\), the covering families of \(C\), indexed by sets in a suitable universe, define a pretopology whose associated topology is the topology of \(C\). \qedtext
+\end{prooftext}
+
+\begin{statement}{Proposition 1.7}
+Let \(C\) be a small site, \(C'\) a \(\U\)-site, and \(u:C\to C'\) a continuous functor. Let \(\gamma\) be an algebraic structure defined by finite projective limits, such that in the category of \(\gamma\)-objects of \(\U\)-sets the \(\U\)-inductive limits are representable. In fact this condition can be shown always to be satisfied. Use the notation of Proposition~II.6.4. The functor \(u_s\) commutes with projective limits and therefore defines a functor
+\[
+u_s^\gamma:\widetilde C_\gamma\to\widetilde{C'}_\gamma.
+\]
+The functor \(u_s^\gamma\) has a left adjoint \(u^s_\gamma\), with the following properties:
+\begin{enumerate}[label=\arabic*)]
+\item There is a canonical isomorphism
+\[
+u^s_\gamma\simeq \underline a'_\gamma u_{\gamma!}i_\gamma,
+\]
+and \(u^s_\gamma\) commutes with those finite projective limits with which \(u_{\gamma!}\) commutes.
+\item There is a canonical isomorphism
+\[
+u^s_\gamma\underline a_\gamma\simeq\underline a'_\gamma u_{\gamma!}.
+\]
+\item The functor \(u^s_\gamma\) commutes with inductive limits.
+\item If \(u^s\) is left exact, then the natural square relating the forgetful functors from \(\gamma\)-objects to the underlying sheaves of sets is commutative up to isomorphism, and \(u^s_\gamma\) is exact.
+\item Suppose that the forgetful functors from \(\gamma\)-objects have left adjoints \(\mathsf L^{\sim}\), respectively \((\mathsf L')^{\sim}\). Then there is a canonical isomorphism
+\[
+u^s_\gamma\mathsf L^{\sim}\xrightarrow{\sim}(\mathsf L')^{\sim}u^s.
+\]
+\end{enumerate}
+Moreover, when \(C\) is not necessarily a small site but is a \(\U\)-site, \(u_s^\gamma\) has a left adjoint \(u^s_\gamma\). Finally, if \(\V\) is a universe containing \(\U\), and if \(u^s_{\gamma\U}\), respectively \(u^s_{\gamma\V}\), denotes the left adjoint of \(u_s\) relative to \(\U\), respectively \(\V\), the analogue of diagram (1.5.1) for \(\gamma\)-objects is commutative up to canonical isomorphism.
+\end{statement}
+
+\begin{prooftext}
+The proof, in the case where \(C\) is a small site, is left to the reader. It will be completed in Section~4.3 when \(C\) is a \(\U\)-site.
+\end{prooftext}
+
+\begin{remarktext}{Notation 1.8}
+From now on we shall use the notation \(u_s\) for the functor \(u_s^\gamma\). This notation is not likely to cause confusion, because the functor \(u_s\) defined on sheaves of sets commutes with finite projective limits.
+\end{remarktext}
+
+Similarly, when \(u^s\) is left exact, we shall use the notation \(u^s\) for the functor \(u^s_\gamma\). This abuse of notation is justified by Proposition~1.7(4).
+
+\begin{remarktext}{Example 1.9.1}
+Let \(X\) be a small topological space. Let \(\Open(X)\) denote the category of open subsets of \(X\), whose morphisms are inclusions, endowed with the canonical topology. A family \((U_i\subset U)_{i\in I}\) is covering if and only if the open subsets \(U_i\) cover \(U\). Thus sheaves of sets on \(\Open(X)\) are sheaves of sets in the sense of Godement's \emph{Th\'eorie des faisceaux}. Let \(f:X\to Y\) be a continuous map. It induces a functor
+\[
+f^{-1}:\Open(Y)\to\Open(X),
+\]
+which assigns to an open subset \(U\) of \(Y\) its inverse image under \(f\). The functor \(f^{-1}\) is continuous. The functor
+\[
+(f^{-1})_s:\Open(X)^{\sim}\to\Open(Y)^{\sim}
+\]
+is the direct-image functor for sheaves, in the usual topological sense. The functor
+\[
+(f^{-1})^s:\Open(Y)^{\sim}\to\Open(X)^{\sim}
+\]
+is the inverse-image functor for sheaves. By Proposition~1.3(5), it commutes with finite projective limits.
+\end{remarktext}
+
+\begin{remarktext}{Example 1.9.2}
+Let \(X\) be a topological space, and let \(Y\hookrightarrow X\) be an open subset. Every open subset of \(Y\) is an open subset of \(X\), whence a functor
+\[
+\Phi:\Open(Y)\to\Open(X).
+\]
+The functor \(\Phi\) is continuous. The functor
+\[
+\Phi_s:\Open(X)^{\sim}\to\Open(Y)^{\sim}
+\]
+is the restriction-to-\(Y\) functor. The functor
+\[
+\Phi^s_{\mathrm{ab}}:\Open(Y)^{\sim}_{\mathrm{ab}}\to\Open(X)^{\sim}_{\mathrm{ab}}
+\]
+is extension by zero outside \(Y\). The functor
+\[
+\Phi^s:\Open(Y)^{\sim}\to\Open(X)^{\sim}
+\]
+is analogous to extension by zero: for every sheaf \(H\) on \(Y\) and every point \(y\in Y\), the stalk of \(\Phi^sH\) at \(y\) is canonically isomorphic to the stalk of \(H\) at \(y\); for every point \(x\in X\setminus Y\), the stalk at \(x\) of \(\Phi^sH\) is empty. The functor \(\Phi^s\) is called extension by the empty set outside \(Y\). It commutes with fiber products and with finite products over a nonempty set of indices, but it does not transform the final object of \(\Open(Y)^{\sim}\) into the final object of \(\Open(X)^{\sim}\).
+\end{remarktext}
+
+\begin{remarktext}{Example 1.9.3}
+Let \(C\) and \(C'\) be two small sites, and let \(u:C\to C'\) be a functor between the underlying categories which transforms every covering family of \(C\) into a covering family of \(C'\). In general \(u\) is not continuous. Here is a counterexample. Let \(S\) be an infinite set belonging to the universe \(\U\), and let \(C\) be the full subcategory of the category of sets whose objects are the nonempty finite subsets of \(S\). We endow \(C\) with the canonical topology. The covering families in \(C\) are the surjective families of maps, and covering families are nonempty. Moreover, up to isomorphism there are only two constant sheaves on \(C\): the sheaf with value the empty set and the sheaf with value a singleton. Put \(C=C'\), and let \(u:C\to C'\) be a constant functor. The functor \(u\) transforms covering families of \(C\) into covering families of \(C'\). It is not continuous. Indeed, since representable presheaves of \(C'\) are sheaves, for every object \(X\) of \(C'\) there exists a sheaf \(F\) on \(C'\) such that \(|F(X)|\ge2\), and consequently the presheaf \(u^\flat F\) is not a sheaf.
+\end{remarktext}
+
+\section{Cocontinuous functors}
+
+\begin{statement}{Definition 2.1}
+Let \(C\) and \(C'\) be two \(\U\)-sites and let \(u:C\to C'\) be a functor between the underlying categories. One says that \(u\) is \emph{cocontinuous} if it has the following property:
+
+\smallskip
+\noindent\((\mathrm{COC})\) For every object \(Y\) of \(C\) and every covering sieve \(R\hookrightarrow u(Y)\), the sieve of \(Y\) generated by the arrows \(Z\to Y\) such that \(u(Z)\to u(Y)\) factors through \(R\), covers \(Y\).
+\end{statement}
+
+\begin{statement}{Proposition 2.2}
+Let \(C\) be a small site, let \(C'\) be a \(\U\)-site, and let \(u:C\to C'\) be a functor between the underlying categories. Let
+\[
+\widehat u_*:\widehat C\to\widehat{C'}
+\]
+denote the functor right adjoint to the functor \(F\mapsto F\circ u=\widehat u^*F\). Then \(u\) is cocontinuous if and only if, for every sheaf \(G\) on \(C\), \(\widehat u_*G\) is a sheaf on \(C'\).
+\end{statement}
+
+\begin{prooftext}
+\emph{The condition is sufficient.} Suppose that, for every sheaf \(G\) on \(C\), the presheaf \(\widehat u_*G\) is a sheaf. Let \(Y\) be an object of \(C\), and let \(R\hookrightarrow u(Y)\) be a covering sieve. One has an isomorphism
+\[
+\Hom(u(Y),\widehat u_*G)\xrightarrow{\sim}\Hom(R,\widehat u_*G),
+\]
+hence by adjunction an isomorphism
+\[
+\Hom(\widehat u^*u(Y),G)\xrightarrow{\sim}\Hom(\widehat u^*R,G).
+\]
+It follows that \(\widehat u^*R\to\widehat u^*u(Y)\) is bicov\-ering. Since \(\widehat u^*\) commutes with projective limits, this morphism is a monomorphism, hence a covering monomorphism. On the other hand, there is a canonical morphism
+\[
+Y\xrightarrow{p}\widehat u^*u(Y)
+\]
+coming from the adjunction morphism \(\id_C\to\widehat u^*u_!\). Base changing along \(p\), one obtains a covering sieve
+\[
+\widehat u^*R\times_{\widehat u^*u(Y)}Y\longrightarrow Y.
+\]
+When one asks which arrows \(Z\to Y\) factor through this sieve, one obtains exactly the sieve described in property \((\mathrm{COC})\).
+
+\emph{The condition is necessary.} Let \(S\) be an object of \(C'\), and let \(R\hookrightarrow S\) be a covering sieve. We must show that, for every sheaf \(G\) on \(C\), the map
+\[
+\Hom(S,\widehat u_*G)\xrightarrow{\sim}\Hom(R,\widehat u_*G)
+\]
+is an isomorphism. Using Expos\'e~II, 5.3 and adjunction, it is enough to show that the monomorphism
+\[
+\widehat u^*R\to\widehat u^*S
+\]
+is covering. For this it is enough to prove that, for every base change \(Y\to\widehat u^*S\), with \(Y\) an object of \(C\), the sieve
+\[
+\widehat u^*R\times_{\widehat u^*S}Y
+\]
+is covering. By the properties of adjoint functors and Expos\'e~I, 5.4(3), the morphism \(Y\to\widehat u^*S\) factors as
+\[
+Y\xrightarrow{p}\widehat u^*u(Y)\to\widehat u^*S.
+\]
+Thus the sieve \(\widehat u^*R\times_{\widehat u^*S}Y\hookrightarrow Y\) is obtained by base change from the monomorphism
+\[
+\widehat u^*(R\times_Su(Y))\hookrightarrow\widehat u^*u(Y).
+\]
+Since \(R\times_Su(Y)\hookrightarrow u(Y)\) is a covering sieve, property \((\mathrm{COC})\) implies that \(\widehat u^*R\times_{\widehat u^*S}Y\hookrightarrow Y\) is covering. \qedtext
+\end{prooftext}
+
+\begin{statement}{Proposition 2.3}
+Let \(C\) and \(C'\) be two \(\U\)-sites, and let \(u:C\to C'\) be a cocontinuous functor. Put
+\[
+u^*=\underline a\,\widehat u^*i':\widetilde{C'}\to\widetilde C,
+\]
+where \(\underline a\) is sheafification for \(\widehat C\), \(\widehat u^*\) is the functor \(F\mapsto F\circ u\), and \(i'\) is the inclusion \(\widetilde{C'}\to\widehat{C'}\).
+\begin{enumerate}[label=\arabic*)]
+\item The functor \(u^*\) commutes with inductive limits and is exact.
+\item There is a canonical isomorphism
+\[
+u^*\underline a'\simeq\underline a\,\widehat u^*,
+\]
+where \(\underline a'\) denotes sheafification for \(\widehat{C'}\).
+\item The functor \(u^*\) has a right adjoint
+\[
+u_*:\widetilde C\to\widetilde{C'}.
+\]
+When \(C\) is small, the diagram
+\[
+\begin{array}{ccc}
+\widetilde C&\xrightarrow{u_*}&\widetilde{C'}\\
+\downarrow i&&\downarrow i'\\
+\widehat C&\xrightarrow{\widehat u_*}&\widehat{C'}
+\end{array}\tag{2.3.1}
+\]
+in which the lower functor is right adjoint to \(\widehat u^*\), is commutative up to canonical isomorphism.
+\item If \(\V\supset\U\) is a universe, and if \(u_{*\U}\), respectively \(u_{*\V}\), denotes the right adjoint relative to \(\U\), respectively \(\V\), then the analogous square with the inclusion functors \(\widetilde C_\U\hookrightarrow\widetilde C_\V\) and \(\widetilde{C'}_\U\hookrightarrow\widetilde{C'}_\V\) is commutative up to isomorphism.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+Assertions (1) and (2) follow immediately from Expos\'e~II, 3.4. Assertion (3), when \(C\) is small, follows from Proposition~2.2. When \(C\) is a \(\U\)-site, it will be proved in Section~4.4. Assertion (4), when \(C\) is small, follows from the analogous commutativity assertion in the case where the topologies on \(C\) and \(C'\) are chaotic, and from Expos\'e~I, 3.5. In the chaotic case, the commutativity is immediate from the explicit description of \(u_*\).
+\end{prooftext}
+
+\subsection*{2.4}
+We shall not develop here the considerations concerning \(\gamma\)-objects of categories of sheaves. We shall only need to note that the functors \(u^*\) and \(u_*\) introduced in this section always commute with finite projective limits, unlike what happened in the preceding section for the functor \(u^s\). Thus they extend naturally to functors on \(\gamma\)-objects. These extensions are adjoint to one another and commute with the underlying-sheaf-of-sets functors. We shall use the abuses of notation indicated in Notation~1.8, writing \(u^*\) and \(u_*\) for the extensions to \(\gamma\)-objects.
+
+\begin{statement}{Proposition 2.5}
+Let \(C\) and \(C'\) be two \(\U\)-sites and let
+\[
+C\mathop{\rightleftarrows}^{v}_{u}C'
+\]
+be a pair of functors, where \(v\) is left adjoint to \(u\). The following properties are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item The functor \(u\) is continuous.
+\item The functor \(v\) is cocontinuous.
+\end{enumerate}
+Under these equivalent conditions there are canonical isomorphisms
+\[
+v_*\simeq u_s,
+\qquad
+v^*\simeq u^s.
+\]
+In particular, \(u^s\) commutes with finite projective limits.
+\end{statement}
+
+\begin{prooftext}
+The property of a functor being continuous or cocontinuous does not depend on the universe \(\U\) for which \(C\) and \(C'\) are \(\U\)-sites: this is immediate for a cocontinuous functor, and follows from Proposition~1.5 for a continuous functor. Thus, after enlarging the universe if necessary, we may suppose that \(C\) and \(C'\) are small. The proposition then follows from Proposition~2.2 and Expos\'e~I, 5.6.
+\end{prooftext}
+
+\begin{statement}{Proposition 2.6}
+Let \(u:C\to C'\) be a continuous and cocontinuous functor between two \(\U\)-sites. Then the functor
+\[
+u^*:\widetilde{C'}\to\widetilde C
+\]
+of Proposition~2.3 commutes with \(\U\)-inductive limits and with projective limits. Let
+\[
+u_!:\widetilde C\to\widetilde{C'},
+\qquad
+u_*:\widetilde C\to\widetilde{C'}
+\]
+denote respectively the left and right adjoints of \(u^*\). The functor \(u_!\) is fully faithful if and only if \(u_*\) is fully faithful. When \(u\) is fully faithful, \(u_!\) is fully faithful; conversely, if the topologies of \(C\) and \(C'\) are no finer than the canonical topology, full faithfulness of \(u_!\) implies full faithfulness of \(u\).
+\end{statement}
+
+The functor \(u^*\) has a right adjoint \(u_*\) by Proposition~2.3 and a left adjoint \(u_!\) by Proposition~1.2. Thus \(u^*\) commutes with inductive and projective limits. The assertion that \(u_!\) is fully faithful if and only if \(u_*\) is fully faithful is a general property of adjoint functors. If \(u\) is fully faithful, then for a sufficiently large universe \(\V\), the functor
+\[
+\widehat u_*:\widehat C_{\V}\to\widehat{C'}_{\V}
+\]
+on \(\V\)-presheaves is fully faithful. Hence, by the commutativity of (2.3.1) and of the universe-change square (2.3.2), the functor \(u_*:\widetilde C\to\widetilde{C'}\) is fully faithful, and therefore so is \(u_!\). Conversely, use the commutative diagram of Proposition~1.2(iv), together with the fact that \(\epsilon_C\) and \(\epsilon_{C'}\) are fully faithful when the topologies are no finer than the canonical topology. \qedtext
+
+\begin{remarktext}{Example 2.7}
+With the notation of Example~1.9.2, the functor
+\[
+\Phi:\Open(Y)\to\Open(X)
+\]
+is continuous and cocontinuous. Moreover, let \(i:Y\to X\) be the canonical injection and let
+\[
+i^{-1}:\Open(X)\to\Open(Y)
+\]
+be the functor it defines. The functor \(i\) is right adjoint to \(\Phi\). Thus one has a sequence of three adjoint functors
+\[
+\Phi^s,
+\qquad
+\Phi_s=\Phi^*,
+\qquad
+\Phi_* ,
+\]
+and canonical isomorphisms
+\[
+\Phi^*\simeq (i^{-1})^s,
+\qquad
+\Phi_*\simeq i^{-1}_s.
+\]
+\end{remarktext}
+
+\section{Induced topology}
+
+\subsection*{3.1}
+Let \(C'\) be a site, let \(C\) be a category, and let \(u:C\to C'\) be a functor. For every universe \(\U\) such that \(C'\) is a \(\U\)-site and \(C\) is a \(\U\)-small category, let \(\T_{\U}\) denote the finest topology \(T\) on \(C\) for which \(u\) is continuous. Such a topology exists by Expos\'e~II, 2.2. The topology \(\T_{\U}\) does not depend on the universe \(\U\): if \(\V\supset\U\), then \(\T_{\U}=\T_{\V}\), by Definition~1.1 and Proposition~1.5. The topology \(\T_{\U}\) is called the \emph{topology induced on \(C\) by the topology of \(C'\) through the functor \(u\)}. When no confusion can result, it is simply called the topology induced on \(C\) by the topology of \(C'\).
+
+\begin{statement}{Proposition 3.2}
+Let \(C\) be a small category, let \(C'\) be a \(\U\)-site, let \(u:C\to C'\) be a functor, and let \(\T\) be the topology on \(C\) induced by \(u\). Let \(X\) be an object of \(C\), and let \(R\hookrightarrow X\) be a sieve of \(X\). The following properties are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item The sieve \(R\hookrightarrow X\) is covering for \(\T\).
+\item For every base change \(Y\to X\), where \(Y\) is an object of \(C\), the morphism
+\[
+u_!(R\times_XY)\to u(Y)
+\]
+is bicov\-ering in \(\widehat{C'}\).
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+The implication \(\mathrm{i}\Rightarrow\mathrm{ii}\) follows from axiom (T1) of topologies and Proposition~1.2. Conversely, for every sheaf \(F\) on \(C'\), the map
+\[
+\Hom(Y,u^\flat F)\to \Hom(R\times_XY,u^\flat F)
+\]
+is, by adjunction, isomorphic to
+\[
+\Hom(u(Y),F)\to\Hom(u_!(R\times_XY),F),
+\]
+which is bijective by Expos\'e~II, 5.3. Hence \(R\hookrightarrow X\) is covering for \(\T\).
+\end{prooftext}
+
+\begin{statement}{Corollary 3.3}
+Let \(C'\) be a site, let \(C\) be a category, let \(u:C\to C'\) be a functor, and let \(\T\) be the topology on \(C\) induced by the topology of \(C'\). Let \((X_i\to X)_{i\in I}\) be a family of base-changeable morphisms of \(C\), and suppose that \(u\) commutes with the relevant fiber products, namely those of the form \(X_i\times_XX'\). The following properties are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item The family \((X_i\to X)_{i\in I}\) is covering for \(\T\).
+\item The family \((u(X_i)\to u(X))_{i\in I}\) is covering.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+The implication \(\mathrm{i}\Rightarrow\mathrm{ii}\) follows from Proposition~1.6. Conversely, choose a universe \(\U\) such that \(C\) is \(\U\)-small and \(C'\) is a \(\U\)-site. Let \(R\hookrightarrow X\) be the sieve generated by the morphisms \(X_i\to X\). The presheaf \(R\) is the cokernel of the pair of arrows
+\[
+\coprod_{i,j}X_i\times_XX_j\rightrightarrows\coprod_iX_i,
+\]
+where the coproduct is taken in \(\widehat C\). Since \(u_!\) commutes with inductive limits, \(u_!R\) is the cokernel of the pair
+\[
+\coprod_{i,j}u(X_i\times_XX_j)\rightrightarrows\coprod_i u(X_i).
+\]
+Because \(u\) commutes with fiber products, this is the cokernel of
+\[
+\coprod_{i,j}u(X_i)\times_{u(X)}u(X_j)\rightrightarrows\coprod_i u(X_i).
+\]
+Thus \(u_!R\to u(X)\) is the sieve of \(u(X)\) generated by the morphisms \(u(X_i)\to u(X)\). Using again that \(u\) commutes with fiber products, one checks that for every base change \(Y\to X\), with \(Y\) an object of \(C\), the morphism
+\[
+u_!(R\times_XY)\to u(Y)
+\]
+is the sieve of \(u(Y)\) generated by the morphisms
+\[
+u(X_i)\times_{u(X)}u(Y)\to u(Y).
+\]
+Since \((u(X_i)\to u(X))\) is covering, this family is covering. Hence \(u_!(R\times_XY)\to u(Y)\) is a covering sieve, and by Proposition~3.2 the sieve \(R\to X\) is covering for \(\T\). \qedtext
+\end{prooftext}
+
+\begin{statement}{Corollary 3.4}
+Let \(C'\) be a \(\U\)-site, let \(C\) be a full subcategory of \(C'\), and let \(u:C\to C'\) be the inclusion functor. Suppose that fiber products are representable in \(C\) and that \(u\) commutes with them. The following conditions are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item
+\begin{enumerate}[label=\alph*)]
+\item For every object \(X\) of \(C\), every covering family \((Y_j\to X)_{j\in J}\) in \(C'\) is dominated by a covering family \((X_i\to X)_{i\in I}\), where the \(X_i\) are objects of \(C\).
+\item There exists a small set \(G\) of objects of \(C\) such that every object of \(C\) is the target of a covering family in \(C'\) whose sources lie in \(G\).
+\end{enumerate}
+\item The topology induced by the topology of \(C'\) is a \(\U\)-topology and the functor \(u\) is continuous and cocontinuous for this topology.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+This follows immediately from Corollary~3.3 and Definition~2.1.
+\end{prooftext}
+
+\begin{statement}{Proposition 3.5}
+Let \(C\) be a \(\U\)-site and let \(\epsilon_C:C\to\widetilde C\) be the canonical functor. Endow \(\widetilde C\) with the canonical topology. Then the topology of the site \(C\) is the topology induced by the topology of \(\widetilde C\).
+\end{statement}
+
+\begin{prooftext}
+The covering families of \(\widetilde C\) for the canonical topology are the universal effective epimorphic families, hence, by Expos\'e~II, 4.3, the epimorphic families. Let \(T\) be the topology of \(C\), and let \(\T_{\U}\) be the finest of the topologies \(T'\) on \(C\) such that, for every sheaf \(F\) on \(\widetilde C\), \(F\circ\epsilon_C\) is a sheaf for \(T'\). It is enough to prove \(T=\T_{\U}\), for then \(\T_{\U}\) is a \(\U\)-topology and hence is the induced topology.
+
+\emph{A) The topology \(T\) is finer than \(\T_{\U}\).} Let \((X_i\to X)_{i\in I}\) be a covering family for \(\T_{\U}\). Then for every sheaf \(F\) on \(\widetilde C\), the map
+\[
+F(\epsilon_CX)\to\prod_iF(\epsilon_CX_i)
+\]
+is injective. Consequently \((\epsilon_CX_i\to\epsilon_CX)_{i\in I}\) is covering for the canonical topology of \(\widetilde C\), hence \((X_i\to X)_{i\in I}\) is covering for \(T\).
+
+\emph{B) The topology \(T\) is coarser than \(\T_{\U}\).} It is enough to prove that \(\epsilon_C:C\to\widetilde C\) is continuous. This will be proved in Expos\'e~IV, Section~1: every sheaf on \(\widetilde C\) is representable, and hence, for every sheaf \(F\) on \(\widetilde C\), the presheaf \(F\circ\epsilon_C\) is a sheaf on \(C\). Proposition~3.5 will not be used before Expos\'e~IV, Section~1.
+
+We record two results that will be used in Expos\'e~VI, Section~7.
+\end{prooftext}
+
+\begin{statement}{Proposition 3.6}
+Let \((C_i)_{i\in I}\) be a family of sites, let \(C\) be a category, and for each \(i\in I\), let \(u_i:C_i\to C\) be a functor. Let \(\U\) be a universe such that the categories \(C_i\) and \(C\) are \(\U\)-small. There exists a topology \(\T_{\U}\) on \(C\) which is the coarsest topology for which all the \(u_i\) are continuous. The topology \(\T_{\U}\) does not depend on the universe \(\U\) for which the categories under consideration are small.
+\end{statement}
+
+The last assertion of Proposition~3.6 follows from Proposition~1.5. Let \(T\) be a topology on \(C\). The functors \(u_i\) are continuous if and only if, for every \(i\in I\) and every covering sieve \(R\hookrightarrow X\) of an object \(X\) of \(C_i\), the morphism
+\[
+u_{i!}(R)\to u_i(X)
+\]
+in \(\widehat C\) is bicov\-ering. Thus Proposition~3.6 follows from the following lemma.
+
+\begin{statement}{Lemma 3.6.1}
+Let \(C\) be a small category and let \((u_i:F_i\to G_i)_{i\in I}\) be a family of arrows of \(\widehat C\). Then there exists on \(C\) a coarsest topology among those which make the morphisms \(u_i\) covering, respectively bicov\-ering.
+\end{statement}
+
+To say that \(u:F\to G\) is covering for a given topology \(T\) means that, for every arrow \(X\to G\) with \(X\in\Ob C\), the corresponding arrow \(F\times_GX\to X\) is covering; equivalently, the family of arrows \(X'\to X\) in \(C\) which factor through this arrow is covering. The existence of a coarsest topology for which all \(u_i:F_i\to G_i\) are covering therefore follows from Expos\'e~I, 1.1.6. This proves the non-respective assertion of Lemma~3.6.1. The respective assertion follows by recalling that \(u:F\to G\) is bicov\-ering if and only if the morphisms \(u:F\to G\) and \(\Delta_u:F\to F\times_GF\) are covering.
+
+\begin{statement}{Proposition 3.7}
+Let \((C_i)_{i\in I}\) be a family of sites, let \(C\) be a category, and for each \(i\in I\), let \(u_i:C_i\to C\) be a functor. Let \(\U\) be a universe such that the categories \(C_i\) and \(C\) are \(\U\)-small. There exists a topology \(\mathfrak T_{\U}\) on \(C\) which is the finest topology for which all the \(u_i\) are cocontinuous. The topology \(\mathfrak T_{\U}\) does not depend on the universe \(\U\) for which the categories under consideration are small.
+\end{statement}
+
+Let \(\U\) be a universe for which the categories under consideration are small. The functors \(u_i\) are cocontinuous for a topology \(\mathfrak T\) on \(C\) if and only if, for every \(i\in I\) and every sheaf \(F\) on \(C_i\), the presheaf \(\widehat u_{i*}F\) is a sheaf for \(\mathfrak T\). It follows that \(\mathfrak T_{\U}\) is the finest topology for which the presheaves \(\widehat u_{i*}F\), with \(i\in I\) and \(F\in\ob C_i\), are sheaves. The last assertion follows from Proposition~2.2.
+
+\section{The comparison lemma}
+
+\begin{statement}{Theorem 4.1 (comparison lemma)}
+Let \(C\) be a small category, let \(C'\) be a site whose underlying category is a \(\U\)-category, and let \(u:C\to C'\) be a fully faithful functor. Endow \(C\) with the topology induced by \(u\). Consider the following properties:
+\begin{enumerate}[label=\roman*)]
+\item Every object of \(C'\) can be covered by objects coming from \(C\).
+\item The functor \(F\mapsto F\circ u\) induces an equivalence from the category of sheaves on \(C'\) to the category of sheaves on \(C\).
+\end{enumerate}
+One always has \(\mathrm{i}\Rightarrow\mathrm{ii}\). If \(C'\) is a \(\U\)-site and its topology is no finer than the canonical topology, then \(\mathrm{ii}\Rightarrow\mathrm{i}\).
+\end{statement}
+
+\subsubsection*{4.1.1}
+We first prove \(\mathrm{i}\Rightarrow\mathrm{ii}\). The proof has two steps.
+
+\emph{First step.} For every presheaf \(H\) of \(\widehat{C'}\), the adjunction morphism
+\[
+\varphi:u_!u^\flat H\to H
+\]
+is bicov\-ering, and the functor
+\[
+u_s:\widetilde{C'}\to\widetilde C
+\]
+is fully faithful.
+
+Let \(C/H\) be the small category whose objects are objects \(Y\) of \(C\) equipped with a morphism \(u(Y)\to H\), and whose morphisms are the evident commutative triangles over \(H\). One has
+\[
+u^\flat H=\varinjlim_{Y\in\ob(C/H)}Y,
+\]
+and hence
+\[
+u_!u^\flat H=\varinjlim_{Y\in\ob(C/H)}u(Y).
+\]
+The adjunction morphism is the evident morphism arising from this description as an inductive limit. It has the following property: for every object \(Y\) of \(C\), every morphism \(m:u(Y)\to H\) factors uniquely as the canonical morphism
+\[
+\alpha(m):u(Y)\to u_!u^\flat H
+\]
+followed by \(\varphi\). It follows immediately from (i) that \(\varphi\) is covering. We show that it is bicov\-ering. Let \(p,q:Z\rightrightarrows u_!u^\flat H\) be two morphisms from an object \(Z\) of \(C'\) such that \(\varphi p=\varphi q\). For every object \(Y\) of \(C\) and every morphism \(n:u(Y)\to Z\), one has \(\varphi pn=\varphi qn\). The preceding property then gives \(pn=qn\). Since the objects \(u(Y)\) cover \(Z\), the kernel of \((p,q)\) is a covering sieve of \(Z\). Hence \(\varphi\) is bicov\-ering. If \(H\) is a sheaf on \(C'\), then \(u^\flat H\) is a sheaf on \(C\), denoted \(u_sH\). Moreover,
+\[
+u^su_sH=\underline a'u_!u_sH,
+\]
+and the adjunction morphism \(u^su_sH\to H\) is obtained by applying sheafification to \(\varphi:u_!u^\flat H\to H\). Since \(\varphi\) is bicov\-ering, this adjunction morphism is an isomorphism. Thus \(u_s\) is fully faithful.
+
+\emph{Second step.} The functor \(u\) is cocontinuous and the functor
+\[
+u^s:\widetilde C\to\widetilde{C'}
+\]
+is fully faithful. Consequently \(u_s:\widetilde{C'}\to\widetilde C\) is an equivalence. Let \(Y\) be an object of \(C\), and let \(i:R\hookrightarrow u(Y)\) be a covering sieve. Since \(u^\flat\) commutes with projective limits, the morphism
+\[
+u^\flat(i):u^\flat(R)\hookrightarrow u^\flat u(Y)
+\]
+is a monomorphism. Since \(u\) is fully faithful, \(u^\flat u(Y)\simeq Y\), and hence \(u^\flat(i)\) is a sieve of \(Y\). To prove that \(u\) is cocontinuous, it is enough to show that \(u^\flat(i):u^\flat(R)\hookrightarrow Y\) is a covering sieve for the induced topology on \(C\). By Proposition~3.2, it is enough to show that for every base change \(m:X\to Y\), the morphism
+\[
+u_!(u^\flat(R)\times_YX)\to u(X)
+\]
+is bicov\-ering. Since \(u^\flat\) commutes with projective limits,
+\[
+u^\flat(R)\times_YX=u^\flat(R\times_{u(Y)}u(X)),
+\]
+and \(R\times_{u(Y)}u(X)\) is a covering sieve of \(u(X)\). Thus it suffices to prove that for every object \(Y\) of \(C\) and every covering sieve \(R\hookrightarrow u(Y)\), the morphism
+\[
+u_!u^\flat(R)\xrightarrow{u_!u^\flat(i)}u(Y)
+\]
+in \(\widehat{C'}\) is bicov\-ering. This morphism factors as the adjunction morphism
+\[
+u_!u^\flat(R)\to R,
+\]
+which is bicov\-ering by the first step, followed by the covering monomorphism \(R\hookrightarrow u(Y)\). Hence it is bicov\-ering. Therefore \(u\) is cocontinuous. Since \(u\) is continuous and fully faithful, Proposition~2.6, used in the case where \(C\) is small, implies that \(u^s\) is fully faithful. Since \(u^s\) and \(u_s\) are adjoint and both are fully faithful, they are quasi-inverse functors. Hence \(u_s\) is an equivalence.
+
+\subsubsection*{4.1.2}
+We now prove \(\mathrm{ii}\Rightarrow\mathrm{i}\). The objects \(Y\) of \(C\) form a generating family of \(\widetilde C\). Therefore, for every object \(X\) of \(C'\), there exists an epimorphic family in \(\widetilde C\),
+\[
+v_i:Y_i\to u_sX,
+\qquad i\in I.
+\]
+One has \(u_su(Y_i)=Y_i\), and since \(u_s\) is an equivalence of categories, one has \(v_i=u_s(w_i)\), where the morphisms
+\[
+w_i:u(Y_i)\to X
+\]
+form an epimorphic family in \(\widetilde{C'}\). It then follows from Expos\'e~II, 5.1 that the family \((w_i:u(Y_i)\to X)_{i\in I}\) is covering.
+
+\subsection{End of the proof of Proposition 1.2}
+
+Let \(G\) be a full subcategory of \(C\) whose objects form a small topologically generating family of \(C\). Endow \(G\) with the topology induced by the inclusion functor \(i:G\to C\). The functor
+\[
+(u\circ i)_s=i_s\circ u_s
+\]
+has a left adjoint by the first part of the proof of Proposition~1.2. Since \(i_s\) is an equivalence of categories by Theorem~4.1, the functor \(u_s\) has a left adjoint \(u^s\), and one has a functorial isomorphism
+\[
+u^s\simeq (u\circ i)^s\circ i_s.
+\]
+We show that the diagram
+\[
+\begin{array}{ccc}
+C&\xrightarrow{u}&C'\\
+\downarrow\epsilon_C&&\downarrow\epsilon_{C'}\\
+\widetilde C&\xrightarrow{u^s}&\widetilde{C'}
+\end{array}\tag{4.2.1}
+\]
+commutes up to isomorphism. For every sheaf \(H\) on \(C'\), one has
+\[
+\Hom_{\widetilde{C'}}(\epsilon_{C'}uX,H)\simeq u_sH(X),
+\]
+for every \(X\in\ob C\). Also,
+\[
+\Hom_{\widetilde{C'}}(u^s\epsilon_CX,H)
+\simeq\Hom_{\widetilde C}(\epsilon_CX,u_sH)
+\simeq u_sH(X),
+\]
+by adjunction and by the definition of \(\epsilon_C\). Thus \(\epsilon_{C'}uX\simeq u^s\epsilon_CX\) for every \(X\in\ob C\), proving \(\mathrm{i}\Rightarrow\mathrm{iv}\).
+
+Conversely, suppose \(\mathrm{iv}\). We have a commutative diagram
+\[
+\begin{array}{ccccc}
+G&\xrightarrow{i}&C&\xrightarrow{u}&C'\\
+\downarrow\epsilon_G&&\downarrow\epsilon_C&&\downarrow\epsilon_{C'}\\
+\widetilde G&\xrightarrow{i^s}&\widetilde C&\xrightarrow{u^s}&\widetilde{C'}.
+\end{array}\tag{4.2.2}
+\]
+By the first part of the proof, the functor \(u\circ i:G\to C'\) is continuous. It follows at once from Theorem~4.1 and Definition~1.1 that \(u\) is continuous. This proves \(\mathrm{iv}\Rightarrow\mathrm{i}\). We also obtain uniqueness of \(u^s\), knowing from the first part of the proof the uniqueness when \(C\) is small.
+
+\subsection{End of the proof of Propositions 1.5 and 1.7}
+
+Let \(u:C\to C'\) be a functor between two \(\U\)-sites, and let \(G\) be a full subcategory of \(C\) whose object set is a small topologically generating family of \(C\). Endow \(G\) with the topology induced by the inclusion functor \(i:G\to C\). It follows immediately from Theorem~4.1 and Definition~1.1 that \(u\) is continuous if and only if \(u\circ i\) is continuous. This remark, together with the first part of the proof of Proposition~1.5, proves the general case. The same remark reduces the proof of Proposition~1.7 to the case where the category \(C\) is small.
+
+\subsection{End of the proof of Proposition 2.3}
+
+Let \(u:C\to C'\) be a functor between two \(\U\)-sites, and let \(G\) be a full subcategory of \(C\) whose object set is a small topologically generating family of \(C\), endowed with the topology induced by the inclusion functor \(i:G\to C\). It follows from the proof of Theorem~4.1, specifically from the second step of 4.1.1, that \(i\) is cocontinuous. Hence, when \(u\) is cocontinuous, the composite functor \(u\circ i:G\to C'\) is cocontinuous. Moreover,
+\[
+i^*:\widetilde C\to\widetilde G
+\]
+is an equivalence of categories by Theorem~4.1. Therefore the functor
+\[
+u^*:\widetilde{C'}\to\widetilde C
+\]
+has a right adjoint. This proves Proposition~2.3(3). For (4), it is enough to observe that
+\[
+(u\circ i)_*\simeq u_*\circ i_*
+\]
+and that \(i_*\) is an equivalence. The commutativity of the universe-change diagram (2.3.2) then follows from the commutativity of these diagrams when \(C\) is small.
+
+\section{Localization}
+
+\subsection*{5.1}
+Let now \(C\) be a \(\U\)-site and let \(X\) be an object of \(\widehat C\). Unless explicitly stated otherwise, the category \(C/X\) will be endowed with the topology \(\T\) induced by the functor
+\[
+j_X:C/X\to C.
+\]
+The notation \(C/X\) will denote the category \(C/X\) equipped with this topology. Expos\'e~I, 5.11 shows that the functor \(j_{X!}\) commutes with fiber products and therefore transforms every monomorphism into a monomorphism. In particular, for every object \((Y\to X)\) of \(C/X\), the functor \(j_{X!}\) gives a bijection between the sieves, in the category \(C/X\), of the object \((Y\to X)\), and the sieves, in \(C\), of the object \(Y\).
+
+\begin{statement}{Proposition 5.2}
+Let \(C\) be a \(\U\)-site, let \(X\) be an object of \(\widehat C\), and let \(j_X:C/X\to C\) be the corresponding continuous functor.
+\begin{enumerate}[label=\arabic*)]
+\item A sieve \(R\) of an object \((Z\to X)\) is covering in \(C/X\) if and only if the sieve
+\[
+j_{X!}(R)\hookrightarrow Z
+\]
+is covering in \(C\).
+\item The functor \(j_X:C/X\to C\) is cocontinuous and continuous.
+\item If \(m:Y\to X\) is a morphism of \(\widehat C\), then we have the commutative diagram
+\[
+\begin{array}{ccc}
+C/Y&\xrightarrow{j_m}&C/X\\
+&\searrow j_Y\quad\swarrow j_X&\\[-0.8em]
+&&C,
+\end{array}
+\]
+and the topology induced on \(C/Y\) by \(j_Y\) is equal to the topology induced on \(C/Y\) by \(j_m\).
+\item The topology induced by \(j_X:C/X\to C\) is a \(\U\)-topology.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+(1) If the sieve \(R\) of \((Z\to X)\) is covering, then \(j_{X!}(R)\hookrightarrow Z\) is covering by Proposition~1.6. Conversely, if \(j_{X!}(R)\to Z\) is covering in \(C\), the same is true after every base change in \(C/X\). Hence \(R\) is covering by Proposition~3.2.
+
+(2) This follows immediately from (1) by applying Definition~2.1.
+
+(3) This follows immediately from the description of covering sieves given in (1).
+
+(4) Let \((G_i)_{i\in I}\) be a small topologically generating family of \(C\). One verifies immediately that the small family of objects
+\[
+(u:G_i\to X),
+\qquad
+u\in\coprod_{i\in I}\Hom_{\widehat C}(G_i,X),
+\]
+is topologically generating in \(C/X\).
+\end{prooftext}
+
+\begin{remarktext}{Terminology and notation 5.3}
+By the preceding proposition the functor \(j_X\) is both continuous and cocontinuous. It therefore defines a sequence of three adjoint functors between the categories of sheaves of sets:
+\[
+j_X^s:(C/X)^{\sim}\to\widetilde C,
+\]
+\[
+j_X^*=j_{X,s}:\widetilde C\to(C/X)^{\sim},
+\]
+\[
+j_{X*}:(C/X)^{\sim}\to\widetilde C.
+\]
+
+In the situation of Proposition~5.2 we shall use the following terminology and notation:
+\begin{enumerate}[label=\arabic*)]
+\item The functor \(j_{X*}\) will be called the \emph{direct-image functor}.
+\item The functor \(j_{X,s}=j_X^*\) will be written \(j_X^*\) and called the \emph{restriction functor to \(C/X\)}.
+\item The functor \(j_X^s\), on sheaves of sets, will be called \emph{extension by the empty set to the category \(C\)} and will be denoted by \(j_{X!}\).
+\end{enumerate}
+Thus one has a sequence of three adjoint functors between \((C/X)^{\sim}\) and \(\widetilde C\):
+\[
+j_{X!},\quad j_X^*,\quad j_{X*}.
+\]
+\end{remarktext}
+
+\begin{statement}{Proposition 5.4}
+The functor
+\[
+j_{X!}:(C/X)^{\sim}\to\widetilde C
+\]
+factors through the category \(\widetilde C/\underline aX\), where \(\underline a\) is sheafification:
+\[
+(C/X)^{\sim}\xrightarrow{e_X^{\sim}}\widetilde C/\underline aX\to\widetilde C.
+\]
+The functor
+\[
+e_X^{\sim}:(C/X)^{\sim}\to\widetilde C/\underline aX
+\]
+is an equivalence of categories. The restriction-to-\(C/X\) functor, composed with the equivalence \(e_X^{\sim}\), is isomorphic to the base-change functor by \(\underline aX\to\epsilon\), where \(\epsilon\) is the final object of \(\widetilde C\):
+\[
+F\longmapsto\bigl(F\times\underline aX\xrightarrow{\pr_2}\underline aX\bigr).
+\]
+\end{statement}
+
+\begin{prooftext}
+The image by \(j_{X!}\) of the final object of \((C/X)^{\sim}\) is \(\underline aX\), giving the factorization. To show that \(e_X^{\sim}\) is an equivalence, we give only a few indications. By Expos\'e~I, 5.11, a presheaf on \(C/X\) is defined by a presheaf \(F\) on \(C\) together with a morphism \(F\to X\). One then proves that the following two properties are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item The presheaf on \(C/X\) defined by \(F\to X\) is a sheaf.
+\item The diagram
+\[
+\begin{array}{ccc}
+F&\longrightarrow&i\underline aF\\
+\downarrow&&\downarrow\\
+X&\longrightarrow&i\underline aX
+\end{array}
+\]
+is cartesian, where \(i\) and \(\underline a\) denote respectively the inclusion into presheaves and the associated-sheaf functor.
+\end{enumerate}
+It follows immediately that \(e_X^{\sim}\) is an equivalence. The last assertion is trivial.
+\end{prooftext}
+
+\begin{statement}{Proposition 5.5}
+\begin{enumerate}[label=\arabic*)]
+\item Let \(C\) be a \(\U\)-site and let \(X\) be an object of \(\widehat C\). The following diagram of categories and functors is commutative up to canonical isomorphism:
+\[
+\begin{array}{ccc}
+(C/X)^{\widehat{\ }} & \xrightarrow{\underline a_X} & (C/X)^{\sim}\\
+\downarrow e_X^{\widehat{\ }} && \downarrow e_X^{\sim}\\
+\widehat C/X & \xrightarrow{\underline a/X} & \widetilde C/\underline aX
+\end{array}
+\]
+Here \(\underline a_X\) and \(i_X\) denote the associated-sheaf functor and the inclusion into presheaves for the site \(C/X\). The notation \(\underline a/X\) denotes the natural extension of the functor \(\underline a\), sheafification for \(C\), to the category of arrows with target \(X\), and similarly for \(i/\underline aX\). Finally, \(\pi\) denotes the base-change functor by the canonical arrow \(X\to i\underline aX\).
+
+\item If \(m:Y\to X\) is a morphism of \(\widehat C\), then the natural diagram comparing the equivalences
+\[
+(C/X)^{\sim}/\underline a_XY,
+\qquad
+(C/Y)^{\sim},
+\qquad
+\widetilde C/\underline aY,
+\qquad
+\widetilde C/\underline aX/\underline aY
+\]
+is commutative up to canonical isomorphism. The arrow usually denoted \(f\) is the natural extension of the equivalence \(e^{\sim}/X\) to the category of arrows with target \(\underline a_XY\), and is therefore an equivalence of categories. The arrow usually denoted \(g\) is simply the equivalence of Proposition~5.4 applied to the situation \((C/X)/[m]\).
+
+\item Let
+\[
+j_{\underline aX!}:\widetilde C/\underline aX\to\widetilde C
+\]
+be the forgetful functor, and let
+\[
+j^*_{\underline aX}:\widetilde C\to\widetilde C/\underline aX
+\]
+be the product-by-\(\underline aX\) functor. The following diagrams are commutative up to canonical isomorphism:
+\[
+\begin{array}{ccc}
+(C/X)^{\sim}&\xrightarrow{j_{X!}}&\widetilde C\\
+\downarrow&&\Vert\\
+\widetilde C/\underline aX&\xrightarrow{j_{\underline aX!}}&\widetilde C
+\end{array}
+\qquad
+\begin{array}{ccc}
+\widetilde C&\xrightarrow{j_X^*}&(C/X)^{\sim}\\
+\Vert&&\downarrow e_X^{\sim}\\
+\widetilde C&\xrightarrow{j^*_{\underline aX}}&\widetilde C/\underline aX.
+\end{array}
+\]
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}
+The proof of these assertions is immediate from the definitions of the equivalences \(e_X^{\sim}\) of Proposition~5.4 and \(e_X^{\widehat{\ }}\) of Expos\'e~I, 5.11.
+\end{prooftext}
+
+\begin{thebibliography}{99}
+\bibitem{GodementTF} R. Godement, \emph{Th\'eorie des faisceaux}, Hermann, 1958, Actualit\'es scientifiques et industrielles no.~1252, Paris.
+\end{thebibliography}
+
+\end{document}

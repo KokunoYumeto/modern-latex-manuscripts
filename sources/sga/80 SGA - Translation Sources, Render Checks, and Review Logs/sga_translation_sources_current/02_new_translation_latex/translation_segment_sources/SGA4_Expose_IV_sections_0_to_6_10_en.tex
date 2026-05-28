@@ -1,0 +1,1656 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: IV, Topoi
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/04/04.tex
+% Range translated in this working draft section: Expose IV, Sections 0--6.10; source lines 1--4120.
+% Status: draft translation, compile-checked, not proofed line-by-line against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,hypertexnames=false}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Esp}{\mathbf{Top}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Top}{\operatorname{Top}}
+\newcommand{\TOP}{\operatorname{TOP}}
+\newcommand{\Open}{\operatorname{Open}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Fl}{\operatorname{Fl}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\Prol}{\operatorname{Prol}}
+\newcommand{\Ner}{\operatorname{Ner}}
+\newcommand{\Ppoints}{\operatorname{Pt}}
+\newcommand{\Ppoint}{\operatorname{Pt}}
+\newcommand{\Ffib}{\operatorname{Fib}}
+\newcommand{\Ttors}{\operatorname{Tors}}
+\newcommand{\Vvois}{\operatorname{Neigh}}
+\newcommand{\Ssex}{\operatorname{Lex}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\Hhom}{\mathcal{H}om}
+\newcommand{\Hhomtop}{\mathcal{H}om_{\mathrm{top}}}
+\newcommand{\Homtop}{\operatorname{Hom}_{\mathrm{top}}}
+\newcommand{\Morsite}{\operatorname{Mor}_{\mathrm{site}}}
+\newcommand{\Mmorsite}{\mathcal{M}or_{\mathrm{site}}}
+\newcommand{\Sh}{\operatorname{Sh}}
+\newcommand{\PSh}{\operatorname{PSh}}
+\newcommand{\sob}{\operatorname{sob}}
+\newcommand{\dfn}{\mathrm{def}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tw}[1]{\widetilde{#1}}
+\newcommand{\fprod}[3]{{#1}\times_{#3}{#2}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ie}{i.e.}
+\newcommand{\cf}{cf.}
+\newcommand{\etc}{etc.}
+\newcommand{\resp}{respectively}
+\newcommand{\loccit}{loc. cit.}
+\newcommand{\qedtext}{\hfill\(\square\)}
+\newcommand{\blank}{\,\cdot\,}
+\newcommand{\qu}{\quad}
+\newcommand{\contracted}{\mathop{\times}\limits^{G}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e IV. Topoi}}\\[0.35em]
+{\large Draft translation, Sections 0--6.10}\\[0.35em]
+A. Grothendieck and J.-L. Verdier
+\end{center}
+
+\bigskip
+
+
+\section*{0. Introduction}
+
+\subsection*{0.1}
+We have seen in Expos\'e~II various exactness properties of categories of the form
+\[
+\widetilde{\C}=\text{the category of sheaves of sets on }\C,
+\]
+where \(\C\) is a small site. These properties may be expressed by saying that, in many respects, these categories, which we shall call \emph{topoi}, inherit the familiar properties of the category \((\Set)\) of small sets. On the other hand, experience has shown that one should often regard various situations in mathematics \emph{mainly as a technical means for constructing the corresponding categories of sheaves} of sets, \ie\ the corresponding \emph{topoi}. It appears that all the genuinely important notions attached to a site--for instance its cohomological invariants, studied in Expos\'e~V, various other ``topological'' invariants, such as the homotopy invariants recently studied by M.~Artin and B.~Mazur, and the notions studied in J.~Giraud's book on non-commutative cohomology--are in fact expressed directly in terms of the associated topos.
+
+From this viewpoint, it is appropriate to regard two sites as essentially equivalent when their associated topoi are equivalent categories, and to regard the datum of a site, at least in the practically most important case where its topology is no finer than the canonical topology, as equivalent to the datum of a topos \(E\), namely the associated topos of sheaves of sets on the site, together with a generating family of objects of \(E\) (cf. Expos\'e~II, 4.9 and 1.2.1 below). This viewpoint is analogous to the one in which one attaches a group to a system of generators and a system of relations among these generators, and focuses on the structure of the group rather than on the generators and relations by which it was produced, these being regarded as auxiliary data of the situation. Moreover, the comparison lemma, Expos\'e~III, 4.1, gives numerous examples of pairs of sites \(\C,\C'\) which are not isomorphic, and not even equivalent as categories, but give rise to equivalent topoi; hence \(\C\) and \(\C'\) should be regarded as essentially equivalent.
+
+\subsection*{0.2}
+In this expos\'e we give a characterization of topoi by simple exactness properties, due to J.~Giraud. We study the natural notion of morphism of topoi, inspired by the notion of a continuous map from one topological space to another, and we develop in the setting of topoi some familiar constructions from ordinary sheaf theory, such as sheaves \(\mathcal Hom\), sheaf tensor products, and supports. Finally, following M.~Artin, we show how a topos can be reconstructed from an ``open'' part of it, the complementary ``closed'' part, and a certain left exact functor relating them, which, up to minor qualifications, may in fact be chosen arbitrarily.
+
+\subsection*{0.3}
+This gives a gluing procedure for topoi which, when applied to topoi coming from ordinary topological spaces, will generally produce a topos no longer of that same type. This is a first indication of the remarkable stability of the notion of topos under various natural constructions, a stability lacking in the notion of topological space, from which the notion of topos is inspired. As a second remarkable example, let us also mention the classifying topos associated with a group object of a topos (cf. [1] or 5.9 below), inspired by the classical notion of classifying space of a topological group, and the notion of a ``modular topos'' associated with various moduli problems in algebraic geometry or analytic geometry [10], [13].
+
+Other topoi, such as the \emph{\'etale topos} of a scheme, studied systematically in this seminar from Expos\'e~VII onward, or the \emph{crystalline topos} of a relative scheme [6], arise naturally when one wants to develop usable cohomology theories for abstract algebraic varieties, and more generally for schemes, replacing the classical Betti cohomology of algebraic varieties over the complex numbers.
+
+\subsection*{0.4}
+Thus one may say that the notion of topos, a natural derivative of the \emph{sheaf-theoretic point of view} in topology, is itself a substantial enlargement of the notion of topological space.\footnote{Cf. [9], or 4.1 and 4.2 below, for the precise relation between topoi and topological spaces.} It embraces many situations which previously were not regarded as belonging to topological intuition. The characteristic feature of such situations is that one has a notion of ``localization''; this is formalized precisely by the notion of site, and ultimately by that of topos, via the topos associated with the site. As the term ``topos'' itself is meant to suggest, it seems reasonable and legitimate to the authors of this seminar to regard topology as the study of \emph{topoi}, and not merely of topological spaces.
+
+\subsection*{0.5}
+It has seemed useful to include in this general expos\'e on topoi a fairly large number of examples, many of which have only distant connections with the original aim of this seminar, namely the study of \'etale cohomology. The hurried reader, interested exclusively in \'etale cohomology, may of course omit these examples without loss, and likewise most of the present expos\'e, referring back to it only as needed.
+
+\section{Definition and characterization of topoi}
+
+\begin{statement}{Definition 1.1}
+A \(\U\)-\emph{topos}, or simply a topos when no confusion can arise, is a category \(E\) such that there exists a site \(C\in\U\) for which \(E\) is equivalent to the category \(\widetilde C\) of \(\U\)-sheaves of sets on \(C\).
+\end{statement}
+
+\subsection*{1.1.1}
+Let \(E\) be a \(\U\)-topos. We shall always regard \(E\) as endowed with its canonical topology (Expos\'e~II, 2.5), making it a site, and even, by 1.1.2(d) below, a \(\U\)-site (Expos\'e~II, 3.0.2). Unless explicitly stated otherwise, we shall consider no topology on \(E\) other than the one just described.
+
+\subsection*{1.1.2}
+We saw in Expos\'e~II, 4.8 and 4.11, that a \(\U\)-topos \(E\) is a \(\U\)-category satisfying the following conditions:
+\begin{enumerate}[label=\alph*)]
+\item finite projective limits are representable in \(E\);
+\item coproducts indexed by an element of \(\U\) are representable in \(E\), and are disjoint and universal;
+\item equivalence relations in \(E\) are effective and universal;
+\item \(E\) admits a generating family indexed by an element of \(\U\).
+\end{enumerate}
+In fact, we shall see that these intrinsic properties \emph{characterize} \(\U\)-topoi.
+
+\begin{statement}{Theorem 1.2 (J. Giraud)}
+Let \(E\) be a \(\U\)-category. The following properties are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item \(E\) is a \(\U\)-topos.
+\item \(E\) satisfies conditions a), b), c), and d) of 1.1.2.
+\item The \(\U\)-sheaves on \(E\) for the canonical topology are representable, and \(E\) has a small generating family, namely condition 1.1.2(d).
+\item There exist a category \(C\in\U\) and a fully faithful functor \(i:E\to\widehat C\), where \(\widehat C\) denotes the category of \(\U\)-presheaves on \(C\), which admits a left adjoint \(a\) that is left exact.
+\item[\({\rm i'}\)] There exists a site \(C\in\U\), in which projective limits are representable and whose topology is no finer than its canonical topology, such that \(E\) is equivalent to the category \(\widetilde C\) of \(\U\)-sheaves of sets on \(C\).
+\end{enumerate}
+\end{statement}
+
+Moreover:
+
+\begin{statement}{Corollary 1.2.1}
+Let \(E\) be a \(\U\)-topos, and let \(C\) be a full subcategory of \(E\), endowed with the topology induced from that of \(E\). Consider the functor
+\[
+E\longrightarrow \widetilde C
+\]
+which sends \(X\in\Ob E\) to the restriction to \(C\) of the functor represented by \(X\). This functor is an equivalence of categories if and only if \(\Ob C\) is a generating family of \(E\).
+\end{statement}
+
+The equivalence \(\mathrm{i)}\Leftrightarrow\mathrm{iv)}\) follows at once from Expos\'e~II, 5.5, and we have already recalled that \(\mathrm{i)}\Rightarrow\mathrm{ii)}\). Since \(\mathrm{i'}\Rightarrow\mathrm{i}\) is trivial, it remains to prove \(\mathrm{ii)}\Rightarrow\mathrm{iii)}\) and \(\mathrm{iii)}\Rightarrow\mathrm{i'}\), which is done in 1.2.4 and 1.2.3 below. The corollary is then obtained by noting that the functor under consideration factors as
+\[
+E\longrightarrow \widetilde E\longrightarrow \widetilde C.
+\]
+Since \(E\to\widetilde E\) is an equivalence by (iii), the question reduces to determining when \(\widetilde E\to\widetilde C\) is an equivalence. The comparison lemma of Expos\'e~III, 4.1, then gives the conclusion; cf. the proof in 1.2.3 below.
+
+\subsection*{1.2.3. Proof of iii) \(\Rightarrow\) i')}
+Let \(\mathfrak X=(X_i)_{i\in I}\), \(I\in\U\), be a small generating family of \(E\). Since \(E\) is a \(\U\)-category, the set of isomorphism classes of finite diagrams in \(E\) whose objects are among the \(X_i\) is \(\U\)-small. Hence the smallest set \(\mathfrak X'\) of objects of \(E\), containing the finite projective limits of objects of \(\mathfrak X\), is a countable union of small sets and is therefore small.\footnote{We are reasoning here with classes of objects of \(E\) up to isomorphism.} Replacing \(\mathfrak X\) successively by \(\mathfrak X^{(n+1)}=(\mathfrak X^{(n)})'\) and then by \(\bigcup_n\mathfrak X^{(n)}\), we may assume, after enlarging the generating family, that \(\mathfrak X\) is stable under finite projective limits.
+
+Let \(\V\) be a universe containing \(\U\) such that \(E\) is \(\V\)-small. For each object \(H\) of \(E\), write
+\[
+I(H)=\coprod_{i\in I}\Hom(X_i,H).
+\]
+Let \(H\) be an object of \(E\), and let \(H'\hookrightarrow H\) be the subsheaf of \(H\), for the canonical topology, which is the ``union'' of the images of the morphisms \(u:X_i\to H\), \((u,i)\in I(H)\). Since \(H'\) is a subsheaf of a \(\U\)-sheaf, \(H'\) is a \(\U\)-sheaf. It is therefore representable. Since \(\mathfrak X\) is generating and, for every \(i\in I\), the map \(\Hom(X_i,H')\to\Hom(X_i,H)\) is bijective, the monomorphism \(H'\hookrightarrow H\) is an isomorphism. Thus the family \((u:X_i\to H)\), \((u,i)\in I(H)\), is covering for the canonical topology of \(E\). Hence every object of \(E\) can be covered, for the canonical topology of \(E\), by objects of \(\mathfrak X\).
+
+Let \(C\) be the full subcategory of \(E\) defined by the objects of \(\mathfrak X\), and let \(u:C\hookrightarrow E\) be the inclusion. The topology induced on \(C\) by the canonical topology of \(E\) is no finer than the canonical topology of \(C\); when \(\U\) contains an element of infinite cardinality, finite projective limits are representable in \(C\). It follows from Expos\'e~III, 5.1, that the functor \(F\mapsto F\circ u\) is an equivalence from \(E\) to the category of \(\U\)-sheaves on \(C\) for the induced topology. \qedtext
+
+\subsection*{1.2.4. Proof of ii) \(\Rightarrow\) iii)}
+The proof has four steps. Let \(\V\) be a universe containing \(\U\), such that \(E\) is an element of \(\V\). Let \(\widetilde E\) be the category of \(\V\)-sheaves on \(E\) for the canonical topology, and let \(J_E:E\to\widetilde E\) be the canonical functor.
+
+\paragraph{1.2.4.1.} Let \((g_i:G_i\to H)\), \(i\in I\in\U\), be an epimorphic family in \(\widetilde E\). If the \(G_i\) and the fiber products \(G_i\times_HG_j\) are representable, then the sheaf \(H\) is representable.
+
+Indeed, the coproduct \(\coprod_{i\in I}G_i\) is representable in \(\widetilde E\), by a representable sheaf \(G\). The same holds for \(K=\coprod_{(i,j)\in I\times I}(G_i\times_HG_j)\). Moreover, the diagram \(K\rightrightarrows G\to H\) is exact, and \(K\) is the fiber square of \(G\) over \(H\). The latter property holds in the category of presheaves, hence in the category of sheaves. It follows from condition c) and Expos\'e~II, 4.7, that \(H\) is representable.
+
+\paragraph{1.2.4.2.} Let \(X_\alpha\), \(\alpha\in A\in\U\), be a generating family of \(E\). For every sheaf \(H\), let
+\[
+I(H)=\coprod_{\alpha\in A}\Hom_E(X_\alpha,H).
+\]
+The family \((u:X_\alpha\to H,(u,\alpha)\in I(H))\) is epimorphic in \(\widetilde E\). When \(H\) is a \(\U\)-sheaf, \(I(H)\) is an element of \(\U\).
+
+Indeed, every sheaf \(H\) is the target of an epimorphic family of morphisms whose sources are representable sheaves; therefore it suffices to prove the first assertion when \(H\) is representable. Let \(G\) be the image of the family \((u:X_\alpha\to H,(u,\alpha)\in I(H))\). The morphism \(G\to H\) is a monomorphism. We are then in the situation of the first step, because \(X_\alpha\times_GX_\beta\) is isomorphic to \(X_\alpha\times_HX_\beta\), which is representable, and because \(I(H)\) is an element of \(\U\). Hence \(G\) is representable. Since the \(X_\alpha\) form a generating family, \(G\to H\) is an isomorphism. The final assertion is immediate from the definition of \(\U\)-sheaves.
+
+\paragraph{1.2.4.3.} Every subsheaf of a representable sheaf is representable.
+
+Indeed, let \(G\to H\) be a subsheaf of a representable sheaf. Then \(G\) is a \(\U\)-sheaf. The family \((u:X_\alpha\to G,(u,\alpha)\in I(G))\) is therefore epimorphic in \(\widetilde E\) and indexed by an element of \(\U\). Moreover, the fiber products \(X_\alpha\times_GX_\beta\) are isomorphic to the fiber products \(X_\alpha\times_HX_\beta\), which are representable. Thus we are in the situation of the first step, and \(G\) is representable.
+
+\paragraph{1.2.4.4.} Every \(\U\)-sheaf is representable.
+
+Indeed, by the first and second steps, it suffices to show that the fiber products \(X_\alpha\times_HX_\beta\) are representable. But these fiber products are subobjects of the products \(X_\alpha\times X_\beta\). The conclusion follows from the third step. This completes the proof of Theorem~1.2.
+
+\begin{remarktext}{Remark 1.3}
+Of course, for a given \(\U\)-topos \(E\), there is generally no preferred way to represent it, up to equivalence, as \(\widetilde C\) with \(C\) a \emph{small} site; or, what is essentially the same by 1.2.1 when one restricts to \(C\) whose topology is no finer than the canonical topology, there is no preferred \emph{small} generating family in \(E\). Once one drops the requirement that \(C\) be small, however, there is, by 1.2(iii), a completely canonical choice of a \(\U\)-site \(C\) such that \(E\) is equivalent to \(\widetilde C\), namely \(E\) itself. This is one technical reason why, in practice, it is inconvenient to work only with small sites: indeed, the most important sites of all, namely \(\U\)-topoi, are not small. Moreover, the sites generating topoi which arise in many questions in algebraic geometry, and even in topology (cf. 2.5), are also not small; for example, the \'etale site of a scheme.
+\end{remarktext}
+
+\begin{statement}{Proposition 1.4}
+Let \(E\) be a \(\U\)-topos, \(E'\) a category, not necessarily a \(\U\)-category, and \(F\) a presheaf on \(E\) with values in \(E'\). Then \(F\) is a sheaf with values in \(E'\) if and only if \(F\) transforms \(\U\)-inductive limits in \(E\) into projective limits in \(E'\).
+\end{statement}
+
+Let \(\V\) be a universe containing \(\U\) and such that \(E'\) is a \(\V\)-category. By composing \(F\) with the functors \(\Hom(X',-):E'\to\V\text{-}\Set\) defined by the objects \(X'\) of \(E'\), we reduce to the case \(E'=\V\text{-}\Set\). Suppose first that \(F\) transforms \(\U\)-inductive limits into projective limits. Then it follows immediately from the definitions that \(F\) is a sheaf, since a covering family \(X_i\to X\) in \(E\), by definition of the canonical topology on \(E\), allows \(X\) to be regarded as the inductive limit of the usual diagram \(X_i\times_XX_j\rightrightarrows X_i\).
+
+Conversely, suppose that \(F\) is a sheaf, and prove that it transforms \(\U\)-inductive limits into projective limits. If \(\V\subset\U\), we may assume \(\V=\U\), and it suffices to apply criterion 1.2(iii). In the general case a little more work is needed. Let \(C\) be a full subcategory of \(E\) generated by a generating family indexed by an element of \(\U\), and let \(u:C\to E\) be the inclusion. Endow \(C\) with the topology induced by the canonical topology of \(E\). Let \(\widetilde C_{\U}\) and \(\widetilde C_{\V}\) denote the categories of sheaves on \(C\), and let \(\widetilde E_{\V}\) denote the category of \(\V\)-sheaves on \(E\) for the canonical topology. Let \(J_E:E\to\widetilde E_{\V}\) be the canonical functor, and let
+\[
+i_{\U,\V}:\widetilde C_{\U}\longrightarrow \widetilde C_{\V}
+\]
+be the inclusion. The diagram
+\[
+\xymatrix@C=3.25cm@R=1.25cm{
+\widetilde C_{\U} \ar[r]^{i_{\U,\V}} & \widetilde C_{\V}\cr
+E \ar[r]^{J_E} \ar[u] & \widetilde E_{\V}\ar[u]
+}
+\]
+where the vertical arrows are induced by \(F\mapsto F\circ u\), is commutative. By the explicit construction of the associated-sheaf functor and by Expos\'e~II, 4.1, the functor \(i_{\U,\V}\) commutes with \(\U\)-inductive limits. Moreover, by Expos\'e~III, 5.1, and Corollary~1.5, the vertical arrows in the diagram are equivalences of categories. Hence \(J_E:E\to\widetilde E_{\V}\) commutes with \(\U\)-inductive limits. For every object \(X\) of \(E\), one has
+\[
+F(X)\simeq \Hom_{\widetilde E_{\V}}(J_E(X),F).
+\]
+Therefore \(F\) transforms \(\U\)-inductive limits of \(E\) into projective limits.
+
+\begin{statement}{Corollary 1.5}
+Let \(E\) be a \(\U\)-topos, \(E'\) a \(\U\)-category, and \(f:E\to E'\) a functor. Then \(f\) admits a right adjoint if and only if \(f\) commutes with \(\U\)-inductive limits.
+\end{statement}
+This is an immediate consequence of 1.4 in the case \(E'=\U\text{-}\Set\).
+
+\begin{statement}{Corollary 1.6}
+Let \(E,E'\) be two \(\U\)-topoi and let \(f:E\to E'\) be a functor. The following conditions are equivalent:
+\begin{enumerate}[label=\roman*)]
+\item \(f\) commutes with \(\U\)-inductive limits;
+\item \(f\) admits a right adjoint;
+\item \(f\) is continuous in the sense of Expos\'e~III, 1.1.
+\end{enumerate}
+\end{statement}
+
+The equivalence \(\mathrm{i)}\Leftrightarrow\mathrm{ii)}\) was proved in 1.5. To prove \(\mathrm{i)}\Leftrightarrow\mathrm{iii)}\), apply the definition of continuous functors, choosing a universe \(\V\) such that \(\U\in\V\), so that \(E\) and \(E'\) are \(\V\)-small sites. One must express that, for every \(\V\)-sheaf \(F\) on \(E'\), the composite \(F\circ f\) is a sheaf on \(E\), that is, by 1.4, that it transforms \(\U\)-inductive limits into projective limits. This follows from (i), since by 1.4 the functor \(F\) itself transforms \(\U\)-inductive limits into projective limits. It is also necessary, as is seen by taking \(F\) representable.
+
+\begin{statement}{Corollary 1.7}
+With the notation of 1.6, \(f\) is the inverse-image functor \(u^\ast\) of a geometric morphism \(u:E'\to E\) if and only if \(f\) is left exact and sends epimorphic families to epimorphic families.
+\end{statement}
+
+Necessity is trivial from the definition. Sufficiency follows from Expos\'e~III, 1.6, which implies that \(f\) is continuous under the stated conditions, hence commutes with \(\U\)-inductive limits by 1.6.
+
+\begin{remarktext}{Remark 1.8}
+With the notation of 1.5, one can show that \(f\) admits a left adjoint if and only if it commutes with \(\U\)-projective limits. Equivalently, a covariant functor \(E\to(\U\text{-}\Set)\) is representable if and only if it commutes with \(\U\)-projective limits.\footnote{A more general statement is found in Expos\'e~I, 8.12.8 and 8.12.9; the sketch below corresponds to the proof given there.} We indicate only the principle of the proof, which has two steps:
+\begin{enumerate}[label=\alph*)]
+\item Standard arguments show that, if \(F\) commutes with projective limits, it is pro-representable by a strict projective system \((T_i)_{i\in I}\), where \(I\) is a filtered ordered set, not necessarily small. One may assume that, if \(i>j\), then \(T_i\to T_j\) is not an isomorphism; under this hypothesis, \(F\) is representable if and only if \(I\) is small, which in fact implies that the projective system is essentially constant.
+\item To prove that \(I\) is small, knowing that for every object \(X\) of \(E\) the set \(F(X)=\varinjlim_i\Hom(T_i,X)\) is small, it suffices to have a \emph{small cogenerating family} \((X_j)_{j\in J}\), that is, a generating family for the opposite category \(E^\circ\). One shows that such a small cogenerating family always exists in a \(\U\)-topos \(E\).
+\item To prove this last point, standard arguments show that every object \(X\) of \(E\) admits a monomorphism into an ``injective'' object; then, for every generating family \((L_\alpha)\) of \(E\), if one embeds each \(L_\alpha\) in this way into an injective object \(I_\alpha\), the family \((I_\alpha)\) is cogenerating.
+\end{enumerate}
+\end{remarktext}
+
+\section{Examples of topoi}
+
+\subsection*{2.0}
+In this section we have gathered a fairly large number of typical examples of topoi which the reader will already have met elsewhere, and which are meant to ease access to the ``yoga'' of topoi. For other examples, drawn from algebraic geometry, of topologies on sites giving rise to topoi, the reader may consult SGA~3, IV, 6, and, for the \'etale topos, Expos\'e~VII of the present seminar. Since later references to this section will mostly concern notation or terminology, we leave the verification of the statements accompanying these examples as exercises for the reader's general instruction. All the examples in this section will be made more precise in Section~4, where we examine their functorial dependence on the data, and in later sections as illustrations of the general notions concerning topoi.
+
+\subsection*{2.1. Topos associated with a topological space}
+Let \(X\) be a small topological space, and let \(\Open(X)\) be the category of open subsets of \(X\), endowed with the canonical topology. We denote by \(\Top(X)\) the topos of \(\U\)-sheaves on \(\Open(X)\). This topos is equivalent to the category of spaces \emph{\'etal\'es} over \(X\), by associating to such a space \(X'\) over \(X\) the sheaf
+\[
+U\longmapsto \Gamma(X'/U)=\Hom_X(U,X')
+\]
+on \(\Open(X)\). By abuse of language we shall sometimes denote by the same letter \(X\) the topos \(\Top(X)\) defined by the topological space \(X\).
+
+It is clearly this example which served chiefly as a guide and intuitive support for the development of the theory of topoi. One should nevertheless be careful that the topoi deduced from topological spaces are of a very special nature, notably because they have been described by sites \(C=\Open(X)\) in which \emph{all morphisms are monomorphisms}; the underlying category is therefore just a preordered set. It follows in particular that the sheaves represented by the objects of \(C\) are subsheaves of the final sheaf, and hence that \emph{subsheaves of the final sheaf form a generating family} for the topos in question. This property is not shared by most of the topoi arising naturally in algebraic geometry or algebra, cf. the examples below. Up to minor qualifications, it characterizes topoi of the form \(\Top(X)\) (cf. 7.1.9 below).
+
+One checks easily that the map \(\Open(X)\to\Top(X)\), which sends an open set of \(X\) to the sheaf it represents, is a bijection from \(\Open(X)\) onto the set of subobjects of the final object of \(\Top(X)\), and that this bijection is even an isomorphism for the natural order structures. This suggests that it should be possible to reconstruct the topological space \(X\), up to homeomorphism, from \(\Top(X)\) up to equivalence. We shall see below (4.2) that this is indeed so, subject to a slight restriction on \(X\).
+
+\subsection*{2.2. The punctual or final topos, and the empty or initial topos}
+When \(X\) is a topological space reduced to a single point, the functor
+\[
+F\longmapsto F(X):\Top(X)\longrightarrow \U\text{-}\Set
+\]
+is an equivalence of categories. In particular, the category \(\U\text{-}\Set\) is a \(\U\)-topos. We saw in Expos\'e~II that this \(\U\)-topos is typical from the point of view of exactness properties, in that the verification of many properties of general topoi, especially exactness properties, reduces to this particular topos. The interpretation given here in terms of the one-point topological space justifies the abuse of language by which a topos equivalent to \(\U\text{-}\Set\) is called a \emph{punctual topos}, although as a category it is not at all equivalent to the one-object category. This terminology corresponds to the correct geometric intuition for the role played by these topoi. Also by abuse of language, a punctual topos is sometimes called a \emph{final topos}; we shall say ``the final topos'' for \(\U\text{-}\Set\).
+
+When \(X\) is the empty topological space, so that \(\Open(X)\) is the one-object category, a presheaf \(F\) on \(\Open(X)\) is a sheaf if and only if its value at the unique object \(\varnothing\) of \(\Open(X)\) is a singleton. It follows that \(\Top(\varnothing)\) is isomorphic to the category of singleton \(\U\)-sets, a category equivalent to the one-object category. Thus the one-object category, and any \(\U\)-category equivalent to it, is a \(\U\)-topos. It is sometimes called, by abuse of language, the \emph{empty topos} or \emph{initial topos}; note that it is not equivalent to the empty category.
+
+\subsection*{2.3. Topos associated with a space with operators}
+Let \(X\) be a topological space and let \(G\) be a discrete group acting on \(X\) by homeomorphisms. In [Toh., 5.1] the category of \(G\)-\emph{sheaves on} \(X\) was defined; we shall also say sheaves on \((X,G)\). These are sheaves of sets on \(X\) endowed with actions of \(G\) compatible with the action of \(G\) on \(X\). Giraud's criterion 1.2(iii) immediately shows that this category is a topos, denoted \(\Top(X,G)\). When \(G\) is the trivial group, this gives the example of 2.1; when \(X\) is a point, this gives the topos of sets with a left action of \(G\), or \(G\)-\emph{sets}, also called the \emph{classifying topos of the discrete group} \(G\), and denoted \(B_G\). One checks easily that the only subobjects of the final object \(e\) of \(B_G\) are \(e\) and the empty sheaf \(\varnothing\). In particular, if \(G\) is not the trivial group, subobjects of the final object of \(B_G\) do not form a generating family for \(B_G\). Thus \(B_G\) is then not equivalent to a topos of the form \(\Top(X)\) considered in 2.1.
+
+The notion of \(G\)-sheaf was introduced in \loccit\ to develop the cohomological theory of abelian \(G\)-sheaves. Interpreting these as the abelian sheaves of the topos \((X,G)\), that theory is included in the theory of Expos\'e~V, developed for general topoi.
+
+More generally, one may wish to attach an appropriate topos to a topological space \(X\) endowed with a topological group \(G\), not necessarily discrete, of automorphisms, giving rise to an adequate cohomological theory. The same question arises in the contexts of differentiable manifolds, real or complex analytic manifolds or spaces, and schemes. This is indeed possible; cf. 2.5 below.
+
+\subsection*{2.4. Classifying topos of a group object}
+Let \(E\) be a topos and let \(G\) be a group object of \(E\). Let \((E,G)\) be the category of objects of \(E\) on which \(G\) acts. Giraud's criterion immediately shows that this is a topos. It is called the \emph{classifying topos} of the group object \(G\), and is denoted \(B_G\). When \(E\) is the punctual topos, \ie\ when \(G\) is an ordinary group, one recovers the classifying topos of 2.3.
+
+The terminology is justified by the fact that \(B_G\) plays a universal role in the classification of torsors, or principal homogeneous bundles, under \(G\), and more generally under \(G_{E'}=f^\ast(G)\), where \(E'\) is a topos ``over \(E\)'', \ie\ endowed with a morphism \(f:E'\to E\) (cf. 3.1 below). This role, made explicit in [3, Chap.~V] or in 5.9 below, shows that \(B_G\) plays in the context of topoi the same role as the classical classifying spaces of topological groups in the homotopy theory of topological spaces. The latter may be regarded (cf. 2.5) as a weakened version of the former, obtained by retaining only the ``homotopy type'' of the classifying topos, in a suitable sense which need not be made precise here.
+
+\subsection*{2.5. The big site and big topos of a topological space. Classifying topos of a topological group}
+Let \(\U\text{-}\Esp\), or simply \((\Esp)\), be the category of topological spaces belonging to \(\U\). Finite projective limits are representable in \((\Esp)\). Consider on \((\Esp)\) the pretopology for which \(\Cov(X)\) is the set of surjective families of open immersions \(u_i:X_i\to X\). We shall regard \((\Esp)\) as a site via the topology generated by this pretopology. For every object \(X\) of \((\Esp)\), consider the category
+\[
+(\Esp)_{/X}
+\]
+of objects of \((\Esp)\) over \(X\), \ie\ topological spaces over \(X\), as a site by means of the topology induced from that of \((\Esp)\) by the forgetful functor \((\Esp)_{/X}\to(\Esp)\). This site is called the \emph{big site} associated with \(X\). It is not an element of \(\U\); nor is it a \(\U\)-site in the sense of Expos\'e~II, 3.0.2, so precautions are needed when applying the usual results to it. To avoid this inconvenience, one may choose a universe \(\V\) such that \(\U\in\V\), so that \((\Esp)_{/X}\) becomes a \(\V\)-site, and work with the associated \(\V\)-topos, which may be denoted \(\TOP(X)\) and will be called the \emph{big topos of} \(X\). If one is reluctant to enlarge \(\U\), one may choose a cardinal \(c\) bounding the cardinalities of \(X\) and of all topological spaces one expects to use in the arguments--most often \(\sup(\operatorname{card}X,\operatorname{card}\mathbb R)\) will suffice--and replace \((\Esp)_{/X}\) by the subcategory \((\Esp)'_{/X}\) formed by those \(X'\) over \(X\) with \(\operatorname{card}X'\le c\), endowed with the induced topology, and denote the sheaf topos on that site by \(\TOP(X)\). To fix ideas, suppose the first definition has been adopted.
+
+The advantage of the big topos of \(X\) over the small one is that the site defining it contains \((\Esp)_{/X}\) as a full subcategory. Since the topology of this site is manifestly no finer than the canonical topology, the canonical functor from \((\Esp)_{/X}\) to \(\TOP(X)\), sending a space \(X'\) over \(X\) to the sheaf it represents, is \emph{fully faithful}. Thus \emph{a space \(X'\) over \(X\) is known up to \(X\)-isomorphism once the sheaf it defines is known}; the notion of sheaf on the big site of \(X\) may therefore be regarded as a \emph{generalization} of the notion of topological space over \(X\), in terms of which all constructions of sheaf theory acquire meaning for topological spaces over \(X\).
+
+Thus, when \(G\) is a group object of the category \((\Esp)_{/X}\) of topological spaces over \(X\), one can associate to it the classifying topos \(B_G\) (2.4), hence classifying cohomology groups, classifying homotopy groups, and so on, defined as the corresponding invariants of the \(\V\)-topos \(B_G\). In particular, when \(X\) is a point, \(G\) is an ordinary topological group. Under the usual local hypotheses ensuring that the singular cohomology of the Cartesian powers \(G^n\) agrees with sheaf cohomology, say for constant coefficients--for example when \(G\) is locally contractible--the cohomology of the classifying topos of \(G\) is canonically isomorphic to that of the classifying space of \(G\) in the sense of topologists.
+
+The introduction of classifying topoi through big sites has, compared with classifying spaces, the advantage of giving a richer theory, since it provides useful cohomological invariants for coefficients more general than constant or locally constant coefficients. Moreover, the definition considered here adapts in the evident way to the usual other contexts: differentiable manifolds, real or complex analytic manifolds or spaces, and schemes. This point of view makes it possible, in particular, to connect the traditional and the ``arithmetic'' approaches to characteristic classes by considering the classical groups as coming from schemes defined over the ring of integers; cf. Section~7 for indications in this direction. Similarly, J.~Giraud's general results [3] on the classification of extensions of group objects, developed in the very general and flexible setting of topoi, may, through big topoi, specialize to results on the classification of extensions of topological groups, or of real or complex Lie groups, which seem to have been known to topologists essentially only in the case of extensions with abelian kernel [11].
+
+\subsection*{2.6. Topoi of the form \(\widehat C\)}
+Let \(C\) be a small category. The category \(\widehat C\) of \(\U\)-presheaves on \(C\) is plainly a \(\U\)-topos, since it is of the form \(\widetilde C\) when \(C\) is endowed with the chaotic topology. We shall give below some details on the relations between \(C\) and \(\widehat C\). Let us note here only that a topos \(E\) equivalent to one of the form \(\widehat C\) is rather special, since \emph{it admits a small generating family \((X_i)\) formed of connected projective objects}, \ie\ objects \(X\) such that the functor \(Y\mapsto\Hom(X,Y)\) sends epimorphisms to epimorphisms and coproducts to coproducts. It suffices to take in \(\widehat C\) the generating family formed by the functors represented by the objects \(X\in\Ob C\). Note also that if, in a topos \(E\), one has a covering family \(X_i\to X\) with the \(X_i\) projective and connected, then every other covering family of \(X\) is refined by this one. Hence in a topos \(E\) of the form \(\widehat C\), every object \(X\) admits a covering family refining all the others. A topos of the form \(\Top(X)\), with \(X\) a topological space whose points are closed, has this property only when \(X\) is discrete.
+
+When the category \(C\) has a single object, \(C\) is identified with a monoid \(G\). A presheaf on \(C\) is then a set on which \(G\) acts on the \emph{right}, since it is a functor \(G^\circ\to\Set\), and \(\widehat C\) is the topos of sets with a right monoid of operators. Taking 2.3 into account, this may also be denoted \(B_{G^\circ}\): it is the \emph{topos of sets with monoid of operators \(G^\circ\)}, where \(G^\circ\) is the opposite monoid. When \(G\) is a group, using the isomorphism \(g\mapsto g^{-1}\) from \(G\) to \(G^\circ\), one recovers the classifying topos \(B_G\) of 2.3.
+
+\subsection*{2.7. Classifying topos of a pro-group}
+
+\subsubsection*{2.7.1}
+Let \(\G=(G_i)_{i\in I}\) be a projective system of groups, with \(G_i,I\in\U\). Suppose the projective system is \emph{strict}, \ie\ the transition morphisms \(G_j\to G_i\) are surjective. If \(E\) is a set, an \emph{action of \(\G\) on \(E\)} (say on the left) is the following structure: a family \((E_i)_{i\in I}\) of subsets of \(E\), with union \(E\); and, for every \(i\in I\), an action of the group \(G_i\) on the set \(E_i\). These data are required to satisfy the following condition: for \(j\ge i\), \(E_i\) is the subset of \(E_j\) formed by the elements fixed under the kernel of \(G_j\to G_i\). The \(\U\)-sets endowed with an action of \(\G\) form a category in the evident way. Giraud's criterion immediately shows that this category is a \(\U\)-topos. It is denoted \(B_{\G}\) and called the \emph{classifying topos of} \(\G\). When \(I\) has an initial object \(i_0\), and \(G=G_{i_0}\), this recovers the classifying topos of 2.3.
+
+\subsubsection*{2.7.2}
+Another important example is the case where the groups \(G_i\) are finite, so that
+\[
+G=\varprojlim G_i
+\]
+is a compact totally disconnected topological group, or \emph{profinite group}. An action of \(\G\) on \(E\) is then the same as a continuous action of \(G\) on \(E\), or equivalently an action such that the stabilizer of every point of \(E\) is an open subgroup of \(G\). The classifying topos \(B_\G\) will also be denoted \(B_G\), where of course \(G\) is considered with its profinite topology.
+
+\subsubsection*{2.7.3}
+Using the remarks of 2.6, it is easy to check that the topos \(B_{\G}\) defined by a strict projective system \(\G=(G_i)_{i\in I}\) of groups is equivalent to a topos of the form \(\widehat C\) only if this projective system is essentially constant. In the case of a profinite group, this means that the group is actually finite.
+
+\subsubsection*{2.7.4}
+The following geometric interpretation of the classifying topos \(B_G\) of a discrete group \(G\) is useful for giving the correct geometric intuition for these topoi; cf. also 4.5, 5.8, 5.9, and 7.2 below. Let \(X\) be a connected, locally connected, and locally simply connected topological space, let \(x\) be a point of \(X\), and let \(G\) be its fundamental group at \(x\). It is known that, up to isomorphism, every discrete group \(G\) can be obtained in this way. Galois theory of coverings of \(X\) gives an equivalence between the category \(B_G\) of \(G\)-sets and the category of \emph{\'etale coverings} of \(X\), that is, of spaces \(X'\) over \(X\) which are locally \(X\)-isomorphic to \(X\)-spaces of the form \(X\times I\), where \(I\) is a discrete space. This latter category may also be interpreted as the category of locally constant sheaves on \(X\), \ie\ the category of locally constant objects of the topos \(\Top(X)\).
+
+When \(G\) is a profinite group, there is an analogous geometric interpretation of \(B_G\) as the category of \(X\)-schemes which are sums of finite \'etale coverings of a connected scheme \(X\), endowed with a geometric point \(x\) and an isomorphism \(G\simeq\pi_1(X,x)\). It is again known that every profinite group can occur as the fundamental group of a suitable connected scheme, the spectrum of a field if desired. Finally, pro-groups which are not necessarily profinite and not necessarily essentially constant also occur in the classification of coverings of connected and locally connected spaces which are not locally simply connected, or in the classification of \'etale coverings, not necessarily finite or ind-finite, of non-normal connected schemes. For this last case, cf. SGA~3, X, 6.
+
+\begin{remarktext}{Exercise 2.7.5}
+Define, for a topos \(E\), the notions of connectedness, local connectedness, simple connectedness, and local simple connectedness. Define the notions of constant and locally constant object of \(E\) (cf. IX, 2.0). Let \(f:E'\to E\) be a geometric morphism, with \(E'\) simply connected (for example \(E'\) the punctual topos), and \(E\) connected and locally connected. Define a strict pro-group
+\[
+\pi_1(E,f)=(G_i)_{i\in I}=\G,
+\]
+called the \emph{fundamental pro-group of \(E\) at \(f\)}, and an equivalence of categories from \(B_\G\) to the category of locally constant objects of \(E\). Show that when \(E\) is locally simply connected, \(\pi_1(E,f)\) is essentially constant and therefore identifies with an ordinary discrete group \(\pi_1(E,f)\), called the \emph{fundamental group of \(E\) at \(f\)}. Show that every strict pro-group \(\G\) is isomorphic, as a pro-group, to the fundamental pro-group of a suitable connected and locally connected topos \(E\), for a suitable \(f\), with \(E'\) the punctual topos: take \(E=B_\G\), and \(f:E'\to E\) defined by the forgetful functor \(f^\ast:E\to E'=\Set\). When \(\G\) is essentially constant, \ie\ isomorphic as a pro-group to an ordinary discrete group, prove that one may take \(E\) above to be locally simply connected, again taking \(E=B_G\).
+\end{remarktext}
+
+\subsection*{2.8. Example of a false topos}
+Let \(\G=(G_i)_{i\in I}\) be a strict pro-group, where \(I\) is a filtered ordered set and where \(i>j\) implies that \(G_i\to G_j\) is not an isomorphism. Suppose that \(\operatorname{card}(I)\notin\U\). Consider the category of sets \(E\in\U\) on which \(\G\) acts on the left, in the sense of 2.7.1. This is a \(\U\)-category, and, as in 2.7.1, it satisfies conditions a), b), c) of 1.1.2. However, it is not a \(\U\)-topos, since it has no generating family that is \(\U\)-small. Likewise, it is not a \(\V\)-topos for any universe \(\V\).
+
+\section{Geometric morphisms of topoi}
+
+\begin{statement}{Definition 3.1}
+Let \(E\) and \(E'\) be two \(\U\)-topoi. A \emph{geometric morphism} from \(E\) to \(E'\), or sometimes, by abuse of language, a continuous map from \(E\) to \(E'\), is a triple \(u=(u_\ast,u^\ast,\varphi)\), formed of functors
+\[
+u_\ast:E\longrightarrow E',\qquad u^\ast:E'\longrightarrow E,
+\]
+and an adjunction isomorphism of bifunctors, for \(X'\in\Ob E'\) and \(Y\in\Ob E\),
+\[
+\varphi:\Hom_E(u^\ast X',Y)\xrightarrow{\sim}\Hom_{E'}(X',u_\ast Y),
+\]
+where \(u^\ast\) is moreover required to be left exact, \ie\ to commute with finite projective limits. The functor \(u_\ast\) is called the direct-image functor of the geometric morphism \(u\), the functor \(u^\ast\) is called the inverse-image functor of \(u\), and \(\varphi\) is called the adjunction isomorphism for \(u\).
+\end{statement}
+
+\subsection*{3.1.1}
+Unless explicitly stated otherwise, for a geometric morphism \(u:E\to E'\) we shall denote the corresponding direct-image and inverse-image functors by \(u_\ast\) and \(u^\ast\).\footnote{Sometimes one should also write \(u^{-1}\) instead of \(u^\ast\), cf. 13.2.3.} Since \(u_\ast\) is right adjoint to \(u^\ast\), and \(u^\ast\) is left adjoint to \(u_\ast\) by the adjunction isomorphism \(\varphi\), either of the two functors \(u_\ast,u^\ast\) determines the other up to unique isomorphism, by the usual formalism of adjoint functors. In practice, depending on the case, it may be more convenient to define a geometric morphism \(u:E\to E'\) either by giving \(u^\ast:E'\to E\), or by giving \(u_\ast:E\to E'\). In the first case one must simply verify that the given functor \(u^\ast\) admits a right adjoint and is left exact. In the second, one must verify that the given functor \(u_\ast\) admits a left adjoint which is left exact. In either case, from the partial datum and from a \emph{choice} of adjoint functor and adjunction isomorphism, one obtains a geometric morphism \(u:E\to E'\), which is unique up to unique isomorphism in terms of the datum \(u^\ast\), respectively \(u_\ast\), in an evident sense made entirely explicit below in 3.2.1.
+
+\subsection*{3.1.2}
+If \(u:E\to E'\) is a geometric morphism, it follows from the properties of adjoint functors that the direct image \(u_\ast:E\to E'\) commutes with projective limits, while \(u^\ast:E'\to E\) commutes with inductive limits.\footnote{Moreover, by 1.5 and 1.8, for a given functor \(u_\ast:E\to E'\), respectively \(u^\ast:E'\to E\), this functor admits a left, respectively right, adjoint if and only if it commutes with \(\U\)-projective, respectively \(\U\)-inductive, limits.} Since \(u^\ast\) is also assumed left exact, it follows in particular that \(u^\ast\) is \emph{exact}. Thus, in the pair \((u_\ast,u^\ast)\), it is the \emph{inverse-image functor \(u^\ast\)} which has the strongest exactness properties.
+
+These properties ensure that, for any kind of algebraic structure \(\Sigma\) whose data can be described in terms of arrows between underlying sets and sets obtained from them by repeated application of finite projective limits and arbitrary inductive limits, and for any ``object of \(E'\) endowed with a structure of kind \(\Sigma\)'', its image under \(u^\ast\) is endowed with the same structures. Rather than undertake the unattractive task of giving a precise formal meaning to this statement and justifying it formally, we advise the reader to spell it out and verify it for structures such as group, ring, module over a ring, comodule over a co-ring, bialgebra over a ring, and torsor under a group. In these examples, the first three kinds of structure are defined exclusively in terms of finite projective limits, while the others implicitly involve constructions using inductive limits as well. Moreover, \(u^\ast\) ``commutes'' with all the usual functorial operations made in terms of such structures, more precisely with all operations expressible in terms of inductive limits and finite projective limits: construction of free objects, such as free groups or free modules generated by an object, tensor products, cf. Section~12 below, and so on.
+
+The direct image \(u_\ast:E\to E'\), which commutes with projective limits, consequently respects every algebraic structure on an object, or a family of objects, of \(E\) which is definable solely in terms of projective limits, such as group, ring, or module structures among the examples just mentioned. On the other hand, \(u_\ast\) is generally not right exact, \ie\ it does not generally commute with finite inductive limits, and it does not in general even send epimorphisms to epimorphisms. This failure of exactness of \(u_\ast\) is precisely the source of cohomological phenomena, to be studied from the standpoint of commutative homological algebra in the following expos\'e. Consequently, \(u_\ast\) does not generally extend to objects such as comodules, bialgebras, or torsors under a group, and does not in general commute with operations such as the free module generated by an object, tensor products of modules, and so on.
+
+\subsection*{3.1.3}
+In practice, when one has a functor \(f:E\to F\) from one \(\U\)-topos to another, one should make explicit all its exactness properties, including the possible existence of left or right adjoints, in order to understand the ``geometric nature'' of \(f\). Such an understanding is usually an indispensable guide to the correct geometric intuition. Thus, if \(f\) commutes with arbitrary inductive limits and finite projective limits, it should be written
+\[
+f=u^\ast,
+\]
+where
+\[
+u:F\longrightarrow E
+\]
+is a geometric morphism; in other words, \(f\) should be interpreted as an inverse-image functor for a continuous map of topoi. If \(f\) commutes with arbitrary projective limits, so that it has a left adjoint, and if that left adjoint, which a priori commutes with arbitrary inductive limits, also commutes with finite projective limits, then \(f\) should be written
+\[
+f=v_\ast,
+\]
+where
+\[
+v:E\longrightarrow F
+\]
+is a geometric morphism. In some cases \(f\) may satisfy both of these conditions; cf. 4.10 for an example. In that case one should introduce simultaneously the geometric morphisms
+\[
+u:F\longrightarrow E,
+\qquad
+v:E\longrightarrow F,
+\]
+which give rise to a sequence of three adjoint functors
+\[
+v^\ast,
+\qquad v_\ast=u^\ast=f,
+\qquad u_\ast.
+\]
+One must then carefully distinguish the geometric morphisms \(u\) and \(v\), under penalty of losing the geometric intuition of the situation.
+
+In this connection, note that when between two topoi \(E,F\) one has a sequence of three adjoint functors
+\[
+e,
+\quad f,
+\quad g
+\qquad(e,g:F\rightrightarrows E,\; f:E\to F),
+\]
+then \(f\) commutes with arbitrary inductive and projective limits, and hence can always be written as \(u^\ast\), where \(u:F\to E\) is a geometric morphism. Then \(g\) is \(u_\ast\). On the other hand, of course, \(e\) can be written as \(v^\ast\), and then \(f\) as \(v_\ast\), only if \(e\) also commutes with finite projective limits. This will certainly be the case if \(e\) is itself the right adjoint of a fourth functor \(d\). Without such a condition, one often writes
+\[
+e=u_!
+\]
+for the left adjoint of an inverse-image functor \(f=u^\ast\), when such a left adjoint exists; this notation is suggested by the example of an open immersion \(u:X\to Y\) of topological spaces. Similarly, if \(e\) is of the form \(v^\ast\), \ie\ if \(f\) is of the form \(v_\ast\), one sometimes writes \(g=v^!\) for the right adjoint of a direct-image functor \(v_\ast\), when such an adjoint exists.\footnote{Cf. below, 14.4, in the case of abelian sheaves.}
+
+\subsection*{3.2}
+Let \(E,E'\) be two \(\U\)-topoi, and let
+\[
+u=(u_\ast,u^\ast,\varphi),
+\qquad
+v=(v_\ast,v^\ast,\Psi):E\rightrightarrows E'
+\]
+be two geometric morphisms from \(E\) to \(E'\). A \emph{morphism from \(u\) to \(v\)} is a morphism from \(u_\ast\) to \(v_\ast\) in the category \(\Hhom(E,E')\) of functors from \(E\) to \(E'\). Morphisms of geometric morphisms compose in the evident way, thereby defining a category, in fact a \(\U\)-category, denoted
+\[
+\Hhomtop(E,E'),
+\]
+called the \emph{category of geometric morphisms}, or of continuous maps, from \(E\) to \(E'\). There is an evident functor
+\[
+u\longmapsto u_\ast:
+\Hhomtop(E,E')\longrightarrow\Hhom(E,E'),
+\]
+which is fully faithful by the definition of arrows in the first category, though it is not injective on objects.
+
+\subsection*{3.2.1}
+If \(u\) and \(v\) are as above, the theory of adjoint functors gives a canonical bijection
+\[
+\Hom(u_\ast,v_\ast)\xrightarrow{\sim}\Hom(v^\ast,u^\ast).
+\]
+In particular, one obtains a contravariant functor on \(\Hhomtop(E,E')\):
+\[
+u\longmapsto u^\ast:
+\Hhomtop(E,E')^\circ\longrightarrow\Hhom(E,E').
+\]
+In accordance with the geometric intuition, according to which the direct-image functor \(u_\ast\) goes in the same direction as the continuous map giving rise to it, the direction of arrows between geometric morphisms should therefore be defined in terms of direct-image functors, not in terms of inverse-image functors, even though the latter, as we have seen, have the characteristic exactness properties of the notion of geometric morphism.
+
+\subsection*{3.2.2}
+Having defined the category \(\Hhomtop(E,E')\) of morphisms from the topos \(E\) to the topos \(E'\), the notion of \emph{isomorphism} between two morphisms \(u,v\) from \(E\) to \(E'\) is also defined. In practice, one usually does not distinguish essentially between two isomorphic geometric morphisms, at least when a \emph{canonical} isomorphism between them is available, just as one often does not distinguish between two objects of a category when one has chosen a canonical isomorphism between them. In this connection, let us point out that when one deals with diagrams of geometric morphisms and commutativity questions for such diagrams, a notion meaningful by 3.3, one usually means commutativity only up to ``canonical'' isomorphism. By abuse of language, such diagrams are then treated as genuinely commutative.
+
+One might try to justify this abuse by introducing the set \(\Homtop(E,E')/\operatorname{Isom}\) of morphisms from \(E\) to \(E'\) up to isomorphism, and by calling such an isomorphism class a morphism, instead of following Definition~3.1. But this meets the same serious drawbacks that arise whenever one tries to identify two isomorphic objects of a category without having a canonical isomorphism between them. Experience shows that such a viewpoint is impracticable, and that one must retain the fine notion of 3.1, together with the notion of morphism between geometric morphisms, even if this sometimes forces one to fight with compatibilities among canonical isomorphisms.\footnote{For examples of such battles, apparently victorious, we refer to M.~Hakim's book on relative schemes [9].}
+
+\subsection*{3.3.1}
+Let \(E,E',E''\) be three \(\U\)-topoi, and consider geometric morphisms
+\[
+u:E\longrightarrow E',
+\qquad
+v:E'\longrightarrow E''.
+\]
+The theory of adjoint functors gives an adjunction isomorphism between the composite functors \(v_\ast u_\ast\) and \(u^\ast v^\ast\), in terms of the adjunction isomorphisms for the pairs \((u_\ast,u^\ast)\) and \((v_\ast,v^\ast)\). On the other hand, \(u^\ast v^\ast\) is left exact as a composite of left exact functors. Thus one obtains a morphism from \(E\) to \(E''\), called the \emph{composite of the morphisms \(u\) and \(v\)}, and denoted \(vu\):
+\[
+vu:E\longrightarrow E''.
+\]
+One then verifies trivially that composition of morphisms is associative, and that for every \(\U\)-topos \(E\) there is a morphism from \(E\) to itself which is a two-sided unit for composition, namely \((\id_E,\id_E,\varphi)\), where \(\varphi\) is the evident adjunction isomorphism from \(\id_E\) to itself. If \(\V\) is a universe such that \(\U\in\V\), this defines a category
+\[
+(\V\text{-}\U\text{-}\Top),
+\]
+whose objects are the \(\U\)-topoi belonging to \(\V\), whose arrows are the morphisms between such \(\U\)-topoi, and whose composition is the one just described.
+
+\subsection*{3.3.2}
+In fact, the composition map
+\[
+\Homtop(E,E')\times\Homtop(E',E'')\longrightarrow\Homtop(E,E'')
+\]
+is the map on objects induced by a ``composition functor for morphisms''
+\[
+\Hhomtop(E,E')\times\Hhomtop(E',E'')\longrightarrow\Hhomtop(E,E''),
+\]
+whose effect on arrows is the usual convolution product for morphisms between functors, here direct-image functors. These composition functors satisfy a strict associativity property for four topoi \(E,E',E'',E'''\), refining the associativity of composition of geometric morphisms. In language which is becoming familiar, one may also say that \(\U\)-topoi are the objects, or 0-arrows, of a \emph{2-category}, whose 1-arrows are geometric morphisms and whose 2-arrows are morphisms of geometric morphisms.
+
+It is this fact--that \(\U\)-topoi belonging to a universe \(\V\) form a 2-category, and not merely an ordinary category as ordinary topological spaces do--which, from the technical point of view, is the most important difference between the theory of topoi and that of topological spaces. It is the source of certain technical complications already mentioned, but also of essentially new facts compared with traditional topology.
+
+\subsection*{3.4}
+The fact that \(\U\)-topoi belonging to a universe \(\V\) form a 2-category makes it possible, in particular, to define the notion of \emph{equivalence of two \(\U\)-topoi \(E,E'\)}: we say that \(E\) and \(E'\) are \emph{equivalent} if there exist geometric morphisms \(u:E\to E'\) and \(v:E'\to E\) such that the composites \(uv\) and \(vu\) are isomorphic to the identity morphisms of \(E\) and of \(E'\), respectively. Then \(u\) and \(v\) are said to be \emph{quasi-inverse equivalences} of each other.
+
+One sees at once that a geometric morphism \(u:E\to E'\) is an equivalence if and only if \(u_\ast\) is an equivalence, or equivalently if \(u^\ast\) is an equivalence. Use the fact that a functor \(f:E\to E'\) between two topoi which is an equivalence is both of the form \(u_\ast\) and of the form \(v^\ast\), for geometric morphisms \(u\) and \(v\). Also, \(E\) and \(E'\) are equivalent in the sense of the preceding paragraph if and only if they are equivalent as categories, \ie\ as objects of the 2-category \((\V\text{-}\Cat)\). As expected, this shows that the notions of equivalence introduced here do not depend on the choice of the universe \(\V\) in 3.3.1.
+
+\subsection*{3.4.1}
+In practice, one usually does not distinguish essentially between equivalent \(\U\)-topoi, just as one often does not distinguish between equivalent categories, provided however that one has an explicit equivalence between them, or at least an equivalence defined up to unique isomorphism. This notion of equivalence of topoi replaces here the traditional notion of homeomorphism between topological spaces. See the example in 4.2 below for the precise relation between these two notions.
+
+\section{Examples of geometric morphisms of topoi}
+
+We return here to the examples of Section~2, using the notion of geometric morphism. The comments of 2.0 apply equally to this section. The universe \(\U\) will generally be left implicit.
+
+\subsection*{4.1. The topos \(\Top(X)\) for variable topological space \(X\)}
+
+\subsubsection*{4.1.1}
+Let
+\[
+f:X\longrightarrow Y
+\]
+be a continuous map of topological spaces. We shall associate to it canonically a geometric morphism
+\[
+\Top(f)\text{ or } f:\Top(X)\longrightarrow\Top(Y),
+\]
+with the notation of 2.1. When \(\Top(X)\) is defined as \(\widetilde{\Open(X)}\), the most convenient description of \(\Top(f)\) is by the direct-image functor for sheaves
+\[
+f_\ast:\Top(X)\longrightarrow\Top(Y),
+\]
+defined by the formula
+\[
+f_\ast(F)=F\circ f^{-1},
+\]
+where
+\[
+f^{-1}:\Open(Y)\longrightarrow\Open(X)
+\]
+is the evident functor \(U\mapsto f^{-1}(U)\). We have already noted that this functor is continuous and left exact, and thus defines the above functor \(f_\ast\), which has a right adjoint \(f^\ast\) that is left exact (Expos\'e~III, 1.9.1). Strictly speaking, the geometric morphism \(\Top(f)\) depends on the choice of the right adjoint \(f^\ast\) of \(f_\ast\), and is therefore defined only up to canonical isomorphism. We shall henceforth refrain from explicitly signaling phenomena of this sort.
+
+When one adopts the viewpoint of \emph{\'etal\'e spaces} to define \(\Top(X)\), it is the inverse-image functor
+\[
+f^\ast:\Top(Y)\longrightarrow\Top(X)
+\]
+which is most convenient for defining \(\Top(f)\), by simply putting
+\[
+f^\ast(Y')=X\times_YY'
+\]
+for every \'etale space \(Y'\) over \(Y\). It is clear that the fiber product is an \'etale space over \(X\), and that the functor \(f^\ast\) thus obtained is left exact and commutes with arbitrary inductive limits, hence defines a geometric morphism \(\Top(f)\). For the compatibility of the two definitions we refer to [TF].
+
+For composable continuous maps
+\[
+X\xrightarrow{f}Y\xrightarrow{g}Z,
+\]
+there are transitivity isomorphisms
+\[
+\Top(gf)\simeq \Top(g)\Top(f)
+\]
+of geometric morphisms. For three composable continuous maps \(f,g,h\), these \emph{transitivity isomorphisms} satisfy a compatibility relation which we do not write out here, and which is precisely the one considered in SGA~1, VI, 7.4(B). This may be expressed by saying that, for \(X\) varying in the category \((\Esp)\),
+\[
+X\longmapsto \Top(X)
+\]
+is a ``pseudo-functor''
+\[
+(\U\text{-}\Esp)\longrightarrow(\V\text{-}\U\text{-}\Top),\tag{4.1.1.1}
+\]
+or, in the terminology of 2-categories, that one has a non-strict functor of 2-categories. In practice we shall usually allow the abuse of language that identifies \(\Top(gf)\) and \(\Top(g)\Top(f)\), reasoning as though (4.1.1.1) were a genuine functor of ordinary categories. We shall allow the analogous abuses in the other examples below.
+
+\subsubsection*{4.1.2}
+The preceding considerations extend immediately to topoi associated with topological spaces with groups of operators (2.3). If \(f=(f^{\mathrm{sp}},f^{\mathrm{gr}})\),
+\[
+f:(X,G)\longrightarrow(Y,H)
+\]
+is a morphism of spaces with operators, where
+\[
+f^{\mathrm{sp}}:X\to Y,
+\qquad
+f^{\mathrm{gr}}:G\to H
+\]
+are respectively a continuous map and a group homomorphism, compatible in the evident sense, then one associates to it a geometric morphism
+\[
+\Top(f)\text{ or }f:\Top(X,G)\longrightarrow\Top(Y,H),
+\]
+whose definition is left to the reader. When \(G\) and \(H\) are the trivial groups, this gives the definition of 4.1.1. When instead \(X\) and \(Y\) are points, the inverse-image functor \(f^\ast\) is the ``restriction of the group of operators''
+\[
+f^\ast:B_H\longrightarrow B_G,
+\]
+which sends an \(H\)-set to the \(G\)-set it defines via \(f:G\to H\). We shall encounter this example again in other forms in 4.5 and 4.6.1.
+
+\subsubsection*{4.1.3}
+Given a continuous map \(f:X\to Y\) of topological spaces, one also associates to it a morphism of the corresponding big topoi (2.5),
+\[
+\TOP(f)\text{ or }f:\TOP(X)\longrightarrow\TOP(Y),
+\]
+most conveniently defined by the inverse-image functor
+\[
+f^\ast:\TOP(Y)\longrightarrow\TOP(X),
+\]
+which is just the \emph{restriction functor}. This morphism \(\TOP(f)\) is a special case of the so-called ``inclusion'' morphism for an induced topos, which will be studied in Section~5. Thus, with the same reservations as in 4.1.1, the topos \(\TOP(X)\) may be regarded as a functor in \(X\), for \(X\) varying in \((\Esp)\).
+
+\subsection*{4.2. Faithfulness properties of \(X\mapsto\Top(X)\)}
+We shall specify to what extent a topological space \(X\) can be reconstructed from the topos \(\Top(X)\). For this purpose, for two spaces \(X\) and \(Y\), one must describe the category of morphisms from \(\Top(X)\) to \(\Top(Y)\), in order to state the faithfulness properties of the ``functor'' \(X\mapsto\Top(X)\). We merely state the results obtained, referring the reader to [9] for details. The reader who wants to verify them directly may consult Exercise~7.8.
+
+\subsubsection*{4.2.1}
+Recall that a topological space \(X\) is called \emph{sober} if every irreducible closed subset of \(X\) has exactly one generic point. Almost all spaces used in practice are sober; this is true in particular for Hausdorff spaces, more generally for spaces all of whose points are closed, and for the underlying space of a scheme. With any topological space \(X\) one associates a sober topological space \(X_{\sob}\) and a continuous map
+\[
+\varphi:X\longrightarrow X_{\sob}\tag{4.2.1.1}
+\]
+which is \emph{universal} for continuous maps from \(X\) to sober spaces. Equivalently, one constructs a left adjoint \(X\mapsto X_{\sob}\) to the inclusion functor from sober spaces to all topological spaces. Explicitly, the points of \(X_{\sob}\) are the irreducible closed subsets of \(X\), and the open subsets are those of the form \(U'\), where \(U\) is an open subset of \(X\) and \(U'\subset X_{\sob}\) is the set of irreducible closed subsets of \(X\) meeting \(U\). The map (4.2.1.1) sends \(x\in X\) to the closure of \(\{x\}\). The space \(X\) is sober if and only if the preceding map is bijective, hence a homeomorphism.
+
+The functor
+\[
+\varphi^{-1}:\Open(X_{\sob})\longrightarrow\Open(X)
+\]
+induced by \(\varphi\) is an isomorphism. It follows that the geometric morphism
+\[
+\Top(\varphi):\Top(X)\longrightarrow\Top(X_{\sob})
+\]
+defined by \(\varphi\) is also an isomorphism. This explains a priori why \(X_{\sob}\) must enter into the question of reconstructing \(X\) from \(\Top(X)\): the latter depends only on \(X_{\sob}\), up to isomorphism, so the question can have an affirmative answer only if \(X\) is sober. We shall specify below (7.1) how \(X_{\sob}\) can in fact be reconstructed in terms of \(\Top(X)\), by interpreting its points as ``points'' of the topos \(\Top(X)\), or equivalently as fiber functors.
+
+\subsubsection*{4.2.2}
+On every topological space one should introduce the order relation \(\le\) defined by
+\[
+x\le y\quad\Longleftrightarrow\quad \overline{\{x\}}\subset\overline{\{y\}}
+\quad\Longleftrightarrow\quad x\in\overline{\{y\}},
+\]
+which is also expressed by saying that \(x\) is a \emph{specialization} of \(y\), or that \(y\) is a \emph{generalization} of \(x\). For a space of the form \(X_{\sob}\), this is just the inclusion relation among irreducible closed subsets of \(X\).
+
+This being so, on the set of maps from a space \(X\) to a space \(Y\) one introduces the so-called specialization order induced from that of \(Y\), namely
+\[
+f\le g\quad\Longleftrightarrow\quad f(x)\le g(x)\text{ for all }x\in X.
+\]
+With these conventions one has the following result.
+
+\subsubsection*{4.2.3}
+\emph{Let \(X,Y\) be topological spaces, with \(Y\) sober, and let \(f,g:X\to Y\) be continuous maps. Then there is at most one morphism from \(\Top(f)\) to \(\Top(g)\), and such a morphism exists if and only if \(g\) is a specialization of \(f\). Finally, every geometric morphism \(\Top(X)\to\Top(Y)\) is isomorphic to a morphism of the form \(\Top(f)\), where \(f:X\to Y\) is a continuous map, uniquely determined by the first assertion.}
+
+If \(\operatorname{cat}(I)\) denotes the category associated with an ordered set \(I\), defined by declaring that for \(i\ge j\) there is exactly one arrow from \(i\) to \(j\), the preceding result may be summarized by saying that there is a canonical equivalence of categories
+\[
+\operatorname{cat}(\Hom_{\Esp}(X,Y))\xrightarrow{\approx}
+\Hhomtop(\Top(X),\Top(Y)).
+\]
+Formally, these results imply:
+
+\begin{statement}{Corollary 4.2.4}
+\begin{enumerate}[label=\alph*)]
+\item Let \(f:X\to Y\) be a continuous map. Then \(\Top(f):\Top(X)\to\Top(Y)\) is an equivalence of topoi if and only if \(f_{\sob}:X_{\sob}\to Y_{\sob}\) is a homeomorphism. Thus, when \(X\) and \(Y\) are sober, this is equivalent to \(f\) being a homeomorphism.
+\item Let \(X,Y\) be topological spaces. The topoi \(\Top(X)\) and \(\Top(Y)\) are equivalent if and only if \(X_{\sob}\) and \(Y_{\sob}\) are homeomorphic. Thus, if \(X\) and \(Y\) are sober, this is equivalent to \(X\) and \(Y\) being homeomorphic.
+\end{enumerate}
+\end{statement}
+
+\subsection*{4.3. Morphisms to the final topos: constant objects of a topos, section functors}
+Let \(P\), for ``point'', denote the standard final topos, \ie\ \(P=\Set\) (2.2). Let \(E\) be any topos. We shall see that \emph{up to unique isomorphism, there exists a unique geometric morphism}
+\[
+f:E\longrightarrow P,
+\]
+more precisely that \(\Hhomtop(E,P)\) is equivalent to the one-object category. Thus, between any two objects of this category there exists a unique arrow, and it is an isomorphism. This justifies, to some extent, the name ``final topos''.
+
+For this, recall from 3.2.1 that \(\Hhomtop(E,P)\) is equivalent to the full subcategory of \(\Hhom(P,E)^\circ\) formed by the functors
+\[
+f^\ast:P=\Set\longrightarrow E
+\]
+which commute with inductive limits and are left exact. Let \(e\) be a one-point set. Then every set \(X\) can be written canonically as the sum of \(X\) copies of \(e\). It follows that the category of functors \(g:\Set\to E\) which commute with inductive limits is equivalent to \(E\), by associating to \(g\) the object \(g(e)\) of \(E\). Conversely, \(g\) is reconstructed from \(T=g(e)\), up to unique isomorphism, by
+\[
+g(I)=T\times I,
+\]
+where \(T\times I=\coprod_{i\in I}T_i\) with \(T_i=T\) for all \(i\in I\). The functor in \(I\) thus defined by \(T\) indeed commutes with inductive limits, since it is plainly left adjoint to the functor \(X\mapsto\Hom(T,X)\) from \(E\) to \(\Set\). For \(g\) to be left exact, it is plainly necessary that \(g(e)=T\) be a final object of \(E\), since \(e\) is a final object of \(\Set\). It follows easily from the fact that coproducts in \(E\) are universal that this condition is also sufficient. Thus the category of inverse-image functors \(f^\ast\) is equivalent to the category of final objects of \(E\), and this is itself plainly equivalent to the final category.
+
+The preceding discussion shows that choosing a morphism \(f:E\to P\) is essentially the same as choosing a final object \(e_E\) of \(E\). In terms of this object, one has canonical isomorphisms of functors
+\[
+f^\ast(I)\simeq e_E\times I
+=\text{the sum of }I\text{ copies of }e_E
+\qquad(I\in\Ob\Set),\tag{4.3.2}
+\]
+and
+\[
+f_\ast(X)=\Hom(e_E,X)
+\qquad(X\in\Ob E).\tag{4.3.3}
+\]
+
+\subsubsection*{4.3.4}
+The preceding two functors will play an important role below. For a set \(I\), the object \(f^\ast(I)=e_E\times I\) of (4.3.2) is called the \emph{constant object of value} \(I\) in \(E\), or, when \(E\) is realized as a category \(\widetilde C\) by means of a site \(C\), the \emph{constant sheaf of value \(I\) on \(C\)}. It will often be denoted \(I_E\), or \(I_C\) when \(E\) is defined by the site \(C\). The fact that \(I\mapsto I_E\) is the inverse-image functor of a geometric morphism specifies its exactness properties; in particular, it respects all usual kinds of algebraic structure, sending a group to a group object of \(E\), and so on (3.1.2). For example, if \(G\) is a group object of \(E\), we shall say that it is a \emph{constant group object}, or, as the case may be, a \emph{constant sheaf of groups}, if it is isomorphic to a group of the form \(G_{0,E}\), where \(G_0\) is an ordinary group. The same terminology applies to every other kind of ``algebraic'' structure, in the sense made more or less precise in 3.1.2.
+
+\subsubsection*{4.3.5}
+One should be careful that the functor \(I\mapsto I_E\) is not necessarily fully faithful, nor even faithful: take for \(E\) the empty topos. Hence a constant object of \(E\) does not generally determine, up to unique isomorphism, the set \(I\) from which it comes. The topos \(E\) is said to be \(0\)-\emph{acyclic}, or \emph{connected and non-empty}, if the functor \(I\mapsto I_E\) is fully faithful. By the general properties of adjoint functors, this is equivalent to saying that the adjunction morphism
+\[
+I\longrightarrow f_\ast f^\ast(I)=f_\ast(I_E)=\Hom(e_E,I_E)
+\]
+is an isomorphism, so that the functor (4.3.3) recovers the ``value'' of a constant object of \(E\). One checks easily that this holds if and only if \(e_E\) is not the initial object \(\varnothing_E\) of \(E\), \ie\ \(E\) is not an empty topos, which expresses the faithfulness of \(I\mapsto I_E\),\footnote{Or equivalently the fact that this functor is conservative.} and \(e_E\) is a connected object of \(E\), \ie\ is not a sum of two objects of \(E\) which are not empty, meaning not initial objects of \(E\).
+
+\subsubsection*{4.3.6}
+The functor (4.3.3) is also often called the \emph{section functor} and denoted \(\Gamma_E\), \(\Gamma(E,-)\), or simply \(\Gamma\):
+\[
+\Hom(e_E,X)=\Gamma_E(X)=\Gamma(E,X)=\Gamma(X).\tag{4.3.6.1}
+\]
+It commutes with arbitrary projective limits, but is not generally right exact; its derived functors on abelian group objects will be studied in the next expos\'e.
+
+\subsection*{4.4. Morphisms from the empty topos}
+Let \(\varnothing_{\mathrm{top}}\) be an empty topos, corresponding to a category of sheaves \(\Phi\) equivalent to the final category (2.2). Let \(E\) be a topos. The category of functors from \(E\) to \(\Phi\) is evidently equivalent to the one-object category, and every such functor commutes with inductive and projective limits. Thus it may be regarded as an inverse-image functor for a geometric morphism \(\varnothing_{\mathrm{top}}\to E\). It follows that \(\Hhomtop(\varnothing_{\mathrm{top}},E)\) is equivalent to the one-object category, and in particular that \emph{there exists, up to unique isomorphism, a unique geometric morphism}
+\[
+\varnothing_{\mathrm{top}}\longrightarrow E.\tag{4.4.1}
+\]
+This justifies, to some extent, the terminology ``initial topos'' introduced in 2.2.
+
+One may also determine the geometric morphisms
+\[
+E\longrightarrow \varnothing_{\mathrm{top}}.\tag{4.4.2}
+\]
+One checks at once that such a morphism exists if and only if the initial object of \(E\) is also final, \ie\ if and only if \(E\) itself is an empty topos, and that in this case \(\Hhomtop(E,\varnothing_{\mathrm{top}})\) is again equivalent to the one-object category. The unique morphism (4.4.2), modulo isomorphism, is then an equivalence of topoi.
+
+\subsection*{4.5. The classifying topos \(B_G\) for variable group object \(G\)}
+
+\subsubsection*{4.5.1}
+Let \(E\) be a topos and let
+\[
+f:G\longrightarrow H
+\]
+be a morphism of group objects in \(E\). It induces a ``restriction of the group of operators'' functor
+\[
+f^\ast:B_H\longrightarrow B_G,
+\]
+with the notation of 2.4. It is trivial that this functor commutes with inductive limits and projective limits; a fortiori it may be interpreted as the inverse-image functor associated with a geometric morphism
+\[
+B_f\text{ or }f:B_G\longrightarrow B_H.
+\]
+The corresponding direct-image functor
+\[
+f_\ast:B_G\longrightarrow B_H
+\]
+is described easily by the formula
+\[
+f_\ast(X)=\Hhom_G(H_s,X),
+\]
+where \(X\) is an object of \(E\) with a left action of \(G\), where \(H_s\) is \(H\) endowed with the left action of \(G\) induced by \(f\), and where \(\Hhom_G\) denotes the evident subobject of the \(\mathcal Hom\)-object defined below in 10.2. The group object \(H\) acts on the left on \(\Hhom_G(H_s,X)\) through the right actions of \(H\) on \(H_s\) by right translations.
+
+Since the inverse-image functor \(f^\ast\) commutes with arbitrary projective limits, it is itself the right adjoint of a functor
+\[
+f_!:B_G\longrightarrow B_H,
+\]
+so that there is a sequence of three adjoint functors as in 3.1.3:
+\[
+f_!,\quad f^\ast,\quad f_\ast.
+\]
+The functor \(f_!\) is described by the formula
+\[
+f_!(X)=H\contracted X,
+\]
+where the right-hand side denotes the contracted product, deduced from the action of \(G\) on \(X\) on the left and on \(H\) on the right via right translations and \(f\), defined as the quotient of \(H\times X\) by the action of \(G\) given by
+\[
+g\circ(h,x)=(hg^{-1},gx).
+\]
+
+The functor \(f_!\), being a left adjoint, plainly commutes with inductive limits, but it is generally not left exact, and hence cannot in turn be regarded as an inverse-image functor for a geometric morphism \(B_H\to B_G\). In fact, it is easy to check that it can be left exact only if \(f:G\to H\) is an isomorphism. Similarly, the functor \(f_\ast\), which commutes with projective limits, is generally not right exact, and a fortiori does not generally admit a right adjoint. At least when \(E\) is the punctual topos, \ie\ when \(G\) and \(H\) are ordinary groups, \(f_\ast\) is right exact only if \(f\) is an isomorphism.
+
+When there is a second homomorphism of group objects \(g:H\to K\), one obtains as in 4.1.1 a transitivity property up to canonical isomorphism. Thus, subject to the usual reservation, the classifying topos \(B_G\) may be regarded as depending \emph{functorially} on the group object \(G\). We leave to the reader the generalization of this functorial behavior to the case where both \(G\) and the topos \(E\) vary simultaneously.
+
+\subsubsection*{4.5.2. The topos \(B_\G\) for a variable pro-group \(\G\)}
+We leave to the reader the task of specifying the covariant character of the topos \(B_\G\) (2.7) with respect to \(\G\), by imitating the exposition given in 4.5.1. One should be careful, however, that in the case of a morphism \(f:\G\to\Hh\) of pro-groups which are not essentially constant, the corresponding geometric morphism \(B_\G\to B_\Hh\) does not generally allow the definition of a functor \(f_!\), whose right adjoint would be the restriction functor \(f^\ast\) for the pro-group of operators. Assuming, for simplicity, that \(\G\) and \(\Hh\) are defined by profinite groups \(G\) and \(H\), one sees easily that \(f_!\) exists if and only if the image of \(f:G\to H\) has finite index in \(H\), and in that case \(f_!\) is given by the same formula as in 4.5.
+
+\subsection*{4.6. The topos \(\widehat C\) for variable category \(C\)}
+
+\subsubsection*{4.6.1}
+Let
+\[
+f:C\longrightarrow C'
+\]
+be a functor from a category \(C\in\U\) to another category \(C'\). It gives a functor
+\[
+f^\ast:\widehat{C'}\longrightarrow\widehat C,
+\qquad
+f^\ast(F)=F\circ f.
+\]
+It is trivial that this functor commutes with projective and inductive limits; a fortiori it may be regarded as the inverse-image functor for a geometric morphism
+\[
+\widehat f\text{ or }f:\widehat C\longrightarrow\widehat{C'}.
+\]
+The corresponding direct-image functor
+\[
+f_\ast:\widehat C\longrightarrow\widehat{C'}
+\]
+is just the functor also denoted \(f_\ast\) in Expos\'e~I, 5.1. Moreover, as expected from the fact that \(f^\ast\) also commutes with arbitrary projective limits, \(f^\ast\) also admits a left adjoint
+\[
+f_!:\widehat C\longrightarrow\widehat{C'},
+\]
+which was also denoted \(f_!\) in Expos\'e~I, 5.1. Thus one obtains a sequence of three adjoint functors
+\[
+f_!,\quad f^\ast,\quad f_\ast,
+\]
+the first being an extension of \(f:C\to C'\) to categories of presheaves, for the usual embeddings of \(C,C'\) into \(\widehat C,\widehat{C'}\). Note that \(f_!\) is generally not left exact, nor is \(f_\ast\) generally right exact; this removes any ambiguity about the variance direction of the topos \(\widehat C\) associated with the variable category \(C\): it is \emph{covariant} in \(C\), subject to the usual reservation concerning transitivity isomorphisms. When the sets of objects of \(C\) and \(C'\) are each a singleton, so that \(C\) and \(C'\) identify with monoids \(G\) and \(G'\), the corresponding topoi are the classifying topoi \(B_{G^\circ}\) and \(B_{{G'}^\circ}\), and one recovers the variance for variable \(G\) already encountered from other viewpoints in 4.1.2 and 4.5.
+
+\subsubsection*{4.6.2}
+The 2-functorial dependence of the topos \(\widehat C\) on \(C\) may be made precise by introducing, for two categories \(C,C'\in\U\), a canonical functor
+\[
+\Hhom(C,C')\longrightarrow\Hhomtop(\widehat C,\widehat{C'}).\tag{4.6.2.1}
+\]
+It remains to define this functor on arrows. For this, note that \(f\mapsto f^\ast\) identifies, up to equivalence of categories, the target with a full subcategory of \(\Hhom(\widehat{C'},\widehat C)^\circ\). If \(f,g:C\to C'\) are two functors, any morphism \(u:f\to g\) of functors defines a morphism \(F\circ g\to F\circ f\) of functors in \(F\in\Ob\widehat{C'}\), because \(F\) is a contravariant functor. This is a morphism \(g^\ast\to f^\ast\), hence defines a morphism \(\widehat f\to\widehat g\), as asserted.
+
+When \(C\) is the one-object category, \(\widehat C\) is the punctual topos \(P\), and (4.6.2.1) is interpreted as a natural functor
+\[
+C'\longrightarrow \Hhomtop(P,\widehat{C'})\mathop{=}^{\dfn}\Ppoints(\widehat{C'}),\tag{4.6.2.2}
+\]
+from \(C'\) to the \emph{category of points} of \(\widehat{C'}\), which will be studied in Section~6. This functor is not necessarily an equivalence of categories (7.3.3); a fortiori (4.6.2.1) is not necessarily an equivalence of categories.
+
+On the other hand, the functor (4.6.2.1) is always \emph{fully faithful}. To see this, note that if \(f,g:E\to E'\) are two geometric morphisms such that \(f_!\) and \(g_!\) are defined (3.1.3), then the theory of adjoint functors gives canonical isomorphisms
+\[
+\Hom(f_!,g_!)\simeq\Hom(g^\ast,f^\ast)\simeq\Hom(f_\ast,g_\ast)\mathop{=}^{\dfn}\Hom(f,g).
+\]
+Applying this to functors of the form \(\widehat f,\widehat g\) associated with \(f,g:C\to C'\), one obtains the result, because the natural extension map \(\Hom(f,g)\to\Hom(f_!,g_!)\) is bijective (Expos\'e~I, 7.8).
+
+\subsubsection*{4.6.3}
+One may ask when the functor (4.6.2.1) is an equivalence of categories, \ie\ when it is essentially surjective. This is a special case of determining all geometric morphisms \(\widehat C\to\widehat{C'}\). More generally, if \(C\) is a category in \(\U\) and \(E\) is a topos, one may try to determine the geometric morphisms
+\[
+f:\widehat C\longrightarrow E.
+\]
+The category of these morphisms is equivalent to the opposite of the category of functors \(f^\ast:E\to\widehat C\) commuting with arbitrary inductive limits and finite projective limits. Interpreting functors \(E\to\widehat C\) as functors \(E\times C^\circ\to\U\text{-}\Set=\Set\), or equivalently as functors \(F:C^\circ\to\Hhom(E,\Set)\), the exactness condition in question is expressed by requiring that, for every object \(X\) of \(C\), the functor \(F(X):E\to\Set\) commute with arbitrary inductive limits and finite projective limits; as we shall say in Section~6, \(F(X)\) is a \emph{fiber functor} on \(E\). Equivalently, \(F(X)\) is the inverse-image functor of a geometric morphism \(P\to E\). Thus one finally obtains a canonical equivalence of categories
+\[
+\Hhomtop(\widehat C,E)\xrightarrow{\approx}\Hhom(C,\Ppoints(E)),\tag{4.6.3.1}
+\]
+where, for brevity, \(\Ppoints(E)=\Hhomtop(P,E)\) denotes the category of points of the topos \(E\).
+
+When \(E\) is of the form \(\widehat{C'}\), it follows at once from the definitions that the composite of (4.6.2.1) and the equivalence (4.6.3.1) is the functor
+\[
+\Hhom(C,C')\longrightarrow\Hhom(C,\Ppoints(\widehat{C'}))\tag{4.6.3.2}
+\]
+defined by \(F\mapsto i\circ F\), where \(i:C'\to\Ppoints(\widehat{C'})\) is the canonical embedding (4.6.2.2). It follows immediately that \emph{(4.6.2.1) is an equivalence if and only if \(C\) is empty or (4.6.2.2) is essentially surjective}, and hence an equivalence of categories. This last condition on \(C'\) is satisfied in some interesting cases, notably when \(C'\) is the one-object category defined by a group \(G\) (7.2.5).
+
+\begin{remarktext}{Remark 4.6.4}
+The fact that a topos \(\widehat C\) has been attached to an arbitrary category \(C\) suggests that a category \(C\) has invariants of topological nature, such as cohomology and homotopy groups, just as a topos does. The cohomology groups of \(\widehat C\) with coefficients in an abelian group object \(F\), in the general sense studied in Expos\'e~V, are just the values of the derived functors \(\varprojlim^{(n)}\) of \(\varprojlim\), already familiar to topologists. J.-L. Verdier and, independently, D. G. Quillen verified that, when one restricts to constant coefficients, or more generally to locally constant coefficients, these cohomology groups identify with the cohomology groups of the semi-simplicial set \(\Ner(C)\) canonically associated with \(C\) [5, no.~212, Prop.~4.1], and also that, up to isomorphism in the homotopy category of [2], every semi-simplicial set can be obtained from a category \(C\). With a suitable notion of homotopy type for topoi, which we do not specify here, one may say that the semi-simplicial homotopy types of topologists are precisely the homotopy types of topoi of the special form \(\widehat C\), and more generally of topoi \(E\) in which every object admits a cover refining all others (2.6).\footnote{And still more generally of topoi which are ``locally \(\infty\)-connected'' in an evident sense which we leave to the reader to specify.} In the absence of this condition on \(E\), its homotopy type can at best be expressed by a suitable projective system of semi-simplicial sets [1].
+\end{remarktext}
+
+\subsection*{4.7. The topos \(\widetilde C\) for variable site \(C\) (cocontinuous functors)}
+Let
+\[
+f:C\longrightarrow C'
+\]
+be a cocontinuous functor between sites in \(\U\), \ie\ a functor such that the functor \(\widehat f_\ast:\widehat C\to\widehat{C'}\) sends \(\widetilde C\) into \(\widetilde{C'}\), or equivalently induces a functor
+\[
+\widetilde f_\ast:\widetilde C\longrightarrow\widetilde{C'}\tag{4.7.1}
+\]
+making the diagram
+\[
+\xymatrix@C=2.5cm@R=1.25cm{
+\widetilde C \ar[r]^{\widetilde f_\ast} \ar[d]_{i}&
+\widetilde{C'} \ar[d]^{i'}\\
+\widehat C \ar[r]^{\widehat f_\ast}&\widehat{C'}
+}\tag{4.7.2}
+\]
+commute, where \(i,i'\) are the inclusion functors. We then saw in Expos\'e~III, 2.3, that \(\widetilde f_\ast\) has a left adjoint \(\widetilde f^\ast\), and that this left adjoint is left exact. In other words, \(\widetilde f_\ast\) is the direct-image functor associated with a geometric morphism
+\[
+\widetilde f\text{ or }f:\widetilde C\longrightarrow\widetilde{C'},
+\]
+whose inverse-image functor is, of course, \(\widetilde f^\ast\). Taking left adjoints of the functors involved, the commutative diagram (4.7.2) also gives a diagram commutative up to isomorphism
+\[
+\xymatrix@C=2.5cm@R=1.5cm{
+\widetilde C & \widetilde{C'} \ar[l]_{\widetilde f^\ast}\\
+\widehat C \ar[u]^{\underline a} & \widehat{C'} \ar[l]_{\widehat f^\ast}\ar[u]_{\underline a'}
+}\tag{4.7.3}
+\]
+where \(\underline a\) and \(\underline a'\) are the associated-sheaf functors. This immediately recovers the formula
+\[
+\widetilde f^\ast=\underline a\,\widehat f^\ast i'.
+\]
+
+The transitivity property for geometric morphisms \(\widehat f:\widehat C\to\widehat{C'}\) implies the same property for the geometric morphisms \(\widetilde f:\widetilde C\to\widetilde{C'}\) associated with cocontinuous functors. Thus the topos \(\widetilde C\) varies functorially, in a \emph{covariant} way, with \(C\), when cocontinuous functors are taken as the ``morphisms'' of sites.
+
+In all cases encountered so far, the cocontinuous functor \(f\) used is also continuous, that is, it extends to a functor
+\[
+\widetilde f_!:\widetilde C\longrightarrow\widetilde{C'}
+\]
+commuting with inductive limits and left adjoint to \(\widetilde f^\ast\), so that there is a sequence of three adjoint functors
+\[
+\widetilde f_!,\quad \widetilde f^\ast,\quad \widetilde f_\ast.
+\]
+One should note that \(\widetilde f_!\) is generally not left exact, nor is \(\widetilde f_\ast\) generally right exact; this removes any ambiguity about the variance direction of the topos \(\widetilde C\) when \(C\) varies by functors assumed only to be cocontinuous, or even continuous and cocontinuous.
+
+\begin{remarktext}{Remark 4.7.4}
+Given a geometric morphism
+\[
+F:E\longrightarrow E',
+\]
+there exists a functor \(F_!\) left adjoint to \(F^\ast\) if and only if one can realize \(E\) and \(E'\), up to equivalence, as \(\widetilde C\) and \(\widetilde{C'}\) for two sites \(C,C'\in\U\), and find a \emph{continuous and cocontinuous} functor \(f:C\to C'\) such that \(F\) identifies with \(\widetilde f\). This is plainly sufficient. For necessity, it suffices to take for \(C\) and \(C'\) small full generating subcategories of \(E\) and \(E'\), respectively, such that
+\[
+F_!(\Ob C)\subset \Ob C',
+\]
+endow them with the topologies induced from those of \(E\) and \(E'\), and take \(f\) to be the functor induced by \(F_!\) (cf. 1.2.1). Recall (1.8) that existence of \(F_!\) also means that \(F^\ast\) commutes with projective limits, or equivalently here, since this functor is left exact, that it commutes with products.
+\end{remarktext}
+
+\subsubsection*{4.7.5}
+If one asks which geometric morphisms \(F:E\to E'\) can be realized by a cocontinuous, not necessarily continuous, functor of sites, one obtains similarly the following answer: the set of objects \(X\) of \(E\) such that the functor
+\[
+X'\longmapsto\Hom(X,F^\ast(X'))
+\]
+from \(E'\) to \(\Set\) commutes with projective limits, or equivalently with products, must be a \emph{generating family of \(E\)}.\footnote{Editorial note in the source: this statement does not appear correct. The expressed condition is equivalent to \(F^\ast\) commuting with arbitrary products, or equivalently to \(F^\ast\) having a left adjoint \(F_!\). For any site \(C\), the identity functor \(F=\operatorname{id}:C\to C\) is cocontinuous when the codomain is given the trivial topology. Then \(F^\ast:\widehat C\to\widetilde C\) is the associated-sheaf functor, and it does not in general commute with arbitrary products.}
+
+\subsection*{4.8. The geometric morphism \(\widetilde C\to\widehat C\) for a site \(C\)}
+Let \(C\) be a small site, with associated topoi \(\widetilde C\) and \(\widehat C\), the latter independent of the topology put on \(C\). In Expos\'e~II, 3.4, the associated-sheaf functor
+\[
+\underline a:\widehat C\longrightarrow\widetilde C
+\]
+was defined and shown to be left exact and to commute with inductive limits. It is therefore the inverse-image functor associated with a geometric morphism
+\[
+p:\widetilde C\longrightarrow\widehat C,
+\qquad p^\ast=\underline a,
+\]
+whose direct-image functor is the canonical inclusion
+\[
+i=p_\ast:\widetilde C\longrightarrow\widehat C.
+\]
+It is well known that this latter functor is generally not right exact--its derived functors on abelian objects give rise to the presheaves of cohomology \(\mathcal H^n(F)\) of Expos\'e~V, 2--and that \(\underline a\) generally does not commute with arbitrary projective limits. This removes any ambiguity about the direction of the ``natural'' geometric morphism between \(\widehat C\) and \(\widetilde C\).
+
+When one has a cocontinuous functor
+\[
+f:C\longrightarrow C'
+\]
+of sites, one deduces a diagram of geometric morphisms
+\[
+\xymatrix@C=2.25cm@R=1.25cm{
+\widetilde C \ar[d]_p \ar[r]^{\widetilde f} &
+\widetilde{C'} \ar[d]^{p'}\\
+\widehat C \ar[r]^{\widehat f} & \widehat{C'}
+}
+\]
+commutative up to canonical isomorphism. This is precisely the content of the commutativity of the diagram of functors (4.7.2). Thus the geometric morphism \(p:\widetilde C\to\widehat C\) is functorial in \(C\), when \(C\) varies by \emph{cocontinuous} functors between sites.
+
+\subsection*{4.9. Effect of a continuous functor of sites. Morphisms of sites}
+
+\subsubsection*{4.9.1}
+Let
+\[
+f:C\longrightarrow C'
+\]
+be a continuous functor from \(C\) to \(C'\), \ie\ such that the functor \(\widehat f^\ast:\widehat{C'}\to\widehat C\) sends \(\widetilde{C'}\) into \(\widetilde C\), and hence induces a functor
+\[
+f_s:\widetilde{C'}\longrightarrow\widetilde C.
+\]
+We saw in Expos\'e~III, 1.2, that \(f_s\) has a left adjoint
+\[
+f^s:\widetilde C\longrightarrow\widetilde{C'},
+\]
+which moreover extends \(f\) in an evident sense. One should be careful that in general \(f^s\) is not left exact, even if \(f\) is also cocontinuous, nor does \(f_s\) commute with inductive limits. Thus the datum of \(f\) does not, without further hypotheses, describe a geometric morphism in either direction between \(\widetilde C\) and \(\widetilde{C'}\). The case where \(f\) is cocontinuous, \ie\ where \(f_s\) commutes with inductive limits and can be regarded as an inverse-image functor for a geometric morphism \(\widetilde f:\widetilde C\to\widetilde{C'}\), was examined in 4.7. We now examine the case where \(f^s\) is left exact, hence may be regarded as the inverse-image functor for a geometric morphism in the \emph{opposite} direction:
+\[
+\Top(f)=g:\widetilde{C'}\longrightarrow\widetilde C.\tag{4.9.1.1}
+\]
+Notice that \emph{we have deliberately avoided denoting this morphism by \(\widetilde f\) or \(f\), to prevent confusion with the situation of 4.7, following the general recommendations of 3.1.3.} One sometimes says that the functor \(f:C\to C'\) is a \emph{morphism of sites from \(C'\) to \(C\)}--note: \emph{not from \(C\) to \(C'\)}--if it is continuous and if the functor \(f^s\) is left exact. Equivalently, there exists a geometric morphism (4.9.1.1) whose corresponding inverse-image functor
+\[
+g^\ast:\widetilde C\longrightarrow\widetilde{C'}
+\]
+\emph{extends} the functor \(f\), \ie\ makes the diagram of functors
+\[
+\xymatrix@C=2cm@R=1.5cm{
+C \ar[d]_{\epsilon}\ar[r]^f & C'\ar[d]^{\epsilon'}\\
+\widetilde C \ar[r]^{g^\ast} & \widetilde{C'}
+}
+\]
+commute up to isomorphism, where \(\epsilon,\epsilon'\) are the canonical functors of Expos\'e~II, 4.4.0.
+
+\subsubsection*{4.9.2}
+In practice, one recognizes that a continuous functor \(f:C\to C'\) is a morphism of sites from \(C'\) to \(C\) by the fact that finite projective limits are representable in \(C\) and that \(f\) commutes with them (Expos\'e~III, 1.3(5)). Under the stated condition on \(C\), almost always satisfied in practice, and assuming moreover that the topology of \(C'\) is no finer than the canonical topology, which is also almost always satisfied, this sufficient condition--that \(f\) be left exact--is also necessary.
+
+\subsubsection*{4.9.3}
+In the spirit of the preceding discussion, if \(C\) and \(C'\) are two \(\U\)-sites, one should define the category of morphisms of sites \(\Mmorsite(C',C)\) from \(C\) to \(C'\) as the full subcategory of the \emph{opposite} category \(\Hhom(C,C')^\circ\) of the category of functors from \(C\) to \(C'\), formed by the functors which are willing to be morphisms of sites, from \(C'\) to \(C\). In this way one obtains a canonical functor, defined up to unique isomorphism,
+\[
+\Mmorsite(C',C)\longrightarrow
+\Hhomtop(\widetilde{C'},\widetilde C).
+\]
+
+\begin{statement}{Proposition 4.9.4}
+Let \(E\) be a \(\U\)-topos and \(C\) a \(\U\)-site. The functor \(f\mapsto f^\ast|_C=f^\ast\circ\epsilon_C\), which associates with every geometric morphism \(f:E\to\widetilde C\) the restriction to \(C\) of its inverse-image functor \(f^\ast:\widetilde C\to E\), induces an equivalence of categories
+\[
+\Hhomtop(E,\widetilde C)\xrightarrow{\approx}
+\Mmorsite(E,C)\hookrightarrow\Hhom(C,E)^\circ.
+\]
+When finite projective limits are representable in \(C\), the corresponding fully faithful functor
+\[
+\Hhomtop(E,\widetilde C)\longrightarrow\Hhom(C,E)^\circ
+\]
+has as essential image the set of functors \(g:C\to E\) which are left exact and continuous, or equivalently left exact and send covering families to covering families.
+\end{statement}
+
+The last assertion follows from the first by 4.9.2. On the other hand, Expos\'e~III, 1.2(iv), together with Theorem~1.2(iii) above, implies that \(G\mapsto G\circ\epsilon\) induces an equivalence between the category of continuous functors from \(\widetilde C\) to \(E\) and the category of continuous functors from \(C\) to \(E\); a quasi-inverse is given by \(g\mapsto g^s\), with the notation of \loccit. By definition, \(g\) is a morphism of sites if and only if \(g^s\) is the inverse-image functor associated with a geometric morphism \(E\to\widetilde C\). The conclusion follows from 3.2.1, and the ``or equivalently'' from Expos\'e~III, 1.6.
+
+The main point to retain from 4.9.4 is that, when finite projective limits are representable in \(C\), giving a geometric morphism \(f:E\to\widetilde C\) is ``the same as'' giving a functor \(g:C\to E\) which is left exact and sends covering families to covering families.
+
+\subsubsection*{4.9.5}
+Using 4.9.1 and 4.9.3, one sees as usual that for a variable \(\U\)-site \(C\), using the notion of morphism of sites and of morphism of morphisms of sites just described, the topos \(\widetilde C\) depends functorially, or more exactly 2-functorially, on the site \(C\). Notice that, with the terminology introduced, \(\widetilde C\) depends \emph{covariantly} on the site \(C\).
+
+\subsubsection*{4.9.6}
+It is immediate that, contrary to what happens for cocontinuous functors (cf. 4.7.4), \emph{every} geometric morphism \(F:E\to E'\) can be realized by a morphism of sites \(f:C\to C'\), that is, by a continuous functor \(f:C'\to C\) satisfying the above condition. It suffices to choose small full generating subcategories \(C\) and \(C'\) of \(E\) and \(E'\), respectively, endowed with the topologies induced by those of \(E\) and \(E'\), such that
+\[
+F^\ast(\Ob C')\subset\Ob C,
+\]
+and to take \(f\) to be the functor induced by \(F^\ast\). This explains why most geometric morphisms of topoi encountered in practice are in fact described by morphisms of sites, rather than by cocontinuous functors as in 4.7.
+
+\subsection*{4.10. Relations between the small and big topoi associated with a topological space \(X\)}
+We resume the notation of 2.5. In particular, \(\V\) is a universe such that \(\U\in\V\). We depart from the convention of 2.1 by denoting by \(\Top(X)\) the topos of \(\V\)-sheaves, not \(\U\)-sheaves, on \(X\). Thus we shall reason with \(\V\)-topoi rather than \(\U\)-topoi. It would be possible to keep \(\U\)-topoi by adopting the appropriate convention in the definition of \(\TOP(X)\), so that it is a \(\U\)-topos; cf. 2.5. With this understood, we shall define two geometric morphisms
+\[
+\begin{cases}
+ f:\Top(X)\longrightarrow\TOP(X),\\
+ g:\TOP(X)\longrightarrow\Top(X),\qquad gf\simeq\id_{\Top(X)},
+\end{cases}\tag{4.10.1}
+\]
+giving rise to a sequence of three adjoint functors
+\[
+g^\ast=f_!,\qquad g_\ast=f^\ast,
+\qquad g^!=f_\ast,\tag{4.10.1.1}
+\]
+with the notation of 3.1.3. We shall define the first two functors in this sequence successively; the third is then defined as the right adjoint of the second.
+
+\subsubsection*{4.10.2}
+The functor
+\[
+g_\ast=f^\ast:\TOP(X)\longrightarrow\Top(X)
+\]
+is simply the \emph{restriction functor} from \((\Esp)_{/X}\) to the site \(\Open(X)\) of open subsets of \(X\). It indeed sends sheaves to sheaves, as follows immediately from the definition. Denoting sheaves on the big site of \(X\) by underlined letters, we denote, for such a sheaf \(\underline F\), by \(\underline F_X\) its restriction to the site \(\Open(X)\). Thus we obtain a functor
+\[
+\Res:\underline F\longmapsto \underline F_X:
+\TOP(X)\longrightarrow\Top(X).\tag{4.10.2.1}
+\]
+It is clear that this functor commutes with \(\V\)-projective limits, since these are computed argument by argument; one could also invoke the existence of the left adjoint constructed in 4.10.4 below. I claim that it also commutes with \(\V\)-inductive limits. To see this, we give a very convenient interpretation of big sheaves on \(X\), \ie\ objects of \(\TOP(X)\), in terms of ordinary sheaves, meaning \(\V\)-sheaves, on topological spaces \(X'\) over \(X\).
+
+\subsubsection*{4.10.3}
+For a big sheaf \(\underline F\) on \(X\), and for every space \(X'\) over \(X\), with \(X'\in\U\) understood, one defines in the evident way, as in 4.10.2, a sheaf \(\underline F_{X'}\), the restriction of \(\underline F\) to \(X'\). If
+\[
+u:X''\longrightarrow X'
+\]
+is a morphism in \((\Esp)_{/X}\), one defines in the evident way a morphism \(u_\ast(\underline F_{X''})\to\underline F_{X'}\), or equivalently a \emph{transition morphism}
+\[
+\varphi_u:u^\ast(\underline F_{X'})\longrightarrow\underline F_{X''}.\tag{4.10.3.1}
+\]
+As \(u\) varies, these morphisms satisfy an evident transitivity condition for a composite
+\[
+X'''\xrightarrow{u}X''\xrightarrow{v}X'
+\]
+of morphisms in \((\Esp)_{/X}\), which we leave the reader to spell out. This gives a natural functor from the category \(\TOP(X)\) of big sheaves on \(X\) to the category of systems
+\[
+(\underline F_{X'})\quad(X'\in\Ob(\Esp)_{/X}),
+\qquad
+(\varphi_u)\quad(u\in\Fl(\Esp)_{/X}),
+\]
+satisfying the transitivity condition just described and, moreover, such that for every morphism \(u:X''\to X'\) which is an \emph{open immersion}, or more generally an \'etale map, the transition morphism \(\varphi_u\) is an isomorphism. Since the functors \(u^\ast:\Top(X')\to\Top(X'')\) used in the description of the \(\varphi_u\) commute with \(\V\)-inductive limits, it follows at once that, in the preceding description of objects of \(\TOP(X)\) in terms of small sheaves \(F_{X'}\), \(\V\)-inductive limits are computed argument by argument. In other words, the functors \(\underline F\mapsto\underline F_{X'}\) commute with \(\V\)-inductive limits.
+
+In particular, this is true of the functor \(\underline F\mapsto\underline F_X\) considered in 4.10.2. Hence it has a right adjoint (1.5). It remains to construct a left adjoint for it, whose existence also follows a priori from 1.8, and to verify that this left adjoint is left exact. This will complete the definition of the announced geometric morphisms (4.10.1) in terms of the functors (4.10.1.1).
+
+\subsubsection*{4.10.4}
+The functor
+\[
+g^\ast=f_!:\Top(X)\longrightarrow\TOP(X)
+\]
+is obtained by associating with every small sheaf \(F\) on \(X\) the system of its inverse images \((F_{X'})\), for \(X'\in\Ob(\Esp)_{/X}\), by the structural morphisms \(X'\to X\); the transition morphism \(\varphi_u\) for \(u:X''\to X'\) is the transitivity isomorphism for inverse images of sheaves (4.1.1). One sees at once that this gives a fully faithful functor
+\[
+\Prol:\Top(X)\longrightarrow\TOP(X),
+\]
+whose essential image consists of the big sheaves \(\mathcal F\) on \(X\) for which all the transition morphisms \(\varphi_u\) of (4.10.3.1) are isomorphisms. We leave to the reader the definition of an adjunction isomorphism between this canonical prolongation functor and the restriction functor of 4.10.2, proving that the latter is right adjoint to the former. This is immediate in terms of the description 4.10.3 of the category \(\TOP(X)\).
+
+\begin{remarktext}{Remarks 4.10.5}
+\begin{enumerate}[label=\alph*)]
+\item The construction of 4.10.4 shows at the same time that \(g^\ast=f_!\) is fully faithful, or equivalently that \(g_\ast=f^\ast\) is a localization functor, or again that \(g^!=f_\ast\) is fully faithful. The big sheaves on \(X\) which belong to the essential image of \(g^\ast=f_!=\Prol\) deserve the name of big \emph{\'etale sheaves} on \(X\), since they form a category equivalent to that of ordinary sheaves on \(X\), or equivalently to that of \'etale spaces over \(X\). It is also easy to see that if \(X'\) is a topological space over \(X\), then the big sheaf on \(X\) represented by \(X'\) is \'etale in the preceding sense if and only if \(X'\) is an \'etale space over \(X\).
+\item The full faithfulness of \(f_\ast\) may also be expressed by saying that the adjunction morphism \(f^\ast f_\ast\to\id_{\Top(X)}\) is an isomorphism, \ie\ that \(g_\ast f_\ast\simeq\id\), \ie\ that \(gf\simeq\id\). Thus \(g\) makes \(\TOP(X)\) a topos over \(\Top(X)\), admitting a section \(f\) over \(\Top(X)\).
+\item The fact that \(g^\ast=f_!\) is fully faithful, exact, and commutes with \(\V\)-inductive limits partially justifies the very convenient viewpoint, due to J.~Giraud, that in practically all questions of sheaf theory on \(X\), it is harmless to replace ordinary, or small, sheaves by the associated big sheaves. This is especially true for cohomological questions, since \(g_\ast\) is exact, so the functors \(R^i g_\ast\) vanish for \(i>0\). Therefore, for every big sheaf \(\mathcal F\) on \(X\), there are canonical isomorphisms
+\[
+H^i(\TOP(X),\mathcal F)\simeq
+H^i(\Top(X),\mathcal F_X)=H^i(X,F).
+\]
+Applying this to a sheaf of the form \(\Prol(F)\), where \(F\) is a small sheaf on \(X\), and using \(\Prol(F)_X\simeq F\), one obtains a canonical isomorphism
+\[
+H^i(X,F)=H^i(\TOP(X),\Prol(F)).
+\]
+Thus \emph{the cohomological invariants of \(X\), computed via the small or the big topos of \(X\), are essentially identical}. The same result also holds in non-commutative cohomology.
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 4.10.6}
+Let \(S\) be a \(\U\)-site whose topology is no finer than the canonical topology, and let \(\M\) be a subset of \(\Fl S\) satisfying the following conditions:
+\begin{enumerate}[label=\alph*)]
+\item The morphisms in \(\M\) are base-changeable, and \(\M\) is stable under base change.
+\item \(\M\) contains the identity arrows and is stable under composition.
+\item If a morphism \(u:X\to Y\) admits a covering family \(Y_i\to Y\) such that the morphisms \(X\times_YY_i\to Y_i\) belong to \(\M\), then \(u\) belongs to \(\M\).
+\item For every \(X\in\Ob S\), every covering family of \(X\) is refined by a covering family \((f_i:X_i\to X)\) with \(f_i\in\M\).
+\end{enumerate}
+For every \(X\in\Ob S\), consider the site \(S(X)\), the ``small site of \(X\)'', whose underlying category is the full subcategory of \(S_{/X}\) formed by the objects whose structural morphism is in \(\M\), endowed with the topology induced from that of \(S\).
+
+\begin{enumerate}[label=\arabic*)]
+\item For every arrow \(u:X\to Y\) of \(S\), show that base change by \(u\) from \(S(Y)\) to \(S(X)\) is a continuous functor, giving a functor commuting with inductive limits
+\[
+S(u)^\ast:S(Y)^{\sim}\longrightarrow S(X)^{\sim}.
+\]
+\item Define an equivalence between the topos \(S^{\sim}\) and the category of systems
+\[
+(F_X)\quad(X\in\Ob S),
+\qquad
+(\varphi_u)\quad(u\in\Fl S)
+\]
+formed of objects \(F_X\in\Ob S(X)^{\sim}\), and, for every arrow \(u:X\to Y\) in \(S\), a morphism \(\varphi_u:S(u)^\ast(F_Y)\to F_X\), subject to a transitivity condition for a composite \(v\circ u\) of arrows of \(S\), and to the condition that \(u\in\M\) implies that \(\varphi_u\) is an isomorphism.
+\item Define the restriction and prolongation functors
+\[
+\Res_X:(S_{/X})^{\sim}\longrightarrow S(X)^{\sim},
+\qquad
+\Prol_X:S(X)^{\sim}\longrightarrow(S_{/X})^{\sim}.
+\]
+Show that \(\Res_X\) commutes with small inductive and projective limits and that \(\Prol_X\) is fully faithful, its essential image consisting of the sheaves \(F\) such that \(\varphi_u\) is an isomorphism for every arrow \(u\) of \(S_{/X}\).
+\item Define an adjunction morphism making \(\Res_X\) right adjoint to \(\Prol_X\). Deduce that there exists a geometric morphism
+\[
+f:S(X)^{\sim}\longrightarrow(S_{/X})^{\sim}
+\]
+which makes \(S(X)^{\sim}\) a subtopos of \((S_{/X})^{\sim}\), and such that
+\[
+f_!=\Prol_X,
+\qquad
+f^\ast=\Res_X.
+\]
+Show that \(\Prol_X\) sends abelian sheaves to abelian sheaves.
+\item Show that if \(S(X)\) has fiber products, then \(\Prol_X\) is exact. Deduce that there then exists a geometric morphism
+\[
+g:(S_{/X})^{\sim}\longrightarrow S(X)^{\sim}
+\]
+which is a left retraction of \(f\), \ie\ such that
+\[
+g^\ast=\Prol_X,
+\qquad
+g_\ast=\Res_X.
+\]
+For an example where \(S(X)\) does not have fiber products, take \(S\) to be the category of schemes with the \'etale topology, take \(\M\) to be the class of smooth morphisms, and take \(X\) to be a noetherian scheme of dimension \(>0\).
+\item Show that for every abelian sheaf \(F\) on \((S_{/X})^{\sim}\) there is an isomorphism
+\[
+H^q(X,F)\simeq H^q(X,\Res_XF)\qquad\forall q.
+\]
+Show, using for instance hypercoverings, that for every abelian sheaf \(G\) on \(S(X)^{\sim}\) there is an isomorphism
+\[
+H^q(X,G)\simeq H^q(X,\Prol_XG)\qquad\forall q.
+\]
+\item Buy the expositor a chocolate medal.
+\end{enumerate}
+\end{remarktext}
+
+
+
+\section{Induced topoi}
+
+\subsection*{5.1}
+Let \(E\) be a topos and let \(X\) be an object of \(E\). Then the category \(E_{/X}\) of objects of \(E\) over \(X\) is a topos. This follows immediately, for instance, from Giraud's criterion, 1.2(ii). Equally, using 1.2.1, one may write \(E\) as a category of sheaves \(C^{\sim}\), where \(C\) is a generating subcategory of \(E\), chosen so that \(X\in\operatorname{Ob}C\). Then
+\[
+E_{/X}=C^{\sim}_{/X}
+\]
+is equivalent to \((C_{/X})^{\sim}\), by Expos\'e~III, 5.4, and hence is a topos.
+
+The topos \(E_{/X}\) is called the \emph{topos induced on the object \(X\)} of \(E\).
+
+\subsection*{5.2}
+We now define a canonical geometric morphism
+\begin{equation*}
+j_X:E_{/X}\longrightarrow E,\tag{5.2.1}
+\end{equation*}
+called the \emph{inclusion morphism} of the induced topos \(E_{/X}\) into the ambient topos \(E\), or better, in view of 5.7, the \emph{localization morphism of \(E\) at \(X\)}. This morphism corresponds to a sequence of three adjoint functors
+\begin{equation*}
+j_{X!}\quad j_X^*\quad j_{X*},\tag{5.2.2}
+\end{equation*}
+which may be described as follows.
+
+First, \(j_{X!}:E_{/X}\to E\) is the functor which forgets the structural arrow to \(X\). Second,
+\[
+j_X^*:E\longrightarrow E_{/X}
+\]
+is given by
+\[
+j_X^*(Z)=(X\times Z,\operatorname{pr}_1),
+\]
+where \(\operatorname{pr}_1:X\times Z\to X\) is the first projection. It is also the base-change functor for the morphism \(X\to e_E\), where \(e_E\) is the final object of \(E\). It is immediate from the definition of base change that \(j_X^*\) is right adjoint to \(j_{X!}\). In particular it commutes with projective limits. It also commutes with inductive limits, by the special exactness properties of topoi (Expos\'e~II, 4).
+
+It follows from the latter fact, by 1.6, that \(j_X^*\) admits a right adjoint
+\[
+j_{X*}:E_{/X}\longrightarrow E.
+\]
+For an object \(X'\) over \(X\), the object \(j_{X*}(X')\) is also sometimes denoted by one of
+\[
+\prod_{X/e_E}(X'/X),\qquad
+\mathcal Hom_{X/e_E}(X,X'),\qquad
+\operatorname{Res}_{X/e_E}(X'/X),
+\]
+the last notation being the ``Weil restriction''; one of these notations is no doubt already familiar to the learned reader of our modest work.
+
+\subsection*{5.3}
+One should note that the functor \(j_{X!}\) commutes with fiber products and sends monomorphisms to monomorphisms, but is not in general left exact. It is left exact only when \(X\) is a final object of \(E\), since \(X=j_{X!}(X,\operatorname{id}_X)\) and \((X,\operatorname{id}_X)\) is final in \(E_{/X}\). Equivalently, this is the case precisely when \(j_X\) is in fact an equivalence of topoi, and hence when all three functors in (5.2.2) are equivalences.
+
+Similarly, \(j_{X*}\) is not in general right exact and need not send epimorphisms to epimorphisms. These observations remove any possible ambiguity about the direction of the geometric morphism relating \(E_{/X}\) to \(E\).
+
+\subsection*{5.4}
+The functor \(j_X^*\) is often called the \emph{localization functor}, or the \emph{restriction functor}. The latter terminology is justified as follows. Identify objects of \(E\), respectively of \(E_{/X}\), with sheaves on \(E\), respectively on \(E_{/X}\), by 1.2(iii). Under this identification, the adjunction between \(j_{X!}\) and \(j_X^*\) says that \(j_X^*(F)\) is the restriction to \(E_{/X}\) of the sheaf \(F\) on \(E\), where ``restriction'' is understood in the generalized sense: composition with the ``inclusion'' functor \(j_{X!}:E_{/X}\to E\). In familiar notation we shall therefore also write, interchangeably,
+\begin{equation*}
+j_X^*(F)=F|X=F_X=\hbox{ the restriction of }F\hbox{ to }X.\tag{5.4.1}
+\end{equation*}
+
+Similarly, when \(E=C^{\sim}\), with \(C\) a small site, and \(X=\varepsilon(S)\) for \(S\in\operatorname{Ob}C\), so that the equivalence recalled in 5.1
+\[
+E_{/X}=C^{\sim}_{/\varepsilon(S)}\simeq (C_{/S})^{\sim}
+\]
+holds, where \(C_{/S}\) carries the topology induced from that of \(C\), the functor \(j_X^*\) is simply the restriction of a variable sheaf \(F\) on \(C\) to the category \(C_{/S}\).
+
+These considerations already indicate the important role played by induced topoi and localization morphisms in all questions where one reasons by localization on \(E\), and hence in practically every question involving sites or topoi.
+
+\subsection*{5.5}
+Let
+\[
+f:X\longrightarrow Y
+\]
+be an arrow of \(E\), so that \(X\), more precisely \((X,f)\), may be regarded as an object of \(E_{/Y}\). There is an evident canonical isomorphism
+\begin{equation*}
+(E_{/Y})_{/X}\xrightarrow{\sim}E_{/X}.\tag{5.5.1}
+\end{equation*}
+This is the transitivity of induced topoi. Applying the construction of 5.1 to \(E_{/Y}\) instead of \(E\), one obtains a canonical geometric morphism
+\begin{equation*}
+\operatorname{loc}(f),\hbox{ or simply }f:E_{/X}\longrightarrow E_{/Y},\tag{5.5.2}
+\end{equation*}
+also called the \emph{localization morphism associated with \(f\)}. When \(Y\) is the final object of \(E\), this recovers (5.2.1). The localization morphism for \(f\) is associated with three adjoint functors
+\begin{equation*}
+f_!\quad f^*\quad f_*,\tag{5.5.3}
+\end{equation*}
+which are interpreted respectively as the forgetful functor, the restriction functor, and a functor denoted, according to preference and with \(X'\) as argument, by
+\[
+\prod_{X/Y}(X'/X),\qquad
+\mathcal Hom_{X/Y}(X,X'),\qquad
+\operatorname{Res}_{X/Y}(X'/X).
+\]
+
+\subsection*{5.6}
+The transitivity of forgetful functors implies that, for two composable morphisms
+\[
+X\xrightarrow{f}Y\xrightarrow{g}Z
+\]
+in \(E\), there is a canonical isomorphism of geometric morphisms
+\[
+\operatorname{loc}(gf)\simeq \operatorname{loc}(g)\operatorname{loc}(f):
+E_{/X}\longrightarrow E_{/Y}\longrightarrow E_{/Z}.
+\]
+For three composable morphisms, the usual compatibility relation holds for these transitivity isomorphisms. Thus, with the usual abuse of language, one may regard
+\[
+X\longmapsto E_{/X}
+\]
+as a covariant functor from \(E\) to the category of topoi. More precisely, it is a 2-functor, not necessarily strict, from \(E\) to the 2-category of topoi. Before continuing the general theory of induced topoi in 5.10, we give some instructive examples.
+
+\subsection*{5.7}
+Let \(X\) be a topological space, hence giving a topos \(\Top(X)\). Let \(X'\) be an object of \(\Top(X)\), which it is convenient to interpret as an \emph{\'etale space} over \(X\), say \(p:X'\to X\). The category \(\Top(X)_{/X'}\) identifies with the category of \'etale spaces \(X''\) over \(X\), endowed with an \(X\)-morphism \(X''\to X'\). Such a morphism makes \(X''\) an \'etale space over \(X'\), and in this way one obtains a canonical equivalence of topoi
+\[
+\Top(X)_{/X'}\simeq \Top(X').
+\]
+The localization morphism is therefore a geometric morphism \(\Top(X')\to\Top(X)\), and one immediately checks that this is precisely the morphism
+\[
+\Top(p):\Top(X')\longrightarrow\Top(X)
+\]
+associated with the structural continuous map \(p:X'\to X\). Intuitively, the localization morphism is just the translation, into topos language, of the \'etale-space morphism \(p:X'\to X\). This both justifies the term ``localization morphism'' and calls for caution with the term ``inclusion morphism'', which seems appropriate mainly when \(p\) is an open immersion. It is therefore prudent, in 5.1, to reserve ``inclusion morphism'' for the case where \(X\to e_E\) is a monomorphism, i.e. where \(X\) identifies with a subobject of the final object of \(E\).
+
+\subsection*{5.8}
+Let \(E\) be a topos, let \(G\) be a group object of \(E\), let \(H\subset G\) be a subgroup, and put
+\[
+X=G/H.
+\]
+We regard this quotient homogeneous space as an object of \(E\) with a left action of \(G\), i.e. as an object of the classifying topos \(B_G\). We determine the induced topos
+\[
+(B_G)_{/X}\qquad (X=G/H)
+\]
+by defining an equivalence of topoi
+\begin{equation*}
+c:B_H\xrightarrow{\sim}(B_G)_{/X}\tag{5.8.1}
+\end{equation*}
+such that the diagram
+\[
+\xymatrix@C=2cm{B_H\ar[r]^c\ar@{^{(}->}[rr]_{B_i} & (B_G)_{/X}\ar[r]^{j_X} & B_G}
+\tag{5.8.2}
+\]
+commutes up to canonical isomorphism. Here \(j_X\) is the localization morphism in \(B_G\), and
+\[
+B_i:B_H\longrightarrow B_G
+\]
+is the morphism induced by the inclusion \(i:H\to G\).
+
+To define (5.8.1), we only describe the inverse-image and direct-image functors \(c^*\) and \(c_*\), leaving to the reader the verification that they are quasi-inverse equivalences and give rise to the commutative diagram (5.8.2). Let \(e\) be the subobject of \(E\) underlying \(X\), namely the image of the section of \(X\) induced, over a chosen final object \(e_E\), by the unit section of \(G\). If \(X'\) is an object of \(B_G\) over \(X\), define
+\[
+c^*(X')=X'\times_X e.
+\]
+This object is stable under the left action of \(H\), obtained by restricting the given action of \(G\) on \(X'\). This gives a functor
+\[
+c^*:(B_G)_{/X}\longrightarrow B_H.
+\]
+Conversely, if \(X'\) is an object of \(B_H\), the morphism \(X'\to e_H\), where \(e_H\) is the final object of \(B_H\), gives after applying \(i_!\) a morphism in \(B_G\)
+\[
+i_!(X')\longrightarrow i_!(e_H)\simeq X.
+\]
+Thus \(i_!(X')\) is an object of \((B_G)_{/X}\), and the desired functor is
+\[
+c_*:X'\longmapsto (i_!(X')\to X):B_H\longrightarrow (B_G)_{/X}.
+\]
+
+\subsubsection*{5.8.3}
+It follows from (5.8.2) that if \(G\) is a group object of a topos and \(H\) is a subgroup, then the functor which restricts the operators from \(G\) to \(H\) may be interpreted as a localization functor. In particular, taking \(H\) to be the unit subgroup, the functor which forgets the action of \(G\) is a localization functor.
+
+More generally, if \((X,G)\) is an object of \(E\) with an action of \(G\), i.e. an object of \(B_G\), then the functor
+\[
+(B_G)_{/(X,G)}\longrightarrow E_{/X}
+\]
+which forgets the action of \(G\) may be interpreted as a localization functor, relative to a suitable object of \((B_G)_{/(X,G)}\) covering the final object. One takes
+\[
+E_{G,(X,G)}=E_G\times(X,G),
+\]
+where \(E_G=G_s=G\) carries the left-translation action of \(G\). This gives a cartesian diagram
+\[
+\xymatrix@C=2cm@R=1.2cm{E_G\ar[d] & Z=E_{G,(X,G)}\ar[l]\ar[d]\\
+e_G & (X,G)\ar[l]}
+\tag{5.8.3.1}
+\]
+and, by transitivity of induced topoi, the induced topos over \(Z\) identifies with \(E_{/X}\). The resulting diagram of topoi
+\[
+\xymatrix@C=1.4cm@R=1cm{(B_G)_{/E_G}\simeq E\ar[d]_j & (B_G)_{/Z}\simeq E_{/X}\ar[l]_i\ar[d]^{j'}\\
+B_G & (B_G)_{/(X,G)}\ar[l]_f}
+\tag{5.8.3.2}
+\]
+commutes up to canonical isomorphism. The inverse-image functors associated with the vertical arrows are the functors forgetting the action of \(G\), while \(i^*\) identifies with the localization functor \(E\to E_{/X}\). This diagram is in fact 2-cartesian in the sense of Proposition 5.11 below.
+
+\subsubsection*{5.8.4}
+The reader may extend the preceding considerations to a pro-group \(\mathcal G=(G_i)\), in the special case where \(H\) is defined as the kernel of \(\mathcal G\to G_{i_0}\). For profinite groups this means that one restricts to open subgroups \(H\) of \(G\), equivalently closed subgroups of finite index.
+
+\begin{remarktext}{Exercise 5.9}
+Let \(E\) be a topos, let \(G\) be a group object of \(E\), let \(B_G\) be the classifying topos of \(G\), and let
+\[
+\pi:B_G\longrightarrow E
+\]
+be the morphism induced by the homomorphism from \(G\) to the unit group of \(E\), using \(B_e\simeq E\).
+\begin{enumerate}[label=\alph*)]
+\item Let \(E_G=G_s\) be the object of \(B_G\) whose underlying object of \(E\) is \(G\), with \(G\) acting by left translations. Regard \(\pi^*(G)\) as a group object of \(B_G\), namely the object \(G\) of \(E\) with the trivial action of \(G\). Show that right translations of \(G\) on \(G_s\) define a morphism in \(B_G\)
+\[
+E_G\times\pi^*(G)\longrightarrow E_G.
+\]
+Show that this makes \(E_G\) an object of \(B_G\) with a right action of the \(B_G\)-group \(\pi^*(G)\), and that this action makes \(E_G\) a torsor under \(\pi^*(G)\).
+
+\item If \(q:E'\to E\) is a topos over \(E\), and \(B\) is any topos over \(E\), define the category \(\mathcal{H}om_{\mathrm{top},E}(E',B)\) of geometric morphisms \(E'\to B\) compatible with the structural morphisms to \(E\), up to a specified isomorphism. For \(B=B_G\), show that the rule \(f\mapsto f^*(E_G)\) defines an equivalence of categories
+\[
+\mathcal{H}om_{\mathrm{top},E}(E',B_G)\longrightarrow \Ttors(E',q^*(G)),
+\]
+where the right-hand side is the category of right \(q^*(G)\)-torsors on \(E'\).
+
+\item Let \(H\subset G\) be a subgroup. The quotient
+\[
+X=E_G/\pi^*(H)
+\]
+is the object \(G/H\) with its usual left action of \(G\). Passing to induced topoi in the diagram \(E_G\to X\leftarrow e_G\), show that the resulting diagram is equivalent to the diagram attached by 4.5 to the group homomorphisms \(e\to H\to G\). Thus the classifying topos \(B_H\) is to be interpreted intuitively as a homogeneous space over \(B_G\), with group \(\pi^*(G)\), associated with the universal torsor \(E_G\) over \(B_G\).
+
+\item Revisit the example of 5.7 when \(X'\) is an \'etale covering of \(X\), locally trivial in the sense of 2.7.4, and interpret it in terms of the present exercise.
+\end{enumerate}
+\end{remarktext}
+
+\subsection*{5.10. Inverse images of induced topoi}
+Let
+\[
+f:E'\longrightarrow E
+\]
+be a morphism of \(\U\)-topoi, let \(X\) be an object of \(E\), and put \(X'=f^*(X)\). We define a diagram of geometric morphisms
+\[
+\xymatrix@C=2.5cm@R=1.5cm{E_{/X} \ar[d]_{j_X} & E'_{/X'}\ar[l]_{f_{/X}}\ar[d]^{j_{X'}}\\
+E & E'\ar[l]_f}
+\tag{5.10.1}
+\]
+where \(j_X\) and \(j_{X'}\) are the localization morphisms and where \(f_{/X}\) is defined below. The diagram is commutative up to canonical isomorphism.
+
+We define \(f_{/X}\) by its inverse-image functor
+\begin{equation*}
+(f_{/X})^*:E_{/X}\longrightarrow E'_{/X'},\tag{5.10.2}
+\end{equation*}
+namely the functor induced by \(f^*\) in the evident sense. Since the forgetful functors \(j_{X!}\) and \(j_{X'!}\) commute with inductive limits and fiber products and are conservative, it follows at once that \((f_{/X})^*\) commutes with inductive limits and fiber products, just as \(f^*\) does. It also sends the final object \(X\) to the final object \(X'\). Hence it is left exact and is associated to a geometric morphism
+\begin{equation*}
+f_{/X}:E'_{/X'}\longrightarrow E_{/X},\tag{5.10.3}
+\end{equation*}
+defined up to unique isomorphism. The diagram obtained from (5.10.1) by passing to inverse-image functors is commutative up to canonical isomorphism by construction and because \(f^*\) commutes with products \(X\times Y\). Thus (5.10.1) itself is commutative, with the unique isomorphism inducing the canonical isomorphism on inverse-image functors.
+
+\subsubsection*{5.10.4}
+When \(f:E'\to E\) is associated with a continuous map \(Y'\to Y\) of topological spaces, so that \(X\) is an \'etale space over \(Y\) and \(X'=X\times_Y Y'\), the identifications \(\Top(Y)_{/X}\simeq\Top(X)\) and \(\Top(Y')_{/X'}\simeq\Top(X')\) identify \(f_{/X}\) with the morphism \(\Top(X')\to\Top(X)\) induced by the canonical continuous map \(X'\to X\). Thus \(E'_{/X'}\) plays the role of the fiber product of \(E_{/X}\) and \(E'\) over \(E\). The following result makes this intuition precise.
+
+\begin{statement}{Proposition 5.11}
+With the notation of 5.10, the diagram (5.10.1), together with the compatibility isomorphism
+\[
+\alpha:f\circ j_{X'}\xrightarrow{\sim}j_X\circ f_{/X},
+\]
+is 2-cartesian. More explicitly, for every \(\U\)-topos \(F\), associating to a geometric morphism \(g:F\to E'_{/X'}\) the triple
+\[
+(f_{/X}g,\ j_{X'}g,\ \alpha_g)
+\]
+defines an equivalence from \(\Hhomtop(F,E'_{/X'})\) to the category of triples \((g_1,g_2,\beta)\), where \(g_1:F\to E_{/X}\), \(g_2:F\to E'\), and \(\beta:f\circ g_2\xrightarrow{\sim}j_X\circ g_1\) is an isomorphism of geometric morphisms to \(E\).
+\end{statement}
+
+\subsubsection*{5.11.1}
+We record the elementary categorical calculation behind the preceding statement. Suppose given categories \(E,E'\), an object \(X\) of \(E\) such that \(A\mapsto A\times X\) is defined, and a left exact functor
+\begin{equation*}
+\varphi:E_{/X}\longrightarrow E'.\tag{*}
+\end{equation*}
+Since \(E_{/X}\) has final object \((X,\operatorname{id}_X)\), so does \(E'\), with final object \(e'\simeq\varphi(X)\). Choose \(e'\). To \(\varphi\) we associate the pair
+\begin{equation*}
+(\Psi,u),\qquad \Psi=\varphi\circ j:E\to E',\qquad u\in\Hom(e',\Psi(X)),\tag{**}
+\end{equation*}
+where \(j(A)=A\times X\). The element \(u\) is obtained by applying \(\varphi\) to the diagonal section \(\delta_X:X\to X\times X\) over the final object \(X\) of \(E_{/X}\):
+\[
+u=\varphi(\delta_X):e'=\varphi(X)\longrightarrow \varphi(X\times X)=\Psi(X).
+\]
+
+Conversely, the pair \((\Psi,u)\) recovers \(\varphi\) up to unique isomorphism. For an object \(p:X'\to X\) of \(E_{/X}\), the graph morphism \(\Gamma_p=(\operatorname{id}_{X'},p)\) gives a cartesian square in \(E_{/X}\). Applying \(\varphi\) yields the canonical formula
+\begin{equation*}
+\varphi(X',p)\simeq \Psi(X')\times_{\Psi(X)} e'.\tag{5.11.1.1}
+\end{equation*}
+This is functorial in \((X',p)\). The functor \(\Psi\) is left exact, and more generally commutes with any type of projective limits with which \(\varphi\) commutes.
+
+Conversely, when finite projective limits are representable in \(E\) and \(E'\), a pair \((\Psi,u)\) with \(\Psi\) left exact defines \(\varphi\) by (5.11.1.1). This \(\varphi\) is left exact and has the corresponding limit-commutation properties. Moreover one recovers \(\Psi\) by the canonical isomorphism
+\begin{equation*}
+\Psi(X')\simeq \varphi(j(X')),\tag{5.11.1.2}
+\end{equation*}
+and under this isomorphism \(u:e'\to\Psi(X)\) identifies with \(\varphi(\delta_X)\).
+
+\begin{statement}{Lemma 5.11.2}
+Let \(E\) and \(E'\) be categories in which finite projective limits are representable, let \(X\) be an object of \(E\), and let \(\Ssex(E,E')\), respectively \(\Ssex(E_{/X},E')\), denote the category of left exact functors. Then \(\Ssex(E_{/X},E')\) is equivalent to the category whose objects are pairs \((\Psi,u)\), with \(\Psi\in\Ob\Ssex(E,E')\) and \(u:e'\to\Psi(X)\), where \(e'\) is the final object of \(E'\). The construction and a quasi-inverse are as described above. If \(\varphi\) and \((\Psi,u)\) correspond, then \(\varphi\) commutes with a given type of projective limits if and only if \(\Psi\) does. If in \(E\) and \(E'\) base-change functors commute with a given type of inductive limits, then \(\varphi\) commutes with inductive limits of that type if and only if \(\Psi\) does.
+\end{statement}
+
+We leave to the reader the explicit categorical structure on the category of pairs \((\Psi,u)\). If \(\Gamma:\Ssex(E,E')\to\Set\) is given by \(\Gamma(\Psi)=\Hom(e',\Psi(X))\), then \(u\) may be viewed as an element of \(\Gamma(\Psi)\), which explains the notation \(\Ssex(E,E')_{/\Gamma}\). The remaining functorial details and the assertions on inductive limits follow at once from the explicit formulas (5.11.1.1) and (5.11.1.2).
+
+\begin{statement}{Proposition 5.12}
+Let \(E\) and \(E'\) be \(\U\)-topoi and let \(X\) be an object of \(E\). On \(\Hhomtop(E',E)\) consider the contravariant functor
+\[
+\gamma:f\longmapsto \Gamma(E',f^*(X))=\Hom(e',f^*(X)).
+\]
+Then there is an equivalence of categories
+\begin{equation*}
+\Hhomtop(E',E_{/X})\xrightarrow{\sim}\Hhomtop(E',E)_{/\gamma}.\tag{5.12.1}
+\end{equation*}
+It sends a geometric morphism \(h:E'\to E_{/X}\) to the pair \((f,u)\), where \(f=j_Xh:E'\to E\), and where
+\[
+u:e'=h^*(X,\operatorname{id}_X)\longrightarrow f^*(X)=h^*(j_X^*X)=h^*(X\times X)
+\]
+is induced by the diagonal \(\delta_X:X\to X\times X\).
+\end{statement}
+
+\subsubsection*{5.12.2}
+Using 5.12, the proof of Proposition 5.11 becomes almost tautological. To give a geometric morphism \(g:F\to E'_{/X'}\) amounts to giving a morphism \(g_2:F\to E'\) together with a section of \(g_2^*(X')\). But \(g_2^*(X')=g_2^*f^*(X)=(fg_2)^*(X)\), so such a section is equivalently a lifting of \(fg_2:F\to E\) to a morphism \(g_1:F\to E_{/X}\). This is exactly the data of a triple \((g_1,g_2,\alpha)\) as in 5.11.
+
+\begin{remarktext}{Remark 5.13}
+For any diagram of topoi
+\[
+\xymatrix@C=2cm@R=1.25cm{E_1\ar[d]\\ E & E_2\ar[l]}
+\]
+there exists a 2-fiber product in the 2-category of topoi, independent up to equivalence of the chosen enlargement of universes. For other natural examples of fiber products of topoi, besides Proposition 5.11, see the final chapter of Giraud's book.
+\end{remarktext}
+
+\begin{remarktext}{Exercise 5.14}
+\begin{enumerate}[label=\alph*)]
+\item If \(F\) and \(G\) are topoi over a topos \(E\), define \(\mathcal{H}om_{\mathrm{top},E}(F,G)\) to be the category of pairs \((f,\alpha)\), where \(f:F\to G\) is a geometric morphism and \(\alpha:p\xrightarrow{\sim}qf\) is an isomorphism of the structural morphisms to \(E\). Define composition functors \(\mathcal{H}om_{\mathrm{top},E}(F,G)\times\mathcal{H}om_{\mathrm{top},E}(G,H)\to\mathcal{H}om_{\mathrm{top},E}(F,H)\) and associativity isomorphisms.
+\item If \(X,Y\) are objects of \(E\), define a natural functor from the discrete category \(\Hom(X,Y)\) to \(\mathcal{H}om_{\mathrm{top},E}(E_{/X},E_{/Y})\), and check compatibility with composition in \(E\) and the compositions of part a).
+\item Prove that the functor of b) is an equivalence. In particular, an object \(X\) of a topos \(E\) is recovered, up to unique isomorphism, from the induced topos \(E_{/X}\) considered as a topos over \(E\), up to \(E\)-equivalence. This result is due to P.~Deligne; the case where \(E\) is the punctual topos was previously treated by Mme~Hakim.
+\end{enumerate}
+\end{remarktext}
+
+\section{Points of a topos and fiber functors}
+
+\subsection*{6.0}
+Let \(P\) be the standard punctual \(\U\)-topos
+\[
+P=(\U\text{-}\Set).
+\]
+Because the symbol \(P\) evokes a geometric object of the nature of a point, whereas \((\U\text{-}\Set)\) evokes a large category, to be interpreted as the category of sheaves on \(P\), it is often preferable, according to context, to use one notation or the other exclusively, although strictly speaking they denote one and the same object.
+
+\begin{statement}{Definition 6.1}
+Let \(E\) be a \(\U\)-topos. A \emph{point} of \(E\) is a geometric morphism \(P\to E\) from the punctual topos to \(E\). The \emph{category of points} of \(E\), denoted \(\Ppoint(E)\) or \(\operatorname{Pt}(E)\), is the category \(\Hhomtop(P,E)\). If \(p:P\to E\) is a point of \(E\), with inverse-image functor \(p^*:E\to(\U\text{-}\Set)\), and if \(F\) is an object of \(E\), the set \(p^*(F)\) is called the \emph{fiber of \(F\) at \(p\)} and is denoted \(F_p\).
+\end{statement}
+
+\subsubsection*{6.1.1}
+If \(F\) is a group object, ring object, and so on, in \(E\), then \(F_p\) is respectively a group, a ring, and so on.
+
+\subsubsection*{6.1.2}
+By 3.2.1, the category of points of \(E\) is equivalent, via \(p\mapsto p^*\), to the opposite of the category of functors
+\[
+\varphi:E\longrightarrow (\U\text{-}\Set)
+\]
+which commute with \(\U\)-inductive limits and are left exact. Thus giving a point of \(E\) is essentially the same thing as giving such a functor \(\varphi\).
+
+\begin{statement}{Definition 6.2}
+A \emph{fiber functor} of the \(\U\)-topos \(E\) is a functor
+\[
+\varphi:E\longrightarrow(\U\text{-}\Set)
+\]
+which commutes with \(\U\)-inductive limits and is left exact. The \emph{category of fiber functors} on \(E\), denoted \(\Ffib(E)\), is the full subcategory of \(\Hhom(E,(\U\text{-}\Set))\) formed by the fiber functors.
+\end{statement}
+
+\subsubsection*{6.2.1}
+The category \(\Ffib(E)\) of fiber functors on \(E\) is equivalent to the opposite of the category \(\Ppoint(E)\) of points of \(E\), via the functor \(p\mapsto p^*\):
+\begin{equation*}
+\Ppoint(E)\xrightarrow{\sim}\Ffib(E)^{\circ}.\tag{6.2.1.1}
+\end{equation*}
+Thus a functor \(\varphi:E\to(\U\text{-}\Set)\) is a fiber functor if and only if it is the fiber functor \(F\mapsto F_p\) associated with a point \(p\) of \(E\). Equivalently, by 1.7, \(\varphi\) is left exact and sends covering families to surjective families. This last condition may also be expressed by saying that \(\varphi\) commutes with \(\U\)-small sums and sends epimorphisms to epimorphisms.
+
+\subsection*{6.3}
+Let \(C\in\U\) be a site. A \emph{point of the site \(C\)} is a point of the topos \(C^{\sim}\), and the \emph{category of points of the site \(C\)} is
+\[
+\Ppoint(C)=\Ppoint(C^{\sim}).
+\]
+Consider the functor
+\begin{equation*}
+\varphi\longmapsto \varphi|C=\varphi\circ\varepsilon_C:
+\Ffib(C^{\sim})\longrightarrow \Hhom(C,(\U\text{-}\Set)).\tag{6.3.1}
+\end{equation*}
+It is fully faithful, with essential image the full subcategory of site morphisms \( (\U\text{-}\Set)\to C\) in the sense of 4.9.4; denote this subcategory also by \(\Ffib(C)\). A functor \(\Psi:C\to(\U\text{-}\Set)\) is called a \emph{fiber functor on the site \(C\)} if it belongs to this essential image. Such a functor is continuous, hence sends covering families to covering families, i.e. to surjective families, and is left exact. When finite projective limits are representable in \(C\), as in nearly all practical cases, these two properties characterize the fiber functors on \(C\): they are precisely the left exact functors \(C\to(\U\text{-}\Set)\) which send covering families to surjective families.
+
+The functor \(\varphi\mapsto\varphi|C\) is an equivalence
+\[
+\Ffib(C^{\sim})\xrightarrow{\sim}\Ffib(C),
+\]
+so it is essentially the same thing to give a fiber functor on the topos \(C^{\sim}\), or a point of it, as to give a fiber functor on the site \(C\). If \(\Psi\) is a fiber functor on \(C\), and \(\varphi\) is the corresponding fiber functor on \(C^{\sim}\), then \(\varphi\) is recovered by
+\begin{equation*}
+\varphi(F)\simeq\varinjlim_{C_{/F}}\Psi(X),\tag{6.3.2}
+\end{equation*}
+where \(C_{/F}\) is the category of objects \(X\) of \(C\) equipped with a morphism \(X\to F\) in \(\widehat C\), equivalently with an element of \(F(X)\). This follows immediately from the canonical formula
+\[
+F\simeq\varinjlim_{C_{/F}}\varepsilon_C(X).
+\]
+More generally, for a presheaf \(G\) on \(C\), one has a canonical isomorphism
+\begin{equation*}
+\varphi(aG)\simeq\varinjlim_{C_{/G}}\Psi(X),\tag{6.3.3}
+\end{equation*}
+where \(aG\) denotes the sheaf associated with \(G\).
+
+\subsubsection*{6.4.0}
+We refer to Expos\'e~I, 6.1 for the notion of a conservative family of functors
+\[
+\varphi_i:E\longrightarrow E_i\qquad (i\in I).
+\]
+When \(E\) and the \(E_i\) are topoi and the \(\varphi_i\) are inverse-image functors \(f_i^*\) of geometric morphisms \(f_i:E_i\to E\), the exactness properties required in Expos\'e~I, 6.2, 6.3 and 6.4 are satisfied, apart from the harmless finiteness restriction there indicated. In this setting it is equivalent to say that \((f_i^*)_{i\in I}\) is conservative, conservative for monomorphisms, conservative for epimorphisms, or faithful.
+
+When the family \((f_i^*)\) is conservative we shall also say that the family of geometric morphisms \((f_i)\) is conservative. In particular:
+
+\begin{statement}{Definition 6.4.1}
+Let \(E\) be a \(\U\)-topos and let \((p_i:P\to E)_{i\in I}\) be a family of points of \(E\). This family is \emph{conservative} if the associated family of fiber functors \(F\mapsto F_{p_i}\) from \(E\) to \((\U\text{-}\Set)\) is conservative. The topos \(E\) is said to have \emph{enough points} if it admits a conservative family of points, equivalently if the family of all its points is conservative.
+\end{statement}
+
+\subsubsection*{6.4.2}
+All topoi used up to this point have enough points. It is nevertheless possible, deliberately, to construct topoi which do not have enough points; such a topos is necessarily non-empty in the geometric sense of 2.2. A topos with enough points admits a conservative family of points indexed by a \(\U\)-small set (Proposition 6.5). However, the set of isomorphism classes of points of a \(\U\)-topos need not itself be \(\U\)-small, although it is so in many practical cases. Finally, for an important existence theorem of P.~Deligne giving enough points and covering all cases occurring in algebraic geometry, see Expos\'e~VI, 9.
+
+\subsubsection*{6.4.3}
+If \((p_i)_{i\in I}\) is a conservative family of points of \(E\), then two arrows \(u,v:F\rightrightarrows G\) in \(E\) are equal if and only if \(u_{p_i}=v_{p_i}\) for all \(i\). A morphism \(u:F\to G\) is a monomorphism, respectively an epimorphism, if and only if each map \(u_{p_i}:F_{p_i}\to G_{p_i}\) is injective, respectively surjective. An object \(F\) is initial, respectively final, if and only if every \(F_{p_i}\) is empty, respectively a singleton. Finally, \(F\) is a subobject of the final object \(e_E\) if and only if each \(F_{p_i}\) has at most one element.
+
+\begin{statement}{Proposition 6.5}
+\begin{enumerate}[label=\alph*)]
+\item Let \(C\) be a \(\U\)-site and let \((\varphi_i)_{i\in I}\) be a family of fiber functors on \(C\). The corresponding family of points of \(E=C^{\sim}\) is conservative if and only if, for every family \((X_j\to X)_{j\in J}\) in \(C\), the following implication holds: if for every \(i\in I\) the family \((\varphi_i(X_j)\to\varphi_i(X))_{j\in J}\) is surjective, then \((X_j\to X)_{j\in J}\) is covering.
+\item If a \(\U\)-topos \(E\) has enough points, then it admits a \(\U\)-small conservative family of points.
+\end{enumerate}
+\end{statement}
+
+Assertion b) is a special case of Expos\'e~I, 7.7. For a), apply that criterion to the generating family of \(E\) consisting of the \(\varepsilon(X)\), \(X\in\operatorname{Ob}C\). Recall that \((X_j\to X)\) is covering if and only if \((\varepsilon(X_j)\to\varepsilon(X))\) is epimorphic. If the family of points is conservative, this is equivalent to surjectivity on all fibers, i.e. to surjectivity of all the families \((\varphi_i(X_j)\to\varphi_i(X))\). This proves necessity. Conversely, the same criterion reduces sufficiency to checking that a monomorphism \(F\to\varepsilon(X)\) which is an isomorphism on all fibers is an isomorphism. Choose a covering family \(\varepsilon(X_j)\to F\), refined so that the composites \(\varepsilon(X_j)\to\varepsilon(X)\) come from morphisms \(X_j\to X\). The fiberwise hypothesis and the assumption of a) imply that \((X_j\to X)\) is covering. Hence \((\varepsilon(X_j)\to\varepsilon(X))\) is epimorphic, and therefore \(F\to\varepsilon(X)\) is epimorphic.
+
+\begin{statement}{Corollary 6.5.1}
+Let \(C\) be a category. A topology on \(C\) making \(C\) into a \(\U\)-site with enough fiber functors, equivalently such that the associated topos has enough points, is completely determined by the full subcategory \(\Phi\subset\Hhom(C,\Set)\) formed by the fiber functors on \(C\).
+\end{statement}
+
+Indeed, Proposition 6.5(a) describes the covering families in terms of the family of fiber functors. Below, in 6.8.5, we shall see that \(\Phi\) is contained in the category of pro-representable functors on \(C\), so that \(\Phi^\circ\simeq\Ppoint(C^{\sim})\) identifies, up to equivalence, with a full subcategory of \(\operatorname{Pro}(C)\). Compare this corollary with Giraud's theorem, Expos\'e~II, 5.5, which establishes a bijection between topologies on \(C\) and certain full subcategories of \(\Hhom(C^\circ,\Set)\).
+
+\begin{remarktext}{Exercise 6.5.2}
+Let \(C\) be a category equivalent to a \(\U\)-small category, and let \(P\) be a subcategory of \(\operatorname{Pro}(C)\). For \(p\in P\), write \(X\mapsto X_p\) for the functor pro-represented by \(p\). A family \((X_i\to X)_{i\in I}\) in \(C\) is called \(P\)-covering if for every \(p\in P\) the family \((X_{ip}\to X_p)_{i\in I}\) is surjective. Show that there exists a topology \(T_P\) on \(C\) for which the covering families are precisely the \(P\)-covering families; that \(T_P\) is the finest topology on \(C\) for which all functors \(X\mapsto X_p\), \(p\in P\), are fiber functors; and that \(T_P\) gives \(C\) enough fiber functors. For any topology \(T\) on \(C\), show that among the topologies finer than \(T\) with enough fiber functors there is a least one, namely \(T_P\), where \(P\) is the strictly full subcategory of \(\operatorname{Pro}(C)\) equivalent to \(\Ppoint(C^{\sim})\) described in 6.8.5.
+\end{remarktext}
+
+\begin{remarktext}{Problem 6.5.3}
+Characterize the strictly full subcategories \(P\) of \(\operatorname{Pro}(C)\), stable under filtered projective limits and satisfying the appropriate further conditions, which arise from a topology on \(C\) as the essential image of \(\Ppoint(C^{\sim})\) in \(\operatorname{Pro}(C)\).
+\end{remarktext}
+
+\subsection*{6.6}
+Let
+\[
+f:E\longrightarrow E'
+\]
+be a morphism of \(\U\)-topoi. It induces a canonical functor
+\[
+\Ppoint(f)=(p\longmapsto f\circ p):\Ppoint(E)\longrightarrow\Ppoint(E').
+\]
+For two composable geometric morphisms
+\[
+E\xrightarrow{f}E'\xrightarrow{g}E'',
+\]
+one has, tautologically,
+\[
+\Ppoint(gf)=\Ppoint(g)\circ\Ppoint(f).
+\]
+Thus the dependence of \(\Ppoint(E)\) on \(E\) is genuinely functorial: if \(\V\) is a universe with \(\U\in\V\), one obtains an honest functor from the category of \(\U\)-topoi which are elements of \(\V\) to the category of categories which are elements of \(\V\).
+
+\subsection*{6.7}
+Let \(E\) be a \(\U\)-topos. Every object \(F\) of \(E\) defines a contravariant functor
+\[
+p\longmapsto F_p=p^*(F):\Ppoint(E)^\circ\longrightarrow(\U\text{-}\Set),
+\]
+and hence, for variable \(F\), a canonical functor
+\begin{equation*}
+E\longrightarrow \widehat{\Ppoint(E)}=\Hhom(\Ppoint(E)^\circ,(\U\text{-}\Set)).\tag{6.7.1}
+\end{equation*}
+By definition, this functor is faithful if and only if \(E\) has enough points. It has a certain formal analogy with a Fourier transform.
+
+Let \(X\) be an object of \(E\), and let \(\widehat X\) be the corresponding presheaf on \(C=\Ppoint(E)\). The category
+\[
+C_{/\widehat X}=\Ppoint(E)_{/\widehat X}
+\]
+is the category of pairs \((p,\xi)\), where \(p\) is a point of \(E\) and \(\xi\in X_p\). There is a canonical equivalence of categories
+\begin{equation*}
+\Ppoint(E_{/X})\xrightarrow{\sim}\Ppoint(E)_{/\widehat X}.\tag{6.7.2}
+\end{equation*}
+Composed with \(\Ppoint(E)_{/\widehat X}\to\Ppoint(E)\), it is just the functor on points induced by the localization morphism \(j_X:E_{/X}\to E\). This is the special case of Proposition 5.12 obtained by taking \(E'=P=(\Set)\).
+
+\begin{statement}{Corollary 6.7.3}
+Let \(E\) be a topos. If \(E\) has enough points, then so does every induced topos \(E_{/X}\). Conversely, if \((X_i)_{i\in I}\) is a family of objects of \(E\) covering the final object, and if each \(E_{/X_i}\) has enough points, then \(E\) has enough points.
+\end{statement}
+
+For the first assertion, let \(f:X'\to X''\) be a morphism in \(E_{/X}\) which is not an isomorphism. Since \(E\) has enough points, there is a point \(p\) of \(E\) such that \(f_p:X'_p\to X''_p\) is not an isomorphism. Then for some \(q\in X_p\), the map induced on the fibers over \(q\) is not an isomorphism. Under (6.7.2), this element \(q\) is a point of \(E_{/X}\), and the map just described is precisely the map on fibers at that point.
+
+Conversely, suppose the \(X_i\) cover the final object of \(E\), and that each \(E_{/X_i}\) has enough points. If \(f:X'\to X''\) in \(E\) is not an isomorphism, then for some \(i\), its restriction \(f_i:X'_i\to X''_i\) over \(X_i\) is not an isomorphism. A point \(p_i\) of \(E_{/X_i}\) detects this failure. Its image \(p\) in \(E\) then detects the failure of \(f\) to be an isomorphism. Thus \(E\) has enough points.
+
+\begin{remarktext}{Remark 6.7.4}
+The same argument shows that if \((p_\alpha)\) is a conservative family of points of \(E\), then the family of points of \(E_{/X}\) lying above one of the \(p_\alpha\) is conservative. Likewise, if the \(X_i\) cover the final object of \(E\), and \(P_i\) is a conservative set of points of \(E_{/X_i}\), then the set of their images in \(E\) under the localization morphisms \(E_{/X_i}\to E\) is conservative.
+\end{remarktext}
+
+\subsection*{6.8}
+Let \(E\) be a topos and let \(p\) be a point of \(E\). A \emph{neighborhood of \(p\) in \(E\)} is a pair \((X,u)\), where \(X\in\Ob E\) and \(u\in X_p\). By (6.7.2), one may also interpret \(u\) as a lifting of \(p\) to a point of the induced topos \(E_{/X}\). If \(\varphi_p\) is the fiber functor associated with \(p\), a neighborhood of \(p\) is also an object of the category \(E_{/\varphi_p}\). This category of pairs \((X,u)\) is called the \emph{category of neighborhoods} of \(p\) and is denoted \(\Vvois(p)\). Since \(\varphi_p\) is left exact and finite projective limits are representable in \(E\), finite projective limits are representable in \(\Vvois(p)\), and the canonical functor \(\Vvois(p)\to E\) commutes with them. Hence \(\Vvois(p)^\circ\) is filtered. Moreover, for every \(F\in\Ob E\), there is a canonical isomorphism
+\begin{equation*}
+F_p=\varphi_p(F)\simeq\varinjlim_{\Vvois(p)^\circ}F(X).\tag{6.8.1}
+\end{equation*}
+In other words, the fiber functor at \(p\) is the filtered inductive limit of the functors represented in \(E\) by the neighborhoods of \(p\). It is in fact ind-representable, equivalently representable by a pro-object \((X_i)_{i\in I}\) of \(E\), with \(I\) a filtered ordered set in \(\U\). To see this, choose a small full generating subcategory \(C\subset E\). The full subcategory of \(\Vvois(p)\) formed by the neighborhoods \((X,u)\) with \(X\in C\) is cofinal: every neighborhood \((X,u)\) is refined by one whose object lies in \(C\), using a covering family from \(C\) and the surjectivity on fibers.
+
+\subsubsection*{6.8.2}
+Let \(C\) be a \(\U\)-site and let \(p\) be a point of \(C\), i.e. of \(C^{\sim}\). By abuse of notation write again \(\varphi_p\) for its restriction to \(C\), and write \(X_p=\varphi_p(X)=\varepsilon(X)_p\). A \emph{neighborhood of \(p\) in the site \(C\)} is a pair \((X,u)\), with \(X\in\Ob C\) and \(u\in X_p\). These neighborhoods form the category \(C_{/\varphi_p}\), also denoted \(\Vvois_C(p)\). Then \(\Vvois_C(p)^\circ\) is filtered, admits a cofinal \(\U\)-small full subcategory, and for every sheaf \(F\) on \(C\) there is a functorial isomorphism
+\begin{equation*}
+F_p\simeq\varinjlim_{\Vvois_C(p)^\circ}F(X).\tag{6.8.3}
+\end{equation*}
+Indeed, if \(C'\subset C\) is a topologically generating full subcategory, then \(\Vvois_{C'}(p)^\circ\) is cofinal in \(\Vvois_C(p)^\circ\). Thus one reduces to the case \(C\in\U\). Then \(\widehat C\) is a topos and the associated-sheaf functor \(a:\widehat C\to C^{\sim}\) allows one to apply (6.8.1) to \(\widehat C\), with generating full subcategory \(C\). This gives, more generally, for every presheaf \(P\) on \(C\),
+\begin{equation*}
+(aP)_p\simeq\varinjlim_{\Vvois_C(p)^\circ}P(X).\tag{6.8.4}
+\end{equation*}
+The general large-site case follows after enlargement of universes and the compatibility of associated sheaves with such enlargement.
+
+\subsubsection*{6.8.5}
+To each point \(p\) of \(C^{\sim}\) one has therefore associated a pro-object of the site \(C\), defined by the canonical functor \(\Vvois_C(p)\to C\). For variable \(p\) this gives a functor
+\begin{equation*}
+\Ppoint(C^{\sim})\longrightarrow\operatorname{Pro}(C).\tag{6.8.5.1}
+\end{equation*}
+It is fully faithful. Indeed, via associated fiber functors it is the composite \(\Ffib(C)\to\Ffib(C^{\sim})\to\operatorname{Pro}(C)^\circ\). The first functor is an equivalence by 4.9.4, recalled for fiber functors in 6.3, and the second is fully faithful by the general formalism of pro-objects.
+
+\subsubsection*{6.8.6}
+If \(C\) is \(\U\)-small and carries the chaotic topology, so that \(C^{\sim}=\widehat C\), then the preceding functor is an equivalence
+\begin{equation*}
+\Ppoint(\widehat C)\xrightarrow{\sim}\operatorname{Pro}(C).\tag{6.8.6.1}
+\end{equation*}
+Essential surjectivity follows because the functors \(P\mapsto P(X)\) on \(\widehat C\) are fiber functors, and a filtered inductive limit of fiber functors on a topos is again a fiber functor. Under the embedding \(C\subset\operatorname{Pro}(C)\), the induced functor \(C\to\Ppoint(\widehat C)\) is the canonical one already considered in 4.6.2.2; a quasi-inverse to (6.8.6.1) is the canonical extension of that functor to pro-objects.
+
+\subsubsection*{6.8.7}
+Let \((X_i)_{i\in I}\) be a pro-object of the \(\U\)-site \(C\). It defines on \(C^{\sim}\) the functor
+\begin{equation*}
+\varphi(F)=\varinjlim_I F(X_i).\tag{6.8.7.1}
+\end{equation*}
+In view of 6.8.5 it is natural to ask when this is a fiber functor. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item \(\varphi\) is a fiber functor on \(C^{\sim}\).
+\item Its restriction to \(C\) is a fiber functor on the site \(C\).
+\item For every covering family \((Y_\alpha\to Y)\) in \(C\), every \(i_0\in I\), and every morphism \(X_{i_0}\to Y\), there exist \(i\ge i_0\), an index \(\alpha\), and a morphism \(X_i\to Y_\alpha\) making the evident square
+\[
+\xymatrix@C=2cm@R=1.25cm{X_i\ar[d]\ar[r]&Y_\alpha\ar[d]\\ X_{i_0}\ar[r]&Y}
+\]
+commute.
+\end{enumerate}
+Condition (iii) simply expresses that \(\varphi|C\) sends covering families to covering families. The implications (i)\(\Rightarrow\)(ii)\(\Rightarrow\)(iii) are immediate. Conversely, \(\varphi\) is manifestly left exact; by 4.9.4 it remains to show that it sends covering families of sheaves to covering families. Given a covering family \(F_\alpha\to F\), an index \(i_0\), and an element \(x_0\in F(X_{i_0})\), choose a covering family \(Z_\gamma\to X_{i_0}\) over which \(x_0\) lifts to some \(F_\alpha(Z_\gamma)\). By (iii), for some \(i\ge i_0\) there is an \(X_{i_0}\)-morphism \(X_i\to Z_\gamma\), so the image of \(x_0\) in \(F(X_i)\) lifts to some \(F_\alpha(X_i)\). This proves the claim.
+
+\begin{remarktext}{Exercise 6.9}
+Let \(C\) be a site in \(\U\), and let \(\varphi\) be a fiber functor on \(C\), pro-represented by a pro-object \((X_i)_{i\in I}\) of \(\operatorname{Pro}(C)\). For every index \(i\), every object \(Y\), every morphism \(u:X_i\to Y\), and every covering sieve \(R\) on \(Y\), choose an index \(j\ge i\) such that \(X_j\to X_i\xrightarrow{u}Y\) factors through \(R\). For fixed \(i\), let \(J(i)\) be the set formed by \(i\) and all such \(j\); define \(J(I')\) similarly for subsets \(I'\subset I\). For a finite subset \(I'\), choose an upper bound \(m(I')\), with \(m(\{i\})=i\); let \(M(I')\) be the union of these upper bounds over all finite subsets of \(I'\). Let \(P(I')\) be the union of the iterates \((MJ)^n(I')\).
+\begin{enumerate}[label=\alph*)]
+\item Show that \(P(I')\) is filtered for the induced order, and that \(I\) is the increasing filtered union of the \(P(I')\) as \(I'\) ranges over finite subsets of \(I\).
+\item Show that there is a cardinal \(c\in\U\), depending only on \(a=\card\operatorname{Fl}(C)\), such that \(\card P(I')\le c\) for every finite \(I'\). If \(a\) is infinite, one may take \(c=2^a\).
+\item Using 6.8.7, show that for every \(I'\), the pro-object \((X_i)_{i\in P(I')}\) pro-represents a fiber functor \(\varphi_{I'}\), and that \(\varphi\) is the filtered inductive limit of the \(\varphi_{I'}\) for finite \(I'\).
+\item Deduce that there is a small full subcategory \(\Phi\) of \(\Ffib(C)\) such that every object of \(\Ffib(C)\) is a filtered inductive limit of objects of \(\Phi\). If \(a\) is infinite, \(\Phi\) may be chosen of cardinal \(\le 2^{2^a}\); if \(a\) is finite, one may of course take \(\Phi=C\).
+\end{enumerate}
+\end{remarktext}
+
+\begin{remarktext}{Exercise 6.10}
+Let \(C\) be a \(\U\)-site, let \(D\) be a category in which small filtered inductive limits are representable, and let \(\operatorname{Sh}(C,D)\) be the category of sheaves on \(C\) with values in \(D\). Extending (6.8.3), define a fiber functor
+\begin{equation*}
+F\longmapsto F_p:\operatorname{Sh}(C,D)\longrightarrow D.\tag{6.10.1}
+\end{equation*}
+If finite projective limits are representable in \(D\) and commute with filtered inductive limits, then this functor is left exact.
+\end{remarktext}
+
+\bigskip
+
+\end{document}

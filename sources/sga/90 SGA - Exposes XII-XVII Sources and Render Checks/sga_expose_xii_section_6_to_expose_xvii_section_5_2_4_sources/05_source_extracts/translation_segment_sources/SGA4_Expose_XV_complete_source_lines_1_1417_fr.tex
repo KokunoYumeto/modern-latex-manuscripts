@@ -1,0 +1,1417 @@
+     1	\ifx\danslelivre\undefined
+     2	\RequirePackage{luatex85}
+     3	\documentclass[10pt]{../fichiers-configuration-latex/smfart}
+     4	\input{../fichiers-configuration-latex/paquets}
+     5	\input{../fichiers-configuration-latex/numerotation}
+     6	\input{../fichiers-configuration-latex/macros}
+     7	
+     8	
+     9	\externaldocument{../01/01.tex}
+    10	\externaldocument{../02/02.tex}
+    11	\externaldocument{../03/03.tex}
+    12	\externaldocument{../04/04.tex}
+    13	\externaldocument{../05/05.tex}
+    14	\externaldocument{../05bis/05bis.tex}
+    15	\externaldocument{../06/06.tex}
+    16	\externaldocument{../07/07.tex}
+    17	\externaldocument{../08/08.tex}
+    18	\externaldocument{../09/09.tex}
+    19	\externaldocument{../10/10.tex}
+    20	\externaldocument{../11/11.tex}
+    21	\externaldocument{../12/12.tex}
+    22	\externaldocument{../13/13.tex}
+    23	\externaldocument{../14/14.tex}
+    24	%\externaldocument{../15/15.tex}
+    25	\externaldocument{../16/16.tex}
+    26	\externaldocument{../17/17.tex}
+    27	\externaldocument{../18/18.tex}
+    28	\externaldocument{../19/19.tex}
+    29	
+    30	\setboolean{original}{false}
+    31	
+    32	\begin{document}
+    33	
+    34	\begin{center}
+    35	XV. Morphismes acycliques\\
+    36	M. Artin 
+    37	\end{center}
+    38	
+    39	\selectlanguage{english}version : \showgitstatus\selectlanguage{french}
+    40	\tableofcontents
+    41	
+    42	\else
+    43	\chapter{Morphismes acycliques}
+    44	%\addtocontents{toc}{M. Artin}
+    45	\begin{center}
+    46	M. Artin 
+    47	\end{center}
+    48	\fi
+    49	
+    50	\setcounter{pageoriginal}{167}
+    51	
+    52	% À faire :
+    53	% uniformiser notation pour la restriction F|X -> F_{|X} p. ex.
+    54	% rajouter des ~ pour éviter les termes mathématiques courts seuls en début de ligne.
+    55	% remplacer les \ref{...} par des (\ref{}) ; cf. p. ex. énoncé du 1.15
+    56	% ne pas mettre les remarques en italiques (cf. rem. 1.18).
+    57	
+    58	\section*{Introduction}\pageoriginale
+    59	
+    60	Soit $g:X\rightarrow Y$ un morphisme de schémas. Dans le premier
+    61	numéro, nous étudions des conditions pour que $g$ soit acyclique,
+    62	c'est-à-dire, tel que pour tout faisceau de torsion $F$ sur $Y$ on ait
+    63	$H^{q}(Y,F)\simeq H^{q}(X,g^{\ast}F)$, et que cela reste vrai si l'on
+    64	remplace $Y$ par un $Y'$ étale sur $Y$. Une condition naturelle
+    65	nécessaire d'acyclicité est que les fibres géométriques soient
+    66	acycliques, c'est-à-dire, aient une cohomologie triviale pour des
+    67	faisceaux de torsion constants. On verra que cette condition, jointe à
+    68	une condition locale, appelée acyclicité locale de $f$ (\hyperref[XV.def1.11]{1.11}), implique
+    69	que $f$ est acyclique.
+    70	
+    71	Le théorème fondamental est qu'un morphisme lisse est localement
+    72	acyclique pour les faisceaux de torsion premiers aux caractéristiques
+    73	résiduelles \hyperref[XV.thm2.1]{2.1}, ce qui impliquera le théorème de
+    74	changement de base 
+    75	par un morphisme lisse \hyperrefext[XVI][XVI.thm1.1]{1.1}, qui sera développé, avec ses premières
+    76	conséquences, dans l'exposé suivant.
+    77	
+    78	Le présent exposé est indépendant des exposés XI à XIV, et notamment
+    79	du « théorème de changement de base pour un morphisme propre ». Ce
+    80	dernier interviendra à nouveau de façon essentielle, mais en
+    81	conjonction avec le théorème fondamental du présent exposé, à partir
+    82	de l'exposé suivant.
+    83	
+    84	\section{Généralités sur les morphismes globalement et localement
+    85	  acycliques}\etiquette[1]{XV.sec1}\pageoriginale
+    86	
+    87	% g' n'est pas défini comme étant g x_Y Y' alors qu'il l'est en 1.3
+    88	
+    89	\begin{enonce*}{Proposition 1.1}\etiquette[1.1]{XV.prop1.1}
+    90	Soit $g:X\rightarrow Y$ un morphisme de schémas. Les assertions
+    91	{\rm(i)} à {\rm(iii)} suivantes sont équivalentes:
+    92	\begin{itemize}
+    93	\item[(i)] Pour chaque $Y'\rightarrow Y$ étale (qu'on peut prendre affine
+    94	  au-dessus d'un ouvert affine de $Y$) et chaque faisceau d'ensembles
+    95	  $F$ sur $Y'$, le morphisme canonique $F\rightarrow
+    96	  g'_{\ast}{g'}^{\ast}F$ est injectif (\resp bijectif).
+    97	
+    98	\item[(ii)] Pour chaque $Y'\rightarrow Y$ étale (qu'on peut prendre affine
+    99	  au-dessus d'un ouvert affine de $Y$) et chaque faisceau d'ensembles
+   100	  $F$ sur $Y'$, le morphisme canonique $H^{0}(Y',F)\rightarrow
+   101	  H^{0}(X',{g'}^{\ast}F)$ est injectif (\resp bijectif).
+   102	
+   103	\item[(iii)] Pour chaque $Y'\rightarrow Y$ localement quasi-fini et
+   104	  chaque faisceau d'ensembles $F$ sur $Y'$, le morphisme canonique
+   105	  $H^{0}(Y',F)\rightarrow H^{0}(X',{g'}^{\ast}F)$ est injectif
+   106	  (\resp bijectif).
+   107	
+   108	\item[(ii bis)] (Si $f$ est quasi-compact et quasi-séparé.) Comme
+   109	  {\rm(ii)}, mais en prenant $F$ faisceau constant de la forme
+   110	  $I_{Y'}$, où $I$ est un ensemble donné au préalable, avec $\card
+   111	  I\geq 2$.
+   112	\end{itemize}
+   113	\end{enonce*}
+   114	
+   115	\noindent
+   116	\emph{Démonstration}. L'équivalence de (i) et (ii) est immédiate à
+   117	partir des définitions, et (iii) $\Rightarrow$ (ii) $\Rightarrow$ (ii
+   118	bis) sont triviales. On a (ii bis) $\Rightarrow$ (ii), car on peut
+   119	supposer $Y$ affine, donc $X$ et $Y$ quasi-compacts et quasi-séparés,
+   120	et on peut alors appliquer \hyperrefext[XII][XII.prop6.5]{6.5} (i). Pour l'implication (i)
+   121	$\Rightarrow$ (iii), notons d'abord le lemme suivant:
+   122	
+   123	\begin{enonce*}{Lemme 1.2}\etiquette[1.2]{XV.lem1.2}
+   124	Soit\pageoriginale $f:Y'\rightarrow Y$ un morphisme localement
+   125	quasi-fini. Alors $f$ est « fini localement sur $Y'$ pour la
+   126	topologie étale », c'est-à-dire, on a des diagrammes commutatifs
+   127	$$\vcenter{
+   128	\xymatrix@=1.75cm{
+   129	Y'_i        \ar[r]^{a_i}   \ar[d]^{b_i}& Y'\ar[d]^{f}\\
+   130	Y_i          \ar[r]^{c_i}              & Y
+   131	}}\leqno{(*)}
+   132	$$
+   133	où les $a_i$, $c_i$ sont étales, les $b_i$ sont finis, et les $a_i$
+   134	forment un recouvrement de $Y'$ \footnote[1]{\Cf \EGA IV 18.12.1.}.
+   135	\end{enonce*}
+   136	
+   137	En effet, soit $y'$ un point de $Y'$ et $y=f(y')$. Il suffit de
+   138	trouver un diagramme $({\ast})$ tel que $y'$ soit dans l'image de
+   139	$Y'_i$. Soit $\widetilde{Y}$ le spectre de l'anneau hensélisé de
+   140	$\Oo_{Y,y}$ \hyperrefext[VIII][VIII.subsec4.1]{4.1}
+   141	et $Z$ le localisé (ordinaire) de
+   142	$\widetilde{Y}'=\fprod{Y'}{\widetilde{Y}}{Y}$ en l'unique point
+   143	au-dessus de $y'$ et du point fermé $\widetilde{y}$ de
+   144	$\widetilde{Y}$. D'après \hyperrefext[VIII][VIII.subsec4.1]{4.1} (ii), % étiquette pour (ii) ?
+   145	$Z\rightarrow \widetilde{Y}$
+   146	est fini, et $Z$ est un ouvert induit de $\widetilde{Y}'$. Puisque
+   147	$\widetilde{Y}$ est limite de préschémas $Y_i$ étales au-dessus de
+   148	$Y$, on voit immédiatement \EGA IV 9 que pour $Y_i$ convenable il
+   149	existe un ouvert $Z_i$ de $\fprod{Y'}{Y_i}{Y}$, tel que
+   150	$Z=\fprod{Z_i}{\widetilde{Y}}{Y_i}$, et dans $({\ast})$ il suffira de
+   151	prendre $Y'_i=Z_i$, \cqfd
+   152	
+   153	
+   154	Supposons maintenant que (i) de \hyperref[XV.prop1.1]{1.1} soit vrai. Il est évident que
+   155	l'assertion (iii) de \hyperref[XV.prop1.1]{1.1} équivaut à l'assertion déduite de (i) en
+   156	remplaçant le morphisme $Y'\rightarrow Y$ étale par un morphisme
+   157	localement quasi-fini. Sous cette forme, l'assertion (pour $Y$, $Y'$
+   158	donnés) est locale sur $Y$ et $Y'$ pour la topologie étale, et on est
+   159	donc réduit par le lemme au cas d'un morphisme $f:Y'\rightarrow Y$
+   160	\emph{fini}.\pageoriginale Soit $f':X'\rightarrow X$ le morphisme
+   161	déduit de $f$ par le changement de base $g$. Alors le morphisme de
+   162	changement de base $g^{\ast}f_{\ast}F\rightarrow
+   163	{f'}_{\ast}{g'}^{\ast}F$ est bijectif \hyperrefext[VIII][VIII.cor5.6]{5.6}
+   164	D'après (i),
+   165	\sisi{le morphisme d'adjonction $f_{\ast}F\rightarrow g_{\ast}g^{\ast}f_{\ast}F$
+   166	est injectif (resp.~bijectif)}{on a $f_{\ast}(F)\rightarrow g_{\ast}g^{\ast}f^{\ast}F$)}.
+   167	Par suite le morphisme $H^{0}(Y',F)\xrightarrow{\epsilon}
+   168	H^{0}(Y',g'_{\ast}{g'}^{\ast}F)$ de (iii) est le composé
+   169	$H^{0}(Y',F)=H^{0}(Y,f_{\ast}F)\xrightarrow{\epsilon'}H^{0}(Y,g_{\ast}g^{\ast}f_{\ast}F)=H^{0}(X,g^{\ast}f_{\ast}F)\simeq
+   170	H^{0}(X,{f'}_{\ast}{g'}^{\ast}F)=H^{0}(X',{g'}^{\ast}F)$.
+   171	Puisque $\epsilon'$ est injectif (\resp bijectif) il en est de même de
+   172	$\epsilon$. Cela achève la démonstration de \hyperref[XV.prop1.1]{1.1}.
+   173	
+   174	\begin{enonce*}{Définition 1.3}\etiquette[1.3]{XV.def1.3}
+   175	On appelle morphisme \emph{$(-1)$-acyclique} (\resp
+   176	\emph{$0$-acyclique}) un morphisme $g:X\rightarrow Y$ ayant une des
+   177	propriétés équivalentes {\rm (i)} à {\rm (iii)} (\resp {\rm(i) à
+   178	  (iii)} respées) de $1.1$. Le morphisme est dit
+   179	\emph{universellement} $(-1)$-acyclique (\resp $0$-acyclique) si pour
+   180	chaque morphisme de changement de base $Y'\rightarrow Y$, le morphisme
+   181	$g'=\fprod{g}{Y'}{Y}:\fprod{X}{Y'}{Y}\rightarrow Y'$ est
+   182	$(-1)$-acyclique (\resp $0$-acyclique). Enfin, un schéma $X$ est dit
+   183	$(-1)$-acyclique (\resp $0$-acyclique) s'il est non-vide (\resp
+   184	connexe et non vide).
+   185	\end{enonce*}
+   186	
+   187	\begin{enonce*}{Corollaire 1.4}\etiquette[1.4]{XV.cor1.4}
+   188	Soit $g:X\rightarrow Y$ un morphisme $0$-acyclique. Alors pour chaque
+   189	$Y'\rightarrow Y$ localement quasi-fini et chaque faisceau en groupes
+   190	$F$ sur $Y'$, le morphisme canonique
+   191	$$
+   192	H^{1}(Y',F)\longrightarrow H^{1}(X',{g'}^{\ast}F)
+   193	$$
+   194	est injectif.
+   195	\end{enonce*}
+   196	
+   197	Cela résulte aussitôt de \hyperrefext[XII][XII.prop6.5]{6.5} (i).
+   198	
+   199	\begin{enonce*}{Corollaire 1.5}\etiquette[1.5]{XV.cor1.5}
+   200	Soit\pageoriginale $g:X\rightarrow Y$ un morphisme. Si $g$ est
+   201	surjectif (\ie ses fibres sont non vides, \ie ses fibres sont
+   202	$(-1)$-acycliques) alors $g$ est $(-1)$-acyclique. Le réciproque est
+   203	vraie si $g$ est quasi-compact et quasi-séparé.
+   204	\end{enonce*}
+   205	
+   206	La première assertion est évidente sur la forme \hyperref[XV.prop1.1]{1.1} (ii) par
+   207	considération des fibres des faisceaux envisagés. La deuxième résulte
+   208	de la définition sous la forme \hyperref[XV.prop1.1]{1.1} (iii) et du sorite de
+   209	passage à la limite \hyperrefext[VII][VII.sec5]{5},
+   210	compte tenu que pour tout $y \in Y$, $y=\Spec k(y)$ est
+   211	limite projective de schémas affines localement quasi-finis sur $Y$,
+   212	savoir les voisinages affines de $y$ dans $\bar{\{y\}}$ (muni de la
+   213	structure réduite induite). \sisi{}{--} Notons que \hyperref[XV.cor1.5]{1.5} implique que lorsque $g$
+   214	est quasi-compact et quasi-séparé, alors $g$ $(-1)$-acyclique implique
+   215	déjà $g$ \emph{universellement} $(-1)$-acyclique.
+   216	
+   217	\begin{enonce*}{Proposition 1.6}\etiquette[1.6]{XV.prop1.6}
+   218	Soient $g:X\rightarrow Y$ un morphisme de schémas, $\LL\subset
+   219	\PP$ un ensemble de nombres premiers, et $n \in \NN$ un
+   220	entier naturel (\resp $n=1$). Les assertions {\rm (i)} à {\rm(iii)}
+   221	(\resp les assertions {\rm(i)} à {\rm(iii)} respées) suivantes sont
+   222	équivalentes. Si de plus $g$ est quasi-compact et quasi-séparé, alors
+   223	{\rm(i)} à {\rm(iii)} (\resp {\rm(i)} à {\rm(iii)} respées) sont aussi
+   224	équivalentes à {\rm(iv)} (\resp {\rm(iv)} respée).
+   225	\begin{enumerate}
+   226	\renewcommand{\theenumi}{\roman{enumi}}
+   227	\renewcommand{\labelenumi}{(\theenumi)}
+   228	\item Pour chaque $Y'\rightarrow Y$ étale et chaque faisceau abélien
+   229	  de $\LL$-torsion (\resp de $\text{\rm ind}$-$\LL$-groupes)
+   230	  \emph{\hyperrefext[IX][IX.def1.5]{1.5}} $F$ sur $Y'$, on a
+   231	$$
+   232	\begin{cases}
+   233	F\xrightarrow{\sim} {g'}_{\ast}{g'}^{\ast}F, &\\
+   234	(R^{q}{g'}_{\ast}){g'}^{\ast}F=0 & \mbox{si}\quad 1\leq q\leq n\quad
+   235	(\resp \mbox{si\; } q=1){\quoi}.
+   236	\end{cases}
+   237	$$
+   238	
+   239	\item Pour\pageoriginale chaque $Y'\rightarrow Y$ étale et chaque
+   240	faisceau abélien de $\LL$-torsion (\resp de
+   241	ind-$\LL$-groupes) $F$ sur $Y'$, le morphisme
+   242	canonique
+   243	$$
+   244	H^{q}(Y',F)\longrightarrow H^{q}(X',{g'}^{\ast}F)
+   245	$$
+   246	est bijectif si $q\leq n$ et injectif si $q=n+1$ (\resp est bijectif
+   247	si $q\leq 1$).
+   248	
+   249	\item Pour chaque $Y'\rightarrow Y$ localement quasi-fini et chaque
+   250	faisceau abélien de $\LL$-torsion (\resp de
+   251	ind-$\LL$-groupes) $F$ sur $Y'$, le morphisme
+   252	$$
+   253	H^{q}(Y',F)\longrightarrow H^{q}(X', {g'}^{\ast}F)
+   254	$$
+   255	est bijectif si $q\leq n$ et injectif si $q=n+1$ (\resp est bijectif
+   256	si $q\leq 1$).
+   257	
+   258	\item Le morphisme $g$ est surjectif, et pour chaque $Y'\rightarrow Y$
+   259	localement quasi-fini, chaque $\nu>0$, et chaque $\ell\in \LL$,
+   260	le morphisme canonique
+   261	$$
+   262	H^{q}(Y',Z/\ell^{\nu})\longrightarrow H^{q}(X', \ZZ/\ell^{\nu})
+   263	$$
+   264	est \emph{surjectif} pour $0\leq q\leq n$ (\resp pour chaque
+   265	$Y'\rightarrow Y$ localement quasi-fini et chaque $\LL$-groupe
+   266	fini ordinaire $G$, le morphisme canonique
+   267	$$
+   268	H^{i}(Y',G)\longrightarrow H^{i}(X', G)
+   269	$$
+   270	est \emph{surjectif} pour $i=0,1$). 
+   271	\end{enumerate}
+   272	\end{enonce*}
+   273	
+   274	\noindent
+   275	\emph{Démonstration de}\pageoriginale \hyperref[XV.prop1.6]{1.6}. Les implications (ii)
+   276	$\Leftarrow$ (iii) 
+   277	$\Rightarrow$ (iv) sont triviales.
+   278	% surjectivité triviale ? (g n'est pas nécessairement cohérent)
+   279	Or $(R^{q}{g'}_{\ast}){g'}^{\ast}F$
+   280	est le faisceau associé au préfaisceau
+   281	$R^{q}(Y'')=H^{q}(X'',{g''}^{\ast}F)$ ($Y''\rightarrow Y'$ étale). Si
+   282	(ii) est vrai, on a $H^{q}(Y'',F)\xrightarrow{\sim}
+   283	H^{q}(X'',{g''}^{\ast}F)$, donc le faisceau associé est nul\sisi{
+   284	si $1 \leq q \leq n$}{}, \ie (ii) $\Rightarrow$ (i). L'implication (i) $\Rightarrow$ (ii) résulte de 1.1
+   285	(i) (qui correspond au cas $n=0$) joint à la suite spectrale de Leray
+   286	$$
+   287	H^{p}(Y',(R^{q}{g'}_{\ast}){g'}^{\ast}F)\Longrightarrow
+   288	H^{p+q}(X',{g'}^{\ast}F)
+   289	$$
+   290	dans le cas abélien, et à la suite exacte
+   291	$$
+   292	0\longrightarrow H^{1}(Y',{g'}_{\ast}{g'}^{\ast}F)\longrightarrow
+   293	H^{1}(X',{g'}^{\ast}F)\longrightarrow
+   294	H^{0}(Y',(R^{1}{g'}_{\ast}){g'}^{\ast}F){\quoi}.
+   295	$$
+   296	dans le cas des faisceaux de groupes.
+   297	
+   298	(i) $\Rightarrow$ (iii): Puisque (i) et (ii) sont équivalentes, il est
+   299	clair que (iii) équivaut à l'énoncé qui est déduit de (i) en remplaçant
+   300	le mot « étale »  par les mots « localement quasi-fini ». Sous cette forme c'est, pour $Y$, $Y'$ donnés, une assertion
+   301	locale sur $Y'$ et sur $Y$ pour la topologie étale, et on est donc
+   302	réduit par \hyperref[XV.lem1.2]{1.2} au cas où $f:Y'\rightarrow Y$ est un morphisme
+   303	\emph{fini}. Soit $f':X'\rightarrow X$ le morphisme
+   304	\sisi{déduit de~$f$ par le changement de base~$g$}{}.
+   305	On a d'après \hyperrefext[VIII][VIII.prop5.5]{5.5} (\resp \hyperrefext[VIII][VIII.rem5.8]{5.8}) (appliqué trois fois)
+   306	$$
+   307	f_{\ast}(R^{q}{g'}_{\ast}){g'}^{\ast}F\simeq
+   308	R^{q}(fg')_{\ast}{g'}^{\ast}F\simeq
+   309	R^{q}(gf')_{\ast}{g'}^{\ast}F\simeq
+   310	(R^{q}g_{\ast}){f'}_{\ast}{g'}^{\ast}F\simeq
+   311	(R^{q}g_{\ast})g^{\ast}(f_{\ast}F)
+   312	$$
+   313	et ce dernier est nul si (i) est vrai pour les valeurs de $q$
+   314	envisagées, d'où (i) $\Rightarrow$ (iii).
+   315	
+   316	Il reste à démontrer (iv) $\Rightarrow$ (iii); or ceci résulte
+   317	aussitôt de\pageoriginale \hyperrefext[XII][XII.prop6.5]{6.5}.
+   318	
+   319	\begin{enonce*}{Définition 1.7}\etiquette[1.7]{XV.def1.7}
+   320	Soient $n\in \NN$ et $\LL\subset \PP$. Un
+   321	morphisme $g:X\rightarrow Y$ qui satisfait à une des conditions
+   322	équivalentes {\rm(i)} à {\rm(iii)} (\resp {\rm(i)} à {\rm(iii)}
+   323	respées) de \hyperref[XV.prop1.6]{1.6} est appelé \emph{morphisme $n$-acyclique}
+   324	(\resp \emph{morphisme $1$-asphérique}) pour $\LL$. On dit que $g$ est \emph{acyclique}
+   325	pour $\LL$ s'il est $n$-acyclique pour $\LL$ pour chaque
+   326	$n$. On dit que $g$ est \emph{universellement $n$-acyclique} (\resp
+   327	\emph{universellement $1$-asphérique}) pour $\LL$, si pour
+   328	chaque $Y'\rightarrow Y$ le morphisme $g'=\fprod{g}{Y'}{Y}$ est
+   329	$n$-acyclique (\resp $1$-asphérique) pour $\LL$. Enfin, un
+   330	préschéma $X$ est dit $n$-\emph{acyclique} (\resp
+   331	$1$-\emph{asphérique}) pour $\LL$, s'il est $0$-acyclique $1.3$
+   332	et si pour chaque $\ell \in \LL$ et chaque $1\leq q\leq n$ on a
+   333	$H^{q}(X,\ZZ/\ell)=0$ (\resp et pour chaque $\LL$-groupe
+   334	fini ordinaire $G$, on a $H^{1}(X,G)=0$).
+   335	\end{enonce*}
+   336	
+   337	\begin{enonce*}[remark]{Remarques 1.8}\etiquette[1.8]{XV.rem1.8}
+   338	\begin{enumerate}
+   339	\renewcommand{\theenumi}{\alph{enumi}}
+   340	\renewcommand{\labelenumi}{\theenumi)}
+   341	\item Si $g$ est quasi-compact et quasi-séparé, il suffit, pour que
+   342	$g$ soit universellement $n$-acyclique, que $g'$ soit $n$-acyclique
+   343	chaque fois que $Y'\rightarrow Y$ est localement de présentation
+   344	finie. Nous n'avons pas besoin de ce fait et en laissons la
+   345	démonstration, qui est un exercice de passage à la limite, au lecteur.
+   346	
+   347	\item Nous ignorons si un morphisme $n$-acyclique pour $\LL$
+   348	est déjà universellement $n$-acyclique pour $\LL$. La même
+   349	question se pose pour les variantes locales plus bas \hyperref[XV.def1.11]{1.11}.
+   350	
+   351	\item Lorsque $n=0$, on retrouve la notion de \hyperref[XV.def1.3]{1.3}. Bien
+   352	entendu, on aurait pu rédiger \hyperref[XV.prop1.6]{1.6}. et \hyperref[XV.def1.7]{1.7}. de
+   353	façon à inclure le cas $n=-1$. La proposition qui suit est
+   354	également valable dans ce cas.\pageoriginale
+   355	\end{enumerate}
+   356	\end{enonce*}
+   357	
+   358	\begin{enonce*}{Proposition 1.9}\etiquette[1.9]{XV.prop1.9}
+   359	\begin{enumerate}
+   360	\renewcommand{\theenumi}{\roman{enumi}}
+   361	\renewcommand{\labelenumi}{(\theenumi)}
+   362	\item Soient $X\xrightarrow{g}Y\xrightarrow{h}Z$ des morphismes de
+   363	schémas, $\LL\subset \PP$, et $n\in
+   364	\NN$. Supposons que $g$ soit $0$-acyclique (\resp
+   365	$1$-asphérique pour $\LL$, \resp $n$-acyclique pour
+   366	$\LL$). Soit $f=hg$. Alors pour tout faisceau d'ensembles
+   367	(\resp de ind\sisi{-}{ }$\LL$-groupes, \resp abélien de
+   368	$\LL$-torsion) $F$ sur $Z$, on a un isomorphisme
+   369	$f_{\ast}f^{\ast}F\xrightarrow{\sim} h_{\ast}h^{\ast}F$ (\resp des
+   370	isomorphismes $(R^{p}f_{\ast})f^{\ast}F\xrightarrow{\sim}
+   371	(R^{p}h_{\ast})h^{\ast}F$ si $p\leq 1$, \resp si $p\leq n$). En
+   372	particulier, $h$ est $0$-acyclique (\resp $1$-asphérique pour
+   373	$\LL$, \resp $n$-acyclique pour $\LL$) si et seulement
+   374	si $f$ l'est.
+   375	
+   376	\item Soit $\{g_{\alpha}:X_{\alpha}\rightarrow Y_{\alpha}\}$ un
+   377	système projectif de morphismes de schémas tels que les morphismes
+   378	$X_{\alpha}\rightarrow X_{\beta}$ et $Y_{\alpha}\rightarrow Y_{\beta}$
+   379	soient affines et que les $g_{\alpha}$ soient quasi-compacts et
+   380	quasi-séparés. Soit $g:X\rightarrow Y$ la limite projective des $g$
+   381	\hyperrefext[VII][VII.subsec5.1]{5.1}.
+   382	Alors si tous les $g_{\alpha}$ sont $0$-acycliques (\resp
+   383	$1$-asphériques pour $\LL$, \resp $n$-acycliques pour
+   384	$\LL$), il en est de même de $g$.
+   385	\end{enumerate}
+   386	\end{enonce*}
+   387	
+   388	\noindent
+   389	\emph{Démonstration}. Pour (i), on a d'abord
+   390	$$
+   391	h_{\ast}h^{\ast}F\xrightarrow{\sim}
+   392	h_{\ast}(g_{\ast}g^{\ast})h^{\ast}F\simeq f_{\ast}f^{\ast}F{\quoi}.
+   393	$$
+   394	La deuxième assertion de (i) est conséquence immédiate de la suite
+   395	spectrale de Leray
+   396	$$
+   397	(R^{p}h_{\ast})(R^{q}g_{\ast})f^{\ast}F\Longrightarrow
+   398	(R^{p+q}f_{\ast})f^{\ast}F{\quoi}.
+   399	$$
+   400	Enfin l'assertion non-abélienne résulte de la suite exacte \hyperrefext[XII][XII.prop3.2]{3.2}.
+   401	L'assertion\pageoriginale (ii) résulte facilement de la théorie
+   402	de passage à la limite \hyperrefext[VII][VII.sec5]{5} et VI. % étiquette pour chapitre ?
+   403	
+   404	\begin{enonce*}{Corollaire 1.9.1}\etiquette[1.9.1]{XV.cor1.9.1}
+   405	Soit $g:X\rightarrow Y$ un morphisme quasi-compact et quasi-séparé, et
+   406	$n\in \NN$, $\LL\subset \PP$. Si $g$ est
+   407	$n$-acyclique pour $\LL$ (\resp $1$-asphérique pour
+   408	$\LL$), alors pour tout point géométrique $\bar{y}$ de $Y$,
+   409	algébrique sur un point $y$ de $Y$, la fibre géométrique $X_{\bar{y}}$
+   410	est $n$-acyclique pour $\LL$ (\resp $1$-asphérique pour $\LL$).
+   411	\end{enonce*}
+   412	
+   413	En effet, $\bar{y}$ est limite projective de schémas affines $Y_i$ qui
+   414	sont localement quasi-finis sur $Y$, et comme les
+   415	$X_i=\fprod{X}{Y_i}{Y}\rightarrow Y_i$ sont $n$-acycliques pour
+   416	$\LL$ (\resp\ldots), il en est de même de
+   417	$X_{\bar{y}}\rightarrow \bar{y}$ en vertu de \hyperref[XV.prop1.9]{1.9} (ii), d'où la
+   418	conclusion annoncée.
+   419	
+   420	\begin{enonce*}{Proposition 1.10}\etiquette[1.10]{XV.prop1.10}
+   421	Soient $g:X\rightarrow Y$ un morphisme de schémas, $\LL\subset
+   422	\PP$, et $n\in \NN$. Alors les conditions {\rm(i)} à
+   423	{\rm(iv)} ci-dessous sont équivalentes.
+   424	\begin{enumerate}
+   425	\renewcommand{\theenumi}{\roman{enumi}}
+   426	\renewcommand{\labelenumi}{(\theenumi)}
+   427	\item Soit $\bar{y}$ un point géométrique de $Y$ et $\bar{x}$ un point
+   428	géométrique de $X$ au-dessus de $\bar{y}$. Soient $\widetilde{X}$,
+   429	$\widetilde{Y}$ les localisés stricts de $X$, $Y$ aux points
+   430	$\bar{x}$, $\bar{y}$, et soit $\widetilde{g}:\widetilde{X}\rightarrow
+   431	\widetilde{Y}$ le morphisme induit par $g$. Alors $\widetilde{g}$ est
+   432	$0$-acyclique (\resp $1$-asphérique pour $\LL$, \resp
+   433	$n$-acyclique pour $\LL$).
+   434	
+   435	\item Pour chaque diagramme à carrés cartésiens
+   436	$$
+   437	\vcenter{
+   438	\xymatrix@C=2cm@R=1.25cm{
+   439	X   \ar[d]^{g}& X'\ar[l]_{j}  \ar[d]^{g'} & X'' \ar[l]_{j'} \ar[d]^{g''}\\
+   440	Y    & Y'\ar[l]_{i} &   Y'' \ar[l]_{i'} 
+   441	}}\leqno{(\ast)}
+   442	$$
+   443	avec\pageoriginale $i$ étale et $i'$ étale de présentation finie, et
+   444	chaque faisceau d'ensembles (\resp de ind-$\LL$-groupes, \resp
+   445	abélien de $\LL$-torsion) $F$ sur $Y''$, le morphisme de
+   446	changement de base \hyperrefext[XII][XII.eq4.1]{4.1}, \hyperrefext[XII][XII.eq4.2]{4.2}
+   447	$$
+   448	{g'}^{\ast}i'_{\ast}F\longrightarrow {j'}_{\ast}{g''}^{\ast}F
+   449	$$
+   450	est bijectif (\resp les morphismes
+   451	$$
+   452	{g'}^{\ast}(R^{q}i'_{\ast})F\longrightarrow
+   453	(R^{q}j'_{\ast}){g''}^{\ast}F
+   454	$$
+   455	sont bijectifs pour $q=0$, $1$, \resp sont bijectifs pour $0\leq q\leq
+   456	n$ et injectifs pour $q=n+1$).
+   457	
+   458	\item Même énoncé que {\rm(ii)}, sauf que le morphisme $i'$ est
+   459	supposé seulement quasi-fini et quasi-séparé.
+   460	
+   461	\item Même énoncé que {\rm(ii)}, mais en supposant $i$ seulement
+   462	localement quasi-fini, et en revanche $i'$ une immersion ouverte
+   463	quasi-compacte.
+   464	\end{enumerate}
+   465	\end{enonce*}
+   466	
+   467	\noindent
+   468	\emph{Démonstration}. L'implication (iii) $\Rightarrow$ (ii) est
+   469	triviale. Vérifions que (i) $\Rightarrow$ (iii). Il suffit de regarder
+   470	le morphisme de (iii) fibre par fibre. Soient $\bar{y}$ un point
+   471	géométrique de $Y'$ et $\bar{x}$ un point géométrique de $X'$
+   472	au-dessus de $\bar{y}$. Soit
+   473	$$
+   474	\xymatrix@=1.75cm{
+   475	\widetilde{X}'   \ar[d]^{\widetilde{g}'}& \widetilde{X}''
+   476	\ar[l]_{\widetilde{j}'} \ar[d]^{\widetilde{g}''}\\
+   477	 \widetilde{Y}'           & \widetilde{Y}'' \ar[l]_{\widetilde{i}'}
+   478	}
+   479	$$
+   480	le diagramme cartésien déduit de $({\ast})$, où $\widetilde{X}'$,
+   481	$\widetilde{Y}'$ sont les localisés stricts des $X'$, $Y'$ aux points
+   482	$\bar{x}$, $\bar{y}$ et où
+   483	$\widetilde{Y}''=\fprod{Y''}{\widetilde{Y}'}{Y'}$,
+   484	$\widetilde{X}''=\fprod{X''}{\widetilde{X}'}{X'}$.\pageoriginale On a
+   485	\hyperrefext[VIII][VIII.thm5.2]{5.2} et \hyperrefext[VIII][VIII.rem5.3]{5.3}
+   486	$$
+   487	H^{q}(\widetilde{Y}'',\widetilde{F})\simeq
+   488	(R^{q}i'{}_{\ast}F)_{\bar{y}}\simeq
+   489	({g'}^{\ast}(R^{q}i'_{\ast})F)_{\bar{x}}{\quoi},
+   490	$$
+   491	où $\widetilde{F}$ est l'image inverse de $F$ sur $\widetilde{Y}''$,
+   492	et
+   493	$$
+   494	H^{q}(\widetilde{X}'',{\widetilde{g}''}{}^{\ast}\widetilde{F})\simeq
+   495	((R^{q}j'_{\ast}){g''}{}^{\ast}F)_{\bar{x}}{\quoi}.
+   496	$$
+   497	Puisque $\widetilde{i}'$ est quasi-fini, on peut appliquer \hyperref[XV.prop1.1]{1.1} (iii)
+   498	(\resp \hyperref[XV.cor1.5]{1.5} (iii)) au morphisme
+   499	$$
+   500	H^{q}(\widetilde{Y}',\widetilde{F})\longrightarrow
+   501	H^{q}(\widetilde{X}',{\widetilde{g}''}{}^{\ast}\widetilde{F})
+   502	$$
+   503	pour les valeurs de $q$ envisagées, d'où (i) $\Rightarrow$ (iii).
+   504	
+   505	(ii) $\Rightarrow$ (i). Supposons (ii) vrai et vérifions le critère
+   506	\hyperref[XV.prop1.6]{1.6} (ii) d'acyclicité pour un morphisme
+   507	$\widetilde{g}:\widetilde{X}\rightarrow \widetilde{Y}$. Soit
+   508	$\widetilde{Y}'\rightarrow \widetilde{Y}$ étale, avec $\widetilde{Y}'$
+   509	affine, et soit $\widetilde{F}$ un faisceau d'ensembles (\resp abélien
+   510	de $\LL$-torsion, \resp de ind-$\LL$-groupes) sur
+   511	$\widetilde{Y}'$. On doit démontrer que
+   512	$$
+   513	H^{q}(\widetilde{Y}',\widetilde{F})\xrightarrow{\sim}
+   514	H^{q}(\widetilde{X}', \widetilde{g}'{}^{\ast}\widetilde{F}){\quoi},
+   515	$$
+   516	où $\widetilde{g}':\widetilde{X}'\rightarrow \widetilde{Y}'$ est le
+   517	morphisme déduit de $\widetilde{g}$ par changement de base. Or
+   518	écrivons $\widetilde{Y}=\varprojlim Y_{\alpha}$ où les $Y_{\alpha}$
+   519	sont étales et affines au-dessus de $Y$ (supposant $Y$ affine, ce qui
+   520	est loisible). On peut « descendre »  le morphisme étale
+   521	$\widetilde{Y}'\rightarrow \widetilde{Y}$ à un des $Y_{\alpha}$,
+   522	disons en $Y'_{0}\rightarrow Y_{0}$, et on a
+   523	$\widetilde{Y}'=\varprojlim
+   524	Y'_{\alpha}=\fprod{Y}{Y'_{0}}{Y_{0}}$. Or chaque faisceau
+   525	$\widetilde{F}$ sur $\widetilde{Y}'$ est limite inductive des
+   526	faisceaux ${f'_{\alpha}}^{\ast}{f'_{\alpha}}_{\ast}\widetilde{F}$, où
+   527	$f'_{\alpha}:\widetilde{Y}'_{\alpha}\rightarrow Y'_{\alpha}$ est le
+   528	morphisme canonique. D'après \sisi{XII 1.2 (v) et 1.6 (iii)}{\hyperrefext[IX][IX.prop1.2]{1.2} et \hyperrefext[IX][IX.prop1.6]{1.6}} les faisceaux
+   529	$f'_{\alpha}{}_{\ast}F$ sont des faisceaux d'ensembles (\resp abéliens
+   530	de $\LL$-torsion, \resp de
+   531	ind-$\LL$-groupes). Compte\pageoriginale tenu de \hyperrefext[VII][VII.prop3.3]{3.3},
+   532	on voit donc qu'il suffit de traiter le cas où $\widetilde{F}$ se descend
+   533	à un des $Y'_{\alpha}$, disons à un $F_{0}$ sur $Y'_{0}$. En
+   534	appliquant (ii) au diagramme
+   535	$$
+   536	\xymatrix@C=2.25cm@R=1.5cm{
+   537	X \ar[d]_{g}& X_0 \ar[l] \ar[d]_{g_0}& X'_0 \ar[l]_{j'_0} \ar[d]_{g'_0}\\
+   538	Y & Y_0 \ar[l]& Y'_0 \ar[l]_{i'_0},
+   539	}
+   540	$$
+   541	on déduit que
+   542	${g_{0}}^{\ast}(R^{q}{i'_0}_{\ast})F_{0}\xrightarrow{\sim}
+   543	(R^{q}{j'_0}_{\ast}){g'_0}^{\ast}F_{0}$ pour les
+   544	valeurs de $q$ applicables. Or les points géométriques $\bar{y}$,
+   545	$\bar{x}$ se relèvent canoniquement en des points géométriques de
+   546	$Y_{0}$, $X_{0}$ (nous les notons par les mêmes symboles), et
+   547	on a \hyperrefext[VIII][VIII.thm5.2]{5.2} et \hyperrefext[VIII][VIII.rem5.3]{5.3}
+   548	$$
+   549	H^{q}(\widetilde{Y}',\widetilde{F})=((R^{q}{i'_0}_{\ast})F_{0})_{\bar{y}}=({g_0}^{\ast}
+   550	(R^{q}{i'_0}_{\ast})F_0)_{\bar{x}}
+   551	$$
+   552	et
+   553	$$
+   554	H^{q}(\widetilde{X}',{\widetilde{g}'}{}^{\ast}\widetilde{F})=((R^{q}j'_{0\ast}){g'_0}^{\ast}F_{0})_{\bar{x}}
+   555	$$
+   556	pour les valeurs de $q$ envisagées, d'où le résultat.
+   557	
+   558	Reste à montrer que les conditions (i) à (iii) sont équivalentes à
+   559	(iv). Or, utilisant la forme (i), on voit que ces conditions sont
+   560	stables par extension de la base $Y'\rightarrow Y$ localement
+   561	quasi-finie, d'où résulte aussitôt, sous la forme (ii), qu'elles
+   562	impliquent (iv). D'autre part, (iv) implique (iii), car pour vérifier
+   563	(iii) on voit tout de suite, utilisant par exemple la suite spectrale
+   564	de Leray, ou le résultat de descente \hyperrefext[XII][XII.prop6.8]{6.8}, que l'on peut supposer
+   565	$Y'$ et $Y''$ affines. Mais alors par le « Main Theorem »  \EGA IV
+   566	8.12.8 $Y''\rightarrow Y'$ se factorise en
+   567	$Y''\xrightarrow{i'_1}Y'_1\xrightarrow{i'_2}Y'$, avec~$i'_1$
+   568	une immersion ouverte,\pageoriginale et~$i'_2$ un morphisme
+   569	\emph{fini}. Utilisant \hyperrefext[VIII][VIII.prop5.5]{5.5}, \hyperrefext[VIII][VIII.rem5.8]{5.8} pour~$i'_2$, on est réduit à
+   570	vérifier (ii) pour~$i'_1$, qui relève de (iv). Ceci achève la
+   571	démonstration de~\hyperref[XV.prop1.10]{1.10}.
+   572	
+   573	\begin{enonce*}{Définition 1.11}\etiquette[1.11]{XV.def1.11}
+   574	Un morphisme $g:X\rightarrow Y$ de préschémas qui satisfait à une des
+   575	conditions équivalentes {\rm(i)} à {\rm(iv)} de $1.10$ est appelé
+   576	morphisme \emph{localement $0$-acyclique} (\resp \emph{localement
+   577	$1$-asphérique} pour $\LL$, \resp \emph{localement
+   578	$n$-acyclique} pour $\LL$). On définit d'une manière évidente
+   579	(comparer \hyperref[XV.def1.7]{1.7}) les notions de morphisme \emph{localement acyclique},
+   580	et de morphisme \emph{universellement localement $0$-acyclique}
+   581	(\resp\ldots) pour~$\LL$.
+   582	\end{enonce*}
+   583	
+   584	On peut naturellement varier les énoncés (i) à (iii) de \hyperref[XV.prop1.10]{1.10}. Ainsi,
+   585	dans (iii) et (iv) on peut se borner à un faisceau $F$ constant et de
+   586	la forme $G_{I}$,
+   587	% quésako cette notation ?
+   588	 $G$ un ensemble fini (\resp un $\LL$-groupe
+   589	fini, \resp $G$ de la forme $\ZZ/\ell^{\nu}\ZZ$, avec
+   590	$\ell\in\LL$, $\nu\in \NN$); cela résulte facilement de
+   591	\hyperrefext[VIII][VIII.thm5.2]{5.2}, \hyperrefext[VIII][VIII.rem5.3]{5.3} et de \hyperrefext[XII][XII.prop6.5]{6.5}.
+   592	Signalons également la variante suivante:
+   593	
+   594	\begin{enonce*}{Corollaire 1.12}\etiquette[1.12]{XV.cor1.12}
+   595	Supposons $g:X\rightarrow Y$ localement de type fini. Pour vérifier la
+   596	$0$-acyclicité (\resp\ldots) locale, il suffit de vérifier $1.10$
+   597	{\rm(i)} dans le cas où le point géométrique $\bar{x}$ est
+   598	\emph{fermé} dans la fibre géométrique $X_{\bar{y}}$.
+   599	\end{enonce*}
+   600	
+   601	En effet, dans la démonstration de (i) $\Rightarrow$ (iii) de \hyperref[XV.prop1.10]{1.10}, on
+   602	a vérifié (iii) fibre par fibre, et il suffisait de le faire pour les
+   603	fibres aux points géométriques $\bar{x}$ qui sont fermés dans leur
+   604	fibre géométrique,\pageoriginale puisque $g$ est localement de type
+   605	fini \hyperrefext[VIII][VIII.rem3.13]{3.13} b).
+   606	
+   607	\begin{enonce*}{Proposition 1.13}\etiquette[1.13]{XV.prop1.13}
+   608	\begin{enumerate}
+   609	\renewcommand{\theenumi}{\roman{enumi}}
+   610	\renewcommand{\labelenumi}{(\theenumi)}
+   611	\item Soient $X\xrightarrow{g}Y\xrightarrow{h}Z$ des morphismes de
+   612	schémas, $\LL\subset \PP$, et $n\in \NN$, et
+   613	supposons que $g$ soit surjective, et localement $0$-acyclique (\resp
+   614	localement $1$-asphérique pour $\LL$, \resp localement
+   615	$n$-acyclique pour $\LL$). Alors $h$ est localement
+   616	$0$-acyclique (\resp\ldots) si et seulement si $f=hg$ l'est.
+   617	
+   618	\item Soit $\{g_{\alpha}:X_{\alpha}\rightarrow Y_{\alpha}\}$ un
+   619	système projectif de morphismes de préschémas tels que les morphismes
+   620	$X_{\alpha}\rightarrow X_{\beta}$ et $Y_{\alpha}\rightarrow Y_{\beta}$
+   621	soient affines. Soit $g$ la limite projective des $\{g_{\alpha}\}$
+   622	\hyperrefext[VII][VII.subsec5.1]{5.1}.
+   623	Alors si tous les $g_{\alpha}$ sont localement
+   624	$0$-acycliques (\resp\ldots), il en est de même de $g$.
+   625	\end{enumerate}
+   626	\end{enonce*}
+   627	
+   628	C'est un sorite analogue à \hyperref[XV.prop1.9]{1.9}.
+   629	
+   630	\begin{enonce*}[remark]{Remarques 1.14}\etiquette[1.14]{XV.rems1.14}
+   631	Pour simplifier sa tâche, le rédacteur a omis dans \hyperref[XV.prop1.10]{1.10} 
+   632	à \hyperref[XV.prop1.13]{1.13} de
+   633	traiter également la cas de $n=-1$, et il laisse au lecteur le soin de
+   634	se convaincre que les énoncés, définitions et démonstrations
+   635	s'appliquent essentiellement sans changement à ce cas. Ainsi, avec les
+   636	notations de \hyperref[XV.prop1.10]{1.10}, la condition (i) s'énonce en disant que les
+   637	morphismes induits locaux $\widetilde{X}\rightarrow \widetilde{Y}$
+   638	sont $(-1)$-acycliques i.e. \hyperref[XV.cor1.5]{1.5} \emph{surjectifs}, et les conditions (ii)
+   639	à (iv) s'énoncent en disant que le morphisme de changement de base
+   640	${g'}^{\ast}({i'}_{\ast}(F))\rightarrow {j'}_{\ast}({g''}^{\ast}(F))$
+   641	est un \emph{monomorphisme}. Sous ces conditions, on dira donc que $g$
+   642	est \emph{localement $(-1)$-acyclique}. Cette condition est donc
+   643	stable\pageoriginale par extension localement quasi-finie de la
+   644	base. Comme exemple, signalons qu'un morphisme plat est localement
+   645	$(-1)$-acyclique, car pour un tel morphisme la condition de
+   646	surjectivité pour les $\widetilde{X}\rightarrow \widetilde{Y}$ est une
+   647	conséquence bien connue de la platitude de ces morphismes. D'autre
+   648	part, signalons aussi que lorsque $f$ est localement de présentation
+   649	finie, alors $f$ est localement $(-1)$-acyclique si et seulement si il
+   650	est \emph{universellement ouvert}, du moins lorsque $Y$ est localement
+   651	noethérien: cela résulte en effet aisément de \EGA IV 14.4.9,
+   652	1.10.3. Pour un tel morphisme, la $(-1)$-acyclicité locale implique
+   653	par suite la $(-1)$-acyclicité locale \emph{universelle}. (Il est
+   654	d'ailleurs très probable \footnote[1]{Cela a été effectivement vérifié
+   655	par M. Raynaud. \Cf réédition de \EGA IV 14!} que dans ces derniers
+   656	énoncés, l'hypothèse localement noethérienne sur $Y$ soit inutile:
+   657	c'est en tous cas ainsi si l'ensemble des composantes irréductibles de
+   658	$Y$ est localement fini \EGA IV 14.4.10.)
+   659	\end{enonce*}
+   660	
+   661	\begin{enonce*}{Théorème 1.15}\etiquette[1.15]{XV.thm1.15}
+   662	Soient $g:X\rightarrow Y$ un morphisme quasi-compact et quasi-séparé,
+   663	$\LL\subset \PP$ un ensemble de nombres premiers, $n$ un
+   664	entier naturel (\resp $n=1$). On suppose que $g$ est $(n-1)$-acyclique
+   665	pour $\LL$ et localement $(n-1)$-acyclique pour $\LL$
+   666	$1.3$, $1.7$, $1.11$, $1.14$. Soit $F$ un faisceau sur $Y$, que pour
+   667	$n\geq 1$ on suppose muni d'une structure de faisceau abélien de
+   668	$\LL$-torsion (\resp d'une structure de faisceau en groupes),
+   669	et soit $\xi$ un élément de $H^{n}(X,g^{\ast}(F))$. Pour que $\xi$
+   670	provienne d'un élément de $H^{n}(Y,F)$ (qui est alors uniquement
+   671	déterminé, grâce à l'hypothèse de $(n-1)$-acyclicité sur $g$), il faut
+   672	et il suffit que pour tout point géométrique $\bar{y}$ de $Y$,
+   673	algébrique sur un point $y$ de $Y$, l'image $\xi_{\bar{y}}$ de $\xi$
+   674	dans $H^{n}(X_{\bar{y}},F|X_{\bar{y}})$ soit dans l'image de
+   675	$H^{n}(\bar{y},F_{\bar{y}})$ (ce qui, pour $n\geq 1$,
+   676	signifie\pageoriginale qu'on a $\xi_{\bar{y}}=0$).
+   677	\end{enonce*}
+   678	
+   679	Notons tout de suite qu'on conclut de \hyperref[XV.thm1.15]{1.15} que, sous les conditions
+   680	préliminaires envisagées pour $g$, $g$ est $n$-acyclique pour
+   681	$\LL$ (\resp $1$-asphérique pour $\LL$) si et seulement
+   682	si pour tout $\bar{y}$ comme dessus, $X_{\bar{y}}$ est $n$-acyclique
+   683	pour $\LL$ (\resp est $1$-asphérique pour $\LL$): le « si »  résulte en effet directement de \hyperref[XV.thm1.15]{1.15} et des définitions, le
+   684	« seulement si »  étant de toutes façons immédiat par
+   685	\hyperref[XV.cor1.9.1]{1.9.1}. Ceci dit, une récurrence immédiate sur $n$ fournit le
+   686	
+   687	\begin{enonce*}{Corollaire 1.16}\etiquette[1.16]{XV.cor1.16}
+   688	Soit $g$ un morphismes quasi-compact et quasi-séparé qui est
+   689	localement $(n-1)$-acyclique pour $\LL$, où $n$ est un entier
+   690	naturel donné (\resp où $n=1$). Alors $g$ est $n$-acyclique pour
+   691	$\LL$ (\resp est $1$-asphérique pour $\LL$) si et
+   692	seulement si pour tout point géométrique $\bar{y}$ de $Y$, algébrique
+   693	sur un point $y$ de $Y$, la fibre $X_{\bar{y}}$ est $n$-acyclique pour
+   694	$\LL$ (\resp $1$-asphérique pour $\LL$).
+   695	\end{enonce*}
+   696	
+   697	\begin{enonce*}{Corollaire 1.17}\etiquette[1.17]{XV.cor1.17}
+   698	Soient $g:X\rightarrow Y$ un morphisme de préschémas,
+   699	$\LL\subset \PP$ un ensemble de nombres premiers, $n$ un
+   700	entier naturel (\resp $n=1$). Pour que $g$ soit localement
+   701	$n$-acyclique pour $\LL$ (\resp localement $1$-asphérique pour
+   702	$\LL$) il faut et il suffit que pour tout point géométrique
+   703	$\bar{x}$ de $X$, si $\widetilde{g}:\widetilde{X}\rightarrow
+   704	\widetilde{Y}$ est le morphisme des localisés stricts de $X$ et $Y$
+   705	(en $\bar{x}$ et le point géométrique correspondant $\bar{y}$ de $Y$)
+   706	induit par $g$, chaque fibre géométrique $X_{\bar{z}}$ de $g$,
+   707	relativement à un point géométrique $\bar{z}$ de $Y$ algébrique sur un
+   708	point $z$ de $Y$, soit $n$-acyclique pour $\LL$ (\resp
+   709	$1$-asphérique pour $\LL$).
+   710	\end{enonce*}
+   711	
+   712	La nécessité résulte en effet du critère \hyperref[XV.prop1.10]{1.10}. 
+   713	(i) et de \hyperref[XV.cor1.9.1]{1.9.1}.,
+   714	pour\pageoriginale la suffisance on procède par récurrence sur $n$, ce
+   715	qui nous permet, lorsque $n\geq 1$, de supposer que $g$ est déjà
+   716	localement $(n-1)$-acyclique pour $\LL$. Il en est alors de
+   717	même des morphismes $\widetilde{g}$, et \hyperref[XV.cor1.16]{1.16} implique alors que
+   718	$\widetilde{g}$ est $n$-acyclique (\resp $1$-asphérique pour
+   719	$\LL$), ce qui en vertu du critère \hyperref[XV.prop1.10]{1.10} (i) implique que $g$
+   720	est localement $n$-acyclique (\resp localement $1$-asphérique) pour
+   721	$\LL$.
+   722	
+   723	\begin{enonce*}{Corollaire 1.18}\etiquette[1.18]{XV.cor1.18}
+   724	Avec les notations de \hyperref[XV.cor1.17]{1.17}, si $g$ est localement de type fini,
+   725	alors dans le critère énoncé, on peut se borner à prendre des points
+   726	géométriques $\bar{x}$ dont la localité $x$ est fermée dans sa fibre.
+   727	\end{enonce*}
+   728	
+   729	Cela résulte en effet de la démonstration donnée et de \hyperref[XV.cor1.12]{1.12}.
+   730	
+   731	\noindent
+   732	\emph{Démonstration de} \hyperref[XV.thm1.15]{1.15} \footnote[1]{Le lecteur qui ne
+   733	s'intéresserait qu'au cas noethérien est invité à se reporter à
+   734	\sisi{la remarque }{}\hyperref[XV.rem1.18]{1.18}.}.
+   735	% il y a deux énoncés numérotés 1.18 dans cet exposé.
+   736	Montrons d'abord qu'on peut supposer $Y$ strictement
+   737	local. Dans le cas abélien, $n\geq 1$, la suite spectrale de Leray
+   738	pour $g$ et $g^{\ast}(F)$, jointe à $R^{i}g_{\ast}(g^{\ast}(F))=0$
+   739	pour $0<i\leq n-1$, et $F\xrightarrow{\sim}g_{\ast}g^{\ast}(F)$,
+   740	exprimant l'hypothèse de $(n-1)$-acyclicité de $g$, implique qu'on a
+   741	une suite exacte canonique
+   742	$$
+   743	0\longrightarrow H^{n}(Y,F)\longrightarrow
+   744	H^{n}(X,g^{\ast}(F))\longrightarrow
+   745	H^{0}(Y,R^{n}g_{\ast}(g^{\ast}(F)){\quoi},
+   746	$$
+   747	qui montre qu'il suffit de prouver que l'image de $\xi$ dans le
+   748	troisième terme est nul. Ceci se vérifie fibre par fibre, et compte
+   749	tenu de \hyperrefext[VIII][VIII.thm5.2]{5.2} on est ramené au cas où $Y$ est strictement local.
+   750	Le cas $n=0$, $F$ étant un faisceau d'ensembles, se traite de la même
+   751	manière, car l'hypothèse sur $g$ implique que $F\rightarrow
+   752	g_{\ast}g^{\ast}(F)$ est injectif, et $\xi$ s'identifie à une section
+   753	du deuxième faisceau, dont il s'agit de montrer qu'elle provient d'une
+   754	section du premier: cela\pageoriginale se vérifie encore fibre par
+   755	fibre, et on applique \hyperrefext[VIII][VIII.rem5.3]{5.3}.
+   756	Le même argument essentiellement est
+   757	valable dans le cas non commutatif, avec $n=1$, en utilisant la suite
+   758	exacte \hyperrefext[XII][XII.prop3.2]{3.2}
+   759	$$
+   760	H^{1}(Y,F)\longrightarrow H^{1}(X,g^{\ast}(F))\longrightarrow
+   761	H^{0}(Y,R^{1}g_{\ast}(g^{\ast}(F)){\quoi},
+   762	$$
+   763	et utilisant \hyperrefext[VIII][VIII.rem5.3]{5.3}.
+   764	
+   765	Nous supposons donc $Y$ strictement local, donc $X$ quasi-compact et
+   766	quasi-séparé. Le morphisme $g:X\rightarrow Y$ satisfait aux conditions
+   767	de \hyperrefext[XII][XII.cor6.10]{6.10}, ce qui nous ramène au cas où pour toute partie fermée
+   768	$Y_{1}$ de $Y$ distincte de $Y$, la restriction de $\xi$ à
+   769	$X_{1}=\fprod{X}{Y_1}{Y}$ est dans l'image de
+   770	$H^{n}(Y_1,F|Y_1)\rightarrow H^{n}(X_1,g^{\ast}(F)|X_1)$, et à
+   771	vérifier dans ce cas qu'on peut trouver un morphisme fini $f:Y' \rightarrow Y$,
+   772	dont l'image dans $Y$ contient un ouvert non vide de $Y$, et tel que
+   773	l'image inverse $\xi'$ de $\xi$ sur $X'=\fprod{X}{Y'}{Y}$ soit
+   774	contenue dans l'image de $H^{n}(Y',F')\rightarrow
+   775	H^{n}(X',{g'}^{\ast}(F'))$. On notera en effet que, compte tenu de
+   776	\hyperrefext[VIII][VIII.prop5.5]{5.5}, \hyperrefext[VIII][VIII.rem5.8]{5.8}, la condition $2^{\circ}$) de \loccit est
+   777	automatiquement satisfaite pour ce morphisme $f:Y'\rightarrow Y$.
+   778	
+   779	Pour trouver un tel $f$, nous pouvons supposer $Y$ réduit, et nous
+   780	considérons un point maximal $y$ de $Y$. Soit $\bar{y}$ le point
+   781	géométrique correspondant à une clôture séparable de $k(y)$, de sorte
+   782	que $\bar{y}$ est limite projective filtrante d'ouverts $U_i$ de
+   783	schémas finis intègres $Y_i$ sur $Y$, dont chacun est tel que son
+   784	image dans $Y$ contient un voisinage de $y$. Utilisant l'hypothèse sur
+   785	$\xi$, on voit qu'il existe un indice $i$ tel que l'image inverse de
+   786	$\xi$ sur $\fprod{X}{U_i}{Y}$ est nulle si $n\geq 1$, \resp est dans
+   787	l'image de $H^{0}(U_i,F_{U_i})$ si $n=0$.
+   788	
+   789	Nous\pageoriginale prendrons $Y'$ égal à $Y_i$, et notons qu'on peut
+   790	supposer $U'=U_i$ égal à l'image inverse d'un voisinage ouvert affine
+   791	$U$ de $y$ dans $Y$, de sorte qu'on voit que l'image inverse de $\xi$
+   792	sur $\fprod{X}{Z'}{Y}$ (où $Z'=Y'-U'$ est l'image inverse de $Z=X-U$
+   793	dans $Y'$) est dans l'image de $H^{n}(Z',F_{Z'})$. Quitte à remplacer
+   794	$Y$ par $Y'$, nous voyons donc que nous sommes réduits au cas suivant:
+   795	il existe un ouvert affine $U$ de $Y$, de complémentaire $Z$, tel que
+   796	les restrictions de $\xi$ à $X_U$ et à $X_Z$ appartiennent
+   797	respectivement à l'image de $H^{n}(U,F_U)$ et à l'image de
+   798	$H^{n}(Z,F_Z)$; de plus, si $n\geq 1$, on peut supposer ces
+   799	restrictions \emph{nulles}.
+   800	
+   801	Lorsque $n\geq 1$, nous allons montrer que sous ces conditions, on a
+   802	$\xi=0$. Pour simplifier les notations, nous écrirons $Y'$ au lieu de
+   803	$X$, et nous désignons par $U'$, $Z'$ les images inverses de $U$, $Z$
+   804	dans $Y'$, par $F'$ l'image inverse $g^{\ast}(F)$. Notons
+   805	$i:U\rightarrow Y$, $j:Z\rightarrow Y$, $i':U'\rightarrow Y'$,
+   806	$j':Z'\rightarrow Y'$ les inclusions,
+   807	$$
+   808	\xymatrix@C=2cm@R=1.5cm{
+   809	U'  \ar[r]^{i'} \ar[d]^{g_U}& Y' = X  \ar[r]^{j'} \ar[d]^{g} & Z'  \ar[d]^{g_Z}\\
+   810	U   \ar[r]^{i} & Y  \ar[r]^{j} & Z,
+   811	}
+   812	$$
+   813	et considérons la suite exacte de faisceaux
+   814	$$
+   815	0\longrightarrow F'_{U',Y'}\longrightarrow F'\longrightarrow
+   816	F'_{Z',Y'}\longrightarrow 0{\quoi}.
+   817	$$
+   818	% référence pour cette notation ?
+   819	Comme l'image de $\xi$ dans $H^{n}(Y',F'_{Z',Y'})=H^{n}(Z',F'_{Z'})$
+   820	est nulle, $\xi$ provient d'un élément de $H^{n}(Y',F'_{U',Y'})$, et
+   821	la restriction de ce dernier sur $U'$ est égale à celle de $\xi$, donc
+   822	est nulle. Comme $F'_{U',Y'}$ est isomorphe à l'image inverse de
+   823	$F_{U,Y}$, nous sommes ainsi ramenés\pageoriginale au cas d'un
+   824	faisceau de la forme $F_{U,Y}$, donc nous pouvons supposer $F_Z=0$ (ce
+   825	qui tient compte de l'hypothèse $\xi|Z'=0$). Notons que si
+   826	$F\rightarrow G$ est un monomorphisme de faisceaux abéliens de
+   827	$\LL$-torsion (\resp de faisceaux en groupes), il suffit de
+   828	prouver que l'image $\eta$ de $\xi$ dans $H^{n}(Y', G')$ est dans
+   829	l'image de $H^{n}(Y,G)$ \ie est nulle \hyperrefext[XII][XII.cor6.6]{6.6}. Cela nous permet de
+   830	remplacer $F$ par $i_{\ast}(F_U)$, compte tenu que l'hypothèse $F_Z=0$
+   831	implique que l'homomorphisme canonique $F\rightarrow i_{\ast}(F_U)$
+   832	est injectif. Or comme $g$ est localement $(n-1)$-acyclique pour
+   833	$\LL$, et a fortiori $0$-acyclique pour $\LL$ (car
+   834	$n\geq 1$), il s'ensuit que l'image inverse de $i_{\ast}(F_U)$ sur
+   835	$Y'$ s'identifie à $i'_{\ast}(F'_{U'})$, de sorte qu'on est ramené à
+   836	montrer que l'image $\eta$ de $\xi$ dans
+   837	$H^{n}(Y',i'_{\ast}(F'_{U'}))$ est nulle. Or la restriction de $\eta$
+   838	à $U'$ est nulle, et il suffit donc de vérifier que l'homomorphisme
+   839	\begin{equation*}
+   840	H^{n}(Y',i'_{\ast}(F'_{U'}))\longrightarrow H^{n}(U',F'_{U'})\tag{$\ast$}
+   841	\end{equation*}
+   842	est un monomorphisme. Dans le cas abélien, on utilise la suite
+   843	spectrale de Leray pour $i'$ et $F'_{U'}$:
+   844	$$
+   845	E^{p,q}_2=H^p(Y',R^qi'_{\ast}(F'_{U'}))\Longrightarrow
+   846	H^{\ast}(U',F'_{U'}){\quoi},
+   847	$$
+   848	et les relations
+   849	\begin{equation*}
+   850	E^{p,q}_2=0\; \mbox{\rm pour } 0<p\leq n-1\quav q\leq n-1{\quoi}.\tag{${\ast}{\ast}$}
+   851	\end{equation*}
+   852	Pour vérifier ces dernières, on note que l'hypothèse de
+   853	$(n-1)$-acyclicité locale de $g$ pour $\LL$ implique que l'on a
+   854	des isomorphismes
+   855	$$
+   856	R^{q}i'_{\ast}(F'_{U'})\simeq g^{\ast}(R^{q}i_{\ast}(F_U))\;\mbox{\rm pour } q\leq n-1{\quoi},
+   857	$$
+   858	et\pageoriginale compte tenu du fait que $g$ est $(n-1)$-acyclique
+   859	pour $\LL$, donc que $H^{p}(Y,G)\xrightarrow{\sim}H^{p}(Y',G')$
+   860	pour $p\leq n-1$ et tout faisceau abélien de $\LL$-torsion $G$
+   861	sur $Y$, on trouve $({\ast}{\ast})$ puisque $H^{p}(Y,G)=0$ pour
+   862	$p>0$, et on trouve de même
+   863	\begin{equation*}
+   864	E^{0,q}_2\simeq H^{0}(Y,R{}^qi_{\ast}(F_U))\;\mbox{\rm
+   865	pour}\quad q\leq n-1{\quoi}.\tag{${\ast}{\ast}{\ast}$}
+   866	\end{equation*}
+   867	La suite spectrale de Leray considérée donne alors naissance à une
+   868	suite exacte, qui forme la deuxième ligne du diagramme commutatif
+   869	suivant:
+   870	$$
+   871	\xymatrix{
+   872	**[r]H^{0}(Y,R^{n-1} i_{\ast}(F_U))  \ar[r] \ar[d]^{\text{\rotatebox{90}{$\sim$}}}&
+   873	**[r]H^n(Y,i_{\ast} (F_U)) = 0 \ar[d]\\
+   874	**[r]H^{0}(Y', R^{n-1} i'_{\ast}(F'_{U'}))  \ar[r] &
+   875	**[r]H^{n}(Y',i'_{\ast}(F'_{U'}))  \ar[r] & **[r]H^{n}(U',F'_{U'}),
+   876	}
+   877	$$
+   878	où la première flèche verticale est bijective en vertu de
+   879	$({\ast}{\ast}{\ast})$. On lit sur le diagramme que $(\ast)$ est
+   880	injectif, ce qui achève la démonstration dans ce cas. Dans le cas non
+   881	abélien, $n=1$, on utilise le même diagramme avec $n=1$:
+   882	$$
+   883	\xymatrix{
+   884	**[r]H^{0}(Y, i_{\ast}(F_U))  \ar[r] \ar[d]^{\text{\rotatebox{90}{$\sim$}}}&
+   885	**[r]H^1(Y,i_{\ast} (F_U)) = 0 \ar[d]\\
+   886	**[r]H^{0}(Y', i'_{\ast}(F'_{U'}))  \ar[r] &
+   887	**[r]H^{1}(Y',i'_{\ast}(F'_{U'}))  \ar[r] & **[r]H^{1}(U',F'_{U'}),&
+   888	}
+   889	$$
+   890	\hyperrefext[XII][XII.prop3.2]{3.2}, où la première flèche verticale est encore bijective grâce à
+   891	l'hypothèse de $0$-acyclicité locale et globale faite sur $g$, et on
+   892	conclut encore l'injectivité de $(\ast)$ dans ce cas.
+   893	
+   894	Traitons enfin le cas $n=0$. Remarquons que la donnée d'une section
+   895	$\xi$ de $F'$ revient, en vertu de \sisi{\qquad}{\qquad},
+   896	% référence manquante
+   897	à la donnée d'une section $\xi_{U'}$ de $F'_{U'}$ et d'une section $\xi_{Z'}$ de $F'_{Z'}$,
+   898	telles que l'image de $\xi_{Z'}$ par l'homomorphisme naturel
+   899	$$
+   900	F'_{Z'}\longrightarrow {j'}^{\ast}(i'_{\ast}(F'_{U'}))
+   901	$$
+   902	soit\pageoriginale la section du deuxième membre induite par
+   903	$\xi_{U'}$. Par hypothèse, il existe des sections $\eta_Z$ et $\eta_U$
+   904	de $F_Z$ et $F_U$ respectivement, qui induisent $\xi_{Z'}$ et
+   905	$\xi_{U'}$. Tout revient à voir qu'elles satisfont à la condition de
+   906	compatibilité analogue, exprimant que ce sont les restrictions d'une
+   907	même section $\eta$ de $F$. Il faut vérifier l'égalité de deux
+   908	sections de $j^{\ast}(i_{\ast}(F_U))$, et pour ceci, comme
+   909	$Z'\rightarrow Z$ est surjectif ($g$ étant surjectif puisque
+   910	$(-1)$-acyclique par hypothèse), il suffit de vérifier que les deux
+   911	sections correspondantes de
+   912	$g_Z{}^{\ast}(j^{\ast}(i_{\ast}(F_U))=j'{}^{\ast}(g^{\ast}(i_{\ast}(F_U))$
+   913	sont égales. Or le faisceau envisagé, grâce à l'homomorphisme de
+   914	changement de base
+   915	\begin{equation*}
+   916	g^{\ast}(i_{\ast}(F_U))\longrightarrow
+   917	i'_{\ast}(g_U{}^{\ast}(F_U))=i'_{\ast}(F'_{U'}){\quoi},\tag{$\ast$}
+   918	\end{equation*}
+   919	s'envoie dans ${j'}^{\ast}(i'_{\ast}(F'_{U'}))$, et ce dernier
+   920	homomorphisme est injectif, car il en est ainsi de $(\ast)$ grâce à
+   921	l'hypothèse que $g$ est localement $(-1)$-acyclique. Il suffit donc de
+   922	vérifier que les deux sections de ${j'}^{\ast}(i'_{\ast}(F'_{U'}))$,
+   923	images des deux sections précédentes, sont égales. Or on constate
+   924	aussitôt que ces sections ne sont autres que celles déjà envisagées
+   925	plus haut, qui sont égales par hypothèse. Cela achève la
+   926	démonstration.
+   927	
+   928	\begin{enonce*}{Remarque 1.18}\etiquette[1.18]{XV.rem1.18}
+   929	On peut donner un raffinement de \hyperref[XV.thm1.15]{1.15}, qui fournit une démonstration
+   930	nettement plus simple de \hyperref[XV.thm1.15]{1.15} lorsque $Y$ est supposé localement
+   931	noethérien. Pour ceci, en plus des hypothèses préliminaires sur $g$,
+   932	$F$, supposons qu'il existe un nombre fini de points géométriques
+   933	$f_i:\bar{y}_i\rightarrow Y$ de $Y$ tels que le morphisme 
+   934	$$
+   935	F\longrightarrow \prod_if_{i\ast}(f_i{}^{\ast}(F))
+   936	$$
+   937	soit\pageoriginale injectif (hypothèse automatiquement vérifiée si $Y$
+   938	est noethérien et si $F$ est constructible \hyperrefext[IX][IX.prop2.14]{2.14}). Je dis que sous
+   939	ces conditions, le critère \hyperref[XV.thm1.15]{1.15} est valable en se bornant aux seuls
+   940	points géométriques $\bar{y}_i$. En effet, en vertu de \hyperrefext[XII][XII.cor6.6]{6.6} on peut
+   941	supposer que $F$ est lui-même de la forme $f_{\ast}(M_{\bar{y}})$, où
+   942	$M$ est un ensemble \resp un groupe \resp un groupe abélien de
+   943	$\LL$-torsion, et $f:\bar{y}\rightarrow Y$ un point
+   944	géométrique. Soit $f':X'=X_{\bar{y}}\rightarrow X$ le morphisme
+   945	canonique. Supposant, pour fixer les idées, $n\geq 1$, l'hypothèse
+   946	locale faite sur $g$ implique qu'on a
+   947	$$
+   948	g^{\ast}(f_{\ast}(M_{\bar{y}}))\simeq f'_{\ast}(M_{X'})\sisi{,\;}{\quav}
+   949	R^{i}f'_{\ast}(M_{x'})=0\quad\mbox{\rm pour}\quad 1\leq i\leq
+   950	n-1{\quoi},
+   951	$$
+   952	la deuxième relation provenant du fait que la premier membre est
+   953	isomorphe à\break $g^{\ast}(R^{i}f_{\ast}(M_{\bar{y}}))$, qui est nul
+   954	puisque manifestement $R^{i}f_{\ast}(M_{\bar{y}})=0$ pour $i\geq
+   955	1$. De ces relations, on conclut que
+   956	$$
+   957	H^{n}(X,g^{\ast}(F))\simeq H^{n}(X,f'_{\ast}(M_{X'}))\longrightarrow
+   958	H^{n}(X',M_{X'})
+   959	$$
+   960	est injectif, en utilisant la suite spectrale de Leray pour $f'$, ce
+   961	qui prouve bien qu'un élément $\xi$ de $H^{n}(X,F)$ induisant un
+   962	élément nul de $H^{n}(X_{\bar{y}},F)$ est nul. Pour déduire de ceci
+   963	une démonstration simplifiée de \hyperref[XV.thm1.15]{1.15} dans le cas où $Y$ est localement
+   964	noethérien, on note qu'on peut se borner au cas $Y$ noethérien, et un
+   965	passage à la limite facile, utilisant \hyperrefext[IX][IX.cor2.7.2]{2.7.2} et \hyperrefext[VII][VII.sec5]{5},
+   966	permet de se ramener au cas où $F$ est de plus constructible, justiciable de
+   967	l'énoncé qu'on vient de prouver.
+   968	\end{enonce*}
+   969	
+   970	\section{Acyclicité locale d'un morphisme lisse}\etiquette[2]{XV.sec2}\pageoriginale
+   971	
+   972	Le théorème est le suivant~:
+   973	
+   974	\begin{enonce*}{Théorème 2.1}\etiquette[2.1]{XV.thm2.1}
+   975	Soient $g:X\rightarrow Y$ un morphisme lisse et soit $\LL\subset
+   976	\PP$ l'ensemble complémentaire de l'ensemble des
+   977	caractéristiques résiduelles de $X$. Alors $g$ est localement
+   978	acyclique et localement $1$-asphérique pour $\LL$.
+   979	\end{enonce*}
+   980	
+   981	Notons d'abord le corollaire:
+   982	
+   983	\begin{enonce*}{Corollaire 2.2}\etiquette[2.2]{XV.cor2.2}
+   984	Soit $g:\EE^m_Y\rightarrow Y$ le morphisme structural de
+   985	l'espace affine. Alors $g$ est acyclique et $1$-asphérique pour
+   986	l'ensemble $\LL$ complémentaire de l'ensemble des
+   987	caractéristiques résiduelles de $Y$.
+   988	\end{enonce*}
+   989	
+   990	En effet, par récurrence sur $m$ et \hyperref[XV.prop1.9]{1.9} (i) on se ramène au cas
+   991	$m=1$. D'après \hyperref[XV.thm2.1]{2.1} on sait que $g$ est localement $n$-acyclique et
+   992	localement $1$-asphérique pour $\LL$, donc que la condition
+   993	\emph{locale} de \hyperref[XV.cor1.16]{1.16} est satisfaite. Il suffit donc de démontrer que
+   994	les fibres géométriques de $\EE^{1}_Y$ sont acycliques et
+   995	$1$-asphériques pour $\LL$, c'est-à-dire que $\Spec k[t]$ est
+   996	acyclique et $1$-asphérique pour $\LL$ si $k$ est un corps
+   997	séparablement clos de caractéristique $p\not\in\LL$, ce qui
+   998	résulte de \hyperrefext[IX][IX.thm4.6]{4.6} pour l'assertion d'acyclicité, et pour la
+   999	$1$-asphéricité est bien connu. Plus généralement, soit $X'$ un
+  1000	revêtement normal irréductible galoisien de $X=\PP^{1}_k$,
+  1001	qui\pageoriginale soit non ramifié en dehors du point $\infty$ et dont
+  1002	la ramification en ce point soit modérée. Prouvons que le degré $n$ du
+  1003	revêtement est égal à $1$. Or on a la formule de Hurwitz:
+  1004	$$
+  1005	2(g'-1)=2n(g-1)+\deg \mathfrak{d}_{X'/X}
+  1006	$$
+  1007	où $g$, $g'$ sont le genre de $X$, $X'$, et $\mathfrak{d}_{X'/X}$ le diviseur
+  1008	différente. On a $g=0$, et l'hypothèse de ramification modérée
+  1009	implique $\deg \mathfrak{d}_{X'/X}\leq n-1$, d'où $2(g'-1)\leq -(n+1)$ donc
+  1010	$n\leq 2(1-g')-1$, et comme $g'\geq 0$, on conclut $n\leq 1$ donc
+  1011	$n=1$, \cqfd % CQFD à droite après une virgule est peu esthétique
+  1012	
+  1013	\medskip
+  1014	\noindent
+  1015	\emph{Démonstration de} \hyperref[XV.thm2.1]{2.1}. L'assertion est locale sur $X$ et $Y$
+  1016	pour la topologie étale, et on peut donc supposer \sisi{(}{}\SGA 1 II
+  1017	1.1\sisi{)}{} que $g$ est le morphisme structural de l'espace affine $\EE^m_Y$,
+  1018	et que $Y$ est affine. En appliquant la transitivité de l'acyclicité
+  1019	locale \hyperref[XV.prop1.13]{1.13}.~(i) et le fait que
+  1020	$\EE^m_Y=\EE^{m-1}_{\EE^1_Y}$ on se réduit
+  1021	immédiatement au cas $m=1$, c'est-à-dire, au cas
+  1022	$X=\Spec \mathcal{O}_Y[t]$. % Spec souligné dans l'original
+  1023	
+  1024	Appliquons \hyperref[XV.cor1.18]{1.18}. On est ramené à démontrer que les fibres géométriques
+  1025	du morphisme de schémas strictement locaux
+  1026	$\widetilde{g}:\widetilde{X}\rightarrow \widetilde{Y}$, déduit d'un
+  1027	couple de points géométriques $\bar{x}$, $\bar{y}$, où $\bar{x}$ est
+  1028	fermé dans la fibre $X_{\bar{y}}$, sont acycliques pour $\LL$
+  1029	et $1$-asphériques pour $\LL$. On peut évidemment supposer
+  1030	$Y=\widetilde{Y}$. Soit $Y'\rightarrow Y$ un morphisme fini, local, et
+  1031	surjectif, de sorte que $Y'$ est strictement local, et soient
+  1032	$\bar{y}'$ le point de $Y'$ au-dessus de $\bar{y}$, $\bar{x}'$ le
+  1033	point de $X'$ au-dessus de $\bar{x}$ et de $\bar{y}'$. Puisque
+  1034	$X'\rightarrow X$ est fini, le localisé strict de $X'$ au point
+  1035	$\bar{x}'$ n'est autre que
+  1036	$\widetilde{X}'=\fprod{\widetilde{X}}{Y'}{Y}$. Par suite, toute fibre
+  1037	géométrique de $\widetilde{X}'/Y'$ est déduite d'une fibre géométrique
+  1038	de $\widetilde{X}/Y$ par extension algébrique
+  1039	(nécessairement\pageoriginale radicielle) du corps de base, de plus il
+  1040	y a au moins une fibre géométrique de $\widetilde{X}'/Y'$ au-dessus de
+  1041	chaque fibre géométrique de $\widetilde{X}/Y$. On peut donc \hyperrefext[VIII][VIII.thm1.1]{1.1}
+  1042	remplacer $Y$ par $Y'$, et par choix convenable de $Y'$, on se ramène
+  1043	ainsi au cas où $k(\bar{x})=k(\bar{y})$. Alors $\bar{x}$ est un point
+  1044	rationnel de la fibre $X_{\bar{y}}=\Spec k(\bar{y})[t]$, disons le
+  1045	point $t=a^{0}$. En relevant $a^{0}$ en une section $a$ de
+  1046	$\mathcal{O}_{\sisi{Y}{\widetilde{Y}}}$ et en faisant la « translation »  $t_1=t-a$ on
+  1047	est ramené au cas où le point $\bar{x}$ est le point $\{t=0\}$ de
+  1048	$\Spec k(\bar{y})[t]$. Posons $A=\Gamma
+  1049	(\sisi{Y}{\widetilde{Y}},\mathcal{O}_{\sisi{Y}{\widetilde{Y}}})$, de sorte que $A$ est un anneau
+  1050	strictement local.
+  1051	
+  1052	\begin{enonce*}[remark]{Notation 2.3}\etiquette[2.3]{XV.not2.3}
+  1053	Soit $A$ un anneau hensélien local. On dénote par $A\{t\}$ le
+  1054	hensélisé de l'anneau $A[t]$ en l'idéal premier engendré par $\rad
+  1055	A$ et $t$.
+  1056	\end{enonce*}
+  1057	
+  1058	\begin{enonce*}{Corollaire 2.4}\etiquette[2.4]{XV.cor2.4}
+  1059	Soient $A$ hensélien et $A'$ une $A$-algèbre finie. Alors
+  1060	$$
+  1061	A'\{t\}\simeq A'\otimes_A A\{t\}{\quoi}.
+  1062	$$
+  1063	\end{enonce*}
+  1064	
+  1065	Cela résulte immédiatement de \hyperrefext[VIII][VIII.subsec4.1]{4.1}.
+  1066	Notons que si $A$ est
+  1067	strictement local, il en est de même de $A\{t\}$.
+  1068	
+  1069	La démonstration du théorème est ramenée au lemme suivant:
+  1070	
+  1071	\begin{enonce*}{Lemme 2.5}\etiquette[2.5]{XV.lem2.5}
+  1072	Soit $A$ un anneau hensélien de caractéristique résiduelle $p$. Alors
+  1073	chaque fibre géométrique de $\Spec A\{t\}$ sur $\Spec A$ est acyclique
+  1074	et $1$-asphérique pour $\LL=\PP-\{p\}$.
+  1075	\end{enonce*}
+  1076	
+  1077	Notons que puisque $A\{t\}$ est le hensélisé de $A[t]$, une fibre
+  1078	$\Spec A\{t\}\otimes_A K$, $K$ un corps résiduel de $A$, est limite
+  1079	projective\pageoriginale de schémas affines et de type fini $X_i$ sur
+  1080	la « droite »  $\Spec K[t]$, c'est-à-dire, limite de courbes
+  1081	algébriques affines. Donc chaque fibre géométrique de $\Spec A\{t\}$
+  1082	est limite de courbes affines $(X_i)_{\bar{K}}$ au-dessus du corps
+  1083	séparablement clos $\bar{K}$, et il s'ensuit de \hyperrefext[IX][IX.cor5.7]{5.7} et \hyperrefext[VII][VII.thm5.7]{5.7}
+  1084	que la dimension cohomologique des fibres géométriques est $\leq 1$. Il
+  1085	suffit donc de vérifier que les fibres géométriques sont
+  1086	$1$-\emph{asphériques} pour $\LL$, c'est-à-dire, qu'une telle
+  1087	fibre géométrique $\bar{Z}$ est connexe, non vide, et que
+  1088	$H^{1}(\bar{Z},G)=0$ pour chaque $\LL$-groupe fini $G$.
+  1089	
+  1090	Écrivons $A=\varinjlim B_{\alpha}$ où les $B_{\alpha}$ sont des
+  1091	anneaux de type fini sur $\ZZ$. Le morphisme
+  1092	$B_{\alpha}\rightarrow A$ se factorise par le hensélisé $A_{\alpha}$
+  1093	de $B_{\alpha}$ en l'idéal premier induit par $\rad A$, d'où
+  1094	$A=\varinjlim A_{\alpha}$. On constate aisément qu'on a aussi
+  1095	$A\{t\}=\varinjlim A_{\alpha}\{t\}$. De plus, soient $\bar{y}$ un
+  1096	point géométrique de $\Spec A$, $X_{\bar{y}}$ la fibre géométrique de
+  1097	$S=\Spec A\{t\}$ sur $\Spec A$ en $\bar{y}$, $\bar{y}_{\alpha}$ le
+  1098	point de $\Spec A_{\alpha}$ induit par $\bar{y}$, et
+  1099	$X_{\alpha}\,_{\bar{y}_{\alpha}}$ % \, : à changer ?
+  1100	la fibre géométrique de $\Spec A_{\alpha}\{t\}$ sur $\Spec A$ en~$\bar{y}_{\alpha}$. On a
+  1101	$X_{\bar{y}}=\varprojlim {X_{\alpha}}\,_{\bar{y}_{\alpha}}$. On est donc
+  1102	réduit pour la démonstration de \hyperref[XV.lem2.5]{2.5} par \hyperref[XV.def1.7]{1.7} (ii) (appliqué aux
+  1103	morphismes $X_{\alpha}\,_{\bar{y}_{\alpha}}\rightarrow \bar{y}_{\alpha}$)
+  1104	au cas $A=A_{\alpha}$, c'est-à-dire, où $A$ est le hensélisé d'une
+  1105	algèbre de type fini sur $\ZZ$ en un idéal premier donné. Nous
+  1106	le supposons désormais. Rappelons qu'une telle algèbre est un anneau
+  1107	\emph{excellent} \sisi{(}{}\EGA IV 7.8.3 (iii), 7.8.6 (i)\sisi{)}{}, donc que $A_{\alpha}$
+  1108	est également excellent (comme on voit facilement sur la définition,
+  1109	\cf \EGA IV 18.7.6).
+  1110	
+  1111	Vérifions la $0$-acyclicité. (Pour un résultat plus général, \cf
+  1112	Appendice.) Puisque $A\{t\}/A$ admet la section « $t=0$ », une
+  1113	fibre géométrique\pageoriginale $\bar{Z}$ est non-vide. Pour voir
+  1114	qu'elle est connexe, on est réduit, en remplaçant $A$ par un
+  1115	quotient \sisi{(}{}\hyperref[XV.cor2.4]{2.4}\sisi{)}{}, au cas où $A$ est intègre, et où $\bar{Z}$ est la fibre
+  1116	géométrique au-dessus du point générique de $\Spec A$. Il suffit de
+  1117	prouver que pour toute extension finie séparable $K'$ de corps de
+  1118	fractions $K$ de $A$, le schéma $Z_{K'}$ ($Z=\Spec A\{t\}\otimes
+  1119	{}_AK$) est connexe. Soient $A'$ la normalisée de $A$ dans $K'$ (qui
+  1120	est une $A$-algèbre finie \sisi{(}{}\EGA IV 7.8.2\sisi{)}{})
+  1121	et $Z'$ la fibre générique de $\Spec A'\{t\}$ sur $A'$. D'après \hyperref[XV.cor2.4]{2.4},
+  1122	on a $A'\{t\}\simeq A'\otimes_A A\{t\}$, d'où $Z_{K'}\simeq Z'$. Remplaçons $A$ par $A'$. Il suffit
+  1123	alors de démontrer que $Z$ est intègre, et il suffit de démontrer que
+  1124	$A\{t\}$ est intègre. Mais $A$ étant normal, $A[t]$ l'est, donc
+  1125	$A\{t\}$ l'est aussi \sisi{(}{}\SGA 1 I 9.5.~(i)\sisi{)}{}, d'où le résultat.
+  1126	
+  1127	La démonstration de \hyperref[XV.lem2.5]{2.5}, et par suite de \hyperref[XV.thm2.1]{2.1},
+  1128	est ainsi réduite au lemme suivant, qui sera démontré dans le prochain numéro:
+  1129	
+  1130	\begin{enonce*}{Lemme 2.6}\etiquette[2.6]{XV.lem2.6}
+  1131	Soit $A$ un anneau hensélien et excellent, et soit $\bar{Z}$ une fibre
+  1132	géométrique de $\Spec A\{t\}/\Spec A$. Alors chaque revêtement
+  1133	principal galoisien $\bar{Z}'$ de $\bar{Z}$, de groupe $G$ d'ordre
+  1134	premier à la caractéristique résiduelle $p$ de $A$, est trivial.
+  1135	\end{enonce*}
+  1136	
+  1137	\section{Démonstration du lemme principal}\etiquette[3]{XV.sec3}\pageoriginale
+  1138	
+  1139	En remplaçant $A$ par une algèbre finie $A'$ (\cf \hyperref[XV.cor2.4]{2.4}), on réduit
+  1140	l'assertion \hyperref[XV.lem2.6]{2.6} au cas où $A$ est intègre et où $\bar{Z}$ est la fibre
+  1141	géométrique générique de $\Spec A\{t\}$ sur $\Spec A$. Soient $K$ le
+  1142	corps des fractions de $A$ et $Z=\Spec A\{t\}\otimes_A K$. Si
+  1143	$\bar{Z}'/\bar{Z}$ est un revêtement principal galoisien, on peut le
+  1144	descendre à un $Z_{K'}$, où $K'$ est une extension finie séparable
+  1145	convenable de $K$. En remplaçant \hyperref[XV.cor2.4]{2.4} $A$ par son normalisé dans
+  1146	$K'$, qui est une $A$-algèbre finie \sisi{(}{}\EGA IV 7.8.3 (vi)\sisi{)}{}, on est ramené à
+  1147	démontrer le lemme sous la forme suivante:
+  1148	
+  1149	\begin{enonce*}{Lemme 3.1}\etiquette[3.1]{XV.lem3.1}
+  1150	Avec les notations de \hyperref[XV.lem2.6]{2.6}, supposons $A$ normal, et soit $Z'/Z$ un
+  1151	revêtement étale principal galoisien, de groupe $G$ d'ordre premier à
+  1152	la caractéristique résiduelle $p$ de $A$. Alors $Z'$ est induit par
+  1153	une extension galoisienne $K'$ de $K$, \ie \emph{(\SGA  1 IX 6.2)} le
+  1154	revêtement $\bar{Z}'$ de $\bar{Z}$ déduit de $Z'$ est trivial.
+  1155	\end{enonce*}
+  1156	
+  1157	\noindent
+  1158	\emph{Démonstration}. Soit $B'$ le normalisé de $A\{t\}$ dans l'anneau
+  1159	des fonctions rationnelles de $Z'$, et considérons les idéaux premiers
+  1160	$P$ de hauteur $1$ de $A\{t\}$ tels que l'algèbre $B'$ sur $A\{t\}$
+  1161	soit ramifiée en $P$. Puisque $Z'/Z$ est étale, $P$ n'est pas sur le
+  1162	point générique de $\Spec A$, \ie $\mathfrak{p}=P\cap A\neq 0$. Donc
+  1163	$A\{t\}/\mathfrak{p}A\{t\}=(A/\mathfrak{p})\{t\}$ est intègre et de dimension au plus
+  1164	égale à $\dim A$. Puisque $A\{t\}$ est excellent \sisi{(}{}\EGA IV 7.8.6 (i) et
+  1165	18.7.6\sisi{)}{} donc caténaire, on a $\dim \Spec A\{t\}/P=(\dim A+1)-1=\dim
+  1166	A\geq \dim A\{t\}/\mathfrak{p}A\{t\}$, d'où\pageoriginale
+  1167	$P=\mathfrak{p}A\{t\}$ puisque $P\supset \mathfrak{p}A\{t\}$.
+  1168	
+  1169	Soient donc $\mathfrak{p}_1,\ldots,\mathfrak{p}_m$ les idéaux premiers de hauteur~$1$
+  1170	de~$A$ tels que $B'/A\{t\}$ soit ramifié en les idéaux $\mathfrak{p}_iA\{t\}$,
+  1171	soit $s$ le p.g.c.d. des ordres des groupes d'inertie \sisi{(}{}\SGA
+  1172	IV 2\sisi{)}{} $G_{i}\subset G$ pour $B'$ en les idéaux premiers au-dessus des
+  1173	$\mathfrak{p}_{i}A\{t\}$, qui est un entier divisant l'ordre de $G$, donc
+  1174	premier à $p$. Soit $f\in A$ une fonction qui s'annule avec ordre~$1$ en
+  1175	chaque $\mathfrak{p}_i$ (un tel $f$ existe, comme il résulte par exemple de
+  1176	Bourbaki, Alg. Comm., Chap. II, \S 3, cor. à prop. 17). En remplaçant
+  1177	\sisi{(}{}\hyperref[XV.cor2.4]{2.4}\sisi{)}{} $A$ par son normalisé $A_i$ dans l'extension finie
+  1178	$K_{1}=K[x]/(x^{s}-f)$ de $K$ et $B'$ par le normalisé de
+  1179	$A_{1}\otimes_A B'$, on se réduit par le lemme d'Abhyankar
+  1180	\sisi{(}{}\SGA 1 X 3.6\sisi{)}{}
+  1181	au cas où $B'$ n'est ramifiée en aucun idéal premier de hauteur~$1$ de $A\{t\}$.
+  1182	
+  1183	Alors l'algèbre $B'/A\{t\}$ est aussi étale au-dessus de la fibre de
+  1184	$\Spec A\{t\}$ en tout point de $\Spec A$ de codimension~$1$. En effet,
+  1185	soit $\mathfrak{p}$ un idéal premier de hauteur~$1$ de $A$. Puisque $A$ est
+  1186	normal, $A_{\mathfrak{p}}$ est un anneau de valuation discrète, donc
+  1187	régulier, donc $A\{t\}\otimes_A A_{\mathfrak{p}}$ est aussi régulier
+  1188	---~en effet, c'est une limite de schémas étales au-dessus de $A_{\mathfrak{p}}[t]$.
+  1189	Par hypothèse, l'algèbre $B'/A\{t\}$ est étale en chaque point
+  1190	de codimension $\leq 1$ de $\Spec A\{t\}\otimes_A A_{\mathfrak{p}}$, donc
+  1191	elle est étale partout par le théorème de pureté de Zariski-Nagata
+  1192	\sisi{(}{}\SGA 1 X 3.1\sisi{)}{}; pour une démonstration, voir p. ex. \SGA 2, X 3.4).
+  1193	
+  1194	En remplaçant \sisi{(}{}\hyperref[XV.cor2.4]{2.4}\sisi{)}{} $A$ par une $A$-algèbre finie convenable, on se
+  1195	ramène au cas où \emph{de plus} l'algèbre $B'/tB'$ sur
+  1196	$A\{t\}/tA\{t\}\simeq A$ est complètement décomposée au-dessus du
+  1197	point générique de $\Spec A$. Donc il suffit de démontrer que sous ces
+  1198	conditions, l'algèbre $B'$ sur $A\{t\}$\pageoriginale est
+  1199	« triviale », et puisque $A\{t\}$ est hensélien, il suffit de démontrer que
+  1200	$B'$ sur $A\{t\}$ est étale; en effet, il résulte du fait que
+  1201	l'algèbre $B'/tB'$ splitte au-dessus du point générique de $\Spec A$
+  1202	qu'elle splitte sur $\Spec(A)$ (\SGA 1 I 10.1\sisi{)}{}, donc que les extensions
+  1203	résiduelles de $B'$ sur l'idéal maximal de $A\{t\}$ sont triviales, et
+  1204	on applique (\EGA IV 18.5.14). On est donc ramené au lemme suivant:
+  1205	
+  1206	\begin{enonce*}{Lemme 3.2}\etiquette[3.2]{XV.lem3.2}
+  1207	Soit $B$ un anneau local excellent et normal, et soit $0\neq t\in \rad
+  1208	B$ tel que $B/tB$ soit normal. Soit $B'$ une $B$-algèbre finie intègre
+  1209	normale, contenant $B$, telle que:
+  1210	\begin{enumerate}
+  1211	\renewcommand{\theenumi}{\roman{enumi}}
+  1212	\renewcommand{\labelenumi}{(\theenumi)}
+  1213	\item L'algèbre $B'/tB'$ sur $B/tB$ est complètement décomposée en les
+  1214	points maximaux de $\Spec(B/tB)$.
+  1215	
+  1216	\item L'algèbre $B'$ sur $B$ est étale en les points de codimension
+  1217	$1$ de $\Spec(B/tB)$.
+  1218	\end{enumerate}
+  1219	Alors $B'$ est étale sur $B$.
+  1220	\end{enonce*}
+  1221	
+  1222	\noindent
+  1223	\emph{Démonstration}. En vertu de (ii), l'assertion est triviale pour
+  1224	$\dim B\leq 2$, c'est-à-dire pour $\dim B/tB\leq 1$. Supposons que
+  1225	$B'/B$ ne soit pas étale, soit $x$ un point maximal de l'ensemble des
+  1226	points de $\Spec B/tB$ au-dessus duquel $B'/B$ n'est par étale, et
+  1227	soit $C$ l'anneau local de $\Spec B$ en $x$. Alors $C$ est encore un
+  1228	anneau excellent et normal (\EGA IV 7.8.2), on a $0\neq t\in\rad C$, et
+  1229	(i) et (ii) sont vrais pour la $C$-algèbre $C'=C\otimes {}_BB'$. On
+  1230	peut donc supposer $B=C$, c'est-à-dire, que $B'$ est étale sur $B$
+  1231	au-dessus de chaque point de $\Spec B/tB$, sauf peut-être à
+  1232	l'origine. Puisque $B/tB$ est normal\pageoriginale (en fait unibranche
+  1233	suffirait), la condition (i) implique que l'algèbre $B'/tB'$ est
+  1234	complètement décomposée en dehors de l'origine. De plus, on peut
+  1235	supposer $\dim B\geq 3$. On est donc ramené au lemme suivant:
+  1236	
+  1237	\begin{enonce*}{Lemme 3.3}\etiquette[3.3]{XV.lem3.3}
+  1238	Soit $B$ un anneau local excellent et normal, $0\neq t\in \rad B$,
+  1239	$\dim B\geq 3$. Soit $B'$ une $B$-algèbre finie normale intègre,
+  1240	contenant $B$, telle que l'algèbre $B'/tB'$ de $B/tB$ soit
+  1241	complètement décomposée en dehors de l'origine. Alors $B'$ est étale
+  1242	sur $B$.
+  1243	\end{enonce*}
+  1244	
+  1245	\noindent
+  1246	\emph{Démonstration}. Soient $X=\Spec B$, $X_1=X-\{x_{0}\}$, où
+  1247	$x_{0}$ est le point fermé, et soit $i:U\rightarrow X$ l'ouvert
+  1248	des $x\in X$ en lesquels l'algèbre $B'/B$ est étale. Alors $(X-U)\cap
+  1249	V(t)=\{x_{0}\}$ est de dimension $0$. Puisque $V(t)$ est défini
+  1250	par \emph{une} équation, il s'ensuit que $\dim(X-U)\leq 1$ (\EGA
+  1251	$0_{\text{\rm IV}}$ 16.2.5), donc ($X$ étant caténaire) $x\in
+  1252	X-U\Rightarrow \dim \mathcal{O}_{X,x}\geq \dim B-1\geq 2$, \ie
+  1253	$\codim(X-U,X)\geq 2$.
+  1254	
+  1255	Soit $X'=\Spec(B')$, $U'$ l'image inverse de $U$ dans $X'$, alors, $X$
+  1256	étant universellement caténaire, la relation $\codim(X-U,X)\geq 2$
+  1257	implique la relation $\codim(X'-U',X')\geq 2$ (\EGA IV 5.6.10), donc,
+  1258	$X'$ étant normal, on a
+  1259	$$
+  1260	B'=\Gamma(X',\Oo_{X'})\xrightarrow{\sim}
+  1261	\Gamma(U',\Oo_{U'}){\quoi}.
+  1262	$$
+  1263	Soit alors $\mathcal{B}'=\widetilde{B}'$ le faisceau de $\Oo_X$-algèbres qui
+  1264	définit $X'$ sur $X$, $\mathcal{C}$ sa restriction à $U$, alors la formule
+  1265	précédente équivaut à la formule
+  1266	$$
+  1267	\mathcal{B}\xrightarrow{\sim}i_{\ast}(\mathcal{C}){\quoi},
+  1268	$$
+  1269	et\pageoriginale \hyperref[XV.lem3.3]{3.3} se ramène par suite à l'énoncé suivant (où il
+  1270	n'est plus question de $B'$): Soient $B$, $t$ comme dans 3.3,
+  1271	$X=\Spec(B)$, $Y=\Spec(B/tB)$, $U$ un voisinage ouvert de
+  1272	$Y_1=Y-\{x_{0}\}$ dans $X_1=X-\{x_{0}\}$, $U'$ un revêtement
+  1273	étale de $U$ dont la restriction à $Y_1$ soit complètement décomposée,
+  1274	$\mathcal{C}$ le faisceau de $\Oo_{U'}$-algèbres définissant $U'$, alors
+  1275	($i:U\rightarrow X$ désignant l'immersion canonique) $i_{\ast}(\mathcal{C})$
+  1276	est une Algèbre cohérente \emph{étale} sur $X$ (ou, ce qui revient au
+  1277	même, grâce à la relation $\prof \Oo_{X,x}\geq 2$ pour $x\in X-U$
+  1278	signalée plus haut et à \EGA IV 5.10.5, $U'$ se prolonge en un
+  1279	revêtement \emph{étale} $X'$ de $X$).
+  1280	
+  1281	Soit $\widehat{X}=\Spec\widehat{B}$, où $\widehat{B}$ est le
+  1282	complété de $B$. Alors $\widehat{B}$ est normal (\EGA IV 7.8.3 (v))
+  1283	et $\widehat{B}/B$ est fidèlement plat. Soit
+  1284	$$
+  1285	\xymatrix@C=1.5cm@R=1cm{
+  1286	\hat{U}      \ar[r]^{\sisi{\hat{i}}{i}} \ar[d]^{f_1}& \hat{X} \ar[d]^{f}\\
+  1287	U            \ar[r]^{i} &  X
+  1288	}
+  1289	$$
+  1290	le diagramme cartésien déduit de $\widehat{X}\rightarrow X$. Puisque
+  1291	$f$ est fidèlement plat, le foncteur $i_{\ast}$ commute au changement
+  1292	de base~$f$ \sisi{(}{}\EGA IV 2.3.1\sisi{)}{}, et on est ramené \sisi{(}{}\EGA IV 17.7.1\sisi{)}{}
+  1293	à prouver que $\hat{i}_{\ast}(\widehat{C})$ % C^ non défini dans le texte
+  1294	est une algèbre étale sur $\widehat{X}$. On peut donc remplacer $B$ par $\widehat{B}$,
+  1295	c'est-à-dire, on peut supposer $B$ \emph{complet}. Dans ce cas, nous
+  1296	allons prouver que $U'$ est un revêtement complètement décomposé de
+  1297	$U$ (ce qui impliquera évidemment qu'il se prolonge en un revêtement
+  1298	étale de $X$, et achèvera la démonstration). Or cette assertion est
+  1299	maintenant conséquence immédiate de la « théorie de
+  1300	Lefschetz locale » \sisi{(}{}\SGA\pageoriginale 2 X 2.1 (i) et 2.5\sisi{)}{}, comme on constate
+  1301	immédiatement, compte 
+  1302	tenu encore une fois de la relation $\prof \Oo_{X,x}\geq 2$ pour
+  1303	$\dim \{x\}=1$.
+  1304	
+  1305	\begin{enonce*}[remark]{Remarque 3.4}\etiquette[3.4]{XV.rem3.4}
+  1306	On peut prouver \hyperref[XV.lem3.2]{3.2} et \hyperref[XV.lem3.3]{3.3} sous des conditions 
+  1307	plus générales, en
+  1308	suivant essentiellement la même démonstration: au lieu de supposer $B$
+  1309	excellent et normal, il suffit de supposer que le complété
+  1310	$\widehat{B}$ est normal (condition qui est stable par localisation,
+  1311	grâce aux résultats de \EGA IV 7), ou seulement que le complété de $B$
+  1312	pour la topologie $(tB)$-adique soit normal, et quotient d'un anneau
+  1313	régulier.
+  1314	\end{enonce*}
+  1315	
+  1316	\section{Appendice: Un critère de $0$-acyclicité locale}\etiquette[4]{XV.sec4}\pageoriginale 
+  1317	
+  1318	Les résultats du présent numéro ne seront plus utilisés dans la suite
+  1319	du séminaire.
+  1320	
+  1321	\begin{enonce*}{Théorème 4.1}\etiquette[4.1]{XV.thm4.1}
+  1322	Soit $g:X\rightarrow Y$ un morphisme de schémas. On suppose $g$ plat
+  1323	et à fibres séparables, et $X$ et $Y$ localement noethériens
+  1324	\sisi{(}{}\resp $g$ localement de présentation finie\sisi{)}{}.
+  1325	Alors $g$ est universellement localement $0$-acyclique.
+  1326	\end{enonce*}
+  1327	
+  1328	On peut évidemment supposer $X$ et $Y$ affines, ce qui permet, dans le
+  1329	cas respé, de se ramener au cas où $Y$ donc $X$ est noethérien, par la
+  1330	méthode standard de \EGA IV 8, utilisant ici \EGA IV 9.7.7. On peut donc
+  1331	se borner à prouver le premier énoncé. L'hypothèse étant stable par
+  1332	changement de base de type fini, on est réduit, compte tenu du passage
+  1333	à la limite \hyperref[XV.prop1.13]{1.13} (ii), à prouver que $g$ est localement $0$-acyclique,
+  1334	et pour ceci on est ramené par \hyperref[XV.cor1.17]{1.17} à prouver que si on suppose de
+  1335	plus $g$ strictement local, alors les fibres géométriques de $g$ sont
+  1336	connexes. Or c'est ce que dit \EGA IV 18.9.8.
+  1337	
+  1338	\begin{enonce*}{Corollaire 4.2}\etiquette[4.2]{XV.cor4.2}
+  1339	Soit $g:X\rightarrow Y$ un morphisme de schémas, avec $Y$
+  1340	discret. Alors $g$ est universellement localement $0$-acyclique.
+  1341	\end{enonce*}
+  1342	
+  1343	On peut supposer que $Y$ est le spectre d'un corps parfait $k$
+  1344	\hyperrefext[VIII][VIII.thm1.1]{1.1}.
+  1345	D'autre part, on peut supposer $X$ affine, donc limite projective
+  1346	de schémas affines de type fini sur $k$, et compte tenu de \hyperref[XV.prop1.13]{1.13}~(ii)
+  1347	on est ramené au cas où $X$ est de type fini sur~$k$.
+  1348	Enfin,\pageoriginale on peut évidemment supposer $X$ réduit, donc
+  1349	séparable sur $k$ puisque $k$ est parfait. La conclusion résulte alors
+  1350	de \hyperref[XV.thm4.1]{4.1}.
+  1351	
+  1352	\begin{enonce*}{Corollaire 4.3}\etiquette[4.3]{XV.cor4.3}
+  1353	Supposons que $g$ soit surjectif, et satisfasse aux conditions de
+  1354	\hyperref[XV.thm4.1]{4.1} ou de \hyperref[XV.cor4.2]{4.2}; dans le cas non respé de \hyperref[XV.thm4.1]{4.1} on suppose de plus
+  1355	que $g$ est, soit quasi-compact et quasi-séparé, soit universellement
+  1356	ouvert. Alors $g$ est un morphisme de descente effective universelle
+  1357	pour la catégorie fibrée des faisceaux étales sur des préschémas
+  1358	variables.
+  1359	\end{enonce*}
+  1360	
+  1361	Dans les cas envisagés, $g$ est universellement submersif et il
+  1362	résulte de \hyperrefext[VIII][VIII.prop9.1]{9.1} que $g$ est un morphisme de descente universelle
+  1363	pour la catégorie fibrée envisagée. Cela nous permet, pour la question
+  1364	d'effectivité, de nous borner au cas $Y$ affine. On voit de plus, dans
+  1365	chacun des cas envisagés, que $X$ se recouvre par un nombre
+  1366	\emph{fini} d'ouverts affines $X_i$ dont les images recouvrent
+  1367	$Y$. Remplaçant $X$ par la somme disjointe des $X_i$, on peut alors
+  1368	supposer $X$ affine, a fortiori quasi-compact et quasi-séparé sur
+  1369	$Y$. On conclut alors grâce au raisonnement de \hyperrefext[VIII][VIII.subsubsec9.4.1]{9.4.1}, en
+  1370	utilisant le fait \hyperrefext[XVI][XVI.thm1.1]{1.1} que pour un morphisme quasi-compact et
+  1371	quasi-séparé $g$, la formation de $g_{\ast}(F)$ ($F$ un faisceau étale
+  1372	sur $X$) commute à tout changement de base $Y'\rightarrow Y$ qui est
+  1373	localement $0$-acyclique.
+  1374	
+  1375	\begin{enonce*}[remark]{Remarques 4.4}\etiquette[4.4]{XV.rems4.4}
+  1376	\begin{enumerate}
+  1377	\renewcommand{\theenumi}{\alph{enumi}}
+  1378	\renewcommand{\labelenumi}{\theenumi)}
+  1379	\item On obtient ainsi la démonstration (qui avait été laissée en
+  1380	suspens) de \hyperrefext[VIII][VIII.thm9.4]{9.4} d), comme cas particulier de \hyperref[XV.cor4.3]{4.3}. % étiquette pour d) ?
+  1381	Une démonstration différente plus facile, n'utilisant pas le résultat
+  1382	assez délicat\pageoriginale de \EGA IV 18.9.8, s'obtiendrait en notant
+  1383	que grâce à \hyperrefext[VIII][VIII.prop9.1]{9.1} on peut se borner au cas du morphisme
+  1384	$\Spec(K)\rightarrow \Spec(k)$ induit par une extension de corps
+  1385	$K/k$, or $\Spec(K)$ est universellement localement $0$-acyclique sur
+  1386	$\Spec(k)$, car il est même universellement acyclique pour
+  1387	$\LL=\PP-\{p\}$, $p=\car k$, comme on verra dans \hyperrefext[XVI][XVI.cor1.5]{1.5}.
+  1388	
+  1389	\item On ignore si tout morphisme quasi-compact et quasi-séparé,
+  1390	surjectif et localement $(-1)$-acyclique (ou universellement
+  1391	localement $(-1)$-acyclique) est un morphisme de descente effective
+  1392	pour la catégorie fibrée des faisceaux étales sur des préschémas
+  1393	variables. Cet énoncé semble assez plausible, et améliorerait \hyperref[XV.cor4.3]{4.3} et
+  1394	\hyperrefext[VIII][VIII.thm9.4]{9.4} c), d). % étiquette pour c) et d) ?
+  1395	On le rapprochera de l'énoncé d'effectivité dans
+  1396	\textsc{Murre}, Sém. Bourbaki ${\rm n^{\circ}}$~293, p.~17.
+  1397	
+  1398	\item Il est plausible que sous les conditions de \hyperref[XV.cor4.2]{4.2}, $g$ est même
+  1399	localement acyclique pour $L$ et localement $1$-asphérique pour $L$,
+  1400	où $L$ est l'ensemble des nombres premiers distincts des
+  1401	caractéristiques résiduelles de $Y$. On peut dans cette question
+  1402	supposer évidemment $Y$ spectre d'un corps algébriquement clos $k$, et
+  1403	on peut montrer (\SGA 1964/65) que la réponse est affirmative
+  1404	lorsqu'on dispose de la résolution des singularités pour les schémas
+  1405	de type fini sur $k$. Donc la réponse est affirmative lorsque $Y$ est
+  1406	de caractéristique nulle, comme on voit en utilisant les résultats de
+  1407	\textsc{Hironaka}~\footnote[1]{\Cf \SGA 1 XIII.}
+  1408	\end{enumerate}
+  1409	\end{enonce*}
+  1410	
+  1411	
+  1412	%XII 4.1, 4.2 equation ref.
+  1413	%XII 1.2, 1.6 no ref. at 501
+  1414	
+  1415	\ifx\danslelivre\undefined
+  1416	\end{document}
+  1417	\fi

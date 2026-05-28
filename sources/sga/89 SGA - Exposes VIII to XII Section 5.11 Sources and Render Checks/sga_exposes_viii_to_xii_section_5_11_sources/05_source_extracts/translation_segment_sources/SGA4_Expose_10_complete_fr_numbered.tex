@@ -1,0 +1,937 @@
+     1	\ifx\danslelivre\undefined
+     2	\RequirePackage{luatex85}
+     3	\documentclass[10pt]{../fichiers-configuration-latex/smfart}
+     4	\input{../fichiers-configuration-latex/paquets}
+     5	\input{../fichiers-configuration-latex/numerotation}
+     6	\input{../fichiers-configuration-latex/macros}
+     7	
+     8	
+     9	\externaldocument{../01/01.tex}
+    10	\externaldocument{../02/02.tex}
+    11	\externaldocument{../03/03.tex}
+    12	\externaldocument{../04/04.tex}
+    13	\externaldocument{../05/05.tex}
+    14	\externaldocument{../05bis/05bis.tex}
+    15	\externaldocument{../06/06.tex}
+    16	\externaldocument{../07/07.tex}
+    17	\externaldocument{../08/08.tex}
+    18	\externaldocument{../09/09.tex}
+    19	%\externaldocument{../10/10.tex}
+    20	\externaldocument{../11/11.tex}
+    21	\externaldocument{../12/12.tex}
+    22	\externaldocument{../13/13.tex}
+    23	\externaldocument{../14/14.tex}
+    24	\externaldocument{../15/15.tex}
+    25	\externaldocument{../16/16.tex}
+    26	\externaldocument{../17/17.tex}
+    27	\externaldocument{../18/18.tex}
+    28	\externaldocument{../19/19.tex}
+    29	
+    30	\setboolean{original}{false}
+    31	
+    32	\begin{document}
+    33	
+    34	\begin{center}
+    35	X. Dimension cohomologique : premier résultats\\
+    36	M. Artin
+    37	\end{center}
+    38	
+    39	\selectlanguage{english}version : \showgitstatus\selectlanguage{french}
+    40	\tableofcontents
+    41	
+    42	\else
+    43	\chapter{Dimension cohomologique : premier résultats}
+    44	%\addtocontents{toc}{M. Artin}
+    45	\begin{center}
+    46	M. Artin
+    47	\end{center}
+    48	\fi
+    49	
+    50	\setcounter{pageoriginal}{42}
+    51	
+    52	\section{Introduction}\etiquette[1]{X.sec1}\pageoriginale
+    53	
+    54	Dans cet exposé on convient, sauf mention expresse du contraire, que
+    55	« faisceau » signifie « faisceau abélien ».
+    56	
+    57	Soient $X$ un schéma et $\ell\in \PP$. « Rappelons » qu'on appelle
+    58	\emph{$\ell$-dimension cohomologique} de $X$ le plus grand entier
+    59	$\cd_{\ell}X=n$ (ou $=\infty$ si ce nombre n'existe pas) tel que
+    60	$H^n(X,F)\neq 0$ pour au moins un faisceau de $\ell$-torsion $F$ sur
+    61	$X$. Si $X=\Spec A$, nous écrivons $\cd_{\ell} A=\cd_{\ell}\Spec
+    62	A$. Tenant compte du dictionnaire (VIII 2) %% étiquette
+    63	on retrouve ainsi la notion « classique » de [CG] dans le cas où $A=k$ est un corps. Comme on
+    64	a évidemment la formule
+    65	$$
+    66	\cd_{\ell}(\coprod_i X_i)=\displaystyle{\mathop{\sup}_i} \cd_{\ell}X_i
+    67	$$
+    68	on peut, de façon évidente, étendre la théorie classique à un
+    69	anneau artinien\pageoriginale quelconque. Cette théorie est exposée dans
+    70	$(CG)=$ « \sisi{cohomologie Galoisienne}{Cohomologie galoisienne} » %% Galoisienne ?
+    71	de Serre. Nous y apporterons quelques précisions dans le ${\rm n^{\circ}}$ \hyperref[X.sec2]{2}.
+    72	
+    73	Prenons par exemple le cas d'une variété $X$ algébrique irréductible,
+    74	de dimension $n$, sur un corps séparablement clos $k$, et fixons
+    75	$\ell\neq \car k$. Un théorème qu'on trouvera dans le ${\rm
+    76	  n^{\circ}}$ \hyperref[X.sec4]{4} donne pour la dimension cohomologique la majoration
+    77	$2n$, qui est la dimension « véritable » de $X$ (suggérée par
+    78	l'analogie topologique dans le cas où $k=\CC$). Ce résultat est
+    79	assez élémentaire à partir de la théorie pour les corps, et en fait la
+    80	majoration par $2n$ peut être améliorée sauf dans le cas où $X$ est
+    81	complète: il existe une autre majoration, $2n-1$, qui est vraie chaque
+    82	fois que dans $X$ il « manque au moins un point ». Cette dernière
+    83	est la bonne « majoration stable », dans le sens que chaque $X$ de
+    84	dimension $n$ contient un ouvert de dimension cohomologique
+    85	$2n-1$. Une troisième majoration est obtenue pour une variété affine,
+    86	où on obtient $n$ comme dimension cohomologique. C'est une
+    87	généralisation d'un des théorèmes de Lefschetz pour les sections
+    88	hyperplanes. Ces deux dernières assertions sont plus profondes et ne
+    89	pourront être démontrées que plus tard (XIV).
+    90	
+    91	Notons que la dimension cohomologique n'est pas une notion locale
+    92	(contrairement à ce qui a lieu pour les espaces paracompacts). Par
+    93	exemple un anneau hensélien à corps résiduel séparablement clos est de
+    94	dimension cohomologique nulle, mais si on enlève le point fermé, on
+    95	peut obtenir un nombre arbitrairement grand, savoir $2n-1$ si $n=\dim
+    96	A$ dans les cas les plus importants; ce qui est également en accord
+    97	avec l'analogie topologique fournie par la cohomologie de $U-\{x\}$,
+    98	où $U$ est un petit voisinage ouvert d'un point $x$ d'un espace
+    99	analytique complexe.
+   100	
+   101	\section{Résultats auxiliaires sur un corps}\etiquette[2]{X.sec2}\pageoriginale
+   102	
+   103	On a le suivant
+   104	
+   105	\begin{enonce*}{Théorème 2.1}\etiquette[2.1]{X.thm2.1}
+   106	Soit $k'/k$ une extension de type fini d'un corps $k$, et soit
+   107	$\ell\in \PP$. Alors
+   108	$$
+   109	\cd_{\ell}k'\leqq \cd_{\ell}k+\deg.\tr.(k'/k){\quoi},
+   110	$$
+   111	Si l'inégalité stricte est vraie et si $\ell\neq \car k$, alors
+   112	$\ell=2$, $k$ est ordonnable, et $k'$ n'est pas ordonnable (\ie $-1$
+   113	est une somme de carrés dans $k'$).
+   114	\end{enonce*}
+   115	
+   116	Rappelons que lorsque $\ell=\car k$ on a $\cd_{\ell}k'\leqq 1$ (CG II
+   117	\hyperref[X.thm2.2]{2.2}) donc la question d'égalité dans \hyperref[X.thm2.1]{2.1} 
+   118	ne se pose guère. De plus, on
+   119	a $\cd_2k=\infty$ si $k$ est ordonnable. En effet la clôture
+   120	algébrique $\bar{k}$ de $k$ contient une sous-extension
+   121	$\widetilde{k}$ (un sous-corps maximal ordonné de $\bar{k}$) avec
+   122	$[\bar{k}:\widetilde{k}]=2$. Évidemment, $\cd_2\widetilde{k}=\infty$,
+   123	et $\cd_2\widetilde{k}\leqq \cd_2 k$ d'après (CG I Prop.~14).
+   124	
+   125	Démonstration. C'est presque tout bien connu. L'inégalité\sisi{}{,} ainsi que
+   126	l'égalité si $\cd_{\ell}k<\infty$, sont des résultats de Tate (CG II
+   127	4.1.2). Il reste à démontrer que $\cd_{\ell}k'<\infty$ et
+   128	$\cd_{\ell}k=\infty$ \sisi{implique}{impliquent} $k$ ordonnable et $\ell=2$, et il suffit
+   129	de traiter les deux cas suivants:
+   130	\begin{itemize}
+   131	\item[a)] $[k':k]<\infty$,
+   132	
+   133	\item[b)] $k'=k(x)$ avec $x$ transcendant sur $k$.
+   134	\end{itemize}
+   135	Dans le cas a) on peut supposer $k'/k$ séparable. Alors le groupe de
+   136	Galois $H=G(\bar{k}/k')$ est un sous-groupe ouvert de $G=G(\bar{k}/k)$
+   137	et d'après un résultat de Serre [5] on a $\cd_{\ell}H=\cd_{\ell}G$
+   138	sauf si $G$ contient un élément d'ordre $\ell$. Comme un corps
+   139	algébriquement clos $\bar{k}$ ne peut pas avoir un sous-corps
+   140	$\widetilde{k}$ d'indice fini sauf si $\ell=2$ et $\widetilde{k}$ est
+   141	ordonnable [7], on trouve le résultat.
+   142	
+   143	Traitons\pageoriginale le cas b). Soit $R$ le hensélisé de $\Spec
+   144	k[x]$ au point $x=0$, qui est un anneau de valuation discrète, et soit
+   145	$K$ le corps des fractions de $R$. Alors $\cd_{\ell}k(x)<\infty$
+   146	implique $\cd_{\ell}K<\infty$. Il suffit donc de démontrer que
+   147	$\cd_{\ell}K<\infty$ implique $\cd_{\ell}k<\infty$, ce qui est
+   148	conséquence du théorème suivant:
+   149	
+   150	\begin{enonce*}{Théorème 2.2}\etiquette[2.2]{X.thm2.2}
+   151	\footnote{Ce théorème a été démontré récemment par $Ax$
+   152	    [1].}. Soit $R$ un anneau de valuation discrète hensélien, à
+   153	    corps de fractions $K$ et corps résiduel $k$. Soit $\ell\in
+   154	    \PP$. On a
+   155	$$
+   156	\cd_{\ell}K=\cd_{\ell}k+1
+   157	$$
+   158	dans les deux situations suivantes:
+   159	\begin{enumerate}
+   160	\renewcommand{\theenumi}{\roman{enumi}}
+   161	\renewcommand{\labelenumi}{(\theenumi)}
+   162	\item $\ell\neq \car k$.
+   163	
+   164	\item $\ell \neq \car K$, $k$ parfait, et $\cd_{\ell}k<\infty$.
+   165	\end{enumerate}
+   166	\end{enonce*}
+   167	
+   168	\begin{enonce*}[remark]{Remarque}
+   169	Naturellement, si $\ell=\car K$ on a $\cd_{\ell}K\leq 1$ en tous cas
+   170	(CG II \hyperref[X.thm2.2]{2.2}). Il reste donc à étudier la relation de $\cd_{\ell}K$
+   171	avec, peut-être, le module des différentielles absolues $\Omega^1_k$
+   172	(\EGA IV 20.4.3), dans le cas d'inégales caractéristiques lorsque $\car
+   173	k=\ell$, $k$ non parfait.\nde{Citer travail de Katô XXX} %% voire [GO] ?
+   174	\end{enonce*}
+   175	
+   176	Démonstration du théorème. Comme pour le théorème (\hyperref[X.thm2.1]{2.1}), la plupart
+   177	est due à Tate. Le cas (ii) est traité explicitement dans (CG II
+   178	Prop.~12) si $R$ est complet, et on se réduit à ce cas au moyen du
+   179	lemme suivant:
+   180	
+   181	\begin{enonce*}{Lemme 2.2.1}\etiquette[2.2.1]{X.lem2.2.1}
+   182	Soit $R$ un anneau de valuation discrète hensélien, à corps des
+   183	fractions $K$, et soit $\widehat{K}$ le corps des fractions du
+   184	complété $\widehat{R}$ de $R$. Alors
+   185	$$
+   186	G(\bar{\widehat{K}}/\widehat{K})\simeq G(\bar{K}/K){\quoi}.
+   187	$$
+   188	\end{enonce*}
+   189	
+   190	Démonstration. Cela veut dire que le foncteur $L\mapsto
+   191	\widehat{L}=L\otimes_K \widehat{K}$ de\pageoriginale la catégorie des
+   192	$K$-algèbres étales dans la catégorie des $\widehat{K}$-algèbres
+   193	étales est une équivalence. Or chaque algèbre étale $\widehat{K}'$ de
+   194	$\widehat{K}$ est induite par une algèbre étale convenable $K'$ de
+   195	$K$. En effet, si $\widehat{K}'=\widehat{K}[\alpha]$ où $\alpha$
+   196	satisfait à l'équation irréductible séparable $f(T)=0$ à coefficients
+   197	dans $\widehat{R}$, il suffit de prendre pour $K'$ l'algèbre 
+   198	$K[\alpha_0]$, où $\alpha_0$ est racine d'une équation $f_0(T)=0$ à
+   199	coefficients dans $R$ avec $f_0\equiv f(\widehat{m}^N)$, $N$ grand et
+   200	$\widehat{m}$ l'idéal maximal de $\widehat{R}$. C'est l'application de
+   201	la « méthode de Newton » habituelle (Bourbaki, Alg.~Comm.~III
+   202	4.5). Il reste à démontrer que le foncteur est pleinement fidèle (il
+   203	est évidemment fidèle), et il revient au même de démontrer que si $K'$
+   204	est un \emph{corps}, il en est de même de $\widehat{K}'$. Soit $R'$ le
+   205	normalisé de $R$ dans $K'$, qui est fini sur $R$ puisque $K'/K$ est
+   206	séparable. L'anneau $R'$ est un anneau de valuation discrète, et le
+   207	complété de $R'$ est $\widehat{R}'=R'\otimes_R \widehat{R}$. Donc
+   208	$\widehat{R}'$ est un anneau de valuation discrète, et comme $K'$ en
+   209	est l'anneau total des fractions, il est bien un corps.
+   210	
+   211	Traitons l'assertion (i) de \sisi{\eqhyperref[X.eq3.1]{3.1}}{\hyperref[X.thm2.2]{2.2}}.
+   212	Si $\cd_{\ell}k<\infty$ on est encore ramené par \hyperref[X.lem2.2.1]{2.2.1}
+   213	à (CG II Prop.~12) (l'hypothèse faite dans l'énoncé
+   214	de cette proposition que $k$ soit parfait n'est \sisi{utilisé}{utilisée} dans la
+   215	démonstration que dans le cas de caractéristique résiduelle
+   216	$\ell$). Il reste donc à démontrer que $\cd_{\ell}K<\infty$ implique
+   217	$\cd_{\ell}k<\infty$.
+   218	
+   219	Soit $\bar{G}=G(\bar{k}/k)=G(\widetilde{K}/K)$ où $\widetilde{K}$ est
+   220	l'extension non ramifiée maximale de $K$ (\ie le corps des fractions
+   221	de l'anneau de valuation discrète $\widetilde{R}$, à corps résiduel
+   222	séparablement clos, hensélisé strict de $R$), $G=G(\bar{K}/K)$,
+   223	$H=G(\bar{K}/\widetilde{K})$, donc $\bar{G}=G/H$. Soit
+   224	$\bar{G}'\subset \bar{G}$ un $\ell$-sous-groupe de Sylow, et soient
+   225	$k'/k$, $K'/K$ les extensions correspondant à $\bar{G}'$. On a
+   226	$\cd_{\ell}k<\infty$ si et seulement si $\cd_{\ell}k'<\infty$ (CG I
+   227	Prop.~14), donc en remplaçant $R$ par son normalisé dans $K'$, on
+   228	se réduit au cas où $\bar{G}$ est un $\ell$-groupe. Il suffit alors de
+   229	démontrer que si $\cd_{\ell}G<\infty$, alors
+   230	$H^N(\bar{G},\ZZ/\ell)=0$ pour $N$ assez grand (CG
+   231	I Prop.~20).
+   232	
+   233	On\pageoriginale a $\cd_{\ell}H=1$ d'après la partie de i) déjà
+   234	démontrée, appliquée à $\widetilde{R}$. De plus, on~a
+   235	\begin{equation*}
+   236	H^1(H, 𝛍_{\ell})=H^1(\Spec \widetilde{K},
+   237	𝛍_{\ell})=\widetilde{K}^{\ast}/\widetilde{K}^{\ast\ell}=\ZZ/\ell{\quoi}.\tag{2.2.2}
+   238	\end{equation*}\etiquette[2.2.2]{X.eq2.2.2}
+   239	En effet, $H^1(\Spec \widetilde{K},
+   240	𝛍_{\ell})=\widetilde{K}^{\ast}/\widetilde{K}^{\ast\ell}$
+   241	d'après la théorie de Kummer \hyperrefext[IX][IX.Thr3.2]{3.2}. On a une suite exacte
+   242	$$
+   243	0\longrightarrow \widetilde{R}^{\ast}\longrightarrow
+   244	\widetilde{K}^{\ast}\longrightarrow
+   245	\ZZ\longrightarrow 0{\quoi},
+   246	$$
+   247	et $\widetilde{R}^{\ast}$ est divisible par $\ell$ puisque
+   248	$\widetilde{R}$ est strictement local et $\ell$ inversible dans
+   249	$\widetilde{R}$, d'où \sisi{\hyperref[X.lem2.2.1]{2.2.1}}{\eqhyperref[X.eq2.2.2]{2.2.2}}.
+   250	
+   251	Considérons la suite spectrale de Hochschild-Serre
+   252	$$
+   253	E^{pq}_2=H^p(\bar{G}, H^q(H,
+   254	𝛍_{\ell}))\Longrightarrow
+   255	H^{p+q}(G,𝛍_\ell){\quoi}.
+   256	$$
+   257	On a $E^{pq}_2=0$ si $q>1$. Si de plus $\cd_{\ell}G<\infty$, le
+   258	morphisme « cobord »
+   259	$$
+   260	H^{n-1}(\bar{G}, H^1(H,𝛍_{\ell}))\longrightarrow
+   261	H^{n+1}(\sisi{\bar{G}}{G}, 𝛍_{\ell})
+   262	$$
+   263	doit être bijectif pour $n$ assez grand, et il faut démontrer qu'alors
+   264	$$
+   265	H^{n-1}
+   266	(\bar{G},H^1(H,𝛍_{\ell}))=H^{n-1}(\bar{G},\ZZ/\ell)=0{\quoi}.
+   267	$$
+   268	
+   269	Posons $R'=R[x']$ avec ${x'}^{\ell}=x$, $x$ le paramètre local de $R$,
+   270	et soient $K'$ le corps des fractions de $R'$, $G'=G(\bar{K}/\sisi{k}{K}')$,
+   271	\etcn Le corps résiduel de $R'$ est $k$, puisque nous avons supposé
+   272	$\bar{G}$ un $\ell$-groupe, donc que les racines $\ell$\sisi{.èmes}{-ièmes} %% à voir/harmoniser
+   273	de l'unité sont dans $K$. On a un diagramme
+   274	$$
+   275	\xymatrix@M=.25cm@C=1.5cm{
+   276	H' \ar[r] \ar@{^{(}->}[d]& G' \ar[r] \ar@{^{(}->}[d]&\bar{G}\\
+   277	H  \ar[r]& G \ar[r] & \bar{G},
+   278	}
+   279	$$
+   280	d'où\pageoriginale un morphisme de suites spectrales de
+   281	Hochschild-Serre, qui donne un diagramme commutatif
+   282	$$
+   283	\xymatrix{
+   284	H^{n-1}(\bar{G},H^{1}(H',𝛍_l)) \ar[rd]& &\\
+   285	                                              &
+   286	H^{n+1}(\sisi{\bar{G}}{G},𝛍_l) &\\
+   287	H^{n-1}(\bar{G},H^{1}(H,𝛍_l))\ar[uu]^{\varepsilon}
+   288	\ar[ru] & &.
+   289	}
+   290	$$
+   291	Comme $\cd_{\ell}G<\infty$ implique $\cd_{\ell}G'<\infty$, tous les
+   292	morphismes dans ce diagramme sont des isomorphismes pour $n$
+   293	grand. Mais le morphisme
+   294	$$
+   295	\ZZ/r=H^1(H,𝛍_{\ell})\longrightarrow
+   296	H^1(H',𝛍_{\ell})=\ZZ/\ell
+   297	$$
+   298	qui induit la flèche $\epsilon$ est évidemment nul, donc
+   299	$H^{n-1}(\bar{G},\ZZ/\ell)=0$,\cqfd
+   300	
+   301	\begin{enonce*}{Théorème 2.3}\etiquette[2.3]{X.thm2.3}
+   302	Soient $A$ un anneau noethérien hensélien de dimension $1$, et
+   303	$\ell\in \PP$ inversible dans $A$. Soient $k$ le
+   304	corps résiduel de $A$ et $R(A)$ l'anneau des fonctions rationnelles
+   305	%% dire qu'il s'agit de l'anneau total des fractions ? [avec référence à ÉGA] ?
+   306	sur $\Spec A$. On a
+   307	$$
+   308	\cd_{\ell}R(A)\leq \cd_{\ell}k+1{\quoi},
+   309	$$
+   310	et l'égalité est vraie si $\ell\neq 2$ ou si $k$ n'est pas ordonnable.
+   311	\end{enonce*}
+   312	
+   313	Démonstration. En remplaçant $A$ par $A/P$ pour un idéal premier
+   314	minimal $P$ de $A$ et en appliquant VIII 1 %% référence manquante \XXX
+   315	on voit qu'on peut supposer $A$ intègre. Soient $K$ son corps des fractions, $R$ son
+   316	normalisé, qui est local et hensélien, donc un anneau de valuation
+   317	discrète (il est noethérien d'après Krull-Akizuki (Bourbaki,
+   318	Alg. Comm. Chap.~7, \S 2, prop.~5)) et soit $k'$ le corps résiduel de
+   319	$R$. Il est connu que $[k':k]<\infty$ (\loccit). Or $K$ est le corps
+   320	des fractions de $R$ et on a donc
+   321	$$
+   322	\cd_{\ell}K=\cd_{\ell}k'+1\leq \cd_{\ell}k+1
+   323	$$
+   324	d'après\pageoriginale \hyperref[X.thm2.2]{2.2}, avec l'égalité sous la dernière hypothèse
+   325	de \hyperref[X.thm2.3]{2.3}, d'après \hyperref[X.thm2.1]{2.1}.
+   326	
+   327	\begin{enonce*}[remark]{Exemple}
+   328	L'égalité n'est pas vraie pour $\ell=2$, $A$ étant le hensélisé à
+   329	l'origine de $\RR[x,y]/(x^2+y^2)$.
+   330	\end{enonce*}
+   331	
+   332	\begin{enonce*}{Corollaire 2.4}\etiquette[2.4]{X.cor2.4}
+   333	Soit $A$ un anneau local noethérien à corps résiduel $k$, et soit
+   334	$\ell\in \PP$ inversible dans $A$. Supposons que
+   335	$\ell\neq 2$ \sisi{où}{ou} qu'aucun corps résiduel de $\Spec A$ ne soit
+   336	ordonnable. Alors on a
+   337	$$
+   338	\cd_{\ell}R(A)\geq \cd_{\ell}k+\dim A{\quoi},
+   339	$$
+   340	où $R(A)$ est l'anneau des fonctions rationnelles sur $\Spec A$.
+   341	\end{enonce*}
+   342	
+   343	Démonstration. On peut supposer $A$ intègre, \sisi{a}{de} corps des fractions
+   344	$R(A)=K$. Soit $x\in 𝔪_A$\sisi{ un élément qui n'est pas diviseur de zéro}{}.
+   345	%% harmoniser idéaux maximaux/premiers \XXX
+   346	Alors $\dim A/(x)=\dim A-1$. Par récurrence sur $\dim A$, on a
+   347	$$
+   348	\cd_{\ell}R(A/(x))\geq \cd_{\ell}k+\dim A-1{\quoi}.
+   349	$$
+   350	Soit $k'$ un corps résiduel de $R(A/(x))$ tel que
+   351	$\cd_{\ell}k'=\cd_{\ell}R(A/(x))$ (\cf VIII 1), et soit $P$ %% 𝔭
+   352	l'idéal premier, noyau de $A\rightarrow k'$. L'anneau $A_P$ est de dimension $1$.
+   353	Il suffit donc de démontrer le corollaire pour l'anneau local $A_P$,
+   354	c'est-à-dire, on est réduit au cas où $\dim A=1$. Soit
+   355	$\widetilde{A}$ le hensélisé de $A$. Chaque corps résiduel de
+   356	$R(\widetilde{A})$ s'identifie à une extension séparable de
+   357	$R(\widetilde{A})=K$, et on a donc
+   358	$$
+   359	\cd_{\ell}R(A)=\cd_{\ell}K\geq \cd_{\ell}R(\widetilde{A}){\quoi}.
+   360	$$
+   361	On est ainsi ramené au cas où $A$ est de dimension 1 et hensélien, ce
+   362	qui est conséquence de \hyperref[X.thm2.3]{2.3}.
+   363	
+   364	\begin{enonce*}{Corollaire 2.5}\etiquette[2.5]{X.cor2.5}
+   365	Soit\pageoriginale $X$ un schéma noethérien et soit $\ell\in
+   366	\PP$ inversible sur $X$. Alors
+   367	$$
+   368	\cd_{\ell}R(X)\geq \dim X{\quoi}.
+   369	$$
+   370	\end{enonce*}
+   371	
+   372	En effet, soit $x\in X$ un point tel que $\dim X=\dim \Oo_{X,x}$ (ou
+   373	tel que $\dim \Oo_{X,x}$ est très grand si $\dim X=\infty$). Soit $A$ le
+   374	hensélisé strict de $\Oo_{X,x}$. Alors on a $\cd_{\ell}R(X)\geq
+   375	\cd_{\ell}R(\Oo_{X,x})\geq \cd_{\ell}R(A)$ d'après le raisonnement
+   376	habituel. De plus, $\dim A=\dim X$ (\resp est très grand). Si
+   377	$\ell=2$, et si $\ell$ est inversible sur $X$, alors l'équation
+   378	$T^2+1=0$ est séparable sur $A$, donc $-1$ est un carré dans $A$ parce
+   379	que $A$ est strictement local, donc les corps résiduels de $A$ sont
+   380	non ordonnables. Donc les hypothèses de \hyperref[X.cor2.4]{2.4} sont satisfaites pour $A$
+   381	en tout cas, et on a $\cd_{\ell}R(A)\geq \dim A$, d'où le résultat.
+   382	
+   383	\section{Corps des fractions d'un anneau strictement local}\etiquette[3]{X.sec3}
+   384	
+   385	\setcounter{subsection}{-1}
+   386	\subsection{}\etiquette[3.0]{X.subsec3.0}
+   387	Nous aurons un besoin essentiel, pour les numéros suivants, de la
+   388	connaissance de $\cd_{\ell}R(A)$, où $A$ est un anneau strictement
+   389	local, c'est-à-dire hensélien à corps résiduel séparablement
+   390	clos. Malheureusement on ne connaît pas $\cd_{\ell}R(A)$ dans le cas
+   391	général, par exemple si
+   392	$A=\widehat{\ZZ}_p[[x]](p\neq \ell)$.
+   393	
+   394	On conjecture\nde{Démontré par O. Gabber XXX} cependant que si $A$ est noethérien et $\ell$ est
+   395	inversible dans $A$, on \sisi{aura}{a}
+   396	\begin{equation*}
+   397	\cd_{\ell}R(A)=\dim A\quad (\ell\mbox{ inversible dans } A){\quoi},\tag{3.1}
+   398	\end{equation*}\etiquette[3.1]{X.eq3.1}
+   399	du moins dans les cas les plus importants, par exemple si $A$ est un
+   400	anneau \emph{excellent} (\EGA IV 7.8.2).
+   401	
+   402	Notons que si $\dim A=1$, \eqhyperref[X.eq3.1]{3.1} est vrai d'après \hyperref[X.thm2.3]{2.3}. De plus, on a
+   403	l'inégalité $\geq$ d'après \hyperref[X.cor2.5]{2.5} en tout cas. Nous démontrerons plus
+   404	tard (XIX) que \eqhyperref[X.eq3.1]{3.1} est aussi vrai si $A$ est excellent de
+   405	caractéristique\pageoriginale résiduelle nulle, en utilisant la
+   406	résolution des singularités \cite{3}. Ici nous démontrerons \eqhyperref[X.eq3.1]{3.1} seulement
+   407	dans le cas facile \hyperref[X.prop3.2]{3.2}. ci-dessous.
+   408	
+   409	Naturellement on a $\cd_{\ell}R(A)\leq 1$ si $A$ est de
+   410	caractéristique $\ell$, donc ce cas est trivial. Il reste de plus à
+   411	analyser le cas d'inégales caractéristiques, avec caractéristique
+   412	résiduelle $\ell$, et on ne s'attend pas à ce que \eqhyperref[X.eq3.1]{3.1} soit vrai dans
+   413	ce \sisi{cas là}{cas-là}. Il faudra certainement tenir compte du rang du module
+   414	$\Omega^1_k$ ($k$ le corps résiduel), \ie du degré $[k:k^{\ell}]$.\nde{Voir [Gabber-Orgogozo] XXX} %% \XXX
+   415	
+   416	\begin{enonce*}{Proposition 3.2}\etiquette[3.2]{X.prop3.2}
+   417	Soit $X$ un préschéma de type fini sur le spectre d'un corps $k$ ou
+   418	sur le spectre d'un anneau de valuation discrète $R$, et soit $\ell\in
+   419	\PP$ inversible dans $k$ (\resp~$R$). Alors $3.1$
+   420	est vrai pour chaque anneau $A$ qui est un localisé strict de $X$.
+   421	\end{enonce*}
+   422	
+   423	\emph{Démonstration}. Prenons $X$ intègre (on se réduit à ce cas comme
+   424	d'habitude), et soit $n=\dim X$.
+   425	
+   426	Supposons que $X$ soit défini sur un corps \emph{séparablement clos}
+   427	$k$. Alors pour chaque anneau $A$ qui est un localisé strict de $X$ en
+   428	un point \emph{fermé}, on a $\dim A=n$. Comme chaque corps résiduel
+   429	$K$ de $R(A)$ s'identifie à une extension algébrique de $R(X)$ et
+   430	comme
+   431	$$
+   432	\deg.\tr.(R(X)/k)=\dim X=n{\quoi},
+   433	$$
+   434	%% \tr. etc. moche : il y a une espace en trop (tr .) \XXX
+   435	on a $\cd_{\ell}K\leq n$ d'après \hyperref[X.thm2.1]{2.1}, d'où $\cd_{\ell}R(A)\leq
+   436	n$. L'inégalité opposée est conséquence de \hyperref[X.cor2.5]{2.5}.
+   437	
+   438	Supposons maintenant que $X$ soit de type fini sur $\Spec R$, $R$ un
+   439	anneau de valuation discrète, et soit $A$ le localisé strict de $X$ en
+   440	un point $x$. Si $x$ n'est pas au-dessus du point fermé de $\Spec R$,
+   441	on se réduit immédiatement au cas où $X$ est de type fini sur un corps
+   442	(en localisant $R$). On peut aussi pour la même raison supposer que le
+   443	morphisme $X\rightarrow \Spec R$ est dominant.
+   444	
+   445	Supposons\pageoriginale pour l'instant que de plus $R$ est un anneau
+   446	de valuation discrète \emph{strictement local} et que le point $x$ est
+   447	\emph{fermé} dans $X$. Alors on a $\dim A=\dim X=n$ (\EGA IV
+   448	5.6.5). Comme chaque corps résiduel $K$ de $R(A)$ s'identifie à une
+   449	extension séparable de $R(X)$ on a
+   450	$$
+   451	\cd_{\ell}R(A)\leq \cd_{\ell}R(X)\leq
+   452	\cd_{\ell}L+\deg.\tr.(R(X)/L)=1+(n-1)=n
+   453	$$
+   454	d'après \hyperref[X.thm2.1]{2.1} et \hyperref[X.thm2.2]{2.2}, où $L$ est le corps 
+   455	des fractions de $R$, d'où le
+   456	résultat dans ce cas, compte tenu de \hyperref[X.cor2.5]{2.5}.
+   457	
+   458	On déduit le cas général de ces cas particuliers au moyen du lemme
+   459	suivant:
+   460	
+   461	\begin{enonce*}{Lemme 3.3}\etiquette[3.3]{X.lem3.3}
+   462	\begin{enumerate}
+   463	\renewcommand{\theenumi}{\roman{enumi}}
+   464	\renewcommand{\labelenumi}{(\theenumi)}
+   465	\item Soit $X$ de type fini sur le spectre d'un corps $k$ et soit $A$
+   466	  un anneau localisé strict de $X$ en un point $x$. Alors il existe un
+   467	  corps $k'$ séparablement clos, un schéma $X'$ de type fini sur
+   468	  $\Spec k'$, et un point $x'$ fermé dans $X'$ tel que $A$ soit
+   469	  isomorphe à un anneau localisé strict de $X'$ en $x'$.
+   470	
+   471	\item Soit $X$ de type fini sur $\Spec R$, $R$ un anneau de valuation
+   472	  discrète, soit $x$ un point de $X$ au-dessus du point fermé de
+   473	  $\Spec R$ et soit $A$ un localisé strict de $X$ en $x$. Il existe un
+   474	  anneau de valuation discrète strictement local $R'$, un schéma $X'$
+   475	  de type fini sur $\Spec R'$, et un point fermé $x'$ de $X'$
+   476	  au-dessus du point fermé de $\Spec R'$, tel que $A$ soit isomorphe à
+   477	  un localisé strict de $X'$ en $x'$.
+   478	\end{enumerate}
+   479	\end{enonce*}
+   480	
+   481	Démonstration. 
+   482	\begin{enumerate}
+   483	\renewcommand{\theenumi}{\roman{enumi}}
+   484	\renewcommand{\labelenumi}{(\theenumi)}
+   485	\item On peut prendre $X$ affine. 
+   486	
+   487	Soit $Y$ l'adhérence de
+   488	$x$ dans $X$, avec la structure induite réduite, et soit $d=\dim
+   489	Y$. Par le lemme de normalisation (\cite{2} Chap. V \S 3 ${\rm n^{\circ}}$
+   490	1), il existe un morphisme
+   491	$$
+   492	X\longrightarrow \Spec k[y_1,\ldots, y_d]=T
+   493	$$
+   494	induisant\pageoriginale un morphisme \emph{fini} $Y\rightarrow T$. Par
+   495	suite l'anneau localisé strict de $\Oo_{X,x}$ est isomorphe au localisé
+   496	strict de $\Oo_{X',x'}$, où $X'=\fprod{X}{\Spec\bar{R(T)}}{T}$, et où
+   497	$x'$ est un point fermé dans $X'$.
+   498	
+   499	\item Ce cas se traite d'une façon analogue. On peut supposer $X$
+   500	  affine, d'anneau $A$. Soit $Y$ l'adhérence de $x$ dans $X$ avec la
+   501	  structure induite réduite, qui est un sous-schéma fermé de la fibre
+   502	  fermée $X_0$ de $X$ sur $\Spec R$, et soit $d=\dim Y$. Alors, en
+   503	  relevant les éléments $y_1,\ldots,y_d$ de $A\otimes_R k$ envisagés
+   504	  dans (i) en des éléments de $A$, on trouve un morphisme
+   505	$$
+   506	X\longrightarrow \Spec R[y_1,\ldots,y_d]=T
+   507	$$
+   508	induisant un morphisme \emph{fini} $Y\rightarrow T_0$. Soit $R'$ le
+   509	localisé strict de $R[y_1,\ldots,y_d]=B$ en l'idéal premier
+   510	$𝔪B$. %% préciser que 𝔪 est l'idéal maximal de R ? \XXX
+   511	Alors $R'$ est un anneau de valuation discrète strictement
+   512	local, et on peut prendre $X'=\fprod{X}{\Spec R'}{T}$, et $x'$ un
+   513	point fermé de $X'$ au-dessus de $x$.
+   514	\end{enumerate}
+   515	
+   516	\section{Dimension cohomologique: cas $ℓ$ inversible dans $𝒪_X$}\etiquette[4]{X.sec4}
+   517	
+   518	\begin{enonce*}{Théorème 4.1}\etiquette[4.1]{X.thm4.1}
+   519	Soit $X$ un schéma noethérien, $\ell\in \PP$, et
+   520	$\varphi$ une fonction sur $X$, à valeurs dans
+   521	$\NN$, et satisfaisant aux conditions suivantes:
+   522	\begin{enumerate}
+   523	\renewcommand{\theenumi}{\roman{enumi}}
+   524	\renewcommand{\labelenumi}{(\theenumi)}
+   525	\item Pour chaque $x\in X$, $\cd_{\ell}k(x)\leq \varphi (x)$.
+   526	
+   527	\item Soit $x\in X$ et $y\in Y=$ adhérence de $x$, $y\neq x$. Soit $K$
+   528	  l'anneau des fonctions rationnelles d'un localisé strict de $Y$
+   529	  au-dessus de $y$. On a $\cd_{\ell}K<\varphi(x)-\varphi(y)$.
+   530	\end{enumerate}
+   531	Alors pour chaque faisceau de $\ell$-torsion $F$ sur $X$ on a
+   532	\begin{gather*}
+   533	H^q(X,F)=0\\
+   534	q>\varphi(F)\mathop{=}_{\text{\rm déf}}\Sup\{\varphi(x)\mid x\in X,
+   535	F_{\bar{x}}\neq 0\}{\quoi}.\tag*{si}
+   536	\end{gather*}
+   537	\end{enonce*}
+   538	
+   539	Démonstration.\pageoriginale 
+   540	Les hypothèses seront aussi vérifiées pour la fonction
+   541	restriction de $\varphi$\sisi{,}{} à un sous-préschéma quelconque de $X$, donc
+   542	par récurrence noethérienne nous pouvons supposer le théorème vrai
+   543	pour chaque sous-préschéma fermé de $X$ distinct de $X$. Soit $F$
+   544	donné et écrivons $F=\varinjlim F_i$ où les $F_i$ sont les
+   545	sous-faisceaux constructibles de $F$ (\hyperrefext[IX][IX.prop2.9]{2.9} (iii)).
+   546	
+   547	Pour chaque $F_i$, l'ensemble des $x\in X$ tels que $F_x\neq 0$ est
+   548	constructible dans $X$, et nous pouvons appliquer l'hypothèse de
+   549	récurrence à chaque $F_i$ dont le support n'est pas dense. On voit
+   550	ainsi que l'hypothèse de récurrence implique en fait que le théorème
+   551	est vrai pour chaque $F$ qui est nul en au moins un des points
+   552	maximaux de $X$. Nous allons donc supposer que $F$ ne satisfait pas à
+   553	cette condition.
+   554	
+   555	Soit maintenant $i:\Spec R(X)\rightarrow X$ l'inclusion, où $R(X)$ est
+   556	l'anneau des fonctions rationnelles de $X$, et considérons la suite
+   557	exacte suivante, où $K$ et $C$ sont définis comme noyau et conoyau
+   558	respectivement:
+   559	$$
+   560	0\longrightarrow K\longrightarrow F\longrightarrow i_{\ast}
+   561	i^{\ast}F\longrightarrow C\longrightarrow 0{\quoi}.
+   562	$$
+   563	Ici $K$ et $C$ sont nuls en chaque point maximal de $X$, donc d'après
+   564	(ii), $\varphi(K)$ (\resp $\varphi(C)$) est strictement plus petit que
+   565	$n=\varphi(F)$, d'où $H^q(X,K)=H^q(X,C)=0$ pour $q\geq n$. Donc\sisi{}{,} pour
+   566	démontrer $H^q(X,F)=0$ pour $q>n$, il suffit, grâce aux suites exactes
+   567	de cohomologie, de démontrer $H^q(X,i_{\ast}i^{\ast}F)=0$, donc nous
+   568	pouvons supposer que $F$ est de la forme $i_{\ast}G$, pour un
+   569	$\ell$-faisceau convenable $G$ sur $\Spec R(X)$.
+   570	
+   571	Examinons la suite spectrale de Leray\sisi{.}{}
+   572	$$
+   573	E^{p,q}_2=H^p(X,R^qi_{\ast}G)\Longrightarrow H^{p+q}(\Spec
+   574	R(X),G){\quoi}.
+   575	$$
+   576	Or $R(X)_{\text{\rm réd}}$ est produit des corps $k(x)$ pour $x$
+   577	maximal dans $X$, donc $\cd_{\ell}R(X)\leq n$ d'après (i), donc
+   578	l'aboutissement de la suite spectrale est nul en \sisi{$\dim > n$}{dimension
+   579	strictement supérieure à $n$}.
+   580	Nous\pageoriginale voulons démontrer que $E^{p0}_2=0$ pour $p>n$. En
+   581	examinant la suite spectrale, on voit qu'il suffit de démontrer que
+   582	$E^{pq}_2=0$ si $q>0$ et si $p>n-q-1$. Donc, par récurrence, il suffit
+   583	de démontrer que $\varphi(R^qi_{\ast}G)<n-q$ pour $q>0$. Mais d'après
+   584	VIII 5.2 la fibre de $R^qi_{\ast}G$ en un point géométrique $\bar{y}$
+   585	au-dessus d'un point $y\in X$ n'est autre que $H^q(\Spec K, G_K)$, où
+   586	$K$ est l'anneau des fonctions rationnelles du localisé strict de $X$
+   587	en $\bar{y}$, et $G_K$ est le faisceau induit sur $\Spec K$. On a
+   588	$\cd_{\ell}K<n-\varphi(y)$ d'après (ii), d'où
+   589	$(R^qi_{\ast}G)_{\bar{y}}=0$ si $q\geq n-\varphi(y)$, ce qui donne le
+   590	résultat cherché.
+   591	
+   592	\begin{enonce*}{Corollaire 4.2}\etiquette[4.2]{X.cor4.2}
+   593	Soient $X$ un schéma noethérien, $\ell\in \PP$,
+   594	$n\in \NN$, et supposons que les conditions
+   595	suivantes soient satisfaites:
+   596	\begin{enumerate}
+   597	\renewcommand{\theenumi}{\roman{enumi}}
+   598	\renewcommand{\labelenumi}{(\theenumi)}
+   599	\item Pour chaque point $y$ de $X$ de codimension $c$, on a
+   600	  $\cd_{\ell}k(y)\leq n-2c$.
+   601	
+   602	\item Pour chaque anneau $A$, localisé strict d'un sous-schéma fermé
+   603	  irréductible $Y$ de $X$, on a $\cd_{\ell}R(A)\leq \dim A$.
+   604	
+   605	Alors
+   606	$$
+   607	\cd_{\ell}X\leq n{\quoi}.
+   608	$$
+   609	Plus précisément, si $F$ est un $\ell$-faisceau qui est nul en chaque
+   610	point $y$ de codimension $<s$, on a
+   611	$$
+   612	H^q(X,F)=0\mbox{ si } q>n-2s{\quoi}.
+   613	$$
+   614	\end{enumerate}
+   615	\end{enonce*}
+   616	
+   617	En effet, on peut prendre $\varphi(y)=n-2\codim y$ et appliquer \hyperref[X.thm4.1]{4.1},
+   618	dont la condition (i) (\resp (ii)) résulte de la condition
+   619	correspondante de (i) (\resp (ii)) de (\hyperref[X.cor4.2]{4.2}), compte tenu pour (ii) de
+   620	l'inégalité $\dim \Oo_{Y,y}+\dim \Oo_{X,x}\leq \dim \Oo_{X,y}$.
+   621	
+   622	\begin{enonce*}{Corollaire 4.3}\etiquette[4.3]{X.cor4.3}
+   623	Soit $X$ de type fini et de dimension $n$ sur un corps $k$ et soit
+   624	$\ell\neq \car k$. Alors $\cd_{\ell}X\leq 2n+\cd_{\ell}k$.
+   625	\end{enonce*}
+   626	
+   627	On\pageoriginale applique le corollaire précédent, en y remplaçant
+   628	$n$ par $2n+cd_{\ell}k$, et utilisant \hyperref[X.thm2.1]{2.1} et \hyperref[X.prop3.2]{3.2} 
+   629	pour vérifier les
+   630	conditions (i) et (ii) de \hyperref[X.cor4.2]{4.2}, et tenant compte pour (i) de
+   631	l'inégalité
+   632	$$
+   633	\deg.\tr.K(y)/k+\dim \Oo_{X,y}\leq \dim X{\quoi}.
+   634	$$
+   635	
+   636	\begin{enonce*}{Corollaire 4.4}\etiquette[4.4]{X.cor4.4}
+   637	Soit $X$ noethérien, et $\ell\in \PP$ inversible
+   638	sur $X$. Supposons que la condition {\rm (ii)} de $4.2$ est
+   639	satisfaite, et que de plus $\ell\neq 2$ \sisi{où}{ou} qu'aucun corps résiduel de
+   640	$X$ ne soit ordonnable. Alors on a
+   641	$$
+   642	\cd_{\ell}X\leq \cd_{\ell}R(X)+\dim X\leq 2\cd_{\ell}R(X){\quoi}.
+   643	$$
+   644	\end{enonce*}
+   645	
+   646	On pose $n=\cd_{\ell}R(X)+\dim X$ dans \hyperref[X.cor4.2]{4.2}, et on applique \hyperref[X.cor2.4]{2.4}, 
+   647	qui implique la condition (i) de \hyperref[X.cor4.2]{4.2}, car
+   648	\[\cd_{\ell}k(y)\leq \cd_{\ell}R(\Oo_{X,y})-\dim \Oo_{X,y}\leq
+   649	\cd_{\ell}R(X)-\dim\Oo_{X,y}\leq n-2\dim \Oo_{X,y}.
+   650	\]
+   651	La deuxième inégalité dans \hyperref[X.cor4.4]{4.4} résulte de \hyperref[X.cor2.5]{2.5}.
+   652	
+   653	\begin{enonce*}[remark]{Exemple 4.5}\etiquette[4.5]{X.exem4.5}
+   654	L'hypothèse inélégante sur les corps résiduels faite dans \hyperref[X.cor4.4]{4.4}, est
+   655	nécessaire, comme on voit avec $X=\Spec
+   656	\RR[x,y,z]/(x^2+y^2+z^2)$, où toutes les autres
+   657	conditions sont satisfaites, avec $\dim X=\cd_{\ell}R(X)=\ell=2$, mais
+   658	le faisceau $\ZZ/2$ concentré au point $(0,0,0)$ a
+   659	une cohomologie non nulle en chaque dimension, donc
+   660	$\cd_{\ell}X=+\infty$.
+   661	\end{enonce*}
+   662	
+   663	\setcounter{subsection}{5}
+   664	\subsection{}\etiquette[4.6]{X.subsec4.6}
+   665	On est tenté aussi d'essayer dans \hyperref[X.cor4.2]{4.2} de mettre des hypothèses
+   666	seulement sur les points fermés de $X$, mais ce n'est pas
+   667	possible. Par exemple il existe des anneaux de valuation discrète à
+   668	corps résiduel algébriquement clos et à corps de fonctions ayant une
+   669	dimension cohomologique arbitrairement grande \footnote[1]{Pour s'en
+   670	  convaincre, il suffit de noter que si $X$ est un schéma algébrique
+   671	  lisse sur un corps $k$, admettant un point $x\in X(k)$, alors on
+   672	  peut trouver un « arc de courbe formel » passant par $x$ dont
+   673	  « l'enveloppe algébrique » soit $X$, et dont le corps des
+   674	  fonctions contient donc celui $K$ de $X$, et y induit une valuation
+   675	  discrète dont le corps résiduel est $k$.}. Le spectre d'un tel
+   676	anneau aura aussi une dimension cohomologique très grande.
+   677	%% à faire (pour la note) : i -> (i) \XXX
+   678	
+   679	\section{Dimension cohomologique: cas $ℓ=p$}\etiquette[5]{X.sec5}\pageoriginale 
+   680	
+   681	\setcounter{subsection}{-1}
+   682	\subsection{}\etiquette[5.0]{X.subsec5.0}
+   683	En utilisant la théorie d'Artin\sisi{ - }{-}Schreier (\hyperrefext[IX][IX.Thr3.5]{3.5}) on obtient une
+   684	meilleure majoration que \hyperref[X.cor4.3]{4.3} pour la $p$-dimension
+   685	cohomologique d'un 
+   686	schéma $X$ de caractéristique $p$. Soit $\cdqc X$ le plus grand nombre
+   687	$n$ tel que $H^n(X,F)\neq 0$ pour au moins un faisceau de Modules $F$
+   688	\emph{quasi-cohérent} sur $X$ (au sens de Zariski). On a le
+   689	
+   690	\begin{enonce*}{Théorème 5.1}\etiquette[5.1]{X.thm5.1}
+   691	Soit $X$ un schéma noethérien de caractéristique $p>0$. Alors
+   692	$$
+   693	\cd_pX\leq \cdqc X+1{\quoi}.
+   694	$$
+   695	En particulier, la $p$-dimension cohomologique d'un schéma noethérien
+   696	affine $X$ de caractéristique $p>0$ est au plus égale à $1$.
+   697	\end{enonce*}
+   698	
+   699	Démonstration. Appliquons \hyperrefext[IX][IX.prop5.5]{5.5}:
+   700	
+   701	Tenant compte du fait que les $R^q f_{\ast}F$, $q>0$, sont nuls pour un
+   702	morphisme $f$ fini et pour un faisceau abélien $F$ (VIII 5.5) %% référence \XXX
+   703	(\resp un faisceau $F$ quasi-cohérent), on se ramène à démontrer que
+   704	$H^q(X,\sisi{i_1}{i_!}(\ZZ/p)_U)=0$ pour $i:U\rightarrow X$ une
+   705	immersion ouverte et pour $q>\cdqc X$.
+   706	
+   707	Or soit $Y$ un sous-préschéma fermé de $X$ de support $X-U$ et soit
+   708	$J$ le faisceau cohérent d'idéaux définissant $Y$. Le morphisme
+   709	$p:f\mapsto f^p-f$ (\hyperrefext[IX][IX.Thr3.5]{3.5}) induit un morphisme $J\rightarrow J$. En
+   710	examinant la suite exacte \hyperrefext[IX][IX.Thr3.5]{3.5} et la suite exacte
+   711	$$
+   712	0\longrightarrow i_{!}(\ZZ/p)_U\longrightarrow
+   713	(\ZZ/p)_X\longrightarrow
+   714	(\ZZ/p)_Y\longrightarrow 0{\quoi},
+   715	$$
+   716	on voit qu'on a en fait une suite exacte
+   717	\begin{equation*}
+   718	0\longrightarrow i_{!}(\ZZ/p)_U\longrightarrow
+   719	J\longrightarrow J\longrightarrow 0{\quoi}.\tag{$\ast$}
+   720	\end{equation*}
+   721	Puisque $J$ est cohérent on a $H^q(X,J)=0$ pour $q>\cdqc X$, d'où le
+   722	résultat\pageoriginale par la suite exacte de cohomologie.
+   723	
+   724	Pour un schéma quasi-projectif sur un corps $k$ séparablement clos, on
+   725	peut réduire cette majoration dans certain cas \sisi{par}{de} $1$. On a en fait
+   726	
+   727	\begin{enonce*}{Corollaire 5.2}\etiquette[5.2]{X.cor5.2}
+   728	Soit $X$ un schéma de type fini sur un corps $k$ de caractéristique
+   729	$p>0$. On a
+   730	$$
+   731	\cd_pX\leq \dim X+1{\quoi},
+   732	$$
+   733	et si $k$ est séparablement clos et $X$ quasi-projectif
+   734	\footnote[1]{Utilisant le lemme de Chow, il est facile de remplacer
+   735	  la condition « $X$ quasi-projectif » par « $X$ séparé ».},
+   736	on a
+   737	$$
+   738	\cd_pX\leq \dim X{\quoi}.
+   739	$$
+   740	\end{enonce*}
+   741	
+   742	En effet, la première assertion est claire, puisque $\cdqc X\leq \dim
+   743	X$ (\cite{6} 4.15.2). Traitons la deuxième: Pour un tel $X$, les groupes de
+   744	cohomologie $H^n(X,F)$ $(n=\dim X)$, pour un faisceau cohérent $F$,
+   745	sont des espaces vectoriels de dimension finie sur $k$. Soit
+   746	$V=H^n(X,J)$, où $J$ est le faisceau d'idéaux qui figure dans la suite
+   747	exacte $(\ast)$. Le morphisme $\varphi:V\rightarrow V$ déduit de $(\ast)$
+   748	est évidemment de la forme $\varphi=\epsilon-\id$ \sisi{ou}{où}
+   749	$\epsilon$ satisfait à $\epsilon(rv)=r^p\epsilon(V)$ pour $r\in k$ et
+   750	$v\in V$. La jacobienne de l'application $\Phi$ du schéma affine
+   751	déduit de $\Phi$ est donc $-I$, \sisi{$I$}{où $I$ est} la matrice identique. Par suite
+   752	$\Phi$ est étale, donc surjectif parce que additif, et il s'ensuit que
+   753	$\Phi$ est surjectif puisque $k$ est séparablement clos, d'où aussitôt
+   754	la conclusion.
+   755	
+   756	\section{Dimension cohomologique pour un préschéma de type fini sur $\mathrm{Spec} ℤ$}\etiquette[6]{X.sec6}\pageoriginale
+   757	
+   758	\begin{enonce*}{Proposition 6.1}\etiquette[6.1]{X.prop6.1}
+   759	Soit $X$ quasi-fini au-dessus de $\Spec \ZZ$. Supposons que
+   760	$\ell\neq 2$ \sisi{où}{ou} que chaque corps résiduel de $X$ de caractéristique
+   761	zéro est totalement imaginaire. Alors $\cd_{\ell}X\leq 3$.
+   762	\end{enonce*}
+   763	
+   764	C'est une conséquence \sisi{de}{du} \sisi{Théorème}{théorème} \hyperref[X.thm2.2]{2.2} (ii), du \sisi{Corollaire}{corollaire} \hyperref[X.cor4.2]{4.2}
+   765	et du fait qu'un corps de nombres (totalement imaginaire si $\ell =2$) est
+   766	de $\ell$-dimension cohomologique $\leq 2$ (CG II 4.4).
+   767	
+   768	\sisi{Il s'ensuit en fait de la théorie des corps de classes}{Une conséquence de la théorie du corps de classes est} qu'on a
+   769	l'égalité si le morphisme $X\rightarrow \Spec \ZZ$ est propre
+   770	et surjectif.
+   771	
+   772	Malheureusement les résultats du ${\rm n^{\circ}}$ 4 ne s'appliquent
+   773	pas tels quels si $X$ est seulement de type fini sur $\Spec
+   774	\ZZ$, parce que l'hypothèse (ii) de (\hyperref[X.cor4.2]{4.2}) n'est pas en général
+   775	vérifiée pour les anneaux locaux de \emph{caractéristique résiduelle}
+   776	$\ell$. On doit donc utiliser le résultat (\hyperref[X.thm5.1]{5.1}) pour obtenir la bonne
+   777	majoration; on va maintenant se payer pour le théorème (\hyperref[X.thm5.1]{5.1}).
+   778	
+   779	\begin{enonce*}{Théorème 6.2}\etiquette[6.2]{X.thm6.2}
+   780	Soit $X$ de type fini sur $\Spec \ZZ$, et soit $\ell\in
+   781	\PP$. Supposons, si $\ell=2$, qu'aucun corps résiduel de $X$
+   782	n'est ordonnable. Alors
+   783	$$
+   784	\cd_{\ell}X\leq 2\dim X+1{\quoi}.
+   785	$$
+   786	Plus précisément, soit $F$ un faisceau de $\ell$-torsion tel que pour
+   787	tout point $x$ de $X$ tel que $F_{\bar{x}}\neq 0$, on ait
+   788	$$
+   789	\dim\{\bar{x}\}\leq
+   790	\begin{cases}
+   791	(N-1)/2 &\mbox{si\quad } \ell\neq \car k(x)\\
+   792	N-1     &\mbox{si\quad } \ell=\car k(x)
+   793	\end{cases}
+   794	$$
+   795	($\{\bar{x}\}$ est l'adhérence de $\{x\}$); alors
+   796	$$
+   797	H^p(X,F)=0\mbox{ si } p>N{\quoi}.
+   798	$$
+   799	\end{enonce*}
+   800	
+   801	Démonstration.\pageoriginale Par récurrence sur $X$, nous pouvons supposer le
+   802	théorème vrai pour chaque sous-préschéma fermé distinct de $X$. Si $F$
+   803	est comme dans l'énoncé et si on écrit $F=\varinjlim F_i$ où les $F_i$
+   804	sont les sous-faisceaux constructibles de $F$ (\hyperrefext[IX][IX.prop2.9]{2.9} (iii)), chaque
+   805	$F_i$ vérifie aussi les mêmes hypothèses. Il suffit donc de démontrer
+   806	le théorème lorsque $F$ est constructible.
+   807	
+   808	Or dans ce cas l'ensemble $E$ des $x\in X$ tels que $F_{\bar{x}}\neq
+   809	0$ est un sous-ensemble constructible, et l'hypothèse de récurrence
+   810	implique que le théorème est vrai pour chaque $F$ tel que $E$ ne soit
+   811	pas dense. De plus, le théorème est une conséquence de \hyperref[X.thm5.1]{5.1} pour un
+   812	faisceau concentré sur la fibre de $X$ en le point $(\ell)$ de $\Spec
+   813	\ZZ$, et de \hyperref[X.cor4.3]{4.3} pour un faisceau concentré sur la fibre en
+   814	$(p)$, où $p\neq \ell$, compte tenu que $\cd_{\ell}\ZZ/p
+   815	\ZZ=1$ (CG II 2.2).
+   816	
+   817	Prenons $X$ réduit, et soit $X=X_{0}\cup X_1$ où $X_1$ est le
+   818	sous-ensemble fermé, réunion des composantes irréductibles de $X$ de
+   819	caractéristique $\ell$, et où $X_{0}$ est la réunion des autres
+   820	composantes irréductibles, $X_{0}$ et $X_1$ étant munis des
+   821	structures induites réduites. Soient $j_{\nu}:X_{\nu}\rightarrow X$
+   822	les inclusions et soit $d_{\nu}=\dim X_{\nu}$, et $N=\sup
+   823	\{2d_{0}+1, d_1+1\}$. Pour tout $F$ constructible sur $X$ on a une suite exacte\sisi{.}{}
+   824	\begin{equation*}
+   825	0\longrightarrow F\longrightarrow
+   826	{j_{0}}_{\ast} j_{0}{}^{\ast}F\oplus {j_1}_{\ast} j_1
+   827	{}^{\ast}F\longrightarrow C\longrightarrow 0{\quoi},\tag{$\ast$}
+   828	\end{equation*}
+   829	où $C$ est concentré sur $X_{0}\cap X_1$, qui est de
+   830	caractéristique $\ell$ et de dimension $\leq d_1-1$. Il s'ensuit que
+   831	$$
+   832	H^q(X,C)=0\mbox{ si } q>N-1{\quoi},
+   833	$$
+   834	car en vertu de \hyperref[X.thm5.1]{5.1} on a $\cd_{\ell}(X_{0}\cap X_1)\leq \dim
+   835	\sisi{}{(}X_{0}\cap X_1\sisi{}{)}+1\leq d_1\leq N-1$. En examinant la suite exacte de
+   836	cohomologie relative de $(\ast)$, on se ramène au cas $X=X_{0}$ \sisi{où}{ou}
+   837	$X=X_1$, et ce dernier est conséquence de \hyperref[X.thm5.1]{5.1}, comme on l'a déjà
+   838	signalé.
+   839	
+   840	Supposons\pageoriginale donc que chaque point maximal de $X$ est 
+   841	de caractéristique
+   842	différente de $\ell$, et soient $i_{\nu}:x_{\nu}\rightarrow X$ les
+   843	inclusions des points maximaux. En examinant la suite exacte
+   844	$$
+   845	0\longrightarrow K\longrightarrow F\longrightarrow \bigoplus_{\nu}
+   846	i_{\nu\ast}i_{\nu}{}^{\ast}F\longrightarrow C\longrightarrow 0
+   847	$$
+   848	on se réduit par récurrence au cas $F=i_{\nu\ast}i_{\nu}{}^{\ast}F$,
+   849	c'est-à-dire $F$ de la forme $i_{\ast}G$ pour un faisceau $G$
+   850	convenable sur $\Spec k(x)$, $x$ un point de $X$. On peut donc
+   851	supposer $X$ irréductible et réduit, à point générique $x$, et que la
+   852	caractéristique de $k(x)$ est zéro d'après \hyperref[X.cor4.3]{4.3}.
+   853	
+   854	Examinons la suite spectrale
+   855	\begin{equation*}
+   856	H^p(X,R^qi_{\ast}G)\Longrightarrow H^{p+q}(\Spec k(x),
+   857	G){\quoi}.\tag{${\ast}{\ast}$} 
+   858	\end{equation*}
+   859	Soit $s=\dim X$. Il nous faut démontrer que
+   860	\begin{equation*}
+   861	E^{p0}_2=0\mbox{ pour } p> 2s+1{\quoi}.\tag{$+$}
+   862	\end{equation*}
+   863	Or $k(x)[i]$ est de degré de transcendance $s-1$ au-dessus de $\QQ[i]$
+   864	%% dire que i = √(-1) ? \XXX
+   865	qui est un corps de dimension cohomologique $2$. Puisque $k(x)$ n'est
+   866	pas ordonnable si $\ell=2$, il s'ensuit de \hyperref[X.thm2.1]{2.1} qu'on a
+   867	$\cd_{\ell}k(x)=s+1$. Ça implique que le but de la suite spectrale
+   868	est nul pour $n>s+1$. Il suffit donc pour $(+)$ de démontrer que dans
+   869	$({\ast}{\ast})$ on a
+   870	\begin{equation*}
+   871	E^{pq}_2=0\mbox{ si } p>2s-q\mbox{ et } q>0{\quoi}.\tag{${+}{+}$}
+   872	\end{equation*}
+   873	
+   874	Soit $y$ un point de $X$ et $K$ l'anneau des fractions d'un localisé
+   875	strict en un point géométrique $\widetilde{y}$ de $X$ au-dessus de
+   876	$y$. Alors $K$ est produit direct de corps dont chacun est de degré de
+   877	transcendance $s-1$ sur un localisé strict de $\ZZ$, et on a
+   878	donc, d'après \hyperref[X.thm2.1]{2.1} et \hyperref[X.thm2.2]{2.2}, $\cd_{\ell}K\leq s$. De plus on peut
+   879	appliquer \hyperref[X.prop3.2]{3.2} si la caractéristique résiduelle de $y$ n'est pas
+   880	$\ell$. On a donc
+   881	\begin{equation*}
+   882	(R^qi_{\ast}G)_{\widetilde{y}}=0
+   883	\begin{cases}
+   884	\mbox{ si $q>\codim y$, \ie $\dim \bar{y}>s-q$, et $\ell\neq \car
+   885	k(y)$,}\\
+   886	\mbox{ou si $q>s$ en tout cas.}
+   887	\end{cases}
+   888	\tag{$''$}
+   889	\end{equation*}
+   890	En\pageoriginale particulier on a $E^{pq}_2=0$ si $q>s$. Pour vérifier
+   891	$({+}{+})$ dans le cas $0<q\leq s$, on applique l'hypothèse de
+   892	récurrence aux faisceaux $R^qi_{\ast}(G)$.
+   893	
+   894	D'après l'énoncé et $('')$, il faut poser $N'=2s-q$ et vérifier les
+   895	deux inégalités
+   896	\begin{align*}
+   897	& s-q\leq (N'-1)_{/2}\\
+   898	& s-1=\dim X_{\ell}\leq N'-1{\quoi},
+   899	\end{align*}
+   900	où $X_{\ell}$ est \sisi{le fibré}{la fibre} de $X$ au-dessus \sisi{de}{du} point $(\ell)$ de
+   901	$\Spec \ZZ$. Elles sont bien vraies si $0<q\leq s$\sisi{,}{.} \cqfd
+   902	
+   903	\begin{thebibliography}{99}
+   904	\bibitem{1} 
+   905	Ax, J.  Proof of some conjectures of Serre on
+   906	cohomological dimension, Proc. Amer. Math. Society 16 (1965)
+   907	1214-1221.
+   908	
+   909	\bibitem{2} Bourbaki, N. Algèbre \sisi{Commutative}{commutative}, Paris (1960)
+   910	
+   911	\bibitem{3} 
+   912	Hironaka, H.  Resolution of singularities of an algebraic surface
+   913	over a field of characteristic zero, Annals of Math. Vol. 79, No. 1, 2
+   914	(1964)
+   915	
+   916	 
+   917	\bibitem{4} Nagata, M. Local Rings, New York (1962)
+   918	
+   919	\bibitem{5} 
+   920	Serre, J-P.  Sur la dimension cohomologique \sisi{de}{des} groupes profinis,
+   921	Topology Vol. 3, p. 413 (1965)
+   922	
+   923	
+   924	\bibitem{6} Godement, R. \sisi{Théorie des Faisceaux}{Topologie algébrique et théorie des faisceaux}, Paris (1958).
+   925	
+   926	\bibitem{7} 
+   927	E. Artin et A.  Schreier - Eine Kennzeichnung der \sisi{reel}{reell}
+   928	abgeschlossenen Körper, Hamb. Abh. 5 (1927) pp. 225-231.
+   929	
+   930	
+   931	\bibitem{8} Serre, J.P. Cohomologie \sisi{Galoisienne}{galoisienne}, Lecture Notes
+   932	${\rm n^{\circ}}$ 5 (Springer).
+   933	\end{thebibliography}
+   934	
+   935	\ifx\danslelivre\undefined
+   936	\end{document}
+   937	\fi

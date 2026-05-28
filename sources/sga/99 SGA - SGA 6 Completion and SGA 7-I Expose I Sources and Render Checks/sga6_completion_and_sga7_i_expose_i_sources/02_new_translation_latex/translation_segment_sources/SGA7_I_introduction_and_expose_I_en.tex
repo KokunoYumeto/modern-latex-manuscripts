@@ -1,0 +1,515 @@
+
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{longtable,booktabs}
+\geometry{margin=1.05in}
+\setstretch{1.14}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.48em}
+\sloppy
+
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\bA}{\mathbb A}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Autext}{\operatorname{Aut\,ext}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\prof}{\operatorname{prof}}
+\newcommand{\PGCD}{\operatorname{gcd}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Tl}{T_{\ell}}
+\newcommand{\Vl}{V_{\ell}}
+\newcommand{\Ql}{\mathbb Q_{\ell}}
+\newcommand{\Zl}{\mathbb Z_{\ell}}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\ov}[1]{\overline{#1}}
+\newcommand{\PhiR}{\mathrm R\Phi}
+\newcommand{\PsiR}{\mathrm R\Psi}
+\newcommand{\HH}{\mathrm H}
+
+\begin{document}
+
+\begin{center}
+{\Large\textbf{SGA 7-I}}\\[0.35em]
+{\large\textbf{Introduction and Exposé I}}\\[0.2em]
+{\large\textbf{Summary of the first exposés of A. Grothendieck}}\\[0.2em]
+\textit{written up by P. Deligne}
+\end{center}
+
+\section*{Introduction}
+
+Let $S$ be a scheme and let $f:X\to S$ be a morphism of schemes. If $f$ is proper and smooth, and the prime number $\ell$ is invertible on $S$, then the $\ell$-adic cohomology groups
+\[
+H^i(X_{\bar s},\ZZ_\ell)
+\]
+of the geometric fibres of $f$ form a locally constant sheaf on $S$. The problem considered here is to understand what remains of this statement when the smoothness hypothesis fails at a special fibre, and in particular to describe the specialization morphism, vanishing cycles, and monodromy.
+
+We shall only consider the case where $S$ is a henselian trait, that is, the spectrum of a henselian discrete valuation ring. This is in practice the essential case. Let
+\[
+S=\Spec(V),
+\]
+with generic point $\eta$ and closed point $s$. The fundamental exact sequence is
+\[
+\cdots \longto H^i(X_s,\ZZ_\ell)
+\xrightarrow{\mathrm{sp}}
+H^i(X_{\bar\eta},\ZZ_\ell)
+\longto R^i\Phi\,\ZZ_\ell
+\longto H^{i+1}(X_s,\ZZ_\ell)
+\longto\cdots .
+\]
+The $\Gal(\bar s/s)$-module $H^i(X_s,\ZZ_\ell)$ is regarded as a $\Gal(\bar\eta/\eta)$-module with trivial inertia action, and $\mathrm{sp}$ is the specialization map.
+
+Criteria are also given, at present only in characteristic zero, for the vanishing of the small-degree sheaves $R^i\Phi$. For example, if the special fibre is locally a complete intersection, then
+\[
+R^i\Phi=0\qquad (i\neq n)
+\]
+in the isolated-singularity situation of I, 4.5.
+
+The monodromy theorem asserts that the action of the inertia subgroup $I$ of $\Gal(\bar\eta/\eta)$ is quasi-unipotent: for $T\in I$ there exist integers $N>0$ and $M>0$ such that
+\[
+(T^N-1)^M=0
+\quad\text{on}\quad
+H^i(X_{\bar\eta},\ZZ_\ell).
+\]
+Applied to the $H^1$ of abelian varieties, i.e. to their Tate modules, these results allow one to study reduction modulo $p$. Two proofs are given of the stable reduction theorem for abelian varieties: after a finite extension of the base trait, the neutral component of the special fibre of the Néron model is an extension of an abelian variety by a torus.
+
+\begin{flushright}
+Bures-sur-Yvette, May 1972\\
+P. Deligne
+\end{flushright}
+
+\section*{Exposé I -- Summary of the first exposés of A. Grothendieck}
+
+\subsection*{Contents}
+\begin{enumerate}[label=\arabic*.]
+\item Arithmetic proof of the monodromy theorem.
+\item Vanishing cycles.
+\item Geometric proof of the monodromy theorem.
+\item Vanishing criteria for sheaves of vanishing cycles.
+\item Action of monodromy on fundamental groups.
+\item Appendix by P. Deligne: arithmetic proof of the stable reduction theorem.
+\end{enumerate}
+
+\subsection*{0. Preliminaries}
+
+\subsubsection*{Terminology}
+
+We recall the following definitions.
+
+A \emph{trait} is the spectrum of a discrete valuation ring. Its generic and closed points are often denoted by $\eta$ and $s$.
+
+An \emph{strictly local} ring is a henselian local ring with separably closed residue field. A strictly local scheme is the spectrum of such a ring.
+
+A \emph{geometric point of $S$}, in this exposé, is a morphism
+\[
+\bar x:\Spec(k)\to S
+\]
+with image $x\in S$, where $k$ contains a separable closure of $k(x)$. For a henselian trait $S=\Spec(V)$, one often writes $\bar\eta$ for a geometric point over the generic point and $\bar s$ for one over the closed point.
+
+The \emph{strict localization} of $X$ at a geometric point $\bar x$ is understood in the sense of SGA 4, VIII, 4.4.
+
+A local, henselian local, or strictly local $S$-scheme is said to be \emph{essentially of finite type over $S$} if it is the spectrum of a local ring, respectively the henselization of such a local ring, respectively the strict localization, of a scheme of finite type over $S$.
+
+\subsubsection*{Reminders on $\ell$-adic cohomology}
+
+Let $\ell$ be a prime invertible on the schemes considered. We use the usual notation
+\[
+H^i(X_{\bar x},\ZZ_\ell)=\varprojlim_n H^i(X_{\bar x},\ZZ/\ell^n\ZZ).
+\]
+The functors $R^i\Psi$ and $R^i\Phi$ denote, respectively, nearby cycles and vanishing cycles. For $S$ a henselian trait and $X\to S$, the stalks of $R^i\Psi$ at a geometric point $\bar x$ of the special fibre are computed on the strict localization of $X$ at $\bar x$ after passage to the geometric generic fibre. The exact sequence displayed in the introduction is the long exact sequence associated with the specialization triangle.
+
+\subsubsection*{Reminders on traits}
+
+Let $S$ be a henselian trait with generic point $\eta$ and closed point $s$. The Galois group $\Gal(\bar\eta/\eta)$ has inertia subgroup $I$, and the quotient is $\Gal(\bar s/s)$. Its wild inertia subgroup is denoted by $P$. The tame quotient is
+\[
+I/P\simeq \prod_{\ell'\neq p}\ZZ_{\ell'}(1),
+\]
+where $p$ is the residual characteristic exponent.
+
+\subsubsection*{The Néron desingularization}
+
+A standard ingredient is Néron's desingularization. In the form used here, it permits one, after replacing a morphism by an étale neighbourhood or by a suitable model, to reduce many local questions to the case of regular schemes, or to schemes with normal crossings in the special fibre.
+
+\paragraph{Proposition 0.1.}
+Let $S$ be a trait and let $X$ be of finite type over $S$. After replacing $X$ locally by a suitable modification which is an isomorphism on the generic fibre, one may arrange that the singularities relevant for the vanishing-cycle calculation occur on a controlled normal-crossings model, whenever resolution of singularities is available.
+
+\paragraph{Proposition 0.2.}
+In equal characteristic zero, or under the corresponding resolution hypotheses, one can reduce the monodromy calculation to the case where the special fibre is a divisor with normal crossings.
+
+\subsection*{1. Arithmetic proof of the monodromy theorem}
+
+\paragraph{Proposition 1.1.}
+Let $K$ be a complete discretely valued field and let $V$ be a finite-dimensional $\QQ_\ell$-vector space with continuous action of $\Gal(\bar K/K)$, arising from the cohomology of a scheme of finite type over $K$. After replacing $K$ by a finite extension, the action of inertia on $V$ is unipotent.
+
+\paragraph{Theorem 1.2 (Monodromy theorem).}
+Let $X$ be proper and smooth over the generic point $\eta$ of a henselian trait $S$, and let $\ell$ be invertible on $S$. For every $i$, the action of inertia on
+\[
+H^i(X_{\bar\eta},\QQ_\ell)
+\]
+is quasi-unipotent. Equivalently, for $T$ in an open subgroup of inertia,
+\[
+(T-1)^M=0
+\]
+for some $M$ depending on $i$.
+
+The arithmetic proof proceeds by reducing to representations arising from the cohomology of varieties over finite fields and using the constraints imposed by weights. The unipotent part of the inertia action is then detected by comparing the possible weights of the graded pieces.
+
+\subsection*{2. Vanishing cycles}
+
+Let $S$ be a strictly local trait and let $f:X\to S$ be of finite type. The sheaves $R^i\Psi$ of nearby cycles and $R^i\Phi$ of vanishing cycles on the special fibre measure the failure of specialization
+\[
+H^i(X_s)\to H^i(X_{\bar\eta})
+\]
+to be an isomorphism.
+
+For a geometric point $\bar x$ of $X_s$, $R^i\Psi_{\bar x}$ is the cohomology of the geometric generic fibre of the strict localization of $X$ at $\bar x$, and $R^i\Phi_{\bar x}$ is obtained from the cone of the natural map from the special fibre to the nearby fibre.
+
+\paragraph{Proposition 2.1.}
+If $f$ is smooth in a neighbourhood of $\bar x$, then
+\[
+R^0\Psi_{\bar x}\simeq\ZZ_\ell,\qquad R^i\Psi_{\bar x}=0\quad(i>0),
+\]
+and $R^i\Phi_{\bar x}=0$ for all $i$.
+
+\paragraph{Proposition 2.2.}
+The sheaves $R^i\Psi$ and $R^i\Phi$ commute with étale localization on $X$ and with strict localization at geometric points of the special fibre.
+
+\paragraph{Proposition 2.3.}
+If $X$ is replaced by the schematic closure of its generic fibre, then $R^i\Psi$ and $R^i\Phi$ are unchanged away from the nilpotent and vertical excess components. This often reduces the study to the flat case.
+
+\subsection*{3. Geometric proof of the monodromy theorem}
+
+\subsubsection*{Purity conjecture}
+
+Let $X$ be regular, $D$ a divisor with normal crossings, and $U=X-D$. The purity statement needed here says that the tame fundamental group of $U$ near a point of $D$ is controlled by the local branches of $D$. Equivalently, the cohomology of the corresponding tame coverings has the expected exterior-algebra form.
+
+Suppose that, étale locally at a point of the special fibre, the divisor is
+\[
+X_s=\sum_{i\in B}m_iD_i
+\]
+with normal crossings. Let $\bar x$ be a geometric point of $X$ localized at $x$, let
+\[
+C=\{\,i\mid x\in D_i\,\},
+\]
+and let $K$ be the complex concentrated in degrees $0$ and $-1$
+\[
+K:\bigoplus_{i\in C}\ZZ(1)\xrightarrow{\ d\ }\ZZ(1),
+\]
+where $d=\sum a_i$.
+
+\paragraph{Theorem 3.3.}
+Assuming purity, the tame vanishing-cycle groups $R^i\Psi_{\bar x}$ are described as follows:
+\begin{enumerate}[label=\roman*)]
+\item There is a canonical isomorphism of graded $A$-algebras
+\[
+R^*\Psi_{\bar x}\simeq H^*(K\otimes A)\otimes A[t],
+\]
+where $t$ has degree $2$.
+\item The inertia action on $R^1\Psi_{\bar x}$ is described by a transitive action on a finite set whose cardinality is the prime-to-$p$ part of
+\[
+m=\gcd(m_i).
+\]
+\end{enumerate}
+
+The proof proceeds as follows. Let $X_{\bar x}$ be the strict localization of $X$ at $\bar x$, and let
+\[
+U=X_{\bar x}-(X_s\cap X_{\bar x})
+\]
+be the complement of the normal-crossings divisor. If $t_i$ is a local equation of $D_i$, define for $(n,p)=1$
+\[
+U_n=\Spec\bigl(\cO_{X_{\bar x}}[T]/(T^n-\prod t_i^{a_i})\bigr),
+\]
+and let $\widetilde U_n$ be the inverse image of $U$ in $U_n$. Purity gives the cohomology of these covers. Passing to the projective limit over the tame coverings gives a pro-covering of $U$ with group
+\[
+\ZZ(1)(\overline{k(s)})^C.
+\]
+By definition,
+\[
+R^i\Psi_{\bar x}=H^i(\widetilde U,A).
+\]
+The connected components are permuted transitively by tame inertia, and the cohomology of each component is computed from the complex $K$.
+
+\paragraph{Corollary 3.4.}
+Assume purity and suppose $f$ proper. Let $N$ be the least common multiple of the multiplicities $m_j$. Let $q\geq0$, and let $q'$ be the minimum of $q$ and the maximum number of components $D_j$ passing through a single point. For $T$ in tame inertia $I/P$, one has
+\[
+(T^N-1)^{q'+1}=0
+\quad\text{on}\quad
+R^q\Psi_{\bar x}.
+\]
+
+\paragraph{Theorem 3.5.}
+Let $C$ be a projective smooth curve over the fraction field of a discrete valuation ring $V$. The inertia group acts on
+\[
+H^1(C_{\bar\eta},\QQ_\ell)
+\]
+by quasi-unipotent automorphisms of level $2$: there exists $N$ such that, for $T\in I$,
+\[
+(T^N-1)^2=0.
+\]
+
+\paragraph{Remark 3.6.}
+If $A$ is an abelian variety over $k(\eta)$, then, since $A$ is a quotient of a Jacobian, the same conclusion holds for the inertia action on $H^1(A_{\bar\eta},\QQ_\ell)$, or on the Tate module $T_\ell(A)$.
+
+\paragraph{Remark 3.7.}
+For every scheme $X$ of finite type over $\eta$, the action of inertia on
+\[
+H^i(X_{\bar\eta},\QQ_\ell)
+\]
+is in fact quasi-unipotent of level $2$.
+
+When purity and resolution of singularities are available, for example in characteristic zero, the preceding method proves the monodromy theorem and gives bounds for the nilpotence exponent. In equal characteristic zero, for $X$ proper and smooth over $\eta$ and $T$ in an open subgroup of $I$, one finds
+\[
+(T-1)^{i+1}=0
+\quad\text{on}\quad
+H^i(X_{\bar\eta},\ZZ_\ell).
+\]
+
+\subsection*{4. Vanishing criteria for sheaves of vanishing cycles}
+
+Let $S$ be a strictly local trait and let $f:X\to S$ be of finite type. Set
+\[
+n=\dim(X_\eta).
+\]
+If $X'$ is the schematic closure of $X_\eta$ in $X$, then:
+\begin{enumerate}[label=\alph*)]
+\item $R^0\Phi\,\cO_{X'}=\cO_{X_s}\otimes\ZZ_\ell$ and the other $R^i\Phi$ vanish;
+\item on $X'$, the $R^i\Phi$ and $R^i\Psi$ associated with $X/S$ and $X'/S$ agree.
+\end{enumerate}
+Since $X'$ is flat over $S$, this often reduces the problem to the flat case.
+
+\paragraph{Theorem 4.2.}
+One has
+\[
+R^i\Phi=0\qquad (i>n).
+\]
+More precisely, if $x$ is a point of $X_s$ whose closure has dimension $k$, and if $\bar x$ is a geometric point localized at $x$, then
+\[
+R^i\Phi_{\bar x}=0\qquad (i>n-k).
+\]
+
+\paragraph{Corollary 4.3.}
+If $f$ is proper and flat and the non-smooth locus of $f$ in $X_s$ has dimension $<d$, then the specialization morphism
+\[
+H^i(X_s)\longto H^i(X_{\bar\eta})
+\]
+is an isomorphism for $i>n+d+1$ and an epimorphism for $i=n+d+1$.
+
+To prove, in some cases, that the small-degree $R^i\Phi$ vanish, one uses local duality, either directly or through the local Lefschetz theorems of SGA 2, XIV. At present this tool is available in characteristic zero, or in equal characteristic $p$ when resolution of singularities in the relevant dimensions is available.
+
+\paragraph{Theorem 4.5.}
+Assume that $S$ has characteristic zero. Let $f:X\to S$ be of finite type, and let $x$ be a closed point of $X_s$. Suppose:
+\begin{enumerate}[label=(\alph*)]
+\item $x$ is an isolated non-smooth point in its fibre;
+\item $X$ has relative geometric depth at least $n$ at $x$: in a neighbourhood of $x$, the scheme $X$ is defined by $k$ equations in a smooth scheme of relative dimension $N$ at $x$, with
+\[
+n<N-k.
+\]
+\end{enumerate}
+Then
+\[
+R^i\Phi_{\bar x}=0\qquad (i<n).
+\]
+
+\paragraph{Corollary 4.6.}
+Let $S$ be a henselian trait of characteristic zero, let $X/S$ be a relative complete intersection of relative dimension $n$, and let $x\in X_s$ be an isolated non-smooth point in its fibre. Then
+\[
+R^i\Phi_{\bar x}=0\qquad (i\neq n).
+\]
+
+\paragraph{Corollary 4.7.}
+Under the hypotheses of 4.6, $R^n\Phi$ is a flat $\ZZ_\ell$-module.
+
+\paragraph{Variant 4.8.}
+In Theorem 4.5, omit condition (a), and let $Z$ be the non-smooth locus of $f$. Then one still obtains
+\[
+R^i\Phi=0\qquad (i<n-\dim Z).
+\]
+
+\paragraph{Proposition 4.10.}
+Under the general hypotheses of 4.5, suppose:
+\begin{enumerate}[label=(\alph*)]
+\item $x$ is an isolated non-smooth point in its fibre;
+\item for every point $y$ of $X_{\bar\eta}$, with closure of dimension $d(y)$ and specializing to $x$, one has
+\[
+\prof_{\mathrm{et},y}(X_{\bar\eta})\geq n-d(y);
+\]
+\item $\prof_{\mathrm{et},x}(X_s)\geq n$.
+\end{enumerate}
+Then
+\[
+R^i\Phi_{\bar x}=0\qquad (i<n-1).
+\]
+
+\subsection*{5. Action of monodromy on $\pi_1$}
+
+In this section, corresponding to Grothendieck's exposé of 19 November 1968, we use the semistable reduction theorem for curves. Artin and Winters gave a direct proof; it can also be deduced from the analogous theorem for abelian varieties. We also use Schlessinger's theory as presented in Rim's Exposé VI.
+
+Let $k$ be algebraically closed, let $C$ be a projective curve over $k$, and let $x_0,\ldots,x_n$ be finitely many closed points of $C$. The pointed curve
+\[
+X=(C;x_0,\ldots,x_n)
+\]
+is called \emph{stable} if:
+\begin{enumerate}[label=(\alph*)]
+\item $C$ is reduced and its only singularities are ordinary double points with distinct tangents;
+\item the points $x_i$ are distinct smooth points of $C$;
+\item if $C_j$ is an irreducible component of $C$, and $E$ is the set of points of the normalization $\widetilde C_j$ lying over a singular point of $C$ or over one of the $x_i$, then if $C_j$ has genus $0$, respectively $1$, the set $E$ has at least $3$, respectively at least $1$, elements.
+\end{enumerate}
+Condition (c) is equivalent to the absence of non-trivial infinitesimal automorphisms. It is also equivalent to ampleness of the dualizing sheaf twisted by the marked points:
+\[
+\omega\Bigl(\sum x_i\Bigr).
+\]
+
+A curve $C$ over a scheme $S$, equipped with sections $x_0,\ldots,x_n:S\to C$, is a stable curve over $S$ if its geometric fibres are stable. The extension from the unmarked case to the marked case is formal:
+\begin{enumerate}[label=(\arabic*)]
+\item for $X/k$ stable, $\omega^n$ is very ample for $n\geq3$;
+\item the formal moduli scheme of $X$ is smooth, and the singularity locus of $C$ lies over a normal-crossings divisor in the moduli space;
+\item for stable curves $X$ and $Y$ over $S$, the scheme $\Isom(X,Y)$ is finite and unramified over $S$, with isomorphisms preserving the marked points;
+\item for $X/k$ stable, $\Aut_S(X)\to\Aut_S(\Pic^0(X))$ is injective.
+\end{enumerate}
+
+\paragraph{Proposition 5.1.1.}
+Let
+\[
+X=(C;x_0,\ldots,x_n)
+\]
+be stable over the generic point $\eta$ of a trait $S$, and assume $C_\eta$ smooth. There exists a finite separable extension $\eta'$ of $\eta$ and a stable curve $X'$ over the normalization $S'$ of $S$ in $\eta'$ such that
+\[
+X'_{\eta'}=X_\eta\otimes_\eta\eta'.
+\]
+
+Let $X$ be a geometrically connected scheme of finite type over the fraction field of a strictly local trait $S$. For a geometric point $\xi$ of $X_{\bar\eta}$ there is an exact sequence
+\[
+0\longto \pi_1(X_{\bar\eta},\xi)\longto
+\pi_1(X,\xi)\longto \Gal(\bar\eta/\eta)\longto0,
+\tag{5.2.1}
+\]
+and hence a homomorphism from $\Gal(\bar\eta/\eta)$ to the group of outer automorphisms of $\pi_1(X_{\bar\eta})$. Passing to the maximal prime-to-$p$ quotient gives
+\[
+\Gal(\bar\eta/\eta)\longto
+\Autext\bigl(\pi_1^{(p')}(X_{\bar\eta})\bigr).
+\tag{5.2.2}
+\]
+If $X_\eta$ has a rational point $x$, with geometric point $\bar x$ over it, then the exact sequence splits canonically and gives
+\[
+[x]:\Gal(\bar\eta/\eta)\longto
+\Aut\bigl(\pi_1^{(p')}(X_{\bar\eta},\bar x)\bigr).
+\tag{5.2.3}
+\]
+
+\paragraph{Theorem 5.3.}
+The image of wild inertia $P$ under (5.2.2), or equivalently under (5.2.3), is finite.
+
+For the proof, one first reduces to the case where $X$ is geometrically normal and integral. Let $\widetilde X_\eta$ be the normalization of $X_\eta$; after a finite extension of $k(\eta)$, the connected components of $\widetilde X_\eta\times_\eta\bar\eta$ may be assumed geometrically normal and integral with rational base points, and the connected components of $X_{\bar\eta}$ geometrically connected with rational base points. If $X$ is normal and $U\subset X$ is open, then $\pi_1(U)$ maps onto $\pi_1(X_{\bar\eta})$. Thus one may suppose $X_\eta$ smooth and affine. Cutting by generic hyperplane sections and using Bertini, one reduces to $X$ smooth, geometrically connected, and of dimension one.
+
+\paragraph{Theorem 5.4.}
+Let $S$ be strictly local. Let $f:X\to S$ be proper and flat, with special fibre a curve whose only non-smooth points are ordinary double points, and let $Y$ be a finite union of disjoint sections contained in the smooth locus. Let $x$ be a rational point of
+\[
+X_\eta=X-Y.
+\]
+Let $U\subset S$ be the open over which $X$ is smooth, and let $\xi$ be a geometric point of $U$. Then the image of
+\[
+\pi_1(U,\xi)
+\]
+in
+\[
+\Aut\bigl(\pi_1^{(p')}(X_{\bar\eta},\bar x)\bigr)
+\]
+is abelian and prime to $p$.
+
+One must note that $\pi_1(U,\xi)$ can act on the prime-to-$p$ fundamental group only because the prime-to-$p$ fundamental groups satisfy the specialization theorem.
+
+\subsection*{6. Appendix: arithmetic proof of the stable reduction theorem}
+
+Let $S$ be a trait and let $A_\eta$ be an abelian variety over $k(\eta)$ of dimension $d\neq0$. For a local morphism of traits $S'\to S$, denote by $A_{\eta'}$ the abelian variety obtained by extension of scalars, by $A_{S'}$ its Néron model over $S'$, by $A_{s'}$ its special fibre, and by $A^0_{s'}$ the neutral component of $A_{s'}$.
+
+\paragraph{Theorem 6.1.}
+For a suitable $S'$, the variety $A_{\eta'}$ has stable reduction: the group $A^0_{s'}$ is an extension of an abelian variety by a torus.
+
+It follows fairly easily that one may take $S'$ so that $k(\eta')$ is a finite separable extension of $k(\eta)$. Suppose first that the residue field of $S$ is of finite type over the prime field. Let $\ell$ be a prime different from the residual characteristic exponent $p$, let
+\[
+T_\ell(A)
+\]
+be the Tate module, let
+\[
+V_\ell(A)=T_\ell(A)\otimes\QQ_\ell,
+\]
+and let
+\[
+\rho:\Gal(\bar\eta/\eta)\to\GL(V_\ell(A))
+\]
+be the natural representation. After a preliminary scalar extension, assume that inertia acts unipotently, hence through its largest pro-$\ell$ quotient $\ZZ_\ell(1)$. Let $T$ be the image in $\GL(V_\ell(A))$ of a generator of $\ZZ_\ell(1)$, and let $r$ be the largest integer $\geq0$ such that
+\[
+(T-1)^r\neq0.
+\]
+
+\paragraph{Lemma 6.2.}
+The map
+\[
+(c,v)\in I\times V_\ell(A)\longmapsto (\rho(c)-1)^r v
+\]
+induces morphisms and an isomorphism
+\[
+V_\ell(A)\otimes\QQ_\ell(r)
+\longto
+V_\ell(A)/\Ker(T-1)^r\otimes\QQ_\ell(r)
+\overset{\sim}{\longto}
+V_\ell(A).
+\tag{6.2.1}
+\]
+
+An $\ell$-adic representation $\rho:\Gal(\bar s/s)\to\GL(V)$ is said to have \emph{weight} $n$ if, for a suitable model $X$ of $k(s)$ and every closed point $x$ of $X$, the eigenvalues of geometric Frobenius $F_x$ are algebraic numbers all of whose complex conjugates have absolute value
+\[
+|k(x)|^{n/2}.
+\]
+If $V$ has weight $n$ and $W$ has weight $m\neq n$, then
+\[
+\Hom_{\Gal(\bar s/s)}(V,W)=0.
+\]
+
+By the universal property of the Néron model, $V_\ell(A_s^0)$ is an extension of a representation of dimension $2a$ and weight $-1$ by a representation of dimension $m$ and weight $-2$, where $a$ is the dimension of the largest abelian quotient of $A_s^0$ and $m$ the dimension of its multiplicative part. For the dual abelian variety $A^*$, the duality
+\[
+V_\ell(A^*)\times V_\ell(A)\to \QQ_\ell(1)
+\]
+shows that $V_\ell(A)$ is an extension of a representation of dimension $m$ and weight $0$ by one of dimension $2a^*$ and weight $-1$.
+
+Since $\QQ_\ell(r)$ has weight $-2r$ and $\operatorname{Im}(T-1)^r\neq0$, the preceding weight argument and (6.2.1) imply $r\leq1$. If $r=0$, then $m=0$, $a=d$, and $A$ has good reduction. If $r=1$, then $\operatorname{Im}(T-1)$ has weight $-2$ and the corresponding quotient has weight $0$; the two spaces have the same dimension $m\leq d$. One obtains
+\[
+\dim V_\ell(A^*)=2a^*+m^*=2a+m,
+\]
+and
+\[
+2\dim A^0_{s'}\geq 2(a+m)>2a+m+m=2d=2\dim A_{\eta'}.
+\]
+Thus $A^0_{s'}$ has stable reduction, and at the same time one gets $m^*=m$.
+
+For the general case, one reduces to a situation in which the appropriate hypotheses of the preceding equal- or unequal-characteristic propositions hold, the group $\Gal(\bar\eta/\eta)$ acts trivially on $A_\ell$, and inertia acts unipotently on $T_\ell(A)$. The same argument then applies.
+
+\subsection*{Bibliography}
+\begin{enumerate}[label={[\arabic*]}]
+\item M. Artin, \emph{Algebraic approximation of structures over complete local rings}, Publ. Math. IHÉS \textbf{36} (1969), 23--58.
+\item M. Artin and G. Winters, \emph{Degenerate fibres and reduction of curves}, Ann. of Math. \textbf{88} (1968), 492--517.
+\item P. Deligne and D. Mumford, \emph{The irreducibility of the space of curves of a given genus}, Publ. Math. IHÉS \textbf{36} (1969), 75--110.
+\item J.-P. Serre, \emph{Corps locaux}, Publ. Math. Univ. Nancago -- Hermann, 1962.
+\item J.-P. Serre and J. Tate, \emph{Good reduction of abelian varieties}, Ann. of Math. \textbf{88} (1968), 492--517.
+\end{enumerate}
+
+\end{document}

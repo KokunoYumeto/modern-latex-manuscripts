@@ -1,0 +1,643 @@
+     1	\ifx\danslelivre\undefined
+     2	\RequirePackage{luatex85}
+     3	\documentclass[10pt]{../fichiers-configuration-latex/smfart}
+     4	\input{../fichiers-configuration-latex/paquets}
+     5	\input{../fichiers-configuration-latex/numerotation}
+     6	\input{../fichiers-configuration-latex/macros}
+     7	
+     8	
+     9	\externaldocument{../01/01.tex}
+    10	\externaldocument{../02/02.tex}
+    11	\externaldocument{../03/03.tex}
+    12	\externaldocument{../04/04.tex}
+    13	\externaldocument{../05/05.tex}
+    14	\externaldocument{../05bis/05bis.tex}
+    15	\externaldocument{../06/06.tex}
+    16	\externaldocument{../07/07.tex}
+    17	\externaldocument{../08/08.tex}
+    18	\externaldocument{../09/09.tex}
+    19	%\externaldocument{../10/10.tex}
+    20	\externaldocument{../11/11.tex}
+    21	\externaldocument{../12/12.tex}
+    22	\externaldocument{../13/13.tex}
+    23	\externaldocument{../14/14.tex}
+    24	\externaldocument{../15/15.tex}
+    25	\externaldocument{../16/16.tex}
+    26	\externaldocument{../17/17.tex}
+    27	\externaldocument{../18/18.tex}
+    28	\externaldocument{../19/19.tex}
+    29	
+    30	\setboolean{original}{false}
+    31	
+    32	\begin{document}
+    33	
+    34	\begin{center}
+    35	XI. Comparaison avec la cohomologie classique : cas d'un schema lisse\\
+    36	M. Artin 
+    37	\end{center}
+    38	
+    39	\selectlanguage{english}version : \showgitstatus\selectlanguage{french}
+    40	\tableofcontents
+    41	
+    42	\else
+    43	\chapter{Comparaison avec la cohomologie classique : cas d'un schema lisse}
+    44	%\addtocontents{toc}{. }
+    45	\begin{center}
+    46	M. Artin 
+    47	\end{center}
+    48	\fi
+    49	
+    50	\setcounter{pageoriginal}{63}
+    51	
+    52	\section{Introduction}\etiquette[1]{XI.sec1}\pageoriginale
+    53	
+    54	Dans le nᵒ \hyperref[XI.sec4]{4} nous démontrerons que la cohomologie étale
+    55	à valeurs dans un faisceau localement constant de torsion coïncide
+    56	avec la cohomologie classique pour un schéma $X$ lisse sur
+    57	$\Spec\CC$. La démonstration, qui est essentiellement celle
+    58	donnée dans \cite{1}, est élémentaire à partir du théorème de Grauert
+    59	rappelé plus bas (\hyperref[XI.thm4.3]{4.3} (iii)), qui dit que chaque revêtement fini de
+    60	$X(\CC)$ provient d'un revêtement étale de $X$; c'est pourquoi
+    61	on la donne ici, bien qu'on prouvera un résultat plus complet plus
+    62	tard, en utilisant le théorème de résolution des singularités de
+    63	Hironaka \cite{3} \footnote[1]{Notons d'ailleurs que la résolution des
+    64	  singularités de Hironaka permet également de donner une
+    65	  démonstration très simple du résultat de Grauert, et à ce titre peut
+    66	être considérée comme étant de toutes façons à la base des
+    67	théorèmes de comparaison. Voir à ce sujet l'exposé de Mme M. Raynaud
+    68	dans \SGA 1 XII (North Holland Pub. Cie).}. De plus, les bons
+    69	voisinages  construits dans la section 3 pourraient être utiles dans
+    70	d'autres\pageoriginale situations.
+    71	
+    72	Notons qu'il n'est pas vrai que la cohomologie étale et la cohomologie
+    73	classique coïncident pour les faisceaux qui ne sont pas de
+    74	torsion. Par exemple, on a $H^1(X_{\et},\ZZ)=0$ pour tout
+    75	schéma normal $X$ (\hyperrefext[IX][IX.prop3.6]{3.6} (ii)), mais la cohomologie classique n'est
+    76	pas nécessairement nulle.
+    77	
+    78	\section{Existence de sections hyperplanes assez générales}\etiquette[2]{XI.sec2}
+    79	
+    80	Le résultat suivant est classique mais on manque de référence (en
+    81	attendant \EGA V):
+    82	
+    83	\begin{enonce*}{Théorème 2.1}\etiquette[2.1]{XI.thm2.1} %Pourquoi l'énoncé
+    84	                                %n'est pas formulé pour un sous-espace
+    85	                                %linéaire qui tourne autour d'un point
+    86	                                %fixé? c'est-à-dire (i) avec $P\in L$ ou
+    87	                                %$(ii)$ avec $d=1$
+    88	Soit $k$ un corps et $V\subset \PP^n_k$ un schéma algébrique
+    89	projectif purement de dimension $r$. Soit $V'$ le sous-schéma ouvert
+    90	des points de $V$ lisses sur $\Spec k$ et soit $P$ un point rationnel
+    91	de $\PP^n$. Alors:
+    92	\begin{enumerate}
+    93	\renewcommand{\theenumi}{\roman{enumi}}
+    94	\renewcommand{\labelenumi}{(\theenumi)}
+    95	\item Un sous-espace linéaire « assez général » $L$ de dimension
+    96	  donnée $d$ de $\PP^n$ coupe $V$ transversalement en chaque
+    97	  point de $L\cap V'$.
+    98	
+    99	\item Soit $\{H_1,\ldots,H_s\}$ $(s\leq r)$ un système d'hyperplans de %un
+   100	                                %'hyperplan' n'est pas linéaire ici
+   101	  degré $d\geq 2$ passant par $P$ et soit $Y=H_1\cap\ldots \cap
+   102	  H_s$. Si $\{H_1,\ldots,H_s\}$ est assez général, alors $Y$ coupe $V$
+   103	  transversalement en chaque point de $Y\cap V'$.
+   104	\end{enumerate}
+   105	\end{enonce*}
+   106	
+   107	La locution « pour un sous-espace linéaire assez général » veut
+   108	dire qu'il existe un sous-ensemble ouvert dense $U$ de la
+   109	grassmannienne qui paramétrise les sous-espaces linéaires de dimension % 'qui paramètre'
+   110	$d$, tel que l'assertion envisagée sur $L$ soit vraie chaque fois que
+   111	le paramètre de $L$ est dans $U$. Cela n'implique donc pas qu'il
+   112	existe un tel $L$ (défini sur $k$), si $k$ n'est pas défini. De même,
+   113	% mentionner le plongement de Veronese?
+   114	les hyperplans de degré $d$ passant par $P$ sont 
+   115	paramétrisés\pageoriginale par un espace projectif $\PP^N$, et la %'paramétrés'
+   116	locution « pour $\{H_1,\ldots,H_s\}$ assez général » veut dire
+   117	qu'il existe un sous-ensemble ouvert dense $U$ de $(\PP^N)^s$
+   118	tel que l'assertion envisagée soit vraie chaque fois que le paramètre
+   119	de $(H_1,\ldots,H_s)$ est dans $U$.
+   120	
+   121	Démonstration (i): Par récurrence on est ramené immédiatement au cas
+   122	où $L$ est un hyperplan. Soit $(V'_{\nu})$ un recouvrement fini ouvert de
+   123	$V'$. Si l'assertion (i) est vraie quand on remplace le symbole $V'$
+   124	par $V'_{\nu}$ quel que soit $\nu$, c'est aussi vrai pour $V'$, parce
+   125	que l'intersection d'un nombre fini de sous-ensemble ouverts denses
+   126	est également ouvert et dense. On peut donc remplacer la situation par
+   127	un schéma algébrique affine, disons $V\subset \EE^n_k=\Spec
+   128	k[x_1,\ldots,x_n]$. L'hyperplan $L$ sera l'ensemble des zéros d'une
+   129	équation linéaire
+   130	$$
+   131	\ell(x)=a_0+\sum^n_{i=1}a_ix_i{\quoi}.
+   132	$$
+   133	
+   134	Rappelons qu'un schéma lisse est localement intersection complète. On
+   135	peut donc remplacer $V'$ par un sous-ensemble ouvert de points de $V$
+   136	tel qu'il existe des polynômes $f_1(x),\ldots,f_{n-r}(x)$ qui
+   137	s'annulent sur $V$ et des indices $1\leq j_{\nu}\leq n$
+   138	$(\nu=1,\ldots,n-r)$ tels que le déterminant
+   139	$$
+   140	\left|\frac{\partial f_i}{\partial x_{j_{\nu}}}\right|\quad 
+   141	(i,\nu=1,\ldots,n-r)
+   142	$$
+   143	soit inversible. Disons $j_{\nu}=\nu$ $(\nu=1,\ldots,n-r)$. Alors on peut
+   144	résoudre les équations
+   145	$$
+   146	y_j=\sum^{n-r}_{i=1}\quad c_i\quad \frac{\partial f_i}{\partial x_j}
+   147	$$
+   148	pour\pageoriginale $c_i$ comme fonction rationnelle des variables $x_i$, $y_j$
+   149	$(i=1,\ldots, n-r; j=1,\ldots,n)$, et ces fonctions $c_i(x,y)$ sont
+   150	définies en chaque point de $V'$.
+   151	
+   152	Or dire que $L$ coupe $V$ transversalement en un point $Q$ de $V'$
+   153	revient à dire que la valeur de la matrice
+   154	$$
+   155	\begin{bmatrix}
+   156	\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial
+   157	  f_1}{\partial x_n}\\
+   158	\vdots & &\vdots\\
+   159	\frac{\partial f_{n-r}}{\partial x_1} & & \frac{\partial
+   160	  f_{n-r}}{\partial x_n}\\
+   161	a_1 & \cdots & a_n
+   162	\end{bmatrix}
+   163	$$
+   164	en $Q$ est de rang $n-r+1$. Donc pour que $L$ coupe $V$
+   165	transversalement en chaque point de $V'$ il faut et suffit que le
+   166	système des $r+1$ équations
+   167	\begin{align*}
+   168	a_j &= \sum^{n-r}_{i=1} c_i (x,a)\frac{\partial f_i}{\partial x_j}\qquad
+   169	(j=n-r+1,\ldots, n)\\
+   170	a_0 &+ \sum^n_{i=1} a_i x_i =0
+   171	\end{align*}
+   172	n'ait aucune solution sur $V'$. Une telle condition est évidemment
+   173	constructible en $(a)$: Soit $X=V'\times A$, où $A$ est l'espace affine
+   174	de coordonnées $a_0,\ldots,a_n$, et soit $Y\subset X$ le
+   175	sous-ensemble fermé des solutions de ces équations. La condition est
+   176	que la fibre de $Y/A$ soit vide, ce qui est bien une
+   177	condition\pageoriginale constructible (\EGA IV 9.5.1). Il suffit donc % \ref
+   178	de vérifier que la fibre au-dessus du point générique de $A$ est vide,
+   179	ce qui se voit immédiatement sur la forme des équations. Ceci achève
+   180	la démonstration de (i). (ii): Considérons l'application rationnelle
+   181	$\PP^n\rightarrow \PP^N$ donnée par le système linéaire
+   182	des hyperplans de degré $d$ ($d\geq 2$) passant par $P$. Il est bien
+   183	connu (et on le vérifie aisément) que c'est un « éclatement » de
+   184	$P$, donc donne une immersion localement fermée
+   185	$$
+   186	f:\PP^n-\{P\}\longrightarrow \PP^N{\quoi}.
+   187	$$
+   188	Soit $V''=V'-(\{P\}\cap V')$, $\bar{V}{}''=\sisi{f}{F}(V'')$ et soit $L_i$
+   189	l'hyperplan de $\PP^N$ correspondant aux hyperplans $H_i$
+   190	$(i=1,\ldots,s)$. Alors $V''$ est isomorphe à $\bar{V}{}''$, et d'après
+   191	la définition de $f$, dire que $Y$ coupe $V''$ transversalement
+   192	revient à dire que $L_1\cap\ldots \cap L_s$ coupe $\bar{V}{}''$
+   193	transversalement. En posant $\bar{V}=$ adhérence de $\bar{V}{}''$, on
+   194	est ramené à l'assertion (i) pour $\bar{V}$, qui implique (ii) avec
+   195	$V''$ au lieu de $V'$. Il reste donc à considérer le point $P$, si
+   196	c'est un point lisse de $V$. Mais il est évident que si
+   197	$\{H_1,\ldots,H_s\}$ est assez général et $P$ est lisse sur $V$, alors
+   198	$Y$ coupe $V$ transversalement en $P$, d'où le résultat.
+   199	
+   200	\section{Construction des bons voisinages}\etiquette[3]{XI.sec3}
+   201	
+   202	\begin{enonce*}{Définition 3.1}\etiquette[3.1]{XI.def3.1}
+   203	On appelle fibration élémentaire un morphisme de schémas
+   204	${f:X\rightarrow S}$ qui peut être plongé dans un diagramme commutatif
+   205	$$
+   206	\xymatrix@=2cm{
+   207	X  \ar[r]^{j} \ar[rd]_{f}& \bar{X} \ar[d]^{\bar{f}}& Y \ar[l]_{i}  \ar[ld]^{g}\\
+   208	               &    S   &      
+   209	}
+   210	$$
+   211	satisfaisant\pageoriginale aux conditions suivantes:
+   212	\begin{enumerate}
+   213	\renewcommand{\theenumi}{\roman{enumi}}
+   214	\renewcommand{\labelenumi}{(\theenumi)} 
+   215	% \item $i$ est une immersion fermée.
+   216	\item $j$ est une immersion ouverte dense dans chaque fibre, et
+   217	  $X=\bar{X}-Y$. 
+   218	
+   219	\item $\bar{f}$ est lisse et projectif, à fibres géométriques
+   220	  irréductibles et de dimension $1$.
+   221	
+   222	\item $g$ est un revêtement étale, et chaque fibre de $g$ est non-vide.
+   223	\end{enumerate}
+   224	\end{enonce*}
+   225	
+   226	
+   227	On vérifie facilement qu'un tel plongement de $X$ est unique s'il
+   228	existe, à isomorphisme canonique près.
+   229	
+   230	\begin{enonce*}{Définition 3.2}\etiquette[3.2]{XI.def3.2}
+   231	On appelle bon voisinage relatif à $S$ un $S$-schéma $X$ tel qu'il
+   232	existe des $S$-schémas
+   233	$$
+   234	X=X_n,\ldots,X_0=S
+   235	$$
+   236	et des fibrations élémentaires $f_i:X_i\rightarrow X_{i-1}$, % $f_i$ est un $S$-morphisme
+   237	$i=1,\ldots, n$.
+   238	\end{enonce*}
+   239	
+   240	\begin{enonce*}{Proposition 3.3}\etiquette[3.3]{XI.prop3.3}
+   241	\footnote{Ce résultat s'étend sans difficulté à une assertion
+   242	    semi-locale.}
+   243	Soit $k$ un corps algébriquement clos, $X/\Spec k$ un
+   244	    schéma lisse, et $x\in X$ un point rationnel. Il existe un ouvert
+   245	    de $X$ contenant $x$ qui est un bon voisinage (relatif à $\Spec k$).
+   246	\end{enonce*}
+   247	
+   248	Démonstration. Prenons $X$ irréductible. Par récurrence sur $\dim
+   249	X=n$, il suffit de trouver un voisinage $U$ de $x$ dans $X$ et une
+   250	fibration élémentaire $f:U\rightarrow V$, avec $V$ lisse et de
+   251	dimension $n-1$. En effet, il existera un voisinage $V'$ de $v=f(x)$
+   252	qui est un bon voisinage, et on pourra prendre $U'=U\cap \sisi{f^{-1}(V')}{V'}$ comme bon
+   253	voisinage de $x$.
+   254	
+   255	On peut supposer $X\subset \EE^r$ affine. Soit $X_0$
+   256	l'adhérence de $X$ dans $\PP^r$. Soit $\bar{X}$ le normalisé de
+   257	$X_0$ et $Y=\bar{X}-X$, avec la structure induite
+   258	réduite. Soit\pageoriginale de plus $S\subset \bar{X}$ le
+   259	sous-ensemble fermé des points singuliers. On a $S\subset Y$ et
+   260	\begin{align*}
+   261	\dim \bar{X} &= \dim X=n{\quoi},\\
+   262	\dim Y &= n-1{\quoi},\\
+   263	\dim S &\leq n-2{\quoi}.
+   264	\end{align*}
+   265	
+   266	Plongeons $\bar{X}$ dans un espace projectif $\PP^N$, au moyen
+   267	d'un faisceau inversible $L$ qui soit de la forme $M^{\otimes r}$ avec
+   268	$M$ très ample et $r\geq 2$. Il existe alors des hyperplans % linéaires
+   269	$H_1,\ldots, H_{n-1}$ de $\PP^N$, où $H_i$ est l'ensemble des
+   270	zéros de
+   271	$$
+   272	\sum^N_{\nu =0}a_{i\nu} x_{\nu} =0{\quoi},
+   273	$$
+   274	qui contiennent $x$ et tels que l'intersection $L=H_1\cap\ldots \cap
+   275	H_{n-1}$ soit de dimension $N-n+1$ et coupe $\bar{X}$ et $Y$
+   276	transversalement (\hyperref[XI.thm2.1]{2.1}). % voir le commentaire du théorème 2.1
+   277	 %Pour l'intersection avec $\bar{X}$: $S\cap L=∅$ pour $L$ assez
+   278	 %général, donc $\bar{X}\cap L=(\bar{X} - Y)\cap L$ et
+   279	 %$\bar{X}- Y$ est lisse.
+   280	 %Pour l'intersection avec $Y$: $Y$ est réduit et $k$ algébriquement clos,
+   281	 %donc chaque composante irréductible est génériquement lisse, et $L$ assez
+   282	 %général ne rencontre pas le lieu singulier de $Y$.
+   283	L'intersection $\bar{X}\cap L$ est une courbe
+   284	lisse et connexe (cela résulte du théorème de Bertini), et $Y\cap L$
+   285	est de dimension $0$. Choisissons de plus un autre hyperplan
+   286	$$
+   287	H_0:\sum^N_{\nu=0}a_{0 \nu}x_{\nu}=0
+   288	$$
+   289	tel que $H_0$ coupe $\sisi{\bar{X}}{X}\cap L$ transversalement et $H_0\cap
+   290	Y\cap L=∅$. % Il faut de plus choisir $x\notin H_0$ pour que
+   291	                    % l'application $f'$ plus bas soit bien définie en $x$
+   292	
+   293	Considérons la projection $\PP^N\rightarrow \PP^{n-1}$
+   294	obtenue en « introduisant les coordonnées projectives »
+   295	$$
+   296	y_i=\sum^N_{\nu =0}a_{i_{\nu}}x_{\nu}{\quoi}.
+   297	$$
+   298	C'est une application rationnelle définie en dehors du centre de
+   299	projection $C=H_0\cap\ldots \cap H_{n-1}$. Soit $\epsilon
+   300	:P'\rightarrow \PP^N$ l'éclatement de $C$, tel qu'on ait un
+   301	diagramme
+   302	$$
+   303	\xymatrix@=1.5cm{
+   304	\PP^{N}  \ar[rd]& &P'\ar[ld]^{\pi}\ar[ll]_{\epsilon}\\
+   305	               &\PP^{n-1} &
+   306	}
+   307	$$
+   308	où\pageoriginale $\pi$ est un morphisme. Soit $\bar{X}{}'\subset P'$
+   309	l'image inverse « propre » de $\bar{X}$, c'est-à-dire,
+   310	l'adhérence de $\epsilon^{-1}(\bar{X}-(\bar{X}\cap C))$. Puisque par
+   311	hypothèse $C$ coupe $\bar{X}$ transversalement, le morphisme
+   312	$\bar{X}{}'\rightarrow \bar{X}$ est un éclatement de l'ensemble fini
+   313	$\bar{X}\cap C$. Soient $X'=X-\bar{X}\cap C$, qui s'identifie aussi à
+   314	un sous-schéma ouvert de $\bar{X}{}'$, et $Y'=\bar{X}{}'-X'$ le
+   315	sous-schéma fermé avec la structure induite réduite. On a un diagramme
+   316	$\DD$ de morphismes
+   317	$$
+   318	\xymatrix@=2cm{
+   319	  X'  \ar[r]^{j} \ar[rd]_{f'}& \bar{X}{}'  \ar[d]^{\bar{f}{}'} & Y'\ar[l]_{i} \ar[ld]^{g'}     &\\
+   320	                           & \PP^{n-1} &\qquad ,   
+   321	}
+   322	$$
+   323	et je dis qu'il existe un voisinage $V$ de $v=f'(x)$ tel que la
+   324	restriction de $\DD$ à $V$ satisfasse aux conditions (i), (ii),
+   325	(iii) de (\hyperref[XI.def3.1]{3.1}), donc que $f'_{\mid V}$ soit une fibration
+   326	élémentaire. Cela achèvera la démonstration.
+   327	
+   328	La condition (i) sera triviale. Pour (ii), notons que $\bar{X}\cap L$
+   329	est une courbe lisse par hypothèse, et on voit immédiatement qu'on a
+   330	un morphisme biunivoque ${\bar{f}{}'}^{-1}(v)\rightarrow \bar{X}\cap L$ % morphisme biunivoque? 
+   331	induit par $\epsilon$. Donc $\left({\bar{f}{}'}^{-1}(v)\right)_{\red}\rightarrow
+   332	\bar{X}\cap L$ est bijectif. Pour vérifier que $\bar{f}{}'$ est lisse
+   333	% supprimer les \left et \right ?
+   334	au-dessus d'un voisinage de $v$, il suffit par le lemme de Hironaka
+   335	(\SGA 1 II 2.6 %\ref
+   336	\footnote{et \EGA IV 5.12.10.}) de vérifier qu'il
+   337	est lisse au point générique de ${\bar{f}{}'}^{-1}(v)$. En ce point,
+   338	$\bar{X}{}'$ est isomorphe à $\bar{X}$, et le morphisme est lisse parce
+   339	que $L$ coupe $\bar{X}$ transversalement.
+   340	
+   341	Il reste à démontrer que $g'$ est étale dans un voisinage de $v$
+   342	(puisque $Y$ est de dimension $n-1$, il est évident que chaque fibre
+   343	de $g'$ est non-vide). On a $Y'=\epsilon^{-1}(Y)\amalg D_1
+   344	\amalg\ldots \amalg D_r$, où $\bar{X}\cap C=\{P_1,\ldots,P_r\}$ et
+   345	$D_i$ est l'éclatement\pageoriginale de $P_i$ dans $\bar{X}$. Chaque $D_i$
+   346	s'identifie à $\epsilon^{-1}(P_i)$, et s'envoie isomorphiquement sur
+   347	$\PP^{n-1}$\sisi{. De plus, la projection}{} est définie en chaque point de
+   348	$Y$%car $Y\cap C=∅$
+   349	, et le morphisme
+   350	induit sur $Y$ n'est autre que $g'_{\mid \epsilon^{-1}(Y)}$. Il est étale
+   351	au-dessus de $v$, car $L$ coupe $Y$ transversalement, donc $g'$ est
+   352	étale au-dessus de~$v$.
+   353	
+   354	\section{Le théorème de comparaison}\etiquette[4]{XI.sec4}
+   355	
+   356	\setcounter{subsection}{-1}
+   357	\subsection{}\etiquette[4.0]{XI.subsec4.0}
+   358	Soit $X$ un schéma localement de type fini sur $\Spec \CC$ et
+   359	considérons la topologie usuelle sur l'espace $X(\CC)$ des
+   360	points rationnels de $X$. On va noter par $X_{\cl}$ le site des
+   361	\emph{isomorphismes locaux} $f:U\rightarrow X(\CC)$,
+   362	c'est-à-dire, des morphismes $f$ d'espaces topologiques ayant la
+   363	propriété suivante:
+   364	
+   365	\sisi{pour}{Pour} chaque $x\in U$ il existe un voisinage ouvert $U_x$ tel que
+   366	$f_{\mid U_x}$ est un homéomorphisme de $U_x$ sur un voisinage ouvert de
+   367	$f(x)$. 
+   368	
+   369	Une famille $\{U_{\nu}\rightarrow U\}$ de morphismes de $X_{\cl}$ est
+   370	dite \emph{couvrante} si $U$ est la réunion des images des $U_{\nu}$.
+   371	
+   372	Puisqu'une immersion ouverte est un isomorphisme local, on a un
+   373	morphisme (inclusion) de sites (IV\quad ) %manque une référence
+   374	\footnote{Plus précisément, l'inclusion de catégories
+   375	  $\Ouv(X(\CC))\rightarrow X_{\cl}$ définit un morphisme de
+   376	  sites (4.1) en sens inverse.}
+   377	\begin{equation*}
+   378	\delta:X_{\cl}\longrightarrow X(\CC)\qquad
+   379	(\ast){\quoi}.\tag{4.1}
+   380	\end{equation*}\etiquette[4.1]{XI.eq4.1}
+   381	Or pour chaque isomorphisme local $U\rightarrow X(\CC)$ il
+   382	existe d'après la définition un « recouvrement » de $U$ par des
+   383	ouverts de $X(\CC)$, et on déduit de (\quad) que les topos %manque une référence
+   384	associés aux deux sites sont équivalents (par $\delta_{\ast}$). En
+   385	particulier on peut remplacer $X(\CC)$ par $X_{\cl}$ pour le
+   386	calcul de la cohomologie usuelle.
+   387	
+   388	Soit maintenant $f:X'\rightarrow X$ un morphisme étale de
+   389	schémas. Alors $f(\CC):X'(\CC)\rightarrow X(\CC)$
+   390	est un isomorphisme local. Cela résulte immédiatement du\pageoriginale critère
+   391	jacobien (\SGA 1 II 4.10) et du théorème des fonctions implicites. Le
+   392	foncteur $X'\mapsto X'(\CC)$ donne donc un morphisme de sites
+   393	\begin{equation*}
+   394	\epsilon:X_{\cl}\longrightarrow X_{\et}{\quoi},\tag{4.2}
+   395	\end{equation*}\etiquette[4.2]{XI.eq4.2}
+   396	où $X_{\et}$ est le site étale.
+   397	
+   398	Rappelons les résultats suivants \footnote{Qui figurent dans
+   399	  l'exposé cité en note de bas de page, p.~2.}: %identifier les exposés
+   400	                                %précédemment pour identifier cet exposé
+   401	                                %mentionné dans la note?
+   402	
+   403	\begin{enonce*}{Théorème 4.3}\etiquette[4.3]{XI.thm4.3}
+   404	\begin{enumerate}
+   405	\renewcommand{\theenumi}{\roman{enumi}}
+   406	\renewcommand{\labelenumi}{(\theenumi)}
+   407	\item $X$ est connexe et non-vide si et seulement si $X(\CC)$
+   408	  est connexe et non-vide.
+   409	
+   410	\item Le foncteur $\epsilon$ est pleinement fidèle.
+   411	
+   412	\item (« Théorème de Grauert-Remmert »). Le foncteur $\epsilon$
+   413	  induit une équivalence de la catégorie des revêtements finis de
+   414	  $X(\CC)$, muni de sa topologie habituelle d'espace localement
+   415	  compact, avec la catégorie des revêtements étales de $X$.
+   416	\end{enumerate}
+   417	\end{enonce*}
+   418	
+   419	Nous accepterons (i) comme connu. Il résulte par exemple de (GAGA) %\ref
+   420	\cite{4}. L'assertion (ii) résulte facilement de (i). En effet, pour
+   421	vérifier l'assertion de surjectivité contenue dans (ii), soit
+   422	$\varphi:X'(\CC)\rightarrow X''(\CC)$ un
+   423	$X(\CC)$-morphisme. On peut supposer tous les schémas connexes
+   424	et affines, donc séparés. Alors le graphe $\Gamma$ de $\varphi$ est
+   425	une composante connexe de $\fprod{X'}{X''}{X}(\CC)$, d'où
+   426	$\Gamma=Y(\CC)$ pour une certaine composante connexe $Y$ de
+   427	$\fprod{X'}{X''}{X}$, par (i). Alors $Y$ est le graphe d'un morphisme
+   428	$f:X'\rightarrow X''$ qui induit $\varphi$, \ie la projection
+   429	$Y\rightarrow X'$ est un isomorphisme: en effet
+   430	$Y(\CC)\rightarrow X(\CC)$ est un isomorphisme, d'où on
+   431	tire facilement qu'il en est de même de $Y\rightarrow X'$ (qui est
+   432	étale, radiciel, surjectif !). Pour (iii) tout revient d'après (ii) à
+   433	démontrer que chaque revêtement fini de $X(\CC)$ est de la
+   434	forme $X'(\CC)$ où  $X'\rightarrow X$\pageoriginale est étale.
+   435	
+   436	Pour cela, on se réduit immédiatement par descente (\SGA 1 IX 4.7) au %\ref
+   437	cas $X$ connexe et normal. Le problème est local sur $X$ (pour la
+   438	topologie de Zariski), et on peut donc supposer $X$ affine. Soient
+   439	$f:X\rightarrow \EE^n$ un morphisme fini, et $T'\rightarrow
+   440	X(\CC)$ un revêtement fini connexe. On constate immédiatement
+   441	que le morphisme composé $\eta':T'\rightarrow
+   442	\EE^n(\CC)$ est un « revêtement analytique » dans
+   443	le sens de (\cite{2} \S \hyperref[XI.sec2]{2}, Def.~\hyperref[XI.sec3]{3}). 
+   444	D'après (\cite{2} \S \hyperref[XI.sec2]{2}, Satz 8) \sisi{$\eta'$}{} s'étend à un
+   445	« revêtement analytique » $\eta:T\rightarrow
+   446	\PP^n(\CC)$, et il suffit de démontrer que $\eta$ est
+   447	\sisi{induit}{induite} par un morphisme de schémas $f:Y\rightarrow \PP^n$
+   448	convenable, avec $Y$ normal. Or le théorème fondamental (\cite{2} \S 13
+   449	Satz 42) affirme qu'il y a une structure canonique analytique normale
+   450	sur $T$ telle que $\eta$ induise un morphisme d'espaces
+   451	analytiques. Puisque alors $\eta$ est un morphisme fini, l'image
+   452	directe du faisceau structural sur $T$ est un faisceau $\mathfrak{a}$
+   453	d'algèbres analytiques cohérentes sur $\PP^n$. Il résulte de
+   454	\sisi{(GAGA)}{GAGA} \cite{4} % \ref
+   455	que $\mathfrak{a}$ est le faisceau analytique associé à un
+   456	faisceau algébrique $A$ sur $\PP^n$, et on prend
+   457	$Y=\sheaf{\Spec}A$.
+   458	
+   459	Nous pouvons maintenant démontrer le résultat suivant:
+   460	
+   461	\begin{enonce*}{Théorème 4.4}\etiquette[4.4]{XI.thm4.4}
+   462	Soit $X$ un schéma lisse sur $\Spec \CC$.
+   463	\begin{enumerate}
+   464	\renewcommand{\theenumi}{\roman{enumi}}
+   465	\renewcommand{\labelenumi}{(\theenumi)}
+   466	\item Il y a une équivalence entre la catégorie des faisceaux de
+   467	  torsion localement constants constructibles sur $X_{\et}$ et la
+   468	  catégorie des faisceaux de torsion localement constants, à fibres
+   469	  finies, sur $X_{\cl}$, l'équivalence étant donnée par les foncteurs
+   470	  quasi-inverses ${}_{\ast}$ et ${}^{\ast}$.
+   471	
+   472	\item Soit $F$ un faisceau de torsion localement constant, à fibres
+   473	  finies, sur $X_{\cl}$, et notons aussi par $F$ le faisceau
+   474	  $\epsilon_{\ast}F$ induit sur $X_{\et}$. Alors
+   475	$$
+   476	R^q\epsilon_{\ast}F=0\quad \mbox{ si } q>0{\quoi}.
+   477	$$
+   478	
+   479	\item Avec\pageoriginale les notations de {\rm(i)}, le morphisme
+   480	  canonique
+   481	$$
+   482	H^q(X_{\et},F)\longrightarrow H^q(X_{\cl},F)
+   483	$$
+   484	est bijectif pour chaque $q$. En particulier,
+   485	$$
+   486	H^q(X_{\et}, \ZZ/\sisi{n\ZZ}{n})\xrightarrow{\sim} H^q(X_{\cl},\ZZ/\sisi{n\ZZ}{n})
+   487	$$
+   488	pour chaque $q$.
+   489	\end{enumerate}
+   490	\end{enonce*}
+   491	
+   492	Démonstration. Pour (i), notons que les faisceaux en question sont
+   493	ceux qui sont représentables par des revêtements étales de $X$ (\resp
+   494	par des revêtements finis de $X(\CC)$). Puisqu'il y a une
+   495	équivalence entre les catégories de ces revêtements
+   496	(\hyperref[XI.thm4.3]{4.3}), l'assertion 
+   497	(i) en résulte immédiatement. L'isomorphisme de (iii) est conséquence
+   498	de (ii) et de la suite spectrale de Leray V 5.2 % \ref + 5.3 au lieu de 5.2?
+   499	pour $\epsilon$. Il
+   500	reste donc à démontrer (ii).
+   501	
+   502	Or $R^q\epsilon_{\ast}F$ est le faisceau associé au préfaisceau
+   503	$\Rr^qF,$ où $(\Rr^qF)(X')=H^q(X'_{\cl},F)$ pour
+   504	$X'\rightarrow X$ étale. Pour démontrer que $R^q\epsilon_{\ast}F=0$ si
+   505	$q>0$, on doit donc démontrer le \sisi{lemme}{} suivant:
+   506	
+   507	\begin{enonce*}{Lemme 4.5}\etiquette[4.5]{XI.lem4.5}
+   508	Soit $\xi\in H^q(X_{\cl},F)$ et $x\in X_{\cl}=X(\CC)$. Il
+   509	existe un morphisme étale $X'\rightarrow X$ dont l'image contient $x$
+   510	et tel que l'image de $\xi$ dans $H^q(X'_{\cl},F)$ soit nulle.
+   511	\end{enonce*}
+   512	
+   513	Démonstration du lemme. Récurrence sur $n=\dim X$; le problème est
+   514	local sur $X$ pour la topologie étale, \sisi{}{et} on peut donc supposer $F$
+   515	constant, et par dévissage on peut même supposer que
+   516	$F=\ZZ/\sisi{n\ZZ}{n}$. De plus, en remplaçant $X$ par un voisinage
+   517	ouvert de Zariski de $x$, on peut (\hyperref[XI.prop3.3]{3.3}) supposer que $X$ admet une
+   518	fibration élémentaire (\hyperref[XI.def3.1]{3.1}) $f:X\rightarrow S$. Reprenons les
+   519	notations de (\hyperref[XI.def3.1]{3.1}): par\pageoriginale calcul direct, on voit que
+   520	$R^q{j}_{\ast}F=0$ si $q>1$, que $R^1j_{\cl\!\ast}F$ est
+   521	l'extension par $0$ d'un faisceau constant sur $Y_{\cl}$, et enfin que
+   522	$j_{\cl\!\ast}F$ est le faisceau constant $\ZZ/\sisi{n\ZZ}{n}$ sur
+   523	$\bar{X}$. De plus, on peut calculer $R^q
+   524	\bar{f}_{\cl\!\ast}(j_{\cl\!\ast}F)$ fibre par fibre. De la suite
+   525	spectrale de Leray
+   526	$$
+   527	E^{pq}_2=R^p\bar{f}_{\cl\!\ast}(R^qj_{\cl\!\ast}F)\Longrightarrow
+   528	R^{p+q}f_{\cl\!\ast}F
+   529	$$
+   530	on déduit qu'on peut de même calculer $R^{p+q}f_{\cl\!\ast}F$ fibre
+   531	par fibre, et donc que 
+   532	
+   533	$R^0f_{\cl\!\ast}\ZZ/\sisi{n\ZZ}{n}=\ZZ/\sisi{n\ZZ}{n}$,
+   534	
+   535	$R^1f_{\cl\!\ast}\ZZ/\sisi{n\ZZ}{n}$ est un faisceau localement constant de
+   536	  torsion sur $S_{\cl}$,
+   537	
+   538	$R^qf_{\cl\!\ast}\ZZ/\sisi{n\ZZ}{n}=0$ si $q>1$.
+   539	
+   540	La suite spectrale de Leray
+   541	
+   542	$E^{pq}_2=H^p(S_{\cl}, R^qf_{\cl\!\ast}F)\Longrightarrow
+   543	H^{p+q}(X_{\cl},F)$
+   544	
+   545	\noindent
+   546	se réduit ainsi à la suite exacte
+   547	\begin{equation*}
+   548	\ldots\longrightarrow H^q(S_{\cl},f_{\cl\!\ast}F)\longrightarrow
+   549	H^q(X_{\cl},F)\longrightarrow H^{q-1}(S_{\cl},
+   550	R^1f_{\cl\!\ast}F)\longrightarrow\tag{$\ast$}
+   551	\end{equation*}
+   552	Soit $s$ l'image de $x$ dans $S$. Par hypothèse de récurrence et grâce
+   553	à (i), il existe pour chaque classe $\eta\in H^q(S_{\cl},G)$ ($G$
+   554	localement constant de torsion, à fibres finies) un « voisinage
+   555	étale » $S'\rightarrow S$ de $s$ tel que l'image de $\eta$ dans
+   556	$H^q(S'_{\cl},G)$ soit nul. Or les foncteurs $R^qf_{\cl\!\ast}$
+   557	commutent évidemment aux changements de base étales, et si
+   558	$S'\rightarrow S$ est un voisinage étale de $s$, alors
+   559	$X'=\fprod{X}{S'}{S}\rightarrow X$ est un voisinage étale de
+   560	$x$. Lorsque $q\geq 1$ on termine donc grâce à la suite exacte
+   561	$(\ast)$ en prenant d'abord $G=R^1f_{\cl\!\ast}F$ et
+   562	ensuite\pageoriginale $G=f_{\cl\!\ast}F$. %La preuve ici est terminée, la
+   563	                                %suite est une remarque pour le cas $q=1$
+   564	Lorsque $q=1$, on note que
+   565	$H^1(X_{\cl},\ZZ/n \ZZ)$ (\resp
+   566	$H^1(X,\ZZ/n\ZZ)$) classifie les revêtements étales %plutôt parler de
+   567	                                %revêtements finis pour $X_\cl$ ?
+   568	principaux de $X_{\cl}$ (\resp $X$), de groupe
+   569	$\ZZ/n\ZZ$, donc en vertu de \hyperref[XI.thm4.3]{4.3} (iii) l'application
+   570	$H^1(X,\ZZ/n\ZZ)\rightarrow
+   571	H^1(X_{\cl},\ZZ/n\ZZ)$ est bijective, d'où aussitôt le
+   572	résultat d'effacement \hyperref[XI.lem4.5]{4.5} pour $q=1$.
+   573	
+   574	\begin{enonce*}[remark]{Variante 4.6}\etiquette[4.6]{XI.var4.6}
+   575	On peut aussi démontrer (\hyperref[XI.lem4.5]{4.5}) de la manière élégante suivante, due à
+   576	Serre: on remarque qu'un bon voisinage (\hyperref[XI.def3.2]{3.2}) connexe $X$ satisfait aux
+   577	deux conditions suivantes:
+   578	\begin{enumerate}
+   579	\renewcommand{\theenumi}{\roman{enumi}}
+   580	\renewcommand{\labelenumi}{(\theenumi)}
+   581	\item $\pi_n(X(\CC))=0$ si $n>1$.
+   582	
+   583	\item $\pi_1(X(\CC))$ est une extension successive de groupes
+   584	libres de type fini.
+   585	\end{enumerate}
+   586	\end{enonce*}
+   587	
+   588	En effet, si $X\rightarrow S$ est une fibration élémentaire où $S$ est
+   589	un bon voisinage, on peut supposer (i) et (ii) vrai{s} pour $S$ par
+   590	récurrence. Or $X(\CC)\rightarrow S(\CC)$ est un espace
+   591	fibré localement trivial, comme on voit aisément, à fibres isomorphes
+   592	à $X_0(\CC)$, où $X_0$ est une fibre arbitraire de
+   593	$X/S$. Or $X_0$ est une courbe non-singulière connexe \emph{non
+   594	complète} et il est bien connu que cela implique que
+   595	$\pi_n(X_0(\CC))=0$ si $n>1$, et que
+   596	$\pi_1(X_0(\CC))$ est un groupe libre. % \ref
+   597	Alors (i) et (ii)
+   598	sont des conséquences de la suite exacte d'homotopie
+   599	$$
+   600	\longrightarrow \pi_0(X_0(\CC))\longrightarrow
+   601	\pi_n (X(\CC))\longrightarrow \pi_n
+   602	(S(\CC))\longrightarrow\ldots
+   603	$$
+   604	
+   605	Donc $X(\CC)$ est un espace $K(\pi,1)$, et cela implique que
+   606	chaque classe de cohomologie $\xi\in H^n(X(\CC),F)$ devient
+   607	nulle sur le revêtement universel de $X(\CC)$. Il suffit de
+   608	démontrer que $\xi$ devient nulle déjà sur un revêtement fini $X'$ de
+   609	$X$, ce qui revient au même que de démontrer que
+   610	$\pi_1=\pi_1(X(\CC))$ est\pageoriginale un \emph{bon groupe}
+   611	(\cf CG 1 16), %\ref
+   612	 c'est-à-dire que le morphisme de $\pi_1$ dans son
+   613	complété $\sisi{\widehat}{}{\pi}_1=\varprojlim_N \pi_1/N$ (où $N$ parcourt l'ensemble des
+   614	sous-groupes invariants % 'invariant' = 'distingué'?
+   615	de $\pi_1$ d'indice fini) induit une
+   616	bijection.
+   617	$$
+   618	H^q(\widehat{\pi}_1,M)\xrightarrow{\sim} H^q(\pi_1,M)
+   619	$$
+   620	pour tout $\pi_1$-module fini $M$ continu (où le symbole de gauche est
+   621	la cohomologie de $\widehat{\pi}_1$ en tant que groupe profini). Or
+   622	une extension successive de groupes libres de type fini est un bon
+   623	groupe (\cf CG I p.~15-16, exc.~1,2), d'où le résultat. % \ref
+   624	
+   625	\begin{thebibliography}{99}
+   626	\bibitem{1} GIRAUD J., « Analysis Situs », Séminaire
+   627	Bourbaki, Exposé nᵒ 256.
+   628	
+   629	\bibitem{2} GRAUERT H\sisi{.}{} et REMMERT R., « Komplexe Räume »,
+   630	Math, Ann. Bd. 136, p. 245 (1958).
+   631	
+   632	\bibitem{3} HIRONAKA H., « Resolution of singularities of an
+   633	algebraic variety over a field of characteristic zero » Annals of
+   634	Math. Vol. 39, nᵒ 1, 2 (1964).
+   635	
+   636	\bibitem{4} SERRE J.P., « Géométrie Algébrique et Géométrie
+   637	Analytique », Annales de l'Institut Fourier, t. VI, p. 1-12 (1956).
+   638	\end{thebibliography}
+   639	
+   640	
+   641	\ifx\danslelivre\undefined
+   642	\end{document}
+   643	\fi

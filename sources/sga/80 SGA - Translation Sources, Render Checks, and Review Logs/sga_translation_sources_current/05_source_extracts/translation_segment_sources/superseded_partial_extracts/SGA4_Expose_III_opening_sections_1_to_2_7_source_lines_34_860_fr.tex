@@ -1,0 +1,827 @@
+    34	Dans\pageoriginale \hyperrefext[I][I.sec5]{5}, on a étudié la comportement des catégories de
+    35	préfaisceaux par rapport aux foncteurs entre les catégories
+    36	d'arguments. Dans cet exposé, on étend cette étude au cas des sites
+    37	et des catégories de faisceaux (${\rm n^{\circ}}$ 1 et 2). Après
+    38	avoir introduit la topologie induite (${\rm n^{\circ}}$ 3), on
+    39	aborde au ${\rm n^{\circ}}$ 4 le lemme de comparaison qui jouera un
+    40	rôle important dans Exp. IV. Au numéro 5, on étudie, pour le
+    41	lecteur patient, certains diagrammes commutatifs liés aux catégories
+    42	localisées (du type $C/X$). Dans le théorème \hyperrefext[I][I.prop5.1]{5.1} on fait
+    43	des hypothèses de petitesse sur les catégories envisagées. Ces
+    44	hypothèses ne sont pas, en général, satisfaites par les sites
+    45	rencontrés dans la pratique ($𝒰$-sites). Ceci oblige à
+    46	quelques contorsions (\hyperref[III.subsec4.2]{4.2}, \hyperref[III.subsec4.3]{4.3},
+    47	\hyperref[III.subsec4.4]{4.4}).
+    48	
+    49	\section{Foncteurs continus}\etiquette[1]{III.sec1}
+    50	
+    51	\begin{enonce*}{Définition 1.1}\etiquette[1.1]{III.def1.1}
+    52	Soient $C$ et $C'$ deux $𝒰$-sites et $u:C\rightarrow C'$ un
+    53	foncteur entre les catégories sous-jacentes. On dit que $u$ est
+    54	continu si pour tout faisceau d'ensembles $F$ sur $C'$, le
+    55	préfaisceau $X\mapsto F\circ u(X)$ sur $C$ est un faisceau.
+    56	\end{enonce*}
+    57	
+    58	Cette notion de continuité dépend a priori de l'univers
+    59	$𝒰$ pour lequel les deux sites sont des $𝒰$-sites.
+    60	La proposition \hyperref[III.prop1.5]{1.5} montre qu'elle n'en dépend pas.
+    61	
+    62	%\setcounter{subsection}{1}
+    63	\setcounter{subsection}{10}
+    64	\subsection{}\etiquette[1.11]{III.subsec1.11}
+    65	%% coquille originale : 1.11 devrait être 1.1.1 !? \XXX
+    66	Désignons\pageoriginale par $i:C^{\sim}\rightarrow
+    67	C^{\widehat{\phantom{,}}}$ (\resp $i':{C'}^{\sim}\rightarrow
+    68	{C'}^{\widehat{\phantom{,}}}$) le foncteur d'inclusion canonique des
+    69	faisceaux dans les préfaisceaux. D'après la définition
+    70	\hyperref[III.def1.1]{1.1}, le foncteur $u$ est continu si et seulement s'il
+    71	existe un foncteur $u_s:{C'}^{\sim}\rightarrow C^{\sim}$ tel que
+    72	l'on ait l'égalité $iu_s=u^\ast i'$ (avec $u^\ast F=F\circ
+    73	u$ (\hyperrefext[I][I.sec5.0]{5.0})).
+    74	
+    75	\begin{enonce*}{Proposition 1.2}\etiquette[1.2]{III.prop1.2}
+    76	Soient $C$ un petit site, $C'$ un $𝒰$-site et
+    77	$u:C\rightarrow C'$ un foncteur entre les catégories
+    78	sous-jacentes. Les propriétés suivantes sont
+    79	équivalentes:
+    80	\begin{enumerate}
+    81	\renewcommand{\theenumi}{\roman{enumi}}
+    82	\renewcommand{\labelenumi}{\theenumi)}
+    83	\item Le foncteur $u$ est continu.
+    84	
+    85	\item Pour tout objet $X$ de $C$ et tout crible $R\hookrightarrow X$
+    86	  couvrant $X$, le morphisme $u_{!}R\hookrightarrow u(X)$ est
+    87	  bicouvrant dans ${C'}^{\widehat{\phantom{,}}}$ {\rm(\hyperrefext[II][II.def5.2]{5.2}
+    88	  et \hyperrefext[I][I.prop5.1]{5.1}).} \footnote[1]{« Couvrant » au lieu de « bicouvrant »\
+    89	  ne suffisait pas nécessairement, \cf exemple \hyperref[III.exem1.9.3]{1.9.3} ci-dessous.}
+    90	
+    91	\item Pour tout famille bicouvrante $H_i\rightarrow K$, $i\in I$, de
+    92	  $C^{\widehat{\phantom{,}}}$, la famille des $u_{!}H_i\rightarrow
+    93	  u_{!}K$, $i\in I$, est bicouvrante dans
+    94	  ${C'}^{\widehat{\phantom{,}}}$.
+    95	
+    96	\item Il existe un foncteur
+    97	  $u^s:C^{\sim}\rightarrow
+    98	  {C'}^{\sim}$, commutant aux limites inductives et
+    99	  « prolongeant $u$ », \ie tel que le diagramme de foncteurs
+   100	  canoniques
+   101	\[
+   102	\xymatrix@C=3cm@R=1.25cm{
+   103	  C \ar[r]^{u} \ar[d]_{\epsilon_C} & C' \ar[d]^{\epsilon_{C'}}\\
+   104	C{\widetilde{\phantom{A}}} \ar[r]^{u^s}&
+   105	  C'{\widetilde{\phantom{A}}},
+   106	}
+   107	\]
+   108	soit commutatif à isomorphisme près.
+   109	\end{enumerate}
+   110	
+   111	De plus, lorsque $C$ n'est plus nécessairement un petit site,
+   112	mais un $𝒰$-site, on a toujours {\rm i) $\Leftrightarrow$
+   113	iv)} et le foncteur $u^s$ de {\rm iv)} est nécessairement un
+   114	adjoint à gauche du foncteur $u_s:\widetilde{C}'\rightarrow
+   115	\widetilde{C}$, et est par suite déterminé à isomorphisme
+   116	unique près.
+   117	\end{enonce*}
+   118	
+   119	\begin{enonce*}[remark]{Preuve}
+   120	La\pageoriginale démonstration de i) $\Leftrightarrow$ iv)
+   121	lorsque $C$ est un $𝒰$-site sera faite en
+   122	\hyperref[III.subsec4.2]{4.2}. Supposons $C$ petit. Il est clair que iii)
+   123	$\Rightarrow$ ii).
+   124	\begin{itemize}
+   125	\item[i) $\Rightarrow$ iii):] Soit $H_i\rightarrow K$, $i\in I$, une
+   126	  famille bicouvrante de $C^{\widehat{\phantom{,}}}$. Pour tout
+   127	  faisceau $F$ sur $C'$, le préfaisceau $u^\ast F$ (\hyperrefext[I][I.sec5.0]{5.0}) est un
+   128	  faisceau sur $C$. Donc (\hyperrefext[II][II.prop5.3]{5.3}) l'application canonique
+   129	$$
+   130	\Hom(K, u^\ast F)\longrightarrow \prod_i \Hom(H_i, u^\ast F){\quoi},
+   131	$$
+   132	est bijective. Par adjonction (\hyperrefext[I][I.prop5.1]{5.1}), on en déduit que
+   133	l'application canonique
+   134	$$
+   135	\Hom(u_{!}K,F)\longrightarrow \prod_i \Hom(u_{!}H_i, F)
+   136	$$
+   137	est bijective. Par suite (\hyperrefext[II][II.prop5.3]{5.3}) la famille
+   138	$u_{!}H_i\rightarrow u_{!}K$, $i\in I$, est bicouvrante.
+   139	
+   140	\item[ii) $\Rightarrow$ i):] Soient $X$ un objet de $C$,
+   141	  $R\hookrightarrow X$ un crible couvrant, $F$ un faisceau sur
+   142	  $C'$. D'après (\hyperrefext[II][II.prop5.3]{5.3}), l'application
+   143	$$
+   144	\Hom(u_{!}X,F)\longrightarrow \Hom(u_{!}R,F)
+   145	$$
+   146	est bijective. Par adjonction (\hyperrefext[I][I.prop5.1]{5.1}), on en déduit que
+   147	l'application
+   148	$$
+   149	\Hom(X,u^\ast F)\longrightarrow \Hom(R, u^\ast F)
+   150	$$
+   151	est bijective. Par suite $u^\ast F$ est un faisceau.
+   152	
+   153	\item[i) $\Rightarrow$ iv):] Utilisons les notations habituelle
+   154	  $\underline{a}$ et $i$ (\resp $\underline{a}'$ et $i'$) pour les foncteur
+   155	  « faisceau associe » et « inclusion dans les préfaisceaux
+   156	  ». Pour tout faisceau $G$ sur $C$, posons $u^sG=\underline{a}'u_{!}i
+   157	  G$. Pour tout faisceau $F$ sur $C'$, on a la suite d'isomorphismes
+   158	  naturels:
+   159	\begin{align*}
+   160	\Hom(G,u_sF) &\simeq \Hom(iG, iu_s F)\simeq \Hom(iG, u^\ast i'F)\\
+   161	             &\simeq \Hom(u_{!}iG, i'F)\simeq \Hom(\underline{a}'u_{!} iG,
+   162	             F){\quoi}.
+   163	\end{align*}
+   164	(Le\pageoriginale premier isomorphisme provient de ce que $i$ est
+   165	pleinement fidèle; le deuxième isomorphisme provient de la
+   166	définition de $u_s$; les troisième et quatrième isomorphisme
+   167	s'obtiennent par adjonction). Par suite $u^s$ est adjoint à gauche à
+   168	$u_s$. En particulier $u^s$ commute aux limites inductives. Pour
+   169	tout préfaisceau $K$ sur $C$ et tout faisceau $F$ sur $C'$, on a la
+   170	suite d'isomorphismes naturels: $\Hom(u^s\underline{a}K,F)\simeq
+   171	\Hom(\underline{a}K, u_s F)\simeq \Hom(K,iu_sF)\simeq \Hom(K,u^\ast
+   172	i'F)\simeq \Hom(u_{!}K, i'F)\simeq \Hom(\underline{a}'u_{!}K,F)$ (le
+   173	troisième isomorphisme provient de la définition de $u_s$; les
+   174	autres s'obtiennent par adjonction); d'où un isomorphisme
+   175	fonctoriel $u^s\underline{a}K\simeq \underline{a}' u_{!}K$. En particulier,
+   176	en utilisant cet isomorphisme lorsque $K$ est représentable, on
+   177	obtient, compte tenu de \hyperrefext[I][I.prop5.4]{5.4} 3), un diagramme commutatif
+   178	à isomorphisme près:
+   179	\[
+   180	\xymatrix@C=2.75cm@R=1.25cm{
+   181	C \ar[d]_{\epsilon_C} \ar[r]^{u}& C'\ar[d]^{\epsilon_{C'}}\\
+   182	\widetilde{C} \ar[r]^{u^{S}}& \widetilde{C'} }
+   183	\]
+   184	
+   185	\item[iv) $\Rightarrow$ ii):] Soit $h:C\rightarrow
+   186	  C^{\widehat{\phantom{,}}}$ (\resp $h':C'\rightarrow
+   187	  {C'}^{\widehat{\phantom{,}}}$) le foncteur qui associe à un objet
+   188	  le préfaisceau qu'il représente. Considérons le diagramme:
+   189	\[
+   190	\xymatrix@C=2.5cm@R=1cm{
+   191	C \ar[r]^{u}\ar[d]_{h}             &   C' \ar[d]^{h'}\\
+   192	C{\widehat{\phantom{i}}} \ar[d]_{\underline{a}} \ar[r]^{u_!}&
+   193	C'{\widehat{\phantom{i}}} \ar[d]^{\underline{a}'}\\
+   194	C{\widetilde{\phantom{A}}} \ar[r]^{u^{S}}&
+   195	C'{\widetilde{\phantom{A}}}. }
+   196	\]
+   197	Le\pageoriginale carré du haut est commutatif (\hyperref[III.rem1.4]{1.4}
+   198	3)) et on a $\underline{a}h=\epsilon_C$, $\underline{a}'h'=\epsilon_{C'}$.
+   199	Pour tout objet $K$ de $C^{\widehat{\phantom{,}}}$, on a un
+   200	isomorphisme canonique (I 3.4):
+   201	$$
+   202	\varinjlim_{(h(X)\rightarrow K)\in \ob (C/K)} h(X)\xrightarrow{\sim}
+   203	K{\quoi}.
+   204	$$
+   205	Comme les foncteurs $u_{!}$, $u^s$, $\underline{a}$ et $\underline{a}'$
+   206	commutent aux limites inductives, on en déduit des
+   207	isomorphismes:
+   208	\begin{gather*}
+   209	\varinjlim_{(h(X)\rightarrow K)\in \ob (C/K)}
+   210	u^s\underline{a}h(X)\xrightarrow{\sim} u^s \underline{a}K{\quoi},\\
+   211	\varinjlim_{(h(X)\rightarrow K)\in \ob (C/K)}
+   212	\underline{a}'u_{!}h(X)\xrightarrow{\sim} \underline{a}'u_{!}K{\quoi}.
+   213	\end{gather*}
+   214	On a $u_{!}h=h'u$ et, par hypothèse, on a un isomorphisme
+   215	$\underline{a}'h'u\simeq u^s \underline{a}h$, d'où un isomorphisme:
+   216	$$
+   217	u^s\underline{a}K\simeq \underline{a}'u_{!}K{\quoi},
+   218	$$
+   219	dont on vérifie immédiatement qu'il est fonctoriel en $K$.
+   220	Le diagramme
+   221	\[
+   222	\xymatrix@C=2.5cm@R=1.35cm{
+   223	C\widehat{\phantom{a}} \ar[r]^{u_!} \ar[d]_{\underline{a}}&  C'\widehat{\phantom{a}}\ar[d]^{\underline{a}'}\\
+   224	C \widetilde{\phantom{A}} \ar[r]^{u^{S}}&  C',& }
+   225	\]
+   226	est donc commutatif à isomorphisme près. Comme $\underline{a}i$ est
+   227	isomorphe au foncteur identique, on a un isomorphisme $u^s\simeq
+   228	\underline{a}'u_{!}i$, d'où l'unicité de $u^s$. Soit $v:H\rightarrow
+   229	K$ un morphisme bicouvrant de $C^{\widehat{\phantom{,}}}$. Alors
+   230	$\underline{a}(v)$ est un isomorphisme (\hyperrefext[II][II.prop5.3]{5.3}) et par suite
+   231	$\underline{a}'u_{!}(v)$ (isomorphe à $u^s\underline{a}(V)$) est un
+   232	isomorphisme. Donc $u_{!}(v)$ est transformé par $\underline{a}'$ en un
+   233	isomorphisme, et par suite $u_{!}(v)$ est bicouvrant
+   234	(\hyperrefext[II][II.prop5.3]{5.3}), d'où ii).
+   235	\end{itemize}
+   236	\end{enonce*}
+   237	
+   238	L'assertion\pageoriginale supplémentaire, dans le cas $C$ petit,
+   239	a été prouvée en cours de démonstration, \cqfd
+   240	
+   241	\setcounter{subsection}{2} \setcounter{subsubsection}{0}
+   242	\subsubsection{}\etiquette[1.2.1]{III.subsubsec1.2.1}
+   243	
+   244	Le foncteur $u^s:C^{\sim}\rightarrow {C'}^{\sim}$ de
+   245	\hyperref[III.prop2.2]{2.2} iv) pourra s'interpréter souvent comme un
+   246	foncteur « image réciproque » par un « morphisme de topos » ${C'}^{\sim}\rightarrow C^{\sim}$, \cf \hyperrefext[IV][IV.subsec4.9]{4.9}. Ses
+   247	propriétés sont résumées dans la proposition
+   248	suivante:
+   249	
+   250	\begin{enonce*}{Proposition 1.3}\etiquette[1.3]{III.prop1.3}
+   251	Soit $u:C\rightarrow C'$ un foncteur continu entre un petit site $C$
+   252	et un $U$-site $C'$.
+   253	\begin{enumerate}
+   254	\renewcommand{\labelenumi}{\theenumi)}
+   255	\item Le foncteur $u^s$ est adjoint à gauche au foncteur $u_s$.
+   256	
+   257	\item On a un isomorphisme canonique $u^s\simeq \underline{a}'u_{!}i$.
+   258	
+   259	\item On a un isomorphisme canonique $u^s\underline{a}\simeq
+   260	  \underline{a}'u_{!}$
+   261	
+   262	\item Le foncteur $u^s$ commute aux limites inductives.
+   263	
+   264	\item Lorsque le foncteur $u_{!}$ est exact à gauche (\cf \hyperrefext[I][I.prop5.4]{5.4} 4)),
+   265	  le foncteur $u^s$ l'est aussi. Plus généralement le foncteur
+   266	  $u^s$ commute aux types de limites projectives finies auxquels le
+   267	  foncteur $u_{!}$ commute.
+   268	\end{enumerate}
+   269	\end{enonce*}
+   270	
+   271	\begin{enonce*}[remark]{Preuve}
+   272	Les assertions 1), 2), 3), 4) ont été prouvées en cours
+   273	de démonstration de \hyperref[III.prop1.2]{1.2}. L'assertion 5)
+   274	résulte de l'isomorphisme 2), compte tenu de ce qui $i$ commute
+   275	aux limites projectives et de ce que $\underline{a}'$ commute aux
+   276	limites projectives finies (\hyperrefext[II][II.theo4.1]{4.1}).
+   277	\end{enonce*}
+   278	
+   279	\begin{enonce*}[remark]{Remarque 1.4}\etiquette[1.4]{III.rem1.4}
+   280	En combinant \hyperrefext[I][I.prop5.4]{5.4} 3) et \hyperref[III.prop1.3]{1.3} 3) on obtient
+   281	un diagramme:
+   282	\[
+   283	\xymatrix@C=3.5cm@R=1cm{
+   284	C \ar[r]^{u} \ar[d]_{h}& C'\ar[d]_{h'}\\
+   285	C\widehat{\phantom{a}} \ar[r]^{u_!} \ar[d]_{\underline{a}}&
+   286	C'\widehat{\phantom{a}} \ar[d]_{\underline{a}'}\\
+   287	C\widetilde{\phantom{a}} \ar[r]& C'\widetilde{\phantom{a}}, }
+   288	\]
+   289	où\pageoriginale le carré du haut est commutatif et le
+   290	carré du bas commutatif à isomorphisme près. Mais les
+   291	foncteurs $\underline{a}$, $\underline{a}'$, $u_{!}$, $u^s$ ne sont
+   292	définis qu'à isomorphisme près. Le lecteur pourra
+   293	vérifier qu'on peut choisir les foncteurs $\underline{a}$,
+   294	$\underline{a}'$ et $u^s$ de façon que:
+   295	\begin{enumerate}
+   296	\renewcommand{\labelenumi}{\theenumi)}
+   297	\item Les foncteurs composés $\underline{a}h$ et $\underline{a}'h'$ soient
+   298	  injectifs sur les ensembles d'objets;
+   299	
+   300	\item le diagramme
+   301	\[
+   302	\xymatrix@C=2cm@R=1.25cm{
+   303	C \ar[r]^{u} \ar[d]_{\underline{a}h}& C' \ar[d]_{\underline{a}'h'}\\
+   304	C{\widetilde{\phantom{a}}} \ar[r]^{u^{s}}&
+   305	C'{\widetilde{\phantom{a}}} }
+   306	\]
+   307	soit commutatif.
+   308	\end{enumerate}
+   309	
+   310	Plus précisément, on peut choisir les foncteurs $\underline{a}$
+   311	et $\underline{a}'$ de façon à remplir la condition 1). Les
+   312	foncteurs $\underline{a}$ et $\underline{a}'$ étant choisis, on peut
+   313	choisir le foncteur $u^s$ de façon à remplir la condition 2).
+   314	\end{enonce*}
+   315	
+   316	\begin{enonce*}{Proposition 1.5}\etiquette[1.5]{III.prop1.5}
+   317	Soient $𝒰\subset 𝒱$ deux univers, $C$ et $C'$ deux
+   318	$𝒰$-sites, $u:C\rightarrow C'$ un foncteur entre les
+   319	catégories sous-jacentes. Alors $u$ est continu relativement à
+   320	$𝒰$ si et seulement s'il est continu relativement à
+   321	$𝒱$. De plus, lorsque $u$ est continu, désignons par
+   322	$u^s_{𝒰}$ (\resp $u^s_{𝒱}$) le foncteur entre
+   323	catégories de $𝒰$-faisceaux (\resp
+   324	$𝒱$-faisceaux) introduit en $\hyperref[III.prop1.2]{1.2}$ {\rm iv)}.
+   325	Alors le diagramme
+   326	\[\vcenter{
+   327	\xymatrix@C=3cm@R=1.5cm{ \widetilde{C}_{𝒰}
+   328	\ar[r]^{u_{\underline{U}}^s} \ar[d]&
+   329	\widetilde{C'}_{\underline{U}} \ar[d]\\
+   330	 C\widetilde{\phantom{a}}_{\underline{V}} \ar[r]^{u_{\underline{V}}^s}
+   331	 &  C'\widetilde{\phantom{a}}_{\underline{V}} ,
+   332	}}\leqno{(1.5.1)}
+   333	\]\etiquette[1.5.1]{III.eq1.5.1}
+   334	où\pageoriginale les foncteurs verticaux sont les foncteurs
+   335	d'inclusion canoniques, est commutatif à isomorphisme canonique
+   336	près.
+   337	\end{enonce*}
+   338	
+   339	\begin{enonce*}[remark]{Preuve}
+   340	Nous ne ferons la démonstration que dans le cas où $C$ est
+   341	$𝒰$-petit. Le cas général sera démontré en
+   342	\hyperref[III.subsec4.3]{4.3}. Il est clair que si le foncteur $u^\ast$
+   343	transforme tout $𝒱$-faisceau sur $C'$ en
+   344	$𝒱$-faisceau sur $C$, il transforme tout
+   345	$𝒰$-faisceau sur $C'$ en $𝒰$-faisceau sur $C$.
+   346	Supposons que $u^\ast$ transforme tout $𝒰$-faisceau sur $C'$
+   347	en $𝒰$-faisceau sur $C$. Notons
+   348	$C^{\widehat{\phantom{,}}}_{𝒰}\hookrightarrow
+   349	C^{\widehat{\phantom{,}}}_{𝒱}$ (\resp
+   350	${C'}^{\widehat{\phantom{,}}}_{𝒰}\hookrightarrow
+   351	{C'}_{𝒱}^{\widehat{\phantom{,}}}$) les catégories de
+   352	$𝒰$-préfaisceaux et $𝒱$-préfaisceaux,
+   353	$u_{𝒰!}$ et $u_{𝒱!}$ les foncteurs « image
+   354	réciproque » pour les $𝒰$-préfaisceaux et les
+   355	$𝒱$-préfaisceaux respectivement. On a un diagramme
+   356	commutatif (\cf la construction explicite de $u_{!}$ dans
+   357	\hyperrefext[I][I.prop5.1]{5.1}):
+   358	\[\vcenter{
+   359	  \xymatrix@C=3cm@R=1.25cm@M=.2cm{
+   360	C\widehat{\phantom{a}}_{\underline{U}} \ar[r]^{u_{{\underline{U}}!}}
+   361	\ar @{_{(}->}[d]&
+   362	C'\widehat{\phantom{a}}_{\underline{V}} \ar @{_{(}->}[d]\\
+   363	C\widehat{\phantom{a}}_{\underline{V}}
+   364	\ar[r]^{u_{{\underline{V}}!}}&
+   365	C'\widehat{\phantom{a}}_{\underline{V}}. }}\leqno{(*)}
+   366	\]
+   367	Les foncteurs d'inclusion des $𝒰$ préfaisceaux dans les
+   368	$𝒱$-préfaisceaux sont pleinement fidèles et commutent
+   369	aux limites projectives. Il résulte alors de (\hyperrefext[II][II.prop5.1]{5.1}
+   370	i)) qu'on morphisme bicouvrant de $𝒰$-préfaisceaux est
+   371	un morphisme bicouvrant de $𝒱$-préfaisceaux. Soit alors
+   372	$R\hookrightarrow X$ un crible couvrant un objet $X$ de $C$.
+   373	D'après \hyperref[III.prop1.2]{1.2} ii), le morphisme $u_{𝒰!}
+   374	R\rightarrow u_{𝒰!}X$ est bicouvrant. Utilisant la
+   375	commutativité de $(\ast)$ et ce qui précède, on en
+   376	déduit que le morphisme $u_{𝒱!}R\rightarrow
+   377	u_{𝒱!}X$ est bicouvrant. Par suite (\hyperref[III.prop1.2]{1.2}), le
+   378	foncteur $u^\ast$ transforme les $𝒱$-faisceaux sur $C'$ en
+   379	$𝒱$-faisceaux sur $C$. La commutativité de
+   380	\eqhyperref[III.eq1.5.1]{1.5.1} résulte alors de la commutativité de
+   381	$(\ast)$, de \hyperrefext[II][II.prop3.6]{3.6} et de \hyperref[III.prop1.3]{1.3} 2).
+   382	\end{enonce*}
+   383	
+   384	\begin{enonce*}{Proposition 1.6}\etiquette[1.6]{III.prop1.6}
+   385	Soient\pageoriginale $C$ et $C'$ deux $𝒰$-sites,
+   386	$u:C\rightarrow C'$ un foncteur entre les catégories
+   387	sous-jacentes. Considérons les conditions:
+   388	\begin{enumerate}
+   389	\renewcommand{\theenumi}{\roman{enumi}}
+   390	\renewcommand{\labelenumi}{\theenumi)}
+   391	\item $u$ est continu {\rm(\cf. \hyperref[III.def1.1]{1.1} et \hyperref[III.prop1.2]{1.2}).}
+   392	
+   393	\item Pour tout famille couvrante $(X_i\rightarrow X)$, $i\in I$ de
+   394	  $C$, la famille $(uX_i\rightarrow uX)$, $i\in I$, de $C'$, est
+   395	  couvrante.
+   396	
+   397	On a l'implication {\rm i) $\Rightarrow$ ii).}
+   398	
+   399	Supposons que la topologie de $C$ puisse être définie par une
+   400	prétopologie {\rm $T$ (\hyperrefext[II][II.def1.3]{1.3})} et que le foncteur $u$
+   401	commute aux produits fibrés.\footnote[1]{En fait, il suffit que $n$
+   402	commute aux
+   403	  produits fibrés intervenant dans les changements de base pour des
+   404	  morphismes provenant de famille couvrantes pour $T$.} Alors les
+   405	conditions {\rm i)} et {\rm ii)} sont équivalentes et sont
+   406	équivalentes à la condition suivante:
+   407	
+   408	\item Le foncteur $u$ transforme les familles couvrantes de $T$ en
+   409	  familles couvrantes de $C'$.
+   410	\end{enumerate}
+   411	
+   412	En particulier, supposons que dans $C$ les produits fibrés
+   413	soient représentables et que le foncteur $u$ commute aux
+   414	produits fibrés. Alors les conditions {\rm i)} et {\rm ii)} sont
+   415	équivalentes.
+   416	\end{enonce*}
+   417	
+   418	\begin{enonce*}[remark]{Preuve}
+   419	Montrons que i) $\Rightarrow$ ii). Soit $X_i\rightarrow X$, $i\in
+   420	I$, une famille couvrante de $C$. Pour tout faisceau $F$ sur $C'$,
+   421	$u^\ast F$ est un faisceau. Par suite, l'application
+   422	$$
+   423	\Hom(X,u^\ast F)\longrightarrow \prod_i\Hom(X_i,u^\ast F)
+   424	$$
+   425	est injective (\hyperrefext[II][II.prop5.1]{5.1}). D'où une application injective
+   426	$$
+   427	\Hom(u_{!}X,F)\longrightarrow \prod_i \Hom(u_{!}X_i, F){\quoi}.
+   428	$$
+   429	Donc la famille $u_{!}X_i\rightarrow u_{!}X$, $i\in I$, est
+   430	couvrante dans $C'$ (\hyperrefext[II][II.prop5.1]{5.1}).
+   431	
+   432	Toute famille couvrante de la prétopologie $T$ est une famille
+   433	couvrante de $C$, d'où ii) $\Rightarrow$ iii). Montrons que iii)
+   434	$\Rightarrow$ i). Soit $X$ un objet\pageoriginale de $C$ et
+   435	$X_i\rightarrow X$, $i\in I$, une famille couvrante de $\Cov(X)$ (II
+   436	1.3). Les morphismes $X_i\rightarrow X$ sont quarrables et le
+   437	foncteur $u$ commute aux produits fibrés. Par suite, les
+   438	produits fibrés $u(X_i)\times_{u(X)} u(X_j)$ sont
+   439	représentables et canoniquement isomorphes à $u(X_i\times_X
+   440	X_j)$. Soit $F$ un faisceau sur $C'$. Alors le diagramme
+   441	d'ensembles:
+   442	$$
+   443	F(u(X)\rightarrow \prod_i F(u(X_i))\rightrightarrows
+   444	\prod_{i,j}F(u(X_i\times_X X_j)
+   445	$$
+   446	est exact (\hyperrefext[II][II.def2.1]{2.1}, \hyperrefext[I][I.cor3.5]{3.5} et \hyperrefext[I][I.prop2.12]{2.12}). Par
+   447	suite le diagramme d'ensembles
+   448	$$
+   449	u^\ast F(X)\rightarrow \prod_i u^\ast F(X_i)\rightrightarrows
+   450	\prod_{i,j}u^\ast F(X_i\times_X X_J)
+   451	$$
+   452	est exact. Donc $u^\ast F$ est un faisceau (\hyperrefext[II][II.cor2.4]{2.4}), d'où
+   453	i). La dernière assertion de \hyperref[III.prop1.6]{1.6} résulte de ce
+   454	qui précède et du fait que, lorsque les produits fibrés
+   455	sont représentables dans $C$, toutes les familles couvrantes de
+   456	$C$ \footnote[1]{indexées par les
+   457	  ensembles appartenant à un univers convenable.} définissent sur
+   458	$C$ une prétopologie dont la topologie associée est la
+   459	topologie de $C$.
+   460	\end{enonce*}
+   461	
+   462	\begin{enonce*}{Proposition 1.7}\etiquette[1.7]{III.prop1.7}
+   463	Soient $C$ un petit site, $C'$ un $𝒰$-site et
+   464	$u:C\rightarrow C'$ un foncteur continu. Soit $\gamma$ une structure
+   465	algébrique définie par limites projectives finies, telle que
+   466	dans la catégorie des $\gamma$-objets de $𝒰-\Ens$ les
+   467	$𝒰$-limites inductives soient représentables
+   468	\footnote[2]{On peut montrer en fait que cette condition est
+   469	toujours
+   470	  satisfaite.}. On utilise les notations de la proposition {\rm II
+   471	  6.4.} Le foncteur $u_s$ commute aux limites projectives et par suite
+   472	définit un foncteur $u^{\gamma}_s:C^{\sim}_{\gamma}\rightarrow
+   473	{C'}^{\sim}_{\gamma}$. Le foncteur $u^{\gamma}_s$ admet un adjoint
+   474	à gauche $u^s_{\gamma}$ qui possède les propriétés
+   475	suivantes:
+   476	\begin{enumerate}
+   477	\renewcommand{\labelenumi}{\theenumi)}
+   478	\item On\pageoriginale a un isomorphisme canonique
+   479	  $u^s_{\gamma}\xrightarrow{\sim}\underline{a}'_{\gamma}u_{\gamma !}
+   480	  i_{\gamma}$, et $u^s_{\gamma}$ commute aux limites projectives
+   481	  finies auxquelles $u_{\gamma !}$ commute.
+   482	
+   483	\item On a un isomorphisme canonique
+   484	  $u^s_{\gamma}\underline{a}_{\gamma}\xrightarrow{\sim}
+   485	  \underline{a}'_{\gamma} u'_{\gamma !}$.
+   486	
+   487	\item Le foncteur $u^s_{\gamma}$ commute aux limites inductives.
+   488	
+   489	\item Si $u^s$ est exact à gauche, le diagramme {\rm(notation de II
+   490	  6.3.0)}
+   491	\[
+   492	\xymatrix@C=3.5cm@R=1.25cm{ C^{\widetilde{\phantom{a}}_\gamma}
+   493	\ar[r]^{u_{Y}^{s}}
+   494	\ar[d]_{\esj^{\widetilde{\phantom{a}}}}& C'\widetilde{\phantom{a}}_\gamma \ar[d]_{{\esj'}^{\widetilde{\phantom{a}}}}\\
+   495	C^{\widetilde{\phantom{a}}} \ar[r]^{u^{s}}  &
+   496	{C'}\widetilde{\phantom{a}} }
+   497	\]
+   498	est commutatif à isomorphisme près et le foncteur $u^s_{\gamma}$
+   499	est exact.
+   500	
+   501	\item Supposons que le foncteur $\esj^{\sim}$
+   502	  (\resp $\esj^{\sim}$) possède un adjoint à
+   503	  gauche $\Lib^{\sim}$ (\resp
+   504	  ${\Lib'}^{\sim}$) {\rm (\hyperrefext[II][II.prop6.5]{6.5})}. On a un
+   505	  isomorphisme canonique:
+   506	  $u^s_{\gamma}\Lib^{\sim}\xrightarrow{\sim}
+   507	  {\Lib'}^{\sim} u^s$.
+   508	\end{enumerate}
+   509	
+   510	De plus, lorsque $C$ n'est pas nécessairement un petit site mais
+   511	un $𝒰$-site, le foncteur $u^{\gamma}_s$ admet un adjoint à
+   512	gauche $u^s_{\gamma}$. Enfin si $V$ est un univers contenant
+   513	$𝒰$ et si $u^s_{\gamma𝒰}$ (\resp
+   514	$u^s_{\gamma𝒱}$) désigne l'adjoint à gauche de $u_s$
+   515	relativement à l'univers $𝒰$ (\resp $𝒱$), le
+   516	diagramme suivant, analogue au diagramme \eqhyperref[III.eq1.5.1]{1.5.1} :
+   517	
+   518	\[\vcenter{
+   519	\xymatrix@C=3.5cm@R=1.25cm{ C^{\widetilde{\phantom{a}}}_{\gamma
+   520	\underline{U}} \ar[r]^{u_{\gamma \underline{U}}^{s}}
+   521	\ar@{_{(}->}[d]&
+   522	\widetilde{C}'_{\gamma \underline{U}} \ar@{_{(}->}[d]\\
+   523	C^{\widetilde{\phantom{a}}}_{\gamma \underline{V}}
+   524	\ar[r]^{u^s_{r\underline{V}}}  &  \widetilde{C}'_{\gamma
+   525	\underline{V}} }}\leqno{(1.7.1)}
+   526	\]
+   527	est commutatif à isomorphisme canonique près.
+   528	\end{enonce*}
+   529	
+   530	\begin{enonce*}[remark]{Preuve}
+   531	La démonstration, dans le cas où $C$ est un petit site, est
+   532	laissée au lecteur. Elle sera complétée en
+   533	\hyperref[III.subsec4.3]{4.3} dans le cas où $C$ est un $𝒰$-site.
+   534	\end{enonce*}
+   535	
+   536	\begin{enonce*}[remark]{Notation 1.8}\etiquette[1.8]{III.not1.8}
+   537	Nous\pageoriginale emploierons dorénavant la notation $u_s$ pour
+   538	désigner le foncteur $u^{\gamma}_s$. Cette notation ne risque
+   539	pas d'apporter de confusion, car le foncteur $u_s$ (défini sur
+   540	les faisceaux d'ensembles) commute aux limites projectives finies.
+   541	\end{enonce*}
+   542	
+   543	De même, lorsque $u^s$ est exact à gauche, nous emploierons la
+   544	notation $u^s$ pour désigner le foncteur $u^s_{\gamma}$. Cet
+   545	abus de notation est justifié par \hyperref[III.prop1.7]{1.7} 4).
+   546	
+   547	\begin{enonce*}[remark]{Exemple 1.9.1}\etiquette[1.9.1]{III.exem1.9.1}
+   548	Soit $X$ un petit espace topologique. Désignons par $\Ouv(X)$ la
+   549	catégorie des ouverts de $X$ (les objets de $\Ouv(X)$ sont les
+   550	sous-ensembles ouverts de $X$, les morphismes de $\Ouv(X)$ sont les
+   551	inclusions) munie de la topologie canonique. Une famille
+   552	$(U_i\subset U)$, $i\in I$, est couvrante si et seulement si les
+   553	ouverts $U_i$ recouvrent $U$ (\hyperrefext[II][II.prop2.6]{2.6}). Les faisceaux
+   554	d'ensembles sur $\Ouv(X)$ sont donc les faisceaux d'ensembles au
+   555	sens de [TF]. Soit $f:X\rightarrow Y$ une application continue. On
+   556	en déduit un foncteur $f^{-1}:\Ouv(Y)\rightarrow \Ouv(X)$: pour
+   557	tout ouvert $U$ de $Y$, $f^{-1}(U)$ est l'image réciproque de
+   558	$U$ par l'application $f$. Le foncteur $f^{-1}$ est un foncteur
+   559	continu (\hyperref[III.prop1.6]{1.6}). Le foncteur
+   560	$f^{-1}_s:\Ouv(X)^{\sim}\rightarrow \Ouv(Y)^{\sim}$ est le foncteur
+   561	image directe pour les faisceaux, au sens de [TF]. Le foncteur
+   562	$(f^{-1})^s:\Ouv(Y)^{\sim}\rightarrow \Ouv(X)^{\sim}$ est le
+   563	foncteur image réciproque pour les faisceaux au sens de [TF]. Le
+   564	foncteur $(f^{-1})^s$ commute aux limites projectives finies,
+   565	grâce à \hyperref[III.prop1.3]{1.3} 5).
+   566	\end{enonce*}
+   567	
+   568	\begin{enonce*}[remark]{Exemple 1.9.2}\etiquette[1.9.2]{III.exem1.9.2}
+   569	Soient $X$ un espace topologique et $Y\hookrightarrow X$ un ouvert
+   570	de $X$. Tout ouvert de $Y$ est un ouvert de $X$, d'où un foncteur
+   571	$\Phi:\Ouv(Y)\rightarrow \Ouv(X)$. Le foncteur $\Phi$ est continu
+   572	(\hyperref[III.prop1.6]{1.6}). Le foncteur $\Phi_s:\Ouv(X)^{\sim}\rightarrow
+   573	\Ouv(Y)^{\sim}$ est le\pageoriginale foncteur « restriction à
+   574	$Y$ ». Le foncteur $\Phi^s_{\ab}:\Ouv(Y)^{\sim}_{\ab}\rightarrow
+   575	\Ouv(X)^{\sim}_{\ab}$ (\hyperrefext[II][II.subsubsec6.3.3]{6.3.3}, I 1.7) est le
+   576	foncteur « prolongement par zéro en dehors de $Y$ »\
+   577	introduit dans [TF]. Le foncteur $\Phi^s:\Ouv(Y)^{\sim}\rightarrow
+   578	\Ouv(X)^{\sim}$ (\hyperref[III.prop1.3]{1.3}) est analogue au foncteur « prolongement par zéro »: pour tout faisceau $H$ sur $Y$ et
+   579	tout point $y\in Y$, la fibre en $y$ de $\Phi^sH$ est canoniquement
+   580	isomorphe à la fibre en $y$ de $H$; pour tout point $x\in X$,
+   581	$x\not\in Y$, la fibre en $x$ de $\Phi^sH$ est vide. Le foncteur
+   582	$\Phi^s$ est appelé le foncteur « prolongement par le vide en
+   583	dehors de $Y$ ». Le foncteur $\Phi^s$ commute aux produits
+   584	fibrés et aux produits finis sur un ensemble d'indices non vide,
+   585	mais il ne transforme pas l'objet final de $\Ouv(Y)^{\sim}$ en
+   586	l'objet final de $\Ouv(X)^{\sim}$.
+   587	\end{enonce*}
+   588	
+   589	\begin{enonce*}[remark]{Exemple 1.9.3}\etiquette[1.9.3]{III.exem1.9.3}
+   590	Soient $C$ et $C'$ deux petits sites, $u:C\rightarrow C'$ un
+   591	foncteur entre les catégories sous-jacentes qui transforme toute
+   592	famille couvrante de $C$ en famille couvrante de $C'$. Le foncteur
+   593	$u$ n'est pas continu en général (\cf cependant
+   594	\hyperref[III.prop1.6]{1.6}). Voici un contre-exemple. Soit $S$ un ensemble de
+   595	cardinal infini de l'univers $𝒰$, et $C$ la
+   596	sous-catégorie pleine de la catégorie des ensembles, dont
+   597	les objets sont les sous-ensembles finis, non-vides, de $S$. On
+   598	munit $C$ de la topologie canonique. On remarquera que les familles
+   599	couvrantes de $C$ sont les familles surjectives d'applications et
+   600	que les familles couvrantes ne sont pas vides. On remarquera de plus
+   601	qu'il n'y a, à isomorphisme près, que deux faisceaux constants
+   602	sur $C$: le faisceau de valeur l'ensemble vide et le faisceau de
+   603	valeur l'ensemble à un élément. Posons $C=C'$ et soit
+   604	$u:C\rightarrow C'$ un foncteur constant. Le foncteur $u$ transforme
+   605	les familles couvrantes de $C$ en familles couvrantes de $C'$. Le
+   606	foncteur $u$ n'est pas continu. En effet, comme les préfaisceaux
+   607	représentables de $C'$ sont des faisceaux, pour tout objet $X$
+   608	de $C'$, il existe un faisceau\pageoriginale $F$ sur $C'$ tel que le
+   609	cardinal de l'ensemble $F(X)$ soit $\geq 2$, et par suite le
+   610	préfaisceau $u^\ast F$ n'est pas un faisceau.
+   611	\end{enonce*}
+   612	
+   613	\section{Foncteurs cocontinus}\etiquette[2]{III.sec2}
+   614	
+   615	\begin{enonce*}{Définition 2.1}\etiquette[2.1]{III.def2.1}
+   616	Soient $C$ et $C'$ deux $𝒰$-sites et $u:C\rightarrow C'$ un
+   617	foncteur entre les catégories sous-jacentes. On dit que $u$ est
+   618	cocontinu s'il possède la propriété suivante:
+   619	
+   620	$(COC)$ Pour tout objet $Y$ de $C$ et pour tout crible couvrant
+   621	$R\hookrightarrow u(Y)$, le crible de $Y$ engendré par les
+   622	flèches $Z\rightarrow Y$ telles que $u(Z)\rightarrow u(Y)$ se
+   623	factorise par $R$, couvre~$Y$.
+   624	\end{enonce*}
+   625	
+   626	\begin{enonce*}{Proposition 2.2}\etiquette[2.2]{III.prop2.2}
+   627	Soient $C$ un petit site, $C'$ un $𝒰$-site et
+   628	$u:C\rightarrow C'$ un foncteur entre les catégories sous-jacentes.
+   629	Notons $\widehat{u}_{\ast}:C^{\widehat{\phantom{,}}}\rightarrow
+   630	{C'}^{\widehat{\phantom{,}}}$ le foncteur adjoint à droite au
+   631	foncteur $F\mapsto F\circ u=\widehat{u}^{\ast}F$ {\rm
+   632	(\hyperrefext[I][I.prop5.1]{5.1}).} Le foncteur $u$ est cocontinu si et seulement si
+   633	pour tout faisceau $G$ sur $C$, $\widehat{u}_{\ast}G$ est un
+   634	faisceau sur $C'$.
+   635	\end{enonce*}
+   636	
+   637	\begin{enonce*}[remark]{Preuve}
+   638	\emph{La condition est suffisante.} Supposons que pour tout faisceau
+   639	$G$ sur $C$, le préfaisceau $\widehat{u}_{\ast}G$ soit un faisceau.
+   640	Soient $Y$ un objet de $C$ et $R\hookrightarrow u(Y)$ un crible
+   641	couvrant. On a un isomorphisme $\Hom(u(Y),
+   642	u_{\ast}G)\xrightarrow{\sim}\Hom(R,u_{\ast}G)$, d'où par
+   643	adjonction (\hyperrefext[I][I.prop5.1]{5.1}) un isomorphisme
+   644	$\Hom(\widehat{u}^{\ast}\circ
+   645	u(Y),G)\xrightarrow{\sim}\Hom(\widehat{u}^{\ast}R,G)$. On en déduit
+   646	(\hyperrefext[II][II.prop5.3]{5.3}) que le morphisme $\widehat{u}^{\ast}R\rightarrow
+   647	\widehat{u}^{\ast}u(Y)$ est bicouvrant. Mais le foncteur
+   648	$\widehat{u}^{\ast}$ commute aux limites projectives et par suite le
+   649	morphisme $\widehat{u}^{\ast}R\rightarrow \widehat{u}^{\ast}u(Y)$
+   650	est un monomorphisme. C'est donc un monomorphisme couvrant. D'autre
+   651	part on a un morphisme canonique
+   652	$Y\xrightarrow{p}\widehat{u}^{\ast}u(Y)$ déduit du morphisme
+   653	d'adjonction $\id_C\rightarrow
+   654	\widehat{u}^{\ast}u_{!}$\pageoriginale (\hyperrefext[I][I.prop5.4]{5.4} 3)). Faisons
+   655	alors le changement de base
+   656	$Y\xrightarrow{p}\widehat{u}^{\ast}u(Y)$. On obtient un crible
+   657	couvrant $Y$:
+   658	$$
+   659	\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}u(Y)}Y\longrightarrow
+   660	Y{\quoi},
+   661	$$
+   662	et lorsqu'on cherche les flèches $Z\rightarrow Y$ qui se
+   663	factorisent par ce crible, on obtient le crible décrit par la
+   664	propriété (COC).
+   665	\end{enonce*}
+   666	
+   667	\emph{La condition est nécessaire}: Soient $S$ un objet de $C'$
+   668	et $R\hookrightarrow S$ un crible couvrant $S$. On doit
+   669	démontrer que pour tout faisceau $G$ sur $C$ on a un
+   670	isomorphisme
+   671	$$
+   672	\Hom(S,u_{\ast}G)\xrightarrow{\sim} \Hom(R,u_{\ast}G){\quoi}.
+   673	$$
+   674	
+   675	Utilisant alors la proposition \hyperrefext[II][II.prop5.3]{5.3} et les isomorphismes
+   676	d'adjonction, on voit qu'il suffit de démontrer que le monomorphisme
+   677	$\widehat{u}^{\ast}R\rightarrow \widehat{u}^{\ast}S$ est couvrant.
+   678	Pour cela, il suffit de démontrer (\hyperrefext[II][II.prop5.1]{5.1}) que pour tout
+   679	changement de base $Y\rightarrow \widehat{u}^{\ast}S$ le crible
+   680	$\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}S}Y$ est couvrant,
+   681	($Y$ objet de $C$). Mais, d'après les propriétés des foncteurs
+   682	adjoints et \hyperrefext[I][I.prop5.4]{5.4} 3), le morphisme $Y\rightarrow
+   683	\widehat{u}^{\ast}S$ se factorise par
+   684	$Y\xrightarrow{P}\widehat{u}^{\ast}u(Y)\rightarrow
+   685	\widehat{u}^{\ast}S$, et par suite le crible
+   686	$\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}S}Y\hookrightarrow Y$
+   687	est le transformé par le changement de base
+   688	$Y\xrightarrow{p}\widehat{u}^{\ast}u(Y)$ du monomorphisme
+   689	$\xymatrix@1@M=.15cm{
+   690	\fprod{\hat{u}^{\ast}R}{\hat{u}^{\ast}u(Y)}{\hat{u}^{\ast}S}
+   691	\ar@{^{(}->}@<-1pt>[r]^(.6){q}&\hat{u}^{\ast}u(Y)}$.
+   692	 Or le foncteur $\widehat{u}^{\ast}$ commute aux limites projectives,
+   693	et par suite le monomorphisme $q$ est le transformé par
+   694	$\widehat{u}^{\ast}$ du crible $R\times_S u(Y)\hookrightarrow u(Y)$,
+   695	qui est couvrant. L'hypothèse (COC) nous permet alors de dire que
+   696	la crible
+   697	$\widehat{u}^{\ast}R\times_{\widehat{u}^{\ast}S}Y\hookrightarrow Y$
+   698	est couvrant, \cqfd
+   699	
+   700	\begin{enonce*}{Proposition 2.3}\etiquette[2.3]{III.prop2.3}
+   701	Soient $C$ et $C'$ deux $𝒰$-sites et $u:C\rightarrow C'$ un
+   702	foncteur cocontinu. Notons $u^{\ast}:\widehat{C}'\rightarrow
+   703	\widehat{C}$ le foncteur $u^{\ast}=\underline{a}\widehat{u}^{\ast}i'$,
+   704	où a désigne le foncteur « faisceau associé » pour
+   705	$C^{\widehat{\phantom{,}}}$, $\widehat{u}^{\ast}$ le foncteur
+   706	$F\mapsto F\circ u$, $i'$ le foncteur\pageoriginale d'inclusion
+   707	$\widetilde{C}'\rightarrow {C'}^{\widehat{\phantom{,}}}$.
+   708	\begin{enumerate}
+   709	\renewcommand{\labelenumi}{\theenumi)}
+   710	\item Le foncteur $u^{\ast}$ commute aux limites inductives et est
+   711	  exact.
+   712	
+   713	\item On a un isomorphisme canonique $u^{\ast}\underline{a}'\simeq
+   714	  \underline{a}\widehat{u}^{\ast}$, où $\underline{a}'$ désigne
+   715	  le foncteur « faisceau associé » pour
+   716	  ${C'}^{\widehat{\phantom{,}}}$.
+   717	
+   718	\item Le foncteur $u^\ast$ admet un adjoint à droite
+   719	  $u_{\ast}:\widetilde{C}\rightarrow \widetilde{C}'$. Lorsque $C$ est
+   720	  petit, le diagramme
+   721	\[\vcenter{
+   722	\xymatrix@C=3.25cm@R=1.25cm@M=.25cm{
+   723	C\widetilde{\phantom{a}}\ar[r]^{u_\ast} \ar@{_{(}->}[d]_{i}&
+   724	\widetilde{C}' \ar@{_{(}->}[d]^{i'}\\
+   725	C\widehat{\phantom{a}} \ar[r]^{\widehat{u}_{\ast}}  &
+   726	C'\widehat{\phantom{a}}, }}\leqno{(2.3.1)}
+   727	\]\etiquette[2.3.1]{III.eq2.3.1}
+   728	où le foncteur du bas est adjoint à droite au foncteur
+   729	$\widehat{u}^{\ast}$ (\hyperrefext[I][I.prop5.1]{5.1}), est commutatif à
+   730	isomorphisme canonique près.
+   731	
+   732	\item Soit $𝒱\supset 𝒰$ un univers. Notons
+   733	  $u_{\ast_{𝒰}}:
+   734	  C^{\sim}_{𝒰}\rightarrow
+   735	  \widetilde{C}'_{𝒰}$ (\resp
+   736	  $u_{\ast_{𝒱}}:C^{\sim}_{𝒱}\rightarrow
+   737	  \widetilde{C}'_{𝒱}$ le foncteur adjoint à droite relatif
+   738	  à l'univers $𝒰$ (\resp $𝒱$) dont l'existence est
+   739	  affirmé dans $3$). Le diagramme
+   740	\[\vcenter{
+   741	\xymatrix@C=3.25cm@R=1.25cm@M=.2cm{
+   742	C\widetilde{\phantom{a}}_{\underline{U}}
+   743	\ar[r]^{u_{\ast_{\underline{U}}}} \ar@{_{(}->}[d]&
+   744	\widetilde{C}'_{\underline{U}} \ar@{_{(}->}[d]\\
+   745	C\widetilde{\phantom{a}}_{\underline{V}}
+   746	\ar[r]^{u_{\ast_{\underline{V}}}}& \widetilde{C}'_{\underline{V}}
+   747	}}\leqno{(2.3.2)}
+   748	\]\etiquette[2.3.2]{III.eq2.3.2}
+   749	est commutatif à isomorphisme près.
+   750	\end{enumerate}
+   751	\end{enonce*}
+   752	
+   753	\begin{enonce*}[remark]{Preuve}
+   754	Les assertions 1) et 2) résultent immédiatement de \hyperrefext[II][II.theo3.4]{3.4}.
+   755	L'assertion 3), lorsque $C$ est petit, résulte de \hyperref[III.prop2.2]{2.2}.
+   756	Lorsque $C$ est un $𝒰$-site, elle sera démontrée en
+   757	\hyperref[III.subsec4.4]{4.4}. L'assertion 4), lorsque $C$ est petit, résulte
+   758	de l'assertion de commutativité analogue lorsque les topologies sur
+   759	$C$ et $C'$ sont chaotiques et de \hyperrefext[I][I.cor3.5]{3.5}. Lorsque les
+   760	topologies sur $C$ et $C'$ sont chaotiques,\pageoriginale la
+   761	commutativité de \eqhyperref[III.eq2.3.2]{2.3.2} se voit immédiatement sur la
+   762	description explicite de $u_{\ast}$ (\hyperrefext[I][I.prop5.1]{5.1}).
+   763	\end{enonce*}
+   764	
+   765	\setcounter{subsection}{3}
+   766	\subsection{}\etiquette[2.4]{III.subsec2.4}
+   767	Nous ne développerons pas ici les considérations relatives aux
+   768	$\gamma$-objets des catégories de faisceaux. Il nous suffira de
+   769	remarquer que les foncteurs $u^{\ast}$ et $u_{\ast}$ introduits dans
+   770	ce numéro commutent toujours aux limites projectives finies
+   771	(contrairement à ce qui se passait dans le numéro précédent pour le
+   772	foncteur $u^s$). Pas suite ils se prolongent naturellement en des
+   773	foncteurs définis sur les $\gamma$-objets, qui sont adjoints l'un de
+   774	l'autre et qui commutent aux foncteurs « faisceaux d'ensemble
+   775	sous-jacent ». Nous ferons les abus de notations signalés en
+   776	\hyperref[III.not1.8]{1.8}, consistant à noter par $u^{\ast}$ et $u_{\ast}$
+   777	les prolongements aux $\gamma$-objets.
+   778	
+   779	\begin{enonce*}{Proposition 2.5}\etiquette[2.5]{III.prop2.5}
+   780	Soient $C$ et $C'$ deux $𝒰$-sites et $\xymatrix{ C
+   781	\ar@<2pt>[r]^{v}& C'\ar@<2pt>[l]^{u} }$ un couple de foncteurs, où
+   782	$v$ est adjoint à gauche de $u$. Les propriétés suivantes
+   783	sont équivalentes:
+   784	\begin{enumerate}
+   785	\renewcommand{\theenumi}{\roman{enumi}}
+   786	\renewcommand{\labelenumi}{\theenumi)}
+   787	\item Le foncteur $u$ est continu.
+   788	
+   789	\item Le foncteur $v$ est cocontinu.
+   790	\end{enumerate}
+   791	De plus, sous ces conditions équivalentes, on a des
+   792	isomorphismes canoniques $v_{\ast}\simeq u_{s}$, $v^{\ast}\simeq
+   793	u^s$. En particulier, le foncteur $u^s$ commute aux limites
+   794	projectives finies.
+   795	\end{enonce*}
+   796	
+   797	\begin{enonce*}[remark]{Preuve}
+   798	La propriété pour un foncteur d'être continu ou cocontinu ne
+   799	dépend pas de l'univers $𝒰$ pour lequel $C$ et $C'$ sont des
+   800	$𝒰$-sites (c'est immédiatement dans le cas d'un foncteur
+   801	cocontinu, et cela résulte de \hyperref[III.prop1.5]{1.5} dans le cas d'un
+   802	foncteur continu). On peut donc, quitte à augmenter l'univers,
+   803	supposer que $C$ et $C'$ sont petits. La proposition résulte alors
+   804	de \hyperref[III.prop2.2]{2.2} et \hyperrefext[I][I.prop5.6]{5.6}.
+   805	\end{enonce*}
+   806	
+   807	\begin{enonce*}{Proposition 2.6}\etiquette[2.6]{III.prop2.6}
+   808	Soit\pageoriginale $u:C\rightarrow C'$ un foncteur continu et
+   809	cocontinu entre deux $𝒰$-sites. Alors le foncteur
+   810	$u^{\ast}:{C'}^{\sim}\rightarrow C^{\sim}$ $(\hyperref[III.prop2.3]{2.3})$
+   811	commute aux $𝒰$-limites inductives et projectives. Notons
+   812	$u_{!}:C^{\sim}\rightarrow {C'}^{\sim}$ et
+   813	$u_{\ast}:C^{\sim}\rightarrow {C'}^{\sim}$ les foncteurs adjoints à
+   814	$u^{\ast}$ à gauche et à droite respectivement. Le foncteur $u_{!}$
+   815	est pleinement fidèle si et seulement si le foncteur $u_{\ast}$ est
+   816	pleinement fidèle. Lorsque $u$ est pleinement fidèle, $u_{!}$ est
+   817	pleinement fidèle et la réciproque est vraie lorsque les topologies
+   818	de $C$ et $C'$ sont moins fines que la topologie canonique.
+   819	\end{enonce*}
+   820	
+   821	Le foncteur $u^{\ast}$ admet un adjoint à droite $u_{\ast}$
+   822	(\hyperref[III.prop2.3]{2.3}) et un adjoint à gauche $u_{!}$
+   823	(\hyperref[III.prop1.2]{1.2}). Le foncteur $u^{\ast}$ commute donc aux limites
+   824	inductives et projectives (\hyperrefext[I][I.prop2.11]{2.11}). Le fait que le
+   825	foncteur $u_{!}$ soit pleinement fidèle si et seulement si le
+   826	foncteur $u_{\ast}$ est pleinement fidèle est une
+   827	propriété générale des foncteurs adjoints
+   828	(\hyperrefext[I][I.rem5.7]{5.7} 1). Lorsque $u$ est pleinement fidèle, le foncteur
+   829	$\widehat{u}_{\ast}:C^{\widehat{\phantom{,}}}_{𝒱}\rightarrow
+   830	{C'}^{\widehat{\phantom{,}}}_{𝒱}$ relatif aux
+   831	$𝒱$-préfaisceaux, pour un univers $𝒱$ assez
+   832	grand, est pleinement fidèle (\hyperrefext[I][I.rem5.7]{5.7}). Par suite le
+   833	foncteur $u_{\ast}:C^{\sim}\rightarrow \widetilde{C}'$ est
+   834	pleinement fidèle en vertu de la commutativité de
+   835	\eqhyperref[III.eq2.3.1]{2.3.1} et \eqhyperref[III.eq2.3.2]{2.3.2}, donc $u_{!}$ est pleinement
+   836	fidèle d'après ce qui précède. La réciproque se
+   837	déduit de l'existence du diagramme commutatif \hyperref[III.prop1.2]{1.2}
+   838	iv), compte tenu du fait que les foncteurs $\epsilon_C$ et
+   839	$\epsilon_{C'}$ sont pleinement fidèles lorsque les topologies
+   840	sont moins fines que la topologie canonique, \cqfd
+   841	
+   842	\begin{enonce*}[remark]{Exemple 2.7}\etiquette[2.7]{III.exem2.7}
+   843	Avec les notations de \hyperref[III.exem1.9.2]{1.9.2}, le foncteur
+   844	$$
+   845	\Phi:\Ouv(Y)\longrightarrow \Ouv(X)
+   846	$$
+   847	est continu (\hyperref[III.exem1.9.2]{1.9.2}) et cocontinu (\hyperref[III.prop2.2]{2.2}).
+   848	De plus, soient $i:Y\rightarrow X$ l'injection\pageoriginale
+   849	canonique et $i^{-1}:\Ouv(X)\rightarrow \Ouv(Y)$ le foncteur qu'elle
+   850	permet de définir (\hyperref[III.exem1.9.1]{1.9.1}). Le foncteur $i$ est
+   851	adjoint à droite au foncteur $\Phi$. On a donc une suite de trois
+   852	foncteurs adjoints:
+   853	\begin{align*}
+   854	\Phi^s\quad ,\quad & \Phi_s\\
+   855	        & ‖\\
+   856	        &\Phi^{\ast}\quad,\quad \Phi_{\ast},
+   857	\end{align*}
+   858	et des isomorphismes canoniques $\Phi^{\ast}\simeq (i^{-1})^s$,
+   859	$\Phi_{\ast}\simeq i^{-1}_s$.
+   860	\end{enonce*}

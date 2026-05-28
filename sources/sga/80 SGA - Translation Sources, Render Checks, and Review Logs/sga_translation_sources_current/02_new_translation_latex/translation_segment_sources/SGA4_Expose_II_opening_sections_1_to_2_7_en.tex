@@ -1,0 +1,230 @@
+% SGA TRANSLATION PROJECT
+% Volume: SGA 4
+% Expose: II, Topologies and Sheaves
+% Source: Orgogozo/Laszlo TeX snapshot, SGA4-master-71766d9/02/02.tex
+% Range translated in this working draft section: opening overview, Section 1, and Section 2 through Remarks 2.7; source lines 23--421.
+% Status: draft translation, compile-checked, not proofed line-by-line against scan.
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1.12in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,hypertexnames=false}
+
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Ens}{\mathbf{Set}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\ob}{\operatorname{Ob}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\resp}{respectively}
+\newcommand{\ie}{i.e.}
+\newcommand{\etcn}{etc.}
+\newcommand{\whC}{\widehat{C}}
+\newcommand{\twC}{\widetilde{C}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\qedtext}{\hfill\(\square\)}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}{\par\noindent\emph{Proof.}\ }{\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Expos\'e II. Topologies and Sheaves}}\\[0.35em]
+{\large Opening; Sections 1--2.7}\\[0.35em]
+J.-L. Verdier
+\end{center}
+
+\bigskip
+
+
+\bigskip
+
+After the definition of topologies and pretopologies (no.~1) and of sheaves of sets (no.~2), no.~3 turns to the central theorem of this expos\'e (3.4): the existence of the sheaf associated to a presheaf. In order to cover all cases encountered in practice, the existence of this functor is proved for presheaves on a \(\U\)-site (3.0.2). Nos.~4 and 5 draw the consequences of this theorem for the behavior of inductive and projective limits in categories of sheaves. In no.~6 one defines and studies sheaves with values in arbitrary categories, and then immediately turns attention to sheaves of rings, groups, modules, \etcn
+
+\section{Topologies, covering families, pretopologies}
+
+\begin{statement}{Definition 1.1}
+A \emph{topology} on a category \(C\) consists, for each object \(X\) of \(C\), of a set \(J(X)\) of sieves on \(X\), subject to the following axioms:
+\begin{description}[leftmargin=2.8em,style=nextline]
+\item[T 1)] \emph{Stability under base change.} For every object \(X\) of \(C\), every sieve \(R\in J(X)\), and every morphism \(f:Y\to X\) with \(Y\in\ob(C)\), the sieve \(R\times_XY\) on \(Y\) belongs to \(J(Y)\).
+
+\item[T 2)] \emph{Local character.} If \(R\) and \(R'\) are two sieves on \(X\), if \(R\in J(X)\), and if for every \(Y\in\ob(C)\) and every morphism \(Y\to R\) the sieve \(R'\times_XY\) belongs to \(J(Y)\), then \(R'\) belongs to \(J(X)\).
+
+\item[T 3)] For every object \(X\) of \(C\), the maximal sieve \(X\) belongs to \(J(X)\).
+\end{description}
+\end{statement}
+
+\subsection*{1.1.1}
+The sieves belonging to \(J(X)\) will be called the \emph{sieves covering \(X\)}, or also the \emph{refinements of \(X\)}. From axioms (T1), (T2), and (T3), one immediately deduces that the set of sieves covering \(X\) is stable under finite intersections, and that every sieve containing a covering sieve is again a covering sieve. Thus \(J(X)\), ordered by inclusion, is cofiltered (I~8).
+
+\subsection*{1.1.2}
+Let \(C\) be a category, and let \(T\) and \(T'\) be two topologies on \(C\). The topology \(T\) is said to be \emph{finer than} the topology \(T'\) if, for every object \(X\) of \(C\), every refinement of \(X\) for the topology \(T'\) is a refinement of \(X\) for the topology \(T\). In this way one defines an order structure on the set of topologies.
+
+\subsection*{1.1.3}
+Let \((T_i)_{i\in I}\) be a family of topologies on \(C\). For each object \(X\) of \(C\), the sets of sieves on \(X\) which are covering for all the topologies \(T_i\) satisfy axioms (T1), (T2), and (T3), and therefore define a topology: the \emph{intersection topology} of the \(T_i\), i.e. the greatest lower bound of the \(T_i\). It is the finest of the topologies which is less fine than all the topologies \(T_i\). It follows that the family \((T_i)_{i\in I}\) has a \emph{least upper bound}: the intersection topology of the topologies finer than each of the \(T_i\).
+
+\subsection*{1.1.4}
+In particular, the assignment \(J(X)=\) the set of all sieves on \(X\) is a topology finer than every topology on \(C\); we shall call it the \emph{discrete topology}.
+
+There is a topology less fine than every topology on \(C\): the topology for which \(J(X)=\{X\}\) for every \(X\) of \(C\). This topology is called the \emph{coarse} or \emph{chaotic} topology.
+
+\subsection*{1.1.5}
+A category \(C\) endowed with a topology is called a \emph{site}. The category \(C\) is called the \emph{underlying category} of the site.
+
+\begin{statement}{Definition 1.2}
+Let \(C\) be a site and let \(X\) be an object of \(C\). A family of morphisms \((f_\alpha:X_\alpha\to X)\), \(\alpha\in A\), is called \emph{covering} if the sieve generated by the family \(f_\alpha\) (I~4.3.3) is a sieve covering \(X\).
+\end{statement}
+
+\subsection*{1.1.6}
+Let \(C\) be a category. Suppose that for every object \(X\) of \(C\) we are given a set of families of morphisms with target \(X\). Then there exists a topology \(T\) which is the least fine among the topologies for which the given families are covering, namely the intersection (1.1.3) of all topologies in question. We call this topology the \emph{topology generated by the given sets of families of morphisms}. In general it is awkward to describe all covering sieves of this topology. The situation is more agreeable in the following case.
+
+\begin{statement}{Definition 1.3}
+Let \(C\) be a category. A \emph{pretopology} on \(C\) consists, for each object \(X\) of \(C\), of a set \(\Cov(X)\) of families of morphisms with target \(X\), subject to the following axioms:
+\begin{description}[leftmargin=3.2em,style=nextline]
+\item[PT 0)] For every object \(X\) of \(C\), the morphisms occurring in the families of morphisms of \(\Cov(X)\) are base-changeable. Recall that a morphism \(Y\to X\) is called base-changeable if for every morphism \(Z\to X\), the fiber product \(Z\times_XY\) is representable.
+
+\item[PT 1)] For every object \(X\) of \(C\), every family \((X_\alpha\to X)_{\alpha\in A}\) belonging to \(\Cov(X)\), and every morphism \(Y\to X\) with \(Y\in\ob(C)\), the family
+\[
+(X_\alpha\times_XY\to Y)_{\alpha\in A}
+\]
+belongs to \(\Cov(Y)\). This is stability under base change.
+
+\item[PT 2)] If \((X_\alpha\to X)_{\alpha\in A}\) belongs to \(\Cov(X)\), and if for each \(\alpha\in A\) the family
+\[
+(X_{\beta_\alpha}\to X_\alpha)_{\beta_\alpha\in B_\alpha}
+\]
+belongs to \(\Cov(X_\alpha)\), then the family \((X_\gamma\to X)_{\gamma\in\coprod_{\alpha\in A}B_\alpha}\), where for \(\gamma=(\alpha,\beta_\alpha)\) the morphism \(X_\gamma\to X\) is the composite
+\[
+X_\gamma=X_{\beta_\alpha}\to X_\alpha\to X,
+\]
+belongs to \(\Cov(X)\). This is stability under composition.
+
+\item[PT 3)] The family \(X\xrightarrow{\id_X}X\) belongs to \(\Cov(X)\).
+\end{description}
+\end{statement}
+
+\subsection*{1.3.1}
+Definition 1.1.6 allows us, for a given \emph{pretopology} on \(C\), to consider the \emph{topology} on \(C\) generated by this pretopology. Note that if \(C\) is a category in which fiber products are representable, then every topology \(T\) on \(C\) can be defined by a pretopology, namely the one for which \(\Cov(X)\) consists of \emph{all} families covering \(X\) for the topology \(T\).
+
+\begin{statement}{Proposition 1.4}
+Let \(C\) be a category, let \(E\) be a pretopology on \(C\), let \(T\) be the topology defined by the pretopology \(E\) (1.1.6), and let \(X\) be an object of \(C\). Denote by \(J_E(X)\) the set of sieves on \(X\) generated by the families of the pretopology, and by \(J_T(X)\) the set of refinements of \(X\) for the topology \(T\). Then \(J_E(X)\) is cofinal in \(J_T(X)\). In other words, for a sieve \(R\) on \(X\) to belong to \(J_T(X)\), it is necessary and sufficient that there exist a sieve \(R'\in J_E(X)\) such that \(R'\subset R\).
+\end{statement}
+
+\begin{prooftext}
+For each object \(X\) of \(C\), let \(J'(X)\) be the set of sieves on \(X\) which contain a sieve of \(J_E(X)\). Evidently \(J'(X)\subset J_T(X)\). To show that \(J'(X)=J_T(X)\), it is enough to show that the data of the \(J'(X)\) define a topology on \(C\). Now the \(J'(X)\) plainly satisfy axioms (T1) and (T3). It remains to verify (T2). For this it is enough to prove that, if \(R'\) is a subsieve of \(R\in J_E(X)\) such that for every \(Y\to R\) the sieve \(R'\times_XY\) on \(Y\) belongs to \(J'(Y)\), then \(R'\) belongs to \(J'(X)\). The sieve \(R\) is generated by a family \((X_\alpha\to X)\) belonging to \(\Cov(X)\), and for every \(\alpha\) the sieve \(R'\times_XX_\alpha\) contains a sieve generated by a family \((X_{\beta_\alpha}\to X_\alpha)\) belonging to \(\Cov(X_\alpha)\). It follows that \(R'\) contains a sieve generated by the family \((X_{\beta_\alpha}\to X)\). Hence, by axiom (PT2), \(R'\) contains a sieve of \(J_E(X)\), and therefore belongs to \(J'(X)\).\qedtext
+\end{prooftext}
+
+\section{Sheaves of sets}
+
+\begin{statement}{Definition 2.1}
+Let \(C\) be a site whose underlying category is a \(\U\)-category. A presheaf \(F\) with values in \(\U\)-\(\Set\) is called \emph{separated} (respectively, a \emph{sheaf}) if, for every sieve \(R\) covering an object \(X\) of \(C\), the map
+\[
+\Hom_{\whC}(X,F)\longrightarrow \Hom_{\whC}(R,F)
+\]
+is injective (respectively, bijective). The full subcategory of \(\whC\) whose objects are the sheaves is called the category of sheaves of sets on \(C\), and is most often denoted \(\widetilde C\). When no ambiguity can result, we shall simply say the category of sheaves on \(C\); conversely, we shall sometimes be more precise and say the category of sheaves with values in \(\U\)-\(\Set\), or the category of \(\U\)-sheaves.
+\end{statement}
+
+\begin{statement}{Proposition 2.2}
+Let \(C\) be a \(\U\)-category, and let \(\Fcal=(F_i)_{i\in I}\) be a family of \(\U\)-presheaves on \(C\). For each object \(X\) of \(C\), denote by \(J_{\Fcal}(X)\) the set of sieves \(R\to X\) such that, for every morphism \(Y\to X\) of \(C\) with target \(X\), the sieve \(R\times_XY\) has the following property: the map
+\[
+\Hom_{\whC}(Y,F_i)\longrightarrow \Hom_{\whC}(R\times_XY,F_i)
+\]
+is bijective (respectively, injective) for every \(i\in I\). Then the sets \(J_{\Fcal}(X)\) define a topology on \(C\), which is the finest topology for which each of the \(F_i\) is a sheaf (respectively, a separated presheaf).
+\end{statement}
+
+\begin{prooftext}
+The \(J_{\Fcal}(X)\) plainly satisfy axioms (T1) and (T3). It remains to show that they satisfy (T2). For this it is enough to show that:
+\begin{enumerate}[label=\arabic*)]
+\item if \(R'\hookrightarrow R\hookrightarrow X\) are two sieves on \(X\), with \(R\in J_{\Fcal}(X)\), and such that for every \(Y\to R\), where \(Y\) is an object of \(C\), the sieve \(R'\times_XY\) belongs to \(J_{\Fcal}(Y)\), then \(R'\) belongs to \(J_{\Fcal}(X)\);
+
+\item if \(R'\hookrightarrow R\hookrightarrow X\) are two sieves on \(X\) such that \(R'\in J_{\Fcal}(X)\), then \(R\) belongs to \(J_{\Fcal}(X)\).
+\end{enumerate}
+\end{prooftext}
+
+In case 2), note that for every \(Y\to R\), where \(Y\) is an object of \(C\), the sieve \(R'\times_XY\) belongs to \(J_{\Fcal}(Y)\). In cases 1) and 2), the sieve \(R\) is the inductive limit of the objects \(Y\) of \(C\) lying over \(R\) (I~3.4). Inductive limits in \(\whC\) are universal (I~3.3). Consequently, in cases 1) and 2), \(R'\) is the inductive limit of the \(R'\times_XY\). But in cases 1) and 2), \(R'\times_XY\) belongs to \(J_{\Fcal}(Y)\). Passing to the inductive limit over the objects \(Y\) of \(C\) lying over \(R\), one deduces that the map
+\[
+\Hom_{\whC}(R,F_i)\longrightarrow \Hom_{\whC}(R',F_i)
+\]
+is bijective (respectively, injective) for every \(i\in I\). It follows that the maps
+\[
+\Hom_{\whC}(X,F_i)\longrightarrow \Hom_{\whC}(R',F_i),
+\qquad
+\Hom_{\whC}(X,F_i)\longrightarrow \Hom_{\whC}(R,F_i)
+\]
+are, in cases 1) and 2), bijections (respectively, injections). Moreover, hypotheses 1) and 2) are visibly stable under arbitrary base change \(Y\to X\), with \(Y\) an object of \(C\). Hence, for every object \(Y\) of \(C\) lying over \(X\), and every \(i\in I\), the maps
+\begin{align*}
+\Hom_{\whC}(Y,F_i)&\longrightarrow \Hom_{\whC}(R\times_XY,F_i),\\
+\Hom_{\whC}(Y,F_i)&\longrightarrow \Hom_{\whC}(R'\times_XY,F_i)
+\end{align*}
+are in both cases bijections (respectively, injections). This shows that \(R'\) and \(R\) belong to \(J_{\Fcal}(X)\).\qedtext
+
+\begin{statement}{Corollary 2.3}
+Let \(C\) be a \(\U\)-category, and for every object \(X\) of \(C\) let \(K(X)\) be a set of sieves on \(X\). Assume that the \(K(X)\) satisfy axiom (T1) of (1.1). For a presheaf \(F\) to be a sheaf (respectively, a separated presheaf) for the topology generated (1.1.6) by the \(K(X)\), it is necessary and sufficient that, for every object \(X\) of \(C\) and every sieve \(R\in K(X)\), the map
+\[
+\Hom_{\whC}(X,F)\longrightarrow \Hom_{\whC}(R,F)
+\]
+be bijective (respectively, injective).
+\end{statement}
+
+\begin{statement}{Corollary 2.4}
+In particular, let \(C\) be a \(\U\)-category endowed with a pretopology. For a presheaf \(F\) to be a sheaf (respectively, a separated presheaf), it is necessary and sufficient that, for every object \(X\) of \(C\) and every family \((X_\alpha\to X)\) belonging to \(\Cov(X)\), the diagram of sets
+\[
+F(X)\longrightarrow \prod_{\alpha\in A}F(X_\alpha)\rightrightarrows
+\prod_{(\alpha,\beta)\in A\times A}F(X_\alpha\times_XX_\beta)
+\]
+be exact (respectively, that the map
+\[
+F(X)\longrightarrow \prod_{\alpha\in A}F(X_\alpha)
+\]
+be injective).
+\end{statement}
+
+\begin{prooftext}
+Apply 2.3, then I~3.5 and I~2.12.
+
+With Corollary 2.4 one recovers the definition given in [1].
+\end{prooftext}
+
+\begin{statement}{Definition 2.5}
+Let \(C\) be a \(\U\)-category. The \emph{canonical topology} of \(C\) is the finest topology for which the representable functors are sheaves (2.2). A sieve covering \(X\) for the canonical topology will be called a \emph{universally strict epimorphic sieve}. A covering family for the canonical topology will be called a \emph{universally strict epimorphic family}. When, moreover, the morphisms of the covering family are base-changeable, the family will be called \emph{universally effective epimorphic}~[2].
+\end{statement}
+
+\begin{remarktext}{Remark 2.5.1}
+For almost all the sites that have had to be used up to now, the topology is \emph{less fine} than the canonical topology; in other words, the representable functors on \(C\) are sheaves, i.e. the covering families of \(C\) are universally strict epimorphic. The only exception to this rule is the site \(\widehat{C}\) studied in no.~5, whose topology is \emph{finer}, and most often strictly finer, than the canonical topology.
+\end{remarktext}
+
+\begin{statement}{Proposition 2.6}
+For a sieve \(R\hookrightarrow X\) to be universally strict epimorphic, it is necessary and sufficient that, for every object \(Y\to X\) of \(C\) lying over \(X\), and for every object \(Z\) of \(C\), the map
+\[
+\Hom_C(Y,Z)\longrightarrow \varprojlim_{C/(Y\times_XR)}\Hom_C(\,\cdot\,,Z)
+\]
+be a bijection.
+\end{statement}
+
+\begin{prooftext}
+Immediate by applying 2.2 and then I~5.3.\qedtext
+\end{prooftext}
+
+\begin{remarktext}{Remarks 2.7}
+\begin{enumerate}[label=\arabic*)]
+\item Proposition 2.6 gives a characterization of universally strict epimorphic sieves of a category \(C\) which is independent of the universe in which the presheaves take their values, under the sole condition that the Hom-sets \(\Hom(X,Y)\) of \(C\) belong to this universe. Thus it allows one to define the canonical topology for any category \(C\), without needing to specify the universes.
+
+\item Let \(C\) be a site whose underlying category is a \(\U\)-category, let \(F\) be a \(\U\)-presheaf, and let \(\V\) be a universe containing \(\U\). The underlying category of \(C\) is a \(\V\)-category, and \(F\) may be regarded as a \(\V\)-presheaf. The \(\U\)-presheaf \(F\) is a sheaf (respectively, a separated presheaf) if and only if the \(\V\)-presheaf \(F\) is a sheaf (respectively, a separated presheaf). In other words, the condition for a presheaf \(F\) to be a sheaf (respectively, a separated presheaf) does not depend, in the sense just specified, on the universe in which the presheaf \(F\) takes its values. In particular, let \(C\) be a site and let \(F\) be a \(\U\)-presheaf; one says that \(F\) is a sheaf (respectively, a separated presheaf) if there exists a universe \(\V\) containing \(\U\) such that the category \(C\) is a \(\V\)-category and such that \(F\) is a \(\V\)-sheaf (respectively, a separated \(\V\)-presheaf). This property does not depend on the universe \(\V\).
+\end{enumerate}
+\end{remarktext}
+
+\end{document}
