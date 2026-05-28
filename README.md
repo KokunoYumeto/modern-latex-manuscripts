@@ -12,10 +12,10 @@ The archival source of record is Zenodo; this GitHub mirror keeps the editable T
 - Heinrich Weber author record: https://zenodo.org/records/20421148
 - Emmy Noether author record: https://zenodo.org/records/20421149
 - Non-European mathematics consolidated corpus: https://zenodo.org/records/20421441
-- Chinese mathematical classics: https://zenodo.org/records/20420974
-- Indian and Sanskrit mathematical classics: https://zenodo.org/records/20420975
-- Islamic and Arabic mathematical texts: https://zenodo.org/records/20420983
-- Historical reference witnesses: https://zenodo.org/records/20420986
+- Chinese mathematical classics: https://zenodo.org/records/20421647
+- Indian and Sanskrit mathematical classics: https://zenodo.org/records/20421650
+- Islamic and Arabic mathematical texts: https://zenodo.org/records/20421656
+- Historical reference witnesses: https://zenodo.org/records/20421657
 
 ## Repository Layout
 
