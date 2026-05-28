@@ -1,8 +1,7 @@
-# SGA Translation Worklog — translation segment
+# SGA Translation Worklog — working draft section
 
 ## Scope
 
-Continued SGA 4, Exposé I, `Préfaisceaux`, from the continuation point after translation segment.
 
 Translated source range:
 
@@ -19,10 +18,10 @@ New English title choices:
 
 ## Outputs
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_6_to_7_en.tex`
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_6_to_7_en.pdf`
-- `04_render_checks/translation segment/SGA4_Expose_I_sections_6_to_7_en_render/page-01.png` through `page-13.png`
-- `05_source_extracts/translation segment/SGA4_Expose_I_sections_6_to_7_source_lines_1739_2668_fr.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_6_to_7_en.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_6_to_7_en.pdf`
+- `04_render_checks/working draft section/SGA4_Expose_I_sections_6_to_7_en_render/page-01.png` through `page-13.png`
+- `05_source_extracts/working draft section/SGA4_Expose_I_sections_6_to_7_source_lines_1739_2668_fr.tex`
 
 ## Translation policy applied
 
@@ -54,5 +53,4 @@ The following evident source slips were corrected in the English draft where the
 - Rendered all pages at 140 DPI using `/home/oai/skills/pdfs/scripts/render_pdf.py`.
 - Spot-checked rendered pages 1, 6, and 13 for clipping, broken glyphs, black boxes, and layout failures.
 
-## continuation point
 

@@ -1,11 +1,11 @@
-# SGA translation project - translation segment cumulative package
+# SGA translation project - working draft section cumulative package
 
 This cumulative package adds a working English LaTeX draft of SGA 4, Exposé IV, from the introduction through Exercise 6.10.
 
 Main fresh files:
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_IV_sections_0_to_6_10_en.tex`
-- `02_new_translation_latex/translation segment/SGA4_Expose_IV_sections_0_to_6_10_en.pdf`
+- `02_new_translation_latex/working draft section/SGA4_Expose_IV_sections_0_to_6_10_en.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_IV_sections_0_to_6_10_en.pdf`
 
 Main cumulative readers:
 

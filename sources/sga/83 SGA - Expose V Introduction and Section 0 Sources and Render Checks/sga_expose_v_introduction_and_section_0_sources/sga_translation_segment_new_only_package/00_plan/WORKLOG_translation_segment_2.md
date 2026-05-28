@@ -1,4 +1,4 @@
-# Worklog - translation segment fresh-only
+# Worklog - working draft section fresh-only
 
 Continued SGA 4 after Expose IV.
 

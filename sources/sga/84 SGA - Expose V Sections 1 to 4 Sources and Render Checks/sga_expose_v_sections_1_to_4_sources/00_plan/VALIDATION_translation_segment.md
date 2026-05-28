@@ -1,4 +1,4 @@
-# Validation translation segment
+# Validation working draft section
 
 Generated: 2026-05-27T18:13:51Z
 
@@ -14,7 +14,7 @@ Compilation:
 Rendering:
 - Renderer: `/home/oai/skills/pdfs/scripts/render_pdf.py`
 - DPI: 150
-- Rendered pages: 27 PNG files in `04_render_checks/translation segment/SGA4_Expose_V_sections_1_to_4_render/`
+- Rendered pages: 27 PNG files in `04_render_checks/working draft section/SGA4_Expose_V_sections_1_to_4_render/`
 - Render command exited successfully. The renderer emitted a non-fatal artifact-tool warmup traceback on stderr after rendering; the PNG output was created completely.
 
 Translation notes:
@@ -22,4 +22,3 @@ Translation notes:
 - Source typo-style artifacts were silently regularized where the intended mathematics was clear, including the edge morphism from Cech cohomology to sheaf cohomology in Corollary 3.4, the formula defining `\check{\mathcal H}^q(M)`, and a few malformed cross-reference remnants.
 - The output is a working draft translation, not a line-by-line proofread final edition.
 
-continuation point:

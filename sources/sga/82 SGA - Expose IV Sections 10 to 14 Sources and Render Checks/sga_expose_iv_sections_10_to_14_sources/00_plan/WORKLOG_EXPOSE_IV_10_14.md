@@ -1,9 +1,9 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 
 Work performed:
 
-1. Rebuilt the undownloadable translation segment fresh range as a standalone artifact, then continued through the end of SGA 4, Expose IV.
+1. Rebuilt the undownloadable working draft section fresh range as a standalone artifact, then continued through the end of SGA 4, Expose IV.
 2. Translated SGA 4, Expose IV, Sections 10-14 from the Orgogozo-Laszlo TeX source `04/04.tex`, source lines 8246-9852.
 3. Authored a standalone LaTeX file and compiled it with `pdflatex` twice.
 4. Rendered all 23 PDF pages to PNG for visual checking.

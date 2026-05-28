@@ -1,0 +1,1633 @@
+\documentclass[13pt]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{longtable,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\geometry{margin=1.05in}
+\setstretch{1.19}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.56em}
+\sloppy
+
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\uS}{\underline S}
+\newcommand{\uC}{\underline C}
+\newcommand{\uF}{\underline F}
+\newcommand{\uA}{\underline A}
+\newcommand{\D}{\mathrm D}
+\newcommand{\K}{\mathrm K}
+\newcommand{\C}{\mathrm C}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\RHom}{\mathrm R\underline{\operatorname{Hom}}}
+\newcommand{\RHomplain}{\mathrm R\operatorname{Hom}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Cart}{\operatorname{Cart}}
+\newcommand{\Add}{\operatorname{Add}}
+\newcommand{\Loclib}{\operatorname{Loclib}}
+\newcommand{\Qcoh}{\operatorname{Qcoh}}
+\newcommand{\Lib}{\operatorname{Lib}}
+\newcommand{\Rad}{\operatorname{rad}}
+\newcommand{\bbL}{\mathbin{\mathbf L\!\otimes}}
+\newcommand{\bbR}{\mathbin{\mathbf R\!\otimes}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+\newenvironment{remarktext}[1][Remark]{\par\noindent\textbf{#1.}\ }{\par\medskip}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{remark*}{Remark}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{SGA 6 -- Expose I}}\\[0.35em]
+{\large \textbf{Generalities on Finiteness Conditions in Derived Categories}}\\[0.25em]
+{\large Sections 2--8}
+\end{center}
+
+\section*{Corollary 1.4.5, proof continued}
+\addcontentsline{toc}{section}{Corollary 1.4.5, proof continued}
+
+In the situation of Corollary 1.4.5, $u'$ is a quasi-isomorphism and $v$ is a monomorphism inducing the identity in degrees $\geq n$, that is, such that
+\[
+E'^i=E^i,\qquad v^i=\operatorname{Id}(E^i)\quad (i\geq n).
+\]
+
+\begin{prooftext}
+Applying (1.4.4) in the case where $\uS$ is the punctual site and $\uC_0=\uC$, one obtains a commutative triangle in $C(\uC)$
+\[
+\begin{array}{ccc}
+E & \xrightarrow{v_{n-1}} & E'_{n-1}\\
+u\downarrow && \\
+F & \underset{u'_{n-1}}{\longleftarrow} &
+\end{array}
+\]
+where $u'_{n-1}$ is an $(n-1)$-quasi-isomorphism and $v_{n-1}$ is a monomorphism inducing the identity in degrees $\geq n$. Iterating this procedure, one obtains, for $i\leq n-1$, a sequence of commutative triangles in $C(\uC)$
+\[
+\begin{array}{ccc}
+E'_i & \xrightarrow{v_{i-1}} & E'_{i-1}\\
+u'_i\downarrow && \\
+F & \underset{u'_{i-1}}{\longleftarrow} &
+\end{array}
+\]
+where $u'_i$ is an $i$-quasi-isomorphism and $v_{i-1}$ is a monomorphism inducing the identity in degrees $\geq i$. The corollary follows by passing to the limit. More precisely, writing $d'_i$ for the differential of $E'_i$, define $E'$ by
+\[
+E'^i=E^i,\\ d'^i=d^i\quad\text{for }i\geq n,
+\]
+and
+\[
+E'^i=(E'_i)^i,\qquad d'^i=(d'_i)^i\quad\text{for }i<n.
+\]
+Then define $v$ and $u'$ by
+\[
+v^j=(v_i)^j,
+\qquad
+u'^j=(u'_i)^j
+\quad\text{for }i\leq j.
+\]
+It is then immediate to check that $E'$, $v$, and $u'$ so defined have the required properties.
+\end{prooftext}
+
+\section*{2. Pseudo-coherent complexes}
+\addcontentsline{toc}{section}{2. Pseudo-coherent complexes}
+
+\subsection*{2.0}
+In this section $\uS$ denotes a site, $S$ an object of $\uS$, $\uC$ a flat abelian $\uS$-category in the sense of (1.1), and $\uC_0$ a strictly full additive sub-$\uS$-category of $\uC$. We assume that $\uC_0$ is locally quasi-stable under kernels of epimorphisms (1.2), and locally quasi-liftable in $\uC$ (1.2).
+
+\begin{definition*}[2.1]
+Let $S\in\ob\uS$, let $E$ be a complex of $\uC_S$, and let $n\in\ZZ$. We shall say that $E$ is \emph{strictly $\uC_0$-$n$-pseudo-coherent} (respectively $\uC_0$-pseudo-coherent, respectively $\uC_0$-perfect) if $E^i=0$ for $i$ sufficiently large and $E^i\in\ob\uC_{0S}$ for $i\geq n$ (respectively for every $i$, respectively for every $i$ and $E^i=0$ for almost all $i$).
+\end{definition*}
+
+When no confusion is possible, we shall sometimes say simply ``strictly $n$-pseudo-coherent'' instead of ``strictly $\uC_0$-$n$-pseudo-coherent'', and similarly for the other variants.
+
+\begin{lemma*}[2.1.1]
+Let $E\in\ob C(\uC_S)$ and let $n\in\ZZ$. If $E$ is strictly $n$-pseudo-coherent and if $H^i(E)=0$ for $i>n$, then $H^n(E)$ is of finite type.
+\end{lemma*}
+
+\begin{prooftext}
+The sequence
+\[
+0\longrightarrow B^n(E)\longrightarrow Z^n(E)\longrightarrow H^n(E)\longrightarrow0
+\]
+is exact, and $E^i\in\ob\uC_{0S}$ for $i\geq n$. Since $\uC_{0S}$ is locally quasi-stable under kernels of epimorphisms, $Z^n(E)$ is of finite type; so is its quotient $H^n(E)$.
+\end{prooftext}
+
+\begin{proposition*}[2.2]
+Let $F\in\ob D(\uC_S)$ and let $n\in\ZZ$.
+
+\textup{a)} If $F$ is strictly $n$-pseudo-coherent, relatively to $\uC_0$, and if $u:E\to F$ is a quasi-isomorphism, then the family of objects $X$ over $S$ for which there exists a quasi-isomorphism
+\[
+v:F'\longrightarrow E_X
+\]
+with $F'$ strictly $n$-pseudo-coherent is a refinement of $S$.
+
+\textup{b)} The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item the family of $X$ over $S$ for which there exists a quasi-isomorphism $u:E\to F_X$ in $C(\uC_S)$, with $E$ strictly $n$-pseudo-coherent, is a refinement of $S$;
+\item the same condition as (i), but with $u$ an isomorphism in $D(\uC_S)$;
+\item the family of $X$ over $S$ for which there exists an $n$-quasi-isomorphism (1.4.3) $u:E\to F_X$ in $C(\uC_S)$, with $E$ strictly perfect, is a refinement;
+\item the same condition as (iii), but with $u$ an $n$-isomorphism in $D(\uC_S)$.
+\end{enumerate}
+\end{proposition*}
+
+\begin{prooftext}
+For a), choose, for an integer $i$ large enough, an $i$-quasi-isomorphism $v_i:E_i\to E$ with $E_i$ strictly $n$-pseudo-coherent; one may initially take $E_i=0$. Suppose $i>n$. We show that, after refining $S$, there is an $(i-1)$-quasi-isomorphism $v_{i-1}:E'_{i-1}\to E$, with $E'_{i-1}$ strictly $n$-pseudo-coherent.
+
+By (1.4.4), it is enough to show that $H^i(M^\bullet)$ is of $\uC_0$-finite type, where $M^\bullet$ is the cone of $v_i$. If $M'^\bullet$ denotes the cone of $u\circ v_i$, the fact that $u$ is a quasi-isomorphism and (1.4.2) imply
+\[
+H^j(M^\bullet)\iso H^j(M'^\bullet)\quad\text{for all }j,
+\]
+and $H^j(M'^\bullet)=0$ for $j>i$. Moreover $M'^\bullet$ is strictly $(i-1)$-pseudo-coherent. Hence, by (2.1.1), $H^i(M^\bullet)\simeq H^i(M'^\bullet)$ is of finite type. This proves the assertion. Iterating, and after refining $S$, one obtains an $n$-quasi-isomorphism $v_0:E_0\to E$, where $E_0$ is strictly $n$-pseudo-coherent. By (1.4.5) one can then extend $v_0$ to a quasi-isomorphism $v:F'\to E$ without changing anything in degrees $>n$; in particular $F'$ is strictly $n$-pseudo-coherent. This proves a).
+
+For b), the equivalence of (i) and (ii) follows immediately from a) and from the definition of isomorphisms in $D(\uC_S)$. If $E\in\ob D(\uC_S)$ is strictly $n$-pseudo-coherent, there is an exact sequence
+\[
+0\longrightarrow E'\longrightarrow E\longrightarrow E''\longrightarrow0
+\]
+where $E'$ is strictly perfect and $E''{}^i=0$ for $i>n$; hence $E'\to E$ is an $n$-quasi-isomorphism, which proves (i)$\Rightarrow$(iii). The implication (iii)$\Rightarrow$(iv) is immediate.
+
+It remains to prove (iv)$\Rightarrow$(i). Let $u:E\to F$ be an $n$-isomorphism in $D(\uC_S)$, with $E$ strictly perfect. It is represented by a diagram in $C(\uC_S)$
+\[
+\begin{array}{ccc}
+E && F\\
+& \searrow & \uparrow\wr\\
+&& E'
+\end{array}
+\]
+where $s$ is a quasi-isomorphism and $u'$ is an $n$-quasi-isomorphism. By a), after refining $S$ there exists a quasi-isomorphism $t:E''\to E'$ with $E''$ strictly $n$-pseudo-coherent. Applying (1.4.5) to $u'\circ t:E''\to F$, one extends it to a quasi-isomorphism $E'''\to F$ with $E'''$ strictly $n$-pseudo-coherent. This proves (iv)$\Rightarrow$(i), and completes the proof of (2.2).
+\end{prooftext}
+
+\begin{definition*}[2.3]
+Under the hypotheses of (2.2), an object $F\in\ob D(\uC_S)$ is called \emph{$n$-$\uC_0$-pseudo-coherent} if it satisfies the equivalent conditions b) of (2.2). It is called \emph{$\uC_0$-pseudo-coherent} if it is $n$-$\uC_0$-pseudo-coherent for every $n\in\ZZ$.
+\end{definition*}
+
+When there is no risk of confusion, we shall simply say $n$-pseudo-coherent, pseudo-coherent, instead of $n$-$\uC_0$-pseudo-coherent, $\uC_0$-pseudo-coherent.
+
+\begin{remarktext}[Remark 2.3.1]
+Let $F\in\ob D(\uC_S)$ be a pseudo-coherent complex. The family of $X$ over $S$ for which there exists a quasi-isomorphism $E\to F_X$ with $E$ strictly pseudo-coherent (2.1) is not, in general, a refinement of $S$. Later, however, we shall see important cases in which this is true, namely in (2.7.a) and in Expose II.
+\end{remarktext}
+
+The proof of (2.2 a)) gives the following result.
+
+\begin{proposition*}[2.4]
+Let $n,i\in\ZZ$, and let $u:E\to F$ be an $i$-quasi-isomorphism in $C(\uC_S)$, with $F$ $n$-pseudo-coherent and $E$ strictly $n$-pseudo-coherent. Then, after refining $S$, there exists a commutative triangle in $C(\uC_S)$
+\[
+\begin{array}{ccc}
+E & \xrightarrow{v} & E'\\
+& \searrow & \swarrow\wr\\
+&& F
+\end{array}
+\]
+where $E'$ is strictly $n$-pseudo-coherent, $u'$ is a quasi-isomorphism, and $v$ is a monomorphism inducing the identity in degrees $>i$.
+\end{proposition*}
+
+\begin{proposition*}[2.5]
+\textup{a)} If $F\in\ob D(\uC_S)$ is $n$-pseudo-coherent, respectively pseudo-coherent, then $F[m]$ is $(n-m)$-pseudo-coherent, respectively pseudo-coherent.
+
+\textup{b)} Let
+\[
+\begin{array}{ccc}
+&&G\\
+& \nearrow & \downarrow\\
+E&\longrightarrow&F
+\end{array}
+\]
+be a distinguished triangle in $D(\uC_S)$. If $E$ and $G$ are $n$-pseudo-coherent, respectively pseudo-coherent, then $F$ is $n$-pseudo-coherent, respectively pseudo-coherent.
+\end{proposition*}
+
+\begin{prooftext}
+The assertion a) is immediate from the definitions. For b), it is enough to prove the non-parenthetical assertion. By rotation of the triangle, it is enough to show that if $E$ is $(n+1)$-pseudo-coherent and $F$ is $n$-pseudo-coherent, then $G$ is $n$-pseudo-coherent. We may localize and suppose that $E$, respectively $F$, is strictly $(n+1)$-pseudo-coherent, respectively strictly $n$-pseudo-coherent. The morphism $E\to F$ in the derived category is represented by a pair of morphisms in $C(\uC_S)$,
+\[
+\begin{array}{ccc}
+&&E'\\
+&\swarrow&\downarrow\\
+E&&F,
+\end{array}
+\]
+where one arrow is a quasi-isomorphism. By (2.2 a)), after localizing further, there is a quasi-isomorphism $t:E''\to E'$ with $E''$ strictly $(n+1)$-pseudo-coherent. We are therefore reduced to the case where the morphism is represented by an actual morphism in $C(\uC_S)$. The assertion then follows from the definitions and from the formula for the cone,
+\[
+C(u)^\bullet=E[1]\oplus F^\bullet .
+\]
+\end{prooftext}
+
+\begin{statement}{Scholium 2.6}
+By rotating triangles, pseudo-coherence properties imposed on two of the three objects in a triangle imply the corresponding property for the third. The following table summarizes the cases; the entries are pseudo-coherence degrees, and each row expresses an implication in a distinguished triangle $E\to F\to G\to E[1]$:
+\[
+\begin{array}{ccc}
+E&F&G\\
+n+1&n&n\\
+n&n&n-1.
+\end{array}
+\]
+We write $D(\uC)_{n\text{-}\mathrm{coh}}$, respectively $D(\uC)_{\mathrm{coh}}$, for the strictly full fibred subcategory of $D(\uC)$ whose fibre over $X\in\ob\uS$ consists of the objects of $D(\uC_X)$ that are $n$-pseudo-coherent, respectively pseudo-coherent, relative to $\uC_0$. By (2.5), $D(\uC)_{\mathrm{coh}}$ is a triangulated sub-$\uS$-category of $D(\uC)$.
+\end{statement}
+
+\begin{proposition*}[2.7]
+Suppose that $\uS$ is the punctual site, so that $\uC=C$ and $\uC_0=C_0$.
+
+\textup{a)} If $F\in\ob D(C)$ is pseudo-coherent, there exists a quasi-isomorphism $E\to F$ with $E$ strictly pseudo-coherent.
+
+\textup{b)} Let $\mathcal A^{\mathrm{ac}}(C_0)$ be the full triangulated subcategory of $K(C_0)$ formed by the acyclic complexes. The canonical functor
+\[
+K(C_0)/\mathcal A^{\mathrm{ac}}(C_0)\longrightarrow D(C)_{\mathrm{coh}}
+\]
+is fully faithful and has essential image $D(C)_{\mathrm{coh}}$.
+\end{proposition*}
+
+\begin{prooftext}
+For a), let $F\in\ob D(C)_{\mathrm{coh}}$. Suppose that an $i$-quasi-isomorphism $u_i:E_i\to F$ has been constructed in $C(C)$, with $E_i$ strictly pseudo-coherent; this is possible for $i$ large enough with $E_i=0$. Let $G_i$ be the cone of $u_i$. By (1.4.2) and (2.1.1), $H^i(G_i)\in\ob C_0$ is of finite $C_0$-type. Hence, by (1.4.4), there exists a commutative triangle in $C(C)$
+\[
+\begin{array}{ccc}
+E_i&\xrightarrow{v_i}&E'_i\\
+u_i\downarrow&&\swarrow u'_i\\
+F&&
+\end{array}
+\]
+where $E'_i$ is strictly pseudo-coherent, $u'_i$ is an $(i-1)$-quasi-isomorphism, and $v_i$ is a monomorphism inducing the identity in degrees $>i$. Passing to the limit, as in the proof of (1.4.5), gives a quasi-isomorphism $u:E\to F$ with $E$ strictly pseudo-coherent.
+
+For b), one applies Verdier's criterion, chapter I, \S 2, 4.2 b)(i), together with a).
+\end{prooftext}
+
+The proof of a) gives the following more precise result, generalizing (1.4.5).
+
+\begin{proposition*}[2.7.1]
+Under the hypotheses of (2.7), let $u:E\to F$ be an $n$-quasi-isomorphism in $C(C)$, with $F$ pseudo-coherent and $E$ strictly pseudo-coherent. There exists a commutative triangle in $C(C)$
+\[
+\begin{array}{ccc}
+E&\xrightarrow{v}&E'\\
+&\searrow&\swarrow\wr\\
+&&F
+\end{array}
+\]
+where $E'$ is strictly pseudo-coherent, $u'$ is a quasi-isomorphism, and $v$ is a monomorphism inducing the identity in degrees $>n$.
+\end{proposition*}
+
+\begin{definition*}[2.8]
+Let $n\in\NN$ and $F\in\ob\uC_S$. We say that $F$ is of \emph{$n$-$\uC_0$-finite presentation} if the family of objects $X$ over $S$ on which there exists an exact sequence
+\[
+E^{-n}\longrightarrow E^{-n+1}\longrightarrow\cdots\longrightarrow E^0\longrightarrow F_X\longrightarrow0,
+\]
+with $E^i\in\ob\uC_{0X}$ for $-n\leq i\leq0$, is a refinement of $S$. We say that $F$ is of \emph{$\infty$-$\uC_0$-finite presentation} if $F$ is of $n$-$\uC_0$-finite presentation for every $n\in\NN$.
+\end{definition*}
+
+When no ambiguity is possible, we shall simply say $n$-finite presentation. We shall say ``finite presentation'' for ``1-finite presentation'', and ``finite type'' for ``0-finite presentation''; the latter notion coincides with the one introduced in (1.2).
+
+\begin{proposition*}[2.9]
+Let $n\in\NN$ and $F\in\ob\uC_S$. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $F$ is of $n$-finite presentation, respectively of $\infty$-finite presentation;
+\item $F$ is $(-n)$-pseudo-coherent, respectively pseudo-coherent.
+\end{enumerate}
+\end{proposition*}
+
+When $\uS$ is the punctual site, $F$ is pseudo-coherent if and only if there exists an exact sequence
+\[
+\cdots\longrightarrow E^{-n}\longrightarrow\cdots\longrightarrow E^0\longrightarrow F\longrightarrow0
+\]
+with $E^i\in\ob C_0$ for every $i$.
+
+\begin{prooftext}
+For the equivalence it is enough to treat the non-parenthetical case. The implication (i)$\Rightarrow$(ii) is immediate from the definitions. Conversely, (ii)$\Rightarrow$(i) follows at once from (2.4): the morphism $0\to F$ is a quasi-isomorphism, and one obtains, after localizing, a quasi-isomorphism $E\to F$ with $E$ strictly $n$-pseudo-coherent and $E^i=0$ for $i\leq -1$, that is, an $n$-finite presentation of $F$. The second assertion is proved in the same way, using (2.7.1).
+\end{prooftext}
+
+\begin{proposition*}[2.10]
+\textup{a)} Let $m,n\in\ZZ$ with $n\leq m$. If $F\in\ob D^-(\uC_S)$ is $n$-pseudo-coherent and acyclic in degrees $\geq m$, then locally there is a quasi-isomorphism $E\to F$ with $E$ strictly $n$-pseudo-coherent and $E^i=0$ for $i>m$. If $\uS$ is punctual, and $F$ is pseudo-coherent and acyclic in degrees $\geq m$, then there is a quasi-isomorphism $E\to F$ with $E$ strictly pseudo-coherent and $E^i=0$ for $i>m$.
+
+\textup{b)} Let $F\in\ob D^-(\uC_S)$ be acyclic in degrees $>n$. Then $F$ is $n$-pseudo-coherent if and only if $H^n(F)$ is of finite type.
+\end{proposition*}
+
+\begin{prooftext}
+For a), since $F$ is acyclic in degrees $>m$, the morphism $0\to F$ is an $m$-quasi-isomorphism. The assertion follows from (2.4) and (2.7.1).
+
+For b), there is a distinguished triangle in $D(\uC_S)$
+\[
+\begin{array}{ccc}
+&&F'\\
+&\nearrow^{+1}&\downarrow\\
+F&\longrightarrow&H^n(F)[-n].
+\end{array}
+\]
+To see this, first truncate $F$ by replacing $F^n$ by $Z^n(F)$ and by putting $F^i=0$ for $i>n$. The long exact cohomology sequence gives $H^i(F')=0$ for $i\geq n-1$, hence $F'$ is $(n-1)$-pseudo-coherent. The conclusion follows from (2.5) and (2.6).
+\end{prooftext}
+
+\begin{proposition*}[2.11]
+Let $n\in\ZZ$.
+
+\textup{a)} Let $F\in\ob D(\uC_S)$. If, for every $i\geq n$, respectively for every $i$, the component $F^i$ is of $(i-n)$-finite presentation, respectively of $\infty$-finite presentation, then $F$ is $n$-pseudo-coherent, respectively pseudo-coherent.
+
+\textup{b)} Let $F\in\ob D^-(\uC_S)$. If, for every $i\geq n$, respectively for every $i$, the cohomology object $H^i(F)$ is of $(i-n)$-finite presentation, respectively of $\infty$-finite presentation, then $F$ is pseudo-coherent.
+\end{proposition*}
+
+\begin{prooftext}
+It is enough to treat the non-parenthetical assertions. For a), reason by induction on an integer $N$ such that $F^i=0$ for $i>n+N$. If $N=0$, the assertion follows immediately from (2.10 b). If $N\geq1$, one has an exact sequence
+\[
+0\longrightarrow F''[-n-N]\longrightarrow F\longrightarrow F'\longrightarrow0.
+\]
+By induction, $F'$ is $n$-pseudo-coherent; on the other hand $F''[-n-N]$ is $n$-pseudo-coherent by the hypothesis, (2.9), and (2.5 a). Hence $F$ is $n$-pseudo-coherent by (2.5 b).
+
+For b), reason by induction on $N$ such that $H^i(F)=0$ for $i>n+N$. The case $N=0$ is (2.10 b). If $N\geq1$, there is a distinguished triangle
+\[
+\begin{array}{ccc}
+&&F'\\
+&\nearrow&\downarrow\\
+F&\longrightarrow&H^{n+N}(F)[-n-N].
+\end{array}
+\]
+The long exact sequence gives
+\[
+H^i(F')=0\quad\text{for }i\geq n+1,
+\]
+and $H^i(F')\iso H^i(F)$ for $i\leq n$. By the induction hypothesis, applied with $n+1$ in place of $n$, $F'$ is $(n+1)$-pseudo-coherent. Also $H^{n+N}(F)[-n-N]$ is $n$-pseudo-coherent by (2.9) and (2.5 a). The conclusion follows from (2.6).
+\end{prooftext}
+
+\begin{remarktext}[Remark 2.11.1]
+If $F$ is pseudo-coherent, the components $F^i$, and even the cohomology objects $H^i(F)$, need not in general be pseudo-coherent, nor even of finite type. In the next section, however, in the sorites on coherence, we shall see important examples where pseudo-coherence of $F$ implies pseudo-coherence of the $H^i(F)$.
+\end{remarktext}
+
+\begin{proposition*}[2.12]
+Let $F',F''\in\ob D(\uC_S)$ and put $F=F'\oplus F''$. Then $F$ is $n$-pseudo-coherent, respectively pseudo-coherent, if and only if $F'$ and $F''$ are $n$-pseudo-coherent, respectively pseudo-coherent.
+\end{proposition*}
+
+\begin{prooftext}
+It is enough to prove the non-parenthetical assertion. Sufficiency is obvious. For necessity, suppose by induction that $F'$ and $F''$ have already been shown to be $(n+1)$-pseudo-coherent. After localizing, suppose even that $F'$ and $F''$ are strictly $(n+1)$-pseudo-coherent and that $F=F'\oplus F''$ in $C(\uC_S)$. Let $F'_+$, respectively $F'_-$, be the complex obtained from $F'$ by replacing $F'^i$ by $0$ for $i\geq n$, respectively for $i\leq n$; define $F''_+$ and $F''_-$ similarly. There is an exact sequence
+\[
+0\longrightarrow F'_+\oplus F''_+\longrightarrow F\longrightarrow F'_-\oplus F''_-\longrightarrow0.
+\]
+Since $F'_+\oplus F''_+$ is strictly perfect and $F$ is $n$-pseudo-coherent, (2.6) implies that $F'_-\oplus F''_-$ is $n$-pseudo-coherent. By (2.10 b), this means that $H^n(F'_-\oplus F''_-)$ is of finite type. But
+\[
+H^n(F'_-\oplus F''_-)=H^n(F'_-)
+\oplus H^n(F''_-),
+\]
+so $H^n(F'_-)$ and $H^n(F''_-)$ are of finite type. Again by (2.10 b), $F'_-$ and $F''_-$ are $n$-pseudo-coherent. Applying (2.5) to
+\[
+0\longrightarrow F'_+\longrightarrow F'\longrightarrow F'_-\longrightarrow0
+\]
+and similarly for $F''$, one concludes that $F'$ and $F''$ are $n$-pseudo-coherent.
+\end{prooftext}
+
+\begin{proposition*}[2.13]
+Let $(\uS',\uC',\uC'_0)$ be a triple satisfying the same hypotheses (2.0) as $(\uS,\uC,\uC_0)$. Let $f:\uS'\to\uS$ be a morphism of sites, corresponding to an underlying functor $\psi:\uS\to\uS'$, and let
+\[
+u:D^*(\uC)\longrightarrow D^*(\uC')\qquad (*=-,+,b)
+\]
+be a Cartesian $S$-functor above $f$. Assume that $u$ is exact on each fibre and that there exist integers $a,b$ satisfying the following conditions for every $S\in\ob\uS$:
+\begin{enumerate}[label=(\roman*)]
+\item if $E\in\ob\uC_{0S}$, then $u(E)$ is $a$-$\uC'_0$-pseudo-coherent, respectively $\uC'_0$-pseudo-coherent;
+\item if $F\in\ob D^*(\uC_S)$ is acyclic in degrees $>0$, then $u(F)$ is acyclic in degrees $\leq b$.
+\end{enumerate}
+Then, if $F\in\ob D^*(\uC_S)$ is $m$-pseudo-coherent relative to $\uC_0$ and acyclic in degrees $>n$, the object $u(F)\in\ob D^*(\uC'_{S'})$, where $S'=f^{-1}(S)$, is
+\[
+\sup(m+a,n+b)\text{-pseudo-coherent}
+\]
+relative to $\uC'_0$, respectively $(m+b)$-pseudo-coherent, and is acyclic in degrees $>n+b$. In particular, in the parenthetical case, if $F$ is pseudo-coherent relative to $\uC_0$, then $u(F)$ is pseudo-coherent relative to $\uC'_0$.
+\end{proposition*}
+
+\begin{prooftext}
+It is enough to treat the non-parenthetical case. First suppose that $F$ is strictly perfect and that $F^i=0$ for $i>n$. We prove that $u(F)$ is $(n+a)$-$\uC'_0$-pseudo-coherent by induction on the number $N$ of indices $i$ for which $F^i\ne0$. If $N=1$, then $F=F^p[-p]$ for some $p\leq n$, and $u(F)$ is $(p+a)$-$\uC'_0$-pseudo-coherent, hence a fortiori $(n+a)$-pseudo-coherent. If $N>1$, write $F$ in a short exact sequence
+\[
+0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow0
+\]
+where $F'$ and $F''$ are strictly perfect of length $<N$ and vanish in degrees $>n$. Applying (2.5 b) to the corresponding triangle gives the claim by induction.
+
+Now let $F$ be $m$-$\uC_0$-pseudo-coherent and acyclic in degrees $>n$. After localizing and using (2.10 a), we may suppose that $F$ is strictly $m$-pseudo-coherent and that $F^i=0$ for $i>n$. There is an exact sequence
+\[
+0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow0
+\]
+with $F''$ zero in degrees $>m$, and $F'$ strictly perfect and zero in degrees $>n$. In the corresponding distinguished triangle for $u(F)$, the object $u(F'')$ is acyclic in degrees $>m+b$, hence $(m+b)$-pseudo-coherent, while $u(F')$ is $(n+a)$-pseudo-coherent by the preceding paragraph. The conclusion follows again from (2.5 b).
+\end{prooftext}
+
+\begin{corollary*}[2.14]
+Let $\uC_1$ be a strictly full additive sub-$\uS$-category of $\uC$ such that $\uC_0\subset\uC_1\subset\uC$. Assume that every object of $\uC_1$ is $\uC_0$-pseudo-coherent. Then:
+\begin{enumerate}[label=(\roman*)]
+\item $\uC_1$ is locally quasi-liftable in $\uC$ and locally quasi-stable under kernels of epimorphisms;
+\item for $S\in\ob\uS$ and $F\in\ob D(\uC_S)$, $F$ is $n$-pseudo-coherent, respectively pseudo-coherent, relative to $\uC_1$ if and only if it is so relative to $\uC_0$.
+\end{enumerate}
+\end{corollary*}
+
+\begin{prooftext}
+For (i), let $E\to F$ be an epimorphism in $\uC_S$ with $F\in\ob\uC_{1S}$. Since $F$ is $\uC_0$-pseudo-coherent, hence in particular of $\uC_0$-finite type, after localizing there is an epimorphism $E'\to F$ with $E'\in\ob\uC_{0S}$. Using quasi-liftability of $\uC_0$ in $\uC$, one may, after localizing again, suppose that this epimorphism factors through $E$; this proves quasi-liftability of $\uC_1$. Similarly, if $E\in\ob\uC_{1S}$ admits a finite right resolution by objects of $\uC_0$, then $E$ is $\uC_0$-pseudo-coherent by (2.11 a), hence of $\uC_0$-finite type.
+
+For (ii), it is enough to prove necessity. One may apply either (2.11 a) or (2.13), with $\uS'=\uS$, $\uC'=\uC$, $f=\operatorname{Id}$, $u=\operatorname{Id}$, and with $\uC_0$ and $\uC'_0$ replaced by $\uC_1$ and $\uC_0$ respectively.
+\end{prooftext}
+
+\begin{statement}{Scholium 2.14.1}
+There is therefore a largest strictly full additive sub-$\uS$-category of $\uC$ giving the same notions of $n$-pseudo-coherence and pseudo-coherence as $\uC_0$, namely the subcategory formed by the $\uC_0$-pseudo-coherent objects. This category is locally stable under kernels of epimorphisms.
+\end{statement}
+
+\begin{statement}{Example 2.15}
+Let $(\uS,A)$ be a ringed topos, and let $\uC,\uC_0$ be the $\uS$-categories considered in (1.3.d). The fibred category $D(\uC)$ will often be denoted $D(\uS,A)$, or $D(\uS)$, or even $D(S)$ if there is no ambiguity about $A$. If $S$ is the final object of $\uS$, an object of $D(S)$ will be called $n$-pseudo-coherent, respectively pseudo-coherent, if it is $n$-$\uC_0$-pseudo-coherent, respectively $\uC_0$-pseudo-coherent. The same convention applies to the local notions. By (2.14) the same notion is obtained if $\uC_0$ is replaced by the $\uS$-category whose fibre over $U$ is the category of $A_U$-modules locally direct summands of finite free modules. A direct summand of a finite free module is not, in general, locally free of finite type; nevertheless one has the following theorem.
+\end{statement}
+
+\begin{theorem*}[2.15.1]
+Assume that $\uS$ satisfies one of the following two conditions:
+\begin{enumerate}[label=(\roman*)]
+\item $\uS$ has enough points, and for every point $s$ of $\uS$, the finitely generated projective left $A_s$-modules are free. This last condition holds, for example, if $A_s/\Rad(A_s)$ is a field, or if $\Rad(A_s)$ is nilpotent.
+\item $(\uS,A)$ is a locally ringed topos in the sense of Giraud: $A$ is commutative and, for every $X\in\ob\uS$ and every $f\in\Gamma(X,A)$, one has $X=X_f\amalg X_{1-f}$, where $X_f$, respectively $X_{1-f}$, denotes the largest subobject of $X$ on which $f$, respectively $1-f$, is invertible.
+\end{enumerate}
+Then every direct summand of a finite free left $A$-module is locally free of finite type.
+\end{theorem*}
+
+\begin{prooftext}
+Assume first (i). If $E$ and $F$ are $A$-modules and $E$ is of finite presentation, the canonical map
+\[
+\Hom(E,F)_s\longrightarrow\Hom(E_s,F_s)
+\]
+is an isomorphism for every point $s$ of $S$. It follows that if $E$ and $F$ are both of finite presentation and $E_s\simeq F_s$ at a point $s$, then there exists an $s$-pointed object $U$ of $\uS$ such that $E|U\simeq F|U$. The conclusion is immediate.
+
+Assume (ii). Let $n\in\NN$ and let $D^n$ be the functor on locally ringed topoi defined by
+\[
+T\longmapsto \Gamma(T,\cO_T)^n.
+\]
+It is known that the functor $\underline{\operatorname{End}}_{\cO_T}(D^n)$ is represented by $X_n=\Spec\ZZ[T_{ij}]$ with its endomorphism $u$ of $\cO_{X_n}^n$ defined by the matrix $(T_{ij})$. Let $p:A^n\to A^n$ be an idempotent. We must show that $p(A^n)$ is locally free of finite type. The preceding representability gives a morphism $s:\uS\to X_n$ of locally ringed topoi such that $s^*(u)=p$. Since the corresponding matrix is idempotent, $s$ factors through the closed subscheme $M\subset X_n$ of idempotent matrices. Hence $p=s'^*i^*(u)$, and the claim follows because, by the case already proved, the image of $i^*(u)$ is locally free of finite type.
+\end{prooftext}
+
+Here an $s$-pointed object means one through which the point $s$ factors, i.e. an object $U$ with $s$ factoring through $S_{/U}$.
+
+\begin{corollary*}[2.16]
+Let $f:(\uS',A')\to(\uS,A)$ be a morphism of ringed topoi, defined by a functor $\psi:\uS\to\uS'$ and a morphism of sheaves of rings $\psi^*(A)\to A'$. Let $D(\uS',A')$ denote the derived category of $A'$-$A$-bimodules, left over $A'$ and right over $A$, and let
+\[
+\otimes_A:D(\uS',A')\times D(\uS,A)\longrightarrow D(\uS',A')
+\]
+be the derived functor of $(E',E)\mapsto E'\otimes_{\psi^*A}\psi^*(E)$.
+
+Let $X\in\ob\uS$, $X'=\psi(X)$, $E'\in\ob D(\uS',A')$, and $E\in\ob D(\uS,A)$. If $E'$ is $m'$-pseudo-coherent and acyclic in degrees $>n'$ as an object of $D(\uS',A')$, and if $E$ is $m$-pseudo-coherent and acyclic in degrees $>n$, then $E'\otimes_AE$ is $\sup(m+n',m'+n)$-pseudo-coherent and acyclic in degrees $>n+n'$.
+\end{corollary*}
+
+\begin{prooftext}
+Replacing $\uS$ by $\uS_{/X}$, one may suppose $X=S$. Apply (2.13) to the functor
+\[
+u=E'\otimes_A -:D(\uS,A)\longrightarrow D(\uS',A').
+\]
+If $U\in\ob\uS$, $U'=\psi(U)$, and $E$ is a complex of left $A$-modules which is acyclic in degrees $>n$, then $E'\otimes_AE$ is acyclic in degrees $>n+n'$. Moreover, for $E=(A_U)^\sharp$, one has $u(E)=(E'_{U'})^\sharp$, which is $m'$-pseudo-coherent by hypothesis and (2.12). Thus the hypotheses of (2.13) are satisfied with $a=m'$ and $b=n'$.
+\end{prooftext}
+
+\begin{corollary*}[2.16.1]
+Under the hypotheses of (2.16):
+
+\textup{a)} The functor $Lf^*:D^-(\uS,A)\to D^-(\uS',A')$, which is the functor $A'\otimes_A-$, induces a functor
+\[
+Lf^*:D(\uS,A)_{\mathrm{coh}}\longrightarrow D(\uS',A')_{\mathrm{coh}}.
+\]
+
+\textup{b)} If $A$ is commutative, the functor $\otimes_A:D^-(\uS)\times_{\uS}D^-(\uS)\to D^-(\uS)$ induces a functor
+\[
+\otimes_A:D(\uS)_{\mathrm{coh}}\times_{\uS}D(\uS)_{\mathrm{coh}}\longrightarrow D(\uS)_{\mathrm{coh}}.
+\]
+\end{corollary*}
+
+\begin{statement}{Exercise 2.16.2}
+Let $\uS$ be a topos and let $A\to A'$ be a morphism of rings of $\uS$. Assume either:
+\begin{enumerate}[label=(\roman*)]
+\item $A\to A'$ is surjective with nilpotent kernel;
+\item the functor $A'\otimes_A-$ on left $A$-modules is exact and faithful.
+\end{enumerate}
+Show that $E\in\ob D(\uS,A)$ is $n$-pseudo-coherent, respectively pseudo-coherent, if and only if $A'\otimes_AE\in\ob D(\uS,A')$ is $n$-pseudo-coherent, respectively pseudo-coherent.
+\end{statement}
+
+\emph{Indication.} First show that a left $A$-module $L$ is of finite type if and only if $A'\otimes_A L$ is of finite type, and then reduce to this case by truncation, using (2.5) and (2.10 b).
+
+\section*{3. Relation with the classical notion of coherence}
+\addcontentsline{toc}{section}{3. Relation with the classical notion of coherence}
+
+\subsection*{3.0}
+The hypotheses and notation are those of (2.0), except that $\uC_0$ is no longer assumed locally quasi-stable under kernels of epimorphisms.
+
+\begin{definition*}[3.1]
+Let $F\in\ob\uC_S$. We say that $F$ is \emph{precoherent} relative to $\uC_0$ if, for every object $U$ over $S$ and every morphism $u:E\to F|U$ with $E\in\ob\uC_{0U}$, the kernel of $u$ is of $\uC_0$-finite type (1.2). We say that $F$ is \emph{coherent} relative to $\uC_0$ if $F$ is precoherent and of finite type.
+\end{definition*}
+
+The notion of precoherence is introduced here only as a technical intermediary; the notion to retain is coherence.
+
+\begin{remarktext}[Remark 3.2]
+It is clear from the definitions that if $F$ is precoherent, respectively of finite type, then every subobject, respectively every quotient, of $F$ is precoherent, respectively of finite type.
+\end{remarktext}
+
+\begin{lemma*}[3.3]
+\textup{a)} Let
+\[
+0\longrightarrow F\longrightarrow G\longrightarrow H
+\]
+be an exact sequence in $\uC_S$. If $G$ is of finite type and $H$ is precoherent, then $F$ is of finite type.
+
+\textup{b)} Let
+\[
+F\longrightarrow G\longrightarrow H\longrightarrow0
+\]
+be exact in $\uC_S$. If $F$ is of finite type and $G$ is precoherent, then $H$ is precoherent.
+
+\textup{c)} Let
+\[
+0\longrightarrow F\longrightarrow G\longrightarrow H\longrightarrow0
+\]
+be exact. If $F$ and $H$ are precoherent, respectively of finite type, then so is $G$.
+\end{lemma*}
+
+\begin{prooftext}
+For a), after localizing, choose an epimorphism $G'\to G$ with $G'\in\ob\uC_{0S}$. This gives a commutative diagram with exact rows
+\[
+\begin{array}{ccccc}
+0&\longrightarrow&F'&\longrightarrow&G'\\
+&&\downarrow&&\downarrow\\
+0&\longrightarrow&F&\longrightarrow&G\longrightarrow H.
+\end{array}
+\]
+Since $H$ is precoherent, $F'$ is of finite type; since $F'\to F$ is an epimorphism, $F$ is of finite type.
+
+For b), let $U$ be over $S$ and let $H'\to H|U$ be a morphism with $H'\in\ob\uC_{0U}$. After changing notation, suppose $U=S$. By quasi-liftability of $\uC_0$ in $\uC$, and after localizing, there is a commutative square
+\[
+\begin{array}{ccc}
+G'&\longrightarrow&H'\\
+\downarrow&&\downarrow\\
+G&\longrightarrow&H,
+\end{array}
+\]
+where the horizontal arrows are epimorphisms and $G'\in\ob\uC_{0S}$. Since $\Ker(f)$ is a quotient of $\Ker(fp)$, it is enough to show that $\Ker(fp)$ is of finite type; one may therefore suppose $H'=G'$. The maps $F\to G$ and $H'\to H$ define $g:F\oplus H'\to G$. If $K=\Ker(G\to H)$, the snake lemma applied to the natural diagram with exact rows shows that $\Ker(g)\to\Ker(f)$ is an epimorphism. But $F\oplus H'$ is of finite type and $G$ is precoherent, so $\Ker(g)$ is of finite type by a). This proves b).
+
+For c), first prove the assertion for precoherence. Up to notation, one must show that if $\varphi:G'\to G$ is a morphism with $G'\in\ob\uC_{0S}$, then $\Ker(\varphi)$ is of finite type. Let $H'$ be the image of $G'\to H$. The snake lemma applied to
+\[
+\begin{array}{ccccc}
+0&\longrightarrow&F'&\longrightarrow&G'\longrightarrow H'\longrightarrow0\\
+&&\downarrow&&\downarrow\varphi\quad\downarrow h\\
+0&\longrightarrow&F&\longrightarrow&G\longrightarrow H\longrightarrow0
+\end{array}
+\]
+with $h$ a monomorphism, identifies $\Ker(f)$ with $\Ker(\varphi)$. Since $F'$ is of finite type by a), another application of a) gives the required finite type property. The finite-type assertion follows by choosing, after localizing, epimorphisms $F'\twoheadrightarrow F$ and $H'\twoheadrightarrow H$ with $F',H'\in\ob\uC_{0S}$, and then by lifting further so that the map to $H$ factors through $G$; the resulting epimorphism $F'\oplus H'\to G$ proves that $G$ is of finite type.
+\end{prooftext}
+
+\begin{corollary*}[3.4]
+The strictly full subcategory of $\uC_S$ formed by the coherent objects is stable under finite projective and finite inductive limits. In particular, the kernel, cokernel, and image of a morphism between two coherent objects are coherent. If
+\[
+E^0\longrightarrow E^1\longrightarrow E^2\longrightarrow E^3\longrightarrow E^4
+\]
+is exact and if $E^0,E^1,E^3,E^4$ are coherent, then $E^2$ is coherent.
+\end{corollary*}
+
+\begin{corollary*}[3.5]
+Assume that the objects of $\uC_0$ are $\uC_0$-coherent. This implies in particular that $\uC_0$ is locally quasi-stable under kernels of epimorphisms, so that the hypotheses of (2.0) hold.
+
+\textup{a)} For $F\in\ob\uC_S$, the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $F$ is of finite presentation;
+\item $F$ is coherent;
+\item $F$ is of $\infty$-finite presentation (2.8).
+\end{enumerate}
+
+\textup{b)} For $F\in\ob D(\uC_S)$ and $n\in\ZZ$, one has
+\[
+F\text{ is }n\text{-pseudo-coherent}
+\Longleftrightarrow
+H^i(F)\text{ is coherent for }i\geq n+1,
+\]
+and $H^n(F)$ is of finite type.
+\end{corollary*}
+
+In particular, $F$ is pseudo-coherent if and only if $H^n(F)$ is coherent for every $n$.
+
+\begin{prooftext}
+The assertion a), and the implication $\Leftarrow$ of b), follow directly from (3.4). The implication $\Rightarrow$ in b) follows immediately from a) and (2.11 b).
+\end{prooftext}
+
+\begin{statement}{Examples 3.6}
+Let $(\uS,A)$ be a ringed topos, and let $\uC_0\subset\uC$ be the $\uS$-categories of (1.3.d), cf. also (2.15). The objects of $\uC_0$ are coherent if and only if $A$ is coherent, i.e. precoherent. This holds, for example, in the following cases:
+\begin{itemize}
+\item $A$ is constant with value a left noetherian ring;
+\item $\uS$ is the topos of sheaves of sets for the Zariski topology on a locally noetherian scheme $S$, and $A=\cO_S$;
+\item $\uS$ is the topos of sheaves of sets on a complex analytic space $S$, and $A=\cO_S$.
+\end{itemize}
+By contrast, the sheaf of continuous complex-valued functions on a topological space is in general not coherent.
+
+If $(\uS,A)$ is defined by a ringed space, the notion of coherence considered here coincides with Serre's usual notion. In accordance with the newer conventions, the word ``scheme'' is used for what older texts called a ``prescheme'', and ``separated scheme'' for what older texts called a ``scheme''.
+\end{statement}
+
+\begin{proposition*}[3.7]
+\textup{a)} Let $f:(\uS',A')\to(\uS,A)$ be a morphism of ringed topoi. Assume that $f$ is flat on the right, i.e. that $f^*=A'\otimes_A-$ is exact. For $F\in\ob D(\uS,A)$ and $G\in\ob D^-(\uS,A)$ there is a canonical functorial morphism
+\[
+f^*\RHom(F,G)\longrightarrow\RHom(f^*F,f^*G).
+\]
+It is an isomorphism when $F$ is pseudo-coherent.
+
+\textup{b)} Assume $A$ commutative and coherent, and let $F\in\ob D(\uS)$ and $G\in\ob D^-(\uS)$. If $H^i(F)$ and $H^i(G)$ are coherent for every $i$, then so is $\underline{\Ext}^i(F,G)$.
+\end{proposition*}
+
+\begin{prooftext}
+For a), to define the morphism one may suppose $G$ has injective components, and then take the composite
+\[
+f^*\underline{\Hom}(F,G)\longrightarrow
+\underline{\Hom}(f^*F,f^*G)\longrightarrow
+\RHom(f^*F,f^*G).
+\]
+We prove that it is an isomorphism for $F$ pseudo-coherent. Let $T=f^*\RHom(-,G)$ and $T'=\RHom(f^*(-),f^*G)$, and choose $a\in\ZZ$ such that $H^i(G)=0$ for $i<a$. The assertion is clear for $F$ strictly perfect. Also, if $F$ is acyclic in degrees $>n$, then $TF$ and $T'F$ are acyclic in degrees $<a-n$. Since the question is local, we may suppose that $F$ is strictly $n$-pseudo-coherent, so that it fits into a distinguished triangle
+\[
+\begin{array}{ccc}
+&&F'\\
+&\nearrow&\downarrow\\
+F''&\longrightarrow&F,
+\end{array}
+\]
+with $F'$ strictly perfect and $F''$ acyclic in degrees $>n-1$. The induced morphism of distinguished triangles
+\[
+\begin{array}{ccccc}
+TF''&\longrightarrow&TF&\longrightarrow&TF'\longrightarrow\\
+\downarrow&&\downarrow&&\downarrow\\
+T'F''&\longrightarrow&T'F&\longrightarrow&T'F'\longrightarrow
+\end{array}
+\]
+has an isomorphism on the right, while the left terms are acyclic in degrees $<a-n$. Therefore $TF\to T'F$ is an isomorphism on cohomology in degrees $<a-n$. Since $n$ can be taken arbitrarily negative, the morphism is an isomorphism.
+
+For b), the proof is left to the reader; see, for example, Hartshorne, III, 15.3.5.
+\end{prooftext}
+
+\begin{remarktext}[Remark 3.7.1]
+A different compatibility of $\RHom$ with $Lf^*$ will be given below in (7.1.2).
+\end{remarktext}
+
+\begin{corollary*}[3.7.2]
+Let $(\uS,A)$ be a ringed topos, let $s$ be a point of $\uS$, and let $E,F\in\ob D(\uS,A)_{\mathrm{coh}}$. If $E_s\simeq F_s$, then there exists an $s$-pointed object $U$ of $\uS$ such that $E|U\simeq F|U$.
+\end{corollary*}
+
+\begin{prooftext}
+Let $u:E\to F$ and $v:F\to E$ be inverse isomorphisms on the fibre at $s$. By (2.2 a) and the compatibility of Hom with fibres for coherent objects, one has
+\[
+\Hom(E,F)_s\simeq\Hom(E_s,F_s),\qquad
+\Hom(F,E)_s\simeq\Hom(F_s,E_s).
+\]
+Thus, on a suitable neighbourhood $U$ of $s$, there exist sections $u$ and $v$ of the corresponding Hom sheaves. The endomorphisms $vu$ of $E|U$ and $uv$ of $F|U$ induce the identity at $s$; after passing to a further neighbourhood $V$ of $s$, they are the identity. Hence $E|V\simeq F|V$.
+\end{prooftext}
+
+\section*{4. Perfect complexes}
+\addcontentsline{toc}{section}{4. Perfect complexes}
+
+\subsection*{4.0}
+In this section $\uS$ denotes a site, $S$ an object of $\uS$, $\uC$ a flat abelian $\uS$-category, and $\uC_0$ a strictly full additive sub-$\uS$-category of $\uC$. Unless otherwise specified, $\uC_0$ is assumed locally liftable in $\uC$ and locally stable under kernels of epimorphisms.
+
+\begin{lemma*}[4.1]
+Let $u:E\to F$ be a morphism in $C(\uC_S)$. If $E$ is strictly $\uC_0$-perfect and $F$ is acyclic, then $u$ is locally homotopic to zero.
+\end{lemma*}
+
+This lemma was communicated to the editor by D. Ferrand.
+
+\begin{prooftext}
+We must construct locally a homotopy $k$ with $u=dk+kd$. Since $E$ is strictly perfect, there exist $a\leq b$ with $E^i=0$ for $i\notin[a,b]$; take $k^i=0$ outside this range. Construct $k^i:E^i\to F^{i-1}$ by descending induction on $i$. Suppose $k^i$ has been constructed so that
+\[
+u^j=d^{j-1}k^j+k^{j+1}d^j\quad(j>i\geq a).
+\]
+Then $u^i-d^{i-1}k^i$ factors through $Z^i(F)$. Since $F$ is acyclic, $Z^i(F)=B^i(F)$. Because $\uC_0$ is locally liftable in $\uC$, after localizing there exists $k^{i-1}:E^{i-1}\to F^{i-2}$ such that
+\[
+u^i=d^{i-1}k^i+k^{i+1}d^i.
+\]
+The induction gives the required homotopy.
+\end{prooftext}
+
+\begin{corollary*}[4.2]
+Let
+\[
+\begin{array}{ccc}
+P&\xrightarrow{p}&F\\
+&\searrow&\uparrow\wr\\
+&&E'
+\end{array}
+\]
+be a diagram in $C(\uC_S)$, where $P$ is strictly $\uC_0$-perfect and the vertical arrow is a quasi-isomorphism. The family of $X$ over $S$ for which there exists a morphism $u:P_X\to E_X$ in $C(\uC_X)$ making the evident square commute in $K(\uC_X)$ is a refinement of $S$.
+\end{corollary*}
+
+\begin{prooftext}
+Let $G$ be the cone of the quasi-isomorphism $E'\to F$. The exact sequence
+\[
+\cdots\to\Hom_{K(\uC_S)}(P,E')\to
+\Hom_{K(\uC_S)}(P,F)\to
+\Hom_{K(\uC_S)}(P,G)\to\cdots
+\]
+shows that the obstruction to lifting $p$ lies in $\Hom_K(P,G)$. Since $G$ is acyclic, this obstruction is locally zero by (4.1). Thus, locally, the required lift exists.
+\end{prooftext}
+
+\begin{corollary*}[4.3]
+Let $f:E\to F$ be a quasi-isomorphism in $C(\uC_S)$ with $F$ strictly perfect. The family of $X$ over $S$ for which there exists a quasi-isomorphism $g:F_X\to E_X$ such that $f_Xg$ is homotopic to the identity is a refinement of $S$.
+\end{corollary*}
+
+\begin{prooftext}
+This is the special case of (4.2) obtained by taking $P=F$ and $p=\operatorname{Id}_F$.
+\end{prooftext}
+
+\begin{statement}{Scholium 4.4}
+Let $F\in\ob K(\uC_S)$. Using, for instance, a cleavage of $\uC$, one can define a category $(\mathrm{Qis}/F)$ fibred over $\uS_{/S}$ whose fibre at $X$ over $S$ is the opposite of the category of quasi-isomorphisms with target $F_X$. Then (4.3) says that, if $F$ is strictly perfect, the morphism $\operatorname{Id}_F$ is locally cofinal in $(\mathrm{Qis}/F)$.
+\end{statement}
+
+\begin{statement}{Notation 4.5}
+Let $\underline M$ be an $\uS$-fibred category. For $X\in\ob\uS$ and $E,F\in\ob\underline M_X$, write $\underline{\Hom}_X(E,F)$ for the sheaf on $\uS_{/X}$ associated with the presheaf
+\[
+U\longmapsto \Hom_{\underline M_U}(E|U,F|U).
+\]
+Even when $\uC$ is a stack, the corresponding presheaf for $\underline M=K(\uC)$ or $D(\uC)$ is not in general a sheaf.
+\end{statement}
+
+\begin{corollary*}[4.6]
+Let $E,F\in\ob C(\uC_S)$, with $E$ strictly perfect. The canonical map
+\[
+\underline{\Hom}_{K(\uC_S)}(E,F)\longrightarrow
+\underline{\Hom}_{D(\uC_S)}(E,F)
+\]
+is an isomorphism.
+\end{corollary*}
+
+\begin{prooftext}
+This follows immediately from (4.4) and from the formula
+\[
+\Hom_{D(\uC_X)}(E_X,F_X)=
+\varinjlim_{X'\to X\in(\mathrm{Qis}/E_X)^\circ}
+\Hom_{K(\uC_{X'})}(E_{X'},F_{X'})
+\]
+for $X$ over $S$.
+\end{prooftext}
+
+\begin{definition*}[4.7]
+Let $F\in\ob D(\uC_S)$ and let $a,b\in\ZZ$ with $a\leq b$. We say that $F$ has \emph{$\uC_0$-perfect amplitude contained in $[a,b]$}, and write
+\[
+\uC_0\text{-parf-amp}(F)\subset[a,b],
+\]
+if the family of $X$ over $S$ for which there exists a quasi-isomorphism $F'\to F$ in $C(\uC_X)$ with $F'$ strictly $\uC_0$-perfect and $F'^i=0$ for $i\notin[a,b]$, is a refinement of $S$. By (4.3), this is equivalent to the condition obtained by replacing ``quasi-isomorphism in $C(\uC_X)$'' by ``isomorphism in $D(\uC_X)$''. We say that $F$ has finite $\uC_0$-perfect amplitude if this holds for some $a,b$, and that $F$ is $\uC_0$-perfect if it is locally of finite $\uC_0$-perfect amplitude.
+\end{definition*}
+
+When no confusion is possible, the subscript $\uC_0$ will be omitted.
+
+\begin{statement}{Example 4.8}
+Let $(\uS,A)$ be a ringed topos. Let $\uC$ be the $\uS$-category whose fibre over $U$ is the category of left $A_U$-modules, and let $\uC_0$ be the sub-$\uS$-category of left $A_U$-modules which are direct summands of finite free modules. By (1.3.1), the pair $(\uC,\uC_0)$ satisfies the hypotheses of (4.0). An object $F$ of $D(\uS,A)$ is said to have perfect amplitude contained in $[a,b]$, to have finite perfect amplitude, or to be perfect, if this holds relative to $\uC_0$. When direct summands of finite free modules are locally free of finite type, to say that $F$ is perfect means that $F$ is locally isomorphic in the derived category to a bounded complex whose components are finite free modules.
+\end{statement}
+
+\begin{statement}{Notation 4.9}
+We write
+\[
+D(\uC)_{\uC_0\text{-parf}}\quad\text{or}\quad \Parf(\uC,\uC_0)
+\]
+for the strictly full sub-$\uS$-category of $D(\uC)$ formed by the $\uC_0$-perfect objects. In the situation of (4.8) we also write $D(\uS)_{A\text{-parf}}$, $\Parf(\uS,A)$, or simply $\Parf(S)$ when $A$ is clear.
+\end{statement}
+
+\begin{proposition*}[4.10]
+The category $\Parf(\uC,\uC_0)$ is a triangulated sub-$\uS$-category of $D(\uC)$. The canonical functor
+\[
+K^b(\uC_0)\longrightarrow\Parf(\uC,\uC_0)
+\]
+and similarly the induced functor on categories of distinguished triangles, induce $\uS$-equivalences on the associated stacks. Explicitly:
+\begin{enumerate}[label=(\roman*)]
+\item for every $X\in\ob\uS$ and $E,F\in\ob K^b(\uC_{0X})$, the canonical map of Hom sets to $\Parf(\uC,\uC_0)$ is an isomorphism, and the same holds for triangles;
+\item every object of $\Parf(\uC,\uC_0)$, and similarly every triangle in it, is locally isomorphic in $D(\uC)$ to an object of $K^b(\uC_0)$, respectively to a triangle in $K^b(\uC_0)$.
+\end{enumerate}
+\end{proposition*}
+
+\begin{prooftext}
+The non-triangular form of (i) is a special case of (4.6), and the non-triangular form of (ii) is true by definition. The category $\Parf(\uC,\uC_0)$ is clearly stable under translation. If
+\[
+\begin{array}{ccc}
+&&G\\
+&\nearrow^{+1}&\downarrow\\
+E&\xrightarrow{u}&F
+\end{array}
+\]
+is a distinguished triangle with $E$ and $F$ perfect, then locally $E$ and $F$ may be assumed to lie in $K^b(\uC_0)$. After further localizing, the morphism $u$ may be represented by a morphism of $K^b(\uC_0)$; then $G$ is isomorphic to the cone of $u$, hence is perfect. This proves that $\Parf(\uC,\uC_0)$ is triangulated and also proves the triangular version of (ii).
+
+For the triangular version of (i), let $E=(E_1\to E_2\to E_3\to E_1)$ and $F=(F_1\to F_2\to F_3\to F_1)$ be distinguished triangles in $K(\uC_{0X})$. The injectivity of the map of Hom sets follows from the non-triangular assertion. If $(\alpha_i):E\to F$ is a morphism of triangles in $D(\uC)$, then locally each $\alpha_i$ is represented by a morphism in $K^b(\uC_0)$. The differences measuring commutativity of the squares vanish in $D(\uC)$ and hence, locally, in $K(\uC_0)$ by the non-triangular assertion. Thus the morphism of triangles is locally represented in $K(\uC_0)$. This proves surjectivity.
+\end{prooftext}
+
+\begin{remarktext}[Remark 4.10.1]
+In (4.10) one may replace $\Parf(\uC,\uC_0)$ by $D^*(\uC)_{\uC_0\text{-parf}}=D^*(\uC)\cap\Parf(\uC,\uC_0)$ for $*=-$ or $b$.
+\end{remarktext}
+
+\begin{statement}{Complement 4.11}
+The triangulated structure of $\Parf(\uC,\uC_0)$ can be sharpened in terms of perfect amplitude. If $E$ has perfect amplitude in $[a,b]$, then $E[n]$ has perfect amplitude in $[a-n,b-n]$. If
+\[
+\begin{array}{ccc}
+&&G\\
+&\nearrow&\downarrow\\
+E&\longrightarrow&F
+\end{array}
+\]
+is a distinguished triangle, the following table, analogous to (2.6), records the possible implications; the entries are perfect amplitudes:
+\[
+\begin{array}{ccc}
+E&F&G\\
+{}[a,b+1]&[a,b]&[a,b]\\
+{}[a,b]&[a,b]&[a-1,b-1].
+\end{array}
+\]
+\end{statement}
+
+\begin{corollary*}[4.12]
+Assume that $\uS$ is the punctual site. Then $F\in\ob D(\uC)$ has perfect amplitude relative to $\uC_0$ contained in $[a,b]$ if and only if there exists a quasi-isomorphism $F'\to F$ with $F'$ strictly perfect and $F'^i=0$ for $i\notin[a,b]$. The canonical functors
+\[
+K^b(\uC_0)\longrightarrow\Parf(\uC,\uC_0),
+\qquad
+\Tr(K^b(\uC_0))\longrightarrow\Tr(\Parf(\uC,\uC_0))
+\]
+are equivalences of categories.
+\end{corollary*}
+
+\begin{remarktext}[Remark 4.12.1]
+When $\uS$ is punctual, the objects of $\uC_0$ are projective. If $\uC_0$ contains all projective objects of $\uC$, one says ``projective amplitude'' instead of ``$\uC_0$-perfect amplitude''.
+\end{remarktext}
+
+\begin{remarktext}[Remark 4.12.2]
+Let $C$ be an abelian category, viewed as fibred over the punctual site, and let $C_0$ be a strictly full additive subcategory. Suppose that $C_0$ is stable under kernels of epimorphisms and quasi-liftable in $C$. An acyclic object of $K(C_0)$ is in general not zero, so the functor $K^b(C_0)\to D(C)$ cannot be faithful. However, if $K^{\mathrm{ac}}(C_0)$ denotes the thick subcategory of $K^b(C_0)$ formed by the complexes which are acyclic in $C$, the canonical functor
+\[
+K^b(C_0)/K^{\mathrm{ac}}(C_0)\longrightarrow D(C)
+\]
+is fully faithful. Indeed, one already knows from (2.7) that the functor to $D^b(C)$ is fully faithful; applying Verdier's criterion shows that the quotient functor has the required full faithfulness.
+\end{remarktext}
+
+\begin{lemma*}[4.13]
+Let $F\in\ob D(\uC_S)$ and let $a,b,c\in\ZZ$ with $a\leq b$ and $a\leq c$. If $F$ has perfect amplitude contained in $[a,c]$ and if $H^i(F)=0$ for $i\geq b$, then $F$ has perfect amplitude contained in $[a,d]$, where $d=\inf(b,c)$.
+\end{lemma*}
+
+\begin{prooftext}
+We may suppose $b\leq c$ and that $F$ is strictly perfect with $F^i=0$ outside $[a,c]$. Then $F$ is isomorphic to its truncation $F'$ defined by $F'^i=F^i$ for $i\leq b$, $F'^i=0$ for $i>b$, and $F'^b=Z^b(F^\bullet)$. The latter object has a finite right resolution by objects of $\uC_0$, hence is locally an object of $\uC_0$. This gives the claim.
+\end{prooftext}
+
+\begin{corollary*}[4.14]
+Let $F\in\ob\uC_S$ and let $n\in\NN$. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $\uC_0\text{-parf-amp}(F)\subset[-n,0]$;
+\item locally, $F$ admits a left resolution of length $n$ by objects of $\uC_{0S}$; that is, the family of $X$ over $S$ for which there is an exact sequence
+\[
+0\longrightarrow L^{-n}\longrightarrow L^{-n+1}\longrightarrow\cdots\longrightarrow L^0\longrightarrow F_X\longrightarrow0
+\]
+with all $L^i\in\ob\uC_{0X}$ is a refinement of $S$.
+\end{enumerate}
+\end{corollary*}
+
+\begin{prooftext}
+This is an immediate consequence of (4.7) and (4.13).
+\end{prooftext}
+
+\begin{definition*}[4.14.1]
+We say that $F$ has \emph{perfect dimension} $\leq n$, and write $\mathrm{parf.dim}(F)\leq n$, if $F$ satisfies the equivalent conditions of (4.14). The perfect dimension of $F$ is the smallest such $n$, if it exists; otherwise it is infinite.
+\end{definition*}
+
+When $S$ is the punctual site and $\uC_0$ is the full subcategory of projective objects of $\uC$, perfect dimension is just the usual projective dimension.
+
+\begin{proposition*}[4.15]
+Let $a,b,n\in\ZZ$ with $a\leq b$ and $n\geq0$, and let $F\in\ob D(\uC_S)$ be such that $F^i=0$, respectively $H^i(F)=0$, for $i\notin[a,b]$. If, for every $i\in[a,b]$, the object $F^i$, respectively $H^i(F)$, has perfect dimension $\leq n+(i-a)$, then $F$ has perfect amplitude contained in $[a-n,b]$. Consequently, if all $F^i$, respectively all $H^i(F)$, are perfect, then $F$ is perfect.
+\end{proposition*}
+
+\begin{prooftext}
+Proceed by induction on $b$, with $a$ and $n$ fixed, using truncations and (4.11), as in the proof of (2.11).
+\end{prooftext}
+
+\begin{lemma*}[4.16]
+Let $a,b\in\ZZ$ with $a\leq b$, and let $F\in\ob D(\uC_S)$ be such that $F^i=0$ for $i\notin[a,b]$. Assume that $\uC_0\text{-parf-amp}(F)\subset[a,b]$ and that $F^i\in\ob\uC_S$ for $i>a$. Then $F^a$ is locally an object of $\uC_{0S}$.
+\end{lemma*}
+
+\begin{prooftext}
+Truncating $F$ gives an exact sequence
+\[
+0\longrightarrow F'\longrightarrow F^\bullet\longrightarrow F^a[-a]\longrightarrow0
+\]
+with $\uC_0\text{-parf-amp}(F')\subset[a+1,b+1]$. From (4.11) and (4.13) it follows that $\uC_0\text{-parf-dim}(F')=0$, i.e. $F'$ is locally an object of $\uC_{0S}$, and the assertion follows.
+\end{prooftext}
+
+\begin{proposition*}[4.17]
+Let $F',F''\in\ob D(\uC_S)$ and let $a,b\in\ZZ$, $a\leq b$. Consider:
+\begin{enumerate}[label=(\roman*)]
+\item $\uC_0\text{-parf-amp}(F')\subset[a,b]$ and $\uC_0\text{-parf-amp}(F'')\subset[a,b]$;
+\item $\uC_0\text{-parf-amp}(F'\oplus F'')\subset[a,b]$.
+\end{enumerate}
+Then (ii) implies (i). If $\uC_0$ is locally stable under direct summands, then the two conditions are equivalent.
+\end{proposition*}
+
+\begin{prooftext}
+The implication (ii)$\Rightarrow$(i) is a special case of (4.11). Conversely, put $F=F'\oplus F''$. Since $F$ is pseudo-coherent, $F'$ and $F''$ are pseudo-coherent by (2.12). Also $H^i(F)=0$ for $i\notin[a,b]$ implies the same for $F'$ and $F''$. By (2.10 a), after localizing one may suppose $F'^i,F''^i\in\ob\uC_S$ for $i\geq a+1$ and zero for $i>b$, and after truncating also zero for $i<a$. Since $F$ has perfect amplitude in $[a,b]$, (4.16) shows that $F^a$ is locally in $\uC_{0S}$. But $F^a=F'^a\oplus F''^a$, hence $F'^a$ and $F''^a$ are locally in $\uC_{0S}$ if $\uC_0$ is locally stable under direct summands.
+\end{prooftext}
+
+\begin{proposition*}[4.18]
+Let $(\uS',\uC',\uC'_0)$ satisfy the same hypotheses (4.0) as $(\uS,\uC,\uC_0)$. Let $f:\uS'\to\uS$ be a morphism of sites, defined by $\psi:\uS\to\uS'$, and let
+\[
+u:D^*(\uC)\longrightarrow D^*(\uC')\qquad (*=-,+,b)
+\]
+be an $S$-functor above $f$. If $u$ sends the objects of $\uC_0$ to $\uC'_0$-perfect complexes, then $u$ defines a functor
+\[
+D^*(\uC)_{\uC_0\text{-parf}}
+\longrightarrow
+D^*(\uC')_{\uC'_0\text{-parf}}.
+\]
+\end{proposition*}
+
+\begin{prooftext}
+Let $F\in\ob D^*(\uC)_{\uC_0\text{-parf}}$. The question is local, so one may suppose $F$ strictly perfect. The assertion follows by devissage, using the fact that $D^*(\uC')_{\uC'_0\text{-parf}}$ is a triangulated subcategory of $D^*(\uC')$.
+\end{prooftext}
+
+\begin{remarktext}[Remark 4.18.1]
+If there exist $m,n\in\ZZ$, $m\leq n$, such that $F\in\ob\uC_{0S}$ implies
+\[
+\uC'_0\text{-parf-amp}(u(F))\subset[m,n],
+\]
+then
+\[
+\uC_0\text{-parf-amp}(F)\subset[a,b]
+\Longrightarrow
+\uC'_0\text{-parf-amp}(u(F))\subset[a+m,b+n].
+\]
+The proof is an exercise, using (4.11).
+\end{remarktext}
+
+\begin{corollary*}[4.19]
+Under the hypotheses of (2.16), if $E'\in\ob D(\uS',A')$ is perfect as an object of $D(\uS',A')$ and if $E\in\ob D(\uS,A)$ is perfect, then $E'\otimes_AE$ is perfect.
+\end{corollary*}
+
+\begin{prooftext}
+One may suppose that $E'\in\ob D(\uS',A')$, where $S'$ is the final object of $\uS'$, and apply (4.18) to $u=E'\otimes_A-:D(\uS,A)\to D(\uS',A')$.
+\end{prooftext}
+
+\begin{corollary*}[4.19.1]
+In particular, if $f:(\uS',A')\to(\uS,A)$ is a morphism of ringed topoi, the derived inverse image $Lf^*$ sends perfect complexes to perfect complexes. If $A$ is commutative, the derived tensor product of two perfect complexes is perfect.
+\end{corollary*}
+
+\section*{5. Finite Tor-dimension and perfection}
+\addcontentsline{toc}{section}{5. Finite Tor-dimension and perfection}
+
+\subsection*{5.0}
+The reader will have wondered what is missing from a pseudo-coherent complex in order for it to be perfect. Is it enough, for example, that it have bounded cohomology? The answer is no. Let $\uC$ be the category of modules over a commutative noetherian ring $A$, and let $\uC_0$ be the full subcategory of finite projective $A$-modules. Any finite $A$-module, viewed as a complex concentrated in degree zero, is pseudo-coherent and has bounded cohomology, but it is perfect only if it has finite projective dimension, equivalently finite Tor-dimension. This example suggests that the difference between pseudo-coherence and perfection is a cohomological-dimension condition. We now examine this in the category of modules on a ringed topos. The preliminary facts on Tor-dimension are recalled briefly; see Hartshorne, III, 4, and SGA 4, XVII, 4.9.
+
+\begin{proposition*}[5.1]
+Let $(\uS,A)$ be a ringed topos, let $X\in\ob\uS$, let $F\in\ob D^-(X)$, and let $m,n\in\ZZ$ with $m\leq n$. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $F$ is isomorphic in $D^-(X)$ to a complex $F'$ such that each $F'^i$ is flat and $F'^i=0$ for $i\notin[m,n]$;
+\item for every right $A_X$-module $E$, one has
+\[
+H^i(E\otimes_{A_X}F)=0\quad\text{for }i\notin[m,n].
+\]
+\end{enumerate}
+\end{proposition*}
+
+\begin{prooftext}
+The implication (i)$\Rightarrow$(ii) is trivial. The converse follows, by truncation, from the following lemma.
+\end{prooftext}
+
+\begin{lemma*}[5.1.1]
+Let $F\in\ob D^-(X)$. Assume that $F$ satisfies condition (ii) of (5.1), that $F^i=0$ for $i\notin[m,n]$, and that $F^i$ is flat for $i\ne m$. Then $F^m$ is flat.
+\end{lemma*}
+
+\begin{prooftext}
+There is a distinguished triangle
+\[
+\begin{array}{ccc}
+&&F^m[-m]\\
+&\nearrow&\downarrow\\
+F'&\longrightarrow&F,
+\end{array}
+\]
+where $F'$ has flat components and is zero outside $[m+1,n]$. Apply $E\otimes_{A_X}-$ for an arbitrary right $A_X$-module $E$, and write the associated exact cohomology sequence.
+\end{prooftext}
+
+\begin{definition*}[5.2]
+An object $F$ of $D^-(X)$ satisfying the equivalent conditions of (5.1) is said to have \emph{flat amplitude} contained in $[m,n]$, and we write
+\[
+\operatorname{tor\text{-}amp}(F)\subset[m,n].
+\]
+We say that $F$ has finite flat amplitude, or finite Tor-dimension, if this holds for some $m\leq n$.
+\end{definition*}
+
+\begin{statement}{5.3}
+For $X\in\ob\uS$, denote by $D^-(X)_{\mathrm{tordf}}$ the full subcategory of $D^-(X)$ formed by the objects of finite Tor-dimension. By criterion (ii) of (5.1), it is a triangulated subcategory of $D^-(X)$. As $X$ varies, the categories $D^-(X)_{\mathrm{tordf}}$ form a triangulated sub-$\uS$-category of $D(\uS)$, denoted $D(\uS)_{\mathrm{tordf}}$. The tensor product induces an exact $\uS$-functor
+\[
+\otimes_A:D(\uS)_{\mathrm{tordf}}\times_{\uS}D(\uS)
+\longrightarrow D(\uS).
+\]
+For a left $A$-module $F$, to have flat amplitude contained in $[-n,0]$ is equivalent to having Tor-dimension $\leq n$ in the ordinary sense, i.e. to admitting a left resolution of length $n$ by flat $A$-modules.
+\end{statement}
+
+\begin{statement}{5.4}
+Let $X\in\ob\uS$ and $m\leq n$. An object $F\in\ob D^-(X)$ has flat amplitude contained in $[m,n]$ if and only if there is a covering family $(X_i\to X)$ such that $F|_{X_i}$ has flat amplitude contained in $[m,n]$ for all $i$. In particular, if $\uS_{/X}$ is of finite type in the sense of SGA 4, VI, 1.7, and if $F$ is locally of finite Tor-dimension, then $F$ is of finite Tor-dimension.
+\end{statement}
+
+\begin{proposition*}[5.5]
+Under the hypotheses of (2.16), if $E'$ has flat amplitude contained in $[m',n']$ as an object of $D(\uS',A')$ and $E$ has flat amplitude contained in $[m,n]$, then $E'\otimes_AE$ has flat amplitude contained in the corresponding interval obtained by adding the bounds.
+\end{proposition*}
+
+\begin{prooftext}
+This is immediate from the form (5.1)(i) of finite Tor-dimension and from the fact that if $E$ is a flat left $A$-module, then $\psi^*E$ is a flat left $\psi^*A$-module.
+\end{prooftext}
+
+\begin{corollary*}[5.5.1]
+\textup{a)} The functor $Lf^*:D(\uS,A)\to D(\uS',A')$ induces
+\[
+Lf^*:D(\uS,A)_{\mathrm{tordf}}
+\longrightarrow D(\uS',A')_{\mathrm{tordf}}.
+\]
+
+\textup{b)} If $A$ is commutative, the tensor product induces
+\[
+\otimes_A:D(\uS)_{\mathrm{tordf}}\times_{\uS}D(\uS)
+\longrightarrow D(\uS)_{\mathrm{tordf}}.
+\]
+\end{corollary*}
+
+\begin{remarktext}[Remark 5.5.2]
+Let $E\in\ob D^-(\uS,A)$, with $S$ the final object of $\uS$, and let $m\leq n$. If $E$ has flat amplitude contained in $[m,n]$, then so does every fibre $E_s$ at a point $s$ of $\uS$. The converse holds if $\uS$ has enough points, using criterion (5.1)(ii) and the fact that tensor product commutes with passage to fibres.
+\end{remarktext}
+
+\begin{statement}{Exercises 5.6}
+\textup{a)} Assume $A$ commutative and $(\uS',A')$ faithfully flat over $(\uS,A)$. Then $E\in\ob D^-(\uS,A)$ has flat amplitude contained in $[m,n]$ if and only if $f^*E$ does.
+
+\textup{b)} For $F\in\ob D^+(\uS,A)$, show the equivalence of:
+\begin{enumerate}[label=(\roman*)]
+\item $F$ is isomorphic in $D^+(\uS,A)$ to a complex $F'$ whose components are injective and which is zero outside $[m,n]$;
+\item for every left $A$-module $E$, one has $\underline{\Ext}^i(E,F)=0$ for $i\notin[m,n]$.
+\end{enumerate}
+Such an $F$ is said to have injective amplitude contained in $[m,n]$. The full subcategory of $D^+(\uS,A)$ formed by the objects of finite injective amplitude is triangulated and is denoted $D^+(\uS,A)_{\mathrm{injdf}}$.
+
+\textup{c)} If $A$ is commutative, show that
+\[
+\RHom:D(\uS,A)_{\mathrm{tordf}}^\circ\times
+D(\uS,A)_{\mathrm{injdf}}
+\longrightarrow D(\uS,A)_{\mathrm{parf}}
+\]
+is defined.
+\end{statement}
+
+We can now answer the question raised in (5.0) and state the main result of this section.
+
+\begin{theorem*}[5.7]
+Let $(\uS,A)$ be a ringed topos, let $E\in\ob D(\uS,A)$, and let $m,n\in\ZZ$ with $m\leq n$. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $\operatorname{parf.amp}(E)\subset[m,n]$;
+\item $E$ is $(m-1)$-pseudo-coherent and $\operatorname{tor\text{-}amp}(E)\subset[m,n]$.
+\end{enumerate}
+\end{theorem*}
+
+Since ``perfect'' plainly implies ``pseudo-coherent'', one obtains:
+
+\begin{corollary*}[5.7.1]
+An object $E$ is perfect if and only if it is pseudo-coherent and locally of finite Tor-dimension.
+\end{corollary*}
+
+For the proof we need a few lemmas.
+
+\begin{lemma*}[5.7.2]
+Let $B$ be a ring of $\uS$. If $E$ is a left $A$-module, $G$ a right $B$-module, and $F$ an $A$-$B$-bimodule, there is a canonical functorial homomorphism
+\[
+G\otimes_B\underline{\Hom}_A(E,F)
+\longrightarrow
+\underline{\Hom}_A(E,G\otimes_BF).
+\]
+It is an isomorphism when $E$ is a direct summand of a finite free $A$-module.
+\end{lemma*}
+
+\begin{prooftext}
+The morphism is the evident evaluation map. The assertion is clear for $E=A$ and is stable under finite sums and direct summands.
+\end{prooftext}
+
+\begin{lemma*}[5.7.3]
+Let $E\in\ob D^-(\uS,A)$ have finite Tor-dimension, and suppose $E$ is $(m-1)$-pseudo-coherent. Then locally, after replacing $E$ by a quasi-isomorphic complex, one may arrange that $E^i=0$ for $i>n$ and that the terms in the relevant range are finite locally free, provided the Tor-amplitude is contained in $[m,n]$.
+\end{lemma*}
+
+\begin{prooftext}
+This is obtained by applying the approximation process of Section 2 and then using (5.1.1) to force flatness in the bottom degree. The pseudo-coherent hypothesis supplies finite-type generators; the Tor-amplitude hypothesis eliminates the last obstruction.
+\end{prooftext}
+
+\begin{prooftext}[Proof of Theorem 5.7]
+If $E$ has perfect amplitude contained in $[m,n]$, then it is locally represented by a complex of finite locally free modules in degrees $[m,n]$. It is therefore $(m-1)$-pseudo-coherent, and its Tor-amplitude is contained in $[m,n]$ by (5.1).
+
+Conversely, assume (ii). By pseudo-coherence, locally $E$ is represented, up to the required order, by a bounded-above complex of finite locally free modules. Since the Tor-amplitude is contained in $[m,n]$, the truncation argument of (5.1.1) and the lifting results of Section 2 show that this representation may be chosen with no non-zero terms outside $[m,n]$. Thus $E$ has perfect amplitude contained in $[m,n]$.
+\end{prooftext}
+
+\begin{proposition*}[5.8]
+Let $E\in\ob D(\uS,A)$ be perfect. Then perfect amplitude and Tor-amplitude agree: if $\operatorname{parf.amp}(E)\subset[a,b]$, then $\operatorname{tor\text{-}amp}(E)\subset[a,b]$, and conversely finite Tor-amplitude together with pseudo-coherence gives the corresponding perfect amplitude by (5.7).
+\end{proposition*}
+
+\begin{corollary*}[5.8.4]
+Perfect complexes are locally of finite Tor-dimension. They are stable under $Lf^*$ for morphisms of ringed topoi and, when the ring is commutative, under derived tensor product.
+\end{corollary*}
+
+\begin{corollary*}[5.9]
+Let $(\uS,A)$ be a ringed topos. Suppose that every coherent $A$-module has locally finite projective dimension bounded in the required sense. Then every pseudo-coherent object of $D(\uS,A)$ with bounded cohomology is perfect.
+\end{corollary*}
+
+\begin{statement}{Examples 5.10}
+Corollary (5.9) applies in particular when $(\uS,A)$ is defined by a ringed space whose local rings are regular, for example a regular scheme, or a smooth complex analytic space over $\mathbb C$.
+\end{statement}
+
+\section*{6. Rank of a perfect complex}
+\addcontentsline{toc}{section}{6. Rank of a perfect complex}
+
+\subsection*{6.0}
+Let $(X,\cO_X)$ be a ringed space in local rings. To each locally free sheaf of finite type $L$ on an open set $U$ one attaches a locally constant integer-valued function $\operatorname{rank}_U(L)$, called the rank of $L$. The family of such functions is characterized by compatibility with restriction, additivity in short exact sequences of finite locally free modules, and the condition $\operatorname{rank}(\cO_X)=1$. We now extend the notion of rank to perfect complexes.
+
+\begin{definition*}[6.1]
+Let $C$ be an additive category, respectively a triangulated category, and let $F$ be an abelian group. A function $f:\ob(C)\to F$ is called \emph{additive} if, whenever $L\simeq L'\oplus L''$, respectively whenever there is a distinguished triangle
+\[
+L'\longrightarrow L\longrightarrow L''\longrightarrow L'[1],
+\]
+one has
+\[
+f(L)=f(L')+f(L'').
+\]
+\end{definition*}
+
+The additive functions from $C$ to $F$ form an abelian group, denoted $\Add(C,F)$.
+
+\begin{statement}{6.2}
+If $C$ is triangulated, any additive function on $C$ is additive on the underlying additive category. In particular $f(0)=0$, $f(L)=f(M)$ when $L\simeq M$, and
+\[
+f(L[n])=(-1)^n f(L)
+\]
+for all $L$ and all $n\in\ZZ$.
+\end{statement}
+
+\begin{statement}{6.3}
+The functor $\Add(C,-)$ is representable by an abelian group denoted $k(C)$, endowed with a universal additive function $\ob(C)\to k(C)$. If $C$ is additive, $k(C)$ is the group completion of the monoid of isomorphism classes of objects. If $C$ is triangulated, $k(C)$ is the quotient of the free abelian group on $\ob(C)$ by the relations $L=L'+L''$ for each distinguished triangle $L'\to L\to L''\to L'[1]$.
+
+We do not use the usual notation $K^0(C)$ here, because for an additive category $C$ the notation $K^0(C)$ already denotes the homotopy category of complexes in $C$ in the conventions being used. The group $k(C)$ is functorial in $C$ for additive, respectively exact, functors, and isomorphic functors induce the same map on $k(C)$.
+\end{statement}
+
+\begin{lemma*}[6.4]
+Let $C$ be an additive category. The canonical functor $C\to K^b(C)$ induces a functorial isomorphism
+\[
+k(C)\iso k(K^b(C)).
+\]
+\end{lemma*}
+
+\begin{prooftext}
+This follows immediately from the formula
+\[
+f(L)=\sum_i(-1)^i f(L^i)
+\tag{6.4.1}
+\]
+for $L\in\ob K(C)$ and for any additive function $f$ on $K(C)$.
+\end{prooftext}
+
+\begin{definition*}[6.5]
+Let $\uS$ be a category, $\uC$ an additive, respectively triangulated, $\uS$-category, and $F$ an abelian presheaf on $\uS$. A family of functions
+\[
+f_X:\ob(\uC_X)\longrightarrow F(X),\qquad X\in\ob\uS,
+\]
+is called an \emph{$\uS$-additive function} from $\uC$ to $F$ if:
+\begin{enumerate}[label=(\roman*)]
+\item each $f_X$ is additive in the sense of (6.1);
+\item for every arrow $u:X\to Y$ of $\uS$, the diagram
+\[
+\begin{array}{ccc}
+\ob\uC_Y&\xrightarrow{f_Y}&F(Y)\\
+\downarrow&&\downarrow F(u)\\
+\ob\uC_X&\xrightarrow{f_X}&F(X)
+\end{array}
+\]
+commutes.
+\end{enumerate}
+\end{definition*}
+
+The $\uS$-additive functions from $\uC$ to $F$ form an abelian group denoted $\Add_{\uS}(\uC,F)$.
+
+\begin{statement}{Remarks 6.6}
+Let $\uC^{\mathrm{iso}}$ be the fibred $\uS$-category whose fibre over $X$ has the same objects as $\uC_X$ and whose morphisms are only the isomorphisms, and let $\underline F$ be the fibred category with discrete fibre $F(X)$ over $X$. An $\uS$-additive function is a Cartesian $\uS$-functor $\uC^{\mathrm{iso}}\to\underline F$ whose restrictions to the fibres are additive.
+
+If $\uC$ is triangulated, additivity can be expressed by the exact sequence
+\[
+0\longrightarrow\Add_{\uS}(\uC,F)
+\longrightarrow\Cart_{\uS}(\uC^{\mathrm{iso}},\underline F)
+\xrightarrow{\Delta}
+\Cart_{\uS}(\Tr(\uC)^{\mathrm{iso}},\underline F),
+\tag{6.6.1}
+\]
+where $\Delta(f)(T)=f(L)-f(L'')-f(L')$ for a distinguished triangle $T=(L'\to L\to L''\to L'[1])$.
+
+For a morphism $u:X\to Y$ in $\uS$, inverse-image functors, all isomorphic to one another, define a unique homomorphism $k(\uC_Y)\to k(\uC_X)$. Thus $X\mapsto k(\uC_X)$ is an abelian presheaf on $\uS$, denoted $k(\uC)$, and
+\[
+\Add_{\uS}(\uC,F)=\Hom(k(\uC),F).
+\]
+\end{statement}
+
+\begin{proposition*}[6.7]
+Let $\uS$ be a site, $\uC$ a flat abelian $\uS$-category, and $\uC_0$ a strictly full additive sub-$\uS$-category satisfying the hypotheses of (4.0). The morphism of presheaves
+\[
+k(\uC_0)\longrightarrow k(\Parf(\uC,\uC_0))
+\]
+induced by the inclusion $\uC_0\subset\Parf(\uC,\uC_0)$ becomes an isomorphism after sheafification. Equivalently, for every abelian sheaf $\uF$ on $\uS$, the restriction homomorphism
+\[
+\Add_{\uS}(\Parf(\uC,\uC_0),\uF)
+\longrightarrow
+\Add_{\uS}(\uC_0,\uF)
+\]
+is an isomorphism.
+\end{proposition*}
+
+\begin{prooftext}
+The restriction factors as
+\[
+\Add_{\uS}(\Parf(\uC,\uC_0),\uF)
+\xrightarrow{a}
+\Add_{\uS}(K^b(\uC_0),\uF)
+\xrightarrow{b}
+\Add_{\uS}(\uC_0,\uF).
+\]
+By (6.4), $b$ is an isomorphism. It remains to see that $a$ is an isomorphism. Consider the commutative diagram whose rows are the exact sequences (6.6.1) and whose vertical arrows are restrictions from perfect complexes to bounded complexes in $\uC_0$. Since $\uF$ is a sheaf, $\underline{\uF}$ is a stack; by (4.10), the two right vertical arrows are isomorphisms. Hence so is $a$.
+\end{prooftext}
+
+\begin{remarktext}[Remark 6.7.1]
+In (6.7) one may replace $\Parf(\uC,\uC_0)$ by $D^*(\uC)_{\uC_0\text{-parf}}$ for $*=-$ or $b$.
+\end{remarktext}
+
+\begin{statement}{6.8}
+Let $(\uS,A)$ be a ringed topos, and let $\uC$ and $\uC_0$ be the $\uS$-categories considered in (4.8). There are homomorphisms of abelian presheaves
+\[
+k(\uC_0)\xrightarrow{\alpha}k(D^-(A\text{-parf}))
+\xrightarrow{\beta}k(\Parf(A\text{-parf})),
+\]
+which induce isomorphisms after sheafification by (6.7). The homomorphism $\alpha$ is compatible with inverse image: for a morphism of ringed topoi $u:(\uS',A')\to(\uS,A)$, the square obtained from $Lu^*$ commutes. If $A$ is commutative, the derived tensor product gives ring-presheaf structures and $\alpha$ is a homomorphism of ring presheaves.
+\end{statement}
+
+\begin{statement}{6.9}
+Assume now that $(\uS,A)$ is locally ringed. Then, by (2.15.1), $\uC_{0X}$ is the category of locally free $A_X$-modules of finite type. Let $\uC_1$ be the $\uS$-category whose fibre over $X$ is the category of finite free $A_X$-modules. An object of $D(\uS)$ is perfect if and only if it is perfect relative to $\uC_1$. The homomorphisms
+\[
+k(\uC_1)\longrightarrow k(\uC_0)\longrightarrow
+k(D^-(\uS)_{\mathrm{parf}})\longrightarrow k(\Parf(\uS))
+\]
+induce isomorphisms after sheafification. We shall show that these associated sheaves are canonically isomorphic to the constant sheaf $\ZZ_{\uS}$.
+\end{statement}
+
+\begin{lemma*}[6.10]
+Let $(\uS,A)$ be a locally ringed topos, let $U$ be an object different from the empty object, and let $p,q\in\NN$. If $A_U^p\simeq A_U^q$, then $p=q$.
+\end{lemma*}
+
+\begin{prooftext}
+By the same kind of argument as in the proof of (2.15.1), one reduces to the locally ringed topos defined by a prescheme. There the assertion is trivial, by evaluating at a point of $U$.
+\end{prooftext}
+
+\begin{definition*}[6.11]
+The \emph{rank}, denoted $\rg$, is the $\uS$-additive function from $\uC_1$ to $\ZZ_{\uS}$ defined by
+\[
+\rg(L)=p\quad\text{if }L\simeq A_X^p,
+\quad X\ne\emptyset,
+\]
+and by $\rg(L)=0$ for objects over the empty object.
+\end{definition*}
+
+By (6.7), the rank function extends uniquely to an $\uS$-additive function from $\Parf(\uS)$ to $\ZZ_{\uS}$, still denoted $\rg$.
+
+\begin{proposition*}[6.12]
+\textup{a)} For $L,M\in\ob D^-(X)_{\mathrm{parf}}$, one has
+\[
+\rg(L\bbL M)=\rg(L)\rg(M).
+\]
+
+\textup{b)} If $u:(\uS',A')\to(\uS,A)$ is a morphism of locally ringed topoi and $M\in\ob D^-(\uS)_{\mathrm{parf}}$, then
+\[
+\rg(Lu^*M)=u^*(\rg(M)).
+\]
+Equivalently, rank defines a homomorphism of ring presheaves
+\[
+k(D^-(\uS)_{\mathrm{parf}})\longrightarrow\ZZ_{\uS}
+\]
+compatible with inverse images.
+\end{proposition*}
+
+\begin{prooftext}
+It is enough to check these statements after passing to the associated sheaves. By (6.9), one may replace $k(D^-(\uS)_{\mathrm{parf}})$ by $k(\uC_1)$, where the assertions reduce to finite free modules and are immediate.
+\end{prooftext}
+
+\begin{statement}{6.14}
+Let $(\uS,A)$ be locally ringed, let $X\in\ob\uS$, and let $n\in H^0(X,\ZZ_{\uS})$. Define an object $A_X^n$ of $\Parf(X)$ as follows. If $n$ is constant with value an integer $n\geq0$, set $A_X^n=A_X^{\oplus n}$; if $n<0$, set $A_X^n=A_X^{\oplus |n|}[1]$. In general, decompose $X$ into disjoint pieces on which $n$ is constant and glue the corresponding objects. This gives a homomorphism of ring presheaves
+\[
+i:\ZZ_{\uS}\longrightarrow k(\Parf(\uS)),
+\qquad i_X(n)=\operatorname{cl}(A_X^n).
+\]
+\end{statement}
+
+\begin{proposition*}[6.14]
+Under the hypotheses above,
+\[
+\rg\circ i=\operatorname{Id}_{\ZZ_{\uS}}.
+\]
+Thus $k(\Parf(\uS))$, viewed as a presheaf of $\ZZ_{\uS}$-algebras via $i$, is augmented by rank. Moreover,
+\[
+\rg:k(\Parf(\uS))\longrightarrow\ZZ_{\uS}
+\]
+becomes an isomorphism after sheafification.
+\end{proposition*}
+
+\begin{prooftext}
+The first assertion follows from the relations $\operatorname{cl}(L[1])=-\operatorname{cl}(L)$ and $\operatorname{cl}(L^n)=n\operatorname{cl}(L)$. For the second, $i$ factors through $k(\uC_0)$, and since $\rg\circ i$ is the identity, it is enough, by (6.9), to prove that $i\circ\rg:k(\uC_0)\to k(\uC_0)$ induces an isomorphism after sheafification. This says that for $L\in\ob\uC_0$, the object $i\circ\rg(L)$ is locally isomorphic to $L$, which is immediate.
+\end{prooftext}
+
+\begin{corollary*}[6.15]
+Under the hypotheses of (6.13), for every abelian sheaf $\uF$ on $\uS$, the group of $\uS$-additive functions from $\Parf(\uS)$ to $\uF$ is canonically identified with $H^0(\uS,\uF)$, where $\uS$ denotes the final object of $\uS$. For $\uF=\ZZ_{\uS}$, the rank function corresponds to the unit section of $\ZZ_{\uS}$.
+\end{corollary*}
+
+\section*{7. Duality of perfect complexes}
+\addcontentsline{toc}{section}{7. Duality of perfect complexes}
+
+\subsection*{7.0}
+In this section $(\uS,A)$ denotes a ringed topos in commutative rings, and $S$ is the final object of $\uS$. The aim is to generalize to perfect complexes the usual duality notions for locally free sheaves of finite type.
+
+\begin{proposition*}[7.1]
+Let $E\in\ob D(\uS)_{\mathrm{parf}}$ and $F\in\ob D^+(\uS)$.
+
+\textup{a)} If $F$ has locally bounded cohomology, so does $\RHom(E,F)$. If $F$ is pseudo-coherent, respectively locally of finite Tor-dimension, respectively perfect, then the same is true of $\RHom(E,F)$.
+\end{proposition*}
+
+\begin{statement}{7.1.1}
+Assume moreover that $E$ has finite Tor-dimension, as holds by (5.8.4 b). Let $a,b,m,n$ be integers such that
+\[
+\operatorname{tor\text{-}amp}(E)\subset[a,b]
+\]
+(equivalently, by (5.8), $\operatorname{parf\text{-}amp}(E)\subset[a,b]$), and $H^i(F)=0$ for $i\notin[m,n]$, respectively $\operatorname{parf\text{-}amp}(F)\subset[m,n]$. Then
+\[
+H^i(\RHom(E,F))=0\quad\text{for }i\notin[m-b,n-a],
+\]
+i.e. $\operatorname{tor\text{-}amp}(\RHom(E,F))\subset[m-b,n-a]$.
+\end{statement}
+
+\begin{prooftext}
+The assertion a) is local; we may suppose $E$ strictly perfect and then argue by devissage on $E$, reducing to $E=A$. For b), one may suppose $E$ strictly perfect with $E^i=0$ for $i\notin[c,d]$, and choose a representative of $F$ in the indicated degrees, or with flat components in the indicated interval. Then the assertion follows from the next lemma.
+\end{prooftext}
+
+\begin{lemma*}[7.1.1]
+Let $E\in\ob D(\uS)$ and $F\in\ob D^+(\uS)$. If $E$ is strictly pseudo-coherent, with components direct summands of finite free modules, the canonical map in $D^+(\uS)$
+\[
+\Hom^\bullet(E,F)\longrightarrow\RHom(E,F)
+\]
+is an isomorphism.
+\end{lemma*}
+
+\begin{prooftext}
+The spectral sequence
+\[
+E_2^{pq}=H^p(\Ext^q(E^\bullet,F^\bullet))\Rightarrow \Ext^{p+q}(E,F)
+\]
+degenerates because $\Ext^q(E^i,F^j)=0$ for $q\ne0$. This gives the required isomorphisms between the cohomology of $\Hom^\bullet(E,F)$ and of $\RHom(E,F)$.
+\end{prooftext}
+
+\begin{proposition*}[7.1.2]
+Let $f:(\uS',A')\to(\uS,A)$ be a morphism of ringed topoi. Let $E\in\ob D^-(\uS)$ and $F\in\ob D^+(\uS)$ be such that $\RHom(E,F)\in\ob D^+(\uS)$ and $Lf^*(F)\in\ob D^+(\uS')$. There is a canonical functorial morphism
+\[
+Lf^*\RHom(E,F)
+\longrightarrow
+\RHom(Lf^*E,Lf^*F).
+\]
+It is an isomorphism if $E$ is perfect.
+\end{proposition*}
+
+\begin{prooftext}
+By the adjunction between $Lf^*$ and $Rf_*$, it is enough to define a map
+\[
+\RHom(E,F)\longrightarrow Rf_*\RHom(Lf^*E,Lf^*F).
+\]
+Use the adjunction morphism $F\to Rf_*Lf^*F$ and the duality isomorphism
+\[
+Rf_*\RHom(Lf^*E,Lf^*F)
+\simeq
+\RHom(E,Rf_*Lf^*F).
+\]
+If $E$ is perfect, the assertion is local and follows by devissage from the trivial case $E=A$.
+\end{prooftext}
+
+\begin{proposition*}[7.2]
+For $E\in\ob D(\uS)$ and $F\in\ob D^+(\uS)$ there is a canonical functorial morphism
+\[
+E\longrightarrow\RHom(\RHom(E,F),F).
+\]
+It is an isomorphism if $E\in\ob D(\uS)_{\mathrm{parf}}$ and $F=A$.
+\end{proposition*}
+
+\begin{prooftext}
+Resolve $F$ injectively and use the canonical morphism in the homotopy category
+\[
+E\longrightarrow\Hom^\bullet(\Hom^\bullet(E,F),F).
+\]
+For $E$ perfect and $F=A$, the assertion is local and follows by devissage from $E=A$.
+\end{prooftext}
+
+\begin{statement}{7.3}
+For $E\in\ob D(\uS)$ put
+\[
+E^\vee=\RHom(E,A),
+\]
+and call this the \emph{dual} of $E$. By (7.1) and (7.2), if $E$ is perfect, respectively perfect and of finite Tor-dimension, then $E^\vee$ has the same property, and the canonical morphism $E\to E^{\vee\vee}$ is an isomorphism. In other words, $\RHom(-,A)$ is an anti-equivalence of $D(\uS)_{\mathrm{parf}}$, respectively of the finite Tor-dimension part, with itself.
+\end{statement}
+
+\begin{proposition*}[Cartan isomorphism 7.4]
+For $E\in\ob D(\uS)$, $F\in\ob D^-(\uS)$, and $G\in\ob D^+(\uS)$, there are canonical functorial isomorphisms
+\[
+\RHom(E\bbL F,G)\simeq\RHom(E,\RHom(F,G)),
+\]
+and the corresponding non-underlined Hom-isomorphisms obtained by taking global sections.
+\end{proposition*}
+
+\begin{prooftext}
+This is standard: resolve $G$ injectively and $F$ by flat modules.
+\end{prooftext}
+
+\begin{lemma*}[7.5]
+For $E\in\ob D(\uS)$ and $F\in\ob D^+(\uS)$, there is a canonical functorial homomorphism
+\[
+E^\vee\bbL \RHom(E,F)\longrightarrow F.
+\]
+\end{lemma*}
+
+\begin{proposition*}[7.6]
+Let $E\in\ob D(\uS)$ and let $F,G\in\ob D^+(\uS)$. Under either of the following hypotheses:
+\begin{enumerate}[label=(\roman*)]
+\item $G$ has finite Tor-dimension;
+\item $E$ is perfect, $F$ has finite Tor-dimension, and $G\in\ob D(\uS)$,
+\end{enumerate}
+there is a canonical functorial homomorphism
+\[
+\RHom(E,F)\bbL G\longrightarrow\RHom(E,F\bbL G).
+\]
+It is an isomorphism when $E$ is perfect.
+\end{proposition*}
+
+\begin{prooftext}
+Under (i), define the map by resolving $F$ injectively and $G$ flatly. Under (ii), by (7.4) it is equivalent to define a map
+\[
+E\bbL\RHom(E,F)\bbL G\longrightarrow F\bbL G,
+\]
+which is obtained by tensoring the map of (7.5) with $G$. When $E$ is perfect, reduce locally by devissage to $E=A$.
+\end{prooftext}
+
+\begin{corollary*}[7.7]
+For $E\in\ob D(\uS)_{\mathrm{parf}}$ and $F\in\ob D^+(\uS)$, there is a functorial isomorphism
+\[
+E^\vee\bbL F\iso\RHom(E,F).
+\]
+\end{corollary*}
+
+\begin{prooftext}
+Apply (7.6) with $F$ and $G$ replaced by $A$ and $F$, and use (7.1) to know that $E^\vee$ is perfect.
+\end{prooftext}
+
+\begin{corollary*}[7.8]
+For $E,F\in\ob D(\uS)_{\mathrm{parf}}$, there is a natural morphism
+\[
+\RHom(E,F)\bbL\RHom(F,E)\longrightarrow A
+\]
+which is a perfect duality: modulo (7.4), it identifies each of the two complexes with the dual of the other.
+\end{corollary*}
+
+\begin{prooftext}
+The natural pairings $E^\vee\bbL E\to A$ and $F^\vee\bbL F\to A$ give, by tensor product, a pairing
+\[
+E^\vee\bbL F\bbL F^\vee\bbL E\longrightarrow A.
+\]
+Using (7.7) this is the asserted pairing on $\RHom$ complexes. Perfectness of the duality follows from the canonical isomorphisms
+\[
+\RHom(F^\vee\bbL E,A)
+\simeq\RHom(F^\vee,E^\vee)
+\simeq F^{\vee\vee}\bbL E^\vee
+\simeq F\bbL E^\vee,
+\]
+with the usual compatibility check; alternatively, reduce locally to $E=F=A$.
+\end{prooftext}
+
+\begin{statement}{Exercise 7.9}
+For $E,F\in\ob D(\uS)_{\mathrm{parf}}$, show that there is a canonical isomorphism
+\[
+(E\bbL F)^\vee\simeq E^\vee\bbL F^\vee.
+\]
+\end{statement}
+
+\section*{8. Traces and cup-products}
+\addcontentsline{toc}{section}{8. Traces and cup-products}
+
+\subsection*{8.0}
+In this section we generalize to perfect complexes the trace of an endomorphism of a finitely generated projective module. Applications are given in SGA 5, Expose III. The hypotheses and notation are those of (7.0).
+
+\begin{statement}{8.1}
+Let $E\in\ob D(\uS)_{\mathrm{parf}}$. There is a natural morphism
+\[
+\tr:\RHom(E,E)\longrightarrow A,
+\]
+obtained by composing the inverse of the isomorphism (7.7),
+\[
+\RHom(E,E)\simeq E^\vee\bbL E,
+\]
+with the canonical map $E^\vee\bbL E\to A$ of (7.5). For $U\in\ob\uS$, applying $H^0(U,-)$ gives an $H^0(U,A)$-module homomorphism
+\[
+\Tr_{E|U}:\Hom_{D(\uS)}(E|U,E|U)\longrightarrow H^0(U,A),
+\]
+called the trace homomorphism. The finite Tor-dimension hypothesis on $E$ is in fact unnecessary for defining this trace; see (8.5).
+\end{statement}
+
+\begin{statement}{8.1.1}
+If $E=A$, then $\Tr_{A|U}:\Hom(A|U,A|U)\to H^0(U,A)$ is the usual isomorphism. If $E$ and $F$ are direct summands of finite free modules, and if an endomorphism of $(E\oplus F)|U$ is represented by a block matrix
+\[
+\begin{pmatrix}a&b\\ c&d\end{pmatrix},
+\]
+then
+\[
+\Tr_{E\oplus F|U}(u)=\Tr_{E|U}(a)+\Tr_{F|U}(d).
+\]
+\end{statement}
+
+\begin{statement}{8.1.2}
+Let $E$ be a strictly perfect complex, let $U\in\ob\uS$, and let $u:E|U\to E|U$ be a morphism of complexes with components $u^i:E^i|U\to E^i|U$. Then
+\[
+\Tr_{E|U}(u)=\sum_i(-1)^i\Tr_{E^i|U}(u^i).
+\]
+\end{statement}
+
+\begin{prooftext}
+The question is local. One may suppose that $u$ is represented by a section of $H^0(E^\vee\otimes E)$, and even by a sum of elementary tensors $\sum_i x_i\otimes x'_i$, where $x_i$ and $x'_i$ are sections of $E^i$ and of $E^{\vee i}$. Writing explicitly the map $E^\vee\otimes E\to A$, one obtains
+\[
+\Tr_{E|U}(u)=\sum_i(-1)^i\langle x_i,x'_i\rangle
+=\sum_i(-1)^i\Tr_{E^i|U}(u^i).
+\]
+\end{prooftext}
+
+\begin{statement}{8.2}
+Let $E,F\in\ob D(\uS)_{\mathrm{parf}}$. By (7.8) there is a canonical homomorphism
+\[
+\cup:\RHom(E,F)\bbL\RHom(F,E)\longrightarrow A.
+\]
+For $U\in\ob\uS$, and for
+\[
+u\in H^0(U,\RHom(E,F)),\qquad
+v\in H^0(U,\RHom(F,E)),
+\]
+the image under $H^0(\cup)$ defines an $H^0(U,A)$-bilinear pairing
+\[
+\Hom_{D(\uS)}(E|U,F|U)\otimes_{H^0(U,A)}
+\Hom_{D(\uS)}(F|U,E|U)
+\longrightarrow H^0(U,A),
+\]
+called the cup-product and denoted $\langle u,v\rangle$.
+\end{statement}
+
+\begin{proposition*}[8.3]
+In the situation of (8.2), for $u:E|U\to F|U$ and $v:F|U\to E|U$ one has
+\[
+\Tr_{E|U}(vu)=\Tr_{F|U}(uv)=\langle u,v\rangle.
+\]
+In particular, for $E=F$,
+\[
+\Tr_{E|U}(u)=\langle u,\operatorname{Id}_E\rangle
+=\langle\operatorname{Id}_E,u\rangle.
+\]
+\end{proposition*}
+
+\begin{prooftext}
+It is enough, for notation, to take $U=S$. The maps $u$ and $v$ may be viewed as
+\[
+u:A\to E^\vee\bbL F,
+\qquad
+v:A\to F^\vee\bbL E.
+\]
+The composites giving $vu$ and $uv$ are obtained by inserting the corresponding evaluation morphisms. The result follows from the commutativity of the standard diagrams comparing the two possible ways of evaluating
+\[
+E^\vee\bbL F\bbL F^\vee\bbL E
+\]
+and the analogous expression with $E$ and $F$ interchanged. This verification is purely formal.
+\end{prooftext}
+
+\begin{proposition*}[8.4]
+Let $E,F,U$ be as in (8.2). Let $s:E|U\to F|U$ and let $s':E|U\to F|U$ be an isomorphism. Then
+\[
+\Tr_{F|U}(s's^{-1})=
+\Tr_{E|U}(s^{-1}s').
+\]
+\end{proposition*}
+
+\begin{prooftext}
+This is immediate from (8.3).
+\end{prooftext}
+
+\begin{statement}{8.5}
+Let $\mathcal E(\uC_0)$ be the $\uS$-fibred category whose fibre over $U$ has objects the pairs $(L,u)$ with $L\in\ob\uC_0$ and $u\in\End_{\uC_0}(L)$, and whose morphisms $(L,u)\to(M,v)$ are the morphisms $f:L\to M$ satisfying $fu=vf$. By (8.4), the trace may be viewed as an $\uS$-functor from $\mathcal E(\uC_0)^{\mathrm{iso}}$ to $A$, where the superscript means that only isomorphisms are kept and $A$ is regarded as the fibred category with discrete fibres. Since every perfect complex is locally of finite Tor-dimension, the forgetful $\uS$-functor
+\[
+\mathcal E(\uC_0)^{\mathrm{iso}}
+\longrightarrow
+\mathcal E(D(\uS)_{\mathrm{parf}})^{\mathrm{iso}}
+\]
+induces an isomorphism on the associated stacks. Hence the trace homomorphism extends to perfect complexes without assuming finite Tor-dimension.
+\end{statement}
+
+\section*{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\begin{enumerate}[label={[\Alph*]}]
+\item Hartshorne, R. \emph{Residues and Duality}, Lecture Notes in Mathematics, no. 20, Springer, 1966.
+\item Verdier, J.-L. \emph{Categories derivees}, I.H.E.S., 1963.
+\item Giraud, J. \emph{Cohomologie non abelienne}, to appear with North-Holland.
+\item \emph{Cohomologie etale des schemas}, by M. Artin, A. Grothendieck, and J.-L. Verdier, to appear with North-Holland.
+\item \emph{Cohomologie $l$-adique et fonctions $L$}, by A. Grothendieck, to appear with North-Holland.
+\item Godement, R. \emph{Topologie algebrique et theorie des faisceaux}, Hermann, 1958.
+\item Cartan, H. and Eilenberg, S. \emph{Homological Algebra}, Princeton, 1956.
+\end{enumerate}
+
+\end{document}

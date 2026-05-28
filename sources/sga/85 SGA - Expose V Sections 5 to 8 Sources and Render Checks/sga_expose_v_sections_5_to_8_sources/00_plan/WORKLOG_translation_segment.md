@@ -1,4 +1,3 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 
-Next continuation point: SGA 4, Exposé VI, opening.

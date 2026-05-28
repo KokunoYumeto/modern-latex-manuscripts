@@ -1,4 +1,4 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 This output continues the SGA translation project and implements the user's cumulative-packaging instruction.
 
@@ -15,7 +15,7 @@ This output continues the SGA translation project and implements the user's cumu
 ## Rendered PDFs included
 
 - Existing SGA 1-3 English translations rendered as preview PDFs from the available Markdown snapshots.
-- All current SGA 4 Expose I translation segment PDFs.
+- All current SGA 4 Expose I working draft section PDFs.
 - A cumulative SGA 4 Expose I PDF through Section 8.8.
 - Existing SGA 5 translated front matter and SGA 5 Expose I Section 1 files carried forward from prior work.
 
@@ -25,5 +25,4 @@ A flat convenience directory, `06_all_rendered_pdfs/`, contains copies of every 
 
 The SGA 1-3 PDFs are readable preview renders generated from existing Markdown snapshots. They are not full proofed mathematical typesettings; displayed formulae may remain as source-like text in places. The new SGA 4 translations are LaTeX-authored and compile-checked.
 
-## Next continuation point
 

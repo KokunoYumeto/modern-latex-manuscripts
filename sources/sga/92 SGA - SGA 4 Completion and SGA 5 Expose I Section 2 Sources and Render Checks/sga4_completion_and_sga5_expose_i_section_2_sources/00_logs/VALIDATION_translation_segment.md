@@ -1,4 +1,4 @@
-# Validation -- translation segment
+# Validation -- working draft section
 
 ## Compile checks
 
@@ -9,7 +9,7 @@
 ## Render checks
 
 - Rendered the full 50-page reader PDF to PNG at 140 DPI using `/home/oai/skills/pdfs/scripts/render_pdf.py`.
-- Render folder: `04_render_checks/translation segment/SGA4_completion_and_SGA5_start_batch026_reader_render/`.
+- Render folder: `04_render_checks/working draft section/SGA4_completion_and_SGA5_start_batch026_reader_render/`.
 - Rendered page count: 50 PNG files.
 - Sample visual checks: pages 1, 35, 36, and 50.
 

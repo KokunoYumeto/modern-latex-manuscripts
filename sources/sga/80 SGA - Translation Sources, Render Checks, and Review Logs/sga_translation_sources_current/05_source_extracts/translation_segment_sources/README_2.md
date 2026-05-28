@@ -1,4 +1,4 @@
-# translation segment source extract
+# working draft section source extract
 
 French source range extracted from the Orgogozo/Laszlo SGA 4 TeX snapshot:
 

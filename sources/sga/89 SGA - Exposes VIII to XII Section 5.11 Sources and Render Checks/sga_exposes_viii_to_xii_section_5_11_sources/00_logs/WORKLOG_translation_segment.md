@@ -1,4 +1,4 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 Fresh-only translation batch for the SGA translation project.
 
@@ -12,7 +12,7 @@ Translated range:
 
 Primary reader PDF:
 
-- `02_new_translation_latex/translation segment/SGA4_Exposes_VIII_to_XII_5_11_en.pdf`
+- `02_new_translation_latex/working draft section/SGA4_Exposes_VIII_to_XII_5_11_en.pdf`
 
 Build notes:
 
@@ -21,5 +21,4 @@ Build notes:
 - Rendered every page of the final 51-page PDF to PNG at 140 DPI for visual checking.
 - Source extracts are included for the translated French ranges.
 
-continuation point:
 

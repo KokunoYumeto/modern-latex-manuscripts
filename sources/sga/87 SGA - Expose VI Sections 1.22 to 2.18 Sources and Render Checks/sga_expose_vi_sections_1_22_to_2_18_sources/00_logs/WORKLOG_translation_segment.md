@@ -1,4 +1,4 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 Translated SGA 4, Exposé VI, from §1.22 through Exercise 2.18.
 

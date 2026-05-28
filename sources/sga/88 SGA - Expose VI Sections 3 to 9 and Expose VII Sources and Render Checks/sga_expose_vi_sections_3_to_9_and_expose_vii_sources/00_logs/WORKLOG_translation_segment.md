@@ -1,4 +1,4 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 
 Translated material:

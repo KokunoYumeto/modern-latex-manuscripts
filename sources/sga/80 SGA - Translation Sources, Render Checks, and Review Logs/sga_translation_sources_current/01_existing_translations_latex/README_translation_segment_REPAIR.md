@@ -1,8 +1,8 @@
-# translation segment repair of SGA 1-3 rendered PDFs
+# working draft section repair of SGA 1-3 rendered PDFs
 
-The translation segment package accidentally exposed SGA 1-3 as raw Markdown/plain-text preview PDFs. Those were not usable mathematical renderings: dollar-delimited formulas, bold markers, HTML comments, and code fences appeared literally.
+The working draft section package accidentally exposed SGA 1-3 as raw Markdown/plain-text preview PDFs. Those were not usable mathematical renderings: dollar-delimited formulas, bold markers, HTML comments, and code fences appeared literally.
 
-translation segment supersedes those previews with XeLaTeX-rendered PDFs generated from the existing jcreinhold English Markdown snapshot via the Pandoc LaTeX source already present in the package, patched only enough to compile and to use broad Unicode fonts.
+working draft section supersedes those previews with XeLaTeX-rendered PDFs generated from the existing jcreinhold English Markdown snapshot via the Pandoc LaTeX source already present in the package, patched only enough to compile and to use broad Unicode fonts.
 
 Use these PDFs:
 

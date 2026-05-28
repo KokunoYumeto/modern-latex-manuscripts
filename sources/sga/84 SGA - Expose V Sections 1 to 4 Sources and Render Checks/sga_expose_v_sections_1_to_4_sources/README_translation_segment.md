@@ -1,4 +1,4 @@
-# SGA Translation translation segment — source package
+# SGA Translation working draft section — source package
 
 This package contains new material only.
 
@@ -14,10 +14,10 @@ Source: `orgogozo_tex_sources/05/05.tex`, lines 370--1946.
 
 ## Main files
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_V_sections_1_to_4_en.tex`
-- `02_new_translation_latex/translation segment/SGA4_Expose_V_sections_1_to_4_en.pdf`
-- `05_source_extracts/translation segment/SGA4_Expose_V_sections_1_to_4_source_lines_370_1946_fr.tex`
-- `04_render_checks/translation segment/SGA4_Expose_V_sections_1_to_4_render/`
+- `02_new_translation_latex/working draft section/SGA4_Expose_V_sections_1_to_4_en.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_V_sections_1_to_4_en.pdf`
+- `05_source_extracts/working draft section/SGA4_Expose_V_sections_1_to_4_source_lines_370_1946_fr.tex`
+- `04_render_checks/working draft section/SGA4_Expose_V_sections_1_to_4_render/`
 
 ## Next anchor
 

@@ -2,7 +2,7 @@
 
 This folder contains LaTeX conversions of the jcreinhold SGA 1--3 English Markdown translation snapshot from the source package packet.
 
-These files are not newly translated in this translation segment. They are provisional converted drafts, useful as a baseline for proofreading, normalization, and later master-book integration.
+These files are not newly translated in this working draft section. They are provisional converted drafts, useful as a baseline for proofreading, normalization, and later master-book integration.
 
 Files:
 

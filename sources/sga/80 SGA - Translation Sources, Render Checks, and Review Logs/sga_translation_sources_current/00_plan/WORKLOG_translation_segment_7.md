@@ -1,4 +1,4 @@
-# Worklog - translation segment
+# Worklog - working draft section
 
 Date: 2026-05-27
 
@@ -12,17 +12,17 @@ Source lines: 6361--7423.
 
 ## New files
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_9_13_2_to_9_26_en.tex`
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_sections_9_13_2_to_9_26_en.pdf`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_9_13_2_to_9_26_en.tex`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_sections_9_13_2_to_9_26_en.pdf`
 - `02_new_translation_latex/cumulative/SGA4_Expose_I_sections_0_to_9_26_cumulative_en.pdf`
-- `05_source_extracts/translation segment/SGA4_Expose_I_sections_9_13_2_to_9_26_source_lines_6361_7423_fr.tex`
-- `04_render_checks/translation segment/SGA4_Expose_I_sections_9_13_2_to_9_26_en_render/`
-- `04_render_checks/translation segment/SGA4_Expose_I_sections_0_to_9_26_cumulative_sample_render/`
+- `05_source_extracts/working draft section/SGA4_Expose_I_sections_9_13_2_to_9_26_source_lines_6361_7423_fr.tex`
+- `04_render_checks/working draft section/SGA4_Expose_I_sections_9_13_2_to_9_26_en_render/`
+- `04_render_checks/working draft section/SGA4_Expose_I_sections_0_to_9_26_cumulative_sample_render/`
 
 ## Compilation and render status
 
-- Fresh translation segment TeX compiled with `pdflatex` in two passes.
-- Fresh translation segment PDF page count: 16.
+- Fresh working draft section TeX compiled with `pdflatex` in two passes.
+- Fresh working draft section PDF page count: 16.
 - Cumulative SGA 4 Exposé I PDF through 9.26 page count: 103.
 - Sample render PNGs created for pages 1, 8, and 16 of the fresh PDF.
 - Sample render PNGs created for pages 87, 88, and 103 of the cumulative PDF to check the join boundary and final page.

@@ -1,4 +1,4 @@
-# Validation - translation segment
+# Validation - working draft section
 
 ## Compile checks
 

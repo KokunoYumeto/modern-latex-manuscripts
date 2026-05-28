@@ -1,0 +1,954 @@
+\documentclass[13pt]{extarticle}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\geometry{margin=1.05in}
+\setstretch{1.18}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.52em}
+\sloppy
+
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\uS}{\underline S}
+\newcommand{\uC}{\underline C}
+\newcommand{\uA}{\underline A}
+\newcommand{\D}{\mathrm D}
+\newcommand{\K}{\mathrm K}
+\newcommand{\Kdot}{K^{\bullet}}
+\newcommand{\Qcoh}{\operatorname{Qcoh}}
+\newcommand{\Coh}{\operatorname{Coh}}
+\newcommand{\Loclib}{\operatorname{Loclib}}
+\newcommand{\Lib}{\operatorname{Lib}}
+\newcommand{\Mod}{\operatorname{Mod}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Pt}{\operatorname{Pt}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\Imop}{\operatorname{Im}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Ltens}{\mathbin{\mathbf L\!\otimes}}
+\newcommand{\Rtens}{\mathbin{\mathbf R\!\otimes}}
+\newcommand{\RHom}{\mathrm R\underline{\operatorname{Hom}}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{remark*}{Remark}
+
+\begin{document}
+
+\begin{center}
+{\Large\textbf{SGA 6 -- Expose II}}\\[0.35em]
+{\large\textbf{Existence of Global Resolutions}}\\[0.25em]
+{\large L. Illusie}
+\end{center}
+
+\section*{1. General globalization criteria}
+\addcontentsline{toc}{section}{1. General globalization criteria}
+
+\subsection*{1.0}
+In this section we fix a site $\uS$, a flat abelian $\uS$-category $\uC$ in the sense of I, 1.1, and a strictly full additive sub-$\uS$-category $\uC_0$. We suppose that $\uC_0$ is locally quasi-liftable in $\uC$ and locally quasi-stable under kernels of epimorphisms.
+
+\begin{proposition*}[1.1]
+Let $S\in\ob\uS$, and assume:
+\begin{enumerate}[label=(\roman*)]
+\item $\uC_{0S}$ is quasi-liftable in $\uC_S$;
+\item every object of $\uC_S$ of $\uC$-finite type, respectively of finite $\uC_0$-presentation, is of $\uC_{0S}$-finite type.
+\end{enumerate}
+Then:
+\begin{enumerate}[label=\alph*)]
+\item $\uC_{0S}$ is quasi-stable under kernels of epimorphisms.
+\item If $E\in\ob\D(\uC_S)$ is $n$-$\uC_0$-pseudo-coherent, then $E$ is $n$-$\uC_{0S}$-pseudo-coherent, respectively $(n+1)$-$\uC_{0S}$-pseudo-coherent. Equivalently,
+\[
+\D(\uC_S)_{n-\uC_0\mathrm{-coh}}
+\subset
+\D(\uC_S)_{n-\uC_{0S}\mathrm{-coh}}
+\]
+with the corresponding $(n+1)$-variant.
+\item An object $E\in\D(\uC_S)$ is pseudo-coherent relative to $\uC_0$ if and only if it is pseudo-coherent relative to $\uC_{0S}$; thus
+\[
+\D(\uC_S)_{\uC_0\mathrm{-coh}}=
+\D(\uC_S)_{\uC_{0S}\mathrm{-coh}}.
+\]
+Moreover the canonical functor
+\[
+\K(\uC_{0S})/\K^{\uC_{0S}-\emptyset}_{\uC_S}
+\longrightarrow \D(\uC_S)
+\]
+is fully faithful and has essential image $\D(\uC_S)_{\uC_{0S}\mathrm{-coh}}$.
+\end{enumerate}
+If $\uC_{0S}$ is liftable in $\uC_S$, then $\K^{\uC_{0S}-\emptyset}_{\uC_S}$ is reduced to zero and
+\[
+\K(\uC_{0S})\longrightarrow \D(\uC_S)_{\uC_{0S}\mathrm{-coh}}
+\]
+is fully faithful with the same essential image.
+\end{proposition*}
+
+\begin{prooftext}
+For a), let
+\[
+0\longrightarrow L^0\longrightarrow L^1\longrightarrow L^2\longrightarrow\cdots
+\]
+be an exact sequence in $\uC_{0S}$ with all $L^i$ in $\uC_{0S}$. One has to prove that $L$ is of $\uC_{0S}$-finite type. By I, 2.2 it is $\uC_S$-pseudo-coherent, hence by I, 2.9 of finite $\uC_S$-presentation, and the assertion follows from (ii).
+
+For b), one argues by descending induction on $i$ for $i\ge n$ (respectively $i\ge n+1$). After replacing $E$ by a strictly pseudo-coherent representative and taking the usual cone, one reduces to a complex with $E^i=0$ above the critical degree. By I, 2.10, the relevant cohomology object is of $\uC_0$-finite type, respectively of finite $\uC_0$-presentation; by I, 1.4 it is then of $\uC_{0S}$-finite type. Applying I, 2.10 again gives the required pseudo-coherence. Part c) follows from b) and I, 2.7.
+\end{prooftext}
+
+\begin{proposition*}[1.2]
+Assume that $\uC_0$ is locally liftable in $\uC$ and locally stable under kernels of epimorphisms, and keep the hypotheses of 1.1. Let $\uC_{0,\mathrm{loc}}$ be the strictly full subcategory of $\uC$ consisting of objects locally lying in $\uC_0$. Then:
+\begin{enumerate}[label=\alph*)]
+\item $\uC_{0,\mathrm{loc}}$ is stable under kernels of epimorphisms and quasi-liftable in $\uC$.
+\item For $E\in\ob\D(\uC_*)$ and an interval $[m,n]\subset\ZZ$, $E$ has $\uC_0$-perfect amplitude contained in $[m,n]$ if and only if it is isomorphic in $\D(\uC_*)$ to a complex $F$ with $F^i=0$ outside $[m,n]$, with $F^i\in\uC_{0,\mathrm{loc}}$ for $i>m$, and with $F^m\in\uC_{0,\mathrm{loc}}$.
+\item The canonical functor
+\[
+\K^b(\uC_{0,\mathrm{loc}})/\K^{b,\emptyset}(\uC_{0,\mathrm{loc}})
+\longrightarrow \D(\uC_*)
+\]
+is fully faithful and has essential image the full subcategory of complexes of finite $\uC_0$-perfect amplitude.
+\item If $\uC_0$ is liftable, one may replace in b) ``is isomorphic to $F$ in $\D(\uC_*)$'' by ``there exists a quasi-isomorphism $F\to E$'', and $\K^{b,\emptyset}(\uC_{0,\mathrm{loc}})$ is zero.
+\end{enumerate}
+\end{proposition*}
+
+\begin{prooftext}
+Stability of $\uC_{0,\mathrm{loc}}$ under kernels of epimorphisms is clear. Since objects of $\uC_{0S}$ are $\uC_S$-pseudo-coherent, hence $\uC$-pseudo-coherent by 1.1 c), quasi-liftability follows from I, 2.14. For b), only necessity has to be proved. From 1.1 c) one already knows that $E$ is $\uC_{0,\mathrm{loc}}$-pseudo-coherent. Since $E$ is acyclic above $n$, one may, after replacing it by an isomorphic complex, suppose it strictly $(m+1)$-$\uC_{0,\mathrm{loc}}$-pseudo-coherent and zero above $n$. Since $E$ has perfect amplitude in $[m,n]$, I, 4.16 implies that $E^m$ is locally an object of $\uC_0$, hence of $\uC_{0,\mathrm{loc}}$. Part c) follows from a), b), and I, 4.12.2; part d) is immediate from I, 4.6.
+\end{prooftext}
+
+\section*{2. Application to certain categories of modules}
+\addcontentsline{toc}{section}{2. Application to certain categories of modules}
+
+\subsection*{2.0. Notation}
+Let $(\uS,\uA)$ be a ringed topos, where $\uA$ is a sheaf of rings, not necessarily commutative. We write $\uC$ for the $\uS$-category of left $\uA$-modules and $\uC_0$ for the sub-$\uS$-category of finite free left $\uA$-modules. Then $\uC$ is flat and $\uC_0$ is locally liftable and locally stable under kernels.
+
+\subsection*{2.1. Lifting lemmas}
+\begin{lemma*}[2.1.1]
+Let $A$ be a ring and let $C$ be the category of left $A$-modules. Let $C_0$ be the full additive subcategory of finite free modules. Then:
+\begin{enumerate}[label=\alph*)]
+\item $C_0$ is liftable in $C$.
+\item $C_0$ is stable under kernels of epimorphisms if and only if every finite left $A$-module is finitely presented.
+\end{enumerate}
+\end{lemma*}
+
+The proof is the elementary lifting argument for free finite modules; b) is the usual kernel criterion for finite presentation.
+
+\begin{lemma*}[2.1.2]
+Let $(\uS,\uA)$ be a ringed topos, $\uC$ the $\uS$-category of left $\uA$-modules, and $\uC_0$ the subcategory of finite free modules. Let $S\in\ob\uS$, and let $\uC'_S$ be a strictly full additive subcategory of $\uC_S$ containing $\uC_{0S}$ and stable under kernels, cokernels, and extensions. Suppose that
+\begin{enumerate}[label=(\roman*)]
+\item $\Ext^1_{\uC_S}(G,F)=0$ for all $F\in\uC'_S$ and all $G\in\uC_{0S}$;
+\item every extension of an object $F\in\uC'_S$ by an object $G\in\uC_S$ such that $\Hom(G,\uA)$ lies in $\uC_{0S}$ and $G$ is locally a direct factor of a finite free module is split.
+\end{enumerate}
+Then $\uC'_S$ is liftable in $\uC_S$.
+\end{lemma*}
+
+\begin{lemma*}[2.1.3]
+Let $A$ and $B$ be abelian categories and let $\theta:A\to B$ be an exact functor.
+\begin{enumerate}[label=\alph*)]
+\item For $M\in A$, the following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item for every $L\in A$, the canonical maps
+\[
+\Ext_A^n(L,M)\longrightarrow \Ext_B^n(\theta L,\theta M)
+\]
+are isomorphisms for all $n$;
+\item for every $L\in A$, the canonical map
+\[
+\Hom_A(L,M)\longrightarrow \Hom_B(\theta L,\theta M)
+\]
+is an isomorphism, and for every $n\ge1$ and every $x\in\Ext_A^n(L,M)$ there is an epimorphism $L'\twoheadrightarrow L$ which kills $x$.
+\end{enumerate}
+\item The following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item for all $L,M\in A$ and all $n$, the canonical map on $\Ext^n$ is an isomorphism;
+\item the canonical functor
+\[
+\D^*(A)\longrightarrow \D^*(B)
+\]
+is fully faithful and has essential image the full subcategory of complexes $F$ such that every $H^i(F)$ lies in the essential image of $\theta$.
+\end{enumerate}
+\end{enumerate}
+\end{lemma*}
+
+\begin{prooftext}
+For a), the implication (i) implies (ii) because a class in $\Ext_A^n(L,M)$ is represented, in Yoneda's interpretation, by an exact sequence
+\[
+0\to M\to E_n\to\cdots\to E_1\to L\to0,
+\]
+and the epimorphism $E_1\twoheadrightarrow L$ kills the class. Conversely, set
+\[
+F^n(L)=\Ext_A^n(L,M),\qquad G^n(L)=\Ext_B^n(\theta L,\theta M).
+\]
+Effaceability gives both $F^n(L)$ and $G^n(L)$, for $n\ge1$, as filtered colimits of the cokernels associated with short exact sequences
+\[
+0\to L''\to L'\to L\to0.
+\]
+Since $F^0\to G^0$ is an isomorphism, induction on $n$ proves that $F^n\to G^n$ is an isomorphism for all $n$. Part b) follows by the standard devissage in the derived category. The dual formulation is obtained by reversing arrows; if the categories have enough injectives, the same conditions are equivalent to the corresponding assertion for $\RHom$ on $\D^-\times\D^+$.
+\end{prooftext}
+
+\subsection*{2.2. Noetherian schemes and divisorial schemes}
+\begin{definition*}[2.2.1]
+For a scheme $S$, let $\Qcoh(S)$ and $\Coh(S)$ denote the categories of quasi-coherent and coherent $\cO_S$-modules. For $E\in\D(\Qcoh(S))$, pseudo-coherence, perfect amplitude, and perfection are understood relative to the fibred category on the Zariski site of $S$ given by $U\mapsto\Loclib(U)$. We write $\D(\Qcoh(S))_{\mathrm{pcoh}}$ and $\D(\Qcoh(S))_{\mathrm{parf}}$ for the corresponding full triangulated subcategories.
+\end{definition*}
+
+\begin{proposition*}[2.2.2]
+Let $S$ be a noetherian scheme. The canonical functor
+\[
+\D^-(\Coh(S))\longrightarrow \D(\Qcoh(S))
+\]
+is fully faithful and has essential image $\D(\Qcoh(S))_{\mathrm{pcoh}}$.
+\end{proposition*}
+
+\begin{prooftext}
+Apply 1.1 on the Zariski site of $S$, with $\uC(U)=\Qcoh(U)$ and $\uC_0(U)=\Coh(U)$. A coherent object is pseudo-coherent, so pseudo-coherence in $\D(\Qcoh(U))$ is the same as pseudo-coherence relative to $\uC_0$. The two hypotheses of 1.1 are the ordinary facts that a quotient of a coherent module is coherent and that every quasi-coherent module on a noetherian scheme is the filtered direct limit of its coherent submodules.
+\end{prooftext}
+
+\begin{corollary*}[2.2.2.1]
+For $S$ noetherian, respectively noetherian of finite dimension, the canonical functor
+\[
+\D^-(\Coh(S))\longrightarrow \D^-(S)
+\quad\text{respectively}\quad
+\D^b(\Coh(S))\longrightarrow \D^b(S)
+\]
+is fully faithful and has essential image $\D^-(S)_{\mathrm{pcoh}}$, respectively $\D^b(S)_{\mathrm{pcoh}}$.
+\end{corollary*}
+
+\begin{proposition*}[2.2.3]
+Let $S$ be quasi-compact and quasi-separated, and let $(\cL_i)_{i\in I}$ be a family of invertible sheaves. For an $\cO_S$-module $F$ and $(i,n)\in I\times\ZZ$, let $F_{(i,n)}$ be the submodule of $F\otimes\cL_i^{\otimes n}$ generated by its global sections. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item the opens $S_f$, where $f\in\Gamma(S,\cL_i^{\otimes n})$, $i\in I$, $n\in\NN$, form a basis for the topology of $S$;
+\item those among the $S_f$ which are affine cover $S$;
+\item every quasi-coherent finite type $\cO_S$-module $F$ admits an epimorphism
+\[
+\bigoplus_{(i,n)}\cL_i^{\otimes -n}\longrightarrow F;
+\]
+\item for every finite type quasi-coherent $F$ and finite type quasi-coherent submodule $F'\subset F$, there are $(i,n)\in I\times\NN^+$ and $u:\cL_i^{\otimes -n}\to F$ with $\Imop(u)\not\subset F'$.
+\end{enumerate}
+\end{proposition*}
+
+\begin{prooftext}
+This is a paraphrase of EGA II, 4.5.2 and 4.5.5. The implication from the existence of affine basic opens to the epimorphism is obtained by extending finitely many local generators after multiplying them by sufficiently high powers of the chosen sections. Conversely, applying the generator condition to ideals defining complements of open neighbourhoods gives the required basic opens.
+\end{prooftext}
+
+\begin{definition*}[2.2.4]
+Such a family $(\cL_i)$ is called ample. A scheme is called divisorial if it admits an ample family of invertible modules.
+\end{definition*}
+
+\begin{lemma*}[2.2.6]
+Let $X$ be locally noetherian and let $U\subset X$ be an open such that, at every maximal point $x$ of $X-U$, one has $\dim\cO_{X,x}\le1$. Then $U$ contains the maximal points of $X$.
+\end{lemma*}
+
+\begin{prooftext}
+Put $Y=X-U$ and localize at a maximal point $x$ of $Y$. The pullback $Y'$ is the closed point of $X'=\Spec\cO_{X,x}$, and $U'$ is affine. If the dimension of $X'$ were at least two, local cohomology would give $H^1_{Y'}(X',\cO_{X'})\ne0$, while affineness of $U'$ forces the relevant higher local cohomology to vanish, a contradiction.
+\end{prooftext}
+
+\begin{proposition*}[2.2.7]
+Every noetherian separated locally factorial scheme is divisorial. In particular every noetherian regular separated scheme is divisorial.
+\end{proposition*}
+
+\begin{prooftext}
+After reducing to the integral case, choose a finite affine open cover $(S_i)$. By the lemma, $S-S_i$ is purely of codimension one, hence the support of an effective divisor. Thus there are invertible sheaves $\cL_i$ and sections $f_i$ such that $S_{f_i}=S_i$. The family $(\cL_i)$ is ample.
+\end{prooftext}
+
+The separatedness hypothesis is essential: the affine plane with the origin doubled has only trivial invertible sheaves, and global functions cannot separate the two origins.
+
+\begin{lemma*}[2.2.8]
+Let $S$ be divisorial, let $(\cL_i)$ be an ample family, and let $\underline L(S)$ be the strictly full additive subcategory of $\Qcoh(S)$ generated by the $\cL_i^{\otimes -n}$, $(i,n)\in I\times\NN^+$. For $E\in\D(\Qcoh(S))$:
+\begin{enumerate}[label=\alph*)]
+\item $\underline L(S)$ and $\Loclib(S)$ are quasi-liftable in $\Qcoh(S)$ and quasi-stable under kernels of epimorphisms.
+\item $E$ is $n$-pseudo-coherent, respectively pseudo-coherent, if and only if it is so relative to $\underline L(S)$ or to $\Loclib(S)$. The canonical functors
+\[
+\K^-(\underline L(S))/\K^{-,\emptyset}(\underline L(S))\to\D(\Qcoh(S))
+\]
+and
+\[
+\K^-(\Loclib(S))/\K^{-,\emptyset}(\Loclib(S))\to\D(\Qcoh(S))
+\]
+are fully faithful and have essential image $\D^-(\Qcoh(S))_{\mathrm{pcoh}}$.
+\item $E$ has perfect amplitude contained in $[m,n]$ if and only if it is isomorphic in $\D(\Qcoh(S))$ to a complex $F$ with $F^i=0$ for $i\notin[m,n]$, with $F^i\in\underline L(S)$ for $i>m$, and with $F^m$ locally free of finite type. Moreover
+\[
+\K^b(\Loclib(S))/\K^{b,\emptyset}(\Loclib(S))\to\D(\Qcoh(S))
+\]
+is fully faithful with essential image $\D(\Qcoh(S))_{\mathrm{parf}}$.
+\end{enumerate}
+\end{lemma*}
+
+\begin{prooftext}
+Given an epimorphism $F\to G$ with $G$ of finite type, take a finite type quasi-coherent submodule $F'\subset F$ still mapping epimorphically to $G$, then cover $F'$ by a sum of negative powers of the ample invertible sheaves. This proves quasi-liftability. The remaining assertions follow from 1.1 applied on the Zariski site, using that objects of $\underline L$ and of $\Loclib$ are pseudo-coherent and using the ampleness criterion above.
+\end{prooftext}
+
+\begin{proposition*}[2.2.9]
+Assume in addition that $S$ is separated or noetherian. Then:
+\begin{enumerate}[label=\alph*)]
+\item The canonical functors
+\[
+\K^{-,b}(\underline L(S))/\K^{-,b,\emptyset}(\underline L(S))\to\D^-(S),
+\qquad
+\K^{-,b}(\Loclib(S))/\K^{-,b,\emptyset}(\Loclib(S))\to\D^-(S)
+\]
+are fully faithful with essential image $\D^-(S)_{\mathrm{pcoh}}$. If $S$ has finite cohomological dimension, the analogous bounded functors are equivalences.
+\item The canonical functor
+\[
+\K^{-,b}(\Loclib(S))/\K^{-,b,\emptyset}(\Loclib(S))\to\D(S)
+\]
+is fully faithful and has essential image $\D(S)_{\mathrm{parf}}$; the same explicit description of perfect amplitude as in 2.2.8 holds in $\D(S)$.
+\end{enumerate}
+\end{proposition*}
+
+This is an immediate consequence of 2.2.8 together with the comparison between $\D(\Qcoh(S))$ and $\D(S)$ in the cases considered.
+
+\begin{remark*}[2.2.10]
+If $S=\Spec A$ is affine, the single sheaf $\cO_S$ is ample and $\underline L(S)=\Lib(S)$. Thus $R\Gamma$ identifies the pseudo-coherent and perfect pieces of $\D(S)$ with the corresponding derived categories of $A$-modules defined by finite free and finite projective modules. In particular, a pseudo-coherent complex with bounded cohomology is locally isomorphic in $\D(S)$ to a strictly pseudo-coherent complex.
+\end{remark*}
+
+\section*{3. End of the comparison with quasi-coherent complexes}
+\addcontentsline{toc}{section}{3. End of the comparison with quasi-coherent complexes}
+
+The coherator, being of finite cohomological dimension, admits a right derived functor
+\[
+\underline RQ:\D(S)\longrightarrow\D(\Qcoh(S)).
+\]
+For $E\in\D(\Qcoh(S))$ there is a functorial canonical isomorphism
+\[
+E\iso \underline RQ(E),
+\]
+because the terms are $Q$-acyclic and satisfy $E^i\iso Q(E^i)$. For $E\in\D(S)$ there is a canonical morphism
+\[
+\underline RQ(E)\longrightarrow E.
+\]
+These morphisms make $\underline RQ$ a right adjoint to the canonical functor
+\[
+\phi:\D(\Qcoh(S))\longrightarrow\D(S).
+\]
+Since the first morphism is an isomorphism, $\phi$ is fully faithful. The spectral sequence
+\[
+R^pQ(H^q(E))\Rightarrow R^*Q(E)
+\]
+shows that the second morphism is an isomorphism for $E\in\D(S)_{\Qcoh}$. Hence the essential image of $\phi$ is $\D(S)_{\Qcoh}$.
+
+\newpage
+\begin{center}
+{\Large\textbf{SGA 6 -- Expose III, continued}}\\[0.35em]
+{\large\textbf{Applications: Base Change and Semi-continuity Theorems}}
+\end{center}
+
+\section*{5. Applications: base change and semi-continuity theorems}
+\addcontentsline{toc}{section}{5. Applications: base change and semi-continuity theorems}
+
+\begin{lemma*}[5.1]
+Let $(X,\cO_X)$ be a commutatively ringed topos, let $\Mod(X)$ be the category of $\cO_X$-modules, and let $E\in\D^-(X)$ and $p\in\ZZ$. Consider:
+\begin{enumerate}[label=\alph*)]
+\item $M\mapsto H^p(E\Ltens M)$ is right exact on $\Mod(X)$;
+\item the canonical map $H^p(E)\otimes M\to H^p(E\Ltens M)$ is an isomorphism for all $M$;
+\item $M\mapsto H^{p+1}(E\Ltens M)$ is left exact;
+\item the canonical map
+\[
+H^{p+1}(E\Ltens M)\to \Hom(H^{-p-1}(E^\vee),M)
+\]
+is an isomorphism for all $M$.
+\end{enumerate}
+Then $a\Leftrightarrow b\Leftrightarrow c\Leftarrow d$. If $E$ is pseudo-coherent, all four conditions are equivalent.
+\end{lemma*}
+
+The map in d) is obtained from the evaluation $E^\vee\Ltens E\to\cO_X$, hence
+\[
+E\Ltens M\to\RHom(E^\vee,M),
+\]
+followed on cohomology by
+\[
+\Ext^{p+1}(E^\vee,M)\to\Hom(H^{-p-1}(E^\vee),M).
+\]
+
+\begin{prooftext}
+The implications $b\Rightarrow a\Leftrightarrow c\Leftarrow d$ are formal. To prove $a\Rightarrow b$, reduce by a presentation of $M$ to the case $M=\cO_{U,X}$. Both sides then identify with extension by zero from $U$, and exactness of $i_!$ gives the result. If $E$ is pseudo-coherent, it suffices for $d$ to test injective $M$. For such $M$ the last displayed map on $\Ext$ is an isomorphism, and the assertion follows from the fact that
+\[
+E\Ltens M\to\RHom(E^\vee,M)
+\]
+is an isomorphism for pseudo-coherent $E$ and injective $M$, after localization, truncation, and devissage to the case $E=\cO_X$.
+\end{prooftext}
+
+\begin{remark*}[5.2]
+These conditions are local on the topos. If $X$ has enough points, they may be checked stalkwise. For a complex represented by flat terms, the criterion recovers the usual EGA III criterion: right exactness is equivalent to flatness of a suitable cokernel. In particular, for a perfect complex the condition for $E$ at degree $p$ is dual to the corresponding condition for $E^\vee$ at degree $-p-1$.
+
+For a quasi-separated scheme $X$ and a complex with quasi-coherent locally bounded cohomology, the same assertions hold after restricting to quasi-coherent modules: the quasi-coherent versions of the four conditions are equivalent in the same way, and for pseudo-coherent $E$ all are equivalent.
+\end{remark*}
+
+\begin{proposition*}[5.3]
+Let $f:X\to Y$ be a morphism of quasi-compact and quasi-separated schemes, let $E\in\D^b(X)$ have quasi-coherent cohomology and finite flat amplitude relative to $f$, and let $p\in\ZZ$. Consider:
+\begin{enumerate}[label=\alph*)]
+\item $M\mapsto R^pf_*(E\Ltens_Y M)$ is right exact on $\Qcoh(Y)$;
+\item the canonical map
+\[
+R^pf_*(E)\otimes M\to R^pf_*(E\Ltens_Y M)
+\]
+is an isomorphism for all quasi-coherent $M$;
+\item $M\mapsto R^{p+1}f_*(E\Ltens_Y M)$ is left exact;
+\item the canonical map
+\[
+R^{p+1}f_*(E\Ltens_Y M)	o\Hom(H^{-p-1}(Rf_*(E)^\vee),M)
+\]
+is an isomorphism for all quasi-coherent $M$;
+\item for every base change $Y'\to Y$, the canonical map
+\[
+R^pf_*(E)\otimes_Y\cO_{Y'}\to H^p(Rf_*(E)\Ltens_Y\cO_{Y'})
+\]
+is an isomorphism.
+\end{enumerate}
+Then $a\Leftrightarrow b\Leftrightarrow c\Leftrightarrow e\Leftarrow d$. If $f$ is proper, $E$ is pseudo-coherent relative to $f$, and the finiteness theorem applies to $f$, these conditions are all equivalent.
+\end{proposition*}
+
+\begin{prooftext}
+The implications involving a), b), c), and d) follow from the projection formula and Lemma 5.1. It remains to compare b) and e). This follows from the following base-change form: if $X$ is quasi-separated and $E\in\D^-(X)$ has locally bounded quasi-coherent cohomology, then the condition of Lemma 5.1 a) is equivalent to requiring
+\[
+H^p(E)\otimes_X\cO_{X'}\to H^p(E\Ltens_X\cO_{X'})
+\]
+to be an isomorphism for every $X'\to X$. The proof is affine: write $X=\Spec A$, $X'=\Spec A'$, and $E=F^{\sim}$, and reduce to
+\[
+H^p(F)\otimes_A A'\to H^p(F\Ltens_A A').
+\]
+Conversely, for a quasi-coherent module $N$ take $A'=D_A(N)$.
+
+If $E$ is pseudo-coherent, the same argument applied to $E^\vee$ gives the compatibility of
+\[
+H^{-p-1}(E^\vee)\otimes_X\cO_{X'}
+\longrightarrow
+H^{-p-1}((E\Ltens_X\cO_{X'})^\vee),
+\]
+which completes the proof.
+\end{prooftext}
+
+\begin{remark*}[5.3.2]
+The proposition applies in particular when $E$ is a bounded complex of quasi-coherent flat $\cO_X$-modules of finite presentation relative to $f$, since such a complex has finite perfect amplitude relative to $f$.
+\end{remark*}
+
+\begin{definition*}[5.4]
+Let $X$ be a topos, $\Pt(X)$ the set of its points, $M$ an ordered set, and $f:\Pt(X)\to M$. We say that $f$ is upper semi-continuous at $x$ (respectively lower semi-continuous, respectively locally constant) if there exists an $x$-pointed object $U$ of $X$ such that, for every point $y$ of $U$, one has $f(y)\le f(x)$ (respectively $f(y)\ge f(x)$, respectively $f(y)=f(x)$). The global notions mean the corresponding pointwise conditions.
+\end{definition*}
+
+If $s\in H^0(X,M)$ is a section of the constant sheaf, then $x\mapsto x^*s$ is locally constant. In a locally ringed topos, a perfect complex has a locally constant rank. If $P$ is a finite type module, then
+\[
+x\longmapsto \rg_{k(x)}(P_x\otimes_{\cO_{X,x}}k(x))
+\]
+is upper semi-continuous, by Nakayama's lemma.
+
+\begin{lemma*}[5.5]
+Let $(X,\cO_X)$ be a locally ringed topos, let $E\in\D^-(X)$, and let $p\in\ZZ$.
+\begin{enumerate}[label=(\roman*)]
+\item If $E$ is perfect, then the vector spaces $H^i(E_x\Ltens_{\cO_{X,x}}k(x))$ are finite-dimensional and zero except for finitely many $i$, and
+\[
+x\mapsto\sum_i(-1)^i\rg_{k(x)}H^i(E_x\Ltens k(x))
+\]
+is locally constant.
+\item If $E$ is $(p-1)$-pseudo-coherent, then $H^p(E_x\Ltens k(x))$ is finite-dimensional and its dimension is upper semi-continuous. If moreover $M\mapsto H^p(E\Ltens M)$ is exact, then $H^p(E)$ is locally free of finite type and the same function is locally constant.
+\item If $E$ is $p$-pseudo-coherent, respectively $(p-1)$-pseudo-coherent, and if the stalk functor $M\mapsto H^p(E_x\Ltens_{\cO_{X,x}}M)$ is right exact, respectively left exact, then this exactness holds on a suitable $x$-pointed neighbourhood.
+\end{enumerate}
+\end{lemma*}
+
+\begin{prooftext}
+For (i), use the compatibility of the rank of a perfect complex with inverse images. For (ii), after truncating and shifting, reduce to a strictly perfect complex concentrated in degrees $[-1,1]$. The Euler characteristic identity reduces upper semi-continuity of $H^0$ to that of the neighbouring cohomology sheaves and to local constancy of rank. Exactness gives flatness, hence finite local freeness, of the relevant cokernels, and the exact sequence
+\[
+0\to H^p(E)\to Z'^p(E)\to E^{p+1}\to Z'^{p+1}(E)\to0
+\]
+then shows that $H^p(E)$ is locally free of finite type. Part (iii) is the same openness argument applied to the flatness of $Z'^p$ or $Z'^{p+1}$ at the chosen point.
+\end{prooftext}
+
+\begin{corollary*}[5.6]
+Let $X$ be a scheme, $p\in\ZZ$, and $E\in\D^-(X)$ a $(p-1)$-pseudo-coherent complex. Then:
+\begin{enumerate}[label=(\roman*)]
+\item $H^p(E\Ltens_X k(x))$ is finite-dimensional over $k(x)$ and
+\[
+x\mapsto\rg_{k(x)}H^p(E\Ltens_X k(x))
+\]
+is constructible and upper semi-continuous on $X$.
+\item If $X$ is quasi-separated and $E$ has locally bounded quasi-coherent cohomology, exactness of $M\mapsto H^p(E\Ltens M)$ on quasi-coherent modules implies that the preceding function is locally constant and that $H^p(E)$ is locally free of finite type. Conversely, if $X$ is locally noetherian and reduced and the function is locally constant, the functor is exact on quasi-coherent modules.
+\end{enumerate}
+\end{corollary*}
+
+\begin{prooftext}
+On each irreducible component the generic point satisfies the exactness condition, hence exactness holds on a non-empty open neighbourhood and the rank is locally constant there. This gives constructibility; the remaining assertions follow from Lemma 5.5 and from the classical EGA III criterion after localization and truncation.
+\end{prooftext}
+
+\begin{proposition*}[5.7]
+Let $f:X\to Y$ be a proper morphism of quasi-compact schemes, let $E\in\D^b(f)_{\mathrm{parf}}$, and let $p\in\ZZ$. Assuming the finiteness theorem applies to $f$ -- for instance if $f$ is projective or $Y$ is noetherian -- one has:
+\begin{enumerate}[label=(\roman*)]
+\item the $H^i(Rf_*E\Ltens_Y k(y))$ are finite-dimensional over $k(y)$ and zero except for finitely many $i$, and their alternating rank is locally constant on $Y$;
+\item $y\mapsto\rg_{k(y)}H^p(Rf_*E\Ltens_Y k(y))$ is constructible and upper semi-continuous;
+\item if $Y$ is quasi-separated and $M\mapsto R^pf_*(E\Ltens_Y M)$ is exact on quasi-coherent modules, then $R^pf_*(E)$ is locally free of finite type and the function in (ii) is locally constant. Conversely, if $Y$ is noetherian and reduced and the function in (ii) is locally constant, the same functor is exact.
+\end{enumerate}
+\end{proposition*}
+
+\begin{prooftext}
+By the finiteness theorem, $Rf_*E$ is perfect. The first two assertions are therefore 5.5 (i) and 5.6 (i), and the third follows from 5.6 (ii) together with the projection formula
+\[
+Rf_*E\Ltens_Y M\iso Rf_*(E\Ltens_Y M).
+\]
+\end{prooftext}
+
+\begin{remark*}[5.8]
+For a fibre inclusion $i_y:X_y\to X$, under the usual flatness or flat-complex hypotheses, Kunneth's formula gives
+\[
+H^i(Rf_*E\Ltens_Y k(y))\iso H^i(X_y,E_y),
+\]
+where $E_y=\mathrm L i_y^*E$ or $i_y^*E$ in the flat case. An analogous analytic theory exists for complex analytic spaces; its essential inputs are Grauert's finiteness theorem for proper maps and the analytic projection formula.
+\end{remark*}
+
+\begin{center}
+\textbf{Bibliography}
+\end{center}
+Grauert, H. \emph{Ein Theorem der Analytischen Garbentheorie}, Publ. IHES, no. 5.\par
+Hartshorne, R. \emph{Residues and Duality}, Lecture Notes in Mathematics, no. 20, Springer, 1966.\par
+Godement, R. \emph{Theorie des faisceaux}, Hermann, 1958.
+
+\newpage
+\begin{center}
+{\Large\textbf{Grothendieck Groups of Ringed Topoi}}\\[0.35em]
+{\large L. Illusie}
+\end{center}
+
+\section*{1. Reminders and generalities on Grothendieck groups}
+\addcontentsline{toc}{section}{1. Reminders and generalities on Grothendieck groups}
+
+\subsection*{1.1}
+Let $C$ be a triangulated category. An application $f$ from $\ob C$ to an abelian group $G$ is called additive if
+\[
+f(E)=f(E')+f(E'')
+\]
+for every distinguished triangle $E'\to E\to E''\to E'[1]$. Additive maps form an abelian group functorial in $G$, represented by an abelian group $k(C)$ and a universal additive map
+\[
+\cl_C:\ob C\to k(C).
+\]
+The group $k(C)$ is functorial in exact functors, and equivalent exact functors induce the same homomorphism.
+
+\begin{lemma*}[1.2]
+For $L\in C$ and $n\in\ZZ$, one has
+\[
+\cl(L[n])=(-1)^n\cl(L).
+\]
+If $L\simeq L'\oplus L''$, then $\cl(L)=\cl(L')+\cl(L'')$. If for some $n$ the coproduct $\coprod_{i\ge0}L[2ni]$ is representable, then $\cl(L)=0$.
+\end{lemma*}
+
+\begin{prooftext}
+The first assertions follow immediately from the definitions. For the last, use
+\[
+\coprod_{i\ge0}L[2ni]\simeq L\oplus\bigl(\coprod_{i\ge0}L[2ni]\bigr)[2n].
+\]
+\end{prooftext}
+
+\begin{lemma*}[1.3]
+If $A$ is a thick subcategory of a triangulated category $C$, then the inclusion and quotient functors give an exact sequence
+\[
+k(A)\longrightarrow k(C)\longrightarrow k(C/A)\longrightarrow0.
+\]
+\end{lemma*}
+
+\begin{lemma*}[1.4]
+Let $A$ be an additive, respectively abelian, category, and let $f$ be additive on $\ob\K^b(A)$, respectively $\ob\D^b(A)$. Then
+\[
+f(E)=\sum_i(-1)^if(E^i),
+\qquad
+\text{respectively}\qquad
+f(E)=\sum_i(-1)^if(H^i(E)).
+\]
+\end{lemma*}
+
+\subsection*{1.5}
+Let $C$ be abelian and let $A$ be a full subcategory stable under finite sums. A map $f:\ob A\to G$ is additive if
+\[
+\sum_i(-1)^if(E^i)=0
+\]
+for every bounded acyclic complex $E$ of $C$ whose components lie in $A$. When $A$ is stable under kernels of epimorphisms this is equivalent to additivity on short exact sequences with terms in $A$. If $\K^{b,\emptyset}(A)$ denotes the thick subcategory of acyclic bounded complexes, then
+\[
+\cl_A:\ob A\to k(\K^b(A)/\K^{b,\emptyset}(A))
+\]
+is universal for such additive maps. We write this group as $k(A)$, or $k(A,C)$ if the ambient abelian category must be specified. In particular $k(\D^b(C))=k(C)$.
+
+\begin{lemma*}[1.6]
+Let $C$ be abelian and let $A$ be a thick abelian subcategory. Let $\D_A(C)$ be the full subcategory of $\D(C)$ consisting of complexes whose cohomology objects lie in $A$. Then $\D_A(C)$ is triangulated, and the canonical functor $\D^b(A)\to\D_A^b(C)$ induces an isomorphism
+\[
+k(A)\iso k(\D_A^b(C)).
+\]
+\end{lemma*}
+
+\begin{prooftext}
+Triangulatedness follows from the long exact cohomology sequence. The inverse map sends $E$ to
+\[
+\sum_i(-1)^i\cl_A(H^i(E)),
+\]
+which is additive, and the assertion follows from Lemma 1.4.
+\end{prooftext}
+
+\begin{definition*}[1.7]
+For a triangulated, respectively abelian, category $C$, a subset $C'\subset\ob C$ is exact if, in every distinguished triangle, respectively short exact sequence, whenever two of the three terms lie in $C'$, so does the third. It is dense if $\ob C$ is the smallest exact subset containing $C'$.
+\end{definition*}
+
+\begin{lemma*}[1.8]
+If $C'\subset\ob C$ is dense, then the classes $\cl_C(E)$ for $E\in C'$ generate $k(C)$.
+\end{lemma*}
+
+\begin{prooftext}
+Let $C_0=C'$ and define $C_i$ inductively by closing under the third term of a triangle or short exact sequence whose other two terms lie in $C_{i-1}$. The subgroups generated by the classes of the $C_i$ are all equal, and the filtration is exhaustive.
+\end{prooftext}
+
+\begin{lemma*}[1.9]
+Let $C$ be abelian and $A$ a full subcategory stable under finite sums, subobjects, and quotients, and suppose $\ob A$ is dense in $\ob C$. Then the homomorphism $k(A,C)\to k(C)$ defined by $E\mapsto\cl_C(E)$ is an isomorphism.
+\end{lemma*}
+
+\section*{2. The functors $K.$ and $K'$ of a ringed topos}
+\addcontentsline{toc}{section}{2. The functors K. and K' of a ringed topos}
+
+\subsection*{2.1}
+Let $(X,A)$ be a ringed topos. We use the following notation: $\D^b({}_AX)_{\mathrm{coh}}$ is the category of pseudo-coherent complexes with bounded cohomology of left $A$-modules; $\D({}_AX)_{\mathrm{parf}}$ is the category of complexes of finite perfect amplitude; $\Loclib({}_AX)$ is the category of left $A$-modules locally direct factors of finite free modules; and $\Coh({}_AX)$ is the category of coherent left $A$-modules.
+
+\begin{definition*}[2.2]
+Unless otherwise stated,
+\[
+K.({}_AX)=k(\D^b({}_AX)_{\mathrm{coh}}),\qquad
+K'({}_AX)=k(\D({}_AX)_{\mathrm{parf}}),
+\]
+and
+\[
+K.({}_AX)_{\mathrm{naive}}=k(\Coh({}_AX)),\qquad
+K'({}_AX)_{\mathrm{naive}}=k(\Loclib({}_AX)).
+\]
+Thus $K.$ is the Grothendieck group of pseudo-coherent complexes and $K'$ the Grothendieck group of perfect complexes; the naive versions are computed directly from coherent, respectively locally free, modules.
+\end{definition*}
+
+If the final object of $X$ is quasi-compact, the local bounded variants coincide with these groups. If $A$ is coherent as a left $A$-module, the canonical map
+\[
+K.({}_AX)_{\mathrm{naive}}\longrightarrow K.({}_AX)
+\]
+is an isomorphism, because coherent modules form a thick abelian subcategory and pseudo-coherent bounded complexes have coherent cohomology.
+
+There is a natural homomorphism
+\[
+K'({}_AX)\longrightarrow K.({}_AX)
+\]
+induced by inclusion of perfect complexes among pseudo-coherent bounded complexes. It is not generally injective or surjective. If the final object is quasi-compact, $X$ has enough points, and all stalk modules have finite Tor-dimension, then
+\[
+\D({}_AX)_{\mathrm{parf}}=\D^b({}_AX)_{\mathrm{coh}},
+\]
+so this map is an isomorphism; for example this holds for compact spaces ringed by regular local rings.
+
+\subsection*{2.6. Pairings}
+Let
+\[
+f:(X',A')\longrightarrow (X,A)
+\]
+be a morphism of ringed topoi. For bimodules left over $A'$ and right over $f^{-1}A$, tensor product induces
+\[
+\Loclib_{A'}({}_{A'}X'_A)\times\Loclib({}_AX)	o\Loclib({}_{A'}X')
+\]
+and hence
+\[
+K'_{\mathrm{naive}}({}_{A'}X'_A)_{A'}\otimes K'_{\mathrm{naive}}({}_AX)	o K'_{\mathrm{naive}}({}_{A'}X').
+\]
+Derived tensor product similarly gives
+\[
+\Ltens_A:
+\D({}_{A'}X'_A)_{A'\mathrm{-parf}}\times \D({}_AX)_{\mathrm{parf}}	o\D({}_{A'}X')_{\mathrm{parf}}
+\]
+and therefore
+\[
+K'({}_{A'}X'_A)_{A'}\otimes K'({}_AX)	o K'({}_{A'}X').
+\]
+The naive and derived pairings are compatible with the canonical maps from naive to derived groups.
+
+\subsection*{2.7. Contravariance and ring structure}
+For a morphism of ringed topoi $f:(X',A')\to(X,A)$, the functor $\mathrm Lf^*$ sends perfect complexes to perfect complexes and gives
+\[
+f^*:K'({}_AX)	o K'({}_{A'}X')
+\]
+with an analogous naive map. These maps satisfy $(gf)^*=f^*g^*$.
+
+If $(X,\cO_X)$ is commutatively ringed, the tensor product makes $K'(X)$ and $K'(X)_{\mathrm{naive}}$ into commutative unital rings, with unit $\cl(\cO_X)$, and the canonical naive-to-derived map is a unital ring homomorphism. Pullback maps are ring homomorphisms.
+
+\subsection*{2.8. Augmentation by rank}
+If $(X,\cO_X)$ is locally ringed, rank defines an augmentation
+\[
+\rg:K'(X)\to H^0(X,\ZZ),
+\]
+compatible with the section $i:H^0(X,\ZZ)\to K'(X)_{\mathrm{naive}}$ defined by locally free modules of prescribed rank. These structures are preserved by inverse image. Later lambda-ring structures refine this augmented algebra structure.
+
+\subsection*{2.9. Comparison of $K'$ and the naive group}
+The canonical map
+\[
+K'(X)_{\mathrm{naive}}\to K'(X)
+\]
+need not be an isomorphism in general. The global resolution criteria of Expose II show that it is an isomorphism in particular when:
+\begin{enumerate}[label=(\roman*)]
+\item $X$ is the Zariski topos of a separated or noetherian divisorial scheme;
+\item $X$ is the topos of a compact space and the sheaf of rings is soft;
+\item $X$ is a Stein topos with quasi-compact final object and $A=\cO_X$.
+\end{enumerate}
+
+\subsection*{2.10. The pairing between $K'$ and $K.$}
+For a commutatively ringed topos,
+\[
+\Ltens: \D(X)_{\mathrm{parf}}\times\D^b(X)_{\mathrm{coh}}	o\D^b(X)_{\mathrm{coh}}
+\]
+defines
+\[
+K'(X)\otimes K.(X)\to K.(X),
+\]
+so that $K.(X)$ is a $K'(X)$-module. If $f:X\to Y$ is a morphism, then $K.(X)$ is also a $K'(Y)$-module via pullback.
+
+\subsection*{2.11. Covariance on $K.$ and the projection formula}
+Let $f:X\to Y$ be proper and pseudo-coherent between quasi-compact schemes. Assuming the finiteness conjecture for $f$ -- for example if $Y$ is noetherian or $f$ is projective -- the functor $Rf_*$ induces
+\[
+f_*:K.(X)\to K.(Y).
+\]
+It is $K'(Y)$-linear: for $y\in K'(Y)$ and $x\in K.(X)$,
+\[
+f_*(yx)=y f_*(x),
+\]
+which follows from the derived projection formula
+\[
+Rf_*(E)\Ltens M\iso Rf_*(E\Ltens_Y M).
+\]
+For a composable proper morphism $g:Y\to Z$ satisfying the same hypotheses, $g_*f_*=(gf)_*$.
+
+The same statements hold for proper morphisms of finite-dimensional analytic spaces by Grauert's finiteness theorem and the analytic projection formula.
+
+\subsection*{2.12. Pullback on $K.$ and pushforward on $K'$}
+If $f:X\to Y$ has finite Tor-dimension, then pullback defines
+\[
+f^*:K.(Y)	o K.(X),
+\qquad
+(gf)^*=f^*g^*.
+\]
+If, in addition, one is in the proper finite-type situation above, then $Rf_*$ sends perfect complexes to perfect complexes and gives
+\[
+f_*:K'(X)	o K'(Y).
+\]
+This is not usually a ring homomorphism, but it satisfies the projection formula
+\[
+f_*(f^*(y)x)=y f_*(x)
+\]
+for $y\in K.(Y)$, respectively $K'(Y)$, and $x\in K'(X)$. For separated divisorial schemes this construction yields the previously non-obvious homomorphism
+\[
+f_*:K'(X)_{\mathrm{naive}}	o K'(Y)_{\mathrm{naive}},
+\]
+which is one of the main motivations for the finiteness and resolution formalism of the preceding exposes.
+
+\section*{3. Complements on Grothendieck groups of schemes}
+\addcontentsline{toc}{section}{3. Complements on Grothendieck groups of schemes}
+
+\begin{proposition*}[3.1.0]
+Let
+\[
+\begin{array}{ccc}
+X & \xleftarrow{g} & X'\\
+f\downarrow && \downarrow f'\\
+Y & \xleftarrow{h} & Y'
+\end{array}
+\]
+be a cartesian square of schemes, with $Y$ quasi-compact and $f$ quasi-compact and quasi-separated. Let $E\in\D^b(X)$ have quasi-coherent cohomology. Suppose $X$ and $Y'$ are Tor-independent over $Y$, and that either $h$ has finite Tor-dimension or $E$ has finite flat amplitude relative to $f$. Then the base-change morphism
+\[
+\mathrm Lh^*Rf_*E\longrightarrow Rf'_*\mathrm Lg^*E
+\]
+is defined and is an isomorphism.
+\end{proposition*}
+
+\begin{prooftext}
+The map is defined using the trivial duality formula for $h$,
+\[
+\Hom(\mathrm Lh^*L,M)\iso\Hom(L,Rh_*M).
+\]
+It is enough to define $Rf_*E\to Rf_*Rg_*\mathrm Lg^*E$, and this is the image under $Rf_*$ of the adjunction map $E\to Rg_*\mathrm Lg^*E$. To prove that the map is an isomorphism, localize first on $Y$ and $Y'$, then use the Leray spectral sequence for an affine open cover of $X$ to reduce to the affine case. The assertion then becomes the ring identity
+\[
+B\Ltens_A A'\iso B'
+\]
+together with Tor-independence, and hence
+\[
+E\Ltens_A A'\iso E\Ltens_B B'.
+\]
+\end{prooftext}
+
+\begin{proposition*}[3.1.1]
+In the cartesian square above, assume $Y$ and $Y'$ quasi-compact, $X$ and $Y'$ Tor-independent over $Y$, $f$ proper and pseudo-coherent, and the finiteness theorem valid for $f$ and $f'$. If $f$ is perfect, respectively if $h$ has finite Tor-dimension, then for $x\in K'(X)$, respectively $x\in K.(X)$,
+\[
+h^*f_*(x)=f'_*g^*(x).
+\]
+\end{proposition*}
+
+\subsection*{3.2. Passage to the limit}
+Let $(X_i,f_{ij})_{i\in I}$ be a filtered projective system of quasi-compact and quasi-separated schemes with affine transition morphisms. Put $X=\varprojlim X_i$ and let $f_i:X\to X_i$ be the canonical morphisms.
+
+\begin{proposition*}[3.2.1]
+The pullback maps induce an isomorphism
+\[
+\varinjlim K'(X_i)_{\mathrm{naive}}\iso K'(X)_{\mathrm{naive}}.
+\]
+\end{proposition*}
+
+Indeed, a locally free module of finite type on $X$ descends to some $X_i$, and its class in the filtered colimit is independent of the descent after increasing $i$.
+
+\begin{proposition*}[3.2.2]
+The canonical map
+\[
+\varinjlim K'(X_i)\longrightarrow K'(X)
+\]
+is an isomorphism.
+\end{proposition*}
+
+This follows from Deligne's localization technique, which identifies the category of perfect complexes on $X$ with the filtered colimit of the corresponding categories on the $X_i$.
+
+\begin{proposition*}[3.2.3]
+If all $X_i$ and $X$ are noetherian and the transition morphisms are flat, then
+\[
+\varinjlim K.(X_i)\iso K.(X).
+\]
+The module structures over $K'_{\mathrm{naive}}$ are compatible with these limit isomorphisms.
+\end{proposition*}
+
+
+\subsection*{3.3. Relative Grothendieck groups}
+Let $S'$ be an $S$-scheme, let $X'$ be an $S'$-scheme, and let $h:X'\to X$ be an $S$-morphism. We assume that inverse image on $X'$ of a vector bundle on $X$ is again a vector bundle on $X'$, so that there is a canonical homomorphism
+\[
+h^*:K^{\bullet}(X)\to K^{\bullet}(X').
+\]
+
+Suppose first that $h:X'\to X$ is a closed immersion. One considers the usual exact localization diagrams and defines
+\[
+K^{\bullet}_{S'/S}(X)=
+\ker\bigl(K^{\bullet}_{S'}(X')\to K^{\bullet}(X'\times_S(S-S'))\bigr).
+\]
+Equivalently, this is the kernel of the natural map from $K^{\bullet}_{S'}(X')$ to $K^{\bullet}(X')$ induced by the inclusion. Pullback by $h$ then gives a homomorphism
+\[
+K^{\bullet}_S(X)\longrightarrow K^{\bullet}_{S'/S}(X)
+\]
+and a commutative diagram with exact rows
+\[
+\begin{array}{ccccccccc}
+0&\to&K^{\bullet}_S(X)&\to&K^{\bullet}(X)&\to&K^{\bullet}(X\times_S(S-S'))&\to&0\\
+&&\downarrow&&\downarrow&&\downarrow&&\\
+0&\to&K^{\bullet}_{S'/S}(X)&\to&K^{\bullet}_{S'}(X')&\to&K^{\bullet}(X'\times_S(S-S'))&\to&0.
+\end{array}
+\]
+If $S'$ is empty this recovers $K^{\bullet}_S(X)$, while for $X=S$ and $X'=S'$ one gets $K^{\bullet}_{S'/S}(S)=0$.
+
+Closed immersions $S''\to S'\to S$ give transition maps
+\[
+K^{\bullet}_{S'/S}(X)\to K^{\bullet}_{S''/S}(X),
+\]
+so that closed immersions over $S$ define a functor to graded abelian groups. If $S'$ is a closed subscheme of $S$, $X'=X\times_SS'$, and $X$ is regular, then
+\[
+K^{\bullet}_{S'/S}(X)\longrightarrow K^{\bullet}_S(X)
+\]
+is an isomorphism. The inverse is obtained from the commutative square relating $K^{\bullet}_S(X)$, $K^{\bullet}_{S'/S}(X)$, $K^{\bullet}(X)$, and $K^{\bullet}_{S'}(X')$.
+
+For a regular scheme $X$ and a closed subscheme $S\subset X$ we write
+\[
+K^{\bullet}_S(X)=K^{\bullet}(X\text{ on }S).
+\]
+If $S'\subset S$ is closed, there is a commutative diagram of exact sequences
+\[
+\begin{array}{ccccccccc}
+0&\to&K^{\bullet}_{S'}(X)&\to&K^{\bullet}_S(X)&\to&K^{\bullet}_{S-S'}(X-S')&\to&0\\
+&&\downarrow&&\downarrow&&\downarrow&&\\
+0&\to&K^{\bullet}(S')&\to&K^{\bullet}(S)&\to&K^{\bullet}(S-S')&\to&0.
+\end{array}
+\]
+The support of an element of $K^{\bullet}(X)$ is the smallest closed subset $Z$ such that the element comes from $K^{\bullet}_Z(X)$; the group $K^{\bullet}(X)$ is the union of the subgroups $K^{\bullet}_Z(X)$ as $Z$ runs through closed subsets of $X$.
+
+\begin{center}\textbf{Bibliography}\end{center}
+A. Borel and J.-P. Serre, \emph{Le theoreme de Riemann-Roch}, Bull. Soc. Math. France 86 (1958), 97--136.\par
+R. Bott, \emph{Lectures on $K(X)$}, Benjamin, 1969.\par
+A. Grothendieck, \emph{La theorie des classes de Chern}, Bull. Soc. Math. France 86 (1958), 137--154.\par
+A. Grothendieck, \emph{Classes de faisceaux et theoreme de Riemann-Roch}, mimeographed notes, Princeton, 1957.\par
+M. Karoubi, \emph{Espaces classifiants en $K$-theorie}, Trans. Amer. Math. Soc. 147 (1970), 75--115.\par
+Yu. Manin, \emph{Lectures on the $K$-functor in algebraic geometry}, Russian Math. Surveys 24 (1969), 1--89.
+
+\newpage
+\begin{center}
+{\Large\textbf{SGA 6 -- Expose V}}\\[0.35em]
+{\large\textbf{Generalities on $\lambda$-rings}}\\[0.25em]
+{\large P. Berthelot}
+\end{center}
+
+This paper contains reminders and clarifications on Grothendieck's notion of a $\lambda$-ring. It also corrects and supplements the exposition in the cited source, adding material needed later in the seminar.
+
+\section*{1. Universal polynomials}
+\addcontentsline{toc}{section}{1. Universal polynomials}
+Let $\mathcal C_0$ be the category of commutative rings with unit. We shall use polynomial laws with integral coefficients in finite or infinite families of indeterminates. For indeterminates $X_1,\ldots,X_n$ put
+\[
+\sigma_i^{(n)}(X_1,\ldots,X_n)=
+\sum_{1\le k_1<\cdots<k_i\le n}X_{k_1}\cdots X_{k_i},
+\]
+the elementary symmetric functions.
+
+For two families $X$ and $Y$, the universal polynomials $P_n$ are defined by
+\[
+\prod_{i,j}(1+X_iY_jT)
+=\sum_{n\ge0}P_n(\sigma_1(X),\ldots,\sigma_n(X);\sigma_1(Y),\ldots,\sigma_n(Y))T^n.
+\]
+Each $P_n$ is isobaric of weight $n$ with respect to both families of elementary symmetric functions.
+
+If $Y_i=X_i^s$, then
+\[
+\sigma_i(Y_1,\ldots,Y_n)=Q_{i,s}(\sigma_1(X),\ldots,\sigma_i(X)),
+\]
+where $Q_{i,s}$ is a universal isobaric polynomial of weight $is$. Similarly, if the variables $Z$ are the products $X_iY_j$, then
+\[
+\sigma_k(Z)=R_{n,m,k}(\sigma_1(X),\ldots,\sigma_n(X);\sigma_1(Y),\ldots,\sigma_m(Y)),
+\]
+with $R_{n,m,k}$ universal and isobaric of weight $k$. We shall also use universal polynomials $C_{n,m,k}$ governing elementary symmetric functions of sums of variables.
+
+An augmented-ring functor is a functor $F$ from $\mathcal C_0$ to commutative unital rings equipped with a natural augmentation $F\to\operatorname{id}$. We write $F(A)_+$ for the kernel of $F(A)\to A$, so that $F(A)=A\oplus F(A)_+$. The category of $F$-algebras consists of rings $A$ equipped with an augmentation $F(A)\to A$, with morphisms compatible with these structures.
+
+\section*{2. Pre-$\lambda$-rings}
+\addcontentsline{toc}{section}{2. Pre-lambda-rings}
+Let $K$ be a commutative ring with unit. A pre-$\lambda$-ring structure on $K$ is a homomorphism of abelian groups
+\[
+\lambda_t:K\longrightarrow 1+K[[t]]_+
+\]
+where the target is made into a multiplicative group. Traditionally one writes
+\[
+\lambda_t(x)=\sum_{i\ge0}\lambda^i(x)t^i,
+\]
+with $\lambda^0(x)=1$ and $\lambda^1(x)=x$.
+
+For a scheme $X$, the Grothendieck group of vector bundles $K^{\bullet}(X)$ has such a structure, where $\lambda^i$ is induced by exterior powers. More generally the Grothendieck group of a suitable exact category has the same structure.
+
+The universal polynomials define on $1+K[[t]]_+$ a multiplication
+\[
+(1+\sum a_it^i)\circ(1+\sum b_jt^j)
+=1+\sum_{n\ge1}P_n(a_1,\ldots,a_n;b_1,\ldots,b_n)t^n,
+\]
+with unit $1+t$, and analogous formulas define the operations $\lambda^i$. With this notation
+\[
+\lambda_t(xy)=\lambda_t(x)\circ\lambda_t(y),
+\]
+so that $\lambda_t$ is multiplicative for this universal product.
+
+One also defines universal polynomials $L_n$ by
+\[
+\lambda_t(1+\sum x_it^i)=1+\sum_{n\ge1}L_n(x_1,\ldots,x_n)t^n.
+\]
+Finally the Adams operations are introduced by
+\[
+\psi_t(x)=-t\frac{d}{dt}\log\lambda_{-t}(x)=\sum_{n\ge1}\psi^n(x)t^n.
+\]
+They are additive endomorphisms satisfying
+\[
+\psi^1(x)=x,
+\qquad
+\psi^m(x+y)=\psi^m(x)+\psi^m(y),
+\qquad
+\psi^m(xy)=\psi^m(x)\psi^m(y).
+\]
+If $x$ has dimension $1$, meaning $\lambda^i(x)=0$ for $i\ge2$, then $\psi^m(x)=x^m$.
+
+\end{document}

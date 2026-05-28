@@ -1,12 +1,12 @@
-# Validation - translation segment
+# Validation - working draft section
 
 ## LaTeX compilation
 
-Fresh translation segment TeX compiled successfully with `pdflatex` after the terminology pass standardizing French `quarrable` as `base-changeable`.
+Fresh working draft section TeX compiled successfully with `pdflatex` after the terminology pass standardizing French `quarrable` as `base-changeable`.
 
 Fresh PDF:
 
-- `02_new_translation_latex/translation segment/SGA4_Expose_I_section_10_and_appendix_universes_en.pdf`
+- `02_new_translation_latex/working draft section/SGA4_Expose_I_section_10_and_appendix_universes_en.pdf`
 - Page count: 20
 
 Cumulative SGA 4 Expose I PDF:
@@ -18,9 +18,9 @@ Cumulative SGA 4 Expose I PDF:
 
 Rendered PNG checks are included under:
 
-- `04_render_checks/translation segment/SGA4_Expose_I_section_10_and_appendix_universes_render/` (all fresh pages)
-- `04_render_checks/translation segment/SGA4_Expose_I_section_10_appendix_render/` (fresh sample pages 1, 10, 20)
-- `04_render_checks/translation segment/SGA4_Expose_I_sections_0_to_end_cumulative_sample_render/` (cumulative pages 1, 103, 104, 123)
+- `04_render_checks/working draft section/SGA4_Expose_I_section_10_and_appendix_universes_render/` (all fresh pages)
+- `04_render_checks/working draft section/SGA4_Expose_I_section_10_appendix_render/` (fresh sample pages 1, 10, 20)
+- `04_render_checks/working draft section/SGA4_Expose_I_sections_0_to_end_cumulative_sample_render/` (cumulative pages 1, 103, 104, 123)
 
 The fresh PDF was rendered pagewise; the cumulative PDF was rendered at the beginning, join, and final sample pages.
 
