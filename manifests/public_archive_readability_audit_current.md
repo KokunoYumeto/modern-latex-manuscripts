@@ -8,7 +8,7 @@ Generated: 2026-05-29T03:33:13
 |---|---:|---:|---:|---:|---:|---|---|
 | main | [20436971](https://zenodo.org/records/20436971) | 100 | 53 | 45 | 20698.65 | none | 0 |
 | ega | [20434859](https://zenodo.org/records/20434859) | 14 | 9 | 3 | 462.28 | none | 0 |
-| sga | [20441206](https://zenodo.org/records/20441206) | 58 | 37 | 20 | 586.77 | none | 0 |
+| sga | [20446071](https://zenodo.org/records/20446071) | 58 | 37 | 20 | 586.77 | none | 0 |
 | non_european_consolidated | [20436420](https://zenodo.org/records/20436420) | 74 | 66 | 7 | 4090.3 | none | 0 |
 | chinese | [20435670](https://zenodo.org/records/20435670) | 29 | 27 | 1 | 121.81 | none | 0 |
 | indian_sanskrit | [20435677](https://zenodo.org/records/20435677) | 13 | 11 | 1 | 699.28 | none | 0 |
@@ -17,8 +17,8 @@ Generated: 2026-05-29T03:33:13
 | weber | [20436635](https://zenodo.org/records/20436635) | 6 | 4 | 1 | 19.67 | none | 0 |
 | noether | [20436637](https://zenodo.org/records/20436637) | 4 | 2 | 1 | 19.55 | none | 0 |
 | riemann | [20434317](https://zenodo.org/records/20434317) | 4 | 2 | 2 | 52.35 | none | 0 |
-| gauss | [20433382](https://zenodo.org/records/20433382) | 10 | 8 | 1 | 166.2 | none | 0 |
-| deligne | [20414959](https://zenodo.org/records/20443168) | 93 | 91 | 1 | 207.28 | none | 0 |
+| gauss | [20444827](https://zenodo.org/records/20444827) | 10 | 8 | 1 | 166.2 | none | 0 |
+| deligne | [20414959](https://zenodo.org/records/20445997) | 93 | 91 | 1 | 207.28 | none | 0 |
 | classical_algebra_arithmetic | [20418609](https://zenodo.org/records/20418609) | 23 | 21 | 1 | 193.5 | none | 0 |
 | additional_author_cluster | [20416839](https://zenodo.org/records/20442003) | 12 | 10 | 1 | 137.78 | none | 0 |
 
@@ -47,7 +47,7 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `15 EGA IV Part 2 - French Original (NUMDAM PMIHES 24, 1965).pdf`
 - `00 EGA - English Translation Working Draft.pdf`
 
-### sga (20441206)
+### sga (20446071)
 - `40 SGA 1 - French Reference PDF.pdf`
 - `16 SGA 4 - Expose VII Complete English Draft.pdf`
 - `44 SGA 3 Part 3 - French Reference PDF.pdf`
@@ -127,7 +127,7 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `10 Reader PDF - Riemann - Selected Papers.pdf`
 - `90 Artifacts - Riemann - Gesammelte Werke Complete Draft.zip`
 
-### gauss (20433382)
+### gauss (20444827)
 - `07 Carl Friedrich Gauss - Individual Papers - Modern LaTeX Draft.pdf`
 - `80 Carl Friedrich Gauss - TeX Sources, Component PDFs, and Audits.zip`
 - `04 Carl Friedrich Gauss - Werke, Band VI - Modern LaTeX Draft.pdf`

@@ -1,0 +1,775 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\setlist[enumerate]{leftmargin=*}
+\newcommand{\Qbar}{\overline{\mathbf Q}}
+\newcommand{\Ql}{\mathbf Q_\ell}
+\newcommand{\Fq}{\mathbf F_q}
+\newcommand{\F}{\mathbf F}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\A}{\mathbf A}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Frob}{\operatorname{Frob}}
+\newcommand{\Fr}{\operatorname{Fr}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Norm}{\operatorname{N}}
+\newcommand{\red}{\operatorname{red}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\detm}{\operatorname{det}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\bigw}{\bigwedge}
+\newcommand{\barE}{\overline E}
+\newcommand{\barM}{\overline M}
+\newcommand{\hhat}{\widehat{}}
+\title{Counting \(\ell\)-adic Sheaves}
+\author{Pierre Deligne\\English working translation}
+\date{}
+\begin{document}
+\maketitle
+\begin{center}
+To Gerard Laumon, on the occasion of his sixtieth birthday.
+\end{center}
+
+\section{Introduction}
+
+\subsection{1.1}
+Let \(X_0\) be a smooth, projective, absolutely connected curve of genus \(g\) over a finite field \(\Fq\) of characteristic \(p\), and let \(X\) be obtained from it by extension of scalars to an algebraic closure \(\F\) of \(\Fq\):
+\begin{equation}\tag{1.1.1}
+\begin{tikzcd}
+X \arrow[r] \arrow[d] & X_0 \arrow[d]\\
+\Spec(\F) \arrow[r] & \Spec(\Fq).
+\end{tikzcd}
+\end{equation}
+The endomorphism of \(X_0\) which is the identity on the underlying topological space and sends \(f\mapsto f^q\) on the structure sheaf is an endomorphism of the \(\Fq\)-scheme. We write \(\Frob\) for the endomorphism of the \(\F\)-scheme \(X\) obtained from it by extension of scalars. This is the Frobenius endomorphism of \(X\).
+Fix a prime number \(\ell\ne p\), an algebraic closure \(\Qbar_\ell\) of \(\Ql\), and let \(E\) be the set of isomorphism classes of irreducible lisse \(\Qbar_\ell\)-sheaves of rank \(2\) on \(X\). Inverse image by \(\Frob\) induces a permutation of \(E\). We denote it by \(V\).
+
+\subsection{1.2}
+In the article \([\mathrm{Dr}]\), which remains as mysterious to me as it was thirty-one years ago, Drinfeld computes the number of fixed points of \(V:E\to E\).
+A lisse \(\Qbar_\ell\)-sheaf \(L_0\) of rank one on \(\Spec(\Fq)\) is determined up to isomorphism by the unit \(\lambda\in\Qbar_\ell^*\) by which the geometric Frobenius \(\Fr\in\Gal(\F/\Fq)\) acts on the fibre of \(L_0\) at the geometric point \(\Spec(\F)\). The \(\Fq\)-twist of \(F_0\) on \(X_0\) by \(L_0\) is the tensor product with the inverse image of \(L_0\) on \(X_0\). By abuse of language, we shall also say ``\(\Fq\)-twist by \(\lambda\).''
+
+Drinfeld uses the fact that the isomorphism class of a lisse \(\Qbar_\ell\)-sheaf \(F\) on \(X\) is fixed by \(\Frob^*\) if and only if \(F\) is the inverse image of a \(\Qbar_\ell\)-sheaf \(F_0\) on \(X_0\), and that, if \(F\) is irreducible, \(F_0\) is unique up to \(\Fq\)-twist. The problem solved in \([\mathrm{Dr}]\) is thus to count lisse \(\Qbar_\ell\)-sheaves of rank \(2\) on \(X_0\), taken up to \(\Fq\)-twist, considering only those which are irreducible and remain so after inverse image on \(X\).
+
+In 1981 one almost had the correspondence between irreducible lisse \(\Qbar_\ell\)-sheaves of rank \(2\) on \(X_0\) and everywhere unramified cuspidal automorphic representations for \(\GL(2,k(X_0))\). Thanks to this, Drinfeld reduced the problem to an application of the trace formula for \(\GL(2)\). This reduction shows that the desired number is independent of \(\ell\). The formula obtained by Drinfeld has the following miraculous properties (A) and (B).
+
+For \(n\ge 1\), let \(N_n\) be the number of fixed points of the \(n\)-th iterate \(V^n:E\to E\) of \(V\). Computing \(N_n\) is the above problem with \(X_0/\Fq\) replaced by \((X_0\otimes_{\Fq}\mathbf F_{q^n})/\mathbf F_{q^n}\).
+
+(A) The function \(n\mapsto N_n\) has the form
+\begin{equation}\tag{1.2.1}
+N_n=\sum a_i\beta_i^n,
+\end{equation}
+for integers \(a_i\) and suitable Weil numbers \(\beta_i\). The \(\beta_i\) are monomials in \(q\) and in the eigenvalues of the endomorphism \(\Frob^*\) of \(H^1(X,\Qbar_\ell)\). Once the genus \(g\) is fixed, which monomials \(\beta_i\) occur, and with what multiplicities \(a_i\), is independent of the curve under consideration.
+
+The trace formula expresses \(N_n\) as the sum of several terms. Taken separately, these terms do not all have the form \((1.2.1)\).
+
+Let \(P\) be a compact Riemann surface of genus \(g\). Consider complex local systems of vector spaces on \(P\). Let \(M\) be the moduli space of those which are irreducible of rank \(2\). The space \(M\) and the set \(E\) are empty if \(g=0\) or \(1\). Otherwise \(M\) is a connected complex symplectic variety. Its complex dimension is therefore an even integer \(2N\).
+
+(B) In \((1.2.1)\), the dominant term is \(q^N\): one of the \(\beta_i\) is \(q^N\), its multiplicity \(a_i\) is \(1\), and the other \(\beta_i\) satisfy \(|\beta_i|<q^N\).
+
+\subsection{1.3}
+Formula \((1.2.1)\) is reminiscent of a Lefschetz trace formula in which, in good cases, the number of fixed points of the iterates \(T^n\) (\(n\ge 1\)) of an endomorphism \(T\) of a space \(S\) is
+\begin{equation}\tag{1.3.1}
+\Tr(T^{*n},H^*_?(S)):=\sum (-1)^i\Tr(T^{*n},H^i_?(S)).
+\end{equation}
+The question mark is there to recall that one must consider a cohomology with support conditions. The support conditions to be imposed depend on the behaviour of \(T\) at infinity. For example, if for an exhaustion function \(f\) on \(S\) one has \(f(T(x))>f(x)\) (respectively \(f(T(x))<f(x)\)) for \(f(x)\) sufficiently large, the cohomology to consider is compactly supported cohomology (respectively ordinary cohomology).
+
+Assume that \(H^*_?\) is finite-dimensional so that \((1.3.1)\) makes sense. The right hand side of \((1.3.1)\) is then of the form \((1.2.1)\): it is \(\sum a(\beta)\beta^n\), where \(\beta\) ranges over the eigenvalues of \(T^*\) and the integer \(a(\beta)\) is the alternating sum of the multiplicities of \(\beta\) as an eigenvalue of the endomorphisms \(T^*\) on the \(H^i_?(S)\).
+
+Unfortunately I have no idea how to regard the set \(E\) of isomorphism classes of irreducible lisse \(\Qbar_\ell\)-sheaves of rank \(2\) on \(X\) as a ``space'' having a cohomology \(H^*_?(E)\) for which one could hope that the number of fixed points of \(V^n\) is given by a formula of type \((1.3.1)\).
+
+\subsection{1.4}
+Even though one does not know how to think geometrically of \(E\), if \(f\in E\) is the isomorphism class of \(F\), one knows what the formal completion \(\widehat E_f\) of \(E\) at \(f\) should be. A finite-dimensional local \(\Qbar_\ell\)-algebra \(\Lambda\) is augmented over \(\Qbar_\ell\). A deformation of \(F\) over \(\Spec(\Lambda)\) is a lisse \(\Qbar_\ell\)-sheaf \(F_\Lambda\) on \(X\), endowed with a \(\Lambda\)-module structure and an isomorphism
+\[
+F_\Lambda\otimes_\Lambda \Qbar_\ell \xrightarrow{\sim} F,
+\]
+such that at one point \(x\) (and therefore at every point \(x\) of \(X\)), \((F_\Lambda)_x\) is a free \(\Lambda\)-module.
+
+The functor on \(\Spec(\Lambda)\) of isomorphism classes of deformations of \(F\) over \(\Spec(\Lambda)\) is pro-representable. Let \(R_F\) be the complete local \(\Qbar_\ell\)-algebra with residue field \(\Qbar_\ell\) such that \(\operatorname{Spf}(R_F)\) pro-represents it. There are no obstructions to deformations, and \(R_F\) is therefore isomorphic to a formal power series algebra \(\Qbar_\ell[[t_1,\ldots,t_m]]\).
+
+Because \(F\) is irreducible, its only automorphisms are multiplications by \(\lambda\in\Qbar_\ell^*\). They extend to every deformation. If \(F\) and \(F'\) are two representatives of the isomorphism class \(f\), two isomorphisms from \(F\) to \(F'\) therefore induce the same isomorphism between \(R_F\) and \(R_{F'}\). Thus \(\widehat E_f:=\operatorname{Spf}(R_F)\) depends, up to unique isomorphism, only on \(f\).
+
+The Zariski tangent space of \(\widehat E_f\) at \(f\) is \(H^1(X,\End(F))\). The symmetric bilinear form \(\Tr(fg)\) on \(\End(F)\) is a self-duality. It induces on \(H^1(X,\End(F))\) a symplectic form with values in \(H^2(X,\Qbar_\ell)=\Qbar_\ell(-1)\). The same construction over \(\mathbf C\) gives the symplectic structure of \(M\). The formal completion \(\widehat E_f\) is therefore smooth of even dimension, the same as that of \(M\).
+
+The inverse-image functor by \(\Frob:X\to X\) transforms deformations of \(F\) into deformations of \(\Frob^*F\). It therefore induces a morphism
+\[
+\widehat V_f:\widehat E_f\longrightarrow \widehat E_{V(f)}.
+\]
+The argument showing that, because \(\Frob\) induces an equivalence of etale sites, \(V\) is bijective, also shows that the \(\widehat V_f\) are isomorphisms. Another proof is as follows. Let \(\omega\) be the symplectic form defined above on the tangent space at \(f\). If \([t]\in H^1(X,\End(F))\) is the class of the tangent vector \(t\) at \(F\), the class of \(d\widehat V_f(t)\) in \(H^1(X,\End(\Frob^*F))\) is \(\Frob^*([t])\). For two tangent vectors \(t_1,t_2\), \(\omega(d\widehat V_f(t_1),d\widehat V_f(t_2))\) is thus the inverse image, by \(\Frob^*\), of \(\omega(t_1,t_2)\in\Qbar_\ell(-1)\), identified with \(H^2(X,\Qbar_\ell)\). Since \(\Frob:X\to X\) has degree \(q\), the endomorphism \(\Frob^*\) of \(H^2(X,\Qbar_\ell)\) is multiplication by \(q\), and
+\[
+\omega(d\widehat V_f(t_1),d\widehat V_f(t_2))=q\,\omega(t_1,t_2),
+\]
+which is also written \((d\widehat V_f)^*\omega=q\omega\). The differential \(d\widehat V_f\) is therefore an isomorphism.
+
+The map \(d\widehat V_f\) between Zariski tangent spaces is identified with
+\[
+\Frob^*:H^1(X,\End(F))\longrightarrow H^1(X,\End(\Frob^*F)).
+\]
+If \(f\) is a fixed point of \(V\), then \(F\) is the inverse image of \(F_0\) on \(X_0\). One knows that \(F_0\) may be chosen pure, and \(\End(F_0)\) is therefore pure of weight \(0\). The eigenvalues of \(d\widehat V_f\) on the Zariski tangent space of \(\widehat E_f\) at \(f\) are therefore Weil numbers of weight \(1\). In particular no eigenvalue of \(d\widehat V_f\) at \(f\) is equal to \(1\). This is what makes it reasonable that a Lefschetz-type formula \((1.3.1)\) might count the fixed points of \(V^n\), all taken with multiplicity one.
+
+\subsection{1.5}
+If \(Y_0\) is a scheme of finite type over \(\Fq\), the Frobenius endomorphism \(\Frob\) of \(Y:=Y_0\otimes_{\Fq}\F\) induces a permutation \(\Frob\) of \(Y(\F)\). The preceding discussion shows that the nature of \((E,V)\) is different from that of \((Y,\Frob)\):
+\begin{enumerate}[label=(\roman*)]
+\item \(E\) is ``over \(\Qbar_\ell\),'' hence an object of characteristic \(0\).
+\item The \(\widehat V_f\) are isomorphisms. One would like to say that \(V\) has ``degree one.''
+\item The fixed points of \(V\) are isolated because the eigenvalues of \(dV\) at a fixed point are Weil numbers of weight \(1\). The fixed points of \(\Frob\) are isolated because \(d\Frob=0\).
+\item If \(E\) has dimension \(2N\), in the sense that the \(\widehat E_f\) do, the order of magnitude of the number of fixed points of \(V^n\) is \((q^n)^N\), rather than \((q^n)^{2N}\).
+\end{enumerate}
+
+\subsection{1.6}
+The moduli space \(M\) is a complex algebraic variety. Contrary to what a hasty analogy might suggest, \(E\) is not naturally the space of \(\Qbar_\ell\)-points of an algebraic variety over \(\Qbar_\ell\). Let \(x\in X(\F)\). The set \(E\) is identified with the set of isomorphism classes of continuous irreducible representations \(V\) of \(\pi_1(X,x)\), of dimension \(2\) over \(\Qbar_\ell\). As coordinates on \(E\), one would like to take the \(\Tr(\gamma,V)\) for \(\gamma\in\pi_1(X,x)\). In the complex case this construction gives \(M\) its ``Betti'' structure as a complex algebraic variety. Here, since \(\pi_1(X,x)\) is a profinite group, every representation \(V\) admits an invariant lattice, and the \(\Tr(\gamma,V)\) take their values in the valuation ring \(\overline{\mathbf Z}_\ell\) of the valued field \(\Qbar_\ell\).
+
+The point of view ``\(E\) as a space of representations of \(\pi_1(X,x)\)'' also does not help one understand that the number of fixed points of \(V\) is independent of \(\ell\). Another mystery: why, once the genus \(g\) is fixed, does the number of fixed points of \(V\) admit a uniform description in terms of \(H^1(X,\Qbar_\ell)\), of its symplectic structure with values in \(\Qbar_\ell(-1)\), and of its endomorphism \(\Frob^*\), whereas \(\pi_1(X,x)\) is a quotient of the profinite completion of the topological \(\pi_1\) of \(P\), which quotient depends on \(X\)?
+
+\subsection{1.7}
+Let \(E_r\) be the set of isomorphism classes of irreducible lisse \(\Qbar_\ell\)-sheaves of rank \(r\) on \(X\). Thanks to Lafforgue \([L]\), the number of fixed points of the bijection \(\Frob^*:E_r\to E_r\) has an automorphic interpretation. For \(S_0\subset X_0\) a finite set of closed points of \(X\), and \(S=S_0\otimes_{\Fq}\F\), one may also consider irreducible lisse \(\Qbar_\ell\)-sheaves on \(X-S\), with prescribed ramification at each \(s\in S\). In all cases that have been computed, the miracles (A) and (B) discovered by Drinfeld persist, mutatis mutandis. The aim of the talk is to give a panorama of what is known.
+
+\section{What is to be counted?}
+
+\subsection{2.1}
+Fix an integer \(r\ge 1\), and let \(X_0,S_0/\Fq\) and \(X,S/\F\) be as in 1.1 and 1.7. For \(s\in S\), let \(X_{(s)}\) be the henselization of \(X\) at \(s\) and \(X^*_{(s)}:=X_{(s)}-\{s\}\). Suppose given, for each \(s\in S\), a lisse \(\Qbar_\ell\)-sheaf of rank \(r\), denoted \(R(s)\), on \(X^*_{(s)}\). Only its isomorphism class matters. The morphism \(\Frob:X\to X\) induces a morphism, again denoted \(\Frob\), from \(X^*_{(s)}\) to \(X^*_{(\Frob(s))}\). We assume that, for every \(s\in S\), \(R(s)\) is isomorphic to the inverse image of \(R(\Frob(s))\) by \(\Frob\):
+\begin{equation}\tag{2.1.1}
+R(s)\simeq \Frob^*(R(\Frob(s))).
+\end{equation}
+Let \(R:=(R(s))_{s\in S}\) be the family of the \(R(s)\), and write \(E(R)\) for the set of isomorphism classes of irreducible lisse \(\Qbar_\ell\)-sheaves \(F\) of rank \(r\) on \(X-S\) such that, for every \(s\in S\), the inverse image \(F|_{X^*_{(s)}}\) of \(F\) on \(X^*_{(s)}\) is isomorphic to \(R(s)\). Hypothesis \((2.1.1)\) ensures that inverse image by \(\Frob\) induces a permutation of \(E(R)\). We denote this permutation by \(V\).
+
+Our choice of the letter \(V\), the first letter of ``Verschiebung,'' is due to an analogy with the case of certain abelian varieties, explained in 2.2 below. In that analogy \(q\) is classically a prime number, rather than a power of a prime number.
+
+\subsection{2.2}
+For any scheme \(Y\) over \(\Fq\), let \(\Frob_Y\) be the endomorphism of the \(\Fq\)-scheme \(Y\) which is the identity on the underlying topological space and which on the structure sheaf is given by \(\Frob_Y^*(f)=f^q\). This is the Frobenius endomorphism of \(Y\).
+
+Take for \(Y\) the abelian variety \(\Pic^0(X_0)\) over \(\Fq\). We obtain
+\begin{equation}\tag{2.2.1}
+\Frob_{\Pic^0(X_0)}:\Pic^0(X_0)\to\Pic^0(X_0).
+\end{equation}
+The Jacobian \(\Pic^0(X_0)\) represents the following functor on \(\Fq\)-schemes: the sheaf (for the Zariski topology, or for the etale topology; it is the same) associated to the presheaf attaching to \(S\) the group \(\Pic^0(S\times_{\Fq}X_0)\) of invertible sheaves on \(S\times_{\Fq}X_0\), of degree zero on each fibre of the projection to \(S\). If \(f:Y_0\to X_0\) is a morphism, inverse image of invertible sheaves by \(f\) defines a morphism \(f^*:\Pic^0(X_0)\to\Pic^0(Y_0)\).
+
+Take for \(f\) the endomorphism \(\Frob_{X_0}\) of \(X_0\). The endomorphism \(\Frob_{X_0}^*\) of \(\Pic^0(X_0)\) deserves to be called \(V\), for it satisfies
+\begin{equation}\tag{2.2.2}
+\Frob_{X_0}^*\circ \Frob_{\Pic^0(X_0)}=\Frob_{\Pic^0(X_0)}\circ \Frob_{X_0}^*=q.
+\end{equation}
+Proof of \((2.2.2)\). Interpret \((2.2.2)\) as two equalities between endomorphisms of the functor represented by \(\Pic^0(X_0)\). For any contravariant functor \(G\) on the category of \(\Fq\)-schemes, the Frobenius endomorphism \(\Frob_G\) of \(G\) is defined by
+\[
+\Frob_G(S):G(S)\to G(S),\qquad \text{namely }G(\Frob_S).
+\]
+If \(G\) is represented by \(Y\), \(\Frob_G\) is induced by \(\Frob_Y\).
+
+Take for \(G\) the functor \(S\mapsto\Pic(S\times_{\Fq}X_0)\) of isomorphism classes of invertible sheaves on \(S\times_{\Fq}X_0\). The endomorphism \(\Frob_G(S)\) of \(\Pic(S\times_{\Fq}X_0)\) is inverse image of isomorphism classes of invertible sheaves by \(\Frob_S\times\id_{X_0}:S\times_{\Fq}X_0\to S\times_{\Fq}X_0\). If one composes this inverse image with the inverse image by \(\Frob_{X_0}\), one obtains inverse image by \(\Frob_{S\times_{\Fq}X_0}\), which is nothing other than raising to the \(q\)-th tensor power. Restricting to invertible sheaves of degree zero on the fibres of the projection to \(S\), and passing from the presheaf obtained to the associated sheaf, gives \((2.2.2)\).
+
+If now one extends scalars from \(\Fq\) to \(\F\), \(\Frob_{X_0}\) becomes the endomorphism \(\Frob\) of \(X\), \(\Pic^0(X_0)\) becomes \(\Pic^0(X)\), and the endomorphism \(\Frob_{X_0}^*\) of \(\Pic^0(X_0)\) becomes the endomorphism of \(\Pic^0(X)\) ``inverse image by \(\Frob\).''
+
+\subsection{2.3--2.6}
+The questions we ask are the following.
+\begin{enumerate}[label=(\roman*)]
+\item Compute, for \(n\ge 1\), the number \(N_n(R)\) of fixed points of the \(n\)-th iterate \(V^n\) of the permutation \(V\) of \(E(R)\). Replacing \((X_0,S_0)\) by \((X_0,S_0)\otimes_{\Fq}\mathbf F_{q^n}\) replaces \(V\) by \(V^n\).
+\item Determine whether the miracles 1.2 (A) and (B) persist.
+\item If so, why?
+\end{enumerate}
+Let \(F\) be a lisse \(\Qbar_\ell\)-sheaf on \(X-S\). As in 1.2, one has:
+
+\textbf{Lemma 2.4.} (i) For the isomorphism class of \(F\) to be fixed under \(\Frob^*\), it is necessary and sufficient that \(F\) be isomorphic to the inverse image on \(X\) of a \(\Qbar_\ell\)-sheaf \(F_0\) on \(X_0\). Moreover, if \(F\) is irreducible,
+\begin{enumerate}[label=(\roman*)]
+\setcounter{enumi}{1}
+\item such an \(F_0\) is unique up to \(\Fq\)-twist, and
+\item the \(\Fq\)-twists of \(F_0\) by \(\lambda\in\overline{\mathbf Z}_\ell^*\) are pairwise non-isomorphic.
+\end{enumerate}
+According to 2.4, the number of fixed points of the permutation \(V\) of \(E(R)\) is the number of classes, modulo \(\Fq\)-twist, of lisse \(\Qbar_\ell\)-sheaves \(F_0\) of rank \(r\) on \(X_0-S_0\), such that
+\begin{enumerate}[label=(\alph*)]
+\item the inverse image \(F\) of \(F_0\) on \(X-S\) is irreducible;
+\item for each \(s\in S\), \(F|_{X^*_{(s)}}\) is isomorphic to \(R(s)\).
+\end{enumerate}
+Let \(D_0=\sum n_i x_i\) be a divisor of degree one on \(X_0-S_0\). Regard \(F_0\) as a Galois representation (see 2.7), let \(F_{x_i}\) be a Frobenius at \(x_i\), and put
+\[
+\langle D_0,F_0\rangle:=\prod \det(F_{x_i},F_0)^{n_i}.
+\]
+If \(F'_0\) is the \(\Fq\)-twist of \(F_0\) by \(\lambda\), then
+\[
+\langle D_0,F'_0\rangle=\lambda^r\langle D_0,F_0\rangle.
+\]
+By 2.4 (ii) and (iii), it is therefore equivalent either to count the \(F_0\) satisfying (a) and (b) up to \(\Fq\)-twist, or to count, up to isomorphism, only those which also satisfy \(\langle D_0,F\rangle=1\), and then divide by \(r\). For an automorphic counterpart, see the remark following 2.6.
+
+Put \(K:=k(X_0)\). For each closed point \(x\) of \(X_0\), let \(k(x)\) be the residue field of \(x\), \(\deg(x):=[k(x):\Fq]\) its degree, \(K_x\) the completion of \(K\) at \(x\), and \(O_x\) the valuation ring of \(K_x\). Let \(\A\) be the adele ring of \(K\). The sum \(v:=\sum \deg(x)v_x:\A^*\to \Z\) is trivial on \(K^*\). One has \(\|a\|=q^{-v(a)}\).
+
+By Lafforgue, \(F_0\) corresponds to a cuspidal automorphic representation \(\pi\) of \(\GL(r,\A)\). If \(F'_0\) is the \(\Fq\)-twist of \(F_0\) by \(\lambda\), the corresponding representation \(\pi'\) is the \(\Fq\)-twist of \(\pi\) by \(\lambda\), defined as follows. As a representation, it is the tensor product of \(\pi\) by the one-dimensional representation \(g\mapsto \lambda^{v\det g}\). As a space of functions on \(\GL(r,\A)\), it is the space of products of \(f\in\pi\) with the character \(g\mapsto \lambda^{v\det g}\).
+
+Translated into automorphic language, problem 2.3 (i) is to count, up to \(\Fq\)-twist, the cuspidal automorphic representations \(\pi\) of \(\GL(r,\A)\), unramified outside \(S_0\), and such that
+\begin{enumerate}[label=(\alph*')]
+\item for every \(n\ge 1\), \(\pi\) remains cuspidal after base change from \(K\) to \(K\otimes \mathbf F_{q^n}\). This condition expresses the irreducibility 2.4 (a) of \(F\). It suffices to check it for \(n\) dividing \(r\).
+\item for each \(s_0\in S_0\) and \(s\in S\) above \(s_0\), the local component \(\pi_{s_0}\) of \(\pi\) satisfies a condition dictated by \(R(s)\) and by the local Langlands correspondence.
+\end{enumerate}
+\textbf{Lemma 2.6.} If the cuspidal automorphic representation \(\pi\) satisfies (a'), then its \(\Fq\)-twists are pairwise distinct.
+This is the translation of 2.4 (iii). If \(d\) is an idele satisfying \(v(d)=1\), it is therefore equivalent to count up to \(\Fq\)-twist the \(\pi\) satisfying (a') and (b'), or to count only those whose central character \(\omega_\pi\) satisfies \(\omega_\pi(d)=1\), and then divide by \(r\).
+
+In finite characteristic the notion of automorphic representation is purely algebraic. This makes it possible to take the automorphic representations \(\pi\) to have coefficients in \(\Qbar_\ell\), rather than in \(\mathbf C\). If one does this, \(\pi_{s_0}\) is an irreducible admissible \(\Qbar_\ell\)-representation of \(\GL(r,K_{s_0})\), and the local Langlands correspondence associates to it an isomorphism class of continuous \(F\)-semisimple \(\Qbar_\ell\)-representations of dimension \(r\) of the local Weil group \(W(\overline K_{s_0}/K_{s_0})\). Condition (b') is that its restriction to the inertia subgroup be given by \(R(s)\).
+
+Almost all known results on question 2.3 (i) are obtained through the dictionary 2.5.
+
+\subsection{2.7--2.16}
+In 2.1 we used the language of \(\Qbar_\ell\)-sheaves. This saved us from having to choose base points. An equivalent language is that of Galois representations. Here is the translation. Let \(\overline{k(X)}\) be an algebraic closure of the field of rational functions \(k(X)\) of \(X\), and let \(k(X)^{\mathrm{nr}}\) be the largest subextension unramified outside \(S\). The Galois group \(\Gal(k(X)^{\mathrm{nr}}/k(X))\) is the fundamental group of \(X\) at the geometric point \(\bar\eta:=\Spec(\overline{k(X)})\) of \(X\): the fibre functor at \(\bar\eta\) is an equivalence from lisse \(\Qbar_\ell\)-sheaves (respectively irreducible ones of rank \(r\)) on \(X-S\) to linear \(\Qbar_\ell\)-representations of \(\Gal(k(X)^{\mathrm{nr}}/k(X))\) (respectively irreducible representations of rank \(r\)).
+
+The scheme \(X^*_{(s)}\) is the spectrum of an extension \(k(X^*_{(s)})\) of \(k(X)\). If one chooses an embedding of this extension into \(\overline{k(X)}\), the corresponding inertia group
+\(I_s:=\Gal(\overline{k(X)}/k(X^*_{(s)}))\) is likewise the fundamental group of \(X^*_{(s)}\) at \(\bar\eta\). It maps to \(\pi_1(X,\bar\eta)\):
+\begin{equation}\tag{2.7.1}
+\pi_1(X^*_{(s)},\bar\eta)=I_s=\Gal(\overline{k(X)}/k(X^*_{(s)}))\to \Gal(k(X)^{\mathrm{nr}}/k(X))=\pi_1(X,\bar\eta).
+\end{equation}
+The fibre at \(\bar\eta\) of \(R(s)\) is a representation \(\rho_s\) of \(I_s\). The condition that \(F|_{X^*_{(s)}}\) be isomorphic to \(R(s)\) is equivalent to the restriction to \(I_s\) being isomorphic to \(\rho_s\). Condition \((2.1.1)\) is equivalent to saying that the \(\rho_s\), for \(s\) over \(s_0\), come from a representation of a decomposition group \(D_{s_0}\subset\Gal(k(\overline X)/k(X_0))\) at \(s_0\). It implies that the representations \(\rho_s\) are quasi-unipotent.
+
+I hope problem 2.3 (i) is more manageable when a lisse \(\Qbar_\ell\)-sheaf \(F\) such that \(F|_{X^*_{(s)}}\simeq R(s)\) for every \(s\in S\) is automatically irreducible. This is the case if the following condition holds. Consider an integer \(0<r'<r\) and, for each \(s\in S\), a lisse sub-\(\Qbar_\ell\)-sheaf \(R'(s)\) of rank \(r'\) of \(R(s)\). Put \(R''(s):=R(s)/R'(s)\). The condition is:
+
+\begin{equation}\tag{2.8.1}
+\begin{minipage}{0.86\linewidth}
+For all \(r'\) and all \(R'(s)\), either there exists no lisse \(\Qbar_\ell\)-sheaf \(F'\) of rank \(r'\) on \(X-S\) with \(F'|_{X^*_{(s)}}\simeq R'(s)\) for all \(s\), or there exists no lisse \(\Qbar_\ell\)-sheaf \(F''\) of rank \(r-r'\) on \(X-S\) with \(F''|_{X^*_{(s)}}\simeq R''(s)\) for all \(s\).
+\end{minipage}
+\end{equation}
+Condition \((2.8.1)\) is satisfied if one of the \(R(s)\) is irreducible. For other cases, see 2.10.4, 2.11, and 2.12.
+
+For any field \(k\) of characteristic \(p\) or \(0\), containing all roots of unity of order prime to \(p\), set
+\begin{equation}\tag{2.9.1}
+\widehat{\Z}_{p'}(1)(k):=\varprojlim \mu_n(k).
+\end{equation}
+The projective limit is taken over the set of subgroups \(\mu_n(k)\subset k^*\) (\(n\) prime to \(p\)), ordered by inclusion. The transition morphism from \(\mu_m(k)\) to \(\mu_n(k)\) is \(x\mapsto x^{m/n}\). If no ambiguity is created, we omit ``\(p'\)'' and the mention of \(k\).
+
+For \(k=\F\), and \(\mathbf F_{q^k}\) the subfield of \(\F\) with \(q^k\) elements, the subgroups \(\mathbf F_{q^k}^*\) of \(\F^*\) are cofinal among the \(\mu_n(\F)\). Since \((q^{kd}-1)/(q^k-1)=1+q^k+\cdots+q^{k(d-1)}\), the transition morphism from \(\mu_{q^{kd}-1}=\mathbf F_{q^{kd}}^*\) to \(\mu_{q^k-1}=\mathbf F_{q^k}^*\) is the norm morphism, and
+\begin{equation}\tag{2.9.2}
+\widehat\Z(1)\xrightarrow{\sim}\varprojlim \mathbf F_{q^k}^*
+\end{equation}
+(the projective limit being taken with respect to the norm morphisms between the \(\mathbf F_{q^k}^*\)). For \(k\) a product \(\prod k_\alpha\) of finite extensions of \(\Fq\) and \(\iota:k\to k_\alpha\xrightarrow{\sim}\mathbf F_{q^k}\hookrightarrow \F\), write \(\operatorname{pr}_\iota\) for the composite
+\begin{equation}\tag{2.9.3}
+\operatorname{pr}_\iota:\widehat\Z(1)\to \mathbf F_{q^k}^*\xleftarrow{\sim} k_\alpha^*\hookrightarrow\bigoplus k_\alpha^*=k^*.
+\end{equation}
+For \(k=\mathbf F_{q^k}\) and \(\iota\) the identical inclusion, \(\Gal(\F/\mathbf F_{q^k})\) acts on \(\widehat\Z(1)\), and \((2.9.3)\) induces an isomorphism of coinvariants with \(\mathbf F_{q^k}^*\).
+
+The local fundamental group \(\pi_1(X^*_{(s)},\bar\eta)=I_s\) is an extension of \(\widehat\Z(1)\) by a pro-\(p\)-group \(P_s\). The quotient \(I_s/P_s\simeq\widehat\Z(1)\) is the tame fundamental group of \(X^*_{(s)}\). The morphism \(\Frob:X^*_{(s)}\to X^*_{(\Frob(s))}\) induces a morphism between tame fundamental groups. Via the identifications of these groups with \(\widehat\Z(1)\), this morphism is multiplication by \(q\).
+
+Let \(\Z_\ell(1)\) denote the quotient \(\varprojlim\mu_{\ell^n}(\F)\) of \(\widehat\Z(1)\). Every quasi-unipotent \(\Qbar_\ell\)-representation \(\rho\) of \(\widehat\Z(1)\) is isomorphic to a sum over finite-order characters \(\chi:\widehat\Z(1)\to\Qbar_\ell^*\):
+\begin{equation}\tag{2.9.4}
+\rho\simeq\bigoplus_\chi \chi\otimes \nu_\rho(\chi),
+\end{equation}
+where \(\nu_\rho(\chi)\) is a unipotent representation of the quotient \(\Z_\ell(1)\) of \(\widehat\Z(1)\). Let \(\lambda_\rho(\chi)\) be the following partition of the integer \(\dim\nu_\rho(\chi)\): the decreasing sequence of sizes of the Jordan blocks of the image of a generator of \(\Z_\ell(1)\) in the representation \(\nu_\rho(\chi)\). The isomorphism class of \(\rho\) is determined by the function \(\chi\mapsto \lambda_\rho(\chi)\).
+
+Assume that the \(R(s)\) are tame, i.e. that the corresponding representations \(\rho_s\) of the inertia groups \(I_s\) (2.7) factor through a representation of \(\widehat\Z(1)\). We write \(\chi\mapsto\lambda_s(\chi)\) for the function, constructed above, attached to this representation. With this notation, condition \((2.1.1)\) is equivalent to
+\begin{equation}\tag{2.9.5}
+\lambda_{\Frob(s)}(\chi)=\lambda_s(\chi^q).
+\end{equation}
+
+If \(L\) is a \(\Qbar_\ell\)-sheaf of rank one on \(X-S\), the restriction of \(L\) to \(X^*_{(s)}\) defines a character \(l_s\) of the fundamental group \(I_s\) of \(X^*_{(s)}\). Since \(\ell\ne p\), the restriction of \(l_s\) to \(P_s\) is of finite order: there is a power \(P\) of \(p\) such that the \(l_s^P\) factor through characters, again denoted \(l_s^P\), of \(\widehat\Z(1)=I_s/P_s\). One has
+\begin{equation}\tag{2.10.1}
+\prod l_s^P=1.
+\end{equation}
+The analogue over \(\mathbf C\) of \((2.10.1)\) is that, for \(P\) as in 1.2 and \(S\) a finite subset of \(P\), the sum over \(S\) of a small positive circle around each \(s\in S\) is a boundary in \(P-S\).
+
+In rank \(r\), \((2.10.1)\) applied to \(\bigwedge^r F\) provides a necessary condition for the existence of \(F\) on \(X-S\) satisfying \(F|_{X^*_{(s)}}\simeq R(s)\), and interesting cases in which the hypothesis of the irreducibility criterion \((2.8.1)\) is satisfied. Let \(\rho_s\) be the representation of \(I_s\) corresponding to \(R(s)\). Assume, as in 2.9, that the representations \(\rho_s\) are tame. Let \(\mathcal R(s)\) be the multiset of characters of \(\widehat\Z(1)\) forming the semisimplification of \(\rho_s\). With the notation of 2.9, the multiplicity in \(\mathcal R(s)\) of a character \(\chi\) is \(|\lambda_s(\chi)|=\dim\nu_{\rho_s}(\chi)\). Assume that
+\begin{equation}\tag{2.10.2}
+\prod_{s\in S}\prod_{\varepsilon\in\mathcal R(s)}\varepsilon=1.
+\end{equation}
+By \((2.10.1)\), this is a necessary condition for the existence of an \(F\) on \(X-S\) such that \(F|_{X^*_{(s)}}\simeq R_s\) for all \(s\in S\). Consider the condition:
+\begin{equation}\tag{2.10.3}
+\begin{minipage}{0.86\linewidth}
+For every \(0<r'<r\) and every family \((\mathcal R'(s))_{s\in S}\) of sub-multisets with \(r'\) elements of the multisets \(\mathcal R(s)\), one has
+\(\prod_{s\in S}\prod_{\varepsilon\in\mathcal R'(s)}\varepsilon\ne 1\).
+\end{minipage}
+\end{equation}
+\textbf{Lemma 2.11.} Condition \((2.10.3)\) implies \((2.8.1)\), and hence the irreducibility of every lisse sheaf \(F\) of rank \(r\) on \(X-S\) satisfying \(F|_{X^*_{(s)}}\simeq R_s\) for all \(s\in S\).
+
+\textbf{Remark 2.12.} There exist \(R(s)\) as above, giving rise to multisets \(\mathcal R(s)\) satisfying \((2.10.2)\), for which \((2.10.3)\) is false but where condition \((2.8.1)\) is nevertheless satisfied. Here is an example. Take \(X=\mathbf P^1\), \(r=4\), \(|S|=3\), and semisimple \(R(s)\), sums of multisets of characters \(\mathcal R(s)\) of the following type
+\[
+\{a_1,a_1,a_3,a_4\},\qquad \{b_1,b_1,b_3,b_4\},\qquad \{c_1,c_2,c_3,c_4\}.
+\]
+Assume that the product of all these characters is \(1\) \((2.10.2)\), and that \(a_4b_4c_4=1\), so that \((2.10.3)\) is false. If the \(a_i,b_i,c_i\) are ``general,'' condition \((2.8.1)\) is satisfied, because there is no \(F\) of rank \(3\) with local monodromy given by
+\[
+\{a_1,a_1,a_3\},\qquad \{b_1,b_1,b_3\},\qquad \{c_1,c_2,c_3\}.
+\]
+The verification is by reduction to the complex case, by lifting \((X,S)\) to characteristic \(0\). This reduction brings us to the following lemma.
+
+\textbf{Lemma 2.13.} Let \(u_1,u_3,v_1,v_3,w_1,w_2,w_3\in\Qbar_\ell^*\). Assume that \(u_1v_1w_i\ne 1\) for \(i=1,2,3\). Under this hypothesis there do not exist elements \(U,V,W\) of \(\GL(3,\Qbar_\ell)\), conjugate respectively to the diagonal matrices \((u_1,u_1,u_3)\), \((v_1,v_1,v_3)\), \((w_1,w_2,w_3)\), with \(UVW=1\).
+
+\emph{Proof.} Let \(L\) be the intersection of the kernels of \(U-u_1\) and \(V-v_1\). These kernels have dimension at least \(2\), so \(L\) is nonzero. On \(L\), \(U\) is multiplication by \(u_1\), \(V\) is multiplication by \(v_1\), and, since \(UVW=1\), \(W\) is multiplication by \(1/(u_1v_1)\). Since \(1/(u_1v_1)\) is not an eigenvalue of \(W\), this is impossible.
+
+Let \(P\) be a compact Riemann surface of genus \(g\). Suppose an injection of \(S\) into \(P\) has been chosen; we identify \(S\) with a finite set of points of \(P\). If \(P_{(s)}\) is a small disk around \(s\), the fundamental group of \(P^*_{(s)}:=P_{(s)}-\{0\}\) is \(\Z\), generated by one positive turn around \(s\). More intrinsically, this local fundamental group is \(\Z(1):=2\pi i\Z\), with \(2\pi i\) corresponding to the positive turn around \(s\). For each \(n\ge 1\), identify \(\Z(1)/n\) with the group of \(n\)-th roots of unity in \(\mathbf C\) by \(z\mapsto\exp(z/n)\). Passing to the limit gives an isomorphism of \(\widehat\Z_{p'}(1)(\mathbf C)\) with the projective limit of the \(\Z(1)/n\) for \(n\) prime to \(p\).
+
+A complex representation \(\rho\) of \(\Z(1)\) is isomorphic to a sum over characters \(\chi:\Z(1)\to\mathbf C^*\):
+\begin{equation}\tag{2.14.1}
+\rho\simeq\bigoplus_\chi \chi\otimes \nu(\chi),
+\end{equation}
+where \(\nu(\chi)\) is a unipotent representation of \(\Z(1)\). Define the partition \(\lambda(\chi)\) of \(\dim\nu(\chi)\) as in 2.9. The isomorphism class of \(\rho\) is determined by the function \(\chi\mapsto \nu(\chi)\). We shall only have to consider the case where the characters \(\chi\) occurring in \((2.14.1)\) are of finite order prime to \(p\), and hence may be viewed as complex characters of \(\widehat\Z_{p'}(1)(\mathbf C)\).
+
+If \(T\) is a family \((T_s)_{s\in S}\) of isomorphism classes of complex representations of \(\Z(1)\), we write \(M_\mathbf C(T)\) for the moduli space of irreducible complex local systems of rank \(r\) on \(P-S\), with local monodromy \(T_s\) at \(s\). This moduli space has two natural structures of algebraic variety, under the names Betti and de Rham; only the underlying topological space will matter to us.
+
+Choose
+\begin{equation}\tag{2.14.2}
+\text{an isomorphism between the groups of roots of unity of order prime to \(p\) in \(\Qbar_\ell\) and in \(\mathbf C\),}
+\end{equation}
+\begin{equation}\tag{2.14.3}
+\text{an isomorphism between the groups of roots of unity of order prime to \(p\) in \(\F\) and in \(\mathbf C\).}
+\end{equation}
+These data are exactly what is needed to attach to an isomorphism class of quasi-unipotent \(\ell\)-adic representations of \(\widehat\Z(1)\) an isomorphism class of complex representations of \(\Z(1)\), as one checks by comparing 2.9 and 2.14.
+
+If the \(R(s)\) are tame, giving rise to representations \(\rho_s\) of \(\widehat\Z(1)\), we write \(R^*\) for the corresponding family of complex representations \(R^*(s)\) of \(\Z(1)\), and we say that the moduli space \(M_\mathbf C(R^*)\) corresponds to \(E(R)\), or is the complex analogue of \(E(R)\).
+
+\textbf{Conjecture 2.15.} Under the hypotheses and with the notation of 2.14:
+\begin{enumerate}[label=(\roman*)]
+\item As a function of \(n\ge 1\), the number of fixed points \(N_n(R)\) of \(V^n\) acting on \(E(R)\) is of the form
+\begin{equation}\tag{2.11.1}
+N_n(R)=\sum a_i\beta_i^n
+\end{equation}
+for integers \(a_i\) and suitable numbers \(\beta_i\).
+\item The sum of the \(a_i\) is equal to the Euler-Poincare characteristic of the moduli space \(M_\mathbf C(R^*)\) corresponding to \(E(R)\).
+\item As in 1.2 (B), the dominant term in \((2.15.1)\) is \(q\) to the power \(\dim_\mathbf C(M_\mathbf C(R^*))/2\).
+\end{enumerate}
+As will be explained in 6.6, if \(g>0\) then \(\chi(M_\mathbf C(R^*))=0\). For a refinement of 2.15 (i) and (ii), see 6.3 and 6.7.
+
+Using the analogy between the exponential and Artin--Schreier sheaves, it is possible to define complex analogues for certain wild representations \(\rho_s\). Rather than moduli spaces of local systems on \(P-S\), the complex analogues are moduli spaces of algebraic vector bundles with connection on \(P-S\), with prescribed formal completions at each \(s\in S\). I conjecture that 2.11 remains valid in this more general setting.
+
+\textbf{Variant 2.16.} Let \(\rho\) and \(\rho'\) be two quasi-unipotent \(\ell\)-adic representations \(\rho,\rho':\widehat\Z(1)\to\GL(r,\Qbar_\ell)\) (respectively two complex representations \(\rho,\rho':\Z(1)\to\GL(r,\mathbf C)\)). We say that the isomorphism class of \(\rho'\) is in the closure of the isomorphism class of \(\rho\) if \(\rho'\) is a limit of conjugates of \(\rho\). With the notation of 2.9 (respectively 2.14), this means that, for each character \(\chi\), \(\nu_\rho(\chi)\) and \(\nu_{\rho'}(\chi)\) have the same dimension \(r(\chi)\), and that the unipotent conjugacy class of \(\GL(r(\chi))\) defined by the partition \(\lambda_{\rho'}(\chi)\) of \(r(\chi)\) is in the closure of that defined by \(\lambda_\rho(\chi)\).
+
+Transporting this definition to tame \(\Qbar_\ell\)-sheaves on \(X^*_{(s)}\), one defines \(\bar E(R)\) as the set of classes, up to semisimplification, of lisse \(\Qbar_\ell\)-sheaves \(F\) of rank \(r\) on \(X-S\) such that for each \(s\in S\), \(F|_{X^*_{(s)}}\) lies in the closure of the isomorphism class of \(R(s)\). One defines \(\overline M_\mathbf C(R^*)\) as the moduli space of local systems of rank \(r\) on \(P-S\), whose local monodromy at \(s\) lies in the closure of \(R^*(s)\). These local systems are taken up to semisimplification.
+
+One still has \(V:\bar E(R)\to\bar E(R)\), and one can repeat Conjecture 2.15 for \(\bar E(R)\) and for the corresponding \(\overline M_\mathbf C(R^*)\). In some cases, the formulas giving the number of fixed points of \(V\) become simpler if \(E(R)\) is replaced by \(\bar E(R)\). See 4.5.
+
+The precisions 2.17 to 2.22 that follow, added in July 2013, owe much to the talks I gave at IHES in March and April 2013.
+
+\subsection{2.17--2.22}
+Let us first place ourselves in the everywhere unramified case: \(S\) is empty, and \(E_r\) is the set of isomorphism classes of irreducible lisse \(\Qbar_\ell\)-sheaves of rank \(r\) on \(X\). Let \(W(\F)\) be the ring of Witt vectors of \(\F\), let \(K\) be its fraction field, and let \(\overline K\) be an algebraic closure of \(K\). Let \(X_W\) be a lifting of \(X\) over \(W\), and denote by \(X_K\) (respectively \(X_{\overline K}\)) the curve over \(K\) (respectively \(\overline K\)) obtained from it. Let \(M_K\) (respectively \(M_{\overline K}\)) be the scheme over \(K\) (respectively \(\overline K\)) which is the moduli space of geometrically irreducible vector bundles with connection of rank \(r\) on \(X_K\) (respectively \(X_{\overline K}\)). By extension of scalars from \(K\) to \(\overline K\), \(M_K\) becomes \(M_{\overline K}\).
+
+Let \(\iota\) be an embedding of \(\overline K\) into \(\mathbf C\), and in 2.14 take for \(P\) the Riemann surface deduced from \(X_{\overline K}\) by extension of scalars from \(\overline K\) to \(\mathbf C\). For this choice of \(P\), the corresponding space \(M_\mathbf C\) defined in 2.14 is deduced from \(M_{\overline K}\) by extension of scalars from \(K\) to \(\mathbf C\), and, for every prime number \(\ell'\), the \(\ell'\)-adic cohomology of \(M_{\overline K}\) is therefore identified with the cohomology of \(M_\mathbf C\) with coefficients in \(\Ql'\). The conjectures 2.15 (i) and (ii) (for \(S\) empty) are therefore consequences of the following.
+
+\textbf{Conjecture 2.18.} The cohomology of \(M_{\overline K}\) admits an endomorphism ``which deserves to be called \(V^*\)'' such that, for each \(n\ge 1\), the number \(N_n\) of fixed points of \(V^n\) acting on \(E_r\) is given by
+\begin{equation}\tag{2.18.1}
+N_n=\sum (-1)^i\Tr(V^{*n},H^i(M_{\overline K})).
+\end{equation}
+In \((2.18.1)\), \(H^i\) is \(\ell'\)-adic cohomology for any prime number \(\ell'\). One should also be able to take de Rham cohomology of \(M_K/K\). The clause in quotation marks has no precise sense, but suggests compatibilities. For instance, \(V^*\) should be an endomorphism of the cohomology algebra.
+
+There will not generally exist an endomorphism \(V:M_{\overline K}\to M_{\overline K}\) inducing \(V^*\) in cohomology, but I hope that in the analytic space \(M^{\mathrm{an}}_{\overline K}\) (in the sense of Berkovich) associated to \(M_{\overline K}\) there is an open \(M^0_{\overline K}\) such that
+\begin{enumerate}[label=(\alph*)]
+\item the restriction morphism \(H^*(M_{\overline K})=H^*(M^{\mathrm{an}}_{\overline K})\to H^*(M^0_{\overline K})\) is an isomorphism; and
+\item a crystalline interpretation defines \(V=\Frob^*:M^0_{\overline K}\to M^0_{\overline K}\), inducing \(V^*\) in cohomology.
+\end{enumerate}
+The conjectural morphism \(V:M^0_{\overline K}\to M^0_{\overline K}\) should send \(M^0_{\overline K}\) into a proper open subset of \(M^0_{\overline K}\), corresponding to vector bundles with connection for which parallel transport has a larger radius of convergence; this is what makes ordinary cohomology, rather than compactly supported cohomology, the natural choice in \((2.18.1)\). A variant of Conjecture 2.18, for the completions 2.16 of \(E_r\) and \(M_{\overline K}\), might be more natural.
+
+\textbf{Example 2.19.} Suppose \(r=1\). In this case, \(M_{\overline K}\) is the universal additive extension of the Jacobian \(\Pic^0(X_{\overline K})\), and
+\begin{equation}\tag{2.19.1}
+H^*\Pic^0(X_{\overline K})\xrightarrow{\sim}H^*(M_{\overline K})
+\end{equation}
+is an isomorphism. There is also a natural isomorphism
+\begin{equation}\tag{2.19.2}
+H^*(\Pic^0(X))\xrightarrow{\sim}H^*(\Pic^0(X_{\overline K})).
+\end{equation}
+Over \(\F\), one has \(V:\Pic^0(X)\to\Pic^0(X)\), deduced by functoriality from \(\Frob:X\to X\) (cf. 2.2). This endomorphism \(V\) of \(\Pic^0(X)\) gives
+\begin{equation}\tag{2.19.3}
+V^*:H^*(\Pic^0(X))\to H^*(\Pic^0(X)).
+\end{equation}
+Define the endomorphism
+\begin{equation}\tag{2.19.4}
+V^*:H^*(M_{\overline K})\to H^*(M_{\overline K})
+\end{equation}
+to be transported from \((2.19.3)\) by \((2.19.2)\) and \((2.19.1)\).
+
+\textbf{Proposition 2.20.} If \(r=1\) and \(V^*\) is defined as above, then \((2.18.1)\) is true.
+
+\emph{Proof for \(n=1\).} One reduces to this case by an extension of scalars from \(\Fq\) to \(\mathbf F_{q^n}\). The endomorphisms \(\Frob\) and \(V\) of \(\Pic^0(X)\) are transposes of one another by the autoduality of the Jacobian \(\Pic^0(X)\) of \(X\). Hence
+\[
+\Tr(V^*,H^i(\Pic^0(X)))=\Tr(F^*,H^i(\Pic^0(X)))
+\]
+and
+\begin{equation}\tag{2.20.1}
+\sum (-1)^i\Tr(V^*,H^i(\Pic^0(X)))=|\Pic^0(X_0)(\Fq)|.
+\end{equation}
+Class field theory identifies the set of fixed points of \(V\) acting on \(E_1\) with the Pontryagin dual of the finite group \(\Pic^0(X_0)(\Fq)\), with values in the roots of unity of \(\Qbar_\ell\) (see 6.1). Thus
+\begin{equation}\tag{2.20.2}
+N_1=|\Pic^0(X_0)(\Fq)|,
+\end{equation}
+and, by \((2.20.1)\), this verifies \((2.18.1)\). Notice that, again by the autoduality of the Jacobian, the subscheme \(\Pic^0(X)^V\) of \(\Pic^0(X)\) fixed by \(V\) is the Cartier dual of the finite abelian group \(\Pic^0(X)^\Frob=\Pic^0(X_0)(\Fq)\).
+
+Now pass to the tamely ramified case. Choose over \(W\) a lifting \((X_W,S_W)\) of \(X\) and of its etale divisor \(S\). Let \((X_K,S_K)\) and \((X_{\overline K},S_{\overline K})\) be deduced from \((X_W,S_W)\) by extension of scalars from \(W\) to \(K\) and to \(\overline K\). To define in 2.14 a complex analogue \(M_\mathbf C(R^*)\) of \(E(R)\), we had to make the choices \((2.14.2)\) and \((2.14.3)\). To define a \(p\)-adic analogue we choose
+\begin{equation}\tag{2.21.1}
+\text{an isomorphism between the groups of roots of unity of order prime to \(p\) in \(\Qbar_\ell\) and in \(K\).}
+\end{equation}
+There is no need to give an analogue of \((2.14.3)\), because reduction modulo \(p\) supplies a canonical isomorphism between the groups of roots of unity of order prime to \(p\) in \(K\) or \(\overline K\) and in \(\F\).
+
+Let \(X_{K(s)}\) be the completion of \(X_K\) at (the lifting of) \(s\), and \(X^*_{K(s)}:=X_{K(s)}-\{s\}\). The datum \((2.21.1)\) gives a natural isomorphism between the finite-order characters \(\widehat\Z(1)\to\Qbar_\ell^*\) and the prime-to-\(p\) part of \(\Q/\Z\). It is exactly what is needed to attach to \(R(s)\) an isomorphism class \(R(s)^*_K\) of vector bundles with connection on \(X^*_{K(s)}\). Define \(M_K(R^*)\) to be the scheme over \(K\) which is the moduli space of geometrically irreducible vector bundles with connection of rank \(r\) on \(X_K-S_K\), with completion at \(s\in S\) isomorphic to \(R(s)_K\).
+
+Let \(\iota\) be an embedding of \(K\) into \(\mathbf C\). If in 2.14 one takes \(P\) and \(S\to P\) deduced from \((X_K,S_K)\) by extension of scalars from \(K\) to \(\mathbf C\), if \((2.14.2)\) is deduced from \((2.21.1)\) by \(\iota\), and if \((2.14.3)\) is induced by \(\iota\), then \(M_\mathbf C(R^*)\) defined in 2.14 is deduced from \(M_K(R^*)\) by extension of scalars from \(K\) to \(\mathbf C\).
+
+Let \(M_{\overline K}(R^*)\) be obtained from \(M_K(R^*)\) by extension of scalars from \(K\) to \(\overline K\). As in 2.18, I conjecture that the cohomology of \(M_{\overline K}(R^*)\) admits an endomorphism ``which deserves to be called \(V^*\)'' such that for \(n\ge 1\), the number of fixed points of \(V\) acting on \(E(R)\) is given by
+\begin{equation}\tag{2.21.2}
+N_n=\sum (-1)^i\Tr(V^*,H^i(M_{\overline K}(R^*))),
+\end{equation}
+and this conjecture implies 2.15 (i) and (ii).
+
+Continue to assume that the \(R(s)\) are tamely ramified, and assume condition \((2.10.2)\). Write \(\det\) for the functor ``maximal exterior power'' \(\bigwedge^r\). It induces a map
+\begin{equation}\tag{2.22.1}
+\det:E(R)\to E(\det R).
+\end{equation}
+Hypothesis \((2.10.2)\) ensures that \(\det R\) satisfies \((2.10.1)\), and that \(E(\det R)\) is nonempty, hence a torsor under the group \(E_1\) of isomorphism classes of lisse \(\Qbar_\ell\)-sheaves of rank one on \(X\). The action is tensor product.
+
+In 2.16, for \(r=1\) and \(S\) empty, we defined a moduli space \(M_K\). Here we denote it by \(M_{1K}\). The functor \(\bigwedge^r\) induces
+\begin{equation}\tag{2.22.2}
+\det:M_K(R^*)\to M_K(\det R^*),
+\end{equation}
+and \(M_K(\det R^*)\) is a principal homogeneous space under \(M_{1K}\). Extend scalars from \(K\) to \(\overline K\) and consider the Leray spectral sequence for the morphism \(\det\):
+\[
+E_2^{pq}=H^p(M_{\overline K}(\det R^*),R^q\det_*\Ql')\Rightarrow H^{p+q}(M_{\overline K}(R^*),\Ql').
+\]
+I conjecture the existence of an endomorphism \(V^*\) of this spectral sequence, respecting its multiplicative structure. The \(E_2\)-term is given by
+\[
+H^p(M_{\overline K}(\det R^*))\otimes H^0(M_{\overline K}(\det R^*),R^q\det_*\Ql')\xrightarrow{\sim}E_2^{pq},
+\]
+and the cohomologies of \(M_{\overline K}(\det R^*)\) and of \(M_{1\overline K}\) are canonically isomorphic. The conjectured existence of \(V^*\) therefore implies 6.7.
+
+\section{Arinkin's Method}
+
+\subsection{3.1--3.3}
+Let \(s_0\) be a closed point of \(X_0\). One may identify the closed points \(s\) of \(X\) both with the \(\F\)-points of the \(\F\)-scheme \(X\), and with the \(\F\)-points of the \(\Fq\)-scheme \(X_0\). In doing so, the \(s\) above \(s_0\) are identified with the \(\F\)-points of \(\Spec(k(s_0))\), i.e. with the embeddings of \(k(s_0)\) into \(\F\) extending the embedding of \(\Fq\) into \(\F\). If one chooses such an embedding \(s\), a character \(\varepsilon_0:k(s_0)^*\to\Qbar_\ell^*\) gives, by 2.9, a character \(\varepsilon:=\varepsilon_0\operatorname{pr}_s:\widehat\Z(1)\to k(s_0)^*\to\Qbar_\ell^*\). If \(s=\Frob(s')\), the character \(\varepsilon'\) of \(\widehat\Z(1)\) defined by \(\varepsilon_0\) and \(s'\) is \(\varepsilon^q\).
+
+At each \(s_0\in S_0\), give a multiset \(R(s_0)\) of \(r\) characters \(k(s_0)^*\to\Qbar_\ell^*\). By 3.1 one deduces, for every \(s\in S\), a multiset of \(r\) characters \(\mathcal R(s)\) of \(\widehat\Z(1)\). Let \(\rho_s\) be the representation of \(\widehat\Z(1)\) that is the sum of the one-dimensional representations defined by these characters. The corresponding \(\Qbar_\ell\)-sheaves \(R(s)\) on the \(X^*_{(s)}\) satisfy \((2.1.1)\). Write \(R\) for the family \((R(s))_{s\in S}\). We assume that
+\begin{equation}\tag{3.2.1}
+\prod_s\prod_{\varepsilon\in \mathcal R(s)}\varepsilon=1.
+\end{equation}
+By \((2.10.1)\), this is a necessary condition for the existence of a lisse \(\Qbar_\ell\)-sheaf \(F\) on \(X-S\) with \(F|_{X^*_{(s)}}\simeq R(s)\). If \(s_0\) has degree \(d\), if \(\varepsilon_0\) is a character of \(k(s_0)^*\), and if for every \(s\) above \(s_0\), \(\varepsilon[s]:=\varepsilon_0\operatorname{pr}_s\) is the corresponding character of \(\widehat\Z(1)\), then the product of these \(\varepsilon[s]\) is the character that 3.1 attaches to \(\varepsilon_0^{(q^d-1)/(q-1)}=\varepsilon_0\operatorname{N}_{k(s_0)/\Fq}\) and to any \(s\) over \(s_0\). It is also the character that 3.1 attaches to \(\varepsilon_0|_{\Fq^*}\) and to \(\Fq\hookrightarrow\F\). Hypothesis \((3.2.1)\) can therefore be rewritten as
+\begin{equation}\tag{3.2.2}
+\prod_{s_0\in S_0}\prod_{\varepsilon_0\in R(s_0)}\varepsilon_0|_{\Fq^*}=1.
+\end{equation}
+Assume further that the \(\mathcal R(s)\) satisfy the general-position condition \((2.10.3)\). I learned from Arinkin how, under this hypothesis, to construct an algebraic variety \(Z\) over \(\Fq\) such that, for every \(n\ge 1\), the number \(N_n(R)\) of fixed points of the permutation \(V^n\) of \(E(R)\) is equal to the number of \(\mathbf F_{q^n}\)-points of \(Z\):
+\begin{equation}\tag{3.3.1}
+N_n(R)=|Z(\mathbf F_{q^n})|.
+\end{equation}
+Under the hypotheses of 3.3, Conjecture 2.15 (i) is therefore true. Beware that \(Z\) will only be defined after cutting into locally closed pieces.
+
+\subsection{3.4--3.6}
+For each \(s_0\in S_0\), let \(\varepsilon[s_0](i)\) (\(0\le i\le a(s_0)\)) be the characters of \(k(s_0)^*\) occurring in \(R(s_0)\), arranged in any order. Let \(n[s_0](i)\) be the multiplicity of \(\varepsilon[s_0](i)\) in the multiset \(R(s_0)\), and let \(n[s_0]\) be the family of integers \((n[s_0](i))_{0\le i\le a(s_0)}\). For \(s\in S\) above \(s_0\), write \(\varepsilon[s](i)\) for the character \(\varepsilon[s_0](i)\circ\operatorname{pr}_s\) of \(\widehat\Z(1)\) (3.1), and set \(n[s]:=n[s_0]\). The multiset \(\mathcal R(s)\) is
+\begin{equation}\tag{3.4.1}
+\mathcal R(s):=\{\text{the }\varepsilon[s](i),\text{ with multiplicities }n[s](i)\}.
+\end{equation}
+Let \(E_0\) be a vector bundle of rank \(r\) on \(X_0\). A parabolic structure \(\alpha_0\) of type \((n(s_0))_{s_0\in S_0}\) on \(E_0\) is the datum, for each \(s_0\in S_0\), of a finite filtration \(F(s_0)\) of the \(k(s_0)\)-vector space \((E_0)_{s_0}\), such that \(\Gr^i_{F(s_0)}((E_0)_{s_0})\) has dimension \(n[s_0](i)\). Parabolic structures for \(E\) on \(X\) are defined similarly. If \(E_0\) on \(X_0\) is endowed with a parabolic structure \(\alpha_0\) of type \((n(s_0))_{s_0\in S_0}\), its inverse image \(E\) on \(X\) inherits a parabolic structure \(\alpha\) of type \((n(s))_{s\in S}\). We say that \((E_0,\alpha_0)\) is geometrically indecomposable if its inverse image \(E\) on \(X\) admits no nontrivial decomposition \(E=E'\oplus E''\) compatible with the parabolic structure \(\alpha\), i.e. inducing decompositions of the \(F^iE_s\). Let \(\End(E_0,\alpha_0)\) (respectively \(\End(E,\alpha)\)) be the algebra of endomorphisms of \(E_0\) (respectively \(E\)) respecting the filtrations \(F(s_0)\) of the \((E_0)_{s_0}\) (respectively \(F(s)\) of the \(E_s\)). Each of the following conditions is equivalent to geometric indecomposability:
+\begin{equation}\tag{3.4.2}
+\End(E,\alpha)=\End(E_0,\alpha_0)\otimes_{\Fq}\F\text{ has no idempotent other than }0\text{ and }1.
+\end{equation}
+\begin{equation}\tag{3.4.3}
+\End(E_0,\alpha_0)/\rad\End(E_0,\alpha_0)=\Fq.
+\end{equation}
+Fix an integer \(d\). Consider vector bundles \(E_0\) of rank \(r\) and degree \(d\) on \(X_0\), endowed with a parabolic structure \(\alpha\) of type \((n[s_0])_{s_0\in S_0}\). Let \(Z(\Fq)\) be the set of isomorphism classes of such \((E_0,\alpha)\) that are geometrically indecomposable. Define \(Z(\mathbf F_{q^n})\) similarly, replacing \(X_0/\Fq\) by \(X_0\otimes_{\Fq}\mathbf F_{q^n}/\mathbf F_{q^n}\). I learned from Arinkin the following theorem.
+
+\textbf{Theorem 3.5.} Under the hypotheses of 3.2 and 3.3 and with the notation of 3.4, the number \(N_n(R)\) of fixed points of \(V^n\) (2.1) is
+\begin{equation}\tag{3.5.1}
+N_n(R)=|Z(\mathbf F_{q^n})|.
+\end{equation}
+Replacing \(X_0\) by \(X_0\otimes_{\Fq}\mathbf F_{q^n}\), one reduces to the case \(n=1\). Beware that the proof does not suggest a natural bijection between \(E(R)^V\) and \(Z(\Fq)\). It gives a family of one-dimensional vector spaces indexed by \(E(R)^V\), with direct sum \(V\), another family, with direct sum \(V'\), indexed by \(Z(\Fq)\), and an isomorphism of vector spaces \(V\simeq V'\).
+
+Sketch of proof of \(3.5\Rightarrow(3.3.1)\). For every \(\Fq\)-scheme \(T\), let \(X_T:=X_0\times_{\Fq}T\) and \(S_T:=S_0\times_{\Fq}T\). Define \(Z(T)\) as the set of isomorphism classes of vector bundles of rank \(r\) on \(X_T\), endowed with a parabolic structure along \(S_T\), and such that the conditions of 3.2 and 3.3 are satisfied on each geometric fibre of \(X_T\to T\): degree \(d\), type of the parabolic structure, indecomposability.
+
+Naively one would like to take for the scheme \(Z\) of \((3.3.1)\) a scheme representing the functor \(Z\). For several reasons this functor is not representable:
+\begin{enumerate}[label=(\alph*)]
+\item The objects considered have nontrivial automorphisms, for instance homotheties; thus this functor is not a sheaf, even for the Zariski topology. For the functor \(\Pic\), the same problem is bypassed by passing to the associated sheaf. Here the situation is worse, because, for \((E_T,\alpha_T)\) a vector bundle with parabolic structure on \(X_T\), and for \((E_t,\alpha_t)\) the induced bundle on the fibre \(X_t\) of \(X_T\to T\) at \(t\in T\),
+\item the dimension of the automorphism group of \((E_t,\alpha_t)\) (equal to \(\dim\End(E_t,\alpha_t)\)) is not always locally constant in \(t\).
+\item The set of \(t\) for which \((E_t,\alpha_t)\) is geometrically indecomposable is not always locally closed.
+\end{enumerate}
+Because of (c), one cannot even hope that \(Z\) comes from an algebraic stack \(C\) (i.e. that \(Z(T)\) be the set of isomorphism classes in \(C(T)\)). Nevertheless:
+\begin{enumerate}[label=(\alph*)]
+\setcounter{enumi}{3}
+\item The automorphism groups are connected algebraic groups. If \(k'\subset k''\) are finite extensions of \(\Fq\), this ensures that
+\[
+Z(k')\xrightarrow{\sim}Z(k'')^{\Gal(k''/k')}.
+\]
+\item In (b) above, the function \(t\mapsto\dim\End(E_t,\alpha_t)\) is constructible; in (c), the set of \(t\) such that \((E_t,\alpha_t)\) is geometrically indecomposable is constructible.
+\end{enumerate}
+Properties (d) and (e) make it possible, by ``cutting \(Z\) into pieces'' and taking the associated (representable) sheaves, to obtain \(Z\) as promised by \((3.3.1)\).
+
+\subsection{3.7--3.16}
+Sketch of proof of 3.5 (for \(n=1\)). One applies the strategy 2.5. We must show that \(|Z(\Fq)|\) is the number of cuspidal automorphic representations \(\pi\) of \(\GL(r,\A)\), counted up to \(\Fq\)-twist, that are unramified outside \(S_0\) and whose local component \(\pi_{s_0}\) at \(s_0\in S_0\) is of the following type. By the local Langlands correspondence, the representation \(\pi_{s_0}\) of \(\GL(r,K_{s_0})\) corresponds to an \(F\)-semisimple \(\Qbar_\ell\)-representation \(\rho\) of the Weil group \(W(\overline K_{s_0}/K_{s_0})\). We first require \(\rho\) to be semisimple (in the language of the Weil--Deligne group: \(N=0\); in Arthur's language: trivial action of the local \(\operatorname{SL}(2)\) or \(\operatorname{SU}(2)\)). The abelianization \(W(\overline K_{s_0}/K_{s_0})^{\mathrm{ab}}\) is \(K_{s_0}^*\). Its inertia group \(O_{s_0}^*\) has quotient \(k(s_0)^*\). We require the restriction of \(\rho\) to inertia to factor through the representation of \(k(s_0)^*\) which is the sum of the \(\varepsilon_0\) in \(R(s_0)\).
+
+Let \(P[s_0]\subset\GL(r,O_{s_0})\) be the parahoric subgroup inverse image of the standard parabolic \(\overline P[s_0]\) of \(\GL(r,k(s_0))\) of type \(n(s_0)\). The reductive quotient \(L[s_0]\) of \(\overline P[s_0]\) is \(\prod \GL(n[s_0](i),k(s_0))\). Let \(U[s_0]\) be the kernel of \(P[s_0]\to L[s_0]\), and let \(\varepsilon[s_0]\) be the character
+\[
+\varepsilon[s_0]=\prod \varepsilon[s_0](i)(\det g_i): P[s_0]\to\overline P[s_0]\to L[s_0]\to\Qbar_\ell^*
+\]
+of the parahoric \(P[s_0]\). By construction, the \(\varepsilon[s_0](i)\) are pairwise distinct. We shall admit the following assertion.
+
+\textbf{Assertion 3.8.} The irreducible admissible representations of \(\GL(r,K_{s_0})\) of the type defined in 3.7 are those which admit a line stable under \(P\) on which \(P\) acts through the character \(\varepsilon[s_0]\). This line is unique.
+
+Let \(A'\) be the set of cuspidal automorphic representations \(\pi\) of \(\GL(r,\A)\) admitting a line \(L(\pi)\) fixed by the \(\GL(r,O_x)\) for \(x\notin S_0\), and stable by \(P[s_0]\) for \(s_0\in S\), with the action of \(P[s_0]\) given by \(\varepsilon[s_0]\). The line \(L(\pi)\) is unique if it exists. By Lafforgue \([L]\) and 3.8, \(N_1(R)\) is the number of classes modulo \(\Fq\)-twist in \(A'\). Fix an idele \(d\) of valuation \(1\), and let \(A\) be the set of \(\pi\) in \(A'\) whose central character \(\omega_\pi\) is equal to \(1\) at \(d\). As observed after 2.3.1, one has
+\begin{equation}\tag{3.9.1}
+N_1(R)=|A'\bmod \Fq\text{-twist}|=|A\bmod \Fq\text{-twist by }\zeta\in\mu_r(\Qbar_\ell)|=\frac1r |A|.
+\end{equation}
+Let \(\mathcal A\) be the vector space of functions on \(\GL(r,\A)\) which are
+\begin{enumerate}[label=(\alph*)]
+\item invariant on the left by \(\GL(r,K)\cdot d^\Z\);
+\item invariant on the right under \(\GL(r,O_x)\), for \(x\notin S_0\);
+\item transformed by \(\varepsilon[s_0]\) for the right action of \(P[s_0]\), for \(s_0\in S_0\).
+\end{enumerate}
+A key point of the proof of 3.5 is the following lemma.
+
+\textbf{Lemma 3.11.} The vector space \(\mathcal A\) is the direct sum of the lines \(L(\pi)\), for \(\pi\in A\). It is therefore of dimension \(rN_1(R)\).
+
+This lemma is the automorphic counterpart, and a consequence, of the fact that irreducibility of the \(\Qbar_\ell\)-sheaves \(F_0\) under consideration follows from the local hypotheses made. One must check that the functions in \(\mathcal A\) are automatically cuspidal. This done, if one writes the space of cuspidal functions on \(\GL(r,K)d^\Z\backslash\GL(r,\A)\) as a direct sum of irreducible representations \(\pi\) of \(\GL(r,\A)\), the \(\pi\) in \(A\) contribute \(L(\pi)\) to \(\mathcal A\), and the others contribute nothing. That the functions in \(\mathcal A\) are cuspidal follows from the fact that, in the spectral decomposition of functions on \(\GL(r,K)d^\Z\backslash\GL(r,\A)\), the induced representations giving rise to Eisenstein series admit no nonzero vector satisfying 3.10 (b) and (c).
+
+The space \(\mathcal A\), the sum of the \(L(\pi)\) for \(\pi\in A\), is identified with the space of functions \(f\) on
+\begin{equation}\tag{3.12.1}
+\GL(r,K)d^\Z\backslash\GL(r,\A)/\prod_{x\notin S_0}\GL(r,O_x)\prod_{s_0\in S_0}U[s_0]
+\end{equation}
+such that, for every \(s_0\in S_0\), the right action of \(P[s_0]\) satisfies \(f(gp)=\varepsilon[s_0](p)f(g)\). Let \(v\) be the map from \((3.12.1)\) to \(\Z/r\) induced by \(v\det:\GL(r,\A)\to\Z\). Let \(\overline A\) be the quotient of \(A\) by the \(\Fq\)-twist action of \(\mu_r(\Qbar_\ell)\), and for each orbit \(B\), let \(V_B\) be the subspace of \(\mathcal A\) which is the sum of the \(L(\pi)\) for \(\pi\in B\). By \((2.3.1)\), \(\dim(V_B)=r\). For \(m\in\Z/r\), write \((3.12.1)_m\) for the part of \((3.12.1)\) where \(v=m\), let \(\varphi_m\) be its characteristic function, and put \(L(\pi,m)=\{\varphi_m f\mid f\in L(\pi)\}\). The dimension of \(L(\pi,m)\) is at most one. For each character \(\eta\) of \(\Z/r\), if \(\pi'\) is the \(\Fq\)-twist of \(\pi\) by \(\eta(1)\), multiplication by \(\eta^v\) transforms \(L(\pi)\) into \(L(\pi')\). For \(\pi\in B\), \(L(\pi,m)\) is therefore independent of \(\pi\); write \(L(B,m):=L(\pi,m)\). The space \(V_B\) is stable under the multiplications by the \(\eta^v\), hence under multiplication by the \(\varphi_m\): for \(\pi\in B\),
+\[
+V_B=\bigoplus_{m\in\Z/r}L(B,m).
+\]
+Each \(L(B,m)\) is therefore one-dimensional. The sum \(\mathcal A_m\) of the \(L(B,m)\) is of dimension \(|\overline A|=N_1(R)\). It is identified with the space of functions \(f\) on \((3.12.1)_m\) such that, for each \(s_0\in S_0\), the right action of \(P[s_0]\) satisfies \(f(gp)=\varepsilon[s_0](p)f(g)\).
+
+Let \(\GL(r,\A)^{(d)}\) be the set of \(g\in\GL(r,\A)\) such that \(v\det(g)=d\). If \(\bar d\) is the class of \(d\) modulo \(r\), the set
+\begin{equation}\tag{3.12.2}
+\GL(r,K)\backslash\GL(r,\A)^{(d)}/\prod_{x\in S_0}\GL(r,O_x)\prod_{s_0\in S_0}U[s_0]
+\end{equation}
+maps bijectively onto \((3.12.1)_{\bar d}\). Hence:
+
+\textbf{Lemma 3.13.} \(N_1(R)\) is the dimension of the space, again denoted \(\mathcal A_d\), of functions \(f\) on \((3.12.2)\) which, for the right action of the \(P[s_0]\) (\(s_0\in S_0\)), satisfy \(f(gp)=\varepsilon[s_0](p)f(g)\).
+
+The set \((3.12.2)\) is interpreted as the set of isomorphism classes of triples \((E_0,\alpha,\beta)\), where \(E_0\) is a vector bundle of rank \(r\) and degree \(d\) on \(X_0\), and where \(\alpha\) and \(\beta\) are structures of the following types on \(E_0\):
+\begin{enumerate}[label=(\alph*)]
+\item \(\alpha\) is a parabolic structure of type \((n[s_0])_{s_0\in S_0}\);
+\item \(\beta\) is the datum of bases of the vector spaces \(\Gr^i_{F(s_0)}((E_0)_{s_0})\).
+\end{enumerate}
+We identify a basis as in (b) with an isomorphism
+\[
+\beta_{s_0,i}:k(s_0)^{n[s_0](i)}\xrightarrow{\sim}\Gr^i_{F(s_0)}((E_0)_{s_0}).
+\]
+With this interpretation, the space \(\mathcal A_d\) of 3.13 becomes the space of functions \(f(E_0,\alpha,\beta)\), for \(E_0,\alpha,\beta\) as above, such that
+\begin{enumerate}[label=(\roman*)]
+\item \(f(E_0,\alpha,\beta)\) depends only on the isomorphism class of \((E_0,\alpha,\beta)\);
+\item for \(s_0\in S_0\) and \(g\in L[s_0]=\prod\GL(n_i,k(s_0))\), one has
+\[
+f(E_0,\alpha,\beta g)=\varepsilon[s_0](g)f(E_0,\alpha,\beta).
+\]
+\end{enumerate}
+For an automorphism \(T\) of \((E_0,\alpha)\), let \(\Gr^i_F(s_0)(T_{s_0})\) be the automorphism of \(\Gr^i_F(s_0)((E_0)_{s_0})\) induced by \(T\), and put
+\begin{equation}\tag{3.14.1}
+\chi(T):=\prod_{s_0}\prod_i \varepsilon[s_0](i)\bigl(\det \Gr^i_F(s_0)(T_{s_0})\bigr).
+\end{equation}
+For any \(\beta\), hypothesis (i) gives \(f(E_0,\alpha,T(\beta))=f(E_0,\alpha,\beta)\). Hypothesis (ii) gives \(f(E_0,\alpha,T(\beta))=\chi(T)f(E_0,\alpha,\beta)\). If there exists an automorphism \(T\) with \(\chi(T)\ne1\), then \(f(E_0,\alpha,\beta)=0\). Conversely, if \(\chi(T)=1\) for every automorphism \(T\) of \((E_0,\alpha)\), then \(f\) may be prescribed freely at one \((E_0,\alpha,\beta)\), and its value there determines its value at all \((E_0,\alpha,\beta')\). Thus the dimension of \(\mathcal A_d\) is the number of isomorphism classes of \((E_0,\alpha)\) as above such that for every automorphism \(T\), one has \(\chi(T)=1\). Theorem 3.5 follows from the characterization \((3.4.3)\) of geometric indecomposability and the following proposition.
+
+\textbf{Proposition 3.15.} Let \(E_0\) be a vector bundle of rank \(r\) on \(X_0\), endowed with a parabolic structure of type \((n(s_0))_{s_0\in S_0}\). The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item The quotient of the \(\Fq\)-algebra \(\End(E_0,\alpha)\) by its radical is reduced to \(\Fq\).
+\item For every automorphism \(T\) of \((E_0,\alpha)\), \(\chi(T)\), defined by \((3.14.1)\), is equal to \(1\).
+\end{enumerate}
+We shall deduce that (i) implies (ii) from \((3.2.2)\), and that the negation of (i) implies the negation of (ii) from the general-position hypothesis \((2.10.3)\).
+
+\emph{Proof of (i)\(\Rightarrow\)(ii).} If \(\lambda\) is the image in \(\Fq^*\) of the automorphism \(T\in\End(E_0,\alpha)^*\), then
+\[
+\varepsilon[s_0](i)\bigl(\det \Gr^i_F(s_0)(T_{s_0})\bigr)=\varepsilon(s_0)(i)^{n[s_0](i)}(\lambda),
+\]
+so that \((3.2.2)\) implies \(\chi(T)=1\).
+
+\emph{Proof of (ii)\(\Rightarrow\)(i).} The quotient of the \(\Fq\)-algebra \(\End(E_0,\alpha)\) by its radical is a product of matrix algebras over finite extensions of \(\Fq\). If it is not reduced to \(\Fq\), it contains a commutative separable \(\Fq\)-algebra of dimension \(>1\). This algebra admits a lifting into \(\End(E_0,\alpha)\). Suppose then that \(\End(E_0,\alpha)\) contains a commutative separable subalgebra \(k\) of dimension \(>1\). We must show that the character \((3.14.1)\) of \(\End(E_0,\alpha)^*\) is nontrivial. We shall prove that its restriction \(\chi\) to \(k^*\) is nontrivial.
+
+Split case. Suppose first that \(k\) is a product of copies of \(\Fq\), say \(k\simeq\Fq^I\), and that the closed points \(s_0\in S_0\) have degree \(1\), so that \(\Fq\xrightarrow{\sim}k(s_0)\). The \(\Fq^I\)-module structure of \(E_0\) gives a decomposition
+\begin{equation}\tag{3.15.1}
+E_0=\bigoplus_{\iota\in I}E_0^\iota
+\end{equation}
+such that \((\lambda_\iota)_{\iota\in I}\in\Fq^I\) acts on \(E_0^\iota\) by multiplication by \(\lambda_\iota\). The decomposition \((3.15.1)\) is compatible with the parabolic structure. For \(\iota\in I\), put
+\[
+n^\iota[s_0](i)=\dim\Gr^i_{F(s_0)}((E_0^\iota)_{s_0}).
+\]
+The sum over \(i\) of the \(n^\iota[s_0](i)\) is the rank of the bundle \(E_0^\iota\). The restriction of \(\chi\) to the factor with index \(\iota\) of \((\Fq^I)^*=\bigoplus_{\iota\in I}\Fq^*\) is
+\begin{equation}\tag{3.15.2}
+\lambda\longmapsto \prod_{s_0\in S_0}\prod_i \varepsilon[s_0](i)^{n^\iota[s_0](i)}(\lambda).
+\end{equation}
+Its composite with the morphism \(\widehat\Z(1)\to\Fq^*\) of 3.1 is the character
+\[
+\prod_{s\in S}\prod_i \varepsilon[s](i)^{n^\iota[s_0](i)}
+\]
+of \(\widehat\Z(1)\). Hypothesis \((2.10.3)\) ensures that this character is nontrivial.
+
+Reduction of the general case to the split case. It suffices to show that nontriviality of \(\chi\) is invariant under extension of scalars from \(\Fq\) to a finite extension \(\mathbf F_{q^n}\). Under such an extension of scalars, \(X_0\) becomes a curve \(X'\) over \(\mathbf F_{q^n}\), \(S_0\) becomes a divisor \(S'\) of \(X'\), and \(k\) becomes \(k':=k\otimes_{\Fq}\mathbf F_{q^n}\). For \(s'\in S'\) above \(s_0\in S_0\), put \(n[s']:=n[s_0]\), and let \(\varepsilon[s'](i)\) be the composite of \(\varepsilon[s_0](i)\) with the norm \(N_{k(s')/k(s_0)}\). The bundle \(E'\) on \(X'\) inverse image of \(E_0\) inherits a parabolic structure \(\alpha'\) of type \((n(s'))_{s'\in S'}\). Repeating for \(E'\) on \(X'/\mathbf F_{q^n}\) the construction \((3.14.1)\), one obtains a character \(\chi'\) of \(k'^*\). The curve \(X/\F\), the integers \(n[s](i)\), and the characters \(\varepsilon[s](i)\) of \(\widehat\Z(1)\), come equally from \(X_0/\Fq\) and from \(X'/\mathbf F_{q^n}\).
+
+To prove that triviality of \(\chi\) is equivalent to triviality of \(\chi'\), it suffices to prove that
+\begin{equation}\tag{3.15.3}
+\chi'=\chi\circ N_{k'/k}.
+\end{equation}
+Indeed, the norm \(N_{k'/k}\) is surjective. Identity \((3.15.3)\) follows from identity \((3.16.1)\) below, applied to each \(\Gr^i_F(s_0)(E_{s_0})\), endowed with its \((k,k(s_0))\)-bimodule structure.
+
+Let \(k_0\) be a finite extension of \(\Fq\), \(N_0\) a finite-dimensional \(k_0\)-vector space, \(k\) a product of finite extensions of \(\Fq\), and \(\rho:k\to\End_{k_0}(N_0)\). The \((k,k_0)\)-bimodule \(N\) defines a homomorphism
+\[
+[N]:k^*\to k_0^*,\qquad \lambda\mapsto \det(\rho(\lambda)).
+\]
+Extend scalars from \(\Fq\) to \(\mathbf F_{q^n}\). One obtains \(k'_0\), \(k'\), and a \((k',k'_0)\)-bimodule \(N'\). This bimodule defines
+\[
+[N']:k'^*\to k_0'^*,\qquad \lambda\mapsto \det_{k'_0}(\rho(\lambda)).
+\]
+\textbf{Lemma 3.16.} The diagram
+\begin{equation}\tag{3.16.1}
+\begin{tikzcd}
+k'^* \arrow[r,"{[N']}"] \arrow[d,"N_{k'/k}"'] & k_0'^* \arrow[d,"N_{k'_0/k_0}"]\\
+k^* \arrow[r,"{[N]}"] & k_0^*
+\end{tikzcd}
+\end{equation}
+is commutative.
+
+\emph{Proof.} Extend scalars from \(\Fq\) to \(\F\). Diagram \((3.16.1)\) embeds in an analogous diagram \((3.16.2)\), where \(k\) and \(k_0\) are replaced by \(k_F:=k\otimes_{\Fq}\F\), \(k_{0F}:=k_0\otimes_{\Fq}\F\), where \(N_0\) is replaced by a \((k_F,k_{0F})\)-bimodule \(N\), and where the extension \(\mathbf F_{q^n}\) of \(\Fq\) is replaced by a product \(\F^J\) of \(n\) copies of \(\F\):
+\begin{equation}\tag{3.16.2}
+\begin{tikzcd}
+(k_F\otimes \F^J)^* \arrow[r,"{[N\otimes \F^J]}"] \arrow[d] & (k_{0F}\otimes \F^J)^* \arrow[d]\\
+k_F^* \arrow[r,"{[N]}"] & k_{0F}^*.
+\end{tikzcd}
+\end{equation}
+One has \((k_F\otimes\F^J)^*=(k_F^*)^J\), \((k_{0F}\otimes\F^J)^*\simeq(k_{0F}^*)^J\), and the vertical ``norm'' maps are the product maps. The first horizontal line is the product of copies, indexed by \(J\), of the second horizontal line. The commutativity of \((3.16.2)\) follows.
+
+\section{Trace Formula}
+
+\subsection{4.1--4.5}
+In \([\mathrm{DF}]\), the counting problem 2.3 (i) is solved when \(|S_0|\ge 2\) and the imposed local monodromies are unipotent, with a single Jordan block. In automorphic language this means asking the local components \(\pi_{s_0}\) (\(s_0\in S_0\)) to be of the form
+\begin{equation}\tag{4.1.1}
+\text{special representation}\otimes \chi\det g,
+\end{equation}
+for \(\chi\) an unramified character of \(K_{s_0}^*\).
+
+The hypothesis \(|S_0|\ge 2\) allows one to pass from automorphic representations for \(\GL(r,K)\) to automorphic representations for the multiplicative group of a division algebra \(D\) of dimension \(r^2\) over \(K\). It is reassuring to use the trace formula only in a case where the quotient is compact (modulo the centre), but it should be possible instead to use the trace formula for \(\GL(n)\), for a suitable test function, with the simplification brought by the fact that one wants to detect automorphic representations which at two places are in the discrete series. After all, this is how one relates \(\GL(r,K)\) and \(D^*\). The explanations that follow will be simplified by staying with \(\GL(r,K)\), but admitting that the only nonzero terms in the required trace formula are those associated with conjugacy classes of elliptic elements of finite order in \(\GL(r,K)\).
+
+Choose an embedding \(\mathbf F_{q^r}\hookrightarrow M_r(\Fq)\). It defines a morphism \(\mathbf F_{q^r}^*\hookrightarrow\GL(r,\Fq)\hookrightarrow\GL(r,K)\), through which the set of orbits of \(\Gal(\mathbf F_{q^r}/\Fq)\) in \(\mathbf F_{q^r}^*\) maps bijectively to the set of conjugacy classes under consideration.
+
+Let \(T(\gamma)\) be the term of the trace formula (giving the number of fixed points of \(V\)) thus associated to \(\gamma\in\mathbf F_{q^r}^*\). It depends only on the subextension \(\mathbf F_{q^m}\) of \(\Fq\) generated by \(\gamma\). Put \(T(m):=T(\gamma)\). The number \(c_m\) of elements of \(\mathbf F_{q^m}^*\) which generate the extension \(\mathbf F_{q^m}\) of \(\Fq\) is
+\[
+c_m=\sum_{a\mid m}\mu(a)(q^{m/a}-1).
+\]
+The number of fixed points of \(V\) is
+\begin{align}\tag{4.1.2}
+N_1&=\sum_{m\mid r}\frac{c(m)}{m}T(m)\\
+&=\sum_{m\mid r}\sum_{ab=m}\frac1m\mu(a)(q^b-1)T(ab)\\
+&=\sum_b\sum_{ab\mid r}\frac1m\mu(a)(q^b-1)T(ab).
+\end{align}
+The number of fixed points of \(V^n\) (\(n\ge 1\)) is obtained similarly, after extending scalars from \(\Fq\) to \(\mathbf F_{q^n}\).
+
+\textbf{Surprise 4.2.} When \(n\) varies, each \(T(m)\) is generally not, as a function of \(n\), of the form \((1.2.1)\). On the other hand, in \((4.1.2)\), each term of the sum over \(b\) is of this form.
+
+I have no explanation, neither geometric nor automorphic, of 4.2, only a proof. I likewise have no explanation for the following.
+
+\textbf{Surprise 4.3.} Under the hypotheses of 4.1, the number \(N_1\) of fixed points of \(V\) is divisible by \(q\).
+
+If \(r=2\), the trace formula is a little less frightening. Drinfeld \([\mathrm{Dr}]\) used it for the case where \(S_0\) is empty. Flicker (unpublished) treated the case where \(|S_0|=1\) and where the local monodromy at each \(s\in S\) is unipotent with a single Jordan block, i.e. since \(r=2\), nontrivial. Gathering the information thus obtained, one gets:
+
+\textbf{Surprise 4.5.} Let \(E\) be the set of isomorphism classes of irreducible lisse \(\Qbar_\ell\)-sheaves of rank \(2\) on \(X-S\), with unipotent local monodromy (both nontrivial and trivial). The number of fixed points of \(V:=\Frob^*\) on \(E\) depends only on \(X_0/\Fq\) and on \(|S|\).
+
+This is the surprise to which 2.16 alludes. If, as in \([\mathrm{DF}]\), one requires the local monodromy at each \(s\in S\) to be unipotent with a single Jordan block, the number of fixed points depends on \(X_0\), on \(|S|\), and also on the action of Frobenius on \(S\) (viewed as a conjugacy class in the symmetric group \(S_{|S|}\)).
+
+\section{Examples}
+
+\subsection{5.1--5.9}
+Take \(X_0=\mathbf P^1\), \(|S|=4\), \(r=2\), and let \(E\) be the set of isomorphism classes of irreducible lisse \(\Qbar_\ell\)-sheaves of rank \(2\) on \(X-S\), with local monodromy at each \(s\in S\) nontrivial unipotent. In this case, the number of fixed points of the iterates of the permutation \(V=\Frob^*\) of \(E\) is given by
+\begin{equation}\tag{5.1.1}
+N_n=q^n.
+\end{equation}
+If \(|S_0|\ge 2\), \((5.1.1)\) is an application of the main result of \([\mathrm{DF}]\). The following curious result (\([\mathrm{DF}]\,\S7\)) allows one to deduce the case where \(S_0\) is reduced to one closed point of degree \(4\).
+
+\textbf{Proposition 5.2.} Each permutation \(\sigma\) of type \((2,2)\) of \(S\) extends to a projectivity of \(\mathbf P^1\). The action of this projectivity on \(E\) is trivial.
+
+The proof is by reduction to an analogous theorem over \(\mathbf C\).
+
+It is natural to complete the set \(E\) of 5.1 to \(\bar E\), the set of isomorphism classes, up to semisimplification, of lisse \(\Qbar_\ell\)-sheaves of rank \(2\) on \(X-S\), with unipotent local monodromy at each \(s\in S\). Since \(X_0=\mathbf P^1\) and \(|S|=4\), this completion \(\bar E\) differs from \(E\) only by the adjunction of one point corresponding to the constant \(\Qbar_\ell\)-sheaf \(\Qbar_\ell^2\). We again write \(V\) for the permutation of \(\bar E\) induced by \(\Frob^*\). The number \(\bar N_n\) of fixed points of \(V^n\) acting on \(\bar E\) is
+\begin{equation}\tag{5.3.1}
+\bar N_n=q^n+1\qquad \text{(fixed points on \(\bar E\)).}
+\end{equation}
+The complex analogue of \(\bar E\) is the moduli space \(\bar M\) of complex local systems of rank \(2\) on \(\mathbf P^1-S\), for \(|S|=4\), with unipotent local monodromy. These local systems are taken up to semisimplification. If one chooses a base point \(o\in\mathbf P^1-S\), the functor \(F\mapsto F_o\) is an equivalence from local systems to representations of \(\pi_1(\mathbf P^1-S,o)\), and one can take as coordinates on \(\bar M\) the traces of elements of \(\pi_1\). The space \(\bar M\) is affine, purely of dimension \(2\), with a unique singular point corresponding to the constant local system \(\mathbf C^2\). The singularity is of type \(D_4\). The nonzero Betti numbers of \(\bar M\) are
+\begin{equation}\tag{5.4.1}
+b_0=1,\qquad b_2=1.
+\end{equation}
+I have not made a complete verification, but the situation seems exactly the same for \(X_0=\mathbf P^1\), \(|S|=3\), \(r=3\), with unipotent local monodromy. Again, if one of the local monodromies is not a single Jordan block, the \(\Qbar_\ell\)-sheaf is an iterated extension of constant local systems \(\Qbar_\ell\). The analogue of 5.3 holds for \(\sigma\) a cyclic permutation of the three points of \(S\). The number of fixed points of \(V^n\) is again \(q^n+1\), with the ``1'' given by reducible local systems with unipotent local monodromy, all having a constant local system as semisimplification. The unique singular point of the complex analogue is of type \(E_6\).
+
+Take \(X_0=\mathbf P^1\), \(|S|=4\), \(r=2\), and assume that, as in 3.4, the imposed local monodromy is, at each \(s_0\in S_0\), given by two distinct characters \(\alpha'[s_0]\), \(\alpha''[s_0]\) of \(k(s_0)^*\). Assume \((3.2.2)\) and the general-position hypothesis \((2.10.3)\). Using \((3.5.1)\), one obtains:
+
+\textbf{Proposition 5.7.} Under the hypotheses of 5.6, one has
+\begin{equation}\tag{5.7.1}
+N_1=q+1+|S_0(\Fq)|.
+\end{equation}
+Arinkin has checked that for \(X_0=\mathbf P^1\) and \(r=2\), if a vector bundle \(E_0\) of rank \(2\) on \(X_0\) with parabolic structure \(\alpha_0\) at \(S_0\) is indecomposable, then \(\End(E_0,\alpha)\) is reduced to the scalars. If one defines \(Z\) as in 3.6, and passes to the associated sheaf for the Zariski topology, one obtains a functor representable by an algebraic space. In the case \(|S|=4\), if one takes the degree \(d=1\), it is represented by the sum of two copies of \(X_0\), glued along \(X_0-S_0\). The number of points of this scheme over \(\Fq\) is given by \((5.7.1)\).
+
+Pass to the complex analogue. On \(\mathbf P^1-S\), with \(|S|=4\), consider the moduli space of complex local systems of rank \(2\) with prescribed local monodromy at each \(s\in S\). At \(s\in S\), require the local monodromy to be conjugate to \(A_s=\begin{pmatrix}a_s&0\\0&b_s\end{pmatrix}\). Assume \(\prod_s a_sb_s=1\), and that if, for every \(s\), \(c_s\) is one of \(a_s\) or \(b_s\), one never has \(\prod c_s=1\). Put \(A:=(A_s)_{s\in S}\), and write \(M(A)\) for the moduli space, 2.10. It is smooth and purely of dimension \(2\). One may view \(M(A)\), for \(A_s\) close to \(1\), as a deformation of \(\bar M\) considered in 5.4. In this deformation, the space of vanishing cycles has dimension \(4\), since the singularity of \(\bar M\) is of type \(D_4\). At infinity the geometry does not change, and the nonzero Betti numbers are therefore
+\begin{equation}\tag{5.8.1}
+b_0=1,\qquad b_2=5.
+\end{equation}
+Take \(X_0=\mathbf P^1\), \(|S|=3\), \(r=3\), and assume that, as in 3.4, the imposed local monodromy is at each \(s_0\in S_0\) given by three distinct characters of \(k(s_0)^*\). Assume \((3.2.2)\) and the general-position hypothesis 2.10.3. Using \((3.5.1)\), one obtains here
+\begin{equation}\tag{5.9.1}
+N_1=q+1+2|S_0(\Fq)|.
+\end{equation}
+The sheaf associated to \(Z\) as in 3.6 is indeed, for \(d=1\), represented by the sum of three copies of \(X_0\), glued along \(X_0-S_0\). If \(S_0\) consists of three rational points over \(\Fq\), \((5.9.1)\) says that \(N_1=(q+1)+6\), as suggested by the \(E_6\) singularity of the complex analogue for unipotent local monodromy (cf. 5.5).
+
+\section{Rank 1}
+
+\subsection{6.1--6.7}
+Let \(E(1,\emptyset)\) denote the set \(E(R)\) of 2.1 for \(r=1\) and \(S_0=\emptyset\). Tensor product gives it the structure of an abelian group. Class field theory identifies \(E(1,\emptyset)^V\) with the group of \(\Qbar_\ell^*\)-valued characters of the finite group \(\Pic^0(X_0)(\Fq)\). Indeed, this theory identifies the abelianized fundamental group of \(X_0\) with the profinite completion of \(\Pic(X_0)\). The group \(\Pic(X_0)\) maps to \(\Z\) by the degree map, with kernel the finite group \(\Pic^0(X_0)(\Fq)\) of \(\Fq\)-points of the Jacobian \(\Pic^0(X_0)\). The isomorphism classes of lisse \(\Qbar_\ell\)-sheaves \(F_0\) of rank one on \(X_0\) are thus identified with characters \(\chi\) of \(\Pic(X_0)\) with values in \(\overline{\mathbf Z}_\ell^*\); \(\Fq\)-twist by \(\lambda\) corresponds to multiplication by the character \(\lambda^n\) of \(\Z\); and, by attaching to \(F_0\) the restriction of \(\chi\) to \(\Pic^0(X_0)(\Fq)\), one obtains a bijection between \(\Fq\)-twist classes of lisse \(F_0\) of rank \(1\) on \(X_0\) and characters of \(\Pic^0(X_0)(\Fq)\).
+
+For arbitrary \(r\ge 1\) and \(R\) as in 2.1, tensor product induces an action of the abelian group \(E(1,\emptyset)\) on \(E(R)\), and of \(E(1,\emptyset)^V\) on \(E(R)^V\). If \(r=1\), and \(R\) satisfies the compatibility \((2.10.1)\), class field theory shows that \(E(R)^V\) is a principal homogeneous space under \(E(1,\emptyset)^V\). Thus
+\begin{equation}\tag{6.2.1}
+|E(R)^V|=|E(1,\emptyset)^V|=|\Pic^0(X_0)(\Fq)|\qquad (r=1\text{ and }(2.10.1)).
+\end{equation}
+If \(r>1\), taking the exterior power \(\bigwedge^r\) gives a map
+\[
+\det:E(R)\to E(\bigwedge^r R)
+\]
+such that, for the action of \(E(1,\emptyset)\), denoted \(\otimes\), one has
+\[
+\det(l\otimes F)=l^r\otimes\det(F).
+\]
+Similarly, after passage to the fixed points of \(V=\Frob^*\), for \(\det:E(R)^V\to E(\bigwedge^r R)^V\) and the action of \(E(1,\emptyset)^V\).
+
+The action of \(E(1,\emptyset)^V\) on \(E(R)^V\) is not necessarily free, and the fibres of
+\[
+\det:E(R)^V\to E(\bigwedge^r R)^V
+\]
+do not necessarily all have the same number of elements. Nevertheless, in all cases that have been computed, \(|E(1,\emptyset)^V|\) divides \(|E(R)^V|\). As a function of \(n\), \(|\Pic^0(X_0)(\mathbf F_{q^n})|\) has the form \((2.15.1)\):
+\[
+|\Pic^0(X_0)(\mathbf F_{q^n})|=\sum(-1)^i\Tr(\Frob^*,H^i(\Pic^0(X),\Ql))
+=\sum(-1)^i\Tr\bigl(\Frob^*,\bigwedge^iH^1(X,\Ql)\bigr).
+\]
+I conjecture the following precise form of Conjecture 2.15 (i).
+
+\textbf{Conjecture 6.3.} As a function of \(n\), the number of fixed points \(N_n(R)\) of \(V^n\) is of the form
+\begin{equation}\tag{6.3.1}
+N_n(R)=|\Pic^0(X_0)(\mathbf F_{q^n})|\sum c_k\gamma_k^n
+\end{equation}
+for integers \(c_k\) and suitable numbers \(\gamma_k\).
+
+Here is an analogue of 6.3 in algebraic geometry. Let \(A_0\) be an abelian variety over \(\Fq\), and let \(f_0:X_0\to A_0\) be a proper smooth morphism. Although the fibres of \(f:X_0(\mathbf F_{q^n})\to A_0(\mathbf F_{q^n})\) need not have the same number of elements (example: \(X_0=A_0\) and \(f_0\) multiplication by an integer prime to \(p\)), \(|A_0(\mathbf F_{q^n})|\) divides \(|X_0(\mathbf F_{q^n})|\). Indeed, the \(R^if_!\Ql\) are lisse \(\Ql\)-sheaves on \(A\), and the (abelian) fundamental group of \(A\) acts on these sheaves. One knows that this action is semisimple. Let \((R^if_!\Ql)_0\) be the subsheaf of invariants. It comes from a subsheaf \((R^if_{0!}\Ql)_0\) of \(R^if_{0!}\Ql\) on \(A_0\), and this last sheaf is the inverse image on \(A_0\) of a sheaf on \(\Spec(\Fq)\), denoted \(H^i(X_0/A_0)\). One knows that
+\begin{equation}\tag{6.4.1}
+H^i(A,(R^jf_!\Ql)_0)\xrightarrow{\sim}H^i(A,R^jf_!\Ql).
+\end{equation}
+Grothendieck's trace formula for the number of \(\Fq\)-points of \(X_0\) can therefore be rewritten as
+\begin{equation}\tag{6.4.2}
+|X_0(\mathbf F_{q^n})|=\Tr\left(\Frob^*,\left(\sum(-1)^iH^i(A,\Ql)\right)\otimes\left(\sum(-1)^jH^j(X/A)\right)\right).
+\end{equation}
+If the \(\gamma_k\) are the eigenvalues of Frobenius on the \(H^j(X/A)\), and the \(c_k\) are the alternating sums of their multiplicities, one deduces from \((6.4.2)\) that
+\begin{equation}\tag{6.4.3}
+|X_0(\mathbf F_{q^n})|=|A_0(\mathbf F_{q^n})|\sum c_k\gamma_k^n,
+\end{equation}
+a formula analogous to \((6.3.1)\). The promised divisibility of \(|X_0(\mathbf F_{q^n})|\) by \(|A_0(\mathbf F_{q^n})|\) follows from the fact that the Frobenius eigenvalues on \(H^j(X/A)\), contained in the cohomology of a fibre of \(X_0\to A_0\), are algebraic integers.
+
+In 6.4 the crucial point is not that \(f_0\) is proper and smooth, but that the \(R^if_!\Ql\) are lisse. One can avoid having to assume that the \(R^if_!\Ql\) are semisimple by considering, rather than the subsheaf of invariants for the action of \(\pi_1(A)\), the largest subsheaf on which the action is unipotent. Assume that there is an action of \(A_0\) on \(X_0\), and an integer \(r\), such that \(f_0\) is equivariant for the action of \(A_0\) on \(A_0\) by \(x:y\mapsto rx+y\). Under this hypothesis, the inverse images of the \(R^if_!\Ql\) on \(A\) by multiplication by \(r:A\to A\) are constant sheaves. This implies both their lissity and their semisimplicity.
+
+If \(g\ge 1\), Conjecture 6.3 implies that in the conjectural expression \((2.11.1)\) for \(N_n(R)\), one has \(\sum a_i=0\). Pass to the complex analogues as in 2.14. Let \(M(1,\emptyset)\) be the group of isomorphism classes of complex local systems of rank \(1\) on \(P\). It is isomorphic to \((\mathbf C^*)^{2g}\), and, if the compatibility \(\prod \det R^*(s)=1\) is satisfied, \(M(\det R^*)\) is a principal homogeneous space under \(M(1,\emptyset)\). The group \(M(1,\emptyset)\) acts on \(M(R^*)\) and on \(M(\det R^*)\). Denote the action by \(\otimes\). The map induced by \(\bigwedge^r\),
+\[
+\det:M(R^*)\to M(\det R^*),
+\]
+satisfies \(\det(l\otimes F)=l^r\otimes\det(F)\). This implies that \(\det\) is a fibration, that the \(R^i\det_!\Z\) are locally constant, and that the action of \(\pi_1M(\det R^*)\) on the \(R^i\det_!\Z\) factors through its quotient \(\pi_1/r\pi_1\simeq(\Z/r\Z)^{2g}\). If \(g\ge 1\), one deduces by arguments analogous to those of 6.4 that \(\chi(M(R^*))=0\), in agreement with 2.15 (ii). Let \((R^i\det_!\mathbf Q)_0\) be the local subsystem of \(R^i\det_!\mathbf Q\) of invariants under the action of \(\pi_1\), and let \(\chi(M(R^*)/M(\det R^*))\) be the alternating sum of the ranks of the \((R^i\det_!\mathbf Q)_0\).
+
+\textbf{Conjecture 6.7.} With the notation of 6.3 and 6.6, one has
+\[
+\sum c_k=\chi(M(R^*)/M(\det R^*)).
+\]
+
+\section*{Bibliography}
+\begin{description}
+\item[{[DF]}] P. Deligne and Y. Z. Flicker. Counting local systems with principal unipotent local monodromy, \emph{Annals of Math.} (to appear).
+\item[{[Dr]}] V. Drinfeld. The number of two dimensional irreducible representations of the fundamental group of a curve over a finite field, \emph{Funk. anal. i Prilozhen.} \textbf{15} 4 (1981), 75--76.
+\item[{[L]}] L. Lafforgue. Chtoucas de Drinfeld et correspondance de Langlands, \emph{Inv. math.} \textbf{147} 1 (2002), 1--241.
+\end{description}
+
+\end{document}
