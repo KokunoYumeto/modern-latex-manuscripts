@@ -1,6 +1,6 @@
 # Public Archive Readability Audit
 
-Generated: 2026-05-29T01:59:48
+Generated: 2026-05-29T02:36:16
 
 ## Summary
 
@@ -8,7 +8,7 @@ Generated: 2026-05-29T01:59:48
 |---|---:|---:|---:|---:|---:|---|---|
 | main | [20435272](https://zenodo.org/records/20435272) | 100 | 53 | 45 | 20698.32 | none | 0 |
 | ega | [20434859](https://zenodo.org/records/20434859) | 14 | 9 | 3 | 462.28 | none | 0 |
-| sga | [20434868](https://zenodo.org/records/20434868) | 58 | 37 | 20 | 586.77 | none | 0 |
+| sga | [20436860](https://zenodo.org/records/20436860) | 58 | 37 | 20 | 586.77 | none | 0 |
 | non_european_consolidated | [20436420](https://zenodo.org/records/20436420) | 74 | 66 | 7 | 4090.3 | none | 0 |
 | chinese | [20435670](https://zenodo.org/records/20435670) | 29 | 27 | 1 | 121.81 | none | 0 |
 | indian_sanskrit | [20435677](https://zenodo.org/records/20435677) | 13 | 11 | 1 | 699.28 | none | 0 |
@@ -28,14 +28,14 @@ No public metadata or filename flags found for the configured internal/stale pat
 ## First Files
 
 ### main (20435272)
+- `10 Reader PDF - Dedekind - Was sind und was sollen die Zahlen.pdf`
+- `10 Reader PDF - Lie - Theory of Transformation Groups Volume I.pdf`
+- `10 Reader PDF - Minkowski - Geometry of Numbers.pdf`
+- `99 Raw Source Drops - Manifest.csv`
+- `90 Artifacts - Weber - Lehrbuch der Algebra Volume I Complete Draft.zip`
 - `10 Reader PDF - Qin Jiushao - Shushu Jiuzhang.pdf`
 - `10 Reader PDF - Al-Tusi - Shakl al-Qatta.pdf`
 - `10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part II.pdf`
-- `90 Artifacts - Hecke - Lectures on Algebraic Number Theory.zip`
-- `10 Reader PDF - Fricke and Klein - Automorphic Functions Volume II.pdf`
-- `99 Raw Source Drops - Current Working Inputs - Part 04 of 10.zip`
-- `99 Raw Source Drops - Current Working Inputs - Part 10 of 10.zip`
-- `10 Reader PDF - Lie - Theory of Transformation Groups Volume I.pdf`
 
 ### ega (20434859)
 - `16 EGA IV Part 3 - French Original (NUMDAM PMIHES 28, 1966).pdf`
@@ -47,15 +47,15 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `15 EGA IV Part 2 - French Original (NUMDAM PMIHES 24, 1965).pdf`
 - `00 EGA - English Translation Working Draft.pdf`
 
-### sga (20434868)
-- `32 SGA 7-I - English Working Draft Introduction and Expose I.pdf`
-- `49 SGA 5 - French Reference PDF.pdf`
-- `51 SGA 7 Tome 1 - French Reference PDF.pdf`
-- `81 SGA - Expose IV Section 9 Sources and Render Checks.zip`
-- `94 SGA - SGA 5 Later Delivered Segments Sources and Render Checks.zip`
-- `07 SGA 4 - Expose IV English Draft through section 8.8.pdf`
-- `00 SGA 1 - Existing English Translation Snapshot.pdf`
-- `12 SGA 4 - Expose V English Draft sections 5 to 8.pdf`
+### sga (20436860)
+- `40 SGA 1 - French Reference PDF.pdf`
+- `16 SGA 4 - Expose VII Complete English Draft.pdf`
+- `44 SGA 3 Part 3 - French Reference PDF.pdf`
+- `20 SGA 4 - Exposes XVIII-XIX Complete English Draft.pdf`
+- `09 SGA 4 - Expose IV English Draft sections 10 to 14.pdf`
+- `85 SGA - Expose V Sections 5 to 8 Sources and Render Checks.zip`
+- `43 SGA 3 Part 2 - French Reference PDF.pdf`
+- `47 SGA 4 Part 3 - French Reference PDF.pdf`
 
 ### non_european_consolidated (20436420)
 - `85 Non-European Mathematics - Additional Source Refinement Packets.zip`

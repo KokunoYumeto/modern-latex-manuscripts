@@ -2,7 +2,7 @@
 
 Generated: 2026-05-29
 
-This note records the current source-vs-public check for the SGA working translation material mirrored here and archived on Zenodo at https://zenodo.org/records/20434868.
+This note records the current source-vs-public check for the SGA working translation material mirrored here and archived on Zenodo at https://zenodo.org/records/20436860.
 
 ## Current Reader State
 
