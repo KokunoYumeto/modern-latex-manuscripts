@@ -8,7 +8,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 - Main landing, bulk preservation, and raw source backstop: https://zenodo.org/records/20435272
 - EGA working English translation and French originals: https://zenodo.org/records/20434859
-- SGA working English translation and French references: https://zenodo.org/records/20434868
+- SGA working English translation and French references: https://zenodo.org/records/20436860
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20436420
 - Chinese mathematical classics: https://zenodo.org/records/20435670
 - Indian and Sanskrit mathematical classics: https://zenodo.org/records/20435677
