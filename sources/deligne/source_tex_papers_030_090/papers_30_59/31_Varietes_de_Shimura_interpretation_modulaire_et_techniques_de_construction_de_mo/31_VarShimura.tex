@@ -1,0 +1,1797 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{array}
+\usepackage{booktabs}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{remarks}[theorem]{Remarques}
+\newtheorem{example}[theorem]{Exemple}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\CSp}{CSp}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Proj}{proj\,lim}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Cent}{Cent}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Nm}{Nm}
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Id}{Id}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Af}{\mathbb{A}_f}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\Gm}{\mathbb{G}}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\simto}{\xrightarrow{\sim}}
+
+\title{\textbf{VARI\'ET\'ES DE SHIMURA:\\ INTERPR\'ETATION MODULAIRE,\\ ET TECHNIQUES DE CONSTRUCTION DE MOD\`ELES CANONIQUES}}
+\author{PIERRE DELIGNE}
+\date{}
+
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}
+
+\begin{center}
+\textit{Proceedings of Symposia in Pure Mathematics}\\
+Vol.~33 (1979), part 2, pp. 247--290
+\end{center}
+
+\vspace{1cm}
+
+\section*{SOMMAIRE}
+\addcontentsline{toc}{section}{Sommaire}
+
+\begin{tabular}{p{10cm}r}
+Introduction & 250 \\
+\quad Rappels, terminologie et notations & 251 \\
+1. Domaines hermitiens sym\'etriques & 251 \\
+\quad 1.1 Espaces de modules de structures de Hodge & 251 \\
+\quad 1.2 Classification & 257 \\
+\quad 1.3 Plongements symplectiques & 259 \\
+2. Vari\'et\'es de Shimura & 262 \\
+\quad 2.0 Pr\'eliminaires & 262 \\
+\quad 2.1 Vari\'et\'es de Shimura & 265 \\
+\quad 2.2 Mod\`eles canoniques & 268 \\
+\quad 2.3 Construction de mod\`eles canoniques & 270 \\
+\quad 2.4 Loi de r\'eciprocit\'e: pr\'eliminaires & 274 \\
+\quad 2.5 Application: une extension canonique & 280 \\
+\quad 2.6 La loi de r\'eciprocit\'e des mod\`eles canoniques & 284 \\
+\quad 2.7 R\'eduction au groupe d\'eriv\'e, et th\'eor\`eme d'existence & 285 \\
+Bibliographie & 289 \\
+\end{tabular}
+
+\vspace{1cm}
+\noindent\rule{\textwidth}{0.4pt}
+
+\setcounter{section}{0}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Cet article fait suite \`a [5], dont nous utiliserons les r\'esultats essentiels (ceux des paragraphes 4 et 5). Dans une premi\`ere partie, nous tentons de motiver les axiomes impos\'es aux syst\`emes $(G,X)$ (2.1.1) \`a partir desquels sont d\'efinies les vari\'et\'es de Shimura. On montre que, grosso modo, ils correspondent aux espaces de modules de structures de Hodge $X^+$ du type suivant.
+
+(a) $X^+$ est une composante connexe de l'espace de toutes les structures de Hodge sur un espace vectoriel fix\'e $V$ relativement auxquelles certains tenseurs $t_1,\dots,t_n$ sont de type $(0,0)$. Le groupe alg\'ebrique $G$ est le sous-groupe de $\GL(V)$ qui fixe les $t_i$ et $X$ est l'orbite $G(\RR)\cdot X^+$ de $X^+$ sous $G(\RR)$.
+
+(b) La famille de structure de Hodge sur $V$ param\'etr\'ee par $X^+$ v\'erifie certaines conditions, v\'erifi\'ees par les familles de structures de Hodge qui apparaissent naturellement en g\'eom\'etrie alg\'ebrique: pour une structure complexe convenable (et uniquement d\'etermin\'ee) sur $X^+$, c'est une variation de structure de Hodge polarisable.
+
+L'espace $X^+$ est automatiquement un domaine hermitien sym\'etrique (= espace hermitien sym\'etrique \`a courbure $< 0$). Les domaines hermitiens sym\'etriques peuvent tous \^etre ainsi d\'ecrits comme des espaces de modules de structures de Hodge (1.1.17), et je crois cette description tr\`es utile. Par exemple: le plongement d'un domaine hermitien sym\'etrique $D$ dans son dual $\check{D}$ (une vari\'et\'e de drapeaux) correspond \`a l'application (une structure de Hodge) $\mapsto$ $H$ (la filtration de Hodge correspondante). Les descriptions comme ``domaine de Siegel de $n$\`eme esp\`ece'' s'interpr\`etent en disant que, sous certaines hypoth\`eses, si on superpose \`a une structure de Hodge une filtration par le poids, on obtient une structure de Hodge mixte, d'o\`u une application de $D$ dans un espace de modules de structures de Hodge mixtes (cf.~les constructions de [1, III, 4.1]). Ce dernier point ne sera ni mentionn\'e, ni utilis\'e dans l'article.
+
+Ce point de vue, et la description de certaines vari\'et\'es de Shimura comme espaces de modules de vari\'et\'es ab\'eliennes, sont li\'es par le dictionnaire: il revient au m\^eme (\'equivalence de cat\'egorie $A \mapsto H_1(A,\ZZ)$) de se donner une vari\'et\'e ab\'elienne ou une structure de Hodge polarisable de type $\{(-1,0),(0,-1)\}$ (il s'agit ici de $\ZZ$-structures de Hodge sans torsion; par passage au dual ($A \mapsto H_1(A,\ZZ)$), on peut remplacer $\{(-1,0),(0,-1)\}$ par $\{(1,0),(0,1)\}$). Polariser la vari\'et\'e ab\'elienne revient \`a polariser son $H_1$. Avec param\`etres, de m\^eme, il revient au m\^eme de se donner un sch\'ema ab\'elien polaris\'e sur une vari\'et\'e complexe lisse $S$, ou une variation de structures de Hodge polaris\'ee de type $\{(-1,0),(0,-1)\}$ sur l'espace analytique $S^{\text{an}}$. Une famille analytique de vari\'et\'es ab\'eliennes, param\'etr\'ee par $S^{\text{an}}$, est automatiquement alg\'ebrique (ceci r\'esulte de [3]). Pour interpr\'eter des structures de Hodge de type plus compliqu\'e, on aimerait remplacer les vari\'et\'es ab\'eliennes par des ``motifs'' convenables, mais il ne s'agit encore que d'un r\^eve.
+
+Au num\'ero 1.2, nous donnons une description commode bas\'ee sur le formalisme pr\'ec\'edent de la classification des domaines hermitiens sym\'etriques, en terme de diagrammes de Dynkin et de leurs sommets sp\'eciaux. Au num\'ero 1.3, nous classifions un certain type de plongements de domaines hermitiens sym\'etriques dans le demi-espace de Siegel. Les r\'esultats sont parall\`eles \`a ceux de Satake [11]. Une application de l'astuce unitaire de Weyl, pour laquelle nous renvoyons \`a [7], ram\`ene la classification \`a la connaissance d'un fragment de la table, donn\'ee par exemple dans Bourbaki [4], donnant l'expression des poids fondamentaux comme combinaison lin\'eaire de racines simples.
+
+Le lecteur d\'esireux d'en savoir plus sur les variations de structure de Hodge, et la fa\c{c}on dont elles apparaissent en g\'eom\'etrie alg\'ebrique, pourra consulter [6] (dont nous ne suivons pas les conventions de signes); certains faits, \'enonc\'es dans [6], sont d\'emontr\'es dans [7].
+
+Aux num\'eros 2.1 et 2.2 nous d\'efinissons, dans un langage ad\'elique, les vari\'et\'es de Shimura ${}_K M_C(G,X)$ (not\'ees ${}_K M(G,h)$ dans [5], pour $h$ un quelconque \'el\'ement de $X$), leur limite projective $M_C(G,X)$ et la notion de mod\`ele canonique. Je renvoie au texte pour ces d\'efinitions, et dirai seulement qu'un mod\`ele canonique de $M_C(G,X)$ est un mod\`ele de $M_C(G,X)$ sur le corps dual (2.2.1) $E(G,X)$, i.e.~un sch\'ema $M(G,X)$ sur $E(G,X)$ muni d'un isomorphisme $M(G,X) \otimes_{E(G,X)} \CC \simto M_C(G,X)$, cette fa\c{c}on de d\'efinir $M(G,X)$ sur $E(G,X)$ ayant des propri\'et\'es convenables ($G(\Af)$-\'equivariance, et propri\'et\'es galoisiennes des points sp\'eciaux (2.2.4)). On d\'efinit aussi la notion de mod\`ele faiblement canonique (m\^eme d\'efinition que les mod\`eles canoniques, avec $E(G,X)$ remplac\'e par une extension finie $E \subset \CC$). Ils jouent un r\^ole technique dans la construction de mod\`eles canoniques. Les diff\'erences apparentes entre les d\'efinitions de 2.1, 2.2 et celles de [5] proviennent d'un autre choix de conventions de signes (action \`a droite contre action \`a gauche, loi de r\'eciprocit\'e en th\'eorie du corps de classes global\dots).
+
+Pour une description heuristique, je renvoie \`a l'introduction de [5]. Pour une br\`eve description, sur des examples, de comment on passe du langage ad\'elique \`a un langage plus classique, je renvoie \`a [5, 1.6--1.11, 3.14--3.16, 4.11--4.16].
+
+Dans [5], nous avions syst\'ematis\'e les m\'ethodes introduites par Shimura pour construire des mod\`eles canoniques. Dans la seconde partie du pr\'esent article, nous perfectionnons les r\'esultats de [5]. Au num\'ero 2.6, nous d\'eterminons l'action du groupe de Galois $\Gal(\overline{\QQ}/E)$ sur l'ensemble des composantes connexes g\'eom\'etriques d'un mod\`ele faiblement canonique (suppos\'e exister) de $M_C(G,X)$ sur $E$, sans supposer, comme dans [5], que le groupe d\'eriv\'e de $G$ est simplement connexe. Le point essentiel est la construction, donn\'ee au num\'ero 2.4, d'un morphisme du type suivant. Soient $G$ un groupe r\'eductif (connexe) sur $\QQ$, $p:\tilde{G} \to G^{\text{der}}$ le rev\^etement universel de son groupe d\'eriv\'e $G^{\text{der}}$ et $M$ une classe de conjugaison, d\'efinie sur un corps de nombres $E$, de morphismes de $\Gm_m$ dans $G$. On construit un morphisme $q_M$ du groupe des classes d'id\`eles de $E$ dans le quotient ab\'elien $G(\A)/p\tilde{G}(\A)\cdot G(\QQ)$ de $G(\A)$. Ce morphisme est fonctoriel en $(G,M)$, et, si $F$ est une extension de $E$, le diagramme
+\[
+\begin{tikzcd}
+C(F) \arrow[dr] \\
+& \pi_0(G(\A)/p\tilde{G}(\A)\cdot G(\QQ)) \\
+C(E) \arrow[ur]
+\end{tikzcd}
+\]
+est commutatif. Si $G$ n'a pas de facteur $G'$ sur $\QQ$ tel que $G'(\RR)$ soit compact, on d\'eduit du th\'eor\`eme d'approximation forte que
+\[
+\pi_0(G(\A)/p\tilde{G}(\A)\cdot G(\QQ)) = \pi_0(G(\A)/G(\QQ)),
+\]
+et $q_M$ fournit une action sur $\pi_0(G(\A)/G(\QQ))$ de $\pi_0 C(E)$, le groupe de Galois rendu ab\'elien $\Gal(\overline{\QQ}/E)^{\text{ab}}$ d'apr\`es la th\'eorie du corps de classes global.
+
+La seconde id\'ee nouvelle---en fait un retour au point de vue de Shimura---est l'observation suivante: les r\'esultats de 2.6 permettent de reconstruire un mod\`ele faiblement canonique $M_E(G,X)$ de $M_C(G,X)$ \`a partir de sa composante neutre $M^0(G,X^+)$ (une composante connexe g\'eom\'etrique, d\'ependant du choix d'une composante connexe $X^+$ de $X$), munie de l'action (semi-lin\'eaire) du sous-groupe $H$ de $G(\Af) \times \Gal(\overline{\QQ}/E)$ qui la stabilise. Soient $Z$ le centre de $G$, $G^{\text{ad}}$ le groupe adjoint, $G^{\text{ad}}(\RR)^+$ la composante neutre topologique de $G^{\text{ad}}(\RR)$, et $G^{\text{ad}}(\QQ)^+ = G^{\text{ad}}(\QQ) \cap G^{\text{ad}}(\RR)^+$. L'adh\'erence $\overline{Z(\QQ)}$ de $Z(\QQ)$ dans $G(\Af)$ agissant trivialement sur $M_C(G,X)$, l'action de $H$ sur $M^0(G,X^+)$ se factorise par $H/\overline{Z(\QQ)}$. On peut en fait faire agir un groupe un peu plus gros, extension de $\Gal(\overline{\QQ}/E)$ par le compl\'et\'e de $G^{\text{ad}}(\QQ)^+$ pour la topologie des images des sous-groupes de congruence de $G^{\text{der}}(\QQ)$.
+
+\`A isomorphisme unique pr\`es, cette extension ne d\'epend que de $G^{\text{ad}}$, $\tilde{G}^{\text{der}}$ et de la projection $X^{+\text{ad}}$ de $X^+$ dans $G^{\text{ad}}$ (2.5). On la note $\mathscr{E}_E(G^{\text{ad}},\tilde{G}^{\text{der}},X^{+\text{ad}})$. La composante neutre $M^0(G,X^+)$ est la limite projective des quotients de $X^+$ par les sous-groupes arithm\'etiques de $G^{\text{ad}}(\QQ)^+$, images de sous-groupes de congruence de $G^{\text{der}}(\QQ)$. On v\'erifie enfin que les conditions que doit v\'erifier son mod\`ele $M^0(G,X^+)$ sur $\overline{\QQ}$, et l'action de $\mathscr{E}_E(G^{\text{ad}},\tilde{G}^{\text{der}},X^{+\text{ad}})$, pour correspondre \`a un mod\`ele faiblement canonique, ne d\'ependent que du groupe adjoint $G^{\text{ad}}$, de $\tilde{G}^{\text{der}}$, du rev\^etement $\tilde{G}^{\text{der}}$ de $G^{\text{ad}}$ et de l'extension finie $E$ (contenue dans $\CC$) de $E(G^{\text{ad}},X^{+\text{ad}})$. Ces conditions d\'efinissent les mod\`eles faiblement canoniques (resp.~canoniques, pour $E = E(G^{\text{ad}},X^{+\text{ad}})$) connexes (2.7.10).
+
+Le probl\`eme de l'existence d'un mod\`ele canonique ne d\'epend donc, en gros, que du groupe d\'eriv\'e. Cette r\'eduction au groupe d\'eriv\'e est une version beaucoup plus commode de la maladroite m\'ethode de modification centrale de $Z$ dans [5, 5.11].
+
+En 2.3, nous construisons une provision de mod\`eles canoniques \`a l'aide de plongements symplectiques, en invoquant [5, 4.2] et [5.7]. Les r\'esultats de 1.3 nous permettent d'obtenir les plongements symplectiques d\'esir\'es avec tr\`es peu de calculs.
+
+En 2.7, nous expliquons la r\'eduction au groupe d\'eriv\'e esquiss\'ee ci-dessus et nous d\'eduisons de 2.3 un crit\`ere d'existence de mod\`eles canoniques qui couvre tous les cas connus (Shimura, Miyake et Shih).
+
+Dans l'article, nous utilisons l'\'equivalence entre mod\`eles faiblement canoniques et mod\`eles faiblement canoniques connexes pour transporter \`a ces derniers des r\'esultats de [5] (unicit\'e, construction d'un mod\`ele canonique \`a partir d'une famille de mod\`eles faiblement canoniques). Il aurait \'et\'e plus naturel de transposer les d\'emonstrations, et de transposer de m\^eme la fonctorialit\'e [5, 5.4], et le passage \`a un sous-groupe [5, 5.7] (\'evitant par l\`a la sybilline proposition [5, 1.15]). Le manque de temps, et la lassitude, m'en ont emp\^ech\'e.
+
+J'ai r\'ecemment d\'emontr\'e qu'on pouvait donner un sens purement alg\'ebrique \`a la notion de cycle rationnel de type $(p,p)$, sur une vari\'et\'e ab\'elienne $A$ (sur un corps de caract\'eristique 0). On peut retrouver \`a partir de l\`a le crit\`ere d'existence 2.3.1 de mod\`eles canoniques, et donner une description modulaire des mod\`eles obtenus avec son aide (cf.~[9]). Cette description ne se pr\^ete malheureusement pas \`a la r\'eduction modulo $p$. Cette m\'ethode \'evite le recours \`a [5, 5.7], (et par l\`a \`a [5, 1.15]) et fournit des renseignements partiels sur la conjugaison des vari\'et\'es de Shimura.
+
+\vspace{0.5cm}
+\noindent\textbf{0. Rappels, terminologie et notations.}
+
+\subsection*{0.1}
+\addcontentsline{toc}{subsection}{0.1}
+
+Nous aurons \`a faire usage du th\'eor\`eme d'approximation forte, du th\'eor\`eme d'approximation r\'eelle, du principe de Hasse et de la nullit\'e de $H^1(K,G)$ pour $G$ semi-simple simplement connexe sur un corps local non archim\'edien. Des indications bibliographiques sur ces th\'eor\`emes sont donn\'ees dans [5, (0.1)--(0.4)]. Signalons en outre l'article de G.~Prasad (Strong approximation for semi-simple groups over function fields, Ann.~of Math.~(2) 105 (1977), 553--572) prouvant le th\'eor\`eme d'approximation forte sur un corps global quelconque. Soit $G$ un groupe semi-simple simplement connexe, de centre $Z$, sur un corps global $K$. Nous n'utiliserons le principe de Hasse pour $H^1(K,G)$ que pour les classes dans l'image de $H^1(K,Z)$. En particulier, les facteurs $E_8$ nous indiff\`erent.
+
+\subsection*{0.2}
+\addcontentsline{toc}{subsection}{0.2}
+
+\textit{Groupe r\'eductif} signifiera toujours \textit{groupe r\'eductif connexe}. Un \textit{rev\^etement} d'un groupe r\'eductif est un rev\^etement connexe. \textit{Groupe adjoint} signifiera \textit{groupe r\'eductif adjoint}. Si $G$ est un groupe r\'eductif, nous noterons $G^{\text{ad}}$ son groupe adjoint, $G^{\text{der}}$ son groupe d\'eriv\'e, et $p:\tilde{G} \to G^{\text{der}}$ le rev\^etement universel de $G^{\text{der}}$. Nous noterons souvent $Z$ (ou $Z(G)$) le centre de $G$, et (conflit de notation) $\tilde{Z}$ celui de $\tilde{G}$.
+
+\subsection*{0.3}
+\addcontentsline{toc}{subsection}{0.3}
+
+Nous noterons par un exposant $0$ une composante connexe alg\'ebrique (par exemple: $Z^0$ est la composante neutre du centre $Z$ de $G$). L'exposant $+$ d\'esignera une composante connexe topologique (par exemple: $G(\RR)^+$ est la composante neutre topologique du groupe des points r\'eels d'un groupe $G$). On notera aussi $G(\QQ)_+$ la trace de $G(\RR)^+$ sur $G(\QQ)$. Pour $G$ r\'eductif r\'eel, nous noterons par un indice $+$ l'image inverse de $G^{\text{ad}}(\RR)^+$ dans $G(\RR)$. M\^eme notation $+$ pour la trace sur un groupe de points rationnels.
+
+Pour $X$ un espace topologique, nous notons $\pi_0(X)$ l'ensemble de ses composantes connexes, muni de la topologie quotient de celle de $X$. Dans l'article, l'espace $\pi_0(X)$ sera toujours discret, ou compact totalement discontinu.
+
+\subsection*{0.4}
+\addcontentsline{toc}{subsection}{0.4}
+
+Un \textit{domaine hermitien sym\'etrique} est un espace hermitien sym\'etrique \`a courbure $< 0$ (i.e.~sans facteur euclidien ou compact).
+
+\subsection*{0.5}
+\addcontentsline{toc}{subsection}{0.5}
+
+Sauf mention expresse du contraire, un espace vectoriel est suppos\'e de dimension finie, et un corps de nombres est suppos\'e de degr\'e fini sur $\QQ$. Les corps de nombres que nous aurons \`a consid\'erer seront le plus souvent contenus dans $\CC$; $\overline{\QQ}$ d\'esigne la cl\^oture alg\'ebrique de $\QQ$ dans $\CC$.
+
+\subsection*{0.6}
+\addcontentsline{toc}{subsection}{0.6}
+
+On pose $\hat{\ZZ} = \varprojlim \ZZ/n\ZZ = \prod_l \ZZ_l$, $\Af = \QQ \otimes \hat{\ZZ} = {\prod}'_l \QQ_l$ (produit restreint) et on note $\A = \RR \times \Af$ l'anneau des ad\`eles de $\QQ$. On d\'esignera parfois encore par $\A$ l'anneau des ad\`eles d'un corps global quelconque.
+
+\subsection*{0.7}
+\addcontentsline{toc}{subsection}{0.7}
+
+$G(K)$, $G \otimes_F K$, $G_K$: pour $G$ un sch\'ema sur $F$ (par exemple un groupe alg\'ebrique sur $F$) et $K$ une $F$-alg\'ebre, on d\'esigne par $G(K)$ l'ensemble des points de $G$ \`a valeur dans $K$, et par $G_K$ ou par $G \otimes_F K$ le sch\'ema sur $K$ d\'eduit de $G$ par extension des scalaires.
+
+\subsection*{0.8}
+\addcontentsline{toc}{subsection}{0.8}
+
+Nous normaliserons l'isomorphisme de r\'eciprocit\'e de la th\'eorie du corps de classes global (= choisirons lui ou son inverse) de telle sorte que la classe de l'id\`ele \'egal \`a une uniformisante en $v$ et \`a $1$ aux autres places corresponde \`a un Frobenius g\'eom\'etrique (l'inverse d'une substitution de Frobenius) (cf.~[5, 1.1.6 et la justification loc.~cit.~3.6, 8.12]).
+
+\section{Domaines hermitiens sym\'etriques}
+
+\subsection{Espaces de modules de structures de Hodge}
+
+\subsubsection{Rappelons}
+
+Rappelons qu'une \textit{structure de Hodge} sur un espace vectoriel r\'eel $V$ est une bigraduation $V_{\CC} = \bigoplus V^{pq}$ du complexifi\'e de $V$, telle que $V^{pq}$ soit le complexe conjugu\'e de $V^{qp}$.
+
+D\'efinissons une action $h$ de $\CC^*$ sur $V_{\CC}$ par la formule
+\begin{equation}\label{eq:1.1.1.1}
+h(z)\cdot v = z^{-p}\bar{z}^{-q}v \quad \text{pour } v \in V^{pq}.
+\end{equation}
+Les $h(z)$ commutent \`a la conjugaison complexe de $V_{\CC}$, donc se d\'eduisent par extension des scalaires d'une action, encore not\'ee $h$, de $\CC^*$ sur $V$. Regardons $\CC$ comme une extension de $\RR$, et soit $S$ son groupe multiplicatif, consid\'er\'e comme groupe alg\'ebrique r\'eel (autrement dit, $S = \Res_{\CC/\RR}\Gm_m$ (restriction des scalaires \`a la Weil)); on a $S(\RR) = \CC^*$, et $h$ est une action du groupe alg\'ebrique $S$. On v\'erifie que cette construction d\'efinit une \'equivalence de cat\'egories: (espaces vectoriels r\'eels munis d'une structure de Hodge) $\to$ (espaces vectoriels r\'eels munis d'une action du groupe alg\'ebrique r\'eel $S$).
+
+\`A l'inclusion $\RR^* \subset \CC^*$ correspond une inclusion de groupes alg\'ebriques r\'eels $\Gm_m \subset S$. Nous noterons $w_h$ (ou simplement $w$) la restriction de $h$ \`a $\Gm_m$, et l'appellerons le \textit{poids}: $w:\Gm_m \to \GL(V)$. On dit que $V$ est homog\`ene de poids $n$ si $V^{pq} = 0$ pour $p+q \neq n$, et $w(\lambda)$ est l'homoth\'etie de rapport $\lambda^n$.
+
+Nous noterons $\mu$ (ou simplement $\mu$) l'action de $\Gm_{m,\CC}$ sur $V_{\CC}$ d\'efinie par $\mu(z)v = z^{-p}v$ pour $v \in V^{pq}$. C'est un compos\'e $\Gm_{m,\CC} \to S_{\CC} \xrightarrow{h_{\CC}} \GL(V_{\CC})$.
+
+La \textit{filtration de Hodge} $F_h$ (ou simplement $F$) est d\'efinie par $F_h^p = \bigoplus_{r \ge p} V^{r,s}$. On dit que $V$ est de type $E \subset \ZZ \times \ZZ$ si $V^{pq} = 0$ pour $(p,q) \notin E$.
+
+Plus g\'en\'eralement, si $A$ est un sous-anneau de $\RR$ tel que $A \otimes \QQ$ soit un corps (en pratique, $A = \ZZ$, $\QQ$ ou $\RR$), une $A$-\textit{structure de Hodge} est un $A$-module de type fini $V$, muni d'une structure de Hodge sur $V \otimes_A \RR$.
+
+\begin{example}[L'exemple fondamental]
+L'exemple fondamental est celui o\`u $V = H^n(X,\RR)$, pour $X$ une vari\'et\'e kahl\'erienne compacte, et o\`u $V^{pq} \subset H^n(X,\CC)$ est l'espace des classes de cohomologie repr\'esent\'ees par une forme ferm\'ee de type $(p,q)$. D'autres exemples utiles s'en d\'eduisent par des op\'erations de produits tensoriels, passage \`a une structure de Hodge facteur direct, ou passage au dual. Ainsi, le dual $H_n(X,\RR)$ de $H^n(X,\RR)$ est muni d'une structure de Hodge de poids $-n$. L'homologie, ou la cohomologie, enti\`eres fournissent des $\ZZ$-structures de Hodge.
+\end{example}
+
+\begin{example}
+Les structures de Hodge de type $\{(-1,0),(0,-1)\}$ sont celles pour lesquelles l'action $h$ de $\CC^* = S(\RR)$ est induite par une structure complexe sur $V$; pour $V$ de ce type, la projection $\pr_{\CC}$ de $V_{\CC}$ sur $V^{-1,0} \subset V_{\CC}$ est bijective, et v\'erifie $\pr_{\CC}(h(z)v) = z \cdot \pr_{\CC}(v)$.
+\end{example}
+
+\begin{example}
+Soit $A$ un tore complexe; c'est le quotient $L/\Gamma$ de son alg\'ebre de Lie $L$ par un r\'eseau $\Gamma$. On a $\Gamma \otimes \RR \simeq L$, d'o\`u une structure complexe sur $\Gamma \otimes \RR$. Consid\'erons celle-ci comme une structure de Hodge (1.1.3). Via l'isomorphisme $\Gamma = H_1(A,\ZZ)$, c'est celle de 1.1.2.
+\end{example}
+
+\begin{example}
+La structure de Hodge de Tate $\ZZ(1)$ est la $\ZZ$-structure de Hodge de type $(-1,-1)$ de r\'eseau entier $2\pi i \ZZ \subset \CC$. L'exponentielle identifie $\CC^* \simeq \CC/\ZZ(1)$, d'o\`u un isomorphisme $\ZZ(1) = H_1(\CC^*)$. La structure de Hodge $\ZZ(n) = \ZZ(1)^{\otimes n}$ ($n \in \ZZ$) est la $\ZZ$-structure de Hodge de type $(-n,-n)$ de r\'eseau entier $(2\pi i)^n \ZZ$. On note $\dots(n)$ le produit tensoriel de $\dots$ par $\ZZ(n)$ (twist \`a la Tate).
+\end{example}
+
+\begin{remark}
+La r\`egle $h(z)v = z^{-p}\bar{z}^{-q}v$ pour $v \in V^{pq}$ est celle que j'utilise dans (Les constantes des \'equations fonctionnelles des fonctions $L$, Anvers II, Lecture Notes in Math., vol.~349, pp.~501--597) et l'inverse de celle de [6]. Elle est justifi\'ee d'une part par l'exemple 1.1.4 ci-dessus, d'autre part par le d\'esir que $\CC^*$ agisse sur $\RR(1)$ par multiplication par la norme (cf.~loc.~cit., fin de 8.12).
+\end{remark}
+
+\subsubsection{}
+
+Une \textit{variation de structure de Hodge} sur une vari\'et\'e analytique complexe $S$ consiste en
+
+(a) un syst\`eme local $V$ d'espaces vectoriels r\'eels;
+
+(b) en chaque point de $S$, une structure de Hodge sur la fibre de $V$ en $s$, variant contin\^ument avec $S$.
+
+On exige que la filtration de Hodge varie holomorphiquement avec $s$, et v\'erifie l'axiome dit de \textit{transversalit\'e}: la d\'eriv\'ee d'une section de $F^p$ est dans $F^{p-1}$.
+
+Il sera souvent donn\'e un syst\`eme local $V_{\ZZ}$ de $\ZZ$-modules de type fini, tel que $V = V_{\ZZ} \otimes \RR$. On parlera alors de variation de $\ZZ$-structure de Hodge. De m\^eme pour $\ZZ$ remplac\'e par un anneau $A$ comme en 1.1.1.
+
+\begin{remark}
+Regardons $S$ comme \'etant une vari\'et\'e r\'eelle, dont l'espace tangent en chaque point est muni d'une structure complexe, i.e.~d'une structure de Hodge de type $\{(-1,0),(0,-1)\}$. L'int\'egrabilit\'e de la structure presque complexe de $S$ s'exprime en disant que le crochet de champs de vecteurs est compatible \`a la filtration de Hodge du complexifi\'e du fibr\'e tangent: $[T^{0,1}, T^{0,1}] \subset T^{0,1}$. De m\^eme, l'axiome des variations de structure de Hodge exprime que la d\'erivation (fibr\'e tangent) $\otimes$ (sections $C^{\infty}$ de $V$) $\to$ (sections $C^{\infty}$ de $V$) (ou plut\^ot le complexifi\'e de cette application) est compatible aux filtrations de Hodge: $\nabla_D F^p \subset F^p$ pour $D$ dans $T^{0,1}$ (holomorphie) et $\nabla_D F^p \subset F^{p-1}$ pour $D$ arbitraire (transversalit\'e).
+\end{remark}
+
+\subsubsection{Principe}
+
+\textbf{Principe 1.1.9.} En g\'eom\'etrie alg\'ebrique, chaque fois qu'appara\^it une structure de Hodge d\'ependant de param\`etres complexes, c'est une variation de structure de Hodge sur l'espace des param\`etres. L'exemple fondamental est 1.1.2, avec param\`etres: si $f:X \to S$ est un morphisme propre et lisse, de fibres $X_s$ kahl\'eriennes, les $H^n(X_s,\ZZ)$ forment un syst\`eme local sur $S$, et la filtration de Hodge sur le complexifi\'e $H^n(X_s,\CC)$ varie holomorphiquement avec $s$ et v\'erifie l'axiome de transversalit\'e.
+
+\subsubsection{}
+
+Une \textit{polarisation} d'une structure de Hodge r\'eelle, de poids $n$, $V$ est un morphisme $\Psi:V \otimes V \to \RR(-n)$ tel que la forme $(2\pi i)^n \Psi(x, h(i)y)$ soit sym\'etrique et d\'efinie positive. De m\^eme pour les $\ZZ$-structures de Hodge, en rempla\c{c}ant $\RR(-n)$ par $\ZZ(-n)$. Puisque $\Psi(h(i)x, y) = \overline{\Psi(x, h(-i)y)}$ ($h(i)$ est trivial sur $\RR(-n)$), et que $h(-i)y = (-1)^n h(i)y$, la condition de sym\'etrie revient \`a: $\Psi$ est sym\'etrique pour $n$ pair, altern\'e pour $n$ impair.
+
+Les structures de Hodge qui apparaissent en g\'eom\'etrie alg\'ebrique sont des $\ZZ$-structures de Hodge homog\`enes et polarisables. Exemple fondamental: les th\'eor\`emes de positivit\'e de Hodge assurent que $H^n(X,\ZZ)$, pour $X$ une vari\'et\'e projective et lisse, est polarisable (noter que $h(i)$ est l'op\'eration not\'ee $C$ par Weil dans son livre sur les vari\'et\'es k\'ahl\'eriennes).
+
+\subsubsection{}
+
+Soient des espaces vectoriels r\'eels $(V_i)_{i \in I}$ et une famille de tenseurs $(t_j)_{j \in J}$ dans des produits tensoriels de puissances tensorielles des $V_i$ et de leurs duaux. On s'int\'eresse aux familles de structures de Hodge sur les $V_i$ pour lesquelles les $t_j$ sont de type $(0,0)$. Pour interpr\'eter cette condition ``type $(0,0)$'' dans des cas particuliers, noter que $f:V \to W$ est un morphisme si et seulement si, en tant qu'\'el\'ement de $\Hom(V,W) = V^* \otimes W$, il est de type $(0,0)$.
+
+Soit $G$ le sous-groupe alg\'ebrique de $\prod \GL(V_i)$ qui fixe les $t_j$. D'apr\`es 1.1.1, une famille de structures de Hodge sur les $V_i$ s'identifie \`a un morphisme $h:S \to \prod \GL(V_i)$. Pour que les $t_j$ soient de type $(0,0)$, il faut et il suffit que $h$ se factorise par $G$: il s'agit de consid\'erer les morphismes alg\'ebriques $h:S \to G$.
+
+On peut regarder $G$, plut\^ot que le syst\`eme des $V_i$ et $t_j$, comme l'objet primordial: si $G$ est un groupe alg\'ebrique lin\'eaire r\'eel, il revient au m\^eme de se donner $h:S \to G$, ou de se donner sur chaque repr\'esentation $V$ de $G$ une structure de Hodge, fonctorielle pour les $G$-morphismes et compatible aux produits tensoriels (cf.~Saavedra, [10, VI, \S2]). Les morphismes $w_h$ et $\mu_h$ de 1.1.1 deviennent des morphismes de $\Gm_m$ dans $G_{\RR}$ et de $\Gm_{m,\CC}$ dans $G_{\CC}$ respectivement.
+
+\subsubsection{}
+
+La construction 1.1.11 am\`ene \`a consid\'erer les espaces de modules de structures de Hodge du type suivant: on fixe un groupe alg\'ebrique lin\'eaire r\'eel $G$, et on consid\`ere une composante connexe (topologique) $X$ de l'espace des morphismes (= homomorphismes de groupes alg\'ebriques sur $\RR$) de $S$ dans $G$.
+
+Soit $G_1$ le plus petit sous-groupe alg\'ebrique de $G$ par lequel se factorisent les $h \in X$: $X$ est encore une composante connexe de l'espace des morphismes de $S$ dans $G_1$. Puisque $S$ est de type multiplicatif, deux \'el\'ements quelconques de $X$ sont conjugu\'es: l'espace $X$ est une classe de $G_1(\RR)^+$-conjugaison de morphismes de $S$ dans $G$. C'est aussi une classe de $G(\RR)^+$-conjugaison, et $G_1$ est un sous-groupe invariant de la composante neutre de $G$.
+
+\subsubsection{}
+
+Vu 1.1.9 et 1.1.10, nous ne consid\'erons que les $X$ tels que, pour une famille fid\`ele $V_i$ de repr\'esentations de $G$, on ait
+
+$(\alpha)$ Pour tout $i$, la graduation par le poids de $V_i$ (de complexifi\'e la graduation de $V_{i\CC}$ par les $V_i^{pq} = \bigoplus_{p+q=n} V_i^{pq}$) est ind\'ependante de $h \in X$. Conditions \'equivalentes: $w(\RR^*)$ est central dans $G(\RR)^0$; la repr\'esentation adjointe est de poids 0.
+
+$(\beta)$ Pour une structure complexe convenable sur $X$, \`a tout $i$, la famille de structures de Hodge d\'efinie par les $h \in X$ est une variation de structure de Hodge sur $X$.
+
+$(\gamma)$ Si $V$ est la composante homog\`ene d'un poids $n$ d'un $V_i$, il existe $\Psi:V \otimes V \to \RR(-n)$ qui, pour tout $h \in X$, soit une polarisation de $V$.
+
+\begin{proposition}
+Supposons v\'erifi\'e $(\alpha)$ ci-dessus.
+
+\textup{(i)} Il existe une et une seule structure complexe sur $X$ telle que les filtrations de Hodge des $V_i$ varient holomorphiquement avec $h \in X$.
+
+\textup{(ii)} La condition 1.1.13$(\beta)$ est v\'erifi\'ee si et seulement si la repr\'esentation adjointe est de type $\{(-1,1),(0,0),(1,-1)\}$.
+
+\textup{(iii)} La condition 1.1.13$(\gamma)$ est v\'erifi\'ee si et seulement si $G_1$ (d\'efini en 1.1.12) est r\'eductif et que, pour $h \in X$, l'automorphisme int\'erieur $\Int h(i)$ induit une involution de Cartan de son groupe adjoint.
+\end{proposition}
+
+\begin{proof}
+(i) Soit $V$ la somme des $V_i$. C'est une repr\'esentation fid\`ele de $G$. Une structure de Hodge est d\'etermin\'ee par la filtration de Hodge correspondante (plus la graduation par le poids si on n'est pas dans le cas homog\`ene): en poids $n = p+q$, on a $V^{pq} = F^p \cap \overline{F^q}$. L'application $g$ de $X$ dans la grassmannienne de $V_{\CC}$: $h \mapsto$ la filtration de Hodge correspondante, est donc injective. Nous allons v\'erifier qu'elle identifie $X$ \`a une sous-vari\'et\'e complexe de cette grassmannienne; ceci prouvera (i): la structure complexe sur $X$ induite de celle de la grassmannienne est l'unique pour laquelle $g$ soit holomorphe.
+
+Soient $L$ l'alg\`ebre de Lie de $G$ et $\rho:L \to \End(V)$ son action sur $V$. L'action $\rho$ est un morphisme de $G$-modules, injectif par hypoth\`ese. Pour tout $h \in X$, c'est aussi un morphisme de structures de Hodge. L'espace tangent \`a $X$ en $h$ est le quotient de $L$ par l'alg\`ebre de Lie du stabilisateur de $h$---\`a savoir le sous-espace $L^{00}$ de $L$ pour la structure de Hodge de $L$ d\'efinie par $h$. L'espace tangent \`a la grassmannienne en $g(h)$ est $\End(V_{\CC})/F^0(\End(V_{\CC}))$. Enfin, $dg$ est le compos\'e
+\[
+L_{\CC}/L^{00}_{\CC} \xrightarrow{\rho} \End(V_{\CC})/\End(V_{\CC})^{00} \to \End(V_{\CC})/F^0\End(V_{\CC}).
+\]
+Puisque $\rho$ est un morphisme injectif de structures de Hodge, $dg$ est injectif; son image est celle de $L_{\CC}/F^0L_{\CC}$, un sous-espace complexe, d'o\`u l'assertion.
+
+(ii) L'axiome de transversalit\'e signifie que l'image de $d\rho$ est dans $F^{-1}\End(V_{\CC})/F^0\End(V_{\CC})$, i.e.~que $L^{-1,1} = F^{-1}L_{\CC}$.
+
+Pour prouver (iii), nous ferons usage de [7, 2.8], rappel\'e ci-dessous. Rappelons qu'une \textit{involution de Cartan} d'un groupe alg\'ebrique lin\'eaire r\'eel (non n\'ecessairement connexe) $G$ est une involution $\theta$ de $G$ telle que la forme r\'eelle $G^{\theta}$ de $G$ (de conjugaison complexe $g \mapsto \theta(\bar{g})$) soit compacte: $G^{\theta}(\RR)$ est compact et rencontre toutes les composantes connexes de $G^{\theta}(\CC) = G(\CC)$. Pour $C \in G(\RR)$ de carr\'e central, une $C$-\textit{polarisation} d'une repr\'esentation $V$ de $G$ est une forme bilin\'eaire $\Psi$ $G$-invariante, telle que $\Psi(x,Cy)$ soit sym\'etrique et d\'efini $>0$. Pour tout $g \in G(\RR)$, on a alors $\Psi(g^{-1}x, gCg^{-1}y) = \Psi(x,Cy)$: la notion de $C$-polarisation ne d\'epend que de la classe de $G(\RR)$-conjugaison de $C$.
+\end{proof}
+
+\subsubsection{Rappel [7, 2.8]}
+
+\textbf{Rappel 1.1.15} [7, 2.8]. Soient $G$ alg\'ebrique r\'eel et $C \in G(\RR)$ de carr\'e central. Les conditions suivantes sont \'equivalentes:
+
+(i) $\Int C$ est une involution de Cartan de $G$;
+
+(ii) toute repr\'esentation r\'eelle de $G$ est $C$-polarisable;
+
+(iii) $G$ admet une repr\'esentation r\'eelle $C$-polarisable fid\`ele.
+
+On notera que la condition 1.1.15(i) entra\^ine que $G$ est r\'eductif---pour avoir une forme compacte. Elle ne d\'epend que de la classe de conjugaison de $C$.
+
+Prouvons 1.1.14(iii). Soit $G_2$ la plus petit sous-groupe alg\'ebrique de $G$ par lequel se factorisent les restrictions des $h \in X$ \`a $U_1 \subset \CC^*$. Pour qu'une forme bilin\'eaire $\Psi:V \otimes V \to \RR(-n)$ v\'erifie 1.1.13$(\gamma)$, il faut et il suffit que $(2\pi i)^n\Psi:V \otimes V \to \RR$ soit invariante par les $h(U_1)$---donc par $G_2$---(ceci exprime que $\Psi$ est un morphisme), et une $h(i)$-polarisation. D'apr\`es 1.1.15, 1.1.13$(\gamma)$ \'equivaut \`a: $\Int h(i)$ est une involution de Cartan de $G_2$.
+
+On en d\'eduit d'abord que $G_1$ est r\'eductif: $G_2$ l'est, pour avoir une forme compacte, et $G_1$ est un quotient du produit $\Gm_m \times G_2$. Puisque $G_2$ est engendr\'e par des sous-groupes compacts, son centre connexe est compact: il est isog\`ene au quotient de $G_2$ par son groupe d\'eriv\'e. L'involution $\theta = \Int h(i)$ est donc une involution de Cartan de $G_1$ si et seulement si c'en est une de son groupe adjoint, et on conclut en notant que $G_1$ et $G_2$ ont m\^eme groupe adjoint.
+
+\begin{corollary}
+Les conditions 1.1.13$(\alpha)$, $(\beta)$, $(\gamma)$ ne d\'ependent pas de la famille fid\`ele choisie de repr\'esentations $V_i$.
+\end{corollary}
+
+\begin{corollary}
+Les espaces $X$ de \textup{1.1.13} sont les domaines hermitiens sym\'etriques.
+\end{corollary}
+
+\begin{proof}
+A. Prouvons $X$ de ce type. On se ram\`ene successivement \`a supposer:
+
+(1) Que $G = G_1$: remplacer $G$ par $G_1$ ne modifie ni $X$, ni les conditions 1.1.13.
+
+(2) Que $G$ est adjoint: par (1), $G$ est r\'eductif, et son quotient par un sous-groupe central fini est le produit d'un tore $T$ par son groupe adjoint $G^{\text{ad}}$. L'espace $X$ s'identifie encore \`a une composante connexe de l'espace des morphismes de $S/\Gm_m$ dans $G^{\text{ad}}$: si un tel morphisme se rel\`eve en un morphisme de $S$ dans $G$, avec une projection donn\'ee dans $T$, le rel\`evement est unique. Les conditions \'enonc\'ees en 1.1.14 restent par ailleurs v\'erifi\'ees.
+
+(3) Que $G$ est simple: d\'ecomposer $G$ en produit de groupes simples $G_i$; ceci d\'ecompose $X$ en un produit d'espaces $X_i$ relatifs aux $G_i$. Soit donc $G$ un groupe simple adjoint, et $X$ une $G(\RR)^+$-classe de conjugaison de morphismes non triviaux $h:S/\Gm_m \to G$, v\'erifiant les conditions de 1.1.14(ii), (iii).
+
+Le groupe $G$ est non compact: sinon, $\Int h(i)$ serait trivial (par (iii)), $\Lie G$ serait de type $(0,0)$ (par $(\alpha)$) et $h$ serait trivial. Soit $h \in X$. D'apr\`es (iii), son centralisateur est compact; il existe donc sur $X$ une structure riemannienne $G(\RR)^+$-\'equivariante. D'apr\`es (ii), $h(i)$ agit sur l'espace tangent $\Lie(G)/\Lie(G)^{00}$ de $X$ en $h$ par $-1$: l'espace $X$ est riemannien sym\'etrique. On v\'erifie enfin qu'il est hermitien sym\'etrique pour la structure complexe 1.1.14(i). Il est du type non compact (courbure $< 0$) car $G$ est non compact.
+
+B. R\'eciproquement, si $X$ est un espace hermitien sym\'etrique, et que $x \in X$, on sait que la multiplication par $u$ ($|u|=1$) sur l'espace tangent $T_x$ de $X$ en $x$ se prolonge en un automorphisme $m_x(u)$ de $X$. Soient $A$ le groupe des automorphismes de $X$, $h(z) = m_x(z/\bar{z})$ pour $z \in \CC^*$. Le centralisateur $A_x$ de $x$ commute \`a $h$, et la condition de 1.1.14(ii) est donc v\'erifi\'ee: $\Lie(A_x)$ est de type $(0,0)$, et $T_x = \Lie(A)/\Lie(A_x)$ est de type $\{(-1,1),(1,-1)\}$. Enfin, on sait que $A$ est la composante neutre de $G(\RR)$, pour $G$ adjoint, et que l'espace riemannien sym\'etrique $X$ est \`a courbure $< 0$ si et seulement si la sym\'etrie $h(i)$ fournit une involution de Cartan de $G$ (voir Helgason [8]).
+\end{proof}
+
+\subsubsection{}
+
+Indiquons deux variantes de 1.1.15 (cf.~[7, III]).
+
+(a) On donne un groupe alg\'ebrique r\'eel r\'eductif (0.2) $G$, et une classe de $G(\RR)$-conjugaison de morphismes $h:S \to G$. On suppose que $w_h$---not\'e $w$---est central, donc ind\'ependant de $h$ (condition 1.1.13$(\alpha)$), et que $\Int h(i)$ est une involution de Cartan de $G/w(\Gm_m)$.
+
+Puisque $G$ est r\'eductif, $w(\Gm_m)$ admet un suppl\'ement $G^c$: un sous-groupe invariant connexe tel que $G$ soit quotient de $w(\Gm_m) \times G^c$ par un sous-groupe central fini. Il est unique: engendr\'e par le groupe d\'eriv\'e et le plus grand sous-tore compact du centre. Il contient les $h(U_1)$ ($h \in X$), et $\Int h(i)$ en est une involution de Cartan. Si $V$ est une repr\'esentation de $G$, sa restriction \`a $G^c$ admet donc une $h(i)$-polarisation $\Psi$. Si $V$ est de poids $n$, $w(\Gm_m)$ agit par similitudes, donc $G$ de m\^eme: pour une repr\'esentation convenable de $G$ sur $\RR$, $\Psi$ est de type $(-n,n)$; ceci permet de faire agir $G$ sur $\RR(n)$, de fa\c{c}on compatible \`a sa structure de Hodge, et de voir $\Psi = (2\pi i)^{-n}\tilde{\Psi}$ comme une forme de polarisation $G$-invariante: $V \otimes V \to \RR(-n)$.
+
+(b) Supposons que $G$ se d\'eduise par extension des scalaires \`a $\RR$ de $G_1$ sur $\QQ$, et que $w$ soit d\'efini sur $\QQ$. Le groupe $G_2$ est alors d\'efini sur $\QQ$, car c'est l'unique suppl\'ement de $w(\Gm_m)$, et tout caract\`ere de $G/G_2$ est d\'efini sur $\QQ$, car ce groupe est sur $\QQ$ isomorphe \`a $\Gm_m$. Si une repr\'esentation (rationnelle) $V$ de $G$ est de poids $n$, les formes bilin\'eaires $G$-invariantes $V \otimes V \to \QQ(-n)$ forment un espace vectoriel $F$ sur $\QQ$. L'ensemble de celles qui sont de polarisation (rel.~$h \in X$) est la trace sur $F$ d'un ouvert de $F_{\RR}$, et cet ouvert est non vide d'apr\`es (a). Il existe donc des formes de polarisation $\Psi:V \otimes V \to \QQ(-n)$ $G$-invariantes.
+
+On prendra garde que les formes en (a) et (b) ne sont pas toujours de polarisation pour tout $h \in X$: si $h' = \Int(g)(h)$, la formule $\Psi'(x,h'(i)y) = \Psi(g^{-1}x,h(i)g^{-1}y)$ montre que la forme $(2\pi i)^{-n}\Psi(x,h'(i)y)$ est sym\'etrique et d\'efinie---mais d\'efinie positive ou n\'egative selon l'action de $g$ sur $\RR(-n)$.
+
+\subsection{Classification}
+
+Dans la suite de ce paragraphe, nous utilisons la relation 1.1.17 entre domaines hermitiens sym\'etriques et espaces de modules de structures de Hodge, pour reformuler certains r\'esultats de [11] et [8], et donner quelques compl\'ements.
+
+\subsubsection{}
+
+Consid\'erons les syst\`emes $(G,X)$ form\'es d'un groupe alg\'ebrique r\'el simple adjoint $G$, et d'une classe de $G(\RR)$-conjugaison $X$ de morphismes de groupes alg\'ebriques r\'eels $h:S \to G$, v\'erifiant (les notations sont celles de 1.1.1, 1.1.11):
+
+(i) La repr\'esentation adjointe $\Lie(G)$ est de type $\{(-1,1),(0,0),(1,-1)\}$ (en particulier, $h$ est trivial sur $\Gm_m \subset S$);
+
+(ii) $\Int h(i)$ est une involution de Cartan;
+
+(iii) $h$ est non trivial ou---ce qui revient au m\^eme (cf.~1.1.17)---$G$ est non compact.
+
+D'apr\`es 1.1.17, les composantes connexes des espaces $X$ ainsi obtenus sont les domaines hermitiens sym\'etriques irr\'eductibles.
+
+L'hypoth\`ese (ii) assure que les involutions de Cartan de $G$ sont des automorphismes int\'erieurs, donc que $G$ est une forme int\'erieure de sa forme compacte (cf.~1.2.3). En particulier, $G$, \'etant simple, est absolument simple.
+
+La classe de $G(\CC)$-conjugaison de $\mu_h:\Gm_m \to G_{\CC}$ ne d\'epend pas du choix de $h \in X$. Nous la noterons $M_X$.
+
+\begin{proposition}
+Soit $G_{\CC}$ un groupe alg\'ebrique complexe simple adjoint. \`A chaque syst\`eme $(G,X)$ form\'e d'une forme r\'eelle $G$ de $G_{\CC}$, et de $X$ v\'erifiant \textup{1.2.1(i), (ii), (iii)} associons $M_X$. On obtient ainsi une bijection entre classes de $G_{\CC}(\CC)$-conjugaison de syst\`emes $(G,X)$, et classes de $G_{\CC}(\CC)$-conjugaison de morphismes non-triviaux $\mu:\Gm_m \to G_{\CC}$, v\'erifiant la condition suivante.
+
+$(*)$ Dans la repr\'esentation adjointe de $G_{\CC}$ sur $\Lie(G_{\CC})$, seuls apparaissent les caract\`eres $z$, $1$ et $z^{-1}$.
+\end{proposition}
+
+Pour v\'erifier 1.2.2, nous utiliserons la dualit\'e entre domaines hermitiens sym\'etriques, et espaces hermitiens sym\'etriques compacts:
+
+\subsubsection{}
+
+Soient $G$ une forme r\'eelle de $G_{\CC}$, $X$ une classe de $G(\RR)$-conjugaison de morphismes de $S/\Gm_m$ dans $G$, et $h \in X$. La forme r\'eelle $G$ correspond \`a une conjugaison complexe $\sigma$ sur $G_{\CC}$; d\'efinissons $G^*$ comme la forme r\'eelle de conjugaison complexe $\Int(h(i))\circ\sigma$. On a
+\[
+G^*(\RR) = \{g \in G(\CC) \mid \bar{g} = \Int(h(i))\sigma(g)\}.
+\]
+Le morphisme $h$ est encore d\'efini sur $\RR$, de $S/\Gm_m$ dans $G^*$: on a $h(\CC^*/\RR^*) \subset G^*(\RR)$; d\'efinissons $X^*$ comme la classe de $G^*(\RR)$-conjugaison de $h$. La construction $(G,X) \mapsto (G^*,X^*)$ est une involution sur l'ensemble des classes de $G_{\CC}(\CC)$-conjugaison des syst\`emes $(G,X)$ form\'es d'une forme r\'eelle $G$ de $G_{\CC}$, et d'une classe de $G(\RR)$-conjugaison de morphismes non triviaux de $S/\Gm_m$ dans $G$. Elle \'echange les $(G,X)$ comme en 1.2.2, et les $(G,X)$ tels que $G$ soit compact et que $X$ v\'erifie 1.2.1(i).
+
+On sait que les formes r\'eelles compactes de $G_{\CC}$ sont toutes conjugu\'ees entre elles. Puisque si $g \in G_{\CC}$ normalise une forme r\'eelle $G$, on a $g \in G(\RR)$ (ceci parce que $G$ est adjoint), la dualit\'e ram\`ene 1.2.2 \`a l'\'enonc\'e suivant:
+
+\begin{lemma}
+Soit $G$ une forme compacte de $G_{\CC}$. La construction $h \mapsto \mu_h$ induit une bijection entre
+
+\textup{(a)} classes de $G(\RR)$-conjugaison de morphismes $h:S/\Gm_m \to G$, v\'erifiant 1.2.1(i), et
+
+\textup{(b)} classes de $G_{\CC}(\CC)$-conjugaison de morphismes $\mu:\Gm_m \to G_{\CC}$, v\'erifiant 1.2.2$(*)$.
+\end{lemma}
+
+Soient $T$ un tore maximal de $G$, et $T_{\CC}$ son complexifi\'e. On v\'erifie d'abord que l'application $h \mapsto \mu_h$ de $\Hom(S/\Gm_m,T) \to \Hom(\Gm_m,T_{\CC})$ est bijective. Si $W$ est le groupe de Weyl de $T$, on sait que
+\[
+\Hom(U_1,T)/W \simeq \Hom(S/\Gm_m,G)/G(\RR)
+\]
+et
+\[
+\Hom(\Gm_m,T_{\CC})/W \simeq \Hom(\Gm_m,G)/G_{\CC}(\CC).
+\]
+L'application $h \mapsto \mu_h$ induit donc une bijection
+\[
+\Hom(S/\Gm_m,G)/G(\RR) \xrightarrow{\;\sim\;} \Hom(\Gm_m,G)/G_{\CC}(\CC),
+\]
+et, pour que $h$ v\'erifie 1.2.1(i), il faut et il suffit que $\mu_h$ v\'erifie 1.2.2$(*)$.
+
+\subsubsection{}
+
+Soit $G$ un groupe alg\'ebrique complexe simple adjoint. Nous allons \'enum\'erer les classes de conjugaison de morphismes non triviaux $\mu:\Gm_m \to G$ v\'erifiant 1.2.2$(*)$, en terme du diagramme de Dynkin $D$ de $G$. Rappelons que ce dernier est canoniquement attach\'e \`a $G$---en particulier, les automorphismes de $G$ agissent sur $D$. On peut identifier ses sommets aux classes de conjugaison de sous-groupes paraboliques maximaux.
+
+Soient $T$ un tore maximal, $X(T) = \Hom(T,\Gm_m)$, $Y(T) = \Hom(\Gm_m,T)$ (le dual de $X(T)$ pour l'accouplement $X(T) \times Y(T) \to \Hom(\Gm_m,\Gm_m) = \ZZ$), $R \subset X(T)$ l'ensemble des racines, $B$ un syst\`eme de racines simples, $\alpha_0$ l'oppos\'e de la plus grande racine et $B^+ = B \cup \{\alpha_0\}$. Les sommets de $D$ sont param\'etr\'es par $B$, et ceux du diagramme de Dynkin \'etendu $D^+$ par $B^+$.
+
+Une classe de conjugaison de morphismes de $\Gm_m$ dans $G$ a un unique repr\'esentant $\mu \in Y(T)$ dans la chambre fondamentale $(\alpha,\mu) \ge 0$ pour $\alpha \in B$. Il est uniquement d\'etermin\'e par les entiers positifs $(\alpha,\mu)$ ($\alpha \in B$) et, $G$ \'etant adjoint, ceux-ci peuvent \^etre prescrits arbitrairement. La condition 1.2.2$(*)$, pour $\mu$ non trivial, se r\'ecrit
+\[
+(*)' \qquad (\alpha_0,\mu) = -1.
+\]
+Ecrivons la plus grande racine comme combinaison lin\'eaire de racines simples, $\sum_{\alpha \in B} n(\alpha)\alpha = 0$, avec $n(\alpha_0) = 1$, et appelons \textit{sp\'eciaux} les sommets de $D^+$ tels que, pour la racine correspondante $\alpha \in B^+$, on ait $n(\alpha) = 1$. On sait que le quotient du groupe des copoids par celui des coracines agit sur $D^+$, et de fa\c{c}on simplement transitive sur l'ensemble des sommets sp\'eciaux. Les sommets sp\'eciaux sont donc les conjugu\'es sous $\Aut(D^+)$ du sommet correspondant \`a $\alpha_0$, et leur nombre est l'indice de connexion $|\pi_1(G)|$ de $G$ (cf.~Bourbaki [4, VI, 2 ex.~2 et 5a)]).
+
+La condition $(*)'$ se r\'ecrit
+
+$(*''$) Pour une racine simple $\alpha \in B$ correspondant \`a un sommet sp\'ecial de $D^+$, on a $(\alpha,\mu) = 1$. Pour les autres racines simples, $(\alpha,\mu) = 0$.
+
+\subsubsection{}
+
+Au total, les classes de $G_{\CC}(\CC)$-conjugaison de syst\`emes $(G,X)$ comme en 1.2.2 sont param\'etr\'ees par les sommets sp\'eciaux du diagramme de Dynkin $D$ de $G_{\CC}$. En particulier, pour $G$ une forme r\'eelle donn\'ee de $G_{\CC}$, $X$ est d\'etermin\'e par le sommet sp\'ecial $S(X)$ correspondant ($G(\RR) \subset G_{\CC}(\CC)$ est en effet son propre normalisateur). Le sommet correspondant \`a $X^* = \{h^{-1} \mid h \in X\}$ est le transform\'e de $S(X)$ par l'involution d'opposition.
+
+Dans 1.2.3, $G$ et $G^*$ sont des formes int\'erieures l'une de l'autre. S'il existe $X$ v\'erifiant 1.2.1(i), (ii), (iii), $G$ est donc une forme int\'erieure de sa forme compacte. En d'autres termes, la conjugaison complexe agit sur le diagramme de Dynkin de $G_{\CC}$ par l'involution d'opposition.
+
+\begin{proposition}
+Soit $G$ un groupe alg\'ebrique r\'eel simple adjoint, et supposons qu'il existe des morphismes $h:\CC^*/\RR^* \to G$ v\'erifiant 1.2.1(i), (ii), (iii). L'ensemble de ces morphismes a alors deux composantes connexes, \'echang\'ees par $h \mapsto h^{-1}$. Chacune a pour stabilisateur la composante neutre $G(\RR)^+$ de $G$.
+\end{proposition}
+
+\begin{proof}
+L'hypoth\`ese (ii) assure que le centralisateur $K$ de $h(i)$ est un sous-groupe compact maximal de $G(\RR)$. En particulier, $K \subset G(\RR)^+$. Il a m\^eme alg\`ebre de Lie que le centralisateur de $h$. Ce dernier est un groupe alg\'ebrique connexe---en tant que centralisateur d'un tore---et compact---en tant que sous-groupe du centralisateur de $h(i)$. Il est donc topologiquement connexe et $\Cent(h) = K^0 = K \cap G(\RR)^+$. Le centre de $K^+$ est de dimension 1: le complexifi\'e de $h$ est le centralisateur de $\mu$, donc, d'apr\`es $(*)''$, un sous-groupe de Levi d'un sous-groupe parabolique maximal. On peut aussi le d\'eduire de ce que la repr\'esentation de $K^+$ sur $\Lie(G)/\Lie(K^+)$ est irr\'eductible (cf.~[8, preuve de V, 1.1]). Le morphisme $h$ est donc un isomorphisme de $S/\Gm_m$ avec le centre connexe de $K^+$, et, $K^+$ d\'etermine $h$ au signe pr\'es. A fortiori, $h(i)$ d\'etermine $h$ au signe pr\'es. D\`es lors
+
+(a) L'application $h \mapsto h(i)$ est $2:1$.
+
+(b) Elle envoie isomorphiquement l'orbite $G(\RR)^+/K^+$ de $h$ sous $G(\RR)^+$ sur l'ensemble $G(\RR)/K$ de toutes les involutions de Cartan dans $G(\RR)$.
+
+La proposition en r\'esulte.
+\end{proof}
+
+\begin{corollary}
+Soit $(G,X)$ comme en \textup{1.2.1}, et $s$ le sommet correspondant du diagramme de Dynkin de $G_{\CC}$.
+
+\textup{(i)} Si $s$ n'est pas fix\'e par l'involution d'opposition, $G(\RR)$ et $X$ sont connexes.
+
+\textup{(ii)} Si $s$ est fix\'e par l'involution d'opposition, $G(\RR)$ et $X$ ont deux composantes connexes; les composantes de $X$ sont \'echang\'ees par $h \mapsto h^{-1}$, et par $h \mapsto \Int(g)(h)$ ($g \in C(h) - G(\RR)^+$).
+\end{corollary}
+
+Signalons que le cas (i) est encore caract\'eris\'e par les conditions \'equivalentes
+
+(i$'$) le syst\`eme de racines relatif de $G$ est de type $C$ (plut\^ot que $BC$);
+
+(i$''$) $X$ est un domaine tube.
+
+\subsection{Plongements symplectiques}
+
+\subsubsection{}
+
+Soit $V$ un espace vectoriel r\'eel, muni d'une forme altern\'ee non d\'eg\'en\'er\'ee $\Psi$. Le demi-espace de Siegel $\HH^+$ correspondant admet la description suivante: c'est l'espace des structures complexes $h$ sur $V$, telles que $\Psi$ soit de type $(1,1)$ (pour l'identification (1.1.3) entre structures complexes et structures de Hodge de type $\{(-1,0),(0,-1)\}$) et que la forme $\Psi(x,h(i)x)$ soit sym\'etrique et d\'efinie positive.
+
+Si on remplace ``d\'efini positif'' par ``d\'efini'', le double demi-espace de Siegel $\HH^{\pm}$ obtenu est une classe de conjugaison de morphismes $h:S \to \CSp(V)$ ($\CSp =$ similitudes symplectiques; dans [5], ce groupe est not\'e $\text{Gp}$).
+
+\subsubsection{}
+
+Soient $G$ un groupe alg\'ebrique r\'eel adjoint (0.2) et $X$ une classe de conjugaison de morphismes $h:S \to G$. On suppose v\'erifi\'ees les conditions (i), (ii) de 1.2.1, et on remplace (iii) par
+
+(iii$'$) $G$ est sans facteur compact.
+
+Le syst\`eme $(G,X)$ est donc un produit de syst\`emes $(G_i,X_i)$ comme en 1.2.1, et $X_i$ correspond \`a un sommet sp\'ecial du diagramme de Dynkin de $G_{i\CC}$ (1.2.6).
+
+Consid\'erons les diagrammes
+\[
+(G,X) \longleftarrow (G_1,X_1) \longrightarrow (\CSp(V),\HH^{\pm}):
+\]
+o\`u $G$ est le groupe adjoint du groupe r\'eductif $G_1$, et o\`u $X_1$ est une classe de $G_1(\RR)$-conjugaison de morphismes de $S$ dans $G_1$. On dispose d'une section $G^{\text{ad}} \to G_1$, de sorte que $V$ est une repr\'esentation de $G_1$. Notre but est la d\'etermination 1.3.8 des repr\'esentations complexes irr\'eductibles non triviales $W$ de $G_1$, qui est essentiellement \'equivalent \`a figurer dans la complexifi\'ee d'une repr\'esentation ainsi obtenue. Ce probl\`eme est celui r\'esolu par Satake dans [11].
+
+\begin{lemma}
+Il suffit qu'il existe $(G_1,X_1) \to (G,X)$, comme ci-dessus, et une repr\'esentation lin\'eaire $(V,\rho)$ de type $\{(-1,0),(0,-1)\}$ de $G_1$, telle que $W$ figure dans $V_{\CC}$.
+\end{lemma}
+
+\begin{proof}
+Rempla\c{c}ant $G_1$ par le sous-groupe engendr\'e par le groupe d\'eriv\'e $G_1^{\text{der}}$ et par l'image de $h$, on se ram\`ene \`a supposer que $\Int h(i)$ est une involution de Cartan de $G_1/w(\Gm_m)$.
+
+Il existe alors sur $V$ une forme de polarisation $\Psi$ (1.1.18(a)), telle que $\rho$ soit un morphisme de $(G_1,X_1)$ dans $(\CSp(V),\HH^{\pm})$.
+\end{proof}
+
+\subsubsection{}
+
+Consid\'erons le syst\`eme projectif $(H_n)_{n \in \NN}$ suivant: $\NN$ est ordonn\'e par divisibilit\'e, $H_n = \Gm_m$, et le morphisme de transition de $H_n$ dans $H_m$ est $x \mapsto x^{n/m}$ ($\varprojlim H_n$ est le rev\^etement universel---au sens alg\'ebrique---de $\Gm_m$). Un \textit{morphisme fractionnaire} de $\Gm_m$ dans un groupe $H$ est un \'el\'ement de $\varinjlim \Hom(H_n,H)$. De m\^eme pour la groupe $S$. Pour $\mu:\Gm_m \to H$ fractionnaire, d\'efini par $\mu^{(n)}:H_n = \Gm_m \to H$, et $V$ une repr\'esentation lin\'eaire de $H$, $V$ est somme des sous-espaces $V_\alpha$ ($\alpha \in (1/n)\ZZ$) tels que, via $\mu^{(n)}$, $\Gm_m$ agisse sur $V_\alpha$ par multiplication par $x^{n\alpha}$. Les $\alpha$ tels que $V_\alpha \neq 0$ sont les \textit{poids} de $\mu$ dans $V$. De m\^eme, un morphisme fractionnaire $h:S \to H$ d\'etermine une d\'ecomposition de Hodge fractionnaire $V^{rs}$ de $V$ ($r,s \in \QQ$).
+
+\begin{lemma}
+Pour $h \in X$, soit $\tilde{\mu}_h$ un rel\`evement fractionnaire de $\mu_h$ \`a $\tilde{G}_1$. Les repr\'esentations $W$ de 1.3.2 sont celles telles que $\tilde{\mu}_h$ n'ait que deux poids: $0$ et $a+1$.
+\end{lemma}
+
+\begin{proof}
+La condition est n\'ecessaire: Relevant $h$ en $\tilde{h} \in X_1$, on a $\tilde{\mu}_h = \mu_{\tilde{h}} \cdot \nu$, avec $\nu$ central. Sur $V$, $\mu_{\tilde{h}}$ a les poids $0$ et $1$. Si $-a$ est l'unique poids de $\tilde{\nu}$ sur $W$ irr\'eductible dans $V_0$, les seuls poids de $\tilde{\mu}_h$ sur $W$ sont $a$ et $a+1$. Pour $W$ non trivial, l'action de $G_1$, via $\tilde{G}_1$ (assez divisible) est non triviale (car $G_{\text{ad}}$ est simple), donc non centrale, et les deux poids $a$ et $a+1$ apparaissent.
+
+La condition est suffisante: Prenons pour $V$ l'espace vectoriel r\'eel sous-jacent \`a $W$, et pour groupe $G_1$ le groupe engendr\'e par l'image de $\tilde{G}_1$, et par le groupe des homoth\'eties. Pour $h \in X$, de rel\`evement fractionnaire $\tilde{h}$ \`a $\tilde{G}_1$, soit $\tilde{h}_1(z) = \tilde{h}(z)z^{-a}\bar{z}^{-1-a}$. Si $W_a$ et $W_{a+1}$ sont les sous-espaces de poids $a$ et $a+1$ de $W$, $\tilde{h}$ agit sur $W_a$ (resp.~$W_{a+1}$) par $(z/\bar{z})^a$ (resp.~$(z/\bar{z})^{a+1}$), et $\tilde{h}_1$ par $z$ (resp.~$\bar{z}$): $\tilde{h}_1$ est un vrai morphisme de $S$ dans $G_1$, de projection $h$ dans $G$, et $V$ est de type $\{(-1,0),(0,-1)\}$ rel.~$\tilde{h}_1$. Il ne reste qu'\`a appliquer 1.3.3.
+\end{proof}
+
+\subsubsection{}
+
+Traduisons la condition 1.3.5 en terme de racines. Soient $T$ un tore maximal de $G_{\CC}$, $\tilde{T}$ son image inverse dans $\tilde{G}_1$, $B$ un syst\`eme de racines simples de $T$, et $\mu \in Y(T)$ le repr\'esentant dans la chambre fondamentale de la classe de conjugaison de $\mu_h$ ($h \in X$). Si $\varpi$ est le poids dominant de $W$, le plus petit poids est $-\tau(\varpi)$, pour $\tau$ l'involution d'opposition. Il s'agit d'exprimer que $(\mu,-\tau(\varpi))$ ne prend que deux valeurs $a$ et $a+1$, pour $\beta$ un poids de $W$. Ces poids \'etant tous de la forme $(\varpi + \text{une combinaison }\ZZ\text{-lin\'eaire de racines})$, et les $(\gamma,z)$, pour $\gamma$ une racine, \'etant entiers, la condition s'exprime par $(\mu,-\tau(\varpi)) = (\gamma,\varpi) - a - 1$, soit
+\begin{equation}\label{eq:1.3.6.1}
+(\mu, \varpi + \tau(\varpi)) = 1.
+\end{equation}
+
+D\'eterminons les solutions de (1.3.6.1). Pour tout poids dominant $\varpi$, $(\varpi, \mu + \tau(\mu))$ est un entier, car $\varpi + \tau(\varpi)$ est combinaison $\ZZ$-lin\'eaire de racines. Si $\varpi \neq 0$, il est $> 0$, sans quoi $\mu$ annulerait tous les poids de la repr\'esentation correspondante. Un poids dominant $\varpi$ v\'erifiant (1.3.6.1) ne peut donc \^etre somme de deux poids:
+
+\begin{lemma}
+Seuls les poids fondamentaux peuvent v\'erifier \textup{1.3.6.1}.
+\qed
+\end{lemma}
+
+\subsubsection{}
+
+D'apr\`es 1.3.7, les repr\'esentations $W$ cherch\'ees se factorisent par un facteur simple $G_i$ de $G$, et leur poids dominant est un poids fondamental; il correspond \`a un sommet du diagramme de Dynkin $D_i$ de $G_{i\CC}$. La condition n\'ecessaire et suffisante (1.3.6.1) ne d\'epend que de la projection de la classe dans $G_{i\CC}$; celle-ci correspond \`a un sommet sp\'ecial $s_i$ de $D_i$ (1.2.6), et $s_i$ \`a une racine simple $\alpha_i$. Le nombre $(\mu,\varpi)$, pour $\varpi$ un poids, est le coefficient de $\alpha_i$ dans l'expression de $\varpi$ comme combinaison $\QQ$-lin\'eaire de racines simples. Pour $\varpi$ fondamental, ces coefficients sont donn\'es dans les tables de Bourbaki [4]. Ils sont donn\'es par la table suivante, o\`u sont \'enum\'er\'es les diagrammes de Dynkin munis d'un sommet sp\'ecial (entour\'e). Chaque sommet correspond \`a un poids fondamental $\varpi$, et on l'a affect\'e du nombre (1.3.6.1). Les sommets correspondant aux poids qui v\'erifient (1.3.6.1) sont soulign\'es.
+
+\subsubsection*{Table 1.3.9}
+
+Dans la table, $\bullet$ indique une progression arithm\'etique.
+
+\begin{center}
+\textbf{Type $A_{p+q-1}$} (sommet sp\'ecial en $p$\`eme position)
+\end{center}
+\[
+\begin{array}{ccccccccccccc}
+&&&& q/(p+q) &&& \cdots &&& p/(p+q) \\
+\circ \text{---} & \cdots & \text{---} \circ \text{---} & \textcircled{$\circ$} & \text{---} & \circ & \text{---} & \cdots & \text{---} \circ \\
+1 &&& 1 &&&&&& 1 \\
+&&&& 1/2 &&&& 1/2 && \\
+&&&& \underline{1/2} &&&& \underline{1/2} &&
+\end{array}
+\]
+
+\begin{center}
+\textbf{Type $B_l$} ($l \ge 2$)
+\end{center}
+\[
+\begin{array}{cccccccc}
+1 &&&&& \bullet & 1/2 \\
+\circ \text{---} & \circ & \text{---} & \cdots & \text{---} & \circ & \Rrightarrow & \circ \\
+&&&&& 1 & \underline{1/2}
+\end{array}
+\]
+
+\begin{center}
+\textbf{Type $C_l$} ($l \ge 3$)
+\end{center}
+\[
+\begin{array}{cccccccc}
+1 &&&&& \bullet & 1 \\
+\circ \text{---} & \circ & \text{---} & \cdots & \text{---} & \circ & \Lleftarrow & \circ \\
+&&&&& 1 & \underline{1}
+\end{array}
+\]
+
+\begin{center}
+\textbf{Type $D_l$} ($l \ge 4$)
+\end{center}
+\[
+\begin{array}{ccccccccc}
+&&&&& \circ \\[-4pt]
+&&&&& | \\
+1 &&&& \bullet && 1/2 & 1/2 \\
+\circ \text{---} & \circ & \text{---} & \cdots & \text{---} & \circ & \text{---} & \circ \\
+&&&&& 1 & \underline{1/2} & \underline{1/2}
+\end{array}
+\]
+
+\begin{center}
+\textbf{Type $E_6$}
+\end{center}
+\[
+\begin{array}{cccccccccc}
+&&&&& \circ \\[-4pt]
+&&&&& | \\
+2/3 &&&& 4/3 && 2 & 5/3 & 4/3 \\
+\circ \text{---} & \circ & \text{---} & \circ & \text{---} & \circ & \text{---} & \circ \\
+&&&&& \textcircled{$\circ$} \\[-4pt]
+&&&&& | \\
+&&&&& \underline{2/3}
+\end{array}
+\]
+
+\begin{center}
+\textbf{Type $E_7$}
+\end{center}
+\[
+\begin{array}{ccccccccccc}
+&&&&&& \circ \\[-4pt]
+&&&&&& | \\
+1 &&& 2 &&& 5/2 & 4/2 & 3/2 \\
+\circ \text{---} & \circ & \text{---} & \circ & \text{---} & \circ & \text{---} & \circ & \text{---} \circ \\
+&&&&&& \textcircled{$\circ$} \\[-4pt]
+&&&&&& | \\
+&&&&&& \underline{3/2}
+\end{array}
+\]
+
+\begin{remarks}
+(i) Pour $G$ simple exceptionnel, aucune repr\'esentation $W$ ne v\'erifie 1.3.2.
+
+(ii) Pour $G$ simple classique, sauf le cas $D_l^{\mathbb{H}}$ ($l \ge 5$), les repr\'esentations $W$ de 1.3.2 forment un syst\`eme fid\`ele de repr\'esentations de $G$. Pour $D_l^{\mathbb{H}}$, on obtient seulement une repr\'esentation fid\`ele d'un rev\^etement double de $G$ (\`a savoir, la composante connexe alg\'ebrique du groupe des automorphismes d'un espace vectoriel sur $\mathbb{H}$ muni d'une forme antihermitienne non d\'eg\'en\'er\'ee---une forme int\'erieure de $\SO(2n)$).
+\end{remarks}
+
+\section{Vari\'et\'es de Shimura}
+
+\subsection{Pr\'eliminaires}
+
+\subsubsection{}
+
+Soient $G$ un groupe, $P$ un sous-groupe et $\varphi:P \to A$ un morphisme. Supposons donn\'ee une action $\tau$ de $A$ sur $G$, qui stabilise $P$, et telle que
+
+(a) $\tau(g\varphi(\gamma))$ est l'automorphisme int\'erieur $\Int \gamma$ de $G$;
+
+(b) $\varphi$ est compatible aux actions de $A$: sur $P$ par $\tau$, et sur lui-m\^eme par automorphismes int\'erieurs: $\varphi(\gamma \cdot \tau(a)(\gamma)) = \Int a(\varphi(\gamma))$.
+
+Formons le produit semi-direct $G \rtimes A$. Les conditions (a), (b) reviennent \`a dire que l'ensemble des $\gamma \varphi(\gamma)^{-1}$ est un sous-groupe distingu\'e, et on d\'efinit $G *_P A$ comme le quotient de $G \rtimes A$ par ce sous-groupe.
+
+On notera que les hypoth\`eses entra\^inent que $Z = \Ker(\varphi)$ est central dans $G$, et que $\Image(\varphi)$ est un sous-groupe distingu\'e de $A$. Les lignes du diagramme
+\begin{equation}\label{eq:2.0.1.1}
+\begin{CD}
+0 @>>> Z @>>> P @>>> A @>>> A/P @>>> 0 \\
+@. @| @VVV @VVV @| \\
+0 @>>> Z @>>> G @>>> G *_P A @>>> A/P @>>> 0
+\end{CD}
+\end{equation}
+sont exactes, d'o\`u un isomorphisme
+\begin{equation}\label{eq:2.0.1.2}
+P\backslash G \simto A\backslash(G *_P A)
+\end{equation}
+et, mise en \'evidence, une action \`a droite $\S$ de $G *_P A$ sur $P\backslash G$. Pour cette action, $G$ agit par translations \`a droite, et $A$ par l'action \`a droite $\tau^{-1}$.
+
+Si $G$ est un groupe topologique, que $A$ est discret, et que l'action $\tau$ est continue, le groupe $G *_P A$, muni de la topologie quotient de celle de $G \times A$, est un groupe topologique, $G/\Image(\varphi)$ en est un sous-groupe ouvert, et l'application (2.0.1.2) est un hom\'eomorphisme.
+
+La construction 2.0.1 garde un sens dans la cat\'egorie des groupes alg\'ebriques sur un corps. Si $G$ est un groupe r\'eductif sur $k$, on a un isomorphisme canonique $G = G *_{Z(G)} Z(G)$ (pour l'action triviale de $Z(G)$ sur $G$).
+
+\subsubsection{}
+
+Soient $G$ un groupe alg\'ebrique sur un corps $k$, et $G^{\text{ad}}$ le quotient de $G$ par son centre $Z$. L'action par automorphismes int\'erieurs de $G$ sur lui-m\^eme $(x,y) \mapsto xyx^{-1}: G \times G \to G$ est invariante par $Z \times \{e\}$ agissant par translation, donc se factorise par une action de $G^{\text{ad}}$ sur $G$. Prendre garde que l'action de $\bar{x} \in G^{\text{ad}}(k)$ sur $G(k)$ n'est pas n\'ecessairement un automorphisme int\'erieur de $G(k)$ (la projection de $G(k)$ dans $G^{\text{ad}}(k)$ n'est pas toujours surjective). Un exemple typique est l'action de $\PGL(n,k)$ sur $\SL(n,k)$.
+
+De m\^eme, l'application ``commutateur'' $(x,y) = xyx^{-1}y^{-1}: G \times G \to G$ est invariante par $Z \times Z$ agissant par translation, et se factorise par une application ``commutateur'' $(\,,): G^{\text{ad}} \times G^{\text{ad}} \to G$.
+
+Tout ceci, et le fait que ces ``commutateurs'' et ``automorphismes int\'erieurs'' v\'erifient les identit\'es usuelles se voit au mieux par descente, i.e.~en interpr\'etant $G$ comme un faisceau en groupes sur un site convenable, et $G^{\text{ad}}$ comme le quotient de ce faisceau en groupes par son centre. En caract\'eristique 0, si on s'int\'eresse seulement aux points de $G$ sur des extensions de $k$, il suffit d'utiliser la descente galoisienne---cf.~2.4.1, 2.4.2.
+
+\textit{Variante.} Pour $G$ r\'eductif sur $k$, les groupes $G$ et $G^{\text{ad}}$ ont m\^eme groupe adjoint, et les constructions pr\'ec\'edentes pour $G$ et $G^{\text{ad}}$ sont compatibles. En particulier, l'application commutateur $(\,,): G \times G \to G$ a une factorisation canonique
+\[
+(\,,): G \times G \xrightarrow{\;\;} G^{\text{ad}} \times G^{\text{ad}} \xrightarrow{\;\;} G^{\text{der}} \xrightarrow{\;\;} G.
+\]
+On en d\'eduit que le quotient de $G(k)$ par le sous-groupe distingu\'e $p\tilde{G}(k)$ est ab\'elien.
+
+\subsubsection{}
+
+Soient $k$ un corps global de caract\'eristique 0, $\A$ l'anneau de ses ad\`eles, $G$ un groupe semi-simple simplement connexe sur $k$ et $N = \Ker(p:\tilde{G} \to G)$. Soient $S$ un ensemble fini de places de $k$, $\A_S$ l'anneau des $S$-ad\`eles (produit restreint \'etendu aux $v \notin S$) et posons $P_S = p\tilde{G}(\A_S) \cap G(k)$ (intersection dans $G(\A)$). C'est le groupe des \'el\'ements de $G(k)$ qui, en toute place $v \notin S$, peuvent se relever dans $\tilde{G}(k_v)$ (se rappeler que $p:\tilde{G}(\A) \to G(\A)$ est propre).
+
+La suite exacte longue de cohomologie identifie $G(k)/p\tilde{G}(k)$ \`a un sous-groupe de $H^1(\Gal(\bar{k}/k), N(\bar{k}))$, et $P_S/p\tilde{G}(k)$ aux \'el\'ements de ce sous-groupe localement nuls en les places $v \notin S$. En particulier, $P_S/p\tilde{G}(k)$ est contenu dans le sous-groupe $H^1_*(\Gal(\bar{k}/k), N(\bar{k}))$ des classes dont la restriction \`a tout sous-groupe monog\`ene est triviale (argument et notations de [12]). Si $\Im \Gal(\bar{k}/k)$ est l'image de Galois dans $\Aut N(\bar{k})$, on a $H^1_*(\Gal(\bar{k}/k), N(\bar{k})) = H^1_*(\Im \Gal(\bar{k}/k), N(\bar{k}))$ (loc.~cit.); en particulier, $P_S/p\tilde{G}(k)$ est fini.
+
+\begin{proposition}
+\textup{(i)} $P_S$ ne d\'epend que de l'ensemble des places $v \in S$ telles que le groupe de d\'ecomposition $D_v \subset \Im \Gal(\bar{k}/k)$ soit non cyclique. En particulier, $P_S$ ne change pas si on ajoute \`a $S$ les places \`a l'infini.
+
+\textup{(ii)} $P_S/p\tilde{G}(k)$ s'identifie au sous-groupe du groupe fini $H^1(\Im \Gal(\bar{k}/k), N(\bar{k}))$ form\'e des classes de restriction nulle \`a tout sous-groupe de d\'ecomposition $D_v$, $v \in S$.
+
+En particulier, pour $S$ grand, on a $P_S/p\tilde{G}(k) = H^1(\Im \Gal(\bar{k}/k), N(\bar{k}))$.
+\end{proposition}
+
+\begin{proof}
+La restriction d'un \'el\'ement de $H^1(\Im \Gal(\bar{k}/k), N(\bar{k}))$ \`a un groupe de d\'ecomposition cyclique est automatiquement nulle, d'o\`u (i). Pour (ii), on peut supposer que $S$ contient les places \`a l'infini. Le principe de Hasse pour $G$ (pour des classes venant du centre) assure alors que tous les \'el\'ements du groupe (ii) sont effectivement r\'ealis\'es comme classe d'obstruction.
+\end{proof}
+
+\begin{corollary}
+Tout sous-groupe de $S$-congruence assez petit de $G(k)$ est dans $P_S$.
+\end{corollary}
+
+\begin{proof}
+Si $U$ est un sous-groupe de $S$-congruence, $U/U \cap p\tilde{G}(k)$ est fini: l'obstruction \`a relever dans $\tilde{G}(k)$ meurt dans une extension galoisienne de degr\'e et de ramification born\'es, donc est dans $H^1(\Gal, N(\bar{k}))$ pour $\Gal$ un quotient fini de $\Gal(\bar{k}/k)$. Des conditions de $S$-congruence permettent alors de passer de ce $H^1$ \`a $P_S/p\tilde{G}(k)$, cf.~[12].
+\end{proof}
+
+\begin{remark}
+On notera par ailleurs que si $G$ v\'erifie le th\'eor\`eme d'approximation forte rel.~$S$, tout sous-groupe de $S$-congruence $U \subset P_S$ de $G(k)$ s'envoie sur $P_S/p\tilde{G}(k)$.
+\end{remark}
+
+\begin{corollary}
+Pour toute place archim\'edienne $v$, un sous-groupe de $S$-congruence assez petit $U$ de $G(k)$ est dans la composante connexe topologique $G(k_v)^+$ de $G(k_v)$.
+\end{corollary}
+
+\begin{proof}
+Puisque $G(k_v)$ est connexe, on a $G(k_v)^+ = p\tilde{G}(k_v)$ et $U \subset P_S \subset G(k_v)^+$ (2.0.4 et 2.0.5).
+\end{proof}
+
+\begin{corollary}
+Le sous-groupe $G(k)p\tilde{G}(\A_S)$ de $G(\A_S)$ est ferm\'e, topologiquement isomorphe \`a $p\tilde{G}(\A_S) \cdot_{P_S} G(k)$ (i.e.~$p\tilde{G}(\A_S)$ en est un sous-groupe ouvert).
+\end{corollary}
+
+\begin{proof}
+C'est un sous-groupe parce que, vu 2.0.2, $p\tilde{G}(\A_S)$ est distingu\'e dans $G(\A_S)$, avec un quotient commutatif. Soit $T \supset S$ assez grand pour que $G(k)$ soit dense dans $G(\A_T)$ (approximation forte). Notons $k_{T-S}$ le produit des $k_v$ pour $v \in T-S$. Pour $K$ un sous-groupe compact ouvert de $G(\A_T)$, on a
+\[
+G(k) \cdot pG(\A_S) = G(k)(pG(k_{T-S}) \times P_S \cdot K) \subset G(k)(pG(k_{T-S}) \times K).
+\]
+D'apr\`es 2.0.5 pour $K$ assez petit, on a dans $G(\A_T)$: $G(k) \cap K \subset P_T$, d'o\`u dans $G(\A_S)$: $G(k) \cap (pG(k_{T-S}) \times K) \subset P_S \subset p\tilde{G}(\A_S)$. L'intersection de $G(k)p\tilde{G}(\A_S)$ avec le sous-groupe ouvert $p\tilde{G}(k_{T-S}) \times K$ est donc contenue dans $p\tilde{G}(\A_S)$ et le corollaire en r\'esulte.
+\end{proof}
+
+\begin{corollary}
+Si $G$ v\'erifie le th\'eor\`eme d'approximation forte rel.~$S$, l'adh\'erence de $G(k)$ dans $G(\A_S)$ est $G(k)p\tilde{G}(\A_S)$.
+\qed
+\end{corollary}
+
+\subsubsection{}
+
+Soit $T$ un tore sur $k$ et $S$ un ensemble fini de places contenant les places archim\'ediennes. Soit $U \subset T(k)$ le groupe de $S$-unit\'es. D'apr\`es un th\'eor\`eme de Chevalley, tout sous-groupe d'indice fini de $U$ est un sous-groupe de congruence (voir [12] pour une d\'emonstration \'el\'egante). Il en r\'esulte que si $T' \to T$ est une isog\'enie, l'image d'un sous-groupe de congruence pour $T'$ est un sous-groupe de congruence pour $T$.
+
+\subsubsection{}
+
+Soient $G$ r\'eductif sur $k$, $p:\tilde{G} \to G^{\text{der}}$ le rev\^etement universel de son groupe d\'eriv\'e, et $Z^0$ la composante neutre de son centre $Z$. Voici quelques corollaires de 2.0.10 (on suppose que l'ensemble fini $S$ de places contient les places archim\'ediennes).
+
+\begin{corollary}
+Pour $U$ d'indice fini dans le groupe des $S$-unit\'es de $Z(k)$ il existe un sous-groupe compact ouvert $K$ de $G(\A_S)$ tel que
+\[
+G(k) \cap (K \cdot \tilde{G}^{\text{der}}(\A_S)) \subset \tilde{G}^{\text{der}}(k) \cdot U.
+\]
+\end{corollary}
+
+\begin{proof}
+Appliquons 2.0.10 \`a l'isog\'enie $Z^0 \to G/G^{\text{der}}$: pour $K$ petit, un \'el\'ement $\gamma$ de $G(k)$ dans $K \cdot \tilde{G}^{\text{der}}(\A_S)$ a dans $(G/G^{\text{der}})(k)$ une image petite, pour la topologie des sous-groupes de $S$-congruence, donc peut se relever un petit \'el\'ement $z$ de $Z(k)$, et $\gamma = (\gamma z^{-1}) \cdot z$.
+\end{proof}
+
+\begin{corollary}
+Le produit d'un sous-groupe de congruence de $\tilde{G}^{\text{der}}$ et d'un sous-groupe d'indice fini du groupe des $S$-unit\'es de $Z^0(k)$ est un sous-groupe de $S$-congruence de $G(k)$.
+\end{corollary}
+
+\begin{corollary}
+Tout sous-groupe de $S$-congruence assez petit de $G(k)$ est contenu dans la composante neutre topologique $G(\RR)^+$ de $G(\RR)$.
+\end{corollary}
+
+\begin{proof}
+Appliquer 2.0.13, 2.0.7 \`a $\tilde{G}^{\text{der}}$, et 2.0.10 \`a $Z^0$.
+\end{proof}
+
+\subsubsection{}
+
+On sait que $\tilde{G}^{\text{der}}(k)p\tilde{G}(\A)$ est ouvert dans $G(k)p\tilde{G}(\A)$ (car image inverse de $\{e\}$: le sous-groupe discret $G/G^{\text{der}}(k)$ de $(G/G^{\text{der}})(\A)$). D'apr\`es 2.0.8, $G(k)p\tilde{G}(\A)$ est donc un sous-groupe ferm\'e de $G(\A)$. On pose
+\begin{equation}\label{eq:2.0.15.1}
+\pi(G) = G(\A)/\overline{G(k)p\tilde{G}(\A)}.
+\end{equation}
+L'existence de commutateurs 2.0.2 montre que l'action de $G^{\text{ad}}(k)$ sur $\pi(G)$, d\'eduite de l'action 2.0.2 de $G^{\text{ad}}$ sur $G$, est triviale.
+
+\subsection{Vari\'et\'es de Shimura}
+
+\subsubsection{}
+
+Soient $G$ un groupe r\'eductif, d\'efini sur $\QQ$, et $X$ une classe de $G(\RR)$-conjugaison de morphismes de groupes alg\'ebriques r\'eels de $S$ dans $G_{\RR}$. On suppose v\'erifi\'es les axiomes suivants (les notations sont celles de 1.1.1 et 1.1.11):
+
+\begin{equation}\label{eq:2.1.1.1}
+\text{Pour } h \in X \text{, } \Lie(G_{\RR}) \text{ est de type } \{(-1,1),(0,0),(1,-1)\}.
+\end{equation}
+
+\begin{equation}\label{eq:2.1.1.2}
+\begin{array}{l}
+\text{L'involution } \Int h(i) \text{ est une involution de Cartan du groupe adjoint}\\
+G^{\text{ad}}_{\RR}.
+\end{array}
+\end{equation}
+
+\begin{equation}\label{eq:2.1.1.3}
+\begin{array}{l}
+\text{Le groupe adjoint n'admet pas de facteur } G' \text{ d\'efini sur } \QQ \text{ sur}\\
+\text{lequel la projection de } h \text{ soit triviale.}
+\end{array}
+\end{equation}
+
+L'axiome (2.1.1.1) assure que le morphisme $w_h$ ($h \in X$) est \`a valeurs dans le centre de $G$, donc est ind\'ependant de $h$. On le note $w_X$, ou simplement $w$. Quelques simplifications apparaissent lorsqu'on suppose que:
+
+\begin{equation}\label{eq:2.1.1.4}
+\text{Le morphisme } w:\Gm_m \to G_{\RR} \text{ est d\'efini sur } \QQ.
+\end{equation}
+
+\begin{equation}\label{eq:2.1.1.5}
+\Int h(i) \text{ est une involution de Cartan du groupe } (G/w(\Gm_m))_{\RR}.
+\end{equation}
+
+D'apr\`es 1.1.14(i), $X$ admet une unique structure complexe telle que, pour toute repr\'esentation $V$ de $G_{\RR}$, la filtration de Hodge $F_h$ de $V$ varie holomorphiquement avec $h$. Pour cette structure complexe, les composantes connexes de $X$ sont des domaines hermitiens sym\'etriques. La preuve de 1.1.17 montre aussi que si l'on d\'ecompose $G^{\text{ad}}_{\RR}$ en facteurs simples, $h$ se projette trivialement sur les facteurs compacts, et que chaque composante connexe de $X$ est le produit d'espaces hermitiens sym\'etriques correspondant aux facteurs non compacts. L'axiome (2.1.1.3) peut encore s'exprimer en disant que $G^{\text{ad}}$ (resp.~$G$, cela revient au m\^eme) n'a pas de facteur $G'$ (d\'efini sur $\QQ$) tel que $G'(\RR)$ soit compact, et le th\'eor\`eme d'approximation forte assure que $G(\QQ)$ est dense dans $G(\Af)$.
+
+\subsubsection{}
+
+Les \textit{vari\'et\'es de Shimura} ${}_K M_C(G,X)$---ou simplement ${}_K M_C$---sont les quotients ${}_K M_C(G,X) = G(\QQ)\backslash X \times (G(\Af)/K)$ pour $K$ un sous-groupe compact ouvert de $G(\Af)$. D'apr\`es 1.2.7, $\pi_0(X)$ est un espace principal homog\`ene sous $G(\RR)/G(\RR)^+$. Puisque $G(\QQ)$ est dense dans $G(\RR)$ (th\'eor\`eme d'approximation r\'eel), on a $G(\QQ)\backslash G(\QQ)_+ := G(\RR)/G(\RR)^+$, et, si $X^+$ est une composante connexe de $X$, on a
+\[
+{}_K M_C(G,X) = G(\QQ)_+\backslash X^+ \times (G(\Af)\cap K)
+\]
+\`a somme disjointe, index\'ee par l'ensemble fini $G(\QQ)_+\backslash G(\Af)/K$ de doubles classes, des quotients $\Gamma_g\backslash X^+$ du domaine hermitien sym\'etrique $X^+$ par les images $\Gamma_g \subset G^{\text{ad}}(\RR)^+$ des sous-groupes $\Gamma'_g = gKg^{-1} \cap G(\QQ)_+$ de $G(\QQ)_+$. Les $\Gamma_g$ sont des groupes arithm\'etiques, d'o\`u une structure d'espace analytique sur $\Gamma_g\backslash X^+$.
+
+L'article [2] fournit une structure naturelle de vari\'et\'e alg\'ebrique quasi-projective sur ces quotients, donc sur ${}_K M_C(G,X)$. Si $\Gamma_g$ est sans torsion (tel est le cas pour $K$ assez petit); il r\'esulte de [3] que cette structure est unique. Plus pr\'ecis\'ement, pour tout sch\'ema r\'eduit $Z$, un morphisme analytique de $Z$ dans $\Gamma_g\backslash X^+$ est automatiquement alg\'ebrique.
+
+\subsubsection{}
+
+On a
+\[
+\pi_0\, {}_K M_C = G(\QQ)\backslash \pi_0(X) \times (G(\Af)/K) = G(\QQ)\backslash G(\A)/G(\RR)^+ \times K = G(\QQ)_+\backslash G(\Af)/K.
+\]
+Puisque $G(\Af)/K$ est discret, on peut remplacer $G(\QQ)_+$ par son adh\'erence dans $G(\Af)$. La connexit\'e de $G(\RR)$ assure que $p\tilde{G}(\QQ) \subset G(\QQ)_+$. Par le th\'eor\`eme d'approximation forte pour $\tilde{G}$, $p\tilde{G}(\QQ)$ est dense dans $p\tilde{G}(\Af)$, et $\overline{G(\QQ)_+} = \overline{p\tilde{G}(\Af)}$. D\`es lors,
+\begin{equation}\label{eq:2.1.3.1}
+\pi_0\, {}_K M_C = G(\QQ)_+\overline{p\tilde{G}(\Af)}\backslash G(\Af)/K = G(\Af)/\overline{p\tilde{G}(\Af)} \cdot G(\QQ)_+ \cdot K = G(\Af)/G(\QQ)_+ \cdot K,
+\end{equation}
+puisque $p\tilde{G}(\Af)$ est un sous-groupe distingu\'e, avec un quotient ab\'elien. De m\^eme, posant $\pi_0(G) = \pi_0(G(\RR))/\pi_0 G(\RR)^+$, on a
+\begin{equation}\label{eq:2.1.3.2}
+\pi_0\, {}_K M_C = G(\Af)/p\tilde{G}(\Af) \cdot G(\QQ)_+ \cdot G(\RR)^+ \times K = \pi(G)/G(\RR)^+ \times K = \pi_0\pi(G)/K.
+\end{equation}
+En particulier, $\pi_0\, {}_K M_C$ ne d\'epend que de l'image de $K$ dans $G(\Af)/\overline{p\tilde{G}(\Af)}$.
+
+\subsubsection{}
+
+Pour $K$ variable (de plus en plus petit), les ${}_K M_C$ forment un syst\`eme projectif. Il est muni d'une action \`a droite de $G(\Af)$: un syst\`eme d'isomorphismes $g:{}_K M_C \xrightarrow{\;\sim\;} {}_{g^{-1}Kg} M_C$. Il est commode de consid\'erer plut\^ot le sch\'ema $M_C(G,X)$---ou simplement $M_C$---limite projective des ${}_K M_C$. La limite projective existe parce que les morphismes de transition sont finis. Ce sch\'ema est muni d'une action \`a droite de $G(\Af)$, et il redonne les ${}_K M_C$: ${}_K M_C = M_C/K$.
+
+Nous nous proposons de d\'eterminer $M_C$ et sa d\'ecomposition en composantes connexes.
+
+\begin{definition}
+Fixons une composante connexe $X^+$ de $X$. La \textit{composante neutre} $M^0$ de $M_C$ est la composante connexe qui contient l'image de $X^+ \times \{e\} \subset X \times G(\Af)$.
+\end{definition}
+
+\begin{definition}
+Soient $G$ un groupe adjoint sur $\QQ$, sans facteur $G'$, d\'efini sur $\QQ$ tel que $G'(\RR)$ soit compact et $\tilde{G}$ un rev\^etement de $G$. La topologie $t(\tilde{G})$ sur $G(\QQ)$ est celle admettant pour syst\`eme fondamental de voisinages de l'origine les images des sous-groupes de congruence de $\tilde{G}(\QQ)$.
+
+Nous noterons $G(\QQ)^{+\wedge}$ (rel.~$\tilde{G}$), ou simplement $\widehat{G(\QQ)^+}$, la compl\'etion pour cette topologie. Soit $p:\tilde{G} \to G$ l'application naturelle, notons $\tilde{G}(\Af)^{\wedge}$ l'adh\'erence dans $\tilde{G}(\Af)$, et posons $\Gamma' = p\tilde{G}(\Af) \cap G(\QQ)$. Puisque $\tilde{G}(\RR)$ est connexe, $\Gamma' \subset G(\QQ)^+$. On a (2.0.9, 2.0.14)
+\begin{equation}\label{eq:2.1.6.1}
+G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) = \tilde{G}(\Af)^{\wedge} *_{\tilde{G}(\QQ)} \tilde{G}(\Af) = \tilde{G}(\Af)^{\wedge} *_{\Gamma'} G(\QQ),
+\end{equation}
+\begin{equation}\label{eq:2.1.6.2}
+G(\QQ)^+\backslash\widehat{G(\QQ)^+}(\text{rel.~}\tilde{G}) = \tilde{G}(\Af)^{\wedge} *_{\tilde{G}(\QQ)^+} \tilde{G}(\Af)^+ = \tilde{G}(\Af)^{\wedge} *_{\Gamma'} \tilde{G}(\Af)/G(\QQ)^+.
+\end{equation}
+\end{definition}
+
+\begin{proposition}
+La composante neutre $M^0$ est la limite projective des quotients $\Gamma'\backslash X^+$, pour $\Gamma'$ un sous-groupe arithm\'etique de $G^{\text{ad}}(\QQ)^{+\text{ad}}$, ouvert pour la topologie $t(\tilde{G}^{\text{der}})$, pour $\Gamma'$ l'image d'un sous-groupe de congruence de $\tilde{G}(\QQ)$.
+\end{proposition}
+
+\begin{proof}
+D'apr\`es 2.1.2, c'est la limite des $\Gamma'\backslash X^+$. Le Corollaire 2.0.13 permet de remplacer $G$ par $\tilde{G}^{\text{der}}$.
+\end{proof}
+
+\subsubsection{}
+
+La projection de $G$ dans $G^{\text{ad}}$ induit un isomorphisme de $X^+$ avec une classe de $G(\RR)^+$-conjugaison de morphismes de $S$ dans $G^{\text{ad}}_{\RR}$ et, d'apr\`es 2.1.7, $M^0(G,X)$ ne d\'epend que de $G^{\text{ad}}$, $\tilde{G}^{\text{der}}$ et de cette classe. Formalisons cette remarque. Soient $G$ un groupe adjoint, $X^+$ une classe de $G(\RR)^+$-conjugaison de morphismes de $S$ dans $G_{\RR}$ qui v\'erifie (2.1.1.1), (2.1.1.2), (2.1.1.3) et $\tilde{G}$ un rev\^etement de $G$. Les \textit{vari\'et\'es connexes de Shimura} (rel.~$G$, $\tilde{G}$, $X^+$) sont les quotients $\Gamma'\backslash X^+$, pour $\Gamma'$ un sous-groupe arithm\'etique de $G(\QQ)^+$, ouvert pour la topologie $t(\tilde{G})$. On note $M^0(G,\tilde{G},X^+)$ leur limite projective, pour $\Gamma'$ de plus en plus petit. On notera que l'action par transport de structure de $G(\QQ)^+$ sur $M^0(G,\tilde{G},X^+)$ se prolonge par continuit\'e en une action du compl\'et\'e $G(\QQ)^+\backslash\widehat{G(\QQ)^+}(\text{rel.~}\tilde{G})$.
+
+Avec les notations de 2.1.7, et l'identification ci-dessus de $X^+$ avec une classe de $G(\RR)^+$-conjugaison de morphismes de $S$ dans $\tilde{G}^{\text{der}}_{\RR}$, on a
+\[
+M^0(G,X) = M^0(G^{\text{ad}}, \tilde{G}^{\text{der}}, X^+).
+\]
+
+\subsubsection{}
+
+Soient $Z$ le centre de $G$, et $\overline{Z(\QQ)}$ l'adh\'erence de $Z(\QQ)$ dans $Z(\Af)$. D'apr\`es Chevalley (2.0.10), c'est le compl\'et\'e de $Z(\QQ)$ pour la topologie des sous-groupes d'indice fini du groupe des unit\'es; il reco\^oit isomorphiquement l'adh\'erence de $Z(\QQ)$ dans $\pi_0 G(\RR) \times Z(\Af)$.
+
+Pour $K \subset G(\Af)$ compact ouvert, on a $\overline{Z(\QQ)} \cdot K = Z(\QQ) \cdot K$ (dans $Z(\Af)$), et
+\[
+{}_K M_C = G(\QQ)\backslash X \times (G(\Af)/K) = G(\QQ)\backslash X \times (G(\Af)/\overline{Z(\QQ)} \cdot K) = G(\QQ)/Z(\QQ)\backslash X \times (G(\Af)/\overline{Z(\QQ)} \cdot K).
+\]
+L'action de $G(\QQ)/Z(\QQ)$ sur $X \times (G(\Af)/\overline{Z(\QQ)})$ est propre. Ceci permet le passage \`a la limite sur $K$:
+
+\begin{proposition}
+On a
+\[
+M_C(G,X) = G(\QQ)/Z(\QQ)\backslash X \times (G(\Af)/\overline{Z(\QQ)}).
+\]
+\end{proposition}
+
+\begin{corollary}
+Si les conditions 2.1.4 et 2.1.5 sont v\'erifi\'ees, on a ${}_K M_C(G,X) = G(\QQ)\backslash X \times G(\Af)$. Dans ce cas, $Z(\QQ)$ est discret dans $Z(\Af)$ et $\overline{Z(\QQ)} = Z(\QQ)$.
+\qed
+\end{corollary}
+
+\subsubsection{}
+
+L'action \`a droite de $G(\Af)$ se factorise par $G(\Af)/\overline{Z(\QQ)}$.
+
+\begin{corollary}
+Soient $G^{\text{ad}}(\RR)^1$ l'image de $G(\RR)$ dans $G^{\text{ad}}(\RR)$, et $G^{\text{ad}}(\QQ)^1 = G^{\text{ad}}(\QQ) \cap G^{\text{ad}}(\RR)^1$. L'action (2.0.2) de $G^{\text{ad}}$ sur $G$ induit une action (\`a gauche) de $G^{\text{ad}}(\QQ)^1$ sur le syst\`eme des ${}_K M_C$
+\[
+\Int(\gamma): {}_K M_C \xrightarrow{\;\sim\;} {}_{\gamma K \gamma^{-1}} M_C
+\]
+et \`a la limite sur $M_C$. Pour $\gamma \in G^{\text{ad}}(\QQ)^+$, cette action stabilise la composante neutre (donc toutes les composantes, cf.~ci-apr\`es) et y induit l'action 2.1.6.
+
+Convertissons cette action en une action \`a droite, not\'ee $\cdot\gamma$. Si $\gamma$ est l'image de $\tilde{\gamma} \in G(\QQ)$, l'action $\cdot\gamma$ co\^incide avec l'action de $\tilde{\gamma}$, vu comme \'el\'ement de $G(\Af)$: pour $u \in M_C$ image de $(x,g) \in X \times G(\Af)$,
+\[
+u \cdot \gamma = (\tilde{\gamma}^{-1}(x), \tilde{\gamma}^{-1}g) = (\gamma^{-1}(x), \Int_{\tilde{\gamma}}^{-1}(g)) \sim (x, g\tilde{\gamma}) \text{ mod } G(\QQ) \text{ \`a gauche.}
+\]
+Au total, nous obtenons ainsi une action \`a droite sur $M_C$ du groupe
+\begin{equation}\label{eq:2.1.13.1}
+G(\Af)/Z(\QQ) \xrightarrow{G(\QQ)/Z(\QQ) *_{G(\QQ)_+/Z(\QQ)} G^{\text{ad}}(\QQ)^+} = \mathscr{G} *_{G(\QQ)_+/Z(\QQ)} G^{\text{ad}}(\QQ)^+.
+\end{equation}
+\end{corollary}
+
+\begin{proposition}
+L'action \`a droite de $G(\Af)$ sur $\pi_0 M_C$ fait de $\pi_0 M_C$ un espace principal homog\`ene sous son quotient ab\'elien $G(\Af)/G(\QQ)_+ = \pi_0\pi(G)$.
+\end{proposition}
+
+Cela r\'esulte aussit\^ot par passage \`a la limite des formules 2.1.3.
+
+\subsubsection{}
+
+Puisque $G^{\text{ad}}(\QQ)$ agit trivialement sur $\pi(G)$ (2.0.15), et que $G^{\text{ad}}(\QQ)^+$ stabilise au moins une composante connexe (2.1.13), le groupe $G^{\text{ad}}(\QQ)^+$ les stabilise toutes. Pour l'action 2.1.13 du groupe (2.1.13.1) sur $M_C$, le stabilisateur de chaque composante connexe est donc
+\begin{equation}\label{eq:2.1.15.1}
+\mathscr{G} *_{G(\QQ)_+/Z(\QQ)} G^{\text{ad}}(\QQ)^+ = G(\Af)/G(\QQ)_+\wedge(\text{rel.~}\tilde{G}^{\text{der}}).
+\end{equation}
+
+\textbf{R\'esum\'e 2.1.16.} Le groupe $G(\Af)/Z(\QQ) \xrightarrow{G(\QQ)/Z(\QQ) *_{G(\QQ)_+/Z(\QQ)} G^{\text{ad}}(\QQ)^+}$ agit \`a droite sur $M_C$. L'ensemble profini $\pi_0 M_C$ est un espace principal homog\`ene sous l'action du quotient ab\'elien $G(\Af)/G(\QQ)_+ = \pi_0\pi(G)$ de ce groupe par l'adh\'erence de $G^{\text{ad}}(\QQ)^+$. Cette adh\'erence est le compl\'et\'e de $G^{\text{ad}}(\QQ)^+$ pour la topologie des images des sous-groupes de congruence de $G^{\text{der}}(\QQ)$. L'action de ce compl\'et\'e sur la composante neutre, une fois convertie en une action \`a gauche, est l'action 2.1.8.
+
+\subsection{Mod\`eles canoniques}
+
+\subsubsection{}
+
+Soient $G$ et $X$ comme en 2.1.1. Pour $h \in X$, le morphisme $\mu_h$ (1.1.1, compl\'et\'e par 1.1.11) est un morphisme sur $\CC$ de groupes alg\'ebriques d\'efinis sur $\QQ$: $\mu_h:\Gm_m \to G_{\CC}$. Le \textit{corps dual} (= reflex field) $E(G,X) \subset \CC$ de $(G,X)$ est le corps de d\'efinition de sa classe de conjugaison. Si $X^+$ est une composante connexe de $X$, on le notera parfois $E(G,X^+)$.
+
+Soient $(G',X')$ et $(G'',X'')$, comme en 2.1.1. Si un morphisme $f:G' \to G''$ envoie $X'$ dans $X''$, on a $E(G',X') \supset E(G'',X'')$.
+
+\subsubsection{}
+
+Soient $T$ un tore, $E$ un corps de nombres, et $\mu$ un morphisme, d\'efini sur $E$, de $\Gm_m$ dans $T_E$. Le groupe $E^*$, vu comme groupe alg\'ebrique sur $\QQ$, est la restriction des scalaires \`a la Weil $\Res_{E/\QQ}(\Gm_m)$. Appliquant $R_{E/\QQ}$ \`a $\mu$, on obtient $R_{E/\QQ}(\mu): E^* \to R_{E/\QQ}T_E$. On dispose aussi du morphisme norme $\Nm_{E/\QQ}: R_{E/\QQ}T_E \to T$ (sur les points rationnels, c'est la norme, $T(E) \to T(\QQ)$). D'o\`u par composition un morphisme $N_{E/\QQ} \circ R_{E/\QQ}(\mu): E^* \to T$. Nous le noterons simplement $N_{E/\QQ}(\mu)$, ou m\^eme $N(\mu)$.
+
+Si $E'$ est une extension de $E$, $\mu$ est encore d\'efini sur $E'$, et
+\begin{equation}\label{eq:2.2.2.1}
+N_{E'/\QQ}(\mu) = N_{E/\QQ}(\mu) \circ N_{E'/E}.
+\end{equation}
+
+\subsubsection{}
+
+Soient en particulier $T$ un tore, $h:S \to T_{\RR}$ et $X = \{h\}$. Si $E \subset \CC$ contient $E(T,X)$, le morphisme $\mu_h$ est d\'efini sur $E$, d'o\`u un morphisme $N_{E/\QQ}(\mu_h): E^* \to T$. Passant aux points ad\'eliques modulo les points rationnels, on en d\'eduit un homomorphisme du groupe des classes d'id\`eles $C(E)$ de $E$ dans $T(\QQ)\backslash T(\A)$, et, par passage aux ensembles de composantes connexes, un morphisme
+\[
+\pi_0 N_{E/\QQ}(\mu_h): \pi_0 C(E) \to \pi_0(T(\QQ)\backslash T(\A)).
+\]
+La th\'eorie du corps de classes global identifie $\pi_0 C(E)$ au groupe de Galois rendu ab\'elien de $E$.
+
+Le groupe $\pi_0(T(\QQ)\backslash T(\A))$ est un groupe profini, limite projective des groupes finis $T(\QQ)\backslash T(\A)/T(\RR)^+ \times K$ pour $K$ compact ouvert dans $T(\Af)$. C'est $\pi_0 T(\RR) \times T(\Af)/T(\QQ)^{\wedge}$. Les vari\'et\'es de Shimura ${}_K M_C(T,X)$ sont les ensembles finis $T(\QQ)\backslash\{h\} \times T(\Af)/K = T(\QQ)\backslash T(\Af)/K$. Leur limite projective $T(\Af)/T(\QQ)^{\wedge}$, calcul\'ee en 2.1.10 est le quotient de $\pi_0(T(\QQ)\backslash T(\A))$ par $\pi_0 T(\RR)$.
+
+Nous appellerons \textit{morphisme de r\'eciprocit\'e} le morphisme $r_E(T,X): \Gal(\overline{\QQ}/E)^{\text{ab}} \to T(\Af)/T(\QQ)^{\wedge}$ inverse du compos\'e de l'isomorphisme de la th\'eorie du corps de classes global (0.8), de $\pi_0 N_{E/\QQ}(\mu_h)$ et de la projection de $\pi_0 T(\A)/T(\QQ)$ sur $T(\Af)/T(\QQ)^{\wedge}$.
+
+Il d\'efinit une action $r^E$ de $\Gal(\overline{\QQ}/E)^{\text{ab}}$ sur les ${}_K M_C(T,X)$: $\sigma \mapsto$ la translation \`a droite par $r^E(\sigma)$.
+
+Le cas universel (en $E$) est celui o\`u $E = E(T,X)$: il r\'esulte de (2.2.2.1) que l'action $r^E$ de $\Gal(\overline{\QQ}/E)$ est la restriction \`a $\Gal(\overline{\QQ}/E) \subset \Gal(\overline{\QQ}/E(T,X))$ de $r^{E(T,X)}$.
+
+\subsubsection{}
+
+Soient $G$ et $X$ comme en 2.1.1. Un point $h \in X$ est dit \textit{sp\'ecial}, ou de type CM, si $h:S \to G_{\RR}$ se factorise par un tore $T \subset G$ d\'efini sur $\QQ$. On notera que si $T$ est un tel tore, l'involution de Cartan $\Int h(i)$ est triviale sur l'image de $T(\RR)$ dans le groupe adjoint, et que cette image est donc compacte. Le corps $E(T,\{h\})$ ne d\'epend que de $h$. C'est le \textit{corps dual} $E(h)$ de $h$.
+
+Nous transporterons cette terminologie aux points de ${}_K M_C(G,X)$ et de $M_C(G,X)$: pour $x \in {}_K M_C(G,X)$ (resp.~$M_C(G,X)$), classe de $(h,g) \in X \times G(\Af)$, la classe de $G(\QQ)$-conjugaison de $h$ ne d\'epend que de $x$. Nous dirons que $x$ est sp\'ecial si $h$ l'est, que $E(h)$ est le corps dual $E(x)$ de $x$, et que la classe de $G(\QQ)$-conjugaison de $h$ est le type de $x$.
+
+\subsubsection{}
+
+Sur l'ensemble des points sp\'eciaux de ${}_K M_C(G,X)$ (resp.~$M_C(G,X)$) de type donn\'e correspondant \`a un corps dual $E$, nous allons d\'efinir une action $r$ de $\Gal(\overline{\QQ}/E)$. Soient donc $x \in {}_K M_C(G,X)$ (resp.~$M_C(G,X)$) classe de $(h,g) \in X \times G(\Af)$, $T \subset G$ un tore d\'efini sur $\QQ$ par lequel se factorise $h$, $\sigma \in \Gal(\overline{\QQ}/E)$, et $r(\sigma)$ un repr\'esentant dans $T(\Af)$ de $r_E(T,\{h\})(\sigma) \in T(\Af)/T(\QQ)^{\wedge}$. On pose $r(\sigma)x =$ classe de $(h, r(\sigma)g)$. Le lecteur v\'erifiera que cette classe ne d\'epend que de $x$ et de $\sigma$.
+
+L'action ainsi d\'efinie commute \`a l'action \`a droite de $G(\Af)$ sur $M_C(G,X)$.
+
+\subsubsection{}
+
+Un \textit{mod\`ele canonique} $M(G,X)$ de $M_C(G,X)$ est une forme sur $E(G,X)$ de $M_C(G,X)$, munie de l'action \`a droite de $G(\Af)$, telle que
+
+(a) les points sp\'eciaux sont alg\'ebriques;
+
+(b) sur l'ensemble des points sp\'eciaux de type donn\'e, correspondant \`a un corps dual $E(x)$, le groupe de Galois $\Gal(\overline{\QQ}/E(x)) \cap \Gal(\overline{\QQ}/E(G,X))$ agit par l'action 2.2.4.
+
+Par ``forme'' nous entendons: un sch\'ema $M$ sur $E(G,X)$, muni d'une action \`a droite de $G(\Af)$, et d'un isomorphisme \'equivariant $M \otimes_{E(G,X)} \CC \simto M_C(G,X)$.
+
+Soit $E \subset \CC$ un corps de nombres qui contient $E(G,X)$. Un \textit{mod\`ele faiblement canonique} de $M_C(G,X)$ sur $E$ est une forme sur $E$ de $M_C(G,X)$, muni de l'action \`a droite de $G(\Af)$, qui v\'erifie (a) et
+
+(b$^*$) m\^eme condition que (b), avec $\Gal(\overline{\QQ}/E(x))$ remplac\'e par $\Gal(\overline{\QQ}/E(x)) \cap \Gal(\overline{\QQ}/E)$.
+
+\subsubsection{}
+
+Dans [5, 5.4, 5.5], nous inspirant de m\'ethodes de Shimura, nous avons montr\'e que $M_C(G,X)$ admet au plus un mod\`ele faiblement canonique sur $E$ (pour $E(G,X) \subset E \subset \CC$), et que, lorsqu'il existe, il est fonctoriel en $(G,X)$.
+
+\subsection{Construction de mod\`eles canoniques}
+
+Dans ce num\'ero, nous d\'eterminons des cas o\`u s'applique le crit\`ere suivant, d\'emontr\'e dans [5, 4.2], [5.7], pour construire des mod\`eles canoniques.
+
+\textbf{Crit\`ere 2.3.1.} Soient $(G,X)$ comme en 2.1.1, $V$ un espace vectoriel rationnel, muni d'une forme altern\'ee non d\'eg\'en\'er\'ee $\Psi$, et $\HH^{\pm}$ le double demi-espace de Siegel correspondant (cf.~1.3.1). S'il existe un plongement $G \hookrightarrow \CSp(V)$, qui envoie $X$ dans $\HH^{\pm}$, alors $M_C(G,X)$ admet un mod\`ele canonique $M(G,X)$.
+
+\begin{proposition}
+Soient $(G,X)$ comme en 2.1.1, $w = w_h$ ($h \in X$) et $(V,\rho)$ une repr\'esentation fid\`ele de type $\{(-1,0),(0,-1)\}$ de $G$. Si $\Int h(i)$ est une involution de Cartan de $G_{\RR}/w(\Gm_m)$, il existe une forme altern\'ee $\Psi$ sur $V$, telle que $\rho$ induise $(G,X) \hookrightarrow (\CSp(V),\HH^{\pm})$.
+\end{proposition}
+
+\begin{proof}
+Par hypoth\`ese, la repr\'esentation fid\`ele $V$ est homog\`ene de poids $-1$. Le poids $w$ est donc d\'efini sur $\QQ$, et on prend pour $\Psi$ une forme de polarisation comme en 1.1.18(b).
+\end{proof}
+
+\begin{corollary}
+Soient $(G,X)$ comme en 2.1.1, $w = w_h$ ($h \in X$), et $(V,\rho)$ une repr\'esentation fid\`ele de type $\{(-1,0),(0,-1)\}$ de $G$. Si le centre $Z^0$ de $G$ se d\'eploie sur un corps de type CM, il existe un sous-groupe $G_a$ de $G$, de m\^eme groupe d\'eriv\'e et par qui se factorise $X$, et une forme altern\'ee $\Psi$ sur $V$, telle que $\rho$ induise $(G_a,X) \hookrightarrow (\CSp(V),\HH^{\pm})$.
+\end{corollary}
+
+\begin{proof}
+L'hypoth\`ese sur $Z^0$ revient \`a dire que le plus grand sous-tore compact de $Z^0_{\RR}$ est d\'efini sur $\QQ$. On prend $G_a$ engendr\'e par le groupe d\'eriv\'e, ce tore, et l'image de $w$, et on applique 2.3.2.
+\end{proof}
+
+\subsubsection{}
+
+Soit $(G,X)$ comme en 2.1.1, avec $G$ $\QQ$-simple adjoint. L'axiome (2.1.1.2) assure que $G_{\RR}$ est forme int\'erieure de sa forme compacte. Exploitons ce fait.
+
+(a) Les composantes simples de $G_{\CC}$ sont absolument simples. Si on \'ecrit $G$ comme obtenu par restriction des scalaires \`a la Weil: $G = \Res_{F/\QQ} G_S$ avec $G_S$ absolument simple sur $F$, cela signifie que $F$ est totalement r\'eel. Posons les notations: $I =$ l'ensemble des plongements r\'eels de $F$, et, pour $v \in I$, $G_v = G_S \otimes_{F,v} \RR$, $D_v =$ diagramme de Dynkin de $G_{v\CC}$. On a $G_{\CC} = \prod G_{v\CC}$, $\tilde{G}_{\CC} = \prod \tilde{G}_{v\CC}$, et le diagramme de Dynkin $D$ de $G_{\CC}$ est la somme disjointe des $D_v$. Le groupe de Galois $\Gal(\overline{\QQ}/\QQ)$ agit sur $D$ et $I$, de fa\c{c}on compatible \`a la projection de $D$ sur $I$.
+
+(b) La conjugaison complexe agit sur $D$ par l'involution d'opposition. Celle-ci est centrale dans $\Aut(D)$. D\`es lors, $\Gal(\overline{\QQ}/\QQ)$ agit sur $D$ via une action fid\`ele de $\Gal(K_D/\QQ)$, avec $K_D$ totalement r\'eel si l'involution d'opposition est triviale, quadratique totalement imaginaire sur un corps totalement r\'eel sinon.
+
+\subsubsection{}
+
+On a $X = \prod X_v$, pour $X^v$ une classe de $G_v(\RR)$-conjugaison de morphismes de $S$ dans $G_v$. Pour $G_v$ compact, $X^v$ est trivial. Pour $G_v$ non compact, $X^v$ est d\'ecrit par un sommet $s^v$ du diagramme de Dynkin $D_v$ de $G_{v\CC}$ (1.2.6).
+
+Quelques notations: $I_c =$ l'ensemble des $v \in I$ tels que $G_v$ soit compact, $I_{nc} = I - I_c$, $D_c$ (resp.~$D_{nc}$) $=$ la r\'eunion des $D_v$ pour $v \in I_c$ (resp.~$v \in I_{nc}$), $G_c$ (resp.~$G_{nc}$) $=$ le produit des $G_v$ pour $v \in I_c$ (resp.~$v \in I_{nc}$); de m\^eme pour les rev\^etements universels; enfin, $\mathcal{E}(X) =$ l'ensemble des $s^v$ pour $v \in I_{nc}$. La d\'efinition 2.2.1 donne:
+
+\begin{proposition}
+Le corps dual de $(G,X)$ est le sous-corps de $K_D$ fix\'e par le sous-groupe de $\Gal(K_D/\QQ)$ qui stabilise $\mathcal{E}(X)$.
+\qed
+\end{proposition}
+
+\subsubsection{}
+
+Supposons qu'il existe un diagramme
+\begin{equation}\label{eq:2.3.7.1}
+(G,X) \longleftarrow (G_1,X_1) \longrightarrow (\CSp(V),\HH^{\pm}).
+\end{equation}
+Le rev\^etement universel $\tilde{G}$ de $G$ se rel\`eve dans $\tilde{G}_1$, ce qui permet de restreindre la repr\'esentation $V$ \`a $\tilde{G}$. Le quotient de $\tilde{G}$ qui agit fid\`element est par hypoth\`ese le groupe d\'eriv\'e de $G_1$. Appliquons 1.3.2, 1.3.8 au diagramme
+\[
+(G_{nc}, X_{nc}) \longleftarrow (\Ker(G_{nc} \to G_c)^0, X_1) \longrightarrow (\CSp(V),\HH^{\pm}).
+\]
+On trouve que les composantes irr\'eductibles non triviales de la repr\'esentation $V_{\CC}$ de $\tilde{G}_{nc}$ se factorisent par l'un des $\tilde{G}_{v\CC}$ ($v \in I_{nc}$), et que leur poids dominant est fondamental, de l'un des types permis par la Table 1.3.9. L'ensemble des poids dominants des composantes irr\'eductibles de la repr\'esentation $V_{\CC}$ de $\tilde{G}$ est stable par $\Gal(\overline{\QQ}/\QQ)$. Puisque $\Gal(\overline{\QQ}/\QQ)$ agit transitivement sur $I$, et que $I_{nc} \neq \emptyset$, on trouve que
+
+(a) Toute composante irr\'eductible $W$ de $V_{\CC}$ est de la forme $\bigotimes_{v \in T} W_v$, avec $W_v$ une repr\'esentation fondamentale de $\tilde{G}_{v\CC}$ ($v \in T \subset I$), correspondant \`a un sommet $s(v)$ de $D_v$. Nous noterons $\mathcal{S}(V)$ l'ensemble des $s(T) \subset D$ pour $W \subset V_{\CC}$ irr\'eductible.
+
+(b) Si $\mathcal{S} \in \mathcal{S}(V)$, $\mathcal{S} \cap D_{nc}$ est vide ou r\'eduit \`a un seul point $s^v \in D_v$ ($v \in I_{nc}$), et, dans la Table 1.3.9 pour $(D_v, s_v)$, $s^v$ est l'un des sommets soulign\'es.
+
+(c) $\mathcal{S}$ est stable par $\Gal(\overline{\QQ}/\QQ)$. On a $\mathcal{S} \cap I_c = \emptyset$.
+
+Si un ensemble de parties $\mathcal{S}$ de $D$ v\'erifie (b) et (c), nous noterons $G(\mathcal{S}) \subset \GL(V)$ le quotient de $\tilde{G}$ qui agit fid\`element dans la repr\'esentation correspondante de $\tilde{G}$. La condition (c) assure qu'il est d\'efini sur $\QQ$. Le cas le plus int\'eressant est celui o\`u
+
+(d$_1$) $\mathcal{S}$ est form\'e de parties \`a un \'el\'ement.
+
+Si $\mathcal{S}$ v\'erifie (b), (c), l'ensemble $\mathcal{S}'$ des $\{s\}$ pour $s \in \mathcal{S} \in \mathcal{S}$ v\'erifie (b), (c), (d$_1$), et $G(\mathcal{S}')$ domine $G(\mathcal{S})$.
+
+Dans la table ci-dessous---d\'eduite de 1.3.9---nous donnons la liste des cas o\`u il existe $\mathcal{S}$ v\'erifiant (b), (c). D'apr\`es 1.3.10, ce ne peut \^etre le cas que si $G$ est de l'un des types $A$, $B$, $C$, $D$, et ces types seront successivement pass\'es en revue.
+
+L'ensemble $\mathcal{S}$ v\'erifiant (b), (c), (d$_1$) maximal, et le groupe $G(\mathcal{S})$ correspondant (il domine tous les $G(\mathcal{S})$, pour $\mathcal{S}$ v\'erifiant (b), (c)).
+
+\subsubsection*{Table 2.3.8}
+
+\textbf{Types $A$, $B$, $C$.} Le seul $\mathcal{S}$ v\'erifiant (b), (c), (d$_1$) est l'ensemble des $\{s\}$, pour $s$ une extr\'emit\'e---correspondant \`a une racine courte pour les types $B$, $C$---d'un diagramme $D_v$ ($v \in I$). Le rev\^etement $G(\mathcal{S})$ est le rev\^etement universel.
+
+\textbf{Type $D_l$ ($l \ge 5$).} Pour qu'il existe $\mathcal{S}$ v\'erifiant (b), (c), il faut et il suffit que les $(G_v, X^v)$ ($v \in I_{nc}$) soient ou bien tous de type $D_l^{\RR}$, ou bien tous de type $D_l^{\mathbb{H}}$. Distinguons ces cas:
+
+\textit{Sous-cas $D_l^{\RR}$.} Le $\mathcal{S}$ v\'erifiant (b), (c), (d$_1$) maximal est l'ensemble des $\{s\}$ pour $s$ \`a l'extr\'emit\'e ``droite'' d'un $D_v$. Le rev\^etement $G(\mathcal{S})$ est le rev\^etement universel.
+
+\textit{Sous-cas $D_l^{\mathbb{H}}$.} L'unique $\mathcal{S}$ v\'erifiant (b), (c), (d$_1$) est l'ensemble des $\{s\}$ pour $s$ \`a l'extr\'emit\'e ``gauche'' d'un $D_v$. Le rev\^etement $G(\mathcal{S})$ de $G$ est de la forme $\Res_{F/\QQ} G^*$, pour $G^*$ le rev\^etement double de $G$ forme de $\SO(2n)$, cf.~1.3.10.
+
+\textbf{Type $D_4$.} Rempla\c{c}ons $\mathcal{S}$, v\'erifiant (d$_1$), par $\mathcal{S} = \{s \mid \{s\} \in \mathcal{S}'\}$. La condition (b) sur $\mathcal{S}$ devient: $\mathcal{S}$ est contenu dans l'ensemble $E$ des extr\'emit\'es de $D$, et $\mathcal{S} \cap \mathcal{E}(X) = \emptyset$. Pour la d\'efinition de $\mathcal{E}(X)$ voir 2.3.5. La partie $E$ est stable par $\Gal(\overline{\QQ}/\QQ)$; maximale pour cette propri\'et\'e est le compl\'ement de $\Gal(\overline{\QQ}/\QQ) \cdot \mathcal{E}(X)$. Elle rencontre chaque $D_v$ en 0, 1 ou 2 points. Dans le premier cas, il n'existe pas $\mathcal{S}$ v\'erifiant (b), (c). Dans le second (resp.~3e), elle (resp.~son compl\'ement) est l'image d'une section $\tau$ de $\mathcal{E} \to I$, invariante par Galois; $\tau(I)$ est disjoint de (resp.~contient) $\mathcal{E}(X)$. Appelant $\tau(v)$ le sommet ``gauche'' de $D_v$, on retrouve la situation de $D_l$ ($l \ge 5$):
+
+\textit{Sous-cas $D_l^{\RR}$.} Il existe une section $\tau$ de $\mathcal{E} \to I$ avec $\tau(I) \supset \mathcal{E}(X)$. Cette section est alors unique, et la situation est la m\^eme qu'en $D_l^{\RR}$, $l \ge 5$.
+
+\textit{Sous-cas $D_l^{\mathbb{H}}$.} On donne une section $\tau$ de $\mathcal{E} \to I$ avec $\tau(I) \cap \mathcal{E}(X) = \emptyset$. Si on n'est pas dans le cas $D_4^{\RR}$, cette section est unique, et l'unique $\mathcal{S}$ v\'erifiant (b), (c), (d$_1$) est l'ensemble des $\{s\}$ pour $s$ l'extr\'emit\'e ``gauche'' d'un $D_v$. Le rev\^etement $G(\mathcal{S})$ de $G$ est de la forme $\Res_{F/\QQ} G^*_S$, pour $G^*$ un rev\^etement double de $G_S$ qui se d\'ecrit en terme de $\tau$.
+
+Pour la suite de ce travail, il nous sera commode de red\'efinir le cas $D_l^{\RR}$ comme excluant $D_4^{\RR}$. Avec cette terminologie, il existe $\mathcal{S}$ v\'erifiant (b), (c) si et seulement si $(G,X)$ est de l'un des types $A$, $B$, $C$, $D_l^{\RR}$, $D_l^{\mathbb{H}}$ et, sauf pour le type $D_l^{\mathbb{H}}$, il existe $\mathcal{S}$ v\'erifiant (b), (c), (d$_1$) tel que $G(\mathcal{S})$ soit le rev\^etement universel de $G$.
+
+\subsubsection{}
+
+Nous aurons \`a consid\'erer des extensions quadratiques totalement imaginaires $K$ de $F$, munies d'un ensemble $T$ de plongements complexes: un au-dessus de chaque plongement r\'eel $v \in I_c$. Un tel $T$ d\'efinit une structure de Hodge $h_T:S \to (K \otimes_F \RR)^*$ sur $K$ (consid\'er\'e comme un espace vectoriel rationnel, et sur lequel $K^*$ agit par multiplication): si $J$ est l'ensemble des plongements complexes de $K$, on a $K \otimes \CC = \CC^J$, et on d\'efinit $h_T$ en exigeant que le facteur d'indice $\sigma \in J$ soit de type $(-1,0)$ pour $\sigma \in T$, $(0,-1)$ pour $\bar{\sigma} \in T$, et $(0,0)$ si $\sigma$ est au-dessus de $I_{nc}$. Le r\'esultat principal de ce num\'ero est la
+
+\begin{proposition}
+Soit $(G,X)$ comme en 2.1.1, avec $G$ $\QQ$-simple adjoint, et de l'un des types $A$, $B$, $C$, $D_l^{\RR}$, $D_l^{\mathbb{H}}$. Pour toute extension quadratique totalement imaginaire $K$ de $F$, munie de $T$ comme en 2.3.9, il existe un diagramme
+\[
+(G,X) \longleftarrow (G_1,X_1) \longrightarrow (\CSp(V),\HH^{\pm})
+\]
+pour lequel
+
+\textup{(i)} $E(G_1,X_1)$ est le compos\'e de $E(G,X)$ et de $E(K^*,h_T)$.
+
+\textup{(ii)} Le groupe d\'eriv\'e $G_1^{\text{der}}$ est simplement connexe pour $G$ de type $A$, $B$, $C$, $D_l^{\RR}$, et le rev\^etement de $G$ d\'ecrit en 2.3.8 pour le type $D_l^{\mathbb{H}}$.
+\end{proposition}
+
+\begin{proof}
+Soit $\mathcal{S}$ le plus grand ensemble de sommets du diagramme de Dynkin $D$ de $G_{\CC}$ tel que $\{\{s\} \mid s \in \mathcal{S}\}$ v\'erifie 2.3.7(b), (c). Nous l'avons d\'etermin\'e en 2.3.8. Le groupe de Galois $\Gal(\overline{\QQ}/\QQ)$ agit sur $\mathcal{S}$, et on peut identifier $\mathcal{S}$ \`a $\Hom(K_\mathcal{S},\CC)$, pour $K_\mathcal{S}$ un produit convenable d'extension de $\QQ$, isomorphe \`a des sous-corps de $K_D$ puisque $\Gal(\overline{\QQ}/K_D)$ agit trivialement sur $D$, donc sur $\mathcal{S}$. En particulier, $K_\mathcal{S}$ est un produit de corps totalement r\'eels ou CM. A la projection $\mathcal{S} \to I$ correspond un morphisme $F \to K_\mathcal{S}$.
+
+Pour $s \in \mathcal{S}$, soit $V(s)$ la repr\'esentation complexe de $\tilde{G}_{\CC}$ de poids dominant le poids fondamental correspondant \`a $s$. La classe d'isomorphie de la repr\'esentation $\bigoplus_s V(s)$ est d\'efinie sur $\QQ$. Ceci ne suffit pas \`a ce qu'on puisse la d\'efinir sur $\QQ$; l'obstruction est dans un groupe de Brauer convenable. Toutefois, un multiple de cette repr\'esentation peut toujours \^etre d\'efini sur $\QQ$. Soit donc $V$ une repr\'esentation de $\tilde{G}$ sur $\QQ$, avec $V_{\CC} \sim \bigoplus_s V(s)^{\otimes n}$, pour $n$ convenable. Nous noterons $V_s$ l'unique facteur de $V_{\CC}$ isomorphe \`a $V(s)^{\otimes n}$. Ces facteurs sont permut\'es par $\Gal(\overline{\QQ}/\QQ)$ de fa\c{c}on compatible \`a l'action de $\Gal(\overline{\QQ}/\QQ)$ sur $\mathcal{S}$, et la d\'ecomposition $V_{\CC} \sim \bigoplus_s V_s$ correspond donc \`a une structure de $K_\mathcal{S}$-module sur $V$: sur $V_s$, $K_\mathcal{S}$ agit par multiplication par l'homomorphisme correspondant de $K_\mathcal{S}$ dans $\CC$.
+
+Notons $\tilde{G}'$ le quotient de $\tilde{G}$ qui agit fid\`element sur $V$. C'est le rev\^etement de $G$ consid\'er\'e en (ii).
+
+Soit $h \in X$, et relevons $h$ en un morphisme fractionnaire (1.3.4) de $S$ dans $\tilde{G}_{1\RR}$. On en d\'eduit une structure de Hodge fractionnaire sur $V$, de poids 0. Soit $s \in \mathcal{S}$, et $v$ son image dans $I$. Le type de la d\'ecomposition de $V_s$ est donn\'e par la Table 1.3.9:
+
+(a) si $v \in I_c$, $V_s$ est de type $(0,0)$;
+
+(b) si $v \in I_{nc}$, $V_s$ est de type $\{(r,-r), (r-1,1-r)\}$ o\`u $r$ est donn\'e par 1.3.9: c'est le nombre qui affecte le sommet $s$ de $D_v$, muni du sommet sp\'ecial qui d\'efinit $X^v$.
+
+On d\'efinit une structure de Hodge $h_2$ de $V$, en gardant $V_s$ de type $(0,0)$ pour $v \in I_c$, et, pour $v \in I_{nc}$, en renommant la partie de type $(r,-r)$ (resp.~$(r-1,1-r)$) de $V_s$ comme \'etant de type $(0,-1)$ (resp.~$(-1,0)$). Si $G_2$ est le sous-groupe alg\'ebrique de $\GL(V)$ engendr\'e par $\tilde{G}'$ et $K_\mathcal{S}^{\times}$, la structure de Hodge $h_2$ est un morphisme $S \to G_{2\RR}$. Notant $X_2$ sa classe de $G_2(\RR)$-conjugaison, on dispose de $(G_2,X_2) \to (G,X)$, et $E(G_2,X_2) = E(G,X)$.
+
+Munissons $K \otimes_F V$ de la structure de Hodge $h$ produit tensoriel de celle de $V$ et de celle de $K$ (2.3.9). On a $(K \otimes_F V) \otimes \RR = \bigoplus_{v \in I} (K \otimes_{F,v} \RR) \otimes_\RR (V \otimes_{F,v} \RR)$. Cette d\'ecomposition est compatible \`a la structure de Hodge, et sur le facteur correspondant \`a $v \in I_c$ (resp.~$v \in I_{nc}$), la structure de Hodge est le produit tensoriel d'une structure de type $\{(-1,0),(0,-1)\}$ sur $K \otimes_{F,v} \RR$ (resp.~$V \otimes_{F,v} \RR$) par une de type $\{(0,0)\}$ sur $V \otimes_{F,v} \RR$ (resp.~$K \otimes_{F,v} \RR$). Au total, $h_3$ est de type $\{(-1,0),(0,-1)\}$. Si $G_3$ est le sous-groupe alg\'ebrique de $\GL(K \otimes_F V)$ engendr\'e par $K^{\times}$ et $\tilde{G}'$, la structure de Hodge $h_3$ est un morphisme $S \to G_{3\RR}$.
+
+Si $X_3$ est la classe de conjugaison de $h_3$, on dispose de $(G_3,X_3) \to (G,X)$. Le groupe d\'eriv\'e de $G_3$ est $\tilde{G}'$, et $E(G_3,X_3)$ est le compos\'e de $E(G_2,X_2) = E(G,X)$ et de $E(K^*,h_T)$. Pour obtenir $(G_1,X_1)$ cherch\'e, il ne reste plus qu'\`a appliquer 2.3.3 \`a $(G_3,X_3)$ et \`a sa repr\'esentation lin\'eaire fid\`ele $K \otimes_F V$.
+\end{proof}
+
+\begin{remark}
+La construction donn\'ee se g\'en\'eralise pour fournir un diagramme (2.3.7.1) o\`u $\mathcal{S}(V)$ est n'importe quel ensemble de parties de $D$ v\'erifiant 2.3.7(b), (c). En gros:
+
+(a) si $\mathcal{S}$ v\'erifie 2.3.7(b), (c), on d\'efinit $K_\mathcal{S}$ par $\Hom(K_\mathcal{S},\CC) = \mathcal{S}$. On construit une repr\'esentation $V$ de $\tilde{G}$ telle que $\mathcal{S}(V) = \mathcal{S}$, et la d\'ecomposition $V_{\CC} = \bigoplus V_\mathcal{S}$ ($\mathcal{S} \in \mathcal{S}$) fournit sur $V$ une structure de $K_\mathcal{S}$-module;
+
+(b) la structure de Hodge fractionnaire de $V_\mathcal{S}$ est de type $(0,0)$ pour $\mathcal{S}$ au-dessus de $I_c$, de type $\{(r,-r),(r-1,1-r)\}$ avec $r$ d\'ecrit---comme ci-dessus---par le point de $\mathcal{S}$ au-dessus de $I_{nc}$ sinon;
+
+(c) on convertit $\{(r,-r),(r-1,1-r)\}$ en $\{(0,-1),(-1,0)\}$ comme plus haut;
+
+(d) pour convertir le $(0,0)$ en $\{(-1,0),(0,-1)\}$, on tensorise $V$, sur $K_\mathcal{S}$, avec $K'_\mathcal{S}$, de type CM muni d'une structure de Hodge convenable $h$.
+
+Par cette m\'ethode, on obtient pour $(G_1,X_1)$ un groupe d\'eriv\'e $G(\mathcal{S})$, et un corps dual compos\'e de $E(G,X)$ et $E(K'_\mathcal{S},h)$. Noter que, m\^eme pour $\mathcal{S}$ v\'erifiant (b), (c), (d$_1$), la conversion indiqu\'ee de $(0,0)$ est plus g\'en\'erale que celle de 2.3.10.
+\end{remark}
+
+\begin{remark}
+Pour les types $A$, avec $s(v)$ fix\'e par l'involution d'opposition, $B$, $C$ et $D_l^{\RR}$, le corps dual $E(G,X)$ est le sous-corps (totalement r\'eel) de $K_D$ fixe par le sous-groupe de $\Gal(K_D/\QQ)$ qui stabilise $\mathcal{E}$. Si $I_c = \emptyset$, c'est $\QQ$. Si $I_c$ (resp.~$I_{nc}$) est r\'eduit \`a un \'el\'ement $v$, c'est $v(F)$. Les $E(K,h_T)$ sont des extensions de $E(G,X)$.
+\end{remark}
+
+\begin{remark}
+Pour ces types, et $D_l^{\mathbb{H}}$, les $V_s$ de 2.3.10, pour $v \in I_{nc}$, sont de type $\{(-\frac{1}{2},\frac{1}{2}), (\frac{1}{2},-\frac{1}{2})\}$. Ceci permet, dans 2.3.10, de remplacer $\CSp$ par: le sous-groupe de $\GL(V)$ engendr\'e par $F^*$ et $\tilde{G}'$. Si $I_c = \emptyset$, on peut m\^eme le remplacer par le sous-groupe de $\GL(V)$ engendr\'e par $\QQ^*$ et $\tilde{G}'$, et le crit\`ere 2.3.2 s'applique directement \`a ce groupe, d'o\`u $(G_1,X_1)$ avec $E(G_1,X_1) = E(G,X)$ ($= \QQ$ hors le cas $D_l^{\mathbb{H}}$).
+\end{remark}
+
+\subsection{Lois de r\'eciprocit\'e: pr\'eliminaires}
+
+Les constructions de ce num\'ero nous permettrons, au num\'ero 2.6, de calculer la loi de r\'eciprocit\'e des mod\`eles canoniques, i.e.~l'action du groupe de Galois sur l'ensemble des composantes connexes g\'eom\'etriques.
+
+Bien qu'elles s'expriment mieux dans le langage de la descente fppf, nous les avons exprim\'ees dans celui de la descente galoisienne, le croyant plus familier aux non-g\'eom\`etres. Ceci expose \`a quelques redites et incons\'equences, et introduit des hypoth\`eses parasites de s\'eparabilit\'e ou de caract\'eristique 0.
+
+Soit $G$ un groupe r\'eductif sur un corps global $k$. Avec la notation de 2.0.15, notre but est de construire des morphismes canoniques des deux types suivants.
+
+a. Pour $k'$ une extension finie (qu'on supposera s\'eparable) de $k$, et $G'$ d\'eduit de $G$ par extension des scalaires \`a $k'$, un morphisme norme
+\begin{equation}\label{eq:2.4.0.1}
+N_{k'/k}: \pi(G') \to \pi(G).
+\end{equation}
+
+b. Pour $T$ un tore, et $M$ une classe de conjugaison, d\'efinie sur $k$, de morphismes de $T$ dans $G$, un morphisme
+\begin{equation}\label{eq:2.4.0.2}
+q_M: \pi(T) \to \pi(G).
+\end{equation}
+Si $m \in M(k)$, $q_M$ sera le morphisme $q_m$ induit par $m$; la difficult\'e est de montrer que ce morphisme ne d\'epend pas du choix de $m$, et de construire $q_M$ m\^eme si $M$ n'a pas de repr\'esentant d\'efini sur $k$.
+
+Les propri\'et\'es de fonctorialit\'e de ces morphismes seront \'evidentes sur leur d\'efinition.
+
+\subsubsection{}
+
+Nous utiliserons syst\'ematiquement le langage des torseurs (que je pr\'ef\`ere \`a celui des cocycles), et celui de la descente galoisienne, sous la forme que lui a donn\'ee Grothendieck (cf.~SGA1, ou SGA4 $\frac{1}{2}$ [Arcata]).
+
+\textit{Descente galoisienne:} Soit $K$ une extension s\'eparable finie d'un corps $k$. Pour construire un objet $X$ sur $k$ (par exemple un torseur), il suffit de construire (a) pour toute extension s\'eparable $k'$ de $k$, telle qu'il existe un morphisme de $k$-alg\'ebre de $K$ dans $k'$, un objet $X_{k'}$ sur $k'$; (b) pour $k''$ une extension de $k'$, un isomorphisme $X_{k'} \otimes_{k'} k'' \simto X_{k''}$; et de v\'erifier (c) une compatibilit\'e $X_{k'} \otimes_{k'} k''' = X_{k'''}$.
+
+En pratique, cela signifie que pour construire $X$, on peut supposer l'existence d'objets auxiliaires qui n'existent que sur une extension s\'eparable $K$ de $k$---\`a charge de montrer le $X$ construit ne d\'epend pas---\`a isomorphisme unique pr\`es---du choix d'un tel objet auxiliaire.
+
+\textbf{Remarque 1.} La descente galoisienne est un cas particulier de la localisation en topologie \'etale; une construction comme en (a), (b), (c) ci-dessus sera souvent introduite par l'adverbe ``localement''.
+
+\subsubsection{Exemple}
+
+Expliquons le rel\`evement canonique utilis\'e en 2.0.2 de l'application commutateur. L'usage de la descente galoisienne---plut\^ot que fppf---nous oblige \`a supposer que la projection de $G$ sur $G^{\text{ad}}$ est lisse, et \`a ne consid\'er que $(\,,): G^{\text{ad}}(k) \times G^{\text{ad}}(k) \to G(k)$, plut\^ot que le morphisme $G^{\text{ad}} \times G^{\text{ad}} \to G$. Si $x_1, x_2 \in G^{\text{ad}}(k)$, on peut, localement, \'ecrire $x_i = p(\tilde{x}_i)z_i$ avec $z_i$ dans le centre de $G$. L'\'el\'ement $\tilde{x}_i$ est unique, \`a multiplication par un \'el\'ement du centre de $\tilde{G}$ pr\`es. Le commutateur de $\tilde{x}_1$ et $\tilde{x}_2$ ne d\'epend pas de l'arbitraire dans le choix des $\tilde{x}_i$, et on pose $(x_1,x_2) = \tilde{x}_1\tilde{x}_2\tilde{x}_1^{-1}\tilde{x}_2^{-1}$.
+
+\subsubsection{}
+
+Pour $G$ un groupe alg\'ebrique sur un corps $k$, un $G$-\textit{torseur} est un sch\'ema $P$ sur $k$, muni d'une action \`a droite de $G$ qui en fasse un espace principal homog\`ene. Le $G$-torseur trivial $G_d$ est $G$ muni de l'action de $G$ par translations \`a droite. On identifie les points $x \in P(k)$ aux trivialisations de $P$ (isomorphismes $\varphi: G_d \simto P$) par $\varphi(g) = xg$.
+
+Si $f:G_1 \to G_2$ est un morphisme, et $P$ un $G_1$-torseur, il existe un $G_2$-torseur $f(P)$ muni de $f$: $P \to f(P)$ v\'erifiant $f(pg) = f(p)f(g)$, et il est unique \`a isomorphisme unique pr\`es. Nous nous int\'eresserons \`a la cat\'egorie $[G_1 \to G_2]$ des $G_1$-torseurs $P$ munis d'une trivialisation de $f(P)$. Pour morphismes, on prend les isomorphismes de $G_1$-torseurs, compatibles \`a la $G_2$-trivialisation. On note $H^0(G_1 \to G_2)$ le groupe des automorphismes de $(G_d,e)$ (c'est $\Ker(G_1(k) \to G_2(k))$) et $H^1(G_1 \to G_2)$ l'ensemble (point\'e par $(G_d,e)$) des classes d'isomorphie d'objets.
+
+Chaque $x \in G_2(k)$ d\'efinit un objet $[x]$ de $[G \to G_2]$: le $G_1$-torseur trivial $G_d$, muni de la trivialisation $x$ de $f(G_d) = G_2$. Quand cela ne pr\^ete pas \`a confusion, nous le noterons simplement $x$. L'ensemble des morphismes de $[x]$ dans $[y]$ s'identifie \`a $\{g \in G_1(k) \mid f(g)x = y\}$: \`a $g$, associer $u \mapsto gu: G_d \to G_d$. Un objet est de la forme $[x]$ si et seulement si, en tant que $G_1$-torseur, il est trivial---d'o\`u une suite exacte
+\begin{equation}\label{eq:2.4.3.1}
+\begin{split}
+1 &\to H^0(G_1 \to G_2) \to G_1(k) \to G_2(k) \\
+&\to H^1(G_1 \to G_2) \to H^1(G_1) \to H^1(G_2)
+\end{split}
+\end{equation}
+(ceci ne d\'ecrit pas l'image inverse de $p \in H^1(G_1)$: pour la d\'ecrire, il faut proc\'eder par torsion, comme dans [13]).
+
+\subsubsection{}
+
+Si $f$ est un \'epimorphisme, de noyau $K$, il revient au m\^eme de se donner le $G_1$-torseur $P$ $G_2$-trivialis\'e par $x \in f(P)(k)$, ou le $K$-torseur $f^{-1}(x) \subset P$: le foncteur naturel $[K \to \{e\}] \to [G_1 \to G_2]$ est une \'equivalence.
+
+Plus g\'en\'eralement, si $g:G_2 \to H$ est un morphisme qui induit un \'epimorphisme de $G_1$ sur $H$, et que $K_i = \Ker(G_i \to H)$, le foncteur naturel $[K_1 \to K_2] \to [G_1 \to G_2]$ est une \'equivalence.
+
+\subsubsection{}
+
+Si $G$ est commutatif, la somme $s: G \times G \to G$ est un morphisme, et on d\'efinit la somme de deux $G$-torseurs par $P + Q = s(P \times Q)$. Si $G_1$ et $G_2$ sont commutatifs, on additionne de m\^eme les objets de $[G_1 \to G_2]$, qui devient une cat\'egorie de Picard (strictement commutative) (SGA4, XVIII, 1.4).
+
+Tout ce qui pr\'ec\`ede vaut pour des faisceaux en groupes sur un topos quelconque.
+
+\subsubsection{}
+
+Si $k'$ est une extension finie de $k$ (le cas o\`u $k'/k$ est s\'eparable nous suffit) et $G'$ un groupe alg\'ebrique sur $k'$, le foncteur de restriction des scalaires \`a la Weil $R_{k'/k}$ est une \'equivalence de la cat\'egorie des $G'$-torseurs avec celle des $R_{k'/k}G'$-torseurs. Ceci correspond au lemme de Shapiro $H^1(k',G') = H^1(k,R_{k'/k}G')$. Si $G'$ se d\'eduit, par extension des scalaires de $G$---commutatif---sur $k$, on dispose d'un morphisme trace $R_{k'/k}G' \to G$---d'o\`u un foncteur trace $\Tr_{k'/k}$ des $G'$-torseurs dans les $G$-torseurs. Plus g\'en\'eralement, pour $G \to G_2$ un morphisme de groupes commutifs on trouve un foncteur additif
+\begin{equation}\label{eq:2.4.6.1}
+\Tr: [G'_1 \to G'_2] \to [G_1 \to G_2].
+\end{equation}
+De tels foncteurs sont d\'ecrits avec une grande g\'en\'eralit\'e dans [SGA4, XVII, 6.3].
+
+Pour $k'/k$ s\'eparable, on peut donner une d\'efinition simple par descente: localement, $k'$ est somme de $[k':k]$ copies de $k$, $[G'_1 \to G'_2]$ s'identifie \`a la cat\'egorie des $[k':k]$-uples d'objets de $[G_1 \to G_2]$, et $\Tr$ est la somme.
+
+Quand les groupes sont not\'es multiplicativement, on parlera plut\^ot de foncteur norme $N_{k'/k}$.
+
+\subsubsection{}
+
+Soient $G$ un groupe r\'eductif (0.2) sur $k$, et $p:\tilde{G} \to G^{\text{der}}$ le rev\^etement universel de son groupe d\'eriv\'e. Le cas particulier de 2.4.3 qui nous importe est $[\tilde{G} \to G]$. Soient $G^{\text{ad}}$ le groupe adjoint de $G$, $Z$ le centre de $G$, et $\tilde{Z}$ celui de $\tilde{G}$. Le morphisme $\tilde{G} \to G^{\text{der}}$ est un \'epimorphisme, d'o\`u une \'equivalence (2.4.4)
+\begin{equation}\label{eq:2.4.7.1}
+[\tilde{Z} \to Z] \simto [\tilde{G} \to G].
+\end{equation}
+Puisque $Z$ et $\tilde{Z}$ sont commutatifs, $[\tilde{Z} \to Z]$ est une cat\'egorie de Picard strictement commutative (2.4.5). Utilisant l'\'equivalence (2.4.7.1), on fait de $[\tilde{G} \to G]$ aussi une telle cat\'egorie. Nous allons calculer $[x_1] + [x_2]$ dans $[\tilde{G} \to G]$, et les donn\'ees d'associativit\'e et de commutativit\'e. On suppose $p:\tilde{G} \to G^{\text{der}}$ s\'eparable pour pouvoir proc\'eder par descente galoisienne. Ecrivant (localement) $x_i = p(\tilde{g}_i)z_i$, avec $z_i$ central, on a des isomorphismes $g_i: [z_i] \to [x_i]$ et $g_1g_2: [z_1z_2] \to [x_1x_2]$, d'o\`u un isomorphisme
+\begin{equation}\label{eq:2.4.7.2}
+[x_1] + [x_2] \xleftarrow{g_1+g_2} [z_1] + [z_2] = [z_1z_2] \xrightarrow{g_1g_2} [x_1x_2].
+\end{equation}
+Si on change de d\'ecomposition: $x_i = p(\tilde{g}'_i)z'_i$, avec $\tilde{g}'_i = \tilde{g}_i n_i$ ($n_i \in \tilde{Z}$), le diagramme
+\[
+\begin{tikzcd}
+{[z_1] + [z_2]} \arrow[dd] \arrow[dr, "g_1+g_2"] \\
+& {[x_1] + [x_2]} \arrow[dr, "g_1'^{-1}g_2'^{-1}"] \\
+{[z'_1] + [z'_2]} \arrow[rr] \arrow[ur] && {[x_1x_2]}
+\end{tikzcd}
+\]
+est commutatif. L'isomorphisme (2.4.7.2) est donc ind\'ependant des choix faits. Le lecteur v\'erifiera facilement que, via cet isomorphisme, la donn\'ee d'associativit\'e est d\'eduite de l'associativit\'e du produit, et que la donn\'ee de commutativit\'e est $(x_1,x_2): [x_2x_1] \to [x_1x_2]$. Il v\'erifiera aussi que si $y_i = p(\tilde{g}_i)x_i$ ($i=1,2$), la somme des $\tilde{g}_i: [x_i] \to [y_i]$ est
+\[
+\tilde{g}_1 + \tilde{g}_2 = \tilde{g}_1 \Int(x_1)(\tilde{g}_2): [x_1x_2] \to [y_1y_2],
+\]
+o\`u $\Int$ d\'esigne l'action de $G^{\text{ad}}$ sur $\tilde{G}$ (d\'efinie par transport de structure, ou via l'action 2.0.2 de $G^{\text{ad}}$ sur $\tilde{G}^{\text{der}}$).
+
+La cat\'egorie $[\tilde{G} \to G]$ \'etant de Picard, l'ensemble $H^1(\tilde{G} \to G)$ des classes d'isomorphie d'objets est un groupe ab\'elien. Les formules ci-dessus montrent que l'injection $G(k)/p\tilde{G}(k) \hookrightarrow H^1(\tilde{G} \to G)$ est un homomorphisme. D'apr\`es (2.4.3.1), c'est un isomorphisme si $H^1(\tilde{G}) = 0$.
+
+\subsubsection{}
+
+Soient $k'$ une extension finie de $k$, et notons par un $'$ l'extension des scalaires \`a $k'$. L'\'equivalence (2.4.7.1) permet de d\'eduire de 2.4.6.1 un foncteur trace (que nous baptiserons norme)
+\begin{equation}\label{eq:2.4.7.4}
+N_{k'/k}: [\tilde{G}' \to G'] \to [\tilde{G} \to G].
+\end{equation}
+
+\begin{proposition}
+Si $k$ est un corps local ou global, le morphisme d\'eduit de (2.4.7.4) par passage \`a l'ensemble des classes d'isomorphie d'objets induit un morphisme
+\begin{equation}\label{eq:2.4.8.1}
+\begin{tikzcd}
+G(k')/p\tilde{G}(k') \arrow[r] \arrow[d] & G(k)/p\tilde{G}(k) \arrow[d] \\
+H^1(\tilde{G}' \to G') \arrow[r] & H^1(\tilde{G} \to G)
+\end{tikzcd}
+\end{equation}
+Si $H^1(\tilde{G}) = 0$, la fl\`eche verticale droite est un isomorphisme, et l'assertion est \'evidente. Cette nullit\'e vaut pour $k$ local non archim\'edien. Pour $k$ local archim\'edien, le seul cas int\'eressant est $k = \RR$, $k' = \CC$, et le diagramme commutatif
+\[
+\begin{tikzcd}
+\tilde{Z}(\CC) \arrow[r] \arrow[d] & H^1(\tilde{G}_{\CC} \to G_{\CC}) \arrow[d] \\
+\tilde{Z}(\RR) \arrow[r] & H^1(\tilde{G} \to G)
+\end{tikzcd}
+\]
+montre que (2.4.8.1) est encore d\'efini \`a valeurs dans l'image de $\tilde{Z}(\RR)$ (et m\^eme de sa composante neutre).
+
+Pour $k$ global, et $x \in G(k')/p\tilde{G}(k')$, l'image de $N_{k'/k}(x) \in H^1(\tilde{G} \to G)$ dans $H^1(\tilde{G})$ est donc localement nulle. D'apr\`es le principe de Hasse, elle est nulle. Nous n'utilisons ici le principe de Hasse que pour les classes de cohomologie dans l'image de $H^1(\tilde{Z})$, de sorte que les facteurs $E_8$ ne cr\'eent aucun trouble. L'image de $N_{k'/k}(x)$ est donc dans $G(k)/p\tilde{G}(k)$, comme promis.
+\qed
+\end{proposition}
+
+\subsubsection{}
+
+Pour $k$ local non archim\'edien d'anneau des entiers $V$, $k'$ non ramifi\'e sur $k$, d'anneau des entiers $V'$, et $G$ r\'eductif sur $V$, le morphisme 2.4.8 induit un morphisme de $G(V')/p\tilde{G}(V')$: on le voit en r\'ep\'etant les arguments qui pr\'ec\`edent sur $V$, la descente galoisienne \'etant remplac\'ee par la localisation \'etale (ici, identifi\'ee \`a une descente galoisienne sur le corps r\'esiduel).
+
+On peut donc ad\'eliser 2.4.8: pour $k$ global, le produit restreint des morphismes 2.4.8, pour les compl\'et\'es de $k$, est un morphisme
+\[
+N_{\A_{k'}/\A_k}: G(\A_{k'})/p\tilde{G}(\A_{k'}) \to G(\A)/p\tilde{G}(\A).
+\]
+Divisant par le morphisme trace global, on obtient enfin le morphisme (2.4.0.1)
+\[
+N_{k'/k}: \pi(G') \to \pi(G).
+\]
+
+De m\^eme que la construction du morphisme (2.4.0.1) repose sur celle du foncteur (2.4.7.1), celle de (2.4.0.2) reposera sur la
+
+\subsubsection*{Construction 2.4.10}
+
+Soient $G$ r\'eductif connexe sur $k$, $p:\tilde{G} \to G$ le rev\^etement universel du groupe d\'eriv\'e, $T$ un tore sur $k$, et $M$ une classe de conjugaison, d\'efinie sur $k$, de morphismes de $T$ dans $G$. On d\'efinira un foncteur additif
+\[
+q_M: [\{e\} \to T] \to [\tilde{G} \to G].
+\]
+Nous donnerons de la construction deux variantes.
+
+\textit{1\`ere m\'ethode.} Localement, il existe $m \in M$. Posons $X(m) = Z \cdot m(T) \subset G$ et $Y(m) = p^{-1}X(m) = \tilde{Z} \cdot (p^{-1}m(T))^0$. Les groupes $X(m)$ et $Y(m)$, extensions de tores par un sous-groupe central de type multiplicatif, sont commutatifs. Ils donnent lieu \`a un diagramme
+\[
+\begin{tikzcd}
+\tilde{Z} \arrow[r] & Y(m) \arrow[d] \\
+Z \arrow[r] & X(m) \arrow[u, "\sim"] & T \arrow[l]
+\end{tikzcd}
+\]
+Si $g$ dans $G$ conjugue $m$ en $m'$, il conjugue $(1)_m$ en $(1)_{m'}$ (on le fait agir sur $\tilde{G}$ par l'action de $G^{\text{ad}} = G^{\text{ad}}$). De plus, l'isomorphisme $\Int(g)$ de $(1)_m$ avec $(1)_{m'}$ ne d\'epend pas du choix de $g$: si $g$ centralise $m$, il centralise $Z$, $m(T)$, $\tilde{Z}$, ainsi que $(p^{-1}(T))^0$ (un tore isog\`ene \`a un sous-tore de $T$), donc $X(m)$ et $Y(m)$. Deux $m$ dans $M$ \'etant localement conjugu\'es, ceci permet d'identifier entre eux les diagrammes $(1)_m$, et d'en d\'eduire un diagramme unique
+\[
+\begin{tikzcd}
+\tilde{Z} \arrow[r] & Y \arrow[d] \\
+Z \arrow[r] & X & T \arrow[l]
+\end{tikzcd}
+\]
+d\'efini sur $k$.
+
+On d\'efinit $q_M$ comme \'etant le foncteur compos\'e
+\[
+q_M: [\{e\} \to T] \to [Y \to X] \xleftarrow{\sim} [\tilde{Z} \to Z] \simto [\tilde{G} \to G].
+\]
+
+\textit{2\`eme m\'ethode.} On suppose $p:\tilde{G} \to G^{\text{der}}$ s\'eparable, pour proc\'eder par descente galoisienne. Les objets de $[\{e\} \to T]$ n'ayant pas d'automorphismes, un foncteur de $[\{e\} \to T]$ dans $[\tilde{G} \to G]$ est simplement une loi qui \`a $t \in T(k)$ assigne un $\tilde{G}$-torseur $G$-trivialis\'e $q_M([t])$. Proc\'edons par descente galoisienne. Localement il existe $m \in M(k)$. Soit $q_m$ le foncteur $[t] \mapsto [m(t)]$. Nous allons d\'efinir un syst\`eme transitif d'isomorphismes entre les $q_m$. Ceci fait, nous pourrons d\'efinir $q_M$ comme \'etant l'un quelconque des $q_m$.
+
+Pour d\'efinir $c_{m',m}: q_m \xrightarrow{\sim} q_{m'}$, on choisit $g$ tel que $m' = gmg^{-1}$ (nouvelle application de la m\'ethode de descente) et on pose $c_{m',m}([t]): [m(t)] \to [m'(t)]$ est $(g, m(t)) \in \tilde{G}(\bar{k})$. On a bien $m'(t) = (p((g,m(t)))m(t)$, et il reste \`a v\'erifier que $(g,m(t))$ est ind\'ependant de $g$.
+
+L'espace $C$ des $g$ qui conjuguent $m$ en $m'$ est connexe et r\'edit, en tant que torseur sous le centralisateur du tore $m(T)$. La fonction $(g, m(t))$ de $C$ dans $\tilde{G}$ a une projection $p((g,m(t))) = m'(t)m(t)^{-1}$ dans $G$ constante. La fibre de $p$ \'etant discr\`ete, elle est constante.
+
+La construction est r\'ecapitul\'ee dans le diagramme commutatif
+\begin{equation}\label{eq:2.4.10.1}
+\begin{tikzcd}
+& {[m(t)]} \arrow[dr] \arrow[dl] \\
+q_m([t]) = [m(t)] & & q_{m'}([t]) = [m'(t)]
+\end{tikzcd}
+\quad (m' = gmg^{-1}).
+\end{equation}
+Construisons la donn\'ee d'additivit\'e de $q_M$. C'est la donn\'ee, pour chaque $t_1, t_2 \in T(k)$, d'un isomorphisme $q_M([t_1t_2]) \to q_M([t_1]) + q_M([t_2])$, ces isomorphismes \'etant compatibles aux donn\'ees d'associativit\'e et de commutativit\'e pour la somme dans $[\tilde{G} \to G]$. On les d\'efinit par descente: pour $m \in M$, et $m' = gmg^{-1}$, le diagramme suivant est commutatif
+\[
+\begin{tikzcd}
+{[m(t_1t_2)]} \arrow[r] \arrow[d] & {[m(t_1)] + [m(t_2)]} \arrow[d] \\
+{[m'(t_1t_2)]} \arrow[r] & {[m'(t_1)] + [m'(t_2)]}
+\end{tikzcd}
+\]
+(fl\`eches obliques via (2.4.10.1)) et d\'efinit l'isomorphisme cherch\'e ind\'ependamment de $g$. Sa commutativit\'e exprime une certaine identit\'e dans $\tilde{G}$ entre commutateurs (2.4.2), et la projection de cette identit\'e dans $G$ r\'esulte de ce que les fl\`eches \'ecrites vont dans les bons sens. Pour la prouver, on note que localement (descente) c'est la projection d'une identit\'e analogue pour $\tilde{G} \times \tilde{Z}$---de projection vraie dans $\tilde{G} \times \tilde{Z}$ donc vraie dans $\tilde{G}$.
+
+La compatibilit\'e \`a l'associativit\'e et \`a la commutativit\'e se voit par descente, en fixant $m$; on utilise que le commutateur 2.4.2 est trivial sur $m(T)$.
+
+\subsubsection{Compl\'ements}
+
+(i) La construction 2.4.10 est compatible \`a l'extension des scalaires: notant par un $'$ l'extension des scalaires de $k$ \`a une extension $k''$ de $k$, on d\'efinit de fa\c{c}on \'evidente un isomorphisme de foncteurs additifs rendant commutatif le diagramme
+\[
+\begin{tikzcd}
+{[\{e\} \to T]} \arrow[r, "q_M"] \arrow[d] & {[\tilde{G}' \to G']} \arrow[d] \\
+{[\{e\} \to T'']} \arrow[r, "q_{M''}"] & {[\tilde{G}'' \to G'']}
+\end{tikzcd}
+\]
+
+(ii) On peut r\'ep\'eter la construction 2.4.10 sur une base quelconque; la descente galoisienne est \`a remplacer par la localisation \'etale.
+
+(iii) La construction 2.4.10 est compatible aux foncteurs normes. Pour d\'efinir l'isomorphisme de foncteurs additifs rendant commutatif le diagramme
+\[
+\begin{tikzcd}
+{[\{e\} \to T'']} \arrow[r, "q_{M''}"] \arrow[d] & {[\tilde{G}'' \to G'']} \arrow[d] \\
+{[\{e\} \to T]} \arrow[r, "q_M"] & {[\tilde{G} \to G]}
+\end{tikzcd}
+\]
+(notations de (i), avec $k'/k$ fini s\'eparable), et v\'erifier ses propri\'et\'es, le plus simple est de proc\'eder par descente: localement, $k'$ devient une somme de copies de $k$, $[\tilde{G}' \to G']$ devient $\prod [\tilde{G} \to G]$, la norme (trace) devient la somme, et tout est trivial.
+
+\subsubsection{}
+
+Pour $k$ local non archim\'edien, $H^1(\tilde{G}') = 0$ et, passant aux ensembles de classes d'isomorphie d'objets, on d\'eduit de 2.4.10 un morphisme $q_M: T(k) \to G(k)/p\tilde{G}(k)$. Pour $G$ r\'eductif sur l'anneau des entiers $V$ de $k$, $T$ un tore sur $V$ et $M$ sur $V$, il induit un morphisme de $T(V)$ dans $G(V)/p\tilde{G}(V)$ (2.4.11(iii)).
+
+Pour $k$ archim\'edien, on peut rencontrer une obstruction dans $H^1(\tilde{G})$, mais elle dispara\^it pour $x$ dans la composante neutre (topologique) $T(k)^+$ de $T(k)$: par 2.4.11(ii), elle d\'epend contin\^ument de $x$, et est nulle pour $x = e$. On a donc encore un morphisme $T(k)^+ \to G(k)/p\tilde{G}(k)$.
+
+Pour $k$ global, prenant le produit restreint de ces morphismes pour les compl\'et\'es de $k$, on trouve
+\begin{equation}\label{eq:2.4.12.1}
+q_M: T(\A)^+ \to G(\A)/p\tilde{G}(\A).
+\end{equation}
+Si $T(k)^+ = \{x \in T(k) \mid \text{pour } v \text{ r\'eel, } x \text{ est dans } T(k_v)^+\}$, le principe de Hasse, utilis\'e comme en 2.4.8, fournit
+\begin{equation}\label{eq:2.4.12.2}
+q_M: T(k)^+ \to G(k)/p\tilde{G}(k).
+\end{equation}
+Puisque $T(\A)^+/T(k)^+ \hookrightarrow T(\A)/T(k)$ (th\'eor\`eme d'approximation r\'eelle pour les tores), on obtient finalement par passage au quotient le morphisme (2.4.0.2) promis:
+\[
+q_M: \pi(T) \to \pi(G).
+\]
+
+\subsection{Application: une extension canonique}
+
+\subsubsection{}
+
+Soit $G$ un groupe r\'eductif sur $\QQ$. On suppose que $G$ n'a pas de facteur $G'$ (d\'efini sur $\QQ$) tel que $G'(\RR)$ soit compact. Le th\'eor\`eme d'approximation forte assure d\`es lors que $G(\QQ)$ est dense dans $G(\Af)$. Le cas qui nous importe est celui d'un groupe comme en 2.1.1.
+
+Reprenons le calcul de 2.1.3. Pour $K$ compact ouvert dans $G(\Af)$,
+\begin{equation}\label{eq:2.5.1.1}
+\begin{split}
+\pi_0(G(\QQ)\backslash G(\A)/K) &= G(\QQ)\backslash \pi_0(G(\RR)) \times (G(\Af) \cap K) \\
+&= G(\QQ)\backslash G(\A)/G(\RR)^+ \times K \\
+&= G(\QQ)_+\backslash G(\Af)/K
+\end{split}
+\end{equation}
+et on peut remplacer $G(\QQ)$ (resp.~$G(\QQ)_+$) par son adh\'erence dans $G(\Af)$. Celle-ci contient $p\tilde{G}(\Af)$, un sous-groupe distingu\'e \`a quotient ab\'elien de $G(\Af)$, et, avec les notations de 2.0.15,
+\begin{equation}\label{eq:2.5.1.2}
+\pi_0(G(\QQ)\backslash G(\A)/K) = \pi(G)/G(\RR)^+ \times K = \pi_0\pi(G)/K = G(\Af)/G(\QQ)_+ \cdot K.
+\end{equation}
+Passant \`a la limite sur $K$, on en d\'eduit que
+\[
+\pi_0(G(\QQ)\backslash G(\A)) = \pi_0\pi(G) = G(\Af)/G(\QQ)_+^{\wedge}.
+\]
+Soit $\pi_0\pi(G)$ le quotient $G(\Af)/G(\QQ)_+^{\wedge}$ de $\pi_0\pi(G)$ par $\pi_0 G(\RR)^+$ (0.3). La suite
+\begin{equation}\label{eq:2.5.1.3}
+0 \to G(\QQ)_+^{\wedge}/\overline{Z(\QQ)} \to G(\Af)/\overline{Z(\QQ)} \to \bar{\pi}_0\pi(G) \to 0
+\end{equation}
+est exacte. L'action de $G^{\text{ad}}$ sur $G$ induit une action de $G^{\text{ad}}(\QQ)$ sur cette suite exacte.
+
+L'existence du commutateur (2.0.2) montre que l'action de $G^{\text{ad}}(\QQ)$ sur $G(\A)/p\tilde{G}(\A)$ est triviale---\`a fortiori celle de $G^{\text{ad}}(\QQ)$ sur $\bar{\pi}_0\pi(G)$. L'application du sous-groupe $G(\QQ)_+/\overline{Z(\QQ)}$ de $G(\QQ)_+^{\wedge}/\overline{Z(\QQ)}$ dans $G^{\text{ad}}(\QQ)^+$ v\'erifie les conditions de 2.0.1. Le groupe $G(\QQ)_+^{\wedge}/\overline{Z(\QQ)} \xrightarrow{G(\QQ)_+/\overline{Z(\QQ)}} G^{\text{ad}}(\QQ)^+$ n'est autre que le compl\'et\'e de $G^{\text{ad}}(\QQ)^+$ pour la topologie $t(\tilde{G}^{\text{der}})$ (2.1.6). Appliquant de m\^eme la construction \`a $G^{\text{ad}}(\QQ)^+$ au terme central de 2.5.1.3, on obtient finalement une extension
+\begin{equation}\label{eq:2.5.1.4}
+0 \to G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}^{\text{der}}) \to \mathscr{E}(G) \to \bar{\pi}_0\pi(G) \to 0.
+\end{equation}
+
+\subsubsection{}
+
+Du fait que $\bar{\pi}_0\pi(G)$ n'est pas fonctoriel en $G$, la fonctorialit\'e de cette suite est p\'enible \`a expliciter. Nous nous contenterons des deux cas suivants:
+
+(a) Lorsqu'on ne consid\`ere que des groupes extension centrale d'un groupe adjoint donn\'e, et des morphismes compatibles \`a la projection sur ce groupe adjoint, (2.5.1.4) est fonctoriel en $G$ en un sens \'evident.
+
+(b) Soit $H \subset G$ un tore et, contrairement aux conventions g\'en\'erales, notons $H^{\text{ad}}$ son image dans $G^{\text{ad}}$. Tel \'etant le cas dans les applications, on suppose $H^{\text{ad}}(\RR)$ compact---donc connexe puisque $H^{\text{ad}}$ est connexe. Cette hypoth\`ese assure que $H^{\text{ad}}(\QQ)$ est discret dans $H^{\text{ad}}(\Af)$, et que $H(\QQ) \subset G(\QQ)^+$. Posons $Z' = Z \cap H$. Le diagramme commutatif
+\[
+\begin{tikzcd}
+G(\Af) \arrow[r] \arrow[d] & G(\Af)/G(\QQ)_+^{\wedge} = \bar{\pi}_0\pi(G) \arrow[d] \\
+H(\Af) \arrow[r] & H(\Af)/H(\QQ)^{\wedge} = \bar{\pi}_0\pi(H)
+\end{tikzcd}
+\]
+fournit un morphisme de suites exactes
+\[
+\begin{tikzcd}
+0 \arrow[r] & G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}^{\text{der}}) \arrow[r] \arrow[d] & \mathscr{E}(G) \arrow[r] \arrow[d] & \bar{\pi}_0\pi(G) \arrow[r] \arrow[d] & 0 \\
+0 \arrow[r] & H^{\text{ad}}(\QQ)^{\wedge} \arrow[r] & \mathscr{E}(H) \arrow[r] & \bar{\pi}_0\pi(H) \arrow[r] & 0
+\end{tikzcd}
+\]
+
+\subsubsection{}
+
+Soient $G$ comme en 2.5.1, $E$ une extension finie de $\QQ$, $T$ un tore sur $E$ et $M$ une classe de conjugaison d\'efinie sur $E$ de morphismes de $T$ dans $G_E$: $M: T \to G_E$.
+
+Par passage aux $\pi_0$, le morphisme compos\'e de (2.4.0.1) et (2.4.0.2)
+\[
+\Nm \circ q_M: \pi(T) \xrightarrow{q_M} \pi(G_E) \xrightarrow{\Nm} \pi(G)
+\]
+fournit un morphisme $\pi_0(\Nm \circ q_M): \pi_0\pi(T) \to \pi_0\pi(G) \to \bar{\pi}_0\pi(G)$. Nous noterons $r(G,M)$ son inverse, et $\mathscr{E}(G,M)$ l'extension image inverse par $r(G,M)$ de l'extension (2.5.1.4):
+\[
+\begin{tikzcd}
+0 \arrow[r] & G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}^{\text{der}}) \arrow[r] \arrow[d, "="] & \mathscr{E}(G,M) \arrow[r] \arrow[d] & \pi_0\pi(T) \arrow[r] \arrow[d] & 0 \\
+0 \arrow[r] & G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}^{\text{der}}) \arrow[r] & \mathscr{E}(G) \arrow[r] & \bar{\pi}_0\pi(G) \arrow[r] & 0
+\end{tikzcd}
+\]
+
+Soient $u: H \to G$ un morphisme comme en 2.5.2(a) ($H^{\text{ad}} = G^{\text{ad}}$), et $N$ une classe de conjugaison, d\'efinie sur $E$, de morphismes de $T$ dans $H$. On suppose que $u$ envoie $N$ dans $M$. Par fonctorialit\'e, $u$ d\'efinit un isomorphisme du quotient de $\mathscr{E}(H,N)$ par $\Ker(G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}^{\text{der}}) \to H^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{H}^{\text{der}}))$ avec $\mathscr{E}(G,M)$.
+
+Pour $H \to G$ un tore comme en 2.5.2(b), muni de $m: T \to H^{\text{ad}}$ dans $M$, on trouve un morphisme d'extensions
+\[
+\begin{tikzcd}
+0 \arrow[r] & G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}^{\text{der}}) \arrow[r] \arrow[d] & \mathscr{E}(G,M) \arrow[r] \arrow[d] & \pi_0\pi(T) \arrow[r] \arrow[d, "="] & 0 \\
+0 \arrow[r] & H^{\text{ad}}(\QQ)^{\wedge} \arrow[r] & \mathscr{E}(H) \arrow[r] & \pi_0\pi(T) \arrow[r] & 0
+\end{tikzcd}
+\]
+
+\subsubsection{}
+
+Soient $E$, $G$, $T$, $M$ comme ci-dessus, avec $G$ adjoint. Consid\'erons les syst\`emes $(G_1,M_1,u)$ form\'es d'une extension centrale $u:G_1 \to G$ de $G$ ($G_1^{\text{ad}} = G$), d\'efinie sur $\QQ$, et d'une classe de conjugaison de morphismes $M_1$ de $T$ dans $G_1$, d\'efinie sur $E$, qui rel\`eve $M$. Sur $\overline{\QQ}$, pour $m_1$ dans $M_1$ d'image $m$ dans $M$, le centralisateur de $m_1$ est l'image inverse du centralisateur de $m$: c'est vrai pour leurs alg\`ebres de Lie, ils sont connexes en tant que centralisateurs de tores, et le centralisateur de $m$ contient le centre de $G_1$. On a donc $M_1 \to M$.
+
+\begin{lemma}
+Il existe des syst\`emes $(G_1,M_1,u)$ pour lesquels $G_1^{\text{der}}$ est un rev\^etement arbitraire (m\^eme prescrit) de $\tilde{G}$.
+\end{lemma}
+
+\begin{proof}
+Il suffit de montrer qu'on peut obtenir le rev\^etement universel $\tilde{G}$. Sur $\overline{\QQ}$, pour tout $m$ dans $M$, la composante neutre de l'image inverse par $m$ du rev\^etement $\tilde{G}$ de $G$ est un rev\^etement $\pi: \tilde{T} \to T$ de $T$. Il ne d\'epend pas de $m$, donc est d\'efini sur $E$, et $M$ se rel\`eve en une classe de conjugaison $\tilde{M}$ de morphismes de $T$ dans $\tilde{G}_E$. Par passage au quotient par $\Ker(\pi)$, on d\'eduit de $\tilde{M} \times \Id: \tilde{T} \to \tilde{G}_E \times \tilde{T}$ un rel\`evement $M_1': \tilde{T} \to (\tilde{G}_E \times \tilde{T})/\Ker(\pi)$. Ce rel\`evement est \`a valeurs dans un groupe $G_{1E}^{\wedge}$, d\'efini sur $E$, de groupe adjoint $G_E$. Il reste \`a remplacer $G_{1E}^{\wedge}$ par un groupe d\'efini sur $\QQ$.
+
+Ecrivons $G_{1E}^{\wedge} = G_E *_{\tilde{Z}_E} \tilde{Z}$. L'id\'ee est de remplacer $\tilde{Z}$ par le coproduit, sur $\tilde{Z}_E$, de ses conjugu\'es: si on pose
+\[
+Z = \Res_{E/\QQ}(\tilde{Z}_E)/\Ker(\Tr_{E/\QQ}: \Res_{E/\QQ}(\tilde{Z}_E) \to \tilde{Z})
+\]
+et $G_1 = G *_{\tilde{Z}} Z$, on a $\tilde{G}_1^{\text{der}} \subset \tilde{G}_E$, et $M_1'$ fournit le rel\`evement voulu.
+\end{proof}
+
+\subsubsection*{Construction 2.5.6}
+
+\`A isomorphisme unique pr\`es, l'extension $\mathscr{E}(G_1,M_1)$ ne d\'epend que de $M$ et $\tilde{G}_1^{\text{der}}$.
+
+Soient deux syst\`emes $(G_1,M_1)$ et $(G'_1,M'_1)$, de m\^eme groupe d\'eriv\'e. Consid\'erons la composante neutre $\tilde{G}_1$ du produit fibr\'e de $G_1$ et $G'_1$ sur $G$, et la classe $M_1 = M_1 \times_M M'_1$. Le diagramme d'extensions
+\[
+\mathscr{E}(G_1,M_1) \xleftarrow{\sim} \mathscr{E}(\tilde{G}_1,\tilde{M}_1) \xrightarrow{\sim} \mathscr{E}(G'_1,M'_1)
+\]
+fournit l'isomorphisme cherch\'e.
+
+\begin{definition}
+Soient $G$ un groupe adjoint, $\tilde{G}$ un rev\^etement de $G$ et $M$ une classe de conjugaison, d\'efinie sur $E$, de morphismes de $T$ dans $G$. L'extension $\mathscr{E}_E(G,\tilde{G},M)$ de $\pi_0\pi(T)$ par le compl\'et\'e $G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G})$ est l'extension $\mathscr{E}(G_1,M_1)$, pour un quelconque syst\`eme $(G_1,M_1)$ comme en 2.5.4, tel que $\tilde{G}_1^{\text{der}} = \tilde{G}$.
+\end{definition}
+
+Pour $F$ une extension de $E$, la classe $M$ fournit, par extension des scalaires de $E$ \`a $F$, une classe de conjugaison $M_F$ de morphismes de $T_F$ dans $G_F$; l'extension $\mathscr{E}_F(G,\tilde{G},M)$ correspondante est image inverse de $\mathscr{E}_E(G,\tilde{G},M)$ par la norme $N_{F/E}: \pi_0\pi(T_F) \to \pi_0\pi(T)$:
+\[
+\begin{tikzcd}
+0 \arrow[r] & G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) \arrow[r] \arrow[d, "="] & \mathscr{E}_F(G,\tilde{G},M_F) \arrow[r] \arrow[d] & \pi_0\pi(T_F) \arrow[r] \arrow[d, "N_{F/E}"] & 0 \\
+0 \arrow[r] & G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) \arrow[r] & \mathscr{E}_E(G,\tilde{G},M) \arrow[r] & \pi_0\pi(T) \arrow[r] & 0
+\end{tikzcd}
+\]
+Les extensions $\mathscr{E}_E(G,\tilde{G},M)$ se d\'eduisent toutes de $\mathscr{E}_E(G,\tilde{G},M)$ par passage au quotient: remplacer $G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G})$ par son quotient $G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}')$.
+
+\subsubsection{}
+
+Soient $H \to G$ un tore, avec $H(\RR)$ compact, et $m \in M$, d\'efini sur $E$, qui se factorise par $H$. Pour tout syst\`eme $(G_1,M_1) \to (G,M)$ comme ci-dessus, soient $H_1$ la composante neutre de l'image inverse de $H$ dans $G_1$, et $m_1$ l'\'el\'ement de $M_1$ au-dessus de $m$ (2.5.4). Prenons l'image inverse par $r(H_1,\{m_1\})$ du morphisme d'extensions (2.5.2.1):
+\[
+\begin{tikzcd}
+G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) \cap \mathscr{E}_E(G,\tilde{G},M) \arrow[r] \arrow[d] & \mathscr{E}_E(G,\tilde{G},M) \arrow[r] \arrow[d] & \pi_0\pi(T) \arrow[d] \\
+H(\QQ)^{\wedge} \arrow[r] & \mathscr{E}(H) \arrow[r] & \pi_0\pi(T)
+\end{tikzcd}
+\]
+On voit comme en 2.5.6 que, \`a isomorphisme unique pr\`es, ce diagramme ne d\'epend pas du choix de $(G_1,M_1)$. Comme en 2.5.7, ce diagramme, rel.~un rev\^etement $\tilde{G}'$ de $G$, se d\'eduit du m\^eme diagramme, rel.~$\tilde{G}$, par passage au quotient. On a aussi la m\^eme fonctorialit\'e en $E$ qu'en 2.5.7. En particulier, pour $m$ dans $M$, d\'efini sur une extension $F$ de $E$, qui se factorise par $H$ on trouve un morphisme d'extensions
+\[
+\begin{tikzcd}
+0 \arrow[r] & G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) \arrow[r] \arrow[d] & \mathscr{E}_E(G,\tilde{G},M) \arrow[r] \arrow[d] & \pi_0\pi(T) \arrow[r] \arrow[d] & 0 \\
+0 \arrow[r] & H(\QQ)^{\wedge} \arrow[r] & \mathscr{E}_F(H) \arrow[r] & \pi_0\pi(T_F) \arrow[r] & 0
+\end{tikzcd}
+\]
+
+Nous utiliserons ce diagramme de la fa\c{c}on suivante: si $\mathscr{E}_E(G,\tilde{G},M)$ agit sur un ensemble $V$, et qu'un point $x \in V$ est fixe sous $H(\QQ) \subset G(\QQ)$, il a un sens de demander qu'il soit fixe ``par $\pi_0\pi(T_F)$'' i.e.~par le sous-groupe image de l'extension en deuxi\`eme ligne.
+
+\subsubsection{}
+
+Sp\'ecialisons les hypoth\`eses au cas qui nous int\'eresse. On part d'un syst\`eme $(G,X)$ comme en 2.1.1, avec $G$ adjoint, et on fixe une composante connexe $X^+$ de $X$. On prend pour $E$ une extension finie, contenue dans $\CC$, de $E(G,X)$, et on fait $T = \Gm_m$, $M =$ la classe de conjugaison de $\mu_h$ pour $h \in X$. Elle est d\'efinie sur $E$.
+
+Le groupe $\pi(T)$ est le groupe des classes d'id\`eles de $E$, et la th\'eorie du corps de classe global identifie $\pi_0\pi(T)$ \`a $\Gal(\overline{\QQ}/E)^{\text{ab}}$. Si $\tilde{G}$ est un rev\^etement de $G$, l'image inverse par le morphisme $\Gal(\overline{\QQ}/E)^{\text{ab}} \to \pi_0\pi(T)$ de l'extension $\mathscr{E}_E(G,\tilde{G},M)$ est une extension
+\begin{equation}\label{eq:2.5.9.1}
+0 \to G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) \to \mathscr{E}_E(G,\tilde{G},X) \to \Gal(\overline{\QQ}/E) \to 0.
+\end{equation}
+Le cas universel est celui o\`u $E = E(G,X)$, et o\`u $\tilde{G} = \tilde{G}^{\text{der}}$: d'apr\`es 2.5.7, $\mathscr{E}_E(G,\tilde{G}',M)$ est l'image inverse de $\Gal(\overline{\QQ}/E) \subset \Gal(\overline{\QQ}/E(G,X))$ dans $\mathscr{E}_{E(G,X)}(G,\tilde{G}^{\text{der}},X)$, et $\mathscr{E}_E(G,\tilde{G}',X)$ est un quotient de $\mathscr{E}_E(G,\tilde{G}^{\text{der}},X)$.
+
+\subsubsection{}
+
+Soit $h \in X^+$ un point sp\'ecial: $h$ se factorise par $H \subset G$, un tore d\'efini sur $\QQ$. Puisque $\Int h(i)$ est une involution de Cartan, $H(\RR)$ est compact. On peut donc appliquer 2.5.8 \`a $H$ et \`a $m$ (d\'efini sur l'extension $E(H,\{h\})$ de $E(G,X)$). Par image inverse, on d\'eduit de (2.5.8.1) un morphisme d'extensions
+\begin{equation}\label{eq:2.5.10.1}
+\begin{tikzcd}
+G^{\text{ad}}(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) \arrow[r] \arrow[d] & \mathscr{E}_E(G,\tilde{G},X) \arrow[r] \arrow[d] & \Gal(\overline{\QQ}/E) \arrow[d] \\
+H(\QQ)^{\wedge} \arrow[r] & \mathscr{E}_{E(H,\{h\})}(H) \arrow[r] & \Gal(\overline{\QQ}/E(H,\{h\}))
+\end{tikzcd}
+\end{equation}
+
+\subsection{La loi de r\'eciprocit\'e des mod\`eles canoniques}
+
+\subsubsection{}
+
+Soient $(G,X)$ comme en 2.1.1 et $E \subset \CC$ un corps de nombres qui contient $E(G,X)$. Supposons que $M_C(G,X)$ admette un mod\`ele faiblement canonique $M_E(G,X)$ sur $E$. Le groupe de Galois $\Gal(\overline{\QQ}/E)$ agit alors sur l'ensemble profini $\pi_0(M_E(G,\overline{\QQ},X))$ des composantes connexes g\'eom\'etriques de $M_E(G,X)$. Cette action commute \`a celle de $G(\Af)$, par hypoth\`ese d\'efinie sur $E$. D'apr\`es 2.1.14, l'action (\`a droite) de $G(\Af)$ fait de $\pi_0 M_C(G,X)$ un espace principal homog\`ene sous le quotient ab\'elien $\bar{\pi}_0\pi(G) = G(\Af)/G(\QQ)_+^{\wedge}$. L'action de Galois est donc d\'efinie par un homomorphisme $r_{M_E}: \Gal(\overline{\QQ}/E) \to \bar{\pi}_0\pi(G)$, dit de r\'eciprocit\'e. Convention de signe: l'action (\`a gauche) de $\sigma$ co\'incide avec l'action (\`a droite) de $r_{M_E}(\sigma)^{-1}$. Ce morphisme se factorise par le groupe de Galois rendu ab\'elien, identifi\'e par la th\'eorie du corps de classes global \`a $\pi_0 C(\Gm_m,E)$, d'o\`u
+\begin{equation}\label{eq:2.6.1.1}
+r_{M_E}: \pi_0 C(\Gm_m,E) \to \bar{\pi}_0\pi(G).
+\end{equation}
+
+\subsubsection{}
+
+Soit $M$ la classe de conjugaison de $\mu_h$ pour $h \in X$. Puisque $E \supset E(G,X)$, elle est d\'efinie sur $E$. Composant les morphismes 2.4.0, on obtient $\Nm \circ q_M$:
+\[
+\pi(\Gm_{m,E}) \xrightarrow{q_M} \pi(G_E) \xrightarrow{\Nm} \pi(G).
+\]
+Par passage aux $\pi_0$, on en d\'eduit
+\begin{equation}\label{eq:2.6.2.1}
+\pi_0(\Nm \circ q_M): \pi_0\pi(\Gm_{m,E}) \to \pi_0\pi(G) \to \bar{\pi}_0\pi(G).
+\end{equation}
+
+\begin{theorem}
+Le morphisme (2.6.1.1), donnant l'action de $\Gal(\overline{\QQ}/E)$ sur l'ensemble des composantes connexes g\'eom\'etriques d'un mod\`ele faiblement canonique $M_E(G,X)$ de $M_C(G,X)$ sur $E$, est l'inverse du morphisme $\pi_0(\Nm \circ q_M)$ de 2.6.2.
+\end{theorem}
+
+\begin{proof}
+L'id\'ee de la d\'emonstration est que, pour chaque type $\tau$ de points sp\'eciaux (2.2.4), on conna\^it l'action d'un sous-groupe d'indice fini $\Gal_\tau$ de $\Gal(\overline{\QQ}/E)$ sur les points sp\'eciaux de ce type (par d\'efinition des mod\`eles faiblement canoniques)---donc sur l'ensemble des composantes connexes puisque l'application qui \`a chaque point associe sa composante connexe est compatible \`a l'action de Galois. Que l'action de $\Gal$ obtenue soit la restriction \`a $\Gal_\tau$ de l'action d\'efinie par l'inverse de $\pi_0(\Nm \circ q_M)$ est v\'erifi\'e en 2.6.4 ci-dessous, et il reste \`a v\'erifier que les $\Gal_\tau$ engendrent $\Gal(\overline{\QQ}/E)$.
+
+Un type $\tau$ de points sp\'eciaux est d\'efini par $h \in X$ se factorisant par un tore $T \hookrightarrow G$ d\'efini sur $\QQ$. Le sous-groupe $\Gal_\tau$ correspondant est $\Gal(\overline{\QQ}/E(T,\{h\})) = \Gal(\overline{\QQ}/E \cdot E(T,\{h\}))$. D'apr\`es [5, 5.1], pour toute extension finie $F$ de $E(G,X)$, il existe $(T,h)$ tel que l'extension $E(T,\{h\})$ de $E(G,X)$ soit lin\'eairement disjointe de $F$. Ceci est plus qu'assez pour assurer que les $\Gal_\tau$ engendrent $\Gal(\overline{\QQ}/E)$.
+\end{proof}
+
+\subsubsection{}
+
+Soient $T$ et $h$ comme ci-dessus, et $\mu_h = M$. Le morphisme $p:\Gm_{m,E} \to T$ est d\'efini sur $E(T,\{h\})$ et le morphisme $\pi_0 N_{E(T,\{h\})/\QQ}(\mu_h)$ de 2.2.3 se d\'eduit par application du foncteur $\pi_0$, de $N_{E(T,\{h\})/\QQ} \circ q_{\mu_h}: \pi(\Gm_{m,E(T,\{h\})}) \to \pi(T)$. On en d\'eduit que l'action de $\Gal(\overline{\QQ}/E) \cap \Gal(\overline{\QQ}/E(T,\{h\}))$ sur les points sp\'eciaux de type $\tau$ est compatible \`a l'action de $\Gal(\overline{\QQ}/E(T,\{h\}))^{\text{ab}} = \pi_0\pi(\Gm_{m,E(T,\{h\})})$ sur $\pi_0(M_C(G,X))$ d\'eduite, par application du foncteur $\pi_0$, de l'inverse de
+\[
+\pi_0 N_{E(T,\{h\})/\QQ} \circ q_{\mu_h}: \pi(\Gm_{m,E(T,\{h\})}) \xrightarrow{q_{\mu_h}} \pi(T) \to \pi_0\pi(G).
+\]
+De la fonctorialit\'e de $\Nm$ et de $q$, il r\'esulte que ce compos\'e est $\pi_0(\Nm \circ q_M) \circ \pi_0(N_{E(T,\{h\})/E(G,X)})$:
+\[
+\begin{tikzcd}
+\pi(\Gm_{m,E(T,\{h\})}) \arrow[r, "q_{\mu_h}"] \arrow[d] & \pi(T) \arrow[r] \arrow[d] & \pi_0\pi(G) \\
+\pi(\Gm_{m,E}) \arrow[r] & \pi(\Gm_{m,E(G,X)}) \arrow[r, "\pi_0(\Nm \circ q_M)"] & \pi_0\pi(G)
+\end{tikzcd}
+\]
+egal \`a $\pi_0(\Nm \circ q_M) \circ \pi_0(N_{E(T,\{h\})/E})$:
+\[
+\begin{tikzcd}
+\pi(\Gm_{m,E(T,\{h\})}) \arrow[r, "q_{\mu_h}"] \arrow[d] & \pi(T) \arrow[r] \arrow[d] & \pi_0\pi(G) \\
+\pi(\Gm_{m,E}) \arrow[r] & \pi(\Gm_{m,E}) \arrow[r] & \pi_0\pi(G)
+\end{tikzcd}
+\]
+Puisque la norme $N_{E(T,\{h\})/E}$ correspond, via la th\'eorie du corps de classes \`a l'inclusion de $\Gal(\overline{\QQ}/E(T,\{h\}))$ dans $\Gal(\overline{\QQ}/E(G,X))$, on a bien l'action promise.
+
+\subsection{R\'eduction au groupe d\'eriv\'e, et th\'eor\`eme d'existence}
+
+Dans ce num\'ero, \textit{sch\'ema} signifie ``sch\'ema admettant un faisceau inversible ample''. Ceci nous permettra de passer sans scrupules au quotient par un groupe fini. La stabilit\'e de cette condition sera \'evidente dans les applications, et je ne la v\'erifierai pas \`a chaque pas. Tout ceci n'est d'ailleurs qu'une question de commodit\'e.
+
+\subsubsection{}
+
+Soit $\Gamma$ un groupe localement compact totalement discontinu. Nous nous int\'eresserons \`a des syst\`emes projectifs, munis d'une action \`a gauche de $\Gamma$, du type suivant.
+
+(a) Un syst\`eme projectif, index\'e par les sous-groupes compacts ouverts $K$ de $\Gamma$, de sch\'emas $S_K$.
+
+(b) Une action $\rho$ de $\Gamma$ sur ce syst\`eme (d\'efinie par des isomorphismes $\rho_K(g): S_K \xrightarrow{\sim} S_{gKg^{-1}}$).
+
+(c) On suppose que $\rho_K(k)$ est l'identit\'e pour $k \in K$. Pour $L$ distingu\'e dans $K$, les $\rho_L(k)$ d\'efinissent une action sur $S_L$ du groupe fini quotient $K/L$, et on suppose que $(K/L)\backslash S_L = S_K$.
+
+Un tel syst\`eme est d\'etermin\'e par sa limite projective $S = \varprojlim S_K$, munie de l'action de $\Gamma$: on a $S_K = K\backslash S$. Nous appellerons $S$ un \textit{sch\'ema muni d'une action \`a gauche continue} de $\Gamma$. On d\'efinit de m\^eme la continuit\'e d'une action \`a droite par la condition $S = \varprojlim S/K$.
+
+\subsubsection{}
+
+Soit $\pi$ un ensemble profini, muni d'une action continue de $\Gamma$. On suppose que l'action est transitive, et que les orbites d'un sous-groupe compact ouvert sont ouvertes: pour $e \in \pi$, de stabilisateur $\Lambda$, la bijection $\Gamma/\Lambda \to \pi$ est un hom\'eomorphisme.
+
+Si $\Gamma$ agit contin\^ument sur un sch\'ema $S$, muni d'une application continue \'equivariante dans $\pi$, la fibre $S_e$ est munie d'une action continue de $\Lambda$: pour $K$ compact ouvert dans $\Gamma$, $K \cap \Lambda\backslash S_e$ est la fibre en l'image de $e$ de $K\backslash S \to K\backslash\pi$, et $S_e$ est la limite de ces quotients.
+
+\begin{lemma}
+Le foncteur $S \mapsto S_e$ est une \'equivalence de la cat\'egorie des sch\'emas $S$, munis d'une action continue de $\Gamma$ et d'une application continue \'equivariante dans $\pi$, avec la cat\'egorie des sch\'emas munis d'une action continue de $\Lambda$.
+\end{lemma}
+
+\begin{proof}
+Le foncteur inverse est le foncteur d'induction de $\Lambda$ \`a $\Gamma$: formellement, $\Ind_\Lambda^\Gamma(T)$ est le quotient de $\Gamma \times T$ par $\Lambda$ agissant par $\lambda(\gamma,t) = (\gamma\lambda^{-1},\lambda t)$; ceci a un sens parce que l'action de $\Lambda$ sur $\Gamma$ est propre; pour $K$ compact ouvert dans $\Gamma$, on a
+\[
+K\backslash\Ind_\Lambda^\Gamma(T) = \coprod_{\gamma \in K\backslash\Gamma/K} K\gamma \times T \text{ divis\'e par } K \cap \gamma\Lambda\gamma^{-1}.
+\]
+La v\'erification d\'etaill\'ee est laiss\'ee au lecteur.
+\end{proof}
+
+\subsubsection{}
+
+Soient $E$ un corps, et $F$ une extension galoisienne de $E$. Le groupe de Galois $\Gal(F/E)$ agit contin\^ument sur $\Spec(F)$. Plus g\'en\'eralement, si $X$ est un sch\'ema sur $E$, il agit contin\^ument (par transport de structure) sur $X_F = X \times_{\Spec(E)} \Spec(F)$. On a (descente galoisienne)
+
+\begin{lemma}
+Le foncteur $X \mapsto X_F$ est une \'equivalence de la cat\'egorie des sch\'emas sur $E$ avec la cat\'egorie des sch\'emas sur $F$, munis d'une action continue de $\Gal(F/E)$ compatible \`a l'action de ce groupe de Galois sur $F$.
+\qed
+\end{lemma}
+
+\subsubsection{}
+
+Soient $E \subset \overline{\QQ}$ un corps de nombres, $\Gamma$ un groupe localement compact totalement discontinu, $\pi$ un ensemble profini, muni d'une action de $\Gamma$ comme en 2.7.2, sauf qu'on prend ici une action \`a droite, et $e \in \pi$. On se donne aussi une action \`a gauche de $\Gal(\overline{\QQ}/E)$, commutant \`a l'action de $\Gamma$. Soit $\Gamma_e$ le stabilisateur de $e$. Si on convertit l'action \`a droite de $\Gamma$ en une action \`a gauche, on obtient une action \`a gauche de $\Gamma \times \Gal(\overline{\QQ}/E)$. Le stabilisateur de $e$, pour cette action, est une extension $\mathscr{E}$ de $\Gal(\overline{\QQ}/E)$ par $\Gamma_e$.
+\[
+\begin{tikzcd}
+0 \arrow[r] & \Gamma_e \arrow[r] \arrow[d, "="] & \mathscr{E} \arrow[r] \arrow[d] & \Gal(\overline{\QQ}/E) \arrow[r] \arrow[d, "="] & 0 \\
+0 \arrow[r] & \Gamma_e \arrow[r] & \Gamma \times \Gal(\overline{\QQ}/E) \arrow[r] & \Gal(\overline{\QQ}/E) \arrow[r] & 0
+\end{tikzcd}
+\]
+
+\subsubsection{}
+
+Lorsque l'action de $\Gamma$ fait de $\pi$ un espace principal homog\`ene sous un quotient ab\'elien $\pi_0(\Gamma)$ de $\Gamma$, l'action de Galois est d\'efinie par un morphisme $r: \Gal(\overline{\QQ}/E) \to \pi_0(\Gamma)$, tel que $\sigma \cdot x = x \cdot r(\sigma)$, o\`u $H$ ne d\'epend pas de $e$: $\Gamma_e$ est le noyau de la projection de $\Gamma$ sur $\pi_0(\Gamma)$, et l'extension $\mathscr{E}$ est l'image inverse, par $r$, de l'extension de $\pi_0(\Gamma)$ par $\Gamma_e$.
+
+\subsubsection{}
+
+Consid\'erons les sch\'emas $S$ sur $E$, munis d'une action \`a droite continue de $\Gamma$ et d'une application $\Gal(\overline{\QQ}/E)$ et $\Gamma$-\'equivariante de $S_{\overline{\QQ}}$ dans $\pi$. On note $S_e$ la fibre en $e$. C'est un sch\'ema sur $\overline{\QQ}$, muni d'une action continue (\`a gauche) de l'extension $\mathscr{E}$, et l'action de $\mathscr{E}$ sur $S_e$ est compatible \`a son action, via $\Gal(\overline{\QQ}/E)$, sur $\overline{\QQ}$.
+
+Combinant 2.7.3 et 2.7.5, on trouve
+
+\begin{lemma}
+Le foncteur $S \mapsto S_e$ est une \'equivalence de cat\'egories.
+\qed
+\end{lemma}
+
+Le cas qui nous int\'eresse est celui o\`u les $S/K$ sont de type fini sur $E$, pour $K$ compact ouvert dans $\Gamma$, et o\`u l'application de $S$ sur $\pi$ identifie $\pi$ \`a $\pi_0(S_{\overline{\QQ}})$. Ces conditions correspondent \`a: les $K\backslash S_e$, pour $K$ compact ouvert dans $\Gamma_e$, sont connexes et de type fini sur $\overline{\QQ}$.
+
+\subsubsection{}
+
+Soient $G$ un groupe adjoint, $\tilde{G}$ un rev\^etement de $G$, $X^+$ une $G(\RR)^+$-classe de conjugaison de morphismes de $S$ dans $G_{\RR}$, v\'erifiant les conditions de 2.1.1, et $E \subset \overline{\QQ}$ une extension finie de $E(G,X^+)$. Un \textit{mod\`ele faiblement canonique (connexe)} de $M^0(G,\tilde{G},X^+)$ sur $E$ consiste en
+
+(a) un mod\`ele $M^0$ de $M^0(G,\tilde{G},X^+)$ sur $\overline{\QQ}$, i.e.~un sch\'ema $M^0$ sur $\overline{\QQ}$, muni d'un isomorphisme du sch\'ema sur $\CC$ qui s'en d\'eduit par extension des scalaires avec $M^0(G,\tilde{G},X^+)$;
+
+(b) une action continue de $\mathscr{E}_E(G,\tilde{G},X^+)$ (2.5.9.1) sur le sch\'ema $M^0$, compatible \`a l'action du quotient $\Gal(\overline{\QQ}/E)$ de $\mathscr{E}$ sur $\overline{\QQ}$, et telle que l'action du sous-groupe $G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G})$ (une action $\overline{\QQ}$-lin\'eaire cette fois) fournisse par extension des scalaires \`a $\CC$ l'action 2.1.8;
+
+(c) on exige que pour tout point sp\'ecial $h \in X^+$ se factorisant par un tore $H \hookrightarrow G$ d\'efini sur $\QQ$, le point de $M^0(G,\tilde{G},X^+)$ d\'efini par $h$---fixe par $H(\QQ)$---soit d\'efini sur $\overline{\QQ}$ et (en tant que point ferm\'e de $M^0$) fixe par l'image de l'extension en deuxi\`eme ligne de (2.5.10.1) (rel.~$\mu_h$).
+
+Lorsque $E = E(G,X)$, on parle de \textit{mod\`ele canonique (connexe)}.
+
+\subsubsection{}
+
+Les propri\'et\'es de fonctorialit\'e suivantes sont imm\'ediates.
+
+(a) Soient des syst\`emes $(G_i, \tilde{G}_i, X_i^+)$ comme en 2.7.10, en nombre fini, et $E \subset \overline{\QQ}$ un corps de nombres contenant les $E(G_i, X_i^+)$. Si les $M^0_{E,i}$ sont des mod\`eles faiblement canoniques, sur $E$, des $M^0(G_i, \tilde{G}_i, X_i^+)$, leur produit est un mod\`ele faiblement canonique de $M^0(\prod G_i, \prod \tilde{G}_i, \prod X_i^+)$ sur $E$.
+
+(b) Soient $(G, \tilde{G}, X^+)$ comme en 2.7.10, et $\tilde{G}''$ un rev\^etement de $G$, quotient de $\tilde{G}$. Si $M^0_E$ est un mod\`ele faiblement canonique, sur $E$, de $M^0(G, \tilde{G}, X^+)$, son quotient par $\Ker(G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}) \to G(\QQ)^{+\wedge}(\text{rel.~}\tilde{G}''))$ est un mod\`ele faiblement canonique, sur $E$, de $M^0(G, \tilde{G}'', X^+)$.
+
+\subsubsection{}
+
+Soient $G$ un groupe r\'eductif sur $\QQ$, $X$ comme en 2.1.1, $X^+$ une composante connexe de $X$ et $E \subset \overline{\QQ}$ une extension finie de $\QQ$, contenant $E(G,X)$. Si $M_C(G,X)$ admet un mod\`ele faiblement canonique $M_E(G,X)$ sur $E$, ce dernier est unique \`a isomorphisme unique pr\`es [5, 3.5]. L'action (2.0.2) de $G^{\text{ad}}$ sur $G$ induit donc une action, par transport de structure, de $G^{\text{ad}}(\QQ)^+$ sur $M_E(G,X)$. Convertissons cette action en une action \`a droite. Combin\'ee \`a l'action de $G(\Af)$, elle fournit une action \`a droite de
+\[
+G(\Af)/Z(\QQ) \xrightarrow{G(\QQ)/Z(\QQ) *_{G(\QQ)_+/Z(\QQ)} G^{\text{ad}}(\QQ)^+} = \mathscr{G} *_{G(\QQ)_+/Z(\QQ)} G^{\text{ad}}(\QQ)^+.
+\]
+Apr\`es extension des scalaires \`a $\CC$, c'est l'action (2.1.13).
+
+Soit $\pi$ l'ensemble profini $\pi_0(M^0_C(G,X)) = \pi_0(M_C(G,X))$, et $e = 1$ la composante neutre (2.1.7) rel.~$X^+$. Le foncteur 2.7.9 transforme $M_E(G,X)$, muni de la projection naturelle de $M^0_C(G,X)$ dans $\pi$, en un sch\'ema $M^0(G,X)$ sur $\overline{\QQ}$, muni d'une action continue de l'extension (2.5.9.1).
+
+\begin{proposition}
+L'\'equivalence de cat\'egories 2.7.9 fait se correspondre les mod\`eles faiblement canoniques de $M_C(G,X)$ sur $E$ et les mod\`eles faiblement canoniques de $M^0(G^{\text{ad}}, \tilde{G}^{\text{der}}, X^{+\text{ad}})$ sur $E$.
+\end{proposition}
+
+\begin{proof}
+Dans la d\'efinition 2.2.5 des mod\`eles faiblement canoniques, nous avons impos\'e l'action d'un sous-groupe $\Gal(\overline{\QQ}/E(x)) \cap \Gal(\overline{\QQ}/E)$ de $\Gal(\overline{\QQ}/E)$ sur l'ensemble des points sp\'eciaux de type $x$. Ceux-ci forment une seule orbite sous $G(\Af)$, et l'action prescrite commute \`a l'action de $G(\Af)$. Dans la d\'efinition 2.2.5, on peut donc se contenter d'exiger que pour un point sp\'ecial de type $\tau$ ses conjugu\'es par Galois soient comme prescrit. En particulier, il suffit de consid\'erer les syst\`emes $(H,h)$ form\'es d'un point sp\'ecial $h \in X^+$ se factorisant par un tore $H$ d\'efini sur $\QQ$, et, pour chaque syst\`eme de ce type, de prescrire les conjugu\'es sous $\Gal(\overline{\QQ}/E(H,\{h\})) \cap \Gal(\overline{\QQ}/E)$ de l'image de $(h,e) \in X \times G(\Af)$ dans $M_C(G,X)$. On retrouve ainsi la variante [5, 3.13] de la d\'efinition: $M_C(H,\{h\})$ a trivialement un mod\`ele canonique (c'est un ensemble profini, et on prend le mod\`ele sur $E(H,\{h\})$ pour lequel l'action de Galois sur ces points est l'action prescrite), et on impose au morphisme naturel $M_C(H,\{h\}) \to M_C(G,X)$ d'\^etre d\'efini sur $E \cdot E(H,\{h\})$.
+
+Nous laissons au lecteur le soin de v\'erifier que l'\'equivalence de cat\'egorie 2.7.9 transforme cette condition de fonctorialit\'e en celle qui d\'efinit les mod\`eles faiblement canoniques connexes.
+\end{proof}
+
+\subsubsection{}
+
+Soient $G$ un groupe alg\'ebrique r\'eel adjoint, et $X^+$ une classe de $G(\RR)^+$-conjugaison de morphismes de $S/\Gm_m$ dans $G_{\RR}$. Notons $M$ la classe de conjugaison de $\mu_h$ pour $h \in X^+$: une classe de conjugaison de morphismes de $\Gm_m$ dans $G_{\CC}$. Si $G_1$ est un groupe r\'eductif de groupe adjoint $G$, un rel\`evement $X_1^+$ de $X^+$ en une classe de $G_1(\RR)^+$-conjugaison de morphismes de $S$ dans $G_{1\RR}$ d\'efinit un rel\`evement $M(X_1^+)$ de $M$: la classe de conjugaison de $\mu_{h_1}$ pour $h_1 \in X_1^+$ (cf.~2.5.4).
+
+\begin{lemma}
+La construction $X_1^+ \mapsto M(X_1^+)$ met en bijection les rel\`evements de $X^+$ et ceux de $M$.
+\end{lemma}
+
+\begin{proof}
+La construction $h \mapsto \mu_h$ est une bijection de l'ensemble des morphismes $h$ de $S$ dans un groupe r\'eel $G$ avec l'ensemble des morphismes $\mu$ de $\Gm_m$ dans $G_{\CC}$ qui commutent \`a leur complexe conjugu\'e: on a $h(z) = \mu(z)\overline{\mu(\bar{z})}$. Via ce dictionnaire, le probl\`eme devient de v\'erifier que si $\mu_1: \Gm_{m,\CC} \to G_{1\CC}$ commute \`a $\mu_{1*}$. Cela r\'esulte de la rigidit\'e des tores: le morphisme $\Int\mu_1(z)(\mu_{1*})$ co\'incide avec $\mu_{1*}$ pour $z=1$, et rel\`eve $\mu_1$ pour toute valeur de $z$. Il est donc constamment \'egal \`a $\mu_{1*}$.
+\end{proof}
+
+Ce dictionnaire permet de traduire 2.5.5 en le
+
+\begin{lemma}
+Soient $G$, $\tilde{G}$ et $X^+$ comme en 2.7.10. Il existe un groupe r\'eductif $G_1$, de groupe adjoint $G$ et de groupe d\'eriv\'e $\tilde{G}$, et une classe de $G_1(\RR)^0$-conjugaison $X_1^+$ de morphismes de $S$ dans $G_1$ qui rel\`eve $X^+$ et telle que $E(G,X^+) = E(G_1,X_1^+)$.
+\qed
+\end{lemma}
+
+\subsubsection{}
+
+Ce lemme, et l'\'equivalence 2.7.13, permettent de transporter aux mod\`eles faiblement canoniques des vari\'et\'es de Shimura connexes les r\'esultats de [5] sur les mod\`eles faiblement canoniques de vari\'et\'es de Shimura, et \'etablissent une \'equivalence entre les probl\`emes de construction correspondant.
+
+\begin{corollary}
+Soient $(G,X)$ comme en 2.1.1, $X^+$ une composante connexe de $X$ et $E \subset \overline{\QQ}$ une extension finie de $E(G,X)$. Pour que $M_C(G,X)$ admette un mod\`ele faiblement canonique sur $E$, il faut et il suffit que $M^0(G^{\text{ad}}, \tilde{G}^{\text{der}}, X^{+\text{ad}})$ en admette un. En particulier, l'existence d'un tel mod\`ele ne d\'epend que de $(G^{\text{ad}}, \tilde{G}^{\text{der}}, X^+, E)$.
+\qed
+\end{corollary}
+
+\begin{corollary}[Cf.~{\cite[5.5, 5.10, 5.10.2]{deligne71}}]
+Soient $G$, $\tilde{G}$, $X^+$ et $E$ comme en 2.7.10.
+
+\textup{(i)} $M^0(G,\tilde{G},X^+)$ admet au plus un mod\`ele faiblement canonique sur $E$ (unicit\'e \`a isomorphisme unique pr\`es).
+
+\textup{(ii)} Supposons que, pour toute extension finie $F$ de $E$, il existe une extension finie $F'$ de $E$ dans $\overline{\QQ}$, lin\'eairement disjointe de $F$, et un mod\`ele faiblement canonique de $M^0(G,\tilde{G},X^+)$ sur $F'$. Alors, il existe un mod\`ele faiblement canonique de $M^0(G,\tilde{G},X^+)$ sur $E$.
+\qed
+\end{corollary}
+
+Le corollaire 2.7.19 et 2.3.1, 2.3.10 fournissent de nombreux mod\`eles canoniques.
+
+\begin{theorem}
+Soient $G$ un groupe $\QQ$-simple adjoint, $\tilde{G}$ un rev\^etement de $G$, et $X^+$ une $G(\RR)^+$-classe de conjugaison de morphismes de $S$ dans $G_{\RR}$, v\'erifiant (2.1.1.1), (2.1.1.2), (2.1.1.3). Dans les cas suivants, $M^0(G,\tilde{G},X^+)$ admet un mod\`ele canonique:
+
+\textup{(a)} $G$ est de type $A$, $B$, $C$ et $\tilde{G}$ est le rev\^etement universel de $G$.
+
+\textup{(b)} $(G,X)$ est de type $D_l^{\RR}$ et $\tilde{G}$ est le rev\^etement universel de $G$.
+
+\textup{(c)} $(G,X)$ est de type $D_l^{\mathbb{H}}$, et $\tilde{G}$ est le rev\^etement 2.3.8 de $G$.
+\end{theorem}
+
+\begin{proof}
+Appliquant 2.7.11, 2.7.18, on en d\'eduit le
+\end{proof}
+
+\begin{corollary}
+Soient $G$ un groupe r\'eductif, $X$ une $G(\RR)$-classe de conjugaison de morphisme de $S$ dans $G_{\RR}$, v\'erifiant les conditions de 2.1.1, et $X^+$ une composante connexe de $X$. Pour que $M_C(G,X)$ admette un mod\`ele canonique, il suffit que, $(G^{\text{ad}}, X^+)$ soit un produit de syst\`emes $(G_i, X_i^+)$ du type consid\'er\'e en 2.7.20, et que le rev\^etement $\tilde{G}^{\text{der}}$ de $G^{\text{der}}$ admette un quotient du produit des rev\^etements des $G_i$ consid\'er\'es en 2.7.20.
+\qed
+\end{corollary}
+
+\section*{Bibliographie}
+\addcontentsline{toc}{section}{Bibliographie}
+
+Pour la bibliographie des articles de Shimura consacr\'es \`a la construction de mod\`eles canoniques, je renvoie \`a [5].
+
+\begin{enumerate}[label=\arabic*., leftmargin=*]
+\item A.~Ash, D.~Mumford, M.~Rapoport and Y.~Tai, \textit{Smooth compactifications of locally symmetric varieties}, Math.~Sci.~Press, 1975.
+
+\item W.~Baily and A.~Borel, Compactification of arithmetic quotients of bounded symmetric domains, \textit{Ann.~of Math.}~(2) 84 (1966), 442--528.
+
+\item A.~Borel, Some metric properties of arithmetic quotients of symmetric spaces and an extension theorem, \textit{J.~Differential Geometry} 6 (1972), 543--560.
+
+\item N.~Bourbaki, \textit{Groupes et alg\`ebres de Lie, Chapitres IV--VI}, Hermann, 1968.
+
+\item P.~Deligne, Travaux de Shimura, S\'em.~Bourbaki F\'evrier 71, Expos\'e 339, \textit{Lecture Notes in Math.}, vol.~244, Springer-Verlag, Berlin, 1971.
+
+\item $\overline{\phantom{mm}}$, Travaux de Griffiths, S\'em.~Bourbaki Mai 70, Expos\'e 376, \textit{Lecture Notes in Math.}, vol.~180, Springer-Verlag, Berlin, 1971.
+
+\item $\overline{\phantom{mm}}$, La conjecture de Weil pour les surfaces K3, \textit{Invent.~Math.} 15 (1972), 206--226.
+
+\item S.~Helgason, \textit{Differential geometry and symmetric spaces}, Academic Press, New York, 1962.
+
+\item D.~Mumford, Families of abelian varieties, \textit{Algebraic Groups and Discontinuous Subgroups}, Proc.~Sympos.~Pure Math., vol.~9, Amer.~Math.~Soc., Providence, R.I., 1966, pp.~347--351.
+
+\item N.~Saavedra, \textit{Cat\'egories tannakiennes}, \textit{Lecture Notes in Math.}, vol.~265, Springer-Verlag, Berlin, 1972.
+
+\item I.~Satake, Holomorphic Embedding of symmetric domains into a Siegel space, \textit{Am.~J.~Math.} 87 (1965), 425--461.
+
+\item J.~P.~Serre, Sur le groupe de congruence des vari\'et\'es ab\'eliennes, \textit{Izv.~Akad.~Nauk SSSR Ser.~Mat.} 28 (1964), 3--20.
+
+\item $\overline{\phantom{mm}}$, \textit{Cohomologie galoisienne}, \textit{Lecture Notes in Math.} vol.~5, Springer-Verlag, Berlin, 1965.
+\end{enumerate}
+
+SGA S\'em.~de G\'eom\'etrie Alg\'ebrique du Bois-Marie. SGA1, SGA4 t.~3 et SGA$4\frac{1}{2}$ sont parus aux Lecture Notes in Math. nos.~224, 305, 569, Springer-Verlag, Berlin.
+
+\vspace{1cm}
+\begin{flushright}
+\textsc{Institut des Hautes \'Etudes Scientifiques,}\\
+\textsc{Bures-sur-Yvette}
+\end{flushright}
+
+\end{document}

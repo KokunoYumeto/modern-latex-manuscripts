@@ -1,0 +1,1161 @@
+\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage[all]{xy}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{explanation}[theorem]{Explanation}
+\newtheorem{note}[theorem]{Note}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Imop}{Im}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Hom}{Hom}
+
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dc}{\mathrm{d}^{\mathrm{c}}}
+\newcommand{\del}{\partial}
+\newcommand{\delbar}{\bar{\partial}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Id}{\mathrm{Id}}
+
+\title{Real Homotopy Theory of K\"ahler Manifolds}
+\author[P. Deligne, P. Griffiths, J. Morgan, and D. Sullivan]{Pierre Deligne (Bures-sur-Yvette)}
+\author[]{Phillip Griffiths (Cambridge, Mass.)}
+\author[]{John Morgan (New York)}
+\author[]{Dennis Sullivan (Bures-sur-Yvette)}
+\thanks{* This research was partially supported by NSF grant GP-38886.}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+This paper brings together the strengthened de Rham theory of the last author \cite{S1,S2,S3} concerning the homotopy information of a manifold contained in the algebra of its differential forms, and the classical results \cite{W} about the forms on a compact K\"ahler manifold to prove statements about the algebraic topology of compact K\"ahler manifolds, and consequently about smooth, complex, projective algebraic varieties.
+
+The nature of the results is that the homotopy type of a compact K\"ahler manifold, over the real numbers, is a formal consequence of the real cohomology ring. For any manifold there is a differential graded algebra with rational structure constants whose isomorphism type is an invariant of the homotopy type of the space. The cohomology ring of this differential algebra is the rational cohomology ring of the space, but the algebra itself contains, for example, the higher order cohomology products. The isomorphism type of the differential algebra is equivalent to the ``rational form of the nilpotent structure in the space''. For a simply connected manifold this differential algebra is equivalent to the rational Postnikov tower of manifold. Our results here are that, for a compact K\"ahler manifold, from the real cohomology ring one can produce the real form of this differential algebra. These results complement the known structure of the cohomology ring of such a manifold. We prove no new results about it.
+
+The initial motivation for these results was the relation in a K\"ahler manifold between harmonic forms and holomorphic forms. In particular the $(p,0)$ harmonic forms for any K\"ahler metric are exactly the holomorphic forms. Consequently, products of $(p,0)$ and $(q,0)$ harmonic forms are harmonic,\footnote{Chen in \cite{C} was the first to exploit this idea to obtain higher order information about K\"ahler manifolds.} and thus there are no higher order products starting from $H^{*,0}$. The possibility that the full theorem would be true is related to the Weil conjectures. We were led to prove such a complete result by ``using the Weil conjectures in characteristic $p$ to guess results in characteristic $0$ which can then be proved using Hodge theory''. The relevant remark here is that the classical higher order cohomology products of Massey are multilinear operations, but the dimension of the product is always less than the sum of the dimensions of the various elements being multiplied. Thus, if we were working in a situation in characteristic $p$ on which the Frobenius automorphism operated (for instance, the \v{C}ech cochains in \'etale cohomology theory), and if the eigenvalues of the Frobenius action are as predicted by the Weil conjectures,\footnote{Which is now \cite{D2}.} then the multilinearity of the product over the action would imply that the absolute value of the eigenvalues on the space of higher order products in a certain dimension would be different from the possible values in that dimension. The only way this can happen is for these spaces of higher order products to be zero.
+
+In proving these results for compact K\"ahler manifolds we use the implications for the forms of the existence of a K\"ahler metric. If $M$ is a complex manifold, form the differential algebras and algebra maps
+\[
+\{H^{*}(M,\RR), d=0\} \xleftarrow{\rho} \{\Ker(\dc), d\} \xrightarrow{i} \{\text{all } C^{\infty}\text{ forms}, d\}.
+\]
+If $M$ is a compact K\"ahler manifold, both maps above induce isomorphisms of cohomology. All our results about the homotopy type of compact K\"ahler manifolds can be deduced from this statement, which is itself a consequence of the $\dd\dc$ lemma.
+
+\begin{lemma}[$\dd\dc$ Lemma]
+Let $M$ be a compact K\"ahler manifold, and $\dc = \sqrt{-1}\, \bar{\partial} - \bar{\partial} = J^{-1}\dd J$, where $J$ gives the complex structure in the cotangent bundle. Evidently, $\dc$ is a real operator. If $x$ is a form with
+\begin{enumerate}
+\item[(1)] $\dd x = 0 = \dc x$ and
+\item[(2)] $x = \dd y$ or $x = \dc y$,
+\end{enumerate}
+then $x = \dd\dc z$ for some form $z$.
+\end{lemma}
+
+In Sections 1--4 we describe the machinery needed to deduce the consequences in homotopy theory of these statements about forms. Sections 1, 2, and 3 constitute a sketch of the theory in \cite{S1} and \cite{S3}, (c.f.\ also \cite{Q}). Section 1 describes the construction of the minimal model (real Postnikov tower) of any differential algebra and proves a uniqueness result. To do this, some of the abstract homotopy theory of differential algebras is developed. For instance, we define the de Rham fundamental group of an algebra by using a minimal model for the algebra. This ``group'' is an inverse system of nilpotent Lie groups. We also define the higher homotopy groups of any simply connected differential algebra. These are vector spaces with a graded Lie algebra structure which should be thought of as the structure of ``Whitehead products''.
+
+In Section 2 we assign to any simply connected,\footnote{Actually this form of theory works just as well for nilpotent spaces, see \cite{S2}.} $C^{\infty}$ manifold, $M$, the de Rham complex of $C^{\infty}$-forms on $M$, $\sE^{*}_{M}$, and its minimal model $\cM_{M}$; and to any simply connected simplicial complex, $X$, the differential algebra $\sE^{*}_{X}$ of $\QQ$-polynomial forms on $X$ and its minimal model $\cM_{X}$. The former algebras are over $\RR$; the latter are over $\QQ$. The minimal model $\cM_{M}$ is defined to be the $C^{\infty}$ de Rham homotopy type of $M$, and $\cM_{X}$ is, similarly, the $\QQ$-de Rham homotopy type of $X$. These constructions satisfy
+\begin{enumerate}
+\item[(a)] the cohomology of the $\QQ$-polynomial forms on $X$ is the $\QQ$-cohomology ring of $X$, and
+\item[(b)] the inclusions of the $C^{\infty}$ forms on $M$ and the ($\QQ$-polynomial forms on a $C^{1}$-triangulation $K$ of $M$) into the piecewise $C^{\infty}$ forms on $K$ induce isomorphisms of cohomology.
+\end{enumerate}
+
+The fact that the $\QQ$-polynomial forms are a $\QQ$-differential algebra is useful when we make the connection with homotopy theory in Section 3. There is an isomorphism between the category of $\QQ$-minimal differential algebras and the category of towers of rational principal fibrations. The homotopy groups of algebras correspond to the homotopy groups of the fibration under this isomorphism. The main result is that, for a simply connected space, the tower of rational principal fibrations built from the minimal model of the $\QQ$-polynomial forms is the rational form of the Postnikov tower of the space. Thus the homotopy-theoretic information available in the differential algebra of $\QQ$-polynomial forms on a simply connected simplicial complex is exactly the rational homotopy type. Consequently the differential algebra of $C^{\infty}$ forms on a simply connected manifold determines the real form of the rational homotopy type of the manifold. There are analogous results concerning the nilpotent completion of the fundamental group for general simplicial complexes and manifolds (see \cite{S3} Appendix N).
+
+Section 4 discusses the question of when the minimal model of a differential algebra is determined by the cohomology ring of the algebra. We give examples of spaces where the higher order cohomology products are non-zero, and then show that a minimal model is a formal consequence of its cohomology ring if, and only if, all the higher order products vanish in a uniform way.
+
+Section 5 is a discussion of the forms on a compact, complex manifold admitting a K\"ahler metric. From the identity (which is equivalent to the metric being K\"ahler)
+\[
+\Delta_{\dd} = 2\Delta_{\del} = 2\Delta_{\delbar} = \Delta_{\dc}
+\]
+between the various Laplacians, we prove the $\dd\dc$ lemma. We then give a cohomological interpretation of this lemma, and show that it is valid on more general complex manifolds (e.g., Mo\'{\i}\v{s}ezon spaces).
+
+In Section 6 we prove the main theorem that:
+\begin{enumerate}
+\item[1)] For any complex manifold for which the $\dd\dc$ lemma is true (for example K\"ahler manifolds), the minimal model of the $C^{\infty}$ differential forms is a formal consequence of the real cohomology ring.
+\item[2)] Given a holomorphic map between two such manifolds, the effect of the map on the minimal models is determined by the map on the cohomology level.
+\end{enumerate}
+
+The work of Sections 1, 2, and 3, allows us to translate this into the assertion that the real homotopy type of a compact K\"ahler manifold is a formal consequence of its real cohomology ring, and the real homotopy type of a holomorphic map between compact K\"ahler manifolds is a formal consequence of the induced map on cohomology. In particular, if a compact K\"ahler manifold $M$ is simply connected, then its real homotopy groups, $\pi_{*}(M) \otimes \RR$, can be read off from the real cohomology ring. Likewise in this case, the effect of a holomorphic map on the real homotopy groups may be read off from the effect of the map on cohomology. In the non-simply connected case, the real nilpotent tower of the fundamental group can be read off from $H^{1}$ and the cup product $H^{1} \otimes H^{1} \to H^{2}$. The effect of a holomorphic map on the nilpotent tower of $\pi_{1}$ can similarly be read off from the map on $H^{1}$.
+
+In Section 7 we give an application of this theory to a union of divisors with normal crossings. Using the fact that forms on a K\"ahler manifold can be naturally replaced by the cohomology, we give a different proof that a spectral sequence calculating the cohomology degenerates at $E_{2}$, i.e., $E_{2} = E_{\infty}$. Here $E_{2}$ is built from the cohomologies of the various intersections, and $d_{2}$ is built from the various restriction maps.
+
+The third author has studied the open complement of a divisor with normal crossings in a K\"ahler manifold where related but much more complicated results ensue \cite{M2}.
+
+
+\section{Homotopy Theory of Differential Algebras}
+
+This section, together with Sections 2 and 3, constitutes a sketch of the theory of the last author relating differential algebras and homotopy theory. For a more complete treatment of this theory see \cite{FGM,S1,Q} and \cite{S2}. The discussion in this section is a completely algebraic one in which the fundamental group of any differential algebra and the higher homotopy groups (in fact the homotopy type) of an one-connected differential algebra are defined. This theory is valid for differential algebras over any field containing the rational numbers $\QQ$, but the only fields arising in geometric applications are, in addition to $\QQ$, the reals $\RR$ and the complexes $\CC$.
+
+As the terminology suggests, these constructions are motivated by the theory of Postnikov towers and homotopy theory for spaces. The Hirsch lemma of Section 3 shows that the connection is stronger than just an analogy. In fact, the homotopy theory for differential algebras over $\QQ$ and the theory of towers of principle fibrations with fibers $K(V,n)$, $V$ a $\QQ$-vector space, are equivalent.
+
+A \emph{differential graded algebra} (= differential algebra) is a graded algebra
+\[
+\sA = \bigoplus_{k \ge 0} \sA^{k}
+\]
+with a differential $\dd \colon \sA \to \sA$ of degree $+1$, such that
+\begin{enumerate}
+\item $\dd$ is graded commutative, i.e.,
+\[
+x \cdot y = (-1)^{k\ell}\, y \cdot x \qquad (x \in \sA^{k} \text{ and } y \in \sA^{\ell}),
+\]
+\item $\dd$ is a derivation, i.e.,
+\[
+\dd(x \cdot y) = \dd x \cdot y + (-1)^{k} x \cdot \dd y \qquad (x \in \sA^{k}),
+\]
+and
+\item $\dd^{2} = 0$.
+\end{enumerate}
+
+The cohomology $H^{*}(\sA)$ is an algebra. We shall always assume that it is finite dimensional in each degree, $\sA$ is \emph{connected} if $H^{0}(\sA)$ is the ground field, and $\sA$ is \emph{one-connected} if, in addition, $H^{1}(\sA) = 0$. A \emph{map} between two differential algebras $\sA$ and $\sB$ is an algebra homomorphism preserving the grading and $\dd$. Such a map, $f \colon \sA \to \sB$, induces an algebra map $f^{*} \colon H^{*}(\sA) \to H^{*}(\sB)$.
+
+\begin{examples}%
+\begin{enumerate}
+\item[(i)] the de Rham complex $\sE^{*}_{M}$ of $C^{\infty}$ forms on a manifold $M$;
+\item[(ii)] the cohomology ring of a CW complex $X$,
+\[
+\{H^{*}(X; k); \dd = 0\} \qquad (k \text{ a field}).
+\]
+\end{enumerate}
+The cochains on a simplicial complex form only a non-commutative differential algebra, even though they induce on cohomology a graded commutative algebra structure.
+\end{examples}
+
+If $\sA^{0}$ is the ground field, then we define the \emph{augmentation ideal} $A(\sA) = \bigoplus_{k > 0} \sA^{k}$, and the graded space of \emph{indecomposables}, $I(\sA) = A(\sA)/A(\sA) \cdot A(\sA)$. In such an algebra the derivation $\dd$ is \emph{decomposable} if for every $x \in \sA$, $\dd x \in A \cdot A$. This is equivalent to saying that $\dd(x)$ is a sum of products of elements of positive degree.
+
+By the \emph{free algebra} on a vector space $V_{n}$, whose elements are of degree $n$, $A(V_{n})$ or just $A_{n}$, we mean the polynomial algebra generated by $V_{n}$, if $n$ is even, or the exterior algebra generated by $V_{n}$, if $n$ is odd. A tensor product (in the graded sense) of such algebras is again a free algebra.
+
+The algebraic analogue of a principal fibration is an \emph{elementary extension}. An elementary extension of $(\sA, \dd_{\sA})$ is any algebra of the form $(\sM = \sA \otimes A(V_{k}), \dd_{\sM})$ where $\dd_{\sM}|_{\sA} = \dd_{\sA}$, $\dd_{\sM}(V_{k}) \subset \sA$, and $V_{k}$ is a finite dimensional vector space.\footnote{Always placed in a degree greater than zero.} We denote such extensions by $\sA \otimes_{\dd} A(V_{k})$. Note that if $\sA$ is free as an algebra, then so is $\sM$, and if $\dd$ is decomposable in $\sA$, then it is also decomposable in $\sM$ if, and only if, $\dd(V_{k}) \subset A(\sA) \cdot A(\sA)$.
+
+Our first main definition is that $\cM$ is a \emph{minimal differential algebra} if $\cM$ may be written as an increasing union of sub-differential algebras
+\[
+\text{ground field} \subset \cM_{1} \subset \cM_{2} \subset \cdots, \quad \bigcup_{i > 0} \cM_{i} = \cM
+\]
+with $\cM_{i} \subset \cM_{i+1}$ an elementary extension, and with $\dd$ decomposable. Such a collection of sub-differential algebras is a \emph{series} for $\cM$. If $\cM$ is minimal, then
+\begin{enumerate}
+\item $\dd$ is decomposable, and
+\item $\cM$ is free as an algebra.
+\end{enumerate}
+
+If we let $\{\cM^{(\le i)}\}$ denote the subalgebra of $\cM$ generated by elements of degree $\le i$, then $\dd$ being decomposable implies that these are sub-differential algebras. If $\cM$ is any one-connected differential algebra satisfying 1) and 2), then $\cM_{1} = 0$, and the sequence $\cM_{2} \subset \cM_{3} \subset \cdots$ is a series for $\cM$. Thus a one-connected algebra satisfying 1) and 2) has a canonical series.
+
+For any minimal differential algebra $\cM$, $\cM^{(1)}$ also has a canonical series
+\[
+0 = \cM'_{0} \subset \cM'_{1} \subset \cdots, \quad \bigcup_{i > 0} \cM'_{i} = \cM^{(1)}
+\]
+defined by: $\cM'_{i+1}$ = algebra generated by all $x \in \cM^{(1)}$ such that $\dd x \in \cM'_{i}$.
+
+Given a finitely generated free differential algebra $\cM$ with decomposable $\dd$, we can form the dual space to the indecomposables
+\[
+\mathfrak{L}_{0} = [I(\cM_{0})]^{*}, \qquad \mathfrak{L}_{i} = [I(\cM_{i})]^{*}.
+\]
+Since $\dd$ is decomposable, it induces a map $\dd \colon I(\cM) \to I(\cM) \otimes I(\cM)$ whose dual is a map $\mathfrak{L}_{i} \otimes \mathfrak{L}_{j} \to \mathfrak{L}_{i+j-1}$. This makes $\mathfrak{L}$ into a graded Lie algebra. An elementary extension $\cM' = \cM \otimes_{\dd} A(V_{k})$ with $\dd$ decomposable dualizes to a central extension of Lie algebras
+\[
+0 \to V_{k}^{*} \to \mathfrak{L}(\cM') \to \mathfrak{L}(\cM) \to 0
+\]
+with $[v, X] = 0$ for $v \in V_{k}^{*}$ and $X \in \mathfrak{L}(\cM)$. If $0 \subset \cM_{1} \subset \cM_{2} \subset \cdots$ is a series of a minimal algebra $\cM$, then let $\mathfrak{L}_{i} = I(\cM_{i})^{*}$. We have an inverse system of central extensions of Lie algebras
+\[
+\cdots \to \mathfrak{L}_{3} \to \mathfrak{L}_{2} \to \mathfrak{L}_{1} \to 0.
+\]
+By induction, each $\mathfrak{L}_{i}$ is nilpotent. For a general differential algebra, $\cM$ satisfying 1) and 2) above it is this extra condition of nilpotence on the dual Lie algebra, $\mathfrak{L}$, which is equivalent to minimality. This nilpotence is automatic if $\cM^{(1)} = 0$, as is easily verified by a degree argument.
+
+\begin{example}
+Let $S = A_{1}(x,y,z)$, $\dd x = y \wedge z$, $\dd y = z \wedge x$, $\dd z = x \wedge y$. $S$ is not minimal, and the dual Lie algebra to $S$ is $\mathfrak{so}(3)$ which is simple, not nilpotent.
+\end{example}
+
+In the one-connected case our inverse system of Lie algebras is eventually stable in each degree (at $\mathfrak{L}^{n}$ we are adding generators in degree $n$), and thus coalesces into one Lie algebra $\mathfrak{L} = \bigoplus_{n \ge 2} \mathfrak{L}_{n}$. Each $\mathfrak{L}_{n}$ is finitely generated, and we have $[,] \colon \mathfrak{L}_{n} \otimes \mathfrak{L}_{m} \to \mathfrak{L}_{n+m-1}$. The vector space $\mathfrak{L}_{n}$ is defined to be the $n$-th \emph{de Rham homotopy group} of $\cM$, and the graded Lie algebra bracket is called the \emph{Whitehead product}.
+
+In the case of a non-simply connected minimal differential algebra, $\cM$, we have associated to $\cM^{(1)}$ a canonical series, and dually a canonical inverse system of nilpotent Lie algebras $\cdots \to \mathfrak{L}_{3} \to \mathfrak{L}_{2} \to \mathfrak{L}_{1} \to 0$. $\mathfrak{L}_{n}$ is nilpotent of order $n$. The Campbell-Hausdorff formula
+\[
+x \cdot y = x + y + \tfrac{1}{2}[x,y] + \cdots
+\]
+then defines nilpotent Lie group structures on each $\mathfrak{L}_{n}$. This tower of nilpotent Lie groups is the \emph{de Rham fundamental group} of $\cM$.
+
+The above discussion can be applied to any differential algebra by the following idea. If $\sA$ is a differential algebra, then $p \colon \cM \to \sA$ is a \emph{$k$-stage minimal model} for $\sA$ if
+\begin{enumerate}
+\item $\cM$ is a minimal algebra generated in dimensions $\le k$;
+\item $p$ induces an isomorphism on cohomology in dimensions $\le k$ and an injection in dimension $k+1$.
+\end{enumerate}
+We use the term \emph{minimal model} for $k = \infty$.
+
+To make applications the following theorem is essential. Recall we are assuming all Betti numbers are finite.
+
+\begin{theorem}\label{thm:1.1}
+\begin{enumerate}
+\item[(a)] Every one-connected differential algebra has a minimal model unique up to isomorphism.
+\item[(b)] Every connected differential algebra has a $1$-stage minimal model unique up to isomorphism.
+\end{enumerate}
+\end{theorem}
+
+Thus we define the \emph{de Rham homotopy groups} of a one-connected differential algebra $\sA$, denoted $\pi_{n}(\sA)$ (with Whitehead product), to be those of any minimal model for $\sA$. Likewise, we define the \emph{de Rham fundamental group} of a differential algebra to be the de Rham fundamental group of any minimal model for the algebra.
+
+If $f \colon \sA \to \sB$ is an isomorphism on cohomology, then the de Rham fundamental groups of $\sA$ and $\sB$ are isomorphic. If $\sA$ is one connected, then the de Rham homotopy groups of $\sA$ and $\sB$ are isomorphic. In the simply connected case we define $\cM_{\sA}$ to be the \emph{de Rham homotopy type} of $\sA$.
+
+\begin{examples}%
+\begin{enumerate}
+\item[1)] Suppose $\sA = \sE^{*}_{S^{n}}$ is the de Rham complex on the $n$-sphere. Then
+\[
+\cM_{\sA} = \begin{cases}
+A_{n}(y) & n \text{ odd} \\[1mm]
+A_{n}(y) \otimes A_{2n-1}(z) & \dd z = y^{2},\; n \text{ even},
+\end{cases}
+\]
+In either case $\rho \colon \cM_{\sA} \to \sE^{*}$ sends $y$ to a generator of $H^{n}(S^{n})$.
+\item[2)] Suppose $\sA = \sE^{*}_{\CC P^{n}}$. Then
+\[
+\cM_{\sA} = A_{2}(x) \otimes A_{2n+1}(y), \qquad \dd y = x^{n+1}.
+\]
+$\rho \colon \cM_{\sA} \to \sE^{*}_{\CC P^{n}}$ sends $x$ to a closed form whose cohomology class generates $H^{2}(\CC P^{n})$.
+\end{enumerate}
+Thus in these cases the de Rham homotopy groups of $\sE^{*}_{M}$ are equal the usual homotopy groups tensored with $\RR$:
+\[
+\pi_{n}(\sE^{*}_{M}) \cong \pi_{n}(M) \otimes \RR
+\]
+(cf.\ Serre \cite{Se}). It is a consequence of Sullivan's theory that a similar relation holds for all simply connected smooth manifolds.
+\end{examples}
+
+For one-connected algebras the existence of the minimal model is straightforward. One inductively assumes the existence of $\cM^{(\le k)} \xrightarrow{\rho} \sA$ inducing an isomorphism on cohomology through dimension $k$ and an injection on $H^{k+1}$. Then $\cM^{(\le k)} \subset \cM^{(\le k)} \otimes_{\dd} A(V_{k+1})$ is an elementary extension on $V_{k+1} = C_{k+1} \oplus N_{k+1}$, where $C_{k+1}$ is the subspace of closed elements included to make $\rho$ surjective on $H^{k+1}$, and $N_{k+1}$ is a space of nonclosed generators whose image under $\dd$, $\dd(N) \subset (\cM^{(\le k)})^{k+2}$, makes exact a space of closed forms representing kernel $\rho^{*}$ in degree $(k+2)$.
+
+In the general case, the construction of $\cM(\sA)$ is similar: $\cM_{1} = A(H^{1}(\sA))$ and $\cM_{i+1}$ is an elementary extension by $A(\Ker H^{2}(\cM_{i}) \to H^{2}(\sA))$. It is necessary to keep killing the kernel in degree $2$ repeatedly since at each step one is creating more kernel in that degree.
+
+The uniqueness statements in these two cases require the development of the theory of homotopy for maps between differential algebras. Let $(t, \dd t)$ denote the polynomials in the variable $t$ of degree zero tensor the exterior algebra on its differential, $\dd t$, in degree one. This is a contractible algebra which we think of as the real line. There are evaluations at $t=0$ and at $t=1$, which we think of as two points on the line. A map $H \colon \sM \to \sB \otimes (t, \dd t)$ is a \emph{homotopy} from $f \colon \sA \to \sB$ to $g \colon \sA \to \sB$ if $H|_{t=0} = f$ and $H|_{t=1} = g$. (Note that a homotopy $H \colon X \times I \to Y$ induces a map $\sE^{*}_{Y} \xrightarrow{H^{*}} \sE^{*}_{X} \otimes (t, \dd t)$. Thus the contravariant nature of forms requires that $(t, \dd t)$ be in the range rather than the domain.)
+
+Given an elementary extension $\sM = \sA \otimes_{\dd} A(V_{k})$, maps $f$ and $g \colon \sM \to \sB$, and a homotopy $H \colon \sA \to \sB \otimes (t, \dd t)$ from $f|_{\sA}$ to $g|_{\sA}$, then $H$ extends to a homotopy $\tilde{H} \colon \sM \to \sB \otimes (t, \dd t)$ from $f$ to $g$ if and only if the homomorphism $V_{k} \to H^{k+1}(\sB)$ given by
+\[
+\{\alpha(x) = \text{cohomology class of } (f(x) - g(x) + (-1)^{\deg x} \textstyle\int_{t=0}^{t=1} H(\dd x))\}
+\]
+is $0$. If $\alpha = 0$, then an extension of $H$ to $\tilde{H}$ is determined by choosing linearly, for each $x$, $e(x)$ such that $\dd(e(x)) = \alpha(x)$. The formula for $\tilde{H}$ is then
+\[
+\tilde{H}(x) = f(x) + (-1)^{\deg x} \textstyle\int_{0}^{t} H(\dd x) - \dd(e(x) \otimes t).
+\]
+
+Thus we find a sequence of cohomological obstructions for building a homotopy whose algebraic structure is exactly analogous to the topological situation.
+
+\begin{theorem}[Lifting and lifting up to homotopy]\label{thm:1.2}
+Given a diagram of solid arrows
+\[
+\xymatrix{
+& \sA \ar[d]^{f} \\
+\cM \ar[r]_{\varphi} & \sB
+}
+\]
+with $\cM$ minimal and $\varphi^{*}$ an isomorphism on cohomology, then there is an $\tilde{f} \colon \cM \to \sA$ so that $\varphi \tilde{f}$ is homotopic to $f$. If $\varphi$ is also onto, then we can choose $\tilde{f}$ so that $\varphi \tilde{f}$ is equal to $f$.
+\end{theorem}
+
+\begin{corollary}\label{cor:1.3}
+Homotopy is an equivalence relation on the set of maps $\{f \colon \cM \to \sA\}$ for $\cM$ minimal. We denote the set of equivalence classes by $[\cM, \sA]$.
+\end{corollary}
+
+\begin{corollary}\label{cor:1.4}
+If $\theta \colon \sA \to \sB$ is an isomorphism on cohomology, then $\theta$ induces a bijection of sets $\theta \colon [\cM, \sA] \to [\cM, \sB]$.
+\end{corollary}
+
+\begin{corollary}\label{cor:1.5}
+If $f \colon \sA \to \sB$ is any map of differential algebras and $\rho_{\sA} \colon \cM_{\sA} \to \sA$ and $\rho_{\sB} \colon \cM_{\sB} \to \sB$ are minimal models for $\sA$ and $\sB$, then $f$ induces $\tilde{f} \colon \cM_{\sA} \to \cM_{\sB}$, unique up to homotopy, subject to the condition that
+\[
+\xymatrix{
+\sA \ar[r]^{f} & \sB \\
+\cM_{\sA} \ar[u]^{\rho_{\sA}} \ar[r]_{\tilde{f}} & \cM_{\sB} \ar[u]_{\rho_{\sB}}
+}
+\]
+commutes up to homotopy.
+\end{corollary}
+
+\begin{corollary}\label{cor:1.6}
+Any two $k$-stage minimal models of an algebra are isomorphic by an isomorphism unique up to homotopy.
+\end{corollary}
+
+Theorem~(\ref{thm:1.2}) and its corollaries are sufficient for the proof of Theorem~(\ref{thm:1.1}).
+
+The first part of Theorem~(\ref{thm:1.2}) is proved by induction using the cohomological form of the obstruction to extending a homotopy. The second part is proved by a direct algebraic argument. To prove Corollary~(\ref{cor:1.3}) let $(s, t, \dd s, \dd t)$ represent the plane and $(s, t, \dd s, \dd t)/\{s \cdot (t-1) = 0, s\,\dd t = 0\}$ represent the union of the lines $s=0$ and $t=1$. Both are contractible algebras
+\[
+\xymatrix@R=1pc@C=1pc{
+& t=1 \ar[dddl]_{H'} & \\ \\
+\tilde{H} & & s=0 \ar[ll]^{H} \\
+& s=t \ar@{-}[uul] \ar@{-}[uur]
+}
+\]
+Two homotopies $H \colon \cM \to \sB \otimes (t, \dd t)$ and $H' \colon \cM \to \sB \otimes (s, \dd s)$ with $H|_{t=1} = H'|_{s=0}$ define a map
+\[
+H \oplus -H' \colon \cM \to \sB \otimes (t, \dd s, \dd t)/\{s \cdot (t-1) = 0, s\,\dd t = 0\}).
+\]
+Use Theorem~(\ref{thm:1.2}) to produce an $\tilde{H} \colon \cM \to \sB \otimes (s, t, \dd s, \dd t)$ which extends $H \oplus -H'$. Restricting $\tilde{H}$ to the line $\{s = t\}$ gives the required homotopy from $H|_{t=0}$ to $H'|_{s=1}$.
+
+The lifting up to homotopy theorem proves that the map $\varphi \colon [\cM, \sA] \to [\cM, \sB]$ of Corollary~(\ref{cor:1.4}) is onto if $\varphi^{*} \colon H^{*}(\sA) \to H^{*}(\sB)$ is an isomorphism. That $\varphi$ is one-to-one is proved using a relative version of lifting up to homotopy.
+
+Corollary~(\ref{cor:1.5}) is an immediate consequence of (\ref{thm:1.2}).
+
+To prove Corollary~(\ref{cor:1.6}) we need to know that any map of minimal differential algebras inducing an isomorphism on cohomology induces an isomorphism on the subalgebras generated by elements in degree $k$. This is proved inductively over the canonical series.
+
+\begin{example}
+Let $f \colon S^{4n-1} \to S^{2n}$ be a $C^{\infty}$ map. It induces $\tilde{f} \colon A_{2n}(y) \otimes A_{4n-1}(z) \to A_{4n-1}(x)$ unique up to homotopy. There are no homotopies here; thus $\tilde{f}$ is unique. It is completely determined by $\tilde{f}(z) = H(f) \cdot x$ for some real number $H(f)$. By explicit computation $H(f) = \int_{S^{4n-1}} f_{1} \wedge f^{*}(y)$ where $y \in \sE^{2n}_{S^{2n}}$ and $f_{1} \in \sE^{2n-1}_{S^{4n-1}}$ satisfies $\dd f_{1} = f^{*}y$. This is exactly Whitehead's formulation of the Hopf invariant of $f$ as given in \cite{Wh2}. Thus, $H(f)$ is an integer. Also we see that the homotopy theoretic nature of $f$ modulo torsion is determined by maps on forms, even though $f^{*}$ is zero in cohomology.
+\end{example}
+
+As a general comment, to understand cohomology and maps on cohomology one need deal only with closed forms, but to detect the finer homotopy theoretic information one also needs to use non-closed forms. Differential geometric aspects of this philosophy have been given by Chern and Simons: ``The manner in which a closed form which is zero in cohomology actually becomes exact contains geometric information''.
+
+
+\section{De Rham Homotopy Theory}
+
+There are two natural ``geometric'' differential algebras; one is the $C^{\infty}$ de Rham forms on a smooth manifold, and the other is the $\QQ$-polynomial forms on a simplicial complex. Associated to each type of algebra is a de Rham theorem. Also, given a $C^{1}$ triangulation of a $C^{\infty}$ manifold, the two algebras of forms are related through the piecewise $C^{\infty}$ forms in that triangulation.
+
+Let $\sE^{*}_{M}$ be the $C^{\infty}$ forms on $M$ and $\cM_{M}$ a minimal model for it. If $M$ is simply connected, we call $\cM_{M}$ the \emph{$C^{\infty}$ de Rham homotopy type} of $M$ and $\pi_{i}(\cM_{M}) = \pi_{i}(\sE^{*}_{M})$ the $i$-th \emph{$C^{\infty}$ de Rham homotopy group} of $M$. These vector spaces are given a graded Lie algebra structure called the \emph{de Rham-Whitehead product}. These groups and their products are invariants of $M$. If $f \colon M \to N$ is an isomorphism on cohomology, then it induces an isomorphism $\tilde{f} \colon \cM_{N} \to \cM_{M}$ and $\tilde{f}_{*} \colon \pi_{i}(\cM_{M}) \to \pi_{i}(\cM_{N})$. More generally, given any smooth map $f \colon M \to N$, it induces $\tilde{f} \colon \cM_{N} \to \cM_{M}$ unique up to homotopy. The various homotopic $\tilde{f}$'s induce the same map $\tilde{f}_{\#} \colon \pi_{i}(\cM_{M}) \to \pi_{i}(\cM_{N})$. There are analogous statements about the $C^{\infty}$ de Rham fundamental group of any manifold.
+
+In the next section we shall state how these homotopy invariants of manifolds are related to the more classical ones, thus justifying the terminology.
+
+In particular we shall find that
+\begin{enumerate}
+\item $\pi_{1}(\cM_{M})$ is the real form of the nilpotent completion of $\pi_{1}(M)$.
+\item If $\pi_{1}(M) = \{e\}$, then $\pi_{n}(\cM_{M}) \cong \pi_{n}(M) \otimes \RR$ by a natural isomorphism preserving the Whitehead product structures.
+\item If $\pi_{1}(M) = \{e\}$, then $\cM_{M}$ contains all the algebraic topology of $M$ over real numbers. It is the \emph{real homotopy type} of $M$.
+\end{enumerate}
+
+\begin{explanation}%
+\begin{enumerate}
+\item[1)] If $\pi$ is any group, then
+\[
+\pi = F_{1} \supset [\pi, \pi] = F_{2} \supset [\pi, F_{2}] = F_{3} \supset \cdots
+\]
+is the lower central series. The quotients
+\[
+\cdots \to \pi/F_{3} \to \pi/F_{2} \to \pi/F_{1} = \text{abelianization of } \pi
+\]
+is a tower of nilpotent groups in the sense that $(n+1)$-fold commutators are $0$ in $\pi/F_{n}$. This tower is the \emph{nilpotent completion} of $\pi$. It is possible to ``tensor'' such nilpotent groups with $\RR$ (or $\QQ$, or $\CC$) and produce real (rational or complex) nilpotent Lie groups, \cite{BK,M}. These are the real (rational or complex) form of the nilpotent completion of $\pi$.
+\end{enumerate}
+\end{explanation}
+
+To give meaning to statement 3), much less prove it, we must relate $\cM_{M}$ to some Postnikov tower related to $M$. As we will see in the next section it is possible to homotopy-theoretically tensor a Postnikov tower with $\QQ$. However, there is no such direct process for tensoring with $\RR$.\footnote{Theorems~(\ref{thm:3.3}) and (\ref{thm:3.4}) below provide a meaningful algebraic method for ``tensoring'' a space with $\RR$. Finding a geometric process for tensoring a space with $\RR$ presents interesting problems.} We must therefore relate $\cM_{M}$ to a rational differential algebra which then may be related to a rational Postnikov tower. This leads us to the other class of differential algebras: the $\QQ$ polynomial forms on a simplicial complex. The following discussion is motivated by Whitney's work \cite{Wh1}, especially Chapter IV, Sections 24--29 and Chapter VII, Sections 10--12.
+
+Let $\sigma_{n}$ be an $n$-simplex embedded in $\RR^{n+1}$ using barycentric coordinates. A $\QQ$-\emph{polynomial form} on $\sigma_{n}$ is the restriction to the simplex of a differential form
+\[
+\omega = \sum b_{i_{1} \ldots i_{r}}(t)\, \dd t_{i_{1}} \wedge \cdots \wedge \dd t_{i_{r}}
+\]
+in $\RR^{n+1}$ where the $b_{i_{1} \ldots i_{r}}(t)$ are polynomials with $\QQ$-coefficients. On a simplicial complex $X$, a $\QQ$-polynomial form $\omega$ is given by a $\QQ$-polynomial form $\omega_{\sigma}$ in each simplex $\sigma \subset X$ such that the compatibility condition, $\omega_{\sigma}$ restricted to $\tau$ equals $\omega_{\tau}$ whenever $\sigma$ contains $\tau$ as a face, is satisfied. The $\QQ$-polynomial forms give a differential algebra $\sE^{*}_{X}$ defined over $\QQ$. Moreover, Stokes' theorem
+\[
+\int_{\sigma} \dd\omega = \int_{\partial\sigma} \omega
+\]
+is valid for simplicial chains, and thus integration gives a chain map $\sE^{*}_{X} \to C^{*}(X, \QQ)$. We obtain rational cochains because integration of polynomials is a rational operation.
+
+\begin{theorem}[p.~1, de Rham Theorem, see \cite{Wh1,S3,FGM}]\label{thm:2.1}%
+\begin{enumerate}
+\item[(a)] The induced mapping $H^{*}(\sE^{*}_{X}) \to H^{*}(X, \QQ)$ is an isomorphism of $\QQ$-algebras.
+\item[(b)] If $K \xrightarrow{\tau} M$ is a $C^{1}$ triangulation of a $C^{\infty}$ manifold, let $\tilde{\sE}^{*}$ be the complex of piecewise $C^{\infty}$ forms on $M$ with respect to the triangulation $K$ (i.e.\ forms whose restrictions to each simplex of $K$ is $C^{\infty}$). Then the inclusions
+\[
+\xymatrix{
+& \tilde{\sE}^{*} \ar[dl] \ar[dr] & \\
+\sE^{*}_{M} & & \sE^{*}_{K}
+}
+\]
+induce isomorphisms on cohomology rings.
+\end{enumerate}
+\end{theorem}
+
+These two isomorphism theorems are proved similarly to the way Whitney proves the de Rham theorem and the isomorphism theorem for flat cochains, see \cite{Wh1}. For the fact that the isomorphism in a) is a ring map see \cite{Wh3}.
+
+To each simplicial complex $X$, we assign $\sE^{*}_{X}$, the differential algebra of $\QQ$-polynomial forms. From this we obtain $\cM_{\sE^{*}_{X}}$ and dually a natural tower of nilpotent Lie groups $\cdots \to L_{2}(X) \to L_{1}(X) \to 0$. This tower is the \emph{$\QQ$-de Rham fundamental group} of $X$. If $X$ is simply connected, then $\cM_{\sE^{*}_{X}} = \cM_{X}$ is an invariant of $X$. It is the \emph{$\QQ$-de Rham homotopy type} of $X$ and its homotopy groups $\pi_{n}(\cM_{X})$, with their Whitehead products, are the \emph{$\QQ$-de Rham homotopy groups} of $X$. A simplicial map $F \colon X \to Y$ induces $\tilde{f} \colon \cM_{Y} \to \cM_{X}$ unique up to homotopy. All the homotopic $\tilde{f}$ induce the same map $\tilde{f}_{\#} \colon \pi_{1}(\cM_{X}) \to \pi_{1}(\cM_{Y})$, which is the map induced by $f$ on the $\QQ$-de Rham fundamental group. If $X$ and $Y$ are simply connected, then the various $\tilde{f} \colon \cM_{Y} \to \cM_{X}$ induce the same map $\tilde{f}_{\#} \colon \pi_{n}(\cM_{X}) \to \pi_{n}(\cM_{Y})$.
+
+If $K \xrightarrow{\tau} M$ is a $C^{1}$ triangulation of a $C^{\infty}$ manifold, applying Theorem~\ref{thm:2.1}, b) gives:
+\begin{enumerate}
+\item[1)] ($\QQ$-de Rham fundamental group of $K$) $\otimes_{\QQ} \RR$ $\cong$ de Rham fundamental group of $M$: $\pi_{1}(\cM_{K}) \otimes_{\QQ} \RR \cong \pi_{1}(\cM_{M})$,
+\item[2)] If $M$ is simply connected, then ($\QQ$-de Rham homotopy type of $K$) $\otimes_{\QQ} \RR$ $\cong$ $C^{\infty}$ de Rham homotopy type of $M$: $\cM_{K} \otimes_{\QQ} \RR \cong \cM_{M}$, also $\pi_{n}(\cM_{K}) \otimes_{\QQ} \RR \cong \pi_{n}(\cM_{M})$ by an isomorphism preserving Whitehead products.
+\end{enumerate}
+
+In the next section we will relate all this to the classical homotopy theory for $X$ and for $M$.
+
+To do this it is necessary to be able to subdivide simplicial complexes (e.g., for the simplicial approximation theorem). Since we wish to preserve the $\QQ$-polynomial forms, it is necessary to restrict to rational barycentric subdivisions, i.e., those where all new vertices have rational coordinates in the old vertices. With this restriction the $\QQ$-polynomial forms on $X$ induce $\QQ$-polynomial forms on the subdivision. The category of simplicial complexes with $\QQ$-subdivision and $\QQ$-piecewise linear maps is equivalent to the usual homotopy category.
+
+
+\section{Relation between De Rham Homotopy Theory and Classical Homotopy Theory}
+
+To relate the $C^{\infty}$ de Rham homotopy type of a manifold $M$ to the classical homotopy theory of $M$, we relate the $\QQ$-de Rham homotopy type of some $C^{1}$ triangulation, $K$, to the classical homotopy type, and then use the relationship $\cM_{K} \otimes_{\QQ} \RR$. For another connection between differential (co-) algebras and homotopy theory compare \cite{Q}, which motivated the questions answered in this section.
+
+To each space $X$ we can associate a tower of fibrations $P_{X}$, the Postnikov tower to $X$,
+\[
+\xymatrix@R=1pc{
+& \vdots \ar[d] \\
+& X_{n} \ar[d]^{p_{n}} \\
+X \ar[uur]^{f_{n}} \ar[ur]_(0.3){f_{n-1}} \ar[r] & X_{n-1} \ar[d] \\
+& \vdots \ar[d] \\
+& X_{0} = \text{pt}
+}
+\]
+such that
+\begin{enumerate}
+\item the fiber of $X_{n} \to X_{n-1}$ has only one non-zero homotopy group, that being in dimension $n$;
+\item $f_{n}$ is an isomorphism on homotopy groups in dimension $\le n$, and
+\item $X_{0}$ is a point.
+\end{enumerate}
+
+Homotopy questions about $X$ can be formulated in terms of this tower. To study such a tower with ordinary forms (i.e., forms taking values in a constant bundle), we need the fibrations $p$ to be principal. They are principal if, and only if, $\pi_{1}(X_{n-1}) \to \pi_{1}(X_{n})$ acts trivially on $\pi_{n}$ of the fiber (which is $\pi_{n}(X)$). Under weaker assumptions on $X$, namely that $\pi_{1}(X)$ is nilpotent and acts in a nilpotent manner in $\pi_{n}(X)$, the Postnikov tower admits a (finite) refinement into principal fibrations which can be treated algebraically using ordinary forms.
+
+More generally every space maps to its universal tower of principal fibrations $\tilde{P}_{X}$ (unique up to a pro-equivalence) which is convenient for our algebraic manipulations, but does not contain all the homotopy theoretic information in the space unless we are in the ``nilpotent case'' above.
+
+Towers of principle fibrations can be inductively ``tensored with $\QQ$'', see \cite{S2} for example, to produce a system of rational principal fibrations, i.e., ones in which the homotopy group of each fiber is a rational vector space. If $X$ is simply connected (or even nilpotent) then $P_{X} \otimes \QQ$ is the rational Postnikov tower of $X$, or the \emph{rational homotopy type} of $X$. It contains the rational form of all the algebraic homotopy information in the space. We will see one way to construct this tower, $P_{X} \otimes \QQ$, using $\QQ$-polynomial forms on $X$ below. To treat twisted fibrations directly one would need to use twisted forms (forms with coefficients in a flat vector bundle).
+
+The connection between forms and principal fibrations is achieved by the Hirsch lemma and its converse. Given a fibration $F \to E \xrightarrow{\pi} B$, an element $e \in H^{n}(F; \RR)$ is \emph{transgressive} if it is possible to take a closed form on $F$ representing $e$ and extend it to a form $\alpha$ on $E$ such that $\dd\alpha = \pi^{*}(\beta)$ for some closed form $\beta$ in $B$. If $H^{*}(F)$ is a free algebra, we say that it is \emph{transgressive} if it has an algebra basis consisting of transgressive elements.
+
+\begin{lemma}[Hirsch Lemma]\label{lem:3.1}
+Given a fibration $F \to E \xrightarrow{\pi} B$ with $H^{*}(F)$ free and transgressive and a differential algebra $\sA \xrightarrow{\rho} \sE^{*}_{B}$ giving an isomorphism on cohomology, then there is a map of differential algebras $\sA \otimes_{\dd} H^{*}(F) \to \sE^{*}_{E}$ also inducing an isomorphism on cohomology.
+\end{lemma}
+
+\begin{proof}
+Pick an algebra basis $\{x_{1}, \ldots, x_{n}\}$ for $H^{*}(F)$. Let $\tilde{\alpha}_{i} \in \sE^{*}_{E}$ be a form which when restricted to $F$ gives a closed form representing $x_{i}$. Let $\beta_{i}$ be such that $\dd\tilde{\alpha}_{i} = \pi^{*}(\beta_{i})$. Since $\rho \colon \sA \to \sE^{*}_{B}$ is an isomorphism on cohomology, we may pick $\alpha_{i}$ such that $\beta_{i} = \rho(\alpha_{i})$ for some closed form $\alpha_{i} \in \sA$.
+
+Define $\dd \colon H^{*}(F) \to \sA^{*+1}$ by $\dd(x_{i}) = \alpha_{i}$, and $\tilde{\beta} \colon \sA \otimes_{\dd} H^{*}(F) \to \sE^{*}_{E}$ by $\tilde{\beta}|_{\sA} = \pi^{*} \circ \rho$ and $\tilde{\beta}(x_{i}) = \tilde{\alpha}_{i}$. $\tilde{\beta}$ is a map of differential algebras. If one uses the $\QQ$-polynomial forms on the base $\sE^{*}_{B}$ for $\sA$ with $\rho = \Id$, then an easy induction argument over the cells of the base using the five lemma shows that $\tilde{\beta}$ is an isomorphism on cohomology. An easy algebraic induction shows that $\rho \otimes \Id \colon \sA \otimes_{\dd} H^{*}(F) \to \sE^{*}_{B} \otimes_{\dd} H^{*}(F)$ is an isomorphism on cohomology if $\rho$ is. Thus the Serre spectral sequence is, in effect, replaced in our $\QQ$-theory by the algebraically simpler Hirsch lemma. The latter also contains more information than the rational Serre spectral sequence.
+\end{proof}
+
+\begin{examples}[of Such Fibrations]
+\begin{enumerate}
+\item[1)] \emph{The frame bundle of a smooth manifold:} By the Chern-Weil theory, the fiber has free cohomology which is transgressive.
+\item[2)] \emph{Principal fibrations:} Using the Hirsch lemma, one proves inductively that
+\[
+H^{*}(K(\pi, n); \QQ) \cong A(\Hom(\pi, \QQ)).
+\]
+Thus the cohomology of the fiber is free and generated in dimension $n$. It is transgressive, since this is the case in the universal principal fibration
+\[
+K(\pi, n) \longrightarrow P \longrightarrow K(\pi, n+1).
+\]
+\end{enumerate}
+\end{examples}
+
+We also need the converse of the Hirsch lemma. It is at this point that it is necessary to work with $\QQ$-algebras and $\QQ$-polynomial-forms rather than $\RR$-algebras and classical forms.
+
+\begin{lemma}\label{lem:3.2}
+Given a $\QQ$-differential algebra, $\sA$ and a space $B$ with $\rho \colon \sA \to \sE^{*}_{B}$ inducing an isomorphism on $\QQ$-cohomology, and an elementary extension $\sA \otimes_{\dd} A_{n}$ of $\sA$, then there is a principal fibration $F \to E \to B$, and $\tilde{\rho} \colon \sA \otimes_{\dd} A_{n} \to \sE^{*}_{E}$ inducing an isomorphism on $\QQ$-cohomology. Furthermore, this fibration is unique if we require $\pi_{*}(F)$ to be a $\QQ$-vector space.
+\end{lemma}
+
+\begin{proof}
+Set $A_{n} = A(V_{n}^{*})$. Then
+\[
+\dd \colon V_{n} \to \{\text{closed forms in } \sA^{n+1}\} \to H^{n+1}(\sA)
+\]
+defines $k \in H^{n+1}(\sA, V_{n}) \cong H^{n+1}(B; V_{n})$.
+
+Form the principal fibration over $B$ with fiber $K(V_{n}, n)$ and characteristic class $k \in H^{n+1}(B; V_{n})$, i.e.,
+\[
+\xymatrix{
+K(V_{n}, n) \ar[r] & K(V_{n}, n) \ar[d] \\
+& E \ar[r]^{p} \ar[d] & P \ar[d] \\
+& B \ar[r]^{k} & K(V_{n}, n+1)
+}
+\]
+To define $\tilde{\rho} \colon \sA \otimes_{\dd} A_{n} \to \sE^{*}_{E}$ inducing an isomorphism on $\QQ$-cohomology, we need only know that
+\begin{enumerate}
+\item[1)] $H^{*}(K(V_{n}, n); \QQ) \cong A(V_{n}^{*}) = A_{n}$ (This is true since we are working over $\QQ$. The analogous statement over $\RR$ is false.), and
+\item[2)] the transgression $\partial \colon V_{n}^{*} \to H^{n+1}(B)$ equals $k$.
+\end{enumerate}
+\end{proof}
+
+Thus given an algebra which is presented as a sequence of elementary extensions, $0 \subset \sA_{1} \subset \sA_{2} \subset \cdots \bigcup \sA_{i} = \sA$ (e.g., a minimal differential algebra with a series), we can form a tower of rational fibrations $X_{1} \leftarrow X_{2} \leftarrow \cdots$ using (\ref{lem:3.2}). Conversely given a tower of principal fibrations, we use (\ref{lem:3.1}) to build a sequence of elementary extensions of differential algebras. A main result, see \cite{S1} and \cite{S2}, is that
+\begin{enumerate}
+\item[1)] the composition:
+\[
+\text{tower of} \to \text{sequence of} \to \text{tower of}
+\]
+\[
+\text{principal} \to \text{elementary} \to \text{rational}
+\]
+\[
+\text{fibrations} \to \text{extensions of} \to \text{principal}
+\]
+\[
+\phantom{\text{fibrations}} \to \text{$\QQ$-differential} \to \text{fibrations}
+\]
+\[
+\phantom{\text{fibrations}} \to \text{algebras} \phantom{\to \text{fibrations}}
+\]
+tensors a tower with $\QQ$, and that
+\item[2)] the composition
+\[
+\text{sequence of} \to \text{tower of} \to \text{sequence of}
+\]
+\[
+\text{elementary} \to \text{rational} \to \text{elementary}
+\]
+\[
+\text{extensions of} \to \text{principal} \to \text{extensions of}
+\]
+\[
+\text{$\QQ$-differential} \to \text{fibrations} \to \text{$\QQ$-differential}
+\]
+\[
+\text{algebras} \phantom{\to \text{fibrations}} \to \text{algebras}
+\]
+is the identity.
+\item[3)] If a sequence of elementary extensions of differential algebras $0 \subset \sA_{1} \subset \sA_{2} \subset \cdots$ determines principal fibrations $X_{1} \leftarrow X_{2} \leftarrow \cdots$, then each $\sA_{i}$ maps into $\sE^{*}_{X_{i}}$ inducing an isomorphism on cohomology. Thus, if each $\sA_{i}$ is minimal (i.e., $\dd$ is decomposable), then $\sA_{i}$ is the minimal model for $\sE^{*}_{X_{i}}$.
+\end{enumerate}
+
+\begin{theorem}\label{thm:3.3}
+\begin{enumerate}
+\item[(a)] If $X$ is simply connected (or nilpotent), then the rational Postnikov tower of $X$ and the rational de Rham homotopy type of $X$ determine each other, $\cM_{X} \otimes \QQ \cong P_{X} \otimes \QQ$. (This justifies calling $\cM_{X}$ the rational homotopy type of $X$.) In particular if $X$ is simply connected $\pi_{n}(\cM_{X}) \cong \pi_{n}(X) \otimes \QQ$ by an isomorphism preserving Whitehead products.
+\item[(b)] $\pi_{1}(\cM_{X})$ = rational form of the nilpotent completion of $\pi_{1}(X)$, for any $X$.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}\label{thm:3.4}
+\begin{enumerate}
+\item[(a)] If $M$ is a simply connected $C^{\infty}$ manifold, then the $C^{\infty}$ de Rham homotopy type is the real form of an algebra with rational structure constants. Furthermore, this rational algebra can be taken to be that of the rational Postnikov tower of $M$. (This justifies calling $\cM_{M}$ the \emph{real homotopy type} of $M$.) In particular $\pi_{n}(\cM_{M}) \cong \pi_{n}(M) \otimes \RR$ by an isomorphism preserving Whitehead products, if $M$ is simply connected.
+\item[(b)] The $C^{\infty}$ de Rham fundamental group of $M$ is the real form of the nilpotent completion of $\pi_{1}(M)$, for any $M$.
+\item[(c)] If we use complex valued forms on $M$, then a) and b) have complex analogues. Thus $\pi_{1}(\cM_{M}) \otimes_{\RR} \CC$ is the nilpotent completion of $\pi_{1}(M)$, and $\cM_{M} \otimes_{\RR} \CC$ is the \emph{complex homotopy type} of $M$ and contains $\pi_{n}(M) \otimes \CC$, if $M$ is simply connected.
+\end{enumerate}
+\end{corollary}
+
+There are also versions of these theorems for maps.
+
+If $f \colon X \to Y$ is a simplicial map, then
+\begin{enumerate}
+\item if $X$ and $Y$ are simply connected, the induced map on the $\QQ$-de Rham homotopy type determines the map induced by $f$ between the rational Postnikov towers of $X$ and $Y$, and $f_{\#} \colon \pi_{n}(\cM_{X}) \to \pi_{n}(\cM_{Y})$ equals $f_{\#} \colon \pi_{n}(X) \otimes \QQ \to \pi_{n}(Y) \otimes \QQ$;
+\item if $X$ and $Y$ are not simply connected, then the map $f_{*}$ on the $\QQ$-de Rham fundamental group equals the map $f_{*}$ on the $\QQ$ form of the nilpotent completion of $\pi_{1}$.
+\end{enumerate}
+
+If $f \colon M \to N$ is a $C^{\infty}$ map between $C^{\infty}$ manifolds, then
+\begin{enumerate}
+\item if $M$ and $N$ are simply connected, the induced map on $C^{\infty}$ de Rham homotopy groups equals the induced map on classical homotopy groups with $\RR$,
+\item if $M$ and $N$ are non simply connected, the map induced by $f$ on the $C^{\infty}$ de Rham fundamental group equals the map induced by $f$ on the real form of the nilpotent completion of $\pi_{1}(M)$.
+\end{enumerate}
+
+
+\section{Formality of Differential Algebras}
+
+As we have seen, the abstract homotopy type of a differential algebra $\sA$, $\cM_{\sA}$, contains more information in general than the cohomology ring. There are, for example, higher order products (Massey products) containing further invariants of the homotopy theory of the differential algebra (or space) under consideration.
+
+If $a \in H^{a}$, $b \in H^{b}$, and $c \in H^{c}$ satisfy $a \cdot b = 0 = b \cdot c$, then $a \cdot b \cdot c$ is zero for two reasons. Consequently, a difference element $\langle a, b, c \rangle$, in $H^{a+b+c-1}/\text{ideal}(a, c)$ can be formed. Let $\alpha$, $\beta$, and $\gamma$ be closed forms representing $a$, $b$, and $c$. Then $\alpha \wedge \beta = \dd\sigma$ and $\beta \wedge \gamma = \dd\rho$, and so $\alpha \wedge \rho + (-1)^{a+1} \sigma \wedge \gamma$ is a closed $(a+b+c-1)$-form whose cohomology class is well defined modulo the ideal $(a, c)$. This is the difference element. If such a quotient group is non zero, then there will always be homotopy theoretically distinct spaces (or differential algebras with the same cohomology rings.)
+
+These higher order products are invariants of the homotopy type (i.e., minimal model) of a differential algebra. In one case of interest to us they all vanish, namely if the differential algebra is homotopy equivalent to (i.e., has the same minimal model as) a differential algebra whose $\dd$ is identically $0$. This leads us to the following definition. Let $\cM$ be a minimal differential algebra and $H^{*}(\cM)$ the cohomology of $\cM$, viewed as a differential algebra with $\dd = 0$.
+
+\begin{definition}%
+\begin{enumerate}
+\item[(i)] $\cM$ is \emph{formal} if there is a map of differential algebras $\psi \colon \cM \to H^{*}(\cM)$ inducing the identity on cohomology.
+\item[(ii)] The homotopy type of a differential algebra $\sA$ is a \emph{formal consequence} of its cohomology if its minimal model is formal.
+\item[(iii)] The real (or complex) homotopy type of a manifold $M$ is a formal consequence of the cohomology $M$ if the de Rham homotopy type of the real (or complex) forms $\sE^{*}_{M}$ is a formal consequence of its cohomology.
+\item[(iv)] A $\QQ$-polyhedron $X$ is a formal consequence of its cohomology over $\QQ$ if the differential algebra of $\QQ$-polynomial forms $\sE^{*}_{X}$ is a formal consequence of its cohomology.
+\end{enumerate}
+\end{definition}
+
+\begin{note}
+Formal differential co-algebras were used by Quillen in \cite{Q}, to show, for example, that any graded, commutative algebra of finite type which is zero in degree one is the cohomology ring of some space.
+\end{note}
+
+\begin{definition}
+Let $\sA$, $\sB$ be differential algebras with minimal models $\cM_{\sA}$, $\cM_{\sB}$ respectively. Suppose that $f \colon \sA \to \sB$ is a map of differential algebras inducing $f^{*} \colon H^{*}(\sA) \to H^{*}(\sB)$ and $\tilde{f} \colon \cM_{\sA} \to \cM_{\sB}$, defined up to homotopy by Corollary~5 of Section~1. Assume finally that $\sA$ and $\sB$ are formal consequences of their cohomology by maps $\cM_{\sA} \xrightarrow{\psi_{\sA}} H^{*}(\sA)$ and $\cM_{\sB} \xrightarrow{\psi_{\sB}} H^{*}(\sB)$. Then we say that the induced map $\tilde{f}$ on homotopy types is a \emph{formal consequence} of the induced map $f^{*}$ on cohomology if the diagram
+\[
+\xymatrix{
+\cM_{\sA} \ar[r]^{\tilde{f}} \ar[d]_{\psi_{\sA}} & \cM_{\sB} \ar[d]^{\psi_{\sB}} \\
+H^{*}(\sA) \ar[r]_{f^{*}} & H^{*}(\sB)
+}
+\]
+is homotopy commutative.
+\end{definition}
+
+The simplest example of a manifold which is not formal is the following $3$-manifold. Let $N^{3}$ denote the space of upper triangular matrices
+\[
+\begin{pmatrix}
+1 & a & b \\
+0 & 1 & c \\
+0 & 0 & 1
+\end{pmatrix}
+\]
+with $a$, $b$, and $c$ real numbers ($N^{3}$ is homeomorphic to $\RR^{3}$). Let $\Gamma \subset N^{3}$ be the subgroup of integral matrices, and $M^{3} = N^{3}/\Gamma$.
+
+Projecting $N^{3}$ onto the $a$ and $c$ coordinates induces a fibration
+\[
+S^{1} \longrightarrow M^{3} \longrightarrow T^{2}.
+\]
+The minimal model of $M^{3}$ is (by the Hirsch lemma)
+\[
+\cM_{M^{3}}^{(1)} = A_{1}(x,y); \qquad \cM_{M^{3}}^{(2)} = \cM_{M^{3}} = A_{1}(x,y) \otimes A_{1}(z) \quad \text{and} \quad \dd z = x \wedge y.
+\]
+Thus $x \wedge z$, for example, is closed but not exact. In any algebra with $\dd = 0$ such a second order product is in the ideal of $x$. In this case $x \cdot H^{1}(M) = 0$. Thus if $\cM_{M^{3}}$ were formal, $x \wedge z$ would be cohomologous to $0$. Hence, $\cM_{M^{3}}$ is not formal.
+
+The simplest $1$-connected example where a minimal model fails to be formal is
+\[
+\cM = A_{2}(x,y) \otimes A_{3}(\varphi, \psi), \qquad \dd x = \dd y = 0, \quad \dd\varphi = x \wedge x \quad \text{and} \quad \dd\psi = x \wedge y.
+\]
+Again we have a higher order product which is closed but not exact. In dimension $5$, $x\varphi + y\psi$ is closed but not exact. Since $(x \cdot H^{3}(\cM) + y \cdot H^{3}(\cM))$ is $0$, the triple product $\langle x, x, y \rangle$ is non-zero in $\cM$. Consequently, there can be no map of $\cM \to \{H^{*}(\cM), \dd = 0\}$ inducing an isomorphism in cohomology. These examples lead us to the following equivalent condition to formality.
+
+Any minimal differential algebra is isomorphic as an algebra to
+\[
+P[V_{2}] \otimes A[V_{3}] \otimes P[V_{4}] \otimes A[V_{5}] \otimes \cdots
+\]
+where each vector space $V_{i}$ contains elements of degree $i$ only.
+
+In $V_{i}$ there is the subspace $C_{i}$ of closed elements.
+
+\begin{theorem}\label{thm:4.1}
+$\cM$ is formal if and only if, there is in each $V_{i}$ a complement $N_{i}$ to $C_{i}$, $V_{i} = C_{i} \oplus N_{i}$, such that any closed form, $\alpha$, in the ideal, $I(\bigoplus N_{i})$, is exact. Choosing such $N_{i}$ is equivalent to choosing $\psi \colon \cM \to H^{*}(\cM)$ giving the identity on cohomology.
+\end{theorem}
+
+\begin{proof}
+Suppose first that we have complements $N_{i}$ to $C_{i}$ in $V_{i}$. They give projections $\pi_{i} \colon V_{i} \to C_{i}$. Define $\theta \colon V_{i} \to H^{*}(\cM)$ by $\theta(x) = p(\pi_{i}(x))$ where $p \colon C_{i} \to H^{i}(\cM)$ is the natural inclusion. We extend $\theta$ to an algebra map $\psi \colon \cM \to H^{*}(\cM)$ by multiplicativity. To show that $\psi\dd = \dd\psi$, we must prove $\psi\dd = 0$. Let $e \in \cM$. Then $\dd e = \beta + \gamma$ where $\beta \in A(\bigoplus C_{i})$ and $\gamma \in I(\bigoplus N_{i})$. Since $\beta$ is closed, so is $\gamma$. By hypothesis $\gamma$ is then exact. Thus $\beta = \dd e - \gamma$ is also exact. Hence, $p(\beta) \in H^{*}(\cM)$ is $0$. This shows that $\psi(\dd e) = \theta(\beta) = p(\beta) = 0$, and that $\psi \colon \cM \to H^{*}(\cM)$ is a map of differential algebras inducing the identity on cohomology.
+
+Conversely, given $\psi \colon \cM \to H^{*}(\cM)$, we let $N_{i} = \ker\psi \cap V_{i}$. Because $C_{i} \to H^{*}_{i}(\cM)$ is an injection, $V_{i} = C_{i} \oplus N_{i}$. If $\alpha \in I(\bigoplus N_{i})$ is closed, then $[\alpha] = \psi(\alpha) = 0$, and $\alpha$ is exact in $\cM$ since $\psi^{*}$ is an isomorphism on cohomology.
+\end{proof}
+
+The existence of the splitting $N_{i}$ with the property that any closed $\alpha \in I(\bigoplus N_{i})$ is exact is a way of saying that one may make uniform choices so that the forms representing all Massey products and higher order Massey products are exact. This is stronger than requiring each individual Massey product or higher order Massey product to vanish. The latter means that, given one such product, choices may be made to make the form representing it exact, and there may be no way to do this uniformly.
+
+
+\section{The De Rham Complex of a Compact K\"ahler Manifold}
+
+In this section we shall review the basic facts regarding Hodge theory on a compact K\"ahler manifold which will be used later.
+
+To begin with, an \emph{almost complex manifold} is a smooth manifold $M$ having an endomorphism $J \colon T(M) \to T(M)$ of the real tangent bundle which satisfies $J^{2} = -\Id$. The complex tangent bundle $T_{\CC}(M) = T(M) \otimes_{\RR} \CC$ splits into conjugate sub-bundles under the action of $J$
+\[
+T_{\CC}(M) = T'(M) \oplus T''(M),
+\]
+\[
+J|_{T'(M)} = \sqrt{-1}\, \Id, \qquad T''(M) = \text{complex conjugate of } T'(M).
+\]
+On the exterior powers of the cotangent bundle there is an induced decomposition
+\[
+\Lambda^{r} T_{\CC}(M)^{*} = \bigoplus_{p+q=r} \{\Lambda^{p} T'(M)^{*} \otimes \Lambda^{q} T''(M)^{*}\} = \bigoplus_{p+q=r} \Lambda^{p,q} T_{\CC}(M)
+\]
+Using this, a differential form on $M$ may be uniquely written as a sum of its $(p,q)$ components $\varphi = \sum_{p,q} \varphi_{p,q}$. This produces a splitting of the complex valued forms on a complex manifold, $\sE^{*} \otimes \CC$, into $\bigoplus_{p,q} \sE^{p,q}$.
+
+In particular, for a function $f$, $\dd f = \partial f + \bar{\partial} f$ where $\partial f = (\dd f)_{1,0}$. The Cauchy-Riemann operator $\bar{\partial}$ extends to a differentiation on the de Rham complex, and the almost-complex structure is \emph{integrable} in case $\bar{\partial}^{2} = 0$. By the theorem of Newlander-Nirenberg \cite{NN} this is the case if, and only if, there are local maps $z \colon U \to \CC^{n}$ ($2n = \dim_{\RR} M$) from open sets $U \subset M$ such that $\dd z_{1}, \ldots, \dd z_{n}$ span $T'(M)$. Since any two such maps are related by a biholomorphic change of variables, the integrability condition is equivalent to $M$ being a complex manifold.
+
+On a complex manifold $M$ one defines $\dc = \sqrt{-1}\,(\bar{\partial} - \partial)$ with the properties that
+\begin{itemize}
+\item $\dc$ is real, in fact $\dc = J^{-1} \dd J$,
+\item $(\dc)^{2} = 0$, and
+\item $\dd\dc = 2\sqrt{-1}\, \partial\bar{\partial} = -\dc\dd$.
+\end{itemize}
+Thus $\sE^{*}$ is a real differential algebra using either of the commuting operators $\dd$ and $\dc$, and the resulting cohomologies will be denoted by $H^{*}_{\dd}(M)$ and $H^{*}_{\dc}(M)$. The geometric nature of $\dc$ may perhaps be best seen using polar coordinates $z = re^{\sqrt{-1}\,\theta}$ on $\CC$ where
+\[
+\dc = -2r \frac{\partial}{\partial r} \dd\theta = 2 \dd\, \dd^{c} \log|z|.
+\]
+
+On any complex manifold there are positive definite Hermitian metrics
+\[
+(\xi, \eta) = S(\xi, \eta) + \sqrt{-1}\, A(\xi, \eta) = (J\xi, J\eta) \qquad \text{for } \xi, \eta \in T(M).
+\]
+$S$ and $A$ determine one another. Because of the Hermitian symmetry, $S$ is symmetric and $A$ is alternating. Thus $S$ is a Riemannian metric and $A$ is a $(1,1)$ form on $M$. The Hermitian metric is defined to be \emph{K\"ahler} if $\dd A = 0$, and a \emph{K\"ahler manifold} is a complex manifold admitting a K\"ahler metric. The existence of a K\"ahler metric is a statement of close interaction between the complex structure and potential theory, and it has many deep consequences for the topology of the manifold \cite{W}.
+
+There are several equivalent statements to the definition of a K\"ahler metric. The one given above, which is by now the usual one, has the advantage of making it obvious that a complex submanifold of a K\"ahler manifold is again a K\"ahler manifold. Thus, any smooth, complex projective algebraic variety is K\"ahler. The one which we shall use below is the identity
+\begin{equation}\label{eq:5.1}
+\Delta_{\dd} = 2\Delta_{\partial} = 2\Delta_{\bar{\partial}} = \Delta_{\dc}
+\end{equation}
+between the various Laplacians of the operators $\dd$, $\partial$, $\bar{\partial}$, $\dc$. It is perhaps worthwhile to give a few alternate forms of the K\"ahler condition, and from these explain how the identity (\ref{eq:5.1}) may be proved.
+
+We shall write an Hermitian metric in the two forms
+\[
+\dd s^{2} = \sum_{i,j} h_{i,j}\, \dd z_{i}\, \dd\bar{z}_{j} = \sum_{i} \omega_{i} \otimes \bar{\omega}_{i}
+\]
+where $(z_{1}, \ldots, z_{n})$ are local holomorphic coordinates, $h = (h_{i,j})$ is a positive Hermitian matrix, and where $\omega_{1}, \ldots, \omega_{n}$ are differential forms of type $(1,0)$ constituting a $C^{\infty}$ unitary co-frame for the metric. The associated $(1,1)$ form is
+\[
+A = \frac{\sqrt{-1}}{2} \sum_{i,j} h_{i,j}\, \dd z_{i} \wedge \dd\bar{z}_{j},
+\]
+and our basic definition is, as above:
+
+(i) The metric is K\"ahler if $\dd A = 0$.
+
+To give the second definition; we recall the basic theorem in local Hermitian geometry that there exist unique differential forms $\omega_{i,j}$, $\tau_{i}$ satisfying
+\begin{equation}\label{eq:5.2}
+\dd\omega_{i} = \sum_{j} \omega_{i,j} \wedge \omega_{j} + \tau_{i}, \qquad \omega_{i,j} + \bar{\omega}_{j,i} = 0, \quad \tau_{i} \text{ has type } (2,0)
+\end{equation}
+(c.f.\ Chern \cite{Ch}). The vector $\tau = (\tau_{1}, \ldots, \tau_{n})$ is the torsion tensor, and $\omega = (\omega_{i,j})$ gives the connection matrix for the unique connection $\nabla_{H}$ in the $(1,0)$ tangent bundle $T'(M)$ satisfying
+\[
+\nabla_{H}(\xi, \eta) = \dd(\xi, \eta) - (\nabla_{H}\xi, \eta) - (\xi, \nabla_{H}\eta) = 0
+\]
+where $\xi$, $\eta$ are $C^{\infty}$ sections of $T'(M)$.
+
+(Explanations. We are viewing connections as differential operators from sections to sections tensor $1$-forms; the connection matrix means relative to the basis of $T'(M)$ dual to $\omega_{1}, \ldots, \omega_{n}$; and finally $\nabla_{H}^{0,1}$ is the $(0,1)$ component of $\nabla_{H}$.)
+
+Our second definition is:
+
+(ii) The metric is K\"ahler if the torsion $\tau = 0$.
+
+For our third definition, we consider the standard connection $\nabla_{R}$ in the real tangent bundle $T(M)$ associated to the Riemannian metric underlying the given Hermitian metric.
+
+(iii) The metric is K\"ahler if $\nabla_{R} J = 0$; equivalently, parallel translation should preserve the almost complex structure.
+
+Finally, we shall say that the metric is K\"ahler in case it osculates to 2nd order to the flat metric on $\CC$. More precisely,
+
+(iv) The metric is K\"ahler if, for each point $x \in M$, there is a holomorphic coordinate system $(z_{1}, \ldots, z_{n})$ centered at $x$ and such that
+\begin{equation}\label{eq:5.3}
+h_{i,j}(z, \bar{z}) = \delta_{i,j} + [2],
+\end{equation}
+where $[2]$ means terms of order two or more.
+
+\begin{proof}[Proof of Equivalence of Definitions]
+(i) $\Leftrightarrow$ (ii): Since $A$ is real, $\dd A = 0 \Leftrightarrow \partial A = 0$. Let the $(0,1)$-component of $\omega_{i,j}$ be $\sigma_{i,j}$. Then by the basic structure equations, (\ref{eq:5.2}),
+\[
+\partial\omega_{i,j} = \sigma_{i,j} - \bar{\sigma}_{j,i},
+\]
+\[
+\partial A = \frac{\sqrt{-1}}{2} \sum_{i} (\partial\omega_{i} \wedge \bar{\omega}_{i} + \omega_{i} \wedge \partial\bar{\omega}_{i})
+\]
+\[
+= \frac{\sqrt{-1}}{2} \sum_{i} \tau_{i} \wedge \bar{\omega}_{i} = 0 \Leftrightarrow \tau = 0.
+\]
+
+(ii) $\Leftrightarrow$ (iii): Write $z_{i} = x_{i} + \sqrt{-1}\, x_{n+i}$, $\omega_{i} = \varphi_{i} + \sqrt{-1}\, \varphi_{n+i}$ where $x_{\alpha}$, $\varphi_{\alpha}$ are real (using the index range $1 \le i, j \le n$ and $1 \le \alpha, \beta \le 2n$). Then
+\[
+\dd s^{2} = \sum_{\alpha, \beta} g_{\alpha,\beta}\, \dd x_{\alpha}\, \dd x_{\beta} = \sum_{\alpha} \varphi_{\alpha} \otimes \varphi_{\alpha}
+\]
+is the underlying Riemann metric, and by the basic theorem in local Riemannian geometry there exists a unique matrix $\varphi = (\varphi_{\alpha,\beta})$ of $1$-forms satisfying
+\begin{equation}\label{eq:5.4}
+\dd\varphi_{\alpha} = \sum_{\beta} \varphi_{\alpha,\beta} \wedge \varphi_{\beta}, \qquad \varphi_{\alpha,\beta} + \varphi_{\beta,\alpha} = 0.
+\end{equation}
+Here $\varphi$ is the connection matrix for the Riemannian connection $\nabla_{R}$ applied to the dual frame to $\varphi_{1}, \ldots, \varphi_{2n}$. Comparing the structure Eqs.~(\ref{eq:5.2}) and (\ref{eq:5.4}), we see that if $\tau = 0$, then upon writing $\omega = \omega' + \sqrt{-1}\, \omega''$ we get
+\[
+\varphi = \begin{pmatrix} \omega' & \omega'' \\ -\omega'' & \omega' \end{pmatrix}.
+\]
+This says exactly that, on the complexification $T_{\CC}(M) \cong T'(M) \oplus T''(M)$, $\nabla_{R} = \nabla_{H} \oplus \overline{\nabla}_{H}$, which implies that $\nabla_{R}$ commutes with $J$. (This proof may be given verbally by stating that the Riemannian and Hermitian connections coincide in the K\"ahler case.)
+
+(iii) $\Rightarrow$ (iv): First, we observe that (iv) is equivalent to saying that, for each $x \in M$ there is a $C^{\infty}$ coordinate system $z = (z_{1}, \ldots, z_{n})$ centered at $x$ which is holomorphic to 2nd order. This means that $z$ maps a neighborhood $U$ of $x$ differentially to $\CC^{n}$, $\dd z_{1}(x), \ldots, \dd z_{n}(x)$ span $T'_{x}(M)$, and all $\bar{\partial}(\dd z_{i})(x) = 0$, such that (\ref{eq:5.3}) holds.
+
+Assuming (iii), we let $(x_{1}, \ldots, x_{2n})$ be geodesic coordinates centered at $x$. We may arrange that at $x$, $J(\dd x_{i}) = \dd x_{n+i}$, and then set $z_{i} = x_{i} + \sqrt{-1}\, x_{n+i}$. Since $(x_{1}, \ldots, x_{2n})$ are geodesic coordinates, $g_{\alpha,\beta} = \delta_{\alpha,\beta} + [2]$. Thus the connection matrix for $\nabla_{R}$ is zero at $x$, and $\nabla_{R} J = 0$ implies $(\dd J)(x) = 0$. It follows that $\bar{\partial}(\dd z_{i})(x) = 0$, and (iv) follows immediately.
+
+(iv) $\Rightarrow$ (i): This is the main point. Given an Hermitian metric satisfying (iv), we see that
+\begin{equation}\label{eq:5.5}
+\text{Any identity involving the metric and only its first derivatives is valid on } M \text{ if it is valid for the flat metric on } \CC^{n}.
+\end{equation}
+Applying this to the identity $\dd A = 0$, which is obviously true on $\CC^{n}$, we conclude the equivalence of (i)--(iv).
+\end{proof}
+
+We shall discuss how the principle (\ref{eq:5.5}) may be used to prove (\ref{eq:5.1}), as well as some other K\"ahler identities. We first consider the commutation relations
+\begin{equation}\label{eq:5.6}
+[\partial, \bar{\partial}^{*}] = 0 = [\bar{\partial}, \partial^{*}].
+\end{equation}
+On the face of it these involve second derivatives of the metric, but actually only first derivatives appear for the reason that mixed partials are equal (think of the Poisson bracket of vector fields). Thus, (\ref{eq:5.6}) is valid on a K\"ahler manifold since it is obviously true in $\CC^{n}$ (the metric has constant coefficients). Expanding out the definition of $\Delta_{\dd}$ now gives
+\[
+\Delta_{\dd} = (\partial + \bar{\partial})(\partial^{*} + \bar{\partial}^{*}) + (\partial^{*} + \bar{\partial}^{*})(\partial + \bar{\partial})
+\]
+\[
+= (\partial\partial^{*} + \partial^{*}\partial) + (\bar{\partial}\bar{\partial}^{*} + \bar{\partial}^{*}\bar{\partial}) \qquad \text{(by (\ref{eq:5.6}))};
+\]
+or
+\begin{equation}\label{eq:5.7}
+\Delta_{\dd} = \Delta_{\partial} + \Delta_{\bar{\partial}}.
+\end{equation}
+From (\ref{eq:5.7}) we see that $\Delta_{\dd}$ preserves $(p,q)$ type, since this is obviously true for $\Delta_{\partial}$ and $\Delta_{\bar{\partial}}$. Thus
+\begin{equation}\label{eq:5.8}
+\Delta_{\dd} = J^{-1} \Delta_{\dd} J = \Delta_{\dc}.
+\end{equation}
+Writing $\partial = \tfrac{1}{2}(\dd - \sqrt{-1}\, \dc)$, $\bar{\partial} = \tfrac{1}{2}(\dd + \sqrt{-1}\, \dc)$ we see that
+\[
+\partial\partial^{*} + \partial^{*}\partial = \tfrac{1}{4}(\dd\dd^{*} + \dd^{*}\dd + \dc\dc^{*} + \dc^{*}\dc) \qquad \text{(by (\ref{eq:5.8}))}
+\]
+Combining this with (\ref{eq:5.7}) gives (\ref{eq:5.1}).
+
+In closing, it is worth noting that the most interesting properties of K\"ahler metrics, such as the fact that $L(\eta) = A \wedge \eta$ takes harmonic forms to harmonic forms, are generally proved from the identity
+\begin{equation}\label{eq:5.9}
+[A, \dd] = \dc^{*}
+\end{equation}
+or equivalently
+\begin{equation}\label{eq:5.10}
+[A, \dd] = -\sqrt{-1}\, \dc^{*}
+\end{equation}
+where $\Lambda = *L*$ is the adjoint of $L$. Now (\ref{eq:5.10}) obviously involves only 1st derivatives of the metric and so by (\ref{eq:5.5}) it will suffice to prove it on $\CC^{n}$. This is not too hard since $\dd z_{1}, \ldots, \dd z_{n}$ gives a flat unitary co-frame; one uses the formulae
+\[
+\partial(f\, \dd z_{I} \wedge \dd\bar{z}_{J}) = \sum_{j \notin J} (-1)^{p} \frac{\partial f}{\partial\bar{z}_{j}}\, \dd z_{I} \wedge \dd\bar{z}_{j} \wedge \dd\bar{z}_{J},
+\]
+\[
+\Lambda(f\, \dd z_{I} \wedge \dd\bar{z}_{J}) = \sum_{k \in I \cap J} \pm f\, \dd z_{I - \{k\}} \wedge \dd\bar{z}_{J - \{k\}},
+\]
+\[
+\partial^{*}(f\, \dd z_{I} \wedge \dd\bar{z}_{J}) = \sum_{i \in I} \pm \frac{\partial f}{\partial z_{i}}\, \dd z_{I - \{i\}} \wedge \dd\bar{z}_{J}
+\]
+where $I = (i_{1}, \ldots, i_{p})$, $\dd z_{I} = \dd z_{i_{1}} \wedge \cdots \wedge \dd z_{i_{p}}$, etc.\ and just computes. Using (\ref{eq:5.10}),
+\[
+\partial\bar{\partial}^{*} + \bar{\partial}^{*}\partial = \tfrac{1}{2\sqrt{-1}}(\partial\Lambda\partial - \partial^{2}\Lambda + \Lambda\partial^{2} - \partial\Lambda\partial) = 0,
+\]
+which is (\ref{eq:5.6}). Similarly, $\dd A = 0 \Rightarrow \partial A = 0$ and $\dd^{*}\dc = [\Lambda, \dd]\dc = 0$ since $\Lambda A$ is a constant. Thus $A$ is harmonic for $\dc$, and hence for $\dd$. Further discussion of the basic K\"ahler identities is given in Weil's book \cite{W}, p.~179--194.
+
+The main fact we shall use about compact K\"ahler manifolds is the following lemma:
+
+\begin{lemma}[$\dd\dc$ Lemma]\label{lem:5.11}
+If $\alpha$ is a differential form such that $\dd\alpha = 0$ and $\dc\alpha = 0$, and such that $\alpha = \dd\gamma$, then $\alpha = \dd\dc\beta$ for some $\beta$.
+\end{lemma}
+
+\begin{proof}
+If $D$ is one of the operators $\dd$, $\partial$, $\bar{\partial}$, $\dc$ with Laplacian $\Delta_{D}$, the Hodge decomposition for the Laplacian gives
+\begin{equation}\label{eq:5.12}
+\alpha = \mathscr{H}_{D}(\alpha) + \Delta_{D} G_{D}(\alpha)
+\end{equation}
+where $\mathscr{H}_{D}$, the harmonic part of $\alpha$, is the projection of $\alpha$ on $\mathscr{H}_{D} = \ker\Delta_{D}$, and where the Green's operator $G_{D}$ is $\Delta_{D}^{-1}$ on $\mathscr{H}_{D}^{\perp}$. Suppose that $\alpha = \dd\gamma$. Then by (\ref{eq:5.12})
+\begin{equation}\label{eq:5.13}
+\alpha = \dd\dd^{*} G_{\dd}(\alpha).
+\end{equation}
+Since $\dc\alpha = 0$, $\alpha = \mathscr{H}_{\dc}(\alpha) + \dc\dc^{*} G_{\dc}(\alpha) = \dc\dc^{*} G_{\dc}(\alpha)$ because $\mathscr{H}_{\dc}(\alpha) = \mathscr{H}_{\dd}(\alpha) = 0$ by (\ref{eq:5.1}). Plugging this in (\ref{eq:5.13}) gives
+\[
+\alpha = \dd\dd^{*} G_{\dd}(\dc\dc^{*} G_{\dc}\alpha)
+\]
+\[
+= \dd\dc(\dc^{*} G_{\dd}\dc\dc^{*} G_{\dc}\alpha) \qquad \text{(using (\ref{eq:5.6}))}
+\]
+\[
+= \dd\dc\beta
+\]
+as required.
+\end{proof}
+
+\begin{remark}\label{rem:5.14}
+This lemma holds for real as well as complex forms, since the validity of a linear statement such as
+\[
+\Ker(\dd) \cap \Ker(\dc) \cap \Imop(\dd) = \Imop(\dd\dc)
+\]
+is unchanged by a field extension.
+
+For complex forms, being $\dd$ and $\dc$-closed is the same as being $\partial$ and $\bar{\partial}$-closed. Being $\dd\dc$-exact is the same as being $\partial\bar{\partial}$-exact, since $\dd\dc = 2\sqrt{-1}\, \partial\bar{\partial}$.
+\end{remark}
+
+There are statements similar in nature to the $\dd\dc$ Lemma which are equivalent to it. The following is a partial list of them, set in the context of a general double complex.
+
+\begin{lemma}\label{lem:5.15}
+Let $(K^{*,*}, \dd', \dd'')$ be a bounded double complex of vector spaces (or objects of any abelian category), and let $(K^{*}, \dd)$ be the associated simple complex, ($\dd = \dd' + \dd''$). For each integer $n$, the following conditions are equivalent:
+\begin{itemize}
+\item[(a)$_{n}$] in $K^{n}$, $\Ker(\dd') \cap \Ker(\dd'') \cap \Imop(\dd) = \Imop(\dd'\dd'')$,
+\item[(b)$_{n}$] in $K^{n}$, $\Ker(\dd'') \cap \Imop(\dd') = \Imop(\dd'\dd'')$ and $\Ker(\dd') \cap \Imop(\dd'') = \Imop(\dd'\dd'')$,
+\item[(c)$_{n}$] in $K^{n}$, $\Ker(\dd') \cap \Ker(\dd'') \cap (\Imop(\dd') + \Imop(\dd'')) = \Imop(\dd'\dd'')$.
+\item[(a*)$_{n-1}$] in $K^{n-1}$, $\Imop(\dd') + \Imop(\dd'') + \Ker(\dd) = \Ker(\dd'\dd'')$,
+\item[(b*)$_{n-1}$] in $K^{n-1}$, $\Imop(\dd'') + \Ker(\dd') = \Ker(\dd'\dd'')$ and $\Imop(\dd') + \Ker(\dd'') = \Ker(\dd'\dd'')$, and
+\item[(c*)$_{n-1}$] in $K^{n-1}$, $\Imop(\dd') + \Imop(\dd'') + (\Ker(\dd') \cap \Ker(\dd'')) = \Ker(\dd'\dd'')$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+In (a)(b)(c) the inclusions $\supset$ are obvious. In (a*)(b*)(c*) the inclusions $\subset$ are. The statements (a), (b) and (c) are dual to (a*), (b*), and (c*) respectively, e.g., (a)$_{n}$ for $K$ amounts to (a*)$_{-(n-1)}$ for $K^{*}$ in the dual category. This duality, the symmetry in the roles of $\dd'$ and $\dd''$, and the fact that (c) $\Rightarrow$ (a) is obvious, leaves us to prove the implications (a)$_{n}$ $\Rightarrow$ (b)$_{n}$ (first part), (b)$_{n}$ $\Rightarrow$ (c)$_{n}$, and (b)$_{n}$ (second part) $\Rightarrow$ (b*)$_{n-1}$ (first part).
+
+In the proofs, we will express ourselves as if in a category of modules. For $p+q = n$, we denote by $x^{p,q}$ the component in $K^{p,q}$ of $x \in K^{n}$.
+
+(a)$_{n}$ $\Rightarrow$ (b)$_{n}$ (first part): If $\dd'' x = 0$ and $x = \dd' y$, then the same holds for $x^{p,q}$ and $y^{p-1,q}$, and (a)$_{n}$ applies to $\dd y^{p-1,q}$: $\dd y^{p-1,q} = \dd'\dd'' z$, hence $x^{p,q} = \dd'\dd'' z^{p-1,q-1}$.
+
+(b)$_{n}$ $\Rightarrow$ (c)$_{n}$: If $\dd' x = \dd'' x = 0$ and $x = \dd' y + \dd'' z$, then, (b)$_{n}$ applies to $\dd' y$ and $\dd'' z$: they are $\dd'\dd''$-exact, and $x$ is too.
+
+(b)$_{n}$ (second part) $\Rightarrow$ (b*)$_{n-1}$ (first part): If $\dd'\dd'' x = 0$, then (b)$_{n}$ applies to $\dd'' x$: $\dd'' x = \dd'\dd'' y$ and $x = (x + \dd' y) - \dd' y$, with $\dd''(x + \dd' y) = 0$.
+\end{proof}
+
+\begin{remark}\label{rem:5.16}
+If maps $C_{i} \xrightarrow{g_{j}} A \xrightarrow{f_{i}} B_{j}$ are given, with $f_{i} \circ g_{j} = 0$, we put $H((g_{j}); (f_{i})) = \bigcap \Ker(g_{j})/\sum \Imop(f_{i})$. With this notation, if the equivalent conditions of \ref{lem:5.15} hold for every $n$, the natural maps in the following commutative diagram are all isomorphisms:
+\[
+\xymatrix@R=1pc@C=1pc{
+& H(\dd', \dd''; \dd'\dd'') \ar[dr] \ar[dl] & \\
+H(\dd', \dd') \ar[dr] & H(\dd; \dd) \ar[u] & H(\dd'', \dd'') \ar[dl] \\
+& H(\dd'\dd''; \dd', \dd'') \ar[ul] \ar[ur] &
+}
+\]
+\end{remark}
+
+\begin{proposition}\label{prop:5.17}
+Let $(K^{*,*}, \dd', \dd'')$ be a bounded double complex of vector spaces, and $(K^{*}, \dd)$ be the associated simple complex. The following conditions are equivalent.
+\begin{enumerate}
+\item[(i)] The equivalent conditions of (\ref{lem:5.15}) hold for every $n$.
+\item[(ii)] $K^{*,*}$ is a sum of double complexes of the following two types:
+\begin{enumerate}
+\item[($\alpha$)] complexes which have only a single component, with $\dd' = \dd'' = 0$,
+\item[($\beta$)] complexes which are a square of isomorphisms
+\[
+\xymatrix{
+K^{p-1,q} \ar[r]^{\dd'} & K^{p,q} \ar[d]^{\dd''} \\
+K^{p-1,q-1} \ar[u]^{\dd''} \ar[r]_{\dd'} & K^{p,q-1}
+}
+\]
+\end{enumerate}
+\item[(iii)] The spectral sequence defined by the filtration associated to either degree (denoted $'F$ or $''F$) degenerates at $E_{1}$ ($E_{1} = E_{\infty}$). The two induced filtrations, on $H^{n}$ are $n$-opposite: i.e., $'F^{p} \cap \, ''F^{q} \cap H^{n}$ for $p + q - 1 = n$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) $\Rightarrow$ (ii). Let $S^{p,q}$ be a supplement of $\Ker(\dd'\dd'')$ in $K^{p,q}$, and $A^{p,q}$ be a supplement of $\Imop(\dd'\dd'')$ in $\Ker(\dd') \cap \Ker(\dd'') \subset K^{p,q}$. By \ref{rem:5.16}, $A^{p,q}$ is also a supplement of $\Imop(\dd') + \Imop(\dd'')$ in $K^{p,q}$: we have
+\begin{enumerate}
+\item[(1)] $K^{p,q} = S^{p,q} \oplus A^{p,q} \oplus (\Imop(\dd') + \Imop(\dd''))$,
+\item[(2)] $\dd' A^{p,q} = \dd'' A^{p,q} = 0$,
+\item[(3)] $S^{p,q} \cap \Ker(\dd'\dd'') = 0$.
+\end{enumerate}
+Further, $\Imop(\dd') = \dd'(S^{p-1,q} + A^{p,q} + \Imop(\dd') + \Imop(\dd'')) = \dd' S^{p-1,q} + \dd'\dd'' S^{p-1,q-1}$ and similarly for $\dd''$, hence $K^{p,q} = S^{p,q} \oplus A^{p,q} \oplus (\dd' S^{p-1,q} + \dd'' S^{p,q-1} + \dd'\dd'' S^{p-1,q-1})$. Formula (3) shows that the sum is direct, and this provides us with the required decomposition.
+
+(ii) $\Rightarrow$ (iii): It is enough to prove (iii) for the elementary summands ($\alpha$) and ($\beta$). For these it is obvious.
+
+(iii) $\Rightarrow$ (i): Let us prove that if $x$, of type $(p,q)$, is closed and $\dd'$ exact, it is $\dd'\dd''$-exact. We have $x = \dd' y$, with $y$ of type $(p-1,q)$, and $x$ is cohomologous to $x - \dd y = -\dd'' y$ of type $(p-1,q+1)$: the cohomology class of $x$ is both in $'F^{p-1}$ and $''F^{q}$, hence zero.
+
+The differential of a chain complex is strict rel.\ to a filtration $F$ if and only if the corresponding spectral sequence degenerates at $E_{1}$. In our case then, $x = \dd a = \dd b$, with $a \in \, 'F^{p}$ and $b \in \, ''F^{q}$. We have $\dd(a-b) = 0$. The class of $a-b$ is the sum of a class in $'F^{p}$, and a class in $''F^{q}$: $a - b = a_{1} - b_{1} + \dd c$, with $a_{1} \in \, 'F^{p}$, $b_{1} \in \, ''F^{q}$, $\dd a_{1} = \dd b_{1} = 0$. In particular, $\dd'' a^{p,q-1}_{1} = 0$ and $x = \dd'' a^{p,q-1}_{1} = \dd''(a^{p,q-1}_{1} + \dd' c^{p-1,q-1} + \dd'' c^{p,q-2}) = -\dd'\dd'' c^{p-1,q-1}$.
+\end{proof}
+
+\begin{remark}\label{rem:5.18}
+Proposition~(\ref{prop:5.17}) holds in any semi-simple abelian category, and the equivalence (i) $\Leftrightarrow$ (iii) holds in any abelian category.
+\end{remark}
+
+Before applying these results to the de Rham complex let us recall two well-known definitions in the theory of complex manifolds.
+
+\begin{definition}\label{def:5.19}
+Let $V$ be a finite dimensional real vector space and $F^{*}$ a decreasing filtration on $V \otimes \CC$
+\[
+V \otimes \CC = F^{0} \supset F^{1} \supset \cdots \supset F^{n} \supset F^{n+1} = 0.
+\]
+$F^{*}$ induces a \emph{Hodge structure of weight $n$} if $V \otimes \CC$ is a direct sum $\bigoplus_{p+q=n} V^{p,q}$, with $V^{p,q} = F^{p}(V \otimes \CC) \cap \overline{F^{q}(V \otimes \CC)}$. Here, as always, $\overline{F^{*}}$ means the complex conjugate filtration to $F^{*}$.
+\end{definition}
+
+\begin{definition}\label{def:5.20}
+Let $M$ be a complex manifold. Define $F^{p}(\sE^{*}_{M} \otimes \CC)$ to be $\bigoplus_{i \ge p} \sE^{i,j}$. This is a decreasing filtration, and $\dd(F^{p}) \subset F^{p}$. Thus $F^{*}$ induces a spectral sequence. It is the Fr\'{o}hlicher (or Hodge to de Rham) spectral sequence; we have $E^{p,q}_{1} = H^{q}(\sE^{p,*} \cap \Ker(\bar{\partial}), \bar{\partial})$. We call the latter group $H^{p,q}_{\bar{\partial}}(M)$.
+\end{definition}
+
+On the sheaf level we have a resolution
+\[
+0 \longrightarrow \Omega^{p} \longrightarrow \sE^{p,0} \xrightarrow{\bar{\partial}} \sE^{p,1} \xrightarrow{\bar{\partial}} \cdots \xrightarrow{\bar{\partial}} \sE^{p,\cdot} \longrightarrow 0.
+\]
+Here $\sE^{p,i}$ means the sheaf of local sections of $\Lambda^{p} T^{1,0} \otimes \Lambda^{i} T^{0,1}(M)$, and $\Omega^{p}$ means the sheaf of local holomorphic $p$-forms. The usual sheaf theory arguments allow us then to identify $H^{p,q}_{\bar{\partial}}(M)$ with $H^{q}(\Omega^{p})$.
+
+\begin{proposition}[Special case of \ref{prop:5.17}]\label{prop:5.21}
+The following conditions on the forms of a complex manifold are equivalent.
+\begin{enumerate}
+\item[(1)] The equivalent conditions (\ref{lem:5.15}) for all $n$ hold for the de Rham complex, $\sE^{*,*}$ ((a) is the $\dd\dc$-lemma, and (b) is called the $\partial\bar{\partial}$-lemma).
+\item[(2)]
+\begin{enumerate}
+\item[(a)] The Fr\'{o}hlicher (or Hodge to de Rham) spectral sequence degenerates at $E_{1}$,
+\item[(b)] the filtration induced by $F^{*}(\sE^{*} \otimes \CC)$ on $H^{n}(M; \RR) \otimes \CC = H^{n}(M; \CC)$ gives a Hodge structure of weight $n$, for every $n > 0$.
+\end{enumerate}
+\end{enumerate}
+\end{proposition}
+
+The main application of this is the following.
+
+\begin{theorem}\label{thm:5.22}
+Suppose $f \colon M^{n} \to N^{n}$ is a holomorphic, birational, mapping between compact, complex manifolds. If the $\dd\dc$-lemma holds for $M^{n}$, then it also holds for $N^{n}$.
+\end{theorem}
+
+For a proof of this see \cite{D3} Sections 4 and 5.
+
+Idea of proof. The main idea is to use Serre duality to prove that $f^{*} \colon H^{*}(N; \Omega^{*}) \to H^{*}(M; \Omega^{*})$ is a split injection. Thus the Fr\'{o}hlicher spectral sequence for $M$ contains that of $N$ as a direct summand. From this one deduces that if (\ref{def:5.20})(2) holds for $M$, then it holds for $N$.
+
+\begin{corollary}\label{cor:5.23}
+The $\dd\dc$-lemma and hence (\ref{prop:5.21})(2) hold for any compact, complex manifold which can be blown up to a K\"ahler manifold. In particular, they hold for any Mo\'{\i}\v{s}ezon space, \cite{Moi}.
+\end{corollary}
+
+
+\section{The Main Theorem and Two Proofs}
+
+\begin{theorem*}[Main Theorem]%
+\begin{enumerate}
+\item[(i)] Let $M$ be a compact complex manifold for which the $\dd\dc$-lemma holds (e.g.\ $M$ K\"ahler, or $M$ a Mo\'{\i}\v{s}ezon space). Then the real homotopy type of $M$ is a formal consequence of the cohomology ring $H^{*}(M; \RR)$.
+\item[(ii)] If the $\dd\dc$-lemma also holds for $N$, and $f \colon M \to N$ is a holomorphic mapping, then the induced map on real homotopy types is a formal consequence of the induced map on real cohomology.
+\end{enumerate}
+\end{theorem*}
+
+\begin{corollary}
+If $M$ is simply connected, then the real homotopy groups $\pi_{*}(M) \otimes \RR$, viewed as a graded Lie algebra using Whitehead products, depends only on the cohomology ring $H^{*}(M; \RR)$. Moreover, all Massey products of any order are zero over $\QQ$.
+\end{corollary}
+
+\begin{corollary}
+The real form of the canonical tower of nilpotent quotients of the fundamental group of $M$ is determined by $H^{1}(M; \RR)$ and the cup product mapping $H^{1} \otimes H^{1} \to H^{2}$.
+\end{corollary}
+
+\begin{proof}[First Proof (the de-Diagram Method)]
+Let $\sE^{*}_{M}$ be the real de Rham complex, $\sE^{*}_{\dc M}$ the sub-complex of $\dc$-closed forms, and $H^{*}_{\dc}(M)$ the quotient complex $\sE^{*}_{\dc M}/\dc\sE^{*}_{M}$. We have the diagram
+\[
+\{\sE^{*}_{M}, \dd\} \xleftarrow{i} \{\sE^{*}_{\dc M}, \dd\} \xrightarrow{p} \{H^{*}_{\dc}(M), \dd\}.
+\]
+Assuming the $\dd\dc$-lemma we prove the following.
+
+\begin{claim}%
+\begin{enumerate}
+\item $i^{*}$ and $p^{*}$ are isomorphisms on cohomology.
+\item The differential induced by $\dd$ on $H^{*}_{\dc}(M)$ is $0$.
+\end{enumerate}
+\end{claim}
+
+\begin{proof}[Proof of Claim]
+\begin{enumerate}
+\item[(a)] $i^{*}$ is onto. Let $\alpha$ be a cohomology class in $H^{*}(\sE^{*}_{M}, \dd)$ and $x$ a closed form in the class of $\alpha$. We must vary $x$ by an exact form to make it $\dc$-closed. Consider $\dc x$. It satisfies the hypothesis of the $\dd\dc$ lemma, thus $\dc x = \dd\dc \omega$. Let $y = x + \dd\omega$. Then $\dc y = \dc x + \dc \dd\omega = 0$.
+\item[(b)] $i^{*}$ is one-to-one. If $y$ is a closed form in $\sE^{*}_{\dc}$ which is exact in $\sE^{*}_{M}$, then $\dc y = 0 = \dd y$ and $y = \dd z$. Thus $y = \dd\dc \omega$, or $y = \dd(\dc\omega)$, and $\dc(\dc\omega) = 0$.
+\item[(c)] The induced differential on $H_{\dc}$ is $0$. If $\dc y = 0$, then by application of the $\dd\dc$ lemma to $\dd y$, we have $\dd y = \dd\dc\omega$. Hence $\dd y \in \Imop \dc$. This proves that, in $H_{\dc}$, $[\dd y]$ is $0$.
+\item[(d)] $p^{*}$ is onto. Let $[y] \in H_{\dc}(M)$. Then the representative $y$ is $\dc$-closed, $\dd y$ satisfies the hypothesis of the $\dd\dc$ lemma hence $\dd y = \dd\dc\omega$. Let $x = y + \dc\omega$. Thus $\dd x = 0$ and $[x] = [y] \in H_{\dc}(M)$.
+\item[(e)] $p^{*}$ is one-to-one. Suppose $y \in \sE^{*}_{\dc M}$, $\dd y = 0$, and $[y] \in H_{\dc}(M)$ is $0$. Then $y = \dc\omega$ and hence by the $\dd\dc$ lemma $y = \dd\dc z$. Thus $y$ is exact in $\sE^{*}_{M}$.
+\end{enumerate}
+\end{proof}
+This proves the claim and consequently part (1) of the theorem. Part (2) follows from the functorial nature of the diagram. That is to say that if $f \colon M \to N$ is a holomorphic map between complex manifolds for which the $\dd\dc$-lemma holds, then we have a commutative diagram
+\[
+\xymatrix{
+\sE^{*}_{N} \ar[r]^{i} & \sE^{*}_{\dc N} \ar[r]^{p} & H^{*}_{\dc}(N) \\
+\sE^{*}_{M} \ar[u]^{f^{*}} & \sE^{*}_{\dc M} \ar[u] \ar[l]_{i} & H^{*}_{\dc}(M) \ar[l]_{p} \ar[u]_{f^{*}}
+}
+\]
+Thus, the homotopy equivalence of algebras $\sE^{*}_{N} \simeq H^{*}(N)$ and $\sE^{*}_{M} \simeq H^{*}(M)$ transforms the map $f$ on forms to its induced map on cohomology up to homotopy.
+\end{proof}
+
+\begin{proof}[Second Proof (the Principle of Two Types)]
+By way of an introduction to the principle of two types, and also to explain its name, let us consider the following situation on a complex manifold for which the $\dd\dc$-lemma holds: We have classes $\alpha, \beta \in H^{1}(M)$ such that $\alpha \cup \beta = 0$ in $H^{2}(M)$, and we wish to prove that the Massey triple product $\langle \alpha, \alpha, \beta \rangle$ is zero. Using the Hodge decomposition on cohomology, we may suppose that $\alpha$, $\beta$ have pure type. If they are both of type $(1,0)$ then $\alpha \wedge \beta$ is an exact holomorphic $2$-form. By the $\dd\dc$-lemma $\alpha \wedge \beta = 0$, and clearly $\langle \alpha, \alpha, \beta \rangle = 0$. By symmetry the only remaining case is $\alpha = \alpha_{1,0}$ and $\beta = \beta_{0,1}$. By the $\partial\bar{\partial}$-lemma, we may write in two ways $\alpha \wedge \beta = \dd\gamma_{1,0}$, $\alpha \wedge \beta = \dd\gamma_{0,1}$. $\gamma_{1,0} - \gamma_{0,1}$ is a closed $1$-form. By adding an appropriate closed $(1,0)$ form to $\gamma_{1,0}$ and closed $(0,1)$ form to $\gamma_{0,1}$, we can assume $\gamma_{1,0} - \gamma_{0,1}$ is exact, see (\ref{cor:5.23}). The Massey product is represented by either $\alpha \wedge \gamma_{1,0}$ or $\alpha \wedge \gamma_{0,1}$, and these classes are homologous. Since $H^{2}(M)$ has a Hodge direct sum decomposition, (\ref{cor:5.23}), $\langle \alpha, \alpha, \beta \rangle = 0$. This argument works for any Massey triple product, but the higher Massey products require a systematic induction proof to which we now turn. The proof we give works only for the complex homotopy type. We give only the proof of (1), leaving the similar argument for (2) to the reader.
+
+Suppose $\sE^{*}$ is simply connected. We build a minimal model inductively by dimension
+\[
+\cM^{(2)} \subset \cM^{(3)} \subset \cdots
+\]
+with the properties:
+\begin{enumerate}
+\item $\cM^{(\le n)} = P[V_{2} \oplus V_{4} \oplus \cdots] \otimes A[V_{3} \oplus \cdots]$;
+\item each $V_{k} = C_{k} \oplus N_{k}$;
+\item $C_{k} = \bigoplus_{i+j=k} C^{i,j}_{k}$ and $N_{k} = \bigoplus_{i+j > k+1} N^{i,j}_{k}$;
+\item extending this $(i,j)$ decomposition to all of $\cM$ multiplicatively gives $\cM = \bigoplus_{i+j \ge \bullet} \cM^{i,j}$ and $\dd$ is of type $(0,0)$ i.e., $\dd(\cM^{i,j}) \subset \cM^{i,j}$;
+\item there are homotopic maps $p, p' \colon \cM \to \sE^{*}_{M}$ such that $p'(C^{i,j}_{\ell}) \subset \sE^{i,j}(\sE^{*}_{M})$ and $p(N^{i,j}_{\ell}) \subset F^{\min(i, n-j+1)}(\sE^{*}_{M})$.
+\end{enumerate}
+
+From these we build
+\[
+\cM^{(\le n+1)} = \cM^{(\le n)} \otimes_{\dd} A(V_{n+1})
+\]
+with all these properties. We can take $V_{n+1} = (\Ker p^{*})_{n+2} \oplus (\Coker p^{*})_{n+1}$. Let the first space be $N_{n+1}$ and the second $C_{n+1}$.
+
+By 4)
+\[
+H^{k}(\cM^{(\le n)}) = \bigoplus_{i+j \ge k} H^{i,j}(\cM^{(\le n)})
+\]
+and by 5) $p^{*} = p'^{*}$ maps
+\[
+H^{i,j}(\cM^{(\le n)}) \cap H^{k}(\cM^{(\le n)}) \text{ into } \begin{cases} 0 & \text{if } i+j > k \\ H^{i,j}_{\bar{\partial}}(M) & \text{if } i+j = k. \end{cases}
+\]
+
+Applying this for $k = n+1$, we have
+\[
+C_{n+1} = (\Coker p^{*})_{n+1} = \bigoplus_{i+j = n+1} C^{i,j}_{n+1}.
+\]
+Applying this for $k = n+2$, we have
+\[
+N_{n+1} = (\Ker p^{*})_{n+2} = \bigoplus_{i+j \ge n+2} N^{i,j}_{n+1}.
+\]
+We define $\dd|_{C} = 0$ and $\dd \colon N^{i,j}_{n+1} \to$ closed forms in $\cM^{i,j}$ in dimension $n+2$ which generate $N^{i,j}_{n+1}$.
+
+Define $p|_{C} = p'|_{C}$ so that it sends $C^{i,j}_{\ell}$ into closed forms in $\sE^{i,j}_{M}$ representing a basis for $H^{i,j}_{\bar{\partial}}(M)$. For $x \in N^{i,j}_{n+1}$, $p(\dd x)$ is an exact form in $F^{\min(i, n+2-j+1)}(\sE^{*}_{M})$. Thus we can choose $p(x) \in F^{\min(i, n-j+3)}(\sE^{*}_{M}) \subset F^{\min(i, n-j+2)}(\sE^{*}_{M})$ so that $\dd p(x) = p(\dd x)$. Likewise we can choose $p'(x) \in F^{j}(\sE^{*}_{M})$ so that $\dd p'(x) = p(\dd x)$. With these choices there is a cohomological obstruction to extending the homotopy over $N_{n+1}$. It assigns to $x \in N^{i,j}_{n+1}$ a cohomology class $\alpha(x) \in H^{n+1}(M)$. Since
+\[
+H^{n+1}(M) = \bigoplus_{j} H^{j, n+1-j}_{\bar{\partial}}(M) + F^{i+2-j}\sE^{*}(H^{n+1}(M))
+\]
+we can change $p(x)$ by a closed class in $F^{i+2-j}(\sE^{*}_{M})$ and $p'(x)$ by a closed class in $F^{j}(\sE^{*}_{M})$ to kill $\alpha(x)$. The homotopy from $p$ to $p'$ then extends over $N^{i,j}_{n+1}$. This completes the inductive proof of the existence of such $\cM$, $p$, and $p'$ in the one-connected case. The non simply connected case is similar.
+
+Given such $\cM$ and $p, p' \colon \cM \to \sE^{*}_{M}$, then $p^{*} = p'^{*}$ on cohomology. For any $\alpha \in I(\bigoplus N_{i})$ with degree $\alpha = r$ we break $\alpha$ up into its $(i,j)$ components
+\[
+\alpha = \sum_{i+j > r+1} \alpha_{i,j}.
+\]
+If $\alpha$ is closed, then each $\alpha_{i,j}$ is also closed, $p(\alpha_{i,j}) \in F^{i-j+1}(\sE^{*}_{M})$ and $p'(\alpha_{i,j}) \in F^{j}(\sE^{*}_{M})$. Thus
+\[
+p^{*}(\alpha_{i,j}) = p'^{*}(\alpha_{i,j}) \in F^{i-j+1}(H^{r}(M)) \cap F^{j}(H^{r}(M)).
+\]
+(\ref{cor:5.23}) implies that $p^{*}(\alpha_{i,j}) = p'^{*}(\alpha_{i,j}) = 0$. This verifies that $\cM$ is formal.
+\end{proof}
+
+
+\section{An Application}
+
+The ability to replace the forms on a K\"ahler manifold functorially by the cohomology allows us to show that in certain situations spectral sequences collapse. The example we give here is a spectral sequence which the first author \cite{D1} showed to degenerate by a different technique (still using Hodge theory on K\"ahler manifolds, however). Let $X = D_{1} \cup \cdots \cup D_{j}$ be a ``union of divisors with normal crossings''. That is each $D_{i}$ is a compact K\"ahler manifold and $D_{i_{1}} \cap \cdots \cap D_{i_{t}}$ is a sub-complex manifold of each $D_{i}$ which is the transverse intersection of $D_{i_{1}}, \ldots, D_{i_{t}}$.
+
+We define a differential algebra of forms on $X$ by
+\[
+\sE^{*}(X) = \{(\varphi_{1}, \ldots, \varphi_{j}) \mid \varphi_{i} \in \sE^{*}_{D_{i}} \text{ and } \varphi_{i}|_{D_{i} \cap D_{j}} = \varphi_{j}|_{D_{i} \cap D_{j}}\}.
+\]
+The differential and multiplication in $\sE^{*}(X)$ are the obvious coordinate-wise ones. One checks easily (either via sheaf theory or more directly by the Meyer-Vietoris sequence) that $\sE^{*}(X)$ calculates the cohomology ring of $X$.
+
+If $I = (i_{1}, \ldots, i_{t})$ is an unordered set of $t$ distinct integers $1 \le i_{r} \le j$ then define $D_{I} = \bigcap_{r=1, \ldots, t} D_{i_{r}}$. Define $D^{(t)}$ to be the disjoint union of all the $D_{I}$ for the length of $I$, $|I|$, equal to $t$, $D^{(t)} = \coprod_{|I|=t} D_{I}$.
+
+Given a $D_{I}$ there are $t!$ ways to order the intersecting divisors $D_{i_{1}} \cap \cdots \cap D_{i_{t}}$. We identify $\sE^{*}(D_{i_{1}} \cap \cdots \cap D_{i_{t}})$ with $\sE^{*}(D_{i_{\sigma(1)}} \cap \cdots \cap D_{i_{\sigma(t)}})$ by $(-1)^{\operatorname{sign}(\sigma)}$ for $\sigma$ any permutation. Call the resulting quotient $\sE^{*}(D_{I})$. (Of course, $\sE^{*}(D_{I}) \cong \sE^{*}(D_{i_{1}} \cap \cdots \cap D_{i_{t}})$ for any ordering.) Define $\sE^{*}(D^{(t)}) = \bigoplus_{|I|=t} \sE^{*}(D_{I})$, and define $\delta \colon \sE^{*}(D^{(t)}) \to \sE^{*}(D^{(t+1)})$ by the following. If $\beta \in \sE^{*}(D_{i_{1}} \cap \cdots \cap D_{i_{t}})$ then
+\[
+\delta(\beta) = (-1)^{t} \sum_{k \notin (i_{1}, \ldots, i_{t})} \beta|_{D_{i_{1}} \cap \cdots \cap D_{i_{t}} \cap D_{k}}.
+\]
+Clearly $\delta\dd + \dd\delta = 0$ and $\delta^{2} = 0$.
+
+Thus we can form the double complex associated to
+\[
+E^{*} = \{\sE^{*}(D^{(1)}) \xrightarrow{\delta} \sE^{*}(D^{(2)}) \xrightarrow{\delta} \cdots \xrightarrow{\delta} \sE^{*}(D^{(j)})\}.
+\]
+Since locally
+\[
+0 \to \sE^{*}_{X} \to \sE^{*}(D^{(1)}) \to \cdots \to \sE^{*}(D^{(j)}) \to 0
+\]
+is exact, there is a natural isomorphism $H^{*}(\sE^{*}(X)) \xrightarrow{\cong} H^{*}(E^{*})$.
+
+The filtration of $E^{*}$ by ``the number of divisors'' gives a spectral sequence
+\[
+E^{p,q}_{1} = \bigoplus_{|I|=q+1} H^{p}(D_{I})
+\]
+abutting to $H^{*}(X)$ with $E^{p,q}_{1} \cong \bigoplus_{|I|=q+1} H^{p}(D_{I})$ and with $\dd_{1} \colon E^{p,q}_{1} \to E^{p,q+1}_{1}$ given by the restriction map (up to sign).
+
+\begin{theorem}[Deligne \cite{D1}]
+This spectral sequence collapses at $E_{2}$, i.e.\ $E_{2} = E_{\infty}$. Thus one can calculate the cohomology of $X$ from the cohomologies of the ``various pieces'' and the restriction maps.
+\end{theorem}
+
+\begin{proof}
+Form the analogous double complexes based on
+\begin{enumerate}
+\item[1)] $\Ker \dc$ on each intersection, and
+\item[2)] $H^{*}$ of each intersection.
+\end{enumerate}
+Call these $E^{*}(\Ker \dc)$ and $E^{*}(H^{*})$.
+
+We have a natural diagram of double complexes
+\[
+E^{*}(H^{*}) \xleftarrow{} E^{*}(\Ker \dc) \xrightarrow{} E^{*}.
+\]
+If we form the three spectral sequences by filtering by the number of divisors, then we get a diagram of spectral sequences. At $E^{*,*'}_{1}$ all three are isomorphic by the diagram for K\"ahler manifolds. Hence all three are isomorphic for $E^{*,*'}_{k}$, $1 \le k \le \infty$. In $E^{*}(H^{*})$, the differential $\dd = 0$, hence the total differential in the double complex is $\delta$. Clearly, then $E^{*}(H^{*})$ collapses at $E_{2}$. Consequently, so does $E^{*}$.
+\end{proof}
+
+\begin{thebibliography}{99}
+
+\bibitem{BK} Bousfield, A., Kan, D.: Homotopy limits, completions and localizations. Lecture Notes in Mathematics 304, Berlin-Heidelberg-New York: Springer 1972
+
+\bibitem{C} Chen, K.T.: Algebras of iterated path integrals and fundamental groups. Trans. Amer. Math. Soc. 156, 359--379 (1971)
+
+\bibitem{Ch} Chern, S.S.: Complex manifolds without potential theory. Princeton, N.J.: Van Nostrand 1967
+
+\bibitem{D1} Deligne, P.: Th\'{e}orie de Hodge III. Publ. Math. IHES 44 (1974)
+
+\bibitem{D2} Deligne, P.: La conjecture de Weil I. Publ. Math. IHES 43, 273--307 (1974)
+
+\bibitem{FGM} Friedlander, E., Griffiths, P., Morgan, J.: Lecture Notes De Rham theory of Sullivan. Lecture Notes. Istituto Matematico, Florence, Italy 1972
+
+\bibitem{M} Malcev, A.: Nilpotent groups without torsion. Izv. Akad. Nauk. SSSR, Math. 13, 201--212 (1949)
+
+\bibitem{Moi} Mo\'{\i}\v{s}ezon, B.G.: On n-dimensional compact varieties with n algebraically independent meromorphic functions I, II, III. Izv. Akad. Nauk SSSR Ser. Math. 30, 133--174, 345--386, 621--656 (1966). Also Amer. Math. Soc. Translations, ser.~2 vol.~63 (1967)
+
+\bibitem{NN} Newlander, A., Nirenberg, L.: Complex analytic coordinates in almost complex manifolds. Ann. of Math. 65, 391--404 (1957)
+
+\bibitem{Q} Quillen, D.: Rational Homotopy Theory. Ann. of Math. 90, 205--295 (1969)
+
+\bibitem{Se} Serre, J.-P.: Groupes d'homotopie et classes de groupes ab\'{e}liens. Ann. of Math. 58, 258--294 (1953)
+
+\bibitem{S1} Sullivan, D.: De Rham homotopy theory, (to appear)
+
+\bibitem{S2} Sullivan, D.: Genetics of Homotopy Theory and the Adams conjecture, Ann. of Math. 100, 1--79 (1974)
+
+\bibitem{S3} Sullivan, D.: Topology of Manifolds and Differential Forms, (to appear) Proceedings of Conference on Manifolds, Tokyo, Japan, 1973
+
+\bibitem{W} Weil, A.: Introduction \`{a} l'\'{e}tude des Vari\'{e}t\'{e}s K\"ahl\'{e}riennes. Paris: Hermann 1958
+
+\bibitem{Wh1} Whitney, H.: Geometric Integration Theory. Princeton University Press 1957
+
+\bibitem{Wh2} Whitehead, J.H.S.: An Expression of Hopf's Invariant as an Integral, Proc. Nat. Ac. Sci. 33, 117--123 (1947)
+
+\bibitem{Wh3} Whitney, H.: On Products in a Complex. Ann. of Math. 39, 397--432 (1938)
+
+\bibitem{M2} Morgan, J.: The Algebraic topology of open, non singular algebraic varieties (in preparation)
+
+\bibitem{D3} Deligne, P.: Th\'{e}or\`{e}me de Lefschetz et crit\`{e}res de d\'{e}g\'{e}n\'{e}rescence de suites spectrales. Publ. Math. IHES 35, 107--126 (1968)
+
+\bibitem{P} Parshin, A. N.: A generalization of the Jacobian variety. (Russ.). Isvestia 30, 175--182 (1966)
+
+\end{thebibliography}
+
+\end{document}

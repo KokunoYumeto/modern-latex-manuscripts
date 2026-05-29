@@ -1,0 +1,1 @@
+Editorially repaired public-reader overlay applied to the non-European mathematics release. The public PDFs were replaced from the latest reviewed public-reader package; TeX/source/source-scan artifacts remain preserved separately.

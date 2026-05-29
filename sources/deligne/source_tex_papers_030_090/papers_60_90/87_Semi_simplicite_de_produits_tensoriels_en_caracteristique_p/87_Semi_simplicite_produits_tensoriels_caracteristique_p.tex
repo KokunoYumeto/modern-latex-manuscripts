@@ -1,0 +1,712 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[all]{xy}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{remark}[theorem]{Remarque}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\rang}{rang}
+
+\newcommand{\Gm}{\mathbb{G}_\mathrm{m}}
+\newcommand{\Ga}{\mathbb{G}_\mathrm{a}}
+\newcommand{\red}{\mathrm{r\acute{e}d}}
+\newcommand{\N}{\mathbb{N}}
+
+\begin{document}
+
+\title{Semi-simplicit\'e de produits tensoriels en caract\'eristique~$p$}
+\author{Pierre Deligne}
+\date{}
+\maketitle
+
+\begin{abstract}
+\noindent\textbf{R\'esum\'e.}
+Soient $G$ un sch\'ema en groupes affine sur un corps $k$ de caract\'eristique $p \neq 0$, et $(V_i)$ une famille finie de repr\'esentations semi-simples de $G$. Nous montrons que si $\sum (\dim V_i - 1) < p$, alors la repr\'esentation de $G$ produit tensoriel des $V_i$ est encore semi-simple. Sous l'hypoth\`ese additionnelle que $G$ est lisse, ce th\'eor\`eme a \'et\'e prouv\'e par J.-P.\ Serre en 1994. Nous nous ram\`enerons \`a ce cas. On peut plus g\'en\'eralement prendre pour $V_i$ des objets d'une cat\'egorie tannakienne sur $k$.
+
+\medskip\noindent\textbf{Abstract.}
+Let $G$ be an affine group scheme over a field $k$ of characteristic $p \neq 0$. If $(V_i)$ is a finite family of semi-simple representations of $G$ for which $\sum (\dim V_i - 1) < p$, we show that the tensor product of the $V_i$ is a semi-simple representation of $G$. For a smooth $G$, this theorem is due to J.-P.\ Serre. We proceed by reduction to this case. More generally, one can take the $V_i$ to be in a tannakian category over $k$.
+\end{abstract}
+
+\section{Introduction}\label{sec:0}
+
+Soit $T$ une cat\'egorie tannakienne sur un corps $k$ de caract\'eristique $p \neq 0$. Pour la d\'efinition des cat\'egories tannakiennes, nous renvoyons \`a \cite{Saavedra} p.~193 ou \`a \cite{Deligne1990}~2.1, 2.8. Rappelons que parmi les axiomes figure l'existence de duaux, et celle d'un foncteur fibre $\omega$ \`a valeurs dans les espaces vectoriels sur une extension convenable $K$ de $k$. La dimension $\dim(V)$ d'un objet $V$ de $T$ est $\dim_K \omega(V)$. Deux foncteurs fibres devenant isomorphes sur une extension plus grande convenable (\cite{Deligne1990}~1.12, 1.13), cette dimension ne d\'epend pas du choix du foncteur fibre $\omega$.
+
+\begin{theorem}\label{thm:0.1}
+Soit $(V_i)_{i \in I}$ une famille finie d'objets de $T$. Si les $V_i$ sont semi-simples et que $\sum (\dim(V_i) - 1) < p$, alors le produit tensoriel des $V_i$ est un objet semi-simple de~$T$.
+\end{theorem}
+
+\begin{example}\label{ex:0.2}
+Si $T$ est la cat\'egorie des repr\'esentations lin\'eaires de dimension finie d'un sch\'ema en groupes affine sur $k$, on obtient le th\'eor\`eme annonc\'e dans le r\'esum\'e.
+
+Autres exemples: la cat\'egorie des repr\'esentations de dimension finie d'une alg\`ebre de Lie sur $k$, ou celle des $p$-repr\'esentations de dimension finie d'une $p$-alg\`ebre de Lie sur $k$. Par passage \`a une enveloppe alg\'ebrique, ces cas se ram\`enent d'ailleurs au pr\'ec\'edent.
+\end{example}
+
+\begin{example}\label{ex:0.3}
+Supposons qu'un groupe $\Gamma$ agisse sur un corps commutatif $K$ de caract\'eristique $p$, et soit $k := K^\Gamma$ le sous-corps des invariants. Soit $T$ la cat\'egorie des $K$-espaces vectoriels de dimension finie, munis d'une action semi-lin\'eaire de $\Gamma$. Munie du produit tensoriel sur $K$, cette cat\'egorie est tannakienne sur $k$: elle admet le foncteur fibre sur $K$ ``espace vectoriel sous-jacent''. Si des repr\'esentations semi-lin\'eaires $V_i$ de $\Gamma$ sur $K$ sont semi-simples et que $\sum (\dim_K(V_i) - 1) < p$, la repr\'esentation semi-lin\'eaire produit tensoriel des $V_i$ est donc semi-simple.
+\end{example}
+
+\subsection{}
+Soit $V$ un espace vectoriel de dimension finie sur $k$ de caract\'eristique $p$. Comme expliqu\'e dans \cite{Serre1994}~\S4, un automorphisme $g$ de $V$ tel que $g^p = 1$ d\'efinit un morphisme de groupes alg\'ebriques $\Ga \to \GL(V):\ t \mapsto g^t$, avec $g^t$ d\'efini par la formule du bin\^ome
+\begin{equation}\label{eq:0.4.1}
+g^t := \sum_{n < p} \binom{t}{n} (g - 1)^n.
+\end{equation}
+Un endomorphisme $N$ de $V$ tel que $N^p = 0$ d\'efinit de m\^eme un morphisme de groupes alg\'ebriques $\Ga \to \GL(V):\ t \mapsto \exp(tN)$, avec $\exp(tN)$ d\'efini par
+\begin{equation}\label{eq:0.4.2}
+\exp(tN) := \sum_{n < p} \frac{(tN)^n}{n!}.
+\end{equation}
+En effet, apr\`es toute extension des scalaires \`a une $k$-alg\`ebre commutative $\Lambda$, si pour $t$ dans $\Lambda$ on d\'efinit $\exp(tN)$ par \eqref{eq:0.4.2}, l'hypoth\`ese que $N^p = 0$ assure que $\exp((t_0 + t_{00})N) = \exp(t_0 N) \exp(t_{00} N)$.
+
+\begin{definition}\label{def:0.5}
+Supposons $k$ alg\'ebriquement clos de caract\'eristique $p$, et soit $G$ un sous-sch\'ema en groupes de $\GL(V)$.
+\begin{enumerate}[label=(\roman*)]
+\item $G$ est \emph{satur\'e} si pour tout $g \in G(k)$ tel que $g^p = 1$, le morphisme $g \mapsto g^t$ de $\Ga$ dans $\GL(V)$ se factorise par $G$.
+\item $G$ est \emph{infinit\'esimalement satur\'e} si pour tout $N \in \Lie(G)$ tel que $N^p = 0$ (au sens de la structure de $p$-alg\`ebre de Lie de $\Lie(G)$, ou comme endomorphisme de $V$, cela revient au m\^eme) le morphisme $t \mapsto \exp(tN)$ de $\Ga$ dans $\GL(V)$ se factorise par $G$.
+\end{enumerate}
+On dira que $G$ est \emph{doublement satur\'e} s'il est satur\'e et infinit\'esimalement satur\'e.
+\end{definition}
+
+\subsection{}
+Soit $G$ un sch\'ema en groupes affine de type fini sur un corps alg\'ebriquement clos $k$ de caract\'eristique $p$. Dans l'\'enonc\'e \ref{thm:0.1}, prenons pour $T$ la cat\'egorie des repr\'esentations de dimension finie de $G$, supposons que la famille $(V_i)$ de repr\'esentations est fid\`ele, et posons $V := \bigoplus V_i$. Pour prouver \ref{thm:0.1} lorsque $G$ r\'eduit, Serre \cite{Serre1994} commence par ramener au cas o\`u $G$ est satur\'e dans $\GL(V)$. Si tel est le cas, le groupe fini $\pi_0(G)$ des composantes connexes de $G$ est d'ordre premier \`a $p$, et ceci permet de se ramener au cas o\`u $G$ est connexe. Pour $G$ non n\'ecessairement r\'eduit, nous utilisons un argument analogue pour nous ramener au cas o\`u $G$ est infinit\'esimalement satur\'e dans $\GL(V)$, et notre r\'esultat cl\'e dans ce cas est le th\'eor\`eme de structure \ref{thm:0.7} qui suit. Ce th\'eor\`eme fournira une r\'eduction au cas o\`u $G$ est lisse.
+
+Soient $G^0$ la composante neutre de $G$, $G^0_\red$ le sous-sch\'ema en groupes r\'eduit de $G^0$ et $R_u G^0_\red$ le radical unipotent de $G^0_\red$. Tant $G^0_\red$ que $R_u G^0_\red$ sont lisses, i.e.\ des groupes alg\'ebriques lin\'eaires au sens du s\'eminaire Chevalley de 1956/58.
+
+\begin{theorem}\label{thm:0.7}
+Soit $(V_i)_{i \in I}$ une famille finie fid\`ele de repr\'esentations de $G$. Soit $V$ la somme des $V_i$. Supposons que chaque repr\'esentation $V_i$ est de dimension $< p$ et que, comme sous-groupe de $\GL(V)$, $G$ est infinit\'esimalement satur\'e. Sous ces hypoth\`eses:
+\begin{enumerate}[label=(\roman*)]
+\item $G^0_\red$ et $R_u G^0_\red$ sont des sous-sch\'emas en groupes invariants de $G$, et $G^0/G^0_\red$ est de type multiplicatif.
+\item Si les repr\'esentations $V_i$ sont semi-simples, $G^0_\red$ est r\'eductif.
+\item Si $G^0_\red$ est r\'eductif, il existe dans $G^0$ un sous-sch\'ema en groupes central connexe de type multiplicatif $M$ tel que le morphisme $M \times G^0_\red \to G^0$ fasse de $G^0$ un quotient de $M \times G^0_\red$.
+\end{enumerate}
+\end{theorem}
+
+\section{Preuve du th\'eor\`eme~\ref{thm:0.7}}\label{sec:1}
+
+\begin{proposition}\label{prop:1.1}
+Dans un sch\'ema en groupes affine $G$ de type fini sur un corps, tout sous-sch\'ema en groupes connexe de type multiplicatif est contenu dans un sous-sch\'ema en groupes connexe de type multiplicatif maximal.
+\end{proposition}
+
+\begin{proof}[Preuve (d'apr\`es une lettre de M.\ Raynaud \`a l'auteur)]
+Il suffit de montrer que dans l'ensemble des sous-sch\'emas en groupes connexes de type multiplicatif de $G$, ordonn\'e par inclusion, toute partie totalement ordonn\'ee $\mathcal{M}$ est major\'ee (Bourbaki, Ens III \S2 no.4 Th\'eor\`eme 2). Pour $M$ dans $\mathcal{M}$, le centralisateur $Z_G(M)$ de $M$ dans $G$ est un sous-sch\'ema en groupes (automatiquement ferm\'e), et l'application $M \mapsto Z_G(M)$ est d\'ecroissante. L'ensemble ordonn\'e des sous-sch\'emas ferm\'es de $G$ est noeth\'erien. L'ensemble des $Z_G(M)$ pour $M$ dans $\mathcal{M}$ a donc un plus petit \'el\'ement $C$. Chaque $M$ dans $\mathcal{M}$ est contenu dans le centre $Z(C)$ de $C$. Ce centre est affine et commutatif. La composante neutre de son plus grand sous-sch\'ema en groupes de type multiplicatif (SGA3 XVII 7.2.1) majore $\mathcal{M}$. C'est le majorant requis.
+\end{proof}
+
+\subsection{}
+Fixons $k$, $G$ et la famille finie de repr\'esentations $(V_i)_{i \in I}$ de somme $V$ v\'erifiant les hypoth\`eses de \ref{thm:0.7}: $k$ est alg\'ebriquement clos de caract\'eristique $p \neq 0$, $\dim(V_i) < p$ et comme sous-sch\'ema en groupes de $\GL(V)$, $G$ est infinit\'esimalement satur\'e.
+
+\begin{lemma}\label{lem:1.3}
+\begin{enumerate}[label=(\roman*)]
+\item La composante neutre $G^0$ de $G$ est infinit\'esimalement satur\'ee dans $\GL(V)$.
+\item Si une repr\'esentation $W$ de $G$ est semi-simple, sa restriction \`a $G^0$ l'est aussi.
+\item Si le sous-groupe r\'eduit $G^0_\red$ de $G^0$ (resp.\ son radical unipotent $R_u G^0_\red$) est un sous-sch\'ema en groupes invariant de $G^0$, c'en est un de $G$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) r\'esulte de ce que $\Lie G = \Lie G^0$ et de ce que $\Ga$ est connexe.
+
+Il suffit de prouver (ii) pour $W$ irr\'eductible. Soit $S \subset W$ la somme des sous-$G^0$-repr\'e\-sen\-ta\-tions irr\'eductibles de $W$. Il nous faut montrer que $S = W$. Chaque $g \in G(k)$ normalise $G^0$. Par transport de structures, $S$ est donc stable par $g$. Puisque $k$ est alg\'ebriquement clos, $G$ est la r\'eunion des $gG^0$ pour $g \in G(k)$, et $S$ est stable par $G$. Puisque $W$ est irr\'eductible et que $S \neq 0$, $S$ est $W$ tout entier.
+
+De m\^eme, par transport de structures, chaque $g \in G(k)$ normalise $G^0_\red$ et $R_u G^0_\red$ et (iii) r\'esulte de ce que $G$ est r\'eunion des $gG^0$.
+\end{proof}
+
+\subsection{}
+Le lemme \ref{lem:1.3} montre que pour prouver \ref{thm:0.7} pour $G$, il suffit de le prouver pour $G^0$. Par ailleurs, si $p = 2$, chaque $V_i$ est de dimension 1, $G$ est de type multiplicatif et \ref{thm:0.7} est trivial.
+
+Dans la suite de cette section, outre les hypoth\`eses de 1.2, nous supposerons que $p \neq 2$ et que $G$ est connexe: $G = G^0$. Nous prouverons que $G^0_\red$ est un sous-sch\'ema en groupe invariant de $G$ en \ref{sec:1.18}, que $G/G^0_\red$ est de type multiplicatif en \ref{sec:1.19}, l'invariance dans $G$ de $R_u G^0_\red$ en \ref{sec:1.20}--\ref{sec:1.23}, \ref{thm:0.7}(ii) en \ref{cor:1.24} et \ref{thm:0.7}(iii) en \ref{sec:1.25}.
+
+\subsection{}
+Soient $H$ un sous-groupe connexe de type multiplicatif maximal de $G$ (\ref{prop:1.1}) et $Z^0_G(H)$ la composante neutre de son centralisateur $Z_G(H)$. Le quotient $U := Z^0_G(H)/H$ ne contient pas de sous-groupe $\mu_p$, car l'image inverse dans $Z^0_G(H)$ d'un tel sous-groupe serait une extension de $\mu_p$ par $H$, donc de type multiplicatif (SGA3 XVII 7.1.1~(b)). Le groupe $U$ est donc unipotent (SGA3 XVII 4.3.1~(v)).
+
+\subsection{}
+Soit $X$ le groupe des caract\`eres de $H$. La connexit\'e de $H$ \'equivaut \`a ce que $X$ n'ait pas de torsion premi\`ere \`a $p$. La donn\'ee d'une action de $H$ sur un vectoriel $W$ \'equivaut \`a celle d'une $X$-graduation $W = \bigoplus_{\alpha \in X} W_\alpha$ de $W$, et cette construction est fonctorielle et compatible au produit tensoriel. En particulier, $V$ et les $V_i$ sont $X$-gradu\'es, et l'action par automorphismes int\'erieurs de $H$ sur $G$ d\'efinit une $X$-graduation $\Lie(G) = \bigoplus_\alpha \Lie(G)_\alpha$ de $\Lie(G)$.
+
+\begin{lemma}\label{lem:1.7}
+L'extension centrale $Z^0_G(H)$ de $U$ par $H$ est scind\'ee.
+\end{lemma}
+
+Puisque $U$ est unipotent et $H$ de type multiplicatif, il n'y a pas de morphisme nontrivial de $U$ dans $H$ (SGA3 XVII 2.4~(ii)). Le scindage garanti par le lemme \ref{lem:1.7} est donc unique. On utilisera l'isomorphisme correspondant de $H \times U$ avec $Z^0_G(H)$ pour regarder $U$ comme un sous-groupe de $Z^0_G(H)$.
+
+\begin{proof}
+Soient $V_{i\alpha}\ (\alpha \in X)$ les composantes homog\`enes des $V_i$. Le groupe $Z^0_G(H)$ agit sur $V_{i\alpha}$. Soit $\chi_{i\alpha}$ le caract\`ere de $Z^0_G(H)$ d\'eterminant de cette repr\'esentation. Sa restriction \`a $H$ est $\dim(V_{i\alpha})$ fois le caract\`ere $\alpha$ de $H$.
+
+Soit $J \subset I \times X$ l'ensemble des $(i,\alpha)$ tels que $V_{i\alpha} \neq 0$, et pour $j = (i,\alpha)$, posons $V_j := V_{i\alpha}$, $\chi_j := \chi_{i\alpha}$. La famille $(V_i)$ de repr\'esentations de $H$ est fid\`ele: les $\alpha$ pour $j = (i,\alpha)$ dans $J$ engendrent $X$. Si $j = (i,\alpha)$ est dans $J$, $\dim V_{i\alpha} \leq \dim V_i < p$ est premier \`a $p$. Les restrictions \`a $H$ des $\chi_j\ (j \in J)$ engendrent donc un sous-groupe de $X$ d'indice fini premier \`a $p$. Soient $F$ le noyau de $(\chi_j): H \to \Gm^J$ et $Q$ le conoyau. Le groupe $F$ est fini, r\'eduit et d'ordre premier \`a $p$. Dans le diagramme commutatif \`a lignes exactes
+\[
+\begin{array}{ccccccccc}
+1 & \longrightarrow & H/F & \longrightarrow & Z^0_G(H)/F & \longrightarrow & U & \longrightarrow & 1 \\
+  &                 & \downarrow &                 & \downarrow &                 & \downarrow &                 &   \\
+1 & \longrightarrow & H/F & \longrightarrow & \Gm^J & \longrightarrow & Q & \longrightarrow & 1,
+\end{array}
+\]
+le morphisme du groupe unipotent $U$ vers le groupe de type multiplicatif $Q$ est trivial. Le noyau de $(\chi_j): Z^0_G(H)/F \to \Gm^J$ rel\`eve donc $U$ dans $Z^0_G(H)/F$. Son image inverse dans $Z^0_G(H)$ est une extension centrale $E$ de $U$ par $F$. D'apr\`es le lemme \ref{lem:1.8} qui suit, cette extension est triviale. Un rel\`evement de $U$ dans $E$ scinde l'extension centrale $Z^0_G(H)$ de $U$ par $H$.
+\end{proof}
+
+\begin{lemma}\label{lem:1.8}
+Une extension centrale d'un groupe unipotent par un groupe fini (r\'eduit) d'ordre premier \`a $p$ est triviale.
+\end{lemma}
+
+Nous donnerons deux preuves de ce lemme, bas\'ees sur des id\'ees diff\'erentes. La seconde suppose $U$ connexe, un cas qui suffit \`a l'application ci-dessus.
+
+\begin{proof}[Premi\`ere preuve]
+Soient $1 \to F \to E \to U \to 1$ une extension centrale comme dans le lemme et $a$ un entier premier \`a $p$ qui annule $F$. Regardons $E$ comme une extension centrale dans la cat\'egorie des faisceaux en groupes fppf sur $\Spec(k)$. Quel que soit $S/k$, $U(S)$ admet une filtration centrale finie \`a quotients successifs annul\'es par $p$ (appliquer SGA3 XV 3.5~(v)). Toute partie finie $X$ de $U(S)$ engendre donc un $p$-groupe fini $P_X$. Soit $Q_X$ son intersection avec l'image de $E(S)$. L'image inverse de $Q_X$ dans $E(S)$ est une extension centrale $E_X$ de $P_X$ par $F(S) = F^{\pi_0(S)}$. Le groupe $H^2(Q_X, F(S))$ qui classifie ces extensions est trivial, car annul\'e tant par $a$ que par la puissance $|Q_X|$ de $p$. L'extension $E_X$ est donc triviale. De plus, c'est l'ensemble des puissances $a$-i\`emes d'\'el\'ements de $E_X$. Le rel\`evement de $Q_X$ dans $E_X$ est donc unique.
+
+Passant \`a la limite inductive sur $X$ et faisceautisant, on en d\'eduit que le sous-faisceau d'ensembles de $E$ image de $x \mapsto x^a: E \to E$ est un sous-faisceau en groupes qui rel\`eve $U$ dans $E$.
+\end{proof}
+
+\begin{proof}[Deuxi\`eme preuve]
+L'action par translations \`a droite de $F$ sur $E$ fait de $E$ un $F$-torseur sur $U$. Il est trivialis\'e au-dessus de l'\'el\'ement neutre, et correspond donc \`a un morphisme $\pi_1(U,e) \to F$. Le sch\'ema $U_\red$ est isomorphe \`a un espace affine $\mathbb{A}^N$. Puisque $\pi_1(U_\red,e) = \pi_1(\mathbb{A}^N,0)$ n'a pas de quotient nontrivial d'ordre premier \`a $p$ (SGA4 XV 2.2), le $F$-torseur $E$ est trivial: la composante neutre de $E$ rel\`eve $U$ dans $E$.
+\end{proof}
+
+\begin{lemma}\label{lem:1.9}
+Soient $f: V \to W$ un morphisme de sch\'emas de type fini sur $k$, $v \in V(k)$, et $(df)_v$ le morphisme induit par $f$ de l'espace tangent de Zariski de $V$ en $v$ vers l'espace tangent de Zariski de $W$ en $f(v)$. Si $V$ est lisse sur $k$ et que $(df)_v$ est un isomorphisme, alors $f$ est \'etale en $v$ et $W$ est lisse sur $k$ au voisinage de $f(v)$.
+\end{lemma}
+
+\begin{proof}
+Soit $A$ (resp.\ $B$) le compl\'et\'e de l'anneau local de $V$ en $v$ (resp.\ de $W$ en $f(v)$). Soient $m$ l'id\'eal maximal de $A$ et $n$ celui de $B$. Que $(df)_v$ soit injectif assure que $A$ est un quotient de $B$. Il nous faut montrer que $B \xrightarrow{\sim} A$ (SGA1 I 4.4). Soient $t_1,\ldots,t_N$ dans $n$ relevant une base de $n/n^2$. La bijectivit\'e de $(df)_v$ assure que les images des $t_i$ dans $m/m^2$ forment une base. Les $t_i$ d\'efinissent un \'epimorphisme $g: \mathbb{A}^N \to \Spec(B)$. Dans le diagramme commutatif
+\[
+\xymatrix{
+& \Spec(k[[t_1,\ldots,t_N]]) \ar[dl]_{g} \ar[dr] & \\
+\Spec(B) \ar[rr] & & \Spec(A),
+}
+\]
+la lissit\'e de $V$ en $v$ assure que $g$ est un isomorphisme. Que $B \xrightarrow{\sim} A$ en r\'esulte.
+\end{proof}
+
+En caract\'eristique $p$, l'alg\`ebre de Lie d'un sch\'ema en groupes est une $p$-alg\`ebre de Lie. Nous noterons $\gamma \mapsto \gamma^p$ l'op\'eration de puissance $p$-i\`eme, souvent not\'ee $\gamma^{[p]}$. Pour toute repr\'esentation lin\'eaire $\rho$ du groupe, on a $\rho(\gamma^p) = \rho(\gamma)^p$.
+
+\begin{lemma}\label{lem:1.10}
+Pour tout $\gamma$ dans $\Lie U$, on a $\gamma^p = 0$.
+\end{lemma}
+
+Comme expliqu\'e sous \ref{lem:1.7}, on regarde ici $U$ comme un sous-groupe de $Z^0_G(H) \subset G$.
+
+\begin{proof}
+Puisque $U$ est un sch\'ema en groupes unipotent, pour chaque $i$ l'image $\gamma_i$ de $\gamma$ dans $\End(V_i)$ est nilpotente. Puisque $\dim(V_i) < p$, on a $\gamma_i^p = 0$. La famille $(V_i)$ de repr\'esentations \'etant fid\`ele, on a $\gamma^p = 0$.
+\end{proof}
+
+\begin{corollary}\label{cor:1.11}
+Le groupe unipotent $U$ est lisse.
+\end{corollary}
+
+\begin{proof}
+Soit $(\gamma_a)_{1 \leq a \leq A}$ une base de $\Lie U$. D'apr\`es \ref{lem:1.10}, pour chaque $a$, $\rho_a: \lambda \mapsto \exp(\lambda\gamma_a): \Ga \to \GL(V)$ est d\'efini (\ref{eq:0.4.2}). L'hypoth\`ese que $G$ est infinit\'esimalement satur\'e assure que ce morphisme se factorise par $G$. Puisque $U$ centralise $H$, l'action de $H$ par automorphismes int\'erieurs fixe $\Lie U$, donc chaque $\rho_a$, et $\rho_a$ se factorise par $Z_G(H)$, et m\^eme par $Z^0_G(H) = H \times U$ puisque $\Ga$ est connexe. Tout morphisme de $\Ga$ dans $H$ \'etant trivial, $\rho_a$ se factorise par $U$. Soient $E_A$ l'espace affine de dimension $A$ et $f: E_A \to U: (t_a) \mapsto \prod_a \rho_a(t_a)$, le produit \'etant au sens de la loi de groupe de $U$. Par construction, $df$ est un isomorphisme en $0$. Appliquant \ref{lem:1.9}, on en d\'eduit que $U$ est lisse au voisinage de l'\'el\'ement neutre, donc partout par homog\'en\'eit\'e.
+\end{proof}
+
+Rappelons que l'action par automorphismes int\'erieurs de $H$ sur $\Lie G$ d\'efinit une graduation $\Lie(G) = \bigoplus_\alpha \Lie(G)_\alpha$.
+
+\begin{lemma}\label{lem:1.12}
+Si $\alpha \in X$ est non nul et que $\gamma \in \Lie(G)_\alpha$, on a $\gamma^p = 0$.
+\end{lemma}
+
+\begin{proof}
+Regardons $\gamma$ comme un endomorphisme de $V$. Si $\gamma^p$ \'etait non nul, au sens de la structure de $p$-alg\`ebre de Lie de $\Lie G$ ou comme endomorphisme de $V$, cela revient au m\^eme, il existerait $i$, $\beta \in X$ et $v \in V_i^\beta$ tel que $\gamma^p v \neq 0$. Ceci implique la non-nullit\'e des $\gamma^l v$ pour $0 \leq l \leq p$. L'\'el\'ement $\gamma^l v$ est dans $V_i^{\beta + l\alpha}$. Pour $0 \leq l < p$, les $\beta + l\alpha$ sont distincts, car $X$ n'a pas de torsion premi\`ere \`a $p$. Les $\gamma^l v$ pour $0 \leq l < p$ sont donc lin\'eairement ind\'ependants. Ceci contredit l'hypoth\`ese que $\dim V_i < p$.
+\end{proof}
+
+\subsection{}
+Soit $(\gamma_b)_{1 \leq b \leq B}$ une famille d'\'el\'ements de $\Lie G$, somme disjointe de bases des $(\Lie G)_\alpha$ pour $\alpha \neq 0$. Notons $\alpha_b$ le caract\`ere $\alpha$ de $H$ tel que $\gamma_b$ soit dans $(\Lie G)_\alpha$. Puisque $G$ est infinit\'esimalement satur\'e, le morphisme \ref{eq:0.4.2}: $\lambda \mapsto \exp(\lambda\gamma_b): \Ga \to \GL(V)$ fourni par \ref{lem:1.12} se factorise par un morphisme $\rho_b: \Ga \longrightarrow G$. Ce morphisme est \'equivariant pour l'action de $H$ sur $\Ga$ par $\alpha_b$ et sur $G$ par automorphismes int\'erieurs, car la m\^eme \'equivariance vaut pour son compos\'e avec l'inclusion de $G$ dans $\GL(V)$.
+
+Notons $q$ (resp.~$q'$) la projection de $G$ sur $G/Z_G(H)$ (resp.~$G/Z^0_G(H)$). Consid\'erons le morphisme
+\[
+f: E_B \longrightarrow G: (t_b) \longmapsto \prod_{1}^{B} \rho_b(t_b)
+\]
+(produit au sens de la loi de groupe de $G$).
+
+\begin{lemma}\label{lem:1.14}
+Le morphisme compos\'e $q'f: E_B \to G/Z^0_G(H)$ est \'etale en~$0$.
+\end{lemma}
+
+Puisque $G/Z^0_G(H)$ est \'etale sur $G/Z_G(H)$, le m\^eme \'enonc\'e vaut pour $qf$.
+
+\begin{proof}
+Notons $e$ l'\'el\'ement neutre de $G$, et $T_{q(e)}$ l'espace tangent \`a $G/Z_G(H)$ en $q(e)$. D'apr\`es \ref{lem:1.9}, il suffit de v\'erifier que $qf$ induit un isomorphisme de l'espace tangent en $0$ avec $T_{q(e)}$ et pour cela de v\'erifier que $dq: \Lie(G) \to T_{q(e)}$ induit un isomorphisme de $\bigoplus_{\alpha \neq 0} \Lie(G)_\alpha$ avec $T_{q(e)}$.
+
+Si $G$ \'etait lisse, $Z_G(H)$ serait lisse, en tant que lieu fixe d'une action sur $G$ du groupe de type multiplicatif $H$, on en d\'eduirait une suite exacte $0 \to \Lie Z^0_G(H) \to \Lie G \to T_{q(e)} \to 0$ et on conclurait en notant que $\Lie Z^0_G(H) = \Lie(G)^H$. Nous d\'eduirons \ref{lem:1.14} du lemme suivant.
+\end{proof}
+
+\begin{lemma}\label{lem:1.15}
+Supposons qu'un groupe de type multiplicatif $H$, de groupe de caract\`eres $X$, agisse sur un $k$-sch\'ema affine de type fini $S = \Spec(A)$. Soit $S^H$ le lieu fixe et $s \in S^H(k)$. Soit $I$ l'id\'eal qui d\'efinit $S^H$ dans $S$. Regardons $I/I^2$ comme un faisceau coh\'erent sur $S^H$, et soit $(I/I^2)_s = s^*(I/I^2)$ sa fibre en $s$. Soit $m$ l'id\'eal maximal en $s$. Le groupe $H$ agit sur $m/m^2$, qui est donc $X$-gradu\'e. L'inclusion de $I$ dans $m$ induit un isomorphisme
+\begin{equation}\label{eq:1.15.1}
+(I/I^2)_s \xrightarrow{\sim} \bigoplus_{\alpha \neq 0} (m/m^2)_\alpha.
+\end{equation}
+\end{lemma}
+
+L'hypoth\`ese ``$S$ affine'' est sans doute inutile.
+
+\begin{proof}
+L'action de $H$ donne une $X$-graduation de $A$. Le quotient $A/I$ est le plus grand quotient gradu\'e de $A$ purement de degr\'e $0$: $I$ est l'id\'eal engendr\'e par les $A_\alpha$ pour $\alpha \neq 0$. Les deux membres de \eqref{eq:1.15.1} sont inchang\'es quand on remplace $A$ par $A/I^2$. Supposons donc que $I^2 = 0$. On a alors $A_\alpha \cdot A_\beta = 0$ pour $\alpha, \beta \neq 0$, $I$ est la somme des $A_\alpha$ pour $\alpha \neq 0$ et $A^0 \xrightarrow{\sim} A/I$. Soit $m^0$ l'id\'eal maximal de $s$ dans $A/I \xrightarrow{\sim} A^0$. On a $m = m^0 \oplus \bigoplus_{\alpha \neq 0} A_\alpha$. De l\`a,
+\[
+m/m^2 = m^0/m^{02} \oplus \bigoplus_{\alpha \neq 0} A_\alpha \otimes_{A^0} A^0/m^0,
+\]
+et
+\[
+(I/I^2)_s = I/I^2 \otimes_{A^0} A^0/m^0 = \bigoplus_{\alpha \neq 0} A_\alpha \otimes_{A^0} A^0/m^0,
+\]
+et \eqref{eq:1.15.1}.
+\end{proof}
+
+\begin{proof}[Fin de la preuve de \ref{lem:1.14}]
+Le morphisme $G \to G/Z_G(H)$ est plat. Si $I$ est l'id\'eal qui d\'efinit $Z_G(H)$ dans $G$, et $n$ l'id\'eal maximal en le point $q(e)$ de $G/Z_G(H)$, le fibr\'e $I/I^2$ sur $Z_G(H)$ est l'image inverse de $n/n^2$ sur $q(e)$. Sa fibre en l'\'el\'ement neutre $e$ de $G$ est $n/n^2$, et on a donc par \eqref{eq:1.15.1}
+\[
+n/n^2 \xrightarrow{\sim} \bigoplus_{\alpha \neq 0} (m/m^2)_\alpha.
+\]
+Passant aux duaux, cela donne $\bigoplus_{\alpha \neq 0} \Lie(G)_\alpha \xrightarrow{\sim} T_{q(e)}$.
+\end{proof}
+
+\begin{corollary}\label{cor:1.16}
+Le morphisme
+\[
+F: E_B \times Z^0_G(H) \longrightarrow G: (t_b), z \longmapsto \Bigl(\prod \rho_b(t_b)\Bigr) \cdot z
+\]
+est \'etale en $(0,e)$.
+\end{corollary}
+
+\begin{proof}
+Le carr\'e
+\[
+\xymatrix{
+E_B \times Z^0_G(H) \ar[r]^-{F} \ar[d] & G \ar[d]^{q'} \\
+E_B \ar[r]^-{q'f} & G/Z^0_G(H)
+}
+\]
+est cart\'esien. Le morphisme $F$ est donc \'etale en tout point au-dessus de $0 \in E_B$.
+\end{proof}
+
+\subsection{}
+Si $f: T \to U$ est un morphisme quasi-compact de sch\'emas, l'image sch\'ematique ferm\'ee $\overline{f(T)}$ de $f$ est le plus petit sous-sch\'ema ferm\'e de $U$ par lequel se factorise $f$. Si $f: \Spec(A) \to \Spec(B)$ est affine, il est d\'efini par l'id\'eal noyau de $f^*: B \to A$. Sa formation est compatible \`a tout changement de base plat $U' \to U$. Si $f$ est un morphisme de sch\'emas sur $S$, qu'un sch\'ema en groupes $H$ plat sur $S$ agit sur $T$ et $U$, et que $f$ est \'equivariant, cette compatibilit\'e au changement de base implique que l'action de $H$ sur $U$ induit une action de $H$ sur l'image sch\'ematique ferm\'ee $\overline{f(T)}$.
+
+\subsection{Preuve de l'invariance de $G^0_\red$ dans $G$}\label{sec:1.18}
+
+Le morphisme $F$ de \ref{cor:1.16} est \'equivariant, pour l'action de $H$ sur $E_B$ par les $\alpha_b$, et sur $G$ par automorphismes int\'erieurs. Puisque $U$ est lisse (\ref{cor:1.11}), le sous-sch\'ema r\'eduit de $Z^0_G(H) = H \times U$ est $H_\red \times U$. Un morphisme \'etale induit un morphisme \'etale sur les sous-sch\'emas r\'eduits. Le morphisme induit par $F$ de $E_B \times H_\red \times U$ dans $G_\red$ est donc \'etale en $0$, et son image contient un ouvert non vide de $G^0_\red$. L'image sch\'ematique ferm\'ee du morphisme $F_1: H_\red \times U \to G_\red$ induit par $F$ co\"incide donc avec $G^0_\red$. Puisque ce morphisme est $H$-\'equivariant, 1.17 garantit que $G^0_\red$ est stable par l'action par automorphismes int\'erieurs de $H$ sur $G$.
+
+Parce que $F$ est \'etale \`a l'origine, $G$ est engendr\'e comme faisceau fppf par l'image de $F$, donc par $H$ et $G^0_\red$, car $U \subset G^0_\red$. Puisque $H$ normalise $G^0_\red$, ceci implique que $G^0_\red$ est un sous-groupe invariant de $G$.
+
+\begin{proposition}\label{sec:1.19}
+On a $H/H \cap G^0_\red \xrightarrow{\sim} G/G^0_\red$. En cons\'equence, $G/G^0_\red$ est de type multiplicatif.
+\end{proposition}
+
+\begin{proof}
+Si $Y_1$ et $Y_2$ sont deux sous-sch\'emas ferm\'es de $Z$, pour tout morphisme $u: Z \to Z'$, on a $u^{-1}(Y_1 \cap Y_2) = u^{-1}(Y_1) \cap u^{-1}(Y_2)$. Si $u$ est \'etale, et que $Y_2 = Z_\red$, on obtient $u^{-1}(Y_1 \cap Z_\red) = u^{-1}(Y_1) \cap Z'_\red$. Appliquons ceci \`a $F$, qui est \'etale au voisinage de $0 \in H \oplus U \subset Z^0_G(H)$. On obtient que, au voisinage de $0 \in H$, l'image inverse de $H \cap G^0_\red$ est $H_\red$, donc que $H \cap G^0_\red \to H_\red$ est \'etale, donc un isomorphisme. Si $H$, $H_\red$, $G$, $G_\red$ et les quotients sont interpr\'et\'es comme faisceaux fppf, que $H/H \cap G^0_\red \xrightarrow{\sim} G/G^0_\red$ r\'esulte de ce que $H$ normalise $G^0_\red$, que $HG^0_\red = G$ et que $H_\red \xrightarrow{\sim} H \cap G^0_\red$.
+\end{proof}
+
+\subsection{Preuve de l'invariance dans $G$ de $R_u G^0_\red$}\label{sec:1.20}
+
+Notons $R$ le radical unipotent $R_u G^0_\red$ du groupe lisse $G^0_\red$, et $L$ le quotient $G^0_\red/R$.
+
+Soit $T_L$ un tore maximal du groupe r\'eductif $L$. C'est un sous-groupe de type multiplicatif connexe maximal. L'image inverse de $T_L$ dans $G^0_\red$ est une extension du tore $T_L$ par le groupe unipotent lisse connexe $R$. D'apr\`es SGA3 XVII 5.1.1 (i), une telle extension est triviale: le tore $T_L$ se rel\`eve en un tore $T$, automatiquement maximal, de $G^0_\red$. Nous prendrons pour $H$ un sous-groupe connexe de type multiplicatif maximal de $G$ contenant $T$. On a $T = H \cap G^0_\red$.
+
+\begin{lemma}\label{lem:1.21}
+Le centralisateur connexe $Z^0_{G^0_\red}(T)$ de $T$ dans $G^0_\red$ est un produit $T \times W$, avec $W$ unipotent. Le sch\'ema en groupes $H$ normalise $W$.
+\end{lemma}
+
+\begin{proof}
+Puisque $H$ normalise $T$, $H$ normalise $Z := Z^0_{G^0_\red}(T)$. Comme $G$, le sous-groupe $G^0_\red$ de $\GL(V)$ est infinit\'esimalement satur\'e. Appliquant \ref{lem:1.7} \`a $G^0_\red$ et $T$ (au lieu de $G$ et $H$) fournit la d\'ecomposition $Z = T \times W$. La preuve de \ref{lem:1.7} d\'ecrit $W \subset Z$ comme \'etant la composante neutre de l'intersection des noyaux des caract\`eres d\'eterminants des repr\'esentations dans les $V_i^\beta$, pour $\beta$ un poids de $T$ dans $V$. Cette description montre que $H$ normalise $W$.
+\end{proof}
+
+\begin{lemma}\label{lem:1.22}
+L'action de $H$ sur $\Lie(G^0_\red)$ respecte le sous-espace $\Lie(R)$.
+\end{lemma}
+
+\begin{proof}
+D\'ecomposons $\mathfrak{l} = \Lie L$, $\mathfrak{g} = \Lie G^0_\red$ et $\mathfrak{r} = \Lie R$ selon les poids de $T$. Puisque $H$ normalise $T$, la d\'ecomposition obtenue de $\mathfrak{g}$ est respect\'ee par $H$. Nous montrerons que chaque $\mathfrak{r}_\alpha$, et donc leur somme $\mathfrak{r}$, est stable sous $H$.
+
+Le centralisateur connexe de $T$ dans $L$ est r\'eduit \`a $T_L$. On a donc un morphisme de suites exactes
+\[
+\xymatrix{
+1 \ar[r] & W \ar[r] \ar[d] & Z = T \times W \ar[r] \ar[d] & T_L \ar[d] \\
+1 \ar[r] & R \ar[r] & G^0_\red \ar[r] & L.
+}
+\]
+La partie de poids $0$ de $\mathfrak{g}$ est $\Lie(Z)$. Son intersection avec $\Lie R$ est $\Lie W$, stable par $H$ d'apr\`es \ref{lem:1.21}.
+
+Si $\alpha$ n'est pas un poids de $T$ sur $\mathfrak{l}$, on a $\mathfrak{n}_\alpha = \mathfrak{g}_\alpha$, stable sous $H$.
+
+Si $\alpha$ est un poids non nul de $T$ sur $\mathfrak{l}$, $\mathfrak{l}_\alpha$ et $\mathfrak{l}_{-\alpha}$ sont de dimension un. Sous notre hypoth\`ese que $p \neq 2$, le crochet induit un accouplement non d\'eg\'en\'er\'e de $\mathfrak{l}_\alpha$ et $\mathfrak{l}_{-\alpha}$ \`a valeurs dans une droite $\mathfrak{h}_\alpha \subset \Lie T_L$. Le crochet de $\mathfrak{g}$ induit un accouplement de $\mathfrak{g}_\alpha$ et $\mathfrak{g}_{-\alpha}$ \`a valeurs dans $\mathfrak{g}^0 = \Lie Z$.
+
+Son compos\'e avec $\mathfrak{g}^0 \to \mathfrak{g}^0/\Lie W \hookrightarrow \Lie T_L$ se factorise par $\mathfrak{g}_\alpha \twoheadrightarrow \mathfrak{l}_\alpha$ et $\mathfrak{g}_{-\alpha} \twoheadrightarrow \mathfrak{l}_{-\alpha}$ et l'accouplement pr\'ec\'edent. Il est donc \`a valeurs dans une droite $d \subset \mathfrak{g}^0/\Lie W$, et $\mathfrak{r}_{\pm\alpha} = \Ker(\mathfrak{g}_{\pm\alpha} \to \Hom(\mathfrak{g}_{\mp\alpha}, d))$: les $\mathfrak{r}_{\pm\alpha}$ sont les noyaux de l'accouplement de $\mathfrak{g}_\alpha$ et $\mathfrak{g}_{-\alpha}$ \`a valeurs dans $d$. La d\'ecomposition de $\mathfrak{g}$ selon les poids de $T$, et $W \subset \mathfrak{g}^0$ \'etant respect\'es par $H$, cette description montre que les $\mathfrak{r}_\alpha$, et donc $\mathfrak{r}$ sont des sous-repr\'esentations de $H$ agissant sur $\mathfrak{g}$.
+\end{proof}
+
+\subsection{Fin de la preuve de l'invariance de $R$}\label{sec:1.23}
+
+Notons $\Fil$ la filtration finie croissante de $V \cong \bigoplus V_i$ telle que $\Fil_0 = 0$ et que $\Fil_{n+1}/\Fil_n$ soit l'espace des invariants de $R$ dans $V/\Fil_n$. C'est la somme de filtrations des $V_i$. Elle est respect\'ee par $G^0_\red$, puisque $R$ est un sous-groupe invariant de $G^0_\red$.
+
+Le sous-groupe r\'eduit du plus grand sous-groupe de $G^0_\red$ qui agit trivialement sur $\Gr^{\Fil}(\bigoplus V_i)$ est un sous-groupe unipotent lisse invariant contenant $R$. Il co\"incide donc avec $R$.
+
+Si $\gamma$ est dans $\Lie R$, $\gamma$ agit de fa\c{c}on nilpotente sur $V$. La famille des repr\'esentations $V_i$ de dimension $< p$ \'etant fid\`ele, on a $\gamma^p = 0$. Puisque $G^0_\red$ est infinit\'esimalement satur\'e, le morphisme $\rho: \Ga \to \GL(V_i)$ correspondant se factorise par $G^0_\red$. Cette repr\'esentation de $\Ga$ \'etant triviale sur $\Gr^{\Fil}(\bigoplus V_i)$, le morphisme $\rho$ se factorise m\^eme par $R$.
+
+Choisissons une base $(\gamma_c)_{1 \leq c \leq C}$ de $\mathfrak{r} = \Lie R$, somme disjointe de bases des $\mathfrak{r}^\beta$ pour $\beta$ un poids de $H$ agissant sur $\mathfrak{r}$. Soit $\rho_c: \Ga \to R$ le morphisme d\'efini par $\gamma_c$. Comme en 5.6, le morphisme de sch\'emas $f: E_C \to R: (t_c) \mapsto \prod \rho_c(t_c)$ est \'etale en $0$. Son compos\'e avec l'inclusion de $R$ dans $G^0_\red$ est $H$-\'equivariante, pour une action convenable de $H$ sur $E_C$. Par le m\^eme argument qu'en 1.17 et \ref{sec:1.18}, on en d\'eduit que $R$ est stable sous l'action de $H$ sur $G^0_\red$.
+
+\begin{corollary}\label{cor:1.24}
+Si les repr\'esentations $V_i$ sont semi-simples, le sch\'ema en groupes $G^0_\red$ est r\'eductif.
+\end{corollary}
+
+\begin{proof}
+Rempla\c{c}ant chaque $V_i$ par une famille de repr\'esentations irr\'eductibles dont $V_i$ est somme, on se ram\`ene \`a supposer les $V_i$ irr\'eductibles. Il nous faut prouver que le radical unipotent $R = R_u G^0_\red$ est trivial.
+
+Puisque $R$ est unipotent, le sous-espace $V_i^R$ des invariants de $R$ dans $V_i$ est non nul. Parce que $R$ est invariant dans $G$, $V_i^R$ est stable par $G$ donc, par irr\'eductibilit\'e de $V_i$, co\"incide avec $V_i$. La famille des $V_i$ \'etant fid\`ele, $R$ est trivial.
+\end{proof}
+
+\subsection{Preuve de \ref{thm:0.7}~(iii)}\label{sec:1.25}
+
+Supposons $G^0_\red$ r\'eductif, soit $T$ un tore maximal de $G^0_\red$ et prenons pour $H$ un sous-groupe connexe de type multiplicatif maximal de $G$ qui contienne $T$. Il normalise $G^0_\red$ et son action sur $G^0_\red$ fixe $T$. Le sch\'ema en groupes des automorphismes du groupe r\'eductif $G^0_\red$ qui fixent $T$ est l'image $T_{\ad}$ de $T$ dans le groupe adjoint. Si $Z$ est le sous-groupe de $H$ qui centralise $G^0_\red$, le morphisme $Z \times T \to H$ est un quotient de $T$: l'image $T_{\ad}$ de $T$ dans le groupe adjoint. Regardons tous ces sch\'emas en groupes comme des faisceaux fppf. Puisque $H$ et $G^0_\red$ engendrent $G$, $Z$ est central. Puisque l'action de $H$ sur $G^0_\red$ se factorise par un quotient de $T$, $Z$ et $T$ engendrent $H$. Puisque $Z$ est engendr\'e par $Z^0$ et $Z_\red$ et que $Z_\red \subset G^0_\red$, $Z^0$ et $G^0_\red$ engendrent $G$: le morphisme $Z^0 \times G^0_\red \to G$ est un \'epimorphisme et ceci v\'erifie \ref{thm:0.7}~(iii).
+
+\section{Saturation}\label{sec:2}
+
+(cf \cite{Serre1994}~\S4)
+
+\subsection{}
+Soient $V$ un espace vectoriel de dimension finie sur $k$ alg\'ebriquement clos de caract\'eristique $p$ et $G$ un sous-sch\'ema en groupes de $\GL(V)$. L'intersection $G_*$ des sous-sch\'emas en groupes doublement satur\'es (\ref{def:0.5}) de $\GL(V)$ contenant $G$ est doublement satur\'ee. On appellera $G_*$ le doublement satur\'e de $G$.
+
+Soit $(V_i)_{i \in I}$ une famille finie d'espaces vectoriels de dimension finie sur $k$. Pour chaque $i$, soit $N_i$ un endomorphisme de $V_i$ tel que $N_i^p = 0$. Il d\'efinit une action $t \mapsto \exp(tN_i)$ de $\Ga$ sur $V_i$ (0.4). Pour $a \in I$, notons encore $N_a$ l'endomorphisme de $\bigotimes V_i$ produit tensoriel de $N_a \in \End(V_a)$ et des identit\'es $1 \in \End(V_j)$ pour $j \neq a$. Notons $N$ l'endomorphisme $\sum N_a$ de $\bigotimes V_i$.
+
+\begin{proposition}\label{prop:2.2}
+Supposons qu'il existe des entiers $v_i \neq 0$ et que $\sum (v_i - 1) < p$. Alors, $N^p = 0$, et l'action $t \mapsto \exp(tN)$ de $\Ga$ sur $\bigotimes V_i$ est le produit tensoriel des actions de $\Ga$ sur les $V_i$ d\'efinies par les $N_i$.
+\end{proposition}
+
+\begin{proof}
+Les endomorphismes $N_a$ de $\bigotimes V_i$ commutent entre eux, et tout mon\^ome de degr\'e $p$ en les $N_a$ est de degr\'e $\geq v_a$ en $N_a$ pour au moins un $a \in I$, donc est nul. Que $N^p = (\sum N_a)^p = 0$ en r\'esulte, ainsi que l'identit\'e entre exponentielles tronqu\'ees $\exp(tN) = \exp(\sum tN_a) = \bigotimes \exp(tN_a)$.
+\end{proof}
+
+\begin{corollary}\label{cor:2.3}
+Si $\sum (\dim(V_i) - 1) < p$, l'action $\exp(tN)$ de $\Ga$ sur $\bigotimes V_i$ est le produit tensoriel des actions de $\Ga$ sur les $V_i$ d\'efinies par les $N_i$.
+\end{corollary}
+
+\begin{proof}
+Faire $v_i = \dim(V_i)$ dans \ref{prop:2.2}.
+\end{proof}
+
+Par les m\^emes arguments que ceux de \cite{Serre1994}~\S4, on d\'eduit de \cite{Serre1994}~\S4 prop.~10 et de \ref{cor:2.3} la proposition \ref{prop:2.4} suivante. Soit $(V_i)_{i \in I}$ une famille finie d'espaces vectoriels de dimension finie sur $k$ et $G$ un sous-sch\'ema en groupes de $\prod \GL(V_i)$. Le sous-sch\'ema en groupes $\prod \GL(V_i)$ de $\GL(\bigoplus V_i)$ est satur\'e et infinit\'esimalement satur\'e. Le doublement satur\'e $G_*$ de $G$, vu comme sous-groupe de $\GL(\bigoplus V_i)$, est donc contenu dans $\prod \GL(V_i)$.
+
+\begin{proposition}\label{prop:2.4}
+Si $\sum (\dim(V_i) - 1) < p$, un sous-espace $W$ de $\bigotimes V_i$ est stable sous l'action de $G$ si et seulement si il est stable sous celle de $G_*$. La repr\'esentation $\bigotimes V_i$ de $G$ est donc semi-simple si et seulement si elle est semi-simple comme repr\'esentation de $G_*$.
+\end{proposition}
+
+\section{Le cas o\`u $k$ est alg\'ebriquement clos}\label{sec:3}
+
+Soient $G$ un sch\'ema en groupes affine sur $k$ alg\'ebriquement clos de caract\'eristique $p$ et $(V_i)_{i \in I}$ une famille finie de repr\'esentations de $G$.
+
+\begin{proposition}\label{prop:3.1}
+Si les repr\'esentations $V_i$ sont semi-simples, et que $\sum (\dim V_i - 1) < p$, alors la repr\'esentation $\bigotimes V_i$ de $G$ est encore semi-simple.
+\end{proposition}
+
+\begin{proof}
+Nous laissons au lecteur le soin de v\'erifier que cet \'enonc\'e est impliqu\'e par son cas particulier o\`u on fait les hypoth\`eses additionnelles que chaque $V_i$ est simple de dimension $\geq 2$, et que $|I| \geq 2$. Ces hypoth\`eses impliquent que $p \neq 2$, et que chaque $V_i$ est de dimension $< p$.
+
+Rempla\c{c}ant $G$ par son image dans $\prod \GL(V_i)$, on peut supposer que $G$ est un sous-sch\'ema en groupes de $\prod \GL(V_i)$. D'apr\`es \ref{prop:2.4}, on peut supposer de plus que, en tant que sous-groupe de $\GL(\bigoplus V_i)$, $G$ est doublement satur\'e. Dans la suite de la preuve nous supposerons v\'erifi\'ees toutes ces propri\'et\'es. Que $G$ soit satur\'e \'equivaut \`a ce que $G_\red$ le soit et, d'apr\`es \cite{Serre1994}~\S4 prop.~11 implique que le groupe fini $G/G^0 = G_\red/G^0_\red$ est d'ordre premier \`a $p$.
+
+D'apr\`es (\ref{thm:0.7}) (ii) (iii), le groupe $G^0_\red$ est r\'eductif et $G^0$ contient $M$ central connexe de type multiplicatif tel que $M \times G^0_\red \to G^0$ soit un \'epimorphisme.
+
+D'apr\`es le lemme \ref{lem:1.3} (ii), les $V_i$ sont semi-simples comme repr\'esentations de $G^0$. Si $W$ est une repr\'esentation irr\'eductible de $G^0$, alors $M$, de type multiplicatif et central, agit sur $W$ par un caract\`ere. La repr\'esentation $W$ est donc encore irr\'eductible comme repr\'esentation de $G^0_\red$. Les $V_i$ sont donc semi-simples comme repr\'esentations de $G^0_\red$ et, par \cite{Serre1994}, le produit tensoriel de ces repr\'esentations est encore semi-simple comme repr\'esentation de $G^0_\red$. Le lemme suivant montre qu'il est semi-simple comme repr\'esentation de $G$.
+\end{proof}
+
+\begin{lemma}\label{lem:3.2}
+Supposons qu'un sch\'ema en groupes $G$ soit extension d'un sch\'ema en groupes lin\'eairement r\'eductif $A$ par un sch\'ema en groupes $B$. Alors, toute repr\'esentation $V$ de $G$, semi-simple comme repr\'esentation de $B$, est semi-simple.
+\end{lemma}
+
+Que $A$ soit lin\'eairement r\'eductif signifie que toutes ses repr\'esentations lin\'eaires sont semi-simples. Un groupe de type multiplicatif, et un groupe fini d'ordre premier \`a $p$, sont lin\'eairement r\'eductifs.
+
+\begin{proof}
+Soit $S$ la somme des sous-repr\'esentations irr\'eductibles de $V$. Il nous faut montrer que $S = V$ et pour le v\'erifier, il suffit de montrer que $S$ admet un suppl\'ement $T$ dans $V$ stable par $G$. Consid\'erons la suite exacte
+\[
+1 \longrightarrow \Hom_B(V/S, S) \longrightarrow \Hom_B(V, S) \longrightarrow \Hom_B(S, S) \longrightarrow 1.
+\]
+C'est une suite exacte de repr\'esentations de $A$. Puisque $A$ est lin\'eairement r\'eductif, l'identit\'e $1_S$ de $S$, fixe par $A$, se rel\`eve en un homomorphisme $f: V \to S$ de repr\'esentations de $B$ qui est fixe par $A$, i.e. est un morphisme de repr\'esentations de $G$. Son noyau est le suppl\'ement requis.
+\end{proof}
+
+\begin{corollary}\label{cor:3.3}
+L'\'enonc\'e \ref{thm:0.1} est vrai quand $k$ est alg\'ebriquement clos.
+\end{corollary}
+
+\begin{proof}
+Soit $T_0$ la sous-cat\'egorie tannakienne de $T$ engendr\'ee \`a partir des $V_i$ par les op\'erations de produit tensoriel, dual et passage \`a un sous-quotient. D'apr\`es \cite{Saavedra}~3.3.1.1, $T_0$ admet un foncteur fibre sur $k$, donc est \'equivalente \`a la cat\'egorie des repr\'esentations d'un sch\'ema en groupes affine sur $k$. Autre r\'ef\'erence: \cite{Deligne1990}~6.20.
+\end{proof}
+
+\begin{remark}\label{rem:3.4}
+La r\'eduction de $T$ \`a $T_0$ est en fait inutile. J'ai v\'erifi\'e (non publi\'e) que toute cat\'egorie tannakienne sur $k$ alg\'ebriquement clos est \'equivalente \`a la cat\'egorie tannakienne des repr\'esentations d'un sch\'ema en groupes affine sur $k$.
+\end{remark}
+
+\section{Extension des scalaires dans les cat\'egories tannakiennes, et preuve de \ref{thm:0.1}}\label{sec:4}
+
+\subsection{}
+Soient $k$ un corps (commutatif) et $T$ une cat\'egorie ab\'elienne $k$-lin\'eaire. On d\'efinit le produit tensoriel d'un objet $X$ de $T$ et d'un $k$-espace vectoriel de dimension finie $V$ comme \'etant l'objet de $T$ qui repr\'esente le foncteur $Y \mapsto V \otimes \Hom(Y, X)$. Le choix d'une base $(e_i)_{i \in I}$ de $V$ identifie $V \otimes X$ \`a la somme d'une famille de copies de $X$ index\'ee par $I$.
+
+Soit $k'$ une extension finie de $k$. On d\'efinit comme suit la cat\'egorie ab\'elienne $k'$-lin\'eaire $T_{k'}$ d\'eduite de $T$ par extension des scalaires \`a $k'$, le foncteur d'extension des scalaires $e_{k'/k}: T \to T_{k'}$ et le foncteur de restriction des scalaires $r_{k' \backslash k}: T_{k'} \to T$. La cat\'egorie $T_{k'}$ est la cat\'egorie des objets $X$ de $T$ munis d'une structure de $k'$-module $k' \otimes X \to X$. Pour $X$ dans $T$, $e_{k'/k}(X) := k' \otimes X$, muni des structures naturelles de $k'$-module. Le foncteur $r_{k' \backslash k}$ oublie la structure de $k'$-module. Les foncteurs $e_{k'/k}$ et $r_{k' \backslash k}$ sont exacts, et $r_{k' \backslash k}$ est adjoint \`a droite de $e_{k'/k}$.
+
+Supposons que les objets de $T$ sont de longueur finie et que les groupes $\Hom$ sont de dimension finies sur $k$. Si $X$ est un objet simple de $T$, l'alg\`ebre \`a division $\End(X)$, \'etant de dimension finie sur $k$, est centrale simple sur son centre, qui est une extension finie de $k$.
+
+\begin{lemma}\label{lem:4.2}
+Sous ces hypoth\`eses:
+\begin{enumerate}[label=(\roman*)]
+\item Soient $X$ un objet simple de $T$, $D := \End(X)$ et $F$ le centre de $D$. L'objet $e_{k'/k}(X)$ de $T_{k'}$ est semi-simple si et seulement si $F \otimes_k k'$ est un produit de corps;
+\item Si $Y$ est un objet semi-simple de $T_{k'}$, $r_{k' \backslash k}(Y)$ est semi-simple;
+\item Si $X$ est dans $T$ et que $e_{k'/k}(X)$ est semi-simple, $X$ l'est aussi.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Le foncteur $Z \mapsto \Hom(X, Z)$ est une \'equivalence de cat\'egories de la cat\'egorie des objets de $T$ sommes de copies de $X$ avec celle des $D$-espaces vectoriels \`a droite de dimension finie. La cat\'egorie des sommes de copies de $X$ munies d'une structure de $k'$-module, s'identifie \`a celle des $D \otimes_k k'$-modules \`a droite de type fini. L'objet $e_{k'/k}(X)$ de $T_{k'}$ correspond ainsi au $D \otimes_k k'$-module $D \otimes_k k'$. On sait qu'il est semi-simple si et seulement si $F \otimes_k k'$ est un produit de corps.
+
+(ii) On se ram\`ene \`a supposer $Y$ simple. La somme $S$ des sous-objets simples de $r_{k' \backslash k}(Y)$ est non nulle et un sous-$k'$-module. Par simplicit\'e de $Y$, elle co\"incide avec $r_{k' \backslash k}(Y)$.
+
+(iii) $X$ est un facteur direct de $r_{k' \backslash k} e_{k'/k}(X)$, et on applique (ii).
+\end{proof}
+
+\subsection{}
+Supposons maintenant que $T$ soit une cat\'egorie tannakienne sur $k$, et munissons $T_{k'}$ du produit tensoriel sur $k'$:
+\[
+X \otimes_{k'} Y = \Coker(X \otimes k' \otimes Y \rightrightarrows X \otimes Y).
+\]
+Le foncteur d'extension des scalaires $e_{k'/k}$ est compatible aux produits tensoriels et \`a leurs donn\'ees d'associativit\'e et de commutativit\'e. Il transforme objet unit\'e en objet unit\'e, et duaux (au sens de \cite{Deligne1990}~2.2) en duaux. La cat\'egorie $T_{k'}$ admet des $\Hom$ internes: si $X$ et $Y$ dans $T$ sont munis de structures de $k'$-modules, leur $\Hom$ interne dans $T_{k'}$ est l'intersection des noyaux $\Hom(X, Y) \to \Hom(X, Y):\ f \mapsto \lambda f - f \lambda$ pour $\lambda$ parcourant une base de $k'$ sur $k$. Plus intrins\`equement, c'est le noyau d'un morphisme $\Hom(X, Y) \to \Hom(X, Y) \otimes k'^{\vee}$, o\`u $k'^{\vee}$ est le $k$-dual du $k$-espace vectoriel $k'$. On le notera $\Hom_{k'}(X, Y)$.
+
+\begin{theorem}\label{thm:4.4}
+Si $T$ est une cat\'egorie tannakienne sur $k$ et $k'$ une extension finie de $k$, la cat\'egorie $T_{k'}$, munie du produit tensoriel sur $k'$, est tannakienne sur $k'$.
+\end{theorem}
+
+Il est possible de d\'eduire ce th\'eor\`eme du th\'eor\`eme 1.12 de \cite{Deligne1990} caract\'erisant les cat\'egories tannakiennes comme cat\'egories de repr\'esentations de groupo\"ides affines $G$ agissant transitivement sur un $k$-sch\'ema $S$ ($G \to S \times_k S$ affine et fid\`element plat): si $T$ est une telle cat\'egorie de repr\'esentations, $T_{k'}$ s'identifie \`a la cat\'egorie des repr\'esentations du groupo\"ide qui s'en d\'eduit par extension des scalaires \`a $k'$.
+
+R\'eciproquement, et selon une strat\'egie que Grothendieck m'a indiqu\'ee il y a une trentaine d'ann\'ees, la d\'emonstration plus \'el\'ementaire qui suit de \ref{thm:4.4} devrait permettre de prouver plus simplement \cite{Deligne1990}~1.12.
+
+Si $k \supset k' \supset k''$, $T_{k''}$ s'identifie \`a $(T_{k'})_{k''}$. Cette observation permet de ramener la preuve de \ref{thm:4.4} aux deux cas particuliers suivants: $k'/k$ s\'eparable, et $k'/k$ ins\'eparable de degr\'e $p$. Le point d\'elicat est d\'emontrer l'existence de duaux, au sens de \cite{Deligne1990}~2.2, dans $T_{k'}$. Ceci acquis, si $\omega$ est un foncteur fibre sur la $k$-alg\`ebre $K$, $\omega$ fournit un foncteur fibre $\omega'$ de $T_{k'}$ sur la $k'$-alg\`ebre $K' := k' \otimes_k K$: \`a $X$ dans $T$, muni d'une structure de $k'$-module, attacher $\omega(X)$, muni de sa structure de $k'$-module. Cette structure fait de $\omega(X)$ un $k' \otimes_k K$-module.
+
+\begin{proof}[Preuve si $k'$ est une extension finie s\'eparable de $k$]
+Si $X$ est dans $T$ et a $X^\vee$ pour dual (au sens de \cite{Deligne1990}~2.2), l'objet $e_{k'/k}(X)$ de $T_{k'}$ admet $e_{k'/k}(X^\vee)$ pour dual. On conclut en observant que tout objet $Y$ de $T_{k'}$ est facteur direct d'un objet de cette forme. Plus pr\'ecis\'ement, le morphisme d'adjonction $e_{k'/k} r_{k' \backslash k}(Y) \to Y$ est scind\'e: si on regarde $Y$ comme un objet de $T$, $k' \otimes Y$ a deux structures naturelles de $k'$-modules, l'une provenant de $k'$ (c'est celle de $e_{k'/k} r_{k' \backslash k}(Y)$), l'autre de $Y$. Le morphisme d'adjonction est le morphisme naturel $k' \otimes Y \to (k' \otimes Y) \otimes_{k' \otimes_k k'} k'$. Il est scind\'e car le morphisme $k' \otimes_k k' \to k'$ est la projection sur un facteur direct.
+\end{proof}
+
+\begin{proof}[Preuve si $k' = k(a^{1/p})$]
+Soit $\omega$ un foncteur fibre sur une extension $K$ de $k$. Le point cl\'e est le
+
+\begin{lemma}\label{lem:4.5}
+Si un objet $X$ de $T$ est muni d'une structure de $k'$-module, cette structure fait de $\omega(X)$ un $k' \otimes_k K$-module. Ce module est libre.
+\end{lemma}
+
+\begin{proof}
+Si $K' := k' \otimes_k K$ est un corps, c'est clair. Sinon, $a$ a une racine $p$-i\`eme $\alpha$ dans $K$ et la $K$-alg\`ebre $K'$ est isomorphe \`a $K[\varepsilon]/(\varepsilon^p)$: prendre $\varepsilon = a^{1/p} - \alpha$. Soit $d$ la dimension sur $K$ de $\omega(X)/\varepsilon\omega(X)$. Le $K'$-module $\omega(X)$ est isomorphe \`a une somme de $d$ modules monog\`enes $K[\varepsilon]/(\varepsilon^j)$, $1 \leq j \leq p$. On v\'erifie qu'il est libre si et seulement si la puissance ext\'erieure $\bigwedge^d_{K'} \omega(X)$ est libre (de rang un). Par exactitude de $\omega$, cette puissance ext\'erieure sur $K'$ est l'image par $\omega$ de la puissance ext\'erieure sur $k'$ de $X$, d\'efinie comme image de l'antisym\'etrisation $a: X^{\otimes d} \to X^{\otimes d}$.
+
+Rempla\c{c}ant $X$ par cette puissance ext\'erieure, nous sommes ramen\'es au cas o\`u $X$ est tel que $\omega(X)$ soit un $K'$-module monog\`ene non nul.
+
+La structure de $k'$-module de $X$ fournit un morphisme
+\begin{equation}\label{eq:4.5.1}
+k' \otimes 1 \longrightarrow \Hom(X, X).
+\end{equation}
+On sait que l'objet unit\'e $1$ est simple (\cite{DM}~1.17). Le noyau de \eqref{eq:4.5.1} est donc de la forme $A \otimes 1$, pour $A$ un sous-espace vectoriel de $k'$. Ce sous-espace est un id\'eal non nul de $k'$, donc $A = 0$ et \eqref{eq:4.5.1} est un monomorphisme. Appliquant $\omega$, on en d\'eduit que $\omega(X)$ est un $K'$-module fid\`ele, et on conclut en observant qu'un $K'$-module monog\`ene fid\`ele est libre.
+\end{proof}
+
+\subsection{Fin de la preuve si $k' = k(a^{1/p})$}\label{sec:4.6}
+
+Notons $1'$ l'objet unit\'e $e_{k'/k}(1)$ de $T_{k'}$. Pour $X$ dans $T_{k'}$, posons $X^\vee := \Hom_{k'}(X, 1')$. Montrons que $X^\vee$ est un dual de $X$ au sens de \cite{Deligne1990}~2.2. On dispose dans $T_{k'}$ d'un morphisme d'\'evaluation
+\begin{equation}\label{eq:4.6.1}
+\ev: X^\vee \otimes_{k'} X \longrightarrow 1'
+\end{equation}
+et, pour tout $Y$ dans $T_{k'}$, d'un morphisme
+\begin{equation}\label{eq:4.6.2}
+Y \otimes_{k'} X^\vee \longrightarrow \Hom_{k'}(X, Y).
+\end{equation}
+Le foncteur $\omega'$, \`a valeurs dans les $K$-modules, transforme ce morphisme en
+\begin{equation}\label{eq:4.6.3}
+\omega'(Y) \otimes_{K'} \omega(X)^\vee \longrightarrow \Hom_{K'}(\omega(X), \omega(Y)).
+\end{equation}
+Le lemme \ref{lem:4.5} assure que \eqref{eq:4.6.3} est un isomorphisme. Le foncteur $\omega'$ \'etant exact et tel que $\omega'(Z) = 0$ implique que $Z = 0$, car $\omega$ a ces propri\'et\'es, il est conservatif et \eqref{eq:4.6.2} est un isomorphisme. Faisons $Y = X$. Composant le morphisme \'evident $1' \to \Hom_{k'}(X, X)$ avec l'inverse de \eqref{eq:4.6.2}, on obtient $\delta: 1' \to X \otimes_{k'} X^\vee$. Les morphismes $\ev$ et $\delta$ v\'erifient les identit\'es \cite{Deligne1990}~(2.1.2) qui font de $X^\vee$ un dual de $X$, car ces identit\'es deviennent vraies apr\`es application de $\omega'$.
+\end{proof}
+
+\begin{corollary}\label{cor:4.7}
+Soit $X$ un objet d'une cat\'egorie tannakienne $T$ sur $k$. Si $X$ admet une structure de module sur une extension $k'$ de $k$, alors $[k':k]$ divise $\dim X$.
+\end{corollary}
+
+\begin{proof}
+Soit $\omega$ un foncteur fibre de $T$ sur une extension $K$ de $T$, $K' := k' \otimes_k K$, et regardons $\omega(X)$, muni de sa structure de $k'$-module d\'eduite de celle de $X$, comme un $K$-module. Si on regarde $X$ comme un objet de la cat\'egorie tannakienne $T_{k'}$, ce $K$-module est l'image de $X$ par le foncteur fibre $\omega'$ de $T_{k'}$ d\'eduit de $\omega$. En tant qu'image de l'objet $X$ de la cat\'egorie tannakienne $T_{k'}$ par le foncteur fibre $\omega'$, c'est un $K$-module localement libre de rang constant, \'egal \`a la dimension de $X$ vu comme objet de $T_{k'}$. On a donc $\dim(X) := \dim_K \omega(X) = [K':K] \cdot \rang_{K'} \omega(X) = [k':k] \cdot \dim(X \text{ vu comme objet de } T_{k'})$.
+\end{proof}
+
+\begin{remark}\label{rem:4.8}
+Si $D$ est une alg\`ebre \`a division sur $k$ et que $X$ non nul admet une structure de $D$-module, on n'a pas n\'ecessairement $\dim X \geq [D:k]$. Exemple: prenons pour $T$ la cat\'egorie des espaces vectoriels complexes $\mathbb{Z}/2$-gradu\'es $V$ munis d'un automorphisme antilin\'eaire homog\`ene $j$ de carr\'e $1$ sur $V_0$, et $-1$ sur $V_1$. Produit tensoriel: sur $\mathbb{C}$. Cette cat\'egorie est tannakienne sur $\mathbb{R}$, et admet sur $\mathbb{C}$ le foncteur fibre ``espace vectoriel complexe sous-jacent''. Un objet impair s'identifie \`a un espace vectoriel sur le corps $\mathbb{H}$ des quaternions. Un objet simple impair $S$ est de dimension 2 et $\End(S)$ est isomorphe \`a $\mathbb{H}$.
+\end{remark}
+
+\begin{corollary}\label{cor:4.9}
+Si $X$ est un objet simple d'une cat\'egorie tannakienne $T$ sur $k$ de caract\'eristique $p$ et que $\dim X < p$, le centre de $\End(X)$ est une extension s\'eparable de $k$.
+\end{corollary}
+
+\begin{proof}
+D'apr\`es \ref{cor:4.7}, c'est une extension de degr\'e $< p$.
+\end{proof}
+
+\subsection{}
+Soit $k_1$ une extension alg\'ebrique de $k$. Si $T$ est une cat\'egorie ab\'elienne $k$-lin\'eaire, les cat\'egories $T_{k'}$ pour $k'$ une extension finie de $k$ dans $k_1$ forment un syst\`eme 2-inductif de cat\'egories ab\'eliennes. J'\'ecris ``2-inductif'' plut\^ot que ``inductif'', car les foncteurs d'extension des scalaires $e_{k''/k'}: T_{k'} \to T_{k''}$ pour $k' \subset k''$ ne v\'erifient $e_{k'''/k''} \circ e_{k''/k'} = e_{k'''/k'}$ qu'\`a un isomorphisme canonique pr\`es, ces isomorphismes v\'erifiant une condition de cocycle pour $k' \subset k'' \subset k''' \subset k''''$. On d\'efinit $T_{k_1}$ comme \'etant la 2-limite inductive des $T_{k'}$, pour $k'$ une extension finie de $k$ dans $k_1$. Les foncteurs $e_{k''/k'}$ \'etant exacts, la cat\'egorie $T_{k_1}$ est encore ab\'elienne.
+
+Si $T$ est tannakienne, de foncteur fibre $\omega$ sur $K$, les cat\'egories $T_{k'}$ pour $k' \subset k_1$ sont tannakiennes, et $\omega$ fournit un foncteur fibre de $T_{k'}$ sur $k' \otimes_k K$. Passant \`a la limite inductive, on voit que $T_{k_1}$ est tannakienne, que $\omega$ fournit un foncteur fibre $\omega_1$ de $T_{k_1}$ sur $k_1 \otimes_k K$, et que les $e_{k'/k}$ fournissent un foncteur $e: T \to T_{k_1}$ d'extension des scalaires, compatible au produit tensoriel.
+
+\begin{corollary}\label{cor:4.11}
+Soit $X$ un objet de $T$.
+\begin{enumerate}[label=(\roman*)]
+\item Si l'objet $e_{k_1/k}(X)$ de $T_{k_1}$ est semi-simple, $X$ est semi-simple.
+\item Si $\dim(X) < p$ et que $X$ est semi-simple, alors $e_{k_1/k}(X)$ est semi-simple.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Pour $k'$ une extension finie de $k$ dans $k_1$, la longueur de $e_{k'/k}(X)$ cro\^it avec $k'$ et est born\'ee par $\dim(X)$. Il existe donc une extension finie $k''$ telle que la longueur de $e_{k''/k}(X)$ soit constante pour $k'' \supset k'$.
+
+Prouvons (i) pour $X$. D'apr\`es \ref{lem:4.2}(iii), il suffit de montrer que pour une extension finie convenable $k'' \supset k$ dans $k_1$, $e_{k''/k}(X)$ est semi-simple. Soit $0 = X_0 \subset X_1 \subset X_2 \subset \cdots \subset X_n = e_{k'/k}(X)$ une filtration de $e_{k'/k}(X)$ \`a quotients successifs $S_i$ simples. L'extension $X_i$ de $S_i$ par $X_{i-1}$ devient scind\'ee sur $k_1$. Il existe donc une extension finie $k'' \supset k'$ dans $k_1$ sur laquelle ces extensions se scindent. Les $S_i$ restent simples car $\lg e_{k''/k}(X) = \lg e_{k'/k}(X)$. On en conclut que $e_{k''/k}(X)$ est semi-simple.
+\end{proof}
+
+\subsection{Preuve de \ref{thm:0.1}}\label{sec:4.12}
+
+Soit $T$ une cat\'egorie tannakienne sur $k$ de caract\'eristique $p$ et prenons pour $k_1$ une cl\^oture alg\'ebrique $\bar{k}$ de $k$. Le corollaire \ref{cor:4.11} ram\`ene \ref{thm:0.1} pour $T$ \`a \ref{thm:0.1} pour $T_{\bar{k}}$, prouv\'e en \ref{cor:3.3}.
+
+\section{Produits tensoriels de puissances ext\'erieures}\label{sec:5}
+
+Les r\'esultats qui suivent ont \'et\'e sugg\'er\'es par le referee.
+
+Le th\'eor\`eme \ref{thm:0.7} permet de g\'en\'eraliser au cas d'objets d'une cat\'egorie tannakienne le th\'eor\`eme de Serre \cite{Serre2003} sur la semi-simplicit\'e de produits tensoriels de puissances ext\'erieures de repr\'esentations.
+
+\begin{theorem}\label{thm:5.1}
+Soient $T$ une cat\'egorie tannakienne sur un corps $k$ de caract\'eristique $p > 0$, $(V_i)_{i \in I}$ une famille finie d'objets semi-simples de $T$, et $(m_i)_{i \in I}$ une famille d'entiers $\geq 0$. Si
+\begin{equation}\label{eq:5.1.1}
+\sum m_i(\dim V_i - m_i) < p,
+\end{equation}
+alors le produit tensoriel des $\bigwedge^{m_i} V_i$ est semi-simple.
+\end{theorem}
+
+Rappelons que la puissance ext\'erieure $m$-i\`eme d'un objet $V$ de $T$ est l'image de l'antisym\'etrisation $a: V^{\otimes m} \to V^{\otimes m}$. Pour tout foncteur fibre $\omega$, on a $\omega \bigwedge^m V = \bigwedge^m \omega(V)$, et le dual de $\bigwedge^m V$ est $\bigwedge^m (V^\vee)$.
+
+Nous ram\`enerons la preuve de \ref{thm:5.1} au cas particulier o\`u, pour chaque $i$, $\dim(V_i) < p$. Les arguments de \ref{cor:3.3}, \ref{cor:4.11} et \ref{sec:4.12} ram\`enent alors \`a supposer en outre que $k$ est alg\'ebriquement clos, que $T$ est la cat\'egorie des repr\'esentations d'un sch\'ema en groupes affine $G$ sur $k$, et que la famille de repr\'esentations $(V_i)$ est fid\`ele, i.e. que $G$ est un sous-sch\'ema en groupes de $\prod \GL(V_i)$, et donc de $\GL(V)$, pour $V := \bigoplus V_i$.
+
+\subsection{R\'eduction au cas o\`u $\dim(V_i) < p$}\label{sec:5.2}
+
+On se ram\`ene successivement \`a supposer que (1)~$m_i \leq \dim V_i$: sans quoi $\bigwedge^{m_i} V_i = 0$; (2)~$0 < m_i < \dim V_i$: sans quoi $\bigwedge^{m_i} V_i$ est de dimension un et on peut omettre le facteur; (3)~$m_i \leq (\dim V_i)/2$: sinon, remplacer $\bigwedge^{m_i} V_i$ par $\bigwedge^{\dim V_i - m_i} V_i^\vee$; (4)~$m_i \geq 2$: sans quoi le produit tensoriel est trivial. Si ces conditions sont v\'erifi\'ees, on a $\dim V_i < p$.
+
+\subsection{}
+Soit $V$ une repr\'esentation de $\SL(2)$. L'action du groupe multiplicatif des matrices diagonales $(a, a^{-1})$ d\'efinit une graduation $V = \bigoplus V_j$ de $V$. L'action de $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \in \SL(2)$ \'echange $V_j$ et $V_{-j}$. On a donc $\dim V_j = \dim V_{-j}$. Notons $E$ l'action de l'\'el\'ement $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ de l'alg\`ebre de Lie. Cet endomorphisme de $V$ est de degr\'e 2. Si les poids de $V$ sont $< v$, i.e. si $V_j = 0$ pour $|j| \geq v$, on a donc $E^v = 0$.
+
+Si les poids de $V$ sont $< p$, on sait que la repr\'esentation $V$ est semi-simple, somme de $\Sym^i$ de la repr\'esentation fondamentale avec $i < p$, et que l'it\'er\'e $j$-i\`eme $E^j$ de $E$ induit un isomorphisme $E^j: V_{-j} \xrightarrow{\sim} V_j$.
+
+R\'eciproquement, si $V$ est un espace vectoriel gradu\'e, avec $V_j = 0$ pour $j \geq p$, et que $E$ est un endomorphisme de degr\'e 2 de $V$ v\'erifiant ces propri\'et\'es, il existe une et une seule action de $\SL(2)$ sur $V$ d\'efinissant cette graduation et cet endomorphisme, on a $E^p = 0$, et l'action de $\begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix}$ dans $\SL(2)$ est donn\'ee par l'exponentielle tronqu\'ee $\exp(tE) = \sum_{n < p} (tE)^n/n!$.
+
+\subsection{}
+Soit $E$ un endomorphisme nilpotent d'un espace vectoriel $V$ de dimension $\leq p$. D\'ecomposant $E$ en blocs de Jordan, on v\'erifie que $E$ provient d'une repr\'esentation de $\SL(2)$ comme ci-dessus, de poids $< p$. Si $E$ n'a qu'un seul bloc de Jordan, le poids dominant est $\dim(V) - 1$.
+
+\begin{lemma}\label{lem:5.5}
+Avec les hypoth\`eses et notations ci-dessus, les poids de la repr\'esentation $\bigwedge^m V$ de $\SL(2)$ sont $\leq m(\dim V - m)$.
+\end{lemma}
+
+\begin{proof}
+Relevant la repr\'esentation $V$ de $\SL(2)$ en caract\'eristique 0, on se ram\`ene \`a v\'erifier en caract\'eristique 0 que pour une repr\'esentation $W$ de $\SL(2)$ de dimension $d$, les poids de la repr\'esentation $\rho_m$ de $\SL(2)$ sur $\bigwedge^m W$ sont $\leq m(d - m)$. Comme, en caract\'eristique 0, toute repr\'esentation de $\SL(2)$ est somme directe de $\Sym^j$ de la repr\'esentation fondamentale, cela \'equivaut \`a $d\rho_m \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}^{m(d-m)+1} = 0$.
+
+Soit $E$ l'endomorphisme nilpotent de $W$ donnant l'action de $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \in \mathfrak{sl}(2)$. Si on identifie endomorphismes et actions de l'alg\`ebre de Lie de dimension un, $d\rho_m \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ est l'extension naturelle $E_m$ de $E$ \`a $\bigwedge^m W$. Les endomorphismes nilpotents \`a un seul bloc de Jordan sont denses parmi les endomorphismes nilpotents. Il suffit donc de v\'erifier que $(E_m)^{m(d-m)+1} = 0$ lorsque $E$ n'a qu'un seul bloc de Jordan. Dans ce cas, les poids de la repr\'esentation $W$ sont $(d-1), (d-3), \ldots, -(d-1)$, chacun avec la multiplicit\'e un. Le plus grand poids de la repr\'esentation $\bigwedge^m V$ est donc $(d-1) + (d-3) + \cdots + (d - (2m-1)) = md - m^2 = m(d - m)$ et la nullit\'e en r\'esulte.
+\end{proof}
+
+\subsection{}
+Revenons \`a la caract\'eristique $p$. Soit $N$ un endomorphisme nilpotent d'un espace vectoriel $V$ de dimension $d \leq p$, et soit $N_m$ son extension (au sens des alg\`ebres de Lie comme ci-dessus) \`a $\bigwedge^m V$. Puisque $d \leq p$, on a $N^p = 0$ et $N_m$ d\'efinit une action $\rho(t) = \exp(tN)$ de $\Ga$ sur $\bigwedge^m V$. Cette action se prolonge en une action de $\Ga$ sur $\bigwedge^m V$.
+
+\begin{proposition}\label{prop:5.7}
+Avec les notations ci-dessus, on a $(N_m)^{m(d - m) + 1} = 0$ et si $m(d - m) < p$, l'action de $\Ga$ sur $\bigwedge^m V$ est donn\'ee par l'exponentielle tronqu\'ee $\exp(tN_m)$.
+\end{proposition}
+
+\begin{proof}
+Comme en 5.4, il existe une action $\rho$ \`a poids $< p$ de $\SL(2)$ sur $V$ telle que $d\rho \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = N$. Elle se prolonge en une action $\rho_m$ de $\SL(2)$ sur $\bigwedge^m V$. D'apr\`es \ref{lem:5.5}, $\bigwedge^m V$ est \`a poids $\leq m(d - m)$. La nullit\'e en r\'esulte. Si $m(d - m) < p$, d'apr\`es 5.4, l'action de $\begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix} \in \SL(2)$ sur $\bigwedge^m V$ est donn\'ee par l'exponentielle tronqu\'ee $\exp(tN_m)$.
+\end{proof}
+
+\subsection{}
+Soit $(V_i)$ une famille finie d'espaces vectoriels de dimension $< p$, et $(m_i)$ une famille d'entiers $\geq 0$. Pour chaque $i$ soit $N_i$ un endomorphisme nilpotent de $V_i$. L'exponentielle tronqu\'ee $\exp(tN_i)$ est une action de $\Ga$ sur $V_i$. Ces actions d\'efinissent une action de $\Ga$ sur $\bigotimes \bigwedge^{m_i} V_i$ et, par passage \`a l'alg\`ebre de Lie, un endomorphisme $N$ de ce produit tensoriel. Il est d\'eduit des $N_i$, vus comme actions sur les $V_i$ de l'alg\`ebre de Lie de dimension un.
+
+\begin{corollary}\label{cor:5.9}
+Avec les notations ci-dessus, si $\sum m_i(\dim v_i - m_i) < p$, alors $N^p = 0$ et l'action de $\Ga$ sur $\bigotimes \bigwedge^{m_i} V_i$ est donn\'ee par l'exponentielle tronqu\'ee $\exp(tN)$.
+\end{corollary}
+
+\begin{proof}
+Comme en 5.4, choisissons une action $\rho_i$ de $\SL(2)$ sur $V_i$, \`a poids $< p$, telle que $d\rho_i \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = N_i$. D'apr\`es \ref{lem:5.5}, les poids de $\SL(2)$ agissant sur $\bigotimes \bigwedge^{m_i} V_i$ sont $\leq \sum m_i(\dim V_i - m_i) < p$, et on applique 5.4 comme en \ref{prop:5.7}. On pourrait aussi bien appliquer \ref{prop:5.7} et \ref{prop:2.2}.
+\end{proof}
+
+\subsection{}
+L'exponentielle tronqu\'ee induit une bijection entre endomorphismes nilpotents $N$ tels que $N^p = 0$ et automorphismes $g$ tels que $g^p = 1$, et les actions correspondantes de $\Ga$ co\"incident: $\exp(N)^t = \exp(tN)$. Avec les notations de 5.8, si l'automorphisme $g_i$ de $V_i$ v\'erifie $g_i^p = 1$, et que $g$ est l'automorphisme de $\bigotimes \bigwedge^{m_i} V_i$ induit par les $g_i$, la condition \eqref{eq:5.9.1} assure que $g^t$ est induit par les $g_i^t$.
+
+\subsection{R\'eduction au cas o\`u $G$ est doublement satur\'e dans $\GL(V)$}\label{sec:5.11}
+
+Soit $G_*$ le doublement satur\'e de $G$ (2.1). Comme en \ref{prop:2.4}, \ref{cor:5.9} et 5.10 assurent que si \eqref{eq:5.1.1} est v\'erifi\'e, un sous-espace de $\bigotimes \bigwedge^{m_i} V_i$ stable sous $G$ est automatiquement stable sous $G_*$. La semi-simplicit\'e comme repr\'esentation de $G_*$ implique donc la semi-simplicit\'e comme repr\'esentation de $G$.
+
+\subsection{Fin de la preuve de \ref{thm:5.1}}\label{sec:5.12}
+
+Comme en \ref{prop:3.1}, on se ram\`ene \`a supposer $G$ r\'eduit. On peut alors appliquer \cite{Serre2003} p.~26, cons\'equence du ``Main Theorem'' p.~20, aux repr\'esentations $V_i$ de $G(k)$. On pourrait plut\^ot invoquer \cite{SerreBourbaki}.
+
+\subsection{}
+Dans \ref{thm:5.1}, nous utilisons les foncteurs de Schur $V \mapsto \bigwedge^m V$, associ\'es aux repr\'esentations des $\GL(\dim V_i)$ de poids dominant $(1, \ldots, 1, 0, \ldots, 0)$ ($m$ ``1''). On peut plus g\'en\'eralement consid\'erer des foncteurs de Schur $S_{\lambda(i)}$, $\lambda(i)$ poids dominant $(\lambda(i)_1, \ldots, \lambda(i)_{\dim V_i})$ de $\GL(\dim V_i)$. Regardons $\lambda(i)$ comme une partition. Soit $\mu(i)$ sa duale et posons $n(\lambda(i)) = \sum \mu(i)_j (\dim V_i - \mu(i)_j)$ (cf \cite{SerreBourbaki}~5.2).
+
+La condition \eqref{eq:5.5.1} est \`a remplacer par $\sum n(\lambda(i)) < p$. Que cette condition et la semi-simplicit\'e des $V_i$ suffise \`a assurer celle de $\bigotimes S_{\lambda(i)} V_i$ peut se d\'eduire de \ref{thm:5.1} et de ce que $S_{\lambda(i)}$ est sous-quotient (et m\^eme, sous les hypoth\`eses faites, facteur direct) du foncteur $V \mapsto \bigotimes_j \bigwedge^{\lambda(i)_j} V$ (pour $V$ de dimension $\dim(V_i)$).
+
+\section*{Remerciements}
+\addcontentsline{toc}{section}{Remerciements}
+
+Je remercie J.-P.\ Serre, M.\ Raynaud, G.\ Prasad et H.\ Esnault de leurs commentaires qui m'ont permis, j'esp\`ere, d'am\'eliorer le texte, et le referee pour sa lecture attentive et pour les suggestions qui ont donn\'e naissance au paragraphe~5.
+
+\begin{thebibliography}{99}
+
+\bibitem{Deligne1990}
+P.\ Deligne, Cat\'egories tannakiennes, in: The Grothendieck Festschrift, vol.~2, p.111--194. Progress in math.~87, Birkh\"auser, 1990.
+
+\bibitem{DM}
+P.\ Deligne and J.\ S.\ Milne, Tannakian categories, in: Hodge Cycles, Motives and Shimura Varieties, by P.\ Deligne, J.\ S.\ Milne, A.\ Ogus and K.\ Shih, p.101--228. Springer Lecture Notes in Mathematics 900.
+
+\bibitem{Saavedra}
+N.\ Saavedra, Cat\'egories Tannakiennes, Springer Lecture Notes in Mathematics 265.
+
+\bibitem{Serre1994}
+J.-P.\ Serre, Sur la semi-simplicit\'e des produits tensoriels de repr\'esentations de groupes, Inv.\ Math.\ 116 (1994), p.513--530.
+
+\bibitem{Serre2003}
+J.-P.\ Serre, Moursund Lectures 1998, Notes by W.\ E.\ Duckworth, disponibles sur arXiv: math/0305257.
+
+\bibitem{SerreBourbaki}
+J.-P.\ Serre, Compl\`ete r\'eductibilit\'e, S\'em.\ Bourbaki 2003-2004, exp.~932, dans Ast\'erisque 299 (Soc.\ Math.\ France, 2005).
+
+\end{thebibliography}
+
+\section*{SGA}
+\addcontentsline{toc}{section}{SGA}
+
+SGA: S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie.
+
+\begin{itemize}
+\item SGA1: S\'eminaire 1960/61, dirig\'e par A.\ Grothendieck: Rev\^etements \'etales et groupe fondamental. Springer Lecture Notes in Mathematics 224.
+\item SGA3: S\'eminaire 1962/64, dirig\'e par M.\ Demazure et A.\ Grothendieck: Sch\'emas en Groupes. L'expos\'e XVII de Michel Raynaud est dans le volume II, Springer Lectures Notes in Mathematics 152.
+\item SGA4: S\'eminaire 1963/64, dirig\'e par M.\ Artin, A.\ Grothendieck et J.\ L.\ Verdier: Th\'eorie des topos et cohomologie \'etale des sch\'emas. L'expos\'e XV de M.\ Artin est dans le volume III, Springer Lecture Notes in Mathematics 305.
+\end{itemize}
+
+\end{document}

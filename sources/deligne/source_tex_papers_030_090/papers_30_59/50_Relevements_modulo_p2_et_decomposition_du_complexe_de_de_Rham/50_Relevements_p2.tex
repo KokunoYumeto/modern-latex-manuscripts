@@ -1,0 +1,962 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\usepackage{mathrsfs}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Rel}{Rel}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Pic}{Pic}
+
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\dR}{\text{dR}}
+
+\title{\textbf{Rel\`evements modulo $p^2$ et d\'ecomposition\\du complexe de de Rham}}
+\author{Pierre Deligne$^1$ et Luc Illusie$^2$}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+$^1$ Institute for Advanced Study, School of Mathematics, Princeton, NJ 08540, USA\\
+$^2$ Universit\'e de Paris-Sud, Math\'ematique -- B\^at.~425, Unit\'e associ\'ee au CNRS n$^\circ$~752,\\
+F-91405 Orsay Cedex, France
+\end{center}
+
+\tableofcontents
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Soit $X$ un sch\'ema propre et lisse sur un corps $k$. La cohomologie de de Rham de
+$X/k$, $H^*_{\dR}(X/k) := H^*(X, \Omega^{\bullet}_{X/k})$, est l'aboutissement de la suite spectrale de Hodge
+\begin{equation}\label{eq:0.1}
+E_1^{ij} = H^j(X, \Omega^i_{X/k}) \Rightarrow H^{i+j}_{\dR}(X/k).
+\end{equation}
+
+On sait que, si $k$ est de caract\'eristique z\'ero, (\ref{eq:0.1}) d\'eg\'en\`ere en $E_1$: pour $X$
+projectif, cela r\'esulte de la th\'eorie de Hodge, et le cas propre se ram\`ene au cas
+projectif par le lemme de Chow et la r\'esolution des singularit\'es (cf.~[5, 5.5]).
+
+La premi\`ere d\'emonstration de ce fait n'utilisant pas la th\'eorie de Hodge a \'et\'e
+donn\'ee par Faltings [8], comme application de son th\'eor\`eme d'existence d'une
+d\'ecomposition de Hodge-Tate pour la cohomologie \'etale $p$-adique des vari\'et\'es
+propres et lisses sur les corps locaux d'in\'egale caract\'eristique.
+
+Si $k$ est de caract\'eristique $p > 0$, il peut arriver que (\ref{eq:0.1}) ne d\'eg\'en\`ere pas en $E_1$ (cf.
+Mumford [22] et 2.5 (i)). Toutefois, Kato a montr\'e r\'ecemment [14] que, pour $k$
+parfait de caract\'eristique $p > 0$ et $X$ projectif et lisse sur $k$, si l'on suppose que $X$ est
+de dimension $< p$ et se rel\`eve sur l'anneau $W(k)$ des vecteurs de Witt de $k$, alors ce
+ph\'enom\`ene ``pathologique'' ne se produit pas. Fontaine et Messing [10] ont
+\'etendu ce r\'esultat au cas propre, et d\'eduit, par un argument standard, la
+d\'eg\'en\'erescence de (\ref{eq:0.1}) en caract\'eristique z\'ero. Cette seconde d\'emonstration
+utilise des techniques cristallines.
+
+Nous donnons ici une d\'emonstration \'el\'ementaire d'un r\'esultat plus pr\'ecis que
+celui de Kato et Fontaine-Messing, et qui est le suivant. Supposons $k$ parfait, de
+caract\'eristique $p > 0$, et soit $X$ un $k$-sch\'ema lisse (de dimension quelconque, et non
+n\'ecessairement propre). Soient $X'$ d\'eduit de $X$ par l'extension des scalaires $k \to k$,
+$\lambda \mapsto \lambda^p$, et $F: X \to X'$ le Frobenius relatif (1.1). Nous prouvons que chaque
+rel\`evement lisse $\tilde{X}$ de $X$ sur l'anneau $W_2(k)$ des vecteurs de Witt de longueur 2
+d\'etermine un isomorphisme
+\begin{equation}\label{eq:0.2}
+\varphi_{\tilde{X}}: \bigoplus_{i < p} \Omega^i_{X'/k}[-i] \xrightarrow{\sim} \tau_{<p} F_* \Omega^{\bullet}_{X/k}
+\end{equation}
+dans la cat\'egorie d\'eriv\'ee $D(X', \cO)$. Il en r\'esulte, par un comptage de dimensions,
+que si $X$ admet un rel\`evement lisse $\tilde{X}$ sur $W_2(k)$, et est de plus suppos\'e propre et de
+dimension $<p$, la suite spectrale (\ref{eq:0.1}) d\'eg\'en\`ere en $E_1$.
+
+Voici le principe de la construction de $\varphi = \varphi_{\tilde{X}}$. Soient $\sigma: W_2(k) \xrightarrow{\sim} W_2(k)$ le
+rel\`evement $(\lambda_0, \lambda_1) \mapsto (\lambda_0^p, \lambda_1^p)$ de l'automorphisme $\lambda \mapsto \lambda^p$ de $k$ et $\tilde{X}'$ d\'eduit de $\tilde{X}$ par
+l'extension des scalaires $\sigma$. Si $F$ se rel\`eve en $\tilde{F}: \tilde{X} \to \tilde{X}'$, l'homomorphisme
+$\tilde{F}^*: \Omega^1_{\tilde{X}'/W_2(k)} \to \tilde{F}_* \Omega^1_{\tilde{X}/W_2(k)}$ fournit, apr\`es division par $p$, un morphisme de complexes
+\[
+f: \Omega^1_{X'/k}[-1] \to F_* \Omega^{\bullet}_{X/k}
+\]
+induisant sur $\mathscr{H}^1$ l'isomorphisme de Cartier $C^{-1}$ (1.2) (cette id\'ee, qui remonte \`a
+l'article de Mazur [20], a d\'ej\`a \'et\'e tr\`es largement exploit\'ee). Si $\tilde{F}_1$ et $\tilde{F}_2$ sont deux
+rel\`evements, leur ``diff\'erence'' est un homomorphisme de $\Omega^1_{X'/k}$ dans $F_* \cO_X$. Elle
+fournit une homotopie entre les fl\`eches $f_1$ et $f_2$ associ\'ees \`a $\tilde{F}_1$ et $\tilde{F}_2$. Ces
+homotopies v\'erifient une condition de transitivit\'e. Ceci permet de globaliser la
+construction \`a l'aide d'un recouvrement de $X$ par des ouverts o\`u $F$ se rel\`eve. On
+obtient ainsi la composante $\varphi^1$ de $\varphi$. On d\'efinit la composante $\varphi^0$ comme la fl\`eche
+induite par $F^*$, et on d\'eduit les $\varphi^i$ de $\varphi^0$ et $\varphi^1$ gr\^ace \`a la structure multiplicative du
+complexe de de Rham (c'est ici qu'intervient la restriction $i < p$).
+
+Cette construction est expliqu\'ee au n$^\circ$ 2, apr\`es un bref rappel, au n$^\circ$ 1, sur la
+d\'efinition du Frobenius relatif et l'isomorphisme de Cartier. Nous donnons
+\'egalement, au n$^\circ$ 2, l'argument ``standard'' permettant de d\'eduire de (\ref{eq:0.2}) la
+d\'eg\'en\'erescence de (\ref{eq:0.1}) en caract\'eristique nulle. Pour $X$ de dimension $<p$,
+relevable sur $W_2(k)$, (\ref{eq:0.2}) fournit une d\'ecomposition dans $D(X', \cO)$
+\begin{equation}\label{eq:0.3}
+\bigoplus_i \Omega^i_{X'/k}[-i] \xrightarrow{\sim} F_* \Omega^{\bullet}_{X/k}.
+\end{equation}
+Nous montrons qu'on a encore une telle d\'ecomposition pour $X$ de dimension $p$.
+Enfin, nous d\'eduisons de (\ref{eq:0.2}) un th\'eor\`eme d'annulation de type Kodaira en
+caract\'eristique $p$: si $X$ est un $k$-sch\'ema projectif et lisse, \'equidimensionnel,
+relevable sur $W_2(k)$, et si $L$ est un faisceau inversible ample sur $X$, alors
+\[
+H^j(X, \Omega^i_{X/k} \otimes L^{-1}) = 0 \quad \text{pour} \quad i + j < \inf(p, \dim X).
+\]
+Ce r\'esultat et sa d\'emonstration sont dus \`a Michel Raynaud. Le th\'eor\`eme classique
+de Kodaira-Akizuki-Nakano en caract\'eristique z\'ero en d\'ecoule par l'argument
+habituel.
+
+L'obstruction \`a l'existence d'une d\'ecomposition de type (\ref{eq:0.2}) et la d\'ependance
+de $\varphi_{\tilde{X}}$ par rapport \`a $\tilde{X}$ sont \'etudi\'ees au n$^\circ$ 3, o\`u la construction de $\varphi$ est reprise sur
+une base $S$ de caract\'eristique $p > 0$. Nous montrons notamment le r\'esultat suivant:
+si $S$ admet un rel\`evement $\tilde{S}$ plat sur $\mathbf{Z}/p^2$, si $X$ est un $S$-sch\'ema lisse et $X'$ est son
+image inverse par le Frobenius absolu de $S$, alors $X'$ admet un rel\`evement lisse sur
+$\tilde{S}$ si et seulement s'il existe une fl\`eche $\Omega^1_{X'/S}[-1] \to F_* \Omega^{\bullet}_{X/S}$ dans $D(X', \cO)$ induisant
+l'isomorphisme de Cartier $C^{-1}$ sur $\mathscr{H}^1$. Une application \`a la d\'eg\'en\'erescence de la
+suite spectrale de Hodge relative est donn\'ee au n$^\circ$ 4, o\`u nous traitons aussi
+bri\`evement la variante des r\'esultats pr\'ec\'edents pour le complexe de de Rham \`a
+p\^oles logarithmiques de long d'un diviseur \`a croisements normaux.
+
+
+\section{Notations et rappels}
+
+Soit $p$ un nombre premier.
+
+\subsection{}
+
+Si $S$ est un sch\'ema de caract\'eristique $p$, on note $F_S$ l'endomorphisme de
+Frobenius de $S$ (donn\'e par l'identit\'e sur l'espace topologique sous-jacent et $a \mapsto a^p$
+sur $\cO_S$). Si $u: X \to S$ est un morphisme de sch\'emas, avec $S$ de caract\'eristique $p$, on a
+un diagramme commutatif
+\[
+\begin{tikzcd}
+X \arrow[r, "F_{X/S}"] \arrow[rrd, "u"', bend right=15] & X' \arrow[r] \arrow[d] & X \arrow[d, "u"] \\
+& S \arrow[r, "F_S"'] & S,
+\end{tikzcd}
+\]
+o\`u le carr\'e est cart\'esien; le morphisme $F_{X/S}$ est par d\'efinition le \emph{morphisme de
+Frobenius relatif} de $X/S$; on le notera simplement $F$ quand il n'en pourra r\'esulter
+de confusion. Pour $x$ section locale de $\cO_X$, d'image $x \otimes 1$ dans $\cO_{X'}$, on a $F_{X/S}^*(x \otimes 1)
+= F_X^*(x) = x^p$. Exemple: si $X$ est d\'efini par des \'equations $f_{\alpha} = \sum a_{\alpha,m} T^m$ dans l'espace
+affine $S[T_1, \ldots, T_n] = \mathbf{A}^n_S$, $X'$ est d\'efini par les \'equations $f_{\alpha}^{(p)} = \sum a_{\alpha,m}^p T^m$ dans $\mathbf{A}^n_S$, et
+$F_{X/S}$ est donn\'e par $T_i \mapsto T_i^p$.
+
+Soit $\Omega^{\bullet}_{X/S}$ le complexe de de Rham de $X/S$. Nous utiliserons syst\'ematiquement
+des complexes de de Rham relatifs et, par la suite, abr\'egerons parfois $\Omega^{\bullet}_{X/S}$ en $\Omega^{\bullet}_X$,
+voire $\Omega^{\bullet}$. Le complexe $F_* \Omega^{\bullet}_{X/S}$ (o\`u $F = F_{X/S}$) est un complexe de $\cO_{X'}$-modules, \`a
+diff\'erentielle lin\'eaire. Si $X$ est lisse sur $S$, les $\cO_X$-modules $\Omega^i_{X/S}$ sont localement libres
+de type fini (ainsi que les $\cO_{X'}$-modules $\Omega^i_{X'/S}$), et il en est de m\^eme des $\cO_{X'}$-modules
+$F_* \Omega^i_{X/S}$, car $F$ est fini localement libre (de rang $p^r$ si $X$ est de dimension relative $r$ sur
+$S$). De plus, on a le r\'esultat fondamental suivant, d\^u \`a Cartier [4]:
+
+\begin{theorem}[Cartier]\label{thm:cartier}
+Soit $X \to S$ un morphisme lisse, avec $S$ de caract\'eristique $p$. Il
+existe un unique homomorphisme de $\cO_{X'}$-alg\`ebres gradu\'ees
+\[
+C^{-1}: \bigoplus_i \Omega^i_{X'/S} \to \bigoplus_i \mathscr{H}^i F_* \Omega^{\bullet}_{X/S}
+\]
+tel que $C^{-1} d(x \otimes 1) = \text{classe de } x^{p-1} dx$ pour toute section locale $x$ de $\cO_{X'}$, et $C^{-1}$ est
+un isomorphisme.
+\end{theorem}
+
+(L'existence et l'unicit\'e de $C^{-1}$ sont faciles, et l'on v\'erifie que $C^{-1}$ est un
+isomorphisme par r\'eduction au cas de la droite affine, et un calcul direct: cf.~Katz
+[15, 7.2].)
+
+\subsection{}
+
+Si $k$ est un corps parfait de caract\'eristique $p$, on note $W(k)$ l'anneau des
+vecteurs de Witt de $k$, et $W_n(k) = W(k)/p^n$. L'anneau $W_n(k)$ est plat sur $\mathbf{Z}/p^n$, muni
+d'un isomorphisme $W_n(k)/p W_n(k) \xrightarrow{\sim} k$, et est caract\'eris\'e \`a isomorphisme unique pr\`es
+par ces propri\'et\'es; on a $W(k) = \varprojlim W_n(k)$. L'automorphisme de Frobenius de $k$
+induit, par fonctorialit\'e, un automorphisme $\sigma$ de $W(k)$ (resp.~$W_n(k)$), donn\'e par
+$\sigma(a_0, a_1, \ldots) = (a_0^p, a_1^p, \ldots)$.
+
+\subsection{}
+
+Soit $\mathcal{A}$ une cat\'egorie ab\'elienne. Pour $n \in \mathbf{Z}$, le tronqu\'e $\tau_{\le n} L$ d'un complexe $L$
+de $\mathcal{A}$ est le sous-complexe de $L$ de composantes $L^i$ pour $i < n$, $\Ker(d)$ pour $i = n$, et $0$
+pour $i > n$. On a $H^i \tau_{\le n} L = H^i L$ (resp.~$0$) si $i \le n$ (resp.~$i > n$). On pose $\tau_{< n} L := \tau_{\le n-1} L$.
+On d\'efinit dualement $\tau_{\ge n} L$, un quotient de $L$ avec $H^i \tau_{\ge n} L = H^i L$ (resp.~$0$) si $i \ge n$
+(resp.~$i < n$).
+
+Le d\'ecal\'e $L[n]$ est le complexe de composantes $L[n]^i = L^{i+n}$ et de diff\'erentielle
+$d_{L[n]} = (-1)^n d_L$. Pour $M$ un objet de $\mathcal{A}$, on note encore $M$ le complexe r\'eduit \`a $M$
+plac\'e en degr\'e $0$; $M[n]$ est alors le complexe r\'eduit \`a $M$ plac\'e en degr\'e $-n$.
+
+\subsection{}
+
+Si $X$ est un sch\'ema, on note $D(X) := D(X, \cO_X)$ la cat\'egorie d\'eriv\'ee de la
+cat\'egorie des $\cO_X$-modules.
+
+\subsection{}
+
+Soient $\tilde{S}$ un sch\'ema et $S$ un sous-sch\'ema ferm\'e d\'efini par un id\'eal de carr\'e nul.
+Si $X$ est un $S$-sch\'ema plat, on dit que $X$ est \emph{relevable} sur $\tilde{S}$ si $X$ admet un \emph{rel\`evement}
+sur $\tilde{S}$, i.e.~un $\tilde{S}$-sch\'ema plat $\tilde{X}$ muni d'un isomorphisme $\tilde{X} \times_{\tilde{S}} S \xrightarrow{\sim} X$; si $X$ est lisse sur
+$S$, $\tilde{X}$ est automatiquement lisse sur $\tilde{S}$.
+
+
+\section{D\'ecomposition du complexe de de Rham et applications\\(cas d'un corps parfait)}
+
+\begin{theorem}\label{thm:2.1}
+Soient $k$ un corps parfait de caract\'eristique $p>0$, $S = \Spec(k)$,
+$\tilde{S} = \Spec(W_2(k))$ \textup{(1.3)}, et soit $X$ un $S$-sch\'ema lisse. A tout $\tilde{S}$-sch\'ema lisse $\tilde{X}$ relevant $X$
+est associ\'e canoniquement un isomorphisme
+\[
+\varphi_{\tilde{X}}: \bigoplus_{i < p} \Omega^i_{X'/S}[-i] \xrightarrow{\sim} \tau_{<p} F_* \Omega^{\bullet}_{X/S}
+\]
+de $D(X')$, tel que $\mathscr{H}^i \varphi_{\tilde{X}} = C^{-1}$ \textup{(1.2)} pour $i < p$.
+\end{theorem}
+
+La d\'emonstration va se faire en quatre \'etapes.
+
+\subsubsection*{(a) R\'eduction \`a la d\'efinition de $\varphi^1_{\tilde{X}}$.}
+
+La donn\'ee de $\varphi_{\tilde{X}}$ \'equivaut \`a la donn\'ee, pour $i < p$, d'une fl\`eche $\varphi^i_{\tilde{X}}: \Omega^i_{X'/S}[-i] \to F_* \Omega^{\bullet}_{X/S}$ dans $D(X')$ telle que $\mathscr{H}^i \varphi^i_{\tilde{X}} = C^{-1}$. La fl\`eche $\varphi^0_{\tilde{X}}$ est n\'ecessairement la compos\'ee
+\[
+\cO_{X'} \xrightarrow{C^{-1}} \mathscr{H}^0 F_* \Omega^{\bullet}_{X/S} \hookrightarrow F_* \Omega^{\bullet}_{X/S}.
+\]
+Supposons d\'efinie $\varphi^1_{\tilde{X}}$ telle que $\mathscr{H}^1 \varphi^1_{\tilde{X}} = C^{-1}$. Pour $i \ge 1$, consid\'erons l'application produit
+\[
+(\Omega^1_{X'/S})^{\otimes i} \to \Omega^i_{X'/S}, \qquad \omega_1 \otimes \cdots \otimes \omega_i \mapsto \omega_1 \wedge \cdots \wedge \omega_i;
+\]
+pour $i < p$, celle-ci admet la section ``antisym\'etrisation'' $a$, donn\'ee par
+\[
+a(\omega_1 \wedge \cdots \wedge \omega_i) = (1/i!) \sum_{s \in \mathfrak{S}_i} \sgn(s) \omega_{s(1)} \otimes \cdots \otimes \omega_{s(i)}.
+\]
+Pour $1 \le i < p$, d\'efinissons $\varphi^i_{\tilde{X}}$ comme la fl\`eche compos\'ee
+\[
+\begin{tikzcd}
+\Omega^i_{X'/S}[-i] \arrow[r, "{a[-i]}"] & (\Omega^1_{X'/S})^{\otimes i}[-i] \arrow[r, "{(\varphi^1_{\tilde{X}})^{\otimes i}}"] & (F_* \Omega^{\bullet}_{X/S})^{\otimes i} \arrow[d, "\text{produit}"] \\
+& & F_* \Omega^{\bullet}_{X/S}.
+\end{tikzcd}
+\]
+Il r\'esulte de la propri\'et\'e multiplicative de l'isomorphisme de Cartier que $\mathscr{H}^i \varphi^i_{\tilde{X}} = C^{-1}$, et $\varphi_{\tilde{X}} = \sum_{i < p} \varphi^i_{\tilde{X}}$, avec $\varphi^0_{\tilde{X}}$ comme ci-dessus, r\'epond \`a la question. Il suffit donc de d\'efinir $\varphi^1_{\tilde{X}}: \Omega^1_{X'/S}[-1] \to F_* \Omega^{\bullet}_{X/S}$ tel que $\mathscr{H}^1 \varphi^1_{\tilde{X}} = C^{-1}$, ce que nous ferons dans les trois \'etapes suivantes.
+
+\subsubsection*{(b) Cas o\`u $F: X \to X'$ se rel\`eve.}
+
+Soit $\tilde{X}'$ le $\tilde{S}$-sch\'ema d\'eduit de $\tilde{X}$ par le changement de base $\sigma: \tilde{S} \to \tilde{S}$ (1.3). Supposons donn\'e un $\tilde{S}$-morphisme $\tilde{F}: \tilde{X} \to \tilde{X}'$ relevant $F$. Comme $F^*: \Omega^1_{X'/S} \to F_* \Omega^1_{X/S}$ est nul, l'image de $\tilde{F}^*: \Omega^1_{\tilde{X}'/\tilde{S}} \to \tilde{F}_* \Omega^1_{\tilde{X}/\tilde{S}}$ est contenue dans $p\tilde{F}_* \Omega^1_{\tilde{X}/\tilde{S}}$. La multiplication par $p$ induisant un isomorphisme $p: F_* \Omega^1_{X/S} \xrightarrow{\sim} p\tilde{F}_* \Omega^1_{\tilde{X}/\tilde{S}}$, il existe donc une unique fl\`eche
+\[
+f = p^{-1}\tilde{F}^*: \Omega^1_{X'/S} \to F_* \Omega^1_{X/S}
+\]
+rendant commutatif le carr\'e
+\[
+\begin{tikzcd}
+\Omega^1_{\tilde{X}'/\tilde{S}} \arrow[r, "\tilde{F}^*"] \arrow[d] & p\tilde{F}_* \Omega^1_{\tilde{X}/\tilde{S}} \arrow[d, "p", "\sim"'] \\
+\Omega^1_{X'/S} \arrow[r, "f"'] & F_* \Omega^1_{X/S}.
+\end{tikzcd}
+\]
+Si $x$ est une section locale de $\cO_{\tilde{X}}$, de r\'eduction $x_0 \bmod p$, on a
+\begin{equation}\label{eq:1}
+\tilde{F}^*(x \otimes 1) = x^p + p u(x)
+\end{equation}
+avec $u(x)$ section de $\cO_{\tilde{X}}$ (et $p: \cO_{\tilde{X}} \xrightarrow{\sim} p\cO_{\tilde{X}} =$ multiplication par $p$), et
+\begin{equation}\label{eq:2}
+f(dx_0 \otimes 1) = x_0^{p-1} dx_0 + du(x).
+\end{equation}
+En particulier, on a
+\begin{equation}\label{eq:3}
+df = 0,
+\end{equation}
+de sorte que $f$ d\'efinit un morphisme de complexes
+\[
+f: \Omega^1_{X'/S}[-1] \to F_* \Omega^{\bullet}_{X/S},
+\]
+tel que $\mathscr{H}^1 f = C^{-1}$ d'apr\`es (\ref{eq:2}).
+
+\subsubsection*{(c) Homotopies.}
+
+Soit, pour $i = 1, 2$, $\tilde{F}_i: \tilde{X} \to \tilde{X}'$ un $\tilde{S}$-morphisme relevant $F$. Alors $\tilde{F}_2^* - \tilde{F}_1^*: \cO_{\tilde{X}'} \to p\tilde{F}_* \cO_{\tilde{X}} = pF_* \cO_X$ est une d\'erivation, qui d\'etermine une application $\cO_{X'}$-lin\'eaire
+\[
+h_{12}: \Omega^1_{X'/S} \to F_* \cO_X
+\]
+rendant commutatif le diagramme
+\[
+\begin{tikzcd}
+\cO_{\tilde{X}'} \arrow[r, "\tilde{F}_2^* - \tilde{F}_1^*"] \arrow[d] & p\tilde{F}_* \cO_{\tilde{X}} \arrow[d, "p", "\sim"'] \\
+\Omega^1_{X'/S} \arrow[r, "h_{12}"'] & F_* \cO_X.
+\end{tikzcd}
+\]
+Si, pour $x$ comme en (b), $\tilde{F}_i^*(x \otimes 1) = x^p + p u_i(x)$, alors
+\[
+h_{12}(dx_0 \otimes 1) = u_2(x) - u_1(x),
+\]
+d'o\`u, compte tenu de (\ref{eq:2}),
+\begin{equation}\label{eq:4}
+f_2 - f_1 = dh_{12},
+\end{equation}
+o\`u $f_i = p^{-1}\tilde{F}_i^*: \Omega^1_{X'/S} \to F_* \Omega^1_{X/S}$.
+
+Si, pour $i = 1, 2, 3$, $\tilde{F}_i: \tilde{X} \to \tilde{X}'$ est un $\tilde{S}$-morphisme relevant $F$, et $h_{ij}$ correspond \`a $\tilde{F}_j - \tilde{F}_i$, alors on a
+\begin{equation}\label{eq:5}
+h_{12} + h_{23} = h_{13}.
+\end{equation}
+
+\subsubsection*{(d) Cas g\'en\'eral.}
+
+Comme $X'/S$ est lisse, $F$ admet, localement pour la topologie de Zariski sur $X$, un rel\`evement $\tilde{F}$ [(SGA 1 III) ou (EGA IV \S\,17)]. On peut donc trouver un recouvrement ouvert $\mathscr{U} = (U_i)_{i \in I}$ de $X$, et, pour chaque $i$, un $\tilde{S}$-morphisme $\tilde{F}_i: \tilde{U}_i \to \tilde{U}'_i$ relevant $F$ ($X$, $X'$, $\tilde{X}$, $\tilde{X}'$ ont m\^emes espaces sous-jacents; on note $\mathscr{U}'$, $\tilde{\mathscr{U}}$, $\tilde{\mathscr{U}}'$ les recouvrements ouverts de $X'$, $\tilde{X}$, $\tilde{X}'$ d\'eduits de $\mathscr{U}$). Soient, comme en (b) et (c),
+\[
+f_i = p^{-1}\tilde{F}_i^*: \Omega^1_{X'/S}|U'_i \to F_* \Omega^1_{U_i/S},
+\]
+et, sur $U'_{ij} = U'_i \cap U'_j$, $h_{ij}: \Omega^1_{X'/S}|U'_{ij} \to F_* \Omega^1_{U_{ij}/S}$ correspondant \`a $\tilde{F}_j^* - \tilde{F}_i^*$. On a
+\begin{equation}\label{eq:6}
+df_i = 0, \quad f_j - f_i = dh_{ij} \text{ (sur } U'_{ij}\text{)}, \quad h_{ij} + h_{jk} = h_{ik} \text{ (sur } U'_{ijk}\text{)}.
+\end{equation}
+
+Soit $\check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S})$ le complexe simple associ\'e au double complexe de \v{C}ech de $\Omega^{\bullet}_{X/S}$, d\'efini comme suit. Posons $\Delta_n = \{0, \ldots, n\}$, et, pour $s: \Delta_n \to I$, notons $U_s$ l'intersection des $U_{s(m)}$ et $j_s$ l'inclusion de $U_s$ dans $X$. La composante de degr\'e $n$ de $\check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S})$ est
+\[
+\check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S})^n = \bigoplus_{a+b=n} \check{\mathscr{C}}^b(\mathscr{U}, \Omega^a_{X/S}),
+\]
+o\`u $\check{\mathscr{C}}^b(\mathscr{U}, \Omega^a_{X/S})$ est le produit, \'etendu aux $s: \Delta_b \to I$, des $j_{s*} j_s^* \Omega^a_{X/S}$. La diff\'erentielle de $\check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S})$ est $d = d_1 + d_2$, avec $d_1: \check{\mathscr{C}}^b(\mathscr{U}, \Omega^a_{X/S}) \to \check{\mathscr{C}}^b(\mathscr{U}, \Omega^{a+1}_{X/S})$ induit par la diff\'erentielle du complexe de de Rham, et $d_2: \check{\mathscr{C}}^b(\mathscr{U}, \Omega^a_{X/S}) \to \check{\mathscr{C}}^{b+1}(\mathscr{U}, \Omega^a_{X/S})$ \'egal \`a $(-1)^a \sum (-1)^i \partial_i$. Les morphismes \'evidents $\Omega^a_{X/S} \to \check{\mathscr{C}}^0(\mathscr{U}, \Omega^a_{X/S})$ d\'efinissent un quasi-isomorphisme $\Omega^{\bullet}_{X/S} \to \check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S})$, et par suite un quasi-isomorphisme
+\begin{equation}\label{eq:7}
+F_* \Omega^{\bullet}_{X/S} \to F_* \check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S}).
+\end{equation}
+
+D\'efinissons
+\[
+\varphi^1_{(\mathscr{U}, (\tilde{F}_i))} = (\varphi_1, \varphi_2): \Omega^1_{X'/S} \to F_* \check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S})^1 = F_* \check{\mathscr{C}}^1(\mathscr{U}, \cO_X) \oplus F_* \check{\mathscr{C}}^0(\mathscr{U}, \Omega^1_{X/S})
+\]
+par
+\[
+(\varphi_1 \omega)(i,j) = h_{ij}(\omega|U'_{ij}), \qquad (\varphi_2 \omega)(i) = f_i(\omega|U'_i).
+\]
+Les relations (\ref{eq:6}) expriment que $d\varphi^1_{(\mathscr{U}, (\tilde{F}_i))} = 0$, i.e.~que $\varphi^1_{(\mathscr{U}, (\tilde{F}_i))}$ est un morphisme de complexes
+\begin{equation}\label{eq:8}
+\varphi^1_{(\mathscr{U}, (\tilde{F}_i))}: \Omega^1_{X'/S}[-1] \to F_* \check{\mathscr{C}}(\mathscr{U}, \Omega^{\bullet}_{X/S}).
+\end{equation}
+
+D\'efinissons enfin
+\begin{equation}\label{eq:9}
+\varphi^1_{\tilde{X}}: \Omega^1_{X'/S}[-1] \to F_* \Omega^{\bullet}_{X/S}
+\end{equation}
+comme la fl\`eche de $D(X')$ compos\'ee de (\ref{eq:8}) et de l'inverse de (\ref{eq:7}). V\'erifions que (\ref{eq:9}) ne d\'epend pas du choix de $(\mathscr{U}, (\tilde{F}_i))$.
+
+Il ne reste plus d\`es lors qu'\`a montrer que $\mathscr{H}^1 \varphi^1_{\tilde{X}} = C^{-1}$. C'est une question locale, donc on peut supposer que $F$ admet un rel\`evement $\tilde{F}: \tilde{X} \to \tilde{X}'$. La fl\`eche $\varphi^1_{\tilde{X}}$ est alors d\'efinie par le morphisme de complexes $f$ de (b), et on a vu que $\mathscr{H}^1 f = C^{-1}$. Ceci termine la d\'emonstration de \ref{thm:2.1}.
+
+\begin{remark}\label{rem:2.2}
+\begin{enumerate}[label=(\roman*)]
+\item On n'a pas utilis\'e r\'eellement l'hypoth\`ese que $S$ est le spectre d'un corps parfait: la d\'emonstration fournit en fait un isomorphisme $\varphi_{\tilde{X}}$ pour $S$ \'egal \`a la r\'eduction modulo $p$ d'un sch\'ema $\tilde{S}$ plat sur $\mathbf{Z}/p^2$ muni d'un endomorphisme $F_{\tilde{S}}$ relevant $F_S$ ($\tilde{X}'$ est alors d\'efini comme d\'eduit de $\tilde{X}$ par le changement de base $F_{\tilde{S}}$). Nous \'etudierons plus loin (3.7) la d\'ependance de $\varphi^1_{\tilde{X}}$ par rapport \`a $\tilde{X}$.
+
+\item Dans le cas o\`u $F: X \to X'$ admet un rel\`evement $\tilde{F}: \tilde{X} \to \tilde{X}'$, la fl\`eche $f = p^{-1}\tilde{F}^*$ de (b) ci-dessus se prolonge en un quasi-isomorphisme de complexes de $\cO_{X'}$-modules
+\[
+\varphi_{(\tilde{X}, \tilde{F})}: \bigoplus_{i \ge 0} \Omega^i_{X'/S}[-i] \to F_* \Omega^{\bullet}_{X/S}
+\]
+induisant $C^{-1}$ sur $\mathscr{H}^i$ (et telle que $\tau_{<p} \varphi_{(\tilde{X}, \tilde{F})}$ ait pour image $\varphi_{\tilde{X}}$ dans $D(X')$): il suffit en effet de d\'efinir la composante de degr\'e $i$ de $\varphi_{(\tilde{X}, \tilde{F})}$,
+\[
+\varphi^i_{(\tilde{X}, \tilde{F})}: \Omega^i_{X'/S} \to Z F_* \Omega^i_{X/S}
+\]
+comme $C^{-1}$ pour $i = 0$, et, pour $i \ge 1$, comme la compos\'ee de $\Lambda^i f: \Omega^i_{X'/S} \to \Lambda^i Z F_* \Omega^1_{X/S}$ et du produit $\Lambda^i Z F_* \Omega^1_{X/S} \to Z F_* \Omega^i_{X/S}$ ($Z$ d\'esignant le noyau de $d$).
+
+\item Les rel\`evements locaux de $F$ forment un torseur sur $X'$ sous le faisceau $\mathscr{H}om(\Omega^1_{X'/S}, F_* \cO_X) = \Theta_{X'/S} \otimes F_* \cO_X$ des d\'erivations de $X'$ \`a valeurs dans $F_* \cO$. La classe $c$ de ce torseur dans $H^1(X', \Theta_{X'/S} \otimes F_* \cO_X)$ est l'obstruction \`a l'existence d'un rel\`evement global $\tilde{F}: \tilde{X} \to \tilde{X}'$ de $F$. Avec les notations de (d) ci-dessus, et \`a un signe pr\`es d\'ependant des conventions choisies, $c$ est la classe du cocycle $(h_{ij})$. Par construction m\^eme de $\varphi^1_{\tilde{X}}$, la classe $c$, consid\'er\'ee comme fl\`eche de $\Omega^1_{X'/S}[-1]$ dans $F_* \cO$ dans $D(X')$ n'est autre que la compos\'ee de $\varphi^1_{\tilde{X}}$ et de la projection naturelle $F_* \Omega^{\bullet}_{X/S} \to F_* \cO_X$, i.e.~l'obstruction \`a repr\'esenter $\varphi^1_{\tilde{X}}$ par un morphisme de complexes.
+
+\item Supposons que $X$ admette un rel\`evement formel lisse $\mathscr{X}$ sur $W(k)$, et soit $m$ un entier $< p-1$. L'isomorphisme $\psi_\varepsilon$ du th\'eor\`eme d'Ogus [3, 8.20] donne le tronqu\'e $\tau_{\le m}$ de l'isomorphisme $\varphi_{\tilde{X}}$, o\`u $\tilde{X}$ est la r\'eduction de $\mathscr{X}$ modulo $p^2$: si $\varepsilon_m$ d\'esigne la ``jauge'' $i \mapsto \langle m-i \rangle$ [3, 8.18.3], le sous-complexe $(\Omega^{\bullet}_{\mathscr{X}/W})_{\varepsilon_r}$ de $\Omega^{\bullet}_{\mathscr{X}/W}$, pour $r = m$, $m+1$, s'\'ecrit
+\[
+p^r \cO_{\mathscr{X}'} \to p^{r-1} \Omega^1_{\mathscr{X}'/W} \to \cdots;
+\]
+il s'identifie \`a $Ru_{\mathscr{X}'/W} \mathscr{J}^{[r]}_{\mathscr{X}/W}$; appliquant $\psi_\varepsilon$ \`a $\varepsilon = \varepsilon_m$, $\varepsilon_{m+1}$ et passant au quotient, on obtient la d\'ecomposition d\'esir\'ee. C'est cette observation, implicite dans Kato [14, preuve de 2.6.1], qui est \`a l'origine du pr\'esent article.
+\end{enumerate}
+\end{remark}
+
+\begin{corollary}\label{cor:2.3}
+Avec les notations de \ref{thm:2.1}, soit $X$ un $k$-sch\'ema lisse de dimension $\le p$, relevable sur $W_2(k)$. Alors le complexe $F_* \Omega^{\bullet}_{X/S}$ est isomorphe, dans $D(X')$, \`a un complexe \`a diff\'erentielle nulle.
+\end{corollary}
+
+La conclusion signifie encore que $F_* \Omega^{\bullet}_{X/S}$ est isomorphe, dans $D(X')$, \`a la somme de ses $\mathscr{H}^i[-i]$, ou qu'il existe, dans $D(X')$, un isomorphisme
+\[
+\bigoplus_i \Omega^i_{X'/S}[-i] \xrightarrow{\sim} F_* \Omega^{\bullet}_{X/S}
+\]
+induisant $C^{-1}$ sur $\mathscr{H}^i$ (cf.~3.1 ci-apr\`es).
+
+\begin{proof}[Prouvons \ref{cor:2.3}]
+On se ram\`ene \`a supposer $X$ connexe. Si $\dim X < p$, il suffit d'appliquer \ref{thm:2.1}. Supposons donc que $\dim X = p$. Sur $X$, les faisceaux localement libres $\Omega^i_{X/S}$ et $\Omega^{p-i}_{X/S}$ sont en dualit\'e de Serre: le produit $\alpha \wedge \beta$ est une dualit\'e parfaite, \`a valeurs dans $\Omega^p_{X/S}$, entre $\Omega^i_{X/S}$ et $\Omega^{p-i}_{X/S}$. Le morphisme $F = F_{X/S}$ \'etant fini et plat, il en r\'esulte, par la dualit\'e de Grothendieck, que $F_* \Omega^i_{X/S}$ et $F_* \Omega^{p-i}_{X/S}$ sont encore en dualit\'e (\`a valeurs dans $\Omega^p_{X'/S}$), donn\'ee par l'accouplement $(\alpha, \beta) \mapsto C(\alpha \wedge \beta)$, o\`u l'on d\'esigne ici par $C: F_* \Omega^p_{X/S} \to \Omega^p_{X'/S}$ le compos\'e de $F_* \Omega^p_{X/S} \to \mathscr{H}^p F_* \Omega^{\bullet}_{X/S}$ et de l'inverse de $C^{-1}$ en degr\'e $p$ (1.2): le point est que $C$ n'est autre que le morphisme trace. Il est d'ailleurs facile de v\'erifier directement que cet accouplement est parfait. Le transpos\'e, pour cette dualit\'e, de la diff\'erentielle $d$ de $F_* \Omega^{\bullet}_{X/S}$ est encore $d$ (\`a un signe d\'ependant des conventions pr\`es). Ceci exprime que
+\[
+C(d\alpha \wedge \beta) \pm C(\alpha \wedge d\beta) = C(d(\alpha \wedge \beta)) = 0.
+\]
+
+D'apr\`es \ref{thm:2.1}, $\tau_{<p} F_* \Omega^{\bullet}_{X/S}$ est isomorphe, dans $D(X')$, \`a la somme de ses $\mathscr{H}^i[-i]$. Par dualit\'e, $\tau_{\ge 1} F_* \Omega^{\bullet}_{X/S}$ a la m\^eme propri\'et\'e. On dispose d'un triangle distingu\'e
+\begin{equation}\label{eq:star}
+\tau_{<p} F_* \Omega^{\bullet}_{X/S} \to F_* \Omega^{\bullet}_{X/S} \to \mathscr{H}^p[-p] \xrightarrow{e}.
+\tag{$*$}
+\end{equation}
+Puisque $\tau_{<p} F_* \Omega^{\bullet}_{X/S}$ est somme de ses $\mathscr{H}^i[-i]$, la conclusion de \ref{cor:2.3} \'equivaut \`a la nullit\'e de
+\[
+e: \mathscr{H}^p[-p] \to \Bigl(\bigoplus_{i < p} \mathscr{H}^i[-i]\Bigr)[1].
+\]
+Soient $e_i$ ($0 \le i \le p-1$) les composantes de $e$:
+\[
+e_i \in \Hom(\mathscr{H}^p[-p], \mathscr{H}^i[-i+1]) = H^{p-i+1}(X', \mathscr{H}om(\mathscr{H}^p, \mathscr{H}^i)).
+\]
+Le triangle ($*$) s'envoie dans le triangle
+\[
+\tau_{[1,p-1]} F_* \Omega^{\bullet}_{X/S} \to \tau_{\ge 1} F_* \Omega^{\bullet}_{X/S} \to \mathscr{H}^p[-p] \to,
+\]
+o\`u $\tau_{[1,p-1]} = \tau_{\ge 1} \tau_{<p} = \tau_{<p} \tau_{\ge 1}$. Comme $\tau_{\ge 1} F_* \Omega^{\bullet}_{X/S}$ est somme de ses $\mathscr{H}^i[-i]$, on a donc $e_i = 0$ pour $i \neq 0$. Pour $i = 0$, la classe $e_i$ vit dans $H^{p+1}(X', \ldots)$, et ce groupe est nul car $\dim X = p$.
+\end{proof}
+
+\begin{corollary}\label{cor:2.4}
+Avec les notations de \ref{thm:2.1}, soit $X$ un $k$-sch\'ema propre et lisse de dimension $\le p$, relevable sur $W_2(k)$. Alors la suite spectrale de Hodge vers de Rham
+\begin{equation}\label{eq:2.4.1}
+E_1^{ij} = H^j(X, \Omega^i) \Rightarrow H^{i+j}_{\dR}(X/k)
+\end{equation}
+d\'eg\'en\`ere en $E_1$.
+\end{corollary}
+
+Comme les $H^j(X, \Omega^i)$ sont des $k$-espaces vectoriels de dimension finie, la conclusion signifie que l'on a, pour tout $n$,
+\[
+\sum_{i+j=n} \dim H^j(X, \Omega^i) = \dim H^n_{\dR}(X/k).
+\]
+
+D'apr\`es \ref{cor:2.3}, on dispose d'un isomorphisme de $D(X')$
+\[
+\bigoplus_i \Omega^i_{X'/S}[-i] \xrightarrow{\sim} F_* \Omega^{\bullet}_{X/S}.
+\]
+On en d\'eduit, pour tout $n$, un isomorphisme
+\[
+\bigoplus_i H^{n-i}(X', \Omega^i_{X'/S}) \xrightarrow{\sim} H^n(X', F_* \Omega^{\bullet}_{X/S}).
+\]
+Or, comme $F$ est fini, on a $H^n(X', F_* \Omega^{\bullet}_{X/S}) = H^n(X, \Omega^{\bullet}_{X/S})$. D'autre part, $X'$ \'etant d\'eduit de $X$ par une extension du corps des scalaires, on a $\dim H^{n-i}(X', \Omega^i_{X'/S}) = \dim H^{n-i}(X, \Omega^i_{X/S})$, d'o\`u la conclusion.
+
+\begin{corollary}\label{cor:2.5}
+Avec les notations de \ref{thm:2.1}, soit $X$ un $k$-sch\'ema propre et lisse relevable sur $W_2(k)$. Alors la suite spectrale de Hodge vers de Rham v\'erifie $E_1^{ij} = E_\infty^{ij}$ pour $i + j < p$.
+\end{corollary}
+
+La conclusion signifie que, pour $n < p$, on a
+\[
+\sum_{i+j=n} \dim H^j(X, \Omega^i) = \dim H^n_{\dR}(X/k).
+\]
+
+La suite exacte courte de complexes
+\[
+0 \to \tau_{<p} F_* \Omega^{\bullet}_X \to F_* \Omega^{\bullet}_X \to F_* \Omega^{\bullet}_X / \tau_{<p} F_* \Omega^{\bullet}_X \to 0
+\]
+fournit, pour $n < p$, un isomorphisme
+\[
+H^n(X', \tau_{<p} F_* \Omega^{\bullet}_X) \xrightarrow{\sim} H^n(X', F_* \Omega^{\bullet}_X) = H^n_{\dR}(X/k).
+\]
+Appliquant \ref{thm:2.1}, on obtient, pour $n < p$,
+\[
+\bigoplus_i H^{n-i}(X', \Omega^i_{X'}) \xrightarrow{\sim} H^n(X', F_* \Omega^{\bullet}_X)
+\]
+et on conclut comme en \ref{cor:2.4}.
+
+Voir 4.1.4 pour des g\'en\'eralisations de \ref{cor:2.4} et \ref{cor:2.5}.
+
+\begin{remark}\label{rem:2.6}
+\begin{enumerate}[label=(\roman*)]
+\item Mumford [22] a donn\'e des exemples de surfaces projectives lisses $X/k$ poss\'edant des 1-formes globales non ferm\'ees. D'autres exemples ont \'et\'e donn\'es ult\'erieurement par Lang [19], Raynaud et Szpiro [11]. Ces surfaces ne se rel\`event donc pas sur $W_2(k)$. Il en est de m\^eme, pour $p = 2$, des surfaces d'Enriques de type $\alpha_2$, pour lesquelles la diff\'erentielle $d_1: H^1(\cO) \to H^1(\Omega^1)$ est non nulle (cf.~par exemple [13, II 7.3.8]). Voir aussi Suwa [26] pour une interpr\'etation de la condition de d\'eg\'en\'erescence de (2.4.1) en $E_1$ en termes de la structure de $\Pic^\tau/\Pic^0$ pour les surfaces telles que $\chi(\cO) - 1 + (b_1/2) = 0$.
+
+\item Sous les hypoth\`eses de \ref{cor:2.4}, il n'est pas vrai en g\'en\'eral que la sym\'etrie de Hodge $h^{ij} = h^{ji}$ soit valable (o\`u $h^{ij} = \dim H^j(X, \Omega^i)$), cf.~Serre [25, \S\,20].
+
+\item Si $X$ est un $k$-sch\'ema lisse de dimension $\ge p+1$, relevable en un sch\'ema lisse sur $W_2(k)$ (voire en un sch\'ema formel lisse sur $W(k)$), il n'est sans doute pas vrai en g\'en\'eral que $F_* \Omega^{\bullet}_{X/k}$ soit encore somme, dans $D(X')$, de ses $\mathscr{H}^i[-i]$. Nous n'avons toutefois pas de contre-exemple. Nous ignorons m\^eme si, pour un tel $X$, suppos\'e de plus propre, la suite spectrale de Hodge vers de Rham d\'eg\'en\`ere en $E_1$.
+\end{enumerate}
+\end{remark}
+
+\begin{corollary}\label{cor:2.7}
+Soient $K$ un corps de caract\'eristique $0$ et $X$ un $K$-sch\'ema propre et lisse. Alors la suite spectrale de Hodge vers de Rham
+\begin{equation}\label{eq:2.7.1}
+E_1^{ij} = H^j(X, \Omega^i) \Rightarrow H^{i+j}_{\dR}(X/K)
+\end{equation}
+d\'eg\'en\`ere en $E_1$.
+\end{corollary}
+
+La conclusion signifie encore que l'on a, pour tout $n$,
+\begin{equation}\label{eq:star2}
+\sum_{i+j=n} h^{ij} = h^n,
+\tag{$*$}
+\end{equation}
+o\`u $h^{ij} = \dim H^j(X, \Omega^i)$ et $h^n = \dim H^n_{\dR}(X/K)$. On peut supposer $X$ connexe, soit $d$ sa dimension. Des arguments standard montrent qu'il existe un anneau $A$ int\`egre de type fini sur $\mathbf{Z}$, un morphisme propre et lisse $f: \mathscr{X} \to \Spec(A)$, de dimension relative $d$, et un homomorphisme $A \to K$ tels que $X = \mathscr{X} \otimes_A K$. Les faisceaux $R^j f_* \Omega^i_{\mathscr{X}/A}$, $R^n f_* \Omega^{\bullet}_{\mathscr{X}/A}$ sont coh\'erents, donc, quitte \`a remplacer $A$ par $A[s^{-1}]$ pour $s \in A$ convenable, on peut supposer qu'il sont localement libres (donc de formation compatible \`a tout changement de base), et de rangs constants, $h^{ij}$ et $h^n$ respectivement. Soit $T$ l'adh\'erence sch\'ematique, dans $\Spec(A)$, d'un point ferm\'e de $\Spec(A \otimes \mathbf{Q})$; c'est un sch\'ema quasi-fini et plat sur $\Spec(\mathbf{Z})$. Choisissons un point ferm\'e $s$ de $T$ en lequel $T$ est \'etale sur $\mathbf{Z}$, et tel que la caract\'eristique $p$ du corps fini $k = k(s)$ soit $\ge d$. Si $\cO_s$ d\'esigne l'anneau local de $T$ en $s$, son id\'eal maximal $\mathfrak{m}_s$ est engendr\'e par $p$, et $\cO_s/\mathfrak{m}_s^2 = W_2(k)$. Le sch\'ema $\mathscr{X} \otimes_A (\cO_s/\mathfrak{m}_s^2)$ est un rel\`evement lisse de $\mathscr{X}_s = \mathscr{X} \otimes_A k(s)$. Vu l'hypoth\`ese faite plus haut, on a $\dim_{k(s)} H^j(\mathscr{X}_s, \Omega^i) = h^{ij}$, et $\dim_{k(s)} H^n_{\dR}(\mathscr{X}_s/k(s)) = h^n$. Mais, comme $d \le p$, la relation ($*$) est satisfaite d'apr\`es \ref{cor:2.4}.
+
+\begin{corollary}[Raynaud]\label{cor:2.8}
+Avec les notations de \ref{thm:2.1}, soit $X$ un $k$-sch\'ema projectif et lisse, purement de dimension $d$, relevable sur $W_2(k)$, et soit $L$ un faisceau inversible sur $X$. On fait l'une des deux hypoth\`eses suivantes:
+\begin{enumerate}[label=(\roman*)]
+\item $L$ est ample;
+\item $d = 2$ et $L$ est num\'eriquement positif (i.e.~on a $L \cdot L > 0$ et $L \cdot \cO(D) \ge 0$ pour tout diviseur effectif $D$ sur $X$).
+\end{enumerate}
+Alors on a:
+\begin{align}
+H^j(X, \Omega^i \otimes L) &= 0 \quad \text{pour} \quad i + j > \sup(d, 2d - p), \label{eq:2.8.1} \\
+H^j(X, \Omega^i \otimes L^{-1}) &= 0 \quad \text{pour} \quad i + j < \inf(d, p). \label{eq:2.8.2}
+\end{align}
+\end{corollary}
+
+Noter que (2.8.1) et (2.8.2) sont \'equivalents par dualit\'e de Serre.
+
+Le coeur de la d\'emonstration est le lemme suivant:
+
+\begin{lemma}\label{lem:2.9}
+Soient $X$ un $k$-sch\'ema lisse, $M$ un faisceau inversible sur $X$ et $b$ un entier. Supposons que $\tau_{<b} F_* \Omega^{\bullet}_X$ soit isomorphe, dans $D(X')$, \`a un complexe \`a diff\'erentielle nulle, et que
+\begin{equation}\label{eq:star3}
+H^j(X, \Omega^i_X \otimes M^{\otimes p}) = 0 \quad \text{pour} \quad i + j < b.
+\end{equation}
+Alors on a
+\[
+H^j(X, \Omega^i_X \otimes M) = 0 \quad \text{pour} \quad i + j < b.
+\]
+\end{lemma}
+
+\begin{proof}
+Soit $M'$ sur $X'$ d\'eduit de $M$ par changement de base. On a $F^* M' = M^{\otimes p}$, d'o\`u, par la formule de projection,
+\[
+H^j(X, M^{\otimes p} \otimes_{\cO_X} \Omega^i_X) = H^j(X', M' \otimes_{\cO_{X'}} F_* \Omega^i_X)
+\]
+pour tout $(i, j)$. Comme $F_* \Omega^{\bullet}_X$ est un complexe de $\cO_{X'}$-modules (\`a diff\'erentielle $\cO_{X'}$-lin\'eaire), on peut consid\'erer le produit tensoriel $M' \otimes_{\cO_{X'}} F_* \Omega^{\bullet}_X$, et on a une suite spectrale
+\[
+E_1^{ij} = H^j(X', M' \otimes_{\cO_{X'}} F_* \Omega^i_X) \Rightarrow H^{i+j}(X', M' \otimes_{\cO_{X'}} F_* \Omega^{\bullet}_X).
+\]
+L'hypoth\`ese (\ref{eq:star3}) implique donc que $H^n(X', M' \otimes_{\cO_{X'}} F_* \Omega^{\bullet}_X) = 0$ pour $n < b$. Mais, pour $n < b$, on a
+\[
+H^n(X', M' \otimes_{\cO_{X'}} F_* \Omega^{\bullet}_X) = H^n(X', M' \otimes_{\cO_{X'}} \tau_{<b} F_* \Omega^{\bullet}_X).
+\]
+Or on dispose, par hypoth\`ese, d'un isomorphisme de $D(X')$
+\[
+\bigoplus_{i < b} \Omega^i_{X'}[-i] \xrightarrow{\sim} \tau_{<b} F_* \Omega^{\bullet}_X.
+\]
+Par suite, pour $n < b$, on a
+\[
+0 = H^n(X', M' \otimes_{\cO_{X'}} F_* \Omega^{\bullet}_X) = \bigoplus_i H^{n-i}(X', M' \otimes_{\cO_{X'}} \Omega^i_{X'}).
+\]
+Puisque $(X', M')$ se d\'eduit de $(X, M)$ par le changement de base $F_S: S \to S$, on a aussi
+\[
+H^{n-i}(X, M \otimes_{\cO_X} \Omega^i_X) = 0
+\]
+pour $n < b$ et tout $i$.
+\end{proof}
+
+Prouvons (2.8.2). D'apr\`es \ref{thm:2.1}, pour $b \le p$, $\tau_{<b} F_* \Omega^{\bullet}_X$ est isomorphe, dans $D(X')$, \`a un complexe \`a diff\'erentielle nulle. Sous l'hypoth\`ese (i), on a $H^j(X, \Omega^i_X \otimes L^{\otimes(-N)}) = 0$ pour $N$ assez grand et $j < d$, en particulier pour $N = p^n$ avec $n$ assez grand et $i + j < d$. Soit $M$ le dual de $L$. Appliquant \ref{lem:2.9} aux $M^{\otimes p^n}$ et \`a $b = \inf(p, d)$, on obtient (2.8.2) \`a l'issue d'une r\'ecurrence descendante sur $n$. Sous l'hypoth\`ese (ii), on a encore $H^j(X, \Omega^i_X \otimes L^{\otimes(-N)}) = 0$ pour $N$ assez grand et $i + j < 2$. En effet, c'est trivial pour $i = j = 0$; pour $j = 1$, $i = 0$, l'assertion est due \`a Szpiro [21, Prop.~2]; enfin, pour $j = 0$, $i = 1$, elle d\'ecoule du fait que, par Riemann-Roch, la dimension de $H^0(X, L^{\otimes N})$ tend vers l'infini quand $N$ tend vers l'infini. On conclut alors comme dans le cas (i).
+
+\begin{remark}\label{rem:2.10}
+\begin{enumerate}[label=(\roman*)]
+\item L'id\'ee d'obtenir des r\'esultats d'annulation par r\'ecurrence descendante sur des Frobenius\'es est due \`a Szpiro (cf.~[27, 28, 21]). Par ailleurs, Esnault et Viehweg [7] ont montr\'e r\'ecemment que, sur $\mathbf{C}$, il existe un lien \'etroit entre la d\'eg\'en\'erescence en $E_1$ de certaines suites spectrales de type ``Hodge vers de Rham'' et des th\'eor\`emes d'annulation \`a la Kodaira.
+
+\item Raynaud [24] et Szpiro [9] ont construit des exemples de couples $(X, L)$, o\`u $X/k$ est une surface projective lisse et $L$ un faisceau inversible ample sur $X$ tels que $H^1(X, L^{-1}) \neq 0$. Ces surfaces ne se rel\`event donc pas sur $W_2(k)$.
+
+\item Soit $X$ un $k$-sch\'ema lisse. On verra en 3.6 que si $X$ ne se rel\`eve pas sur $W_2(k)$, alors $\tau_{\le 1} F_* \Omega^{\bullet}_{X/k}$ -- et a fortiori $F_* \Omega^{\bullet}_{X/k}$ -- n'est pas isomorphe, dans $D(X')$, \`a un complexe \`a diff\'erentielle nulle. Cette ``pathologie'' peut \^etre invisible au niveau de la suite spectrale de Hodge ou d'\'enonc\'es d'annulation \`a la Kodaira: pour $p \ge 7$, Raynaud sait construire, par la m\'ethode de Godeaux-Serre [25], une surface $X$ lisse et projective sur $\mathbf{F}_p$, ne se relevant pas sur $\mathbf{Z}/p^2$, et telle que: a) la suite spectrale de Hodge vers de Rham de $X$ d\'eg\'en\`ere en $E_1$, b) tout faisceau inversible ample sur $X$ satisfait au th\'eor\`eme d'annulation de Kodaira-Akizuki-Nakano.
+\end{enumerate}
+\end{remark}
+
+\begin{corollary}[Kodaira-Akizuki-Nakano {\cite{1,18}}, Ramanujam {\cite{23}}]\label{cor:2.11}
+Soient $K$ un corps de caract\'eristique $0$, $X$ un $K$-sch\'ema projectif lisse, purement de dimension $d$, et $L$ un faisceau inversible sur $X$. On suppose que $L$ est ample, ou que $d = 2$ et que $L$ est num\'eriquement positif. Alors on a
+\[
+H^j(X, \Omega^i \otimes L) = 0 \quad \text{pour} \quad i + j > d
+\]
+(ou, ce qui revient au m\^eme, par dualit\'e de Serre, $H^j(X, \Omega^i \otimes L^{-1}) = 0$ pour $i + j < d$).
+\end{corollary}
+
+On d\'eduit \ref{cor:2.11} de \ref{cor:2.8} comme on a d\'eduit \ref{cor:2.7} de \ref{thm:2.1}; nous omettrons les d\'etails (pour le cas num\'eriquement positif, cf.~[21, p.~42]).
+
+\begin{corollary}[``Lefschetz faible'', cf.~Berthelot {\cite{2}}]\label{cor:2.12}
+Avec les notations de \ref{thm:2.1}, soit $X$ un $k$-sch\'ema projectif et lisse purement de dimension $d$, et $D \subset X$ un diviseur lisse. On suppose $X$ et $D$ relevables sur $W_2(k)$ et $D$ ample. Alors la fl\`eche de restriction $H^n_{\dR}(X/k) \to H^n_{\dR}(D/k)$ est un isomorphisme pour $n < \inf(p, d) - 1$ et une injection pour $n = \inf(p, d) - 1$.
+\end{corollary}
+
+Le noyau $\Omega^{\bullet}_X(\log D)(-D)$ de $\Omega^{\bullet}_X \to \Omega^{\bullet}_D$ [cf.~4.2.2 (c)] admet un d\'evissage (``filtration par le poids'')
+\[
+0 \to \Omega^{\bullet}_X(-D) \to \Omega^{\bullet}_X(\log D)(-D) \to \Omega^{\bullet-1}_D(-D) \to 0.
+\]
+La conclusion de \ref{cor:2.12} signifie que
+\[
+H^n(X, \Omega^{\bullet}_X(\log D)(-D)) = 0 \quad \text{pour} \quad n < \inf(p, d).
+\]
+On applique \ref{cor:2.8} \`a $(X, \cO_X(D))$ et $(D, \cO_D(D))$.
+
+\section{Gerbes de rel\`evements et de scindages, et d\'ecomposition du complexe de de Rham (cas g\'en\'eral)}
+
+\subsection{}
+
+Soit $\mathcal{A}$ une cat\'egorie ab\'elienne. Nous dirons qu'un objet $K$ de $D^b(\mathcal{A})$ est \emph{d\'ecomposable} si $K$ est isomorphe (dans $D^b(\mathcal{A})$) \`a un complexe \`a diff\'erentielle nulle.
+
+Pour que $K$ soit d\'ecomposable, il faut et il suffit qu'il existe, dans $D(\mathcal{A})$, des morphismes $f_i: H^i K[-i] \to K$ tels que $H^i(f_i)$ soit l'application identique de $H^i K$ (cette condition est n\'ecessaire, car v\'erifi\'ee par $\bigoplus H^i K[-i]$, et suffisante, car les $f_i$ induisent un isomorphisme $\bigoplus H^i K[-i] \xrightarrow{\sim} K$). Si $K$ est d\'ecomposable, on appelle \emph{d\'ecomposition} de $K$ un morphisme $f = \sum f_i: \bigoplus H^i K[-i] \to K$ tel que $H^i f$ soit l'application identique de $H^i K$.
+
+Soit $K$ un complexe d\'ecomposable tel que $K^i = 0$ pour $i \neq 0, 1$. Une d\'ecomposition de $K$ est enti\`erement d\'etermin\'ee par la donn\'ee de $f_1: H^1 K[-1] \to K$ tel que $H^1 f_1$ soit l'identit\'e ($f_0$ est donn\'e par l'injection $H^0 K \hookrightarrow K^0$). Le triangle distingu\'e
+\[
+H^0 K \to K \to H^1 K[-1] \to
+\]
+fournit la suite exacte
+\[
+0 \to \Hom(H^1 K[-1], H^0 K) \to \Hom(H^1 K[-1], K) \xrightarrow{a} \Hom(H^1 K, H^1 K),
+\]
+qui montre que l'ensemble des d\'ecompositions de $K$ est un espace affine sous $\Hom(H^1 K[-1], H^0 K) = \Ext^1(H^1 K, H^0 K)$ (image inverse par $a$ de $\id$).
+
+\subsection{}
+
+Soient $(T, \cO)$ un site annel\'e et $K$ un complexe de $\cO$-modules sur $T$ avec $K^i = 0$ pour $i \neq 0, 1$. On suppose que $\mathscr{H}^1 K$ est localement libre de rang fini; la projection de $K^1$ sur $\mathscr{H}^1 K$ admet donc localement une section. On suppose en outre que la projection de $K^0$ sur $\Im(d)$ admet aussi localement une section.
+
+Soit $\mathrm{sc}'(K)$ la cat\'egorie fibr\'ee suivante sur $T$: un objet sur $U$ est un scindage (sur $U$) $s: \mathscr{H}^1 K \to K^1$ de la projection de $K^1$ sur $\mathscr{H}^1 K$; une fl\`eche de $s'$ dans $s''$ est un homomorphisme $h: \mathscr{H}^1 K \to K^0$ (sur $U$) tel que $s'' = s' + dh$. Si $s'$ et $s''$ sont deux objets sur $U$, les morphismes de $s'$ dans $s''$ forment un faisceau sur $U$; $\mathrm{sc}'(K)$ est un pr\'echamp (en groupo\"ides). De plus, les hypoth\`eses faites sur $K$ impliquent que: a) tout $U$ admet un recouvrement $R$ tel que la cat\'egorie fibre $\mathrm{sc}'(K)(R)$ soit non vide; b) deux objets quelconques de $\mathrm{sc}'(K)$ sont localement isomorphes. Le champ associ\'e au pr\'echamp $\mathrm{sc}'(K)$ est donc une gerbe (Giraud [12, III \S\,2]), la \emph{gerbe des scindages} de $K$, not\'ee $\mathrm{sc}(K)$.
+
+Pour tout objet $s$ de $\mathrm{sc}(K)$, $\mathscr{H}om(s,s)$ est le faisceau ab\'elien $\mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K)$. La gerbe $\mathrm{sc}(K)$ admet un objet global\footnote{Voir 3.3 (b) pour une description des objets globaux.} si et seulement si sa classe [12, IV 3.1, 3.5]
+\[
+\mathrm{cl}\, \mathrm{sc}(K) \in H^2(T, \mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K)) = \Ext^2(\mathscr{H}^1 K, \mathscr{H}^0 K)
+\]
+est nulle. Si tel est le cas, l'ensemble des classes \`a isomorphisme pr\`es d'objets globaux de $\mathrm{sc}(K)$ est un espace affine sous $H^1(T, \mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K)) = \Ext^1(\mathscr{H}^1 K, \mathscr{H}^0 K)$ (si $s$ et $t$ sont deux objets globaux, leur ``diff\'erence'' $t - s$ est la classe du torseur des isomorphismes locaux de $s$ sur $t$, cf.~[12, III 2.2.6]).
+
+Notons par ailleurs
+\[
+e(K) \in \Ext^2(\mathscr{H}^1 K, \mathscr{H}^0 K)
+\]
+la classe d\'efinie par le morphisme de degr\'e 1 du triangle distingu\'e
+\[
+\mathscr{H}^0 K \to K \to \mathscr{H}^1 K[-1] \xrightarrow{+1}.
+\]
+
+On a $e(K) = 0$ si et seulement si $K$ est d\'ecomposable (3.1). On a vu d'autre part que, si $K$ est d\'ecomposable, l'ensemble des d\'ecompositions de $K$ est un espace affine sous $\Ext^1(\mathscr{H}^1 K, \mathscr{H}^0 K)$.
+
+\begin{proposition}\label{prop:3.3}
+Avec les notations pr\'ec\'edentes:
+
+\textup{(a)} On a $\mathrm{cl}\,\mathrm{sc}(K) = -e(K)$.
+
+\textup{(b)} Il existe une bijection affine canonique $\alpha$, d\'efinie ci-dessous, de l'ensemble des classes \`a isomorphisme pr\`es d'objets globaux de $\mathrm{sc}(K)$ sur l'ensemble des d\'ecompositions de $K$, induisant l'identit\'e sur le groupe des translations $\Ext^1(\mathscr{H}^1 K, \mathscr{H}^0 K)$.
+\end{proposition}
+
+Prouvons (a). Choisissons un hyperrecouvrement $U_\cdot \to T$, sur $U_0$ une section $f: \mathscr{H}^1 K \to K^1$ de la projection de $K^1$ sur $\mathscr{H}^1 K$, et sur $U_1$, $g: \mathscr{H}^1 K \to K^0$ tel que $d_1^* f - d_0^* f = dg$. Alors $h = d_0^* g - d_1^* g + d_2^* g$ est un 2-cocycle de $U_\cdot$ \`a valeurs dans $\mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K)$, dont l'image dans $H^2(T, \mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K))$ est $\mathrm{cl}\, \mathrm{sc}(K)$ (cf.~[12, IV 3.5]). D'autre part, avec la convention de signe de [J.-L.~Verdier, Cat\'egories d\'eriv\'ees, \'Etat 0, p.~269, dans SGA 4 1/2, Springer Lecture Notes 569], $e(K)$ est la classe du morphisme ``compos\'e''
+\[
+\mathscr{H}^1 K[-1] \xleftarrow{q} E \xrightarrow{-\mathrm{pr}} \mathscr{H}^0 K[1],
+\]
+o\`u
+\[
+E = \Bigl( \mathscr{H}^0 K \to K^0 \xrightarrow{d} K^1 \Bigr)
+\]
+est le c\^one (concentr\'e en degr\'es $-1, 0, 1$) de $\mathscr{H}^0 K \to K$, $q$ le quasi-isomorphisme donn\'e par la projection de $K^1$ sur $\mathscr{H}^1 K$, et $\mathrm{pr}$ la projection \'evidente. Posons $M = \mathscr{H}^0 K$, $N = \mathscr{H}^1 K$, et notons $\check{N}$ le dual de $N$. La classe $e(K)$ est encore l'image de $\Id_N \in H^0(T, \check{N} \otimes N)$ dans $H^2(T, \check{N} \otimes M) = H^2(T, \mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K))$ par le morphisme compos\'e
+\[
+H^0(T, \check{N} \otimes N) \xleftarrow{q} H^1(T, \check{N} \otimes K) \xrightarrow{-\Id_N \otimes \mathrm{pr}} H^2(T, \check{N} \otimes M).
+\]
+Or
+\[
+c = (h, -g, f) \in \check{C}^1(U_\cdot, \check{N} \otimes K) = \check{C}^2(U_\cdot, \check{N} \otimes M) \oplus \check{C}^1(U_\cdot, \check{N} \otimes K^0) \oplus \check{C}^0(U_\cdot, \check{N} \otimes K^1)
+\]
+est un 1-cocycle, d'image $\Id_N$ par $q$, et $-h$ par $-\Id_N \otimes \mathrm{pr}$. Donc $e(K) = -\mathrm{cl}\, \mathrm{sc}(K)$.
+
+Construisons maintenant $\alpha$. Soit $s$ un objet global de $\mathrm{sc}(K)$, d\'ecrit par un hyperrecouvrement $U_\cdot \to T$, sur $U_0$ une section $f: \mathscr{H}^1 K \to K^1$ de la projection de $K^1$ sur $\mathscr{H}^1 K$, et sur $U_1$, $h: \mathscr{H}^1 K \to K^0$ tel que $d_0^* f - d_1^* f = dh$ et $d_0^* h - d_1^* h + d_2^* h = 0$. Alors
+\[
+(h, f): \mathscr{H}^1 K \to \check{C}^1(U_\cdot, K) = \check{C}^1(U_\cdot, K^0) \oplus \check{C}^0(U_\cdot, K^1)
+\]
+est un morphisme de $\mathscr{H}^1 K[-1]$ dans $\check{C}(U_\cdot, K)$, dont l'image $\alpha(s)$ dans $\Hom_{D(T)}(\mathscr{H}^1 K[-1], K)$ est une d\'ecomposition de $K$. Par des arguments analogues \`a ceux de la preuve de \ref{thm:2.1} (d), on v\'erifie que $\alpha(s)$ est ind\'ependant des choix de $(U_\cdot, f, h)$, et ne d\'epend que de la classe de $s$ \`a isomorphisme pr\`es. Il reste \`a v\'erifier que, si $t$ est un second objet global, on a $\alpha(t) - \alpha(s) = t - s$ dans $\Ext^1(\mathscr{H}^1 K, \mathscr{H}^0 K)$. On peut supposer que $t$ est d\'ecrit par $(U_\cdot, g, k)$ et qu'on a, sur $U_0$, $u: \mathscr{H}^1 K \to K^0$ tel que $g - f = du$. Le carr\'e
+\[
+\begin{tikzcd}
+d_1^* f \arrow[r, "h"] \arrow[d, "d_1^* u"'] & d_0^* f \arrow[d, "d_0^* u"] \\
+d_1^* g \arrow[r, "k"'] & d_0^* g
+\end{tikzcd}
+\]
+fournit
+\[
+v = d_1^* u + k - h - d_0^* u: \mathscr{H}^1 K \to \mathscr{H}^0 K \quad \text{sur } U_1,
+\]
+un 1-cocycle de $U_\cdot$ \`a valeurs dans $\mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K)$, dont l'image dans $H^1(T, \mathscr{H}om(\mathscr{H}^1 K, \mathscr{H}^0 K))$ est (avec des conventions ad\'equates) la classe de $t - s$. Avec les notations ci-dessus, on a alors
+\[
+(k,g) - (h,f) = v + du: \mathscr{H}^1 K \to \check{C}^1(U_\cdot, K),
+\]
+o\`u $u$ est consid\'er\'e ici comme fl\`eche de $\mathscr{H}^1 K$ dans $\check{C}^0(U_\cdot, K)$ et $d$ d\'esigne la diff\'erentielle totale du complexe $\check{C}(U_\cdot, K)$. On a donc bien $\alpha(t) - \alpha(s) = t - s$, ce qui ach\`eve la d\'emonstration de (b).
+
+\subsection{}
+
+Soient $S$ un sch\'ema de caract\'eristique $p > 0$, $X$ un sch\'ema lisse sur $S$, et $F: X \to X'$ le Frobenius relatif (1.1). Supposons donn\'e un sch\'ema $\tilde{S}$ plat sur $\mathbf{Z}/p^2$ dont $S$ est la r\'eduction modulo $p$. On se propose de d\'ecrire la gerbe des scindages de $K = \tau_{\le 1} F_* \Omega^{\bullet}_{X/S}$ en termes de rel\`evements de $X'$ sur $\tilde{S}$.
+
+Pour tout sch\'ema $Y$ lisse sur $S$, la \emph{gerbe des rel\`evements} de $Y$ sur $\tilde{S}$, not\'ee $\Rel(Y, \tilde{S})$, est la gerbe sur $Y$ ayant pour objets sur un ouvert $U$ les sch\'emas $\tilde{U}$ plats sur $\tilde{S}$ ayant $U$ pour r\'eduction modulo $p$ (i.e.~munis d'un isomorphisme de leur r\'eduction modulo $p$ avec $U$). Un morphisme $\tilde{U}' \to \tilde{U}''$ est un morphisme de $\tilde{S}$-sch\'emas, de r\'eduction modulo $p$ l'identit\'e. Le faisceau des automorphismes d'un quelconque rel\`evement de $U$ est le faisceau ab\'elien $\Theta_{U/S} = \mathscr{H}om(\Omega^1_{U/S}, \cO_U)$ des champs de vecteurs relatifs sur $U$.
+
+\begin{theorem}\label{thm:3.5}
+Il existe une \'equivalence de gerbes canonique, d\'efinie ci-dessous,
+\[
+\Phi: \Rel(X', \tilde{S}) \to \mathrm{sc}(\tau_{\le 1} F_* \Omega^{\bullet}_{X/S}),
+\]
+induisant l'identit\'e sur les faisceaux d'automorphismes des objets.
+\end{theorem}
+
+(Noter que, pour les deux gerbes consid\'er\'ees, le faisceau des automorphismes d'un objet est le faisceau $\Theta_{X'/S}$ des champs de vecteurs relatifs.)
+
+Tenant compte de \ref{prop:3.3}, on en d\'eduit:
+
+\begin{corollary}\label{cor:3.6}
+\textup{(a)} Pour que $X'$ admette un rel\`evement sur $\tilde{S}$, il faut et il suffit que $\tau_{\le 1} F_* \Omega^{\bullet}_{X/S}$ soit d\'ecomposable.
+
+\textup{(b)} Si tel est le cas, $\alpha \circ \Phi$ est une bijection affine de l'ensemble des classes \`a isomorphisme pr\`es de rel\`evements de $X'$ sur $\tilde{S}$ sur l'ensemble des d\'ecompositions de $\tau_{\le 1} F_* \Omega^{\bullet}_{X/S}$, induisant l'identit\'e sur le groupe des translations $\Ext^1(\mathscr{H}^1 F_* \Omega^{\bullet}_{X/S}, \mathscr{H}^0 F_* \Omega^{\bullet}_{X/S})$ (isomorphe, par Cartier, \`a $\Ext^1(\Omega^1_{X'/S}, \cO_{X'}) = H^1(X', \Theta)$).
+\end{corollary}
+
+Les arguments de \ref{thm:2.1} (a) et de la preuve de \ref{cor:2.3} donnent aussi:
+
+\begin{corollary}\label{cor:3.7}
+\textup{(a)} \`A tout rel\`evement de $X'$ sur $\tilde{S}$ est associ\'e canoniquement un isomorphisme de $D(X')$
+\[
+\bigoplus_{i < p} \Omega^i_{X'/S}[-i] \xrightarrow{\sim} \tau_{<p} F_* \Omega^{\bullet}_{X/S}
+\]
+induisant $C^{-1}$ sur $\mathscr{H}^i$.
+
+\textup{(b)} Si $X$ est de dimension relative $\le p$, si $X'$ se rel\`eve sur $\tilde{S}$, et si $H^{p+1}(X', (\Omega^p_{X'/S})^\vee) = 0$ (ce qui est le cas par exemple si $S$ est affine et $X$ propre sur $S$), alors $F_* \Omega^{\bullet}_{X/S}$ est d\'ecomposable, i.e.~il existe un isomorphisme de $D(X')$
+\[
+\bigoplus_i \Omega^i_{X'/S}[-i] \xrightarrow{\sim} F_* \Omega^{\bullet}_{X/S}
+\]
+induisant $C^{-1}$ sur $\mathscr{H}^i$.
+\end{corollary}
+
+\begin{remark}\label{rem:3.8}
+L'homomorphisme $\varphi^1_{\tilde{X}}: \Omega^1_{X'/S}[-1] \to F_* \Omega^{\bullet}_{X/S}$ de \ref{thm:2.1} (ou de sa variante \ref{rem:2.2} (i)) ne d\'epend en fait que de $\tilde{X}'$: avec les notations de \ref{prop:3.3} et \ref{thm:3.5}, on a
+\[
+\varphi^1_{\tilde{X}} = \alpha \circ \Phi(\tilde{X}').
+\]
+Si $\tilde{X}_1$, $\tilde{X}_2$ sont deux rel\`evements de $X$, $\varphi^1_{\tilde{X}_2} - \varphi^1_{\tilde{X}_1}$ est donc la classe, dans $H^1(X', \Theta_{X'/S})$, de la diff\'erence $(\tilde{X}_2' - \tilde{X}_1')$.
+\end{remark}
+
+\begin{remark}\label{rem:3.9}
+Soit $\tilde{S}$ un rel\`evement de $S$ sur $\mathbf{Z}/p^2$. D'apr\`es \ref{thm:3.5}, la gerbe $\Rel(X', \tilde{S})$ est ind\'ependante de $\tilde{S}$: c'est $\mathrm{sc}(\tau_{\le 1} F_* \Omega^{\bullet}_{X/S})$. Montrons comment v\'erifier cette ind\'ependance directement. Soient $\tilde{S}_1$ et $\tilde{S}_2$ deux rel\`evements de $S$ et $T := \tilde{S}_1 \amalg_S \tilde{S}_2$ leur somme amalgam\'ee. Le faisceau structural de $\tilde{S}_i$ est une extension de $\cO_S$ par un id\'eal de carr\'e nul $I_i$ et $\cO_T$ est une extension de $\cO_S$ par $I_1 \oplus I_2$, avec encore $(I_1 \oplus I_2)^2 = 0$. La multiplication par $p$ de $\cO_{\tilde{S}_i}$ (resp.~$\cO_T$) se factorise par un isomorphisme de $\cO_S$-modules $\cO_S \xrightarrow{\sim} I_i$ (resp.~par l'application diagonale $\cO_S \to I_1 \oplus I_2$). Soit $\bar{T}$ la r\'eduction modulo $p$ de $T$. Le faisceau structural $\cO_{\bar{T}}$ \'etant extension de $\cO_S$ par un id\'eal de carr\'e nul, le Frobenius de $\bar{T}$ se factorise par $S$: on dispose d'un diagramme commutatif
+\[
+\begin{tikzcd}
+\tilde{S}_i \arrow[r, hookleftarrow] & S \arrow[r, "F_S"] & S \\
+\arrow[u, hook] & \arrow[u, hook] \arrow[ul, "f"] \\
+\bar{T} \arrow[r, hookleftarrow] \arrow[uur, "F_{\bar{T}}"'] & \bar{T} \arrow[u]
+\end{tikzcd}
+\]
+et donc, en particulier, d'un rel\`evement $f^* X$ de $X' = F_S^* X$ sur $\bar{T}$. Pour $i = 1, 2$, la somme amalgam\'ee $T$ est encore la somme amalgam\'ee, sur $S$, de $\bar{T}$ et de $\tilde{S}_i$. Le foncteur ``image inverse sur $\tilde{S}_i$'' est donc une \'equivalence de la gerbe des rel\`evements de $f^* X$ sur $\bar{T}$ avec celle des rel\`evements de $X'$ sur $\tilde{S}_i$. Composant ces \'equivalences ($i = 1, 2$), on obtient une \'equivalence $\Rel(X', \tilde{S}_1) \xrightarrow{\sim} \Rel(X', \tilde{S}_2)$.
+\end{remark}
+
+\section{Compl\'ements et variantes}
+
+\subsection{D\'eg\'en\'erescence relative}
+
+\subsubsection{}
+
+Soit $S$ un sch\'ema de caract\'eristique $p > 0$ et $f: X \to S$ un morphisme lisse. Deux suites spectrales aboutissent \`a $R^* f_* \Omega^{\bullet}_{X/S}$: (i) la \emph{suite spectrale de Hodge}
+\[
+E_1^{ij} = R^j f_* \Omega^i_{X/S} \Rightarrow R^{i+j} f_* \Omega^{\bullet}_{X/S};
+\]
+(ii) la \emph{suite spectrale conjugu\'ee}
+\[
+{}_c E_2^{ij} = R^i f'_* \mathscr{H}^j F_* \Omega^{\bullet}_{X/S} \Rightarrow R^{i+j} f_* \Omega^{\bullet}_{X/S}
+\]
+(o\`u $f': X' \to S$ est d\'eduit de $f$ par le changement de base $F_S: S \to S$, et $F = F_{X/S}$) (cf. Katz [16, \S\,2]). Le terme initial de (ii) se r\'ecrit d'ailleurs, gr\^ace \`a Cartier, ${}_c E_2^{ij} = R^i f'_* \Omega^j_{X'/S}$.
+
+\begin{proposition}\label{prop:4.1.2}
+Avec les notations pr\'ec\'edentes, supposons $f$ de type fini, et $S$ local artinien, de point ferm\'e $s$ et de corps r\'esiduel $k$. Pour $T \to S$, on note $f_T: X_T \to T$ le morphisme d\'eduit de $f$ par le changement de base $T \to S$. Soit $n$ un entier et supposons que:
+
+\textup{(a)} pour $i + j = n$, les $H^j(X_s, \Omega^i)$ sont de dimension finie sur $k$;
+
+\textup{(b)} pour tout sous-sch\'ema ferm\'e $T$ de $S$, la suite spectrale conjugu\'ee relative \`a $f_T$ v\'erifie ${}_c E_2^{ij} = {}_c E_\infty^{ij}$ pour $i + j = n$.
+
+Sous ces hypoth\`eses, la suite spectrale de Hodge v\'erifie $E_1^{ij} = E_\infty^{ij}$ pour $i + j = n$ et les $E_1^{ij} = R^j f_* \Omega^i_{X/S}$ sont, pour $i + j = n$, libres de formation compatible \`a tout changement de base.
+\end{proposition}
+
+Soit $A$ l'anneau de $S$. Le faisceau $\Omega^i_{X/S}$ \'etant $S$-plat et le morphisme $f$ de type fini, $R^j f_* \Omega^i_{X/S}$ est d'amplitude plate finie (SGA 6 III 3.7.1), donc isomorphe \`a un complexe born\'e $K_i$ de $A$-modules plats (donc libres). Pour tout $S$-sch\'ema $T$, $R^j f_{T*} \Omega^i_{X_T/T}$ est d\'eduit de $K_i$ par changement de base de $S$ \`a $T$ (SGA 6 III 3.7). En particulier, $H^j(X_s, \Omega^i) = H^j(K_i \otimes_A k)$. Il s'ensuit, par d\'evissage de $A$ comme $A$-module, que l'on a
+\begin{equation}\label{eq:4.1.2.1}
+\lg R^j f_* \Omega^i_{X/S} \le h^{ij} \lg A,
+\end{equation}
+o\`u $h^{ij} = \dim_k H^j(X_s, \Omega^i)$ et $\lg$ d\'esigne la longueur comme $A$-module. Gr\^ace \`a (a), les $A$-modules $R^j f_* \Omega^i_{X/S}$ sont donc de longueur finie pour $i + j = n$. De plus, on peut supposer $K_i$ minimal, i.e. tel que $K_i \otimes_A k$ soit \`a diff\'erentielle nulle: d\'ecomposant $K_i \otimes_A k$ en somme d'un complexe \`a diff\'erentielle nulle et d'un complexe acyclique, on peut trouver un sous-complexe $K'$ de $K_i$, somme de complexes de la forme $\bigl(0 \to E \xrightarrow{\id} E \to 0\bigr)$ et facteur direct de $K_i$ degr\'e \`a degr\'e, tel que $(K_i/K') \otimes_A k$ soit \`a diff\'erentielle nulle; il suffit alors de remplacer $K_i$ par $K_i/K'$. Pour un couple $(i,j)$ tel que $i + j = n$ et $K_i$ minimal, l'\'egalit\'e dans (4.1.2.1) ne peut \^etre atteinte que si les diff\'erentielles $K_i^{j-1} \xrightarrow{d^{j-1}} K_i^j \xrightarrow{d^j} K_i^{j+1}$ sont nulles (car $\lg \Im d^{j-1} + \lg H^j(K_i) + \lg \Im d^j = \lg K_i^j = h^{ij} \lg A$), auquel cas $R^j f_* \Omega^i_{X/S}$ est libre de formation compatible \`a tout changement de base.
+
+Comme les $E_1^{ij}$ sont des $A$-modules de longueur finie pour $i + j = n$, l'\'egalit\'e $E_1^{ij} = E_\infty^{ij}$ \'equivaut \`a ce que l'\'egalit\'e soit atteinte dans l'in\'egalit\'e
+\begin{equation}\label{eq:4.1.2.2}
+\lg R^n f_* \Omega^{\bullet}_{X/S} \le \sum_{i+j=n} \lg R^j f_* \Omega^i_{X/S}.
+\end{equation}
+
+D'autre part, $X'_s$, d\'eduit de $X_s$ par une extension du corps de base, a m\^emes nombres de Hodge $h^{ij}$ que $X_s$. D'apr\`es la premi\`ere partie de l'argument ci-dessus, les ${}_c E_2^{ij} = R^i f'_* \Omega^j_{X'/S}$ sont donc aussi des $A$-modules de longueur finie pour $i + j = n$. D'apr\`es (b) (pour $T = S$), on a donc
+\begin{equation}\label{eq:4.1.2.3}
+\lg R^n f_* \Omega^{\bullet}_{X/S} = \sum_{i+j=n} \lg R^i f'_* \Omega^j_{X'/S}.
+\end{equation}
+
+Si $S$ est le spectre d'un corps, (4.1.2.3) implique l'\'egalit\'e dans (4.1.2.2), et \ref{prop:4.1.2} en r\'esulte. Soit $\mathfrak{m}$ l'id\'eal maximal de $A$. Prouvons par r\'ecurrence sur un entier $N \ge 1$ que \ref{prop:4.1.2} est vrai lorsque $\mathfrak{m}^N = 0$. Le cas $N = 1$, $A = k$ vient d'\^etre trait\'e. Si $N > 1$, il existe $N'$ v\'erifiant $1 \le N' < N$, $pN' \ge N$. Pour un tel $N'$, l'endomorphisme de Frobenius $F_S$ de $S$ se factorise par $T = \Spec(A_1)$, $A_1 = A/\mathfrak{m}^{N'}$:
+\[
+\begin{tikzcd}
+X \arrow[r, "F"] \arrow[rd, "f"'] & X' \arrow[r] \arrow[d, "f'"] & X_T \arrow[d, "f_T"] \arrow[r, hook] & X \arrow[d, "f"] \\
+& S \arrow[r] & T \arrow[r, hook] & S.
+\end{tikzcd}
+\]
+L'hypoth\`ese de r\'ecurrence s'applique \`a $X_T/T$: pour $i + j = n$, $R^j f_{T*} \Omega^i_{X_T/T}$ est libre de rang $h^{ij}$, de formation compatible \`a tout changement de base. En particulier (changement de base $S \to T$), $R^j f'_* \Omega^i_{X'/S}$ est libre de rang $h^{ij}$, et l'hypoth\`ese ${}_c E_2^{ij} = {}_c E_\infty^{ij}$ pour $i + j = n$ assure que $R^n f_* \Omega^{\bullet}_{X/S}$ est libre, de rang $\sum_{i+j=n} h^{ij}$ d'apr\`es (4.1.2.3). Les in\'egalit\'es (4.1.2.1) et (4.1.2.2) sont donc des \'egalit\'es et \ref{prop:4.1.2} en r\'esulte.
+
+\begin{remark}\label{rem:4.1.3}
+Soient $f: X \to S$ comme en 4.1.1 et $b$ un entier. L'hypoth\`ese (a) de \ref{prop:4.1.2} est v\'erifi\'ee si $f$ est propre. D'autre part, si $\tau_{\le b} F_* \Omega^{\bullet}_{X/S}$ est d\'ecomposable (3.1), l'hypoth\`ese (b) de \ref{prop:4.1.2} est v\'erifi\'ee pour tout $n \le b$. L'hypoth\`ese ``d\'ecomposable'' est stable par changement de base car les $\mathscr{H}^i F_* \Omega^{\bullet}_{X/S}$ sont $S$-plats. Il suffit donc de v\'erifier ${}_c E_2^{ij} = {}_c E_\infty^{ij}$ pour $X/S$ et $i + j \le b$. La d\'ecomposabilit\'e de $\tau_{\le b} F_* \Omega^{\bullet}_{X/S}$ assure que $d_r^{ij} = 0$ pour $j \le b$, donc dans la r\'egion $i + j \le b$ requise.
+\end{remark}
+
+\begin{corollary}\label{cor:4.1.4}
+Soient $S$ un sch\'ema de caract\'eristique $p > 0$, $f: X \to S$ un morphisme propre et lisse et $b$ un entier. On fait l'hypoth\`ese que $\tau_{\le b} F_* \Omega^{\bullet}_{X/S}$ est d\'ecomposable \textup{(3.1)} dans $D(X')$. Alors:
+
+\textup{(i)} Pour $i + j \le b$, les $R^j f_* \Omega^i_{X/S}$ sont localement libres de type fini, de formation compatible \`a tout changement de base;
+
+\textup{(ii)} la suite spectrale de Hodge de $f$ v\'erifie $E_1^{ij} = E_\infty^{ij}$ pour $i + j \le b$.
+\end{corollary}
+
+Des arguments standard permettent successivement de supposer $S$ affine, $S = \Spec(A)$, puis $A$ noeth\'erien (\'ecrire $A$ comme limite inductive d'anneaux de type fini sur $\mathbf{Z}$), noeth\'erien local, complet, et enfin artinien local (\'ecrire $A = \varprojlim A/\mathfrak{m}^n$). On applique alors \ref{rem:4.1.3} et \ref{prop:4.1.2} pour chaque $n \le b$.
+
+\begin{corollary}\label{cor:4.1.5}
+Soit $f$ comme en \ref{cor:4.1.4}, et supposons que $F_* \Omega^{\bullet}_{X/S}$ soit d\'ecomposable dans $D(X')$. Alors les $R^j f_* \Omega^i_{X/S}$ sont localement libres de type fini, de formation compatible \`a tout changement de base, et la suite spectrale de Hodge de $f$ d\'eg\'en\`ere en $E_1$.
+\end{corollary}
+
+Il suffit d'appliquer \ref{cor:4.1.4} avec $b \ge 2 \dim(X/S)$.
+
+\begin{remark}\label{rem:4.1.6}
+L'\'enonc\'e \ref{cor:3.7} fournit des conditions suffisantes assurant que l'hypoth\`ese de d\'ecomposabilit\'e de \ref{cor:4.1.4} (ou \ref{cor:4.1.5}) est v\'erifi\'ee. On prendra garde que la condition de relevabilit\'e porte sur $X'$ et non $X$. Toutefois, si, pour $\tilde{S}$ comme en \ref{cor:3.7}, l'endomorphisme de Frobenius $F_S$ de $S$ admet un rel\`evement $F_{\tilde{S}}$ \`a $\tilde{S}$, alors tout rel\`evement $\tilde{X}$ de $X$ sur $\tilde{S}$ d\'efinit, par changement de base par $F_{\tilde{S}}$, un rel\`evement de $X'$ sur $\tilde{S}$. Un tel rel\`evement $F_{\tilde{S}}$ existe par exemple si $S$ est affine et lisse sur un corps parfait $k$ de caract\'eristique $p$, et $\tilde{S}$ est un rel\`evement de $S$ sur $W_2(k)$.
+\end{remark}
+
+\subsection{P\^oles logarithmiques}
+
+\subsubsection{}
+
+Soient $S$ un sch\'ema de caract\'eristique $p > 0$, $X$ un $S$-sch\'ema lisse, et $D \subset X$ un diviseur \`a croisements normaux relatif. Soit $\Omega^{\bullet}_{X/S}(\log D)$ le complexe de de Rham relatif \`a p\^oles logarithmiques de long de $D$. On a encore un isomorphisme de Cartier (cf.~Katz [15, 7.2]):
+\begin{equation}\label{eq:4.2.1.1}
+C^{-1}: \Omega^i_{X'/S}(\log D') \xrightarrow{\sim} \mathscr{H}^i F_* \Omega^{\bullet}_{X/S}(\log D).
+\end{equation}
+
+Plus g\'en\'eralement, soient $A$, $B$, et $D = A + B$ des diviseurs \`a croisements normaux relatifs sur $X$ ($A$ et $B$ sont donc transverses l'un \`a l'autre), et posons
+\begin{equation}\label{eq:4.2.1.2}
+\Omega^{\bullet}_{X/S}(A, B) := \Omega^{\bullet}_{X/S}(\log D)(-A).
+\end{equation}
+On v\'erifie par un calcul local (r\'eduction au cas o\`u $X = S[t]$ est la droite affine sur $S$ et $D$ le diviseur $(t)$) que l'inclusion $\Omega^{\bullet}_{X/S}(\log D)(-pA) \hookrightarrow \Omega^{\bullet}_{X/S}(A, B)$ est un quasi-isomorphisme. Son image directe par $F_*$ est un quasi-isomorphisme $(F_* \Omega^{\bullet}_{X/S}(\log D))(-A') \to F_* \Omega^{\bullet}_{X/S}(A, B)$. Par composition avec (\ref{eq:4.2.1.1}) tensoris\'e avec $\cO(-A')$ on obtient donc un isomorphisme
+\begin{equation}\label{eq:4.2.1.3}
+C^{-1}: \Omega^i_{X'/S}(A', B') \xrightarrow{\sim} \mathscr{H}^i F_* \Omega^{\bullet}_{X/S}(A, B).
+\end{equation}
+
+\begin{remark}\label{rem:4.2.2}
+\textup{(a)} La d\'efinition (\ref{eq:4.2.1.2}) garde un sens sur une base $S$ quelconque. Pour $X$ la droite affine sur $S$, de coordonn\'ee $t$, $D$ le diviseur $(t)$, on a
+\[
+\Omega^{\bullet}_{X/S}(\log D) = \Bigl(\cO_S[t] \to \cO_S[t] \frac{dt}{t}\Bigr), \quad
+\Omega^{\bullet}_{X/S}(\log D)(-D) = (t\cO_S[t] \to \cO_S[t] dt).
+\]
+
+Soient $a, b, c$ des entiers $\ge 0$, $n = a + b + c$, et pour $1 \le i \le n$, $E_i$ la droite affine sur $S$, de coordon\'ee $t_i$, $D_i$ le diviseur $(t_i)$. Soient $X = E_1 \times_S \cdots \times_S E_n$ et $D = A + B$ le diviseur d\'efini par $A = \sum_{1 \le i \le a} pr_i^{-1}(D_i)$, $B = \sum_{a+1 \le i \le a+b} pr_i^{-1}(D_i)$. Alors $\Omega^{\bullet}_{X/S}(A, B)$ est produit tensoriel externe des $\Omega^{\bullet}_{E_i/S}(\log D_i)(-D_i)$ pour $1 \le i \le a$, des $\Omega^{\bullet}_{E_i/S}(\log D_i)$ pour $a+1 \le i \le a+b$, et des $\Omega^{\bullet}_{E_i/S}$ pour $i > a+b$.
+
+\textup{(b)} Soit $(X, D)$ comme en 4.2.1, avec $X$ de dimension relative $n$ sur $S$. Le complexe $F_* \Omega^{\bullet}_{X/S}(\log D)$ est auto-dual, pour une dualit\'e \`a valeurs dans $\Omega^n_{X'/S}(\log D')$. D'autre part, le dual de Serre de $F_* \Omega^{\bullet}_{X/S}(A, B)$ (dualit\'e \`a valeurs dans $\Omega^n_{X'/S}$) est $F_* \Omega^{\bullet}_{X/S}(B, A)$.
+
+\textup{(c)} Soient $S$ un sch\'ema, $X$ un $S$-sch\'ema lisse, et $D$ un diviseur \`a croisements normaux relatif somme de diviseurs lisses distincts $D_i$ ($1 \le i \le r$). Alors la suite
+\[
+0 \to \Omega^{\bullet}_{X/S}(\log D)(-D) \to \Omega^{\bullet}_{X/S} \to \bigoplus_i \Omega^{\bullet}_{D_i/S} \to \bigoplus_{i<j} \Omega^{\bullet}_{D_i \cap D_j/S} \to \cdots
+\]
+est exacte (v\'erification locale, \`a l'aide d'une d\'ecomposition \`a la Kunneth, comme en (a)). Le quotient $\Omega^{\bullet}_{X/S}/\Omega^{\bullet}_{X/S}(\log D)(-D)$ est le complexe de de Rham ``\`a la Sullivan'' de $D$: formes diff\'erentielles sur les $D_i$ qui se recollent. Pour $S = \Spec \mathbf{C}$, il fournit une r\'esolution du faisceau constant $\mathbf{C}$ sur l'espace analytique associ\'e \`a $D$; le complexe $\Omega^{\bullet}_{X/\mathbf{C}}(\log D)(-D)$ calcule donc $j_! \mathbf{C}$, o\`u $j: X - D \hookrightarrow D$ est l'inclusion. On sait d'autre part que $\Omega^{\bullet}_{X/\mathbf{C}}(\log D)$ calcule $Rj_* \mathbf{C}$ (cf.~[6, 3.1.8]). Plus g\'en\'eralement, si $X$ est une vari\'et\'e analytique complexe, et $A, B, D = A + B$ des diviseurs \`a croisements normaux sur $X$,
+\[
+\begin{tikzcd}
+X - A \arrow[r, hook, "j_A"] \arrow[d, hook, "j_B"'] & X \arrow[d, hook, "j_B"] \\
+X - D \arrow[r, hook, "j_A"'] & X - B,
+\end{tikzcd}
+\]
+on v\'erifie que l'on a
+\[
+\Omega^{\bullet}_X(A, B) = Rj_{A!} Rj_{B*} \mathbf{C} = Rj_{B*} Rj_{A!} \mathbf{C},
+\]
+avec $\Omega^{\bullet}_X(A, B)$ d\'efini comme en (\ref{eq:4.2.1.2}).
+\end{remark}
+
+\subsubsection{}
+
+Les \'enonc\'es \ref{thm:2.1}, \ref{cor:2.3}, \ref{cor:2.4}, \ref{thm:3.5}, \ref{cor:3.6}, \ref{cor:3.7}, \ref{rem:3.8} ont des variantes ``\`a p\^oles logarithmiques''. On d\'efinit encore une \'equivalence de la gerbe $\Rel(X', D', \tilde{S})$ des rel\`evements de $(X', D')$ sur $\tilde{S}$ avec la gerbe des scindages de $\tau_{\le 1} F_* \Omega^{\bullet}_{X/S}(\log D)$. On ne consid\`ere que des rel\`evements $(\tilde{X}', \tilde{D}')$ o\`u $\tilde{D}'$ est encore un diviseur \`a croisements normaux relatif, le faisceau $\Theta_{X'/S}$ est remplac\'e par le dual $\Theta_{X'/S}(-\log D')$ de $\Omega^{1}_{X'/S}(\log D')$, et, pour un choix (local) d'un rel\`evement $(\tilde{X}, \tilde{D})$ de $(X, D)$, on ne consid\`ere que les rel\`evements $\tilde{F}$ tels que $\tilde{F}^{-1}(\tilde{D}') = p\tilde{D}$. De plus, tout rel\`evement global de $(X', D')$ fournit une d\'ecomposition canonique de $\tau_{<p} F_* \Omega^{\bullet}_{X/S}(\log D)$ et une d\'ecomposition (non canonique) de $F_* \Omega^{\bullet}_{X/S}(\log D)$ si $X$ est de dimension relative $\le p$ et si $H^{p+1}(X', (\Omega^p_{X'/S}(\log D'))^\vee) = 0$ (ce qui est le cas par exemple si $S$ est affine et $X$ propre sur $S$) (autodualit\'e de $F_* \Omega^{\bullet}_{X/S}(\log D)$, \ref{rem:4.2.2} (b)).
+
+Si $D = A + B$ comme en 4.2.1, une telle d\'ecomposition fournit une d\'ecomposition analogue pour $F_* \Omega^{\bullet}_{X/S}(A, B)$ (quasi-isomorphe \`a $(F_* \Omega^{\bullet}_{X/S}(\log D))(-A')$).
+
+Soient $f: X \to S$ propre et lisse, $D = A + B$ comme en 4.2.1, $b$ un entier, et supposons que $\tau_{\le b} F_* \Omega^{\bullet}_{X/S}(\log D)$ soit d\'ecomposable. Alors on v\'erifie comme en \ref{cor:4.1.4} que, pour $i + j \le b$, les $R^j f_* \Omega^i_{X/S}(A, B)$ sont localement libres de type fini, de formation compatible \`a tout changement de base, et que la suite spectrale
+\[
+E_1^{ij} = R^j f_* \Omega^i_{X/S}(A, B) \Rightarrow R^{i+j} f_* \Omega^{\bullet}_{X/S}(A, B)
+\]
+v\'erifie $E_1^{ij} = E_\infty^{ij}$ pour $i + j \le b$.
+
+Par un argument similaire \`a la preuve de \ref{cor:2.7}, on en d\'eduit:
+
+\begin{corollary}\label{cor:4.2.4}
+Soient $X$ un sch\'ema propre et lisse sur un corps $K$ de caract\'eristique nulle et $D = A + B$ un diviseur \`a croisements normaux sur $X$. Alors la suite spectrale de Hodge
+\[
+E_1^{ij} = H^j(X, \Omega^i_{X/K}(A, B)) \Rightarrow H^{i+j}(X, \Omega^{\bullet}_{X/K}(A, B))
+\]
+d\'eg\'en\`ere en $E_1$.
+\end{corollary}
+
+Le cas particulier $A = \emptyset$ fournit une nouvelle d\'emonstration du r\'esultat de d\'eg\'en\'erescence [6, 3.2.13 (ii)].
+
+\subsubsection{}
+
+Il n'est pas difficile de transposer dans le cadre des espaces alg\'ebriques de M. Artin (cf.~Knutson [17]) les r\'esultats principaux de cet article, notamment \ref{thm:3.5} \`a \ref{rem:3.9} et leurs variantes 4.2.3.
+
+\section*{Remerciements}
+\addcontentsline{toc}{section}{Remerciements}
+
+Nous sommes reconnaissants \`a J.-M. Fontaine et W. Messing de nous avoir fait part de leurs r\'esultats de d\'eg\'en\'erescence, qui, avec celui de K. Kato, ont servi de catalyseur \`a ceux pr\'esent\'es ici. C'est un plaisir de remercier G. Laumon pour l'int\'er\^et qu'il a port\'e \`a ce travail depuis son d\'ebut; sa lecture critique d'une premi\`ere version de cet article et les suggestions qu'il nous a faites nous ont \'et\'e pr\'ecieuses. Nous tenons enfin \`a remercier M. Raynaud pour de nombreuses discussions.
+
+\begin{thebibliography}{99}
+
+\bibitem{1} Akizuki, Y., Nakano, S.: Note on Kodaira-Spencer's proof of Lefschetz's theorem. Proc. Jap. Acad., Ser. A \textbf{30}, 266--272 (1954)
+
+\bibitem{2} Berthelot, P.: Sur le ``th\'eor\`eme de Lefschetz faible'' en cohomologie cristalline. C. R. Acad. Sci., Paris, Ser. A \textbf{277}, 955--958 (1973)
+
+\bibitem{3} Berthelot, P., Ogus, A.: Notes on crystalline cohomology. Mathematical Notes n$^\circ$ 21, Princeton University Press 1978
+
+\bibitem{4} Cartier, P.: Une nouvelle op\'eration sur les formes diff\'erentielles. C. R. Acad. Sci., Paris, \textbf{244}, 426--428 (1957)
+
+\bibitem{5} Deligne, P.: Th\'eor\`eme de Lefschetz et crit\`eres de d\'eg\'en\'erescence de suites spectrales. Publ. Math., Inst. Hautes Etud. Sci. \textbf{35}, 107--126 (1968)
+
+\bibitem{6} Deligne, P.: Th\'eorie de Hodge II. Publ. Math., Inst. Hautes Etud. Sci. \textbf{40}, 5--57 (1972)
+
+\bibitem{7} Esnault, H., Viehweg, E.: Logarithmic De Rham complexes and vanishing theorems. Invent. Math. \textbf{86}, 161--194 (1986)
+
+\bibitem{8} Faltings, G.: $p$-adic Hodge Theory. Preprint, Princeton University (1985)
+
+\bibitem{9} Flexor, M.: Nouveaux contre-exemples aux \'enonc\'es d'annulation \`a la Kodaira en caract\'eristique $p > 0$, dans S\'eminaire sur les pinceaux de courbes de genre au moins deux par L. Szpiro. Ast\'erisque \textbf{86}, 79--89 (1981)
+
+\bibitem{10} Fontaine, J.-M., Messing, W.: Cohomologie cristalline et d\'eg\'en\'erescence de la suite spectrale de Hodge vers de Rham. Preprint, Universit\'e de Grenoble (1985)
+
+\bibitem{11} Fossum, R.: Formes diff\'erentielles non ferm\'ees, dans S\'eminaire sur les pinceaux de courbes de genre au moins deux par L. Szpiro. Ast\'erisque \textbf{86}, 90--96 (1981)
+
+\bibitem{12} Giraud, J.: Cohomologie non ab\'elienne. Grundlehren der mathematischen Wissenschaften, Vol. 179. Berlin-Heidelberg-New York: Springer 1971
+
+\bibitem{13} Illusie, L.: Complexe de de Rham-Witt et cohomologie cristalline. Ann. Sci. Ec. Norm. Super., IV. Ser. \textbf{12}, 501--661 (1979)
+
+\bibitem{14} Kato, K.: On $p$-adic vanishing cycles (Application of ideas of Fontaine-Messing). Preprint, Tokyo University (1985)
+
+\bibitem{15} Katz, N.: Nilpotent Connections and the Monodromy Theorem. Publ. Math., Inst. Hautes Etud. Sci. \textbf{39}, 175--232 (1970)
+
+\bibitem{16} Katz, N.: Algebraic solutions of differential equations ($p$-Curvature and the Hodge filtration). Invent. Math. \textbf{18}, 1--118 (1972)
+
+\bibitem{17} Knutson, D.: Algebraic spaces. Lect. Notes Math. 203. Berlin-Heidelberg-New York: Springer 1971
+
+\bibitem{18} Kodaira, K.: On a differential-geometric method in the theory of analytic stacks. Proc. Natl. Acad. Sci. USA \textbf{39}, 1268--1273 (1953)
+
+\bibitem{19} Lang, W.: Quasi-elliptic surfaces in characteristic three. Ann. Sci. Ec. Norm. Super., IV. Ser. \textbf{12}, 473--500 (1979)
+
+\bibitem{20} Mazur, B.: Frobenius and the Hodge Filtration (Estimates). Ann. Math. \textbf{98}, 58--95 (1973)
+
+\bibitem{21} M\'en\'egaux, R.: Un th\'eor\`eme d'annulation en caract\'eristique positive, dans S\'eminaire sur les pinceaux de courbes de genre au moins deux par L. Szpiro. Ast\'erisque \textbf{86}, 35--43 (1981)
+
+\bibitem{22} Mumford, D.: Pathologies of modular surfaces. Am. J. Math. \textbf{83}, 339--342 (1961)
+
+\bibitem{23} Ramanujam, C.P.: Remarks on the Kodaira Vanishing Theorem. J. Indian Math. Soc. \textbf{36}, 41--51 (1972); \textbf{38}, 121--124 (1974)
+
+\bibitem{24} Raynaud, M.: Contre-exemple au ``Vanishing Theorem'' en caract\'eristique $p > 0$, dans C. P. Ramanujam -- A tribute, Studies in Mathematics 8, Tata Institute of Fundamental Research Bombay, 273--278 (1978)
+
+\bibitem{25} Serre, J.-P.: Sur la topologie des vari\'et\'es alg\'ebriques en caract\'eristique $p$, dans Symposium Internacional de Topologia Algebraica, M\'exico, 24--53 (1958)
+
+\bibitem{26} Suwa, N.: De Rham cohomology of algebraic surfaces with $q = -p_a$ in char. $p$, dans Algebraic Geometry, Proceedings, Tokyo-Kyoto 1982, Raynaud, M., Shioda, T. (eds.). Notes in Math., Vol. 1016, 73--85 (1983)
+
+\bibitem{27} Szpiro, L.: Le th\'eor\`eme de la r\'egularit\'e de l'adjointe de Gorenstein \`a Kodaira, dans Int. Symposium on Algebraic Geometry Kyoto, 93--102 (1977)
+
+\bibitem{28} Szpiro, L.: Sur le th\'eor\`eme de rigidit\'e de Parsin et Arakelov, dans Journ\'ees de g\'eom\'etrie alg\'ebrique de Rennes II. Ast\'erisque \textbf{64}, 169--202 (1979)
+
+\end{thebibliography}
+
+\section*{Sigles}
+\addcontentsline{toc}{section}{Sigles}
+
+\textbf{EGA IV.} \'El\'ements de G\'eom\'etrie Alg\'ebrique, par A. Grothendieck, r\'edig\'es avec la collaboration de J. Dieudonn\'e. Publ. Math., Inst. Hautes Etud. Sci. \textbf{20} (1964); \textbf{24} (1965); \textbf{28} (1966); \textbf{32} (1967)
+
+\textbf{SGA 1.} Rev\^etements \'etales et groupe fondamental, S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1960/61, par A. Grothendieck. Lect. Notes Math., Vol. 224. Berlin-Heidelberg-New York: Springer 1971
+
+\textbf{SGA 6.} Th\'eorie des Intersections et Th\'eor\`eme de Riemann-Roch, S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1966/67, par P. Berthelot, A. Grothendieck, L. Illusie. Lect. Notes in Math., Vol. 225. Berlin-Heidelberg-New York: Springer (1971)
+
+\vspace{1cm}
+\begin{center}
+Oblatum 10-X-1986
+\end{center}
+
+\end{document}

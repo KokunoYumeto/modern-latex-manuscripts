@@ -1,0 +1,697 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theoreme}[proposition]{Th\'eor\`eme}
+\newtheorem{corollaire}[proposition]{Corollaire}
+\newtheorem{lemme}[proposition]{Lemme}
+
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{D\'efinition}
+\newtheorem{proposition-definition}[proposition]{Proposition-D\'efinition}
+\newtheorem{construction}[proposition]{Construction}
+\newtheorem{exemple}[proposition]{Exemple}
+
+\theoremstyle{remark}
+\newtheorem{remarque}[proposition]{Remarque}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Isom}{Isom}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Gm}{\mathbb{G}_\mathrm{m}}
+\newcommand{\Gmhat}{\widehat{\mathbb{G}}_\mathrm{m}}
+
+\makeatletter
+\newcommand{\Gmtilde}{\widetilde{\mathbb{G}}_\mathrm{m}}
+\makeatother
+
+\title{Les sch\'emas de modules de courbes elliptiques}
+\author{P. Deligne et M. Rapoport}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{VII. La courbe de Tate}
+\addcontentsline{toc}{section}{VII. La courbe de Tate}
+
+\subsection*{1. Construction de la courbe de Tate sur $\ZZ[[q]]$}
+\addcontentsline{toc}{subsection}{1. Construction de la courbe de Tate sur $\ZZ[[q]]$}
+
+\setcounter{proposition}{2}
+
+\noindent d) \textbf{Abus de notation.} Pour $a$ inversible sur $S$ et $k \in \ZZ$, on notera parfois $a \cdot t^k$ la section de $T^k$ telle que $x_k(a \cdot t^k) = a$.
+
+\medskip
+
+\refstepcounter{proposition}
+\noindent \textbf{\theproposition.} On d\'efinit dans $\Gmtilde^t$ une structure de sch\'ema en groupes ab\'eliens
+\[
+\cdot : \Gmtilde^t \times \Gmtilde^t \longrightarrow \Gmtilde^t \ ; \quad T_i \times T_j \longrightarrow T_{i+j}
+\]
+par
+\[
+x_{i+j}(a \cdot b) = x_i(a) \cdot x_j(b) \ .
+\]
+
+L'intersection $T_i \cap T_{i'}$, de deux cartes distinctes est l'image inverse de $S[1/t]$ ; au-dessus de $S[1/t]$, $\Gmtilde^t = \Gm$ et les applications pr\'ec\'edentes sont la multiplication dans $\Gm$. Dans l'exemple 1.2~c), $\cdot$ correspond \`a la multiplication dans $K^*$.
+
+L'application $\cdot$ se prolonge en une action
+\[
+\cdot : \Gmtilde^t \times \Gmtilde^t \longrightarrow \Gmtilde^t \ ; \quad T_i \times U_j \longrightarrow U_{i+j}
+\]
+par
+\begin{align*}
+x_{i+j-\frac{1}{2}}(a \cdot b) &= x_i(a) \cdot x_{j-\frac{1}{2}}(b) \\
+y_{i+j+\frac{1}{2}}(a \cdot b) &= x_i(a)^{-1} \cdot y_{j+\frac{1}{2}}(b)
+\end{align*}
+
+L'application $x \mapsto x^{-1}$ se prolonge en une involution
+\[
+a \mapsto a^{-1} : \Gmtilde^t \rightarrow \Gmtilde^t \ ; \quad U_j \rightarrow U_{-j}
+\]
+par
+\begin{align*}
+x_{-j-\frac{1}{2}}(a^{-1}) &= y_{j+\frac{1}{2}}(a) \\
+y_{-j+\frac{1}{2}}(a^{-1}) &= x_{j-\frac{1}{2}}(a) \ .
+\end{align*}
+
+La composante neutre $T_0$ du sch\'ema en groupes $\Gmtilde^t$ est canoniquement isomorphe \`a $\Gm$ (isomorphisme : $x \mapsto x_0$).
+
+\refstepcounter{proposition}
+\begin{construction}[\theproposition]
+Si $u \in \Gamma(S, \mathcal{O}_S)^*$, et que $m \geq 1$ est un entier, on d\'efinit
+\[
+[u] : \Gmtilde^t \longrightarrow \Gmtilde^{ut^m} \ ; \quad U_j^{(t)} \longrightarrow U_{i+\frac{k}{2}}^{(ut^m)} \qquad (mi + \tfrac{k}{2} \leq j \leq m(i+1) - \tfrac{k}{2})
+\]
+\begin{align*}
+x_i^{(ut^m)} \circ [u] &= x_{mi+k}^{(t)} \cdot t^k \cdot u^{-1} \\
+y_i^{(ut^m)} \circ [u] &= y_{mi-k}^{(t)} \cdot t^k \cdot u^i \qquad (0 \leq k < m) \ .
+\end{align*}
+Pour $t = 0$, ceci contracte en un point les $T_i$ avec $i \not\equiv 0 \pmod{m}$. Si $m = 1$, $[u]$ est un isomorphisme de $\Gmtilde^t$ avec $\Gmtilde^{ut}$. Par exemple, le mod\`ele de N\'eron 1.2~c) de $\Gmtilde^t$ est ind\'ependant du choix de l'uniformisante.
+\end{construction}
+
+\refstepcounter{proposition}
+\noindent \textbf{\theproposition.} Supposons $t$ nilpotent. On a alors $U_j \cap U_{j'} = \emptyset$ si $|j - j'| \geq 2$. Soit $g$ une section de $\Gmtilde^t$, contenue dans $T_k$ avec $k \neq 0$. Faisons agir $\ZZ$ sur $\Gmtilde^t$ par
+\[
+(i, x) \mapsto g^i \cdot x \ .
+\]
+
+\refstepcounter{proposition}
+\begin{proposition-definition}[\theproposition]
+Avec les notations 1.5, le quotient $\Gmtilde^t / g^{\ZZ}$ existe ; on le note $\Gmtilde^t / g^{\ZZ}$.
+
+Si $|k| \geq 2$, $\Gmtilde^t / g^{\ZZ}$ est encore d\'efini par les cartes locales $U_j$ de 1.1, avec la donn\'ee de recollement suppl\'ementaire que $U_j$ est identifi\'e \`a $U_{j+k}$ par $g$ (les cartes $(U_j)_{0 \leq j < |k|}$ suffisent donc \`a recouvrir $\Gmtilde^t / g^{\ZZ}$). Ceci reste vrai pour $|k| = 1$, \`a cela pr\`es que cette fois $U_j$ n'est plus un ouvert de Zariski de $\Gmtilde^t / g^{\ZZ}$, mais est seulement \'etale sur $\Gmtilde^t / g^{\ZZ}$. On peut aussi arguer que
+\[
+\Gmtilde^t / g^{\ZZ} = (\Gmtilde^t / g^{2\ZZ}) / (\ZZ/2\ZZ) \ .
+\]
+\end{proposition-definition}
+
+\refstepcounter{proposition}
+\begin{exemple}[\theproposition]
+Si $t = 0$, et que $g$ est la section $x_k = 1$ de $T_k$ ($\psi(g) = 1$), $\Gmtilde^0 / g^{\ZZ}$ n'est autre que le polygone de N\'eron standard \`a $k$ c\^ot\'es sur $S$. Ceci r\'esulte de 1.2~b).
+\end{exemple}
+
+\refstepcounter{proposition}
+\noindent \textbf{\theproposition.} Sous les hypoth\`eses de 1.6, la loi $\cdot$ passe au quotient et d\'efinit
+\[
+\cdot : \Gmtilde^t / g^{\ZZ} \times \Gmtilde^t / g^{\ZZ} \longrightarrow \Gmtilde^t / g^{\ZZ} \ .
+\]
+
+Pour $t = 0$ et $g$ comme en 1.7, c'est la loi $+$ d\'efinie en (II.1.9). Plus g\'en\'eralement, on d\'eduit de 1.4 que si $x_k(g)$ est une puissance $k$\`eme, $(\Gmtilde^t / g^{\ZZ}, \cdot)$ est isomorphe au $k$-gone standard. Puisque $\Gmtilde^t / g^{\ZZ}$ est clairement plat de pr\'esentation finie, on obtient le r\'esultat suivant.
+
+\refstepcounter{proposition}
+\begin{proposition}[\theproposition]
+Pour $t$ nilpotent et $g \in T_k(S)$, $(\Gmtilde^t / g^{\ZZ}, +)$ est une courbe elliptique g\'en\'eralis\'ee. Ses fibres g\'eom\'etriques sont des $k$-gones.
+\end{proposition}
+
+\refstepcounter{proposition}
+\noindent \textbf{\theproposition.} Soient $A$ un anneau noeth\'erien, $t \in A$ et $g$ une section de $T_k \subset \Gmtilde^t$ sur $S = \Spec(A)$. Pour chaque entier $N$, $t$ est nilpotent dans $A/(t^N)$ et on peut effectuer la construction 1.6 : on d\'efinit
+\[
+C_N = \Gmtilde^t / g^{\ZZ} \quad \text{sur } A/(t^N) \ .
+\]
+Les $C_N$ d\'efinissent un sch\'ema formel $C = \varinjlim C_N$ sur le compl\'et\'e formel de $S$ le long de $\Spec(A/(t))$. Si $A$ est complet pour la topologie $t$-adique (ou, comme nous dirons, $t$-complet), la d\'emonstration de III~1.2 montre que la courbe elliptique g\'en\'eralis\'ee formelle $C$ est alg\'ebrisable :
+
+\begin{enumerate}[a)]
+\item La courbe projective formelle $\widehat{C}$ est alg\'ebrisable, d'apr\`es le th\'eor\`eme d'existence de Grothendieck.
+
+\item Si $k = 1$, la loi $+$ est enti\`erement d\'etermin\'ee par la section neutre $e$ (II~2.7), donc est alg\'ebrisable.
+
+\item Dans le cas g\'en\'eral, une descente fppf nous ram\`ene \`a supposer que $g$ est de la forme $g_0^k$. La courbe $\Gmtilde^t / g^{\ZZ}$ est alors un rev\^etement de $\Gmtilde^t / g_0^{\ZZ}$, et on applique II~1.17.
+\end{enumerate}
+
+Pour $A$ $t$-complet, nous appellerons la courbe elliptique g\'en\'eralis\'ee sur $\Spec(A)$ qui alg\'ebrise $\widehat{C}$ une \emph{courbe de Tate} ; nous la noterons encore (par abus de notation) $\Gmtilde^t / g^{\ZZ}$.
+
+\refstepcounter{proposition}
+\begin{proposition}[\theproposition]
+L'image du sous-sch\'ema de non lissit\'e de la courbe de Tate $\Gmtilde^t / g^{\ZZ}$ sur $\Spec(A)$ admet l'\'equation $t = 0$.
+\end{proposition}
+
+Cette image est la m\^eme pour $\Gmtilde^t / g^{\ZZ}$, pour le sch\'ema formel $\widehat{C}$ et pour $\Gmtilde^t$. Son calcul pour $\Gmtilde^t$ est laiss\'e au lecteur.
+
+\refstepcounter{proposition}
+\noindent \textbf{\theproposition.} Pour $t$ nilpotent, les composantes neutres de $\Gmtilde^t$ et $\Gmtilde^t / g^{\ZZ}$ sont canoniquement isomorphes \`a $\Gm$, d'o\`u des isomorphismes et morphismes
+\begin{align*}
+(\text{compl\'et\'e } \widehat{\Gm} \text{ de } \Gm \text{ le long de la section neutre}) &\xrightarrow{\sim} (\Gmtilde^t / g^{\ZZ})\widehat{\ } \\
+\Lie(\Gm) = \mathcal{O} &\xrightarrow{\sim} \Lie(\Gmtilde^t / g^{\ZZ}) \\
+\mu_n &\longleftrightarrow (\Gmtilde^t / g^{\ZZ})_n \ .
+\end{align*}
+
+Pour $A$ noeth\'erien $t$-complet, on en d\'eduit des isomorphismes et morphismes
+\begin{align}
+\label{eq:1.12.1}
+&(\text{groupe formel compl\'et\'e de } \widehat{\Gm} \text{ le long de } e) \xrightarrow{\sim} (\text{groupe formel compl\'et\'e de } \Gmtilde^t / g^{\ZZ} \text{ le long de } e) \\
+\label{eq:1.12.2}
+&\Lie(\Gmtilde^t / g^{\ZZ}) \xrightarrow{\sim} \mathcal{O} \\
+\label{eq:1.12.3}
+&\mu_n \longleftrightarrow (\Gmtilde^t / g^{\ZZ})_n \ .
+\end{align}
+
+En particulier, les courbes de Tate sont munies d'une diff\'erentielle invariante canonique (l'image r\'eciproque dans $\Lie(\Gmtilde^t / g^{\ZZ})$ de la section unit\'e de $\mathcal{O}$), not\'ee $dx/x$.
+
+\refstepcounter{proposition}
+\noindent \textbf{\theproposition.} Si $t$ est nilpotent, nous noterons $(g^{\ZZ})^{1/k}$ le sous-sch\'ema de $\Gmtilde^t$ dont l'intersection avec la carte $T_i$ est d\'efini par l'\'equation $a^k = g^i$ (\'egalit\'e dans $\Gmtilde^t$). Le sch\'ema en groupes
+\begin{equation}\label{eq:1.13.1}
+(g^{\ZZ})^{1/k} / g^{\ZZ} = (\Gmtilde^t / g^{\ZZ})_k
+\end{equation}
+est fini localement libre de rang $k^2$. C'est une extension
+\begin{equation}\label{eq:1.13.2}
+0 \longrightarrow \mu_k \xrightarrow{\eqref{eq:1.12.3}} (\Gmtilde^t / g^{\ZZ})_k \longrightarrow \ZZ/k \longrightarrow 0 \ ;
+\end{equation}
+la projection sur $\ZZ/k$ envoie $x$ sur la classe mod $k$ des entiers $i$ tels que $x$ soit image d'une section de $T_i$.
+
+Supposons maintenant $A$ noeth\'erien $t$-complet. Par passage \`a la limite, \eqref{eq:1.13.1} d\'efinit un sous-sch\'ema en groupes fini $H$ de $(\Gmtilde^t / g^{\ZZ})_k$ ; ces deux groupes, \'etant localement libre de m\^eme rang, sont \'egaux, et \eqref{eq:1.13.2} d\'efinit une suite exacte
+\begin{equation}\label{eq:1.13.3}
+0 \longrightarrow \mu_k \xrightarrow{\eqref{eq:1.12.3}} (\Gmtilde^t / g^{\ZZ})_k \xrightarrow{v} \ZZ/k \longrightarrow 0 \ .
+\end{equation}
+
+Si $x_k(g) = u$, le $\mu_k$-torseur $v^{-1}(1)$ est canoniquement isomorphe au $\mu_k$-torseur des racines $k$\`emes de $u$ :
+\begin{equation}\label{eq:1.13.4}
+v^{-1}(1) \simeq \{\sqrt[k]{x_k(g)}\} \ .
+\end{equation}
+
+\refstepcounter{proposition}
+\begin{construction}[\theproposition]
+Si $A$ est $t$-complet, que $t = \tau^m$, et que $g$ est une section de $T_k \subset \Gmtilde^t$, notons encore $g$ la section de $T_{km} \subset \Gmtilde^{\tau}$ telle que $x_{km}^{(\tau)}(g) = x_k^{(t)}(g)$. La courbe g\'en\'eralis\'ee $\Gmtilde^t / g^{\ZZ}$ est le contract\'e (IV.1.) de $\Gmtilde^{\tau} / g^{\ZZ}$. En particulier, $\Gmtilde^t / g^{\ZZ}$ et $\Gmtilde^{\tau} / g^{\ZZ}$ co\"incident sur $A[t^{-1}]$.
+
+Par passage au quotient et passage \`a la limite, l'application 1.4 d\'efinit un morphisme
+\[
+\Gmtilde^{\tau} / g^{\ZZ} \longrightarrow \Gmtilde^t / g^{\ZZ} \ .
+\]
+Ce morphisme identifie $\Gmtilde^t / g^{\ZZ}$ au contract\'e (IV.1) de $\Gmtilde^{\tau} / g^{\ZZ}$.
+
+Pour $A$ $t$-complet, et si $t$ admet une racine $m$\`eme $\tau$, on a donc sur $A[t^{-1}]$ une suite exacte \eqref{eq:1.13.3}, avec $k$ remplac\'e par $km$, et un isomorphisme \eqref{eq:1.13.4}. On v\'erifie que cette suite exacte et cet isomorphisme sont ind\'ependants du choix de $\tau$. Par descente, ils sont donc d\'efinis sans hypoth\`ese sur $t$.
+\end{construction}
+
+\refstepcounter{proposition}
+\begin{construction}[\theproposition]
+Sur $\Spec(A[t^{-1}])$, on a une suite exacte
+\[
+0 \longrightarrow \mu_k \xrightarrow{\eqref{eq:1.12.3}} (\Gmtilde^t / g^{\ZZ})_k \xrightarrow{v} \ZZ/k \longrightarrow 0 \ .
+\]
+Le $\mu_k$-torseur $v^{-1}(1)$ est canoniquement isomorphe au $\mu_k$-torseur des racines $k$\`emes de $g \in \Gmtilde^t(A[t^{-1}]) \simeq A[t^{-1}]^*$.
+\end{construction}
+
+Soit $\ZZ[[q^{1/k}]]$ l'anneau des s\'eries formelles en une ind\'etermin\'ee $q^{1/k}$. Comme convenu en 1.2~d), nous noterons $q$ la section $g$ de $T_k \subset \Gmtilde^{q^{1/k}}$ pour laquelle $x_k(g) = 1$.
+
+\refstepcounter{proposition}
+\begin{definition}[\theproposition]
+La \emph{courbe de Tate \`a $k$ c\^ot\'es} sur $\ZZ[[q^{1/k}]]$ est la courbe elliptique g\'en\'eralis\'ee $\Gmtilde^{q^{1/k}} / q^{\ZZ}$.
+
+Pour $k = 1$, on parle simplement de la courbe de Tate sur $\ZZ[[q]]$. La courbe de Tate \`a $k$ c\^ot\'es $C$ sur $\ZZ[[q^{1/k}]]$ est munie des structures suivantes $((1.12.1)\ (1.12.2)\ (1.12.3)\ (1.13.2)\ (1.13.4))$ :
+\begin{align}
+\label{eq:1.16.1}
+&\text{un isomorphisme de groupes formels } \widehat{C} \simeq \widehat{\Gm} \text{ ; en particulier} \\
+\label{eq:1.16.2}
+&\text{une diff\'erentielle invariante, not\'ee } dx/x \text{ ;} \\
+\label{eq:1.16.3}
+&\text{des morphismes } \mu_n \hookrightarrow C_n \text{ ;} \\
+\label{eq:1.16.4}
+&\text{un isomorphisme } C_k \xrightarrow{\sim} \mu_k \times \ZZ/k \ .
+\end{align}
+
+L'isomorphisme \eqref{eq:1.16.4} pr\'ecise \eqref{eq:1.13.2} ; il est d\'efini par \eqref{eq:1.16.3} pour $n = k$, et par la section $q^{1/k}$ de $\Gmtilde^{q^{1/k}}$, qui d\'efinit une section d'ordre $k$ de $\Gmtilde^{q^{1/k}} / q^{\ZZ}$. Il y a deux fa\c{c}ons naturelles de d\'efinir les $e_k$-products ($k \geq 1$). Pour l'une d'elles on a, via l'isomorphisme \eqref{eq:1.16.4}, $e_n((a,b),(c,d)) = a \cdot d - b \cdot c$. C'est celle qu'on avait utilis\'ee dans l'introduction, n$^\mathrm{o}$~2.
+\end{definition}
+
+
+\subsection*{2. Application : structure \`a l'infini de $\mathfrak{m}_H$}
+\addcontentsline{toc}{subsection}{2. Application : structure \`a l'infini de $\mathfrak{m}_H$}
+
+\setcounter{proposition}{0}
+
+\begin{theoreme}[2.1]
+Le morphisme $\tau : \Spec(\ZZ[[q]]) \rightarrow \mathfrak{m}_1$ d\'efini par la courbe de Tate sur $\ZZ[[q]]$ identifie $\ZZ[[q]]$ au compl\'et\'e formel de $\mathfrak{m}_1$ le long de la section \`a l'infini $f_1$.
+\end{theoreme}
+
+Puisque $\mathfrak{m}_1$ est lisse sur $\ZZ$, on sait a priori qu'il existe un isomorphisme du compl\'et\'e formel de $\mathfrak{m}_1$ le long de $f_1$ avec $\Spec(\ZZ[[t]])$. Il transforme la section $f_1$ en la section $t = 0$. Le morphisme $\tau$ est de la forme $q \mapsto t = f(q)$, pour une s\'erie formelle $f$ (i.e., $\tau^*(t) = f(q)$). On sait que l'image, dans $\mathfrak{m}_1$, du sous-sch\'ema de non lissit\'e de la courbe universelle, est $f_1$ (IV~2.2). D'apr\`es 1.11, l'image, dans $\Spec(\ZZ[[q]])$, du sous-sch\'ema de non-lissit\'e de la courbe de Tate, admet l'\'equation $q = 0$. Puisque la formation de cette image commute au changement de base, on a
+\[
+(q) = (f(q)) \quad \text{dans } \ZZ[[q]] \ ,
+\]
+et ceci implique que $\tau$ est un isomorphisme.
+
+Soit $H \subset \mathrm{GL}(2, \ZZ/n)$.
+
+\begin{corollaire}[2.2]
+Le produit fibr\'e
+\[
+\Spec(\ZZ[[q]]) \times_{\mathfrak{m}_1} \mathfrak{m}_H
+\]
+est le spectre du normalis\'e de $\ZZ[[q]]$ dans l'alg\'ebre affine du sch\'ema fini \'etale sur $\ZZ[[q]][\frac{1}{n}, \frac{1}{q}]$
+\[
+\Isom((\Gmtilde^q / q^{\ZZ})_n, (\ZZ/n)^2) / H \ .
+\]
+\end{corollaire}
+
+\noindent Preuve : r\'esulte des d\'efinitions et de ce que normalisation et compl\'etion commutent.
+
+Puisque le sch\'ema en groupes $(\Gmtilde^q / q^{\ZZ})_n$ sur $\ZZ[[q]][1/q]$ a \'et\'e calcul\'e en 1.15, 2.2 permet d'expliciter la structure \`a l'infini de $\mathfrak{m}_H$.
+
+\medskip
+
+2.3. Nous traiterons le cas de $\mathfrak{m}_n$ ($n \geq 3$), consid\'er\'e comme champ alg\'ebrique sur $\ZZ[\zeta_n]$. Si de $\mathfrak{m}_n$ on \^ote les points supersinguliers de caract\'eristique $p | n$, le champ $\mathfrak{m}_n^h$ obtenu est un sch\'ema, d\'ecrit en termes modulaires en V~4.
+
+Soit $C$ le polygone de N\'eron \`a $n$ c\^ot\'es standard sur $\ZZ[\zeta_n]$, muni de sa structure de courbe elliptique g\'en\'eralis\'ee (1.9) et de l'isomorphisme naturel
+\[
+C_n = \mu_n \times \ZZ/n \ .
+\]
+Cette courbe d\'efinit une section \`a l'infini
+\begin{equation}\label{eq:2.3.1}
+f_n : \Spec(\ZZ[\zeta_n]) \longrightarrow \mathfrak{m}_n \ .
+\end{equation}
+
+Sur $\ZZ[\zeta_n][[q^{1/n}]]$, consid\'erons la courbe elliptique g\'en\'eralis\'ee
+\[
+C' = \Gmtilde^{q^{1/n}} / q^{\ZZ} \ .
+\]
+L'application \eqref{eq:1.16.3} : $\mu_n \hookrightarrow C'_n$ et la section d'ordre $n$ $q^{1/n}$ d\'efinissent un isomorphisme
+\[
+C'_n = \mu_n \times \ZZ/n \ .
+\]
+Le morphisme correspondant
+\begin{equation}\label{eq:2.3.2}
+\Spec(\ZZ[\zeta_n][[q^{1/n}]]) \longrightarrow \mathfrak{m}_n
+\end{equation}
+prolonge \eqref{eq:2.3.1} et, d'apr\`es 1.14, le diagramme
+\[
+\begin{array}{ccc}
+\Spec(\ZZ[\zeta_n][[q^{1/n}]]) & \longrightarrow & \mathfrak{m}_n \\
+\downarrow & & \downarrow \\
+\Spec(\ZZ[[q]]) & \longrightarrow & \mathfrak{m}_1
+\end{array}
+\]
+est commutatif.
+
+\begin{corollaire}[2.4]
+Le morphisme \eqref{eq:2.3.2} identifie $\ZZ[\zeta_n][[q^{1/n}]]$ au compl\'et\'e formel de $\mathfrak{m}_n$ le long de la section \`a l'infini $f_n$.
+\end{corollaire}
+
+\noindent Preuve : On peut le d\'eduire de 2.2. Il est plus simple de reprendre la d\'emonstration de 2.1, en utilisant que
+\begin{enumerate}[a)]
+\item $\mathfrak{m}_n$ est lisse sur $\ZZ[\zeta_n]$ au voisinage de l'infini ;
+\item L'image sur $\ZZ[\zeta_n]$ par l'\'equation du lieu de non lissit\'e de $\mathfrak{m}_n$ est d\'efini.
+\end{enumerate}
+
+Supposons que $n \geq 3$. Dans ce cas, $\mathfrak{m}_n^h$ est un sch\'ema. Le groupe $\mathrm{SL}(2, \ZZ/n)$ agit sur le $\ZZ[\zeta_n]$-sch\'ema $\mathfrak{m}_n^h = \mathfrak{m}_n$, et le stabilisateur de la section \`a l'infini $f_n$ est le sous-groupe
+\[
+U^+ = \begin{pmatrix} \pm 1 & * \\ 0 & 1 \end{pmatrix} \ .
+\]
+
+\begin{corollaire}[2.5]
+Si $n \geq 3$, le compl\'et\'e de $\mathfrak{m}_n$ le long de l'infini est somme d'un ensemble de copies de $\Spec(\ZZ[\zeta_n][[q^{1/n}]])$, index\'ees par $\mathrm{SL}(2, \ZZ/n) / U^+$.
+\end{corollaire}
+
+\begin{corollaire}[2.6]
+Soit $C$ une courbe elliptique g\'en\'eralis\'ee sur $A$ local complet. On suppose que $C$ n'est pas lisse ; soit $(t)$ l'id\'eal de $A$ qui d\'efinit le sous-sch\'ema de non lissit\'e. On suppose que la fibre sp\'eciale $C_s$ de $C$ \`a $k$ c\^ot\'es, et que $\Gal(\bar{s}/s)$ agit trivialement sur le diagramme $\Gamma(C_{\bar{s}})$ des composantes irr\'eductibles de $C_{\bar{s}}$. Alors, il existe $u \in A^*$ tel que
+\[
+C \simeq \Gmtilde^{t} / (ut^{-k})^{\ZZ} \ .
+\]
+\end{corollaire}
+
+\noindent Preuve : Soit $X_v$ le sch\'ema en groupes sur $\ZZ[v, v^{-1}]$, extension de $\ZZ/k$ par $\mu_k$, tel que $v^{-1}(1)$ soit le $\mu_k$-torseur des racines $v$. Soit $U_v$ le champ alg\'ebrique sur $\ZZ[v, v^{-1}]$ qui classifie les courbes elliptiques g\'en\'eralis\'ees sur un $\ZZ[v, v^{-1}]$-sch\'ema, lisses ou \`a $k$ c\^ot\'es, munies d'un isomorphisme $E_k \simeq X_v$. Apr\`es extension des scalaires \`a $\ZZ[v^{1/k}]$, $X_v$ devient isomorphe \`a $\mu_k \times \ZZ/k$, et $U_v$ de V~4.4. L'application $E$ sur $U_v$ \`a $v$ d\'efinie par la courbe $\Gmtilde^{v^{1/k}} / v^{\ZZ}$ identifie donc $\Spec(\ZZ[v, v^{-1}][[T]])$ au compl\'et\'e formel de $U_v$ le long d'une section \`a l'infini.
+
+Sous les hypoth\`eses de 2.6, il existe $v \in A^*$ tel que $C_k$ soit isomorphe \`a $X_v$ et $C$ \`a $\Gmtilde^{v^{1/k}} / v^{\ZZ}$ sur $k(s)$. La courbe $C$ est donc image r\'eciproque de la courbe $\Gmtilde^{v^{1/k}} / v^{\ZZ}$ sur $\ZZ[v, v^{-1}][[T]]$, et 2.6 en r\'esulte.
+
+\medskip
+
+2.7. Prouvons VI~6.14. Avec les notations de loc.cit., on se ram\`ene \`a supposer $V$ complet \`a corps r\'esiduel s\'eparablement clos. Soit $C$ le mod\`ele de N\'eron de la courbe elliptique $E$ sur le corps des fractions, et appliquons 2.6 \`a $C$. On trouve
+\[
+C \simeq \Gmtilde^{t} / (ut^{-k})^{\ZZ}
+\]
+et, puisque $C$ est r\'egulier, $t$ est une uniformisante. D'apr\`es 2.1 et VI~1.1, on a
+\[
+j(E) = u^{-1} t^{-k} \in K
+\]
+et $j(E)$ est donc de valuation $-k$.
+
+
+\subsection*{3. Application : d\'eveloppement d'une forme modulaire en s\'erie de Fourier}
+\addcontentsline{toc}{subsection}{3. Application : d\'eveloppement d'une forme modulaire en s\'erie de Fourier}
+
+Nous montrerons au \S~4 que, apr\`es extension des scalaires \`a $\CC$, les notions introduites dans ce paragraphe co\"incident avec des notions classiques.
+
+\begin{definition}[3.1]
+L'alg\`ebre des formes modulaires enti\`eres est l'alg\`ebre gradu\'ee
+\[
+\bigoplus_{k} H^0(\mathfrak{m}_1, \omega^{\otimes k}) \ .
+\]
+En d'autres termes, une forme modulaire enti\`ere de poids $k$ est une loi, compatible au changement de base, qui \`a $\mathfrak{cis}$, une courbe elliptique g\'en\'eralis\'ee irr\'eductible sur un sch\'ema $S$, associe une section sur $S$ de $\omega^{\otimes k}$.
+\end{definition}
+
+\begin{definition}[3.2]
+L'alg\`ebre des formes modulaires enti\`eres de niveau $H \subset \mathrm{GL}(2, \ZZ/n)$ est l'alg\`ebre gradu\'ee
+\[
+\bigoplus_{k} H^0(\mathfrak{m}_H, \omega^{\otimes k}) \ .
+\]
+\end{definition}
+
+Le lemme suivant permet, dans certains cas, de ne consid\'erer que les $\mathfrak{m}_n$.
+
+\begin{lemme}[3.3]
+On a
+\[
+\mathfrak{m}_H \simeq \mathfrak{m}_n / H \ .
+\]
+\end{lemme}
+
+\noindent Preuve : Puisque $\ZZ[1/n] \supset \ZZ[\zeta_n]$, (notations comme dans [8], \S~4), on a
+\[
+\mathfrak{m}_H \simeq \mathfrak{m}_n / H \ .
+\]
+On conclut par la normalit\'e de $\mathfrak{m}_H$ : pour qu'une section rationnelle de $\omega^{\otimes k}$ sur $\mathfrak{m}_H$ soit partout d\'efinie, il suffit que son image r\'eciproque sur le rev\^etement fini $\mathfrak{m}_n$ le soit.
+
+\begin{theoreme}[3.4]
+L'alg\`ebre des formes modulaires enti\`eres de niveau $H$ est une $\ZZ$-alg\`ebre de type fini.
+\end{theoreme}
+
+\noindent Preuve : D'apr\`es 3.3, il suffit de traiter le cas de $\mathfrak{m}_n$, $n$ grand. Dans ce cas, $\mathfrak{m}_n = M_n$ est un sch\'ema projectif sur $\ZZ$, et $\omega$ est un faisceau inversible ample sur $M_n$. Le diviseur de la section $\Delta$ de $\omega^{\otimes 12}$ est en effet un multiple de $M_n^\infty$ (sur $\mathfrak{m}_1$, $\div(\Delta) = M_1^\infty$, donc est ample). Le th\'eor\`eme r\'esulte donc du th\'eor\`eme g\'en\'eral EGA~III.
+
+\medskip
+
+3.5. On peut aussi consid\'erer des formes modulaires \`a coefficients dans des alg\`ebres sur $\ZZ$. Comme nous ne sommes pas s\^ur de la d\'efinition correcte dans le cas g\'en\'eral, nous nous limiterons pour l'essentiel au cas des $\mathfrak{m}_n$, vus comme $\ZZ[\zeta_n]$-champs.
+
+\begin{definition}[3.6]
+Soit $A$ une alg\`ebre sur $\ZZ[\zeta_n]$. Une forme modulaire de niveau $n$ et de poids $k$ sur la $\ZZ[\zeta_n]$-alg\`ebre $A$ est un \'el\'ement de
+\[
+H^0(\mathfrak{m}_n \otimes_{\ZZ[\zeta_n]} A, \omega^{\otimes k}) \ .
+\]
+\end{definition}
+
+3.7. Soit $\varphi$ une forme modulaire (cf.~3.6). Evaluons $\varphi$ sur la courbe de Tate \`a $n$ c\^ot\'es $\Gmtilde^{q^{1/n}} / q^{\ZZ}$ sur $\ZZ[[q^{1/n}]]$. La courbe de Tate d\'efinit un morphisme (2.1)
+\[
+\tau : \Spec(A[[q^{1/n}]]) \longrightarrow \mathfrak{m}_n
+\]
+sur $\Spec(A) \otimes_{\ZZ[\zeta_n]} \ZZ[\zeta_n] = \Spec(A)$. L'image inverse de $\omega$ par $\tau$ est trivialis\'ee (par la section $dx/x$ \eqref{eq:1.16.2}) ; on a donc
+\[
+\tau^* \omega \simeq \mathcal{O} \cdot \frac{dx}{x}
+\]
+et
+\[
+\tau^* \varphi = f_\varphi(q) \cdot \left(\frac{dx}{x}\right)^{\otimes k} \quad \text{avec } f_\varphi(q) \in A((q^{1/n})) \ .
+\]
+On appelle $f_\varphi$ le \emph{d\'eveloppement en s\'erie de Fourier} de $\varphi$. Puisque la courbe de Tate \`a $n$ c\^ot\'es est d\'efinie d\'ej\`a sur $\ZZ[[q^{1/n}]] \otimes_{\ZZ} A$ (le sous-anneau de $A[[q^{1/n}]]$ form\'e des s\'eries formelles dont les coefficients engendrent un $\ZZ$-module de type fini), on a
+\begin{equation}\label{eq:3.7.0}
+f_\varphi(q) \in \ZZ[[q^{1/n}]] \otimes_{\ZZ} A \ .
+\end{equation}
+
+3.8. Soit $\varphi$ une forme modulaire (cf.~3.6). Pour $g \in \mathrm{SL}(2, \ZZ/n)$, nous noterons $g\varphi$ la forme modulaire qui \`a une courbe avec structure de niveau $n$ $(C, \alpha)$ sur $S$ associe la section $\varphi(C, g\alpha)$ de $\omega^{\otimes k}$ sur $S$. Les $f_{g\varphi}$ sont les d\'eveloppements aux pointes de $\varphi$. On a
+\begin{equation}\label{eq:3.8.0}
+f_{u\varphi}(q) = (-1)^k \sum_{m} c_{a m} q^{m/n} \ .
+\end{equation}
+
+\begin{theoreme}[3.9]
+Soit $\varphi$ une forme modulaire de niveau $n$ et de poids $k$ \`a coefficients dans la $\ZZ[\zeta_n]$-alg\`ebre $A$.
+\begin{enumerate}[(i)]
+\item Si les d\'eveloppements aux pointes $f_{g\varphi}$ sont nuls, alors $\varphi$ est nul.
+
+\item Si $B$ est une sous-alg\`ebre de $A$, et que les $f_{g\varphi}$ sont dans $B[[q^{1/n}]]$, alors $\varphi$ est \`a coefficients dans $B$ (provient par extension des scalaires d'une unique forme sur $B$).
+\end{enumerate}
+\end{theoreme}
+
+\noindent Preuve : Si $A$ est un $\ZZ[\zeta_n]$-module, on d\'efinit une forme modulaire de niveau $n$ et poids $k$ \`a coefficients dans $A$ comme un \'el\'ement de
+\[
+H^0(\mathfrak{m}_n, A \otimes_{\ZZ[\zeta_n]} \omega^{\otimes k}) \ .
+\]
+Pour $A$ une alg\`ebre, cette d\'efinition co\"incide avec 3.6. Le d\'eveloppement en s\'erie de Fourier $f_\varphi$ d'une telle forme $\varphi$ se d\'efinit comme en 3.7.
+
+Prouvons (i). Si $A$ est une limite inductive $\varinjlim A_i$, on a
+\[
+H^0(\mathfrak{m}_n, A \otimes \omega^{\otimes k}) = \varinjlim H^0(\mathfrak{m}_n, A_i \otimes \omega^{\otimes k}) \ .
+\]
+Il suffit donc de traiter le cas o\`u $A$ est un $\ZZ[\zeta_n]$-module de type fini. Si les $f_{g\varphi}$ sont nuls, (2.4) montre que $\varphi$ s'annule sur le compl\'et\'e formel de $\mathfrak{m}_n$ le long de l'infini. Le support de $\varphi$, disjoint d'au moins un point de chaque composante irr\'eductible de chaque fibre g\'eom\'etrique de $\mathfrak{m}_n$, est donc fini sur $\ZZ[\zeta_n]$. Puisque $\mathfrak{m}_n$ est de Cohen-Macaulay sur $\ZZ[\zeta_n]$ et que $A \otimes \omega^{\otimes k}$ est localement l'image r\'eciproque d'un module sur $\ZZ[\zeta_n]$, ceci est absurde si $\varphi \neq 0$.
+
+Prouvons (ii). Soit $\Spec(D_\infty)$ la somme des compl\'et\'es formels de $\mathfrak{m}_n$ le long des sections \`a l'infini $gf_n$ ($g \in \mathrm{SL}(2, \ZZ/n)$). Les d\'eveloppements aux pointes d\'efinissent une application
+\[
+H^0(\mathfrak{m}_n, A \otimes \omega^{\otimes k}) \longrightarrow A \otimes_{\ZZ[\zeta_n]} D_\infty \ .
+\]
+On prouve (ii) en contemplant le diagramme suivant, dont la 2e ligne est exacte car $D_\infty$ est plat sur $\ZZ[\zeta_n]$ :
+\[
+\begin{array}{cccccc}
+0 & \longrightarrow & H^0(\mathfrak{m}_n, B \otimes \omega^{\otimes k}) & \longrightarrow & H^0(\mathfrak{m}_n, A \otimes \omega^{\otimes k}) \\
+ & & \downarrow & & \downarrow \\
+ & & B \otimes D_\infty & \longrightarrow & A \otimes D_\infty \ .
+\end{array}
+\]
+
+\begin{theoreme}[3.10]
+\begin{enumerate}[(i)]
+\item On a
+\[
+H^0(\mathfrak{m}_n^*, \omega^{\otimes k}) \otimes_{\ZZ[\zeta_n]} \QQ(\zeta_n) \simeq H^0(\mathfrak{m}_n \otimes \QQ, \omega^{\otimes k}) \ .
+\]
+
+\item Soit $\varphi \in H^0(\mathfrak{m}_n, \omega^{\otimes k})$, $f_\varphi(q) = \sum_i a_i q^{i/n}$ le d\'eveloppement de $\varphi$ en s\'erie de Fourier, et $\mathfrak{n}$ une place de $\QQ(\zeta_n)$. Alors, $v_\mathfrak{n}(f_\varphi)$ est l'ordre du z\'ero (ou $-$ l'ordre du p\^ole) de $\varphi$ au point g\'en\'erique de celle des composantes irr\'eductibles de la fibre de $\mathfrak{m}_n^h$ sur $\mathfrak{n}$ qui intersecte la section \`a l'infini $f_n$.
+\end{enumerate}
+\end{theoreme}
+
+Du point de vue adopt\'e ici, ce th\'eor\`eme est trivial ; il r\'esulte de
+
+\begin{corollaire}[3.11]
+Soit $f_\varphi$ le d\'eveloppement en s\'erie de Fourier de $\varphi$. Le d\'enominateur des $a_i$ est born\'e.
+\end{corollaire}
+
+\begin{corollaire}[3.12]
+Soient $\mathfrak{n}$ une place de $\QQ(\zeta_n)$ de caract\'eristique $p$, $p^m$ la plus grande puissance de $p$ qui divise $n$ et $g$ un \'el\'ement de $\mathrm{SL}(2, \ZZ/n)$ dont l'image dans $\mathrm{SL}(2, \ZZ/p^m)$ est dans le groupe triangulaire sup\'erieur. Alors
+\[
+v_\mathfrak{n}(f_{g\varphi}) = v_\mathfrak{n}(f_\varphi) \ .
+\]
+Les pointes $f_n$ et $gf_n$ rencontrent en effet la m\^eme composante irr\'eductible de caract\'eristique $p$.
+\end{corollaire}
+
+\begin{corollaire}[3.13]
+Si le d\'eveloppement en une pointe de $\varphi \in H^0(\mathfrak{m}_n \otimes \QQ, \omega^{\otimes k})$ est \`a coefficients dans $\ZZ[\zeta_n][1/n]$, alors le d\'eveloppement aux autres pointes a la m\^eme propri\'et\'e.
+\end{corollaire}
+
+3.14. Soit $\varphi \in H^0(\mathfrak{m}_n, \omega^{\otimes k})$. Si $\mathfrak{n}$ est une place de $\QQ(\zeta_n)$, de caract\'eristique $p$, et que les premiers coefficients du d\'eveloppement de $\varphi$ en s\'erie de Fourier sont divisibles par $\mathfrak{n}$, la r\'eduction de $\varphi$ mod $\mathfrak{n}$ s'annule un certain nombre de fois au point \`a l'infini $f_n$. Notons $v(\mathfrak{n}, g, \varphi)$ l'ordre du $0$ de $g\varphi$ : si
+\[
+f_{g\varphi}(q) = \sum_m a_m q^{m/n}
+\]
+alors
+\[
+v_\mathfrak{n}(a_m) \geq 0 \quad \text{pour } m/n < v(\mathfrak{n}, g, \varphi) \ .
+\]
+On peut calculer \`a l'aide de $\varphi$ le degr\'e de $\omega^{\otimes k}$ sur $\mathfrak{m}_n$. Le r\'esultat est d\'ej\`a connu (cf.~VI~4.4). On obtient, tout calcul fait :
+
+\begin{corollaire}[3.14]
+Soit $\mathfrak{n}$ une place de $\QQ(\zeta_n)$ de caract\'eristique $p$, $p^m$ la plus grande puissance de $p$ qui divise $n$, et $\varphi \in H^0(\mathfrak{m}_n, \omega^{\otimes k})$. Pour $g$ parcourant l'ensemble $\mathrm{BSL}$ des \'el\'ements de $\mathrm{SL}(2, \ZZ/n)$ dont l'image dans $\mathrm{SL}(2, \ZZ/p^m)$ est dans le groupe triangulaire sup\'erieur, on a
+\[
+\frac{1}{|\mathrm{SL}(2, \ZZ/n)|} \sum_{g \in \mathrm{BSL}} v(\mathfrak{n}, g, \varphi) = \frac{k}{12} \ .
+\]
+\end{corollaire}
+
+Pour $n = 1$, ce r\'esultat se reformule comme suit.
+
+\begin{corollaire}[3.15]
+Soient $p$ un nombre premier et $\varphi \in H^0(\mathfrak{m}_1, \omega^{\otimes k})$ une forme modulaire de d\'eveloppement en s\'erie $\sum a_n q^n$. On a
+\[
+\inf_n v_p(a_n) = \inf_{n < k/12} v_p(a_n) \ .
+\]
+En d'autres termes, pour v\'erifier que les coefficients d'une forme modulaire de poids $k$ sont divisibles par une puissance de $p$, il suffit de le v\'erifier pour ceux d'indice $n < k/12$.
+\end{corollaire}
+
+3.16. On peut aussi relier ce qui se passe sur les diverses composantes irr\'eductibles de caract\'eristique $p$. \`A titre d'exemple, nous allons traiter le cas des formes modulaires de niveau $\Gamma_0(p)$. Les m\^emes arguments s'appliquent \`a l'\'etude, en $p$, des formes modulaires de niveau $\Gamma_0(p) \cap \Gamma(n)$ ($n$ premier \`a $p$). Passer \`a un tel niveau nous dispenserait de l'usage de nombres d'intersection fractionnaires, introduits sur le mod\`ele de VI~4.
+
+3.17. Soit $\varphi \in H^0(\mathfrak{m}_{\Gamma_0(p)} \otimes \ZZ_p, \omega^{\otimes k})$. Une telle forme a deux ``d\'eveloppements aux pointes''.
+\begin{enumerate}[a)]
+\item On \'evalue $\varphi$ sur la courbe de Tate $\Gmtilde^q / q^{\ZZ}$ sur $\ZZ[[q]] \otimes \ZZ_p$ munie de son sous-groupe $\mu_p$ \eqref{eq:1.16.3} ; on obtient
+\[
+f_{1\varphi}(q) \in \ZZ[[q]] \otimes \ZZ_p \ .
+\]
+
+\item On \'evalue $\varphi$ sur la courbe de Tate $\Gmtilde^{q^{1/p}} / q^{\ZZ}$ sur $\ZZ[[q^{1/p}]] \otimes \ZZ_p$ munie de son sous-groupe isomorphe \`a $\ZZ/p$ engendr\'e par $q$. On obtient
+\[
+f_{2\varphi}(q) \in \ZZ[[q^{1/p}]] \otimes \ZZ_p \ .
+\]
+\end{enumerate}
+
+Pour $\ell \neq p$, les valuations $\ell$-adiques de $f_{1\varphi}$ et $f_{2\varphi}$ (borne inf\'erieure des valuations $\ell$-adiques des coefficients) co\"incident. Nous noterons $v_1(\varphi)$ et $v_2(\varphi)$, ou simplement $v_1$ et $v_2$ les valuations $p$-adiques de $f_{1\varphi}$ et $f_{2\varphi}$.
+
+3.18. Nous \'etendrons comme suit l'involution $w$ (V.1.3) aux formes modulaires. La forme $w\varphi$ associe \`a la courbe elliptique $\mathfrak{cis}$, munie d'un sous-groupe $C_p \subset C$, l'image r\'eciproque dans $\omega^{\otimes k}$ de la section $\varphi(C/C_p, C/C_p)$. On v\'erifie que $ww\varphi = p^k \varphi$. On a
+\[
+w f_{1\varphi} = f_{2w\varphi} \quad \text{et} \quad w f_{2\varphi} = f_{1w\varphi}
+\]
+et $\varphi \mapsto w\varphi$ change de signe par passage de $\varphi$ \`a $w\varphi$.
+
+3.19. Nous nous proposons d'estimer $v_1 - v_2$. Le nombre ne change pas quand on multiplie $\varphi$ par un entier ; on peut donc supposer que $\varphi \in H^0(\mathfrak{m}_{\Gamma_0(p)}, \omega^{\otimes k})$. On suppose que $\varphi$ n'est pas identiquement nul. Si $N_1$ et $N_2$ sont les deux composantes irr\'eductibles de $\mathfrak{m}_{\Gamma_0(p)} \otimes \FF_p$, correspondant respectivement aux courbes $(C, A)$ avec $A$ infinit\'esimal et $A$ discret, le diviseur de $\varphi$ s'\'ecrit
+\[
+\div(\varphi) = v_1 N_1 + v_2 N_2 + D
+\]
+o\`u le diviseur $D$ ne rencontre $N_1$ et $N_2$ qu'en un nombre fini de points.
+
+Sur le champ r\'egulier $\mathfrak{m}_{\Gamma_0(p)}$, d'o\`u la nullit\'e des nombres d'intersection
+\[
+(\div(\varphi) \cdot N_i) = 0 \ .
+\]
+Sur $N_1 = \mathfrak{m}_1 \otimes \FF_p$, $\omega$ est de degr\'e $1/24$ on a donc
+\[
+((\div \varphi) \cdot N_1) = \frac{k}{24} - v_1 \ .
+\]
+De m\^eme, puisque sur $\mathfrak{m}_0(p)$ $\omega$ est de degr\'e $2 \cdot [\Gamma_0(p) : \Gamma(1)] = \frac{p+1}{24}$, on a
+\[
+((\div \varphi) \cdot N_2) = \frac{k(p+1)}{24} - v_2 \cdot \frac{p-1}{p} \ .
+\]
+On a
+\[
+(N_1 \cdot N_2) = \frac{p-1}{p} \ .
+\]
+Ins\'erant les expressions plus haut, on obtient
+
+\begin{proposition}[3.20]
+On a
+\[
+v_1(\varphi) - v_2(\varphi) = \frac{k \cdot p}{p-1} - \frac{v_2(\varphi)}{p-1}
+\]
+et donc
+\[
+v_1 - v_2 = \frac{k \cdot p - v_2}{p-1} \ .
+\]
+\end{proposition}
+
+En particulier, si $f_{1\varphi}(q)$ est $p$-entier, alors la valuation $p$-adique de $f_{w\varphi}(q)$ est $\geq \frac{-k}{p-1}$.
+
+
+\subsection*{4. Comparaison avec la th\'eorie transcendante}
+\addcontentsline{toc}{subsection}{4. Comparaison avec la th\'eorie transcendante}
+
+\setcounter{proposition}{0}
+
+4.1. Nous noterons $D$ le disque unit\'e ouvert $\{q \in \CC : |q| < 1\}$, $q$ la coordonn\'ee courante sur $D$ (= l'inclusion $D \hookrightarrow \CC$) et $D^*$ le disque \'epoint\'e $D - \{0\}$. Nous noterons $D[q^{1/k}]$ la surface de Riemann de $q^{1/k}$ : c'est une copie du disque unit\'e, dont la coordonn\'ee courante s'appelle $q^{1/k}$, munie de l'application $u : D[q^{1/k}] \rightarrow D$ telle que $q \circ u = (q^{1/k})^k$.
+
+4.2. Une construction identique \`a la construction 1.1. fournit un espace analytique $\Gmtilde^t$ sur $D$ ; la translation par la section $q$ ($X_1 = 1$) d\'efinit une action de $\ZZ$ sur $\Gmtilde^q$ ; cette action est libre (car $|q| < 1$). Par passage au quotient, on obtient un espace analytique $\Gmtilde^q / q^{\ZZ}$ sur $D$, qui est une famille de courbes elliptiques g\'en\'eralis\'ees param\'etr\'ee par $D$ (la courbe de Tate).
+
+La fibre du morphisme $\Gmtilde^q / q^{\ZZ} \rightarrow D^*$ en le point $q \in D^*$ est la courbe elliptique $\CC^* / q^{\ZZ}$.
+
+4.3. De m\^eme, la courbe de Tate \`a $k$ c\^ot\'es sur $D[q^{1/k}]$ est le quotient $\Gmtilde^{q^{1/k}} / q^{\ZZ}$.
+
+4.4. Les constructions 4.2 et 1.15 sont compatibles au sens suivant. On dispose d'un syst\`eme coh\'erent d'isomorphismes d'espaces analytiques
+\[
+(\Gmtilde^q / q^{\ZZ}, \text{analytique, restreint \`a } \Spec(\ZZ[[q]]/(q^N)) \subset D) \simeq (\Gmtilde^q / q^{\ZZ}, \text{alg\'ebrique}) \otimes_{\ZZ[[q]]} \ZZ[[q]]/(q^N) \ .
+\]
+De m\^eme, on dispose d'isomorphismes d'espaces analytiques sur $\ZZ[[q^{1/k}]]/(q^N)$
+\[
+(\Gmtilde^{q^{1/k}} / q^{\ZZ}, \text{analytique, restreint \`a } \Spec(\ZZ[[q^{1/k}]]/(q^N)) \subset D[q^{1/k}]) \simeq (\Gmtilde^{q^{1/k}} / q^{\ZZ}, \text{alg\'ebrique}) \otimes_{\ZZ[[q^{1/k}]]} \ZZ[[q^{1/k}]]/(q^N)
+\]
+ces isomorphismes respectent les structures 1.16 des deux membres.
+
+4.5. Classiquement, une forme modulaire de poids $k$ et de niveau $n$ est une fonction holomorphe $f$ sur le demi-plan de Poincar\'e $X = \{z \in \CC : \mathrm{Im}(z) > 0\}$ v\'erifiant les conditions suivantes.
+
+(A) Si $\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \mathrm{SL}(2, \ZZ)$ est congru \`a $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ mod $n$
+\[
+f(z) = (cz + d)^{-k} f\left(\frac{az+b}{cz+d}\right) \ .
+\]
+Cette condition implique que pour $\gamma \in \mathrm{SL}(2, \ZZ/n)$ image de $\gamma_0 = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \mathrm{SL}(2, \ZZ)$, la fonction $f|\gamma_0$ ne d\'epend que de $\gamma$, non du choix de $\gamma_0$. On la note $f|\gamma$.
+
+(B) Pour tout $\gamma \in \mathrm{SL}(2, \ZZ/n)$, $(f|\gamma)(z)$ reste born\'e pour $\mathrm{Im}(z) \geq C$ (il revient au m\^eme, et est plus honn\^ete, de demander que $f|\gamma$ soit \`a croissance polynomiale dans les bandes verticales, pour $\mathrm{Im}(z) \geq C$).
+
+Une telle fonction est p\'eriodique de p\'eriode $n$, donc admet un d\'eveloppement en s\'erie de Fourier
+\[
+(f|\gamma)(z) = \sum_{m \in \ZZ, m \geq 0} a_m(\gamma) e^{2\pi i m z/n} \ .
+\]
+
+\begin{construction}[4.6]
+Les formes modulaires de poids $k$ et de niveau $n$ s'identifient aux sections de
+\[
+H^0(\mathfrak{m}_n \otimes_{\ZZ[\zeta_n]} \CC, \omega^{\otimes k}) \ .
+\]
+\end{construction}
+
+Supposons tout d'abord que $n \geq 3$. Dans ce cas, $\mathfrak{m}_n \otimes_{\ZZ[\zeta_n]} \CC$ est un sch\'ema. L'espace analytique sous-jacent \`a $M_n \otimes_{\ZZ[\zeta_n]} \CC$ est $X / \Ker(\mathrm{SL}(2, \ZZ) \rightarrow \mathrm{SL}(2, \ZZ/n))$, et les sections holomorphes de $\omega$ sur cet espace s'identifient aux fonctions holomorphes sur $X$ v\'erifiant 4.5~(A). L'espace analytique sous-jacent \`a $M_n \otimes_{\ZZ[\zeta_n]} \CC$ s'en d\'eduit en ajoutant un nombre fini de points. Une section holomorphe de $\omega$ se prolonge \`a $M_n \otimes_{\ZZ[\zeta_n]} \CC$ si et seulement si elle v\'erifie 4.5~(B) ; ces sections sont les sections alg\'ebriques de $\omega^{\otimes k}$.
+
+On ram\`ene le cas o\`u $n$ est quelconque au pr\'ec\'edent en passant aux invariants par $\Ker(\mathrm{SL}(2, \ZZ/3n) \rightarrow \mathrm{SL}(2, \ZZ/n))$ dans l'espace des formes modulaires de poids $k$ de niveau $3n$. On pourrait aussi invoquer GAGA pour le champ alg\'ebrique $\mathfrak{m}_n \otimes_{\ZZ[\zeta_n]} \CC$.
+
+Pour $n \geq 3$, $(M_n \otimes_{\ZZ[\zeta_n]} \CC)^{\mathrm{an}}$ est aussi l'espace analytique classifiant les courbes elliptiques g\'en\'eralis\'ees $\mathfrak{cis}$ sur des espaces analytiques $S$, munies d'une structure de niveau $n$, $\alpha$, telle que $\det(\alpha) = 1$.
+
+4.7. De ce point de vue, une forme modulaire $f$ est une loi qui, \`a toute telle courbe, associe une section de $\omega^{\otimes k}$ sur $S$. Le d\'eveloppement en s\'erie de Fourier s'obtient alors en \'evaluant la forme sur la courbe de Tate (4.3) (et en multipliant le r\'esultat par une puissance de $2\pi i$ d\'ependant des normalisations choisies). Pour $n \geq 1$, la compatibilit\'e 4.4 montre que ce d\'eveloppement co\"incide avec le d\'eveloppement d\'efini de fa\c{c}on purement alg\'ebrique au \S~3.
+
+4.8. De ce point de vue, les r\'esultats du \S~3 fournissent des propri\'et\'es arithm\'etiques des coefficients des d\'eveloppements en s\'erie de Fourier aux diverses pointes des fonctions sur $X$ v\'erifiant 4.5~(A) et (B). Par exemple :
+
+L'alg\`ebre gradu\'ee des formes modulaires de niveau $n$ (4.5) est le produit tensoriel avec $\CC$ sur $\ZZ[\zeta_n]$ de la sous-alg\`ebre de type fini sur $\ZZ[\zeta_n]$ form\'ee de celles pour lesquelles les d\'eveloppements en s\'erie de Fourier des $f|\gamma$ sont \`a coefficients dans $\ZZ[\zeta_n]$.
+
+Si le d\'eveloppement de $f$ est \`a coefficients dans $\ZZ[\zeta_n][1/n]$, celui de $f|\gamma$ a la m\^eme propri\'et\'e.
+
+\begin{thebibliography}{99}
+\bibitem{1} M. Artin ; The implicit function theorem in algebraic geometry; Proc. Colloq. Alg. Geom.; Bombay, 1968.
+\bibitem{2} M. Artin : Algebraization of formal moduli, in A Collection of Mathematical Papers in Honor of K. Kodaira, University of Tokyo Press 1969.
+\bibitem{3} M. Artin : Construction Techniques for Algebraic Spaces; Actes du Congr\`es Intern. Math. 1970; Tome 1; pg. 419.
+\bibitem{4} M. Artin, G. Winters : Degenerate Fibres and Stable Reduction of curves; Topology 10 (1971), pg. 373.
+\bibitem{5} W. Casselman; On Abelian Varieties with many Endomorphisms and a Conjecture of Shimura's; Inventiones Math. 11 (1971), pg. 225.
+\bibitem{6} P. Deligne ; Formes modulaires et repr\'esentations $\ell$-adiques; S\'em. Bourbaki 355, F\'evrier 1969; Springer Lecture Notes 179 (1971).
+\bibitem{7} P. Deligne ; Formes modulaires et repr\'esentations de $\mathrm{GL}_2$; dans ce volume.
+\bibitem{8} P. Deligne, D. Mumford ; The irreducibility of the space of curves of given genus; Publ. Math. IHES, 36 (1969).
+\bibitem{9} M. Deuring ; Invarianten und Normalformen elliptischer Funktionenk\"orper; Math. Z. 47 (1941) pg. 47.
+\bibitem{10} R. Hartshorne; Residues and Duality; Springer Lecture Notes, 20 (1966).
+\bibitem{11} J. Igusa ; Fibre systems of Jacobian varieties; Ann. J. Math. 81 (1959), pg. 453.
+\bibitem{12} L. Illusie ; Complexe cotangent et d\'eformations I; Springer Lecture Notes, 239 (1971).
+\bibitem{13} N. Katz; $p$-adic properties of moduli schemes; dans le 2e volume des proceedings du congr\`es.
+\bibitem{14} K. Kodaira ; On compact analytic surfaces; in Analytic Functions, Princeton Univ. Press, 1960.
+\bibitem{15} M. Lichtenbaum ; Curves over discrete valuation rings; Am. J. Math. 90 (1968), pg. 380.
+\bibitem{16} J. Lipman: Rational Singularities; Publ. Math. IHES, 36 (1969).
+\bibitem{17} D. Mumford: Picard Groups of Moduli Problems; in Arithmetical Algebraic Geometry; Harper \& Row, 1965, pg. 33.
+\bibitem{18} D. Mumford : Abelian Varieties; Oxford University Press 1970.
+\bibitem{19} D. Mumford: Geometric invariant theory; Springer, Berlin 1965.
+\bibitem{20} A. N\'eron : Mod\`eles minimaux des vari\'et\'es ab\'eliennes sur les corps locaux et globaux, Publ. Math. IHES, 21.
+\bibitem{21} F. Oort, J. Tate: Group schemes of prime order; Ann. Scient. Ec. Norm. Sup. 1 (1970) pg. 1.
+\bibitem{22} M. Raynaud : Sp\'ecialisation du foncteur de Picard; Comptes Rendus Acad. Sci. 264, pg. 941 et pg. 1001.
+\bibitem{23} M. Raynaud : Mod\`eles de N\'eron; Comptes Rendus Acad. Sci. 262, pg. 413.
+\bibitem{24} M. Schlessinger: Functors of Artin Rings; Trans. Amer. Soc. 130 (1968) pg. 205.
+\bibitem{25} J.-P. Serre: Rigidit\'e du foncteur de Jacobi d'\'echelon $n \geq 3$; app. \`a l'expos\'e 17 du s\'eminaire Cartan 60/61.
+\bibitem{26} J.-P. Serre: Groupes alg\'ebriques et corps de classes; Hermann 1959.
+\bibitem{27} J.-P. Serre, J. Tate: Good reduction of abelian varieties; Ann. of Math. 88 (1968), pg. 492.
+\bibitem{28} G. Shimura : Introduction to the arithmetic theory of automorphic functions; Princeton Univ. Press, 1971.
+\bibitem{29} T. Shioda : On rational points of the generic elliptic curve with level $N$ structure over a field of modular functions of level $N$; \`a para\^itre.
+\bibitem{30} J. Tate: Classes d'isog\'enie des vari\'et\'es ab\'eliennes sur un corps fini (d'apr\`es T. Honda); S\'em. Bourbaki 352 (1968/69); Springer Lecture Notes 179.
+\bibitem{31} J. Tate: Courbes elliptiques: formulaire; mis au go\^ut du jour par P. Deligne; dans un des volumes des Proceedings du congr\`es.
+\bibitem{32} J.-L. Verdier: Base change for twisted inverse image of coherent sheaves; Proc. Colloq. Alg. Geom., Bombay, 1968.
+\bibitem{33} J. Igusa : On the algebraic theory of elliptic modular functions; J. Math. Soc. Japan 20, 1968, pg. 96.
+\bibitem{34} J. Igusa : Class number of a definite quaternion with prime discriminant, Proc. Nat. Acad. Sci. 44, 1958, pg. 312.
+\end{thebibliography}
+
+\bigskip
+\noindent \textbf{Sigles}
+
+\medskip
+\noindent EGA : \'El\'ements de g\'eom\'etrie alg\'ebrique, par A. Grothendieck et J. Dieudonn\'e, Publ. Math. IHES, 4, 8, 11, 17, 20, 24, 28, 32.
+
+\medskip
+\noindent SGA : S\'eminaire de g\'eom\'etrie alg\'ebrique du Bois-Marie, Notes mim\'eographi\'ees par l'IHES ; aussi Springer Lecture Notes, 224, 225, 269, 270, 288, 305.
+
+\medskip
+\noindent TDTE : Techniques de descente et th\'eor\`emes d'existence; Expos\'es de A. Grothendieck au s\'eminaire Bourbaki; Secr\'etariat math\'ematique, Paris 1962.
+
+\medskip
+\noindent Une grande partie du mat\'eriel du pr\'esent article est mieux trait\'ee dans le livre :
+
+N. Katz and B. Mazur -- Arithmetic moduli of elliptic curves. Annals of Math. Studies 108, Princeton Univ. Press, Princeton, 1985.
+
+\end{document}

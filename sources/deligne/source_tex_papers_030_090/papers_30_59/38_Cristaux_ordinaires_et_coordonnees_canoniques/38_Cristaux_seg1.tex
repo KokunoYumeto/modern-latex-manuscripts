@@ -1,0 +1,1236 @@
+
+% SEGMENT 1 of 2: Pages 1-30
+% Source: P. Deligne (avec la collaboration de L. Illusie)
+% "Cristaux ordinaires et coordonnees canoniques"
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theoreme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{example}[theorem]{Exemple}
+
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Extt}{\mathcal{E}xt}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\dR}{\mathcal{H}}
+\DeclareMathOperator{\cdR}{H_{\mathrm{dR}}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\st}{st}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\NS}{NS}
+
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\Gm}{\mathbb{G}_m}
+
+\newcommand{\crys}{\mathrm{cris}}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\Large\scshape Expose}
+
+\vspace{1cm}
+
+{\LARGE\bfseries CRISTAUX ORDINAIRES ET COORDONNEES CANONIQUES}
+
+\vspace{1cm}
+
+{\large par P.\ DELIGNE}
+
+\vspace{0.5cm}
+
+{avec la collaboration de L.\ ILLUSIE}\footnote{Equipe de Recherche Associee au C.N.R.S.\ n$^\circ$ 653}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{SOMMAIRE}
+\end{center}
+
+\begin{itemize}[label={}, leftmargin=*, itemsep=0pt]
+\item[\textbf{0.}] \textbf{INTRODUCTION}
+\item[\textbf{1.}] \textbf{PARAMETRES CANONIQUES DES F-CRISTAUX DE HODGE ORDINAIRES}
+\begin{itemize}[label={}, leftmargin=2em, itemsep=0pt]
+\item[1.1.] Rappels de definitions
+\item[1.2.] F-cristaux unites
+\item[1.3.] F-cristaux ordinaires
+\item[1.4.] F-cristaux de Hodge ordinaires de niveau $\leq 1$
+\end{itemize}
+\item[\textbf{2.}] \textbf{APPLICATIONS GEOMETRIQUES}
+\begin{itemize}[label={}, leftmargin=2em, itemsep=0pt]
+\item[2.1.] Coordonnees canoniques
+\begin{itemize}[label={}, leftmargin=2em, itemsep=0pt]
+\item[A.] Varietes abeliennes
+\item[B.] Surfaces K3
+\end{itemize}
+\item[2.2.] Relevements de faisceaux inversibles
+\end{itemize}
+\end{itemize}
+
+\medskip
+Dans tout l'expose, $k$ designe un corps algebriquement clos de car.\ $p > 0$, et $W$ l'anneau des vecteurs de Witt sur $k$.
+
+\newpage
+\setcounter{page}{81}
+
+\section*{O. INTRODUCTION}
+\addcontentsline{toc}{section}{O. Introduction}
+
+Soit $X_0/k$ une courbe elliptique ordinaire. D'apres la theorie de Serre--Tate [14, V], la variete modulaire formelle $\mathcal{M}$ des deformations de $X_0$ sur les $W$-algebres artiniennes locales de corps residuel $k$ est isomorphe au groupe multiplicatif formel $\widehat{\mathbb{G}}_m/W$. Plus precisement, le groupe $p$-divisible $G = \bigcup_n \Ker(p^n : X_0 \to X_0)$ est isomorphe a $(\mathbb{Q}_p/\mathbb{Z}_p) \times \widehat{\mathbb{G}}_m$, et le choix d'un isomorphisme $\alpha$ entre la partie etale de $G_0$ et $\mathbb{Q}_p/\mathbb{Z}_p$ permet d'identifier canoniquement, pour toute $W$-algebre $R$ artinienne locale de corps residuel $k$, l'ensemble des relevements de $X_0$ sur $R$ au groupe $\Ext^1((\mathbb{Q}_p/\mathbb{Z}_p)_R, (\widehat{\mathbb{G}}_m)_R)$, a son tour isomorphe canoniquement au groupe des unites de $R$ congrues a 1 modulo l'ideal maximal : on obtient donc ainsi un isomorphisme (ne dependant que de $\alpha$) entre $\mathcal{M}$ et $(\widehat{\mathbb{G}}_m)_W$, et en particulier la deformation universelle $X$ de $X_0$ sur $\mathcal{M}$ definit une ``coordonnee canonique'' $q$ sur $\mathcal{M}$, telle que $\mathcal{M} \simeq \Spf W[[q-1]]$. De ce parametre $q$, qui decrit le groupe $p$-divisible $G$ associe a $X$ comme extension de $\mathbb{Q}_p/\mathbb{Z}_p$ par $\widehat{\mathbb{G}}_m$, on peut donner une autre interpretation, en termes du module $\mathcal{H}_{dR}(X/\mathcal{M})$, muni de sa structure de $F$-cristal et de sa filtration de Hodge $H^0(X,\Omega^1_{X/\mathcal{M}}) \subset \mathcal{H}_{dR}(X/\mathcal{M})$. La donnee d'un isomorphisme comme ci-dessus fournit en effet par dualite un isomorphisme $\alpha'$ entre le groupe formel $\widehat{X}/\mathcal{M}$ associe a $X$ et le groupe formel $(\widehat{\mathbb{G}}_m)_{\mathcal{M}}$, d'ou une forme $b \in H^0(X,\Omega^1_{X/\mathcal{M}})$, correspondant par $\alpha'$ a la forme invariante sur $(\widehat{\mathbb{G}}_m)_{\mathcal{M}}$. Soit $a \in \mathcal{H}_{dR}(X/\mathcal{M})$ tel que $\nabla a = 0$ et $(a,b)$ soit une base symplectique de $\mathcal{H}_{dR}(X/\mathcal{M})$, i.e.\ $\langle a,b \rangle = 1$, $\langle a,a \rangle = 0$. Si
+\[
+\nabla : \mathcal{H}_{dR}(X/\mathcal{M}) \longrightarrow \Omega^1_{\mathcal{M}/W} \otimes \mathcal{H}_{dR}(X/\mathcal{M})
+\]
+designe la connexion de Gauss--Manin, on a necessairement
+\begin{equation}\label{eq:0.1}
+\nabla b = \xi \otimes a\,,
+\end{equation}
+avec $\xi \in \Omega^1_{\mathcal{M}/W}$. On peut montrer (voir Appendice et Expose suivant, par N.\ Katz) que l'on a
+\begin{equation}\label{eq:0.2}
+\xi = d\log q\,,
+\end{equation}
+ou $q$ est le parametre defini plus haut, qui se trouve donc coincider avec celui defini independamment par Dwork ([8], [6]) a l'aide de (0.2). La base $(a,b)$ ci-dessus jouit par ailleurs de proprietes remarquables vis-a-vis de l'operation de Frobenius $F$ sur $\mathcal{H}_{dR}(X/\mathcal{M})$ : si l'on choisit comme endomorphisme de $\mathcal{M}$ relevant le Frobenius de $\mathcal{M} \otimes k$ celui donne par $q \mapsto q^p$, alors $F$ s'exprime par
+\begin{equation}\label{eq:0.3}
+Fa = a\,, \quad Fb = pb\,.
+\end{equation}
+
+Les constructions precedentes se generalisent aux varietes abeliennes ordinaires [8], voir aussi [9], [11] pour des applications arithmetiques dans le cas des courbes elliptiques.
+
+L'objet de l'expose est de montrer qu'on peut developper une theorie analogue pour les surfaces K3 ordinaires, du moins si $p \neq 2$. Soit $X_0/k$ une surface K3 ordinaire, i.e.\ telle que le Frobenius de $H^2(X_0, \mathcal{O})$ soit non nul, et soit $S$ la variete modulaire formelle des deformations de $X_0$ sur les $W$-algebres artiniennes locales de corps residuel $k$ (IV 1.2). Si $p \neq 2$, on prouve que $S$ est munie canoniquement d'une structure de groupe formel, isomorphe a $\widehat{\mathbb{G}}_m^{20}/W$ ; en particulier, la deformation universelle $X$ de $X_0$ sur $S$ definit des ``coordonnees canoniques'' $q_i$ ($1 \leq i \leq 20$) telles que $S \simeq \Spf W[[q_1-1, \ldots, q_{20}-1]]$, formant une base des caracteres de $S$.
+
+On montre de plus que, si $L_0$ est un faisceau inversible non trivial sur $X_0$, l'hypersurface $\Sigma(L_0)$ de $S$ telle que $L_0$ se prolonge a $X \times_S \Sigma(L_0)$ (IV 1.5) est le noyau d'un caractere de $S$, defini de facon presque tautologique par la classe de Chern cristalline de $L_0$.
+
+En l'absence d'une theorie de Serre--Tate pour les relevements des surfaces K3, c'est en termes de la structure de $F$-cristal de $\mathcal{H}_{dR}(X/S)$ que l'on definit la structure de groupe formel de $S$. En fait, on peut englober le cas des varietes abeliennes et celui des surfaces K3 dans un meme theoreme de structure pour une certaine classe de $F$-cristaux ordinaires. L'etude de ces cristaux fait l'objet du n$^\circ$\ 1. Les applications geometriques sont donnees au n$^\circ$\ 2. En ce qui concerne le theoreme relatif aux hypersurfaces $\Sigma(L_0)$, l'ingredient essentiel est l'utilisation de la classe de Chern cristalline pour controler l'obstruction au prolongement.
+
+\section{Parametres canoniques des F-cristaux de Hodge ordinaires}
+
+\subsection{Rappels de definitions}
+
+\subsubsection{}
+
+Pour les definitions et proprietes generales des $F$-cristaux, voir Katz [8], [10]. On fixe pour toute la suite du n$^\circ$\ 1 des anneaux de series formelles
+\[
+A_0 = k[[t_1, \ldots, t_n]]\,, \qquad A = W[[t_1, \ldots, t_n]]\,,
+\]
+ou $(t_1, \ldots, t_n)$ est une suite finie d'indeterminees (pour $n = 0$, on convient que $A_0 = k$, $A = W$).
+
+Un cristal (sous-entendu, en modules libres de type fini) sur $A_0$ est par definition un $A$-module libre de type fini $H$, muni d'une connexion
+\[
+\nabla : H \longrightarrow \Omega^1_{A/W} \otimes H
+\]
+integrable et $p$-adiquement topologiquement nilpotente. Que $\nabla$ soit integrable signifie que, si l'on pose $D_i = d/dt_i$, on a
+\[
+\nabla(D_i)\nabla(D_j) = \nabla(D_j)\nabla(D_i)
+\]
+quels que soient $i,j$. Cela permet de faire operer sur $H$ les operateurs PD-differentiels sur $A$, i.e.\ les polynomes en les $D_i$ a coefficients dans $A$, par la formule
+\[
+\nabla\Bigl(\sum_m a_m D^m\Bigr) = \sum_m a_m (\nabla(D))^m\,,
+\]
+avec les notations condensees habituelles $D^m = D_1^{m_1} \cdots D_n^{m_n}$, etc. Quant a la nilpotence topologique de $\nabla$, elle s'exprime par le fait que, pour tout $i$, $\nabla(D_i)^m$ tend vers zero pour la topologie $p$-adique de $\End_W(H)$ quand $m$ tend vers $+\infty$. D'apres Berthelot [1, II 4], la donnee d'une connexion $\nabla$ comme ci-dessus equivaut a la donnee, pour tout couple de $W$-homomorphismes $(f,g)$ de $A$ dans une $W$-algebre $B$ locale, noetherienne et complete, tels que $f$ et $g$ soient congrus modulo un ideal $I$ de $B$ muni de puissances divisees compatibles aux puissances divisees standard de $p$, d'un isomorphisme
+\begin{equation}
+\chi(f,g) : f^*H \xrightarrow{\;\sim\;} g^*H\,,\tag{$*$}
+\end{equation}
+ces isomorphismes etant assujettis a verifier certaines conditions de transitivite explicitees dans [8, 1.2], i.e.\ $\chi(g,h)\chi(f,g) = \chi(f,h)$, $\chi(fk,gk) = k^*\chi(f,g)$, $\chi(\id,\id) = \id$. La formule suivante decrit concretement ce dictionnaire dans le sens qui nous interesse :
+
+\begin{lemma}\label{lem:1.1.2}
+Avec les notations ci-dessus, designons par $f^* : H \to f^*H$ la fleche d'adjonction, ou $f^*H = f^* \otimes_f H$ par abus. L'homomorphisme $A$-lineaire compose
+\[
+\chi(f,g)f^* : H \xrightarrow{\;f^*\;} f^*H \xrightarrow{\;\chi(f,g)\;} g^*H
+\]
+est donne par la formule
+\begin{equation}\label{eq:1.1.2.1}
+\chi(f,g)f^*(x) = \sum_m (f(t)-g(t))^{[m]} g^*(\nabla(D)^m x)\,,
+\end{equation}
+la somme portant sur tous les multi-indices $m = (m_1, \ldots, m_n) \in \mathbb{N}^n$, avec les notations condensees
+\[
+(f(t)-g(t))^{[m]} = (f(t_1)-g(t_1))^{[m_1]} \cdots (f(t_n)-g(t_n))^{[m_n]}
+\]
+(le crochet designant une puissance divisee dans $I$), et
+\[
+\nabla(D)^m = \nabla(D_1)^{m_1} \cdots \nabla(D_n)^{m_n}
+\]
+\emph{(N.B.\ la serie au second membre de (1.1.2.1) est convergente grace a la nilpotence topologique de $\nabla$).}
+\end{lemma}
+
+Cet enonce est essentiellement contenu dans [1, II 4.3]. Il suffit de le verifier apres reduction mod $p^r$ pour tout $r$. Nous noterons encore par abus $(f,g) : A \to^2 B$ les $W_r$-homomorphismes deduits de ceux donnes par reduction mod $p^r$. Soit $D$ l'enveloppe a puissances divisees de l'ideal d'augmentation $J$ de $A \otimes_{W_r} A$ ($= W_r[[t_1, \ldots, t_n, u_1, \ldots, u_n]]$), notons $d_0$ (resp.\ $d_1$) : $A \to D$ l'homomorphisme donne par $a \mapsto a \otimes 1$ (resp.\ $1 \otimes a$), definissant la structure de $A$-module ``a gauche'' (resp.\ ``a droite'') de $D$. Comme $J$, engendre par les $t_i - u_i$, est regulier, il resulte de [1, I 4.5.1] que $D$ s'identifie pour la structure gauche a l'algebre a puissances divisees $A\langle \xi_1, \ldots, \xi_n \rangle$, ou $\xi_i = d_1t_i - d_0t_i =$ image de $u_i - t_i$ dans $D$. Par la propriete universelle des enveloppes a puissances divisees, et du fait que $B$ est complet, il existe un PD-morphisme $s : D \to B$ tel que $sd_0 = g$, $sd_1 = f$. D'autre part, d'apres [1, II 4.3.8], la connexion definit une PD-stratification
+\[
+\varepsilon : D \otimes_A H\ (= d_1^*H) \xrightarrow{\;\sim\;} H \otimes_A D\ (= d_0^*H)
+\]
+telle que l'homomorphisme $d_1$-lineaire compose
+\[
+H \xrightarrow{\;d_1\;} d_1^*H \xrightarrow{\;\varepsilon\;} d_0^*H
+\]
+soit donne par la formule
+\begin{equation}\tag{$**$}
+\varepsilon(x) = \sum_m \nabla(D^m)x \otimes \xi^{[m]}\,,
+\end{equation}
+avec les notations condensees evidentes. Par definition, $\chi(f,g)$ est l'isomorphisme deduit de $\varepsilon$ par image inverse par $s$ :
+\[
+\chi(f,g) = s^*\varepsilon : f^*H \xrightarrow{\;\sim\;} g^*H\,.
+\]
+Si l'on convient de regarder $f$ (resp.\ $g$) comme definissant une structure de $A$-module a droite (resp.\ gauche) sur $B$, on a un diagramme commutatif
+\[
+\begin{tikzcd}
+H \rar{d_1} \dar[swap]{f^*} & D \otimes_A H \rar{\varepsilon} & H \otimes_A D \dar \\
+H \rar & B \otimes_A H \rar[swap]{\chi(f,g)} & H \otimes_A B
+\end{tikzcd}
+\]
+qui montre, compte tenu de $(**)$, que le compose horizontal inferieur est donne par
+\[
+\chi(f,g)f^*(x) = \sum_m \nabla(D^m)x \otimes s(\xi)^{[m]}\,.
+\]
+Mais
+\[
+s(\xi_i) = s(d_1t_i - d_0t_i) = f(t_i) - g(t_i)
+\]
+donc
+\[
+\chi(f,g)f^*(x) = \sum_m \nabla(D)^m x \otimes (f(t)-g(t))^{[m]}
+\]
+\[
+= \sum_m (f(t)-g(t))^{[m]} g^*(\nabla(D)^m x)\,.\qedhere
+\]
+
+\subsubsection{}
+
+Un \emph{$F$-cristal} sur $A_0$ est par definition un cristal $(H,\nabla)$ sur $A_0$, muni, pour chaque relevement $\sigma : A \to A$ du Frobenius de $A_0$ compatible a l'endomorphisme de Frobenius $\sigma$ de $W$, d'un homomorphisme horizontal
+\[
+F(\sigma) : \sigma^*H \longrightarrow H
+\]
+($\sigma^*H$ etant muni de la connexion $\sigma^*\nabla$), tel que $F(\sigma) \otimes \mathbb{Q}_p$ soit un isomorphisme, et que, pour tout couple de relevements $(\sigma, \tau)$, on ait un triangle commutatif
+\begin{equation}\label{eq:1.1.3.1}
+\begin{tikzcd}
+\sigma^*H \arrow{rr}{\chi(\sigma,\tau)} \arrow{dr}[swap]{F(\sigma)} && \tau^*H \arrow{dl}{F(\tau)} \\
+& H
+\end{tikzcd}
+\end{equation}
+ou $\chi(\sigma,\tau)$ est l'isomorphisme canonique defini par $\nabla$ grace au fait que $\sigma$ est congru a $\tau$ modulo l'ideal a puissances divisees $pA$.
+
+L'horizontalite de $F(\sigma)$ s'exprime par la commutativite du carre
+\begin{equation}\label{eq:1.1.3.2}
+\begin{tikzcd}
+\sigma^*H \rar{\sigma^*\nabla} \dar[swap]{F(\sigma)} & \sigma^*\Omega^1_{A/W} \otimes \sigma^*H \dar{\sigma^* \otimes F(\sigma)} \\
+H \rar[swap]{\nabla} & \Omega^1_{A/W} \otimes H
+\end{tikzcd}
+\end{equation}
+Comme par definition $\sigma^*\nabla$ rend commutatif le carre
+\[
+\begin{tikzcd}
+H \rar{\nabla} \dar & \Omega^1_{A/W} \otimes H \dar{\sigma \otimes \id} \\
+\sigma^*H \rar[swap]{\sigma^*\nabla} & \sigma^*\Omega^1_{A/W} \otimes \sigma^*H
+\end{tikzcd}
+\]
+on en deduit la formule
+\begin{equation}\label{eq:1.1.3.3}
+\nabla F(\sigma)\sigma^*x = \sum \sigma(\omega_i) \otimes F(\sigma)\sigma^*h_i\,,
+\end{equation}
+pour $x \in H$ tel que $\nabla x = \sum \omega_i \otimes h_i$.
+
+D'autre part, la loi de variation de $F(\sigma)$ (1.1.3.1) se traduit par la formule
+\begin{equation}\label{eq:1.1.3.4}
+F(\tau)\tau^*x = F(\sigma)\sigma^*x + \sum_{|m|>0} (\tau(t)-\sigma(t))^{[m]} F(\sigma)\sigma^*(\nabla(D)^m x)\,,
+\end{equation}
+avec les notations de \ref{lem:1.1.2}. On a en effet, d'apres les conditions de transitivite verifiees par $\chi$,
+\[
+F(\tau)\tau^*x = F(\tau)\chi(\sigma,\tau)\chi(\tau,\sigma)\tau^*x = F(\tau)\chi(\sigma,\tau)\sigma^*x \quad \text{(1.1.3.1),}
+\]
+d'ou (1.1.3.4), grace a (1.1.2.1) applique a $f = \sigma$, $g = \tau$.
+
+\subsubsection{}
+
+Soit $s_0 : A_0 \to k'$ un point de $\Spec(A_0)$ a valeurs dans une extension algebriquement close de $k$. Si $\sigma$ releve Frobenius comme ci-dessus, on sait [8, 1.1] qu'il existe un unique relevement de $s_0$ en $s : A \to W(k')$ tel que $s\sigma = \sigma s$ ($\sigma$ designant le Frobenius de $W(k')$), appele \emph{relevement de Teichmuller} de $s_0$ relatif a $\sigma$.
+
+Soit $H$ un $F$-cristal sur $A_0$. Alors $F(\sigma)$ fournit un endomorphisme $\sigma$-lineaire de $s^*H$, d'ou un $F$-cristal $s^*H$ sur $k'$. Si $\sigma'$ est un autre relevement de Frobenius, et $s'$ le relevement de Teichmuller de $s_0$ correspondant, les $F$-cristaux $s^*H$ et $s'^*H$ sont canoniquement isomorphes grace a (1.1.3.1) (cf.\ [8, 1.4]). On ecrira $s_0^*H$ pour $s^*H$, et on dira que $s_0^*H$ est le $F$-cristal induit par $H$ au point $s_0$.
+
+\subsubsection{}
+
+Rappelons enfin qu'a tout $F$-cristal sur $k$ on associe un polygone de Newton et un polygone de Hodge, pour les definitions et proprietes desquels nous renvoyons le lecteur a [12], [8], et [10].
+
+\subsection{F-cristaux unites}
+
+\subsubsection{}
+
+On dit qu'un $F$-cristal $(H,\nabla)$ sur $A_0$ est un \emph{$F$-cristal unite} si, pour un relevement $\sigma : A \to A$ du Frobenius de $A_0$, $F(\sigma)$ est un isomorphisme. D'apres (1.1.3.1), il revient au meme de dire que $F(\sigma)$ est un isomorphisme pour tout relevement $\sigma$.
+
+Tout $\mathbb{Z}_p$-module libre de type fini $M$ fournit un $F$-cristal unite sur $A_0$, a savoir $(H = M \otimes_{\mathbb{Z}_p} A,\ \nabla = 1 \otimes d,\ F(\sigma) = 1 \otimes \sigma)$. En fait, tout $F$-cristal unite sur $A_0$ est de ce type :
+
+\begin{proposition}[{cf.\ [8, \S 3]}]\label{prop:1.2.2}
+Soit $H$ un $F$-cristal unite sur $A_0$. Il existe une base $(e_i)$ $(1 \leq i \leq r)$ de $H$ sur $A$ telle que $\nabla e_i = 0$ et $F(\sigma)\sigma^*e_i = e_i$ pour tout relevement $\sigma$ du Frobenius de $A_0$.
+\end{proposition}
+
+Autrement dit, la base $(e_i)$ definit un isomorphisme du $F$-cristal trivial $\mathbb{Z}_p^r \otimes_{\mathbb{Z}_p} A$ defini ci-dessus sur $H$.
+
+Avant de demontrer \ref{prop:1.2.2}, faisons d'abord deux remarques.
+
+\textbf{a)} Si $x \in H$ est tel que, pour un relevement $\sigma$, $F(\sigma)\sigma^*x = x$, alors $\nabla x = 0$. En effet, comme $\sigma$ releve Frobenius, on a $(\sigma^*\omega)_i \in p\Omega^1_{A/W}$, donc $p$ divise $\nabla x = \nabla F(\sigma)\sigma^*x$ d'apres (1.1.3.3). Le meme raisonnement montre, par recurrence, que $\nabla x$ est divisible par $p^n$ pour tout $n$, donc que $\nabla x = 0$.
+
+\textbf{b)} Si $x \in H$ est tel que $F(\sigma)\sigma^*x = x$ pour un relevement $\sigma$, alors $F(\sigma)\sigma^*x = x$ pour tout relevement $\sigma$. Compte tenu de a), cela resulte en effet de la loi de variation de $F(\sigma)$ (1.1.3.4).
+
+Il suffit donc de trouver une base $(e_i)$ de $H$ sur $A$ telle que $F(\sigma)\sigma^*e_i = e_i$ pour un relevement $\sigma$ choisi, par exemple celui donne par $t_j \mapsto t_j^p$ ($1 \leq j \leq n$). Soit $s : A \to W$ l'augmentation donnee par $s(t_i) = 0$. Comme $s\sigma = \sigma$, $F(\sigma)\sigma^*$ induit sur $s^*H$ un automorphisme $\sigma$-lineaire $\Phi$. Le corps $k$ etant algebriquement clos, il existe une base de $s^*H$ fixe par $\Phi$ (partir d'une base fixe par $\Phi$ mod $p$, qui existe grace au lemme de Lang, et la modifier de proche en proche pour la rendre fixe par $\Phi$ mod $p^n$ pour tout $n$). Autrement dit, il existe une base $(f_i)$ $(1 \leq i \leq r)$ de $H$ telle que, si l'on pose $F(\sigma)\sigma^* = F$, on ait
+\[
+Ff = (1+M)f\,,
+\]
+avec $M \in M_r(A)$ tel que $M \equiv 0 \pmod{(t)}$ ($= (t_1, \ldots, t_n)A$). Il suffit de montrer qu'on peut remplacer $f$ par $e = (1+N)f$, avec $N \in M_r(A)$ tel que $N \equiv 0 \pmod{(t)}$, de maniere a satisfaire a $Fe = e$. Explicitant, on trouve l'equation
+\begin{equation}\tag{$*$}
+N = M + \sigma(N) + \sigma(N)M\,.
+\end{equation}
+Or l'application $N \mapsto M + \sigma(N) + \sigma(N)M$ est contractante pour la topologie $(t)$-adique, car $\sigma((t)) \subset (t)^p$, donc $(*)$ possede une solution unique, ce qui acheve la demonstration de \ref{prop:1.2.2}.
+
+\subsubsection{}
+
+Nous dirons qu'un $F$-cristal $(H,\nabla)$ sur $A_0$ est \emph{topologiquement nilpotent} si, pour un relevement $\sigma$ du Frobenius de $A_0$, $F(\sigma)\sigma^*$ est $p$-adiquement topologiquement nilpotent ; cette condition ne depend pas du choix de $\sigma$, comme le montre (1.1.3.4) (ou plus exactement l'analogue de (1.1.3.4) pour des iteres de $F(\sigma)\sigma^*$, $F(\tau)\tau^*$). Il n'est pas vrai que tout $F$-cristal sur $A_0$ soit extension d'un $F$-cristal topologiquement nilpotent par un $F$-cristal unite. Plus precisement, on a le critere suivant, cas particulier d'un theoreme de Katz :
+
+\begin{proposition}\label{prop:1.2.4}
+Soit $H$ un $F$-cristal sur $A_0$. Notons $F_0$ l'endomorphisme de $H_0 = H \otimes_A A_0$ induit par $F(\sigma)\sigma^*$, ou $\sigma$ releve le Frobenius $F_{A_0}$ de $A_0$ ($F_0$ est $F_{A_0}$-lineaire, et independant de $\sigma$).
+
+Les conditions suivantes sont equivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item Les rangs stables de $(H_0, F_0)$ au point ferme et en un point geometriquement algebriquement clos localise au point generique de $\Spec(A_0)$ sont egaux.
+\item Il existe une extension de $F$-cristaux sur $A_0$
+\[
+0 \longrightarrow U \longrightarrow H \longrightarrow E \longrightarrow 0\,,
+\]
+ou $U$ est un $F$-cristal unite et $E$ un $F$-cristal topologiquement nilpotent.
+\end{enumerate}
+\end{proposition}
+
+Rappelons ce qu'on entend par ``rang stable'' : si $L$ est un espace vectoriel de dimension finie sur un corps parfait de car.\ $p$, muni d'un endomorphisme $p$-lineaire $\varphi$, $L$ se decompose canoniquement en $L = L^{\mathrm{ss}} \oplus L^{\mathrm{nilp}}$, ou $L^{\mathrm{ss}} = \bigcap \Im \varphi^n$, $L^{\mathrm{nilp}} = \bigcup \Ker \varphi^n$ ; la dimension de $L^{\mathrm{ss}}$ est par definition le \emph{rang stable} de $(L,\varphi)$.
+
+Bien qu'il s'agisse d'un cas particulier de [10, 2.4.2], indiquons rapidement une demonstration de \ref{prop:1.2.4}\footnote{figure dans des notes de Katz anterieures a (loc.\ cit.), non publiees.}, la situation envisagee ici etant nettement plus simple que celle de (loc.\ cit.). Il est clair que (ii) implique (i). Inversement, posons $\overline{H}_0 = H_0 \otimes_{A_0} k = H \otimes_A k$. Relevons dans $H_0$ une base de $\overline{H}_0$ adaptee a la decomposition de $\overline{H}_0$ sous $F_0 \otimes k$, $\overline{H}_0 = \overline{H}_0^{\mathrm{ss}} \oplus \overline{H}_0^{\mathrm{nilp}}$ : $F_0$ est alors donne par une matrice $\begin{psmallmatrix} a & c \\ b & d \end{psmallmatrix}$ avec $b \equiv 0 \pmod{(t)}$, et $a$ inversible de rang $r = \dim \overline{H}_0^{\mathrm{ss}}$. Dans une nouvelle base de $H_0$, donnee par une matrice de passage $P = \begin{psmallmatrix} 1 & x \\ 0 & 1 \end{psmallmatrix}$, la matrice de $F_0$ est $\begin{psmallmatrix} a' & c' \\ b' & d' \end{psmallmatrix} = P^{-1}\begin{psmallmatrix} a & c \\ b & d \end{psmallmatrix}\sigma(P)$, et l'on peut determiner $x \equiv 0 \pmod{(t)}$ de maniere que $b' = 0$ : en effet, on obtient pour $x$ l'equation $x = f(x)$, ou $f(x) = ba^{-1} + x\sigma(c)a^{-1} + d\sigma(x)a^{-1}$, et cette equation possede une solution unique car $f$ est une application contractante pour la topologie $(t)$-adique. Dans cette nouvelle base, la matrice de $F_0$ prend donc la forme $\begin{psmallmatrix} a' & c' \\ 0 & d' \end{psmallmatrix}$, avec $a'$ inversible de rang $r$. L'hypothese (i) entraine alors que l'endomorphisme $d'$ est nilpotent, car il en est ainsi de $d'$ localise en une extension algebriquement close du corps des fractions de $A_0$.
+
+Choisissons un relevement $\sigma$ de $F_{A_0}$. Dans une base de $H$ relevant la base de $H_0$ choisie ci-dessus, la matrice de $F = F(\sigma)\sigma^*$ s'ecrit (avec des notations changees) $\begin{psmallmatrix} a & c \\ b & d \end{psmallmatrix}$, ou $b \equiv 0 \pmod{p}$, et $d$ topologiquement nilpotent. Appliquant a nouveau la methode du point fixe (avec cette fois une application contractante pour la topologie $p$-adique), on voit qu'on peut trouver une nouvelle base $(e_1, \ldots, e_r, e_{r+1}, \ldots, e_{r+s})$ de $H$, donnee par une matrice de passage $\begin{psmallmatrix} 1 & x \\ 0 & 1 \end{psmallmatrix}$, avec $x \equiv 0 \pmod{p}$, de maniere que dans cette nouvelle base, la matrice de $F$ s'ecrive $\begin{psmallmatrix} a' & c' \\ 0 & d' \end{psmallmatrix}$, avec $a'$ inversible (de rang $r$) et $d'$ topologiquement nilpotent. Le sous-$F$-module $U = \bigoplus_{1 \leq i \leq r} Ae_i$ est egal a $\bigcap_{n \geq 0} \Im F^n$, donc (grace a (1.1.3.2)) horizontal, i.e.\ tel que $\nabla U \subset \Omega^1_{A/W} \otimes U$. D'apres (1.1.3.1), $U$ est donc un sous-$F$-cristal unite de $H$, et par construction le $F$-cristal $H/U$ est topologiquement nilpotent, ce qui acheve la demonstration.
+
+\begin{remark}\label{rem:1.2.5}
+Sous les hypotheses de \ref{prop:1.2.4}, le $F$-cristal $U$ est caracterise, en termes de $H$, par $U = \bigcap_{n \geq 0} \Im F^n$ (ou $F = F(\sigma)\sigma^*$). Nous dirons que $U$ est le \emph{sous-$F$-cristal unite} de $H$.
+\end{remark}
+
+\subsection{F-cristaux ordinaires}
+
+\subsubsection{}
+
+Soient $H$ un $F$-cristal sur $A_0$, $H_0 = H \otimes_A A_0$. Soit $\sigma$ un relevement $\sigma : A \to A$ du Frobenius $F_{A_0}$, posons $H_0^{(p)} = F_{A_0}^*H_0 \otimes_{A_0} A_0$, et, pour $i \in \mathbb{Z}$,
+\begin{align}
+M_iH_0^{(p)} &= \{x \in H_0^{(p)} \mid \text{il existe } y \in \sigma^*H \text{ relevant } x \text{ et tel que } F(\sigma)y \in p^iH\}\,, \label{eq:1.3.1.1} \\
+\Fil^iH_0 &= H_0 \cap M_iH_0^{(p)} \label{eq:1.3.1.2}
+\end{align}
+(ou $H_0$ est considere comme sous-module de $F_{A_0}^*H_0^{(p)}$ par la fleche d'adjonction),
+\begin{equation}\label{eq:1.3.1.3}
+\Fil_iH_0 = \{x \in H_0 \mid \text{il existe } y \in H \text{ relevant } x \text{ et tel que } p^iy \in \Im F(\sigma)\}\,.\end{equation}
+
+D'apres (1.1.3.1), les sous-modules $\Fil^iH_0$ (resp.\ $\Fil_iH_0$) ne dependent pas du choix de $\sigma$ ; ils forment une filtration decroissante (resp.\ croissante) de $H_0$, qu'on appelle \emph{filtration de Hodge} (resp.\ \emph{filtration conjuguee}), cf.\ [15, 1.9], ou cette filtration est notre $F^{\,i}$ (resp.\ $F_{\mathrm{con}}^{\,-i}$). On peut montrer [15, 2.2] que l'on a aussi
+\begin{equation}\label{eq:1.3.1.4}
+\Fil_iH_0 = \{x \in H_0 \mid \text{il existe } y \in H \text{ relevant } x \text{ et tel que } F(\sigma)\sigma^*y \in p^iH\}\,.\end{equation}
+
+La terminologie provient du theoreme de Mazur--Ogus [3, 8.26] affirmant que si $X_0/A_0$ est un schema (ou schema formel) propre et lisse tel que
+\begin{enumerate}[label=(\roman*)]
+\item la cohomologie cristalline $H_{\crys}^*(X_0/A)$ soit un $A$-module libre,
+\item la suite spectrale $E_1^{i,j} = H^j(X_0, \Omega_{X_0/A_0}^i) \Rightarrow H_{\crys}^*(X_0/A_0)$ degenere en $E_1$ et $E_1$ soit libre sur $A_0$ et de formation compatible au changement de base,
+\end{enumerate}
+alors si l'on pose $H = H_{\crys}^n(X_0/A)$ (donc $H_0 = H_{\crys}^n(X_0/A_0)$) ($n$ entier fixe) la filtration $\Fil_iH_0$ (resp.\ $\Fil^iH_0$) coincide avec la filtration canonique sur l'aboutissement de la suite spectrale ci-dessus (resp.\ la suite spectrale conjuguee $H^i(X_0, \mathcal{H}^j(\Omega_{X_0/A_0}^\bullet))$).
+
+Rappelons [15, 1.6] que les filtrations (1.3.1.2) et (1.3.1.3) sont finies, separees et exhaustives, et que pour $n$ donne les conditions $\Fil^{n+1}H_0 = 0$ et $\Fil_nH_0 = H_0$ sont equivalentes : on dit alors que $H_0$ est de niveau $\leq n$.
+
+On notera
+\begin{equation}\label{eq:1.3.1.5}
+\gr^iH_0 \quad \text{(resp.\ } \gr_iH_0\text{)}
+\end{equation}
+le gradue associe a la filtration $\Fil^iH_0$ (resp.\ $\Fil_iH_0$). Si $\gr_iH_0$ est libre sur $A_0$, il en est de meme de $\gr^iH_0$, la formation de $\gr_iH_0$ et $\gr^iH$ commute au changement de base, et, pour tout $i$, $\gr_iH_0$ et $\gr^iH_0$ sont canoniquement isomorphes, en particulier ont meme rang $h_i$, qu'on appellera $i$-eme \emph{nombre de Hodge} de $H$ [15, 1.12, 2.3].
+
+Rappelons d'autre part [15, 1.6, 2.6] que la filtration conjuguee est horizontale pour la connexion $\nabla$ induite sur $H_0$ (et de gradue associe de $p$-courbure nulle), tandis que la filtration de Hodge verifie la condition de transversalite de Griffiths
+\begin{equation}\label{eq:1.3.1.6}
+\nabla_0\Fil^iH_0 \subset \Omega^1_{A_0/k} \otimes \Fil^{i-1}H_0\,.
+\end{equation}
+
+La notion de $F$-cristal ordinaire a ete degagee par Mazur [12] et Ogus, a qui est due la caracterisation suivante [15, 3.1.3] :
+
+\begin{proposition}\label{prop:1.3.2}
+Soit $H$ un $F$-cristal sur $A_0$ tel que $\gr_\bullet H_0$ soit libre sur $A_0$. Les conditions suivantes sont equivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item les polygones de Newton et de Hodge du $F$-cristal $e_0^*H$ induit par $H$ au point ferme $e_0 : A \to k$ (1.1.4) coincident ;
+\item[(i$'$)] pour tout point $s_0$ de $\Spec(A_0)$ a valeurs dans une extension algebriquement close $k'$ de $k$, les polygones de Newton et de Hodge du $F$-cristal $s_0^*(H)$ (1.1.4) coincident ;
+\item les filtrations de Hodge et conjuguee de $H_0$ sont opposees, i.e.\ on a, pour tout $i$, $H_0 = \Fil_iH_0 \oplus \Fil^{i+1}H_0$ ;
+\item il existe une unique filtration de $H$ par des sous-$F$-cristaux
+\begin{equation}\label{eq:1.3.2.1}
+0 \subset U_0 \subset U_1 \subset \cdots \subset U_i \subset U_{i+1} \subset \cdots
+\end{equation}
+tels que $U_i$ releve $\Fil_iH_0$, et que $U_i/U_{i-1}$ soit de la forme $V_i(-i)$, ou $V_i$ est un $F$-cristal unite et $(-i)$ designe la torsion a la Tate consistant a remplacer $F$ par $p^iF$.
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}\label{def:1.3.3}
+On dit qu'un $F$-cristal $H$ sur $A_0$ est \emph{ordinaire} si $\gr_\bullet H_0$ est libre et $H$ verifie les conditions equivalentes de \ref{prop:1.3.2}.
+\end{definition}
+
+Demonstrons \ref{prop:1.3.2}. L'implication (i$'$) $\Rightarrow$ (i) est triviale, et il est clair que (iii) entraine (i$'$). Prouvons (i) $\Rightarrow$ (ii). Supposons $H$ de niveau $\leq n$, et la conclusion etablie pour les $F$-cristaux de niveau $\leq n-1$. Notons $F$ l'endomorphisme $p$-lineaire de $H_0$ induit par $F(\sigma)$ pour un relevement $\sigma$ ($F$ ne depend pas de ce choix). Par definition (1.3.1), on a
+\begin{equation}\label{eq:1.3.3.1}
+\Fil_0H_0 = \Im F : H_0^{(p)} \to H_0\,, \qquad \Fil^1H_0 = \Ker F : H_0 \to H_0\,.\end{equation}
+
+L'hypothese (i) entraine d'abord que le rang stable de $e_0^*H_0$ est $h_0 = \rg \Fil_0H_0 = \rg \Fil^0H_0$ (coincidence des parties de pente 0 des polygones de Newton et de Hodge de $e_0^*H$). Soit $s_0$ un point de $\Spec(A_0)$ a valeurs dans une extension algebriquement close du corps des fractions de $A_0$. La demonstration de \ref{prop:1.2.4} montre que l'on a
+\[
+\rg\nolimits.\st(s_0^*H_0) \geq \rg\nolimits.\st(e_0^*H_0)
+\]
+($\rg\nolimits.\st =$ rang stable), mais comme on a aussi $\rg\nolimits.\st(s_0^*H_0) \leq h_0$ d'apres (1.3.3.1), on en deduit
+\[
+\rg\nolimits.\st(e_0^*H_0) = \rg\nolimits.\st(s_0^*H_0) = h_0\,.
+\]
+Il en resulte d'une part que l'on a
+\[
+\Fil_0(s_0^*H_0) = (s_0^*H_0)^{\mathrm{ss}}\,, \qquad \Fil^1(s_0^*H_0) = (s_0^*H_0)^{\mathrm{nilp}}\,,
+\]
+donc $s_0^*\Fil_0H_0 \cap s_0^*\Fil^1H_0 = 0$, donc
+\begin{equation}\label{eq:1.3.3.2}
+H_0 = \Fil_0H_0 \oplus \Fil^1H_0\,.\end{equation}
+
+D'autre part, d'apres \ref{prop:1.2.4}, on a une suite exacte de $F$-cristaux sur $A_0$
+\begin{equation}\label{eq:1.3.3.3}
+0 \longrightarrow U \longrightarrow H \longrightarrow E \longrightarrow 0\,,
+\end{equation}
+ou $U$ est le sous-$F$-cristal unite de $H$, et $E$ un $F$-cristal topologiquement nilpotent. Comme par definition $\rg(U_0) = \rg\nolimits.\st(e_0^*H_0) = h_0$, $U_0$ releve $\Fil_0H_0$, donc la projection $H \to E$ induit un isomorphisme $\Fil^1H_0 \xrightarrow{\;\sim\;} E_0$, ce qui signifie que $F(\sigma) : \sigma^*E \to E$ est divisible par $p$, donc que $E = E'(-1)$, ou $E'$ est un $F$-cristal de niveau $\leq n-1$. Il est clair que $e_0^*E$, donc aussi $e_0^*E'$, a memes polygones de Newton et de Hodge, donc par l'hypothese de recurrence appliquee a $E'$, on en conclut que les filtrations de Hodge et conjuguees de $E_0 = E \otimes_A A_0$ sont opposees. On aura donc prouve (ii) si l'on verifie que la projection $H \to E$ induit des isomorphismes (pour $i \geq 0$)
+\[
+\Fil^iH_0/\Fil_0H_0 \xrightarrow{\;\sim\;} \Fil^iE_0\,, \qquad \Fil_{i+1}H_0 \xrightarrow{\;\sim\;} \Fil_{i+1}E_0\,.\]
+Or il est clair que ces fleches sont injectives, et leur surjectivite resulte aisement de ce que $U$ est un $F$-cristal unite.
+
+Prouvons maintenant (ii) $\Rightarrow$ (iii). On suppose a nouveau $H$ de niveau $\leq n$, et la conclusion etablie pour les $F$-cristaux de niveau $\leq n-1$. L'unicite de (1.3.2.1) est claire, compte tenu de l'hypothese de recurrence, car $U_0$ est necessairement le sous-$F$-cristal unite de $H$. Pour l'existence, notons qu'on a (1.3.3.2) par hypothese. D'apres (1.3.3.1), on en deduit
+\[
+e_0^*\Fil_0H_0 = (e_0^*H_0)^{\mathrm{ss}}\,, \qquad s_0^*\Fil_0H_0 = (s_0^*H_0)^{\mathrm{ss}}
+\]
+(car la decomposition en partie semi-simple et partie nilpotente est unique), donc les rangs stables de $e_0^*H_0$ et $s_0^*H_0$ sont egaux. Grace a \ref{prop:1.2.4}, on obtient donc encore une suite exacte (1.3.3.3). On a vu ci-dessus que les filtrations de Hodge et conjuguees de $E_0$ se deduisent de celles de $H_0$ par passage au quotient : elles sont donc opposees. Comme $E = E'(-1)$, avec $E'$ de niveau $\leq n-1$, l'hypothese de recurrence entraine l'existence d'une filtration de $E$ par des sous-$F$-cristaux
+\[
+0 = W_0 \subset W_1 \subset \cdots \subset W_i \subset W_{i+1} \subset \cdots
+\]
+tels que $W_i$ releve $\Fil_iE_0$, et $W_i/W_{i-1}$ soit de la forme $T_i(-i)$, avec $T_i$ un $F$-cristal unite. Pour $i \geq 1$, notons $U_i$ l'image inverse de $W_i$ dans $H$. Les $U_i$, pour $i \geq 1$, et $U_0$ forment une filtration (1.3.2.1), qui satisfait visiblement aux conditions enoncees en (iii). Ceci acheve la demonstration de \ref{prop:1.3.2}.
+
+\begin{remark}\label{rem:1.3.4}
+Si $A_0 = k$, la filtration (1.3.2.1) admet un scindage unique
+\begin{equation}\label{eq:1.3.4.1}
+U_i = \bigoplus_{j \leq i} V_j(-j)\,,
+\end{equation}
+ou $V_j$ est un $F$-cristal unite. C'est un cas particulier du theoreme de Katz [10, 1.6.1], mais il est facile de verifier ce point directement : l'unicite est claire, car, pour $j < i$, $\Hom(V_i(-i), V_j(-j)) = 0$, quant a l'existence du scindage, elle s'etablit aisement par recurrence sur le niveau, a l'aide d'un argument de point fixe analogue a ceux utilises dans la demonstration de \ref{prop:1.2.4}.
+\end{remark}
+
+\subsubsection{}
+
+Soit $H$ un $F$-cristal sur $A_0$. On appellera \emph{filtration de Hodge} sur $H$ une filtration finie decroissante par des sous-$A$-modules libres
+\[
+\Fil^0H = H \supset \Fil^1H \supset \cdots \supset \Fil^iH \supset \Fil^{i+1}H \supset \cdots
+\]
+verifiant les deux conditions suivantes :
+\begin{enumerate}[label=(\roman*)]
+\item pour tout $i$, $\Fil^iH$ releve $\Fil^iH_0$,
+\item (``transversalite'') pour tout $i$, on a
+\begin{equation}\label{eq:1.3.5.1}
+\nabla\Fil^iH \subset \Omega^1_{A/W} \otimes \Fil^{i-1}H\,.\end{equation}
+\end{enumerate}
+
+On appellera \emph{$F$-cristal de Hodge} sur $A_0$ un $F$-cristal sur $A_0$ muni d'une filtration de Hodge.
+
+Un exemple standard est fourni, dans la situation geometrique envisagee en 1.3.1, par la donnee d'un relevement de $X_0/A_0$ en un schema formel propre et lisse $X/A$ tel que la suite spectrale de Hodge de $X/A$, $E_1^{i,j} = H^j(X, \Omega_{X/A}^i) \Rightarrow H_{dR}^*(X/A)$ ($= H_{\crys}^*(X_0/A)$), degenere en $E_1$, avec un terme $E_1$ libre sur $A$. La filtration de Hodge de $H_{dR}^*(X/A)$ aboutissement de cette suite spectrale, verifie les conditions (i) et (ii) ci-dessus.
+
+\begin{proposition}\label{prop:1.3.6}
+Soit $(H, \Fil^\bullet H)$ un $F$-cristal de Hodge sur $A_0$. Si $H$ est ordinaire (\ref{def:1.3.3}), les filtrations $U_i$ (1.3.2.1) et $\Fil^\bullet H$ sont opposees, i.e.\ on a, pour tout $i$, $H = U_i \oplus \Fil^{i+1}H$, d'ou une decomposition
+\begin{equation}\label{eq:1.3.6.1}
+H = \bigoplus_i H^i\,, \qquad H^i = U_i \cap \Fil^iH\,,
+\end{equation}
+avec $H^i$ de rang $h_i$ (1.3.1.5).
+\end{proposition}
+
+C'est une consequence immediate de \ref{prop:1.3.2} et 1.3.5 (i) (la condition (ii) ne sert pas).
+
+Dans l'exemple ci-dessus, supposons le $F$-cristal $H = H_{dR}^n(X/A)$ ordinaire. Pour chaque $r \geq 1$, la suite spectrale conjuguee
+\[
+(*)_{r}\quad E_2^{i,j} = H^i(X \otimes W_r, \mathcal{H}^j(\Omega_{X \otimes W_r/A \otimes W_r}^\bullet)) \Longrightarrow H_{dR}^*(X \otimes W_r/A \otimes W_r)
+\]
+definit une filtration $(U_{i,r})$ sur $H_{dR}^*(X \otimes W_r/A \otimes W_r)$. On peut esperer que la limite projective des suites spectrales $(*)_r$ est une suite spectrale, dont la filtration aboutissement sur $H$ est la limite des $(U_{i,r})$ et coincide avec la filtration $(U_i)$.
+
+\subsection{F-cristaux de Hodge ordinaires de niveau $\leq 1$}
+
+\subsubsection{}
+
+Soit $H$ un $F$-cristal de Hodge ordinaire de niveau $\leq 1$ sur $A_0$. D'apres \ref{prop:1.3.2}, on a donc une extension de $F$-cristaux
+\begin{equation}\label{eq:1.4.1.1}
+0 \longrightarrow U \longrightarrow H \longrightarrow V(-1) \longrightarrow 0\,,
+\end{equation}
+ou $U$ et $V$ sont des $F$-cristaux unites, et $U$ releve $\Fil_0H_0$.
+
+On notera $r$ (resp.\ $s$) le rang de $U$ (resp.\ $V$). D'autre part, $H$ est muni du sous-module libre $\Fil^1H$, qui releve $\Fil^1H_0$, donc verifie, d'apres (1.3.1.4),
+\begin{equation}\label{eq:1.4.1.2}
+F(\sigma)\sigma^*\Fil^1H \subset pH
+\end{equation}
+pour tout relevement $\sigma$ de Frobenius. De plus, d'apres \ref{prop:1.3.6}, $H$, en tant que $A$-module, se decompose en somme directe
+\begin{equation}\label{eq:1.4.1.3}
+H = U \oplus \Fil^1H\,.\end{equation}
+En particulier, $\Fil^1H$ est de rang $s$, et se projette isomorphiquement sur $V$.
+
+\begin{theorem}\label{thm:1.4.2}
+Avec les notations de \emph{1.4.1} :
+
+\emph{(i)} Il existe une base $a = (a_i)_{1 \leq i \leq r}$ du $A$-module $U$ et $b = (b_i)_{1 \leq i \leq s}$ du $A$-module $\Fil^1H$ verifiant les conditions
+\begin{align}
+\nabla a_i &= 0\,, && 1 \leq i \leq r\,, \label{eq:1.4.2.1} \\
+\nabla b_i &= \sum_{1 \leq j \leq r} \eta_{ij} \otimes a_j\,, && \eta_{ij} \in \Omega^1_{A/W}\,, \quad 1 \leq i \leq s\,, \label{eq:1.4.2.2} \\
+F(\sigma)\sigma^*a_i &= a_i\,, && 1 \leq i \leq r\,, \label{eq:1.4.2.3} \\
+F(\sigma)\sigma^*b_i &= pb_i + p\sum_{1 \leq j \leq r} u_{ij}(\sigma)a_j\,, && u_{ij}(\sigma) \in A\,, \quad 1 \leq i \leq s\,, \label{eq:1.4.2.4}
+\end{align}
+pour tout relevement $\sigma$ de Frobenius. De plus, les formes $\eta_{ij}$ sont fermees, et verifient, pour tout relevement $\sigma$ de Frobenius,
+\begin{equation}\label{eq:1.4.2.5}
+\sigma^*\eta_{ij} = p\eta_{ij} + pdu_{ij}(\sigma)\,.\end{equation}
+
+\emph{(ii)} Les bases $a$ et $b$ etant choisies comme en (i), il existe une unique famille de series formelles $\tau_{ij} \in K[[t]]$ (ou $K$ est le corps des fractions de $W$) telles que, quels que soient $i$ et $j$,
+\begin{align}
+d\tau_{ij} &= \eta_{ij}\,, \label{eq:1.4.2.6} \\
+\sigma^*\tau_{ij} - p\tau_{ij} - pu_{ij}(\sigma) &= 0 \label{eq:1.4.2.7}
+\end{align}
+pour tout relevement $\sigma$ de Frobenius. On a
+\begin{equation}\label{eq:1.4.2.8}
+\tau_{ij}(0) \in pW\,.\end{equation}
+De plus, si $p \neq 2$, les series
+\begin{equation}\label{eq:1.4.2.9}
+q_{ij} = \exp(\tau_{ij})\end{equation}
+sony definies, appartiennent a $A$, et verifient $q_{ij}(0) \equiv 1 \pmod{pW}$.
+\end{theorem}
+
+Prouvons (i). Vu la structure des $F$-cristaux unites (\ref{prop:1.2.2}), il existe une base $a = (a_i)_{1 \leq i \leq r}$ de $U$ verifiant (1.4.2.1) et (1.4.2.3), et une base $b = (b_i)_{1 \leq i \leq s}$ de $\Fil^1H$ telle que, si $b_i'$ designe l'image de $b_i$ dans $V(-1)$, on ait $\nabla b_i' = 0$ et $F(\sigma)\sigma^*b_i' = pb_i'$ pour tout $i$ et tout relevement $\sigma$ de Frobenius. Par suite $\nabla b_i$ et $F(\sigma)\sigma^*b_i$ s'ecrivent sous les formes (1.4.2.2) et (1.4.2.4). L'integrabilite de $\nabla$ entraine, par application de $\nabla$ a (1.4.2.2), que $d\eta_{ij} = 0$ quels que soient $i$ et $j$. D'autre part, appliquant $\nabla$ a (1.4.2.4), et utilisant l'horizontalite de $F$ (1.1.3.3), on obtient les relations (1.4.2.5).
+
+Prouvons (ii). Les formes $\eta_{ij}$ etant fermees, il existe, en vertu du lemme de Poincare, des series $\tau_{ij} \in K[[t]]$, determinees a une constante pres, telles que l'on ait (1.4.2.6). La relation (1.4.2.5) entraine alors que
+\[
+\sigma^*\tau_{ij} - p\tau_{ij} - pu_{ij}(\sigma) \in K\,,
+\]
+donc
+\begin{equation}\label{eq:1.4.2.10}
+\sigma^*\tau_{ij} - p\tau_{ij} - pu_{ij}(\sigma) = (\sigma^*\tau_{ij})(0) - p\tau_{ij}(0) - pu_{ij}(\sigma)(0)\,.\end{equation}
+Notons $x \mapsto x^\sigma$ l'automorphisme de Frobenius de $K$. Fixons tout d'abord le relevement $\sigma$ de Frobenius tel que $\sigma(t_i) = t_i^p$, et normalisons $\tau_{ij}$ par la condition
+\begin{equation}\label{eq:1.4.2.11}
+(\sigma^*\tau_{ij})(0) - p\tau_{ij}(0) - pu_{ij}(\sigma)(0) = 0\end{equation}
+qui s'ecrit encore (car $(\sigma^*\tau_{ij})(0) = \tau_{ij}(0)^\sigma$)
+\begin{equation}\label{eq:1.4.2.12}
+\tau_{ij}(0) = \sum_{n \geq 1} V^nu_{ij}(\sigma)(0)\end{equation}
+(ou $Vx = pF^{-1}x = px^\sigma$). En particulier, on a (1.4.2.8).
+
+Montrons que, si $\sigma$ est un relevement quelconque de Frobenius, la condition (1.4.2.7), avec $\sigma$ remplace par $\sigma$, est satisfaite. Compte tenu de (1.4.2.10) (avec $\sigma$ remplace par $\sigma$), il revient au meme de verifier que l'on a
+\begin{equation}\label{eq:1.4.2.13}
+(\sigma^*\tau_{ij})(0) - p\tau_{ij}(0) - pu_{ij}(\sigma)(0) = 0\,.\end{equation}
+Si $\sigma(0) = 0$ (i.e.\ $\sigma$ est compatible a l'augmentation $e : W[[t]] \to W$), on a $(\sigma^*\tau_{ij})(0) = \tau_{ij}(0)^\sigma$, et (1.4.2.13) equivaut a (1.4.2.12) avec $\sigma$ remplace par $\sigma$. Il suffit donc de verifier que $u_{ij}(\sigma)(0) = u_{ij}(\sigma_0)(0)$. Or l'augmentation $e$ est le relevement de Teichmuller (1.1.4) de l'augmentation $k[[t]] \to k$ simultanement pour $\sigma$ et pour $\sigma_0$, donc $F(\sigma)\sigma^*$ et $F(\sigma_0)\sigma_0^*$ induisent le meme endomorphisme $\sigma$-lineaire $F$ de $e^*H$. Appliquant $e^*$ a (1.4.2.4) ecrit pour $\sigma$ et pour $\sigma_0$, on obtient donc
+\[
+F(e^*b_i) = p(e^*b_i) + p\sum_{1 \leq j \leq r} u_{ij}(\sigma)(0)(e^*a_j) = p(e^*b_i) + p\sum_{1 \leq j \leq r} u_{ij}(\sigma_0)(0)(e^*a_j)\,,
+\]
+d'ou $u_{ij}(\sigma)(0) = u_{ij}(\sigma_0)(0)$, ce qui prouve (1.4.2.13) dans ce cas.
+
+Si maintenant $\sigma$ est un relevement quelconque de Frobenius, on peut ecrire
+\[
+\sigma(t_i) = \sigma_0(t_i) + pw_i\,, \qquad 1 \leq i \leq n\,,
+\]
+avec $w = (w_1, \ldots, w_n) \in W^n$, ou $\sigma_0 : A \to A$ est un relevement de Frobenius tel que $\sigma_0(0) = 0$. Appliquant (1.1.3.4), avec $\tau = \sigma_0$, $\sigma = \sigma$, $x = b_i$, on obtient, compte tenu de (1.4.2.4),
+\begin{equation}\tag{$*$}
+p\sum_{1 \leq j \leq r} u_{ij}(\sigma)a_j = p\sum_{1 \leq j \leq r} u_{ij}(\sigma_0)a_j + \sum_{|n|>0} p^{[n]}(w)^n F(\sigma_0)\sigma_0^*(\nabla(D)^nb_i)\,.\end{equation}
+Calculons $\nabla(D)^nb_i$ : si $D_k = \partial/\partial t_k$, on a, d'apres (1.4.2.2), (1.4.2.6),
+\[
+\nabla(D_k)b_i = \langle D_k, \sum_j \eta_{ij} \rangle \otimes a_j = \sum_j (D_k\tau_{ij})a_j\,,
+\]
+d'ou, comme $\nabla a_j = 0$,
+\[
+\nabla(D^n)b_i = \sum_j (D^n\tau_{ij})a_j
+\]
+pour tout multi-exposant $n$ tel que $|n| > 0$. Reportant dans $(*)$, on obtient
+\[
+pu_{ij}(\sigma) = pu_{ij}(\sigma_0) + \sum_{|n|>0} p^{[n]}(w)^n\sigma(D^n\tau_{ij})\,,
+\]
+et par suite la formule (1.4.2.13) a verifier s'ecrit
+\begin{equation}\tag{$**$}
+(\sigma^*\tau_{ij})(0) - p\tau_{ij}(0) - pu_{ij}(\sigma_0)(0) - \sum_{|n|>0} p^{[n]}(w^n(D^n\tau_{ij})(0))^\sigma = 0\,.\end{equation}
+Notons que $\sigma = \sigma_0 \circ \alpha$, ou $\alpha$ est l'endomorphisme de $W$-algebre de $A$ tel que $\alpha(t_i) = t_i + pw_i$, donc que
+\[
+(\sigma^*\tau_{ij})(0) = (\sigma_0^*(\alpha^*\tau_{ij}))(0) = (\alpha^*\tau_{ij})(0)^\sigma = \tau_{ij}(pw)^\sigma\,.\]
+D'autre part, $\sigma_0$ verifie (1.4.2.13) comme on l'a vu plus haut, car $\sigma_0(0) = 0$, et $(\sigma^*\tau_{ij})(0) = \tau_{ij}(0)^\sigma$, donc
+\[
+p\tau_{ij}(0) = \tau_{ij}(0)^\sigma - pu_{ij}(\sigma_0)(0)\,.\]
+On peut donc reecrire $(**)$ sous la forme
+\[
+\tau_{ij}(pw)^\sigma = \tau_{ij}(0)^\sigma + \sum_{|n|>0} p^{[n]}w^n(D^n\tau_{ij})(0)^\sigma\,,
+\]
+i.e.
+\[
+\tau_{ij}(pw) = \tau_{ij}(0) + \sum_{|n|>0} p^{[n]}w^n(D^n\tau_{ij})(0)\,.\]
+Or on reconnait ici le developpement de Taylor de $\tau_{ij}(pw)$. Cela etablit $(**)$, donc (1.4.2.13) dans tous les cas. Pour demontrer la derniere assertion de \ref{thm:1.4.2}, nous aurons besoin du resultat suivant de Dwork :
+
+\begin{lemma}[{[5], Lemma 1}]\label{lem:1.4.3}
+Notons $\sigma$ l'automorphisme $\sigma$-lineaire de $K[[t]]$ (ou $t = (t_1, \ldots, t_n)$ et $K$ est le corps des fractions de $W$) donne par $t_i \mapsto t_i^p$. Soit $f \in K[[t]]$ tel que $f(0) = 1$. Les conditions suivantes sont equivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item $f \in W[[t]]$,
+\item $(\sigma f)/f^p = 1 + pu$, avec $u \in W[[t]]$, $u(0) = 0$.
+\end{enumerate}
+\end{lemma}
+
+L'implication (i) $\Rightarrow$ (ii) est immediate. Rappelons la demonstration de (ii) $\Rightarrow$ (i). Ecrivons $f = \sum_i a_it^i$ ($a_0 = 1$), et supposons prouve que $a_i \in W$ pour $|i| < r$ (ou $|i| = i_1 + \cdots + i_n$). Notant $(\ )_{<j}$ la partie de degre total $< j$, on calcule
+\[
+((\sum_{|i| \geq 0} a_it^i)^p)_{<r} = ((\sum_{|i| \leq r-1} a_it^i)^p)_{<r} + p\sum_{|i|=r} a_it^i \pmod{pW[[t]]}\,,
+\]
+puis, posant $(\sigma f)/f^p = 1 + p\sum_i d_it^i$ ($d_i \in W$),
+\[
+(\sum_{|i| \geq 0} a_i^\sigma t^{pi})(1 + p\sum_{|i| \geq 1} d_it^i) = ((\sum_{|i| \leq r-1} a_it^i)^p)_{<r} \pmod{pW[[t]]}\,,
+\]
+\[
+(1 + p\sum_{|i| \geq 1} d_it^i)(\sum_{|i| \leq r-1} a_i^\sigma t^{pi})_{<r} \equiv (\sum_{|i| \leq r-1} a_i^pt^{pi})_{<r} \pmod{pW[[t]]}\,.\]
+
+Comparant les deux expressions obtenues pour $(f^p)_{<r}$, on trouve
+\[
+p\sum_{|i|=r} a_it^i \in pW[[t]]\,,
+\]
+donc $a_i \in W$ pour tout $i$ tel que $|i| = r$, ce qui prouve (ii) $\Rightarrow$ (i).
+
+\begin{corollary}\label{cor:1.4.4}
+Soit $g \in K[[t]]$ tel que $g(0) = 0$. Les conditions suivantes sont equivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item $\exp(g) \in W[[t]]$,
+\item $\sigma^*g - pg \in pW[[t]]$.
+\end{enumerate}
+\end{corollary}
+
+En effet, posons $f = \exp(g)$. Comme, pour $n > 1$, $p^n/n!$ (et a fortiori $p^n/n$) appartiennent a $pW$, la condition (ii) equivaut a dire que $\sigma f/f^p = 1 + pu$, avec $u \in W[[t]]$, $u(0) = 0$.
+
+\begin{corollary}\label{cor:1.4.5}
+Supposons $p \neq 2$. Soit $g \in K[[t]]$, tel que $g(0) \in pW$, et $\sigma^*g - pg \in pW[[t]]$. Alors la serie $f = \exp(g)$ est definie, appartient a $W[[t]]$, et verifie $f(0) \equiv 1 \pmod{p}$.
+\end{corollary}
+
+En effet, soit $h = g - g(0)$. Comme $p \neq 2$ et que $g(0) \in pW$, $\exp(g(0))$ est defini, donc aussi $\exp(g) = \exp(g(0))\exp(h)$. Posons $g(0) = a$ ($a \in W$). On a
+\[
+\sigma^*h - ph = \sigma^*g - pg - (a^\sigma - pa) \in pW[[t]]
+\]
+(car $a^\sigma - pa \in pW$ et $\sigma^*g - pg \in pW[[t]]$). Donc, par \ref{cor:1.4.4} applique a $h$, on a $\exp(h) \in W[[t]]$, et comme $\exp(a) \equiv 1 \pmod{pW}$, on en conclut que $f = \exp(g) \in W[[t]]$ et $f(0) \equiv 1 \pmod{pW}$.
+
+\textbf{Fin de la demonstration de \ref{thm:1.4.2}.} Il suffit d'appliquer \ref{cor:1.4.5} a $\tau_{ij}$ : les hypotheses de \ref{cor:1.4.5} sont verifiees en vertu de (1.4.2.7) et (1.4.2.8).
+
+\subsubsection{}
+
+Si $H$ est un $F$-cristal de Hodge, comme en 1.3.5, la connexion $\nabla$ induit, grace a (1.3.5.1), un homomorphisme $A$-lineaire
+\begin{equation}\label{eq:1.4.6.1}
+\gr\nabla : \gr^iH \longrightarrow \Omega^1_{A/W} \otimes \gr^{i-1}H\end{equation}
+(ou $\gr^i = \Fil^i/\Fil^{i+1}$). En particulier, dans la situation de 1.4.1, $\nabla$ induit un homomorphisme $A$-lineaire
+\begin{equation}\label{eq:1.4.6.2}
+\gr\nabla : \Fil^1H \longrightarrow \Omega^1_{A/W} \otimes U\,,
+\end{equation}
+puisque $U \xrightarrow{\sim} H/\Fil^1H$ (1.4.1.3), d'ou un homomorphisme $A$-lineaire
+\begin{equation}\label{eq:1.4.6.3}
+\gr\nabla : T_{A/W} \longrightarrow \Hom_A(\Fil^1H, U)\,,
+\end{equation}
+ou $T_{A/W} = (\Omega^1_{A/W})^\vee$.
+
+\begin{corollary}\label{cor:1.4.7}
+Sous les hypotheses de \emph{1.4.1}, supposons que (1.4.6.3) soit un isomorphisme, et que $p$ soit different de $2$. Alors les elements $q_{ij} - 1$ ($1 \leq i \leq s$, $1 \leq j \leq r$) definis en (1.4.2.9) forment avec $p$ un systeme regulier de parametres de $A = W[[t]]$, i.e.\ le $W$-homomorphisme $W[[x_{ij}]]_{(1 \leq i \leq s, 1 \leq j \leq r)} \to A$ envoyant $x_{ij}$ sur $q_{ij} - 1$ est un isomorphisme, et si l'on note $\sigma$ le relevement de Frobenius defini par $\sigma(q_{ij}) = q_{ij}^p$, on a
+\begin{equation}\label{eq:1.4.7.1}
+F(\sigma)\sigma^*b_i = pb_i\end{equation}
+pour tout $i$ (avec les notations de \ref{thm:1.4.2}).
+\end{corollary}
+
+Notons $\mathfrak{m} = (p, t_1, \ldots, t_n)$ l'ideal maximal de $A = W[[t]]$. Comme $q_{ij}(0) \equiv 1 \pmod{pW}$, les $q_{ij}$ sont des unites de $A$ congrues a $1 \bmod \mathfrak{m}$. Pour prouver la premiere assertion, il suffit de montrer que les formes $\eta_{ij} = d\log q_{ij}$ forment une base (sur $A$) de $\Omega^1_{A/W}$.
+
+Tout homomorphisme $f : \Fil^1H \to U$ est determine par une matrice $(f_{ij})$ telle que $f(b_i) = \sum_j f_{ij}a_j$. Notons $D_{ij}$ la base de $T_{A/W}$ telle que
+\[
+(\gr\nabla)(D_{ij})_{k\ell} = \begin{cases} 0 & \text{si } (k,\ell) \neq (i,j)\\ 1 & \text{si } (k,\ell) = (i,j)\end{cases}
+\]
+Pour tout $D \in T_{A/W}$, on a, d'apres (1.4.2.2),
+\[
+(\gr\nabla)(D)b_i = \sum_j \eta_{ij}(D)a_j\,,
+\]
+donc
+\[
+(\gr\nabla)(D_{ij})_{k\ell} = \eta_{k\ell}(D_{ij})\,.\]
+Les $\eta_{ij}$ forment donc une base de $\Omega^1_{A/W}$, a savoir la base duale de la base $D_{ij}$. D'autre part, la relation $\sigma q_{ij} = q_{ij}^p$ entraine $\sigma\log q_{ij} = p\log q_{ij}$, mais comme $\log q_{ij} = \tau_{ij}$, (1.4.2.7) entraine $u_{ij}(\sigma) = 0$, donc (1.4.7.1) resulte de (1.4.2.4).
+
+\subsubsection{}
+
+Soit, comme en \ref{prop:1.3.6}, $(H, \Fil^\bullet H)$ un $F$-cristal de Hodge sur $A_0$ ($= k[[t]]$) tel que $H$ soit ordinaire. Supposons $H$ de niveau $\leq N$, i.e.\ (1.3.1) $\Fil^{N+1}H = 0$, de sorte que la decomposition (1.3.6.1) s'ecrit
+\begin{equation}\label{eq:1.4.8.1}
+H = \bigoplus_i H^i\,, \qquad H^i = U_i \cap \Fil^iH\,, \quad \rg(H^i) = h_i\,.\end{equation}
+Supposons d'autre part $p \neq 2$. Appliquant \ref{thm:1.4.2} aux $F$-cristaux de Hodge ordinaires (de niveau $\leq 1$) $(U_{i+2}/U_i, (\Fil^\bullet H \cap U_{i+2})/(\Fil^\bullet H \cap U_i))$, on obtient :
+
+\begin{corollary}\label{cor:1.4.9}
+Sous les hypotheses de \emph{1.4.8}, il existe une base $(e_1^{(i)}, \ldots, e_{h_i}^{(i)})_{0 \leq i \leq N}$ de $H$, et des elements $q_{i;\alpha,\beta}$ de $A$ tels que
+\[
+q_{i;\alpha,\beta}(0) \in 1 + pW\,,
+\]
+\begin{equation}\label{eq:1.4.9.1}
+\begin{aligned}
+\nabla e_\alpha^{(0)} &= 0 && (1 \leq \alpha \leq h_0)\\
+\nabla e_\alpha^{(m)} &= \sum_{1 \leq j \leq h_{m-1}} (d\log q_{m-1;\alpha,j}) \otimes e_j^{(m-1)} && (1 \leq m \leq N,\ 1 \leq \alpha \leq h_m)\,.\end{aligned}
+\end{equation}
+\end{corollary}
+
+On peut utiliser \ref{cor:1.4.9} pour majorer la croissance des sections horizontales de $H$. Rappelons [8, 3.1] que celles-ci ``convergent dans le polydisque unite ouvert'', et plus precisement que le module $(H \otimes_A K\{\{t_1, \ldots, t_n\}\}, \nabla)$ possede une base de sections horizontales : il s'agit d'une propriete valable pour tout $F$-cristal, independamment de toute hypothese d'ordinarite. Cela dit, il resulte aisement de \ref{cor:1.4.9} que, pour tout $i$, les sections horizontales de $U_i \otimes_A K\{\{t\}\}$ appartiennent a $U_i \otimes_A L_i$, ou
+\[
+0 = L_{-1} \subset L_0 \subset L_1 \subset \cdots \subset L_i \subset \cdots
+\]
+est la suite de sous-$A$-modules de $K\{\{t\}\}$ definie par recurrence par
+\[
+(f \in L_i) \Longleftrightarrow (f \text{ appartient au sous-$A$-module de } K\{\{t\}\} \text{ engendre par les series } g \text{ telles que } dg = \sum_\alpha a_\alpha d\log u_\alpha\,,
+\]
+avec $a_\alpha \in L_{i-1}$, et $u_\alpha \in A$, $u_\alpha(0) \in 1 + pW$).
+
+Dans la situation de 1.4.8, on ne peut esperer toutefois d'enonce analogue a \ref{cor:1.4.7} (l'hypothese que (1.4.6.3) est un isomorphisme n'a pas de generalisation en niveau $\geq 2$).
+
+\section{Applications geometriques}
+
+On conserve les notations $A_0$, $A$ de 1.1.1.
+
+\subsection{Coordonnees canoniques}
+
+\subsubsection[A. Varietes abeliennes]{A. Varietes abeliennes ({cf.\ [8, \S 8]})}
+
+\paragraph{}
+
+Soit $X/A$ un schema abelien formel de dimension relative $g$. Le $A$-module
+\[
+H = H_{dR}^1(X/A)
+\]
+muni de la connexion de Gauss--Manin $\nabla$, est un $F$-cristal sur $A_0$, de rang $2g$. On sait (voir par exemple [13, Addendum]) que la suite spectrale de Hodge
+\[
+E_1^{i,j} = H^j(X, \Omega_{X/A}^i) \Longrightarrow H_{dR}^*(X/A)
+\]
+degenere en $E_1$, et que le terme $E_1^{i,j}$ est libre sur $A$, de formation compatible a tout changement de base. Il en resulte (1.3.5) que $H$, muni de la filtration de Hodge
+\[
+H = \Fil^0H \supset \Fil^1H\ (= H^0(X, \Omega_{X/A}^1)) \supset 0
+\]
+est un $F$-cristal de Hodge sur $A_0$. Notons aussi que, si $X_0 = X \otimes_A A_0$, la suite spectrale de Hodge et la suite spectrale conjuguee de $X_0/A_0$ degenerent (en $E_1$ et $E_2$ resp.) et que leurs termes initiaux sont libres et de formation compatible a tout changement de base. En particulier, le gradue associe a la filtration conjuguee $\gr_\bullet(H \otimes_A A_0)$ est libre. D'autre part, si $e_0 : A_0 \to k$ est l'augmentation, le $F$-cristal $e_0^*H$ induit sur $k$ (1.1.4) n'est autre que $H^1(X \otimes k/W)$, car si $e : A \to W$ est l'augmentation, $e^*H = H_{dR}^1(X \otimes W/W) = H^1(X \otimes k/W)$ par definition de la cohomologie cristalline.
+
+\paragraph{}
+
+Supposons la variete abelienne $X \otimes k$ ordinaire, ce qui signifie, au choix, que $(X \otimes k)(k) \supset (\mathbb{Z}/p\mathbb{Z})^g$, ou que Frobenius sur $H^1(X \otimes k, \mathcal{O})$ est bijectif, ou que $H^1(X \otimes k/W)$ a memes polygones de Newton et de Hodge. D'apres ce qu'on vient de rappeler, le $F$-cristal $H$ est alors ordinaire au sens de \ref{def:1.3.3}, et comme il est de Hodge de niveau $\leq 1$, on peut lui appliquer \ref{thm:1.4.2}. Notons que, dans la decomposition $H = U \oplus \Fil^1H$, $U$ et $\Fil^1H$ sont libres de rang $g$. Il existe donc une base $(a_i)_{1 \leq i \leq g}$ de $U$, une base $(b_i)_{1 \leq i \leq g}$ de $\Fil^1H$, et des series $\tau_{ij} \in K[[t]]$ ($1 \leq i,j \leq g$) verifiant les conditions (1.4.2.1) a (1.4.2.8). De plus, si $p \neq 2$, on dispose des series $q_{ij} = \exp(\tau_{ij}) \in A$, telles que $q_{ij}(0) \equiv 1 \pmod{pW}$.
+
+\paragraph{}
+
+Supposons que $X/A$ soit la deformation formelle verselle de $X \otimes k$, donc que $A = W[[t_1, \ldots, t_{g^2}]]$. Alors (1.4.6.3) est un isomorphisme, qui s'identifie a l'isomorphisme de Kodaira--Spencer
+\[
+T_{A/W} \xrightarrow{\;\sim\;} H^1(X, T_{X/A}) \xrightarrow{\;\sim\;} \Hom(H^0(X, \Omega_{X/A}^1), H^1(X, \mathcal{O}_X))
+\]
+(cf.\ (IV 2.3)). Donc, si $p \neq 2$, les elements $q_{ij} - 1 \in A$ forment, en vertu de \ref{cor:1.4.7}, des coordonnees ``canoniques'' sur $A$ (i.e.\ $A \simeq W[[q_{ij} - 1]]$), et, si l'on note $\sigma$ le relevement de Frobenius donne par $\sigma(q_{ij}) = q_{ij}^p$, on a, avec les notations de 2.1.2,
+\[
+F(\sigma)\sigma^*a_i = a_i\,, \qquad F(\sigma)\sigma^*b_i = pb_i \quad (1 \leq i \leq g)\,.\]
+
+Soit $e : A \to W$ le relevement de Teichmuller de $e_0$ correspondant a $\sigma$, i.e.\ tel que $e(q_{ij}) = 1$. Il n'est pas difficile de montrer --- nous etablirons un resultat analogue ci-dessous pour les surfaces K3 --- que $e$ est independant du choix de $(a, b, q)$, et qu'on a un isomorphisme canonique (defini a l'aide de $(a, b, q)$ mais n'en dependant pas) entre $S$ et $\widehat{\mathbb{G}}_{m,W}^{g^2}$, ou $\widehat{G}$ est le tore formel sur $\mathbb{Z}_p$ de groupe de caracteres $\Hom_{\mathbb{Z}_p}(P_0, P_1)$, $P_0$ (resp.\ $P_1$) designant le sous-$\mathbb{Z}_p$-module (libre de rang $g$) de $H^1(X \otimes k/W)$ forme des $x$ tels que $Fx = x$ (resp.\ $Fx = px$). Cet isomorphisme envoie $e$ sur l'element neutre de $\widehat{G}_W$. On peut montrer (voir Appendice et Expose suivant, par N.\ Katz) que cette structure de groupe formel sur $S$ coincide avec celle definie, a la Serre--Tate, par le relevement formel versel du groupe $p$-divisible associe a $X \otimes k$.
+
+En particulier, la variete abelienne $e^*X/W$ est le relevement canonique de $(X \otimes k)/k$ [14, V \S 3]. Rappelons que ce relevement correspond au relevement trivial (i.e.\ comme produit) du groupe $p$-divisible associe a $X \otimes k$, ou, ce qui revient au meme, au relevement de $\Fil^1H_{dR}^1(X \otimes k/k)$ en le facteur direct $P_1 \otimes W$ de pente 1 de $H^1(X \otimes k/W)$ (cf.\ 1.3.4).
+
+\paragraph{Variante.}
+
+Soit $X/A$ une courbe propre et lisse a fibres geometriquement connexes de genre $g \geq 1$. Alors $H = H_{dR}^1(X/A)$, muni de la connexion de Gauss--Manin $\nabla$ et de la filtration de Hodge $\Fil^1H = H^0(X, \Omega_{X/A}^1)$, est un $F$-cristal de Hodge de niveau 1. Si l'on suppose $X \otimes k$ ordinaire, on peut appliquer \ref{thm:1.4.2}, et l'on obtient les resultats de Katz [8, \S 8] : si $(a_i)_{1 \leq i \leq g}$ est une base de sections horizontales fixes par $F$ du sous-cristal unite $U$, on peut en effet prendre comme base $(b_i)_{1 \leq i \leq g}$ de $\Fil^1H$ la base duale de $(a_i)$ pour la dualite de Poincare ($(a,b)$ est alors une base symplectique de $H$), car la compatibilite de la dualite a $F$ et $\nabla$ montre aussitot que les conditions de (\ref{thm:1.4.2} (i)) sont verifiees.
+
+\subsubsection[B. Surfaces K3]{B. Surfaces K3}
+
+\paragraph{}
+
+Soit $X/A$ un schema formel propre et lisse tel que $X_k = X \otimes k$ soit une surface K3. Alors, d'apres (IV 2.2, 2.3), le $A$-module
+\[
+H = H_{dR}^2(X/A)\,,
+\]
+muni de la connexion de Gauss--Manin $\nabla$, et de la filtration de Hodge
+\[
+H = \Fil^0H \supset \Fil^1H \supset \Fil^2H \supset 0
+\]
+est un $F$-cristal de Hodge sur $A_0$. Les sous-modules $\Fil^iH$ sont libres de rangs 22, 21, 1 pour $i = 0, 1, 2$, et le gradue associe $\gr^iH$ est libre. De plus, le cup-produit
+\[
+\langle\,,\,\rangle : H \otimes H \longrightarrow H_{dR}^4(X/A) \simeq A
+\]
+est une dualite parfaite, horizontale pour $\nabla$, i.e.\ verifiant
+\[
+\langle\nabla x, y\rangle + \langle x, \nabla y\rangle = \nabla\langle x, y\rangle\,,
+\]
+et compatible a $F$, i.e.\ telle que, pour tout relevement de Frobenius $\sigma$, on ait
+\[
+\langle F(\sigma)\sigma^*x, F(\sigma)\sigma^*y\rangle = F(\sigma)\sigma^*\langle x, y\rangle\,.\]
+Noter que $F(\sigma)\sigma^*H_{dR}^4(X/A) = p^2\sigma^*$, ou $\sigma^*$ est un automorphisme, i.e.\ $H_{dR}^4(X/A)(2)$ est un $F$-cristal unite (de rang 1), qu'on identifiera au $F$-cristal trivial $A$ au moyen d'une base horizontale fixe par $F$. Rappelons d'autre part que l'on a
+\[
+\Fil^1H = (\Fil^2H)^\perp\,.\]
+Rappelons enfin que, si $e_0 : A_0 \to k$ est l'augmentation, le $F$-cristal $e_0^*H$ (1.1.4) n'est autre que la cohomologie cristalline $H^2(X_k/W)$.
+
+\paragraph{}
+
+Supposons maintenant $X_k$ ordinaire, ce qui signifie, par definition, que le polygone de Newton de $H^2(X_k/W)$ coincide avec le polygone de Hodge, i.e.\ a pour pentes $(0, 1, 2)$ avec les multiplicites $(1, 20, 1)$. Il revient au meme de dire que Frobenius sur $H^2(X_k, \mathcal{O})$ est non nul. Du fait que $e_0^*H = H^2(X_k/W)$ et que $\gr^iH$ est libre, le $F$-cristal $H$ est alors ordinaire au sens de \ref{def:1.3.3}, et admet par consequent une filtration par des sous-$F$-cristaux
+\[
+0 \subset U_0 \subset U_1 \subset U_2 = H
+\]
+tels que $U_i/U_{i-1}$ soit de la forme $V_i(-i)$, ou $V_i$ est un $F$-cristal unite de rang 1, 20, 1, pour $i = 0, 1, 2$. De plus, comme $U_i$ releve $\Fil_iH_0$, la compatibilite de $F$ a la dualite entraine que l'on a
+\[
+U_1 = U_0^\perp\,.\]
+Enfin (\ref{prop:1.3.6}) les filtrations $(U_i)$ et $(\Fil^iH)$ sont opposees, i.e.\ on a
+\[
+H = H^0 \oplus H^1 \oplus H^2\,,
+\]
+avec
+\[
+H^0 = U_0\,, \quad H^1 = U_1 \cap \Fil^1H\,, \quad H^2 = \Fil^2H\,, \quad H^1 \xrightarrow{\sim} U_1/U_0\,.\]
+
+\begin{theorem}\label{thm:2.1.7}
+On suppose $p \neq 2$. Soit $X/A = W[[t_1, \ldots, t_{20}]]$ la deformation formelle universelle d'une surface K3 ordinaire $X_k/k$ (IV 1.3). Alors, avec les notations de 2.1.5, 2.1.6, il existe une base $(a, b_1, \ldots, b_{20}, c)$ de $H$ adaptee a la decomposition $H = H^0 \oplus H^1 \oplus H^2$, et telle que $\langle a, c \rangle = 1$, et des elements $q_i \in A$ ($1 \leq i \leq 20$) possedant les proprietes suivantes :
+\begin{enumerate}[label=(\roman*)]
+\item $q_i(0) \equiv 1 \pmod{pW}$ et les $q_i$ definissent un isomorphisme $A \xrightarrow{\sim} W[[q_1 - 1, \ldots, q_{20} - 1]]$ (i.e.\ les formes $d\log q_i$ forment une base de $\Omega^1_{A/W}$).
+\item $\nabla a = 0$,
+\[
+\nabla b_i = (d\log q_i) \otimes a \quad (1 \leq i \leq 20)\,,
+\]
+\[
+\nabla c = -\sum_{1 \leq i \leq 20} (d\log q_i) \otimes b_i^\vee\,,
+\]
+ou $(b_i^\vee)$ designe la base de $H^1$ duale de $(b_i)$ (pour la restriction a $H^1$ de la forme cup-produit).
+\item Si $\sigma : A \to A$ designe le relevement de Frobenius tel que $\sigma(q_i) = q_i^p$, alors
+\[
+\begin{aligned}
+F(\sigma)\sigma^*a &= a\,,\\
+F(\sigma)\sigma^*b_i &= pb_i && (1 \leq i \leq 20)\\
+F(\sigma)\sigma^*c &= p^2c\,.\end{aligned}
+\]
+\end{enumerate}
+\end{theorem}
+
+D'apres 2.1.6, le $F$-cristal $U_1$, muni de la filtration $\Fil^iH \cap U_1$ est un $F$-cristal de Hodge ordinaire de niveau 1. D'autre part, comme $X/A$ est la deformation formelle universelle de $X_k$, l'application
+\[
+\gr\nabla : T_{A/W} \longrightarrow \Hom_A(H^1, H^0) = \Hom_A(\gr^1H, \gr^0H)
+\]
+est un isomorphisme d'apres (IV 2.4). En vertu de \ref{thm:1.4.2} et \ref{cor:1.4.7} appliques a $U_1$, il existe donc une base $(a, b_1, \ldots, b_{20})$ de $U_1$ adaptee a la decomposition $U_1 = H^0 \oplus H^1$, et des elements $q_i \in A$ verifiant les conditions (i) a (iii) de \ref{thm:2.1.7}. Il reste a montrer que, si l'on choisit la base $c$ de $H^2$ telle que $\langle a, c \rangle = 1$, les dernieres formules de (ii) et (iii) sont satisfaites. Tout d'abord, par la condition de transversalite (1.3.5.1), on a
+\[
+\nabla c = \xi \otimes c + \sum_i \beta_i \otimes b_i\,.\]
+La relation
+\[
+0 = \nabla\langle a, c\rangle = \langle\nabla a, c\rangle + \langle a, \nabla c\rangle = \langle a, \nabla c\rangle
+\]
+entraine $\xi = 0$. Puis, de
+\[
+0 = \nabla\langle b_i, c\rangle = \langle\nabla b_i, c\rangle + \langle b_i, \nabla c\rangle
+\]
+et de la deuxieme formule de (ii) on tire $\beta_i = -d\log q_i$, d'ou la derniere formule de (ii). D'autre part, de la formule $F(\sigma)\sigma^*a = a$ et de la relation $\langle F(\sigma)\sigma^*a, F(\sigma)\sigma^*c\rangle = p^2\langle a, c\rangle = p^2$ on deduit $F(\sigma)\sigma^*c = p^2c$, ce qui acheve la demonstration de \ref{thm:2.1.7}.
+
+\paragraph{}
+
+Soit $X_k/k$ une surface K3 ordinaire. Posons
+\begin{equation}\label{eq:2.1.8.1}
+P_0 = H^2(X_k/W)^{F=1}\,, \quad P_1 = H^2(X_k/W)^{F=p}\,, \quad P_2 = H^2(X_k/W)^{F=p^2}\,,
+\end{equation}
+ou la notation $M^{F=\alpha}$ designe $\{x \in M \mid Fx = \alpha x\}$. D'apres 1.3.4, $P_i$ est un $\mathbb{Z}_p$-module libre de rang 1, 20, 1 pour $i = 0, 1, 2$, et le $F$-cristal $H^2(X_k/W)$ admet une decomposition unique
+\begin{equation}\label{eq:2.1.8.2}
+H^2(X_k/W) = ((W, \sigma) \otimes P_0) \oplus ((W, p\sigma) \otimes P_1) \oplus ((W, p^2\sigma) \otimes P_2)\,.\end{equation}
+
+Supposons de plus $p \neq 2$. Avec les notations de \ref{thm:2.1.7}, designons par
+\begin{equation}\label{eq:2.1.8.3}
+e_q : A \longrightarrow W
+\end{equation}
+le relevement de Teichmuller de l'augmentation $e_0 : A_0 \to k$ correspondant au relevement $\sigma$ considere en (iii), donc donne par $e_q(q_i) = 1$.
+Alors $X$ induit un schema formel $e_q^*X/W$ et l'on a
+\begin{equation}\label{eq:2.1.8.4}
+e_q^*H = H_{dR}^2(e_q^*X/W) = H^2(X_k/W)\,.\end{equation}
+De plus, d'apres (\ref{thm:2.1.7} (iii)), $e_q^*a$ est une base de $P_0$, $(e_q^*b_i)_{1 \leq i \leq 20}$ une base de $P_1$, et $e_q^*c$ une base de $P_2$, et $\langle e_q^*a, e_q^*c\rangle = 1$. En particulier, la filtration de Hodge de $H_{dR}^2(e_q^*X/W)$ est donnee par
+\begin{equation}\label{eq:2.1.8.5}
+\Fil^1H_{dR}^2(e_q^*X/W) = (W \otimes P_1) \oplus (W \otimes P_2)\,, \qquad \Fil^2H_{dR}^2(e_q^*X/W) = W \otimes P_2\,.\end{equation}
+
+Nous allons en deduire :
+
+\begin{proposition}\label{prop:2.1.9}
+Sous les hypotheses de \ref{thm:2.1.7}, le relevement $e_q$ (2.1.8.3) est independant de la famille $q = (q_i)$ definie en \ref{thm:2.1.7}.
+\end{proposition}
+
+On ecrira donc $e$ au lieu de $e_q$. Par analogie avec la theorie du relevement canonique des varietes abeliennes ordinaires [14, V \S 3], on dira que le schema formel $e^*X/W$, qu'on notera simplement $X_{\mathrm{can}}/W$, est le \emph{relevement canonique} de $X_k$.
+
+\paragraph{}
+
+Pour demontrer \ref{prop:2.1.9}, nous utiliserons une description ``lineaire'' des relevements formels sur $W$ d'une surface K3 sur $k$.
+
+Soit $Y/W$ un schema formel propre et plat tel que $Y_k = Y \otimes k$ soit une K3. Alors $H_{dR}^2(Y/W)$ s'identifie canoniquement a $H = H^2(Y_k/W)$, et $\Fil^2H_{dR}^2(Y/W)$ est une droite (un facteur direct de rang 1) de $H$, isotrope (i.e.\ contenue dans son orthogonal), relevant $\Fil^2H_{dR}^2(Y_k/k)$.
+
+\begin{theorem}\label{thm:2.1.11}
+Supposons $p \neq 2$. Soit $Y_0$ une surface K3 sur $k$. Posons $H = H^2(Y_0/W)$. L'application qui a un schema formel propre et plat $Y/W$ relevant $Y_0$ associe la droite $\Fil^2H_{dR}^2(Y/W)$ est une bijection de l'ensemble des relevements de $Y_0$ sur $W$ (i.e.\ des points a valeurs dans $W$ du schema modulaire formel de $Y_0$) sur l'ensemble des relevements de $\Fil^2H_{dR}^2(Y_0/k)$ en une droite isotrope de $H$.
+\end{theorem}
+
+Notons tout d'abord que les deux types de relevements envisages (relevements de $Y_0$ et relevements de $\Fil^2H_{dR}^2(Y_0/k)$) sont rigides, i.e.\ n'ont pas d'automorphismes infinitesimaux. Soit $Y_n$ un relevement de $Y_0$ sur $W_{n+1}$. L'ensemble des relevements de $Y_n$ sur $W_{n+2}$ est un torseur sous $H^1(Y_0, T_{Y_0/k})$. D'autre part, soit $L_n$ une droite isotrope de $H \otimes W_{n+1}$ relevant $L_0 = \Fil^2H_{dR}^2(Y_0/k)$. Alors l'ensemble des relevements de $L_n$ en une droite isotrope de $H \otimes W_{n+2}$ est un torseur sous $\Hom(L_0, L_0^\perp/L_0)$ : sans condition d'isotropie, on trouverait un torseur sous $\Hom(L_0, H_0/L_0)$ (ou $H_0 = H \otimes k = H_{dR}^2(Y_0/k)$) ; comme $p \neq 2$, la condition d'isotropie imposee au relevement conduit au resultat indique (si $H \otimes W_{n+2} = L_{n+1} \oplus M_{n+1}$, avec $L_{n+1}$ isotrope relevant $L_n$, une droite isotrope relevant $L_n$ est engendree par un vecteur $x + p^{n+1}y$, ou $x$ est une base de $L_n$, et l'on doit avoir $2\langle x, y\rangle \equiv 0 \pmod{p}$). Or $L_0^\perp = \Fil^1H_{dR}^2(Y_0/k)$, donc
+\[
+\Hom(L_0, L_0^\perp/L_0) = \Hom(\Fil^2H_{dR}^2(Y_0/k), \gr^1H_{dR}^2(Y_0/k))\,.\]
+et, d'apres (IV 2.4), on a un isomorphisme canonique (donne par le cup-produit)
+\[
+H^1(Y_0, T_{Y_0/k}) \xrightarrow{\;\sim\;} \Hom(\Fil^2H_{dR}^2(Y_0/k), \gr^1H_{dR}^2(Y_0/k))\,.\]
+La conclusion de \ref{thm:2.1.11} en decoule facilement.
+
+\begin{remark}\label{rem:2.1.12}
+On notera l'analogie de \ref{thm:2.1.11} avec la theorie des relevements des groupes $p$-divisibles et des varietes abeliennes (relevement de la filtration de Hodge dans le ``cristal'' extension universelle) [14].
+\end{remark}
+
+\textbf{Demonstration de \ref{prop:2.1.9}.} Compte tenu de \ref{thm:2.1.11}, il suffit d'observer que $e^*X$, donc $e_q = e_q$, est entierement caracterise par la seconde egalite de (2.1.8.5).
+
+\paragraph{}
+
+Nous allons voir maintenant qu'a l'aide de \ref{thm:2.1.7} on peut munir canoniquement la variete modulaire formelle $S = \Spf(A)$ d'une structure de groupe formel sur $W$, d'origine le relevement canonique $X_{\mathrm{can}}/W$ (\ref{prop:2.1.9}). Nous aurons besoin pour cela du lemme suivant :
+
+\begin{lemma}\label{lem:2.1.13}
+Soient $(a', b_1', \ldots, b_{20}', c')$ une base de $H$ et $(q_i')_{1 \leq i \leq 20}$ une famille d'elements de $A$ verifiant les memes conditions (i), (ii), (iii) de \ref{thm:2.1.7} que $(a, (b_i), c)$ et $(q_i)$. Il existe alors $\gamma \in \mathbb{Z}_p^*$ et $\beta = (\beta_{ij}) \in \GL(20, \mathbb{Z}_p)$ tels que
+\begin{equation}\label{eq:2.1.13.1}
+\begin{bmatrix} a' \\ c' \\ b_i' \end{bmatrix} = \begin{bmatrix} \gamma a \\ \gamma^{-1}c \\ \sum_{1 \leq j \leq 20} \beta_{ji} b_j \end{bmatrix}\,, \qquad q_i' = \prod_{1 \leq j \leq 20} q_j^{\beta_{ji}/\gamma}\,.\end{equation}
+\end{lemma}
+
+Tout d'abord, comme $(a', (b_i'), c')$ est une base de $H$ adaptee a la decomposition $H = H^0 \oplus H^1 \oplus H^2$ et que $\langle a', c'\rangle = 1$, il existe $\gamma \in A^*$ et $\beta = (\beta_{ij}) \in \GL(20, A)$ tels que
+\[
+a' = \gamma a\,, \qquad c' = \gamma^{-1}c\,, \qquad b_i' = \sum_{1 \leq j \leq 20} \beta_{ji} b_j\,.\]
+Grace a \ref{prop:2.1.9}, notons $e = e_q = e_{q'} : A \to W$ le relevement (2.1.8.3). Comme $\nabla a = \nabla a' = 0$, on a $d\gamma = 0$, donc $\gamma$ est ``constant'', de valeur $e^*\gamma \in W$. Soit $\sigma'$ le relevement de Frobenius tel que $\sigma'(q_i') = q_i'^p$. On a
+\[
+a' = F(\sigma')\sigma'^*a' = \gamma^\sigma F(\sigma')\sigma'^*a = \gamma^\sigma F(\sigma)\sigma^*a = \gamma^\sigma a\,,
+\]
+donc $\gamma^\sigma = \gamma$, i.e.\ $\gamma/\gamma^\sigma \in \mathbb{Z}_p$. D'autre part,
+\[
+\nabla b_i' = \sum_j (d\beta_{ji}) \otimes b_j + \sum_j \beta_{ji}(d\log q_j) \otimes a = (d\log q_i') \otimes a' = (d\log q_i') \otimes \gamma a\,,
+\]
+donc
+\begin{align*}
+d\beta_{ji} &= 0 \qquad \forall i,j\,, \tag{$*$}\\
+\gamma\, d\log q_i' &= \sum_j \beta_{ji}\, d\log q_j \qquad (1 \leq i \leq 20)\,. \tag{$**$}
+\end{align*}
+La formule $(*)$ signifie que $\beta_{ji}$ est constant, de valeur $e^*\beta_{ji} \in W$. Mais
+\[
+F(\sigma')\sigma'^*b_i' = \sum_j \beta_{ji}^\sigma F(\sigma')\sigma'^*b_j = \sum_j \beta_{ji}^\sigma F(\sigma)\sigma^*b_j\,.\]
+Appliquant $e^*$ et tenant compte de ce que $e^*F(\sigma')\sigma'^*b_j = e^*F(\sigma)\sigma^*b_j = e^*(pb_j)$, on obtient $\beta_{ji}^\sigma = \beta_{ji}$ $\forall i,j$ donc $\beta \in \GL(20, \mathbb{Z}_p)$. De $(**)$ on deduit qu'il existe $C \in W$ tel que
+\[
+q_i' = C \prod_j q_j^{\beta_{ji}/\gamma}\,.\]
+Mais comme $e^*q_i = e^*q_i' = 1$, on a $C = 1$, ce qui acheve la demonstration.
+
+\begin{theorem}\label{thm:2.1.14}
+Supposons $p \neq 2$. Soient $X_k$ une surface K3 ordinaire sur $k$, et $S = \Spf(A)$ la variete modulaire formelle sur $W$ correspondante. Soit $\widehat{G}$ le tore formel sur $\mathbb{Z}_p$ de groupe de caracteres $\Hom_{\mathbb{Z}_p}(P_0, P_1)$, avec les notations de (2.1.8). Il existe un isomorphisme canonique entre $S$ et $\widehat{G}_W$, par lequel le relevement canonique $X_{\mathrm{can}} \in S$ (\ref{prop:2.1.9}) correspond a l'element neutre de $\widehat{G}_W$.
+\end{theorem}
+
+Soit $\alpha = (a, b, (q_i))$ comme en \ref{thm:2.1.7}. La famille $(q_i)$ fournit un isomorphisme $u_\alpha : S \xrightarrow{\sim} (\widehat{\mathbb{G}}_m)_W^{20} = \Spf(W[[T_i - 1]])$, $T_i \mapsto q_i$, tandis que la base $(a, b)$ fournit un isomorphisme $v_\alpha : \widehat{G}_W \xrightarrow{\sim} \Hom_{\mathbb{Z}_p}(P_0, P_1)$, tel que $v_\alpha(\chi_1, \ldots, \chi_{20})(a) = \sum_i \chi_i b_i$. Si $\alpha' = (a', b', (q_i'))$ est un autre choix, alors, il existe $\gamma \in \mathbb{Z}_p^*$ et $\beta = (\beta_{ij}) \in \GL(20, \mathbb{Z}_p)$ verifiant (2.1.13.1). Notons
+\[
+f : (\widehat{\mathbb{G}}_m)_W^{20} \xrightarrow{\;\sim\;} (\widehat{\mathbb{G}}_m)_W^{20}
+\]
+l'isomorphisme donne par $T_i \mapsto \prod_j T_j^{\beta_{ji}/\gamma}$. L'isomorphisme $\Hom(f, \widehat{\mathbb{G}}_m) : \mathbb{Z}_p^{20} \to \mathbb{Z}_p^{20}$ induit par $f$ sur les groupes de caracteres est la multiplication par la matrice $\beta/\gamma$. Les formules (2.1.13.1) entrainent qu'on a des carres commutatifs
+\[
+\begin{tikzcd}
+S \rar{u_\alpha} \dar[swap]{u_{\alpha'}} & (\widehat{\mathbb{G}}_m)_W^{20} \dar{f} \\
+(\widehat{\mathbb{G}}_m)_W^{20} \rar & (\widehat{\mathbb{G}}_m)_W^{20}
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+\widehat{G}_W \rar{v_\alpha} \dar & \Hom(P_0, P_1) \dar \\
+\widehat{G}_W \rar[swap]{v_{\alpha'}} & \Hom(P_0, P_1)
+\end{tikzcd}
+\]
+En d'autres termes, l'isomorphisme $S \xrightarrow{\sim} \widehat{G}_W$ donne par $(u_\alpha, v_\alpha)$ est independant de $\alpha$, c'est l'isomorphisme canonique annonce. Comme par definition $X_{\mathrm{can}}$ correspond a l'augmentation $q_i \mapsto 1$, \ref{thm:2.1.14} est demontre.
+
+\begin{definition}\label{def:2.1.15}
+Nous dirons qu'un systeme $\alpha = (a, b, c, q)$ verifiant les conditions de \ref{thm:2.1.7} est un \emph{systeme de coordonnees} (ou \emph{parametres}) \emph{canoniques} sur $S$.
+\end{definition}
+
+Noter que le choix de $a$ correspond a celui d'une base de $P_0$ (donc est defini a un facteur $\in \mathbb{Z}_p$ pres) et determine celui de $c$, et que, d'autre part, une fois $a$ choisi, la donnee de $b$ correspond a celle d'une base de $P_1$ (qui est donc definie a un facteur $\GL(20, \mathbb{Z}_p)$ pres) et determine l'isomorphisme $(q_i) : S \xrightarrow{\sim} (\widehat{\mathbb{G}}_m)_W^{20}$.
+
+\textbf{Problemes 2.1.16.} \textbf{a)} Peut-on donner une definition ``intrinseque'' de la structure de groupe formel sur $S$ construite en \ref{thm:2.1.14}, par exemple comme representant un foncteur convenable ?\footnote{(ajoutee en janvier 1981), cette question vient d'etre resolue affirmativement par Nygaard.}
+
+\textbf{b)} Etendre la theorie des coordonnees canoniques au cas $p = 2$. Cela presente plusieurs difficultes. Tout d'abord, bien entendu, trouver un substitut adequat a la definition des $q_{ij}$ de \ref{thm:1.4.2}. D'autre part, dans le cas des K3, il y a des difficultes supplementaires, liees au fait qu'on ignore, pour $p = 2$, si la forme quadratique $\langle x, x\rangle$ sur $H_{dR}^2(X_k/k)$ est identiquement nulle (rappelons que, si $X$ est une surface K3 sur le corps des complexes, la forme $\langle x, x\rangle$ sur $H^2(X, \mathbb{Z})$ est paire [17]). On peut montrer toutefois [4] que, pour $Y_0/k$ ordinaire, ou plus generalement si le noyau de la forme $\langle x, x\rangle$ sur $H_{dR}^2(Y_0/k)$ n'est pas egal a $\Fil^1H_{dR}^2(Y_0/k)$, l'application envisagee en \ref{thm:2.1.11}, associant a un relevement formel $Y$ la droite isotrope $\Fil^2H_{dR}^2(Y/W) \subset H^2(Y_0/W)$, est surjective et a fibres finies : pour $Y_0$ ordinaire, la droite $W \otimes P_2$ de (2.1.8.5) definit alors une famille finie de ``relevements canoniques'' de $Y_0$.
+
+\subsection{Relevements de faisceaux inversibles}
+
+\subsubsection{}
+
+Soit $X/S = \Spf(A)$ la deformation formelle universelle d'une surface K3 $X_k/k$, et soit $L_0$ un faisceau inversible non trivial sur $X_k$. On sait (IV 1.6) qu'il existe un plus grand sous-schema formel ferme $T = \Sigma(L_0) \subset S$ tel que $L_0$ se prolonge en un faisceau inversible $L$ sur $X \times_S T$\footnote{On note $X_{S'}$ le schema formel deduit de $X$ par un changement de base $S' \to S$.} et que $T$ est defini par une equation $f = 0$ telle que $p$ ne divise pas $f$. Supposons $p \neq 2$ et $X_k$ ordinaire. On va montrer qu'on peut alors expliciter $f$ en termes de la classe de Chern cristalline
+\begin{equation}\label{eq:2.2.1.1}
+c_1(L_0) \in H^2(X_k/k)\,.\end{equation}
+
+Rappelons (IV 2.9) qu'avec les notations de (2.1.8.1) on a
+\begin{equation}\label{eq:2.2.1.2}
+c_1(L_0) \in P_1\,.\end{equation}
+En particulier, si $(a, b, c, q)$ est un systeme de coordonnees canoniques sur $S$ (\ref{def:2.1.15}), et $e : A \to W$ est l'augmentation donnee par $q_i \mapsto 1$, on peut ecrire
+\begin{equation}\label{eq:2.2.1.3}
+c_1(L_0) = \sum_{1 \leq i \leq 20} x_i (e^*b_i)\end{equation}
+avec $x_i \in \mathbb{Z}_p$. On a alors le resultat suivant, dont la demonstration va occuper le reste de l'expose :
+
+\begin{theorem}\label{thm:2.2.2}
+Avec les hypotheses et notations de \emph{2.2.1}, $T$ est defini par l'equation
+\begin{equation}\label{eq:2.2.2.1}
+\prod_{1 \leq i \leq 20} q_i^{x_i} = 1\,.\end{equation}
+\end{theorem}
+
+En d'autres termes, si, grace a la base $e^*a$ de $P_0$, on identifie $c_1(L_0)$ a un caractere $\chi$ du tore formel $S$ (\ref{thm:2.1.14}), $T$ est le sous-groupe formel defini par
+\begin{equation}\label{eq:2.2.2.2}
+T = \Ker(\chi)\,.\end{equation}
+En particulier, si $p$ ne divise pas $c_1(L_0)$ (ce qui signifie encore [16, 1.4] que $p$ ne divise pas la classe de $L_0$ dans $\NS(X_k)$), $T$ est un sous-tore formel lisse sur $W$ de dimension relative 19.
+
+\subsubsection{}
+
+Indiquons d'abord comment on peut, heuristiquement, se persuader de la validite de \ref{thm:2.2.2}. Si l'on etait sur le corps des complexes, on saurait que $T$ est le lieu ou la section horizontale de $\mathcal{H}$ passant par $c_1(L_0)$ reste de type $(1,1)$, i.e.\ dans $\Fil^1\mathcal{H}$. Or, soit $x \in H_{dR}^2(X/S) \otimes K[[q_i - 1]]$ la section horizontale telle que $e^*x = c_1(L_0)$. Un calcul immediat, a partir de (\ref{thm:2.1.7} (ii)), montre que l'on a
+\begin{equation}\label{eq:2.2.3.1}
+x = \Bigl(-\sum_{1 \leq i \leq 20} x_i \log q_i\Bigr)a + \sum_{1 \leq i \leq 20} x_i b_i\,.\end{equation}
+Donc, heuristiquement, $-\sum_i x_i \log q_i = 0$, ``i.e.'' $\prod_i q_i^{-x_i} = 1$ est l'equation cherchee. Naturellement, cet argument est insuffisant, mais on peut l'adapter en utilisant la classe de Chern cristalline pour controler, pas a pas, l'obstruction au prolongement de $L_0$.
+
+Nous aurons besoin pour cela de quelques rappels sur les classes de Chern et les obstructions, completant (IV 2.8, 2.9).
+
+\subsubsection{}
+
+Soient $i : Y_0 \hookrightarrow Y$ une immersion fermee de schemas (ou schemas formels) definie par un ideal $I$, et $E_0$ un faisceau inversible sur $Y_0$, de classe $c_1(E_0) \in H^1(Y_0, \mathcal{O}_{Y_0}^*)$. La suite exacte de faisceaux abeliens sur $Y$
+\begin{equation}\label{eq:2.2.4.1}
+0 \longrightarrow (1+I) \longrightarrow \mathcal{O}_Y^* \longrightarrow \mathcal{O}_{Y_0}^* \longrightarrow 0
+\end{equation}
+montre que l'obstruction a $\mathcal{O}^*(E_0, i)$ prolonger $E_0$ en un faisceau inversible sur $Y$ est l'image de $c_1(E_0)$ par le cobord de la suite exacte de cohomologie deduite de (2.2.4.1)
+\begin{equation}\label{eq:2.2.4.2}
+\mathcal{O}^*(E_0, i) = \partial c_1(E_0) \in H^2(Y, (1+I))\,.\end{equation}
+Si $Y \to Z$ est un morphisme, on peut considerer le complexe de de Rham ``multiplicatif''
+\[
+\Omega_{Y/Z}^{\bullet\times} = (\mathcal{O}_Y^* \xrightarrow{d\log} \Omega_{Y/Z}^1 \xrightarrow{d} \Omega_{Y/Z}^2 \xrightarrow{d} \cdots)
+\]
+et (2.2.4.1) se raffine en une suite exacte de complexes
+\begin{equation}\label{eq:2.2.4.3}
+0 \longrightarrow (1+I)_{Y/Z} \longrightarrow \Omega_{Y/Z}^{\bullet\times} \longrightarrow \Omega_{Y_0/Z}^{\bullet\times} \longrightarrow 0
+\end{equation}
+ou
+\[
+(1+I)_{Y/Z} = ((1+I) \xrightarrow{d\log} I\Omega_{Y/Z}^1 \xrightarrow{d} I\Omega_{Y/Z}^2 \xrightarrow{d} \cdots)\,.\]
+L'obstruction $\mathcal{O}^*(E_0, i)$ est l'image, par la fleche naturelle, de la classe
+\begin{equation}\label{eq:2.2.4.4}
+c^*(E_0, i, Y/Z) \in H^2(Y, (1+I)_{Y/Z})
+\end{equation}
+obtenue a partir de $c_1(E_0)$ comme cobord de la suite exacte de cohomologie associee a (2.2.4.3).
+
+\subsubsection{}
+
+Supposons que $I^2 = 0$. Alors on a
+\[
+(1+I)^* = 1+I \xrightarrow{\log(1+x) = x} I\,,
+\]
+et, de la meme maniere, $(1+I)_{Y/Z}$ s'identifie a
+\[
+(I \xrightarrow{d} I\Omega_{Y/Z}^1 \xrightarrow{d} I\Omega_{Y/Z}^2 \xrightarrow{d} \cdots)\,.\]
+Notons
+\begin{equation}\label{eq:2.2.5.1}
+\mathcal{O}(E_0, i) \in H^2(Y, I)\,, \qquad C(E_0, i, Y/Z) \in H^2(Y, I\Omega_{Y/Z}^\bullet)
+\end{equation}
+les images de $\mathcal{O}^*(E_0, i)$ et $c^*(E_0, i, Y/Z)$ definies par ces identifications. L'obstruction $\mathcal{O}(E_0, i)$ est encore l'image de $C(E_0, i, Y/Z)$ par la fleche naturelle.
+
+Supposons de plus que $Z = (Z, K, \delta)$ soit un PD-schema ou $p$ est nilpotent [1], ou que $Z$ soit une base $P$-adique (avec $p \in P$) au sens de [3, 7.17] : le cas qui nous interesse en fait est celui ou $Z$ est un $W$-schema formel $p$-adiquement complet, muni des puissances divisees standard sur $p\mathcal{O}_Z$. Alors, si $Y$ est lisse sur $Z$, et si les puissances divisees $\gamma$ triviales sur $I$ (i.e.\ telles que $\gamma_i(x) = 0$ pour $i > 1$) sont compatibles a celles de $Z$, on a
+\[
+H^2(Y, I\Omega_{Y/Z}^\bullet) = H^2(Y_0/Z, J_{Y_0/Z})
+\]
+(ou $J_{Y_0/Z}$ designe, comme d'habitude, l'ideal cristallin noyau de $\mathcal{O}_{Y_0/Z} \to \mathcal{O}_{Y_0}$), et la classe $C(E_0, i, Y/Z)$ de (2.2.5.1) n'est autre que la classe de Chern cristalline de $L_0$ relativement a $Y_0/Z$, definie dans [2] :
+\begin{equation}\label{eq:2.2.5.2}
+C(E_0, i, X/Z) = c_1(E_0)_{Y_0/Z} \in H^2(X_0/Z, J_{Y_0/Z})\,.\end{equation}
+
+Nous appliquerons ces remarques au cas ou l'on a des carres cartesiens
+\begin{equation}\label{eq:2.2.5.3}
+\begin{tikzcd}
+Y_0 \rar \dar & Y \rar \dar & X \dar \\
+Z_0 \rar{j_0} & Z \rar{j} & S
+\end{tikzcd}
+\end{equation}
+$X/S$ etant la deformation formelle universelle de $X_k$, $Z$ designant un $W$-schema formel affine $p$-adiquement complet, $j$ designant une immersion fermee definie par un ideal $J$ de carre nul, de sorte que $I = f^*(J)$. Comme $R^1f_*\mathcal{O}_{Y_0} = 0$, donc $H^1(Y_0, \mathcal{O}) = 0$, les fleches canoniques
+\[
+H^2(Y, I) \longrightarrow H^2(Y, \mathcal{O})\,, \qquad H^2(Y, I\Omega_{Y/Z}^\bullet) \longrightarrow H_{dR}^2(Y/Z)
+\]
+sony injectives, nous considererons donc $\mathcal{O}(E_0, i)$ (resp.\ $C(E_0, i, Y/Z)$) comme un element de $H^2(Y, \mathcal{O})$ (resp.\ $H_{dR}^2(Y/Z)$). D'autre part, pour $p \neq 2$, ou si $P\mathcal{O}_Z = 0$, les puissances divisees triviales sur $I$ sont compatibles aux puissances divisees standard sur $P\mathcal{O}_Z$. D'apres ce qu'on vient de voir, l'obstruction $\mathcal{O}(E_0, i)$ est alors donnee par la recette suivante :
+
+\begin{lemma}\label{lem:2.2.6}
+Dans la situation de (2.2.5.3), si $p \neq 2$, ou si $P\mathcal{O}_Z = 0$, l'obstruction $\mathcal{O}(E_0, i)$ a prolonger $E_0$ en un faisceau inversible sur $Y$ est l'image, par l'application canonique $H_{dR}^2(Y/Z) \to H^2(Y, \mathcal{O}_Y)$ de la classe de Chern cristalline de $E_0$ relativement a $Z$, $c_1(E_0)_{Y_0/Z} \in H_{dR}^2(Y/Z)$.
+\end{lemma}
+
+En d'autres termes, sous les hypotheses de \ref{lem:2.2.6}, $E_0$ se prolonge en un faisceau inversible sur $Y$ si et seulement si $c_1(E_0)_{Y_0/Z} \in \Fil^1H_{dR}^2(Y/Z)$.
+
+\subsubsection{}
+
+L'interet de la recette \ref{lem:2.2.6} est qu'on dispose d'un principe de calcul pour la classe de Chern $c_1(E_0)_{Y_0/Z}$, que nous allons rappeler.
+
+Sous les hypotheses de \ref{lem:2.2.6}, on peut considerer la classe de Chern
+\begin{equation}\label{eq:2.2.7.1}
+c_1(E_0)_{Y_0/W} \in H^2(Y_0/W)\,,\end{equation}
+et son image
+\begin{equation}\label{eq:2.2.7.2}
+c_1(E_0)_{Y_0/W} \in H^0(Z_0/W, R^2f_{0*}(J_{Y_0/W}))
+\end{equation}
+par l'application canonique
+\[
+H^2(Y_0/W) \longrightarrow H^0(Z_0/W, R^2f_{0*}(J_{Y_0/W}))\,.\]
+D'autre part, pour tout PD-epaississement $Z_1$ de $Z_0$ on peut considerer la classe de Chern
+\begin{equation}\label{eq:2.2.7.3}
+c_1(E_0)_{Y_0/Z_1} \in H^2(Y_0/Z_1)\,.\end{equation}
+Le lien entre les classes (2.2.7.2) et (2.2.7.3) est le suivant : le cristal $R^2f_{0*}(J_{Y_0/W})$ a une ``valeur'' $R^2f_{0*}(J_{Y_0/W})(Z_1)$ sur $Z_1$, et, pour $Z_1$ affine, la section
+\[
+c_1(E_0)_{Y_0/W}(Z_1) \in H^0(Z_1, R^2f_{0*}(J_{Y_0/W})(Z_1)) = H^2(Y_0/Z_1)
+\]
+definie par (2.2.7.2) est (2.2.7.3). Supposons maintenant que l'on dispose d'une factorisation de la fleche $Z_0 \to S$ de (2.2.5.3) en
+\begin{equation}\label{eq:2.2.7.4}
+Z_0 \xrightarrow{j'} Z' \longrightarrow S\,,
+\end{equation}
+ou $Z'$ est un $W$-schema formel lisse, $p$-adiquement complet, et $j'$ une immersion fermee. Soit $Z'^\wedge = D_{Z_0}(Z')$ la PD-enveloppe, $p$-completee, de $Z_0$ dans $Z'$. D'apres Berthelot [1] (ou [3, \S 7]), on sait que le cristal $R^2f_{0*}(J_{Y_0/W})$ est decrit par un $\mathcal{O}_{Z'^\wedge}$-module a connexion integrable relativement a $W$. Dans le cas present, comme on a des carres cartesiens
+\begin{equation}\label{eq:2.2.7.5}
+\begin{tikzcd}
+Y_0 \rar \dar & Y'^\wedge \rar \dar & X \dar \\
+Z_0 \rar & Z'^\wedge \rar & S
+\end{tikzcd}
+\end{equation}
+on voit que ce module n'est autre que $H_{dR}^2(X/S) \otimes_\mathcal{O} \mathcal{O}_{Z'^\wedge}$, muni de la connexion de Gauss--Manin. La classe (2.2.7.2) s'interprete comme une section horizontale de ce module. Quand, dans la situation de (2.2.5.3), $Z$ est un sous-schema ferme de $Z'$, $Z$ s'envoie dans $Z'^\wedge$ par la propriete universelle des PD-envelopes, et la section de $H_{dR}^2(X/S) \otimes_\mathcal{O} \mathcal{O}_Z = H_{dR}^2(Y/Z)$ induite par la classe (2.2.7.2) n'est autre que $c_1(E_0)_{Y_0/Z}$. Nous verrons plus loin comment exploiter l'horizontalite de la section (2.2.7.2) de $H_{dR}^2(X/S) \otimes_\mathcal{O} \mathcal{O}_{Z'^\wedge}$ pour la calculer lorsque $E_0$ prolonge le faisceau donne $L_0$ sur $X_k$, en utilisant des plongements $j'$ (2.2.7.4) bien choisis.
+
+\subsubsection{}
+
+A cet effet, nous aurons besoin d'un dernier ingredient, un peu technique, concernant les PD-enveloppes. Notons
+\begin{equation}\label{eq:2.2.8.1}
+W\langle\langle t \rangle\rangle = W\langle\langle t_1, \ldots, t_n \rangle\rangle
+\end{equation}
+la PD-enveloppe, $p$-completee, de l'ideal $(t_1, \ldots, t_n)$ de $W[[t]] = W[[t_1, \ldots, t_n]]$ : c'est le sous-anneau de $K[[t]]$ forme des series $\sum_i a_i t^i/i!$ avec $a_i \in W$ tendant vers 0. Considerons maintenant l'ideal $t^r = (t_1^{r_1}, \ldots, t_n^{r_n})$ de $W[[t]]$, et la PD-enveloppe, $p$-completee, de $t^r$ dans $W[[t]]$ :
+\begin{equation}\label{eq:2.2.8.2}
+D_{(t^r)}(W[[t]])\,.\end{equation}
+Utilisant la compatibilite de la formation des PD-enveloppes aux extensions plates [1, I 2.7.4] dans le cas du morphisme fini et plat $W[[t]] \to W[[t]]$, $t_i \mapsto t_i^{r_i}$, on obtient pour (2.2.8.2) la description suivante : le groupe additif sous-jacent est celui des series formelles a coefficients dans $W$, tendant vers 0, en les $t^{(m)}$, ou $t^{(m)} = t^s(t^r)^{[q]}$, si $m = rq + s$, $0 \leq s < r$, et la multiplication est la multiplication evidente donnee formellement par $(t^r)^{[q]} = t^{rq}/q!$
+
+L'application
+\begin{equation}\label{eq:2.2.8.3}
+D_{(t^r)}(W[[t]]) \longrightarrow W\langle\langle t \rangle\rangle
+\end{equation}
+definie par l'inclusion $(t^r) \subset (t)$ envoie l'element de base $t^{(m)}$ de multi-degre $m$ sur $(m!/q!)t^{[m]}$ en particulier est injective.
+
+\subsubsection{}
+
+\textbf{Demonstration de \ref{thm:2.2.2}.} Comme $L_0$ est non trivial, on sait (IV 3.4) que $c_1(L_0) \neq 0$. Soit $p^m$ la plus grande puissance de $p$ divisant $x = c_1(L_0)$, de sorte que $x = p^my$, avec $p \nmid y$. Donc $y$ fait partie d'une base du groupe des caracteres de $S$, et l'on peut supposer les coordonnees $(a, b, q)$ choisies de maniere que $y = (1, 0, \ldots, 0)$, i.e.\ $x = p^m(e^*b_1)$. Posons
+\[
+T' = \Spf(W[[q_i - 1]]/(q_1^{p^m} - 1))\,.\]
+Il s'agit de demontrer que $T = T'$. On va proceder en quatre etapes.
+
+\textbf{a) Prolongement de $L_0$ sur $X_{\Spec(k[q_1-1]/(q_1^{p^m}-1))}$.} On peut le faire de deux methodes. La plus rapide consiste a observer que, d'apres [16, 1.4], puisque $p^m$ divise $c_1(L_0)$, $p^m$ divise aussi la classe de $L_0$ dans $\NS(X_k)$. Si $F$ designe le Frobenius de $X_k$, $L_0$ est donc l'image inverse par $F^m$ d'un faisceau inversible $L'$, et par suite $L_0$ se prolonge a tout $k$-voisinage infinitesimal d'ordre $\leq p^m - 1$. On peut aussi proceder directement, en prolongeant $L_0$ pas a pas sur $X_{Y_n}$, ou $Y_n = \Spec(k[t_1]/t_1^{p^m})$, $q_1 - 1 = t_1$. Supposons en effet $m > 0$ et $L_0$ prolonge en un faisceau inversible $L_{Y_n}$ sur $X_{Y_n}$ pour $n < p^m$, et montrons que $L_{Y_n}$ se prolonge en un faisceau inversible sur $X_{Y_{n+1}}$. Notons $c(L_{Y_n})_{Y_{n+1}} \in H_{dR}^2(X_{Y_{n+1}}/Y_{n+1})$ la classe de Chern cristalline de $L_{Y_n}$. D'apres \ref{lem:2.2.6}, il s'agit de voir que l'image de cette classe dans $H^2(X_{n+1}, \mathcal{O})$ est nulle. Or $Y_n$ est le sous-schema formel de $\Spf(W[[t_1]])$ defini par l'ideal $(p, t_1^{p^m})$, et, d'apres 2.2.7, si $D_n$ designe la PD-enveloppe, $p$-completee, de cet ideal dans $W[[t_1]]$, i.e.\ $D_n = D_{(t_1^{p^m})}(W[[t_1]])$, $c(L_{Y_n})_{Y_{n+1}}$ est induite par la section horizontale $c(L_{Y_n})_{D_n} \in H_{dR}^2(X/S) \otimes_\mathcal{O} D_n$ du type (2.2.7.2).
+
+Comme, d'apres 2.2.8, l'application $D_n \to D_1 = W\langle\langle t_1 \rangle\rangle$ est injective, $c(L_{Y_n})_{D_n}$ est determine par son image dans $H_{dR}^2(X/S) \otimes_\mathcal{O} D_1$. Or cette image n'est autre que la section horizontale $c(L_0)_{D_1}$ definie par $L_0$ : cela resulte de la fonctorialite de la classe (2.2.7.1), compte tenu du fait que l'on a un diagramme commutatif
+\[
+\begin{tikzcd}
+Y_n \rar \dar & \Spf(W[[t_1]]) \dar \\
+\Spec(k) \rar & \Spec(W)
+\end{tikzcd}
+\]
+et que $L_{Y_n}$ prolonge $L_0$. Comme $c(L_0)$ est la classe horizontale qui prolonge $c_1(L_0) = p^me^*b_1$, un calcul immediat (utilisant \ref{thm:2.1.7}) montre que l'on a
+\[
+c(L_0)_{D_1} = -(p^m \log q_1)a_{D_1} + p^m(b_1)_{D_1}
+\]
+(ou $(a_{S'}, b_{S'})$ designe l'image inverse de $(a, b)$ sur $S'$ pour $S' \to S$). Donc par l'injectivite de $D_n \to D_1$,
+\[
+c(L_{Y_n})_{D_n} = -(\log q_1^{p^m})a_{D_n} + p^m(b_1)_{D_n}
+\]
+(noter que $q_1^{p^m} - 1$ appartient a l'ideal engendre par $p$ et $t_1^{p^m} = (q_1-1)^{p^m}$, de sorte que le $\log$ a un sens grace aux puissances divisees sur $(p, t_1)$). L'application $D_n \to \mathcal{O}_{Y_{n+1}}$ definie par la propriete universelle des PD-enveloppes envoie $x^{[i]}$ (pour $x \in (p, t_1)$) sur $x \bmod (p, t_1^{n+1})$ pour $i = 1$ et sur $0$ pour $i \geq 2$. En particulier, elle envoie $\log q_1^{p^m}$ sur $(q_1^{p^m} - 1) \bmod (p, t_1^{n+1}) = 0$, puisque $n < p^m$. En d'autres termes, l'image $c(L_{Y_n})_{Y_{n+1}} \in H_{dR}^2(X/S) \otimes_\mathcal{O} \mathcal{O}_{Y_{n+1}}$ de $c(L_{Y_n})_{D_n}$ appartient a $\Fil^1$, donc, d'apres ce qu'on a dit plus haut, $L_{Y_n}$ se prolonge en un faisceau inversible sur $X_{Y_{n+1}}$.
+
+\textbf{b) Prolongement de $L_0$ sur $X_Z$, ou $Z = \Spf(W[[q_1-1]]/(q_1^{p^m} - 1))$.} Notons $L_{Y}$ le prolongement, obtenu en a), de $L_0$ sur $X_Y$. Posons
+\[
+Z_n = \Spec(W_n[[q_1-1]]/(q_1^{p^m} - 1))\,.\]
+Supposons $L_Z$ prolonge en un faisceau inversible $L_{Z_n}$ sur $X_{Z_n}$, et montrons que $L_{Z_n}$ se prolonge en un faisceau inversible sur $X_{Z_{n+1}}$.
+
+D'apres \ref{lem:2.2.6} (qui s'applique grace a l'hypothese $p \neq 2$), il suffit de verifier que la classe de Chern $c(L_{Z_n})_{Z_{n+1}} \in H_{dR}^2(X_{Z_{n+1}}/Z_{n+1})$ appartient a $\Fil^1$. Or celle-ci est induite par la classe $c(L_{Z_n})_D \in H_{dR}^2(X_D/D)$, ou $D$ est la PD-enveloppe, $p$-completee, de $Y_n$ dans $W[[q_1-1]]$. Si $D_I(\cdot)$ designe la PD-enveloppe, $p$-completee, de l'ideal $I$, on a
+\[
+\begin{aligned}
+D &= D_{(p^n, q_1^{p^m}-1)}(W[[q_1-1]]) \\
+&= D_{(p^n, q_1^{p^m}-1)}(W[[q_1-1]]) \\
+&= D_{(p^n, (q_1-1)^{p^m})}(W[[q_1-1]]) \\
+&= D_{(p^n, t_1^{p^m})}(W[[t_1]])\,,
+\end{aligned}
+\]
+ou $t_1 = q_1 - 1$. D'apres 2.2.8, l'application $D \to D_{(t_1)}(W[[t_1]]) = W\langle\langle t_1 \rangle\rangle$ definie par l'inclusion $(p^n, q_1^{p^m} - 1) \subset (p, q_1 - 1)$ est donc injective, et l'on voit, par le meme argument qu'en a), que
+\[
+c(L_{Z_n})_D = -(\log q_1^{p^m})a_D + p^m(b_1)_D\,.\]
+Par suite, $c(L_{Z_n})_{Z_{n+1}}$, image de $c(L_{Z_n})_D$ par l'application $D \to \mathcal{O}_{Z_{n+1}}$ definie par la propriete universelle des PD-enveloppes (qui envoie $x^{[i]}$ (pour $x \in (p^n, q_1^{p^m} - 1)$) sur l'image de $x$ dans $\mathcal{O}_{Z_{n+1}}$ pour $i = 1$ et sur $0$ pour $i > 1$), est donnee par
+\[
+c(L_{Z_n})_{Z_{n+1}} = -(q_1^{p^m} - 1)a_{Z_{n+1}} + p^m(b_1)_{Z_{n+1}} = p^m(b_1)_{Z_{n+1}}
+\]
+(car $q_1^{p^m} - 1 = 0$ sur $Z_{n+1}$). Donc $c(L_{Z_n})_{Z_{n+1}}$ appartient a $\Fil^1H_{dR}^2(X_{Z_{n+1}}/Z_{n+1})$, et par consequent $L_{Z_n}$ se prolonge en un faisceau inversible sur $X_{Z_{n+1}}$. Donc $L_Z$ se prolonge en un faisceau inversible $L_Z$ sur $X_Z$.
+
+\textbf{c) Prolongement de $L_0$ sur $X_{T'_n}$.} Posons $t_i = q_i - 1$. Soit $n = (n_2, \ldots, n_{20})$ une suite d'entiers $\geq 1$, posons
+\[
+T'_n = \Spf(W[[t]]/(q_1^{p^m} - 1, t_2^{n_2}, \ldots, t_{20}^{n_{20}}))\,.
+\]
+(donc $T'_{(1, \ldots, 1)} = Z$). Supposons $L_Z$ prolonge en un faisceau inversible $L_{T'_n}$ sur $X_{T'_n}$. Alors, par un argument analogue a celui utilise en b), on voit que, si $2 \leq i \leq 20$, et $n+1_i = (n_2, \ldots, n_{i-1}, n_i+1, n_{i+1}, \ldots, n_{20})$, $L_{T'_n}$ se prolonge en un faisceau inversible sur $X_{T'_{n+1_i}}$. On en deduit, par recurrence, que $L_Z$ se prolonge en un faisceau inversible $L_{T'_n}$ sur $X_{T'_n}$.
+
+\textbf{d) Fin de la demonstration.} Pour prouver que $T' = T$, il reste a verifier que, si $T'' \supset T'$ est un sous-schema formel ferme de $S$, defini par un ideal $I$, tel que $L_{T'}$ se prolonge en un faisceau inversible sur $X_{T''}$, alors $T'' = T'$. Il revient au meme de montrer que, si $T'' \supsetneq T'$ et $I^2 = 0$, l'obstruction a prolonger $L_{T'}$ en un faisceau inversible sur $X_{T''}$ est non nulle, i.e.\ que la classe de Chern $c(L_{T'})_{T''} \in H_{dR}^2(X_{T''}/T'')$ n'appartient pas a $\Fil^1$. Or, le meme calcul que precedemment fournit
+\[
+c(L_{T'})_{T''} = -(q_1^{p^m} - 1)a_{T''} + p^m(b_1)_{T''}\,.\]
+Comme $T'' \supsetneq T'$, l'image de $q_1^{p^m} - 1$ dans $T''$ est non nulle, donc $c(L_{T'})_{T''} \notin \Fil^1$, ce qui acheve la demonstration.
+
+\section*{BIBLIOGRAPHIE}
+\addcontentsline{toc}{section}{Bibliographie}
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0.5ex]
+\item P.\ BERTHELOT.--- Cohomologie cristalline des schemas de caracteristique $p > 0$. Lecture Notes in Math.\ 407, Springer-Verlag (1974).
+
+\item P.\ BERTHELOT et L.\ ILLUSIE.--- Classes de Chern en cohomologie cristalline. C.\ R.\ Acad.\ Sc.\ Paris, t.\ 270, p.\ 1695--1697 et 1750--1752 (1970).
+
+\item P.\ BERTHELOT et A.\ OGUS.--- Notes on crystalline cohomology. Mathematical Notes 21, Princeton U.\ Press (1978).
+
+\item P.\ DELIGNE. Lettre a I.\ Shafarevitch, 7.10.1976.
+
+\item B.\ DWORK.--- Norm residue symbol in local number fields. Abh.\ Math.\ Sem.\ Univ.\ Hamburg, 22, p.\ 180--190 (1958).
+
+\item B.\ DWORK.--- Normalized Period Matrices. Ann.\ of Math., 94, p.\ 337--388 (1971).
+
+\item M.\ HAZEWINKEL.--- On formal groups. The functional equation lemma and some of its applications, Journees de Geometrie algebrique de Rennes, juillet 78, S.M.F., Asterisque 63, p.\ 73--82 (1979).
+
+\item N.\ KATZ.--- Travaux de Dwork, Seminaire Bourbaki, exp.\ 409, Lecture Notes in Math.\ 383, Springer-Verlag (1973).
+
+\item N.\ KATZ.--- $p$-adic $L$-functions via moduli of elliptic curves. In Algebraic Geometry Arcata 1974, Proc.\ of Symp.\ in Pure Math.\ AMS 29 (1975).
+
+\item N.\ KATZ.--- Slope filtration of $F$-crystals. Journees de Geometrie algebrique de Rennes, juillet 78, S.M.F., Asterisque 63, p.\ 113--163 (1979).
+
+\item N.\ KATZ.--- $p$-adic $L$-functions. Cong.\ int.\ Math.\ Helsinki, 1978, p.\ 365--371.
+
+\item B.\ MAZUR.--- Frobenius and the Hodge filtration. BAMS 78, p.\ 653--667 (1972).
+
+\item B.\ MAZUR et W.\ MESSING.--- Universal extensions and one dimensional crystalline cohomology. Lecture Notes in Math.\ 370, Springer-Verlag (1974).
+
+\item W.\ MESSING.--- The crystals associated to Barsotti-Tate groups, with applications to abelian schemes. Lecture Notes in Math.\ 264, Springer-Verlag (1972).
+
+\item A.\ OGUS.--- $F$-crystals and Griffiths transversality. Intl.\ Symp.\ on Alg.\ Geometry Kyoto, p.\ 15--44 (1977).
+
+\item A.\ OGUS.--- Supersingular K3 crystals. Journees de Geometrie algebrique de Rennes, juillet 78, S.M.F., Asterisque 64, p.\ 3--86 (1979).
+
+\item I.\ SHAFAREVITCH.--- Algebraic surfaces. Proc.\ Steklov Inst.\ of Math.\ 75 (1965).
+\end{enumerate}
+
+\vspace{1cm}
+
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+P.\ DELIGNE
+
+Institut des Hautes Etudes Scientifiques
+
+35, Route de Chartres
+
+91440 BURES/YVETTE (France)
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+L.\ ILLUSIE
+
+Universite de Paris-Sud
+
+Centre d'Orsay
+
+Mathematique, bat.\ 425
+
+91405 ORSAY (France)
+\end{minipage}
+
+\end{document}

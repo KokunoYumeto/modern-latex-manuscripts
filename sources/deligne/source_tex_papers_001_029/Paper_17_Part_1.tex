@@ -1,0 +1,762 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{scholie}[theorem]{Scholie}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{rappel}[theorem]{Rappel}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Imt}{Im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Iso}{Iso}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\ab}{ab}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Af}{\mathbb{A}}
+\newcommand{\ZZp}{\mathbb{Z}_p}
+\newcommand{\QQp}{\mathbb{Q}_p}
+\newcommand{\Ql}{\mathbb{Q}_\ell}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\fA}{\mathfrak{A}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\bs}{\backslash}
+\newcommand{\Lie}{\operatorname{Lie}}
+
+\title{Formes modulaires et repr\'esentations de $\GL(2)$}
+\author{P. Deligne}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Cet expos\'e, qui ne pr\'etend \`a aucune originalit\'e, se veut compl\'ementaire
+au rapport de Robert~\cite{Robert} sur Jacquet-Langlands~\cite{JL}. On peut le diviser en deux
+parties d'esprit assez diff\'erent. Les paragraphes~0, 1 et~2 se veulent un pont, dans
+la th\'eorie des formes modulaires, entre le point de vue classique et celui des
+repr\'esentations de $\GL(2)$. Le paragraphe~3 est un fascicule de r\'esultats de la th\'eorie
+de repr\'esentations de $\GL(2,K)$ ($K$~corps local). Il d\'epend des paragraphes~2, 3
+et~8 de~\cite{Deligne} (ce volume), eux-m\^emes ind\'ependant du reste de cet article.
+
+Il ne sera pas question ici des th\'eor\`emes globaux fondamentaux (relations
+entre spectre de $\GL(2)$, spectre des alg\`ebres de quaternions et s\'eries de Dirichlet
+\`a \'equations fonctionnelles), pour lesquels on renvoie au rapport cit\'e de Robert et
+bien s\^ur \`a~\cite{JL}. On s'\'etendra sur les points suivants.
+
+\begin{enumerate}
+\item[(A)] Relation entre le point de vue classique: formes modulaires comme fonctions
+sur le demi-plan de Poincar\'e, ou comme fonctions de r\'eseaux, et le point de vue des
+repr\'esentations, o\`u il s'agit de d\'ecomposer en somme de re-
+pr\'esentations irr\'eductibles du groupe ad\'elique.
+
+\item[(B)] Au paragraphe~2, apr\`es le minimum requis sur $\GL(2,\RR)$, on donne deux corollaires
+du th\'eor\`eme d'existence et d'unicit\'e du mod\`ele de Kirillov des repr\'esentations ad-
+missibles irr\'eductibles de $\GL(2,K)$ ($K$~corps local non archim\'edien),
+
+\begin{enumerate}
+\item[(a)] La th\'eorie des nouvelles formes (new forms) d'Atkin et Lehner~\cite{AtkinLehner}: la d\'emonstration
+que nous donnons est plus simple, et plus proche de celle d'Atkin-Lehner, que celle
+de Casselman~\cite{Casselman}, mais va moins loin.
+
+\item[(b)] Le th\'eor\`eme de multiplicit\'e un: si, pour presque tout nombre premier~$p$, $\pi_p$
+est une repr\'esentation admissible irr\'eductible de $\GL(2,\QQ_p)$, il existe au plus
+une sous-repr\'esentation admissible irr\'eductible de $\GL(2,\Af)$ dans
+\[ L^2_0(\GL(2,\Af)/\GL(2,\QQ)) \]
+dont les composantes locales co\" incident presque toutes avec les $\pi_p$, et de composante locale \`a l'infini donn\'ee. La d\'emonstration, tr\`es \'el\'ementaire, ne fait pas appel aux fonctions $L$ globales.
+\end{enumerate}
+\end{enumerate}
+
+(C)~Le paragraphe~3 est un fascicule de r\'esultats des relations entre repr\'esentations
+admissibles irr\'eductibles de $\GL(2,K)$ ($K$~corps local) et repr\'esentations de dimen-
+sion~2 du groupe de Galois (de Weil, plut\^ot) de $K$. Pour chaque th\'eor\`eme cit\'e, j'ai
+tent\'e, dans la mesure du possible, de fournir une r\'ef\'erence o\`u la d\'emonstration se
+fasse avec un minimum de calcul. Il n'est question dans ce paragraphe ni de la
+construction explicite des repr\'esentations (pour laquelle on pourra consulter l'ex-
+pos\'e~\cite{Cartier} de Cartier, dans ce volume), ni de la d\'ecomposition de la restriction des
+repr\'esentations au sous-groupe compact maximal (voir Silberger~\cite{Silberger}).
+
+Comme il transparait ci-dessus, je n'ai consid\'er\'e que $\GL(2,\QQ)$, non
+$\GL(2,F)$ pour un corps global $F$. Vu l'emphase mise sur la th\'eorie locale cela ne
+porte pas trop \`a cons\'equence. Je me suis aussi limit\'e aux formes modulaires holo-
+morphes. Les cas g\'en\'eral se traite de m\^eme, une fois acquis les r\'esultats sur
+$\GL(2,\RR)$ (et $\GL(2,\CC)$) prouv\'es dans~\cite{JL}~\S\S 5 et~6 ou~\cite{Langlands}~ch.~VIII.
+
+Parmi les nombreuses questions pass\'ees sous silence, je signale encore
+\begin{itemize}
+\item les s\'eries d'Eisenstein, pour lesquelles on peut renvoyer \`a Hecke~\cite{Hecke}~24;
+\item la relation entre $\SL(2)$ et $\GL(2)$ pour laquelle je renvoie \`a~\cite{Jacquet}.
+\end{itemize}
+
+Outre l'influence partout pr\'esente de~\cite{JL}, je puis citer, comme sources
+dont je suis particuli\`erement conscient:
+pour le \S\ 1 n\textsuperscript{o}\ 2: l'introduction de~\cite{Weil}, pour le \S\ 3: \cite{Tate}, pour le \S\ 2, n\textsuperscript{o}\ 4~\cite{Casselman}.
+
+\section{Pr\'eliminaires}
+
+\subsection{Notations}
+
+On pose
+\begin{align*}
+\wh{\ZZ} &= \varprojlim \ZZ/n\ZZ && (n \in \NN^*, \text{ ordonn\'e par divisibilit\'e}) \\
+\ZZ_p &= \varprojlim \ZZ/p^n\ZZ && \text{(m\^eme limite, selon un sous-ensemble d'indices)} \\
+\Af &= \wh{\ZZ} \otimes_{\ZZ} \QQ \\
+\QQ_p &= \ZZ_p \otimes_{\ZZ} \QQ = \bigcup_n p^{-n} \ZZ_p \\
+\Af &= \RR \times \Af^f = (\RR \times \wh{\ZZ}) \otimes_{\ZZ} \QQ
+\end{align*}
+
+On a
+\[ \wh{\ZZ} \xrightarrow{\sim} \prod_p \ZZ_p \]
+et l'anneau des ad\`eles $\Af$ est le produit restreint, relativement aux sous-groupes
+compacts ouverts $\ZZ_p \subset \QQ_p$, des compl\'et\'es $\QQ_v$ ($\RR = \QQ_\infty$, et les $\QQ_p$) de $\QQ$:
+\[ \Af = \sideset{}{'}\prod_v \QQ_v \]
+
+Pour $x \in \QQ_p$, $v_p(x)$ d\'esigne la valuation ($v_p(p) = 1$), et la valeur absolue est $\|x\|_p = p^{-v_p(x)}$.
+On d\'efinit $\|x\|_\infty = |x|$ et $\|x\| = \prod_v \|x\|_v$ pour $x \in \Af$.
+
+Pour tout anneau $A$ et tout $A$-module libre $V$, on pose
+$\GL_A(V) = $ groupe lin\'eaire des $A$-automorphismes de $V$ et
+\[ \GL(n,A) = \GL_A(A^n) : \text{ matrices inversibles } n \times n. \]
+
+\textbf{Corps local:} corps (commutatif) localement compact non discret, par exemple $\RR$, $\CC$ ou $\QQ_p$. Nous les noterons $F$ ou $K$, selon les paragraphes.
+
+\textbf{Corps local archim\'edien:} $\RR$ ou $\CC$.
+
+\textbf{Corps local non archim\'edien:} les autres. Pour $F$ un tel corps, on notera $\cO$ l'anneau de la valuation de $F$ (anneau de valuation discr\`ete complet \`a corps r\'esiduel fini $\Fq$), par $\varpi$ une uniformisante, par $v$ la valuation ($v(\varpi) = 1$), et $\|x\| = q^{-v(x)}$ la valeur absolue.
+
+\subsection{R\'eseaux ad\'eliques}
+
+\begin{rappel}[(0.1.1)]
+Rappelons que, de m\^eme que $\ZZ$ est discret \`a quotient compact dans $\RR$, $\QQ$ est discret \`a quotient compact dans $\Af$.
+
+Soit $M$ un $\ZZ$-module libre de rang $n$. Un \emph{r\'eseau} dans $M$ est un $\ZZ$-sous-module $R \subset M$, tel que $R \otimes_{\ZZ} \QQ = M \otimes_{\ZZ} \QQ$. Il revient au m\^eme de dire que c'est un $\ZZ$-module $R \subset M$ discret et \`a quotient compact (de m\^eme que les r\'eseaux dans $\QQ^n$ sont les sous-groupes discrets \`a quotient compact).
+
+Soit $R_0 \subset \QQ^n$ un r\'eseau, et pour chaque nombre premier $\ell$, soit $\alpha_\ell$ un isomorphisme $R_0 \otimes \QQ_\ell \xrightarrow{\sim} \QQ_\ell^n$. Les $\alpha_\ell$ correspondent \`a
+\[ \alpha: R_0 \otimes_{\ZZ} \Af \xrightarrow{\sim} \Af^n. \]
+L'injection identique de $R_0$ dans $\QQ^n$, et $\alpha$ d\'efinissent un isomorphisme
+\[ (1,\alpha): R_0 \otimes_{\ZZ} (\RR \times \Af) \xrightarrow{\sim} (\RR \times \Af)^n, \]
+d'o\`u
+\[ (1,\alpha): (R_0 \otimes_{\ZZ} \Af) \otimes_{\QQ} \Af \xrightarrow{\sim} \Af^n \]
+qui fait de $R = R_0 \otimes_{\ZZ} \Af$ un r\'eseau dans $\Af^n$.
+\end{rappel}
+
+\begin{rappel}[0.1.2] \label{rappel:0.1.2}
+La construction pr\'ec\'edente est une bijection de l'ensemble des r\'eseaux $R_0 \subset \QQ^n$, munis de $\alpha: R_0 \otimes \Af \xrightarrow{\sim} \Af^n$, avec l'ensemble des r\'eseaux dans $\Af^n$.
+
+La bijection inverse associe \`a $R \subset \Af^n$ le $\ZZ$-module $R_0 = R \cap (\RR \times \wh{\ZZ})^n$ consid\'er\'e comme r\'eseau dans $\QQ^n$ par la premi\`ere projection $R_0 \hookrightarrow \QQ^n$, et muni de la deuxi\`eme projection $\alpha$.
+\end{rappel}
+
+(0.1.3) Via ce dictionnaire, l'action de $\GL(n,\RR)$ sur les r\'eseaux de $\RR^n$ se d\'ecrit comme suit. Soit $R$ un r\'eseau dans $\Af^n$, correspondant \`a $(R_0, \alpha)$, et $g = (g_\infty, g_f) \in \GL(n,\RR) \times \GL(n, \Af \otimes_{\QQ} \QQ)$. Soit $R_0'$ le r\'eseau isog\`ene \`a $R_0$ tel que
+\[ R_0' \otimes \ZZ_p = \alpha^{-1} g_f \alpha(R_0 \otimes \ZZ_p). \]
+On a alors
+\[ R \cdot g = \text{r\'eseau correspondant \`a } (R_0', g_\infty \alpha g_f^{-1}) \]
+et en particulier
+\begin{align*}
+\text{pour } g_\infty &\in \GL(n,\RR), & R \cdot g_\infty &= g_\infty(R), \\
+\text{pour } k &\in \GL(n,\wh{\ZZ}), & R \cdot k &= \alpha^{-1} k \alpha(R).
+\end{align*}
+
+(0.1.4) Soit $\fA \subset \Hom(\QQ^n, \Af^n)$ l'ensemble des homomorphismes $g$ d'image un r\'eseau. Tout $g$ se prolonge par lin\'earit\'e en un automorphisme de $\Af^n$ d'o\`u un isomorphisme $\fA/\QQ \xrightarrow{\sim} \GL(n,\Af)$. L'ensemble $\cR$ des r\'eseaux de $\Af^n$ s'identifie au quotient
+\[ \cR \cong \GL(n,\Af)/\GL(n,\QQ). \]
+De m\^eme, l'ensemble $\cR_\RR$ des r\'eseaux dans $\RR^n$ s'identifie au quotient
+\[ \cR_\RR = \GL(n,\RR)/\GL(n,\ZZ). \]
+
+L'assertion~\ref{rappel:0.1.2} signifie encore que l'application
+\begin{equation} \label{eq:0.1.4.1}
+[\GL(n,\RR) \times \GL(n,\wh{\ZZ})]/\GL(n,\ZZ) \longrightarrow \GL(n,\Af)/\GL(n,\QQ)
+\end{equation}
+est un isomorphisme. \`A chaque r\'eseau ad\'elique, identifi\'e \`a $(R_0,\alpha)$, associons le r\'eseau $R_0$. L'application de $\cR$ dans $\cR_\RR$ obtenue s'identifie au compos\'e
+\[ \GL(n,\Af)/\GL(n,\QQ) \leftarrow [\GL(n,\RR) \times \GL(n,\wh{\ZZ})]/\GL(n,\ZZ) \longrightarrow \GL(n,\RR)/\GL(n,\ZZ). \]
+Elle induit un isomorphisme
+\begin{equation} \label{eq:0.1.4.2}
+\GL(n,\ZZ)\bs\cR \xrightarrow{\sim} \cR_\RR.
+\end{equation}
+
+\subsection{Repr\'esentations admissibles}
+
+\subsubsection{}
+\label{sec:0.2.1}
+
+Soient $F$ un corps local non archim\'edien et $k$ un corps de caract\'eristique $0$. Une \emph{repr\'esentation admissible} de $\GL(2,F)$ sur $k$ est une repr\'esentation lin\'eaire (de dimension finie ou infinie)
+\[ \pi: \GL(2,F) \longrightarrow \GL_k(V) \]
+telle que le stabilisateur de $v \in V$ soit ouvert ($\pi(g)\cdot v$ continu pour la topologie discr\`ete de $V$) et que pour $H \subset \GL(2,F)$ un sous-groupe ouvert, le sous-espace $V^H$ des $H$-invariants dans $V$ soit de dimension finie.
+
+Pour la d\'efinition de la contragr\'ediente admissible $\widetilde{\pi}$, voir~\cite{JL}~p.~28.
+
+\subsubsection{}
+\label{sec:0.2.2}
+
+Plut\^ot que $\GL(2,\RR)$, nous consid\'erons le groupe isomorphe $G\ell_{\RR}(\CC)$. Ce groupe contient $\CC^*$ (les $z \mapsto \lambda z$), donc $\mathbb{U} \subset \CC^*$, et la conjugaison complexe $s$. Soit $K = \mathbb{U} \cup s\mathbb{U}$ le normalisateur de $\mathbb{U}$ dans $\GL_{\RR}(\CC)$. Une repr\'esentation admissible (complexe) de $G\ell_{\RR}(\CC)$ consiste en
+
+\begin{enumerate}
+\item[(a)] une repr\'esentation lin\'eaire $\pi|_K: K \to \GL_{\CC}(V)$, somme directe alg\'ebrique de repr\'esentations irr\'eductibles (usuellement, de dimension finie) de $K$, chacune n'apparaissant qu'un nombre fini de fois;
+
+\item[(b)] une action sur $V$ de l'alg\`ebre de Lie $\mathfrak{g}\ell_{\RR}(\CC)$ de $G\ell_{\RR}(\CC)$, prolongeant l'action de $\Lie(K)$ et telle que, pour $k \in K$ et $X \in \mathfrak{g}\ell_{\RR}(\CC)$, on ait
+\begin{equation} \label{eq:0.2.2.1}
+\pi(k)\pi(X)\pi(k)^{-1} = \pi(\ad k \cdot X).
+\end{equation}
+\end{enumerate}
+
+On v\'erifie facilement que la repr\'esentation donn\'ee de $K$ se prolonge de fa\c{c}on unique en une repr\'esentation de $(\CC^* \cup s\CC^*) \subset G\ell_{\RR}(\CC)$ qui v\'erifie encore (b). Il suffit par ailleurs de v\'erifier \eqref{eq:0.2.2.1} pour $k = s$.
+
+\subsubsection{}
+\label{sec:0.2.3}
+
+Par la d\'efinition des repr\'esentations admissibles de $\GL(2,\Af)$, on renvoie \`a~\cite{JL}~\S 9. Toute repr\'esentation admissible irr\'eductible $\pi$ de $\GL(2,\Af)$ sur $V$ (complexe) est un produit tensoriel restreint: pour chaque place $v$, il existe une repr\'esentation admissible irr\'eductible $\pi_v: \GL(2,\QQ_v) \to \GL(V_v)$, et pour presque tout nombre premier $p$, un vecteur $v_p \in V_p$, invariant par $\GL(2,\ZZ_p)$, de sorte que
+\[ V = \bigotimes'_v V_v = \varinjlim_{S} \bigotimes_{v \in S} V_v \]
+(limite sur les ensembles finis de places assez grands, inclusions d\'efinies par les $v_p$). C'est facile: voir~\cite{JL}~9.1. De m\^eme pour $\GL(2,\Af^f)$.
+
+\section{Fonctions de r\'eseaux}
+
+\subsection{Fonctions sur $\GL(2,\RR)$}
+
+\subsubsection{}
+\label{sec:1.1.1}
+
+Notons $(e_1, e_2)$ la base canonique de $\ZZ^2$. L'ensemble des homomorphismes $g: \ZZ^2 \to \CC$ s'identifie \`a l'ensemble des couples $(\omega_1, \omega_2)$ de nombres complexes par $g \mapsto (g(e_1), g(e_2))$. Notons $G$ l'ensemble des $g \in \Hom(\ZZ^2, \CC)$ tel que $g(\ZZ^2)$ soit un r\'eseau. On peut identifier $G$ \`a l'ensemble des couples $(\omega_1, \omega_2)$ de nombres complexes $\RR$-lin\'eairement ind\'ependants.
+
+Tout $g \in G$ se prolonge par lin\'earit\'e en des applications $\RR$- et $\CC$-lin\'eaires
+\[ g_{\RR}: \RR^2 \longrightarrow \CC \qquad \text{et} \qquad g_{\CC}: \CC^2 \longrightarrow \CC. \]
+Ceci fournit diverses descriptions de $G$, qui s'identifie respectivement
+
+\begin{enumerate}
+\item[(a)] L'ensemble des r\'eseaux dans $\CC$ munis d'une base (par $g \mapsto (g(\ZZ^2)$; base $g(e_1), g(e_2)$)).
+
+\item[(b)] $\Iso_{\RR}(\RR^2, \CC)$ (par $g \mapsto g_{\RR}$).
+
+\item[(b$'$)] L'ensemble des couples form\'es d'une structure complexe sur $\RR^2$ et d'un isomorphisme $\CC$-lin\'eaire (pour cette structure complexe) de $\RR^2 \otimes_{\RR} \CC$ avec $\CC$.
+
+\item[(c)] L'ouvert de $\Hom_{\RR}(\RR^2, \CC)$ form\'e des formes dont la restriction \`a $\RR^2$ est injective (par $g \mapsto g_{\RR}$).
+\end{enumerate}
+
+Les interpr\'etations (a) et (c) mettent en \'evidence une structure complexe sur $G$, pour laquelle les fonctions $\omega_i = g(e_i)$ sont holomorphes.
+
+L'interpr\'etation (b) met en \'evidence une action \`a droite, par composition, de $\GL(2,\RR)$ sur $G$. Cette action respecte la structure complexe de $G$ et, par (a), $G/\GL(2,\ZZ)$ s'identifie \`a l'ensemble des r\'eseaux dans $\CC$, muni de sa structure complexe naturelle. Dans le syst\`eme de coordonn\'ees $(\omega_1, \omega_2)$, l'action s'\'ecrit
+\[ (\omega_1, \omega_2) \begin{pmatrix} a & b \\ c & d \end{pmatrix} = (a\omega_1 + b\omega_2, c\omega_1 + d\omega_2) \]
+(produit matriciel).
+
+L'interpr\'etation (b) met aussi en \'evidence une action \`a gauche de $G\ell_{\RR}(\CC)$ sur $G$:
+\[ \lambda \cdot g: z \longmapsto \lambda \cdot g(z). \]
+Identifions $\CC^*$ \`a un sous-groupe de $G\ell_{\RR}(\CC)$ par $(z \mapsto \lambda z)$. L'action de $\CC^* \subset G\ell_{\RR}(\CC)$ sur $G$ est holomorphe, et $G$ est un espace principal homog\`ene de groupe $\CC^*$ sur $X = \CC^* \bs G$. D'apr\`es (b$'$), $X$ s'identifie \`a l'ensemble des structures complexes sur $\RR^2$. La structure complexe quotient de celle de $G$ obtenue sur $X$ se d\'eduit aussi de l'inclusion $X \hookrightarrow \mathbb{P}^1(\CC)$ suivante: \`a $x \in X$, on associe le noyau de l'application $\CC$-lin\'eaire
+\[ \RR^2 \otimes_{\RR} \CC \longrightarrow \CC \]
+qui prolonge l'identit\'e $\RR^2 \to \RR^2$.
+
+\subsubsection{}
+\label{sec:1.1.2}
+
+Soit $g_0 \in G$ le r\'eseau de base $(i, 1)$. On choisira $g_0$ comme origine dans $G$, et on identifiera $\GL(2,\RR)$ par $h \in \GL(2,\RR) \mapsto g_0 \circ h$. Les actions \`a droites ou \`a gauches de $\GL(2,\RR)$ ou $G\ell_{\RR}(\CC)$ introduites plus haut s'identifient alors aux translations \`a droite ou \`a gauche, et $X$ \`a $G\ell_{\RR}(\CC)/\CC^*$.
+
+$(\CC^2 \text{ \'etant identifi\'e \`a } \GL(2,\RR) \text{ \`a l'aide de } (i,1): \RR^2 \xrightarrow{\sim} \CC)$.
+
+\subsubsection{}
+\label{sec:1.1.3}
+
+Sur $\GL(2,\RR)$, d\'efinissons une fonction $\|g\|$ par
+\[ \|g\| = \Tr({}^t\!g \cdot g) + \det(g)^{-1}\Tr({}^t\!g \cdot g). \]
+Une fonction $f$ sur $\GL(2,\RR)$ sera dite $C^\infty$ \`a croissance mod\'er\'ee s'il existe $A > 0$, $N > 0$ tels que
+\begin{equation} \label{eq:1.1.3.1}
+|f(g)| \leq A \cdot \|g\|^N
+\end{equation}
+et que toutes les d\'eriv\'ees de $f$ (relativement \`a des champs de vecteurs invariants) v\'erifient des conditions analogues. La condition \eqref{eq:1.1.3.1} revient \`a dire que $f$ est major\'ee par une fonction alg\'ebrique. C'est une condition de croissance tr\`es faible (l'analogue pour $\GL(1,\RR)$ est: major\'ee par $A \cdot |x|^N$, pour $\chi$ un quasi-caract\`ere convenable).
+
+On transporte par~\ref{sec:1.1.2} cette terminologie aux fonctions sur $G$, et on l'\'etend aux fonctions sur l'ensemble $G/\GL(2,\ZZ)$ des r\'eseaux dans $\CC$, identifi\'ees \`a certaines fonctions sur $G$.
+
+\begin{definition}[1.1.4] \label{def:1.1.4}
+Une \emph{forme modulaire holomorphe de poids~$k$}, de groupe $\GL(2,\ZZ)$, est une fonction de r\'eseau $f(R)$,
+\[ f: G/\GL(2,\ZZ) \longrightarrow \CC \]
+qui est
+\begin{enumerate}
+\item[(a)] holomorphe,
+\item[(b)] telle que $f(\lambda R) = \lambda^{-k} f(R)$ ($\lambda \in \CC^*$),
+\item[(c)] \`a croissance mod\'er\'ee.
+\end{enumerate}
+\end{definition}
+
+La condition (b) signifie que $f(g)\omega(g)^k$ est invariant par $\CC^*$ agissant \`a gauche, donc provient d'une fonction holomorphe sur $X$. Puisque $X \subset \mathbb{P}^1(\CC)$ est une courbe projective lisse, une fonction holomorphe sur $X$ est constante. Pour $k < 0$, il n'y a donc pas de forme modulaire holomorphe non nulle de poids~$k$.
+
+\subsubsection{}
+\label{sec:1.1.5}
+
+Les donn\'ees (a), (b), (c) ci-dessus \'equivalent encore \`a celle d'une fonction $f$ sur $G$, holomorphe, telle que
+\begin{enumerate}
+\item[(i)] $f(g \cdot \gamma) = f(g)$ ($\gamma \in \GL(2,\ZZ)$);
+\item[(ii)] $f(\lambda \cdot g) = \lambda^{-k} f(g)$ ($\lambda \in \CC^*$);
+\item[(iii)] $f$ est \`a croissance mod\'er\'ee.
+\end{enumerate}
+
+\subsubsection{Coordonn\'ees homog\`enes} \label{sec:1.1.5.1}
+
+On pose
+\[ j(g,z) = cz + d \quad \text{pour } g = \begin{pmatrix} a & b \\ c & d \end{pmatrix}. \]
+Le demi-plan de Poincar\'e est
+\[ X^+ = \{ z \in \CC \mid \Im(z) > 0 \}. \]
+L'application $g \mapsto g(i) = \frac{ai+b}{ci+d}$ identifie $\GL^+(2,\RR)/\RR^* \cdot \SO(2)$ \`a $X^+$. Par cette identification, les fonctions holomorphes correspondent aux fonctions holomorphes. L'action \`a droite de $\GL(2,\RR)$ devient: pour $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$,
+\[ (f|_k \gamma)(z) = \det(\gamma)^{k/2} (cz+d)^{-k} f(\gamma z). \]
+
+\subsubsection{}
+\label{sec:1.1.6}
+
+Soit $S_G$ l'ensemble des couples form\'es d'un r\'eseau $R \subset \CC$ et d'un isomorphisme $\alpha: \CC/R \xrightarrow{\sim} \CC/\ZZ$. Les fonctions de r\'eseau marqu\'es s'identifient aux fonctions sur $S_G$ invariantes par $\GL(2,\ZZ)$. On d\'efinit aussi $S_G^+$ (r\'eseau + orientation).
+
+\subsection{Fonctions sur $\GL(2,\Af)$}
+
+\subsubsection{}
+\label{sec:1.2.1}
+
+L'ensemble des homomorphismes $g: \ZZ^2 \to \Af$ s'identifie \`a $\Af^2$. Notons $G_\Af$ l'ensemble des $g \in \Hom(\ZZ^2, \Af)$ tel que $g(\ZZ^2)$ soit un r\'eseau dans $\Af$. On a
+\[ G_\Af/\GL(2,\ZZ) \xrightarrow{\sim} \{\text{r\'eseaux dans } \Af^2\} = \GL(2,\Af)/\GL(2,\QQ). \]
+
+\subsubsection{}
+\label{sec:1.2.2}
+
+Par analogie avec~\ref{sec:1.1.1}, une fonction sur $\GL(2,\Af)$, invariante \`a droite par $\GL(2,\ZZ)$ et \`a gauche par $\CC^*$, holomorphe en la variable \`a l'infini et v\'erifiant des conditions de croissance mod\'er\'ee, est une fonction de r\'eseaux ad\'eliques de poids~$k$. Plus pr\'ecis\'ement:
+
+\begin{definition}[1.2.3] \label{def:1.2.3}
+Une \emph{forme modulaire holomorphe de poids~$k$} est une fonction $f: G_\Af/\GL(2,\QQ) \to \CC$, identifi\'ee \`a une fonction sur $\GL(2,\Af)$, telle que
+\begin{enumerate}
+\item[(i)] $f(\gamma g) = f(g)$ pour $\gamma \in \GL(2,\QQ)$;
+\item[(ii)] $f$ est invariante \`a droite par un sous-groupe ouvert de $\GL(2,\Af^f)$;
+\item[(iii)] $f(g_\infty, g_f) = f_k(g_\infty)$ o\`u $f_k$ est une fonction holomorphe de poids~$k$ sur $\GL(2,\RR)$ (\`a gauche par $\CC^*$);
+\item[(iv)] croissance mod\'er\'ee: il existe $A, N > 0$ tels que $|f(g)| \leq A \|g_\infty\|^N$.
+\end{enumerate}
+\end{definition}
+
+\subsubsection{}
+\label{sec:1.2.4}
+
+L'espace des formes modulaires holomorphes de poids~$k$ est la r\'eunion des espaces de formes modulaires de niveau $n$, i.e. invariantes par le sous-groupe de congruence
+\[ K(n) = \{g \in \GL(2,\wh{\ZZ}) \mid g \equiv 1 \pmod{n}\}. \]
+
+\subsubsection{}
+\label{sec:1.2.5}
+
+Soit $f$ une forme modulaire holomorphe de poids~$k$, de niveau $n$. Alors $f$ d\'efinit une fonction holomorphe sur $\GL(2,\RR)$, invariante \`a droite par $\Gamma(n) = K(n) \cap \GL(2,\ZZ)$. Via l'isomorphisme de~\eqref{eq:0.1.4.1}, $f$ correspond \`a une fonction de r\'eseaux marqu\'es $f(R_0, \alpha)$, homog\`ene de poids~$-k$, v\'erifiant $f(R_0, \alpha \circ \gamma) = f(R_0, \alpha)$ pour $\gamma \in \GL(2,\ZZ)$.
+
+\subsection{Pointes}
+
+\subsubsection{}
+\label{sec:1.3.1}
+
+Le groupe $\GL(2,\QQ)$ agit sur $\mathbb{P}^1(\QQ) = \QQ \cup \{\infty\}$. Les pointes sont les orbites de cette action sur les sous-groupes unipotents. Pour $\Gamma \subset \GL(2,\ZZ)$ un sous-groupe d'indice fini, les pointes de $\Gamma$ sont les $\Gamma$-orbites dans $\mathbb{P}^1(\QQ)$.
+
+\subsubsection{}
+\label{sec:1.3.2}
+
+Soit $\Gamma \subset \SL(2,\ZZ)$ un sous-groupe d'indice fini. Une pointe de $\Gamma$ est un point de $\mathbb{P}^1(\QQ) = \QQ \cup \{\infty\}$, modulo l'action de $\Gamma$. On peut supposer, par conjugaison, que la pointe est $\infty$. Le sous-groupe de $\Gamma$ stabilisant $\infty$ est de la forme
+\[ \Gamma_\infty = \left\{ \pm \begin{pmatrix} 1 & n h \\ 0 & 1 \end{pmatrix} \mid n \in \ZZ \right\} \]
+o\`u $h$ est la largeur de la pointe.
+
+\subsubsection{}
+\label{sec:1.3.3}
+
+Soit $f$ une forme modulaire holomorphe de poids~$k$ pour $\Gamma$. Au voisinage d'une pointe, $f$ admet un d\'eveloppement en s\'erie de Fourier (q-d\'eveloppement):
+\[ f(z) = \sum_{n \geq 0} a_n q^{n/h} \quad \text{o\`u } q = e^{2\pi i z}. \]
+La forme $f$ est dite \emph{parabolique} si $a_0 = 0$ en toute pointe, i.e. si $f$ s'annule aux pointes.
+
+\section{Formes modulaires et spectre de $\GL(2)$}
+
+\subsection{Formes modulaires holomorphes et repr\'esentations de $\GL(2,\RR)$}
+
+\subsubsection{}
+\label{sec:2.1.1}
+
+La d\'efinition~\ref{def:1.1.4} peut se reformuler comme suit.
+
+\begin{scholie}[2.1.2] \label{sch:2.1.2}
+L'ensemble des formes modulaires holomorphes de poids~$k$ de groupe $\GL(2,\ZZ)$ s'identifie \`a l'ensemble des fonctions $\phi: \GL(2,\QQ)\bs\GL(2,\Af) \to \CC$ telles que
+\begin{enumerate}
+\item[(i)] $\phi(gk) = \phi(g)$ pour $k \in K$ compact ouvert;
+\item[(ii)] $\phi(gg_\infty) = j(g_\infty, i)^{-k} \det(g_\infty)^{k/2} \phi(g)$;
+\item[(iii)] $\phi$ est vecteur propre de l'op\'erateur de Casimir, de valeur propre $\frac{k}{2}(\frac{k}{2}-1)$;
+\item[(iv)] $\phi$ est \`a croissance mod\'er\'ee.
+\end{enumerate}
+\end{scholie}
+
+\subsubsection{}
+\label{sec:2.1.3}
+
+Soit $\cH_k$ l'espace des formes modulaires holomorphes de poids~$k$. C'est un espace de Hilbert pour le produit scalaire de Petersson. L'alg\`ebre de Hecke $\cH$ agit sur $\cH_k$. Les formes paraboliques forment un sous-espace $\cH_k^0 \subset \cH_k$.
+
+\subsubsection{}
+\label{sec:2.1.4}
+
+Soit $\cA_0$ l'espace des fonctions cuspidales sur $\GL(2,\QQ)\bs\GL(2,\Af)$, i.e. les fonctions $f: \GL(2,\Af) \to \CC$ telles que
+\begin{enumerate}
+\item[(i)] $f(\gamma g) = f(g)$ pour $\gamma \in \GL(2,\QQ)$;
+\item[(ii)] $f$ est invariante \`a droite par un sous-groupe ouvert;
+\item[(iii)] la composante \`a l'infini engendre une repr\'esentation admissible irr\'eductible de $\GL(2,\RR)$;
+\item[(iv)] $f$ est parabolique: $\int_{\QQ\bs\Af} f\left(\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} g\right) dx = 0$ pour presque tout $g$.
+\end{enumerate}
+
+\begin{proposition}[2.1.5] \label{prop:2.1.5}
+Soit $\pi$ une repr\'esentation admissible irr\'eductible de $\GL(2,\RR)$, contenue dans $\cA_0$. Alors $\pi$ est de l'un des types suivants:
+\begin{enumerate}
+\item[(a)] S\'erie discr\`ete holomorphe de poids $k \geq 2$: $\pi = \cD_k$;
+\item[(b)] S\'eries discr\`etes antiholomorphes $\overline{\cD}_k$;
+\item[(c)] S\'eries discr\`etes de limites $\cD_1$, $\overline{\cD}_1$;
+\item[(d)] Repr\'esentations de la s\'erie principale unitaire.
+\end{enumerate}
+\end{proposition}
+
+\subsubsection{}
+\label{sec:2.1.6}
+
+Pour $\pi$ de la s\'erie discr\`ete holomorphe de poids~$k$, l'espace des vecteurs de plus haut poids co\" incidence avec l'espace des formes modulaires holomorphes de poids~$k$. Le th\'eor\`eme de multiplicit\'e un affirme que chaque $\pi$ appara\" it au plus une fois dans $\cA_0$.
+
+\subsubsection{}
+\label{sec:2.1.7}
+
+\begin{proposition}[2.1.7] \label{prop:2.1.7}
+\`A un facteur pr\`es, il existe sur $\cD_k$ une unique forme lin\'eaire $\ell \neq 0$ telle que $\ell\left(\pi\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} v\right) = e^{2\pi i x} \ell(v)$. Cette forme s'appelle le \emph{vecteur de Whittaker}.
+\end{proposition}
+
+\subsubsection{}
+\label{sec:2.1.8}
+
+Soit $\pi$ une repr\'esentation admissible irr\'eductible de $\GL(2,\RR)$. Le centre $Z$ de $\GL(2,\RR)$ agit par un quasi-caract\`ere $\omega$ (le caract\`ere central). La repr\'esentation contragr\'ediente $\widetilde{\pi}$ a pour caract\`ere central $\omega^{-1}$.
+
+\begin{proposition}[2.1.8] \label{prop:2.1.8}
+Le produit tensoriel $\pi \otimes \widetilde{\pi}$ se r\'ealise comme sous-repr\'esentation de $\cA_0$, par les s\'eries de Rankin-Selberg.
+\end{proposition}
+
+\subsection{Mod\`ele de Kirillov et nouveau vecteur}
+
+\subsubsection{}
+\label{sec:2.2.1}
+
+Soit $F$ un corps local non archim\'edien. Le th\'eor\`eme fondamental de Kirillov affirme:
+
+\begin{theorem}[Kirillov] \label{thm:kirillov}
+Soit $\pi$ une repr\'esentation admissible irr\'eductible de dimension infinie de $\GL(2,F)$. Alors $\pi$ admet un unique mod\`ele de Kirillov: un plongement
+\[ V \hookrightarrow C^\infty(F^*, \omega) \]
+o\`u $\omega$ est le caract\`ere central, et l'image consiste en les fonctions lisses \`a support compact sur $F^*$, avec une condition en $0$.
+\end{theorem}
+
+\subsubsection{}
+\label{sec:2.2.2}
+
+Dans le mod\`ele de Kirillov, l'action de $\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix}$ est donn\'ee par multiplication par $\psi(xt)$, o\`u $\psi$ est un caract\`ere additif non trivial de $F$. Le sous-groupe des matrices diagonales agit par translation sur $t \in F^*$.
+
+\subsubsection{}
+\label{sec:2.2.3}
+
+Soit $\pi$ une repr\'esentation admissible irr\'eductible de $\GL(2,F)$. Le \emph{conducteur} $c(\pi)$ est le plus petit entier $n \geq 0$ tel qu'il existe un vecteur $v \in V$ invariant par
+\[ K_1(n) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \GL(2,\cO) \mid c \equiv 0, \; d \equiv 1 \pmod{\varpi^n} \right\}. \]
+
+\begin{theorem}[2.2.4] \label{thm:2.2.4}
+Pour chaque repr\'esentation admissible irr\'eductible $\pi$ de $\GL(2,F)$, il existe un unique vecteur $v \neq 0$ (\`a un scalaire pr\`es), appel\'e le \emph{nouveau vecteur}, tel que
+\begin{enumerate}
+\item[(i)] $v$ est invariant par $K_1(c(\pi))$;
+\item[(ii)] $v$ est vecteur propre des op\'erateurs de Hecke.
+\end{enumerate}
+Dans le mod\`ele de Kirillov, le nouveau vecteur est la fonction caract\'eristique de $\cO^*$.
+\end{theorem}
+
+\subsubsection{}
+\label{sec:2.2.5}
+
+Le nouveau vecteur engendre la repr\'esentation sous l'action de $\GL(2,F)$. Il permet de reconstruire $\pi$ \`a isomorphisme pr\`es.
+
+\begin{proposition}[2.2.6] \label{prop:2.2.6}
+Soient $\pi_1, \pi_2$ deux repr\'esentations admissibles irr\'eductibles de $\GL(2,F)$ ayant m\^eme nouveau vecteur. Alors $\pi_1 \cong \pi_2$.
+\end{proposition}
+
+\subsection{Mod\`ele de Kirillov et op\'erateurs de Hecke}
+
+\subsubsection{}
+\label{sec:2.3.1}
+
+Soit $\pi$ une repr\'esentation admissible irr\'eductible de $\GL(2,\QQ_p)$, de caract\`ere central unitaire. Dans le mod\`ele de Kirillov, l'op\'erateur de Hecke $T_p$ agit par
+\[ (T_p f)(t) = f(pt) + \omega(p)^{-1} p^{-1} f(p^{-1}t) \]
+pour $f$ dans le mod\`ele de Kirillov.
+
+\subsubsection{}
+\label{sec:2.3.2}
+
+Pour une forme modulaire $f$ de poids~$k$, de niveau $N$, le $q$-d\'eveloppement
+\[ f(z) = \sum_{n \geq 1} a_n q^n \]
+est reli\'e aux valeurs propres de Hecke par $T_p f = a_p f$ pour $p \nmid N$.
+
+\subsection{Nouvelles formes d'Atkin-Lehner}
+
+\subsubsection{}
+\label{sec:2.4.1}
+
+Soit $\cH_k(\Gamma_0(N))$ l'espace des formes modulaires holomorphes de poids~$k$ pour
+\[ \Gamma_0(N) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \SL(2,\ZZ) \mid c \equiv 0 \pmod{N} \right\}. \]
+Pour $M \mid N$, on dispose d'injections
+\[ \cH_k(\Gamma_0(M)) \hookrightarrow \cH_k(\Gamma_0(N)) \]
+g donn\'ees par $f(z) \mapsto f(dz)$ pour $d \mid N/M$.
+
+\subsubsection{}
+\label{sec:2.4.2}
+
+\begin{definition}[2.4.1] \label{def:2.4.1}
+L'espace des \emph{nouvelles formes} $\cH_k^{\text{new}}(\Gamma_0(N))$ est le compl\'ement orthogonal (pour le produit de Petersson) de l'espace engendr\'e par les images des $\cH_k(\Gamma_0(M))$ pour $M \mid N$, $M < N$.
+\end{definition}
+
+\begin{theorem}[Atkin-Lehner] \label{thm:atkin-lehner}
+\begin{enumerate}
+\item[(i)] L'espace $\cH_k^{\text{new}}(\Gamma_0(N))$ est stable sous les op\'erateurs de Hecke $T_n$ pour tout $n \geq 1$.
+\item[(ii)] Les op\'erateurs de Hecke sont simultan\'ement diagonalisables sur $\cH_k^{\text{new}}(\Gamma_0(N))$.
+\item[(iii)] Si $f \in \cH_k^{\text{new}}(\Gamma_0(N))$ est vecteur propre des $T_p$ pour $p \nmid N$, alors $f$ est vecteur propre de tous les $T_n$.
+\item[(iv)] Deux nouvelles formes ayant les m\^emes valeurs propres pour les $T_p$ ($p \nmid N$) sont proportionnelles.
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{}
+\label{sec:2.4.3}
+
+Le th\'eor\`eme~\ref{thm:atkin-lehner} se d\'emontre via le mod\`ele de Kirillov. L'op\'erateur $U_p$ pour $p \mid N$ agit dans le mod\`ele de Kirillov par
+\[ (U_p f)(t) = \sum_{u \pmod{p}} \psi(ut) f(pt). \]
+La stabilit\'e par $U_p$ r\'esulte de l'orthogonalit\'e avec les formes anciennes.
+
+\subsubsection{}
+\label{sec:2.4.4}
+
+Soit $\pi = \bigotimes'_p \pi_p$ une repr\'esentation automorphe cuspidale. Pour presque tout $p$, $\pi_p$ est non ramifi\'e, i.e. $c(\pi_p) = 0$.
+
+\begin{proposition}[2.4.5] \label{prop:2.4.5}
+Si $\pi$ est engendr\'ee par une nouvelle forme de niveau $N$, alors $c(\pi_p) = v_p(N)$ pour tout $p$.
+\end{proposition}
+
+\subsection{D\'eveloppement aux pointes}
+
+\subsubsection{}
+\label{sec:2.5.1}
+
+Soit $f$ une forme modulaire de poids~$k$, de niveau $N$. Le d\'eveloppement de Fourier de $f$ \`a la pointe $\infty$ est
+\[ f(z) = \sum_{n \geq 0} a_n e^{2\pi i n z}. \]
+Pour une pointe rationnelle $a/c$, on a un d\'eveloppement similaire apr\`es conjugaison.
+
+\subsubsection{}
+\label{sec:2.5.2}
+
+Le $q$-d\'eveloppement aux pointes se calcule via les int\'egrales de Whittaker:
+\[ a_n(f) = \int_{\ZZ\bs\RR} f(x+iy) e^{-2\pi i n x} dx. \]
+Pour une forme parabolique, $a_0 = 0$ en toute pointe.
+
+\begin{proposition}[2.5.3] \label{prop:2.5.3}
+Soit $f$ une nouvelle forme de niveau $N$, de $q$-d\'eveloppement $f(z) = \sum_{n \geq 1} a_n q^n$. Alors
+\begin{enumerate}
+\item[(i)] $a_1 \neq 0$;
+\item[(ii)] $a_n = a_{n_1} a_{n_2}$ si $(n_1,n_2) = 1$;
+\item[(iii)] $L(s,f) = \sum_{n \geq 1} a_n n^{-s} = \prod_p (1 - a_p p^{-s} + \chi(p) p^{k-1-2s})^{-1}$.
+\end{enumerate}
+\end{proposition}
+
+\subsubsection{}
+\label{sec:2.5.4}
+
+La proposition~\ref{prop:2.5.3} se d\'emontre par r\'ecurrence sur le niveau. Pour $p \nmid N$, les relations de Hecke donnent $a_{np} + p^{k-1} a_{n/p} = a_p a_n$. Pour $p \mid N$, l'op\'erateur $U_p$ donne $a_{np} = a_p a_n$.
+
+\section{Corps de classes local et repr\'esentations de $\GL(2,F)$}
+
+\subsection{Pr\'eliminaires}
+
+\subsubsection{}
+\label{sec:3.1.1}
+
+Soit $F$ un corps local non archim\'edien, $\overline{F}$ une cl\^oture s\'eparable, $W_F$ le groupe de Weil de $F$. Une repr\'esentation de $W_F$ est un homomorphisme continu $\rho: W_F \to \GL(V)$ o\`u $V$ est un espace vectoriel de dimension finie sur $\CC$ (ou $\Ql$).
+
+\subsubsection{}
+\label{sec:3.1.2}
+
+Le corps de classes local fournit un isomorphisme $W_F^{\ab} \xrightarrow{\sim} F^*$. Pour $\chi$ un quasi-caract\`ere de $F^*$, on note $\chi$ aussi le caract\`ere de $W_F$ correspondant.
+
+\subsubsection{}
+\label{sec:3.1.3}
+
+\begin{definition}[F-semi-simple] \label{def:f-semi-simple}
+Une repr\'esentation $\rho: W_F \to \GL(V)$ est dite \emph{$F$-semi-simple} si $\rho(\Phi)$ est semi-simple pour un (donc tout) \'el\'ement de Frobenius $\Phi \in W_F$.
+\end{definition}
+
+\subsubsection{}
+\label{sec:3.1.4}
+
+Soit $\rho$ une repr\'esentation de dimension~2 de $W_F$. On dit que $\rho$ est:
+\begin{enumerate}
+\item[(i)] \emph{r\'eductible} si elle est somme de deux caract\`eres;
+\item[(ii)] \emph{induite} si $\rho = \Ind_{W_K}^{W_F}(\chi)$ pour $K/F$ quadratique s\'eparable et $\chi$ un quasi-caract\`ere de $K^*$;
+\item[(iii)] \emph{pr\'ecuspidale} sinon.
+\end{enumerate}
+
+\subsubsection{}
+\label{sec:3.1.5}
+
+\begin{theorem}[3.1.5] \label{thm:3.1.5}
+Soit $\rho$ une repr\'esentation $F$-semi-simple de dimension~2 de $W_F$. Alors:
+\begin{enumerate}
+\item[(a)] Si $\rho$ est r\'eductible, $\rho = \chi_1 \oplus \chi_2$ avec $\chi_i$ des quasi-caract\`eres de $F^*$.
+\item[(b)] Si $\rho$ est induite, $\rho = \Ind_{W_K}^{W_F}(\chi)$ pour une extension quadratique $K/F$.
+\item[(c)] Si $\rho$ est pr\'ecuspidale, il existe un caract\`ere $\chi$ de $E^*/F^*$ pour une extension cubique non galoisienne $E/F$ tel que $\rho = \Ind(\chi)$.
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{}
+\label{sec:3.1.6}
+
+Nous aurons exclusivement \`a consid\'erer des repr\'esentations $F$-semi-simples. Toute repr\'esentation $\rho$ de $W_F$ d\'etermine une repr\'esentation $F$-semi-simple $\rho^{ss}$ par la d\'ecomposition de Jordan de $\rho(\Phi)$.
+
+\subsection{Repr\'esentations de $\GL(2,K)$}
+
+\subsubsection{}
+\label{sec:3.2.1}
+
+Soit $K$ un corps local non archim\'edien. On classe les repr\'esentations admissibles irr\'eductibles de $\GL(2,K)$ en trois types:
+
+\begin{enumerate}
+\item[(I)] \emph{S\'erie principale:} $\pi(\chi_1, \chi_2) = \Ind_B^G(\chi_1 \otimes \chi_2)$ o\`u $B$ est le sous-groupe de Borel et $\chi_i$ sont des quasi-caract\`eres de $K^*$.
+\item[(II)] \emph{S\'erie sp\'eciale:} sous-quotient de $\pi(\chi|\cdot|^{1/2}, \chi|\cdot|^{-1/2})$.
+\item[(III)] \emph{S\'erie discr\`ete (ou supercuspidale):} repr\'esentations ne provenant pas d'une induction parabolique.
+\end{enumerate}
+
+\subsubsection{}
+\label{sec:3.2.2}
+
+Soit $\pi = \pi(\chi_1, \chi_2)$ une repr\'esentation de la s\'erie principale. Alors:
+\begin{enumerate}
+\item[(i)] $\pi$ est irr\'eductible sauf si $\chi_1/\chi_2 = |\cdot|^{\pm 1}$.
+\item[(ii)] Le caract\`ere central de $\pi$ est $\omega = \chi_1 \chi_2$.
+\item[(iii)] La contragr\'ediente est $\widetilde{\pi} = \pi(\chi_1^{-1}, \chi_2^{-1})$.
+\end{enumerate}
+
+\subsubsection{}
+\label{sec:3.2.3}
+
+\begin{theorem}[Classification de Langlands] \label{thm:langlands}
+Il existe une bijection canonique entre classes d'isomorphisme de repr\'esentations admissibles irr\'eductibles de $\GL(2,K)$ et classes d'isomorphisme de repr\'esentations $F$-semi-simples de dimension~2 du groupe de Weil-Deligne $W'_K$.
+\end{theorem}
+
+\subsubsection{}
+\label{sec:3.2.4}
+
+La correspondance de Langlands envoie:
+\begin{enumerate}
+\item[(i)] $\pi(\chi_1, \chi_2) \mapsto \chi_1 \oplus \chi_2$ (s\'erie principale);
+\item[(ii)] s\'erie sp\'eciale $\mapsto$ repr\'esentation sp\'eciale de $W'_K$;
+\item[(iii)] s\'erie discr\`ete $\mapsto$ repr\'esentation irr\'eductible de $W_K$.
+\end{enumerate}
+
+\subsubsection{}
+\label{sec:3.2.5}
+
+Soit $\pi$ une repr\'esentation admissible irr\'eductible de $\GL(2,K)$. Le \emph{conducteur} $c(\pi)$ est li\'e au conducteur d'Artin $c(\rho)$ de la repr\'esentation de Weil correspondante par $c(\pi) = c(\rho) + 2d$ o\`u $d$ est le niveau de ramification sauvage.
+
+\subsubsection{}
+\label{sec:3.2.6}
+
+Pour $\pi$ de la s\'erie principale non ramifi\'ee, $\pi = \pi(\chi_1, \chi_2)$ avec $\chi_i$ non ramifi\'es, les valeurs propres de Hecke sont $\chi_1(\varpi)$ et $\chi_2(\varpi)$. La fonction $L$ locale est
+\[ L(s,\pi) = (1 - \chi_1(\varpi) q^{-s})^{-1} (1 - \chi_2(\varpi) q^{-s})^{-1}. \]
+
+\subsubsection{}
+\label{sec:3.2.7}
+
+\begin{theorem}[Multiplicit\'e un locale] \label{thm:mult1-local}
+Soient $\pi_1, \pi_2$ des repr\'esentations admissibles irr\'eductibles de $\GL(2,K)$. Alors
+\[ \dim \Hom_{\GL(2,K)}(\pi_1, \pi_2) \leq 1. \]
+\end{theorem}
+
+\subsubsection{}
+\label{sec:3.2.8}
+
+Soit $\pi$ une repr\'esentation admissible irr\'eductible de $\GL(2,K)$ de conducteur $c(\pi)$. Le nouveau vecteur $v_0$ est caract\'eris\'e par:
+\begin{enumerate}
+\item[(i)] $\pi(k) v_0 = v_0$ pour $k \in K_0(c(\pi))$;
+\item[(ii)] $v_0$ est vecteur propre de $U_\varpi$.
+\end{enumerate}
+Dans le mod\`ele de Kirillov, $v_0$ correspond \`a la fonction caract\'eristique de $\cO^*$.
+
+\subsubsection{}
+\label{sec:3.2.9}
+
+Soient $\chi_1, \chi_2$ des quasi-caract\`eres de $K^*$. La repr\'esentation induite $\Ind_B^G(\chi_1 \otimes \chi_2)$ est r\'ealisable dans l'espace des fonctions $f: \GL(2,K) \to \CC$ v\'erifiant
+\[ f\left(\begin{pmatrix} a & b \\ 0 & d \end{pmatrix} g\right) = \chi_1(a)\chi_2(d)\left|\frac{a}{d}\right|^{1/2} f(g). \]
+
+\subsubsection{}
+\label{sec:3.2.10}
+
+Les int\'egrales de Whittaker fournissent un mod\`ele pour toute repr\'esentation admissible irr\'eductible de dimension infinie. Pour $\pi$ de la s\'erie principale, le mod\`ele de Whittaker est donn\'e par
+\[ W(g) = \int_{K} f\left(\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} g\right) \psi(-x) dx. \]
+
+\begin{thebibliography}{99}
+
+\bibitem[1]{AtkinLehner} A.O.L. Atkin, J. Lehner, \textit{Hecke operators on $\Gamma_0(m)$}, Math. Ann. 185 (1970), 134--160.
+
+\bibitem[2]{Cartier} P. Cartier, \textit{Repr\'esentations de $\GL_2$ d'un corps local}, in: Modular Functions of One Variable II, Lecture Notes in Math. 349, Springer (1973).
+
+\bibitem[3]{Casselman} W. Casselman, \textit{On some results of Atkin and Lehner}, Math. Ann. 201 (1973), 301--314.
+
+\bibitem[4]{Deligne} P. Deligne, \textit{Les constantes des \'equations fonctionnelles des fonctions $L$}, in: Modular Functions of One Variable II, Lecture Notes in Math. 349, Springer (1973).
+
+\bibitem[5]{Deligne2} P. Deligne, \textit{Formes modulaires et repr\'esentations de $\GL(2)$}, in: Modular Functions of One Variable II, Lecture Notes in Math. 349, Springer (1973), 55--105.
+
+\bibitem[6]{Gelbart} S. Gelbart, \textit{Automorphic Forms on Adele Groups}, Ann. of Math. Studies 83, Princeton Univ. Press (1975).
+
+\bibitem[7]{Godement} R. Godement, \textit{Notes on Jacquet-Langlands Theory}, IAS Notes (1970).
+
+\bibitem[8]{Hecke} E. Hecke, \textit{Mathematische Werke}, Vandenhoeck \& Ruprecht (1959).
+
+\bibitem[9]{JL} H. Jacquet, R.P. Langlands, \textit{Automorphic Forms on $\GL(2)$}, Lecture Notes in Math. 114, Springer (1970).
+
+\bibitem[10]{Jacquet} H. Jacquet, \textit{Automorphic forms on $\GL(2)$, II}, Lecture Notes in Math. 278, Springer (1972).
+
+\bibitem[11]{Weil} A. Weil, \textit{Dirichlet Series and Automorphic Forms}, Lecture Notes in Math. 189, Springer (1971).
+
+\bibitem[12]{Tate} J. Tate, \textit{Fourier analysis in number fields and Hecke's zeta functions}, Thesis, in: Algebraic Number Theory (Cassels-Frohlich), Academic Press (1967).
+
+\bibitem[13]{Robert} A. Robert, \textit{Des expos\'es du s\'eminaire}, this volume.
+
+\bibitem[14]{Silberger} A. Silberger, \textit{$\PGL_2$ over the $p$-adics: its Representations, Spherical Functions, and Fourier Analysis}, Lecture Notes in Math. 166, Springer (1970).
+
+\bibitem[15]{Langlands} R.P. Langlands, \textit{On the Functional Equations Satisfied by Eisenstein Series}, Lecture Notes in Math. 544, Springer (1976).
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,498 @@
+% Cycles de Hodge absolus et périodes des intégrales des variétés abéliennes
+% Pierre Deligne, rédigé par J. L. Brylinski
+% Publié dans Astérisque, Société Mathématique de France, 2e série, Mémoire n° 2, 1980, p. 23-33
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{booktabs}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}
+\newtheorem{lemma}{Lemme}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}
+\newtheorem{remark}{Remarque}
+
+\theoremstyle{remark}
+\newtheorem{example}{Exemple}
+
+% Math operators
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Inf}{Inf}
+\DeclareMathOperator{\rank}{rang}
+
+% Number sets
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Gm}{\mathbb{G}_\mathrm{m}}
+
+\title{\textbf{CYCLES DE HODGE ABSOLUS ET PÉRIODES DES\\INTÉGRALES DES VARIÉTÉS ABÉLIENNES}}
+\author{Pierre DELIGNE\\\small rédigé par J. L. BRYLINSKI}
+\date{}
+
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+
+% --- Pass-2 compatibility shim. ---
+% Purpose: repair transcription-level LaTeX omissions without changing mathematical text.
+\providecommand{\AA}{\mathbb{A}}
+\providecommand{\BB}{\mathbb{B}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\DD}{\mathbb{D}}
+\providecommand{\EE}{\mathbb{E}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathbb{G}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\TT}{\mathbb{T}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\Gm}{\mathbb{G}_{\mathrm m}}
+\providecommand{\Ga}{\mathbb{G}_{\mathrm a}}
+\providecommand{\cA}{\mathcal{A}}
+\providecommand{\cB}{\mathcal{B}}
+\providecommand{\cC}{\mathcal{C}}
+\providecommand{\cD}{\mathcal{D}}
+\providecommand{\cE}{\mathcal{E}}
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cG}{\mathcal{G}}
+\providecommand{\cH}{\mathcal{H}}
+\providecommand{\cI}{\mathcal{I}}
+\providecommand{\cJ}{\mathcal{J}}
+\providecommand{\cK}{\mathcal{K}}
+\providecommand{\cL}{\mathcal{L}}
+\providecommand{\cM}{\mathcal{M}}
+\providecommand{\cN}{\mathcal{N}}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\cP}{\mathcal{P}}
+\providecommand{\cQ}{\mathcal{Q}}
+\providecommand{\cR}{\mathcal{R}}
+\providecommand{\cS}{\mathcal{S}}
+\providecommand{\cT}{\mathcal{T}}
+\providecommand{\cU}{\mathcal{U}}
+\providecommand{\cV}{\mathcal{V}}
+\providecommand{\cW}{\mathcal{W}}
+\providecommand{\cX}{\mathcal{X}}
+\providecommand{\cY}{\mathcal{Y}}
+\providecommand{\cZ}{\mathcal{Z}}
+\providecommand{\fA}{\mathfrak{A}}
+\providecommand{\fB}{\mathfrak{B}}
+\providecommand{\fC}{\mathfrak{C}}
+\providecommand{\fD}{\mathfrak{D}}
+\providecommand{\fE}{\mathfrak{E}}
+\providecommand{\fF}{\mathfrak{F}}
+\providecommand{\fG}{\mathfrak{G}}
+\providecommand{\fH}{\mathfrak{H}}
+\providecommand{\fI}{\mathfrak{I}}
+\providecommand{\fJ}{\mathfrak{J}}
+\providecommand{\fK}{\mathfrak{K}}
+\providecommand{\fL}{\mathfrak{L}}
+\providecommand{\fM}{\mathfrak{M}}
+\providecommand{\fN}{\mathfrak{N}}
+\providecommand{\fO}{\mathfrak{O}}
+\providecommand{\fP}{\mathfrak{P}}
+\providecommand{\fQ}{\mathfrak{Q}}
+\providecommand{\fR}{\mathfrak{R}}
+\providecommand{\fS}{\mathfrak{S}}
+\providecommand{\fT}{\mathfrak{T}}
+\providecommand{\fU}{\mathfrak{U}}
+\providecommand{\fV}{\mathfrak{V}}
+\providecommand{\fW}{\mathfrak{W}}
+\providecommand{\fX}{\mathfrak{X}}
+\providecommand{\fY}{\mathfrak{Y}}
+\providecommand{\fZ}{\mathfrak{Z}}
+\providecommand{\fraka}{\mathfrak{a}}
+\providecommand{\frakb}{\mathfrak{b}}
+\providecommand{\frakc}{\mathfrak{c}}
+\providecommand{\frakd}{\mathfrak{d}}
+\providecommand{\frakm}{\mathfrak{m}}
+\providecommand{\frakp}{\mathfrak{p}}
+\providecommand{\frakq}{\mathfrak{q}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Alg}{\mathbf{Alg}}
+\providecommand{\Aff}{\mathbf{Aff}}
+\providecommand{\mot}{\mathrm{mot}}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\dR}{\mathrm{dR}}
+\providecommand{\der}{\mathrm{der}}
+\providecommand{\Le}{\leqslant}
+\providecommand{\Ge}{\geqslant}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\mup}{\mu_p}
+\makeatletter
+\@ifundefined{construction}{\newtheorem{construction}{Construction}}{}
+\@ifundefined{notation}{\newtheorem{notation}{Notation}}{}
+\@ifundefined{claim}{\newtheorem{claim}{Claim}}{}
+\makeatother
+
+% --- Pass-2 extra compile shims ---
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\PGL}{\operatorname{PGL}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\limind}{\varinjlim}
+\providecommand{\limproj}{\varprojlim}
+\makeatletter
+\@ifundefined{scholie}{\newtheorem{scholie}{Scholie}}{}
+\makeatother
+% --- end pass-2 extra compile shims ---
+
+
+% --- Pass-2 extra compile shims 2 ---
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\SU}{\operatorname{SU}}
+\providecommand{\rk}{\operatorname{rk}}
+\providecommand{\fp}{\mathfrak{p}}
+\providecommand{\DR}{\mathrm{DR}}
+\makeatletter
+\@ifundefined{miseengarde}{\newtheorem{miseengarde}{Mise en garde}}{}
+\@ifundefined{warning}{\newtheorem{warning}{Warning}}{}
+\makeatother
+% --- end pass-2 extra compile shims 2 ---
+
+
+% --- Pass-2 extra compile shims 3 ---
+\providecommand{\U}{\operatorname{U}}
+\providecommand{\NS}{\operatorname{NS}}
+\providecommand{\cris}{\mathrm{cris}}
+% --- end pass-2 extra compile shims 3 ---
+
+
+% --- Pass-2 extra compile shims 4 ---
+\providecommand{\na}{a}
+\providecommand{\supp}{\operatorname{supp}}
+\providecommand{\comp}{\operatorname{comp}}
+% --- end pass-2 extra compile shims 4 ---
+
+
+% --- Pass-2 extra compile shims 5 ---
+\providecommand{\dist}{\operatorname{dist}}
+\makeatletter
+\@ifundefined{variante}{\newtheorem{variante}{Variante}}{}
+\makeatother
+% --- end pass-2 extra compile shims 5 ---
+
+
+% --- Pass-2 extra compile shims 6 ---
+\providecommand{\R}{\mathrm{R}}
+\providecommand{\pr}{\operatorname{pr}}
+\makeatletter
+\@ifundefined{exemple}{\newtheorem{exemple}{Exemple}}{}
+\makeatother
+% --- end pass-2 extra compile shims 6 ---
+
+
+% --- Pass-2 extra compile shims 7 ---
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Int}{\operatorname{Int}}
+\providecommand{\RHom}{\operatorname{RHom}}
+% --- end pass-2 extra compile shims 7 ---
+
+
+% --- Pass-2 extra compile shims 8 ---
+\providecommand{\Lie}{\operatorname{Lie}}
+% --- end pass-2 extra compile shims 8 ---
+
+
+% --- Pass-2 extra compile shims 9 ---
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+% --- end pass-2 extra compile shims 9 ---
+
+
+% --- Pass-2 extra compile shims 10 ---
+\providecommand{\comma}{,}
+\providecommand{\Pcl}{\operatorname{Pcl}}
+\makeatletter
+\@ifundefined{paraphrase}{\newtheorem{paraphrase}{Paraphrase}}{}
+\makeatother
+% --- end pass-2 extra compile shims 10 ---
+
+
+% --- Pass-2 extra compile shims 11 ---
+\providecommand{\re}{\operatorname{Re}}
+% --- end pass-2 extra compile shims 11 ---
+
+
+% --- Pass-2 extra compile shims 12 ---
+\providecommand{\ab}{\mathrm{ab}}
+\providecommand{\Subset}{\subset}
+% --- end pass-2 extra compile shims 12 ---
+
+% --- end pass-2 compatibility shim ---
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+On montre ici comment une théorie convenable des ``motifs'' permet de retrouver certains des résultats de Shimura sur les périodes des variétés abéliennes de type C-M \cite{Shimura2}. Il a paru instructif de commencer par une description informelle des propriétés des motifs et de leurs réalisations~: c'est ce qui est fait au paragraphe~1. Le paragraphe~2 interprète certains résultats de Shimura à l'aide de motifs. Le paragraphe~3 définit les cycles de Hodge absolus, et la théorie des motifs qui leur est subordonnée. Le paragraphe~4 donne une majoration du degré de transcendance du corps engendré par les périodes d'une variété abélienne quelconque.
+\end{abstract}
+
+\section{LE LANGAGE DES MOTIFS}
+
+Soit $k$ un corps de caractéristique $0$. Il existe des ``motifs sur $k$'' plusieurs définitions, dont on ignore si elles sont équivalentes, et ayant chacune leurs vertus. Nous préciserons au paragraphe~3 laquelle nous est utile.
+
+Les motifs sur $k$ forment une catégorie additive, munie d'un produit tensoriel. Chaque variété projective et lisse $X$ sur $k$ définit un motif $h(X)$ sur $k$, la \emph{cohomologie motivique} de $X$, et tout motif sur $k$ se déduit d'un motif de cette forme (par découpage en morceaux et twist à la Tate). Enfin, à diverses théories de cohomologie pour les variétés algébriques correspondent des foncteurs ``réalisation'' pour les motifs.
+
+Chaque variété abélienne $A$ sur $k$ définit un motif $T(A)$ sur $k$, son $H_1$ \emph{motivique}, et le foncteur $A \mapsto T(A)$ est pleinement fidèle. Plonger la catégorie des variétés abéliennes dans celle des motifs a pour intérêt de pouvoir prendre des $\otimes$. Mais les objets obtenus ne sont pas géométriques~: il n'y a pas de ``fonctions'' sur un motif.
+
+Le \emph{rang} d'un motif est la dimension de l'une quelconque de ses réalisations, que nous allons maintenant décrire.
+
+Si $k = \CC$, la \emph{réalisation de Betti} d'un motif $M$ est un groupe abélien libre de rang fini $H_B(M)$, qui est muni d'une \emph{structure de Hodge}, c'est-à-dire d'une décomposition~:
+\[
+H_B(M) \otimes_\ZZ \CC = \bigoplus_{p+q=n} H^{p,q} \qquad \text{(avec } \overline{H}^{p,q} = H^{q,p}\text{)}.
+\]
+
+Illustrons ceci sur le motif $T(A)$, qui est le $H_1$ d'une variété abélienne $A$. On définit $H_B(T(A)) = H_1(A, \ZZ)$, homologie de $A = A(\CC)$ vu comme espace topologique.
+
+Soit $\Lie(A)$ l'algèbre de Lie du groupe analytique $A$, et soit $J : H_1(A, \ZZ) \to \Lie(A)$ l'homomorphisme ``intégration sur un $1$-cycle''. On a une suite exacte de groupes analytiques complexes~:
+\begin{equation*}
+\begin{CD}
+0 @>>> H_1(A, \ZZ) @>{J}>> \Lie(A) @>{\exp}>> A @>>> 0
+\end{CD}
+\end{equation*}
+
+La structure de Hodge de $H_1(A, \CC)$ est telle que $H_1(A, \CC) = H^{0,-1} \oplus H^{-1,0}$. On obtient $H^{0,-1}$ comme noyau de l'application $H_1(A, \CC) \to \Lie(A)$, prolongement $\CC$-linéaire de $J : H_1(A, \ZZ) \to \Lie(A)$.
+
+\bigskip
+
+Plaçons-nous maintenant sur un corps de caractéristique $0$ et donnons-nous une clôture algébrique $\bar{k}$ de $k$. Pour tout nombre premier $\ell$, la \emph{réalisation $\ell$-adique} d'un motif $M$ est un $\ZZ_\ell$-module libre de type fini $H_\ell(M)$ (muni d'ailleurs d'une action du groupe de Galois de $\bar{k}$ sur $k$). Lorsque $k = \CC$, on dispose d'un isomorphisme~: $H_\ell(M) \cong H_B(M) \otimes_\ZZ \ZZ_\ell$. Si $A$ est une variété abélienne sur $k$, si $\bar{k}$ est une clôture algébrique de $k$, la réalisation $\ell$-adique de $T(A)$ est notée $T_\ell(A)$~; c'est le $\ZZ_\ell$-module~:
+\[
+T_\ell(A) = \varprojlim_n A_{\ell^n}(\bar{k}) \qquad \text{(où } A_{\ell^n}(\bar{k}) \text{ est le groupe des points d'ordre } \ell^n \text{ de } A(\bar{k})\text{)}.
+\]
+
+Si $k = \CC$, l'isomorphisme $T_\ell(A) \cong H_B(T(A)) \otimes_\ZZ \ZZ_\ell$ est facile à décrire. Pour tout $n$, la projection de $\gamma \otimes x \in H_B(T(A)) \otimes_\ZZ \ZZ_\ell$ sur $A_{\ell^n}(\CC)$ se calcule ainsi~; si $m \in H_B(T(A))$ est tel que $x - m \in \ell^n (H_B(T(A)) \otimes_\ZZ \ZZ_\ell)$, l'exponentielle de l'élément $\dfrac{m}{\ell^n} \in H_1(A, \QQ)$ est le point d'ordre $\ell^n$ voulu.
+
+La \emph{réalisation de De Rham} de $M$ est un espace vectoriel sur $k$ de dimension finie $H_{DR}(M)$, muni d'une filtration décroissante $F^\bullet$ (la \emph{filtration de Hodge}). Lorsque $k = \CC$, on a un isomorphisme $H_B(M) \otimes_\QQ \CC \xrightarrow{\sim} H_{DR}(M)$. Par cet isomorphisme, la filtration de Hodge est telle que $F^p = \bigoplus_{p' \geq p} H^{p',q}$. Dans le cas du motif $T(A)$, rappelons \cite{Weil2} l'existence d'une ``extension universelle'' $E$ de $A$ par un groupe vectoriel, qui s'inscrit dans une suite exacte de groupes algébriques~:
+\begin{equation*}
+\begin{CD}
+0 @>>> H^1(A, \mathcal{O}_A)^* @>>> E @>>> A @>>> 0.
+\end{CD}
+\end{equation*}
+On a $H_{DR}(T(A)) = \Lie(E)$, et la filtration de Hodge est donnée par~:
+\[
+0 = F^1 \subset F^0 = H^1(A, \mathcal{O}_A)^* \subset F^{-1} = \Lie(E).
+\]
+Si $k = \CC$, on a $H_1(E, \ZZ) \xrightarrow{\sim} H_1(A, \ZZ)$, d'où un morphisme~:
+\[
+H_1(A, \CC) \xleftarrow{\sim} H_1(E, \CC) \xrightarrow{J} \Lie(E) = H_{DR}(T(A)).
+\]
+C'est l'isomorphisme voulu.
+
+\subsection*{Exemples}
+
+\textbf{1)} Ici, $k = \QQ$. On va définir le \emph{motif de Tate} $\ZZ(1)$~; c'est le $H_1$ du groupe algébrique $\Gm$. Pour trouver ses diverses réalisations, on substitue $\Gm$ à $A$ dans la définition de $T(A)$. On obtient~:
+\begin{itemize}[label={--}]
+\item $H_B(\ZZ(1)) = 2\pi i \cdot \ZZ$, noyau de $\exp : \CC \to \CC^*$
+\item $H_B(\ZZ(1)) \otimes_\ZZ \CC = H^{-1,-1}$
+\item $H_\ell(\ZZ(1)) = \ZZ_\ell(1) = T_\ell(\Gm) = \varprojlim_n \mu_{\ell^n}(\bar{\QQ})$
+\item $H_{DR}(\ZZ(1)) = \QQ$.
+\end{itemize}
+
+L'isomorphisme $H_B(\ZZ(1)) \otimes_\QQ \CC \xrightarrow{\sim} H_{DR}(\ZZ(1)) \otimes_\QQ \CC$ envoie $(2\pi i) \otimes 1$ sur $2\pi i$. On rappelle les isomorphismes $H_1(\Gm) \cong H_1(\PP^1 \setminus \{0, \infty\}) \cong H_2(\PP^1)$. De plus, pour toute courbe algébrique propre lisse et connexe sur $\QQ$, $H_2(X)$ est isomorphe à $H_2(\PP^1)$ (donc à $\ZZ(1)$). Pour tout entier $d$, on définit un motif $\ZZ(d)$ de sorte que $\ZZ(d) = \ZZ(d-1) \otimes_\ZZ \ZZ(1)$. On a $\ZZ(m+n) \cong \ZZ(m) \otimes_\ZZ \ZZ(n)$ pour $m, n \in \ZZ$.
+
+\textbf{2)} Soit $E$ une courbe elliptique sur $\QQ$. Le motif $T(E)$ est de rang $2$. Donc le motif $\bigwedge^2 T(E)$ est de rang $1$, et on a $\bigwedge^2 T(E) \cong \bigwedge^2 H_1(E) \cong H_2(E) \cong \ZZ(1)$.
+
+Précisons l'isomorphisme $\bigwedge^2 T(E) \cong \ZZ(1)$ dans les différentes réalisations.
+
+Sur $H_1(E(\CC), \RR) \cong \Lie(E)$, la structure complexe définit une orientation. Si $(e_1, e_2)$ est une $\ZZ$-base orientée de $H_B(T(E)) = H_1(E(\CC), \ZZ)$, alors $e_1 \wedge e_2$ est une base de $H_B(\bigwedge^2 T(E))$~; on lui associe $2\pi i \in H_B(\ZZ(1))$.
+
+L'isomorphisme $\bigwedge^2(T_\ell(E)) \cong \ZZ_\ell(1)$ est donné par la forme alternée de Weil \cite{Weil1}. Enfin, on a~: $\bigwedge^2 H_{DR}(T(E)) \cong \Hom(H^2_{DR}(E), \QQ)$. Soient $\omega$ et $\eta$ les formes différentielles habituelles de première et deuxième espèce. $H^2_{DR}(E)$ est engendré par le cup-produit $\omega \wedge \eta$ de leurs classes de cohomologie. Par l'isomorphisme $H_B(\bigwedge^2 T(E)) \otimes_\ZZ \CC \to H_{DR}(\bigwedge^2 T(E)) \otimes_\QQ \CC$, $e_1 \wedge e_2$ a pour image l'homomorphisme qui envoie $\omega \wedge \eta \in H^2_{DR}(E)$ sur
+\[
+\begin{vmatrix}
+\omega_1 & \omega_2 \\
+\eta_1 & \eta_2
+\end{vmatrix}
+\in \CC.
+\]
+La compatibilité des réalisations de Betti et de De Rham de l'isomorphisme $\bigwedge^2(T(E)) \cong \ZZ(1)$ équivaut à la \emph{relation de Legendre}
+\[
+\omega_1 \cdot \eta_2 - \omega_2 \cdot \eta_1 = 2\pi i.
+\]
+
+\textbf{3)} Soit $A$ une variété abélienne sur $\QQ$. À la classe de cohomologie d'une section hyperplane de $A$ dans un plongement projectif, correspond un morphisme de motifs $\bigwedge^2 T(A) \to \ZZ(1)$. En cohomologie de Betti, ceci correspond à une forme alternée $2\pi i \cdot E$ sur $H_B(T(A))$, à valeurs dans $2\pi i \cdot \ZZ$. En cohomologie de De Rham, on a de même une forme alternée $E_{DR}$ sur $H_{DR}(T(A))$ à valeurs dans $\QQ$. Il est classique que $F^0$ est un sous-espace totalement isotrope. On en déduit qu'on peut trouver des différentielles de première espèce $\omega_1, \ldots, \omega_g$ sur $A$, des différentielles de deuxième espèce $\eta_1, \ldots, \eta_g$ sur $A$, telles que l'on ait~:
+\[
+E_{DR}(x, y) = \sum_{i=1}^{g} \bigl((\omega_i \cdot x)(\eta_i \cdot y) - (\omega_i \cdot y)(\eta_i \cdot x)\bigr).
+\]
+La compatibilité entre $E$ et $E_{DR}$ se traduit comme suit. Soit $(e_1, \ldots, e_{2g})$ une base de $H_B(T(A))$, soit $\Omega$ la matrice $g \times 2g$ telle que $\Omega_{ij} = \int_{e_j} \omega_i$, et $N$ la matrice $g \times 2g$ telle que $N_{ij} = \int_{e_j} \eta_i$. On a~:
+\[
+{}^t\!N \cdot \Omega - {}^t\!\Omega \cdot N = 2i\pi \cdot E.
+\]
+Enfin, pour la réalisation $\ell$-adique on trouve une forme alternée sur $T_\ell(A)$ à valeurs dans $\ZZ_\ell(1)$~: c'est la forme alternée de Weil associée au diviseur de la section hyperplane \cite{Weil1}.
+
+\section{MOTIFS LIÉS AUX VARIÉTÉS ABÉLIENNES DE TYPE C-M}
+
+Soit $k$ un sous-corps algébriquement clos de $\CC$ --- par exemple $\bar{\QQ}$ --- et soit $\mathcal{A}$ la sous-catégorie de la catégorie des motifs sur $k$, engendrée par les $T(A)$ des variétés abéliennes (pour les opérations de produit tensoriel, passage au dual et facteurs directs). Le foncteur ``réalisation de Betti de motif déduit de $M/k$ par extension des scalaires à $\CC$'' envoie $\mathcal{A}$ dans la catégorie des structures de Hodge. Il résulte formellement du Théorème~1 du \S\,3 que ce foncteur est pleinement fidèle.
+
+Soient $E$ un corps CM, $S$ l'ensemble de ces plongements complexes et $- : S \to S$ la conjugaison complexe. À chaque fonction $\varphi : S \to \ZZ$ vérifiant
+\begin{equation}\tag{*}
+\varphi(\sigma) + \varphi(\bar{\sigma}) \quad \text{est indépendant de } \sigma \in S,
+\end{equation}
+attachons une structure de Hodge $H_\varphi$, munie d'une structure de module sur l'anneau $\mathcal{O}_E$ des entiers de $E$~:
+\[
+H_\varphi = \mathcal{O}_E \text{, muni de la structure de module évidente, et dans la décomposition } H_\varphi \otimes_\ZZ \CC = E \otimes_\QQ \CC \cong \CC^S \text{, le facteur } \CC \text{ d'indice } \sigma \in S \text{ est de type de Hodge } (\varphi(\sigma), \varphi(\bar{\sigma})).
+\]
+
+On vérifie que les $H_\varphi$ sont dans l'image de $\mathcal{A}$, et même dans l'image de la sous-catégorie engendrée par les variétés abéliennes de type CM. Ceci permet de définir le motif $M_\varphi$ sur $\bar{\QQ}$ comme étant celui de réalisation de Betti $H_\varphi$.
+
+La réalisation de De Rham $H_{DR}(M_\varphi)$ est un espace vectoriel sur $\bar{\QQ}$, muni d'une action de $E$. Pour tout $\sigma \in S$, soit $H_{DR}(M_\varphi)_\sigma$ le sous-$\bar{\QQ}$-espace vectoriel sur lequel $x \in E$ agit comme $\sigma(x) \in \bar{\QQ}$. Chacun de ces espaces vectoriels est de dimension $1$ engendré par un élément $\omega_\sigma$, et $H_{DR}(M_\varphi)$ en est la somme. Via l'isomorphisme~: $H_B(M_\varphi) \otimes_\QQ \CC \xrightarrow{\sim} H_{DR}(M_\varphi) \otimes_{\bar{\QQ}} \CC$, un élément $e$ de $E = H_B(M_\varphi) \otimes_\ZZ \QQ$ correspond à une famille $(e_\sigma)$ avec $e_\sigma \in H_{DR}(M_\varphi)_\sigma$. On vérifie immédiatement que le nombre complexe $p(\sigma, \varphi)$ tel que $p(\sigma, \varphi) \cdot e_\sigma = \omega_\sigma$ ne dépend, à multiplication près par $\bar{\QQ}^*$, ni de $e$ ni du choix de $\omega_\sigma$. Ceci justifie la notation.
+
+Entre les $p(\sigma, \varphi)$ et les \emph{invariants de Shimura} $p_E(\sigma, \varphi)$ (voir \cite{Shimura2}), on a la relation~:
+\[
+p_E(\sigma, \varphi) = \frac{p(\sigma, \varphi)}{(2\pi i)^{\varphi(\sigma)}} \quad (\text{modulo } \bar{\QQ}^*)
+\]
+(qui n'est qu'une traduction des définitions).
+
+Les identités entre les périodes de Shimura, correspondent à des propriétés algébriques des motifs $M_\varphi$. Avant de les résumer en un tableau, introduisons quelques notations relatives à une extension $F|E$ de corps CM. On note $S_F$ (resp.~$S_E$) l'ensemble des plongements complexes de $F$ (resp.~$E$). Pour $\sigma \in S_F$, on note $\sigma|E \in S_E$ la restriction à $E$ du plongement $\sigma$.
+
+Pour $\varphi : S_E \to \ZZ$ satisfaisant $(*)$, on note $\Inf(\varphi)$ la fonction de $S_F$ vers $\ZZ$ telle que $\Inf(\varphi)(\sigma) = \varphi(\sigma|E)$. Cette fonction satisfait $(*)$. Pour $\varphi : S_F \to \ZZ$ satisfaisant $(*)$, on note $\Res(\varphi)$ la fonction de $S_E$ vers $\ZZ$ telle que $\Res(\varphi)(\sigma) = \sum_{\tau|E = \sigma} \varphi(\tau)$~; elle satisfait $(*)$.
+
+\begin{center}
+\begin{tabular}{p{6.5cm}|p{6.5cm}}
+\multicolumn{1}{c}{\textbf{Identités entre périodes}} & \multicolumn{1}{c}{\textbf{Relations entre motifs}} \\ \midrule
+1. $p(\sigma, \varphi' + \varphi'') = p(\sigma, \varphi') \cdot p(\sigma, \varphi'')$ & 1. $M_{\varphi' + \varphi''} \cong M_{\varphi'} \otimes_E M_{\varphi''}$ \\ \addlinespace
+2. $F|E$ extension de corps CM, $\sigma \in S_F$, $\varphi : S_E \to \ZZ$ satisfaisant $(*)$~:
+
+$p(\sigma, \Inf(\varphi)) = p(\sigma|E, \varphi)$ & 2. $M_{\Inf(\varphi)} \cong M_\varphi \otimes_E F$ \\ \addlinespace
+3. $\sigma \in S_E$, $\varphi : S_F \to \ZZ$ satisfaisant $(*)$~:
+
+$p(\sigma, \Res\,\varphi) = \prod_{\tau|E = \sigma} p(\tau, \varphi)$ & 3. $M_\varphi$ est un $F$-motif de rang $1$, donc un $E$-motif de rang $d = [F:E]$
+
+$M_{\Res(\varphi)} \cong \bigwedge^d_E M_\varphi$ \\ \addlinespace
+4. $p(\sigma, \underline{1}) = 2\pi i$ & 4. $M_{\underline{1}} = \ZZ(-1)$ (dual du motif de Tate) \\
+\end{tabular}
+\end{center}
+
+Ces identités entre périodes permettent de retrouver les théorèmes 1 à 4 de l'exposé de Shimura \cite{Shimura2}. Notons que dans \cite{Shimura2} Shimura relie les périodes $p_E(\sigma, \varphi)$ aux valeurs en un point spécial de formes modulaires de Hilbert, rationnelles sur $\bar{\QQ}$.
+
+\section{CYCLES DE HODGE ABSOLUS ET MOTIFS}
+
+Soit $X$ une variété projective et lisse sur $\CC$. Un \emph{cycle de Hodge} de codimension $d$ sur $X$ est un élément de $H^{2d}(X, \QQ)$ de type $(d,d)$, ou, ce qui revient au même, un élément de $H^{2d}(X, \QQ)(d) \overset{\text{def}}{=} H^{2d}(X, \QQ) \otimes_\ZZ \ZZ(d)$ de type $(0,0)$. Remarquons que pour $x \in H^{2d}(X, \QQ)(d)$, il est équivalent de dire que $x$ est de type $(0,0)$ ou que $x$ est dans $F^0$. Une classe de cohomologie d'une sous-variété algébrique de $X$ est un cycle de Hodge. Hodge a conjecturé que tout cycle de Hodge serait combinaison linéaire de classes de cohomologie de sous-variétés. Cette conjecture paraissant inaccessible, on introduit une notion qui ``arithmétise'' celle de cycle de Hodge.
+
+Les cycles qu'on définit auront tous les attributs visibles des cycles algébriques, à savoir des réalisations en cohomologie $\ell$-adiques et de De Rham. Un \emph{cycle de Hodge absolu} de codimension $d$ sur une variété projective lisse $X$, sur un corps $k$ de caractéristique $0$, sera une collection de classes de cohomologie dans les groupes $H^{2d}_{et}(X_{\bar{k}}, \QQ_\ell)(d)$ (resp.~$H^{2d}_{DR}(X)(d)$) satisfaisant les deux conditions
+\begin{itemize}
+\item l'élément de $H^{2d}_{DR}(X)(d)$ est dans $F^0$~;
+\item pour tout plongement $k \hookrightarrow \CC$, les différentes classes de cohomologie correspondent (via les isomorphismes du \S\,1) à une classe rationnelle de la cohomologie de Betti de $X \otimes_k \CC$.
+\end{itemize}
+
+On a les inclusions~: $(\text{cycles algébriques}) \subset (\text{cycles de Hodge absolus}) \subset (\text{cycles de Hodge})$. Utilisons cette définition pour préciser la catégorie des motifs sur laquelle on a travaillé dans les \S\,1 et 2. Soit d'abord $\mathcal{V}(k)$ la catégorie des variétés projectives et lisses sur $k$. On construit une catégorie \emph{additive} $\mathcal{M}(k)$, dans laquelle les groupes $\Hom(M,N)$ sont des espaces vectoriels sur $\QQ$, qui est munie des données suivantes~:
+\begin{enumerate}[label=\alph*)]
+\item un produit tensoriel $\otimes$, associatif, commutatif, distributif par rapport à l'addition des objets
+\item un foncteur contravariant $H^*$ de $\mathcal{V}(k)$ dans $\mathcal{M}(k)$, bijectif sur les objets, compatible aux sommes, transformant produits en produits tensoriels.
+\end{enumerate}
+Dans $\mathcal{M}(k)$, on a, pour $X$ et $Y$ connexes~:
+\[
+\Hom(H^*(X), H^*(Y)) = Z^{\dim(Y)}_{h.a}(X \times Y),
+\]
+où on note $Z^d_{h.a}(Z)$ l'espace vectoriel sur $\QQ$ des cycles de Hodge absolus de codimension $d$ sur $Z$. La construction de la catégorie de motifs $\mathcal{M}(k)$ se fait alors tout comme dans \cite{Demazure}, les cycles algébriques étant remplacés par les cycles de Hodge absolus. Grâce à cette nouvelle définition, les composantes de Künneth de la diagonale de $X \times X$ étant de Hodge absolues, on a dans $\mathcal{M}(k)$ une décomposition~:
+\[
+H^*(X) = \bigoplus_i H^i(X).
+\]
+
+Le résultat qui suit a fait l'objet d'exposés à l'I.H.É.S. en 1979.
+
+\begin{theorem}
+Tout cycle de Hodge sur une variété abélienne est de Hodge absolu.
+\end{theorem}
+
+Signalons le
+
+\begin{corollary}[Borovoï]
+Soit $A$ une variété abélienne sur un corps $k$ de caractéristique $0$, $\xi$ un cycle de Hodge sur $A$. Les correspondants $\ell$-adiques $\xi_\ell$ de $\xi$ sont fixés par un sous-groupe ouvert de $\Gal(\bar{k}|k)$.
+\end{corollary}
+
+\section{PÉRIODES DES INTÉGRALES DES VARIÉTÉS ABÉLIENNES}
+
+Soit $A$ une variété abélienne complexe, $H_1(A, \CC) = H^{0,-1} \oplus H^{-1,0}$ la décomposition de Hodge de $H_B(A)$ (cf.~\S\,1). Considérons $\GL(H_1(A))$ comme groupe algébrique sur $\QQ$. On a un morphisme de groupes algébriques complexes~:
+\[
+\mu : \Gm \to \GL(H_1(A, \CC)) \text{ tel que } \mu(z) \text{ agisse par l'homothétie de rapport } z \text{ sur } H^{-1,0},
+\]
+par l'identité sur $H^{0,-1}$. Le \emph{groupe de Hodge} $G$ de $A$ est l'adhérence de Zariski du sous-groupe $\mu(\CC^*)$ de $\GL(H_1(A))$. En d'autres termes, $G$ est un sous-groupe algébrique sur $\QQ$ de $\GL(H_1(A))$. Une fonction régulière sur un ouvert de Zariski de $G$, et $\QQ$-rationnelle, est nulle sur $G$ si et seulement si elle est nulle sur $\mu(\CC^*)$. On vérifie aisément que $G$ contient les homothéties de $H_1(A)$. Voici une seconde description de $G$, très utile~: on considère tous les tenseurs rationnels de type $(-\frac{N}{2}, -\frac{N}{2})$ dans les produits tensoriels $\bigotimes^N H_1(A)$. Alors $G$ est le sous-groupe de $\GL(H_1(A))$ formé des transformations linéaires $g$ pour lesquelles il existe un scalaire $\mu$ tel que~: $g \cdot t = \mu^m t$, pour tout tenseur $t$ de type $(m,m)$. Enfin, on montre que $G$ est le groupe qui fixe tous les cycles de Hodge absolus de type $(0,0)$ dans les espaces de tenseurs mixtes sur $H_1(A)$ (mixtes = covariants et contravariants).
+
+Supposons maintenant $A$ définie sur un sous-corps $k$ de $\CC$. Posons $g = \dim(A)$.
+
+\begin{theorem}
+Soit $\omega_1, \ldots, \omega_g$ des différentielles de première espèce sur $A$, $\eta_1, \ldots, \eta_g$ des différentielles de deuxième espèce sur $A$, telles que $(\omega_1, \ldots, \omega_g, \eta_1, \ldots, \eta_g)$ soit une base de $H^1_{DR}(A)$. Soit $K$ le sous-corps de $\CC$ engendré par $k$ et par les périodes $\int_\gamma \omega_i$, $\int_\gamma \eta_i$ $(1 \leq i \leq g$, $\gamma \in H_1(A, \ZZ))$~; le degré de transcendance de $K$ sur $k$ est majoré par la dimension de $G$.
+\end{theorem}
+
+\begin{proof}[Démonstration]
+$K$ est le corps de rationalité de l'isomorphisme $H_{1,B}(A) \otimes_\QQ \CC \xrightarrow{\sim} H_{1,DR}(A) \otimes_k \CC$ donné par ``intégration'' sur un cycle. Cet isomorphisme préserve les classes de cohomologie des cycles de Hodge absolus. Soit $P$ la variété algébrique formée des isomorphismes qui ont cette propriété. De la définition de $G$, et du théorème~1 résulte que $P$ est un espace principal homogène sous $G$, défini sur $k$, donc $\dim(P) = \dim(G)$. On conclut par le lemme suivant~:
+
+\begin{lemma}
+Soit $z$ un point de $\AA^N(\CC)$~; le degré de transcendance de $k(z)$ sur $k$ est égal à la dimension de la $k$-adhérence de Zariski de $\{z\}$~;
+\end{lemma}
+\noindent C'est une tautologie. \hfill C.Q.F.D.
+\end{proof}
+
+\begin{remark}
+De l'exemple 3 du \S\,1, résulte que $2\pi i \in K$. On peut d'ailleurs montrer que le degré de transcendance de $K$ sur $k(2\pi i)$ est majoré par $\dim(G) - 1$.
+\end{remark}
+
+\begin{corollary}
+Avec les notations du Théorème~2, supposons de plus $A$ simple de type C-M. Le degré de transcendance de $K$ sur $k$ est majoré par $g + 1$.
+\end{corollary}
+
+\begin{proof}[Preuve]
+Il suffit de montrer~: $\dim(G) \leq g + 1$. Or $\mu(\CC^*)$ commute à l'action sur $H_1(A, \QQ)$ du corps $E$. Il en résulte que $G$ commute aussi à cette action, et que $G$ est un tore algébrique. Par ailleurs $G$ préserve, à un facteur près, la forme alternée associée à une section hyperplane (voir l'exemple 3 du \S\,1). D'où l'assertion.
+\end{proof}
+
+Remarquons que, dans ce dernier cas, on dispose de la minoration suivante~: $\dim(G) \geq 2 + \log_2(g)$, due à Ribet \cite{Ribet}.
+
+\begin{thebibliography}{99}
+\bibitem{Deligne} P. Deligne~: \textit{Valeurs de fonctions L et périodes d'intégrales}, in Proceedings of symposia in Pure Mathematics, Volume 33, 1978.
+\bibitem{Demazure} M. Demazure~: \textit{Exposé au séminaire Bourbaki} n° 365, in Springer Lecture Notes, 180 (1971).
+\bibitem{Ribet} K. Ribet~: \textit{Division fields of abelian varieties with complex multiplications}, dans ce volume.
+\bibitem{Shimura1} G. Shimura~: \textit{On the derivatives of modular forms}, Duke Math. Journal 44 (1977), 365--387.
+\bibitem{Shimura2} G. Shimura~: \textit{The periods of abelian varieties with complex multiplication and the special values of certain zeta functions}, dans ce volume.
+\bibitem{Weil1} A. Weil~: \textit{Courbes algébriques et variétés abéliennes}, Hermann 1971 (réimpression).
+\bibitem{Weil2} A. Weil~: \textit{Variétés abéliennes}, in ``Algèbre et Théorie des Nombres'', Colloque international du C.N.R.S., 24, 1950, p.\,124--127.
+\end{thebibliography}
+
+\vfill
+
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+\small
+P. Deligne\\
+Institut des Hautes Etudes Scientifiques\\
+91440 Bures-sur-Yvette
+\end{minipage}
+\end{flushright}
+
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+\small
+J.-L. Brylinski\\
+Ecole polytechnique, Centre de Mathématiques\\
+91128 Palaiseau cedex
+\end{minipage}
+\end{flushright}
+
+\end{document}

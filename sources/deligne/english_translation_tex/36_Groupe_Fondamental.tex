@@ -1,0 +1,401 @@
+% ------------------------------------------------------------
+% English working translation layer.
+% Source file: papers_30_59/36_Le_groupe_fondamental_du_complement_d_une_courbe_plane_n_ayant_que_des_points_do/36_Groupe_Fondamental.tex
+% Modern title: The fundamental group of the complement of a plane curve with only ordinary double points is abelian, after W. Fulton
+% ------------------------------------------------------------
+
+% Séminaire BOURBAKI 32e année, 1979/80, n° 543
+% Novembre 1979
+% LE GROUPE FONDAMENTAL DU COMPLEMENT D'UNE COURBE PLANE
+% N'AYANT QUE DES POINTS DOUBLES ORDINAIRES EST ABELIEN
+% [d'après W. FULTON]
+% par Pierre DELIGNE
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+
+% Custom counter for numbered statements within sections
+\newcounter{secitem}
+\renewcommand{\thesecitem}{\thesection.\arabic{secitem}}
+
+% Manual environments for section items
+\newenvironment{secassertion}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Assertion~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{secconjecture}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Conjecture~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{seclemma}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Lemme~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{sectheorem}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Théorème~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{secproposition}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Proposition~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+% Main theorems with their own counter
+\newcounter{mainthm}
+\newenvironment{maintheorem}[1][]{%
+  \refstepcounter{mainthm}%
+  \par\medskip\noindent\textbf{THÉORÈME \themainthm#1.}~\ignorespaces
+}{\par\medskip}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Sing}{Sing}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Gr}{Gr}
+
+\begin{document}
+\begin{center}\small\emph{Literal English translation working draft. Formulae, numbering, and TeX structure are preserved; this is not yet a modern recast.}\end{center}
+\vspace{0.5em}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5ex more 0.2ex minus 0.1ex}
+
+\begin{center}
+\textbf{SEMINAIRE BOURBAKI}\\
+\textbf{32e annee, 1979/80, n 543}\\
+\textbf{543-01}\\[1ex]
+Novembre 1979
+\end{center}
+
+\begin{center}
+\Large\bfseries
+LE GROUPE FONDAMENTAL DU COMPLEMENT\\
+D'UNE COURBE PLANE N'AYANT QUE DES POINTS\\
+DOUBLES ORDINAIRES EST ABÉLIEN
+\end{center}
+
+\begin{center}
+\textbf{[d'après W.\ FULTON]}\\[1ex]
+par Pierre DELIGNE
+\end{center}
+
+\section*{Introduction}
+
+\begin{maintheorem}
+Soit $C \subset \mathbb{P}^2(\mathbb{C})$ une courbe plane, dont les seules singularités sont des points doubles à tangentes distinctes. Alors, le groupe fondamental de $\mathbb{P}^2(\mathbb{C}) - C$ est abélien.
+\end{maintheorem}
+
+Ce théorème a été énoncé par Zariski en 1929 ([8]). Voir aussi [9] Ch.\ VIII. Sa démonstration utilisait le théorème de Severi, selon lequel l'espace des courbes planes irréductibles de degré donné, ayant un nombre donné de points doubles, est irréductible (Vorlesungen über algebraische Geometrie, 1921, Anhang F). On ignore toujours si l'assertion de Severi est vraie ou non.
+
+Le $\pi_1$ considéré dans le théorème est le vrai groupe fondamental, celui des topologues. Si $\mathbb{C}$ est remplacé par un corps algébriquement clos $k$ de caractéristique $0$ quelconque, le même énoncé vaut pour le groupe fondamental algébrique, celui qui classifie les revêtements étales : le principe de Lefschetz nous ramène à supposer que $k = \mathbb{C}$, auquel cas le groupe fondamental algébrique est le complété profini du vrai groupe fondamental.
+
+En caractéristique quelconque, on a la variante :
+
+\begin{maintheorem}[~(Fulton {[3]})]
+Soient $k$ un corps algébriquement clos et, sur $k$, $C \subset \mathbb{P}^2$ une courbe plane, dont les seules singularités sont des points doubles à tangentes distinctes. Alors, le groupe fondamental modéré de $\mathbb{P}^2 - C$ est abélien.
+\end{maintheorem}
+
+En d'autres termes, les revêtements (au sens 0.2) de $\mathbb{P}^2$, ramifiés seulement le long de $C$, et modérément ramifiés, sont abéliens. Rappelons que le caractère modéré de la ramification se teste après changement de base, de $\mathbb{P}^2$ à ses localisés en les points génériques des composantes irréductibles de $C$. Ces localisés sont des traits (= spectre d'anneau de valuation discrète).
+
+Supposons $k$ de caractéristique $p > 0$. Si $C$ est comme dans le théorème 2, il existe toujours dans l'espace projectif relatif $\mathbb{P}^2$ sur $\Spec(W(k))$ un diviseur à croisements normaux relatif $\mathcal{C}$, dont $C$ se déduise par passage à la fibre spéciale (voir par exemple Mumford, App.\ au chap.\ VIII de [9]). Ceci permet de déduire le théorème 2 du théorème 1 par un argument de spécialisation.
+
+\newpage
+\begin{flushright}
+\textbf{543-02}
+\end{flushright}
+
+Une fois que l'on sait que $\pi_1(\mathbb{P}^2(\mathbb{C}) - C)$ est abélien, des arguments homologiques donnent immédiatement sa structure : si $C$ est réunion de courbes irréductibles de degrés $d_1, \ldots, d_r$, le groupe $\pi_1(\mathbb{P}^2(\mathbb{C}) - C)$ est le quotient de $\mathbb{Z}^r$ par le sous-groupe engendré par l'élément $(d_1, \ldots, d_r)$.
+
+Dans sa démonstration du théorème 2, Fulton utilise d'une part des méthodes introduites par Abhyankar [1] pour prouver le cas particulier du théorème 2 où l'on suppose les composantes irréductibles de $C$ lisses --- méthodes dont un exposé très clair a été donné ici par Serre ([7]) --- d'autre part le théorème 3 ci-dessous. Une analyse de la démonstration a ensuite permis au rédacteur d'en donner une variante qui fournisse le théorème 1.
+
+Abhyankar et Fulton utilisent tous deux des instances du principe selon lequel, en géométrie algébrique, ce qui est très mobile est connexe. Soient $C \subset \mathbb{P}^2$ comme dans le théorème 2, $D$ une composante irréductible de $C$ et $f : X \to \mathbb{P}^2$ un revêtement ramifié seulement le long de $C$, et de ramification modérée. Puisque $D \subset \mathbb{P}^2$ est très mobile, $f^{-1}(D)$ est connexe. Plus précisément, le diviseur $D \subset \mathbb{P}^2$ est ample, le diviseur $f^{-1}(D) \subset X$ l'est donc aussi, puisque $f$ est fini, et on applique Bertini. Par une étude locale de $f$, Abhyankar montre que, si $D$ est lisse, alors $(f^{-1}(D))_{\mathrm{red}}$ l'est aussi, et conclut que $f^{-1}(D)$ est irréductible.
+
+Dans le cas général, soit $g : \widetilde{D} \to D$ le normalisé de $D$. La même étude locale montre que le produit fibré réduit $(X \times_{\mathbb{P}^2} \widetilde{D})_{\mathrm{red}}$ est lisse. C'est donc le normalisé de $f^{-1}(D)$. Si on peut montrer qu'il est connexe, on en déduira que $f^{-1}(D)$ est irréductible, et on peut recopier la fin de la démonstration d'Abhyankar, telle qu'elle figure dans [7].
+
+Rappelons la définition du produit fibré : si $h : X \times \widetilde{D} \to \mathbb{P}^2 \times \mathbb{P}^2$ est le produit des applications $f : X \to \mathbb{P}^2$ et $g : \widetilde{D} \to D \hookrightarrow \mathbb{P}^2$, le produit fibré $X \times_{\mathbb{P}^2} \widetilde{D}$ est l'image inverse $h^{-1}(\Delta)$ de la diagonale.
+
+Puisque $\mathbb{P}^2$ a beaucoup d'automorphismes, la diagonale $\Delta \subset \mathbb{P}^2 \times \mathbb{P}^2$ est très mobile, et $h^{-1}(\Delta)$ est connexe. Ceci termine la démonstration.
+
+Plus précisément, on applique à $h$ le cas particulier $r = 2$, $m = 2$ du théorème suivant :
+
+\begin{maintheorem}[~(W.\ Fulton et J.\ Hansen {[4]})]
+Soient $P = (\mathbb{P}^m)^r$ le produit de $r$ copies de l'espace projectif $\mathbb{P}^m$, $\delta$ l'application diagonale de $\mathbb{P}^m$ dans $P$, $\Delta = \delta(\mathbb{P}^m)$ la diagonale, $Z$ une variété complète irréductible, $h : Z \to P$, $n = \dim h(Z)$ et $c = (r-1)m$ la codimension de $\Delta$ dans $P$. Si $n - c \geq 1$, alors $h^{-1}(\Delta)$ est connexe.
+\end{maintheorem}
+
+Ce théorème a de nombreuses autres applications, pour lesquelles je renvoie à [4], et à l'article de T.\ Gaffney et R.\ Lazarsfeld [5].
+
+Dans la fin de cette introduction, nous expliquons sur un exemple la méthode suivie pour transposer la démonstration de Fulton du théorème 2 en une démonstration du théorème 1. L'exemple est : comment transposer les arguments d'Abhyankar pour prouver le théorème 1 dans le cas particulier où $C$ est lisse (donc irréductible).
+
+\newpage
+\begin{flushright}
+\textbf{543-03}
+\end{flushright}
+
+Soient $U$ un voisinage tubulaire de $C$ dans $\mathbb{P}^2(\mathbb{C})$, $U^* = U - C$ et $u \in U^*$. Pour tout revêtement $f : X \to \mathbb{P}^2(\mathbb{C})$ ramifié seulement le long de $C$, on a
+\[
+(f^{-1}(C) \text{ connexe}) \Longleftrightarrow (f^{-1}(U) \text{ connexe}) \Longleftrightarrow (f^{-1}(U^*) \text{ connexe}).
+\]
+The result clef: for every the covering $X$, the curve $f^{-1}(C)$ is connected, equivaut therefore a celui-ci: for every quotient finite $H$ of $\pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$, the morphism compose
+\[
+\pi_1(U^*, u) \xrightarrow{j_*} \pi_1(\mathbb{P}^2(\mathbb{C}) - C, u) \twoheadrightarrow H
+\]
+is surjective. A argument of theorie of Morse permet of prouver mieux: the surjectivite of the morphism $j_* : \pi_1(U^*, u) \to \pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$.
+
+A metrique riemannienne being choisie on $\mathbb{P}^2(\mathbb{C})$, one can, for $\varepsilon > 0$ sufficiently petit, prendre for $U$ the image by the map exponentielle $\exp$ of the under-fiber en boules of rayon $\varepsilon$ of the fiber normal of $C$ in $\mathbb{P}^2(\mathbb{C})$. For $\varepsilon$ sufficiently petit, $\exp$ identifie $U^*$ a fiber en disques epointes orientes on $C$, of or a exact sequence:
+\[
+1 \longrightarrow \pi_1(U^*_u) \longrightarrow \pi_1(U^*, u) \xrightarrow{\;q_*\;} \pi_1(C, \bar{u}) \longrightarrow 1
+\]
+($\bar{u}$ image of $u$). the image of $\pi_1(U^*_u)$ is central; celle of $1 \in \pi_1(U^*_u) \cong \mathbb{Z}$ is representee by a petit lacet $\gamma$ tournant a fois, in the sens positive, autour of $C$.
+
+Puisque $j_*$ is surjective, $\gamma$ defines again a element central of $\pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$. The quotient of $\pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$ by the under-group distingue generated by $\gamma$ (en the occurrence, the under-group cyclique generated by $\gamma$) is $\pi_1(\mathbb{P}^2(\mathbb{C}), u) = \{e\}$ and the cas particulier considered of the theorem s'ensuit.
+
+\section*{0.\ Terminologie}
+
+\textbf{0.1.} Connected signifie connected and not vide. Similarly for irreducible.
+
+\textbf{0.2.} A covering of a scheme $S$, assumed normal and connected, is a morphism $f : T \to S$, of source $T$ normal and connected, of which the restriction a open dense of $T$ is étale.
+
+\textbf{0.3.} In every the sequence of this expose, we we placons on $\mathbb{C}$. We ecrirons simplement $\mathbb{P}^n$ for $\mathbb{P}^n(\mathbb{C})$. The schemes consideres are all supposes separes.
+
+\newpage
+\begin{flushright}
+\textbf{543-04}
+\end{flushright}
+
+\section{Theorems of the type of Lefschetz and Bertini}
+\setcounter{secitem}{0}
+
+The cas particulier of 1.1, ci-dessous, or $Z \subset \mathbb{P}^n$ is the complement of a hypersurface is demontre by Hamm and The [6], a the aide of the theorie of Morse. Notre but in this \S\ is of en deduire the variante 1.6 of the theorem 3.
+
+\begin{secassertion}
+Let $Z \subset \mathbb{P}^n$ a open of Zariski not vide. Si $H$ is a hyperplan general, the morphism natural $\pi_i(Z \cap H) \to \pi_i(Z)$ is bijective for $i < n-1$, and surjective for $i = n-1$.
+\end{secassertion}
+
+the assertion 1.1 is enoncee in [2], but the proof of Cheniot ne couvre that the cas or the complement of $Z$ is of codimension $\geq 2$. Under this hypothese, $Z$ and $Z \cap H$ are simplement connected, and it is innocent of travailler, as it the fait, with the $H_i$ plutot that with the $\pi_i$. The cas $i = 1$ can also se deduire of The or [2 bis].
+
+Recall that the adjectif ``general'', qualifiant a element $H$ of a algebraic variety irreducible $S$ (ici, the projective space dual $\check{\mathbb{P}}^n$), is a quantificateur. It signifie the existence of a open of Zariski not vide (and therefore dense) $S'$ of $S$, such that for every $H$ in $S'$, \ldots
+
+\textbf{1.2.} Let $Y \subset \mathbb{P}^n \times \check{\mathbb{P}}^n$ the space of the couples $(z, H)$ such that $z \in Z$ and $z \in H$. The theorem of isotopie, applique a the seconde projection $\pr_2 : Y \to \check{\mathbb{P}}^n$, fournit the existence of a open of Zariski not vide $U$ of $\check{\mathbb{P}}^n$, to the-dessus duquel $Y$ is a space fiber --- topologiquement locally trivial. It is enough to prendre for $U$ the set of the hyperplans transverses to the strates of a stratification of Whitney algebraic of the complement of $Z$ in $\mathbb{P}^n$. Locally on $U$ and si one choisit a trivialisation local of this fiber, the inclusion of $Z \cap H = \pr_2^{-1}(\{H\})$ in $Z$ apparait as a map dependant continument of $H$ of a space fixe in $Z$. The conclusion of 1.1 ne can therefore valoir for a $H$ in $U$ that si it vaut for all, and 1.1 equivaut a dire that it vaut for every $H$ in $U$.
+
+Assume that $Z$ depende of parametres: one se given a scheme irreducible $S$, a open $\mathcal{Z}$ of $S \times \mathbb{P}^n$; one sets $\pr_2\pr_1^{-1}(\{s\}) = Z(s)$ and one assumed each $Z(s)$ not vide. Let $\mathcal{Y} \subset S \times \mathbb{P}^n \times \check{\mathbb{P}}^n$ the space of the triples $(s, z, H)$ such that $z \in Z(s)$ and $z \in H$. The theorem of isotopie, applique a the projection of $\mathcal{Y}$ on $S \times \check{\mathbb{P}}^n$ (resp.\ of $\mathcal{Z}$ on $S$), fournit the existence of a open of Zariski not vide $U$ of $S \times \check{\mathbb{P}}^n$ (resp.\ $V$ of $S$), to the-dessus duquel $\mathcal{Y}$ (resp.\ $\mathcal{Z}$) is a space fiber --- topologiquement locally trivial.
+
+As ci-dessus, si $s \in V$ and that $(s, H) \in U$, the conclusion of 1.1 vaut for $Z(s)$ and $H$. This variante --- with parametres --- of 1.1 will be utilisee implicitement in the proof of 1.4.
+
+\newpage
+\begin{flushright}
+\textbf{543-05}
+\end{flushright}
+
+\setcounter{secitem}{2}
+\begin{secconjecture}
+Let $Z$ smooth and connected of dimension $n$, $f : Z \to \mathbb{P}^N$ a morphism a fibers finite, $c$ a integer, $L$ a under-space lineaire of $\mathbb{P}^N$ of codimension $c$ and $n^* = n - c$. Choisissons a metrique riemannienne on $\mathbb{P}^N$, and let $V(\varepsilon)$ the set of the points $p$ of $\mathbb{P}^N$ such that $d(p, L) < \varepsilon$. Then, for $\varepsilon$ sufficiently petit, the morphism natural
+\[
+\pi_i(f^{-1}(V(\varepsilon))) \longrightarrow \pi_i(Z)
+\]
+is bijective for $i < n^*$, and surjective for $i = n^*$.
+\end{secconjecture}
+
+One notera that for $L$ general, the inclusion of $f^{-1}(L)$ in $f^{-1}(V(\varepsilon))$ is, for $\varepsilon$ sufficiently petit, a equivalence of homotopie: 1.3 is bien a generalisation of 1.1.
+
+Si one ne assumed more $f$ quasi-finite, and that the set of the points of $\mathbb{P}^N$ or the fiber of $f$ is of dimension $k$ is of dimension $g(k)$, there is lieu of redefinir $n^*$ as being
+\[
+n^* = 2\dim Z - \sup_k(2k + g(k) + \inf(g(k), c-1)) - 1.
+\]
+The conjecture 1.3 devrait moreover se deduire of a states more precise, as what $Z$ se deduces of $f^{-1}(V(\varepsilon))$ by adjonction of anses tuant of the spheres of dimension $> n^*$.
+
+We we contenterons of results more faibles that 1.3. We the deduirons of the cas particulier of 1.1 or $Z$ is the complement of a hypersurface.
+
+\begin{seclemma}
+Let $Z$ normal and connected, $f : Z \to \mathbb{P}^N$ a morphism, $n$ the dimension of $f(Z)$ and $c$ a integer. One assumed that $n - c \geq 1$. Si $L$ is a under-space lineaire of codimension $c$ general of $\mathbb{P}^N$, then $f^{-1}(L)$ is connected and, for $z \in f^{-1}(L)$, the morphism natural of $\pi_1(f^{-1}(L), z)$ in $\pi_1(Z, z)$ is surjective.
+\end{seclemma}
+
+It is loisible of remplacer $Z$ by a open of Zariski not vide $Z'$: for $L$ general, $f^{-1}(L)$ is again normal, and $Z'$ (resp.\ $Z' \cap f^{-1}(L)$) se deduces of $Z$ (resp.\ $f^{-1}(L)$) by soustraction of a part algebraic of interieur vide. Vu the hypothese of normalite, this ne change not the $\pi_1$ and one can supposer, and one assumed, that $Z$ is smooth. The reader interesse only by the proof of the theorem 1 aurait of ailleurs pu the supposer of emblee; it remplacera ``normal'' by ``smooth'' in what follows of the \S.
+
+Retrecissant $Z$, one can supposer, and one assumed, that $f(Z)$ is locally closed and that $Z$ is a space fiber --- topologiquement locally trivial --- on $f(Z)$.
+
+Si $c = 1$ and that $f$ is dominant, $f(Z)$ is a open of Zariski of $\mathbb{P}^N$ --- retrecissant $Z$, one can supposer that c'is the complement of a hypersurface --- and it ne reste that a appliquer 1.1 a $f(Z)$, and a comparer the sequences exact longues of homotopie for $Z \to f(Z)$ and $f^{-1}(L) \to L \cap f(Z)$.
+
+Continuons a supposer that $c = 1$. Si $f$ n'is not dominant, let $A$ a under-space lineaire of dimension $N - n - 1$, $B$ the projective space of the under-spaces lineaires of dimension $N - n$ contenant $A$ and $q : \mathbb{P}^N - A \to B : x \mapsto$ the under-space the contenant. For $A$ disjoint of $f(Z)$, the restriction of $q$ a $f(Z)$ is a morphism finite, therefore dominant puisque $\dim f(Z) = \dim B$, and $qf : Z \to B$ is dominant. Of the lemma, applique a $qf$ and a $c = 1$, one deduces the conclusion of the lemma for $L$ a hyperplan general parmi ceux contenant $A$. The under-space $A$ being only assujetti a se trouver in a open dense of a grassmannienne suitable, the conclusion of the lemma vaut also for $L$ general (cf.\ 1.2).
+
+One finit the proof by a recurrence on $c$: a under-space lineaire general of codimension $c - 1$ of a hyperplan general is a under-space lineaire of codimension $c$ general (cf.\ 1.2).
+
+\newpage
+\begin{flushright}
+\textbf{543-06}
+\end{flushright}
+
+\begin{seclemma}
+Let $Z$, $f$, $n$ and $c$ as en 1.4. All under-space lineaire $L$ of $\mathbb{P}^N$ of codimension $c$ admet a systeme fondamental of voisinages ouverts $V$ such that $f^{-1}(V)$ let connected, and that, for $z \in f^{-1}(V)$, the morphism natural of $\pi_1(f^{-1}(V), z)$ in $\pi_1(Z, z)$ let surjective.
+\end{seclemma}
+
+Let $\Gr$ the grassmannienne of the under-spaces lineaires of codimension $c$ of $\mathbb{P}^N$, $\mathcal{Y} \subset Z \times \Gr$ the set of the couples $(z, L)$ such that $f(z) \in L$, and $G$ a open of Zariski not vide of $\Gr$ such that, to the-dessus of $G$, $\mathcal{Y}$ Let fiber --- topologiquement locally trivial. The conclusion of 1.4 vaut then for $L \in G$ (cf.\ 1.2).
+
+For each open $U$ of $\Gr$, we shall denote $U^*$ the open of $\mathbb{P}^N$ reunion of the $L \in U$. We shall prouver that si $U$ is connected, the conclusion of 1.5 vaut for $V = U^*$. The lemma en suivra.
+
+Prouvons that, si $U$ is connected, $f^{-1}(U^*)$ the is also. the intersection $U' = U \cap G$ is connected, car deduite of $U$ by soustraction of a part (triangulable) of codimension reelle $\geq 2$. of after 1.4, the reunion $f^{-1}(U'^*)$ of the $f^{-1}(L)$ for $L \in U'$ is therefore connected. We shall montrer that it is dense in $f^{-1}(U^*)$.
+
+the image $f(Z)$ of $Z$ n'is not in the complement $F$ of $G^*$: puisque $n - c > 0$, the $L \in G$ rencontrent $f(Z)$. Si $z \in Z$, the image of a quelconque neighborhood of $z$ n'is not in $F$, otherwise celle of $Z$ the serait, by prolongement analytic. Si $z \in f^{-1}(U^*)$, there exists therefore arbitrairement pres a point $z'$ such that $f(z') \in G^*$. In the set of the $L \in \Gr$ contenant $z'$, the trace of $G$ is dense, puisque not vide. Si $z \in f^{-1}(L)$, with $L \in U$, this permet of trouver $z'$ as ci-dessus, contenu in a $f^{-1}(L')$, with $L'$ in $G$ arbitrairement proche of $L$. In particular, one can prendre $L' \in U'$, auquel cas $z' \in f^{-1}(U'^*)$. This proves the densite of $f^{-1}(U'^*)$ in $f^{-1}(U^*)$, and the connexite of $f^{-1}(U^*)$.
+
+Let enfin $L \in U'$. one has $f^{-1}(L) \subset f^{-1}(U^*) \subset Z$. of after 1.4, the $\pi_1$ of $f^{-1}(L)$ s'envoie on celui of $Z$. A fortiori celui of $f^{-1}(U^*)$.
+
+We shall en deduire a variante of the theorem 3.
+
+\newpage
+\begin{flushright}
+\textbf{543-07}
+\end{flushright}
+
+\begin{sectheorem}
+Let $P = (\mathbb{P}^m)^r$ the product of $r$ copies of the projective space $\mathbb{P}^m$, $\delta$ the map diagonale of $\mathbb{P}^m$ in $P$, $\Delta = \delta(\mathbb{P}^m)$ the diagonale, $Z$ normal and connected, $h : Z \to P$, $n = \dim h(Z)$ and $c = (r-1)m$ the codimension of $\Delta$ in $P$. Si $n - c \geq 1$, $\Delta$ admet a systeme fondamental of voisinages ouverts $V$, such that $h^{-1}(V)$ let connected. Si $h^{-1}(V)$ is connected, and that $z \in h^{-1}(V)$, the morphism natural of $\pi_1(h^{-1}(V), z)$ in $\pi_1(Z, z)$ is surjective.
+\end{sectheorem}
+
+As en 1.4, it is loisible of retrecir $Z$, and in particular of supposer $Z$ smooth. Supposons-the.
+
+Let $(H_\alpha)_{\alpha \in A}$ a family of hyperplans of $\mathbb{P}^m$, such that
+\begin{enumerate}[label=\alph*)]
+\item the intersection of the $H_\alpha$ is vide: in a systeme of coordonnees projective suitable $(X_\alpha)_{\alpha \in A}$, they s'ecrivent $X_\alpha = 0$;
+\item $h(Z)$ n'is contenu in aucun of the $\pr_\alpha^{-1}(H_\alpha)$. Retrecissant $Z$, one can then --- and one assumed --- that $h(Z)$ is disjoint of the $\pr_\alpha^{-1}(H_\alpha)$.
+\item $h(Z) \cap \Delta$ n'is not contenu in the reunion of the $\delta(H_\alpha)$: puisque $\delta(\mathbb{P}^m)$ is membre of a family connected of cycles remplissant $P$ all integer, one has $h(Z) \cap \Delta \neq \varnothing$, and it is possible of choisir of the $H_\alpha$ verifiant c).
+\end{enumerate}
+
+Let $A_\alpha = \mathbb{P}^m - H_\alpha \subset \mathbb{P}^m$ and $\Delta_\alpha = \delta(A_\alpha)$ the diagonale of $B_\alpha = A_\alpha^r \subset P$. The spaces $A_\alpha$ and $B_\alpha$ are of the affine spaces and $\Delta_\alpha$ is a under-affine space of $B_\alpha$. The completion projective of $A_\alpha$ is $\mathbb{P}^m$. Notons $\widehat{B}_\alpha$ celle of $B_\alpha$, and $\widehat{\Delta}_\alpha$ celle of $\Delta_\alpha$.
+
+Fixons $\alpha$, and ecrivons simplement $H$, $A$, $B$, $\Delta_B$, $\widehat{\Delta}$, $\widehat{B}$ for $H_\alpha$, $A_\alpha$, $B_\alpha$, $\Delta_\alpha$, $\widehat{\Delta}_\alpha$ and $\widehat{B}_\alpha$.
+
+\begin{seclemma}
+For every neighborhood $U$ of $\widehat{\Delta}$ in $\widehat{B}$, there exists a neighborhood $V$ of $\widehat{\Delta}_A$ in $\widehat{B}$ such that $V \cap B \subset U \cap B$.
+\end{seclemma}
+
+Choisissons on $A$ a structure of space vector hermitien, compatible a sa structure affine. A systeme fondamental of voisinages $U$ of $\widehat{\Delta}$ (resp.\ $V$ of $\widehat{\Delta}_A$) admet then for trace on $B$ the sets of the form suivante:
+\begin{multline*}
+U \cap B = \{(x_i) \mid \text{Si } |x_i| \leq R \text{ pour un } i, \text{ on a } \forall j\, \forall k\, |x_j - x_k| \leq \varepsilon \text{ ;} \\
+\text{si les } |x_i| \text{ sont } > R \text{, on a } \forall j\, \forall k\, \text{l'angle entre les droites} \\
+\text{complexes engendrées par } x_j \text{ et } x_k \text{ est } < \varepsilon\}
+\end{multline*}
+\begin{multline*}
+V \cap B = \{(x_i) \mid \text{Si } |x_i| \leq R \text{ pour un } i, \text{ on a } \forall j\, \forall k\, |x_j - x_k| < \varepsilon \text{ ;} \\
+\text{si les } |x_i| \text{ sont } > R \text{, on a } \forall j\, \forall k\, |x_j - x_k| < \inf(|x_i|)\}
+\end{multline*}
+
+The lemma en resulte.
+
+In the cas or $r = m = 1$, the deux compactifications $\mathbb{P}^1 \times \mathbb{P}^1$ and $\mathbb{P}^2$ of $\mathbb{A}^2$ are coiffees by a troisieme as suit: the dessin represente the lieu a the infini, and the diagonale; the points entoures are ceux that it faut eclater for obtenir the troisieme compactification; $U$ and $V$ are suggeres by the pointilles:
+
+\newpage
+\begin{flushright}
+\textbf{543-08}
+\end{flushright}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[thick] (0,0) -- (4,0);
+\draw[thick] (0,0) -- (0,4);
+\draw[thick] (4,0) -- (4,4);
+\draw[thick] (0,4) -- (4,4);
+\draw[thick,dashed] (0,0) -- (4,4);
+\node at (-0.3,-0.3) {$\infty \times \infty$};
+\node at (4.3,-0.3) {$0 \times \infty$};
+\node at (-0.3,4.3) {$\infty \times 0$};
+\node at (4.7,4.3) {$0 \times 0$};
+\node at (2,-0.5) {$\mathbb{P}^1 \times \{\infty\}$};
+\node at (-0.7,2) {$\{\infty\} \times \mathbb{P}^1$};
+\draw (0,0) circle (3pt);
+\draw (4,4) circle (3pt);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[scale=0.8]
+\draw[thick] (0,0) -- (4,0) -- (2,3.464) -- cycle;
+\draw[thick,dashed] (2,0) -- (2,3.464);
+\draw (0,0) circle (3pt);
+\draw (4,0) circle (3pt);
+\draw (2,3.464) circle (3pt);
+\node at (2,-0.5) {$\mathbb{P}^1$};
+\end{tikzpicture}
+\end{center}
+
+A construction similaire can be faite for $r$ and $m$ quelconques.
+
+Reprenons the proof of 1.6. Appliquons 1.5 a $h : Z \to \widehat{B}_\alpha$ and $\widehat{\Delta}_\alpha \subset \widehat{B}_\alpha$. One trouve that $\widehat{\Delta}_\alpha$ admet a neighborhood open arbitrairement petit $V_\alpha$ such that $h^{-1}(V_\alpha) = h^{-1}(V_\alpha \cap B_\alpha)$ let connected, of $\pi_1$ s'envoyant on celui of $Z$. of after 1.7, for every the neighborhood $U_\alpha$ of $\widehat{\Delta}$ in $\widehat{B}_\alpha$, one can prendre $V_\alpha$ such that $V_\alpha \cap B_\alpha \subset U_\alpha$.
+
+The reunion $\mathcal{V}$ of the ouverts $V_\alpha \cap B_\alpha$ of $P$ is a neighborhood, arbitrairement petit of $\Delta$. the hypothese b) on the $H_\alpha$ assure that the intersection of the $V_\alpha \cap B_\alpha$ rencontre $h(Z)$. Of the lors, $h^{-1}(\mathcal{V})$, reunion of the ouverts connected $h^{-1}(V_\alpha)$, of intersection not vide, is connected. Puisque the $\pi_1$ of the a of the $h^{-1}(V_\alpha)$ s'envoie on celui of $Z$, a fortiori celui of $h^{-1}(\mathcal{V})$, and this acheve the proof.
+
+\newpage
+\begin{flushright}
+\textbf{543-09}
+\end{flushright}
+
+\section{Proof of the theorem 1}
+\setcounter{secitem}{0}
+
+\textbf{2.1.} Let $C \subset \mathbb{P}^2$ a curve plane reduite, $D$ a composante irreducible of $C$, $C' = (C - D)$ the reunion of the other composantes, $\Sing(C)$ the set of the points singuliers of $C$ and $D^* = D - \Sing(C)$. Choisissons a point base $O \in \mathbb{P}^2 - C$, and let $\gamma$ a lacet in $\mathbb{P}^2 - C$ of the type suivant: $\gamma$ va of $O$ a point $p'$ proche of a point $p$ of $D^*$ by a chemin $\mathrm{ch}$, tourne a fois autour of $D^*$ in the sens positive, and revient a $O$ by $\mathrm{ch}^{-1}$. The curve $D^*$ being connected, the lacets of this type are all conjugues between eux. The quotient of $\pi_1(\mathbb{P}^2 - C, O)$ by the under-group distingue that they engendrent is $\pi_1(\mathbb{P}^2 - C')$.
+
+\setcounter{secitem}{1}
+\begin{secproposition}
+Assume that ceux of the points singuliers of $C$ which are on $D$ are of the points doubles a tangentes distinctes. Then, $\gamma$ is central in $\pi_1(\mathbb{P}^2 - C, O)$.
+\end{secproposition}
+
+Let $j$ the inclusion of $\mathbb{P}^2 - C$ in $\mathbb{P}^2 - C'$, $g : \widetilde{D} \to D$ the normalisee of $D$ and appliquons 1.6 a $h = j \times g : (\mathbb{P}^2 - C) \times \widetilde{D} \to \mathbb{P}^2 \times \mathbb{P}^2$. For presenter commodement the inverse image of certain voisinages of the diagonale, we choisissons on $\mathbb{P}^2$ a structure riemannienne such that, to the neighborhood of each point $P \in D \cap \Sing(C)$, let euclidien, and that the deux branches of $C$ by $P$ let of the 2-plans (reels) orthogonaux.
+
+Si $(u, v) \in (\mathbb{P}^2 - C) \times \widetilde{D}$ is in the inverse image of a neighborhood sufficiently petit of the diagonale, i.e.\ si $u$ and $v$ are sufficiently proches, the point $u$ is pres of $D$, and one can abaisser a courte perpendiculaire of $u$ on $D$. For $u$ pres of $\Sing(D)$, one en a same deux, a by branche. One choisit celle of which the pied $\xi$ is proche of $v$ on $\widetilde{D}$:
+
+The point $u$ is in $D^*$. Reciproquement, let $\varepsilon > 0$ sufficiently petit, $q : U^* \to D^*$ the under-fiber en disques epointes of the fiber normal of $D^*$ in $\mathbb{P}^2$ form of the vecteurs normaux not nuls of longueur $< \varepsilon$, and $E$ the set of the couples $(x, v)$ with $x \in U^*$, $v \in \widetilde{D}$ and $d(q(x), v) < \varepsilon$ (distance calculee on $\widetilde{D}$). the map $\pr_1 : E \to U^*$ is a equivalence of homotopie and admet for section the space of the $(x, q(x))$. the map $\exp : (x, v) \mapsto (\exp(x), v)$ of $E$ in $(\mathbb{P}^2 - C) \times \widetilde{D}$ identifie $E$ a the inverse image of a neighborhood of $\Delta$, and, for $\varepsilon \to 0$, one obtains the images inverses of a systeme fondamental of neighborhood.
+
+Appliquant 1.6, one trouve that, for every $O \in U^*$, $\exp$ and $q$ induisent a surjection
+\[
+(\exp, q)_* : \pi_1(U^*, O) \twoheadrightarrow \pi_1(\mathbb{P}^2 - C, \exp(O)) \times \pi_1(\widetilde{D}, q(O)).
+\]
+One dispose of a exact sequence of homotopie
+\[
+1 \longrightarrow \pi_1(U^*_O) \longrightarrow \pi_1(U^*, O) \xrightarrow{\;q_*\;} \pi_1(D^*, q(O)) \longrightarrow 1.
+\]
+the image of $\pi_1(U^*_O)$ is central; celle of $1 \in \pi_1(U^*_O) \cong \mathbb{Z}$ is representee by a petit lacet tournant a fois, in the sens positive, autour of $D^*$. Puisque $(\exp, q)_*$, therefore $\exp_* : \pi_1(U^*, O) \to \pi_1(\mathbb{P}^2 - C, \exp(O))$ is surjective, this lacet defines again a element central of $\pi_1(\mathbb{P}^2 - C, \exp(O))$. C'is $\gamma$.
+
+\newpage
+\begin{flushright}
+\textbf{543-10}
+\end{flushright}
+
+\textbf{2.3 Proof of the theorem 1:} For each composante irreducible $D$ of $C$, let $\gamma(D)$ the element central corresponding of $\pi_1(\mathbb{P}^2 - C, O)$. The quotient of $\pi_1(\mathbb{P}^2 - C, O)$ by the under-group --- central --- generated by the $\gamma(D)$ is $\pi_1(\mathbb{P}^2, O) = \{e\}$. The theorem en resulte.
+
+\section*{Bibliographie}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item S.\ ABHYANKAR --- ``Tame coverings and fundamental groups of algebraic varieties'', \textit{Amer.\ J.\ of Math.}, 81 (1959), 46--94.
+\item D.\ CHENIOT --- ``A theorem of the type of Lefschetz'', \textit{Annales of the Institut Fourier}, 25 1 (1975), 195--213.
+\item[{$[2$ bis$]$}] D.\ CHENIOT --- ``A proof of the theorem of Zariski on the sections hyperplanes of a hypersurface projective and of the theorem of Van Kampen on the fundamental group of the complementaire of a curve plane'', \textit{comp.\ Math.}, 27 2 (1973), 141--158.
+\item W.\ FULTON --- ``One the fundamental group of the complement of a node curve'', \textit{Ann.\ of Math.}, 111 2 (1980), 407--409.
+\item W.\ FULTON and J.\ HANSEN --- ``A connectedness theorem for projective varieties, with maps to intersections and singularities of mappings'', \textit{Ann.\ of Math.}, 109 1 (1979), 159--166.
+\item T.\ GAFFNEY and R.\ LAZARSFELD --- ``One the ramification of branched coverings of $\mathbb{P}^n$'', \textit{Inv.\ Math.}, 59 1 (1980), 53--58.
+\item H.\ HAMM and THE DUNG TRANG --- ``A theorem of Zariski of the type of Lefschetz'', \textit{Ann.\ Sci.\ E.N.S.}, 6 3 (1973), 317--366.
+\item J.-P.\ SERRE --- ``Coverings ramifies of the plan projective (of after S.\ Abhyankar)'', seminaire Bourbaki 204, mai 1960.
+\item O.\ ZARISKI --- ``One the problem of existence of algebraic functions of two variables possessing a given branch curve'', \textit{Amer.\ J.\ of Math.}, 51 (1929), 305--328.
+\item[{$[9]$}] O.\ ZARISKI --- \textit{Algebraic surfaces}, second supplemented edition, Ergebnisse 61, Springer-Verlag.
+\end{enumerate}
+
+\vspace{1ex}
+\textit{Je viens (1/10/80) of recevoir a tres bel expose, faisant the point on the methodes etudiees ici, leurs variantes and leurs nombreuses maps: W.\ FULTON and R.\ LAZARSFELD --- ``Connectivity and its maps in algebraic geometry''.}
+
+\vspace{2ex}
+\begin{flushright}
+\textbf{Pierre DELIGNE}
+
+Institut of the Hautes Etudes Scientifiques
+
+35 route of Chartres
+
+F-91440 BURES-ON-YVETTE
+\end{flushright}
+
+\end{document}

@@ -1,0 +1,519 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'{e}or\`{e}me}[section]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollaire}[section]
+\newtheorem{variante}{Variante}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{D\'{e}finition}[section]
+\newtheorem{remark}{Remarque}[section]
+\newtheorem{example}{Exemple}[section]
+\newtheorem{question}{Question}[section]
+
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Imr}{Im}
+\DeclareMathOperator{\rank}{rang}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\U}{U}
+\newcommand{\can}{\textup{can}}
+\newcommand{\dual}{\vee}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+
+\title{\textbf{UN TH\'{E}OR\`{E}ME DE FINITUDE POUR LA MONODROMIE}}
+\author{par P. Deligne}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{0. Introduction}
+\addcontentsline{toc}{section}{0. Introduction}
+
+Soit $S$ une vari\'{e}t\'{e} alg\'{e}brique complexe lisse (i.e. sans singularit\'{e}) connexe et soit $(X_{s})_{s \in S}$ une famille alg\'{e}brique, param\'{e}tris\'{e}e par $S$, de vari\'{e}t\'{e}s projectives lisses $X_{s} \subset \PP^{r}(\CC)$. Par d\'{e}finition, c'est la donn\'{e}e d'un morphisme projectif et lisse $f: X \to S$, muni d'une factorisation
+\[
+\begin{CD}
+X @>>> \PP^{r} \times S \\
+@V{f}VV @VVV \\
+S @= S
+\end{CD}
+\]
+et les $X_{s}$ sont les fibres de $f : X_{s} := f^{-1}(s)$.
+
+Quel que soit $i$, les groupes de cohomologie $H^{i}(X_{s}, \ZZ)$ formant un syst\`{e}me local sur $S$. Si on choisit un point base $o \in S$, le groupe fondamental $\pi_{1}(S,o)$ agit donc sur $H^{i}(X_{o}, \ZZ)$. C'est la \emph{repr\'{e}sentation de monodromie}
+\[
+\sigma_{\ZZ} : \pi_{1}(S,o) \to \Aut(H^{i}(X_{o}, \ZZ)).
+\]
+L'indice $\ZZ$ rappelle que $\pi_{1}(S,o)$ agit sur un $\ZZ$-module de type fini.
+
+Nous consid\'{e}rerons surtout la repr\'{e}sentation correspondante sur le $\QQ$-espace vectoriel $H^{i}(X_{o}, \QQ) = H^{i}(X_{o}, \ZZ) \otimes \QQ$, encore dite de monodromie, et not\'{e}e simplement
+\[
+\sigma : \pi_{1}(S,o) \to \GL(H^{i}(X_{o}, \QQ)).
+\]
+
+On ignore \`{a} peu pr\`{e}s tout de quels groupes peuvent \^{e}tre groupes fondamentaux de vari\'{e}t\'{e}s alg\'{e}briques, et de quelles repr\'{e}sentations lin\'{e}aires peuvent \^{e}tre obtenues comme monodromie. Par exemple, on ne conna\^{i}t pas la r\'{e}ponse \`{a} la question de Serre: $\pi_{1}(S,o)$ peut-il \^{e}tre non-trivial, et n'avoir aucun quotient fini non-trivial? Une condition n\'{e}cessaire pour qu'un groupe soit groupe fondamental de vari\'{e}t\'{e} alg\'{e}brique a \'{e}t\'{e} donn\'{e}e par J. Morgan \cite{Morgan}.
+
+L'adh\'{e}rence de Zariski $M^{Zar}$ du groupe de monodromie $M := \Im(\sigma)$ dans le groupe lin\'{e}aire $GL := \GL(H^{i}(X_{o}, \QQ))$ est souvent plus facile \`{a} calculer que $\Im(\sigma)$. On sait que c'est un groupe alg\'{e}brique semi-simple (\cite{HodgeII}, 4.2.9). Par abus de notation, notons $M^{Zar}(\ZZ)$ le sous-groupe de $M^{Zar}(\QQ)$ qui respecte le r\'{e}seau entier $H^{i}(X_{o}, \ZZ) / \text{torsion} \subset H^{i}(X_{o}, \QQ)$. On a $M \subset M^{Zar}(\ZZ)$. On conna\^{i}t des exemples o\`{u} $M$ est d'indice infini dans $M^{Zar}(\ZZ)$ (Mostow--Deligne \cite{Mostow}, M. Nori \cite{Nori}). Dans l'exemple de Nori, le groupe $M$ n'est pas de pr\'{e}sentation finie. Que, initialement, les exemples qu'on avait pu calculer fournissaient tous des groupes $M$ d'indice fini dans $M^{Zar}(\ZZ)$ provient peut-\^{e}tre de ce qu'on manque de crit\`{e}res pour reconna\^{i}tre le contraire. On ignore si, pour $Y \in M^{Zar}(\ZZ)$, la question de savoir si $Y \in M$ est d\'{e}cidable.
+
+Cet article expose quelques r\'{e}sultats de finitude sur les repr\'{e}sentations de monodromie. Le plus frappant est le
+
+\begin{theorem}[0.1]
+Fixons $S$, $o \in S$ et un entier $N$. Les repr\'{e}sentations de monodromie $\sigma_{\ZZ} : \pi_{1}(S,o) \to \Aut(H^{i}(X_{o}, \ZZ))$ ($i \leq N$, $X$ variable) qui sont de dimension $N$ ne forment qu'un nombre fini de classes d'isomorphie.
+\end{theorem}
+
+Nous prouverons aussi le r\'{e}sultat plus pr\'{e}cis:
+
+\begin{variante}[0.2]
+Fixons $S$, $o \in S$ et un entier $N$. Les repr\'{e}sentations rationnelles de dimension $N$ de $\pi_{1}(S,o)$, qui sont facteurs directs d'une repr\'{e}sentation de monodromie ne forment qu'un nombre fini de classes d'isomorphie.
+\end{variante}
+
+Ces \'{e}nonc\'{e}s sont pour les repr\'{e}sentations rationnelles fournies par la monodromie. Les lemmes bien connus suivants permettent de traiter aussi de repr\'{e}sentations sur les entiers.
+
+\begin{lemma}[0.3]
+Soit $\sigma : \Gamma \to \GL(V)$ une repr\'{e}sentation semi-simple d'un groupe $\Gamma$ sur un espace vectoriel rationnel de dimension finie $V$. Les repr\'{e}sentations $\rho : \Gamma \to \Aut(L)$, pour $L \subset V$ un r\'{e}seau entier stable par $\Gamma$, ne forment qu'un nombre fini de classes d'isomorphie.
+\end{lemma}
+
+La preuve est rappel\'{e}e en 2.6.
+
+\begin{lemma}[0.4]
+Soient $H$ un $\ZZ$-module de type fini, $T$ son sous-groupe de torsion, $L = H/T$ et $\sigma : \Gamma \to \Aut(L)$ une repr\'{e}sentation d'un groupe $\Gamma$ sur $L$. Si $\Gamma$ est de type fini, il n'y a qu'un nombre fini de rel\`{e}vements de $\sigma$ en une action de $\Gamma$ sur $H$.
+\end{lemma}
+
+\begin{proof}
+Le noyau de $\Aut(H) \to \Aut(L)$ est fini, car contenu dans l'ensemble fini $1 + \Hom(H, T)$. Pour chaque g\'{e}n\'{e}rateur $\gamma$ de $\Gamma$, $\sigma(\gamma)$ n'a donc qu'un nombre fini de rel\`{e}vements dans $\Aut(H)$.
+\end{proof}
+
+Si $f : X \to S$ est un morphisme projectif et lisse, on dispose pour chaque $s \in S$ d'une d\'{e}composition de Hodge
+\[
+H^{i}(X_{s}, \CC) := H^{i}(X_{s}, \QQ) \otimes \CC = \bigoplus_{p+q=i} H^{p,q}.
+\]
+Le sous-espace $H^{p,q}$ de $H^{i}(X_{s}, \CC)$ est l'espace des classes de cohomologie repr\'{e}sentables par une forme ferm\'{e}e de type $(p,q)$. Pour toute structure k\'{a}hl\'{e}rienne sur $X_{s}$, il revient au m\^{e}me d'exiger que $c$ soit de type $(p,q)$. Quand $s$ varie, les $H^{i}(X_{s}, \CC)$ formant un syst\`{e}me local sur $S$, et la d\'{e}composition de Hodge varie de fa\c{c}on analytique r\'{e}elle. P.A. Griffiths a d\'{e}gag\'{e} des propri\'{e}t\'{e}s essentielles de comment la d\'{e}composition de Hodge varie avec $S$. Si on les prend comme axiomes, on obtient la notion de ``variation polarisable de structures de Hodge de poids $i$'': un syst\`{e}me local de $\ZZ$-modules de type fini, de complexifi\'{e}s munis d'une d\'{e}composition ``de Hodge'' variant contin\^{u}ment et satisfaisant \`{a} des axiomes convenables (\cite{GriffithsIII}, 1.2). Nous consid\'{e}rerons surtout le syst\`{e}me local de $\QQ$-espaces vectoriels de dimension finie d\'{e}duit du syst\`{e}me local de $\ZZ$-modules de type fini en tensorisant avec $\QQ$. Nous dirons qu'il est sous-jacent \`{a} la variation.
+
+Le th\'{e}or\`{e}me 0.1 et sa variante 0.2 r\'{e}sultent du
+
+\begin{theorem}[0.5]
+Fixons $S$ et un entier $N$. Les syst\`{e}mes locaux sur $S$ de $\QQ$-espaces vectoriels de dimension $N$, facteurs directs d'un syst\`{e}me local sous-jacent \`{a} une variation de structures de Hodge polarisable, ne forment qu'un nombre fini de classes d'isomorphie.
+\end{theorem}
+
+La preuve est donn\'{e}e au paragraphe 2. Le lecteur int\'{e}ress\'{e} seulement par 0.1, ou ne tenant pas dans 0.5 de pouvoir prendre des facteurs directs, peut omettre la fin du paragraphe 1, \`{a} partir de 1.11.
+
+Le pr\'{e}sent travail est le fruit d'un effort pour comprendre l'article \cite{Faltings} de G. Faltings. Au paragraphe 3, on explique bri\`{e}vement comment, dans le cas o\`{u} $S$ est une courbe, o\`{u} $X$ est un sch\'{e}ma ab\'{e}lien sur $S$ et o\`{u} $i = 1$, le th\'{e}or\`{e}me 0.1 peut \^{e}tre obtenu par les m\'{e}thodes de \cite{Faltings}. On obtient aussi un th\'{e}or\`{e}me ``uniforme en $S$'' pour une courbe de type topologique donn\'{e} (3.10).
+
+J'ignore si ce th\'{e}or\`{e}me vaut pour des variations de structures de Hodge polarisables de type plus g\'{e}n\'{e}ral que $\{(0,1), (1,0)\}$.
+
+
+\section{Variations Complexes}
+
+\subsection*{1.1}
+Soit $S$ une vari\'{e}t\'{e} analytique complexe lisse. Une \emph{variation complexe} de poids $0$ sur $S$ est la donn\'{e}e d'un syst\`{e}me local complexe $V$ sur $S$, de fibres $V_{s}$ ($s \in S$) munies d'une d\'{e}composition $V_{s} = \bigoplus_{p \in \ZZ} V_{s}^{p}$, satisfaisant aux axiomes suivants.
+
+\begin{itemize}
+\item[(V.C.1)] Les sous-espaces $F^{p} := \bigoplus_{i \geq p} V_{s}^{i}$ (resp. $\bar{F}^{q} := \bigoplus_{i \leq q} V_{s}^{i}$) de $V_{s}$ varient holomorphiquement (resp. antiholomorphiquement) avec $s$.
+\item[(V.C.2)] Si une section locale diff\'{e}rentiable $v$ de $V$ est en chaque point dans $F^{p}$ (resp. $\bar{F}^{q}$), sa d\'{e}riv\'{e}e par rapport \`{a} un champ de vecteurs sur $S$ est dans $F^{p-1}$ (resp. $\bar{F}^{q-1}$).
+\end{itemize}
+
+Si $\mathcal{V}$ est le faisceau des sections $C^{\infty}$ de $V$ et que $\nabla$ est la connexion, vue comme morphisme de faisceaux $\nabla : \mathcal{V} \to \Omega^{1}(\mathcal{V})$, les d\'{e}compositions des $V_{s}$ en $\bigoplus V_{s}^{p}$ fournissent une d\'{e}composition $\mathcal{V} = \bigoplus \mathcal{V}^{p}$ de $\mathcal{V}$, et (V.C.1), (V.C.2) \'{e}quivalent \`{a} ce que $\nabla$ envoie $\mathcal{V}^{i}$ dans $\Omega^{1,0}(\mathcal{V}^{i-1}) \oplus \Omega^{1,0}(\mathcal{V}^{i}) \oplus \Omega^{0,1}(\mathcal{V}^{i}) \oplus \Omega^{0,1}(\mathcal{V}^{i+1})$.
+
+Dans la suite, nous ne consid\'{e}rerons que des variations complexes de poids $0$ et omettrons de pr\'{e}ciser ``de poids $0$''.
+
+Pour $S$ connexe, les \emph{nombres de Hodge} $h^{p}$ sont les dimensions $h^{p} := \dim V_{s}^{p}$, ind\'{e}pendantes de $s \in S$. De m\^{e}me, la dimension de $V$ est celle des $V_{s}$.
+
+Une \emph{polarisation} de la variation complexe $V$ est une forme hermitienne horizontale $\psi$ sur $V$ telle qu'en chaque point $s \in S$ la d\'{e}composition $V_{s} = \bigoplus V_{s}^{p}$ soit orthogonale, et que la restriction de $\psi$ \`{a} $V_{s}^{p}$ soit d\'{e}finie positive pour $p$ pair et d\'{e}finie n\'{e}gative pour $p$ impair. On posera $\mathcal{Q} = \bigoplus_{p} (-1)^{p} \psi|V^{p}$, c'est une forme hermitienne d\'{e}finie positive sur le fibr\'{e} vectoriel $V$.
+
+\subsection*{1.2 Exemple}
+Soient $H$ une variation de structures de Hodge de poids $w$ sur $S$ et $V$ la complexifi\'{e}e du syst\`{e}me local d'espaces vectoriels rationnels $H_{\QQ}$ sous-jacent \`{a} $H$. Par d\'{e}finition, il est muni de d\'{e}compositions
+\[
+V_{s} = \bigoplus_{p+q=w} V_{s}^{p,q} \quad (= H_{s}^{p,q}).
+\]
+Si on pose $V_{s}^{p} := V_{s}^{p,w-p}$, $V$, muni de ces d\'{e}compositions, est une variation complexe. Une polarisation $\psi_{0}$ de $H$ est une forme bilin\'{e}aire horizontale sur $H_{\QQ}$ \`{a} valeurs dans $(2\pi i)^{-w}\QQ$ v\'{e}rifiant des axiomes convenables. Si $\psi$ est le prolongement sesquilin\'{e}aire de $\psi_{0}$ \`{a} $V$, ces axiomes \'{e}quivalent \`{a} ce que $(2\pi i)^{w}\psi$ soit une polarisation de la variation complexe $V$.
+
+\subsection*{1.3}
+Sp\'{e}cialisons 1.1 au cas o\`{u} $S$ est r\'{e}duit \`{a} un point: une \emph{structure de Hodge complexe} sur un espace vectoriel complexe $H$ est une d\'{e}composition $H = \bigoplus H^{p}$; ses nombres de Hodge sont $h^{p} := \dim H^{p}$.
+
+Une \emph{polarisation} est une forme hermitienne $\psi$ pour laquelle les $H^{p}$ sont deux \`{a} deux orthogonaux et de restriction \`{a} $H^{p}$ d\'{e}finie positive pour $p$ pair, d\'{e}finie n\'{e}gative pour $p$ impair.
+
+Soient $H$ un espace vectoriel complexe, $\psi$ une forme hermitienne sur $H$ et $(h^{p})$ une famille d'entiers $\geq 0$. On suppose que $\dim H = \sum h^{p}$ et que $\sgn(\psi) = \sum (-1)^{p} h^{p}$. On notera $M(H, \psi, (h^{p}))$ --- ou simplement $M$ --- l'espace des structures de Hodge complexes sur $H$, de nombres de Hodge $h^{p}$, polaris\'{e}es par $\psi$. L'application qui \`{a} un point de $M$ associe la filtration de Hodge de $H$ par les $F^{p} := \bigoplus_{i \geq p} H^{i}$ est une injection de $M$ dans une vari\'{e}t\'{e} de drapeaux de $H$. En effet, $\bar{F}^{q} := \bigoplus_{i \leq q} \overline{H^{i}}$ est l'orthogonal de $F^{1-q}$ et $H^{p} = F^{p} \cap \bar{F}^{-p}$. Cette injection identifie $M$ \`{a} un ouvert de cette vari\'{e}t\'{e} de drapeaux. On munit $M$ de la structure complexe induite.
+
+En chaque point de $M$, $\End(H)$ h\'{e}rite d'une d\'{e}composition de Hodge, et d'une filtration de Hodge correspondante, avec
+\[
+F^{p}\End(H) = \{f : H \to H \mid f(F^{i}) \subset F^{i+p}\}.
+\]
+L'espace tangent \`{a} $M$ (i.e. \`{a} la vari\'{e}t\'{e} de drapeaux) s'identifie \`{a} $\End(H)/F^{0}\End(H)$, et h\'{e}rite de la filtration image de $F$ du fibr\'{e} tangent, avec $F^{-1} = F$. C'est une filtration holomorphe $F^{0} = 0$.
+
+Soit $U$ le groupe unitaire $U(H, \psi)$. Il agit transitivement sur $M$. Si $m \in M$ correspond \`{a} une d\'{e}composition $H = \bigoplus H^{p}$ de $H$, le stabilisateur de $m$ est le sous-groupe compact
+\[
+K := \prod_{p} U(H^{p}, \psi|H^{p}) \subset U.
+\]
+La compacit\'{e} de $K$ assure l'existence sur $M \cong U/K$ de m\'{e}triques riemanniennes (voire hermitiennes) $U$-invariantes.
+
+\subsection*{1.4 Remarque}
+Si $(H', \psi')$ est isomorphe \`{a} $(H, \psi)$, une m\'{e}trique $U$-invariante sur $M$ en d\'{e}termine une sur $M' := M(H', \psi', (h^{p}))$: transporter la m\'{e}trique donn\'{e}e par l'isomorphisme $M \to M'$ induit par un isomorphisme $u : (H, \psi) \to (H', \psi')$. La $U$-invariance assure que la m\'{e}trique obtenue sur $M'$ ne d\'{e}pend pas du choix de $u$.
+
+\subsection*{1.5 Remarque}
+Pour toute m\'{e}trique riemannienne $U$-invariante $d$ sur $M$, la vari\'{e}t\'{e} riemannienne $(M, d)$ est homog\`{e}ne; elle est donc compl\`{e}te et ses boules ferm\'{e}es sont compactes. Si $o \in M$ et que $C$ est une constante, l'ensemble des $g \in U$ tels que $d(g.o, o) \leq C$ est compact.
+
+\subsection*{1.6}
+Soient $(V, \psi)$ une variation complexe polaris\'{e}e sur $S$, suppos\'{e} connexe, et $(h^{p})$ ses nombres de Hodge. Choisissons un point base $o \in S$ et soit $(\widetilde{S}, \tilde{o})$ le rev\^{e}tement universel de $(S,o)$. Notons $V_{o}$ la fibre du syst\`{e}me local $V$ en $o$ et $\psi_{o}$ la forme hermitienne sur $V_{o}$ induite par $\psi$. L'image inverse sur $\widetilde{S}$ de la variation complexe $V$ est une variation complexe sur $\widetilde{S}$. Le syst\`{e}me local sous-jacent est constant. Il s'identifie au syst\`{e}me local constant de fibres $V_{o}$ et cette identification permet de regarder la variation comme une famille, param\'{e}tris\'{e}e par $\widetilde{S}$, de structures de Hodge complexes sur l'espace vectoriel fixe $V_{o}$. Elles sont polaris\'{e}es par $\psi_{o}$ et de nombres de Hodge $(h^{p})$. On attache ainsi \`{a} $(V, \psi)$ une application
+\[
+P : \widetilde{S} \to M(V_{o}, \psi_{o}, (h^{p})).
+\]
+L'axiome (V.C.1) signifie que $P$ est une application holomorphe, et (V.C.2) que $dP$ prend ses valeurs dans le sous-fibr\'{e} $F_{-1}(\text{tangent})$ du fibr\'{e} tangent (cf. 1.3).
+
+On dispose d'une action de $\pi_{1}(S,o)$ sur $\widetilde{S}$ et sur $V_{o}$ (monodromie) --- donc sur $M := M(V_{o}, \psi_{o}, (h^{p}))$ --- et l'application $P$ est \'{e}quivariante. L'application $P$ d\'{e}termine la variation complexe image inverse de $(V, \psi)$ sur $\widetilde{S}$, et la variation complexe $(V, \psi)$ sur $S$ s'en d\'{e}duit par passage au quotient par $\pi_{1}(S,o)$.
+
+Notre outil essentiel est le th\'{e}or\`{e}me suivant de P.A. Griffiths (\cite{GriffithsBull}, 10.1).
+
+\begin{theorem}[1.7 --- P.A. Griffiths]
+Supposons que $S$ est le disque unit\'{e}, et munissons-le de sa m\'{e}trique de Poincar\'{e} (courbure constante $-1$). Alors, pour une m\'{e}trique riemannienne $U$-invariante convenable sur $M$, ne d\'{e}pendant que des nombres de Hodge $h^{p}$ (cf. 1.4), l'application $P$ d\'{e}croit les distances.
+\end{theorem}
+
+Reprenons les hypoth\`{e}ses et notations de 1.6, et soit $\sigma : \pi_{1}(S,o) \to \GL(V_{o})$ la repr\'{e}sentation de monodromie. Nous dirons qu'une base $e$ de $V_{o}$ est \emph{adapt\'{e}e} \`{a} la d\'{e}composition de Hodge $P(\tilde{o}) : V_{o} = \bigoplus V_{o}^{p}$ de $V_{o}$ si elle est la r\'{e}union de bases orthonorm\'{e}es pour $(-1)^{p}\psi$ des $V_{o}^{p}$.
+
+\begin{corollary}[1.8]
+Fixons $(S,o)$ et les nombres de Hodge $(h^{p})$. Pour tout $\gamma \in \pi_{1}(S,o)$, il existe $C$ tel que, pour toute variation complexe polaris\'{e}e $V$ sur $S$, de nombres de Hodge $(h^{p})$, et toute base adapt\'{e}e $e$ de $V_{o}$, les coefficients de la matrice $\sigma(\gamma)$, dans la base $e$, sont born\'{e}s en valeur absolue par $C$.
+\end{corollary}
+
+\begin{proof}
+Soient $H = \bigoplus \CC^{h^{p}}$, $\psi$ la forme hermitienne sur $H$ somme de formes hermitiennes $(-1)^{p}\sum z_{i}\bar{w}_{i}$ sur les $\CC^{h^{p}}$, $M := M(H, \psi, (h^{p}))$ et $o$ le point de $M$ correspondant \`{a} la d\'{e}composition de $H$ en les $\CC^{h^{p}}$.
+
+Pour toute variation $V$ comme en 1.7, le choix d'une base adapt\'{e}e de $V_{o}$ identifie $V_{o}$ \`{a} $H$ et permet de regarder l'application $P$ d\'{e}finie par $V$ comme une application
+\[
+P_{V} : \widetilde{S} \to M
+\]
+v\'{e}rifiant $P_{V}(\tilde{o}) = o$.
+
+Soit $d_{K}$ la pseudo-m\'{e}trique de Kobayashi sur $\widetilde{S}$: la plus grande pseudo-m\'{e}trique $d$ telle que pour toute application holomorphe $\varphi$ du disque unit\'{e} dans $\widetilde{S}$, $d(\varphi(x), \varphi(y))$ soit inf\'{e}rieur ou \'{e}gal \`{a} la distance de Poincar\'{e} de $x$ \`{a} $y$. Puisque $\widetilde{S}$ est connexe, $d_{K}(x,y)$ est fini pour tout $x$ et $y$. Pour $M$ muni d'une m\'{e}trique riemannienne $U$-invariante $d_{M}$ convenable, ind\'{e}pendante de $(S,o)$ et de $V$, il r\'{e}sulte de 1.7 que
+\[
+d_{M}(o, \sigma(\gamma).o) = d_{M}(P_{V}(\gamma.\tilde{o}), P_{V}(\tilde{o})) \leq d_{K}(\gamma.\tilde{o}, \tilde{o}).
+\]
+D'apr\`{e}s 1.5, $\sigma(\gamma)$ est donc dans un compact de $U$ ind\'{e}pendant de $V$, ce qui prouve 1.8.
+\end{proof}
+
+\begin{corollary}[1.9]
+Fixons $(S,o)$ et un entier $N$. Pour chaque $\gamma \in \pi_{1}(S,o)$, il existe $C$ tel que, pour toute variation polaris\'{e}e $V$ sur $S$, de dimension $N$, et toute base adapt\'{e}e $e$ de $V_{o}$, les coefficients de la matrice $\sigma(\gamma)$, dans la base $e$, sont born\'{e}s en valeur absolue par $C$.
+\end{corollary}
+
+\begin{proof}
+Proc\'{e}dons par r\'{e}currence sur $N$. Le cas $N = 0$ est trivial.
+
+Soit $p$ tel que $h^{p} \neq 0$. Notons $V_{<p}$ (resp. $V_{>p}$) la somme des $V^{i}$ pour $i < p$ (resp. $i > p$). Il r\'{e}sulte de (V.C.1)(V.C.2) que les sous-fibr\'{e}s $V_{<p}$ et $V_{>p}$ sont horizontaux. S'il existe $i < p < j$ avec $h^{i} \neq 0$, $h^{p} = 0$, $h^{j} \neq 0$, on obtient ainsi une d\'{e}composition de la variation complexe $V$ en la somme de deux variations complexes de dimensions strictement plus petites que celle de $V$. Une base adapt\'{e}e de $V_{o}$ est r\'{e}union de bases adapt\'{e}es de $(V_{<p})_{o}$ et $(V_{>p})_{o}$, et on conclut par r\'{e}currence.
+
+Il reste \`{a} traiter le cas o\`{u} les $i$ tels que $h^{i} \neq 0$ forment un intervalle. Soit $V(n)$ la variation complexe de m\^{e}me syst\`{e}me local sous-jacent que $V$, d\'{e}duite de $V$ par la renum\'{e}rotation:
+\[
+V(n)_{s}^{p} := V_{s}^{p+n}.
+\]
+Elle est polaris\'{e}e par $(-1)^{n}\psi$, une base adapt\'{e}e de $V_{o}$ est encore une base adapt\'{e}e de $V(n)_{o}$, et les coefficients de la matrice $\sigma(\gamma)$ sont les m\^{e}mes pour $V$ et $V(n)$. On ne restreint donc pas la g\'{e}n\'{e}ralit\'{e} en ne traitant que des $V$ tels que $\{p \mid h^{p} \neq 0\}$ soit un intervalle commen\c{c}ant en $0$. Il n'y a alors qu'un nombre fini de possibilit\'{e}s pour le syst\`{e}me des $h^{p}$, et on conclut par 1.8.
+\end{proof}
+
+\begin{corollary}[1.10]
+Fixons $(S,o)$ et un entier $N$. Pour tout $\gamma \in \pi_{1}(S,o)$, il existe $C$ tel que, pour toute variation complexe polarisable $V$ sur $S$, de dimension $N$, on a
+\[
+|\Tr(\sigma(\gamma))| < C.
+\]
+\end{corollary}
+
+\subsection*{1.11}
+Dans la fin de ce paragraphe, on suppose que $S$ est le compl\'{e}ment, dans une vari\'{e}t\'{e} analytique compacte $\bar{S}$, d'un sous-espace analytique. Cette hypoth\`{e}se implique que sur $\bar{S}$ toute fonction plurisubharmonique born\'{e}e sup\'{e}rieurement est constante.
+
+Soit $V$ une variation complexe polarisable de structures de Hodge sur $S$. Si $U$ est un ouvert de $S$, et $v$ une section horizontale de $V$ sur $U$, W. Schmid \cite{Schmid} montre que $\psi(v,v)$ est born\'{e} sur la trace sur $U$ de tout compact de $\bar{S}$. Mise en garde: le cadre dans lequel travaille W. Schmid est diff\'{e}rent du n\^{o}tre, mais ses preuves s'adaptent sans difficult\'{e}: il travaille avec des ``variations r\'{e}elles''; chaque variation complexe d\'{e}finit une variation r\'{e}elle de dimension double, et on applique \cite{Schmid} \`{a} cette derni\`{e}re; il suppose les monodromies locales quasi-unipotentes, mais ne se sert pas r\'{e}ellement de cette hypoth\`{e}se. Ceci acquis, les arguments de \cite{GriffithsIII}, 7.1 (cf. \cite{Schmid}, \S7) montrent que si $v$ est une section globale de $V$ sur $S$, les composantes de $v$ dans les $V^{p}$ sont encore horizontales.
+
+\subsection*{1.12}
+Soit $V_{0}$ un syst\`{e}me local complexe sur $S$. On suppose $V_{0}$ semi-simple: il admet une d\'{e}composition
+\begin{equation}\label{eq:1.12.1}
+V_{0} = \bigoplus_{i \in I} S_{i} \otimes W_{i}
+\end{equation}
+o\`{u} les $S_{i}$ sont des syst\`{e}mes locaux irr\'{e}ductibles deux \`{a} deux non isomorphes et o\`{u} les $W_{i}$ sont des espaces vectoriels complexes non nuls. L'hypoth\`{e}se que $V_{0}$ est semi-simple est automatiquement remplie si $V_{0}$ est sous-jacent \`{a} une variation polarisable de structure de Hodge (par 1.11, les arguments de \cite{HodgeII}, A.2.6 s'appliquent). M. Nori (non publi\'{e}) a montr\'{e} qu'elle l'est aussi si $V_{0}$ est sous-jacent \`{a} une variation complexe polarisable et que $S$ est k\'{a}hl\'{e}rienne ou alg\'{e}brique (ou plus g\'{e}n\'{e}ralement si chaque classe $\alpha \in H^{1}(\bar{S}, \RR)$ est repr\'{e}sentable par une 1-forme $\alpha + \bar{\alpha}$ avec $\alpha$ holomorphe).
+
+\begin{proposition}[1.13]
+Sous les hypoth\`{e}ses de 1.11 et 1.12, si $V_{0}$ est sous-jacent \`{a} une variation complexe polarisable,
+
+\textup{(i)} Chaque $S_{i}$ est sous-jacent \`{a} une variation complexe polarisable, unique \`{a} une renum\'{e}rotation $p \mapsto p + n$ pr\`{e}s.
+
+\textup{(ii)} Choisissons sur chaque $S_{i}$ une variation complexe polarisable. Via \eqref{eq:1.12.1}, des structures de Hodge complexes sur les $W_{i}$ fournissent alors une variation complexe polarisable sur $V_{0}$. Toute variation complexe polarisable sur $V_{0}$ est ainsi obtenue.
+\end{proposition}
+
+\begin{proof}
+La d\'{e}composition \eqref{eq:1.12.1} fournit un isomorphisme
+\begin{equation}\label{eq:1.13.1}
+\End(V_{0}) = \prod_{i} \End(W_{i}).
+\end{equation}
+L'espace vectoriel $\End(V_{0})$ est l'espace des sections globales horizontales du syst\`{e}me local $\mathcal{E}nd(V_{0})$. Pour $V_{0}$ sous-jacent \`{a} une variation polarisable $V$, $\End(V_{0})$ h\'{e}rite de la d\'{e}composition de Hodge des $\mathcal{E}nd(V_{s})$ ($s \in S$) (1.11):
+\[
+\End(V_{0}) = \bigoplus_{p} \End(V_{0})^{p}.
+\]
+
+\begin{lemma}[1.14]
+Toute graduation de $\prod_{i} \End(W_{i})$, compatible \`{a} la structure d'alg\`{e}bre, provient de graduations des $W_{i}$.
+\end{lemma}
+
+\begin{proof}
+Regardons une graduation comme une action du groupe multiplicatif $\mathbb{G}_{m}$, $t \in \mathbb{G}_{m}(k) = k^{*}$ agissant par multiplication par $t^{n}$ sur la composante de degr\'{e} $n$ (SGA3 XIV.7.3). La composante neutre du groupe des automorphismes de l'alg\`{e}bre $\prod_{i} \End(W_{i})$ est le quotient du groupe $\prod_{i} \GL(W_{i})$ par son centre $\mathbb{G}_{m}$. Toute extension centrale de $\mathbb{G}_{m}$ par $\mathbb{G}_{m}$ \'{e}tant triviale (SGA3 IX.8.2); un morphisme $\mathbb{G}_{m} \to \Aut(\prod_{i} \End(W_{i}))$ se rel\`{e}ve en un morphisme de $\mathbb{G}_{m}$ dans $\prod_{i} \GL(W_{i})$, i.e. en une graduation des $W_{i}$.
+\end{proof}
+
+\textit{Preuve de 1.13 (suite).} Pour $V_{0}$ sous-jacent \`{a} une variation polarisable $V$, choisissons (1.14) des graduations des $W_{i}$ telles que l'isomorphisme \eqref{eq:1.13.1} soit compatible aux graduations. Si la droite $L_{i} \subset W_{i}$ est homog\`{e}ne, c'est l'image d'un projecteur $e \in \End(W_{i})$ homog\`{e}ne de degr\'{e} $0$ et $S_{i} \otimes L_{i} \subset V_{0}$, isomorphe \`{a} $S_{i}$, est l'image d'un projecteur $e \in \End(V_{0}) = \End(V_{0})^{0}$. C'est donc une sous-variation complexe de $V$, un facteur direct en fait, et on en d\'{e}duit l'existence d'une variation complexe polarisable \`{a} laquelle $S_{i}$ soit sous-jacent.
+
+Choisissons sur chaque $S_{i}$ une variation complexe polarisable. Pour toute variation polarisable $V$ sur $V_{0}$,
+\[
+W_{i} = \Hom(S_{i}, V_{0})
+\]
+h\'{e}rite de la variation polarisable $\Hom(S_{i}, V)$ d'une d\'{e}composition de Hodge (1.11 appliqu\'{e} \`{a} $\Hom(S_{i}, V)$). L'isomorphisme
+\[
+\bigoplus_{i} S_{i} \otimes \Hom(S_{i}, V_{0}) \to V_{0}
+\]
+respecte les structures de Hodge, et (ii) en r\'{e}sulte. L'assertion d'unicit\'{e} dans (i) est (ii) pour $V_{0} = S_{i}$.
+\end{proof}
+
+\begin{corollary}[1.15]
+Soient $S$ un ouvert de Zariski de $\bar{S}$ compact, $o \in S$ et un entier $N$. Pour tout $\gamma \in \pi_{1}(S,o)$ il existe $C$ tel que, pour toute variation de structures de Hodge polarisable $W$ sur $S$ et tout facteur direct $V$ du syst\`{e}me local rationnel sous-jacent, si $\dim(V) = N$, la monodromie $\sigma_{V}(\gamma)$ v\'{e}rifie $|\Tr(\sigma(\gamma))| < C$.
+\end{corollary}
+
+R\'{e}sulte de 1.10 et 1.13.
+
+
+\section{Preuve du th\'{e}or\`{e}me 0.5}
+
+Nous nous appuierons sur le th\'{e}or\`{e}me classique suivant.
+
+\begin{theorem}[2.1]
+Soient $\Gamma$ un groupe de g\'{e}n\'{e}ration finie et $N \geq 0$ un entier. Il existe une partie finie $F \subset \Gamma$ telle que si deux repr\'{e}sentations lin\'{e}aires de dimension $N$ de $\Gamma$ sur un corps $k$ de caract\'{e}ristique $0$, de caract\`{e}res $\chi_{1}$ et $\chi_{2}$, v\'{e}rifient $\chi_{1}(\gamma) = \chi_{2}(\gamma)$ pour $\gamma \in F$, alors $\chi_{1} = \chi_{2}$.
+\end{theorem}
+
+\begin{proof}
+Un groupe de g\'{e}n\'{e}ration finie est de g\'{e}n\'{e}ration finie en tant que mono\'{i}de. Il suffit donc de prouver 2.1 dans le cas plus g\'{e}n\'{e}ral o\`{u} $\Gamma$ est un mono\'{i}de de g\'{e}n\'{e}ration finie et o\`{u} les repr\'{e}sentations sont \`{a} valeurs dans les matrices $N \times N$, non n\'{e}cessairement inversibles.
+
+Soit $T$ une partie finie de $\Gamma$ qui engendre $\Gamma$. On ne restreint pas la g\'{e}n\'{e}ralit\'{e} en supposant que $\Gamma$ est le mono\'{i}de libre engendr\'{e} par $T$. Dans ce cas, la donn\'{e}e d'une repr\'{e}sentation de $\Gamma$ \'{e}quivaut \`{a} celle d'une famille de matrices $N \times N$ index\'{e}e par $T$: $\rho$ attach\'{e} la famille des $\rho(t)$ ($t \in T$).
+
+Soient $x_{t,ij}$ ($i,j \in [1,N]$, $t \in T$) des ind\'{e}termin\'{e}es et $A$ l'alg\`{e}bre de polyn\^{o}mes \`{a} $N^{2}|T|$ variables $\QQ[x_{t,ij}]$. C'est l'alg\`{e}bre des fonctions polyn\^{o}mes sur la vari\'{e}t\'{e} alg\'{e}brique (un espace affine) qui param\`{e}tre les familles index\'{e}es par $T$ de matrices $N \times N$. Soit $\tau$ la repr\'{e}sentation $\Gamma \to M_{N}(A)$ pour laquelle $\tau(t) = (x_{t,ij})_{i,j \in [1,N]}$. L'action par $X \mapsto gXg^{-1}$ du groupe lin\'{e}aire $\GL_{N}$ sur les matrices $N \times N$ fournit une action sur la $\QQ$-alg\`{e}bre $A$ du groupe alg\'{e}brique $\GL_{N}$ (sur $\QQ$). Soit $A^{\GL_{N}}$ l'alg\`{e}bre des invariants. Pour tout espace vectoriel $V$ de dimension $N$ sur $k$, la $k$-alg\`{e}bre $A^{\GL_{N}} \otimes_{\QQ} k$ s'identifie \`{a} l'alg\`{e}bre des fonctions polyn\^{o}mes $\GL(V)$-invariantes de $|T|$ endomorphismes de $V$. Les \'{e}l\'{e}ments $\Tr(\tau(\gamma))$ ($\gamma \in \Gamma$) de $A$ sont invariants.
+
+\begin{lemma}[2.2 --- C. Procesi \cite{Procesi}]
+L'alg\`{e}bre des invariants de $\GL_{N}$ dans $A$ est engendr\'{e}e par les $\Tr(\tau(\gamma))$ ($\gamma \in \Gamma$).
+\end{lemma}
+
+La preuve consiste \`{a} se ramener par polarisation \`{a} l'\'{e}tude des invariants multilin\'{e}aires de $n$ endomorphismes, \`{a} les interpr\'{e}ter comme invariants multilin\'{e}aires de $n$ vecteurs et $n$ covecteurs et \`{a} utiliser la description que H. Weyl donne de ceux-ci.
+
+\textit{Preuve de 2.1 (fin).} D'apr\`{e}s Hilbert, l'alg\`{e}bre des invariants de $\GL_{N}$ dans $A$ est de type fini. Il existe donc une partie finie $F$ de $\Gamma$ telle que tout invariant soit un polyn\^{o}me en les $\Tr(\tau(f))$ pour $f \in F$. En particulier, pour tout $\gamma \in \Gamma$, il existe un polyn\^{o}me \`{a} coefficients rationnels $P_{\gamma}$ en des ind\'{e}termin\'{e}es $x_{f}$ ($f \in F$), tel que
+\[
+\Tr \tau(\gamma) = P_{\gamma}((\Tr \tau(f))_{f \in F}).
+\]
+Pour tout corps $k$ de caract\'{e}ristique $0$ et toute repr\'{e}sentation de $\Gamma$ dans $M_{N}(k)$ de caract\`{e}re $\chi$, on a par sp\'{e}cialisation,
+\[
+\chi(\gamma) = P_{\gamma}((\chi(f))_{f \in F}).
+\]
+Le th\'{e}or\`{e}me en r\'{e}sulte.
+\end{proof}
+
+\begin{remark}[2.3]
+Soit $s = s(N)$ le plus petit entier $t$ tel que toute $\QQ$-alg\`{e}bre associative sans unit\'{e} v\'{e}rifiant l'identit\'{e} $z^{N} = 0$ v\'{e}rifie aussi l'identit\'{e} $z_{1} \cdots z_{t} = 0$. Dans \cite{Procesi}, C. Procesi montre que l'alg\`{e}bre $A^{\GL_{N}}$ de 2.2 est engendr\'{e}e par les $\Tr(\tau(\gamma))$ pour $\gamma$ de longueur $\leq s$, et que cette borne est optimale: si $|T| \geq s$ et que $\eta \in \Gamma$ est un produit de $s$ g\'{e}n\'{e}rateurs distincts, $\Tr(\tau(\eta))$ n'est pas dans l'alg\`{e}bre engendr\'{e}e par les $\Tr(\tau(\gamma))$ pour $\gamma$ de longueur $< s$. Dans 2.1, on peut donc prendre pour $F$ l'ensemble des mots de longueur $\leq s$ en les \'{e}l\'{e}ments d'un syst\`{e}me g\'{e}n\'{e}rateur sym\'{e}trique $T$. La restriction ``sym\'{e}trique'' est en fait inutile: un caract\`{e}re sur un groupe $\Gamma$ est d\'{e}termin\'{e} par sa restriction \`{a} un sous-mono\'{i}de qui engendre $\Gamma$.
+
+Highman a montr\'{e} que $s \leq 2N - 1$. Pour une preuve tr\`{e}s courte, voir N. Jacobson, \textit{Structure of rings} (2nd ed.), p. 274. Cette borne a \'{e}t\'{e} am\'{e}lior\'{e}e par Yu. P. Razmislov en $s \leq N^{2}$ (Izvestia A.N. S.S.S.R. 38 (1974), p. 756).
+\end{remark}
+
+\subsection*{2.4 Preuve de 0.5}
+Fixons $o \in S$. Si $V$ est une variation polarisable de structures de Hodge sur $S$, et que $W$ est un facteur direct de dimension $N$ de la repr\'{e}sentation de monodromie $\sigma$ correspondante, la repr\'{e}sentation rationnelle $\sigma_{W}$ de $\pi_{1}(S,o)$ sur $W$ v\'{e}rifie (A), (B), (C) ci-dessous.
+
+\textbf{(A)} Pour tout $\gamma \in \pi_{1}(S,o)$, $\Tr(\sigma_{W}(\gamma)) \in \ZZ$.
+
+\textit{Preuve.} La repr\'{e}sentation $\sigma$ respecte par hypoth\`{e}se un r\'{e}seau entier. La sous-repr\'{e}sentation $\sigma_{W}$ aussi.
+
+\textbf{(B)} Pour tout $\gamma \in \pi_{1}(S,o)$, il existe $C(\gamma, N)$ tel que
+\[
+|\Tr(\sigma_{W}(\gamma))| < C(\gamma, N).
+\]
+C'est une application de 1.15.
+
+\textbf{(C)} La repr\'{e}sentation $\sigma_{W}$ est semi-simple.
+
+En effet, $\sigma$ l'est (cf. \cite{HodgeII} 4.2.6, dont la m\'{e}thode s'applique par 1.11).
+
+\`{A} $N$ fix\'{e}, par (A)(B), il n'y a qu'un nombre fini de possibilit\'{e}s pour la valeur de chaque $\Tr(\sigma_{W}(\gamma))$. D'apr\`{e}s 2.1, il n'y a qu'un nombre fini de possibilit\'{e}s pour le caract\`{e}re de $\sigma_{W}$, donc, d'apr\`{e}s (C), pour sa classe d'isomorphie.
+
+\begin{remark}[2.5]
+Dans 0.5, on suppose que $S$ est une vari\'{e}t\'{e} alg\'{e}brique. La preuve s'applique encore si $S$ est un ouvert de Zariski d'une vari\'{e}t\'{e} analytique compacte. Si on suppose seulement que $S$ est une vari\'{e}t\'{e} analytique dont le groupe fondamental est de g\'{e}n\'{e}ration finie, les m\^{e}mes arguments donnent encore que les variations de structures de Hodge polarisables de dimension $N$ sur $S$ ne donnent lieu qu'\`{a} un nombre fini de caract\`{e}res de $\pi_{1}(S,o)$.
+\end{remark}
+
+\subsection*{2.6 Preuve du Lemme 0.3}
+Il s'agit de prouver l'\'{e}nonc\'{e} suivant.
+
+\textbf{2.6.1.} Soient $H = \ZZ^{N}$, $\Gamma$ un groupe, $\rho : \Gamma \to \Aut(H)$ et supposons que l'action de $\Gamma$ sur $H_{\QQ} := H \otimes_{\ZZ} \QQ$ soit compl\`{e}tement r\'{e}ductible. Soit $G$ le groupe des automorphismes de $H$ qui commutent \`{a} l'action de $\Gamma$. Alors, les r\'{e}seaux $H' \subset H_{\QQ}$ stables par $\Gamma$ ne forment qu'un nombre fini de $G$-orbites.
+
+\begin{proof}
+Soient $A \subset \End(H)$ la sous-alg\`{e}bre engendr\'{e}e par les $\rho(\gamma)$ ($\gamma \in \Gamma$), et $A_{\QQ} = A \otimes_{\ZZ} \QQ$. La compl\`{e}te r\'{e}ductibilit\'{e} de $H_{\QQ}$ \'{e}quivaut \`{a} ce que $A_{\QQ}$ soit une alg\`{e}bre semi-simple. Soit $A_{1} \subset A_{\QQ}$ un ordre maximal contenant $A$. Pour tout nombre premier $\ell$, une \'{e}tude locale montre que $G(\QQ_{\ell})$ agit transitivement sur les $\ZZ_{\ell}$-r\'{e}seaux de $H \otimes \QQ_{\ell}$ stables par $A_{1}$ \`{a} $G(\ZZ_{\ell})$ pr\`{e}s.
+
+Soit $\mathbb{A}^{f}$ l'anneau des ad\`{e}les finis, produit restreint des $\QQ_{\ell}$. On sait que pour tout sous-groupe ouvert $K$ de $G(\mathbb{A}^{f})$, l'ensemble des doubles classes $K \backslash G(\mathbb{A}^{f}) / G(\QQ)$ est fini (A. Borel, Some finiteness properties of ad\`{e}le groups over number fields, Publ. Math. IHES 16 (1963), p. 5--30 --- th\'{e}or\`{e}me 5.1). Cette finitude implique que $G(\QQ)$ n'a qu'un nombre fini d'orbites dans l'ensemble des r\'{e}seaux $H' \subset H_{\QQ}$ stables sous $A_{1}$. Tout r\'{e}seau $A$-stable $H'$ est contenu dans un r\'{e}seau $A_{1}$-stable $H''$ avec un indice $[H'':H']$ qui divise $[A_{1}:A]^{N}$: prendre $H'' = A_{1}H'$, et on conclut en observant qu'un r\'{e}seau n'a qu'un nombre fini de sous-r\'{e}seaux d'indice donn\'{e}.
+\end{proof}
+
+
+\section{Relation avec G. Faltings \cite{Faltings}}
+
+\subsection*{3.1}
+Le pr\'{e}sent article a \'{e}t\'{e} inspir\'{e} par la lecture de G. Faltings \cite{Faltings}. Dans \cite{Faltings}, G. Faltings prouve un r\'{e}sultat \'{e}quivalent au th\'{e}or\`{e}me 0.1 dans le cas particulier o\`{u} $S$ est une courbe et o\`{u} on ne consid\`{e}re que les sch\'{e}mas ab\'{e}liens $X$ sur $S$, d'une dimension relative fixe $n = N/2$, et la repr\'{e}sentation de monodromie sur le $H^{1}$ des fibres. La restriction au cas des courbes est sans importance, car pour toute vari\'{e}t\'{e} alg\'{e}brique lisse $S$ il existe une courbe lisse $C$ trac\'{e}e sur $S$ telle que, pour $o \in C$, $\pi_{1}(C,o)$ s'envoie sur $\pi_{1}(S,o)$: pour $U$ un ouvert dense de $S$, plongeable dans un espace projectif $\PP$, il suffit de prendre pour $C$ l'intersection de $U$ avec un sous-espace lin\'{e}aire assez g\'{e}n\'{e}ral de dimension $\dim \PP - \dim S + 1$; on aura $\pi_{1}(C) \twoheadrightarrow \pi_{1}(U)$ (Bertini) et $\pi_{1}(U) \twoheadrightarrow \pi_{1}(S)$.
+
+\subsection*{3.2}
+Soient $\bar{S}$ une courbe projective et lisse, $T$ un ensemble fini de points de $\bar{S}$ et $S := \bar{S} - T$. Soient $X$ un sch\'{e}ma ab\'{e}lien sur $S$ dont on suppose qu'il se prolonge en un sch\'{e}ma semi-ab\'{e}lien $\bar{X}$ sur $\bar{S}$ (r\'{e}duction semi-stable). Soient $n$ la dimension relative de $X$ sur $S$, $e$ la section nulle et posons $\omega := e^{*}\Omega^{n}_{\bar{X}/\bar{S}}$. C'est le faisceau inversible sur $\bar{S}$ dont la fibre en $s \in \bar{S}$ est la puissance ext\'{e}rieure maximale du dual de l'alg\`{e}bre de Lie de la fibre de $\bar{X}$. Dans \cite{Faltings}, G. Faltings commence par borner le degr\'{e} de $\omega$, ind\'{e}pendamment de $X$. Si on simplifie son argument par une r\'{e}f\'{e}rence \`{a} S. Zucker \cite{Zucker}, on obtient l'estimation suivante.
+
+\begin{lemma}[3.2]
+Avec les notations pr\'{e}c\'{e}dentes, si $-\chi(S) > 0$, on a
+\[
+\deg \omega \leq \tfrac{1}{2} n \cdot (-\chi(S)).
+\]
+Dans cette formule, $\chi(S)$ est la caract\'{e}ristique d'Euler-Poincar\'{e} topologique: pour $\bar{S}$ de genre $g$, $-\chi(S) = 2g - 2 + |T|$.
+\end{lemma}
+
+\begin{proof}
+Soit $H$ la variation de structures de Hodge sur $S$ de fibres $H^{1}(X_{s})$ ($s \in S$). Elle donne lieu \`{a} un syst\`{e}me local complexe $H_{\CC}$, et \`{a} un fibr\'{e} vectoriel complexe $H$ muni d'une connexion $\nabla$, dont $H_{\CC}$ est le syst\`{e}me local des sections horizontales. Sur $H$, on dispose de la filtration de Hodge $F$, r\'{e}duite ici \`{a} un sous-fibr\'{e} $F^{1}(H)$ de $H$. La fibre $H^{0}(X_{s}, \Omega^{1})$ de $F^{1}(H)$ en $s$ s'identifie au dual de l'alg\`{e}bre de Lie de $X_{s}$.
+
+L'hypoth\`{e}se que $X$ est \`{a} r\'{e}duction semi-stable \'{e}quivaut \`{a} l'unipotence de la monodromie locale de $H_{\CC}$ en chaque $t \in T$. Soit $H_{\can}$ le prolongement canonique (\cite{DeligneEDR}, 5.2) du fibr\'{e} vectoriel $H$ \`{a} $\bar{S}$ et soit $F^{1}(H_{\can})$ le sous-fibr\'{e} localement facteur direct de $H_{\can}$ qui prolonge $F^{1}H$. Toute polarisation de $X$ (donc de $H$) induit une dualit\'{e} parfaite entre $H/F^{1}H$ et $F^{1}H$, et cette dualit\'{e} se prolonge en une dualit\'{e} parfaite entre $H_{\can}/F^{1}H_{\can}$ et $F^{1}H_{\can}$. Nous admettrons de la th\'{e}orie des mod\`{e}les de N\'{e}ron que
+\[
+e^{*}\Omega^{1}_{\bar{X}/\bar{S}} = F^{1}H_{\can}.
+\]
+
+Nous traiterons d'abord du cas o\`{u} $X/S$ est sans partie fixe. Ceci \'{e}quivaut \`{a} $H^{0}(S, H_{\CC}^{\vee}) = 0$ et implique que $H^{i}(S, H_{\CC}) = 0$ pour $i \neq 1$, d'o\`{u}
+\begin{equation}\label{eq:3.2.1}
+\dim H^{1}(S, H_{\CC}) = -\chi(S, H_{\CC}) = -\rank(H_{\CC}) \cdot \chi(S) = -2n\chi(S).
+\end{equation}
+
+La cohomologie $H^{*}(S, H)$ peut se calculer comme l'hypercohomologie, sur $\bar{S}$, du complexe de De Rham
+\[
+H_{\can} \xrightarrow{\nabla} \Omega^{1}_{\bar{S}}(\log T) \otimes H_{\can}.
+\]
+Ce complexe, not\'{e} $K$, est filtr\'{e} par les sous-complexes
+\[
+F^{i}K := (F^{i}H_{\can} \xrightarrow{\nabla} \Omega^{1}_{\bar{S}}(\log T) \otimes F^{i-1}H_{\can})
+\]
+et, d'apr\`{e}s S. Zucker \cite{Zucker}, \S13, la suite spectrale correspondante d\'{e}g\'{e}n\`{e}re en $E_{1}$. En particulier,
+\begin{equation}\label{eq:3.2.2}
+\dim E_{1}^{0,1} + \dim E_{1}^{1,0} \leq \dim H^{1}(S, H).
+\end{equation}
+
+On a $E_{1}^{0,1} = H^{0}(\bar{S}, \Omega^{1}(\log T) \otimes H_{\can}/F^{0}H_{\can})$ et $E_{1}^{1,0} = H^{1}(\bar{S}, F^{1}H_{\can})$, de dual de Serre $H^{0}(\bar{S}, (F^{1}H_{\can})^{\vee})$.
+
+Si $F^{1}H_{\can}$ est de degr\'{e} $d$, i.e. si $d := \deg(\omega)$, on a donc
+\begin{align*}
+\dim E_{1}^{0,1} + \dim E_{1}^{1,0} &\geq \chi((F^{1}H_{\can})^{\vee}) + \chi(S, \Omega^{1} \otimes H_{\can}/F^{1}H_{\can}) \\
+&= [n(g-1) + d] + [n(g-1+|T|) + d] \\
+&= -n\chi(S) + 2d.
+\end{align*}
+
+Combin\'{e} avec \eqref{eq:3.2.1} et \eqref{eq:3.2.2}, ceci donne
+\[
+-n\chi(S) + 2d \leq -2n\chi(S),
+\]
+i.e. l'assertion de 3.2.
+
+Un sch\'{e}ma ab\'{e}lien $X$ sur $S$ est isog\`{e}ne \`{a} la somme d'un sch\'{e}ma ab\'{e}lien constant $\bar{S} \times B$ et d'un sch\'{e}ma ab\'{e}lien $Y$ sans partie fixe. Si $X$ est \`{a} r\'{e}duction semi-stable, $Y$ l'est aussi. On a
+\[
+\omega \text{ (pour } X) = \omega \text{ (pour } \bar{S} \times B) \otimes \omega \text{ (pour } Y),
+\]
+o\`{u} le premier facteur est trivial. Ceci ram\`{e}ne 3.2 pour $X$ \`{a} 3.2 pour $Y$, et termine la preuve de 3.2.
+\end{proof}
+
+\begin{remark}[3.3]
+Si $-\chi(S) \leq 0$, le groupe fondamental de $S$ est ab\'{e}lien et tout sch\'{e}ma ab\'{e}lien sur $S$ devient constant sur un rev\^{e}tement fini \'{e}tale de $S$. S'il a r\'{e}duction semi-stable, il a bonne r\'{e}duction, devient constant sur un rev\^{e}tement fini \'{e}tale de $S$ et on a $\deg(\omega) = 0$.
+\end{remark}
+
+\begin{remark}[3.4]
+Dans le cas o\`{u} $X$ est une famille de courbes elliptiques ($n=1$), on dispose d'un morphisme ``de Kodaira--Spencer''
+\begin{equation}\label{eq:3.3.1}
+\omega^{\otimes 2} \to \Omega^{1}_{\bar{S}}(\log T).
+\end{equation}
+S'il est trivial, l'invariant modulaire de $X$ est constant et $\deg(\omega) = 0$ ($X$ est toujours suppos\'{e} \`{a} r\'{e}duction semi-stable---donc, en l'occurrence, \`{a} bonne r\'{e}duction). S'il est non trivial, son existence reprouve 3.2: elle implique que $2\deg(\omega) \leq \deg(\Omega^{1}_{\bar{S}}(T))$ et on a $\chi(S) = \deg \Omega^{1}_{\bar{S}}(T)$. Pour $X$ une famille modulaire, \eqref{eq:3.3.1} est un isomorphisme et on a \'{e}galit\'{e} dans 3.2.
+\end{remark}
+
+\begin{remark}[3.5]
+Supposons que $\chi(S) < 0$, i.e. que le rev\^{e}tement universel de $S$ est le disque unit\'{e} $\mathbb{D}$. C'est le cas int\'{e}ressant (cf. 3.3). Une polarisation du sch\'{e}ma ab\'{e}lien $X/S$ d\'{e}finit une polarisation de la variation de structures de Hodge $H$ ($H^{1}$ des fibres), et en particulier une m\'{e}trique hermitienne sur le fibr\'{e} vectoriel $F^{1}H = e^{*}\Omega^{1}_{X/S}$. La variation $H$ donne lieu \`{a} une application de p\'{e}riodes $P : \mathbb{D} \to M$ comme en 1.7. Le th\'{e}or\`{e}me de Griffiths 1.7 que $P$ d\'{e}croit les distances entra\^{i}ne une majoration du tenseur de courbure du fibr\'{e} m\'{e}tris\'{e} $e^{*}\Omega^{1}_{X/S}$ et en particulier de sa 2-forme de Chern. Une \'{e}tude locale \`{a} l'infini montre que l'int\'{e}grale de cette 2-forme est le degr\'{e} de $\omega$ sur $\bar{S}$ (C. Peters \cite{Peters}). Int\'{e}grant la majoration ci-dessus, on retrouve 3.2.
+\end{remark}
+
+\begin{remark}[3.6]
+Soient $H$ une variation complexe de structures de Hodge polarisable sur une courbe $S = \bar{S} - T$, $H$ le fibr\'{e} vectoriel \`{a} connexion correspondant, $H_{\can}$ le prolongement canonique de $H$, et $F$ la filtration de Hodge de $H_{\can}$: $F^{p}H_{\can}$ est le sous-fibr\'{e} localement facteur direct de $H_{\can}$ qui prolonge le sous-fibr\'{e} $F^{p}H$ de $H$. Le th\'{e}or\`{e}me de Griffiths 1.7 et une \'{e}tude locale \`{a} l'infini \cite{Zucker} permettent encore de majorer les $|\deg \Gr_{F}^{p}H_{\can}|$ en fonction du genre de $\bar{S}$, de $|T|$ et des nombres de Hodge de la variation $H$.
+\end{remark}
+
+\subsection*{3.7}
+Soient $n$ un entier $\geq 3$ et $\mathcal{M}_{d,n}$ l'espace des modules des vari\'{e}t\'{e}s ab\'{e}liennes principalement polaris\'{e}es de dimension $d$ munies d'une structure de niveau $n$. C'est un espace fin de modules: la donn\'{e}e d'un sch\'{e}ma ab\'{e}lien principalement polaris\'{e} $X$ sur $S$, de dimension relative $d$, muni d'une structure de niveau $n$, \'{e}quivaut \`{a} celle d'un morphisme $f : S \to \mathcal{M}_{d,n}$. Pour $S = \bar{S} - T$ comme en 3.1, ce morphisme se prolonge en un morphisme $\bar{f}$ de $\bar{S}$ dans la compactification de Satake $\bar{\mathcal{M}}_{d,n}$ de $\mathcal{M}_{d,n}$. Faltings d\'{e}duit de 3.2 que le graphe $\Gamma(\bar{f}) \subset \bar{S} \times \bar{\mathcal{M}}_{d,n}$ de $\bar{f}$ est de degr\'{e} born\'{e} ind\'{e}pendamment de $X/S$, pour un plongement projectif convenable de $\bar{S} \times \bar{\mathcal{M}}_{d,n}$. De l\`{a} r\'{e}sulte que les sch\'{e}mas ab\'{e}liens du type consid\'{e}r\'{e} sont param\'{e}tr\'{e}s par un sch\'{e}ma de type fini $Y$: il existe un sch\'{e}ma ab\'{e}lien $K_{Y}$ sur $S \times Y$ tel que chaque sch\'{e}ma ab\'{e}lien du type dit sur $S$ soit isomorphe \`{a} la restriction $K_{y}$ de $K_{Y}$ \`{a} $S \times \{y\} \sim S$. La monodromie \'{e}tant un invariant discret, la classe d'isomorphie de la repr\'{e}sentation de monodromie de $\pi_{1}(S)$ d\'{e}finie par $K_{y}$ ne d\'{e}pend que de la composante connexe de $Y$ o\`{u} se trouve $y$. Ceci reprouve le th\'{e}or\`{e}me 0.1, restreint au cas particulier des sch\'{e}mas ab\'{e}liens de dimension relative $d$, principalement polaris\'{e}s et munis d'une structure de niveau $n$.
+
+\subsection*{3.8}
+Soient $Z$ un sch\'{e}ma connexe de type fini et $u : S_{Z} \to Z$ une famille de courbes param\'{e}tris\'{e}e par $Z$. On suppose que $\bar{S}_{Z} = \bar{S}_{Z} - T_{Z}$ avec $\bar{S}_{Z}$ propre et lisse sur $Z$, de fibres des courbes de genre $g$, et avec $T_{Z}$ fini \'{e}tale sur $Z$, de fibres des ensembles de $t$ points.
+
+Pour $z \in Z$, posons $S_{z} := u^{-1}(z)$. Pour $x \in S_{z}$, les groupes fondamentaux $\pi_{1}(S_{u(x)}, x)$ des fibres de $u$ formant un syst\`{e}me local sur $S_{Z}$. Du chemin de $x$ \`{a} $y$ d\'{e}finit donc un isomorphisme de $\pi_{1}(S_{u(x)}, x)$ \`{a} $\pi_{1}(S_{u(y)}, y)$. Si, pour $i = 1, 2$, $S_{i}$ est le compl\'{e}ment dans une courbe $\bar{S}_{i}$ de genre $g$ d'un ensemble $T_{i}$ de $t$ points, et que $x_{i} \in S_{i}$, un isomorphisme de $\pi_{1}(S_{1}, x_{1})$ avec $\pi_{1}(S_{2}, x_{2})$ sera dit \emph{permis} s'il existe une famille comme ci-dessus, dont les $S_{i}$ soient des fibres et pour laquelle l'isomorphisme soit d\'{e}duit d'un chemin de $x_{1}$ \`{a} $x_{2}$.
+
+L'espace de modules $\mathcal{M}_{g,t}$ des courbes de genre $g$ \`{a} $t$ points \'{e}tant connexe, il existe toujours un isomorphisme permis de $\pi_{1}(S_{1}, x_{1})$ avec $\pi_{1}(S_{2}, x_{2})$.
+
+\subsection*{3.9}
+Les arguments 3.6 s'appliquent encore avec des param\`{e}tres. Pour $d$, $n \geq 3$, il existe un sch\'{e}ma de type fini $Y$ sur $Z$ et un sch\'{e}ma ab\'{e}lien $\mathcal{X}$ sur $S_{Z} \times_{Z} Y$ ayant la propri\'{e}t\'{e} suivante: pour tout $z \in Z$ et tout sch\'{e}ma ab\'{e}lien principalement polaris\'{e} $A_{z}$ de dimension $d$, sur $S_{z}$, muni d'une structure de niveau $n$, il existe $y \in Y$ au-dessus de $z$ tel que $A_{z}$ soit l'image inverse de $\mathcal{X}$ par $S_{z} \to S_{Z} \times_{Z} Y : s \mapsto (s, y)$.
+
+Prenant une famille universelle $S_{Z}$, on en d\'{e}duit le r\'{e}sultat suivant.
+
+\begin{proposition}[3.10]
+Soit $\Gamma$ le groupe fondamental d'une courbe de genre $g$ avec $t$ points fix\'{e}s. Fixons $d$ et $n \geq 3$. Pour toute courbe de genre $g$ avec $t$ points fix\'{e}s $S$, pour tout sch\'{e}ma ab\'{e}lien $A$ sur $S$, principalement polaris\'{e}, de dimension $d$, muni d'une structure de niveau $n$, et pour tout isomorphisme permis $\gamma : \Gamma \to \pi_{1}(S,o)$, la repr\'{e}sentation de monodromie de $\pi_{1}(S,o)$ sur $H^{1}(A_{o}, \ZZ)$ fournit une repr\'{e}sentation $\sigma_{V}$ de $\Gamma$. Les classes d'isomorphie de repr\'{e}sentations de $\Gamma$ ainsi obtenues ne forment qu'un nombre fini d'orbites sous les automorphismes permis de $\Gamma$.
+\end{proposition}
+
+\begin{remark}[3.11]
+L'analogue de 3.9, sans structure de niveau impos\'{e}e, est encore vrai. Tout sch\'{e}ma ab\'{e}lien de dimension $d$ sur une courbe $S$ acquiert une structure de niveau $n$ sur un rev\^{e}tement de $S$ de degr\'{e} $\leq 3^{4nd^{2}}$, et on d\'{e}crit un sch\'{e}ma ab\'{e}lien sur $S$ par la donn\'{e}e d'un rev\^{e}tement $S'$ de $S$, de degr\'{e} $\leq 3^{4nd^{2}}$, d'un sch\'{e}ma ab\'{e}lien avec structure de niveau $n$ sur $S'$, et d'une donn\'{e}e de descente de $S'$ \`{a} $S$ pour ce sch\'{e}ma ab\'{e}lien.
+\end{remark}
+
+\begin{remark}[3.12]
+On en d\'{e}duit que l'analogue de 3.10, sans structure de niveau impos\'{e}e, est encore vrai. On peut aussi se passer des polarisations en utilisant le th\'{e}or\`{e}me de Zarhin que pour tout sch\'{e}ma ab\'{e}lien polarisable $A$, il existe une polarisation principale sur $(A \times A^{\dual})^{4}$ (voir Ast\'{e}risque 127 (s\'{e}minaire sur les pinceaux arithm\'{e}tiques: la conjecture de Mordell, dirig\'{e} par L. Szpiro) VII 1.).
+\end{remark}
+
+\begin{question}[3.13]
+Si on remplace ``sch\'{e}ma ab\'{e}lien'' par ``variation de structures de Hodge'', l'\'{e}nonc\'{e} 3.10 reste-t-il valable?
+\end{question}
+
+\begin{thebibliography}{99}
+
+\bibitem{DeligneEDR} P. Deligne, \'{E}quations diff\'{e}rentielles \`{a} points singuliers r\'{e}guliers, Lecture Notes in Mathematics 163; Springer-Verlag 1970.
+
+\bibitem{HodgeII} P. Deligne, Th\'{e}orie de Hodge II, Publ. Math. IHES 40 (1971), 5--58.
+
+\bibitem{Mostow} P. Deligne and D. Mostow, Monodromy of hypergeometric functions and non-lattice integral monodromy, Publ. Math. IHES, to appear (1986).
+
+\bibitem{Faltings} G. Faltings, Arakelov's theorem for abelian varieties, Inv. Math. 73 (1983), 337--347.
+
+\bibitem{GriffithsBull} P.A. Griffiths, Periods of integrals on algebraic manifolds: summary of main results and discussion of open problems, Bull. AMS 76 (1970), 228--296.
+
+\bibitem{GriffithsIII} P.A. Griffiths, Periods of integrals on algebraic manifolds III, Publ. Math. IHES 38 (1970), 125--180.
+
+\bibitem{GriffithsSchmid} P.A. Griffiths and W. Schmid, Recent developments in Hodge theory: a discussion of techniques and results, In: discrete subgroups of Lie groups and applications to moduli, TIER 1973. Oxford University Press 1975.
+
+\bibitem{Morgan} J. Morgan, The algebraic topology of smooth algebraic varieties, Publ. Math. IHES 48 (1978), 137--204.
+
+\bibitem{Nori} M. Nori, Non arithmetic monodromy, C.R. Acad. Sci. Paris, to appear (1986).
+
+\bibitem{Schmid} W. Schmid, Variations of Hodge structures: the singularities of the period mapping, Inv. Math. 22 (1973), 211--319.
+
+\bibitem{Zucker} S. Zucker, Hodge theory with degenerating coefficients, Ann. of Math. 109 (1979), 415--476.
+
+\bibitem{Peters} C. Peters, A criterion for flatness of Hodge bundles and geometric applications, Math. Ann. 268 (1984), 1--19.
+
+\bibitem{Procesi} C. Procesi, The invariant theory of $n \times n$ matrices, Adv. in Math. 19 (1976), 306--381.
+
+\end{thebibliography}
+
+\vspace{1cm}
+\begin{flushleft}
+SCHOOL OF MATHEMATICS \\nTHE INSTITUTE FOR ADVANCED STUDY \\nPRINCETON, NEW JERSEY 08540
+\end{flushleft}
+
+\end{document}

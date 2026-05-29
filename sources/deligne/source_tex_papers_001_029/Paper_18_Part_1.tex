@@ -1,0 +1,1561 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage[all]{xy}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem{definition}[theorem]{D\'efinition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{example}[theorem]{Exemple}
+
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+% \Im is already defined
+% \deg is already defined
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Ob}{Ob}
+
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\fP}{\mathfrak{P}}
+\newcommand{\Gm}{\bbG_m}
+\newcommand{\mup}{\bbG_m^{}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\xla}{\xleftarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\tensor}{\otimes}
+\newcommand{\bs}{\backslash}
+
+\begin{document}
+
+\title{Les sch\'emas de modules de courbes elliptiques}
+\author{P. Deligne}
+\thanks{Research on this paper was partially supported by NSF grant GP 36418X.}
+\author{M. Rapoport}
+\thanks{Le deuxi\`eme auteur pense que les activit\'es politiques de l'OTAN sont incompatibles avec l'activit\'e pacifique du math\'ematicien et regrette pour cette raison que ce congr\`es a \'et\'e partiellement financ\'e par cette organisation.}
+\dedicatory{International Summer School on Modular Functions\\Antwerp 1972}
+\maketitle
+
+\section*{Sommaire}
+
+\begin{tabular}{|l|r|}
+\hline
+Introduction & \\
+Notations & \\
+\hline
+I. Pr\'eliminaires & \\
+\quad 1. Sch\'emas en courbes & \\
+\quad 2. Dualit\'e en cohomologie des faisceaux coh\'erents & \\
+\quad 3. Rappels sur le foncteur de Picard & \\
+\quad 4. Sous-sch\'ema de non lissit\'e & \\
+\quad 5. Rappels sur la th\'eorie des d\'eformations & \\
+\quad 6. Points de division des courbes elliptiques & \\
+\quad 7. Rappels d'alg\`ebre commutative & \\
+\quad 8. Sch\'emas grossiers de modules & \\
+\hline
+II. Courbes elliptiques g\'en\'eralis\'ees & \\
+\quad 1. Polygones de N\'eron & \\
+\quad 2. Courbes stables irr\'eductibles & \\
+\quad 3. Construction de courbes elliptiques g\'en\'eralis\'ees & \\
+\hline
+III. Th\'eor\`emes de repr\'esentabilit\'e & \\
+\quad 0. Introduction et notations & \\
+\quad 1. Un th\'eor\`eme de prorepr\'esentabilit\'e & \\
+\quad 2. Construction de $\mathscr{M}^*$ & \\
+\hline
+IV. Structures de niveau & \\
+\quad 1. Contractions & \\
+\quad 2. Structures de niveau $n$ & \\
+\quad 3. Structures de niveau $H$ & \\
+\quad 4. Exemples & \\
+\quad 5. Th\'eorie transcendante (rappels) & \\
+\quad 6. Structures de niveau $H$ ; \'etude \`a l'infini & \\
+\hline
+V. R\'eduction modulo $p$ & \\
+\quad 1. \'Etude de $M_\Gamma^0(p)$ & \\
+\quad 2. \'Etude de $M_\Gamma^{\text{reg}}(p)$ & \\
+\quad 3. Un th\'eor\`eme de bonne r\'eduction & \\
+\quad 4. \'Etude de $M_n$ & \\
+\hline
+VI. Sch\'emas grossiers de modules & \\
+\quad 1. L'invariant modulaire & \\
+\quad 2. Automorphismes des courbes elliptiques. Crit\`ere pour que $M_H$ soit un sch\'ema & \\
+\quad 3. Points rationnels des sch\'emas grossiers & \\
+\quad 4. Remarques num\'eriques & \\
+\quad 5. L'action de Galois sur les pointes & \\
+\quad 6. \'Etude de $M_\Gamma^0(n)$ & \\
+\hline
+VII. La courbe de Tate & \\
+\quad 1. Construction de la courbe de Tate sur $\bbZ[[q]]$ & \\
+\quad 2. Application : structure \`a l'infini de $M_\Gamma^1(n)$ & \\
+\quad 3. Application : d\'eveloppement d'une forme modulaire en s\'erie de Fourier & \\
+\quad 4. Comparaison avec la th\'eorie transcendante & \\
+\hline
+Bibliographie & \\
+\hline
+\end{tabular}
+
+\newpage
+\section*{Introduction}
+
+\subsection*{1}
+Soit $X$ le demi-plan de Poincar\'e
+\[
+X = \{z \in \bbC \mid \Im(z) > 0\}.
+\]
+Le groupe $SL(2,\bbR)$ agit sur $X$ par transformations homographiques
+\[
+z \mapsto \frac{az+b}{cz+d}.
+\]
+Si $\Gamma$ est un sous-groupe de $SL(2,\bbZ)$ d\'efini par des conditions de congruence, la surface de Riemann $X/\Gamma$ est le compl\'ement d'un ensemble fini de points (``\`a l'infini'') dans une surface de Riemann compacte. C'est donc une courbe alg\'ebrique. Ses points sont en correspondance bijective avec les classes d'isomorphie de courbes elliptiques munies d'une ``structure de niveau'' d'esp\`ece convenable. On sait qu'il r\'esulte de cette interpr\'etation qu'elle admet pour corps de d\'efinition un sous-corps d'un corps cyclotomique. Dans cet article, nous \'etudions la structure \`a l'infini et la r\'eduction modulo $p$ de $X/\Gamma$.
+
+Concentrons-nous sur le cas o\`u $\Gamma$ est le sous-groupe de $SL(2,\bbZ)$ form\'e des matrices congrues modulo $n$ \`a la matrice identit\'e. Supposons que $n \geq 3$, auquel cas $\Gamma$ agit sur $X$ sans point fixe.
+
+Pour $z \in X$, notons $E_z$ le quotient de $\bbC$ par le r\'eseau $\bbZ + \bbZ z$. La loi d'addition dans $\bbC$ passe au quotient et munit $E_z$ d'une structure de courbe elliptique (= vari\'et\'e ab\'elienne de dimension un). Les courbes elliptiques $E_z$ et $E_{z'}$ sont isomorphes si et seulement si $z$ et $z'$ sont conjugu\'es sous $SL(2,\bbZ)$.
+
+Le noyau $E(z)_n$ de la multiplication par $n$ dans $E(z)$ est l'image de $\frac{1}{n}(\bbZ + \bbZ z)$; nous noterons $\alpha(z)$ l'isomorphisme
+\[
+(a+bz)/n \mapsto (a,b)
+\]
+Pour que les couples $(E(z),\alpha(z))$ et $(E(z'),\alpha(z'))$ soient isomorphes, il faut et il suffit que $z$ et $z'$ soient conjugu\'es sous $\Gamma$.
+
+Pour toute courbe elliptique $E$ sur un corps alg\'ebriquement clos $k$ de caract\'eristique $p$ ne divisant par $n$, le groupe $E_n$ est muni d'une forme altern\'ee non d\'eg\'en\'er\'ee $e_n$ \`a valeurs dans les racines $n$i\`emes de l'unit\'e de $k$. Une \textbf{structure de niveau} $n$ sur $E$ est un isomorphisme
+\[
+\alpha: E_n \xrightarrow{\sim} (\bbZ/n)^2.
+\]
+Si $\alpha$ est une structure de niveau $n$, nous noterons $\zeta(\alpha)$ la racine primitive $n$i\`eme de l'unit\'e
+\[
+\zeta(\alpha) = e_n(\alpha^{-1}((1,0)), \alpha^{-1}((0,1))).
+\]
+Faisons $k = \bbC$, et posons $\zeta_n = e^{2\pi i/n}$. Un couple $(E,\alpha)$ est isomorphe \`a un couple $(E(z),\alpha(z))$ ($z \in X$) si et seulement si $\zeta(\alpha) = \zeta_n$ (ou $\zeta_n^{-1}$, selon la convention de signe utilis\'ee dans la d\'efinition de $e_n$).
+
+\subsection*{2}
+Ce qui pr\'ec\`ede se g\'en\'eralise aux familles de courbes elliptiques, param\'etr\'ees par un sch\'ema $S$. On trouve que $X/\Gamma$ repr\'esente le foncteur $F_n$ suivant sur les sch\'emas sur $\bbC$: $F_n(T)$ est l'ensemble des classes d'isomorphie de familles alg\'ebriques param\'etr\'ees par $T$ de courbes elliptiques $E$ munies d'une structure de niveau $n$ telle que $\zeta(\alpha) = \zeta_n$.
+
+La d\'efinition de $F_n(T)$ garde un sens lorsque $T$ est seulement suppos\'e \^etre un sch\'ema sur $\bbZ[\zeta_n, 1/n]$. Igusa a prouv\'e dans [11] que le foncteur $F_n$ obtenu est repr\'esentable par un sch\'ema $M_n^0[1/n]$ sur $\bbZ[\zeta_n,1/n]$. La m\'ethode d'Igusa est la suivante.
+
+\subsubsection*{a)}
+Si $M_n^0[1/n]$ existe, alors $M_{nm}^0[1/nm]$ existe. Si $E$ est une courbe elliptique sur un corps alg\'ebriquement clos, la multiplication par $m$ induit un isomorphisme de $E_{nm}/nE_{nm}$ avec $E_n$; une structure de niveau $nm$: $\alpha: E_{nm} \xrightarrow{\sim} (\bbZ/nm)^2$ d\'efinit ainsi par r\'eduction modulo $n$ une structure de niveau $n$. Ceci se transpose au cas d'un sch\'ema de base quelconque et d\'efinit un morphisme de foncteurs $F_{nm} \to F_n$. Ce morphisme est relativement repr\'esentable. Il fait de $M_{nm}^0[1/nm]$ un rev\^etement galoisien non ramifi\'e de groupe $\Ker(SL(2,\bbZ/nm) \to SL(2,\bbZ/n))$ de $M_n^0[1/nm] \otimes_{\bbZ[\zeta_n]} \bbZ[\zeta_{nm}]$ ($\otimes$ d\'esigne une extension des scalaires).
+
+\subsubsection*{b)}
+Si $M_{nm}^0[1/nm]$ existe, $M_n^0[1/nm]$ existe. On obtient $M_n^0[1/nm]$ par un passage au quotient.
+
+\subsubsection*{c)}
+$M_3^0[1/3]$ et $M_4^0[1/4]$ existent. Explicitement, on a
+\[
+M_3^0[1/3] = \Spec(\bbZ[1/3,\lambda,\mu]/(\lambda\mu - (\lambda+1)(\mu+1)))
+\]
+avec pour courbe elliptique universelle la cubique plane d'\'equation
+\[
+\lambda\mu X^3 + Y^3 + Z^3 - \lambda\mu XYZ = 0.
+\]
+La section neutre est $(1,-1,0)$ et la base du groupe des points d'ordre 3 est $(\zeta_3^{-1},0,1), (-\zeta_3^{-2},0,1)$.
+
+En niveau 4, on a
+\[
+M_4^0[1/4] = \Spec(\bbZ[i,1/2,a,(a(a^4-1))^{-1}])
+\]
+o\`u on a pos\'e $i = \zeta_4$, pour $\mathscr{E}$ la courbe elliptique universelle la cubique plane d'\'equation non homog\`ene
+\[
+y^2 = x(x-1)(x-\lambda), \quad \lambda = \frac{i}{4}\left(a + \frac{1}{a}\right)^2
+\]
+avec pour courbe elliptique universelle la cubique plane. La section neutre est le point \`a l'infini, et la base $(r,s)$ du groupe des points d'ordre 4 est donn\'ee par
+\[
+r = \left(\frac{i+1}{2}a, \frac{i+1}{2}a\sqrt{1-a^{-4}}\right), \quad s = (0,0).
+\]
+Les formules ci-dessus pour $M_4^0[1/4]$ sont copi\'ees de Shioda [31]. Igusa utilisait non pas $M_4^0[1/4]$ mais le sch\'ema de modules des courbes elliptiques munies d'une structure interm\'ediaire entre une structure de niveau 4 et une de niveau 2.
+
+\subsubsection*{d)}
+$M_n^0[1/n]$ s'obtient en recollant $M_3^0[1/3n]$ et $M_4^0[1/4n]$.
+
+\subsection*{3}
+La surface de Riemann $X/\Gamma$ est non compacte. G\'eom\'etriquement, ce fait se traduit comme suit: si $E$ est une courbe elliptique munie d'une structure de niveau $n$ sur $\bbC((T))$, il arrive que le mod\`ele minimal de $E$ sur $\bbC[[T]]$ ait mauvaise r\'eduction. Dans ce cas, la fibre sp\'eciale $E_0'$ du mod\`ele de N\'eron $E'$ de $E$ sur $\bbC[[T]]$ est isomorphe \`a $\bbG_m \times \bbZ/kn$ pour $k$ convenable. Soit $E_0$ le sous-groupe de $E_0'$ r\'eunion des composantes de $E_0'$ dont l'ordre dans $\pi_0(E_0')$ divise $n$. Ce sous-groupe est isomorphe \`a $\bbG_m \times \bbZ/n$ et pr\'esente sur $E_0'$ l'avantage suivant: apr\`es extension des scalaires de $\bbC((T))$ \`a $\bbC((T^{1/t}))$, le nombre de composantes connexes de $E_0'$ est multipli\'e par $t$, tandis que $E_0$ ne change pas.
+
+La forme altern\'ee $e_n$ d\'efinit par sp\'ecialisation une forme altern\'ee, encore not\'ee $e_n$, sur $(E_0)_n$. La structure $\alpha$ de niveau $n$ d\'efinit par sp\'ecialisation $(E_0)_n \xrightarrow{\sim} (\bbZ/n)^2$.
+
+Cette discussion sugg\`ere que les points \`a l'infini de $X/\Gamma$ correspondent aux classes d'isomorphisme de syst\`emes $(E_0,e_n,\alpha_n)$ comme ci-dessus. Tel est bien le cas.
+
+Dans le texte, nous pr\'ecisons cette interpr\'etation modulaire de l'ensemble des points \`a l'infini de $X/\Gamma$ en une interpr\'etation modulaire de la courbe projective $\overline{X/\Gamma}$ compactifi\'ee de $X/\Gamma$. En voici le principe.
+
+Pour $E$ sur $\bbC((T))$ comme plus haut, la fibre sp\'eciale du mod\`ele minimal $E'$ de $E$ sur $\bbC[[T]]$ est un cycle de $kn$ droites projectives. Soit $\overline{E}$ d\'eduit de $E'$ en contractant en un point les composantes irr\'eductibles de $E_0'$ dont l'ordre ne divise pas $n$. La fibre sp\'eciale $\overline{E}_0$ de $\overline{E}$ est un cycle de $n$ droites projectives se coupant transversalement, et est une compactification de $E_0$. Par sp\'ecialisation, $e_n$ et $\alpha$ d\'efinissent une loi de groupe sur le lieu lisse $\overline{E}_0^{\mathrm{reg}}$ de $\overline{E}_0$ et un isomorphisme $\alpha: (\overline{E}_0^{\mathrm{reg}})_n \xrightarrow{\sim} (\bbZ/n)^2$.
+
+Soit $T$ un sch\'ema de type fini sur $\bbC$. Inspir\'es par les remarques ci-dessus, nous d\'efinissons une courbe elliptique g\'en\'eralis\'ee munie d'une structure $\alpha$ de niveau $n$, telle que $\zeta(\alpha) = \zeta_n$, sur $T$ comme consistant en:
+
+\begin{enumerate}
+\item[a)] un morphisme propre et plat $p: E \to T$;
+\item[b)] une structure de sch\'ema en groupes commutatif sur l'ouvert $E^{\mathrm{reg}}$ de $E$ o\`u $p$ est lisse; on suppose que l'addition se prolonge en une action
+\[
++: E^{\mathrm{reg}} \times_T E \to E;
+\]
+\item[c)] un isomorphisme de sch\'emas en groupes $\alpha: E_n^{\mathrm{reg}} \xrightarrow{\sim} (\bbZ/n)^2$. On suppose que les fibres g\'eom\'etriques de $p$ sont soit des courbes elliptiques munies d'une structure de niveau $n$ telle que $\zeta(\alpha) = \zeta_n$, soit sont isomorphes \`a l'un des syst\`emes $(\overline{E}_0,\alpha_0)$ construits ci-dessus.
+\end{enumerate}
+
+Nous prouvons que la courbe $\overline{X/\Gamma}$ repr\'esente le foncteur $F_n$ suivant sur les sch\'emas de type fini sur $\bbC$: $F_n(T)$ est l'ensemble des classes d'isomorphie de courbes elliptiques g\'en\'eralis\'ees $E$ sur $T$, munie d'une structure $\alpha$ de niveau $n$ telle que $\zeta(\alpha) = \zeta_n$.
+
+Pour rendre viable la d\'efinition des courbes elliptiques g\'en\'eralis\'ees, nous faisons un usage intensif de techniques de Grothendieck (th\'eor\`emes de changement de base (EGA III) et de dualit\'e ([10]) en cohomologie des faisceaux coh\'erents). Ces techniques fournissent un moyen syst\'ematique pour ramener des \'enonc\'es relatifs, concernant des sch\'emas sur un sch\'ema de base $S$, au cas o\`u $S$ est le spectre d'un corps alg\'ebriquement clos.
+
+Pour prouver que le foncteur $F_n$ est repr\'esentable, nous utilisons le crit\`ere g\'en\'eral de M.~Artin [3]. La v\'erification des hypoth\`eses de ce crit\`ere pr\'esente le point d\'elicat suivant. La donn\'ee b) dans la d\'efinition d'une courbe elliptique g\'en\'eralis\'ee est un morphisme de sch\'emas sur $T$
+\[
++: E^{\mathrm{reg}} \times_T E \to E,
+\]
+dont l'un des facteurs ($E^{\mathrm{reg}} \times_T E$) n'est pas n\'ecessairement propre sur $T$. Ceci nous contraint \`a prouver la prorepr\'esentabilit\'e effective de $F_n$ par une voie d\'etourn\'ee, le th\'eor\`eme d'existence de Grothendieck n'\'etant pas directement applicable.
+
+Les chapitres II, III et le \S 1 de IV contiennent les outils requis pour surmonter ces difficult\'es. Ci-dessus, nous avons travaill\'e sur $\bbC$. Dans le texte, nous travaillons sur $\bbZ[\zeta_n]$ ou $\bbZ[\zeta_n, 1/n]$, selon le cas, et obtenons une courbe projective et lisse sur $\bbZ[\zeta_n, 1/n]$ $M_n[1/n]$, solution d'un probl\`eme de module, et telle que $\overline{X/\Gamma}$ s'en d\'eduise par extension des scalaires \`a $\bbC$.
+
+\subsection*{4}
+Parler de la ``r\'eduction mod $p$'' de $\overline{X/\Gamma}$ pr\'esuppose le choix d'un mod\`ele $M_n$ de $\overline{X/\Gamma}$ sur $\bbZ[\zeta_n]$. La d\'efinition de $M_n$ donn\'ee dans le texte \'equivaut \`a la suivante: $M_n$ est le normalis\'e, dans le corps des fonctions de $M_n^0[1/n]$, de la droite de $J$ (la droite projective sur $\bbZ[\zeta_n]$, dans laquelle $M_n^0$ s'envoie par l'application ``invariant modulaire de la courbe elliptique universelle''). Soit encore $M_n^\infty$ la courbe affine d'anneau de coordonn\'ees le normalis\'e de $\bbZ[\zeta_n][j]$ dans l'anneau des coordonn\'ees de $M_n^0$. On montre dans le texte que $M_n^\infty[1/n]$ est la r\'eunion disjointe de sections du morphisme de sch\'ema $M_n \to \Spec(\bbZ[\zeta_n])$.
+
+Nous prouvons les r\'esultats suivants.
+
+\begin{enumerate}
+\item[a)] La courbe modulaire $M_n$ est projective sur $\bbZ[\zeta_n]$ et lisse en dehors d'un ensemble fini de points de $M_n^0$, les points supersinguliers de caract\'eristique divisant $n$.
+\item[b)] Il existe une famille finie de points $f_i$ de $M_n$ (= des sections du morphisme de sch\'ema $M_n \to \Spec(\bbZ[\zeta_n])$), telles que
+\begin{enumerate}
+\item[(b1)] les sections $f_i$ sont disjointes (= les points $f_i$ sont incongruents modulo tout id\'eal premier de $\bbZ[\zeta_n]$);
+\item[(b2)] $M_n^\infty$ est le compl\'ement dans $M_n$ de la r\'eunion des ``sections \`a l'infini'' $f_i$.
+\end{enumerate}
+\end{enumerate}
+
+Soit $\fP$ un id\'eal premier de $\bbZ[\zeta_n]$, divisant le facteur premier $p$ de $n$. Nous d\'eterminons l'ensemble des composantes irr\'eductibles de la r\'eduction de $M_n$ modulo $\fP$.
+
+Pour d\'ecrire le r\'esultat, nous supposerons que $n$ est le produit de deux entiers $\geq 3$ premiers entre eux, $n'$ et $n''$. Sous cette hypoth\`ese, $M_n[1/n']$ est le normalis\'e dans $M_n^0[1/n]$ du sch\'ema $M_{n'}[1/n'] \otimes_{\bbZ[\zeta_{n'}]} M_{n''}^0[1/n']$, dont nous connaissons une interpr\'etation modulaire. Les images r\'eciproques sur $M_n^0[1/n']$ et $M_n^0[1/n'']$ des courbes elliptiques universelles sur $M_{n'}^0[1/n']$ et $M_{n''}^0[1/n'']$ se recollent et fournissent une courbe elliptique universelle $E$ sur $M_n^0$. La structure de niveau $\alpha: E_n \xrightarrow{\sim} (\bbZ/n)^2$ sur $M_n^0$ se prolonge en un morphisme de sch\'ema en groupes sur $M_n$.
+
+La composante $p$-primaire de $\alpha^{-1}$ est un morphisme $E_{p^k} \to (\bbZ/p^k)^2$ en correspondance biunivoque avec les sous-groupes cycliques d'ordre $p^k$ de $(\bbZ/p^k)^2$. Les points supersinguliers de caract\'eristique $p$ de $M_n$ sont ceux en lesquels le noyau de $\alpha$ aux points non supersinguliers de la composante d'indice $S(p)$ est $\alpha_p$. Nous prouvons que ces composantes irr\'eductibles sont unibranches, et que deux quelconques d'entre elles se recoupent en tous les points supersinguliers.
+
+Les composantes irr\'eductibles de la r\'eduction de $M_n$ modulo $p$ avaient \'et\'e d\'etermin\'ees par Pjateckii-Shapiro (voir son article dans ce volume). Il travaille malheureusement avec $PGL(2)$ plut\^ot qu'avec $GL(2)$, de sorte que ses r\'esultats sont plus embrouill\'es que les n\^otres.
+
+Sous la m\^eme hypoth\`ese sur $n$ que ci-dessus, l'un de nous (P.~Deligne) a r\'ecemment prouv\'e que ces composantes irr\'eductibles sont en fait lisses, et que $M_n$ est un sch\'ema r\'egulier.
+
+Pour \'etudier $M_n$, la premi\`ere \'etape est de recouvrir par des ouverts ayant une interpr\'etation modulaire l'ouvert de $M_n$ obtenu en \^otant les points supersinguliers de caract\'eristique divisant $n$. On y arrive en \'etudiant le sch\'ema de modules qui classifie les courbes elliptiques munies d'un isomorphisme $\alpha: E_n \xrightarrow{\sim} \bbZ/n \times \mu_n$. Une interpr\'etation modulaire permet
+\begin{enumerate}
+\item[a)] de d\'eterminer l'ensemble des points de $M_n$ sur un corps alg\'ebriquement clos;
+\item[b)] de prouver la lissit\'e de $M_n^0$ sur $\bbZ[\zeta_n]$. Il reste, et c'est le point le plus d\'elicat, \`a \'etudier les points supersinguliers.
+\end{enumerate}
+
+\subsection*{5}
+Il est sans doute possible d'\'etudier la structure \`a l'infini de $M_n$ par voie rigide-analytique, \`a l'aide de la th\'eorie de la courbe de Tate, sans donner au pr\'ealable de l'infini une description modulaire. Une telle approche risque m\^eme d'\^etre la seule praticable dans l'\'etude \`a l'infini de sch\'emas de modules de dimension sup\'erieure. Elle nous a souvent servi de guide heuristique (voir ci-dessous). Toutefois, pour \^etre rendue pr\'ecise, elle requiert des pr\'eliminaires rigides-analytiques dont nous avons voulu nous dispenser.
+
+Ceci explique que la courbe de Tate n'apparaisse que dans l'ultime chapitre VII. Nous l'utilisons pour d\'eduire des propri\'et\'es \`a distance finie des $M_n$ et de leur r\'eduction modulo $p$ des r\'esultats sur le d\'eveloppement des formes modulaires en s\'erie de Fourier.
+
+Nous prouvons notamment les r\'esultats suivants. L'alg\`ebre gradu\'ee des formes modulaires sur $X/\Gamma$ dont le d\'eveloppement \`a toutes les pointes est \`a coefficients dans $\bbZ[\zeta_n]$ est une alg\`ebre de type fini sur $\bbZ[\zeta_n]$. Si l'id\'eal premier $\fP$ de $\bbZ[\zeta_n]$ ne divise pas $n$, et qu'en une pointe le d\'eveloppement en s\'erie de Fourier d'une forme modulaire $\varphi$ sur $X/\Gamma$ est \`a coefficients dans $\bbQ[\zeta_n]$ et $p$-entier ($p = \fP \cap \bbZ$), le d\'eveloppement de $\varphi$ aux autres pointes a les m\^emes propri\'et\'es.
+
+On donne aussi des indications fragmentaires sur le cas o\`u $p$ divise $n$.
+
+\subsection*{6}
+Notre usage heuristique de la courbe de Tate repose sur les principes suivants.
+
+\begin{enumerate}
+\item[a)] \`A l'aide de la courbe de Tate, on peut deviner ou d\'emontrer ce qui se passe au voisinage de l'infini.
+\item[b)] En dehors des points supersinguliers, la situation est partout la m\^eme, et en particulier la m\^eme qu'au voisinage de l'infini.
+\end{enumerate}
+
+\`A ces principes s'ajoute le suivant.
+
+\begin{enumerate}
+\item[c)] G\'eom\'etriquement, i.e.~apr\`es extension des scalaires (ou du corps r\'esiduel) \`a $\overline{\bbF}_p$, la situation est la m\^eme aux divers points supersinguliers de caract\'eristique $p$.
+\end{enumerate}
+
+La th\'eorie locale (formelle) de $M_n$ au voisinage des points g\'eom\'etriques correspondant \`a une courbe elliptique $E$ sur $\overline{\bbF}_p$ est gouvern\'ee par le groupe $p$-divisible $D_p(\bigcup_n E_n)$, soit essentiellement par le groupe formel compl\'et\'e de $E$ \`a l'origine. Ceci r\'esulte du th\'eor\`eme de Serre-Tate selon lequel $E$ et ce groupe $p$-divisible ont m\^eme th\'eorie des d\'eformations. Les principes b) et c) en r\'esultent, car ce groupe $p$-divisible ne d\'epend, \`a isomorphisme pr\`es, que du caract\`ere ordinaire ou supersingulier de $E$.
+
+\subsection*{7}
+Soient $H$ une alg\`ebre de quaternions ind\'efinie, de discriminant $D$ sur $\bbQ$ et $\mathcal{S}$ un sous-groupe de congruence du groupe des unit\'es de $H$. Le groupe $\mathcal{S}$ est un sous-groupe discret \`a quotient compact de $SL(2,\bbR)$. La courbe compl\`ete $X/\mathcal{S}$ param\'etrise des vari\'et\'es ab\'eliennes de dimension 2, $A$, munies d'un homomorphisme d'un ordre de $H$ dans $\End(A)$ (des ``fausses courbes elliptiques'', dans la terminologie de Serre). Nos m\'ethodes s'appliquent \`a l'\'etude de $X/\mathcal{S}$ et de sa r\'eduction mod $p$, pour autant que $p$ soit premier \`a $D$. Les remarques suivantes permettent m\^eme de d\'eduire de th\'eor\`emes pour $M_n$ des th\'eor\`emes sur la structure locale de $X/\mathcal{S}$.
+
+\begin{enumerate}
+\item[d)] Soient $\mathcal{O}$ un ordre de $H$, avec $\mathcal{O} \otimes_{\bbZ} \bbZ_p \cong M_2(\bbZ_p)$, et $e$ un idempotent non trivial de $\mathcal{O} \otimes \bbZ_p \cong M_2(\bbZ_p)$. Si $A$ est un sch\'ema ab\'elien de dimension 2 sur un corps alg\'ebriquement clos $k$ de caract\'eristique $p$, muni de $\psi: \mathcal{O} \to \End(A)$, le groupe $p$-divisible $D_p(A) = \bigcup_n A_n$ agit sur le groupe $p$-divisible, et $D_p(A) = e \cdot D_p(A) \oplus (1-e) D_p(A)$. Le sch\'ema ab\'elien $A$, muni de $\psi$, et le groupe $p$-divisible $e D_p(A)$, ont m\^eme th\'eorie des d\'eformations.
+\item[e)] Le groupe $p$-divisible $e D_p(A)$ est isomorphe \`a $D_p(E)$ pour $E$ une courbe elliptique soit ordinaire, soit supersinguli\`ere.
+\end{enumerate}
+
+La r\'eduction modulo $p$ de $X/\mathcal{S}$ a \'et\'e \'etudi\'ee par Morita. Il obtient aussi des r\'esultats dans le cas bien plus difficile o\`u $p \mid D$.
+
+\subsection*{8}
+Dans la litt\'erature des sch\'emas de modules, le langage des Foundations de Weil est parfois utilis\'e. Selon qu'on utilise ce langage, ou celui de Grothendieck, on met l'accent sur l'une des deux visions suivantes de ce qu'est un sch\'ema $X$ sur un corps de nombres $K$.
+
+\begin{enumerate}
+\item[a)] C'est un sch\'ema $X$, muni d'un morphisme $X \to \Spec(K)$. Cette vision est celle qui domine nos notations.
+\item[b)] C'est un sch\'ema $X$ sur la cl\^oture alg\'ebrique $\overline{K}$ de $K$, qui est d\'efini sur $K$. Cette vision transpara\^it dans la technique de d\'emonstration qui consiste \`a ramener un \'enonc\'e relatif \`a un $S$-sch\'ema $X$ \`a un \'enonc\'e relatif \`a ses fibres g\'eom\'etriques $X_{\overline{s}}$, obtenue par extension des scalaires de $S$ \`a un corps alg\'ebriquement clos $k(\overline{s})$.
+\end{enumerate}
+
+La ``restriction des scalaires \`a la Grothendieck'' de $K$ \`a $\bbQ$ prend un aspect tr\`es diff\'erent selon la vision adopt\'ee.
+
+\begin{enumerate}
+\item[a)] Au $K$-sch\'ema $X$ on associe le $\bbQ$-sch\'ema d\'efini par $X$ et le morphisme compos\'e $X \to \Spec(K) \to \Spec(\bbQ)$. On ne le distingue pas de $X$ dans la notation. Un sch\'ema est d'abord un $\bbQ$-sch\'ema; si c'est un $K$-sch\'ema, il est muni d'un $K$-morphisme $X \to \Spec(K)$.
+\item[b)] Soit $I$ l'ensemble des plongements de $K$ dans $\overline{\bbQ}$. Pour $\sigma \in I$, posons $X_\sigma = X \otimes_{K,\sigma} \overline{\bbQ}$. On a
+\[
+X \otimes_{\bbQ} \overline{\bbQ} = \coprod_{\sigma \in I} X_\sigma.
+\]
+Le $K$-sch\'ema appara\^it comme la $\overline{\bbQ}$-sch\'ema d\'eduit comme en a) d'un somme disjointe des conjugu\'es de $X$, cette somme \'etant en outre d\'efinie sur $\bbQ$.
+
+Le $\bbQ$-morphisme $X \to \Spec(K)$ s'interpr\`ete comme l'application de cette somme dans l'ensemble d'indices $I = \Spec(K) \otimes_{\bbQ} \overline{\bbQ}$.
+\end{enumerate}
+
+Pour $M_n^0[1/n]$, la situation est la suivante: le sch\'ema $M_n^0[1/n]$ repr\'esente le foncteur des classes d'isomorphie de courbes elliptiques $E/T$, munies d'un isomorphisme $\alpha: E_n \xrightarrow{\sim} (\bbZ/n)^2$. Un tel couple $(E,\alpha)$ d\'efinit (par la th\'eorie de la forme altern\'ee $e_n$) une racine primitive $n$i\`eme de l'unit\'e $\zeta(\alpha)$ sur $T$, d'o\`u un morphisme de sch\'emas $(E,\alpha) \mapsto \zeta(\alpha)$. Vu comme $\bbZ[\zeta_n, 1/n]$-sch\'ema, $M_n^0[1/n]$ classifie les $(E,\alpha)/T$ avec $\zeta(\alpha) = \zeta_n$, tandis que, si l'on pose $X^\pm = \bbC - \bbR$,
+\[
+X^\pm \times GL(2,\bbZ/n) / GL(2,\bbZ)
+\]
+est somme de $\varphi(n)$ copies de $X/\Gamma$.
+
+\subsection*{9}
+Une courbe elliptique sur un corps alg\'ebriquement clos $k$ a un ou des automorphismes non triviaux. Ceci exclut que le foncteur qui \`a un sch\'ema $T$ associe l'ensemble des classes d'isomorphie de courbes elliptiques $E$ sur $T$ soit repr\'esentable: ce n'est pas m\^eme un faisceau.
+
+On peut y obvier de deux mani\`eres.
+
+\begin{enumerate}
+\item[a)] Systematiquement imposer des structures de niveau additionnelles, qui \'eliminent ces automorphismes. C'est ce que nous avons fait dans cette introduction.
+\item[b)] Employer le langage des champs alg\'ebriques, pour lequel nous renvoyons \`a [8] et [17]. C'est ce que nous faisons dans le texte, pour les raisons suivantes.
+\begin{enumerate}
+\item[1.] Imposer une structure de niveau additionnelle modifie le comportement \`a l'infini des objets \'etudi\'es ($M_{nm}$ se ramifie sur $M_n$ le long de l'infini).
+\item[2.] Les calculs et d\'emonstrations deviennent plus simples lorsqu'on n'a pas \`a se pr\'eoccuper de structures additionnelles importunes.
+\end{enumerate}
+\end{enumerate}
+
+Au chapitre VI, nous d\'eduisons de nos r\'esultats sur les champs modulaires des r\'esultats sur les sch\'emas grossiers de modules (= coarse modular schemes), habituellement consid\'er\'es.
+
+\subsection*{10}
+Nous renvoyons \`a la table des mati\`eres et aux introductions des divers chapitres pour une description plus pr\'ecise de leur contenu. Nous remercions N.~Katz de l'aide qu'il nous a apport\'ee.
+
+\section{Notations}
+
+Le travail est divis\'e en chapitres; chaque chapitre est divis\'e en paragraphes.
+
+Les r\'ef\'erences internes \`a un m\^eme chapitre ne mentionnent pas le num\'ero de ce chapitre.
+
+Nous utiliserons librement les d\'efinitions et notations de la th\'eorie des champs
+alg\'ebriques telles qu\'elles sont expos\'ees dans [8] \S~4. Toutefois, contrairement
+\`a la terminologie de loc.~cit., un morphisme de cat\'egories fibr\'ees en groupo"
+ïdes sera dit repr\'esentable si pour chaque morphisme $x: X \to \mathscr{C}_2$ d\'un
+sch\'ema $X$ vers $\mathscr{C}_2$, le produit fibr\'e $\mathscr{C}_1 \times_{\mathscr{C}_2} X$ est un espace
+alg\'ebrique.
+
+Un \textbf{sch\'ema en groupes} $G$ sur un sch\'ema $S$ est parfois appel\'e un $S$-groupe.
+Le sous-sch\'ema en groupes, noyau de la multiplication par $n$ dans $G$, est not\'e $G_n$.
+
+Soit $X$ un $S$-sch\'ema. Si $T$ est un $S$-sch\'ema, nous noterons par $X_T$ le produit
+fibr\'e $X \times_S T$. Si $S = \Spec(A)$ et $T = \Spec(B)$, $X_B$ ou $X \otimes_A B$
+ont la m\^eme signification. Pour $n \in \bbN$, on pose $X[1/n] = X \otimes_{\bbZ} \bbZ[1/n]$.
+
+On pose $\zeta_n = e^{2\pi i/n}$.
+
+Pour les principes qui gouvernent nos notations pour les champs modulaires,
+nous r\'ef\'erons au \S~0 du chapitre III.
+
+\newpage
+\section{Pr\'eliminaires}
+
+Ce chapitre rassemble des r\'esultats bien connus dont nous aurons \`a faire usage.
+Le lecteur est invit\'e \`a ne s\'y reporter qu\'en cas de besoin.
+
+\subsection{Sch\'emas en courbes}
+
+\subsubsection{}
+Dans ce paragraphe, on appelle \textbf{sch\'ema en courbes} sur un sch\'ema $S$ un
+morphisme propre et plat de pr\'esentation finie de dimension relative au plus 1.
+
+\subsubsection{}
+Si $C/S$ est un sch\'ema en courbes sur $S$, la caract\'eristique d\'Euler-Poincar\'e des
+fibres est localement constante (EGA III, 7.9.). On d\'efinit le \textbf{genre arithm\'etique}
+$g$ de $C_s$ par
+\[
+\chi(\cO_{C_s}) = 1 - g.
+\]
+Si la caract\'eristique d\'Euler-Poincar\'e des fibres est constante de valeur $1-g$,
+on appelle $C/S$ un sch\'ema en courbes de genre $g$ ou simplement une courbe de genre $g$ sur $S$.
+
+\subsubsection{}
+Un morphisme $p: X \to S$ est dit de Cohen-Macaulay s\'il est plat de pr\'esentation finie
+et que ses fibres (g\'eom\'etriques) sont des sch\'emas de Cohen-Macaulay. Un
+\textbf{sch\'ema en courbes de Cohen-Macaulay} sur $S$ est un sch\'ema en courbes
+$p: C \to S$ qui est de Cohen-Macaulay et dont les fibres g\'eom\'etriques sont purement
+de dimension un.
+
+De m\^eme, quand on parlera de courbes lisses, ou r\'eduites, ou int\`egres,
+on sous-entendra ``purement de dimension un''.
+
+Pour $S = \Spec(A)$, on parlera indiff\'eremment de courbes sur $S$ ou de $A$-courbes.
+
+\subsubsection{}
+Si $p: C \to S$ est un sch\'ema en courbes de Cohen-Macaulay sur $S$, le faisceau
+dualisant relatif $\omega_{C/S}$ (cf.~2.1 ci-dessous) est inversible. C\'est le faisceau des
+diff\'erentielles r\'eguli\`eres. On pose
+\[
+\omega_{C/S}^{\otimes n} = \omega_{C/S}^{\otimes_{\cO_C} n}.
+\]
+
+\subsubsection{}
+Si $k$ est un corps alg\'ebriquement clos, une courbe $C$ propre sur $k$ est dite
+\textbf{stable} si elle est r\'eduite, connexe, n\'a que des points doubles ordinaires comme
+singularit\'es, et si tout composante de genre z\'ero de la normalis\'ee de $C$ rencontre les
+autres composantes en au moins trois points. Une \textbf{courbe stable de genre un} sur $S$
+est un sch\'ema en courbes sur $S$ dont toute fibre g\'eom\'etrique est soit une courbe propre
+lisse et connexe de genre un, soit un polygone de N\'eron (voir II.1 ci-dessous).
+
+\subsubsection{}
+Une \textbf{courbe elliptique} (g\'en\'eralis\'ee) sur $S$ est une courbe stable de genre un sur $S$,
+munie d\'une structure de groupe commutatif sur le lieu r\'egulier $C^{\mathrm{reg}}$ et d\'une action
+de $C^{\mathrm{reg}}$ sur $C$ qui prolonge la loi de groupe. Voir le chapitre II pour les d\'etails.
+
+\subsubsection{}
+Si $p: C \to S$ est une courbe de genre un sur $S$, on a $p_* \cO_C = \cO_S$
+universellement (EGA III 7.8.8). Le faisceau $\omega_{C/S}$ est inversible et l\'application
+canonique
+\[
+p^* p_* \omega_{C/S} \to \omega_{C/S}
+\]
+est un isomorphisme (cf.~II.1.6 pour la d\'emonstration).
+
+\subsection{Dualit\'e en cohomologie des faisceaux coh\'erents}
+
+\subsubsection{}
+Nous nous proposons de rappeler ce que fournit la th\'eorie de dualit\'e de Grothendieck
+pour un morphisme $p: X \to S$ lorsque
+\begin{enumerate}
+\item[(a)] $p$ est de Cohen-Macaulay purement de dimension relative $d$;
+\item[(b)] $S$ est noeth\'erien.
+\end{enumerate}
+Dans les applications que nous avons en vue, nous pourrions toujours nous ramener au cas
+o\`u $p$ est de plus quasi-projectif.
+
+Le complexe dualisant relatif $Rp^! \cO_S$ [10] n\'a qu\'un seul faisceau de cohomologie
+non nul, celui de degr\'e $-d$; c\'est le faisceau des diff\'erentielles r\'eguli\`eres
+\begin{equation}
+\omega_{X/S} = \underline{H}^{-d}(Rp^! \cO_S)
+\end{equation}
+([10] V. 9.7.). Ce faisceau est plat sur $S$. Sa formation commute \`a tout changement de
+base $S' \to S$ et \`a la localisation \'etale sur $X$ (voir [10] ou [34]).
+
+\subsubsection{}
+Si $p$ est de plus propre, on d\'efinit un morphisme ``trace''
+\begin{equation}
+\Tr_p: R^d p_* \omega_{X/S} \to \cO_S
+\end{equation}
+de formation compatible \`a tout changement de base.
+
+Le th\'eor\`eme de dualit\'e affirme que, pour tout complexe born\'e de faisceaux coh\'erents $K$,
+la fl\`eche d\'eduite de $\Tr$
+\begin{equation}
+R\underline{\Hom}_{\cO_X}(K, \omega_{X/S}[d]) \xrightarrow{\sim} R\underline{\Hom}_{\cO_S}(Rp_* K, \cO_S)
+\end{equation}
+est un isomorphisme.
+
+Si $K$ est r\'eduit \`a un faisceau localement libre $F$ plac\'e en degr\'e $0$ et que les
+faisceaux $R^i p_* F$ sont localement libres, cela devient
+\begin{equation}
+(R^{d-i} p_* F)^\vee \xrightarrow{\sim} R^i p_*(F^\vee \otimes \omega_{X/S}).
+\end{equation}
+(o\`u le $^\vee$ d\'esigne le dual d\'un $\cO_X$-module resp.~d\'un $\cO_S$-module).
+
+$\omega_{X/S}$ est un faisceau inversible si et seulement si $p$ est de Gorenstein.
+
+Pour $S$ non n\'ecessairement noeth\'erien, on d\'efinit $\omega_{X/S}$ et $\Tr$ par passage
+\`a la limite; pour $K$ un complexe born\'e de faisceaux localement libres, la dualit\'e reste
+valable, et se prouve par passage \`a la limite.
+
+Pour $S$ le spectre d\'un corps $k$, $\omega_{X/S}$ se notera encore $\omega_{X/k}$,
+voire simplement $\omega_X$.
+
+\subsubsection{}
+Soient $X$ une courbe r\'eduite sur un corps alg\'ebriquement clos $k$, et
+$\pi: \widetilde{X} \to X$ la normalis\'ee de $X$. Le faisceau $\omega_X$ s\'identifie au
+sous-faisceau suivant de l\'image directe par $\pi$ du faisceau des diff\'erentielles
+m\'eromorphes sur $\widetilde{X}$. Les sections de $\omega_X$ sur $U$ sont les
+diff\'erentielles m\'eromorphes $\omega$ sur $\pi^{-1}(U)$ telles que, pour tout $P \in U$
+et tout $f \in \cO_{X,P}$,
+\[
+\sum_{Q \mapsto P} \Res_Q(f\omega) = 0.
+\]
+Si $X$ n\'a comme singularit\'es que des points doubles ordinaires $P_i$, et que
+$\pi^{-1}(P_i) = \{P_i', P_i''\}$, les diff\'erentielles r\'eguli\`eres sur $X$ s\'identifient aux
+formes diff\'erentielles m\'eromorphes $\omega$ sur $\widetilde{X}$ r\'eguli\`eres en dehors des
+$P_i', P_i''$, ayant au pis un p\^ole simple en les $P_i'$ et $P_i''$ et qui v\'erifient
+\[
+\Res_{P_i'}(\omega) + \Res_{P_i''}(\omega) = 0
+\]
+([27], Chapitre IV).
+
+\subsection{Rappels sur le foncteur de Picard}
+
+\subsubsection{}
+Soit $p: X \to S$ un morphisme propre plat et de pr\'esentation finie. On appelle
+\textbf{foncteur de Picard relatif} de $X$ au-dessus de $S$ et on note $\Pic_{X/S}$ le faisceau
+\emph{fppf} associ\'e au pr\'efaisceau
+\begin{equation}
+S' \mapsto \Pic(X \times_S S')
+\end{equation}
+groupe des classes d\'isomorphie de faisceaux inversibles sur $S'$.
+
+Le morphisme canonique $\Pic(X)/\Pic(S) \to \Pic_{X/S}(S)$ est injectif si
+$p_* \cO_X \cong \cO_S$. Il est bijectif si de plus $p$ poss\`ede une section
+(TDTE V.2.4.).
+
+\subsubsection{}
+On dit que $p$ est \textbf{cohomologiquement plat en dimension $0$} (EGA III, 7.),
+ou simplement cohomologiquement plat, si la formation de $p_* \cO_X$ commute \`a tout
+changement de base $S' \to S$. Un th\'eor\`eme fondamental de M.~Artin affirme que,
+si $p$ est propre, plat de pr\'esentation finie et cohomologiquement plat, alors
+$\Pic_{X/S}$ est repr\'esentable par un espace alg\'ebrique localement de pr\'esentation
+finie sur $S$ ([2] Thm.~7.3).
+
+Si de plus, $p: X \to S$ est un sch\'ema en courbes, $\Pic_{X/S}$ est lisse sur $S$.
+
+Si $\Pic_{X/S}$ est repr\'esentable par un espace alg\'ebrique, on note $\Pic^0_{X/S}$ le
+sous-foncteur en groupes de $\Pic_{X/S}$ composante neutre de $\Pic_{X/S}$.
+
+Si $p: X \to S$ est un sch\'ema en courbes, il est repr\'esentable par un espace alg\'ebrique.
+
+\subsubsection{}
+Soit $C$ une courbe propre sur un corps $k$. Si $\cL$ est un faisceau inversible sur $C$,
+on d\'efinit son \textbf{degr\'e} $\deg_C(\cL)$ par la formule (de Riemann-Roch):
+\begin{equation}
+\chi(C, \cL) = \deg_C(\cL) + \chi(C, \cO_C).
+\end{equation}
+On a alors (cf.~[15])
+\begin{equation}
+\deg_C(\cL \otimes \cM) = \deg_C(\cL) + \deg_C(\cM).
+\end{equation}
+Si $C$ a pour composantes irr\'eductibles r\'eduites les sous-sch\'emas $D_i$, et si $C$
+est de multiplicit\'e $m_i$ (= longueur de l\'anneau local de $C$ au point maximal de $D_i$),
+alors
+\begin{equation}
+\deg_C(\cL) = \sum_i m_i \deg_{D_i}(\cL|_{D_i}).
+\end{equation}
+o\`u on a pos\'e $\deg_{D_i}(\cL|_{D_i}) = \chi(D_i, \cL|_{D_i}) - \chi(D_i, \cO_{D_i})$.
+
+\subsubsection{}
+Soit $p: C \to S$ une courbe sur $S$ et $\cL$ un faisceau inversible sur $C$. Le degr\'e
+de $\cL$ sur les fibres $C_s$ ($s \in S$) de $C$ est localement constant et d\'efinit un
+morphisme de faisceaux ab\'eliens (pour la topologie \emph{fppf}):
+\begin{equation}
+\deg: \Pic_{C/S} \to \bbZ_S.
+\end{equation}
+On d\'esigne par $\Pic^{(0)}_{C/S}$ le noyau de cette application.
+
+\subsubsection{}
+Soit $C$ une courbe r\'eduite sur un corps alg\'ebriquement clos $k$. Le
+\textbf{diagramme des composantes irr\'eductibles} de $C$ est le graphe non orient\'e
+$\Gamma(C)$ suivant, dans lequel on distingue deux esp\`eces de sommets.
+
+L\'ensemble $\Gamma^0 = {}'\Gamma^0 \cup {}''\Gamma^0$ des sommets de $\Gamma(C)$ est somme de
+l\'ensemble ${}'\Gamma^0$ des composantes irr\'eductibles de $C$ et de l\'ensemble
+${}''\Gamma^0$ des points singuliers de $C$.
+
+Pour $P \in C(k)$, appelons \textbf{branches} de $C$ en $P$ les points de la normalis\'ee
+$\widetilde{C}$ de $C$ d\'image $P$. L\'ensemble $\Gamma^1$ des ar\^etes de $\Gamma(C)$ est
+l\'ensemble des couples $(P,b)$ form\'es d\'un point singulier $P$ et d\'une branche $b$
+de $C$ en $P$.
+
+Une ar\^ete $(P,b)$ joint $P \in {}''\Gamma^0$ \`a celle des composantes irr\'eductibles de
+$C$ qui contient $b$.
+
+\subsubsection*{Exemples}
+Notons $\circ$ les points de ${}'\Gamma^0$ et $\bullet$ ceux de ${}''\Gamma^0$.
+Les courbes suivantes ont les diagrammes suivants: courbe lisse: $\circ$;
+courbe nodale: $\circ$---$\bullet$---$\circ$;
+$n$-gone (cycle de $n$ droites projectives): cycle de $n$ sommets $\circ$ reli\'es par
+$n$ ar\^etes $\bullet$.
+
+Si $C$ est purement de dimension un, non n\'ecessairement r\'eduite, on pose
+$\Gamma(C) = \Gamma(C_{\mathrm{red}})$.
+
+\subsubsection{}
+On note $\Aut(\Gamma(C))$ le groupe des automorphismes du graphe $\Gamma(C)$ qui
+transforment ${}'\Gamma^0$ en ${}'\Gamma^0$ et ${}''\Gamma^0$ en ${}''\Gamma^0$.
+
+Dans le cas o\`u $\Gamma(C)$ est un cycle \`a $2n$ sommets et $2n$ ar\^etes, nous dirons
+qu\'un \'el\'ement de $\Aut(\Gamma(C))$ est une \textbf{rotation}, ou qu\'il pr\'eserve
+l\'orientation de $\Gamma(C)$, s\'il induit l\'identit\'e sur le premier groupe de
+cohomologie enti\`ere $H^1(\Gamma(C), \bbZ)$. Le sous-groupe distingu\'e
+$\Aut^+(\Gamma(C))$ de $\Aut(\Gamma(C))$ form\'e des rotations est cyclique d\'ordre $n$
+et $\Aut(\Gamma(C))$ est le groupe di\'edral produit semi-direct d\'une ``r\'eflexion''
+par $\Aut^+(\Gamma(C)) \cong \bbZ/n$.
+
+\subsubsection{}
+Soient $k$ un corps alg\'ebriquement clos, et $C$ une courbe propre et r\'eduite sur $k$,
+dont les singularit\'es sont formellement isomorphes \`a celle de la r\'eunion des axes de
+coordonn\'ees dans un espace affine $\bbA^n$.
+
+Le sch\'ema de Picard $\Pic_{C/k}$ se d\'evisse comme suit. Soient $(D_i)_{i \in I}$ les
+composantes irr\'eductibles de $C$, $\widetilde{D}_i$ la normalis\'ee de $D_i$ et
+$\widetilde{C} = \coprod_i \widetilde{D}_i$ la normalis\'ee de $C$.
+
+\begin{enumerate}
+\item[(a)] Le morphisme ``degr\'e total''
+\[
+\deg: \Pic_{C/k} \to \bbZ^I
+\]
+est surjectif, de noyau $\Pic^{(0)}_{C/k}$.
+\item[(b)] Le morphisme $\Pic^{(0)}_{C/k} \to \Pic^0_{\widetilde{C}/k}$ est surjectif, d\'image
+le plus grand quotient de $\Pic^{(0)}_{C/k}$ qui soit un sch\'ema ab\'elien. Son noyau est un
+tore, canoniquement isomorphe \`a $\bbG_m^{b_1(\Gamma(C))}$.
+\end{enumerate}
+
+Pour $D$ propre et purement de dimension un sur $k$, il existe une et une seule courbe
+$C$ comme plus haut, munie d\'un morphisme radiciel $C \to D$; l\'application
+$\Pic_{C/k} \to \Pic_{D/k}$ est surjective de noyau unipotent connexe.
+
+\subsection{Sous-sch\'ema de non-lissit\'e}
+
+\subsubsection{}
+Soit $f: X \to S$ un morphisme plat de pr\'esentation finie purement de dimension
+relative $d$. Il r\'esulte du crit\`ere jacobien de lissit\'e que le sous-sch\'ema $X^{\mathrm{sing}}$
+de $X$ d\'efini par l\'id\'eal jacobien, i.e.~par le $d$-i\`eme id\'eal d\'eterminantiel de
+$\Omega^1_{X/S}$ (Bourbaki; Alg.~Comm.~Chap.~7, \S~4, ex.~10) a pour espace topologique
+sous-jacent l\'ensemble des points de $X$ o\`u $f$ est non-lisse. Nous l\'appellerons le
+\textbf{sous-sch\'ema de non-lissit\'e} de $X$ [SGA 7, VI]. Le lieu o\`u $f$ est lisse est
+not\'e $X^{\mathrm{reg}}$.
+
+\subsection{Rappels sur la th\'eorie des d\'eformations}
+
+\subsubsection{}
+Soit $\Lambda$ un anneau local noeth\'erien complet de corps r\'esiduel $k$. Deux cas
+particuli\`erement utiles sont les suivants.
+\begin{enumerate}
+\item[(a)] $\Lambda = k$.
+\item[(b)] $k$ est parfait de caract\'eristique $p > 0$ et $\Lambda$ est l\'anneau des vecteurs de
+Witt $W(k)$ (l\'unique anneau de valuation discr\`ete complet de corps r\'esiduel $k$ et
+d\'id\'eal maximal $(p)$).
+\end{enumerate}
+On d\'esigne par $\mathcal{C}_\Lambda$ la cat\'egorie des $\Lambda$-alg\`ebres locales artiniennes de
+corps r\'esiduel $k$ et par $\widehat{\mathcal{C}}_\Lambda$ la cat\'egorie des $\Lambda$-alg\`ebres noeth\'eriennes
+locales compl\'etes de corps r\'esiduel $k$.
+
+Un foncteur covariant $F$ de $\widehat{\mathcal{C}}_\Lambda$ vers $(Ens)$ est dit
+\textbf{pro-repr\'esentable} s\'il existe $R \in \Ob \widehat{\mathcal{C}}_\Lambda$ et un isomorphisme
+de foncteurs sur $\mathcal{C}_\Lambda$
+\begin{equation}
+\Hom(R, A) \xrightarrow{\sim} F(A).
+\end{equation}
+L\'alg\`ebre $R$ est alors uniquement d\'etermin\'ee.
+
+Un foncteur covariant $F$ de $\widehat{\mathcal{C}}_\Lambda$ dans $(Ens)$ induit par restriction un
+foncteur $F|\mathcal{C}_\Lambda: \mathcal{C}_\Lambda \to (Ens)$. Si $F|\mathcal{C}_\Lambda$ est
+prorepr\'esentable, on dit qu\'il est \textbf{effectivement prorepr\'esentable} s\'il existe
+$\xi \in F(R)$ ($R$ comme ci-dessus) qui d\'efinisse l\'isomorphisme ci-dessus.
+
+\subsubsection{}
+Consid\'erons les syst\`emes $(M, B, \alpha)$ du type suivant:
+\begin{enumerate}
+\item[(a)] $M$ est une $k$-alg\`ebre locale noeth\'erienne compl\`ete de corps r\'esiduel $k$.
+\item[(b)] $B$ est une $M$-alg\`ebre locale noeth\'erienne compl\`ete plate, de corps
+r\'esiduel $k$, munie d\'un isomorphisme $\alpha: B \otimes_M k \xrightarrow{\sim} k[[X,Y]]/(XY)$.
+\end{enumerate}
+Un tel syst\`eme $(k[[t]], A, \alpha_0)$ est fourni par la $k[[t]]$-alg\`ebre
+$A = k[[t,X,Y]]/(XY-t)$.
+
+On d\'emontre dans [8] \S~1 que ce dernier syst\`eme est versel. Pour tout
+$(B, M, \alpha)$, il existe un homomorphisme $k[[t]] \to M$ tel que $(B, \alpha)$ se
+d\'eduise de $(A, \alpha_0)$ par extension des scalaires:
+\[
+B = A \otimes_{k[[t]]} M.
+\]
+
+On en d\'eduit facilement l\'enonc\'e suivant.
+
+\begin{proposition}
+Soit $p: C \to S$ un sch\'ema en courbes sur un sch\'ema noeth\'erien $S$. Soient
+$s \in S$ et $x \in C_s(s)$. On suppose que $C_s$ pr\'esente en $x$ un point double
+ordinaire \`a tangentes rationnelles sur $k(s)$. Alors, le compl\'et\'e de $C$ en $x$ est
+$\widehat{\cO}_{S,s}$-isomorphe \`a $\widehat{\cO}_{S,s}[[X,Y]]/(XY-t)$ pour un
+$t \in \mathfrak{m}(\widehat{\cO}_{S,s})$ convenable.
+\end{proposition}
+
+On a mieux:
+
+\begin{theorem}
+Soient $p: C \to S$ un sch\'ema en courbes, $s \in S$ et $x \in C_s(s)$ tel que
+$C_s$ pr\'esente en $x$ un point double ordinaire. Alors, localement pour la topologie
+\'etale (au voisinage de $x$ et $s$), $C$ est $S$-isomorphe \`a
+\[
+X = S[u,v]/(uv-t)
+\]
+pour $t$ convenable. Si les tangentes de $C_s$ en $x$ sont rationnelles sur $k(s)$,
+l\'hens\'elis\'e de $C$ en $x$ est $\widehat{\cO}_{S,s}^{\text{h}}$-isomorphe \`a l\'hens\'elis\'e de
+$X$ en le point $(0,0)$, pour $t \in \Gamma(\Spec(\widehat{\cO}_{S,s}^{\text{h}}), \cO)$ convenable.
+\end{theorem}
+
+Ce th\'eor\`eme r\'esulte aussit\^ot du cas particulier o\`u $S$ est suppos\'e de type fini
+sur $\bbZ$. Il r\'esulte de la th\'eorie ci-dessus et de la th\'eorie de R.~Elkik de
+l\'alg\'ebrisation des modules des singularit\'es isol\'ees.
+
+\subsection{Points de division des courbes elliptiques}
+
+\subsubsection{}
+Soit $E$ une courbe elliptique (vari\'et\'e ab\'elienne de dimension un) sur un corps
+alg\'ebriquement clos $k$. Pour tout entier $n \geq 1$, on sait que le sch\'ema en groupes
+$E_n$, noyau de la multiplication par $n$, est le spectre d\'une alg\`ebre de Hopf de
+dimension $n^2$ sur $k$. Si $n$ est inversible dans $k$, on a
+\[
+E_n \cong (\bbZ/n)^2.
+\]
+Si $k$ est de caract\'eristique $p > 0$, le noyau du morphisme de Frobenius
+$F: E \to E^{(p)}$ est de rang $p$. Il est isomorphe \`a $\bbZ/p$ ou \`a $\alpha_p$. S\'il est
+isomorphe \`a $\bbZ/p$, on dit que $E$ est \textbf{ordinaire}, et
+$E_{p^k} \cong \bbZ/p^k \times \mu_{p^k}$. Sinon, on dit que $E$ est
+\textbf{supersinguli\`ere}.
+
+Dans la suite exacte
+\[
+0 \to \Ker(F) \to E_p \to E_p/\Ker(F) \to 0
+\]
+les deux termes extr\^emes sont en dualit\'e de Cartier. Si $E$ est supersinguli\`ere,
+$E_p$ est donc isomorphe \`a $\alpha_{p^2}$, l\'unique extension non triviale annul\'ee
+par $p$ de $\alpha_p$ par $\alpha_p$.
+
+Les courbes elliptiques supersinguli\`eres sur $k$ sont toutes isog\`enes, et forment
+un nombre fini de classes d\'isomorphie (cf.~[32]).
+
+\subsection{Rappels d\'alg\`ebre commutative}
+
+Nous utiliserons souvent les r\'esultats suivants d\'alg\`ebre commutative, pour la
+d\'emonstration desquels nous renvoyons aux EGA.
+
+\subsubsection*{(7.1)}
+Soit $f: X \to Y$ un morphisme de type fini de sch\'emas noeth\'eriens. Si $Y$ est de
+Cohen-Macaulay et $f$ plat, alors $X$ est de Cohen-Macaulay si et seulement si les
+fibres de $f$ le sont. Par exemple, si $Y$ est de Cohen-Macaulay et $f$ quasi-fini et
+plat, $X$ est de Cohen-Macaulay.
+
+Si $Y$ est r\'egulier, $X$ de Cohen-Macaulay et que, au point $x \in X$ d\'image $y \in Y$,
+on a
+\begin{equation}
+\dim(\cO_{X,x}) = \dim(\cO_{Y,y}) + \dim(\cO_{X,x} \otimes_{\cO_{Y,y}} k(y)),
+\end{equation}
+alors $f$ est plat en $x$. La condition est v\'erif\'ee si $f$ est quasi-fini dominant et
+$X$ irr\'eductible. (EGA IV 6.3.5 et EGA IV 6.1.5.)
+
+\subsubsection*{(7.2)}
+Soit $Y$ noeth\'erien de dimension deux. Pour que $Y$ soit normal, il faut et il suffit
+que $Y$ soit de Cohen-Macaulay, et r\'egulier sauf en des points de codimension deux.
+(EGA IV. 5.8.6. Crit\`ere de normalit\'e de Serre.)
+
+\subsubsection*{(7.3)}
+Soit $Y$ noeth\'erien de dimension un et g\'en\'eriquement r\'eduit. Pour que $Y$ soit
+r\'eduit, il faut et il suffit que $Y$ soit de Cohen-Macaulay. (EGA IV. 5.8.5.)
+
+\subsubsection*{(7.4)}
+Soit $f: X \to Y$ un morphisme de $S$-sch\'emas plats de pr\'esentation finie. Pour que
+$f$ v\'erifie l\'une des conditions suivantes: \^etre plat, lisse, \'etale, une immersion
+ouverte, un isomorphisme, plat d\'intersection compl\`ete relative, il faut et il suffit
+que pour tout point g\'eom\'etrique $\overline{s}$ de $S$,
+$f_{\overline{s}}: X_{\overline{s}} \to Y_{\overline{s}}$ v\'erifie la dite condition.
+
+Pour ``plat'', c\'est EGA IV 11.3.10. Les propri\'et\'es ``lisse'', ``\'etale'',
+``plat d\'intersection compl\`ete relative'' \'equivalent \`a ``plat'' + une propri\'et\'e
+des fibres. Enfin, ``immersion ouverte'' \'equivaut \`a ``\'etale et radiciel''
+(EGA IV.17.9.1), (o\`u ``radiciel'' est une propri\'et\'e des fibres), et ``isomorphisme''
+\'equivaut \`a ``immersion ouverte et surjectif''.
+
+\subsection{Sch\'emas grossiers de modules}
+
+\subsubsection{}
+Soit $\mathscr{C}$ un champ alg\'ebrique sur un sch\'ema de base $S$.
+
+\begin{definition}
+Un \textbf{espace grossier} de $\mathscr{C}$ est un espace alg\'ebrique $M$ sur $S$ muni d\'un
+$S$-morphisme $\pi: \mathscr{C} \to M$ ayant les propri\'et\'es suivantes:
+\begin{enumerate}
+\item[(i)] Tout $S$-morphisme de $\mathscr{C}$ vers un espace alg\'ebrique $X$ sur $S$ se factorise
+de fa\c{c}on unique par $\pi$;
+\item[(ii)] Si $\overline{s}: \Spec(k) \to S$ est un point g\'eom\'etrique de $S$ ($k$
+alg\'ebriquement clos), $\pi$ induit une bijection de l\'ensemble de classes d\'isomorphie
+d\'objets de $\mathscr{C}$ sur $\overline{s}$ (= $S$-morphisme de $\overline{s}$ dans $\mathscr{C}$) avec
+$M(\overline{s})$.
+\end{enumerate}
+\end{definition}
+
+\subsubsection{}
+Si $S$ est noeth\'erien et $\mathscr{C}$ s\'epar\'e de type fini sur $S$, on peut montrer que
+$\mathscr{C}$ admet un espace grossier $M$. Voici quelques-unes de ses propri\'et\'es.
+
+Soient $\overline{s}: \Spec(k) \to \mathscr{C}$ un point g\'eom\'etrique de $\mathscr{C}$, localis\'e en
+$m: \Spec(k) \to M$, $\widehat{\cO}_{\mathscr{C}, \overline{m}}$ l\'hens\'elis\'e strict de $m$
+dans $\mathscr{C}$, $\widehat{\cO}_{M, \pi(m)}$ l\'hens\'elis\'e strict de $\pi(m)$ dans $M$, et
+$\Aut(m)$ le groupe des automorphismes de l\'objet $m$ de $\mathscr{C}$ sur $\Spec(k)$.
+L\'application $\pi$ induit un isomorphisme
+\begin{equation}
+\widehat{\cO}_{M, \pi(m)}^{\text{h}} \xrightarrow{\sim}
+\widehat{\cO}_{\mathscr{C}, \overline{m}}^{\Aut(m)}.
+\end{equation}
+
+Soit $H \subset \Aut(m)$ le sous-groupe des automorphismes de l\'objet $m$ de
+$\mathscr{C}$ sur $k$ qui se prolongent en un automorphisme de l\'objet sur
+$\Spec(\widehat{\cO}_{\mathscr{C}, \overline{m}}^{\text{h}})$. Le groupe $\Aut(m)/H$ agit
+effectivement sur $\Spec(\widehat{\cO}_{\mathscr{C}, \overline{m}}^{\text{h}})$.
+
+Si $u: X \to \mathscr{C}$ est \'etale surjectif, $M$ est le quotient de $X$ par la relation
+d\'equivalence $X \times_{\mathscr{C}} X \to X \times_S X$. En particulier, pour
+$\mathscr{C} = [X/G]$ (voir [8] \S~4), on a $M = X/G$.
+
+Pas plus que le passage au quotient, la formation du sch\'ema grossier ne commute en
+g\'en\'eral aux changements de base. Toutefois, il commute aux changements de base plat,
+et \`a tout changement de base lorsque $\pi$ est \'etale. De plus, si $M'$ est le sch\'ema
+grossier de $\mathscr{C} \times_S S'$, l\'application $M' \to M \times_S S'$ est radicielle et
+surjective.
+
+\newpage
+\newpage
+\section*{Chapitre II}
+\section{Courbes elliptiques g\'en\'eralis\'ees}
+
+Dans ce chapitre, nous d\'efinissons les courbes elliptiques g\'en\'eralis\'ees sur un
+sch\'ema de base quelconque, et prouvons les th\'eor\`emes qui rendent viable la
+d\'efinition adopt\'ee.
+
+\subsection{Polygones de N\'eron}
+
+\subsubsection{}
+Soit $\widetilde{C} = \bbP^1 \times \bbZ/n$ la somme disjointe de $n$ copies de $\bbP^1$,
+index\'ees par $\bbZ/n$ ($n \geq 1$). En recollant la $i$-i\`eme copie de $\bbP^1$ avec la
+$(i+1)$-i\`eme, par identification de la section $0$ de la $i$-i\`eme copie avec la section
+$\infty$ de la $(i+1)$-i\`eme, on obtient une courbe de genre un $C$ sur $\Spec(\bbZ)$,
+de normalis\'ee $\widetilde{C}$. Pour tout sch\'ema $S$, on appelle \textbf{polygone de N\'eron
+\`a $n$ c\^ot\'es standard} sur $S$, ou simplement \textbf{$n$-gone standard} sur $S$, le
+sch\'ema sur $S$ qui s\'en d\'eduit par extension des scalaires.
+
+Un \textbf{polygone de N\'eron} (resp.~un \textbf{$n$-gone}) sur un corps alg\'ebriquement
+clos $k$ est un sch\'ema sur $k$ isomorphe \`a l\'un des polygones standards
+(resp.~au $n$-gone standard).
+
+\textbf{Exemples.} Pour $n=1$: une courbe nodale (point double ordinaire).
+Pour $n=3$: un triangle de trois droites projectives.
+
+\begin{lemma}
+Soit $C$ un polygone de N\'eron sur un corps alg\'ebriquement clos $k$.
+\begin{enumerate}
+\item[(i)] $H^0(C, \cO_C) = k$ et $H^1(C, \cO_C)$ est de dimension $1$ sur $k$.
+\item[(ii)] $H^0(C, \omega_C)$ est de dimension $1$ sur $k$ et le morphisme canonique
+$\omega_C \to \Omega_C^1$ est un isomorphisme. En particulier $\omega_C \cong \cO_C$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) r\'esulte de ce que $C$ est r\'eduit et connexe.
+
+(ii) On peut supposer que $C$ est le $n$-gone standard. Soit $\eta$ la forme
+diff\'erentielle sur le normalis\'ee $\widetilde{C} = \bbP^1 \times \bbZ/n$ dont la restriction
+\`a la $i$-i\`eme copie de $\bbP^1$ est $\frac{dx}{x}$. Il est clair que $\eta$ a des p\^oles
+simples au plus, et des r\'esidus $+1$ resp.~$-1$ au ``$0$'' resp.~``$\infty$'' de la
+$i$-i\`eme copie de $\bbP^1$. La forme $\eta$ d\'efinit donc une section globale de
+$\omega_{C/S}$. Elle engendre $\omega_C$ en chaque point de $C$.
+\end{proof}
+
+\begin{lemma}
+Soit $C$ une courbe r\'eduite, connexe de genre un sur un corps alg\'ebriquement clos,
+ayant comme seules singularit\'es des points doubles ordinaires et telle que
+$\omega_C \cong \cO_C$. Alors $C$ est lisse ou un polygone de N\'eron.
+\end{lemma}
+
+\begin{proof}
+Soient $\pi: \widetilde{C} \to C$ la normalis\'ee de $C$, de composantes irr\'eductibles
+$(C_i)_{1 \leq i \leq a}$, $g_i \geq 0$ le genre de $C_i$ et $b$ le nombre de points doubles
+de $C$. La suite exacte longue de cohomologie d\'eduite de
+\[
+0 \to \cO_C \to \pi_* \cO_{\widetilde{C}} \to \text{conoyau} \to 0
+\]
+et le lemme pr\'ec\'edent (i) fournissent
+\[
+a = \sum g_i + b \quad \text{et} \quad b \leq a - 1.
+\]
+Soit $b_i \geq 0$ le nombre de points de $C_i$ d\'image un point singulier de $C$. On a
+\[
+\sum b_i = 2b.
+\]
+L\'existence de $\omega$ non nul sur chaque composante fournit
+\[
+g_i = 0 \implies b_i \geq 2, \quad g_i = 1 \implies b_i = 0, \quad g_i \geq 2 \implies b_i \geq 3.
+\]
+La connexit\'e fournit $b \geq a - 1$. Ces in\'equations ont pour solutions:
+\begin{enumerate}
+\item[(a)] $a = 1$, $b = 0$, $g = 1$ (cas non singulier);
+\item[(b)] $a = n$, $b = n$ ($n \geq 1$): les $C_i$ sont des droites projectives et sur
+chaque $C_i$ deux points ont pour image un point double de $C$. La courbe $C$, \'etant
+connexe, est un polygone de N\'eron.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+Une \textbf{courbe stable de genre un} $C$ sur un sch\'ema $S$ (ou espace alg\'ebrique $S$,
+ou champ alg\'ebrique $S$) est un sch\'ema en courbes sur $S$ dont toute fibre
+g\'eom\'etrique est soit une courbe propre lisse et connexe de genre un, soit un polygone
+de N\'eron.
+\end{definition}
+
+\begin{proposition}
+Soit $p: C \to S$ un morphisme propre et plat de pr\'esentation finie. L\'ensemble des
+points $s \in S$ tels que $C_s$ soit une courbe stable de genre un est un sous-sch\'ema
+ouvert dans $S$.
+\end{proposition}
+
+\begin{proof}
+Les conditions ``$C_s$ r\'eduit'', ``r\'eduit et connexe'', ``r\'eduit et purement de dimension
+un'', ``de genre un'', ``n\'ayant pour singularit\'es que des points quadratiques ordinaires'',
+sont toutes ouvertes. Que la condition ``$\omega_C \cong \cO_C$'' soit ouverte r\'esulte de
+la d\'emonstration ci-dessous.
+\end{proof}
+
+\begin{proposition}
+Soit $p: C \to S$ une courbe stable de genre un.
+\begin{enumerate}
+\item[(i)] $p_* \cO_C = \cO_S$ universellement.
+\item[(ii)] $\omega_{C/S}$ et $p_*(\omega_{C/S})$ sont inversibles et l\'application canonique
+\begin{equation}
+p^* p_* \omega_{C/S} \to \omega_{C/S}
+\end{equation}
+est un isomorphisme.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+On se ram\`ene aussit\^ot au cas o\`u $S$ est noeth\'erien. Puisque les fibres
+g\'eom\'etriques de $p$ sont connexes et r\'eduites, (i) r\'esulte de EGA III. 7.8.8.
+Puisque les fibres g\'eom\'etriques de $p$ sont des intersections compl\`etes locales, $p$
+est d\'intersection compl\`ete locale relative et $\omega_{C/S}$ est inversible. De (i) et de
+ce que $\omega_{C/S}$ est inversible, on tire que $p_* \omega_{C/S}$ est localement libre de
+formation compatible \`a tout changement de base $S' \to S$ (EGA III. 7.8.). Il r\'esulte
+alors de la dualit\'e des faisceaux coh\'erents que $p_*(\omega_{C/S})$ est localement libre
+de formation compatible avec tout changement de base. Comme
+$(\omega_{C/S})_s = \omega_{C_s/s}$, on est r\'eduit \`a d\'emontrer (ii) dans le cas o\`u $S$
+est le spectre d\'un corps alg\'ebriquement clos. Dans ce cas, l\'assertion est bien connue
+pour $C$ lisse et r\'esulte du lemme pour un polygone de N\'eron.
+\end{proof}
+
+Le lemme suivant est un cas particulier de I.3.7.
+
+\begin{lemma}
+Soit $C$ un polygone de N\'eron sur un corps alg\'ebriquement clos $k$.
+\begin{enumerate}
+\item[(i)] $\Pic^0(C)$ est isomorphe \`a $\bbG_m$.
+\item[(ii)] Un automorphisme $g$ de $C$ induit l\'identit\'e sur $\Pic^0(C)$ si et
+seulement si $g$ agit par rotations sur le diagramme $\Gamma(C)$ des composantes
+irr\'eductibles de $C$.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+Soit $C$ le $n$-gone standard sur $\bbZ$. On a une suite exacte de groupes alg\'ebriques
+\[
+0 \to \bbG_m^n \to \Aut(C) \xrightarrow{b} \Aut(\Gamma(C)) \to 0.
+\]
+Soit $\widetilde{C} = \bbP^1 \times \bbZ/n$. $C$ est d\'efini par recollement \`a partir de
+$\widetilde{C}$, d\'o\`u $\pi: \widetilde{C} \to C$. Un calcul local montre que
+$\widetilde{C}$ se d\'eduit de $C$ en \'eclatant le sous-sch\'ema de non lissit\'e
+$C^{\mathrm{sing}}$, et ceci reste vrai apr\`es tout changement de base. La r\'eunion des sections
+marqu\'ees ``$0$'' et ``$\infty$'' des composantes de $\widetilde{C}$ est l\'image
+r\'eciproque du sous-sch\'ema de non lissit\'e. D\`es lors, apr\`es tout changement de
+base, tout automorphisme de $C$ induit un automorphisme de $\widetilde{C}$ qui respecte
+la r\'eunion des sections marqu\'ees. Ceci permet de d\'efinir $b$ et montre que
+$\Ker(b)$ s\'identifie au sous-groupe $\bbG_m^n$ de $\Aut(\widetilde{C})$ form\'e des
+automorphismes transformant chaque composante $\bbP^1 \times \{i\}$ en elle-m\^eme,
+et respectant les sections $(0,i)$, $(\infty,i)$. Apr\`es tout changement de base, une
+section $\underline{\lambda} = (\lambda_i)$ de rapport $\lambda_i$ de $\bbG_m^n$ agit sur
+$\bbP^1 \times \{i\}$ comme l\'homoth\'etie $\lambda_i$.
+
+Il reste \`a prouver que $b$ est surjectif; nous le ferons en exhibant des
+automorphismes de $\widetilde{C}$, compatibles \`a la donn\'ee de recollement, et
+d\'efinissant des automorphismes de $C$ dont l\'image par $b$ engendre le groupe
+di\'edral $\Aut(\Gamma(C))$. Ce sont
+\[
+\tau: (x,i) \mapsto (x^{-1}, -i)
+\]
+et
+\[
+\rho_j: (x,i) \mapsto (x, i+j) \quad (j \in \bbZ/n).
+\]
+\end{lemma}
+
+\subsubsection{}
+Soit $C$ le $n$-gone standard sur $\Spec(\bbZ)$. Identifions le normalis\'e
+$\widetilde{C}$ de $C$ avec $\bbP^1 \times \bbZ/n$ et l\'image r\'eciproque de
+$C^{\mathrm{reg}}$ dans $\widetilde{C}$ avec $\bbG_m \times \bbZ/n$. On obtient une action de
+$\bbG_m \times \bbZ/n$ sur $C = \bbP^1 \times \bbZ/n$ en posant
+\[
+(a,i) + (b,j) = (a \cdot b, i+j)
+\]
+o\`u $a \cdot b$ d\'enote l\'action naturelle de $\bbG_m$ sur $\bbP^1$. Cette action
+passe au quotient et d\'efinit un morphisme
+\begin{equation}
++: C^{\mathrm{reg}} \times_S C \to C.
+\end{equation}
+La restriction de $+$ \`a $C^{\mathrm{reg}} \times C^{\mathrm{reg}}$ d\'efinit une structure de
+sch\'ema en groupes commutatifs sur $C^{\mathrm{reg}}$ et $+$ est une action du groupe
+$C^{\mathrm{reg}}$ sur $C$.
+
+On d\'efinit comme suit des automorphismes de $(C,+)$:
+\begin{enumerate}
+\item[(a)] l\'automorphisme de $C = \bbP^1 \times \bbZ/n$
+\[
+\tau: (x,i) \mapsto (x^{-1}, -i)
+\]
+passe au quotient et d\'efinit un automorphisme $\tau$ de $(C,+)$;
+\item[(b)] pour tout sch\'ema $S$ et tout $\underline{\zeta} \in \mu_n(S)$, l\'automorphisme
+\[
+\nu(\underline{\zeta}): (x,i) \mapsto (x \cdot \zeta^i, i)
+\]
+passe au quotient et d\'efinit un automorphisme de $(C_S, +)$.
+\end{enumerate}
+De (a) et (b) on d\'eduit une action sur $C$ du sch\'ema en groupe produit semi-direct
+du groupe \`a deux \'el\'ements $\{e, \tau\}$ par $\mu_n$.
+
+\begin{proposition}
+Soit $C$ le $n$-gone standard sur $\Spec(\bbZ)$. La construction pr\'ec\'edente identifie
+le foncteur $\Aut(C,+)$ des automorphismes de $C$ compatibles \`a $+$ avec le produit
+semi-direct $\{e, \tau\} \ltimes \mu_n$. Le sous-groupe $\Aut^+(C,+)$ des automorphismes
+agissant trivialement sur $\Pic^0_{C/\bbZ}$ s\'identifie au sous-groupe $\mu_n$, et
+$\tau$ agit sur $\Pic^0$ par l\'automorphisme $x \mapsto x^{-1}$ de $\bbG_m$. Puisque
+$\Aut(\bbG_m) \cong \bbZ/2$, le diagramme
+\[
+\xymatrix{
+\Aut^+(C,+) \ar[r] \ar[d] & \Aut(C,+) \ar[d] \\
+\{e\} \ar[r] & \{e, \tau\}}
+\]
+montre qu\'il suffit de v\'erifier que $\Aut^+(C,+) \cong \mu_n$.
+\end{proposition}
+
+Soit $g \in \Aut^+(C,+)(S)$. On d\'eduit des lemmes pr\'ec\'edents qu\'il existe
+$\underline{\lambda} = (\lambda_i) \in \bbG_m^n(S)$ tel que $g$ soit $\alpha(\underline{\lambda})$
+(notation des lemmes). Que $g$ commute \`a $+$ signifie alors que
+$\lambda_i \lambda_j = \lambda_{i+j}$: $\underline{\lambda}$ d\'efinit un homomorphisme de
+$\bbZ/n$ dans $\bbG_m$ et $g$ est d\'efini par une section de $\mu_n$.
+
+\subsubsection{}
+Soient $k$ un corps alg\'ebriquement clos, et $(C,+)$ d\'eduit de la courbe ci-dessus
+par extension des scalaires de $\bbZ$ \`a $k$. On v\'erifie que, pour $x \in C^{\mathrm{reg}}(k)$,
+la translation $y \mapsto x+y$ agit par rotations sur le diagramme des composantes
+irr\'eductibles $\Gamma(C)$.
+
+\begin{definition}
+Une \textbf{courbe elliptique g\'en\'eralis\'ee} (sur une base $S$) est une courbe stable
+de genre un $p: C \to S$ munie d\'un morphisme
+\begin{equation}
++: C^{\mathrm{reg}} \times_S C \to C
+\end{equation}
+tel que
+\begin{enumerate}
+\item[(a)] La restriction de ce morphisme \`a $C^{\mathrm{reg}} \times_S C^{\mathrm{reg}}$ fait de
+$C^{\mathrm{reg}}$ un sch\'ema en groupes commutatif.
+\item[(b)] Ce morphisme d\'efinit une action du sch\'ema en groupes $C^{\mathrm{reg}}$ sur $C$.
+\item[(c)] Pour tout point g\'eom\'etrique $\overline{s}$ de $S$ tel que $C_{\overline{s}}$ soit
+singulier, les translations $y \mapsto x+y$ de $C_{\overline{s}}^{\mathrm{reg}}$ agissent par rotations
+sur $\Gamma(C_{\overline{s}})$.
+\end{enumerate}
+Bien entendu, une courbe elliptique g\'en\'eralis\'ee lisse n\'est d\'autre qu\'une courbe
+elliptique au sens usuel.
+\end{definition}
+
+\subsubsection{}
+Soit $(C,+)$ v\'erifiant les conditions (a) et (b) ci-dessus. Le sous-sch\'ema $U$ de
+$S$ tel que $C_{|S'}$ v\'erifie (c) est ouvert et ferm\'e dans $S$. Au-dessus de $U$,
+$C^{\mathrm{reg}}$ agit trivialement sur $\Pic^0_{C/S}$.
+
+\begin{proposition}
+Le sous-sch\'ema $U$ d\'ecrit ci-dessus est ouvert et ferm\'e dans $S$.
+\end{proposition}
+
+\begin{proof}
+Soit $\overline{x}$ un point g\'eom\'etrique de $C$. La translation $y \mapsto \overline{x}+y$
+agit par translation si et seulement si elle agit trivialement sur $\Pic^0_{C/S}$.
+Appliquons le lemme suivant (une variation sur un th\`eme de SGA 3):
+
+\begin{lemma}
+Soit $p: A \to S$ un sch\'ema en groupes sur $S$ de fibres des extensions de vari\'et\'es
+ab\'eliennes par des tores. Soient $g$ et $h$ deux endomorphismes de $A$. Il existe
+une partie ouverte et ferm\'ee $V$ de $S$ telle que, pour tout $S$-sch\'ema $T$,
+$g_T = h_T$ si et seulement si $T$ se factorise par $V$.
+\end{lemma}
+
+Le lemme montre que $U$ est ferm\'e, car son compl\'ement est image d\'une partie
+ouverte (et ferm\'ee) $C^{\mathrm{reg}} - V$ de $C^{\mathrm{reg}}$. Il prouve aussi que si $S = U$,
+$C^{\mathrm{reg}}$ agit trivialement sur $\Pic^0_{C/S}$.
+
+\begin{proof}[Preuve du lemme]
+Si $S$ est artinien local, de point $s$, et que $g_s = h_s$, alors $g = h$ sur $A_n$
+pour $n$ inversible, car ce groupe est fini \'etale. La r\'eunion des $A_n$ est
+sch\'ematiquement dense, et donc $g = h$.
+
+On peut se ramener au cas o\`u $S$ est noeth\'erien. Si $s \in S$, et que $g_s = h_s$,
+il r\'esulte que $\Ker(g-h)$ a m\^eme compl\'et\'e formel que $A$ en
+$0 \in A_s \subset A$, puis que $g = h$ dans un voisinage de $s$. Il existe donc $V$
+ouvert comme dans l\'enonc\'e. Soit $\overline{V}$ l\'adh\'erence de $V$. On a
+$A_{\overline{V}} = \overline{V}$, donc $g = h$ au-dessus de $\overline{V}$ et
+$\overline{V} \setminus V$ est ferm\'e.
+\end{proof}
+\end{proof}
+
+\begin{proposition}
+Soit $(p: C \to S, +)$ une courbe elliptique g\'en\'eralis\'ee. Il existe une famille
+localement finie de sous-sch\'emas $(S_n)_{n \geq 0, 1}$ ferm\'es et disjoints de $S$ telle que
+\begin{enumerate}
+\item[(a)] $S_0$ est le compl\'ementaire de l\'image du sous-sch\'ema de non-lissit\'e
+$C^{\mathrm{sing}}$.
+\item[(b)] Sur $S_n$, localement pour la topologie \emph{fppf}, $C$ est isomorphe \`a
+l\'image r\'eciproque de la courbe elliptique g\'en\'eralis\'ee \`a $n$ c\^ot\'es standard.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Le probl\`eme est local sur $S$ et trivial au voisinage des points de $S$ o\`u $C_s$
+est lisse.
+
+Soit donc $\overline{s}$ un point g\'eom\'etrique de $S$, localis\'e en $s \in S$ tel que la
+courbe $C_s$ soit un $n$-gone. Soit $\alpha$ un isomorphisme entre $C_{\overline{s}}$ et le
+polygone standard, tel que $\alpha(e)$ soit le point $1$ de la composante d\'indice
+$0 \in \bbZ/n$, et indexons les composantes de $C_{\overline{s}}$ par $\bbZ/n$ \`a l\'aide de
+$\alpha$. La translation par $x \in C_{\overline{s}}^{\mathrm{reg}}$, dans la composante d\'indice $i$,
+induit la rotation de $\Gamma(C_{\overline{s}})$ qui am\`ene la composante d\'indice $0$ sur
+celle d\'indice $i$: l\'addition induit sur $\pi_0(C_{\overline{s}}^{\mathrm{reg}}) \cong \bbZ/n$
+l\'addition dans $\bbZ/n$.
+
+Dans un voisinage \'etale de $s$, $C^{\mathrm{reg}}|_S$ admet des sections $x$ telles que
+$x(\overline{s})$ soit dans la composante d\'indice un de $C_{\overline{s}}^{\mathrm{reg}}$.
+L\'automorphisme $g = x + \cdot$ de $C|_S$ v\'erifie alors l\'hypoth\`ese du lemme
+suivant.
+
+\begin{lemma}
+Soient $C|_S$ une courbe stable de genre un sur $S$, $g$ un $S$-automorphisme de $C$
+et $\overline{s}$ un point g\'eom\'etrique de $S$ localis\'e en $s \in S$. On suppose que
+$C_{\overline{s}}$ est un $n$-gone, et que $g$ permute transitivement les points singuliers de
+$C_{\overline{s}}$. Soit $\Gamma$ l\'image du sous-sch\'ema de non lissit\'e $C^{\mathrm{sing}}$.
+Au-dessus d\'un voisinage de $s$, la courbe $C_\Gamma/\Gamma$ est isomorphe, localement
+pour la topologie \'etale, au $n$-gone standard.
+\end{lemma}
+
+On v\'erifie fibre par fibre que $C^{\mathrm{sing}}$ est non ramifi\'e sur $S$. Au voisinage
+\'etale de $s$, $C^{\mathrm{sing}}$ est donc somme disjointe de $n$ sous-sch\'emas
+$F_i \hookrightarrow S$, chaque $F_i$ \'etant un plongement ferm\'e. Puisque $g$ est un
+automorphisme, $g(\bigcup_i F_i) = \bigcup_i F_i$. Donc au voisinage \'etale de $s$,
+$g$ permute transitivement les $F_i$ et ceux-ci ont tous la m\^eme image $\Gamma$.
+Pour prouver le lemme, on peut supposer que $S = \Gamma$. Ce qui pr\'ec\`ede montre que
+$\Gamma$ est alors fini \'etale sur $S$. On peut le supposer somme de sections
+disjointes $x_i$. D\'apr\`es le th\'eor\`eme de d\'eformations, pour tout $s \in S$,
+$(C, x_i(s))/(S,s)$ est localement pour la topologie \'etale isomorphe au
+sous-sch\'ema de $\bbA^2$ d'\'equation $xy = t$ pour un $t$ convenable. Le lieu de non
+lissit\'e de ce sch\'ema est le sous-sch\'ema $t = 0$ de $S$; le lieu de non lissit\'e ne
+peut \^etre \'etale que si $t = 0$ au voisinage de $s$.
+
+Localement pour la topologie \'etale, $(C, x_i(s))/(S,s)$ est donc isomorphe au
+sous-sch\'ema de $\bbA^2_S$ d'\'equation $xy = 0$. \'Eclatons $C^{\mathrm{sing}}$ dans $C$ pour
+obtenir $\widetilde{C}$. Un calcul local montre que $\widetilde{C}$ est lisse sur $S$, de
+fibres isomorphes aux normalis\'ees des fibres de $C$, et que l\'image r\'eciproque
+dans $\widetilde{C}$ de $C^{\mathrm{sing}}$ est \'etale sur $S$. Soit $\pi: \widetilde{C} \to S'$ la
+factorisation de Stein de $\widetilde{C}$. $S'$ est fini \'etale sur $S$ et les fibres
+g\'eom\'etriques de $\pi$ sont isomorphes \`a $\bbP^1$. Localement sur $S$ (pour la
+topologie \'etale), $\widetilde{C}$ est donc somme de $n$ copies de $\bbP^1_S$. Au
+voisinage \'etale de $\overline{s}$, $C$ se d\'eduit de $\widetilde{C}$ comme $C_{\overline{s}}$
+de $\widetilde{C}_{\overline{s}}$, donc est un polygone de N\'eron standard.
+
+\textbf{Variante:} On se r\'eduit facilement \`a supposer $S$ noeth\'erien. On peut alors
+remplacer l\'argument de localisation \'etale utilis\'e par un passage aux
+compl\'et\'es; on se dispense ainsi du d\'elicat th\'eor\`eme de d\'eformations, remplac\'e
+par la th\'eorie locale, mais on doit v\'erifier une compatibilit\'e entre \'eclatements
+et compl\'etions.
+
+\textit{Fin de la preuve de la proposition.} Soient $U \subset S$ et
+$V \subset C^{\mathrm{reg}}$, ouvert et ferm\'e comme dans la proposition pr\'ec\'edente et sa
+d\'emonstration. Il faut prouver $U$ ouvert. Puisque le compl\'ement de l\'image du lieu
+de non lissit\'e de $C$ est dans $U$, on se ram\`ene au cas o\`u $S$ est \'egal \`a cette
+image. Soit $x \in U$. Quitte \`a se localiser pr\`es de $U$ pour la topologie \'etale,
+il existe une translation $g$ v\'erifiant l\'hypoth\`ese du lemme ci-dessus, et on peut
+supposer que la courbe $C|_S$ est isomorphe au $n$-gone standard. On v\'erifie alors
+que l\'image d\'une partie ouverte et ferm\'ee de $C^{\mathrm{reg}}$ (ici, $= V$) est ouverte et
+ferm\'ee.
+\end{proof}
+
+\begin{proposition}
+Soit $X/S$ une courbe elliptique g\'en\'eralis\'ee sur $S$, de section unit\'e
+$e \in X(S)$ et soit $u: Y \to X$ un rev\^etement fini \'etale de $X$ muni de
+$\widetilde{e} \in Y(S)$ au-dessus de $e$. On suppose que les fibres g\'eom\'etriques de
+$Y/S$ sont connexes. Il existe alors une et une seule structure de courbe elliptique
+g\'en\'eralis\'ee $+$ sur $Y$, d\'unit\'e $\widetilde{e}$, telle que le diagramme
+\begin{equation}
+\xymatrix{
+Y^{\mathrm{reg}} \times_S Y \ar[r]^{+} \ar[d]_{u \times u} & Y \ar[d]^{u} \\
+X^{\mathrm{reg}} \times_S X \ar[r]^{+} & X}
+\end{equation}
+soit commutatif.
+\end{proposition}
+
+\begin{proof}
+Soit $t \in Y^{\mathrm{reg}}(S)$. Soit $F$ le foncteur qui \`a $T/S$ associe l\'ensemble des $+$
+rendant commutatif le diagramme correspondant sur $T$. Ce foncteur est
+repr\'esent\'e par un rev\^etement \'etale $S'$ de $S$ (ouvert et ferm\'e dans le
+rev\^etement d\'efini par la factorisation de Stein de $Y_T \times_T Y_T \to Y_T$).
+
+L\'application $e \mapsto (\cdot + e)$ envoie $S'$ dans $u^{-1}(u(t)+e)(S)$, fini \'etale
+sur $S$. Le sous-foncteur $F'$ de $F$ correspondant aux $+$ tels que
+$\widetilde{e}_T + t = t_T$ est donc encore repr\'esent\'e par un $S''$ fini \'etale sur $S$.
+
+Prouvons que $S'' = S$. Il suffit de v\'erifier que pour $S$ spectre d\'un corps
+alg\'ebriquement clos, il existe un et un seul $+$ relevant $u(t)+\cdot$ tel que
+$\widetilde{e} + t = t$.
+
+Ceci revient \`a montrer que le rev\^etement $Y$ de $X$, et son image r\'eciproque
+par $u(t)+\cdot: X \to X$, sont isomorphes. Pour $X$ lisse, cela r\'esulte de ce que
+$u(t)$ est dans la composante neutre de $X^{\mathrm{reg}}$. Pour $X$ un polygone de N\'eron, on
+observe que $X$ n\'a qu\'un seul rev\^etement irr\'eductible de degr\'e donn\'e.
+
+L\'unique section de $S''$ sur $S$ d\'efinit un morphisme $t+\cdot: Y \to Y$. Cette
+construction, \'etant compatible aux changements de base, d\'efinit
+$+: Y^{\mathrm{reg}} \times_S Y \to Y$ rendant le diagramme commutatif, tel que $e+z = z$,
+et caract\'eris\'e par ces propri\'et\'es.
+
+Reste \`a prouver que $+$ fait de $Y$ une courbe elliptique g\'en\'eralis\'ee, i.e.~que
+diverses identit\'es, telles $x+y = y+x$ ($x, y \in Y^{\mathrm{reg}}(S)$), sont v\'erifi\'ees.
+
+Puisque $u(x+y) = u(x)+u(y) = u(y)+u(x) = u(y+x)$, $x+y$ est une section de
+$u^{-1}(u(y+x)(S))$, \'etale sur $S$, et il suffit de v\'erifier que $x+y = y+x$ pour
+les fibres g\'eom\'etriques. Pour les fibres propres et lisses, une loi de composition \`a
+unit\'e est automatiquement une loi de groupe ab\'elien. Pour les autres, le polygone de
+N\'eron \`a $n$ c\^ot\'es, avec sa loi $+$ standard, n\'a pour rev\^etements que les
+polygones de N\'eron \`a $nk$ c\^ot\'es, avec leur loi $+$ standard.
+
+Les autres identit\'es \`a v\'erifier se prouvent de m\^eme.
+\end{proof}
+
+\subsubsection{}
+Soit $(C,+)$ une courbe elliptique g\'en\'eralis\'ee sur $S$. On v\'erifie fibre par fibre
+que le morphisme $n: x \mapsto nx$ est plat. Son noyau $C_n$ est donc plat sur $S$.
+
+Supposons que $S$ soit le spectre d\'un corps alg\'ebriquement clos $k$.
+\begin{enumerate}
+\item[(a)] Si $C$ est lisse, on sait que $C_n$ est fini de rang $n^2$.
+\item[(b)] Si $C$ est un $m$-gone, on a $C^{\mathrm{reg}} \cong \bbG_m \times \bbZ/m$.
+Notant $(n,m)$ le pgcd de $n$ et $m$, on a donc
+\[
+C_n \cong \mu_n \times \bbZ/(n,m).
+\]
+\end{enumerate}
+En particulier, $C_n$ est fini de rang $n \cdot (n,m)$.
+
+Rappelons le lemme suivant.
+
+\begin{lemma}
+Soit $f: X \to S$ un morphisme quasi-fini plat et s\'epar\'e, avec $S$ noeth\'erien.
+Si le rang des fibres de $f$ est constant, alors $f$ est fini.
+\end{lemma}
+
+\begin{proof}
+Prouvons que $f$ est propre. D\'apr\`es le crit\`ere valuatif de propret\'e, on peut
+supposer que $S$ est un trait. D\'apr\`es le Main theorem de Zariski, $X$ est un ouvert
+d\'un sch\'ema $\overline{X}$ fini sur $S$ qu\'on peut m\^eme prendre plat sur $S$.
+Comparant les rangs des fibres sp\'eciales et g\'en\'eriques de $\overline{X}$ et $X$, on
+trouve que $\overline{X} = X$, d\'o\`u le lemme.
+\end{proof}
+
+\begin{corollary}
+Soient $p: C \to S$ une courbe elliptique g\'en\'eralis\'ee sur $S$ et $n$ un entier.
+On suppose que, pour tout point g\'eom\'etrique $\overline{s}$ de $S$, $C_{\overline{s}}$ est
+lisse, ou un $m$-gone, avec $n \mid m$. Alors, $C_n$ est fini localement libre sur $S$
+de rang $n^2$.
+\end{corollary}
+
+On se ram\`ene \`a supposer $S$ noeth\'erien, et on applique les r\'esultats ci-dessus.
+
+\subsection{Courbes stables irr\'eductibles}
+
+Dans ce \S, nous prouvons que, pour $C/S$ une courbe stable de genre un, de fibres
+g\'eom\'etriques irr\'eductibles, et pour $e \in C^{\mathrm{reg}}(S)$, il existe sur $C$ une et
+une seule structure de courbe elliptique g\'en\'eralis\'ee d\'unit\'e $e$.
+
+\subsubsection{}
+Certains r\'esultats pr\'eliminaires vaudront pour un morphisme propre et plat de
+pr\'esentation finie $p: C \to S$ v\'erifiant la condition suivante:
+\begin{equation}
+\text{$C$ est une courbe de Cohen-Macaulay de genre un sur $S$ et } R^1 p_* \cO_C \cong \cO_S
+\text{ universellement et } p^* p_* \omega_{C/S} \xrightarrow{\sim} \omega_{C/S}.
+\end{equation}
+Une courbe stable de genre un sur $S$ v\'erifie cette condition. Si une fibre
+g\'eom\'etrique $C_{\overline{s}}$ de $p$ v\'erifie cette condition, alors $C|_S$ v\'erifie
+cette condition dans un voisinage de $s$ (pour la condition ``Cohen-Macaulay'', voir
+EGA IV 12.2.1.; pour $R^1 p_* \cO_C$, voir EGA III. 7.8.8.; si
+$p_* \cO_C = \cO_S$ universellement, $p_* \omega_{C/S}$ est localement libre de
+formation compatible \`a tout changement de base, et on conclut comme dans la section 1.6).
+Les fibres sp\'eciales des mod\`eles de N\'eron de courbes elliptiques v\'erifient cette
+condition (SGA 7 X 1.15). En particulier, les courbes $p: C \to S$ de genre un \`a
+fibres g\'eom\'etriques int\`egres (= elliptiques, cubiques planes nodales ou cubiques
+planes cuspidales) v\'erifient cette condition.
+
+Pour toute section $t$ de $C/S$, on d\'esignera par $\mathfrak{m}(t)$ le faisceau d\'id\'eaux
+qui d\'efinit le sous-sch\'ema $t(S)$.
+
+\begin{proposition}
+Soient $S$ un sch\'ema noeth\'erien, $\overline{s}$ un point g\'eom\'etrique de $S$
+localis\'e en $s \in S$, $p: C \to S$ v\'erifiant la condition ci-dessus et $\mathcal{J}$
+un faisceau coh\'erent sur $C$ plat sur $S$. On suppose que le faisceau $\mathcal{J}_s$
+sur $C_{\overline{s}}$ est isomorphe \`a un faisceau $\mathfrak{m}(t_{\overline{s}})$, pour
+$t_{\overline{s}} \in C_{\overline{s}}(\overline{s})$. Alors, au-dessus d\'un voisinage $U$ de
+$s$ dans $S$, il existe une et une seule section $t \in C(U)$ telle que
+$\mathcal{J}|_{p^{-1}(U)}$ soit isomorphe \`a $\mathfrak{m}(t)$.
+\end{proposition}
+
+La d\'emonstration repose sur le lemme suivant:
+
+\begin{lemma}
+Il existe un voisinage $U$ de $s$ au-dessus duquel
+$p_* \underline{\Hom}(\mathcal{J}, \cO_C)$ est localement libre de rang un de formation
+compatible \`a tout changement de base $U' \to U$.
+\end{lemma}
+
+D\'eduisons la proposition de ce lemme. Quitte \`a restreindre $S$, on peut supposer que
+$p_* \underline{\Hom}(\mathcal{J}, \cO_C)$ admet une section globale $e$ qui, apr\`es
+tout changement de base, d\'efinit un isomorphisme
+$\cO_S \xrightarrow{\sim} p_* \underline{\Hom}(\mathcal{J}, \cO_C)$. Vu l\'hypoth\`ese,
+apr\`es changement de base de $S$ \`a $\overline{s}$, $e$ d\'efinit un isomorphisme
+$\mathcal{J}_{\overline{s}} \xrightarrow{\sim} \mathfrak{m}(t_{\overline{s}})$. Comme $e$
+est injectif, il r\'esulte de EGA IV.11.3.7 que $\Ker e = 0$ et que $\K = \Coker e$
+est $p$-plat en chaque point $x$ de $C_s$, donc que $\Ker e = 0$ et $\K = \Coker e$
+est plat sur un voisinage $U$ de $s$. Quitte \`a restreindre $S$, on peut supposer que
+$U = S$.
+
+Comme $\K$ est de support fini, $\K$ est de support fini sur $S$. La fl\`eche
+$\cO_S \to p_*(\K)$, qui vient de $\cO_C \to \K$, est apr\`es tensorisation avec $k(s)$
+un isomorphisme. Donc, en appliquant le lemme de Nakayama (ce qui est loisible, car le
+support de $\K$ est fini sur $S$) ce morphisme est surjectif et, parce que $\K$ est plat
+sur $S$, il est aussi injectif.
+
+Quitte \`a restreindre $S$, on peut donc supposer que $e$ est injectif et que
+$\cO_S \xrightarrow{\sim} p_*(\K)$. Le sous-sch\'ema de $C$ d\'efini par $e(\mathcal{J})$
+est donc isomorphe \`a $S$ et d\'efinit la seule section $t$ telle que
+$\mathcal{J} \xrightarrow{\sim} \mathfrak{m}(t)$.
+
+\begin{proof}[Prouvons le lemme]
+La suite exacte longue de cohomologie associ\'ee \`a
+\[
+0 \to \mathfrak{m}(t_{\overline{s}}) \to \cO_{C_{\overline{s}}} \to \cO(t_{\overline{s}}) \to 0
+\]
+et la condition sur $R^1 p_* \cO_C$ fournissent
+\[
+\dim H^0(C_{\overline{s}}, \mathcal{J}_{\overline{s}}) = 1 \quad \text{et} \quad
+H^1(C_{\overline{s}}, \mathcal{J}_{\overline{s}}) = 0.
+\]
+Par hypoth\`ese, $R^i p_* \mathcal{J}$ est nul pour $i \neq 1$. Il en r\'esulte que, dans un
+voisinage de $s$, $R^i p_* \mathcal{J} = 0$ pour $i \neq 1$, ceci reste apr\`es tout
+changement de base, et que $R^1 p_* \mathcal{J}$ est localement libre de rang un de
+formation compatible \`a tout changement de base.
+
+Dans le th\'eor\`eme de dualit\'e, prenons les faisceaux de cohomologie de degr\'e $-1$.
+On obtient
+\[
+p_* \underline{\Hom}(\mathcal{J}, \omega_{C/S}) \xrightarrow{\sim} (R^1 p_* \mathcal{J})^\vee
+\]
+(ou $^\vee$ d\'esigne le $\cO_S$-module dual). En particulier,
+$p_* \underline{\Hom}(\mathcal{J}, \omega_{C/S})$ est localement libre de rang un compatible
+\`a tout changement de base. Il r\'esulte de la condition sur $\omega_{C/S}$ que
+$p_* \omega_{C/S}$ est localement libre de rang un de formation compatible \`a tout
+changement de base. La condition implique donc encore que, localement sur $S$,
+$\omega_{C/S}$ est isomorphe \`a $\cO_C$ et le lemme en r\'esulte.
+\end{proof}
+
+\begin{corollary}
+Soit $p: C \to S$ une courbe de genre un sur $S$ qui v\'erifie la condition ci-dessus.
+Soit $\cL$ un faisceau inversible sur $C$ qui d\'efinisse un \'el\'ement de
+$\Pic^{(0)}_{C/S}$. Pour toute section $t$ de $C$ sur $S$, il existe une et une seule
+section $t'$ telle que localement sur $S$
+\[
+\mathfrak{m}(t') \cong \mathfrak{m}(t) \otimes \cL.
+\]
+\end{corollary}
+
+\begin{proof}
+On se ram\`ene \`a supposer $S$ noeth\'erien. D\'apr\`es la proposition ci-dessus on peut
+supposer que $S$ est le spectre d\'un corps alg\'ebriquement clos.
+
+Nous allons traiter un cas ``universel''. Faisons le changement de base
+$T = C \times_S \Pic^{(0)}_{C/S} \to S$, prenons pour $t$ la section universelle et pour
+$\cL$ le faisceau inversible universel. Pour chaque point de $T$ de la forme
+$(x, [\Pic^0])$ ($x \in C$), l\'assertion est trivialement v\'erifi\'ee. Donc, par la
+proposition, l\'assertion est vraie sur un voisinage de $C \times \{[\Pic^0]\} \subset T$.
+La courbe $C$ \'etant propre, il existe un voisinage ouvert $U$ de $[\Pic^0]$ dans
+$\Pic^{(0)}_{C/S}$ tel que l\'assertion soit vraie au-dessus de $C \times U \subset T$.
+L\'assertion est donc valable sur le produit de $C$ par le groupe engendr\'e par $U$,
+qui est $\Pic^{(0)}_{C/S}$ tout entier, donc sur $\Pic^{(0)}_{C/S}$.
+\end{proof}
+
+\subsubsection{}
+Nous noterons $+$ le morphisme
+\[
++: C \times_S \Pic^{(0)}_{C/S} \to C
+\]
+tel que pour $t \in C(S)$ et pour $\lambda \in \Pic^{(0)}_{C/S}(S)$, repr\'esent\'e par un
+faisceau inversible $\cL$, on ait
+\begin{equation}
+\mathfrak{m}(t + \lambda) \cong \mathfrak{m}(t) \otimes \cL^{-1}
+\end{equation}
+(localement sur $S$).
+
+Pour $t \in C^{\mathrm{reg}}(S)$, $\varphi(t) = \mathfrak{m}(t) \otimes \mathfrak{m}(e)^{-1}$ est
+faisceau inversible, d\'o\`u un morphisme
+\begin{equation}
+\varphi: C^{\mathrm{reg}} \to \Pic^{(0)}_{C/S}
+\end{equation}
+On a
+\begin{equation}
+\varphi(0) = 0, \quad \varphi(t + \lambda) = \lambda + \varphi(t).
+\end{equation}
+
+\begin{theorem}
+Soit $p: C \to S$ une courbe de genre un qui v\'erifie la condition ci-dessus.
+\begin{enumerate}
+\item[(i)] $\varphi$ est une immersion ouverte.
+\item[(ii)] Si $p$ est \`a fibres g\'eom\'etriques int\`egres, l\'image de $\varphi$ est un
+torseur sous $\Pic^{(0)}_{C/S}$ sur $[0] \in \Pic_{C/S}$.
+\item[(iii)] Si $p$ est \`a fibres g\'eom\'etriques r\'eduites, l\'action $+$ de
+$\Pic^{(0)}_{C/S}$ sur $C$ induit l\'action triviale de $\Pic^{(0)}_{C/S}$ sur
+$\Pic_{C/S}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Il suffit de prouver (i) et (ii) lorsque $S$ est le spectre d\'un corps alg\'ebriquement
+clos $k$ (EGA IV. 17.8.2.). Les images par $\varphi$ des diverses composantes connexes de
+$C^{\mathrm{reg}}$ sont alors disjointes.
+
+Soient $D$ l\'une d\'elles, et $e \in D(k)$. Les applications $\lambda \mapsto \lambda + e$
+et $t \mapsto \varphi(t) - \varphi(e)$ sont des isomorphismes inverses l\'un de l\'autre
+entre $D$ et $\Pic^0$. En particulier, $\varphi$ est un isomorphisme
+$D \xrightarrow{\sim} \varphi(e) + \Pic^0$ et (i), (ii) en r\'esultent.
+
+Prouvons (iii). Soit $\lambda$ dans $\Pic^0$, repr\'esent\'e par un faisceau inversible
+$\cL$. Localement pour la topologie \emph{fppf}, tout \'el\'ement de $\Pic^0$ se met
+sous la forme $\bigotimes_i \mathfrak{m}(t_i)^{\otimes n_i}$ avec $\sum_i n_i = 0$, pour
+des sections $t_i$ convenables de $C^{\mathrm{reg}}$, et l\'assertion en r\'esulte.
+\end{proof}
+
+co{\"\i}ncide avec $+$ sur $C^{\mathrm{reg}}$. Par passage \`a l'adh\'erence sch\'ematique, on a
+$+' = +$ partout, d'o\`u (iv).
+
+Prouvons (iii). Pour $t \in C^{\mathrm{reg}}(S)$, on a
+$\varphi_e(-t) = -\varphi_e(t)$, donc localement sur $S$
+\[
+\mathfrak{m}(-t) \otimes \mathfrak{m}(e)^{-1} \cong
+(\mathfrak{m}(t) \otimes \mathfrak{m}(e)^{-1})^{\otimes -1}
+\]
+d'o\`u
+\[
+\mathfrak{m}(-t) \cong \mathfrak{m}(t)^{\otimes -1} \otimes \cO(-2e)
+\cong \underline{\Hom}(\mathfrak{m}(t), \cO(-2e)).
+\]
+
+Il reste \`a prouver que pour $t$ quelconque, le second membre de la formule est,
+localement sur $S$, de la forme $\mathfrak{m}(x)$. La suite exacte
+\[
+0 \to \mathfrak{m}(t) \to \cO_C \to t_*\cO_S \to 0
+\]
+donne la suite exacte
+\[
+0 \to \underline{\Hom}(t_*\cO_S, \cO(-2e)) \to
+\underline{\Hom}(\cO_C, \cO(-2e)) \to
+\underline{\Hom}(\mathfrak{m}(t), \cO(-2e)) \to
+\Ext^1(t_*\cO_S, \cO(-2e)) \to 0.
+\]
+Comme $\omega_{C/S}$ est un faisceau inversible sur $C$, $\cO(-2e)$ est,
+localement sur $C$, isomorphe \`a $\omega_{C/S}$. Donc localement sur $C$ on a
+l'isomorphisme cherch\'e.
+
+\begin{corollary}
+Soit $p: C \to S$ une courbe elliptique g\'en\'eralis\'ee sur $S$. L\'application
+$x \mapsto -x$ sur $C^{\mathrm{reg}}$ se prolonge en un automorphisme de $C$.
+\end{corollary}
+
+L\'extension cherch\'ee est unique, car $C^{\mathrm{reg}}$ est sch\'ematiquement dense dans $C$.
+Le probl\`eme est donc local pour la topologie fpqc.
+
+Le probl\`eme est trivial au-dessus de l\'ouvert o\`u $C$ est lisse. Soit $\overline{s}$
+un point g\'eom\'etrique de $S$, localis\'e en $s \in S$, tel que $C_{\overline{s}}$
+soit un $n$-gone. Au voisinage de ce point, $C$ est fini et plat et, localement pour la
+topologie \emph{fppf}, admet une section $t$ telle que les multiples de $t$ rencontrent
+les diverses composantes de $C_{\overline{s}}$. Au voisinage de $s$, $t$ engendre un
+sous-groupe $H$ de $C_n$, isomorphe \`a $\bbZ/n$.
+
+Le groupe $H$ agit librement sur $C$, et $C_s/H$ est un 1-gone. Dans un voisinage de
+$s$, on a alors:
+\begin{enumerate}
+\item[(a)] $H$ agit librement sur $C$, et $C/H$ est une courbe elliptique
+g\'en\'eralis\'ee sur $S$.
+\item[(b)] $C/H$ est \`a fibres g\'eom\'etriques irr\'eductibles (appliquer la
+proposition 1.15).
+\item[(c)] $C$ est un rev\^etement fini \'etale de $C/H$.
+\end{enumerate}
+
+On sait que $C/H$ admet une involution $x \mapsto -x$. On proc\`ede alors comme dans la
+proposition 1.17 pour relever cette involution en une involution de $C$.
+
+\subsection{Construction de courbes elliptiques g\'en\'eralis\'ees}
+
+Ce \S ne servira pas dans la suite de cet article et nous recommandons au lecteur de
+l'omettre en premi\`ere lecture. Nous y d\'emontrons le th\'eor\`eme suivant 3.2 ci-dessous.
+
+\subsubsection{}
+Soit $p: C \to S$ une courbe stable de genre un munie d\'une section $e \in C^{\mathrm{reg}}(S)$.
+Soit $G$ un $S$-sch\'ema en groupes commutatif plat localement de pr\'esentation finie qui
+agit sur $C$. Soient les conditions suivantes.
+\begin{enumerate}
+\item[(1)] $G$ agit trivialement sur $\Pic^{(0)}_{C/S}$.
+\item[(2)] Pour tout point g\'eom\'etrique $\overline{s}$ de $S$, l\'action de
+$G_{\overline{s}}$ sur $C_{\overline{s}}$ fait de $(C_{\overline{s}}, e(\overline{s}))$ une
+courbe elliptique g\'en\'eralis\'ee.
+\end{enumerate}
+
+\begin{theorem}
+Sous les hypoth\`eses ci-dessus, il existe sur $C$ une et une seule structure de courbe
+elliptique g\'en\'eralis\'ee d\'unit\'e $e$ telle que $G$ agisse par translations.
+\end{theorem}
+
+\begin{proof}[Esquisse de la d\'emonstration]
+La condition (1) permet de d\'efinir une loi de composition $+$ sur $C^{\mathrm{reg}}$ \`a valeurs
+dans $C$ par la formule
+\[
+\mathfrak{m}(x+y) \cong \mathfrak{m}(y) \otimes \mathfrak{m}(e) \otimes
+\mathfrak{m}(x)^{-1}.
+\]
+La condition (2) assure que cette loi fait de $(C, +)$ une courbe elliptique
+g\'en\'eralis\'ee sur $S$. L\'unicit\'e r\'esulte de la proposition 2.7 (iv).
+\end{proof}
+
+\end{document}

@@ -1,0 +1,1293 @@
+% SEGMENT 2 of 2: Pages 31-60
+% Values of Abelian L-functions at Negative Integers over Totally Real Fields
+% P. Deligne and K.A. Ribet
+% Inventiones math. 59, 227--286 (1980)
+% This file covers journal pages 257--286 (approximately PDF pages 31--60)
+% Typeset with XeLaTeX
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'{e}or\`{e}me}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'{e}finition}
+\newtheorem{remark}[theorem]{Remarque}
+
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Exemple}
+
+% Custom environment for named theorems (theorem with explicit number in name)
+\newenvironment{namedtheorem}[1][]{%
+  \renewcommand{\thetheorem}{#1}%
+  \theoremstyle{plain}%
+  \begin{theorem}%
+}{\end{theorem}\renewcommand{\thetheorem}{\arabic{section}.\arabic{theorem}}}
+
+% Math operators
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Nm}{Nm}
+% Shortcuts
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\DD}{\mathfrak{D}}
+\newcommand{\pp}{\mathfrak{p}}
+\newcommand{\ff}{\mathfrak{f}}
+\newcommand{\GG}{\mathfrak{G}}
+\newcommand{\q}{\mathfrak{q}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\fr}{\mathfrak{r}}
+\newcommand{\fI}{\mathfrak{I}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\Gm}{\mathbb{G}_\mathrm{m}}
+\newcommand{\cusp}{\mathrm{cusp}}
+
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\ba}{\mathbf{a}}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vphi}{\varphi}
+\newcommand{\ang}[1]{\langle #1 \rangle}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\set}[1]{\{ #1 \}}
+
+% Redefinitions for the paper
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{6}
+
+\title{Values of Abelian $L$-functions at Negative Integers\\over Totally Real Fields}
+\author{P. Deligne and K.A. Ribet\footnote{Permanent address: Berkeley Math. Department, Berkeley, CA 94720, USA}}
+\date{}
+
+\begin{document}
+
+% We start from the middle of section 4 (page 257 of the journal)
+% The proof of Theorem 4.5 is being completed
+
+\section*{Completion of \S 4. An Irreducibility Theorem (continued)}
+\addcontentsline{toc}{section}{\S 4. An Irreducibility Theorem (conclusion)}
+
+\textit{[Theorem \textup{(4.5)} was stated on page \textup{255}. Its proof was in progress. We resume at the point where varieties satisfying conditions (i), (ii), (iii) are being constructed.]}
+
+To construct varieties $X$ satisfying (i) and (ii), we use the description given in [4] of the category of ordinary abelian varieties over a finite field. The equivalence of categories furnished by [4] identifies ordinary Hilbert--Blumenthal abelian varieties with pairs $(\mathscr{E}, F)$, where $\mathscr{E}$ is a locally free $\mathcal{O}$-module of rank $2$, and $F$ is a ``Frobenius'' endomorphism. One requires that $F$ satisfy:
+\begin{enumerate}[label=(\alph*)]
+\item $\det F = q^b$, and $(\tr F)^2 - 4\det F < 0$,
+\item the completion $\mathscr{E} \otimes \mathbb{Z}_p$ of $\mathscr{E}$ decomposes as the sum $\mathscr{E}' \oplus \mathscr{E}''$ of two $F$-stable free $(\mathcal{O} \otimes \mathbb{Z}_p)$-modules of rank $1$, with $F$ acting as $q^{1/b}u$ on $\mathscr{E}'$ and as $u^{-1}$ on $\mathscr{E}''$ for some $u \in (\mathcal{O} \otimes \mathbb{Z}_p)^*$.
+\end{enumerate}
+[The number $u$ appearing in (b) is the number $u$ associated above to the abelian variety corresponding to $(\mathscr{E}, F)$.] Varieties which admit level-$N$ structures correspond to pairs $(\mathscr{E}, F)$ which satisfy in addition:
+\begin{enumerate}[label=(\alph*), resume]
+\item We have $F \equiv 1 \pmod{N}$.
+\end{enumerate}
+We will construct pairs $(\mathscr{E}, F)$ by considering irreducible polynomials $X^2 + cX + d$ $(c, d \in \mathcal{O})$ and taking $\mathscr{E}$ to be the integer ring of $K[X]/(X^2 + cX + d)$ and $F$ to be multiplication by $X$. To satisfy conditions (a) and (b), we need:
+\begin{enumerate}[label=(\arabic*)]
+\item $d = q^b$;
+\item $c^2 - 4q^b \ll 0$;
+\item $c \in (\mathcal{O} \otimes \mathbb{Z}_p)^*$.
+\end{enumerate}
+For (c), we require that $\frac{X-1}{N}$ be integral:
+\begin{enumerate}[label=(\arabic*), resume]
+\item $N \mid (2 + c)$, $N^2 \mid (1 + q^b + c)$.
+\end{enumerate}
+Then $u$, being the unit root of $X^2 + cX + d$, will be congruent to $-c$, $\bmod\, q^b$.
+
+To complete the proof of the theorem, we pick $c \in \mathcal{O}$ so that $c \equiv -2 \pmod{N^2}$ and $c \equiv -\tilde{u} \pmod{p^n}$. Next we choose $b$ so that $c^2 - 4q^b \ll 0$, $q^b \equiv 1 \pmod{N}$, and $p^n \mid q^b$. Conditions (1) through (4) are satisfied, and we have $u^{-1} \equiv -c^{-1} \equiv -\tilde{u}^{-1} \pmod{p^n}$ as required.
+
+\qed
+
+We now define a $\Gamma_0(N)$ structure on a Hilbert--Blumenthal abelian variety to be an $\mathcal{O}$-linear immersion $\mathcal{O} \otimes \mu_N \hookrightarrow X$. (Here $N$ is a positive integer, not necessarily prime to $p$.) Let $\mathscr{L}$ be a locally free rank-one $\mathcal{O}$-module with positivity, and let $\mathscr{F}[\mathscr{L}, N]$ be the functor
+\[
+S \longmapsto \{\text{isomorphism classes of triples } (X, \lambda, \alpha) \mid X \text{ is a Hilbert-Blumenthal} \\
+\text{abelian variety over } S;\ \lambda \text{ is a positive isomorphism } \mathscr{P}(X) \simeq \mathscr{L};\ \alpha \text{ is} \\
+\text{a } \Gamma_0(N)\text{-structure}\}.
+\]
+For $N$ sufficiently large, such triples have no automorphisms, and $\mathscr{F}[\mathscr{L}, N]$ is represented by an algebraic space $\mathscr{M}[\mathscr{L}, N]$, smooth over $\mathbb{Z}$.
+
+\begin{corollary}[(4.6)]
+For each prime $p$, the reduction $\bmod\, p$ of $\mathscr{M}[\mathscr{L}, N]$ is geometrically irreducible.
+\end{corollary}
+
+\begin{proof}
+Let us write $N = p^n N'$, where $p \nmid N'$. Since $\mathscr{M}[\mathscr{L}, N]$ is surjective $\bmod\, p$ when $N$ is a multiple of $N$, we may prove the corollary with $N$ replaced by any multiple of $N$. Hence we may assume that $N'$ is so large that the moduli space $\mathscr{M}[\mathscr{L}, N']$ exists.
+
+Over the algebraic closure $\overline{\mathbb{F}}$ of $\mathbb{F}_p$, let us fix an embedding $\mu_{N'} \hookrightarrow (\mathbb{Z}/N'\mathbb{Z})^2$. After tensoring with $\mathcal{O}$, we get a map $g: \mathcal{O} \otimes \mu_{N'} \hookrightarrow (\mathcal{O}/N'\mathcal{O})^2$. Via $g$, a level $N'$ structure on a Hilbert--Blumenthal abelian variety gives rise to a $\Gamma_0(N')$-structure on the variety, so that we have a map $\mathscr{M}_{N'}[\mathscr{L}] \to \mathscr{M}[\mathscr{L}, N']$ over $\overline{\mathbb{F}}$. If $\Gamma$ is the subgroup of $\GL(2, \mathcal{O}/N'\mathcal{O})$ fixing $g$, we find an isomorphism $\mathscr{M}_{N'}[\mathscr{L}]/\Gamma \xrightarrow{\sim} \mathscr{M}[\mathscr{L}, N']$ over $\overline{\mathbb{F}}$. Now $\Gamma$ acts transitively on the geometric connected components of $\mathscr{M}_{N'}[\mathscr{L}]$ because $\det \Gamma = (\mathcal{O}/N'\mathcal{O})^*$; this gives the irreducibility of $\mathscr{M}[\mathscr{L}, N']$ over $\overline{\mathbb{F}}$, proving the corollary in case $N = N'$. If $p^n > 1$ we remark that similarly there is an isomorphism
+\[
+\mathscr{M}_{N'}[\mathscr{L}, p^n]/\Gamma \xrightarrow{\sim} \mathscr{M}[\mathscr{L}, N] \quad (\text{over } \overline{\mathbb{F}}).
+\]
+The theorem implies that $\Gamma$ permutes the geometric connected components of $\mathscr{M}_{N'}[\mathscr{L}, p^n]$ (they are the same as those of $\mathscr{M}_{N'}[\mathscr{L}, N']$), so we again get the statement of the corollary.
+\end{proof}
+
+% ============================================================
+\section{Hilbert Modular Forms}\label{sec:5}
+% ============================================================
+
+In this \S, we review the connections among complex, algebraic, and $p$-adic Hilbert modular forms (for $K$), emphasizing the $q$-expansions of these forms. Our irreducibility theorem (4.6) implies a $q$-expansion principle for such forms, which states (roughly speaking) that a form is determined by any one of its $q$-expansions.
+
+In our exposition, we will follow very closely Chap.~I of Katz's paper [19]. In order to make our discussion consistent with that of [19], we shall slightly change the definition of a $\Gamma_0(N)$-structure on a HBAV $X/S$. Namely, we shall now understand such a structure to mean an embedding
+\[
+i: (N^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1})(1) \hookrightarrow X
+\]
+rather than an embedding
+\[
+\alpha: ((\mathcal{O}/N\mathcal{O})^2 \hookrightarrow X
+\]
+as above. This change has little importance for what follows, in light of the correspondence $X \mapsto X \otimes \mathfrak{D}^{-1}$ between HBAV's provided with a $\Gamma_0(N)$ structure in the previous sense and those provided with a $\Gamma_0(N)$-structure in the new sense.
+
+In order to define modular forms, we choose (and fix) an ideal $\mathfrak{c}$ of $K$, which will serve as polarization module. We view $\mathfrak{c}$ as a signed $\mathcal{O}$-module (2.25), endowing it with its canonical positivity $+_{\mathrm{can}}$. This choice being made, modular forms are functions of quadruples $(X, \lambda, \omega, i)$, where:
+\begin{itemize}
+\item $X$ is a HBAV over a ring $R$,
+\item $\lambda: \mathscr{P}(X) \xrightarrow{\sim} \mathfrak{c}$ is a positive isomorphism,
+\item $\omega$ is a basis of the $\mathcal{O} \otimes R$-module $\underline{\omega}_{X/R}$, apriori a locally free $\mathcal{O} \otimes R$-module of rank $1$.
+\item $i: N^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1} = \hookrightarrow X$ is a $\Gamma_0(N)$-structure (over $R$).
+\end{itemize}
+Note that $\omega$ amounts to an $\mathcal{O}$-linear isomorphism
+\begin{equation}\label{eq:5.1}
+\Lie(X/R) \xrightarrow{\sim} \mathfrak{D}^{-1} \otimes R.
+\end{equation}
+
+For $k$ a positive integer, we let $M_k(\Gamma_0(N), R)$ be the $R$-module of (Hilbert) modular forms of weight $k$ on $\Gamma_0(N)$ over $R$, for the polarization module $\mathfrak{c}$. Recall that an element of $M_k(\Gamma_0(N), R)$ is a function $F$ defined on quadruples $(X, \lambda, \omega, i)$ over $R$-algebras $R'$ such that:
+\begin{itemize}
+\item For $(X, \lambda, \omega, i)$ over $R'$, the value $F((X, \lambda, \omega, i))$ is an element of $R'$ which depends only on the $R'$-isomorphism class of $(X, \lambda, \omega, i)$.
+\item For $(X, \lambda, \omega, i)$ over $R'$ and $\alpha \in (\mathcal{O} \otimes R')^*$, we have
+\[
+F((X, \lambda, \alpha\omega, i)) = \mathcal{N}\alpha^{-k} \cdot F((X, \lambda, \omega, i)).
+\]
+\item For $(X, \lambda, \omega, i)$ over $R'$ and $f: R' \to R''$ a homomorphism of $R$-algebras, we have
+\[
+F((X, \lambda, \omega, i)/_{R''}) = f(F((X, \lambda, \omega, i))).
+\]
+That is, the function $F$ commutes with any extension of scalars $R' \to R''$.
+\end{itemize}
+
+An (unramified) cusp on $\Gamma_0(N)$ over $R$ is determined by the following data:
+\begin{itemize}
+\item Two ideals $\mathfrak{a}, \mathfrak{b}$ such that $\mathfrak{a}\mathfrak{b}^{-1} = \mathfrak{c}$.
+\item An $\mathcal{O}$-linear isomorphism $\varepsilon: N^{-1}\mathcal{O}/\mathcal{O} \xrightarrow{\sim} N^{-1}\mathfrak{a}^{-1}/\mathfrak{a}^{-1}$.
+\item An $\mathcal{O} \otimes R$-linear isomorphism $j: \mathfrak{a}^{-1} \otimes R \xrightarrow{\sim} \mathcal{O} \otimes R$.
+\end{itemize}
+Roughly speaking, these three data give rise, respectively to:
+\begin{itemize}
+\item A HBAV analogue $\mathcal{X}^{\mathfrak{a},\mathfrak{b}}$ of the Tate curve [15].
+\item A $\Gamma_0(N)$-structure $i$ on $\mathcal{X}^{\mathfrak{a},\mathfrak{b}}$.
+\item A basis vector $\omega = \omega(i)$ for $\underline{\omega}_{\mathcal{X}^{\mathfrak{a},\mathfrak{b}}}$,
+\end{itemize}
+all over a suitable power series ring. Further, $\mathcal{X}^{\mathfrak{a},\mathfrak{b}}$ is provided with a canonical $\lambda$. By evaluating a modular form $F \in M_k(\Gamma_0(N), R)$ on the resulting quadruple, we obtain a formal power series
+\[
+F(\mathfrak{a}, \mathfrak{b}, \varepsilon, j) = \sum_{\substack{\mu \in \mathfrak{a}\mathfrak{b} \\ \mu \gg 0 \text{ or } \mu = 0}} c_\mu q^\mu
+\]
+whose coefficients $c_\mu = c_\mu(\mathfrak{a}, \mathfrak{b}, \varepsilon, j)$ are elements of $R$. This is the $q$-expansion of $F$ at the cusp (determined by) $\mathfrak{a}, \mathfrak{b}, \varepsilon, j$.
+
+Now suppose that $(\mathfrak{a}, \mathfrak{b}, \varepsilon, j)$ is a cusp, and suppose that $\alpha$ is an invertible element of $\mathcal{O} \otimes R$. Let $\alpha \cdot j$ be the composite
+\[
+\mathfrak{a}^{-1} \otimes R \xrightarrow{j} \mathcal{O} \otimes R \xrightarrow{\text{mult. by } \alpha} \mathcal{O} \otimes R.
+\]
+Then, since $F$ is of weight $k$, we have the formula
+\begin{equation}\label{eq:5.2}
+F(\mathfrak{a}, \mathfrak{b}, \varepsilon, \alpha \cdot j) = \mathcal{N}\alpha^{-k} F(\mathfrak{a}, \mathfrak{b}, \varepsilon, j).
+\end{equation}
+
+\begin{example}[(5.3)]
+If $R$ is a $\mathbb{Q}$-algebra, the equality
+\[
+\mathfrak{D}^{-1} \otimes \mathbb{Q} = \mathcal{O} \otimes \mathbb{Q}
+\]
+provides us with a canonical isomorphism $j_{\mathrm{can}}$ between $\mathfrak{a}^{-1} \otimes R$ and $\mathcal{O} \otimes R$. Suppose, further, that we are given a finite idele $\alpha \in \mathbb{A}_K^*$. We may then take $\mathfrak{a} = (\alpha)$ to be the ideal generated by $\alpha$, $\mathfrak{b} = \mathfrak{c}\mathfrak{a}^{-1}$, and $\varepsilon$ to be the isomorphism
+\[
+N^{-1}\mathcal{O}/\mathcal{O} \xrightarrow{\sim} N^{-1}\mathfrak{a}^{-1}/\mathfrak{a}^{-1} = N^{-1}\alpha^{-1}\mathcal{O}/\alpha^{-1}\mathcal{O}.
+\]
+We shall refer to the cusp $(\mathfrak{a}, \mathfrak{b}, \varepsilon, j_{\mathrm{can}})$ simply as the cusp determined by $\alpha$.
+\end{example}
+
+Our irreducibility theorem (4.6) implies the following ``$q$-expansion principles'' cf.~[6, VII, \S3], [28, \S6]):
+
+\begin{namedtheorem}[(5.4)]
+Let $(\mathfrak{a}, \mathfrak{b}, \varepsilon, j)$ be a cusp on $\Gamma_0(N)$ over $R$. Suppose that $F(\mathfrak{a}, \mathfrak{b}, \varepsilon, j) = 0$, where $F \in M_k(\Gamma_0(N), R)$. Then $F = 0$.
+\end{namedtheorem}
+
+\begin{namedtheorem}[(5.5)]
+Further, let $R_0$ be a subring of $R$, and suppose that $(\mathfrak{a}, \mathfrak{b}, \varepsilon, j)$ is in fact a cusp on $\Gamma_0(N)$ over $R_0$. Suppose that the $q$-expansion coefficients $c_\mu$ of $F(\mathfrak{a}, \mathfrak{b}, \varepsilon, j)$ all lie in $R_0$. Then $F$ is an element of $M_k(\Gamma_0(N), R_0)$.
+\end{namedtheorem}
+
+[In connection with the conclusion of (5.5), we remark that there is a natural map $M_k(\Gamma_0(N), R_0) \to M_k(\Gamma_0(N), R)$ because every $R$-algebra $R'$ is in particular an $R_0$-algebra. The injectivity of this map may be deduced from (5.4).]
+
+\subsection*{Complex Hilbert Modular Forms}
+
+Over the complex field $\mathbb{C}$, we may express quadruples $(X, \lambda, \omega, i)$ in terms of lattices $\mathcal{E}$ in the $\mathbb{C}$-vector space $K \otimes_{\mathbb{Q}} \mathbb{C}$. (We tacitly suppose all such lattices to be stable under $\mathcal{O}$.) Specifically, the data $(X, \lambda, \omega, i)$ amount to the giving of:
+\begin{itemize}
+\item A lattice $\mathcal{E} \subset K \otimes \mathbb{C}$.
+\item An ($\mathcal{O}$-linear) isomorphism $\lambda: \bigwedge_{\mathcal{O}} \mathcal{E} \xrightarrow{\sim} 2\pi i \cdot \mathfrak{D}^{-1}\mathfrak{c}^{-1}$.
+\item An $\mathcal{O}$-linear embedding $i: N^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1} \hookrightarrow N^{-1}\mathcal{E}/\mathcal{E}$.
+\end{itemize}
+We may view $\lambda$ as an $\mathcal{O}$-linear alternating form $\lambda(x, y)$ on $\mathcal{E} \times \mathcal{E}$, giving rise by linearity to a $K \otimes \mathbb{R}$-linear alternating form on $K \otimes \mathbb{C}$. For $\alpha \in K \otimes \mathbb{C}$, we have
+\[
+\lambda(\alpha x, y) = (\alpha \otimes 1) \cdot \lambda(x, y),
+\]
+where $\alpha \otimes 1$ is the conjugate of $\alpha$ in $K \otimes \mathbb{C}$.
+
+From this point of view, an element of $M_k(\Gamma_0(N), \mathbb{C})$ is simply a holomorphic function $F$ on the space of triples $(\mathcal{E}, \lambda, i)$ which satisfies:
+\begin{equation}\label{eq:5.6}
+F(\alpha\mathcal{E}, (\alpha \otimes \alpha)^{-1}\lambda, i) = \mathcal{N}\alpha^{-k} F(\mathcal{E}, \lambda, i)
+\end{equation}
+for $\alpha \in (K \otimes \mathbb{C})^*$. Given such a function, we may obtain the $q$-expansion of the corresponding modular form at a cusp of the form $(\mathfrak{a}, \mathfrak{b}, \varepsilon, j_{\mathrm{can}})$ (cf.~(5.3)) by evaluating the function on a suitable triple $(\mathcal{E}, \lambda, i)$.
+
+This triple is constructed as follows. First, we introduce the lattice $\mathcal{E} = 2\pi i(\mathfrak{c}^{-1}\mathfrak{a}^{-1} + \mathfrak{b}\tau)$, where $\tau$ is a ``variable'' element of the ``upper half plane''
+\[
+\mathfrak{H} = \{\tau \in K \otimes \mathbb{C} \mid \Im\tau \gg 0\}.
+\]
+Second, we define an alternating form $\lambda = \lambda_{\mathrm{can}}$ by the formula
+\[
+\lambda((2\pi i)(\alpha + \beta\tau),\ (2\pi i)(\gamma + \delta\tau)) = \alpha\delta - \beta\gamma.
+\]
+Finally, we let $i$ be the embedding
+\[
+N^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1} \xrightarrow{\varepsilon} N^{-1}\mathfrak{a}^{-1}/\mathfrak{a}^{-1} \hookrightarrow N^{-1}\mathcal{E}/\mathcal{E},
+\]
+the first map being the isomorphism deduced from $\varepsilon$ and the second being induced by multiplication by $2\pi i$.
+
+If we evaluate an $F$ as above on $(\mathcal{E}, \lambda, i)$, we obtain a holomorphic function $F(\tau)$ which is invariant under translations by elements of $\mathfrak{a}^{-1}\mathfrak{b}^{-1} \cap \mathfrak{b}^{-1}$. It may consequently be expanded as a Fourier series
+\[
+F(\tau) = F_{\mathfrak{a},\mathfrak{b},\varepsilon}(\tau) = \sum_{\substack{\mu \in \mathfrak{a}\mathfrak{b} \\ \mu \gg 0 \text{ or } \mu = 0}} c_\mu e^{2\pi i \cdot \tr(\mu \cdot \tau)}
+\]
+the summation being restricted to those elements $\mu$ of $\mathfrak{a}\mathfrak{b}$ which are either $0$ or totally positive. (Here $\tr$ is the trace map $K \otimes \mathbb{C} \to \mathbb{C}$.) Then the numbers $c_\mu$ are precisely the coefficients $c_\mu(\mathfrak{a}, \mathfrak{b}, \varepsilon, j_{\mathrm{can}})$ of the $q$-expansion of the modular form determined by $F$, at the cusp (over $\mathbb{C}$) determined by $\mathfrak{a}, \mathfrak{b}$, and $\varepsilon$. It is usual to make the formal substitution
+\[
+q^\mu = e^{2\pi i \cdot \tr(\mu \cdot \tau)}.
+\]
+this underscores the equality between the Fourier expansion of $F(\tau)$ and the $q$-expansion of the corresponding modular form.
+
+\subsection*{The Modular Forms of \S\ref{sec:0}}
+
+According to (5.7), the weight-$k$ modular forms defined in the Introduction are precisely the standard $q$-expansions $F_1(\tau)$ of forms $F \in M_k(\Gamma_0(N), \mathbb{C})$, with the polarization module $\mathfrak{c}$ chosen to be $\mathcal{O}$. The ``other'' $q$-expansions of these forms were defined by a formula which is now justified by (5.8). Therefore (0.1) is a special case of the $q$-expansion principle (5.4), (5.5).
+
+\subsection*{$p$-adic Modular Forms}
+
+Let $p$ be a prime. A $\Gamma_0(Np^\infty)$-structure on a HBAV $X$ is a compatible system of $\Gamma_0(Np^n)$-structures, for $n \ge 0$. Let $R$ be a $p$-adic ring: $R = \varprojlim R/p^nR$. A $p$-adic Hilbert modular form on $\Gamma_0(N)$ over $R$ is a function $F$ of triples $(X, \lambda, i)$, where:
+\begin{itemize}
+\item $X$ is a HBAV over a $p$-adic $R$-algebra $R'$,
+\item $\lambda: \mathscr{P}(X) \xrightarrow{\sim} \mathfrak{c}$ is a positive isomorphism,
+\item $i$ is a $\Gamma_0(Np^\infty)$-structure on $X$.
+\end{itemize}
+It is required that $F(X, \lambda, i)$ depend only on the $R'$-isomorphism class of $(X, \lambda, i)/R'$ and that $F$ commute with extensions of scalars $R' \to R''$.
+
+We let $V(\Gamma_0(N), R)$ be the $R$-module of $p$-adic Hilbert modular forms over $R$.
+
+The key point concerning $p$-adic modular forms is that there is a canonical way to associate a $p$-adic modular form to each (Hilbert) modular form, of any weight, over $R$. We recall that whenever $X/R$ has a $\Gamma_0(p^\infty)$-structure $i$, we may deduce from $i$ an isomorphism of formal groups
+\[
+\mathfrak{D}^{-1} \otimes \hat{\mathbb{G}}_m \xrightarrow{\sim} \hat{X}
+\]
+and hence an isomorphism of their Lie algebras
+\[
+\mathfrak{D}^{-1} \otimes R \xrightarrow{\sim} \Lie(X/R).
+\]
+There is thus a canonically chosen basis $\omega(i)$ of $\underline{\omega}_{X/R}$.
+
+The map on test objects
+\[
+(X, \lambda, i) \longmapsto (X, \lambda, \omega(i), i)
+\]
+induces a map
+\[
+M_k(\Gamma_0(N), R) \longrightarrow V(\Gamma_0(N), R)
+\]
+for each $k$. We denote this map by $\eta_k$, or simply $\eta$.
+
+To make $q$-expansions for $p$-adic modular forms, let $\mathfrak{a}$ and $\mathfrak{b}$ be ideals of $K$ with $\mathfrak{a}\mathfrak{b}^{-1} = \mathfrak{c}$ and let $\varepsilon = (\varepsilon_n)$ be a compatible system of isomorphisms
+\[
+\varepsilon_n: p^{-n}N^{-1}\mathcal{O}/\mathcal{O} \xrightarrow{\sim} p^{-n}N^{-1}\mathfrak{a}^{-1}/\mathfrak{a}^{-1}.
+\]
+These data provide us with a ``Tate variety'' $\mathcal{X}^{\mathfrak{a},\mathfrak{b}}$, as before, together with a $\Gamma_0(Np^\infty)$-structure on $\mathcal{X}^{\mathfrak{a},\mathfrak{b}}$, which we denote by $i(\varepsilon)$. Given a $p$-adic modular form $F$, its $q$-expansion $F(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ is obtained by evaluating $F$ on the triple consisting of $\mathcal{X}^{\mathfrak{a},\mathfrak{b}}$, the canonical isomorphism
+\[
+\lambda: \mathscr{P}(\mathcal{X}^{\mathfrak{a},\mathfrak{b}}) \xrightarrow{\sim} \mathfrak{c},
+\]
+and the level structure $i(\varepsilon)$. (We refer to $(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ as a ``$p$-adic cusp''.)
+
+It is easy to describe the differential $\omega(i(\varepsilon))$ on $\mathcal{X}^{\mathfrak{a},\mathfrak{b}}$ in terms of an isomorphism
+\[
+j = j(\varepsilon): \mathfrak{a}^{-1} \otimes R \xrightarrow{\sim} \mathcal{O} \otimes R.
+\]
+Namely, the $\varepsilon_n$ give isomorphisms
+\[
+p^{-n}\mathcal{O}/\mathcal{O} \xrightarrow{\sim} p^{-n}\mathfrak{a}^{-1}/\mathfrak{a}^{-1}
+\]
+for each $n$, and hence an isomorphism
+\[
+\mathcal{O} \otimes \mathbb{Z}_p \xrightarrow{\sim} \mathfrak{a}^{-1} \otimes \mathbb{Z}_p.
+\]
+Tensoring with $R$ gives an isomorphism between $\mathfrak{a}^{-1} \otimes R$ and $\mathcal{O} \otimes R$, which is just the inverse of the desired map $j$. This gives the compatibility:
+
+\begin{namedtheorem}[(5.10)]
+If $F \in M_k(\Gamma_0(N), R)$ is a modular form of weight $k$, and $(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ is a $p$-adic cusp, then
+\[
+(\eta_k F)(\mathfrak{a}, \mathfrak{b}, \varepsilon) = F(\mathfrak{a}, \mathfrak{b}, \varepsilon_0, j(\varepsilon)).
+\]
+\end{namedtheorem}
+
+\begin{example}[(5.11)]
+Let $\alpha \in \mathbb{A}_K^*$. A $p$-adic cusp $(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ is defined by $\alpha$ as follows. We take $\mathfrak{a} = (\alpha)$ and $\mathfrak{b} = \alpha\mathfrak{c}^{-1}$, as in (5.3), and for each $n \ge 0$ we define $\varepsilon_n$ to be the composite
+\[
+p^{-n}N^{-1}\mathcal{O}/\mathcal{O} \xrightarrow{\alpha} N^{-1}p^{-n}\mathfrak{a}^{-1}/\mathfrak{a}^{-1} = p^{-n}N^{-1}\alpha^{-1}\mathcal{O}/\alpha^{-1}\mathcal{O},
+\]
+cf.~(5.3). Let $\alpha_p$ be the image of $\alpha$ in $(K \otimes \mathbb{Q}_p)^*$. Multiplication by $\alpha_p$ induces an isomorphism
+\begin{equation}\label{eq:5.12}
+\mathfrak{a}^{-1} \otimes \mathbb{Z}_p \xrightarrow{\sim} \mathcal{O} \otimes \mathbb{Z}_p.
+\end{equation}
+Tensoring with $R$, we obtain an isomorphism between $\mathfrak{a}^{-1} \otimes R$ and $\mathcal{O} \otimes R$, which is just the map $j(\alpha)$ discussed above.
+\end{example}
+
+We now consider the situation where $R$ is a flat $\mathbb{Z}_p$-module. We define $V(\Gamma_0(N), E)$, where $E = R \otimes_{\mathbb{Z}_p} \mathbb{Q}_p$, to be the tensor product
+\[
+V(\Gamma_0(N), R) \otimes_{\mathbb{Z}_p} \mathbb{Q}_p.
+\]
+Then for each $k$ we have a map
+\[
+\eta_k: M_k(\Gamma_0(N), E) = M_k(\Gamma_0(N), R) \otimes_{\mathbb{Z}_p} \mathbb{Q}_p \longrightarrow V(\Gamma_0(N), E),
+\]
+obtained by tensoring the previous $\eta_k$ with $\mathbb{Q}_p$. Given data $(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ as above, we may define for each $F \in V(\Gamma_0(N), E)$ its $q$-expansion $F(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ at $(\mathfrak{a}, \mathfrak{b}, \varepsilon)$. Then we have the following $q$-expansion principle.
+
+\begin{namedtheorem}[(5.13)]
+Let $F \in V(\Gamma_0(N), E)$, and let $(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ be a $p$-adic cusp. Then the $q$-expansion $F(\mathfrak{a}, \mathfrak{b}, \varepsilon)$, a priori a power series with coefficients in $E$, in fact has coefficients in $R$ if and only if $F$ is an element of $V(\Gamma_0(N), R)$.
+\end{namedtheorem}
+
+\begin{corollary}[(5.14)]
+Suppose that $F \in V(\Gamma_0(N), E)$ has at one cusp $(\mathfrak{a}, \mathfrak{b}, \varepsilon)$ a $q$-expansion whose non-constant coefficients are all elements of $R$. Then the difference between the constant terms of the $q$-expansions of $F$ at any two cusps is an element of $R$.
+\end{corollary}
+
+\begin{proof}
+Let $t \in E$ be the constant term of $F(\mathfrak{a}, \mathfrak{b}, \varepsilon)$. We may view $t$ as an element of $M_0(\Gamma_0(N), E)$ and hence in particular as an element of $V(\Gamma_0(N), E)$. The $q$-expansion of $t$ at each cusp is the constant power series $t$. By the hypothesis on $F$, and because of (5.13), $F - t$ belongs to $V(\Gamma_0(N), R)$. The $q$-expansion of this form at each cusp has coefficients in $R$, and so in particular its constant term belongs to $R$. This proves the required ``integrality.''
+\end{proof}
+
+\begin{namedtheorem}[(5.15)]
+Let $F \in M_k(\Gamma_0(N), E)$, and for $\alpha \in \mathbb{A}_K^*$ let $F_\alpha$ denote the $q$-expansion of $F$ at the cusp determined by $\alpha$ (5.3). Then the $q$-expansion of $\eta_k F$ at the $p$-adic cusp determined by $\alpha$ (5.11) is given by
+\[
+\mathcal{N}\alpha_p^{-k} \cdot F_\alpha,
+\]
+where $\alpha_p \in (K \otimes \mathbb{Q}_p)^*$ is the component of $\alpha$ at $p$.
+\end{namedtheorem}
+
+To see this, we write the $p$-adic $q$-expansion as
+\[
+F(\mathfrak{a}, \mathfrak{b}, \varepsilon_0, j),
+\]
+where $j$ is the isomorphism $\mathfrak{a}^{-1} \otimes E \xrightarrow{\sim} \mathcal{O} \otimes E$ induced by multiplication by $\alpha_p$, viewed as a map $\mathfrak{a}^{-1} \otimes \mathbb{Z}_p \xrightarrow{\sim} \mathcal{O} \otimes \mathbb{Z}_p$. (The ideals $\mathfrak{a}$ and $\mathfrak{b}$, and the map $\varepsilon_0$, are defined in (5.11).) The $q$-expansion $F_\alpha$ is
+\[
+F(\mathfrak{a}, \mathfrak{b}, \varepsilon_0, j_{\mathrm{can}}),
+\]
+where $j_{\mathrm{can}}$ is the isomorphism $\mathfrak{a}^{-1} \otimes E \xrightarrow{\sim} \mathcal{O} \otimes E$ derived from the equality $\mathfrak{a}^{-1} \otimes \mathbb{Q} = \mathcal{O} \otimes \mathbb{Q}$. We thus have $j = \alpha_p \cdot j_{\mathrm{can}}$, so that the desired formula follows from (5.2).
+
+Now for each $k \ge 1$, let $F_k$ be an element of $M_k(\Gamma_0(N), E)$. Assume that $F_k = 0$ for $k$ sufficiently large. Then, by the above discussion, the $p$-adic modular form
+\[
+\sum_{k \ge 0} \eta_k F_k
+\]
+has $q$-expansion
+\[
+\sum_{k \ge 0} \mathcal{N}\alpha_p^{-k} \cdot F_{k,\alpha}
+\]
+at the $p$-adic cusp determined by $\alpha$. (Here we have written $F_{k,\alpha}$ for the $q$-expansion $(F_k)_\alpha$ of $F_k$ at the cusp determined by $\alpha$.) By (5.13), we see that this power series has coefficients in $R$ for one $\alpha$ if and only if it has coefficients in $R$ for each $\alpha$. Similarly, by (5.14), if the non-constant coefficients of one of these series all lie in $R$, then the difference between the constant coefficients of any two of these series lies in $R$.
+
+We thus see, in particular, how (0.2) and (0.3) are special cases of (5.13) and (5.14), respectively.
+
+\subsection*{Variant: Forms on $\Gamma_0(\mathfrak{f})$}
+
+We suppose that $\mathfrak{f}$ is a conductor, i.e., a non-zero integral ideal of $K$. A $\Gamma_0(\mathfrak{f})$-structure on a HBAV $X$ is an embedding
+\[
+(\mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1})(1) \hookrightarrow X.
+\]
+A modular form of weight $k$ on $\Gamma_0(\mathfrak{f})$ over $R$ is a function of tuples $(X, \lambda, \omega, i)$ as before, with $i$ now a $\Gamma_0(\mathfrak{f})$-structure on $X$ over $R$. We denote the space of such forms by $M_k(\Gamma_0(\mathfrak{f}), R)$.
+
+Let $N$ be a positive integer divisible by $\mathfrak{f}$. Then an element of $M_k(\Gamma_0(\mathfrak{f}), R)$ is simply an element of $M_k(\Gamma_0(N), R)$ which enjoys the following extra invariance: its value on a tuple $(X, \lambda, \omega, i)$, where $i$ is a $\Gamma_0(N)$-structure on $X$, depends only on $X, \lambda, \omega$, and the composite
+\[
+(\mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1})(1) \hookrightarrow (N^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1})(1) \xrightarrow{i} X.
+\]
+In particular, a $q$-expansion $F(\mathfrak{a}, \mathfrak{b}, \varepsilon, j)$ is defined for each form $F$ on $\Gamma_0(\mathfrak{f})$ and each cusp $(\mathfrak{a}, \mathfrak{b}, \varepsilon, j)$ on $\Gamma_0(N)$. When $R$ is a $\mathbb{Q}$-algebra, we may thus speak of the $q$-expansion of $F$ at the cusp determined by an $\alpha \in \mathbb{A}_K^*$.
+
+We may similarly define $p$-adic modular forms on $\Gamma_0(\mathfrak{f})$.
+
+
+% ============================================================
+\section{Eisenstein Series}\label{sec:6}
+% ============================================================
+
+Let $\mathfrak{B}$ be an ideal of $K$. In this \S\ we shall construct Eisenstein series for the Hilbert group, following Hecke and Siegel. The polarization module $\mathfrak{c}$ of \S\ref{sec:5} will be the ideal $\mathfrak{B}\mathfrak{D}^{-1}$.
+
+For $\varepsilon$ a Schwartz function on $I$, we define the \emph{modification} of $\varepsilon$ (with respect to $\mathfrak{B}$) to be the unique Schwartz function $\tilde{\varepsilon}$ on $I$ which is supported on $I^\mathfrak{B}$ and whose value on an ideal $\mathfrak{B}\mathfrak{a}\mathfrak{c}$ is given by $\varepsilon(\mathfrak{a}^{-1} \cdot \mathfrak{c})$. Since this quantity depends only on the strict ideal class of $\mathfrak{a}$, $\tilde{\varepsilon}$ is defined $\bmod\, \mathfrak{f}$ for every conductor $\mathfrak{f} \subseteq \mathfrak{B}$.
+
+For $c \in G$, we define $\varepsilon_c$ to be $(\tilde{\varepsilon})_c$, i.e., the twist by $c$ of the modification of $\varepsilon$.
+
+\begin{theorem}[(6.1)]\label{thm:6.1}
+Let $k \ge 1$ be an integer, and let $\varepsilon: I \to \mathbb{C}$ be a function with parity $(-1)^k$ which is supported on $A$ and defined modulo the conductor $\mathfrak{f}$. Then there exists a modular form
+\[
+G_{k,\varepsilon} \in M_k(\Gamma_0(\mathfrak{f}), \mathbb{C})
+\]
+whose $q$-expansion at the cusp determined by each $\alpha \in K^*$ is given by the formulas
+
+\begin{equation}\label{eq:6.2}
+\text{If } k > 1:\quad \mathcal{N}\mathfrak{a}^{-k}\left\{2^{-r}L(1-k, \varepsilon_c) + \sum_{\substack{\mu \gg 0 \\ \mu \in \mathfrak{a}\mathfrak{b}}} \Bigl(\sum_{\substack{\omega \in \mathfrak{f}^{-1}\mathfrak{a}\mathfrak{c} \\ \omega \gg 0}} \varepsilon(\omega \cdot \mathfrak{c}^{-1}) \mathcal{N}(\omega\mu^{-1})^{k-1}\Bigr) q^\mu\right\}.
+\end{equation}
+\begin{equation}\label{eq:6.2-k1}
+\text{If } k = 1:\quad \mathcal{N}\mathfrak{a}^{-1}\left\{2^{-r}L(0, \varepsilon_c + \tilde{\varepsilon}_c) + \sum_{\substack{\mu \gg 0 \\ \mu \in \mathfrak{a}\mathfrak{b}}} \Bigl(\sum_{\substack{\omega \in \mathfrak{f}^{-1}\mathfrak{a}\mathfrak{c} \\ \omega \gg 0}} \varepsilon(\omega \cdot \mathfrak{c}^{-1})\Bigr) q^\mu\right\}.
+\end{equation}
+Here:
+\begin{itemize}
+\item $\mathfrak{a} = (\alpha)$ is the ideal of $K$ ``generated'' by $\alpha$,
+\item $\mathfrak{c} = (\mathfrak{a} \cdot \alpha\mathfrak{c}^{-1})$ is the element of $G$ defined by $\alpha$, cf.~(2.23).
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+We will construct $G_{k,\varepsilon}$ as a function of ($\mathcal{O}$-)lattices $\mathcal{E}$ in $K \otimes \mathbb{C}$. We are required from this point of view to produce a complex number $G_{k,\varepsilon}(\mathcal{E})$ each time that we are given a lattice $\mathcal{E}$ together with the supplementary data of a polarization and a $\Gamma_0(\mathfrak{f})$ structure on $\mathcal{E}$. Given such data, we first ignore the polarization completely (!). We then view the $\Gamma_0(\mathfrak{f})$ structure as the giving of an overlattice $\mathcal{E}' \supseteq \mathcal{E}$ together with an isomorphism
+\[
+\mathcal{E}'/\mathcal{E} = \mathfrak{D}^{-1}\mathfrak{f}^{-1}/\mathfrak{D}^{-1}.
+\]
+We consider the various $\mathcal{O}$-submodules $\mathscr{M}$ of $\mathcal{E}'$ which are invertible, i.e., of rank $1$. Given an $\mathscr{M}$, we choose arbitrarily a positivity $+$ for $\mathscr{M}$ (2.25). We will then evaluate the Fourier transform $T\varepsilon$ of $\varepsilon$ on an element of $I$ which is defined $\bmod\, \mathfrak{D}^{-1}$ in the sense of (3.9). This element is obtained as in (2.25) from the triple consisting of $\mathscr{M}$, the positivity $+$, and the map given as the composite
+\[
+\mathscr{M} \hookrightarrow \mathcal{E}' \twoheadrightarrow \mathcal{E}'/\mathcal{E} = \mathfrak{D}^{-1}\mathfrak{f}^{-1}/\mathfrak{D}^{-1} \hookrightarrow K/\mathfrak{f}\mathfrak{D}^{-1}.
+\]
+We write $T\varepsilon(\mathscr{M} \to K/\mathfrak{f}\mathfrak{D}^{-1})$ for the value of $T\varepsilon$ on this element.
+
+We further associate a volume to $(\mathscr{M}, +)$. Namely, let $\mathfrak{a}$ be an ideal which defines the same strict ideal class as $(\mathscr{M}, +)$. Choose a positive isomorphism $(\mathfrak{a}, +_{\mathrm{can}}) \simeq (\mathscr{M}, +)$. This isomorphism induces an inclusion $K \hookrightarrow K \otimes \mathbb{C}$, and if $m \in K \otimes \mathbb{C}$ is the image of $1 \in K$, then $\mathscr{M} = \mathfrak{a} \cdot m$. We define
+\[
+\vol(\mathscr{M}, +) = \mathcal{N}\mathfrak{a} \cdot \mathcal{N}m \in \mathbb{C},
+\]
+the product of the norms of the ideal $\mathfrak{a}$ and the number $m \in K \otimes \mathbb{C}$. The volume is well defined because replacing $(\mathscr{M}, +):(\mathfrak{a}, +_{\mathrm{can}})$ by another isomorphism would only replace $\mathfrak{a}$ by $\alpha\mathfrak{a}$ and $m$ by $\gamma m$, where $\gamma$ is totally positive, and in particular of positive norm.
+
+Similarly, if we modify $+$ at one real place $v$, then $\vol(\mathscr{M}, +)$ is replaced by its negative, so that $\vol(\mathscr{M}, +)^k$ is multiplied by $(-1)^k$. However, because $\varepsilon$ has parity $(-1)^k$, so that $T\varepsilon$ again has this parity, changing $+$ at $v$ multiplies $T\varepsilon(\mathscr{M}, +, \mathscr{M} \to K/\mathfrak{f}\mathfrak{D}^{-1})$ by this same factor. Hence the quotient
+\[
+\frac{T\varepsilon(\mathscr{M}, +, \mathscr{M} \to K/\mathfrak{f}\mathfrak{D}^{-1})}{\vol(\mathscr{M}, +)^k}
+\]
+is independent of the choice of $+$, so that a quantity
+\[
+\frac{T\varepsilon(\mathscr{M}, \mathscr{M} \to K/\mathfrak{D}^{-1})}{(\vol \mathscr{M})^k}
+\]
+is well defined. We define the value of $G_{k,\varepsilon}$ on $\mathcal{E}$ to be $[(-1)^r(k-1)!]^r \cdot S$, where $S$ is the sum
+\begin{equation}\label{eq:6.3}
+S = \sideset{}{'}\sum_{\mathscr{M} \subset \mathcal{E}'} \frac{T\varepsilon(\mathscr{M}, \mathscr{M} \to K/\mathfrak{f}\mathfrak{D}^{-1})}{(\vol \mathscr{M})^k},
+\end{equation}
+computed in the sense of analytic continuation. [The sum is absolutely convergent for $k > 2$; the continuation is necessary only for $k = 1$, $2$.]
+
+To verify that this sum defines a modular form whose $q$-expansion is that given in (6.2), we must compute the value of $G_{k,\varepsilon}$ at the cusp defined by $\mathfrak{c}, \alpha$. That is, we take
+\[
+\mathcal{E} = 2\pi i(\mathfrak{c}^{-1}\mathfrak{a}^{-1} + \mathfrak{b}\tau), \qquad \mathcal{E}' = 2\pi i(\mathfrak{c}^{-1}\mathfrak{a}^{-1}\mathfrak{f}^{-1} + \mathfrak{b}\tau)
+\]
+together with the isomorphism
+\[
+\mathcal{E}'/\mathcal{E} = \mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{a}^{-1} \mathfrak{D}^{-1} = \mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1} \xrightarrow{\sim} \mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1}
+\]
+induced by multiplication by $\alpha: \mathfrak{a}^{-1}\mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{a}^{-1}\mathfrak{D}^{-1} \xrightarrow{\sim} \mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1}$. The map $\mathscr{M} \to \mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1}$ is then just the composition of the three maps:
+\begin{itemize}
+\item division by $2\pi i$ and projection: $\mathscr{M} \subset 2\pi i(\mathfrak{a}^{-1}\mathfrak{f}^{-1}\mathfrak{D}^{-1} + \mathfrak{a}\mathfrak{B}\tau) \to \mathfrak{a}^{-1}\mathfrak{f}^{-1}\mathfrak{D}^{-1}$;
+\item multiplication: $\mathfrak{a}^{-1}\mathfrak{f}^{-1}\mathfrak{D}^{-1} \xrightarrow{\cdot \alpha} \mathfrak{f}^{-1}\mathfrak{D}^{-1} \xrightarrow{\cdot \alpha} \mathfrak{f}^{-1}\mathfrak{D}^{-1}$;
+\item the canonical map: $\mathfrak{f}^{-1}\mathfrak{D}^{-1} \twoheadrightarrow \mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1}$.
+\end{itemize}
+Hence, for $\mathscr{M} \subset \mathcal{E}'$, $T\varepsilon(\mathscr{M}, +, \mathscr{M} \to \mathfrak{f}^{-1}\mathfrak{D}^{-1}/\mathfrak{D}^{-1})$ is the value of $T\varepsilon$ on the element of $I$ given by the triple
+\[
+(\mathscr{M}, +, \mathscr{M} \hookrightarrow \mathfrak{a}^{-1}\mathfrak{f}^{-1}\mathfrak{D}^{-1} \xrightarrow{\cdot \alpha} K).
+\]
+
+The sum (6.3) may now be written
+\[
+S = (2\pi i)^{-kr} \sum_{\substack{\mathscr{M} \subset K + \mathfrak{a}\mathfrak{B}\tau \\ (\mathscr{M} \text{ invertible})}} \frac{T\varepsilon(\mathscr{M}, +, \mathscr{M} \hookrightarrow K)}{(\vol \mathscr{M}, +)^k},
+\]
+where the ``pr'' is simply projection $\mathscr{M} \to K$ onto the first factor. Indeed, let $\mathscr{M} \subset K + \mathfrak{a}\mathfrak{B}\tau$ be an invertible $\mathcal{O}$-module. If $\pr(\mathscr{M})$ is the ideal $\mathfrak{b}$, then $(\mathscr{M}, +, \mathscr{M} \xrightarrow{\pr} K)$ is simply $(\mathfrak{b} \cdot \mathfrak{a})$ for a suitable choice of $+$. Since $(\mathfrak{b} \cdot \mathfrak{a}) \in I^{\mathfrak{f}^{-1}\mathfrak{D}^{-1}}$ if and only if $\mathfrak{b}\mathfrak{a} \subset \mathfrak{f}^{-1}\mathfrak{D}^{-1}$, $\mathscr{M}$ gives a non-zero contribution to the sum only if it is contained in $\mathfrak{a}^{-1}\mathfrak{f}^{-1}\mathfrak{D}^{-1} + \mathfrak{a}\mathfrak{B}\tau = (2\pi i)^{-1}\mathcal{E}'$.
+
+Let $\eta(x) = (T\varepsilon)(x \cdot \alpha)$, $\mathfrak{b} = \mathfrak{f}\mathfrak{B}\mathfrak{a}$. Then we have
+\[
+\frac{T\varepsilon(\mathscr{M}, +, \mathscr{M} \xrightarrow{\pr} K)}{(\vol \mathscr{M}, +)^k} = (2\pi i)^{kr} \mathcal{N}\mathfrak{a}^{-k} \cdot \frac{\eta(\mathscr{M}, +, \mathscr{M} \xrightarrow{\pr} K)}{(\vol \mathscr{M}, +)^k}
+\]
+calculated (if necessary) by analytic continuation.
+
+Let $\mathscr{M} \subset K + \mathfrak{a}\mathfrak{B}\tau$, and suppose that $\mathfrak{a}$ is an ideal isomorphic to $\mathscr{M}$ as an invertible $\mathcal{O}$-module. Then $\mathscr{M} = \mathfrak{a} \cdot (\beta + \lambda\tau)$ for some $\beta, \lambda \in K$, and the pair $(\beta, \lambda)$ is well defined up to multiplication by a unit of $K$. Fix one choice $(\beta, \lambda)$ and endow $\mathscr{M}$ with the positivity induced by $+_{\mathrm{can}}$ on $\mathfrak{a}$ via $(\beta + \lambda\tau): \mathfrak{a} \xrightarrow{\sim} \mathscr{M}$. For this positivity we have $\vol \mathscr{M} = (\mathcal{N}\mathfrak{a})(\mathcal{N}(\beta + \lambda\tau))$, and the element of $I$ given by $(\mathscr{M}, \mathscr{M} \to K)$ is $(\mathfrak{a} \cdot \beta)$. Hence $S$ may be written
+\[
+S = \mathcal{N}\mathfrak{a}^{-k} \sum_{\{\mathfrak{a}\}} \sum_{\substack{\beta \in K/\mathcal{O}^* \\ \lambda \in \mathfrak{a}^{-1}\mathfrak{b} \\ \beta + \lambda\tau \in \mathcal{E}'}} \frac{\eta(\mathfrak{a} \cdot \beta)}{|\mathcal{N}(\beta + \lambda\tau)|^k},
+\]
+where the outer sum is over a set $\{\mathfrak{a}\}$ of representatives for the set of wide ideal classes of $K$, and where $\eta(\mathfrak{a} \cdot \beta) = \eta((\mathfrak{a}^{-1}\beta))$ as in \S3.
+
+Thus $S$ is naturally the sum of two terms, the first being
+\[
+(2\pi i)^{-kr} L(k, \eta) = (2\pi i)^{-kr} L(k, (T\varepsilon)(\mathfrak{B} \cdot \mathfrak{a})).
+\]
+Changing variables, we rewrite this as
+\begin{align*}
+&(2\pi i)^{-kr} L(k, T\varepsilon(\mathfrak{c}\mathfrak{a}^{-1} \cdot \mathfrak{a})) \cdot \mathcal{N}(\mathfrak{c}\mathfrak{a}^{-1})^{-k} \quad (\mathfrak{c} = \mathfrak{a} \cdot \alpha\mathfrak{c}^{-1}) \\
+&\quad = \frac{[(-1)^r(k-1)!]^r}{(2\pi i)^{kr}} L(1-k, T(T\varepsilon(\mathfrak{c}\mathfrak{a}^{-1} \cdot \mathfrak{a}))) \quad (\text{by (3.13)}) \\
+&\quad = \frac{[(-1)^r(k-1)!]^r}{(2\pi i)^{kr}} L(1-k, \varepsilon(\mathfrak{a} \cdot \mathfrak{a}^{-1})) \quad (\text{by the invariance (3.7)}) \\
+&\quad = \frac{[(-1)^r(k-1)!]^r}{(2\pi i)^{kr}} \cdot 2^{-r} L(1-k, \varepsilon_c) \quad (\text{by the parity of } \varepsilon).
+\end{align*}
+Since $G_{k,\varepsilon} = [(-1)^r(k-1)!]^r \cdot S$, this first contribution to $S$ gives precisely the term $2^{-r}\mathcal{N}\mathfrak{a}^{-k} L(1-k, \varepsilon_c)$ in (6.2).
+
+For the second term, we must find the value at $s=0$ of the series
+\[
+\sideset{}{'}\sum_{0 \neq \lambda \in \mathfrak{b}\mathfrak{a}^{-1}} \sum_{\beta \in K} \frac{\eta(\mathfrak{a}\beta)}{|\mathcal{N}(\beta + \lambda\tau)|^{k+s}}.
+\]
+(We write $x^{k+s}$ for $x^k |x|^s$.) As Katz has recently recalled [19], Hecke's technique for treating such expressions is to apply the Poisson summation formula to $\beta$, with $\Re(s) > 0$, and then to show that one obtains the value of the resulting double series by setting $s=0$ in each term.
+
+More precisely, for $\Re(s) > 0$, our series may be written
+\[
+\sideset{}{'}\sum_{0 \neq \lambda \in \mathfrak{b}\mathfrak{a}^{-1}} \sum_{\beta \in K \pmod{U}} \frac{\eta(\mathfrak{a}\beta)}{\mathcal{N}\lambda^{k+s}} \int_{K \otimes \mathbb{R}} e^{2\pi i \tr(t \cdot y)} \frac{dt}{|\mathcal{N}(\lambda^{-1}(t + \lambda\tau))|^{k+s}}.
+\]
+[The summation modulo $U$ continues to be well defined, as one can verify explicitly from the formula
+\begin{equation}\label{eq:6.4}
+\eta(\zeta x) = (\sgn \zeta)^{kr} \eta(x)
+\end{equation}
+for all units $\zeta$ of $K$. (Here we write $\sgn \zeta$ for the sign of $\mathcal{N}\zeta$.) The formula (6.4) is an immediate consequence of the parity of $\varepsilon$.]
+
+We consider the term in the inner sum with $y = 0$:
+\begin{equation}\label{eq:6.5}
+\sideset{}{'}\sum_{0 \neq \lambda \in \mathfrak{b}\mathfrak{a}^{-1}} \frac{\eta(\mathfrak{a} \cdot 0)}{\mathcal{N}\lambda^{k+s}} \int_{K \otimes \mathbb{R}} \frac{dt}{|\mathcal{N}(\lambda^{-1}t)|^{k+s}}.
+\end{equation}
+By (6.4), we have $\eta(\mathfrak{a} \cdot 0) = 0$ if there is a unit $\zeta$ with $(\sgn \zeta)^{kr} = -1$. We assume from now on, therefore, that this is not the case.
+
+In the integral, we write $y$ for the totally positive number $\Im\tau \in (K \otimes \mathbb{R})^*$. Then the integral becomes $\mathcal{N}\lambda^{k+s} \cdot \varphi_k(s) \cdot \mathcal{N}y^{-1}$, where
+\[
+\varphi_k(s) = \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} \frac{dt}{|(i+t)|^{k+s}}.
+\]
+(We have, in fact $|y| = \mathcal{N}y$ because $y$ is totally positive.) Then (6.5) may be rewritten
+\begin{equation}\label{eq:6.5bis}
+\varphi_k(s) \cdot \mathcal{N}y^{-k-s} \sum_{0 \neq \lambda \in \mathfrak{b}\mathfrak{a}^{-1} \pmod{U}} (\sgn \lambda)^{kr} \cdot \mathcal{N}\lambda^{-k-s}.
+\end{equation}
+By writing the sum in terms of partial zeta functions (for example), we see that it represents a meromorphic function of $s$ with a possible simple pole at $s = 2-k$. Thus if $k > 2$, (6.5) represents a function of $s$ which is holomorphic at least in the half-plane $\Re(s) > -1$. Further, its value at $s=0$ is then zero, because we easily compute $\varphi_k(0) = 0$.
+
+Now Hecke [9, p.~393] yields the expressions
+\[
+\varphi_2(s) = -\frac{\pi^{r/2}\Gamma(s/2+1)}{\Gamma(s/2+2)}, \qquad \varphi_1(s) = \frac{\pi^{r/2}\Gamma(-s/2+1)}{s}.
+\]
+For $k=2$, we thus find again that (6.5) is holomorphic for $\Re(s) > -\frac{1}{2}$ and has the value $0$ at $s=0$. (Because $r > 1$, $\varphi_2(s)$ has at least a double zero at $s = 2-k = 0$.)
+
+For $k=1$, the possible pole at $s=1$ of the series
+\begin{equation}\label{eq:6.6}
+\sideset{}{'}\sum_{0 \neq \lambda \in \mathfrak{b}\mathfrak{a}^{-1} \pmod{U}} \frac{(\sgn \lambda)^r}{\mathcal{N}\lambda^s}
+\end{equation}
+does not appear. Indeed, (6.6) is, up to the factor $\mathcal{N}(\mathfrak{b}\mathfrak{a}^{-1})^s$, the $L$-series attached to an odd function on the group of strict ideal classes of $K$. Hence (6.5) is again holomorphic for $\Re(s) > -\frac{1}{2}$, and its value at $s=0$ is
+\[
+\frac{(2\pi i)^r}{2} \cdot \mathcal{N}\mathfrak{a} \cdot \sum_{\substack{\mu \in \mathfrak{b}\mathfrak{a}^{-1} \\ \mu \gg 0}} \eta(\mathfrak{a} \cdot 0) \cdot q^{\mu \cdot \lambda} \Big|_{s=0}.
+\]
+
+Thus the term we are considering becomes
+\begin{equation}\label{eq:6.7}
+\frac{(2\pi i)^r}{2} \mathcal{N}\mathfrak{a} \cdot \sum_{\substack{\mu \in \mathfrak{b}\mathfrak{a}^{-1} \\ \mu \gg 0}} \eta(\mathfrak{a} \cdot 0) \cdot q^{\mu}.
+\end{equation}
+
+For $\mu \in K$ we have
+\[
+\tr(\mu \cdot i \cdot y) = (\sgn \mu) \cdot \mathcal{N}\mu \cdot \varphi_1(0) = (\sgn \mu) \cdot \mathcal{N}\mu \cdot (2\pi i)^r/2.
+\]
+Hence (6.7) may be rewritten as the $L$-value which is formally
+\[
+(2\pi i)^r \mathcal{N}\mathfrak{a} \cdot \eta(\mathfrak{a} \cdot 0).
+\]
+Now $\eta(x) = T\varepsilon(x \cdot \alpha)$. Hence
+\[
+T^{-1}\eta(\omega) = \varepsilon(\omega \cdot \alpha^{-1}) \cdot (-1)^r \mathcal{N}\mathfrak{a}^{-1}.
+\]
+Thus (6.7) becomes
+\[
+\mathcal{N}\mathfrak{a} \cdot 2^{-r} \cdot \eta(\mathfrak{a} \cdot 0) = \mathcal{N}\mathfrak{a} \cdot 2^{-r} \cdot \varepsilon(\omega \cdot \alpha^{-1}).
+\]
+Since $\mathfrak{c} = (\mathfrak{a} \cdot \alpha\mathfrak{c}^{-1})$, this becomes
+\[
+2^{-r} \mathcal{N}\mathfrak{a} \cdot L(0, \tilde{\varepsilon}_c) = 2^{-r} \mathcal{N}\mathfrak{a} \cdot L(0, \tilde{\varepsilon}_c).
+\]
+If we now take into account the factor $[(-1)^r(k-1)!]^r$ in $G_{k,\varepsilon}$, we finally arrive at the conclusion that the term we are calculating contributes to the $q$-expansion (6.2) a term
+\[
+(-1)^r 2^{-r} \mathcal{N}\mathfrak{a} L(0, \tilde{\varepsilon}_c)
+\]
+when $k=1$. Under the assumption made above that all units of $K$ have norm $1$, we can ignore the $(-1)^r$, and we obtain precisely the perturbing term in (6.2) for $k=1$. If there is a unit of $K$ with norm $-1$, then as we have already noted, (6.5) vanishes. On the other hand, $\tilde{\varepsilon} = 0$ for odd $\varepsilon$ if there is a unit of $K$ of negative norm. Hence the perturbing term of (6.4) vanishes as well.
+
+We must finally consider the behavior for $s \to 0$ of the sum
+\begin{equation}\label{eq:6.8}
+\sideset{}{'}\sum_{0 \neq \lambda \in \mathfrak{b}\mathfrak{a}^{-1}} \sum_{\substack{\beta \in K \\ \beta \neq 0}} \frac{\eta(\mathfrak{a}\beta)}{\mathcal{N}\lambda^{k+s}} \int_{K \otimes \mathbb{R}} \frac{e^{-2\pi i \tr(t \cdot y)}\, dt}{|\mathcal{N}(\lambda^{-1}(\beta + t))|^{k+s}}.
+\end{equation}
+As Katz explains, it suffices to continue each integral as a holomorphic function of $s$, set $s=0$, and evaluate the resulting double sum. Referring to Katz's calculation ([19], 3.2.32), we find that
+\[
+\int_{K \otimes \mathbb{R}} e^{-2\pi i \tr(ty)}\, dt = \begin{cases}
+\dfrac{[(k-1)!]^r}{(2\pi i)^{kr}} e^{-2\pi \tr(\mu \cdot y)} \mathcal{N}\mu^{k-1} & \text{if } \mu \gg 0, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+
+The inner sum of (6.8) may thus be written
+\[
+\frac{[(k-1)!]^r}{(2\pi i)^{kr}} \sum_{\substack{\mu \in \mathfrak{b}\mathfrak{a}^{-1} \\ \mu \gg 0}} \eta(\mathfrak{a}\mu) \mathcal{N}\mu^{k-1} q^{\mu \cdot \lambda}.
+\]
+because on the substitution $\beta \mapsto -\beta$ the functions $\varepsilon^{\mathfrak{a}}(\beta)$ and $\mathcal{N}\beta^k$ both take on factors $(-1)^{kr}$. Thus (6.8) gives to $S$ the contribution
+\begin{equation}\label{eq:6.9}
+\frac{[(k-1)!]^r}{(2\pi i)^{kr}} \sum_{\substack{\mu \in \mathfrak{b}\mathfrak{a}^{-1} \\ \mu \gg 0}} \sum_{0 \neq \lambda \in \mathfrak{b}\mathfrak{a}^{-1}} \eta(\mathfrak{a}\mu) \mathcal{N}\mu^{k-1} q^{\mu \cdot \lambda}.
+\end{equation}
+We recognise the bracketed term as $(T\eta)(\beta \mathfrak{a}^{-1})$. Setting $\rho = \beta/\lambda$, we change the order of summation in (6.9) and rewrite it as
+\[
+\mathcal{N}\mathfrak{a}^{-k} \sum_{\substack{\mu \in K \\ \mu \gg 0}} \sum_{\substack{\omega \in \mathfrak{f}^{-1}\mathfrak{a}\mathfrak{c} \\ \omega \gg 0}} \varepsilon(\omega \cdot \mathfrak{c}^{-1}) \mathcal{N}(\omega\mu^{-1})^{k-1} q^\mu.
+\]
+
+We have $(T\eta)(\mu\mathfrak{c}) = \varepsilon(\mu \cdot \alpha^{-1}) \cdot \mathcal{N}\mathfrak{a} \cdot (-1)^{kr}$. Multiplying by the factor $(-1)^{kr}[(k-1)!]^r$ which appears in $G_{k,\varepsilon}$, we have then
+\begin{align*}
+&\mathcal{N}\mathfrak{a}^{-k} \sum_{\substack{\mu \gg 0 \\ \mu \in \mathfrak{a}\mathfrak{b}}} \Bigl(\sum_{\substack{\omega \in \mathfrak{f}^{-1}\mathfrak{a}\mathfrak{c} \\ \omega \gg 0}} \varepsilon(\omega \cdot \mathfrak{c}^{-1}) \mathcal{N}(\omega\mu^{-1})^{k-1}\Bigr) q^\mu \\
+&\quad = \mathcal{N}\mathfrak{a}^{-k} \sum_{\substack{\mu \gg 0 \\ \mu \in \mathfrak{a}\mathfrak{b}}} \Bigl(\sum_{\substack{\omega \in \mathfrak{f}^{-1}\mathfrak{a}\mathfrak{c} \\ \omega \gg 0}} \varepsilon(\omega \cdot \mathfrak{c}^{-1}) \mathcal{N}(\omega\mu^{-1})^{k-1}\Bigr) q^\mu.
+\end{align*}
+The proof of (6.1) is complete.
+\end{proof}
+
+
+% ============================================================
+\section{Theta Series}\label{sec:7}
+% ============================================================
+
+In this \S, we study certain series of weight one, with the polarization module $\mathfrak{c}$ of \S\ref{sec:5} taken to be the ring of integers of $K$.
+
+Let $u$ be a totally positive element of $K$, and let $L = K(\sqrt{-u})$ be the corresponding totally imaginary quadratic extension of $K$. Let
+\[
+\omega: G \to \{-1, +1\}
+\]
+be the character of $G = \Gal(K^{\mathrm{ab}}/K)$ corresponding to $L/K$. By composing $\omega$ with the ``Artin'' map $j$ of (2.23) we obtain a character
+\[
+K^* \to \{\pm 1\},
+\]
+again denoted by $\omega$.
+
+\begin{theorem}[(7.1)]\label{thm:7.1}
+For suitable $N \ge 1$, there exists a weight-one modular form $F$ over $\mathbb{C}$ on $\Gamma_{\omega}(N)$ whose $q$-expansion at the cusp determined by each $\alpha \in K^*$ is the series
+\[
+\omega(\alpha) \mathcal{N}\mathfrak{a} \sum_{x,y \in \mathfrak{a}} q^{x^2 + u y^2},
+\]
+where $\mathfrak{a} = (\alpha)$ is the ideal generated by $\alpha$.
+\end{theorem}
+
+\begin{remark}
+It is well known that the series $\sum_{x,y \in \mathbb{Z}} q^{x^2 + u y^2}$ is the standard $q$-expansion of a weight-one modular form, cf.~e.g.~[7]. Our interest is in calculating the ``other'' $q$-expansions of this form. We do this by analyzing the action (by ``slashing'') of $\SL(2,K)$ on this form, in terms of the Weil representation.
+\end{remark}
+
+\begin{proof}[Proof of (7.1)]
+Let $\psi: \mathbb{A} \to \mathbb{C}^*$ be the additive character of \S3. We recall that the choice of $\psi$ as an additive character on $\mathbb{A}$, trivial on $K$, determines a certain representation, the Weil representation, of $\SL(2, \mathbb{A})$ on the Schwartz space $\mathscr{S}(L_{\mathbb{A}})$ of the adelization $L_{\mathbb{A}} = L \otimes_K \mathbb{A}_K$ of $L$. (See [14, 35, 41].) We denote this representation by $r$. This representation is derived from local Weil representations $r_v$ of the various groups $\SL(2, K_v)$ on the corresponding Schwartz spaces $\mathscr{S}(L_v)$. This local representations may in turn be described by certain explicit formulas giving the actions of $\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix}$ and of matrices of the form $\begin{pmatrix} a & 0 \\ 0 & a^{-1} \end{pmatrix}$ of [35].
+
+For $M \in \mathscr{S}(L_{\mathbb{A}})$ one defines
+\[
+\Theta(M) = \sum_{x \in L} M(x).
+\]
+This function is left invariant under $\SL(2,K)$: for $s \in \SL(2,K)$ we have
+\[
+\Theta(r(s)M) = \Theta(M).
+\]
+For fixed $M$, the function $s \mapsto \Theta(r(s)M)$ is then a continuous function on $\SL(2, \mathbb{A})$ which is invariant on the left by $\SL(2,K)$ [35, \S2].
+
+We shall make a particular choice for the infinite component of $M$ (cf.~[8, 2.35]). Let $\Nm$ denote the norm from $L$ to $K$. Let $L_\infty = L \otimes_{\mathbb{Q}} \mathbb{R}$. For $x \in L_\infty$, set
+\[
+M_\infty(x) = \exp\{-2\pi \cdot \tr_{K \otimes \mathbb{R}/\mathbb{R}}(\Nm(x))\}.
+\]
+Then $M_\infty$ is the product of functions $M_v$ on the completions $L_v = L \otimes_K K_v$ of $L$ at the infinite primes of $K$ (we use $v: K \hookrightarrow \mathbb{R}$ to make the tensor product), each given by the same formula
+\[
+M_v(x) = e^{-2\pi |x|^2}.
+\]
+If we view $L_v$ as the complex field $\mathbb{C}$, the function $M_v$ is simply
+\[
+z \mapsto e^{-\pi |z|^2}.
+\]
+
+For $\theta \in \mathbb{R}$, let $\rho(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \in \SL(2, \mathbb{R})$. If $v$ is an infinite place of $K$, we write $\rho_v(\theta)$ for $\rho(\theta)$ if we think of $\SL(2, \mathbb{R})$ as $\SL(2, K_v)$. One has the formula
+\begin{equation}\label{eq:7.2}
+r_v(\rho_v(\theta)) M_v = e^{i\theta} M_v
+\end{equation}
+cf.~[36, Lemma 1.2].
+
+\begin{namedtheorem}[(7.3)]
+On the other hand, let $a, b \in \mathbb{R}$, $b > 0$. The explicit formulas which define $r_v$ show that
+\[
+r_v\begin{pmatrix} \sqrt{b} & a/\sqrt{b} \\ 0 & 1/\sqrt{b} \end{pmatrix}^{-1} M_v
+\]
+is the function
+\[
+x \mapsto b^{1/2} e^{2\pi i (a+bi) \Nm(x)}.
+\]
+\end{namedtheorem}
+
+For $\tau$ in the upper halfplane
+\[
+\mathfrak{H} = \{\tau \in K \otimes \mathbb{C} \mid \Im\tau \gg 0\},
+\]
+and for $g = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \SL(2, K \otimes \mathbb{R})$, we write $g \cdot \tau$ for the quotient $\frac{a\tau + b}{c\tau + d}$.
+
+Writing $\mathcal{N}$ for the norm map $K \otimes \mathbb{C} \to \mathbb{C}$, we let $j(g, \tau)$ be the ``factor of automorphy''
+\[
+\mathcal{N}(c\tau + d).
+\]
+One verifies easily the formula
+\begin{equation}\label{eq:7.4}
+j(gh, \tau) = j(g, h\tau) \cdot j(h, \tau)
+\end{equation}
+for $g, h \in \SL(2, K \otimes \mathbb{R})$.
+
+We now consider the finite part $L_f = L \otimes_K \mathbb{A}_f$ of $L_{\mathbb{A}}$, and its Schwartz space $\mathscr{S}(L_f)$. A ``finite'' Weil representation gives an action of $\SL(2, \mathbb{A}_f)$ on $\mathscr{S}(L_f)$, which we again denote $r$. The ``multiplication'' map
+\[
+\SL(2, \mathbb{A}_f) \times \mathscr{S}(L_f) \to \mathscr{S}(L_f)
+\]
+is continuous, so that the stabilizer in $\SL(2, \mathbb{A}_f)$ of each $\varepsilon \in \mathscr{S}(L_f)$ is open. For $\varepsilon \in \mathscr{S}(L_f)$, we let $M_\varepsilon = \varepsilon \otimes M_\infty$ be the product of $\varepsilon$ with the function $M_\infty$ defined above. Let
+\[
+\varphi_\varepsilon: \SL(2, \mathbb{A}) \to \mathbb{C}
+\]
+be the corresponding function $s \mapsto \Theta(r(s) \cdot M_\varepsilon)$ on $\SL(2, \mathbb{A})$.
+
+For $g \in \SL(2, K \otimes \mathbb{R})$, we write simply $\varphi_\varepsilon(g)$ for the value of $\varphi_\varepsilon$ on the image $1 \times g$ of $g$ in $\SL(2, \mathbb{A})$.
+
+For each $\varepsilon$, we define a function $F_\varepsilon$ on $\mathfrak{H}$ by the series
+\[
+F_\varepsilon(\tau) = \sum_{x \in L} \varepsilon(x_f) M_\infty(x_\infty) e^{2\pi i \tr(\Nm(x) \cdot \tau)}.
+\]
+
+\begin{proposition}[(7.5)]\label{prop:7.5}
+We have $F_\varepsilon(\tau) = \varphi_\varepsilon(g) \, j(g, i)^{-1}$ for all $g \in \SL(2, K \otimes \mathbb{R})$ such that $g \cdot i = \tau$.
+\end{proposition}
+
+\begin{proof}
+If $g$ is an element such that $g \cdot i = \tau$, then any other element is obtained by multiplying $g$ on the right by rotations $\rho_v(\theta) \in \SL(2, K_v) \hookrightarrow \SL(2, K \otimes \mathbb{R})$. Since $j(\rho_v(\theta), i) = e^{i\theta}$, we see by (7.2) and by (7.4) that the assertion is true for one $g$ if and only if it is true for each $g$. We write $\tau = a + bi$, with $a, b \in K \otimes \mathbb{R}$. Since $\tau \in \mathfrak{H}$, $b$ is totally positive. Thus $b$ has a unique totally positive square root $\sqrt{b}$. It is clear that the matrix $g = \begin{pmatrix} \sqrt{b} & a/\sqrt{b} \\ 0 & 1/\sqrt{b} \end{pmatrix}$ is such that $g \cdot i = \tau$. For this choice of $g$ however, the formula $F_\varepsilon(\tau) = \varphi_\varepsilon(g) \, j(g, i)^{-1}$ is an immediate consequence of the definition of $\varphi_\varepsilon(g)$ and (7.3).
+\end{proof}
+
+We now recall the ``slashing'' operator (with the weight $k$ taken to be $1$)
+\[
+(F|h)(\tau) = F(h \cdot \tau) \, j(h, \tau)^{-1}, \qquad h \in \SL(2, K \otimes \mathbb{R}).
+\]
+
+\begin{proposition}[(7.6)]\label{prop:7.6}
+For $h \in \SL(2, K \otimes \mathbb{R})$, we have
+\[
+(F_\varepsilon|h)(\tau) = \varphi_\varepsilon(hg) \, j(g, i)^{-1}
+\]
+for each $g$ such that $g \cdot i = \tau$.
+\end{proposition}
+
+\begin{proof}
+This formula follows immediately from (7.4) and (7.5).
+\end{proof}
+
+For $A \in \SL(2, \mathbb{A})$, we let $A_f$ (resp.~$A_\infty$) denote the image of $A$ in $\SL(2, \mathbb{A}_f)$ (resp.~$\SL(2, K \otimes \mathbb{R})$). Regarding $\SL(2, \mathbb{A}_f)$ and $\SL(2, K \otimes \mathbb{R})$ as subgroups of $\SL(2, \mathbb{A})$, we have $A = A_f \cdot A_\infty$.
+
+\begin{theorem}[(7.7)]\label{thm:7.7}
+For all $A \in \SL(2, K)$, we have
+\[
+F_\varepsilon|A = F_{r(A_f)^{-1}\varepsilon}.
+\]
+\end{theorem}
+
+\begin{proof}
+Let $\tau \in \mathfrak{H}$, and choose $g \in \SL(2, K \otimes \mathbb{R})$ so that $g \cdot i = \tau$. Since $|A$ represents the action of a matrix in $\SL(2, K \otimes \mathbb{R})$, it is $(F_\varepsilon|A_\infty)(\tau)$ which we must compute. By (7.6), this number is
+\[
+\varphi_\varepsilon(A_\infty^{-1} g) \, j(g, i)^{-1} = \varphi_\varepsilon(A_f^{-1} g) \, j(g, i)^{-1},
+\]
+with the equality resulting from the left-invariance of $\varphi_\varepsilon$ under $\SL(2,K)$. Since $g \in \SL(2, K \otimes \mathbb{R})$, $A_f$ and $g$ commute in $\SL(2, \mathbb{A})$. Commuting the two, and recalling the definition of $\varphi_\varepsilon$, we find that
+\[
+\varphi_\varepsilon(A_f^{-1} g) = \varphi_{r(A_f)^{-1}\varepsilon}(g).
+\]
+The asserted equality now follows from (7.5).
+\end{proof}
+
+Since the stabilizer of $\varepsilon$ in $\SL(2, \mathbb{A}_f)$ is open, (7.7) implies that $F_\varepsilon$ is invariant under some congruence subgroup of $\SL(2, \mathcal{O})$. Hence, by strong approximation, $F_\varepsilon|A$ may be defined for all $A \in \SL(2, \mathbb{A}_f)$. By continuity, we see that the definition thus obtained is the obvious one: for all $A \in \SL(2, \mathbb{A}_f)$, we have
+\begin{equation}\label{eq:7.8}
+F_\varepsilon|A = F_{r(A^{-1})\varepsilon}.
+\end{equation}
+
+We now make a specific choice of $\varepsilon$. Let $\mathscr{R} \subset L$ be the lattice $\mathcal{O} + \mathcal{O}\sqrt{-u}$, and let $\varepsilon$ be the characteristic function of the subset $\mathscr{R} \otimes \hat{\mathbb{Z}} = \mathcal{O} + \mathcal{O}\sqrt{-u}$ of $L_f$. Then
+\[
+F_\varepsilon = \sum_{x,y \in \mathcal{O}} q^{x^2 + u y^2}.
+\]
+
+To show that the holomorphic function $F = F_\varepsilon$ is (the $q$-expansion of) a modular form of weight $1$ on $\Gamma_\omega(N)$ over $\mathbb{C}$, we must show that $F$ is invariant under the group of matrices $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ with $a, d \in 1 + N\mathcal{O}$, $b \in \mathfrak{D}^{-1}$, $c \in N\mathfrak{D}$. Any such matrix is the product of a transvection $\begin{pmatrix} 1 & \varepsilon \\ 0 & 1 \end{pmatrix}$ ($\varepsilon \in \mathfrak{D}^{-1}$) and a matrix which satisfies $b \in N\mathfrak{D}^{-1}$ in addition to the other requirements. Since $F$ is clearly invariant under the transvections, it is enough to show that $F$ is invariant under matrices with
+\[
+a, d \in 1 + N\mathcal{O}, \quad b \in N\mathfrak{D}^{-1}, \quad c \in N\mathfrak{D}.
+\]
+What is required, for (7.1), is merely that $F$ be invariant under $\Gamma(N)$ for some $N$. But this is simply a restatement of the fact that $F_\varepsilon$ is invariant under some congruence subgroup of $\SL(2, \mathcal{O})$, which we have already established.
+
+To conclude the proof of (7.1), we note by (5.8) that the $q$-expansion of $F$ at the cusp corresponding to $\alpha$ is $F|A$, where $A = \begin{pmatrix} \alpha & 0 \\ 0 & \alpha^{-1} \end{pmatrix} \in \SL(2, \mathbb{A}_f)$. By (7.8), we may rewrite this $F_{r(A)^{-1}\varepsilon}$. Now $A^{-1}$ is such that $r(A^{-1})$ is given by a particularly simple formula [35, (2.1)]. We find that $r(A)^{-1}\varepsilon$ is the function on $L_f$
+\[
+x \mapsto \omega(\alpha)^{-1} \, \|\alpha\|^{-1} \, \varepsilon(\alpha^{-1} x).
+\]
+Now $\omega(\alpha)^{-1} = \omega(\alpha)$, and $\|\alpha\|^{-1} = \mathcal{N}\mathfrak{a}$. Finally, $\varepsilon(\alpha^{-1}x)$ is the characteristic function of $\mathfrak{a} + \mathfrak{a}\sqrt{-u}$. Hence
+\[
+F_{r(A)^{-1}\varepsilon} = \omega(\alpha) \mathcal{N}\mathfrak{a} \sum_{x,y \in \mathfrak{a}} q^{x^2 + u y^2},
+\]
+and
+\[
+F|A = \omega(\alpha) \mathcal{N}\mathfrak{a} \sum_{x,y \in \mathfrak{a}} q^{x^2 + u y^2},
+\]
+as desired.
+\end{proof}
+
+
+% ============================================================
+\section{Congruences for $L$-values}\label{sec:8}
+% ============================================================
+
+For $\varepsilon: I \to \mathbb{C}$ a Schwartz function, we have defined $L(s, \varepsilon)$ as the sum
+\[
+\sum_{\mathfrak{a} \in I_0} \varepsilon(\mathfrak{a}) \mathcal{N}\mathfrak{a}^{-s}
+\]
+in \S3. By writing $L(s, \varepsilon)$ in terms of partial zeta functions, we see that Siegel's rationality theorem [37, 38] is equivalent to:
+
+\begin{theorem}[(8.1)]\label{thm:8.1}
+If $\varepsilon$ takes values in $\mathbb{Q}$, then for each integer $k \ge 1$ we have
+\[
+L(1-k, \varepsilon) \in \mathbb{Q}.
+\]
+\end{theorem}
+
+In the following discussion, we will admit (8.1) as known. The reader will observe that it is in fact a consequence of (0.1), in view of the calculations with Eisenstein series below.
+
+As in \S0, Theorem (8.1) allows us to define, by linearity, values
+\[
+L(1-k, \varepsilon) \in V
+\]
+for each $\varepsilon$ with values in a $\mathbb{Q}$-vector space $V$. We may view each association
+\[
+\varepsilon \mapsto L(1-k, \varepsilon) \quad (k \ge 1)
+\]
+as a $\mathbb{Q}$-valued distribution $T_k$ on $I$. Each $T_k$ has an obvious homogeneity property with respect to substitutions
+\[
+\varepsilon(x) \mapsto \varepsilon(\mathfrak{a}x)
+\]
+with $\mathfrak{a}$ an ideal of $K$. In particular, $T_1$ is invariant under such substitutions.
+
+If $V$ is now a $\mathbb{Q}$-module and $c \in G$, we define
+\[
+\varLambda_c(1-k, \varepsilon) = L(1-k, \varepsilon) - \mathcal{N}c^k L(1-k, \varepsilon_c),
+\]
+where $\varepsilon_c$ is the function $\mathfrak{a} \mapsto \varepsilon(c\mathfrak{a})$, cf.~\S0. For each $c$ and $k$, the map
+\[
+\mu_{c,k}: \varepsilon \mapsto \varLambda_c(1-k, \varepsilon)
+\]
+is a distribution on $I$ with values in $\mathbb{Q}$. Let us denote $\mu_{c,1}$ simply by $\mu_c$.
+
+\begin{theorem}[(8.2) Main Theorem]\label{thm:8.2}
+For each $c \in G$, $\mu_c$ is a measure on $I$ with values in $\mathbb{Z}$. If $\varepsilon$ is a Schwartz function on $I$ and $k$ a positive integer, we have
+\[
+\int \varepsilon \cdot \mathcal{N}^{k-1} \, d\mu_c = \varLambda_c(1-k, \varepsilon).
+\]
+\end{theorem}
+
+[Note that in the above equation, $\mathcal{N}$ is the norm function $I \to \mathbb{Q}$.]
+
+The principal purpose of this \S\ is to derive (8.2). Along the way, we will prove certain further assertions concerning the integrals against $\mu_c$ of odd functions. These are summarized in (8.11), (8.12). Also, we wish to point out how (0.4) is a consequence of (8.2).
+
+\begin{proposition}[(8.3)]\label{prop:8.3}
+Let $\varepsilon$ be a Schwartz function on $I$ with values in a $\mathbb{Q}$-vector space $V$. Suppose that $k \ge 1$ and that $c$ is an element of the subgroup $\mathfrak{Z}$ of $G$, cf.~(2.24). Then we have
+\[
+L(1-k, \varepsilon_c) = \mathcal{N}c^{-k} L(1-k, \varepsilon).
+\]
+\end{proposition}
+
+\begin{proof}
+We easily reduce to the case where $\varepsilon$ is a complex-valued function which has parity $(a_v)$ for some set of integers $a_v = 0, 1$. For such $\varepsilon$, the proposition amounts to the vanishing of $L(1-k, \varepsilon)$ whenever we have $(-1)^{a_v} \neq (-1)^{kr}$ for some $v$. This is the vanishing given by (3.24).
+\end{proof}
+
+\begin{theorem}[(8.4) The ``Eisenstein congruences'']\label{thm:8.4}
+Let $\varepsilon_1, \dots, \varepsilon_t$ be Schwartz functions on $I$ with values in $\mathbb{Q}$. Let $\mathfrak{B}$ be an ideal of $K$. Suppose that only finitely many of the $\varepsilon_k$ are non-zero and that $\varepsilon_k$ has parity $(-1)^k$ for each $k$. Set
+\[
+\varphi: \sum_{k \ge 1} \varepsilon_k \mathcal{N}^{k-1}: I \to \mathbb{Q}.
+\]
+Suppose for each totally positive element $\mu$ of $K$ that the finite sum
+\[
+\sum_{\substack{\mathfrak{a} \in I_0 \\ \mathfrak{a} \subset \mathcal{O}}} \varphi(\mathfrak{a}\mu)
+\]
+lies in $\mathbb{Z}$. Then for each $c \in G$, we have
+\begin{equation}\label{eq:8.5}
+\varLambda_c(0, \tilde{\varepsilon}_1) + \sum_{k \ge 1} \varLambda_c(1-k, \varepsilon_k) \in \mathbb{Z},
+\end{equation}
+where $\tilde{\varepsilon}_1$ is the modification of $\varepsilon_1$ with respect to $\mathfrak{B}$ (\S6).
+\end{theorem}
+
+\begin{proof}
+For a given collection of functions $(\varepsilon_k)$, the hypothesis and the conclusion of the theorem depend only on the strict ideal class of $\mathfrak{B}$. Also, if $\mathfrak{b}$ is an ideal of $K$, the theorem for $(\varepsilon_k)$ and for $\mathfrak{B}$ is equivalent to the theorem for the ideal $\mathfrak{B}\mathfrak{b}$ and the collection of functions
+\[
+\varepsilon \mapsto \varepsilon_k(\mathfrak{a}\mathfrak{b}) \mathcal{N}\mathfrak{b}^{k-1}.
+\]
+It thus suffices to treat the case where the $\varepsilon_k$ are supported on $A$. At the same time, we may as well assume that the ideal $\mathfrak{B}$ is equal to the ideal $\mathcal{O}$. (This latter assumption will prove to be convenient because the modular forms in \S6 were made with polarization module $\mathfrak{c}$ implicitly taken to be $\mathcal{O}$.) Furthermore, we observe that it suffices to treat the case where the $\varepsilon_k$ are $\mathbb{Q}$-valued. Indeed, it is clear that the hypothesis to (8.4) does not change if we replace the $\varepsilon_k$ by functions which are congruent to them modulo $\mathbb{Z}$. As for the conclusion of (8.4), we may specify in advance a positive integer $D$ such that the conclusion is unchanged if we replace the $\varepsilon_k$ by functions congruent to them $\bmod\, D\mathbb{Z}$. (The point is that the $L$-values in question are a priori given as linear combinations of certain rational numbers --- values of partial zeta functions --- which may be specified as soon as one knows a common modulus of definition for the $\varepsilon_k$.)
+
+So let functions $\varepsilon_k$ be given as in (8.4), under the further assumption that they are $\mathbb{Q}$-valued and supported on $A$. Assume that the ideal $\mathfrak{B}$ is equal to $\mathcal{O}$. For each $k \ge 1$, let $F_k$ be the Eisenstein series $G_{k,\varepsilon_k}$ of (6.1). From (8.1) and equation (6.2), we see that the $F_k$ each satisfy the rationality condition of (0.1). For each $\alpha \in K^*$, let
+\[
+S(\alpha) = \sum_{k \ge 1} \mathcal{N}\alpha_p^{-k} \cdot F_{k,\alpha};
+\]
+this is a priori a formal series with coefficients in $\mathbb{Q}$.
+
+Now the non-constant coefficients of $S(1)$ are rational integers and thus in particular are in $\mathbb{Z}$. Hence, by (0.3), applied for each prime $p$, the difference between the constant coefficients of $S(1)$ and $S(\alpha)$ lies again in $\mathbb{Z}$, for $\alpha \in K^*$.
+
+Given $\alpha$, set $c = j(\alpha) = (\alpha) \cdot \alpha^{-1}$. Looking at (6.2), and using the equation
+\[
+\mathcal{N}c = \mathcal{N}(\alpha) \cdot \mathcal{N}\alpha^{-1},
+\]
+we see that the conclusion of (8.4) holds for $c$. But $j$ is surjective; hence the conclusion holds for each $c \in G$.
+\end{proof}
+
+[In fact, it is clear that the conclusion of (8.4) depends a priori only on the image of $c$ in $G_\mathfrak{f}$, where $\mathfrak{f}$ is a suitable conductor. Hence all that is needed is that $G_\mathfrak{f}$ is a quotient of $K^*$.]
+
+Although (8.4) and (8.2) are quite similar, there are two obstacles which prevent us from deducing (8.2) as an immediate consequence of (8.4). First of all, there is a parity assumption on the $\varepsilon_k$ in (8.4). Secondly, (8.4) contains a perturbing term, involving the modification of $\varepsilon_1$. These difficulties may account for the complexity of the calculations that follow.
+
+We shall suppose below without comment that $\varepsilon$ is a Schwartz function on $I$ with values in $\mathbb{Z}$.
+
+\begin{proposition}[(8.6)]\label{prop:8.6}
+If $K$ has some unit of norm $-1$ (e.g., if $r$ is odd), and if $\varepsilon$ is an odd function, then $\varLambda_c(0, \varepsilon) \in 2\mathbb{Z}$.
+\end{proposition}
+
+\begin{proof}
+By (8.4), it suffices to show that $\tilde{\varepsilon} = 0$. However, the unit hypothesis shows that there is an element $\mathfrak{a}$ of $\mathfrak{Z}_1$, not in $\mathfrak{Z}_1^+$, whose image in $G_1$ is trivial. It follows that the restriction to the set of elements of $I$ of the form $(\omega \cdot 0)$ of any odd function on $I$ is identically zero. Hence, by definition, $\tilde{\varepsilon} = 0$ in this case.
+\end{proof}
+
+We now consider the case where no unit of $K$ has norm $-1$. In $G_1$, the Frobenius group $\mathfrak{Z}_1$ contains as a subgroup of index $2$ the group $\mathfrak{Z}_1^+$ generated by products of pairs of Frobenius elements. We let $\mathfrak{X} = G_1/\mathfrak{Z}_1^+$ and let $\sigma$ be the real Frobenius element of $\mathfrak{X}$. The order of $\sigma$ is $2$. (We may view $\mathfrak{X}$ as the Galois group over $K$ of the largest abelian extension of $K$ which is unramified at the finite places and either totally real or else a ``CM field.'' The fact that $K$ has no unit of norm $-1$ means that this extension is in fact a CM field. In this optic, $\sigma$ is the canonical ``complex conjugation'' of the field.)
+
+\begin{lemma}[(8.7)]\label{lem:8.7}
+Let $\varepsilon$ be a function $\mathfrak{X} \to \mathbb{Z}$ which is odd [$\varepsilon(\sigma x) = -\varepsilon(x)$] and which satisfies
+\[
+\sum_{x \in \mathfrak{X}} \varepsilon(x) \equiv 0 \pmod{2}.
+\]
+Then $\varepsilon$ is the sum of functions of the form $h(x) - h(\sigma x)$, where $h: \mathfrak{X} \to \mathbb{Z}$ is odd and where $\sigma \in \mathfrak{X}$.
+\end{lemma}
+
+\begin{proof}
+For each $\sigma \in \mathfrak{X}$, define an odd function $h_\sigma: \mathfrak{X} \to \mathbb{Z}$ by:
+\[
+h_\sigma(x) = \begin{cases}
+1 & \text{if } x = \sigma, \\
+-1 & \text{if } x = \sigma\sigma, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+By subtracting from $\varepsilon$ multiples of the functions $h_\sigma(x) - h_\sigma(\sigma x)$, we may assume that $\varepsilon$ is supported on $\{1, \sigma\}$. The hypothesis on $\varepsilon$ then means that $\varepsilon$ takes even values. The equation
+\[
+\varepsilon(x) = \varepsilon(x)/2 - \varepsilon(\sigma x)/2
+\]
+exhibits $\varepsilon$ as a function of the form $h(x) - h(\sigma x)$.
+\end{proof}
+
+Suppose now that $\varphi: I \to \mathbb{Z}$ is a function which is odd (or, more generally, which has parity $(a_v)$ for some collection of integers $a_v = 0$ or $1$). We will define an invariant $\delta(\varphi)$ in $\mathbb{Z}/2\mathbb{Z}$. The restriction of $\varphi$ to the set of elements of the form $(x \cdot 0)$ in $I$ may be viewed as a function
+\[
+r: G_1 \to \mathbb{Z}.
+\]
+Composing $r$ with the natural map $\mathbb{Z} \to \mathbb{Z}/2\mathbb{Z}$, we obtain a function $r'$ on $G_1$ which is even, i.e., $\mathfrak{Z}_1$-invariant. We set
+\[
+\delta(\varphi) = \sum_{g \in G_1/\mathfrak{Z}_1} r'(g),
+\]
+the summation running over elements $g$ of $G_1$, taken modulo $\mathfrak{Z}_1$.
+
+\begin{proposition}[(8.8)]\label{prop:8.8}
+Suppose that $\varepsilon$ is an odd function and that $\delta(\varepsilon) = 0$. Then
+\[
+\varLambda_c(0, \varepsilon) \in 2\mathbb{Z}.
+\]
+\end{proposition}
+
+\begin{proof}
+Because of (8.6), we may assume that no unit of $K$ has norm $-1$. The function $r: G_1 \to \mathbb{Z}$ constructed as above for $\varepsilon$ is $\mathfrak{Z}_1$-invariant and consequently may be viewed as a function on $\mathfrak{X}$. By (8.7), we may find odd locally constant functions $H: A \to \mathbb{Z}$ and ideals $\mathfrak{a}$ of $K$ such that the difference $\varepsilon'$ between $\varepsilon$ and the sum of the functions
+\[
+H(\mathfrak{a}) - H(\sigma\mathfrak{a})
+\]
+vanishes on $\mathfrak{X}$. By (8.4), we get then
+\[
+\varLambda_c(0, \varepsilon') + \varLambda_c(0, \tilde{\varepsilon}') \in \mathbb{Z}.
+\]
+On the other hand, we have $\varLambda_c(0, H(\mathfrak{a}\mathfrak{c})) = \varLambda_c(0, H(\sigma\mathfrak{a}\mathfrak{c}))$ for each $H$, so that
+\[
+\varLambda_c(0, \varepsilon) = \varLambda_c(0, \varepsilon').
+\]
+This proves what is wanted.
+\end{proof}
+
+\begin{corollary}[(8.9)]\label{cor:8.9}
+For each odd $\varepsilon$, we have $\varLambda_c(0, \varepsilon) \in 2^{r-1}\mathbb{Z}$.
+\end{corollary}
+
+We now introduce the notion of an \emph{exceptional field}. We say that $K$ is exceptional if the following two conditions are satisfied:
+\begin{enumerate}[label=\roman*)]
+\item All units of $K$ have norm $+1$,
+\item There are units of $K$ of all signatures compatible with (i).
+\end{enumerate}
+When $K$ is exceptional, we have $\mathfrak{Z}_1 = \{1\}$, and $\mathfrak{Z}_1^*$ consists of two elements. A field is exceptional if its strict Hilbert class field is a CM field.
+
+\begin{proposition}[(8.10)]\label{prop:8.10}
+Suppose that $K$ is not exceptional. Then for each odd $\varepsilon$ we have
+\[
+\varLambda_c(0, \varepsilon) \in 2^r \mathbb{Z}.
+\]
+\end{proposition}
+
+\begin{proof}
+In view of (8.6), we may again suppose that $K$ satisfies (i). The hypothesis that $K$ is not exceptional then means that there is a principal ideal $(\alpha)$ generated by an integer $\alpha$ of positive norm, whose strict ideal class is non-trivial. Let $\eta$ be the locally constant compactly supported function on $I$ whose value on an ideal $\mathfrak{a}$ is given by
+\[
+\eta(\mathfrak{a}) = \begin{cases}
+0 & \text{if } \mathfrak{a} \neq (\alpha), \\
+\sgn \alpha & \text{if } \mathfrak{a} = (\alpha).
+\end{cases}
+\]
+Here
+\[
+\sgn \alpha = \begin{cases}
+0 & \text{if } \alpha \text{ is non-principal}, \\
++1 & \text{if } \alpha = (\beta) \text{ with } \mathcal{N}\beta > 0, \\
+-1 & \text{if } \alpha = (\beta) \text{ with } \mathcal{N}\beta < 0.
+\end{cases}
+\]
+Note that $\sgn$ is well defined precisely because there is no unit of negative norm in $K$.
+
+Let us check that $\eta$ satisfies the hypothesis to (8.4) with $\mathfrak{B} = \mathcal{O}$, i.e.,
+\[
+\sum_{\substack{\mathfrak{a} \in I_0 \\ \mathfrak{a} \subset \mathcal{O}}} \eta(\mathfrak{a}) \mathcal{N}\mathfrak{a}^{-k} \in \mathbb{Z},
+\]
+for all $\mu \gg 0$. We observe that $\mathfrak{a} \mapsto \mathfrak{a}\alpha^{-1}\mu$ gives an involution on the set of $\mathfrak{a}$ in the second sum, and that $\eta(\mathfrak{a}) = \eta(\alpha\mathfrak{a}^{-1}\mu)$. Hence $\eta$ does indeed satisfy the hypothesis if there are no fixed points of the involution on which $\eta$ takes non-zero values. But if $\mu = \alpha\mu^{-1}\lambda$ and if $\mathfrak{a}$ is principal, then $(\alpha\mu^{-1}\lambda)$ is the square of a principal ideal and hence in the trivial strict ideal class of $K$. This is contrary to the choice of $\alpha$ and the fact that $\mu \gg 0$. Hence $\varLambda_c(0, \eta) + \varLambda_c(0, \tilde{\eta}) \in \mathbb{Z}$, by (8.4).
+
+However $\tilde{\eta}$ is obviously the ``same'' function as $\eta$, except that its support is $\mathcal{O}$ rather than $(\alpha)$. More precisely, we have $\tilde{\eta}(\mathfrak{a}) = \eta((\alpha)\mathfrak{a})$. It follows that $\varLambda_c(0, \eta) = \varLambda_c(0, \tilde{\eta})$. Thus
+\[
+\varLambda_c(0, 2\tilde{\eta}) \in \mathbb{Z}.
+\]
+The function $\tilde{\eta}: 2\tilde{\eta}$ is odd and $\mathbb{Z}$-valued (it is just the function $\sgn$ with support on $A$). It satisfies $\delta(\tilde{\eta}) = 1$ because, on the $(\omega \cdot 0)$, $\tilde{\eta}$ vanishes on all elements except those with wide class $1$; in the sum defining $\delta(\tilde{\eta})$ there is only one term. This gives (8.10).
+\end{proof}
+
+\begin{proof}[Proof of (8.2)]
+For $c \in G$, we must first show that $\mu_c$ is a measure. This means showing that $\varLambda_c(0, \varepsilon) \in \mathbb{Z}$ for all $\varepsilon$. Given $\varepsilon$, we may define an odd function $\varepsilon'$ by the formula
+\[
+\varepsilon'(\mathfrak{a}) = 2^{-r} \sum_{\sigma \in \mathfrak{Z}_1} \varepsilon(\sigma\mathfrak{a}) \in 2^{-r}\mathbb{Z},
+\]
+in which the summation runs over the group $\mathfrak{Z}_1$ (whose cardinality is $2^r$). It is apparent from (8.3) that $\varLambda_c(0, \varepsilon) = \varLambda_c(0, \varepsilon')$. By (8.8) and (8.10), it suffices to show that $\delta(2^r\varepsilon') = 0$ whenever $K$ is exceptional.
+
+Under this hypothesis on $K$, the restriction of $\varepsilon$ to the $(x \cdot 0)$ is already invariant under $\mathfrak{Z}_1^+$, since the image of this group in $G_1$ is trivial. Hence the restriction of $\varepsilon'$ to the $(x \cdot 0)$ takes values in $2^{r-1}\mathbb{Z}$. Since $r > 1$, the restriction of $r'$ to the $(x \cdot 0)$ thus takes even values. In particular, $\delta(2^r\varepsilon') = 0$, as required.
+
+Thus $\mu_c$ is indeed a measure with values in $\mathbb{Z}$.
+
+It remains now to show that
+\[
+\int \varepsilon \cdot \mathcal{N}^{k-1} \, d\mu_c = \varLambda_c(1-k, \varepsilon)
+\]
+for $k > 1$, and all Schwartz functions $\varepsilon$. We define $\varepsilon'$ as above, and we similarly define $\varepsilon''$ by omitting the factor $\mathcal{N}\mathfrak{a}^{-1}$ in the sum defining $\varepsilon'$. Let $\varepsilon^*$ be either $\varepsilon'$ or $\varepsilon''$ according as $k$ is odd or even, so that $\varepsilon^*$ has the same parity as $k$. By (8.3), we have
+\[
+\varLambda_c(1-k, \varepsilon) = \varLambda_c(1-k, \varepsilon^*),
+\]
+and
+\[
+\int \varepsilon \cdot \mathcal{N}^{k-1} \, d\mu_c = \int \varepsilon^* \cdot \mathcal{N}^{k-1} \, d\mu_c.
+\]
+Hence there is no loss of generality in supposing that $\varepsilon$ has parity $(-1)^k$, which we now do. Making a change of variables, we shall suppose also that $\varepsilon$ is supported on $A$.
+
+Let $m$ be a positive integer. Choose a locally constant function
+\[
+\eta: A \to \mathbb{Z}
+\]
+which is odd and congruent modulo $m$ to the norm function $\mathcal{N}$ on $A$. By (8.4), we obtain from
+\[
+\sum_{k \ge 1} \varepsilon_k \eta^{k-1} \equiv \sum_{k \ge 1} \varepsilon_k \mathcal{N}^{k-1} \pmod{m\mathbb{Z}}
+\]
+the congruence
+\[
+\varLambda_c(1-k, \varepsilon) \equiv \varLambda_c(0, \varepsilon\eta^{k-1}) + \varLambda_c(0, \tilde{\varepsilon}\eta^{k-1}) \pmod{m\mathbb{Z}}.
+\]
+Now $\mathcal{N}$ vanishes on the $(x \cdot 0)$, so that $\eta$ takes values on these elements which are divisible by $m$. Hence $\tilde{\varepsilon}\eta^{k-1} \equiv 0 \pmod{m}$, so that its integral against $\mu_c$ is again divisible by $m$. Thus we have simply
+\[
+\varLambda_c(1-k, \varepsilon) \equiv \varLambda_c(0, \varepsilon\eta^{k-1}) \pmod{m}.
+\]
+On the other hand, because $\mu_c$ is a measure, the right hand member of this congruence is congruent $\bmod\, m$ to the integral against $\mu_c$ of $\varepsilon\mathcal{N}^{k-1}$. Hence the two numbers we wish to prove equal are congruent $\bmod\, m$. But $m$ was an arbitrary positive integer, so that the proof of (8.2) is complete.
+\end{proof}
+
+We now summarize what we can say about the integral of an odd function. Let $\varphi: I \to \mathbb{Z}$ be odd, continuous, and compactly supported.
+
+\begin{theorem}[(8.11)]\label{thm:8.11}
+We have $\int \varphi \, d\mu_c \in 2^{r-1}\mathbb{Z}$. Moreover, this integral lies in $2^r\mathbb{Z}$ unless $K$ is exceptional and $\delta(\varphi) = 1$.
+\end{theorem}
+
+\begin{proof}
+Choose an odd Schwartz function $\varepsilon: I \to \mathbb{Z}$ which is congruent to $\varphi \pmod{2^r}$. Then $\delta(\varphi) = \delta(\varepsilon)$ and the integrals against $\mu_c$ of $\varepsilon$ and $\varphi$ are congruent $\bmod\, 2^r$. Hence our assertions follow from (8.8), (8.9), and (8.10).
+\end{proof}
+
+Suppose now that $K$ is exceptional. For $c \in G$ and $\varphi$ with $\delta(\varphi) = 1$, the quantity
+\[
+2^{1-r} \int \varphi \, d\mu_c \pmod{2}
+\]
+is an element $\varepsilon(c)$ of $\mathbb{Z}/2\mathbb{Z}$ which, by (8.11), is independent of $\varphi$. To compute it, we can take $\varphi$ to be locally constant. The equation
+\[
+\varLambda_{cc'}(0, \varphi) = \varLambda_c(0, \varphi) + \varLambda_{c'}(0, \mathcal{N}c \cdot \varphi_c)
+\]
+then shows that $\varepsilon$ is a homomorphism $G \to \mathbb{Z}/2\mathbb{Z}$. Its kernel corresponds, then, to some extension of $K$ of degree $1$ or $2$ which, by (8.3) is easily seen to be totally real. After looking at a small number of numerical examples, Lenstra predicted that this extension would prove to be the field $M$ obtained by adjoining to $K$ the square roots of all positive units. (That this field is a quadratic extension follows from the fact that $K$ is exceptional.)
+
+His prediction was correct.
+
+\begin{theorem}[(8.12)]\label{thm:8.12}
+If $K$ is exceptional and $\delta(\varphi) = 1$, then we have
+\[
+\int \varphi \, d\mu_c \in 2^r\mathbb{Z}
+\]
+if and only if the image of $c$ in $\Gal(M/K)$ is trivial.
+\end{theorem}
+
+\begin{proof}
+Let $\varepsilon$ be the ``sign'' function with support on $A$, as in the proof of (8.10). We have already noted in that proof that $\varepsilon$ is an odd function with $\delta(\varepsilon) = 1$. Also, with $\mathfrak{B} = \mathcal{O}$, we have $\tilde{\varepsilon} = \varepsilon$.
+
+Let $E$ be the Eisenstein series $G_{1,\varepsilon}$, made with $\mathfrak{B} = \mathcal{O}$. Next, choose $u$ to be a totally positive unit which is not a square in $K$, so that
+\[
+M = K(\sqrt{u}).
+\]
+Let $F$ be the theta series of (7.1), made with this choice of $u$. The two forms $F$ and $E$ satisfy the rationality property of (0.1), as we see by looking at the $q$-expansions of $F$ and $E$ at the standard cusp. (For the constant term of $F$, we need also (8.1).) An elementary argument shows that the non-constant terms of the standard $q$-expansions of $E$ and $2F$ are congruent modulo $2$. In other words, the form $E/2 - F/4$ has a standard $q$-expansion whose non-constant terms all lie in $\mathbb{Z}$. Arguing now as in the proof of (8.4), we find for all $c \in G$ a congruence
+\[
+\frac{\varLambda_c(0, \varepsilon)}{2} + \frac{\varLambda_c(0, \tilde{\varepsilon})}{2} \equiv \frac{1 - \mathcal{N}c \cdot \omega(c)}{2} \pmod{2},
+\]
+with $\omega$ as in (7.1). On the other hand, we have already remarked that $\varepsilon$ and $\tilde{\varepsilon}$ are equal. Hence the integral in (8.12) lies in $2^r\mathbb{Z}$ if and only if
+\[
+\mathcal{N}c \cdot \omega(c) \equiv 1 \pmod{4}.
+\]
+Now, $\bmod\, 4$, $\mathcal{N}$ is the quadratic character of $G$ corresponding to the extension
+\[
+K(\sqrt{-1})/K,
+\]
+whereas $\omega$ corresponds to the quadratic extension
+\[
+K(\sqrt{-u})/K.
+\]
+Hence the product of these two quadratic characters corresponds to the extension $M/K$, as desired.
+\end{proof}
+
+\subsection*{Proof of (0.4)}
+
+Let $(\varepsilon_k)$ be a sequence of functions as in (0.4). We may view these as functions on $I$, defined $\bmod\, \mathfrak{f}$ and supported on $A$. From this point of view, the $\varepsilon_k$ furthermore vanish on integral ideals which are not prime to $\mathfrak{f}$. Hence if we form the sum $\sum_k \varepsilon_k \mathcal{N}^{k-1}$ as a function $I \to \mathbb{Q}_p$, the hypothesis to (0.4) implies that this function is in fact $\mathbb{Z}_p$-valued. (Note that $\mathcal{N}$ is a priori $\mathbb{Z}$-valued, while $\varepsilon_k$ is $\mathbb{Q}_p$-valued, so we may consider the product $\varepsilon_k \mathcal{N}^{k-1}$ as a number in $\mathbb{Q}_p$.) For each $c \in G$, the integral against $\mu_c$ of this sum is again an element of $\mathbb{Z}_p$. Using the second part of (8.2), we get then
+\[
+\sum_{k \ge 1} \varLambda_c(1-k, \varepsilon_k) \in \mathbb{Z}_p,
+\]
+as needed for (0.4).
+
+We must observe that the group called $G$ in \S0 is not the full group $\Gal(K^{\mathrm{ab}}/K)$ as in the succeeding \S\S, but rather a quotient of it. The explanation is that for $\varepsilon$ a function $\bmod\, \mathfrak{f}$ with values in $\mathbb{Q}_p$, the quantities $\varLambda_c(1-k, \varepsilon) \in \mathbb{Q}_p$ depend only on the image of $c$ in the quotient group used in \S0.
+
+
+% ============================================================
+\section*{References}
+\addcontentsline{toc}{section}{References}
+% ============================================================
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=*, itemsep=0.5ex]
+\item Barsky, D.: Fonctions z\'{e}ta $p$-adiques d'une classe de rayon des corps totalement r\'{e}els. Groupe d'\'{e}tude d'analyse ultram\'{e}trique 1977--78; errata, 1978--79
+
+\item Cassou-Nogu\`{e}s, P.: Valeurs aux entiers n\'{e}gatifs des fonctions z\^{e}ta et fonctions z\^{e}ta $p$-adiques. Invent. Math. \textbf{51}, 29--59 (1979)
+
+\item Coates, J.: $p$-adic $L$-functions and Iwasawa's theory. In: Algebraic Number Fields (A. Fr\'{o}hlich, ed.). London-New York-San Francisco: Academic Press 1977
+
+\item Deligne, P.: Vari\'{e}t\'{e}s ab\'{e}liennes ordinaires sur un corps fini. Invent. Math. \textbf{8}, 238--243 (1969)
+
+\item Deligne, P.: Letters to J-P. Serre: October, 1972 and December, 1973
+
+\item Deligne, P., Rapoport, M.: Les sch\'{e}mas de modules de courbes elliptiques. Lecture Notes in Math. \textbf{349}, 143--316 (1973)
+
+\item Eichler, M.: On theta functions of real algebraic number fields. Acta Arith. \textbf{33}, 269--292 (1977)
+
+\item Gelbart, S.: Weil's representation and the spectrum of the metaplectic group. Lecture Notes in Math. \textbf{530}, 1976
+
+\item Hecke, E.: Mathematische Werke. G\'{o}ttingen: Vandenhoeck und Ruprecht 1959
+
+\item Hirzebruch, F.: Hilbert modular surfaces. Enseignement Math. \textbf{19}, 183--281 (1973)
+
+\item Hurwitz, A.: Mathematische Werke. Basel: Emil Birkh\'{a}user 1932
+
+\item Igusa, J.: On the algebraic theory of elliptic modular functions. J. Math. Soc. Japan \textbf{20}, 96--106 (1968)
+
+\item Iwasawa, K.: Lectures on $p$-adic $L$-functions. Princeton: Princeton University Press 1972
+
+\item Jacquet, H., Langlands, R.P.: Automorphic forms on GL(2). Lectures Notes in Math. \textbf{114} (1970)
+
+\item Katz, N.: $p$-adic properties of modular schemes and modular forms. Lecture Notes in Math. \textbf{350}, 70--190 (1973)
+
+\item Katz, N.: The Eisenstein measure and $p$-adic interpolation. Amer. J. Math. \textbf{99}, 238--311 (1977)
+
+\item Katz, N.: $p$-adic $L$-functions via moduli of elliptic curves. Proc. Symp. Pure Math. \textbf{29}, 479--506 (1975)
+
+\item Katz, N.: $p$-adic interpolation of real analytic Eisenstein series. Ann. of Math. \textbf{104}, 459--571 (1976)
+
+\item Katz, N.: $p$-adic $L$-functions for CM fields. Invent. Math. \textbf{49}, 199--297 (1978)
+
+\item Koblitz, N.: $p$-adic numbers, $p$-adic analysis, and Zeta-Functions. New York-Heidelberg-Berlin: Springer-Verlag 1977
+
+\item Kubert, D., Lang, S.: Units in the modular function field. Lecture Notes in Math. \textbf{601}, 247--275 (1977)
+
+\item Lang, S.: Algebraic Number Theory. Reading, Mass: Addison-Wesley 1970
+
+\item Lang, S.: Introduction to Modular Forms. Berlin-Heidelberg-New York: Springer-Verlag 1976
+
+\item Lang, S.: Cyclotomic Fields. Berlin-Heidelberg-New York: Springer-Verlag 1978
+
+\item Mazur, B.: Analyse $p$-adique. Unpublished manuscript, 1973
+
+\item Mazur, B., Swinnerton-Dyer, H.P.F.: Arithmetic of Weil Curves. Invent. Math. \textbf{25}, 1--61 (1974)
+
+\item Queen, C.: The existence of $p$-adic $L$-functions. Number Theory and Algebra, pp.~263--288. New York: Academic Press 1977
+
+\item Rapoport, M.: Compactifications de l'espace de modules de Hilbert-Blumenthal. Compositio Math. \textbf{36}, 255--335 (1978)
+
+\item Ribet, K.: $p$-adic interpolation via Hilbert modular forms. Proc. Symp. Pure Math. \textbf{29}, 581--592 (1975)
+
+\item Ribet, K.: Report on $p$-adic $L$-functions over totally real fields. Ast\'{e}risque \textbf{61}, 177--192 (1979)
+
+\item Sato, M., Shintani, T.: On zeta functions associated with prehomogeneous vector spaces. Ann. of Math. \textbf{100}, 131--170 (1974)
+
+\item Serre, J-P.: Abelian $l$-adic representations and elliptic curves. New York: Benjamin 1968
+
+\item Serre, J-P.: Formes modulaires et fonctions z\^{e}ta $p$-adiques. Lecture Notes in Math. \textbf{350}, 191--268 (1973)
+
+\item Serre, J-P.: Sur le r\'{e}sidu de la fonction z\'{e}ta $p$-adique d'un corps de nombres. C.R. Acad. Sci. Paris \textbf{287}, S\'{e}rie A, 183--188 (1978)
+
+\item Shimizu, H.: Theta series and automorphic forms on GL$_2$. J. Math. Soc. Japan \textbf{24}, 638--683 (1972). (Correction: J. Math. Soc. Japan \textbf{26}, 374--376 (1974))
+
+\item Shintani, T.: On construction of holomorphic cusp forms of half integral weight. Nagoya Math. J. \textbf{58}, 83--126 (1975)
+
+\item Shintani, T.: On evaluation of zeta functions of totally real algebraic number fields at non-positive integers. J. Fac. Sci. Univ. Tokyo Sect. IA \textbf{23}, 393--417 (1976)
+
+\item Siegel, C.L.: \"{U}ber die Fourierschen Koeffizienten von Modulformen. G\"{o}tt. Nach. \textbf{3}, 15--56 (1970)
+
+\item Tate, J.: Fourier analysis in number fields and Hecke's zeta-functions. Algebraic Number Theory (J.W.S. Cassels and A. Fr\'{o}hlich, eds.) London-New York: Academic Press 1967
+
+\item Weil, A.: Fonction z\^{e}ta et distributions. S\'{e}minaire Bourbaki \textbf{312}, Juin, 1966 (= Collected Papers [1966])
+
+\item Weil, A.: Sur certains groupes d'op\'{e}rateurs unitaires. Acta Math. \textbf{111}, 143--211 (1964) (= Collected Papers [1964b])
+
+\item Whittaker, E.T., Watson, G.N.: A Course of Modern Analysis. Fourth edition, reprinted. Cambridge: Cambridge University Press 1935
+\end{enumerate}
+
+\vspace{2ex}
+\noindent\textit{Received January 7, 1980}
+
+\end{document}

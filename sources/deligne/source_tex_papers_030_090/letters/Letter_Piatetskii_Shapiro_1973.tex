@@ -1,0 +1,649 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{tikz-cd}
+\usepackage{varwidth}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{variant}{Variant}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Nrd}{Nrd}
+\DeclareMathOperator{\rank}{rank}
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Af}{\mathbb{A}_{f}}
+\newcommand{\Qbar}{\overline{\mathbb{Q}}}
+\newcommand{\Qpbar}{\overline{\mathbb{Q}}_{p}}
+\newcommand{\Fpbar}{\overline{\mathbb{F}}_{p}}
+\newcommand{\Zp}{\mathbb{Z}_{p}}
+\newcommand{\Qp}{\mathbb{Q}_{p}}
+\newcommand{\Zl}{\mathbb{Z}_{\ell}}
+\newcommand{\Ql}{\mathbb{Q}_{\ell}}
+\newcommand{\Qlbar}{\overline{\mathbb{Q}}_{\ell}}
+\newcommand{\Vp}{V_{p}}
+\newcommand{\Tp}{T_{p}}
+\newcommand{\Vl}{V_{\ell}}
+\newcommand{\Tl}{T_{\ell}}
+
+\makeatletter
+\DeclareRobustCommand\vdot{\mathbin{\text{\@vdot}}}
+\newcommand\@vdot{\smash{
+  \vcenter{\offinterlineskip
+    \lineskip 1pt
+    \hbox{.}\hbox{.}\hbox{.}
+  }%
+}}
+\makeatother
+
+\title{Deligne's Letter to Piatetski-Shapiro}
+\date{Princeton, March 25, 1973}
+\author{P. Deligne}
+
+\begin{document}
+
+\maketitle
+
+\noindent
+Dear Piatetski-Shapiro,
+
+\medskip
+
+Except at 2, I have now a good understanding at the bad primes of the $\ell$-adic representations attached to modular forms (for $\GL(2, \Q)$).
+
+\bigskip
+
+\section*{(A). Isogenies}
+
+\begin{definition}
+The category of elliptic curves up to isogeny is obtained from that of elliptic curves by inverting isogenies.
+
+I.e.,
+\begin{enumerate}[label=(\alph*)]
+\item an elliptic curve $E$ defines an elliptic curve up to isogeny $E \otimes \Q$
+\item $\Hom(E \otimes \Q, F \otimes \Q) = \Hom(E, F) \otimes \Q$
+\end{enumerate}
+
+Hence, if $F$ is a functor $(\text{ell.\ curves}) \to (\ldots)$, and $F(\text{any isogeny})$ is an isomorphism, $F$ makes sense for elliptic curves up to isogeny.
+\end{definition}
+
+\noindent
+\textbf{Notations:}
+\begin{align*}
+\Tl(E) &= \varprojlim E_{\ell^{n}} \\
+&\quad (\text{for $\ell$ prime to $p$, $E/k$ alg.\ clos.\ of char.\ $p$,} \\
+&\quad \text{it is a free module of rank 2 on $\Zl$}) \\
+\Vl(E) &= \Tl(E) \otimes_{\Zl} \Ql, \quad (\text{makes sense for ell.\ curves up to isogeny}) \\
+\widehat{T}_{p'}(E) &= \varprojlim_{(p,n)=1} E_{n} \\
+\widehat{V}_{p'}(E) &= \widehat{T}_{p'}(E) \otimes_{\Z} \Q, \\
+&\quad \text{a $\A_{f,p'}$-module of rank 2 (makes sense for ell.\ curves up to isogeny)} \\
+\Zl(1) &= \varprojlim \mu_{\ell^{n}} \\
+\Ql(1) &= \Zl(1) \otimes \Ql \\
+M(1) &= M \otimes \Ql(1) \text{ or } M \otimes \Zl(1)
+\end{align*}
+
+The operator $d$ is defined by
+\[
+\begin{cases}
+d(E) = \Z \\
+f : E \to F \implies d(f) : d(E) \to d(F) \text{ is } \deg(f) \text{ (0 if } f = 0\text{)}
+\end{cases}
+\]
+
+\begin{theorem}
+\begin{enumerate}[label=(\alph*)]
+\item $d(E) \otimes \Q$ makes sense for elliptic curves up to isogeny. Notation: $d(E \otimes \Q) = d(E) \otimes \Q$.
+
+\item For $E_{0}$ an elliptic curve up to isogeny, the $e_{n}$-pairings, and their behavior under isogeny, enables one to define
+\[
+\bigwedge^{2} \Vl(E_{0}) = d(E_{0}) \otimes \Ql(1)
+\]
+\end{enumerate}
+\end{theorem}
+
+\noindent
+\textbf{At $p$:} Let us look at the case of supersingular curves of char.\ $p$; there, a substitute for $\Tp(E)$ is the formal group of $E$ (a height 2 dim.\ 1 formal group). The formalism of $d$ has the following analogue:
+\begin{enumerate}[label=(\alph*)]
+\item A height 2 dim.\ 1 formal group defines $d_{p}(F)$, a rank one module over $\Zp$:
+\[
+d_{p}(F) = \{u : F \to F^{*}\} \quad (F^{*} = \text{Pontrjagin dual}), \text{ with } {}^{t}u = -u
+\]
+\item If $\widetilde{F}/S$ is a deformation of $F$ over $S$ (local complete), and if $\Tp(\widetilde{F})$ is the corresponding local system on $S \otimes_{\Zp} \Qp$, then
+\[
+\bigwedge^{2} \Tp(\widetilde{F}) \cong d_{p}(F)(1)
+\]
+\item For $E$ a supersingular elliptic curve, with corresponding formal group $\widehat{E}$,
+\[
+d(E) \otimes \Zp \cong d_{p}(\widehat{E}).
+\]
+\end{enumerate}
+
+\noindent
+\textbf{Recovering $E$:} Let $E_{0}$ be a supersingular elliptic curve up to isogeny. An elliptic curve $E$ with an isomorphism $\beta : E \otimes \Q \xrightarrow{\sim} E_{0}$ defines
+\begin{enumerate}[label=(\alph*)]
+\item A ``lattice'' $\widehat{T}_{p'}(E)$ in $\widehat{V}_{p'}(E_{0})$
+\item A ``lattice'' $d(E)$ in $d(E_{0})$. Note that the $p$-aspect of it is determined by (a):
+\[
+d(E) \otimes \Zl(1) \cong \bigwedge^{2} \Tl(E) \subset \bigwedge^{2} \Vl(E) = d(E_{0}) \otimes \Ql(1)
+\]
+\end{enumerate}
+
+\begin{lemma}
+It amounts to the same to give either
+\begin{enumerate}[label=(\alph*)]
+\item $(E, \beta)$
+\item The lattices $\widehat{T}_{p'}(E) \subset \widehat{V}_{p'}(E_{0})$ and $d(E) \otimes \Zp \subset d(E_{0}) \otimes \Qp$
+\end{enumerate}
+The reason why no more information is required at $p$ is that, for supersingular $E$, the only degree $p^{k}$ isogeny of source $E$ is $E \to E^{(p^{k})}$.
+\end{lemma}
+
+\begin{variant}
+Let $F_{0}$ be a height 2 dim.\ 1 formal group law, up to isogeny. Then, to give $F$ defining $F_{0}$ amounts to giving $d_{p}(F) \subset d_{p}(F_{0})$.
+\end{variant}
+
+
+\section*{(B). The fundamental local construction}
+
+\noindent
+Let:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+$\Qpbar$ & be an algebraic closure of $\Qp$ \\
+$\Fpbar$ & be the alg.\ closure of $\F_{p}$, residue field of $\Qpbar$ \\
+$k$ & be an alg.\ closure of $\F_{p}$, provided with a class modulo integral powers of \\
+& Frobenius of allowed isomorphisms $k \xrightarrow{\sim} \Fpbar$. The class is denoted $\hom(k, \Fpbar)$. \\
+$V_{0}$ & be a 2-dimensional vector space over $\Qp$ \\
+$E_{0}$ & be a supersingular elliptic curve up to isogeny over $k$ \\
+$F_{0}$ & be the formal group law up to isogeny $/k$ defined by $E_{0}$.
+\end{tabular}
+\end{center}
+
+To be able to use ``transport de structure'', I prefer not to take $k = \Fpbar$ nor $\bigwedge^{2} V_{0} = \Qp$.
+
+\medskip
+
+\noindent
+\textbf{1. First construction.} Let $\sigma \in \Isom(k, \Fpbar)$ and $\beta \in \Isom\bigl(d(E_{0}) \otimes \Qp(1), \bigwedge^{2} V_{0}\bigr)$.
+
+Here, $\Qp(1)$ is relative to $\Qp$:
+\[
+\Qp(1) = \Qp \otimes_{\Zp} \varprojlim_{n} \text{(group of $p^{n}$-roots of unity of $\Qpbar$)}
+\]
+
+Then $\sigma$ and $\beta$ do define $E_{0}(\sigma, \beta) = (\sigma(E_{0}), \sigma(\beta))$ where $\sigma(E_{0})$ is an elliptic curve up to isogeny over $\Fpbar$, and $\sigma(\beta)$ is an isomorphism of one-dimensional vector spaces over $\Qp$
+\[
+\bigwedge^{2} d(\sigma(E_{0})) \otimes \Qp(1) = d(E_{0}) \otimes \Qp(1) \xrightarrow{\sigma} \bigwedge^{2} V_{0}.
+\]
+
+Let $\varphi$ be the Frobenius substitution $\varphi : k \to k$, $x \mapsto x^{p}$. Then, for any elliptic curve $E/k$, $\varphi(E)$ is $E^{(p)}$, and one disposes of the Frobenius isogeny $F : E \to E^{(p)}$.
+The diagram
+\[
+\begin{tikzcd}
+d(E) \arrow[dr, "p"'] \arrow[r, "\varphi"] & d(E^{(p)}) \\
+& d(E^{(p)}) \arrow[u, "F"']
+\end{tikzcd}
+\]
+is commutative. In particular, $F$ is an isomorphism $F : E_{0} \xrightarrow{\sim} \varphi(E_{0})$, and the diagram
+\[
+\begin{tikzcd}
+d(E_{0}) \arrow[r, "\varphi"] \arrow[d, "F"'] & d(\varphi(E_{0})) \\
+d(E_{0}) \arrow[r, "\varphi"'] & d(\varphi(E_{0})) \arrow[u, "p"']
+\end{tikzcd}
+\]
+is commutative. $F$ hence induces an isomorphism
+\[
+\mathrm{For}_{\sigma F} : (\sigma(E_{0}), \sigma(\beta)) \xrightarrow{\sim} (\sigma\varphi(E_{0}), \sigma(p^{-1}\beta))
+\tag{1}
+\]
+
+\begin{definition}
+$D_{p}$ is the quotient of
+\[
+\Isom(k, \Fpbar) \times \Isom\!\Bigl(d(E_{0}) \otimes \Qp(1), \bigwedge^{2} V_{0}\Bigr)
+\]
+by the equivalence relation $(\sigma, \beta) \sim (\sigma\varphi^{k}, p^{-k}\beta)$ for $k \in \Z$. It is a one-dimensional vector space over $\Qp$.
+\end{definition}
+
+Eq.\ (1) defines an isomorphism between $E_{0}(\sigma, \beta)$ and $E_{0}(\sigma', \beta')$ for $(\sigma, \beta) \sim (\sigma', \beta')$, and those isomorphisms form a transitive system of isomorphisms. They hence allow us to define $(E_{0}(\delta), \beta(\delta))$ for $\delta \in D_{p}$, where
+\begin{enumerate}[label=(\alph*)]
+\item $E_{0}(\delta)$ is a (supersingular) elliptic curve up to isogeny over $\Fpbar$, and
+\item $\beta(\delta)$ is an isomorphism $d(E_{0}(\delta)) \otimes \Qp(1) \xrightarrow{\sim} \bigwedge^{2} V_{0}$.
+\end{enumerate}
+
+\begin{remark}
+The following groups act on $D_{p}$ (by ``transport de structure'')
+\begin{enumerate}[label=(\alph*)]
+\item $W(\Qpbar/\Qp)$, via its actions both on $\Isom(k, \Fpbar)$ and $\Qp(1)$. If the isomorphism of $W(\Qpbar/\Qp)^{\mathrm{ab}} = \Qp^{\times}$ is normalized $(\pm)$ so that Frobenius $\varphi$ corresponds to inverse of uniformizing parameter, then
+\[
+\sigma\delta = d(\sigma)^{-1} \cdot \delta.
+\]
+\item $\GL(V_{0})$, via its action on $\bigwedge^{2} V_{0}$. One has
+\[
+g \cdot \delta = \det(g) \cdot \delta.
+\]
+\item $\Aut(E_{0})$, via its action on $d(E_{0})$. We define
+\[
+H = \Aut(E_{0}),
+\]
+it is the multiplicative group of a quaternion algebra ramified at $p$ and at $\infty$. One has
+\[
+g \cdot \delta = \Nrd(g)^{-1} \cdot \delta \quad \text{(reduced norm)}.
+\]
+\end{enumerate}
+\end{remark}
+
+\begin{remark}
+Assume that a lattice $\Lambda \approx \Zp$ has been chosen in $\bigwedge^{2} V_{0}$. Then, $(E_{0}, \beta)/\Fpbar$ as above define an elliptic curve up to $p'$-isogeny on $\Fpbar$, corresponding to the lattice $\beta^{-1}(\Lambda)(-1) \subset d(E_{0}) \otimes \Qp$ ($p'$-isogeny means isogeny of degree prime to $p$, cf., Lemma A).
+\end{remark}
+
+\begin{variant}
+Let us start with $F_{0}$ instead of $E_{0}$. $D_{p}$ is defined as before, using $d_{p}(F_{0})$ instead of $d(E_{0}) \otimes \Qp$, and is the same as before, via the isomorphism $d(E_{0}) \otimes \Qp \cong d_{p}(F_{0})$ ($F_{0} = \widehat{E}_{0}$). This time, $D_{p}$ is acted upon by $W(\Qpbar/\Qp)$, $\GL(V_{0})$ and $\Aut(F_{0}) = H(\Qp)$. The formulas are the same as before.
+
+An element $\delta \in D_{p}$ defines
+\begin{enumerate}[label=(\alph*)]
+\item $F_{0}(\delta)$, a (supersingular) formal group law up to isogeny on $\Fpbar$
+\item $\beta(\delta)$, an isomorphism $d(F_{0}(\delta)) \otimes \Qp(1) \xrightarrow{\sim} \bigwedge^{2} V_{0}$
+\end{enumerate}
+If $\Lambda$ has been chosen in $\bigwedge^{2} V_{0}$, one gets
+\begin{enumerate}[label=(\alph*)]
+\item $F(\delta)$, a (supersingular) formal group law on $\Fpbar$.
+\item $\beta(\delta)$, an isomorphism $d(F(\delta)) \otimes \Zp(1) \xrightarrow{\sim} \Lambda$
+\end{enumerate}
+\end{variant}
+
+\medskip
+
+\noindent
+\textbf{2. Second Construction.} I have now to define ``vanishing cycle varieties'' and vanishing cycle groups. Eventually, for $K^{0}$ and open compact subgroup of $\SL(V_{0})$, and for $\delta \in D_{p}$, a scheme $V(K^{0}, \delta)$ over $\Qp$ will be defined. For $K$ an open compact subgroup of $\GL(V_{0})$ such that $K^{0} = K \cap \SL(V_{0})$, isomorphisms
+\[
+V(K^{0}, \delta) \leftrightarrow V(K^{0}, \alpha\delta) \quad (\text{for } \alpha \in \det K^{0} \subset \Z_{p}^{\times})
+\]
+are defined. For variable $\delta$, the $V(K^{0}, \delta)$ will thus be a ``local system'' of schemes on $D_{p}$. The $V(K^{0}, \delta)$ are not of finite type, but of the type usual in the vanishing cycle theory. We won't need this, however. Here is a description of the $\Qp$-valued points of $V(K^{0}, \delta)$.
+\begin{enumerate}[label=(\alph*)]
+\item $\delta$ provides us with $(E_{0}(\delta), \beta(\delta))$ on $\Fpbar$.
+\item A point of $V(K^{0}, \delta)$ is an isomorphism class of systems consisting in
+\begin{enumerate}[label=(\arabic*)]
+\item An elliptic curve up to isogeny on $\Qp$: $E$
+\item An isomorphism $\alpha : \Vp(E) \xrightarrow{\sim} V_{0}$, given mod $K^{0}$
+\item An isomorphism of the reduction of $E$ with $E_{0}(\delta)$, $\psi : E_{\Fpbar} \xrightarrow{\sim} E_{0}(\delta)$
+\item The diagram
+\[
+\begin{tikzcd}
+\bigwedge^{2} \Vp(E) \arrow[r, "{\bigwedge^{2} \alpha}"] \arrow[d, "{=}"'] & \bigwedge^{2} V_{0} \\
+d(E)(1) \arrow[r, "\psi"'] & d(E_{0}(\delta))(1) \arrow[u, "{\beta(\delta)}"', "{\sim}"]
+\end{tikzcd}
+\]
+is commutative.
+\end{enumerate}
+\end{enumerate}
+If $K$ is as above, it amounts to the same to give only mod $K$, Eq.\ (1) being required only mod $\det(K)$.
+
+To actually construct $V(K, \delta)$, let us start with
+\begin{enumerate}[label=(\alph*)]
+\item $K$ an open compact subgroup of $\GL(V_{0})$
+\item $E_{0}$ a supersingular curve up to isogeny over $\Fpbar$ (In practice, $E_{0}(\delta)$)
+\item $\beta : d(E_{0}) \otimes \Qp(1) \xrightarrow{\sim} \bigwedge^{2} V_{0}$ (In practice, $\beta(\delta)$)
+\item $\overline{\beta} = \beta \bmod \det(K) \subset \Z_{p}^{\times}$ (Only $\overline{\beta}$, not $\beta$, will be used)
+\end{enumerate}
+
+The construction will involve the auxiliary data of $L$, a $K$-stable lattice in $V_{0}$.
+\begin{enumerate}[label=(\alph*)]
+\item $\beta^{-1}\bigl(\bigwedge^{2} L\bigr)(-1)$ is a lattice in $d(E_{0}) \otimes \Qp$ and defines an elliptic curve up to $p'$-isogeny $E'$, with $E' \otimes \Q = E_{0}$. Let me choose an elliptic curve $E$ with level $n$ structure $\alpha_{n}$ ($n \geq 3$, $(n, p) = 1$) with $E \otimes \Z_{(p)} = E'$. [The construction will be shown to be independent of $L$, $E'$, $E$, $\alpha_{n}$].
+
+Let $M_{n}$ be the modular scheme for elliptic curves with level $n$ structure and $e \in M_{n}(\Fpbar)$ be the point of $M_{n}$ defined by $(E, \alpha_{n})$.
+
+\item $M(E, \alpha_{n})$ is the spectrum of the henselization of the local ring at $e$ of $M_{n} \otimes_{\Z} W(\Fpbar)$.
+
+\item The completion of $M(E, \alpha_{n})$ is isomorphic to $W(\Fpbar)\llbracket t \rrbracket$.
+
+\item Assume that $(E_{1}, \alpha_{n}^{1})$ and $(E_{2}, \alpha_{n}^{2})$ are two systems as above, and that $\phi : E_{1} \to E_{2}$ is a $p'$-isogeny. There is then one and only one isomorphism
+\[
+\varphi : M(E_{1}, \alpha_{n}^{1}) \xrightarrow{\sim} M(E_{2}, \alpha_{n}^{2})
+\]
+fitting in a commutative diagram
+\[
+\begin{tikzcd}[row sep=large, column sep=large]
+\widetilde{E}_{1} \arrow[d] \arrow[rr, dashrightarrow, "\widetilde{\phi}"] & & \widetilde{E}_{2} \arrow[d] \\
+M(E_{1}, \alpha_{n}^{1}) \arrow[rr, "\varphi"'] \arrow[dr] & & M(E_{2}, \alpha_{n}^{2}) \arrow[dl] \\
+& W(\Fpbar) &
+\end{tikzcd}
+\]
+In this diagram, $\star$ means $\Spec(\Fpbar)$ (=point), and $\widetilde{E}_{1}$, $\widetilde{E}_{2}$ are the pull-back over $M(E_{1}, \alpha_{n}^{1})$, $M(E_{2}, \alpha_{n}^{2})$ of the universal curves over $M_{n}$.
+\end{enumerate}
+
+This can be better expressed by saying that $M(E_{1}, \alpha_{n}^{1})$ is the parameter space of the universal deformation of the elliptic curve up to $p'$-isogeny $E'/\Fpbar$ (universal is with respect to deformation over henselian local $W(\Fpbar)$-algebras). This allows us to write simply $M(E')$ for $M(E_{1}, \alpha_{n}^{1})$, and $\widetilde{E}'$ for the elliptic curve up to $p'$-isogeny over $M(E')$ defined by (any) $E_{1}$.
+
+For $n$ large enough, $K \subset \GL(L)$ is the inverse image in $\GL(L)$ of a suitable subgroup $\overline{K} \subset \GL(L/p^{n}L)$.
+
+Let $K(\Fpbar)$ be the field of fractions of $W(\Fpbar)$, and let $\Zp$ be the ring of integers in $\Qp$. The group scheme $E'_{p^{n}}$ over $M(E')$ is finite \'etale over $M(E') \otimes K(\Fpbar)$, hence,
+\[
+\Isom\bigl(E'_{p^{n}}, L/p^{n}L\bigr)
+\]
+is a finite \'etale Galois covering of $M(E') \otimes K(\Fpbar)$, with Galois group $\GL(L/p^{n}L)$.
+
+Let us rather consider
+\[
+\Isom_{M(E') \otimes \Qp}\bigl(E'_{p^{n}}, L/p^{n}L\bigr).
+\]
+This time, we get a disconnected covering of $M(E') \otimes \Qp$. A piece of it can be picked as follows: via $\beta$, one has
+\[
+E'_{p^{n}} = d(E')_{p^{n}} \otimes \Z/p^{n}(1) = \bigwedge^{2} L/p^{n}L
+\]
+and one considers only isomorphisms of ``determinant 1''. Similarly, $\beta$ enables one to pick a component of
+\[
+K \backslash \Isom_{M(E') \otimes \Qp}\bigl(E'_{p^{n}}, L/p^{n}L\bigr)
+\]
+We call the component $V_{L}(K, E_{0}, \overline{\beta})$. It is also the quotient by $K \cap \SL(L/p^{n}L)$ of the chosen component of $\Isom_{M(E')} \bigl(E'_{p^{n}}, L/p^{n}L\bigr) \otimes_{W(\Fpbar)} \Qp$.
+
+\bigskip
+
+\noindent
+\textbf{Summary.} $V_{L}(K, E_{0}, \overline{\beta})$ depends on $K \subset \GL(V_{0})$, a compact open, $E_{0}$, up to isogeny over $\Fpbar$, $\beta : d(E') \otimes \Qp(1) \xrightarrow{\sim} \bigwedge^{2} V_{0}$, and on a lattice $L$ in $V_{0}$, stable by $K$. It does not depend on the whole of $\beta$, but only on $\overline{\beta} = \beta \bmod \det(K)$. For $K' \subset K$, one has a map
+\[
+V_{L}(K', E_{0}, \overline{\beta}) \to V_{L}(K, E_{0}, \overline{\beta}).
+\]
+
+The construction of $V_{L}(K, E_{0}, \overline{\beta})$ is independent of $L$. More precisely, the system consisting in
+\begin{enumerate}[label=(\alph*)]
+\item $V_{L}(K, E', \overline{\beta})$
+\item the elliptic curve up to isogeny $\widetilde{E}_{0}$ over $V_{L}(K, E', \overline{\beta})$
+\item the universal isomorphism $\alpha$ given mod $K$: $\Vp(\widetilde{E}'_{0}) \to V_{0}$ (this is deduced from $\alpha : \widetilde{E}'_{p^{n}} \xrightarrow{\sim} L/p^{n}L$, mod $K$, or from $\alpha : \Tp(\widetilde{E}') \xrightarrow{\sim} L$ mod $K$.)
+\end{enumerate}
+is independent of $L$.
+
+Let $L_{1}$ and $L_{2}$ be two $K$-invariant lattices, and let $E_{1}$ and $E_{2}$ be the corresponding elliptic curves up to $p'$-isogeny over $\Fpbar$. We are to define an isomorphism
+\[
+\begin{tikzcd}
+K \backslash \Isom\!\left(\dfrac{\Vp(\widetilde{E}_{1})}{\Tp(\widetilde{E}_{1})}, \dfrac{V_{0}}{L_{1}}\right) \arrow[d] \arrow[r, "\cong"] & K \backslash \Isom\!\left(\dfrac{\Vp(\widetilde{E}_{2})}{\Tp(\widetilde{E}_{2})}, \dfrac{V_{0}}{L_{2}}\right) \arrow[d] \\
+M(E_{1}) \arrow[r] & M(E_{2})
+\end{tikzcd}
+\]
+For simplicity, we assume $L_{1} \subset L_{2}$. Then, over the first ``$\Isom$'', $\widetilde{E}_{1}$ is provided with a subgroup isomorphic to $L_{2}/L_{1}$, call it $H$. Let $W^{1}(K, E_{0}, \overline{\beta})$ be the normalization of $M(E_{1})$ in the first ``$\Isom$''. Due to the normality of $W$ and the fact that elliptic curves have only finitely many subgroup schemes of a given order, the subgroup scheme $H$ of $\widetilde{E}_{1}$ on $W^{1}(K, E_{0}, \overline{\beta}) \otimes K(\Fpbar)$ extends as a subgroup scheme $H$ of $\widetilde{E}_{1}$ on $W^{1}(K, E_{0}, \overline{\beta})$. The quotient $\widetilde{E}_{1}/H$ is a deformation of $E_{2}$, hence there is a map
+\[
+W^{1}(K, E_{0}, \overline{\beta}) \to M(E_{2}).
+\]
+Further, $\Vp(\widetilde{E}_{1}/H) = \Vp(\widetilde{E}_{1})$, and, over $K \backslash \Isom\!\left(\dfrac{\Vp(\widetilde{E}_{1})}{\Tp(\widetilde{E}_{1})}, \dfrac{V_{0}}{L_{1}}\right)$, there is an isomorphism $\alpha : \Vp(\widetilde{E}_{1}) \to V_{0}$ carrying $\Tp(\widetilde{E}_{1})$ to $L_{1}$ and $\Tp(\widetilde{E}_{1}/H)$ to $L_{2}$. If $W_{2}$ is defined similarly to $W_{1}$, one has
+\[
+\begin{tikzcd}
+K \backslash \Isom\!\left(\dfrac{\Vp(\widetilde{E}_{1})}{\Tp(\widetilde{E}_{1})}, \dfrac{V_{0}}{L_{1}}\right) \arrow[d] \arrow[dr] & K \backslash \Isom\!\left(\dfrac{\Vp(\widetilde{E}_{2})}{\Tp(\widetilde{E}_{2})}, \dfrac{V_{0}}{L_{2}}\right) \arrow[d] \\
+W^{1} \arrow[r] & W_{2} \\
+M(E_{1}) \arrow[u] \arrow[r] & M(E_{2}) \arrow[u]
+\end{tikzcd}
+\]
+This defines the dotted maps which are needed for the isomorphism.
+
+By extending scalars to $\Qp$ and taking one component, one gets the isomorphisms expressing that $V_{L}(K, E_{0}, \overline{\beta})$ is independent of $L$. For $\delta \in D_{p}$, we note
+\[
+V(K, \delta) = V_{L}(K, E_{0}(\delta), \beta(\delta)).
+\]
+
+\bigskip
+
+\noindent
+\textbf{Summary.} $V(K, \delta)$ is a scheme over $\Qp$; it depends on the compact open $K$ in $\GL(V_{0})$ and on $\delta \in D_{p}$, given modulo multiplication by elements of $\det(K) \subset \Z_{p}^{*}$. For $K$ smaller and smaller, the $V(K, \delta)$ form a projective system. Over $V(K, \delta)$ is given an elliptic curve up to isogeny $\widetilde{E}$, provided with an isomorphism given mod $K$ $\alpha : \Vp(\widetilde{E}) \xrightarrow{\sim} V_{0}$. In a sense, $\widetilde{E}$ is a deformation of $E_{0}(\delta)$; in particular $d(E_{0}(\delta)) = d(\widetilde{E})$. The isomorphism $\alpha$ is compatible with $\beta(\delta)$:
+\[
+\begin{tikzcd}
+\bigwedge^{2} \Vp(\widetilde{E}) = d(E_{0}(\delta)) \otimes \Qp(1) \arrow[rr, "{\det \alpha = \beta(\delta)}"] & & \bigwedge^{2} V_{0}
+\end{tikzcd}
+\mod \det K
+\]
+In fact, the statement that $\widetilde{E}$ is a deformation of $E_{0}$ can be made more precise by introducing a suitable $\widetilde{E}/V(K, \delta)/\Zp$.
+
+\begin{variant}
+Starting with $F_{0}$ instead of $E_{0}$, one can construct analogues of the $V(K, \delta)$, called $\widehat{V}(K, \delta)$, with complete local rings replacing henselian local rings.
+\end{variant}
+
+\medskip
+
+\noindent
+\textbf{3. Third Construction.} We are interested in the $\ell$-adic cohomology groups
+\[
+H^{1}(V(K, \delta), \Ql)
+\]
+These groups are finite-dimensional, and locally constant as a function of $\delta$ (as $V(K, \delta)$ itself is). If $K'$ is a distinguished subgroup of $K$, one clearly has
+\[
+H^{1}(V(K, \delta), \Ql) = H^{1}(V(K', \delta), \Ql)^{K \cap \SL(V_{0})/K' \cap \SL(V_{0})} \quad \text{(invariants)}
+\]
+(Note $V(K, \delta)$ depends also only on $K \cap \SL(V_{0})$ and $\delta$.)
+
+The local fundamental object is the ``bundle'' $\kappa/D_{p}$, with
+\[
+\kappa_{\delta} = \varinjlim_{K} H^{1}(V(K, \delta), \Ql)
+\]
+There is a notion of ``locally constant section of $\kappa_{\delta}/D_{p}$''. It is a function $\phi(\delta)$ ($\delta \in D_{p}$, $\phi(\delta) \in \kappa_{\delta}$) with locally $\phi(\delta)$ in a $H^{1}(V(K, \delta), \Ql)$ and locally constant. The space of locally constant sections is denoted $\Gamma(D_{p}, \kappa)$.
+
+By ``transport of structure'', the local fundamental object admits actions of:
+\begin{enumerate}[label=(\alph*)]
+\item $W(\Qpbar/\Qp)$
+\item $\GL(V_{0})$
+\item $\Aut(E_{0}) = H$
+\end{enumerate}
+(the actions over $D_{p}$ being those already described.)
+
+The actions of $W(\Qpbar/\Qp)$ and $\GL(V_{0})$ are ``continuous'' (the latter, with respect to the notion of locally constant section).
+
+\begin{proposition}
+The action of $\Aut(E_{0})$ extends as a continuous action of $H(\Qp)$ on $\kappa/D_{p}$.
+\end{proposition}
+
+I don't have a satisfactory proof. My idea of proof would be to go back to the $W$ introduced earlier and to express $\kappa$ in terms of the special fiber of stable models of $W$ over suitable ramified extensions of $W(\Fpbar)$.
+
+Intuitively, one may argue that $V(K, \delta)$ and $\widehat{V}(K, \delta)$ could have the same cohomology, that $\Aut(F_{0}) = H(\Qp)$ acts on $\widehat{V}(K, \delta)$, hence on $H^{1}(\widehat{V}(K, \delta), \Ql)$, and that it would be the hell if the action were not continuous [sic].
+
+
+\section*{(C). Statement of the local results}
+
+(The proofs will be of a global nature.)
+
+It will be easier to work not with $\Ql$-cohomology, but with $\Qlbar$-cohomology, obtained by extending $\Ql$ to an algebraic closure $\Qlbar$. By abuse of language, we will again denote by $\kappa/D_{p}$ the ``admissible'' bundle over $D_{p}$, with fiber
+\[
+\kappa_{\delta} = \varinjlim_{K} H^{1}(V(K, \delta), \Ql) \otimes_{\Ql} \Qlbar.
+\]
+
+The groups $W(\Qpbar/\Qp)$, $\GL(V_{0})$, $H(\Qp)$ act admissibly on $\kappa/D_{p}$. The actions on $D_{p}$ have been computed. Of course, the three actions commute with one another.
+
+If $a \in \Qp^{\times}$, the actions of the elements $a \in \GL(V_{0})$ and $a \in H(\Qp)$ are inverse to one another. In terms of a fixed $\delta_{0} \in D_{p}$, this could as well be expressed by saying:
+\begin{enumerate}[label=(\alph*)]
+\item The subgroup of $W(\Qpbar/\Qp) \times \GL(V_{0}) \times H(\Qp)$ formed by the elements such that $d(\sigma)^{-1} \cdot \det(g) \cdot \Nrd(h)^{1} = 1$ acts on $\kappa_{\delta_{0}}$.
+\item The subgroup $(1, a, a)$ acts trivially.
+\end{enumerate}
+
+Mnemotechnik way to check the action on $V(K, \delta)/D_{p}$, it is good to view a point of $\varprojlim V(K, \delta)/D_{p}$ as consisting of
+\begin{enumerate}[label=(\alph*)]
+\item $\delta \in D_{p}$
+\item $\widetilde{E}$: elliptic curve up to isogeny on $\Qp$.
+\item $\alpha : \Vp(\widetilde{E}) \xrightarrow{\sim} V_{0}$
+\item $\psi$, the ``specialization map'' $\widetilde{E} \to \delta(E_{0})$
+\end{enumerate}
+subject to a compatibility between $\alpha$, $\psi$ and $\beta(\delta)$.
+
+Let $\chi : \Qp^{\times} \to \Qlbar^{\times}$ be a quasi-character (with open kernel). We denote by $\Gamma(D_{p}, \kappa)$ the $\Qlbar$-vector space of locally constant sections of $\kappa/D_{p}$, and $\Gamma_{\chi}(D_{p}, \kappa)$ the subspace of those sections for which, for any $a \in \Qp^{\times}$ with image $z(a)$ in the center of $\GL(V_{0})$, satisfy
+\[
+z(a)f = \chi(a)f, \text{ i.e., } \quad z(a)f(\delta) = \chi(a)f(a^{2}\delta).
+\]
+
+\begin{theorem}
+\begin{enumerate}[label=(\roman*)]
+\item $\Gamma_{\chi}(D_{p}, \kappa)$ is a direct sum of triple tensor products
+\[
+\Gamma_{\chi}(D_{p}, \kappa) = \bigoplus_{\phi \in \Phi} V_{\phi} \otimes V'_{\phi} \otimes W_{\phi},
+\]
+where
+\begin{enumerate}[label=(\alph*)]
+\item $V_{\phi}$ is an admissible irreducible representation of $\GL(V_{0})$ with central character $\chi$, belonging to the discrete series (= special or supercuspidal)
+\item $V'_{\phi}$ is an admissible irreducible (finite-dimensional) representation of $H(\Qp)$, where the center acts through $\chi^{-1}$
+\item $W_{\phi}$ is a 2-dimensional (or 1-dimensional) continuous $\Qlbar$-adic representation of $W(\Qpbar/\Qp)$. If it is 2-dimensional, then $W(\Qpbar/\Qp)$ acts on $\bigwedge^{2} W_{\phi}$ by the character $\chi$. If $W_{\phi}$ is 1-dimensional then the action of $W(\Qpbar/\Qp)$ on the space $\bigwedge^{2}(W_{\phi} \oplus W_{\phi}(1))$ again coincides with $\chi$.
+\end{enumerate}
+\item $V'_{\phi}$ runs (once and only once) through the representations in (1).
+\item The same holds for $V_{\phi}$, and $V_{\phi}$ and $V'_{\phi}$ correspond by the Weil representation construction (suitably normalized)
+\item $W_{\phi}$ is 1-dimensional, if and only if $V'_{\phi}$ is also, if and only if $V_{\phi}$ is special, and if $V'_{\phi}$ is $\mu \circ \Nrd$, then $W_{\phi}$ is the character of $W(\Qpbar/\Qp)$ defined by $\mu \circ \mathrm{cl}$, where $\mathrm{cl} : W(\Qpbar/\Qp) \to \Qp^{\times}$ is the map of class field theory.
+\item If $V_{\phi}$ is defined by a quasi-character of a quadratic extension of $\Qp$ (with values in $\Qlbar^{\times}$), then (with a suitable normalization), $W_{\phi}$ is induced by that same character.
+\end{enumerate}
+Except for $p = 2$, this gives a complete description of $\Gamma_{\chi}(D_{p}, \kappa)$.
+\end{theorem}
+
+For $\mu$ a quasi-character of $\Qp^{\times}$ and $\delta_{0} \in D_{p}$, multiplication by the function $\mu(\delta\delta_{0}^{-1})$ on $D_{p}$ provides an isomorphism
+\[
+\Gamma_{\chi}(D_{p}, \kappa) \xrightarrow{\sim} \Gamma_{\chi\mu^{-2}}(D_{p}, \kappa);
+\]
+if $V_{\phi} \otimes V'_{\phi} \otimes W_{\phi}$ occurs in $\Gamma_{\chi}(D_{p}, \kappa)$, then
+\[
+\bigl(V_{\phi} \otimes \mu^{-1} \circ \det\bigr) \otimes \bigl(V'_{\phi} \otimes \mu \circ \Nrd\bigr) \otimes \bigl(W_{\phi} \otimes \mu \circ \mathrm{cl}\bigr)
+\]
+occurs in $\Gamma_{\chi\mu^{-2}}(D_{p}, \kappa)$.
+
+
+\section*{(D). Global Theory}
+
+We consider
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+$K$ & an open compact subgroup of $\GL(2, \Af)$ \\
+$X^{\pm}$ & the Poincar\'e upper and lower half-plane. That is: \\
+& $X^{\pm} = \Isom_{\R}(\Z^{2} \otimes \R, \C)/\C^{\times} \subset \Hom(\Z^{2}, \C)/\C^{\times}$ \\
+& ($\GL_{2}(\R)$ acts on the right on $\Z^{2} \otimes \R$ via its action on $\Z^{2} \otimes \R = \R^{2}$.)
+\end{tabular}
+\end{center}
+\[
+\overset{\circ}{M}_{K}(\C) = K \backslash X^{\pm} \times \GL(2, \Af)/\GL(2, \Q)
+\]
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+$k$ & an integer $\geq 0$ \\
+$\mu$ & the representation $\Sym^{k}$ (dual of obvious representation) of $\GL(2, \Q)$ \\
+$\mathcal{F}_{\mu}^{\Q}$ & the corresponding local system on $\overset{\circ}{M}_{K}(\C)$ \\
+$\overset{\circ}{M}_{K}(\C)$ & the Satake compactification of $\overset{\circ}{M}_{K}(\C)$; $j : \overset{\circ}{M}_{K}(\C) \hookrightarrow \overset{\circ}{M}_{K}(\C)$ \\
+$\mathcal{F}_{\mu}^{\Q}$ & the sheaf $j_{*} \mathcal{F}_{\mu}^{\Q}$ on $\overset{\circ}{M}_{K}(\C)$ \\
+$\kappa = \varinjlim_{K} H^{1}(\overset{\circ}{M}_{K}(\C), \mathcal{F}_{\mu}^{\Q})$ & (an admissible representation of $\GL(2, \Af)$ defined over $\Q$) \\
+$\kappa_{\C}(\mu) = \kappa(\mu) \otimes \C$ & \\
+$\kappa_{\Ql}(\mu) = \kappa(\mu) \otimes \Ql$ & \\
+$\mathcal{F}_{\mu}^{\Ql} = \mathcal{F}_{\mu} \otimes \Ql$ &
+\end{tabular}
+\end{center}
+
+One has a decomposition
+\[
+\kappa_{\C}(\mu) = \kappa^{k+1,0} \oplus \kappa^{0,k+1}
+\]
+of $\kappa$ into two complex conjugate subspaces; $\kappa^{k+1,0}$ is a complex admissible representation of $\GL(2, \Af)$, which can be defined over $\Q$; it is hence isomorphic to the complex conjugate representation $\kappa^{0,k+1}$. It corresponds to holomorphic modular cusp forms of weight $k+2$ (note that $k+2 \geq 2$!). For some explicit admissible representation $D_{k+2}$ of $\GL(2, \R)$, of the discrete series,
+\[
+\kappa^{k+1,0} = \Hom_{\GL(2, \R)}\bigl(D_{k+2}, L^{2}(\GL(2, \mathbb{A})/\GL(2, \Q))\bigr).
+\]
+Further, $\{\overset{\circ}{M}_{K}(\C)\}$ is naturally defined over $\Q$ (with its $\GL(2, \Af)$-action, under which $g$ maps $\overset{\circ}{M}_{K}$ onto $\overset{\circ}{M}_{gKg^{-1}}$), and $\mathcal{F}_{\mu}^{\Ql}$ is an $\ell$-adic sheaf, defined over $\Q$. Hence, $\kappa_{\Ql}(\mu)$ carries a $\Gal(\overline{\Q}/\Q)$ action, commuting with $\GL(2, \Af)$, acting by ``transport de structure''. After extension of $\Ql$ to $\Qlbar$, one has a decomposition
+\[
+\kappa_{\Ql}(\mu) = \bigoplus_{f \in \mathcal{F}} \bigotimes_{p} V_{f,p} \otimes W_{f},
+\]
+where the $V_{f,p}$ are irreducible representations of $\GL(2, \Qp)$, and $W_{f}$ is a 2-dimensional representation of $\Gal(\overline{\Q}/\Q)$. (Here $\mathcal{F}$ is the spectrum of $\GL(2)$).
+
+By Eichler-Shimura-Kuga-Deligne-Ihara-Piatetski-Shapiro-Langlands, if $V_{f,p}$ is of the principal series, then $W_{f}\big|_{\Gal(\Qpbar/\Qp)}$ (restriction to the decomposition group) is the sum of 2 corresponding characters. If $V_{f,p}$ is special, then $W_{f}\big|_{\Gal(\Qpbar/\Qp)}$ is the corresponding special $\ell$-adic representation of $\Gal(\Qpbar/\Qp)$.
+
+I can now prove
+
+\begin{enumerate}
+\item[(A).] If $V_{f,p}$ is supercuspidal, then $W_{f}\big|_{\Gal(\Qpbar/\Qp)}$ is irreducible, and, with the notations of C.\ Theorem, if $V_{f,p} \cong V_{\phi}$, then $W_{f} \cong W_{\phi}$.
+\end{enumerate}
+
+Hence $V_{f,p}$ determines, by a local rule, $W_{f,p} = W_{f}\big|_{\Gal(\Qpbar/\Qp)}$, and the rule is the obvious one (up to a normalization) if $V_{f,p}$ corresponds by the Weil construction to a character of a quadratic extension.
+
+The method is to use the theory of vanishing cycles to prove that a space to be described below is a quotient of $\kappa(\mu) \otimes \Ql$ (this is accurate only for $k \neq 0$; I will not bother much about $k = 0$ and the phenomena related to the special representation).
+
+We keep the notation of \S B, except that now $V_{0} = \Qp^{2}$. Let us consider
+\[
+\Isom\!\bigl(\widehat{V}_{p'}(E_{0}), \A_{f,p'}^{2}\bigr) \times D_{p}
+\]
+and the right action of $H$ on it (by composition for the first factor, and the inverse of the already defined action on $D_{p}$). On this space, we have the following $H$-equivariant local system\footnote{In the original, $V(K, \delta)$ appears without the $H^{1}$, but this is inconsistent with his earlier notation; indeed the $V(K, \delta)$ form a projective system as $K$ varies, whereas the $H^{1}(V(K, \delta), \Ql)$ form an injective system of $\ell$-adic local systems on $D_{p}$, which is what Deligne wants here.}
+\[
+\Sym^{k}(\Vl(E)^{*}) \otimes \varinjlim_{K} H^{1}(V(K, \delta), \Ql)
+\]
+(On the second factor, a right action is required; one takes the inverse of the one already constructed.) The space and local system are acted upon by $\GL(2, \Af)$:
+On the space, $\GL(2, \Af)$ acts by composition on the first factor and acts on $D_{p}$ in the manner already described. On the local system, $\GL(2, \Af)$ acts trivially on the first factor and acts on the second in the manner already described.
+
+Let $H^{0}$ be the space of sections of this local system; this is a representation of $\GL(2, \Af)$. There is also an action of $W(\Qpbar/\Qp)$ via its action on $V(K, \delta)/D_{p}$.
+
+I will now relate this $H^{0}$ to the spectrum of $H(\mathbb{A})/H(\Q)$ and $\Gamma(D_{p}, \kappa)$.
+
+For simplicity, let me extend scalars from $\Ql$ to $\C$. (This does not lose the Galois action; to see this, I have to use that the Galois action is continuous for the discrete topology of $\Ql$, which I can do directly.) Let me also choose an isomorphism
+\[
+\widehat{V}_{p'}(E_{0}) \xrightarrow{\sim} \A_{f,p'}^{2},
+\]
+hence
+\[
+H(\Ql) \xrightarrow{\sim} \GL(2, \Ql), \quad \ell \neq p.
+\]
+
+Then
+\begin{align*}
+H^{0} &= \left\{ \text{functions } H \backslash \A_{f,p'}^{2} \to \Sym^{k}(\Vl(E)^{*}) \otimes \Gamma(D_{p}, \kappa) \right. \\
+&\qquad \left. \vphantom{\Big\{} \text{with } f(x\gamma) = f(x)\gamma, \; \gamma \in H(\Q) \right\} \\
+&= \left\{ \text{functions } H(\mathbb{A}) \to \Sym^{k}(\Vl(E)^{*}) \otimes \Gamma(D_{p}, \kappa) \right. \\
+&\qquad \left. \vphantom{\Big\{} \text{with } f(g_{\infty} g_{p} x \gamma) = g_{\infty} g_{p} f(x), \; g_{\infty} \in H(\R), \; g_{p} \in H(\Qp) \right\} \\
+&= \bigoplus_{\chi} \left\{ \vphantom{\Big\{} \right\}_{\chi} \\
+&= \bigoplus_{\chi} (\mathbb{A}^{\times}/\Q^{\times})^{\wedge} \\
+&= \bigoplus_{\chi} \Hom_{H(\R) \times H(\Qp)}\!\left(\Sym^{k}(V) \otimes \Gamma_{\chi^{-1}}(D_{p}, \kappa)^{\vee}, \; L^{2}_{\chi}(H(\mathbb{A})/H(\Q))\right)
+\end{align*}
+
+This can be expressed as follows: In $L^{2}(H(\mathbb{A})/H(\Q))$, one takes only those elements which at $\infty$ transform as a vector of a given representation of $H(\R)$. The representation of $H(\mathbb{A}_{f})$ so obtained being written
+\[
+\bigoplus_{f' \in \mathcal{F}'} \bigotimes_{p} V'_{f',p}
+\]
+the following representation occurs in $\kappa(\mu)$:
+\[
+\left(\bigoplus_{f' \in \mathcal{F}'} \bigotimes_{\ell \neq p} V'_{f',\ell}\right) \otimes \bigoplus_{V'_{\phi} \cong V'_{f',p}} (V_{\phi} \otimes W_{\phi})
+\]
+
+Now, by comparison with Jacquet-Langlands \S16, plus the fact that supercuspidal representations cannot occur outside $\kappa(\mu)$ (this is given by Piatetski-Shapiro or Langlands plus the vanishing cycle theory), one gets (a), (b), (ii), (iii), and 2-dimensionality in (c) of Theorem C. One also gets statement (A). By checking this general rule against modular forms attached to $L$-functions with grossencharacters of imaginary quadratic fields (and the remark of C), one gets statement (v). The proof of (c) in characteristic 2, in cases not covered by (v), uses entirely different ideas, which I cannot explain here.
+
+\bigskip
+\bigskip
+
+\noindent
+\hfill Yours sincerely,
+
+\noindent
+\hfill P.~Deligne.
+
+\end{document}

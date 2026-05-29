@@ -6,32 +6,33 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 ## Current Public Records
 
-- Main landing, bulk preservation, and full repository preservation backstop: https://zenodo.org/records/20440417
-- EGA working English translation and French originals: https://zenodo.org/records/20440342
-- SGA working English translation and French references: https://zenodo.org/records/20436860
-- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20439960
+- Main landing, bulk preservation, and full repository preservation backstop: https://zenodo.org/records/20443233
+- EGA working English translation and French originals: https://zenodo.org/records/20440845
+- SGA working English translation and French references: https://zenodo.org/records/20441206
+- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20442948
 - Chinese mathematical classics: https://zenodo.org/records/20435670
 - Indian and Sanskrit mathematical classics: https://zenodo.org/records/20435677
 - Islamic and Arabic mathematical texts: https://zenodo.org/records/20435687
 - Historical reference texts for non-European mathematics: https://zenodo.org/records/20435690
-- Heinrich Weber author record: https://zenodo.org/records/20439950
-- Emmy Noether author record: https://zenodo.org/records/20439949
+- Heinrich Weber author record: https://zenodo.org/records/20443120
+- Emmy Noether author record: https://zenodo.org/records/20443094
 - Carl Friedrich Gauss author record: https://zenodo.org/records/20433382
 - Bernhard Riemann author record: https://zenodo.org/records/20434317
-- Deligne working record: https://zenodo.org/records/20414959
-- Classical algebra/arithmetic shelf: https://zenodo.org/records/20418609
-- Author cluster shelf: https://zenodo.org/records/20416839
+- Deligne working record: https://zenodo.org/records/20443168
+- Cayley, Dedekind, and Dirichlet classical algebra/arithmetic shelf: https://zenodo.org/records/20441980
+- Author cluster shelf: https://zenodo.org/records/20442003
 
 ## What Is Here
 
-- `reader-pdfs/ega/`: 978-page EGA English working reader plus the eight NUMDAM French original PDFs.
+- `reader-pdfs/ega/`: 979-page EGA English working reader plus the eight NUMDAM French original PDFs.
 - `sources/ega/`: editable EGA TeX tree, including the current local continuation work.
 - `reader-pdfs/sga/`: SGA 1-3 snapshots, complete current SGA 4 working reader, SGA 5 delivered segments, SGA 6 through Expose XIV end, SGA 7-I opening, and French reference scans.
 - `sources/sga/`: extracted TeX/source/review material from the current SGA artifact packets.
 - `reader-pdfs/non-european/`: current public readers for Chinese, Indian/Sanskrit, Islamic/Arabic, and historical-reference material, including combined language readers, work-level PDFs, and clearly labelled Rosen and Robert/Karpinski reference scans where the generated LaTeX originals are not yet good enough for the public surface.
 - `sources/non-european/`: extracted TeX source bundles from the non-European corpus. Large page-image, OCR, raw-provenance, and source-scan zips stay on Zenodo.
-- `reader-pdfs/weber/` and `sources/weber/`: Weber original-language readers and current English translation drafts, with Volume II through section 154.
-- `reader-pdfs/noether/` and `sources/noether/`: Noether selected-paper reader and clean English translation batches 01-09.
+- `reader-pdfs/weber/` and `sources/weber/`: Weber original-language readers and current English translation drafts, with Volume II through section 194.
+- `reader-pdfs/noether/` and `sources/noether/`: Noether selected-paper reader and current unchecked English translation/summary drafts through local sequence 01-11.
+- `reader-pdfs/classical/`: current Cayley, Dedekind, and Dirichlet reader PDFs from the cleaned classical algebra/arithmetic shelf.
 - `reader-pdfs/gauss/` and `sources/gauss/`: Gauss Werke reader drafts for Bands I, I alternate, II, III, VI, VII, XI Part I, and individual papers, plus TeX sources and audit reports.
 - `reader-pdfs/riemann/` and `sources/riemann/`: Riemann selected/complete-draft readers and source packets.
 - `zenodo-metadata/`: public metadata JSON used for the current records.
@@ -41,7 +42,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 This is a working scholarly archive, not a finished critical edition. Current strengths are availability, inspectability, and TeX continuity.
 
-EGA currently compiles to a 978-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader; see `manifests/sga_coverage_status_20260529.md` for the current source-vs-public check. The non-European corpus has 66 top-level public PDFs; the latest pass selectively promotes cleaner multilingual repair outputs while retaining stronger local Arabic-font repairs and complete reference scans where those are better. Weber now includes Volume II English translation through section 154 plus a Volume I English draft, and Noether now includes a 219-page clean English translation draft reader; Gauss and Riemann have current author pages with reader PDFs and source artifacts.
+EGA currently compiles to a 979-page English working reader. SGA currently includes complete current SGA 4, SGA 5 delivered segments pending audit against the 496-page French reference, SGA 6 through Expose XIV end pending audit against the 702-page French reference, and an SGA 7-I opening reader; see `manifests/sga_coverage_status_20260529.md` for the current source-vs-public check. The non-European corpus has 66 top-level public PDFs; the latest pass selectively promotes cleaner multilingual repair outputs while retaining stronger local Arabic-font repairs and complete reference scans where those are better. Weber now includes Volume II English translation through section 194 plus a Volume I English draft, and Noether now includes current unchecked English translation/summary drafts through local sequence 01-11; Gauss and Riemann have current author pages with reader PDFs and source artifacts.
 
 Remaining work includes source comparison, layout repair, theorem/reference checking, mathematical proofreading, translation completion, and replacing imperfect machine-generated passages with verified text. The latest public typography audit is in `manifests/public_pdf_typography_audit_current.md`; it is a conservative repair queue rather than a pass/fail judgement. The linked main-page reader surface review is in `manifests/main_landing_reader_surface_review_20260529.md`.
 
@@ -55,7 +56,8 @@ Please keep corrections narrowly scoped and cite the source page or file when po
 
 Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
 
-For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20440417.
+For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20443233.
+
 
 
 

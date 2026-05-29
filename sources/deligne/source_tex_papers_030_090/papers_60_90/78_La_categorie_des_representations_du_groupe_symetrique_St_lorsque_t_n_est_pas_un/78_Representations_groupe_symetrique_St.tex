@@ -1,0 +1,2199 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{calrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{tikz-cd}
+\usepackage[all]{xy}
+\usepackage{stmaryrd}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{question}[theorem]{Question}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Inj}{Inj}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\OSp}{OSp}
+\DeclareMathOperator{\SOSp}{SOSp}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\Lie}{Lie}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Qbar}{\overline{\mathbb{Q}}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\la}{\lambda}
+\newcommand{\isom}{\xrightarrow{\sim}}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\da}{\dashrightarrow}
+\newcommand{\ev}{\mathrm{ev}}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\iHom}{\underline{Hom}}
+
+\begin{document}
+
+\begin{center}
+\large Proceedings of the International Colloquium on\\
+Algebraic Groups and Homogeneous Spaces\\
+January 2004, TIFR, Mumbai.
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+{\Large\bf La Cat\'egorie des Repr\'esentations du Groupe Sym\'etrique $S_t$, lorsque $t$ n'est pas un Entier Naturel}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+{\large P. Deligne}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{abstract}
+\noindent Soient $k$ un corps de caract\'eristique $0$ et $t$ dans $k$, suppos\'e ne pas \^etre un entier $\geq 0$. Nous construisons une cat\'egorie tensorielle semi-simple $\Rep(S_t)$ qui ``interpole'' les cat\'egories des repr\'esentations lin\'eaires (sur $k$) des groupes sym\'etriques $S_n$, $n$ grand. En une valeur enti\`ere $\geq 0$ de $t$, au moins deux cat\'egories tensorielles ``sp\'ecialisation'' de $\Rep(S_t)$ existent, l'une la cat\'egorie des repr\'esentations de $S_t$, l'autre non semi-simple.
+
+La th\'eorie reproduit, en plus simple, des r\'esultats connus analogues pour les groupes lin\'eaires ou orthogonaux, qui seront rappel\'es.
+
+\vspace{0.3cm}
+\noindent Let $k$ be a field of characteristic $0$. For $t$ in $k$ which is not an integer $\geq 0$, we construct a semi-simple tensor category $\Rep(S_t)$ which ``interpolates'' the categories of linear representations (over $k$) of the symmetric groups $S_n$, $n$ large. When $t$ becomes a natural integer, $\Rep(S_t)$ can be ``specialized'' to a tensor category in at least two ways: as the usual category of representations of $S_t$, or as a non semi-simple tensor category.
+
+Known parallel results for the series of linear or orthogonal groups will be recalled in sections 9 and 10.
+\end{abstract}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Si $G$ est un sch\'ema en groupe affine sur un corps $k$, la cat\'egorie $\Rep(G)$ des repr\'esentations lin\'eaires de dimension finie de $G$ sur $k$ est une cat\'egorie ab\'elienne. Elle est munie du foncteur produit tensoriel de repr\'esentations $\otimes : \Rep(G) \times \Rep(G) \to \Rep(G)$. Ce foncteur est ACU, i.e. il est muni de contraintes d'associativit\'e et de commutativit\'e, et il admet un objet unit\'e $\mathbf{1}$. Il est rigide, i.e. chaque objet $X$ admet un dual $X^\vee$; un objet muni de $\delta : \mathbf{1} \to X \otimes X^\vee$ et de $\ev : X^\vee \otimes X \to \mathbf{1}$ tels que les morphismes compos\'es
+\[
+\xymatrix@R=1.5pc{
+X \ar[r]^{\delta \otimes X} & X \otimes X^\vee \otimes X \ar[r]^{X \otimes \ev} & X \\
+X^\vee \ar[r]^{X^\vee \otimes \delta} & X^\vee \otimes X \otimes X^\vee \ar[r]^{\ev \otimes X^\vee} & X^\vee
+}
+\]
+soient une identit\'e. Enfin, $k \isom \End(\mathbf{1})$. En d'autres termes, $\Rep(G)$ est, dans la terminologie de (Deligne 1990) 2.1, une \emph{cat\'egorie tensorielle} sur $k$.
+
+Si $k$ est alg\'ebriquement clos, la cat\'egorie tensorielle $\Rep(G)$ d\'etermine $G$ \`a isomorphisme pr\`es (Saavedra 1972). De ce point de vue, les cat\'egories tensorielles g\'en\'eralisent les sch\'emas en groupes affines. On dispose d'autres exemples de cat\'egories tensorielles que les $\Rep(G)$, mais on n'a aucune id\'ee de comment les classifier toutes, ni m\^eme celles qui sont semi-simples de $\otimes$-g\'en\'eration finie (et par l\`a analogues aux cat\'egories $\Rep(G)$ pour $G$ un groupe alg\'ebrique extension d'un groupe fini par un groupe r\'eductif).
+
+Une autre exemple de cat\'egorie tensorielle est la cat\'egorie des super repr\'esentations d'un super sch\'ema en groupe affine $G$. Une variante plus naturelle est de consid\'erer $G$ muni de $\eps : \mu_2 \to G$ tel que l'action int\'erieure de $\mu_2$ sur l'alg\`ebre affine $\mathcal{O}(G)$ de $G$ de\'finisse la graduation mod $2$ de $\mathcal{O}(G)$, et la cat\'egorie $\Rep(G, \eps)$ des super repr\'esentations $V$ pour lesquelles l'action de $\mu_2$ donne la graduation mod $2$ de $V$.
+
+En caract\'eristique $p$, S.~Gelfand et D.~Kazhdan (1992) ont construit de nouvelles cat\'egories tensorielles semi-simples comme ``sous-quotients'' de cat\'egories de repr\'esentations. Par contre, sur $k$ alg\'ebriquement clos de caract\'eristique $0$, les seules cat\'egories tensorielles que je connaisse sont obtenues par ``interpolation'' de cat\'egories $\Rep(G, \eps)$.
+
+Voici une m\'ethode d'interpolation: on part d'une famille infinie de cat\'egories tensorielles $\mathcal{C}_i$ sur $k$, d'un ultra\'filtre non trivial $\mathcal{F}$ sur l'ensemble d'indices $I$, et on prend l'ultraproduit $\mathcal{C}$ des $\mathcal{C}_i$. Un objet de $\mathcal{C}$ est donc une famille $(X_i)$ d'objets des $\mathcal{C}_i$, un morphisme $(X_i) \to (Y_i)$ est un germe selon $\mathcal{F}$ de famille de morphismes $X_i \to Y_i$ et le produit tensoriel est donn\'e par $(X_i) \otimes (Y_i) = (X_i \otimes Y_i)$. La cat\'egorie $\mathcal{C}$ est tensorielle sur le corps $k_{\mathcal{F}}$ ultrapuissance de $k$. Elle est peu sympathique en ce que, m\^eme si les $\mathcal{C}_i$ sont des cat\'egories de repr\'esentations de groupes alg\'ebriques lin\'eaires, des groupes $\Hom$ dans $\mathcal{C}$ seront de dimension infinie. Pour faire mieux, on peut partir de cat\'egories tensorielles $\mathcal{C}_i$ sur $k$, chacune \'etant munie d'un objet $X_i$, et consid\'erer la sous-cat\'egorie tensorielle pleine $\mathcal{C}'$ de $\mathcal{C}$ engendr\'ee par $X = (X_i)$. Les objets de $\mathcal{C}'$ sont donc les sous-quotients des sommes de $T^{r,s}(X) := X^{\otimes r} \otimes X^{\vee \otimes s}$. Supposons que
+\begin{equation*}
+(\ast) \quad \text{Quels que soient $r$ et $s$, l'objet $T^{r,s}(X_i)$ de $\mathcal{C}_i$ est de longueur finie, born\'ee ind\'ependamment de $i$.}
+\end{equation*}
+Sous cette hypoth\`ese, les objets de $\mathcal{C}'$ sont de longueur finie, et les groupes $\Hom$ sont donc de dimension finie sur $k_{\mathcal{F}}$ (consid\'erer $\Hom(X,Y)$ et appliquer 3.2.4).
+
+La d\'e\'finition par ultraproduit est quelque peu th\'eologique. Dans de bons cas, on peut associer \`a chaque $i$ un param\`etre $\lambda_i$ dans $k$, qui d\'ecrit $(\mathcal{C}_i, X_i)$, et $\mathcal{C}'$ peut \^etre construite purement en terme de $\lambda = (\lambda_i) \in k_{\mathcal{F}}$. Plus pr\'ecis\'ement, pour $k_1$ une extension de $k$ et $\lambda_1 \in k_1$ transcendant sur $k$, on peut construire une cat\'egorie tensorielle $\mathcal{C}(\lambda_i)$ sur $k_1$, qui donne $\mathcal{C}'$ quand on prend $k_1 = k_{\mathcal{F}}$ et $\lambda_1 = (\lambda_i)$. Le r\^ole des ultraproduits n'est plus que d'avoir attir\'e l'attention sur le condition $(\ast)$.
+
+Le cas ``$\lambda_1$ transcendant'' est le cas facile. Plus int\'eressant, et plus difficile, est de prendre $\lambda_1$ quelconque dans une extension $k_1$ de $k$, ou au moins de comprendre quelles valeurs de $\lambda_1$ sont ``singuli\`eres'', et comment.
+
+On suppose dor\'enavant $k$ de caract\'eristique $0$. Le cas trait\'e dans l'article est le suivant:
+\begin{itemize}[label={},leftmargin=*]
+\item[$I$:] l'ensemble des entiers $\geq 0$;
+\item[$\mathcal{C}_n$:] la cat\'egorie des repr\'esentations de $S_n$;
+\item[$X_n$:] la repr\'esentation de permutation sur $k^n$;
+\item[param\`etre:] $n$;
+\item[valeurs singuli\`eres:] les entiers $\geq 0$.
+\end{itemize}
+
+Les cas suivants sont essentiellement connus et seront rappel\'es:
+\begin{itemize}[label={},leftmargin=*]
+\item[$I$:] l'ensemble des entiers $\geq 0$;
+\item[$\mathcal{C}_n$:] $\Rep(\GL(n))$ (resp $\Rep(O(n))$);
+\item[$X_n$:] repr\'esentation \'evidente;
+\item[param\`etre:] $n$;
+\item[valeurs singuli\`eres:] $\Z$.
+\end{itemize}
+
+Dans le cas o\`u $\mathcal{C}_i$ est la cat\'egorie des repr\'esentations d'un groupe fini $G_i$, et o\`u $X_i$ est la repr\'esentation de permutation d\'efinie par une action de $G_i$ sur un ensemble fini $B_i$, la condition $(\ast)$ \'equivaut \`a
+\begin{equation*}
+(\ast') \quad \text{quel que soit $r$, le nombre d'orbites de $G_i$ dans $B_i^r$ est born\'e ind\'ependamment de $i$.}
+\end{equation*}
+
+Voici des exemples o\`u la condition $(\ast')$ est v\'erif\'ee. Dans chacun, on fixe un corps fini $\mathbb{F}_q$ et $I$ est l'ensemble des entiers $\geq 0$.
+\begin{enumerate}[label=(\Alph*)]
+\item $G_n = \GL(n, \mathbb{F}_q)$, $B_n = \mathbb{F}_q^n$;
+\item $G_n = O(n, \mathbb{F}_q)$, $B_n = \mathbb{F}_q^n$;
+\item $G_n = \Sp(2n, \mathbb{F}_q)$, $B_n = \mathbb{F}_q^{2n}$.
+\end{enumerate}
+
+Dans le cas (A), on peut prendre pour param\`etre $\lambda_n := q^n$, et je conjecture que les valeurs singuli\`eres du param\`etre sont les $q^n$ pour $n$ entier $\geq 0$.
+
+Je remercie le referee d'une lecture attentive, qui m'a amen\'e \`a corriger plusieurs points obscurs.
+
+
+\section{Terminologie et Notations}
+
+\subsection{}
+On utilisera les notations suivantes.
+
+$k$: corps de caract\'eristique $0$, fix\'e dans toute la suite.
+
+Pour $I$ un ensemble fini:
+\begin{itemize}[label={},leftmargin=*]
+\item $S_I$: groupe sym\'etrique des permutations de $I$;
+\item $k^I$: espace vectoriel sur $k$ librement engendr\'e par $I$;
+\item $(e_i)_{i \in I}$: sa base \'evidente.
+\end{itemize}
+Si $I = \{1, \ldots, n\}$, on \'ecrit $S_n$ (resp.~$k^n$) plut\^ot que $S_I$ (resp.~$k^I$).
+
+\subsection{}
+Soit $(\,,)$ la forme bilin\'eaire sym\'etrique sur $k^I$ d\'efinie par $(e_i, e_j) = \delta_{ij}$. Elle identi\'e $k^I$ \`a son dual. Regardant $k^I$ comme l'espace des fonctions de $I$ dans $k$, par $u \mapsto \sum u(i) e_i$, on d\'efinit sur $k^I$ une structure d'alg\`ebre par $(u \cdot v)(i) = u(i) v(i)$. Pour cette structure d'alg\`ebre, on a $(u, v) = \Tr(uv)$.
+
+\subsection{}
+Le foncteur $I \mapsto k^I$ \'etant un adjoint \`a gauche, il respecte les limites inductives, et en particulier transforme sommes disjointes en sommes directes. Il transforme produits finis en produits tensoriels, par
+\[
+\bigotimes_{j \in J} k^{I_j} \isom k^{\prod I_j} : \otimes e_{a(j)} \longmapsto e_{(a(j))_{j \in J}}.
+\]
+
+\subsection{}
+Si un groupe $G$ agit sur $I$, il agit sur $k^I$ par transport de structures: $ge_i = e_{gi}$. On appelle la repr\'esentation lin\'eaire $k^I$ de $G$ la repr\'esentation de permutation d\'efinie par le $G$-ensemble $I$. La forme $(\,,)$ et la structure d'alg\`ebre de 1.2 sont $G$-invariantes. Le foncteur $I \mapsto k^I$ transforme encore sommes disjointes (resp.~produits finis) de $G$-ensembles en sommes directes (resp.~produits tensoriels) de repr\'esentations.
+
+\subsection{}
+Soit $(U_j)_{j \in J}$ une famille finie d'ensembles finis. Un \emph{recollement} des $U_j$ est un ensemble fini $A$ muni d'une famille d'injections $f_j : U_j \inj A$ telle que $A$ soit la r\'eunion des $f_j(U_j)$.
+
+Les $U_j$ \'etant consid\'er\'es comme fixes, une \emph{donn\'ee de recollement} sur les $U_j$ est une classe d'isomorphie de recollements. Si $r$ est une donn\'ee de recollement, et $(f_j : U_j \inj A)$ un repr\'esentant de $r$, $A$ est d\'etermin\'e \`a isomorphisme unique pr\`es par $r$. Ceci rend anodin l'abus de langage, que nous nous permettrons, de dire ``recollement'' pour ``donn\'ee de recollement''. Par exemple, de dire ``somme sur les recollements $(f_j : U_j \inj A)$ des $U_j$ de $\varphi(A)$'' pour ``somme sur les donn\'ees de recollements $r$ sur les $U_j$ de $\varphi(A_r)$, pour $(f_j : U_j \inj A_r)$ un repr\'esentant de $r$''.
+
+Une donn\'ee de recollement sur les $U_j$ s'identi\'e \`a une relation d'\'equivalence $R$ sur la somme disjointe des $U_j$ qui induise l'\'equivalence discr\`ete $x = y$ sur chaque $U_j$: \`a $R$ associer les $U_j \inj (\bigsqcup U_j)/R$. Pour $J = \{1, 2\}$, elle s'identi\'e aussi \`a la donn\'ee de sous-ensembles $U_j' \subset U_j$ et d'une bijection $\varphi : U_1' \to U_2'$: lui associer les $U_j \inj U_1 \cup_\varphi U_2$.
+
+Pour $K \subset J$ et $(f_j : U_j \inj A)$ un recollement des $U_j$, le recollement induit des $U_j$ $(j \in K)$ est la famille des $f_j : U_j \inj \bigcup_{j \in K} f_j(U_j)$.
+
+\subsection{}
+Soit $A$ un anneau commutatif. Une cat\'egorie $\mathcal{A}$ est dite $A$\emph{-lin\'eaire} si les groupes $\Hom$ sont munis de structures de $A$-module pour lesquelles la composition est bilin\'eaire. Pour $B$ une $A$-alg\`ebre commutative, $\mathcal{A} \otimes_A B$ est alors la cat\'egorie d\'eduite de $\mathcal{A}$ par extension des scalaires de $A$ \`a $B$: m\^emes objets, et $\Hom(X,Y) = \Hom_A(X,Y) \otimes_A B$.
+
+\subsection{}
+Soit $\mathcal{A}$ $A$-lin\'eaire. L'enveloppe additive $\mathcal{A}^{\text{add}}$ de $\mathcal{A}$ est la cat\'egories additive $A$-lin\'eaire des sommes formelles finies d'objets de $\mathcal{A}$:
+\begin{itemize}[label={},leftmargin=*]
+\item objets: familles finies $(A_j)_{j \in J}$ d'objets de $\mathcal{A}$;
+\item morphismes $(A_j)_{j \in J} \to (B_k)_{k \in K}$: matrice $(f_{kj})$ de morphismes $A_j \to B_k$;
+\item composition: produit matriciel.
+\end{itemize}
+
+\subsection{}
+Une cat\'egorie pseudo-ab\'elienne (SGA4 I 8.7.8 dit ``additive et karoubienne'') est une cat\'egorie additive dans laquelle tout endomorphisme idempotent est la projection sur un facteur direct. L'enveloppe pseudo-ab\'elienne $\mathcal{A}^{\text{ps\;ab}}$ d'une cat\'egorie $A$-lin\'eaire $\mathcal{A}$ est la cat\'egorie $A$-lin\'eaire pseudo-ab\'elienne des facteurs directs formels (images d'endomorphismes idempotents) de sommes formelles finies d'objets de $\mathcal{A}$. Voir SGA4 loc.~cit.
+
+\subsection{}
+Notons $\Hom_A(\mathcal{A}_1, \mathcal{A}_2)$ la cat\'egorie des foncteurs $A$-lin\'eaires de $\mathcal{A}_1$ dans $\mathcal{A}_2$. Les constructions 1.7 et 1.8 ont une propri\'et\'e universelle: si $\mathcal{B}$ est $A$-lin\'eaire et additive (resp.~pseudo-ab\'elienne), le foncteur de restriction $\Hom_A(\mathcal{A}^{\text{add}}, \mathcal{B}) \to \Hom_A(\mathcal{A}, \mathcal{B})$ (resp.~$\Hom_A(\mathcal{A}^{\text{ps\;ab}}, \mathcal{B}) \to \Hom_A(\mathcal{A}, \mathcal{B})$) est une \'equivalence. Il ``revient au m\^eme'' de se donner un foncteur $A$-lin\'eaire de $\mathcal{A}$ dans $\mathcal{B}$ ou de $\mathcal{A}^{\text{add}}$ (resp.~$\mathcal{A}^{\text{ps\;ab}}$) dans $\mathcal{B}$.
+
+Un foncteur $A$-bilin\'eaire $\mathcal{A} \times \mathcal{A} \to \mathcal{A}^{\text{add}}$ se prolonge donc en un foncteur $A$-bilin\'eaire $\mathcal{A}^{\text{add}} \times \mathcal{A}^{\text{add}} \to \mathcal{A}^{\text{add}}$, et ce prolongement est unique \`a isomorphisme unique pr\`es. De m\^eme avec ``add'' remplac\'e par ``ps ab''.
+
+Si la cat\'egorie $A$-lin\'eaire $\mathcal{A}$ est munie d'un produit tensoriel $A$-bilin\'eaire ACU (associatif, commutatif, \`a unit\'e), $\mathcal{A}^{\text{add}}$ et $\mathcal{A}^{\text{ps\;ab}}$ en h\'eritent. Si le produit tensoriel de $\mathcal{A}$ est rigide, celui de $\mathcal{A}^{\text{add}}$ (resp.~$\mathcal{A}^{\text{ps\;ab}}$) l'est aussi.
+
+\subsection{}
+Une partition $\lambda$ est une suite d\'ecroissante d'entiers $(\lambda_a)_{a \geq 1}$, nuls pour $a$ assez grand. On pose $|\lambda| = \sum \lambda_a$ et on dit que $\lambda$ est une partition de $\ell$ si $|\lambda| = \ell$. On regarde une suite $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_r$ comme une partition en la prolongeant par des z\'eros. La partition $\lambda^*$ transpos\'ee d'une partition $\lambda$ est caract\'eris\'ee par l'\'equivalence entre $\lambda_i \geq j$ et $\lambda^*_j \geq i$. Si $\lambda$ est une partition de $\ell$, on notera encore $\lambda$ les objets suivants attach\'es \`a $\lambda$.
+\begin{enumerate}[label=(\Alph*)]
+\item La classe d'isomorphie de repr\'esentations irr\'eductibles de $S_\ell$ correspondante; sa classe dans le groupe de Grothendieck $R(S_\ell)$ des repr\'esentations de $S_\ell$, et son caract\`ere. La repr\'esentation triviale de $S_\ell$ correspond \`a la partition grossi\`ere $\ell$ de $\ell$.
+\item Pour $N$ assez grand pour que $\lambda_{N+1} = 0$: le poids dominant $(\lambda_1, \ldots, \lambda_N)$ de $\GL(N)$.
+\end{enumerate}
+
+On supposera choisie pour chaque $\ell$ et chaque partition $\lambda$ de $\ell$ une repr\'esentation irr\'eductible de classe $\lambda$ de $S_\ell$. La cat\'egorie des ensembles $U$ \`a $\ell$ \'el\'ements et des bijections entre eux \'etant \'equivalente \`a sa sous-cat\'egorie pleine r\'eduite \`a l'objet $\{1, \ldots, \ell\}$, il revient au m\^eme de se donner une telle repr\'esentation $V_\lambda$, ou un foncteur $U \mapsto V_\lambda[U]$. En particulier, le choix de $V_\lambda$ d\'efinit, pour tout ensemble $U$ \`a $\ell$ \'el\'ements, une repr\'esentation de $S_U$, que nous noterons encore $\lambda$. Elle est d\'eduite de $V_\lambda$ par torsion par le $S_\ell$-torseur des bijections de $\{1, \ldots, \ell\}$ avec $U$.
+
+Dans ce qui pr\'ec\`ede, le corps de base est $\Q$. On pourrait m\^eme prendre l'anneau de base $\Z[1/\ell!]$, Le cas d'autres corps ou anneaux de base s'en d\'eduit par extension des scalaires. Si $X$ est une repr\'esentation de $S_U$, on pose
+\begin{equation}
+X_\lambda := \Hom(\lambda, X). \tag{1.10.1}
+\end{equation}
+On sait que
+\begin{equation}
+\Q[S_U] \isom \bigoplus_{|\lambda| = \ell} \End(\lambda) \tag{1.10.2}
+\end{equation}
+et il r\'esulte que l'application $S_U$-\'equivariante naturelle
+\begin{equation}
+\bigoplus_{|\lambda| = \ell} X_\lambda \otimes \lambda \isom X \tag{1.10.3}
+\end{equation}
+est un isomorphisme. Cette construction garde un sens pour $X$ dans une cat\'egorie pseudo-ab\'elienne $\Z[1/\ell!]$-lin\'eaire.
+
+
+\section{La Cat\'egorie $\Rep(S_t)$}
+
+\subsection{}
+Fixons un ensemble fini $I$. Pour $U$ un ensemble fini, notons $[U]_I$ la repr\'esentation de permutation de $S_I$ sur l'ensemble $\Inj(U, I)$ des injections de $U$ dans $I$. Pour $U$ (resp.~$I$) l'ensemble fini $\{1, 2, \ldots, n\}$, on remplace dans la notation $U$ (resp.~$I$) par $n$.
+
+Pour $\varphi : U \inj V$ une injection, la composition avec $\varphi$: $\Inj(V, I) \to \Inj(U, I)$ induit
+\[
+\res_\varphi : [V]_I \to [U]_I
+\]
+de transpos\'e e (1.2)
+\[
+\res^*_\varphi : [U]_I \to [V]_I.
+\]
+On a $\res_\varphi(e_g) = e_{g\varphi}$ et $\res^*_\varphi(e_f) = \sum_{g\varphi = f} e_g$.
+
+\subsection{}
+Soient $C$ un recollement des ensembles finis $U$ et $V$, et $D$ le produit fibr\'e de $U$ et $V$ sur $C$:
+\begin{equation}
+\xymatrix@R=1.5pc@C=1.5pc{
+U \ar@{^{(}->}[r]^{a} & C \\
+D \ar@{^{(}->}[u] \ar@{^{(}->}[r]_{b} & V \ar@{^{(}->}[u]_{b'}
+\ar@{^{(}->}[ul]
+} \tag{2.2.1}
+\end{equation}
+Si $U' := a'(D)$, $V' := b'(D)$ et si $\varphi$ est la bijection $b' a'^{-1} : U' \isom V'$, on a $U \cup_\varphi V \isom C$. Posons
+\[
+\{C\}_I := \res^*_{b'} \res_{a'} \quad \text{(resp } (C)_I := \res_{b'} \res^*_{a'} \text{)} : [U]_I \longrightarrow [V]_I.
+\]
+Ces morphismes seront aussi not\'es $\{\varphi\}_I$ et $(\varphi)_I$ et, quand cela ne cr\'ee pas d'ambiguit\'e, l'indice $I$ sera omis.
+
+On d\'efinit une relation d'ordre entre donn\'ees sur recollements de $U$ et $V$ en disant que $A$ est plus grossier que $C$ ($A \leq C$), si, $D$ et $\varphi$ \'etant comme ci-dessus, le diagramme
+\[
+\xymatrix@R=1.5pc@C=1.5pc{
+U \ar@{^{(}->}[r] \ar@{^{(}->}[dr] & A \\
+D \ar@{^{(}->}[u] \ar@{^{(}->}[r] & V \ar@{^{(}->}[u]
+}
+\]
+est commutatif, i.e. si $A$ est d\'efini par une bijection $\psi : U'' \isom V''$, avec $U' \subset U'' \subset U$ et $V' \subset V'' \subset V$, qui prolonge $\varphi$.
+
+Pour $f$ dans $\Inj(U, I)$, l'image de $e_f$ par $\{C\}$ (resp~$(C)$) est la somme des $e_g$, $g$ dans $\Inj(V, I)$, tels que $f$ et $g$ se recollent en une application (resp. une application injective) de $C$ dans $I$. Cette description montre que
+\begin{equation}
+\{C\} = \sum_{A \leq C} (A). \tag{2.2.2}
+\end{equation}
+
+Si $A \leq C$ est d\'efini par $\psi : U'' \isom V''$, l'ensemble ordonn\'e des recollements $A_1$ entre $A$ et $C$ est isomorphe \`a l'ensemble ordonn\'e par $\supset$ des parties de $U'' - U'$. \`A $A_1$, d\'efini par $\psi_1 : U_1'' \to V_1''$, o\`u $U' \subset U_1'' \subset U''$ et o\`u $\psi_1$ est la restriction de $\psi$, associer $U_1'' - U'$. La fonction de Moebius pour l'ensemble ordonn\'e des donn\'ees de recollements est donc $\mu(A,C) = (-1)^{|U''| - |U'|} = (-1)^{|C| - |A|}$, et (2.2.2) s'inverse en
+\begin{equation}
+(C) = \sum_{A \leq C} (-1)^{|C| - |A|} \{A\}. \tag{2.2.3}
+\end{equation}
+
+\subsection{Cas particuliers:}
+
+\begin{enumerate}[label=(\roman*)]
+\item Si dans (2.2.1) $a'$ (resp.~$b'$) est bijectif, de sorte que le recollement $C$ est d\'efini par $\varphi : U \inj V$ (resp.~$\varphi : V \inj U$), on a $(C) = \{C\} = \res^*_\varphi$ (resp.~$(C) = \{C\} = \res_\varphi$).
+\item Si le recollement est d\'efini par une bijection $\varphi$ de $U$ avec $V$, $(\varphi)$ est la fonctorialit\'e de $U \mapsto [U]_I$ pour les bijections, telle que d\'efinie par transport de structures.
+\end{enumerate}
+
+\begin{construction}
+Soit $(U_j)_{j \in J}$ une famille finie d'ensembles finis. Le produit tensoriel des $[U_j]_I$ est naturellement isomorphe \`a la somme directe, \'etendues aux recollements $(u_j : U_j \inj C)$, des $[C]_I$.
+\end{construction}
+
+\begin{proof}
+Le produit tensoriel des $[U]_I$ est la repr\'esentation de permutation d\'efinie par le $S_I$-ensemble produit des $\Inj(U_j, I)$. Chaque syst\`eme d'injections $u_j : U_j \inj I$ d\'efinit le recollement $u_j : U_j \inj \cup u_j(U_j)$. La donn\'ee de recollement $r$ correspondante ne d\'epend que de la $S_I$-orbite de $(u_j)_{j \in J}$, et ceci fait de $\prod \Inj(U_j, I)$ la somme disjointe des $\Inj(C, I)$, pour $(a_j : U_j \inj C)$ une donn\'ee de recollement. On conclut par 1.3.
+\end{proof}
+
+\begin{example}
+\begin{enumerate}[label=(\roman*)]
+\item La repr\'esentation $[\emptyset]_I$ est la repr\'esentation unit\'e: $k$ muni de l'action triviale de $S_I$. Le morphisme $[U]_I \otimes [\emptyset]_I \isom [U]_I$ correspondant est d\'efini par le recollement \'evident de $U$ et $\emptyset$ en $U$.
+\item La structure d'alg\`ebre $[U]_I \otimes [U]_I \to [U]_I$ de $[U]_I$ d\'efinie en 1.2 est la projection sur le facteur direct correspondant au recollement \'evident de $U$ et $U$ en $U$.
+\item L'autodualit\'e 1.2 de $[U]_I$ est
+\[
+[U]_I \otimes [U]_I \xrightarrow{\text{(ii)}} [U]_I \xrightarrow{\res_{\emptyset \to U}} [\emptyset],
+\]
+et le morphisme $\delta : \mathbf{1} \to [U]_I \otimes [U]_I$ correspondant est
+\[
+[\emptyset] \xrightarrow{\res^*_{\emptyset \to U}} [U]_I \to [U]_I \otimes [U]_I;
+\]
+o\`u la seconde fl\`eche est l'inclusion du facteur direct $[U]_I$.
+\end{enumerate}
+\end{example}
+
+\subsection{}
+Soit une famille de familles $((U_{j,k})_{j \in J_k})_{k \in K}$. Elle d\'efinit la famille des $U_{j,k}$, index\'ee par $\bigsqcup_k J_k$. On a une bijection naturelle entre
+\begin{enumerate}[label=(\Alph*)]
+\item les donn\'ees de recollement $C$ sur les $U_{ij}$
+\item les syst\`emes form\'es par
+\begin{enumerate}
+\item pour chaque $k$, une donn\'ee de recollement $C_k$ sur les $U_{j,k}$, $(j \in J_k)$
+\item une donn\'ee de recollement $D$ sur les $C_k$ $(k \in K)$.
+\end{enumerate}
+\end{enumerate}
+\`A $C$, on associe les recollements induits, et leur recollement en $C$.
+
+On laisse au lecteur le soin de v\'erifier que l'isomorphisme
+\[
+\bigotimes_{k \in K} \bigotimes_{j \in J_k} [U_{j,k}]_I = \bigotimes [U_{j,k}]_I
+\]
+devient, via les isomorphismes 2.4, l'isomorphisme de
+\[
+\bigoplus_{(C_k)} \bigotimes_{k \in K} [C_k]_I = \bigoplus_{(D, C_k)} [D]_I
+\]
+avec la somme des $[C]_I$, d\'efinie par les bijections (A)$\leftrightarrow$(B).
+
+\subsection{}
+Ceci d\'ecrit les contraintes d'associativit\'e et de commutativit\'e et l'unit\'e du produit tensoriel de repr\'esentations $[U]_I$ en terme de la description 2.4 du produit tensoriel. Pour l'associativit\'e,
+\[
+([U]_I \otimes [V]_I) \otimes [W]_I \to [U]_I \otimes ([V]_I \otimes [W]_I),
+\]
+on identi\'e les deux membres \`a la somme des $[C]_I$, pour $C$ recollement de $U, V, W$. Pour la commutativit\'e
+\[
+[U]_I \otimes [V]_I \to [V]_I \otimes [U]_I,
+\]
+utiliser qu'un recollement $U$ et $V$ s'identi\'e \`a un recollement de $V$ et $U$. L'unit\'e est $[\emptyset]_I$.
+
+
+\begin{proposition}
+Soient $(U_j)_{j \in J}$ et $(V_j)_{j \in J}$ deux familles index\'ees par $J$, et, pour chaque $j$, soit $U_j, V_j \inj C_j$ un recollement de $U_j$ et $V_j$. Identifions, par 2.3, le produit tensoriel des $[U_j]$ (resp.~$[V_j]_I$) avec la somme des $[A]_I$ (resp.~$[B]_I$) pour $A$ (resp.~$B$) un recollement des $U_j$ (resp.~$V_j$). Alors le coefficient matriciel
+\[
+[A]_I \to \otimes [U_j]_I \to \otimes [V_j]_I \to [B]_I
+\]
+de $\otimes (C_j) : \otimes [U_j]_I \to \otimes [V_j]_I$ est la somme des $(C) : [A]_I \to [B]_I$, pour $C$ une donn\'ee de recollement sur $A$ et $B$ qui, vue par 2.6 comme donn\'ee de recollement sur les $U_j$ et $V_j$, induit pour chaque $j$ la donn\'ee de recollement $C_j$ de $U_j$ et $V_j$.
+
+La v\'erification, imm\'ediate sur la description 2.2 des $(C_j)$, est laiss\'ee au lecteur.
+\end{proposition}
+
+\begin{proposition}
+\begin{enumerate}[label=(\roman*)]
+\item Les morphismes $(C) : [U]_I \to [V]_I$, pour $U, V \inj C$ un recollement de $U$ et $V$ tel que $|C| \leq |I|$, forment une base de $\Hom_{S_I}([U]_I, [V]_I)$.
+\item La condition $|C| \leq |I|$ est v\'erifi\'ee par tout recollement $U, V \inj C$ si $|U| + |V| \leq |I|$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Par autodualit\'e de la repr\'esentation de permutation $[U]_I$, le groupe $\Hom_{S_I}([U]_I, [V]_I)$ s'identi\'e \`a l'espace des $S_I$-invariants dans $[U]_I \otimes [V]_I$, qui est la repr\'esentation de permutation d\'efinie par $\Inj(U, I) \times \Inj(V, I)$. Les $S_I$-invariants ont une base index\'ee par les $S_I$-orbites: \`a une orbite $K$ correspondant la somme des $e_k$ pour $k$ dans $K$. Des injections $u : U \inj I$ et $v : V \inj I$ d\'efinissent la donn\'ee de recollement $U, V \inj u(U) \cup v(V)$. Notons-la $C_{u,v}$. Elle ne d\'epend que de l'orbite de $(u, v)$ et la d\'etecte. On laisse au lecteur le soin de v\'erifier que le morphisme de $[U]_I$ dans $[V]_I$ d\'efini par l'orbite de $(u, v)$ est $(C_{u,v})$. Les donn\'ees de recollement $C$ ainsi obtenues sont celles pour lesquelles $|C| \leq |I|$. Pour les autres, $[C] = 0$.
+
+Ceci prouve (i), et (ii) est trivial.
+\end{proof}
+
+\begin{proposition}
+Soient trois ensembles finis $U$, $V$ et $W$. Soient $U, V \inj C$ un recollement de $U$ et $V$ et $V, W \inj D$ un recollement $V$ et $W$. Alors, le morphisme compos\'e $(D)(C) : (U)_I \to [W]_I$ est la somme, \'etendue aux recollements $a, b, c : U, V, W \inj A$ qui induisent $C$ et $D$:
+\begin{equation}
+(D)(C) = \sum_A P_A(|I|)\,(A'), \tag{2.10.1}
+\end{equation}
+o\`u $A'$ est le recollement de $U$ et $W$ induit par $A$ et o\`u $P_A(T)$ est le polyn\^ome \`a coefficients entiers
+\begin{equation}
+P_A(T) := (T - |A'|)(T - |A'| - 1) \cdots (T - |A| + 1). \tag{2.10.2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Notons
+\[
+\xymatrix@R=1.2pc{
+U \ar@^{->}[dr]^{u} & & V \ar[dl]_{v'} \ar[dr]^{v''} & & W \ar[dl]_{w} \\
+& C & & D
+}
+\]
+les recollements. Par d\'efinition (2.2),
+\[
+(D)(C) = \res_w \res^*_{v''} \res_{v'} \res^*_u.
+\]
+Le compos\'e $\res^*_{v''} \res_{v'}$ est calcul\'e par (2.2.2): c'est la somme, sur les recollements $x, y : C, D \inj A$ de $C$ et $D$ rendant
+\begin{equation}
+\xymatrix@R=1.2pc@C=1.2pc{
+U \ar[dr]^{u} & & V \ar[dl]_{v'} \ar[dr]^{v''} & & W \ar[dl]_{w} \\
+& C \ar[dr]_{x} & & D \ar[dl]^{y} & \\
+& & A
+} \tag{2.10.3}
+\end{equation}
+commutatif, des $\res_y \res^*_x$.
+
+L'application qui \`a $x, y : C, D \inj A$ associe $xu, xv' = yv'', yw : U, V, W \inj A$ est bijective, des donn\'ees de recollement consid\'er\'ees vers les donn\'ees de recollement de $U, V, W$ induisant celles donn\'ees sur $U, V$ et $V, W$. On a, pour chaque diagramme (2.10.3)
+\[
+\res_w \res_y \res^*_x \res^*_u = \res_{yw} \res^*_{xu},
+\]
+et le compos\'e $(D)(C)$ est donc la somme, sur les $a, b, c : U, V, W \inj A$ induisant $C$ et $D$, des $\res_c \res^*_a$. Soit $A' := a(U) \cup c(W)$:
+\[
+\xymatrix@R=1.5pc@C=1.5pc{
+U \ar[dd]_{a'} \ar[ddrr]^{a} & & W \ar[dd]^{c'} \ar[ddll]_{c} \\
+& & \\
+A' \ar@{^{(}->}[rr]^{j} & & A
+}
+\]
+On a $\res_c \res^*_a = \res_{c'} \res_j \res^*_j \res^*_{a'}$, et $\res_j \res^*_j$ est la multiplication par le nombre $P_A(|I|)$ de fa\c{c}ons d'\'etendre une injection de $A'$ dans $I$ en une injection de $A$ dans $I$. On a donc
+\[
+(D)(C) = \sum_A \res_c \res^*_a = \sum_A P_A(|I|) \res_{a'} \res^*_{c'} = \sum_A P_A(|I|)\,(A'). \qedhere
+\]
+\end{proof}
+
+\begin{remark}
+Un calcul analogue, avec (2.2.2) remplac\'e par (2.2.3), exprime la composition de morphismes $\{C\}$. Supposons que $C = U \cup_E V$ et $D = V \cup_F W$:
+\[
+\xymatrix@R=1.2pc{
+& E \ar[dl] \ar[dr]^{v} & & F \ar[dl]_{v'} \ar[dr] \\
+U & & V & & W
+}
+\]
+par d\'efinition,
+\[
+\{D\}\{C\} = \res^*_w \res_{v''} \res^*_{v'} \res_u.
+\]
+Posons $V_1 := v'(E) \cup v''(F)$:
+\[
+\xymatrix@R=1.5pc@C=1.5pc{
+E \ar[dr] \ar@{^{(}->}[r]^{x} & V_1 \ar[d]^{j} & F \ar[l]_{y} \ar[dl] \\
+& V
+}
+\]
+On a $\res_{v''} \res^*_{v'} = \res_y \res_j \res^*_j \res^*_x = P_{C,D}(|I|) \res_y \res^*_x$, pour $P_{C,D}$ le polyn\^ome \`a coefficients entiers
+\begin{equation}
+P_{C,D}(T) := (T - |V_1|) \cdots (T - |V| + 1). \tag{2.11.1}
+\end{equation}
+Le compos\'e $\res_y \res^*_x$ est $(V_1) : [E]_I \to [F]_I$. D'apr\`es (2.2.3), c'est une somme altern\'ee de morphismes $\{A\}$, pour $A$ un recollement de $E$ et $F$ plus grossier que $V_1$. Pour $A_1$ le produit fibr\'e $E \times_A F$, i.e. pour $A = E \cup_{A_1} F$:
+\[
+\xymatrix@R=1.5pc@C=1.5pc{
+A_1 \ar@{^{(}->}[r] \ar@{^{(}->}[dr] & E \ar[dr] \ar[r] & V_1 \ar[d] & F \ar[l] \ar[dl] \\
+& U \ar[r] & A & W \ar[l]
+}
+\]
+$A_1$ d\'efinit un recollement $A'$ de $U$ et $V$, et $\{D\}\{C\}$ est la somme sur $A$
+\begin{equation}
+\{D\}\{C\} = P_{C,D}(|I|) \sum_A (-1)^{|V_1| - |A|} \{A'\}. \tag{2.11.2}
+\end{equation}
+\end{remark}
+
+\begin{definition}
+On note $\Rep^0(S_T)$ la cat\'egorie $\Z[T]$-lin\'eaire suivante:
+
+\textsc{Objets}: ensembles finis. On note $[U]$ l'ensemble fini $U$ vu comme objet de $\Rep^0(S_T)$.
+
+\textsc{Morphismes}: $\Hom([U], [V])$ est le $\Z[T]$-module librement engendr\'e par les donn\'ees de recollement sur $U, V$. On note $(C)$ la donn\'ee de recollement $C$ vue comme morphisme de $[U]$ dans $[V]$.
+
+\textsc{Composition}: la composition
+\[
+\Hom([U], [V]) \times \Hom([V], [W]) \to \Hom([U], [W])
+\]
+est l'application $\Z[T]$-bilin\'eaire donn\'ee sur les vecteurs de base par
+\[
+[D] \circ [C] = \sum_A P_A(T)\,(A'),
+\]
+la somme sur $A$, et $A'$, $P_A$ \'etant comme en 2.10.
+
+Comme en 2.2, on d\'efinit $\{C\} = \sum (A)$, la somme \'etant comme en (2.2.2). Si $C_\varphi$ est le recollement d\'efini par $U' \subset U$, $V' \subset V$ et $\varphi : U' \isom V'$, on pose $(\varphi) := (C_\varphi)$ et $\{\varphi\} := \{C_\varphi\}$. Comme en 2.3 (i), si $C$ est la donn\'ee de recollement d\'efinie par une injection $\varphi : V \to U$ (resp.~$\varphi : U \to V$), on pose $\res_\varphi := (C)$ (resp.~$\res^*_\varphi := (C)$).
+
+Que la composition est associative et l'existence d'identit\'es sera v\'erifi\'e en 2.14.
+\end{definition}
+
+\subsection{}
+Pour $I$ un ensemble fini, notons $\sigma(I)$ le morphisme $T \mapsto |I|$ de $\Z[T]$ dans $k$. Envoyons l'ensemble des objets de $\Rep^0(S_T)$ dans l'ensemble des repr\'esentations de $S_I$ par $[U] \mapsto [U]_I$, et $\Hom([U], [V])$ dans $\Hom([U]_I, [V]_I)$ par le morphisme $\sigma(I)$-lin\'eaire donn\'e sur les vecteurs de base par $(C) \mapsto (C)_I$. Par 2.10, les
+\[
+\Hom([U], [V]) \to \Hom([U]_I, [V]_I)
+\]
+obtenus sont compatibles \`a la composition. Par 2.3 (ii), si $\Id_U$ est l'identit\'e de $U$, l'image $(\Id_U)_I$ de $(\Id_U)$ est l'identit\'e de $[U]_I$.
+
+\begin{proposition}
+\begin{enumerate}[label=(\roman*)]
+\item La composition 2.12 est associative et admet les $(\Id_U)$ pour identit\'es.
+\item $\Rep^0(S_T)$ est donc une cat\'egorie $\Z[T]$-lin\'eaire et, pour tout ensemble fini $I$, $[U] \mapsto [U]_I$ est un foncteur $\sigma(I)$-lin\'eaire de $\Rep^0(S_T)$ dans la cat\'egorie des repr\'esentations de $S_I$ sur $k$.
+\item Le morphisme
+\[
+\Hom([U], [V]) \otimes_{\Z[T], \sigma(I)} k \to \Hom([U]_I, [V]_I)
+\]
+est toujours surjectif. Il est bijectif si $|U| + |V| \leq |I|$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+L'associativit\'e de la composition est l'\'egalit\'e de deux applications $\Z[T]$-lin\'eaires
+\begin{equation}
+\Hom([U_1], [U_2]) \otimes \Hom([U_2], [U_3]) \otimes \Hom([U_3], [U_4]) \rightrightarrows \Hom([U_1], [U_4]). \tag{2.14.1}
+\end{equation}
+Source et but sont des $\Z[T]$-modules libres, et il s'agit de prouver l'\'egalit\'e de deux matrices \`a coefficients dans $\Z[T]$. Soit $I$ un ensemble fini. La compatibilit\'e de
+\[
+\Hom([U], [V]) \to \Hom([U]_I, [V]_I)
+\]
+\`a la composition et l'isomorphisme 2.9
+\[
+\Hom([U], [V]) \otimes_{\Z[T], \sigma(I)} k \isom \Hom([U]_I, [V]_I)
+\]
+pour $|I| \geq |U| + |V|$ assurent que les deux morphismes (2.14.1) deviennent \'egaux apr\`es l'extension des scalaires $\Z[T] \to k : T \mapsto n$ pour $n$ un entier $\geq |U_1| + |U_4|$. Ceci ayant lieu pour une infinit\'e de valeurs de $n$, ils sont \'egaux. Que les $(\Id_T)$ sont des identit\'es se prouve de m\^eme. Les assertions (ii) et (iii) ont d\'ej\`a \'et\'e v\'erifi\'ees.
+\end{proof}
+
+\begin{remark}
+\begin{enumerate}[label=(\roman*)]
+\item L'objet $[U]$ de $\Rep^0(S_T)$ est fonctoriel en $U$ pour les bijections $\varphi : U \to V$, la fonctorialit\'e \'etant donn\'ee, avec les notations de 2.12, par $\varphi \mapsto (\varphi)$. Si $U$ est d\'efini \`a isomorphisme unique pr\`es, par exemple en tant que repr\'esentant $U_1, U_2 \inj U$ d'une donn\'ee de recollement fix\'ee sur $U_1, U_2$, l'objet $[U]$ est donc d\'efini \`a isomorphisme unique pr\`es.
+
+\item Le foncteur $[U] \mapsto [U]_I$ envoie le morphisme $\{C\}$ sur $\{C\}_I$. Par l'argument de sp\'ecialisation qui prouve 2.14, on a donc pour tout diagramme (2.2.1) l'identit\'e $\{C\} = \res^*_{b'} \res_{a'}$, et la composition des morphismes $\{C\}$ est donn\'ee par (2.11.2), avec $|I|$ remplac\'e par $T$.
+\end{enumerate}
+\end{remark}
+
+\subsection{}
+Soit $\Rep^1(S_T)$ l'enveloppe additive (1.7) de la cat\'egorie $\Z[T]$-lin\'eaire $\Rep^0(S_T)$. Nous nous proposons de d\'efinir un produit tensoriel $\Z[T]$-bilin\'eaire sur $\Rep^1(S_T)$. D'apr\`es 1.9, il suffit de le d\'efinir sur $\Rep^0(S_T)$, \`a valeurs dans $\Rep^1(S_T)$.
+
+On d\'efinit $[U] \otimes [V]$ comme \'etant la somme directe, \'etendues aux donn\'ees de recollement $U, V \inj C$, de $[C]$ (cf 2.4, 2.15 (i)). La fonctorialit\'e
+\[
+\Hom([U_1], [V_1]) \otimes \Hom([U_2], [V_2]) \to \Hom([U_1] \otimes [U_2], [V_1] \otimes [V_2])
+\]
+est d\'efinie par la formule de 2.8 pour $J = \{1, 2\}$, en effa\c{c}ant les indices $I$. Qu'on obtient bien un foncteur se v\'erifie, comme dans la preuve de 2.14, par sp\'ecialisations $T \mapsto n$, $n$ entier suffisamment grand.
+
+On d\'efinit pour ce foncteur de produit tensoriel des contraintes d'associativit\'e, de commutativit\'e et d'unit\'e par les formules de 2.7, en effa\c{c}ant l'indice $I$. Que les axiomes requis sont v\'erif\'es se voit encore par sp\'ecialisations.
+
+Pour chaque $[U]$, on d\'efinit
+\begin{equation}
+\delta : \mathbf{1} \to [U] \otimes [U] \quad \text{et} \quad \ev : [U] \otimes [U] \to \mathbf{1} \tag{2.16.1}
+\end{equation}
+par les formules de 2.5 (iii), en effa\c{c}ant l'indice $I$. Toujours la m\^eme preuve montre qu'on obtient ainsi une autodualit\'e de $[U]$.
+
+Le foncteur $\sigma(I)$-lin\'eaire $[U] \mapsto [U]_I$ de $\Rep^0(S_T)$ dans $\Rep(S_I)$ se prolonge par additivit\'e en un foncteur $X \mapsto X_I$ de $\Rep^1(S_T)$ dans $\Rep(S_I)$. Par construction, ce foncteur est compatible au produit tensoriel, i.e. est muni d'un isomorphisme fonctoriel $(X \otimes Y)_I = X_I \otimes Y_I$ compatible aux contraintes d'associativit\'e et de commutativit\'e et transformant unit\'e en unit\'e. Pour chaque $U$, l'autodualit\'e (2.16.1) de $[U]$ a pour image l'autodualit\'e 1.2 de $[U]_I$.
+
+\begin{definition}
+Soient $A$ un anneau commutatif et $t \in A$.
+\begin{enumerate}[label=(\roman*)]
+\item La cat\'egorie $\Rep^1(S_t, A)$ est la cat\'egorie $A$-lin\'eaire $\Rep^1(S_T) \otimes_{\Z[T]} A$ d\'eduite de $\Rep^1(S_T)$ par l'extension des scalaires $\Z[T] \to A : T \mapsto t$ (cf.~1.6).
+\item La cat\'egorie $\Rep(S_t, A)$ est l'enveloppe pseudo-ab\'elienne (1.8) de $\Rep^1(S_t, A)$.
+\end{enumerate}
+
+De $\Rep^1(S_T)$, la cat\'egorie $\Rep(S_t, A)$ h\'erite d'un produit tensoriel $A$-bilin\'eaire ACU rigide dont l'unit\'e $\mathbf{1}$ v\'erifie $\End(\mathbf{1}) = A$. Nous noterons $[U]_t$, ou simplement $[U]$, l'image dans $\Rep(S_t, A)$ de l'objet $[U]$ de $\Rep^0(S_T)$.
+
+Dans la cat\'egorie $\Rep(S_t, A)$, les groupes $\Hom$ sont des $A$-modules projectifs de type fini. La v\'erification se ram\`ene au cas des $\Hom([U], [V])$, o\`u ils sont m\^emes libres de type fini.
+\end{definition}
+
+Le cas qui nous int\'eresse le plus est celui o\`u $A = k$. Nous \'ecrirons $\Rep(S_t)$ pour $\Rep(S_t, k)$.
+
+\begin{theorem}
+Si $t$ n'est pas un entier $\geq 0$, la cat\'egorie $\Rep(S_t)$ est ab\'elienne semi-simple. C'est donc une cat\'egorie tensorielle sur $k$.
+
+La preuve sera donn\'ee au paragraphe 5.
+\end{theorem}
+
+
+\section{Rappels d'alg\`ebre Multilin\'eaire}
+
+\subsection{}
+Soit $\mathcal{T}$ une cat\'egorie munie d'un produit tensoriel ACU. Elle est $A$-lin\'eaire pour $A := \End(\mathbf{1})$. Si un objet $X$ de $\mathcal{T}$ admet un dual, ce dernier est unique \`a isomorphisme unique pr\`es. Plus pr\'ecis\'ement, si $(X_1^\vee, \ev_1, \delta_1)$ et $(X_2^\vee, \ev_2, \delta_2)$ sont deux duaux de $X$, il existe un unique morphisme $\alpha : X_1^\vee \to X_2^\vee$ tel que $\ev_2 \circ (\alpha \otimes X) = \ev_1$, c'est un isomorphisme, et $(X \otimes \alpha) \circ \delta_1 = \delta_2$ ((Deligne 1990) 2.2).
+
+\subsection{}
+Rappelons qu'un $\Hom$ interne $\iHom(X, Y)$ est un objet qui repr\'esente le foncteur $Z \mapsto \Hom(Z \otimes X, Y)$, i.e. qui est muni d'un isomorphisme fonctoriel en $Z$
+\begin{equation}
+\Hom(Z, \iHom(X, Y)) \isom \Hom(Z \otimes X, Y). \tag{3.2.1}
+\end{equation}
+Si $X$ admet un dual $X^\vee$, l'application $\Hom(Z, Y \otimes X^\vee) \to \Hom(Z \otimes X, Y)$ envoyant $f : Z \to Y \otimes X^\vee$ sur le compos\'e
+\begin{equation}
+\xymatrix{
+Z \otimes X \ar[r]^-{f \otimes X} & Y \otimes X^\vee \otimes X \ar[r]^-{Y \otimes \ev} & Y \otimes \mathbf{1} = Y
+} \tag{3.2.2}
+\end{equation}
+faisant de $Y \otimes X^\vee$ un $\Hom$ interne de $X$ et $Y$ (loc.~cit.~2.3). Son inverse envoie $g : Z \otimes X \to Y$ sur le compos\'e
+\begin{equation}
+\xymatrix{
+Z \ar[r]^-{Z \otimes \delta} & Z \otimes X \otimes X^\vee \ar[r]^-{g \otimes X^\vee} & Y \otimes X^\vee.
+} \tag{3.2.3}
+\end{equation}
+
+Pour $Z = \mathbf{1}$, (3.2.1) devient
+\begin{equation}
+\Hom(\mathbf{1}, \iHom(X, Y)) \isom \Hom(X, Y). \tag{3.2.4}
+\end{equation}
+
+\subsection{}
+On appelle \emph{trace} le morphisme
+\begin{equation}
+\Tr : \iHom(X, X) = X \otimes X^\vee = X^\vee \otimes X \xrightarrow{\ev} \mathbf{1}, \tag{3.3.1}
+\end{equation}
+ainsi que le morphisme
+\begin{equation}
+\Tr : \Hom(X, X) \to \End(\mathbf{1}) \tag{3.3.2}
+\end{equation}
+qui s'en d\'eduit par (3.2.4). On pose
+\begin{equation}
+\dim(X) := \Tr(\Id_X). \tag{3.3.3}
+\end{equation}
+
+On dispose de la panoplie habituelle d'identit\'es, d\'edoubl\'ee en une version interne et une version externe reli\'ees par (3.2.4), d\`es que les duaux requis existent: la bidualit\'e $X^{\vee\vee} = X$ fournit les isomorphismes de transpositions $f \mapsto f^t$:
+\begin{equation}
+\iHom(X, Y) \isom \iHom(Y^\vee, X^\vee) \quad \text{et} \quad \Hom(X, Y) \isom \Hom(Y^\vee, X^\vee); \tag{3.3.4}
+\end{equation}
+ils v\'erifient $\Tr(f^t) = \Tr(f)$ (pour $X = Y$), $(fg)^t = g^t f^t$, et $(f \otimes g)^t = f^t \otimes g^t$ (utilisant que $(X \otimes Y)^\vee = X^\vee \otimes Y^\vee$); l'identit\'e $\Tr(fg) = \Tr(gf)$, sous sa forme interne, est la commutativit\'e du diagramme
+\begin{equation}
+\xymatrix@R=2pc@C=1pc{
+\iHom(X, Y) \otimes \iHom(Y, X) \ar@{=}[r] \ar[d] & \iHom(Y, X) \otimes \iHom(X, Y) \ar[d] \\
+\iHom(Y, Y) \ar[r]^-\Tr & \mathbf{1} & \iHom(X, X) \ar[l]_-\Tr.
+} \tag{3.3.5}
+\end{equation}
+Si on identifie $\iHom(X, Y)$, $\iHom(Y, Z)$ et $\iHom(X, Z)$ respectivement \`a $Y \otimes X^\vee$, $Z \otimes Y^\vee$ et $Z \otimes X^\vee$, la composition s'identifie \`a
+\[
+\ev_Y : (Z \otimes Y^\vee) \otimes (Y \otimes X^\vee) \to Z \otimes X^\vee.
+\]
+Le morphisme (3.3.5) de $\iHom(X, Y) \otimes \iHom(Y, X)$ dans $\mathbf{1}$ s'identifie donc \`a $\ev_X \otimes \ev_Y$. Il met $\iHom(X, Y)$ et $\iHom(Y, X)$ en dualit\'e. Passant aux $\Hom$, on a donc
+
+\begin{lemma}
+Supposons que $X$ et $Y$ admettent un dual. Soit $Z := \iHom(X, Y)$, de dual $Z^\vee$ identifi\'e par (3.3.5) \`a $\iHom(Y, X)$. Puisque $Z^\vee = \iHom(Z, \mathbf{1})$, (3.2.4) fournit des isomorphismes
+\[
+\Hom(\mathbf{1}, Z^\vee) = \Hom(Z, \mathbf{1}) = \Hom(Y, X)
+\]
+et $\Hom(\mathbf{1}, Z) = \Hom(X, Y)$. Modulo ces identifications, les accouplements suivants co\'incident:
+\begin{align}
+\Tr(fg) &: \Hom(Y, X) \times \Hom(X, Y) \to A \tag{3.4.1} \\
+\ev_Z &: \Hom(\mathbf{1}, Z^\vee) \times \Hom(\mathbf{1}, Z) \to A \tag{3.4.2} \\
+v \circ u &: \Hom(Z, \mathbf{1}) \times \Hom(\mathbf{1}, Z) \to A. \tag{3.4.3}
+\end{align}
+\end{lemma}
+
+\begin{lemma}
+Dans une cat\'egorie tensorielle, si $f$ est un endomorphisme d'une suite exacte courte $0 \to A' \to A \to A'' \to 0$, on a
+\[
+\Tr(f, A) = \Tr(f, A') + \Tr(f, A'').
+\]
+\end{lemma}
+
+\begin{proof}
+On le d\'eduit de l'\'enonc\'e interne correspondant, \`a savoir que sur $F := \Ker(\Hom(A, A) \to \Hom(A', A''))$ la trace est la somme des traces partielles $F \to \Hom(A', A') \to \mathbf{1}$ et $F \to \Hom(A'', A'') \to \mathbf{1}$. L'\'enonc\'e interne se prouve en observant que le morphisme
+\[
+\Hom(A, A') \oplus \Hom(A'', A) \to \Hom(A, A)
+\]
+a pour image $F$, de sorte qu'il suffit de prouver l'\'enonc\'e interne avec $F$ remplac\'e par $\Hom(A, A')$ et par $\Hom(A'', A)$. Si $i$ est l'inclusion de $A'$ dans $A$, le cas de $\Hom(A, A')$ se ram\`ene \`a $\Tr(if) = \Tr(fi)$, et le cas de $\Hom(A'', A)$ se traite dualement.
+\end{proof}
+
+\begin{corollary}
+Dans une cat\'egorie tensorielle, la trace d'un endomorphisme nilpotent est nulle.
+\end{corollary}
+
+\begin{proof}
+Si l'endomorphisme $f$ de $X$ est nilpotent, il existe une filtration d\'ecroissante finie $F$ de $X$ telle que $f(F^i) \subset F^{i+1}$, par exemple la filtration par les $f^i(X)$. On a $\Gr^F(f) = 0$ et par 3.5
+\[
+\Tr(f) = \sum \Tr_{\Gr^F_i}(f) = 0. \qedhere
+\]
+\end{proof}
+
+\subsection{}
+Soient $Y$ un objet d'une cat\'egorie additive (resp.~pseudo-ab\'elienne) $\mathcal{T}$, et $B$ l'anneau de ses endomorphismes. Pour tout objet $Z$, $\Hom(Y, Z)$ est un $B$-module \`a droite, $\Hom(Z, Y)$ un $B$-module \`a gauche, et on dispose d'un accouplement
+\begin{equation}
+(\,,) : \Hom(Z, Y) \times \Hom(Y, Z) \to B : f, g \longmapsto gf. \tag{3.7.1}
+\end{equation}
+
+Si $L$ est un $B$-module \`a droite libre (resp.~projectif) de type fini, le foncteur covariant
+\begin{equation}
+Z \longmapsto \Hom_B(L, \Hom(Y, Z)) \tag{3.7.2}
+\end{equation}
+est repr\'esentable: le choix d'une base $e_1, \ldots, e_n$ de $L$ l'identifie \`a $Z \mapsto \Hom(Y, Z)^n$, repr\'esent\'e par $Y^n$ (resp.~le cas ``$L$ projectif'' se ram\`ene au cas ``$L$ libre'' par passage \`a un facteur direct).
+
+On note $L \otimes_B Y$ un objet qui repr\'esente (3.7.2). Le foncteur $L \mapsto L \otimes_B Y$ est une \'equivalence de la cat\'egorie des $B$-modules \`a droite libres (resp.~projectifs) de type fini avec la sous-cat\'egorie pleine de $\mathcal{T}$ d'objets les sommes de copies de $Y$ (resp.~facteur direct de sommes). L'\'equivalence inverse est $X \mapsto \Hom(Y, X)$.
+
+Si les facteurs directs des $B$-modules \`a droite libres de type fini sont encore libres de type fini, par exemple si $B$ est un corps ou un anneau principal, cette \'equivalence montre que tout facteur direct d'une somme de copies de $Y$ est encore une somme de copies de $Y$.
+
+\begin{proposition}
+Supposons $\mathcal{T}$ pseudo-ab\'elienne, que $\Hom(Y, Z)$ soit un $B$-module projectif de type fini et que l'accouplement (3.7.1) fasse de $\Hom(Z, Y)$ son dual. Alors, $Z$ admet un unique sous-objet $R$ tel que le morphisme naturel
+\begin{equation}
+\Hom(Y, Z) \otimes_B Y \oplus R \isom Z \tag{3.8.1}
+\end{equation}
+soit un isomorphisme. On a
+\begin{equation}
+\Hom(Y, R) = \Hom(R, Y) = 0. \tag{3.8.2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Si $\Hom(Y, Z)$ est libre, de base $f_1, \ldots, f_n$, et que $(f^i)$ est la base duale de $\Hom(Z, Y)$, le morphisme $f_\bullet = (f_i) : Y^n \to Z$ admet pour r\'etract-
+ion le morphisme $f^\bullet = (f^i) : Z \to Y^n$. Par d\'efinition, on a en effet $f^i f_j = \delta^i_j \Id_Y$. Si $R$ est le noyau de l'endomorphisme idempotent $f_\bullet f^\bullet$ de $Z$, on a $\im(f_\bullet f^\bullet) \oplus R \isom Z$ et $f_\bullet$ est un isomorphisme de $Y^n$ avec l'image de $f^\bullet f_\bullet$: (3.8.1) est v\'erifi\'e. Par construction, tout morphisme de $Y$ ans $Z$ (resp.~de $Z$ dans $Y$) est combinaison lin\'eaire des $f_i$ (resp.~$f^i$). La nullit\'e (3.8.2), et l'unicit\'e du facteur direct $R$ en r\'esultent.
+
+Le cas o\`u $\Hom(Y, Z)$ est seulement suppos\'e projectif de type fini s'en d\'eduit par addition \`a $Z$ de $Q \otimes_B Y$, $Q$ \'etant choisi tel que $\Hom(Y, Z) \oplus Q$ soit libre.
+\end{proof}
+
+\begin{remark}
+\begin{enumerate}[label=(\roman*)]
+\item L'ensemble des $Z$ pour lesquels les hypoth\`eses de 3.8 sont v\'erifi\'ees est stable par sommes directes finies et facteurs directs, et la d\'ecomposition (3.8.1) de $Z$ en somme directe est fonctorielle en $Z$.
+
+\item Si $Z$ v\'erifie les hypoth\`eses de 3.8 pour des $Y_i$, d'anneau d'endomorphismes $B_i$, en nombre fini, et que $\Hom(Y_i, Y_j) = 0$ pour $i \neq j$, appliquant (3.8) tour \`a tour \`a chacun des $Y_i$ et au reste de la d\'ecomposition pr\'ec\'edente, on obtient une d\'ecomposition
+\begin{equation}
+\bigoplus \Hom(Y_i, Z) \otimes_{B_i} Y_i \oplus R \isom Z, \quad \text{avec} \tag{3.9.1}
+\end{equation}
+\begin{equation}
+\Hom(Y_i, R) = \Hom(R, Y_i) = 0 \text{ pour tout } i. \tag{3.9.2}
+\end{equation}
+\end{enumerate}
+\end{remark}
+
+
+\section{La Mesure Invariante sur $S_t$}
+
+\subsection{}
+Fixons un anneau commutatif $A$, $t \in A$ et, pour $M$ un entier $\geq -1$, notons $\Rep(S_t, A)^{(M)}$ la sous-cat\'egorie pleine de $\Rep(S_t, A)$ d'objets les facteurs directs de sommes de $[U]$, avec $|U| \leq M$.
+
+Soit $N$ un entier $\geq 0$, et supposons que
+\begin{equation}
+t, t-1, \ldots, t-(N-1) \text{ sont inversibles dans } A. \tag{4.1.1}
+\end{equation}
+Pour $A$ un corps, (4.1.1) s'\'ecrit plus simplement $t \notin \{0, 1, \ldots, N-1\}$.
+
+\begin{proposition}
+Sous l'hypoth\`ese (4.1.1), pour tout objet $X$ de $\Rep(S_t, A)^{(N)}$, l'accouplement $fg$ entre $\Hom(X, \mathbf{1})$ et $\Hom(\mathbf{1}, X)$, \`a valeurs dans $\End(\mathbf{1}) = A$, fait de chacun de ces $A$-modules projectifs de type fini le dual de l'autre.
+\end{proposition}
+
+\begin{proof}
+D'apr\`es 3.9(i), il suffit de v\'erifier 4.2 pour $X = [U]$, avec $|U| \leq N$. Rappelons que $\mathbf{1} = [\emptyset]$. Soit $\varphi$ l'inclusion de $\emptyset$ dans $U$. Les $A$-modules $\Hom([U], \mathbf{1})$ et $\Hom(\mathbf{1}, [U])$ sont libres de rang un, engendr\'es respectivement par $\res_\varphi$ et $\res^*_\varphi$. Puisque $\res_\varphi \res^*_\varphi$ est la multiplication par $t(t-1)\cdots(t-|U|+1)$, (4.1.1) assure que l'accouplement 4.2 est une dualit\'e parfaite.
+\end{proof}
+
+\subsection{}
+Appliquons 3.7, 3.8 \`a $Y = \mathbf{1}$: sous l'hypoth\`ese (4.1.1), tout objet $X$ de $\Rep(X_t)^{(N)}$ admet une d\'ecomposition fonctorielle en $X$
+\begin{equation}
+X = X^{S_t} \oplus R \tag{4.3.1}
+\end{equation}
+en
+\begin{equation}
+X^{S_t} := \Hom(\mathbf{1}, X) \otimes \mathbf{1} \tag{4.3.2}
+\end{equation}
+et un reste $R$ tel que
+\begin{equation}
+\Hom(\mathbf{1}, R) = \Hom(R, \mathbf{1}) = 0. \tag{4.3.3}
+\end{equation}
+L'analogue de la projection sur $X^{S_t}$, dans le cas de la cat\'egorie des repr\'esentations d'un groupe fini $G$, est la projection $x \mapsto \frac{1}{|G|} \sum gx$ de $X$ sur $X^G$, d'o\`u le titre de cette section.
+
+\begin{corollary}
+Sous l'hypoth\`ese (4.1.1), pour tout $X$ dans $\Rep(S_t, A)^{(N)}$, le morphisme $\ev : X^\vee \otimes X \to \mathbf{1}$ induit une dualit\'e parfaite
+\[
+\Hom(\mathbf{1}, X^\vee) \otimes \Hom(\mathbf{1}, X) \to \Hom(\mathbf{1}, \mathbf{1}) = A.
+\]
+\end{corollary}
+
+\begin{proof}
+Chaque $[U]$ \'etant autodual, $X^\vee$ est encore dans $\Rep(S_t, A)^{(N)}$. Il r\'esulte de (4.3.3) que la d\'ecomposition (4.3.1) est compatible au passage au dual. La dualit\'e $\ev : X^\vee \otimes X \to \mathbf{1}$ induit donc une dualit\'e entre $(X^\vee)^{S_t}$ et $X^{S_t}$. Appliquant (4.3.2), on en d\'eduit 4.4.
+\end{proof}
+
+\begin{corollary}
+Sous l'hypoth\`ese (4.1.1), si $X$ est dans $\Rep(S_t, A)^{(N')}$, $Y$ dans $\Rep(S_t, A)^{(N'')}$ et que $N' + N'' \leq N$, l'accouplement $\Tr(fg)$ entre les $A$-modules projectifs de type fini $\Hom(X, Y)$ et $\Hom(Y, X)$ est une dualit\'e parfaite.
+\end{corollary}
+
+\begin{proof}
+Appliquer 4.4 \`a $\iHom(X, Y)$ et $\iHom(Y, X)$, mis en dualit\'e par $\Tr(fg)$, et utiliser que (3.4.1) = (3.4.2).
+\end{proof}
+
+
+\section{Preuve de 2.18 et Calcul de l'anneau de Grothendieck $R(S_t)$}
+
+Le th\'eor\`eme 2.18 r\'esulte de la
+
+\begin{proposition}
+Soit $N$ un entier $\geq -1$.
+\begin{enumerate}[label=(\roman*)]
+\item Si $t$ n'est pas un entier dans l'intervalle $0 \leq n \leq 2N-2$, la sous-cat\'egorie $\Rep(S_t)^{(N)}$ de $\Rep(S_t)$ est ab\'elienne semi-simple. Plus pr\'ecis\'ement, nous construirons une famille d'objets $\{\lambda\}$ de $\Rep(S_t)^{(N)}$, index\'ee par les partitions d'entiers $\leq N$, tels que
+\begin{enumerate}[label=(\alph*)]
+\item $\End(\{\lambda\}) = k$ et $\Hom(\{\lambda\}, \{\mu\}) = 0$ pour $\lambda \neq \mu$;
+\item tout objet de $\Rep(S_t)^{(N)}$ est somme directe de copies d'objets $\{\lambda\}$.
+\end{enumerate}
+\item Si $t$ n'est pas un entier dans l'intervalle $0 \leq n \leq 2N-1$, les objets $\{\lambda\}$ de (i) ont une dimension non nulle.
+\end{enumerate}
+\end{proposition}
+
+Si on suppose (i)(a), pour que (i)(b) soit vrai, il suffit que chaque objet $[n]$ $(n \leq N)$ soit somme directe de copies d'objets $\{\lambda\}$.
+
+L'hypoth\`ese faite sur $t$ implique la m\^eme hypoth\`ese avec $N$ remplac\'e par un entier plus petit, et nous construirons les $\{\lambda\}$ par r\'ecurrence sur $N$ (r\'ecurrence limit\'ee si $t$ est un entier $\geq 0$). Pour $N = -1$, $\Rep(S_t)^{(N)}$ est r\'eduite \`a z\'ero (somme de la famille vide), et il n'y a pas de $\lambda$. \`A un stade $N \geq 0$, on garde les $\{\lambda\}$ construits au stade $N-1$, et on leur ajoutera des $\{\lambda\}$ pour $|\lambda| = N$. Il faut que les $\{\lambda\}$ $(|\lambda| \leq N)$ obtenus v\'erifient (i)(a) et permettent la d\'ecomposition de $[N]$.
+
+\textbf{Stade $N$}: Pour $X$ dans $\Rep(S_t)^{(N)}$ et $|\lambda| \leq N-1$, l'accouplement $\Tr(fg)$ met $\Hom(X, \{\lambda\})$ et $\Hom(\{\lambda\}, X)$ en dualit\'e (4.5). Cet accouplement est $\dim(\{\lambda\})$ fois l'accouplement
+\begin{equation}
+fg : \Hom(X, \{\lambda\}) \times \Hom(\{\lambda\}, X) \to \End(\{\lambda\}) = k, \tag{5.1.1}
+\end{equation}
+qui est donc non d\'eg\'en\'er\'e. Appliquant 3.9(ii) \`a $X$ et aux $\{\lambda\}$, on obtient une d\'ecomposition fonctorielle de $X$ en une somme de copies de $\{\lambda\}$ $(|\lambda| \leq N-1)$ et d'un reste $X^*$:
+\begin{align}
+X &= \bigoplus \Hom(\{\lambda\}, X) \otimes \{\lambda\} \oplus X^* \tag{5.1.2} \\
+\Hom(X^*, \{\lambda\}) &= \Hom(\{\lambda\}, X^*) = 0 \quad \text{pour } |\lambda| \leq N-1. \tag{5.1.3}
+\end{align}
+
+\begin{lemma}
+Soit $U$ un ensemble \`a $N$ \'el\'ements. Pour $\varphi$ dans le groupe sym\'etrique $S_U$, soit $(\varphi)^*$ l'automorphisme de $[U]^*$ induit par l'automorphisme $(\varphi) = \{\varphi\}$ de $[U]$. Ces automorphismes forment une base de $\End([U]^*)$ et on a donc un isomorphisme d'alg\`ebres
+\begin{equation}
+k[S_U] \isom \End([U]^*). \tag{5.2.1}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Les morphismes $\{\varphi\} : [U] \to [U]$, pour $\varphi$ une bijection d'une partie $U'$ avec une partie $U''$ de $U$, forment une base de $\Hom([U], [U])$ (cf (2.2.2), (2.2.3)). Il suffit donc de montrer que les morphismes $[U] \to [U]$ qui se factorisent par un objet de $\Rep(S_t)^{(N-1)}$ sont les combinaisons lin\'eaires des $\{\varphi\}$ pour lesquels $U' \neq U$.
+
+Si $U' \neq U$, $\{\varphi\}$ se factorise en effet par $[U']$, qui est dans $\Rep(S_t)^{(N-1)}$. R\'eciproquement, si $f : [U] \to [U]$ se factorise par un $\{\lambda\}$, donc par un $[V]$ avec $|V| \leq N-1$, les formules de composition (2.11.2) (avec $|I|$ remplac\'e par $t$, cf 2.15 (ii)) montrent que $f$ est combinaison lin\'eaire de $\{\varphi\}$ pour lesquels $U' \neq U$.
+\end{proof}
+
+\subsection{Stade $N$ (fin)}
+Prenons $U = \{1, \ldots, N\}$. L'action de $S_N$ sur $[N]^*$ fournit une d\'ecomposition $S_N$-\'equivariante (1.10.3)
+\begin{equation}
+[N]^* = \bigoplus [N]^*_{\mu} \otimes \mu \tag{5.3.1}
+\end{equation}
+(somme sur les partitions $\mu$ de $N$), $S_N$ agissant sur le membre de droite par son action sur les repr\'esentations $\mu$. L'isomorphisme (5.3.1), compar\'e \`a (1.10.2), assure que $\End([N]^*_{\mu}) = k$ et que $\Hom([N]^*_{\mu}, [N]^*_{\nu}) = 0$ pour $\mu \neq \nu$. Ajoutant les $\{\mu\} := [N]^*_{\mu}$ aux $\{\lambda\}$ dont on dispose d\'ej\`a, on obtient la famille promise d'objets simples.
+
+\subsection{Preuve de 5.1 (ii)}
+Si $t$ n'est pas un entier dans l'intervalle $0 \leq n \leq 2N-1$, pour tout objet simple $\{\lambda\}$ de $\Rep(S_t)^{(N)}$, 4.5 garantit que l'accouplement $\Tr(fg)$ de $\End(\{\lambda\}) = k$ avec lui-m\^eme est non d\'eg\'en\'er\'e. Cet accouplement est $\dim(\{\lambda\}) fg$, et 5.1 (ii) en r\'esulte.
+
+\begin{notation}
+Sous l'hypoth\`ese de 5.1 (i), et pour $|V| \leq N$, on notera $[V]^*$ le facteur direct de $[V]$ construit dans la preuve de 5.1, $[V]$ \'etant vu comme objet de $\Rep(S_t)^{(|V|)}$. Pour $n \leq N$, on a donc
+\begin{equation}
+[n]^* \sim \bigoplus_{|\lambda| = n} \{\lambda\} \otimes \lambda, \tag{5.5.1}
+\end{equation}
+dans la cat\'egorie des objets de $\Rep(S_t)$ munis d'une action de $S_n$.
+\end{notation}
+
+\begin{remark}
+Pour $A$ un anneau commutatif et $t \in A$, si les $t-n$ sont inversibles pour $n$ un entier, dans l'intervalle $0 \leq n \leq 2N-2$, et que $N!$ est inversible, la m\^eme preuve fournit un syst\`eme d'objets $\{\lambda\}$ de $\Rep(S_t, A)$, fonctoriels en $A$, tels que $\End(\{\lambda\}) = A$, que $\Hom(\{\lambda\}, \{\mu\}) = 0$ pour $\lambda \neq \mu$, et que tout objet $X$ de $\Rep(S_t, A)^{(N)}$ se d\'ecompose en
+\begin{equation}
+\bigoplus \Hom(\{\lambda\}, X) \otimes \{\lambda\} \isom X \tag{5.6.1}
+\end{equation}
+(une somme de copies des $\{\lambda\}$ si $A$ est principal). Si en outre $t - 2N + 1$ est inversible, les $\dim(\{\lambda\})$ sont inversibles dans $A$.
+
+Les arguments utilis\'es dans la preuve de 2.18 fournissent aussi le r\'esultat suivant.
+\end{remark}
+
+\begin{proposition}
+Soit $\mathcal{A}$ une cat\'egorie tensorielle sur $k$, dont les objets sont de longueur finie. Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}[label=(\roman*)]
+\item quels que soient $X$ et $Y$ dans $\mathcal{A}$, $\Tr(fg)$ met $\Hom(X, Y)$ et $\Hom(Y, X)$ en dualit\'e;
+\item la cat\'egorie ab\'elienne $\mathcal{A}$ est semi-simple.
+\end{enumerate}
+Si $k$ est alg\'ebriquement clos, ces conditions impliquent
+\begin{enumerate}[label=(\roman*)]
+\setcounter{enumi}{2}
+\item la dimension de tout objet simple est non nulle.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+L'objet $\mathbf{1}$ \'etant simple (Deligne and Milne 1982, 1.17), il r\'esulte de (3.2.4) que les groupes $\Hom$ sont de dimension finie.
+
+(i)$\Rightarrow$(ii). Appliquant $\Hom(X, -)$ et prenant une image inverse, on d\'eduit d'une extension $E$ de $X$ par $Y$ une extension $E'$ de $\mathbf{1}$ par $\Hom(X, Y)$:
+\[
+\xymatrix@R=1.5pc{
+0 \ar[r] & \Hom(X, Y) \ar[r] \ar@{=}[d] & E' \ar[r] \ar[d] & \mathbf{1} \ar[r] \ar[d] & 0 \\
+0 \ar[r] & \Hom(X, Y) \ar[r] & \Hom(X, E) \ar[r] & \Hom(X, X) \ar[r] & 0.
+}
+\]
+Scinder l'extension $E$, i.e. relever l'identit\'e de $X$ en un morphisme de $X$ dans $E$, revient \`a scinder l'extension $E'$. Pour prouver que $\mathcal{A}$ est semi-simple, il suffit donc de prouver que toute extension de la forme $0 \to T \to Z \to \mathbf{1} \to 0$ est triviale. L'accouplement $\Tr(fg)$ de $\Hom(Z, \mathbf{1})$ avec $\Hom(\mathbf{1}, Z)$ co\'incide avec l'accouplement $fg$. Ce dernier est donc non d\'eg\'en\'er\'e et 3.8 fournit une d\'ecomposition de $Z$ en un multiple de $\mathbf{1}$ et un reste $R$ tel que $\Hom(\mathbf{1}, R) = \Hom(R, \mathbf{1}) = 0$. L'extension $Z$ provient donc par push out d'une extension $Z_1$, avec $Z_1$ multiple de $\mathbf{1}$, et la simplicit\'e de $\mathbf{1}$ montre sa trivialit\'e.
+
+(ii)$\Rightarrow$(i). D'apr\`es 3.4, il suffit de v\'erifier que pour tout objet $Z$, l'accouplement $v \circ u$ met $\Hom(Z, \mathbf{1})$ et $\Hom(\mathbf{1}, Z)$ en dualit\'e. Puisque $Z$ est semi-simple et $\mathbf{1}$ simple, on a $Z \sim \mathbf{1}^n \oplus R$, avec $\Hom(\mathbf{1}, R) = \Hom(R, \mathbf{1}) = 0$, et on est ramen\'e au cas trivial o\`u $Z = \mathbf{1}^n$.
+
+(i)$\Rightarrow$(iii). Si $S$ est simple, et $k$ alg\'ebriquement clos, le lemme de Schur (valable car $\End(S)$ est de dimension finie sur $k$) montre que $\End(S)$ est r\'eduit \`a $k$. La forme bilin\'eaire $\Tr(fg)$ sur $\End(S)$ s'identifie \`a la forme bilin\'eaire $\dim(S) fg$ sur $k$. Puisqu'elle est non-d\'eg\'en\'er\'ee, $\dim(S) \neq 0$.
+\end{proof}
+
+\begin{remark}
+Il existe des cat\'egories pseudo-ab\'eliennes, $k$-lin\'eaires de groupes $\Hom$ de dimension finie, munies d'un produit tensoriel ACU tel que $\End(\mathbf{1}) = k$, qui v\'erifient 5.7 (i) mais ne sont pas ab\'eliennes, i.e. ne sont pas tensorielles sur $k$. Voici un exemple qui n'admet m\^eme aucun foncteur ACU dans une cat\'egorie tensorielle.
+
+On prend pour $\mathcal{A}$ l'enveloppe pseudo-ab\'elienne de la cat\'egorie $k$-lin\'eaire \`a produit tensoriel ACU $\mathcal{A}_0$ librement engendr\'ee par un objet $X$ muni d'une autodualit\'e sym\'etrique et d'un endomorphisme de carr\'e nul \'egal \`a son transpos\'e $\theta$, tels que $\dim(X) = 0$ et que $\Tr(\theta) = 1$. La cat\'egorie $\mathcal{A}_0$ a pour objets les puissances tensorielles de $X$. Elle admet la description suivante:
+
+\textsc{Objets}: ensembles finis. On note $X^{\otimes I}$ l'ensemble fini $I$ vu comme objet de $\mathcal{A}_0$.
+
+\textsc{Morphismes}: $\Hom(X^{\otimes I}, X^{\otimes J})$ a une base index\'ee par les partitions de $I \sqcup J$ en sous-ensembles \`a 2 \'el\'ements, chacun \'etant color\'e ``$1$'' ou ``$\theta$''.
+
+\textsc{Produit tensoriel}: somme disjointe d'ensembles finis.
+
+\textsc{Repr\'esentation graphique} (d'un vecteur de base de $\Hom(X^{\otimes I}, X^{\otimes J})$): \'ecrire en premi\`ere ligne des points index\'es par $I$, en deuxi\`eme ligne des points index\'es par $J$ et entre ces deux lignes joindre par un trait plein (resp. pointill\'e) les points dans une part color\'ee ``$1$'' (resp.~``$\theta$'').
+
+\textsc{Interpr\'etation}:
+
+\begin{center}
+$\begin{array}{ccccc}
+\bullet\!\!\!-\!\!\!\bullet & \bullet\!\!\!-\!\!\!\circ & \circ\!\!\!-\!\!\!\bullet & \bullet\!\!\!=\!\!\!\bullet & \bullet\!\!\!=\!\!\!\circ
+\end{array}$
+\end{center}
+
+sont respectivement $\Id_X$, l'autodualit\'e $X \otimes X \to \mathbf{1}$, le morphisme $\delta : \mathbf{1} \to X \otimes X$ correspondant, $\theta : X \to X$, le compos\'e de l'autodualit\'e avec $\theta \otimes 1$ ou $1 \otimes \theta$, et le compos\'e de $\theta \otimes 1$ ou $1 \otimes \theta$ avec $\delta$.
+
+Conform\'ement \`a l'interpr\'etation donn\'ee, pour composer deux morphismes qui appartiennent \`a ces bases de groupes $\Hom$, on joint les graphes correspondants. On d\'ecr\'ete le r\'esultat nul si deux traits pointill\'es apparaissent dans une m\^eme composante connexe, ou si un cercle plein appara\^it. On remplace un segment compos\'e de traits pleins (resp.~trait(s) plein(s) et un seul trait pointill\'e) par un trait plein (resp.~pointill\'e), et on omet les cercles compos\'es de trait(s) plein(s) et d'un seul trait pointill\'e.
+
+\textsc{Exemples}:
+
+\begin{center}
+$\begin{array}{c}
+\begin{array}{ccc}
+\bullet & \bullet & \bullet \\
+\bullet & \bullet & \bullet
+\end{array}
+= \text{page blanche} = \Id_{\mathbf{1}} \quad ; \quad
+\begin{array}{c}
+\bullet \bullet \\
+\bullet \bullet
+\end{array}
+= \dim X = 0 \text{ de } \mathbf{1}
+\end{array}$
+\end{center}
+
+Pour v\'erifier 5.7 (i), il suffit de v\'erifier que, pour tout $n$, $\Hom(\mathbf{1}, X^{\otimes n})$ et $\Hom(X^{\otimes n}, \mathbf{1})$ sont en dualit\'e parfaite (cf 3.4). Ces groupes sont nuls pour $n$ impair. Pour $n$ pair, soient $f$ et $g$ dans les bases de ces groupes. Soit $k$ (resp.~$\ell$) le nombre de traits pointill\'es parmi les $n/2$ traits de $f$ (resp.~$g$). Pour que $gf = 0$, il faut et il suffit que quand on joint ces graphes, les composantes connexes obtenues, des cercles, aient exactement un trait pointill\'e. Ceci impose $k + \ell \leq n$, et, en cas d'\'egalit\'e, que le graphe de $g$ soit d\'eduit de celui de $f$ en rempla\c{c}ant trait plein par trait pointill\'e et vice versa. Le d\'eterminant de la matrice des $gf = \Tr(gf)$ est $\pm$ le produit des coefficients matriciels $1$ correspondant \`a de telles paires $(f, g)$, et $\mathcal{A}$ v\'erifie donc 5.7 (i).
+
+Dans une cat\'egorie tensorielle, tout endomorphisme nilpotent est de trace nulle (3.6). Puisque $\theta^2 = 0$ et que $\Tr(\theta) = 1$, il n'existe pas de $\otimes$-foncteur ACU de $\mathcal{A}$ dans une cat\'egorie tensorielle.
+\end{remark}
+
+\subsection{}
+Notons $X$ la repr\'esentation de permutation $[1]_n$ de $S_n$, correspondant \`a l'action de $S_n$ sur $\{1, \ldots, n\}$. La difficult\'e avec laquelle la preuve de 2.18 a d\^u se battre est que, outre
+\begin{enumerate}[label=(\Alph*)]
+\item l'action de $S_k$,
+\end{enumerate}
+on dispose sur $X^{\otimes k}$ de deux d\'ecompositions naturelles en sommes directes, et que les projecteurs pour l'une ne commutent pas aux projecteurs pour l'autre. Ce sont
+\begin{enumerate}[label=(\Alph*),start=2]
+\item celle correspondant \`a la d\'ecomposition en $S_n$-orbites de $\{1, \ldots, n\}^k$;
+\item la puissance tensorielle $k$ i\`eme de la d\'ecomposition de $X$ en trivial $\oplus$ irr\'eductible.
+\end{enumerate}
+
+On a besoin de (A), (B) et (C) pour d\'ecomposer $X^{\otimes k}$ en irr\'eductibles. En d\'ecrivant $\Rep^1(S_T)$ en terme des $[U]$, nous avons donn\'e la primaut\'e \`a (B). Si on s'exprime plut\^ot en terme des $[1]^{\otimes U}$, le th\'eor\`eme 2.18 est un corollaire de ce que, dans $\Rep(S_t)$, $\End([1]^{\otimes U})$ est un produit d'alg\`ebres de matrices si $t$ n'est pas un entier $\geq 0$. Cet \'enonc\'e a \'et\'e prouv\'e par T. Halverson et A. Ram (2003) par une autre m\'ethode, inspir\'ee du traitement par H. Wenzl (1988) des groupes orthogonaux, plut\^ot que sym\'etriques. De m\^eme que Wenzl utilise que la dimension des repr\'esentations du groupe orthogonal est donn\'ee par la formule de H. Weyl, ils utilisent que la dimension de la repr\'esentation $\lambda$ de $S_{|\lambda|}$, vue comme fonction de $\lambda_1$, les $\lambda_i$, $i \geq 2$ \'etant fix\'es,
+est un polyn\^ome en $\lambda_1$ qui n'a pour z\'eros que des entiers $\ell$ tels que $\ell + \sum_{i \geq 2} \lambda_i \geq 0$ (cf.~7.3). Notre preuve n'utilisant pas ce fait, il nous a sembl\'e valoir la peine de la conserver, plut\^ot que de renvoyer \`a Halverson et Ram.
+
+\subsection{}
+Fixons $t$ non entier, et notons $R(S_t)$ l'anneau de Grothendieck de la cat\'egorie tensorielle $\Rep(S_t)$. Son groupe additif est le groupe ab\'elien libre engendr\'e par les classes d'isomorphie d'objets simples $\{\lambda\}$ de $\Rep(S_t)$, et sa multiplication est induite par le produit tensoriel. Noter que $R(S_t)$ est ind\'ependant de $t$: dans le cas universel o\`u $A = \Q[T](((T-n)^{-1})_{n \in \Z})$, 5.6 montre que dans $\Rep(S_t, A)$ $\Hom(\{\lambda\} \otimes \{\mu\}, \{\nu\})$ est un $A$-module libre, et si $c^{\nu}_{\lambda,\mu}$ est son rang, les $c^{\nu}_{\lambda,\mu}$ sont les constantes de structure de $\Rep(S_t)$.
+
+On notera $F$ la filtration croissante de $\Rep(S_t)$ pour laquelle $F_N$ est additivement engendr\'e par les constituants irr\'eductibles des $[U]$, pour $|U| \leq N$. Puisque $[U] \otimes [V]$ est somme des $[W]$ pour $W$ recollement de $U$ et $V$, et donc tel que $|W| \leq |U| + |V|$, la filtration $F$ est compatible au produit: $F_N \cdot F_M \subset F_{N+M}$. Les $\{\lambda\}$ pour $|\lambda| \leq N$ sont un syst\`eme de g\'en\'erateurs libre de $F_N$.
+
+Pour chaque entier $n$, soit $R(S_n)$ le groupe de Grothendieck de la cat\'egorie des repr\'esentations de $S_n$. Les foncteurs $\Ind^{S_{n+m}}_{S_n \times S_m}(V \otimes W)$ induisent sur la somme des $R(S_n)$ un produit $\ast$, qui en fait un anneau commutatif d'unit\'e la repr\'esentation $\mathbf{1}$ de $S_0$. On notera encore $\{\}$ le morphisme additif de $R(S_n)$ dans $F_n \subset R(S_t)$ qui envoie $\lambda$ sur $\{\lambda\}$.
+
+\begin{proposition}
+Les morphismes additifs $\{\}$ induisent un isomorphisme de l'anneau $(\oplus R(S_n), \ast)$ avec l'anneau gradu\'e $\Gr^F R(S_t)$.
+\end{proposition}
+
+\begin{proof}
+Le morphisme $S_\ell \times S_m$ \'equivariant
+\[
+[\ell]^* \otimes [m]^* \to [\ell] \otimes [m] \to [\ell+m] \to [\ell+m]^*
+\]
+donn\'e par le recollement disjoint de $\{1, \ldots, \ell\}$ et $\{1, \ldots, m\}$ est un compos\'e d'isomorphismes modulo objets $\{\eps\}$ tels que $|\eps| < \ell+m$. Si $|\lambda| = \ell$ et $|\mu| = m$, on a par (5.5.1), modulo de tels objets,
+\begin{align*}
+\{\lambda\} \otimes \{\mu\} &= \Hom_{S_\ell \times S_m}(\lambda \otimes \mu, [\ell]^* \otimes [m]^*) \\
+&\equiv \Hom_{S_\ell \times S_m}\bigl(\lambda \otimes \mu, \bigoplus_{|\nu| = \ell+m} \{\nu\} \otimes \nu\bigr)
+\end{align*}
+et pour $|\nu| = \ell+m$, $\{\nu\}$ appara\^it dans $\{\lambda\} \otimes \{\mu\}$ avec la multiplicit\'e avec laquelle la repr\'esentation $\lambda \otimes \mu$ de $S_\ell \times S_m$ appara\^it dans la restriction de $\nu$ \`a $S_\ell \times S_m$. Par r\'eciprocit\'e de Frobenius, ceci v\'erifie 5.11.
+\end{proof}
+
+\begin{corollary}
+L'anneau $R(S_t)$ est l'alg\`ebre de polyn\^omes
+\[
+\Z[T_1, T_2, \ldots, T_n, \ldots]
+\]
+engendr\'ee par les $T_i := \{\text{partition grossi\`ere de } i\}$.
+\end{corollary}
+
+Cela r\'esulte de 5.11 et du m\^eme \'enonc\'e pour $(\oplus R(S_n), \ast)$. Les partitions $(1, \ldots, 1, 0, \ldots)$ fournissent un autre syst\`eme de g\'en\'erateurs libre.
+
+
+\section{Sp\'ecialisation \`a $t$ Entier $\geq 0$}
+
+\subsection{}
+Soit $\mathcal{A}$ une cat\'egorie $k$-lin\'eaire \`a produit tensoriel ACU rigide, telle que $\End(\mathbf{1}) = k$. Disons qu'un morphisme $f : X \to Y$ est \emph{n\'egligeable} si pour tout morphisme $u : Y \to X$, on a $\Tr(fu) = 0$. Puisque $(fg)u = f(gu)$, un compos\'e $fg$ est n\'egligeable d\`es que $f$, ou dualement $g$, est n\'egligeable. Un produit tensoriel $f \otimes g$ est n\'egligeable d\`es que $f$, ou par sym\'etrie $g$, est n\'egligeable. En effet, \'etant donn\'es $f : X' \to Y'$, $g : X'' \to Y''$ et $u : Y' \otimes Y'' \to X' \otimes X''$, si on regarde $g$ comme donn\'e par un morphisme $\mathbf{1} \to X''\!\,^\vee \otimes Y''$ et $u$ par un morphisme $\mathbf{1} \to Y'\!\,^\vee \otimes Y''\!\,^\vee \otimes X' \otimes X''$, on d\'eduit de $u$ et $g$ par les contractions $X''\!\,^\vee \otimes X'' \to \mathbf{1}$ et $Y''\!\,^\vee \otimes Y'' \to \mathbf{1}$ un morphisme $\bar{u} : Y' \to X'$ tel que $\Tr((f \otimes g) \circ u) = \Tr(f\bar{u})$. La cat\'egorie $\mathcal{A}/(\text{n\'egligeable})$ quotient de $\mathcal{A}$ par l'id\'eal des morphismes n\'egligeables h\'erite donc de $\mathcal{A}$ d'un produit tensoriel. Il est encore ACU rigide, avec $\End(\mathbf{1}) = k$. Si $\mathcal{A}$ est pseudo-ab\'elienne et que les $\Hom(X, Y)$ sont de dimension finie, $\mathcal{A}/(\text{n\'egligeable})$ est encore pseudo-ab\'elienne, car si $\bar{E}$ est quotient d'une alg\`ebre de dimension finie $E$, tout idempotent $e$ de $\bar{E}$ se rel\`eve en un idempotent de $E$ (appliquer \`a un quelconque rel\`evement $\tilde{e}$ de $e$ un polyn\^ome valant $0$ en $0$, $1$ en $1$ et valant $0$ ou $1$ sur le spectre de $\tilde{e}$, compt\'e avec multiplicit\'es).
+
+\begin{theorem}
+Si $t \in k$ est un entier $n \geq 0$, le foncteur
+\begin{equation}
+[U] \mapsto [U]_n : \Rep(S_t, k) \to \Rep(S_n) \tag{6.2.1}
+\end{equation}
+de $\Rep(S_t, k)$ dans la cat\'egorie des repr\'esentations du groupe sym\'etrique $S_n$ induit une \'equivalence du quotient de $\Rep(S_t, k)$ par l'id\'eal des morphismes n\'egligeables avec $\Rep(S_n)$.
+\end{theorem}
+
+\begin{proof}
+Comme tout $\otimes$-foncteur, le foncteur $[U] \mapsto [U]_n$ pr\'eserve les traces. Un morphisme dont l'image est n\'egligeable est donc n\'egligeable.
+
+La cat\'egorie $\Rep(S_n)$ \'etant absolument semi-simple, les seuls morphismes n\'egligeables de $\Rep(S_n)$ sont les morphismes nuls. Quelques soient $X$ et $Y$ dans $\Rep(S_t, k)$, le morphisme
+\begin{equation}
+\Hom(X, Y) \to \Hom(X_n, Y_n) \tag{6.2.2}
+\end{equation}
+est surjectif: par passage \`a un facteur direct, on se ram\`ene au cas o\`u $X$ et $Y$ sont de la forme $[U]$, trait\'e en 2.9(i). L'image par (6.2.1) d'un morphisme n\'egligeable est donc n\'egligeable -- donc nulle -- et le foncteur (6.2.1) se factorise par un foncteur pleinement fid\`ele de $\Rep(S_t, k)/(\text{n\'egligeable})$ dans $\Rep(S_n)$. Son image essentielle contient la repr\'esentation de permutation image de $[1]$, qui est fid\`ele. Etant stable par produit tensoriel, dual, somme directe et sous-quotient, elle contient toutes les repr\'esentations de $S_n$.
+\end{proof}
+
+\subsection{}
+Fixons un entier $N \geq 0$ et supposons que $t$ est un entier $n \geq 2N$. Pour $|\lambda| \leq N$, l'objet simple $\{\lambda\}$ de $\Rep(S_t, k)^{(N)}$ est de dimension non nulle (5.1 (ii)), donc a une image non nulle dans $\Rep(S_n)$. Par la surjectivit\'e de (6.2.2) et la semi-simplicit\'e de $\Rep(S_n)$, les images dans $\Rep(S_n)$ des objets simples $\{\lambda\}$ $(|\lambda| \leq N)$ de $\Rep(S_t, k)$ sont des repr\'esentations irr\'eductibles deux \`a deux non isomorphes de $S_n$. Nous nous proposons de les d\'eterminer.
+
+Pour $\ell \leq N$, et $[\ell]^*$ comme en 5.5, par la surjectivit\'e de (6.2.2), l'image $[\ell]^*_n$ de $[\ell]^*$ est le sous-objet de $[\ell]_n$ somme des sous-repr\'esentations irr\'eductibles qui n'apparaissent pas dans un $[\ell']_n$ avec $\ell' < \ell$. Il s'agit de calculer $[\ell]^*_n$ comme repr\'esentation de $S_n \times S_\ell$, et de comparer \`a 5.5.1.
+
+\begin{notation}
+Pour $\lambda = (\lambda_1, \ldots, \lambda_a)$ une partition et $m$ un entier $\geq |\lambda| + \lambda_1$, $\{\lambda\}_m$ est la partition suivante de $m$:
+\begin{equation}
+\{\lambda\}_m := (m - |\lambda|, \lambda_1, \ldots, \lambda_a). \tag{6.3.1}
+\end{equation}
+\end{notation}
+
+\begin{proposition}
+Si $t = n > 2|\lambda|$, l'image de l'objet simple $\{\lambda\}$ de $\Rep(S_t, k)$ dans $\Rep(S_n)$ est la repr\'esentation irr\'eductible de $S_n$ correspondant \`a la partition $\{\lambda\}_n$ de $n$.
+\end{proposition}
+
+\begin{proof}
+Si $\ell \leq n$, l'ensemble des injections de $\{1, \ldots, \ell\}$ dans $\{1, \ldots, n\}$ est un ensemble homog\`ene sous $S_n \times S_\ell$. Le stabilisateur d'un \'el\'ement est le sous-groupe
+\[
+S_{n-\ell} \times S_\ell \subset S_{n-\ell} \times S_\ell \times S_\ell \subset S_n \times S_\ell
+\]
+(la premi\`ere inclusion est d\'eduite de l'inclusion diagonale de $S_\ell$ dans $S_\ell \times S_\ell$). Comme repr\'esentation de $S_n \times S_\ell$, $[\ell]_n$ est donc la repr\'esentation induite $\Ind_{S_{n-\ell} \times S_\ell}^{S_n \times S_\ell}(\mathbf{1})$. Induisons par \'etapes, en passant par $S_{n-\ell} \times S_\ell \times S_\ell$. Pour l'inclusion diagonale de $S_\ell$ dans $S_\ell \times S_\ell$, on a
+\[
+\Ind_{S_\ell}^{S_\ell \times S_\ell}(\mathbf{1}) = \bigoplus \lambda \otimes \lambda,
+\]
+o\`u $\lambda$ parcourt les partitions de $\ell$, identifi\'ees aux repr\'esentations irr\'eductibles de $S_\ell$. Chaque repr\'esentation de $S_\ell$ est en effet autoduale. On a donc
+\begin{equation}
+[\ell]_n = \bigoplus \Ind_{S_n \times S_\ell}^{S_n}(\mathbf{1} \otimes \lambda) \otimes \lambda. \tag{6.4.1}
+\end{equation}
+
+D'apr\`es la r\`egle de Littlewood-Richardson, $\Ind_{S_{n-\ell} \otimes S_\ell}^{S_n}(\mathbf{1} \otimes \lambda)$ est la somme des repr\'esentations $\mu$, pour $\mu$ une partition de $n$, identifi\'ee \`a son diagramme, telle que $\lambda \subset \mu$ et que $\mu - \lambda$ n'ait pas deux cases sur la m\^eme colonne. En d'autres termes:
+\[
+\lambda_1 \leq \mu_1 \quad \text{et} \quad \lambda_i \leq \mu_i \leq \lambda_{i-1} \quad \text{pour} \quad i \geq 2.
+\]
+Si $|\lambda| + \lambda_1 \leq n$, a fortiori si $2\ell \leq n$, l'une de ces partitions $\mu$ est $\{\lambda\}_n$ (le cas o\`u $\mu_i = \lambda_{i-1}$ pour $i \geq 2$). Les autres ont $\mu_1 > n - \ell$ et elles sont de la forme $\{\lambda'\}_n$ avec $|\lambda'| = n - \mu_1 < \ell$, donc figurent dans $[\ell']_n$ avec $\ell' = |\lambda'| < \ell$. D\`es lors
+\begin{equation}
+[\ell]^*_n = \bigoplus \{\lambda\}_n \otimes \lambda, \tag{6.4.2}
+\end{equation}
+la somme \'etant \'etendue aux partitions $\lambda$ de $\ell$, et 6.4 s'en d\'eduit par comparaison avec 5.5.1.
+\end{proof}
+
+
+\section{Sp\'ecialisation \`a $t$ Entier Petit Relativement \`a $\lambda$}
+
+Les ph\'enom\`enes d\'ecrits dans cette section ont un analogue pour les s\'eries $\GL$ et $O$. Nous esp\'erons que les r\'esultats partiels obtenus ici pour la s\'erie $S_n$ aideront \`a comprendre ces analogues plus difficiles.
+
+\subsection{}
+Soit $\mu$ une partition d'un entier $m$. Rappelons la formule donn\'ee par Frobenius (1900) \S 3 (6) pour la dimension de la repr\'esentation correspondante de $S_n$. On choisit $\ell$ tel que $\mu_i = 0$ pour $i > \ell$, et on transforme la suite $\mu_1 \geq \cdots \geq \mu_\ell$ en une suite strictement d\'ecroissante $\alpha_1 > \cdots > \alpha_\ell$ en ajoutant $\ell - i$ \`a $\mu_i$. On a alors
+\begin{equation}
+\dim \mu = m! \prod_{i > j} (\alpha_i - \alpha_j) \big/ \prod \alpha_i!. \tag{7.1.1}
+\end{equation}
+
+Si le choix de $\ell$ importe, on \'ecrira $\alpha[\ell]$ plut\^ot que $\alpha$. Quand $\ell$ est remplac\'e par $\ell + 1$, on a $\alpha[\ell+1]_i = \alpha[\ell]_i + 1$ pour $i \leq \ell$, et $\alpha[\ell+1]_{\ell+1} = 0$. Au num\'erateur de (7.1.1), de nouveaux facteurs $\alpha[\ell+1]_i - \alpha[\ell+1]_{\ell+1} = \alpha[\ell]_i + 1$ apparaissent, tandis qu'au d\'enominateur $\alpha[\ell]_i!$ est remplac\'e par $\alpha[\ell+1]_i! = (\alpha[\ell]_i + 1)\alpha[\ell]_i!$.
+
+Si on \'ecrit chaque factorielle $a!$ comme \'etant le produit des entiers de $1$ \`a $a$, le second membre de (7.1.1) appara\^it comme \'etant le produit d'un multi-ensemble d'entiers (un ensemble d'entiers, avec multiplicit\'es positives ou n\'egatives). La v\'erification donn\'ee de l'ind\'ependance de $\ell$ montre que ce multi-ensemble est ind\'ependant de $\ell$.
+
+Les longueurs des crochets (hook length) de $\mu$ sont les entiers $c_{a,b} := (\mu_a - a) + (\mu^*_b - b) + 1$ pour $(a, b)$ dans le diagramme de $\mu$, i.e. pour $a, b \geq 1$ et $b \leq \mu_a$ (\'equivalent \`a $a \leq \mu^*_b$). Par un argument sur lequel la preuve de 7.3 ci-dessous est calqu\'ee, Frame, de B. Robinson et Thrall (1954) (lemme 1) v\'erifient que pour chaque $i \leq \ell$, les longueurs de crochets $c_{ib}$ sont les entiers entre $1$ et $\alpha_i$ distincts des $\alpha_i - \alpha_j$ ($i < j \leq \ell$), de sorte que (7.1.1) peut se r\'e\'crire
+\begin{equation}
+\dim \mu = m! / \prod (\text{longueurs des crochets}), \tag{7.1.2}
+\end{equation}
+l'\'egalit\'e entre les seconds membres de (7.1.1) et (7.1.2) provenant d'une \'egalit\'e entre multi-ensembles d'entiers correspondants.
+
+\subsection{}
+Soit $\lambda$ une partition. Si $n \geq |\lambda| + \lambda_1$, la partition $\{\lambda\}_n$ de $n$ est d\'efinie. Si on prend $\ell = |\lambda| + 1$, la suite strictement d\'ecroissante $\alpha$ correspondant \`a $\{\lambda\}_n$ commence par $\alpha_1 = (n - |\lambda|) + \ell - 1 = n$, apr\`es quoi $\alpha_{i+1} = \lambda_i + |\lambda| - i$ pour $1 \leq i \leq |\lambda|$. On a donc
+\begin{multline}
+\dim \{\lambda\}_n = \prod_{1 \leq i \leq |\lambda|} (n - (\lambda_i + |\lambda| - i)) \cdot \prod_{i > j} ((\lambda_i + |\lambda| - i) - (\lambda_j + |\lambda| - j)) \\
+/ \prod (\lambda_i + |\lambda| - i)! \tag{7.2.1}
+\end{multline}
+Dans ces produits, $1 \leq i, j \leq |\lambda|$. Les deuxi\`eme et troisi\`eme produits co\'incident avec ceux qui apparaissent dans (7.1.1) pour $\dim(\lambda)$ calcul\'e avec $\ell = |\lambda|$, de sorte que
+\begin{equation}
+\dim \{\lambda\}_n = \frac{\dim(\lambda)}{|\lambda|!} P_\lambda(n), \tag{7.2.2}
+\end{equation}
+pour $P_\lambda(T)$ un polyn\^ome de degr\'e $|\lambda|$ produit de facteurs distincts de la forme $T - i$, $i$ entier.
+
+\begin{lemma}
+L'ensemble des z\'eros du polyn\^ome $P_\lambda$ admet les descriptions \'equivalentes suivantes:
+\begin{enumerate}[label=(\roman*)]
+\item les entiers $|\lambda| + \lambda_a - a$, pour $1 \leq a \leq |\lambda|$.
+\item les entiers $i \geq 0$ distincts des entiers $|\lambda| + b - \lambda^*_b - 1$ pour $b \geq 1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+La formule (7.2.1) donne la description (i). Montrons son \'equivalence avec (ii). Une partition $\lambda$ d\'ecompose l'ensemble des entiers en ceux de la forme $b - \lambda^*_b - 1$ et ceux de la forme $\lambda_a - a$. En effet, si on longe comme suit le bord SE du diagramme de $\lambda$ et les axes
+\begin{center}
+\begin{picture}(80,60)
+\put(10,50){$\times$} \put(20,50){$\times$} \put(30,50){$\times$} \put(40,50){$\cdots$}
+\put(10,40){$\times$} \put(20,40){$\times$}
+\put(10,30){$\times$}
+\put(10,20){$\times$}
+\put(10,10){$\vdots$}
+\put(0,40){$\bullet$} \put(0,30){$\bullet$} \put(0,20){$\bullet$}
+\end{picture}
+\end{center}
+les $\bullet$ (resp.~$\times$) sont en les positions $(x, y)$ de la forme $(a, \lambda_a)$ (resp.~$(\lambda^*_b, b-1)$), et $y - x$ parcourt $\Z$. Pour $b \geq \lambda_1 + 1$, les $b - \lambda^*_b - 1$ sont les entiers $\geq \lambda_1$. Pour $a \geq |\lambda| + 1$, les $\lambda_a - a$ sont les entiers $< -|\lambda|$. Translatant par $|\lambda|$, on en d\'eduit comme promis que les entiers $i$ de la forme $|\lambda| + \lambda_a - a$ pour $1 \leq i \leq |\lambda|$ sont les entiers $i \geq 0$ qui ne sont pas de la forme $|\lambda| + b - \lambda^*_b - 1$ et qu'ils sont tous $\leq |\lambda| + \lambda_1$.
+\end{proof}
+
+\subsection{}
+Si $t$ dans $A$ de caract\'eristique $0$ est tel que les $t - i$ soient inversibles pour $i$ entier dans l'intervalle $0 \leq i < 2|\lambda| - 1$, $\{\lambda\}$ est d\'efini dans $\Rep(S_t, A)$ et on a encore
+\begin{equation}
+\dim \{\lambda\} = \frac{\dim(\lambda)}{|\lambda|!} P_\lambda(t). \tag{7.4.1}
+\end{equation}
+Il suffit de le v\'erifier dans le cas universel o\`u
+\[
+A = \Q[T][\prod_{0 \leq i < 2|\lambda|-1} (T - i)^{-1}]
+\]
+et $t = T$, et, d'apr\`es (7.2.2) et 6.4, (7.4.1) devient en effet vrai apr\`es une infinit\'e de sp\'ecialisations de $T$ en un entier.
+
+\subsection{}
+M\^eme si l'entier $n \geq 0$ n'est plus $\geq |\lambda| + \lambda_1$, continuons d'appeler $\{\lambda\}_n$ la suite $(n - |\lambda|, \lambda_1, \lambda_2, \ldots)$, et $\alpha$ la suite des $(\{\lambda\}_n)_i + |\lambda| + 1 - i$. C'est la suite $(n, \lambda_1 + |\lambda| - 1, \lambda_2 + |\lambda| - 2, \ldots)$, et les z\'eros du polyn\^ome $P_\lambda$ sont les entiers $n \geq 0$ pour lesquels deux termes de cette suite sont \'egaux. Si l'entier $n \geq 0$ n'est pas un z\'ero, on peut r\'eordonner la suite $\alpha$ pour obtenir une suite strictement d\'ecroissante $\alpha^+$, et celle-ci correspond comme en 7.1 (toujours pour $\ell = |\lambda| + 1$) \`a une partition $\{\lambda\}^+_n$. L'expression (7.1.1) pour $\alpha$ co\'incide avec (7.2.1) et (7.2.2). Si $n < |\lambda| + \lambda_1$ et que $\alpha_{i+1} > \alpha_1 > \alpha_{i+2}$, on d\'eduit $\alpha^+$ de $\alpha$ en ins\'erant $\alpha_1$ entre $\alpha_{i+1}$ et $\alpha_{i+2}$, et (7.1.1) pour $\alpha^+$ co\'incide avec (7.1.1) pour $\alpha$ sauf que les $\alpha_1 - \alpha_j$ sont chang\'es de signe pour $2 \leq j \leq i + 1$. On a donc
+\begin{equation}
+\dim \{\lambda\}^+_n = (-1)^i \frac{\dim(\lambda)}{n!} P_\lambda(n). \tag{7.5.1}
+\end{equation}
+Si $n \geq |\lambda| + \lambda_1$, $\{\lambda\}^+_n$ co\'incide avec $\{\lambda\}_n$ et la m\^eme formule vaut avec $i = 0$. On notera que (7.5.1) refl\`ete une \'egalit\'e de multi-ensemble d'entiers, \`a $i$ changements de signe pr\`es.
+
+Que $\alpha_{i+1} > \alpha_1 > \alpha_{i+2}$ se r\'ecrit $\lambda_i + |\lambda| - i > n > \lambda_{i+1} + |\lambda| - (i+1)$. Cette condition \'equivaut \`a $\lambda_i \geq n - |\lambda| + i + 1 > \lambda_{i+1}$, puis \`a ce que pour un $b$ on ait $b = n - |\lambda| + i + 1$ et $\lambda^*_b = i$, et enfin \`a ce que pour un $b$ on ait
+\[
+n = |\lambda| + b - \lambda^*_b - 1 \quad \text{et} \quad \lambda^*_b = i.
+\]
+Ceci reprouve 7.3 et montre que si $n \geq 0$ n'est pas un z\'ero de $P_\lambda$, i.e. est de la forme $|\lambda| + b - \lambda^*_b - 1$, on a
+\begin{equation}
+\dim \{\lambda\}^+_n = (-1)^{\lambda^*_b} \frac{\dim(\lambda)}{n!} P_\lambda(n). \tag{7.5.2}
+\end{equation}
+On laisse au lecteur le soin de v\'erifier que si $n = |\lambda| + b - \lambda^*_b - 1$, le diagramme de la partition $\{\lambda\}^+_n$ est d\'eduit de celui de $\lambda$ par la construction suivante, o\`u la colonne marqu\'ee est la $b$-i\`eme:
+
+\begin{center}
+\begin{picture}(100,80)
+\put(0,60){$\{\lambda\}^+_n$ se d\'eduit de $\lambda$}
+\put(0,40){par ajout d'une ``colonne en l'air''}
+\put(0,20){de hauteur $n - |\lambda| + b$}
+\end{picture}
+\end{center}
+
+Inspir\'es par (7.5.2), nous d\'efinirons pour tout entier $n \geq 0$ la repr\'esentation virtuelle $\{\lambda\}_n$ de $S_n$ comme \'etant celle qui correspond \`a la partition $\{\lambda\}_n$ de $n$ quand celle-ci est d\'efinie, i.e. quand $n \geq |\lambda| + \lambda_1$, comme \'etant $0$ si $n$ n'est pas de la forme $|\lambda| + b - \lambda^*_b - 1$ et comme \'etant $(-1)^{\lambda^*_b} \{\lambda\}^+_n$ si $n$ est de cette forme. Que cette convention est raisonnable sera confirm\'e par 7.11. La construction qui suit en donne une autre interpr\'etation. Elle m'a \'et\'e expliqu\'ee par A. Ram.
+
+\subsection{}
+Une partition $\lambda$ peut \^etre vue comme un poids dominant de $\GL(N)$ d\`es que $N$ est assez grand pour que $\lambda_{N+1} = 0$ (1.10 (B)). Une suite d'entiers $\lambda_a$ seulement suppos\'es nuls pour $a$ assez grand d\'efinit de m\^eme un poids non n\'ecessairement dominant.
+
+Un poids dominant $\lambda$ d\'efinit une repr\'esentation irr\'eductible $V(\lambda)$. Un poids quelconque d\'efinit une repr\'esentation virtuelle encore not\'ee $V(\lambda)$ de $\GL(N)$, de caract\`ere donn\'e par la formule des caract\`eres de Weyl, et donc fonction antisym\'etrique de $\lambda + \rho$, pour l'action du groupe de Weyl $S_N$. On peut remplacer $\rho$ par une quelconque suite $(\ell - 1, \ell - 2, \cdots, \ell - N)$, car la diff\'erence avec $\rho$ est fixe sous $S_N$.
+
+Pour $\lambda$ une partition, les repr\'esentations $\lambda$ de $S_{|\lambda|}$ et $V(\lambda)$ de $\GL(N)$ se correspondent:
+\begin{align}
+V(\lambda) &\leftrightarrow \Hom_{S_{|\lambda|}}(\lambda, V^{\otimes |\lambda|}), \quad \text{et} \tag{7.6.1} \\
+\lambda &\leftrightarrow \Hom_{\GL(N)}(V(\lambda), V^{\otimes |\lambda|}). \tag{7.6.3}
+\end{align}
+Si $\lambda$ est une suite d'entiers $\lambda_a$ ($a \geq 1$) nuls pour $a$ assez grand, et telle que $|\lambda| := \sum \lambda_a \geq 0$ on attachera \`a $\lambda$ la repr\'esentation virtuelle $R(\lambda)$ de $S_{|\lambda|}$ second membre de (7.5.3) pour $N$ assez grand. Explicitons. Si la suite des $\lambda_a - a$ n'est pas form\'ee d'entiers tous distincts, les repr\'esentations virtuelles $V(\lambda)$ et $R(\lambda)$ sont nulles. S'ils sont tous distincts, il existe une permutation $w$ des entiers, avec $w(a) = a$ pour $a$ grand, qui transforme la suite des $\lambda_a - a$ en une suite strictement d\'ecroissante. Notons $\eps(\lambda)$ la signature de $w$. La suite d\'ecroissante $\lambda^+$ qui correspond au poids dominant $w(\lambda + \rho) - \rho$ est la suite
+\begin{equation}
+\lambda^+_a = \lambda_{w^{-1}(a)} - w^{-1}(a) + a, \tag{7.6.4}
+\end{equation}
+et la repr\'esentation virtuelle $R(\lambda)$ de $S_{|\lambda|}$ est
+\begin{equation}
+R(\lambda) = \eps(\lambda) \lambda^+. \tag{7.6.5}
+\end{equation}
+
+Le cas qui nous int\'eresse est celui o\`u, partant d'une partition $\lambda$ et de $n \geq 0$, on consid\`ere la suite d'entiers $\{\lambda\}_n := (n - |\lambda|, \lambda_1, \lambda_2, \ldots)$. Compa-rant 7.5 et 7.6, on voit que la notation $\{\lambda\}^+_n$ de 7.5 est une cas particulier de 7.6.4, et que la repr\'esentation virtuelle $\{\lambda\}_n$ de 7.5 est $R(\{\lambda\}_n)$.
+
+Nous avons vu en (6.4.1) que la repr\'esentation $[\ell]_n$ de $S_n \times S_\ell$ est isomorphe \`a la somme sur les partitions $\lambda$ de $\ell$ des $\Ind_{S_n \times S_\ell}^{S_n \times S_\ell}(\mathbf{1} \otimes \lambda) \otimes \lambda$.
+
+Nous allons en d\'eduire que dans $R(S_n \times S_\ell)$ on a
+
+\begin{proposition}
+\begin{equation}
+[\ell]_n = \sum_{|\mu| = m \leq \ell} \{\mu\}_n \otimes \Ind_{S_m \times S_{\ell-m}}^{S_\ell}(\mu \otimes \mathbf{1}). \notag
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Appliquons la r\`egle de Littlewood-Richardson pour calculer l'induite de $\lambda \otimes \mathbf{1}$ de $S_\ell \times S_{n-\ell}$ \`a $S_n$, \'egale \`a l'induite de $\mathbf{1} \otimes \lambda$ de $S_{n-\ell} \times S_\ell$ \`a $S_n$. On obtient que
+\[
+[\ell]_n = \bigoplus \nu \otimes \lambda,
+\]
+la somme portant sur les partitions $\lambda$ de $\ell$ et les partitions $\nu$ de $n$ telles que
+\[
+\lambda_i \leq \nu_i \leq \lambda_{i-1} \quad \text{pour} \quad i \geq 2 \quad \text{et} \quad \lambda_1 \leq \nu_1.
+\]
+Si $\mu$ est la partition $(\nu_2, \ldots)$ telle que $\nu = \{\mu\}_n$, ces conditions se r\'ecrivent
+\[
+\mu_i \leq \lambda_i \leq \mu_{i-1} \text{ pour } i \geq 2, \; \mu_1 \leq \lambda_1 \text{ et } \lambda_1 \leq n - |\mu|:
+\]
+on a $[\ell]_n = \bigoplus \{\mu\}_n \otimes \lambda$ pour $(\lambda, \mu)$ comme ci-dessus. Si on applique la r\`egle de Littlewood-Richardson \`a l'induite au second membre de 7.7, on obtient la m\^eme somme, sans la restriction $\lambda_1 \leq n - |\mu|$.
+
+Il reste \`a prouver que pour chaque partition $\lambda$ de $\ell$, on a $\sum \{\mu\}_n = 0$ lorsqu'on fait porter la somme sur les partitions $\mu$ avec $|\mu| \leq \ell$ telles que
+\[
+\lambda_{i+1} \leq \mu_i \leq \lambda_i \quad \text{pour } i \geq 1 \text{ et } n - |\mu| < \lambda_1.
+\]
+Consid\'erons, plut\^ot que $\mu$, la suite $\beta$, index\'ee cette fois par les entiers $\geq 0$: $(n - |\mu|, \mu_1 - 1, \mu_2 - 2, \ldots)$. Les suites $\mu$ et $\beta$ se d\'eterminent mutuellement, et \'ecrites en terme de $\beta$ et des $\alpha_i := \lambda_i - i$, les conditions sur $\beta$ deviennent les suivantes:
+\begin{enumerate}[label=\alph*.]
+\item $\beta_i = -i$ pour $i$ assez grand;
+\item $\sum (\beta_i + i) = n$;
+\item $\alpha_{i+1} < \beta_i \leq \alpha_i$ si $i \geq 1$;
+\item $\beta_0 \leq \alpha_1$.
+\end{enumerate}
+
+Puisque $\beta_0 \leq \alpha_1$, il existe $a$ tel que $\alpha_{a+1} < \beta_0 \leq \alpha_a$. Soit $\beta'$ d\'eduit de $\beta$ en \'echageant $\beta_0$ et $\beta_a$. Cette construction est involutive. Les $\mu$ et $\mu'$ correspondant v\'erifient $\{\mu\}_n = -\{\mu'\}_n$, et que $\sum \{\mu\}_n = 0$ en r\'esulte.
+\end{proof}
+
+Notons $[\ell]^*$ la repr\'esentation virtuelle
+\[
+[\ell]^* := \bigoplus_{|\lambda| = \ell} \{\lambda\}_n \otimes \lambda
+\]
+de $S_n \times S_\ell$. Avec cette notation, 7.7 se r\'ecrit
+\begin{equation}
+[\ell] = \sum_{m \leq \ell} \Ind_{S_n \times S_m \times S_{\ell-m}}^{S_n \times S_\ell}([m]^* \otimes \mathbf{1}). \tag{7.7.1}
+\end{equation}
+
+\begin{corollary}
+Dans $R(S_n \times S_\ell)$, on a
+\begin{equation}
+[\ell]^* = \sum_{m \leq \ell} (-1)^{\ell-m} \Ind_{S_n \times S_m \times S_{\ell-m}}^{S_n \times S_\ell}([m] \otimes \eps). \tag{7.8.1}
+\end{equation}
+\end{corollary}
+
+C'est une cons\'equence de (7.7.1) et du lemme suivant, pour $\Lambda = R(S_n)$ (de sorte que $\Lambda \otimes R(S_m) = R(S_n \times S_m)$).
+
+\begin{lemma}
+Soit $\Lambda$ un groupe ab\'elien libre. Soient, pour $m \leq \ell$, $f(m)$ et $g(m)$ des \'el\'ements de $\Lambda \otimes R(S_m)$. Les identit\'es suivantes sont \'equivalentes:
+\begin{align}
+\text{Pour } m \leq \ell, \quad f(m) &= \sum_{m' \leq m} \Ind_{S_{m'} \times S_{m-m'}}^{S_m}(g(m') \otimes \mathbf{1}), \tag{7.9.1} \\
+\text{Pour } m \leq \ell, \quad g(m) &= \sum_{m' \leq m} (-1)^{m-m'} \Ind_{S_{m'} \times S_{m-m'}}^{S_m}(f(m') \otimes \eps). \tag{7.9.2}
+\end{align}
+
+Il suffit de traiter le cas $\Lambda = \Z$.
+\end{lemma}
+
+\begin{proof}[Preuve pour $\Lambda = \Z$]
+On montrera que la compos\'ee $g \to f \to g$ (resp. $f \to g \to f$) des transformations donn\'ees par (7.9.1) et (7.9.2) est l'identit\'e. Nous ne consid\'ererons que $g \to f \to g$. Le cas $f \to g \to f$ se traite de m\^eme et est laiss\'e au lecteur.
+
+L'image de $g$ par $g \to f \to g$ est
+\begin{align*}
+&\sum_{m'' \leq m' \leq m} (-1)^{m-m} \Ind_{S_{m'} \times S_{m-m'}}^{S_m} \Ind_{S_{m''} \times S_{m'-m''}}^{S_{m'}}(g(m'') \otimes \mathbf{1}) \otimes \eps = \\
+&\sum_{m'' \leq m' \leq m} (-1)^{m-m} \Ind_{S_{m''} \times S_{m'-m''} \times S_{m-m'}}^{S_m}(g(m'') \otimes \mathbf{1} \otimes \eps) = \\
+&\sum_{m'' \leq m} \Ind_{S_{m''} \times S_{m-m''}}^{S_m} g(m'') \otimes \\
+&\qquad \sum_{m'' \leq m' \leq m} (-1)^{m-m} \Ind_{S_{m'-m''} \times S_{m-m'}}^{S_{m-m''}}(\mathbf{1} \otimes \eps)
+\end{align*}
+Le terme pour $m'' = m$ redonne $g$, et les autres sont nuls.
+\end{proof}
+
+\begin{lemma}
+Pour $\ell > 0$, on a dans $R(S_\ell)$
+\[
+\sum_{\ell' + \ell'' = \ell} (-1)^{\ell'} \Ind_{S_{\ell'} \times S_{\ell''}}^{S_\ell}(\mathbf{1} \otimes \eps) = 0.
+\]
+\end{lemma}
+
+\begin{proof}
+Rappelons que le produit tensoriel d'une famille finie de complexes $L_a$ ($a \in A$) est d\'efini ind\'ependamment du choix d'un ordre total sur $A$. Un ordre total d\'efinit un isomorphisme de la somme $|\otimes L_a|$ des composantes du produit tensoriel avec $\otimes |L_a|$, cet isomorphisme \'etant modifi\'e par des signes quand l'ordre change. Si on pose $\text{or}(B) := \bigwedge^{|B|} \Z^B$ et, pour $n \in \Z^A$, $B(n) := \{a \in A \mid n_a \text{ est impair}\}$, on a canoniquement
+\[
+|\otimes L_a| = \bigoplus_n \otimes L_a^{n(a)} \otimes \text{or}(B(n)).
+\]
+
+Soient $A = \{1, \ldots, \ell\}$, et $K$ le complexe $k \isom k$ r\'eduit aux degr\'es $0$ et $1$. Il est acyclique. Si $A$ est non vide, le complexe $K^{\otimes A}$ est acyclique. Il est muni d'une action de $S_\ell$ et, pour $\ell = \ell' + \ell''$, sa composante de degr\'e $\ell''$ est canoniquement isomorphe \`a $\Ind_{S_{\ell'} \times S_{\ell''}}^{S_\ell}(\mathbf{1} \otimes \eps)$. Exprimant que la caract\'eristique d'Euler-Poincar\'e est nulle dans $R(S_\ell)$, on obtient 7.10.
+\end{proof}
+
+Soient $n_0$ un entier $\geq 0$, $c$ une classe de conjugaison dans $S_{n_0}$ et, pour $n \geq n_0$, notons encore $c$ la classe de conjugaison de $S_n$ qui en est l'image par l'inclusion naturelle de $S_{n_0}$ dans $S_n$.
+
+\begin{corollary}
+Soient $\ell$ un entier, et $\lambda$ une partition de $\ell$. La valeur en $c$ du caract\`ere de la repr\'esentation virtuelle $\{\lambda\}_n$ de $S_n$, d\'efinie pour $n \geq n_0$, est polyn\^omiale en $n$.
+\end{corollary}
+
+\begin{proof}
+Si $\chi_\ell^*$ est le caract\`ere de la repr\'esentation virtuelle $[\ell]^*$ de $S_n \times S_\ell$, et $\chi_\lambda$ celui de la repr\'esentation $\lambda$ de $S_\ell$, la valeur en $c$ du caract\`ere de $\{\lambda\}_n$ est
+\[
+\frac{1}{\ell!} \sum_\sigma \chi_\ell^*(c, \sigma) \chi_\lambda(\sigma).
+\]
+Par 7.8, il suffit donc de prouver pour tout $\sigma$ dans $S_\ell$, et tout $m \leq \ell$, la valeur en $(c, \sigma)$ du caract\`ere de
+\[
+\Ind_{S_n \times S_m \times S_{\ell-m}}^{S_n \times S_\ell}([m] \otimes \eps)
+\]
+est polyn\^omiale en $n$. L'induction de $H$ \`a $G$ d'un caract\`ere de $H$ est une somme index\'ee par $G/H$ de son image sur les conjugu\'es de $H$. Il suffit dans notre cas de traiter chaque terme s\'epar\'ement, et ceci nous ram\`ene \`a v\'erifier que pour $\sigma'$ dans $S_m$, la valeur en $(c, \sigma')$ du caract\`ere de la repr\'esentation $[m]$ de $S_n \times S_m$ est polyn\^omiale en $n$. Cette valeur est le nombre d'injections de $\{1, \ldots, m\}$ dans $\{1, \ldots, n\}$ telles que $cf = f\sigma'$. Si $U$ (resp.~$Y$) est la partie de $\{1, \ldots, m\}$ (resp.~$\{1, \ldots, n\}$) non fixe par $\sigma'$ (resp.~$c$), c'est le produit du nombre d'injection $f_1$ de $U$ dans $Y$ telles que $cf_1 = f_1\sigma'$, par le nombre d'injection de $\{1, \ldots, m\} - U$ dans $\{1, \ldots, n\} - Y$. Le premier est ind\'ependant de $n$, le second polyn\^omial en $n$.
+\end{proof}
+
+\noindent\textbf{Mise en garde:} le polyn\^ome de valeur en $n \geq n_0$ le caract\`ere de $\{\lambda\}_n$ en $c$ n'est pas n\'ecessairement nul en les entiers $n \leq n_0$ tels que la repr\'esentation virtuelle $\{\lambda\}_n$ soit nulle.
+
+\subsection{}
+Soit $U$ un ensemble fini. Nous nous proposons de lui associer un complexe multiple $K(U)'$ dans $\Rep(S_t, k)$ \`a multidegr\'es dans $\Z^U$, dont seules les composantes de multidegr\'e dans $\{0,1\}^U$ sont non nulles. ``Complexe multiple'' est ici pris au sens que les diff\'erentielles $d_u$ ($u \in U$) commutent.
+
+Un multidegr\'e dans $\{0,1\}^U$ est la fonction caract\'eristique d'une partie $P$ de $U$. La composante correspondante est $[U - P]$, et si $u \notin P$,
+\[
+d_u : [U - P] \to [U - P - \{u\}]
+\]
+est $\res_j$, pour $j$ l'inclusion de $U - P - \{u\}$ dans $U - P$.
+
+Un complexe multiple $K$ \`a multidegr\'es dans $\Z^U$ d\'efinit un complexe simple associ\'e $sK$. Un ordre total sur $U$ fournit un isomorphisme $|sK| \sim |K|$ entre les espaces sous-jacents, mais cet isomorphisme est modifi\'e par des signes quand l'ordre change. Avec les notations de 7.10, on a canoniquement
+\[
+|sK| \sim \bigoplus_n K^n \otimes \text{or}(B(n)).
+\]
+Si $K(U)$ est $sK(U)'$, on a donc
+\[
+|sK| \sim \bigoplus_P [U - P] \otimes \text{or}(P).
+\]
+
+Le groupe sym\'etrique $S_U$ agit sur $K(U)$. Utilisons cette action pour d\'ecomposer $K(U)$ (cf.~1.10.3):
+\[
+K(U) = \bigoplus_{|\lambda| = \ell} K(U)_\lambda \otimes \lambda.
+\]
+
+Si $t$ est un entier $n \geq 0$, l'image de $K(U)$ dans $\Rep(S_n)$ est munie d'une action de $S_U$: c'est un complexe de $S_n \times S_U$-modules. Pour $U = \{1, \ldots, \ell\}$, sa caract\'eristique d'Euler-Poincar\'e est donn\'ee par (7.8.1):
+\begin{equation}
+\chi(\text{image de } K(U)) = [\ell]^* \quad \text{dans } R(S_n \times S_\ell), \tag{7.12.1}
+\end{equation}
+d'o\`u r\'esulte que
+\begin{equation}
+\chi(\text{image de } K(U)_\lambda) = \{\lambda\}_n \quad \text{dans } R(S_n). \tag{7.12.2}
+\end{equation}
+
+\subsection{Questions}
+\begin{enumerate}[label=(\roman*)]
+\item Si $t$ n'est pas un entier $\geq 0$, le complexe $K(U)$ n'a-t-il de cohomologie qu'en degr\'e $0$?
+\item Si $t$ est un entier $n$, l'image de $K(U)_\lambda$ dans $\Rep(S_n)$ est-elle acyclique si $\{\lambda\}_n = 0$? Si $n = |\lambda| + b - \lambda^*_b - 1$ ($b \geq 1$), est-elle acyclique sauf en degr\'e $a := \lambda^*_b$, avec $H^a = \{\lambda\}^+_n$?
+\end{enumerate}
+
+J'ai seulement pu v\'erifier que si $n \geq 2\ell$, l'image de $K(U)$ et donc des $K(U)_\lambda$ n'a de cohomologie qu'en degr\'e $0$.
+
+
+\section{La Propri\'et\'e Universelle de $\Rep(S_t, A)$}
+
+\subsection{}
+Soit $\mathcal{T}$ une cat\'egorie \`a produit tensoriel ACU. Si l'objet $T$ de $\mathcal{T}$ admet un dual, la construction habituelle associe \`a une structure d'alg\`ebre $\mu : T \otimes T \to T$ un morphisme trace $\Tr : T \to \mathbf{1}$. Le $\Hom$ interne $\iHom(T, T)$ est en effet d\'efini (3.2), et $\Tr$ est le compos\'e de la ``multiplication \`a gauche'' $s : T \to \iHom(T, T)$ image inverse de $\mu : T \otimes T \to T$ par (3.2.1) et de la trace (3.3.1). D'apr\`es (3.2.3) et (3.3.1), $\Tr$ est le compos\'e
+\begin{equation}
+\Tr : T \xrightarrow{T \otimes \delta} T \otimes T \otimes T^\vee \xrightarrow{\mu \otimes T^\vee} T \otimes T^\vee = T^\vee \otimes T \xrightarrow{\ev} \mathbf{1}. \tag{8.1.1}
+\end{equation}
+
+\subsection{}
+Notons $X$ l'objet $[1]$ de $\Rep(S_t, A)$. Pour tout $\otimes$-foncteur ACU $A$-lin\'eaire $F$ de $\Rep(S_t, A)$ dans une cat\'egorie pseudo-ab\'elienne $A$-lin\'eaire $\mathcal{T}$ \`a produit tensoriel ACU, l'objet $T = F(X)$ de $\mathcal{T}$ h\'erite des propri\'et\'es suivantes de $X$: il admet un dual, est de dimension l'endomorphisme $t : \mathbf{1} \to \mathbf{1}$ de $\mathbf{1}$, est muni d'une structure d'alg\`ebre ACU, et si $\Tr$ est la trace correspondante, $\Tr(xy) : T \otimes T \xrightarrow{\mu} T \xrightarrow{\Tr} \mathbf{1}$ fait de $T$ son propre dual.
+
+\begin{proposition}
+Le foncteur $F \mapsto F(X)$ est une \'equivalence de la cat\'egorie des $\otimes$-foncteurs de $\Rep(S_t, A)$ dans $\mathcal{T}$ avec la cat\'egorie des objets $T$ comme ci-dessus et de leurs isomorphismes.
+\end{proposition}
+
+En d'autres termes, la donn\'ee de $T$ se prolonge en celle d'un $\otimes$-foncteur $F$ de $\Rep(S_t, A)$ dans $\mathcal{T}$ tel que $F(X) = T$, et ce prolongement est unique \`a isomorphisme unique pr\`es.
+
+\begin{proof}
+La cat\'egorie $\Rep(S_t, A)$ est l'enveloppe pseudo-ab\'elienne de la sous-cat\'egorie pleine des $X^{\otimes U}$. En effet, $X^{\otimes U}$ est somme directe des $[U/R]$ pour $R$ une relation d'\'equivalence sur $U$. Partant de $T$, il suffit donc de montrer l'existence et l'unicit\'e du prolongement $F$ aux $X^{\otimes U}$.
+
+Dans $\Rep(S_t, A)$, $\Hom(X^{\otimes U}, \mathbf{1}) = \Hom(\oplus [U/R], \mathbf{1})$ est le $A$-module libre de base les partitions de l'ensemble $U$. Par autodualit\'e de $X$, $\Hom(X^{\otimes U}, X^{\otimes V})$ a de m\^eme pour base les partitions de $U \sqcup V$. Soit $[P]$ le morphisme d\'efini par la partition $P$. On a
+\begin{equation}
+[P] = \bigotimes_{P} \bigl(X^{\otimes (U \cap P)} \xrightarrow{m} X \xrightarrow{m'} X^{\otimes (V \cap P)}\bigr), \tag{8.3.1}
+\end{equation}
+le produit tensoriel \'etant \'etendu aux parts de $P$, $m$ \'etant un produit it\'er\'e, et $m'$ le transpos\'e d'un produit it\'er\'e. Pour $[P] : X^{\otimes U} \to X^{\otimes V}$ et $[Q] : X^{\otimes V} \to X^{\otimes W}$, soient $\langle Q, P \rangle$ la partition de $U \sqcup V \sqcup W$ engendr\'ee par $P$ et $Q$. Sa trace sur $U \sqcup V$ (resp.~$V \sqcup W$) est plus grossi\`ere que $P$ (resp.~$Q$), et elle est la plus fine \`a avoir ces propri\'et\'es. Soient $\langle Q, P \rangle_{U \sqcup W}$ sa trace sur $U \sqcup W$ et $n$ le nombre de parts de $\langle Q, P \rangle$ contenues dans $V$. On a
+\begin{equation}
+[Q] \circ [P] = t^n [\langle Q, P \rangle_{U \sqcup W}]. \tag{8.3.2}
+\end{equation}
+En particulier, pour $U = V = W$, $\End(X^{\otimes U})$ est l'alg\`ebre de partitions consid\'er\'ee par T. Halverson et A. Ram (2003).
+
+Pour v\'erifier (8.3.1) et (8.3.2), le plus simple est de se ramener au cas de $\Rep(S_I)$, o\`u $X^{\otimes U}$ est libre de base les applications $f : U \to I$, et o\`u $[P](e_f)$ est $\sum e_g$, la somme \'etant \'etendue aux $g$ tels que $f \sqcup g : U \sqcup V \to I$ soit constant sur les parts de $P$.
+
+Pour $T$ comme en 8.2, un $\otimes$-foncteur ACU $A$-lin\'eaire de $\Rep(S_t, A)$ dans $\mathcal{T}$ envoyant $X$ sur $T$ doit envoyer $X^{\otimes U}$ sur $T^{\otimes U}$, et $[P] : X^{\otimes U} \to X^{\otimes V}$ sur le produit tensoriel $[P]'$ des compos\'es de multiplications et multiplications transpos\'ees
+\begin{equation}
+[P]_T = \bigotimes_{P} \bigl(T^{\otimes (U \cap P)} \to T \to T^{\otimes (V \cap P)}\bigr). \tag{8.3.3}
+\end{equation}
+Il est donc d\'etermin\'e (\`a isomorphisme unique pr\`es) par $T$. L'existence d'un tel foncteur, et 8.3, r\'esultent du
+\end{proof}
+
+\begin{lemma}
+Pour $T$ comme en 8.2, le compos\'e de morphismes $[P]_T$ est donn\'e comme en (8.3.2) par
+\begin{equation}
+[Q]_T \circ [P]_T = t^n [\langle Q, P \rangle_{U \sqcup W}]_T. \tag{8.4.1}
+\end{equation}
+\end{lemma}
+
+Pour tout objet $Y$ de $\mathcal{T}$ muni d'une autodualit\'e sym\'etrique, l'application
+\begin{align*}
+\Hom(Y^{\otimes U}, Y^{\otimes V}) &\to \Hom(Y^{\otimes U \sqcup V}, \mathbf{1}) : \\
+f \longmapsto (f) : Y^{\otimes U \sqcup V} = Y^{\otimes U} &\otimes Y^{\otimes V} \xrightarrow{f \otimes Y^{\otimes V}} Y^{\otimes V} \otimes Y^{\otimes V} \xrightarrow{\ev^{\otimes V}} \mathbf{1}
+\end{align*}
+est bijective. Cette construction est duale de (3.2.4). On laisse au lecteur le soin de v\'erifier que ce codage $f \mapsto (f)$ a les propri\'et\'es suivantes.
+
+\begin{lemma}
+\begin{enumerate}[label=(\roman*)]
+\item Le code de $gf : Y^{\otimes U} \to Y^{\otimes V} \to Y^{\otimes W}$ est le compos\'e
+\[
+Y^{\otimes U \sqcup W} \xrightarrow{Y^{\otimes U} \otimes \delta \otimes Y^{\otimes W}} Y^{\otimes U} \otimes Y^{\otimes V} \otimes Y^{\otimes V} \otimes Y^{\otimes W} \xrightarrow{(f) \otimes (g)} \mathbf{1}.
+\]
+\item Le transpos\'e $f^t : Y^{\otimes V} \to Y^{\otimes U}$ de $f : Y^{\otimes U} \to Y^{\otimes V}$ a le m\^eme code que $f$.
+\item Pour $f : Y^{\otimes U} \to Y^{\otimes V}$ et $g : Y^{\otimes W} \to Y^{\otimes V}$, le code de $g^t f : Y^{\otimes U} \to Y^{\otimes W}$ est le compos\'e
+\[
+Y^{\otimes U} \otimes Y^{\otimes W} \xrightarrow{f \otimes g} Y^{\otimes V} \otimes Y^{\otimes V} \xrightarrow{\ev^{\otimes V}} \mathbf{1}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\subsection{}
+Nous appliquerons 8.5 \`a $T$, muni de son autodualit\'e sym\'etrique $\Tr(xy)$. En 8.6 et 8.7, nous utiliserons seulement que l'autodualit\'e est de la forme $\tau \mu : T \otimes T \to T \to \mathbf{1}$ pour un morphisme $\tau : T \to \mathbf{1}$.
+
+Le code du produit it\'er\'e $m_p : T^{\otimes p} \to T$ est
+\[
+\tau m_{p+1} : T^{\otimes p} \otimes T \xrightarrow{m_p \otimes T} T \otimes T \xrightarrow{\mu} T \xrightarrow{\tau} \mathbf{1}.
+\]
+D'apr\`es 8.5 (ii) (iii), le code du compos\'e du produit it\'er\'e $m_p$ et du transpos\'e $m_q^t$ du produit it\'er\'e $m_q$ est
+\[
+\tau m_{p+q} : T^{\otimes p} \otimes T^{\otimes q} \xrightarrow{m_p \otimes m_q} T \otimes T \xrightarrow{\mu} T \xrightarrow{\tau} \mathbf{1}.
+\]
+Le code d'un produit tensoriel \'etant le produit tensoriel des codes, le code de $[P]_T : T^{\otimes U} \to T^{\otimes V}$ est
+\begin{equation}
+\text{code } [P]_T = \bigotimes_{P \subset U \sqcup V} (T^{\otimes P} \xrightarrow{m_P} T \xrightarrow{\tau} \mathbf{1}), \tag{8.6.1}
+\end{equation}
+le produit \'etant \'etendu aux parts $P \subset U \sqcup V$ de $P$ et $m_P$ \'etant le produit it\'er\'e $T^{\otimes P} \to T$.
+
+Pour calculer le code de $[Q]_T [P]_T$ par 8.5 (i), il nous reste \`a calculer l'effet sur un morphisme (8.6.1) d'une ``contraction'': composition avec $\delta : \mathbf{1} \to T \otimes T$. C'est ce qui est fait dans les lemmes qui suivent.
+
+\begin{lemma}
+Le compos\'e
+\begin{equation}
+T^{\otimes p} \otimes T^{\otimes q} \xrightarrow{\delta} T^{\otimes p} \otimes T \otimes T \otimes T^{\otimes q} \xrightarrow{\tau m_{p+1} \otimes \tau m_{q+1}} \mathbf{1} \tag{8.7.1}
+\end{equation}
+est $\tau m_{p+q}$.
+\end{lemma}
+
+\begin{proof}
+D'apr\`es 8.5 (i) (ii), (8.7.1) est le code du compos\'e du morphisme $m_p : T^{\otimes p} \to T$, de code $\tau m_{p+1}$, et du transpos\'e du morphisme $m_q : T^{\otimes q} \to T$, de code $\tau m_{q+1}$. Calculons ce code par 8.5 (iii): (8.7.1) est
+\[
+\tau m_{p+q} : T^{\otimes p} \otimes T^{\otimes q} \xrightarrow{m_p \otimes m_q} T \otimes T \xrightarrow{\mu} T \xrightarrow{\tau} \mathbf{1}. \qedhere
+\]
+\end{proof}
+
+\begin{lemma}
+Le compos\'e
+\[
+\mathbf{1} \xrightarrow{\delta} T \otimes T \xrightarrow{\mu} T
+\]
+est l'unit\'e de $T$.
+\end{lemma}
+
+\begin{proof}
+Le code de l'unit\'e $u : \mathbf{1} \to T$ de $T$ est le compos\'e
+\[
+T = \mathbf{1} \otimes T \xrightarrow{u \otimes T} T \otimes T \xrightarrow{\mu} T \xrightarrow{\tau} \mathbf{1},
+\]
+\'egal \`a $\tau$. Un morphisme de $T^{\otimes P}$ dans $\mathbf{1}$ \'etant son propre code, il r\'esulte de 8.5 (ii) que $u$ et $\tau$ sont transpos\'es l'un de l'autre.
+
+La trace $\Tr$ est le compos\'e (8.1.1). Par associativit\'e de $\mu$, c'est encore le compos\'e
+\[
+T = T \otimes \mathbf{1} \xrightarrow{T \otimes (8.8.1)} T \otimes T \xrightarrow{\mu} T \xrightarrow{\tau} \mathbf{1},
+\]
+i.e. le code de (8.8.1). Les codes $\tau$ de l'unit\'e et $\Tr = \tau$ de (8.1.1) sont donc \'egaux; 8.8 en r\'esulte.
+\end{proof}
+
+\subsection{Preuve de 8.4}
+D'apr\`es 8.5 (i), le code de $[Q]_T \circ [P]_T$ est d\'eduit du produit tensoriel des codes (8.6.1) de $[Q]_T$ et $[P]_T$:
+\[
+T^{\otimes U} \otimes T^{\otimes V} \otimes T^{\otimes V} \otimes T^{\otimes W} \to \mathbf{1}
+\]
+par une s\'erie de ``contractions'': $\mathbf{1} \to T \otimes T$ index\'ees par $V$. Il se d\'ecompose selon les parts $R$ de $\langle P, Q \rangle$. Pour chaque part $R$, si $U', V', W'$ sont les traces de $R$ sur $U, V, W$, le facteur correspondant $T^{\otimes U'} \otimes T^{\otimes W'} \to \mathbf{1}$ est d\'eduit du facteur
+\[
+T^{\otimes U'} \otimes T^{\otimes V'} \otimes T^{\otimes V'} \otimes T^{\otimes W'} \to \mathbf{1}
+\]
+de (8.4.1) par des contractions analogues, index\'ees par $V'$. Si $R$ rencontre $U$ ou $W$, une application it\'er\'ee de 8.7 et 8.8 montre que le r\'esultat est $\tau m$, pour $m$ le produit it\'er\'e $T^{\otimes U'} \otimes T^{\otimes W'} \to T$. Sinon, une application it\'er\'ee de 8.7 et 8.8 fournit finalement
+\[
+\mathbf{1} \xrightarrow{\delta} T \otimes T \xrightarrow{\mu} T \xrightarrow{\Tr} \mathbf{1},
+\]
+\'egal \`a $\ev \circ \delta = \dim T = t$.
+
+\subsection{}
+Supposons la cat\'egorie $\mathcal{T}$ tensorielle sur $k$. On dispose alors de rudiments de g\'eom\'etrie alg\'ebrique dans $\mathcal{T}$ (Deligne 1990). Soient $T$ comme en 8.2, $I := \Spec(T)$, et $S_I$ le $T$-sch\'ema en groupe des automorphismes de $I$. C'est le sous-groupe ferm\'e de $\GL(T)$ (voir 10.8) qui respecte la structure d'alg\`ebre $\mu : T \otimes T \to T$ de $T$. Pour tout $T$-sch\'ema $Y$, $S_I(Y)$ est le groupe des automorphismes du $Y$-sch\'ema $I_Y := I \times Y$.
+
+Soit $\Rep(S_I)$ la cat\'egorie des repr\'esentations $\rho : S_I \to \GL(V)$ de $S_I$ sur un objet de $\mathcal{T}$. C'est une cat\'egorie tensorielle sur $k$ et, par construction, $T$ en est un objet. Le $\otimes$-foncteur $\Rep(S_t, k) \to \mathcal{T} : X \longmapsto T$ construit en 8.3 se factorise donc par le foncteur analogue
+\begin{equation}
+\Rep(S_t, k) \to \Rep(S_I) : X \longmapsto T \tag{8.10.1}
+\end{equation}
+suivi du foncteur d'oubli de $\Rep(S_I)$ dans $\mathcal{T}$. On notera $[U]_I$ l'image de $[U]$ par (8.10.1).
+
+En 8.20, nous introduirons une sous-cat\'egorie pleine $\Rep(S_I, \eps)$ de $\Rep(S_I)$ par laquelle se factorise (8.10.1). Elle est plus naturelle que $\Rep(S_I)$, mais inutile pour l'instant.
+
+\begin{proposition}
+Le $\otimes$-foncteur (8.10.1) de $\Rep(S_t, k)$ dans $\Rep(S_I)$ est surjectif sur les $\Hom$.
+\end{proposition}
+
+Puisqu'un $\otimes$-foncteur commute aux $\Hom$ et respecte l'isomorphisme de $\Hom(V, W)$ avec $\Hom(\mathbf{1}, \iHom(V, W))$, il suffit de v\'erifier la surjectivit\'e 8.11 pour $\Hom(\mathbf{1}, [U])$. En d'autres termes, il suffit de v\'erifier que les invariants de $S_I$ agissant sur $[U]_I$ sont r\'eduits \`a l'image du morphisme $\mathbf{1} \to [U]_I$ unit\'e de l'alg\`ebre $[U]_I$. La preuve sera donn\'ee en 8.18. Elle paraphrase l'arguments trivial suivant, qui s'applique \`a $\Rep(S_I)$. On veut prouver que toute fonction $S_I$-invariante $f$ sur $\Inj(U, I)$ est constante, i.e. que $f$ prend la m\^eme valeur sur deux injections $j_1, j_2 : U \inj I$. Si $W = j_1(U) \cup j_2(U)$, $j_1$ et $j_2$ se factorisent par $j_1', j_2' : U \inj W$ suivis de $j : W \inj I$. Il existe une permutation $\sigma'$ de $W$ qui transforme $j_1'$ et $j_2'$. Prolongeant $\sigma'$ en $\sigma \in S_I$, on obtient $\sigma$ qui transforme $j_1$ en $j_2$ et garantit que $f(j_1) = f(j_2)$.
+
+\subsection{La structure de $I$}
+Rappelons qu'un sous-sch\'ema ferm\'e d'un $T$-sch\'ema $\Spec(A)$ est un $T$-sch\'ema $\Spec(A/a)$, pour $A/a$ un quotient de $A$. Il est dit ouvert et ferm\'e si l'id\'eal $a$ est engendr\'e par un idempotent, i.e. s'il existe $e : \mathbf{1} \to A$ idempotent pour la multiplication de $A$ tel que $a$ soit l'image de la ``multiplication par $e$'': $A = A \otimes \mathbf{1} \xrightarrow{A \otimes e} A \otimes A \longrightarrow A$. Si tel est le cas, l'idempotent $e$ est unique, et il existe un unique sous-sch\'ema ferm\'e $\Spec(A/b)$ de $\Spec(A)$, le compl\'ementaire de $\Spec(A/a)$, tel que
+\[
+\Spec(A/a) \sqcup \Spec(A/b) \isom \Spec(A).
+\]
+L'id\'eal $b$ est engendr\'e par l'idempotent $1 - e$. Les idempotents de l'alg\`ebre ACU $A$ formant une alg\`ebre bool\'eenne, on dispose pour les sous-sch\'emas ouverts et ferm\'es du calcul bool\'een habituel.
+
+\begin{lemma}
+La diagonale de $I \times I$ est un sous-sch\'ema ouvert et ferm\'e.
+\end{lemma}
+
+\begin{proof}
+Dans $\Rep(S_t, k)$, l'isomorphisme de $X^{\otimes U}$ avec le produit des $[U/R]$ est compatible aux structures d'alg\`ebres (v\'erification directe, ou par r\'eduction au cas de $\Rep(S_I)$). De plus, pour $U = \{1, 2\}$ et $R$ la relation d'\'equivalence grossi\`ere, pour laquelle $[U/R] \sim X$, la projection $X^{\otimes 2} \to [U/R] = X$ est le produit, de sorte que $\Spec(U/R)$ est la diagonale de $\Spec(X)^2$, et que $\Spec(X)^2 = \Spec([2]) \sqcup \text{diagonale}$.
+
+Appliquant le $\otimes$-foncteur 8.10.1, on a d\'eduit que
+\[
+I^2 = \Spec([2]_I) \sqcup \text{diagonale}.
+\]
+Cette d\'ecomposition prouve 8.13.
+\end{proof}
+
+Par image inverse, les diagonales de $I^U$ sont elles aussi ouvertes et ferm\'ees.
+
+Dans la d\'ecomposition $\Spec(X)^U = \bigsqcup \Spec([U/R])$, les $\Spec([U/R])$ pour $R$ non discret sont contenus dans une diagonale, et chaque diagonale est somme disjointe de tels $\Spec([U/R])$. Appliquant 8.10.1, on a donc
+
+\begin{lemma}
+Le sous-sch\'ema $\Spec([U]_I)$ de $I^U$ est le sous-sch\'ema ouvert et ferm\'e compl\'ement des diagonales.
+\end{lemma}
+
+Pour $Y$ un $T$-sch\'ema, deux sections $s, t$ de $I_Y = I \times Y / Y$, d\'efinies par $s', t' : Y \to I$, sont dites disjointes si $(s', t') : Y \to I^2$ se factorise par le compl\'ement de la diagonale. Deux sections quelconques sont disjointes sur un sous-sch\'ema ouvert et ferm\'e de $Y$, et \'egales sur son compl\'ement. D'apr\`es 8.14, $\Spec([U]_I)$ repr\'esente le foncteur
+\[
+Y \longmapsto \{\text{famille } (s_u)_{u \in U} \text{ de sections disjointes de } I_Y\}.
+\]
+Ceci justifie la notation $\Inj(U, I) := \Spec([U]_I)$.
+
+\subsection{}
+Le $T$-sch\'ema $I \times \Inj(U, I)$ repr\'esente donc le foncteur $Y \mapsto \{\text{sections } (s_u)_{u \in U} \text{ et } s_0 \text{ de } I_Y, \text{ les } s_u \text{ \'etant disjointes}\}$. Il se d\'ecompose en $U$ copies de $\Inj(U, I)$, donn\'ees par $s_0 = s_u$ ($u \in U$), et un reste $\Inj(U \sqcup \{0\}, I)$. Chaque copie de $\Inj(U, I)$ se projette isomorphiquement sur le deuxi\`eme facteur, et $I^{\Inj(U, I)}$ est donc somme disjointe de sections index\'ees par $U$, et d'un reste. Une permutation de $U$ d\'efinit un automorphisme de $I^{\Inj(U, I)}$ qui permute ces sections et est l'identit\'e sur le reste. Ceci d\'efinit
+\begin{equation}
+S_U \to S_I(\Inj(U, I)). \tag{8.15.1}
+\end{equation}
+
+Plus g\'en\'eralement, sur toute base $Y$, la donn\'ee de sections disjointes $(s_u)_{u \in U}$ de $I_Y$ d\'efinit un morphisme
+\begin{equation}
+S_U \to S_I(Y), \tag{8.15.2}
+\end{equation}
+dont (8.15.1) est le cas universel.
+
+\begin{lemma}
+Pour tout $T$-sch\'ema $Y = \Spec(A)$ et toute ``fonction'' $f$ sur $\Inj(U, I)_Y$, i.e. tout $f : \mathbf{1} \to A \otimes [U]_I$, si $f$ est invariante par $S_I$, alors apr\`es tout changement de base $Z \to Y$ et pour toutes sections $s, t$ de $\Inj(U, I)_Z/Z$, on a $f(s) = f(t)$.
+\end{lemma}
+
+\noindent\textbf{Notation:} $f(s)$ est la fonction sur $Z$ image inverse de $f$ par
+\[
+Z \xrightarrow{s} \Inj(U, I)_Z \to \Inj(U, I)_Y.
+\]
+
+\begin{proof}
+La donn\'ee de $s, t$ est celle de deux familles de sections disjointes de $I_Z$, index\'ee par $U$. D\'ecoupand $Z$ en parties ouvertes et ferm\'ees, on se ram\`ene \`a supposer que pour chaque $u, v \in U$, $s_u$ et $t_v$ sont soit \'egales, soit disjointes: il existe un recollement de $U$ et $U$ en $W$, et une famille disjointe de sections index\'ees par $W$, qui induise $s$ et $t$. Les deux copies de $U$ dans $W$ sont transform\'ees l'une de l'autre par une permutation de $W$, et on conclut par (8.15.2) appliqu\'e \`a $W$.
+\end{proof}
+
+\begin{corollary}
+Une fonction $f$ comme en 8.16 provient d'une fonction sur $Y$, i.e. de $\tilde{f} : \mathbf{1} \to A$.
+\end{corollary}
+
+\begin{proof}
+Si $\Inj(U, I)$ est vide, i.e. si $[U]_I = 0$, l'assertion est triviale. Si $\Inj(U, I)$ est non vide, $J := \Inj(U, I)_Y$ est fid\'element plat sur $Y$, et la conclusion de 8.16, dans le cas universel o\`u $Z = J \times_Y J$, dit que les deux images inverses de $f$ sur $J \times_Y J$ co\'incident. La preuve usuelle de la descente fid\`element plate (SGA 1 VIII 1.1, 1.5) donne que le syst\`eme cosimplicial d'alg\`ebres affines $\mathcal{O}((J/Y)^n)$ est une r\'esolution de $A$, et 8.17 en r\'esulte.
+\end{proof}
+
+\begin{corollary}
+Les invariants de $S_I$ agissant sur $[U]_I$ sont r\'eduits \`a l'image de l'unit\'e $\mathbf{1} \to [U]_I$.
+\end{corollary}
+
+Soit $V$ l'espace des invariants. Prenons $A = \Sym(V^*)$ et la fonction
+\[
+f : \mathbf{1} \xrightarrow{\delta} V^* \otimes V \subset A \otimes [U]_I.
+\]
+Si $(\mathbf{1}) \subset V$ est l'image de l'unit\'e, 8.17 assure que $f$ se factorise par $A \otimes (\mathbf{1})$, donc par $V^\vee \otimes (\mathbf{1})$: l'identit\'e de $V$ se factorise par $(\mathbf{1})$, et $V = (\mathbf{1})$. Ceci conclut la preuve de 8.11.
+
+\begin{proposition}
+Quel que soit $t$, la $\otimes$-cat\'egorie $\Rep(S_t, k)$ admet un plongement pleinement fid\`ele dans une cat\'egorie tensorielle sur $k$.
+\end{proposition}
+
+Si $t$ n'est pas un entier $\geq 0$, la cat\'egorie $\Rep(S_t, k)$ est tensorielle sur $k$ (2.18), et 8.19 est trivial. On peut donc supposer, et on supposera, que $t$ est un entier $n \geq 0$. Dans ce cas, le plongement 8.19 est n\'ecessairement dans une cat\'egorie tensorielle qui n'est pas semi-simple: le foncteur naturel dans $\Rep(S_n)$ n'est pas fid\`ele (il annule $[U]$ pour $|U| > n$), il y a donc dans $\Rep(S_t)$ des morphismes n\'egligeables non nuls (6.2), leur image est encore n\'egligeable, et on applique 5.7.
+
+\begin{proof}[Construction]
+Dans la cat\'egorie $\Rep(S_{-1}, k)$, soit $T$ l'alg\`ebre produit de $[1]$ et de $n + 1$ copies de l'alg\`ebre $\mathbf{1}$. Elle v\'erifie les hypoth\`eses de 8.2: on a $\dim(T) = \dim([1]) + n + 1 = -1 + n + 1 = n = t$ et les autres hypoth\`eses sont v\'erifi\'ees par $[1]$, par $\mathbf{1}$, et sont stables par produit.
+
+Posons $I := \Spec(T)$ et consid\'erons le $\otimes$-foncteur (8.10.2) de $\Rep(S_t, k)$ dans $\Rep(S_I, \eps)$ d\'efini par $T$. D'apr\`es 8.11, ce foncteur est surjectif sur les $\Hom$. Reste \`a voir qu'il est injectif sur les $\Hom$. Comme dans la preuve de 8.11 (lignes suivant 8.11), il suffit de le v\'erifier pour $\Hom(\mathbf{1}, [U])$: il s'agit de montrer que l'unit\'e de l'alg\`ebre $[U]_I$ est non nulle, i.e. que le $\Rep(S_{-1}, k)$-sch\'ema $\Inj(U, I)$ est non vide. Il contient en effet le sch\'ema non vide $\Inj(U, \Spec([1])) = \Spec([U])$ dans $\Rep(S_{-1}, k)$.
+\end{proof}
+
+\subsection{}
+Soient $\mathcal{T}$ une cat\'egorie tensorielle sur $k$ et $\pi$ son groupe fondamental (Deligne 1990) 8.13. Ce $T$-sch\'ema en groupe agit fonctoriellement sur tout objet de $\mathcal{T}$, et l'action est compatible au produit tensoriel. En particulier, pour $I = \Spec(T)$ comme en 8.10, l'action de $\pi$ sur $T$ d\'efinit un homomorphisme $\eps : \pi \to S_I$, et $T$ appartient \`a la sous-cat\'egorie pleine $\Rep(S_I, \eps)$ de $\Rep(S_I)$, d'objets les repr\'esentations $\rho$ de $S_I$ sur un objet $V$ de $\mathcal{T}$, telle que l'action $\rho \circ \eps$ de $\pi$ sur $V$ soit l'action canonique de $\pi$ sur $V$. Par 8.3, le foncteur (8.10.1) de $\Rep(S_t, k)$ dans $\Rep(S_I)$ se factorise par
+\begin{equation}
+\Rep(S_t, k) \to \Rep(S_I, \eps). \tag{8.20.1}
+\end{equation}
+
+Pour $X$ dans $\mathcal{T}$, l'action triviale de $S_I$ sur $X$ fait de $X$ un objet de $\Rep(S_I)$. Cet objet n'est dans $\Rep(S_I, \eps)$ que si l'action canonique de $\pi$ sur $X$ est triviale, i.e. que si $X$ est une somme de copies de $\mathbf{1}$ (loc.~cit.~8.18).
+
+Je conjecture que $\Rep(S_I, \eps)$ n'est autre que la sous-cat\'egorie pleine de $\Rep(S_I)$ d'objets les sous-quotients de sommes de puissances tensorielles de $T$.
+
+\begin{conjecture}
+Soit $F$ un $\otimes$-foncteur ACU de $\Rep(S_t, k)$ dans une cat\'egorie tensorielle $\mathcal{T}$ sur $k$. Comme en 8.2 et 8.10, soient $T := F(X)$ et $I := \Spec(T)$. Soit $F_1$ le foncteur (8.20.1) de $\Rep(S_t, k)$ dans $\Rep(S_I, \eps)$ par lequel se factorise $F$. Je conjecture que
+
+\textup{(8.21.1)} Si $t$ n'est pas un entier $\geq 0$, le foncteur $F_1$ est une \'equivalence.
+
+\textup{(8.21.2)} Si $t$ est un entier $n \geq 0$, la cat\'egorie $\Rep(S_I, \eps)$, munie du foncteur $F_1 : \Rep(S_t, k) \to \Rep(S_I, \eps)$ est \'equivalente \`a l'une des suivantes:
+\begin{enumerate}[label=(\alph*)]
+\item $\Rep(S_n)$, munie du foncteur naturel de $\Rep(S_t, k)$ dans $\Rep(S_n)$;
+\item celle construite en 8.19 compl\'et\'e par 8.20, i.e. $\Rep(S_I, \eps)$ pour $T$ l'objet $[1] \oplus \mathbf{1}^{n+1}$ de $\Rep(S_{-1}, k)$.
+\end{enumerate}
+\end{conjecture}
+
+
+\section{Groupes Orthogonaux}
+
+Les s\'eries des groupes orthogonaux $O(n)$ et des groupes lin\'eaires $\GL(n)$ donnent lieu \`a des r\'esultats analogues \`a ceux expliqu\'es pour les $S_n$. Nous traitons ici du cas des groupes orthogonaux, et dans la section suivante du cas des groupes lin\'eaires. Pour des formules de dimension parall\`eles \`a (7.4.1) et \`a 7.5, nous renvoyons \`a (Deligne 1996).
+
+\subsection{}
+Soit $X$ un espace vectoriel de dimension $n$ sur $k$ muni d'une forme bilin\'eaire sym\'etrique non d\'eg\'en\'er\'ee $B$, et soit $B^\vee \in X \otimes X$ la forme bilin\'eaire duale. D'apr\`es le premier th\'eor\`eme fondamental de la th\'eorie des invariants pour $O(X)$, tout invariant de $O(X)$ dans $X^{\otimes U}$ ($U$ un ensemble fini) est combinaison lin\'eaire des invariants obtenus comme suit: prendre une partition de $U$ en parts \`a 2 \'el\'ements, pour chaque part prendre l'invariant $B^\vee \in X \otimes X$, et prendre le produit tensoriel de ces $B^\vee$. De plus, pour $n \geq |U|/2$, ces invariants sont lin\'eairement ind\'ependants.
+
+L'autodualit\'e de $X$ permet d'identifier $\Hom(X^{\otimes U}, X^{\otimes V})$ \`a $X^{\otimes (U \sqcup V)}$ et, dans la cat\'egorie des repr\'esentations de $O(X)$, $\Hom(X^{\otimes U}, X^{\otimes V}) = \Hom(\mathbf{1}, \iHom(X^{\otimes U}, X^{\otimes V}))$ aux invariants de $O(X)$ dans $X^{\otimes (U \sqcup V)}$. Ce qui pr\'ec\`ede fournit une famille g\'en\'eratrice de $\Hom(X^{\otimes U}, X^{\otimes V})$, param\'etr\'ee par un ensemble ind\'ependant de $X$ et de $n$. C'est une base si $n \geq (|U| + |V|)/2$. Explicitons: une partition $P$ en parts \`a 2 \'el\'ements de $U \sqcup V$ s'identifie \`a la donn\'ee de d\'ecompositions $U = U' \cup U''$, $V = V' \cup V''$ (r\'eunion disjointes), d'une bijection $U' \isom V'$, et de partitions en parts \`a 2 \'el\'ements de $U''$ et de $V''$. La partition de $U''$ (resp.~$V''$) fournit un morphisme $X^{\otimes U''} \to \mathbf{1}$ (resp.~$\mathbf{1} \to X^{\otimes V''}$) produit tensoriel de morphismes $B : X \otimes X \to \mathbf{1}$ (resp.~$B^\vee : \mathbf{1} \to X \otimes X$), et le morphisme de $X^{\otimes U}$ dans $X^{\otimes V}$ correspondant \`a $P$ est le compos\'e
+\[
+X^{\otimes U} = X^{\otimes U'} \otimes X^{\otimes U''} \to X^{\otimes U'} \isom X^{\otimes V'} \to X^{\otimes V'} \otimes X^{\otimes V''} = X^{\otimes V}.
+\]
+Cette description rend claire qu'\`a la somme disjointe d'ensembles et de partitions correspond le produit tensoriel de repr\'esentations et de morphismes.
+
+\textsc{Repr\'esentation graphique}: le g\'en\'erateur de $\Hom(X^{\otimes U}, X^{\otimes V})$ correspondant \`a $P$ est repr\'esent\'e par un ensemble de points index\'es par $U$ en premi\`ere ligne, un ensemble de points index\'es par $V$ en seconde ligne, et, trac\'es entre les lignes, des traits joignant les points dans la m\^eme part de $P$. Exemples:
+
+\begin{center}
+$\begin{array}{ccc}
+\bullet\!\!\!-\!\!\!\bullet & \bullet\!\!\!\smile\!\!\!\bullet & \circ\!\!\!\frown\!\!\!\circ
+\end{array}$
+\end{center}
+
+sont respectivement l'identit\'e de $X$, $B : X \otimes X \to \mathbf{1}$ et $B^\vee : \mathbf{1} \to X \otimes X$.
+
+Dans cette repr\'esentation graphique, la composition des morphismes correspond \`a joindre les graphes, \`a omettre les cercles qui apparaissent, et, si $k$ cercles \'etaient apparus, \`a multiplier le r\'esultat par $n^k$. Exemple-cl\'e:
+
+\begin{center}
+$\begin{array}{c}
+\begin{array}{ccc}
+\bullet & \bullet \\
+\bullet & \bullet
+\end{array}
+= n \text{ fois l'identit\'e de } \mathbf{1}
+\end{array}$
+\end{center}
+(qui repr\'esent\'ee par une page blanche). Autre exemple: le compos\'e
+
+\begin{center}
+$\begin{array}{c}
+\begin{array}{ccc}
+\bullet & & \bullet \\
+\bullet\!\!\!-\!\!\!\bullet & & \bullet \\
+& \bullet & \bullet
+\end{array}
+= n \text{ fois l'identit\'e de } X.
+\end{array}$
+\end{center}
+
+La composition est donc donn\'ee par une formule polyn\^omiale (\`a coefficients entiers) en $n$. Rempla\c{c}ant $n$ par une ind\'etermin\'ee $T$, on obtient la cat\'egorie \`a produit tensoriel ACU librement engendr\'ee par un objet muni d'une autodualit\'e sym\'etrique:
+
+\begin{definition}
+$\Rep^0(O(T))$ est la cat\'egorie $\Z[T]$-lin\'eaire suivante:
+
+\textsc{objets}: ensembles finis. On note $X_0^{\otimes U}$ l'ensemble fini $U$, vu comme objet de $\Rep^0(O(T))$.
+
+$\Hom(X_0^{\otimes U}, X_0^{\otimes V})$: le $\Z[T]$-module libre de base les partitions de $U \sqcup V$ en parts \`a 2 \'el\'ements.
+
+\textsc{composition}: comme en 9.1, avec $n$ remplac\'e par $T$.
+
+La somme disjointe d'ensembles finis munit $\Rep^0(O(T))$ d'un produit tensoriel ACU rigide.
+\end{definition}
+
+\subsection{}
+Pour $A$ un anneau commutatif et $t \in A$, on notera $\Rep^0(O(t), A)$ la cat\'egorie $A$-lin\'eaire d\'eduite de $\Rep^0(O(T))$ en gardant les m\^emes objets et en prenant pour groupes $\Hom$ ceux des pr\'ec\'edents par l'extension des scalaires $\Z[T] \to A$, $T \mapsto t$. On notera $\Rep^1(O(t), A)$ celle qui s'en d\'eduit par adjonction formelle de sommes directes, et $\Rep(O(t), A)$ son enveloppe pseudo-ab\'elienne. Ces cat\'egories sont encore munies d'un produit tensoriel ACU rigide, d\'eduit de celui de $\Rep^0(O(T))$, et elles v\'erifient $\End(\mathbf{1}) = A$. La cat\'egorie $\Rep^0(O(t), A)$ a la propri\'et\'e universelle suivante:
+
+\begin{proposition}
+Soit $\mathcal{A}$ une cat\'egorie $A$-lin\'eaire \`a produit tensoriel ACU et telle que $\End(\mathbf{1}) = A$. Le foncteur $F \mapsto F(X_0)$ est une \'equivalence de
+\begin{enumerate}[label=(\alph*)]
+\item la cat\'egorie $\Hom^{\otimes}_A(\Rep^0(O(t), A), \mathcal{A})$ des $\otimes$-foncteurs $A$-lin\'eaires, avec
+\item la cat\'egorie des objets de $\mathcal{A}$ de dimension $t$ munis d'une autodualit\'e sym\'etrique, et de leurs isomorphismes.
+\end{enumerate}
+
+Le m\^eme \'enonc\'e vaut avec $\Rep^1$ (resp.~$\Rep$) si $\mathcal{A}$ est additive (resp. pseudo-ab\'elienne).
+\end{proposition}
+
+\subsection{}
+Pour chaque entier $n$, d\'efinissons comme suit un triple $(G, \eps, X)$ o\`u $G$ est un super groupe, $\eps$ est un \'el\'ement de $G$ d'ordre divisant $2$ tel que l'automorphisme int\'erieur $\text{int}(\eps)$ induise sur $\mathcal{O}(G)$ sa graduation modulo $2$, et $X$ est une (super) repr\'esentation de $G$ de graduation modulo $2$ d\'efinie par l'action de $\eps$, i.e. $X$ est un objet de $\Rep(G, \eps)$. Selon la valeur de $n$, on prend:
+\begin{itemize}[label={},leftmargin=*]
+\item[$n \geq 0$:] $O(n)$, l'identit\'e de $O(n)$, la repr\'esentation \'evidente;
+\item[$n = -2m \leq 0$:] $\Sp(2m)$, $-1$, la repr\'esentation \'evidente, consid\'er\'ee comme purement impaire;
+\item[$n = 1 - 2m \leq 0$:] $\OSp(1, 2m)$, la matrice diagonale $(1, -1, \ldots, -1)$, la repr\'esentation \'evidente.
+\end{itemize}
+
+Dans chaque cas, on a $\dim(X) = n$, $X$ est munie d'une autodualit\'e sym\'etrique, la cat\'egorie $\Rep(G, \eps)$ est semi-simple, et le foncteur $X_0 \mapsto X$ de $\Rep(O(t), k)$ dans $\Rep(G, \eps)$ est surjectif sur les $\Hom$. La derni\`ere assertion reformule le premier th\'eor\`eme principal de la th\'eorie des invariants pour $O(n)$, $\Sp(2m)$ et $\OSp(1, 2m)$. Le cas de $\OSp(1, 2m)$ est trait\'e dans l'appendice, qui contient aussi une nouvelle preuve de la compl\`ete r\'eductivit\'e des super repr\'esentations de $\OSp(1, 2m)$. R\'ep\'etant la preuve de 6.2, on obtient le th\'eor\`eme suivant.
+
+\begin{theorem}
+Supposons que $t$ soit un entier $n$. Alors, avec les notations ci-dessus, le foncteur $X_0 \mapsto X$ de $\Rep(O(t), k)$ dans $\Rep(G, \eps)$ induit une \'equivalence
+\[
+\Rep(O(t), k)/(\text{n\'egligeables}) \to \Rep(G, \eps).
+\]
+\end{theorem}
+
+L'alg\`ebre des endomorphismes de $X_0^{\otimes n}$, dans $\Rep(O(t), k)$, est l'alg\`ebre de Brauer $D_n(t)$. D'apr\`es H. Wenzl (1988), si $t$ n'est pas un entier, c'est un produit d'alg\`ebres de matrices. Il en r\'esulte que
+
+\begin{theorem}[H. Wenzl -- au langage pr\`es]
+Si $t$ n'est pas un entier, la cat\'egorie $\Rep(O(t), k)$ est ab\'elienne semi-simple. C'est donc une cat\'egorie tensorielle.
+\end{theorem}
+
+\begin{proof}
+Puisque $t \neq 0$, $\mathbf{1}$ est un facteur direct de $X_0 \otimes X_0$, et $X_0^{\otimes (n-2)}$ est donc un facteur direct de $X_0^{\otimes n}$. Soit $(S_i)$ un syst\`eme de repr\'esentants des classes d'isomorphie de $D_n(t)$-modules simples, de sorte que $D_n \isom \prod \End_k(S_i)$. La structure de $D_n(t)$-module de $X_0^{\otimes n}$ fournit une d\'ecomposition $X_0^{\otimes n} = \bigoplus Y_i \otimes S_i$ de $X_0^{\otimes n}$ en somme d'objets $Y_i$ tels que $\End(Y_i) = k$ et que $\Hom(Y_i, Y_j) = 0$ pour $i \neq j$. Puisque $X_0^{\otimes n'}$ est un facteur direct de $X_0^{\otimes n}$ si $n' \leq n$ est de m\^eme parit\'e que $n$, chacun de ces $X_0^{\otimes n'}$ est somme de copies de $Y_i$. R\'ep\'etant l'argument pour $X_0^{\otimes (n-1)}$, observant que $\Hom(X_0^{\otimes p}, X_0^{\otimes q}) = 0$ si $p$ et $q$ n'ont pas la m\^eme parit\'e, et prenant $n$ de plus en plus grand, on obtient un syst\`eme d'objets simples en lesquels se d\'ecompose tout objet de $\Rep(O(t), k)$.
+\end{proof}
+
+Dans le langage cat\'egorique, la preuve que H. Wenzl donne de la semi-simplicit\'e de $D_n(t)$ peut \^etre pr\'esent\'ee comme suit.
+
+\begin{proposition}
+\begin{enumerate}[label=(\roman*)]
+\item Si $t$ n'est pas un entier, ou est un entier de valeur absolue $|t| \geq n - 1$, la sous-cat\'egorie pseudo-ab\'elienne $\Rep(O(t), k)^{(n)}$ de $\Rep(O(t), k)$ engendr\'ee par les $X_0^{\otimes i}$ pour $i \leq n$ est semi-simple. Plus pr\'ecis\'ement, elle contient des objets $Y_\lambda$, index\'es par les partitions des entiers $\leq n$, tels que $\End(Y_\lambda) = k$, que $\Hom(Y_\lambda, Y_\mu) = 0$ pour $\lambda \neq \mu$, et que tout objet soit somme de copies des $Y_\lambda$;
+\item Si $t$ n'est pas un entier, ou est un entier de valeur absolue $|t| \geq n$, la forme bilin\'eaire $\Tr(uv)$ sur $D_n(t) = \Hom(X_0^{\otimes n}, X_0^{\otimes n})$ est non d\'eg\'en\'er\'ee.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+On construit les $Y_\lambda$ et on prouve (i) et (ii) par r\'ecurrence sur $n$. De l'hypoth\`ese que (9.8)$_i$ est vrai pour $i < n$, il s'agit de d\'eduire (9.8)$_n$. Si $n = 0$, $\Rep(O(t))^{(n)}$ est r\'eduite aux multiples de $\mathbf{1}$, et on v\'erifie (i)$_0$ en prenant $Y_\lambda = \mathbf{1}$ pour $\lambda$ la partition vide de l'entier $0$. Pour $n = 1$, prendre en outre $Y_{(1)} = X_0$. On a $D_0(t) = D_1(t) = k$, la forme trace \'etant respectivement $uv$ et $tuv$, et ceci v\'erifie (ii)$_n$ pour $n = 0$ ou $1$.
+
+Supposons que $n \geq 2$. L'autodualit\'e de $X_0$ permet d'identifier entre eux les $\Hom(X_0^{\otimes p}, X_0^{\otimes q})$ pour $p + q = a$, et les formes bilin\'eaires $\Tr(uv)$:
+\[
+\Hom(X_0^{\otimes p}, X_0^{\otimes q}) \otimes \Hom(X_0^{\otimes q}, X_0^{\otimes p}) \to k
+\]
+se correspondent par ces identifications (3.4). L'hypoth\`ese de r\'ecurrence assure donc que les formes bilin\'eaires $\Tr(uv)$:
+\[
+\Hom(X_0^{\otimes n}, X_0^{\otimes p}) \otimes \Hom(X_0^{\otimes p}, X_0^{\otimes n}) \to k
+\]
+son non d\'eg\'en\'er\'ees pour $p \leq n - 2$. Pour $|\lambda| \leq n - 2$, la forme
+\begin{equation}
+\Hom(X_0^{\otimes n}, Y_\lambda) \otimes \Hom(Y_\lambda \otimes X_0^{\otimes n}) \to k \tag{9.8.1}
+\end{equation}
+est non d\'eg\'en\'er\'ee, comme facteur direct de la pr\'ec\'edente. On a $\End(Y_\lambda) = k$ et (9.8.1) est $\dim(Y_\lambda) \cdot uv$. La forme $uv$ est donc non d\'eg\'en\'er\'ee et, par 3.9 (ii), $X_0^{\otimes n}$ a une d\'ecomposition
+\begin{align}
+X_0^{\otimes n} &= \bigoplus_{|\lambda| \leq n-2} \Hom(Y_\lambda, X_0^{\otimes n}) \otimes Y_\lambda \oplus (X_0^{\otimes n})^*, \quad \text{avec} \tag{9.8.2} \\
+\Hom(Y_\lambda, (X_0^{\otimes n})^*) &= \Hom((X_0^{\otimes n})^*, Y_\lambda) = 0 \tag{9.8.3}
+\end{align}
+pour $|\lambda| \leq n - 2$. La nullit\'e (9.8.3) vaut encore pour $|\lambda| = n - 1$, car $\Hom(X_0^{\otimes p}, X_0^{\otimes q}) = 0$ si $p$ et $q$ n'ont pas la m\^eme parit\'e. Le groupe sym\'etrique $S_n$ agit sur $X_0^{\otimes n}$ et sur $(X_0^{\otimes n})^*$. On v\'erifie que cette action induit un isomorphisme
+\[
+k[S_n] \isom \End((X_0^{\otimes n})^*).
+\]
+Noter que le but est le quotient de $D_n(t)$ par l'id\'eal des endomorphismes se factorisant par un $X_0^{\otimes p}$ pour $p \leq n - 2$ ou, ce qui revient au m\^eme, $p \leq n - 1$. Comme en 5.3 on v\'erifie (i)$_n$ en d\'efinissant les $Y_\lambda$ pour $|\lambda| = n$ par
+\begin{equation}
+(X_0^{\otimes n})^* = \bigoplus Y_\lambda \otimes \lambda. \tag{9.8.4}
+\end{equation}
+(d\'ecomposition $S_n$-\'equivariante). Les d\'ecompositions (9.8.2) et (9.8.4) ram\`enent (ii)$_n$ \`a
+\begin{equation}
+\dim Y_\lambda \neq 0 \quad \text{pour } |\lambda| = n. \tag{9.8.5}
+\end{equation}
+
+H. Wenzl prouve (9.8.5) en calculant $\dim Y_\lambda$ \`a partir de la formule des caract\`eres de H. Weyl, pour l'image de $Y_\lambda$ dans $\Rep(\SO(2N+1))$ pour $N$ grand et $t = 2N + 1$: la dimension est donn\'ee par un polyn\^ome en $t$ qui ne s'annule que pour $t$ entier de valeur absolue $|t| < n$.
+\end{proof}
+
+
+\section{Groupes Lin\'eaires}
+
+\subsection{}
+Soient $X$ un espace vectoriel de dimension $n$ sur $k$ et $X^\vee$ son dual. D'apr\`es le premier th\'eor\`eme fondamental de la th\'eorie des invariants pour $\GL(X)$, tout invariant de $\GL(X)$ dans $T(U, V) := X^{\otimes U} \otimes X^{\vee \otimes V}$ ($U$ et $V$ ensembles finis) est combinaison lin\'eaire des invariants obtenus comme suit: prendre une bijection de $U$ avec $V$, et le produit tensoriel de $\delta : \mathbf{1} \to X \otimes X^\vee$ correspondant. Pour $n \geq |U|$, ces invariants sont lin\'eairement ind\'ependants.
+
+L'isomorphisme naturel
+\begin{equation}
+\Hom(T(U, V), T(U', V')) = \Hom(\mathbf{1}, T(V \sqcup U', U \sqcup V')) \tag{10.1.1}
+\end{equation}
+fournit alors une famille g\'en\'eratrice de l'espace vectoriel des morphismes de repr\'esentations de $T(U, V)$ dans $T(U', V')$, qui est une base si $n \geq |V \sqcup U'|$.
+
+\textsc{Repr\'esentation graphique}: le g\'en\'erateur de $\Hom(T(U, V), T(U', V'))$ correspondant \`a la bijection $\varphi$ de $V \sqcup U'$ avec $U \sqcup V'$ est repr\'esent\'e par
+\begin{enumerate}[label=\alph*)]
+\item en premi\`ere ligne, un ensemble de points not\'es $\bullet$ index\'es par $U$ et un ensemble de points not\'es $\circ$ index\'es par $V$;
+\item de m\^eme en deuxi\`eme ligne, les points \'etant index\'es par $U'$ et $V'$;
+\item entre les lignes, des traits joignant les points qui se correspondent par $\varphi$.
+\end{enumerate}
+
+Exemples:
+
+\begin{center}
+$\begin{array}{ccccc}
+\bullet\!\!\!-\!\!\!\bullet & \circ\!\!\!-\!\!\!\circ & \circ\!\!\!\smile\!\!\!\bullet & \bullet\!\!\!\frown\!\!\!\circ
+\end{array}$
+\end{center}
+
+sont respectivement l'identit\'e de $X$, celle de $X^\vee$, $\ev : X^\vee \otimes X \to \mathbf{1}$ et $\delta : \mathbf{1} \to X \otimes X^\vee$.
+
+Dans cette repr\'esentation graphique, la composition des morphismes correspond \`a joindre les graphes, \`a omettre les cercles qui apparaissent, et, si $k$ cercles \'etaient apparus, \`a multiplier le r\'esultat par $n^k$. Exemple-cl\'e:
+
+\begin{center}
+$\begin{array}{c}
+\begin{array}{cc}
+\bullet\!\!\!\smile\!\!\!\circ \\
+\circ\!\!\!\frown\!\!\!\bullet
+\end{array}
+= n \text{ fois l'identit\'e de } \mathbf{1} \text{ (repr\'esent\'ee par une page blanche).}
+\end{array}$
+\end{center}
+
+Le produit tensoriel correspond \`a la somme disjointe.
+
+La composition est donc donn\'ee par une formule polyn\^omiale en $n$. Rempla\c{c}ant $n$ par une ind\'etermin\'ee $T$, on obtient la cat\'egorie \`a produit tensoriel ACU librement engendr\'ee par un objet et son dual:
+
+\begin{definition}
+$\Rep^0(\GL(T))$ est la $\otimes$-cat\'egorie $\Z[T]$-lin\'eaire suivante:
+
+\textsc{objets}: paires d'ensembles finis $U$ et $V$. On note $X_0^{\otimes U} \otimes X_0^{\vee \otimes V}$ la paire $(U, V)$ vue comme objet de $\Rep^0(\GL(T))$;
+
+$\Hom(X_0^{\otimes U} \otimes X_0^{\vee \otimes V}, X_0^{\otimes U'} \otimes X_0^{\vee \otimes V'})$: le $\Z[T]$-module libre de base les bijections de $U \sqcup V'$ avec $V \sqcup U'$;
+
+\textsc{composition}: comme en 10.1, avec $n$ remplac\'e par $T$;
+
+\textsc{produit tensoriel}: somme disjointe.
+\end{definition}
+
+On d\'efinit $\Rep^0(\GL(t), A)$, $\Rep^1(\GL(t), A)$ et $\Rep(\GL(t), A)$ comme en 9.3, mutatis mutandis. La cat\'egorie $\Rep^0(\GL(t), A)$ a la propri\'et\'e universelle suivante.
+
+\begin{proposition}
+Soit $\mathcal{A}$ comme en 9.4. Le foncteur $F \mapsto F(X_0)$ est une \'equivalence de $\Hom^{\otimes}_A(\Rep^0(\GL(t), A), \mathcal{A})$ avec la cat\'egorie des objets de $\mathcal{A}$ admettant un dual et de dimension $t$, et de leurs isomorphismes.
+
+On a les m\^emes variantes qu'en 9.4 pour $\Rep^1$ et $\Rep$.
+\end{proposition}
+
+Pour $n$ un entier $\geq 0$ (resp.~$\leq 0$), notons $\eps$ l'\'el\'ement central $1$ (resp.~$-1$) de $\GL(|n|)$, et $X$ la super repr\'esentation $k^{|n|}$ de $\GL(|n|)$, purement de parit\'e $0$ (resp.~$1$). R\'ep\'etant la preuve de 6.2, on obtient le th\'eor\`eme suivant, parall\`ele \`a 9.6.
+
+\begin{theorem}
+Supposons que $t \in k$ soit un entier $n$. Le foncteur $X_0 \mapsto X$ de $\Rep(\GL(t), k)$ dans $\Rep(\GL(|n|), \eps)$ induit une \'equivalence
+\[
+\Rep(\GL(t), k)/(\text{n\'egligeables}) \to \Rep(\GL(|n|), \eps).
+\]
+\end{theorem}
+
+\begin{theorem}[parall\`ele \`a 9.7]
+Si $t$ n'est pas un entier, la cat\'egorie $\Rep(\GL(t), k)$ est ab\'elienne semi-simple. C'est donc une cat\'egorie tensorielle.
+\end{theorem}
+
+Plus pr\'ecis\'ement, on a
+
+\begin{proposition}[parall\`ele \`a 9.8]
+\begin{enumerate}[label=(\roman*)]
+\item Si $t$ n'est pas un entier, ou est un entier de valeur absolue $|t| \geq n - 1$, la cat\'egorie pseudo-ab\'elienne $\Rep(\GL(t), k)^{(n)}$ de $\Rep(\GL(t), k)$ engendr\'ee par les $T(p, q) := X_0^{\otimes p} \otimes X_0^{\vee \otimes q}$ pour $p + q \leq n$ est semi-simple. Plus pr\'ecis\'ement, elle contient des objets $Y_{\lambda, \mu}$ index\'es par les paires de partitions $\lambda, \mu$ avec $|\lambda| + |\mu| \leq n$, tels que $\End(Y_{\lambda, \mu}) = k$, que $\Hom(Y_{\lambda, \mu}, Y_{\lambda', \mu'}) = 0$ pour $(\lambda, \mu) \neq (\lambda', \mu')$ et que pour $p + q \leq n$, $T(p, q)$ soit somme de $Y_{\lambda, \mu}$ avec $|\lambda| \leq p$, $|\mu| \leq q$ et $p - q = |\lambda| - |\mu|$.
+\item Si $t$ n'est pas un entier, ou est un entier de valeur absolue $|t| \geq n$, la forme bilin\'eaire $\Tr(uv)$ sur $\Hom(X_0^{\otimes n}, X_0^{\otimes n})$ est non d\'eg\'en\'er\'ee.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+On proc\`ede par r\'ecurrence sur $n$ comme en 9.8.
+
+Si $n = 0$, $\Rep(\GL(t))^{(n)}$ est r\'eduite aux multiples de $\mathbf{1}$ et on v\'erifie (i)$_0$ en prenant $Y_{\emptyset, \emptyset} = \mathbf{1}$ pour $\emptyset$ la partition vide de l'entier $0$. Pour $n = 1$, prendre en outre $Y_{(1), \emptyset} = X$ et $Y_{\emptyset, (1)} = X^\vee$. La forme trace sur $\Hom(X_0^{\otimes n}, X_0^{\otimes n})$ est respectivement $uv$ et $tuv$, et ceci v\'erifie (ii)$_n$ pour $n = 0$ ou $1$.
+
+Supposons $n \geq 2$. Si $p - q = r - s$, on a $\Hom(T(p, q), T(r, s)) = 0$. Si $p - q = r - s$, tant $\Hom(T(p, q), T(r, s))$ que $\Hom(T(r, s), T(p, q))$ s'identifient \`a $\Hom(X^{\otimes m}, X^{\otimes m})$ pour $m = p + s = q + r$, et l'accouplement
+\begin{equation}
+\Tr(uv) : \Hom(T(p, q), T(r, s)) \otimes \Hom(T(r, s), T(p, q)) \to k \tag{10.6.1}
+\end{equation}
+correspond \`a la forme bilin\'eaire $\Tr(uv)$ sur $\End(X_0^{\otimes m})$ par cette identification.
+
+Si $p + q = n$ et que $r < p$ et $s < q$, $p - q = r - s$, on a $m < n$ et l'hypoth\`ese de r\'ecurrence (ii) assume que (10.6.1) est une dualit\'e parfaite. Si $|\lambda| < p$, $|\mu| < q$ et que $|\lambda| - |\mu| = p - q$, $Y_{\lambda, \mu}$, d\'ej\`a d\'efini par r\'ecurrence, est facteur direct de $T(|\lambda|, |\mu|)$ et
+\[
+\Tr(uv) : \Hom(T(p, q), Y_{\lambda, \mu}) \otimes \Hom(Y_{\lambda, \mu}, T(p, q)) \to k
+\]
+est non d\'eg\'en\'ere. Comme en 9.8, on en conclut que
+\begin{align}
+T(p, q) &= \bigoplus_{\substack{|\lambda| < p, |\mu| < q, \\ |\lambda| - |\mu| = p - q}} \Hom(Y_{\lambda, \mu}, T(p, q)) \otimes Y_{\lambda, \mu} \oplus T^*(p, q) \tag{10.6.2} \\
+\Hom(Y_{\lambda, \mu}, T^*(p, q)) &= \Hom(T^*(p, q), Y_{\lambda, \mu}) = 0 \tag{10.6.3}
+\end{align}
+pour $\lambda, \mu$ comme en (10.6.2).
+
+Le groupe $S_p \times S_q$ agit sur $T^*(p, q)$. On v\'erifie que cette action induit un isomorphisme
+\[
+k[S_p \times S_q] \isom \End(T^*(p, q)).
+\]
+Comme en (9.8.4), (i)$_n$ est v\'erifi\'e si on d\'efinit $Y_{\lambda, \mu}$ pour $|\lambda| = p$, $|\mu| = q$ par
+\begin{equation}
+T^*(p, q) = \bigoplus Y_{\lambda, \mu} \otimes \lambda \otimes \mu \tag{10.6.4}
+\end{equation}
+(d\'ecomposition $S_p \times S_q$-\'equivariante). Pour v\'erifier (ii) pour $n$, il reste \`a v\'erifier que si $t$ n'est pas un entier ou que $|t| \geq n$, pour toute partition $\lambda$ de $n$, on a pour les facteurs $Y_{\lambda, \emptyset}$ de $X_0^{\otimes n} = T(n, 0) = T^*(n, 0)$ la non-nullit\'e
+\begin{equation}
+\dim(Y_{\lambda, \emptyset}) \neq 0. \tag{10.6.5}
+\end{equation}
+
+Pour $\sigma$ dans $S_n$, notons $m(\sigma)$ le nombre de cycles de $\sigma$. Les $Y_\lambda := Y_{\lambda, \emptyset}$ pour $|\lambda| = n$ sont d\'efinis par la d\'ecomposition de $X_0^{\otimes n}$ en $\bigoplus Y_\lambda \otimes \lambda$, et on a donc
+\begin{equation}
+\dim Y_\lambda = \frac{1}{n!} \sum_\sigma \lambda(\sigma) \Tr(\sigma, X_0^{\otimes n}) = P_\lambda(t) \tag{10.6.6}
+\end{equation}
+pour $P_\lambda(T)$ le polyn\^ome $\frac{1}{n!} \sum_\sigma \lambda(\sigma) T^{m(\sigma)}$. Pour calculer le polyn\^ome $P_\lambda$, appliquons la m\^eme formule dans la cat\'egorie des repr\'esentations de $\GL(N)$, $N$ \'etant choisi assez grand pour que $\lambda_{N+1} = 0$. La repr\'esentation $Y_\lambda$ est ici celle de poids dominant $\lambda$, et sa dimension est donn\'ee par la formule de H. Weyl
+\begin{equation}
+\prod_{1 \leq i < j \leq N} ((\lambda_i - i) - (\lambda_j - j)) \Big/ \prod_{1 \leq i < j \leq N} (j - i). \tag{10.6.7}
+\end{equation}
+
+Posons $r := \lambda^*_1$. Le quotient (10.6.7) se simplifie en
+\begin{equation}
+\prod_{1 \leq i \leq r} \prod_{i+1 \leq j \leq N} ((\lambda_i - i) - (\lambda_j - j)) \Big/ \prod_{i+1 \leq j \leq N} (j - i). \tag{10.6.8}
+\end{equation}
+Le $i$-i\`eme facteur est
+\[
+\prod_{i+1 \leq j \leq r} ((\lambda_i - i) - (\lambda_j - j)) \cdot \prod_{r+1 \leq j \leq N} ((\lambda_i - i) + j) \Big/ \prod_{i+1 \leq j \leq N} (j - i)
+\]
+et
+\[
+\{ \cdots \} = (N - i + \lambda_i) \cdots (N - i + 1) / (\lambda_i + r - i)!
+\]
+Le quotient (10.6.7) est donc un polyn\^ome en $N$. Il co\'incide n\'ecessairement avec $P_\lambda(N)$ et (10.6.8) montre que les z\'eros du polyn\^ome $P_\lambda$ sont les entiers de la forme $j - i$ avec $1 \leq j \leq \lambda_i$, i.e. sont les entiers dans l'intervalle $[1 - \lambda^*_1, \lambda_1 - 1]$. La non-nullit\'e (10.6.5) en r\'esulte.
+\end{proof}
+
+\begin{remark}
+La dimension de $Y_{\lambda, \mu}$ est de m\^eme donn\'ee par une formule polyn\^omiale en $t$, $\dim Y_{\lambda, \mu} = P_{\lambda, \mu}(t)$. Le polyn\^ome $P_{\lambda, \mu}$ est explicit\'e dans (Deligne 1996). Ses z\'eros sont des entiers, et il donne lieu \`a des ph\'enom\`enes analogues \`a 7.5.
+\end{remark}
+
+\subsection{(parall\`ele \`a 8.10 compl\'et\'e par 8.20)}
+Soient $\mathcal{T}$ une cat\'egorie tensorielle sur $k$ et $X$ un objet de $\mathcal{T}$. Le foncteur qui \`a un $T$-sch\'ema $Y = \Spec(A)$ attache le groupe des automorphismes du $A$-module $X_A := A \otimes X$ est repr\'esentable par un $T$-sch\'ema en groupe, qu'on notera $\GL(X)$. Le foncteur $Y \mapsto \End_A(X_A)$ est en effet repr\'esent\'e par l'espace affine $\End(X)$, i.e. par $\Spec(\Sym^*(\End(X)^\vee))$, et $\GL(X)$ est le sous-sch\'ema ferm\'e de $\End(X) \times \End(X)$ d\'efini par l'\'equation $gh = \Id$: le noyau d'une double fl\`eche de $\End(X) \times \End(X)$ dans $\End(X)$.
+
+L'action sur $X$ du groupe fondamental $\pi$ de $\mathcal{T}$ d\'efinit un homomorphisme $\eps : \pi \to \GL(X)$. On note $\Rep(\GL(X), \eps)$ la cat\'egorie des repr\'esentations $\rho : \GL(X) \to \GL(V)$ de $\GL(X)$ sur un objet de $\mathcal{T}$ telles que $\rho \circ \eps$ soit l'action canonique de $\pi$ sur $V$. C'est une cat\'egorie tensorielle sur $k$ et, par construction, l'action de $\GL(X)$ sur $X$ fait de $X$ un objet de $\Rep(\GL(X), \eps)$. Si $X$ est de dimension $t$, le $\otimes$-foncteur $X_0 \mapsto X$ de $\Rep(\GL(t), k)$ dans $\mathcal{T}$ (10.3) se factorise donc par le foncteur analogue
+\begin{equation}
+\Rep(\GL(t), k) \to \Rep(\GL(X), \eps). \tag{10.8.1}
+\end{equation}
+
+\begin{proposition}[parall\`ele \`a 8.11]
+Le foncteur (10.8.1) est surjectif sur les $\Hom$.
+\end{proposition}
+
+\begin{lemma}
+Si $n \neq m$, $\Hom_{\GL(X)}(\mathbf{1}, X^{\otimes n} \otimes X^{\vee \otimes m}) = 0$.
+\end{lemma}
+
+Un espace vectoriel de dimension finie sur $k$ sera identifi\'e \`a un objet de $\mathcal{T}$ par $V \mapsto V \otimes \mathbf{1}$. Un espace vectoriel sera de m\^eme identifi\'e \`a un Ind-objet de $\mathcal{T}$, et par l\`a un sch\'ema affine sur $k$ \`a un sch\'ema affine en $\mathcal{T}$. Exemple: $\mathbb{G}_m$, vu comme sch\'ema en $\mathcal{T}$, repr\'esente le foncteur qui \`a $Y = \Spec(A)$ associe le groupe multiplicatif de la $k$-alg\`ebre $\Hom(\mathbf{1}, A)$.
+
+\begin{proof}
+On dispose d'un homomorphisme $\mathbb{G}_m \to \GL(X)$, qui envoie $\lambda$ dans $\mathbb{G}_m$ sur la multiplication par $\lambda$. Sur $X^{\otimes n} \otimes X^{\vee \otimes m}$, l'action est par $\lambda^{n-m}$. Si $n \neq m$, les invariants sont donc r\'eduits \`a z\'ero.
+\end{proof}
+
+\subsection{}
+Le crochet $xy - yx$ fait de $\End(X)$ une alg\`ebre de Lie dans $\mathcal{T}$, que nous noterons $\mathfrak{gl}(X)$. Comme classiquement, une action de $\GL(X)$ sur un objet $V$ induit une action de $\mathfrak{gl}(X)$, que l'on peut construire \`a partir de l'action des groupes $\GL(X)(A)$ sur $V_A = V \otimes A$ pour $A$ un alg\`ebre commutative dans $\mathcal{T}$ de la forme $\mathbf{1} \oplus M$ avec $M^2 = 0$.
+
+Puisqu'un $\otimes$-foncteur commute aux $\Hom$ respecte l'isomorphisme de $\Hom(V, W)$ avec $\Hom(\mathbf{1}, \iHom(V, W))$, il suffit de v\'erifier la surjectivit\'e 10.9 pour $\Hom(\mathbf{1}, X_0^{\otimes n} \otimes X_0^{\vee \otimes m})$. Par 10.10, il suffit de consid\'erer le cas $n = m$, qui revient \`a la surjectivit\'e de $k[S_n] \to \End_{\GL(X)}(X^{\otimes n})$. Cette surjectivit\'e r\'esulte de celle de
+\begin{equation}
+k[S_n] \to \End_{\mathfrak{gl}(X)}(X^{\otimes n}). \tag{10.11.1}
+\end{equation}
+
+Pour $n = 1$, (10.11.1) affirme que les seuls endomorphismes de $X$ qui commutent \`a l'action de $\mathfrak{gl}(X)$ sont les multiples de l'identit\'e. On montrera plus pr\'ecis\'ement que le commutant de $\mathfrak{gl}(X)$ dans $\End(X)$, i.e. le centre de $\End(X)$, est l'image du morphisme ``unit\'e'': $\mathbf{1} \to \End(X)$.
+
+\begin{lemma}
+Pour tout objet $Y$ d'une cat\'egorie tensorielle, le centre de $\End(Y)$ est r\'eduit \`a l'image de l'unit\'e $\mathbf{1} \to \End(Y)$.
+\end{lemma}
+
+\begin{proof}
+Le crochet $[\,] : \End(Y) \otimes \End(Y) \to \End(Y)$ fournit par d\'eplacement du premier facteur de gauche \`a droite un morphisme
+\begin{equation}
+\End(Y) \to \End(Y)^\vee \otimes \End(Y) \tag{10.12.1}
+\end{equation}
+dont le centre de $\End(Y)$ est le noyau. Le morphisme (10.12.1) est la diff\'erence de deux morphismes analogues, d\'eduits des multiplications \`a gauche $m_g$ et \`a droite $m_d$. Repr\'esentation graphique, pour $\End(Y)$ identifi\'e \`a $Y \otimes Y^\vee$, repr\'esent\'e par $\bullet\,\circ$, et $\End(Y)^\vee = (Y \otimes Y^\vee)^\vee = Y^\vee \otimes Y$ repr\'esent\'e par $\circ\,\bullet$:
+
+$m_g$:
+\begin{center}
+$\begin{array}{c}
+\begin{picture}(60,30)
+\put(5,15){$\bullet$} \put(15,15){$\circ$} \put(25,15){$\circ$} \put(35,15){$\bullet$}
+\put(10,18){\line(0,1){8}} \put(10,26){\line(1,0){25}} \put(35,18){\line(0,1){8}}
+\put(10,12){\line(0,-1){8}} \put(10,4){\line(1,0){25}} \put(35,12){\line(0,-1){8}}
+\end{picture}
+\end{array}$
+\end{center}
+$m_d$:
+\begin{center}
+$\begin{array}{c}
+\begin{picture}(60,30)
+\put(5,15){$\bullet$} \put(15,15){$\circ$} \put(25,15){$\circ$} \put(35,15){$\bullet$}
+\put(10,18){\line(0,1){8}} \put(10,26){\line(1,0){10}} \put(20,18){\line(0,1){8}}
+\put(25,18){\line(0,1){8}} \put(25,26){\line(1,0){10}} \put(35,18){\line(0,1){8}}
+\put(10,12){\line(0,-1){8}} \put(10,4){\line(1,0){10}} \put(20,12){\line(0,-1){8}}
+\put(25,12){\line(0,-1){8}} \put(25,4){\line(1,0){10}} \put(35,12){\line(0,-1){8}}
+\end{picture}
+\end{array}$
+\end{center}
+donnant lieu aux morphismes $\End(Y) \to \End(Y)^\vee \otimes \End(Y)$
+
+\begin{center}
+$\begin{array}{cc}
+\begin{picture}(50,30)
+\put(10,15){$\bullet$} \put(20,15){$\circ$} \put(30,15){$\circ$} \put(40,15){$\bullet$}
+\put(15,18){\line(0,1){7}} \put(15,25){\line(1,0){20}} \put(35,18){\line(0,1){7}}
+\end{picture}
+&
+\begin{picture}(50,30)
+\put(10,15){$\bullet$} \put(20,15){$\circ$} \put(30,15){$\circ$} \put(40,15){$\bullet$}
+\put(15,18){\line(0,1){7}} \put(15,25){\line(1,0){10}} \put(25,18){\line(0,1){7}}
+\put(30,18){\line(0,1){7}} \put(30,25){\line(1,0){10}} \put(40,18){\line(0,1){7}}
+\end{picture}
+\end{array}$
+\end{center}
+
+R\'eordonnant les facteurs au but, on reconna\^it dans ces morphismes les morphismes $Y \otimes Y^\vee = \mathbf{1} \otimes Y \otimes Y^\vee \to Y \otimes Y^\vee \otimes Y \otimes Y^\vee$ et $Y \otimes Y^\vee = Y \otimes Y^\vee \otimes \mathbf{1} \to Y \otimes Y^\vee \otimes Y \otimes Y^\vee$. Il nous faut v\'erifier que leur diff\'erence a pour noyau l'image de $\delta : \mathbf{1} \to Y \otimes Y^\vee$.
+
+Si $Y = 0$, l'assertion est triviale. Sinon, l'identit\'e de $Y$ est non nulle, et $\delta : \mathbf{1} \to Y \otimes Y^\vee$, non nul, est un monomorphisme, de par la simplicit\'e de l'objet $\mathbf{1}$. Soit $Z$ le conoyau de $\delta$. La filtration $\mathbf{1} \subset Y \otimes Y^\vee$ de $Y \otimes Y^\vee$ founit une filtration de $Y \otimes Y^\vee \otimes Y \otimes Y^\vee$ de quotients successifs $\mathbf{1}$, $Z \oplus Z$ et $Z \otimes Z$. Les morphismes consid\'er\'es induisent les deux morphismes \'evident de $Z = Y \otimes Y^\vee / \mathbf{1}$ dans $Z \oplus Z$ et que leur diff\'erence ait un noyau r\'eduit \`a $\mathbf{1}$ en r\'esulte.
+\end{proof}
+
+\subsection{}
+Notre preuve de la surjectivit\'e de (10.11.1) est calqu\'ee sur le cas o\`u $\mathcal{T}$ est la cat\'egorie tensorielle des super espaces vectoriels, tel que trait\'e par A. N. Sergeev (1984). Il suffit de montrer que, pour l'action de $\mathfrak{gl}(X)$ sur $X^{\otimes n}$, le commutant de $\mathfrak{gl}(X)$ dans $\End(X^{\otimes n})$ est r\'eduit \`a l'image de $k[S_n]$. Si $U\mathfrak{gl}(X)$ est l'alg\`ebre enveloppante de $\mathfrak{gl}(X)$, ce commutant est le commutant dans $\End(X^{\otimes n})$ de l'image de $U\mathfrak{gl}(X)$.
+
+\begin{lemma}
+Pour l'action naturelle de $\mathfrak{gl}(X)$ sur $X^{\otimes n}$, l'image de $U\mathfrak{gl}(X)$ est le commutant dans $\End(X^{\otimes n})$ de l'image de $k[S_n]$.
+\end{lemma}
+
+Montrons que 10.14 implique la surjectivit\'e de (10.11.1). L'action de $S_n$ sur $X^{\otimes n}$ fournit une d\'ecomposition (1.10.3) de $X^{\otimes n}$ en $\bigoplus (X^{\otimes n})_\lambda \otimes \lambda$. Il r\'esulte de 10.12 que si $Y$ et $Z$ sont non nuls, le commutant de $\End(Y)$ dans $\End(Y \otimes Z) = \End(Y) \otimes \End(Z)$ est r\'eduit \`a $\End(Z)$. Le commutant de $S_n$ dans $\End(X^{\otimes n})$ est la somme des $\End((X^{\otimes n})_\lambda)$. Il a pour commutant la somme des $\End(\lambda)$ pour $(X^{\otimes n})_\lambda \neq 0$, qui n'est autre par (1.10.2) que l'image de $k[S_n]$.
+
+\begin{proof}[Preuve de 10.14]
+L'alg\`ebre de Lie $\mathfrak{gl}(X)$ est l'alg\`ebre de Lie d\'eduite de l'alg\`ebre associative \`a unit\'e $\End(X)$, et son action sur $X$ est d\'eduite de la structure de $\End(X)$-module de $X$. Soient plus g\'en\'eralement $A$ un objet de $\mathcal{T}$ muni d'une structure d'alg\`ebre associative \`a unit\'e, et $M$ un $A$-module. Pour $n \geq 0$, $M^{\otimes n}$ est alors un $A^{\otimes n}$-module, et donc aussi un $(A^{\otimes n})^{S_n}$-module. Dans le cas particulier de $\End(X)$ et $X$, $A^{\otimes n}$ est $\End(X^{\otimes n})$, et $(A^{\otimes n})^{S_n}$ le commutant de $S_n$.
+
+Soit $A^{\Lie}$ l'alg\`ebre de Lie d\'eduite de $A$. Elle agit sur $M$, donc sur $M^{\otimes n}$, ceci fait de $M^{\otimes n}$ un $U(A^{\Lie})$-module, et 10.14 est un cas particulier du
+
+\begin{lemma}[cf. A. N. Sergeev (1984) prop.~5]
+L'image de $U(A^{\Lie})$ dans $\End(M^{\otimes n})$ co\'incide avec l'image de $(A^{\otimes n})^{S_n}$ dans $\End(M^{\otimes n})$.
+\end{lemma}
+
+\begin{proof}
+Soient $q_i$ ($1 \leq i \leq n$) les morphismes naturels $x \mapsto 1 \otimes \cdots \otimes x \otimes \cdots \otimes 1$ ($x$ en $i$-\`eme position) de $A$ dans $A^{\otimes n}$. L'action de $A^{\Lie}$ sur $M^{\otimes n}$ est d\'eduite du morphisme
+\begin{equation}
+\sum q_i : A^{\Lie} \to (A^{\otimes n})^{S_n^{\Lie}} \subset A^{\otimes n\;\Lie}, \tag{10.15.1}
+\end{equation}
+et la structure de $U(A^{\Lie})$-module de $M^{\otimes n}$ est donc d\'eduite du morphisme
+\begin{equation}
+U(A^{\Lie}) \to (A^{\otimes n})^{S_n} \tag{10.15.2}
+\end{equation}
+qui correspond \`a (10.15.1) par adjonction. Ceci prouve l'inclusion $\subset$.
+
+Le produit sym\'etris\'e $\sum_\sigma x_{\sigma(1)} \cdots x_{\sigma(n)}$ de $(A^{\Lie})^{\otimes n}$ dans $U A^{\Lie}$ se factorise par $\Sym_n(A^{\Lie})$. Le lemme 10.15 r\'esulte de ce que
+
+\begin{lemma}
+Le morphisme compos\'e
+\begin{equation}
+\Sym_n(A^{\Lie}) \to U(A^{\Lie}) \to (A^{\otimes n})^{S_n} \tag{10.16.1}
+\end{equation}
+est un isomorphisme.
+\end{lemma}
+
+\begin{proof}
+Notons $\ast$ le produit dans l'alg\`ebre $A$. Le compos\'e de (10.16.1) avec l'isomorphisme $(A^{\otimes n})^{S_n} \to (A^{\otimes n})^{S_n} = \Sym_n(A)$ est, avec des notations \'evidentes
+\begin{equation}
+x_1 \cdots x_n \longmapsto \sum_{f : [1,n] \to [1,n]} \prod_{f(j) = i} \ast x_j, \tag{10.16.2}
+\end{equation}
+le produit dans $A$ \'etant pris dans l'ordre des $j$. Filtrons $A$ par $A \supset (\text{image de l'unit\'e } \mathbf{1} \to A) \supset 0$. Par produit tensoriel et passage aux coinvariants, cette filtration en fournit une sur $\Sym_n(A)$. Notons-la $F$. On laisse au lecteur le soin de v\'erifier que (10.16.2) respecte $F$ et induit sur chaque $\Gr_i^F$ la multiplication par un entier strictement positif. Le lemme en r\'esulte.
+\end{proof}
+\end{proof}
+\end{proof}
+
+\begin{proposition}[parall\`ele \`a 8.19]
+Quel que soit $t$, la $\otimes$-cat\'egorie $\Rep(\GL(t), k)$ admet un plongement pleinement fid\`ele dans une cat\'egorie tensorielle sur $k$.
+\end{proposition}
+
+\begin{proof}
+Choisissons $t_1$ et $t_2$ non entiers tels que $t_1 + t_2 = t$. Consid\'erons le produit tensoriel des cat\'egories $\Rep^0(\GL(t_1), k)$ et $\Rep^0(\GL(t_2), k)$, d'objets les $Z_1 \otimes Z_2$ avec $Z_i$ dans $\Rep^0(\GL(t_i), k)$, et de groupes $\Hom$ les
+\[
+\Hom(Z_1' \otimes Z_2', Z_1'' \otimes Z_2'') = \Hom(Z_1', Z_1'') \otimes \Hom(Z_2', Z_2'').
+\]
+C'est la cat\'egorie \`a produit tensoriel ACU librement engendr\'ee par des objets $X_1$ et $X_2$ de dimension $t_1$ et $t_2$ et leurs duaux. On d\'eduit de 10.5 et 10.6 que son enveloppe pseudo-ab\'elienne est une cat\'egorie ab\'elienne semi-simple, d'objets simples les $Y_1 \otimes Y_2$ pour $Y_i$ simple dans $\Rep(\GL(t_i), k)$. On la note $\Rep(\GL(t_1) \times \GL(t_2), k)$. Elle est tensorielle sur $k$. L'objet $X := X_1 \oplus X_2$ est de dimension $t$. Avec les notations de 10.8, il d\'efinit un $\otimes$-foncteur (10.8.1) de $\Rep(\GL(t), k)$ dans $\Rep(\GL(X), \eps)$. Ce foncteur est surjectif sur les $\Hom$ (10.9). Par le m\^eme argument qu'en 10.9, pour v\'erifier qu'il est injectif sur les $\Hom$, il suffit de le v\'erifier pour $\Hom(\mathbf{1}, X_0^{\otimes n} \otimes X_0^{\vee \otimes m})$, ou, ce qui revient au m\^eme, pour $\Hom(X_0^{\otimes m}, X_0^{\otimes n})$. Si $m \neq n$, $\Hom(X_0^{\otimes m}, X_0^{\otimes n}) = 0$ et l'assertion est triviale. Si $m = n$, $\Hom(X_0^{\otimes n}, X_0^{\otimes n}) = k[S_n]$. L'action de $S_n$ sur $X^{\otimes n}$ induit son action sur $X_1^{\otimes n}$ et, puisque $k[S_n]$ s'injecte dans $\Hom(X_1^{\otimes n}, X_1^{\otimes n})$, qu'il s'injecte dans $\Hom(X^{\otimes n}, X^{\otimes n})$ en r\'esulte.
+\end{proof}
+
+\begin{question}[parall\`ele \`a 8.21]
+Soit $X$ un objet d'une cat\'egorie tensorielle sur $k$.
+
+\textup{(10.18.1)} Si $\dim(X)$ n'est pas un entier, le foncteur (10.8.1) de $\Rep(\GL(\dim X), k)$ dans $\Rep(\GL(X), \eps)$ est-il une \'equivalence?
+
+\textup{(10.18.2)} Si $\dim(X)$ est un entier $n$, la cat\'egorie $\Rep(\GL(X), \eps)$, munie de l'objet $X$, est-elle \'equivalente \`a l'une des suivantes?
+\begin{enumerate}[label=(\alph*)]
+\item Pour $p$ et $q$ des entiers de diff\'erence $n$: la cat\'egorie des super repr\'esentations de $\GL(p|q)$, telles que la graduation modulo $2$ soit donn\'ee par l'action de la matrice diagonale $(1, \ldots, 1, -1, \ldots, -1)$ avec $p$ ``$1$'' et $q$ ``$-1$''; y prendre la repr\'esentation \'evidente.
+\item Pour un choix fix\'e de $t_1$ et $t_2$ comme dans la preuve de 10.17: la cat\'egorie $\Rep(\GL(X), \eps)$ de 10.17, munie de $X$.
+\end{enumerate}
+\end{question}
+
+
+\section*{Appendice A. Invariants pour $\OSp(1, 2n)$}
+\addcontentsline{toc}{section}{Appendice A}
+
+Soit $V$ la repr\'esentation naturelle du super groupe $\OSp(1, 2n)$: elle est de dimension $(1, 2n)$ et est munie d'une forme bilin\'eaire sym\'etrique invariante $B : V \otimes V \to k$. On note $B^\vee$ la forme duale. C'est un \'el\'ement invariant de $V \otimes V$. Puisque $-1$ est dans $\OSp(1, 2n)$, $V^{\otimes \ell}$ ne contient d'\'el\'ement invariant non nul que pour $\ell$ pair.
+
+\begin{theorem}
+Tout \'el\'ement de $V^{\otimes 2\ell}$ invariant sous $\OSp(1, 2n)$ est combinaison lin\'eaire des transform\'es par $S_{2\ell}$ de la puissance tensorielle $B^{\vee \ell} := B^{\vee \otimes \ell}$ de $B^\vee$.
+\end{theorem}
+
+\begin{proof}
+La formation des invariants \'etant compatible \`a l'extension du corps de base $k$, on se ram\`ene \`a supposer que $V$ admet une base dans laquelle $B$ ait la forme standard. Pour nous rassurer, choisissons une telle base:
+\begin{itemize}[label={},leftmargin=*]
+\item base de la partie paire $V^+$ de $V$: $e_0$;
+\item base de la partie impaire $V^-$ de $V$: $e_i$, $e_i'$ ($1 \leq i \leq n$);
+\item \'el\'ements de matrice non nuls de $B$: $B(e_0, e_0) = 1$, $B(e_i, e_i') = 1$, $B(e_i', e_i) = -1$.
+\end{itemize}
+
+Autre description: apr\`es toute extension des scalaires de $k$ \`a une super alg\`ebre commutative, et pour tous vecteurs pairs $x$ et $x'$ de coordonn\'ees $(x_0, \chi_i, \chi_i')$ et $(x_0', \chi_i', \chi_i')$,
+\[
+B(x, x') = x_0 x_0' - \sum (\chi_i \chi_i' - \chi_i' \chi_i).
+\]
+
+L'\'el\'ement $B^\vee$ est
+\[
+B^\vee = e_0 \otimes e_0 - \sum (e_i \otimes e_i' - e_i' \otimes e_i).
+\]
+
+Pour $v$ dans $V^-$, soit $D_v$ l'\'el\'ement impair de $\mathfrak{osp}(1, 2n)$ tel que $D_v(e_0) = v$. Pour $w$ dans $V^-$, on a
+\[
+D_v(w) = -B(v, w) e_0.
+\]
+Pour $v = e_i$ (resp.~$e_i'$), on \'ecrira plut\^ot $D_i$ (resp.~$D_i'$). Dans l'alg\`ebre enveloppante, soit
+\[
+D = \sum (D_i D_i' - D_i' D_i).
+\]
+C'est un \'el\'ement de l'id\'eal d'augmentation de $U\mathfrak{osp}$, fixe sous l'action adjointe de $\Sp(2n)$. Il annule tout $\mathfrak{osp}$-invariant.
+
+Notons $s$ la sym\'etrisation $\frac{1}{a!} \sum_\sigma$ pour l'action de $S_a$ sur $V^{\otimes a}$. Pour $\partial$ et $\partial'$ deux \'el\'ements impairs de $\mathfrak{osp}(1, 2n)$, on a
+\begin{align*}
+\partial \partial' (e_0^a) &= \sum_{1 \leq b \leq a} \sigma_b(\partial \partial' (e_0) \otimes e_0^{a-1}) \\
+&\quad + \sum_{1 \leq b < c \leq a} \sigma_{b,c}(\partial(e_0) \otimes \partial'(e_0) \otimes e_0^{a-2}) \\
+&\quad - \sum_{1 \leq c < b \leq a} \sigma_{b,c}(-\partial'(e_0) \otimes \partial(e_0) \otimes e_0^{a-2}),
+\end{align*}
+$\sigma_b$ (resp.~$\sigma_{b,c}$) \'etant une permutation envoyant $1$ sur $b$ (resp.~et $2$ sur $c$). On laisse au lecteur le soin de v\'erifier que $D(e_0) = -2n e_0$. On a donc
+\begin{align}
+D(e_0^a) &= -2na \, e_0^a + a(a-1) s \, e_0^{a-2} \sum (e_i \otimes e_i' - e_i' \otimes e_i) \tag{A.1.1} \\
+&= (a(a-1) - 2na) e_0^a - a(a-1) s(e_0^{a-2} B^\vee) \notag \\
+&= -a(2n + 1 - a) e_0^a - a(a-1) s(B^\vee e_0^{a-2}). \notag
+\end{align}
+
+D'apr\`es la th\'eorie des invariants pour le sous-groupe $\Sp(2n)$ de $\OSp(1, 2n)$, tout invariant de $\Sp(2n)$ dans $V^{\otimes a}$ est combinaison lin\'eaire de transform\'es par $S_a$ des \'el\'ements $B^{\vee m} \otimes e_0^{a-2m}$. Filtrons l'espace $I$ de ces invariants par les sous-espaces $I^{\geq p}$ engendr\'es par les $\sigma(B^{\vee m} e_0^{a-2m})$ pour $\sigma$ dans $S_a$ et $m \geq p$. D'apr\`es (A.1.1), cette filtration est stable par $D$ et $D$ agit sur $\Gr^p I$ par multiplication par $-(a - 2p)(2n + 1 - (a - 2p))$. Pour $a = 2\ell$, cette valeur propre n'est nulle que pour $p = \ell$ et, puisque $D$ annule tout $\OSp$ invariant, l'espace des $\OSp$ invariants est r\'eduit \`a $I^{\geq \ell}$.
+
+Une variante de cette construction permet de d\'etermine les invariants de $\SOSp(1, 2n)$ dans les puissances tensorielles de $V$. Dans les puissances tensorielles paires (resp.~impaires), ce sont les invariants (resp.~anti-invariants) de $\OSp(1, 2n)$.
+\end{proof}
+
+\begin{lemma}
+Le sous-espace des $\SOSp$-invariants de $V^{\otimes (2n+1)}$ est de dimension $1$, engendr\'e par un \'el\'ement $b$ de la forme
+\begin{equation}
+b = s \sum A_m \, e_0^{2n+1-2m} B^{\vee m} \tag{A.2.1}
+\end{equation}
+avec $A_0 = 0$.
+\end{lemma}
+
+\begin{proof}
+La preuve de A1 montre que le seul $\Gr^p(I)$ sur lequel $D$ s'annule est $\Gr^0(I)$: le noyau de $D$ sur $I$ est de dimension un, et s'envoie sur $I/I^{\geq 1}$. Puisque $I/I^{\geq 1}$ est fixe sous $S_{2n+1}$, le noyau de $D$ est fixe lui aussi, engendr\'e par un \'el\'ement de la forme (A.2.1). Il reste \`a v\'erifier qu'il existe un \'el\'ement non nul dans $V^{\otimes 2n+1}$ fixe sous $\mathfrak{osp}$. Soit $b$ de la forme (A.2.1). Puisqu'il est fixe sous $\Sp$, pour qu'il soit fixe sous $\mathfrak{osp}$, il suffit qu'il soit fixe sous un $D_i$. On a
+\[
+D_i b = s \sum e_i (2n + 1 - 2m) A_m \, e_0^{2n-2m} B^{\vee m}.
+\]
+D'autre part,
+\[
+s(e_i (e_0 \otimes e_0 - B^\vee)^n) = 0.
+\]
+C'est en effet un \'el\'ement de $\Sym^{2n+1}(V^-)$, d'espace sous-jacent
+\[
+|\Sym^{2n+1}(V^-)| = \wedge^{2n+1} |V^-| = 0.
+\]
+On a
+\[
+s(e_i (e_0 \otimes e_0 - B^\vee)^n) = s \sum e_i (-1)^m \binom{n}{m} e_0^{2n-2m} B^{\vee m}
+\]
+et $b$ est invariant si
+\begin{equation}
+A_m = (-1)^m \binom{n}{m} / (2n + 1 - 2m). \tag{A.2.2}
+\end{equation}
+\end{proof}
+
+\begin{proposition}
+Pour $b$ comme en A.2, les invariants de $\SOSp(1, 2n)$ dans $V^{\otimes (2\ell+1)}$ sont les combinaisons lin\'eaires de transform\'es par $S_{2\ell+1}$ de $b \otimes B^{\vee \ell-n}$. Il n'en existe de non nul que pour $\ell \geq n$.
+\end{proposition}
+
+\begin{proof}
+Filtrons l'espace $I$ des $\Sp(2n)$-invariants comme dans la preuve de A.1. Cette fois, le noyau de $D$ agissant sur $I$ est contenu dans $I^{\geq \ell-n}$, et se projette isomorphiquement sur $\Gr^{\ell-n}(I)$. La proposition r\'esulte de ce que les invariants propos\'es engendrent $\Gr^{\ell-n}(I)$.
+\end{proof}
+
+\begin{remark}
+La preuve de A1 et A3 montre que l'action de $D$ sur l'espace des invariants $I(V^{\otimes a})$ de $\Sp(2n)$ dans $V^{\otimes a}$ est semi-simple. Les entiers $(a - 2m)(2n + 1 - (a - 2m))$ sont en effets distincts (observer que le premier facteur a la parit\'e de $a$, le second la parit\'e oppos\'ee). De plus, $(V^{\otimes a})^{\SOSp}$ est le noyau de $D$ agissant sur $I(V^{\otimes a})$. La repr\'esentation $V$ \'etant fid\`ele et autoduale, tout repr\'esentation $W$ de $\SOSp(1, 2n)$ est sous-quotient d'une somme de $V^{\otimes a} \otimes X_a$, avec action triviale sur $X_a$, et h\'erite de la m\^eme propri\'et\'e. Le foncteur $W \mapsto W^{\SOSp}$ est donc exact. On retrouve ainsi le fait connu que la cat\'egorie des repr\'esentations de $\SOSp(1, 2n)$ est semi-simple.
+\end{remark}
+
+
+\section*{Appendix B. Proof of the Conjecture in 8.20, by Victor Ostrik}
+\addcontentsline{toc}{section}{Appendix B}
+
+The goal of this appendix is to present proofs of Conjecture from Section 8.20 and Conjecture 8.21.1. We preserve the notations from Section 8. Thus $k$ is a field of characteristic $0$, $\mathcal{T}$ is a tensor category over $k$, $T$ is an object of $\mathcal{T}$ with the structure of algebra as in 8.2, $I = \Spec(T)$ and $S_I$ is the group scheme (in $\mathcal{T}$) of automorphisms of $I$, see 8.10. Finally $\eps : \pi \to S_I$ is the natural homomorphism from the fundamental group $\pi$ of $\mathcal{T}$ and $\Rep(S_I, \eps)$ is the full subcategory of $\Rep(S_I)$ consisting of such representations $\rho : S_I \to \GL(V)$ that the action $\rho \circ \eps$ of $\pi$ on $V$ coincides with the canonical action, see 8.20. The following result is conjectured in 8.20:
+
+\begin{proposition}
+Any object of the category $\Rep(S_I, \eps)$ is isomorphic to a subquotient of a direct sum of some tensor powers of $T$.
+\end{proposition}
+
+\begin{proof}
+Let $\mathcal{C}$ be the full subcategory of $\Rep(S_I, \eps)$ whose objects are subquotients of sums of tensor powers of $T$. It is clear that $\mathcal{C}$ is a tensor category. Let $H$ be the fundamental group of $\mathcal{C}$. Obviously, $S_I$ is contained in (ind-objects of) $\mathcal{C}$ and acts functorially compatibly with tensor products on the objects of $\mathcal{C}$. Thus we have a homomorphism $S_I \to H$. On the other hand since $H$ acts on $T$ we have an obvious map $H \to \GL(T)$ and since $T$ generates $\mathcal{C}$ this is actually an embedding $H \subset \GL(T)$. Moreover since $H$ respects the multiplication morphism $T \otimes T \to T$ we have $H \subset S_I \subset \GL(T)$. The composition of homomorphisms $S_I \to H \subset S_I$ is the identity and therefore $H = S_I$. Now the result follows from (Deligne 1990) 8.17.
+\end{proof}
+
+\begin{corollary}[cf. Conjecture 8.21.1]
+Let $F : \Rep(S_t, k) \to \mathcal{T}$ be a tensor functor preserving the commutativity constraint (= $\otimes$-foncteur ACU). Let $F_1$ be the corresponding functor $\Rep(S_t, k) \to \Rep(S_I, \eps)$, see 8.20.1. Assume that $t$ is not an integer $\geq 0$. Then $F_1$ is an equivalence of tensor categories.
+\end{corollary}
+
+\begin{proof}
+First we note that the functor $F_1$ is fully faithful. Indeed according to 8.11 the functor $F_1$ is surjective on Hom's. Arguing in the same way as in 8.19 we see that to prove its injectivity on Hom's we need to prove that $[U]_I$ is nonzero. But this is obvious since $\dim [U]_I = t(t-1)\cdots(t-|U|+1) \neq 0$. Now Corollary is an immediate consequence of Proposition B1.
+\end{proof}
+
+With the notations of 10.18, a parallel argument shows that any object of the category $\Rep(\GL(X), \eps)$ is isomorphic to a subquotient of a sum of $X^{\otimes p} \otimes X^{\vee \otimes q}$, and that the answer to the question (10.18.1) is positive.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Deligne1990}
+P. Deligne, \textit{Cat\'egories tannakiennes}, The Grothendieck Festschrift, Vol.~II, 111--195, Progr. Math., 87, Birkh{\"a}user Boston, 1990.
+
+\bibitem{DeligneMilne1982}
+P. Deligne and J. Milne, \textit{Tannakian categories}, Hodge cycles, motives, and Shimura varieties, Lecture Notes in Mathematics, 900, Springer-Verlag, 1982.
+
+\bibitem{Deligne1996}
+P. Deligne, \textit{La s\'erie exceptionnelle de groupes de Lie}, C. R. Acad. Sci. Paris S\'er. I Math. \textbf{322} (1996), 321--326.
+
+\bibitem{Frobenius1900}
+G. Frobenius, \textit{\"Uber die Charaktere der symmetrischen Gruppe}, Sitzungsberichte der K\"oniglich Preu{\ss}ischen Akademie der Wissenschaften zu Berlin (1900), 516--534.
+
+\bibitem{Frame1954}
+J. S. Frame, G. de B. Robinson and R. M. Thrall, \textit{The hook graphs of the symmetric group}, Canad. J. Math. \textbf{6} (1954), 316--324.
+
+\bibitem{GelfandKazhdan1992}
+S. Gelfand and D. Kazhdan, \textit{Examples of tensor categories}, Invent. Math. \textbf{109} (1992), 595--617.
+
+\bibitem{HalversonRam2003}
+T. Halverson and A. Ram, \textit{Partition algebras}, European J. Combin. \textbf{26} (2005), 869--921.
+
+\bibitem{Saavedra1972}
+N. Saavedra Rivano, \textit{Cat\'egories Tannakiennes}, Lecture Notes in Mathematics, 265, Springer-Verlag, 1972.
+
+\bibitem{Sergeev1984}
+A. N. Sergeev, \textit{Tensor algebra of the identity representation as a module over the Lie superalgebras $\mathfrak{gl}(n,m)$ and $Q(n)$}, Math. USSR Sbornik \textbf{51} (1985), 419--427.
+
+\bibitem{Wenzl1988}
+H. Wenzl, \textit{On the structure of Brauer's centralizer algebras}, Ann. of Math. \textbf{128} (1988), 173--193.
+
+\end{thebibliography}
+
+\end{document}

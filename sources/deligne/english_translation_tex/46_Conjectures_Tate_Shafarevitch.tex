@@ -1,0 +1,858 @@
+% ------------------------------------------------------------
+% English working translation layer.
+% Source file: papers_30_59/46_Preuve_des_conjectures_de_Tate_et_de_Shafarevitch_d_apres_G_Faltings/46_Conjectures_Tate_Shafarevitch.tex
+% Modern title: Proof of the Tate and Shafarevich conjectures, after G. Faltings
+% ------------------------------------------------------------
+
+% Preuve des conjectures de Tate et de Shafarevitch (d'après G. Faltings)
+% par Pierre Deligne
+% Séminaire Bourbaki, 36e année, 1983/84, n° 616
+% Astérisque 121-122 (1985), p. 25-41
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+% \usepackage{tikz-cd}  % not available, using amscd instead
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Example}
+
+% Math operators
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\rank}{rang}
+% duplicate deg removed
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\Impartie}{Im}
+\DeclareMathOperator{\Sup}{sup}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\fA}{\mathfrak{A}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 1pt minus 1pt}
+
+\let\deg\relax
+
+% --- Pass-2 compatibility shim. ---
+% Purpose: repair transcription-level LaTeX omissions without changing mathematical text.
+\providecommand{\AA}{\mathbb{A}}
+\providecommand{\BB}{\mathbb{B}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\DD}{\mathbb{D}}
+\providecommand{\EE}{\mathbb{E}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathbb{G}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\TT}{\mathbb{T}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\Gm}{\mathbb{G}_{\mathrm m}}
+\providecommand{\Ga}{\mathbb{G}_{\mathrm a}}
+\providecommand{\cA}{\mathcal{A}}
+\providecommand{\cB}{\mathcal{B}}
+\providecommand{\cC}{\mathcal{C}}
+\providecommand{\cD}{\mathcal{D}}
+\providecommand{\cE}{\mathcal{E}}
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cG}{\mathcal{G}}
+\providecommand{\cH}{\mathcal{H}}
+\providecommand{\cI}{\mathcal{I}}
+\providecommand{\cJ}{\mathcal{J}}
+\providecommand{\cK}{\mathcal{K}}
+\providecommand{\cL}{\mathcal{L}}
+\providecommand{\cM}{\mathcal{M}}
+\providecommand{\cN}{\mathcal{N}}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\cP}{\mathcal{P}}
+\providecommand{\cQ}{\mathcal{Q}}
+\providecommand{\cR}{\mathcal{R}}
+\providecommand{\cS}{\mathcal{S}}
+\providecommand{\cT}{\mathcal{T}}
+\providecommand{\cU}{\mathcal{U}}
+\providecommand{\cV}{\mathcal{V}}
+\providecommand{\cW}{\mathcal{W}}
+\providecommand{\cX}{\mathcal{X}}
+\providecommand{\cY}{\mathcal{Y}}
+\providecommand{\cZ}{\mathcal{Z}}
+\providecommand{\fA}{\mathfrak{A}}
+\providecommand{\fB}{\mathfrak{B}}
+\providecommand{\fC}{\mathfrak{C}}
+\providecommand{\fD}{\mathfrak{D}}
+\providecommand{\fE}{\mathfrak{E}}
+\providecommand{\fF}{\mathfrak{F}}
+\providecommand{\fG}{\mathfrak{G}}
+\providecommand{\fH}{\mathfrak{H}}
+\providecommand{\fI}{\mathfrak{I}}
+\providecommand{\fJ}{\mathfrak{J}}
+\providecommand{\fK}{\mathfrak{K}}
+\providecommand{\fL}{\mathfrak{L}}
+\providecommand{\fM}{\mathfrak{M}}
+\providecommand{\fN}{\mathfrak{N}}
+\providecommand{\fO}{\mathfrak{O}}
+\providecommand{\fP}{\mathfrak{P}}
+\providecommand{\fQ}{\mathfrak{Q}}
+\providecommand{\fR}{\mathfrak{R}}
+\providecommand{\fS}{\mathfrak{S}}
+\providecommand{\fT}{\mathfrak{T}}
+\providecommand{\fU}{\mathfrak{U}}
+\providecommand{\fV}{\mathfrak{V}}
+\providecommand{\fW}{\mathfrak{W}}
+\providecommand{\fX}{\mathfrak{X}}
+\providecommand{\fY}{\mathfrak{Y}}
+\providecommand{\fZ}{\mathfrak{Z}}
+\providecommand{\fraka}{\mathfrak{a}}
+\providecommand{\frakb}{\mathfrak{b}}
+\providecommand{\frakc}{\mathfrak{c}}
+\providecommand{\frakd}{\mathfrak{d}}
+\providecommand{\frakm}{\mathfrak{m}}
+\providecommand{\frakp}{\mathfrak{p}}
+\providecommand{\frakq}{\mathfrak{q}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Alg}{\mathbf{Alg}}
+\providecommand{\Aff}{\mathbf{Aff}}
+\providecommand{\mot}{\mathrm{mot}}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\dR}{\mathrm{dR}}
+\providecommand{\der}{\mathrm{der}}
+\providecommand{\Le}{\leqslant}
+\providecommand{\Ge}{\geqslant}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\mup}{\mu_p}
+\makeatletter
+\@ifundefined{construction}{\newtheorem{construction}{Construction}}{}
+\@ifundefined{notation}{\newtheorem{notation}{Notation}}{}
+\@ifundefined{claim}{\newtheorem{claim}{Claim}}{}
+\makeatother
+
+% --- Pass-2 extra compile shims ---
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\PGL}{\operatorname{PGL}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\limind}{\varinjlim}
+\providecommand{\limproj}{\varprojlim}
+\makeatletter
+\@ifundefined{scholie}{\newtheorem{scholie}{Scholium}}{}
+\makeatother
+% --- end pass-2 extra compile shims ---
+
+
+% --- Pass-2 extra compile shims 2 ---
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\SU}{\operatorname{SU}}
+\providecommand{\rk}{\operatorname{rk}}
+\providecommand{\fp}{\mathfrak{p}}
+\providecommand{\DR}{\mathrm{DR}}
+\makeatletter
+\@ifundefined{miseengarde}{\newtheorem{miseengarde}{Warning}}{}
+\@ifundefined{warning}{\newtheorem{warning}{Warning}}{}
+\makeatother
+% --- end pass-2 extra compile shims 2 ---
+
+
+% --- Pass-2 extra compile shims 3 ---
+\providecommand{\U}{\operatorname{U}}
+\providecommand{\NS}{\operatorname{NS}}
+\providecommand{\cris}{\mathrm{cris}}
+% --- end pass-2 extra compile shims 3 ---
+
+
+% --- Pass-2 extra compile shims 4 ---
+\providecommand{\na}{a}
+\providecommand{\supp}{\operatorname{supp}}
+\providecommand{\comp}{\operatorname{comp}}
+% --- end pass-2 extra compile shims 4 ---
+
+
+% --- Pass-2 extra compile shims 5 ---
+\providecommand{\dist}{\operatorname{dist}}
+\makeatletter
+\@ifundefined{variante}{\newtheorem{variante}{Variant}}{}
+\makeatother
+% --- end pass-2 extra compile shims 5 ---
+
+
+% --- Pass-2 extra compile shims 6 ---
+\providecommand{\R}{\mathrm{R}}
+\providecommand{\pr}{\operatorname{pr}}
+\makeatletter
+\@ifundefined{exemple}{\newtheorem{exemple}{Example}}{}
+\makeatother
+% --- end pass-2 extra compile shims 6 ---
+
+
+% --- Pass-2 extra compile shims 7 ---
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Int}{\operatorname{Int}}
+\providecommand{\RHom}{\operatorname{RHom}}
+% --- end pass-2 extra compile shims 7 ---
+
+
+% --- Pass-2 extra compile shims 8 ---
+\providecommand{\Lie}{\operatorname{Lie}}
+% --- end pass-2 extra compile shims 8 ---
+
+
+% --- Pass-2 extra compile shims 9 ---
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+% --- end pass-2 extra compile shims 9 ---
+
+
+% --- Pass-2 extra compile shims 10 ---
+\providecommand{\comma}{,}
+\providecommand{\Pcl}{\operatorname{Pcl}}
+\makeatletter
+\@ifundefined{paraphrase}{\newtheorem{paraphrase}{Paraphrase}}{}
+\makeatother
+% --- end pass-2 extra compile shims 10 ---
+
+
+% --- Pass-2 extra compile shims 11 ---
+\providecommand{\re}{\operatorname{Re}}
+% --- end pass-2 extra compile shims 11 ---
+
+
+% --- Pass-2 extra compile shims 12 ---
+\providecommand{\ab}{\mathrm{ab}}
+\providecommand{\Subset}{\subset}
+% --- end pass-2 extra compile shims 12 ---
+
+% --- end pass-2 compatibility shim ---
+
+\begin{document}
+\begin{center}\small\emph{Literal English translation working draft. Formulae, numbering, and TeX structure are preserved; this is not yet a modern recast.}\end{center}
+\vspace{0.5em}
+
+
+% Title page in Bourbaki style
+\thispagestyle{empty}
+\begin{center}
+{\Large\scshape Seminaire\ \textbf{BOURBAKI}}\\[6pt]
+{\small 36\textsuperscript{e} année, 1983/84, n$^\circ$ 616}\par
+\vspace{6pt}
+{Novembre 1983}\par
+\vspace{24pt}
+{\Large\bfseries PREUVE DES CONJECTURES DE TATE ET DE SHAFAREVITCH}\par
+\vspace{6pt}
+{\large [d'après G. Faltings]}\par
+\vspace{12pt}
+{\large par Pierre DELIGNE}\par
+\end{center}
+
+\vspace{12pt}
+\begin{tabular}{@{}llr@{}}
+1. Hauturs & \dotfill & 25\\
+2. Isogénies & \dotfill & 36\\
+3. La conjecture de Shafarevitch & \dotfill & 40\\
+\end{tabular}
+
+\vspace{12pt}
+\textbf{Dans cet exposé,} nous expliquons comment G. Faltings prouve la conjecture de Tate (2.7) et celle de Shafarevitch (3.3, 3.4). Nous traitons en détail des propriétés de la ``hauteur'' d'une variété abélienne, introduite par G. Faltings. C'est la partie la plus technique, et la plus longue, de la preuve. Le lecteur qui, après avoir lu les définitions 1.1, 1.2, est prêt à admettre 1.3, peut passer directement aux paragraphes 2 et 3.
+
+\subsection*{Notations et terminologie}
+
+Certains termes seront employés dans un sens restreint :
+
+\textsc{Corps} := corps commutatif.
+
+\textsc{Corps de nombres} := extension finie de $\QQ$.
+
+\textsc{Schéma} := schéma noethérien séparé.
+
+\textsc{Schéma en groupes sur} $S$ : toujours de type fini sur $S$. En général, plat sur $S$ et commutatif.
+
+Pour $k$ un corps, on notera $\overline{k}$ une clôture algébrique de $k$. Pour $A$ une variété abélienne sur $k$ et $\ell$ un nombre premier, premier à la caractéristique, on note $T_\ell(A)$ le module de Tate de $A$ :
+\[
+T_\ell(A) := \varprojlim A_{\ell^n}(\overline{k}).
+\]
+It is equipped with a action of the Galois group $\Gal(\overline{k}/k)$ and of a structure of module on the ring $\End(A)$ of the $k$-endomorphisms of $A$. One sets $V_\ell(A) = T_\ell(A) \otimes_{\ZZ_\ell} \QQ_\ell$.
+
+\section{HAUTEURS}
+
+\subsection{}
+
+Let $k$ a number field and $L$ a space vector of rank a on $k$ equipped for each place $v$ of $k$ of a value absolute $v$-adique: $\|\lambda \cdot \ell\|_v = |\lambda|_v \cdot \|\ell\|_v$ for $\lambda \in k$, $\ell \in L$. One assumed that for $\ell \in L^* := L - \{0\}$, one has $\|\ell\|_v = 1$ sauf en a nombre finite of places. of after the formule of the product $\prod_v |\lambda|_v = 1$ for $\lambda \in k^*$, the product $\prod_v \|\ell\|_v$ is independant of the choix of $\ell \in L^*$. One appelle \emph{degree} of $L$ the logarithme of son inverse:
+\[
+\deg(L) := -\log \prod_v \|\ell\|_v.
+\]
+
+Let $\cO$ the ring of integers of $k$. For $v$ a place of $k$, one denotes by a $v$ en indice a completion en $v$. A $\cO$-form $L_{\cO}$ of $L$, i.e. a $\cO$-module projective of rank a such that $L_{\cO} \otimes_{\cO} k = L$, fournit for each place finite $v$ of $k$ a value absolute $v$-adique on $L$; transporter a $L_v$ the value absolute of $k_v$ by a isomorphism of $k_v$-vector $V \xrightarrow{\sim} L_v$ which envoie $L_{\cO} \otimes_{\cO} \cO_v$ on $\cO_v$. For $\ell \in L^*$ one has $\|\ell\|_v = 1$ for presque all $v$. Si $\ell \in L_{\cO}$,
+\[
+\deg(L) = -\log \#(L_{\cO}/\cO \cdot \ell) + \sum_{v \text{ archimédienne}} \log \|\ell\|_v.
+\]
+
+Donnons-we moreover, for each embedding complex $\sigma : k \hookrightarrow \CC$, a structure hermitienne (:= a form hermitienne defined $> 0$) $\langle\cdot, \cdot\rangle_\sigma$ on the space vector complex $L_\sigma := L \otimes_{k,\sigma} \CC$. Deux embeddings complexes conjugues fournissent of the vector spaces $L_\sigma$ complexes conjugues, and one assumed that for $z \in L_\sigma$ one has $\langle \bar{z}, \bar{z}\rangle_{\bar{\sigma}} = \overline{\langle z, z\rangle_\sigma}$. Si, for $v$ archimedienne induite by a embedding complex $\sigma$, one sets $\|\ell\|_v := \langle \ell, \ell\rangle_\sigma^{1/2}$, one obtains a systeme of values absolues of the type voulu, and $\deg L$ is defined.
+
+For $k = \QQ$, one has $\cO = \ZZ$ and si $e$ is the a of the deux generateurs $\pm e$ of $L_{\ZZ}$,
+\[
+\deg(L) = -\log \|e\|_\infty.
+\]
+
+\subsection{}
+
+Let $A$ a abelian variety over a field $k$. One denotes $\omega(A)$ the space vector of rank a suivant on $k$: si $A$ is of dimension $g$,
+\[
+\omega(A) := \overset{g}{\bigwedge} H^0(A, \Omega^1).
+\]
+Si $k$ is a number field, one dispose for each place $v$ of $k$ of a value absolute $v$-adique natural on $\omega(A)$.
+
+(a) Let $\cO$ the ring of integers of $k$ and $\fA$ the model of Neron of $A$ on $\Spec(\cO)$. The $\cO$-module projective of rank a
+\[
+\omega(\fA) = e^* \Omega^g_{\fA/\Spec(\cO)}
+\]
+is a $\cO$-form of $\omega(A)$. It fournit the values absolues cherchees for the places finite.
+
+(b) Let $\sigma : k \hookrightarrow \CC$ a embedding complex and $A_\sigma$ the abelian variety on $\CC$ deduite of $A$ by extension of scalars. the space vector complex
+\[
+\omega(A)_\sigma := \omega(A) \otimes_{k,\sigma} \CC
+\]
+is the space of the $g$-forms differentielles holomorphic on $A_\sigma$. One the munit of the structure hermitienne for which
+\[
+\langle \alpha, \alpha \rangle_\sigma = \frac{1}{(2\pi)^g} \int_{A_\sigma(\CC)} \alpha \wedge \bar{\alpha}.
+\]
+This fournit the $\|\cdot\|_v$ for $v$ archimedien. Faltings utilise $\frac{1}{(2\pi)^g}$; peu importe.
+
+En terme of these values absolues, one defines the \emph{hauteur} $h(A)$ of $A$ as being
+\[
+h(A) := \frac{1}{[k:\QQ]} \deg \omega(A).
+\]
+For $k = \QQ$, si $\alpha$ is the a of the deux generateurs $\pm \alpha$ of $\omega(A)_{\ZZ}$ (a form of Neron), one has
+\[
+h(A) = -\frac{1}{[k:\QQ]} \log \prod_v \|\alpha\|_v.
+\]
+
+For $\fG : G \to S$ a scheme en groups plat purement of dimension relative $g$ on a base $S$, of section neutre $e$, one denotes $\omega(G)$ the sheaf inversible on $S$ of which the sheaf dualisant relative is the inverse image:
+\[
+\fG^! \cO_S = \fG^* \omega(G)[g], \quad \omega(G) = e^* \Omega^g_{G/S}.
+\]
+For $G$ smooth on $S$, one retrouve $e^* \Omega^g_{G/S}$.
+
+For $k$ a number field of ring of integers $\cO$ and $S = \Spec(\cO)$, si the fiber generale of $G$ is proper on $k$, i.e. extension of a group finite by a abelian variety, the integration on $G(\CC)$ fournit again, for each embedding complex $\sigma : k \hookrightarrow \CC$, a structure hermitienne on $\omega(G) \otimes_{\cO} \CC$. The degree $\deg \omega(G)$ is therefore defined. The cas $G$ quasi-finite will be utilise to the ~2.
+
+A scheme en groups commutatifs plat on a base $S$ is dit \emph{abelien} si ses fibers are of the extensions of abelian varieties by of the tores. One dit that $A$ is \emph{a reduction semi-stable} si son model of Neron connected $\fA^0$ (of fibers the composantes neutres of the model of Neron) is semi-abelien. It revient to the same of exiger that $A$ let the fiber generale of a scheme semi-abelien on $\cO$; this dernier is unique. Si $A$ is a reduction semi-stable, the formation of $\fA^0$ and therefore celle of $\omega(\fA^0)$ commute a extension of scalars $k \to k'$, and the factor $1/[k:\QQ]$ in the definition of $h(A)$ assure that $h(A)$ is invariant by extension of scalars. Si a abelian variety $A$ on $k$ acquiert a reduction semi-stable on a extension $k'$ of $k$, one defines the \emph{hauteur geometric} of $A$ by
+\[
+h_{\text{geom}}(A) := h(A_{k'}).
+\]
+Of the fait that $\omega(\fA^0)$ s'envoie in $\omega(\fA)$ one deduces that $h(A) \leq h_{\text{geom}}(A)$, with equality if and only if the reduction is semi-stable.
+
+Recall that a \emph{polarisation} of $A$ is a class of equivalence algebraic (defined on $k$) of sheaves inversibles amples on $A$. Son degree is the integer $c_1(\cL)^g/g! = \chi(\cL)$. A \emph{polarisation principal} is a polarisation of degree 1.
+
+\begin{proposition}
+Quels that let the number field $k$, the integer $g \geq 1$ and $n \geq 1$, and $h$, it n'y a that a nombre finite of classes of isomorphie of abelian varieties principalement polarisees $(A,\theta)$ on $k$, of dimension $g$, of degree of polarisation $n$ and of hauteur $h(A) \leq h$.
+\end{proposition}
+
+\begin{example}[The cas $k = \QQ$, $g = 1$]
+Let $E$ a curve elliptique on $\QQ$ and $\omega$ a differentielle of Neron. The curve $E$ admet a equation
+\[
+y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6 = 0
+\]
+a coefficients integers, such that, notant $F(x,y)$ the prime membre, the form $\omega$ let the form $dx/F_y = -dy/F_x$. Let $\Lambda \subset \CC$ the reseau such that $(E,\omega)$ let isomorphic, on $\CC$, a $(\CC/\Lambda, dz)$. Let $\omega_1, \omega_2$ a base positive of $\Lambda$, $\tau = \omega_2/\omega_1$ ($\Impartie(\tau) > 0$) and $q = \exp(2\pi i \tau)$. one has on $\CC$
+\[
+\Delta = q \prod_{n=1}^{\infty}(1-q^n)^{24} \quad \text{et} \quad j = (c_4^3 - c_6^2)/1728
+\]
+ are independants of the choix of the base $\omega_1, \omega_2$ of $\Lambda$. This are of the polynomes a coefficients integers en the $a_i$ (see by example the formulaire of Tate, mis to the gout of the jour by P.~Deligne, in Antwerp IV (Springer Lecture Notes 476)). This are therefore of the integers. The curve $E$ admet the equation of Weierstrass
+\[
+y^2 = 4x^3 - c_4x - c_6.
+\]
+Posons $H(E) = \exp h(E)$ and $H^*(E) = \max(|c_4^3|, |c_6^2|)$. For montrer that it n'y a that a nombre finite of curves elliptiques on $\QQ$ a $h(E)$ given, it is enough to borner $H^*(E)$ en terme of $H(E)$.
+
+Prenons a base $\omega_1, \omega_2$ of $\Lambda$ with $|\omega_1|$ minimal. one has then $\Impartie(\tau) \geq \sqrt{3}/2$. For $\Impartie(\tau) > a$ with $a > 0$, the relation $j = q^{-1} + 744 + \cdots$ between $\tau$ and the invariant modulaire $j$ fournit that
+\[
+\Sup(1, \log |j|) / 2\pi \leq 1/\Impartie(\tau) \leq C(a) \cdot \Sup(1, \log |j|) / 2\pi.
+\]
+Parce that $\Delta$ is integer, one has also $|\Delta| \leq H^*(E)^{1/2}$, of or
+\[
+H(E) \leq H^*(E) \leq C \cdot H(E)^N
+\]
+for of the constants $C$ and $N$ convenables.
+\end{example}
+
+\begin{remark}
+For $\tau$ in the Poincare half-plane, let $q = e^{2\pi i \tau}$, $\Lambda_\tau = \ZZ + \ZZ\tau$, $E(\tau) = \CC/\Lambda_\tau$ the curve elliptique equipped with the form differentielle $dz$, $\alpha$ the form differentielle
+\[
+\alpha = \Delta(\tau)^{1/12} \cdot (dz)^{\otimes 2}
+\]
+(peu importe the choix of the racine douzieme) and
+\[
+V(j) = |\Delta(\tau)| \cdot (\Impartie(\tau))^6.
+\]
+This function of $\tau$ is invariante by $\SL(2,\ZZ)$, therefore provient of a function $V(j)$ of the invariant modulaire $j$. For $E$ a curve elliptique on $k$, of invariant modulaire $j \in k$, posons $H(E) = V(j)^{1/2}$ (resp.\ $H(E) = V(j)$) for $k$ reel (resp.\ complex).
+
+The differentielle logarithmique $d\log V$ is, a factor pres, the serie of Eisenstein not holomorphic $E_2$; D.~Masser a shows that it ne s'annule that for $j = 0$ or $j = 1728$ (Springer, Lecture Notes 437, lemma 3.2). One deduces that the maximum of $V(j)$ is atteint en $j = 0$ and that the minimum of $H(E)$ is atteint by the curves elliptiques of invariant modulaire $0$. This fournit the minimum of $h(E)$.
+
+For $E$ a curve elliptique a multiplication complex by the ring of integers $\cO$ of the field quadratique imaginaire of discriminant $-D$, the formule of Chowla-Selberg (J.~Crelle 227(1967), 86-110) given the value of $H(E)$; si $\varepsilon$ is the character of Dirichlet quadratique of conducteur $D$, one has
+\[
+\log H(E) = \frac{\pi \sqrt{D}}{6h} \sum_{a=1}^{D-1} \varepsilon(a) \cdot a \cdot \log \sin\frac{\pi a}{D}
+\]
+($w = \#\cO^*$, $h =$ nombre of classes). The cas particulier $D = 3$ fournit the value minimum of $h(E)$:
+\[
+h(E) \geq -\frac{1}{2} \log\frac{\sqrt{3}\Gamma(1/3)^6}{2\pi \cdot 3^3} \approx 0.0255\ldots
+\]
+\end{remark}
+
+We shall prove all of abord the lemma suivant, which suffirait for the maps.
+
+\begin{lemma}
+Let $m$ a integer, product of deux nombres prime $\geq 3$. It n'y a that a nombre finite of classes of isomorphie of abelian varieties principalement polarisees $(A,\theta)$ on $k$, of dimension $g$, equipped with a structure of niveau $m$:
+\[
+\theta : (\ZZ/(m))^{2g} \xrightarrow{\sim} A_m
+\]
+and of hauteur $h(A) \leq h$.
+\end{lemma}
+
+Parce that $m \geq 3$, the triples $(A,\theta,\xi)$ n'have not of automorphism not trivial. The classes of isomorphie, on $k$, of these triples, s'identifient to the $k$-points of a moduli space $M$ suitable. One prouvera 1.6 en comparant $h(A)$ a the hauteur, en a sens more classique, of the point of $M$ corresponding a $(A,\theta,\xi)$. the hypothese on $m$ assure that $A$ a reduction semi-stable, of sorte that the hauteur is invariante by extension of scalars.
+
+\subsection{}
+
+Let $X$ a projective variety on $\QQ$. A sheaf inversible $\cL$ on $X$ defines a class $\bmod\ \cO(1)$ of functions hauteur $h_{\cL}$ on $X(\overline{\QQ})$. One can construct a telle function as suit:
+
+(a) One choisit a projective variety $X_{\ZZ}$ on $\Spec(\ZZ)$, and a sheaf inversible $\cL_{\ZZ}$ on $X_{\ZZ}$ such that $\cL$ se deduise of $\cL_{\ZZ}$ by extension of scalars of $\ZZ$ a $\QQ$.
+
+(b) One choisit a structure hermitienne on $\cL_\CC$, i.e. on the fiber en lines $\cL_\CC^{\text{an}}$ on $X(\CC)$ deduces of $\cL$. For simplifier, one the assumed invariante by the conjugaison complex of $(X(\CC), \cL_\CC)$.
+
+Let then $k$ a number field, of ring of integers $\cO$, and $x \in X(k)$. Parce that $X_{\ZZ}$ is proper on $\Spec(\ZZ)$, $x$ se prolonge en
+\[
+x_\cO \in X_{\ZZ}(\cO) = \Hom(\Spec(\cO), X_{\ZZ}).
+\]
+Let $\cL_x$ the fiber of $\cL_{\ZZ}$ en $x$; c'is a $k$-space vector of rank 1. The choix (a) fournit the $\cO$-form $\cL_{x,\cO}$ of $\cL_x$. The choix (b) fournit, for each embedding complex $\sigma$ of $k$, a form hermitienne on $\cL_x \otimes_{k,\sigma} \CC$. One prend
+\[
+h_{\cL}(x) := \frac{1}{[k:\QQ]} \deg(\cL_{x,\cO}).
+\]
+The factor $1/[k:\QQ]$ in the definition assure that for $k \subset k'$, the function $h_{\cL}$ on $X(k)$ is the restriction a $X(k)$ of the function $h_{\cL}$ on $X(k')$; by passage a the limite, one obtains $h_{\cL}$ on $X(\overline{\QQ})$.
+
+A version savante of the fait that it n'y a that a nombre finite of integers $n$ with $|n| \leq C$ is:
+
+\begin{theorem}[Rappel 1.8]
+Si $\cL$ is ample, it n'y a that a nombre finite of $x \in X(k)$ with $h_{\cL}(x) \leq h$.
+\end{theorem}
+
+Let $U$ a open of $X$, of complement $Y$. One appellera \emph{distance logarithmique a} $Y$ a function $\rho > 0$ on $U(\CC)$ which pres of $Y$ a the comportement asymptotique $\rho \asymp -\log \sum |f_i|^2$, for $Y$ locally defined by of the equations $f_i = 0$. This class of functions on $U$ ne depend that of the structure of algebraic variety complex of $U$, not of the compactification $X$ of $U$.
+
+Let, on $U$, $s$ a structure hermitienne on the fiber en lines $\cL$, assumed invariante by conjugaison complex. The construction ci-dessus of $h_{\cL}$ permet again of attacher a $(\cL, s)$ a class $\bmod\ \cO(1)$ of functions hauteur $h_{\cL,s}$ on $U(\overline{\QQ})$. One dit that $s$ is \emph{a singularities logarithmiques} the long of $Y$ si for $\rho$ a distance logarithmique a $Y$ and for $s_0$ a structure hermitienne on $\cL$, one has for $r$ sufficiently grand
+\[
+s \geq \rho^r \cdot s_0 \quad \text{(au voisinage de $Y$)}.
+\]
+
+\begin{proposition}
+Si $\cL$ is ample and that $s$ is a singularities logarithmiques the long of $Y = X - U$, for every number field $k$ it n'y a that a nombre finite of $x \in U(k)$ with $h_{\cL,s}(x) \leq h$.
+\end{proposition}
+
+\begin{proof}
+Fixons a embedding projective $X \hookrightarrow \PP^N$ and let $D$ a hypersurface of $\PP^N$ contenant $Y$. Let $r > 0$ and $s(D,r)$ a structure hermitienne on $\cO(-D)$ with the long of $D$ the comportement asymptotique $s(D,r) \sim |f|^{-2r} \cdot s_0$, for $s_0$ a structure hermitienne on $\cO(-D)$ and $f$ a equation local of $D$. one has $s \geq s(D,r)$ therefore, a $\cO(1)$ pres, $h_{\cL,s} \geq h_{\cL,rD}$ on $(X-D)(\overline{\QQ})$. Moreover, again a $\cO(1)$ pres,
+\[
+h_{\cL,rD} = h_{\cL} - r \cdot h_{\cO(D)}.
+\]
+For $n$ sufficiently grand, $\cL^{\otimes n}(-D)$ is ample and, of after 1.8, it n'y a that a nombre finite of $x \in (U-D)(k)$ with $h_{\cL,rD}(x)$ borne. One conclut en ecrivant $Y$ as intersection of diviseurs $D$.
+\end{proof}
+
+\subsection{Proof of 1.6}
+
+On the moduli space $M$, one dispose of the scheme abelien universal $A[M]$ and of the sheaf inversible $\omega := \omega(A[M])$. This dernier is equipped with the structure hermitienne $s$ suivante: the fiber $\omega_x$ of $\omega$ en $x \in M$ is $\omega(A_x)$, for $A_x$ the fiber of $A[M]$ en $x$, and for $\alpha \in \omega_x$,
+\[
+\langle \alpha, \alpha \rangle_s = \frac{1}{(2\pi)^g} \int_{A_x(\CC)} \alpha \wedge \bar{\alpha}.
+\]
+
+\textbf{Description analytic of $(M, \omega, s)$.} Let $V$ a space vector reel of dimension $2g$ equipped with a form symplectique $\psi$. the space of Siegel $S$ corresponding is the space of the Hodge structures reelles of type $\{(-1,0), (0,-1)\}$ on $V$ polarisees by $\psi$ (under-spaces isotropes maximaux $F^0 \subset V_\CC := V \otimes_\RR \CC$, such that $F^0 \oplus \bar{F}^0 \xrightarrow{\sim} V_\CC$ and that $i\psi(x,\bar{x}) > 0$ for $x \in F^0$, $x \neq 0$). The group $\Sp(V)$ agit on $S$. The choix of a base symplectique identifie $S$ a the space of the matrices symmetric $Z = (Z_{ij})$ with $\Impartie(Z) \text{ défini } > 0$: imposer
+\[
+F^0 = \CC\text{-span}\langle f_i - \sum_j Z_{ij}e_j \rangle.
+\]
+
+Fixons a reseau integer $V_\ZZ$, generated by a base symplectique $(e_i, f_i)_{1 \leq i \leq g}$, and $\xi_0 : (\ZZ/(m))^{2g} \xrightarrow{\sim} V_\ZZ/mV_\ZZ$. The quotient of $S$ by the group of congruence of niveau $m$, $\Gamma := \ker(\Sp(V_\ZZ) \to \Sp(V_\ZZ/mV_\ZZ))$, s'identifie then a composante connected of $M(\CC)$: the abelian variety corresponding a $F^0 \in S$ is $A_{F^0} := V_\ZZ \backslash V_\CC / F^0$; sa polarisation is deduite of $\psi$ and sa structure of niveau $m$ of $\xi_0$. Variant $\xi_0$, one obtains all the composantes connected.
+
+On $S$, the $\omega(A_{F^0}) = ((V_\CC/F^0)^\vee)^g$ are the fibers of a fiber en lines $\Sp(V)$-equivariant $\omega$. On $S$, we trivialiserons $\omega$ by sa base $e$ deduite of the base $e_1, \ldots, e_g$ of $V_\CC$. The metrique hermitienne $s$ on $\omega$ for which
+\[
+\langle e, e \rangle_s = \det(\Impartie(Z))
+\]
+is $\Sp(V)$-invariante, and this invariance the caracterise a factor pres. By passage to the quotient by $\Gamma$, $\omega$ and $s$ on $S$ fournissent $\omega$ and $s$ on $M(\CC)$.
+
+For $g > 1$, the $\omega^{\otimes n}$ are of dimension finite and the compactification of Baily-Borel $M^*$ of $M$ is, for $n$ sufficiently grand, the adherence of $M$ in the embedding projective defined by the sections globales of $\omega^{\otimes n}$. This description shows that $M^*$ provient of a compactification $M^*$ of $M$ (defined on $\QQ$) and fournit a prolongement of $\omega$ a $M^*$ (utiliser also A.~Borel, J.~diff.~geom. (1972), 543--560).
+
+The proposition 1.9 ramene 1.6 to the propositions 1.11 and 1.12 suivantes.
+
+\begin{proposition}
+The structure hermitienne $s$ of $\omega$ is a singularities logarithmiques the long of $M^* - M$.
+\end{proposition}
+
+On a domaine of Siegel, the base $e$ of $\omega$ is $C^\times$ to the images inverses on $S$ of the sections local inversibles of $\omega$ on $M^*$; one the satisfies a the aide of the series of Eisenstein; the images inverses of functions ``distance logarithmique a $M^* - M$'' are $C^\times$ to the functions $\delta(\Impartie(Z))$, for $\ell$ a form lineaire $\ell(Y) = \Tr(FY)$, with $F$ symmetric defined $> 0$; one can the verify en utilisant, plutot that the compactification of Baily-Borel $M^*$ of $M$, the compactifications toroidales of [1]. The proposition en resulte.
+
+A $(\omega, s)$ correspond a class $\bmod\ \cO(1)$ of functions hauteur $h$ on $M(\overline{\QQ})$. Identifions a triple $(A, \theta, \xi)$ as en 1.6 to the point corresponding of $M(k) \subset M(\overline{\QQ})$.
+
+\begin{proposition}
+a $\cO(1)$ pres, for $x \in M(k)$ corresponding a $(A, \theta, \xi)$, one has
+\[
+h(x) = h(A).
+\]
+\end{proposition}
+
+Si one disposait, on $\ZZ$, of a bonne theorie of the compactifications of the moduli spaces of abelian varieties, one pourrait donner of 1.6 the proof suivante. One dispose of $M^*_{\ZZ}$ on $\Spec(\ZZ)$ and, on $M_{\ZZ}$, of a scheme abelien ``universal'' $A[M_{\ZZ}]$ prolongeant the scheme abelien universal $A[M]$ on $M$.
+
+One espere that:
+
+(a) Each compactification toroidale of the type introduit in [1] of $M(\CC)$, si defined on $\QQ$, a analogue on $\Spec(\ZZ)$. Choisissons-en a, $M^*_{\ZZ}$, and let $\overline{M}_{\ZZ}$ the compactification corresponding of $M_{\ZZ}$.
+
+(b) The scheme abelien universal on $M_{\ZZ}$ se prolonge en a scheme semi-abelien $A[\overline{M}_{\ZZ}]$ on $\overline{M}_{\ZZ}$.
+
+(c) On $\QQ$, the compactification $\overline{M}$ of $M$ domine $M^*$: one dispose of $u : \overline{M} \to M^*$. The prolongement $u^*\omega$ of $\omega$ a $\overline{M}$ is $\omega(A[\overline{M}])$.
+
+Of (a) (b) resulte that si $(A,\theta,\xi)$ on $k$ correspond to the point $x \in M(k)$, se prolongeant en $x_{\cO} : \Spec(\cO) \to \overline{M}_{\ZZ}$, the model of Neron connected $\fA^0$ of $A$ is $x_{\cO}^* A[\overline{M}_{\ZZ}]$. The function hauteur $h(A)$ correspond therefore a the function hauteur $h_{\omega,s}$ on $M(\overline{\QQ})$, relative to the sheaf inversible $\omega := \omega(A[M_{\ZZ}])$ on $M^*$, a $s$, and a the structure integer $(\overline{M}_{\ZZ}, \omega(A[\overline{M}_{\ZZ}]))$. A of the $\cO(1)$ pres, the hauteurs $h$ are independantes of the structures entieres, and 1.12 resulte of this that $\omega$ on $\overline{M}$ is the inverse image of $\omega$ on $M^*$.
+
+One ne dispose malheureusement not of (a) (b) (c) and, for prouver 1.12, we we raccrocherons a the theorie of the compactifications of the moduli spaces of curves.
+
+\begin{lemma}
+For $X$ a scheme en groups abelien on $S$, $\Pic^\circ(X/S)$ is a scheme abelien on $S$.
+\end{lemma}
+
+\begin{lemma}
+Let $A$ a scheme semi-abelien on a scheme normal $S$. Every decomposition $A = A' \times_S A''$ on a open dense of $S$ se prolonge a $S$.
+\end{lemma}
+
+\begin{lemma}
+Let $A$ a scheme semi-abelien on a scheme $S$ and, on a open dense $U$ of $S$, $H$ a under-scheme en groups finite and plat of $A$. After a changement of base proper $S' \to S$, $H_{S'}$ se prolonge en a under-scheme en groups on $S'$ all integer, closed in $A_{S'}$, and $A_{S'}/H'$ is semi-abelien.
+\end{lemma}
+
+In these lemmas, for eviter of the questions delicates and without interet of representabilite, there is interet a travailler partout with of the spaces algebraic.
+
+\begin{proposition}[O.~Gabber]
+Let $X$ of type finite on $S$, and $A$ a scheme abelien on $X$. There exists a commutative diagram
+\[
+@@MATH1@@
+\]
+with $u$ proper surjective and $\overline{Y}$ proper, such that $u^*A$ se prolonge en a scheme semi-abelien on $\overline{Y}$.
+\end{proposition}
+
+\begin{proof}[Esquisse]
+Utilisant that the fiber generique of $A/X$ is quotient of a jacobienne, the theorem of complete reductibilite of Poincare and the proprete of the champ modulaire of the curves stables, one trouve $Y$, $\overline{Y}$, a open dense $V$ of $Y$, a scheme abelien $A'$ on $V$ and a curve stable $C$ on $\overline{Y}$, such that on $V$, $A \times_X V \sim A'$ let quotient of $\Pic^\circ(C)$ by a scheme en groups finite and plat. One conclut en appliquant the lemmas 1.13 a 1.15.
+\end{proof}
+
+\subsection{Proof of 1.12}
+
+Appliquons 1.16 to the composantes irreductibles of $M^*_{\ZZ} \to \Spec(\ZZ)$. One can supposer, and one assumed, that in the diagram (1.16.1) obtained, $\overline{Y}$ is normal, that $Y$ is dense in $\overline{Y}$ and that $\overline{Y}$ domine the compactification $M^*$ of $M$.
+
+Vu the invariance of the hauteur $h(A)$ by extension of scalars, the methode of proof esquissee after 1.12 s'applique, for autant that one puisse montrer that $\omega(A[\overline{Y}])$ is the $\omega$ of the scheme semi-abelien $A[\overline{Y}]$ on $\overline{Y}$ which prolonge $u^*A[M]$.
+
+It is enough to the verify after extension of scalars a $\CC$.
+
+Notons that for $\cL$ a fiber en lines on a open dense $Y$ of a variety normal $Y^*$, (a) a extension of $\cL$ a $Y^*$ is uniquement determinee by ses images inverses on of the curves smooth $v : C \to \overline{Y}$, with $v^{-1}(Y)$ dense --- this inverse image being vue as extension a $C$ of the inverse image of $\cL$ on $v^{-1}(Y)$; (b) for $s$ a structure hermitienne on $\cL$, $\cL$ admet to the more a extension a $Y^*$ relativement a laquelle $s$ Let singularities logarithmiques the long of $Y^* - Y$.
+
+Cumulant these remarks and invoquant 1.11, one se ramene a verify the
+
+\begin{lemma}
+Let $C$ a curve algebraic smooth and $A$ a scheme semi-abelien on $C$, abelien on the complement $U = C - S$ of a set finite of points. The metrique hermitienne on $\omega(A)|_U$ datum, en $y \in U$, by $\langle \alpha, \alpha \rangle = \frac{1}{(2\pi)^g} \int_{A_y(\CC)} \alpha \wedge \bar{\alpha}$ is a singularities logarithmiques the long of $S$.
+\end{lemma}
+
+Let $s \in S$ and identifions a petit neighborhood of $s$ (evitant $S - \{s\}$) to the disque unite $D$, by a coordonnee local $z$ centree en $s$. Considerons the inverse image $A_D$ of $A$ on $D$. Let $L$ the fiber vector $\Lie(A_D)$ and $\Lambda$ the kernel of the exponentielle $\Lie(A_D) \to A_D$. This kernel is closed in $L$, étale on $D$ and, sauf to the-dessus of $0$, a fiber en reseaux. Let $\Lambda^0 \subset \Lambda$ the reunion (disjointe) of the sections passant by the points of the fiber of $A$ en $0$. Si one choisit a base of $L$, $\Lambda_z \subset L_z \cong \CC^g$ apparait as a reseau variable in $\CC^g$ ($z \neq 0$); the under-reseau $\Lambda^0_z$ se prolonge en $z = 0$, and $\Lambda_z - \Lambda^0_z$ tend toward the infini (puisque $\Lambda$ is closed). Parce that $A$ is a model of Neron connected, the sections of $A^0$ on $D^*$ appartenant a under-group of indice finite of the group of all the sections of twisting se prolongent a $D$. This impose: $\Lambda^0_z =$ invariants of the local monodromy in $\Lambda_z$. Parce that the fiber of $A_D$ en $0$ is semi-stable, $L_0$ is generated by $\Lambda^0_0$. one has
+
+$(*)$ $L$ is the unique fiber vector prolongeant $L|_{D^*}$, of sections local the combinaisons lineaires a coefficients holomorphic of sections local of $\Lambda^0$.
+
+One sait (see by example P.~Griffiths, \textit{Periods of integrals one algebraic manifolds III}, Publ. Math. IHES 38, to the p.~175--177) that, en dehors of $z = 0$, $A_D$ admet a description analytic of the type suivant: for a base suitable $e$ of $L$ on $D^*$, one has $\Lambda_z =$ the reseau variable $\Lambda(z)$ verifiant: it contient $\ZZ^g$; si $\Lambda^0(z)$ is the under-reseau fixe by the local monodromy, $\Lambda^0(z)$ tend toward a limite for $z \to 0$ (limite in the space of the under-$\ZZ$-modules discrets of rank $r = \rank \Lambda^0(z)$ of $\CC^g$); $\Lambda(z) - \Lambda^0(z)$ tend toward the infini. The formules asymptotiques of [loc.\ cit.] montrent moreover that the volume of $\CC^g/\Lambda(z)$ croit en $|\log|z||^{2g-r}$. of after $(*)$, the base $e$ of $L|_{D^*}$ se prolonge en a base of $L$ on $D$; 1.18 en resulte.
+
+\subsection{}
+
+The proof datum of 1.6 s'applique also bien for $\theta$ a polarisation of degree fixe $n$, plutot that of degree $1$. The description analytic of the moduli space corresponding $M = M_{g,n}$ is a peu more compliquee. The group $G := \GL(2g, \ZZ/(m))$ agit on $M$ (changement of structure of niveau) and $M/G$ is the space grossier of modules $M_{g,n}$ of the abelian varieties polarisees $(A,\theta)$, of dimension $g$ and of degree of polarisation $n$. The fiber $\omega$ on $M$, with sa structure hermitienne, is $G$-equivariant. Sa power tensor $(\#G)$-ieme se descend therefore a $M/G$. Let $h$ a function hauteur corresponding on $M_{g,n} = M/G$, divisee by $\#G$. One deduces of the analogue of 1.12 for the abelian varieties equipped with a polarisation of degree $n$ (plutot that principal) the
+
+\begin{lemma}
+For $(A,\theta)$ on $k$ corresponding a point $a$ of $M_{g,n}(k) \subset M_{g,n}(\overline{\QQ})$
+\[
+h(a) = h(A).
+\]
+\end{lemma}
+
+The proof of 1.9 shows that, as c'is the cas for the hauteurs usuelles, $h(a)$ is borne inferieurement on $M_{g,n}(\overline{\QQ})$:
+
+\begin{lemma}
+Quels that let $g$, $n$, there exists $C_{g,n}$ such that for every abelian variety $A$ over a field of nombres admettant a polarisation of degree $n$,
+\[
+h(A) \geq C_{g,n}.
+\]
+\end{lemma}
+
+\begin{remark}
+One can montrer that for $A$ a abelian variety a reduction semi-stable over a field of nombres $k$, of duale $A^*$, one has $h(A) = h(A^*)$. Over a field quelconque, for $A$ a abelian variety on $k$, $A^4 \times A^{*4}$ admet toujours a polarisation principal (Zarhin). Puisque $h(A \times B) = h(A) + h(B)$, it follows that in 1.21 one can prendre $C_{g,n}$ independant of $n$ (remplacer $C_{g,n}$ by $8C_{g,1}$).
+\end{remark}
+
+\begin{lemma}
+The field $k$, $g$, $n$ and $h$ being donnes, there exists a set finite $S$ of places of $k$ such that every abelian variety polarisee $(A,\theta)$ of dimension $g$ and of degree of polarisation $n$ on $k$, with $h(A) \leq h$, a reduction semi-stable en dehors of $S$.
+\end{lemma}
+
+Let $(A,\theta)$. On a extension $k'$ of $k$ that one can prendre of degree $\leq |\GL(2g, \ZZ/(15))|$, $A' := A_{k'}$ a reduction semi-stable. The morphism $\omega(\fA'^0) \otimes_{\cO'} \cO' \to \omega(\fA')$ a differentielle not inversible en reduction en each place of $k'$ to the-dessus of a place of $k$ or $A$ a reduction not semi-stable. Si the caracteristique residuelle is $p$, chacune of these places contribue a terme to the less egal a $\log p$ a $h(A) - h(A')$. one has therefore $\log p/[k':\QQ] \leq h(A) - C_{g,n}$ and this borne $p$.
+
+\subsection{Proof of 1.3}
+
+One deduces of 1.20 that the $(A,\theta)$ ne forment, on the algebraic closure of $k$, that a nombre finite of classes of isomorphie. For chacune of these classes, the lieu of mauvaise reduction is borne by the reunion of $S$ (1.23) and of the lieu of mauvaise reduction potentielle (fixe), and $A$ admet a structure of niveau $m = 15$ on a extension $k'$ of $k$ of degree and ramification bornes. It n'y a that a nombre finite of tels field $k'$ (Hermite), and that a nombre finite in such a way of descendre of $k'$ a $k$.
+
+Montrons that one can ameliorer 1.3 en omettant $\theta$.
+
+\begin{theorem}[Rappel 1.25]
+Let $E$ a ring, of a algebra:
+\begin{enumerate}[label=(\roman*)]
+\item $E^*$, agissant on the set of the idempotents of $E$ by automorphismes interieurs, n'a that a nombre finite of orbites.
+\item For $E$ a algebra a involution, $E^*$, agissant on the set of the elements symmetric ($h = h^*$) of $E$ of norme given by $x \mapsto xhx^*$), n'a that a nombre finite of orbites.
+\end{enumerate}
+\end{theorem}
+
+Appliquant 1.25 a the ring of the endomorphisms of a abelian variety $A$ on $k$, one obtains
+
+\begin{theorem}[Rappel 1.26]
+\begin{enumerate}[label=(\roman*)]
+\item The abelian varieties direct factor of $A$ ne forment that a nombre finite of classes of isomorphie.
+\item The polarisations of degree $n$, a isomorphism pres, of $A$ ne fournissent that a nombre finite of classes of isomorphie of abelian varieties polarisees $(A,\theta)$.
+\end{enumerate}
+\end{theorem}
+
+Of 1.26 (i), one deduces of 1.3 by the argument 1.22 of passage a $A^4 \times A^{*4}$, the
+
+\begin{theorem}[Variante 1.27]
+For $k$, $g$ and $h$ donnes, it n'y a that a nombre finite of classes of isomorphie of abelian varieties $A$ on $k$ of dimension $g$ and of hauteur $h(A) \leq h$.
+\end{theorem}
+
+Noter that, by 1.26 (ii), this variante renforce 1.3.
+
+
+\section{ISOGENIES}
+
+In this section, we etudions the variation of the hauteur $h(A)$ by isogenie, for $A$ a reduction semi-stable, and en deduisons the Tate conjecture.
+
+\subsection{}
+
+For every exact sequence $0 \to A' \to A \to A'' \to 0$ of schemes en groups commutatifs plats on a base $S$, one dispose of a isomorphism natural
+\[
+\omega(A) \cong \omega(A') \otimes \omega(A'').
+\]
+For $k$ a number field of ring of integers $\cO$, $S = \Spec(\cO)$ and $A$ (therefore $A'$, $A''$) of fiber generale proper on $k$, this isomorphism is compatible to the structures hermitiennes of the deux membres. This traduit that
+\[
+\vol(A(\CC)) = \vol(A'(\CC)) \cdot \vol(A''(\CC)).
+\]
+
+Let $u : A \to B$ a isogenie between abelian varieties on $k$, of kernel $H$, and let $\fH$ the adherence schematique of $H$ in the model of Neron connected $\fA^0$ of $A$. One assumed $A$ a reduction semi-stable. The sequence
+\[
+0 \to \fH \to \fA^0 \to \fB^0 \to 0
+\]
+is exact, of or
+\[
+h(B) = h(A) - \frac{1}{[k:\QQ]} \deg \omega(\fH). \tag{2.1.1}
+\]
+
+\subsection{}
+
+Calculons $\omega(H)$ for $H$ a scheme en groups commutatifs plat quasi-finite on $S = \Spec(\cO)$. On $k$, $H$ is étale, $\Lie H = 0$ and $\omega(H) \otimes_{\cO} k$ is canonically isomorphic a $k$. Via this isomorphism, the $\cO$-structure $\omega(H)$ of $\omega(H) \otimes_{\cO} k$ coincide with celle, $\cO$, of $k$ on the open of $S$ or $H$ is étale, but not ailleurs, and the structures hermitiennes different.
+
+(a) The structure hermitienne of $\omega(H) \otimes \CC$ is $\#H$ fois the structure standard.
+
+(b) Supposons all of abord $H$ finite on $S$, of algebra affine $\cO(H)$. This algebra is of intersection complete. Let $\fD^{-1}$ sa differente inverse: the more grand under-$\cO(H)$-module of $\cO(H) \otimes_{\cO} k$ on lequel the trace $\Tr_{H/S}$ let with values in $\cO$. The trace the identifie to the $\cO$-dual of $\cO(H)$. one has $\cO(H) \subset \fD^{-1}$. Parce that $H$ is a group, there exists a $\cO$-module $\fp_{H/\cO}^{-1} : \fp_{H/\cO}^{-1} \subset k$, such that $\fD^{-1} = \fp_{H/\cO}^{-1} \otimes_{\cO} \cO(H)$. one has
+\[
+\omega(H) = \fp_{H/\cO}^{-1}.
+\]
+(c) In the cas general, one defines $\fp_{H/\cO}^{-1}$ en se localisant for the topologie étale on $S$: locally, $H$ is extension of a scheme en groups étale $H''$ by $H'$ finite, and $\fp_{H/\cO}^{-1}$ for $H$:= $\fp_{H'/\cO}^{-1}$ for $H'$. one has again $\omega(H) = \fp_{H/\cO}^{-1}$. In particular, the isomorphism $\omega(H) \otimes_{\cO} k = k$ se prolonge en a isomorphism $\omega(H) = \fp_{H/\cO}^{-1}$.
+
+The definition of the degree given
+\[
+\deg \omega(H) = \log \#(\fp_{H/\cO}^{-1}/\cO) - \sum_{v|\infty} \log \#H(k_v). \tag{2.2.1}
+\]
+It follows of [3] prop.~9 of the appendice that $\fp_{H/\cO}^{-1}/\cO$ is annule by $\#H$, of or the
+
+\begin{equation}
+|\deg \omega(H)| \leq \log(\#H) \cdot [k:\QQ]. \tag{2.2.2}
+\end{equation}
+
+We shall have a faire usage of the condition suivante, automatique for $H$ closed in $\fA$ semi-abelien on $S$.
+
+\textbf{(2.2.3)} For every place finite $v$ of $k$, let $H_v$ the scheme en groups on $S_v := \Spec(\cO_v)$ deduces of $H$. It is extension of a under-group open $H_v^{\et}$ of a group $H_v^{\et}$ finite étale on $S_v$ by a group $H_v^0$ finite on $S_v$.
+
+Let $\ell$ a nombre prime and supposons $H$ annule by $\ell$. Let $\overline{k}$ a algebraic closure of $k$. The Galois group $\Gal(\overline{k}/k)$ agit on $H(\overline{k})$, which is a $\FF_\ell$-vector of rank finite $r$ on $\FF_\ell$. Let $\chi[H] : \Gal(\overline{k}/k) \to \FF_\ell^*$ the determinant of this representation and $\chi_0[H]$ son compose with the transfert $\Gal(\overline{k}/k) \to \Gal(\overline{k}/k)^{\text{ab}}$. Si $\varepsilon$ is the signature of the representation of permutation of $\Gal(\overline{k}/k)$ on $H(\overline{k}) - \{0\}$, one has
+\[
+\chi[H] = \varepsilon \cdot \chi_0[H]. \tag{2.2.4}
+\]
+the hypothese (2.2.3) assure that $\chi_0[H] : \Gal(\overline{k}/k) \to \FF_\ell^*$ n'is ramifie that en the places divisant $\ell$, therefore is a power of the character $\tau$ donnant the action of $\Gal(\overline{k}/k)$ on the racines $\ell$-iemes of 1.
+
+Let $v$ a place of $k$ divisant $\ell$. Under the hypothese that the indice of ramification absolute $e$ en $v$ let $\leq \ell - 1$, M.~Raynaud [3] theorem 4.1.1 relie the restriction of $\chi[H]$ to the group of inertie en $v$ a the longueur of the $v$-composante of $\fp_{H/\cO}^{-1}/\cO$. It traite of the cas of a group finite on $S_v$ but the hypothese (2.2.3) permet of se ramener a this cas. One deduces of son result that
+
+\begin{proposition}
+For $H$ annule by $\ell$ and verifiant (2.2.3), si for every place $v$ of $k$ divisant $\ell$ the indice of ramification absolute is $\leq \ell - 1$, one has, posant
+\[
+n := v_\ell(\#(\fp_{H/\cO}^{-1}/\cO)) - \frac{r}{2} \cdot [k:\QQ] \cdot v_\ell(\ell),
+\]
+\[
+\chi_0[H] = \tau^n.
+\]
+\end{proposition}
+
+We shall en deduire the
+
+\begin{theorem}
+Let $A$ a abelian variety on $k$, a reduction semi-stable. There exists a set finite $F$ of nombres prime such that, for $u : A \to B$ a isogenie of degree prime to the $\ell \notin F$, one has
+\[
+h(B) = h(A). \tag{2.4.1}
+\]
+\end{theorem}
+
+We shall prove that one can prendre $F$ ne dependant that of the class of isogenie of $A$. For prouver this states more fort, it is enough to traiter of a isogenie of kernel $H$ annule by a nombre prime $\ell$. Let $F_1$ the set of the $\ell'$ such that, en a place of $k$ divisant $\ell'$, the indice of ramification absolute let $\geq \ell' - 1$ and $p$ a nombre prime such that en each place divisant $p$, $A$ ait bonne reduction. Notre $F$ verifiera $F \supseteq F_1 \cup \{p\} \cup F_2$.
+
+For each place $v$ of $k$ divisant $p$, let $q_v$ the nombre of elements of the field residuel, $e_v$ the indice of ramification absolute and $P_v$ the polynome caracteristique of the automorphism of Frobenius arithmetic $\varphi_p$ agissant on $T_\ell(A)$. C'is a polynome unitaire a coefficients integers independants of $\ell$, ne dependant that of the class of isogenie of $A$. Let $\alpha_1, \ldots, \alpha_{2d}$ the racines complexes of $P_v$, with leur multiplicite. of after A.~Weil, this are of the nombres of value absolute $q_v^{1/2}$.
+
+Let $R$ a ring of integers of number field sufficiently grand for contenir the $\alpha_i$ ($v|p$). Si $H(\overline{k})$ is of dimension $r$ on $\FF_\ell$, there exists $\fP \subset R$ to the-dessus of $\ell$, and, for each $v|p$, a part $J_v$ a $r$ elements of $\{1, \ldots, 2d\}$ such that the polynome caracteristique of $\varphi_v$ agissant on $H(\overline{k})$ let the reduction $\bmod\ \fP$ of the product of the $(T - \alpha_i)$, $i \in J_v$. one has then
+\[
+\chi_0[H](\varphi_v) \equiv \prod_{i \in J_v} \alpha_i \pmod{\fP}.
+\]
+of after 2.3, $\chi_0[H](\varphi_v) = \tau(\varphi_v)^n = N_{k_v/\QQ_p}(q_v)^n = q_v^{n \cdot [k_v:\QQ_p]/[\QQ_p(\zeta_\ell):\QQ_p]}$. The congruence
+\[
+q_v^{r/2} \equiv q_v^{n \cdot [k_v:\QQ_p]/[\QQ_p(\zeta_\ell):\QQ_p]} \pmod{\fP}
+\]
+can therefore be a equality that si $n = [k:\QQ] \cdot r/2$, auquel cas $\deg \omega(H) = 0$ (2.2.1).
+
+Si $F_2$ is the set of the $\ell$ which divisent the a of the nombres
+\[
+\prod_{v|p} \left(\prod_{i \in J(v)} \alpha_i \right) - q_v^{b \cdot [k_v:\QQ_p]/[\QQ_p(\zeta_\ell):\QQ_p]}
+\]
+or, for $1 \leq r \leq 2d$, the $J(v)$ are of the parties a $r$ elements of $\{1, \ldots, 2d\}$ and or $1 \leq b \leq [k:\QQ] \cdot r$, $b \neq [k:\QQ] \cdot r/2$, then $F = F_1 \cup \{p\} \cup F_2$ convient: the congruence (2.4.1) implique equality, $\deg \omega(H) = 0$, and one conclut by (2.1.1).
+
+\subsection{}
+
+Fixons a nombre prime $\ell$, let $A(\overline{k})_{\ell^\infty}$ the group of the points of twisting $\ell$-divisible of $A(\overline{k})$ of ordre a power of $\ell$, and let $W$ a under-$\QQ_\ell$-space vector of $V_\ell(A)$ stable by $\Gal(\overline{k}/k)$. It correspond a under-module stable $T_\ell(W) \subset T_\ell(A)$, with $T_\ell(A)/T_\ell(W)$ without $\ell$-twisting. For each integer $n$, let $B(n)$ the quotient $A/W_n$ of $A$.
+
+\begin{theorem}
+For $n$ sufficiently grand, $h(B(n))$ is independant of $n$.
+\end{theorem}
+
+The proof is semblable a celle of the theorem 2.4, the reference [3] 4.1.1 being remplacee by [3] 4.2.1 which affirme: si $W$ is a group $\ell$-divisible on $S = \Spec(\cO_v)$ ($v$ place of $k$ divisant $\ell$), of algebra of Lie of dimension $d$, and si $\chi[W] : \Gal(\overline{k}/k) \to \ZZ_\ell^*$ is the determinant of the action of $\Gal$ on $T_\ell(W)$, the restriction of $\chi[W]$ to the group of inertie $I \subset \Gal(\overline{k}/k_v)$ is $\tau^d$, for $\tau$ the character donnant the action of $\Gal$ on the racines of the unite of ordre a power of $\ell$. Moreover, the $\cO_v$-module $\fp_{W_n/\cO_v}^{-1}/\cO_v$ is of longueur $d \cdot n \cdot e_v$.
+
+Deux problemes apparaissent.
+
+(a) Let $W(n)$ the adherence schematique of $W_n$ in $\fA^0$, and $\fW(n)$ son inverse image on $S$. Let $\fW(n)_0$ the more grand under-scheme en groups of $\fW(n)$ finite on $S_v$. Then $\varinjlim \fW(n)_0$ n'is can-be not a group $\ell$-divisible.
+
+(b) Same si c'is the cas, the $\fW(n)_{0,v}$ ne forment can-be not on $S_v$ a group $\ell$-divisible: bien that exact to the point generique, the sequences
+\[
+0 \to \fW(n)_{0,v} \to \fW(n+1)_{0,v} \xrightarrow{\ell^n} \fW(1)_{0,v} \to 0
+\]
+pourraient ne not be exact.
+
+These difficultes disparaissent for $A$ remplace by $A \times A^{*} \times A^3$, $n$ sufficiently grand (for (b), cf.~[4] prop.~12), and one deduces the theorem.
+
+Si $A$ is principalement polarisee and that $W$ is a under-space isotrope maximal, the $A/W_n$ admettent again a polarisation principal. By 1.3 and 2.6, these quotients se repartissent en a nombre finite of classes of isomorphie. As explique in the expose of Szpiro, one deduces of the Tate conjecture. the information additionnelle fournie by the theorem 2.4 given by the same methode, the states more precise suivant
+
+\begin{theorem}
+Let $A$ a abelian variety over a field of nombres $k$, of algebraic closure $\overline{k}$. The Galois group $\Gal(\overline{k}/k)$ agit on $T_\ell(A)$; of or
+\[
+\rho_\ell : \ZZ_\ell[\Gal(\overline{k}/k)] \longrightarrow \End_{\ZZ_\ell}(T_\ell(A)).
+\]
+The under-algebra $\rho_\ell(\ZZ_\ell[\Gal(\overline{k}/k)])$ of $\End_{\ZZ_\ell}(T_\ell(A))$ is the commutant of $\End(A)$.
+\end{theorem}
+
+Outre the Tate conjecture and the semisimplicity of the action of $\Gal(\overline{k}/k)$ on $V_\ell(A)$, this theorem affirme that for presque all $\ell$, the combinaisons $\ZZ_\ell$-lineaires of elements of $\Gal(\overline{k}/k)$ remplissent the commutant of $\End(A)$ in $\End_{\ZZ_\ell}(T_\ell(A))$.
+
+\begin{corollary}
+Over a field of nombres $k$, a class of isogenie of abelian varieties se compose of a nombre finite of classes of isomorphie.
+\end{corollary}
+
+Let $A$ a abelian variety on $k$. The datum of a abelian variety $A'$ isogene a $A$ equivaut a the datum, for every $\ell$, of a reseau $T'_\ell \subset V_\ell(A)$ stable by $\Gal(\overline{k}/k)$, with $T'_\ell = T_\ell(A)$ for presque all $\ell$. For that $A'$ let isomorphic a $A$, it is necessary and sufficient that there exists $b \in \End(A) \otimes \QQ$ such that for every $\ell$, $b \cdot T_\ell(A) = T'_\ell$.
+
+For each nombre prime $\ell$, the fait that $\rho_\ell(\ZZ_\ell[\Gal(\overline{k}/k)])$ ait for image in $\End(V_\ell(A))$ the commutant of $\End(A)$ implique that $\End(A) \otimes \ZZ_\ell$ n'a that a nombre finite of orbites in the set of the reseaux $T'_\ell \subset V_\ell(A)$ stables under Galois. For the $\ell$ such that $\End(A) \otimes \ZZ_\ell$ Let ordre maximal in the algebra semisimple $\End(A) \otimes \QQ_\ell$ and that $\rho_\ell(\ZZ_\ell[\Gal(\overline{k}/k)])$ ait for image in $\End(V_\ell(A))$ the commutant of $\End(A)$, it n'y a same that a orbite.
+
+Let $G$ the algebraic group on $\QQ$ group multiplicatif of the $\QQ$-algebra $\End(A) \otimes \QQ$. C'is a group reductive. The group adelique $G(\AA_f)$ agit on the systemes of reseaux $(T'_\ell)$, and this which precede shows that it n'y a that a nombre finite of orbites. For chacune, the set of the classes of isomorphie of abelian varieties correspondantes s'identifie a set of doubles classes
+\[
+G(\QQ) \backslash G(\AA_f) / K
+\]
+with $K$ under-group compact open of $G(\AA_f)$. A tel set is finite, and the corollary en resulte.
+
+\begin{corollary}
+Over a field of nombres $k$, the abelian varieties polarisees $(A,\theta)$, of degree of polarisation $n$ with $A$ isogene a abelian variety $B$, ne forment that a nombre finite of classes of isomorphie.
+\end{corollary}
+
+\begin{proof}
+Appliquer 1.26 (ii).
+\end{proof}
+
+
+\section{THE SHAFAREVICH CONJECTURE}
+
+\begin{theorem}
+Let $k$ a number field, $\overline{k}$ a algebraic closure of $k$, $S$ a set finite of places finite of $k$, $\ell$ a nombre prime and $d$ a integer. There exists a set finite $T$ of places of $k$, disjoint of $S$, such that a representation $\ell$-adique semisimple of dimension $d$, $\rho : \Gal(\overline{k}/k) \to \GL(d, \QQ_\ell)$, not ramifiee en dehors of $S$, is uniquement determinee (a isomorphism of representations pres) by the $\Tr \rho(\varphi_v)$ for $v \in T$.
+\end{theorem}
+
+One sait (Hermite) that it n'exists that a nombre finite of extensions galoisiennes $k'$ of $k$, not ramifiees en dehors of $S$ and of degree borne. of after Cebotarev, there exists therefore a set finite $T$ of places of $k$, disjoint of $S$, such that the classes of conjugaison of the Frobenius $\varphi_v$ ($v \in T$) remplissent all $\Gal(k'/k)$, for every extension galoisienne $k'$ of $k$, not ramifiee en dehors of $S$, of degree $\leq \ell^{2d^2}$. Prouvons that $T$ convient.
+
+Let therefore $\rho_1$, $\rho_2$ deux representations $\ell$-adiques of the type dit, with $\Tr \rho_1(\varphi_v) = \Tr \rho_2(\varphi_v)$ for $v \in T$. We voulons montrer that $\rho_1$ and $\rho_2$ have same character, therefore, being semi-simples, are isomorphes. Let $M$ the image of the algebra $\ZZ_\ell[\Gal(\overline{k}/k)]$ by
+\[
+\rho_1 \times \rho_2 : \ZZ_\ell[\Gal(\overline{k}/k)] \longrightarrow M_d(\QQ_\ell) \times M_d(\QQ_\ell).
+\]
+It s'agit of verify that, on $M$, the form lineaire $\delta(m_1, m_2) := \Tr(m_1) - \Tr(m_2)$ is identiquement zero. the algebra $M$ is a $\ZZ_\ell$-module of rank $\leq 2d^2$. the image of $\Gal(\overline{k}/k)$ in the quotient $(M/\ell M)^*$ a therefore less of $\ell^{2d^2}$ elements and, by hypothese, each element of this image is a $(\rho_1 \times \rho_2)(\varphi_v)$ for $v \in T$. By Nakayama, the $(\rho_1 \times \rho_2)(\varphi_v)$ ($v \in T$) engendrent $\ZZ_\ell$-lineairement $M$. On eux, the form lineaire $\delta$ s'annule by hypothese, of or $\delta = 0$ on $M$.
+
+\begin{remark}
+A states more faible that 3.1 had ete obtained by J.-P.~Serre, modulo a hypothese of Riemann generalisee.
+\end{remark}
+
+\begin{corollary}
+Let $k$ a number field and $S$ a set finite of places of $k$. It n'y a that a nombre finite of classes of isogenie of abelian varieties of dimension $g$ on $k$, a bonne reduction en dehors of $S$.
+\end{corollary}
+
+One fixe a nombre prime $\ell$ and one applique 3.1 a $S \cup \{\text{places divisant } \ell\}$, $f_* V_\ell(A)$ and $d = 2g$. For each abelian variety $A$ of the type considered, the representation $\ell$-adique $V_\ell(A) := T_\ell(A) \otimes \QQ_\ell$ is semisimple (by 2.7), and it n'y a that a nombre finite of possibilites for the trace of $\varphi_v$ ($v \in T$): by A.~Weil, it is integer and bornee by $2g \cdot q_v^{1/2}$. It n'y a therefore that a nombre finite of possibilites for the class of isomorphie of $V_\ell(A)$, and one conclut by the Tate conjecture.
+
+Of this corollary one deduces by 2.8 and 2.9:
+
+\begin{corollary}
+Let $k$ a number field and $S$ a set finite of places of $k$. It n'y a that a nombre finite of classes of isomorphie of abelian varieties of dimension $g$ on $k$, a bonne reduction en dehors of $S$.
+\end{corollary}
+
+\begin{corollary}
+Let $k$ a number field and $S$ a set finite of places of $k$. It n'y a that a nombre finite of classes of isomorphie of abelian varieties polarisees $(A,\theta)$ on $k$ of dimension $g$ and of degree of polarisation $n$, a bonne reduction en dehors of $S$.
+\end{corollary}
+
+\vspace{12pt}
+\noindent\textbf{BIBLIOGRAPHIE}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2em,itemsep=0pt]
+\item A.~ASH, D.~MUMFORD, M.~RAPOPORT and Y.~TAI -- \textit{Smooth compactification of locally symmetric varieties}, Math. Sci. Press, Brookline, 1975.
+\item G.~FALTINGS -- Endlichkeitssatze fur abelsche Varietaten uber Zahlkorpern, \textit{Inv. Math.} \textbf{73} (1983), 349--366.
+\item M.~RAYNAUD -- Schemes en groups of type $(p,\ldots,p)$, \textit{Bull. Soc. Math. France} \textbf{102} (1974), 241--280.
+\item J.~TATE -- $p$-divisible groups, \textit{Proc. of a conf. one local fields} (Driebergen 1966), 158--183, Springer-Verlag, New York, 1967.
+\end{enumerate}
+
+\vspace{24pt}
+\noindent Pierre DELIGNE\\
+Institut of the Hautes Etudes Scientifiques\\
+F-91440 BURES on YVETTE
+
+\end{document}

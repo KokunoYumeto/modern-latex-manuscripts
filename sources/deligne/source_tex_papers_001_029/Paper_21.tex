@@ -1,0 +1,532 @@
+\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+
+\theoremstyle{plain}
+\newtheorem{theoreme}{Théorème}[section]
+\newtheorem{lemme}[theoreme]{Lemme}
+\newtheorem{proposition}[theoreme]{Proposition}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+\theoremstyle{definition}
+\newtheorem{definition}[theoreme]{Définition}
+\theoremstyle{remark}
+\newtheorem{remarque}[theoreme]{Remarque}
+\newtheorem{remarques}[theoreme]{Remarques}
+
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\frob}{Frob}
+\DeclareMathOperator{\dens}{dens}
+
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\F}{\mathbf{F}}
+
+\begin{document}
+
+\title{Formes modulaires de poids $1$}
+\author{Pierre Deligne}
+\author{Jean-Pierre Serre}
+\thanks{À Henri Cartan, à l occasion de son $70^{\mathrm{e}}$ anniversaire}
+\maketitle
+
+\section*{Introduction}
+La décomposition en produit eulérien, et l équation fonctionnelle, des séries de
+Dirichlet associées par Hecke aux formes modulaires de poids $1$ suggèrent que celles-ci
+correspondent à des fonctions $L$ d Artin de degré $2$ du corps $\Q$, autrement dit à des représentations
+de $\Gal(\overline{\Q}/\Q)$ dans $\GL_2(\C)$. C est une telle correspondance, conjecturée par
+Langlands, que nous établissons ici.
+
+Les trois premiers paragraphes sont préliminaires. Le paragraphe $4$ contient l énoncé
+du théorème principal, et quelques compléments. La démonstration occupe les para-
+graphes $5$ à $9$. Son principe est le suivant : on commence par construire, pour tout nombre
+premier $l$, une représentation de $\Gal(\overline{\Q}/\Q)$ en caractéristique $l$ (cf.~\S\,6); on montre ensuite
+que les images de $\Gal(\overline{\Q}/\Q)$ dans ces diverses représentations sont `petites', ce qui
+permet de les relever en caractéristique $0$, et d obtenir la représentation complexe cher-
+chée (\S\S\,7 et 8); la `petitesse en question résulte elle-même d une majoration en moyenne
+des valeurs propres des opérateurs de Hecke (Rankin, cf.~\S\,5). Le paragraphe $9$ contient
+une estimation des coefficients des formes modulaires de poids $1$.
+
+Signalons que nous avons utilisé en un point essentiel (\S\,6, th.~6.1) des résultats démon-
+trés par l un de nous (P.~Deligne), mais dont aucune démonstration complète n a encore
+été publiée; en attendant une telle publication (ainsi que celle de SGA~5, dont ils dépendent),
+nous demandons au lecteur de bien vouloir les admettre.
+
+\section{Rappels (analytiques) sur les formes modulaires}
+
+\subsection{}
+
+Soit $N$ un entier $\ge 1$. On associe à $N$ les sous-groupes
+$$\Gamma(N) \subset \Gamma_1(N) \subset \Gamma_0(N)$$
+de $\SL_2(\Z)$ définis par
+\begin{align*}
+\Gamma(N) &: \quad a \equiv d \equiv 1 \pmod{N} \quad \text{et} \quad b \equiv c \equiv 0 \pmod{N}, \\
+\Gamma_1(N) &: \quad a \equiv d \equiv 1 \pmod{N} \quad \text{et} \quad c \equiv 0 \pmod{N}, \\
+\Gamma_0(N) &: \quad c \equiv 0 \pmod{N}.
+\end{align*}
+
+\subsection{}
+
+Soit $f$ une fonction sur le demi-plan $H = \{z \mid \mathrm{Im}(z) > 0\}$. Si $k$ est un entier,
+et si $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ est un élément de $\SL_2(\R)$, on pose
+$$
+(f|_k \gamma)(z) = (cz+d)^{-k} f(\gamma z), \qquad \text{où} \quad \gamma z = \frac{az+b}{cz+d}.
+$$
+
+Soit $\Gamma$ un sous-groupe de $\SL_2(\Z)$ contenant $\Gamma(N)$. On dit que $f$ est \emph{modulaire de poids $k$ sur $\Gamma$} si :
+\begin{enumerate}
+\item[(1.2.1)] $f|_k \gamma = f$ pour tout $\gamma \in \Gamma$;
+\item[(1.2.2)] $f$ est holomorphe sur $H$;
+\item[(1.2.3)] $f$ est holomorphe aux pointes, i.e., pour tout $\sigma \in \SL_2(\Z)$, la fonction $f|_k \sigma$ a un
+développement en série de puissances de $\mathrm{e}^{2\pi iz/N}$ à exposants $\ge 0$.
+\end{enumerate}
+
+Lorsque, dans (1.2.3), on remplace exposants $\ge 0$ par exposants $> 0$, on obtient la notion de \emph{forme modulaire parabolique}.
+
+\subsection{}
+
+Soit $f$ une forme modulaire de poids $k$ sur $\Gamma(N)$. Pour que $f$ soit une forme modulaire sur $\Gamma_1(N)$, il faut et il suffit que $f(z+1) = f(z)$, ou encore que $f$ ait un développement de la forme
+$$
+\sum_{n=0}^{\infty} a_n q^n, \qquad \text{où} \quad q = \mathrm{e}^{2\pi iz}.
+$$
+Dans ce qui suit, ce développement sera noté $f_{\infty}(q)$, ou simplement $f$.
+
+\subsection{}
+
+Soit $f$ une forme modulaire de poids $k$ sur $\Gamma_1(N)$. Si $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ est un élément
+de $\Gamma_0(N)$, la forme $f|_k \gamma$ ne dépend que de l image de $d$ dans $(\Z/N\Z)^*$; on la note $f|_k R_d$. On a $f|_k R_{-1} = (-1)^k f$.
+
+\subsection{}
+
+Soit $\varepsilon$ un caractère de Dirichlet mod $N$, autrement dit un homomorphisme
+$$
+\varepsilon : (\Z/N\Z)^* \longrightarrow \C^*.
+$$
+On dit que $\varepsilon$ est \emph{pair} (resp.~\emph{impair}) si $\varepsilon(-1) = 1$ (resp.~si $\varepsilon(-1) = -1$).
+
+Soit $k$ un entier de même parité que $\varepsilon$ [i.e.~$\varepsilon(-1) = (-1)^k$]. On appelle \emph{forme modulaire de type $(k,\varepsilon)$ sur $\Gamma_0(N)$} une forme modulaire $f$ de poids $k$ sur $\Gamma_1(N)$ telle que
+$$
+f|_k R_d = \varepsilon(d) f
+$$
+pour tout $d \in (\Z/N\Z)^*$, i.e.
+$$
+f\left(\frac{az+b}{cz+d}\right) = \varepsilon(a)^{-1}(cz+d)^k f(z) \qquad \text{pour } \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \Gamma_0(N).
+$$
+(Noter que, si $\varepsilon$ et $k$ n étaient pas de même parité, cette formule entraînerait $f = 0$.)
+
+Toute forme modulaire de poids $k$ sur $\Gamma_1(N)$ est combinaison linéaire de formes de types $(k, \varepsilon_i)$ sur $\Gamma_0(N)$, où les $\varepsilon_i$ sont les différents caractères de $(\Z/N\Z)^*$ de même parité que $k$.
+
+Cela se voit (cf.~[16], p.~IV-13) en remarquant que l application $d \mapsto R_d$ (mod $N$) définit par passage au quotient un isomorphisme de $\Gamma_0(N)/\Gamma_1(N)$ sur $(\Z/N\Z)^*$.
+
+\subsection{Opérateurs de Hecke}
+
+Soit $f = \sum a_n q^n$ une forme modulaire de type $(k,\varepsilon)$ sur $\Gamma_0(N)$, et soit $p$ un nombre premier. On pose
+\begin{equation}
+\label{eq:hecke1}
+f|T_p = \sum a_{pn} q^n + \varepsilon(p) p^{k-1} \sum a_n q^{pn} \qquad \text{si } p \nmid N,
+\end{equation}
+\begin{equation}
+\label{eq:hecke2}
+f|U_p = \sum a_{pn} q^n \qquad \text{si } p \mid N.
+\end{equation}
+On obtient ainsi une autre forme modulaire de type $(k,\varepsilon)$ sur $\Gamma_0(N)$, qui est parabolique si $f$ l est.
+
+\subsection{Formes primitives}
+
+On renvoie à [2] (dans le cas $\varepsilon = 1$) et à [6], [12], [13] (dans le cas général) pour la définition des formes paraboliques primitives (\og newforms \fg{}) de type $(k,\varepsilon)$ sur $\Gamma_0(N)$.
+
+Si $f = \sum_{n=1}^{\infty} a_n q^n$ est de telle forme, on a $a_1 = 1$, et $f$ est fonction propre des opérateurs de Hecke $T_p$ et $U_p$, les valeurs propres correspondantes étant les $a_p$. Il en résulte que la série de Dirichlet
+\begin{equation}
+\label{eq:dirichlet}
+\varphi_f(s) = \sum_{n=1}^{\infty} a_n n^{-s}
+\end{equation}
+admet le développement eulérien
+\begin{equation}
+\label{eq:euler}
+\varphi_f(s) = \prod_{p \mid N} \frac{1}{1-a_p p^{-s}} \prod_{p \nmid N} \frac{1}{1-a_p p^{-s} + \varepsilon(p) p^{k-1-2s}}.
+\end{equation}
+
+\subsection{}
+
+Si $f$ est comme ci-dessus, et si $p \mid N$, la valeur absolue de $a_p$ est donnée par la règle suivante ([12], [14]) :
+
+$a_p = 0$ si $p^2 \mid N$ et si $\varepsilon$ peut être défini mod $N/p$;
+
+$|a_p| = p^{(k-1)/2}$ si $\varepsilon$ ne peut pas être défini mod $N/p$;
+
+$|a_p| = p^{k/2-1}$ si $p^2 \nmid N$ et si $\varepsilon$ peut être défini mod $N/p$.
+
+(Il résultera du théorème 4.6 ci-après que le dernier cas ne se présente pas pour $k = 1$.)
+
+\subsection{}
+
+Toute forme $f$ de type $(k,\varepsilon)$ sur $\Gamma_0(N)$ peut s écrire
+$$
+f(z) = E(z) + \sum_i \psi_i f_i(d_i z),
+$$
+où $E$ est une série d Eisenstein, et où $f_i$ est parabolique primitive de type $(k, \varepsilon)$ sur $\Gamma_0(N_i)$,
+$N_i$ étant un diviseur de $N$ tel que $\varepsilon$ puisse être défini mod $N_i$, et $d_i$ un diviseur de $N/N_i$.
+De plus, cette décomposition est unique, en un sens évident.
+
+\section{Rappels (géométriques) sur les formes modulaires}
+
+\subsection{}
+
+Soient $k$ et $N$ des entiers $\ge 1$, et $\mu_N$ le schéma en groupes des racines $N$-ièmes de l unité. Du point de vue géométrique, une forme modulaire de poids $k$ sur $\Gamma_1(N)$ est une loi qui, à chaque courbe elliptique $E$ munie d un plongement $\alpha : \mu_N \to E$, associe une section de la puissance tensorielle $k$-ième $\omega_E^{\otimes k}$ de $\omega_E$, où $\omega_E$ est le dual de l algèbre de Lie de $E$.
+
+Précisons :
+
+($\alpha$) Une courbe elliptique sur un schéma $S$ est un morphisme propre et lisse $E \to S$, muni d une section $e : S \to E$, de fibres géométriques des courbes elliptiques. Lorsque $S$ est le spectre d un anneau commutatif $A$, on dit aussi que $E$ est une courbe elliptique sur $A$. On pose $\omega_E = e^* \Omega^1_{E/S}$; pour $S = \mathrm{Spec}(A)$, $\omega_E$ s identifie à un $A$-module inversible.
+
+($\beta$) Soit $R$ un anneau commutatif dans lequel $N$ est inversible. Une forme modulaire de poids $k$ sur $\Gamma_1(N)$, méromorphe à l infini, définie sur $R$, est une loi qui, à toute courbe elliptique $E$ sur une $R$-algèbre $A$, munie d un plongement $\alpha : \mu_N \to E$, associe un élément $f(E,\alpha)$ de $\omega_E^{\otimes k}$. On exige que cette loi soit compatible aux isomorphismes, et à l extension des scalaires.
+
+($\gamma$) On dit que $f$ est holomorphe à l infini si elle se prolonge en une loi $\tilde{f}$ définie pour les couples $(E, \alpha)$ où $E$ est une courbe elliptique généralisée ([7], II.~1.12) et $\alpha$ un plongement de $\mu_N$ dans $E$ dont l image rencontre chaque composante irréductible de chaque fibre géométrique ([7], IV.~4.14). Si elle existe, la loi $\tilde{f}$ est unique.
+
+Supposons que $R$ soit un corps. On dit que $f$ est \emph{parabolique} si elle est holomorphe à l infini et si $\tilde{f}(E, \alpha) = 0$ chaque fois que $E$ est une courbe elliptique dégénérée (i.e.~non lisse) sur une extension algébriquement close de $R$.
+
+Ces notions pourraient aussi se définir en termes de développements de Laurent en $q$ (cf.~[7], VII, \S\,3).
+
+\subsection{}
+
+Soit $f$ comme ci-dessus. Si $d \in (\Z/N\Z)^*$, on définit la forme modulaire $f|_k R_d$ par
+\begin{equation}
+\label{eq:rd}
+(f|_k R_d)(E, \alpha) = f(E, d\alpha).
+\end{equation}
+
+Si $\varepsilon$ est un homomorphisme de $(\Z/N\Z)^*$ dans $R^*$, on dit que $f$ est de type $(k,\varepsilon)$ sur $\Gamma_0(N)$ si $f|_k R_d = \varepsilon(d) f$ pour tout $d \in (\Z/N\Z)^*$.
+
+\subsection{}
+
+Soit $p$ un nombre premier ne divisant pas $N$. L opérateur de Hecke $T_p$ est alors défini sur les espaces de formes modulaires. Si $f$ est une telle forme, et si $(E, \alpha)$ est définie sur un corps algébriquement clos de caractéristique $\ne p$, on a
+$$
+(f|T_p)(E, \alpha) = \sum_{\varphi} f(E_\varphi, \varphi \circ \alpha) / (\deg \varphi)^{k-1},
+$$
+où $\varphi$ parcourt les classes d isogénies de degré $p$ de source $E$ (deux isogénies étant dans la même classe si leurs noyaux sont égaux).
+
+Les $T_p$ commutent entre eux, et commutent aux $R_d$.
+
+\subsection{}
+
+Faisons $R = \C$. La donnée du plongement $\alpha : \mu_N \to E$ équivaut alors à celle du point
+$$
+\alpha(\exp(2\pi i/N)),
+$$
+qui est d ordre $N$. À une forme modulaire $f$ comme ci-dessus, on associe une fonction (encore notée $f$) sur le demi-plan $H$ par la règle
+\begin{equation}
+\label{eq:analytic1}
+f(z) = f(E_z, \alpha_z) / (2\pi i \, dz)^{\otimes k},
+\end{equation}
+où $E_z$ désigne la courbe elliptique $\C/(\Z \oplus z\Z)$.
+
+Posons $f(z) = f_{\infty}(\mathrm{e}^{2\pi iz})$. La formule (\ref{eq:analytic1}) se récrit :
+\begin{equation}
+\label{eq:analytic2}
+f_{\infty}(q) = f(\C^*/q^\Z, \alpha) / (dt/t)^k \qquad (0 < |q| < 1),
+\end{equation}
+où $\alpha$ est déduite de l inclusion de $\mu_N$ dans $\C^*$.
+
+Cette construction identifie les espaces de formes modulaires au sens de 2.1 et 2.2 aux espaces de même nom du \S\,1; même chose pour les opérateurs $T_p$ et $R_d$.
+
+\subsection{}
+
+Pour la définition de la courbe de Tate $\mathbf{G}_m/q^\Z$ sur l anneau $\Z((q)) = \Z[[q]][q^{-1}]$, nous renvoyons à [7], VII, \S\,1. Cette courbe est munie d une forme différentielle invariante $dt/t$, et d un plongement naturel $\iota_d : \mu_N \to \mathbf{G}_m/q^\Z$. Si $f$ est une forme modulaire de poids $k$ sur $\Gamma_1(N)$, méromorphe à l infini, et définie sur un anneau $R$, on pose
+$$
+f_{\infty}(q) = f(\mathbf{G}_m/q^\Z, \iota_d) / (dt/t)^k \in \Z((q)) \otimes R \subset R((q)).
+$$
+(Dans cette formule, $\mathbf{G}_m/q^\Z$ désigne la courbe sur $\Z((q)) \otimes R$ déduite de la courbe de Tate par extension des scalaires.)
+
+Posons
+$$
+f_{\infty}(q) = \sum a_n q^n \quad \text{et} \quad (f|_k R_d)_{\infty}(q) = \sum a_n \varepsilon(d) q^n, \quad d \in (\Z/N\Z)^*;
+$$
+si $p$ est un nombre premier ne divisant pas $N$, on a
+\begin{equation}
+\label{eq:hecke-tate}
+(f|T_p)_{\infty}(q) = \sum a_{pn} q^n + p^{k-1} \sum a_n (q^n)^p.
+\end{equation}
+
+En particulier, si $f$ est de type $(k,\varepsilon)$ sur $\Gamma_0(N)$, on a
+\begin{equation}
+\label{eq:hecke-tate2}
+(f|T_p)_{\infty}(q) = \sum a_{pn} q^n + \varepsilon(p) p^{k-1} \sum a_n q^{pn}.
+\end{equation}
+
+Lorsque $R = \C$, $f_{\infty}(q)$ est le développement en série de (\ref{eq:analytic2}); ceci est prouvé dans [7], VII, \S\,4 (au moins pour $f$ holomorphe, le seul cas qui nous importe). La formule (\ref{eq:hecke-tate2}) redonne (\ref{eq:hecke1}).
+
+\subsection{}
+
+Si $K$ est un corps de caractéristique $0$, notons $S_K$ l espace vectoriel des formes modulaires paraboliques de poids $k$ sur $\Gamma_1(N)$ qui sont définies sur $K$. On a
+\begin{equation}
+\label{eq:basechange}
+S_K = K \otimes_\Q S_\Q;
+\end{equation}
+on le voit en interprétant $S_K$ comme l espace des sections d un faisceau inversible sur le champ algébrique correspondant à $\Gamma_1(N)$ (cf.~[7], VII, 3.2).
+
+Si $K'$ est un sous-corps de $K$, une forme $f \in S_K$ appartient à $S_{K'}$ si et seulement si les coefficients de la série $f_{\infty}(q)$ appartiennent à $K'$. Cela se voit en se ramenant au cas où $K$ est algébriquement clos, et en remarquant que, pour tout $K'$-automorphisme $\sigma$ de $K$, les formes $f$ et $\sigma(f)$ ont même développement en série, donc coïncident.
+
+\begin{proposition}[2.7]
+Soit $L$ l'ensemble des $f \in S_\C$ telles que $(f|_k R_d)_{\infty}(q) \in \Z[[q]] \otimes \Q$ pour tout $d \in (\Z/N\Z)^*$. Alors :
+\begin{enumerate}
+\item[(2.7.1)] $L$ est un $\Z$-module libre de type fini, stable par les opérateurs $T_p$ et $R_d$.
+\item[(2.7.2)] Pour tout corps $K$ de caractéristique $0$, on a $S_K = K \otimes L$.
+\item[(2.7.3)] Les valeurs propres des $T_p$ dans $S_\C$ sont des entiers d une extension finie de $\Q$.
+\item[(2.7.4)] Si $f \in S_\C = \C \otimes L$ est telle que $f|T_p = a_p f$, alors, pour tout automorphisme $\sigma$ de $\C$, la forme $\sigma(f)$ est telle que $\sigma(f)|T_p = \sigma(a_p) \sigma(f)$. Si $f$ est de type $(k, \varepsilon)$ sur $\Gamma_0(N)$, alors $\sigma(f)$ est de type $(k, \sigma(\varepsilon))$ sur $\Gamma_0(N)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{remarques}
+\item[3.3.] Dans la suite, on appliquera le lemme 3.2 au cas particulier o\`u $X$ est l ensemble des nombres premiers qui ne divisent pas un entier $N$ donn\'e; on dira alors que $\rho$ et $\rho$\'{} soient non ramifi\'ees en dehors de $N$.
+\item[3.4.] Lorsque $k = \C$, la condition de semi-simplicit\'e est automatiquement satisfaite, puisque $\rho(G)$ et $\rho$\'{}$(G)$ sont finis.
+\end{remarques}
+
+\section{R\'esultats}
+
+\subsection*{(a) \'Enonc\'e du th\'eor\`eme principal}
+
+\begin{theoreme}[4.1]
+Soient $N$ un entier $\ge 1$, $\varepsilon$ un caract\`ere de Dirichlet mod $N$ tel que $\varepsilon(-1) = -1$, et $f$ une forme modulaire de type $(1, \varepsilon)$ sur $\Gamma_0(N)$, non identiquement nulle. On suppose que $f$ est fonction propre des $T_p$, $p \nmid N$, avec pour valeurs propres $a_p$.
+
+Il existe alors une repr\'esentation lin\'eaire
+$$\rho : G \longrightarrow \GL_2(\C), \qquad \text{o\`u } G = \Gal(\overline{\Q}/\Q),$$
+qui est non ramifi\'ee en dehors de $N$ et telle que
+\begin{equation}\label{eq:mainthm}\Tr(\frob_p) = a_p \qquad \text{et} \qquad \det(\frob_p) = \varepsilon(p) \text{ pour tout } p \nmid N.\end{equation}
+Cette repr\'esentation est irr\'eductible si et seulement si $f$ est parabolique.
+\end{theoreme}
+
+La d\'emonstration sera donn\'ee au \S\,8.
+
+\begin{corollaire}[4.2]
+Les valeurs propres $a_p$ sont sommes de deux racines de l unit\'e, en particulier on a $|a_p| \le 2$.
+\end{corollaire}
+
+En d\'autres termes, la conjecture de Ramanujan-Petersson est vraie en poids $1$; on sait d\'ailleurs qu\'elle est \'egalement vraie en poids $\ge 2$, cf.~[5], 8.2.
+
+\begin{remarques}
+\item[4.3.] D\'apr\`es le lemme 3.2, la repr\'esentation $\rho$ associ\'ee \`a $f$ par 4.1 est unique, \`a isomorphisme pr\`es.
+\item[4.4.] La formule $\det(\frob_p) = \varepsilon(p)$ montre que l on a
+$$\det(\rho) = \varepsilon,$$
+en convenant d identifier $\varepsilon$ au caract\`ere $G \to \C^*$ qui lui correspond par la th\'eorie du corps de classes (c\'est simplement le compos\'e de $\varepsilon$ et de l homomorphisme $G \to (\Z/N\Z)^*$ fourni par l action de $G$ sur les racines $N$-i\`emes de l unit\'e).
+\item[4.5.] Notons $c$ l \'el\'ement de $G$ correspondant \`a la conjugaison complexe (pour un plongement de $\overline{\Q}$ dans $\C$). Du fait que $\varepsilon$ est impair, 4.4 montre que $\det(\rho(c)) = -1$; comme $c$ est d ordre $2$, cela signifie que $\rho(c)$ est conjugu\'ee de la matrice $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$.
+\end{remarques}
+
+\subsection*{(b) Conducteur d Artin et facteurs locaux}
+
+On conserve les hypoth\`eses et notations du th\'eor\`eme 4.1.
+
+\begin{theoreme}[4.6]
+Supposons $f$ parabolique primitive, de coefficients $a_n$, $n \ge 1$. Soit $\rho$ la repr\'esentation de $G$ correspondante. Alors :
+\begin{enumerate}
+\item[a.] Le conducteur d Artin de $\rho$ est \'egal \`a $N$;
+\item[b.] La fonction $L$ d Artin $L(s, \rho)$ est \'egale \`a $\varphi_f(s) = \sum a_n n^{-s}$.
+\end{enumerate}
+(Pour la d\'efinition de la s\'erie $L$, et du conducteur, d une repr\'esentation, voir [1].)
+\end{theoreme}
+
+\begin{corollaire}[4.7]
+La repr\'esentation $\rho$ est ramifi\'ee en tous les diviseurs premiers de $N$.
+\end{corollaire}
+
+Cela r\'esulte de (a).
+
+\begin{corollaire}[4.8]
+La fonction $L(s, \rho)$ est une fonction enti\`ere.
+\end{corollaire}
+
+[Autrement dit, la conjecture d Artin est vraie pour $\rho$, cf.~(c) ci-dessous.]
+
+En effet, la th\'eorie de Hecke montre que $\varphi_f(s)$ est enti\`ere.
+
+\noindent\textbf{D\'emonstration de 4.6.} --- Elle utilise les \'equations fonctionnelles satisfaites par $\varphi_f(s)$ et $L(s, \rho)$ (comparer avec [9], p.~172--177).
+
+(i) Posons $f = \sum a_n q^n$. Du fait que $f$ est primitive, il existe une constante $\lambda \ne 0$ telle que $f(-1/Nz) = \lambda z f(z)$; cf.~[12] et [13]. Par transformation de Mellin, on en d\'eduit que
+$$\xi(1-s) = \omega \xi(s) \qquad \text{avec } \omega = \lambda / \sqrt{N},$$
+o\`u
+$$\xi(s) = N^{s/2} (2\pi)^{-s} \Gamma(s) \varphi_f(s) \qquad \text{et} \qquad \xi(s) = \overline{\xi(\overline{s})}.$$
+
+(ii) D apr\`es 4.5, le facteur \`a l infini de $L(s, \rho)$ est \'egal \`a $(2\pi)^{-s} \Gamma(s)$. Si $M$ est le conducteur de $\rho$, et si l on pose
+$$\zeta(s, \rho) = M^{s/2} (2\pi)^{-s} \Gamma(s) L(s, \rho),$$
+on a donc
+$$\zeta(1-s, \rho) = v \zeta(s, \rho) \qquad \text{avec } v \in \C^*.$$
+
+(iii) Posons
+$$F(s) = (N/M)^{s/2} \xi(s) / \zeta(s, \rho) \qquad \text{et} \qquad \overline{F}(s) = (N/M)^{s/2} \overline{\xi}(s) / \zeta(\overline{s}, \overline{\rho}).$$
+Les formules ci-dessus montrent que
+$$F(1-s) = \omega \overline{F}(s) \qquad \text{avec } \omega = u/v.$$
+Mais, si $p$ est un nombre premier ne divisant pas $N$, les $p$-facteurs de $\varphi_f(s)$ et de $\zeta(s, \rho)$ co\"  "\i ncident d apr\`es 4.1. On a donc
+$$F(s) = A^s \prod_{p|N} F_p(s),$$
+avec
+$$A = (N/M)^{1/2} \quad \text{et} \quad F_p(s) = (1 - a_p p^{-s}) / (1 - b_p p^{-s})(1 - c_p p^{-s}),$$
+o\`u $(1 - a_p p^{-s})^{-1}$ est le $p$-facteur de $\varphi_f(s)$ et $(1 - b_p p^{-s})^{-1}(1 - c_p p^{-s})^{-1}$ celui de $\zeta(s, \rho)$ (noter que $b_p$ et $c_p$ peuvent \^etre nuls). Tout revient \`a montrer que $A$ et les $F_p$ sont \'egaux \`a $1$.
+On utilise pour cela le lemme \'el\'ementaire suivant :
+
+\begin{lemme}[4.9]
+Soient $G(s) = A^s \prod_p G_p(s)$, $H(s) = A^s \prod_p H_p(s)$ deux produits eul\'eriens finis. Supposons que :
+\begin{enumerate}
+\item[(4.9.1)] $G(1-s) = \omega H(s)$ avec $\omega \in \C^*$;
+\item[(4.9.2)] Chacun des $G_p$ et des $H_p$ est produit fini de termes de la forme $(1 - \alpha p^{-s})$, avec $|\alpha| < p^{1/2}$.
+\end{enumerate}
+On a alors $A = 1$ et $G_p = H_p = 1$ pour tout $p$.
+\end{lemme}
+
+Si $H_p$ n est pas \'egal \`a $1$, la fonction $H$ a une infinit\'e de z\'eros (ou de p\^oles) de la forme
+$$\frac{\log(\alpha) + 2\pi in}{\log p}, \qquad n \in \Z,$$
+et l on voit facilement que ceux-ci ne peuvent pas \^etre tous des z\'eros (ou des p\^oles) de $G(1-s)$; l hypoth\`ese $|\alpha| < p^{1/2}$ assure en effet qu aucun des $\alpha$ ne peut \^etre \'egal \`a un $p^{1/2}$.
+
+(iv) Il reste encore \`a v\'erifier que $a_p$, $b_p$, $c_p$ et leurs conjugu\'es satisfont \`a (4.9.2), i.e. sont $< p^{1/2}$ en valeur absolue. C est clair pour $b_p$ et $c_p$ qui sont, soit $0$, soit des racines de l unit\'e. Pour $a_p$, on peut invoquer 1.8 qui montre que $|a_p| \le 1$; on peut aussi, si l on pr\'ef\`ere, utiliser l in\'egalit\'e de Rankin :
+$$|a_n| = O(n^{1/2 - 1/5}), \quad \text{cf.~[18]};$$
+en l appliquant \`a $n = p^m$, et en remarquant que $a_{p^m} = (a_p)^m$, on en d\'eduit bien
+$$|a_p| \le p^{1/2 - 1/5} < p^{1/2}.$$
+Cela ach\`eve la d\'emonstration de 4.6.
+
+\subsection*{(c) Caract\'erisation des repr\'esentations attach\'ees aux formes de poids 1}
+Reprenons les notations de (a), en supposant que la forme $f$ consid\'er\'ee soit parabolique. La repr\'esentation $\rho : G \to \GL_2(\C)$ correspondante a alors les propri\'et\'es suivantes :
+\begin{enumerate}
+\item[(i)] $\rho$ est irr\'eductible (4.1);
+\item[(ii)] $\det \rho$ est un caract\`ere impair (4.4);
+\item[(iii)] Pour tout caract\`ere continu $\chi : G \to \C^*$, la fonction $L$ d Artin $L(s, \rho \otimes \chi)$ est une fonction enti\`ere.
+\end{enumerate}
+R\'eciproquement :
+\begin{theoreme}[4.10]
+(Weil-Langlands). --- Soit $\rho : G \to \GL_2(\C)$ une repr\'esentation continue du groupe $G = \Gal(\overline{\Q}/\Q)$ satisfaisant aux conditions (i), (ii), (iii) ci-dessus. Posons $L(s, \rho) = \sum a_n n^{-s}$, $f = \sum a_n q^n$, $\varepsilon = \det \rho$, $N =$ conducteur de $\rho$. Alors $f$ est une forme parabolique primitive de type $(1, \varepsilon)$ sur $\Gamma_0(N)$, et $\rho$ est la repr\'esentation attach\'ee \`a $f$.
+\end{theoreme}
+
+D apr\`es Langlands (cf.~[27], p.~152 et 160) les constantes des \'equations fonctionnelles v\'erifient l identit\'e n\'ecessaire pour que l on puisse appliquer la caract\'erisation de Hecke-Weil ([12], [26]). Il s ensuit que $f$ est modulaire de type $(1, \varepsilon)$ sur $\Gamma_0(N)$; d apr\`es 4.1, $f$ est parabolique, et la repr\'esentation associ\'ee est isomorphe \`a $\rho$. Le fait que $f$ soit primitive r\'esulte de 4.6.
+
+\begin{remarques}
+\item[4.11.] On trouvera dans [27], p.~163, une g\'en\'eralisation du th\'eor\`eme 4.10 \`a tous les corps globaux.
+\item[4.12.] La condition (iii) peut \^etre remplac\'ee par : (iii\'){} Il existe $M \ge 1$ tel que, pour tout caract\`ere $\chi$ de conducteur premier \`a $M$, la fonction $L(s, \rho \otimes \chi)$ soit enti\`ere.
+\item[4.13.] Si la conjecture d Artin est vraie, les th\'eor\`emes ci-dessus fournissent une bijection entre repr\'esentations irr\'eductibles de degr\'e $2$ \`a d\'eterminant impair et formes paraboliques primitives de poids $1$.
+\item[4.14.] Le th\'eor\`eme 4.6 donne un moyen de v\'erifier la conjecture d Artin. Si $\rho$ satisfait \`a (i) et (ii), de conducteur $N$ et de d\'eterminant $\varepsilon$, on d\'etermine num\'eriquement les $a_n$ de $L(s, \rho)$ pour $n \le A$ avec $A \ge (N/12) \prod_{p|N} (1 + p^{-1})$, et on cherche une forme parabolique primitive $f$ de type $(1, \varepsilon)$ sur $\Gamma_0(N)$ dont le d\'eveloppement commence par $\sum_{n \le A} a_n q^n$. Une telle forme est unique si elle existe.
+\end{remarques}
+
+\textbf{Exemples.} --- Si $\rho$ est comme ci-dessus, l image de $\rho$ dans $\PGL_2(\C)$ est, soit un groupe di\'edral, soit l un des groupes $\mathfrak{A}_4$, $\mathfrak{S}_4$ ou $\mathfrak{A}_5$ ([22], prop.~16). Dans le cas di\'edral, $\rho$ est induite par un caract\`ere de $\Gal(\overline{\Q}/\Q(\sqrt{d}))$; la condition (iii) est v\'erifi\'ee, et $\rho$ correspond \`a une combinaison lin\'eaire de s\'eries th\^eta. Des exemples non di\'edraux ont \'et\'e construits par Tate pour $N = 133, 229, 283, 331$.
+Pour l exemple $N = 133$ (groupe $\mathfrak{S}_4$), Tate a prouv\'e l existence d une forme modulaire correspondante, donc aussi la conjecture d Artin pour cette repr\'esentation.
+
+\section{Exploitation d un r\'esultat de Rankin}
+
+\begin{proposition}[5.1]
+Soit $f$ une forme modulaire parabolique de type $(k,\varepsilon)$ sur $\Gamma_0(N)$, non identiquement nulle. On suppose que $f$ est fonction propre des $T_p$, $p \nmid N$, avec pour valeurs propres $a_p$. Alors la s\'erie $\sum_{p \nmid N} |a_p|^2 p^{-s}$ converge pour $s$ r\'eel $> k$, et l on a
+\begin{equation}\label{eq:rankin}\sum_{p \nmid N} |a_p|^2 p^{-s} \sim \log(1/(s-k)) + O(1) \qquad \text{pour } s \to k.\end{equation}
+\end{proposition}
+
+\begin{proof}[D\'emonstration 5.2]
+On se ram\`ene aussit\^ot au cas o\`u $f$ est une forme primitive $\sum a_n q^n$. Pour tout $p \nmid N$, soit $\varphi_p \in \GL_2(\C)$ tel que $\Tr(\varphi_p) = a_p$ et $\det(\varphi_p) = \varepsilon(p) p^{k-1}$. La s\'erie de Dirichlet $\varphi_f(s) = \sum a_n n^{-s}$ s\'ecrit alors :
+$$\varphi_f(s) = \prod_{p|N} (1-a_p p^{-s})^{-1} \prod_{p \nmid N} (1-a_p p^{-s} + \varepsilon(p) p^{k-1-2s})^{-1}, \quad \text{cf.~(\ref{eq:euler})}.$$
+Posons $L(s) = \prod_{p \nmid N} \det(1 - \varphi_p \otimes \overline{\varphi_p} p^{-s})^{-1}$. C est un produit eul\'erien \`a quatre facteurs : si l on note $\lambda$, $\mu$ les valeurs propres de $\varphi_p$, on a
+$$L(s) = \prod_{p \nmid N} [(1-\lambda^2 p^{-s})(1-\lambda\mu p^{-s})(1-\mu\lambda p^{-s})(1-\mu^2 p^{-s})]^{-1}.$$
+Utilisant la formule $\lambda\mu = \varepsilon(p) p^{k-1}$, on d\'emontre (cf.~par exemple [10], p.~33, ou [12], [15]) que $L(s) = H(s) \zeta(2s-2k+2) \sum_{n=1}^{\infty} |a_n|^2 n^{-s}$, avec $H(s) = \prod_{p|N} (1-p^{2k-2-2s})^{-1}$. D apr\`es [18], la s\'erie $\sum |a_n|^2 n^{-s}$ converge pour $\mathrm{Re}(s) > k$ et son produit par $\zeta(2s-2k+2)$ se prolonge en une fonction m\'eromorphe dans tout le plan complexe, avec pour unique p\^ole le point $s = k$. Comme $|a_p| \le p^{k/2}$ si $p \mid N$ (cf.~1.8), la fonction $H(s)$ est holomorphe $\ne 0$ dans $\mathrm{Re}(s) \ge k$. Il r\'esulte de ceci que $L(s)$ est m\'eromorphe dans tout le plan complexe, et holomorphe pour $\mathrm{Re}(s) \ge k$, \`a la seule exception de $s = k$ qui en est un p\^ole simple; on a de plus $L(s) \ne 0$ pour $s$ r\'eel $> k$ puisqu il en est ainsi de $H(s)$, $\zeta(2s-2k+2)$, et $\sum |a_n|^2 n^{-s}$.
+
+Posons $g_1(s) = \sum_{p \nmid N} |\Tr(\varphi_p)|^2 p^{-s}$ et $g(s) = \sum_{m=1}^{\infty} g_m(s)$. La s\'erie $g(s)$ est une s\'erie de Dirichlet \`a coefficients $\ge 0$. Pour $s$ assez grand, un calcul imm\'ediat montre qu elle est \'egale \`a $\log L(s)$. Comme $L(s)$ est holomorphe et $\ne 0$ pour $s$ r\'eel $> k$, il r\'esulte d un lemme classique de Landau ([21], p.~112) que $g(s)$ converge pour $\mathrm{Re}(s) > k$. Du fait que $L(s)$ a un p\^ole simple en $s = k$, on a $g(s) \sim \log(1/(s-k)) + O(1)$ pour $s \to k$. Mais $g_1(s) = \sum_{p \nmid N} |a_p|^2 p^{-s}$ est \'evidemment $\le g(s)$. On en conclut bien $\sum_{p \nmid N} |a_p|^2 p^{-s} \sim \log(1/(s-k)) + O(1)$ pour $s \to k$.
+\end{proof}
+
+\begin{remarques}[5.3]
+On peut renforcer la proposition 5.1 de diverses mani\`eres. D abord une fois que l on dispose de la conjecture de Petersson, une majoration facile montre que la s\'erie $\sum_{p \nmid N, m \ge 2} |\Tr(\varphi_p^m)|^2 p^{-ms}$ converge pour $\mathrm{Re}(s) \ge k$, et cela permet de remplacer l in\'egalit\'e (\ref{eq:rankin}) par l \'egalit\'e : $\sum_{p \nmid N} |a_p|^2 p^{-s} = \log(1/(s-k)) + O(1)$ pour $s \to k$. D autre part, un argument \`a la Hadamard-de la Vall\'ee Poussin montre que $L(s) \ne 0$ pour tout $s$ tel que $\mathrm{Re}(s) \ge k$, et en appliquant le th\'eor\`eme de Wiener-Ikehara \`a $L^\prime(s)/L(s)$ on obtient $\sum_{p \le x} |a_p|^2 \sim x/\log x$ pour $x \to \infty$, cf.~Rankin [19].
+\end{remarques}
+
+\subsection*{5.4. Application aux formes de poids 1}
+
+Soient $\mathcal{P}$ l ensemble des nombres premiers et $X$ une partie de $\mathcal{P}$. On pose
+\begin{equation}\label{eq:dens}\overline{\dens}(X) = \limsup_{s \to 1, s > 1} \frac{\sum_{p \in X} p^{-s}}{\log(1/(s-1))}.\end{equation}
+C est la densit\'e sup\'erieure de $X$; elle est comprise entre $0$ et $1$.
+
+\begin{proposition}[5.5]
+On conserve les hypoth\`eses de 5.1, et l on suppose en outre que le poids $k$ de $f$ est \'egal \`a $1$. Alors, pour tout $\eta > 0$, il existe un ensemble $X_\eta$ de nombres premiers et une partie finie $Y_\eta$ de $\C$ tels que $\overline{\dens}(X_\eta) \le \eta$ et $a_p \in Y_\eta$ pour $p \notin X_\eta$.
+\end{proposition}
+
+D apr\`es 2.7, les $a_p$ sont des entiers d une extension finie $K$ de $\Q$. Si $c$ est une constante $\ge 0$, notons $Y(c)$ l ensemble des entiers $a$ de $K$ tels que $|\sigma(a)|^2 \le c$ pour tout plongement $\sigma$ de $K$ dans $\C$; c est un ensemble fini. Notons $X(c)$ l ensemble des $p$ tels que $a_p \notin Y(c)$; il nous suffit de prouver que $\overline{\dens}(X(c)) \le \eta$ si $c$ est assez grand. Or on sait (2.7) que les $\sigma(a_p)$ sont \'egalement valeurs propres des $T_p$ en poids $1$. Vu (\ref{eq:rankin}), on a donc $\sum_\sigma \sum_{p \nmid N} |\sigma(a_p)|^2 p^{-s} \sim r \log(1/(s-1)) + O(1)$ pour $s \to 1$, o\`u $r = [K:\Q]$. Comme $\sum_\sigma |\sigma(a_p)|^2 > c$ si $p \in X(c)$, on en conclut que $c \sum_{p \in X(c)} p^{-s} \sim r \log(1/(s-1)) + O(1)$ pour $s \to 1$, d o\`u $\overline{\dens}(X(c)) \le r/c$, et il suffit donc de prendre $c \ge r/\eta$.
+
+\begin{remarque}[5.6]
+En utilisant l analogue de (5.3.2) au lieu de (\ref{eq:rankin}) dans la d\'emonstration ci-dessus, on aurait pu remplacer la densit\'e analytique (\ref{eq:dens}) par la densit\'e naturelle (cf.~[21], VI, n\textsuperscript{o}\,4.5). De toute fa\c{c}on, 5.5 n a qu un int\'er\^et provisoire : une fois le th\'eor\`eme 4.1 d\'emontr\'e, on saura que l ensemble des $a_p$ est fini.
+\end{remarque}
+
+\section{Repr\'esentations $l$-adiques et r\'eduction mod $l$}
+
+\subsection*{(a) Repr\'esentations $l$-adiques}
+
+\begin{theoreme}[6.1]
+Soit $f$ une forme modulaire de type $(k,\varepsilon)$ sur $\Gamma_0(N)$, non identiquement nulle. On suppose que $k \ge 2$ et que $f$ est fonction propre des $T_p$, $p \nmid N$, avec pour valeurs propres $a_p$. Soit $K$ une extension finie de $\Q$ contenant les $a_p$ et les $\varepsilon(p)$, cf.~(2.7.3). Soit $\lambda$ une place finie de $K$, de caract\'eristique r\'esiduelle $l$, et soit $K_\lambda$ le compl\'et\'e de $K$ en $\lambda$. Il existe alors une repr\'esentation lin\'eaire semi-simple continue
+$$\rho_\lambda : G \longrightarrow \GL_2(K_\lambda), \qquad G = \Gal(\overline{\Q}/\Q),$$
+qui est non ramifi\'ee en dehors de $Nl$ et telle que
+\begin{equation}\label{eq:ladic}\Tr(\frob_p) = a_p \quad \text{et} \quad \det(\frob_p) = \varepsilon(p) p^{k-1} \text{ si } p \nmid Nl.\end{equation}
+\end{theoreme}
+
+D apr\`es 3.2, la condition (\ref{eq:ladic}) d\'etermine $\rho_\lambda$ de mani\`ere unique, \`a isomorphisme pr\`es.
+
+\begin{remarque}[6.2]
+Si $f$ est une s\'erie d Eisenstein, l \'enonc\'e ci-dessus se d\'eduit imm\'ediatement des r\'esultats de Hecke ([9], p.~690) en prenant pour $\rho_\lambda$ la somme directe de deux repr\'esentations de degr\'e $1$. Lorsque $f$ est parabolique, 6.1 est d\'emontr\'e dans un cas particulier dans [4]. Le cas g\'en\'eral n est pas beaucoup plus difficile. Il est trait\'e, par une autre m\'ethode (inspir\'ee de Ihara) et dans un autre langage, par Langlands [11] (o\`u est toutefois admise sans d\'emonstration une formule des traces qui semble accessible mais que personne n a d\'emontr\'ee). Dans un travail futur de l un de nous, 6.1 sera red\'emontr\'e par une m\'ethode due \`a Piateckii-Shapiro [17].
+\end{remarque}
+
+\begin{corollaire}[6.3]
+Soient $(f, N, k, \varepsilon, (a_p))$ et $(f^\prime, N^\prime, k^\prime, \varepsilon^\prime, (a_p^\prime))$ comme dans le th\'eor\`eme 6.1. Si l ensemble des nombres premiers $p$ tels que $a_p = a_p^\prime$ est de densit\'e $1$, alors $k = k^\prime$, $\varepsilon = \varepsilon^\prime$ et $a_p = a_p^\prime$ pour tout $p \nmid NN^\prime$.
+\end{corollaire}
+
+En effet, les repr\'esentations attach\'ees \`a $f$ et $f^\prime$ (pour un m\^eme choix de $K$ et de $\lambda$) sont isomorphes d apr\`es 3.2.
+
+Soit $L'$ l'ensemble des $l \in L$ tels que $l > A$ et que $R, S \in Y$, $R \neq S$ entra\^ine $R \not\equiv S \pmod{\lambda}$; l'ensemble $L \setminus L'$ est fini, donc $L'$ est infini. Soit $l \in L'$. L'ordre du groupe $G_l$ est premier \`a $l$. Il en r\'esulte, par un argument standard, que la repr\'esentation identique $G_l \to \GL_2(\F_l)$ est la r\'eduction mod $\lambda$ d'une repr\'esentation $G_l \to \GL_2(\mathcal{O}_\lambda)$. En composant avec l'application canonique $G \to G_l$, on obtient une repr\'esentation $\rho : G \to \GL_2(\mathcal{O}_\lambda)$.
+
+Par construction, $\rho$ est non ramifi\'ee en dehors de $Nl$. Si $p \nmid Nl$, les valeurs propres de $\frob_p$ sont des racines de l'unit\'e d'ordre $\leq A$; d'o\`u $\det(1-\frob_p T) \in Y$. D'autre part, la r\'eduction mod $\lambda$ donne $\det(1-\frob_p T) \equiv 1 - a_p T + \varepsilon(p) T^2 \pmod{\lambda}$. Comme les deux polyn\^omes appartiennent \`a $Y$ et sont congrus, ils sont \'egaux.
+
+En rempla\c{c}ant $l$ par un autre premier de $L'$, on obtient une repr\'esentation isomorphe d'apr\`es lemme~3.2. Il en r\'esulte que $\rho$ est non ramifi\'ee en dehors de $N$, et que $\det(1-\frob_p T) = 1 - a_p T + \varepsilon(p) T^2$ pour tout $p \nmid N$.
+
+Il reste \`a montrer que $\rho$ est irr\'eductible. Si elle ne l'\'etait pas, elle serait somme de deux caract\`eres $\chi_1$ et $\chi_2$ avec $\chi_1\chi_2 = \varepsilon$ et $a_p = \chi_1(p) + \chi_2(p)$. On aurait alors $\sum |a_p|^2 p^{-s} \sim 2\log(1/(s-1))$, ce qui contredit la proposition~5.1.
+
+\section{Application aux coefficients des formes modulaires de poids $1$}
+
+Soit $f = \sum a_n q^n$, $M \geq 1$, une forme modulaire de poids $1$ sur un sous-groupe de congruence de $\SL_2(\Z)$.
+
+\subsection*{(a) Majoration des $a_n$}
+
+\begin{theoreme}[9.1]
+On a $|a_n| = O(d(n))$ pour $n \to \infty$.
+\end{theoreme}
+
+\begin{corollaire}[9.2]
+On a $|a_n| = O(n^\delta)$ pour tout $\delta > 0$.
+\end{corollaire}
+En effet, on sait que $d(n)$ jouit de cette propri\'et\'e ([8], th.~315).
+
+Si $n_0$ est un entier $\geq 1$, $d(n_0 n)/d(n)$ est compris entre $1$ et $d(n_0)$. Il revient donc au m\^eme de d\'emontrer l'estimation pour $f(z)$ ou $f(n_0 z)$, et cela permet de supposer que $M = 1$. Utilisant 1.5 et 1.9, on est ramen\'e aux deux cas : (i) $f$ est une s\'erie d'Eisenstein, auquel cas (9.1) r\'esulte de la formule donnant les $a_n$ ([9], p.~475); (ii) $f$ est une forme parabolique primitive de type $(1, \varepsilon)$ sur $\Gamma_0(N)$. Dans ce cas, on a le r\'esultat plus pr\'ecis $|a_n| \leq d_N(n) \leq d(n)$, o\`u $d_N(n)$ est le nombre de diviseurs positifs de $n$ premiers \`a $N$. En effet, vu la multiplicativit\'e de $n \mapsto a_n$ et de $d_N$, il suffit de v\'erifier lorsque $n = p^m$. Si $p$ divise $N$, on a $a_{p^m} = (a_p)^m$, et le th\'eor\`eme~4.6 montre que $a_p$ est soit $0$, soit une racine de l'unit\'e, d'o\`u $|a_{p^m}| = 1 \leq d_N(p^m)$. Si $p$ ne divise pas $N$, en \'ecrivant $1 - a_p T + \varepsilon(p) T^2 = (1 - \lambda T)(1 - \mu T)$, on a $a_{p^m} = \lambda^m + \lambda^{m-1}\mu + \cdots + \mu^m$. Or d'apr\`es le th\'eor\`eme~4.1, $\lambda$ et $\mu$ sont des racines de l'unit\'e. On a donc $|a_{p^m}| \leq m+1 = d_N(p^m)$.
+
+\begin{remarque}[9.4]
+Si $f = \sum b_n e^{2\pi i n z/M}$ est une forme modulaire parabolique de poids $k \geq 2$ sur un sous-groupe de congruence de $\SL_2(\Z)$, le m\^eme argument montre que $|b_n| = O(n^{(k-1)/2} d(n))$.
+\end{remarque}
+
+\begin{thebibliography}{99}
+\bibitem{1} E.~Artin, Zur Theorie der $L$-Reihen mit allgemeinen Gruppencharakteren (Hamb. Abh., vol.~8, 1930, p.~292--306; Collected Works, p.~165--179).
+\bibitem{2} A.~O.~L.~Atkin et J.~Lehner, Hecke operators on $\Gamma_0(m)$ (Math. Ann., vol.~185, 1970, p.~134--160).
+\bibitem{3} C.~Curtis et I.~Reiner, Representation theory of finite groups and associative algebras, Intersc. Publ., New York, 1962.
+\bibitem{4} P.~Deligne, Formes modulaires et repr\'esentations $l$-adiques (S\'eminaire Bourbaki, vol.~1968/1969, expos\'e n\textsuperscript{o}~355, Lect. Notes 179, Springer, 1971, p.~139--172).
+\bibitem{5} P.~Deligne, La conjecture de Weil. I (Publ. Math. I.H.E.S., vol.~43, 1974, p.~273--307).
+\bibitem{6} P.~Deligne, Formes modulaires et repr\'esentations de GL(2) (Lecture Notes, n\textsuperscript{o}~349, Springer, 1973, p.~55--105).
+\bibitem{7} P.~Deligne et M.~Rapoport, Les sch\'emas de modules de courbes elliptiques (Lecture Notes, n\textsuperscript{o}~349, Springer, 1973, p.~143--316).
+\bibitem{8} G.~H.~Hardy et E.~M.~Wright, An introduction to the theory of numbers, 3rd ed., Oxford, 1954.
+\bibitem{9} E.~Hecke, Mathematische Werke (2. Aufl.), Vandenhoeck und Ruprecht, Gottingen, 1970.
+\bibitem{10} H.~Jacquet, Automorphic Forms on GL(2), Part II (Lecture Notes, n\textsuperscript{o}~278, Springer, 1972).
+\bibitem{11} R.~P.~Langlands, Modular forms and l-adic representations (Lecture Notes, n\textsuperscript{o}~349, Springer, 1973, p.~361--500).
+\bibitem{12} W.~Li, Newforms and Functional Equations (Dept. of Maths., Berkeley, 1974, a paraitre aux Math. Ann.).
+\bibitem{13} T.~Miyake, On automorphic forms on GL$_2$ and Hecke operators (Ann. of Maths., vol.~94, 1971, p.~174--189).
+\bibitem{14} A.~P.~Ogg, On the eigenvalues of Hecke operators (Math. Ann., vol.~179, 1969, p.~101--108).
+\bibitem{15} A.~P.~Ogg, On a convolution of L-series (Invent. Math., vol.~7, 1969, p.~297--312).
+\bibitem{16} A.~P.~Ogg, Modular forms and Dirichlet series, W.~A.~Benjamin Publ., New York, 1969.
+\bibitem{17} I.~I.~Piateckii-Shapiro, Zeta functions of modular curves (Lecture Notes, n\textsuperscript{o}~349, Springer, 1973, p.~317--360).
+\bibitem{18} R.~A.~Rankin, Contributions to the theory of Ramanujan function tau(n) and similar arithmetical functions. I, II (Proc. Cambridge Phil. Soc., vol.~35, 1939, p.~351--372).
+\bibitem{19} R.~A.~Rankin, An Omega-result for the coefficients of cusp forms (Math. Ann., vol.~203, 1973, p.~239--250).
+\bibitem{20} I.~Schur, Arithmetische Untersuchungen uber endliche Gruppen linearer Substitutionen (Sitz. Pr. Akad. Wiss., 1906, p.~164--184; Gesam. Abhl., I, p.~177--197, Springer, 1973).
+\bibitem{21} J.-P.~Serre, Cours d Arithmetique, Presses Universitaires de France, Paris, 1970.
+\bibitem{22} J.-P.~Serre, Proprietes galoisiennes des points d ordre fini des courbes elliptiques (Invent. Math., vol.~15, 1972, p.~259--331).
+\bibitem{23} J.-P.~Serre, Divisibilite des coefficients des formes modulaires de poids entier (C. R. Acad. Sci. Paris, t.~279, serie A, 1974, p.~679--682).
+\bibitem{24} G.~Shimura, Introduction to the arithmetic theory of automorphic functions (Publ. Math. Soc. Japon, vol.~11, Princeton Univ. Press, 1971).
+\bibitem{25} H.~P.~F.~Swinnerton-Dyer, On l-adic representations and congruences for coefficients of modular forms (Lecture Notes, n\textsuperscript{o}~350, Springer, 1973, p.~1--55).
+\bibitem{26} A.~Weil, Uber die Bestimmung Dirichletscher Reihen durch Funktionalgleichungen (Math. Ann., vol.~168, 1967, p.~149--156).
+\bibitem{27} A.~Weil, Dirichlet Series and Automorphic Forms (Lezioni Fermiane, Lecture Notes, n\textsuperscript{o}~189, Springer, 1971).
+\end{thebibliography}
+\end{document}
