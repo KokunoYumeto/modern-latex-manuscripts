@@ -14,8 +14,8 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - Indian and Sanskrit mathematical classics: https://zenodo.org/records/20435677
 - Islamic and Arabic mathematical texts: https://zenodo.org/records/20435687
 - Historical reference texts for non-European mathematics: https://zenodo.org/records/20435690
-- Heinrich Weber author record: https://zenodo.org/records/20434880
-- Emmy Noether author record: https://zenodo.org/records/20434882
+- Heinrich Weber author record: https://zenodo.org/records/20436635
+- Emmy Noether author record: https://zenodo.org/records/20436637
 - Carl Friedrich Gauss author record: https://zenodo.org/records/20433382
 - Bernhard Riemann author record: https://zenodo.org/records/20434317
 - Deligne working record: https://zenodo.org/records/20414959
