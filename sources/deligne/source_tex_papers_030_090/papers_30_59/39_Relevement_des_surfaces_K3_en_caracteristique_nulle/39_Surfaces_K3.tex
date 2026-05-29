@@ -1,0 +1,732 @@
+% Exposé IV: Relevément des surfaces K3 en caractéristique nulle
+% par P. Deligne (rédigé par Luc Illusie)
+% This is a faithful LaTeX typesetting of the original paper.
+
+\documentclass[12pt,a4paper]{article}
+
+% Essential packages
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+
+% Page style
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem{remark}[theorem]{Remarque}
+
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Exemple}
+
+% Math operators
+\DeclareMathOperator{\Def}{Def}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\NS}{NS}
+\DeclareMathOperator{\rk}{rg}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\dimq}{dim}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Kod}{Kod}
+
+% Shortcuts
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{C}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bG}{\mathbb{G}}
+
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakp}{\mathfrak{p}}
+
+\newcommand{\drm}{\mathrm{d}}
+\newcommand{\dlog}{\mathrm{dlog}}
+\newcommand{\Hdg}{\mathrm{Hdg}}
+\newcommand{\cris}{\mathrm{cris}}
+\newcommand{\et}{\mathrm{\acute{e}t}}
+\newcommand{\Inff}{\mathrm{inf}}
+
+\newcommand{\todo}{\diamond}
+
+\title{\textbf{EXPOSÉ IV}\\[0.5em]
+\textbf{RELEVÉMENT DES SURFACES K3 EN CARACTÉRISTIQUE NULLE}}
+\author{par P. DELIGNE\\(rédigé par Luc ILLUSIE)\thanks{Équipe de Recherche Associée au C.N.R.S. n° 653}}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+Rudakov et Shafarevitch [14] (cf. aussi Nygaard [12]) ont établi que les surfaces K3 n'admettent pas de champs de vecteurs non nuls.
+
+L'objet de cet exposé est de prouver, à partir de [14], que toute surface K3 polarisée en car. $p > 0$ se relève en car. nulle (1.8). La démonstration repose sur le fait que le résultat de Rudakov-Shafarevitch entraîne, pour les surfaces K3, l'existence d'une bonne théorie de déformations, permettant notamment de ``contrôler'' le lieu de la variété formelle verselle où se déforme un faisceau inversible non trivial donné. Les seuls ingrédients utilisés sont d'une part les relations habituelles, pour la cohomologie de de Rham, entre la connexion de Gauss-Manin et l'opération de Kodaira-Spencer, d'autre part l'existence d'une classe de Chern cristalline pour les faisceaux inversibles.
+
+On désigne par $k$ un corps algébriquement clos de car. $p > 0$, et l'on note $W = W(k)$ l'anneau des vecteurs de Witt sur $k$.
+
+\section{ÉNONCÉ DU THÉORÈME DE RELEVÉMENT}
+
+Dans ce numéro, $X_0$ désigne une surface K3 sur $k$.
+
+\begin{proposition}\label{prop:1.1}
+
+\begin{enumerate}[label=\alph*)]
+\item La suite spectrale de Hodge $E_1^{i,j} = H^j(X_0, \Omega_{X_0/k}^i) \Rightarrow H^{i+j}_{\mathrm{dR}}(X_0/k)$ dégénère en $E_1$, et la matrice des nombres de Hodge $h^{ij} = \dim_k H^j(X_0, \Omega_{X_0/k}^i)$ est
+\[
+\begin{matrix}
+1 & 0 & 1 \\
+0 & 20 & 0 \\
+1 & 0 & 1
+\end{matrix}
+\]
+
+\item Soit $T = T_{X_0/k} = (\Omega_{X_0/k}^1)^{\vee}$ le fibré tangent à $X_0$. On a $H^i(X_0, T) = 0$ si $i = 0$ ou $2$, et $\dim_k H^1(X_0, T) = 20$.
+
+\item Les $W$-modules de cohomologie cristalline $H^i_{\cris}(X_0/W)$ sont libres, de rang $1, 0, 22, 0, 1$ pour $i = 0, 1, 2, 3, 4$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+D'après [14], $H^0(X_0, T) = 0$. Par définition d'une surface K3, $\Omega_{X_0/k}^2$ est trivial, donc on a
+\begin{equation}\label{eq:1.1.1}
+T_{X_0/k} \xrightarrow{\sim} \Omega_{X_0/k}^1,
+\end{equation}
+et par suite $H^0(X_0, \Omega_{X_0/k}^1) = 0$, donc $H^2(X_0, \Omega_{X_0/k}^1) = 0$ par dualité de Serre. D'autre part, on a $H^1(X_0, \mathcal{O}) = 0$ et $H^2(X_0, \mathcal{O}) \simeq k$ par définition d'une surface K3. Le tableau des nombres de Hodge $h^{ij}$, pour $(i,j) \neq (1,1)$, est donc celui donné en \ref{prop:1.1}~a). Il en résulte que la suite spectrale de Hodge dégénère en $E_1$. Rappelons par ailleurs (SGA~5~VII~4.11) que $\sum_{i+j=n} (-1)^{i+j} h^{ij} = c_2$ et que $c_2 = 24$ par Riemann-Roch. Donc $h^{11} = 20$, d'où b), compte tenu de \eqref{eq:1.1.1}. Il résulte de a) que les espaces $H^i_{\mathrm{dR}}(X_0/k)$ sont de dimension $1, 0, 22, 0, 1$ pour $i = 0, 1, 2, 3, 4$. L'assertion c) en découle grâce à la suite exacte ``des coefficients universels'' [2, VII 1.1.1]:
+\[
+0 \to H^i_{\cris}(X_0/W) \otimes_W k \to H^i_{\mathrm{dR}}(X_0/k) \to \Tor^W_1(H^{i+1}_{\cris}(X_0/W), k) \to 0. \qedhere
+\]
+\end{proof}
+
+\begin{corollary}\label{cor:1.2}
+La variété formelle verselle $S$ des déformations de $X_0$ sur les $W$-algèbres artiniennes locales de corps résiduel $k$ [15] est universelle, et formellement lisse de dimension $20$, i.e. $W$-isomorphe à $\Spf(W[[t_1, \ldots, t_{20}]])$.
+\end{corollary}
+
+C'est une conséquence immédiate de \ref{prop:1.1}~b).
+
+Dans la suite de ce numéro, on notera
+\begin{equation}\label{eq:1.3}
+\mathcal{X}/S
+\end{equation}
+la déformation universelle de $X_0$ sur $S$.
+
+\subsection{}
+
+Soit $L_0$ un faisceau inversible sur $X_0$. Notons $\Def(X_0, L_0)$ le foncteur sur la catégorie $\mathcal{A}$ des $W$-algèbres artiniennes locales de corps résiduel $k$ associant à chaque objet $A$ de $\mathcal{A}$ l'ensemble des classes d'isomorphie de couples $(X, L)$ formés d'une déformation plate (donc lisse) $X$ de $X_0$ sur $A$ et d'un prolongement de $L_0$ en un faisceau inversible $L$ sur $X$. Notons d'autre part $\Def(X_0)$ le foncteur associant à chaque $A \in \Ob\,\mathcal{A}$ l'ensemble des classes d'isomorphie de déformations plates de $X_0$ sur $A$: d'après \ref{cor:1.2}, ce foncteur est (pro-)représenté par $S$. On a un morphisme ``oubli du prolongement de $L_0$'':
+\begin{equation}\label{eq:1.4.1}
+\Def(X_0, L_0) \to \Def(X_0).
+\end{equation}
+
+\begin{proposition}\label{prop:1.5}
+Le foncteur $\Def(X_0, L_0)$ est pro-représentable, et le morphisme \eqref{eq:1.4.1} est une immersion fermée, définie par une équation.
+\end{proposition}
+
+La première assertion signifie qu'il existe un plus grand sous-schéma formel fermé
+\begin{equation}\label{eq:1.5.0}
+\Sigma(L_0) \subset S
+\end{equation}
+tel que $L_0$ se prolonge en un faisceau inversible au-dessus de $\mathcal{X} \times_S \Sigma(L_0)$, et que ce prolongement est unique.
+
+On vérifie aisément que le foncteur $\Def(X_0, L_0)$ satisfait aux conditions de Schlessinger d'existence d'une enveloppe. On dispose donc d'un schéma formel $S' = \Spf(R')$, où $R'$ est une $W$-algèbre locale noethérienne complète de corps résiduel $k$, et d'une déformation $(\mathcal{X}', \mathcal{L}')$ de $(X_0, L_0)$ sur $S'$ telle que, pour tout $A \in \Ob\,\mathcal{A}$, la flèche associée
+\begin{equation}\label{eq:1.5.1}
+\Hom(R', A) \to \Def(X_0, L_0)(A)
+\end{equation}
+soit surjective, et bijective pour $A = k[\epsilon]$, $\epsilon^2 = 0$. Soit $R$ l'anneau de $S$. Comme $S$ pro-représente $\Def(X_0)$, $\mathcal{X}'$ définit un homomorphisme $u: R \to R'$ tel que le composé
+\begin{equation}\label{eq:1.5.2}
+\Hom(R', A) \xrightarrow{\eqref{eq:1.5.1}} \Def(X_0, L_0)(A) \xrightarrow{\eqref{eq:1.4.1}} \Def(X_0)(A) = \Hom(R, A)
+\end{equation}
+soit $\Hom(u, A)$. Pour établir la première assertion de \ref{prop:1.5}, il suffit donc de prouver que $u$ est surjectif, car alors \eqref{eq:1.5.2} sera injectif, donc \eqref{eq:1.5.1} bijectif. D'après un lemme bien connu [15, 1.1], il revient au même de prouver que, si $\mathfrak{m}$ (resp.~$\mathfrak{m}'$) est l'idéal maximal de $R$ (resp.~$R'$), l'application $\mathfrak{m}/pR + \mathfrak{m}^2 \to \mathfrak{m}'/pR' + \mathfrak{m}'^2$ induite par $u$ est surjective, ou encore que l'application linéaire tangente à l'origine à \eqref{eq:1.4.1},
+\begin{equation}\label{eq:1.5.3}
+\Hom(u, k[\epsilon]): \Def(X_0, L_0)(k[\epsilon]) \to \Def(X_0)(k[\epsilon])
+\end{equation}
+est injective. Soit $T'$ le faisceau sur $X_0$ des automorphismes de la déformation triviale de $(X_0, L_0)$ au-dessus de $k[\epsilon]$. On a une suite exacte
+\begin{equation}\label{eq:1.5.4}
+0 \to \mathcal{O}_{X_0} \to T' \to T \to 0,
+\end{equation}
+où $T' \to T$ est défini par oubli de $L_0$, $T = T_{X_0}$ étant considéré comme faisceau des automorphismes de la déformation triviale de $X_0$ au-dessus de $k[\epsilon]$. Il est standard que \eqref{eq:1.5.3} s'identifie canoniquement à la flèche $H^1(X_0, T') \to H^1(X_0, T)$ déduite de $T' \to T$. Comme $H^1(X_0, \mathcal{O}) = 0$, la suite exacte de cohomologie de \eqref{eq:1.5.4} montre donc que \eqref{eq:1.5.3} est injective.
+
+Il reste à prouver que l'immersion fermée $S' \hookrightarrow S$ est définie par une seule équation, i.e. que l'idéal $I = \Ker(u)$ est monogène. Pour cela, considérons $S'' = \Spf(R/\mathfrak{m}I)$; c'est un épaississement de $S'$ dans $S$, d'idéal de carré nul $I/\mathfrak{m}I$. L'obstruction à étendre le faisceau $\mathcal{L}'$ défini plus haut au-dessus de $\mathcal{X} \times_S S''$ est un élément
+\[
+a \in H^2(X_0, \mathcal{O}_{X_0}) \otimes I/\mathfrak{m}I,
+\]
+qu'on regardera comme un élément de $I/\mathfrak{m}I$ par le choix d'une base de $H^2(X_0, \mathcal{O}_{X_0})$. Soit $Z = \Spf(R/\mathfrak{m}I + (f))$ où $f \in I$ relève $a$. On a donc $S' \subset Z \subset S'' \subset S$, et par construction (et fonctorialité de l'obstruction), $\mathcal{L}'$ se prolonge à $\mathcal{X} \times_S Z$. Mais la propriété universelle de $S'$ entraîne que $S' = Z$, i.e. $\mathfrak{m}I + (f) = I$. Donc, par Nakayama, $f$ engendre $I$, ce qui achève la démonstration.
+
+\medskip
+Nous pouvons maintenant énoncer le résultat principal de l'exposé:
+
+\begin{theorem}\label{thm:1.6}
+Soit $L_0$ un faisceau inversible non trivial sur $X_0$. Alors, avec les notations de \ref{prop:1.5}, le schéma formel $\Sigma(L_0)$, pro-représentant $\Def(X_0, L_0)$, est plat sur $W$, de dimension relative $19$.
+\end{theorem}
+
+En d'autres termes, si $f$ est une équation de $\Sigma(L_0)$ dans $S$ (\ref{prop:1.5}), $p$ ne divise pas $f$. Cela signifie encore que $\Sigma(L_0)$ ne contient pas la réduction $S_0$ de $S \bmod p$, i.e. que $L_0$ ne peut se prolonger au-dessus de $\mathcal{X} \times_S S_0$.
+
+La démonstration de \ref{thm:1.6} sera donnée au n°2. Nous terminerons ce numéro par quelques conséquences de \ref{thm:1.6}.
+
+\begin{corollary}\label{cor:1.7}
+Soit $L_0$ un faisceau inversible non trivial sur $X_0$. Il existe un trait $T$ fini sur $W$, une déformation de $X_0$ en un schéma formel $\mathcal{X}$ plat sur $T$, et un prolongement de $L_0$ en un faisceau inversible $\mathcal{L}$ sur $\mathcal{X}$.
+\end{corollary}
+
+Il s'agit de prouver qu'il existe un $W$-morphisme $T \to \Sigma(L_0)$, où $T$ est un trait fini sur $W$. Comme $p$ est non diviseur de zéro dans l'anneau $R'$ de $\Sigma(L_0)$, il existe (EGA~0$_{\mathrm{IV}}$~16.4.1) des éléments $x_1, \ldots, x_n$ de l'idéal maximal de $R'$ formant avec $p$ un système de paramètres de $R'$ (donc $n = 19$). Le quotient $B = R'/(x_1, \ldots, x_n)$ est quasi-fini sur $W$, donc fini sur $W$. Il existe par suite un $W$-homomorphisme local de $B$ dans un anneau de valuation discrète complet $C$ fini sur $W$, et l'homomorphisme composé $R' \to B \to C$ répond à la question.
+
+\begin{corollary}\label{cor:1.8}
+Soit $L_0$ un faisceau inversible ample sur $X_0$. Il existe un trait $T$ fini sur $W$, une déformation de $X_0$ en un schéma propre et lisse $X$ sur $T$, et un prolongement de $L_0$ en un faisceau inversible ample $\mathcal{L}$ sur $X$.
+\end{corollary}
+
+Appliquant le théorème d'algébrisation de Grothendieck (EGA~III~5.4.5), on déduit de \ref{cor:1.7} le théorème de relèvement annoncé.
+
+\begin{remark}\label{rem:1.9}
+On ignore si toute surface K3 sur $k$ se relève en un schéma propre et lisse sur $W$. Ogus [13, §2] montre que: a) toute surface K3 sur $k$ se relève sur $W$ sauf peut-être dans le cas ``superspécial'', non elliptique, qui en fait n'existe pas si l'on admet la conjecture d'Artin [1]; b) si $p > 2$, toute surface K3 sur $k$ se relève sur $W$. Pour l'instant donc, seul le cas particulier de \ref{cor:1.8} où $p = 2$ et $X_0$ est superspéciale n'est pas absorbé par ces résultats. Signalons d'autre part que l'article d'Ogus précité contient des compléments intéressants sur la structure de $\Sigma(L_0)$, cf. aussi l'exposé suivant pour le cas où $X_0$ est ordinaire.
+\end{remark}
+
+\begin{corollary}\label{cor:1.10}
+Si $k$ est la clôture algébrique d'un corps fini sur lequel la surface $X_0$ est définie, le Frobenius correspondant agit de façon semi-simple sur $H^2_{\mathrm{\acute{e}t}}(X_0, \mathbb{Q}_{\ell})$ ($\ell$ premier à $p$).
+\end{corollary}
+
+Cela résulte de [5]: avec les notations de \ref{cor:1.8}, la fibre générique de $X$ est une surface K3 (le fait pour une surface d'être une surface K3 est stable par générisation, car il s'exprime par ``$K$ algébriquement équivalent à zéro et $\chi(\mathcal{O}) = 2$''), donc $X_0$ vérifie l'hypothèse de [5, 1.2]; la conclusion découle de [5, 6.6] et du fait que l'action de Frobenius sur le $H^1$ $\ell$-adique d'une variété abélienne sur un corps fini est semi-simple ([16], [11, p.~203]).
+
+Noter que \ref{cor:1.10} est en réalité indépendant du fait que $H^0(X_0, T_{X_0}) = 0$, car s'il existait sur $X_0$ un champ de vecteurs non nul, $X_0$ serait unirationnelle d'après [14], et la conclusion de \ref{cor:1.10} serait encore vraie (argument de trace).
+
+
+\section{COHOMOLOGIE DE DE RHAM DE $\mathcal{X}/S$ ET DÉMONSTRATION DE \ref{thm:1.6}}\label{sec:2}
+
+On conserve les notations du n°1: $X_0$ est une surface K3 sur $k$, et $\mathcal{X}/S$ désigne sa $W$-déformation universelle (\eqref{eq:1.3}). Le lecteur familier avec la cohomologie de de Rham est invité à sauter les numéros 2.1--2.10, qui ne font que rappeler des faits standard concernant la connexion de Gauss-Manin, la filtration de Hodge, l'opération de Frobenius, et la classe de Chern d'un faisceau inversible.
+
+\subsection{}
+
+Notons $\Omega_{\mathcal{X}/S}^{\bullet}$ le complexe de de Rham du schéma formel relatif $\mathcal{X}/S$ (par définition, $\Omega_{\mathcal{X}/S}^{\bullet}$ est la limite projective des modules de différentielles habituels $\mathcal{X} \times_S S'/S'$, où $S'$ parcourt les voisinages infinitésimaux de $\Spec(k)$ dans $S$). Soit $f: \mathcal{X} \to S$ la projection. Par définition, la cohomologie de de Rham de $\mathcal{X}/S$ est formée des $\mathcal{O}_S$-modules
+\begin{equation}\label{eq:2.1.1}
+H^i_{\mathrm{dR}}(\mathcal{X}/S) \overset{\text{déf}}{=} R^i f_*(\Omega_{\mathcal{X}/S}^{\bullet}),
+\end{equation}
+tandis que la cohomologie de Hodge de $\mathcal{X}/S$ est formée des $\mathcal{O}_S$-modules
+\begin{equation}\label{eq:2.1.2}
+H^j(\mathcal{X}, \Omega_{\mathcal{X}/S}^i) \overset{\text{déf}}{=} R^j f_*(\Omega_{\mathcal{X}/S}^i).
+\end{equation}
+
+Comme les $\mathcal{O}_{\mathcal{X}}$-modules $\Omega_{\mathcal{X}/S}^i$ sont localement libres de type fini, les $\mathcal{O}_S$-modules \eqref{eq:2.1.1} et \eqref{eq:2.1.2} sont cohérents en vertu du théorème de finitude de Grothendieck (EGA~III~3.4.2). On a d'autre part la suite spectrale habituelle (``suite spectrale de Hodge''):
+\begin{equation}\label{eq:2.1.3}
+E_1^{i,j} = H^j(\mathcal{X}, \Omega_{\mathcal{X}/S}^i) \Rightarrow H^{i+j}_{\mathrm{dR}}(\mathcal{X}/S).
+\end{equation}
+
+\begin{proposition}\label{prop:2.2}
+\begin{enumerate}[label=\alph*)]
+\item La suite spectrale \eqref{eq:2.1.3} dégénère en $E_1$; les $\mathcal{O}_S$-modules $H^j(\mathcal{X}, \Omega_{\mathcal{X}/S}^i)$ sont libres de type fini, et les flèches canoniques $H^j(\mathcal{X}, \Omega_{\mathcal{X}/S}^i) \otimes k \to H^j(X_0, \Omega_{X_0/k}^i)$ sont des isomorphismes.
+\item Les $\mathcal{O}_S$-modules $H^i_{\mathrm{dR}}(\mathcal{X}/S)$ sont libres de type fini, et les flèches canoniques $H^i_{\mathrm{dR}}(\mathcal{X}/S) \otimes k \to H^i_{\mathrm{dR}}(X_0/k)$ sont des isomorphismes.
+\item Le cup-produit $H^i_{\mathrm{dR}}(\mathcal{X}/S) \otimes H^{4-i}_{\mathrm{dR}}(\mathcal{X}/S) \to H^4_{\mathrm{dR}}(\mathcal{X}/S) \simeq \mathcal{O}_S$ est une dualité parfaite.
+\end{enumerate}
+\end{proposition}
+
+Comme le tableau des nombres de Hodge de $X_0/k$ est ``entrelardé de zéros'' (\ref{prop:1.1}~a)), le critère usuel (EGA~III~7.5.4), appliqué aux foncteurs cohomologiques $M \mapsto H^{\bullet}(\mathcal{X}, \Omega_{\mathcal{X}/S}^i \otimes f^* M)$ entraîne aussitôt la seconde assertion de a); la première en résulte. L'assertion b) découle de a), et implique c), par la dualité de Poincaré pour $H^i_{\mathrm{dR}}(X_0/k)$.
+
+\subsection{}
+
+Notons $\Omega_{S/W}^{\bullet}$ le complexe de de Rham des différentielles ``formelles'' de $S/W$: $\Omega_{S/W}^{0} = \varprojlim \mathcal{O}_{S_n}$, $\Omega_{S/W}^{1} = \varprojlim \Omega^1_{S_n/W_n}$, où $S_n$ est la réduction $\bmod p^{n+1}$ de $S/W$, est libre sur $\mathcal{O}_S$, de base $dt_1, \ldots, dt_{20}$, si $S \simeq \Spf W[[t_1, \ldots, t_{20}]]$. Les $H^i_{\mathrm{dR}}(\mathcal{X}/S)$ sont munis d'une connexion intégrable canonique, la connexion de Gauss-Manin,
+\begin{equation}\label{eq:2.3.1}
+\nabla: H^i_{\mathrm{dR}}(\mathcal{X}/S) \to H^i_{\mathrm{dR}}(\mathcal{X}/S) \otimes \Omega^1_{S/W}.
+\end{equation}
+La définition la plus simple de \eqref{eq:2.3.1} consiste à paraphraser la construction de Katz-Oda [9], en partant de l'extension canonique
+\begin{equation}\label{eq:2.3.0}
+0 \to f^*\Omega^1_{S/W} \to \Omega^1_{\mathcal{X}/W} \to \Omega^1_{\mathcal{X}/S} \to 0,
+\end{equation}
+où $\Omega^1_{\mathcal{X}/W}$ est le module des différentielles complété. On peut aussi utiliser le fait que $H^i_{\mathrm{dR}}(\mathcal{X}/S)$ est la valeur en $S$ d'un cristal en $\mathcal{O}$-modules sur le site cristallin de $S_0/W$:
+\begin{equation}\label{eq:2.3.2}
+H^i_{\mathrm{dR}}(\mathcal{X}/S) = R^i(f_0)_{\cris*}(\mathcal{O}_{X_0/W})(S),
+\end{equation}
+où
+\begin{equation}\label{eq:2.3.2.1}
+(f_0: \mathcal{X}_0 \to S_0) = f \times_S S_0, \quad S_0 = S \otimes_W k \; (= \Spf(k[[t_1, \ldots, t_{20}]]))
+\end{equation}
+et $(f_0)_{\cris}: (X_0/W)_{\cris} \to (S_0/W)_{\cris}$ est le morphisme correspondant des sites cristallins: il s'agit ici d'une ``variante formelle'' du résultat de Berthelot [2, V~3.6], qu'il est facile de déduire de (loc.~cit.), appliqué aux morphismes induits par $f$ sur les voisinages infinitésimaux de $\Spec(k)$ dans $S_0$.
+
+Sur l'une ou l'autre des définitions précédentes, on voit que le cup-produit \ref{prop:2.2}~c) est horizontal: on a
+\begin{equation}\label{eq:2.3.3}
+\langle \nabla x, y \rangle + \langle x, \nabla y \rangle = \nabla \langle x, y \rangle,
+\end{equation}
+quels que soient $x, y \in H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)$.
+
+Notons $F^{\bullet}_{\Hdg} H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)$ la filtration de Hodge de $H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)$, aboutissement de \eqref{eq:2.1.3}: si $\tau_{\geqslant i} \Omega_{\mathcal{X}/S}^{\bullet}$ (resp. $\sigma_{\geqslant i} \Omega_{\mathcal{X}/S}^{\bullet}$) désigne le complexe de de Rham tronqué (par zéro en degré $< i$), l'inclusion $\sigma_{\geqslant i} \hookrightarrow \Omega_{\mathcal{X}/S}^{\bullet}$ donne donc (en vertu de \ref{prop:2.2}~a)) un isomorphisme
+\begin{equation}\label{eq:2.3.4}
+H^2(\mathcal{X}, \sigma_{\geqslant i} \Omega_{\mathcal{X}/S}^{\bullet}) \xrightarrow{\sim} F^i_{\Hdg} H^2_{\mathrm{dR}}(\mathcal{X}/S).
+\end{equation}
+
+On a
+\begin{equation}\label{eq:2.3.5}
+H^2_{\mathrm{dR}}(\mathcal{X}/S) = F^0_{\Hdg} \supset F^1_{\Hdg} \supset F^2_{\Hdg} \supset F^3_{\Hdg} = 0;
+\end{equation}
+les $F^i_{\Hdg}$ sont des $\mathcal{O}_S$-modules libres, et la dégénérescence de \eqref{eq:2.1.3} fournit des isomorphismes
+\begin{equation}\label{eq:2.3.6}
+H^{2-i}(\mathcal{X}, \Omega^i_{\mathcal{X}/S}) \xrightarrow{\sim} \gr_{F^i_{\Hdg}} H^2_{\mathrm{dR}}(\mathcal{X}/S) \quad (\text{où } \gr = \gr_{\Hdg}),
+\end{equation}
+En particulier, $F^1_{\Hdg}$ (resp.~$F^2_{\Hdg}$) est libre de rang $21$ (resp.~1).
+
+Sur \eqref{eq:2.3.4} on voit que l'orthogonal de $F^2_{\Hdg}$ pour le cup-produit \ref{prop:2.2}~c) contient $F^1_{\Hdg}$, donc est égal à $F^1_{\Hdg}$:
+\begin{equation}\label{eq:2.3.7}
+F^1_{\Hdg} = (F^2_{\Hdg})^{\perp} \quad \text{(donc on a aussi } F^2_{\Hdg} = (F^1_{\Hdg})^{\perp}).
+\end{equation}
+
+La description de Katz-Oda de la connexion de Gauss-Manin montre que l'on a
+\begin{equation}\label{eq:2.3.8}
+\nabla F^i_{\Hdg} \subset \Omega^1_{S/W} \otimes F^{i-1}_{\Hdg} H^2_{\mathrm{dR}}(\mathcal{X}/S)
+\end{equation}
+(``transversalité de Griffiths'') (voir par exemple [8, 1.4]). Par suite, $\nabla$ induit par passage au quotient une application $\mathcal{O}_S$-linéaire
+\begin{equation}\label{eq:2.3.9}
+\gr^i \nabla: \gr_{F^i} H^2_{\mathrm{dR}}(\mathcal{X}/S) \to \Omega^1_{S/W} \otimes \gr_{F^{i-1}} H^2_{\mathrm{dR}}(\mathcal{X}/S),
+\end{equation}
+qui est $\mathcal{O}_S$-linéaire en vertu de la formule de Leibniz. L'application \eqref{eq:2.3.9} correspond à une application $\mathcal{O}_S$-linéaire que nous noterons
+\begin{equation}\label{eq:2.3.10}
+\nabla_i: T_{S/W} \to \Hom(\gr_{F^i} H^2_{\mathrm{dR}}(\mathcal{X}/S), \gr_{F^{i-1}} H^2_{\mathrm{dR}}(\mathcal{X}/S)),
+\end{equation}
+où $T_{S/W} = (\Omega^1_{S/W})^{\vee}$ est le fibré tangent de $S/W$. Le second membre de \eqref{eq:2.3.10} s'identifie canoniquement, par \eqref{eq:2.3.6}, à $\bigoplus_i \Hom(H^{2-i}(\mathcal{X}, \Omega^i_{\mathcal{X}/S}), H^{3-i}(\mathcal{X}, \Omega^{i-1}_{\mathcal{X}/S}))$. Soit $T_{\mathcal{X}/S} = (\Omega^1_{\mathcal{X}/S})^{\vee}$ le fibré tangent de $\mathcal{X}/S$. Si
+\begin{equation}\label{eq:2.3.11}
+\Kod(\mathcal{X}/S): T_{S/W} \to H^1(\mathcal{X}, T_{\mathcal{X}/S})
+\end{equation}
+désigne l'application de Kodaira-Spencer associée à $\mathcal{X}/S/W$, définie par l'extension \eqref{eq:2.3.0} (cf.~[8, 1.3]), alors, avec l'identification précédente, \eqref{eq:2.3.10} s'insère dans un triangle commutatif
+\begin{equation}\label{eq:2.3.12}
+\begin{tikzcd}
+& T_{S/W} \arrow[dl, "{\Kod(\mathcal{X}/S)}"'] \arrow[dr, "{\nabla_i}"] & \\
+H^1(\mathcal{X}, T_{\mathcal{X}/S}) \arrow[rr] & & \displaystyle\bigoplus_i \Hom(H^{2-i}(\mathcal{X}, \Omega^i_{\mathcal{X}/S}), H^{3-i}(\mathcal{X}, \Omega^{i-1}_{\mathcal{X}/S}))
+\end{tikzcd}
+\end{equation}
+où la flèche verticale est définie par le cup-produit (via le produit intérieur $T_{\mathcal{X}/S} \otimes \Omega^i_{\mathcal{X}/S} \to \Omega^{i-1}_{\mathcal{X}/S}$): cette compatibilité se vérifie comme en [8, 1.4.1.7].
+
+Notons que, d'après \eqref{eq:2.3.7}, le cup-produit \ref{prop:2.2}~c) induit, par passage à $\gr_F$, une dualité parfaite
+\begin{equation}\label{eq:2.3.13}
+\gr_{F^i} H^2_{\mathrm{dR}}(\mathcal{X}/S) \times \gr_{F^{2-i}} H^2_{\mathrm{dR}}(\mathcal{X}/S) \to \mathcal{O}_S
+\end{equation}
+(correspondant par \eqref{eq:2.3.6} au cup-produit $H^{2-i}(\mathcal{X}, \Omega^i_{\mathcal{X}/S}) \otimes H^i(\mathcal{X}, \Omega^{2-i}_{\mathcal{X}/S}) \to H^2(\mathcal{X}, \Omega^2_{\mathcal{X}/S})$).
+
+Il résulte de \eqref{eq:2.3.3} que, pour tout $D \in T_{S/W}$, on a
+\begin{equation}\label{eq:2.3.14}
+\nabla_1(D) = -\nabla_2(D)^{\vee},
+\end{equation}
+i.e. $\langle \nabla_2(D)x, y \rangle + \langle x, \nabla_1(D)y \rangle = 0$ pour $x \in \gr_{F^2}$, $y \in \gr_{F^1}$.
+
+L'énoncé ci-après exprime la mobilité de la filtration de Hodge sous l'action de Gauss-Manin:
+
+\begin{proposition}\label{prop:2.4}
+Les applications \eqref{eq:2.3.10} et \eqref{eq:2.3.11} sont des isomorphismes.
+\end{proposition}
+
+\begin{proof}
+Notons d'abord que le faisceau $\Omega^2_{\mathcal{X}/S}$, prolongement sur $\mathcal{X}$ du faisceau trivial $\Omega^2_{X_0/k}$, est nécessairement trivial (1.5), donc qu'on a
+\begin{equation}\label{eq:2.4.1}
+T_{\mathcal{X}/S} \simeq \Omega^1_{\mathcal{X}/S},
+\end{equation}
+et que par suite, d'après \ref{prop:2.2}~a), $H^1(\mathcal{X}, T_{\mathcal{X}/S})$ est libre (de rang $20$) et la flèche canonique $H^1(\mathcal{X}, T_{\mathcal{X}/S}) \otimes k \to H^1(X_0, T_{X_0/k})$ un isomorphisme.
+
+Cela étant, un argument standard montre que
+\begin{equation}\label{eq:2.4.2}
+\Kod(\mathcal{X}/S) \otimes_W k: T_{S/W} \otimes k \to H^1(X_0, T_{X_0/k})
+\end{equation}
+n'est autre que l'application linéaire tangente à l'origine à l'isomorphisme canonique $S \xrightarrow{\sim} \Def(X_0)$ (\eqref{eq:1.4.1}), donc $\Kod(\mathcal{X}/S)$ est un isomorphisme. Compte tenu de \eqref{eq:2.3.12}, il reste donc à prouver que la flèche verticale de \eqref{eq:2.3.12} est un isomorphisme, et, grâce à \eqref{eq:2.3.14}, on peut se borner à le faire pour $i = 1$. D'après \ref{prop:2.2}~a) et la remarque faite au début de la démonstration, il suffit de montrer que le cup-produit
+\begin{equation}\label{eq:2.4.3}
+H^1(X_0, T_{X_0/k}) \otimes H^1(X_0, \Omega^1_{X_0/k}) \to H^2(X_0, \Omega^2_{X_0/k})
+\end{equation}
+est non dégénéré. Mais la donnée d'une base de $H^0(X_0, \Omega^2_{X_0/k})$ identifie $T_{X_0/k}$ à $\Omega^1_{X_0/k}$ et \eqref{eq:2.4.3} à la dualité de Serre
+\[
+H^1(X_0, \Omega^1_{X_0/k}) \otimes H^1(X_0, \Omega^1_{X_0/k}) \to H^2(X_0, \Omega^2_{X_0/k}),
+\]
+d'où la conclusion.
+\end{proof}
+
+\begin{corollary}\label{cor:2.4.4}
+L'application $\gr^1 \nabla$ (resp.~$\gr^2 \nabla$) \eqref{eq:2.3.9} est un isomorphisme (resp.~est injective et de conoyau libre).
+\end{corollary}
+
+Noter que, par suite, la même propriété est vraie pour l'application $\gr^1(\nabla|S_0)$ (resp.~$\gr^2(\nabla|S_0)$), où $\nabla|S_0$ est la connexion de Gauss-Manin sur $H^{\bullet}_{\mathrm{dR}}(X_0/S_0)$.
+
+\begin{proof}
+Compte tenu de la dualité \eqref{eq:2.3.13}, \ref{cor:2.4.4} résulte aussitôt de ce que \eqref{eq:2.3.10} est un isomorphisme.
+\end{proof}
+
+\subsection{}
+
+Avec les notations \eqref{eq:2.3.2.1}, soit $F_{X_0/S_0}: \mathcal{X}_0 \to \mathcal{X}_0^{(p)}$ le Frobenius relatif de $X_0/S_0$, défini par le diagramme habituel à carré cartésien
+\begin{equation}\label{eq:2.5.1}
+\begin{tikzcd}
+X_0 \arrow[r, "F_{X_0/S_0}"] \arrow[dr] & X_0^{(p)} \arrow[r] \arrow[d] & X_0 \arrow[d] \\
+& S_0 \arrow[r, "F_{S_0}"] & S_0
+\end{tikzcd}
+\end{equation}
+(où les composés horizontaux sont les Frobenius absolus). L'interprétation cristalline \eqref{eq:2.3.2} de $H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)$ montre, par la fonctorialité de la cohomologie cristalline, que $F_{X_0/S_0}$ induit, pour tout relèvement $\Phi: S \to S$ du Frobenius (absolu) de $S_0$, compatible au Frobenius canonique $\sigma$ de $W$, un homomorphisme $\mathcal{O}_S$-linéaire horizontal (pour Gauss-Manin)
+\begin{equation}\label{eq:2.5.2}
+F(\Phi): \Phi^* H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S) \to H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S).
+\end{equation}
+Cet homomorphisme est une isogénie (i.e.~$F(\Phi) \otimes_{\mathbb{Z}} \mathbb{Q}_p$ est un isomorphisme) et sa dépendance en $\Phi$ est contrôlée par $\nabla$ (cf.~[7] et l'exposé suivant). Dans ce qui suit, nous fixerons un relèvement $\Phi$, par exemple celui donné par $\Phi(t_i) = t_i^p$ ($1 \leqslant i \leqslant 20$) ($S = \Spf W[[t_1, \ldots, t_{20}]]$ donc $\Phi(\sum a_{\underline{\alpha}} t^{\underline{\alpha}}) = \sum a^{\sigma}_{\underline{\alpha}} t^{p\underline{\alpha}}$), nous poserons $F(\Phi) =: F$, et noterons
+\begin{equation}\label{eq:2.5.3}
+F: H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S) \to H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)
+\end{equation}
+l'homomorphisme $\sigma$-linéaire composé de $\Phi^*$ et de la flèche d'adjonction $\Phi^* H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S) \to H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)$, $x \mapsto 1 \otimes x$. Par construction, $F$ est compatible au cup-produit \ref{prop:2.2}~c): on a
+\begin{equation}\label{eq:2.5.4}
+\langle Fx, Fy \rangle = F\langle x, y \rangle,
+\end{equation}
+quels que soient $x, y \in H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)$.
+
+\medskip
+L'énoncé suivant est cas particulier d'un théorème de Mazur-Ogus ([10], [4, 8.26])\footnote{Il s'agit d'une variante formelle de [4, 8.26], qui s'en déduit facilement.}:
+
+\begin{proposition}\label{prop:2.6}
+Avec les notations de \eqref{eq:2.3} et \eqref{eq:2.5}, on a
+\[
+F(F^1_{\Hdg}) \subset p\, H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)
+\]
+et les deux membres ont même image dans $H^{\bullet}_{\mathrm{dR}}(X_0/S_0)$.
+\end{proposition}
+
+En d'autres termes, si l'on note $F: H^{\bullet}_{\mathrm{dR}}(X_0/S_0) \to H^{\bullet}_{\mathrm{dR}}(X_0/S_0)$ l'endomorphisme ($p$-linéaire) de Frobenius (réduction $\bmod p$ de \eqref{eq:2.5.3}), et $F^i_{\Hdg} H^{\bullet}_{\mathrm{dR}}(X_0/S_0)$ la filtration de Hodge de $H^{\bullet}_{\mathrm{dR}}(X_0/S_0)$ (réduction $\bmod p$ de celle de $H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)$), on a
+\begin{equation}\label{eq:2.6.1}
+F(F^1_{\Hdg} H^{\bullet}_{\mathrm{dR}}(X_0/S_0)) = \Ker(F: H^{\bullet}_{\mathrm{dR}}(X_0/S_0) \to H^{\bullet}_{\mathrm{dR}}(X_0/S_0)).
+\end{equation}
+
+\begin{proof}
+Rappelons la démonstration de cette formule. Par définition, $F$ est composé de l'injection canonique ($p$-linéaire) $H^{\bullet}_{\mathrm{dR}}(X_0/S_0) \to H^{\bullet}_{\mathrm{dR}}(X_0^{(p)}/S_0) = F_{S_0}^* H^{\bullet}_{\mathrm{dR}}(X_0/S_0)$ définie par le carré cartésien de \eqref{eq:2.5.1} et de la flèche $\mathcal{O}_{S_0}$-linéaire $F: H^{\bullet}_{\mathrm{dR}}(X_0^{(p)}/S_0) \to H^{\bullet}_{\mathrm{dR}}(X_0/S_0)$ définie par le Frobenius relatif $F_{X_0/S_0}$. Il est immédiat que l'on a
+\[
+F(F^1_{\Hdg} H^{\bullet}_{\mathrm{dR}}(X_0/S_0)) \subset H^{\bullet}_{\mathrm{dR}}(X_0/S_0) \cap F(F^1_{\Hdg} H^{\bullet}_{\mathrm{dR}}(X_0^{(p)}/S_0)),
+\]
+donc il suffit de prouver que
+\begin{equation}\label{eq:2.6.2}
+F(F^1_{\Hdg} H^2_{\mathrm{dR}}(X_0^{(p)}/S_0)) = \Ker(F: H^2_{\mathrm{dR}}(X_0^{(p)}/S_0) \to H^2_{\mathrm{dR}}(X_0/S_0)).
+\end{equation}
+
+D'après \ref{prop:2.2}, la suite spectrale de Hodge de $X_0^{(p)}/S_0$ dégénère en $E_1$, donc on a une suite exacte
+\begin{equation}\label{eq:2.6.3}
+0 \to F^1_{\Hdg} H^2_{\mathrm{dR}}(X_0^{(p)}/S_0) \to H^2_{\mathrm{dR}}(X_0^{(p)}/S_0) \xrightarrow{\pi} H^2(X_0^{(p)}, \mathcal{O}_{X_0^{(p)}}) \to 0,
+\end{equation}
+où $\pi$ est la projection canonique. D'autre part, comme $F_{X_0/S_0}$ s'annule sur $\Omega^i_{X_0^{(p)}/S_0}$ pour $i \geqslant 1$, on a un carré commutatif
+\[
+\begin{tikzcd}
+H^2_{\mathrm{dR}}(X_0^{(p)}/S_0) \arrow[r, "\pi"] \arrow[d, "F"'] & H^2(X_0^{(p)}, \mathcal{O}_{X_0^{(p)}}) \arrow[d, "(*)"] \\
+H^2_{\mathrm{dR}}(X_0/S_0) \arrow[r] & H^2(X_0, \mathcal{O}_{X_0/S_0})
+\end{tikzcd}
+\]
+où $(*)$ est défini par l'inclusion $H^0(\Omega^i_{X_0/S_0}) \hookrightarrow \Omega^i_{X_0/S_0}$. Mais la dégénérescence en $E_1$ de la suite spectrale de Hodge de $X_0/S_0$ entraîne (par l'argument bien connu utilisant l'opération de Cartier) la dégénérescence en $E_2$ de la suite spectrale conjuguée
+\[
+E_2^{i,j} = H^i(X_0, \mathcal{H}^j(\Omega^{\bullet}_{X_0/S_0})) \Rightarrow H^{i+j}_{\mathrm{dR}}(X_0/S_0).
+\]
+En particulier, l'application $(*)$ est injective. Comme la flèche verticale de droite est un isomorphisme (cas particulier de l'isomorphisme de Cartier), on en conclut que $\pi$ et $F$ ont même noyau, ce qui achève la démonstration, compte tenu de \eqref{eq:2.6.3}.
+\end{proof}
+
+\begin{remark}\label{rem:2.7}
+\begin{enumerate}[label=\alph*)]
+\item D'après [4, 8.26], on a également
+\begin{equation}\label{eq:2.7.1}
+F(F^2_{\Hdg} H^{\bullet}_{\mathrm{dR}}(X_0/S_0)) = \Im\{x \in H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S) \mid Fx \in p^2 H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S)\} \subset H^{\bullet}_{\mathrm{dR}}(X_0/S_0)
+\end{equation}
+mais nous n'en aurons pas besoin.
+
+\item Le $F$-cristal $H^2_{\mathrm{dR}}(\mathcal{X}/S)$ est isomorphe au ``cristal de Tate'' $\mathcal{O}_S(-2) = (\mathcal{O}_S \text{ muni de } \nabla = d \text{ et } F = p^2)$. Faute de disposer (dans la littérature) d'un morphisme trace $R\Gamma(\mathcal{X}/S) \to \mathcal{O}_S$, on peut néanmoins s'en convaincre de la manière suivante: on note d'abord que $H^2_{\mathrm{dR}}(\mathcal{X}/S)$ est l'image par le cup-produit de $F^1 H^2_{\mathrm{dR}}(\mathcal{X}/S) \otimes F^1 H^2_{\mathrm{dR}}(\mathcal{X}/S)$; grâce à \eqref{eq:2.5.4} et \ref{prop:2.6}, on en déduit que $F(H^2_{\mathrm{dR}}(\mathcal{X}/S)) \subset p^2 H^2_{\mathrm{dR}}(\mathcal{X}/S)$, puis, grâce au fait que $H^4_{\mathrm{dR}}(\mathcal{X}/S) \otimes_W k = H^4_{\mathrm{cris}}(X_0/W)$ est isomorphe à $W(-2)$, que $H^2_{\mathrm{dR}}(\mathcal{X}/S)$ est de la forme $U(-2)$, où $U$ est un $F$-cristal unité; mais tout $F$-cristal unité sur $S$ est trivial [7], d'où l'assertion.
+\end{enumerate}
+\end{remark}
+
+\subsection{}
+
+Le dernier ingrédient dont on aura besoin pour la démonstration de \ref{thm:1.6} est la notion de classe de Chern cristalline d'un faisceau inversible (cf.~[3]). Notons $\Fil^1 \Omega^{\bullet}_{\mathcal{X}/S}$ le sous-complexe de $\Omega^{\bullet}_{\mathcal{X}/S}$ noyau de la projection canonique $\Omega^{\bullet}_{\mathcal{X}/S} \to \mathcal{O}_{\mathcal{X}}$, i.e.
+\[
+\Fil^1 \Omega^{\bullet}_{\mathcal{X}/S} = (0 \to \Omega^1_{\mathcal{X}/S} \to \Omega^2_{\mathcal{X}/S} \to \cdots).
+\]
+La suite exacte de définition de $\Fil^1$:
+\begin{equation}\label{eq:2.8.2}
+0 \to \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S} \to \Omega^{\bullet}_{\mathcal{X}/S} \to \mathcal{O}_{\mathcal{X}} \to 0
+\end{equation}
+fournit une suite exacte
+\begin{equation}\label{eq:2.8.3}
+0 \to 1 + \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S} \to (\Omega^{\bullet}_{\mathcal{X}/S})^* \to \mathcal{O}_{\mathcal{X}}^* \to 0,
+\end{equation}
+où
+\[
+(\Omega^{\bullet}_{\mathcal{X}/S})^* = (\mathcal{O}_{\mathcal{X}}^* \xrightarrow{\dlog} \Omega^1_{\mathcal{X}/S} \xrightarrow{d} \Omega^2_{\mathcal{X}/S} \to \cdots)
+\]
+est le complexe de de Rham ``multiplicatif''. Par définition, l'homomorphisme classe de Chern
+\begin{equation}\label{eq:2.8.4}
+c_1: \Pic(X_0) = H^1(X_0, \mathcal{O}_{X_0}^*) \to H^2(\mathcal{X}, \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S})
+\end{equation}
+est composé du cobord de \eqref{eq:2.8.3} et de la flèche déduite de l'homomorphisme de complexes
+\begin{equation}\label{eq:2.8.5}
+\log: 1 + \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S} \to \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S}
+\end{equation}
+doné par l'identité en degré $\geqslant 1$ et $1+x \mapsto \sum_{i \geqslant 0} (-1)^i x^{i+1}/(i+1)$ en degré zéro (on vérifie immédiatement que la définition de \eqref{eq:2.8.5} est légitime).
+
+Noter que, comme $H^1(X_0, \mathcal{O}_{X_0}) = 0$ (\ref{prop:2.2}~a)), la flèche canonique
+\begin{equation}\label{eq:2.8.6}
+H^2(\mathcal{X}, \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S}) \to H^2_{\mathrm{dR}}(\mathcal{X}/S)
+\end{equation}
+est injective: nous nous permettrons donc parfois de regarder $c_1$ \eqref{eq:2.8.4} comme à valeurs dans $H^2_{\mathrm{dR}}(\mathcal{X}/S)$.
+
+\begin{proposition}\label{prop:2.9}
+Soit $\ell_0 \in \Pic(X_0)$, et soit $x = c_1(L_0)$. On a:
+\begin{enumerate}[label=\alph*)]
+\item $Fx = px$,
+\item $\nabla x = 0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Pour prouver ces formules, il est commode d'interpréter $c_1$ de façon cristalline. La construction [3, 2.1] fournit en effet un homomorphisme
+\begin{equation}\label{eq:2.9.1}
+c_1^{\cris/W}: \Pic(X_0) \to H^2_{\cris}(X_0, J_{X_0/W}),
+\end{equation}
+où $J_{X_0/W}$ est le faisceau cristallin défini par la suite exacte canonique
+\begin{equation}\label{eq:2.9.2}
+0 \to J_{X_0/W} \to \mathcal{O}_{X_0/W} \to \mathcal{O}_{X_0} \to 0.
+\end{equation}
+
+D'après \eqref{eq:2.3.2}, on a
+\[
+H^2(\mathcal{X}, \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S}) = R^2(f_0)_{\cris*}(J_{X_0/W})(S),
+\]
+d'où
+\begin{equation}\label{eq:2.9.3}
+H^0_{\cris}(S_0, R^2(f_0)_{\cris*} J_{X_0/W}) = \{x \in H^2(\mathcal{X}, \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S}) \mid \nabla x = 0\}.
+\end{equation}
+On vérifie facilement que \eqref{eq:2.8.4} n'est autre que le composé de \eqref{eq:2.9.1} et de l'homomorphisme canonique
+\begin{equation}\label{eq:2.9.4}
+H^2_{\cris}(X_0, J_{X_0/W}) \to H^0_{\cris}(S_0, R^2(f_0)_{\cris*} J_{X_0/W})
+\end{equation}
+(modulo l'identification \eqref{eq:2.9.3}). Cela prouve en particulier \ref{prop:2.9}~b).
+
+La description précédente montre aussi la fonctorialité en $X_0/S_0$ de \eqref{eq:2.8.4}, ce qui entraîne \ref{prop:2.9}~a), car, si $F_{X_0}$ est le Frobenius absolu de $X_0$, on a
+\[
+c_1(F_{X_0}^* L_0) = c_1(L_0^{\otimes p}) = p\, c_1(L_0) = px.
+\]\qedhere
+\end{proof}
+
+\begin{remark}\label{rem:2.9.5}
+En ce qui concerne le point b), le lecteur qui répugne aux considérations cristallines pourra le vérifier ``à la main'' en utilisant la description explicite de Katz-Oda [9] de la connexion de Gauss-Manin. Voici comment se présente le calcul. Soit $D$ une dérivation de $S/W$. On choisit un recouvrement ouvert affine $\mathcal{U}$ de $\mathcal{X}$, un cocycle $(g_{ij})$ à valeurs dans $\mathcal{O}_{\mathcal{X}}^*$ représentant $\ell_0$, un relèvement $D_i$ de $D$ en une dérivation de $\mathcal{X}/W$ sur $U_i$. La donnée d'un relèvement de $g_{ij}$ en une section $\tilde{g}_{ij}$ de $\mathcal{O}_{\mathcal{X}}^*$ sur $U_i \cap U_j$, définit un $2$-cocycle $h_{ijk}$ à valeurs dans $1 + p\mathcal{O}_{\mathcal{X}}$, et $x = c_1(L_0)$ est la classe du $2$-cocycle
+\[
+(\log h_{ijk}) + (\dlog g_{ij}) \in Z^2(\mathcal{U}, \Fil^1 \Omega^{\bullet}_{\mathcal{X}/S}).
+\]
+D'autre part, d'après [9], $\nabla(D)x$ est la classe du $2$-cocycle ($i < j < k$)
+\[
+y = (D_i \log h_{ijk}) + (d D_i \log g_{ij}) - ((D_i \log - D_j \log) g_{jk}).
+\]
+On constate que $y$ est le cobord de la $1$-cochaîne $(D_i \log \tilde{g}_{ij}) \in C^1(\mathcal{U}, \Omega^1_{\mathcal{X}/S})$, donc $\nabla(D)x = 0$.
+\end{remark}
+
+\subsection{}
+
+La fonctorialité de la classe de Chern cristalline entraîne que, pour tout point $e$ de $S$ à valeurs dans $W$, on a un carré commutatif
+\begin{equation}\label{eq:2.10.1}
+\begin{tikzcd}
+\Pic(\mathcal{X}_0) \arrow[r, "c_1"] \arrow[d, equal] & H^{\bullet}_{\mathrm{dR}}(\mathcal{X}/S) = H^{\bullet}_{\cris}(X_0/S) \arrow[d] \\
+\Pic(X_0) \arrow[r, "c_1"'] & H^{\bullet}_{\mathrm{dR}}(\mathcal{X}_e/W) = H^{\bullet}_{\cris}(X_0/W)
+\end{tikzcd}
+\end{equation}
+où $\mathcal{X}_e/W$ est déduit de $\mathcal{X}/S$ par le changement de base $e$.
+
+On notera que, comme $X_0$ est une surface K3, $\Pic(X_0)$ coïncide avec le groupe de Néron-Severi $\NS(X_0)$, et est sans torsion, et que par suite la flèche horizontale inférieure de \eqref{eq:2.10.1} est injective (\ref{prop:3.4}).
+
+\subsection{Démonstration de \ref{thm:1.6}}\label{subsec:2.11}
+
+Supposons que $L_0$ se prolonge en un faisceau inversible $\tilde{\mathcal{L}}_0$ sur $\mathcal{X}_0$, et soit $x = c_1(L_0) \in H^2_{\mathrm{dR}}(\mathcal{X}/S)$. La commutativité de \eqref{eq:2.10.1} entraîne que $e^*x = c_1(\tilde{L}_0)$; comme $\tilde{L}_0$ est non trivial par hypothèse, on a $c_1(\tilde{L}_0) \neq 0$ d'après la remarque ci-dessus, donc $x \neq 0$. D'après \ref{prop:2.9}, on a $Fx = px$, $\nabla x = 0$. Soit $p^n$ la plus grande puissance de $p$ divisant $x$, posons $y = p^{-n}x$; l'image $y_0$ de $y$ dans $H^2_{\mathrm{dR}}(X_0/S_0) = H^2_{\mathrm{dR}}(\mathcal{X}/S) \bmod p$ est donc non nulle. D'autre part, on a encore $Fy = py$, $\nabla y = 0$. La première de ces relations entraîne, d'après \eqref{eq:2.6.1}, que $y_0 \in F^1_{\Hdg} H^2_{\mathrm{dR}}(X_0/S_0)$. Comme on a $y_0 \neq 0$ et $\nabla y_0 = 0$, on ne peut avoir $y_0 \in F^2_{\Hdg} H^2_{\mathrm{dR}}(X_0/S_0)$, car cela contredirait l'injectivité de $\gr^2 \nabla: F^2_{\Hdg} H^2_{\mathrm{dR}}(X_0/S_0) \to \Omega^1_{S_0/k} \otimes \gr_{F^1} H^2_{\mathrm{dR}}(X_0/S_0)$ (\ref{cor:2.4.4}). Donc l'image de $y_0$ dans $\gr_{F^1} H^2_{\mathrm{dR}}(X_0/S_0)$ est non nulle, mais comme $\nabla y_0 = 0$, cela contredit le fait que $\gr^1 \nabla: \gr_{F^1} H^2_{\mathrm{dR}}(X_0/S_0) \to \Omega^1_{S_0/k} \otimes \gr_{F^0} H^2_{\mathrm{dR}}(X_0/S_0)$ est un isomorphisme. Cette contradiction achève la démonstration de \ref{thm:1.6}.
+
+
+\section{APPENDICE: CLASSES DE CHERN CRISTALLINES ET INTERSECTIONS}\label{sec:3}
+\footnote{par P. Deligne et L. Illusie}
+
+Le but de cet appendice est d'établir que, sur une surface propre et lisse sur $k$, le nombre d'intersection de deux diviseurs est la trace du cup-produit de leurs classes de Chern cristallines (cette compatibilité ne figure apparemment pas dans la littérature).
+
+\subsection{}
+
+Soit $X$ un schéma propre et lisse sur $k$. Rappelons [2, VI~3.3.6] qu'on sait associer à tout sous-schéma fermé $Y$ de $X$, lisse sur $k$, de codimension $d$ dans $X$, une classe de cohomologie
+\begin{equation}\label{eq:3.1.1}
+c^{\ell}(Y) \in H^{2d}_{\cris}(X/W).
+\end{equation}
+Si $Y'$, $Y''$ sont des sous-schémas fermés lisses de codimensions $d'$, $d''$, se coupant transversalement, on a [2, VI~4.3.15]
+\begin{equation}\label{eq:3.1.2}
+c^{\ell}(Y') \cdot c^{\ell}(Y'') = c^{\ell}(Y' \cap Y'')
+\end{equation}
+(dans $H^{2(d'+d'')}_{\cris}(X/W)$). D'autre part, si $X'$ est un schéma propre et lisse sur $k$, $f: X' \to X$ un $k$-morphisme, $Y$ un sous-schéma fermé lisse de codimension $d$ tel que $Y \times_X X'$ soit lisse de codimension $d$ dans $X'$, alors on a [2, VI~4.3.13]
+\begin{equation}\label{eq:3.1.3}
+c^{\ell}(Y \times_X X') = f^* c^{\ell}(Y).
+\end{equation}
+Enfin, si $a$ est un point rationnel de $X/k$, on a [2, VII~3.1.7]
+\begin{equation}\label{eq:3.1.4}
+\Tr_{X/W}(c^{\ell}(a)) = 1.
+\end{equation}
+En particulier, si $X$ est connexe, $c^{\ell}(a)$ ne dépend pas de $a$, puisque $\Tr_{X/W}: H^{2n}_{\cris}(X/W) \to W$ est un isomorphisme ($n = \dim X$) [2, VII~2.1.1].
+
+\subsection{}
+
+A tout fibré vectoriel $L$ sur $X$ on sait associer des classes de Chern [3, 2.4]
+\begin{equation}\label{eq:3.2.1}
+c_i(L) \in H^{2i}_{\cris}(X/W),
+\end{equation}
+nulles pour $i > \rg(L)$. Ces classes dépendent fonctoriellement de $L$: si $f: X' \to X$ est un $k$-morphisme, on a (loc.~cit.)
+\begin{equation}\label{eq:3.2.2}
+c_i(f^* L) = f^* c_i(L).
+\end{equation}
+Si $D$ est un diviseur effectif lisse sur $X$, on dispose donc d'une part de la classe de cohomologie $c^{\ell}(D) \in H^2_{\cris}(X/W)$, d'autre part de la classe de Chern $c_1(\mathcal{O}_X(D)) \in H^2_{\cris}(X/W)$.
+
+\begin{proposition}\label{prop:3.2.3}
+Soit $D$ un diviseur effectif lisse sur $X$. Si $\mathcal{O}_X(D)$ est très ample, on a
+\begin{equation}\label{eq:3.2.3.1}
+c^{\ell}(D) = c_1(\mathcal{O}_X(D)).
+\end{equation}
+\end{proposition}
+
+\begin{remark}\label{rem:3.2.4}
+Berthelot (non publié) a vérifié que \eqref{eq:3.2.3.1} vaut sans l'hypothèse que $\mathcal{O}_X(D)$ soit très ample. La démonstration est assez compliquée. Pour ce que nous avons en vue, \ref{prop:3.2.3} nous suffira.
+\end{remark}
+
+\begin{proof}[Démonstration de \ref{prop:3.2.3}]
+Grâce à \eqref{eq:3.1.3} et \eqref{eq:3.2.2}, on se ramène aussitôt au cas où $X$ est un espace projectif $\mathbb{P}^N_k$ et $D$ un hyperplan. Posons $\mathbb{P}^N_k = X'$, et soit $D'$ un hyperplan de $X'$ relevant $D$. On a $H^2_{\cris}(X/W) = H^2_{\mathrm{dR}}(X'/W)$. D'après [2, VI~3.3.5], $c^{\ell}(D)$ est la classe de cohomologie de de Rham de $D'$, laquelle se calcule à l'aide de l'extension de $\mathcal{O}_{X'/W}[-1]$ par $\Omega^{\bullet}_{X'/W}$ donnée par le complexe de de Rham de $X'/W$ à pôles logarithmiques le long de $D'$. Si $(t_0, \ldots, t_N)$ sont des coordonnées homogènes sur $X'$, on en déduit facilement que $c^{\ell}(D)$ est la classe du $1$-cocycle $(dt_j/t_j - dt_i/t_i)$ ($i < j$) du recouvrement standard. D'autre part, la classe de Chern $c_1(\mathcal{O}_{X'}(1)) \in H^2_{\mathrm{dR}}(X'/W)$ se déduit, d'après [3, 2.3], du cocycle $t_j/t_i$ par l'homomorphisme $\dlog: \mathcal{O}_{X'}^* \to \Omega^1_{X'/W}$ [1]. On a donc bien $c_1(\mathcal{O}_X(D)) = c^{\ell}(D)$.
+\end{proof}
+
+\begin{theorem}\label{thm:3.3}
+Soit $X$ une surface propre et lisse sur $k$. Si $D_1$, $D_2$ sont des diviseurs sur $X$, on a
+\[
+(D_1 \cdot D_2) = \Tr_{X/W}(c_1(\mathcal{O}_X(D_1)) \cdot c_1(\mathcal{O}_X(D_2)))
+\]
+(où $(D_1 \cdot D_2)$ désigne le nombre d'intersection de $D_1$, $D_2$).
+\end{theorem}
+
+\begin{proof}
+Si $D_1$, $D_2$ sont effectifs, lisses, très amples, et transverses, la conclusion résulte de \eqref{eq:3.1.2}, \eqref{eq:3.1.4}, et \ref{prop:3.2.3}. Pour nous ramener à ce cas, choisissons un diviseur $H$ très ample sur $X$. Pour $n$ assez grand, $D_1 + nH$ et $D_2 + nH$ sont très amples. Par Bertini, il existe donc des diviseurs effectifs lisses, très amples, $D_1'$, $D_1''$, $D_2'$, $D_2''$ tels que
+\[
+D_1 = D_1' - D_1'', \quad D_2 = D_2' - D_2'',
+\]
+et l'on peut supposer de plus que les couples $(D_1', D_1'')$, $(D_1, D_2')$, $(D_1', D_2'')$, $(D_1'', D_2')$, $(D_1'', D_2'')$ sont transverses. Par additivité de $c_1$ et bilinéarité de $(\cdot)$, on est ramené au cas particulier envisagé, ce qui achève la démonstration.
+\end{proof}
+
+\subsection{}
+
+Soit à nouveau $X$ un schéma propre et lisse sur $k$. On ignore si, pour deux sous-schémas fermés lisses de $X$, de même codimension, le fait d'être algébriquement équivalents entraîne qu'ils ont même classe de cohomologie cristalline (on le sait seulement pour des sous-schémas de dimension $0$, cf.~\eqref{eq:3.1.4}!). En revanche, si
+\[
+\NS(X) = \Pic(X)/\Pic^0(X)
+\]
+désigne le groupe de Néron-Severi de $X$, l'homomorphisme
+\[
+c_1: \Pic(X) \to H^2_{\cris}(X/W)
+\]
+s'annule sur $\Pic^0(X)$, car $\Pic^0(X)$ est $p$-divisible et $H^2_{\cris}(X/W)$ de type fini sur $W$, donc donne par passage au quotient un homomorphisme
+\begin{equation}\label{eq:3.4.1}
+c_1: \NS(X) \to H^2_{\cris}(X/W).
+\end{equation}
+
+Supposons maintenant que $X$ soit une surface. D'après le théorème de l'index de Hodge, la forme d'intersection sur $\NS(X) \otimes \mathbb{Q}$ est non dégénérée. Compte tenu de \ref{thm:3.3}, il en résulte que l'homomorphisme
+\begin{equation}\label{eq:3.4.2}
+c_1 \otimes \mathbb{Q}: \NS(X) \otimes \mathbb{Q} \to H^2_{\cris}(X/W) \otimes \mathbb{Q}
+\end{equation}
+est injectif.
+
+\begin{proposition}\label{prop:3.4}
+L'homomorphisme $c_1: \NS(X) \to H^2_{\cris}(X/W)$ est injectif.
+\end{proposition}
+
+\begin{proof}
+Cela résulte immédiatement de l'injectivité de \eqref{eq:3.4.2}.
+\end{proof}
+
+\begin{remark}\label{rem:3.5}
+On peut montrer [6, II~5.10] que \eqref{eq:3.4.1} définit une injection de $\NS(X) \otimes \mathbb{Z}_p$ dans $H^2_{\cris}(X/W)$. Il n'est sans doute pas vrai en général que \eqref{eq:3.4.1} induise une injection de $\NS(X)/p\NS(X)$ dans $H^2_{\cris}(X/W)/pH^2_{\cris}(X/W)$, i.e. que l'application classe de Chern en cohomologie de de Rham envoie injectivement $\NS(X)/p\NS(X)$ dans $H^2_{\mathrm{dR}}(X/k)$. C'est cependant le cas si $H^1_{\cris}(X/W)$ est sans torsion et que la suite spectrale de Hodge vers de Rham de $X/k$ dégénère en $E_1$, cf.~[13, 1.4] et [6, II~5.18], conditions réalisées par exemple par une surface K3.
+\end{remark}
+
+\vspace{1cm}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{P. DELIGNE}\\
+Institut des Hautes Études Scientifiques\\
+35, Route de Chartres\\
+91440 BURES/YVETTE (France)
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{L. ILLUSIE}\\
+Université de Paris-Sud\\
+Centre d'Orsay\\
+Mathématique, bât.~425\\
+91405 ORSAY (France)
+\end{minipage}
+
+\vspace{1cm}
+\section*{BIBLIOGRAPHIE}
+\addcontentsline{toc}{section}{Bibliographie}
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, itemsep=0.3em]
+\item M. ARTIN.-- Supersingular K3 surfaces. Ann. Sc. ENS, $4\mathrm{\grave{e}me}$ série, t.~7 (1974), p.~543--568.
+
+\item P. BERTHELOT.-- Cohomologie cristalline des schémas de caractéristique $p > 0$. Lecture Notes in Math.~407, Springer-Verlag (1974).
+
+\item P. BERTHELOT et L. ILLUSIE.-- Classes de Chern en cohomologie cristalline. C. R. Acad. Sc. Paris, t.~270, p.~1695--1697 et 1750--1752, 22 et 29 juin 1970.
+
+\item P. BERTHELOT et A. OGUS.-- Notes on crystalline cohomology. Mathematical Notes 21, Princeton U. Press (1978).
+
+\item P. DELIGNE.-- La conjecture de Weil pour les surfaces K3. Inv. math. 15, p.~206--226 (1972).
+
+\item L. ILLUSIE.-- Complexe de de Rham-Witt et cohomologie cristalline, Ann. Sc. ENS, $4\mathrm{e}$ série, t.~12 (1979), p.~501--661.
+
+\item N. KATZ.-- Travaux de Dwork, Séminaire Bourbaki, exp.~409, Lecture Notes in Math. 383, Springer-Verlag (1973).
+
+\item N. KATZ.-- Algebraic solutions of differential equations, $p$-curvature and the Hodge filtration. Inv. math. 18, p.~1--118 (1972).
+
+\item N. KATZ and T. ODA.-- On the differentiation of De Rham cohomology classes with respect to parameters. J. of Math. of Kyoto Univ., vol.~8, n°~2, p.~199--213 (1968).
+
+\item[$\text{[10]}$] B. MAZUR.-- Frobenius and the Hodge filtration, estimates. Ann. of Math. 98, p.~58--95 (1973).
+
+\item[$\text{[11]}$] D. MUMFORD.-- Abelian Varieties. Tata Inst., Oxford Univ. Press (1970).
+
+\item[$\text{[12]}$] N. NYGAARD.-- A $p$-adic proof of the Rudakov-Shafarevitch theorem. Ann. of Math. 110, p.~515--528 (1979).
+
+\item[$\text{[13]}$] A. OGUS.-- Supersingular K3 crystals. Journées de Géométrie Algébrique de Rennes, juillet 78, S.M.F. Astérisque 64, p.~3--86 (1979).
+
+\item[$\text{[14]}$] A. RUDAKOV and I. SHAFAREVITCH.-- Inseparable morphisms of algebraic surfaces. Akad. Sc. SSSR, t.~40, n°~6, p.~1264--1307 (1976).
+
+\item[$\text{[15]}$] M. SCHLESSINGER.-- Functors of Artin rings. Trans. Amer. Soc. 130, p.~205--222 (1968).
+
+\item[$\text{[16]}$] A. WEIL.-- Variétés abéliennes et courbes algébriques. Hermann (1948).
+\end{enumerate}
+
+\end{document}

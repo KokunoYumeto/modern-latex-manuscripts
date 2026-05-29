@@ -1,0 +1,1400 @@
+% Sur la variation, par torsion, des constantes locales d'equations fonctionnelles de fonctions L
+% P. Deligne et G. Henniart
+% Published in Invent. math. 64, 89-118 (1981)
+% Typeset from the original PDF with faithful transcription
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{remark}[theorem]{Remarque}
+
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Exemple}
+
+% Math operators
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Hom}{Hom}
+% duplicate dim removed
+% duplicate det removed
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\sw}{Sw}
+
+% Shortcuts
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bR}{\mathbb{R}}
+
+\let\dim\relax\let\det\relax
+
+% --- Pass-2 compatibility shim. ---
+% Purpose: repair transcription-level LaTeX omissions without changing mathematical text.
+\providecommand{\AA}{\mathbb{A}}
+\providecommand{\BB}{\mathbb{B}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\DD}{\mathbb{D}}
+\providecommand{\EE}{\mathbb{E}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathbb{G}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\TT}{\mathbb{T}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\Gm}{\mathbb{G}_{\mathrm m}}
+\providecommand{\Ga}{\mathbb{G}_{\mathrm a}}
+\providecommand{\cA}{\mathcal{A}}
+\providecommand{\cB}{\mathcal{B}}
+\providecommand{\cC}{\mathcal{C}}
+\providecommand{\cD}{\mathcal{D}}
+\providecommand{\cE}{\mathcal{E}}
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cG}{\mathcal{G}}
+\providecommand{\cH}{\mathcal{H}}
+\providecommand{\cI}{\mathcal{I}}
+\providecommand{\cJ}{\mathcal{J}}
+\providecommand{\cK}{\mathcal{K}}
+\providecommand{\cL}{\mathcal{L}}
+\providecommand{\cM}{\mathcal{M}}
+\providecommand{\cN}{\mathcal{N}}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\cP}{\mathcal{P}}
+\providecommand{\cQ}{\mathcal{Q}}
+\providecommand{\cR}{\mathcal{R}}
+\providecommand{\cS}{\mathcal{S}}
+\providecommand{\cT}{\mathcal{T}}
+\providecommand{\cU}{\mathcal{U}}
+\providecommand{\cV}{\mathcal{V}}
+\providecommand{\cW}{\mathcal{W}}
+\providecommand{\cX}{\mathcal{X}}
+\providecommand{\cY}{\mathcal{Y}}
+\providecommand{\cZ}{\mathcal{Z}}
+\providecommand{\fA}{\mathfrak{A}}
+\providecommand{\fB}{\mathfrak{B}}
+\providecommand{\fC}{\mathfrak{C}}
+\providecommand{\fD}{\mathfrak{D}}
+\providecommand{\fE}{\mathfrak{E}}
+\providecommand{\fF}{\mathfrak{F}}
+\providecommand{\fG}{\mathfrak{G}}
+\providecommand{\fH}{\mathfrak{H}}
+\providecommand{\fI}{\mathfrak{I}}
+\providecommand{\fJ}{\mathfrak{J}}
+\providecommand{\fK}{\mathfrak{K}}
+\providecommand{\fL}{\mathfrak{L}}
+\providecommand{\fM}{\mathfrak{M}}
+\providecommand{\fN}{\mathfrak{N}}
+\providecommand{\fO}{\mathfrak{O}}
+\providecommand{\fP}{\mathfrak{P}}
+\providecommand{\fQ}{\mathfrak{Q}}
+\providecommand{\fR}{\mathfrak{R}}
+\providecommand{\fS}{\mathfrak{S}}
+\providecommand{\fT}{\mathfrak{T}}
+\providecommand{\fU}{\mathfrak{U}}
+\providecommand{\fV}{\mathfrak{V}}
+\providecommand{\fW}{\mathfrak{W}}
+\providecommand{\fX}{\mathfrak{X}}
+\providecommand{\fY}{\mathfrak{Y}}
+\providecommand{\fZ}{\mathfrak{Z}}
+\providecommand{\fraka}{\mathfrak{a}}
+\providecommand{\frakb}{\mathfrak{b}}
+\providecommand{\frakc}{\mathfrak{c}}
+\providecommand{\frakd}{\mathfrak{d}}
+\providecommand{\frakm}{\mathfrak{m}}
+\providecommand{\frakp}{\mathfrak{p}}
+\providecommand{\frakq}{\mathfrak{q}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Alg}{\mathbf{Alg}}
+\providecommand{\Aff}{\mathbf{Aff}}
+\providecommand{\mot}{\mathrm{mot}}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\dR}{\mathrm{dR}}
+\providecommand{\der}{\mathrm{der}}
+\providecommand{\Le}{\leqslant}
+\providecommand{\Ge}{\geqslant}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\mup}{\mu_p}
+\makeatletter
+\@ifundefined{construction}{\newtheorem{construction}{Construction}}{}
+\@ifundefined{notation}{\newtheorem{notation}{Notation}}{}
+\@ifundefined{claim}{\newtheorem{claim}{Claim}}{}
+\makeatother
+
+% --- Pass-2 extra compile shims ---
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\PGL}{\operatorname{PGL}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\limind}{\varinjlim}
+\providecommand{\limproj}{\varprojlim}
+\makeatletter
+\@ifundefined{scholie}{\newtheorem{scholie}{Scholie}}{}
+\makeatother
+% --- end pass-2 extra compile shims ---
+
+
+% --- Pass-2 extra compile shims 2 ---
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\SU}{\operatorname{SU}}
+\providecommand{\rk}{\operatorname{rk}}
+\providecommand{\fp}{\mathfrak{p}}
+\providecommand{\DR}{\mathrm{DR}}
+\makeatletter
+\@ifundefined{miseengarde}{\newtheorem{miseengarde}{Mise en garde}}{}
+\@ifundefined{warning}{\newtheorem{warning}{Warning}}{}
+\makeatother
+% --- end pass-2 extra compile shims 2 ---
+
+
+% --- Pass-2 extra compile shims 3 ---
+\providecommand{\U}{\operatorname{U}}
+\providecommand{\NS}{\operatorname{NS}}
+\providecommand{\cris}{\mathrm{cris}}
+% --- end pass-2 extra compile shims 3 ---
+
+
+% --- Pass-2 extra compile shims 4 ---
+\providecommand{\na}{a}
+\providecommand{\supp}{\operatorname{supp}}
+\providecommand{\comp}{\operatorname{comp}}
+% --- end pass-2 extra compile shims 4 ---
+
+
+% --- Pass-2 extra compile shims 5 ---
+\providecommand{\dist}{\operatorname{dist}}
+\makeatletter
+\@ifundefined{variante}{\newtheorem{variante}{Variante}}{}
+\makeatother
+% --- end pass-2 extra compile shims 5 ---
+
+
+% --- Pass-2 extra compile shims 6 ---
+\providecommand{\R}{\mathrm{R}}
+\providecommand{\pr}{\operatorname{pr}}
+\makeatletter
+\@ifundefined{exemple}{\newtheorem{exemple}{Exemple}}{}
+\makeatother
+% --- end pass-2 extra compile shims 6 ---
+
+
+% --- Pass-2 extra compile shims 7 ---
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Int}{\operatorname{Int}}
+\providecommand{\RHom}{\operatorname{RHom}}
+% --- end pass-2 extra compile shims 7 ---
+
+
+% --- Pass-2 extra compile shims 8 ---
+\providecommand{\Lie}{\operatorname{Lie}}
+% --- end pass-2 extra compile shims 8 ---
+
+
+% --- Pass-2 extra compile shims 9 ---
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+% --- end pass-2 extra compile shims 9 ---
+
+
+% --- Pass-2 extra compile shims 10 ---
+\providecommand{\comma}{,}
+\providecommand{\Pcl}{\operatorname{Pcl}}
+\makeatletter
+\@ifundefined{paraphrase}{\newtheorem{paraphrase}{Paraphrase}}{}
+\makeatother
+% --- end pass-2 extra compile shims 10 ---
+
+
+% --- Pass-2 extra compile shims 11 ---
+\providecommand{\re}{\operatorname{Re}}
+% --- end pass-2 extra compile shims 11 ---
+
+
+% --- Pass-2 extra compile shims 12 ---
+\providecommand{\ab}{\mathrm{ab}}
+\providecommand{\Subset}{\subset}
+% --- end pass-2 extra compile shims 12 ---
+
+% --- end pass-2 compatibility shim ---
+
+\begin{document}
+
+\title{Sur la variation, par torsion, des constantes locales\\
+d'\'equations fonctionnelles de fonctions $L$}
+\author{P. Deligne$^1$ et G. Henniart$^2$\\[0.5em]
+\small $^1$Institut des Hautes \'Etudes Scientifiques, 35 route de Chartres, F-91440 Bures-sur-Yvette, France\\
+\small $^2$11 rue Ruhmkorff, F-75017 Paris, France}
+\date{}
+\maketitle
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Soit $K$ un corps local non-archim\'edien, \`a corps r\'esiduel fini. Soient $\overline{K}$ une cl\^oture alg\'ebrique s\'eparable de $K$ et $W = W(\overline{K}/K)$ le groupe de Weil correspondant (cf.~[3], Ap.~II, ou [1], \S 2). La th\'eorie du corps de classes local fournit un isomorphisme $W^{\text{ab}} \xrightarrow{\sim} K^*$, que nous normaliserons comme dans [1], 2.3. Nous utiliserons cet isomorphisme pour identifier syst\'ematiquement classes d'isomorphismes de repr\'esentations de dimension 1 de $W$ et quasi-caract\`eres de $K^*$. Nous fixerons un caract\`ere non trivial $\psi$ du groupe additif de $K$, et une mesure de Haar $dx$ sur ce groupe.
+
+Si $U$ est une repr\'esentation de $W$ (continue et de dimension finie), on sait que pour chaque quasi-caract\`ere $\chi$ de $K^*$ de conducteur $a(\chi)$ suffisamment grand, la constante locale $\varepsilon(U \otimes \chi, \psi, dx)$ (cf.~[1], 4.1) admet une description simple: notant $v_K$ la valuation normalis\'ee de $K$, il existe un \'el\'ement $a$ de $K^*$ tel que l'on ait $\chi(1+y) = \psi(ay)$ si $y \in K$ v\'erifie $2v_K(y) > a(\chi)$, et l'on a, en posant $\gamma = a^{-1}$,
+\begin{equation}\label{eq:1}
+\varepsilon(U \otimes \chi, \psi, dx) = \varepsilon(\chi, \psi, dx)^{\dim U} \cdot \det U(\gamma).
+\end{equation}
+
+C'est d'ailleurs ce fait qui est \`a la base de la construction des constantes locales donn\'ee dans [1], \S 4. En termes de la repr\'esentation virtuelle $W = U - (\dim U) \cdot 1$, qui est de dimension 0 et de m\^eme d\'eterminant que $U$, la formule \eqref{eq:1} s'\'ecrit
+\begin{equation}\label{eq:2}
+\varepsilon(W \otimes \chi, \psi) = \det W(\gamma).
+\end{equation}
+
+Nous prouvons ici un r\'esultat plus g\'en\'eral. Soit $t$ un nombre r\'eel positif ou nul. Soit $W$ une repr\'esentation virtuelle de $W$, de dimension 0, suppos\'ee triviale sur le groupe de ramification $W(t/2)$ i.e.~dont tous les constituants (cf.~0.5) sont triviaux sur $W(t/2)$ (il s'agit de groupes de ramification en num\'erotation sup\'erieure, cf.~0.4). Soit enfin $V$ une repr\'esentation de $W$, sans vecteur non nul fix\'e par $W(t)$. Alors on a la formule suivante (4.6).
+\begin{equation}\label{eq:3}
+\varepsilon(W \otimes V, \psi) = \det W(\gamma),
+\end{equation}
+o\`u $\gamma$ est un \'el\'ement de $K^*$ ne d\'ependant que de $V$ et $\psi$. Sa valuation est $a(V) + (\dim V) \cdot n(\psi)$, o\`u $a(V)$ est l'exposant du conducteur de $V$, et $n(\psi)$ l'ordre de $\psi$, cf.~0.3. L'\'el\'ement $\gamma$ n'est bien d\'efini qu'\`a multiplication pr\`es par un \'el\'ement du groupe $U(t/2)$ des unit\'es $u$ de $K$ v\'erifiant $v_K(u-1) > t/2$. Sa classe dans $K^*/U(t/2)$ est d\'ej\`a caract\'eris\'ee par les \'egalit\'es \eqref{eq:3}, quand $W$ parcourt l'ensemble des repr\'esentations de la forme $\eta - 1$, o\`u $\eta$ est un quasi-caract\`ere de $K^*$ trivial sur $U(t/2)$.
+
+Lorsqu'on suppose seulement que $W$ est une repr\'esentation virtuelle de $W$, de dimension 0 et triviale sur $W(t)$, nous prouvons (4.2) que $\varepsilon(W \otimes V, \psi)/\det W(\gamma)$ est une racine de l'unit\'e d'ordre une puissance de $p$.
+
+L'\'el\'ement $\gamma$ de $K^*/U(t/2)$ intervenant dans la formule \eqref{eq:3} se calcule comme suit. Une variante du th\'eor\`eme de Brauer, donn\'ee au \S 2, permet d'\'ecrire $V$, dans le groupe de Grothendieck des repr\'esentations de $W$, comme combinaison lin\'eaire finie de repr\'esentations induites de repr\'esentations $\chi_i$ de dimension 1 de sous-groupes ouverts (d'indice fini) $H_i$ de $W$, la repr\'esentation $\chi_i$ \'etant non-triviale sur $H_i \cap W(t)$:
+\[
+V = \sum n_i \Ind(\chi_i), \quad n_i \in \mathbb{Z};
+\]
+\`a chaque $H_i$ correspond une extension $L_i$ de $K$, et $\chi_i$ s'identifie \`a un quasi-caract\`ere de $L_i^*$; on choisit alors $a_i$ dans $L_i^*$ de fa\c{c}on que l'on ait $\chi_i(1+y) = \psi \circ \Tr_{L_i/K}(a_i y)$ si $y \in L_i$ v\'erifie $2v_{L_i}(y) > a(\chi_i)$. Si $a(\chi_i) \leq 1$, cette condition signifie que $v(a_i) > -n(\psi \circ \Tr_{L_i/K})$, et on impose de plus que $v(a_i) = -(n(\psi \circ \Tr_{L_i/K}) + a(\chi_i))$. Posant $\gamma_i = a_i^{-1}$, on a
+\begin{equation}\label{eq:4}
+\gamma = \prod N_{L_i/K}(\gamma_i)^{n_i}.
+\end{equation}
+
+Nous ne connaissons pas de d\'emonstration directe de ce que la classe, dans $K^*/U(t/2)$, de la quantit\'e $\gamma = \gamma(V, \psi)$ d\'efinie par cette formule, ne d\'epend pas de la d\'ecomposition choisie de $V$ en repr\'esentations induites.
+
+Si $\chi$ est une repr\'esentation de dimension 1 de $W$, on peut pr\'eciser la d\'efinition de $\gamma = \gamma(\chi, \psi)$ en exigeant que l'on ait
+\[
+\chi\biggl(\sum_{j=0}^{p-1} \frac{(ay)^j}{j!}\biggr) = \psi(ay)
+\]
+pour $y$ dans $K$ v\'erifiant $pv_K(y) > a(\chi)$. On peut de m\^eme pr\'eciser $\gamma(V, \psi)$, pour une repr\'esentation quelconque $V$ de $W$, en la d\'ecomposant comme plus haut, en d\'efinissant un \'el\'ement $\gamma_i$ de $L_i^*$ par l'\'egalit\'e
+\[
+\chi_i\biggl(\sum_{j=0}^{p-1} \frac{(ay)^j}{j!}\biggr) = \psi \circ \Tr_{L_i/K}(a_i y)
+\]
+pour tout $y$ dans $L_i$ v\'erifiant $pv_{L_i}(y) > a(\chi_i)$, et en d\'efinissant $\gamma(V, \psi) = \gamma$ par la formule \eqref{eq:4}. Si $a(\chi_i) \leq 1$, on impose de plus l'\'egalit\'e
+\[
+v(\gamma_i) = n(\psi \circ \Tr_{L_i/K}) + a(\chi_i).
+\]
+Grace \`a une interpr\'etation en termes de la fonction $W \mapsto \varepsilon(W \otimes V, \psi, dx)$, nous montrons que l'\'el\'ement ainsi d\'efini ne d\'epend pas des choix effectu\'es (de la d\'ecomposition de $V$ et des \'el\'ements $\gamma_i$), \`a multiplication pr\`es par un \'el\'ement de $U((1-1/p)t)$ (cf.~4.11 \`a 4.13).
+
+Pour le formalisme auquel $\gamma(V, \psi)$ ob\'eit, voir la fin du chapitre 4 (4.16 et sq.).
+
+
+\section{Notations}
+\label{sec:0}
+
+\setcounter{subsection}{-1}
+
+\subsection{}
+\label{sec:0.1}
+
+Si $K$ est un corps valu\'e complet, on note $v$ sa valuation et $\cO$ l'anneau de valuation correspondant. Pour tout nombre r\'eel $t$, on note $A(t)$ le sous-groupe additif de $K$ form\'e des \'el\'ements de valuation au moins $t$, et, si $t$ est positif ou nul, on note $U(t)$ le sous-groupe des unit\'es $x$ de $\cO$ v\'erifiant $v(x-1) > t$. Si n\'ecessaire, on pr\'ecise par un indice $K$. On fixe un nombre premier $p$, et les corps valu\'es consid\'er\'es sont de caract\'eristique r\'esiduelle $p$.
+
+\subsection{}
+\label{sec:0.2}
+
+Nous noterons $E$ l'exponentielle tronqu\'ee:
+\[
+E(x) = \sum_{i=0}^{p-1} \frac{x^i}{i!},
+\]
+et $L$ le logarithme tronqu\'e
+\[
+L(x) = \sum_{i=1}^{p-1} (-1)^{i+1} \frac{(x-1)^i}{i}.
+\]
+Pour $t$ positif ou nul, ces applications induisent des isomorphismes inverses l'un de l'autre:
+\[
+\begin{tikzcd}
+A(t)/A(pt) \arrow[r, shift left, "E"] & U(t)/U(pt) \arrow[l, shift left, "L"]
+\end{tikzcd}
+\]
+
+\subsection{}
+\label{sec:0.3}
+
+Soit $K$ un corps local non-archim\'edien, i.e.~un corps valu\'e complet a corps r\'esiduel fini, fix\'e dans toute la suite. Comme dans [1], nous noterons $\psi: K \to \bC^*$ un caract\`ere additif non trivial de $K$, $n(\psi)$ l'ordre de $\psi$, i.e.~le plus grand entier $m$ tel que $\psi$ soit trivial sur $A(-m)$, $dx$ une mesure de Haar sur $K$, $\overline{K}$ une cl\^oture alg\'ebrique s\'eparable de $K$ et $W(\overline{K}/K) = W$ le groupe de Weil (absolu) correspondant.
+
+\subsection{}
+\label{sec:0.4}
+
+Si $G$ est le groupe de Galois d'une extension galoisienne finie $L/K$, et $t$ un nombre r\'eel positif ou nul, on note $G(t)$ le groupe de ramification d'indice $t$ en num\'erotation sup\'erieure (cf.~[2], IV, \S 3). Rappelons que, comme fonction de $t$, $G(t)$ est d\'ecroissant, saute en un nombre fini de valeurs, et qu'entre deux sauts successifs $t_1$ et $t_2$, $G(t)$ est constant, \'egal a $G(t_2)$.
+
+La raison d'\^etre de la num\'erotation sup\'erieure est sa compatibilit\'e au passage au quotient: si $H$ est un sous-groupe distingu\'e de $G$, $(G/H)(t)$ est l'image de $G(t)$ dans $G/H$. Si $L$ est maintenant une extension galoisienne infinie de $K$ et $G$ le groupe $\Gal(L/K)$, on d\'efinit les groupes $G(t)$ par la formule $G(t) = \varprojlim \Gal(E/K)(t)$, ou la limite est prise suivant les extensions galoisiennes finies $E$ de $K$ dans $L$. La compatibilit\'e pr\'ec\'edente est conserv\'ee. Le groupe d'inertie de $G$ n'est autre que $G(0)$ et le groupe d'inertie sauvage, son $p$-groupe de Sylow, est l'adh\'erence de la r\'eunion des $G(t)$ pour $t > 0$.
+
+Si $L$ contient une extension non ramifi\'ee maximale de $K$, on d\'efinit comme dans [3], App.~II, le groupe de Weil $W(L/K)$. Il contient le groupe d'inertie de $G$, et ceci permet de poser $W(L/K)(t) = G(t)$ pour $t$ positif ou nul.
+
+Nous noterons $I$ le groupe d'inertie de $\Gal(\overline{K}/K)$: $I = W(0)$, et $P$ son pro-$p$-sous-groupe de Sylow (groupe d'inertie sauvage).
+
+\subsection{}
+\label{sec:0.5}
+
+Par repr\'esentation (d'un groupe topologique), nous entendrons toujours repr\'esentation continue dans un espace vectoriel complexe de dimension finie. Dans une repr\'esentation de $W$, le groupe d'inertie $I$ agit a travers un groupe fini. Une repr\'esentation de $W$ sera dite non ramifi\'ee si $I$ agit trivialement, et ramifi\'ee dans le cas contraire. Soit $V$ une repr\'esentation virtuelle de $W$, i.e.~un \'el\'ement du groupe de Grothendieck de la cat\'egorie des repr\'esentations de $W$. Elle s'\'ecrit de facon unique $V = \sum n(V') V'$, ou $V'$ parcourt les repr\'esentations irr\'eductibles de $W$ et $n(V')$ est un entier, la multiplicit\'e de $V'$ dans $V$. Les $V'$ de multiplicit\'e non nulle sont en nombre fini; ce sont les constituants de $V$.
+
+Pour la d\'efinition de la constante locale $\varepsilon(V, \psi, dx)$, nous renvoyons a [1] 4.1. Rappelons que pour $V$ de dimension 0 (resp.~de dimension 0 et de d\'eterminant trivial), elle est ind\'ependante de $dx$ (resp.~de $dx$ et de $\psi$); en ce cas nous la noterons simplement $\varepsilon(V, \psi)$ (resp.~$\varepsilon(V)$).
+
+On note $a(V)$ l'exposant du conducteur d'Artin de $V$ et $\sw(V)$ l'exposant de son conducteur de Swan. On a
+\[
+a(V) = \dim V - \dim V^I + \sw(V).
+\]
+
+\subsection{}
+\label{sec:0.6}
+
+Soit $V$ une repr\'esentation irr\'eductible ramifi\'ee de $W$. Notons $W(V)$ le quotient de $W$ qui agit fid\`element sur $V$; on d\'efinit $\alpha(V)$ comme le dernier saut de la filtration de $W(V)$: par d\'efinition, on a
+\[
+V^{W(V)_{\alpha(V)-\varepsilon}} = 0 \quad \text{et} \quad V^{W(V)_{\alpha(V)+\varepsilon}} = V
+\]
+pour tout $\varepsilon > 0$.
+
+Si $V$ est non ramifi\'ee, on pose $\alpha(V) = 0$. Avec ces conventions, toute repr\'esentation irr\'eductible $V$ de $W$ satisfait a la formule
+\[
+\sw(V) = \alpha(V) \dim V.
+\]
+
+Soit $V$ une repr\'esentation virtuelle de $W$. On note $\alpha(V)$ (resp.~$\beta(V)$) la borne inf\'erieure (resp.~sup\'erieure) des $\alpha(V')$, quand $V'$ parcourt les constituants de $V$. Que l'on ait $\alpha(V) > \alpha$ signifie que les constituants de $V$ n'ont pas de vecteur non nul fix\'e par $W(\alpha)$: $V^{W(\alpha)} = 0$. Que l'on ait $\beta(V) < \beta$ (on a alors $\beta > 0$) signifie que $V$ provient par inflation d'une repr\'esentation virtuelle de $W/W(\beta)$.
+
+\subsection{}
+\label{sec:0.7}
+
+Une extension finie s\'eparable $L$ de $K$ d\'efinit un ensemble galoisien $\Hom_K(L, \overline{K})$. On pose $\alpha(L/K) = \alpha(U)$, ou $U$ est la repr\'esentation de permutation de $W$ sur $\Hom_K(L, \overline{K})$. Si $M$ est une extension galoisienne de $K$ contenant $L$, $\alpha(L/K)$ est la borne inf\'erieure des indices $\alpha$ tels que $\Gal(M/L)$ contienne $\Gal(M/K)(\alpha)$.
+
+On sait (cf.~[2], XV) que l'isomorphisme de la th\'eorie du corps de classes local: $W^{\text{ab}} \xrightarrow{\sim} K^*$ identifie $W^{\text{ab}}(t)$ a $U(t)$. Si $\chi$ est un quasi-caract\`ere ramifi\'e de $K^*$ (correspondant a une repr\'esentation de $W$ de dimension 1), $\alpha(\chi)$ est donc le plus grand entier $n > 0$ tel que $\chi$ soit non trivial sur $U_K(n)$. Si $\chi$ est un quasi-caract\`ere de $K^*$, non ramifi\'e ou mod\'er\'ement ramifi\'e, on a $\alpha(\chi) = 0$. On dit que $\chi$ est sauvagement ramifi\'e si l'on a $\alpha(\chi) > 0$.
+
+\subsection{}
+\label{sec:0.8}
+
+On note $\bQ_p/\bZ_p(1)$ le sous-groupe de $\overline{\bQ}_\ell^*$ form\'e des racines de l'unit\'e d'ordre une puissance de $p$. On note $\mod^*$ une congruence multiplicative, i.e.~une congruence dans le groupe multiplicatif d'un corps. Si $X$ est un ensemble fini, on note $|X|$ son cardinal.
+
+
+\section{Le cas de dimension 1}
+\label{sec:1}
+\setcounter{equation}{0}
+
+\begin{proposition}\label{prop:1.1}
+Soient $\chi$ et $\eta$ deux quasi-caract\`eres de $K^*$, v\'erifiant $\alpha(\eta) < \alpha(\chi)$. Soit $m$ le plus petit entier tel que l'on ait $2m > \alpha(\chi)$ et soit $a$ un \'el\'ement de $K$ tel que l'on ait $\chi(1+y) = \psi(ay)$ d\`es que l'\'el\'ement $y$ de $K$ est de valuation au moins $m$. On a alors $v_K(a) = -(n(\psi) + 1 + \alpha(\chi))$ et $a$ est unique $\mod^*\, U(\alpha(\chi)/2)$. De m\^eme, soit $b$ un \'el\'ement de $K$ v\'erifiant $\eta(1+y) = \psi(by)$ d\`es que $v(y) \geq m$. Alors on a
+\begin{equation}\label{eq:1.1.1}
+\varepsilon((\eta-1)\chi, \psi) = \eta^{-1}(a) \cdot (\chi\eta)^{-1}(1+b/a) \cdot \psi(b).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Remplacer $\chi$ par $\chi\eta$ ne change pas le conducteur, et m\`ene a remplacer $a$ par $a+b$, de m\^eme valuation. Si $\alpha(\chi)$ est pair, on a donc:
+\[
+\frac{\varepsilon(\eta\chi, \psi, dx)}{\varepsilon(\chi, \psi, dx)} = \frac{(\chi\eta)^{-1}(a+b) \, \psi(a+b)}{\chi^{-1}(a) \, \psi(a)},
+\]
+d'o\`u
+\[
+\varepsilon((\eta-1)\chi, \psi) = \eta^{-1}(a) \cdot (\chi\eta)^{-1}(1+b/a) \cdot \psi(b).
+\]
+Pour montrer que le m\^eme r\'esultat subsiste si $\alpha(\chi)$ est impair, il suffit de v\'erifier qu'en ce cas le rapport
+\[
+R(u) = (\chi\eta)^{-1}((a+b)u) \, \psi((a+b)u) \big/ \chi^{-1}(au) \, \psi(au)
+\]
+est ind\'ependant de $u$ variant dans $U(m-1)$. Or on a
+\[
+R(u)/R(1) = \eta^{-1}(u) \, \psi(b(u-1)),
+\]
+et, puisque $\alpha(\chi)$ est impair, l'in\'egalit\'e $2m > \alpha(\chi)$ entra\^ine $(m-1) \geq \alpha(\chi)/2$, et la d\'efinition de $b$ assure que $R(u)/R(1)$ vaut 1. C.Q.F.D.
+\end{proof}
+
+\begin{corollary}\label{cor:1.3}
+Conservons les hypoth\`eses et notations de \ref{prop:1.1}.
+\begin{enumerate}[label=(\roman*)]
+\item On a $\varepsilon((\eta-1)\chi, \psi) \equiv \psi(a^{-1}) \pmod{*} \;\bQ_p/\bZ_p(1)$.
+\item Si de plus on a $2\alpha(\eta) < \alpha(\chi)$, on a $\varepsilon((\eta-1)\chi, \psi) = \psi(a^{-1})$.
+\end{enumerate}
+\end{corollary}
+
+Puisque l'on a $\alpha(\eta) < \alpha(\chi)$, on a aussi $v(b) > v(a)$ et $1+b/a$ appartient a $U(1)$. On prouve (i) en notant que $\psi$, et la restriction a $U(1)$ d'un quasi-caract\`ere quelconque de $K^*$, prennent valeurs dans $\bQ_p/\bZ_p(1)$. La condition $\alpha(\eta) < \alpha(\chi)/2$ permet de prendre $b = 0$ dans \ref{prop:1.1}, ce qui prouve (ii).
+
+\begin{corollary}\label{cor:1.4}
+Soient $\chi$ un quasi-caract\`ere sauvagement ramifi\'e de $K^*$, $m$ le plus petit entier tel que l'on ait $2m > \alpha(\chi)$, et $a$ un \'el\'ement de $K^*$ tel que l'on ait $\chi(1+y) = \psi(ay)$ si $y \in K$ est de valuation au moins $m$. Soit $(\eta_i)_{i \in I}$ une famille finie, d'au moins deux \'el\'ements, de quasi-caract\`eres de $K^*$, v\'erifiant $\alpha(\eta_i) < \alpha(\chi)$. On choisit des \'el\'ements $b_i$ de $K$ tels que $\eta_i(1+y) = \psi(b_i y)$ quand $v(y) \geq \alpha(\chi)/2$. Pour chaque partie $J$ de $I$, on pose
+\[
+\eta(J) = \prod_{j \in J} \eta_j, \quad b(J) = \sum_{j \in J} b_j, \quad \varepsilon(J) = (-1)^{|J|}.
+\]
+Alors on a
+\begin{equation}\label{eq:1.4.1}
+\varepsilon\biggl(\chi \prod_{i \in I}(1-\eta_i)\biggr) = \eta(I)^{-1}\biggl(\prod_{J \subset I} (1+b(J)/a)^{\varepsilon(J)}\biggr) \cdot \prod_{i \in I} \eta_i^{-1}\biggl(\prod_{J \subset I \setminus \{i\}} (1+b(J)/a)^{\varepsilon(J)}\biggr).
+\end{equation}
+\end{corollary}
+
+\begin{remark}
+D\`es que $I$ a au moins deux \'el\'ements, la repr\'esentation virtuelle $\chi \prod_{i \in I}(1-\eta_i)$, de dimension 0, est de d\'eterminant trivial. C'est ce qui a permis d'omettre $\psi$ sous le signe $\varepsilon$. D'ailleurs, dans le membre de droite, outre $\chi$ et les $\eta_i$, seuls apparaissent les quotients $b_i/a$, eux aussi ind\'ependants de $\psi$.
+\end{remark}
+
+\subsection{}
+\label{sec:1.5}
+
+D\'emontrons le corollaire \ref{cor:1.4}. On a
+\[
+\prod_{i \in I}(1-\eta_i) = \sum_{J \subset I} \varepsilon(J) \eta(J) = \sum_{J \subset I} \varepsilon(J)(\eta(J)-1),
+\]
+d'o\`u
+\[
+\varepsilon\biggl(\chi \prod_{i \in I}(1-\eta_i)\biggr) = \prod_{J \subset I} \varepsilon((\eta(J)-1)\chi, \psi)^{\varepsilon(J)}.
+\]
+Chaque facteur est justifiable de \eqref{eq:1.1.1}, et l'on peut choisir $b(J)$ comme \'el\'ement $b$ attach\'e a $\eta(J)$. Puisque $\prod_{J \subset I} \eta(J)^{\varepsilon(J)}$ vaut 1 et que $\sum_{J \subset I} \varepsilon(J) b(J)$ vaut 0, on trouve
+\[
+\varepsilon\biggl(\chi \prod_{i \in I}(1-\eta_i)\biggr) = \prod_{J \subset I} (\chi\eta(J))^{-1}(1+b(J)/a) \, \psi(b(J))^{\varepsilon(J)}.
+\]
+On peut \'ecrire le membre de droite comme le produit de
+\[
+\chi^{-1}\biggl(\prod_{J \subset I} (1+b(J)/a)^{\varepsilon(J)}\biggr)
+\]
+et du produit sur $i$ des quantit\'es
+\[
+\eta_i^{-1}\biggl(\prod_{J \subset I} (1+b(J)/a)^{\varepsilon(J)}\biggr),
+\]
+\'egales a
+\[
+\eta_i^{-1}\biggl(\prod_{J \subset I \setminus \{i\}} (1+b(J)/a)^{\varepsilon(J)} \cdot \prod_{J \subset I \setminus \{i\}} (1+b(J)/a)^{-\varepsilon(J)}\biggr).
+\]
+Cela prouve la formule \eqref{eq:1.4.1}.
+
+\begin{lemma}\label{lem:1.6}
+Soit $I$ un ensemble fini non vide. Soit $t = (t_i)_{i \in I}$ une famille d'ind\'etermin\'ees et $\bZ[t]$ l'anneau des s\'eries formelles en les $t_i$, a coefficients entiers. Pour chaque sous-ensemble $J$ de $I$, on pose $t(J) = \sum_{j \in J} t_j$ et $\varepsilon(J) = (-1)^{|J|}$. Dans $\bZ[t]$, le produit $\prod_{J \subset I} (1+t(J))^{\varepsilon(J)}$ est congru a $1$ modulo $\prod_{i \in I} t_i$.
+\end{lemma}
+
+Cette assertion r\'esulte de ce que le produit consid\'er\'e devient identiquement 1 si on fait $t_i = 0$ pour un indice $i$.
+
+\begin{remark}
+Le lemme \ref{lem:1.11} pr\'ecisera le lemme \ref{lem:1.6}.
+\end{remark}
+
+\begin{proposition}\label{prop:1.7}
+Soit $\chi$ un quasi-caract\`ere sauvagement ramifi\'e de $K^*$. Soit $(\eta_i)_{i \in I}$ une famille finie de quasi-caract\`eres de $K^*$. On suppose que l'on a $\alpha(\eta_i) < \alpha(\chi)$ pour chaque indice $i$ et $\sum_{i \in I}(\alpha(\chi) - \alpha(\eta_i)) > \alpha(\chi)$. Alors on a
+\[
+\varepsilon\biggl(\chi \prod_{i \in I}(1-\eta_i)\biggr) = 1.
+\]
+\end{proposition}
+
+\begin{proof}
+L'hypoth\`ese assure que $I$ a au moins deux \'el\'ements. On peut alors appliquer le corollaire \ref{cor:1.4}. Par le lemme \ref{lem:1.6}, on a
+\[
+\prod_{J \subset I} (1+b(J)/a)^{\varepsilon(J)} \equiv 1 \pmod{*} \prod_{i \in I} (b_i/a).
+\]
+Mais on peut choisir les $b_i$ de facon que la valuation de $b_i/a$ soit $\alpha(\chi) - \alpha(\eta_i)$ (cf.~\ref{prop:1.1}). Celle du produit des $b_i/a$ vaut alors au moins $\alpha(\chi)+1$ et $\chi\eta(J)$ prend la valeur 1 sur $\prod_{J \subset I}(1+b(J)/a)^{\varepsilon(J)}$. De m\^eme, pour chaque indice $i$, on a
+\[
+\prod_{J \subset I \setminus \{i\}} (1+b(J)/a)^{\varepsilon(J)} \equiv 1 \pmod{*} \prod_{j \in I \setminus \{i\}} (b_j/a),
+\]
+et la valuation de ce dernier produit vaut au moins $\alpha(\chi) + 1$. On a donc $\eta_i^{-1}\bigl(\prod_{J \subset I \setminus \{i\}}(1+b(J)/a)^{\varepsilon(J)}\bigr) = 1$ et \eqref{eq:1.4.1} permet de conclure.
+\end{proof}
+
+Rappelons la
+
+\begin{definition}\label{def:1.8}
+Soient $G$ et $H$ deux groupes ab\'eliens, not\'es additivement. Une fonction $f: G \to H$ est dite de degr\'e au plus $n$ si pour toute famille $(x_i)_{i \in I}$ de $n+1$ \'el\'ements de $G$, on a
+\begin{equation}\label{eq:1.8.1}
+\sum_{J \subset I} (-1)^{|J|} f\biggl(\sum_{j \in J} x_j\biggr) = 0.
+\end{equation}
+Nous dirons que $f$ est homog\`ene de degr\'e $n$ si $f$ est de degr\'e au plus $n$ et qu'en outre on a $f(kx) = k^n f(x)$ pour tout entier $k$.
+\end{definition}
+
+Soit $x \mapsto \delta(x)$ l'application canonique de $G$ dans l'alg\`ebre de groupe $\bZ[G]$. Notons $\tilde{f}$ l'homomorphisme de $\bZ[G]$ dans $H$ d\'efini par $f$: $\tilde{f} \circ \delta = f$. La condition \eqref{eq:1.8.1} s'\'ecrit encore
+\begin{equation}\label{eq:1.8.2}
+\tilde{f}\biggl(\prod_{i \in I}(1-\delta(x_i))\biggr) = 0.
+\end{equation}
+Dans $\bZ[G]$, on a
+\begin{multline*}
+(1-\delta(u))(1-\delta(x))(1-\delta(y)) = (1-\delta(x))(1-\delta(y)) - (1-\delta(u))(1-\delta(y)) \\
+- (1-\delta(y))(1-\delta(x)) + (1-\delta(x+y))(1-\delta(u)),
+\end{multline*}
+de sorte que \eqref{eq:1.8.2} signifie aussi que $\tilde{f}$ s'annule sur la puissance $(n+1)$\textsuperscript{\`eme} de l'id\'eal d'augmentation de $\bZ[G]$. En particulier, si $f$ est de degr\'e au plus $n$, elle est de degr\'e au plus $m$ quel que soit $m$ sup\'erieur a $n$.
+
+\begin{lemma}\label{lem:1.9}
+Soient $G$ un groupe ab\'elien, $H$ un $\bZ[1/n!]$-module, et $f$ une fonction de $G$ dans $H$, de degr\'e au plus $n$. On peut, de facon unique, d\'ecomposer $f$ en une somme $\sum_{i=0}^n f_i$, ou $f_i$ est homog\`ene de degr\'e $i$.
+\end{lemma}
+
+Il est facile de voir que $f$ admet au plus une telle d\'ecomposition. En effet, le syst\`eme d'\'equations lin\'eaires
+\[
+\sum_{i=0}^n k^i f_i(x) = f(kx), \quad k \text{ variant de } 0 \text{ a } n,
+\]
+d\'etermine les $f_i(x)$, puisque le d\'eterminant de Vandermonde $\det(k^i)$ est inversible dans $\bZ[1/n!]$.
+
+Prouvons l'existence de la d\'ecomposition, par r\'ecurrence sur $n$. Pour $n=0$, $f$ est une fonction constante et $f = f_0$ est la d\'ecomposition cherch\'ee. Supposons $n$ non nul, et soit
+\[
+f(x_1, \ldots, x_n) = \tilde{f}\bigl((\delta(x_1)-1) \cdots (\delta(x_n)-1)\bigr)
+\]
+le $n$\textsuperscript{\`eme} polaris\'e de $f$.
+
+Cette fonction vaut 0 d\`es qu'un des $x_i$ s'annule, et est lin\'eaire en chaque $x_i$; en effet, on a
+\begin{align*}
+f(x+y, x_2, \ldots, x_n) &= \tilde{f}\bigl((\delta(x+y)-1)(\delta(x_2)-1)\cdots(\delta(x_n)-1)\bigr) \\
+&= \tilde{f}\bigl((\delta(x)-1)(\delta(x_2)-1)\cdots(\delta(x_n)-1)\bigr) + \tilde{f}\bigl((\delta(y)-1)(\delta(x_2)-1)\cdots(\delta(x_n)-1)\bigr) \\
+&= f(x, x_2, \ldots, x_n) + f(y, x_2, \ldots, x_n).
+\end{align*}
+Posons $f_n(x) = f(x, \ldots, x)$. Cette fonction est homog\`ene de degr\'e $n$, de $n$\textsuperscript{\`eme} polaris\'ee $f(x_1, \ldots, x_n)$. La fonction $f - f_n$ est de degr\'e au plus $n-1$, et on applique l'hypoth\`ese de r\'ecurrence.
+
+\subsection{}
+\label{sec:1.10}
+
+Pour $\chi$ fix\'e, \ref{prop:1.7} montre que la fonction $\eta \mapsto \varepsilon(\eta\chi, \psi, dx)$, du groupe des quasi-caract\`eres de $K^*/U((1-1/n)\alpha(\chi))$ dans $\bC^*$, est de degr\'e $< n$. La proposition qui suit explicite une d\'ecomposition \ref{lem:1.9} lorsque $n \leq p$.
+
+\begin{proposition}\label{prop:1.10}
+Soient $\chi$ et $\eta$ deux quasi-caract\`eres de $K^*$. Soit $n$ un entier, $2 \leq n \leq p$. On suppose que $\chi$ est sauvagement ramifi\'e et que $\eta$ v\'erifie $\alpha(\eta) < (1-1/n)\alpha(\chi)$. Soient $a$ et $b$ deux \'el\'ements de $K$ tels que l'on ait $\chi(Ey) = \psi(ay)$ pour $v(y) > \alpha(\chi)/n$ et $\eta(Ey) = \psi(by)$ pour $v(y) \geq \alpha(\chi)/n$. On a
+\begin{equation}\label{eq:1.10.1}
+\varepsilon(\eta\chi, \psi) = \varepsilon(\chi, \psi) \cdot \eta^{-1}(a) \cdot \psi\biggl(\sum_{i=1}^{n-1} \frac{(-1)^{i-1}}{i} \, b^i/a^{i-1}\biggr).
+\end{equation}
+\end{proposition}
+
+Si $\eta$ est non trivial sur $U(\alpha(\chi)/n)$, on a $\alpha(\chi) - \alpha(\eta) = v(b/a)$. Sinon, on peut seulement conclure que l'on a $v(b) > -n(\psi) - \alpha(\chi)/n$, d'o\`u $v(b/a) > (1-1/n)\alpha(\chi)$. Dans tous les cas, l'hypoth\`ese $\alpha(\eta) < (1-1/n)\alpha(\chi)$, ou encore $n(\alpha(\chi) - \alpha(\eta)) > \alpha(\chi)$, entra\^ine $nv(b/a) > \alpha(\chi)$; elle assure que $\eta$ est trivial sur $U(v(b^n/a^n))$ et $\psi$ sur $A(v(b^n/a^{n-1}))$. Puisque $n$ vaut au plus $p$, on a en particulier
+\[
+1 + b/a = L(1+b/a) = E\biggl(\sum_{i=1}^{p-1} \frac{(-1)^{i-1}}{i} (b/a)^i\biggr) \pmod{*} U(\alpha(\chi)+1),
+\]
+d'o\`u
+\[
+\eta^{-1}(a)\eta^{-1}(1+b/a) = \eta^{-1}\bigl((a+b) \cdot L(1+b/a)\bigr) \cdot \psi(b).
+\]
+On calcule ais\'ement
+\begin{align*}
+(a+b) \sum_{i=1}^{p-1} \frac{(-1)^{i-1}}{i} (b/a)^i &= -b + \sum_{i=2}^{p-1} (-1)^{i-1}\Bigl(\frac{1}{i} - 1\Bigr) \frac{b^i}{a^{i-1}} \\
+&\quad + (-1)^{p-1}\frac{1}{p}\binom{p}{p-1}\frac{b^p}{a^{p-1}}.
+\end{align*}
+Comme le dernier terme, et tous ceux d'indice $i \geq n$, sont n\'egligeables sous le signe $\psi$, la formule \eqref{eq:1.10.1} r\'esulte de \eqref{eq:1.1.1}.
+
+\subsection{}
+\label{sec:1.11}
+
+La fin de ce n\textsuperscript{o} ne servira plus dans la suite de l'article. Nous y donnons une g\'en\'eralisation commune de \ref{prop:1.7} et \ref{prop:1.10}.
+
+\begin{lemma}\label{lem:1.11}
+On conserve les notations du lemme \ref{lem:1.6}. Pour chaque famille finie d'entiers naturels $n = (n_i)_{i \in I}$, on posera $|n| = \sum_{i \in I} n_i$, $n! = \prod_{i \in I} n_i!$ et $t^n = \prod_{i \in I} t_i^{n_i}$; on notera $J(n)$ l'ensemble des indices $i$ tels que $n_i$ soit non nul. On appelle $N$ le cardinal de $I$.
+\begin{enumerate}[label=(\roman*)]
+\item Dans $\bZ[t]$, $\prod_{i \in I}(1+t_i)$ est somme de $(-1)^{N-1}(N-1)! \prod_{i \in I} t_i$ et de termes de degr\'e (total) au moins $N+1$.
+\item Dans $\bZ_{(p)}[t]$, on a
+\begin{equation}\label{eq:1.11.1}
+\prod_{J \subset I}(1+t(J))^{\varepsilon(J)} \equiv \sum_n \frac{(-1)^{|n|-1}(|n|-1)!}{n!} \, t^n \pmod{\prod_{i \in I} t_i^p},
+\end{equation}
+la somme portant sur les familles d'entiers naturels $n$ telles que $n_i > 0$ pour tout $i$ et qu'au moins un des $n_i$ soit strictement inf\'erieur a $p$.
+\end{enumerate}
+\end{lemma}
+
+D\'emontrons ce lemme. Il suffit de prouver (i) dans $\bQ[t]$, ou on a
+\[
+\log \prod_{J \subset I}(1+t(J))^{\varepsilon(J)} = \sum_{J \subset I} \varepsilon(J) \sum_{n>0} \frac{(-1)^{n-1}}{n} t(J)^n = \sum_{n>0} \frac{(-1)^{n-1}}{n} \sum_{J \subset I} \varepsilon(J) t(J)^n.
+\]
+D\'eveloppons $t(J)^n$ selon la formule du multin\^ome. Alors le coefficient du mon\^ome $t^n$ (ou $|n| = n$) dans $\sum_{J \subset I} \varepsilon(J) t(J)^n$ vaut $\sum_{J \subset I} \varepsilon(J) \, n!/n!$, nul si $J(n)$ est distinct de $I$.
+On a donc
+\[
+\sum_{J \subset I} \varepsilon(J) t(J)^n = (-1)^N \sum_{\substack{|n|=n \\ J(n)=I}} \frac{n!}{n!},
+\]
+ou la somme porte sur $N$-uples $n$ v\'erifiant $|n| = n$ et $J(n) = I$. On en tire
+\begin{equation}\label{eq:1.11.2}
+\log \prod_{J \subset I}(1+t(J))^{\varepsilon(J)} = \sum_n (-1)^{|n|} \frac{(|n|-1)!}{n!} \, t^n,
+\end{equation}
+et cette expression est bien somme de $-(N-1)! \prod_{i \in I} t_i$ et de termes de degr\'es sup\'erieurs. Prenant l'exponentielle, on obtient (i), et une nouvelle d\'emonstration du lemme \ref{lem:1.6}.
+
+Pour d\'emontrer (ii), on note tout d'abord que les deux membres de \eqref{eq:1.11.1} sont bien a coefficients dans $\bZ_{(p)}$; a droite, on a en effet, pour chaque indice $i$,
+\[
+\frac{(|n|-1)!}{n!} = \frac{1}{n_i} \cdot \frac{(|n|-1)!}{(n_i-1)! \prod_{j \neq i} n_j!} \in \bZ
+\]
+si on choisit $i$ de sorte que $n_i$ soit au plus $p-1$, on obtient $(|n|-1)!/n! \in \bZ_{(p)}$. Il suffit donc a nouveau de v\'erifier la congruence dans $\bQ[[t]]$. Grace au lemme \ref{lem:1.6}, on a, dans $\bQ[[t]]$,
+\[
+\prod_{J \subset I}(1+t(J))^{\varepsilon(J)} \equiv \sum_n \frac{(-1)^{|n|-1}(|n|-1)!}{n!} \, t^n \pmod{\prod_{i \in I} t_i^p}.
+\]
+On utilise alors \eqref{eq:1.11.2}. C.Q.F.D.
+
+\begin{proposition}\label{prop:1.11}
+Soit $\chi$ un quasi-caract\`ere sauvagement ramifi\'e de $K^*$. On fixe un \'el\'ement $a$ de $K^*$ tel que l'on ait $\chi(Ey) = \psi(ay)$ d\`es que $y \in K$ v\'erifie $pv(y) > \alpha(\chi)$. On se donne une famille finie $(\eta_i)_{i \in I}$ de quasi-caract\`eres de $K^*$, et une famille finie $(\alpha_i)_{i \in I}$ de nombres r\'eels. On suppose que pour chaque indice $i$, on a
+\[
+(\alpha(\chi) - \alpha_i) + p \sum_{j \in I \setminus \{i\}} (\alpha(\chi) - \alpha_j) > \alpha(\chi)
+\]
+et
+\[
+\sum_{j \in I \setminus \{i\}} (\alpha(\chi) - \alpha_j) > \alpha_i.
+\]
+On fixe des \'el\'ements $b_i$ de $K$ tels que l'on ait $\eta_i(Ey) = \psi(b_i y)$ d\`es que l'on a $pv(y) > \alpha_i$. Avec les notations du lemme \ref{lem:1.11}, on a alors
+\begin{equation}\label{eq:1.11.3}
+\varepsilon\biggl(\chi \prod_{i \in I}(1-\eta_i)\biggr) = \psi\biggl(\sum_n \frac{(-1)^{|n|-1}(|n|-1)!}{n!} \, b^n/a^{|n|-1}\biggr),
+\end{equation}
+la somme portant sur les familles $n = (n_i)_{i \in I}$ telles que chaque $n_i$ soit $> 0$ et qu'au moins deux des $n_i$ soient strictement inf\'erieurs a $p$.
+\end{proposition}
+
+\begin{remark}
+Cette proposition permet de donner une autre d\'emonstration de la proposition \ref{prop:1.7}. Sous les hypoth\`eses de \ref{prop:1.7} et avec les m\^emes notations, on peut poser $\alpha_i = \alpha(\eta_i)$ et appliquer \eqref{eq:1.11.3}. Les termes de la somme de droite sont de valuation au moins celle de $a^{-1} \prod_{i \in I}(b_i/a)$. Les $b_i$ v\'erifiant $v(b_i/a) \geq \alpha(\chi) - \alpha(\eta_i)$, $\chi$ est trivial sur $U(v(\prod_{i \in I}(b_i/a)))$, donc $\psi$ l'est sur $A(v(a^{-1}\prod_{i \in I}(b_i/a)))$. Le membre de droite de \eqref{eq:1.11.3} est donc trivial.
+\end{remark}
+
+\subsection{}
+\label{sec:1.12}
+
+D\'emontrons la proposition \ref{prop:1.11}. Les hypoth\`eses entra\^inent qu'il y a au moins deux caract\`eres $\eta_i$. On a $v(b_i/a) \geq \alpha(\chi) - \alpha_i$, et d'apr\`es le lemme \ref{lem:1.6}
+\[
+\prod_{J \subset I}(1+b(J)/a)^{\varepsilon(J)} \in U\biggl(\sum_{i \in I}(\alpha(\chi) - \alpha_i)\biggr),
+\]
+\[
+\prod_{J \subset I \setminus \{i\}}(1+b(J)/a)^{\varepsilon(J)} \in U\biggl(\sum_{j \in I \setminus \{i\}}(\alpha(\chi) - \alpha_j)\biggr).
+\]
+Pour toute partie $I_1$ de $J$, posons
+\[
+T(I_1) = L\biggl(\prod_{J \subset I_1}(1+b(J)/a)^{\varepsilon(J)}\biggr).
+\]
+Par hypoth\`ese, on a
+\[
+p \sum_{j \in I \setminus \{i\}}(\alpha(\chi) - \alpha_j) > \alpha(\chi)
+\]
+et
+\[
+p \sum_{j \in I}(\alpha(\chi) - \alpha_j) > \alpha_i;
+\]
+on peut donc \'ecrire la formule \eqref{eq:1.4.1} sous la forme
+\[
+\varepsilon\biggl(\chi \prod_{i \in I}(1-\eta_i)\biggr) = \psi\bigl(-(aT + \sum_i b_i T(I \setminus \{i\}))\bigr).
+\]
+Comme on a $p \sum_{j \in I}(\alpha(\chi) - \alpha_j) > \alpha_i$, on peut, sous le signe $\psi$, n\'egliger pour chaque $i$ les multiples de
+\[
+b_i \prod_{j \in I \setminus \{i\}}(b_j/a)^{n_j},
+\]
+i.e.~n\'egliger les multiples des mon\^omes $b^n/a^{|n|-1}$ lorsque $J(n) = I$ et qu'au plus un des $n_i$ v\'erifie $n_i < p$.
+
+On peut donc utiliser la congruence \eqref{eq:1.11.1} pour remplacer $T(J)$, sous le signe $\psi$, par
+\[
+T = \sum_n (-1)^{|n|-1} \frac{(|n|-1)!}{n!} \, b^n/a^{|n|},
+\]
+ou la somme porte sur les $n$ tels que $J(n) = I$, et qu'au moins deux des $n_i$ soient strictement inf\'erieurs a $p$.
+
+De m\^eme, on peut remplacer $T(I \setminus \{i\})$ par
+\[
+S_i = \sum_n (-1)^{|n|-1} \frac{(|n|-1)!}{n!} \, b^n/a^{|n|},
+\]
+ou la somme porte sur les $n$ tels que $J(n) = I \setminus \{i\}$, et qu'au moins deux des $n_j$ soient strictement inf\'erieurs a $p$.
+
+Regroupant $T$ et $S_i$, et changeant $n_i$ en $n_i + 1$, on voit qu'on peut remplacer $b_i(T + S_i)$ par
+\[
+\sum_n (-1)^{|n|-2} \frac{(|n|-2)!}{n!} \, b^n/a^{|n|-1},
+\]
+ou la somme porte sur les $n$ tels que $J(n) = I$, et que deux au moins des $n_i$ v\'erifient $n_i < p$.
+
+Regroupant enfin avec le terme $aT$, on a remplac\'e l'expression sous le signe $\psi$ par
+\[
+\sum_n (-1)^{|n|-1} \frac{(|n|-1)!}{n!} \, (|n|-1) \, b^n/a^{|n|-1},
+\]
+et l'on somme sur les m\^emes $n$. Comme on a $|n| = \sum_{i \in I} n_i$, \eqref{eq:1.11.3} en r\'esulte.
+
+
+\section{Une variante du th\'eor\`eme de Brauer}
+\label{sec:2}
+
+\subsection{}
+\label{sec:2.1}
+
+Soit $G$ un groupe fini. Nous noterons $R(G)$ le groupe de Grothendieck de la cat\'egorie des repr\'esentations de $G$. Si $H$ est un sous-groupe de $G$, la restriction a $H$ d'une repr\'esentation de $G$, et induction a $G$ d'une repr\'esentation de $H$ fournissent des homomorphismes
+\[
+\Res_H^G: R(G) \to R(H) \quad \text{et} \quad \Ind_H^G: R(H) \to R(G).
+\]
+
+Si $H$ est distingu\'e dans $G$, l'action de $G$ sur $H$ par automorphismes int\'erieurs fournit une action de $G$ sur l'ensemble $\hat{H}$ des classes d'isomorphisme de repr\'esentations irr\'eductibles de $H$. Si $\tau$ est une telle classe, nous noterons $Z(\tau)$ le fixateur de $\tau$ pour cette action; c'est un sous-groupe de $G$ contenant $H$. Pour chaque repr\'esentation $V$ de $G$, la composante $\tau$-isotypique $V_\tau$ de $V$ est stable par $Z(\tau)$. Le foncteur $V \mapsto V_\tau$ fournit un homomorphisme $V \mapsto v_\tau$ de $R(G)$ dans $R(Z(\tau))$, et on v\'erifie que l'on a
+\begin{equation}\label{eq:2.1.1}
+v = \sum_{\tau \in \hat{H}/G} \Ind_{Z(\tau)}^G(v_\tau).
+\end{equation}
+
+\begin{proposition}\label{prop:2.2}
+\begin{enumerate}[label=(\roman*)]
+\item Soient $G$ un groupe fini, $A$ un sous-groupe ab\'elien distingu\'e de $G$, et $V$ une repr\'esentation de $G$. Il existe des sous-groupes $H_i$ de $G$, contenant $A$, des caract\`eres $\chi_i$ des $H_i$ et des entiers $n_i$ tels que, dans $R(G)$, on ait
+\[
+V = \sum n_i \Ind_{H_i}^G(\chi_i).
+\]
+\item Si l'espace $V^A$ des points de $V$ fix\'es par $A$ est trivial, on peut choisir la d\'ecomposition de sorte que $\chi_i$ soit non trivial sur $A$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Supposons d'abord $A$ central dans $G$. On peut supposer $V$ irr\'eductible, auquel cas $A$ agit sur $V$ par un caract\`ere $\xi$. Le th\'eor\`eme de Brauer assure l'existence de d\'ecompositions
+\begin{equation}\label{eq:2.2.1}
+V = \sum n_i \Ind_{H_i}^G(\chi_i), \quad n_i \in \bZ.
+\end{equation}
+Ecrivons que l'on a $V = \sum V_\tau$:
+\[
+V = \sum n_i \Ind_{H_i}^G(\chi_i) = \sum n_i \Ind_{H_i A}^G\bigl((\Ind_{H_i}^{H_i A} \chi_i)_\xi\bigr).
+\]
+La $\xi$-composante isotypique de $\Ind_{H_i}^{H_i A} \chi_i$ est triviale si $\chi_i$ est distinct de $\xi$ sur $H_i \cap A$, et est l'unique caract\`ere de $H_i A$ prolongeant $\chi_i$ et $\xi$, s'ils co\"incident sur $H_i \cap A$. Ceci nous donne une d\'ecomposition \eqref{eq:2.2.1}, ou les $H_i$ contiennent $A$ et les $\chi_i$ prolongent $\xi$. On a donc (i) et (ii).
+
+Dans le cas g\'en\'eral, \'ecrivons la formule \eqref{eq:2.1.1}
+\[
+v = \sum_{\xi \in \hat{A}/G} \Ind_{Z(\xi)}^G(v_\xi).
+\]
+Sous l'hypoth\`ese (ii), on peut omettre le caract\`ere $\xi = 0$ de la somme, l'espace $V_0$ correspondant \'etant nul. Sur $V_\xi$, $A$ agit selon $\xi$. La repr\'esentation de $Z(\xi)$ sur $V_\xi$ se factorise par $Z(\xi)/\Ker(\xi)$, et dans ce groupe $A/\Ker(\xi)$ est central; ceci nous ram\`ene au cas central, d\'ej\`a trait\'e.
+\end{proof}
+
+\begin{proposition}[Variante]\label{prop:2.3}
+Soit $G$ un groupe, extension de $\bZ$ par un groupe fini $G(0)$. Soient $A$ un sous-groupe ab\'elien distingu\'e de $G$, contenu dans $G(0)$, et $V$ une repr\'esentation de $G$. Il existe des sous-groupes d'indice fini $H_i$ de $G$ (en nombre fini), contenant $A$, des caract\`eres $\chi_i$ des $H_i$ et des entiers $n_i$ tels que, dans $R(G)$, on ait $V = \sum n_i \Ind_{H_i}^G(\chi_i)$. Si $V^A$ est nul, on peut choisir la d\'ecomposition de facon que $\chi_i$ soit non trivial sur $A$.
+\end{proposition}
+
+On peut supposer $V$ irr\'eductible. On v\'erifie facilement (cf.~[1] 4.10) que toute repr\'esentation irr\'eductible de $G$ est le produit tensoriel d'une repr\'esentation qui se factorise par un quotient fini $\bar{G}$ de $G$, par une repr\'esentation de dimension 1 triviale sur $G(0)$. Il suffit d'appliquer \ref{prop:2.2} a $\bar{G}$.
+
+
+\section{Normes et traces}
+\label{sec:3}
+
+\subsection{}
+\label{sec:3.1}
+
+Pour chaque extension finie s\'eparable $L$ de $K$, notons $J_L$ le groupe $L^*/\cO_L^*$; la valuation $v_L$ l'identifie a $\bZ$. Soit $T_L$ la demi-droite des \'el\'ements positifs ou nuls de $J_L \otimes_\bZ \bR$; la valuation $v_L$ l'identifie a $\bR^+$.
+
+Rappelons la m\'ethode signal\'ee par Serre ([2], IV \S 3, Rem.~3 p.~83) pour indexer les groupes de ramification: les fonctions $\phi$ et $\psi$ de Herbrand engendrent un syst\`eme transitif d'isomorphismes entre les $T_L$. Appelons $T$ la limite projective des $T_L$, et notons encore $v_L$ l'isomorphisme compos\'e $T \to T_L \to \bR^+$. Si $L$ est une extension finie s\'eparable de $K$, et $M$ une extension galoisienne de $L$, les groupes de ramification de $\Gal(M/L)$ sont naturellement index\'es par $T$; on note $\Gal(M/L)[t]$ le groupe d'indice $t$. Cette indexation est compatible aux passages aux sous-groupes et aux groupes quotients. On retrouve la num\'erotation sup\'erieure en identifiant $T$ a $\bR^+$ par $v_K$. Si $M$ est une extension finie de $L$, on retrouve la num\'erotation inf\'erieure en identifiant $T$ a $\bR^+$ par $v_M$; on passe alors de la num\'erotation sup\'erieure a la num\'erotation inf\'erieure par la fonction de Herbrand $\Psi_{M/L} = v_M \circ \psi_{M/L} \circ v_L^{-1}$. Cette fonction est un hom\'eomorphisme de $\bR^+$ sur lui-m\^eme, lin\'eaire par morceaux et convexe; sa d\'eriv\'ee a gauche en $v_L(t)$, ou $t$ appartient a $T$ est l'indice de $\Gal(M/L)[t]$ dans $\Gal(M/L)[0]$.
+
+Quelles que soient les extensions s\'eparables finies $L$ et $M$ de $K$, nous poserons $\Psi_{M/L} = v_M \circ \psi_{M/L} \circ v_L^{-1}$. Si $M$ est une extension de $L$, nous poserons $\psi_{M/L} = \Psi_{M/L}^{-1}$.
+
+\begin{proposition}\label{prop:3.2}
+Soient $L$ une extension finie s\'eparable de $K$, $M$ une extension finie s\'eparable de $L$.
+\begin{enumerate}[label=(\roman*)]
+\item La fonction $\Psi_{M/L}$ est convexe.
+\item Si l'extension $M/L$ est mod\'er\'ee (i.e.~si $\alpha(M/L)$ est nul cf.~0.6), $\Psi_{M/L}$ est lin\'eaire. Sinon, le dernier saut de la d\'eriv\'ee de $\Psi_{M/L}$ se produit en $\alpha(M/L)$.
+\item Soit $t \in \bR^+$. Si $t > \alpha(M/L)$, la pente de $\Psi_{M/L}$ en $t$ est l'indice de ramification $e$ de $M/L$. Si $t < \alpha(M/L)$, c'est un entier de la forme $e/p^k$, $k \geq 1$. En cons\'equence, on a
+\[
+\Psi_{M/L}(\alpha(M/L)) \leq (e/p) \, \alpha(M/L).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Soit $N$ une extension galoisienne finie de $L$ contenant $M$; posons $G = \Gal(N/L)$ et $H = \Gal(N/M)$. Par d\'efinition, on a $\Psi_{M/L} = \Psi_{N/L} \circ \Psi_{N/M}^{-1}$, de sorte que la d\'eriv\'ee a gauche de $\Psi_{M/L}$ en $v_L(t)$ est
+\begin{equation}\label{eq:3.2.1}
+\frac{[G[0]:G[t]]}{[H[0]:H[t]]} = \frac{[G[0]:H[0]]}{[G[t]:H[t]]}.
+\end{equation}
+Comme on a $H[t] = G[t] \cap H$, l'indice au d\'enominateur vaut encore $[G:G[t]H]$. La d\'eriv\'ee de $\Psi_{M/L}$ cro\^it donc avec $t$, et $\Psi_{M/L}$ est convexe, d'o\`u (i). L'indice \eqref{eq:3.2.1} est constant, de valeur $e = [G[0]:H[0]]$, d\`es que $G[t]$ est inclus dans $H$. Comme $G[t]$ est distingu\'e dans $G$, cela signifie que $G[t]$ agit trivialement dans la repr\'esentation de permutation de $G$ sur $G/H$. Mais cette derni\`ere est \'equivalente a la repr\'esentation de $G$ sur $\Hom_L(M, N)$. On en d\'eduit que $H$ contient $G[t]$ si et seulement si on a $v_L(t) > \alpha(M/L)$ cf.~0.6; cela prouve (ii) et la premi\`ere assertion de (iii). Enfin, puisque $G[t]$ est un $p$-groupe pour $t$ non nul, l'indice $[G[t]:H[t]]$ est une puissance de $p$, non triviale si $t < \alpha(M/L)$, ce qui prouve les autres assertions de (iii).
+\end{proof}
+
+\subsection{}
+\label{sec:3.3}
+
+Soit $L$ une extension finie s\'eparable de $K$. On note $e = e(L/K)$ l'indice de ramification et $f = f(L/K)$ le degr\'e r\'esiduel. On a $[L:K] = ef$.
+
+Pour $y \in L$ de valuation $v_L(y)$ assez grande, on a
+\[
+N_{L/K}(E(y)) = E(\Tr_{L/K}(y)) \quad \text{et} \quad N_{L/K}(1+y) = 1 + \Tr_{L/K}(y) \pmod{U_K(v_L(y)/e)}.
+\]
+
+Ces formules sont v\'erifi\'ees pour $v_L(y) > \alpha(L/K)$. Nous allons pr\'eciser ce r\'esultat.
+
+\subsection{}
+\label{sec:3.4}
+
+Disons qu'un \'el\'ement $t$ de $T$ est grand rel.~$L/K$ si l'on a $v_L(t) > \Psi_{L/K}(\alpha(L/K))$. Si $t$ est grand, l'image de $A_L(v_L(t))$ par $N_{L/K}$ (resp.~$\Tr_{L/K}$) est contenue dans $A_K(v_K(t))$ (resp.~$A_K(v_K(t))$). On peut donc, pour $t$ grand, consid\'erer les applications
+\[
+N: A_L(v_L(t))/A_L(v_L(t)+1) \to A_K(v_K(t))/A_K(v_K(t)+1)
+\]
+et
+\[
+T: A_L(v_L(t))/A_L(v_L(t)+1) \to A_K(v_K(t))/A_K(v_K(t)+1)
+\]
+d\'eduites de $N_{L/K}$ et $\Tr_{L/K}$.
+
+Dans le cas particulier d'une extension mod\'er\'ee, $t$ est grand d\`es que $t > 0$, et $N$ relie la valuation de $x \in \cO_L$ a celle de son image dans $\cO_K$.
+
+Nous nous proposons de comparer $N_{L/K}(1+y)$ a $1 + \Tr_{L/K}(y)$ pour $y$ dans $L$, de grande valuation rel.~$L/K$. Par exemple, pour tout entier $n > \alpha(L/K)$, on peut d'apr\`es 3.3 consid\'erer le diagramme suivant, ou les fl\`eches $N$ et $T$ sont d\'eduites de $N_{L/K}$ et $\Tr_{L/K}$ respectivement, et les fl\`eches verticales d\'eduites de $y \mapsto E(y)$:
+\begin{equation}\label{eq:3.4.1}
+\begin{tikzcd}
+A_M(v_M(n))/A_M(v_M(n)+1) \arrow[r] \arrow[d] & A_L(v_L(n))/A_L(v_L(n)+1) \arrow[d] \\
+U_M(v_M(n))/U_M(v_M(n)+1) \arrow[r] & U_L(v_L(n))/U_L(v_L(n)+1)
+\end{tikzcd}
+\end{equation}
+Nous verrons que ce diagramme est commutatif. Le raisonnement de 3.3 (resp. la proposition 3.5 ci-dessous) le montre lorsque $\Psi_{L/K}(n) > (e/2)n$ (resp. $\Psi_{L/K}(t) > (e/p)n$, ce qui, par le cas (iii) de la proposition 3.2, implique $n > \alpha(L/K)$).
+
+On obtient des r\'esultats plus pr\'ecis en rempla\c{c}ant la fonction $y \mapsto 1+y$ par la fonction $E$. S'il le d\'esire, le lecteur pourra repasser au premier point de vue en posant $1+y = E(z)$, ou $z$ est de valuation au moins $2v(y)$.
+
+La proposition suivante, de d\'emonstration tr\`es simple, sera pr\'ecis\'ee par 3.8, prouv\'e par d\'evissage et r\'eduction au cas d'une extension cyclique de degr\'e $p$. Cette am\'elioration de 3.5 ne nous servira que dans les preuves de 4.2 (via la commutativit\'e du diagramme 3.4.1) et 4.15.3.
+
+\begin{proposition}\label{prop:3.5}
+Soit $y$ un \'el\'ement de l'id\'eal maximal de $\cO_L$. On a
+\[
+N_{L/K}(Ey) = E(\Tr_{L/K}(y)) \pmod{*} U_K((p/e) v_L(y)).
+\]
+\end{proposition}
+
+\begin{proof}
+Plongeant $L$ dans une extension galoisienne $M$ de $K$, on peut \'ecrire la norme (resp.~la trace) d'un \'el\'ement $x$ de $L$ comme produit (resp.~somme) de conjugu\'es $x^\sigma$ de cet \'el\'ement. On trouve alors que $N_{L/K}(Ey) = \prod E(y^\sigma)$ est congru a $E(\Tr_{L/K}(y))$ modulo des \'el\'ements de $M$ de valuation au moins celle de $y^p$. La proposition en r\'esulte aussit\^ot.
+\end{proof}
+
+\begin{proposition}\label{prop:3.6}
+Soit $\chi$ un quasi-caract\`ere sauvagement ramifi\'e de $K^*$, v\'erifiant $\Psi_{L/K}(\alpha(\chi)) > (e/p) \alpha(\chi)$. Soient $a$ un \'el\'ement de $K$ tel que l'on ait $\chi(Ey) = \psi(ay)$ pour $y$ dans $K$ de valuation plus grande que $\alpha(\chi)/p$, et $a'$ un \'el\'ement de $L$ tel que l'on ait $\chi \circ N_{L/K}(Ey) = \psi \circ \Tr_{L/K}(a'y)$ pour $y$ dans $L$ de valuation plus grande que $\alpha(\chi \circ N_{L/K})/p$. Alors on a
+\[
+a = a' \pmod{*} U_L(\Psi_{L/K}(\alpha(\chi)) - (e/p) \alpha(\chi)).
+\]
+\end{proposition}
+
+Notons d'abord que l'hypoth\`ese implique $\alpha(\chi) > \alpha(L/K)$ et $\alpha(\chi \circ N_{L/K}) = \Psi_{L/K}(\alpha(\chi))$. Prenons un \'el\'ement $y$ de $L$, de valuation $v_L(y) > e\alpha(\chi)/p$. La proposition 3.5 donne alors
+\[
+\chi \circ N_{L/K}(Ey) = \chi(E(\Tr_{L/K}(y))).
+\]
+
+Mais, d'apr\`es 3.3, on a $\alpha(\chi \circ N_{L/K}) = \Psi_{L/K}(\alpha(\chi)) \leq e\alpha(\chi)$. Pour $v_L(y) > \alpha(\chi \circ N_{L/K})/p$ et $\chi \circ N_{L/K}(Ey) = \psi \circ \Tr_{L/K}(a y)$. De 3.3 on d\'eduit aussi que l'on a $\Psi_{L/K}(v_L(\Tr_{L/K}(y))) \geq v_L(y)$, c'est-a-dire
+\[
+v_K(\Tr_{L/K}(y)) + \Psi_{L/K}(\alpha(\chi)) - e\alpha(\chi) \geq v_L(y)
+\]
+ou
+\[
+v_K(\Tr_{L/K}(y)) \geq \alpha(\chi)/p + (e\alpha(\chi) - \Psi_{L/K}(\alpha(\chi))),
+\]
+et
+\[
+v_K(\Tr_{L/K}(y)) > \alpha(\chi)/p.
+\]
+On en tire l'\'egalit\'e $\chi(E(\Tr_{L/K}(y))) = \psi(a \Tr_{L/K}(y))$. Pour tout \'el\'ement $y$ de $K$ v\'erifiant $v_L(y) > e\alpha(\chi)/p$, on a donc
+\[
+\psi \circ \Tr_{L/K}((a-a')y) = 1,
+\]
+ce qui implique
+\[
+v_L(a'-a) \geq -n(\psi \circ \Tr_{L/K}) - (e\alpha(\chi)/p) - 1.
+\]
+Comme $a'$ est de valuation $-n(\psi \circ \Tr_{L/K}) - \Psi_{L/K}(\alpha(\chi)) - 1$, on a bien
+\[
+a = a' \pmod{*} U_L(\Psi_{L/K}(\alpha(\chi)) - (e/p) \alpha(\chi)). \qedhere
+\]
+
+\begin{corollary}\label{cor:3.7}
+Soient $\chi$ un quasi-caract\`ere sauvagement ramifi\'e de $K^*$ et $\eta$ un quasi-caract\`ere de $L^*$. On suppose que, posant $u = \sup(\alpha(\chi), \Psi_{L/K}(\alpha(L/K)))$, on ait $\Psi_{L/K}(u) < (1-1/p) \alpha(\chi)$. On d\'efinit $a$ et $a'$ comme en \ref{prop:3.6}, et on a alors: $v(a) = v(a')$.
+\end{corollary}
+
+L'hypoth\`ese faite sur $u$ nous donne d'abord
+\[
+\alpha(\chi) > \Psi_{L/K}(u) \geq \alpha(L/K),
+\]
+\[
+\alpha(\chi) + (u - \Psi_{L/K}(\alpha(\chi)))/e < (1 - (1/p)) \alpha(\chi),
+\]
+puis
+\[
+u < \Psi_{L/K}(\alpha(\chi)) - e\alpha(\chi)/p,
+\]
+d'o\`u $u < \Psi_{L/K}(\alpha(\chi)) - e\alpha(\chi)/p$, et on applique \ref{prop:3.6}.
+
+\subsection{}
+\label{sec:3.8}
+
+Le graphique suivant visualise la proposition ci-dessous, et sa relation avec \ref{prop:3.5}. Dans le graphique, $T_L$ et $T_K$ sont repr\'esent\'es a des \'echelles diff\'erentes (unit\'es $e$ et $1$).
+
+\begin{proposition}\label{prop:3.8}
+Soit $t$ un \'el\'ement de $T$ grand rel.~$L/K$. Soit $y$ un \'el\'ement de $A_L(v_L(t))$. On a $\Tr_{L/K}(y) \in A_K(v_K(t))$ et
+\[
+N_{L/K}(Ey) = E(\Tr_{L/K}(y)) \pmod{*} U_K(\alpha(L/K) + p(v_K(t) - \alpha(L/K))).
+\]
+\end{proposition}
+
+Notons $R_{L/K}$ la fonction lin\'eaire de pente $e/p$, d\'efinie pour $t = \alpha(L/K)$ et co\"incidant avec $\Psi_{L/K}$ en $\alpha(L/K)$; notons $R_{L/K}^{-1}$ la fonction inverse. L'assertion de \ref{prop:3.8} signifie que si la valuation de $y$ est grande rel.~$L/K$, on a
+\[
+N_{L/K}(Ey) = E(\Tr_{L/K}(y)) \pmod{*} U_K(R_{L/K}^{-1}(v_L(y))).
+\]
+
+\begin{proof}[D\'emonstration]
+Supposons d'abord que l'extension $L/K$ soit cyclique de degr\'e $p$, totalement ramifi\'ee. En ce cas, \'etudi\'e en [2], V \S 3, $\Psi_{L/K}$ est de pente $1$ pour $t < \alpha(L/K)$, de pente $p$ pour $t > \alpha(L/K)$, et l'on a $R_{L/K}^{-1}(t) = t$. Comme en \ref{prop:3.5}, on trouve $N_{L/K}(Ey) \equiv E(\Tr_{L/K}(y)) \pmod{*} U_K(pv_L(y)) \cap K^*$. Comme $U_K(pv_L(y)) \cap K^*$ n'est autre que $U_K(v_L(y))$, l'assertion de \ref{prop:3.8} est donc vraie.
+
+Supposons la proposition \ref{prop:3.8} vraie pour deux extensions $M/L$ et $L/K$, et prouvons-la pour l'extension $M/K$. Puisque l'on a $\Psi_{M/K} = \Psi_{M/L} \circ \Psi_{L/K}$ et que les fonctions $\Psi$ sont convexes, $v_L(t)$ est un point de discontinuit\'e de $\Psi_{M/K}$ si et seulement si c'en est un pour $\Psi_{M/L}$, ou que $v_L(t)$ en est un pour $\Psi_{L/K}$. En particulier, $t$ est grand rel.~$M/K$ si et seulement si il l'est rel.~$M/L$ et rel.~$L/K$. En ce cas, si $y$ est un \'el\'ement de $A_M(v_M(t))$, on a
+\[
+N_{M/K}(Ey) = N_{L/K}(N_{M/L}(Ey)) = N_{L/K}(E(\Tr_{M/L}(y))) \equiv E(\Tr_{L/K}(\Tr_{M/L}(y))) = E(\Tr_{M/K}(y)),
+\]
+les congru\'ences \'etant prises $\mod^*\, U_K(R_{L/K}^{-1}(v_L(t)))$. Il s'agit donc de prouver les in\'egalit\'es
+\[
+R_{M/L}^{-1} \circ R_{L/K}^{-1} \geq R_{M/K}^{-1} \quad \text{et} \quad R_{M/L}^{-1} \circ R_{L/K}^{-1} \geq R_{M/K}^{-1}
+\]
+en $v_M(t)$, pour $t$ grand rel.~$M/K$. Dans ce domaine, ces fonctions sont lin\'eaires de m\^eme pente, et il suffit de v\'erifier les in\'egalit\'es en $v_M(t)$, quand $v_M(t)$ vaut $\alpha(M/K)$. En ce point, on a $R_{M/K}^{-1} = \Psi_{M/K} = \Psi_{M/L} \circ \Psi_{L/K}$ et $R_{M/K}^{-1} \leq R_{M/L}^{-1} \circ R_{L/K}^{-1}$ ainsi que $R_{M/K}^{-1} \geq R_{M/L}^{-1} \circ R_{L/K}^{-1}$, d'o\`u l'assertion de \ref{prop:3.8} pour $M/K$.
+\end{proof}
+
+\subsection{}
+\label{sec:3.11}
+
+Grimpant le long d'une tour, on d\'eduit de ce qui pr\'ec\`ede que la proposition \ref{prop:3.8} est vraie pour toute extension $L/K$ qui se plonge dans une extension galoisienne $\tilde{L}/K$, totalement ramifi\'ee et de groupe de Galois un $p$-groupe. En effet, pour tout sous-groupe $H$ d'un $p$-groupe $G$, il existe une suite de sous-groupes $H = H_0 \triangleleft H_1 \triangleleft \cdots \triangleleft H_n = G$, ou $H_i$ est distingu\'e dans $H_{i+1}$ et ou les quotients $H_{i+1}/H_i$ sont d'ordre $p$.
+
+Passons au cas g\'en\'eral. Soient $t_0$ et $t$ deux \'el\'ements de $T$ tels que l'on ait $v_K(t_0) = \alpha(L/K)$ et $t > t_0$. Prenons $y$ dans $L^*$, de valuation $v_L(t)$. Il s'agit de prouver la congruence
+\[
+N_{L/K}(Ey) = E(\Tr_{L/K}(y)) \pmod{*} U_K(v_K(t_0) + p(v_K(t) - v_K(t_0))).
+\]
+
+Soit $K'$ une extension mod\'er\'ement ramifi\'ee de $K$. D\'ecomposons $K' \otimes_K L$ en produit des corps $L_i$. Notant $y_i$ l'image dans $L_i$ de l'\'el\'ement $y$ de $L$, on a
+\[
+N_{L/K}(Ey) = \prod_i N_{L_i/K'}(Ey_i).
+\]
+Les extensions $L_i/L$ sont mod\'er\'ees. Les fonctions $\Psi_{L_i/L}$ et $\Psi_{L_i/K'}$ sont donc lin\'eaires. Puisque $\Psi_{L_i/K}$ n'est autre que $\Psi_{L_i/K'} \circ \Psi_{K'/K}$ et que $\Psi_{K'/K}$ est lin\'eaire, on a $v_{K'}(t_0) = \alpha(L_i/K')$. Supposons la proposition vraie pour les extensions $L_i/K'$. Chaque $y_i$ \'etant de valuation $v_{L_i}(t)$, on a alors
+\[
+N_{L_i/K'}(Ey_i) = E(\Tr_{L_i/K'}(y_i)) \pmod{*} U_{K'}(v_{K'}(t_0) + p(v_{K'}(t) - v_{K'}(t_0))),
+\]
+et
+\[
+\prod_i E(\Tr_{L_i/K'}(y_i)) \equiv E(\sum_i \Tr_{L_i/K'}(y_i)) = E(\Tr_{L/K}(y)) \pmod{*} U_K(p(v_K(t) - v_K(t_0))).
+\]
+Les deux membres de cette derni\`ere congruence \'etant dans $K$, on a
+\[
+N_{L/K}(Ey) = E(\Tr_{L/K}(y)) \pmod{*} U_K(v_K(t_0) + p(v_K(t) - v_K(t_0))).
+\]
+Mais, comme on sait, on peut choisir $K'$ de facon que les extensions $L_i/K'$ v\'erifient la condition de 3.11. La proposition \ref{prop:3.8} est vraie pour les $L_i/K'$ donc pour $L/K$.
+
+\begin{corollary}\label{cor:3.12}
+\begin{enumerate}[label=(\roman*)]
+\item Pour tout entier $n > \alpha(L/K)$, le diagramme \eqref{eq:3.4.1} est commutatif.
+\item Soit $\chi$ un quasi-caract\`ere sauvagement ramifi\'e de $K^*$, v\'erifiant $\alpha(\chi) > \alpha(L/K)$. D\'efinissons $t_0 \in T$ par l'\'egalit\'e $v_K(t_0) = \alpha(L/K)$ et $t \in T$ par $v_K(t) = \alpha(\chi)$. Soient $a$ un \'el\'ement de $K$ tel que l'on ait $\chi(Ey) = \psi(ay)$ pour $y \in K$ v\'erifiant $pv(y) > \alpha(\chi)/p$ et $a'$ un \'el\'ement de $L$ tel que l'on ait $\chi \circ N_{L/K}(Ey) = \psi \circ \Tr_{L/K}(a'y)$ pour $y \in L$ v\'erifiant $pv_L(y) > \alpha(\chi \circ N_{L/K})/p$. Ces conditions d\'eterminent $a$ $\mod^*\, U_K((1-1/p)(\alpha(\chi) - v_K(t_0)))$, $a'$ $\mod^*\, U_L((1-1/p)(\alpha(\chi) - v_L(t_0)))$, et l'on a
+\[
+a = a' \pmod{*} U_L((1-1/p)(v_L(t) - v_L(t_0))).
+\]
+\end{enumerate}
+\end{corollary}
+
+La partie (i) est imm\'ediate, si on remarque que l'on a $\alpha(L/K) + p(n - \alpha(L/K)) > en$. Pour prouver (ii) prenons un \'el\'ement $y$ de $L$ v\'erifiant $v_L(y) > v_L(t) - (e/p)(v_L(t) - v_L(t_0))$; on a donc $R_{L/K}^{-1}(v_L(y)) > v_K(t) = \alpha(\chi)$ et, par cons\'equent $\chi \circ N_{L/K}(Ey) = \chi(E(\Tr_{L/K}(y)))$. On a aussi
+\[
+v_K(\Tr_{L/K}(y)) \geq v_K(t_0) + (1/p)(v_L(y) - v_L(t_0)) > v_K(t_0) + (1/p)(v_L(t) - v_L(t_0)).
+\]
+On en d\'eduit l'\'egalit\'e $\chi \circ N_{L/K}(Ey) = \psi \circ \Tr_{L/K}(ay)$, c'est-\`a-dire que $a$ v\'erifie la propri\'et\'e caract\'eristique de $a'$.
+
+
+\section{Le cas g\'en\'eral}
+\label{sec:4}
+
+\subsection{}
+\label{sec:4.1}
+
+Soit $V$ une repr\'esentation virtuelle de $W$, et soit $\gamma$ un \'el\'ement de $K^*$ de valuation $a(V) + \dim V \cdot n(\psi)$.
+Si $\eta$ est un quasi-caract\`ere non ramifi\'e de $K^*$, on a
+\begin{equation}\label{eq:4.1.1}
+\varepsilon(\eta \otimes V, \psi, dx) = \varepsilon(V, \psi, dx) \cdot \eta(\gamma).
+\end{equation}
+Plus g\'en\'eralement, si $W$ est une repr\'esentation virtuelle de $W$, non ramifi\'ee et de dimension 0, on a (cf.~[1] 5.5.3)
+\begin{equation}\label{eq:4.1.2}
+\varepsilon(W \otimes V, \psi) = \det W(\gamma).
+\end{equation}
+
+Les r\'esultats annonc\'es dans l'introduction sur le calcul de $\varepsilon(W \otimes V, \psi)$, quand $W$ est de dimension 0 et moins ramifi\'e que $V$, g\'en\'eralisent cette formule \eqref{eq:4.1.2} et, comme le lecteur le v\'erifiera ais\'ement, s'y r\'eduisent si l'espace $V^P$ des points fixes par $P$ est non trivial, ce qui, avec les notations de l'introduction, impose $t=0$. Pour prouver ces g\'en\'eralisations, nous supposerons donc d\'esormais que l'espace $V^P$ est trivial, i.e.~que la repr\'esentation $V$ n'a pas de constituant mod\'er\'e.
+
+Le sch\'ema de d\'emonstration de ces r\'esultats est le suivant. On suppose d'abord $V$ de dimension 1. Si $W$ est de la forme $\eta - 1$, ou $\eta$ est un quasi-caract\`ere de $K^*$, le r\'esultat cherch\'e r\'esulte du chapitre 1. Pour passer de l\`a au cas general, on \'ecrit, gr\^ace au chapitre 2, $V$ comme combinaison lin\'eaire d'induites de quasi-caract\`eres $\chi_i$ d'extensions $L_i$ de $K$, et on se ram\`ene, par induction, au cas de dimension 1. Les r\'esultats pour $W$ de dimension 0, triviale sur $W(t)$ mais pas sur $W(t/2)$, s'en d\'eduisent par passage \`a la limite.
+
+\begin{theorem}\label{thm:4.2}
+Soit $V$ une repr\'esentation virtuelle de $W$, sans constituant mod\'er\'e. Il existe un \'el\'ement $\gamma$ de $K^*$, d\'etermin\'e de facon unique $\mod^*\, U(1)$, tel que pour toute repr\'esentation virtuelle $W$ de $W$, de dimension 0 et v\'erifiant $\beta(W) < \alpha(V)$, on ait
+\begin{equation}\label{eq:4.2.1}
+\varepsilon(W \otimes V, \psi) \equiv \det W(\gamma) \pmod{*} \bQ_p/\bZ_p(1).
+\end{equation}
+La valuation de $\gamma$ est $a(V) + (\dim V) \cdot n(\psi)$.
+\end{theorem}
+
+\begin{proof}[D\'emonstration de l'unicit\'e]
+L'unicit\'e de $\gamma$ est claire: prenant $W = \eta - 1$, ou $\eta$ est un quasi-caract\`ere de $K^*$, on voit que $\gamma$ est d\'etermin\'e $\mod^*\, U(1)$ par les valeurs de $\varepsilon((\eta-1) \otimes V, \psi)$ pour $\eta$ mod\'er\'e. En effet, la formule \eqref{eq:4.2.1} d\'etermine $\eta(\gamma)$ pour tout caract\`ere $\eta$ de $U(0)/U(1)$, puisque ce groupe est d'ordre premier a $p$.
+\end{proof}
+
+\begin{proof}[D\'emonstration: cas $V$ de dimension 1]
+Gardons les hypoth\`eses et notations de \ref{thm:4.2}, et supposons en outre $V$ de dimension 1, correspondant au quasi-caract\`ere (sauvagement ramifi\'e) $\chi$ de $K^*$. Soit $a$ l'\'el\'ement de $K^*$, uniquement d\'efini $\mod^*\, U(1)$, tel que l'on ait $\chi(1+y) = \psi(ay)$ pour $y \in K$ v\'erifiant $v_K(y) \geq \alpha(\chi)$. Alors $\gamma = a^{-1}$ v\'erifie la formule \eqref{eq:4.2.1}.
+
+Par hypoth\`ese, les constituants de $W$ sont triviaux sur $W(\alpha(\chi))$. D'apr\`es la variante ([1], 1.5) du th\'eor\`eme de Brauer en dimension 0, $W$ s'\'ecrit comme combinaison lin\'eaire de repr\'esentations de la forme $\Ind_H^W(\cX - 1)$, ou $H$ est un sous-groupe de $W$ contenant $W(\alpha(\chi))$, et $\cX$ un quasi-caract\`ere de $H$ trivial sur $W(\alpha(\chi))$. Les deux membres de \eqref{eq:4.2.1} sont multiplicatifs en $W$, on peut donc supposer $W$ lui-m\^eme de cette forme $W = \Ind_H^W(\cX - 1)$. Soient $L$ l'extension finie de $K$ fix\'ee par $H$ et $\eta$ le quasi-caract\`ere de $L^*$ correspondant a $\cX$.
+
+L'hypoth\`ese que $\cX$ soit trivial sur $W(\alpha(\chi))$ se traduit par les in\'egalit\'es
+\[
+\alpha(L/K) < \alpha(\chi) \quad \text{et} \quad \alpha(\eta) < \Psi_{L/K}(\alpha(\chi)).
+\]
+\end{proof}
+
+\subsection{}
+\label{sec:4.4}
+
+On a $W \otimes V = \Ind_H^W(\Ind_H^H((\cX-1) \otimes V))$ et $V|_H$ s'identifie au quasi-caract\`ere $\chi \circ N_{L/K}$ de $L^*$. La compatibilit\'e des facteurs $\varepsilon$ a l'induction, en dimension 0, nous fournit alors l'\'egalit\'e
+\[
+\varepsilon(W \otimes V, \psi) = \varepsilon((\eta-1) \cdot \chi \circ N_{L/K}, \psi \circ \Tr_{L/K}).
+\]
+L'hypoth\`ese $\alpha(L/K) < \alpha(\chi)$ assure que l'on a $\alpha(\chi \circ N_{L/K}) = \Psi_{L/K}(\alpha(\chi))$ et que, pour $y \in L$ de valuation $\Psi_{L/K}(\alpha(\chi))$, on a (cf.~\ref{cor:3.12}, (i))
+\[
+N_{L/K}(Ey) = E(\Tr_{L/K}(y)) \pmod{*} U(\alpha(\chi)+1).
+\]
+Donc
+\[
+\chi \circ N_{L/K}(Ey) = \chi(E(\Tr_{L/K}(y))) = \psi(a \Tr_{L/K}(y)) = \psi \circ \Tr_{L/K}(ay).
+\]
+L'hypoth\`ese $\alpha(\eta) < \Psi_{L/K}(\alpha(\chi)) = \alpha(\chi \circ N_{L/K})$ permet d'appliquer le corollaire \ref{cor:1.3}(i); on en d\'eduit l'\'egalit\'e
+\[
+\varepsilon((\eta-1) \cdot \chi \circ N_{L/K}, \psi \circ \Tr_{L/K}) \equiv \psi(a^{-1}) \pmod{*} \bQ_p/\bZ_p(1).
+\]
+Pour toute repr\'esentation virtuelle $R$ de $W(K/L)$, de dimension 0, on a
+\[
+\det \Ind_H^W(R) = \det R|_{H^{\text{ab}}} \circ \text{transfert}
+\]
+(cf.~[2], XI \S 3 et [1] 1.2, qui reproduit un r\'esultat de P.X.~Gallagher, \textit{Determinant of representations of finite groups}, Abh.~Math.~Sem.~Un.~Hamburg, 28 (1965)). Ici, on trouve que l'on a $\det W = \eta|_{K^*}$ et l'\'egalit\'e
+\[
+\varepsilon(W \otimes V, \psi) \equiv \eta(a^{-1}) = \det W(a^{-1}) \pmod{*} \bQ_p/\bZ_p(1)
+\]
+prouve le th\'eor\`eme pour $V$ de dimension 1.
+
+\subsection{}
+\label{sec:4.5}
+
+Prouvons maintenant \ref{thm:4.2} dans le cas g\'en\'eral. On peut supposer $V$ irr\'eductible.
+
+Soit $G$ le quotient de $W$ par le sous-groupe de $I$ qui agit trivialement sur $V$. Le groupe $G(\alpha(V))$ est le dernier groupe de ramification non nul de $G$; il est donc ab\'elien, et distingu\'e dans $G$. Il agit sur $V$ sans vecteur fixe non nul (sinon, l'espace des vecteurs fixes, stable sous $W$ serait non trivial, et la repr\'esentation $V$ serait r\'eductible). Appliquant la variante \ref{prop:2.3}, on voit que $V$ est une combinaison lin\'eaire $\sum n_i \Ind_{H_i}^W(\chi_i)$ ou le sous-groupe $H_i$ de $G$ contient $G(\alpha(V))$ et ou le caract\`ere $\chi_i$ de $H_i$ est non trivial sur $G(\alpha(V))$. A $H_i$ correspond une extension $L_i$ de $K$, et a $\chi_i$ un quasi-caract\`ere de $L_i^*$, encore not\'e $\chi_i$. Soit $W_i$ la restriction de $W$ a $W(K/L_i)$. On a $\beta(W_i) \leq \Psi_{L_i/K}(\beta(W))$ et $\alpha(\chi_i) = \Psi_{L_i/K}(\alpha(V))$, donc aussi $\beta(W_i) < \alpha(\chi_i)$. Si $a_i$ est un \'el\'ement de $L_i$ tel que l'on ait $\chi_i(1+y) = \psi \circ \Tr_{L_i/K}(a_i y)$ pour $y \in L_i$ v\'erifiant $v_{L_i}(y) \geq \alpha(\chi_i)$, on a
+\begin{align*}
+\varepsilon(W \otimes V, \psi) &= \prod_i \varepsilon(W_i \otimes V_i, \psi \circ \Tr_{L_i/K})^{n_i} \\
+&= \prod_i \det W_i(a_i^{-1})^{n_i} \quad \text{par le cas de dim.~1} \\
+&= \prod_i \det W(N_{L_i/K}(a_i^{-1}))^{n_i}.
+\end{align*}
+L'\'el\'ement $\gamma = \prod N_{L_i/K}(a_i^{-1})^{n_i}$ v\'erifie \eqref{eq:4.2.1}. C.Q.F.D.
+
+\begin{theorem}\label{thm:4.6}
+Soit $V$ une repr\'esentation virtuelle de $W$, sans constituant mod\'er\'e. Il existe un \'el\'ement $\gamma$ de $K^*$, d\'efini de facon unique $\mod^*\, U(\alpha(V)/2)$, tel que pour toute repr\'esentation virtuelle $W$ de $W$, de dimension 0 et v\'erifiant $\beta(W) < \alpha(V)/2$, on ait
+\begin{equation}\label{eq:4.6.1}
+\varepsilon(W \otimes V, \psi) = \det W(\gamma).
+\end{equation}
+Cet \'el\'ement $\gamma$ est congru a celui de \eqref{eq:4.2.1} $\mod^*\, U(1)$.
+\end{theorem}
+
+La d\'emonstration de ce th\'eor\`eme est parall\`ele a la pr\'ec\'edente. L'unicit\'e de $\gamma$ est claire, elle vaut d\'ej\`a lorsqu'on se restreint a prendre $W$ de la forme $\eta - 1$ ou $\eta$ est un quasi-caract\`ere quelconque de $K^*$, trivial sur $U(\alpha(V)/2)$. La compatibilit\'e avec \eqref{eq:4.2.1} r\'esulte de \ref{thm:4.2}(iii).
+
+\begin{proof}[D\'emonstration: cas $V$ de dimension 1]
+Gardons les hypoth\`eses et notations du th\'eor\`eme \ref{thm:4.6}, et supposons en outre $V$ de dimension 1, correspondant au quasi-caract\`ere $\chi$ de $K^*$. Soit $a$ un \'el\'ement de $K^*$, d\'efini de facon unique $\mod^*\, U(\alpha(\chi)/2)$, tel que l'on ait $\chi(Ey) = \psi(ay)$ pour $y \in K$ v\'erifiant $v(y) > \alpha(\chi)/2$. Alors $\gamma = a^{-1}$ v\'erifie \eqref{eq:4.6.1}.
+
+Si l'on a $\beta(W) < \alpha(\chi)/2$, on a aussi $a(\det W) < \alpha(\chi)/2$, et la validit\'e de \eqref{eq:4.6.1} ne d\'epend pas du choix de $a$. On simplifiera les r\'ef\'erences en prenant $a$ tel que l'on ait $\chi(Ey) = \psi(ay)$ pour $y \in K$ v\'erifiant $v(y) > \alpha(\chi)/p$.
+
+De la m\^eme mani\`ere qu'en 4.4, on se ram\`ene a supposer $W$ de la forme $\Ind_H^W(\cX-1)$, ou le sous-groupe $H$ de $W$ correspond a une extension $L$ de $K$, et le quasi-caract\`ere $\cX$ de $H$ a un quasi-caract\`ere $\eta$ de $L^*$, v\'erifiant:
+\[
+\alpha(L/K) < \alpha(\chi)/2 \quad \text{et} \quad \alpha(\eta) < \Psi_{L/K}(\alpha(\chi)/2).
+\]
+La premi\`ere in\'egalit\'e assure que l'on a $\alpha(\eta \circ N_{L/K}) = \Psi_{L/K}(\alpha(\chi))$ et la convexit\'e de $\Psi_{L/K}$ nous donne $\Psi_{L/K}(\alpha(\chi)/2) \leq \Psi_{L/K}(\alpha(\chi))/2$. On peut donc appliquer le corollaire \ref{cor:1.3}(ii) a $\eta \circ N_{L/K}$; si $a'$ est un \'el\'ement de $L^*$ tel que l'on ait
+\[
+\chi \circ N_{L/K}(Ey) = \psi \circ \Tr_{L/K}(a' y)
+\]
+pour $y \in L^*$ v\'erifiant $v(y) > \alpha(\chi \circ N_{L/K})/2$, on a
+\[
+\varepsilon(W \otimes V, \psi) = \varepsilon((\eta-1) \cdot \chi \circ N_{L/K}, \psi \circ \Tr_{L/K}) = \eta(a'^{-1}).
+\]
+Le corollaire \ref{cor:3.7} nous assure l'\'egalit\'e $v(a) = v(a')$, et on conclut comme en 4.4.
+\end{proof}
+
+\subsection{}
+\label{sec:4.8}
+
+On passe du lemme au th\'eor\`eme comme en 4.5. On se ram\`ene a supposer $V$ irr\'eductible, on \'ecrit $V$ sous la forme $\sum n_i \Ind_{H_i}^W(\chi_i)$, on d\'efinit un \'el\'ement $a_i$ de $L_i$ en exigeant l'\'egalit\'e $\chi_i(1+y) = \psi \circ \Tr_{L_i/K}(a_i y)$ pour $v(y) > \alpha(\chi_i)/2$, et on trouve que l'\'el\'ement $\gamma = \prod N_{L_i/K}(a_i^{-1})^{n_i}$ v\'erifie \eqref{eq:4.6.1}. La convexit\'e de $\Psi_{L_i/K}$ garantit l'in\'egalit\'e requise:
+\[
+\beta(W_i) \leq \Psi_{L_i/K}(\beta(W)) < \Psi_{L_i/K}(\alpha(V)/2) \leq \alpha(\chi_i)/2.
+\]
+
+\begin{theorem}\label{thm:4.9}
+Soit $V$ une repr\'esentation virtuelle de $W$, sans constituant mod\'er\'e. Soit $(W_i)_{i \in I}$ une famille finie de repr\'esentations virtuelles de dimension 0 de $W$. On suppose que l'on a $\beta(W_i) < \alpha(V)$ pour tout indice $i$ et $\sum_{i \in I}(\alpha(V) - \beta(W_i)) > \alpha(V)$. Alors on a
+\[
+\varepsilon\biggl(\bigl(\bigotimes_i W_i\bigr) \otimes V\biggr) = 1.
+\]
+\end{theorem}
+
+\begin{remark}
+L'hypoth\`ese assure qu'il y a au moins deux repr\'esentations $W_i$. Le d\'eterminant de $(\bigotimes_i W_i) \otimes V$ est donc trivial, ce qui justifie l'omission de $\psi$ sous le signe $\varepsilon$.
+\end{remark}
+
+\begin{proof}
+Si $W_i$ est de la forme $\Ind_{H_i}^W(\eta_i - 1)$ ou $L_i$ est une extension finie de $K$ et $\eta_i$ un quasi-caract\`ere de $L_i^*$, v\'erifiant
+\[
+\alpha(\eta_i) < \Psi_{L_i/K}(\beta(W_i)) \quad \text{et} \quad \alpha(L_i/K) \leq \beta(W_i),
+\]
+on a
+\begin{equation}\label{eq:4.9.1}
+\varepsilon\biggl(\bigl(\bigotimes_i W_i\bigr) \otimes V\biggr) = \varepsilon\biggl(\bigl(\bigotimes_i (W_i|_{W(K/L_i)}) \otimes (V|_{W(K/L_i)})\bigr), \psi \circ \Tr_{L_i/K}\biggr),
+\end{equation}
+et de plus
+\[
+\beta(W_i|_{W(K/L_i)}) \leq \Psi_{L_i/K}(\beta(W_i))
+\]
+\[
+\alpha(V|_{W(K/L_i)}) = \Psi_{L_i/K}(\alpha(V)).
+\]
+La convexit\'e de $\Psi_{L_i/K}$ assure donc que l'hypoth\`ese du th\'eor\`eme est encore satisfaite pour la repr\'esentation (de $W(K/L_i)$) apparaissant dans le membre de droite de \eqref{eq:4.9.1}.
+
+De m\^eme, si $V$ est de la forme $\Ind_{H_i}^W(\chi_i)$, ou le quasi-caract\`ere $\chi_i$ de $L_i^*$ v\'erifie $\alpha(\chi_i) = \Psi_{L_i/K}(\alpha(V))$, on a
+\begin{equation}\label{eq:4.9.2}
+\varepsilon\biggl(\bigl(\bigotimes_i W_i\bigr) \otimes V\biggr) = \varepsilon\biggl(\bigotimes_i (W_i|_{W(K/L_i)}) \otimes \chi_i, \psi \circ \Tr_{L_i/K}\biggr),
+\end{equation}
+et l'hypoth\`ese du th\'eor\`eme est encore satisfaite pour la repr\'esentation apparaissant au membre de droite de \eqref{eq:4.9.2}.
+
+Les variantes du th\'eor\`eme de Brauer ram\`enent donc le th\'eor\`eme a la proposition \ref{prop:1.7}.
+\end{proof}
+
+\subsection{}
+\label{sec:4.10}
+
+\textbf{Question.} Soit $V$ une repr\'esentation de $W$, sans constituant mod\'er\'e. Soient $(G_i)_{i \in I}$ une famille finie de quotients de $W$ par des sous-groupes ouverts de $I$ et, pour chaque indice $i$, $f_i$ le dernier saut de la filtration de $G_i$ par les groupes de ramification, en num\'erotation sup\'erieure. On suppose que pour chaque $i$, on a $f_i < \alpha(V)$. Soient $(n_i)_{i \in I}$ une famille d'entiers positifs ou nuls, et pour chaque indice $i$, une repr\'esentation virtuelle $W_i$ de $G_i$, qui se trouve dans le $n_i$-sous-espace de la $\gamma$-filtration de l'anneau des repr\'esentations de $G_i$. Pour $n_i = 1$ (resp.~$n_i = 2$) cela signifie que $W_i$ est de dimension 0 (resp.~de dimension 0 et de d\'eterminant trivial).
+
+Si $\sum_{i \in I} n_i(\alpha(V) - \beta(W_i)) > \alpha(V)$, peut-on conclure que $\varepsilon((\bigotimes_i W_i) \otimes V)$ vaut 1?
+
+\begin{remark}
+Si tous les $n_i$ valent 1, c'est le th\'eor\`eme \ref{thm:4.9}. Si $|I|$ vaut 1 et si $n_i$ vaut 2, c'est le th\'eor\`eme \ref{thm:4.6}.
+\end{remark}
+
+\begin{lemma}\label{lem:4.11}
+Toute repr\'esentation irr\'eductible du groupe d'inertie sauvage dont la classe d'isomorphie est fixe sous $W$ se prolonge en une repr\'esentation de $W$.
+\end{lemma}
+
+Le groupe d'inertie $I$ est une extension
+\begin{equation}\label{eq:4.11.1}
+1 \to P \to I \to \bZ_\ell(1) \to 1.
+\end{equation}
+Soient $\sigma_0$ un g\'en\'erateur de $\bZ_\ell(1)$, $\tilde{\sigma}_0$ un rel\`evement de $\sigma_0$ dans $I$, $1(\neq p)$ l'\'el\'ement de $\hat{\bZ} = \prod_\ell \bZ_\ell$ de composante dans $\bZ_\ell$ \'egale a 1 (resp.~a 0) pour $\ell \neq p$ (resp.~$\ell = p$), et posons $c = \tilde{\sigma}_0^{1(\neq p)}$. Cet \'el\'ement d\'efinit un scindage de l'extension \eqref{eq:4.11.1}.
+
+Le groupe $W$ est extension de $\bZ$ par $I$. Le choix d'un rel\`evement $F$ de $1 \in \bZ$ scinde cette extension; celui de $F$ et $\sigma_0$ identifie $W$ au produit semi-direct it\'er\'e
+\[
+W \simeq \bZ \ltimes (\bZ_\ell \ltimes P).
+\]
+Pour prolonger a $W$ une repr\'esentation $\rho: P \to GL(V)$, il suffit donc de se donner les deux automorphismes $R = \rho(\sigma_0)$ et $S = \rho(F)$ de $V$ assujettis aux conditions suivantes:
+\begin{enumerate}[label=(\alph*)]
+\item Pour $g \in P$, $\rho(\sigma_0 g \sigma_0^{-1}) = R \rho(g) R^{-1}$.
+\item $\rho(c)$ est d'ordre fini premier a $p$.
+\item Notant $\rho_0$ la repr\'esentation de $I$ qui prolonge $\rho$ et pour laquelle $R = \rho(\sigma_0)$, on a $\rho_0(F g F^{-1}) = S \rho_0(g) S^{-1}$ pour $g \in I$.
+\end{enumerate}
+
+Supposons $V$ irr\'eductible, de classe d'isomorphie fixe par $I$. Il existe alors $R_0$ v\'erifiant (a). Soit $n$ un entier $\geq 1$, premier a $p$, tel que $\sigma_0^n$ centralise le quotient fini $\rho(P)$ de $P$. La repr\'esentation $\rho$ \'etant irr\'eductible, l'automorphisme $R_0^n$ de $(V, \rho)$ est un scalaire $\lambda$. Soit $\lambda^{1/n}$ une racine $n$\textsuperscript{\`eme} de $\lambda$ dans $\bC^*$; posons $R = \mu R_0$, ou $\mu^{n-1} = \lambda^{1/n}$. Alors $R$ v\'erifie (a) et $R^n = 1$. On peut choisir $S$ v\'erifiant (c), et rempla\c{c}ant au besoin $S$ par une puissance $S^{1 + Mp^k}$ avec $M$ convenable, on obtient (b). C.Q.F.D.
+
+
+\subsection{}
+\label{sec:4.13}
+
+Soit $V$ une repr\'esentation virtuelle de $W$. D\'ecomposons la restriction de $V$ a $P$ en somme de composantes isotypiques:
+\[
+V|_P = \sum_{\nu \in \hat{P}/W} V(\nu),
+\]
+ou $V(\nu)$ est la composante isotypique correspondant a une classe d'isomorphie $\nu$ de repr\'esentations irr\'eductibles de $P$, et la somme porte sur les orbites de $W$ dans $\hat{P}$. On peut supposer que $\nu$ appara\^it dans un constituant de $V$. Si $\nu$ est la repr\'esentation triviale, on pose $V(\nu) = V^P$.
+
+Soit $W(\nu)$ le fixateur de $\nu$ dans $W$. D'apr\`es le lemme \ref{lem:4.11}, il existe une repr\'esentation $V_\nu$ de $W(\nu)$ telle que $V(\nu) = \Ind_{W(\nu)}^W(V_\nu)$. Posons
+\[
+V' = \sum_{\nu \neq 1} \Ind_{W(\nu)}^W\bigl((\dim \Hom_P(\nu, V)) \cdot V_\nu\bigr)
+\]
+et
+\[
+V'' = \sum_{\nu \neq 1} \Ind_{W(\nu)}^W\bigl((\Hom_P(\nu, V) - (\dim \Hom_P(\nu, V)) \cdot 1) \otimes V_\nu\bigr).
+\]
+On a $V = V' + V''$. Pour toute repr\'esentation virtuelle $W$ de $W$, on a
+\[
+\varepsilon(W \otimes V, \psi) = \varepsilon(W \otimes V', \psi) \cdot \varepsilon(W \otimes V'', \psi).
+\]
+
+\begin{theorem}\label{thm:4.13}
+Avec les notations pr\'ec\'edentes:
+\begin{enumerate}[label=(\roman*)]
+\item On a $\varepsilon(W \otimes V'', \psi) = \det W(\gamma'')$, ou $\gamma''$ est l'\'el\'ement du th\'eor\`eme \ref{thm:4.6} relatif a $V''$.
+\item Si $W$ est triviale sur $W(t)$, on a $\varepsilon(W \otimes V', \psi) = 1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Prouvons (ii). Par d\'efinition, $V'$ est induite \`a partir de repr\'esentations $V'_\nu$ de $W(\nu)$ dont la restriction a $P$ est scalaire (de dimension $\dim V(\nu)$). On a donc
+\[
+\varepsilon(W \otimes V', \psi) = \prod_\nu \varepsilon(W|_{W(\nu)} \otimes V'_\nu, \psi).
+\]
+Ceci justifie l'omission de $\psi$ sous le signe $\varepsilon$ dans (i). De plus,
+\[
+\varepsilon(W \otimes V') = \prod_\nu \varepsilon(W \otimes \Hom_P(V(\nu), V) \otimes V(\nu)).
+\]
+Il suffit d'\'etendre le produit aux $\nu$ qui apparaissent dans un constituant de $V$, chaque facteur est justifiable de \ref{thm:4.9}, et ceci prouve (i).
+
+Supposons que $W$ ait une restriction a $P$ nulle. D\'ecomposons $W$ en la somme $W = W_1 + W_2$, avec
+\[
+W_1 = \sum_\nu \Ind_{W(\nu)}^W\bigl(\Hom_P(V(\nu), W) \otimes (V(\nu) - \dim V(\nu) \cdot 1)\bigr)
+\]
+et
+\[
+W_2 = \sum_\nu \Ind_{W(\nu)}^W\bigl(\Hom_P(V(\nu), W) \otimes (\dim V(\nu) \cdot 1)\bigr).
+\]
+Les repr\'esentations virtuelles $\Hom_P(V(\nu), W) \otimes V(\nu)$ et $\Hom_P(V(\nu), W) \otimes (\dim V(\nu) \cdot 1)$ de $W(\nu)$ ayant m\^eme d\'eterminant, on a $\det W = \det W_1$ (cf.~4.4). On a
+\[
+\varepsilon(W \otimes V, \psi) = \varepsilon(W_1 \otimes V, \psi) \cdot \varepsilon(W_2 \otimes V, \psi).
+\]
+La repr\'esentation $W_2 \otimes V$ est de d\'eterminant trivial, et le facteur $\varepsilon(W_2 \otimes V, \psi)$ se r\'ecrit
+\[
+\varepsilon(W_2 \otimes V) = \prod_\nu \varepsilon\bigl(\Hom_P(V(\nu), W) \otimes (V(\nu) - \dim V(\nu) \cdot 1) \otimes V\bigr).
+\]
+Il suffit d'\'etendre le produit aux $\nu$ qui apparaissent dans les constituants de $W$; chaque facteur est justiciable de \ref{thm:4.9}, et $\varepsilon(W_2 \otimes V) = 1$. Appliquant a $W_1$, on trouve enfin que
+\[
+\varepsilon(W \otimes V, \psi) = \varepsilon(W_1 \otimes V, \psi) = \det W_1(\gamma) = \det W(\gamma). \qedhere
+\]
+\end{proof}
+
+\begin{remark}\label{rem:4.14}
+Pour toute repr\'esentation virtuelle $V$ de $W$, posons $V = V' + V''$, avec
+\[
+V' = \sum_\nu \Ind_{W(\nu)}^W\bigl((\dim \Hom_P(\nu, V)) \cdot V_\nu\bigr)
+\]
+et
+\[
+V'' = \sum_\nu \Ind_{W(\nu)}^W\bigl((\Hom_P(\nu, V) - (\dim \Hom_P(\nu, V)) \cdot 1) \otimes V_\nu\bigr).
+\]
+La restriction de $V''$ a $P$ est 0, les repr\'esentations irr\'eductibles de $P$ qui figurent dans les constituants de $V''$ sont parmi les m\^emes pour $V$, et les repr\'esentations irr\'eductibles de $P$ qui figurent dans les constituants de $V'$ sont les constituants de la restriction de $V$ a $P$. On a donc $\alpha(V'), \alpha(V'') \geq \alpha(V)$ et $\beta(V'), \beta(V'') \leq \beta(V)$.
+
+Cette d\'ecomposition, et \ref{thm:4.13}, permettent d'am\'eliorer l'hypoth\`ese de \ref{thm:4.6} en $\beta(W) < \alpha(V)$ et $\beta(W) < \alpha(V')/2$.
+\end{remark}
+
+\begin{theorem}\label{thm:4.15}
+Soit $V$ une repr\'esentation virtuelle de $W$, sans constituant mod\'er\'e. Notons simplement $\varepsilon$ la fonction $\eta \mapsto \varepsilon(\eta \otimes V, \psi, dx)$ du groupe $X$ des quasi-caract\`eres de $K^*$ triviaux sur $U((1-(1/p))\alpha(V))$.
+\begin{enumerate}[label=(\roman*)]
+\item La fonction $\varepsilon$ s'\'ecrit de facon unique comme un produit $\varepsilon = \prod_{i=0}^{p-1} \varepsilon_i$, ou $\varepsilon_0$ est constante, $\varepsilon_1$ de la forme $\eta \mapsto \eta(\gamma)$, pour un certain \'el\'ement $\gamma$ de $K^*$ bien d\'efini $\mod^*\, U((1-(1/p))\alpha(V))$, et ou les $\varepsilon_i$, pour $i \geq 2$, sont homog\`enes de degr\'e $i$, a valeurs dans $\bQ_p/\bZ_p(1)$.
+\item Si $2 \leq n \leq p$ et $n(\alpha(V) - \alpha(\eta)) > \alpha(V)$ alors $\varepsilon_n(\eta)$ vaut 1.
+\item L'\'el\'ement $\gamma$ de $K^*$, bien d\'efini $\mod^*\, U((1-1/p)\alpha(V))$, tel que $\varepsilon_1(\eta) = \eta(\gamma)$ pour $\eta \in X$ pr\'ecise celui de \eqref{eq:4.6.1}, i.e.~lui est congru $\mod^*\, U(\alpha(V)/2)$.
+\end{enumerate}
+\end{theorem}
+
+Admettons l'existence d'une d\'ecomposition $\varepsilon = \prod_i \varepsilon_i$ comme en (i) et prouvons son unicit\'e et les assertions (ii) et (iii). Soit $\gamma_0$ un \'el\'ement de $K^*$ v\'erifiant \eqref{eq:4.2.1}. On a n\'ecessairement $\varepsilon_0(\eta) = \varepsilon(V, \psi, dx)$, d'o\`u
+\[
+\varepsilon((\eta-1) \otimes V, \psi) = \eta(\gamma) \cdot \prod_{i=2}^{p-1} \varepsilon_i(\eta) \equiv \eta(\gamma) \pmod{*} \bQ_p/\bZ_p(1).
+\]
+D'apr\`es \ref{thm:4.2}, l'\'el\'ement $\gamma_1 := \gamma \gamma_0^{-1}$ de $K^*$ est dans $U(1)$. On a
+\[
+\varepsilon((\eta-1) \otimes V, \psi) \cdot \eta(\gamma_0)^{-1} = \eta(\gamma_1) \cdot \prod_{i=2}^{p-1} \varepsilon_i(\eta).
+\]
+Fixons un entier $n$ entre 2 et $p$: $2 \leq n \leq p$. D'apr\`es \ref{thm:4.9}, la restriction de la fonction $\varepsilon(\eta \otimes V, \psi, dx): X \to \bC^*$ au groupe $X_n$ des quasi-caract\`eres de $K^*$ triviaux sur $U((1-1/n)\alpha(V))$ est de degr\'e $< n$ (utiliser la forme \eqref{eq:1.8.2} de la d\'efinition \ref{def:1.8}). La m\^eme assertion vaut pour la fonction $\varepsilon((\eta-1) \otimes V, \psi) \cdot \eta(\gamma_0)^{-1}$ qui s'en d\'eduit par multiplication par une fonction de $X$ dans $\bC^*$ de degr\'e $< 1$. La fonction $\varepsilon((\eta-1) \otimes V, \psi) \cdot \eta(\gamma_0)^{-1}$ est en outre a valeurs dans $\bQ_p/\bZ_p(1)$, ce qui permet de lui appliquer \ref{lem:1.9}. Faisant $n=p$, on trouve qu'elle d\'etermine uniquement la fonction $\eta \mapsto \eta(\gamma_1)$ et les fonctions $\varepsilon_i$. A son tour, la fonction $\eta \mapsto \eta(\gamma_1)$ d\'etermine les \'el\'ements $\gamma_1$ et $\gamma = \gamma_0 \gamma_1$ de $K^*$ $\mod^*\, U((1-1/n)\alpha(V))$. Pour $n$ quelconque, on obtient (ii). Enfin, (iii) r\'esulte du cas $n=2$ de (ii), compar\'e a \ref{thm:4.6}.
+
+Prouvons les assertions d'existence.
+
+Pour $V$ de dimension 1, \ref{prop:1.10} fournit une d\'ecomposition \ref{thm:4.15}(i):
+
+\begin{lemma}\label{lem:4.16}
+Soient $V$ de dimension 1, d\'efini par un caract\`ere sauvagement ramifi\'e $\chi$ de $K^*$, et $a$ un \'el\'ement de $K^*$ tel que $\chi(Ey) = \psi(ay)$ pour $v(y) > \alpha(\chi)/p$. L'assertion \ref{thm:4.15}(i) est vraie pour $V$, et on peut prendre $\gamma = a^{-1}$.
+\end{lemma}
+
+\begin{lemma}\label{lem:4.17}
+Soit $L/K$ une extension s\'eparable finie de $K$. On la munit du caract\`ere additif $\psi \circ \Tr_{L/K}$, et d'une quelconque mesure de Haar $dx$. Soient $V'$ une repr\'esentation de $W(K/L)$ et $V$ son induite a $W$. On suppose que l'on a $\alpha(V') > 0$ et on pose $\alpha = \Psi_{L/K}(\alpha(V'))$. Supposons \ref{thm:4.15}(i) vrai pour $V'$, et posons $\varepsilon_1(\eta) = \eta(\gamma')$, avec $\gamma' \in L^*$ et $\gamma = N_{L/K}(\gamma')$. Alors les assertions du th\'eor\`eme \ref{thm:4.15}(i) sont vraies pour $V$ (et $\psi$), si l'on y remplace $\alpha(V)$ par $\alpha$.
+\end{lemma}
+
+\begin{proof}
+Pour tout quasi-caract\`ere $\eta$ de $K^*$, on a
+\[
+\varepsilon(\eta \otimes V, \psi) = \varepsilon(\eta \circ N_{L/K} \otimes V', \psi \circ \Tr_{L/K}).
+\]
+Si on a $\alpha(\eta) < (1-(1/p))\alpha$, la convexit\'e de $\Psi_{L/K}$ fournit
+\[
+\alpha(\eta \circ N_{L/K}) \leq \Psi_{L/K}(\alpha(\eta)) \leq (1-(1/p)) \Psi_{L/K}(\alpha) = (1-(1/p)) \alpha(V).
+\]
+L'assertion du lemme est donc claire.
+\end{proof}
+
+\subsection{}
+\label{sec:4.18}
+
+Supposons maintenant que $V$ est une repr\'esentation quelconque de $W$, sans constituant mod\'er\'e. Par la variante du th\'eor\`eme de Brauer donn\'ee au chapitre 2, on \'ecrit $V = \sum n_i \Ind_{W(K/L_i)}^W(\chi_i)$, ou $L_i$ est une extension finie de $K$ et $\chi_i$ un quasi-caract\`ere de $L_i^*$ v\'erifiant $\alpha(\chi_i) = \Psi_{L_i/K}(\alpha(V))$. Appliquant alors \ref{lem:4.16} et \ref{lem:4.17}, on voit que, si l'on choisit pour chaque $i$ un \'el\'ement $\gamma_i$ de $L_i^*$ tel qu'on ait $\chi_i(Ey) = \psi \circ \Tr_{L_i/K}(\gamma_i^{-1} y)$ pour $y \in L_i$ v\'erifiant $v(y) > \alpha(\chi_i)/p$, alors on peut prendre $\gamma = \prod N_{L_i/K}(\gamma_i)^{n_i}$ dans le th\'eor\`eme \ref{thm:4.15}, relativement a $V$ et $\psi$. C.Q.F.D.
+
+\subsection{}
+\label{sec:4.19}
+
+Le th\'eor\`eme \ref{thm:4.15} et le paragraphe 4.1, permettent donc d'attacher a une repr\'esentation $V$ de $W$ (et au caract\`ere additif $\psi$ fix\'e), un \'el\'ement $\gamma = \gamma(V, \psi)$ de $K^*$, bien d\'efini $\mod^*\, U((1-(1/p))\alpha(V))$, et caract\'eris\'e par l'existence d'une d\'ecomposition
+\begin{equation}\label{eq:4.19.1}
+\varepsilon(\eta \otimes V, \psi, dx) = \varepsilon(V, \psi, dx) \cdot \eta(\gamma(V, \psi)) \cdot \prod_{i=2}^{p-1} \varepsilon_i(\eta)
+\end{equation}
+pour chaque caract\`ere $\eta$ de $K^*$ trivial sur $U((1-(1/p))\alpha(V))$, les fonctions $\varepsilon_i$ \'etant des fonctions homog\`enes de degr\'e $i$ du groupe $X$ de ces caract\`eres, a valeurs dans $\bQ_p/\bZ_p(1)$. Cet \'el\'ement $\gamma(V, \psi)$ v\'erifie de plus \eqref{eq:4.1.2}, \eqref{eq:4.2.1} et \eqref{eq:4.6.1} et il est de valuation $a(V) - (\dim V) \cdot n(\psi)$.
+
+Que se passe-t-il si l'on change caract\`ere additif $\psi$?
+
+Les autres caract\`eres additifs de $K$ sont les caract\`eres $\psi_a$, $a$ parcourant $K$, d\'efinis par $\psi_a(x) = \psi(ax)$; ils sont non triviaux si $a$ est non nul. Si $X$ est une repr\'esentation virtuelle de dimension 0 de $W$, on a
+\[
+\varepsilon(X, \psi_a) = \det X(a) \cdot \varepsilon(X, \psi), \quad \text{(cf.~[1], 5.4)}.
+\]
+Il est facile d'en d\'eduire la d\'ependance de $\gamma(V, \psi)$ en $\psi$: on a $\det((\eta-1)V) = \eta^{-\dim V}$ et
+\begin{equation}\label{eq:4.19.2}
+\gamma(V, \psi_a) = a^{-\dim V} \cdot \gamma(V, \psi).
+\end{equation}
+
+\subsection{}
+\label{sec:4.20}
+
+Soit $\cX$ le dual de Pontrjagin du groupe additif de $K$. C'est un espace vectoriel de dimension 1 sur $K$, pour le produit $a \cdot \psi = \psi_a$. Pour chaque entier $m$, on munit sa puissance tensorielle $m$\textsuperscript{\`eme} de la valuation $v$ pour laquelle on a $v(a \psi^{\otimes m}) = v_K(a) + m \cdot n(\psi)$, ce pour tout \'el\'ement $a$ de $K$. La formule \eqref{eq:4.19.1} signifie que l'\'el\'ement $\gamma(V) = \gamma(V, \psi) \cdot \psi^{\otimes (-\dim V)}$ de $K \otimes \cX^{\otimes (-\dim V)}$ est ind\'ependant du caract\`ere $\psi$ (non trivial) choisi. On a $v(\gamma(V)) = a(V)$ et
+\begin{equation}\label{eq:4.20}
+\gamma(V^*) = \gamma(V)^{-1} \cdot \omega^{\otimes \dim V},
+\end{equation}
+o\`u $\omega$ est le caract\`ere mod\'er\'e donnant l'action de $W$ sur $\cX$.
+
+Soit $L$ une extension finie de $K$. Le morphisme $y \mapsto \psi \circ \Tr_{L/K}$ de $\cX$ dans $\cX_L$ est $K$-lin\'eaire, et se prolonge en un isomorphisme $\iota_{L/K}: K \otimes_K \cX_L \simeq \cX$. On d\'efinit la norme $N_{L/K}: \cX_L \to \cX^{[L:K]}$ par l'\'egalit\'e
+\[
+N_{L/K}(b \otimes \psi_L) = N_{L/K}(b) \cdot \psi^{[L:K]} \quad \text{pour } \psi_L \in \cX_L, \; b \in L.
+\]
+Avec ces notations, on a le formulaire suivant.
+
+\subsection{Formulaire}\label{sec:4.21}
+
+\textbf{(4.21.1) Multiplicativit\'e.} Soient $V$, $V'$, $V''$ des repr\'esentations de $W$. Supposons $V$ extension de $V'$ par $V''$. On a alors
+\[
+\alpha(V) = \inf(\alpha(V'), \alpha(V''))
+\]
+et
+\[
+\gamma(V) = \gamma(V') \cdot \gamma(V'') \pmod{*} U\bigl((1-(1/p))\alpha(V)\bigr).
+\]
+
+\textbf{(4.21.2) Induction.} Soit $L$ une extension finie de $K$. Soient $V'$ une repr\'esentation de $W(K/L)$ et $V$ son induite a $W$. On a
+\[
+\alpha(V) = \Psi_{L/K}(\alpha(V'))
+\]
+et
+\[
+\gamma(V) = N_{L/K}(\gamma(V')) \pmod{*} U_K\bigl((1-(1/p))\Psi_{L/K}(\alpha(V'))\bigr).
+\]
+
+\textbf{(4.21.3) Restriction.} Soit $L$ une extension finie de $K$. Soient $V$ une repr\'esentation de $W$ et $V'$ sa restriction a $W(K/L)$. Supposons que l'on ait $\alpha(L/K) < \alpha(V)$ et notons $e$ l'indice de ramification de $L/K$. On a
+\[
+\gamma(V) = \iota_{L/K}(\gamma(V')) \pmod{*} U_L\bigl((1-(1/p))e(\alpha(V) - \alpha(L/K))\bigr).
+\]
+
+\begin{remark}
+On notera que si l'extension $L/K$ est mod\'er\'ement ramifi\'ee, cette formule d\'etermine $\gamma(V)$, $\mod^*\, U((1-(1/p))\alpha(V))$, a partir de $\gamma(V')$, et que $\gamma(V)$ ne d\'epend donc que de la restriction de $V$ au groupe d'inertie sauvage $P$. Ce fait peut aussi se d\'eduire de \ref{thm:4.13}(i).
+\end{remark}
+
+\textbf{(4.21.4) Dimension 1.} Soit $V$ une repr\'esentation de dimension 1, correspondant au quasi-caract\`ere $\chi$ de $K^*$. Supposons $\chi$ sauvagement ramifi\'e, et choisissons un caract\`ere additif prolongeant le caract\`ere $\chi \circ \psi(Ey)$ de $A(\alpha(\chi)/p)$. On a
+\[
+\gamma = \psi \otimes a^{-1} \pmod{*} U((1-(1/p))\alpha(\chi)).
+\]
+
+\subsection{}
+\label{sec:4.22}
+
+L'assertion (4.21.1) r\'esulte aussit\^ot des d\'efinitions, et de la multiplicativit\'e des facteurs $\varepsilon_i$. L'assertion (4.21.2) reformule \ref{lem:4.17} et (4.21.4) reformule \ref{lem:4.16}. Prouvons (4.21.3). Proc\'edant comme en 4.4, 4.8, on peut supposer que $V$ est induite d'un quasi-caract\`ere sauvagement ramifi\'e $\chi$ d'une extension finie $M$ de $K$, v\'erifiant $\alpha(M/K) \leq \Psi_{M/K}(\alpha(\chi))$ (on pourrait m\^eme supposer $\alpha(M/K) < \Psi_{M/K}(\alpha(\chi))$, mais il n'importe). Soit $t$ un \'el\'ement de $T$ tel que $v_M(t) = \alpha(\chi)$. D\'ecomposons $M \otimes_K L$ en un produit de corps:
+\[
+M \otimes_K L = \prod_{i \in I} M_i,
+\]
+et posons $\chi_i = \chi \circ N_{M_i/M}$. On a
+\[
+V = \Ind_{W(K/M)}^W(\chi), \quad \alpha(V) = v_M(t) - \alpha(\chi) = \Psi_{M/K}(t)
+\]
+et
+\[
+V' = \bigoplus_i \Ind_{W(K/M_i)}^{W(K/L)}(\chi_i), \quad \alpha(V') = \sup_i \alpha(\chi_i) = \Psi_{M_i/L}(t).
+\]
+En effet, l'hypoth\`ese $\alpha(L/K) < \alpha(V)$ assure que, pour tout plongement $\sigma$ de $L$ dans $\overline{K}$, $W(K/\sigma(L))$ contient $W[t]$, tandis que l'hypoth\`ese $\alpha(M/K) \leq \Psi_{M/K}(\alpha(\chi))$ assure que, pour tout plongement $\tau$ de $M$ dans $\overline{K}$ et tout $t' > t$, $W(K/\tau(M))$ contient $W[t']$, que $\chi$ est trivial sur $W[t']$ et non trivial sur $W(K/\tau(M))[t] = W(K/L) \cap W[t]$.
+
+Fixons un caract\`ere additif non trivial $\psi$ de $K$, et fixons \'egalement $a$ dans $M$ tel qu'on ait $\chi(Ey) = \psi \circ \Tr_{M/K}(ay)$ pour $y \in M$ v\'erifiant $v(y) > \alpha(\chi)/p$, et pour chaque $i$ un \'el\'ement $a_i$ de $M_i$ tel qu'on ait $\chi(Ey) = \psi \circ \Tr_{M_i/K}(a_i y)$ pour $y \in M_i$ v\'erifiant $v(y) > \alpha(\chi_i)/p$. Il s'agit de prouver la congruence
+\[
+\gamma(V) \equiv \iota_{L/K}(\gamma(V')) \pmod{*} U((1-(1/p))e(\alpha(V) - \alpha(L/K))).
+\]
+On a par d\'efinition $\gamma(V) = N_{M/K}(a^{-1}) \cdot \psi^{-\dim V}$ et $\gamma(V') = \prod_i N_{M_i/L}(a_i^{-1}) \cdot (\psi \circ \Tr_{L/K})^{-\dim V'}$. Or $\dim V = [M:K]$ et $\dim V' = [M:K]/[L:K] \cdot [L:K] = [M:K]$. De plus $N_{M/K}(a^{-1}) = \prod_i N_{M_i/L}(N_{M_i/M}(a^{-1}))$ et, par la proposition \ref{prop:3.6}, on a
+\[
+a_i \equiv a \pmod{*} U((1-(1/p))e(\alpha(V) - \alpha(L/K))),
+\]
+d'o\`u la formule (4.21.3).
+
+
+\begin{thebibliography}{9}
+\addcontentsline{toc}{section}{Bibliographie}
+
+\bibitem[1]{D1}
+P.~Deligne, \textit{Les constantes des \'equations fonctionnelles des fonctions $L$}, dans: Modular Functions of One Variable II, Lecture Notes in Math. 349, Springer-Verlag, 1973, pp.~501--597.
+
+\bibitem[2]{S}
+J.-P.~Serre, \textit{Corps locaux}, Hermann, Paris, 1962.
+
+\bibitem[3]{D2}
+P.~Deligne, \textit{Les constantes locales de l'\'equation fonctionnelle de la fonction $L$ d'Artin d'une repr\'esentation orthogonale}, Invent. Math. \textbf{35} (1976), 299--316.
+
+\bibitem[4]{L}
+G.~Laumon, \textit{Les constantes des \'equations fonctionnelles}, Seminar on Arithmetic Bundles: The Mordell Conjecture (Paris, 1980/81), Ast\'erisque \textbf{127} (1985), 7--24.
+
+\end{thebibliography}
+
+\end{document}

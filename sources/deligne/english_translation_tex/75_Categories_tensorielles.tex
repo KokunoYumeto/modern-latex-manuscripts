@@ -1,0 +1,971 @@
+% ------------------------------------------------------------
+% English working translation layer.
+% Source file: papers_60_90/75_Categories_tensorielles/75_Categories_tensorielles.tex
+% Modern title: Tensor categories
+% ------------------------------------------------------------
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\coker}{coker}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\longueur}{longueur}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Fact}{Fact}
+\DeclareMathOperator*{\colim}{colim}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\simto}{\xrightarrow{\sim}}
+
+\newcommand{\ev}{\mathrm{ev}}
+\newcommand{\Vect}{\mathrm{Vect}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\inj}{\operatorname{inj}}
+\newcommand{\infv}{\operatorname{inf}}
+\newcommand{\vect}{\operatorname{vect}}
+\newcommand{\Mod}{\operatorname{Mod}}
+
+\title{Tensor categories}
+\author{P.~Deligne}
+\date{}
+
+\begin{document}
+\begin{center}\small\emph{Literal English translation working draft. Formulae, numbering, and TeX structure are preserved; this is not yet a modern recast.}\end{center}
+\vspace{0.5em}
+
+\maketitle
+
+\noindent\textbf{Abstract.}
+We give an analogue, in super mathematics, to the theorem that over an algebraically closed field of characteristic zero, categories of representations of affine group schemes, with their associative, commutative and unital tensor product, are characterized by the property that for any object, large enough exterior powers vanish.
+
+\smallskip
+\noindent\textbf{Keywords and phrases.} tensor category, Tannaka duality, fiber functor, supergroup.
+
+\tableofcontents
+\section{Introduction}
+
+\subsection{}
+\label{0.1}
+
+Fixons a field algebriquement clos $k$ of caracteristique $0$. We appellerons \emph{category $k$-tensor} a systeme $(A,\otimes,\text{donn\'ees auxiliaires})$ of the type suivant.
+
+\begin{itemize}
+\item[(0.1.1)] $A$ is a category essentiellement petite (equivalent a petite category);
+\item[(0.1.2)] it is abelienne, $k$-lineaire;
+\item[(0.1.3)] the tensor product $\otimes$ is a functor of $A\times A$ in $A$ exact and $k$-lineaire en each variable;
+\item[(0.1.4)] it is equipped with contraintes of associativity, of commutativity and of unite (the unite will be notee $1$);
+\item[(0.1.5)] $(A,\otimes)$ is rigide: all object $X$ of $A$ is dualisable, to the sens that there exists $X^\vee$, the dual of $X$, equipped with $\delta:1\to X\otimes X^\vee$ and $\ev:X^\vee\otimes X\to 1$, such that the morphisms composes deduits of $\delta$ and $\ev$:
+\[
+X\to X\otimes X^\vee\otimes X\quad\text{et}\quad X^\vee\to X^\vee\otimes X\otimes X^\vee
+\]
+let the identity;
+\item[(0.1.6)] one has $k\xrightarrow{\sim}\End(1)$.
+\end{itemize}
+
+A category $k$-tensor will be dite \emph{of $\otimes$-generation finite} si it admet a $\otimes$-generateur: a object $X$ of which all object se deduces by map iteree of operations of direct sum, tensor product, dual, passage a under-object or a object quotient.
+
+\subsection{Example}
+\label{0.2}
+
+The category $\Rep(G)$ of the representations lineaires of dimension finite of a scheme en groups affine $G$ on $k$ is $k$-tensor. It is of $\otimes$-generation finite if and only if $G$ is of type finite on $k$, i.e.~a algebraic group lineaire.
+
+of after Saavedra (1972), the category $k$-tensor $\Rep(G)$ determine $G$, a isomorphism unique a automorphism interieur pres. The notion of category $k$-tensor can ainsi be regardee as a generalisation of celle of scheme en groups affine. Question vague: comment ramener the classification of the categories $k$-tensorielles a celle of objects more concrets?
+
+\subsection{}
+\label{0.3}
+
+Recall that, remplacant systematiquement the rings commutatifs by the rings $\mathbb{Z}/2$-gradues commutatifs to the sens gradue ($xy=(-1)^{\deg(x)\deg(y)}yx$ for $x$ and $y$ homogenes), one can, paraphrasant a part of the geometrie algebraic, obtenir the ``supergeometrie algebraic''. Si one travaille on $k$, it s'agit to the fond of remplacer the category a tensor product of the vector spaces on $k$ by celle of the super vector spaces: the vector spaces $\mathbb{Z}/2$-gradue, the commutativity of the tensor product being given by the regle of Koszul.
+
+En supergeometrie algebraic on $k$, the group $\mu_2=\{\pm1\}$ agit on each object; on a super space vector, $-1$ agit by the automorphism of parite $x\mapsto(-1)^{\deg(x)}x$ for $x$ homogene.
+
+the analogue super of \ref{0.2} is the suivant. Let $G$ a super scheme en groups affine on $k$. C'is the spectre of a super algebra of Hopf commutative $O(G)$, the algebra affine of $G$. Let $\varepsilon$ a element of $G(k)$ of ordre divisant $2$ and such that the automorphism $\operatorname{int}(\varepsilon)$ of $G$ let the automorphism of parite. Let $\Rep(G,\varepsilon)$ the category of the super representations of dimension finite $(V,\rho)$ of $G$, such that $\rho(\varepsilon)$ let the automorphism of parite of $V$. C'is a category $k$-tensor and it is of $\otimes$-generation finite if and only if $G$ is of type finite on $k$.
+
+\subsection{Examples}
+\label{0.4}
+
+\begin{enumerate}
+\item[(i)] Si $O(G)$ is purement pair, i.e.~si $G$ is a scheme en groups affine vu as super scheme en groups, $\varepsilon$ is central. The category $k$-tensor $\Rep(G,\varepsilon)$ s'identifie a $\Rep(G)$, with a new contrainte of commutativity: for each representation $(V,\rho)$ of $G$, the involution $\rho(\varepsilon)$ defines a $\mathbb{Z}/2$-graduation of $V$ and the isomorphism of commutativity of the tensor product is given by the regle of Koszul.
+
+For $\varepsilon$ trivial, one retrouve the category $k$-tensor $\Rep(G)$ of \ref{0.2}.
+\item[(ii)] Let $H$ a super scheme en groups affine, and faisons agir $\mu_2$ on $H$ by the action of parite. The category $k$-tensor $\Rep(\mu_2\ltimes H,(-1,e))$ is the category of the super representations of $H$.
+\end{enumerate}
+
+Notre result principal is a caracterisation interne of quand a category $k$-tensor of $\otimes$-generation finite is of the form $\Rep(G,\varepsilon)$ --- more precisely, is $\otimes$-equivalent a telle category.
+
+\begin{proposition}\label{0.5}
+\begin{enumerate}
+\item[(i)] Let $X$ a object of a category $k$-tensor $A$. The conditions suivantes are equivalentes:
+\begin{enumerate}
+\item[(a)] There exists a functor of Schur (\ref{1.4}) which annule $X$.
+\item[(b)] The powers tensorielles of $X$ are of longueur finite and there exists $N$ such that for every $n\geq0$ one ait
+\[
+\longueur(X^{\otimes n})\leq N^n.
+\]
+\end{enumerate}
+\item[(ii)] the set of the objects of $A$ verifiant (a) is stable by direct sums, tensor products, passage to the dual, extensions and under-quotients.
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}\label{0.6}
+For that a category $k$-tensor of $\otimes$-generation finite let of the form $\Rep(G,\varepsilon)$, it is necessary and sufficient that ses objects satisfy the conditions equivalentes of \ref{0.5}(i).
+\end{theorem}
+
+A reduction sufficiently penible to the cas of $\otimes$-generation finite permet of verify that \ref{0.6} reste vrai without hypothese of $\otimes$-generation finite. We ne the have not redigee.
+
+\begin{corollary}\label{0.7}
+Let $A$ a category $k$-tensor of $\otimes$-generation finite of which all the objects are of longueur finite. Si it n'a that a nombre finite of classes of isomorphie of objects simples, it is of the form $\Rep(G,\varepsilon)$.
+\end{corollary}
+
+\begin{corollary}\label{0.8}
+Si en outre $A$ is semisimple, there exists a group finite $G$ and $\varepsilon\in G$, central and of ordre divisant $2$, such that $A$ let $\otimes$-equivalent a $\Rep(G,\varepsilon)$.
+\end{corollary}
+
+Etingof and Gelaki (1998) prouvent a theorem analogue for the algebras of Hopf triangulaires semi-simples of dimension finite and leurs categories of modules.
+
+\subsection{}
+\label{0.9}
+
+Voici the plan of the proof, and of the article. To the section 1, we shall prove \ref{0.5}(ii) (\ref{1.13}, \ref{1.18}, and \ref{1.19}) and that for every object $X$ of a category $k$-tensor, the condition (b) of \ref{0.5}(i) implique the condition (a) (\ref{1.20}). We shall prove also that in a category $\Rep(G,\varepsilon)$ all object satisfies these conditions (a) and (b) (\ref{1.21}).
+
+A \emph{super functor fiber} of the category $k$-tensor $A$ on a super $k$-algebra commutative $R$ is a $\otimes$-functor $k$-lineaire exact $\omega$ of $A$ in the category a tensor product of the $R$-supermodules. Ici and in what follows of the article, a $\otimes$-functor is a functor $F$ equipped with a isomorphism $1\to F(1)$ and of isomorphisms fonctoriels $F(X)\otimes F(Y)\to F(X\otimes Y)$ compatible to the contraintes of associativity, of commutativity and of unite. A super functor fiber on $R\neq0$ is automatiquement faithful: remarquer that si $X\neq0$, $\ev:X\otimes X^\vee\to 1$ is a epimorphisme and that $\omega(X)$ is therefore not zero. On $\Rep(G,\varepsilon)$, the functor ``super space vector under-jacent'' is a super functor fiber on $k$. Reciproquement, of after Deligne (1990) 8.19, si $\omega$ is a super functor fiber of the category $k$-tensor $A$ on $k$, that $G$ is the super scheme en groups of $\otimes$-automorphismes of $\omega$ and $\varepsilon$ the automorphism of parite of $\omega$, then $\omega$ induces a equivalence of $A$ with $\Rep(G,\varepsilon)$.
+
+One can montrer that si one part of $\Rep(G,\varepsilon)$ and that one applique this construction to the functor fiber ``oubli of the action of $G$'', one retrouve $G$ and $\varepsilon$: $G$ is the super scheme en groups of the automorphismes of the functor of oubli. We ne the have not redige.
+
+Notre strategie will be of montrer that si the objects of $A$ satisfy the condition \ref{0.5}(i)(a), then $A$ admet a super functor fiber on $k$. To the section 2, we montrerons that $A$ admet a super functor fiber on a super $k$-algebra $R\neq0$ suitable. To the section 3, we generalisons to the cas ``super'' a part of the theorie of the functors fiber. For that the questions of signe restent cachees in the commutativity of the tensor product, it we will be commode of generaliser davantage, en remplacant the category $k$-tensor $(s\text{-}\Vect)$ of the super vector spaces of dimension finite by a quelconque category $k$-tensor verifiant the property of finitude (\ref{2.1.1}). As map, we verifions to the \ref{4} that si $A$ is of $\otimes$-generation finite and that $\omega$ is a super functor fiber on $R$, there exists a super under-algebra $R'$ of $R$, of type finite on $k$, such that $\omega$ provienne by extension of scalars (\ref{3.1}) of a super functor fiber $\omega'$ on $R'$. Parce that $k$ is algebriquement clos, si $R$ and therefore $R'$ are not nuls, there exists a homomorphisme $\chi:R'\to k$. Etendant the scalaires by $\chi$, one obtains a super functor fiber on $k$. We concluons the section 4 by the fin of the proof of \ref{0.5} and \ref{0.6}, and by the proof of \ref{0.7} and \ref{0.8}.
+
+\section{Preliminaires}\label{1}
+
+\begin{proposition}\label{1.1}
+In a category $k$-tensor of which all the objects are of longueur finite, the $\Hom(X,Y)$ are of dimension finite.
+\end{proposition}
+
+\begin{proof}
+The identites (0.1.4) between $\delta$ and $\ev$ equivalent a this that the functor $Y\mapsto Y\otimes X^\vee$ let adjoint a line to the functor $Y\mapsto Y\otimes X$, for the morphisms of adjonction $Y\to Y\otimes X\otimes X^\vee$ and $Y\otimes X^\vee\otimes X\to Y$ deduits of $\delta$ and $\ev$. En of other termes, $\Hom(X,Y):=Y\otimes X^\vee$ is a $\Hom$ interne: one dispose of a isomorphism fonctoriel
+\[
+\Hom(Z,\Hom(X,Y))=\Hom(Z\otimes X,Y).
+\]
+For $Z=1$, one obtains
+\begin{equation}\label{1.1.1}
+\Hom(1,\Hom(X,Y))=\Hom(X,Y).
+\end{equation}
+the object $1$ being simple (Deligne-Milne 1982, 1.17), it follows of (0.1.5) and (\ref{1.1.1}) that $n$ morphisms lineairement independants $f_i:X\to Y$ definissent a monomorphisme of $1^n$ in $\Hom(X,Y)$. Si $\Hom(X,Y)$ is of longueur finite, sa longueur borne $n$ and $\Hom(X,Y)$ is of dimension finite.
+\end{proof}
+
+\subsection{}\label{1.2}
+
+We shall have a utiliser of the categories a tensor product $(A,\otimes,\text{donn\'ees auxiliaires})$ more generales that celles of \ref{0.1}, verifiant only the conditions suivantes.
+
+\begin{itemize}
+\item[(1.2.1)] $A$ is additive, $k$-lineaire and Karoubian: all idempotent endomorphism a kernel. A idempotent endomorphism $e$ of $X$ a then a image, and $X$ se decompose en the direct sum of $\Im(e)$ and of $\Ker(e)$.
+\item[(1.2.2)] The tensor product is additif and $k$-lineaire en each variable;
+\item[(1.2.3)] it is equipped with contraintes of associativity, of commutativity and of unite.
+\end{itemize}
+
+\subsection{}\label{1.3}
+
+the hypothese (1.2.1) permet the constructions suivantes.
+
+For $X$ in $A$ and $V$ a space vector of dimension finite on $k$, one defines the objects $V\otimes X$ and $\Hom(V,X)$ of $A$ by
+\begin{align}
+\Hom(V\otimes X,Y) &= \Hom(V,\Hom(X,Y))\quad\text{et}\label{1.3.1}\\
+\Hom(Y,\Hom(V,X)) &= \Hom(V\otimes Y,X).\label{1.3.2}
+\end{align}
+The choix of a base $(e_i)_{i\in I}$ of $V$ identifie $V\otimes X$ a the sum of a family of copies of $X$ indexees by $I$, and $\Hom(V,X)$ is canonically isomorphic a $V^\vee\otimes X$.
+
+Si a group finite $S$ agit on $X$, the endomorphism $e:=\frac{1}{|S|}\sum s$ of $X$ is idempotent. The direct factor $\Im(e)$ of $X$, vu as under-object of $X$, is note $X^S$ (invariants). Vu as quotient of $X$ by $\Ker(e)$, it is note $X_S$ (coinvariants). Si $V$ is a representation lineaire of $S$, $S$ agit on $\Hom(V,X)$, and one sets
+\begin{equation}\label{1.3.3}
+\Hom_S(V,X):=\Hom(V,X)^S.
+\end{equation}
+
+Si one choisit a representant $V_\lambda$ of each class of isomorphie of representations lineaires irreductibles of $S$, it follows formally of this that $k[S]\xrightarrow{\sim}\prod_\lambda\End_k(V_\lambda)$ that the map
+\begin{equation}\label{1.3.4}
+\bigoplus_\lambda V_\lambda\otimes\Hom_S(V_\lambda,X)\xrightarrow{\sim} X
+\end{equation}
+is a isomorphism.
+
+\subsection{}\label{1.4}
+
+For $A$ as en \ref{1.2} and $X$ a object of $A$, the symmetric group $S_n$ agit on the power tensor $X^{\otimes n}$. Identifions the classes of isomorphie of representations irreductibles of $S_n$ to the partitions of $n$, and for each partition $\lambda$ choisissons $V_\lambda$ of class $\lambda$. The \emph{functor of Schur} $S_\lambda$ is
+\begin{equation}\label{1.4.1}
+S_\lambda(X):=\Hom_{S_n}(V_\lambda,X^{\otimes n}),
+\end{equation}
+and (\ref{1.3.4}) se specialise en
+\begin{equation}\label{1.4.2}
+\bigoplus_\lambda V_\lambda\otimes S_\lambda(X)\xrightarrow{\sim} X^{\otimes n}
+\end{equation}
+(sum on the partitions of $n$).
+
+\medskip\noindent\textbf{Notations:} a partition $\lambda$ is a sequence $(\lambda_1,\ldots,\lambda_r)$ of integers $\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_r>0$; for $s>r$, one sets $\lambda_s:=0$; one defines $|\lambda|:=\sum\lambda_i$ and one dit that $\lambda$ is a partition of $|\lambda|$.
+
+The \emph{diagram} $[\lambda]$ of $\lambda$ is the set of the couples $(i,j)$ of integers $\geq1$ such that $j\leq\lambda_i$. By example, si $\lambda$ is the partition $(3,1)$ of $4$, $[\lambda]$ is
+\[
+@@MATH30@@
+\]
+Noter the disposition matricielle, plutot that cartesienne, of the $(i,j)$. Si to the diagram of $\lambda$ one applique the involution $(i,j)\mapsto(j,i)$, one obtains the diagram of the partition \emph{transposee} $\lambda^t$.
+
+\medskip\noindent\textbf{Examples.} For the partition $(n)$ (resp.~$(n)^t=(1^n)=(1,\ldots,1)$) of $n$, prenons $V_\lambda=k$, equipped with the action of $S_n$ by the character trivial (resp.~signe). one has then $S_{(n)}(X)=\Sym^n(X)$ and $S_{(n)^t}(X)=\bigwedge^nX$.
+
+\subsection{}\label{1.5}
+
+Let $n_1,\ldots,n_r$ of the integers of sum $n$ and plongeons the product of the $S_{n_i}$ in $S_n$ en identifiant $\{1,\ldots,n\}$ a the sum disjointe of the $\{1,\ldots,n_i\}$. Si, for each $i$, $\mu_i$ is a partition of $n_i$, the tensor product of the $V_{\mu_i}$ is a representation irreducible of the product $\prod S_{n_i}$ of the $S_{n_i}$. Si $\lambda$ is a partition of $n$, one denotes $[\lambda:\mu_1,\ldots,\mu_r]$ the multiplicite of this representation in the restriction of $V_\lambda$ a $\prod S_{n_i}$. By reciprocite of Frobenius, c'is also the multiplicite of $V_\lambda$ in the induite of $\bigotimes V_{\mu_i}$ a $S_n$:
+\[
+[\lambda:\mu_1,\ldots,\mu_r]=[V_\lambda:\bigotimes V_{\mu_i}]=[\Ind^{S_n}_{\prod S_{n_i}}(\bigotimes V_{\mu_i}):V_\lambda].
+\]
+
+These multiplicites are data by the regle of Littlewood-Richardson of which we shall use the consequences suivantes.
+
+\begin{itemize}
+\item[(1.5.1)] Si $|\lambda|=|\mu|+1$, one has $[\lambda:\mu,(1)]=1$ si $[\mu]\subset[\lambda]$, $0$ otherwise. Utilisant the formule
+\[
+[\lambda:\mu_1,\mu_2,\mu_3]=\sum_{\lambda'}[\lambda:\lambda',\mu_3][\lambda':\mu_1,\mu_2]
+\]
+which exprime the transitivite of the restriction a under-group, one deduces that for $|\mu|\leq|\lambda|$, the conditions suivantes are equivalentes: $[\mu]\subset[\lambda]$; there exists a partition $\nu$ of $|\lambda|-|\mu|$ such that $[\lambda:\mu,\nu]\neq0$; $[\lambda:\mu,(1),\ldots,(1)]\neq0$.
+\item[(1.5.2)] Fixons $r$ and a partition $\lambda$ of $n$. For that there exists $n_1,\ldots,n_r$ of sum $n$ such that $[\lambda:(n_1),\ldots,(n_r)]\neq0$, it is necessary and sufficient that $[\lambda]$ ait to the more $r$ lignes.
+\item[(1.5.3)] Fixons $r$, $s$ and a partition $\lambda$ of $n$. For that there exists $n_1,\ldots,n_r$, $m_1,\ldots,m_s$ of sum $n$ such that $[\lambda:(n_1),\ldots,(n_r),(m_1)^t,\ldots,(m_s)^t]\neq0$, it is necessary and sufficient that
+\[
+[\lambda]\subset\{(i,j)\mid i\leq r\text{ ou }j\leq s\},
+\]
+i.e.~that $(r+1,s+1)\notin[\lambda]$.
+\end{itemize}
+
+As classiquement, and with the same proof, the functors of Schur obeissent a \ref{1.6}, \ref{1.8}, \ref{1.11} and \ref{1.15} ci-dessous.
+
+\begin{proposition}\label{1.6}
+$S_\mu(X)\otimes S_\nu(X)\sim\bigoplus_\lambda S_\lambda(X)^{[\lambda:\mu,\nu]}$, the sum portant on the partitions of $n=|\mu|+|\nu|$.
+\end{proposition}
+
+\begin{proof}
+one has
+\[
+S_\mu(X)\otimes S_\nu(X)=\Hom_{S_{|\mu|}\times S_{|\nu|}}(V_\mu\otimes V_\nu,X^{\otimes|\mu|}\otimes X^{\otimes|\nu|}).
+\]
+By \ref{1.4.2}, one has
+\[
+X^{\otimes|\mu|}\otimes X^{\otimes|\nu|}=X^{\otimes n}=\bigoplus_\lambda V_\lambda\otimes S_\lambda(X)
+\]
+and \ref{1.6} en resulte.
+\end{proof}
+
+Appliquant (1.5.1), one deduces of \ref{1.6} the
+
+\begin{corollary}\label{1.7}
+Si $S_\mu(X)=0$, then $S_\lambda(X)=0$ for every partition $\lambda$ such that $[\mu]\subset[\lambda]$.
+\end{corollary}
+
+The power tensor $(X\oplus Y)^{\otimes n}$ is the sum on $p+q=n$ of the induites
+\[
+\Ind^{S_n}_{S_p\times S_q}(X^{\otimes p}\otimes Y^{\otimes q}).
+\]
+It follows that:
+
+\begin{proposition}\label{1.8}
+Si $\lambda$ is a partition of $n$, one has
+\begin{equation}\label{1.8.1}
+S_\lambda(X\oplus Y)\sim\bigoplus_{|\mu|+|\nu|=n}(S_\mu(X)\otimes S_\nu(Y))^{[\lambda:\mu,\nu]},
+\end{equation}
+the sum portant on the partitions $\mu$, $\nu$ such that $|\mu|+|\nu|=n$.
+\end{proposition}
+
+\begin{corollary}\label{1.9}
+In the category $k$-tensor of the super vector spaces of dimension finite, si $X$ is of super dimension $p|q$, i.e.~si $\dim X_0=p$ and $\dim X_1=q$, for that $S_\lambda(X)=0$, it is necessary and sufficient that
+\begin{equation}\label{1.9.1}
+[\lambda]\subset\{(i,j)\mid i\leq p\text{ ou }j\leq q\}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Si $Y$ is purement impair, of space vector under-jacent $Y$, the space vector under-jacent a $Y^{\otimes n}$ is $Y^{\otimes n}$, and the action of $\sigma\in S_n$ on $Y^{\otimes n}$ is $\sgn(\sigma)$ fois son action natural on $Y^{\otimes n}$. Si $\nu^t$ is the partition transposee of the partition $\nu$ of $n$, one has $V_{\nu^t}\sim\sgn\otimes V_\nu$ and
+\begin{equation}\label{1.9.2}
+S_\nu(Y)\sim S_{\nu^t}(Y)\quad(\text{pour }Y\text{ impair}).
+\end{equation}
+Decomposons $X$ en ses parties paires and impaires $X_0$ and $X_1$. of after \ref{1.8}, and (\ref{1.9.2}), one has
+\[
+S_\lambda(X)=\bigoplus_{|\mu|+|\nu|=|\lambda|}(S_\mu(X_0)\otimes S_{\nu^t}(X_1))^{[\lambda:\mu,\nu]}.
+\]
+For that $S_\lambda(X)=0$, it faut and suffit therefore that there exists of the partitions $\mu$ and $\nu$ such that $[\mu]$ ait to the more $p$ lignes, $[\nu]$ to the more $q$ colonnes and that $[\lambda:\mu,\nu]\neq0$. By (1.5.2) (1.5.3), tel is the cas if and only if one has (\ref{1.9.1}).
+\end{proof}
+
+\begin{corollary}\label{1.10}
+Let $p,q,r,s\geq0$, and $\lambda,\mu,\nu$ trois partitions verifiant $|\lambda|=|\mu|+|\nu|$. Si $(p+r+1,q+s+1)\in[\lambda]$ and that $[\lambda:\mu,\nu]=0$, then $(p+1,q+1)\in[\mu]$ or $(r+1,s+1)\in[\nu]$.
+\end{corollary}
+
+Appliquons \ref{1.8}, in the category of the super vector spaces, a $X$ of dimension $p|q$ and $Y$ of dimension $r|s$. of after \ref{1.9}, one has $S_\lambda(X\oplus Y)=0$. of after \ref{1.8} and \ref{1.9}, the conclusion exprime the nullite of the membre of line of (\ref{1.8.1}).
+
+\begin{proposition}\label{1.11}
+For $\lambda$ a partition of $n$, one has
+\begin{equation}\label{1.11.1}
+S_\lambda(X\otimes Y)\sim\bigoplus_{|\mu|=|\nu|=n}(S_\mu(X)\otimes S_\nu(Y))^{[V_\mu\otimes V_\nu:V_\lambda]}
+\end{equation}
+(sum on $\mu$, $\nu$ partitions of $n$).
+\end{proposition}
+
+\begin{proof}
+Utiliser that
+\[
+(X\otimes Y)^{\otimes n}=X^{\otimes n}\otimes Y^{\otimes n}=\bigoplus_\mu V_\mu\otimes S_\mu(X)\otimes\bigoplus_\nu V_\nu\otimes S_\nu(Y)=\bigoplus_{\mu,\nu}V_\mu\otimes V_\nu\otimes\bigl(S_\mu(X)\otimes S_\nu(Y)\bigr).\qedhere
+\]
+\end{proof}
+
+\begin{corollary}\label{1.12}
+Let $p,q,r,s\geq0$ and $\lambda,\mu,\nu$ trois partitions of $n$. Si $(pq+rs+1,ps+qr+1)\in[\lambda]$ and that $[V_\mu\otimes V_\nu:V_\lambda]=0$, then $(p+1,q+1)\in[\mu]$ or $(r+1,s+1)\in[\nu]$.
+\end{corollary}
+
+The proof is parallele a celle of \ref{1.10}, with $\oplus$ remplace by $\otimes$ and \ref{1.8} by \ref{1.11}.
+
+\begin{corollary}\label{1.13}
+For $A$ as en \ref{1.2} the set of the objects of $A$ annules by to the less a functor of Schur is stable by direct sums and tensor products.
+\end{corollary}
+
+\begin{proof}
+Assume that $S_\mu(X)=S_\nu(Y)=0$. Let $p,q,r,s\geq0$ such that $[\mu]\subset[1,p+1]\times[1,q+1]$ and $[\nu]\subset[1,r+1]\times[1,s+1]$, of sorte that si $(p+1,q+1)\in[\mu']$ (resp.~$(r+1,s+1)\in[\nu']$), one ait $[\mu]\subset[\mu']$ (resp.~$[\nu]\subset[\nu']$). Si $\lambda$ is such that $(p+r+1,q+s+1)\in[\lambda]$ (resp.~$(pr+qs+1,ps+qr+1)\in[\lambda]$), it follows of \ref{1.7}, \ref{1.8} and \ref{1.10} (resp.~\ref{1.7}, \ref{1.11}, and \ref{1.12}) that $S_\lambda(X\oplus Y)$ (resp.~$S_\lambda(X\otimes Y)$) is zero.
+\end{proof}
+
+\subsection{}\label{1.14}
+
+Si $X$ is dualisable, of dual $X^\vee$, one verifies as en \ref{1.1} that the functor $Y\mapsto Y\otimes X^\vee$ is adjoint a line to the functor $Y\mapsto Y\otimes X$. The morphisms $1\to X^\vee\otimes X$ and $X\otimes X^\vee\to 1$ deduits of $\delta$ and $\ev$ by symetrie of the tensor product font of $X$ a dual of $X^\vee$. The functor $Y\mapsto Y\otimes X^\vee$ is therefore also adjoint a gauche of $Y\mapsto Y\otimes X$. Si $A$ is abelienne, the functor $Y\mapsto Y\otimes X$ is therefore exact, for avoir of the adjoints a gauche and a line.
+
+\subsection{}\label{1.15}
+
+One laisse to the reader the soin of verify that si $X$ and $Y$ are dualisables, $X\otimes Y$ (resp.~$X\oplus Y$) is dualisable, of dual $X^\vee\otimes Y^\vee$ (resp.~$X^\vee\oplus Y^\vee$), the morphisms $\delta$ and $\ev$ being given by tensor product (resp.~direct sum) of $\delta$ and $\ev$ for $X$ and $Y$.
+
+A direct factor $A$ of a object dualisable $X$ is again dualisable. Si $X=A\oplus B$ and that $e$ is the idempotent endomorphism ``projection on $A$'' of $X$, $A$ admet for dual the image $A^\vee$ of the idempotent endomorphism of $X^\vee$ transpose of $e$. Si $A$ and $A^\vee$ are vus as under-objects (resp.~quotients) of $X$ and $X^\vee$, $\ev$ (resp.~$\delta$) for $A$ is deduces of $\ev$ (resp.~$\delta$) for $X$.
+
+\medskip\noindent\textbf{Cas particulier \ref{1.15}.1.} Assume that a group finite $S$ agisse on $X$ dualisable, and faisons agir $S$ on $X^\vee$ by the action contragrediente. The direct summands $X^S$ and $X^{S\vee}$ of $X$ and $X^\vee$ are then en duality. The morphism $\delta:1\to X^S\otimes X^{S\vee}$ is the compose $1\to X\otimes X^\vee\to X^S\otimes X^{S\vee}$.
+
+\begin{notation}\label{1.16}
+Si $X$ is dualisable, a endomorphism $f$ of $X$ correspond by (\ref{1.1.1}) a morphism $\delta(f):1\to X\otimes X^\vee$. One defines the \emph{trace} $\Tr(f)\in\End(1)$ of $f$ as being the compose
+\[
+\ev\circ\delta(f):1\to X\otimes X^\vee=X^\vee\otimes X\to 1,
+\]
+and $\dim(X):=\Tr(\Id_X)=\ev\circ\delta$.
+\end{notation}
+
+A $\otimes$-functor transforme object dualisable en object dualisable and preserve traces and dimensions.
+
+We shall prove by recurrence on $n$ that
+
+\begin{lemma}\label{1.17}
+Si $X$ is dualisable and that $X^{\otimes n}=0$, then $X=0$.
+\end{lemma}
+
+\begin{proof}
+One can supposer that $n\geq2$. Tensorisons the map composee
+\[
+\Id_X:X\to X\otimes X^\vee\otimes X\to X
+\]
+by $X^{\otimes n-2}$. One obtains that the map identique of $X^{\otimes n-1}$ se factorise by $X^{\otimes n}\otimes X^\vee=0$: one has $X^{\otimes(n-1)}=0$ and one conclut by recurrence.
+\end{proof}
+
+\begin{proposition}\label{1.18}
+Si $X$ is dualisable, $S_\lambda(X)$ is dualisable, of dual isomorphic a $S_\lambda(X^\vee)$. In particular, si $S_\lambda(X)=0$, one has $S_\lambda(X^\vee)=0$.
+\end{proposition}
+
+\begin{proof}
+The representations of $S_n$ being autoduales, that resulte of (\ref{1.4.2}) and of the duality between $\Hom(V_\lambda,X^{\otimes n})$ and $\Hom(V_\lambda^\vee,X^{\vee\otimes n})$.
+\end{proof}
+
+\begin{proposition}\label{1.19}
+In a category $k$-tensor, all object annule by to the less a functor of Schur is of longueur finite, and the set of these objects is stable by under-quotients and extensions.
+\end{proposition}
+
+\begin{proof}
+Si $Y$ is a under-object of $X$, one has by exactitude of the tensor product $Y^{\otimes n}\hookrightarrow X^{\otimes n}$, and for $\lambda$ partition of $n$
+\[
+\Hom(V_\lambda,Y^{\otimes n})\hookrightarrow\Hom(V_\lambda,X^{\otimes n}).
+\]
+By exactitude of the functor ``invariants under $S_n$'', $S_\lambda(Y)$ is a under-object of $S_\lambda(X)$. Dualement, si $Y$ is a quotient of $X$, $S_\lambda(Y)$ is a quotient of $S_\lambda(X)$. This proves the stabilite by under-quotient.
+
+Si $X$ is a extension of $X'$ by $X''$, the exactitude of the tensor product fournit a filtration $S_n$-equivariante of $X^{\otimes n}$ of gradue $(X'\oplus X'')^{\otimes n}$. It induces a filtration of $S_\lambda(X)$ of gradue $S_\lambda(X'\oplus X'')$ and the stabilite by extensions resulte of the stabilite by direct sums \ref{1.13}.
+
+More generally, a filtration finite $F$ of $X$ induces a filtration of $S_\lambda(X)$ of gradue $S_\lambda(\Gr_F(X))$. A tensor product of objects not nuls is not zero, car ``$Y$ not zero'' equivaut a ``$\ev:Y\otimes Y^\vee\to1$ a epimorphisme'', a condition stable by tensor product. Si $\Gr_F^i(X)$ is not zero for $n$ values of $i$, $S_\lambda(\Gr_F(X))$ contient the tensor product of these $\Gr_F^i(X)$, and $S_\lambda(X)\neq0$. Si $S_\lambda(X)=0$, $X$ is therefore of longueur $<n$.
+\end{proof}
+
+\subsection{}\label{1.20}
+
+Verifions that in every category $k$-tensor, the condition (b) of \ref{0.5}(i) implique (a). Si the $S_\lambda(X)$ are all not nuls, (\ref{1.4.2}) given
+\[
+\longueur(X^{\otimes n})\geq\sum_{|\lambda|=n}\dim(V_\lambda)^2=(n!)^{1/2}
+\]
+and $(n!)^{1/2}$ croit more vite that every progression geometric.
+
+\subsection{}\label{1.21}
+
+The objects of a category $\Rep(G,\varepsilon)$ satisfy the conditions (a) (b) of \ref{0.5}(i): (a) resulte of \ref{1.9}, and (b) of this that si the super representation $X$ of $G$ is of super dimension $p|q$, the longueur of $X^{\otimes n}$ is to the more the dimension $(p+q)^n$ the space vector under-jacent.
+
+\section{Existence of super functors fibers}\label{2}
+
+The result cle of the article is the suivant.
+
+\begin{proposition}\label{2.1}
+Si for every object of the category $k$-tensor $A$ there exists a functor of Schur which the annule, then there exists a super functor fiber of $A$ on a super $k$-algebra commutative not zero.
+\end{proposition}
+
+Si the hypotheses of \ref{2.1} are verifiees, it follows of \ref{1.19} that
+\begin{equation}\label{2.1.1}
+\text{tout objet de }A\text{ est de longueur finie, et d'apr\`es \ref{1.1}, les }\Hom(X,Y)\text{ sont donc de dimension finie sur }k.
+\end{equation}
+For a example of category $k$-tensor ne verifiant not (\ref{2.1.1}), see Deligne (1990) 2.19.
+
+\subsection{}\label{2.2}
+
+Let $A$ a category $k$-tensor verifiant (\ref{2.1.1}) and $\Ind A$ the category of ses Ind-objects. C'is a abelian category of which $A$ is full subcategory. the hypothese (\ref{2.1.1}) assure that the subcategory $A$ of $\Ind A$ is stable by under-quotients and that all object of $\Ind A$ is filtered colimit filtrante of ses under-objects in $A$.
+
+Model: (spaces vector of dimension finite) $\subset$ (vector spaces).
+
+The tensor product of $A$ fournit on $\Ind A$ a tensor product defined by
+\[
+(\colim X_i)\otimes(\colim Y_j)=\colim(X_i\otimes Y_j)
+\]
+for $(X_i)$ and $(Y_i)$ of the systemes inductifs filtrants in $A$.
+
+The category $\Ind A$, equipped with this tensor product, is as en \ref{0.1}, sauf the petitesse (0.1.1) and the existence of duaux (0.1.4). A Ind-object n'is dualisable that s'it is in $A$. Indeed, si $X$ is dualisable of dual $X^\vee$, there exists a under-object $X'$ of $X$ which is in $A$ and such that $\delta:1\to X\otimes X^\vee$ se factorise by $X'\otimes X^\vee$. The commutative diagram
+\[
+@@MATH31@@
+\]
+shows that $X'=X$.
+
+That $(\Ind A,\otimes)$ let as en \ref{1.2} suffit a define, in $\Ind A$, the notions of algebra associative and commutative a unite (we shall say simplement ``algebra'') and of module on a telle algebra. A homomorphisme of algebras $f:A\to B$ is assumed transformer the unite $1_A$ of $A$ en celle of $B$.
+
+\subsection{}\label{2.3}
+
+Si $A$ is a algebra in $\Ind A$, the $A$-modules forment a abelian category $\Mod_A$. Equipped of the tensor product
+\[
+M\otimes_A N:=\coker(M\otimes A\otimes N\rightrightarrows M\otimes N),
+\]
+it is of the type considered en \ref{1.2}. the object unite $1_A$ is the $A$-module $A$. The tensor product is exact a line. A $A$-module $P$ is dit plat (resp.~fidelement plat) si the functor $M\mapsto M\otimes_A P$ is exact (resp.~exact and faithful). For $X$ in $\Ind A$, the $A$-module $A\otimes X$ is plat, car $M\otimes_A(A\otimes X)=M\otimes X$. All $A$-module $M$ is quotient of a $A$-module plat, by example the $A$-module $A\otimes M$, and one dispose therefore of the formalism usuel of the functors $\Tor$. In particular, si a exact sequence $0\to M\to N\to P\to 0$ with $P$ plat is tensorisee with a $A$-module, it reste exact.
+
+A $A$-algebra is a algebra $B$ equipped with a homomorphisme $f:A\to B$. Si $B$ is a $A$-algebra, and $M$ a $B$-module, the morphism product $(f\otimes M):A\otimes M\to B\otimes M\to M$ fait of $M$ a $A$-module. This functor of restriction of scalars a for adjoint a gauche the functor of extension of scalars $M\mapsto M_B:=B\otimes_A M$ of $\Mod_A$ in $\Mod_B$. For $M$ in $\Mod_A$ and $N$ in $\Mod_B$, the isomorphism $\Hom_B(M_B,N)\simto\Hom_A(M,\text{restriction}(N))$ and son inverse are
+\begin{align*}
+\nu:M\to N\ &\mapsto M_B=A\otimes_A M\to B\otimes_A M\xrightarrow{\nu\otimes M}N,\\
+v:M\to N\ &\mapsto M_B=B\otimes_A M\xrightarrow{B\otimes v} B\otimes_A N\to N.
+\end{align*}
+The functor of extension of scalars is a $\otimes$-functor.
+
+\medskip\noindent\textbf{Cas particulier:} the isomorphism $1\otimes1\xrightarrow{\sim}1$ fait of $1$ a algebra. All object of $\Ind A$ admet a unique structure of module on this algebra namely the isomorphism $1\otimes M\xrightarrow{\sim}M$. This defines a equivalence $\Mod_1\xrightarrow{\sim}\Ind A$. the unite $1\to A$ of a algebra $A$ is a homomorphisme of algebras. It is let injective, let zero, auquel cas $A=0$. The functor of extension of scalars by $1\to A$, of $\Ind A$ in $\Mod_A$, is the exact functor $M\mapsto A\otimes M$. It is faithful si $A\neq0$.
+
+\subsection{Notation}\label{2.4}
+
+One denotes $\Gamma$ the functor
+\[
+\Gamma(X):=\Hom(1,X)
+\]
+of $\Ind A$ in the $k$-vector spaces. For $A$ a algebra of $\Ind A$, $\Gamma(A)$ is a $k$-algebra (commutative). By adjonction,
+\[
+\Hom_A(1_A,1_A)=\Hom(1,A)=\Gamma(A).
+\]
+The dimension (\ref{1.16}) of a $A$-module dualisable is a element of $\Gamma(A)$.
+
+\begin{definition}\label{2.5}
+We shall say that a systeme of objects and of morphisms of $\Ind A$ \emph{a locally} a property si this property devient vraie after extension of scalars a algebra not zero $A$ suitable.
+\end{definition}
+
+By example, $X$ is locally isomorphic a $Y$ s'there exists a algebra not zero $A$ such that the $A$-modules $X_A$ and $Y_A$ let isomorphes. Si $A\neq0$, $k$ s'injecte in $\Gamma(A)$. It follows therefore of \ref{1.16} that deux objects locally isomorphes of $A$ have the same dimension.
+
+The terminologie ``locally'' is inspiree by the usage of the topologie fpqc (fidelement plate quasi-compacte) en geometrie algebraic.
+
+\begin{example}\label{2.6}
+In a category $k$-tensor $\Rep(G)$, deux objects ayant the same dimension are locally isomorphes. Indeed, the algebras of $\Ind\Rep(G)$ s'identifient by $A\mapsto\Spec(A)$ to the schemes affine $S$ on $k$ equipped with a action of $G$, and deux representations $X$, $Y$ of $G$ are locally isomorphes if and only if leurs images inverses on $S$ not vide convenables are of the fibers vector equivariants isomorphes. Si $X$ and $Y$ have the same dimension $n$, one can prendre $S=\Isom(X,Y)$, equipped with the action $g(f)=gfg^{-1}$ of $G$. The scheme $\Isom(X,Y)$ is affine and not vide car isomorphic a $\GL(n)$.
+\end{example}
+
+\begin{example}\label{2.7}
+In a category $k$-tensor $\Rep(G,\varepsilon)$, deux objects $X$ and $Y$ are locally isomorphes si and only s'they have the same super dimension (\ref{1.9}).
+\end{example}
+
+\begin{lemma}\label{2.8}
+Let $M$ a module dualisable on a algebra not zero $A$. For that there exists a $A$-algebra not zero $B$ such that the $B$-module $1_B$ Let direct factor of $M_B$, it is necessary and sufficient that $\Sym^n_A(M)\neq0$ for every $n$.
+\end{lemma}
+
+\begin{proof}
+For every $A$-algebra $B$, notons $\Fact(B)$ the set of the paires $\alpha:1_B\to M_B$, $\beta:M_B\to1_B$ such that $\beta\alpha=\Id_{1_B}$, i.e.~which fassent of $1_B$ a direct factor of $M_B$. C'is a covariant functor en $B$. Construisons $(B_0,\alpha_0,\beta_0)$ universal, i.e.~which corepresente the functor $\Fact$.
+
+(a) The datum of $\beta:M_B\to1_B$ equivaut by adjonction a celle of a morphism of $A$-modules $M\to1_B=B$:
+\[
+v:M\to B
+\]
+correspond the compose
+\[
+\text{produit}\circ(B\otimes v):B\otimes M\to B\otimes B\to B.
+\]
+The datum of $v$ equivaut a son tour a celle of a morphism of $A$-algebras
+\[
+v_{\alg}:\Sym_A(M)=\bigoplus_n\Sym^n_A(M)\to B.
+\]
+
+(b) The datum of $\alpha:1_B\to M_B$ equivaut a celle of a morphism of $A$-modules $A\to B\otimes M$, then a celle of $u:M^\vee\to B$:
+\[
+u:M^\vee\to B
+\]
+correspond the compose
+\[
+(u\otimes M)\circ\delta:1_A\xrightarrow{\delta}M\otimes M^\vee=M^\vee\otimes M\to B\otimes M.
+\]
+A son tour, $u$ correspond a morphism of $A$-algebras
+\[
+u_{\alg}:\Sym_A(M^\vee)\to B.
+\]
+
+(c) Let $\alpha$ and $\beta$, donnant lieu a $u$ and $v$. For that $\beta\alpha:1_B\to M_B\to1_B$ let the identity, it is necessary and sufficient that sa restriction a $1_A$ let the morphism natural $1_A\to1_B$. This restriction is the compose
+\[
+1_A\xrightarrow{\delta}M\otimes M^\vee=M^\vee\otimes M\to B\otimes M\to B\otimes B\to B,
+\]
+i.e.~s'obtient en appliquant a $\delta$ the product $u\cdot v$ of $u$ and $v:M\otimes M^\vee\to B\otimes B\to B$.
+
+To the total, the datum on $B$ of $\alpha,\beta$ faisant of $1_B$ a direct factor of $M_B$ equivaut a celle of a homomorphisme
+\[
+\Sym_A(M)\otimes_A\Sym_A(M^\vee)=\bigoplus_{p,q}\Sym^p_A(M)\otimes\Sym^q_A(M^\vee)\to B
+\]
+such that the unite $1_A\xrightarrow{\sim}\Sym^0_A(M)\otimes\Sym^0_A(M^\vee)$ and $\delta:1_A\to M\otimes_A M^\vee$ aient the same image.
+
+For $x$ a morphism of $A$-modules of $1_A$ in a $A$-algebra $C$, the ideal $(x)$ generated by $x$ is the image of the multiplication by $x$:
+\[
+C=1_A\otimes_A C\xrightarrow{x\otimes C} C\otimes_A C\to C.
+\]
+The quotient $A/(x)$ is the quotient universal of the algebra $A$ in lequel $x$ s'annule. With this terminologie, the $(B_0,\alpha_0,\beta_0)$ universal that we cherchons is the quotient of the algebra $\Sym_A(M)\otimes\Sym_A(M^\vee)$ by the ideal $(\delta-1)$, and $M$ admet locally $1$ for direct factor if and only if $B_0\neq0$, or, this which revient to the same, si the morphism unite $1\to B_0$ is zero.
+
+The multiplication by $\delta$ is a morphism
+\begin{equation}\label{2.8.1}
+\Sym^p_A(M)\otimes\Sym^q_A(M^\vee)\to\Sym^{p+1}_A(M)\otimes\Sym^{q+1}_A(M^\vee),
+\end{equation}
+and
+\[
+B_0=\colim_{n\in\mathbb{Z}}\Sym^n_A(M)\otimes\Sym^{n+a}_A(M^\vee),
+\]
+the morphisms of transition in the filtered colimit being donnes by (\ref{2.8.1}).
+
+the unite of $B_0$ is the filtered colimit of the morphisms $\delta^n:1\to\Sym^n_A(M)\otimes_A\Sym^n_A(M^\vee)$.
+
+The functor $\Hom(1,{-})$ commute to the limites inductives filtrantes. For that the unite of $B_0$ let zero, it faut and suffit therefore that for $n$ one ait $\delta^n=0$.
+
+the algebra symmetric $\Sym_A(M)$ is a quotient of the algebra tensor (not commutative) $\bigoplus M^{\otimes n}$, and $\delta^n$ is the image of
+\[
+\delta^{\otimes n}:1\to M^{\otimes n}\otimes M^{\vee\otimes n}.
+\]
+This morphism is the morphism $\delta$ for a duality between $M^{\otimes n}$ and $(M^{\vee})^{\otimes n}$. of after (\ref{1.15}.1), $\delta^n$ is therefore the morphism $\delta$ for a duality between $\Sym^n_A M$ and $\Sym^n_A M^\vee$. It is zero if and only if $\Sym^n_A M=0$.
+\end{proof}
+
+\begin{proposition}\label{2.9}
+Supposons given in a category $k$-tensor verifiant (\ref{2.1.1}) a object $\bar{1}$ such that $\bar{1}\otimes\bar{1}$ let isomorphic a $1$ and that the automorphism of commutativity of the tensor product: $\bar{1}\otimes\bar{1}\to\bar{1}\otimes\bar{1}$ let the multiplication by $-1$. For $X$ in $A$, the conditions suivantes are equivalentes.
+\begin{enumerate}
+\item[(i)] There exists $p$ and $q$ such that $X$ let locally isomorphic a $1^p\oplus\bar{1}^q$.
+\item[(ii)] There exists a functor of Schur $S_\lambda$ such that $S_\lambda(X)=0$.
+\end{enumerate}
+\end{proposition}
+
+For $V$ a super space vector of dimension finite, posons $F(V):=V_0\otimes1\oplus V_1\otimes\bar{1}$. The choix of a isomorphism $\bar{1}\otimes\bar{1}\xrightarrow{\sim}1$ fournit a isomorphism fonctoriel $F(V\otimes W)\xrightarrow{\sim}F(V)\otimes F(W)$ and the hypotheses faites on $\bar{1}$ assurent that $F$ is a $\otimes$-equivalence of the category $k$-tensor $(s\text{-}\Vect)$ of the super vector spaces of dimension finite with the full subcategory $\langle1,\bar{1}\rangle$ of $A$ of objects the sums of copies of $1$ and $\bar{1}$.
+
+\begin{proof}[Proof of (i) $\Rightarrow$ (ii)]
+Si $X_A$ is isomorphic a $(1^p\oplus\bar{1}^q)_A$, $S_\lambda(X)_A$ is isomorphic a $S_\lambda(1^p\oplus\bar{1}^q)_A$. of after \ref{1.9}, there exists $\lambda$ such that $S_\lambda=0$. Si $A\neq0$, that $S_\lambda(X)_A=0$ implique that $S_\lambda(X)=0$.
+\end{proof}
+
+\begin{proof}[Proof of (ii) $\Rightarrow$ (i)]
+Assume that after extension of scalars a algebra not zero $A$, $1^r\oplus\bar{1}^s$ devienne direct factor of $X$:
+\[
+X_A=1_A^r\oplus\bar{1}_A^s\oplus R.
+\]
+The $A$-module $R$ is dualisable car direct factor of the $A$-module dualisable $X_A$ (\ref{1.15}). Distinguons trois cas.
+
+(a) All the $\Sym^n_A(R)$ are not nuls. of after \ref{2.8}, there exists then a $A$-algebra not zero $B$ such that $R_B$ admette $1_B$ as direct factor, of or a decomposition
+\[
+X_B=1_B^{r+1}\oplus\bar{1}_B^s\oplus R'.
+\]
+
+(b) All the $\Sym^n_A(\bar{1}\otimes R)$ are not nuls. Puisque $\Sym^n_A(\bar{1}\otimes R)\sim\bar{1}^{\otimes n}\otimes\bigwedge^n_A R$, this equivaut a the not nullite of all the $\bigwedge^n_A R$. On $B$ not zero suitable, one can then extraire a factor $1_B$ of $\bar{1}\otimes R_B$, this which revient a extraire a factor $\bar{1}_B$ of $R_B$, of or a decomposition
+\[
+X_B=1_B^r\oplus\bar{1}_B^{s+1}\oplus R'.
+\]
+
+(c) Si (a) and (b) ne are not of map, there exists $n$ and $m$ such that $\Sym^{n+1}_A R=\bigwedge^{m+1}_A R=0$. Let $k$ a integer $>nm$. of after \ref{1.7}, for every partition $\lambda$ of $k$, one has $S_\lambda(R)=0$. By \ref{1.4.2}, one has $R^{\otimes k}=0$, of or resulte that $R=0$ (\ref{1.17}).
+
+Partant of $A=1$, $r=s=0$ and $R=X$ and appliquant iterativement the constructions (a) or (b), one obtains that let $X$ is locally isomorphic a $1^p\oplus\bar{1}^q$ for $p$ and $q$ convenables, let $X$ admet locally a direct factor $1^p\oplus\bar{1}^q$ with $p+q$ arbitrairement grand. In the second cas, contrairement a notre hypothese, the $S_\lambda(X)$ are all not nuls: si $\lambda$ is a partition of $n$, one can choisir $p$ and $q$ such that $n<(p+1)(q+1)$, and $S_\lambda(1^p\oplus\bar{1}^q)$, not zero of after \ref{1.9}, is locally direct factor of $S_\lambda(X)$ which is therefore not zero.
+\end{proof}
+
+\subsection{Rappel \ref{2.10}}\label{2.10}
+
+In a category $k$-tensor verifiant (\ref{2.2.1}), every exact sequence courte is locally scindee.
+
+C'is Deligne (1990) 7.14. One commence by se reduire to the cas of the sequences exact courtes of the form $0\to X\xrightarrow{a}Y\xrightarrow{b}1\to0$: remplacer a exact sequence courte $0\to A\to B\to C\to0$ by the exact sequence courte $0\to\Hom(C,A)\to E\to1\to0$ corresponding. This fait, the proof is analogue a celle of \ref{2.8}, en more simple. Si $b^t:1\hookrightarrow Y$ is the transpose of $b$, one is ramene a verify the not nullite of the algebra
+\[
+\Sym(Y)/(b^t-1)=\colim\Sym^n(Y)
+\]
+(morphisms of transition: the multiplication by $b^t$).
+
+\begin{proof}[Proof of \ref{2.1}]\label{2.11}
+
+Supposons all of abord that $A$ contienne a object $\bar{1}$ as en \ref{2.9}. For each class of isomorphie of objects of $A$, of representant $X$, choisissons a algebra not zero $B$ such that $X_B$ let isomorphic a sum of copies of $1_B$ and $\bar{1}_B$. C'is possible of after \ref{2.9}. For each class of isomorphie of sequences exact courtes in $A$, of representant $\Sigma$, choisissons a algebra not zero $C_\Sigma$ such that $\Sigma_{C_\Sigma}$ let scindee. C'is possible of after \ref{2.10}. Let $A$ the tensor product of all these algebras: the filtered colimit of the tensor products of a nombre finite of between they. the algebra $A$ is not zero and, after extension of scalars a $A$, all object of $A$ devient isomorphic a sum of copies of $1_A$ and $\bar{1}_A$ and every exact sequence of $A$ devient scindee.
+
+Identifions as en \ref{2.9} the category $k$-tensor $(s\text{-}\Vect)$ a the subcategory $\langle1,\bar{1}\rangle$ of $A$, and identifions $\Ind\langle1,\bar{1}\rangle\subset\Ind A$ a the category of all the super vector spaces. For $M$ in $\Ind A$, notons $\rho(M)$ the more grand under-object of $M$ in $\Ind\langle1,\bar{1}\rangle$. It s'identifie to the super space vector of parties paires and impaires $\Hom(1,M)$ and $\Hom(\bar{1},M)$.
+
+The multiplication $A\otimes A\to A$ induces on $\rho(A)$ a structure of algebra, i.e.~fait of $\rho(A)$ a $k$-superalgebre. For $M$ a $A$-module, the multiplication $A\otimes M\to M$ induces similarly a morphism $\rho(A)\otimes\rho(M)\to\rho(M)$ which fait of $\rho(M)$ a $\rho(A)$-module. For $M$ and $N$ deux $A$-modules, prenant the conoyaux of the doubles fleches in
+\[
+@@MATH32@@
+\]
+not obtient a morphism of $\rho(M)\otimes_{\rho(A)}\rho(N)$ in $M\otimes_A N$. It induces a morphism
+\begin{equation}\label{2.11.1}
+\rho(M)\otimes_{\rho(A)}\rho(N)\to\rho(M\otimes_A N).
+\end{equation}
+Si $M$ is of the form $A\otimes M_0$, with $M_0$ in $\langle1,\bar{1}\rangle$, one has
+\begin{equation}\label{2.11.2}
+\rho(A)\otimes M_0\xrightarrow{\sim}\rho(M).
+\end{equation}
+Si en outre $N$ is of the form $A\otimes N_0$, with $N_0$ in $\langle1,\bar{1}\rangle$, one has $M\otimes_A N=A\otimes(M_0\otimes N_0)$ and the commutative diagram
+\[
+@@MATH33@@
+\]
+shows that (\ref{2.11.1}) is a isomorphism.
+
+Posons $R:=\rho(A)$ and for $X$ in $A$ let $\omega(X)$ the $R$-module $\rho(X_A)$. By construction of $A$, each $X_A$ is of the form $A\otimes M_0$ with $M_0$ in $\langle1,\bar{1}\rangle$. The morphism (\ref{2.11.1}):
+\[
+\rho(X_A)\otimes_R\rho(Y_A)\to\rho(X_A\otimes_A Y_A)
+\]
+is therefore a isomorphism. For every exact sequence courte $\Sigma$ of $A$ the sequence $\Sigma_A$ is scindee. The sequence $\omega(\Sigma)$ the is therefore also and in particular it is exact. The functor $\omega$ is the super functor fiber promis.
+
+Passons to the cas general. Let $A_1$ the category $k$-tensor of the objects $\mathbb{Z}/2$-gradues of $A$, the contrainte of commutativity $X\otimes_1Y\to Y\otimes_1X$ being, for $X$ and $Y$ homogenes of degree $n$ and $m$, celle of $A$ multipliee by $(-1)^{nm}$. By \ref{0.5}(ii), the category $k$-tensor $A_1$ satisfies again the hypotheses of \ref{2.1}. the object $1$ en degree impair is a object $\bar{1}$ as en \ref{2.9}. The category $A_1$ admet therefore a super functor fiber of the type voulu. It ne reste that a prendre sa restriction a $A$, identifie a the subcategory of the objects pairs of $A_1$.
+\end{proof}
+
+\section{Formalism e of the super functors fiber}\label{3}
+
+\subsection{}\label{3.1}
+
+Let $A$ and $T$ deux categories $k$-tensorielles verifiant (\ref{2.1.1}): leurs objects are of longueur finite. Let $R$ a algebra of $\Ind T$. Recall that nos algebras are supposees commutatives a unite (\ref{2.2}). A \emph{functor fiber} $\omega$ of $A$ on $R$ is a $\otimes$-exact functor of $A$ in the category a tensor product $\Mod_R$ of the $R$-modules. For $T=(s\text{-}\Vect)$ (\ref{0.3}), one retrouve the super functors fibers of \ref{0.9}.
+
+of after \ref{1.16}, the $\omega(A)$ are of the $R$-modules dualisables. of after \ref{1.14}, they are therefore plats (\ref{2.3}) and for every $R$-algebra $R'$, the $\otimes$-functor $A\mapsto\omega'(A):=\omega(A)\otimes_R R'$ is exact (cf.~\ref{2.3}): c'is a functor fiber on $R'$.
+
+A morphism $f:F'\to F''$ of $\otimes$-functors is a morphism of functors rendant commutatifs the diagrams
+\[
+@@MATH34@@
+\quad\text{et}\quad
+@@MATH35@@
+\]
+
+\begin{lemma}\label{3.2}
+All morphism of $\otimes$-functors between functors fiber on $R$ is a isomorphism.
+\end{lemma}
+
+\begin{proof}
+Si $f:\omega'\to\omega''$ is a morphism, $f_X:\omega'(X)\to\omega''(X)$ and $f_{X^\vee}:\omega'(X^\vee)\to\omega''(X^\vee)$ are contragredients and one applique Deligne (1990) 2.4.
+\end{proof}
+
+For $\omega$ a functor fiber of $A$ on $R$, we continuerons a noter $\omega$ the extension of $\omega$ a $\Ind A$ which commute to the limites inductives. C'is again a $\otimes$-functor.
+
+\begin{lemma}\label{3.3}
+For every $X$ in $\Ind A$, $\omega(X)$ is plat, and fidelement plat (\ref{2.3}) si $X\neq0$.
+\end{lemma}
+
+\begin{proof}
+The module $\omega(X)$ is plat as filtered colimit filtrante of modules dualisables and therefore plats. Si $X\neq0$, $X$ admet a under-object not zero $A$ in $A$. Puisque $\omega(X/A)$ is plat, the exact sequence $0\to\omega(A)\to\omega(X)\to\omega(X/A)\to0$ shows that the faithful platitude of $X$ resulte of celle of $A$. Puisque $A\neq0$, $\ev:A^\vee\otimes A\to1$ is a epimorphisme and si $\omega(A)\otimes_R M=0$, $M$ is zero en tant that quotient of $\omega(A^\vee)\otimes_R\omega(A)\otimes_R M=\omega(A^\vee\otimes A)\otimes_R M$.
+\end{proof}
+
+\subsection{}\label{3.4}
+
+For $\alpha$ and $\beta$ deux functors of a category $C$ in the category of the $R$-modules dualisables, let $\Lambda(\alpha,\beta)$ the cofin of the bifoncteur contravariant en $X$ and covariant en $Y$ suivant:
+\[
+X,Y\mapsto\alpha(X)^\vee\otimes_R\beta(Y).
+\]
+By definition of ``cofin'', one dispose of morphisms
+\begin{equation}\label{3.4.1}
+\alpha(X)^\vee\otimes_R\beta(X)\to\Lambda(\alpha,\beta),
+\end{equation}
+for $f$ a morphism of $X$ in $Y$ the diagram
+\begin{equation}\label{3.4.2}
+\begin{matrix}
+\alpha(Y)^\vee\otimes\beta(X) & \longrightarrow & \alpha(Y)^\vee\otimes\beta(Y)\\
+\downarrow & & \downarrow\\
+\alpha(X)^\vee\otimes\beta(X) & \longrightarrow & \Lambda(\alpha,\beta)
+\end{matrix}
+\end{equation}
+is commutative and $\Lambda(\alpha,\beta)$ is universal for these properties. The datum of morphisms (\ref{3.4.1}) equivaut a celle of morphisms
+\begin{equation}\label{3.4.3}
+\beta(X)\to\alpha(X)\otimes_R\Lambda(\alpha,\beta)
+\end{equation}
+and the commutativity (\ref{3.4.2}) equivaut a the fonctorialite en $X$ of (\ref{3.4.3}).
+
+For $C=C'\times C''$, $\alpha=\alpha'\otimes_R\alpha''$ and $\beta=\beta'\otimes_R\beta''$, one has
+\[
+\Lambda(\alpha'\otimes\alpha'',\beta'\otimes\beta'')=\Lambda(\alpha',\beta')\otimes_R\Lambda(\alpha'',\beta'').
+\]
+For $T$ a functor $D\to C$, one dispose of a morphism
+\[
+\Lambda(\alpha\circ T,\beta\circ T)\to\Lambda(\alpha,\beta).
+\]
+In particular, for $C$ equipped with a bifoncteur $T:C\times C\to C$ and $\alpha$, $\beta$ of isomorphisms fonctoriels
+\begin{equation}\label{3.4.4}
+\alpha(T(X,Y))=\alpha(X)\otimes_R\alpha(Y)
+\end{equation}
+and similarly for $\beta$, one dispose of a product
+\begin{equation}\label{3.4.5}
+\Lambda(\alpha,\beta)\otimes_R\Lambda(\alpha,\beta)\to\Lambda(\alpha,\beta).
+\end{equation}
+Si $T$ is equipped with contraintes of associativity, of commutativity and of unite auxquelles (\ref{3.4.4}) is compatible, this product is associatif, commutative and a unite.
+
+\begin{lemma}\label{3.5}
+Si $\alpha$ and $\beta$ are deux functors fibers of $A$ on $R$, the $R$-module $\Lambda(\alpha,\beta)$ is fidelement plat.
+\end{lemma}
+
+\begin{proof}
+The category $A\otimes_k A$ of Deligne (1990) 5.1 and 5.13 is $k$-tensor and satisfies again (\ref{2.1.1}) (ibid.~5.17). Notons $\otimes_k$ the functor structural $A\times A\to A\otimes_k A$. The functor $\alpha(X)\otimes_R\beta(Y)$ is exact en each variable, puisque the $\alpha(X)$ and $\beta(Y)$ are plats. It defines therefore a exact functor (ibid.~5.17(vi)) of $A\otimes_k A$ in the $R$-modules, that one notera $\alpha\boxtimes_R\beta$, caracterise by
+\[
+\alpha\boxtimes_R\beta(X\otimes_k Y)=\alpha(X)\otimes_R\beta(Y).
+\]
+The structures of $\otimes$-functor of $\alpha$ and $\beta$ en fournissent a on $\alpha\boxtimes_R\beta$, prolongeant the isomorphism
+\begin{align*}
+(\alpha\boxtimes_R\beta)(X'\otimes_k Y')\otimes(\alpha\boxtimes_R\beta)(X''\otimes_k Y'') &= \alpha(X')\otimes_R\beta(Y')\otimes_R\alpha(X'')\otimes_R\beta(Y'')\\
+&=\alpha(X')\otimes_R\alpha(X'')\otimes_R\beta(Y')\otimes_R\beta(Y'')\\
+&=\alpha(X'\otimes X'')\otimes_R\beta(Y'\otimes Y'')\\
+&=\alpha\boxtimes_R\beta((X'\otimes X'')\otimes_k(Y'\otimes Y''))\\
+&=\alpha\boxtimes_R\beta((X'\otimes_k Y')\otimes(X''\otimes_k Y'')),
+\end{align*}
+and faisant of $\alpha\boxtimes_R\beta$ a functor fiber of $A\otimes_k A$ on $R$.
+
+Let $\inj_1$ and $\inj_2$ the functors $X\mapsto X\otimes_k1$ and $X\mapsto1\otimes_k X$ of $A$ in $A\otimes_k A$. This are of the functors fibers of $A$ in $A\otimes_k A$, i.e.~on the algebra $1$ of $A\otimes_k A$. Posons
+\begin{equation}\label{3.5.1}
+\Lambda_0:=\Lambda(\inj_1,\inj_2).
+\end{equation}
+This $\Lambda_0$ is universal en this sens that
+\[
+\Lambda(\alpha,\beta)=\alpha\boxtimes_R\beta(\Lambda_0),
+\]
+and of after \ref{3.3} applique a $\alpha\boxtimes_R\beta$, \ref{3.5} resulte of the
+
+\begin{lemma}\label{3.6}
+$\Lambda_0\neq0$.
+\end{lemma}
+
+\begin{proof}
+Let $T$ the functor fiber of $A\otimes_k A$ in $A$ such that $T(X\otimes_k Y)=X\otimes Y$. Si one the applique a $\Lambda_0$, one obtains the cofin $\Lambda(\Id_A,\Id_A)$ of bifoncteur $X,Y\mapsto X^\vee\otimes Y$ and the morphisms $\ev:X^\vee\otimes X\to1$ fournissent
+\begin{equation}\label{3.6.1}
+T\Lambda_0\to1.
+\end{equation}
+the object $1$ of $A$ fournit a morphism (\ref{3.4.1})
+\begin{equation}\label{3.6.2}
+1\to\Lambda_0
+\end{equation}
+and (\ref{3.6.1}) $\circ$ $T((\ref{3.6.2})$) is the identity of $1$. That $\Lambda_0\neq0$ en resulte.
+\end{proof}
+\let\qed\relax
+\end{proof}
+
+\begin{remark}\label{3.7}
+The constructions \ref{3.4}, appliquees a $\alpha$ and $\beta$, font of $\Lambda(\alpha,\beta)$ a $R$-algebra. Appliquees a $\inj_1,\inj_2:A\to A\otimes_k A$, they font of $\Lambda_0:=\Lambda(\inj_1,\inj_2)$ a algebra in $\Ind(A\otimes_k A)$. the isomorphism
+\[
+\alpha\boxtimes_R\beta(\Lambda_0)\xrightarrow{\sim}\Lambda(\alpha,\beta)
+\]
+is a isomorphism of $R$-algebras.
+\end{remark}
+
+\subsection{}\label{3.8}
+
+The structure of $R$-algebra of the $R$-module $\Lambda(\alpha,\beta)$ is caracterisee by the commutativity of the diagrams
+\begin{equation}\label{3.8.1}
+\begin{matrix}
+\beta(X)\otimes\beta(Y) & \longrightarrow & (\alpha(X)\otimes\Lambda)\otimes(\alpha(Y)\otimes\Lambda)\\
+\downarrow & & \downarrow\\
+\beta(X\otimes Y) & \longrightarrow & \alpha(X\otimes Y)\otimes(\Lambda\otimes\Lambda)\\
+\end{matrix}
+\end{equation}
+Si $\alpha_\Lambda$ and $\beta_\Lambda$ are the functors fibers on $\Lambda$ deduits of $\alpha$ and $\beta$ by extension of scalars of $R$ a $\Lambda$, (\ref{3.4.3}) defines a morphism fonctoriel of $\Lambda$-modules
+\begin{equation}\label{3.8.2}
+\varphi:\beta_\Lambda(X)\to\alpha_\Lambda(X)
+\end{equation}
+and (\ref{3.8.1}) exprime that c'is a morphism of $\otimes$-functors, therefore a isomorphism (\ref{3.2}).
+
+The $R$-algebra $\Lambda$ and $\varphi$ are universels: si $\Lambda_1$ is a $R$-algebra and $\varphi_1:\beta_{\Lambda_1}\to\alpha_{\Lambda_1}$ a morphism of $\otimes$-functors, $\varphi_1$ defines a morphism fonctoriel
+\[
+\beta(X)\to\alpha(X)\otimes_R\Lambda_1,
+\]
+neccessairement deduces of $f:\Lambda\to\Lambda_1$, and $f$ is a homomorphisme of algebras if and only if $\varphi_1$ is a morphism of $\otimes$-functors.
+
+\subsection{}\label{3.9}
+
+Passons to the langage geometric of Deligne (1990) 7.5. Point of depart: one defines the category of the $T$-\emph{schemes affine} as being the duale of the category of the algebras of $\Ind T$, one denotes $\Spec(A)$ the $T$-scheme affine corresponding a algebra $A$, and one appelle $A$ son \emph{algebra affine}, one dit module on $\Spec(A)$ for $A$-module, functor fiber on $\Spec(A)$ for functor fiber on $A$, $\Spec(A)$-scheme or scheme on $\Spec(A)$ for $A$-algebra and inverse image (of modules) for extension of scalars.
+
+A \emph{groupoide} agissant on a $T$-scheme $S=\Spec(A)$ is a $T$-scheme $H$ equipped with maps ``source'' and ``but'' $s,b:H\to S$ and of a loi of composition associative $H\times_{s,S,b}H\to H$ admettant unites and inverses. It revient to the same of dire that for every $T$, $s$, $b$ and the loi of composition font of the set $H(T):=\Hom(T,H)$ of the $T$-points of $H$ a groupoide agissant on $S(T)$. The groupoide $H$ is dit \emph{transitif} si $(b,s):H\to S\times S$ is fidelement plat, i.e.~si the algebra affine of $H$ is fidelement plate on celle, $A\otimes A$, of $S\times S$.
+
+Si $H$ is a groupoide agissant on $S$, that $c,d\in S(T)$ and that $h\in H(T)$, one ecrira $h:c\to d$ for ``$h$ a for source $c$ and but $d$''. Si $M\in\Mod_S$ is a module on $S$, the datum of $\phi:s^*M\to b^*M$ equivaut a the datum for every $T$ and all $h:c\to d$ on $T$ of $\phi_h:c^*M\to d^*M$, compatible to the changements of base $T'\to T$. In this langage, a \emph{action} of $H$ on $M$ is a morphism $\phi:s^*M\to b^*M$, such that for $\id(a):a\to a$ the identity of $a$, $\phi_{\id(a)}$ let the identity of $a^*M$, and that for $c\xrightarrow{f}d\xrightarrow{g}e$ one ait $\phi_{gf}=\phi_g\phi_f$. It is enough bien on of verify these conditions in the cas universal, on $S\times S$ and $H\times_S H$ respectivement.
+
+\subsection{}\label{3.10}
+
+Traduisons \ref{3.8}: the scheme $\Spec(\Lambda(\alpha,\beta))$ on $S=\Spec(R)$ represente the functor which a $S$-scheme $T$ associated the set of the isomorphisms of $\otimes$-functors $\beta_T\xrightarrow{\sim}\alpha_T$ between the images inverses of $\alpha$ and $\beta$ on $T$. This justifie the notation $\Isom^\otimes_S(\beta,\alpha):=\Spec(\Lambda(\alpha,\beta))$.
+
+Si $\alpha$ (resp.~$\beta$) is a functor fiber on $S$ (resp.~$T$), $\alpha$ and $\beta$ fournissent by extension of scalars of the functors fibers $\pr_1^*\alpha$ and $\pr_2^*\beta$ on $S\times T$. We poserons
+\begin{equation}\label{3.10.1}
+\Isom^\otimes_{S\times T}(\beta,\alpha):=\Isom^\otimes_{S\times T}(\pr_2^*\beta,\pr_1^*\alpha).
+\end{equation}
+
+For trois functors fibers $\alpha$, $\beta$, $\gamma$ on $S$, $T$, $U$, the composition of the isomorphisms fournit a morphism of $S\times T\times U$-schemes:
+\begin{equation}\label{3.10.2}
+\Isom^\otimes_{S\times T}(\beta,\alpha)\times_T\Isom^\otimes_{T\times U}(\gamma,\beta)\longrightarrow\Isom^\otimes_{S\times U}(\gamma,\alpha)
+\end{equation}
+and for $\alpha,\gamma,\delta$ on $S$, $T$, $U$, $V$ the morphisms (\ref{3.10.2}) verifiant a associativity.
+
+\emph{Cas particulier:} let $\omega$ a functor fiber on $S$ and faisons $(\alpha,S)=(\beta,T)=(\gamma,U)=(\delta,V):=(\omega,S)$. The $S\times S$-scheme $I:=\Isom^\otimes_{S\times S}(\omega,\omega)$, equipped with the map source $s:=\pr_2$, of the map but $b:=\pr_1$ and of the loi of composition (\ref{3.10.2}) is a groupoide agissant on $S$. By construction, the morphism (\ref{3.8.2}) for $\alpha=\pr_1^*\omega$ and $\beta=\pr_2^*\omega$
+\[
+\phi:s^*\omega\xrightarrow{\sim}b^*\omega
+\]
+is a action of the groupoide $I$ on the $\omega(X)$, fonctorielle en $X$ and compatible to the tensor product. The groupoide $I$ is universal for these properties.
+
+\section{Existence of super functors fibers on $k$}\label{4}
+
+\begin{proposition}\label{4.1}
+Let $A$ a category $k$-tensor of $\otimes$-generation finite. Si $\alpha$ and $\beta$ are deux super functors fibers of $A$ on a super scheme $S$, the super scheme $\Isom^\otimes_S(\alpha,\beta)$ is of presentation finite on $S$.
+\end{proposition}
+
+\begin{proof}
+One can supposer, and one assumed, that $S$ is affine not vide: $S=\Spec(R)$ with $R\neq0$. Let $\mathfrak{m}$ a ideal maximal of $R$ and $S_0$ the spectre of the field $k_0:=R/\mathfrak{m}$. By extension of scalars of $S$ a $S_0$, one deduces of $\alpha$ (or $\beta$, peu importe) a functor fiber $\gamma$ on $S_0$.
+
+Si $X$ is a $\otimes$-generateur of $A$, $\Isom^\otimes_{S_0}(\gamma,\gamma)$ is a under-scheme en groups of $\GL(\gamma(X))$, therefore is of type finite on $S_0$. Puisque $S_0$ is noetherien, it is same of presentation finite on $S_0$.
+
+The super schemes $\Isom^\otimes_{S\times S_0}(\pr_1^*\alpha,\pr_2^*\gamma)$ and $\Isom^\otimes_{S\times S_0}(\pr_1^*\beta,\pr_2^*\gamma)$ are fidelement plats on $S\times S_0$ (\ref{3.5}). Let $J$ leur fiber product. It is fidelement plat on $S\times S_0$ and therefore on $S$. The images inverses on $J$ of $\alpha$, $\beta$ and $\gamma$ are isomorphes, and the inverse image on $J$ of the $S$-super scheme $\Isom^\otimes_S(\alpha,\beta)$ is of presentation finite, car isomorphic a the inverse image on $J$ of the $S_0$-super scheme of presentation finite $\Isom^\otimes_{S_0}(\gamma,\gamma)$. By descent fidelement plate of the presentation finite (cf.~SGA1 VIII 3.4 and 1.10), $\Isom^\otimes_S(\alpha,\beta)$ is of presentation finite on $S$.
+\end{proof}
+
+\begin{remark}\label{4.2}
+Let $T_0$ the tensor category of the super vector spaces of dimension finite over a field $k_0$. The proof of \ref{4.1} fait usage of the property suivante of $T_0$:
+\begin{equation}\label{4.2.1}
+\text{pour }X\text{ dans }T_0\text{, l'algebre }\Sym X\text{ est noetherienne: pour tout ideal de }\Sym X\text{, il existe }N\text{ tel que }\mathfrak{a}\text{ soit engendre par sa trace sur }\bigoplus_{i\leq N}\Sym^i X.\end{equation}
+This property n'is not vraie in every category $k$-tensor $A$ verifiant (\ref{2.1.1}). Let indeed $Y$ in $A$ and $E$ the $A$-scheme which represente the functor $T\mapsto\End_T(Y_T)$. C'is the spectre of the algebra $\Sym((\End Y)^\vee)$. Let $A_1$ the category of the objects $\mathbb{Z}/(2)$-gradues of $A$ consideree a the fin of \ref{2.11}. The proof of \ref{2.9} shows that si $Y$ n'is annule by aucun functor of Schur, then, in $A_1$, $Y$ admet locally for direct factor $1^p\oplus\bar{1}^q$, with $p+q$ arbitrairement grand. It follows that, for every $n$, $Y$ admet locally a endomorphism $u$ such that $\Tr(u^i)=0$ for $1\leq i\leq n$ and that $\Tr(u^{n+1})=1$. This reste vrai without passer a $A_1$: for $A=A^+\oplus A^-$ a algebra of $A_1$, $u:Y_A\to Y_A$ provient of $u_0:Y\to Y$ which, puisque $Y$ is in $A$, se factorise by $Y_{A^+}$: $u$ provient by extension of scalars of a endomorphism of $Y$. Let $F$ the under-scheme of $E$ defined by the equations $\Tr(u^i)=0$ ($i\geq1$). We venons of see that a nombre finite of these equations ne suffit not a the define. the algebra $\Sym((\End Y)^\vee)$ n'is therefore not noetherienne.
+
+As example of category $k$-tensor verifiant (\ref{2.1.1}) but not (\ref{4.2.1}), one can therefore prendre, for $t$ transcendant, the category $\Rep(\GL_t)$ of Deligne-Milne (1982) 1.27: son generateur natural n'is annule by aucun functor of Schur.
+\end{remark}
+
+One deduces of \ref{4.1} by a argument standard of passage a the limite that
+
+\begin{corollary}\label{4.3}
+Let $A$ a category $k$-tensor of $\otimes$-generation finite and $\omega$ a super functor fiber of $A$ on the super $k$-algebra commutative $R$, filtered colimit filtrante of the $R_\alpha$. Posons $S=\Spec(R)$, $S_\alpha=\Spec(R_\alpha)$. For $\alpha$ sufficiently grand, the groupoide $I:=\Isom^\otimes_{S\times S}(\omega,\omega)$ agissant on $S$ provient by changement of base of a groupoide $I_\alpha$ agissant on $S_\alpha$, of presentation finite on $S_\alpha\times S_\alpha$.
+\end{corollary}
+
+Puisque $I$ is transitif, the analogue super of EGA IV (3e part) 11.2.6.1 (passage a the limite for the platitude) shows that for $\beta\geq\alpha$ suitable, the groupoide $I_\beta$ agissant on $S_\beta$ deduces of $I_\alpha$ by changement of base is transitif. Ci-dessous, a petit detour we permettra of utiliser EGA IV 11.2.6.1 tel quel, without avoir a the superiser.
+
+A argument of descent fidelement plate shows as en Deligne (1990) 3.5.1 that
+
+\begin{lemma}\label{4.4}
+Let $f:S\to T$ a morphism of super schemes on $k$. Si a groupoide $I$ agissant on $S$ provient by the changement of base $S\times S\to T\times T$ of a groupoide transitif $J$ agissant on $T$, the changement of base of $T$ a $S$ induces a equivalence of the category of the $T$-modules equipped with a action of $J$ in celle of $S$-modules equipped with a action of $I$.
+\end{lemma}
+
+\begin{proposition}\label{4.5}
+Let $A$ a category $k$-tensor of $\otimes$-generation finite. Si $A$ admet a super functor fiber $\omega$ on a super $k$-algebra commutative $R\neq0$, then $A$ admet a functor fiber on $k$.
+\end{proposition}
+
+\begin{proof}
+Let $\mathfrak{n}$ the ideal of $R$ generated by the part impaire of $R$. C'is a ideal nilpotent and therefore distinct of $R$ si $R\neq0$. Remplacant $R$ by $R/\mathfrak{n}$ and $\omega$ by the functor fiber deduces of $\omega$ by extension of scalars, one can supposer, and one assumed, that $R$ is purement pair.
+
+the algebra $R$ is the filtered colimit filtrante of ses under-$k$-algebras of type finite $R_\alpha$. With the notations of \ref{4.3}, the groupoide $I$ agissant on $S=\Spec(R)$ provient for $R_\alpha$ sufficiently grand of $I_\alpha$ agissant on $S_\alpha=\Spec(R_\alpha)$ and of presentation finite on $S_\alpha\times S_\alpha$. For that $I_\alpha$ let plat on $S_\alpha\times S_\alpha$, it is necessary and sufficient that the composantes paires and impaires $O(I_\alpha)^+$ and $O(I_\alpha)^-$ of $O(I_\alpha)$ let plates on $R_\alpha\otimes R_\alpha$. The premiere is a $R_\alpha\otimes R_\alpha$-algebra commutative of type finite, the seconde a $O(I_\alpha)^+$-module of type finite. For that $I_\alpha$ let transitif, it is necessary and sufficient that moreover $O(I_\alpha)^+$ let fidelement plate on $R_\alpha\otimes R_\alpha$.
+
+of after EGA IV 11.2.6.1, for $R_\beta\supset R_\alpha$ suitable, the groupoide $I_\beta$ agissant on $S_\beta=\Spec(R_\beta)$ deduces of $I_\alpha$ by changement of base is transitif. of after \ref{4.4}, the functor of extension of scalars of $R_\beta$ a $R$ induces a equivalence of the category of the super modules on $S_\beta$ equipped with a action of $I_\beta$ with celle of the super modules on $S$ equipped with a action of $I$. Appliquant this to the $\omega(X)$, for $X$ in $A$, one obtains that the functor fiber $\omega$ provient of a functor fiber $\omega_\beta$ on $R_\beta$. Puisque $R_\beta$ is of type finite on $k$ and not zero, there exists a homomorphisme $\chi$ of $R_\beta$ in $k$ and, $\omega_\beta\otimes_{R_\beta,\chi}k$ is a functor fiber on $k$.
+\end{proof}
+
+\subsection{Fin of the proof of \ref{0.5} and \ref{0.6}}\label{4.6}
+
+Si the category $k$-tensor $A$ satisfies the condition (a) of \ref{0.5}(i), it admet a super functor fiber on $R$ suitable (\ref{2.1}), therefore on $k$ (\ref{4.5}) and of after Deligne (1990) 8.19 is of the form $\Rep(G,\varepsilon)$.
+
+It reste a verify that the conditions (a) and (b) of \ref{0.5}(i) are equivalentes, and one sait deja that (b) $\Rightarrow$ (a) (\ref{1.20}). Si the condition (a) is verifiee, for every object $X$ of $A$, the full subcategory of $A$ $\otimes$-generated by $X$ satisfies again (a) and is of $\otimes$-generation finite. It admet therefore a functor fiber $\omega$. Si $\omega(X)$ is of super dimension $p|q$, that $\omega$ let exact and faithful assure that $X^{\otimes n}$ is of longueur to the more celle, $(p+q)^n$, of $\omega(X)^{\otimes n}=\omega(X)^{\otimes n}$. This satisfies (b).
+
+\subsection{Proof of \ref{0.7} and \ref{0.8}}\label{4.7}
+
+the assertion \ref{0.7} resulte of the
+
+\begin{lemma}\label{4.8}
+Let $A$ a category $k$-tensor of which all the objects are of longueur finite. Si $A$ n'a that a nombre finite of classes of isomorphie of objects simples, then for every $X$ in $A$ there exists $N$ such that
+\begin{equation}\label{4.8.1}
+\longueur(X^{\otimes n})\leq N^n.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $K(A)$ the group of Grothendieck of the abelian category $A$. Si $(S_i)_{i\in I}$ is a systeme of representants of the classes of isomorphie of objects simples, $K(A)$ is the $\mathbb{Z}$-module free of base the $[S_i]$. Let $\ell:K(A)\to\mathbb{Z}$ the map ``sum of the coordonnees''. For $X$ in $A$, one has
+\[
+\longueur(X)=\ell([X]).
+\]
+The tensor product of $A$ fait of $K(A)$ a ring commutative, and (\ref{4.8.1}) se recrit
+\[
+\ell([X]^n)\leq N^n.
+\]
+The matrice of the multiplication by $[X]$ is a coefficients integers $\geq0$. Si $|I|$ is leur maximum, one has $\ell([X][Y])\leq|I|\cdot a\cdot\ell(Y)$ and $\ell([X]^n)\leq(|I|\cdot a)^n$.
+\end{proof}
+
+\begin{proof}[Proof of \ref{0.8}]
+Supposons en outre $A$ semisimple, and let $\omega$ a functor fiber of $A$ on $k$.
+
+Let $X$ the sum of the $S_i$. All object of $A$ being a under-object of a sum of copies of $X$, the map canonical of $\omega(X)\otimes\omega(X)^\vee$ in $\Lambda(\omega,\omega)$ is surjective, and $\Lambda(\omega,\omega)$ is therefore of dimension finite.
+
+The category $k$-tensor $A$ is of the form $\Rep(G,\varepsilon)$ with $O(G)=\Lambda(\omega,\omega)$, of dimension finite. Divisons the algebra affine $O(G)$ of $G$ by the ideal generated by sa part impaire. One obtains the algebra affine of the under-algebraic group $G_{\text{red}}$ of $G$, necessarily finite.
+
+Let $G^0$ the composante connected of $G$. Puisque $G_{\text{red}}$ is trivial, the algebra of Lie of $G^0$ is purement impaire. It determine $G^0$: $O(G^0)$ is the dual of the algebra enveloppante of the superalgebre of Lie commutative $\operatorname{Lie}(G^0)$.
+
+Puisque $G^0$ is invariant in $G$, the restriction a $G^0$ of a super representation semisimple of $G$ is semisimple, therefore trivial: $\omega$ induces a equivalence of $A$ with $\Rep(G/G^0,\varepsilon)$.
+\end{proof}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Del90}
+P.~Deligne, Tannakian categories, in: Grothendieck Festschrift, vol.~II, p.~111--195, Progress in Math. 87, Birkh\"auser, 1990.
+
+\bibitem{DM82}
+P.~Deligne and J.~S.~Milne, Tannakian categories, in: Hodge Cycles, Motives, and Shimura Varieties, p.~101--228, Lecture Notes in Mathematics 900, Springer Verlag, 1982.
+
+\bibitem{EG98}
+P.~Etingof and S.~Gelaki, Some properties of finite-dimensional semisimple Hopf algebras, Math. Res. Letters 5 (1998), p.~191--197.
+
+\bibitem{Saa72}
+N.~Saavedra, Tannakian categories, Lecture Notes in Mathematics 265, Springer Verlag, 1972.
+
+\bibitem{EGA}
+EGA: Elements of geometrie algebraic, by A.~Grothendieck with the collaboration of J.~Dieudonne; EGA IV: etude local of the schemes and of the morphisms of schemes. The troisieme part is Publ. Math. IHES 28 (1966).
+
+\bibitem{SGA1}
+SGA: Seminaire of geometrie algebraic of the Bois-Marie; SGA1 (1960/61): dirige by A.~Grothendieck. Coverings etale and fundamental group. Springer Lecture Notes 224 (1971).
+
+\end{thebibliography}
+
+\medskip
+\noindent Institut for Advanced Study, Princeton, NJ 08540, USA
+
+\noindent E-mail address: Deligne@math.ias.edu
+
+\end{document}

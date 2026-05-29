@@ -1,0 +1,1338 @@
+% SEGMENT 1 of 2: Pages 1-35
+% Survey of Drinfel'd Modules by Pierre Deligne and Dale Husemoller
+% Published in Contemporary Mathematics, Volume 67, 1987
+% Pages 27-59 of the article (PDF pages 1-35)
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french,english]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollaire}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{D\'efinition}[section]
+\newtheorem{remark}{Remarque}[section]
+
+\theoremstyle{remark}
+\newtheorem{example}{Exemple}[section]
+
+% Math operators
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\kerop}{ker}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Card}{Card}
+% duplicate deg removed
+\DeclareMathOperator{\htop}{ht}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\rankop}{rank}
+\DeclareMathOperator{\ord}{ord}
+
+% Custom commands
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fpi}{\mathfrak{p}_\infty}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\fA}{\mathfrak{A}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\Ga}{\mathbb{G}_\mathrm{a}}
+\newcommand{\Gm}{\mathbb{G}_\mathrm{m}}
+\newcommand{\IF}{\mathbb{F}}
+
+\title{\textbf{SURVEY OF DRINFEL'D MODULES}}
+\author{Pierre Deligne and Dale Husem\o ller}
+\date{}
+
+\let\deg\relax
+
+% --- Pass-2 compatibility shim. ---
+% Purpose: repair transcription-level LaTeX omissions without changing mathematical text.
+\providecommand{\AA}{\mathbb{A}}
+\providecommand{\BB}{\mathbb{B}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\DD}{\mathbb{D}}
+\providecommand{\EE}{\mathbb{E}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathbb{G}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\TT}{\mathbb{T}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\Gm}{\mathbb{G}_{\mathrm m}}
+\providecommand{\Ga}{\mathbb{G}_{\mathrm a}}
+\providecommand{\cA}{\mathcal{A}}
+\providecommand{\cB}{\mathcal{B}}
+\providecommand{\cC}{\mathcal{C}}
+\providecommand{\cD}{\mathcal{D}}
+\providecommand{\cE}{\mathcal{E}}
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cG}{\mathcal{G}}
+\providecommand{\cH}{\mathcal{H}}
+\providecommand{\cI}{\mathcal{I}}
+\providecommand{\cJ}{\mathcal{J}}
+\providecommand{\cK}{\mathcal{K}}
+\providecommand{\cL}{\mathcal{L}}
+\providecommand{\cM}{\mathcal{M}}
+\providecommand{\cN}{\mathcal{N}}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\cP}{\mathcal{P}}
+\providecommand{\cQ}{\mathcal{Q}}
+\providecommand{\cR}{\mathcal{R}}
+\providecommand{\cS}{\mathcal{S}}
+\providecommand{\cT}{\mathcal{T}}
+\providecommand{\cU}{\mathcal{U}}
+\providecommand{\cV}{\mathcal{V}}
+\providecommand{\cW}{\mathcal{W}}
+\providecommand{\cX}{\mathcal{X}}
+\providecommand{\cY}{\mathcal{Y}}
+\providecommand{\cZ}{\mathcal{Z}}
+\providecommand{\fA}{\mathfrak{A}}
+\providecommand{\fB}{\mathfrak{B}}
+\providecommand{\fC}{\mathfrak{C}}
+\providecommand{\fD}{\mathfrak{D}}
+\providecommand{\fE}{\mathfrak{E}}
+\providecommand{\fF}{\mathfrak{F}}
+\providecommand{\fG}{\mathfrak{G}}
+\providecommand{\fH}{\mathfrak{H}}
+\providecommand{\fI}{\mathfrak{I}}
+\providecommand{\fJ}{\mathfrak{J}}
+\providecommand{\fK}{\mathfrak{K}}
+\providecommand{\fL}{\mathfrak{L}}
+\providecommand{\fM}{\mathfrak{M}}
+\providecommand{\fN}{\mathfrak{N}}
+\providecommand{\fO}{\mathfrak{O}}
+\providecommand{\fP}{\mathfrak{P}}
+\providecommand{\fQ}{\mathfrak{Q}}
+\providecommand{\fR}{\mathfrak{R}}
+\providecommand{\fS}{\mathfrak{S}}
+\providecommand{\fT}{\mathfrak{T}}
+\providecommand{\fU}{\mathfrak{U}}
+\providecommand{\fV}{\mathfrak{V}}
+\providecommand{\fW}{\mathfrak{W}}
+\providecommand{\fX}{\mathfrak{X}}
+\providecommand{\fY}{\mathfrak{Y}}
+\providecommand{\fZ}{\mathfrak{Z}}
+\providecommand{\fraka}{\mathfrak{a}}
+\providecommand{\frakb}{\mathfrak{b}}
+\providecommand{\frakc}{\mathfrak{c}}
+\providecommand{\frakd}{\mathfrak{d}}
+\providecommand{\frakm}{\mathfrak{m}}
+\providecommand{\frakp}{\mathfrak{p}}
+\providecommand{\frakq}{\mathfrak{q}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Alg}{\mathbf{Alg}}
+\providecommand{\Aff}{\mathbf{Aff}}
+\providecommand{\mot}{\mathrm{mot}}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\dR}{\mathrm{dR}}
+\providecommand{\der}{\mathrm{der}}
+\providecommand{\Le}{\leqslant}
+\providecommand{\Ge}{\geqslant}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\mup}{\mu_p}
+\makeatletter
+\@ifundefined{construction}{\newtheorem{construction}{Construction}}{}
+\@ifundefined{notation}{\newtheorem{notation}{Notation}}{}
+\@ifundefined{claim}{\newtheorem{claim}{Claim}}{}
+\makeatother
+
+% --- Pass-2 extra compile shims ---
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\PGL}{\operatorname{PGL}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\limind}{\varinjlim}
+\providecommand{\limproj}{\varprojlim}
+\makeatletter
+\@ifundefined{scholie}{\newtheorem{scholie}{Scholie}}{}
+\makeatother
+% --- end pass-2 extra compile shims ---
+
+
+% --- Pass-2 extra compile shims 2 ---
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\SU}{\operatorname{SU}}
+\providecommand{\rk}{\operatorname{rk}}
+\providecommand{\fp}{\mathfrak{p}}
+\providecommand{\DR}{\mathrm{DR}}
+\makeatletter
+\@ifundefined{miseengarde}{\newtheorem{miseengarde}{Mise en garde}}{}
+\@ifundefined{warning}{\newtheorem{warning}{Warning}}{}
+\makeatother
+% --- end pass-2 extra compile shims 2 ---
+
+
+% --- Pass-2 extra compile shims 3 ---
+\providecommand{\U}{\operatorname{U}}
+\providecommand{\NS}{\operatorname{NS}}
+\providecommand{\cris}{\mathrm{cris}}
+% --- end pass-2 extra compile shims 3 ---
+
+
+% --- Pass-2 extra compile shims 4 ---
+\providecommand{\na}{a}
+\providecommand{\supp}{\operatorname{supp}}
+\providecommand{\comp}{\operatorname{comp}}
+% --- end pass-2 extra compile shims 4 ---
+
+
+% --- Pass-2 extra compile shims 5 ---
+\providecommand{\dist}{\operatorname{dist}}
+\makeatletter
+\@ifundefined{variante}{\newtheorem{variante}{Variante}}{}
+\makeatother
+% --- end pass-2 extra compile shims 5 ---
+
+
+% --- Pass-2 extra compile shims 6 ---
+\providecommand{\R}{\mathrm{R}}
+\providecommand{\pr}{\operatorname{pr}}
+\makeatletter
+\@ifundefined{exemple}{\newtheorem{exemple}{Exemple}}{}
+\makeatother
+% --- end pass-2 extra compile shims 6 ---
+
+
+% --- Pass-2 extra compile shims 7 ---
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Int}{\operatorname{Int}}
+\providecommand{\RHom}{\operatorname{RHom}}
+% --- end pass-2 extra compile shims 7 ---
+
+
+% --- Pass-2 extra compile shims 8 ---
+\providecommand{\Lie}{\operatorname{Lie}}
+% --- end pass-2 extra compile shims 8 ---
+
+
+% --- Pass-2 extra compile shims 9 ---
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+% --- end pass-2 extra compile shims 9 ---
+
+
+% --- Pass-2 extra compile shims 10 ---
+\providecommand{\comma}{,}
+\providecommand{\Pcl}{\operatorname{Pcl}}
+\makeatletter
+\@ifundefined{paraphrase}{\newtheorem{paraphrase}{Paraphrase}}{}
+\makeatother
+% --- end pass-2 extra compile shims 10 ---
+
+
+% --- Pass-2 extra compile shims 11 ---
+\providecommand{\re}{\operatorname{Re}}
+% --- end pass-2 extra compile shims 11 ---
+
+
+% --- Pass-2 extra compile shims 12 ---
+\providecommand{\ab}{\mathrm{ab}}
+\providecommand{\Subset}{\subset}
+% --- end pass-2 extra compile shims 12 ---
+
+% --- end pass-2 compatibility shim ---
+
+% Pass-2 Vec override
+\let\Vec\relax
+\DeclareMathOperator{\Vec}{Vec}
+\begin{document}
+\selectlanguage{english}
+
+\maketitle
+
+\begin{center}
+\textit{Published in Contemporary Mathematics, Volume 67, 1987}
+\end{center}
+
+\vspace{1cm}
+
+\tableofcontents
+
+\newpage
+
+% ============================================================
+% INTRODUCTION
+% ============================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+In Deligne [1971], two-dimensional $\ell$-adic representations of $\Gal(\overline{\bQ}/\bQ)$ are attached to ``new'' holomorphic modular forms of weight at least two on the Poincar\'e upper half plane, or equivalently, to certain automorphic representations of the ad\`ele group $GL_2(\bA_\bQ)$. The correspondence preserves $L$-functions.
+
+This theory depends on the properties of moduli varieties of elliptic curves with given level structure. These varieties have a canonical structure over $\bQ$ and the $\ell$-adic representations are realized in the $\ell$-adic $H^1$ of certain sheaves.
+
+Drinfel'd [1973] transports the theory to the function field case by introducing the concept of elliptic module, which we call a Drinfel'd module, to replace elliptic curves.
+
+\subsection*{Fixed notations throughout the article}
+
+\begin{itemize}[leftmargin=2cm]
+\item[$C$] -- absolutely irreducible projective and smooth curve over $\bF_q$.
+\item[$\infty$] -- a closed point of $C$.
+\item[$F$] -- the function field $\bF_q(C)$ of $C$ over $\bF_q$.
+\item[$A$] -- the ring $H^0(C - \infty, \cO_C)$ of functions regular on $C \setminus \infty$.
+\item[$F_\infty$] -- the completion of $F$ at $\infty$ with valuation ring $\cO_\infty$.
+\item[$C_\infty$] -- the completion of the algebraic closure of $F_\infty$.
+\item[$\bF_q$] -- the finite field of $q$ elements.
+\end{itemize}
+
+Relative to the function field $F$ over $\bF_q$, we will define Drinfel'd modules of rank $r$ in the first chapter. Briefly, these are $A = H^0(C - \infty, \cO_C)$ module structures on the additive group in characteristic $p$ given by polynomials in Frobenius whose degree is a certain multiple of the rank $r$. The term elliptic module, which is Drinfel'd's original term, is used for Drinfel'd modules of rank $2$ for these are objects which correspond closely to elliptic curves.
+
+In fact, we have the following dictionary:
+
+\begin{center}
+\begin{tabular}{ll}
+elliptic curve & elliptic module (rank $2$ Drinfel'd module) \\
+$\bQ$ & $\bF_q(C)$ \\
+$F$ & $F$ \\
+infinite place & fixed place $\infty$ \\
+$\bZ$ & $A = H^0(C \setminus \infty, \cO_C)$ \\
+scheme & scheme over $A$ \\
+$n$ division point & $I$ division point for $I$ an ideal of $A$ \\
+$n$ level structure & $I$ level structure \\
+moduli space & moduli space \\
+lattice in $\bC$ & discrete $A$-module
+\end{tabular}
+\end{center}
+
+Most of the above dictionary is explained in chapter 1. Elliptic curves over the complex numbers $\bC$ can be interpreted as classes of certain lattices in $\bC$. In chapter 2 we describe Drinfel'd modules over $C_\infty$ in terms of discrete $A$-modules in $C_\infty$ defined over $A$. Drinfel'd modules defined over $\overline{\bF}_q$, the algebraic closure of $\bF_q$, can be also described by lattices in $C_\infty$, and the lattices with Galois invariance properties correspond to Drinfel'd modules over intermediate fields between $\bF_q$ and $\overline{\bF}_q$.
+
+For elliptic curves, indeed for more generally polarized abelian varieties, and for Drinfel'd modules there are moduli problems for families of these objects and moduli spaces. From the point of view of Shimura varieties, basic information about such moduli problems is collected in triples $(F, G, h')$ consisting of:
+\begin{itemize}
+\item a reductive group $G$ over a global field $F$,
+\item a conjugacy class of maps $h': \mathbb{G}_m \to G$.
+\end{itemize}
+
+The above dictionary extends further with the following examples of triples $(F, G, h')$ for the corresponding moduli problems over $F$:
+
+\begin{center}
+\begin{tabular}{ll}
+$\begin{pmatrix} \bQ, GSp_{2g}, \begin{pmatrix} * & * \\ 0 & 1_g \end{pmatrix} \end{pmatrix}$ & polarized abelian varieties (rank $g$) \\
+$\begin{pmatrix} \bQ, GL_2, \begin{pmatrix} * & * \\ 0 & 1 \end{pmatrix} \end{pmatrix}$ & elliptic curves \\
+$\begin{pmatrix} F, GL_r, \begin{pmatrix} * & * \\ 0 & I_{r-1} \end{pmatrix} \end{pmatrix}$ & Drinfel'd modules (rank $r$) \\
+$\begin{pmatrix} F, GL_2, \begin{pmatrix} * & * \\ 0 & 1 \end{pmatrix} \end{pmatrix}$ & elliptic module
+\end{tabular}
+\end{center}
+
+A critical step in the theory over $\bQ$ was the calculation of the cohomology of the complex analytic variety of $\bC$-valued points on the moduli scheme and the comparison with the $\ell$-adic cohomology. In the function field case Drinfel'd puts a rigid analytic structure on the $C_\infty$-valued points of the moduli scheme, calculates a rigid analytic $H^1$ for certain simple sheaves, and compares this $H^1$ with the $\ell$-adic $H^1$. This rigid analytic space is the quotient of a $C_\infty$-analogue of the Poincar\'e upper half plane by a discrete group $\Gamma$, and the cohomology is in the middle of a short exact sequence with subgroup $H^1(\Gamma)$ and quotient the space of coclosed 1-cochains on the tree of $PGL(2, C_\infty)$ invariant under $\Gamma$. This in turn is interpreted in terms of representations. Finally, the various representations in $H^1$ are sorted out with a congruence formula which is analogous to the Eichler--Shimura congruence formula. These considerations are carried out in chapters 3 and 4.
+
+In chapter 5 the global results on automorphic forms for $GL(2, \bA_F)$ are applied to a local result conjectured by Langlands. For a local field $K$ of equal characteristic $p$, there is a natural bijection between irreducible admissible representations of $GL(2, K)$ and two-dimensional representations of the Weil group $W(\overline{K}/K)$. The global theory of automorphic forms given by elliptic modules applies only to representations $\pi = \otimes' \pi_v$ where $\pi_\infty$ is the special representation. In the form of private letters Drinfel'd has a new theory of ``shtuka'' which handles all automorphic forms on $GL(1)$ and $GL(2)$ over a function field. Even so it seems that elliptic modules are still worth consideration because the theory for $r = 1$ and $r = 2$ may extend easier for general $r$ than the corresponding theory of ``shtuka'' which depends on the Selberg trace formula. Another method to relate automorphic forms to $\ell$-adic representations is in Drinfel'd [1983]. Recently, elliptic modules were used to describe modular forms in the function field case, see D. Goss [1977].
+
+This article grew out of lectures by P. Deligne at the I.H.E.S. in the Winter--Spring of 1975 and a lecture in Bonn during the period of Karneval, 1975.
+
+\newpage
+% ============================================================
+% CHAPTER 1: ALGEBRAIC THEORY OF DRINFEL'D MODULES
+% ============================================================
+\section{Algebraic Theory of Drinfel'd Modules}
+\label{ch:algebraic}
+
+In terms of the notations in the introduction, a Drinfel'd module is an $A$-module structure on the additive group $\Ga$ in characteristic $p$. There is a theory of division points and isogenies of Drinfel'd modules which parallels closely the corresponding theory for abelian varieties. Drinfel'd modules have a characteristic $v$, which is a valuation of $F = \bF_q(C)$ over $\bF_q$, and they exhibit a singular and sometimes supersingular behavior at $v$ when $v \neq \infty$. Again, we are reminded of elliptic curves in characteristic $p$.
+
+Drinfel'd formulated and solved a moduli problem for Drinfel'd modules with prescribed level structure. The construction takes place entirely with affine schemes making the existence of the moduli elementary compared with the existence question of the moduli scheme for elliptic curves with level structure. We introduce Drinfel'd's modification of the notion of level structure which allows for a clearer analysis of level structures at singular and supersingular points for the cases of both Drinfel'd modules and elliptic curves. See additional remarks 1.
+
+\subsection{Endomorphisms of the Additive Group}
+\label{sec:endomorphisms}
+
+The additive group (functor) $\Ga$ over a ring $R$ is represented by the polynomial ring $R[X]$ in one variable with structure morphism $\alpha: R[X] \to R[X] \otimes_R R[X]$ given by $\alpha(X) = X \otimes 1 + 1 \otimes X$.
+
+A morphism $\phi: \Ga \to \Ga$ of the underlying schemes over $R$ is given by a polynomial $\phi(X) \in R[X]$ where $\phi^*(a(x)) = a(\phi(x))$ for $a(x) \in R[X]$, and this morphism preserves the group scheme structure if and only if $\phi(X)$ is additive, i.e. $\phi(X+Y) = \phi(X) + \phi(Y)$. Composition $\phi \circ \psi$ of morphisms $\phi$ and $\psi$ is represented by substitution $\phi(\psi(x))$, and the sum of two morphisms $\Ga \to \Ga$ is represented by the sum of two polynomials.
+
+For example, $\phi(x) = x^{p^i}$ is additive where $p$ is a prime. An additive polynomial has the form
+\[
+\phi(x) = \sum_{0 \leq i \leq n} a_i x^{p^i} = a_0 x + a_1 x^p + a_2 x^{p^2} + \cdots + a_n x^{p^n}.
+\]
+If $\psi(X)$ is a second additive polynomial, then $\phi \circ \psi(x) = \phi(\psi(x)) = \sum_{i,j} a_i \psi_j^{p^i} x^{p^{i+j}}$ is also additive.
+
+\begin{definition}
+\label{def:twisted}
+Let $k$ be a field of characteristic $p > 0$. The \emph{twisted polynomial ring} $k\{\tau\}$ is $k \otimes_\bZ \bZ[\tau]$ with the twisted tensor product algebra structure satisfying the commutation rule
+\[
+(a \otimes \tau^i) \cdot (b \otimes \tau^j) = a b^{p^i} \otimes \tau^{i+j}.
+\]
+We denote $a \otimes \tau^i$ simply by $a\tau^i$ in $k\{\tau\}$, and then the commutation rule becomes $\tau a = a^p \tau$.
+\end{definition}
+
+Let $k$ denote a field of characteristic $p > 0$ in the remainder of this section.
+
+\begin{proposition}
+\label{prop:endo}
+The function $\theta$ which assigns to an additive polynomial $\phi(X) = \sum_{0 \leq i \leq n} a_i x^{p^i}$ the element $\theta(\phi(X)) = \sum_{0 \leq i \leq n} a_i \tau^i \in k\{\tau\}$ is an isomorphism $\theta: \End_k(\Ga) \xrightarrow{\sim} k\{\tau\}$ of rings.
+\end{proposition}
+
+The proof follows from the observation that the relation $(X^{p^j})^{p^i} = X^{p^{i+j}}$ becomes $\tau^j a \tau^i = a^{p^j} \tau^{i+j}$ under $\theta$. Note that the multiplicative structure on $\End_k(\Ga)$ is substitution of additive polynomials and on $k\{\tau\}$ the twisted polynomial multiplication.
+
+We have two degree functions $\deg: \End_k(\Ga) \to \bZ$ and $d: k\{\tau\} \to \bZ$ defined by the relations
+\[
+\deg(a_0 x + a_1 x^p + \cdots + a_n x^{p^n}) = p^n
+\]
+and
+\[
+d(a_0 + a_1 \tau + \cdots + a_n \tau^n) = n
+\]
+where $a_n \neq 0$. The following relations hold for $\phi, \psi \in \End_k(\Ga)$ and $a, b \in k\{\tau\}$:
+\begin{align*}
+\deg(\phi \circ \psi) &= \deg(\phi) \deg(\psi), &\quad \deg(\phi + \psi) &\leq \max(\deg(\phi), \deg(\psi)), \\
+d(ab) &= d(a) + d(b), &\quad d(a+b) &\leq \max(d(a), d(b)).
+\end{align*}
+
+We have height functions $\htop: \End_k(\Ga) \to \bZ$ and $\htop: k\{\tau\} \to \bZ$ defined by the relations
+\[
+\htop(a_h x^{p^h} + \cdots + a_n x^{p^n}) = h
+\]
+and
+\[
+\htop(a_h \tau^h + \cdots + a_n \tau^n) = h
+\]
+where $a_h \neq 0$. Clearly, $\htop(\phi) = \htop(\theta(\phi))$. The following relations hold:
+\[
+\htop(\phi \circ \psi) = \htop(\phi) + \htop(\psi) \quad \text{and} \quad \htop(ab) = \htop(a) + \htop(b)
+\]
+for $\phi, \psi \in \End_k(\Ga)$ and $a, b \in k\{\tau\}$.
+
+We have substitutions $\partial_0: \End_k(\Ga) \to k$ and $\partial: k\{\tau\} \to k$ defined by the relations
+\[
+\partial_0\left(\sum_i a_i x^{p^i}\right) = a_0 \quad \text{and} \quad \partial\left(\sum_i a_i \tau^i\right) = a_0
+\]
+where $\partial_0$ is the derivative at the origin and $\partial$ the value at the origin. Clearly $\partial(\theta(\phi)) = \partial_0(\phi)$ for $\phi \in \End_k(\Ga)$.
+
+Finally, the following properties of additive polynomials seem to have been known for some time.
+
+\begin{proposition}
+\label{prop:additive}
+Let $H \subset \Ga(k)$ be a finite subgroup, and form the polynomial $P_H(X) = \prod_{h \in H} (X - h)$. Then $P_H(X)$ is an additive polynomial, so $P_H \in \End_k(\Ga)$ with $\deg(P_H) = \Card(H)$, and we are able to recover $H = \ker(P_H)(k)$, the set of all $x \in k$ with $P_H(X) = 0$.
+\end{proposition}
+
+\begin{proof}
+To show that $P_H$ is additive, consider $Q_Y(X) = P_H(X+Y) - P_H(Y)$ in $k(Y)[X]$. Since $H$ is a subgroup, $Q_Y(X) = 0$ on $H$ and further $\deg(Q_Y) = \deg(P_H)$. Thus $Q_Y(X)$ and $P_H(X) = P_H(X+Y) - P_H(Y)$ are monic polynomials of the same degree equal to $\Card(H)$ and each equal to zero on $H \subset k(Y)$. It follows that $P_H(X) = Q_Y(X) = P_H(X+Y) - P_H(Y)$, i.e. $P_H$ is additive, and the other statements hold which proves the proposition.
+\end{proof}
+
+\begin{remark}
+\label{rem:converse}
+As a kind of converse of \eqref{prop:additive} observe that for an additive polynomial $f: \Ga \to \Ga$ over $k$, the set $H$ of $x \in k$ with $f(x) = 0$ is a subgroup of $\Ga(k)$ with $\Card(H)$ dividing $\deg(f)$. If $k$ is algebraically closed, then $\deg(f) = p^{\htop(f)} \cdot \Card(H)$, and that the group morphism $f: \Ga(k) \to \Ga(k)$ is surjective for $f \neq 0$. Since $\htop(f) = 0$ if and only if $\partial_0(f) \neq 0$, we see that $\partial_0(f) \neq 0$ implies that $\deg(f) = \Card(\ker(f))$ over an algebraically closed $k$.
+\end{remark}
+
+\subsection{Definition of Drinfel'd Module over a Field}
+\label{sec:definition}
+
+We return to the basic notations of the introduction, in particular $A = H^0(C \setminus \infty, \cO_C)$, and let $k$ denote a field of characteristic $p$. Before the definition we make some remarks which point out the natural limitations of the definition.
+
+\begin{remark}
+\label{rem:integral}
+Since $\End_k(\Ga)$ isomorphic to $k\{\tau\}$ is an integral domain, and since $A$ is a Dedekind domain, any ring morphism $A \to \End_k(\Ga)$ is either injective or has image contained in the constants $k \subset k\{\tau\}$. The second case being relatively trivial means that we will be interested in morphisms which are injective (or faithful).
+\end{remark}
+
+To the rational point $\infty$, we have associated an absolute value $|a|_\infty$ on the function field $F$ with $\bF_{q_\infty}$ as residue class field with $q_\infty$ a power of $q$ and the absolute value normalized such that $|a|_\infty = \Card(A/a)$ for $a \in A \subset F$.
+
+\begin{remark}
+\label{rem:norm}
+For an injective $\phi: A \to \End_k(\Ga)$ the composite $A \xrightarrow{\phi} \End_k(\Ga) \xrightarrow{\deg} \bZ$, denoted $\|a\| = \deg(\phi(a))$, satisfies $\|ab\| = \|a\| \|b\|$ and $\|a+b\| \leq \max(\|a\|, \|b\|)$ from properties of $\deg$. Since $\|a\| \neq 1$ for $a \neq 0$ and for some $a$, $\|a\| > 1$, the relation $\|a/b\| = \|a\|/\|b\|$ for $a, b \in F$ defines an extension of $\|\cdot\|$ to $F$ as an absolute value. Since $\|a\| > 1$ for all $a \in A$, $a \neq 0$, the absolute value $\|x\|$ on $F$ must be equivalent to $|\cdot|_\infty$, i.e. $\|x\| = |x|_\infty^t$ for some $t > 0$ and all $x \in F$. In fact, $t > 0$ is a natural number, but we defer the proof of this until the next section, see \eqref{thm:structure}, and introduce the following basic concept which Drinfel'd called an elliptic module.
+\end{remark}
+
+\begin{definition}
+\label{def:drinfeld}
+For a natural number $r > 0$, a \emph{Drinfel'd module over a field $k$ of rank $r$} for the pointed curve $(C, \infty)$ over $\bF_q$ is a morphism of rings $\phi: A \to \End_k(\Ga)$ such that $G$ is isomorphic to $\Ga$ and
+\[
+\|a\| = \deg(\phi(a)) = |a|_\infty^r = (\Card(A/a))^r
+\]
+for all nonzero $a \in A$.
+\end{definition}
+
+Let $\Alg_k$ denote the category of commutative $k$-algebras $R$, and let $\Mod_A$ denote the category of $A$-modules. To a Drinfel'd module $\phi$, we associate a functor $E: \Alg_k \to \Mod_A$ which assigns to a $k$-algebra $R$ its underlying additive group $\Ga(R)$ together with the $A$-module structure defined by requiring $\phi(a)(R)$ to be scalar multiplication by $a$ on $\Ga(R)$. Observe that the functor $E$ determines $\phi$, and frequently we refer to $E$ as the Drinfel'd module instead of $\phi$. We will denote $\phi(a)$ by just $\phi_a$ occasionally.
+
+\begin{definition}
+\label{def:morphism}
+Let $\phi: A \to \End_k(G)$ and $\phi': A \to \End_k(G')$ be two Drinfel'd modules. A \emph{morphism} $u: \phi \to \phi'$ is a morphism $u: G \to G'$ such that $u \phi_a = \phi'_a u$ for all $a \in A$. A nonzero morphism is called an \emph{isogeny}.
+\end{definition}
+
+Equivalently, $u$ is a morphism of functors $E \to E'$ associated to $\phi$ and $\phi'$. Thus Drinfel'd modules over $k$ form a category with the composition of morphisms being evident.
+
+\begin{definition}
+\label{def:characteristic}
+Let $\phi: A \to \End_k(\Ga)$ be a Drinfel'd module and form $\partial_0 \phi: A \to k$ where $\partial_0: \End_k(\Ga) \to k$ is the value of the derivative at the origin. The Drinfel'd module $\phi$ has \emph{characteristic $\infty$} provided $\partial_0 \phi: A \to k$ is injective and has \emph{characteristic $v$}, a valuation of $F$ over $\bF_q$ different from $\infty$, provided $0 \neq |\cdot|_v \in \ker(\partial_0 \phi)$. Since $\ker(\partial_0 \phi)$ is either zero or a maximal ideal of $A$, every Drinfel'd module has characteristic $\infty$ or some ``finite'' $v \neq \infty$.
+\end{definition}
+
+\begin{remark}
+\label{rem:samerank}
+If $u: \phi \to \phi'$ is a nonzero morphism (isogeny) between two Drinfel'd modules, then $\phi$ and $\phi'$ have the same rank and the same characteristic.
+\end{remark}
+
+\begin{remark}
+\label{rem:bimodule}
+The definition \eqref{def:drinfeld} of a Drinfel'd module can be formulated in terms of a $(A, \End_k(\Ga))$-bimodule $N$ which is free of rank $1$ over $\End_k(\Ga)$ and satisfying the condition $\|a\| = (\Card(A/a))^r$ for $a \in A$, $a \neq 0$. The choice of a basis element for $N$ identifies $N$ with $\End_k(\Ga)$.
+\end{remark}
+
+\subsection{Division Points}
+\label{sec:division}
+
+As with abelian varieties, division points of a Drinfel'd module play a basic role in structure and moduli problems. We continue with the notation $E: \Alg_k \to \Mod_A$ equal to the functor associated to a ring morphism $\phi: A \to \End_k(\Ga)$.
+
+\begin{definition}
+\label{def:division}
+For $a \in A$ (usually $a \neq 0$) the subfunctor $E_a \subset E$ of $a$-division points is $\ker(\phi_a)$. For an ideal $I \subset A$ the subfunctor $E_I \subset E$ of $I$-division points is $\bigcap_{a \in I} E_a$. If $a_1, \ldots, a_m$ generate an ideal $I$ in $A$, then $E_I = E_{a_1} \cap \cdots \cap E_{a_m}$. So in particular for a principal ideal $(b)$ we have $E_{(b)} = E_b$. Since $E_a = E$ if and only if $a = 0$, the same holds for ideal: $E_I = E$ if and only if $I = 0$, and essentially we consider $E_I$ only for nonzero ideals $I$. More explicitly, for any $k$-algebra $R$, the $A$-submodule $E_I(R)$ consists of all $x \in E(R)$ such that $ax = 0$ for any $a \in I$. This shows that we can view $E_I$ as a functor defined $E_I: \Alg_k \to \Mod_{A/I}$.
+\end{definition}
+
+Again as with abelian varieties, $E_I(\overline{k})$ will be a free $A/I$-module for $I$ prime to the characteristic of $E$. For the case characteristic $\infty$ this is no restriction on $I$ and for characteristic $v$ corresponding to the maximal ideal $\fp_v$ in $A$ it means $I \not\subset \fp_v$.
+
+In order to prove this assertion we will use the following lemma on torsion modules over a discrete valuation ring $V$ with local uniformizing parameter $\pi$. For a $V$-module $L$ let $\ell(L)$ denote its length and $\pi_L: L \to L$ the action of the scalar $\pi$ on $L$.
+
+\begin{lemma}
+\label{lem:torsion}
+Let $L$ be a $V/\pi^m$-module.
+\begin{enumerate}[label=(\alph*)]
+\item We have $2\ell(\ker(\pi_L)) \geq \ell(L)$.
+\item For nonzero $L$, the equality holds in \textup{(a)} if and only if $L$ is a free $V/\pi^m$-module, and in this case $\ker(\pi_L)$ is a free $V/\pi^m$-module.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We can decompose $L$ as the sum of modules $N$ isomorphic to $V/\pi^i$ with $0 < i \leq 2m$. For $N = V/\pi^i$ ($0 < i \leq 2m$) observe that
+\[
+\ker(\pi^m) = \begin{cases} V/\pi^i & \text{of length } i \text{ for } m \geq i, \\ \pi^{i-m}(V/\pi^i) & \text{of length } m \text{ for } m < i. \end{cases}
+\]
+In both cases $2\ell(\ker(\pi^m)) = 2 \cdot \min(i, m) \geq i = \ell(N)$ so that (a) holds. Also $N$ is free, i.e. $i = 2m$ if and only if $2\ell(\ker(\pi^m)) = \ell(N)$, and $\pi^{m-1}\ker(\pi^m)$ is isomorphic to $V/\pi^m$ as $V/\pi^m$-modules which proves (b).
+\end{proof}
+
+In the following basic structure theorem for $E_I(\overline{k})$ over the algebraic closure $\overline{k}$ of $k$, we also settle the question left at the end of \eqref{rem:norm}. Note that the above definitions apply to any morphism $\phi: A \to \End_k(\Ga)$ of rings.
+
+\begin{theorem}
+\label{thm:structure}
+If $\phi: A \to \End_k(\Ga)$ is a monomorphism of rings, then $\phi$ is a Drinfel'd module of rank $r$ for an integer $r$. Moreover, for an ideal $I$ relatively prime to the characteristic of $\phi$, the $A/I$-module $E_I(\overline{k})$ is free of rank $r$.
+\end{theorem}
+
+\begin{proof}
+By \eqref{rem:norm} there exists a real number $t > 0$ with $\deg \phi_a = \Card(A/a)^t$ for all $a \in A$, $a \neq 0$. If $\partial_0 \phi_a = 0$, then by \eqref{rem:converse} $\deg \phi_a = \Card E_a(\overline{k})$ and also
+\[
+\deg(\phi_{a^2}) = \deg(\phi_a)^2 = \Card E_{a^2}(\overline{k}) = \Card E_a(\overline{k})^2.
+\]
+For each irreducible element $\pi$ of $A$ prime to the characteristic of $\phi$, which is a local uniformizing parameter of $A_\fp = V$, we apply lemma \eqref{lem:torsion} to the $V/\pi^m$-module $E_{\pi^m}(\overline{k})$ to prove that $E_{\pi^m}(\overline{k})$ is a free $A/\pi^m$-module of rank $r$ where
+\[
+\Card E_{\pi^m}(\overline{k}) = \deg(\phi_{\pi^m}) = \Card(A/\pi^m)^r.
+\]
+From this we deduce that $r$ is an integer and so $\phi$ is a Drinfel'd module of rank $r$.
+
+Next, for any nonzero $a \in A$ the primary components of $E_a(\overline{k})$ are of the form $E_{\pi^n}(\overline{k})$, so free $A/\pi^n$-module of rank $r$, from which we deduce that $E_a(\overline{k})$ is a free $A/a$-module of rank $r$. Finally, if $I$ is an ideal of $A$ prime to the characteristic of $\phi$, then there exists another ideal $J$ in $A$ with $A = I + J$ and $IJ = (e)$, a principal ideal prime to the characteristic. Then $A/e = A/I \oplus A/J$, and $E_e = E_I \oplus E_J$ as functors. Since $E_e(\overline{k})$ is free of rank $r$ over $A/e$, it follows that $E_I(\overline{k})$ is free of rank $r$ over $A/I$, and this proves the theorem.
+\end{proof}
+
+\begin{remark}
+\label{rem:singular}
+It remains only to consider for a Drinfel'd module $E$ of rank $r$ and characteristic $v \neq \infty$, the $A/\fp_v^n$-modules $E_{\fp_v^n}(\overline{k})$ where $V(\fp_v) = v$. In this case $\partial_0 \phi_{\pi^i} = 0$ for all $i$, and by the discussion in \eqref{rem:converse}, the endomorphism $\phi_{\pi^n}$ has a height $h$ where $\deg(\phi_{\pi^n}) = p^{nh} \cdot \Card E^{\text{\'et}}(\overline{k})$, or more generally
+\[
+p^{nh} = \frac{\deg(\phi_{\pi^n})}{\Card E^{\text{\'et}}(\overline{k})} = \frac{(\deg \phi_\pi)^n}{\Card E_{\fp_v^n}(\overline{k})} = \frac{(p^h \cdot \Card E_{\fp_v}(\overline{k}))^n}{\Card E_{\fp_v^n}(\overline{k})}.
+\]
+Hence again by applying lemma \eqref{lem:torsion}, we see that $E_{\fp_v^n}(\overline{k})$ is a free module of rank $r - h < r$ over $A/\fp_v^n$. As finite group schemes over $k$, we have a splitting when $k$ is separable
+\[
+E_{\fp_v^n} = E_{\fp_v^n}^{\text{\'et}} \times E_{\fp_v^n}^0
+\]
+where $E_{\fp_v^n}^{\text{\'et}}$ is \'etale of rank $r - h$ and $E_{\fp_v^n}^0$ is infinitesimal of rank $h$.
+\end{remark}
+
+\begin{definition}
+\label{def:height}
+The \emph{height} of a Drinfel'd module $E$ of characteristic $v \neq \infty$ is the height of $\phi_\pi$ where $\pi$ is an irreducible with $V(\pi) = v$. Since $(\pi)$ is uniquely determined by $v$, the height is well defined.
+\end{definition}
+
+\begin{remark}
+\label{rem:tate}
+Let $E$ be a Drinfel'd module of rank $r$ and characteristic $v$. Let $h$ be the height when $v = \infty$. For an irreducible $\pi$ of $A$, let $A_\pi$ be $A$ localized at $\pi$. Then $\varinjlim_n E_{\pi^n}(\overline{k})$ is a divisible $A_\pi$-module which is isomorphic to
+\[
+\begin{cases} (F_\pi/A_\pi)^r & \text{for } \pi \text{ prime to the characteristic}, \\ (F_\pi/A_\pi)^{r-h} & \text{for } v(\pi) = v. \end{cases}
+\]
+\end{remark}
+
+\subsection{Isogenies}
+\label{sec:isogenies}
+
+Recall that for a Drinfel'd $A$-module $(\phi, E)$ over $k$ and any field extension $k'$ of $k$, the group $E(k')$ has a given $A$-module structure. For two Drinfel'd $A$-modules over $k$ and $u \in k\{\tau\}$ with $u \neq 0$, the additive $u: \phi \to \phi'$ is an isogeny if and only if the additive $u: E(\overline{k}) \to E'(\overline{k})$ is $A$-linear. This follows from the fact that two polynomials are equal if and only if their associated polynomial maps $E \to E$ are equal. The kernel of $u: E(k') \to E'(k')$ is the $A$-module $\ker(u)(k')$ where $\ker(u)$ is the scheme kernel of $u: \phi \to \phi'$.
+
+\subsubsection*{Separable Isogenies}
+
+An isogeny $u: \phi \to \phi'$ is \emph{separable} when $u(X) = b_0 x + b_1 x^p + \cdots + b_s x^{p^s}$ where $b_0 \neq 0$. Then $u$ is determined by $\ker(u)(\overline{k})$, a finite $A$-submodule of $E(\overline{k})$, up to constant factor. For a finite $A$-submodule $H \subset E(\overline{k})$, we form $P_H(x) = \prod_{h \in H} (x - h)$, and there is a unique Drinfel'd $A$-module $\phi'$ such that $P_H \phi_a = \phi'_a P_H$ for all $a \in A$. If $a \cdot \ker(u)(\overline{k}) = 0$ for $a \neq 0$, then we can form the isogeny $v$ with kernel $u(\ker(\phi_a)(\overline{k}))$ and $vu = \phi_a$. Note that such a nonzero $a \in A$ with $a \cdot \ker(u)(\overline{k}) = 0$ always exists for $u \neq 0$ since it is a finite $A$-module. When $u$ is separable, we can always choose $v$ to be separable too. By the same construction, if $u: \phi \to \phi'$ and $w: \phi \to \phi''$ are separable isogenies such that $w(\ker(u)(\overline{k})) = 0$, then there is a separable isogeny $v: \phi' \to \phi''$ with $w = vu$ where $\ker(v)(\overline{k}) = u(\ker(w)(\overline{k}))$.
+
+\subsubsection*{Purely Inseparable Isogenies}
+
+These are of the form $\tau^i \in k\{\tau\}$ or $X \mapsto X^{p^i}$. Since $\phi_a \tau^i = \tau^i \phi_a$ in $k\{\tau\}$ is equivalent to all coefficients of $\phi_a$ being in $\bF_{p^i}$, it follows that a purely inseparable isogeny exists only when the characteristic $v$ of $\phi$ is unequal to $\infty$, and in this case $p^i$ is a power of $q_v$ where $q_v$ is the cardinality of the residue class field of $v$. The finite group scheme $\ker(u) = \Spec(k[t]/(t^{p^i}))$. This case corresponds to a purely local kernel.
+
+\begin{remark}
+\label{rem:kernel}
+Let $H$ be a finite subgroup scheme of $\Ga$, and let $\phi$ be a Drinfel'd module structure on $\Ga$. Then $H$ is the kernel of some isogeny $u: \phi \to \phi'$ if and only if $H$ is stable under the action of $A$ and
+\[
+\ker(u) = \begin{cases} 0 & \text{if the characteristic } = \infty, \\ \Spec(k[t]/(t^{q_v^h})) & \text{if the characteristic } = v \text{ and } q = q_v = \Card(\bF_q(v)). \end{cases}
+\]
+For any isogeny $u: \phi \to \phi'$ there exists an isogeny $v: \phi' \to \phi$ and $a \in A$ with $\phi_a = vu$.
+\end{remark}
+
+Let $\delta(u)$ denote the degree of the additive polynomial $u \in \End_k(\Ga)$. The function $\delta: \End_k(\Ga) \to \bZ$ also prolongs under extension of scalars to $\End_k(\Ga) \to \End_{\overline{k}}(\Ga)$.
+
+\begin{remark}
+\label{rem:End}
+We study the $A$-algebra $\End_k(E)$ with $\delta$ using the following properties of $\delta: \End_k(E) \otimes_A F_\infty \to \bQ$:
+\begin{enumerate}[label=(\arabic*)]
+\item $\delta(u) \geq 0$ and $\delta(u) = 0$ if and only if $u = 0$.
+\item $\delta(au) = |a|_\infty \delta(u)$ for $a \in F$.
+\item $\delta(u+v) \leq \max(\delta(u), \delta(v))$.
+\item $\delta(uv) = \delta(v)\delta(u)$.
+\end{enumerate}
+Moreover, $\End(E) \subset \End_k(E) \otimes_A F_\infty$ will be seen to be a discrete $A$-module in this normed vector space over $F_\infty$, see \eqref{rem:discrete}(2). The main step will be to show that $\End(E)$ is a finitely generated $A$-module. For this we use the following two lemmas.
+\end{remark}
+
+\begin{lemma}
+\label{lem:fg}
+Let $A^n \subset X \subset F_\infty^n$ where $X$ is a discrete $A$-module. Then $X$ is finitely generated.
+\end{lemma}
+
+\begin{proof}
+For all $i$ observe that $\fp_\infty^i + A \subset F_\infty$ has finite index, e.g. $k[1/t] + t^i k[[t]] \subset k((t))$ has index $\Card(k)^i$. There exists an $i$ with $X \cap (\fp_\infty^i)^n = 0$ since $X$ is discrete, and thus $X$ embeds in $(F_\infty/\fp_\infty^i)^n$ and $X/A^n$ embeds in $(F_\infty/\fp_\infty^i)^n$ which is finite. Since $(X : A^n)$ is finite and $A^n$ is finitely generated, it follows that $X$ is a finitely generated $A$-module.
+\end{proof}
+
+\begin{proposition}
+\label{prop:fg}
+For a finite dimensional subspace $V$ over $F_\infty$ of $\End(E) \otimes_A F$, it follows that $V \cap \End(E)$ is a finitely generated $A$-module which is projective.
+\end{proposition}
+
+\begin{proof}
+For $V_\infty = F_\infty \cdot V$, it follows that $X = \End(E) \cap V = \End(E) \cap V_\infty$, and we can assume that $S$ generates $V$ and so $V_\infty$ or replace $V$ by a smaller subspace. Let $x_1, \ldots, x_n$ be a basis of $V_\infty$ with $x_i \in X$. Then with this basis $A^n \subset X \subset F_\infty^n = V_\infty$, and we are reduced to the previous lemma since $\End(E)$ is a discrete subspace of $\End(E) \otimes_A F_\infty$. To see that $X = V \cap \End(E)$ is projective, we have only to remark that it is flat since it is torsion free over a Dedekind domain and finitely generated flat modules are projective over a Noetherian ring.
+\end{proof}
+
+\begin{corollary}
+\label{cor:projective}
+The $A$-module $\End(E)$ is projective.
+\end{corollary}
+
+\begin{proof}
+Let $W = \prod_i W_i$ where $W = \End(E) \otimes_A F$ and $\|w_i\|_{F_\infty \to i}$ is finite. Then $X_i = \End(E) \cap W_i$ is projective by \eqref{prop:fg} and the restrictions of the projections $W \to W_i$ to $f: \End(E) \to \prod_i X_i$ define a morphism onto a projective module with $\ker(f) = 0$. Hence $\End(E)$ is projective.
+\end{proof}
+
+For estimates on the rank we use the following lemma.
+
+\begin{lemma}
+\label{lem:injective}
+Let $a \in A$ be prime to the characteristic of $E$. Then $\End(E) \otimes_A A/a \to \End(E_a)$ is injective.
+\end{lemma}
+
+\begin{proof}
+If $v \in \End(E)$ and $v(\ker(\phi_a)) = 0$, then as in \eqref{sec:isogenies}, it follows that $v = v' \phi_a$, and $v \neq 0$ implies $v \in \End(E)a$.
+\end{proof}
+
+Now we summarize all the basic results in the following theorem and remarks.
+
+\begin{theorem}
+\label{thm:end}
+Let $E$ be a Drinfel'd module over an algebraically closed field $k$ of rank $r$. Then
+\begin{enumerate}[label=(\arabic*)]
+\item $\End(E)$ is a projective $A$-module of rank $\leq r^2$, and
+\item $\End_k(E) \otimes_A F_\infty$ is a field in which $\End(E)$ embeds as a discrete $A$-module of this normed space over $F_\infty$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) The fact that $\End(E)$ is projective is contained in \eqref{cor:projective} and the injectivity of $\End(E) \otimes_A A/a \to \End(E_a)$ coming from \eqref{lem:injective} bounds the rank by $r^2$ since $E_a$ is an $A/a$-module of rank $r$ for $a$ prime to the characteristic.
+
+(2) The existence of $\delta$ on $\End_k(E) \otimes_A F$ proves that it is a field, and since $F_\infty/F$ is a separable extension $\End_k(E) \otimes_A F_\infty$ is also a field. The subspace where $\delta = 0$ on $\End_k(E) \otimes_A F_\infty$ is zero since $\dim_F \End(E) \otimes_A F_\infty \geq \rank(\End_k(E))$.
+\end{proof}
+
+\begin{remark}
+\label{rem:commutative}
+With the notations of the previous theorem, the ring $\End_k(E)$ is commutative for $E$ of characteristic $\infty$ and further its rank $\leq r$.
+\end{remark}
+
+\begin{remark}
+\label{rem:tatemod}
+For a place $v$ of $F$ we denote by $D_v(E) = \varinjlim_n E_{v^n}(\overline{k})$ and then the Tate module would be by definition $T_v(E) = \Hom(F_v/A_v, D_v(E))$. Then $\End(E) \otimes_A A_v \subset \End T_v(E) = \End D_v(E)$, and the cokernel is without torsion as an $A_v$-module.
+\end{remark}
+
+\subsection{Drinfel'd Modules over a Base Scheme}
+\label{sec:base}
+
+Recall that locally free sheaf of rank $1$ and invertible sheaf are the same notions, for which we use also the term line bundle.
+
+\begin{definition}
+\label{def:scheme}
+Let $S$ be a scheme in characteristic $p$. A \emph{Drinfel'd module over $S$ of rank $r$} is an invertible sheaf $\cL$ and a morphism of rings $\phi: A \to \End(\cL)$ such that locally over open sets where $\cL$ is trivial
+\[
+\phi_a(x) = \sum_{i=0}^{m} a_i x^{p^i}
+\]
+where $p^m = |a|_\infty^r$ and $a_m$ is a unit. We say that $\phi_a$ is \emph{strictly of degree $p^m$}.
+\end{definition}
+
+In order to analyze the condition that $a_m$ is a unit, we use the following lemma.
+
+\begin{lemma}
+\label{lem:unit}
+Let $R$ be a ring with $p = 0$ and $\phi, \psi, f \in R\{\tau\}$ where $f\phi = \psi f$, $\phi = \sum_{i=0}^{M} a_i \tau^i$ with $a_M$ a unit, $\psi = \sum_{j=0}^{N} b_j \tau^j$ with $b_N$ a unit, and $f = \sum_{k=0}^{L} c_k \tau^k$. Then the leading coefficient $c_L^{p^M}$ is either a unit or zero, and so $f$ is either zero or strictly of degree $\leq M \cdot L$.
+\end{lemma}
+
+\begin{proof}
+Comparing the coefficients of $\tau^{M+N}$ in the relation $\psi f = f \phi$, we deduce $c_L^{p^M} b_N = c_L a_M^{p^L}$ or $c_L^{p^M}(b_N c_L^{1-p^M} - a_M^{p^L}) = 0$. Since $b_N$ is a unit, this can be written $c_L^{p^M}(c_L^{1-p^M} - a_N/b_N^{p^L}) = 0$.
+
+Thus either $c_L = 0$ or $c_L$ a unit with $c_L^{p^M-1} = a_M^{p^L}/b_N$.
+\end{proof}
+
+The next lemma is a version of the Weierstrass preparation theorem.
+
+\begin{lemma}
+\label{lem:weierstrass}
+Let $R$ be a ring with $p = 0$. If $\phi = \sum_{i=0}^{N} a_i \tau^i$ where $a_N$ is a unit and $a_0, \ldots, a_{N-1}$ are nilpotent, then after a change of coordinates with $u(\tau) = 1 + \sum_{i=1}^{N-1} c_i \tau^i$ such that $u \phi u^{-1}(\tau) = \sum_{i=0}^{N} a'_i \tau^i = \psi(\tau)$ with $a'_N$ a unit. The coefficients $c_N, c_{N-1}, \ldots, c_1$ are chosen by decreasing induction.
+\end{lemma}
+
+\begin{remark}
+\label{rem:alternative}
+An alternative form of the definition of a Drinfel'd module over a scheme $S$ in characteristic $p$ is to give $E/S$ a group scheme locally isomorphic to $\Ga$ and a morphism of rings $\phi: A \to \End_S(E)$ with degree $|a|_\infty^r$ locally over $S$. Using lemma \eqref{lem:weierstrass}, we can put an $\cO_S$-linear structure on $E$ such that the action of some $\phi_a$ for $|a|_\infty > 1$ is locally given by a polynomial expression with highest coefficient a unit and of degree $|a|_\infty^r$. Using lemma \eqref{lem:unit} and the relation $\phi_a \phi_b = \phi_b \phi_a = \phi_{ab}$, it follows that all $\phi_b$ are given locally by polynomials of strict degree $|b|_\infty^r$. Questions of $\cO_S$-linearity need only be checked over closed subschemes $\Spec(R) \subset S$ where $R$ is a local Artin ring.
+\end{remark}
+
+\subsubsection*{Analogue of Characteristic}
+
+The function $a \mapsto \partial_0 \phi_a$ defines a morphism $A \to \cO_S$ of rings and hence a morphism of schemes $S \to \Spec(A)$. For a closed point $s \in S$, the Drinfel'd module over the field $\bF(s)$ has characteristic $s(s) \in \Spec(A)$.
+
+\subsection{Level Structure and the Moduli Space}
+\label{sec:level}
+
+Let $I$ be an ideal in $A$, let $V(I)$ denote the set of prime ideals of $A$ containing $I$, and let $E/S$ be a Drinfel'd module of rank $r$ over $S$ with characteristic morphism $\theta: S \to \Spec(A)$. Then form the finite flat group scheme $E_I/S = \bigcap_{a \in I} \ker(E \xrightarrow{\phi_a} E)$ of rank equal to $\Card(A/I)^r$. The scheme $E_I$ is \'etale outside the characteristics which divide $I$, i.e. over $\theta^{-1}(\Spec(A) \setminus V(I)) \subset S$.
+
+In the most elementary sense an $I$-level structure on a Drinfel'd module $E$ should be an isomorphism $\alpha: (I^{-1}/A)^r \xrightarrow{\sim} E_I$ over $S$, and in fact, this definition works very well away from characteristics dividing $I$. In order to deal smoothly with characteristics dividing $I$, we are led to the following definition of Drinfel'd which has also an analogue for elliptic curves with level structures.
+
+\begin{definition}
+\label{def:level}
+An \emph{$I$-level structure} on a Drinfel'd module $E/S$ of rank $r$ is an $A$-linear morphism $\alpha: (I^{-1}/A)^r \to E_I$ such that for all $i$ in $I^{-1}/A$ the corresponding sections $\alpha(i)$ of $E_I$ have the property that as divisors on $E$
+\[
+\sum_{i \in (I^{-1}/A)^r} (\alpha(i)) = E_I \times_S \cdots \times_S E_I.
+\]
+Locally $E$ is isomorphic to $\Ga$, and in this case $E_I$ is defined as the kernel of a polynomial map $P: \Ga \to \Ga$ where $P_I(x) = \prod_{i \in I^{-1}/A} (x - \alpha(i))$.
+\end{definition}
+
+Let $\cF_I$ denote the contravariant functor from schemes to sets which assigns to a scheme $S$ the set of isomorphism classes of Drinfel'd modules over $S$ of rank $r$ with $I$-level structure.
+
+\begin{theorem}
+\label{thm:moduli}
+Let $I$ be an ideal in $A$ with $\Card V(I) > 1$. The functor $\cF_I$ is representable by an affine scheme of finite type over $A$.
+\end{theorem}
+
+\begin{proof}
+For $x \in V(I)$ it suffices to show that the functor restricted to the category of schemes over $\Spec(A) \setminus \{x\}$ is representable. Then for a scheme $S$ over $\Spec(A) \setminus \{x\}$, and a Drinfel'd module $E$ over $S$ with an $I$-level structure, the choice of nonzero elements for the $I$-level structure gives a trivialization of $E$. Over these local pieces $E$ is given by coordinates of $\phi_a$ for each $a \in A$ and elements $\alpha(i)$ for $i \in (I^{-1}/A)^r$ subject to the relations:
+\begin{enumerate}[label=(\alph*)]
+\item $\phi_a \phi_b = \phi_b \phi_a$,
+\item The leading coefficient of $\phi_a$ is invertible,
+\item $\phi_a(\alpha(i)) = 0$,
+\item $P(X) = \prod_{i \in I^{-1}/A} (X - \alpha(i))$.
+\end{enumerate}
+All of these relations are affine in nature and can be represented by an affine scheme.
+\end{proof}
+
+The book of Katz--Mazur [1985] carries the construction of moduli spaces of elliptic curves using Drinfel'd's definition of level structure.
+
+\newpage
+% ============================================================
+% CHAPTER 2: ANALYTIC THEORY OF THE AFFINE MODULES OF DRINFEL'D
+% ============================================================
+\section{Analytic Theory of the Affine Modules of Drinfel'd}
+\label{ch:analytic}
+
+The group of points of an elliptic curve over the complex numbers is of the form $\bC/L$ where $L$ is a lattice over $\bZ$ (so of rank $2$) in $\bC$. There is a similar assertion for Drinfel'd modules of rank $r$. The group of $C_\infty$-valued points is of the form $C_\infty/L$ where $L$ is an $A$-lattice (discrete $A$-module) of rank $r$ in $C_\infty^r$.
+
+The description of Drinfel'd modules in terms of lattices gives a calculation of the moduli space of Drinfel'd modules over $C_\infty$ in terms of a quotient $GL(r, A) \backslash \Hom_{F_\infty}(F_\infty^r, C_\infty)$. This is similar to the quotient $GL(2, \bZ) \backslash \Hom_\bR(\bC, \bC)$ which classifies elliptic curves plus a differential form. In the last section an ad\'elic description of the points of this moduli space is given.
+
+\subsection{Exponential Function Associated to a Lattice}
+\label{sec:exponential}
+
+Let $X$ be a subset of a complete nonarchimedean valued field $K$ such that $0 \in X$ and $B(a, r) \cap X$ is finite for any ball $B(a, r) \subset K$ around $a$ of radius $r > 0$. Then the Euler product
+\[
+e_X(t) = t \prod_{Y \in X \setminus \{0\}} \left(1 - \frac{t}{Y}\right)
+\]
+defines an entire function $e_X: K \to K$ with zeros on $X$, because the hypothesis implies $\lim_{Y \in X \setminus \{0\}} |t/Y| \to 0$ from which we deduce that $e_X(t)$ converges uniformly on any ball.
+
+By changing $f$ and $t$ by scalar factors, we can assume that the power series expansion of an entire function has the form $f(t) = \sum_{n \geq 0} a_n t^n$ where $|a_i| \leq 1$, $|a_i| < 1$ for $i < r$, and $|a_r| = 1$; when $f$ is nonconstant, also $r > 0$. By solving congruences modulo powers of the maximal ideal of $F$, we can factor
+\[
+f(t) = (t^r + c_1 t^{r-1} + \cdots + c_r)(b_0 + b_1 t + \cdots).
+\]
+If, in addition, $K$ is algebraically closed, then it follows that every nonconstant entire function has at least one zero. Thus the Euler product $e_X(t)$ is the unique entire function, up to a constant factor, with one simple zero at each point of $X$ and no other zeros.
+
+\begin{definition}
+\label{def:lattice}
+A subgroup $L$ of the additive group of a complete valued field $K$ is called a \emph{lattice} provided the intersection $L \cap B(a, r)$ is finite for any ball $B(a, r)$.
+\end{definition}
+
+When $K$ is of characteristic $p$, then $p \cdot 1 = 0$ and the torsion group $L$ is a limit of finite subgroups $H$, i.e. $L = \varinjlim_{H \text{ finite} \subset L} H$. If the above Euler expansion
+\[
+e_L(t) = t \prod_{Y \in L \setminus \{0\}} \left(1 - \frac{t}{Y}\right)
+\]
+is additive, i.e. $e_L(x+y) = e_L(x) + e_L(y)$ for any $x, y \in K$, then $L$ is clearly a lattice and $e_L(t)$ is its exponential function.
+
+\begin{proposition}
+\label{prop:additive}
+Let $L$ be a lattice in a complete valued field $K$ of characteristic $p$. Then $e_L(x+y) = e_L(x) + e_L(y)$ for any $x, y \in K$.
+\end{proposition}
+
+\begin{proof}
+Since $L = \varinjlim_{H \text{ finite} \subset L} H$, it follows that uniformly on any ball
+\[
+e_L(t) = \lim_{\substack{\longrightarrow \\ H \text{ finite} \subset L}} e_H(t).
+\]
+Each $e_H(t)$ is additive since it equals $c \prod_{h \in H} (t - h)$ which is additive by \eqref{prop:additive}. Thus $e_L(x+y) = e_L(x) + e_L(y)$ since it is a limit of functions $e_H(t)$ satisfying this property.
+\end{proof}
+
+\begin{remark}
+\label{rem:dilation}
+If $L$ is a lattice in a complete valued field $K$, and if $\lambda \in K^*$, then $\lambda L$ is a lattice also and the exponential function $e_L(t)$ of $L$ determines the exponential function of $\lambda L$ by $e_{\lambda L}(t) = \lambda e_L(\lambda^{-1} t)$. The lattice $\lambda L$ is called the \emph{dilation} of $L$ by $\lambda \in K^*$. Two lattices $L$ and $L'$ are in the same dilation class provided $L' = \lambda L$ for $\lambda \in K^*$. We always normalize the exponential function so that $e_L(t) = t + \text{(higher order terms)}$.
+\end{remark}
+
+\subsection{Characterization of Drinfel'd Modules over $C_\infty$}
+\label{sec:characterization}
+
+Lattices $\Gamma \subset C_\infty^r$, such that $a\Gamma \subset \Gamma$ for $a \in A \subset C_\infty$ with the induced scalar action by $a \in A$ are also $A$-modules, which we call $A$-lattices. A dilation $\lambda\Gamma$ of an $A$-lattice $\Gamma$ is again an $A$-lattice for $\lambda \in C_\infty^*$, and we can speak of dilation classes of $A$-lattices.
+
+Given an $A$-lattice $\Gamma$ in $C_\infty$, we form the ring morphism $\phi_\Gamma: A \to \End_{C_\infty}(\Ga)$ where $\phi_{\Gamma, a}$ for $a \in A$ is defined by the following commutative diagram:
+\[
+\begin{tikzcd}
+0 \arrow[r] & \Gamma \arrow[r] \arrow[d, "a"'] & C_\infty \arrow[r, "e_\Gamma"] \arrow[d, "a"'] & C_\infty \arrow[r] \arrow[d, "\phi_{\Gamma, a}"] & 0 \\
+0 \arrow[r] & \Gamma \arrow[r] & C_\infty \arrow[r, "e_\Gamma"'] & C_\infty \arrow[r] & 0
+\end{tikzcd}
+\]
+
+For $\lambda\Gamma$, the relation $\phi_{\lambda\Gamma}(e_{\lambda\Gamma}(t)) = e_{\lambda\Gamma}(at)$ becomes in view of \eqref{rem:dilation} simply
+\begin{align*}
+\phi_{\lambda\Gamma}(\lambda e_\Gamma(\lambda^{-1} t)) &= \lambda e_\Gamma(a \lambda^{-1} t) \\
+\text{or } \quad \lambda^{-1} \phi_{\lambda\Gamma}(\lambda e_\Gamma(t)) &= e_\Gamma(at).
+\end{align*}
+This implies that $\Gamma$ and $\lambda\Gamma$ give rise to $\phi_a$ and $\lambda^{-1} \phi_a \lambda = \phi_a$ for $\lambda \in C_\infty^*$.
+
+\begin{theorem}
+\label{thm:bijection}
+The function, which assigns to each $A$-lattice $\Gamma$, the ring morphism $\phi_\Gamma: A \to \End_{C_\infty}(\Ga)$ defined above, is a bijection from the set of $A$-lattice dilation classes in $C_\infty$ determined by $\Gamma$ which are projective of rank $r$ onto the set of isomorphism classes of affine $A$-modules $\phi$'s over $C_\infty$ of rank $r$ with $\partial \phi_a = a$.
+\end{theorem}
+
+\begin{proof}
+First we calculate $\ker(\phi_\Gamma)$. This is isomorphic to $\ker(\phi_\Gamma e_\Gamma)/\Gamma = \ker(e_\Gamma \cdot a)/\Gamma$, and $\ker(e_\Gamma \cdot a)/\Gamma$ is isomorphic to $a^{-1} \ker(e_\Gamma)/\Gamma = a^{-1} \Gamma/\Gamma$. Hence $\ker(\phi_\Gamma)$ is isomorphic to $(A/a)^r$ since $\Gamma$ is projective of rank $r$, and moreover $\Card(\ker \phi_a) = \Card(A/a)^r$. Thus $\Gamma \mapsto \phi_\Gamma$ is a well defined function from dilation classes of $A$-lattices projective of rank $r$ to isomorphism classes of affine $A$-modules over $C_\infty$ of rank $r$. The property $\partial \phi_a = a$ follows from $e_\Gamma(t) = t + \text{(higher terms)}$, and $\phi_{\lambda\Gamma} = \phi_\Gamma$ from the calculation preceding the statement of the theorem.
+
+To show $\Gamma \mapsto \phi_\Gamma$ is a bijection, we consider an affine module $\phi: A \to \End_{C_\infty}(\Ga)$ of rank $r$ and construct an additive entire function $e: C_\infty \to C_\infty$ such that $\phi_a(e(x)) = e(ax)$ and $e(t) = t + \text{(higher terms)}$. Then the corresponding $A$-lattice $\Gamma$ is the set of $x \in C_\infty$ with $e(x) = 0$.
+
+The first step is to show that there is a unique formal solution $e(T) \in k[[T]]$ such that $\phi_a(e(x)) = e(ax)$ for a given $a \in A$ with $\phi_a(T) = a_0 + a_1 \tau + \cdots$ and $a = a_0 \neq 0, 1$. The condition $\phi_a(e(x)) = e(ax)$ is equivalent to $\phi_a(e(a^{-1} x)) = e(x) = \sum_{n \geq 0} e_n x^{p^n}$. Equating coefficients of $x$, we derive from the relation
+\[
+\phi_a(e(a^{-1} x)) = \sum_i a_i \left(\sum_j e_j^{p^i} a^{-p^{i+j}} x^{p^{i+j}}\right) = \sum_n e_n x^{p^n}
+\]
+the formula
+\[
+e_n = \frac{\sum_{i+j=n, i \geq 1} a_i e_j^{p^i}}{a^{p^n} - a},
+\]
+and hence the inductive definition for the coefficients $e_n$ starting with $e_0 = 1$:
+\[
+e_n = \frac{\sum_{i=1}^{n} a_i e_{n-i}^{p^i}}{a^{p^n} - a}.
+\]
+This shows both the existence and uniqueness of $e(T)$.
+
+The second step is to show that for this $e(T)$, the relation $\phi_b(e(x)) = e(bx)$ holds for any $b \in A$. Consider
+\[
+(\phi_b e b^{-1})(x) = \phi_b(\phi_a e a^{-1}) b^{-1}(x) = (\phi_a(\phi_b e b^{-1}) a^{-1})(x).
+\]
+From the expression it follows that $e$ and $\phi_b e b^{-1}$ both satisfy the relation $\phi_a e a^{-1} = e$, and from the uniqueness assertion in step one, it follows that $\phi_b e = e b$ for any $b \in A$.
+
+Next we have to show that $e(x) = \sum_{n \geq 0} e_n x^{p^n}$ is an entire function. Assume in the inductive definition of $e(T)$ that $|a| > 1$ and write the above recurrence formula for $e_n$ as
+\[
+e_n(a^{p^n} - a) = \sum_{i=1}^{n} a_i e_{n-i}^{p^i} \quad \text{for } n \geq 1.
+\]
+Then
+\[
+|a| |e_n|^{p^n} \leq \max_{1 \leq i \leq a} \{|a_i|^{p^{n-i}} r_{n-i}\}
+\]
+where $r_j = |e_j|^{p^j}$. For $a \neq 1$, such that $1/|a| < \delta < 1$ and any $n \geq \text{fixed } n_0$, each term $|a_i|^{p^{n-i}} < 1 + \delta$, and it follows that
+\[
+r_n \leq \delta \cdot \max_{1 \leq i \leq a} r_{n-i}.
+\]
+Since
+\[
+r_n \leq \frac{\delta}{1-\delta} \max_{1 \leq i \leq a} r_{n-i},
+\]
+we see that $r_n = |e_n|^{p^n} \to 0$, which proves that $e(x)$ is an entire function.
+
+Finally, we calculate $\phi_a$ for this $e(x)$ where $\Gamma$ equals the subset of $x \in C_\infty$ with $e(x) = 0$. We have
+\[
+\phi_a(x) = a \cdot x \prod_{\gamma \in a^{-1}\Gamma/\Gamma \setminus \{0\}} \left(1 - \frac{x}{e_\Gamma(\gamma)}\right)
+\]
+since $\phi_a(x) = 0$ on $a^{-1}\Gamma/\Gamma$. Thus the degree of $\phi_a$ equals $\Card(a^{-1}\Gamma/\Gamma) = \Card(A/a)^r = (\Card(A/a))^r$. This proves the theorem.
+\end{proof}
+
+For our future considerations $I$-level structures will play a basic role where $I$ is a nonzero ideal in $A$. This leads to the following definition.
+
+\begin{definition}
+\label{def:ilevel}
+Let $Y$ be a projective $A$-module of rank $r$. For a nonzero ideal $I \subset A$ an \emph{$I$-level structure} is an isomorphism $\alpha: Y/IY \to (A/I)^r$ of $A$-modules (or free $A/I$-modules). An isomorphism $Y/IY \xrightarrow{\sim} (A/I)^r$ is equivalent to an isomorphism $I^{-1}Y/Y \xrightarrow{\sim} (I^{-1}/A)^r$ since $v = I^{-1} \otimes_A u$.
+\end{definition}
+
+In the case $Y = \Gamma$ an $A$-lattice of rank $r$ and the affine $A$-module $E = (\phi_\Gamma: A \to \End_{C_\infty}(\Ga))$ corresponding to $\Gamma$ by \eqref{thm:bijection}, we calculated $\ker(\phi_\Gamma) = a^{-1}\Gamma/\Gamma$ and thus the subfunctor $E_I = \bigcap_{a \in I} \ker(\phi_a) \subset E$ has the form
+\[
+E_I(\overline{k}) = \bigcap_{a \in I} a^{-1}\Gamma/\Gamma = I^{-1}\Gamma/\Gamma.
+\]
+Thus we immediately deduce the following assertion.
+
+\begin{proposition}
+\label{prop:ilevel}
+Using $E_I(\overline{k}) = I^{-1}\Gamma/\Gamma$, we have that an $I$-level structure on the affine $A$-module $E = \phi_\Gamma$ is the same as an $I$-level structure on the projective $A$-module $\Gamma$.
+\end{proposition}
+
+\subsection{Discrete Modules in a Vector Space over a Local Field}
+\label{sec:discrete}
+
+The following preliminaries are needed in the next section in order to parametrize $A$-lattices in $C_\infty$ as homogeneous spaces.
+
+\begin{definition}
+\label{def:discrete}
+Let $A$ be a discrete subring of a local field $K$ with field of fractions $F \subset K$. We assume that $K/A$ is a compact abelian group.
+\end{definition}
+
+\begin{example}
+\label{ex:discrete}
+\begin{enumerate}[label=(\arabic*)]
+\item $A = \bZ \subset F = \bQ \subset K = \bR$.
+\item $A = \bZ + \bZ\omega \subset F = \bQ(\sqrt{-d}) \subset K = \bC$ for $d > 0$, $d \in \bZ$ square free.
+\item $A = \bF_q[t] \subset F = \bF_q(t) = \bF_q(t^{-1}) \subset K = \bF_q((t^{-1}))$.
+\item $A = \bF_q[C \setminus \infty] \subset F = \bF_q(C - \infty) = \bF_q(C) \subset K = F_\infty$ where $C$ is an affine curve and $F_\infty$ is the completion of $F$ at $\infty$.
+\end{enumerate}
+Of course (3) is a special case of (4), and (4) is the case of interest in this part.
+\end{example}
+
+For any finite dimensional vector space $V$ over $K$, the topology is well defined and given by a norm. A subgroup $H$ in $V$ is discrete provided there exists a neighbourhood $N'$ of $0$ in $V$ with $N' \cap H = 0$. If $N + N \subset N'$, then $N + x \cap N + y = \emptyset$ for $x, y \in H$ if and only if $x \neq y$.
+
+For an $A$-module $H$, the rank of $H$, denoted $\rk_A H$, is $\dim_K(K \otimes_A H)$.
+
+\begin{proposition}
+\label{prop:rank}
+Let $H$ be a discrete $A$-module contained in a finite dimensional $K$-vector space $V$. Then $\rk_A(H) \leq \dim_K(V)$.
+\end{proposition}
+
+\begin{proof}
+Let $x_1, \ldots, x_n$ denote a set of elements $H$ forming a basis of the vector space $H \cdot K = K \cdot H \subset V$. Then $L = Ax_1 + \cdots + Ax_n \subset H \subset V$. Since $H$ is discrete in $V$, there exists a neighbourhood $N'$ of $0 \in V$ with $H \cap N' = 0$ and a neighbourhood $N$ with $N + N \subset N'$. Now $N + L$ is a neighbourhood of $0$ in $V/L$ intersecting $H/L$ only at $0$. Thus $H/L$ is a discrete subgroup of $V/L$, and of the compact abelian group
+\[
+V/L = Kx_1 \oplus \cdots \oplus Kx_n / Ax_1 \oplus \cdots \oplus Ax_n.
+\]
+Thus $H/L$ is finite and $n = \dim_K(K \otimes_A L) \leq \dim_K(K \otimes_A H) = \dim_K(V)$ (which in turn implies $\rk_A(H) = \dim_F(F \otimes_A H) \leq \dim_K(V)$). This proves the proposition.
+\end{proof}
+
+\begin{proposition}
+\label{prop:discrete}
+Let $H$ be a projective $A$-submodule contained in a finite dimensional $K$-vector space $V$. Then $H$ is discrete in $V$ if and only if $\delta: K \otimes_A H \to V$ is injective.
+\end{proposition}
+
+\begin{proof}
+Assume $H$ is discrete in $V$. Then $H \subset \im(\delta) \subset V$ is discrete and so $\rk_A(H) \leq \dim_K(\im(\delta))$ by \eqref{prop:rank}. On the other hand, for any $H$, we have $\rk_A(H) = \dim_K(K \otimes_A H) \geq \dim_K(\im(\delta))$. Hence $\dim_K(K \otimes_A H) = \dim_K(\im(\delta))$ and so $\delta$ is injective.
+
+Conversely, assume that $\delta$ is injective. There exists $H'$ with $H \oplus H'$ free, and a free module $A^n \subset K^n$ is a discrete $A$-submodule. Hence $H$ is discrete in $K \otimes_A H$, and since $\delta$ is injective, $H$ is discrete in $V$. This proves the proposition.
+\end{proof}
+
+\begin{remark}
+\label{rem:embedding}
+Let $C$ be the completion of the algebraic closure of $K$. Then for every projective $A$-module $P$ with $\rk_A(P) \leq [C : K]$ there exists an $A$-monomorphism $P \to C$ such that $P$ is discrete in $C$, i.e. by \eqref{prop:discrete}, the induced $K \otimes_K P \to C$ is injective.
+
+In example (1), $2 = [C : K]$ and free modules $P$ of rank $\leq 2$ over $\bZ$ can be embedded as discrete subgroups of $C = \bC$. In examples (3) and (4), $[C_\infty : F_\infty] = \infty$ and all projective modules embed as $A$-lattices of $C_\infty$.
+\end{remark}
+
+\subsection{Moduli Spaces as Homogeneous Spaces (Local Theory)}
+\label{sec:local}
+
+Now we return to the notations of the article where $F = \bF_q(C)$, $A = \bF_q[C - \infty]$, $F_\infty$ completion of $F$ at $\infty$, and $C_\infty$ the completion of the algebraic closure $\overline{F}_\infty$ of $F_\infty$. Let $K$ denote $F_\infty$ a local field as referred to in \S\ref{sec:discrete} where $A \subset K$ is discrete and $K/A$ compact.
+
+We denote points in projective space $\bP_{r-1}(C_\infty)$ by their homogeneous coordinates $y_1 : \cdots : y_r$.
+
+We begin by parametrizing $F$-vector subspaces or equivalently free $A$-lattices in $C_\infty$.
+
+\begin{proposition}
+\label{prop:parametrize}
+The function
+\[
+f: C_\infty \setminus (\Hom_{F_\infty}(F_\infty^r, C_\infty) - \{0\}) \longrightarrow \bP_{r-1}(C_\infty)
+\]
+given by $f(u) = u(e_1) : \cdots : u(e_r)$ where $e_i = (0, \ldots, 1, \ldots, 0)$ is a bijection which restricts to a bijection
+\[
+C_\infty \setminus \Hom_{F_\infty}(F_\infty^r, C_\infty) \xrightarrow{\sim} \bP_{r-1}(C_\infty) - \bigcup (F_\infty\text{-rational hyperplanes}).
+\]
+\end{proposition}
+
+\begin{proof}
+A nonzero element $u$ of $\Hom_{F_\infty}(F_\infty^r, C_\infty)$ is determined by its values $(u(e_1), \ldots, u(e_r))$ on the canonical basis elements $e_i \in F_\infty^r$. A dilation of $u$ yields a dilation of the $r$-tuple $(u(e_1), \ldots, u(e_r)) = (x_1, \ldots, x_r)$. Next, $(a_1, \ldots, a_r) \in \ker(u) \subset F_\infty^r$ if and only if $\sum_{i=1}^{r} a_i x_i = 0$, i.e. for $(a_1, \ldots, a_r) \neq 0$, $(x_1, \ldots, x_r)$ is on the $F_\infty$-rational hyperplane with equation $a_1 x_1 + \cdots + a_r x_r = 0$. This proves the proposition.
+\end{proof}
+
+For an $A$-module $Y$ projective of rank $r$, we have embeddings and isomorphism
+\[
+Y \hookrightarrow F_\infty \otimes_A Y \cong F_\infty^r \quad \text{and} \quad GL_A(Y) \hookrightarrow GL_{F_\infty}(F_\infty \otimes_A Y) \cong GL(r, F_\infty)
+\]
+coming from the tensor product. By taking the image of $Y$ or $F_\infty \otimes_A Y$, and using \eqref{prop:discrete}, the following horizontal arrows are well defined functions.
+
+\begin{proposition}
+\label{prop:diagram}
+Let $Y$ be a projective module of rank $r$ over $A$. The following diagram is commutative and the horizontal arrows are bijections:
+\[
+\begin{tikzcd}
+\left\{\begin{array}{c}
+A\text{-sublattices of} \\
+C_\infty \text{ isomorphic to } Y
+\end{array}\right\} \arrow[r, "\sim"] \arrow[d] & \Hom_{F_\infty}(F_\infty \otimes_A Y, C_\infty)/GL_A(Y) \arrow[d] \\
+\left\{\begin{array}{c}
+A\text{-sublattices of} \\
+C_\infty \text{ isomorphic to } Y \\
+\text{modulo dilations in } C_\infty^*
+\end{array}\right\} \arrow[r, "\sim"'] & C_\infty \setminus \Hom_{F_\infty}(F_\infty \otimes_A Y, C_\infty)/GL_A(Y) \\
+\left\{\begin{array}{c}
+r\text{-dimensional } F\text{-vector} \\
+\text{subspaces of } C_\infty
+\end{array}\right\} \arrow[r, "\sim"] \arrow[u] & \Hom_{F_\infty}(F_\infty^r, C_\infty)/GL(r, F_\infty) \arrow[u] \\
+\left\{\begin{array}{c}
+r\text{-dimensional } F\text{-vector} \\
+\text{subspaces of } C_\infty \\
+\text{modulo dilations in } C_\infty^*
+\end{array}\right\} \arrow[r, "\sim"'] \arrow[u] & C_\infty \setminus \Hom_{F_\infty}(F_\infty^r, C_\infty)/GL(r, F_\infty) \arrow[u]
+\end{tikzcd}
+\]
+\end{proposition}
+
+Now putting \eqref{prop:parametrize} and \eqref{prop:diagram} together along with \eqref{thm:bijection}, we obtain the following assertion. Let $P_A^r$ denote the set of isomorphism classes of projective $A$-modules of rank $r$.
+
+\begin{proposition}
+\label{prop:bijections}
+Using the previous notations, we have the following bijections:
+\[
+\Omega^r(C_\infty) = \bP_{r-1}(C_\infty) - \bigcup (F_\infty\text{-rational hyperplanes})
+\]
+descends to
+\[
+\bigsqcup_{Y \in P_A^r} (\bP_{r-1}(C_\infty) - \bigcup (F_\infty\text{-rational hyperplanes}))/GL_A(Y)
+\]
+$\sim$
+\[
+\left\{\begin{array}{c}
+A\text{-sublattices of } C_\infty \text{ of rank } r \\
+\text{modulo dilations in } C_\infty^*
+\end{array}\right\}
+\]
+$\sim$
+\[
+\bigsqcup_{Y \in P_A^r} C_\infty \setminus \Hom_{F_\infty}(F_\infty \otimes_A Y, C_\infty)/GL_A(Y)
+\]
+$\sim$
+\[
+\left\{\begin{array}{c}
+\text{Isomorphism classes of affine } A\text{-modules} \\
+\phi \text{ over } C_\infty \text{ of rank } r \text{ with } \partial \phi_a = a
+\end{array}\right\}
+\]
+and taking disjoint unions over $Y \in P_A^r$.
+\end{proposition}
+
+\begin{remark}
+\label{rem:r=1}
+In the case $r = 1$, $\bP_0(C_\infty) - (F_\infty\text{-rational hyperplanes})$ is a point, and \eqref{prop:bijections} is a statement about bijections between sets with one point. We will be interested particularly in the case $r = 2$ in latter parts. If $a_1 x_1 + a_2 x_2 = 0$ where $a_1, a_2 \in F_\infty$, then $x_1 : x_2 = -a_2 : a_1 \in \bP^1(F_\infty)$. Thus we have $\Omega^2(C_\infty) = \bP_1(C_\infty) - (F_\infty\text{-rational lines}) = \bP_1(C_\infty) - \bP_1(F_\infty)$.
+\end{remark}
+
+The next step is to modify \eqref{prop:bijections} to include the case of $A$-lattices with $I$-level structure. For a projective $A$-module $Y$ of rank $r$ the projection $Y \to Y/IY$ induces a group morphism $GL_A(Y) \to GL_A(Y/IY)$ which has kernel $GL_A(Y, I)$.
+
+In the following two statements we have a restatement of \eqref{prop:diagram} and a modification taking into account $I$-level structures. Fix an $I$-level structure $\alpha_0: Y/IY \xrightarrow{\sim} (A/I)^r$.
+
+\begin{enumerate}[label=(\arabic*)]
+\item Each monomorphism $u: F_\infty \otimes_A Y \to C_\infty$ determines a lattice $u(Y) \subset C_\infty$ and an $I$-level structure $u_*( (u|_Y)^{-1} \bmod I) \circ \alpha$ on $u(Y)$ where $u|_Y: Y \to u(Y) \subset C_\infty$. Moreover, all $A$-sublattices of $C_\infty$, isomorphic to $Y$ together with an $I$-level structure, come by this construction.
+\item Two monomorphisms $u, u': F_\infty \otimes_A Y \to C_\infty$ determine the same lattice in $C_\infty$ if and only if there exists $h \in GL_A(Y)$ with $u' = uh$. They determine the same lattice in $C_\infty$ with $I$-level structure if and only if there exists $h \in GL_A(Y, I)$ with $u' = uh$.
+\end{enumerate}
+
+This leads to the following modification of the previous proposition.
+
+\begin{theorem}
+\label{thm:level}
+Let $I$ be a nonzero ideal in $A$, and use the previous notations. We have the following bijections:
+\[
+\bigsqcup_{Y \in P_A^r} (\bP_{r-1}(C_\infty) - \bigcup (F_\infty\text{-rational hyperplanes}))/GL_A(Y, I)
+\]
+$\sim$
+\[
+\left\{\begin{array}{c}
+\alpha: I^{-1}Y/Y \to (I^{-1}/A)^r \\
+\text{modulo Aut of } Y
+\end{array}\right\}
+\]
+$\sim$
+\[
+\left\{\begin{array}{c}
+A\text{-sublattices of } C_\infty \text{ of rank } r \text{ with an } I\text{-level} \\
+\text{structure modulo dilations in } C_\infty^*
+\end{array}\right\}
+\]
+$\sim$
+\[
+\bigsqcup_{Y \in P_A^r} C_\infty \setminus \Hom_{F_\infty}(F_\infty \otimes_A Y, C_\infty)/GL_A(Y, I)
+\]
+$\sim$
+\[
+\left\{\begin{array}{c}
+\alpha: I^{-1}Y \to (I^{-1}/A)^r \\
+\text{modulo Aut of } Y
+\end{array}\right\}
+\]
+$\sim$
+\[
+\left\{\begin{array}{c}
+\text{Isomorphism classes of affine } A\text{-modules} \\
+\phi_a \text{ over } C_\infty \text{ with } I\text{-level structure and of rank } r \\
+\text{with } \partial \phi_a = a
+\end{array}\right\}
+\]
+or more briefly the bijection
+\[
+\bigsqcup_{(\alpha, Y) \in P_A^r(I)} \Omega^r(C_\infty)/GL_A(Y, I) \xrightarrow{\sim} \cM_I^r(C_\infty).
+\]
+Here $\Omega^r(C_\infty) = \bP_{r-1} - \bP_{r-1}(C_\infty) - \bigcup (F_\infty\text{-rational hyperplanes})$, also $\cM_I^r$ is the moduli functor for affine $A$-modules rank $r$ with $I$-level structure, and $P_A^r(I)$ is the set of ordered pairs $(\alpha, Y)$ with $Y \in P_A^r$ and $\alpha: I^{-1}Y/Y \to (I^{-1}/A)^r$ is an isomorphism.
+\end{theorem}
+
+\subsection{Moduli Spaces as Homogeneous Spaces (Ad\'elic Theory)}
+\label{sec:adelic}
+
+The basic bijection describing $\cM_I^r(C_\infty)$ in \eqref{thm:level} involves only the local field at $\infty$. In this section we will describe $\cM_I^r(C_\infty)$ using all the primes of $F$ together with $\cM_I^r(C_\infty)$. This ad\'elic description is closely related to the ad\'elic description of vector bundles on a curve which we recall now.
+
+\subsubsection*{Remarks on Vector Bundles}
+
+Over any ringed space $X$, an $(\cO_X)$-vector bundle $E$ of rank $n$ is a (locally free) sheaf on $X$ locally isomorphic to $\cO_X^n$. If $X$ is a nonempty open set of the curve $C$ over $\bF_q$, for example $X = C - \{\infty\}$, then a vector bundle of rank $n$ can be described as a family $(V, L_v)_{v \in X}$ where $V$ is an $n$-dimensional vector space over $F = \bF_q(C)$ and each $L_v$ is a free module of rank $n$ contained in $V$ over the local ring $\cO_{(v)}$ at $v$. We assume that there exists a basis $x_1, \ldots, x_n$ of $V$ over $F$ and a finite set $S \subset X$ with $L_v = \cO_{(v)} x_1 + \cdots + \cO_{(v)} x_n$ for all $v \in X - S$. The basis $x_1, \ldots, x_n$ is called a trivialization of $V$ on $X - S$.
+
+If $y_1, \ldots, y_n$ is any other basis of $V$, then $y_j = \sum a_{ij} x_i$ and $x_i = \sum b_{ji} y_j$ where $(a_{ij}, b_{ij}) \in GL(n, \cO(v))$ for all but a finite number of $v$. Hence every basis of $V$ is a trivialization of $V$ over some $X - T$ where $T \subset X$ is finite.
+
+To an $\cO_X$-sheaf $E$, locally isomorphic to $\cO_X^n$, we assign $V = E_\eta$ where $\eta$ is the generic point of $C$. The $\cO(v)$-submodule $L_v \subset V$ is defined by trivializing $E|_{(X-S)}$ on an open set $X-S$ around $v$ with $x_1, \ldots, x_n \in V$ and requiring for all $w \in X - S$ with $S$ finite that $L_w = \cO(w)x_1 + \cdots + \cO(w)x_n$.
+
+These lattices which came up in the above description of a vector bundle can be identified with certain homogeneous spaces. Let $F_v$ denote the completion of $F$ at $v \in X$ with valuation ring $\cO_v$. Then using matrix transforms between bases of a lattice in a vector space $F_v^n$ or $F^n$, we have the following commutative diagram of bijections:
+\[
+\begin{tikzcd}
+GL(n, F)/GL(n, \cO(v)) \arrow[r, "\sim"] \arrow[d, hook] & \{\cO(v)\text{-lattices in } F^n\} \arrow[d, hook] \\
+GL(n, F_v)/GL(n, \cO_v) \arrow[r, "\sim"'] & \{\cO_v\text{-lattices in } F_v^n\}
+\end{tikzcd}
+\]
+
+\subsubsection*{Homogeneous Space Description of Trivialized Vector Bundles}
+
+A vector bundle $E$ with a trivialization is described by $(F^n, L_v)$ for $v \in X$ where $L_v = \cO(v)^n \subset F^n$ for all $v \in X - S$ where $S$ is finite. Thus the vector bundle trivialized on $X - S$ is determined by a finite set of lattices $L_v \subset F^n$ for $v \in S$. This leads to the following bijections:
+\[
+\begin{tikzcd}
+\left\{\begin{array}{c}
+\text{n-dim. vector bundles on } X \\
+\text{trivialized over } X-S \\
+\text{all up to isomorphism}
+\end{array}\right\} \arrow[r, "\sim"] & \prod_{v \in S} GL(n, F_v)/GL(n, \cO_v) \arrow[d, hook] \\
+& \prod_{v \in S} GL(n, F_v) \times \prod_{v \in X-S} GL(n, \cO_v)/\prod_{v \in X} GL(n, \cO_v)
+\end{tikzcd}
+\]
+where the vertical arrow is a homeomorphism of locally compact spaces.
+
+At points of $S$ we can consider a $\Lambda$-level structure on the vector bundle $E$ relative to a positive divisor $\Lambda$ supported on $S$. This is just an isomorphism of the sheaf $E|_\Lambda(-\Lambda) = E \otimes_{\cO_X} (\cO/\cO(-\Lambda)) \to (\cO/\cO(-\Lambda))^n$. In terms of the description of $E$ with the data $(F^n, L_v)$ this is an isomorphism $L_v/\fp_v^{m_v} L_v \xrightarrow{\sim} (\cO_v/\fp_v^{m_v})^n$ where $\fp_v^{m_v}$ is the ideal of the uniformizing parameter of $\cO(v)$ and hence $\cO_v$. If we denote by
+\[
+GL(n, \cO_v, \Lambda_v) = \ker(GL(n, \cO_v) \to GL(n, \cO_v/\fp_v^{m_v}))
+\]
+and $K(n, \Lambda) = \prod_{v \in X} GL(n, \cO_v, \Lambda_v)$, then the previous diagram becomes modified as follows for $\supp(\Lambda) \subset S$:
+\[
+\begin{tikzcd}
+\left\{\begin{array}{c}
+\text{n-dim. vector bundles} \\
+\text{on } X \text{ with } \Lambda\text{-level} \\
+\text{structure, trivialized} \\
+\text{over } X-S, \text{ up to iso.}
+\end{array}\right\} \arrow[r, "\sim"] & \prod_{v \in S} GL(n, F_v)/GL(n, \cO_v, \Lambda_v) \arrow[d, hook] \\
+\Vec_S(X; \Lambda) = & \prod_{v \in S} GL(n, F_v) \times \prod_{v \in X-S} GL(n, \cO_v)/K(n, \Lambda)
+\end{tikzcd}
+\]
+
+\subsubsection*{Vector Bundles on $C$}
+
+The product in the numerator of $\Vec_S(X)$ or $\Vec_S(X; \Lambda)$ is one of the terms in the inductive limit which defines the ad\`ele group $GL(n, \bA_F)$ where
+\[
+GL(n, \bA_F) = \varinjlim_{S} \prod_{v \in S} GL(n, F_v) \times \prod_{v \in C - S} GL(n, \cO_v).
+\]
+Hence considering vector bundles with $\Lambda$-level structure and trivialization over some open set $C - S$ of $C$ where $\supp(\Lambda) \subset S$, we obtain the bijection
+\[
+\begin{tikzcd}
+\left\{\begin{array}{c}
+\text{vector bundles of dimension } n \\
+\text{with a } \Lambda\text{-level structure and} \\
+\text{trivialization off the } \supp(\Lambda) \\
+\text{all up to isomorphism}
+\end{array}\right\} \arrow[r, "\sim"] & GL(n, \bA_F)/K(n, \Lambda)
+\end{tikzcd}
+\]
+Since the various trivializations are all related by the action of $GL(n, F)$ on basis, we have the following quotient of the previous bijection:
+\[
+\begin{tikzcd}
+\left\{\begin{array}{c}
+\text{isomorphism classes of} \\
+n\text{-dimensional vector bundles} \\
+\text{on } C \text{ with } \Lambda\text{-level structure}
+\end{array}\right\} & GL(n, F) \backslash GL(n, \bA_F) / K(n, \Lambda) \arrow[l, "\sim"']
+\end{tikzcd}
+\]
+
+\subsubsection*{Vector Bundles on $C - \{\infty\}$}
+
+The product in the numerator of $\Vec_S(X)$ or $\Vec_S(X; \Lambda)$ for $X = C - \{\infty\}$ is one of the terms in the limit which defines the finite ad\`ele group
+\[
+GL(n, \bA_F^f) \quad \text{where} \quad \bA_F^f = \hat{A} \otimes_A F
+\]
+and $\hat{A} = \varprojlim_J A/J$, the limit being taken over ideals $J \subset A$.
+
+A divisor $\Lambda$ can be described as an ideal $I \subset A$, and the group $K(n, \Lambda)$ is given by
+\[
+K(n, I) = \ker(GL(n, \hat{A}) \to GL(n, \hat{A}/I\hat{A}))
+\]
+which we also denote by $GL(n, \hat{A}, I)$ to avoid confusion with the previous case discussed above.
+
+As before we obtain in the injective limit the bijection
+\[
+\begin{tikzcd}
+\left\{\begin{array}{c}
+\text{vector bundles of dimension } n \\
+\text{on } C - \{\infty\} \text{ with a } \Lambda\text{-level structure} \\
+\text{and trivialization off the } \supp(\Lambda) \\
+\text{all up to isomorphism}
+\end{array}\right\} \arrow[r, "\sim"] & GL(n, \bA_F^f) / K(n, I)
+\end{tikzcd}
+\]
+On the affine $C - \{\infty\}$ with coordinate ring $A = H^0(C - \{\infty\}, \cO)$ a vector bundle of dimension $n$ is just a projective module $Y$ of rank $n$ over $A$.
+
+Now we combine the previous bijection with
+\[
+C_\infty \setminus \Hom_{F_\infty}(F_\infty^r, C_\infty) = \Omega^r(C_\infty) = \bP_{r-1}(C_\infty) - \bigcup (F_\infty\text{-rational hyperplanes}).
+\]
+We have a bijection
+\[
+\begin{tikzcd}
+\left\{\begin{array}{c}
+\text{vector bundles } Y \text{ on } C-\infty \\
+\text{of rank } r \text{ with a} \\
+\text{trivialization and a } \Lambda\text{-level} \\
+\text{structure all up} \\
+\text{to isomorphism}
+\end{array}\right\} & (GL(r, \bA_F^f)/GL(r, \hat{A}, I)) \times \Omega^r(C_\infty) \arrow[l, "\sim"']
+\end{tikzcd}
+\]
+
+The trivialization of $Y$ is a basis of $Y \otimes_A F$ over $F$ which defines an embedding $Y \to F_\infty^r$ as a discrete $A$-submodule. When this embedding is composed with a monomorphism $F_\infty^r \to C_\infty$ yields an $A$-sublattice of $C_\infty$ of rank $r$ with an $I$-level structure modulo dilations in $C_\infty^*$. Hence by \eqref{thm:level} we have a map
+\[
+(GL(r, \bA_F^f)/GL(r, \hat{A}, I)) \times \Omega^r(C_\infty) \to \cM_I^r(C_\infty)
+\]
+where the fibres correspond to the various bases of $Y \otimes_A F$ over $F$. Hence factoring out by the action of $GL(r, F)$ yields the ad\'elic description of $\cM_I^r(C_\infty)$.
+
+\begin{theorem}
+\label{thm:adelic}
+The above map induces a bijection
+\[
+GL(r, F) \backslash GL(r, \bA_F^f) \times \Omega^r(C_\infty) / GL(r, \hat{A}, I) \xrightarrow{\sim} \cM_I^r(C_\infty).
+\]
+\end{theorem}
+
+\begin{remark}
+\label{rem:general}
+The quotient space descriptions in \eqref{thm:adelic} and the local version generalize to any open compact subgroup $H \subset GL(r, \bA_F^f)$ to give the $C_\infty$-valued points $\cM_H^r(C_\infty)$ of a moduli scheme $\cM_H^r$:
+\[
+\cM_H^r(C_\infty) = GL(r, F) \backslash GL(r, \bA_F^f) \times \Omega^r(C_\infty) / H
+\]
+ad\'elic version
+\[
+= \bigsqcup_{x \in GL(r, \hat{A})} \Omega^r(C_\infty) / (xHx^{-1} \cap GL(r, F))
+\]
+local version. The moduli scheme $\cM_H^r$ arises from $E$-level structures on Drinfel'd modules.
+\end{remark}
+
+\newpage
+% ============================================================
+% CHAPTER 3: THE RIGID ANALYTIC MODULI SPACE
+% ============================================================
+\section{The Rigid Analytic Moduli Space}
+\label{ch:rigid}
+
+Now our aim is to describe the rigid analytic structure on the $C_\infty$-valued points of the moduli space. These points were parametrized by a quotient of $\Omega^r(C_\infty)$ by a discrete group in \eqref{thm:level}. The rigid analytic structure on the moduli space is a quotient of the rigid analytic structure on $\Omega^r(C_\infty)$.
+
+In order to define the rigid analytic structure on $\Omega^r(C_\infty)$, we make use of a natural mapping
+\[
+\lambda: \Omega^r(C_\infty) \longrightarrow |\cI(F_\infty^r)|_\bQ
+\]
+onto the rational points $|\cI(F_\infty^r)|_\bQ$ of the geometric realization $|\cI(F_\infty^r)|$ of the building $\cI(F_\infty^r)$ of the group $PGL(r)$ over the local field $F_\infty$. The admissible open sets of the rigid analytic structure are inverse images by $\lambda^{-1}$ of certain open neighborhoods of skeletons in $|\cI(F_\infty^r)|$.
+
+In this discussion we indicate how both $\Omega^r(C_\infty)$ and the building $\cI(F_\infty^r)$ are $p$-adic analogues of real symmetric spaces.
+
+\subsection{Norms on Vector Spaces over a Local Field}
+\label{sec:norms}
+
+\begin{definition}
+\label{def:localfield}
+Let $K$ be a local field with valuation ring $R$, maximal ideal $\fp = R\pi$, and $q = \Card(k)$ where $k = R/\fp$. We normalize $|a|$ on $K$ as $|a| = q^{-\ord(a)}$ so that $|\pi| = q^{-1}$ and $|\pi^n| = q^{-n}$. We consider finite dimensional vector spaces over $K$, and thus the closed unit ball and unit sphere are compact.
+
+If $V$ is of dimension $m$ over $K$, then a \emph{lattice} is any $R$-submodule $M$ free of rank $m$.
+\end{definition}
+
+\begin{definition}
+\label{def:norm}
+A \emph{norm} on a vector space $V$ over $K$ is a function $\alpha: V \to \bR$ satisfying:
+\begin{enumerate}[label=(\alph*)]
+\item $\alpha(x) \geq 0$ and $\alpha(x) = 0$ if and only if $x = 0$.
+\item $\alpha(ax) = |a| \alpha(x)$ for $a \in K$ and $x \in V$.
+\item $\alpha(x+y) \leq \sup(\alpha(x), \alpha(y))$ for $x, y \in V$.
+\end{enumerate}
+A norm is called \emph{integral} provided $\alpha(V) = |K| = \{0\} \cup q^{\bZ}$ and \emph{rational} provided $\alpha(V) \subset \bQ$.
+\end{definition}
+
+If $\alpha(x) < \alpha(y)$, then axiom (c) can be strengthened to the equality $\alpha(x+y) = \alpha(y) = \sup(\alpha(x), \alpha(y))$.
+
+If $\alpha$ is a norm and $t > 0$, then the dilation $t\alpha$ is a norm, and we denote by $\cN(V)$ the set of dilation classes of norms on $V$.
+
+\begin{example}
+\label{ex:norm1}
+For a basis $x_0, \ldots, x_m$ of $V$ and real numbers $r_0 > 0, \ldots, r_m > 0$ the function
+\[
+\alpha(a_0 x_0 + \cdots + a_m x_m) = \sup(r_0 |a_0|, \ldots, r_m |a_m|)
+\]
+is a norm on $V$. In fact, every norm can be described by this formula. This is proved by induction on $m$ by considering a nonzero linear form $\lambda: V \to F$ and choosing $x_0 \neq 0$ in $V$ such that $x \mapsto |\lambda(x)|/\alpha(x)$ defined on the compact projective space $\bP(V)$ takes its maximum at $x_0$. Then $V \cap Fx_0 \oplus \ker(\lambda)$ for which on $\ker(\lambda)$ the inductive hypothesis applies. See Goldman and Iwahori for the details.
+\end{example}
+
+\begin{example}
+\label{ex:norm2}
+The norm $\alpha_M$ associated to a lattice $M$ in $V$ is given by the formula
+\[
+\alpha_M(x) = \inf\{1/|a| : ax \in M\}.
+\]
+Observe that $M$ is the unit $R$-ball in $V$ of all $x \in V$ with $\alpha_M(x) \leq 1$, and for $x \neq 0$ we have $\alpha_M(x) = q^m$ where $\fp^m = \{a \in F : ax \in M\}$. For two lattices $L$ and $M$ the inclusion $L \subset M$ holds if and only if $\alpha_L(x) \leq \alpha_M(x)$ for all $x \in V$. For nonzero $c \in F$ we have $\alpha_{cM}(x) = (1/|c|)\alpha_M(x)$ for all $x \in V$, and in particular, $\alpha_{\fp M}(x) = q \cdot \alpha_M(x)$. Finally, if $x_0, \ldots, x_m$ is a basis of a lattice $M$ over $R$, then
+\[
+\alpha_M(a_0 x_0 + \cdots + a_m x_m) = \sup(|a_0|, \ldots, |a_m|).
+\]
+Thus this example is a special case of \eqref{ex:norm1}.
+\end{example}
+
+Going back to $\alpha(a_0 x_0 + \cdots + a_m x_m) = \sup(r_0|a_0|, \ldots, r_m|a_m|)$, we see that replacing $x_i$ by $c x_i$ for $c \in F$ replaces $r_i$ by $r_i/|c|$. In particular, $x_i$ replaced by $\pi^{s_i} x_i$ leads to $r_i$ replaced by $q^{s_i} r_i$. Hence, by rescaling the basis vectors, we can always require the constants $r_i$ to be in an interval of the form $[t, qt)$ or $(t, qt]$ for some given $t > 0$. So when $\alpha(V) = \{0\} \cup q^{\bZ}$, we can choose the $x_i$ with each $r_i = 1$, and this gives the next proposition.
+
+\end{document}

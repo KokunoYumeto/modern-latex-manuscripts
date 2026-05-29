@@ -1,0 +1,817 @@
+% ------------------------------------------------------------
+% English working translation layer.
+% Source file: papers_60_90/85_Multizetas_d_apres_Francis_Brown/85_Multizetas_apres_Francis_Brown.tex
+% Modern title: Multiple zeta values, after Francis Brown
+% ------------------------------------------------------------
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage{amsmath,amssymb,amsthm,amscd}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\pr}{pr}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Gm}{\mathbb{G}_m}
+\newcommand{\Ga}{\mathbb{G}_a}
+\newcommand{\dR}{\mathrm{dR}}
+\newcommand{\B}{\mathrm{B}}
+\newcommand{\mot}{\mathrm{mot}}
+\newcommand{\gr}{\mathrm{gr}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\coLie}{\mathrm{coLie}}
+\newcommand{\restr}{\mathrm{restr}}
+\newcommand{\shuffle}{{\text{sh}}}
+\newcommand{\comp}{\mathrm{comp}}
+\newcommand{\MT}{\mathrm{MT}}
+\newcommand{\ab}{\mathrm{ab}}
+
+\begin{document}
+\begin{center}\small\emph{Literal English translation working draft. Formulae, numbering, and TeX structure are preserved; this is not yet a modern recast.}\end{center}
+\vspace{0.5em}
+
+
+\begin{center}
+\textsc{Seminaire BOURBAKI}\hfill Janvier 2012\\
+64eme annee, 2011--2012, no 1048\\[1em]
+{\Large MULTIZ\^ETAS, D'APR\`ES FRANCIS BROWN}\\[.5em]
+par Pierre DELIGNE
+\end{center}
+
+\section*{0. Introduction}
+
+Soient $k \geq 0$ et $s = (s_1,\ldots,s_k)$ une suite de $k$ entiers $\geq 1$. Le nombre multiz\^eta $\zeta(s)$ est la somme it\'er\'ee (l'appellation est expliqu\'ee en 1.1)
+@@MATH0@@
+(somme sur les suites strictement d\'ecroissantes de $k$ entiers $> 0$). Pour $k = 0$, cette d\'efinition donne $\zeta(s) = 1$. Pour $k \geq 1$, la somme (0.1) converge si et seulement si $s_1 > 2$. Nous ne consid\'ererons que les $\zeta(s)$ convergents, i.e. tels que (0.1) converge.
+
+Le produit de deux nombres multiz\^etas est une combinaison lin\'eaire \`a coefficients entiers de nombres multiz\^etas. Voir 3.6. Il revient donc au m\^eme de d\'eterminer les relations polynomiales \`a coefficients rationnels entre les nombres multiz\^etas, ou de d\'eterminer les relations $\Q$-lin\'eaires entre eux.
+
+Pour $k = 1$, les $\zeta(s)$ convergents sont les valeurs en les entiers $n > 2$ de la fonction $\zeta$ de Riemann. Euler a montr\'e que pour $n$ pair, $\zeta(n)$ est un multiple rationnel de $\pi^n$ ([3]). Calculant $\zeta(3)$ avec 10 chiffres significatifs, il a aussi v\'erifi\'e que $\zeta(3)$ n'\'etait pas le produit de $\pi^3$ par un nombre rationnel de petit d\'enominateur. \`A la suite d'une correspondance avec Goldbach, Euler a \'etudi\'e dans [4], pour $k = 2$, la variante des sommes (0.1) dans laquelle on somme sur $n_1 > n_2$:
+\[
+\zeta^{\text{Euler}}(s_1,s_2) = \zeta(s_1,s_2) + \zeta(s_1+s_2).
+\]
+It proves a serie of relations $\Q$-lineaires between nombres multizetas, parmi lesquelles $\zeta(2,1) = \zeta(3)$. A of ses motivations etait the espoir of obtenir of the informations on the values of $\zeta$ en the integers impairs $> 3$ (see the fin of sa lettre a Goldbach of the 5 janvier 1743).
+
+The probleme of determiner all the relations $\Q$-lineaires between nombres multizetas a deux aspects:
+\begin{itemize}
+\item[(A)] \`A quelles relations faut-it s'attendre? The prouver.
+\item[(B)] Prouver that it n'y en a not of other.
+\end{itemize}
+
+the evidence disponible, tant numerique that theorique, suggere that every relation $\Q$-lineaire between the $\zeta(s)$ is sum of relations isobares, i.e. between $\zeta(s)$ similarly weight $\sum s_i$. Si one se limite a ne considerer that the relations isobares, one ne sait rien on the probleme (B). We ne parlerons that of (A).
+
+F. Brown a defined a class of relations $\Q$-lineaires between the $\zeta(s)$, the relations \emph{motiviques}. More precisely, it defines a $\Q$-algebra graduee $M$, of the elements homogenes $\zeta^m(s)$ of $M$, of degree the weight $\sum s_i$ of $s$, and a homomorphisme $\mathrm{real} : M \to \R$ such that $\mathrm{real}(\zeta^m(s)) = \zeta(s)$. the algebra $M$ is en tant that space vector generated by the $\zeta^m(s)$. The relations motiviques between $\zeta(s)$ are celles which proviennent of relations between the $\zeta^m(s)$.
+
+A variante of the conjecture of the periods of Grothendieck implique that every relation $\Q$-lineaire between the $\zeta(s)$ is motivic. This prediction a ete verifiee for beaucoup of the relations connues. Mise en garde: si certain proofs of relations between the $\zeta(s)$ are faciles a relever en a proof of the same relations between the $\zeta^m(s)$, c'is loin of be toujours the cas.
+
+\begin{theorem}[F. Brown {\cite{Brown}}]\label{thm:0.2}
+The $\zeta^m(s_1,\ldots,s_k)$ for lesquels each $s_i$ vaut $2$ or $3$ forment a base of $M$ on $\Q$.
+\end{theorem}
+
+Each $\zeta(s)$ can therefore be exprime uniquement, in such a way motivic, as combinaison lineaire a coefficients rationnels of $\zeta(s_1,\ldots,s_k)$ with $k \geq 0$ and each $s_i \in \{2,3\}$.
+
+Malheureusement, the proof of Brown ne fournit not a algorithme, of the less not a algorithme utilisable, for trouver quelle is this combinaison lineaire. Of the theorem \ref{thm:0.2}, F. Brown deduces that the category of the motives of Tate mixtes on $\Z$ is generated by the fundamental group of $\mathbf{P}^1 - \{0,1,\infty\}$. See \ref{thm:7.18}.
+
+Certain of nos notations different of celles of [1]. The correspondence between the notations is involutive: $\zeta(s_1,\ldots,s_k)$ devient $\zeta(s_k,\ldots,s_1)$, the composition of the chemins $\alpha\beta$ devient $\beta\alpha$, a mono\^me en the $e_t$ (resp.~a sequence of $0$ and $1$) is a remplacer by the same, lu of line a gauche, and $e_1$ is a remplacer by $-e_1$.
+
+\section{Formule integral}\label{sec:1}
+
+\subsection{}\label{ssec:1.1}
+
+Let $\omega_1,\ldots,\omega_N$ of the $1$-forms on the intervalle $[0,1]$. the integral iteree $\int_0^1 \omega_1,\ldots,\omega_N$ is the integral, on the simplexe
+\begin{equation}\label{eq:1.1.1}
+\sigma_N := \{(t_1,\ldots,t_N) \mid 1 > t_1 > \cdots > t_N > 0\},
+\end{equation}
+contenu in the cube $[0,1]^N$, of $\pr_1^*\omega_1 \wedge \pr_2^*\omega_2 \wedge \cdots \wedge \pr_N^*\omega_N$. Let $S$ the operation which a $1$-form $\omega$ attached the function $S[\omega](t) := \int_0^t \omega$. the integral iteree $\int_0^1 \omega_1,\ldots,\omega_N$ can be construite as suit: appliquer $S$ a $\omega_N$, multiplier the function obtained by $\omega_{N-1}$, appliquer $S$, multiplier by $\omega_{N-2}$, \ldots, a the fin, evaluer en $1$:
+\begin{equation}\label{eq:1.1.2}
+\int_0^1 \omega_1,\ldots,\omega_N = S[\omega_1 \cdot S[\omega_2 \cdots S[\omega_N]\cdots]](1).
+\end{equation}
+C'is this construction which explique the appellation ``integral iteree''. A sum such that (0.1) admet a description analogue, en terme of the operateur which a function $f(n)$ ($n > 1$) attached the function $\sum_{m=1}^{n-1} f(m)$; this explique the appellation of ``sum iteree'' datum a (0.1).
+
+Calculons ainsi the integral iteree
+\begin{equation}\label{eq:1.1.3}
+\int_0^1 \underbrace{\frac{dt}{t},\ldots,\frac{dt}{t}}_{(s_1-1)\text{ fois}}, \frac{dt}{1-t}, \underbrace{\frac{dt}{t},\ldots,\frac{dt}{t}}_{(s_2-1)\text{ fois}}, \frac{dt}{1-t}, \ldots, \underbrace{\frac{dt}{t},\ldots,\frac{dt}{t}}_{(s_k-1)\text{ fois}}, \frac{dt}{1-t}.
+\end{equation}
+one has $\frac{dt}{1-t} = \sum_{n>0} t^n\,dt$. Appliquant $S$ terme a terme, one obtains $\sum_{n>1} \frac{t^n}{n}$. Multipliant by $\frac{dt}{t}$ and appliquant $S$, one obtains $\sum_{n>1} \frac{t^n}{n^2}$. Iterant $(s-1)$ fois, one obtains $\sum_{n>1} \frac{t^n}{n^{s_k}}$. Multipliant by $\frac{dt}{1-t} = \sum_{m>0} t^m\,dt$ and appliquant $S$, one obtains
+\[
+S\Bigl[\sum_{m>0,n>1} \frac{t^{m+n}}{n^{s_k}}\Bigr] = \sum_{m>0,n>1} \frac{t^{m+n}}{(m+n)n^{s_k}} = \sum_{m>n>0} \frac{t^m}{m\,n^{s_k}}.
+\]
+Continuant ainsi, one obtains finalement the
+
+\begin{proposition}\label{prop:1.2}
+the integral iteree (1.1.3) vaut $\zeta(s_1,\ldots,s_k)$.
+\end{proposition}
+
+\subsection{}\label{ssec:1.3}
+
+Then that the notion of sum infinie is etrangere a the geometrie algebraic, the etude of integrals of quantites algebraic en is a of the sources. C'is grace a the proposition \ref{prop:1.2} that the geometrie algebraic, more precisely the theorie of the mixed Tate motives, is utile a the etude of the nombres multizetas.
+
+\section{Fundamental group pro-unipotent and cohomology}\label{sec:2}
+
+\subsection{}\label{ssec:2.1}
+
+We shall have need of a variante $Z^0$ of the serie central descendante $Z$ of a group $\Gamma$. For each $i \geq 1$, $\Gamma/Z^i$ is a group nilpotent. the set $T$ of ses elements of twisting is therefore a under-group. One defines $Z^i_0$ as being the inverse image of $T$ in $\Gamma$. Ci-dessous, we supposerons toujours $\Gamma$ of generation finite. This hypothese implique that the $Z^i_0/Z^{i+1}_0$ are of the groups abeliens libres of type finite.
+
+Supposons all of abord $\Gamma$ nilpotent without twisting, i.e. that there exists $A$ such that $Z^A_0 = 0$. For each $i$ ($1 \leq i < A$), choisissons a base of $Z^i_0/Z^{i+1}_0$ and relevons-the in $Z^i_0$. Let $\gamma_1,\ldots,\gamma_M$ the elements of $\Gamma$ obtained, ranges in a ordre quelconque, and let $w(j)$ the integer $i$ such that $\gamma_j$ releve a element of a base of $Z^i_0/Z^{i+1}_0$. One verifies by induction on $A$ that the map
+\[
+\Z^M \to \Gamma : n \mapsto \gamma_1^{n_1} \cdots \gamma_M^{n_M}
+\]
+is bijective. In a tel ``systeme of coordonnees'', the loi of group of $\Gamma$ is given by of the polynomes a coefficients rationnels and a values entieres on the integers. More precisely, si the coordonnee of indice $j$ is vue as being of weight $w(j)$, the $j$-ieme coordonnee of $m \circ n$ is a polynome of weight $\leq w(j)$ en the $m_k$ and $n_l$.
+
+The same polynomes definissent a algebraic group unipotent on $\Q$, the enveloppe unipotente $\Gamma^{\mathrm{un}}$ of $\Gamma$. The group $\Gamma^{\mathrm{un}}(\Q)$ of ses points rationnels is $\Q^N$, equipped with the loi of group given by the same formules that celle of $\Gamma$. The group $\Gamma^{\mathrm{un}}(\Q)$ is the completion of Malcev $\Gamma \otimes \Q$ of $\Gamma$.
+
+Let $\Q[\Gamma]$ the algebra of group of $\Gamma$, and $I$ son ideal of augmentation. Quillen a given a description elegante of the algebra affine $\mathcal{O}(\Gamma^{\mathrm{un}})$ of $\Gamma^{\mathrm{un}}$: c'is the filtered colimit of the duaux of the $\Q[\Gamma]/I^N$. More precisely, the inclusion of $\Gamma$ in $\Q[\Gamma]$ identifie the dual of $\Q[\Gamma]$ a the space of the functions $\Gamma \to \Q$, and by this identification the dual of $\Q[\Gamma]/I^{N+1}$ devient the space of the polynomes en the $n_j$ of weight $\leq N$.
+
+For $\Gamma$ of generation finite quelconque, this which precede s'applique to the $\Gamma/Z^i_0$, and one defines $\Gamma^{\mathrm{un}}$ as being the scheme en group projective limit of the $(\Gamma/Z^i_0)^{\mathrm{un}}$. the algebra affine of $\Gamma^{\mathrm{un}}$ is again the filtered colimit of the duaux of the $\Q[\Gamma]/I^N$.
+
+\subsection{}\label{ssec:2.2}
+
+Let $E$ a space topologique raisonnable, by example a algebraic variety complex. One assumed $E$ connected. A chemin $\gamma$ of $a$ a $b$: $[0,1] \to E$ fournit $\gamma^N: [0,1]^N \to E^N$ and, by restriction to the simplexe $\sigma_N$ of (\ref{eq:1.1.1}), a chaine singular of $E^N$ which is a cycle modulo the reunion of the $b = x_1$, $x_1 = x_2$, \ldots, $x_N = a$. The class of homology of this cycle ne depend that of the class of homotopie of $\gamma$.
+
+Faisons $a = b$. \'Elaborant the construction precedente (cf.~[2] \S\,3), one obtains a isomorphism of $\Q[\pi_1(E,a)]/I^{N+1}$ with a group of homology relative of $E^N$ and, of son dual $(\Q[\pi_1(E,a)]/I^{N+1})^\vee$ with a group of cohomology relative of $E^N$. Of the, by passage a the filtered colimit, a description cohomologique of the algebra affine of $\pi_1(E,a)^{\mathrm{un}}$.
+
+Ne supposons more that $a = b$. Let $\pi_1(E;b,a)$ the set of the classes of homotopie of chemins of $a$ a $b$. The group $\pi_1(E,a)$ agit a line, by composition of the chemins, on $\pi_1(E;b,a)$. This action fait of $\pi_1(E;b,a)$ a space principal homogene, we preferons dire \emph{torseur}, under $\pi_1(E,a)$. One denotes $\pi_1(E;b,a)^{\mathrm{un}}$ the $\pi_1(E,a)^{\mathrm{un}}$-torseur which s'en deduces en poussant by $\pi_1(E,a) \to \pi_1(E,a)^{\mathrm{un}}$. Let $\Q[\pi_1(E;b,a)]$ the space of the combinaisons lineaires formelles of elements of $\pi_1(E;b,a)$. C'is a $\Q[\pi_1(E,a)]$-module a line, free of rank a. One sets
+\[
+\Q[\pi_1(E;b,a)]/I^N := \Q[\pi_1(E;b,a)]/\Q[\pi_1(E;b,a)]I^N.
+\]
+The construction which precede fournit again a description cohomologique of the $(\Q[\pi_1(E;b,a)]/I^N)^\vee$, and of the algebra affine of $\pi_1(E;b,a)^{\mathrm{un}}$ which en is the filtered colimit.
+
+\subsection{}\label{ssec:2.3}
+
+Let $X$ a algebraic variety defined on a under-field $K$ of $\C$. The cohomology of Betti $H_{\B}^*(X)$ of $X$ is the cohomology rational of the space $X(\C)$ of the points complexes of $X$, equipped with sa topologie classique. It is equipped with structures which refletent the structure algebraic of $X$. In particular: a mixed Hodge structure. One dispose also of the de Rham cohomology algebraic $H_{\dR}^*(X)$. Si $X$ is not singular, $H_{\dR}^*(X)$ is the hypercohomologie of the de Rham complex of the sheaves of forms differentielles algebraic. C'is a $K$-space vector, one dispose of a isomorphism of comparaison
+\begin{equation}\label{eq:2.3.1}
+\comp_{\B,\dR} : H_{\dR}^i(X) \otimes_K \C \xrightarrow{\sim} H_{\B}^i(X) \otimes_{\Q} \C,
+\end{equation}
+and the filtrations $W$ and $F$ of the mixed Hodge structure of $H_{\B}^i(X)$ proviennent of filtrations of $H_{\dR}^i(X)$. The coefficients of the matrice of the isomorphism (\ref{eq:2.3.1}), in a base of $H_{\dR}^i(X)$ and a of $H_{\B}^i(X)$, portent the nom of \emph{periods}.
+
+Grace a \ref{ssec:2.2}, all this s'applique to the algebras affine of the schemes en group $\pi_1(X,a)^{\mathrm{un}}$ or of leurs spaces homogenes $\pi_1(X;b,a)^{\mathrm{un}}$. One ecrira $\pi_1(X,a)_{\B}$ for $\pi_1(X,a)^{\mathrm{un}}$, $\pi_1(X,a)_{\dR}$ for sa variante of Rham, and similarly for the $\pi_1(X;b,a)$. One mettra $\B$/$\dR$ en indice quand the states vaut also bien en Betti that en of Rham.
+
+\subsection{Example}\label{ssec:2.4}
+
+Prenons $K = \Q$ and let $X$ the group multiplicatif $\Gm$, of group of points complexes $\C^*$. Ici, the fundamental group, commutative, is independant of the point-base and s'identifie to the group of homology $H_1$. En of Rham, the dual $H_{\dR}^1$ of $H_1^{\dR}$ is $\Q \cdot \frac{dz}{z}$. En Betti, $H_1(\C^*,\Z)$ is $\Z$, generated by a tour positive autour of $0$. Si one ne veut not parler of ``tour positive'', i.e.~choisir which is $i$ and which is $-i$, it vaut mieux dire that $H_1 = \pi_1 = 2\pi i\Z$, with `$\ell \in 2\pi i\Z$' corresponding to the lacet $\exp(\ell t)$ ($0 \leq t \leq 1$), on lequel the integral of $\frac{dz}{z}$ vaut $\ell$.
+
+The $H_{\B}^1(\Gm) = H^1(\C^*,\Q)$ and $H_{\dR}^1(\Gm)$ are the realisations of Betti and of Rham of the Tate motive $\Q(1)$ (see \S\,5). one has $\Q(1)_{\dR} = \Q$ ($\frac{dz}{z} \in H_{\dR}^1(\Gm)$), and $\Q(1)_{\B}$, inclus in $\Q(1)_{\dR} \otimes \C$ by $\comp_{\dR,\B}$, is $2\pi i\,\Q$; $\Q(1)_{\dR}$ is purement of type of Hodge $(-1,-1)$.
+
+The algebraic group $\pi_1(\Gm,1)_{\dR}$ is the group additif $\Ga$, of group of points rationnels $\Q(1)_{\dR} = \Q$, and of algebra affine $\Q[T]$ (more precisely: $\mathrm{Sym}^*(H_{\dR}^1(\Gm))$). The algebraic group $\pi_1(\Gm,1)_{\B}$ is the group additif of group of points rationnels $2\pi i\,\Q$. Algebra affine: $\mathrm{Sym}^*(H_{\B}^1(\Gm))$. C'is the algebra of the functions $f$ on $2\pi i\Z$, a values rationnelles, and such that si one identifie $2\pi i\Z$ a $\Z$ by $n \mapsto 2\pi i n$, the conditions equivalentes suivantes let verifiees for $N$ sufficiently grand: (a) $f$ is a polynome of degree $< N$; (b) notant $\Delta$ the operateur $g \mapsto (g(n+1)-g(n))$, one has $\Delta^N f = 0$; (c) the form lineaire on the algebra of group $\Q[\Z]$ defined by $f$ is zero on $I^N$.
+
+By abus of langage, we ecrirons parfois $\Q(1)_{\B/\dR}$ for these algebraic groups.
+
+\section{The cas of $\mathbf{P}^1 - \{0,1,\infty\}$}\label{sec:3}
+
+\subsection{}\label{ssec:3.1}
+
+Si $X$ is the complement in $\mathbf{P}^1$ of a set finite $T$ of points rationnels, the variety $X$ is defined on $\Q$ and the Hodge structures mixte of \ref{ssec:2.2}, \ref{ssec:2.3} are of Hodge-Tate: $\Gr_n^W$ is zero for $n$ impair, and for $n = 2m$ is purement of type of Hodge $(m,m)$. For chacun of the groups $M$ consideres en \ref{ssec:2.2}, let $M_{\dR}$ sa variante of Rham (\ref{ssec:2.3}). After renumerotation, the filtrations by the weight $W$ and of Hodge $F$ of $M_{\dR}$ are opposees. They definissent the graduation of $M_{\dR}$ for which
+\begin{equation}\label{eq:3.1.1}
+W_{-2n}(M_{\dR}) = \bigoplus_{m>n} M_{\dR}^m, \qquad F^{-p}(M_{\dR}) = \bigoplus_{m \leq p} M_{\dR}^m.
+\end{equation}
+The convention (\ref{eq:3.1.1}) assure that $\Q(1)_{\dR}$ is of degree a. It is parfois commode of graduer by the oppose of the degree, the \emph{codegre}, and of poser $(M_{\dR})_m := (M_{\dR})^{-m}$.
+
+Cas particulier: the algebra affine of $\pi_1(X;b,a)_{\dR}$ is graduee. It is a degrees $\leq 0$ and reduite a $\Q$ en degree $0$. The morphism of augmentation $\mathcal{O}(\pi_1(X;b,a)_{\dR}) \to \Q$ is a point $1_{b,a}$ of $\pi_1(X;b,a)_{\dR}$. En $\dR$, one dispose ainsi of a chemin canonical $1_{b,a}$ of a point-base a other: for a certain scheme en group pro-unipotent $\Pi$, each $\pi_1(X;b,a)_{\dR}$ s'identifie a copie ${}_b\Pi_a$ of $\Pi$, and the composition of the chemins is the loi of group.
+
+The group $\Pi$ admet the description suivante. Let $L$ the algebra of Lie on $\Q$ generated by of the elements $e_t$ ($t \in T$) soumis a the seule relation $\sum e_t = 0$. One the munit of the graduation for which each $e_t$ is homogene of degree $1$. The serie central descendante $Z$ is the filtration by the degrees $> i$. Let $\hat{L}$ the complete of $L$ for this filtration, and $\exp(\hat{L}/Z^i)$ the algebraic group unipotent of algebra of Lie $\hat{L}/Z^i$. one has
+\begin{equation}\label{eq:3.1.2}
+\Pi := \varprojlim \exp(\hat{L}/Z^i).
+\end{equation}
+
+Other description: the algebra enveloppante $A$ of $L$ is the algebra associative generated by of the elements $e_t$ ($t \in T$) soumis a the seule relation $\sum e_t = 0$. It is graduee, each $e_t$ being homogene of degree a, and the power $N$-ieme of the ideal of augmentation $I$ is the part of $A$ of degree $> N$. The complete $\hat{A} = \varprojlim A/I^N$ of $A$ is equipped with a coproduit
+\[
+\Delta : \hat{A} \to \hat{A} \otimes \hat{A} : e_t \mapsto e_t \otimes 1 + 1 \otimes e_t,
+\]
+$\hat{L}$ is the algebra of Lie of the elements primitifs, and for every $\Q$-algebra $R$, si one sets $\hat{A} \otimes R := \varprojlim_N (A/I^N) \otimes_{\Q} R$, the group $\Pi(R)$ of the $R$-points of $\Pi$ is the group of the elements groupaux of $(\hat{A} \otimes R)^*$:
+\begin{equation}\label{eq:3.1.3}
+\Pi(R) = \{g \in (\hat{A} \otimes R)^* \mid \Delta g = g \otimes g\}.
+\end{equation}
+the algebra affine $\mathcal{O}(\Pi)$ of $\Pi$ (equipped with the topologie discrete) and the algebra enveloppante completee $\hat{A}$ (equipped with sa topologie of projective limit) are duales the a of the other.
+
+The dual topologique of $\hat{A}$ s'identifie to the dual gradue $\bigoplus (A_n)^\vee$ of $A$, and this given the graduation (a degrees $\leq 0$) of $\mathcal{O}(\Pi)$.
+
+One notera $\omega$ the $1$-form logarithmique on $X$ with values in $\hat{L}$
+\begin{equation}\label{eq:3.1.4}
+\omega := \sum_{t \in T} e_t \frac{dz}{z-t}.
+\end{equation}
+En each $t \in T$, it a the residu $e_t$.
+
+Assume that $\infty \in T$, and posons $T_0 := T - \{\infty\}$. one has $A = \Q\langle e_t \rangle_{t \in T_0}$ and $\hat{A} = \Q\langle\langle e_t \rangle\rangle_{t \in T_0}$ (series formelles associatives en the $e_t$). For every mot $w = t_1 \cdots t_k$ en the alphabet $T_0$, notons $c(w)$ the form lineaire on $\hat{A}$ coefficient of the mono\^me $e_{t_1} \cdots e_{t_k}$.
+
+One denotes again $c(w)$ the restriction of $c(w)$ a $\Pi \subset \hat{A}^*$, and for a combinaison lineaire formelle of mots, one sets $c(\sum \lambda_w w) = \sum \lambda_w c(w)$. The $c(w)$ forment a base vectorielle of $\mathcal{O}(\Pi)$. The product in $\mathcal{O}(\Pi)$ correspond to the product of melange of the mots:
+\begin{equation}\label{eq:3.1.5}
+c(w')c(w'') = c(w' \shuffle w'')
+\end{equation}
+or, for $w' = t_1 \cdots t_k$ and $w'' = t_{k+1} \cdots t_{k+\ell}$, $w' \shuffle w''$ is the sum of the $t_{\sigma^{-1}(1)} \cdots t_{\sigma^{-1}(k+\ell)}$ for $\sigma$ parcourant the set $S_{k,\ell}$ of the permutations of $\{1,\ldots,k+\ell\}$ croissantes on $\{1,\ldots,k\}$ and on $\{k+1,\ldots,k+\ell\}$ (shuffle product).
+
+\subsection{}\label{ssec:3.2}
+
+A chemin $\gamma$ of $a$ a $b$ defines a point rational of $\pi_1(X;b,a)_{\B} = \pi_1(X(\C);b,a)^{\mathrm{un}}$. Let $\comp_{\dR,\B}(\gamma)$ the image of this point rational by the isomorphism of comparaison
+\[
+\comp_{\dR,\B} : \pi_1(X;b,a)_{\B}(\C) \xrightarrow{\sim} \pi_1(X;b,a)_{\dR}(\C) = \Pi(\C).
+\]
+This image is obtained by ``integration'' the long of $\gamma$, in the group not commutative $\Pi$, of the form $\omega$: c'is the value en $1$ of the solution $g: [0,1] \to \Pi(\C)$, valant $1$ en $0$, of
+\begin{equation}\label{eq:3.2.1}
+dg(t) \cdot g(t)^{-1} = \omega\Bigl(\frac{d\gamma}{dt}\Bigr)\,dt.
+\end{equation}
+
+\subsection{}\label{ssec:3.3}
+
+The same formalism s'applique quand one permet to the points-base $a$, $b$ of be of the points-base tangentiels (vecteur tangent not zero en a point rational a the infini $t \in T$ of $X$). Let $\Theta_t$ the space tangent a $\mathbf{P}^1$ en $t$, $\Theta_t^* := \Theta_t - \{0\}$, and $a \in \Theta_t^*$ a point-base tangentiel en $t$. All se passe as si one disposait of a morphism of $\Theta_t^*$ in $X$: one dispose of morphisms
+\begin{equation}\label{eq:3.3.1}
+\pi_1(\Theta_t^*,a)_{\B/\dR} = \Q(1)_{\B/\dR} \to \pi_1(X,a)_{\B/\dR}
+\end{equation}
+compatible to the isomorphisms of comparaison. Cote Betti, this morphism is induces by the germes of maps $\phi$ of $(\Theta_t,0)$ in $(\mathbf{P}^1,t)$ of differentielle the identity. the space of these germes is contractile, and each $\phi$ induces a map of a petit disque epointe autour of $0$ (homotope a $\Theta_t^*$) in $X$. En of Rham, and after passage to the algebras of Lie (\ref{eq:3.3.1}) is the morphism of $\Q(1)_{\dR} = \Q$ in $\hat{L}$ which envoie $1$ on $e_t$.
+
+\subsection{}\label{ssec:3.4}
+
+The cas which we interesse is celui or $X = \mathbf{P}^1 - \{0,1,\infty\}$ and or as points-base one prend the points-base tangentiels $\vec{1}$ en $0$ and $\vec{-1}$ en $1$. They will be notes $\vec{0}$ and $\vec{1}$. one has ici
+\[
+\omega = e_0 \frac{dz}{z} + e_1 \frac{dz}{z-1}
+\]
+and for every $\Q$-algebra $R$, $\Pi(R) =$ elements groupaux of $R\langle\langle e_0,e_1 \rangle\rangle^*$ (\ref{eq:3.1.3}). En Betti, one dispose of the droit chemin $\mathrm{dch}$ of $\vec{0}$ a $\vec{1}$. One notera again $\mathrm{dch}$ son image by $\comp_{\dR,\B}$ in $\Pi(\C)$. This image is the limite suivante for $\varepsilon,\eta \to 0$ by values $> 0$:
+\begin{equation}\label{eq:3.4.1}
+\comp_{\dR,\B}(\mathrm{dch}) = \lim \exp(-\log \eta \cdot e_{\vec{1}})\, \comp_{\dR,\B}([\varepsilon,1-\eta])\, \exp(\log \varepsilon \cdot e_0).
+\end{equation}
+The troisieme (resp.~prime) factor must be vu as calculant, in the space tangent epointe en $0$ (resp.~en $1$), $\comp_{\dR,\B}([1,\varepsilon])$ (resp.~$\comp_{\dR,\B}([-\eta,1])$), the form $\omega$ being remplacee by $\frac{du}{u} e_0$ (resp.~$\frac{du}{u} e_{\vec{1}}$).
+
+One can en general exprimer the solution of (\ref{eq:3.2.1}) as a sum of integrals iterees. Appliquant \ref{prop:1.2}, one obtains that for $\zeta(s_1,\ldots,s_k)$ convergent, one has:
+
+\begin{proposition}\label{prop:3.5}
+The coefficient of $e_0^{s_1-1} e_1 \cdots e_0^{s_k-1} e_1$ in $\mathrm{dch} \in \Pi(\C) \subset \C\langle\langle e_0,e_1 \rangle\rangle^*$ is $(-1)^k \zeta(s_1,\ldots,s_k)$.
+\end{proposition}
+
+This proposition ne determine the coefficients of mono\^mes $c(w)$ of $\mathrm{dch}$ that for $w$ a mot en the alphabet $\{0,1\}$ which ne commence not by $1$ and ne finit not by $0$. The coefficients $c(0)$ of $e_0$ and $c(1)$ of $e_1$ in $\mathrm{dch}$ are nuls. This, joint to the fait that $\mathrm{dch}$ is groupal, determine the coefficients manquants. More precisely, the nullite of $c(0)$ and $c(1)$ signifie that $\mathrm{dch}$ appartient to the group derive $\Pi^0$ of $\Pi$, of algebra of Lie graduee the part of degree $\geq 2$ of celle of $\Pi$. On $\Pi^0$, one has, notant $\{p\}$ a power in the mono\"{\i}of the mots,
+\begin{equation}\label{eq:3.5.1}
+c(0\{p\}) = c(1\{p\}) = 0 \quad \text{pour } p > 0
+\end{equation}
+and, appliquant (\ref{eq:3.1.5}) a $w 1 0\{p-1\}$ and $0$ (resp.~$1$ and $1\{p-1\} 0 w$), one verifies by recurrence on $p > 0$ that
+\begin{equation}\label{eq:3.5.2}
+c(w 1 0\{p\}) = (-1)^p c((w \shuffle 0\{p\}) 1) \quad \text{(resp. } c(1\{p\} 0 w) = (-1)^p c(0 (1\{p\} \shuffle w)) \text{) sur } \Pi^0\text{).}
+\end{equation}
+
+\subsection{}\label{ssec:3.6}
+
+the identity (\ref{eq:3.1.5}), evaluee en $\mathrm{dch}$, exprime the product of deux nombres multizetas as combinaison lineaire a coefficients integers of nombres multizetas.
+
+\section{The multizetas motiviques}\label{sec:4}
+
+\subsection{}\label{ssec:4.1}
+
+Continuons a poser $X := \mathbf{P}^1 - \{0,1,\infty\}$, and a prendre for points-base the points-base tangentiels $\vec{0}$ or $\vec{1}$ (see \ref{ssec:3.4}). We donnerons en \ref{ssec:5.6} a sens precise a the expression ``structure motivic'' on the algebras affine of the $\pi_1(X;b,a)_{\B/\dR}$. We shall say also ``structure motivic'' on the $\pi_1(X;b,a)_{\B/\dR}$. Heuristiquement, it s'agit of structures provenant of the geometrie, ayant therefore a sens tant for Betti that for of Rham, and respectees by the isomorphisms of comparaison. Examples: the product donnant the structure of algebra, the coproduits provenant of the composition of the chemins, the weight filtration, the isomorphism $\pi_1(X;b,a)_{\B/\dR} \xrightarrow{\sim} \pi_1(X;\sigma(b),\sigma(a))_{\B/\dR}$ induces by the involution $\sigma: x \mapsto 1/x$ of $\mathbf{P}^1$. Similarly, the morphisms (\ref{eq:3.3.1}) are a structure motivic on $\Q(1)_{\B/\dR}$ and $\pi_1(X,a)_{\B/\dR}$. By against, ni the Hodge filtration of the algebra affine of $\pi_1(X;b,a)_{\dR}$, ni therefore sa graduation, ni the independance of $\pi_1(X;b,a)_{\dR}$ of $a$ and $b$ ne are motiviques. One n'en dispose that for $\dR$. The structures en question will be of the structures of algebra multilineaire. Let $H_{\B}$ (resp.~$H_{\dR}$) the scheme en group on $\Q$ of the automorphismes of $\pi_1(X;\vec{1},\vec{0})_{\B}$ (resp.~$\pi_1(X;\vec{1},\vec{0})_{\dR}$) respectant all ses structures motiviques. The weight filtration $W$ of the algebra affine is a filtration by of the under-spaces of dimension finite, and $H_{\B}$ (resp.~$H_{\dR}$) is a projective limit of under-algebraic groups of the $\GL(W_i)$.
+
+\subsection{}\label{ssec:4.2}
+
+Let $P_{\dR,\B}$ the scheme of the isomorphisms of $\pi_1(X;\vec{1},\vec{0})_{\B}$ with $\pi_1(X;\vec{1},\vec{0})_{\dR}$ respectant all the structures motiviques. The group $H_{\B}$ agit a line on $P_{\dR,\B}$. the isomorphism of comparaison $\comp_{\dR,\B}$ is a point complex of $P_{\dR,\B}$. The scheme $P_{\dR,\B}$ is therefore not vide. C'is a $H_{\B}$-torseur (terminologie of \ref{ssec:2.2}).
+
+Si $Z_{\B}$ is a under-scheme of $\pi_1(X;\vec{1},\vec{0})_{\B}$ stable under $H_{\B}$, the twisting by the $H_{\B}$-torseur $P_{\dR,\B}$ transforme $\pi_1(X;\vec{1},\vec{0})_{\B}$ en $\pi_1(X;\vec{1},\vec{0})_{\dR} = {}_{\vec{1}}\Pi_{\vec{0}}$ (notations of \ref{ssec:3.1}), and $Z_{\B}$ en a under-scheme $Z_{\dR}$ of ${}_{\vec{1}}\Pi_{\vec{0}}$. On $\C$, $Z_{\dR}(\C)$ is the image of $Z_{\B}(\C)$ by $\comp_{\dR,\B}$.
+
+J'aime penser a the $H_{\B}$-orbite of $\mathrm{dch}$ as being the space of the points $\mathrm{ch}$ of $\pi_1(X;\vec{1},\vec{0})_{\B}$ ayant all the properties of $\mathrm{dch}$ exprimables en termes motiviques. By example: the morphism $\pi_1(X;\vec{1},\vec{0})_{\B} \to \pi_1(X;\vec{0},\vec{1})_{\B}$ induces by the involution $x \mapsto 1/x$ of $\mathbf{P}^1$ must transformer $\mathrm{ch}$ en son inverse.
+
+Let $M_{\B} \subset \pi_1(X;\vec{1},\vec{0})_{\B}$ the adherence of the $H_{\B}$-orbite of $\mathrm{dch}$. The tordu of $M_{\B}$ by $P_{\dR,\B}$ is a under-scheme closed $M_{\dR}$ of ${}_{\vec{1}}\Pi_{\vec{0}}$. Notons again $\mathrm{dch}$ the image of $\mathrm{dch}$ by $\comp_{\dR,\B}$. C'is a point complex of $M_{\dR}$, and $M_{\dR}(\C) \subset {}_{\vec{1}}\Pi^0_{\vec{0}}(\C)$ is the adherence of sa $H_{\dR}(\C)$-orbite.
+
+\begin{definition}\label{def:4.3}
+Let $s = (s_1,\ldots,s_k)$. Si $k = 0$, one assumed that $s_1 > 2$. Let $w$ the mot $0^{s_1-1} 1 \cdots 0^{s_k-1} 1$ en the alphabet $\{0,1\}$ and $c(w) \in \mathcal{O}(\Pi)$ the function coefficient of the mono\^me $e_0^{s_1-1} e_1 \cdots e_0^{s_k-1} e_1$ (\ref{eq:3.1}). One denotes $\zeta^m(s)$ the restriction a $M_{\dR}$ of $(-1)^k c(w)$.
+\end{definition}
+
+The $\zeta^m(s)$ are the \emph{multizetas motiviques} (F. Brown [1] 2.3). the algebra notee $M$ in the introduction is $\mathcal{O}(M_{\dR})$. Before [1], seule the restriction of the $\zeta^m(s)$ a the orbite of $1$ etait consideree. This donnait lieu a of the contorsions penibles. of after \ref{prop:3.5}, the value of $\zeta^m(s)$ en the point complex $\mathrm{dch}$ of $M_{\dR}$ is $\zeta(s)$. Every identity polynomiale a coefficients rationnels en the $\zeta^m(s)$ fournit therefore by evaluation en $\mathrm{dch}$ a relation polynomiale between the $\zeta(s)$. The yoga of the periods of Grothendieck predit that every relation polynomiale between the $\zeta(s)$ provient of the geometrie. More precisely, that it is obtained as ci-dessus.
+
+For every mot $w$ en $0$ and $1$, notons similarly $c_m(w)$ the restriction of $c(w)$ a $M_{\dR}$. S'appuyant on the remark which suit \ref{prop:3.5}, one can montrer that the $c_m(w)$ are of the combinaisons lineaires a coefficients integers of the $\zeta^m(s)$.
+
+By construction, $H_{\dR}$ agit on $M_{\dR}$. Son algebra of Lie agit therefore by derivations on the algebra affine of $M_{\dR}$, quotient of celle of $\Pi$. These derivations, which n'have of sens that a fois that one is remonte of the $\zeta(s)$ to the $\zeta^m(s)$, joueront a role-cle in the arguments of F. Brown.
+
+\section{Mixed Tate motives}\label{sec:5}
+
+\subsection{}\label{ssec:5.1}
+
+We sums ici in the a of the cas or the philosophie of the motives is not only a guide precieux, but permet of the proofs. On all field $K$, Voevodsky a defined a triangulated category motivic $\mathcal{V}_K$, equipped with a tensor product, and contenant of the objects of Tate $\Z(n)$ ($n \in \Z$). Si $K$ is a number field, one can after tensorisation with $\Q$ construct a subcategory $\MT(K)$ of $\mathcal{V}_K \otimes \Q$, the category of the mixed Tate motives on $K$ and this category is tannakienne. This repose on notre connaissance of the groups of $K$-theorie of a number field, due a the determination by voie transcendante of the $H^i(\BGL(n,K),\C)$ for $n \gg i$.
+
+All this is for moi a boite noire. It is difficult a ouvrir and c'is pourquoi the identites promises by \ref{thm:0.2} ne are not explicites.
+
+\subsection{}\label{ssec:5.2}
+
+Passons en revue some properties of the category $\MT(K)$. C'is a Tannakian category on $\Q$. It contient a object of rank a $\Q(1)$, the \emph{Tate motive}. This motive being of rank a, $\Q(n) := \Q(1)^{\otimes n}$ is defined for $n \in \Z$. The objects of $\MT(K)$ are equipped with a filtration finite croissante fonctorielle and compatible to the tensor product, the weight filtration $W$. It is indexee by the integers pairs. The functor $M \mapsto \Gr^W(M)$ is exact, and $\Gr^W_{-2n}(M)$ is sum of copies of $\Q(n)$.
+
+Supposons for simplifier that $K = \Q$. One dispose then of functors fibers of Betti and of Rham
+\[
+\omega_{\B}, \omega_{\dR}: \MT(K) \to \Q\text{-espaces vectoriels}
+\]
+and of a isomorphism of comparaison
+\[
+\comp_{\dR,\B}: \omega_{\B} \otimes \C \to \omega_{\dR} \otimes \C.
+\]
+
+Noter that, parce that $K = \Q$, the functor fiber $\omega_{\dR}$ coincide with the functor fiber $\omega$ of [2]. For the motive $\Q(1)$, $\omega_{\B}(\Q(1))$, $\omega_{\dR}(\Q(1))$ and $\comp_{\dR,\B}$ are as en \ref{ssec:2.4}.
+
+The functor $\omega_{\dR}$ is equipped with a Hodge filtration $F$, opposee, a renumerotation pres, a the weight filtration of $\omega_{\dR}(M)$ by the $\omega_{\dR}(W_{2n} M)$. This en fait a functor gradue, as en \ref{ssec:3.1}.
+
+\subsection{}\label{ssec:5.3}
+
+Si $\mathcal{T}$ is a Tannakian category, we appellerons \emph{$\mathcal{T}$-algebra} a Ind-object $A$ of $\mathcal{T}$, equipped with a product $A \otimes A \to A$. One defines the category of the $\mathcal{T}$-schemes affine as being the opposee of celle of the $\mathcal{T}$-algebras commutatives a unite, and a $\mathcal{T}$-scheme en group affine as a group in this category. For $\mathcal{T}$ a category of motives, one remplace the prefixe $\mathcal{T}$- by the adjectif \emph{motivic}.
+
+\subsection{}\label{ssec:5.4}
+
+The $\pi_1(X;b,a)_{\B}$, $\pi_1(X;b,a)_{\dR}$ of \ref{ssec:3.1}, \ref{ssec:3.3} and the isomorphism of comparaison between leurs complexifies are motiviques: images of a scheme en group motivic $\pi_1(X;b,a)_{\mot}$ ([2] \S\,4). The morphisms ``composition of the chemins'' and (\ref{eq:3.3.1}) are eux also motiviques.
+
+Si $X = \mathbf{P}^1 - \{0,1,\infty\}$, and that $a$, $b$ are choisis parmi the points-base tangentiels $\vec{0}$, $\vec{1}$ of \ref{ssec:3.4}, the points $0$, $1$, $\infty$ restent distincts after reduction modulo $p$, and the vecteurs tangents choisis en $0$ and $1$ restent not nuls. One can en deduire that the algebras affine $\mathcal{O}(\pi_1(X;b,a)_{\mot})$ are of the Ind-objects of a subcategory tannakienne $\MT(\Z)$ of $\MT(\Q)$, celle of the mixed Tate motives a bonne reduction on $\Spec(\Z)$ ([2] 1.7, 1.4, 1.8). In $\MT(\Z)$,
+\begin{equation}\label{eq:5.4.1}
+\Ext^1(\Q(0),\Q(n)) \text{ est } \begin{cases} \Q & \text{pour $n$ impair $\geq 3$,} \\ 0 & \text{sinon;} \end{cases}
+\end{equation}
+\begin{equation}\label{eq:5.4.2}
+\Ext^2(\Q(0),\Q(n)) = 0.
+\end{equation}
+
+\subsection{}\label{ssec:5.5}
+
+Let $\mathcal{T}$ a Tannakian category over a field $K$, and $\omega$ a functor fiber on a extension $K'$ of $K$. The family of the $\omega(Y)$, for $Y$ in $\mathcal{T}$, equipped of the $\omega(f): \omega(Y) \otimes \omega(Z)$ for $f: Y \to Z$ a morphism of $\mathcal{T}$, is a family of $K'$-vector spaces, equipped with a structure of algebra multilineaire. The under-scheme en group of $\prod_{Y} \GL(\omega(Y))$ (product on $\mathrm{Ob}(\mathcal{T})$) which respecte this structure is the scheme en group $\Aut(\omega)$ of the automorphismes of the functor fiber $\omega$. One the note $\pi(\mathcal{T},\omega)$ and one the appelle \emph{fundamental group} of $\mathcal{T}$ en $\omega$. One verra on of the examples that it is similarly nature that the $\omega(Y)$, by example that son algebra affine is graduee si the functor $\omega$ is gradue. the explication of this fait is that there exists a $\mathcal{T}$-scheme en group $\pi(\mathcal{T})$, agissant functorially on each object of $\mathcal{T}$, such that for every functor fiber $\omega$, $\pi(\mathcal{T},\omega)$ let $\omega(\pi(\mathcal{T}))$.
+
+Assume that $K' = K$. In this case, $\omega$ induces a equivalence of $\mathcal{T}$ with the category of representations lineaires of dimension finite of $\pi(\mathcal{T},\omega)$. Si $\mathcal{T}$ is a category of motives, the fundamental groups s'appellent also \emph{groups of Galois motiviques}.
+
+\subsection{}\label{ssec:5.6}
+
+Let $\langle Y_i \rangle$ the subcategory tannakienne of $\mathcal{T}$ generated (by under-quotients, sums, duaux and tensor products) by a family $(Y_i)$ of objects of $\mathcal{T}$. A $\mathcal{T}$-structure on the family of the $\omega(Y_i)$ is the image by $\omega$ of a morphism of $\langle Y_i \rangle$. More precisely c'is the datum of the image by $\omega$ of under-quotients of sums of tensor products of $Y_i$ and $Y_i^{\vee}$, and of morphisms between of tels under-quotients. Si $\mathcal{T}$ is a category of motives, one will say plutot \emph{structure motivic}. The under-group of $\prod_i \GL(\omega(Y_i))$ which respecte all the $\mathcal{T}$-structures is therefore the fundamental group of $\langle Y_i \rangle$ en $\omega$.
+
+All under-algebraic group of a group $\GL(V)$ is the under-group respectant some under-spaces and elements in of the spaces of tenseurs on $V$. the equivalence \ref{ssec:5.5} assure therefore that this fundamental group of $\langle Y_i \rangle$ en $\omega$ is the quotient of $\pi(\mathcal{T},\omega)$ which agit fidelement on the family of the $\omega(Y_i)$. Same terminologie si one part of a family of Ind-objects of $\mathcal{T}$: one the remplace by the family of ses under-objects in $\mathcal{T}$.
+
+Prenons $\mathcal{T} := \MT(\Z)$. With the notation $\B/\dR$ of \ref{ssec:2.3}, posons
+\begin{equation}\label{eq:5.6.1}
+G_{\B/\dR} := \pi(\MT(\Z), \omega_{\B/\dR}).
+\end{equation}
+The scheme en group $H_{\B/\dR}$ of the automorphismes of $\pi_1(X;\vec{1},\vec{0})_{\B/\dR}$ respectant all the structures motiviques consideree en \ref{ssec:4.1} is the quotient of $G_{\B/\dR}$ agissant fidelement on $\pi_1(X;\vec{1},\vec{0})_{\B/\dR} = \omega_{\B/\dR}(\pi_1(X;\vec{1},\vec{0})_{\mot})$. of after the equivalence \ref{ssec:5.5}, a under-scheme closed of $\pi_1(X;\vec{1},\vec{0})_{\B}$ stable under $H_{\B}$ is the Betti realization of a under-scheme closed of $\pi_1(X;\vec{1},\vec{0})_{\mot}$. Example: there exists a unique under-scheme motivic $M_{\mot}$ of $\pi_1(X;\vec{1},\vec{0})_{\mot}$ of Betti realization the adherence of orbite $M_{\B}$; the under-scheme $M_{\dR}$ of $\pi_1(X;\vec{1},\vec{0})_{\dR}$ is sa de Rham realization.
+
+\subsection{}\label{ssec:5.7}
+
+the action of $G_{\B/\dR}$ on $\Q(1)_{\B/\dR}$ defines a morphism $t$ of $G_{\B/\dR}$ in the group multiplicatif $\Gm$. For every $M$ in $\MT(\Z)$, $G_{\B/\dR}$ respecte the weight filtration $W$ of $\omega_{\B/\dR} M$, and, puisque $\Gr^W_{-2n}(M)$ is sum of copies of $\Q(n)$, the action of $g$ in $G_{\B/\dR}$ on $\Gr^W_{-2n}(M)$ is the multiplication by $t(g)^n$. The kernel $U$ of $t$ agit therefore trivialement on the $\Gr^W_{-2n}(M)$: c'is a scheme en group pro-unipotent.
+
+Let $\tau(\lambda)$ the multiplication by $\lambda^n$ on $\omega_{\dR}^n(M)$. The $\tau(\lambda)$ definissent a section $\tau: \Gm \to G_{\dR}$ of $t$, which fait of $G_{\dR}$ a product semi-direct $\Gm \ltimes U_{\dR}$. the action of $\Gm$ on $U_{\dR}$ (by automorphismes interieurs in $G_{\dR}$) will be again notee $\tau$. It permet of define the algebra of Lie graduee $\mathrm{Lie}^{\gr}(U_{\dR})$. The nullite (\ref{eq:5.4.2}) implique that this algebra of Lie graduee is free, and (\ref{eq:5.4.1}) that it is librement generated by a generateur en each degree impair $\geq 3$. The functor $\omega_{\dR}$ induces a equivalence of categories of $\MT(\Z)$ with the category of the vector spaces gradues of dimension finite, equipped with a action, compatible to the graduations and therefore nilpotente, of $\mathrm{Lie}^{\gr}(U_{\dR})$.
+
+\subsection{}\label{ssec:5.8}
+
+Let $P_{\dR}$ the scheme of the isomorphisms of functors fibers of $\omega_{\B}$ toward $\omega_{\dR}$. the isomorphism of comparaison $\comp_{\B,\dR}$ is a point complex of $P_{\dR}$. The scheme $P_{\dR}$ is therefore not vide, and is a $G_{\dR}$-torseur. The group $G_{\dR}$ being extension of $\Gm$ by $U_{\dR}$, a argument of Galois cohomology shows that all $G_{\dR}$-torseur a point rational: there exists a isomorphism of functors fibers $p: \omega_{\dR} \xrightarrow{\sim} \omega_{\B}$. Ecrivons
+\begin{equation}\label{eq:5.8.1}
+p = \comp_{\B,\dR} \cdot a
+\end{equation}
+with $a \in G_{\dR}(\C)$. It follows of (\ref{eq:5.8.1}) that for every $M$ in $\MT(\Z)$, si one identifie $\omega_{\dR}(M) \otimes \C$ a $\omega_{\B}(M) \otimes \C$ by $\comp_{\B,\dR}$, $\omega_{\B}(M) \otimes \C = \omega_{\dR}(M) \otimes \C$ satisfies
+\begin{equation}\label{eq:5.8.2}
+\omega_{\B}(M) = a(\omega_{\dR}(M)).
+\end{equation}
+Puisque $\omega_{\B}(\Q(1)) = 2\pi i \Q$, one has $t(a) \in 2\pi i \Q^*$, and $a = u \tau(\lambda)$ with $u \in U_{\dR}(\C)$ and $\lambda \in 2\pi i \Q^*$. A compatibility a the conjugaison complex permet of montrer that one can choisir ([2] 2.12)
+\begin{equation}\label{eq:5.8.3}
+a \in U_{\dR}(\R) \cdot \tau(2\pi i).
+\end{equation}
+
+\section{the space $H(2,3)$}\label{sec:6}
+
+Dorenavant, $X := \mathbf{P}^1 - \{0,1,\infty\}$, and the notations of \ref{ssec:3.4} are en vigueur. By abus of langage, notons $\Q\langle\langle e_0,e_1 \rangle\rangle$ (resp.~$\Q\langle\langle e_0,e_1 \rangle\rangle^*$) the scheme en group on $\Q$ such that, for every $\Q$-algebra $R$, the set of ses $R$-points let $R\langle\langle e_0,e_1 \rangle\rangle$ (resp.~$R\langle\langle e_0,e_1 \rangle\rangle^*$).
+
+Recall that $\pi_1(X;b,a)_{\dR}$ is a copie ${}_b\Pi_a$ of the under-scheme en group $\Pi$ of the elements groupaux (\ref{eq:3.1.3}) of $\Q\langle\langle e_0,e_1 \rangle\rangle^*$. One the regardera as contenue in a copie $\Q\langle\langle e_0,e_1 \rangle\rangle_{b,a}$ of $\Q\langle\langle e_0,e_1 \rangle\rangle$. A point $x$ of $\Q\langle\langle e_0,e_1 \rangle\rangle$, will be parfois note ${}_b x_a$ quand regarde as appartenant a this copie.
+
+\subsection{}\label{ssec:6.1}
+
+En tant that $\Q$-space vector, the algebra affine $\mathcal{O}(\Pi)$ of $\Pi$ a for base the \emph{coefficients of mono\^mes} $c(w)$ of \ref{ssec:3.1}. It is graduee. Si the mot $w$ en the alphabet $\{0,1\}$ is of longueur $d$, the element $c(w)$ of $\mathcal{O}(\Pi)$ is of degree $-d$, of codegre $d$. Quand we shall denote $B$, affecte of decorations, a set of mots, $B$, affecte of the same decorations, will be the set corresponding of $c(w)$.
+
+\begin{definition}\label{def:6.2}
+(i) $B(2,3)_0$ is the set of the mots concatenation of mots $01$ and $001$;
+
+(ii) $H(2,3)$ is the under-space vector of $\mathcal{O}(\Pi)$ of base $B(2,3)$.
+\end{definition}
+
+The restrictions a $M_{\dR}$ of the $c(w)$ in $B(2,3)$ are celles of the $(-1)^k \zeta^m(s_1,\ldots,s_k)$ or each $s_i$ vaut $2$ or $3$.
+
+For every space vector gradue $Z$, a composantes homogenes of dimension finite, the \emph{serie of Poincare} of $Z$ is
+\begin{equation}\label{eq:6.2.1}
+P(Z,t) = \sum_d \dim(Z_d) t^d.
+\end{equation}
+Si $H(2,3)$ is gradue by the codegre, one has
+\begin{equation}\label{eq:6.2.2}
+P(H(2,3),t) = (1 - t^2 - t^3)^{-1}.
+\end{equation}
+One the satisfies en developpant $(1 - t^2 - t^3)^{-1} = \sum (t^2 + t^3)^n$.
+
+\subsection{}\label{ssec:6.3}
+
+The mots $w \in B(2,3)$ are caracterises by
+
+a. they ne commencent not by $1$ and ne finissent not by $0$;
+
+b. they ne contiennent not deux $1$ consecutifs;
+
+c. they ne contiennent not trois $0$ consecutifs.
+
+That the function $f \in \mathcal{O}(\Pi)$ let combinaison lineaire of $c(w)$ or $w$ satisfies a, b, or c equivaut respectivement a this that
+
+a$'$. $0$ for $\gamma$ in $\Pi$, $f(\exp(u e_1) \gamma \exp(t e_0))$ is independant of $t$ and $u$;
+
+b$'$. for $\gamma$, $\delta$ in $\Pi$, $f(\gamma \exp(t e_1) \delta)$ is of degree $\leq 1$ en $t$;
+
+c$'$. for $\gamma$, $\delta$ in $\Pi$, $f(\gamma \exp(t e_0) \delta)$ is of degree $\leq 2$ en $t$.
+
+For the verify, noter that the combinaisons lineaires of elements of $\Pi(\Q)$ are denses in $\Q\langle\langle e_0,e_1 \rangle\rangle$, and that si $f$ is interpretee as a form lineaire continue on $\Q\langle\langle e_0,e_1 \rangle\rangle$, the condition a$'$ (resp.~b$'$, resp.~c$'$) equivaut a the same condition, or one permet a $\gamma$, $\delta$, of be arbitraires in $\Q\langle\langle e_0,e_1 \rangle\rangle$. The conditions a$'$, b$'$, c$'$ are motiviques, car exprimables en terme of composition of the chemins, and of (\ref{eq:3.3.1}). It faut ici interpreter $\gamma$ (resp.~$\gamma$, $\delta$) as being in ${}_{\vec{1}}\Pi_{\vec{0}}$ (resp.~${}_{\vec{1}}\Pi_{\vec{1}}$ and ${}_{\vec{1}}\Pi_{\vec{0}}$, resp.~${}_{\vec{1}}\Pi_{\vec{0}}$ and ${}_{\vec{0}}\Pi_{\vec{0}}$).
+
+For se convaincre of the character motivic of a, b, c, one can observer that these conditions admettent a formulation ``Betti''. One the obtient en regardant $f$ as a function on $\pi_1(X;\vec{1},\vec{0})$, and en remplacant $\exp(t e_0)$ (resp.~$\exp(t e_1)$) by $\sigma_t^0$ (resp.~$\sigma_t^1$) with $t \in \Z$ and $\sigma^0$ (resp.~$\sigma^1$) a tour positive autour of $0$ in the space tangent epointe a $\mathbf{P}^1$ en $0$ (resp.~$1$) (cf.~\ref{ssec:3.3}).
+
+One laisse to the reader the verification of the lemma suivant:
+
+\begin{lemma}\label{lem:6.4}
+Let $f = \sum \lambda_w c(w)$ in $\mathcal{O}(\Pi)$. For that, quels that let $\gamma_0,\ldots,\gamma_r$ in $\Pi$,
+\begin{equation}\label{eq:6.4.1}
+f(\gamma_0 \exp(t e_0) \gamma_1 \exp(t e_0) \cdots \exp(t e_0) \gamma_r)
+\end{equation}
+let of degree $\leq d$ en $t$, it is necessary and sufficient that for every $w$ such that $\lambda_w \neq 0$, the longueur totale of to the more $r$ sequences disjointes of $0$ consecutifs in $w$ let $\leq d$.
+\end{lemma}
+
+\subsection{}\label{ssec:6.5}
+
+Let $B(2,3)_{0,\ell}$ (resp.~$B(2,3)_{0,\leq \ell}$) the set of the mots $w$ in $B(2,3)$ ayant exactly (resp.~to the more) $\ell$ factors $001$. With the convention of \ref{ssec:6.1}, let $N_{\ell}$ the under-space of $H(2,3)$ of base $B(2,3)_{0,\leq \ell}$. It follows of \ref{lem:6.4} that for that $f$ in $H(2,3)$ let in $N_{\ell}$, it is necessary and sufficient that for $r = \ell + 1$, and all choix of the $\gamma_i$, (\ref{eq:6.4.1}) let of degree $\leq 2\ell + 1$ en $t$. This property is motivic. the action of $G_{\dR}$ on $\mathcal{O}({}_{\vec{1}}\Pi_{\vec{0}})$ respecte therefore $H(2,3)$ and sa filtration croissante $N_{\ell}$.
+
+\begin{proposition}\label{prop:6.6}
+the action of $U_{\dR}$ on $\Gr^{N_{\ell}} H(2,3)$ is trivial.
+\end{proposition}
+
+\noindent \textit{Proof} -- the algebra of Lie graduee of $U_{\dR}$ is generated by of the elements $\nu_d$ of degrees impairs $d \geq 3$, and si one gradue $\mathcal{O}({}_{\vec{1}}\Pi_{\vec{0}})$ by the degree (\ref{ssec:6.1}), the action is compatible to the graduations. It is enough to montrer that each $\nu_d$ agit trivialement. Let $w$ a mot of longueur $n$ concatenation of $m$ mots $01$ and of $\ell$ mots $001$. one has $n \equiv \ell \pmod{2}$. the image of $c(w)$ by $\nu_d$ is a combinaison lineaire of $c(w')$ with $w'$ of longueur $n - d$ and concatenation of mots $01$ and of $\ell' \leq \ell$ mots $001$. one has $n - d \equiv \ell' \pmod{2}$ and, $d$ being impair, $\ell$ and $\ell'$ n'have not the same parite. That $\ell' < \ell$ proves \ref{prop:6.6}.
+
+\subsection{}\label{ssec:6.7}
+
+It follows of \ref{prop:6.6} that the action of $\mathrm{Lie}^{\gr} U_{\dR}$ on $N_{\ell}/N_{\ell-2}$ se factorise by the abelianise $\mathrm{Lie}^{\gr} U_{\dR}^{\ab}$. the action of $\nu_d$ on $N_{\ell}/N_{\ell-2}$ ne depend therefore not, a factor pres, of the choix of the generateurs $\nu_d$. It is given by a map
+\begin{equation}\label{eq:6.7.1}
+\Gr^{N_{\ell}}(\nu_d): \Gr^{N_{\ell}}(H(2,3)) \to \Gr^{N_{\ell-1}}(H(2,3)).
+\end{equation}
+the space vector $\Gr^{N_{\ell}}(H(2,3))$ admet for base the image of $B(2,3)_{0,\ell}$ (\ref{ssec:6.5}). It is gradue by the codegre. Let $B(2,3)_{0,\ell}^n$ the part of $B(2,3)_{0,\ell}$ formee of the mots of longueur $n$. Notons $\Gr^{N_{\ell}}(H(2,3))_n$ the direct factor of codegre $n$ of $\Gr^{N_{\ell}}(H(2,3))$. It a for base the image of $B(2,3)_{0,\ell}^n$. It n'is not zero that for $n \equiv \ell \pmod{2}$ and $n - 3\ell > 0$.
+
+The morphisms (\ref{eq:6.7.1}) induisent
+\begin{equation}\label{eq:6.7.2}
+\Gr^{N_{\ell}}(\nu_d): \Gr^{N_{\ell}}(H(2,3))_n \to \bigoplus_d \Gr^{N_{\ell-1}}(H(2,3))_{n-d},
+\end{equation}
+or it is enough to sommer on $d$ impair verifiant $3 \leq d \leq 3\ell + n - 3$. The membre of gauche of (\ref{eq:6.7.2}) a base indexee by $B(2,3)_{0,\ell}^n$. Celui of line a base indexee by the reunion of the $B(2,3)_{0,\ell-1}^{n-d}$. Si $\ell > 1$, one obtains a bijection between these sets of mots en associant to the mot $w \in B(2,3)_{0,\ell}^n$ the mot $\bar{w}$ which s'en deduces en otant of $w$ son $(001)(01)\cdots(01)$ final.
+
+F. Brown calcule the morphisms (\ref{eq:6.7.2}) and proves the
+
+\begin{theorem}\label{thm:6.8}
+For $\ell > 1$, the morphisms (\ref{eq:6.7.2}) are of the isomorphisms.
+\end{theorem}
+
+The strategie that it utilise for prouver \ref{thm:6.8} will be expliquee to the \S\,\ref{sec:8}.
+
+\begin{corollary}\label{cor:6.9}
+The morphism of restriction a $M_{\dR}$:
+\begin{equation}\label{eq:6.9.1}
+\mathrm{restr}: H(2,3) \to \mathcal{O}(M_{\dR})
+\end{equation}
+is injective.
+\end{corollary}
+
+\noindent \textit{Proof} -- Admettons \ref{thm:6.8}, and prouvons \ref{cor:6.9}. Filtrons the image $\mathrm{restr}(H(2,3))$ of $H(2,3)$ in $\mathcal{O}(M_{\dR})$ by the images of the $N_{\ell}$. It is enough to demontrer the injectivite of
+\begin{equation}\label{eq:6.13.1}
+H(2,3) \to \mathrm{restr}(H(2,3))
+\end{equation}
+after passage to the gradues. Prouvons by recurrence on $\ell > 0$ the injectivite on $\Gr^{N_{\ell}}(H(2,3))$. The lemma ci-dessous proves this injectivite for $\ell = 0$. Si $\ell > 0$, considerons the morphism
+\[
+\bigoplus_d \nu_d: \Gr^{N_{\ell}} H(2,3) \to \bigoplus_d \Gr^{N_{\ell-1}} H(2,3),
+\]
+or the but is a sum of copies of $\Gr^{N_{\ell-1}} H(2,3)$ indexees by the integers impairs $d \geq 3$. The theorem \ref{thm:6.8} assure that this morphism is bijective. The morphism (\ref{eq:6.9.1}) commute to the derivations $\nu_d$. The diagram
+\[
+@@MATH52@@
+\]
+is therefore commutative. the hypothese of recurrence assure that $\Gr^{N_{\ell-1}}$(\ref{eq:6.13.1}) is injective. The premiere fleche verticale being injective, $\Gr^{N_{\ell}}$(\ref{eq:6.13.1}) the is also.
+
+\begin{lemma}\label{lem:6.11}
+The morphism (\ref{eq:6.9.1}) is injective on $N_0$.
+\end{lemma}
+
+\noindent \textit{Proof} -- The morphism induces by (\ref{eq:6.9.1}) of $N_0$ in $\mathcal{O}(M_{\dR})$ is compatible to the graduations by the codegre. It is enough therefore of verify son injectivite separement en each codegre. The $c((01)^n)$ forment a base of $N_0$, and $c((01)^n)$ is of codegre $2n$. These codegres being distincts, it is enough to verify that for each $n$ the restriction of $c((01)^n)$ a $M_{\dR}$ is not zero. The value of $c((01)^n)$ en $\mathrm{dch} \in M_{\dR}(\C)$ is $(-1)^n \zeta(2^{\{n\}})$, or $\zeta(2^{\{n\}}) = \zeta(2,\ldots,2)$ with $n$ fois $2$. One conclut en observant that all nombre multizeta is $> 0$, therefore not zero.
+
+\begin{remark}\label{rem:6.12}
+Developpant the identites dues a Euler
+\[
+\prod_{n>0} (1 - z^2/n^2) = \sin(\pi z)/\pi z = \sum (-1)^n (\pi z)^{2n}/(2n+1)!,
+\]
+one sees that $\zeta(2^{\{n\}}) = \pi^{2n}/(2n+1)!$. That $\zeta(2^{\{n\}})$ Let multiple rational of $\pi^{2n}$ resultait deja of this that the under-space motivic $N_0$ of $\mathcal{O}({}_{\vec{1}}\Pi_{\vec{0}})$ is fixe under $U_{\dR}$, therefore the realisation of dR of a sum of motives of Tate. This force $\zeta(2^{\{n\}})$ a be a period of $\Q(-2n)$.
+\end{remark}
+
+Appliquant (\ref{eq:6.2.2}), one deduces of \ref{cor:6.9} the
+
+\begin{corollary}\label{cor:6.10}
+The serie of Poincare of $\mathcal{O}(M_{\dR})$ satisfies
+\begin{equation}\label{eq:6.10.1}
+P(\mathcal{O}(M_{\dR}),t) \geq (1 - t^2 - t^3)^{-1} \text{ (inegalite terme a terme),}
+\end{equation}
+with equality if and only if (\ref{eq:6.9.1}) is bijective.
+\end{corollary}
+
+\section{Structure of the adherence of orbite $M_{\dR}$}\label{sec:7}
+
+\subsection{}\label{ssec:7.1}
+
+Considerons the groupoide of the ${}_b\Pi_a$ for $a,b \in \{\vec{0},\vec{1}\}$, equipped with $e_0 \in \mathrm{Lie}\,{}_{\vec{0}}\Pi_{\vec{0}}$ and of $e_1 \in \mathrm{Lie}\,{}_{\vec{1}}\Pi_{\vec{1}}$. Let $V_{\dR}$ the scheme en group of the automorphismes of this structure. the action of $U_{\dR}$ on the groupoide of the ${}_b\Pi_a$ se factorise by a morphism
+\begin{equation}\label{eq:7.1.1}
+I: U_{\dR} \to V_{\dR}.
+\end{equation}
+One denotes $IU_{\dR}$ the image of $U_{\dR}$ in $V_{\dR}$.
+
+The group of the automorphismes which ne respectent $e_0 \in \mathrm{Lie}\,{}_{\vec{0}}\Pi_{\vec{0}}$ and $e_1 \in \mathrm{Lie}\,{}_{\vec{1}}\Pi_{\vec{1}}$ that a factor pres, the same for $e_0$ and $e_1$, is a product semi-direct $\Gm \ltimes V_{\dR}$. One denotes $\circ$ sa loi of group, and $\tau$ the inclusion of $\Gm$. the action of $\Gm$ on the ${}_b\Pi_a$, is celle of the under-group $\Gm$ of $G_{\dR}$. It correspond to the graduations.
+
+of after [2] 5.9,
+\begin{equation}\label{eq:7.1.2}
+v \mapsto v(1_{\vec{1},\vec{0}}): V_{\dR} \xrightarrow{\sim} {}_{\vec{1}}\Pi_{\vec{0}}
+\end{equation}
+is a isomorphism of schemes. This isomorphism identifie $V_{\dR}$ a $\Pi$, equipped with a new loi of group, notee $\circ$. the action $\tau$ of $\Gm$ which defines the graduation of $\mathcal{O}({}_{\vec{1}}\Pi_{\vec{0}})$ fixe $1_{\vec{1},\vec{0}}$. It follows that (\ref{eq:7.1.2}) is compatible to the graduations. Puisqu'it envoie element neutre on element neutre, it defines a isomorphism of vector spaces gradues
+\begin{equation}\label{eq:7.1.3}
+\mathrm{Lie}^{\gr} V_{\dR} \xrightarrow{\sim} \mathrm{Lie}^{\gr} \Pi.
+\end{equation}
+the algebra of Lie graduee $\mathrm{Lie}^{\gr} V_{\dR}$ is ainsi identifiee a $\mathrm{Lie}^{\gr} \Pi$, equipped with a new crochet, the \emph{crochet of Ihara} $\{,\}$.
+
+\subsection{}\label{ssec:7.2}
+
+Notons $x \mapsto \gamma \circ_h x$ the action on ${}_b\Pi_a$ of $\gamma$ in $(\Pi, \circ)$. It se calcule as suit. the action on ${}_a\Pi_a$ respecte the structure of group. For $a = \vec{0}$, it is induite by the automorphism
+\begin{equation}\label{eq:7.2.1}
+\gamma_{\vec{0}\vec{0}}: e_0 \mapsto e_0, \quad e_1 \mapsto \gamma^{-1} e_1 \gamma
+\end{equation}
+of the algebra enveloppante completee $\Q\langle\langle e_0,e_1 \rangle\rangle$ of $\mathrm{Lie}\,\Pi$. For the verify, noter that $e_0 \in \mathrm{Lie}\,{}_{\vec{0}}\Pi_{\vec{0}}$ and $e_1 \in \mathrm{Lie}\,{}_{\vec{1}}\Pi_{\vec{1}}$ are fixes by definition of $V_{\dR}$. Ecrivant $(e_1)_{\vec{0}} = (1_{\vec{0},\vec{1}})^{-1} (e_1)_{\vec{1}} (1_{\vec{0},\vec{1}})$, one obtains as promis $(e_1)_{\vec{0}} \mapsto \gamma^{-1} (e_1)_{\vec{0}} \gamma$.
+
+the automorphism $\gamma_{\vec{1}\vec{0}}$ of ${}_{\vec{1}}\Pi_{\vec{0}}$ is induces by the automorphism $\gamma_{\vec{0}\vec{0}}$-semi-lineaire
+\begin{equation}\label{eq:7.2.2}
+\gamma_{\vec{1}\vec{0}}: x \mapsto \gamma \circ_{\vec{0}} x
+\end{equation}
+of the $\Q\langle\langle e_0,e_1 \rangle\rangle$-module a line $\Q\langle\langle e_0,e_1 \rangle\rangle$. The verify as ci-dessus, partant of $x = 1_{\vec{0},\vec{1}} x_{\vec{0}}$. Puisque $\gamma \circ_{\vec{0}} x$ envoie $1_{\vec{0},\vec{1}}$ on $\gamma \circ x_{\vec{1}\vec{0}}$, c'is also
+\begin{equation}\label{eq:7.2.3}
+\gamma_{\vec{1}\vec{0}}: x \mapsto \gamma \circ x, \quad \text{et donc}
+\end{equation}
+\begin{equation}\label{eq:7.2.4}
+x \circ y = x \circ_{\vec{0}} y.
+\end{equation}
+
+\subsection{}\label{ssec:7.3}
+
+Regardons, by $\comp_{\dR,\B}$, $\pi_1(X;b,a)_{\B}$ as a $\Q$-structure on the complexifie of $\pi_1(X;b,a)_{\dR} = {}_b\Pi_a$, the $\Q$-structure of Betti, notee $({}_b\Pi_a)_{\B}$. For this new $\Q$-structure, $2\pi i e_0$ in $\mathrm{Lie}\,{}_{\vec{0}}\Pi_{\vec{0}} \otimes \C$ and $2\pi i e_1$ in $\mathrm{Lie}\,{}_{\vec{1}}\Pi_{\vec{1}} \otimes \C$ are rationnels: leurs exponentielles are the $\sigma_t^0$ and $\sigma_t^1$ of \ref{ssec:6.3}. One deduces the
+
+\begin{lemma}\label{lem:7.4}
+Let $\mathrm{ch}$ a point rational of $({}_{\vec{1}}\Pi_{\vec{0}})_{\B}$. Regardons son image by $\comp_{\dR,\B}$, again notee $\mathrm{ch}$, as a point complex of $(\Pi, \circ)$. Then, the point complex $\mathrm{ch} \circ \tau(2\pi i)$ of $\Gm \ltimes V_{\dR} = \Gm \ltimes (\Pi, \circ)$ transforme the $\Q$-structure of ${}_b\Pi_a$ en sa $\Q$-structure of Betti.
+\end{lemma}
+
+\subsection{}\label{ssec:7.5}
+
+Let $a = u \tau(2\pi i) \in U_{\dR}(\R) \tau(2\pi i) \subset G_{\dR}(\C)$ as en (\ref{eq:5.8.3}). Si $\mathrm{ch}$ is as en \ref{lem:7.4}, tant $\mathrm{ch} \circ \tau(2\pi i)$ that $I(u) \circ \tau(2\pi i)$ transforment the $\Q$-structure of the ${}_b\Pi_a$ en leur $\Q$-structure of Betti. Si $\gamma \in V_{\dR}(\C) = \Pi(\C)$ is defined by
+\begin{equation}\label{eq:7.5.1}
+\mathrm{ch} \circ \tau(2\pi i) = I(u) \circ \tau(2\pi i) \circ \gamma,
+\end{equation}
+$\gamma$ respecte the $\Q$-structure, therefore is in $V_{\dR}(\Q) = \Pi(\Q)$. Notant again $\tau$ the action of $\Gm$ on $\Pi$, one can reecrire (\ref{eq:7.5.1}) under the form
+\begin{equation}\label{eq:7.6.1}
+\mathrm{ch} = I(u) \circ \tau(2\pi i)(\gamma).
+\end{equation}
+
+\begin{lemma}\label{lem:7.6}
+For $u$ as ci-dessus, there exists $\gamma$ in $\Pi(\Q)$ such that
+\begin{equation}
+\mathrm{dch} = I(u) \circ \tau(2\pi i)(\gamma).
+\end{equation}
+All tel $\gamma$ satisfies
+\begin{equation}\label{eq:7.6.2}
+\tau(-1)(\gamma) = \gamma.
+\end{equation}
+\end{lemma}
+
+\noindent \textit{Proof} -- (\ref{eq:7.6.2}) resulte of this that $u$ and $\mathrm{dch}$, and therefore also $\tau(2\pi i)(\gamma)$, are reels.
+
+\subsection{}\label{ssec:7.7}
+
+Appliquons (\ref{eq:7.2.3}) a (\ref{eq:7.6.1}). One obtains that the orbite of $\mathrm{dch}$ under $U_{\dR}(\C)$ is $IU_{\dR}(\C) \circ \tau(2\pi i)(\gamma) \subset {}_{\vec{1}}\Pi_{\vec{0}}(\C)$. For obtenir the orbite under $G_{\dR} = \Gm \ltimes U_{\dR}$, it is enough to remplacer $\tau(2\pi i)(\gamma)$ by son orbite $\tau(\C^*)(\gamma)$ under $\Gm$:
+\begin{equation}\label{eq:7.7.1}
+G_{\dR}(\C)(\mathrm{dch}) = IU_{\dR}(\C) \circ \tau(\C^*)(\gamma).
+\end{equation}
+Indeed, $IU_{\dR}$ is deja stable under $\Gm$. Ainsi that one the savait deja, the orbite (\ref{eq:7.7.1}) is, to the sens $\dR$, defined on $\Q$. C'is the set of the points complexes of
+\begin{equation}\label{eq:7.7.2}
+IU_{\dR} \circ \tau(\Gm) \circ \gamma \subset {}_{\vec{1}}\Pi_{\vec{0}}.
+\end{equation}
+In (\ref{eq:7.7.2}), the product is celui of $(\Pi, \circ) = V_{\dR}$, and the result is regarde as a under-scheme of ${}_{\vec{1}}\Pi_{\vec{0}}$.
+
+In $\Q\langle\langle e_0,e_1 \rangle\rangle$, one has $\gamma = \sum c_w \cdot w$. of after (\ref{eq:7.6.2}), the sum ne porte that on of the monomes $w$ of degree pair. Si $\rho_{\gamma}(\lambda) := \sum \lambda^{\deg(w)/2} c_w w$, $\rho(\lambda)$ is defined for $\lambda \in \Ga$ and satisfies
+\begin{equation}\label{eq:7.7.3}
+\rho(\lambda^2) = \tau(\lambda)(\gamma).
+\end{equation}
+
+\begin{proposition}\label{prop:7.8}
+The morphism of schemes
+\begin{equation}\label{eq:7.8.1}
+IU_{\dR} \times \Ga \to \Pi: (u, \lambda) \mapsto u \circ \rho(\lambda)
+\end{equation}
+induces a isomorphism of $IU_{\dR} \times \Ga$ with $M_{\dR} \subset {}_{\vec{1}}\Pi_{\vec{0}}$ defined en \ref{ssec:4.2}.
+\end{proposition}
+
+\noindent \textit{Proof} -- Si $u$ is in $IU_{\dR} \subset V_{\dR} = \Pi$, one can the ecrire $u = 1 + \sum_w c_w w$, or the sum ne porte that on the monomes of degree $\geq 3$. C'is a consequence of this that $\mathrm{Lie}^{\gr} U_{\dR}$ is zero en degree $< 3$. The coefficient of $e_0 e_1$ in $u \circ \rho(\lambda)$ coincide therefore with celui of $\rho(\lambda)$. The coefficient of $e_0 e_1$ in $\mathrm{dch}$ is $-\pi^2/6 = -(2\pi i)^2/24$. of after (\ref{eq:7.7.3}), celui of $\gamma$ is therefore $1/24$, and celui of $\rho(\lambda)$ is $\lambda/24$. Partant of $x = u \circ \rho(\lambda)$, one retrouve $\lambda$ as being $24 c(e_0 e_1)(x)$, that $x$ let of the form $u \circ \rho(\lambda)$ equivaut a this that $u$ defined by $x = u \circ \rho(24 c(e_0 e_1)(x))$ let in $IU_{\dR}$. C'is a condition closed, and (\ref{eq:7.8.1}) is a isomorphism with a under-scheme closed of $\Pi$, in lequel the orbite of $\mathrm{dch}$ is dense. This proves \ref{prop:7.8}.
+
+\subsection{}\label{ssec:7.9}
+
+We shall denote $D$ the image of $\Ga$ by $\rho$. one has therefore $\rho: \Ga \xrightarrow{\sim} D$, and \ref{prop:7.8} dit that the loi of group $\circ$ induces a isomorphism
+\begin{equation}\label{eq:7.9.1}
+\circ: IU_{\dR} \times D \xrightarrow{\sim} M_{\dR}.
+\end{equation}
+This isomorphism is compatible to the graduations of the algebras affine, si $\mathcal{O}(D) = \Q[\lambda]$ is graduee en donnant a $\lambda$ the degree $-2$ (codegre $2$).
+
+\subsection{}\label{ssec:7.10}
+
+of after \ref{prop:6.6} applique a $N_0$, the $(-1)^n c((01)^n)$, and therefore leurs restrictions $\zeta^m(2^{\{n\}})$ a $M_{\dR}$, are $U_{\dR}$-invariantes. Transportee of $M_{\dR}$ a $IU_{\dR} \times D$ by (\ref{eq:7.9.1}), the action of $u \in U_{\dR}$ is $(a,\lambda) \mapsto (I(u) \circ a, \lambda)$. Vues as functions on $IU_{\dR} \times D$, the $\zeta^m(2^{\{n\}})$ are therefore the images inverses of functions on $D$. a factor pres, it n'y a that a telle function en each degree pair. For determiner laquelle is $\zeta^m(2^{\{n\}})$, it is enough to tester on $\mathrm{dch}$. Posons $\pi_2^m := 6 \zeta^m(2)$, a definition suggeree by the identity $\zeta(2) = \pi^2/6$, and $w_{2n} := (\pi_2^m)^n$. of after \ref{rem:6.12}, one has:
+
+\begin{lemma}\label{lem:7.11}
+(i) For each $n$, $\zeta^m(2^{\{n\}}) = \pi_2^m{}^n/(2n+1)!$;
+
+(ii) $IU_{\dR}$ is the under-scheme of $M_{\dR}$ defined by $\pi_2^m = 0$.
+\end{lemma}
+
+\begin{proposition}\label{prop:7.12}
+For each integer $n > 1$,
+
+(i) $\zeta^m(2n)$ is a multiple rational of $\pi_2^m{}^n$ (quel multiple, one the voit en evaluant on $\mathrm{dch}$);
+
+(ii) en tant that function on $IU_{\dR} \times D$, $\zeta^m(2n+1)$ is the inverse image of a function on $IU_{\dR}$, and celle-ci is a homomorphisme not zero of $IU_{\dR}$ in $\Ga$;
+
+(iii) on the groups rendus abeliens, the $\zeta^m(2n+1)$ for $n > 1$ induisent a isomorphism
+\[
+U_{\dR}^{\ab} \xrightarrow{\sim} IU_{\dR}^{\ab} \xrightarrow{\sim} (\text{produit de } \Ga).
+\]
+\end{proposition}
+
+\noindent \textit{Proof (esquisse)} -- The filtration of profondeur of $\mathrm{Lie}\,\Pi$ is the filtration by the under-algebras of degree $> i$ en $e_1$. One denotes $D^i \Pi$ the under-groups correspondants. Si a under-group $Q$ of $\Pi$, vu as under-group of ${}_{\vec{0}}\Pi_{\vec{0}}$, is stable under $V_{\dR}$, it follows of (\ref{eq:7.2.4}) that c'is also a under-group of $(\Pi, \circ)$. This s'applique to the $D^i \Pi$.
+
+The under-group $D^1 \Pi$ is defined by the equation $c(0) = 0$. It contient the group derive $\Pi^0$, which is defined by $c(0) = c(1) = 0$, therefore contient tant $IU_{\dR}$ that $\mathrm{dch}$. The quotient $D^1\Pi/D^2\Pi$ is also the quotient $D^1\Pi/D^2\Pi$ for the loi of group $\circ$. It is abelien, and the $c(0^{\{n-1\}}1)$ definissent a isomorphism of $D^1\Pi/D^2\Pi$ with a product of copies of $\Ga$.
+
+Parce that $IU_{\dR} \subset (\Pi, \circ)$ a algebra of Lie generated en degree impair, si $n$ is pair, $c(0^{\{n-1\}}1)$ is zero on $IU_{\dR}$, $\zeta^m(n)$, transporte by (\ref{eq:7.9.1}) en a function on $IU_{\dR} \times D$, is the inverse image of a function on $D$, and (i) se proves by the arguments of \ref{ssec:7.10}.
+
+By (\ref{eq:7.6.2}), the $c(0^{\{n-1\}}1)$ are nuls on $D$ for $n$ impair. That $\zeta(n) \neq 0$ assure that, for $n$ impair $\geq 3$, they ne are not nuls on $IU_{\dR}$. This proves (ii).
+
+the assertion (iii) resulte of (ii) and of this that the algebra of Lie graduee of $U_{\dR}$ a generateur en each degree impair $\geq 3$.
+
+\begin{corollary}\label{cor:7.13}
+Quels that let the integers $a, b \geq 0$, there exists of the nombres rationnels $\alpha_{a,b,r}$ ($1 \leq r \leq a+b+1$), uniques, such that
+\begin{equation}\label{eq:7.13.1}
+\zeta^m(2^{\{b\}} 3 2^{\{a\}}) = \sum_{r=1}^{a+b+1} \alpha_{a,b,r} \, \zeta^m(2r+1) \zeta^m(2^{\{a+b+1-r\}}).
+\end{equation}
+\end{corollary}
+
+\noindent \textit{Proof} -- Regardons, by (\ref{eq:7.9.1}), $\zeta^m(2^{\{b\}} 3 2^{\{a\}})$ as a function on $IU_{\dR} \times D$. Developpons-the selon the powers of a coordonnee on $D$: $\zeta^m(2^{\{b\}} 3 2^{\{a\}}) = \sum u_{2r+1} \pi_2^m{}^{\{a+b+1-r\}}$, with $u_{2r+1}$ of codegre $2r+1$ on $IU_{\dR}$. of after \ref{prop:6.6} and \ref{ssec:7.9}, a translate a gauche of $u_{2r+1}$ ne differe of $u_{2r+1}$ that by the addition of a constant. C'is therefore a homomorphisme of $IU_{\dR}$ in the group additif. Being of weight $2r+1$, c'is of after \ref{prop:7.12} a multiple rational of $\zeta^m(2r+1)$ and \ref{cor:7.13} resulte of \ref{lem:7.11}.
+
+\begin{theorem}[D. Zagier {\cite{Zagier}}]\label{thm:7.14}
+Posons $A_{a,b}^r = \binom{2r}{2a+2}$ and $B_{a,b}^r = (1-2^{-2r}) \binom{2r}{2b+1}$. Then
+\begin{equation}\label{eq:7.14.1}
+\zeta(2^{\{b\}} 3 2^{\{a\}}) = 2 \sum_{r=1}^{a+b+1} (-1)^r (A_{a,b}^r - B_{a,b}^r) \zeta(2r+1) \zeta(2^{\{a+b+1-r\}}).
+\end{equation}
+\end{theorem}
+
+This theorem suggere that the $\alpha_{a,b,r}$ of (\ref{eq:7.13.1}) are the $2(-1)^r (A_{a,b}^r - B_{a,b}^r)$. Comment the prouver en partant of \ref{thm:7.14} will be explique to the \S\,\ref{sec:8}.
+
+\subsection{}\label{ssec:7.15}
+
+the algebra affine $\mathcal{O}(U_{\dR})$ of $U_{\dR}$ is en duality, to the sens gradue, with the algebra enveloppante of $\mathrm{Lie}^{\gr}(U_{\dR})$. This algebra enveloppante is a algebra associative free en of the generateurs of degrees the integers impairs $\geq 3$. The serie of Poincare of $\mathcal{O}(U_{\dR})$, graduee by the codegre, is therefore
+\[
+P(\mathcal{O}(U_{\dR}),t) = \prod_{n>1 \text{ impair}} (1 - t^n)^{-1} = \prod_{n>1} (1 - t^{2n+1})^{-1} = \left(1 - \frac{t^3}{1-t^2}\right)^{-1} = \frac{1-t^2}{1-t^2-t^3}.
+\]
+Si the algebra affine of the group additif $\Ga$, of coordonnee $\lambda$, is graduee en donnant a $\lambda$ the codegre $2$, one has $P(\mathcal{O}(\Ga),t) = (1-t^2)^{-1}$ and
+\[
+P(\mathcal{O}(IU_{\dR} \times D),t) = (1-t^2-t^3)^{-1}.
+\]
+the algebra affine $\mathcal{O}(IU_{\dR})$ is a under-algebra graduee of $\mathcal{O}(U_{\dR})$. By \ref{ssec:7.9}, one has therefore
+
+\begin{proposition}\label{prop:7.16}
+The serie of Poincare of $\mathcal{O}(M_{\dR})$, graduee by the codegre, satisfies
+\begin{equation}\label{eq:7.16.1}
+P(\mathcal{O}(M_{\dR}),t) \leq (1-t^2-t^3)^{-1} \text{ (inegalite terme a terme),}
+\end{equation}
+with equality if and only if the morphism $I: U_{\dR} \to IU_{\dR}$ is a isomorphism, i.e. si $U_{\dR}$ agit fidelement on $\pi_1(X;\vec{1},\vec{0})_{\dR}$.
+\end{proposition}
+
+Comparant with \ref{cor:6.10}, one obtains the
+
+\begin{theorem}\label{thm:7.17}
+(i) $U_{\dR}$ agit fidelement on ${}_{\vec{1}}\Pi_{\vec{0}}$;
+
+(ii) The morphism of $\Q$-vector spaces $H(2,3) \to \mathcal{O}(M_{\dR})$ is a isomorphism.
+\end{theorem}
+
+the algebra affine of $\pi_1(X;\vec{1},\vec{0})_{\mot}$ contient en under-quotient a $\Q(-1)$. It follows therefore of (i) that the action of $G_{\dR}$ on the algebra affine of $\pi_1(X;\vec{1},\vec{0})_{\dR}$ is faithful. The theorie of the Tannakian categories given that en consequence of (i), one has the
+
+\begin{corollary}\label{thm:7.18}
+the algebra affine $\mathcal{O}(\pi_1(X;\vec{1},\vec{0})_{\mot})$, which is a Ind-object of $\MT(\Z)$, generated the Tannakian category $\MT(\Z)$.
+\end{corollary}
+
+More precisely, all Tate motive mixte a bonne reduction on $\Spec(\Z)$ se deduces of under-objects in $\MT(\Z)$ of $\mathcal{O}(\pi_1(X;\vec{1},\vec{0})_{\mot})$ by the operations of tensor products, direct sums, duaux and under-quotients.
+
+the assertion (ii) of \ref{thm:7.17} equivaut a dire that the $\zeta^m(s)$ with $s_i \in \{2,3\}$ forment a base of $\mathcal{O}(M_{\dR})$.
+
+\section{Esquisses of proofs}\label{sec:8}
+
+\subsection{}\label{ssec:8.1}
+
+The scheme en group $V_{\dR} = (\Pi, \circ)$ agit on ${}_{\vec{1}}\Pi_{\vec{0}}$ (\ref{ssec:7.1}), and therefore on son algebra affine $\mathcal{O}({}_{\vec{1}}\Pi_{\vec{0}})$. This action is the action of $(\Pi, \circ)$ on $\mathcal{O}(\Pi)$ by translations a gauche (\ref{eq:7.2.3}): $x$ transforme $f$ en $y \mapsto f(x^{-1} \circ y)$. These actions are data by (\ref{eq:7.2.1}) (\ref{eq:7.2.2}).
+
+Derivant these formules, one obtains the action of $\mathrm{Lie}(V_{\dR}) = (\mathrm{Lie}\,\Pi, \{,\})$ on $\mathcal{O}({}_{\vec{1}}\Pi_{\vec{0}})$, and dualement the coaction of the coalgebre of Lie. Celle-ci is $\mathfrak{m}/\mathfrak{m}^2$, for $\mathfrak{m}$ the ideal of the functions nulles a the element neutre $1$, and the coaction is the projection on $\mathfrak{m}/\mathfrak{m}^2 \otimes \mathcal{O}(\Pi)$ of $f(x) \mapsto f(x^{-1} \circ y) - f(y)$ in $\mathfrak{m} \otimes \mathcal{O}(\Pi) \subset \mathcal{O}(\Pi \times \Pi)$.
+
+Goncharov a given a formule commode for this coaction (see [5] theorem 1.2). For $w$ a mot of the alphabet $\{0,1\}$, considerons the under-mots $cId$ of $1w0$, with $I$ not vide: one considers all the decompositions $w = w_0 I w_{00}$, with $I$ not vide, and $c,d$ are the lettres mitoyennes a $I$ in $1w0$. For each decomposition, posons $w_{rI} := w_0 w_{00}$. Formule for the coaction:
+\begin{equation}\label{eq:8.1.1}
+c(w) \mapsto -\sum_{c,d,I} p_{cd}(I) \otimes c(w_{rI}) \quad \text{ou}
+\end{equation}
+$p_{cd}(I)$ is the projection in $\mathfrak{m}/\mathfrak{m}^2$ of the element suivant of $\mathfrak{m} \subset \mathcal{O}(\Pi)$:
+\begin{equation}\label{eq:8.1.2}
+p_{cd}(I) = \text{projection de } \begin{cases} 0 & \text{si } c = d \\ c(I) & \text{si } c = 1, d = 0 \\ \text{l'antipode } c(I)^* & \text{si } c = 0, d = 1, \end{cases}
+\end{equation}
+or, si $I = a_1 \cdots a_k$, the antipode is $(-1)^k c(a_k \cdots a_1)$.
+
+\subsection{}\label{ssec:8.2}
+
+the action of $U_{\dR}$ on $\mathcal{O}({}_{\vec{1}}\Pi_{\vec{0}})$ se factorise by celle of $IU_{\dR} \subset (\Pi, \circ)$, and for obtenir the coaction of the coalgebre of Lie, it reste a composer (\ref{eq:8.1.1}) with
+\[
+\coLie(\Pi, \circ) \twoheadrightarrow \coLie(IU_{\dR}) \hookrightarrow \coLie(U_{\dR}).
+\]
+The $c(I)$ and $c(I)^*$ of (\ref{eq:8.1.2}) n'importent more that by leur restriction a $M_{\dR}$, prise mod $\pi_2^m$ and the carre of the ideal maximal en $1$.
+
+We choisirons the generateurs $\nu_{2r+1}$ of the algebra of Lie $\mathrm{Lie}^{\gr}(U_{\dR})$ of sorte that, notant again $\nu_{2r+1}$ the image of $\nu_{2r+1}$ in the space tangent of $IU_{\dR} \subset \Pi$ en $1$, one ait
+\[
+\langle \nu_{2r+1}, d\zeta^m(2r+1) \rangle = 1 \quad \text{dans } \mathrm{Lie}^{\gr}(U_{\dR}^{\ab}).
+\]
+Si $r = a+b+1$ (possible by \ref{prop:7.12} (ii)). This determine the image of $\nu_{2r+1}$ and that $\alpha_{a,b}$ is the coefficient of $\zeta^m(2r+1)$ in (\ref{eq:7.13.1}), one has then
+\[
+\langle \nu_{2r+1}, d\zeta^m(2^{\{b\}} 3 2^{\{a\}}) \rangle = \alpha_{a,b}.
+\]
+
+\begin{proposition}\label{prop:8.3}
+The formule (\ref{eq:7.14.1}) reste vraie with $\zeta$ remplace by $\zeta^m$.
+\end{proposition}
+
+\noindent \textit{Proof} -- One procede by recurrence on $a+b$. Si $a+b = 0$, the identity (\ref{eq:7.14.1})$_m$ a prouver se reduit a $\zeta^m(3) = \zeta^m(3)$. Supposons (\ref{eq:7.14.1})$_m$ vraie for $a+b < N$. This assure that, for $a+b < N$ and $r = a+b+1$, one has, with the notations of \ref{thm:7.14},
+\begin{equation}\label{eq:8.3.1}
+\zeta^m(2^{\{b\}} 3 2^{\{a\}}) = 2(-1)^r (A_{a,b}^r - B_{a,b}^r) \zeta^m(2r+1) \text{ sur } IU_{\dR}.
+\end{equation}
+For $a+b = N$, si the $\alpha_{a,b,r}$ are defined as en \ref{cor:7.13}, one has, for the action of $\nu_{2r+1}$
+\begin{equation}\label{eq:8.3.2}
+\nu_{2r+1} \zeta^m(2^{\{b\}} 3 2^{\{a\}}) = \alpha_{a,b,r} \zeta^m(2^{\{a+b+1-r\}}):
+\end{equation}
+appliquer \ref{prop:7.12}. For $r \leq N$, calculons the membre of gauche by (\ref{eq:8.1.1}) (\ref{eq:8.1.2}). It faut sommer on the under-mots $I$ of $w = (01)^b (001) (01)^a$, of longueur $2r+1$, and entoures of $0,1$ or $1,0$ in $1w0$. The $c(w_{rI})$, restreints a $M_{\dR}$, are $\pm \zeta^m(2^{\{a+b+1-r\}})$. The $c(I)$ or $c(I)^*$ which apparaissent in (\ref{eq:8.1.2}), restreints a $M_{\dR}$, are of the $\pm \zeta^m(2^{\{b'\}} 3 2^{\{a'\}})$ auxquels (\ref{eq:8.3.1}) s'applique by the hypothese of recurrence, or a $c((01)^{m'})$ which, on $\Pi^0$, s'exprime by (\ref{eq:3.5.2}) as sum of $\zeta(2^{\{b'\}} 3 2^{\{a'\}})$ auxquels (\ref{eq:8.3.1}) s'applique. This permet the calcul of the $\alpha_{a,b,r}$ for $r \leq N$, and one trouve that they have the value esperee. This ne laisse inconnu in (\ref{eq:7.13.1}) that the coefficient $\alpha_{a,b,a+b+1}$. One the determine en evaluant en $\mathrm{dch}$ and en appliquant \ref{thm:7.14}.
+
+\subsection{}\label{ssec:8.4}
+
+Arme of (\ref{eq:8.3.1}), one can maintenant calculer by (\ref{eq:8.1.1}) (\ref{eq:8.1.2}) the morphisms (\ref{eq:6.7.1}). For prouver \ref{thm:6.8}, the idee is that, in the matrice obtained for (\ref{eq:6.7.2}), the termes dominants, to the sens $2$-adique, proviennent of the $2^{-2r}$ which figure in $B_{a,b}^r$ (\ref{thm:7.14}). Si, to the but and a the source of (\ref{eq:6.7.2}), one range the vecteurs of base in of the ordres convenables which se correspondent by the bijection defined en \ref{ssec:6.7}, and that to the but one multiplie the vecteurs of base by of the powers of $2$ convenables, the matrice of (\ref{eq:6.7.2}) is a matrice carree a coefficients integers, of which the reduction modulo $2$ is triangulaire with of the $1$ on the diagonale. This assure that it is inversible.
+
+\section*{Remerciements}
+
+Je remercie F. Brown, P. Cartier and H. Esnault of remarks and of corrections which m'have permis of ameliorer this texte.
+
+\begin{thebibliography}{99}
+
+\bibitem{Brown}
+F. \textsc{Brown} -- Mixed Tate motives over $\Z$, \textit{Annals of Math.}, to appear in vol.~175.
+
+\bibitem{DG}
+P. \textsc{Deligne}, A.~B. \textsc{Goncharov} -- Motivic fundamental groups of mixed Tate motives, \textit{Ann. Scient. Ec. Norm. Sup.} 38 (2005), 1--56.
+
+\bibitem{Euler1}
+L. \textsc{Euler} -- Of summis serierum reciprocarum, Comm. Acad. Sci. Petropol. 7 (1734/5) p.~123--134, in \textit{Opera Omnia} Ser.~I, vol.~14, p.~73--86 (see also in the same volume of the Opera Omnia the memoire 61, p.~138--155, for a proof irreprochable, and the memoire 130, p.~407--462, for a approximation of $\zeta(3)$ (p.~440)).
+
+\bibitem{Euler2}
+L. \textsc{Euler} -- Meditationes circa singulare serierum genus, Novi Comm. Acad. Sci. Petropol. 20 (1775), p.~140--186, in \textit{Opera Omnia} Ser.~I, vol.~15, Teubner, Berlin (1927), p.~217--267.
+
+\bibitem{Goncharov}
+A.~B. \textsc{Goncharov} -- Galois symmetries of fundamental groupoids and noncommutative geometry, \textit{Duke Math. J.} (2005), 1--56.
+
+\bibitem{Zagier}
+D. \textsc{Zagier} -- Evaluation of the multiple zeta values $\zeta(2,\ldots,2,3,2,\ldots,2)$, \textit{Annals of Math.}, to appear in vol.~175.
+
+\end{thebibliography}
+
+\vspace{1em}
+\noindent Pierre \textsc{Deligne}\\
+School of Mathematics\\
+Institute for Advanced Study\\
+Einstein Drive\\
+Princeton, N.J. 08540 -- U.S.A.\\
+E-mail: \texttt{Deligne@math.ias.edu}
+
+\end{document}

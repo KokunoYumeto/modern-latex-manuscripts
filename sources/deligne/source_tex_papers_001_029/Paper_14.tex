@@ -1,0 +1,1078 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+
+\newtheorem{theoreme}{Théorème}
+\newtheorem{proposition}[theoreme]{Proposition}
+\newtheorem{lemme}[theoreme]{Lemme}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+\newtheorem{definition}[theoreme]{Définition}
+\theoremstyle{remark}
+\newtheorem{remarque}[theoreme]{Remarque}
+
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Fl}{Fl}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Ker}{Ker}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\UU}{\mathcal{U}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\MM}{\mathcal{M}}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Les immeubles des groupes de tresses généralisés}
+
+\medskip
+{\large Pierre Deligne (Bures-sur-Yvette)}
+\end{center}
+
+\section*{Introduction}
+
+Le résultat principal de ce travail est le suivant.
+
+\begin{theoreme}
+Soit $V$ un espace vectoriel réel de dimension finie, $\mathcal{M}$ un ensemble fini d'hyperplans homogènes de $V$, $V_{\CC}$ le complexifié de $V$ et $Y = V_{\CC} - \bigcup_{M \in \mathcal{M}} M_{\CC}$. On suppose que les composantes connexes de $V - \bigcup_{M \in \mathcal{M}} M$ sont des cônes simpliciaux ouverts. Alors, $Y$ est un $K(\pi, 1)$.
+\end{theoreme}
+
+Soient $V$ comme plus haut, et $W \subset GL(V)$ un groupe fini engendré par des réflexions. On suppose qu'aucun vecteur non nul de $V$ n'est fixe sous $W$:
+\[V^W = 0.\]
+
+Soit $\Phi$ une quelconque structure euclidienne sur $V$, invariante par $W$, et soit $\mathcal{M}$ l'ensemble des hyperplans $M$ tels que la réflexion orthogonale par rapport à $M$ soit dans $W$. On sait alors que $(V, \mathcal{M})$ vérifie l'hypothèse du théorème, et que $W$ agit librement sur l'espace $Y_W$ correspondant. Le quotient $X_W = Y_W/W$ est donc aussi un $K(\pi, 1)$.
+
+Ce résultat avait été conjecturé par Brieskorn. Il n'est nouveau que pour $W$ de type $H_3$, $H_4$, $E_6$, $E_7$ ou $E_8$ (Brieskorn~[2]). Nous donnons aussi une nouvelle démonstration de ce que le groupe fondamental de $X_W$ est le groupe de tresses généralisé $\tilde{W}$ correspondant à $W$ (Brieskorn~[3]).
+
+Réduit au cas particulier considéré plus haut, le plan de la démonstration est le suivant.
+
+\begin{enumerate}
+\item[a)] On construit un immeuble $I(\tilde{W})$ sur lequel $\tilde{W}$ agit, et un ensemble $\mathscr{S}$ de sphères dans $I(\tilde{W})$, isomorphes à la sphère unité de $V$. Le groupe $\tilde{W}$ agit de façon strictement simplement transitive sur $\mathscr{S}$.
+\item[b)] On montre qu'à homotopie près $I(\tilde{W})$ est le bouquet des sphères $S \in \mathscr{S}$.
+\item[c)] On relie $X_W$ et $I(\tilde{W})$.
+\end{enumerate}
+
+La description de $\mathscr{S}$ et la possibilité de c) étaient apparues lors d'une conversation avec Brieskorn et Tits au printemps 1970. Les idées requises pour établir b) m'ont été fournies par Garside~[4], que je suis souvent de très près.
+
+Dans le paragraphe~4, on détermine le centre de $\tilde{W}$ et on résoud le problème des mots et le problème de conjugaison dans $\tilde{W}$. Ces résultats ont été obtenus indépendamment par E.~Brieskorn et K.~Saito, qui utilisent comme nous les méthodes de Garside~[4].
+
+Le langage géométrique utilisé et les techniques de démonstration sont essentiellement dus à Tits, avec les idées duquel j'ai pu me familiariser en assistant à un de ses séminaires et lors de conversations.
+
+Je suis heureux de pouvoir lui dire ici ma reconnaissance.
+
+\section*{0.~Notations}
+
+\begin{enumerate}
+\item[(0.1)] $L^+(D)$: monoïde à unité libre engendré par un ensemble $D$.
+\item[(0.2)] $L(D)$: groupe libre engendré par un ensemble $D$.
+\item[(0.3)] $\bar{A}$: adhérence d'une partie $A$ d'un espace topologique.
+\item[(0.4)] Pour $x$, $y$ dans un monoïde à unité et $n \geq 0$, on pose $\operatorname{prod}(n; x, y) = xyxy\ldots$ ($n$ facteurs); on a $\operatorname{prod}(2n; x, y) = (xy)^n$, $\operatorname{prod}(2n+1; x, y) = (xy)^n x$.
+\end{enumerate}
+
+\section*{\S 1.~Galeries}
+
+(1.1) Soit $\mathcal{M}$ un ensemble fini d'hyperplans (les \emph{murs}) dans un espace vectoriel réel de dimension finie $V$. Nous utiliserons la terminologie (\emph{murs, chambres, faces, facettes}) de [1] V \S 1 (les facettes forment une partition de $E$). Le \emph{support} $P$ d'une facette $F$ est l'intersection des murs contenant $F$; $F$ est ouverte dans $P$. Pour toute chambre $A$ et tout mur $M$, on note $D_M(A)$ l'ensemble des chambres du même côté de $M$ que $A$. Si $A$ et $B$ sont deux chambres, on note $D(A, B)$ l'intersection des $D_M(A)$ pour $A$ et $B$ du même côté de $M$. Nous écartant de la terminologie de [1] IV 1 ex 15, nous dirons que deux chambres $A$ et $B$ sont \emph{mitoyennes} si $A \neq B$ et que $A$ et $B$ ont une face en commun. Nous utiliserons constamment les faits triviaux suivants.
+
+\begin{lemme}[1.2]
+\begin{enumerate}
+\item[(i)] Soit $M$ un mur d'une chambre $B$. Il existe une et une seule chambre $B'$, mitoyenne à $B$, ayant $M$ pour mur. $M$ est le seul mur qui sépare $B$ de $B'$.
+\item[(ii)] Soient $B_1$, $B_2$, $B_3$ trois chambres, et $\mathcal{M}(B_i, B_j)$ l'ensemble des murs qui séparent $B_i$ de $B_j$. On a
+\[\mathcal{M}(B_1, B_3) = (\mathcal{M}(B_1, B_2) - \mathcal{M}(B_2, B_3)) \cup (\mathcal{M}(B_2, B_3) - \mathcal{M}(B_1, B_2)).\]
+\end{enumerate}
+\end{lemme}
+
+Une \emph{galerie de longueur} $n$ ($n \geq 0$) de \emph{source} $A$ et de \emph{but} $B$ est une suite de chambres $(C_0, \ldots, C_n)$ avec $A = C_0$, $C_{i+1}$ mitoyenne de $C_i$ ($0 \leq i \leq n$) et $C_n = B$. Le \emph{composé} de deux galeries $G = (C_0, \ldots, C_n)$ et $G' = (C'_0, \ldots, C'_m)$ est défini si $C_n = C'_0$, et vaut alors
+\[GG' = (C_0, \ldots, C_n, C'_1, \ldots, C'_m).\]
+Si $G$ est une galerie de source $A$, $A \cdot G$ désigne son but.
+
+La galerie $G^*$ \emph{opposée} à une galerie $G = (C_0, \ldots, C_n)$ est la galerie $(C_n, \ldots, C_0)$. On a $(GG')^* = G'^* G^*$.
+
+La galerie $-G$ \emph{antipodique} d'une galerie $G = (C_0, \ldots, C_n)$ est la suite des chambres antipodiques $-G = (-C_0, \ldots, -C_n)$.
+
+On a $-(GG') = (-G)(-G')$, et $-(G^*) = (-G)^*$.
+
+La \emph{distance} $d(A, B)$ d'une chambre $A$ à une chambre $B$ est la plus petite longueur d'une galerie de $A$ à $B$. Une galerie de $A$ à $B$ est \emph{minimale} si elle est de longueur $d(A, B)$.
+
+\begin{proposition}[1.3]
+La distance $d(A, B)$ est le nombre de murs qui séparent $A$ de $B$. Pour qu'une galerie $G$ de $A$ à $B$ soit minimale, il faut et suffit qu'elle traverse une fois les murs qui séparent $A$ de $B$ et $0$ fois les autres.
+\end{proposition}
+
+Il est clair que toute galerie de $A$ à $B$ traverse tout mur qui sépare $A$ de $B$, et il suffit de prouver l'existence d'une galerie $G$ de $A$ à $B$, de longueur égale au nombre $k$ de murs qui séparent $A$ de $B$. On procède par récurrence sur $k$. L'intersection des $D_M(A)$ pour $M$ un mur de $A$ est réduite à $A$. Dès lors, ou bien $A = B$, auquel cas on prend $G = (A)$, ou bien il existe un mur $M$ de $A$ qui sépare $A$ de $B$. Soit $A'$ la chambre mitoyenne de $A$ ayant $M$ pour mur. $M$ est le seul mur qui sépare $A$ de $A'$, de sorte qu'un mur $N$ sépare $A'$ de $B$ si et seulement si $M \neq N$ et que $N$ sépare $A$ de $B$. D'après l'hypothèse de récurrence, il existe une galerie $G'$ de longueur $k-1$ allant de $A'$ à $B$, et on prend $G = (A A') G'$.
+
+\begin{corollaire}[1.4]
+Soient $A$, $B$, $C$ trois chambres. Les conditions suivantes sont équivalentes.
+\begin{enumerate}
+\item[(i)] $d(A, C) = d(A, B) + d(B, C)$, i.e. il existe une galerie minimale de $A$ à $C$ passant par $B$.
+\item[(ii)] Pour qu'un mur sépare $A$ de $C$, il faut et suffit qu'il sépare $A$ de $B$ ou $B$ de $C$. En d'autres termes, $\mathcal{M}(A, B) \subset \mathcal{M}(A, C)$ (cf. 1.2(ii)).
+\item[(iii)] $B \in D(A, C)$.
+\end{enumerate}
+\end{corollaire}
+
+\begin{proposition}[1.5]
+Soient $P$ une intersection de murs, $V_P = V/P$, $\operatorname{pr}_P \colon V \to V_P$ la projection et $\mathcal{M}_P$ l'ensemble des hyperplans $N$ de $V_P$ tels que $\operatorname{pr}_P^{-1}(N)$ soit un mur. On note $\pi'_P$ l'unique application des facettes de $(V, \mathcal{M})$ dans celles de $(V_P, \mathcal{M}_P)$ telle que $\operatorname{pr}_P(F) \subset \pi'_P(F)$.
+\begin{enumerate}
+\item[(i)] $\pi'_P$ respecte la relation d'incidence $F_1 \subset \bar{F_2}$: si $F_1 \subset \bar{F_2}$, on a
+\[\operatorname{codim}(F_1 \text{ dans } \bar{F_2}) \geq \operatorname{codim}(\pi'_P[F_1] \text{ dans } \pi'_P[F_2]).\]
+$\pi'_P$ transforme chambre en chambre; si $A$ et $B$ sont mitoyennes, soit $\pi'_P(A) = \pi'_P(B)$, soit $\pi'_P(A)$ et $\pi'_P(B)$ sont mitoyennes.
+\item[(ii)] Soit $F$ une facette de support $P$ (1.1). La restriction de $\pi'_P$ à l'ensemble des facettes $E$ de $(V, \mathcal{M})$ telles que $F \subset \bar{E}$ est bijective. Ainsi que son inverse $\pi_F$, elle respecte la codimension, l'incidence $E_1 \subset \bar{E_2}$ et donc la mitoyenneté des chambres. On notera encore $\pi_F$ la bijection $\operatorname{pr}_P^{-1}$ entre intersections de murs dans $V_P$ et intersections de murs dans $V$, contenant $P$.
+\item[(iii)] Si $C = \pi_F(C')$, on a, pour toute chambre $X$ de $(V, \mathcal{M})$,
+\[\pi_F^{-1} D(C, X) = D(C', \pi'_P(X)) \quad \text{et} \quad \pi_F^{-1} \mathcal{M}(C, X) = \mathcal{M}_P(C', \pi'_P(X)).\]
+Pour $X = \pi_F(X')$, on a
+\[\pi_F(D(C', X')) = D(C, X) \quad \text{et} \quad \pi_F(\mathcal{M}_P(C', X')) = \mathcal{M}(C, X);\]
+$\pi_F$ induit alors une bijection entre galeries minimales de $C'$ à $X'$ et de $C$ à $X$.
+\end{enumerate}
+\end{proposition}
+
+La vérification est laissée au lecteur ((iii) se déduit de 1.4(ii)$\Leftrightarrow$(iii)).
+
+\begin{enumerate}
+\item[(1.6)] \textbf{Notations.} (i) Pour $F$ une facette de support $P$, $V_P$, $\mathcal{M}_P$, $\operatorname{pr}_P$, $\pi'_P$ se notent encore $V_F$, $\mathcal{M}_F$, $\operatorname{pr}_F$, $\pi'_F$.
+
+\item[(ii)] Soient $P$ une intersection de murs et $C$ une chambre. On suppose qu'il existe une facette de $C$ (i.e. dans $\bar{C}$) de support $P$. Cette facette est alors unique. On la note $F(P)$ et on pose
+\[C \cdot \Delta(P) = \pi_{F(P)}(-\pi_{F(P)}^{-1}(C)).\]
+\end{enumerate}
+
+\begin{lemme}[1.7]
+\begin{enumerate}
+\item[(i)] Pour qu'un mur sépare $C$ de $C \cdot \Delta(P)$, il faut et suffit qu'il contienne $P$ ((1.5)(iii)).
+\item[(ii)] Pour $M$ un mur de $C$, $C \cdot \Delta(M)$ est l'unique chambre mitoyenne à $C$ ayant $M$ pour mur (cf. 1.5(iii), 1.2(i)).
+\item[(iii)] Soient $M \neq N$ deux murs de $C$, dont l'intersection $P$ contient une facette de $C$ ouverte dans $P$. Il existe exactement deux galeries minimales de $C$ à $C \cdot \Delta(P)$. L'une commence par $(C, C \cdot \Delta(M))$, l'autre par $(C, C \cdot \Delta(N))$.
+\end{enumerate}
+\end{lemme}
+
+L'assertion (iii) se vérifie par réduction au rang deux, (cf. 1.5(iii)), où le dessin est
+\begin{equation}
+\text{(diagramme: deux droites sécantes divisant le plan en 4 secteurs, avec $C$ et $C \cdot \Delta(P)$ indiqués)}\tag{1.7.1}
+\end{equation}
+
+\emph{Nous supposerons désormais remplie la condition suivante.}
+
+\begin{theoreme}[1.8]\textit{Hypothèse.}
+Les chambres sont des cônes simpliciaux ouverts.
+\end{theoreme}
+
+En d'autres termes, chaque chambre est l'ensemble des points à coordonnées $> 0$ dans une base convenable de $V$.
+
+\begin{remarque}[1.9.1]
+Soit $P$ une intersection de murs.
+\begin{enumerate}
+\item[(i)] $(V_P, \mathcal{M}_P)$ vérifie encore (1.8);
+\item[(ii)] l'ensemble $\mathcal{M}^P$ des traces sur $P$ des murs ne contenant pas $P$ vérifie encore (1.8).
+\end{enumerate}
+Si $\mathcal{M}$ est défini par un «groupe de Weyl» $W$ (voir l'introduction), $\mathcal{M}^P$ n'est plus en général de ce type.
+\end{remarque}
+
+\begin{remarque}[1.9.2]
+L'hypothèse (1.8) assure que si $P$ est une intersection de murs d'une chambre $C$, la condition de (1.6) est vérifiée. La chambre $C \cdot \Delta(P)$ est donc définie.
+\end{remarque}
+
+\begin{definition}[1.10]
+Deux galeries de mêmes extrémités $G$ et $G'$ sont \emph{équivalentes} (notation: $G \sim G'$) s'il existe une suite de galeries $G = G_0, \ldots, G_n = G'$ ($n \geq 0$) telle que $G_{j+1}$ se déduise de $G_j$ de la façon suivante ($0 \leq j < n$):
+\begin{enumerate}
+\item[a)] on a des décompositions $G_j = E_1 F E_2$, $G_{j+1} = E_1 F' E_2$;
+\item[b)] il existe une chambre $C$ et deux murs $M, N$ de $C$ tels que $F$ et $F'$ soient les deux galeries minimales de $C$ à $C \cdot \Delta(M \cap N)$.
+\end{enumerate}
+\end{definition}
+
+La composition des galeries, les opérations $G \mapsto G^*$ et $G \mapsto -G$, les applications source et but, la fonction «longueur» sont compatibles à cette relation d'équivalence et passent donc au quotient. On notera en principe par des minuscules les classes de galeries. On dit qu'une classe de galeries $e$ \emph{commence} (resp. \emph{finit}) par une classe de galeries $f$ s'il existe $g$ tel que $e = fg$ (resp. $e = gf$). On vérifie:
+
+\begin{proposition}[1.11]
+Deux galeries équivalentes traversent le même nombre de fois chaque mur.
+\end{proposition}
+
+\begin{proposition}[1.12]
+Deux galeries minimales de mêmes extrémités sont équivalentes.
+\end{proposition}
+
+Soient $G = (C_0, \ldots, C_n)$ et $G' = (C'_0, \ldots, C'_n)$, d'extrémités $A$ et $B$. On procède par récurrence sur la longueur des galeries considérées. Le cas $n = 0$ est trivial et l'hypothèse de récurrence permet de supposer que $C_1 \neq C'_1$. Soient $M$ et $M'$ les murs qui séparent $A = C_0 = C'_0$ de $C_1$ et $C'_1$, et $C = A \cdot \Delta(M \cap M')$. Les murs $M$ et $M'$ séparent $A$ de $B$. Par réduction au rang deux (1.5)(iii), on en déduit que tout mur qui sépare $A$ de $C$ sépare $A$ de $B$.
+
+\medskip
+\begin{center}
+\text{(diagramme dans $V_{M \cap M'}$; on omet d'écrire $\pi'_{M \cap M'}(\cdot)$)}
+\end{center}
+
+Soient $F$ (resp. $F'$) la galerie minimale de $A$ à $C$ qui passe par $C_1$ (resp. $C'_1$), et $E$ une galerie minimale de $C$ à $B$. Les galeries $FE$ et $F'E$ sont minimales et équivalentes. Les galeries minimales $G$ et $FE$ (resp. $G'$ et $F'E$) commencent par $(A, C_1)$ (resp. par $(A, C'_1)$). L'hypothèse de récurrence implique qu'elles sont équivalentes, et (1.12) en résulte.
+
+\begin{enumerate}
+\item[(1.13)] \textbf{Notation.} (i) On désigne par $u(A, B)$ la classe d'équivalence des galeries minimales de $A$ à $B$.
+
+\item[(ii)] Pour $I$ un ensemble de murs d'une chambre $C$, d'intersection $P$, on pose $\Delta(P) = u(C, C \cdot \Delta(P))$ (cf. (1.9.2)). Pour $I$ l'ensemble de tous les murs, on pose $\Delta = u(C, -C)$.
+
+L'intérêt de la notation réside dans l'ambiguïté sur $C$.
+\end{enumerate}
+
+\begin{proposition}[1.14]
+Soient $A$ une chambre et $\mathscr{G}$ un ensemble de classes de galeries de longueur bornée de source $A$. Supposons que $\mathscr{G}$ vérifie la conjonction (i) de
+\begin{enumerate}
+\item[(i$_a$)] $(A) \in \mathscr{G}$.
+\item[(i$_b$)] Si $g \cdot h \in \mathscr{G}$, alors $g \in \mathscr{G}$.
+\item[(i$_c$)] Soient $g$ de but $B$ et $M, N$ deux murs de $B$. Si $g \Delta(M)$ et $g \Delta(N)$ sont dans $\mathscr{G}$, alors $g \Delta(M \cap N) \in \mathscr{G}$.
+\end{enumerate}
+On a alors
+\begin{enumerate}
+\item[(ii)] Il existe une (unique) classe de galeries $x$ de source $A$ telle que $\mathscr{G} = \{g \mid x \text{ commence par } g\}$.
+\end{enumerate}
+\end{proposition}
+
+L'unicité est claire: si $x$ commence par $y$ et que $x \neq y$, $y$ est de longueur strictement plus petite que $x$. Soit $x$ de longueur maximale dans $\mathscr{G}$. Pour s'assurer que $x$ convient, il suffit de prouver l'assertion suivante.
+\begin{enumerate}
+\item[(*)] Soient $g$ et $M$ tels que (a) $x$ commence par $g$ et (b) $x$ ne commence pas par $g \Delta(M)$, et $g \Delta(M) \in \mathscr{G}$. Il existe alors $g'$ et $M'$, vérifiant encore (a) et (b), avec $g'$ strictement plus long que $g$.
+\end{enumerate}
+
+Puisque $g \Delta(M) \in \mathscr{G}$, la maximalité de $x$ entraîne que $g \neq x$, donc que $x$ commence par $g \Delta(N)$ pour $N$ convenable, nécessairement distinct de $M$. D'après (i$_c$), on a alors $g \Delta(M \cap N) \in \mathscr{G}$.
+
+Puisque $g \Delta(M \cap N)$ commence par $g \Delta(M)$, $x$ ne commence pas par $g \Delta(M \cap N)$.
+
+Soit $(C_0, \ldots, C_m)$ la galerie minimale de $A \cdot g$ à $A \cdot g \Delta(M \cap N)$ qui commence par $(A \cdot g, A \cdot g \Delta(N))$. Soit $i$ ($0 < i < m$) le plus grand $i$ tel que $x$ commence par $g' = g(C_0, \ldots, C_i)$. Alors, $g'$ et le mur $M'$ entre $C_i$ et $C_{i+1}$ vérifient (a)(b).
+
+\begin{center}
+\text{(projection dans $V_{M \cap N}$)}
+\end{center}
+
+\begin{proposition}[1.15]
+Soient $A$ une chambre et $\mathscr{B}$ un ensemble de chambres. Pour que $\mathscr{B}$ vérifie la conjonction (i) de
+\begin{enumerate}
+\item[(i$_a$)] $A \in \mathscr{B}$.
+\item[(i$_b$)] Si $B \in \mathscr{B}$, alors $D(A, B) \subset \mathscr{B}$.
+\item[(i$_c$)] Soient $M$ et $N$ deux murs d'une chambre $B$. Si $A$ et $B$ sont du même côté de $M$ et de $N$ et que $B \cdot \Delta(M)$ et $B \cdot \Delta(N)$ sont dans $\mathscr{B}$, alors $B \cdot \Delta(M \cap N) \in \mathscr{B}$.
+\end{enumerate}
+Il faut et il suffit que
+\begin{enumerate}
+\item[(ii)] Il existe une (unique) chambre $C$ telle que $\mathscr{B} = D(A, C)$.
+\end{enumerate}
+\end{proposition}
+
+On vérifie facilement que (ii) $\Rightarrow$ (i). Pour prouver que (i) $\Rightarrow$ (ii), on applique (1.14) à l'ensemble $\mathscr{G}$ des $u(A, B)$ pour $B \in \mathscr{B}$ (noter que d'après (1.3) et (1.11) toute galerie $G$ de classe $g$ telle qu'un $u(A, B)$ commence par $g$ est automatiquement minimale) et on applique (1.4)(i)$\Leftrightarrow$(iii) à la classe de galeries $x = u(A, X)$ obtenue.
+
+Appliquant le critère (1.15), on trouve:
+
+\begin{corollaire}[1.16]
+Soient $A$ et $B$ deux chambres mitoyennes séparées par le mur $M$, et $C$ du même côté de $M$ que $B$. Il existe $C'$ tel que
+\[D(A, C) \cap D_M(B) = D(B, C').\]
+\end{corollaire}
+
+\begin{corollaire}[1.17]
+\begin{enumerate}
+\item[(i)] Soient $A$, $C_1$, $C_2$ trois chambres. Il existe $C$ telle que
+\begin{equation}
+D(A, C) = D(A, C_1) \cap D(A, C_2).\tag{1.17.1}
+\end{equation}
+\item[(ii)] Soient $A$ et $C_1$ deux chambres, et $M$ un mur de $A$. Il existe $C'$ telle que
+\begin{equation}
+D(A, C') = D(A, C_1) \cap D_M(A).\tag{1.17.2}
+\end{equation}
+\end{enumerate}
+\end{corollaire}
+
+En fait, (ii) est le cas particulier de (i) pour $C_2 = -(A \cdot \Delta(M))$.
+
+\begin{lemme}[1.18]
+Soient $M, M', M''$ trois murs distincts d'une chambre $A$, $A_1 = A \cdot \Delta(M)$, $B = A \cdot \Delta(M \cap M' \cap M'')$, $B' = A \cdot \Delta(M \cap M')$ et $B'' = A \cdot \Delta(M \cap M'')$. Pour toute chambre $C$, si $B' \in D(A_1, C)$ et $B'' \in D(A_1, C)$, on a $B \in D(A_1, C)$.
+\end{lemme}
+
+La facette $F$ de $A$ ouverte dans $M \cap M' \cap M''$ est une facette de toutes les chambres $A$, $A_1$, $B$, $B'$ et $B''$. Appliquant (1.5)(iii), nous pouvons donc nous ramener au cas où $\dim V = 3$. Appliquant (1.17)(ii), on peut supposer de plus que $A_1$ et $C$ sont du même côté de $M$. Faisons ces hypothèses, et supposons que $B', B'' \in D(A_1, C)$. Puisque $M'$ (resp. $M''$) sépare $A_1$ de $B'$ (resp. $B''$), $A_1$ et $C$ sont séparés par $M'$, $M''$ (et du même côté de $M$); $A$ et $C$ sont donc séparés par $M$, $M'$ et $M''$, et $C = -A = B$.
+
+Le résultat clef suivant est inspiré de [4].
+
+\begin{proposition}[1.19]
+\begin{enumerate}
+\item[(i)] Soient $A, B, C$ trois chambres, $F$ une galerie de $A$ à $B$ et $G_1, G_2$ deux galeries de $B$ à $C$. Si $F G_1 \sim F G_2$, alors $G_1 \sim G_2$.
+\item[(ii)] De même, si $G_1 F \sim G_2 F$, alors $G_1 \sim G_2$.
+\item[(iii)] Soit $g$ une classe d'équivalence de galeries, de source $A$. Il existe une chambre $C$ telle que $g$ commence par $u(A, B)$ si et seulement si $B \in D(A, C)$.
+\end{enumerate}
+\end{proposition}
+
+On déduit (ii) de (i) par passage aux galeries opposées.
+
+Soient $G = (C_0, \ldots, C_n)$ et $G' = (C'_0, \ldots, C'_n)$ deux galeries de longueur $n$ et de mêmes extrémités. Si $n \geq 1$, on pose $G_1 = (C_1, \ldots, C_n)$ et $G'_1 = (C'_1, \ldots, C'_n)$. Si de plus $C_1 \neq C'_1$, on note $M$ et $M'$ les murs qui séparent $C_0 = C'_0$ de $C_1$ et $C'_1$, et on pose $A = C_0 \cdot \Delta(M \cap M')$. Considérons la relation $R_n(G, G')$ suivante entre galeries $G, G'$ comme plus haut.
+
+$R_n(G, G') \Leftrightarrow$ on a soit
+\begin{enumerate}
+\item[$\alpha$)] $n = 0$;
+\item[$\beta$)] $n \neq 0$, $C_1 = C'_1$ et $G_1 \sim G'_1$;
+\item[$\gamma$)] $n \neq 0$, $C_1 \neq C'_1$ et il existe une galerie $F$ de $A$ à $C_n = C'_n$ telle que $G_1 \sim u(C_1, A) \cdot F$ et $G'_1 \sim u(C'_1, A) \cdot F$.
+\end{enumerate}
+
+Nous prouverons par récurrence sur $n$ l'assertion suivante
+\begin{enumerate}
+\item[($A_n$)] $R_n$ est une relation d'équivalence.
+\end{enumerate}
+
+Admettons ($A_i$) pour $i < n$, et prouvons (1.19.1) à (1.19.3) ci-dessous.
+
+\begin{enumerate}
+\item[(1.19.1)] Pour les galeries de longueur $i < n$, $R_i(G, G') \Leftrightarrow G \sim G'$.
+
+Il est trivial que $R_i(G, G') \Rightarrow G \sim G'$, et, avec les notations de (1.10), si $G \sim G'$, on a $R_i(G_j, G_{j+1})$.
+
+\item[(1.19.2)] L'assertion (i) pour $F G_1$ de longueur $< n$ est vraie.
+
+Ceci résulte de (1.19.1) et de la seconde clause dans la définition des $R_i$.
+
+\item[(1.19.3)] L'assertion (iii) est vraie pour $g$ de longueur $< n$.
+\end{enumerate}
+
+Ceci résulte de (1.15) appliqué à l'ensemble $\mathscr{B}$ des chambres $B$ telles que $g$ commence par $u(A, B)$: L'hypothèse (i$_c$) de (1.15) se vérifie à l'aide de (1.19.2), de (1.18) et de la troisième clause dans la définition des $R_i$.
+
+Il reste à prouver que si $G, G'$ et $G''$ sont trois galeries de longueur $n$ allant de $A$ à $C$ et que $R_n(G, G')$ et $R_n(G, G'')$, on a $R_n(G', G'')$. Si $n = 0$, ou que $C_1 = C'_1$, ou que $C_1 = C''_1$, c'est trivial.
+
+Pour $n > 0$, nous noterons $M, M', M''$ les murs qui séparent $A = C_0 = C'_0 = C''_0$ de $C_1, C'_1$ et $C''_1$. Distinguons deux cas.
+
+\textbf{Cas 1.} $C_1 \neq C'_1 = C''_1$. Soit $B = A \cdot \Delta(M \cap M')$. On a par hypothèse
+\begin{align*}(C_1, \ldots, C_n) &\sim u(C_1, B) \, F' \sim u(C_1, B) \, F'', \\(C'_1, \ldots, C'_n) &\sim u(C'_1, B) \, F', \\(C''_1, \ldots, C''_n) &\sim u(C''_1, B) \, F''.\end{align*}
+De (1.19.2), on tire alors que $F' \sim F''$, et donc que $R_n(G', G'')$.
+
+\textbf{Cas 2.} $C_1 \neq C'_1 \neq C''_1 \neq C_1$. Soient $B_1 = A \cdot \Delta(M' \cap M'')$, $B' = A \cdot \Delta(M \cap M')$, $B'' = A \cdot \Delta(M \cap M'')$ et $B = A \cdot \Delta(M \cap M' \cap M'')$. On a
+\begin{align*}G_1 &= (C_1, \ldots, C_n) \sim u(C_1, B') \, F' \sim u(C_1, B'') \, F'' \\G'_1 &= (C'_1, \ldots, C'_n) \sim u(C'_1, B') \, F' \\G''_1 &= (C''_1, \ldots, C''_n) \sim u(C''_1, B'') \, F''\end{align*}
+de sorte que la classe $g_1$ de $G_1$ commence par $u(C_1, B')$ et $u(C_1, B'')$. Il résulte alors de (1.19.3) et du lemme (1.18) que $g_1$ commence par $u(C_1, B)$: $G_1 \sim u(C_1, B) \, F$. D'après (1.19.2), on a $F' \sim u(B', B) \, F$ et $F'' \sim u(B'', B) \, F$, donc $G_1 \sim u(C_1, B) \, F$, $G'_1 \sim u(C'_1, B) \, F$ et $G''_1 \sim u(C''_1, B) \, F$. Dès lors,
+\begin{align*}G'_1 &\sim u(C'_1, B_1) \, u(B_1, B) \, F \\G''_1 &\sim u(C''_1, B_1) \, u(B_1, B) \, F,\end{align*}
+de sorte que $R_n(G', G'')$.
+
+\begin{center}
+\text{(dessin sur la sphère unité de $V_{M \cap M' \cap M''}$)}
+\end{center}
+
+\begin{corollaire}[1.20]
+Les conditions (i) et (ii) de (1.14) sont équivalentes.
+\end{corollaire}
+
+Supposons (ii) et prouvons (i$_c$). Sous les hypothèses de (i$_c$), si $x = gh$ ($h$ de source $B$), il résulte de (1.19)(i) que $h$ commence par $\Delta(M)$ et $\Delta(N)$. Soit $C$ la chambre garantie par (1.19)(iii) pour $h$. Puisque $M$ et $N$ séparent $B$ de $C$, $\pi'_{M \cap N}(C)$ ne peut être que $\pi'_{M \cap N}(B) \cdot \Delta$ et (i$_c$) résulte de (1.5)(iii).
+
+\begin{center}
+\text{(diagramme: deux droites sécantes avec $M$, $N$, $\pi'_{M \cap N}(B)$, $\pi'_{M \cap N}(C)$)}
+\end{center}
+
+\begin{corollaire}[1.21]
+Pour toute chambre $A$, soit $n(A, i)$ le nombre de classes de galeries de source $A$ et de longueur $i$. Posons
+\[f_A = \sum_0^{\infty} n(A, i) \, t^i \in \Z[[t]].\]
+Pour toute chambre $A$, et pour $P$ parcourant les intersections de murs de $A$ (y compris $\{0\}$ et $V$), on a
+\[\sum_P (-1)^{\operatorname{codim}(P)} t^{d(A, A \cdot \Delta(P))} f_{A \cdot \Delta(P)} = 1.\]
+\end{corollaire}
+
+Ceci exprime que
+\begin{enumerate}
+\item[a)] le nombre de classes de galeries de longueur $i$ qui commencent par $\Delta(P)$ est $n(A \cdot \Delta(P), i - d(A, A \cdot \Delta(P)))$ ((1.19)(i));
+\item[b)] les classes de galeries qui commencent par $\Delta(P)$ et $\Delta(Q)$ commencent par $\Delta(P \cap Q)$ (résulte de (1.19)(iii)).
+\end{enumerate}
+
+\begin{enumerate}
+\item[(1.22)] \textbf{Algorithme.} Soient $G = (A_0, \ldots, A_n)$ une galerie de longueur $n \geq 1$, $G_1 = (A_1, \ldots, A_n)$, $M$ le mur qui sépare $A_0$ de $A_1$, $C$ la chambre dont l'existence est garantie par (1.19)(iii) (pour $G$) et $C_1$ la chambre analogue pour $G_1$. On peut calculer $C$ par récurrence à l'aide de la formule suivante (cf. (1.16))
+\begin{equation}
+D(A_1, C) = D_M(A_1) \cap D(A_1, C_1).\tag{1.22.1}
+\end{equation}
+\end{enumerate}
+
+Puisque $A_1 \in D(A, C)$, $M$ sépare en effet $A$ de $C$ et $C \in D_M(A_1)$. D'après (1.19)(i), on a aussi $D(A_1, C) \subset D(A_1, C_1)$, d'où l'inclusion $\subset$. Enfin, si $B \in D_M(A_1) \cap D(A_1, C_1)$, $G_1$ commence par $u(A_1, B)$ et $G$ commence par $u(A, A_1) \cdot u(A_1, B) = u(A, B)$, d'où (1.22.1).
+
+\begin{corollaire}[1.23]
+Soient $G$ et $H$ deux galeries composables. Soient $A$ la source de $G$, $B$ celle de $H$ et $C$ garantie par (1.19)(iii): on a $H \sim u(B, C) \cdot H'$. Alors, pour toute chambre $D$, pour que la classe de $GH$ commence par $u(A, D)$, il faut (et il suffit) que celle de $G \cdot u(B, C)$ commence par $u(A, D)$.
+\end{corollaire}
+
+\begin{proposition}[1.24]
+Soient $A$ une chambre, $P$ une intersection de murs de $A$, $F = F(P)$ (1.6) et $g$ une classe d'équivalence de galeries de source $A$. Il existe une classe de galeries $g'$ de $(V_P, \mathcal{M}_P)$, de source $\pi_F^{-1}(A)$, telle que pour toute galerie $H$ de $(V_P, \mathcal{M}_P)$, $g$ commence par $\pi_F(H)$ si et seulement si $g'$ commence par $H$.
+\end{proposition}
+
+Soit $\mathscr{G}$ l'ensemble des classes de galeries $h$ de source $\pi_F^{-1}(A)$ de $(V_P, \mathcal{M}_P)$ telles que $g$ commence par $\pi_F(h)$. Appliquons (1.14) à $(V_P, \mathcal{M}_P)$ et à $\mathscr{G}$. D'après (1.19) la condition (i) est vérifiée (cf. la preuve de (1.20)), et (1.24) résulte de (1.14)(ii).
+
+\begin{enumerate}
+\item[(1.25)] On peut regarder l'ensemble des galeries comme étant l'ensemble des flèches d'une catégorie $\Gal_0(V, \mathcal{M})$ ayant les chambres pour objets. De même, les classes d'équivalence de galeries sont les flèches d'une catégorie quotient $\Gal_+(V, \mathcal{M})$. Soient $A, B$ et $C$ trois chambres, $E$ une galerie de $A$ à $B$ et $F$ une galerie de $B$ à $C$. Bien que les conventions générales dans les catégories soient autres, nous continuerons à noter $EF$ le composé de $E$ et $F$. La loi $*$ (resp. $G \mapsto -G$) est une antiéquivalence (resp. une équivalence) de $\Gal_0(V, \mathcal{M})$ ou $\Gal_+(V, \mathcal{M})$ avec elle-même, induisant l'identité (resp. $C \mapsto -C$) sur l'ensemble des objets.
+
+Quand aucune confusion ne sera à craindre, nous écrirons simplement $\Gal_0$ et $\Gal_+$ pour $\Gal_0(V, \mathcal{M})$ et $\Gal_+(V, \mathcal{M})$ (ou pour une catégorie $\Gal_0(V_P, \mathcal{M}_P)$ ou $\Gal_+(V_P, \mathcal{M}_P)$). Par abus de langage, nous appellerons souvent \emph{galeries} les flèches de $\Gal_+$.
+\end{enumerate}
+
+\begin{lemme}[1.26]
+\begin{enumerate}
+\item[(i)] Dans $\Gal_+$, pour toute galerie $g$, on a
+\[g \Delta = \Delta(-g).\]
+\item[(ii)] Quels que soient $g$ et $h$ de source $A$ dans $\Gal_+$, il existe $n$ tel que $g \Delta^n$ commence par $h$. Si $h$ est composé de $k$ galeries $u(A_i, A_{i+1})$, on peut prendre $n = k$.
+\end{enumerate}
+\end{lemme}
+
+Procédant par récurrence, on se ramène à prouver (i) pour $g$ de longueur un. Pour $g = (B, C)$, on a
+\begin{align*}g \Delta &= u(B, C) \, u(C, -C) = u(B, C) \, u(C, -B) \, u(-B, -C) \\&= u(B, -B) \, u(-B, -C) = \Delta(-g).\end{align*}
+
+Quelle que soit la chambre $B$, $\Delta = u(A, -A)$ commence par $u(A, B)$. Dès lors, (ii) se déduit de (i) par récurrence sur $k$.
+
+La proposition suivante résulte aussitôt de (1.26), de son transformé par $*$ et de (1.19)(i), (ii).
+
+\begin{proposition}[1.27]
+\begin{enumerate}
+\item[(i)] Dans $\Gal_+$ l'ensemble de toutes les flèches donne lieu à un calcul de fractions à gauche et à droite.
+\end{enumerate}
+\end{proposition}
+
+\begin{enumerate}
+\item[(ii)] Soit $\Gal(V, \mathcal{M})$, ou simplement $\Gal$, la \emph{catégorie} (un \emph{groupoïde}) \emph{déduite} de $\Gal_+$ en rendant inversibles toutes les flèches; appelons \emph{positives} les flèches de $\Gal$ dans l'image de $\Gal_+$. Le foncteur canonique de $\Gal_+$ dans $\Gal$ est \emph{fidèle}, et toute flèche $g$ de $\Gal$ peut se mettre sous les formes $g = g_1 \Delta^{-n} = \Delta^{-n} g_2$ avec $g_1$ et $g_2$ positifs.
+\end{enumerate}
+
+Si une catégorie $C$ n'a qu'un seul objet $A$ et que le monoïde $\Hom(A, A)$ est simplifiable, que l'ensemble de toutes les flèches de $C$ donne lieu à un calcul des fractions à gauche et à droite signifie que $\Hom(A, A)$ vérifie la condition de Öre à gauche et à droite. La «théorie du calcul des fractions» utilisée en (1.27) et ci-dessous est une généralisation immédiate de la théorie de Öre pour plonger un tel monoïde dans un groupe.
+
+\begin{enumerate}
+\item[(1.28)] Pour tout mur $M$, le nombre de fois que $g$ dans $\Gal_+$ traverse $M$ est bien défini (1.11). Cette fonction de $g$ se prolonge par additivité pour $g \in \Gal$. Plus généralement, pour toute intersection de murs $P$, on pourrait utiliser la propriété universelle de $\Gal$ pour définir des foncteurs
+\[\pi'_P \colon \Gal(V, \mathcal{M}) \to \Gal(V_P, \mathcal{M}_P).\]
+\end{enumerate}
+
+\begin{enumerate}
+\item[(1.29)] Soient $A$ une chambre, $P$ une intersection de murs de $A$ et $F = F(P)$ (1.6). La fonction $\pi_F$ induit un foncteur
+\begin{equation}
+\pi_F \colon \Gal_0(V_P, \mathcal{M}_P) \to \Gal_0(V, \mathcal{M}).\tag{1.29.1}
+\end{equation}
+L'image de ce foncteur est stable par équivalence, et il induit un foncteur \emph{fidèle}
+\begin{equation}
+\pi_F \colon \Gal_+(V_P, \mathcal{M}_P) \to \Gal_+(V, \mathcal{M}).\tag{1.29.2}
+\end{equation}
+De la théorie du calcul des fractions et de (1.19)(i) résulte alors la
+\end{enumerate}
+
+\begin{proposition}[1.30]
+Sous les hypothèses précédentes, le foncteur déduit de (1.29.2)
+\[\pi_F \colon \Gal(V_P, \mathcal{M}_P) \to \Gal(V, \mathcal{M})\]
+est fidèle.
+\end{proposition}
+
+\begin{proposition}[1.31]
+Soient $C$ une chambre, $I$ et $J$ deux ensembles de murs de $C$, $K = I \cap J$, $P$, $Q$ et $R$ les intersections des murs dans $I$, $J$ et $K$ et $F(P)$, $F(Q)$ et $F(R)$ les facettes correspondantes dans $C$ (1.6). La facette $F(R)$ est la plus petite facette contenant $F(P)$ et $F(Q)$. Dans le groupoïde $\Gal(V, \mathcal{M})$, on a
+\[\pi_{F(P)}(\Gal(V_P, \mathcal{M}_P)) \cap \pi_{F(Q)}(\Gal(V_Q, \mathcal{M}_Q)) = \pi_{F(R)}(\Gal(V_R, \mathcal{M}_R)).\]
+
+Une chambre admettant $F(P)$ et $F(Q)$ pour facettes admet aussi $F(R)$ pour facette. Ceci prouve (1.31) pour les objets.
+
+Soit $g \in \Hom_{\Gal}(A, B)$, et supposons que
+\[g = \pi_{F(P)}(g'_1) = \pi_{F(Q)}(g'_2).\]
+\end{proposition}
+
+D'après (1.27)(ii), on a
+\[g'_1 = \Delta(P)^{-n} g''_1 \quad \text{et} \quad g'_2 = \Delta(Q)^{-n} g''_2\]
+avec $g''_i$ positif, pour $n \geq 0$ assez grand. Soient $g_1 = \pi_{F(P)} g''_1$ et $g_2 = \pi_{F(Q)} g''_2$.
+
+D'après (1.26)(ii) (transformé par $*$), $\Delta^n \Delta(P)^{-n}$ est positif; on a dans $\Gal_+(V, \mathcal{M})$
+\begin{equation}
+(\Delta^n \Delta(P)^{-n}) g_1 = (\Delta^n \Delta(Q)^{-n}) g_2.\tag{1.31.1}
+\end{equation}
+
+\begin{lemme}[1.31.2]
+Si $h \in \Hom_{\Gal_+}(A, B)$ commence tant par $(\Delta^n \Delta(P)^{-n})$ que par $(\Delta^n \Delta(Q)^{-n})$, alors $h$ commence par $(\Delta^n \Delta(R)^{-n})$.
+\end{lemme}
+
+Déduisons (1.31) de (1.31.2). D'après (1.31.2), on a
+\[(\Delta^n \Delta(P)^{-n}) g_1 = (\Delta^n \Delta(Q)^{-n}) g_2 = (\Delta^n \Delta(R)^{-n}) g_3\]
+avec $g_3$ positif. On a donc $g = \Delta(R)^{-n} g_3$. La galerie positive $g_3 = \Delta(R)^n g$ appartient à l'image de $\pi_{F(P)}$ et de $\pi_{F(Q)}$. Elle traverse (1.28) donc zéro fois tout mur ne contenant pas $P$ ou $Q$, i.e. ne contenant pas $R$. Elle appartient donc à l'image de $\pi_{F(R)}$.
+
+Prouvons (1.31.2). Soit $A(P) = A \cdot \Delta \cdot \Delta(P)$, et de même pour $Q$ et $R$. La galerie $\Delta \Delta(P)^{-1}$ de source $A$ est $u(A, A(P))$; celle de source $A(P)$ est $u(A(P), A)$. De (1.26)(i) résulte que $\Delta \Delta(P) = \Delta(P) \Delta$. On a donc
+\begin{equation}
+\Delta^n \Delta(P)^{-n} = u(A, A(P)) \cdot u(A(P), A) \cdot u(A, A(P)) \ldots \quad \text{($n$ facteurs).}\tag{1.31.3}
+\end{equation}
+
+\begin{lemme}[1.31.4]
+$A(R) \in D(A(P), A(Q))$.
+\end{lemme}
+
+Avec les notations de (1.2), $\mathcal{M}(A \Delta, A(P))$ est l'ensemble des murs qui contenaient $P$ et $\mathcal{M}(A \Delta, A(Q))$ l'ensemble de ceux qui contiennent $Q$. D'après (1.2), $\mathcal{M}(A(P), A(Q))$ est l'ensemble de ceux qui contiennent $P$ ou $Q$, mais non $R$, soit $\mathcal{M}(A(P), A(R)) \cup \mathcal{M}(A(Q), A(R))$, et on applique (1.4).
+
+D'après (1.19)(iii), une classe de galeries qui commence par $\Delta \Delta(P)^{-1}$ et $\Delta \Delta(Q)^{-1}$ commence donc aussi par $\Delta \Delta(R)^{-1}$, et (1.31.2) résulte par récurrence du
+
+\begin{lemme}[1.31.5]
+Soient $P$ et $R$ des intersections de murs d'une chambre $A$, avec $P \subset R$. Soit $h$ dans $\Gal_+$ de source $A$. Si $h$ commence tant par $\Delta^n \Delta(P)^{-n}$ ($n > 0$) que par $\Delta \Delta(R)^{-1}$, alors $h$ commence par $(\Delta \Delta(R)^{-1})(\Delta \Delta(P)^{-1})^{n-1}$.
+\end{lemme}
+
+On peut supposer que $n \geq 2$. Posons $h = (\Delta \Delta(P)^{-1}) h'$. Avec les notations précédentes, $h'$ commence alors tant par $\Delta \Delta(P)^{-1} = u(A(P), A)$ que par $u(A(P), A(R))$. Appliquons (1.19)(iii).
+
+La chambre $C$ de loc. cit. est alors séparée de $A(P)$ par tout mur $M$ qui sépare $A(P)$ de $A$ (i.e. $M \not\supset P$) ou $A(P)$ de $A(R)$ (i.e. $M \supset P$ et $M \not\supset R$). La chambre $C$ n'est donc séparée de $A(P) \Delta$ que par des murs $M \supset R$, et $C \in D(A(P) \cdot \Delta, A(P) \cdot \Delta \Delta(R))$. Dès lors, $h'$ commence tant par $(\Delta \Delta(R)^{-1})$ que par $(\Delta \Delta(P)^{-1})^{n-1}$. Procédant par récurrence sur $n$, on en déduit que $h'$ commence par $(\Delta \Delta(R)^{-1})(\Delta \Delta(P)^{-1})^{n-2}$, de sorte que $h$ commence par $(\Delta \Delta(P)^{-1})(\Delta \Delta(R)^{-1})(\Delta \Delta(P)^{-1})^{n-2}$ et on conclut en notant que
+\[\Delta \Delta(P)^{-1} \, \Delta \Delta(R)^{-1} = \Delta \Delta(R)^{-1} \, \Delta \Delta(P)^{-1}.\]
+
+\begin{proposition}[1.32]
+Pour $F$ une facette d'une chambre $C$, engendrant une intersection de murs $P$, on a
+\[\pi_F^{-1}(\Gal_+(V, \mathcal{M})) = \Gal_+(V_P, \mathcal{M}_P) \subset \Gal(V_P, \mathcal{M}_P).\]
+\end{proposition}
+
+Supposons que $\pi_F(\Delta^{-n} g) = h$ soit dans $\Gal_+(V, \mathcal{M})$. On a alors $\pi_F(g) = \Delta(P)^n h$ et, d'après (1.28), toute galerie $H$ représentant $h$ ne traverse que des murs passant par $F$. On a donc $h = \pi_F(h_1)$ avec $h_1$ dans $\Gal_+(V_P, \mathcal{M}_P)$ et on conclut par (1.30).
+
+\section*{\S 2.~Immeubles}
+
+(2.1) Soient $(V, \mathcal{M})$ comme au \S 1 (vérifiant (1.8)) et $r = \dim V$. Soit $S$ la sphère de rayon un dans $V$, pour une quelconque structure euclidienne sur $V$ (on pourrait plus intrinsèquement poser $S = V - \{0\}/\RR^*_+$). Les hyperplans $M \in \mathcal{M}$ découpent une triangulation de $S$, et nous noterons encore $S$ l'espace simplicial (schéma simplicial) correspondant, et sa réalisation géométrique. Nous transporterons à $S$ la terminologie utilisée pour $V$ (chambres, facettes, mitoyenneté, galerie, \ldots).
+
+(2.2) Choisissons une «chambre fondamentale» $A_0$ dans $S$. Nous noterons $I_+$ l'espace construit ci-dessous; il dépend de $V$, $\mathcal{M}$ et $A_0$, et est muni de $q \colon I_+ \to S$.
+
+\begin{enumerate}
+\item[a)] Soit $\mathscr{Z}_+$ l'ensemble des classes d'équivalence de galeries $g$ de source $A_0$,
+\[\mathscr{Z}_+ = \coprod_B \Hom_{\Gal_+}(A_0, B).\]
+\item[b)] Soit $Z$ la somme disjointe, indexée par $g \in \mathscr{Z}_+$, du simplexe fermé de $S$, adhérence du simplexe ouvert de dimension $r-1$ qu'est le but de $g$
+\[Z_+ = \coprod_{g \in \mathscr{Z}_+} (\text{but de } g)^-.\]
+Soit $q'$ l'application évidente de $Z_+$ sur $S$.
+\item[c)] $I_+$ (muni de $q$) est un quotient de $Z_+$ (muni de $q'$). Si $G$ est une galerie de $A_0$ à $B$ et $C$ une chambre mitoyenne à $B$, on recolle $(\text{but de } g)^-$ et $(\text{but de } g(BC))^-$ selon la face fermée commune de leurs images dans $S$.
+\end{enumerate}
+
+(2.3) L'espace $I_+$ est décomposé en facettes, images de facettes de $Z_+$ et s'envoyant bijectivement sur une facette de $S$. Ses \emph{chambres} (resp. \emph{faces}, resp. \emph{sommets}) sont ses facettes de dimension $r-1$ (resp. $r-2$, resp. $0$).
+
+Les \emph{sommets} d'une facettes $F$ sont les sommets contenus dans l'adhérence $\bar{F}$ de $F$. Les chambres de $I_+$ sont indexées par $\mathscr{Z}_+$; on note $\tilde{A}_0 \cdot g$ celle d'indice $g$ et $\tilde{A}_0$ celle d'indice $(A_0)$.
+
+Soient $g \in \Hom_{\Gal_+}(A_0, A)$, $\tilde{A} = \tilde{A}_0 \cdot g$ et $H = (C_0, \ldots, C_n)$ une galerie de $A$ à $B$, de classe $h$.
+
+On pose
+\[\tilde{A} \cdot h = \tilde{A}_0 \cdot gh\]
+
+Les chambres $\tilde{A} \cdot (C_0, \ldots, C_i)$ ($0 \leq i \leq n$) forment une galerie dans $I_+$. On appellera \emph{positives} les galeries ainsi obtenues.
+
+\begin{lemme}[2.4]
+Soit $F$ une facette de $S$, $A$ et $B$ deux chambres de $S$ ayant $F$ pour facette, $g \in \Hom_{\Gal_+}(A_0, A)$ et $h = \Hom_{\Gal_+}(A_0, B)$. Les conditions suivantes sont équivalentes
+\begin{enumerate}
+\item[(a)] dans $I_+$, les facettes $q^{-1}(F)$ de $\tilde{A}_0 \cdot g$ et $\tilde{A}_0 \cdot h$ coïncident;
+\item[(b)] $g^{-1} h \in \Hom_{\Gal}(A, B)$ est dans $\pi_F(\Gal)$;
+\item[(c)] il existe $g_1$ et $h_1$ dans $\pi_F(\Gal_+)$ tels que $g g_1 = h h_1$.
+\end{enumerate}
+\end{lemme}
+
+La condition (b) est une relation d'équivalence entre galeries de $A_0$ à une chambre dont $F$ est facette. On en déduit que (a) $\Rightarrow$ (b). Que (b) $\Rightarrow$ (c) résulte de (1.26)(i). Enfin, (c) $\Rightarrow$ (a) est trivial sur les définitions.
+
+De (2.4) (a)$\Leftrightarrow$(b) et (1.31), on déduit aussitôt le résultat suivant.
+
+\begin{proposition}[2.5]
+Chaque facette de $I_+$ est uniquement déterminée par l'ensemble de ses sommets. On peut donc décrire $I_+$ comme la réalisation géométrique du schéma simplicial suivant.
+\begin{enumerate}
+\item[a)] Pour $x$ sommet de $S$, soit $\mathscr{G}(x)$ l'ensemble des $g$ dans $\Gal_+$ de source $A_0$ et de but une chambre dont $x$ est sommet. Soit $\mathscr{G}(x)/\pi_x$ le quotient de $\mathscr{G}(x)$ par la relation d'équivalence (2.4)(b) (pour $F = x$). Alors, l'ensemble des sommets est
+\[\coprod_x \mathscr{G}(x)/\pi_x.\]
+\item[b)] Pour qu'un ensemble $E$ de sommets \emph{tende} un simplexe, il faut et suffit qu'il existe une galerie $g$ de source $A_0$ telle que pour $y \in E$, $g$ soit dans $\mathscr{G}(q \, y)$ et que $y$ soit l'image de $g$ dans $\mathscr{G}(q \, y)/\pi_{q y}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[2.6]
+Soit $F$ une facette de $I_+$. Il existe une classe de galeries $g$ telle que, pour que $F$ soit une facette d'une chambre $B = \tilde{A}_0 \cdot h$, il soit nécessaire et suffisant que l'on ait
+\[h = g \, \pi_F(h')\]
+pour $h'$ convenable dans $\Gal_+$.
+\end{proposition}
+
+Prenons pour $g$ une galerie de longueur minimum telle que $F$ soit facette de $A = \tilde{A}_0 \cdot g$. Soit $B = \tilde{A}_0 \cdot h$ une chambre dont $F$ soit facette. D'après (2.4)(a)$\Leftrightarrow$(c), il existe des galeries $h_1$ et $h_2$ dans $(V_{qF}, \mathcal{M}_{qF})$, avec
+\[g \, \pi_F(h_1) = h \, \pi_F(h_2).\]
+Appliquons le transformé par $*$ de (1.24). Vu la minimalité de $g$, on trouve que $h_1$ finit par $h_2$: $h_1 = h' \, h_2$. D'après (1.19)(ii), on a
+\[g \, \pi_F(h') = h\]
+et ceci prouve (2.6).
+
+\begin{enumerate}
+\item[(2.7)] \textbf{Notation.} Soit $A$ une chambre de $I_+$. On désigne par $S(A)$ la réunion des chambres fermées $(A \cdot (q \, A, B))^-$ pour $B$ chambre de $S$.
+
+On vérifie que $q|S(A)$ est un isomorphisme entre $S(A)$ et $S$.
+\end{enumerate}
+
+\begin{definition}[2.8]
+$\hat{I}_+$ est l'espace déduit de $I_+$ en «bouchant» les sphères $S(A)$.
+
+De façon précise, soit $B^r$ une boule dont $S$ soit le bord. Quand on voudra travailler simplicialement, on prendra pour $B^r$ le cône sur l'espace simplicial $S$. On définit $\hat{I}_+$ comme déduit de $I_+$ par attachement d'une famille de copies $b(A)$ de $B^r$, famille indexée par l'ensemble des chambres de $I_+$. Les applications d'attachements sont les
+\[\partial b(A) \xrightarrow{\sim} S \xleftarrow{q} S(A).\]
+Les applications d'attachement sont simpliciales, de sorte que $\hat{I}_+$ apparaît encore comme la réalisation géométrique d'un schéma simplicial (de sommets ceux de $I_+$ et les «centres des boules»). L'espace $\hat{I}_+$ est muni d'une application (simpliciale) évidente
+\[q \colon \hat{I}_+ \to B^r.\]
+\end{definition}
+
+\begin{proposition}[2.9]
+L'espace $\hat{I}_+$ est contractile.
+
+L'espace $I_+$ est donc le bouquet des sphères $S(A)$.
+\end{proposition}
+
+Soient $(I_+)_n$ la réunion des chambres fermées $(\tilde{A}_0 \cdot g)^-$ pour $g$ de longueur $\leq n$, et $(\hat{I}_+)_n$ la réunion de $(I_+)_n$ et de l'ensemble des boules $b(A)$ pour $\partial b(A) \subset (I_+)_n$.
+
+On a $(\hat{I}_+)_0 = \bar{A_0}$ (contractile), et
+\[\hat{I}_+ = \varinjlim (\hat{I}_+)_n.\]
+
+La proposition résulte du
+
+\begin{lemme}[2.9.1]
+$(\hat{I}_+)_n$ est rétracte par déformation de $(\hat{I}_+)_{n+1}$.
+\end{lemme}
+
+Nous devons construire une famille continue $(\varphi_t)_{0 \leq t \leq 1}$ d'applications continues de $(\hat{I}_+)_{n+1}$ dans lui-même, avec $\varphi_0 = \operatorname{Id}$, $\varphi_t|(\hat{I}_+)_n = \operatorname{Id}$ et $\varphi_1((\hat{I}_+)_{n+1}) = (\hat{I}_+)_n$.
+
+Soient $A = \tilde{A}_0 \cdot g$ une chambre de $(I_+)_{n+1}$ qui n'est pas dans $(I_+)_n$, et $F$ une facette de $A$.
+
+\begin{lemme}[2.9.2]
+Supposons qu'il existe une chambre $B = \tilde{A}_0 \cdot h$ dans $(I_+)_{n+1}$, distincte de $A$, dont $F$ soit une facette. Il existe alors une chambre $B' = \tilde{A}_0 \cdot h'$ dans $(I_+)_n$, et un mur $M$ de $q \, B'$, contenant $q \, F$, tel que $A = B' \cdot \Delta(M)$.
+\end{lemme}
+
+Soit $g_0$ la galerie considérée en (2.6). On a
+\[g = g_0 \, \pi_F(g_1) \quad \text{et} \quad h = g_0 \, \pi_F(h_1).\]
+Les hypothèses impliquent que la longueur $\lg(g_1) \neq 0$ (sinon, puisque $A \neq B$, on aurait $\lg(h) > \lg(g) = n+1$). Pour un mur convenable $M$ de $q \, A$, on a alors $g_1 = h' \Delta(M)$, et on pose $B' = \tilde{A}_0 \cdot h'$.
+
+Pour la chambre fermée $A^-$, $A^- \cap (I_+)_n$ est donc réunion d'un ensemble (non vide) de faces fermées, et, dans $(I_+)_{n+1}$, les points de $A^- - (A^- \cap (I_+)_n)$ n'appartiennent qu'à la seule chambre fermée $A^-$.
+
+Distinguons deux cas
+
+\textbf{Cas 1.} $A^- \cap (I_+)_n \neq \partial A^-$.
+
+Dans ce cas, il n'existe pas de sphère $S(B)$ avec
+\[A \subset S(B) \subset (I_+)_{n+1}.\]
+Nous prendrons pour $\varphi_t|A^-$ un effondrement de $A^-$ sur $A^- \cap (I_+)_n$.
+
+\textbf{Cas 2.} $A^- \cap (I_+)_n = \partial A^-$.
+
+Posons $A = \tilde{A}_0 \cdot g$. Pour tout mur $M$ de $q \, A$, il résulte alors de (2.7.2) que $g$ finit par $\Delta(M)$.
+
+D'après ((1.19)(iii)), $g$ finit donc par $\Delta$: on a $A = B \cdot \Delta$, avec $B$ uniquement défini par $A$, d'après (1.19)(ii). Quand on passe de $(\hat{I}_+)_{n+1}$ à $(\hat{I}_+)_n$, $A$ et l'intérieur de la boule $b(B)$ disparaissent. On prend pour $\varphi_t|b(B)$ un effondrement de $b(B)$ sur $S(B) - A$.
+
+D'après ce qui a été vu au cas 1, toute boule qui disparaît est du type précédent. Ceci achève la construction de $\varphi_t$ et prouve (2.7).
+
+(2.10) \emph{L'espace $I$}, muni de $q \colon I \to S$ se définit comme $I_+$, en remplaçant $\Gal_+$ par $\Gal$.
+\begin{enumerate}
+\item[a)] On pose $\mathscr{Z} = \coprod_B \Hom_{\Gal}(A_0, B)$.
+\item[b)] On pose $Z = \coprod_{g \in \mathscr{Z}} (\text{but de } g)^-$.
+\item[c)] Soit $q'$ l'application évidente de $Z$ sur $S$. L'espace $I$, muni de $q$, est un quotient de $Z$ muni de $q'$. Pour $g \in \mathscr{Z}$ de but $B$ et $C$ une chambre mitoyenne à $B$, on recolle $(\text{but de } g)^-$ et $(\text{but de } g(BC))^-$ selon la face fermée commune de leurs images dans $S$. En d'autres termes, si deux chambres $B$ et $C$ ont une facette commune $F$, si $g \in \Hom_{\Gal}(A_0, B)$ et que $h \in \Hom_{\Gal}(A_0, C)$, alors, dans $I$, les facettes fermées $q'^{-1}(F)^-$ de $(\text{but de } g)^-$ et de $(\text{but de } h)^-$ sont identifiées si et seulement si
+\[h \, g^{-1} \in \pi_F \Hom_{\Gal}(\pi_F^{-1}(B), \pi_F^{-1}(C)).\]
+\end{enumerate}
+
+(2.11) On définit comme pour $I_+$ les \emph{chambres, faces, facettes} ouvertes ou fermées de $I$. On définit $\tilde{A}_0$, et $\tilde{A} \cdot h$ (pour $\tilde{A}$ une chambre et $h$ dans $\Gal$ de source $q \tilde{A}$) comme en (2.3). L'analogue de (2.4)(a)$\Leftrightarrow$(b) est ici trivialement vrai. Comme en (2.5), on déduit alors de (1.31) que chaque facette de $I$ est uniquement déterminée par l'ensemble de ses sommets, et $I$ apparaît comme la réalisation géométrique d'un schéma simplicial qui admet une description de type (2.5). Pour toute chambre $A$ de $I$, on définit comme en (2.7) une sphère $S(A)$; $q$ induit un isomorphisme de $S(A)$ sur $S$. Comme en (2.8) on définit un immeuble $\hat{I}$, muni de $q \colon \hat{I} \to B^r$, en «bouchant» toutes les sphères $S(A)$.
+
+(2.12) Outre $q$ et sa décomposition en chambres, $I$ est muni de la structure additionnelle suivante:
+
+--- Une «composition» $\tilde{B} \cdot g$ est définie qui à une chambre $\tilde{B}$ de $I$ d'image $B$ dans $S$ et à $g \in \Hom_{\Gal}(B, C)$ associe une chambre de $I$ d'image $C$ dans $S$. La construction $g \mapsto \tilde{B} \cdot g$ définit un isomorphisme de l'espace analogue à $I$ obtenu en prenant $B$ pour chambre fondamentale avec l'espace $I$ (pour $A_0 = B$, on trouve des automorphismes de $I$). En particulier,
+\[\tilde{B} \cdot (gh) = (\tilde{B} \cdot g) \cdot h.\]
+
+(2.13) Pour toute chambre $A$ de $I$ au-dessus de $A_0$, on définit une application
+\[i_A \colon I_+ \to I \quad (\text{resp. } \hat{I}_+ \to \hat{I}),\]
+compatible à la projection sur $S$ (resp. $B^r$) en envoyant la chambre fermée $(A \cdot g)^-$ de $I_+$ (resp. la boule $b(A \cdot g)$ de $\hat{I}_+$) sur la chambre (resp. la boule) de même nom de $I$ (resp. $\hat{I}$).
+
+\begin{proposition}[2.14]
+\begin{enumerate}
+\item[(i)] $i_A$ identifie $I_+$ à un sous-espace fermé de $I$ et $\hat{I}_+$ à un sous-espace fermé de $\hat{I}$.
+\item[(ii)] On a
+\[I = \varinjlim_n i_{\tilde{A}_0 \cdot \Delta^{-2n}}(I_+) \quad \text{et} \quad \hat{I} = \varinjlim_n i_{\tilde{A}_0 \cdot \Delta^{-2n}}(\hat{I}_+).\]
+\end{enumerate}
+\end{proposition}
+
+Les assertions (i) ou (ii) pour $\hat{I}_+$ et $\hat{I}$ résultent des assertions (i) ou (ii) pour $I_+$ et $I$.
+
+Prouvons (i) pour $I_+$ et $I$. Soient $B$ et $C$ deux chambres de $S$ ayant une facette commune $F$. Soient $g \in \Hom_{\Gal_+}(A_0, B)$ et $h \in \Hom_{\Gal_+}(A, C)$. Supposons que les facettes $q^{-1} F$ de $(A \cdot g)^-$ et $(A \cdot h)^-$ soient égales dans $I$.
+
+On a alors
+\[g^{-1} h = \pi_F(e) \quad \text{pour} \quad e \in \Hom_{\Gal}(\pi_F^{-1} B, \pi_F^{-1} C).\]
+
+D'après (1.26), on peut écrire $e = e_1^{} e_2^{-1}$ avec $e_i$ dans $\Gal_+$. D'après (1.29), on a alors $g \, \pi_F(e_1) = h \, \pi_F(e_2)$ dans $\Gal_+$, et les facettes $q^{-1} F$ de $(A \cdot g)^-$ et $(A \cdot h)^-$ sont donc déjà égales dans $I_+$.
+
+Pour prouver (ii), il suffit de remarquer que toute galerie $g$ de source $A_0$ dans $\Gal$ peut s'écrire $g = \Delta^{-2n} g'$ avec $g'$ dans $\Gal_+$.
+
+De (2.14) on tire que $\pi_i(\hat{I}) = \varinjlim \pi_i(\hat{I}_+)$. Puisque $I$ est un $CW$-complexe, on déduit de (2.9) le résultat suivant.
+
+\begin{theoreme}[2.15]
+L'espace $\hat{I}$ est contractile.
+
+L'espace $I$ est donc le bouquet des sphères $S(A)$ pour $A$ parcourant les chambres de $I$.
+\end{theoreme}
+
+\section*{\S 3.~Revêtements}
+
+(3.1) Soient $V_\CC$ le complexifié de $V$, $M_\CC$ le complexifié de $M$ pour $M \in \mathcal{M}$ et
+\[Y = V_\CC - \bigcup_{M \in \mathcal{M}} M_\CC.\]
+
+Dans ce paragraphe, nous construisons par recollement un espace $\tilde{Y}$ au-dessus de $Y$. La donnée de recollement sera décrite à l'aide de $I$ et de $\hat{I}$. Les facettes de $S$ et les facettes de $V$ autre que $\{0\}$ sont en bijection canonique, et nous aurons constamment à passer des unes aux autres. En général, nous noterons de même les facettes correspondantes; en cas de besoin la correspondance se notera $F \mapsto [F]$.
+
+\begin{lemme}[3.2]
+Soient $A$, $B$ et $C$ trois chambres de $I$, avec $C \subset S(A) \cap S(B)$. Alors, $q$ induit un isomorphisme de $S(A) \cap S(B)$ avec l'intersection de $S$ et des demi-espaces fermés $D'_M(q \, C)$ contenant $q \, C$ limités par un mur $M$ qui sépare $q \, A$ de $q \, B$.
+\end{lemme}
+
+L'intersection des $D'_M(q \, C)$ est réunion de chambres fermées. Si $C'$ est l'une d'elles, $q \, A$ et $q \, B$ sont du même côté de tout mur qui sépare $q \, C$ de $C'$. On en déduit que les relèvements sur $S(A)$ ou $S(B)$ d'une galerie minimale de $q \, C$ à $C'$ coïncident, et $(C')^- \subset q(S(A) \cap S(B))$.
+
+Réciproquement, si une facette $F$ n'est pas dans l'intersection des $D'_M(q \, C)$, il existe un mur $M$ tel que $F \not\subset M$ qui sépare $q \, A$ de $q \, B$ et $F$ de $q \, C$. Supposons que par impossible $F \subset q(S(A) \cap S(B))$. Soient $D$ une chambre de $S$ dont $F$ est facette et $(C_0, C_1, \ldots, C_{n+1})$ une galerie de $q \, C$ à $D$. Soit $M_i$ le mur qui sépare $C_i$ de $C_{i+1}$ et $\alpha_i$ (resp. $\beta_i$) $= \pm 1$ selon que $C_{i+1}$ et $A$ (resp. $B$) sont ou ne sont pas du même côté de $M_i$. Par hypothèse, $F$ est facette de $C \Delta(M_0)^{\alpha_0} \ldots \Delta(M_n)^{\alpha_n}$ et de $C \Delta(M_0)^{\beta_0} \ldots \Delta(M_n)^{\beta_n}$.
+
+D'après (2.4) et (1.24), on a alors (puisque $M \not\supset F$)
+\[\sum_{M_i = M} \alpha_i = \sum_{M_i = M} \beta_i,\]
+ce qui est absurde: un membre vaut un, l'autre $-1$.
+
+\begin{lemme}[3.3]
+Soit $\mathscr{R}$ et $\mathscr{I}$ les applications «partie réelle» et «partie imaginaire» de $V_\CC$ dans $V$. Soit $v \in V_\CC$, et $F$ la facette de $V$ telle que $\mathscr{R} \, v \in F$. Pour que $v \in Y$, il faut et suffit que $\operatorname{pr}_F(\mathscr{I} \, v)$ soit dans une chambre de $(V_F, \mathcal{M}_F)$.
+\end{lemme}
+
+C'est clair.
+
+Ce qui suit a pour fondement intuitif le fait qu'à toute «promenade» dans $I$ (accomplie en suivant une galerie de la forme $\Delta(M_1)^{\varepsilon_1} \ldots \Delta(M_k)^{\varepsilon_k}$, $\varepsilon_i = \pm 1$) correspond un chemin $ch$ (une classe de chemin) dans $Y$. L'image par $\mathscr{R}$ de $ch$ dans $V$ passe de chambre en chambre, en traversant successivement les murs $M_1, \ldots, M_k$ en des points $m_i$. Pour $\varepsilon_i = 1$ (resp. $-1$) le chemin passe par l'une des deux composantes $R$ de $\mathscr{R}^{-1}(m_i) \cap Y$ (en bijection par $\mathscr{I}$ avec $V - M$): celle telle que $\mathscr{I} \, R$ contienne (resp. ne contienne) la chambre précédente.
+
+\begin{enumerate}
+\item[(3.4)] \textbf{Notations.} (i) Soit $C$ une chambre de $(V, \mathcal{M})$. On note $Y(C)$ l'ouvert de $Y$ formé des $x \in V_\CC$ vérifiant la condition suivante:
+
+--- si $F$ est la facette de $V$ telle que $\mathscr{R} \, x \in F$, alors $\operatorname{pr}_F \mathscr{I} \, x \in \pi'_F(C)$.
+
+\item[(ii)] Soient $A$ et $B$ deux chambres de $I$. Si $S(A) \cap S(B)$ contient une chambre $C$, notons provisoirement $Y'(A, B)$ l'intersection des demi-espaces ouverts $D'_M(q \, C)^0$, pour $M$ comme en 3.2. On pose
+\[Y(A, B) = Y(q \, A) \cap Y(q \, B) \cap \mathscr{R}^{-1} \, Y'(A, B) \subset V_\CC.\]
+Si $S(A) \cap S(B)$ ne contient pas de chambre, on pose $Y(A, B) = \emptyset$.
+
+\item[(iii)] Pour $F$ une facette de $V$, l'\emph{étoile} $Et(F)$ est la réunion des facettes (ouvertes) $G$ de $(V, \mathcal{M})$ telles que $F \subset \bar{G}$.
+
+\item[(iv)] Pour $F$ une facette de $V$ et $C$ une chambre de $(V_F, \mathcal{M}_F)$, on pose
+\[V(F, C) = \{v \in V_\CC \mid \mathscr{R} \, v \in Et(F) \text{ et } \operatorname{pr}_F \mathscr{I} \, v \in C\}.\]
+\end{enumerate}
+
+\begin{lemme}[3.5]
+Soit $G$ une facette de $V$. Les $V(F, C)$ pour $F$ une facette telle que $G \subset \bar{F}$ et $C$ une chambre de $V_F$ forment un recouvrement ouvert de $Y \cap \mathscr{R}^{-1}(Et \, G)$. En particulier (faire $G = \{0\}$), les $V(F, C)$ recouvrent $Y$.
+\end{lemme}
+
+Si $x \in Y \cap \mathscr{R}^{-1}(Et \, G)$ et que $\mathscr{R} \, x \in F$, $x$ est dans l'un des $V(F, C)$ (3.3).
+
+\begin{enumerate}
+\item[(3.6)] Soit $Y'$ la somme disjointe, indexée par les boules $b(A)$ de $\hat{I}$,
+\[Y' = \coprod_{b(A)} Y(q \, A).\]
+\end{enumerate}
+
+On note $Y'(b(A))$ la composante d'indice $b(A)$. On dispose d'une projection évidente $p' \colon Y' \to Y$. Soit $R$ la relation suivante sur $Y'$:
+
+Pour $x \in Y'(b(A))$ et $y \in Y'(b(B))$, $R(x, y)$ signifie que $p'(x) = p'(y)$ et que $p'(x), p'(y) \in Y(A, B)$.
+
+C'est une relation d'équivalence car (cf. (3.2)) $Y(A, B) \cap Y(B, C) \subset Y(A, C)$. On a
+\begin{enumerate}
+\item[(3.6.1)] Le saturé pour $R$ d'un ouvert de $Y'$ est encore ouvert.
+\end{enumerate}
+
+On pose $\tilde{Y} = Y'/R$. On dispose d'une projection évidente
+\[p \colon \tilde{Y} \to Y.\]
+
+Pour toute boule $b(A)$ de $\hat{I}$, on note $\tilde{Y}(b(A))$ l'image de $Y'(b(A))$ dans $\tilde{Y}$.
+
+\begin{theoreme}[3.7]
+$\tilde{Y}$ est un \emph{revêtement contractile} de $Y$.
+
+\textbf{A.} $\tilde{Y}$ est un revêtement de $Y$.
+\end{theoreme}
+
+Nous montrerons, pour $V(F, C)$ comme en (3.4)(iv), que $p^{-1} \, V(F, C)$ est somme de copies de $V(F, C)$.
+
+\begin{enumerate}
+\item[a)] Soit $b(A)$ une boule de $\hat{I}$. Pour $B$ une chambre telle que $F \subset \bar{B}^-$, soit la chambre de $I$
+\[C'_B = A \cdot u(A, B) \, u(\pi_F(C), B)^{-1}.\]
+Par construction, $B \subset q(S(A) \cap S(C'_B))$ et en particulier, si $F \neq \{0\}$
+\begin{equation}
+[F] \subset q(S(A) \cap S(C'_B)).\tag{3.7.1}
+\end{equation}
+
+Prouvons que
+\begin{equation}
+\tilde{Y}(b(A)) \cap p^{-1} \, V(F, C) \subset \bigcup_{F \subset \bar{B}^-} \tilde{Y}(b(C'_B)).\tag{3.7.2}
+\end{equation}
+
+Soit $x$ dans le membre de gauche. Soit $G$ la facette de $V$ à laquelle $\mathscr{R} \, p \, x$ appartient. On a $F \subset \bar{G}^-$. Prenons pour $B$ une chambre dont $G$ est facette. Par hypothèse, on a
+\[\operatorname{pr}_G \mathscr{I} \, p \, x \in \pi'_G(A) \quad \text{et} \quad \operatorname{pr}_F \mathscr{I} \, p \, x \in C.\]
+On a donc $\pi'_G(A) = \pi'_G(\pi_F^{} C)$. On déduit alors de (3.2) que toute chambre dont $G$ est facette est dans $q(S(A) \cap S(C'_B))$, que $p \, x$ est dans $Y(A, C'_B)$ et que donc $x \in \tilde{Y}(b(C'_B))$.
+
+\item[b)] Posons $Y'(F, C) = \bigcup_{q(C') = C} (Y'(b(C')) \cap p'^{-1}(V(F, C)))$. D'après a), on a ensemblistement
+\[p^{-1} \, V(F, C) = Y'(F, C)/R.\]
+C'est même un isomorphisme d'espaces topologiques, d'après (3.6.1), car $Y'(F, C)$ est ouvert dans $Y'$. D'après (3.2), la relation d'équivalence induite par $R$ sur $\bigcup_{q(C') = C} Y'(b(C'))$ est triviale. On conclut en remarquant que, pour tout $C'$ au-dessus de $C$,
+\[V(F, C) \subset Y(b(C')).\]
+\end{enumerate}
+
+\textbf{B. Un recouvrement ouvert de $\tilde{Y}$.}
+
+\begin{enumerate}
+\item[(3.7.3)] \textbf{Notations.} (i) Pour $F$ une facette de $I$,
+\[\tilde{Y}(F) = \bigcup_{F \subset S(C)} (\tilde{Y}(b(C)) \cap p^{-1} \mathscr{R}^{-1} \, Et(q \, F)).\]
+\item[(ii)] Pour $o(A)$ centre d'une boule $b(A)$ de $\hat{I}$,
+\[\tilde{Y}(o(A)) = \tilde{Y}(b(A)) \cap p^{-1} \, V(\{0\}, A).\]
+\end{enumerate}
+
+\begin{lemme}[3.7.4]
+\begin{enumerate}
+\item[(i)] Les $\tilde{Y}(s)$ pour $s$ sommet de $\hat{I}$ forment un \emph{recouvrement} de $\tilde{Y}$ dont $\hat{I}$ est le \emph{nerf} (i.e., une famille de $\tilde{Y}(s)$ a une intersection non vide si et seulement si les $s$ correspondant sont les sommets d'une facette de $\hat{I}$).
+\item[(ii)] Si une facette $F$ de $I$ a pour sommets $s_0, \ldots, s_p$, alors
+\[\tilde{Y}(F) = \tilde{Y}(s_0) \cap \cdots \cap \tilde{Y}(s_p).\]
+\item[(iii)] Si $F \subset S(A)$, alors $\tilde{Y}(o(A)) \cap \tilde{Y}(F)$ est contractile; $\tilde{Y}(o(A))$ est contractile.
+\end{enumerate}
+\end{lemme}
+
+\begin{enumerate}
+\item[(3.7.4.1)] Soient $F_i$ ($i = 1, 2$) deux facettes de $I$ et $C_i$ ($i = 1, 2$) deux chambres de $I$ telles que $F_i \subset S(C_i)$ et que
+\[(\tilde{Y}(b(C_1)) \cap p^{-1} \mathscr{R}^{-1} \, Et(q \, F_1)) \cap (\tilde{Y}(b(C_2)) \cap p^{-1} \mathscr{R}^{-1} \, Et(q \, F_2)) \neq \emptyset.\]
+Alors, $F_1$ et $F_2$ tendent une facette $F$ de $I$ (unique d'après (2.5)--(2.11)), $F \subset S(C_i)$ et l'intersection précédente coïncide avec
+\[\tilde{Y}(b(C_1)) \cap \tilde{Y}(b(C_2)) \cap p^{-1} \mathscr{R}^{-1} \, Et(F).\]
+
+Par hypothèse
+\[Y(C_1, C_2) \cap \mathscr{R}^{-1} \, Et(q \, F_1) \cap \mathscr{R}^{-1} \, Et(q \, F_2) \neq \emptyset;\]
+$F_1$ et $F_2$ sont dans $S(C_1) \cap S(C_2)$ et y tendent une facette $F$. De plus, $Et(q \, F_1) \cap Et(q \, F_2) = Et(q \, F)$, d'où la formule annoncée.
+
+De (3.7.4.1), on déduit que $\tilde{Y}(F_1) \cap \tilde{Y}(F_2)$ est vide si $F_1$ et $F_2$ ne tendent pas de facette commune $F$, et vaut
+\[\bigcap_{F \subset S(C)} \tilde{Y}(b \, C) \cap p^{-1} \mathscr{R}^{-1} \, Et(F) = \tilde{Y}(F)\]
+sinon (faire $C_1 = C_2$). Ceci prouve (ii) et une partie de (i).
+\end{enumerate}
+
+\begin{enumerate}
+\item[(3.7.4.2)] Si $o(A) \neq o(B)$, alors $\tilde{Y}(o(A)) \cap \tilde{Y}(o(B)) = \emptyset$.
+
+Si $q \, A = q \, B$, on a $\tilde{Y}(b(A)) \cap \tilde{Y}(b(B)) = \emptyset$. Si $q \, A \neq q \, B$, on a
+\[p \, \tilde{Y}(o(A)) \cap p \, \tilde{Y}(o(B)) = \emptyset.\]
+\end{enumerate}
+
+\begin{enumerate}
+\item[(3.7.4.3)] Si $F \not\subset S(A)$, alors $\tilde{Y}(o(A)) \cap \tilde{Y}(F) = \emptyset$.
+
+Si $F \subset S(B)$, on a $F \not\subset S(A) \cap S(B)$ et
+\[Et(q \, F) \cap Y(A, B) = Et(q \, F) \cap p(\tilde{Y}(b(A)) \cap \tilde{Y}(b(B))) = \emptyset.\]
+\end{enumerate}
+
+Il est clair que:
+\begin{enumerate}
+\item[(3.7.4.4)] Si $F \subset S(A)$, alors $p$ induit un isomorphisme de $\tilde{Y}(o(A)) \cap \tilde{Y}(F)$ avec $Y(q \, A) \cap \mathscr{R}^{-1} \, Et(q \, F)$.
+\end{enumerate}
+
+Le lemme (3.7.4) résulte alors de:
+
+\begin{lemme}[3.7.5]
+Pour toute facette $F$ de $V$, et toute chambre $A$,
+\[Y(A) \cap \mathscr{R}^{-1} \, Et(F)\]
+est contractile.
+\end{lemme}
+
+Soit $v_0$ un vecteur tel que $\mathscr{R} \, v_0 \in F$ et que $\mathscr{I} \, v_0 \in A$. Alors pour $0 \leq t \leq 1$, $\varphi_t \colon v \mapsto v_0 + t(v - v_0)$ est une application de $Y(A)$ et de $\mathscr{R}^{-1} \, Et(F)$ dans eux-mêmes. On a $\varphi_0(Y(A) \cap \mathscr{R}^{-1} \, Et(F)) = \{v_0\}$ et $\varphi_1 = \operatorname{Id}$.
+
+\textbf{C. Etude de $\tilde{Y}(F)$ ($F$ facette de $I$).}
+
+D'après (3.5), (3.7.1) et (3.7.2), on a
+\begin{equation}
+\tilde{Y}(F) = \bigcup_{F \subset \bar{B}^-} \tilde{Y}(b(B)) \cap p^{-1} \mathscr{R}^{-1} \, Et(q \, F).\tag{3.7.6}
+\end{equation}
+
+Choisissons une «chambre fondamentale» $A_{F,0}$ dans $(V_F, \mathcal{M}_F)$ et notons $I_F$ l'immeuble correspondant. Choisissons aussi $\tilde{A}^I_{F,0}$ dans $I$ au-dessus de $\pi_F(A_{F,0})$. Pour chaque chambre $B = \tilde{A}_0 \cdot g_F$ de $I_F$, nous noterons $\pi_F(B)$ la chambre $\tilde{A}^I_{F,0} \cdot \pi_F(g_F)$ de $I$. D'après (2.10), (3.7.6) peut se récrire
+\[\tilde{Y}(F) = \bigcup_{B \text{ dans } I_F} \tilde{Y}(b(\pi_F(B))) \cap p^{-1} \mathscr{R}^{-1} \, Et(q \, F).\]
+
+Soient
+\[Y_F = (V_F)_\CC - \bigcup_{M \in \mathcal{M}_F} M_\CC\]
+et $\tilde{Y}_F$ le revêtement de $Y_F$ défini à l'aide de $I_F$.
+
+Quels que soient $B$ et $C$ dans $I_F$, il résulte de (1.30) que les chambres de $S$ dans $Y(\pi_F(B), \pi_F(C)) \cap Et(F)$ sont exactement les $\pi_F(D)$, pour $D$ dans $Y_F(B, C)$.
+
+Les recollements qui définissent $\tilde{Y}(F)$ et $\tilde{Y}_F$ sont donc compatibles, et il existe un unique diagramme cartésien
+\begin{equation}
+\begin{array}{ccc}
+\tilde{Y}_F & \longleftarrow & \tilde{Y}(F) \\
+\downarrow & & \downarrow \\
+Y_F & \xleftarrow{\operatorname{pr}_F} & \mathscr{R}^{-1} \, Et(F) \subset Y
+\end{array}\tag{3.7.7}
+\end{equation}
+qui envoie $\tilde{Y}(b(\pi_F(B))) \cap p^{-1} \mathscr{R}^{-1} \, Et(F)$ dans $\tilde{Y}_F(b(B))$ pour $B$ une chambre de $I_F$. La première flèche verticale donc aussi la seconde sont des revêtements.
+
+On vérifie facilement que l'application $\operatorname{pr}_F$ de (3.7.7) est une équivalence d'homotopie, d'où
+
+\begin{lemme}[3.7.8]
+$\tilde{Y}_F$ et $\tilde{Y}(F)$ ont même type d'homotopie.
+\end{lemme}
+
+\textbf{D. Fin de la démonstration.}
+
+Nous prouverons (3.7) par récurrence sur $r = \dim V$. Soit $\mathcal{U}$ le recouvrement ouvert de $\tilde{Y}$ par les $\tilde{Y}(s)$, pour $s$ sommet de $\hat{I}$. D'après (3.7.4)(i), $\hat{I}$ est le nerf de $\mathcal{U}$. D'après (3.7.4), (3.7.8) et l'hypothèse de récurrence, les intersections non vides d'ouverts appartenant à $\mathcal{U}$ sont contractiles. Ceci implique [6] que $\tilde{Y}$ et $\hat{I} = \operatorname{Nerf}(\mathcal{U})$ ont même type d'homotopie. On conclut par (2.15).
+
+\section*{\S 4.~Groupes de tresses}
+
+(4.1) Soient $V$ un espace vectoriel réel de dimension finie et $W \subset GL(V)$ un groupe fini engendré par des réflexions. On suppose que $V^W = \{0\}$. Soit $\Phi$ une quelconque structure euclidienne invariante par $W$ et soit $\mathcal{M}$ l'ensemble des hyperplans $M$ tels que la réflexion orthogonale par rapport à $M$ soit dans $W$. On sait que
+\begin{enumerate}
+\item[a)] $(V, \mathcal{M})$ vérifie 1.8 ([1] V 3.9 prop. 7);
+\item[b)] $W$ permute les chambres de $(V, \mathcal{M})$ de façon strictement simplement transitive ([1] V 3.2 Th. 1);
+\item[c)] si $x \in V$ appartient à la chambre fermée $\bar{A}$, son stabilisateur est engendré par les réflexions par rapport aux murs de $A$ contenant $x$ ([1] V 3.3 prop. 1);
+\item[d)] (résulte de c)) le groupe $W$ agit librement sur $Y_W = V_\CC - \bigcup_{M \in \mathcal{M}} M_\CC$.
+\end{enumerate}
+
+D'après b), si $C_0$ et $C_1$ sont deux chambres, il existe un unique $w \in W$ tel que $w \, C_0 = C_1$; ces $w$ induisent un système transitif de bijections entre les murs des différentes chambres. Passant au quotient, on obtient un ensemble $D$ à $\dim(V)$ éléments et, pour chaque chambre $C$, une bijection $\varphi_C$ de $D$ avec l'ensemble des murs de $C$. On a
+\begin{equation}
+\varphi_{wC}(i) = w \, \varphi_C(i) \quad (w \in W).\tag{4.1.1}
+\end{equation}
+
+Pour la définition de la \emph{matrice de Coxeter} $(m_{ij})_{i, j \in D}$ et celle du \emph{graphe de Coxeter}, on renvoie à [1] V 3.4.
+
+(4.2) Choisissons une chambre $A_0$ de $(V, \mathcal{M})$. Pour $i \in D$, soit $w_i$ la réflexion par rapport au mur $\varphi_{A_0}(i)$. [1] V 3.2 Th. 1 dit que $W$ est engendré par les $w_i$, ces générateurs étant soumis aux seules relations
+\[(w_i w_j)^{m_{ij}} = e.\]
+
+(4.3) Soit $X_W = Y_W/W$: d'après (4.1)d), $Y_W$ est un revêtement de $X_W$, de groupe $W$. Soit $y_0 \in A_0$ d'image $x_0 \in X_W$. Pour chaque $i \in D$, soit $\ell'_i$ la classe d'homotopie de chemins dans $Y_W$, de $y_0$ à $w_i(y_0)$, qui, pour $y \in A_0$, contient la ligne brisée de sommets successifs $y_0$, $y_0 + i \, y_0$, $w_i(y_0) + i \, y_0$, $w_i(y_0)$. L'image $\ell_i$ de $\ell'_i$ dans $X_W$ est un lacet de point base $x_0$.
+
+\begin{theoreme}[4.4]
+\begin{enumerate}
+\item[(i)] Le groupe fondamental $\pi_1(X_W, x_0)$ est engendré par les $\ell_i$; ceux-ci sont soumis aux seules relations
+\begin{equation}
+\operatorname{prod}(m_{ij}; \ell_i, \ell_j) = \operatorname{prod}(m_{ji}; \ell_j, \ell_i).\tag{4.4.1}
+\end{equation}
+\item[(ii)] Le revêtement universel de $X_W$ est contractile: $X_W$ est un $K(\pi; 1)$.
+\end{enumerate}
+\end{theoreme}
+
+L'assertion (i) est prouvée dans Brieskorn [3]. Une autre démonstration sera esquissée en (4.18) ci-dessous. Comme expliqué dans l'introduction, (ii) résulte de (3.7) et de (4.1).
+
+(4.5) Dans le \S 1, nous nous sommes largement inspiré de l'étude faite par Garside [4] du groupe des tresses d'Artin; nous pouvons maintenant déduire des résultats obtenus des informations sur tous les groupes du type $\pi_1(X_W, x_0)$ (Garside avait déjà considéré certains d'entre eux). La traduction repose sur (4.6), (4.7) ci-dessous.
+
+(4.6) Soient $G = (C_0, \ldots, C_n)$ une galerie et $M_i$ le mur qui sépare $C_{i-1}$ de $C_i$ ($1 \leq i \leq n$). On a $\varphi_{C_{i-1}}^{-1}(M_i) = \varphi_{C_i}^{-1}(M_i)$. On note $\ell(G)$ l'élément $\varphi_{C_1}^{-1}(M_1) \ldots \varphi_{C_n}^{-1}(M_n)$ de $L^+(D)$ (0.1).
+
+L'application $\ell$ induit une bijection de l'ensemble des galeries $G$ de source donnée avec $L^+(D)$. On a
+\begin{align}
+\ell(w(G)) &= \ell(G) \qquad (\text{pour } w \in W); \tag{4.6.1} \\
+\ell(G_0 \, G_1) &= \ell(G_0) \ell(G_1) \qquad (\text{pour } G_0 \text{ et } G_1 \text{ composables}). \tag{4.6.2}
+\end{align}
+
+Soit $w \colon L(D) \to W$ l'homomorphisme qui prolonge l'application $i \mapsto w_i$ de $D$ dans $W$.
+
+\begin{proposition}[4.7]
+Pour toute galerie $G$ de source $A_0$, on a
+\[A_0 \cdot G = w(\ell(G))(A_0).\]
+\end{proposition}
+
+C'est un avatar de l'identité
+\begin{align*}&[(w_1 \ldots w_{n-1}) \, w_n \, (w_1 \ldots w_{n-1})^{-1}] \\&\quad \cdot [(w_1 \ldots w_{n-2}) \, w_{n-1} \, (w_1 \ldots w_{n-2})^{-1}] \ldots [w_1] = w_1 \ldots w_n.\end{align*}
+
+(4.8) De cette proposition on déduit que, pour $w \in W$, l'entier $d(A_0, w(A_0))$ est la plus petite longueur des mots en les $w_i$ qui valent $w$; plus précisément, $\ell$ induit une bijection de l'ensemble des galeries minimales de $A_0$ à $w \, A_0$ avec l'ensemble des mots $m \in L(D)$, de longueur minimale, tels que $w = w(m)$.
+
+\begin{definition}[4.9]
+\begin{enumerate}
+\item[(i)] Le \emph{monoïde des tresses} $G^+$ de \emph{type} $D$ est le monoïde à unité engendré par $D$, les générateurs $i \in D$ étant soumis aux seules relations
+\begin{equation}
+\operatorname{prod}(m_{ij}; i, j) = \operatorname{prod}(m_{ij}; j, i).\tag{4.9.1}
+\end{equation}
+\item[(ii)] Le \emph{groupe des tresses} $G$ (ou \emph{groupe des tresses généralisé}) de type $D$ est le groupe engendré par $D$, les générateurs étant soumis à (4.9.1).
+\end{enumerate}
+\end{definition}
+
+(4.10) On notera que $W$ admet encore la présentation
+\begin{align}
+\operatorname{prod}(m_{ij}; w_i, w_j) &= \operatorname{prod}(m_{ij}; w_j, w_i), \tag{4.10.1} \\
+w_i^2 &= e, \tag{4.10.2}
+\end{align}
+de sorte que $i \mapsto w_i$ se prolonge en un homomorphisme de $G$ dans $W$.
+
+(4.11) On vérifie sur les définitions que deux galeries $G_0$ et $G_1$ de même source sont équivalentes si et seulement si $\ell(G_0)$ et $\ell(G_1)$ ont même image dans $G^+$. Compte tenu de (4.9), (1.12) admet donc la traduction suivante ([1] IV 1.6 prop. 5).
+
+\begin{enumerate}
+\item[(4.12)] \textbf{Rappel.} Soit $w \in W$. L'image dans $G^+$ des mots $m \in L(D)$, de longueur \emph{minimale} parmi ceux tels que $w = w(m)$, ne dépend que de $w$.
+
+Cette image se notera $r(w)$; $r$ est une section de $w \colon G^+ \to W$. D'après (4.7), on a $r(w) = \ell(u(A_0, w \, A_0))$.
+
+De même, [1] IV 1.4 lemme 2 correspond à (1.11).
+\end{enumerate}
+
+(4.13) La catégorie «quotient» de $\Gal_+(V, \mathcal{M})$ par $W$ est définie ainsi:
+\begin{enumerate}
+\item[a)] L'ensemble de ses objets est réduit à un élément: c'est
+\[\Ob(\Gal_+(V, \mathcal{M}))/W.\]
+\item[b)] Le monoïde de ses flèches est $\Fl(\Gal_+(V, \mathcal{M}))/W$, et le passage au quotient
+\[\Gal_+(V, \mathcal{M}) \to \Gal_+(V, \mathcal{M})/W\]
+est un foncteur.
+\end{enumerate}
+
+Cette catégorie, n'ayant qu'un objet, s'identifie au monoïde de ses flèches. D'après (4.6.1), (4.6.2) et (4.11), $\ell$ identifie ce monoïde à $G^+$.
+
+On définit de même $\Gal(V, \mathcal{M})/W$. Cette catégorie n'a qu'un objet et, d'après sa propriété universelle, $\ell$ se prolonge en un isomorphisme du groupe de ses flèches avec $G$:
+\[\begin{array}{ccc}
+\Gal_+(V, \mathcal{M}) & \longrightarrow & \Gal_+(V, \mathcal{M})/W \xrightarrow{\sim} G^+ \\
+\downarrow & & \downarrow \\
+\Gal(V, \mathcal{M}) & \longrightarrow & \Gal(V, \mathcal{M})/W \xrightarrow{\sim} G
+\end{array}\]
+
+\begin{theoreme}[4.14]
+\begin{enumerate}
+\item[(i)] Dans $G^+$, les translations à gauche et à droite sont injectives.
+\item[(ii)] $G^+$ vérifie la condition de Öre à gauche et à droite. Il résulte donc de (i) que $G^+$ se plonge dans $G$.
+\item[(iii)] Pour $J$ une partie de $D$, soit $G_J^+$ (resp. $G_J$) le sous-monoïde (resp. sous-groupe) de $G^+$ (resp. $G$) engendré par les $i \in J$. Alors, l'application évidente identifie $G_J^+$ (resp. $G_J$) au monoïde (resp. groupe) des tresses de type $J$.
+\item[(iv)] On a $G_J^+ = G_J \cap G^+$.
+\item[(v)] Si $J$ et $K$ sont deux parties de $D$, on a $G_J \cap G_K = G_{J \cap K}$.
+\item[(vi)] Soit $n(i)$ le nombre d'éléments de $G^+$ de longueur $i$ et posons $f = \sum n(i) \, t^i$. Pour $J \subset D$, soit $m(J)$ le nombre des murs qui passent par l'intersection des murs d'une (quelconque) chambre $A$, d'indice dans $J$ ($= \text{nombre de réflexions dans le groupe de Weyl } W_J$). On a
+\[f = \Bigl(\sum_{J \subset D} (-1)^{|J|} t^{m(J)}\Bigr)^{-1}.\]
+\end{enumerate}
+\end{theoreme}
+
+Ces assertions traduisent respectivement: (i): (1.1)(i) et (ii); (ii): (1.26)(ii) et son transformé par passage aux galeries opposées (cf. aussi (4.16) ci-dessous); (iii): (1.30); (iv): (1.32); (v): (1.31); (vi): (1.21) (les $f_A$ de loc. cit. sont tous égaux à $f$).
+
+Soient $x, y \in G^+$. On dit que $x$ \emph{commence} par $y$ s'il existe $z$ dans $G^+$ avec $x = y \, z$. La proposition (1.19)(iii) se traduit ainsi
+
+\begin{lemme}[4.15]
+Soit $x \in G^+$. Il existe une chambre $C$ telle que, pour tout $w \in W$, $x$ commence par $r(w)$ si et seulement si $w \, A_0 \in D(A_0, C)$.
+\end{lemme}
+
+(4.16) Soient $J$ une partie de $D$ et $P$ l'intersection des murs $\varphi_{A_0}(i)$ ($i \in J$). On note $\Delta(J)$ l'élément $\ell(u(A_0, A_0 \cdot \Delta(P)))$ de $G^+$; on pose $\Delta = \Delta(D)$. Soit $i \mapsto \bar{i} = \varphi_{-C}^{-1} \varphi_C^{}(i)$ l'\emph{involution d'opposition} de $D$. On note encore $w \mapsto \bar{w}$ les automorphismes de $L^+(D)$, $G^+$ et $G$ qui envoient $i$ sur $\bar{i}$ (on a $m_{ij} = m_{\bar{i} \bar{j}}$). Traduisant (1.26) à l'aide de (4.4), on trouve que pour $g$ dans $G^+$ ou $G$, on a
+\begin{equation}
+g \, \Delta = \Delta \, \bar{g}.\tag{4.16.1}
+\end{equation}
+En particulier, $\Delta^2$ est central.
+
+Quel que soit $i \in D$, $\Delta$ «commence» par $i$: on a $\Delta = i \, x$, dans $G^+$. Dès lors
+
+\begin{proposition}[4.17]
+$G$ se déduit de $G^+$ en rendant inversible l'élément central $\Delta^2$.
+\end{proposition}
+
+(4.18) La description (2.11), (2.5)--(2.7) de l'immeuble $I$ attaché à $(V, \mathcal{M})$ peut se traduire ainsi.
+\begin{enumerate}
+\item[a)] L'ensemble des sommets de $I$ est
+\[I^0 = \coprod_{i \in D} G/G_{D-\{i\}}.\]
+\item[b)] Pour qu'un ensemble de sommets tende un simplexe, il faut et suffit qu'il soit contenu dans l'ensemble des classes $g \, G_{D-\{i\}}$, pour un $g \in G$.
+\item[c)] La sphère fondamentale $S_0 = S(A_0)$ est réunion du simplexe fondamental, tendu par les classes latérales de $e$ dans les $G/G_{D-\{i\}}$, et de ses transformés par les $r(w)$ ($w \in W$).
+\end{enumerate}
+
+La description précédente rend évidente une action à gauche de $G$ sur $I$. Elle respecte l'ensemble des sphères $S(A)$ et la correspondance $A \mapsto S(A)$.
+
+Par transport de structure, $G$ agit sur le revêtement $\tilde{Y}_W$ de $Y_W$ (3.6), on a un morphisme équivariant
+\[(G - \tilde{Y}_W) \to (W - Y_W).\]
+
+On en tire que $G$ est le groupe fondamental de $X_W = Y_W/W$, et (4.4)(i).
+
+(4.19) Pour être complet, montrons que le problème des mots, le problème de conjugaison et la question de calculer le centre de $G$ peuvent se résoudre comme dans [4]. Si le graphe de Coxeter $D$ de $W$ est somme disjointe de graphes $D_\alpha$, le groupe de tresses de type $D$ est produit des groupes de tresses des types $D_\alpha$. Le cas essentiel est donc celui d'un graphe $D$ connexe.
+
+(4.20) \emph{Le problème des mots:} il y a un procédé de décision pour savoir si deux éléments $m$ et $n$ de $L(D)$ ont même image dans $G$.
+
+\begin{enumerate}
+\item[a)] Savoir si $m$ et $n$ dans $L^+(D)$ ont même image dans $G^+$ est décidable, car les relations imposées ne changent pas la longueur des mots, et qu'il n'y a qu'un nombre fini de mots de longueur donnée. On peut aussi utiliser (1.22).
+\item[b)] Quel que soit $m_i$ ($i = 1, 2$) dans le groupe libre $L(D)$ engendré par $D$, on peut calculer $m'_i \in L^+(D)$ et $k \geq 0$ tels que $m_i$ et $m'_i \, \Delta^{-k}$ aient même image dans $G$ (cf. (4.17)), $m_1$ et $m_2$ ont alors même image dans $G$ si et seulement si $m'_1$ et $m'_2$ ont même image dans $G^+$.
+\end{enumerate}
+
+\begin{theoreme}[4.21]
+Si le graphe de Coxeter $D$ est connexe (non vide) et que l'involution d'opposition est triviale (resp. non triviale), le centre de $G$ est monogène infini, engendré par $\Delta$ (resp. $\Delta^2$).
+\end{theoreme}
+
+Considérons la propriété suivante de $x \in G^+$.
+\begin{enumerate}
+\item[(*)] Quel que soit $i \in D$, il existe $i' \in D$ tel que $i \, x = x \, i'$.
+\end{enumerate}
+
+Il suffit de prouver que, si $x$ vérifie $(*)$ et que $x \neq e$, alors $x = \Delta \, y$ avec $y \in G^+$. Par récurrence sur la longueur de $x$, on en déduira que si $x$ vérifie $(*)$, $x$ est de la forme $\Delta^k$. En particulier, le centre de $G^+$ est contenu dans l'ensemble des $\Delta^k$ ($k \geq 0$); d'après (4.14)(i) et (4.17), celui de $G$ est contenu dans l'ensemble des $\Delta^k$ ($k \in \Z$) et l'assertion résulte de (4.16.1).
+
+Soit donc $x \in G^+$ qui vérifie $(*)$. Soient $C$ comme en (4.15) et $w$ l'image dans $W$ de $\ell \, u(A_0, C)$. On peut écrire $x = r(w) \, y$, avec $y \in G^+$. Soit $i \in D$. D'après $(*)$, $i \, x = r(w) \, y \, i'$ commence par $r(w)$; de (1.23), on tire alors que $i \, r(w)$ commence par $r(w)$: $i \, r(w) = r(w) \, i''$. En particulier, pour tout $i$, il existe $i''$ avec $i \, w = w \, i''$; ceci signifie que tout mur de $A_0$ est aussi un mur de $w \, A_0$. Parmi les $2^{|D|}$ cônes simpliciaux ouverts limités par les murs de $A_0$, seuls $A_0$ et $-A_0$ sont de chambres: ce sont les seuls dont les angles entre les faces soient tous $\leq \pi/2$ (on utilise ici la connexité de $D$). Si $x \neq e$, on a $w \neq e$ et donc $w \, A_0 = -A_0$. Puisqu'alors $\Delta = r(w)$, ceci achève la démonstration.
+
+(4.22) \emph{Le groupe dérivé.} Soit $D'$ le graphe ayant $D$ pour ensemble de sommets, deux sommets étant reliés par un trait si et seulement si $m_{ij}$ est impair. Soit $D_0$ l'ensemble des composantes connexes de $D'$. On définit un épimorphisme
+\[\operatorname{Lg} \colon G \to \Z^{D_0}\]
+en envoyant $i$ sur le vecteur de base d'indice la composante connexe de $i$ dans $D'$. On vérifie aussitôt que $\operatorname{Lg}$ identifie $\Z^{D_0}$ au plus grand quotient abélien de $G$.
+
+(4.23) \emph{Problème de conjugaison.} Il s'agit de donner un procédé de décision pour savoir si deux éléments $x$ et $y$ de $G$ (donnés explicitement comme images de mots dans $L(D)$) sont conjugués. Puisque $\Delta^2$ est central, $\Delta^{-2k} a$ et $\Delta^{-2k} b$ sont conjugués si et seulement si $a$ et $b$ le sont. D'après (4.17), il suffit donc de traiter le cas où $x, y \in G^+$. De même, si $x$ et $y$ sont conjugués, il existe $a$ dans $G^+$ tel que $x \, a = a \, y$. Si $x$ et $y$ sont conjugués, $\operatorname{Lg}(x) = \operatorname{Lg}(y)$. Il n'y a qu'un nombre fini de $x \in G^+$ de «longueur» $\operatorname{Lg}(x)$ donnée et $W$ est fini. L'existence d'un procédé de décision résulte alors de (4.20) et du lemme suivant.
+
+\begin{lemme}[4.24]
+Soient $x, y$ dans $G^+$. Si $x$ et $y$ sont conjugués, il existe une suite $x_0 = x$, $x_1, \ldots, x_n = y$ d'éléments de $G^+$ et une suite d'éléments $w_i$ de $W$ telle que
+\[x_{i+1} \, r(w_i) = r(w_i) \, x_i.\]
+\end{lemme}
+
+Soit $a \in G^+$ tel que $x \, a = a \, y$. Posons $a = r(w_0) \ldots r(w_{n-1})$, $w_i$ étant l'élément de $W$ de longueur maximum tel que $r(w_i) \ldots r(w_{n-1})$ s'écrive sous la forme $r(w_i) \, b_i$ avec $b_i \in G^+$ (4.15). Soit $a_i = r(w_0) \ldots r(w_i)$. Nous prouverons que $x_i = a_i^{-1} \, x \, a_i$ est dans $G^+$, de sorte que les $x_i$ et $w_i$ répondent au problème.
+
+Il résulte de (1.23) que, quel que soit $w \in W$, si $x \, a$ commence par $r(w)$, alors $x \, r(w_0)$ commence aussi par $r(w)$. En particulier, puisque $x \, a = a \, y = r(w_0) \, b_0 \, y$ commence par $r(w_0)$, $x \, r(w_0) = r(w_0) \, x_1$ avec $x_1 \in G^+$. On achève la démonstration en procédant par récurrence sur $n$.
+
+\noindent \textbf{Remarque.} Soit $\sigma$ un automorphisme du graphe de Coxeter $D$, et notons encore $\sigma$ l'automorphisme correspondant de $G$. On a $\Delta^\sigma = \Delta$. Les arguments précédents s'appliquent encore à la question de savoir, pour $x, y \in G$, s'il existe $a$ dans $G$ tel que $x \, a = a^\sigma \, y$. On se ramène à prendre $x, y$ et $a$ dans $G^+$. Dans ce cas et, avec les notations précédentes, si $x \, a = a^\sigma \, y$, les $(a_i^{-1})^\sigma \, x \, a_i$ sont dans $G^+$. Prenant pour $\sigma$ l'involution $i \mapsto \bar{i}$, on trouve un critère analogue à (4.24) pour la conjugaison de $\Delta \, x$ et $\Delta \, y$ ($x, y \in G^+$).
+
+\section*{Bibliographie}
+
+Le lecteur trouvera une bibliographie plus complète sur les groupes de tresses dans [2].
+
+\begin{enumerate}
+\item[{[1]}] Bourbaki, N.: Groupes et algèbres de Lie. Chap. 4, 5, 6. Paris: Hermann 1968.
+\item[{[2]}] Brieskorn, E.: Sur les groupes de tresses. Sém. Bourbaki 401, nov. 71.
+\item[{[3]}] Brieskorn, E.: Die Fundamentalgruppe des Raumes der regulären Orbits einer endlichen komplexen Spiegelungsgruppe. Inventiones math. \textbf{12}, 57--61 (1971).
+\item[{[4]}] Garside, F.A.: The braid groups and other groups. Quat. J. Math. Oxford, $2^e$ ser. \textbf{20}, 235--254 (1969).
+\item[{[5]}] Tits, J.: Normalisateurs de Tores. I Groupes de Coxeter étendus. J. of algebra \textbf{4} (1), 96--116 (1966).
+\item[{[6]}] Weil, A.: Sur les théorèmes de De Rham. Comm. Math. Helv. \textbf{26} (1952).
+\end{enumerate}
+
+\vspace{1cm}
+\begin{flushright}
+Pierre Deligne
+
+Institut des Hautes Études Scientifiques
+
+35 Route de Chartres
+
+F-91440 Bures-sur-Yvette
+
+France
+
+\vspace{0.5cm}
+\emph{(Reçu le 24 avril 1972)}
+\end{flushright}
+
+\end{document}

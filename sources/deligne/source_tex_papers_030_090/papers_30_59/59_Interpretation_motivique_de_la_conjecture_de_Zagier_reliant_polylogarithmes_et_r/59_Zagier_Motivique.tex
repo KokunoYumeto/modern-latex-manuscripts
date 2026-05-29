@@ -1,0 +1,1092 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd, mathrsfs}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th{\'e}or{\`e}me}[section]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollaire}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{D{\'e}finition}[section]
+\newtheorem{remark}{Remarque}[section]
+
+\theoremstyle{remark}
+\newtheorem{example}{Exemple}[section]
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator*{\Ker}{Ker}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\reg}{reg}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\intt}{int}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\Gm}{\mathbb{G}_m}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\ab}{\text{ab}}
+
+\title{\textbf{Interpr{\'e}tation motivique de la conjecture de Zagier reliant polylogarithmes et r{\'e}gulateurs}}
+\author{A. Beilinson et P. Deligne}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\textit{Published in Proceedings of Symposia in Pure Mathematics, Volume 55 (1994), Part 2, pp. 97--121}
+\end{center}
+
+\bigskip
+
+Cet article est une version remani{\'e}e d'un preprint du m{\^e}me titre, dont les id{\'e}es ont motiv{\'e} certaines des constructions de l'article ``motivic polylogarithm and Zagier conjecture'', cit{\'e} [BD], {\`a} para{\^i}tre. Nous esp{\'e}rons qu'il peut encore rester utile comme introduction {\`a} [BD]. Nous remercions D. Zagier de conversations o{\`u} se sont d{\'e}gag{\'e}es les id{\'e}es essentielles.
+
+\medskip
+
+Au \S 1, apr{\`e}s avoir {\'e}nonc{\'e} la conjecture de D. Zagier, nous donnons un formalisme motivique qui l'implique. La preuve est donn{\'e}e au \S 2. Son principe est expliqu{\'e} plus concr{\`e}tement au \S 3. Enfin, au \S 4, nous montrons que la conjecture de D. Zagier est la partie r{\'e}elle d'une conjecture complexe, elle aussi impliqu{\'e}e par le formalisme motivique.
+
+\section{{\'E}nonc{\'e}s}
+
+\subsection{}
+
+Rappelons quelques propri{\'e}t{\'e}s des fonctions polylogarithme, d{\'e}finies pour $|z|<1$ par
+\begin{equation}\label{eq:1.1.1}
+\operatorname{Li}_k(z) = \sum_{n\geq 1} \frac{z^n}{n^k}
+\tag{1.1.1}
+\end{equation}
+($k\geq 1$).
+
+Ce sont des int{\'e}grales it{\'e}r{\'e}es de formes diff{\'e}rentielles {\`a} p{\^o}les logarithmiques {\`a} l'infini sur $\IP^1(\C)-\{0,1,\infty\}$:
+\begin{equation}\label{eq:1.1.2}
+\begin{aligned}
+\operatorname{Li}_1(z) &= -\log(1-z) = \int_0^z \frac{dt}{1-t},\\
+\operatorname{Li}_{k+1}(z) &= \int_0^z \operatorname{Li}_k(t)\frac{dt}{t} \qquad (k\geq 1).
+\end{aligned}
+\tag{1.1.2}
+\end{equation}
+
+Cette expression comme int{\'e}grale it{\'e}r{\'e}e montre que $\operatorname{Li}_k(z)$, d{\'e}fini par (1.1.1) pour $|z|<1$, se prolonge comme une fonction multivalu{\'e}e sur $\IP^1-\{0,1,\infty\}$.
+
+Fixons $N\geq k$. Les propri{\'e}t{\'e}s de monodromie de $\operatorname{Li}_k$ [BD, (0.1)] s'expriment au mieux en consid{\'e}rant cette fonction comme un coefficient de la matrice $L(z)$ suivante, de lignes et colonnes index{\'e}es par l'ensemble $[0,N]$ des entiers de $0$ {\`a} $N$:
+\begin{equation}\label{eq:1.1.3}
+L(z) := \begin{pmatrix}
+1 & 0 & \cdots & 0\\
+-\operatorname{Li}_1(z) & 1 & 0 & \cdots\\
+-\operatorname{Li}_2(z) & \log z & 1 & \ddots\\
+\vdots & \vdots & \ddots & \ddots\\
+-\operatorname{Li}_N(z) & \frac{(\log z)^{N-1}}{(N-1)!} & \cdots & \log z & 1
+\end{pmatrix}
+\tag{1.1.3}
+\end{equation}
+
+Posons
+\begin{equation}\label{eq:1.1.4}
+e_0 = \begin{pmatrix}
+0 & 0 & \cdots & 0\\
+1 & 0 & & \vdots\\
+0 & 1 & \ddots & \\
+\vdots & & \ddots & 0
+\end{pmatrix}, \quad
+e_1 = \begin{pmatrix}
+0 & 0 & \cdots & 0\\
+0 & 0 & & \vdots\\
+1 & 0 & \ddots & \\
+\vdots & & \ddots & 0
+\end{pmatrix}.
+\tag{1.1.4}
+\end{equation}
+
+L'alg{\`e}bre de Lie engendr{\'e}e par $e_0$ et $e_1$ a pour base $e_0$ et les $(\ad e_0)^i(e_1)$ ($1$ en position $(i+1,0)$, $0$ ailleurs) ($0\leq i<N$). Les $(\ad e_0)^i(e_1)$ commutent entre eux et $(\ad e_0)^N(e_1)=0$. L'alg{\`e}bre de Lie engendr{\'e}e par $e_0$ et $e_1$ est d{\'e}finie sur $\Q$ et correspond {\`a} un sous-groupe unipotent d{\'e}fini sur $\Q$ $V$ de $\operatorname{GL}_{N+1}(\Q)\subset\operatorname{GL}_{N+1}$. La matrice $L(z)$ fait partie du sous-groupe $V(\C)\subset\operatorname{GL}_{N+1}(\C)=\operatorname{GL}_{N+1}$.
+
+Le mineur $[1,N]\times[1,N]$ de $L(z)$ est $\exp(\log z\cdot e_0)$ et
+\begin{equation}\label{eq:1.1.5}
+L(z) = \exp\Bigl(\sum_{i<N} \operatorname{Li}_{i+1}(z)(\ad e_0)^i(e_1)\Bigr)\cdot\exp(\log z\cdot e_0).
+\tag{1.1.5}
+\end{equation}
+
+Soit $t(2\pi i)$ la matrice diagonale de diagonale $(1,2\pi i,\ldots,(2\pi i)^N)$. Elle normalise $V$. Nous poserons
+\begin{equation*}
+\mathcal{L}(z) := L(z)\cdot t(2\pi i).
+\end{equation*}
+
+Une d{\'e}termination de $\mathcal{L}(z)$ ou $L(z)$ d{\'e}pend du choix d'un chemin $\gamma$, dans $\IP^1(\C)-\{0,1,\infty\}$, d'un point de $]0,1[$ {\`a} $z$. Si ce chemin est pr{\'e}fix{\'e} par un tour positif $\gamma_0$ (resp. $\gamma_1$) autour de $0$ (resp. de $1$), la d{\'e}termination $\mathcal{L}_\gamma(z)$ est chang{\'e}e en
+\begin{align}
+\mathcal{L}_{\gamma\gamma_0}(z) &= \mathcal{L}_\gamma(z)\exp(e_0), \tag{1.1.6}\label{eq:1.1.6}\\
+\mathcal{L}_{\gamma\gamma_1}(z) &= \mathcal{L}_\gamma(z)\exp(e_1). \tag{1.1.7}\label{eq:1.1.7}
+\end{align}
+
+En cons{\'e}quence, deux d{\'e}terminations de $\mathcal{L}(z)$ diff{\`e}rent par multiplication {\`a} droite par un {\'e}l{\'e}ment de $V(\Q)\subset\operatorname{GL}_{N+1}(\Q)$ et le $\Q$-sous-espace vectoriel $\mathcal{L}(z)\Q^{N+1}\subset\C^{N+1}$ ne d{\'e}pend pas de la d{\'e}termination choisie de $\mathcal{L}(z)$. Il ne d{\'e}pend pas non plus du choix de $i$ : changer $i$ en $-i$ remplace $t(2\pi i)$ par $t(2\pi i)=t(2\pi i)t(-1)$ et $t(-1)\in\operatorname{GL}_{N+1}(\Q)$.
+
+La matrice $L(z)$ v{\'e}rifie
+\begin{equation}\label{eq:1.1.8}
+dL(z) = \Bigl(\frac{dz}{z}e_0 + \frac{dz}{1-z}e_1\Bigr)L(z).
+\tag{1.1.8}
+\end{equation}
+
+\subsection{}
+
+Appelons $\Q$- (resp. $\R$-) variation de Tate mixte sur une vari{\'e}t{\'e} analytique $S$ une $\Q$- (resp. $\R$-) variation de structures de Hodge mixtes sur $S$, de seuls nombres de Hodge non nuls les $h^{p,p}$ ($p\in\Z$), et de gradu{\'e} $\operatorname{Gr}^W$ constant sur chaque composante connexe de $S$. Une $\Q$ (resp. $\R$) variation de Tate mixte sur $S$ est simplement la donn{\'e}e de (a), (b), (c):
+
+(a) Un syst{\`e}me local $H_\Q$ (resp. $H_\R$) de $\Q$ (resp. $\R$) espaces vectoriels de dimension finie;
+
+(b) Une filtration finie croissante $W$ de $H_\Q$ (resp. $H_\R$) par des sous-syst{\`e}mes locaux, index{\'e}e par les entiers pairs, avec $\operatorname{Gr}^W(H_\Q)$ (resp. $\operatorname{Gr}^W H_\R$) constant sur chaque composante connexe de $S$. On note encore $W$ la filtration du syst{\`e}me local complexifi{\'e} $H_\C$ qui s'en d{\'e}duit.
+
+(c) Chaque fibre $(H_\C)_s$ est munie d'une filtration finie d{\'e}croissante $F$, oppos{\'e}e {\`a} $W$ en ce sens que
+\begin{equation}\label{eq:1.2.1}
+(H_\C)_s = \bigoplus_k (H_\C)_s^k, \quad \text{avec }\quad W_{-2k} = \bigoplus_{\ell\geq k}(H_\C)_s^\ell, \quad F^{-k} = \bigoplus_{\ell\leq k}(H_\C)_s^\ell.
+\tag{1.2.1}
+\end{equation}
+
+Cette filtration d{\'e}pend holomorphiquement de $s$ et v{\'e}rifie l'axiome de transversalit{\'e}: si $x(s)\in (H_\C)_s$ d{\'e}pend diff{\'e}rentiablement de $s$, et est pour tout $s$ dans $F^n$, sa d{\'e}riv{\'e}e par rapport {\`a} un champ de vecteurs est dans $F^{n-1}$.
+
+Soit $\mathcal{H}_S$ le fibr{\'e} vectoriel holomorphe d{\'e}fini par $H_\C$. Si on identifie $\mathcal{H}_S$ (resp. $H_\Q$) au faisceau de ses sections holomorphes (resp. localement constantes), on a
+\begin{equation*}
+\mathcal{H}_S = H_\C \otimes_\C \mathcal{O}_S
+\end{equation*}
+et $H_\C$ est le faisceau des sections horizontales de $\mathcal{H}_S$ pour une connexion int{\'e}grable holomorphe $\nabla$. On peut regarder $W$ comme une filtration horizontale de $\mathcal{H}_S$, $F$ comme une filtration holomorphe, et on a une d{\'e}composition
+\begin{equation}\label{eq:1.2.2}
+\mathcal{H}_S = \bigoplus_k \mathcal{H}_S^k.
+\tag{1.2.2}
+\end{equation}
+comme en (c). L'axiome de transversalit{\'e} {\'e}quivaut {\`a}
+\begin{equation}\label{eq:1.2.3}
+\nabla\mathcal{H}_S^k \subset \Omega_S^1 \otimes (\mathcal{H}_S^k \oplus \mathcal{H}_S^{k-1}).
+\tag{1.2.3}
+\end{equation}
+
+Pour $S$ r{\'e}duit {\`a} un point, on parlera de structure (de Hodge mixte) de Tate mixte. On a alors
+\begin{equation*}
+H_\C = \bigoplus_k (H_\C)^k.
+\end{equation*}
+
+\subsection{}
+
+Les propri{\'e}t{\'e}s (1.1.6) {\`a} (1.1.8) permettent d'attacher {\`a} la matrice $\mathcal{L}$ la $\Q$-variation de Tate mixte suivante $\mathcal{I}^{(N)}$ sur $\IP^1-\{0,1,\infty\}$:
+
+\textbullet\ fibr{\'e} vectoriel holomorphe sous-jacent: $\mathcal{I}^{(N)}:=\bigoplus\mathcal{O}_S$;
+
+\textbullet\ filtrations par le poids et de Hodge: dans la d{\'e}composition (1.2.2) $(\mathcal{I}^{(N)})^k$ est le facteur d'indice $k$ de $\C^{[0,N]}$;
+\begin{align*}
+W_{-2k}\mathcal{I}^{(N)} &= \bigoplus_{\ell\geq k}(\mathcal{I}^{(N)})^\ell \quad (k\geq 0),\\
+F^k &= \bigoplus_{\ell\leq -k}(\mathcal{I}^{(N)})^\ell;
+\end{align*}
+
+\textbullet\ r{\'e}seau rationnel: $\mathcal{I}_\Q^{(N)} := \mathcal{L}(z)\Q^{N+1}$.
+
+D'apr{\`e}s 1.1.8, la connexion pour laquelle le r{\'e}seau rationnel est horizontal est
+\begin{equation*}
+\nabla = d - \frac{dz}{z}e_0 - \frac{dz}{1-z}e_1.
+\end{equation*}
+
+L'axiome de transversalit{\'e} (1.2.3) exprime que $e_0$ et $e_1$ envoient $\C^{[0,k]}$ dans $\C^{[0,k+1]}$.
+
+La d{\'e}finition de $\mathcal{I}^{(N)}$ ne d{\'e}pend pas du choix de $i\in\C$: elle garde un sens sur $\IP^1(\C)-\{0,1,\infty\}$ pour $\C$ une cl{\^o}ture alg{\'e}brique de $\R$, et est fonctorielle en $\C$.
+
+Les $\mathcal{I}^{(N)}$ forment un syst{\`e}me projectif en $N$. Quand $N$ est fix{\'e}, nous nous permettrons d'{\'e}crire $\mathcal{I}$ pour $\mathcal{I}^{(N)}$.
+
+Notre philosophie est qu'il y a int{\'e}r{\^e}t {\`a} exprimer les propri{\'e}t{\'e}s de la fonction $\operatorname{Li}_k$ en terme de la variation $\mathcal{I}^{(N)}$.
+
+\subsection{}
+
+La variation $\mathcal{I}^{(N)}$ est la composante en th{\'e}orie de Hodge d'un syst{\`e}me de r{\'e}alisations au sens de [D] $\mathcal{H}$, qui admet une description g{\'e}om{\'e}trique en terme du groupo{\"i}de fondamental de la droite projective moins trois points.
+
+Fixons un nombre premier $\ell$ et d{\'e}crivons la composante $\ell$-adique. Soit $X=\IP^1-\{0,1,\infty\}=\Gm-\{1\}$. Pour tout point base $b$, soit $\pi_1(X,b)^\ell$ le plus grand pro-$\ell$ quotient de $\pi_1(X,b)$. C'est la fibre en $b$ d'un pro-syst{\`e}me local sur la droite projective, priv{\'e}e de $0,1,\infty$, au-dessus de $\Spec(\Z[1/\ell])$.
+
+Soit $\pi_1(X,b)_N^{(\ell)}$ le quotient de $\pi_1(X,b)^\ell$ par le sous-groupe d'indice $N+1$ de sa s{\'e}rie centrale descendante. C'est un groupe de Lie $\Z_\ell$-adique, d'alg{\`e}bre de Lie le quotient d'une alg{\`e}bre de Lie libre {\`a} $2$ g{\'e}n{\'e}rateurs par la sous-alg{\`e}bre d'indice $N+1$ de sa s{\'e}rie centrale descendante.
+
+Pour $N\geq 1$, $\pi_1(X,b)_N^{(\ell)}$ s'envoie sur $\pi_1(\Gm,b)^\ell=\Z_\ell(1)$. Soit $K(N)(b)$ le noyau et soit $V(b)^{(N)}$ le plus grand quotient de $\pi_1(X,b)_N^{(\ell)}$ dans lequel l'image de $K(N)(b)$ soit ab{\'e}lienne. C'est une extension
+\begin{equation*}
+K(N)(b)^{\ab} \to V(b)^{(N)} \to \Z_\ell(1) \to 1.
+\end{equation*}
+
+Soit $t(z)$ le vecteur tangent non nul $z\partial/\partial z$ en $0$. Prenons-le comme point base [D, \S 15]. Dans $\Gm$, il existe une classe d'homotopie de chemins canonique du vecteur tangent $t(z)$ au point $z$ de m{\^e}me coordonn{\'e}e.
+
+Pour $z\neq 1$, le $\pi_1(X,t(z))^\ell$-torseur des (classes d'homotopie de) chemins de $t(z)$ {\`a} $z$ se trivialise donc en poussant {\`a} $\pi_1(\Gm,t(z))^\ell$, et fournit un torseur sous $\Ker(\pi_1(X,z)^{(\ell)}\to\pi_1(\Gm,z)^{(\ell)})$.
+
+Le noyau ci-dessus s'envoie dans $K(N)(t(z))$, d'o{\`u} enfin un torseur $P(z)$ sous $K(N)(t(z))^{\ab}$. {\`A} ce torseur correspond une extension $E(z)^{(N)}$ de $\Z_\ell$ par $K(N)(t(z))^{\ab}$.
+
+Parce que $t(z)$ est un vecteur tangent en $0$, on dispose de la monodromie autour de $0$:
+\begin{equation*}
+\varphi_0 : \Z_\ell(1) \longrightarrow \pi_1(X,t(z))_\ell.
+\end{equation*}
+Le $\Z_\ell(1)$ de la source est {\`a} voir comme le $\pi_1$ de $T_0'$, l'espace tangent {\'e}point{\'e} en $0$. Faisons $z=1$. Soit $t_1$ un vecteur tangent non nul en $1$. Le chemin canonique, dans $\Gm$, de $t(1)$ {\`a} $1$ fournit dans $X$ une classe modulo $\Ker(\pi_1(X,t(1))_\ell\to\Z_\ell(1))$ de chemins de $t(1)$ {\`a} $t_1$, et une classe de conjugaison, sous ce noyau, de monodromie en $1$:
+\begin{equation*}
+\varphi_1 : \Z_\ell(1) \longrightarrow \pi_1(X,t(z))_\ell.
+\end{equation*}
+
+Ces morphismes $\varphi_\alpha$ sont {\`a} valeurs dans $\Ker(\pi_1(X,t(1))_\ell\to\Z_\ell(1))$. Si on les compose avec la projection sur $K(N)(t(1))^{\ab}$, ils deviennent tous {\'e}gaux: on a obtenu
+\begin{equation*}
+\varphi_1^{(N)} : \Z_\ell(1) \longrightarrow K(N)(t(1))^{\ab} \subset V(t(1))^{(N)}.
+\end{equation*}
+
+Via $\varphi_0$, $\Z_\ell(1)$ agit par conjugaison sur $K(N)(t(0))^{\ab}$. On v{\'e}rifie l'existence et l'unicit{\'e} d'une d{\'e}composition
+\begin{equation*}
+K^{(N)}(t(1))^{\ab}\otimes\Q_\ell \cong \bigoplus_1^N \Q_\ell(i)
+\end{equation*}
+telle que (a) $\varphi_1$ est l'inclusion du facteur d'indice $1$ et que (b) l'action de $\Lie(\Z_\ell(1))\cong\Q_\ell$ est la somme des multiplications $\Q_\ell(1)\otimes\Q_\ell(i)\to\Q_\ell(i+1)$.
+
+Pour $t(z)$ un autre vecteur tangent non nul en $0$: $t(z)\in T_0'$, les chemins dans $T_0'$ de $t(1)$ {\`a} $t(z)$ formant un $\pi_1(T_0',t(1))=\Z_\ell(1)$-torseur. C'est le torseur de Kummer $K(z)$. Le groupe fondamental $\pi_1(X,t(z))^\ell$ est d{\'e}duit de $\pi_1(X,t(1))^\ell$ par torsion par ce torseur, $\Z_\ell(1)$ agissant sur $\pi_1(X,t(1))^\ell$ par automorphismes int{\'e}rieurs, via $\varphi_0$. Il en r{\'e}sulte que $K(N)(t(z))^{\ab}$ est d{\'e}duit de $K(N)(t(1))^{\ab}$ par torsion kummerienne, et
+\begin{equation*}
+K(N)(t(z))^{\ab}\otimes\Q_\ell \cong \bigoplus_1^N \Q_\ell(i) \otimes K(z).
+\end{equation*}
+
+Tensoris{\'e}e avec $\Q_\ell$, l'extension $E(z)^{(N)}$ est donc une extension de $\Q_\ell$ par $\bigoplus_1^N[\Q_\ell(i)\otimes K(z)]$. C'est l'analogue $\ell$-adique de la variation $\mathcal{I}^{(N)}$. Une fois acquis le formalisme motivique du groupe fondamental [D, \S 13], la construction, pr{\'e}sent{\'e}e ci-dessus dans le cadre $\ell$-adique, vaut uniform{\'e}ment dans les diverses th{\'e}ories de cohomologie.
+
+Que, en th{\'e}orie de Hodge, on retrouve bien $\mathcal{I}^{(N)}$, peut soit se v{\'e}rifier par un calcul direct, soit se d{\'e}duire du r{\'e}sultat d'unicit{\'e} [BD].
+
+\subsection{}
+
+La structure de Hodge mixte r{\'e}elle sous-jacente {\`a} $\mathcal{I}^{(N)}$ ne d{\'e}pend que de l'image de $\mathcal{L}(z)$ dans $\operatorname{GL}_{N+1}(\C)/\operatorname{GL}_{N+1}(\R)$ soit, ce qui revient au m{\^e}me, que de $\mathcal{L}(z)\overline{\mathcal{L}(z)}^{-1}$. On a
+\begin{align*}
+\mathcal{L}(z)\overline{\mathcal{L}(z)}^{-1} &= (L(z)t(2\pi i))(t(-2\pi i)^{-1}L(\bar{z})^{-1})\\
+&= L(z)\cdot\intt(\tau(-1)(t(2\pi i)\cdot t(-2\pi i)))
+\end{align*}
+o{\`u} $\tau(-1)=\intt(\tau(-1))$.
+
+Posons
+\begin{equation}\label{eq:1.5.1}
+B(z) = L(z)\cdot\intt\tau(-1)(t(2\pi i)).
+\tag{1.5.1}
+\end{equation}
+
+Cette matrice appartient {\`a} $V\subset\operatorname{GL}_{N+1}(\C)$ et v{\'e}rifie
+\begin{equation}\label{eq:1.5.2}
+\overline{B(z)} = \intt(\tau(-1))(B(z))^{-1}.
+\tag{1.5.2}
+\end{equation}
+
+Elle est caract{\'e}ris{\'e}e par cette propri{\'e}t{\'e} et le fait que sa racine carr{\'e}e $B^{1/2}$ dans $V$ v{\'e}rifie
+\begin{equation}\label{eq:1.5.3}
+\mathcal{L}(z)t(2\pi i)^{-1} = B^{1/2}(z)t(2\pi i)^{-1} \quad \text{dans }\operatorname{GL}_{N+1}(\C)/\operatorname{GL}_{N+1}(\R).
+\tag{1.5.3}
+\end{equation}
+
+Prenant le logarithme de (1.5.2), on trouve que le logarithme de $B(z)$ v{\'e}rifie
+\begin{equation*}
+\overline{\log B(z)} = -\ad\tau(-1)(\log B(z)):
+\end{equation*}
+le coefficient $(\log B(z))_{i,j}$ est purement imaginaire pour $i-j$ pair et r{\'e}el pour $i-j$ impair.
+
+Parce que les $(\ad e_0)^i(e_1)$ commutent entre eux, on a (Bourbaki, Lie II, \S 5 n$^\circ$ 5, Proposition 5)
+\begin{equation}\label{eq:1.5.4}
+\exp\Bigl(\sum_0^{N-1}\lambda_i(\ad e_0)^i(e_1)+\mu e_0\Bigr) = \exp\Bigl(\sum_0^{N-1}\lambda_i(\ad e_0)^i(e_1)\Bigr)\exp(\mu e_0)
+\tag{1.5.4}
+\end{equation}
+avec $\sum\lambda_it^i/\ell!=\sum\mu_i t^i/\ell!$.
+
+Le mineur $[1,N]\times[1,N]$ de $\log B(z)$ est $\log(z\bar{z})\cdot e_0$. Soit $(0,D_1(z),\ldots,D_N(z))$ la premi{\`e}re colonne de $-\log(B(z)^{1/2})$. Utilisant (1.5.4), on v{\'e}rifie facilement que
+\begin{equation*}
+D_k(z) = \begin{cases}
+\displaystyle\frac{i}{2}\cdot\frac{(2\pi i)^{k-1}}{k!}\operatorname{Li}_{k-1}(z) & \text{pour }k\text{ pair},\\[1.5ex]
+\displaystyle\frac{1}{2}\cdot b_{k-1}\cdot\frac{(2\pi i)^{k-1}}{(k-1)!}\operatorname{Li}_{k-1}(z) & \text{pour }k\text{ impair},
+\end{cases}
+\end{equation*}
+o{\`u} les $b_\ell$ sont les nombres de Bernouilli $1,-\tfrac{1}{2},\tfrac{1}{6},0,-\tfrac{1}{30},0,\ldots$.
+
+\subsection{}
+
+Rappelons que la $\Q$-structure de Hodge de Tate $\Q(k)$ est celle de type $(-k,-k)$, d'espace vectoriel complexe sous-jacent $\C$ et de r{\'e}seau rationnel $(2\pi i)^k\Q\subset\C$. On a $\Q(k)=\Q(1)^{\otimes k}$ et on note $(k)$ un produit tensoriel avec $\Q(k)$.
+
+Dans la cat{\'e}gorie ab{\'e}lienne des $\Q$-structures de Hodge mixtes, on a pour $k\geq 1$
+\begin{equation*}
+\Ext^1(\Q(0),\Q(k)) = \C/(2\pi i)^k\Q.
+\end{equation*}
+Si $E$ est une extension de $\Q(0)$ par $\Q(1)$, la d{\'e}composition (1.2.1) de $E_\C$ est
+\begin{equation*}
+E_\C = (\C\text{ en degr{\'e} }0)\oplus(\C\text{ en degr{\'e} }1)
+\end{equation*}
+et $E_\Q$ est de la forme $(2\pi i)^{-1}\Q\cdot\exp(\alpha)\oplus\Q$; on attache {\`a} $E$ la classe de $\alpha$ modulo $(2\pi i)^k\Q$.
+
+Soit $\R(k)$ la $\R$-structure de Hodge sous-jacente {\`a} $\Q(k)$. Dans la cat{\'e}gorie ab{\'e}lienne des $\R$-structures de Hodge mixtes, on a de m{\^e}me pour $k\geq 1$
+\begin{equation*}
+\Ext^1(\R(0),\R(k)) = \C/(2\pi i)^k\R.
+\end{equation*}
+On identifiera le membre de droite {\`a} $i^{k-1}\R$ par $z\mapsto\Re z$ si $k$ est impair et $z\mapsto\Im z$ si $k$ est pair, avec $i^{k-1}\R\subset\C$.
+
+Pour $S$ un sch{\'e}ma lisse sur $\Q$, notons $(K_n(S)\otimes\Q)^{(m)}$ le facteur direct de $K_n(S)\otimes\Q$ sur lequel chaque op{\'e}ration d'Adams $\psi_r$ agit par $r^m$. On dispose d'une application r{\'e}gulateur {\`a} valeur dans un $\Ext^1$ dans la cat{\'e}gorie ab{\'e}lienne des $\Q$-structures de Hodge mixtes sur $S(\C)$:
+\begin{equation*}
+\reg : (K_{2k-1}(S)\otimes\Q)^{(k)} \longrightarrow \Ext^1_{S(\C)}(\Q(0),\Q(k)).
+\end{equation*}
+
+Par exemple, pour $k=1$, on attache {\`a} $f\in\mathcal{O}^*(S)$ l'extension $[f]$ de $\Q(0)$ par $\Q(1)$ donn{\'e}e par:
+
+-- d{\'e}composition (1.2.2) du fibr{\'e} holomorphe sous-jacent: $\mathcal{O}$ en degr{\'e} $0$ et $\mathcal{O}$ en degr{\'e} $1$;
+
+-- r{\'e}seau rationnel: $(1,\frac{1}{2\pi i}\log f)\cdot\Q$ (ind{\'e}pendant de la d{\'e}termination choisie localement de $\log f$).
+
+Pour $S$ le spectre d'un corps de nombre $F$, $S(\C)$ est l'ensemble des plongements complexes de $F$ et le r{\'e}gulateur devient la donn{\'e}e, pour chaque $\sigma\in S(\C)$, de
+\begin{equation*}
+\reg^\sigma : K_{2k-1}(F) \longrightarrow \C/(2\pi i)^k\Q.
+\end{equation*}
+Ces constructions ne d{\'e}pendent pas du choix de $i\in\C$ et on a donc $\overline{\reg^\sigma(x)}=\reg^{\bar{\sigma}}(x)$.
+
+Si on passe aux $\R$-structures de Hodge mixtes, on obtient
+\begin{equation*}
+\reg_\R : (K_{2k-1}(S)\otimes\R)^{(k)} \longrightarrow \Ext^1_{S(\C)}(\R(0),\R(k))
+\end{equation*}
+qui, pour $S=\Spec F$, fournit, pour chaque plongement complexe $\sigma$ de $F$,
+\begin{equation*}
+\reg_\R^\sigma : K_{2k-1}(F) \longrightarrow \C/(2\pi i)^k\cdot i^{k-1}\R.
+\end{equation*}
+
+Notre convention: $\reg_\R^\sigma$ {\`a} valeurs dans $i^{k-1}\R$, a l'avantage que $\reg_\R^{\bar{\sigma}}(x)=\overline{\reg_\R^\sigma(x)}$.
+
+On sait que les $\reg_\R^\sigma$ induisent un isomorphisme de $K_{2k-1}(F)\otimes\R$ avec le sous-espace de $i^{k-1}\R^{S(\C)}$ form{\'e} des $(x_\sigma)$ v{\'e}rifiant $x_{\bar{\sigma}}=\overline{x_\sigma}$.
+
+\subsection{}
+
+Nous pouvons maintenant {\'e}noncer la conjecture de D. Zagier. Soit $F$ un corps de nombre (= une extension finie de $\Q$). Il y a une conjecture pour chaque entier $k$, et la $k$\ieme\ conjecture n'a de sens que si les pr{\'e}c\'edentes sont vraies.
+
+Dans la m{\^e}me induction, on {\'e}nonce la $k$\ieme\ conjecture, on d{\'e}finit un $\Q$-espace vectoriel $\F_k$, une application
+\begin{equation*}
+\{\}_k : F-\{0,1\} \longrightarrow \F_k,
+\end{equation*}
+un homomorphisme
+\begin{equation*}
+d_k : \F_k \longrightarrow \bigwedge^2\Bigl(\bigoplus_1^{k-1}\F_j\Bigr)
+\end{equation*}
+et
+\begin{equation*}
+\varphi_k : \Ker(d_k) \longrightarrow K_{2k-1}(F)\otimes\Q.
+\end{equation*}
+
+\textbf{(A)} Pour $k=1$, $\F_1$ est $F^*\otimes_\Z\Q$, on note $(x)$ l'image dans $\F_1$ de $x\in F^*$, $\{\}_1$ est
+\begin{equation*}
+\{\}_1 : F^* \longrightarrow F^*\otimes\Q,
+\end{equation*}
+$d_1=0$ et $\varphi_1$ est l'application identique de $F^*\otimes\Q$.
+
+\textbf{(B)} Pour $k\geq 2$, soit $\tilde{\F}_k$ le $\Q$-espace vectoriel librement engendr{\'e} par des $\{x\}_k^*$, $x\in F-\{0,1\}$. D{\'e}finissons
+\begin{align*}
+\tilde{d}_k : \tilde{\F}_k &\longrightarrow \F_{k-1}\otimes\F_1 \longrightarrow \bigwedge^2\Bigl(\bigoplus_1^{k-1}\F_j\Bigr),\\
+\{x\}_k^* &\longmapsto \{x\}_{k-1}\otimes(x) \mapsto \{x\}_{k-1}\wedge(x).
+\end{align*}
+Pour $k=2$, $\tilde{d}_2$ est $\{x\}_2^*\mapsto(1-x)\wedge(x)$. Pour $k>2$, le noyau de $\tilde{d}_k$ est celui de $\{x\}_k\mapsto\{x\}_{k-1}\otimes(x):\tilde{\F}_k\to\F_{k-1}\otimes\F_1$.
+
+D. Zagier conjecture l'existence d'une application
+\begin{equation*}
+\varphi_k : \Ker\Bigl(\tilde{d}_k:\tilde{\F}_k\longrightarrow\bigwedge^2\Bigl(\bigoplus_1^{k-1}\F_j\Bigr)\Bigr) \longrightarrow K_{2k-1}(F)\otimes\Q
+\end{equation*}
+tel que, pour tout plongement complexe $\sigma$ de $F$ et tout $x=\sum_\alpha\lambda_\alpha\{z_\alpha\}_k^*$ dans le noyau de $\tilde{d}_k$,
+\begin{equation*}
+D_k(\sigma x) := \sum_\alpha\lambda_\alpha D_k(\sigma z_\alpha)
+\end{equation*}
+v{\'e}rifie
+\begin{equation}\label{eq:1.7.1}
+D_k(x) = -\reg_\R^\sigma(\varphi_k(x)).
+\tag{1.7.1}
+\end{equation}
+
+Noter que cette formule est vraie pour $k=1$, o{\`u} $D_k(x)=-\Im\log(1-x)$.
+
+Noter aussi que $\varphi_k$ est uniquement d{\'e}termin{\'e} par (1.7.1).
+
+Si la conjecture est vraie, on pose
+\begin{equation*}
+\F_k := \tilde{\F}_k/\Ker(\varphi_k)
+\end{equation*}
+et on d{\'e}finit $\{\}_k$, $d_k$, et $\varphi_k$ par passage au quotient.
+
+Si $\F$ est la somme des $\F_k$, $(\F,d)$ est une co-alg{\`e}bre de Lie gradu{\'e}e.
+
+D. Zagier conjecture de plus que les $\varphi_k$ sont surjectifs, i.e. que
+\begin{equation*}
+(\Ker d)_k \twoheadrightarrow K_{2k-1}(F)\otimes\Q.
+\end{equation*}
+Sur cette conjecture additionnelle, nous n'avons rien {\`a} dire.
+
+\begin{remark}
+Inductivement, la condition que $\sum\lambda_\alpha\{z_\alpha\}_k^*$ soit dans $\Ker(\tilde{d}_k)$ est que
+\begin{equation}\label{eq:1.8.1}
+\text{Quel que soit l'homomorphisme }v:F^*\to\Q,\text{ on a }\sum\lambda_\alpha v(z_\alpha)^{k-2}(1-z_\alpha)\wedge(z_\alpha)=0\text{ dans }\bigwedge^2 F^*\otimes\Q.\tag{1.8.1}
+\end{equation}
+Forme polaris{\'e}e: quels que soient $v_1,\ldots,v_{k-2}:F^*\to\Q$,
+\begin{equation*}
+\sum\lambda_\alpha v_1(z_\alpha)\cdots v_{k-2}(z_\alpha)(1-z_\alpha)\wedge(z_\alpha)=0.
+\end{equation*}
+
+Pour $2\leq\ell<k$ et pour chaque plongement complexe $\sigma$, quel que soit $v:F^*\to\Q$, on a
+\begin{equation}\label{eq:1.8.2}
+\sum\lambda_\alpha v(z_\alpha)^{k-\ell}D_\ell(\sigma z_\alpha)=0.\tag{1.8.2}
+\end{equation}
+Forme polaris{\'e}e: pour $v_1,\ldots,v_{\ell-1}:F^*\to\Q$,
+\begin{equation*}
+\sum\lambda_\alpha v_1(z_\alpha)\cdots v_{\ell-1}(z_\alpha)D_\ell(\sigma z_\alpha)=0.
+\end{equation*}
+
+Dans (1.8.2), on peut aussi bien prendre $v$ ou les $v_i$ {\`a} valeurs complexes.
+\end{remark}
+
+\subsection{}
+
+Avant de donner l'interpr{\'e}tation motivique de 1.7, quelques remarques sur le syst{\`e}me projectif de variations $\mathcal{I}^{(N)}$ de 1.3.
+
+On a
+\begin{align}
+\mathcal{I}^{(N)} &= \mathcal{I}^{(M)}/W_{-2N-2}\mathcal{I}^{(M)} \quad \text{pour }N<M, \tag{1.9.1}\label{eq:1.9.1}\\
+\operatorname{Gr}^W_{-2k}\mathcal{I}^{(N)} &= \Q(k) \quad \text{pour }k\leq N, \tag{1.9.2}\label{eq:1.9.2}\\
+\mathcal{I}^{(1)} &= \text{extension }[1-z]\text{ de }\Q(0)\text{ par }\Q(1) \tag{1.9.3}\label{eq:1.9.3}
+\end{align}
+et $W_{-4}\mathcal{I}^{(N)}$ admet une description simple en terme de l'extension $[z]$. On a
+\begin{equation*}
+W_{-4}\mathcal{I}^{(N)} = \Sym^{N-1}([z])(1),
+\end{equation*}
+avec des isomorphismes (1.9.2) donn{\'e}s par
+\begin{equation}\label{eq:1.9.4}
+\begin{aligned}
+\operatorname{Gr}^W_{-2k}\Sym^{N-1}([z])(1) &= \Sym^{N-1}(\Q(0)\oplus\Q(1))(1)\\
+&= \bigoplus_{m=0}^{N-1}\Q(1-m)\otimes\Sym^m\Q(1) \cong \bigoplus_{m=0}^{N-1}\Q(m-k).\quad \text{[formule]}
+\end{aligned}
+\tag{1.9.4}
+\end{equation}
+
+Les morphismes de transition du syst{\`e}me projectif des $W_{-4}\mathcal{I}^{(N)}$ sont donn{\'e}s par la d{\'e}rivation de degr{\'e} $-1$ de $\Sym^*([z])$ qui sur $\Sym^1$ est la projection $[z]\to\Q(0):\Sym^1\to\Sym^0$.
+
+Dans le langage de [D], dont nous n'aurons pas besoin, la description est peut-\^etre plus limpide: $[z]$ d{\'e}finit un $\Q(1)$-torseur, l'alg{\`e}bre de Lie $\Q(1)$ agit de sur $\oplus\Q(k)$ par les $\Q(1)\otimes\Q(k)\to\Q(k+1)$ et on tord $\Q(k)$ par le $\Q(1)$-torseur d{\'e}fini par $[z]$.
+
+\subsection{}
+
+Nous nous proposons de montrer que la conjecture de D. Zagier (surjectivit{\'e} des $\varphi_k$ exclue) r{\'e}sulte des conjectures suivantes.
+
+\textbf{(A)} Pour $S$ un sch{\'e}ma lisse et connexe sur $\Q$, on dispose d'une cat{\'e}gorie tannakienne sur $\Q$ $\mathcal{T}(S)$. Pour $S$ variable, elles forment un champ: on dispose de foncteurs image inverse, avec des propri{\'e}t{\'e}s convenables. On appellera $\mathcal{T}(S)$ la cat{\'e}gorie des motifs de Tate mixtes sur $S$.
+
+\textbf{(B)} On dispose d'un objet de rang un $\Q(1)$ dans $\mathcal{T}(\Spec(\Q))$, avec les propri{\'e}t{\'e}s (B1), (B2) ci-dessous.
+
+Notations: Pour tout $S$, on note encore $\Q(1)$ l'image inverse de $\Q(1)$ dans $\mathcal{T}(S)$. On pose $\Q(k):=\Q(1)^{\otimes k}$ ($k\in\Z$) et on note $(k)$ une tensorisation par $\Q(k)$.
+
+(B1) {\'E}tant tannakienne, la cat{\'e}gorie $\mathcal{T}(S)$ est en particulier une cat{\'e}gorie ab{\'e}lienne dont tous les objets sont de longueur finie. On suppose que ses objets simples sont les $\Q(n)$, que les $\Q(n)$ sont deux {\`a} deux non isomorphes, et que
+\begin{align*}
+&\Ext^1(\Q(0),\Q(n))=0 \quad \text{pour }n\leq 0,\\
+&\Ext^1(\Q(n),\Q(m))=0 \quad \text{pour }n\neq m.
+\end{align*}
+Cette hypoth{\`e}se {\'e}quivaut {\`a} ce que chaque objet $M$ de $\mathcal{T}(S)$ ait une unique filtration croissante finie $W$, qu'il est commode d'indexer par les entiers pairs, avec $\operatorname{Gr}^W_{-2k}(M)$ somme de copies de $\Q(-k)$, et que tout morphisme $f:M_1\to M_2$ soit strictement compatible {\`a} $W$: le foncteur $M\mapsto\operatorname{Gr}^W(M)$ est exact.
+
+(B2) Notons $(K_m(S)\otimes\Q)^{(m)}$ le sous-espace de $K_m(S)\otimes\Q$ o{\`u} les op{\'e}rations d'Adams $\psi_r$ agissent par $r^m$. Pour $k\geq 1$, on suppose que
+\begin{equation*}
+\Ext^1(\Q(0),\Q(k)) = (K_{2k-1}(S)\otimes\Q)^{(k)}
+\end{equation*}
+de fa\c{c}on compatible aux changements de base $S'\to S$. Pour $f\in\mathcal{O}^*(S)$, on notera $[f]$ l'extension correspondante de $\Q(0)$ par $\Q(1)$.
+
+\textbf{(C)} On dispose d'un $\otimes$-foncteur ``r{\'e}alisation'', compatible aux changements de base $S'\to S$, de $\mathcal{T}(S)$ dans les $\Q$-variations de structures de Hodge mixtes sur $S(\C)$. Plus pr{\'e}cis\'ement, on veut une r{\'e}alisation sur $S(\C)$, pour $\C$ une cl{\^o}ture alg{\'e}brique de $\R$, fonctorielle en $\C$. On suppose donn{\'e} un isomorphisme entre la r{\'e}alisation de $\Q(1)$ et la structure de Hodge de Tate $\Q(1)$.
+
+\textbf{(D)} On suppose la commutativit{\'e} du diagramme
+\begin{equation*}
+\begin{CD}
+(K_{2k-1}(S)\otimes\Q)^{(k)} @>>> \Ext^1_{\mathcal{T}(S)}(\Q(0),\Q(k)) \\
+@V{\reg}VV @VV{\text{real}}V \\
+@. \Ext^1_{S(\C)}(\Q(0),\Q(k))
+\end{CD}
+\end{equation*}
+
+\textbf{(E)} Sur $\IP^1-\{0,1,\infty\}$ identifions $\operatorname{Gr}^W\Sym^{N-1}([z])(1)$ {\`a} $\bigoplus\Q(m)$ par la formule (1.9.4). Les $\Sym^{N-1}([z])(1)$ forment un syst{\`e}me projectif en $N$, comme en 1.9, et on demande l'existence d'un syst{\`e}me projectif $\mathcal{P}^{(N)}$ d'extensions de $\Q(0)$ par les $\Sym^{N-1}([z])(1)$, avec $\mathcal{P}^{(1)}$ l'extension $[1-z]$ de $\Q(0)$ par $\Q(1)$, de r{\'e}alisation le syst{\`e}me projectif d'extensions analogue $\mathcal{I}$ de 1.3, 1.9.
+
+\subsection{}
+
+Nous n'avons pas besoin de toute la force de la conjecture ci-dessus. Le cas de: $S=\IP^1-\{0,1,\infty\}$ ou le spectre d'un corps de nombres nous suffit. Pour prouver la conjecture de Zagier pour un corps de nombres $F$, il suffirait m{\^e}me de disposer de:
+
+($\text{A}_F$) Une cat{\'e}gorie tannakienne $\mathcal{T}(F)$ sur $\Q$.
+
+($\text{B}_F$) Un objet $\Q(1)$ de $\mathcal{T}(F)$, de rang un, v{\'e}rifiant (B1) de 1.10 et des isomorphismes
+\begin{equation*}
+\Ext^1(\Q(0),\Q(k)) = K_{2k-1}(F)\otimes\Q \quad \text{pour }k\geq 1.
+\end{equation*}
+
+($\text{C}_F$) Pour chaque plongement complexe $\sigma$ de $F$, un $\otimes$-foncteur exact: ``r{\'e}alisation'' de $\mathcal{T}(F)$ dans les $\Q$-structures de Hodge mixtes. On suppose donn{\'e} un isomorphisme $\real(\Q(1))\cong\Q(1)$ et v{\'e}rifi{\'e}e une compatibilit{\'e} (D) de 1.10.
+
+($\text{E}_F$) Enfin, pour $x\in\IP^1(F)-\{0,1,\infty\}=F-\{0,1\}$ on suppose donn{\'e} un syst{\`e}me projectif $\mathcal{P}(x)^{(N)}$ d'extensions de $\Q(0)$ par $\Sym^{N-1}([x])(1)$, avec $\mathcal{P}(x)^{(1)}=[1-x]$, de r{\'e}alisation rel $\sigma$ le syst{\`e}me projectif analogue $\mathcal{I}^{(N)}$ fibre de $\mathcal{I}^{(N)}$ en $\sigma x$.
+
+
+\section{Preuve}
+
+Dans ce paragraphe, nous prouvons que la conjecture 1.11 implique la conjecture de D. Zagier 1.7 (surjectivit{\'e} des $\varphi_k$ exclue).
+
+\subsection{}
+
+Supposons donn{\'e}s une cat{\'e}gorie tannakienne $\mathcal{T}$ sur $\Q$, et un objet de rang un $\Q(1)$, v{\'e}rifiant la condition (B1) de 1.10. Dans la terminologie de [BD], c'est une ``mixed Tate $\Q$-category''. Les $\Q(k):=\Q(1)^{\otimes k}$ ($k\in\Z$) {\'e}tant de rang un, on a $\End(\Q(k))=\Q$.
+
+Pour tout objet $X$ d'une cat{\'e}gorie additive $\Q$-lin{\'e}aire, le produit tensoriel avec un $\Q$-espace vectoriel de dimension finie $V$ est d{\'e}fini par
+\begin{equation*}
+\Hom(X\otimes V, Y) = \Hom(V,\Hom(X,Y)).
+\end{equation*}
+On a $X\otimes\Q^n=X^n$.
+
+Pour tout $M$ dans $\mathcal{T}$, $\operatorname{Gr}^W(M)$ est somme de copies de $\Q(k)$:
+\begin{equation}\label{eq:2.1.1}
+\operatorname{Gr}^W_{-2k}(M) = \Q(-k)\otimes\omega(M)_k \quad \text{avec } \omega(M)_k:=\Hom(\Q(k),\operatorname{Gr}^W_{-2k}).
+\tag{2.1.1}
+\end{equation}
+
+Soit $\omega(M)$ l'espace vectoriel gradu{\'e} somme des $\omega(M)_k$, $\omega(M)_k$ en degr{\'e} $k$. La filtration $W$ est compatible au produit tensoriel, le foncteur $M\mapsto\operatorname{Gr}^W(M)$ est exact et compatible au produit tensoriel et $M\mapsto\omega(M)$ est donc un $\otimes$-foncteur exact: c'est un foncteur fibre sur $\Q$ de la cat{\'e}gorie tannakienne $\mathcal{T}$.
+
+Par la th{\'e}orie g{\'e}n{\'e}rale des cat{\'e}gories tannakiennes, ce foncteur induit une {\'e}quivalence de $\mathcal{T}$ avec la cat{\'e}gorie des repr{\'e}sentations du sch{\'e}ma en groupes
+\begin{equation}\label{eq:2.1.2}
+G := \Aut^\otimes(\omega).
+\tag{2.1.2}
+\end{equation}
+
+Pour $M$ dans $\mathcal{T}$, la graduation de $\omega(M)$ correspond {\`a} une action $\tau$ du groupe multiplicatif $\Gm$: $\lambda$ agit par multiplication par $\lambda^n$ sur $\omega(M)_k$. Cette construction, compatible au produit tensoriel, d{\'e}finit
+\begin{equation*}
+\tau : \Gm \longrightarrow G.
+\end{equation*}
+
+Tout automorphisme du $\otimes$-foncteur $\omega$ respecte la filtration de $\omega(M)$ par les $\omega(W_{-2k}M)=\bigoplus_{\ell\geq k}\omega(M)_\ell$. Soit $U$ le sch{\'e}ma en groupe pro-unipotent des $\otimes$-automorphismes de $\omega$ qui induisent l'identit{\'e} sur le gradu{\'e} pour cette filtration. Si $g$ dans $G$ agit sur $\omega(1)$ par multiplication par $\mu$, $g$ agit sur $\omega\operatorname{Gr}^W M$ par $\tau(\mu)$ et $g\tau(\mu)^{-1}$ est dans $U$:
+\begin{equation*}
+G = \Gm \ltimes U.
+\end{equation*}
+
+Le sch{\'e}ma en groupes $G$ est limite projective de quotients $G_\alpha=\Gm\ltimes U_\alpha$ avec $U_\alpha$ groupe alg{\'e}brique unipotent. L'alg{\`e}bre de Lie $\Lie(U_\alpha)$ est gradu{\'e}e, avec $\intt\tau(\lambda)=\lambda^n$ sur $\Lie(U_\alpha)_k$. On a $\Lie(U_\alpha)_k=0$ pour $k\leq 0$.
+
+Les repr{\'e}sentations de $G_\alpha$ s'identifient aux espaces vectoriels gradu{\'e}s $V$ munis d'une action homog{\`e}ne de $\Lie(U_\alpha)$: la graduation d{\'e}finit l'action de $\Gm$, et l'action de $\Lie(U_\alpha)$ est automatiquement nilpotente.
+
+En particulier, une extension $E$ de $\Q$ par $\Q(k)$, telle que la repr{\'e}sentation $\omega(E)$ de $G$ se factorise par $G_\alpha$, s'identifie {\`a} une action homog{\`e}ne de $\Lie(U_\alpha)$ sur
+\begin{equation*}
+\Q\text{ en degr{\'e} }0 \oplus \Q(1)\text{ en degr{\'e} }k,
+\end{equation*}
+i.e. {\`a} une forme lin{\'e}aire $\xi$ sur $\Lie(U_\alpha)_k$, nulle sur $[\Lie U_\alpha,\Lie U_\alpha]_k$.
+
+Pour passer {\`a} la limite sur $\alpha$, il est commode de se dualiser et de consid{\'e}rer plut{\^o}t $\Lie(U_\alpha)^\vee$, gradu{\'e} par les $(\Lie U_\alpha)^{\vee k}:=(\Lie U_{\alpha k})^\vee$ et l'oppos{\'e} du transpos{\'e} de $[,]$:
+\begin{equation*}
+d : \Lie(U_\alpha)^\vee \longrightarrow \bigwedge^2\Lie(U_\alpha)^\vee.
+\end{equation*}
+C'est la diff{\'e}rentielle ext{\'e}rieure du complexe de de Rham des formes diff{\'e}rentielles invariantes {\`a} gauche sur $U_\alpha$.
+
+Passant {\`a} la limite inductive, on obtient une coalg{\`e}bre de Lie gradu{\'e}e {\`a} degr{\'e}s $>0$
+\begin{equation*}
+(\Lie U)^\vee := \varinjlim(\Lie U_\alpha)^\vee,
+\end{equation*}
+et une extension de $\Q$ par $\Q(k)$ s'identifie {\`a}
+\begin{equation*}
+e\in(\Lie U^\vee)_k \quad \text{tel que }de=0.
+\end{equation*}
+
+Soient $M$ dans $\mathcal{T}$, $x\in\Hom(\Q(i),\operatorname{Gr}^W_{-2i}(M))=\omega(M)_i$, $y\in\Hom(\operatorname{Gr}^W_{-2j}(M),\Q(j))=\omega(M)_j^\vee$ et $k=j-i$.
+
+Si l'action de $G$ sur $\omega(M)$ se factorise par $G_\alpha=\Gm\ltimes U_\alpha$, le coefficient
+\begin{equation*}
+c_{y,x}(u) = \langle y,ux\rangle \quad (u\in U_\alpha)
+\end{equation*}
+est une fonction sur $U_\alpha$, de diff{\'e}rentielle {\`a} l'origine la forme lin{\'e}aire
+\begin{equation*}
+c_{y,x}(u) = \langle y,ux\rangle \quad (u\in\Lie U_\alpha).
+\end{equation*}
+Cette forme lin{\'e}aire est dans $(\Lie U_{\alpha k})^\vee$ et d{\'e}finit
+\begin{equation*}
+c_{y,x}^M\in(\Lie U^\vee)_k.
+\end{equation*}
+
+Notre id{\'e}e essentielle est que si une combinaison lin{\'e}aire de tels coefficients est annul{\'e}e par $d$, elle fournit une extension de $\Q(0)$ par $\Q(k)$.
+
+Admettons 1.11. Pour la conjecture de Zagier, les coefficients consid{\'e}r{\'e}s sont ceux d{\'e}finis par les $\mathcal{P}(z)^{(N)}$, l'isomorphisme $\omega(\mathcal{P}(z)^{(N)})=\C^{N+1}$ et l'isomorphisme $\operatorname{Gr}^W_{-2k}\mathcal{I}^{(N)}=\Q(N)$ (comme en 1.9). L'action de $\Lie U$ sur $\omega(W_0/W_{-2N})=\Sym^{N-1}([z])(1)$ se factorise par le quotient $(\Lie U)_1$.
+
+C'est ce qui permet d'{\'e}tudier les coefficients consid{\'e}r{\'e}s dans le formalisme des groupes de Bloch (cf. 3.4). Cela implique aussi que l'action de $\Lie U$ sur $\mathcal{P}(z)^{(N)}$ est triviale sur $[\Lie U_{\geq 2},\Lie U_{\geq 2}]$.
+
+\subsection{}
+
+Soient $F$ un corps de nombres, admettons 1.11 et faisons dans 2.1 $\mathcal{T}=\mathcal{T}(\Spec F)$. Pour $z\in F^*$, soit $[z]$ dans $\mathcal{T}(F):=\mathcal{T}(\Spec(F))$ l'extension de $\Q$ par $\Q(1)$ de classe $z$ (1.11 (B$_F$)). On identifie $\operatorname{Gr}^W\Sym^{N-1}([z])(1)$ {\`a} $\bigoplus_0^{N-1}\Q(k)$ par la formule 1.9.4. Comme en 1.9, les $\Sym^{N-1}([z])(1)$ forment un syst{\`e}me projectif en $N$. Par l'hypoth{\`e}se 1.11 (E$_F$) on dispose pour chaque $z\in F-\{0,1\}$ d'un syst{\`e}me projectif d'extensions $\mathcal{P}(z)^{(N)}$ de $\Q(0)$ par $\Sym^{N-1}([z])(1)$, avec $\mathcal{P}(z)^{(1)}=[1-z]$, de r{\'e}alisation dans le plongement complexe $\sigma$ le syst{\`e}me projectif analogue d'extensions $\mathcal{I}^{(N)}_{\sigma z}$.
+
+Soient $k\geq 1$ et $N\geq k$. {\'E}crivons simplement $\mathcal{P}_z$ pour $\mathcal{P}(z)^{(N)}$. Soit $x$ l'isomorphisme $\Q(0)\xrightarrow{\sim}\operatorname{Gr}^W_0(\mathcal{P}_z)$, $y$ l'isomorphisme $\operatorname{Gr}^W_{-2k}(\mathcal{P}_z)\xrightarrow{\sim}\Q(k)$ et posons
+\begin{equation*}
+\{z\}_k := c_{x,y}\in(\Lie U^\vee)_k
+\end{equation*}
+(ind{\'e}pendant de $N$).
+
+Parce que $\Lie U^\vee$ est {\`a} degr{\'e}s $>0$, on a $d=0$ sur $(\Lie U^\vee)_1$ et
+\begin{equation*}
+(\Lie U^\vee)_1 = \Ext^1(\Q(0),\Q(1)) = F^*\otimes\Q.
+\end{equation*}
+Puisque $\mathcal{P}_z^{(1)}=[1-z]$, on a
+\begin{equation*}
+\{z\}_1 = (1-z).
+\end{equation*}
+
+\begin{proposition}
+Pour $k\geq 2$, on a
+\begin{equation*}
+d\{z\}_k = \{z\}_{k-1}\otimes(z) \quad \text{dans }\bigwedge^2(\Lie U^\vee)_k.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+On a
+\begin{equation*}
+\omega(\mathcal{P}_z) = \bigoplus_0^N\omega(\mathcal{P}_z)_k = \C^{N+1}.
+\end{equation*}
+L'action de $U$ sur $\omega(W_0/W_{-2})=\omega(\Sym^{N-1}([z])(1))$ est d{\'e}duite de son action sur $\omega([z])$. Il en r{\'e}sulte que l'action de $U$ sur $\omega(\mathcal{P}_z)$ se factorise par $V\subset\operatorname{GL}_{N+1}$ (1.1).
+
+Les coefficients $c_{i,0}$ ($1\leq i\leq N$) et $c_{N,1}$ forment une base duale de la base $(\ad e_0)^{i-1}(e_1),e_0$ de $\Lie V$. On a donc dans $\bigwedge^2\Lie(U)^\vee$
+\begin{equation*}
+d c_{N,0} = c_{N-1,0}\wedge c_{N,1}.\qedhere
+\end{equation*}
+On a $c_{N-1,0}=\{z\}_{k-1}$, $c_{N,1}=(z)$ et 2.3 en r{\'e}sulte.
+\end{proof}
+
+\subsection{}
+
+Soit $\sum\lambda_\alpha\{z_\alpha\}_k^*$ une combinaison lin{\'e}aire formelle, {\`a} coefficients rationnels, d'{\'e}l{\'e}ments de $F-\{0,1\}$. Si
+\begin{equation*}
+\begin{cases}
+\text{pour }k=2: & \sum\lambda_\alpha(1-z_\alpha)\wedge(z_\alpha)=0\text{ dans }\bigwedge^2F^*\otimes\Q,\\[0.5ex]
+\text{pour }k>2: & \sum\lambda_\alpha\{1-z_\alpha\}_{k-1}\otimes(z_\alpha)=0\text{ dans }(\Lie U^\vee)^{k-1}\otimes F^*,
+\end{cases}
+\end{equation*}
+il r{\'e}sulte de 2.3 que $\sum\lambda_\alpha\{z_\alpha\}_k$ est dans le noyau de $d$, donc correspond {\`a} une extension de $\Q(0)$ par $\Q(k)$. Par 1.11 (B$_F$), cette extension correspond {\`a} un {\'e}l{\'e}ment
+\begin{equation*}
+\varphi_k\Bigl(\sum\lambda_\alpha\{z_\alpha\}_k\Bigr)\in K_{2k-1}(F)^{(k)}.
+\end{equation*}
+
+Soit $\sigma$ un plongement complexe de $F$. Nous nous proposons de calculer le r{\'e}gulateur $\reg_\R^\sigma$ de $\varphi_k(\sum\lambda_\alpha\{z_\alpha\}_k)$.
+
+\subsection{}
+
+Soit $\mathscr{H}$ la cat{\'e}gorie tannakienne sur $\R$ des $\R$-structures de Hodge mixtes dont les seuls nombres de Hodge non nuls sont les $h^{p,p}$.
+
+Par 1.2, la donn{\'e}e de $H$ dans $\mathscr{H}$ {\'e}quivaut {\`a} celle d'un espace vectoriel complexe gradu{\'e} $H_\C^k$:
+\begin{equation*}
+H_\C = \bigoplus_k H_\C^k,
+\end{equation*}
+\begin{align*}
+W_{-2k} &= \bigoplus_{\ell\geq k}H_\C^\ell,\\
+F^{-k} &= \bigoplus_{\ell\leq k}H_\C^\ell,
+\end{align*}
+plus une structure r{\'e}elle $H_\R$ sur $\bigoplus H_\C^k$ relativement {\`a} laquelle les $W$ soit r{\'e}elle. La structure r{\'e}elle $H_\R$ induit une structure r{\'e}elle sur $\operatorname{Gr}^W_k H_\C = H_\C^k$. On dispose donc de deux structures r{\'e}elles sur $H_\C=\bigoplus H_\C^k$: la structure r{\'e}elle, $H_\R$, et sa gradu{\'e}e $\operatorname{Gr}^W H_\R$. Pour faciliter la comparaison avec les motifs de Tate mixte, il sera utile d'en consid{\'e}rer une troisi{\`e}me:
+\begin{equation*}
+\omega(H)_\R := \tau(1/2\pi i)\operatorname{Gr}^W H_\R = \bigoplus i^{-k}H_\R^k.
+\end{equation*}
+
+La donn{\'e}e de $H_\R$ {\'e}quivaut {\`a} celle la structure r{\'e}elle $\bigoplus H_\C^k$ de $\bigoplus H_\C^k$, plus celle d'une donn{\'e}e (a), (b), (c), ou (d) comme ci-dessous. Soit $X\subset\operatorname{GL}(H_\C)$ le sous-groupe qui respecte $W$ et induit l'identit{\'e} sur le gradu{\'e}. Soit $X(\R)$ sa structure r{\'e}elle rel. la structure $\bigoplus H_\C^k$.
+
+Donn{\'e}e (a): une classe $n\in X/X(\R)$: $(H_\R)$ et $n$ se d{\'e}terminent mutuellement par
+\begin{equation*}
+H_\R = n\Bigl(\bigoplus H_\C^k\Bigr).\qedhere
+\end{equation*}
+
+Donn{\'e}e (b): un {\'e}l{\'e}ment $b\in X$ tel que $b\bar{b}=1$: $b$ et $n$ se d{\'e}terminent mutuellement par
+\begin{equation*}
+b = n\bar{n}^{-1}.\qedhere
+\end{equation*}
+
+En terme de la structure r{\'e}elle de $X$ d{\'e}finie par $\operatorname{Gal}\C/\R$, ces formules se r{\'e}crivent $b=n\intt\tau(-1)(n)^{-1}$, et $b\intt\tau(-1)(b)=1$.
+
+Donn{\'e}e (c): un {\'e}l{\'e}ment purement imaginaire $N$ de $\Lie X$: $N=\frac{1}{2}\log b$.
+
+Donn{\'e}e (d): des {\'e}l{\'e}ments purement imaginaires de degr{\'e} $k$ $N_k\in\operatorname{GL}(\bigoplus H_\C^m)$, ($k\geq 1$):
+\begin{equation*}
+N = \sum N_k.
+\end{equation*}
+
+En terme de la structure r{\'e}elle $\omega(H)_\R=\bigoplus i^{-k}H_\R^k$, $N_k$ est r{\'e}el pour $k$ impair, purement imaginaire pour $k$ pair.
+
+La construction $H\mapsto(\omega(H)_\R,(N_k))$ est une $\otimes$-{\'e}quivalence de cat{\'e}gories de $\mathscr{H}$ avec la cat{\'e}gorie des espaces vectoriels r{\'e}els gradu{\'e}s, munis de $N_k\in\operatorname{GL}(\omega(H)_\R)\otimes\C$ ($k\geq 1$), avec $N_k$ de degr{\'e} $k$, r{\'e}el pour $k$ impair et purement imaginaire pour $k$ pair. Pour $\otimes$, l'action de $N_k$ est {\`a} traiter comme une action de $\Lie$.
+
+\subsection{}
+
+Fixons un plongement complexe $\sigma$ de $F$, donc un foncteur ``r{\'e}alisation'' de $\mathcal{T}(\Spec F)$ dans les $\Q$-structures de Hodge mixtes. Le foncteur r{\'e}alisation est automatiquement {\`a} valeurs dans les structures de Hodge mixtes dont les seuls nombres de Hodge non nuls sont les $h^{p,p}$. Si on passe {\`a} la $\R$-structure de Hodge mixte sous-jacente, on obtient $\real_\R$, {\`a} valeur dans la cat{\'e}gorie $\mathscr{H}$ de 2.5. Les d{\'e}finitions ont {\'e}t{\'e} ajust{\'e}es pour que
+\begin{equation*}
+\omega(M)\otimes\R = \omega(\real_\R(M))
+\end{equation*}
+et chaque $N_k$ fournit un {\'e}l{\'e}ment de l'alg{\`e}bre de Lie de $U$ sur $\C$ (r{\'e}el pour $k$ impair, imaginaire pour $k$ pair).
+
+Si $\mathcal{M}$ est une extension de $\Q(0)$ par $\Q(k)$, d'o{\`u} $\omega(\mathcal{M})=\Q\oplus\Q(k)$, le coefficient $c_{k,0}$ de $N_k$ est par hypoth{\`e}se le r{\'e}gulateur de $\reg_\R^\sigma$ l'{\'e}l{\'e}ment correspondant de $K_{2k-1}(F)^{(k)}\otimes\Q$.
+
+Soit $M$ dans $\mathcal{T}(\Spec F)$. Sa r{\'e}alisation $\real(M)$ a pour espace vectoriel complexe sous-jacent $\omega(M)\otimes\C$. Si $X\subset\operatorname{GL}(\omega(M))$ est le sous-groupe qui respecte $W$ et agit trivialement sur le gradu{\'e}, le r{\'e}seau rationnel de $\real(M)$ est de la forme
+\begin{equation*}
+g\cdot\tau(2\pi i)\omega(M)
+\end{equation*}
+avec $g\in X(\C)$. Soient $x\in\omega(M)_i$, $y$ une forme lin{\'e}aire sur $\omega(M)_k$ et $c_{x,y}$ le coefficient correspondant. Par d{\'e}finition, on a
+\begin{equation*}
+\langle N_k,c_{x,y}\rangle = \text{coefficient de }\tfrac{1}{2}\log(g\cdot\intt\tau(-1)(g)^{-1}).\qedhere
+\end{equation*}
+
+Pour $M=\mathcal{P}_z$ ($z\in F-\{0,1\}$), cela donne:
+
+\begin{proposition}
+On a
+\begin{equation*}
+\langle N_k,\{z\}_k\rangle = -D_k(z).\qedhere
+\end{equation*}
+\end{proposition}
+
+\begin{proposition}
+Sous les hypoth\`eses de 1.11, il existe un monomorphisme de coalg\`ebre de Lie $\varphi:(\Lie U)^\vee\to\F$, compatible {\`a} $\{\}_k$. La conjecture de Zagier vaut pour $\varphi_k$ le compos{\'e}
+\begin{equation*}
+\Ker(d_k:\F_k\to\bigwedge^2\F) \xrightarrow{\varphi} \Ker(d:(\Lie U^\vee)\to\bigwedge^2\Lie U^\vee)_k = \Ext^1(\Q(0),\Q(k)) = K_{2k-1}(F).\qedhere
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+D\'efinissons inductivement
+\begin{equation*}
+\varphi_k : \F_k \longrightarrow (\Lie U^\vee)_k
+\end{equation*}
+compatible {\`a} $\{\}_k$ et $d$. Pour $k=1$, $\F_1=F^*\otimes\Q$, $(\Lie U^\vee)_1=\Ext^1(\Q,\Q(1))=F^*\otimes\Q$ et on prend pour $\varphi_1$ l'application identique de $F^*\otimes\Q$.
+
+Supposons $k>1$ et $\varphi_\ell$ d\'efini pour $\ell<k$. D\'efinissons $\tilde{\varphi}_k:\tilde{\F}_k\to\Lie(U^\vee)^k$ par
+\begin{equation*}
+\tilde{\varphi}_k : \{x\}_k^* \longmapsto \{x\}_k.
+\end{equation*}
+
+D'apr\`es 2.3, le diagramme
+\begin{equation*}
+\begin{CD}
+\tilde{\F}_k @>>> (\Lie U^\vee)^k \\
+@V{\tilde{d}_k}VV @VV{d}V \\
+\bigwedge^2(\bigoplus_1^{k-1}\F_\ell) @>>> \bigwedge^2\Lie(U^\vee)^k
+\end{CD}
+\end{equation*}
+est commutatif. L'application $\tilde{\varphi}$ envoie donc $\Ker(\tilde{d}_k)$ dans $\Ker(d)_k=\Ext^1(\Q(0),\Q(k))=K_{2k-1}(F)\otimes\Q$. Pour une extension $E$ de $\Q(0)$ par $\Q(k)$, d\'efinissant $x:\Q(0)\to\operatorname{Gr}^W_0(E)$, i.e. $x\in\omega(E)_0$ et $y:\operatorname{Gr}^W_{-2k}(E)\to\Q(k)$, i.e. $y\in\omega(E)_k^\vee$, $\langle N_k,c_{x,y}\rangle$ est le r\'egulateur $\reg_\R^\sigma$ de la classe correspondante dans $K_{2k-1}(F)\otimes\Q$, et que la formule propos\'ee pour $\varphi_k$ est correcte r\'esulte de 2.7. On d\'efinit alors $\varphi_k$ par passage au quotient {\`a} partir de $\tilde{\varphi}_k$.
+\end{proof}
+
+\begin{remark}
+Pour que le morphisme $\varphi$ de 2.8 soit un isomorphisme en degr\'es $k\leq N$, il faut et il suffit que la sous-cat\'egorie tannakienne de $\mathcal{T}(F)$ engendr\'ee (par $\otimes$, $\oplus$, dual, sous-quotients) par les $\mathcal{P}(z)^{(N)}$ ($z\in F-\{0,1\}$) contienne tout les $M$ dans $\mathcal{T}(F)$ tels que $M=W_0 M$ et $W_{-2N-2}M=0$.
+
+Pour $\mathcal{T}(F)$ la cat\'egorie conjecturale de tous les motifs de Tate mixte sur $F$, ce devrait n'\^etre vrai que pour $N=1$ ou $2$.
+\end{remark}
+
+
+\section{Extensions et coefficients}
+
+Le but de ce paragraphe est d'expliquer plus concr\`etement le sens de la construction 2.1 d'extensions comme combinaison lin\'eaire de coefficients.
+
+\subsection{}
+
+Comme en 2.1, on suppose donn\'ee une cat\'egorie tannakienne $\mathcal{T}$ et un objet de rang un $\Q(1)$, v\'erifiant la condition (B1) (it: 1.10 d'o\`u, comme en 2.1, un foncteur fibre $\omega$ de groupe d'automorphismes $\Gm\ltimes U$.
+
+L'alg\`ebre affine $\Gamma(U,\mathcal{O})$ de $U$ est une big\`ebre commutative, de coproduit caract\'eris\'e par
+\begin{equation*}
+\Delta f = \sum f'\otimes f'' \iff f(uv) = \sum f'(u)f''(v).\qedhere
+\end{equation*}
+L'action de $\Gm$ par automorphismes int\'erieurs fournit une graduation de $\Gamma(U,\mathcal{O})$, avec $f$ de degr\'e $k$ si
+\begin{equation*}
+f(\tau(\lambda)u\tau(\lambda)^{-1}) = \lambda^k f(u).\qedhere
+\end{equation*}
+
+Pour $M$ dans $\mathcal{T}$, $x\in\omega(M)_i$, $y\in\omega(M)_j^\vee$, et $k=j-i$, le coefficient $c_{y,x}$ est de degr\'e $k$. En particulier, une extension $E$ de $\Q(0)$ par $\Q(k)$ fournit un coefficient $c(E)$ de degr\'e $k$. Cette construction est une bijection
+\begin{equation*}
+\Ext^1(\Q(0),\Q(k)) \xrightarrow{\;\sim\;} \{e\in\Gamma(U,\mathcal{O})^k \mid \Delta e = 1\otimes e + e\otimes 1\}.\qedhere
+\end{equation*}
+
+Comme en 2.1, ceci fournit un moyen pour construire une extension comme combinaison lin\'eaire de coefficients. Prendre garde toutefois qu'il s'agit ici de coefficients au sens des repr\'esentations de groupes, plut\^ot qu'au sens des repr\'esentations d'alg\`ebres de Lie. La relation entre les deux constructions sera donn\'ee en 3.3.
+
+\subsection{}
+
+Soient $M$, $x$, $y$ comme en 3.1. Soit $M_1$ le plus petit sous-objet de $M$ tel que $x\in\omega(M_1)_i$. L'espace vectoriel $\omega(M)$ est une repr\'esentation de $U$ et $\omega(M_1)$ est la sous-repr\'esentation de $\omega(M)$ engendr\'ee par $x$. Elle est automatiquement stable par $\Gm$ car $x$ est homog\`ene. Dualement, soit $M_2$ le plus petit quotient de $M$ tel que $y\in\omega(M_2)_j^*\subset\omega(M)_j^*$: $\omega(M_2)^\vee$ est la sous-repr\'esentation de $\omega(M)^\vee$ engendr\'ee par $y$. Soit $M'$ l'image de $M_1$ dans $M_2$, $\tilde{x}$ et $\tilde{y}$ les images de $x$ et $y$ dans $\omega(M')_i$ et $\omega(M')_j^\vee$. On a
+\begin{equation*}
+c_{y,x} = c_{\tilde{y},\tilde{x}}.\qedhere
+\end{equation*}
+
+Pour $i\leq k\leq j$, soient $e(k)_\alpha$ une base de $\omega(M)_k$, et $e(k)^\alpha\subset$ la base duale de $\omega(M)_k^\vee$. Les $c_{e(k)^\alpha,e(k)_\beta}$ sont lin\'eairement ind\'ependants, et les $c_{y,e(k)_\alpha}$ sont lin\'eairement ind\'ependants. On a
+\begin{equation*}
+\Delta c_{y,x} = \sum c_{y,e(k)_\alpha}\otimes c_{e(k)^\alpha,x}.\qedhere
+\end{equation*}
+
+Pour que $c_{y,x}$ v\'erifie $\Delta c_{y,x}=1\otimes c_{y,x}+c_{y,x}\otimes 1$, il faut et il suffit donc que soit $c_{y,x}=0$, auquel cas $M=0$, soit que $M$ soit une extension de $\Q(i)$ par $\Q(j)$.
+
+\'Etant donn\'es des triples $M_\alpha$, $x_\alpha$, $y_\alpha$, avec $x_\alpha\in\omega(M_\alpha)_i$, $y_\alpha\in\omega(M_\alpha)_j^*$, si $f=\sum\lambda_\alpha c_{y_\alpha,x_\alpha}$ v\'erifie $\Delta f=1\otimes f+f\otimes 1$, l'extension correspondante est donc obtenue comme suit.
+
+(a) Si $f=0$, il existe dans $\bigoplus M_\alpha$ un sous-objet $M_1$ tel que $\sum\lambda_\alpha x_\alpha\in M_1$ et que $\sum\lambda_\alpha y_\alpha$ soit nul sur $\omega(M_1)_j$.
+
+(b) Sinon, l'extension cherch\'ee est le sous-quotient $(\bigoplus M_\alpha)'$ de $\bigoplus M_\alpha$, muni de $\sum\lambda_\alpha x_\alpha$ et $\sum\lambda_\alpha y_\alpha$; $\operatorname{Gr}_{-2i}^W((\bigoplus M_\alpha)')$ est identifi\'e {\`a} $\Q(i)$ par $(\sum\lambda_\alpha x_\alpha)$ et $\operatorname{Gr}_{-2j}^W((\bigoplus M_\alpha)')$ est identifi\'e {\`a} $\Q(j)$ par $(\sum y_\alpha)$.
+
+Cette construction n'utilise gu\`ere le produit tensoriel de $\mathcal{T}$. Il joue par contre un r\^ole essentiel si on veut, comme en 2.1, utiliser plut\^ot des coefficients de Lie.
+
+\subsection{}
+
+Pour toute fonction $f$ sur un groupe unipotent $U$, posons $f^L(u)=\langle df,\log u\rangle$. Si $f$ est un coefficient, on peut comme suit \'ecrire $f^L$ comme un coefficient. Soit $(V,\rho)$ une repr\'esentation, et $e_1,\ldots,e_n$ une base telle que le drapeau correspondant soit fixe par $U$. Pour le coefficient $c_{ij}=(e^i,\rho(e_j))$ ($i<j$), on a alors
+\begin{equation*}
+c_{ij}^L(u) = \langle de^i,\log u\cdot e_j\rangle = \sum_{n\geq 1}\frac{(-1)^{n-1}}{n}(\rho(u)-1)^n_{ij}
+\end{equation*}
+
+C'est
+\begin{equation*}
+c_{ij}^L = \sum_{n=1}^{j-i}(-1)^{n-1}\sum_{i=k_0<\cdots<k_n=j}c_{k_n,k_{n-1}}\cdots c_{k_1,k_0}.\qedhere
+\end{equation*}
+
+De plus, un produit de coefficients s'interpr\`ete comme un coefficient d'un produit tensoriel de repr\'esentations.
+
+Pour que $c_{y,x}^L$ v\'erifie $\Delta f=f\otimes 1+1\otimes f$, il faut et il suffit que $c_{y,x}=c_{y,x}^L$ et que $c_{y,x}\in\Lie(U)^\vee$ v\'erifie $dc_{y,x}=0$ dans le complexe $\bigwedge\Lie(U)^\vee$. Si des $(M_\alpha,x_\alpha,y_\alpha)$ sont donn\'es, et que $\sum\lambda_\alpha c_{y_\alpha,x_\alpha}$ d\'efinit comme en 2.1 une extension de $\Q(i)$ par $\Q(j)$, alors $\sum\lambda_\alpha c_{y_\alpha,x_\alpha}^L$ d\'efinit la m\^eme extension, d'o\`u finalement une description de l'extension $\sum\lambda_\alpha c_{y_\alpha,x_\alpha}$ de 2.1 comme sous-quotient d'une somme de puissances tensorielles des $M$.
+
+\subsection{}
+
+Dans la situation clef 1.11, les coefficients associ\'es (cf. fin de 2.1) aux $\mathcal{P}(z)^{(N)}$ sont des fonctions $f$ sur $U$, de degr\'e $N$, ayant la propri\'et\'e suivante.
+
+\textbf{(3.4.1)}. Pour $u$ dans le sous-groupe $U_{\geq 2}$ de $U$ d'alg\`ebre de Lie $\Lie U_{\geq 2}$,
+\begin{equation*}
+ fug) = f(u)+f(g).\qedhere
+\end{equation*}
+
+Cela r\'esulte de ce que $\mathcal{P}(z)^{(N)}$ est extension de $\Q(0)$ par une repr\'esentation de $U$ triviale sur $U_{\geq 2}$. En d'autres termes, $f$ est dans le groupe de Bloch $B_N$ de $\mathcal{P}(z)^{(N)}$ ([BD]). Dans [BD], on \'evite le probl\`eme de construire $\mathcal{T}(F)$ en construisant directement, en terme de $K$-th\'eorie, ce qui devrait \^etre ses groupes de Bloch, et les \'el\'ements qui devraient \^etre les coefficients des $\mathcal{P}(z)^{(N)}$.
+
+
+\section{Variante complexe}
+
+Au \S 2, nous avons vu que la conjecture 1.11 implique une expression comme somme de valeurs de $D_k$ pour l'image par
+\begin{equation*}
+\reg_\R^\sigma : K_{2k-1}(F) \longrightarrow \C/(2\pi i)^k\R
+\end{equation*}
+des \'el\'ements de $K_{2k-1}(F)$ dans l'image de $\varphi_k$. Ici, nous montrerons que la conjecture 1.10 fournit aussi une formule pour l'image de ces classes par
+\begin{equation*}
+\reg^\sigma : K_{2k-1}(F) \longrightarrow \C/(2\pi i)^k\Q.\qedhere
+\end{equation*}
+
+\subsection{}
+
+Fixons $z\in\C$. Appelons d\'etermination g\'en\'eralis\'ee de $L(z)$ une matrice de la forme $L(z)\cdot t(2\pi i)^{v}\cdot t(2\pi i)^{-1}$ avec $v\in V(\Q)$, pour $L(z)$ une d\'etermination de la matrice $L(z)$ de 1.1, et d\'etermination g\'en\'eralis\'ee de $(\log z,\operatorname{Li}_1(z),\ldots,\operatorname{Li}_N(z))$ une suite de nombres $(\mathcal{L},L_1,\ldots,L_N)$ telle que la matrice
+\begin{equation*}
+\begin{pmatrix}
+1 & 0 & \cdots & 0\\
+-L_1 & 1 & 0 & \cdots\\
+-L_2 & \mathcal{L} & 1 & \ddots\\
+\vdots & \vdots & \ddots & \ddots\\
+-L_N & \frac{\mathcal{L}^{N-1}}{(N-1)!} & \cdots & \mathcal{L} & 1
+\end{pmatrix}
+= \exp\Bigl(-\sum L_i(\ad e_0)^{i-1}(e_1)\Bigr)\cdot\exp(\mathcal{L}e_0)
+\end{equation*}
+soit une d\'etermination g\'en\'eralis\'ee de $L(z)$.
+
+Si $(\mathcal{L},L_1,\ldots,L_N)$ est une d\'etermination g\'en\'eralis\'ee, les autres d\'eterminations g\'en\'eralis\'ees peuvent s'obtenir par une suite d'op\'erations des types suivants, dans un ordre qu'on peut prescrire:
+
+(a) remplacer $\mathcal{L}$ par $\mathcal{L}+a$, $a\in 2\pi i\Q$ et garder $L_1,\ldots,L_N$;
+
+(b)$_k$ ($1\leq k\leq N$) garder $\mathcal{L},L_1,\ldots,L_{k-1}$ et pour $i\geq 0$, remplacer $L_{i+k}$ par $L_{i+k}+a\frac{\mathcal{L}^i}{i!}$ ($a\in(2\pi i)^k\Q$).
+
+Passons au logarithme. Soit $\Lambda(z):=\log L(z)$ et d\'efinissons les $A_i(z)$ ($1\leq i\leq N$) par
+\begin{equation*}
+\Lambda(z) = \log z\cdot e_0 - \sum A_i(z)(\ad e_0)^{i-1}(e_1).
+\end{equation*}
+
+Une d\'etermination g\'en\'eralis\'ee de $\Lambda(z)$ ou de $(\log z,A_1(z),\ldots,A_N(z))$ est d\'efinie de m\^eme, en terme d'une d\'etermination g\'en\'eralis\'ee de $L(z)$.
+
+Utilisant 1.5.4, on v\'erifie que
+\begin{equation*}
+A_k(z) = \sum_{j=0}^{k-1}\frac{(-1)^j}{j!}(\log z)^j\operatorname{Li}_{k-j}(z).\qedhere
+\end{equation*}
+
+En particulier
+\begin{align*}
+A_1(z) &= \operatorname{Li}_1(z) = -\log(1-z),\\
+A_2(z) &= \operatorname{Li}_2(z) + \tfrac{1}{2}\log(z)\log(1-z).\qedhere
+\end{align*}
+
+A nouveau, une d\'etermination g\'en\'eralis\'ee de $(\log z,A_1(z),\ldots,A_{k-1}(z))$ d\'efinit celle de $A_k(z)$ {\`a} un multiple rationnel de $(2\pi i)^k$ pr\`es.
+
+\subsection{}
+
+Soient $F$ un corps de nombre, et $\sigma$ un plongement complexe. Dans ce $n^o$, nous identifierons $F$ {\`a} son image dans $\C$ par $\sigma$, $\sigma$ {\`a} l'inclusion identique, et nous \'ecrirons $\reg$ pour $\reg^\sigma$. Supposons choisie une d\'etermination de $\log z$ pour $z\in F^*$, qui soit un homomorphisme de $F^*$ dans $\C$. Par exemple, pour $F\subset\R$, on peut prendre $\log|z|$. Toute autre d\'etermination g\'en\'eralis\'ee qui soit un homomorphisme est de la forme $z\mapsto\log z+a(z)$ pour $a$ un homomorphisme $F^*\to 2\pi i\Q$.
+
+Nous aurons {\`a} consid\'erer des familles finies $(z_\alpha)_{\alpha\in A}$ d'\'el\'ements de $F^*$.
+
+Une telle famille \'etant fix\'ee, nous n'aurons {\`a} consid\'erer que les $\log(z_\alpha)$ et les $\log(1-z_\alpha)$, mais il sera essentiel les d\'eterminations g\'en\'eralis\'ees choisies proviennent d'un homomorphisme $\log:F^*\to\C$, i.e. que chaque relation multiplicative entre les $z_\alpha$ et $(1-z_\alpha)$ en fournisse une, additive, entre les $\log(z_\alpha)$ et $\log(1-z_\alpha)$.
+
+Une d\'etermination g\'en\'eralis\'ee $\log:F^*\to\C$ comme ci-dessus des $\log(z)$ ($z\in F^*$) en fournit une des $\operatorname{Li}_1(z)=-\log(1-z)$, d'o\`u une d\'etermination g\'en\'eralis\'ee des $\operatorname{Li}_2(z)$ modulo $(2\pi i)^2\Q$. Fixons $z\in F$, $z\neq 0,1$ et choisissons une d\'etermination g\'en\'eralis\'ee de $L(z)$ adapt\'ee {\`a} celles d\'ej\`a choisie pour $\log z$ et $\operatorname{Li}_1(z)=-\log(1-z)$. Si on change la d\'etermination choisie de $\log$ en $\log+a$, et celle de $L(z)$ par
+\begin{equation}\label{eq:4.2.1}
+L(z) \longmapsto L(z)\exp(-a(1-z)e_1+a(z)e_0),\tag{4.2.1}
+\end{equation}
+$A(z)$ est remplac\'e par un polyn\^ome de Lie en $A(z)$ et $(-a(1-z)e_1+a(z)e_0)$:
+\begin{equation}\label{eq:4.2.2}
+A(z) \longmapsto A(z) + (-a(1-z)e_1+a(z)e_0) + \tfrac{1}{2}[A(z),-a(1-z)e_1+a(z)e_0]+\cdots
+\tag{4.2.2}
+\end{equation}
+(loi de Hausdorff). Les termes \'ecrits suffisent au calcul de la nouvelle d\'etermination de $A_2$:
+\begin{equation*}
+A_2(z) \longmapsto A_2(z) + \tfrac{1}{2}(a(z)\log(1-z)-a(1-z)(\log z)).\qedhere
+\end{equation*}
+
+Si une combinaison lin\'eaire formelle $\sum\lambda_\alpha\{z_\alpha\}_2^*$ d'\'el\'ements $z_\alpha$ de $F-\{0,1\}$ v\'erifie dans $\bigwedge^2 F^*\otimes\Q$
+\begin{equation}\label{eq:4.2.3}
+\sum\lambda_\alpha(1-z_\alpha)\wedge z_\alpha = 0,\tag{4.2.3}
+\end{equation}
+la somme $\sum\lambda_\alpha A_2(z_\alpha)$ est invariante par le changement (4.2.1) de d\'eterminations: elle change par l'addition de l'image de $\sum\lambda_\alpha(1-z_\alpha)\wedge(z_\alpha)=0$ par l'application
+\begin{equation*}
+\bigwedge^2(F^*)\otimes\Q \longrightarrow \C: (z_1)\wedge(z_2) \longmapsto a(z_2)\log(1-z_1)-a(z_1)\log(1-z_2).\qedhere
+\end{equation*}
+
+Ceci d\'efinit $\sum\lambda_\alpha A_2(z_\alpha)$ avec une ambiguit\'e dans $(2\pi i)^2\Q$ (changements 4.1 (b$_2$)).
+
+On verra que la conjecture 1.10 implique que si $\sum\lambda_\alpha(1-z_\alpha)\wedge(z_\alpha)=0$, alors $\sum\lambda_\alpha A_2(z_\alpha)\in\C/(2\pi i)^2\Q$ ainsi d\'efini est $\reg(\varphi_2(\sum\lambda_\alpha\{z_\alpha\}_2^*))$ (notations de 1.8). En particulier elle implique que
+\begin{equation}\label{eq:4.2.4}
+\text{si }\sum\lambda_\alpha\{z_\alpha\}_2=0\text{ dans }\F_2,\text{ i.e. si }\sum\lambda_\alpha(1-z_\alpha)\wedge(z_\alpha)=0\text{ et que (1.8.2) }\sum\lambda_\alpha D_1(\sigma z_\alpha)=0,\text{ alors }\sum\lambda_\alpha A_2(z_\alpha)\in(2\pi i)^2\Q.\tag{4.2.4}
+\end{equation}
+
+Sans changer la d\'etermination g\'en\'eralis\'ee de $\log$, nous pouvons changer celle de $L(z_\alpha)$ par
+\begin{equation}\label{eq:4.2.5}
+L(z_\alpha) \longmapsto L(z_\alpha)\exp(-a_2(z_\alpha)(\ad e_0)(e_1)),\tag{4.2.5}
+\end{equation}
+pour des $a_2(z_\alpha)\in(2\pi i)^2\Q$. Par (4.2.4), il existe donc une d\'etermination g\'en\'eralis\'ee des $L(z_\alpha)$, adapt\'ee {\`a} celle choisie de $\log$, telle que
+\begin{equation}\label{eq:4.2.6}
+\sum\lambda_\alpha\{z_\alpha\}_2=0 \implies \sum\lambda_\alpha A_2(z_\alpha)=0.\tag{4.2.6}
+\end{equation}
+
+La condition (4.2.6) est stable par le changement de d\'eterminations (4.2.1), qui change $\log$. Elle est stable par le changement de d\'eterminations (4.2.5) si (et seulement si) les $a_2(z_\alpha)$ v\'erifient
+\begin{equation}\label{eq:4.2.7}
+\sum\lambda_\alpha\{z_\alpha\}_2=0 \implies \sum\lambda_\alpha a_2(z_\alpha)=0.\tag{4.2.7}
+\end{equation}
+
+On verra que si
+\begin{equation}\label{eq:4.2.8}
+\sum\lambda_\alpha\{z_\alpha\}_2^*\otimes(z_\alpha)=0\text{ dans }\F_2\otimes F^*,\tag{4.2.8}
+\end{equation}
+et que les d\'eterminations choisies des $L(z_\alpha)$, compatibles {\`a} celles de $\log$, v\'erifient (4.2.6), alors
+\begin{equation}\label{eq:4.2.9}
+\sum\lambda_\alpha A_3(z_\alpha)\tag{4.2.9}
+\end{equation}
+est invariant par les changements de d\'eterminations (4.2.1) et par les changements (4.2.5) v\'erifiant (4.2.7). La somme (4.2.9) est ainsi d\'efinie avec une ambiguit\'e dans $(2\pi i)^3\Q$. On verra que la conjecture 1.10 implique que cette somme est $\reg(\varphi_3(\sum\lambda_\alpha\{z_\alpha\}_3^*))$, donc que
+\begin{equation*}
+\sum\lambda_\alpha\{z_\alpha\}_3=0\text{ dans }\F_3 \implies \sum\lambda_\alpha A_3(z_\alpha)\in(2\pi i)^3\Q.
+\end{equation*}
+Il existe donc des d\'eterminations v\'erifiant en outre
+\begin{equation*}
+\sum\lambda_\alpha\{z_\alpha\}_3=0 \implies \sum\lambda_\alpha A_3(z_\alpha)=0,\ldots
+\end{equation*}
+
+\subsection{}
+
+Pr\'ecisons l'argument qui fait passer de (4.2.6) {\`a} une ambiguit\'e dans $(2\pi i)^k\Q$ pour (4.2.9), et les finaux de 4.2. Soit $k\geq 2$. Soit $\sum\lambda_\alpha\{z_\alpha\}_k^*$ une combinaison lin\'eaire formelle d'\'el\'ements de $F-\{0,1\}$. Supposons que quelque soit $\nu:F^*\to\Q$, on ait
+\begin{equation}\label{eq:4.3.1}
+\sum\lambda_\alpha\nu(z_\alpha)^{k-2}((1-z_\alpha)\wedge(z_\alpha))=0\text{ dans }\bigwedge^2F^*\otimes\Q.\tag{4.3.1}
+\end{equation}
+Forme polaris\'ee: quels que soient $\nu_1,\ldots,\nu_{k-2}:F^*\to\Q$,
+\begin{equation}\label{eq:4.3.2}
+\sum\lambda_\alpha\nu_1(z_\alpha)\cdots\nu_{k-2}(z_\alpha)((1-z_\alpha)\wedge(z_\alpha))=0.\tag{4.3.2}
+\end{equation}
+
+On notera que cette hypoth\`ese implique que quels que soient $2\leq\ell<k$ et $\nu_1,\ldots,\nu_{k-\ell}:F^*\to\Q$,
+\begin{equation}\label{eq:4.3.3}
+\sum\lambda_\alpha\nu_1(z_\alpha)\cdots\nu_{k-\ell}(z_\alpha)\{z_\alpha\}_\ell^*\text{ v\'erifie (4.3.1).}\tag{4.3.3}
+\end{equation}
+
+Supposons choisies des d\'eterminations g\'en\'eralis\'ees des $L(z_\alpha)$, prolongeant une d\'etermination de $\log$ comme en 4.2 et telles que pour $2\leq\ell\leq k-1$ on ait
+\begin{equation}\label{eq:4.3.4}
+\text{pour toute forme lin\'eaire }\nu:F^*\to\Q,\quad\sum(\nu(z_\alpha))^\ell A_\ell(z_\alpha)=0.\tag{4.3.4}
+\end{equation}
+Forme polaris\'ee: quels que soient $\nu_1,\ldots,\nu_\ell:F^*\to\Q$
+\begin{equation}\label{eq:4.3.5}
+\sum\lambda_\alpha\nu_1(z_\alpha)\cdots\nu_\ell(z_\alpha)A_\ell(z_\alpha)=0.\tag{4.3.5}
+\end{equation}
+
+\begin{proposition}
+Soient $\sum\lambda_\alpha\{z_\alpha\}_k^*$ et des d\'etermination g\'en\'eralis\'ees $L(z_\alpha)$ prolongeant une de $\log$. Si (4.3.2)$_k$ et (4.3.4)$_\ell$ ($2\leq\ell\leq k-1$) sont v\'erifi\'es, alors les changements de d\'eterminations suivant respectent ces conditions et ne modifient pas la valeur de $\sum\lambda_\alpha A_k(z_\alpha)$:
+
+\textup{(i)} changement (4.2.1);
+
+\textup{(ii)}$_\ell$ ($2\leq\ell\leq k-1$)
+\begin{equation*}
+L(z_\alpha) \longmapsto L(z_\alpha)\exp(a_\ell(z_\alpha)(\ad e_0)^{\ell-1}(e_1)),
+\end{equation*}
+o\`u $a_\ell(z_\alpha)\in(2\pi i)^\ell\Q$ et o\`u quels que soient $\nu_1,\ldots,\nu_{k-\ell}:F^*\to\Q$,
+\begin{equation*}
+\sum\lambda_\alpha\nu_1(z_\alpha)\cdots\nu_{k-\ell}(z_\alpha)a_\ell(z_\alpha)=0.\qedhere
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+Prouvons (i). Il s'agit de remplacer $A(z)$ par un polyn\^ome de Lie (4.2.2) en $A(z)$ et $(-a(1-z)e_1+a(z)e_0)$. On a
+\begin{equation}\label{eq:4.4.1}
+\begin{aligned}
+[A(z),-a(1-z)e_1+a(z)e_0] &= -(a(z)\log(1-z)-a(1-z)\log z)(\ad e_0)(e_1)\\
+&\quad +\sum_{\ell=3}^N A_{\ell-1}(z)(\ad e_0)^{\ell-1}(e_1).
+\end{aligned}
+\tag{4.4.1}
+\end{equation}
+
+Le crochet de (4.4.1) avec $\sum e_0+\sum e_1$ ne d\'epend que de $A_2$. Il en r\'esulte que $A_\ell(z_\alpha)$ se modifie par l'addition d'une combinaison lin\'eaire de termes de la forme suivante:
+\begin{align*}
+&(a(z_\alpha)\log(1-z_\alpha)-a(1-z_\alpha)\log z_\alpha)(\log z_\alpha)^b(\log z_\alpha+a(z_\alpha))^c\\
+&\qquad\text{avec }b+c=\ell-2;\\
+&A_b(z_\alpha)a(z_\alpha)(\log z_\alpha)^c(\log z_\alpha+a(z_\alpha))^d\\
+&\qquad\text{avec }b+1+c+d=\ell.
+\end{align*}
+
+L'invariance du membre de gauche de (4.3.5)$_\ell$, $2\leq\ell\leq k$, r\'esulte alors de (4.3.1)$_k$ et (4.3.5)$_m$, $2\leq m<\ell$, et (i) en r\'esulte.
+
+La preuve de (ii)$_\ell$ est analogue, mais plus simple: $A_m(z_\alpha)$ est inchang\'e pour $m<\ell$. Pour $m\geq\ell$, il se change par l'addition d'un multiple de $a_\ell(z_\alpha)(\log z)^{m-\ell}$.
+
+L'invariance du membre de gauche de (4.3.5)$_m$, $2\leq m\leq k$, r\'esulte alors de l'hypoth\`ese faite sur $a_\ell(z_\alpha)$ et (ii)$_\ell$ en r\'esulte.
+\end{proof}
+
+R\'eciproquement, si $\sum\lambda_\alpha\{z_\alpha\}_k^*$ v\'erifie (4.3.2)$_k$ et que deux syst\`emes de d\'eterminations des $L(z_\alpha)$ (chacun prolongeant un de $\log$) v\'erifient (4.3.5)$_\ell$, pour $2\leq\ell\leq k-1$, on passe de l'un {\`a} l'autre par les op\'erations 4.4 (i), (ii)$_\ell$ ($2\leq\ell\leq k-1$), suivi d'op\'erations (ii)$_\ell$ pour $\ell\geq k$, sans contrainte sur les $a_\ell$. Une op\'eration (i) ram\`ene au cas o\`u les $\log$ utilis\'es sont les m\^emes. On retourne ensuite l'argument de 4.4 (ii) pour montrer que les op\'erations (4.1) (b$_k$) ($k\geq 2$) {\`a} effectuer pour passer d'un syst\`eme {\`a} l'autre sont du type voulu.
+
+Sous les hypoth\`eses de 4.3, la somme
+\begin{equation*}
+\sum\lambda_\alpha A_k(z_\alpha)
+\end{equation*}
+est donc d\'efinie avec une ambiguit\'e dans $(2\pi i)^k\Q$.
+
+\begin{proposition}
+Admettons la conjecture 1.10. Si une combinaison lin\'eaire formelle $\sum\lambda_\alpha\{z_\alpha\}_k^*$ d'\'el\'ements de $F-\{0,1\}$ v\'erifie $\tilde{d}_k(\sum\lambda_\alpha\{z_\alpha\}_k^*)=0$, alors
+
+\textup{(i)} (4.3.1)$_\ell$ est v\'erifi\'e.
+
+\textup{(ii)} Il existe des d\'eterminations $L(z_\alpha)$ prolongeant une de $\log$ v\'erifiant (4.3.5)$_\ell$ pour $2\leq\ell\leq k-1$. Pour celles-ci, on a
+
+\textup{(iii)} $\sum\lambda_\alpha A_k(z_\alpha)=\reg(\varphi_k(\sum\lambda_\alpha\{z_\alpha\}_k^*))$ dans $\C/(2\pi i)^k\Q$.
+\end{proposition}
+
+\begin{proof}
+Sur la cat\'egorie tannakienne $\mathcal{T}(S)$, on dispose des deux foncteurs fibres $\omega$ et $M\mapsto\real(M)_\Q$. Parce que $G=\Gm\ltimes U$, son $H^1$ est nul et, par la th\'eorie g\'en\'erale des cat\'egories tannakiennes, il existe un isomorphisme de foncteurs fibres $a:\omega\xrightarrow{\;\sim\;}\real(\ )_\Q$.
+
+On d\'efinit comme suit un isomorphisme entre les complexifi\'es de ces foncteurs fibres:
+\begin{equation}\label{eq:4.6.1}
+\begin{aligned}
+\real(M)_\C &= \bigoplus_k\real(M)_\C^k = \bigoplus_k\operatorname{Gr}^W_{-2k}\real(M)_\C = \bigoplus_k\omega(M)^k\otimes_\Q\real(\Q(k))_\C\\
+&= \omega(M)\otimes_\Q\C.
+\end{aligned}
+\tag{4.6.1}
+\end{equation}
+
+Comparant ces isomorphismes, on obtient un automorphisme de $M\mapsto\omega(M)\otimes\C$, i.e., $g\in G(\C)$, tel que $\real(M)$ (de complexifi\'e identifi\'e {\`a} $\omega(M)\otimes\C$ par 4.6.1) soit d'espace vectoriel complexe gradu\'e sous-jacent (cf. 1.2) $\omega(M)\otimes\C$, et de r\'eseau rationnel $g\omega(M)$. Cet \'el\'ement $g$ est unique {\`a} $g\mapsto g\gamma$ pr\`es, $\gamma\in G(\Q)$. Prenant $M=\Q(1)$, on voit que $g$ se projette dans le quotient $\Gm$ de $G$ sur un multiple rationnel de $2\pi i$. Changeant $g$ par $\gamma\in G(\Q)$, on peut supposer que $g$ est de la forme
+\begin{equation*}
+g = u\cdot\tau(2\pi i).\qedhere
+\end{equation*}
+
+Le choix de $u$ d\'etermine une d\'etermination g\'en\'eralis\'ee de $\log z$ ($z\in F^*$): la matrice de $u$ agissant sur $\omega(E)$, pour $E$ une extension de $\Q(0)$ par $\Q(1)$, est de la forme $(\frac{1}{2\pi i}\cdot a)$, avec $a$ additif en $E$ et on prend $\log z=a$ pour $E=[z]$.
+
+De m\^eme, le choix de $u$ d\'etermine une d\'etermination g\'en\'eralis\'ee de $L(z)$, pour $z\in F-\{0,1\}$: la matrice de $u$ agissant sur $\omega(\mathcal{P}_z)$. Elle est compatible {\`a} la d\'etermination de $\log$. De plus, chaque relation $\sum\lambda_\alpha\{z_\alpha\}_\ell^*=0$ fournit une relation analogue entre les coefficients $c_{\ell,0}$ de $\log u$ agissant sur les $\omega(\mathcal{P}_{z_\alpha}^{(\ell)})$.
+
+Par hypoth\`ese, on a
+\begin{equation*}
+\sum\lambda_\alpha\{z_\alpha\}_{k-1}^*\otimes(z_\alpha)=0\text{ dans }\F_{k-1}\otimes F^*
+\end{equation*}
+(resp. $\sum\lambda_\alpha(1-z_\alpha)\wedge(z_\alpha)=0$ dans $\bigwedge^2\F_1$ si $k=2$),
+
+et (cf. 1.7) les hypoth\`eses 4.3 sont donc v\'erifi\'ees. On a
+\begin{equation*}
+\langle\log u,\sum\lambda_\alpha\{z_\alpha\}_k\rangle = \sum\lambda_\alpha A_k(z_\alpha).\qedhere
+\end{equation*}
+$\sum\lambda_\alpha\{z_\alpha\}_k$ est le coefficient de l'extension $\varphi_k(\sum\lambda_\alpha\{z_\alpha\}_k^*)$ de $\Q(0)$ par $\Q(k)$, et 4.6 en r\'esulte.
+\end{proof}
+
+\section*{Bibliographie}
+
+\begin{enumerate}
+\item[{[BD]}] A. Beilinson and P. Deligne, Motivic polylogarithm and Zagier conjecture, to appear.
+\item[{[D]}] P. Deligne, Le groupe fondamental de la droite projective moins trois points, in: Galois Groups over $\Q$, MSRI publications 16, Springer-Verlag, 1989, pp. 79--297.
+\end{enumerate}
+
+\vspace{1cm}
+\begin{flushleft}
+\textsc{Massachusetts Institute of Technology, Cambridge, MA}\\
+\textsc{Institute for Advanced Study, Princeton, NJ}
+\end{flushleft}
+
+\end{document}

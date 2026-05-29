@@ -1,0 +1,549 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{array}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theoreme}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Dec}{Dec}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Coim}{Coim}
+\DeclareMathOperator{\IIm}{Im}
+\DeclareMathOperator{\Hom}{Hom}
+
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+\numberwithin{equation}{subsection}
+
+\title{Theorie de Hodge, II}
+\author{Pierre Deligne}
+\thanks{Travail presente comme these de doctorat a l'Universite d'Orsay.}
+
+\begin{document}
+\maketitle
+
+\section*{Sommaire}
+\begin{enumerate}
+\item[1.] Filtrations \dotfill 6
+\begin{enumerate}
+\item[1.1.] Objets filtres \dotfill 6
+\item[1.2.] Filtrations opposees \dotfill 9
+\item[1.3.] Le lemme des deux filtrations \dotfill 14
+\item[1.4.] Hypercohomologie de complexes filtres \dotfill 19
+\end{enumerate}
+\item[2.] Structures de Hodge \dotfill 24
+\begin{enumerate}
+\item[2.1.] Structures pures \dotfill 24
+\item[2.2.] La theorie de Hodge \dotfill 27
+\item[2.3.] Structures mixtes \dotfill 30
+\end{enumerate}
+\item[3.] Theorie de Hodge des varietes algebriques non singulieres \dotfill 31
+\begin{enumerate}
+\item[3.1.] Poles logarithmiques et residus \dotfill 31
+\item[3.2.] Theorie de Hodge mixte \dotfill 34
+\end{enumerate}
+\item[4.] Applications et complements \dotfill 40
+\begin{enumerate}
+\item[4.1.] Le theoreme de la partie fixe \dotfill 40
+\item[4.2.] Le theoreme de semi-simplicite \dotfill 43
+\item[4.3.] Complement a [2] \dotfill 49
+\item[4.4.] Homomorphismes de schemas abeliens \dotfill 50
+\end{enumerate}
+\end{enumerate}
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+D'apres Hodge, l'espace de cohomologie $H^n(X, \bC)$ d'une variete kahlerienne
+compacte $X$ est muni d'une << structure de Hodge >> de poids $n$, i.e.\ d'une bigraduation
+naturelle
+\[
+H^n(X, \bC) = \bigoplus_{p+q=n} H^{pq}
+\]
+verifiant $H^{pq} = \overline{H^{qp}}$. On montre ici que la cohomologie complexe d'une variete
+algebrique non singuliere, non necessairement compacte, est munie d'une structure
+d'espece un peu plus generale, qui fait apparaitre $H^n(X, \bC)$ comme << extension
+successive >> de structures de Hodge de poids decroissants, contenus entre $2n$ et $n$, dont
+les nombres de Hodge $h^{pq} = \dim H^{pq}$ sont nuls pour $p>n$ ou $q>n$.
+
+Le lecteur trouvera expose dans [14] le yoga qui sous-tend cette construction.
+
+La demonstration, essentiellement algebrique, repose d'une part sur la theorie
+de Hodge, d'autre part sur la resolution des singularites a la Hironaka qui permet,
+via une suite spectrale, << d'exprimer >> la cohomologie d'une variete algebrique non
+singuliere quasi-projective en terme de la cohomologie de varietes projectives non
+singulieres.
+
+Le \S\ 1, outre quelques sorites sur les filtrations reunis pour la commodite du lecteur,
+contient deux resultats-clefs :
+\begin{enumerate}
+\item[a)] Le theoreme (1.2.10), qui ne sera utilise que via son corollaire (2.3.5),
+donnant les proprietes fondamentales des << structures de Hodge mixtes >>.
+\item[b)] Le << lemme des deux filtrations >> (1.3.16).
+\end{enumerate}
+
+Le \S\ 2 rappelle la theorie de Hodge et introduit les structures de Hodge mixtes.
+Le coeur de ce travail est le n$^{\mathrm{o}}$~3.2, qui definit la structure de Hodge mixte de
+$H^*(X, \bC)$ et etablit quelques degenerescences de suites spectrales.
+
+Le \S\ 4 donne diverses applications, toutes deduites de (4.1.1) et de la theorie
+de la $(K/A)$-trace pour les structures de Hodge qui en resulte (4.1.2). Les principales
+sont (4.2.6) et (4.4.15).
+
+\section{Filtrations}
+
+\subsection{Objets filtres}
+
+(1.1.1) Soit $\sA$ une categorie abelienne.
+
+On aura a considerer des filtrations de type $\bZ$, en general finies, sur les objets
+de $\sA$ :
+
+\begin{definition}\label{def:1.1.2}
+Une filtration decroissante (resp.~croissante) $F$ d'un objet $A$
+de $\sA$ est une famille $(F^n(A))_{n \in \bZ}$ (resp.~$(F_n(A))_{n \in \bZ}$) de sous-objets de $A$, verifiant
+\[
+\forall n, m \quad n \leqslant m \Rightarrow F^n(A) \supset F^m(A)
+\]
+(resp.~$\forall n, m \quad n \leqslant m \Rightarrow F_n(A) \subset F_m(A)$).
+\end{definition}
+
+Un objet filtre est un objet muni d'une filtration. Quand il n'y aura pas danger
+de confusion, on designera souvent par une meme lettre des filtrations sur des objets
+differents de $\sA$.
+
+Si $F$ est une filtration decroissante (resp.~croissante) sur $A$, on pose $F^{\infty}(A)=0$
+et $F^{-\infty}(A)=A$ (resp.~$F_{-\infty}(A)=0$ et $F_{\infty}(A)=A$).
+
+Les filtrations decalees d'une filtration decroissante $W$ sont definies par
+\[
+W^n_{\ell} = W^{n-\ell} \quad (n, \ell \in \bZ).
+\]
+
+(1.1.3) Si $F$ est une filtration decroissante (resp.~croissante) de $A$, alors les
+$F_n(A) = F^{-n}(A)$ (resp.~les $F^n(A) = F_{-n}(A)$) forment une filtration croissante (resp.~
+decroissante) de $A$. Ceci permet en principe de ne considerer que des filtrations
+decroissantes; sauf mention explicite du contraire, par << filtration >> on entendra dorenavant
+<< filtration decroissante >>.
+
+(1.1.4) Une filtration $F$ de $A$ est dite finie s'il existe $n$ et $m$ tels que $F^n(A)=A$
+et $F^m(A)=0$.
+
+(1.1.5) Un morphisme d'un objet filtre $(A, F)$ dans un objet filtre $(B, F)$ est un
+morphisme $f$ de $A$ dans $B$ qui verifie $f(F^n(A)) \subset F^n(B)$ pour $n \in \bZ$.
+
+Les objets filtres (resp.~filtres de filtration finie) de $\sA$ forment une categorie additive
+dans laquelle existent les limites inductives et projectives finies (et donc les noyaux,
+conoyaux, images et coimages d'un morphisme).
+
+Un morphisme $f : (A, F) \to (B, F)$ est dit \emph{strict}, ou strictement compatible aux filtrations,
+si la fleche canonique de $\Coim(f)$ dans $\IIm(f)$ est un isomorphisme d'objets filtres
+(cf.~(1.1.11)).
+
+(1.1.6) Soit $^0$ le foncteur contravariant identique de $\sA$ dans la categorie duale $\sA^0$.
+Si $(A, F)$ est un objet filtre de $\sA$, les $(A/F^n(A))^0$ s'identifient a des sous-objets de $A^0$.
+La filtration sur $A^0$ duale de $F$ est definie par
+\[
+F^n(A^0) = (A/F^{-n}(A))^0.
+\]
+Le bidual de $(A, F)$ s'identifie a $(A, F)$. Cette construction identifie la duale de
+la categorie des objets filtres de $\sA$ a la categorie des objets filtres de $\sA^0$.
+
+(1.1.7) Si $(A, F)$ est un objet filtre de $\sA$, son \emph{gradue associe} est l'objet de $\sA^{\bZ}$
+defini par
+\[
+\Gr^n(A) = F^n(A)/F^{n+1}(A).
+\]
+
+La convention (1.1.6) est justifiee par la formule simple
+\[
+\Gr^n(A^0) = \Gr^{-n}(A)^0
+\]
+qui se verifie sur le diagramme autodual
+\[
+\begin{array}{ccc}
+A/F^{-n}(A) & \longleftarrow & A/F^{-n+1}(A) \\
+\uparrow & & \uparrow \\
+\Gr^n(A) & & F^n(A) \\
+\uparrow & \swarrow & \uparrow \\
+F^{n+1}(A) & \longrightarrow & 0
+\end{array}
+\tag{1.1.7.1}
+\]
+
+(1.1.8) Soient $(A, F)$ un objet filtre et $j : X \hookrightarrow A$ un sous-objet de $A$. La filtration
+\emph{induite} sur $X$ par $F$ est l'unique filtration sur $X$ telle que $j$ soit strictement compatible
+aux filtrations; on a
+\[
+F^n(X) = j^{-1}(F^n(A)) = X \cap F^n(A).
+\]
+Dualement, la filtration \emph{quotient} sur $A/X$ (unique filtration telle que $p : A \to A/X$
+soit strictement compatible aux filtrations) est donnee par
+\[
+F^n(A/X) = p(F^n(A)) = (X+F^n(A))/X = F^n(A)/(X \cap F^n(A)).
+\]
+
+\begin{lemma}\label{lem:1.1.9}
+Si $X$ et $Y$ sont deux sous-objets de $A$, avec $X \subset Y$,
+alors sur $Y/X = \Ker(A/X \to A/Y)$, la filtration quotient de celle de $Y$ coincide avec celle induite par celle
+de $A/X$. Dans le diagramme
+\[
+\begin{array}{ccccc}
+A/Y & \longleftarrow & A/X & & \\
+\uparrow & & \uparrow & & \\
+& Y/X & & & \\
+& \uparrow & & & \\
+X & \longrightarrow & Y & \longrightarrow & A
+\end{array}
+\]
+les fleches sont strictes.
+\end{lemma}
+
+(1.1.10) On appellera la filtration (1.1.9) sur $Y/X$ la \emph{filtration induite} par celle
+de $A$. D'apres (1.1.9), sa definition est autoduale.
+
+En particulier, si $S : A \xrightarrow{f} B \xrightarrow{g} C$ est une $0$-suite, et si $B$ est filtre, alors
+$H(S) = \Ker(g)/\Im(f) = \Ker(\Coim(g) \to \Coim(g))$ est muni d'une filtration induite
+canonique.
+
+Le lecteur verifiera que :
+
+\begin{proposition}\label{prop:1.1.11}
+\textup{(i)} Soit $f : (A, F) \to (B, F)$ un morphisme d'objets filtres de filtration finie. Pour que $f$ soit strict, il faut et il suffit que la suite
+\[
+0 \to \Gr(\Ker(f)) \to \Gr(A) \to \Gr(B) \to \Gr(\Coker(f)) \to 0
+\]
+soit exacte.
+
+\textup{(ii)} Soit
+\[
+S : (A, F) \xrightarrow{f} (B, F) \xrightarrow{g} (C, F)
+\]
+une $0$-suite de morphismes stricts. On a alors
+\[
+H(\Gr(S)) = \Gr(H(S)).
+\]
+En particulier, si $S$ est exacte dans $\sA$, alors $\Gr(S)$ est exacte dans $\sA^{\bZ}$.
+\end{proposition}
+
+Dans une categorie de modules, dire qu'un morphisme $f : (A, F) \to (B, F)$ soit strict
+signifie que tout $b \in B$, de filtration $\geqslant n$ ($b \in F^n(B)$) qui est dans l'image de $A$, est deja
+dans l'image de $F^n(A)$ :
+\[
+f(F^n(A)) = f(A) \cap F^n(B).
+\]
+
+(1.1.12) Si $\otimes : \sA_1 \times \cdots \times \sA_n \to \sB$ est un foncteur multiadditif exact a droite,
+et si $A_i$ est un objet de filtration finie de $\sA_i$ ($1 \leqslant i \leqslant n$), on definit une filtration sur $\otimes A_i$,
+par
+\[
+F^{\ell}(\otimes A_i) = \sum_{\sum k_i = \ell} \Im(\otimes F^{k_i}(A_i) \to \otimes A_i)
+\]
+(somme de sous-objets).
+
+Dualement, si $H$ est exact a gauche, on pose
+\[
+F_{\ell}(H(A_i)) = \bigcap \Ker(H(A_i) \to H(A_i/F^{k_i}(A_i)))
+\]
+($\sum k_i = \ell$).
+
+Pour $H$ exact, les deux definitions sont equivalentes.
+
+On etend ces definitions a des foncteurs contravariants en certaines variables
+par (1.1.6). En particulier, pour le foncteur exact a gauche $\Hom$, on pose
+\[
+F^n(\Hom(A,B)) = \{f : A \to B \mid \forall \ell,\ f(F^{\ell}(A)) \subset F^{\ell+n}(B)\}.
+\]
+On a donc
+\[
+\Hom((A,F),(B,F)) = F^0(\Hom(A,B)).
+\]
+
+Sous les hypotheses precedentes, on dispose de morphismes evidents
+\[
+\otimes \Gr(A_i) \to \Gr(\otimes A_i)
+\]
+et
+\[
+\Gr(H(A_i)) \to H(\Gr(A_i)).
+\]
+Pour $H$ exact, ce sont des isomorphismes inverses l'un de l'autre.
+
+Ces constructions sont compatibles a la composition des foncteurs, en un sens
+qu'on laisse au lecteur le soin de ne pas expliciter.
+
+
+\subsection{Filtrations opposees}
+
+(1.2.1) Soit $A$ un objet de $\sA$ muni de deux filtrations $F$ et $\overline{F}$. Par definition,
+$\Gr_F^n(A)$ est un quotient d'un sous-objet de $A$, et, en tant que tel, se trouve
+canoniquement plonge dans $A$. On pose
+\[
+\Gr_F^n \Gr_{\overline{F}}^m(A) = \Gr_F^n(\Gr_{\overline{F}}^m(A)).
+\]
+C'est un sous-quotient de $A$, quotient de $F^n \overline{F}^m(A)$ et sous-objet de
+$\Gr_F^n(A)$. On a des formules duales :
+\[
+\Gr_F^n \Gr_{\overline{F}}^m(A) = \frac{F^n(A) \cap \overline{F}^m(A)}{F^{n+1}(A) \cap \overline{F}^m(A) + F^n(A) \cap \overline{F}^{m+1}(A)}.
+\]
+
+(1.2.2) On appelle \emph{filtration $n$-oppos\'ee} a une filtration $F$ une filtration
+$\overline{F}$ telle que
+\[
+\Gr_F^p \Gr_{\overline{F}}^q(A) = 0 \quad \text{pour } p+q \neq n.
+\]
+Si $F$ admet une filtration $n$-oppos\'ee, on dit que $F$ est \emph{$n$-opposable}.
+
+\begin{proposition}\label{prop:1.2.3}
+Soient $F$ et $\overline{F}$ deux filtrations $n$-oppos\'ees de $A$. Alors :
+\begin{enumerate}
+\item[(i)] $F$ et $\overline{F}$ sont finies.
+\item[(ii)] Pour tout $p$, $F^p(A) \oplus \overline{F}^{n-p+1}(A) \xrightarrow{\sim} A$.
+\item[(iii)] Pour tout $p$ et $q$ avec $p+q = n+1$,
+\[
+F^p(A) \oplus \overline{F}^q(A) \xrightarrow{\sim} A.
+\]
+\item[(iv)] Les gradu\'es $\Gr_F^p \Gr_{\overline{F}}^q(A)$ ($p+q=n$) sont les facteurs d'une d\'ecomposition
+directe de $A$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) r\'esulte de (iii) avec $q = n-p+1$.
+
+(ii) et (iii) \'equivalent \`a dire que l'application canonique
+\[
+F^p(A) \oplus \overline{F}^q(A) \to A
+\]
+(pour $p+q = n+1$) est injective et surjective. L'assertion d'injectivit\'e \'equivaut
+\`a dire que $F^p(A) \cap \overline{F}^q(A) = 0$, i.e.~que $F^p \overline{F}^q(A) = 0$. C'est un
+cas particulier de l'hypoth\`ese. L'assertion de surjectivit\'e \'equivaut \`a dire que
+\[
+F^p(A) + \overline{F}^q(A) = A.
+\]
+Pour le prouver, on proc\`ede par r\'ecurrence descendante sur $p$ (supposons $F$ et $\overline{F}$
+d\'ecroissantes). Pour $p$ assez grand, $F^p(A) = A$ et l'assertion est claire. Pour passer
+de $p$ \`a $p-1$, on utilise l'exactitude de
+\[
+0 \to \Gr_F^{p-1}(A) \to A/F^p(A) \to A/F^{p-1}(A) \to 0
+\]
+et l'isomorphisme
+\[
+\Gr_F^{p-1}(A) = F^{p-1}(A)/F^p(A) = F^{p-1} \overline{F}^{n-p+1}(A).
+\]
+L'hypoth\`ese permet d'identifier ce dernier \`a
+\[
+\frac{F^{p-1}(A) \cap \overline{F}^{n-p+1}(A)}{F^p(A) \cap \overline{F}^{n-p+1}(A)}
+\]
+et l'application $A/F^p(A) \to A/F^{p-1}(A)$ \`a l'application quotient de $A$ par $F^{p-1}(A) + F^p(A)$.
+L'assertion r\'esulte alors de l'hypoth\`ese de r\'ecurrence et de l'exactitude de la suite
+\[
+0 \to \frac{F^{p-1}(A) \cap \overline{F}^{n-p+1}(A)}{F^p(A) \cap \overline{F}^{n-p+1}(A)} \to \frac{A}{F^p(A)} \to \frac{A}{F^{p-1}(A)} \to 0.
+\]
+
+(iv) D'apr\`es (ii), les $F^p \overline{F}^{n-p}(A)$ ($p \in \bZ$) forment une filtration de $A$.
+On a $F^p \overline{F}^{n-p}(A)/F^{p+1} \overline{F}^{n-p-1}(A) = \Gr_F^p \Gr_{\overline{F}}^{n-p}(A)$.
+\end{proof}
+
+(1.2.4) Soit $A^{pq}$ une famille d'objets de $\sA$, nuls sauf pour un nombre fini de couples
+$(p,q)$ tels que $p+q = n$. Si on pose
+\[
+A = \bigoplus_{p+q=n} A^{pq},
+\]
+alors, on d\'efinit deux filtrations finies $n$-oppos\'ees de $A = \bigoplus A^{pq}$ en posant
+\begin{align}
+F^p(A) &= \bigoplus_{p' \geqslant p} A^{p' q'}, \\
+\overline{F}^q(A) &= \bigoplus_{q' \geqslant q} A^{p' q'}.
+\end{align}
+On a
+\[
+\Gr_F^p \Gr_{\overline{F}}^q(A) = A^{pq}.
+\]
+
+R\'eciproquement :
+
+\begin{proposition}\label{prop:1.2.5}
+\textup{(i)} Soient $F$ et $\overline{F}$ deux filtrations finies sur $A$. Pour que $F$ et $\overline{F}$ soient
+$n$-oppos\'ees, il faut et il suffit que
+\[
+\forall p, q \quad p+q = n+1 \Rightarrow F^p(A) \oplus \overline{F}^q(A) \xrightarrow{\sim} A.
+\]
+
+\textup{(ii)} Si $F$ et $\overline{F}$ sont $n$-oppos\'ees, et si on pose
+\[
+A^{pq} = \begin{cases}
+0 & \text{pour } p+q \neq n \\
+F^p(A) \cap \overline{F}^q(A) & \text{pour } p+q = n,
+\end{cases}
+\]
+alors $A = \bigoplus A^{pq}$, et $F$ et $\overline{F}$ sont les filtrations (1.2.4) d\'efinies par
+cette d\'ecomposition.
+\end{proposition}
+
+\begin{proof}
+Prouvons (i). La condition est n\'ecessaire d'apr\`es (1.2.3) (iii). R\'eciproquement,
+supposons-la v\'erifi\'ee et prouvons que $\Gr_F^p \Gr_{\overline{F}}^q(A) = 0$ pour $p+q \neq n$.
+Par dualit\'e, il suffit de traiter le cas o\`u $p+q > n$. Posons $r = p$, $s = n-p+1$ et
+$t = q-(n-p+1) = p+q-n > 0$. On a $r+s = n+1$, d'o\`u
+\[
+F^r(A) \oplus \overline{F}^s(A) \xrightarrow{\sim} A.
+\]
+On en d\'eduit que
+\[
+F^r(A) \cap \overline{F}^{s+t}(A) = F^r(A) \cap \overline{F}^s(A) \cap \overline{F}^{s+t}(A) = 0,
+\]
+d'o\`u $\Gr_F^p \Gr_{\overline{F}}^q(A) = 0$ puisque $F^p(A) \cap \overline{F}^q(A) \subset F^r(A) \cap \overline{F}^{s+t}(A)$.
+
+Prouvons (ii). D'apr\`es (i), appliqu\'e \`a $F$ et $\overline{F}$ d\'ecal\'ees, on a
+\[
+F^p(A) \cap \overline{F}^{n-p+1}(A) = 0 \quad \text{et} \quad F^p(A) + \overline{F}^{n-p+1}(A) = A,
+\]
+d'o\`u $A = F^p(A) \oplus \overline{F}^{n-p+1}(A)$. On v\'erifie alors que $F^p(A) = \bigoplus_{p' \geqslant p} A^{p',n-p'}$
+et $\overline{F}^q(A) = \bigoplus_{q' \geqslant q} A^{n-q',q'}$.
+\end{proof}
+
+(1.2.6) Si $F$ et $\overline{F}$ sont deux filtrations $n$-oppos\'ees sur $A$, on pose
+\[
+A^{pq} = \Gr_F^p \Gr_{\overline{F}}^q(A) \quad \text{(nul pour } p+q \neq n \text{)}.
+\]
+D'apr\`es (1.2.5), on a
+\[
+A = \bigoplus_{p+q=n} A^{pq}.
+\]
+On appelle cette d\'ecomposition la \emph{d\'ecomposition de $A$ en type $(p,q)$}.
+Si $a \in A$ est de type $(p,q)$, i.e.~$a \in A^{pq}$, alors
+\[
+a \in F^p(A) \cap \overline{F}^q(A).
+\]
+
+\begin{definition}\label{def:1.2.7}
+Trois filtrations finies $W$, $F$ et $\overline{F}$ sur un objet $A$ de $\sA$ sont dites
+\emph{oppos\'ees} si :
+\begin{enumerate}
+\item[(i)] Pour tout $n$, les filtrations induites par $F$ et $\overline{F}$ sur $\Gr_W^n(A)$ sont $n$-oppos\'ees.
+\item[(ii)] Pour tout $p$, $q$, $n$, on a
+\[
+\Gr_W^n \Gr_F^p \Gr_{\overline{F}}^q(A) = 0 \quad \text{pour } p+q \neq n.
+\]
+\end{enumerate}
+\end{definition}
+
+(1.2.8) Soient $W$, $F$, $\overline{F}$ trois filtrations oppos\'ees sur $A$. Posons
+\[
+A^{pqn} = \Gr_W^n \Gr_F^p \Gr_{\overline{F}}^q(A).
+\]
+D'apr\`es (1.2.7) (ii), $A^{pqn} = 0$ pour $p+q \neq n$. On pose
+\[
+A^{pq} = A^{pq,p+q} = \Gr_F^p \Gr_{\overline{F}}^q \Gr_W^{p+q}(A).
+\]
+On a alors
+\[
+\Gr_W^n(A) = \bigoplus_{p+q=n} A^{pq}
+\]
+et les filtrations induites par $F$ et $\overline{F}$ sur $\Gr_W^n(A)$ sont donn\'ees par (1.2.4).
+
+(1.2.9) Soient $W$, $F$, $\overline{F}$ trois filtrations oppos\'ees sur $A$, et soit $W'$ une
+quatri\`eme filtration. On dit que $W'$ est \emph{compatible} au syst\`eme $(W,F,\overline{F})$
+si elle est compatible \`a chacune des trois filtrations $W$, $F$, $\overline{F}$. Si $W'$ est compatible,
+alors les filtrations induites par $F$ et $\overline{F}$ sur $\Gr_{W'}^m(A)$ restent $m$-oppos\'ees,
+et les trois filtrations $W$, $F$, $\overline{F}$ induites sur $\Gr_{W'}^m(A)$ restent oppos\'ees.
+
+\begin{theorem}\label{thm:1.2.10}
+Soit $\sA$ une cat\'egorie ab\'elienne, et d\'esignons provisoirement par $\sA^f$ la cat\'egorie
+des objets de $\sA$ munis de trois filtrations finies oppos\'ees.
+\begin{enumerate}
+\item[(i)] $\sA^f$ est une cat\'egorie ab\'elienne.
+\item[(ii)] Les foncteurs << oubli des filtrations >>, $\Gr_W^n$, $\Gr_F^p$, $\Gr_{\overline{F}}^q$,
+$\Gr_W^n \Gr_F^p$, $\Gr_W^n \Gr_{\overline{F}}^q$, $\Gr_F^p \Gr_{\overline{F}}^q$ et $\Gr_W^n \Gr_F^p \Gr_{\overline{F}}^q$ de $\sA^f$ dans $\sA$
+(resp.~dans $\sA^{\bZ}$) sont exacts.
+\item[(iii)] Tout morphisme $f : A \to B$ dans $\sA^f$ admettant un noyau (resp.~conoyau,
+image, coimage) dans $\sA$ admet un noyau (resp.~conoyau, image, coimage) dans $\sA^f$.
+Le gradu\'e de ce noyau (resp.~...) est le noyau (resp.~...) des gradu\'es.
+\item[(iv)] Toute suite $A \to B \to C$ dans $\sA^f$, exacte dans $\sA$, est exacte dans $\sA^f$.
+\item[(v)] Le foncteur $A \mapsto (A, W, F, \overline{F})$ de $\sA^f$ dans la cat\'egorie des objets de $\sA$
+munis de deux filtrations oppos\'ees admet un adjoint \`a gauche et \`a droite.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Esquisse de preuve]
+Il suffit de prouver (iii) pour les noyaux. Soit $f : A \to B$ un morphisme dans $\sA^f$.
+Soit $K$ un noyau de $f$ dans $\sA$. Muni des filtrations induites par $W$, $F$ et $\overline{F}$,
+il s'agit de voir que ces trois filtrations sont oppos\'ees. La condition (1.2.7) (ii) est
+clairement v\'erifi\'ee (les $A^{pqn}$ sont les noyaux des $f : A^{pqn} \to B^{pqn}$). V\'erifions
+(1.2.7) (i). Les filtrations induites par $F$ et $\overline{F}$ sur $\Gr_W^n(K)$ sont les filtrations
+induites par $W$, $F$ et $\overline{F}$ de $K$ sont donc oppos\'ees et $K$ est un noyau de $f$ dans $\sA^f$.
+\end{proof}
+
+(1.2.11) Le th\'eor\`eme (1.2.10) permet de d\'efinir la notion de syst\`eme de trois filtrations
+oppos\'ees sur un objet d'une cat\'egorie ab\'elienne $\sA$ sur laquelle on ne fait aucune
+hypoth\`ese. Soit en effet $\sA'$ la cat\'egorie des objets de $\sA$ munis d'une filtration finie.
+Le foncteur $A \mapsto (A, W, F)$ de $\sA^f$ dans la cat\'egorie des objets de $\sA$ munis de
+deux filtrations finies admet un adjoint \`a gauche $L$ et \`a droite $R$ ((1.2.10) (v)).
+Le foncteur $A \mapsto (LA, W, F, \overline{F})$ de $\sA^f$ dans $\sA^f$ est adjoint \`a gauche au foncteur
+identique, donc est pleinement fid\`ele. On en d\'eduit que $\sA^f$ s'identifie \`a la cat\'egorie
+des objets de $\sA'$ munis d'une filtration $W$ opposable.
+
+(1.2.12) Soit $(A, W, F, \overline{F})$ un objet de $\sA^f$. On pose
+\[
+A^{pqn} = \Gr_W^n \Gr_F^p \Gr_{\overline{F}}^q(A).
+\]
+D'apr\`es (1.2.7) (ii), $A^{pqn} = 0$ pour $p+q \neq n$. On pose
+\[
+A^{pq} = A^{pq,p+q}.
+\]
+On a
+\[
+\Gr_W^n(A) = \bigoplus_{p+q=n} A^{pq}, \quad
+\Gr_F^p(A) = \bigoplus_{q,n} A^{pqn}, \quad
+\Gr_{\overline{F}}^q(A) = \bigoplus_{p,n} A^{pqn}.
+\]
+
+(1.2.13) Soient $W$, $F$ et $\overline{F}$ trois filtrations finies sur $A$. Les conditions suivantes
+sont \'equivalentes :
+\begin{enumerate}
+\item[(i)] Les filtrations $W$, $F$ et $\overline{F}$ sont oppos\'ees.
+\item[(ii)] Pour tout $n$, les filtrations induites par $F$ et $\overline{F}$ sur $\Gr_W^n(A)$ sont $n$-oppos\'ees,
+et pour tout $p$, les filtrations induites par $W$ et $\overline{F}$ sur $\Gr_F^p(A)$ sont $p$-oppos\'ees.
+\item[(iii)] Pour tout $n$, les filtrations induites par $F$ et $\overline{F}$ sur $\Gr_W^n(A)$ sont $n$-oppos\'ees,
+et pour tout $q$, les filtrations induites par $W$ et $F$ sur $\Gr_{\overline{F}}^q(A)$ sont $q$-oppos\'ees.
+\end{enumerate}
+
+En effet, (ii) signifie que $\Gr_W^n \Gr_F^p \Gr_{\overline{F}}^q(A) = 0$ pour $p+q \neq n$ et que
+$\Gr_F^p \Gr_W^n \Gr_{\overline{F}}^q(A) = 0$ pour $n+q \neq p$.
+
+De meme, (iii) signifie que $\Gr_W^n \Gr_F^p \Gr_{\overline{F}}^q(A) = 0$ pour $p+q \neq n$ et que
+$\Gr_{\overline{F}}^q \Gr_W^n \Gr_F^p(A) = 0$ pour $n+p \neq q$.
+
+\end{document}

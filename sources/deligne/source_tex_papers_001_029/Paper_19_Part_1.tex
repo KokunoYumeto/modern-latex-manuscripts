@@ -1,0 +1,1158 @@
+\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{array}
+\usepackage{enumerate}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Rd}{\mathbf{R}}
+\DeclareMathOperator{\simp}{s}
+\DeclareMathOperator{\cosq}{cosq}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\bH}{\mathbb{H}}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Spec}{Spec}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cU}{\mathscr{U}}
+\newcommand{\cE}{\mathscr{E}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\DD}{\mathbf{D}}
+\newcommand{\Pt}{P^t}
+
+\begin{document}
+
+\title[Th\'eorie de Hodge III]{Th\'eorie de Hodge III}
+\author{Pierre Deligne}
+\maketitle
+
+\section*{Introduction}
+
+Cet article fait suite \`a [4] et [5], cit\'es I et II. La num\'erotation de ses paragraphes
+prolonge celle de II (qui contient les \S\S\ 1 \`a 4). Pour renvoyer \`a un r\'esultat de II, on
+mentionne simplement son num\'ero. Par exemple : (3.2.17).
+
+Dans I, nous avons expos\'e le yoga qui sous-tend II et le pr\'esent article III. Toutefois,
+II et III sont logiquement ind\'ependants de I. Ils ne contiennent pas tous les r\'esultats
+qui sont annonc\'es dans I.
+
+Dans II, nous avons expos\'e la th\'eorie de Hodge des vari\'et\'es alg\'ebriques non
+singuli\`eres (non n\'ecessairement compl\`etes). On traite ici le cas de singularit\'es quelconques.
+A partir du \S\ 7, un usage essentiel sera fait des r\'esultats des \S\S\ 1 \`a 3 de II.
+
+Dans le cas d'une vari\'et\'e alg\'ebrique singuli\`ere compl\`ete $X$, l'id\'ee fondamentale est
+d'utiliser la r\'esolution des singularit\'es pour ``remplacer'' $X$ par un syst\`eme simplicial
+de sch\'emas projectifs et lisses $X_\bullet$ :
+\[
+X_\bullet = \Big(\ldots\quad
+X_2 \rightrightarrows X_1 \rightrightarrows X_0\Big)
+\]
+(ou, comme nous dirons, par un sch\'ema simplicial projectif et lisse). Les r\'esultats des
+\S\S\ 5 et 6 permettent de trouver de tels sch\'emas simpliciaux $X_\bullet$ ayant, en un sens convenable,
+m\^eme cohomologie que $X$. On peut alors ``exprimer'', via une suite spectrale, la cohomologie
+de $X$ en terme de celle des $X_n$. En conformit\'e avec les principes g\'en\'eraux de I,
+on peut alors, sur chacun des $X_n$, utiliser la th\'eorie de Hodge classique, et en d\'eduire
+une structure de Hodge mixte sur la cohomologie de $X$.
+
+Dans le cas d'une vari\'et\'e alg\'ebrique quelconque $X$, on ``remplace'' $X$ par un
+sch\'ema simplicial lisse $X_\bullet$, compactifi\'e par un sch\'ema simplicial projectif et lisse $\overline{X}_\bullet$.
+On se d\'ebrouille de plus pour que $\overline{X}_\bullet \setminus X_\bullet$ soit un diviseur \`a croisements normaux,
+r\'eunion de diviseurs lisses $D_{n,i}$. On ``exprime'' alors via une suite spectrale la cohomologie
+de $X$ en terme de la cohomologie des intersections des $D_{n,i}$ ($n\geq 0$, $p\geq 0$), et on en
+d\'eduit une structure de Hodge mixte sur $H^*(X)$.
+
+Les \S\S\ 5 et 6 constituent un r\'esum\'e (sans d\'emonstrations) de la th\'eorie de la
+``descente cohomologique''. Cette th\'eorie, dans le cadre plus g\'en\'eral des topos, est
+expos\'ee par B. Saint-Donat dans S.G.A. 4, V bis.
+
+Au \S\ 7 n\textsuperscript{o}\ 1, on reprend dans le langage des cat\'egories d\'eriv\'ees filtr\'ees certains
+des r\'esultats obtenus ant\'erieurement. Le n\textsuperscript{o}\ 2 contient une d\'emonstration du lemme
+des deux filtrations plus simple que celle du \S\ 1, n\textsuperscript{o}\ 3.
+
+Le rebutant n\textsuperscript{o}\ 1 du \S\ 8 est le c\oe ur de ce travail. Le r\'esultat essentiel est le
+t\'eor\`eme (8.1.15). Dans sa d\'emonstration, pour pouvoir appliquer le lemme des deux
+filtrations, on utilise que tout morphisme de structures de Hodge mixtes est strictement
+compatible aux filtrations $W$ et $F$ (2.3.5). Au n\textsuperscript{o}\ 2, on d\'efinit la structure de Hodge
+mixte de $H^n(X, \ZZ)$ ($X$ sch\'ema s\'epar\'e). On montre que les nombres de Hodge $h^{pq}$ de
+$H^n(X, \ZZ)$ ne peuvent \^etre non nuls que pour $(p,q) \in [0,n] \times [0,n]$. Pour $n > \dim X$,
+on a un r\'esultat plus pr\'ecis (8.2.4). Si $X$ est lisse (resp. complet) ils ne peuvent \^etre
+non nuls que si de plus $p+q \geq n$ (resp. $p+q \leq n$). Si $X$ est un sous-sch\'ema complet de
+compl\'ement $U$ d'un sch\'ema $Z$, complet et lisse de dimension $n$, on peut, d'apr\`es N. Katz,
+interpr\'eter cette ``dualit\'e'' entre les cas complets et lisses comme provenant de la
+``dualit\'e d'Alexander''
+\[
+\to \ldots \to H^i(Z, \QQ) \to H^i(X, \QQ) \to (H^{2n-i-1}(U, \QQ))^* \to H^{i+1}(Z, \QQ) \to \ldots.
+\]
+Des propri\'et\'es de fonctorialit\'e de la th\'eorie construite, on d\'eduit les utiles
+corollaires (8.2.5) \`a (8.2.8), qui s'\'enoncent en termes ind\'ependants de toute th\'eorie
+de Hodge.
+
+Au \S\ 8, n\textsuperscript{o}\ 3, on munit la cohomologie de tout sch\'ema simplicial $X_\bullet$ d'une structure
+de Hodge mixte. Cette g\'en\'eralit\'e n'est pas illusoire.
+
+(a) On peut interpr\'eter des espaces de cohomologie relative comme \'etant la
+cohomologie de sch\'emas simpliciaux convenables.
+
+(b) Soit $B_G$ l'espace classifiant du groupe de Lie sous-jacent \`a un groupe alg\'ebrique
+$G$. On peut interpr\'eter la cohomologie de $B_G$ comme \'etant celle d'un sch\'ema
+simplicial convenable.
+
+Au \S\ 9, n\textsuperscript{o}\ 1, apr\`es avoir calcul\'e la structure de Hodge mixte de la cohomologie
+de $B_G$ (pour $G$ lin\'eaire), on en d\'eduit celle de $G$. Comme corollaire, on trouve que si
+un groupe lin\'eaire $G$ agit sur une vari\'et\'e compl\`ete non singuli\`ere $X$, alors l'application
+\[
+H^\bullet(X, \QQ) \to H^\bullet(X, \QQ) \otimes H^\bullet(G, \QQ)
+\]
+se factorise par $H^\bullet(X, \QQ) \otimes H^0(G, \QQ) \subset H^\bullet(X, \QQ) \otimes H^\bullet(G, \QQ)$.
+
+Au \S\ 10, on interpr\`ete en terme de sch\'emas ab\'eliens les structures de Hodge mixtes
+purement de type $\{(-1,-1), (-1,0), (0,-1), (0,0)\}$ (III.0.5), et on consid\`ere en
+d\'etail le $H^1$ des courbes.
+
+La th\'eorie d\'evelopp\'ee jusqu'ici est une th\'eorie absolue (on n'y \'etudie pas les
+foncteurs $\Rd f_*$), et ne concerne que des coefficients constants. Je conjecture que si $\mathscr{H}$
+est une variation de structures de Hodge polarisable (au sens de Griffiths [6]) sur un
+sch\'ema $X$, alors la cohomologie de $X$ \`a coefficients dans le syst\`eme local $\mathscr{H}$ est munie
+d'une structure de Hodge mixte naturelle. Je ne puis le prouver que pour $X$ complet.
+
+\section*{Terminologie et notations}
+
+\begin{enumerate}
+\item[(III.0.1)] Soit $u : X \to Y$ une application continue entre espaces topologiques.
+Nous dirons que $u$ est \emph{propre} si elle est propre au sens de Bourbaki (i.e. universellement
+ferm\'ee) et de plus s\'epar\'ee (i.e. si la diagonale de $X \times_Y X$ est ferm\'ee).
+
+\item[(III.0.2)] Suivant en cela Gabriel et Zisman, nous dirons \emph{simplicial} l\`a o\`u autrefois
+on disait semi-simplicial.
+
+\item[(III.0.3)] Nous d\'esignerons par $A$ un sous-anneau noeth\'erien de $\RR$ tel que $A \otimes \QQ$
+soit un corps. Les cas utiles sont $A = \ZZ$, $\QQ$, ou $\RR$.
+
+\item[(III.0.4)] Une \emph{$A$-structure de Hodge mixte} consiste en un $A$-module de type fini $H_A$,
+une filtration finie croissante $W$ du $A \otimes \QQ$-vectoriel $H_{A \otimes \QQ} = H_A \otimes \QQ$, et une filtration
+finie d\'ecroissante $F$ du $\CC$-vectoriel $H_\CC = H_A \otimes_A \CC$. On exige que les $(\Gr_n^W(H_{A \otimes \QQ}), \Gr_n^W(F))$
+soient des $A \otimes \QQ$-structures de Hodge. Pour $A = \ZZ$ (resp. $\QQ$) on retrouve (2.3.1) (resp.
+2.3.8) ; les r\'esultats de (2.3) se transposent tels quels.
+
+\item[(III.0.5)] Soit $\mathscr{E}$ une partie de $\ZZ \times \ZZ$. Une structure de Hodge mixte $H$ est de
+\emph{type $\mathscr{E}$} si ses nombres de Hodge $h^{pq}$ sont nuls pour $(p,q) \notin \mathscr{E}$.
+
+\item[(III.0.6)] Nous noterons d\'esormais $\Omega_X^\bullet(\log D)$ ce que nous notions $\Omega_X^\bullet\langle D\rangle$ (3.1.2).
+
+\item[(III.0.7)] Sauf mention explicite du contraire, \emph{sch\'ema} signifie ``sch\'ema de type
+fini sur $\CC$'', et un \emph{faisceau} sur un sch\'ema $X$ est un faisceau sur l'espace topologique
+sous-jacent \`a $X^{\mathrm{an}}$.
+\end{enumerate}
+
+\section{Descente cohomologique}
+
+\subsection{Espaces topologiques simpliciaux}
+
+Ce num\'ero commence par des rappels pour lesquels on peut renvoyer au s\'eminaire
+homotopique de Strasbourg, 63/64.
+
+\subsubsection{}
+On utilisera les notations suivantes. D\'esignons par $n$ et $k$ des entiers $\geq -1$.
+
+\begin{itemize}
+\item $\cC^\circ$ = cat\'egorie oppos\'ee d'une cat\'egorie $\cC$.
+\item $\Hom(\cA, \cB)$ = cat\'egorie des foncteurs de $\cA$ dans $\cB$.
+\item $\Delta_n$ = l'ensemble fini totalement ordonn\'e $[0,n]$.
+\item $\delta_i : \Delta_n \to \Delta_{n+1}$ = l'injection croissante telle que $i \notin \delta_i(\Delta_n)$ ($0 \leq i \leq n+1$).
+\item $s_i : \Delta_{n+1} \to \Delta_n$ = la surjection croissante telle que $s_i(i) = s_i(i+1)$ ($0 \leq i \leq n$).
+\item $\varepsilon : \Delta_{-1} \to \Delta_n$ = l'unique application de $\Delta_{-1}$ dans $\Delta_n$.
+\item $(\Delta^+)$ = cat\'egorie ayant pour objets les $\Delta_n$ ($n \geq -1$), et pour fl\`eches les applications
+croissantes entre les $\Delta_n$.
+\item $(\Delta)$ = la sous-cat\'egorie pleine de $(\Delta^+)$ d'objets les $\Delta_n$ ($n \geq 0$).
+\item $(\Delta^+)_k$ = la sous-cat\'egorie pleine de $(\Delta^+)$ d'objets les $\Delta_n$ ($k \geq n$).
+\item $(\Delta)_k$ = la sous-cat\'egorie pleine de $(\Delta^+)$ d'objets les $\Delta_n$ ($k \geq n \geq 0$).
+\end{itemize}
+
+Pour toute cat\'egorie $\cC$, un \emph{objet simplicial} (resp.\ \emph{objet simplicial $k$-tronqu\'e}) de $\cC$ est
+un objet de $\Hom((\Delta)^\circ, \cC)$ (resp.\ de $\Hom((\Delta)^\circ_k, \cC)$). De m\^eme, un \emph{objet cosimplicial} (resp.\ldots)
+de $\cC$ est un objet de $\Hom((\Delta), \cC)$ (resp.\ldots).
+
+Le foncteur \emph{squelette} $\mathrm{sq}_k$ est, pour $k \geq -1$, le foncteur de restriction
+\[
+\mathrm{sq}_k : \Hom((\Delta)^\circ, \cC) \to \Hom((\Delta)^\circ_k, \cC).
+\]
+Le foncteur \emph{cosquelette} $\cosq_k$ est le foncteur adjoint \`a droite \`a $\mathrm{sq}_k$ :
+\[
+\cosq_k : \Hom((\Delta)^\circ_k, \cC) \to \Hom((\Delta)^\circ, \cC).
+\]
+Soit $Y$ un objet simplicial de $\cC$. On appelle encore squelette le foncteur
+\[
+\mathrm{sq}_k : \Hom((\Delta)^\circ, \cC)/Y \to \Hom((\Delta)^\circ_k, \cC)/\mathrm{sq}_k(Y).
+\]
+Son adjoint \`a droite se note $\cosq_k^Y$ (cosquelette relatif \`a $Y$) :
+\[
+\cosq_k^Y : \Hom((\Delta)^\circ_k, \cC)/\mathrm{sq}_k(Y) \to \Hom((\Delta)^\circ, \cC)/Y.
+\]
+Les foncteurs cosquelettes sont d\'efinis si les limites projectives finies existent dans $\cC$.
+Les foncteurs $\cosq_k^Y$ existent d\`es qu'existent les produits fibr\'es. On a
+\[
+\cosq_k^Y(X) = \cosq_k(X) \times_{\cosq_k \mathrm{sq}_k(Y)} Y.
+\]
+
+\subsubsection{}
+Si $X_\bullet : (\Delta)^\circ \to \cC$ est un objet simplicial de $\cC$, on pose $X_n = X_\bullet(\Delta_n)$,
+$\delta_i = X_\bullet(\delta_i : \Delta_n \to \Delta_{n+1}) : X_{n+1} \to X_n$ et $s_i = X_\bullet(s_i : \Delta_{n+1} \to \Delta_n) : X_n \to X_{n+1}$.
+\[
+X_\bullet : \quad \ldots\quad X_2 \;\;\raisebox{-5pt}{$\stackrel{\textstyle\rightrightarrows}{\raisebox{3pt}{$\leftleftarrows$}}$}\;\; X_1 \;\;\raisebox{-5pt}{$\stackrel{\textstyle\rightrightarrows}{\raisebox{3pt}{$\leftleftarrows$}}$}\;\; X_0
+\]
+
+\subsubsection{}
+Soit $S \in \Ob\cC$. L'\emph{objet simplicial constant} $S_\bullet$ est l'objet simplicial pour lequel
+$S_n = S$ et $\delta_i = s_i = \Id_S$. Un objet simplicial (resp.\ simplicial $k$-tronqu\'e) de $\cC$, \emph{augment\'e}
+vers $S$, est un morphisme $a : X_\bullet \to S_\bullet$ (resp.\ $a : X_\bullet \to \mathrm{sq}_k(S_\bullet)$). Nous identifierons les
+objets simpliciaux (resp.\ simpliciaux $k$-tronqu\'es) de $\cC$, augment\'es vers $S$, $a : X_\bullet \to S_\bullet$
+(resp.\ldots) aux objets $X_\bullet^+$ de $\Hom((\Delta^+)^\circ, \cC)$ (resp.\ de $\Hom((\Delta^+)^\circ_k, \cC)$) tels que $X_\bullet^+(\Delta_{-1}) = S$.
+On a $a_n = X_\bullet^+(\varepsilon : \Delta_{-1} \to \Delta_n)$. Ces objets seront d\'esign\'es par une notation du type $a : X_\bullet \to S$.
+Les cosquelettes relatifs seront surtout utilis\'es dans ce cadre, et not\'es $\cosq_k^S$ ou simplement $\cosq_k$.
+
+\subsubsection{}
+Le cosquelette de l'objet simplicial $0$-tronqu\'e augment\'e $a_0 : X \to S$ est
+l'objet simplicial augment\'e vers $S$ de composantes les puissances cart\'esiennes de $X$
+dans $\cC/S$ :
+\[
+\cosq_0(X \to S) = \big(((X/S)^{\Delta_n})_{n \geq 0} \to S\big).
+\]
+
+\subsubsection{}
+Soient $u : X \to Y$ une application continue entre espaces topologiques,
+$F$ un faisceau sur $X$ et $G$ un faisceau sur $Y$. L'ensemble $\Hom_u(G, F)$ des \emph{$u$-morphismes}
+de $G$ dans $F$ est l'ensemble $\Hom(u^*G, F) \simeq \Hom(G, u_*F)$.
+
+Se donner un $u$-morphisme $f$ de $G$ dans $F$ revient \`a se donner, pour tout couple
+d'ouverts $U \subset X$ et $V \subset Y$ tel que $u(U) \subset V$, une application $f_{UV} : G(V) \to F(U)$ ;
+ces applications doivent v\'erifier la condition
+\begin{equation*}
+\text{($*$) Pour $U' \subset U \subset X$, $V' \subset V \subset Y$, $u(U) \subset V$ et $u(U') \subset V'$, le diagramme}
+\end{equation*}
+\[
+\begin{tikzcd}
+G(V) \arrow[r] \arrow[d] & G(V') \arrow[d] \\
+F(U) \arrow[r] & F(U')
+\end{tikzcd}
+\]
+est commutatif.
+
+\subsubsection{}
+Un \emph{espace topologique simplicial} est un objet simplicial de la cat\'egorie d'objets
+les espaces topologiques, et de morphismes les applications continues.
+
+Un \emph{faisceau} $F^\bullet$ sur un espace topologique simplicial $X_\bullet$ consiste en
+\begin{enumerate}
+\item[(a)] une famille $F^n$ de faisceaux sur les $X_n$ ;
+\item[(b)] pour $f : \Delta_n \to \Delta_m$, un $X_\bullet(f)$-morphisme $F^\bullet(f)$ de $F^n$ dans $F^m$.
+\end{enumerate}
+On exige de plus que $F^\bullet(f \circ g) = F^\bullet(f) \circ F^\bullet(g)$.
+
+Un morphisme $u$ de $F^\bullet$ dans $G^\bullet$ est une famille de morphismes $u^n : F^n \to G^n$ telle
+que, pour $f \in \Hom_{(\Delta)}(\Delta_n, \Delta_m)$, on ait $u^m \circ F^\bullet(f) = G^\bullet(f) \circ u^n$.
+
+\subsubsection{}
+Pour $U$ un ouvert de $X_n$, soit $F^\bullet(U) = F^n(U)$. Pour $f : \Delta_n \to \Delta_m$, $U \subset X_n$,
+et $V \subset X_m$ tels que $X_\bullet(f)(V) \subset U$, soit $F^\bullet(f, V, U) : F^\bullet(U) \to F^\bullet(V)$ l'application
+induite par $F^\bullet(f)$. On v\'erifie aussit\^ot que le syst\`eme des ensembles $F^\bullet(U)$ (index\'es par $n$
+et $U \subset X_n$) et des applications $F^\bullet(f, V, U)$ d\'etermine $F^\bullet$ uniquement (cf. (5.1.5)).
+Pour qu'un tel syst\`eme provienne d'un faisceau sur $X_\bullet$, il faut et il suffit que :
+\begin{enumerate}
+\item[(a)] $F^\bullet(fg, U, W) = F^\bullet(f, U, V) \circ F^\bullet(g, V, W)$ chaque fois que cela a un sens ;
+\item[(b)] quel que soit $n$, les $F^\bullet(U)$ pour $U \subset X_n$ forment un faisceau sur $X_n$.
+\end{enumerate}
+
+\subsubsection{}
+Ceci montre que les faisceaux sur $X_\bullet$ peuvent s'interpr\'eter comme les
+faisceaux sur un site convenable, et en particulier forment un topos $(X_\bullet)^\sim$. On utilisera
+librement, pour les faisceaux sur $X_\bullet$, la terminologie en usage pour les faisceaux sur
+un site. Ainsi, un faisceau en groupes ab\'eliens (resp.\ un faisceau d'anneaux, \ldots) $F^\bullet$
+est un syst\`eme de faisceaux en groupes ab\'eliens (resp.\ de faisceaux d'anneaux, \ldots)
+$F^n$ sur les $X_n$ et de morphismes $F^\bullet(f)$.
+
+\subsubsection{Exemples}
+
+(I) Soit $X_\bullet$ un espace analytique simplicial. Les faisceaux structuraux $\cO_{X_n}$ forment un faisceau d'anneaux sur $X_\bullet$.
+
+(II) Soit $X_\bullet$ un espace analytique simplicial augment\'e vers $S$. Les faisceaux $\Omega^1_{X_n/S}$
+forment un faisceau de $\cO$-modules sur $X_\bullet$. Sa puissance ext\'erieure $i$-\`eme est le faisceau
+de $\cO$-modules $(\Omega^i_{X_n/S})_{n \geq 0}$, not\'e $\Omega^i_{X_\bullet/S}$. Les complexes de De Rham $(\Omega^\bullet_{X_n/S})_{n \geq 0}$ forment
+un complexe de faisceaux sur $X_\bullet$.
+
+(III) Soit $F^\bullet$ un faisceau de groupes ab\'eliens sur $X_\bullet$. Les r\'esolutions flasques
+canoniques de Godement $\mathscr{C}^\bullet(F^n)$ forment un complexe de faisceaux sur $X_\bullet$, et une
+r\'esolution de $F^\bullet$.
+
+(IV) Soit $S$ un espace topologique. Les faisceaux $F^\bullet$ sur l'espace simplicial constant $S_\bullet$
+s'identifient aux faisceaux cosimpliciaux sur $S$. En particulier, un faisceau ab\'elien $F^\bullet$
+sur $S_\bullet$ d\'efinit un complexe diff\'erentiel $(F^n, d = \sum_i (-1)^i \delta_i)$. Un complexe de faisceaux
+ab\'eliens $K$ sur $S_\bullet$ d\'efinit un double complexe $(K^{n,m})$ encore not\'e $K$ ($m$ = degr\'e cosimplicial)
+de complexe simple associ\'e $\simp K$ :
+\begin{equation}\label{eq:5.1.9.1}
+(\simp K)^n = \bigoplus_{p+q=n} K^{pq}
+\end{equation}
+de diff\'erentielle
+\begin{equation}\label{eq:5.1.9.2}
+d(x^{pq}) = d_K(x^{pq}) + (-1)^p \sum_i (-1)^i \delta_i x^{pq}.
+\end{equation}
+On note $L$ la seconde filtration de $\simp K$, i.e.
+\begin{equation}\label{eq:5.1.9.3}
+L^r(\simp K) = \bigoplus_{q \geq r} K^{pq}.
+\end{equation}
+
+\subsubsection{}
+Soit $u : X_\bullet \to Y_\bullet$ un morphisme d'espaces topologiques simpliciaux, de composantes $u_n : X_n \to Y_n$.
+Si $G$ (resp.\ $F$) est un faisceau sur $Y_\bullet$ (resp.\ sur $X_\bullet$), alors $(u_n^* G^n)_{n \geq 0}$ (resp.\ $(({u_n})_* F^n)_{n \geq 0}$) est un faisceau sur $X_\bullet$ (resp.\ sur $Y_\bullet$) ;
+on le note $u^* G$ (resp.\ par $u_* F$).
+Les foncteurs $u^*$ et $u_*$ sont adjoints l'un de l'autre ;
+ils sont les morphismes d'image inverse et image directe du morphisme de topos $u : (X_\bullet)^\sim \to (Y_\bullet)^\sim$.
+
+\subsubsection{}
+Soit $a : X_\bullet \to S$ un espace topologique simplicial augment\'e. Si $F$ est un faisceau sur $S$, alors $a^* F = (a_n^* F)_{n \geq 0}$ ``est'' un faisceau sur $X_\bullet$. Le foncteur $a^*$ a un adjoint \`a droite
+\begin{equation}\label{eq:5.1.11.1}
+a_* : F^\bullet \mapsto \Ker\big({a_0}_* F^0 \rightrightarrows {a_1}_* F^1\big).
+\end{equation}
+Les foncteurs $a^*$ et $a_*$ sont les morphismes d'image inverse et image directe du morphisme de topos $a : (X_\bullet)^\sim \to (S)^\sim$.
+
+\subsubsection{}
+Soit $S_\bullet$ l'espace simplicial constant associ\'e \`a $S$, et $a_\bullet : X_\bullet \to S_\bullet$ le morphisme d\'efini par $a$.
+Pour un faisceau ab\'elien $F^\bullet$ sur $X_\bullet$, on peut identifier ${a_\bullet}_* F^\bullet$ avec un faisceau cosimplicial sur $S$ ((IV) de (5.1.9)). Pour un complexe $K$ de faisceaux ab\'eliens sur $X_\bullet$, si $K^{p,q}$ est la composante de degr\'e $p$ de la restriction de $K$ \`a $X_q$, alors les composantes du complexe simple associ\'e au double complexe d\'efini par ${a_\bullet}_* K$ sont
+\begin{equation}\label{eq:5.1.12.1}
+(\simp {a_\bullet}_* K)^n = \bigoplus_{p+q=n} {a_q}_* K^{pq}.
+\end{equation}
+La suite spectrale d\'efinie par la filtration $L$ (\eqref{eq:5.1.9.3}) de $\simp {a_\bullet}_* K$ s'\'ecrit
+\begin{equation}\label{eq:5.1.12.2}
+E_1^{pq} = H^q({a_p}_*(K|X_p)) \Rightarrow H^{p+q}(\simp {a_\bullet}_* K).
+\end{equation}
+
+\subsubsection{}
+Soit $S = \Pt$ (l'espace topologique r\'eduit \`a un point). On voit que, pour un faisceau $F^\bullet$ sur $X_\bullet$, les $\Gamma(X_n, F^n)$ sont les composantes d'un ensemble cosimplicial $\Gamma^\bullet(X_\bullet, F^\bullet)$. Le foncteur $\Gamma$ (de sections globales) est le foncteur
+\begin{equation}\label{eq:5.1.13.1}
+\Gamma : F^\bullet \mapsto \Ker\big(\Gamma(X_0, F^0) \rightrightarrows \Gamma(X_1, F^1)\big).
+\end{equation}
+Si $K$ est un complexe de faisceaux ab\'eliens, on note $\Gamma^\bullet(X_\bullet, K)$ le complexe cha\'ine dont les composantes sont les groupes ab\'eliens cosimpliciaux $\Gamma^\bullet(X_\bullet, K^n)$, et $\simp \Gamma^\bullet(X_\bullet, K)$ le complexe simple associ\'e.
+
+\subsection{Cohomologie des espaces topologiques simpliciaux}
+
+\subsubsection{}
+\`A tout espace topologique simplicial $X_\bullet$ est associ\'e un espace topologique usuel $|X_\bullet|$, appel\'e sa r\'ealisation g\'eom\'etrique (voir ci-dessous). Dans le cas particulier o\`u les $X_n$ sont discrets, on retrouve la notion usuelle de r\'ealisation g\'eom\'etrique d'un ensemble simplicial.
+
+Dans [14], G. Segal d\'efinit la cohomologie de $X_\bullet$ \`a valeurs dans un groupe ab\'elien $A$ comme $H^\bullet(|X_\bullet|, A)$. Sous des hypoth\`eses convenables, la filtration de $|X_\bullet|$ par les squelettes successifs donne une suite spectrale
+\begin{equation}\label{eq:5.2.1.1}
+E_1^{pq} = H^q(X_p, A) \Rightarrow H^{p+q}(X_\bullet, A).
+\end{equation}
+
+L'un des int\'er\^ets de cette d\'efinition est qu'elle s'applique aussi, par exemple, \`a la d\'efinition des groupes $K(X_\bullet)$. Nous en adopterons une autre, mieux adapt\'ee aux techniques faisceautiques.
+
+\paragraph{R\'ealisation g\'eom\'etrique.}
+Pour un entier $n \geq 0$, on note $|\Delta_n|$ le simplexe dans $\RR^{\Delta_n}$ dont les sommets sont l'ensemble des vecteurs de base. On identifie $\Delta_n$ avec l'ensemble des sommets de $|\Delta_n|$. Toute fonction $f : \Delta_n \to \Delta_m$ se prolonge par lin\'earit\'e \`a $|f| : |\Delta_n| \to |\Delta_m|$.
+
+Soit $X_\bullet$ un espace topologique simplicial. Soit
+\[
+Y = \coprod_{n \geq 0} (X_n \times |\Delta_n|).
+\]
+Soit $R$ la relation d'\'equivalence la plus fine sur $Y$ telle que, pour toute $f : \Delta_n \to \Delta_m$ dans $(\Delta)$, tout $x_m \in X_m$, et tout $a \in |\Delta_n|$, on ait
+\[
+(x_m, |f|(a)) \equiv (f(x_m), a) \mod R.
+\]
+La \emph{r\'ealisation g\'eom\'etrique} de $X_\bullet$ est par d\'efinition
+\[
+|X_\bullet| = Y/R.
+\]
+
+\subsubsection{}
+\begin{definition}
+Soit $X_\bullet$ un espace topologique simplicial. Les foncteurs $H^i(X_\bullet, F^\bullet)$ de \emph{cohomologie \`a coefficients dans le faisceau ab\'elien $F^\bullet$ sur $X_\bullet$} sont les foncteurs d\'eriv\'es du foncteur $\Gamma$ (\eqref{eq:5.1.13.1}).
+\end{definition}
+
+Cette d\'efinition est \'equivalente \`a la suivante, parfois plus commode.
+
+\subsubsection{}
+Soit $F^\bullet$ un faisceau ab\'elien sur $X_\bullet$. On peut montrer (par exemple, \`a l'aide de (III) de (5.1.9)) que $F^\bullet$ admet toujours des r\'esolutions $K$ sur la droite telles que
+\[
+H^r(X_q, K^{p,q}) = 0 \quad \text{pour } p,q \geq 0 \text{ et } r > 0.
+\]
+Si $K$ est une telle r\'esolution, on a canoniquement
+\begin{equation}\label{eq:5.2.3.1}
+H^n(X_\bullet, F^\bullet) \simeq H^n(\simp \Gamma^\bullet(X_\bullet, K)).
+\end{equation}
+Il est facile de montrer directement que le second membre est ind\'ependant (\`a isomorphisme unique pr\`es) du choix de $K$ ; pour ce qui suit, nous sommes libres de \emph{d\'efinir} $H^\bullet(X_\bullet, F^\bullet)$ par \eqref{eq:5.2.3.1}. On peut de plus montrer que la suite spectrale du complexe $\simp \Gamma^\bullet(X_\bullet, K)$, filtr\'e par $L$ (\eqref{eq:5.1.9.3} et \eqref{eq:5.1.12.2} pour $S = \Pt$)
+\begin{equation}\label{eq:5.2.3.2}
+E_1^{pq} = H^q(X_p, F^p) \Rightarrow H^{p+q}(X_\bullet, F^\bullet)
+\end{equation}
+est ind\'ependante (\`a isomorphisme unique pr\`es) du choix de $K$ (cf.\ \eqref{eq:5.2.1.1}).
+
+\subsubsection{}
+Nous aurons \`a pr\'eciser la construction ci-dessus en passant aux cat\'egories d\'eriv\'ees, et \`a en donner une variante relative.
+
+Soit $a : X_\bullet \to S$, soit $S_\bullet$ l'espace simplicial constant d\'efini par $S$ avec morphisme d'augmentation $\varepsilon : S_\bullet \to S$, et soit $a_\bullet : X_\bullet \to S_\bullet$ le morphisme induit par $a$. Alors
+\begin{equation}\label{eq:5.2.4.1}
+a_* = \varepsilon_* {a_\bullet}_* : (X_\bullet)^\sim \to (S)^\sim.
+\end{equation}
+
+La version d\'eriv\'ee de cette \'equation est
+\begin{equation}\label{eq:5.2.4.2}
+\Rd a_* = \Rd \varepsilon_* \Rd {a_\bullet}_* : \DD^+(X_\bullet) \to \DD^+(S) \to (S)^\sim.
+\end{equation}
+o\`u $\DD^+(X_\bullet)$ est la cat\'egorie d\'eriv\'ee born\'ee inf\'erieurement de la cat\'egorie des faisceaux ab\'eliens sur $X_\bullet$. Nous calculerons $\Rd {a_\bullet}_*$ et $\Rd \varepsilon_*$.
+
+\subsubsection{}
+Soit $u : X_\bullet \to Y_\bullet$ un morphisme d'espaces topologiques simpliciaux. Le foncteur $\Rd u_* : \DD^+(X_\bullet) \to \DD^+(Y_\bullet)$ peut se calculer ``composante par composante'' : si $K$ est un complexe de faisceaux ab\'eliens sur $X_\bullet$, alors pour calculer $\Rd u_* K$ on prend une r\'esolution $K \xrightarrow{\sim} K'$ telle que les composantes $F$ de $K'$ v\'erifient $\Rd^i {u_p}_*(F^p) = 0$ pour $i > 0$, $p \geq 0$ (cf.\ (III) de (5.1.9)) ; alors $\Rd u_* K \approx u_* K'$.
+
+\subsubsection{}
+Le foncteur $\simp : \mathrm{C}^+(S_\bullet) \to \mathrm{C}^+(S)$ envoie les complexes acycliques sur des complexes acycliques. Il se d\'erive donc trivialement en
+\[
+\simp : \DD^+(S_\bullet) \to \DD^+(S).
+\]
+Si $F$ est un faisceau injectif sur $S_\bullet$, le complexe cha\'ine $\simp F$ est une r\'esolution de $\varepsilon_* F$. On obtient donc un isomorphisme $\Rd \varepsilon_* \xrightarrow{\sim} \simp$, et \eqref{eq:5.2.4.2} devient
+\begin{equation}\label{eq:5.2.6.1}
+\Rd a_* = \simp \Rd {a_\bullet}_*.
+\end{equation}
+
+\subsubsection{}
+Combin\'e avec (5.2.5) et sp\'ecialis\'e au cas o\`u $S = \Pt$, cette \'equation prouve \eqref{eq:5.2.3.1}. En termes concrets, cela signifie que, pour calculer $\Rd a_* K$, on peut proc\'eder en deux temps :
+\begin{enumerate}
+\item[(a)] On prend une r\'esolution $K \xrightarrow{\sim} K'$ telle que les composantes $F$ de $K'$ v\'erifient $\Rd^i {a_p}_*(F^p) = 0$ pour $i > 0$. Le complexe ${a_\bullet}_* K' \in \DD^+(S_\bullet)$ (la cat\'egorie d\'eriv\'ee de la cat\'egorie des faisceaux ab\'eliens cosimpliciaux sur $S$) peut s'identifier \`a $\Rd {a_\bullet}_* K$.
+\item[(b)] $\Rd a_* K$ est le complexe simple $\simp {a_\bullet}_* K'$ associ\'e au double complexe ${a_\bullet}_* K'$.
+\end{enumerate}
+
+La suite spectrale \eqref{eq:5.2.3.2} se g\'en\'eralise en une suite spectrale
+\begin{equation}\label{eq:5.2.7.1}
+E_1^{pq} = \Rd^q {a_p}_*(K|X_p) \Rightarrow \Rd^{p+q} a_* K
+\end{equation}
+d\'eduite de \eqref{eq:5.1.12.2}.
+
+\subsection{Descente cohomologique}
+
+\subsubsection{}
+Soit $a : X_\bullet \to S$ un espace topologique simplicial augment\'e. Pour tout faisceau $F$ sur $S$, on a un morphisme
+\[
+\varphi : F \to a_* a^* F
+\]
+deduit de l'adjonction $a^* \dashv a_*$. Ce morphisme se d\'erive en un morphisme de foncteurs de $\DD^+(S)$ dans $\DD^+(S)$, \`a savoir
+\begin{equation}\label{eq:5.3.1.1}
+\varphi : \Id \to \Rd a_* a^*.
+\end{equation}
+
+\subsubsection{}
+\begin{definition}
+On dit que $a$ est de \emph{descente cohomologique} si, pour tout faisceau ab\'elien $F$ sur $S$, on a
+\[
+F \xrightarrow{\sim} \Ker({a_0}_* {a_0}^* F \to {a_1}_* {a_1}^* F)
+\]
+et
+\[
+\Rd^i a_* a^* F = 0 \quad \text{pour } i > 0.
+\]
+Ceci \'equivaut \`a demander que \eqref{eq:5.3.1.1} soit un isomorphisme.
+\end{definition}
+
+\subsubsection{}
+Si $a$ est de descente cohomologique, alors, pour $K \in \Ob \DD^+(S)$, le morphisme canonique
+\begin{equation}\label{eq:5.3.3.1}
+\Rd \Gamma(S, K) \to \Rd \Gamma(S, \Rd a_* a^* K) \simeq \Rd \Gamma(X_\bullet, a^* K)
+\end{equation}
+est un isomorphisme. En particulier, pour $F$ un faisceau ab\'elien sur $S$, on a une suite spectrale (\eqref{eq:5.2.3.2})
+\begin{equation}\label{eq:5.3.3.2}
+E_1^{pq} = H^q(X_p, a_p^* F) \Rightarrow H^{p+q}(S, F).
+\end{equation}
+Pour un complexe, on a \`a nouveau, en hypercohomologie, une suite spectrale
+\begin{equation}\label{eq:5.3.3.3}
+E_1^{pq} = \bH^q(X_p, a_p^* K) \Rightarrow \bH^{p+q}(S, K).
+\end{equation}
+Dans les deux cas, les $E_1^{\bullet q}$ (pour $q$ fixe) forment un groupe simplicial, et
+\[
+d_1 = \sum_i (-1)^i \delta_i : E_1^{p,q} \to E_1^{p+1,q}.
+\]
+
+\subsubsection{}
+\begin{definition}
+Une application continue $a : X \to S$ est de \emph{descente cohomologique} si le morphisme d'augmentation de $\cosq(X \to S)$, \`a savoir
+\[
+\big((X/S)^{\Delta_n}\big)_{n \geq 0} \to S,
+\]
+est de descente cohomologique. On dit que $a$ est de \emph{descente cohomologique universelle} si, pour tout $u : S' \to S$, l'application continue $a' : X \times_S S' \to S'$ est de descente cohomologique.
+\end{definition}
+
+\subsubsection{}
+Les r\'esultats fondamentaux, d\'emontr\'es dans [SD], sont les suivants.
+
+(I) Les applications continues de descente cohomologique universelle forment une topologie de Grothendieck sur la cat\'egorie des espaces topologiques, qu'on appelle la \emph{topologie de descente cohomologique universelle}.
+
+(II) Une application propre ((III.0.1)) surjective est de descente cohomologique universelle.
+
+(III) Une application $a : X \to S$ qui admet des sections localement sur $S$ est de descente cohomologique universelle.
+
+(IV) Soit $a : X_\bullet \to S$ un espace simplicial augment\'e $k$-tronqu\'e ($-1 \leq k \leq \infty$). Pour $k \geq n \geq -1$, soit $\varphi_n : \cosq X_\bullet \to \cosq \mathrm{sq}_n X_\bullet$ l'application \'evidente. On dit que $X_\bullet$ est un \emph{$k$-tronqu\'e hyperrecouvrement de $S$, pour la topologie de descente cohomologique universelle}, si les applications
+\begin{equation}\label{eq:5.3.5.1}
+(\varphi_n)_{n+1} : X_{n+1} \to (\cosq \mathrm{sq}_n X_\bullet)_{n+1}
+\end{equation}
+(pour $-1 \leq n \leq k-1$) sont de descente cohomologique universelle. Si $X_\bullet$ est un tel hyperrecouvrement, alors l'espace simplicial $\cosq(X_\bullet)$ augment\'e sur $S$ est de descente cohomologique.
+
+(V) Soit $a$ un morphisme d'espaces topologiques simpliciaux augment\'es sur $S$.
+\[
+\begin{tikzcd}
+X_\bullet \arrow[r, "a"] \arrow[d, "x"'] & Y_\bullet \arrow[d, "y"] \\
+S \arrow[r, equal] & S
+\end{tikzcd}
+\]
+On dit que $a$ est un \emph{hyperrecouvrement} pour la topologie de descente cohomologique universelle si les applications \'evidentes $X_n \to (\cosq_{n-1}^{Y_\bullet} \mathrm{sq}_{n-1} X_\bullet)_n$ sont de descente cohomologique universelle. Si $a$ est un tel hyperrecouvrement alors, pour tout $K \in \Ob \DD^+(S)$,
+\[
+a^* : \Rd y_* y^* K \xrightarrow{\sim} \Rd x_* x^* K.
+\]
+
+\subsubsection{}
+Pour $k = \infty$, (IV) de (5.3.5) implique que les $a : X_\bullet \to S$ sont de descente cohomologique si les $(\varphi_n)_{n+1}$ sont de descente cohomologique universelle. Pour $n = -1, 0$, ces applications sont
+\[
+(\varphi_n)_{n+1} = \begin{cases}
+X_0 \xrightarrow{a} S & \text{si } n = -1 \\
+X_1 \xrightarrow{(\delta_0, \delta_1)} X_0 \times_S X_0 & \text{si } n = 0.
+\end{cases}
+\]
+Pour $n = 1$, $(\cosq \mathrm{sq}_1(X_\bullet))_2$ est le sous-espace de $X_1 \times_S X_1 \times_S X_1$ form\'e des triples $(x,y,z)$ tels que $\delta_0 x = \delta_0 y$, $\delta_1 x = \delta_0 z$, et $\delta_1 y = \delta_1 z$. L'application $(\varphi_1)_2$ est $x \mapsto (\delta_0 x, \delta_1 x, \delta_2 x)$.
+
+Pour $k = 0$, (IV) de (5.3.5) est (5.3.4).
+
+\subsubsection{}
+\begin{example}
+Soit $\mathscr{U} = (U_i)_{i \in I}$ un recouvrement ouvert, ou un recouvrement localement ferm\'e fini, de $S$. Soit $X = \coprod_{i \in I} U_i$. Alors $a : X \to S$ est de descente cohomologique. La suite spectrale de (5.3.3.2) pour $X_\bullet = \cosq(X \to S)$ est alors la suite spectrale de Leray du recouvrement $\mathscr{U}$.
+\end{example}
+
+\subsubsection{}
+Soit $a : X_\bullet \to S$ comme en (IV) de (5.3.5). On dit que $X_\bullet$ est un \emph{hyperrecouvrement propre $k$-tronqu\'e} de $S$ si les fl\`eches en \eqref{eq:5.3.5.1} sont propres et surjectives. Pour $k = \infty$, on dit simplement ``hyperrecouvrement propre''.
+
+\section{Exemples d'espaces topologiques simpliciaux}
+
+\subsection{Espaces classifiants}
+
+\subsubsection{}
+Soit $u : X \to S$ une application continue. Pour tout faisceau $F$ sur $S$, le faisceau $u^* F$ est muni d'une ``donn\'ee de descente'' relativement \`a $u$, i.e.\ on a un isomorphisme entre les deux images inverses de $u^* F$ sur $X \times_S X$, et cet isomorphisme v\'erifie une condition de cocycle. Si $u$ admet une section localement sur $S$, alors cette construction d\'efinit une \'equivalence entre la cat\'egorie des faisceaux sur $S$ et celle des faisceaux sur $X$ munis d'une donn\'ee de descente.
+
+Prenons pour $X$ un espace principal homog\`ene \`a (gauche) pour le groupe $G$ sur un espace $S = X/G$. Alors les faisceaux $G$-\'equivariants sur $X$ sont exactement les faisceaux munis d'une donn\'ee de descente : tout faisceau \'equivariant sur $X$ est, d'une unique mani\`ere (comme faisceau \'equivariant), l'image inverse d'un faisceau sur $S = X/G$.
+
+\subsubsection{}
+Si un groupe topologique $G$ agit sur un espace $X$, alors $G$ agit sur $G^{\Delta_n} \times X$ par
+\[
+g \cdot (g_0, \ldots, g_n, x) = (g_0 g^{-1}, \ldots, g_n g^{-1}, gx).
+\]
+On note $[X/G]_\bullet$ l'espace simplicial
+\begin{equation}\label{eq:6.1.2.1}
+[X/G]_\bullet = \big((G^{\Delta_n} \times X)/G\big)_{n \geq 0}.
+\end{equation}
+
+(a) Si $X$ est un espace principal homog\`ene pour le groupe $G$ sur $S = X/G$, alors l'application
+\[
+\begin{aligned}
+G^{\Delta_n} \times X &\to X^{\Delta_n} \\
+(g_0, \ldots, g_n, x) &\mapsto (g_0 x, \ldots, g_n x)
+\end{aligned}
+\]
+identifie $[X/G]_n$ avec le produit fibr\'e it\'er\'e $(X/S)^{\Delta_n}$ :
+\[
+\cosq(X \to S) = ([X/G]_\bullet \to S).
+\]
+En particulier, on a (par (III) de (5.3.5))
+\begin{equation}\label{eq:6.1.2.2}
+H^\bullet([X/G]_\bullet) \simeq H^\bullet(X/G)
+\end{equation}
+(pour un espace principal homog\`ene).
+
+(b) Pour tout $n$, $G^{\Delta_n} \times X$ est un espace principal homog\`ene pour le groupe $G$ sur $[X/G]_n$. Pour tout faisceau \'equivariant $F$ sur $X$, $\pr_2^* F$ est un faisceau \'equivariant sur $G^{\Delta_n} \times X$ ; par (6.1.1), ce dernier est l'image inverse d'un faisceau sur $[X/G]_n$. Tout faisceau \'equivariant $F$ sur $X$ d\'efinit ainsi un faisceau sur $[X/G]_\bullet$. Il est facile de montrer qu'on obtient ainsi une \'equivalence entre la cat\'egorie des faisceaux \'equivariants sur $X$ et la cat\'egorie des faisceaux $F^\bullet$ sur $[X/G]_\bullet$ qui v\'erifient
+\begin{equation*}
+\text{($*$) Pour tout $f : \Delta_n \to \Delta_m$, le morphisme structural $f^* F^n \to F^m$ est un isomorphisme.}
+\end{equation*}
+
+(c) La construction (b) ci-dessus est naturelle en $(G, X, F)$. On pose
+\begin{equation}\label{eq:6.1.2.3}
+H^\bullet(X, G; F) = H^\bullet([X/G]_\bullet, F^\bullet)
+\end{equation}
+(cohomologie mixte de $X, G$ \`a coefficients dans $F$). Sous les hypoth\`eses de (a), si $F$ est l'image inverse de $F^{-1}$ sur $S = X/G$, alors
+\begin{equation}\label{eq:6.1.2.4}
+H^\bullet(X, G; F) = H^\bullet(X/G, F^{-1})
+\end{equation}
+(pour un espace principal homog\`ene). Ceci g\'en\'eralise \eqref{eq:6.1.2.2} (qui est le cas $F = \underline{\ZZ}$).
+
+\subsubsection{}
+Soit $\Pt$ l'espace topologique r\'eduit \`a un point. On d\'efinit l'\emph{espace classifiant simplicial} de $G$, not\'e $B_{\bullet G}$, comme l'espace simplicial
+\[
+B_{\bullet G} = [\Pt/G]_\bullet.
+\]
+
+Soit $P$ un espace principal homog\`ene pour le groupe $G$ sur $S$. Le morphisme \'evident
+\[
+\cosq(P \to S) = [P/G]_\bullet \to [\Pt/G]_\bullet = B_{\bullet G}
+\]
+d\'efinit un morphisme compos\'e
+\begin{equation}\label{eq:6.1.3.1}
+[P] : H^\bullet(B_{\bullet G}) \to H^\bullet([P/G]_\bullet) \xleftarrow[\eqref{eq:6.1.2.2}]{\sim} H^\bullet(S).
+\end{equation}
+
+On verra ci-dessous que, dans de bons cas, $H^\bullet(B_{\bullet G}) = H^\bullet(B_G)$, et que l'image de $[P]$ consiste en les \emph{classes caract\'eristiques} de $P$.
+
+\subsubsection{}
+Soient $G$ un groupe de Lie, $B_G$ un espace classifiant pour $G$, et $a : U_G \to B_G$ l'espace principal homog\`ene $G$-universel. Soit $X$ un $G$-espace ; alors $X \times U_G$ est un espace principal homog\`ene $G$ sur $X \times U_G/G$ tel que, pour tout faisceau \'equivariant $F$ sur $X$, $\pr_1^* F$ est l'image inverse d'un faisceau $F^G$ sur $X \times U_G/G$. Puisque $U_G$ est contractile, et par \eqref{eq:6.1.2.2}, on a
+\begin{equation}\label{eq:6.1.4.1}
+H^\bullet(X, G; F) \xrightarrow{\sim} H^\bullet(X \times U_G, G; \pr_1^* F) \xleftarrow{\sim} H^\bullet(X \times U_G/G, F^G).
+\end{equation}
+
+En particulier, pour $X = \Pt$,
+\begin{equation}\label{eq:6.1.4.2}
+H^\bullet(B_{\bullet G}) = H^\bullet(B_G).
+\end{equation}
+
+On voit que l'isomorphisme de \eqref{eq:6.1.4.2} est un cas particulier de \eqref{eq:6.1.3.1} o\`u $S = B_G$ et $P = U_G$.
+
+\subsubsection{}
+La suite spectrale de (5.2.3.2) pour $B_{\bullet G}$
+\[
+E_1^{pq} = H^q(G^{\Delta_p}/G) \Rightarrow H^{p+q}(B_{\bullet G}) = H^{p+q}(B_G)
+\]
+est essentiellement la \emph{suite spectrale d'Eilenberg--Moore}. Nous rappelons bri\`evement comment elle permet de relier les cohomologies rationnelles de $G$ et de $B_G$, pour $G$ connexe.
+
+(a) L'alg\`ebre $H^\bullet(G, \QQ)$ est une alg\`ebre de Hopf gradu\'ee connexe de dimension finie sur $\QQ$. Si $P^\bullet(G)$ est le module gradu\'e de ses \'el\'ements primitifs, alors on a
+\[
+H^\bullet(G, \QQ) = \bigwedge P^\bullet(G)
+\]
+et les g\'en\'erateurs de $P^\bullet(G)$ sont de degr\'e impair.
+
+(b) L'alg\`ebre simpliciale $(E_1^{p\bullet})_{p \geq 0}$ est
+\[
+E_1^{p\bullet} = \bigwedge\big(P^\bullet(G)^{\Delta_p}/P^\bullet(G)\big)
+\]
+qui est l'alg\`ebre ext\'erieure de la suspension du module cosimplicial constant $P^\bullet(G)$ ; on a donc (par Quillen [12]) $E_2^{p\bullet} = \Sym^p(P^\bullet(G))$. Les pages $E_2^{pq}$ ne sont non nulles que pour $p+q$ pair ; on a donc $E_2^{pq} = E_\infty^{pq}$, et, pour une filtration convenable, on a canoniquement
+\[
+\Gr H^\bullet(B_G, \QQ) \simeq \Sym^\bullet(P^\bullet(G)[-1])
+\]
+et non canoniquement
+\[
+H^\bullet(B_G, \QQ) \simeq \Sym^\bullet(P^\bullet(G)[-1]).
+\]
+
+\subsubsection{}
+Soit $G$ un groupe alg\'ebrique (complexe) lin\'eaire.
+
+(a) Si $T$ est un tore maximal de $G$, de groupe de Weyl $W$, alors
+\begin{equation}\label{eq:6.1.6.1}
+H^\bullet(B_G, \QQ) \xrightarrow{\sim} H^\bullet(B_T, \QQ)^W.
+\end{equation}
+
+(b) Si $T$ est un tore de groupe de caract\`eres $X(T)$, alors
+\begin{equation}\label{eq:6.1.6.2}
+H^\bullet(T, \ZZ) \simeq \bigwedge^\bullet X(T)
+\end{equation}
+(un isomorphisme d'alg\`ebres de Hopf gradu\'ees).
+
+On n'utilisera (a) que sous la forme affaiblie suivante :
+
+(a') \emph{(Le principe de scindage).} Le morphisme $H^\bullet(B_G, \QQ) \to H^\bullet(B_T, \QQ)$ est injectif.
+
+Pour m\'emoire, on rappelle une d\'emonstration de (a').
+
+Si $B$ est un sous-groupe de Borel de $G$, alors le fibr\'e $U_G/B$ sur $B_G$ est une fibr\'ee en espaces de drapeaux. D'apr\`es [2.1 et 2.6.3, [3]], qui est mieux expliqu\'e dans [Proposition 3.1, [6]], ou par [1], la suite spectrale de Leray de $U_G/B \to B_G$ d\'eg\'en\`ere en cohomologie rationnelle. On a donc $H^\bullet(B_G, \QQ) \hookrightarrow H^\bullet(U_G/B, \QQ)$. On conclut en notant que $U_G/B \sim B_B \sim B_T$.
+
+\subsection{Construction d'hyperrecouvrements}
+
+\subsubsection{}
+Nous nous proposons de montrer que, pour tout sch\'ema s\'epar\'e de type fini sur $\CC$, on peut trouver un sch\'ema simplicial $X_\bullet$ qui soit de descente cohomologique sur $S$ (augment\'e vers $S$), et qui soit ``lisse'' en un sens convenable. Ce r\'esultat joue un r\^ole essentiel dans ce travail.
+
+\subsubsection{}
+Soit $\Pi$ une propri\'et\'e d'applications continues entre espaces topologiques. Nous dirons qu'un sch\'ema simplicial augment\'e $X_\bullet \to S$ est un \emph{hyperrecouvrement} (resp.\ un \emph{hyperrecouvrement propre}) pour la topologie de descente cohomologique universelle (5.3.5) (resp.\ (5.3.8)) si les fl\`eches (5.3.5.1) le sont.
+
+\subsubsection{}
+\begin{proposition}
+Soient $f : X \to S$ propre et surjectif, et $\cP$ la propri\'et\'e ``\^etre isomorphe \`a $f$''. Il existe alors un hyperrecouvrement propre $X_\bullet \to S$ tel que $X_0 \to S$ soit isomorphe \`a $f$ et que, pour tout $n$, $X_n \to S$ se factorise par $f$.
+\end{proposition}
+
+Prouvons par r\'ecurrence sur $n$ qu'on peut construire un $n$-tronqu\'e $X_\bullet \to S$, v\'erifiant les conditions impos\'ees. Pour $n=0$, on prend $X_0 = X$. Supposons construit $\mathrm{sq}_{n-1}(X_\bullet)$. On prend alors pour $X_n$ un sch\'ema propre sur $S$, muni d'un morphisme propre et surjectif sur $(\cosq \mathrm{sq}_{n-1} X_\bullet)_n$, tel que $X_n \to S$ se factorise par $f$ ; un tel sch\'ema existe car $f$ est propre et surjectif. La donn\'ee de $X_n$ et de $X_n \to (\cosq \mathrm{sq}_{n-1} X_\bullet)_n$ \'equivaut \`a celle du prolongement de $\mathrm{sq}_{n-1}(X_\bullet)$ en un $n$-tronqu\'e. Passant \`a la limite, on obtient le hyperrecouvrement cherch\'e.
+
+\subsubsection{}
+\begin{proposition}
+Sous les hypoth\`eses de (6.2.3), si de plus $X$ est lisse sur $\CC$, on peut imposer \`a $X_\bullet$ d'avoir ses composantes lisses sur $\CC$.
+\end{proposition}
+
+\begin{proposition}
+Sous les hypoth\`eses de (6.2.3), supposons que $X$ soit un sch\'ema simplicial propre et lisse sur $\CC$, augment\'e vers un sch\'ema $S$ propre sur $\CC$, et que $X_0 \to S$ soit surjectif. Il existe alors un hyperrecouvrement propre $Y_\bullet \to S$, avec $Y_\bullet$ simplicial propre et lisse, et un diagramme commutatif
+\[
+\begin{tikzcd}
+Y_\bullet \arrow[r] \arrow[rd] & X_\bullet \arrow[d] \\
+& S
+\end{tikzcd}
+\]
+tel que $Y_\bullet$ soit un hyperrecouvrement de $X_\bullet$ au sens de (V) de (5.3.5).
+\end{proposition}
+
+\subsubsection{}
+\begin{proposition}
+Soit $U$ un sch\'ema s\'epar\'e de type fini sur $\CC$. Il existe un sch\'ema simplicial lisse sur $\CC$, augment\'e vers $U$, et de descente cohomologique universelle sur $U$.
+\end{proposition}
+
+D'apr\`es Nagata, $U$ se plonge comme ouvert dense dans un sch\'ema $\overline{U}$ propre sur $\CC$. D'apr\`es Hironaka, il existe $\overline{X} \to \overline{U}$ propre surjectif, avec $\overline{X}$ lisse sur $\CC$, tel que $\overline{X} \setminus X$ (o\`u $X = \overline{X} \times_{\overline{U}} U$) soit un diviseur \`a croisements normaux dans $\overline{X}$. D'apr\`es (6.2.4), on peut trouver un sch\'ema simplicial propre et lisse $X_\bullet$ sur $\CC$, et un morphisme propre et surjectif $a : X_0 \to \overline{X}$. Posons $\overline{U}_\bullet = \cosq_0^{\overline{U}}(X_0 \to \overline{U})$, $U_\bullet = \overline{U}_\bullet \times_{\overline{U}} U$, et $Y_\bullet = X_\bullet \times_{\overline{U}_\bullet} U_\bullet$. Le sch\'ema simplicial $Y_\bullet$ est lisse sur $\CC$, et on v\'erifie aussit\^ot qu'il est de descente cohomologique universelle sur $U$.
+
+\subsection{Cohomologie relative}
+
+\subsubsection{}
+Soit $f : X \to S$ un morphisme d'espaces topologiques. La cohomologie relative de $f$ \`a coefficients dans un faisceau ab\'elien $F$ sur $X$ est par d\'efinition
+\[
+H^\bullet(X \bmod S, F) = H^\bullet(\widetilde{C}(f), F^\bullet)
+\]
+o\`u $\widetilde{C}(f)$ est le \emph{c\^one de l'application $f$} (au sens du mapping cylinder), d\'efini comme l'espace topologique simplicial augment\'e suivant : $\widetilde{C}(f)_{-1} = S$, $\widetilde{C}(f)_0 = X$, $\widetilde{C}(f)_{n+1} = X^{\Delta_n}$ ; les faces et d\'eg\'en\'erescences sont les applications \'evidentes. Le faisceau $F^\bullet$ est d\'efini par $F^0 = F$, $F^{n+1} = \pr_1^* F$.
+
+Si $S$ est r\'eduit \`a un point, on retrouve la cohomologie r\'eduite de $X$.
+
+\subsubsection{}
+On v\'erifie que, pour $f : X \to S$ et $g : Y \to S$, on a
+\[
+\widetilde{C}(f \times_S g) \simeq \widetilde{C}(f) \times_S \widetilde{C}(g).
+\]
+
+\subsection{Espaces multisimpliciaux}
+
+\subsubsection{}
+Soit $N \geq 1$. Un \emph{espace $N$-simplicial} est un foncteur contravariant de $(\Delta)^N$ dans la cat\'egorie des espaces topologiques. On d\'efinit de m\^eme les objets $N$-simpliciaux d'une cat\'egorie, les faisceaux sur un espace $N$-simplicial, etc. La diagonale d'un espace $N$-simplicial $X_{\bullet \ldots \bullet}$ est l'espace simplicial $d(X)_\bullet$ d\'efini par
+\[
+d(X)_n = X_{n \ldots n}.
+\]
+
+\subsubsection{}
+Soit $X_{\bullet \bullet}$ un espace bisimplicial. On a une suite spectrale
+\begin{equation}\label{eq:6.4.2}
+E_1^{pq} = H^q(X_{p \bullet}, F^{p \bullet}) \Rightarrow H^{p+q}(d(X)_\bullet, F^\bullet).
+\end{equation}
+
+\section{Compl\'ements au \S\ 1}
+
+\subsection{Cat\'egorie d\'eriv\'ee filtr\'ee}
+
+\subsubsection{}
+Soient $\cA$ une cat\'egorie ab\'elienne, $\mathrm{FA}$ la cat\'egorie des objets de $\cA$ munis d'une filtration finie. On d\'efinit comme en [SGA 4, VII.4] la cat\'egorie d\'eriv\'ee filtr\'ee $\DD^+ \mathrm{FA}$ comme la cat\'egorie d\'eriv\'ee de la cat\'egorie des complexes born\'es inf\'erieurement d'objets de $\mathrm{FA}$. Un objet de $\DD^+ \mathrm{FA}$ peut se repr\'esenter par un complexe $K$ muni d'une filtration finie $\mathrm{Dec}(W)$, o\`u $\mathrm{Dec}$ d\'esigne le foncteur d\'ecalage.
+
+Pour $(K, W) \in \DD^+ \mathrm{FA}$, on pose
+\[
+H^i(\Gr_n^W(K)) = H^i(K_n/K_{n+1})
+\]
+et on d\'efinit la suite spectrale associ\'ee \`a la filtration $W$ par
+\[
+E_1^{pq}(K, W) = H^{p+q}(\Gr_{-p}^W(K)) \Rightarrow H^{p+q}(K).
+\]
+
+\subsubsection{}
+Soient $(K, W) \in \DD^+ \mathrm{FA}$, et $M$ une filtration sur $K$ (dans $\DD^+ \mathrm{FA}$). On suppose que, pour tout $n$, le complexe $\Gr_n^W(K)$ est un objet de $\DD^+ \mathrm{FA}$ muni de la filtration induite par $M$. On a alors deux suites spectrales :
+\begin{align}
+{}_W E_1^{pq} &= H^{p+q}(\Gr_{-p}^W(K)) \Rightarrow H^{p+q}(K), \label{eq:7.1.2a} \\
+{}_M E_1^{pq} &= H^{p+q}(\Gr_{-p}^M(K)) \Rightarrow H^{p+q}(K). \label{eq:7.1.2b}
+\end{align}
+
+\subsubsection{}
+\begin{proposition}[Lemme des deux filtrations]
+Avec les notations de \emph{(7.1.2)}, supposons que, pour tout $n$, la suite spectrale de la filtration $M$ du complexe $\Gr_n^W(K)$ d\'eg\'en\`ere en $E_2$. Alors la suite spectrale de la filtration $W$ du complexe $K$ d\'eg\'en\`ere en $E_3$.
+\end{proposition}
+
+\subsection{Compl\'ements au lemme des deux filtrations}
+
+\subsubsection{}
+Nous allons donner une nouvelle d\'emonstration du lemme des deux filtrations, plus simple que celle de II, 1.3. Nous nous bornons \`a l'\'enonc\'e dont nous aurons usage ; le lecteur en d\'eduira lui-m\^eme l'\'enonc\'e g\'en\'eral.
+
+\subsubsection{}
+\begin{proposition}
+Soit $K$ un complexe d'objets d'une cat\'egorie ab\'elienne, muni de deux filtrations $W$ et $M$. Supposons que
+\begin{enumerate}
+\item[(i)] Pour tout $i$, la filtration $M$ de $K^i$ est finie.
+\item[(ii)] Pour tout $n$, la suite spectrale de la filtration $M$ du complexe $\Gr_n^W(K)$ d\'eg\'en\`ere en $E_2$.
+\end{enumerate}
+Alors la suite spectrale de la filtration $W$ du complexe $K$ d\'eg\'en\`ere en $E_3$.
+\end{proposition}
+
+\begin{proof}
+On se ram\`ene aussit\^ot au cas o\`u $K$ est born\'e. La suite spectrale de la filtration $W$ a pour terme $E_2^{pq} = H^{p+q}(\Gr_{-p}^W(K))$. On a une filtration canonique $M$ sur $\Gr_{-p}^W(K)$, et il s'agit de montrer que $d_2 : E_2^{pq} \to E_2^{p+2,q-1}$ est nul. Or, pour chaque $n$, la diff\'erentielle $d_2$ sur $E_2(\Gr_n^W(K), M)$ est nulle par hypoth\`ese. On conclut en utilisant la fonctorialit\'e du morphisme $d_2$.
+\end{proof}
+
+\subsubsection{}
+Soit $K$ un complexe filtr\'e par $W$. On suppose que la filtration $W$ est finie. On pose, pour tout $n$,
+\[
+\mathrm{Dec}(W)_n K^i = \Ker(W_{n+i} K^i \oplus d^{-1}(W_{n+i+1} K^{i+1}) \to K^{i+1}/W_{n+i+1} K^{i+1}).
+\]
+Ceci d\'efinit une nouvelle filtration sur $K$, appel\'ee \emph{d\'ecal\'ee} de $W$. On a
+\[
+\Gr_n^{\mathrm{Dec}(W)}(K) \simeq \bigoplus_i E_\infty^{i,n-i}(\Gr_*^W(K)).
+\]
+
+\section{Th\'eorie de Hodge des espaces alg\'ebriques}
+
+\subsection{Complexes de Hodge}
+
+\subsubsection{}
+\begin{definition}
+Un \emph{complexe de Hodge} (resp.\ un \emph{complexe de Hodge filtr\'e}) $K$ sur un sch\'ema $X$ consiste en la donn\'ee de
+\begin{enumerate}
+\item[(a)] un complexe de faisceaux ab\'eliens $K_\ZZ$ sur $X$, muni d'une r\'esolution quasi-isomorphe born\'ee inf\'erieurement par des faisceaux flasques ;
+\item[(b)] une filtration croissante $W$ du complexe $K_\QQ = K_\ZZ \otimes \QQ$ ;
+\item[(c)] une filtration d\'ecroissante $F$ du complexe $K_\CC = K_\ZZ \otimes \CC$ ;
+\item[(d)] un isomorphisme dans la cat\'egorie d\'eriv\'ee filtr\'ee entre $(K_\QQ, W)$ et $(K_\CC, W)$.
+\end{enumerate}
+On exige de plus que, pour tout $n$, le syst\`eme $(\Gr_n^W(K_\QQ), (\Gr_n^W(K_\CC), F))$ d\'efinisse un complexe de Hodge de poids $n$, i.e. que les faisceaux de cohomologie $H^i(\Gr_n^W(K))$ soient des syst\`emes locaux sur $X$, et munissent les fibres $H^i(\Gr_n^W(K))_x$ d'une structure de Hodge pure de poids $n+i$.
+\end{definition}
+
+\subsubsection{}
+\begin{definition}
+Un \emph{morphisme} $f : K \to L$ de complexes de Hodge est un morphisme de faisceaux $f_\ZZ : K_\ZZ \to L_\ZZ$, un morphisme filtr\'e compatible $f_\QQ : (K_\QQ, W) \to (L_\QQ, W)$, et un morphisme bifiltr\'e compatible $f_\CC : (K_\CC, W, F) \to (L_\CC, W, F)$, ces donn\'ees \'etant compatibles entre elles.
+\end{definition}
+
+On v\'erifie que la cat\'egorie des complexes de Hodge est une cat\'egorie ab\'elienne, et que tout morphisme de complexes de Hodge est strictement compatible aux filtrations $W$ et $F$ (au sens de la cat\'egorie d\'eriv\'ee filtr\'ee).
+
+\subsubsection{}
+\begin{definition}
+Un \emph{$A$-complexe de Hodge mixte} $K$ sur un sch\'ema $X$ est la donn\'ee de
+\begin{enumerate}
+\item[(i)] un complexe de faisceaux de $A$-modules $K_A$ sur $X$, born\'e inf\'erieurement et \`a cohomologie constructible ;
+\item[(ii)] un complexe filtr\'e $(K_{A \otimes \QQ}, W)$ et un isomorphisme $K_{A \otimes \QQ} \simeq K_A \otimes \QQ$ ;
+\item[(iii)] un complexe bifiltr\'e $(K_\CC, W, F)$ et un isomorphisme $(K_\CC, W) \simeq (K_{A \otimes \QQ}, W) \otimes \CC$ ;
+\item[(iv)] pour tout $x \in X$ et tout $i$, la condition suivante soit v\'erifi\'ee :
+les $A$-modules $H^i(K_A)_x$ sont de type fini, et les $(H^i(K_A)_x, H^i(K_{A \otimes \QQ})_x, W, H^i(K_\CC)_x, F)$ forment une $A$-structure de Hodge mixte.
+\end{enumerate}
+\end{definition}
+
+\subsubsection{}
+\begin{theorem}
+Soit $K$ un $A$-complexe de Hodge mixte sur le sch\'ema $X$. Alors, pour tout $i$, les $A$-modules $H^i(X, K_A)$ sont de type fini, et les $(H^i(X, K_A), H^i(X, K_{A \otimes \QQ}), W, H^i(X, K_\CC), F)$ forment une $A$-structure de Hodge mixte.
+\end{theorem}
+
+\begin{proof}[Esquisse de d\'emonstration]
+On se ram\`ene au cas o\`u $X$ est lisse et o\`u $K$ est un syst\`eme local. Dans ce cas, le r\'esultat r\'esulte de la th\'eorie de Hodge classique (voir II, Th\'eor\`eme 2.3.1).
+\end{proof}
+
+\subsubsection{}
+Le r\'esultat essentiel de ce num\'ero est le th\'eor\`eme suivant.
+
+\begin{theorem}\label{thm:8.1.15}
+Soient $\overline{X}$ un sch\'ema propre et lisse sur $\CC$, $D$ un diviseur \`a croisements normaux r\'eunion de diviseurs lisses $D_i$, et $X = \overline{X} \setminus D$. Notons $j : X \hookrightarrow \overline{X}$ l'inclusion canonique. Alors le complexe de faisceaux $\Rd j_* \underline{A}_X$ sur $\overline{X}$ peut \^etre muni d'une structure de $A$-complexe de Hodge mixte, telle que :
+\begin{enumerate}
+\item[(i)] $(\Rd j_* \underline{A}_X)_A = \Rd j_* \underline{A}_X$ ;
+\item[(ii)] La filtration $W$ est telle que $\Gr_n^W(\Rd j_* \underline{A}_X)$ calcule la cohomologie des intersections $n$ \`a $n$ des $D_i$.
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{}
+\begin{proof}[D\'emonstration du th\'eor\`eme \ref{thm:8.1.15}]
+On construit explicitement le complexe de Hodge mixte. Soit $\Omega_{\overline{X}}^\bullet(\log D)$ le complexe de De Rham logarithmique. On sait (cf.\ II, 3.1.2) que
+\[
+\Rd j_* \underline{\CC}_X \simeq \Omega_{\overline{X}}^\bullet(\log D).
+\]
+On d\'efinit une filtration $W$ sur $\Omega_{\overline{X}}^\bullet(\log D)$ par
+\[
+W_n \Omega_{\overline{X}}^p(\log D) = \sum_{\substack{I \subseteq \{1,\ldots,r\} \\ |I| \leq n+p}} \Omega_{\overline{X}}^p(\log D)(-I)
+\]
+o\`u $D = D_1 \cup \ldots \cup D_r$ et $\Omega_{\overline{X}}^p(\log D)(-I)$ d\'esigne les formes dont le p\^ole le long de $D_i$ est d'ordre $\leq 0$ pour $i \in I$.
+
+On a alors
+\[
+\Gr_n^W \Omega_{\overline{X}}^\bullet(\log D) \simeq \bigoplus_{|I| = n} \Omega_{D_I}^\bullet[-n]
+\]
+o\`u $D_I = \bigcap_{i \in I} D_i$. Les termes $E_1$ de la suite spectrale associ\'ee \`a $W$ sont donc
+\[
+E_1^{-n,q} = \bigoplus_{|I|=n} H^{q-n}(D_I, \CC).
+\]
+La diff\'erentielle $d_1 : E_1^{-n,q} \to E_1^{-n+1,q}$ est la somme altern\'ee des morphismes de Gysin. D'apr\`es le th\'eor\`eme de Hodge classique pour les $D_I$, les $(E_1^{-n,q}, F)$ sont des structures de Hodge pures de poids $q$. La suite spectrale d\'eg\'en\`ere en $E_2$ par le th\'eor\`eme de Lefschetz d\'eg\'en\'er\'escent (3.2.1).
+
+Pour conclure, on utilise le lemme des deux filtrations (7.1.3) : la suite spectrale de la filtration $W$ d\'eg\'en\`ere en $E_3$, et on obtient une structure de Hodge mixte sur $H^*(X, A)$.
+\end{proof}
+
+\subsubsection{}
+\begin{corollary}
+Sous les hypoth\`eses de \ref{thm:8.1.15}, les $A$-modules $H^i(X, A)$ sont de type fini, et munis d'une structure de Hodge mixte fonctorielle en $(\overline{X}, D)$. De plus :
+\begin{enumerate}
+\item[(i)] Les nombres de Hodge $h^{pq}$ de $H^i(X, A)$ ne sont non nuls que pour $(p,q) \in [0,i] \times [0,i]$.
+\item[(ii)] Si $X$ est lisse (resp.\ compl\`ete), ils ne sont non nuls que si de plus $p+q \geq i$ (resp.\ $p+q \leq i$).
+\end{enumerate}
+\end{corollary}
+
+\subsubsection{}
+\begin{definition}
+On appelle \emph{$A$-complexe de Hodge mixte normalis\'e} la donn\'ee de
+\begin{enumerate}
+\item[(i)] un complexe $K_A$ de faisceaux de $A$-modules sur $X$, born\'e inf\'erieurement et \`a cohomologie constructible ;
+\item[(ii)] un complexe filtr\'e $(K_{A \otimes \QQ}, W)$ et un isomorphisme $K_{A \otimes \QQ} \simeq K_A \otimes \QQ$ ;
+\item[(iii)] un complexe bifiltr\'e $(K_\CC, W, F)$ et un isomorphisme $(K_\CC, W) \simeq (K_{A \otimes \QQ}, W) \otimes \CC$ ;
+\end{enumerate}
+v\'erifiant la condition :
+pour tout $x \in X$, le syst\`eme $(H^i(K_A)_x, H^i(K_{A \otimes \QQ})_x, W, H^i(K_\CC)_x, F)$ est une $A$-structure de Hodge mixte.
+\end{definition}
+
+\subsubsection{}
+\begin{proposition}
+Soient $K$ et $L$ deux $A$-complexes de Hodge mixte sur $X$, et $f : K \to L$ un morphisme qui soit un quasi-isomorphisme sur les composantes rationnelles et complexes (i.e.\ $f_\QQ$ et $f_\CC$ sont des quasi-isomorphismes filtr\'es). Alors $f$ induit un isomorphisme sur les structures de Hodge mixtes $H^i(X, K) \xrightarrow{\sim} H^i(X, L)$.
+\end{proposition}
+
+\subsubsection{}
+\begin{proposition}
+Soit $K$ un $A$-complexe de Hodge mixte sur $X$. Supposons que $X = U \cup V$ soit un recouvrement ouvert. Alors il existe une structure naturelle de $A$-complexe de Hodge mixte sur le complexe de \v{C}ech $\check{C}(\{U,V\}, K)$, et les morphismes de restriction induisent des isomorphismes de structures de Hodge mixtes
+\[
+H^i(X, K) \xrightarrow{\sim} H^i(\check{C}(\{U,V\}, K)).
+\]
+\end{proposition}
+
+\subsubsection{}
+\begin{proposition}
+Soit $f : X \to Y$ un morphisme propre et surjectif de sch\'emas, et $K$ un $A$-complexe de Hodge mixte sur $X$. Alors $\Rd f_* K$ est muni d'une structure naturelle de $A$-complexe de Hodge mixte sur $Y$, et on a
+\[
+H^i(Y, \Rd f_* K) = H^i(X, K)
+\]
+comme structures de Hodge mixtes.
+\end{proposition}
+
+\subsection{Espaces alg\'ebriques s\'epar\'es}
+
+\subsubsection{}
+\begin{theorem}
+Soit $X$ un sch\'ema s\'epar\'e de type fini sur $\CC$. Les $A$-modules $H^i(X, A)$ sont de type fini, et munis d'une structure de Hodge mixte fonctorielle en $X$. De plus :
+\begin{enumerate}
+\item[(i)] Les nombres de Hodge $h^{pq}$ de $H^i(X, A)$ ne sont non nuls que pour $(p,q) \in [0,i] \times [0,i]$.
+\item[(ii)] Si $X$ est propre sur $\CC$, ils ne sont non nuls que si de plus $p+q \leq i$.
+\item[(iii)] Si $X$ est lisse sur $\CC$, ils ne sont non nuls que si de plus $p+q \geq i$.
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{}
+\begin{proof}[Esquisse de d\'emonstration]
+On proc\'ede par r\'ecurrence sur la dimension de $X$. Par r\'esolution des singularit\'es et (6.2.6), on peut trouver un carr\'e commutatif
+\[
+\begin{tikzcd}
+X_\bullet \arrow[r, "a"] \arrow[d] & X \arrow[d] \\
+\Spec(\CC) \arrow[r, equal] & \Spec(\CC)
+\end{tikzcd}
+\]
+o\`u $X_\bullet$ est un sch\'ema simplicial lisse et $a$ est de descente cohomologique universelle. De plus, on peut supposer que $X_\bullet$ admet une compactification $\overline{X}_\bullet$ propre et lisse, telle que $D_\bullet = \overline{X}_\bullet \setminus X_\bullet$ soit un diviseur \`a croisements normaux. D'apr\`es le th\'eor\`eme \ref{thm:8.1.15}, on a une structure de Hodge mixte sur $H^*(X_\bullet, A) = H^*(X, A)$. Les propri\'et\'es (i), (ii), (iii) r\'esultent du corollaire (8.1.16).
+\end{proof}
+
+\subsubsection{}
+\begin{theorem}\label{thm:8.2.4}
+Soit $X$ un sch\'ema s\'epar\'e sur $\CC$. Les nombres de Hodge $h^{pq}$ de $H^i(X, A)$ sont nuls pour $|p-q| > \dim X$.
+\end{theorem}
+
+\subsubsection{}
+Soient $Z$ un sch\'ema propre et lisse sur $\CC$ de dimension $n$, $X \subset Z$ un sous-sch\'ema ferm\'e, et $U = Z \setminus X$. On a alors une suite exacte longue de cohomologie (dualit\'e d'Alexander)
+\[
+\to \ldots \to H^i(Z, A) \to H^i(X, A) \to (H^{2n-i-1}(U, A))^* \to H^{i+1}(Z, A) \to \ldots
+\]
+o\`u les morphismes sont des morphismes de structures de Hodge mixtes.
+
+\subsubsection{}
+\begin{corollary}
+Soit $f : X \to Y$ un morphisme propre de sch\'emas s\'epar\'es sur $\CC$. Alors les $H^i(f^{-1}(y), A)$ forment une variation de structures de Hodge mixtes sur $Y$.
+\end{corollary}
+
+\subsubsection{}
+\begin{corollary}
+Soit $X$ un sch\'ema s\'epar\'e sur $\CC$, et $Y \subset X$ un sous-sch\'ema ferm\'e. Alors la suite exacte longue de cohomologie \`a support
+\[
+\to H^i_Y(X, A) \to H^i(X, A) \to H^i(Y, A) \to H^{i+1}_Y(X, A) \to
+\]
+est une suite exacte de structures de Hodge mixtes.
+\end{corollary}
+
+\subsubsection{}
+\begin{corollary}
+Soit $X$ un sch\'ema s\'epar\'e sur $\CC$, et $Y \subset X$ un sous-sch\'ema ouvert dense. Alors la suite exacte longue de cohomologie \`a support
+\[
+\to H^i_c(Y, A) \to H^i(X, A) \to H^i(X \setminus Y, A) \to H^{i+1}_c(Y, A) \to
+\]
+est une suite exacte de structures de Hodge mixtes.
+\end{corollary}
+
+\subsubsection{}
+\begin{corollary}
+Soit $f : X \to Y$ un morphisme de sch\'emas s\'epar\'es sur $\CC$. Alors la suite spectrale de Leray
+\[
+E_2^{pq} = H^p(Y, \Rd^q f_* A) \Rightarrow H^{p+q}(X, A)
+\]
+est une suite spectrale de structures de Hodge mixtes.
+\end{corollary}
+
+\subsection{Th\'eorie de Hodge des sch\'emas simpliciaux}
+
+\subsubsection{}
+Soit $X_\bullet$ un sch\'ema simplicial s\'epar\'e de type fini sur $\CC$. D'apr\`es (6.2.6), on peut remplacer $X_\bullet$ par un sch\'ema simplicial lisse, puis le compactifier en un sch\'ema simplicial propre et lisse $\overline{X}_\bullet$, tel que $D_\bullet = \overline{X}_\bullet \setminus X_\bullet$ soit un diviseur \`a croisements normaux. Le th\'eor\`eme (8.1.15) s'applique alors \`a chaque $(\overline{X}_n, D_n)$.
+
+\subsubsection{}
+\begin{theorem}
+Soit $X_\bullet$ un sch\'ema simplicial s\'epar\'e de type fini sur $\CC$. Les $A$-modules $H^i(X_\bullet, A)$ sont de type fini, et munis d'une structure de Hodge mixte fonctorielle en $X_\bullet$.
+\end{theorem}
+
+\subsubsection{}
+\begin{proof}[Esquisse de d\'emonstration]
+Comme en (8.3.1), on se ram\`ene \`a supposer $X_\bullet$ simplicial lisse, muni d'une compactification $\overline{X}_\bullet$ propre et lisse avec $D_\bullet = \overline{X}_\bullet \setminus X_\bullet$ diviseur \`a croisements normaux. Le complexe $\Rd {a_\bullet}_* \underline{A}_{X_\bullet}$ sur $\overline{X}_\bullet$ est alors un $A$-complexe de Hodge mixte, et
+\[
+H^i(X_\bullet, A) = H^i(\overline{X}_\bullet, \Rd {a_\bullet}_* \underline{A}_{X_\bullet})
+\]
+comme structures de Hodge mixtes.
+\end{proof}
+
+\subsubsection{}
+\begin{remark}
+La g\'en\'eralit\'e des sch\'emas simpliciaux n'est pas illusoire. On peut interpr\'eter :
+\begin{enumerate}
+\item[(a)] La cohomologie relative $H^*(X \bmod S, A)$ comme la cohomologie d'un sch\'ema simplicial convenable (6.3).
+\item[(b)] La cohomologie $H^*(B_G, A)$ de l'espace classifiant d'un groupe alg\'ebrique $G$ comme la cohomologie d'un sch\'ema simplicial convenable (6.1).
+\end{enumerate}
+\end{remark}
+
+\section{Exemples et applications}
+
+\subsection{Cohomologie des groupes et des classifiants}
+
+\subsubsection{}
+Soit $G$ un groupe alg\'ebrique lin\'eaire sur $\CC$. D'apr\`es (6.1), la cohomologie $H^*(B_G, A)$ est munie d'une structure de Hodge mixte. On a vu en (6.1.5) que, pour $G$ connexe, on a
+\[
+H^*(B_G, \QQ) \simeq \Sym^*(P^*(G)[-1])
+\]
+comme alg\`ebres gradu\'ees (non canoniquement). Les \'el\'ements de $P^*(G)$ sont de degr\'es impairs, donc les $H^i(B_G, \QQ)$ sont purement de type $(p,p)$ avec $2p = i$.
+
+\subsubsection{}
+Le groupe $G$ lui-m\^eme est lisse, donc $H^*(G, A)$ est purement de type $(p,p)$ pour $G$ connexe (car $H^i(G, \QQ)$ est engendr\'e par les \'el\'ements primitifs, qui sont de degr\'es impairs, donc de type $(p,p)$ avec $2p-1 = i$).
+
+\subsubsection{}
+\begin{proposition}
+Soient $G$ un groupe alg\'ebrique lin\'eaire connexe agissant sur une vari\'et\'e $X$ propre et lisse sur $\CC$, et $F$ un faisceau localement constant de $A$-modules de type fini, $G$-\'equivariant sur $X$. Alors l'application
+\[
+H^*(X, F) \to H^*(X, F) \otimes H^*(G, A)
+\]
+d\'efinie par l'action de $G$ se factorise par $H^*(X, F) \otimes H^0(G, A) \subset H^*(X, F) \otimes H^*(G, A)$.
+\end{proposition}
+
+\subsubsection{}
+Pour $G$ connexe, la cohomologie $H^*(B_G, A)$ est sans torsion et concentr\'ee en degr\'es pairs. Les nombres de Hodge sont donn\'es par : $h^{pp}(H^{2p}(B_G, \QQ)) = \dim_\QQ(\Sym^p(P^*(G)[-1]))$.
+
+\subsubsection{}
+Si $T$ est un tore de groupe de caract\`eres $X(T)$, alors $H^*(B_T, \ZZ) \simeq \Sym^*(X(T)[-2])$, et les nombres de Hodge sont $h^{pp} = \binom{r}{p}$ o\`u $r = \dim T$.
+
+\subsection{Th\'eorie de Hodge des hypersurfaces lisses, d'apr\`es Griffiths}
+
+\subsubsection{}
+Soient $X \subset \PP^{n+1}$ une hypersurface lisse de degr\'e $d$, et $U = \PP^{n+1} \setminus X$ son compl\'ementaire. D'apr\`es le th\'eor\`eme (8.2.1), $H^*(U, \QQ)$ est muni d'une structure de Hodge mixte. Puisque $U$ est lisse, les poids de $H^i(U, \QQ)$ sont $\geq i$. D'autre part, puisque $U$ est le compl\'ementaire d'une hypersurface dans $\PP^{n+1}$, les poids de $H^i(U, \QQ)$ sont $\leq i+1$.
+
+\subsubsection{}
+La suite spectrale de Leray de l'inclusion $j : U \hookrightarrow \PP^{n+1}$ a pour terme
+\[
+E_2^{pq} = H^p(\PP^{n+1}, \Rd^q j_* \QQ) \Rightarrow H^{p+q}(U, \QQ).
+\]
+On a $\Rd^q j_* \QQ = 0$ pour $q = 0$, et $\Rd^q j_* \QQ = \underline{\QQ}_X(-q)$ pour $q > 0$ (o\`u $\underline{\QQ}_X(-q)$ est le syst\`eme local des cycles \'evanescents). On obtient
+\[
+H^k(U, \QQ) = \begin{cases}
+\QQ & \text{si } k = 0, \\
+0 & \text{si } 1 \leq k \leq n, \\
+H^{k-1}_{\mathrm{prim}}(X, \QQ) & \text{si } k = n+1, \\
+H^k(\PP^{n+1}, \QQ) & \text{si } k > n+1.
+\end{cases}
+\]
+
+\subsubsection{}
+La structure de Hodge mixte de $H^{n+1}(U, \QQ)$ donne lieu \`a la filtration de Hodge de Griffiths sur $H^n_{\mathrm{prim}}(X, \CC)$. Soit $S = \CC[x_0, \ldots, x_{n+1}]$ l'anneau de coordonn\'ees homog\`enes de $\PP^{n+1}$, et $f \in S_d$ l'\'equation de $X$. La forme diff\'erentielle rationnelle
+\[
+\omega_A = \frac{A(x_0, \ldots, x_{n+1}) \Omega}{f^{k+1}}
+\]
+o\`u $\Omega = \sum_i (-1)^i x_i dx_0 \wedge \ldots \wedge \widehat{dx_i} \wedge \ldots \wedge dx_{n+1}$ et $A \in S_{(k+1)d - (n+2)}$, d\'efinit une classe de cohomologie dans $H^{n+1}(U, \CC)$. La filtration de Hodge $F$ sur $H^{n+1}(U, \CC)$ induit une filtration sur $H^n_{\mathrm{prim}}(X, \CC)$ :
+\[
+F^p H^n_{\mathrm{prim}}(X, \CC) = \mathrm{image}\big(F^{p+1} H^{n+1}(U, \CC) \to H^n_{\mathrm{prim}}(X, \CC)\big).
+\]
+
+\subsubsection{}
+\begin{theorem}[Griffiths]
+La filtration de Hodge de $H^n_{\mathrm{prim}}(X, \CC)$ est donn\'ee par
+\[
+F^p H^n_{\mathrm{prim}}(X, \CC) = \left\{ \text{classes de } \frac{A \Omega}{f^{k+1}} \text{ avec } \deg A = (k+1)d - (n+2) \text{ et } k+1 \leq n+1-p \right\}.
+\]
+\end{theorem}
+
+\subsection{Construction de complexes d'op\'erateurs diff\'erentiels du Ier ordre}
+
+\subsubsection{}
+Soit $X$ une vari\'et\'e alg\'ebrique lisse sur $\CC$. On se propose de construire des complexes d'op\'erateurs diff\'erentiels du premier ordre qui calculent la cohomologie de Hodge de $X$.
+
+\subsubsection{}
+\begin{definition}
+Un \emph{complexe d'op\'erateurs diff\'erentiels} sur $X$ est un complexe de faisceaux de $\CC$-espaces vectoriels
+\[
+\ldots \to \cE^i \xrightarrow{d} \cE^{i+1} \to \ldots
+\]
+o\`u les $\cE^i$ sont des faisceaux de sections de fibr\'es vectoriels et $d$ est un op\'erateur diff\'erentiel du premier ordre.
+\end{definition}
+
+\subsubsection{}
+Pour $X$ lisse, le complexe de De Rham $\Omega_X^\bullet$ est un complexe d'op\'erateurs diff\'erentiels du premier ordre. Plus g\'en\'eralement, si $X$ est le compl\'ementaire d'un diviseur \`a croisements normaux $D$ dans $\overline{X}$ lisse, le complexe $\Omega_{\overline{X}}^\bullet(\log D)$ est un complexe d'op\'erateurs diff\'erentiels du premier ordre sur $\overline{X}$.
+
+\subsubsection{}
+On peut \'etendre cette construction aux sch\'emas simpliciaux. Soit $X_\bullet$ un sch\'ema simplicial lisse sur $\CC$, avec une compactification $\overline{X}_\bullet$ propre et lisse telle que $D_\bullet = \overline{X}_\bullet \setminus X_\bullet$ soit un diviseur \`a croisements normaux. Les complexes $\Omega_{\overline{X}_n}^\bullet(\log D_n)$ forment alors un complexe d'op\'erateurs diff\'erentiels du premier ordre sur $\overline{X}_\bullet$, et on a
+\[
+H^*(X_\bullet, \CC) = H^*(\overline{X}_\bullet, \Omega_{\overline{X}_\bullet}^\bullet(\log D_\bullet)).
+\]
+
+\begin{thebibliography}{99}
+
+\bibitem{Bl1956} A. Blanchard, Sur les vari\'et\'es analytiques complexes, \emph{Ann. Sc. E.N.S.}, 73 (1956).
+
+\bibitem{BH1969} T. Bloom and M. Herrera, De Rham cohomology of an analytic space, \emph{Inv. Math.}, 7 (1969), 275--296.
+
+\bibitem{D1968} P. Deligne, Th\'eor\`eme de Lefschetz et crit\`eres de d\'eg\'en\'erescence de suites spectrales, \emph{Publ. Math. I.H.\'E.S.}, 35 (1968), 107--126.
+
+\bibitem{D1970} P. Deligne, Th\'eorie de Hodge I, \emph{Actes du Congr\`es international des Math\'ematiciens} (Nice, 1970), Gauthier-Villars, 1971, 1, 425--430.
+
+\bibitem{D1971} P. Deligne, Th\'eorie de Hodge II, \emph{Publ. Math. I.H.\'E.S.}, 40 (1971), 5--58.
+
+\bibitem{G1970a} P. A. Griffiths, Periods of integrals on algebraic manifolds. Summary of main results and discussion of open problems, \emph{Bull. Am. Math. Soc.}, 76 (1970), 228--296.
+
+\bibitem{G1969} P. A. Griffiths, On the periods of certain rational integrals: I, \emph{Annals of Math.}, 90 (1969), 460--495.
+
+\bibitem{Gr1968} A. Grothendieck, Le groupe de Brauer III : Exemples et compl\'ements, dans \emph{Dix expos\'es sur la cohomologie des sch\'emas}, North Holland Publ. Co., 88--188.
+
+\bibitem{Gr1966} A. Grothendieck, On the De Rham cohomology of algebraic varieties, \emph{Publ. Math. I.H.\'E.S.}, 29 (1966), 96--103.
+
+\bibitem{L1924} S. Lefschetz, \emph{L'analysis situs et la g\'eom\'etrie alg\'ebrique}, Gauthier-Villars, 1924 (reproduit dans \emph{Selected Papers}, Chelsea Publ. Co., 1971).
+
+\bibitem{PS1895} E. Picard et G. Simart, \emph{Th\'eorie des fonctions alg\'ebriques de deux variables ind\'ependantes}, vol. I et II, Paris, Gauthier-Villars, 1895, 1906.
+
+\bibitem{Q1968} D. G. Quillen, \emph{Notes on the homology of commutative rings}, M.I.T., 1968.
+
+\bibitem{SD} B. Saint-Donat (d'apr\`es des notes de P. Deligne), Techniques de descente cohomologique, S.G.A. 4 V bis (\`a para\^itre avec S.G.A. 4, dans les \emph{Lecture Notes}, Springer-Verlag).
+
+\bibitem{S1968} G. Segal, Classifying spaces and spectral sequences, \emph{Publ. Math. I.H.\'E.S.}, 34 (1968), 105--112.
+
+\bibitem{S1956} J.-P. Serre, G\'eom\'etrie alg\'ebrique et g\'eom\'etrie analytique, \emph{Ann. Inst. Fourier}, 6 (1966), cit\'e G.A.G.A.
+
+\end{thebibliography}
+
+\end{document}

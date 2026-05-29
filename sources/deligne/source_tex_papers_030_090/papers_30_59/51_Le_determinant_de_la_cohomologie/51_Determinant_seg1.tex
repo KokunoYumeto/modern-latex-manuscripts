@@ -1,0 +1,2305 @@
+% SEGMENT 1 of 2: Pages 1-45 (original pp. 93-137)
+% Le déterminant de la cohomologie
+% by Pierre Deligne
+% Published in Contemporary Mathematics, Volume 67, 1987
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{probleme}[theorem]{Probl\`eme}
+\newtheorem{exigence}[theorem]{Exigence}
+\newtheorem{question}[theorem]{Question}
+
+\DeclareMathOperator{\rank}{rg}
+\DeclareMathOperator{\dete}{det}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\Ime}{Im}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\td}{td}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Coh}{Coh}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Ent}{Ent}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\GL}{GL}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Aa}{\mathscr{A}}
+\newcommand{\Bb}{\mathscr{B}}
+\newcommand{\Oo}{\mathscr{O}}
+\newcommand{\Gg}{\mathscr{G}}
+\newcommand{\Kk}{\mathscr{K}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\title{\textbf{Le d\'eterminant de la cohomologie}}
+\author{par P.~Deligne}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\begin{center}
+\textit{Contemporary Mathematics, Volume 67, 1987}
+\end{center}
+
+\bigskip
+
+Le pr\'esent article a pour origine une lettre \`a D.~Quillen, dat\'ee du 20 juin
+1985. Dans cette lettre, j'exploitais la philosophie d'Arakelov pour ``calculer''
+la torsion analytique d'un fibr\'e vectoriel m\'etris\'e sur une surface de Riemann
+(avec m\'etrique) en terme d'int\'egrales de quantit\'es \'el\'ementaires --- tout au moins
+dans le cas plus facile des fibr\'es virtuels de dimension~0. Une description
+de l'\'enonc\'e obtenu est donn\'ee au paragraphe~1.
+
+En essayant de comprendre la d\'emonstration, ainsi que G.~Faltings~\cite{5}, H.
+Gillet et C.~Soul\'e~\cite{7}, je me suis aper\c{c}u que cette lettre \'etablit des bribes
+d'un programme peut-\^etre plus int\'eressant que le th\'eor\`eme, dont il \'eclaire la
+d\'emonstration. Ce programme est expos\'e au paragraphe~2. Pour $f:X \to Y$ un
+morphisme projectif d'intersection compl\`ete relative, la formule de Riemann--Roch
+donne des informations sur l'image directe $f_*: K_0(X) \to K_0(Y)$. En particulier,
+elle donne une formule pour $c_1 f_* E = c_1 \det Rf_* E$, pour $E$ un fibr\'e vectoriel sur
+$X$. Un fibr\'e en droite est connu quand il est connu (\`a isomorphisme unique pr\`es)
+localement. Si on peut ``pr\'eciser'' la formule de Riemann--Roch pour $c_1 \det Rf_* E$
+en un isomorphisme canonique entre $\det Rf_* E$ (ou une puissance tensorielle fixe
+de $\det Rf_* E$) et un autre fibr\'e en droite, le probl\`eme de construire cet iso-
+morphisme est local. On acquiert le droit de se localiser sur $Y$ en prix de
+travailler avec des objets \`a isomorphisme unique pr\`es plut\^ot qu'\`a isomorphismes
+pr\`es. Les r\'esultats plus pr\'ecis obtenus co\^utent aussi une d\'ebauche de diagrammes
+commutatifs et des cauchemars de signes. Ils ne s'appliquent qu'\`a la premi\`ere
+classe de Chern. Pour interpr\'eter de m\^eme Riemann--Roch pour $\ch Rf_*$, il faudrait
+sans doute se battre avec des $n$-champs. Je recule devant cette id\'ee mais j'esp\`ere
+que la philosophie de Grothendieck~\cite{9} et le cas $n=1$ peuvent \^etre un guide
+heuristique utile. De m\^eme: en $K$-th\'eorie, le langage des espaces de lacets
+infinis est plus efficace que celui des $n$-cat\'egories de Picard commutatives
+qu'envisage Grothendieck, mais une variante cat\'egorique des deux premiers \'etages
+
+\newpage
+\noindent de la tour de Postnikov de $BQA$~(\S4) peut aider \`a comprendre ce qui se passe.
+
+Le paragraphe~2 expose ces id\'ees, et un analogue \`a la Arakelov, avec m\'e-
+triques.
+
+Dans l'analogie entre ``m\'etrique hermitienne sur un fibr\'e vectoriel'' et
+``structure enti\`ere'', je tiens, au contraire de S.~Arakelov~\cite{1}\cite{2} et G.~Faltings
+\cite{5}, \`a pouvoir travailler avec des structures hermitiennes quelconques. Le pa-
+ragraphe~3 fait de la propagande pour ce point de vue.
+
+Le paragraphe~4 \'etudie la cat\'egorie $V(A)$ des objets virtuels d'une cat\'e-
+gorie exacte $A$. Cette cat\'egorie est un avatar des deux premiers \'etages de
+la tour de Postnikov de $BQA$. Son introduction nous permettra de cacher de
+nombreux signes. Au paragraphe~5, on en introduit un analogue \`a la Arakelov,
+pour les fibr\'es m\'etris\'es sur un espace analytique complexe $X$. Cette cat\'egorie
+incarne une th\'eorie de classes de Chern secondaires \`a la Bott--Chern~\cite{4} et fournit
+des applications $R$ du $K_1$ de la cat\'egorie des fibr\'es holomorphes sur $X$
+dans l'espace des $(p-1,p-1)$-formes $d'd''$-ferm\'ees modulo formes $d'$ ou $d''$
+exacter.
+
+Enfin, les paragraphes 6 \`a 11 donnent la preuve du th\'eor\`eme d\'ecrit au para-
+graphe~1, selon les lignes indiqu\'ees au paragraphe~2, avec quelques digressions.
+
+Expos\'e: l'heuristique des paragraphes 2 et 3 est mon excuse pour pr\'esenter
+des r\'esultats incomplets, avec des d\'emonstrations qui ne sont parfois que des
+esquisses et une g\'en\'eralit\'e pas toujours optimale.
+
+Le pr\'esent texte doit beaucoup \`a l'influence de nombreux math\'ematiciens. Je
+suis particuli\`erement conscient de celles de A.~Grothendieck et D.~Quillen~(\S4,
+d'anciennes conversations \`a Bures), D.~Quillen~\cite{13}, C.~Soul\'e~\cite{14} et S.~Arakelov
+(\S3). Je prie ceux que j'oublie de m'en excuser. Dans la lettre \`a D.~Quillen,
+je n'utilisais que D.~Quillen~\cite{13}. La d\'emonstration donn\'ee ici est simplifi\'ee
+et rendue plus naturelle par l'usage des r\'esultats plus forts de J.~Bismuth et
+D.~Freed~\cite{3} and D.~Freed~\cite{6}~(1.22).
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Description du th\'eor\`eme principal}
+
+\subsection{Les d\'eterminants}
+
+Pour $V$ un espace vectoriel, on pose
+\[
+\det V := \bigwedge^{\max} V .
+\]
+Pour $V^*$ un espace vectoriel $\ZZ/(2)$-gradu\'e, on pose
+\[
+\det(V^*) := (\det V^+)^{-1} \otimes (\det V^-) .
+\]
+On applique la m\^eme r\`egle aux espaces vectoriels $\ZZ$-gradu\'es, en posant $V^+ =
+\bigoplus V^{2i}$, $V^- = \bigoplus V^{2i+1}$. Il nous sera commode de noter $L^{\otimes(-1)}$ le dual d'un espace
+vectoriel de rang un. Avec cette r\`egle,
+\[
+\det V^* \cong \bigotimes_i (\det V^i)^{\otimes (-1)^i} .
+\]
+
+Pour \'eviter les probl\`emes de signes, il est pr\'ef\'erable de d\'efinir $\det V$
+comme l'espace vectoriel gradu\'e $\bigwedge^{\max} V$ plac\'e en degr\'e $\dim V$, et de d\'efinir
+l'isomorphisme de sym\'etrie
+\[
+L_1 \otimes L_2 \to L_2 \otimes L_1
+\]
+par la r\`egle de Koszul (l'isomorphisme naif fois $(-1)^{d_1 d_2}$, pour $L_i$ en degr\'e
+$d_i$). L'isomorphisme
+\[
+\det(V \oplus W) \xrightarrow{\sim} \det(V) \otimes \det(W):
+\]
+\[
+(e_1 \wedge \cdots \wedge e_n) \otimes (f_1 \wedge \cdots \wedge f_m) \mapsto e_1 \wedge \cdots \wedge e_n \wedge f_1 \wedge \cdots \wedge f_m
+\]
+donne alors lieu \`a un diagramme commutatif
+\[
+\begin{tikzcd}
+V \oplus W \arrow[r] \arrow[d] & \det(V \oplus W) \arrow[r] & \det(V) \otimes \det(W) \arrow[d] \\
+W \oplus V \arrow[r] & \det(W \oplus V) \arrow[r] & \det(W) \otimes \det(V)
+\end{tikzcd}
+\]
+
+Notons $\mathbf{1}$ l'espace vectoriel gradu\'e de rang 1 et degr\'e 0 trivial. On d\'efinit
+$L^{\otimes(-1)}$ comme un espace vectoriel gradu\'e de rang 1 muni d'un isomorphisme $L \otimes L^{\otimes(-1)} \cong \mathbf{1}$. Ceci d\'efinit $L^{\otimes(-1)}$ \`a isomorphisme unique pr\`es. L'isomorphisme $L^{\otimes(-1)} \otimes L \cong L \otimes L^{\otimes(-1)} \otimes \mathbf{1}$ fait de $L$ l'inverse (``$L^{-1}$'') de $L^{\otimes(-1)}$. Pour plus de d\'etails,
+cf.~4.1. Pour un complexe $K$, la d\'efinition de l'isomorphisme
+\[
+\det K \xrightarrow{\sim} \det H^*K
+\]
+et ses propri\'et\'es ne posent avec ces r\`egles aucun cauchemar de signes.
+
+\subsection{Rappels: torsion analytique (\cite{14})}
+
+Soient $X$ une surface de Riemann compacte, munie d'une m\'etrique hermitienne
+$g$, et $V$ un fibr\'e vectoriel holomorphe sur $X$, muni d'une structure hermitienne
+$h$. Notons $\Omega^1$ le fibr\'e en droites de sections locales holomorphes les 1-
+formes holomorphes et $\Omega^{0,q}(V)$ le faisceau des $(0,q)$-formes $C^\infty$ \`a valeurs dans
+$V$. Nous normaliserons comme suit la structure pr\'ehilbertienne sur $\Gamma(X, \Omega^{0,q}(V))$
+d\'efinie par $g$ et $h$: (a)~on regarde $\bar\partial$ comme la donn\'ee d'une structure hermi-
+tienne sur $\Omega^1$; (b)~Le produit scalaire est l'int\'egrale d'une densit\'e sur $X$.
+(c)~Localement, si $s_0$ est une section $C^\infty$ de longueur un de $\Omega^1$ et que $v_i$ est
+une section de $\Omega^{0,0}(V)$ (resp.\ $s_0^{-1} \otimes v_i$ une section de $\Omega^{0,1}(V)$), cette densit\'e
+est:
+\[
+\text{pour } (v_1, v_2): \quad \frac{1}{2\pi i} \langle v_1, v_2 \rangle_h \cdot s_0 \wedge \bar s_0 ;
+\]
+\[
+\text{pour } (s_0^{-1} \otimes v_1, s_0^{-1} \otimes v_2): \quad \frac{1}{2\pi i} \langle v_1, v_2 \rangle_h \cdot s_0^{-1} \bar s_0^{-1} .
+\]
+Rappelons que pour $z = x + iy$, on a $\frac{1}{2\pi i} dz \wedge d\bar z = \frac{1}{\pi} dx \wedge dy$.
+
+Les groupes de cohomologie de $V$ sont ceux du complexe $\bar\partial$ de $V$:
+\[
+\bar\partial: \Gamma(X, \Omega^{0,0}(V)) \longrightarrow \Gamma(X, \Omega^{0,1}(V)) .
+\]
+Les structures pr\'ehilbertiennes des $\Gamma(X, \Omega^{0,q}(V))$ induisent des structures hermi-
+tiennes sur $H^0(X,V) = \Ker(\bar\partial)$ et $H^1(X,V) = \Coker(\bar\partial) = \Ker(\bar\partial^*) = \Ker(\bar\partial^*)$. De l\`a,
+une structure hermitienne $\langle , \rangle_0$ sur $\det H^*(X,V)$. Soient $\lambda_i$ les valeurs
+propres $\neq 0$ de $\bar\partial^*\bar\partial$, compt\'ees avec leur multiplicit\'e, et $\det' \bar\partial^*\bar\partial := \prod \lambda_i :=
+\exp(-\zeta'(0))$, o\`u $\zeta(s)$ est le prolongement analytique de $\sum \lambda_i^{-s}$. La torsion
+analytique de $V$ est la structure hermitienne
+\[
+\langle \cdot, \cdot \rangle_{\text{t.a.}} := (\det' \bar\partial^*\bar\partial)^{-1} \langle \cdot, \cdot \rangle_0
+\]
+sur $\det H^*(X,V)$. On veut la calculer.
+
+Un facteur $\pi$ a \'et\'e introduit dans la d\'efinition de la structure pr\'ehilbertienne
+de $\Gamma(X, \Omega^{0,1}(V))$ pour assurer la validit\'e du lemme suivant.
+
+\begin{lemma}
+La torsion analytique est compatible \`a la dualit\'e de Serre.
+\end{lemma}
+
+Soit $V' := \mathscr{H}om(V, \Omega^1)$. La dualit\'e de Serre est une dualit\'e entre $H^q(X,V)$
+et $H^{1-q}(X,V')$. Elle induit un isomorphisme
+\begin{equation}\label{eq:1.3.1}
+\det H^*(X,V) \cong \det H^*(X,V')
+\end{equation}
+qu'on veut prouver \^etre une isom\'etrie.
+
+Le morphisme
+\[
+H^q(X,V) \otimes H^{1-q}(X,V') \longrightarrow \CC
+\]
+est le compos\'e du cup-produit et du morphisme trace $H^q(X,V) \otimes H^{1-q}(X,V') \to
+H^1(X, V \otimes V') \to H^1(X, \Omega^1) \xrightarrow{\Tr} \CC$. Si $H^*(X, \Omega^{0,*}_X)$ est calcul\'e par le complexe
+$\bar\partial$, $\Tr$ est $\pi^{-1}$ fois l'int\'egration sur $X$ (\`a un signe d\'ependant des conventions
+pr\'es, sans importance pour 1.3). La dualit\'e de Serre est donc induite par la
+dualit\'e $\int_X \alpha \wedge \beta$ entre les complexes $\bar\partial$ de $V$ et $V'$ et \eqref{eq:1.3.1} en r\'esulte.
+
+\subsection{Calculer $\det H^*(X,L)$}
+
+La r\`egle suivante permet d'attacher \`a deux fibr\'es en droite $L$ et $M$ sur
+$X$ un espace vectoriel de rang un $\langle L, M \rangle$: (a)~Deux sections m\'eromorphes \`a
+diviseurs disjoints $\ell$ et $m$ de $L$ et $M$ d\'efinissent un \'el\'ement non nul
+$\langle \ell, m \rangle$ de $\langle L, M \rangle$. (b)~Quand on change $\ell$ ou $m$, on a
+\begin{equation}\label{eq:1.4.1}
+\begin{aligned}
+\langle f\ell, m \rangle &= f(\div m) \cdot \langle \ell, m \rangle \\
+\langle \ell, fm \rangle &= f(\div \ell) \cdot \langle \ell, m \rangle .
+\end{aligned}
+\end{equation}
+Si $v_P(f)$ est la valuation de $f$ en $P$ (i.e.\ l'ordre du z\'ero, ou $-1$'ordre du
+p\^ole), on a $\div \ell := \sum v_P(\ell) \cdot P$; on pose
+\[
+f(\sum n_P \cdot P) := \prod f(P)^{n_P} .
+\]
+Que les r\`egles (a), (b) soient coh\'erentes \'equivaut au th\'eor\`eme de A.~Weil que pour
+deux fonctions m\'eromorphes \`a diviseurs disjoints, on a $f(\div g) = g(\div f)$.
+
+Pour $L$ un fibr\'e en droite sur $X$, posons
+\[
+\det H^*(X, L - \Oo) := \det H^*(X,L) \otimes (\det H^*(X,\Oo))^{-1} .
+\]
+De fa\c{c}on parall\`ele, alg\'ebrique, on d\'efinit un isomorphisme
+\begin{equation}\label{eq:1.4.2}
+(\det H^*(X, L - \Oo))^{\otimes 2} \cong \langle L, L \otimes (\Omega^1)^{\otimes(-1)} \rangle .
+\end{equation}
+Ces constructions sont valables sur un corps (la base quelconque, voire sur
+une base quelconque).
+
+\subsection{Calculer la torsion analytique}
+
+Si les fibr\'es en droites $L$ et $M$ sur $X$ sont munis de m\'etriques hermi-
+tiennes, on d\'efinit comme suit une structure hermitienne sur $\langle L, M \rangle$. Notons
+$\|\cdot\|$ une longueur carr\'ee et posons $\|f\|_P := |f|(P) \cdot \|e\|_P$ pour des sections
+m\'eromorphes $\ell$ et $m$ comme en 1.4, on d\'efinit
+
+\begin{equation}\label{eq:1.5.1}
+\log \|\langle \ell, m \rangle\|^2 = \frac{1}{2\pi i} \int d'd'' \log \|\ell\|^2 \cdot \log \|m\|^2 + \log \|\ell\|^2 [\div m] + \log \|m\|^2 [\div \ell] .
+\end{equation}
+o\`u $d'd''$ est pris au sens des distributions.
+
+Supposons $X$ et $L$ munis de m\'etriques hermitiennes $g$ et $h$ comme en
+1.2. On munit $\Oo$ de la structure hermitienne triviale ($\|1\|^2 = 1$). On dispose
+d'une structure hermitienne ``torsion analytique'' sur $\det H^*(X, L - \Oo)^{\otimes 2}$, d\'eduite
+de celles de $\det H^*(X,L)$ et $\det H^*(X,\Oo)$.
+
+Notre r\'esultat principal est que \eqref{eq:1.4.2} est une isom\'etrie, le membre de
+gauche \'etant muni de la structure hermitienne torsion analytique et celui de droite
+de la structure \eqref{eq:1.5.1}. Rappelons qu'une m\'etrique sur $X$ est vue comme une
+structure hermitienne sur $\Omega^1$.
+
+Concr\`etement, ceci signifie qu'une construction purement alg\'ebrique permet
+d'attacher \`a des sections m\'eromorphes \`a diviseurs disjoints $\ell$ et $m$ de $L$
+et $L \otimes (\Omega^1)^{\otimes(-1)}$ un \'el\'ement non nul $\langle \ell, m \rangle$ de $(\det H^*(X, L - \Oo))^{\otimes 2}$, avec une
+variance \eqref{eq:1.4.1}, et que la longueur carr\'ee de cet \'el\'ement, pour la m\'etrique tor-
+sion analytique, est donn\'ee par \eqref{eq:1.5.1}.
+
+\subsection{}
+
+Pour prouver 1.5, nous utilisons le calcul par D.~Quillen~\cite{13} et D.~Freed
+\cite{6} de d\'eriv\'ees logarithmiques secondes de la torsion analytique en fonction de
+param\`etres. Quand $L$ est une d\'eformation de $\Oo$, i.e.\ est de degr\'e 0, un argument
+direct, ne requ\'erant pas la normalisation 1.2, est possible.
+
+Pour traiter le cas des fibr\'es de degr\'e $\neq 0$, il nous faut prouver un r\'esultat
+analogue \`a 1.4, 1.5, plus compliqu\'e, pour les fibr\'es vectoriels de dimension quel-
+conque. Un fibr\'e vectoriel a deux invariants discrets: sa dimension et son degr\'e.
+Ces invariants sont additifs par sommes directes. Traiter le cas des fibr\'es vectoriels
+permet de prouver 1.5 \`a une constante $A(X,g)^{\deg L}$ pr\`es, o\`u $A(X,g)$ ne d\'epend
+que de la surface de Riemann $X$ et de sa m\'etrique $g$. La compatibilit\'e \`a la
+dualit\'e de Serre donne $A(X,g) = 1$.
+
+
+
+\section{Programme}
+
+\subsection{Incarner une int\'egrale de classes de Chern}
+
+Soit $f: X \to S$ un morphisme de sch\'emas, propre, plat et purement d'une
+dimension relative $N$. Soient $I$ un ensemble fini d'indices, $c_i^p$ ($p > 0$, $i \in I$)
+des ind\'etermin\'ees, avec $c_i^p$ de poids $p$, $P$ un polyn\^ome isobare de poids $N+1$
+en les $c_i^p$ \`a coefficients entiers, $V_i$ des fibr\'es vectoriels sur $X$, de classes
+de Chern $c_i^p := c_p(V_i)$ et int\'egrons sur les fibres de $f$ le polyn\^ome $P(c_i^p)$
+en les classes de Chern des $V_i$ pour obtenir sur $S$
+\begin{equation}\label{eq:2.1.1}
+c := \int_{X/S} P(c_p(V_i)) .
+\end{equation}
+
+La d\'efinition \eqref{eq:2.1.1} a un sens dans divers contextes. En cohomologie $l$-
+adique ($\ell$ inversible sur $S$), on a
+\[
+c \in H^2(S, \ZZ_\ell(1)) .
+\]
+Pour $S$ s\'epar\'e de type fini sur $\CC$, et en th\'eorie de Hodge mixte, $c$ est une
+classe de cohomologie enti\`ere purement de type $(1,1)$ [mise en garde: je n'en
+ai pas de d\'emonstration avec la g\'en\'eralit\'e dite; que $P(c_i^p(V_i))$ est purement
+de type $(N+1, N+1)$ r\'esulte de (P.~Deligne, th\'eorie de Hodge III, Publ.\ Math.\ IHES 44 (1974) p.~5-73, 9.1.1 et 9.1.2); reste \`a voir que le morphisme de
+Gysin $\int_{X/S}$ est un morphisme de structures de Hodge mixtes de $H^{2N+2}(X, \QQ)$
+dans $H^2(S, \QQ)$; pour $X$ et $S$ lisses, la dualit\'e de Poincar\'e ram\`ene les propri\'et\'es
+de $\int_{X/S}$ \`a celles, connues, de l'image inverse].
+
+Pour $X$ et $S$ quasi-projectifs et lisses sur un corps alg\'ebriquement clos,
+on peut travailler dans les anneaux de Chow. Dans ce cas, $c$ est une classe
+d'\'equivalence lin\'eaire de diviseurs.
+
+Dans tous les cas, la classe $c$ est candidate \`a \^etre la premi\`ere classe
+de Chern d'un fibr\'e en droites sur $S$. Quand on peut travailler dans les anneaux
+de Chow, $c$ est d\'ej\`a la classe d'isomorphie d'un fibr\'e en droite.
+
+\begin{probleme}
+Dans la situation 2.1, construire ``fonctoriellement'' un faisceau
+inversible $\int_{X/S} P(V_i, i \in I)$ sur $S$, ayant $c$ comme premi\`ere classe de Chern.
+\end{probleme}
+
+\`A cause des difficult\'es de signes auxquelles donne lieu ce probl\`eme, je pr\'e-
+f\'ererais y supposer $I$ totalement ordonn\'e. Parmi les fonctorialit\'es voulues,
+on a:
+
+\begin{equation}\label{eq:2.1.3}
+\parbox{\dimexpr\linewidth-2em}{%
+Soit $(\Vect\text{-is})_X$ la cat\'egorie des fibr\'es vectoriels sur $X$ et des iso-
+morphismes de fibr\'es vectoriels. Alors, $\int_{X/S} P$ est un foncteur de la cat\'egorie
+$(\Vect\text{-is})_X^I$ dans la cat\'egorie $\Pic(S)$ des faisceaux inversibles sur $S$ et de
+leurs isomorphismes. Il est compatible aux changements de base $S' \to S$.}
+\end{equation}
+
+\begin{equation}\label{eq:2.1.4}
+\parbox{\dimexpr\linewidth-2em}{%
+Soient $j \in I$, $P_j$ le polyn\^ome de poids $N$
+\[
+P_j := \sum_{p \geq 1} (\rank V_j - p + 1) c_j^{p-1} \frac{\partial}{\partial c_j^p} P
+\]
+(localement constant sur $X$) et $n_j$ l'entier (localement constant sur $S$)
+\[
+n_j := \int_{X/S} P_j(c_i^p(V_i)) .
+\]
+Pour $L_j$ des faisceaux inversibles sur $S$, on a
+\[
+P(c_p(V_i \otimes f^* L_j)) \equiv P(c_p(V_i)) + \sum_j P_j(c_p(V_i)) \cdot c_1(L_j)
+\]
+modulo le carr\'e de l'id\'eal engendr\'e par les $f^*(c_1(L_j))$, d'o\`u
+\[
+\textstyle \int_{X/S} P(c_p(V_i \otimes f^* L_j)) \cong \int_{X/S} P(c_p(V_i)) \otimes \bigotimes_j L_j^{\otimes n_j} .
+\]
+Pour $\lambda$ une section sur $S$ de $\Oo_S^*$, ceci am\`ene \`a demander que l'automorphisme
+de multiplication par $\lambda$ sur $V_j$ agisse sur $\int_{X/S} P(V_i)$ par $\lambda^{n_j}$.}
+\end{equation}
+
+\begin{equation}\label{eq:2.1.5}
+\parbox{\dimexpr\linewidth-2em}{%
+\textbf{Additivit\'e en $P$.} Pour $P = P' + P''$, on veut un isomorphisme canonique
+$\int_{X/S} P \cong \int_{X/S} P' \otimes \int_{X/S} P''$.}
+\end{equation}
+
+\begin{equation}\label{eq:2.1.6}
+\parbox{\dimexpr\linewidth-2em}{%
+\textbf{Additivit\'e par suites exactes.} Pour l'\'enoncer, il sera commode de poser
+$c_i^0 = 1$. Pour $a \in I$, soit $\tilde{I}$ d\'eduire de $I$ en d\'edoublant $a$ en $a'$ et $a''$.
+Soit $\tilde{P}$ le polyn\^ome en les $c_i^p$ ($i \in \tilde{I}$) obtenu en rempla\c{c}ant dans $P$ chaque
+$c_a^p$ par $\sum_{r+s=p} c_{a'}^r \cdot c_{a''}^s$ ($r,s \geq 0$). Soit enfin une suite exacte
+$0 \to V_a' \to V_a \to V_a'' \to 0$
+et posons $V_{a'} := V_a'$, $V_{a''} := V_a''$. On veut un isomorphisme canonique entre
+$\int_{X/S, P(V_i, i \in I)}$ et $\int_{X/S, \tilde{P}(V_i, i \in \tilde{I})}$.}
+\end{equation}
+
+Dans les cas qu'on sait traiter, la d\'efinition de cet isomorphisme pose des
+probl\`emes de signes. Ils disparaissent dans la version affaiblie suivante, relative
+\`a un seul des foncteurs $\int_{X/S} P$.
+
+\begin{equation}\label{eq:2.1.7}
+\parbox{\dimexpr\linewidth-2em}{%
+\textbf{Invariance par semi-simplification.} Soient des suites exactes $0 \to V_i' \to
+V_i \to V_i'' \to 0$ et $sV_i := V_i' \oplus V_i''$. On veut un isomorphisme canonique
+\[
+\textstyle \int_{X/S} P(V_i, i \in I) \cong \int_{X/S} P(sV_i, i \in I) .
+\]}
+\end{equation}
+
+Plus pr\'ecis\'ement, on d\'efinira au paragraphe~4 la cat\'egorie des fibr\'es virtuels;
+chaque fibr\'e $V$ d\'efinit un fibr\'e virtuel $[V]$, chaque suite exacte courte $V' \hookrightarrow
+V \twoheadrightarrow V''$ d\'efinit un isomorphisme $[V] \cong [V' \oplus V'']$ et on veut que le foncteur $\int_{X/S} P$
+se factorise par un foncteur $\int_{X/S} P$ d\'efini sur la cat\'egorie des fibr\'es virtuels:
+\[
+\textstyle \int_{X/S} P([V_i]) = \int_{X/S} P(V_i) .
+\]
+
+\begin{equation}\label{eq:2.1.8}
+\parbox{\dimexpr\linewidth-2em}{%
+\textbf{Identit\'es entre classes de Chern.}}
+\end{equation}
+
+L'exigence ``additivit\'e par suites exactes'' combine l'invariance par semi-
+simplification et une formule pour $\int_{X/S} P$ appliqu\'e \`a des $V_i$ dont l'un est
+une somme directe. Cette formule rel\`eve la formule donnant les classes de Chern
+d'une somme directe. De m\^eme, les formules pour les classes de Chern d'un produit
+tensoriel, d'un dual ou d'une puissance ext\'erieure devraient se relever en isomor-
+phismes canoniques. Pour qu'un tel formalisme soit utile, il faudrait aussi
+d\'eterminer les diagrammes commutifs auxquels ces isomorphismes donnent lieu.
+
+\subsection{Incarner la composante de degr\'e 2 de Riemann--Roch}
+
+Soit $f: X \to S$ un morphisme propre et lisse, purement d'une dimension
+relative $N$, $V$ un fibr\'e vectoriel sur $X$ et $T_{X/S}$ le fibr\'e tangent relatif.
+La formule de Riemann--Roch s'\'enonce
+\begin{equation}\label{eq:2.2.1}
+\ch Rf_* V = \int_{X/S} \ch(V) \cdot \td(T_{X/S}) .
+\end{equation}
+
+La composante de degr\'e deux au membre de gauche est la premi\`ere classe de
+Chern du faisceau inversible $\det Rf_* V$ sur $S$. Soit $RR_{N+1}$ la composante
+de degr\'e $2(N+1)$ de $\ch(V) \cdot \td(T_{X/S})$. C'est un polyn\^ome universel de poids
+$(N+1)$ en les classes de Chern de $V$ et de $T_{X/S}$. Il est \`a coefficients
+rationnels. Si le probl\`eme 2.1.2 \'etait r\'esolu, on pourrait poser le
+
+\begin{probleme}
+Trouver un entier $M$ (tel que $M \cdot RR_{N+1}$ soit un polyn\^ome \`a coeffi-
+cients entiers en les classes de Chern de $V$ et $T_{X/S}$) et construire un isomorphisme
+canonique de fibr\'es en droites sur $S$
+\begin{equation}\label{eq:2.2.2.1}
+(\det Rf_* V)^{\otimes M} \cong \textstyle \int_{X/S} (M \cdot RR_{N+1})(V, T_{X/S}) .
+\end{equation}
+\end{probleme}
+
+Un tel isomorphisme pr\'eciserait la composante de degr\'e deux de \eqref{eq:2.2.1}.
+
+Pour $V = V' \oplus V''$, l'additivit\'e (2.1.6) doit fournir pour le second membre
+$I(V)$ de (2.2.2.1) que
+\[
+I(V) = I(V') \otimes I(V'') .
+\]
+On veut que
+\begin{equation}\label{eq:2.2.3}
+\text{cette additivit\'e est compatible \`a celle du premier membre de (2.2.2.1).}
+\end{equation}
+
+Il n'est pas n\'ecessaire d'attendre la solution de (2.1.2) pour se poser des
+cas particuliers de 2.2.2. Par ailleurs, pour $V$ de forme particuli\`ere, on peut
+donner un sens \`a la question 2.2.2 pour $M$ un entier tel que $M \cdot RR_{N+1}$ ne soit
+pas \`a coefficients entiers. Voici des exemples.
+
+\subsubsection{}
+
+Soient $V_i$ ($1 \leq i \leq N+2$) des fibr\'es virtuels de dimension 0: $V_i =
+U_i - u_i$ avec $U_i$ et $u_i$ de m\^eme dimension. On a $\ch^0(V_i) = 0$ et
+\[
+\ch(\otimes V_i) = \text{polyn\^ome en les classes de Chern des $U_i$ et des $u_i$, de poids } \geq N+2 .
+\]
+Comme polyn\^ome de poids $N+1$ en les classes de Chern des $V_i$, $v_i$ et $T_{X/S}$,
+la composante de degr\'e $2(N+1)$ de $\ch(\otimes V_i) \cdot \td(T_{X/S})$ est identiquement nulle.
+Ceci am\`ene \`a d\'esirer une trivialisation canonique de
+\[
+\det Rf_* \otimes V_i .
+\]
+En d'autres termes, et sans mentionner de fibr\'e virtuel: pour $P \subset [1, N+2]$,
+soit $D_P$ le fibr\'e en droites
+\[
+D_P := \det Rf_* \bigl(\otimes_{i \in P} u_i' \otimes \otimes_{i \notin P} U_i\bigr) .
+\]
+On veut un isomorphisme canonique entre le produit tensoriel des $D_P$ pour $\#P$
+pair et le produit tensoriel des $D_P$ pour $\#P$ impair.
+
+Dans le m\^eme esprit, si $I = I_0 \amalg I_1 \amalg I_2$ est un ensemble fini d'indices,
+que les $V_i = V_i - U_i$ sont des fibr\'es vectoriels virtuels sur $X$ ($i \in I$), que
+$\dim V_i = \dim U_i$ pour $i \in I_1$ ou $I_2$ et qu'un isomorphisme $\alpha_i: \det V_i \xrightarrow{\sim}
+\det U_i$ est donn\'e pour $i \in I_2$, on d\'esire une trivialisation canonique de
+$\det Rf_* (\otimes V_i)$ d\`es que $\#I_1 + 2 \cdot \#I_2 > N+1$. En effet, on a $\ch(V_i) = c_1(V_i)
+= 0$ pour $i \in I_2$.
+
+Prendre garde que la d\'efinition de $\det Rf_* V$ pose des probl\`emes de signes;
+les compatibilit\'es d\'esir\'ees pour les isomorphismes canoniques conjectur\'es ci-dessus
+en donnant lieu de pires.
+
+\subsection{M\'etriser}
+
+Si $V$ est un espace vectoriel sur $\QQ_p$, la fa\c{c}on la plus simple de se donner
+une norme sur $V$ est de se donner un $\ZZ_p$-module libre $V_0 \subset V$, tel que le morphisme
+$\QQ_p \otimes V_0 \to V$ soit un isomorphisme. On pose
+\[
+\|v\| = \inf \{\|\lambda\|^{-1} \mid \lambda \in \QQ_p^*, \lambda^{-1} v \in V_0\} .
+\]
+En termes g\'eom\'etriques, $V$ est un fibr\'e vectoriel sur $\Spec(\QQ_p)$ et $V_0$ un pro-
+longement de ce fibr\'e sur le sch\'ema $\Spec(\ZZ_p)$.
+
+D'apr\`es Arakelov, si $V$ est un espace vectoriel complexe, il y a lieu par
+analogie de regarder une structure hermitienne sur $V$ comme un prolongement de
+$V$ ``fibr\'e vectoriel sur $\Spec(\CC)$'' \`a un objet mythique qu'il ne co\^ute rien de nommer
+``$\Spec(\CC)\widehat{\phantom{x}}$''. Si $S$ est un sch\'ema lisse sur $\CC$, une m\'etrique k\'ahl\'erienne sur
+$S$ est \`a regarder comme un prolongement $\bar{S}$ de $S$ sur ``$\Spec(\CC)\widehat{\phantom{x}}$''. Si $V$
+est un fibr\'e vectoriel sur $S$, une structure hermitienne sur $V$ est \`a regarder
+comme un prolongement de $V$ de $S$ \`a $\bar{S}$. J'omet des grains de sel.
+
+Appliquons cette philosophie \`a 2.1 et 2.2.
+
+\subsection{}
+
+Soit $f: X \to S$ un morphisme propre et lisse entre sch\'emas lisses sur $\CC$,
+purement d'une dimension relative $N$. Soient $I$ et $P$ comme en 2.1. Si le
+probl\`eme 2.1.2 est r\'esolu, on dispose d'un foncteur $\int_{X/S} P$ attachant \`a une famille
+de fibr\'es vectoriels $V_i$ sur $X$ un fibr\'e en droite $\int_{X/S} P(V_i, i \in I)$ sur
+$S$.
+
+\begin{probleme}
+Si les $V_i$ sont munis de m\'etriques hermitiennes $g_i$, d\'efinir
+une m\'etrique hermitienne sur le fibr\'e en droites $\int_{X/S} P(V_i, i \in I)$.
+\end{probleme}
+
+Soit $V$ un fibr\'e vectoriel holomorphe. Pour $g$ une structure hermitienne
+sur $V$, les formes de Chern $\tilde{c}_p(V,g)$ sont des $(p,p)$-formes ferm\'ees de classes
+de cohomologie les classes de Chern $c_p(V)$. Des exemples qui peuvent \^etre trait\'es
+conduisent \`a exiger:
+
+\begin{exigence}
+La m\'etrique 2.4.1 v\'erifie
+\[
+\partial \bar\partial \log \|\textstyle \int_{X/S} P(V_i, i \in I)\|^2 = \int_{X/S} P(\tilde{c}_p(V_i, g_i)) .
+\]
+\end{exigence}
+
+On notera que $X$ et $S$ n'ont pas \'et\'e suppos\'es munis de m\'etriques. Pour
+d\'efinir une m\'etrique sur $\int_{X/S} P(V_i, i \in I)$, seule doit importer la donn\'ee
+de m\'etriques sur les $V_i$.
+
+\begin{remark}
+On exige bien s\^ur que la m\'etrique 2.4.1 soit de formation compatible
+\`a tout changement de base $S' \to S$. Prenant pour $S'$ un point, on voit que le
+essentiel est celui d'une base r\'eduite \`a un point. Ecrivons $\int_X$ ou simplement
+$\int$ pour $\int_{X/\Spec(\CC)}$. Pour $X$ propre et lisse de dimension $N$ et les $V_i$ des
+fibr\'es vectoriels sur $X$, $\int P(V_i, i \in I)$ est un espace vectoriel complexe de
+rang un, canoniquement attach\'e aux $V_i$. Il s'agit d'attacher \`a des structures
+hermitiennes sur les $V_i$ une structure hermitienne sur cet espace vectoriel.
+On se ram\`ene \`a ce cas ($S = \Spec(\CC)$) dans la fin de 2.4.
+\end{remark}
+
+\begin{remark}
+Prenons $S$ r\'eduit \`a un point et fixons $X$ et les $V_i$. L'exi-
+gence (2.4.2) impose comment la m\'etrique sur $\int P(V_i, i \in I)$ change quand on
+change la structure hermitienne sur les $V_i$. Supposons en effet que des structures
+hermitiennes $g_i(t)$ sur les $V_i$ d\'ependent d'un param\`etre $t \in \RR$. Fixons $e \neq
+0$ dans $\int P(V_i, i \in I)$ et soit $h(t)$ la longueur carr\'ee $\|e\|^2$ de $e$ pour
+la m\'etrique d\'efinie par les structures hermitiennes $g_i(t)$ sur les $V_i$. Soit
+$A$ la droite affine standard, de coordonn\'ee $z$, et soit sur $A$ le fibr\'e trivial
+$X_A := X \times A$ de fibre $X$. Soit $\tilde{V}_i$ le fibr\'e sur $X_A$ image inverse de $V_i$.
+On munit $\tilde{V}_i$ de la m\'etrique qui au-dessus de $z \in A$ est $g_i(z)$. Appliquant
+(2.4.2) \`a cette famille, on obtient une formule pour $\partial_z \bar\partial_z \log h(z)$. On a
+\[
+\partial_z \bar\partial_z \log h(z^{-1})|_{z=0} = \partial_t \log h(t)|_{t=0}
+\]
+et (2.4.2) d\'etermine donc la d\'eriv\'ee de $\log h$ en $t=0$. Translatant en $t$,
+on obtient la d\'eriv\'ee de $\log h$ en tout point. Int\'egrant, on d\'etermine le rapport
+$h(1)/h(0)$. On v\'erifie que le nombre obtenu ne d\'epend pas des chemins $g_i(t)$
+reliant les $g_i(0)$ aux $g_i(1)$.
+\end{remark}
+
+\begin{remark}
+Soit $a \in I$ et supposons que $V_a$ soit une extension
+\[
+0 \to V_a' \to V_a \to V_a'' \to 0 .
+\]
+Une structure hermitienne $g$ sur $V_a$ en d\'etermine alors sur $V_a'$: la structure
+induite $g'$, et sur $V_a''$: la structure quotient $g''$. Il n'y a pas lieu de
+consid\'erer $(V_a', g')$, $(V_a, g_a)$, $(V_a'', g'')$ comme une ``suite exacte'' sur $X$
+au-dessus de $\Spec(\CC)$ au sens d'Arakelov. Mod\`ele: pour $\bar{S}$ un sch\'ema sur
+$\Spec(A)$, de fibre g\'en\'erale $S$ sur $\QQ_p$, une suite de fibr\'es vectoriels sur
+$\bar{S}$ $0 \to V' \to V \to V'' \to 0$ peut \^etre exacte sur $S$ sans l'\^etre sur $\bar{S}$, m\^eme si
+elle l'est aux points g\'en\'eriques de la fibre sp\'eciale.
+
+Si les $V_i$ sont munis de m\'etriques, et que $sV_i := V_i$ pour $i \neq a$, $sV_a :=
+V_a' \oplus V_a''$, il n'y a pas lieu d'esp\'erer que l'isomorphisme (2.1.7) entre $\int P(V_i,
+i \in I)$ et $\int P(sV_i, i \in I)$ soit une isom\'etrie, pour $sV_a$ muni de la m\'etrique
+$g_a' \oplus g_a''$.
+\end{remark}
+
+\subsection{}
+
+Les exigences (2.1.3) \`a (2.1.6), (2.4.2) d\'eterminent uniquement le rapport
+entre les m\'etriques de $\int_{X/S} P(sV_i, i \in I)$ et de $\int_{X/S} P(V_i, i \in I)$. Fixons en effet
+$a \in I$ et consid\'erons la famille alg\'ebrique d'extensions de $V_a$ par $V_a'$ d\'eduite
+
+de $V_a$ par image inverse par $\lambda \cdot \Id: V_a'' \to V_a''$ ($\lambda \in \CC$):
+\[
+\begin{tikzcd}
+0 \arrow[r] & V_a'' \arrow[r] \arrow[d, "\lambda"] & U_a \arrow[r] \arrow[d] & V_a' \arrow[r] \arrow[d, "="] & 0 \\
+0 \arrow[r] & V_a'' \arrow[r] & V_a \arrow[r] & V_a' \arrow[r] & 0
+\end{tikzcd}
+\]
+Par 2.1.7, $\int_{X/S} P(V_i, i \in I) \cong \int_{X/S} P(sV_i, i \in I)$ ne change pas pour $V_a$ remplac\'e
+par $U_a$. Pour $\lambda \neq 0$, $\times \lambda$ est un isomorphisme de $U_a$ avec $V_a$. L'au-
+tomorphisme correspondant de $\int_{X/S} P(V_i, i \in I)$ se calcule par 2.1.6, 2.1.4. Si
+g$_{U_a}$ est une m\'etrique sur $U_a$, 2.4.4 permet alors de calculer comment varie
+avec $\lambda$ la m\'etrique correspondante de $\int P(V_i, i \in I)$, tant que $\lambda \neq 0$. On
+r\'ecup\`ere le cas $\lambda = 0$ par passage \`a la limite et, pour $\lambda = 0$, $U_a$ est
+$V_a' \oplus V_a''$.
+
+\subsection{}
+
+Soient $f: X \to S$ un morphisme propre et lisse entre sch\'emas lisses sur $\CC$,
+purement d'une dimension relative $N$, $V$ un fibr\'e vectoriel sur $X$ et $T_{X/S}$ le
+fibr\'e tangent relatif. On suppose $V$ et $T_{X/S}$ munis de structures hermitiennes.
+Il y a peut-\^etre lieu de supposer que la structure hermitienne de $T_{X/S}$ fournisse
+une structure k\'ahl\'erienne sur chaque fibre $X_s := f^{-1}(s)$ de $f$. La r\'eponse \`a
+(2.5.2) ci-dessous dictera la bonne hypoth\`ese.
+
+Sous ces hypoth\`eses, on dispose (\cite{14}) d'une m\'etrique (la ``torsion analytique'')
+sur le fibr\'e vectoriel $\det Rf_* V$. Elle est de formation compatible \`a tout change-
+ment de base. On la suppose correctement normalis\'ee, cf.~1.2, 1.3.
+
+Si les probl\`emes 2.1, 2.2, 2.4 sont suppos\'es r\'esolus, on peut poser le
+
+\begin{probleme}
+L'isomorphisme 2.2.2 est-il une isom\'etrie?
+\end{probleme}
+
+On notera que pour ce probl\`eme, l'exposant $M$ de 2.2.2 est sans importance.
+Remplacer $M$ par $2M$ lib\`ere 2.5.1 des questions de signes qui hantent 2.1 et
+2.2.
+
+Notons $\tilde{c}_1(V)$ et $\tilde{c}_1(T_{X/S})$ les formes de Chern de $V$ et de $T_{X/S}$ d\'efinies
+par les m\'etriques donn\'ees. Avec les notations de (2.2.2), une r\'eponse positive
+\`a (2.5.1) implique, par 2.4.2, une r\'eponse positive \`a la
+
+\begin{question}
+A-t-on
+\[
+\partial \bar\partial \log \|\det Rf_* V\|^2 = \textstyle \int_{X/S} M \cdot RR_{N+1}(\tilde{c}(V), \tilde{c}(T_{X/S}))?
+\]
+\end{question}
+
+Si j'ai bien compris, 2.5.2 a \'et\'e prouv\'e par J.M.~Bismut et D.S.~Freed lorsque
+$N = 1$ (\cite{3}, \cite{6}). Ils ont obtenus des r\'esultats analogues en toute dimension (et dans des situations
+non holomorphes), mais j'ignore si leurs r\'esultats couvrent 2.5.2.
+
+Inversement, si l'\'egalit\'e 2.5.2 vaut universellement (pour $N$ fix\'e), l'argument
+2.10.4 montrera que la validit\'e de 2.5.1 est ind\'ependante des m\'etriques sur $V$ et
+$T_{X/S}$: le logarithme du rapport de similitude de l'isomorphisme 2.2.2 est une
+fonction $F$ sur $S$, ind\'ependante des m\'etriques de $V$ et $T_{X/S}$, de formation
+compatible \`a tout changement de base. Toujours sous l'hypoth\`ese 2.5.2, on a
+
+$-$ $d'd''F = 0$ (de sorte que $F$ est constante si $S$ est compact connexe,
+ou si $S$, suppos\'e alg\'ebrique, est connexe et qu'on peut prouver $F$ born\'ee).
+
+$-$ Si $0$ est une extension $0 \to V' \to V \to V'' \to 0$, $F$ pour $V$ est la somme
+de $F$ pour $V'$ et $V''$ (cf.~2.4.5).
+
+$-$ Une compatibilit\'e \`a la dualit\'e de Serre assurera que pour $X$ connexe de dimension
+$N$ et $V' := \mathscr{H}om(V, \Omega^1)$ le dual de Serre de $V$:
+\[
+F(X,V) = (-1)^{N+1} F(X,V') .
+\]
+Dans le cas des courbes ($N=1$), ces propri\'et\'es suffisent \`a assurer que la fonction
+$F$ est de la forme
+\[
+F(X,V) = \rank(V) \cdot G(X) ,
+\]
+donc nulle sur les fibr\'es virtuels de rang 0, comme annonc\'e en 1.5.
+
+\subsection{}
+
+Soul\'e me dit que 2.5.1 est trop optimiste. Il aspire seulement \`a l'existence
+d'une classe caract\'eristique de correction $\widehat{\td}(T_{X/S})$ de $T_{X/S}$ telle que le rapport
+des m\'etriques soit localement constant sur $S$, donn\'e par
+\[
+\textstyle \int_{X/S} \widehat{\td}_{\text{correction}}(T_{X/S}) \cdot \ch(V)) .
+\]
+
+
+
+\section{Analogies}
+
+\subsection{}
+
+La th\'eorie d'Arakelov est bas\'ee sur l'analogie entre
+
+(a) $\CC$, muni de sa valeur absolue $|\lambda| = e^{v(\lambda)}$, et
+
+(b) un corps valu\'e complet non archim\'edien non discret $K$. On note $A$ l'anneau
+de valuation de $K$ (c'est-\`a-dire l'ensemble des $x \in K$ tels que $|x| \leq 1$).
+On suppose la valuation $v$ discr\`ete, d'ensemble de valeurs $\ZZ$. On note $t$
+une uniformisante ($v(t) = 1$) et on d\'efinit le nombre $q$ par $|x| = q^{-v(x)}$.
+L'analogie fait correspondre \`a $v(x)$ la quantit\'e $\log |x|$. Parfois, il faut
+supposer le corps r\'esiduel fini, de nombre d'\'el\'ements $q$. On veut remplir la
+case ``$\to$'' du tableau
+
+\begin{center}
+\begin{tabular}{p{6cm}|p{6cm}}
+Sch\'ema sur $\ZZ$, \'eventuellement & Sch\'ema sur $K$, \'eventuellement \\
+muni de donn\'ees auxiliaires & muni des m\^emes donn\'ees auxiliaires.\\
+(fibr\'e vectoriel, \ldots) & \\
+\hline
+\multicolumn{2}{c}{Sch\'ema sur $\Spec(A)$,} \\
+\multicolumn{2}{c}{prolongeant le pr\'ec\'edent.}
+\end{tabular}
+\end{center}
+
+Le cas particulier $K = \CC((t))$ sugg\`ere une troisi\`eme colonne: famille analytique
+de sch\'emas, param\'etr\'ee par un petit disque \'epoint\'e $D^*$, et extension de cette
+famille au-dessus du disque $D$.
+
+On explique ci-dessous, sous la forme d'un texte sur deux colonnes, comment
+parfois remplir la case ``$\to$''. Dans la premi\`ere (resp.\ seconde) colonne, le corps
+de base est $\CC$ (resp.\ $K$).
+
+\subsection{}
+
+Soit $V$ un espace vectoriel de dimension finie.
+
+\smallskip
+
+\begin{minipage}[t]{0.48\textwidth}
+On suppose $V$ muni d'une
+structure hermitienne. On pose
+$\|v\| = \langle v,v \rangle$.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+On suppose $V$ muni d'une
+$A$-structure (un $A$-module libre
+$V_A \subset V$ avec $V_A \otimes_A K \xrightarrow{\sim} V$). On
+pose $\|v\| = \inf\{||\lambda||^{-1} \mid \lambda \in K^*, \lambda^{-1}v \in V_A\}$.
+\end{minipage}
+
+\smallskip
+
+On a $\|v\|_A \leq 1 \iff \|v\| \leq 1$.
+
+Il y a parfois lieu de regarder une norme ultram\'etrique $\|v\|$ quelconque
+comme l'analogue d'une structure hermitienne. Dans une base convenable et pour
+des r\'eels $a_i > 0$ convenables, une telle norme s'\'ecrit
+\[
+\|v\| = \sup\{a_i \cdot \|v_i\|\} .
+\]
+Pour qu'elle corresponde \`a une $A$-structure, il faut et il suffit qu'elle soit \`a
+valeurs dans $\|K\| \subset \RR$. Pour $K'$ une extension galoisienne finie de $K$, la
+restriction \`a $V$ est une bijection des normes ultram\'etriques sur $V' := V \otimes_K K'$,
+invariantes par $\Gal(K'/K)$, avec les normes ultram\'etriques sur $V$. Ceci permet
+d'interpr\'eter une norme ultram\'etrique sur $V$ avec $\log \|v\| \in \QQ \cdot \log q$ pour
+tout $v \in V$ comme la donn\'ee d'une $A'$-structure $\Gal(K'/K)$-invariante sur $V'$,
+pour $K'$ assez grand.
+
+\subsection{}
+
+Soit $X$ un sch\'ema propre et lisse sur $\CC$ (resp.\ $K$).
+
+\smallskip
+
+\begin{minipage}[t]{0.48\textwidth}
+La donn\'ee d'une structure
+hermitienne sur le fibr\'e tangent
+de $X$ fait de $X$ une vari\'et\'e
+riemannienne et permet de
+d\'efinir une distance $d(x,y)$.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+La donn\'ee d'un sch\'ema propre $X_A$ sur
+$\Spec(A)$, \`a fibre g\'en\'erale $X$, d\'efinit
+une distance $d$ sur $X(K)$: si $x$ et
+$y$ n'ont pas m\^eme r\'eduction modulo $(t)$,
+$d(x,y) = 1$; si $x$ et $y$ ont m\^eme
+r\'eduction, on prend leur distance dans
+une carte affine $Y \subset \mathbb{A}^n$ les contenant.
+\end{minipage}
+
+\smallskip
+
+\`A droite, une $A$-structure en fournit une apr\`es toute extension finie de
+$K$, d'o\`u une m\'etrique sur $X(\bar{K})$. Pour $X$ une courbe et $X_A$ normal, l'important
+n'est pas cette m\'etrique, mais le nombre d'intersection de deux sections
+(fractionnaire, cf.~Mumford, Publ.\ Math.\ IHES 9 (1961) p.~5-22, II(b) p.~17).
+
+Une $A$-structure normale $X_A$ en d\'efinit une apr\`es toute extension finie des
+scalaires (normaliser $X_A \otimes_A A'$) et pour $s_1, s_2 \in X(K') = X_{A'}(A')$, on pose
+$(s_1, s_2)_K = 1/[K':K] \cdot (s_1, s_2)$. Ce nombre est ind\'ependant de $K'$ (assez grand
+pour que les $s_i$ soient dans $X(K')$) et d\'efinit $(s_1, s_2)_K$ pour $s_i \in X(K)$.
+On a $(s_1, s_2)_K \geq 0$, avec $(s_1, s_2)_K > 0$ si et seulement si les $s_i$ ont m\^eme
+r\'eduction.
+
+\subsection{}
+
+Soit $E$ un fibr\'e vectoriel sur $X$.
+
+\smallskip
+
+\begin{minipage}[t]{0.48\textwidth}
+Une structure hermitienne sur
+$E$ d\'efinit, pour chaque $x \in X$,
+une structure hermitienne sur
+la fibre $E_x$ de $E$ en $x$.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+Soit $X_A$ propre sur $\Spec(A)$ prolon-
+geant $X$ et $E_A$ un fibr\'e vectoriel
+sur $X_A$ prolongeant $E$. Soit $x \in
+X(K)$. C'est l'image de $x_A \in X_A(A)$;
+$X(K)$ et $x_A^* E_A$ est une $A$-structure
+sur $E_x$.
+\end{minipage}
+
+\smallskip
+
+De m\^eme pour $x \in X(K')$, $K'$ une extension finie de $K$. Si le prolongement
+$X_A$ domine $\bar{X}_A$ et que $E_A$ est l'image inverse de $\bar{E}_A$, $(X_A, E_A)$ et $(\bar{X}_A, \bar{E}_A)$
+d\'efinissent les m\^emes structures enti\`eres sur les $E_x$ ($x \in X(K)$, ou $X(K')$, ou
+$X(\bar{K})$). Soit $I$ l'ensemble ordonn\'e filtrant des prolongements propres de $X$ sur
+$\Spec(A)$ et $\Ent(E, I)$ l'ensemble des prolongements de $E$ sur $I$ (pris \`a un iso-
+morphisme qui est l'identit\'e sur $E$ pr\`es). On d\'efinit une $A$-structure sur $E$
+comme un \'el\'ement de la limite inductive $\Ent(E)$ des $\Ent(E, I)$. C'est l'analogue
+d'une structure hermitienne $C^\infty$.
+
+Soit $I^*$ l'ensemble des prolongements propres minimaux. Disons qu'un ouvert
+$U$ de $X_A$ dans $I^*$ est \emph{gros} s'il contient $X$ et les points g\'en\'eriques de la fibre
+sp\'eciale. Si $X_A$ et $\bar{X}_A$ sont dans $I^*$ et que $X_A$ domine $\bar{X}_A$, il existe un
+gros ouvert $U_A \subset X_A$ tel que $X_A \to \bar{X}_A$ induise un isomorphisme de $\Oo(U_A)$ avec
+$\bar{X}_A$. Soit $\Ent^G(E, I)$ l'ensemble des germes de prolongement de $E$ aux gros ouverts
+de $I \in I^*$ (germes selon le filtre des gros ouverts). Si $X_A$ domine $\bar{X}_A$ et que
+$U_A$ est un gros ouvert de $X_A$, il existe un gros ouvert $\bar{U}_A$ de $\bar{X}_A$ avec $\bar{U}_A \supset
+\Oo(U_A) \supset U_A$ et la restriction d\'efinit $\Ent^G(E, X_A) \to \Ent^G(E, \bar{X}_A)$. Certaines
+m\'etriques hermitiennes singuli\`eres ont pour analogue des \'el\'ements de la limite projec-
+tive $\Ent^*(E)$ des $\Ent^G(E, I)$. Pour $X$ connexe, soit $X^{(1)}$ l'ensemble des anneaux
+de valuation discr\'ete $B$ du corps des fonctions rationnelles sur $X$ qui sont anneau
+local d'un $X$ propre normal en un point g\'en\'erique de la fibre sp\'eciale. Un \'el\'ement
+de $\Ent^*(E)$ \'equivaut \`a la donn\'ee, pour chaque $B$ dans $X^{(1)}$, d'une $B$-structure
+sur la fibre g\'en\'erique $E_\eta$ de $E$.
+
+\begin{definition}
+Soit $D$ un diviseur sur $X$.
+\end{definition}
+
+\smallskip
+
+\begin{minipage}[t]{0.48\textwidth}
+Sur $\Oo(D)$, on d\'efinit une
+structure hermitienne
+singuli\`ere par $\|1\|^2 = e^{-F_D}$.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+Prolongeons $\Oo(D)$ de $X$ \`a $X_A \cup (A \cdot D, \ldots)$
+en recollant $\Oo(D)$ sur $X$ \`a $\Oo$ sur
+$X_A - D$. (Ils sont \'egaux \`a $\Oo$ sur l'inter-
+section $X - D$). Ces prolongements d\'efi-
+nissent un \'el\'ement de $\Ent(\Oo(D))$.
+\end{minipage}
+
+\smallskip
+
+Un \'el\'ement $E$ de $\Ent^*(E)$ sera dit r\'egulier sur un ouvert $U$ de $X_A$ contenant
+$X$ s'il existe un prolongement $E_U$ de $E$ \`a $U$ telle que, pour tout $\varphi: \bar{X}_A \to
+X_A$ dominant $X_A$, $E$ et $\varphi^*E$ co\"incident sur l'intersection de $\varphi^{-1}(U)$ avec un gros
+ouvert. L'\'el\'ement ci-dessus de $\Ent^*(\Oo(D))$ est r\'egulier sur $X_A - D$.
+
+\subsection{}
+
+Dans la fin de ce paragraphe, $X$ est une courbe propre et lisse. Soit $L$ un
+faisceau inversible sur $X$.
+
+\smallskip
+
+\begin{minipage}[t]{0.48\textwidth}
+Supposons $L$ muni d'une structure
+hermitienne $h$. La forme de Chern
+$F_{L,h}$, ou $F_h$, ou simplement $F$, est
+localement
+\[
+F = \frac{1}{\pi i} d'd'' \log \|s\|^2
+\]
+o\`u $s$ est une section locale
+inversible.
+\[
+\deg L = \int_X F .
+\]
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+Soit $L_A$ un prolongement de $L$ \`a
+$X_A$, propre et plat sur $\Spec(A)$,
+prolongeant $X$, suppos\'e normal. Soit
+$\mathcal{G}$ l'ensemble des composantes irr\'educti-
+bles de la fibre sp\'eciale r\'eduite et,
+pour $D \in \mathcal{G}$, soit $n(D)$ la multiplici-
+t\'e de $D$ dans la fibre sp\'eciale. Soit
+$F_A$, ou simplement $F$, la fonction
+$n(D) \deg_D(L_A)$ sur $\mathcal{G}$.
+\[
+\deg L = \sum_{D \in \mathcal{G}} n(D) \deg_D(L_A) .
+\]
+\end{minipage}
+
+\smallskip
+
+Pour amplifier, on supposera dor\'enavant $X_A$ r\'egulier.
+
+\medskip
+
+\begin{minipage}[t]{0.48\textwidth}
+Se donner une structure
+hermitienne sur le fibr\'e
+en droites trivial $\Oo$ revient
+\`a se donner une fonction r\'eelle
+sur $X$:
+\[
+L := -\log \|1\|^2 .
+\]
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+Les prolongements de $\Oo$ \`a $X_A$ s'identi-
+fient, par $L \mapsto \Oo(L)$, aux diviseurs
+concentr\'es sur la fibre sp\'eciale. Pour
+$E = \sum m(D) \cdot D$, soit $L_E$ la fonction
+sur $\mathcal{G}$: $L_E(D) = m(D)/n(D)$. La fonction
+constante $L = 1$ correspond au diviseur
+``fibre sp\'eciale''.
+\end{minipage}
+
+\smallskip
+
+Par analogie, sur $I$, on appellera encore \emph{diviseur} $E$ concentr\'e sur la fibre sp\'e-
+ciale une m\'etrique $L_E$ sur $\Oo$, ou la fonction $L_E$ correspondante, et multiple
+de la fibre une m\'etrique constante sur $\Oo$.
+
+\subsection{}
+
+Soient $E$ et $F$ deux diviseurs concentr\'es sur la fibre sp\'eciale. Leur nombre
+d'intersection $(E \cdot F)$ est:
+
+\smallskip
+
+\begin{minipage}[t]{0.48\textwidth}
+\[
+(E \cdot F) = \int_X d'd'' L_E \cdot L_F
+\]
+\[
+= \int_X L_E \cdot [F_F] + [F_E] \cdot L_F
+\]
+o\`u $[\cdot]$ d\'esigne le courant
+int\'egration sur le diviseur.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+Soit $<$ un ordre total sur $\mathcal{G}$ et, pour
+$D', D''$ dans $\mathcal{G}$, soit $c(D', D'') :=
+(n(D') D' \cdot n(D'') D'')_A \geq 0$. Utilisant que
+c'est nul pour un diviseur $F$ multiple
+
+de la fibre, on obtient: $(E \cdot F) =$
+\[
+\sum_{D' < D''} c(D', D'') (L_E(D') - L_E(D'')) (L_F(D') - L_F(D'')) .
+\]
+\end{minipage}
+
+\smallskip
+
+De l\`a r\'esulte que la forme $(\cdot, \cdot)$ est sym\'etrique semi-d\'efinie n\'egative et que, si
+$X$ est connexe, son noyau est r\'eduit aux multiples de la fibre sp\'eciale.
+
+\subsection{Un diviseur compactifi\'e}
+
+\begin{minipage}[t]{0.48\textwidth}
+Un \emph{diviseur compactifi\'e} $E$
+est la donn\'ee d'un diviseur $E_K$
+sur $X$ et d'une structure hermitienne
+sur $\Oo(E_K)$. Soit encore
+$L_E := -\log \|1\|^2$.
+
+Deux diviseurs compactifi\'es $E$ et $F$ sont
+disjoints si $L_E$ et $L_F$ sont \`a supports
+disjoints.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+La construction $E \mapsto$ (diviseur $E_K$ sur
+$X$, prolongement $\Oo(E_K)$ de $\Oo(E_K)$) iden-
+tifie un diviseur sur $X_A$ \`a un diviseur
+sur $X$ muni d'un prolongement \`a
+$X_A$ du faisceau inversible $\Oo(E_K)$ sur
+$X$.
+\end{minipage}
+
+\smallskip
+
+Si $E_K = \sum n_i P_i$, la fonction r\'eelle $L_E$ est $C^\infty$ hors des $P_i$, avec une
+singularit\'e en $\log |z|^2$ en chaque $P_i$. Si $d'd''$ est pris au sens des distribu-
+tions, la forme de Chern $F_E$ de $\Oo(E)$ est
+\[
+F_E = \frac{1}{\pi i} d'd'' L_E + \sum n_i \delta_{P_i} .
+\]
+
+Si $E$ et $F$ sont deux diviseurs compactifi\'es avec $E_K$ et $F_K$ disjoints,
+on d\'efinit leur nombre d'intersection par
+\[
+(E \cdot F) = \frac{1}{2\pi i} \int \partial L_E \wedge \bar\partial L_F + L_E [F_F] + L_F [F_E]
+\]
+\[
+= [F_{E \cdot F}] + L_E [F_F] + L_F [F_E]
+\]
+(notation $[\cdot]$ de 1.5.1). Ce produit d'intersection est caract\'eris\'e par sa sym\'etrie,
+son additivit\'e, le fait qu'il est donn\'e par $\int F_E \cdot L_F$ pour $F$ \`a support dans la fibre
+sp\'eciale et que $(E \cdot F) = 0$ pour $E$ et $F$ disjoints.
+
+Analogue: Si les diviseurs $E$ et $F$ sur $X_A$ ne se coupent que sur la fibre
+sp\'eciale, le nombre d'intersection $(E \cdot F)$ est encore d\'efini. Si $F$ est \`a support
+dans la fibre sp\'eciale, on a
+\[
+(E \cdot F) = F_E \cdot F_{\text{sp\'eciale}} \cdot L_E(D) .
+\]
+
+
+
+\section{Objets virtuels}
+
+Dans ce paragraphe nous montrons comment attacher \`a chaque cat\'egorie exacte
+$A$ ([12], p.91) la cat\'egorie de ses objets virtuels $V(A)$. Cette cat\'egorie est un
+avatar, \`a la Grothendieck~\cite{9}, des deux premiers \'etages de la tour de Postnikov
+de l'espace de lacets infinis de groupes d'homotopie les $K_i(A)$ de Quillen.
+
+\subsection{Rappel}
+
+Rappelons qu'une \emph{cat\'egorie de Picard} est une cat\'egorie $P$, non vide, dont
+toute fl\`eche est un isomorphisme, munie d'un foncteur $+: P \times P \to P$ et d'une
+contrainte d'associativit\'e pour $+$ (Saavedra~\cite{15} I 1.1., Mac~Lane~\cite{11}) et
+telle que pour chaque objet $P$ les foncteurs $X \mapsto P + X$ et $X \mapsto X + P$ soient
+des auto-\'equivalences de $P$. Ces axiomes impliquent l'existence d'un objet unit\'e
+$0$ (Saavedra~\cite{15} I 1.3), unique \`a isomorphisme unique pr\'es, et que chaque objet
+$X$ admet un oppos\'e: un objet $-X$ muni d'un isomorphisme $X + (-X) \cong 0$. Un
+tel objet est unique \`a isomorphisme unique pr\'es.
+
+Une \emph{cat\'egorie de Picard commutative} est une cat\'egorie de Picard munie d'une
+contrainte de commutativit\'e compatible \`a la contrainte d'associativit\'e (Saavedra~\cite{15}, I 1.2, Mac~Lane~\cite{11}). Dans une telle cat\'egorie, on sait d\'efinir la ``somme''
+d'une famille finie $(x_i)_{i \in I}$ d'objets, avec les propri\'et\'es habituelles. Mise
+en garde: pour $X = Y$, l'isomorphisme de sym\'etrie $X + Y \to Y + X$ n'est en g\'en\'eral
+pas l'identit\'e. Ce n'est pas inqui\'etant: on a la m\^eme chose pour la somme directe
+d'espaces vectoriels.
+
+Le foncteur $X \mapsto -X$ est muni de la donn\'ee de compatibilit\'e \`a $+$ suivante:
+l'isomorphisme $(X + Y) + ((-X) + (-Y)) = (X + (-X)) + (Y + (-Y)) = 0 + 0 = 0$
+fait de $(-X) + (-Y)$ un oppos\'e de $X + Y$. Cette donn\'ee est compatible \`a l'asso-
+ciativit\'e et \`a la commutativit\'e. Le foncteur $X \mapsto -X$ est involutif: par sym\'etrie
+de $+$, l'isomorphisme $X + (-X) \cong 0$ d\'efinit un isomorphisme $(-X) + X \cong 0$ qui
+fait de $X$ l'oppos\'e de $-X$: $X \xrightarrow{\sim} -(-X)$.
+
+\textbf{Mise en garde:} le diagramme
+\begin{equation}\label{eq:4.1.1}
+\begin{tikzcd}
+((-X) + X) + (-X) \arrow[r, "="] \arrow[d] & (-X) + (X + (-X)) \arrow[d] \\
+0 + (-X) = (-X) = (-X) + 0 & (-X) + 0 \arrow[l, "="]
+\end{tikzcd}
+\end{equation}
+n'est en g\'en\'eral pas commutatif. \`A cause de (4.1.1), il faut \^etre prudent quand
+on \'ecrit un isomorphisme par $=$ et qu'on soumet ce $=$ aux r\`egles du calcul alg\'ebrique.
+
+Posons $A - B := A + (-B)$. D'un isomorphisme $\varphi$ entre $A$ et $B + X$, not\'e
+$A = B + X$, on d\'eduit, par addition de $(-X)$ aux deux membres un isomorphisme
+$A - X = B + X - X = B$. Ajoutant $X$, on trouve un isomorphisme $\psi: A \cong B + X$
+qui diff\`ere en g\'en\'eral de l'original. Par la suite, nous attacherons en principe
+\`a un isomorphisme $A - X = B$ l'isomorphisme $A = B + X$ qui lui donne naissance
+par addition de $(-X)$.
+
+Soit $P$ une cat\'egorie de Picard commutative. Nous noterons $\pi_0(P)$ (resp.\ $\pi_1(P)$) le groupe commutatif des classes d'isomorphie d'objets de $P$ (resp.\ le
+groupe commutatif des automorphismes de $0$). Le foncteur $Y \mapsto X + Y$, \'evalu\'e
+en $Y = 0$, identifie $\pi_1(P)$ au groupe des automorphismes d'un quelconque objet
+$X$ de $P$. En particulier, chaque objet $X$ d\'efinit $\varepsilon(X) \in \pi_1(P)$: l'automor-
+phisme de sym\'etrie de $X + X$. On v\'erifie que $\varepsilon: \pi_0(P) \to \pi_1(P)$ est additif.
+Le d\'efaut de commutativit\'e du diagramme (4.1.1) ci-dessus est $\varepsilon(X)$ et les iso-
+morphismes $\varphi_1$ et $\varphi_2$ ci-dessus diff\`erent par $\varepsilon(x)$. Du point de vue de~\cite{9},
+$P$ correspond \`a un espace de lacets infini n'ayant que deux groupes d'homotopie
+cons\'ecutifs non nuls et $\varepsilon$ est l'action du g\'en\'erateur du groupe d'homotopie stable
+$\pi_{N+1}(S^N) = \ZZ/(2)$.
+
+\begin{example}
+La cat\'egorie $P$ des fibr\'es en droites gradu\'es sur un sch\'ema $S$, avec
+la contrainte de commutativit\'e donn\'ee par la r\`egle de Koszul. Les objets de $P$
+s'identifient aux paires $(a, L)$, $a$ un entier localement constant sur $S$ (i.e.\ $a \in \Gamma(S, \ZZ)$), $L$ un faisceau inversible. On a $(a, L) + (b, M) = (a + b, L \otimes M)$
+et le morphisme de sym\'etrie est $(-1)^{ab}$ fois l'\'evident. On a $\pi_0 \xrightarrow{\sim} \Gamma(S, \ZZ) \times \Pic(S)$;
+$\pi_1 = \Gamma(S, \Oo^*)$ et $\varepsilon(a, L) = (-1)^{a(a-1)/2} \in \Gamma(S, \Oo^*)$. L'objet $0$ est $(0, \Oo)$. L'oppos\'e de $A = (a, L)$
+dans $P$ se notera $A^\vee$. Pour $A = (a, L)$, on l'identifiera \`a $(-a, L^\vee)$ par
+la donn\'ee de l'isomorphisme \'evident
+\[
+(-a, L^\vee) + (a, L) = (0, L^\vee \otimes L) = (0, \Oo) .
+\]
+i.e.\ par $(-a, L^\vee) \xleftarrow{\sim} (a, L)^\vee \to (0, \Oo)$.
+\end{example}
+
+\subsection{}
+
+Soit $A$ une cat\'egorie exacte. Pour d\'efinir les groupes $K_i A$, Quillen~\cite{12}
+construit une cat\'egorie $QA$ de m\^emes objets que $A$. En termes de la r\'ealisation
+g\'eom\'etrique $BQA$ de $QA$ ([12], \S1), munie du point base $0$ d\'efini par un objet
+z\'ero $0$ de $A$, la cat\'egorie $V(A)$ des objets virtuels de $A$ admet la description
+suivante:
+
+\begin{enumerate}[label=(\alph*)]
+\item un objet de $V(A)$ est un lacet de point base $0$ de $BQA$;
+\item une fl\`eche de $\gamma_1$ \`a $\gamma_2$ est une classe d'homotopie d'homotopies de
+$\gamma_1$ \`a $\gamma_2$ (avec respect du point base).
+\end{enumerate}
+La composition des lacets fait de $V(A)$ une cat\'egorie de Picard. La somme
+directe dans $A$ induit une op\'eration $\oplus$ dans $QA$ et $\oplus: BQA \times BQA \to BQA$
+fait de $BQA$ un $H$-espace associatif et commutatif. De l\`a, une contrainte de
+commutativit\'e pour $+$: notant $0$ le lacet trivial, on a un isomorphisme dans $V(A)$
+\begin{equation}\label{eq:4.2.1}
+\gamma_1 + \gamma_2 = (\gamma_1 + 0) \circ (0 + \gamma_2) = (\gamma_1 \circ 0) + (0 \circ \gamma_2) = \gamma_1 + \gamma_2
+\end{equation}
+et la commutativit\'e de $\circ$ fournit la contrainte
+\begin{equation}\label{eq:4.2.2}
+\gamma_1 + \gamma_2 = \gamma_1 \circ \gamma_2 = \gamma_2 \circ \gamma_1 = \gamma_2 + \gamma_1 .
+\end{equation}
+Elle fait de $V(A)$ une cat\'egorie de Picard commutative, avec pour $i = 0, 1$
+\[
+\pi_i(V(A)) = K_i(A) .
+\]
+
+\subsection{}
+
+Voici une description plus alg\'ebrique de $V(A)$. Soit $(A, \text{is})$ la cat\'egorie
+d'objets ceux de $A$, et de fl\`eches les isomorphismes de $A$. Pour $P$ une cat\'ego-
+rie de Picard, consid\'erons les foncteurs $[\cdot]: (A, \text{is}) \to P$, munis de donn\'ees
+(a), (b) ci-dessous soumises aux axiomes (c), (d).
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{(donn\'ee d'additivit\'e)} la donn\'ee pour toute suite exacte courte $\Sigma: A' \hookrightarrow
+A \twoheadrightarrow A''$ ($A' \to A$ morphisme admissible, $A \to A''$ \'epimorphisme admissible) d'un
+isomorphisme $\{\Sigma\}: [A] \xrightarrow{\sim} [A'] + [A'']$, fonctoriel pour les isomorphismes de suites
+exactes.
+
+\item pour les objets z\'ero de $A$, un isomorphisme $[0] \to 0$.
+
+\item Soit $\varphi: A \to B$ un isomorphisme, et $\Sigma$ la suite exacte $0 \hookrightarrow A \xrightarrow{\varphi} B$ (resp.\ $A \xrightarrow{\varphi} B \twoheadrightarrow 0$). Alors, $\{\Sigma\}$ (resp.\ $\{\Sigma\}^{-1}$) est le compos\'e
+\[
+[B] \xleftarrow{\varphi} [A] \xrightarrow{\sim} [A] + [0] \xrightarrow{\sim} [B]
+\]
+(resp.\ $[B] \xrightarrow{\sim} [A] + [0] \xrightarrow{\sim} [A] \xrightarrow{\varphi} [B]$).
+
+\item \textbf{(associativit\'e)} Pour $C$ muni d'une filtration admissible \`a trois crans:
+$C \supset B \supset A \supset 0$, le diagramme d'isomorphismes (a)
+\[
+\begin{tikzcd}
+{[C]} \arrow[r] \arrow[d] & {[A] + [C/A]} \arrow[d] \\
+{[B] + [C/B]} \arrow[r] & {[A] + [B/A] + [C/B]}
+\end{tikzcd}
+\]
+est commutatif.
+\end{enumerate}
+
+On notera que (c) d\'etermine uniquement la donn\'ee (b). Il nous sera souvent
+commode d'omettre (b) et de modifier (c) en
+
+\begin{enumerate}[label=(c$'$)]
+\item \textbf{(compatibilit\'e aux z\'eros)} il existe une donn\'ee (b) v\'erifiant (c).
+\end{enumerate}
+
+Si la cat\'egorie de Picard $P$ est commutative, nous dirons qu'une donn\'ee
+d'additivit\'e (a) est commutative, ou compatible \`a la commutativit\'e si pour $A =
+A' \oplus A''$, les suites exactes courtes $\Sigma: A' \hookrightarrow A \twoheadrightarrow A''$ et $\Sigma': A'' \hookrightarrow A \twoheadrightarrow A'$
+donent lieu \`a un triangle commutatif
+\begin{equation}\label{eq:4.3.1}
+\begin{tikzcd}
+{[A']} + [A''] \arrow[dr] \arrow[rr] & & {[A''] + [A']} \arrow[dl] \\
+& {[A' \oplus A'']} &
+\end{tikzcd}
+\end{equation}
+
+Pour chaque cat\'egorie de Picard $P$, les foncteurs $[\cdot]: (A, \text{is}) \to P$ munis
+d'une donn\'ee d'additivit\'e $\{\}$ v\'erifiant (c$'$), (d) formant une cat\'egorie. Un argu-
+ment standard montre qu'il existe un syst\`eme $(P^u, [\cdot], \{\})$ universel, not\'e
+$(P^{un}, [\cdot], \{\})$, tel que pour chaque $P$, cette cat\'egorie de foncteurs $[\cdot]$
+soit \'equivalente \`a celle des foncteurs additifs $P^{un} \to P$. Nous allons esquisser
+la v\'erification de ce que la cat\'egorie $P^{un}$ universelle est $V(A)$. La donn\'ee
+de commutativit\'e de $V(A)$ sera caract\'eris\'ee par la compatibilit\'e de $[\cdot]$ \`a la
+commutativit\'e.
+
+\subsection{}
+
+Appelons \emph{groupo\"ide de Picard index\'e par un ensemble} $I$ la donn\'ee
+
+\begin{enumerate}[label=(\alph*)]
+\item pour $x, y \in I$, une cat\'egorie $P_{y,x}$ dont toute fl\`eche soit un isomorphisme;
+\item pour $x, y, z \in I$, une composition $\circ: P_{z,y} \times P_{y,x} \to P_{z,x}$ telle que pour tout $P$
+dans $P_{z,y}$ (resp.\ $P_{y,x}$) le foncteur $\circ P$ (resp.\ $P \circ$) soit une \'equivalence;
+\item une donn\'ee d'associativit\'e pour $\circ$ (v\'erifiant l'axiome du pentagone).
+\end{enumerate}
+
+Soit $Q$ une cat\'egorie. Consid\'erons les groupo\"ides de Picard $P$ index\'es
+par $\Ob(Q)$, munis des donn\'ees suivantes: (e)~pour toute fl\`eche $\varphi: x \to y$,
+$[\varphi]$ dans $P_{y,x}$ est donn\'e; (f)~pour toute paire de fl\`eches composables $t =
+(\varphi_1, \varphi_2)$, un isomorphisme $\{t\}: [\varphi_2 \circ \varphi_1] \xrightarrow{\sim} [\varphi_2] \circ [\varphi_1]$ est donn\'e; on exige
+que pour trois fl\`eches composables, le diagramme
+
+\[
+\begin{tikzcd}
+{[\varphi_3 \circ \varphi_2 \circ \varphi_1]} \arrow[r, "\sim"] \arrow[d, "\sim"'] & {[\varphi_3 \circ \varphi_2] \circ [\varphi_1]} \arrow[d, "\sim"] \\
+{[\varphi_3] \circ [\varphi_2 \circ \varphi_1]} \arrow[r, "\sim"'] & {[\varphi_3] \circ [\varphi_2] \circ [\varphi_1]}
+\end{tikzcd}
+\]
+soit commutatif (compatibilit\'e entre associativit\'es).
+
+Pour $P$ un groupo\"ide de Picard sur $\Ob(Q)$, les donn\'ees (e) v\'erifiant (f)
+forment une cat\'egorie. Un argument standard assure l'existence de $(P^{un}, [\cdot], \{\cdot\})$
+universel, i.e.\ tel que pour tout $P$ la cat\'egorie des foncteurs $T$ compatibles
+\`a $\circ$ de $P^{un}$ dans $P$ soit \'equivalente par $T \mapsto T[\cdot]$, \`a celle des donn\'ees
+(e) v\'erifiant (f). Notons $\Pi$ ce groupo\"ide de Picard universel.
+
+La description simpliciale de $\pi_1$ et $\pi_2$ montre que pour tout objet $q$
+de $Q$, $\Pi$ est la cat\'egorie de Picard des lacets de point base $q$ dans $BQ$,
+et des classes d'homotopie d'homotopies entre lacets.
+
+Supposons donn\'e un objet $q$ de $Q$ et, pour chaque objet $x$, une fl\`eche
+$a_x$ de $q$ vers $x$. Pour tout syst\`eme $(P, [\cdot], \{\cdot\})$, les foncteurs $[a_y]^{-1} \circ
+[a_x]$ identifient les $P_{y,x}$ \`a $P_{x,x}$, et il revient au m\^eme (\'equivalence
+de $2$-cat\'egories) de se donner un syst\`eme $(P, [\cdot], \{\cdot\})$ ou un syst\`eme du type
+suivant. Une cat\'egorie de Picard $P$, munie de: (i)~pour toute $\varphi: x \to y$, un
+objet $[\varphi]$ de $P$; (ii)~pour toute paire $t = (\varphi_1, \varphi_2)$ de morphismes composables,
+un isomorphisme $\{t\}: [\varphi_2 \circ \varphi_1] \xrightarrow{\sim} [\varphi_2] \circ [\varphi_1]$. Cette donn\'ee est suppos\'e compati-
+ble \`a l'associativit\'e. Enfin (iii)~des isomorphismes $[a_x] \sim 0$.
+
+Soient $A$ une cat\'egorie exacte et $Q = Q(A)$. Pour tout monomorphisme admis-
+sible $i: A \hookrightarrow B$ (resp.\ \'epimorphisme admissible $j: B \twoheadrightarrow A$) notons comme dans
+~\cite{12} $i_!$ (resp.\ $j^!$) la fl\`eche correspondante, dans $Q(A)$, de $A$ dans $B$.
+Pour $\varphi$ un isomorphisme, on \'ecrit simplement $\varphi := \varphi_! = (\varphi^{-1})^!$. Fixons un objet
+z\'ero $0$ et notons $z_A$ et $z^A$ les morphismes $1 \to 0$ et $0 \to A$. Il reste \`a
+v\'erifier que pour $Q = Q(A)$ muni de $q := 0$ et des $a_x := z^A$, une donn\'ee $(P,\text{(i)--(iii)})$
+comme ci-dessus \'equivaut \`a une donn\'ee $(P,\text{(a)--(c$'$)})$ comme en 4.3.
+Rigoureusement, ``v\'erifier'' signifie ``construire une \'equivalence de $2$-cat\'egories''.
+
+\subsection{}
+
+Soit $(P, \text{(i)--(iii)})$. Pour tout objet $A$ de $A$, posons $[A] = [z^A]$.
+
+Pour tout isomorphisme $\varphi: A \to B$, on a $\varphi z^A = z^B$ et $\varphi_! z_!^A = z_!^B$. La premi\`ere
+\'egalit\'e fournit par (ii) un isomorphisme $[z^B] \xrightarrow{\sim} [z^A]$ et par (iii) un isomorphisme
+$[\varphi] \sim 0$. La deuxi\`eme \'egalit\'e fournit alors par (ii) un isomorphisme encore not\'e $\varphi$
+de $[A]$ avec $[B]$. On v\'erifie que cette construction d\'efinit un foncteur de $(A, \text{is})$
+dans $P$.
+
+\medskip
+
+Soit $u: A \to B$ dans $Q(A)$, i.e.\ un isomorphisme de $A$ avec un sous-quotient
+$B_2/B_1$ de $B$. Pour $i$ l'inclusion de $B_1$ dans $B$, le diagramme dans $Q(A)$
+\[
+\begin{tikzcd}
+0 \arrow[r] & B_1 \arrow[r, "i"] \arrow[d] & B \\
+& A \arrow[u, "u"]
+\end{tikzcd}
+\]
+est commutatif, et $i_! \circ z_!^{B_1} = z_!^B$. Ce diagramme fournit donc dans $BQA$ une homotopie
+du lacet $(z_!^B)^{-1} \circ z_!^B$ avec le lacet $(z_!^{B_1})^{-1} \circ z_!^B$, i.e.\ un isomorphisme $[u] \xrightarrow{\sim} [B_1]$.
+
+Si on remplace $(B_1, i)$ par $(B_1', i')$ repr\'esentant le m\^eme sous-objet de $B$,
+et que $\varphi: B_1 \xrightarrow{\sim} B_1'$ est l'unique isomorphisme tel que $i' \circ \varphi = i$, on v\'erifie que
+le diagramme
+\[
+\begin{tikzcd}
+{[A]} \arrow[rr, "{[u]}"] \arrow[dr] \arrow[ddrr, bend right=20] & & {[B_1]} \arrow[dd, "\varphi", "\sim"'] \\
+& {[B]} & \\
+& & {[B_1']} \arrow[ul]
+\end{tikzcd}
+\]
+est commutatif. La construction $u \mapsto [u]$ est ainsi d\'etermin\'ee \`a isomorphisme
+unique pr\'es par la foncteur $[\cdot]: (A, \text{is}) \to P$. Pour $u = z^A: 0 \to A$, on a
+$B_1 = 0$ et les isomorphismes (iii) proviennent d'un isomorphisme $[0] \sim 0$.
+
+\medskip
+
+Soit dans $A$ une suite exacte courte admissible $\Sigma$:
+\[
+\begin{tikzcd}
+A' \arrow[r, hook] & A \arrow[r, two heads] & A''
+\end{tikzcd}
+\]
+Elle d\'efinit dans $QA$ un diagramme commutatif
+\[
+\begin{tikzcd}
+C \arrow[r, "c^{-1}"] \arrow[d] & A \arrow[d] \\
+0 \arrow[r] & A'
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+H: & z^C \arrow[r] & z_!^{A''} \arrow[r] & z_!^{A'}
+\end{tikzcd}
+\]
+et $B_1 = z^C$, $z_!^{B_1} = z_!^C$ et $c: A \xrightarrow{\sim} C$, $j': A \to A''$, $z_!^{A''} = z_!^C$. De l\`a une homotopie dans $BQA$ entre les lacets
+$(z_!^{A'})^{-1} \circ z_!^A$ et $(z_!^C)^{-1} \circ z_!^A \circ (z_!^{A''})^{-1} \circ z_!^{A'}$, i.e.\ un isomorphisme $\{\Sigma\}: [B] \xrightarrow{\sim} [A'] + [A'']$.
+On v\'erifie que les conditions (a)--(c$'$) de 4.3 sont v\'erifi\'ees par $P$, le foncteur
+$A \mapsto [A]$ et les isomorphismes $\{\Sigma\}$.
+
+R\'eciproquement, soit $(P, [\cdot], \{\})$ comme en 4.3. Pour $u: A \to B$ un
+morphisme dans $Q(A)$, i.e.\ un isomorphisme de $A$ avec un sous-quotient $B_2/B_1$
+de $B$, on pose $[u] := [B_1]$. On dispose d'un isomorphisme $\{z_!^B\}: [0] \xrightarrow{\sim} [B]$.
+
+\medskip
+
+Soit un morphisme compos\'e
+\[
+A \xrightarrow{u} B \xrightarrow{v} C
+\]
+$u$ (resp.\ $v$) est un isomorphisme de $A$ (resp.\ $B$) avec un sous-quotient $B_2/B_1$
+de $B$ (resp.\ $C_2/C_1$ de $C$). Soit $C_1$ l'image inverse dans $C_2$ de $B_2 \subset
+B \cong C_2/C_1$, de sorte que $vu$ est l'isomorphisme $A \cong B_2/B_1 \xrightarrow{v} C_2/C_1$. On a $\{u\} =
+[B_1]$, $\{v\} = [C_0]$, $\{vu\} = [C_1]$ et la suite exacte courte $0 \to C_0 \to C_1 \to B_1 \to 0$
+fournit un isomorphisme $\{vu\} = [C_1] \xrightarrow{\sim} [C_0] \oplus [B_1] \cong [v][u]$. Les conditions de
+(i)--(iii) sont v\'erifi\'ees, et cette construction est inverse de la pr\'ec\'edente.
+
+\subsection{Variance}
+
+On peut encore d\'efinir $V(A)$ par le probl\`eme universel suivant,
+variante de celui consid\'er\'e en 4.3. On veut une cat\'egorie de Picard munie de
+(a$'$)~la donn\'ee pour tout objet $A$ de $A$ d'un objet $[A]$ de $P$; (b$'$)~la donn\'ee
+pour chaque suite exacte courte admissible $\Sigma: A' \hookrightarrow A \twoheadrightarrow A''$ d'un isomorphisme
+$\{\Sigma\}: [A] \xrightarrow{\sim} [A'] + [A'']$, ces donn\'ees satisfaisant \`a l'axiome: (c$'$)~pour tout
+diagramme commutatif
+\[
+\begin{tikzcd}
+A' \arrow[r] \arrow[dr] & B \arrow[r] \arrow[d] & C' \arrow[dl] \\
+& C &
+\end{tikzcd}
+\]
+avec $(A', B, C')$, $(B, C, A'')$, $(A, C, B'')$ (et donc $(C', B', A'')$) des
+suites exactes courtes admissibles, le diagramme
+\[
+\begin{tikzcd}
+{[C]} \arrow[r] \arrow[d] & {[A] + [B'']} \\
+{[B] + [A']} \arrow[r] & {[A] + [C'] + [A']} \arrow[u]
+\end{tikzcd}
+\]
+est commutatif.
+
+C'est apparemment plus simple que 4.3, mais il est p\'erilleux de ne pas imposer
+a priori la fonctorialit\'e pour les isomorphismes. Avec cette d\'efinition, il ne
+serait pas \'evident d'embl\'ee que des cat\'egories \'equivalentes donnent lieu \`a des
+cat\'egories d'objets virtuels \'equivalentes. On ne pourrait plus appliquer $[\cdot]$
+\`a un objet d\'efini \`a isomorphisme unique pr\'es. C'est pourquoi dans (c$'$) appara\^it
+$C'$, non $B/A$, \ldots. On v\'erifie toutefois que (a$'$)--(c$'$) \'equivaut \`a (a)--(d):
+pour $z$ un objet z\'ero, on reconstitue (b): $[z] \to 0$ en consid\'erant la suite
+exacte courte $z \hookrightarrow z \twoheadrightarrow z$ et pour $\varphi: A \to B$ un isomorphisme, on reconstitue
+$[\varphi]$ en consid\'erant la suite exacte $Z \hookrightarrow A \xrightarrow{\varphi} B$. On v\'erifie (a)--(d).
+
+\subsection{}
+
+Pour $X$ muni d'une filtration admissible finie $F$, un usage it\'er\'e de 4.3
+(a) fournit un isomorphisme dans $V(A)$: $[X] \xrightarrow{\sim} \sum [\Gr_F^i(X)]$. Pour $X$ muni d'une
+bifiltration admissible, le diagramme
+\[
+\begin{tikzcd}
+{[X]} \arrow[r] \arrow[d] & \sum_i [\Gr_{F'}^i(X)] \arrow[d] \\
+\sum_j [\Gr_F^j(X)] \arrow[r] & \sum_{i,j} [\Gr_F^j \Gr_{F'}^i(X)] = \sum_{i,j} [\Gr_{F'}^i \Gr_F^j(X)]
+\end{tikzcd}
+\]
+est commutatif. On la d\'eduit par r\'ecurrence sur la longueur des filtrations du
+lemme suivant.
+
+\begin{lemma}
+Soit un diagramme commutatif \`a lignes et colonnes des suites exactes
+courtes admissibles
+\[
+\begin{tikzcd}
+& X_1' \arrow[r] \arrow[d] & X_1 \arrow[r] \arrow[d] & X_1'' \arrow[d] \\
+X' \arrow[r] \arrow[d] & X_1' + X_2' \arrow[r] \arrow[d] & X \arrow[r] \arrow[d] & X_1'' + X_2'' \arrow[d] \\
+X_2' \arrow[r] & X_2 \arrow[r] & X_2'' \arrow[r] & X_2''
+\end{tikzcd}
+\]
+Le diagramme
+\[
+\begin{tikzcd}
+{[X_1']} \arrow[r] \arrow[d] & {[X_1]} \arrow[r] & {[X_1'']} \\
+{[X']} \arrow[d] & {[X]} \arrow[u] \arrow[d] \arrow[ul] \arrow[ur] \arrow[dl] \arrow[dr] & {[X'']} \arrow[u] \arrow[d] \\
+{[X_2']} \arrow[r] & {[X_2]} \arrow[r] & {[X_2'']}
+\end{tikzcd}
+\]
+est commutatif.
+\end{lemma}
+
+\begin{proof}
+Si $X_1 = X_2' = 0$, on a $X = X_1' \oplus X_2''$ et le lemme se r\'eduit \`a (4.3.1).
+Dans le cas g\'en\'eral, il s'agit de comparer les isomorphismes de $[X]$ avec la
+somme classique $\sum [X_j^i]$ d\'efinis par les filtrations
+\[
+X_1' \subset X_1' \oplus X_2' \subset X_1' \oplus X_2' \oplus X_1'' \subset X
+\]
+et
+\[
+X_1' \subset X_1' \oplus X_1'' \subset X_1' \oplus X_1'' \oplus X_2' \subset X,
+\]
+des quotients successifs les $X_j^i$. Ces filtrations commencent toutes deux par
+$X_1' = X_1' \oplus 0 \oplus 0$ et finissent par $X_1' \oplus X_2' \oplus X_1''$; on se ram\`ene au m\^eme probl\`eme pour
+$X_1' \oplus X_2' \oplus X_1'' \subset X$, i.e.\ au cas o\`u $X_1' = X_2'' = 0$.
+\end{proof}
+
+\subsection{}
+
+Pour $A$ dans $A$, soit $u$ le morphisme diagonal de $A$ dans $A \oplus A$, et $v:
+(a,b) \mapsto a - b$ de $A \oplus A$ dans $A$. La suite $0 \to A \xrightarrow{u} A \oplus A \xrightarrow{v} A \to 0$ est exacte
+admissible et l'automorphisme de sym\'etrie de $A \oplus A$ induit l'identit\'e (resp.
+$-1$) sur le sous-objet (resp.\ le quotient) $A$ de $A \oplus A$. On en d\'eduit que
+$\varepsilon(A)$ est d\'efini par l'automorphisme de $[A]$ induit par $-1$.
+
+\subsection{}
+
+La cat\'egorie d\'eriv\'ee $D^b(A)$ est le quotient de la cat\'egorie triangul\'ee
+des complexes born\'es \`a homotopie pr\`es $K^b(A)$ par la sous-cat\'egorie \'paisse des
+complexes acycliques. Si $P$ est une cat\'egorie de Picard commutative, munie de
+$[\cdot]: (A, \text{is}) \to P$ v\'erifiant 4.3 (a) \`a (c$'$) et (4.3.1), les arguments de~\cite{10}
+fournissent une extension encore not\'ee $[\cdot]$ de $D^b(A)$ dans $P$. Le cas universel
+fournit
+\[
+[\cdot]: (D^b(A), \text{is}) \longrightarrow V(A) .
+\]
+
+\subsection{}
+
+Un foncteur exact $T: A \to B$ induit $T_!: QA \to QB$. La d\'efinition topologique
+de $V(A)$ (4.2) fournit donc $T_!: V(A) \to V(B)$. En termes cat\'egoriques, $[\cdot] \circ
+T: (A, \text{is}) \to V(B)$ est muni de donn\'ees 4.3 (a) \`a (c$'$), donc d\'efinit un morphisme
+de cat\'egories de Picard $V(A) \to V(B)$. Ce morphisme induit les morphismes d\'efinis
+par $T$: $K_i(A) = \pi_i(V(A)) \to K_i(B) = \pi_i(V(B))$ pour $i = 0, 1$. En particulier,
+si $T$ induit des isomorphismes $K_i(A) \to K_i(B)$ pour $i = 0, 1$, $T$ induit une
+\'equivalence $V(A) \to V(B)$.
+
+Une cat\'egorie exacte et sa duale ont m\^eme cat\'egorie $Q$, donc m\^emes cat\'egories
+d'objets virtuels. En termes cat\'egoriques: un foncteur exact contravariant
+$T: A \to B$ d\'efinit encore $T: (A, \text{is}) \to V(B)$ munie de donn\'ees (4.3 (a) \`a (c$'$)), d'o\`u
+encore $T: V(A) \to V(B)$. Pour $u: X \to Y$ un isomorphisme, $T(u): [TX] \to [TY]$
+est $[Tu^{-1}]$.
+
+Un foncteur biexact $\otimes: A \times B \to C$ d\'efinit
+\[
+V(A) \times V(B) \to V(C) ,
+\]
+distributif par rapport \`a $+$. On prendra garde \`a la trappe suivante.
+
+\begin{enumerate}[label=(\alph*)]
+\item Soit $\otimes: P_1 \times P_2 \to P$ un foncteur distributif par rapport \`a $+$ entre cat\'egories
+de Picard commutatives. Par d\'efinition, cela signifie que, \`a $X$ ou $Y$ fix\'e,
+$X \otimes Y$ est un morphisme de cat\'egories de Picard commutatives, et que tout diagramme
+\[
+\begin{tikzcd}
+\sum_i \{X_i\} \otimes \sum_j \{Y_j\} \arrow[r] \arrow[d] & \sum_{i,j} \{X_i \otimes Y_j\} \arrow[d] \\
+\sum_i \{X_i \otimes \sum_j Y_j\} \arrow[r] & \sum_{i,j} X_i \otimes Y_j
+\end{tikzcd}
+\]
+est commutatif.
+
+Si $-Y$ est l'oppos\'e de $Y$, l'isomorphisme
+\[
+X \otimes Y + X \otimes (-Y) = X \otimes (Y + (-Y)) = X \otimes 0 = 0
+\]
+fait de $X \otimes (-Y)$ l'oppos\'e de $X \otimes Y$: $X \otimes (-Y) \xrightarrow{\sim} -(X \otimes Y)$. De m\^eme, $(-X) \otimes
+Y \xrightarrow{\sim} -(X \otimes Y)$.
+
+\item Le diagramme
+\[
+\begin{tikzcd}
+(-X) \otimes (-Y) \arrow[r, "="] \arrow[d] & -((-X) \otimes Y) \arrow[d] \\
+-(X \otimes (-Y)) \arrow[r] & -(X \otimes Y) = X \otimes Y
+\end{tikzcd}
+\]
+n'est en g\'en\'eral pas commutatif. Son d\'efaut de commutativit\'e est $\varepsilon(X \otimes Y)$.
+La v\'erification est laiss\'ee au lecteur.
+\end{enumerate}
+
+\subsection{}
+
+Comme illustr\'e par 4.11, les fonctorialit\'es connues pour les $K_i$ fournissent
+en g\'en\'eral --- avec la m\^eme construction --- une fonctorialit\'e pour les cat\'egories d'objets
+virtuels.
+
+Pour $S$ un sch\'ema, soit $\Vect(S)$ la cat\'egorie exacte des fibr\'es vectoriels
+sur $S$. Pour $S$ noeth\'erien, soit $\Coh(S)$ la cat\'egorie ab\'elienne des faisceaux
+coh\'erents sur $S$. On pose $\underline{V}(S) = V(\Vect(S))$ et $\underline{V}(S) = V(\Coh(S))$. Le r\'esultat
+analogue pour les $K_i$ ([12] 7.1) montre que $\underline{V}(S) \to \underline{V}(S)$ est une \'equivalence
+pour $S$ r\'egulier (et s\'epar\'e). De m\^eme, si $f: X \to S$ est un morphisme lisse,
+ou simplement \`a fibres r\'eguli\`eres, et que $X$ est quasi-projectif, la cat\'egorie
+des faisceaux coh\'erents sur $X$ plats sur $S$ (ou simplement de $\Tor$-dimension
+finie sur $S$) donne lieu aux m\^emes groupes $K$, et aux m\^emes objets virtuels,
+que $\Vect(S)$.
+
+Un morphisme de sch\'emas $f: X \to S$ d\'efinit $f^*: \underline{V}(S) \to \underline{V}(X)$. Si $f$ est
+propre et plat et $X$ quasi-projectif, il d\'efinit aussi $f_*: \underline{V}(X) \to \underline{V}(S)$. Si
+$\Vect'(X)$ est la cat\'egorie exacte des fibr\'es vectoriels sur $X$ avec $R^i f_* = 0$
+pour $i > 0$, il r\'esulte en effet du dual de~\cite{12} \S4 cor.~3 que $K_i(\Vect'(X)) \xrightarrow{\sim}
+K_i(\Vect(X))$. Le foncteur $f_*$ induit un foncteur exact de $\Vect'(X)$ dans $\Vect(S)$
+et on d\'efinit $f_*$ comme le compos\'e
+\[
+\underline{V}(X) = V(\Vect(X)) \xleftarrow{\sim} V(\Vect'(X)) \xrightarrow{f_*} V(\Vect(S)) = \underline{V}(S)
+\]
+(cf.~[12] 7.2.7).
+
+\begin{example}
+Soit $X$ un sch\'ema. Le rang $\rank(V)$ d'un fibr\'e vectoriel $V$ sur
+$X$ est un entier localement constant sur $X$, i.e.\ une section de $\Gamma(X, \ZZ)$. Le
+d\'eterminant $\det(V)$ de $V$ est le fibr\'e en droites gradu\'e puissance ext\'erieure
+maximale de $V$, en degr\'e $\rank(V)$, i.e.\ avec les notations de 4.1 (exemple), $\det(V)
+:= (\rank(V), \bigwedge^{\rank V} V)$. Pour chaque suite exacte courte
+\[
+V' \hookrightarrow V \twoheadrightarrow V'' .
+\]
+on dispose d'un isomorphisme
+\[
+\det(V') \otimes \det(V'') \xrightarrow{\sim} \det(V):
+\]
+localement, pour $(e_i)$ ($1 \leq i \leq n$) une base de $V'$ et $(e_a)$ ($1 \leq a \leq m$) une
+base de $V''$, avec $e_i$ relev\'e en $\tilde{e}_i$ dans $V$,
+\[
+(e_1 \wedge \cdots \wedge e_n)' \otimes (e_1'' \wedge \cdots \wedge e_m)'' \mapsto \tilde{e}_1 \wedge \cdots \wedge \tilde{e}_n \wedge \tilde{e}_1'' \wedge \cdots \wedge \tilde{e}_m'' .
+\]
+Les conditions de 4.3 sont v\'erifi\'ees. La propri\'et\'e universelle de $\underline{V}(X) = V(\Vect(X))$
+assure donc une factorisation de $\det$ par un foncteur, encore not\'e $\det$, de
+$\underline{V}(X)$ dans la cat\'egorie de Picard $P$ des fibr\'es en droites gradu\'es. Si $V =
+V' \oplus V''$, les suites exactes $V' \hookrightarrow V \twoheadrightarrow V''$ et $V'' \hookrightarrow V \twoheadrightarrow V'$ donnent lieu \`a
+un triangle commutatif
+\[
+\begin{tikzcd}
+\det(V') \otimes \det(V'') \arrow[rr] \arrow[dr] & & \det(V'') \otimes \det(V') \arrow[dl] \\
+& \det(V) &
+\end{tikzcd}
+\]
+Le foncteur $\det$ est donc compatible \`a la commutativit\'e: C'est ce qui justifie
+de d\'efinir la contrainte de commutativit\'e de $P$ par la r\`egle de Koszul.
+
+Si $X$ est le spectre d'un anneau local $A$, on a $K_0(A) = \ZZ$ et $K_1(A) =
+A^*$. Il en r\'esulte que dans ce cas $\det: \underline{V}(X) \to P$ est une \'equivalence.
+
+Si $X$ est r\'egulier, le foncteur $\underline{V}(X) \to \underline{V}(X)$ est une \'equivalence (4.12).
+De l\`a, une extension du foncteur $\det$ de $\Vect(X)$ \`a $\Coh(X)$:
+\[
+\Coh(X) \to \underline{V}(X) \xleftarrow{\sim} \underline{V}(X) \to P .
+\]
+Plus g\'en\'eralement, si $X$ quelconque, on dispose ([10]) d'une extension de $\det$
+\`a la sous-cat\'egorie $D^b_{ctf}(X)$ de la cat\'egorie d\'eriv\'ee $D^b(X)$: complexes born\'es,
+de $\Tor$-dimension finie et de $A$-pr\'esentation finie ($=$ sur $X$ noeth\'erien: \`a coho-
+mologie coh\'erente).
+\end{example}
+
+\subsection{Le dual et le produit tensoriel}
+
+La cat\'egorie de Picard $P$ des fibr\'es en droites gradu\'es est un quotient
+de la cat\'egorie de Picard des fibr\'es virtuels, et les foncteurs $\det$ et dual passent
+au quotient. Pour le dual, on d\'efinit le foncteur dual par
+\[
+\text{dual}(n, L) = (n, L^\vee) \otimes \varepsilon^n
+\]
+avec la compatibilit\'e \'evidente \`a la somme
+\[
+\text{dual}(A \otimes B) \xrightarrow{\sim} \text{dual}(A) + \text{dual}(B) .
+\]
+Pour $V$ un fibr\'e vectoriel, l'isomorphisme
+\[
+\det(V^\vee) = \text{dual}(\det(V))
+\]
+est d\'efini par la condition que des bases duales locales $e_1, \ldots, e_n$ et $e^1, \ldots,
+e^n$ de $V$ et $V^\vee$ d\'efinissent des bases duales $e_1 \wedge \cdots \wedge e_n$ et $e^1 \wedge \cdots \wedge
+e^n$ de $\bigwedge^n V$ et $\bigwedge^n V^\vee$. Pour toute suite exacte $V' \hookrightarrow V \twoheadrightarrow V''$ de suite exacte transpos\'ee
+$V''^\vee \hookrightarrow V^\vee \twoheadrightarrow V'^\vee$, le diagramme
+\[
+\begin{tikzcd}
+\det(V''^\vee) \arrow[r, "\sim"] \arrow[d] & \det(V^\vee) \otimes \det(V'^\vee) \arrow[d] \\
+\text{dual}(\det(V)) \arrow[r, "\sim"] & \text{dual}(\det(V') \otimes \det(V'')) \xrightarrow{\sim} \text{dual}(\det(V')) \otimes \text{dual}(\det(V''))
+\end{tikzcd}
+\]
+(o\`u en premi\`ere ligne appara\^it Koszul) est commutatif.
+
+Pour le produit tensoriel, on pose
+\[
+(a, L) \otimes (b, M) = (ab, L^{\otimes b} \otimes M^{\otimes a}) ,
+\]
+on d\'efinit $\det(V) \otimes \det(W) \xrightarrow{\sim} \det(V \otimes W)$ par
+\[
+(e_1 \wedge \cdots \wedge e_a) \otimes (f_1 \wedge \cdots \wedge f_b) \longmapsto \bigwedge_{i,j} e_i \otimes f_j \quad \text{en ordre lexicographique.}
+\]
+Il faut alors d\'efinir
+\[
+A \otimes (B + C) = A \otimes B + A \otimes C
+\]
+par l'isomorphisme \'evident,
+\[
+(A + B) \otimes C = A \otimes C + B \otimes C
+\]
+avec un signe $(-1)^N$, $N = ab \cdot c(c-1)$. Et
+\[
+A \otimes B \xrightarrow{\sim} B \otimes A
+\]
+avec un signe $(-1)^N$, $N = \#\{(i,j) \mid b_i > a_j\}$.
+
+Les foncteurs $\rank$ passent aussi au quotient.
+
+Pour $K$ dans la cat\'egorie d\'eriv\'ee, de $\Tor$-dimension finie et de dual $K^\vee$,
+on a encore
+\[
+\det(K^\vee) = \text{dual}(\det(K)) .
+\]
+
+
+
+\section{Fibr\'es m\'etriques virtuels}
+
+\subsection{}
+
+Soit $X$ un sch\'ema lisse de type fini sur $\CC$. Pour abr\'eger, on appelle
+\emph{m\'etrique} sur un fibr\'e vectoriel $V$ sur $X$ une structure hermitienne sur $V$.
+On se propose de d\'efinir la cat\'egorie $\widehat{\underline{V}}(X)$ des \emph{fibr\'es m\'etriques virtuels} sur
+$X$. Trois d\'efinitions, avant d'\'enoncer ses propri\'et\'es essentielles. On notera
+$\underline{V}(X)$ la cat\'egorie des objets virtuels de la cat\'egorie exacte des fibr\'es vectoriels
+sur $X$. On notera $M(X)$ la somme sur $p$ des groupes
+\[
+M^p(X) := \frac{\{\text{$(p-1,p-1)$-forme r\'eelle sur $X$}\}}{\im(d') + \im(d'')} .
+\]
+La fibre d'un morphisme de cat\'egories de Picard commutatives $f: A \to B$ est la
+cat\'egorie des objets de $A$ munis d'un isomorphisme $f(a) \sim 0$. Si $f$ est fid\`ele,
+les objets de cette cat\'egorie fibre n'ont pas d'automorphismes non triviaux et
+on appelle encore $f^{-1}(b)$ le groupe des classes d'isomorphie d'objets de la cat\'egorie
+fibre.
+
+\medskip
+
+(i) On veut disposer d'un foncteur d'oubli
+\[
+\omega: \widehat{\underline{V}}(X) \to \underline{V}(X)
+\]
+(un morphisme de cat\'egories de Picard commutatives) fid\`ele, surjectif sur les
+classes d'isomorphie d'objets et de fibre $M(X)$.
+
+La donn\'ee de $\underline{V}(X)$ muni d'un tel foncteur d'oubli \'equivaut \`a celle d'un
+morphisme $u$ de cat\'egorie de Picard commutative de $\underline{V}(X)$ dans la cat\'egorie de
+Picard commutative des $M(X)$-torseurs. Voici comment. \'Etant donn\'es $\underline{V}(X)$ et
+$u$, on attache \`a $x$ dans $\underline{V}(X)$ l'ensemble $u(x)$ des classes d'isomorphie d'objets
+$v$ de $\widehat{\underline{V}}(X)$, munis d'un isomorphisme $\omega(v) \sim x$. C'est un $M(X)$-torseur. R\'eci-
+proquement, si $u$ est donn\'e, on d\'efinit un objet de $\omega^{-1}(x)$ comme \'etant une paire
+$(x, g)$ d'un objet $x$ de $\underline{V}(X)$ et d'une m\'etrique virtuelle $g \in u(x)$ sur $x$.
+
+Vu la d\'efinition de $\underline{V}(X)$ comme solution d'un probl\`eme universel, il suffit,
+pour construire $u$, d'attacher \`a chaque fibr\'e vectoriel $V$ sur $X$ un $M(X)$-
+torseur $u(V)$, et de construire pour $u$ des isomorphismes 4.3 (a) ob\'eissant
+au formalisme de 4.3.
+
+\medskip
+
+(ii) Un fibr\'e m\'etrique $(V, g)$ doit d\'efinir un fibr\'e m\'etrique virtuel $[V, g]$
+avec $\omega([V, g]) = [V]$. En d'autres termes, une m\'etrique $g$ sur $V$ doit d\'efinir
+une m\'etrique virtuelle $[g]$ sur $[V]$. Si $V$ est une somme directe: $V = V' \oplus V''$,
+on a $[V] = [V'] + [V'']$, $u([V]) = u([V']) + u([V''])$ et la m\'etrique virtuelle
+d\'efinie par $g$, somme directe orthogonale de $g'$ et $g''$, doit \^etre la somme
+de $[g']$ et $[g'']$.
+
+\medskip
+
+(iii) Un fibr\'e m\'etrique virtuel $v$ doit d\'efinir une forme de Chern $\ch(v)$,
+avec les propri\'et\'es suivantes.
+
+\begin{enumerate}[label=(\alph*)]
+\item $\ch([V, g]) = \ch(V, g)$,
+
+avec au second membre la forme d\'efinie par~\cite{4} repr\'esentant la classe de coho-
+logie $\ch(V)$ (caract\`ere de Chern).
+
+\item $\ch(v_1 + v_2) = \ch(v_1) + \ch(v_2)$.
+
+\item Pour $v$ muni de $\omega(v) \sim 0$, d\'efini par $\alpha \in M(X)$,
+\[
+\ch(v) = \frac{-1}{2\pi i} d'd'' \alpha .
+\]
+\end{enumerate}
+
+\subsection{}
+
+Une th\'eorie 5.1 \'equivaut \`a une th\'eorie secondaire \`a la Chern--Bott~\cite{4}. Expli-
+quons ce qui est requis.
+
+Supposons donn\'ee une th\'eorie 5.1. Si $g$ et $h$ sont deux m\'etriques sur
+un fibr\'e $V$, par (ii), elles d\'efinissent $[g]$ et $[h]$ dans $u([V])$. D\'efinissons
+$\delta(g; h) \in M(X)$ par
+\begin{equation}\label{eq:5.2.1}
+[g] = [h] + \delta(g; h) \quad \text{dans } u([V]) .
+\end{equation}
+Si $V$ est extension de $V''$ par $V'$ et que $g$, $g'$, $g''$ sont des m\'etriques
+sur $V$, $V'$ et $V''$, d\'efinissons $\delta(g; g', g'') \in M(X)$ par
+\begin{equation}\label{eq:5.2.2}
+[g] = [g'] + [g''] + \delta(g; g', g'') \quad \text{dans } u([V]) .
+\end{equation}
+On a
+
+\begin{equation}\label{eq:5.2.3}
+\delta(g_1; g_2) + \delta(g_2; g_3) = \delta(g_1; g_3),
+\end{equation}
+\begin{equation}\label{eq:5.2.4}
+\delta(g_1; g_1', g_1'') - \delta(g_2; g_2', g_2'') = \delta(g_1; g_2) - \delta(g_1'; g_2') - \delta(g_1''; g_2''),
+\end{equation}
+\begin{equation}\label{eq:5.2.5}
+\text{Soient } V = V_0 \supset V_1 \supset V_2 \supset V_3 = \{0\} \text{ et } g(i,j) \text{ une m\'etrique sur}
+V_i/V_j \text{ ($i < j$). On a}
+\end{equation}
+\[
+\begin{aligned}
+&\delta(g(0,3); g(0,2), g(2,3)) + \delta(g(0,2); g(0,1), g(1,2)) \\
+&\qquad = \delta(g(0,3); g(0,1), g(1,3)) + \delta(g(1,3); g(1,2), g(2,3))
+\end{aligned}
+\]
+(les deux membres valant $[g(0,3)] - [g(0,1)] - [g(1,2)] - [g(2,3)]$).
+
+\begin{equation}\label{eq:5.2.6}
+\text{Pour } V = V' \oplus V'', \quad \delta(g' \oplus g''; g', g'') = 0.
+\end{equation}
+\begin{equation}\label{eq:5.2.7}
+\ch(V, g) = \ch(V, h) + \frac{-1}{2\pi i} d'd'' \delta(g, h),
+\end{equation}
+\begin{equation}\label{eq:5.2.8}
+\ch(V, g) = \ch(V', g') + \ch(V'', g'') + \frac{-1}{2\pi i} d'd'' \delta(g; g', g'').
+\end{equation}
+
+R\'eciproquement, des fonctions $\delta$ v\'erifiant (5.2.3) \`a (5.2.8) fournissent
+une th\'eorie 5.1. Pour $V$ un fibr\'e vectoriel, on d\'efinit $u(V)$ comme \'etant le
+$M(X)$-torseur, unique \`a isomorphisme unique pr\'es, muni de
+\[
+\{\text{m\'etriques sur } V\} \longrightarrow u(V)
+\]
+v\'erifiant (5.2.1). L'existence est garantie par (5.2.3).
+
+Pour $V$ extension de $V''$ par $V'$, on d\'efinit
+\[
+u(V') + u(V'') \xrightarrow{\sim} u(V)
+\]
+comme \'etant l'unique isomorphisme pour lequel (5.2.2) est vrai. L'existence est
+garantie par (5.2.4). Que ces isomorphismes ob\'eissent au formalisme 4.3 r\'esulte
+de (5.2.5) et (5.2.6) pour $V' = 0$ ou $V'' = 0$. Le foncteur $u$ fournit donc
+\[
+\mu: \underline{V}(X) \longrightarrow (\text{torseurs sous } M(X)) .
+\]
+compatible \`a la commutativit\'e gr\^ace \`a (5.2.6). Comme expliqu\'e en 5.1, la donn\'ee
+de $\mu$ \'equivaut \`a celle de $\widehat{\underline{V}}(X)$, munie de $\omega$ et $u$.
+
+Le groupe $\pi_0(\widehat{\underline{V}}(X))$ des classes d'isomorphie d'objets dans $\widehat{\underline{V}}(X)$ est engendr\'e
+par les $(V, \gamma)$, $V$ fibr\'e vectoriel et $\gamma \in u(V)$, avec les relations suivantes:
+(a)~$(V, \gamma) - (V, \gamma')$ ne d\'epend que de $\gamma - \gamma'$ dans $M(X)$; (b)~pour $V$ extension
+de $V''$ par $V'$, si $\delta(g; g', g'') = 0$, alors $(V, [g]) = (V', [g']) + (V'', [g''])$.
+Les conditions (5.2.7), (5.2.8) \'equivalent donc \`a l'existence de
+\[
+\ch: \pi_0(\widehat{\underline{V}}(X)) \longrightarrow \text{formes} .
+\]
+v\'erifiant 5.1 (iii).
+
+\subsection{}
+
+Supposons donn\'ees des fonctions $\delta$ comme en 5.2, donc une th\'eorie 5.1.
+Le foncteur direct $M^{0,0}(X) \to M^1(X)$ (o\`u $M^{0,0}$ est le groupe additif des fonctions r\'eelles
+sur $X$ et, par passage au quotient, par $M^1 \to M^0$), le foncteur $u$ fournit un
+foncteur $\tilde{u}$ de $\underline{K}_1(X)$ dans les $\CC^\infty(X)$-torseurs. Pour tout $x \in \underline{V}(X)$, soit
+$\tilde{u}(x)$ l'ensemble des m\'etriques sur le fibr\'e en droite $\det(x)$. On en fait un
+$M^1(X)$-torseur en d\'efinissant la m\'etrique $h + \alpha$ ($\alpha \in M^1(X)$) par
+\[
+\|h + \alpha\|^2 = \|h\|^2 \cdot \exp(\alpha) ,
+\]
+o\`u $\|\cdot\|$ d\'esigne la longueur carr\'ee. Les conditions suivantes (5.3.1), (5.3.2)
+sur $\delta$ assurent l'existence d'un unique isomorphisme $\tilde{u} \xrightarrow{\sim} u$ (un isomorphisme
+de morphismes de cat\'egories de Picard) qui, pour $g$ une m\'etrique sur un fibr\'e
+$V$, envoie $[g] \in u([V])$ sur la m\'etrique de $\det(V)$ \`a $\det([g])$ d\'eduite de $g$.
+\begin{equation}\label{eq:5.3.1}
+\|\textrm{[$\det$ g]}\|^2 / \|\textrm{[$\det$ h]}\|^2 = \exp(\delta_1(g, h)),
+\end{equation}
+
+\begin{equation}\label{eq:5.3.2}
+\parbox{\dimexpr\linewidth-2em}{%
+Si $V$ est extension de $V''$ par $V'$ et que la m\'etrique $g$ sur $V$
+induit $g'$ sur $V'$ et au quotient $g''$ sur $V''$, on a}
+\end{equation}
+\[
+\delta_1(g; g', g'') = 0 .
+\]
+
+Pour $V$ un fibr\'e vectoriel, (5.3.1) assure l'existence d'un (unique) isomor-
+phisme de $M(X)$-torseurs $u([V]) \to \tilde{u}([V])$ qui \`a $[g]$ associe la m\'etrique de
+$\det(V)$ d\'efinie par $g$. La condition (5.3.2) assure que les donn\'ees 4.2 co\"incident
+pour $\tilde{u}$ et $u$.
+
+Et avec une de pr\'ecision: si (5.3.1), (5.3.2) sont v\'erifi\'ees, une m\'etrique
+virtuelle sur $x$ d\'efinit une m\'etrique sur $\det(x)$. La premi\`ere classe de Chern
+est respect\'ee.
+
+\subsection{}
+
+Soient $\pi_0(\widehat{\underline{V}}(X))$ le groupe des classes d'isomorphie d'objets de
+$\widehat{\underline{V}}(X)$ et $\pi_1(\widehat{\underline{V}}(X))$ le groupe des automorphismes d'un quelconque objet. Que le
+foncteur d'oubli: $\omega: \widehat{\underline{V}}(X) \to \underline{V}(X)$ soit fid\`ele, surjectif sur les classes d'isomorphie
+d'objets et de fibre $M(X)$ fournit une suite exacte
+\begin{equation}\label{eq:5.4.1}
+0 \to M(X) \to \pi_1(\widehat{\underline{V}}(X)) \to \pi_1(\underline{V}(X)) \to \pi_0(\widehat{\underline{V}}(X)) \to \pi_0(\underline{V}(X)) \to 0 .
+\end{equation}
+La d\'efinition de la fl\`eche $\partial$ est qu'un automorphisme $u \in K_1(X)$ d'un objet se transforme une m\'etrique
+virtuelle $\gamma$ en $\gamma + \partial u$. L'existence de $\ch$ sur $\pi_0(\widehat{\underline{V}}(X))$ assure que la fl\`eche
+$\partial$ est \`a valeurs dans le noyau de $d'd''$.
+
+Cette suite exacte sugg\`ere que $\widehat{\underline{V}}(X)$ est une version tronqu\'ee d'une cat\'egorie
+$\underline{\widehat{V}}(X)$ s'envoyant dans $\underline{V}(X)$ par un foncteur d'oubli non fid\'ele.
+
+Soit $A^p$ le complexe de composantes les $A^{p,q} \oplus A^{q,p}$ ($q \leq p$)-formes r\'eelles
+sur $X$, modulo celles dans $\im(d') \oplus \im(d'')$, avec pour diff\'erentielles $d$, et soit
+$H^*_M(X)$ la somme des $H^{p,q}_M := H^k(A^p)$. Il devrait exister des groupes $K_M^i(X)$
+donnant lieu \`a une suite exacte longue
+\begin{equation}\label{eq:5.4.2}
+\cdots \to K_M^0(X) \to K_1(X) \to K_M^1(X) \to K_0(X) \to K_M^2(X) \to \cdots
+\end{equation}
+et $\underline{\widehat{V}}(X)$ aurait pour groupe de classes d'isomorphie d'objets $\pi_0 = K_M^0(X) \oplus K^1_M(X)$,
+pour groupe des automorphismes de $0$ l'extension $\pi_1 = K^2_M(X)$ de $K^1_M(X)$.
+
+\subsection{}
+
+Une th\'eorie de classes de Chern secondaires v\'erifiant (5.2.3) \`a (5.2.8) et
+(5.3.1), (5.3.2) est contenue, pour l'essentiel, dans~\cite{4}. Une variante de l'approche
+de~\cite{4} a \'et\'e signal\'ee par C.~Soul\'e.
+
+Expliquons comment d\'efinir $\delta(g; h)$ v\'erifiant (5.2.3).
+
+Rappelons la d\'efinition de $\ch(V, g)$. Soit $V = V' \oplus V''$, $V' = V \to \Omega^{1,0}(V)$,
+$V'' = V \to \Omega^{0,1}(V)$ la connexion m\'etrique de $V$ ($\nabla' = \partial$, $\nabla'' = \bar\partial$). Elle se prolonge
+en $\nabla: \Omega^{*,*}(V) \to \Omega^{*,*}(V)$ v\'erifiant $\nabla(\alpha x) = d\alpha \cdot x + (-1)^{\deg \alpha} \alpha \nabla x$ et $\nabla$
+est un endomorphisme $1$-lin\'eaire de $\Omega^{*,*}(V)$, la multiplication par une $2$-forme
+$K$ de type $(1,1)$ \`a valeurs dans $\End(V)$. On a
+\[
+\ch(V, g) = \Tr \exp\Bigl(\frac{-1}{2\pi i} K\Bigr) .
+\]
+
+Supposons que $g$ d\'epende de $t \in T$. Ci-dessous, $T$ sera une vari\'et\'e diff\'e-
+rentiable, mais il serait plus naturel de se placer dans le cas universel o\`u
+$T$ est l'espace des structures hermitiennes sur $V$. La donn\'ee de $g(t)$ est
+celle d'une structure hermitienne sur l'image inverse $\pr_1^* V$ de $V$ sur $X \times T$.
+Le complexe de de~Rham de $X \times T$ est trigradu\'e: nombre de $dz$, de $d\bar{z}$ et
+de $dt$, et la diff\'erentielle ext\'erieure se d\'ecompose en $d = d' + d'' + d_T$.
+Les $\ch_p(V, g(t))$ dans $\Omega^{p,p}(X)$ fournissent une forme de type $(p,p,0)$, not\'ee
+$\ch_p(V, g)$, sur $X \times T$.
+
+Nous allons construire (cf.~\cite{4}) une forme r\'eelle $A_p$, de type $(p-1, p-1,
+1)$, telle que
+\[
+d_T \ch_p(V, g) = \frac{-1}{2\pi i} d'd'' A_p
+\]
+et une forme $B_p$, de type $(p-2, p-1, 2)$ telle que
+\[
+d_T A_p = d' B_p + \text{conjugu\'e complexe} .
+\]
+Ces formes sont de formation compatible \`a tout changement d'espace de param\`etres
+$T \to T$. Pour $c$ un chemin de $t_0$ \`a $t_1$ dans $T$, correspondant \`a des m\'etriques
+$g(0)$ et $g(1)$ sur $V$, on pose
+\begin{equation}\label{eq:5.5.1}
+\delta_p(g(0), g(1)) := \int_c A_p .
+\end{equation}
+Si $c_1$ et $c_2$ sont deux chemins de $g(0)$ \`a $g(1)$ et que $c_1 - c_2$ est le bord d'un cycle $H$, on a
+\[
+\int_{c_1} A_p - \int_{c_2} A_p = \int_H d_T A_p = \int_H (d' B_p + \text{c.c.})
+\]
+et
+\[
+\int_H d'd'' A_p = \int_{\partial H} A_p = \int_{c_1 - c_2} A_p = 0 .
+\]
+L'espace de toutes les formes hermitiennes sur $V$ \'etant contractile, (5.5.1)
+d\'efinit sans ambigu\"it\'e $\delta_p(g(1), g(0)) \in M^p(X)$.
+
+\subsection{}
+
+Pour chaque valeur de $t$, on dispose de la connexion m\'etrique $\nabla$ de $V$.
+Les composantes $\nabla'$ et $\nabla''$ de $\nabla$ se prolongent en $\nabla'$ et $\nabla''$ sur $\Omega^{*,*}(\pr_1^* V) \to
+\Omega^{*,*}(\pr_1^* V)$, de type $(1,0,0)$ et $(0,1,0)$, v\'erifiant $\nabla'(\alpha x) = d'\alpha \cdot x + \alpha \nabla' x$
+et $\nabla''(\alpha x) = d''\alpha \cdot x + \alpha \nabla'' x$ ($\varepsilon = (-1)^{\deg \alpha}$). On dispose aussi d'une connexion
+$d_T$ ``dans la direction $T$'': $d_T: \pr_1^* V \to \Omega^{0,1}(\pr_1^* V)$ exprimant que $\pr_1^* V$ est une image
+inverse: $d_T \pr_1^*(v) = 0$. Soit $d_T^*$ la connexion ``dans le sens de $T$'' caract\'eris\'ee
+par
+\[
+d_T(v, w) = (d_T^* v, w) + (v, d_T^* w) .
+\]
+La m\'etrique identifie $\pr_1^* V$ \`a $\pr_1^*(\text{dual de } V)$, et $d_T^*$ correspond au
+dual de $d_T$. On a $d_T^*$ de l'antidual. Les $d_i$ se prolongent en $d_i: \Omega^{*,*}(V) \to \Omega^{*,*}(V)$ avec
+$d_i(\alpha x) = d_i \alpha \cdot x + \alpha d_i x$. Soit $L := d_2^* - d_1^*$. C'est un endomorphisme (au sens
+$\ZZ/2$-\-gradu\'e) du module $\Omega^{*,*}(V)$, d\'efini par une $(0,0,1)$-forme \`a valeurs
+dans $\End(V)$.
+
+On a, les $\ZZ/2$-graduations \'etant prises au sens $\ZZ/2$-gradu\'e:
+\[
+V = \nabla''^2 = d_1^2 = d_2^2 = [\nabla'', d_1] = [\nabla', d_2] = 0 .
+\]
+Soit $L_0$ l'alg\'ebre de Lie (au sens $\ZZ/2$-gradu\'e) librement engendr\'ee par des \'el\'ements
+impairs $\nabla'$, $\nabla''$, $d_1$, $d_2$, soumis aux relations pr\'ec\'edentes: $[\nabla', \nabla'] = [\nabla'',
+\nabla''] = [d_1, d_1] = [d_2, d_2] = [\nabla'', d_1] = [\nabla', d_2] = 0$. Elle est trigradu\'ee,
+les g\'en\'erateurs \'etant de degr\'es respectifs $(1,0,0)$, $(0,1,0)$ et $(0,0,1)$ pour $d_1$
+et $d_2$. Elle admet pour quotient l'alg\'ebre de Lie ($\ZZ/2$-gradu\'ee) nave
+de base $d'$, $d''$, $d_T$. (avec $\nabla' \mapsto d'$, $\nabla'' \mapsto d''$, $d_1, d_2 \mapsto d_T$). Soit
+\[
+L := \Ker(L_0 \twoheadrightarrow \langle d', d'', d_T \rangle) .
+\]
+
+Pour toute situation $(X, V, T, g \text{ sur } X \times T)$ comme ci-dessus, $L_0$
+agit sur $\Omega^{*,*}(V)$ et $L$ agit par endomorphismes $\CC$-lin\'eaires (au sens $\ZZ/2$-
+gradu\'e): on dispose d'un morphisme de Lie
+\[
+L \longrightarrow \Omega^{*,*}(\End(V)) .
+\]
+
+\subsection{}
+
+Soit $P$ une forme invariante de degr\'e $k$ sur $\mathfrak{gl}_n$, o\`u $n$ est le rang de
+$V$. Soit $\ell_P$ la forme lin\'eaire sur $\Sym^k \mathfrak{gl}_n$ telle que $P(x) = \ell_P(x^k)$. \'Etant
+invariante, $\ell_P$ d\'efinit une section du dual de $\Sym^k \mathfrak{gl}_n$ sur $\mathfrak{gl}_n$. Les puissances
+sym\'etriques \'etant prises au sens $\ZZ/2$-gradu\'e, on en d\'eduit:
+\[
+c(P, \cdot): \Sym^n(L) \longrightarrow \Omega^{*,*}(\Sym^k \mathfrak{gl}_n \twoheadrightarrow \mathfrak{gl}_n) .
+\]
+Par invariance, $c(P, \cdot)$ est nul sur $[L, \Sym^k L]$. L'action de $L_0$ sur $L$
+induit une action de $L_0$ sur $\Sym^k(L)/[L, \Sym^k L]$, $\Sym^k(L)/[L, \Sym^k L]$. Cette action se factorise
+par $L_0^{\text{ab}} = \langle d', d'', d_T \rangle$. Le morphisme
+\[
+\psi: \Sym^k(L)/[L, \Sym^k L] \to \Omega^{*,*}
+\]
+commute \`a $d'$, $d''$ et $d_T$. C'est un morphisme de tricomplexes. Les formes que
+nous consid\'erons sont dans l'image de $\psi$, et les calculs essentiels se feront
+dans $\Sym^k(L)/[L, \Sym^k L]$, ind\'ependamment de $g$.
+
+Soit $V = V' \oplus V''$. Soit dans $L$
+\[
+x = \nabla^2 = [\nabla', \nabla''] = K .
+\]
+de type $(1,1,0)$. On a $[\nabla, x] = 0$ ($\text{Bianchi}$) et donc $[\nabla', x] = [\nabla'', x] = 0$.
+Soit
+\[
+L := d_2^* - d_1^*
+\]
+dans $L$, de type $(0,0,1)$. Soit $d_c = \frac{1}{2}(d_1 + d_2)$. On a
+\[
+\{d_c, L\} = \tfrac{1}{2}\{[d_2 - d_1, d_c], x\} = \tfrac{1}{2}([d_2, d_2] - [d_1, d_1]) = 0,
+\]
+$[d_c, K] = -[[\nabla', \nabla''], d_c] = -[\nabla', [\nabla'', d_c]] - [\nabla'', [\nabla', d_c]]$
+\[
+= \tfrac{1}{2}(-[\nabla', [\nabla'', L]] + [\nabla'', [\nabla', L]])
+\]
+puisque $d_c = \frac{1}{2}(d_1 + d_2)$.
+
+Dans la somme de $\Sym^k(L)/[L, \Sym^k L]$, $\Sym^k(L)/[L, \Sym^k L]$, on a
+\[
+d_T \exp(x \cdot L) = [d_c, \exp(x \cdot L)] = \exp(x \cdot [d_c, L])
+\]
+\[
+= \exp(x \cdot \tfrac{1}{2}(-\ad_{\nabla'} \ad_{\nabla''} + \ad_{\nabla''} \ad_{\nabla'})(L))
+\]
+\[
+= -d'd''(\exp(x \cdot L))
+\]
+\[
+d_T(\exp(x) \cdot [\nabla', L] \cdot L) = [d_c, \exp(x \cdot [\nabla', L] \cdot L)] = \exp(x) \cdot [d_c, K] \cdot [\nabla', L] \cdot L
+\]
+\[
+= \exp(x) \cdot \tfrac{1}{2}(-\ad_{\nabla'} \ad_{\nabla''} + \ad_{\nabla''} \ad_{\nabla'})(L) \cdot [\nabla', L] \cdot L
+\]
+\[
+= \tfrac{1}{2}\{-d'(\exp(x) \cdot [\nabla'', L] \cdot L) + d''(\exp(x) \cdot [\nabla', L] \cdot L)\}
+\]
+Pour $P_k$ la forme invariante de degr\'e $k$: $\Tr(x^k)$, on a
+\[
+c(P_k, \exp(x) \cdot L) = \ell_{P_k}(\exp(x) \cdot L) = (-2\pi i)^k d_T \ch_k(V, g) ,
+\]
+d'o\`u
+\[
+\partial_t \ch_k(V, g) = \frac{-1}{2\pi i} d'd'' c(P_k, \exp(\tfrac{-1}{2\pi i} x) \cdot L)
+\]
+et
+\[
+\partial_t c(P_k, \exp(\tfrac{-1}{2\pi i} x) \cdot L) = d'\bigl(c(P_k, \exp(\tfrac{-1}{2\pi i} x) \cdot [\nabla'', L] \cdot L)\bigr)
+\]
+\[
++ \text{complexe conjugu\'e.}
+\]
+Ceci fournit les formes $A_p$ et $B_p$ de 5.5.
+
+\subsection{}
+
+La construction 5.6 ne d\'epend pas des propri\'et\'es particuli\`eres de
+$\ch(V, g)$. Pour toute forme invariante $P$, si $c_P(V, g)$ est la forme $P(\frac{-1}{2\pi i} K)$
+correspondante, elle fournit $\delta_P(g, h)$ v\'erifiant
+\[
+c_P(V, g) - c_P(V, h) = \frac{-1}{2\pi i} d'd'' \delta_P(g, h) .
+\]
+On a $\delta_{P+Q} = \delta_P + \delta_Q$ et
+\begin{equation}\label{eq:5.7.1}
+\delta_{PQ}(g, h) = c_P(V, g) \cdot \delta_Q(g, h) + \delta_P(g, h) \cdot c_Q(V, g) .
+\end{equation}
+Noter que dans $M(X)$, on a
+\begin{equation}\label{eq:5.7.2}
+\delta_P \cdot \frac{-1}{2\pi i} d'd'' \delta_Q = \frac{-1}{2\pi i} d'd'' \delta_P \cdot \delta_Q ;
+\end{equation}
+ceci assure la sym\'etrie en $P$ et $Q$ du membre de droite.
+
+Pour la forme de Chern
+\[
+\ch(V, g) = \sum_p \exp\Bigl(\frac{-1}{2\pi i} K\Bigr) ,
+\]
+$\delta(g, h)$ est donn\'e par int\'egration de
+\[
+A = \ell(\exp(\tfrac{-1}{2\pi i} K) \cdot L)
+\]
+o\`u $\exp$ et le produit sont pris au sens de la composition dans $\GL(V)$.
+
+Pour la somme de deux fibr\'es, on a
+\[
+\ch(V_1 \oplus V_2, g_1 \oplus g_2) = \ch(V_1, g_1) + \ch(V_2, g_2) \quad \text{et}
+\]
+\begin{equation}\label{eq:5.9.1}
+\delta(g_1 \oplus g_2, h_1 \oplus h_2) = \delta(g_1, h_1) + \delta(g_2, h_2) .
+\end{equation}
+
+Pour le produit tensoriel, on a
+\begin{equation}\label{eq:5.9.2}
+\ch(V_1 \otimes V_2, g_1 \otimes g_2) = \ch(V_1, g_1) \cdot \ch(V_2, g_2) \quad \text{et}
+\end{equation}
+\[
+\delta(g_1 \otimes g_2, h_1 \otimes h_2) = \ch(V_1, h_1) \cdot \delta(g_2, h_2) + \delta(g_1, h_1) \cdot \ch(V_2, g_2)
+\]
+(cf.~5.7.2 pour la sym\'etrie en $V_1$ et $V_2$).
+
+Sur le fibr\'e en droite trivial $\Oo$, soit $1$ (resp.\ $u \cdot 1$) la m\'etrique pour laquelle
+$\|1\|^2$ vaut $1$ (resp.\ la constante $u$). On a
+\begin{equation}\label{eq:5.9.3}
+\delta(u \cdot 1, 1) = \log u .
+\end{equation}
+Tensorisant $(V, g)$ avec $\Oo$ muni de ces m\'etriques, on d\'eduit de (5.9.2), (5.9.3)
+que pour une constante $u$,
+\begin{equation}\label{eq:5.9.4}
+\delta(ug, g) = \ch(V, g) \cdot \log(u) .
+\end{equation}
+Noter que $\ch(V, ug) = \ch(V, g)$, que, comme il se doit, $d'd''\delta(ug, g) = 0$ mais que
+$\delta(ug, g)$ est en g\'en\'eral non nul.
+
+\subsection{}
+
+On v\'erifie facilement que dans l'alg\'ebre de Lie $L$, les \'el\'ements
+de $T$-degr\'e $0$ sont r\'eduits aux multiples de $K$. Dans le tricomplexe
+\[
+\Sym^k(L)/[L, \Sym^k L] ,
+\]
+seul $K^k$ est de $d_T$-degr\'e $0$. On peut montrer que pour $k > 0$, la partie
+de $T$-degr\'e $\geq 1$ est $d'$- et $d''$-acyclique. Pour $k = 1$, il en r\'esulte que la
+formule donn\'ee pour $\delta(g, h)$ est essentiellement unique.
+
+\subsection{}
+
+Expliquons comment d\'efinir $\delta(g; g', g'')$ (cf.~5.2). Si on impose (5.2.4),
+il suffit de traiter le cas o\`u la m\'etrique $g$ sur $V$ induit la m\'etrique $g'$
+sur $V'$ et a pour quotient $g''$ sur $V''$. Pour $g'$ et $g''$ ainsi choisis, posons
+\[
+\delta(g) := \delta(g; g', g'') .
+\]
+La condition (5.2.4) se r\'eduit \`a
+\[
+\delta(g_1) - \delta(g_2) = \delta(g_1; g_2) - \delta(g_1'; g_2') - \delta(g_1''; g_2'')
+\]
+et (5.2.6) \`a ce que pour une somme directe orthogonale, $\delta(g) = 0$.
+
+Soient $\lambda \in \CC$, $V_\lambda$ le pull-back de l'extension $V$ par $\lambda: V'' \to V''$
+\[
+\begin{tikzcd}
+0 \arrow[r] & V' \arrow[r] \arrow[d, "="] & V \arrow[r] \arrow[d] & V'' \arrow[r] \arrow[d, "\lambda"] & 0 \\
+0 \arrow[r] & V' \arrow[r] & V_\lambda \arrow[r] & V'' \arrow[r] & 0
+\end{tikzcd}
+\]
+et $V_\lambda^\perp$ l'image inverse par $\lambda$ de l'orthogonal $V'^\perp$ de $V'$ dans $V$. Notons $g_\lambda$
+la m\'etrique sur $V_\lambda$ induisant $g'$ et $g''$ sur $V'$ et $V''$ et pour laquelle $V_\lambda^\perp$ est
+l'orthogonal de $V'$. Pour $\lambda = 0$, on a $(V_0, g_0) = (V', g') \oplus (V'', g'')$. Ceci am\`ene
+\`a postuler que $\delta(g_\lambda) \to 0$ pour $\lambda \to 0$. Pour $\lambda \neq 0$, $\times \lambda$ est un isomorphisme.
+Soit $g(\lambda)$ la forme $g_\lambda$ sur $V_\lambda$. On a $\delta(g_\lambda) = \delta(g(\lambda))$. La formule (5.11.1)
+pour $h$-somme, donc $h' = g'$ et $h'' = \|\lambda\|^{-1} g''$, impose
+\[
+\begin{aligned}
+\delta(g) &= \lim_{\lambda \to 0} (\delta(g, g_\lambda) - \delta(g'', \|\lambda\|^{-1} g'')) \\
+&= \lim_{\lambda \to 0} (\delta(g, g_\lambda) - \log\|\lambda\| \cdot \ch(V'', g''))
+\end{aligned}
+\]
+(appliquer (5.9.4)). Montrons qu'une telle limite existe.
+
+Les $g(\lambda)$ forment une famille param\'etr\'ee par $\CC^*$ de m\'etriques sur $V$.
+En termes de la d\'ecomposition, comme fibr\'e $C^\infty$, de $V$ en $V' \oplus V'' \xrightarrow{\sim} V' \oplus V''$ ($\lambda \Id$),
+on a $g(\lambda) = g' \oplus \|\lambda\|^{-1} g''$. Notant $\pr''$ la projection sur $V''$, on calcule
+que la $1$-forme $L$ \`a valeurs dans $\End(\pr_1^* V)$, sur $X \times \CC^*$, est
+\[
+L = d\log \|\lambda\| \cdot \pr'' .
+\]
+
+Calculons la courbure $K_\lambda$ de $(V_\lambda, g_\lambda)$. En termes de la d\'ecomposition,
+comme fibr\'e $C^\infty$, de $V_\lambda$ en $V' \oplus V'' \xrightarrow{\sim} V' \oplus V''$, on a $g_\lambda = g' \oplus g''$, et la
+connexion $\nabla_\lambda: V_\lambda \to V_\lambda^\perp \oplus V''$ est
+\[
+\nabla_\lambda = \begin{pmatrix} \nabla' & a \\ 0 & \nabla'' \end{pmatrix} \quad \text{avec } a \in \Omega^{0,1}(\Hom(V'', V'))
+\]
+o\`u $a$ dans $H^{0,1}(X, \Hom(V'', V'))$ d\'etermine la classe d'extension de $V$. De l\`a, notant
+$K'$ et $K''$ les courbures de $(V', g')$ et $(V'', g'')$ et $\nabla$ la connexion de $\Hom(V'',
+V')$,
+\[
+K_\lambda = \begin{pmatrix} K' - \|\lambda\| a a^* & \nabla_{V'}(a) \\ -\nabla_{V''}(a^*) & K'' - \|\lambda\| a^* a \end{pmatrix} .
+\]
+
+Pour $\lambda \neq 0$, la courbure $K(\lambda)$ de $(V, g_\lambda)$ est l'image par $\varphi(\lambda)$ de
+$K_\lambda$ et $\delta(g(\lambda), g)$ se d\'eduit donc par int\'egration de $1$ \`a $\lambda$ de
+\[
+\Tr(-\exp(\tfrac{-1}{2\pi i} K(\lambda)) \cdot a \cdot d\log \|\lambda\| \cdot \pr'')
+\]
+\[
+= \Tr(-\exp(\tfrac{-1}{2\pi i} K_\lambda) \cdot a \cdot \pr'') \cdot d\log \|\lambda\| .
+\]
+La quantit\'e \`a int\'egrer est le produit par $d\log \|\lambda\|$ d'un polyn\^ome en $\|\lambda\|$
+dont le terme constant est la trace de $-\exp(\frac{-1}{2\pi i} K'')$. \`A cause de ce terme constant,
+l'int\'egrale diverge pour $\lambda \to 0$, avec une divergence en $\log \|\lambda\| \cdot \ch(V'', g'')$.
+La limite qui doit d\'efinir $\delta(g)$ existe donc, et
+\begin{equation}\label{eq:5.11.3}
+\delta(g) = \int_0^1 \bigl(\Tr(\exp(\tfrac{-1}{2\pi i} K_\lambda \cdot \pr'')) - \Tr(\exp(\tfrac{-1}{2\pi i} K''))\bigr) \cdot d\log \|\lambda\| .
+\end{equation}
+
+Plus pr\'ecis\'ement, nous d\'efinissons $\delta(g)$ par (5.11.3). L'espace $M(X)$
+(un quotient) n'\'etant pas n\'ecessairement s\'epar\'e, la d\'efinition par passage \`a la
+limite n'a en effet qu'une valeur heuristique.
+
+\subsection{}
+
+Pour v\'erifier les propri\'et\'es (5.2), il est plus commode d'utiliser une autre
+construction des fonctions $\delta$ qui m'a \'et\'e signal\'ee par C.~Soul\'e. L'id\'ee est
+la suivante. Pour tout sch\'ema lisse $X$, $X$ et son produit $X \times \AA^1$ avec la droite
+affine ont m\^emes $K_i$. Ce fait, pour $i = 0, 1$, implique que le foncteur
+\[
+\pr_1^*: \underline{V}(X) \longrightarrow \underline{V}(X \times \AA^1)
+\]
+est une \'equivalence. Les foncteurs $s^*: \underline{V}(X \times \AA^1) \to \underline{V}(X)$ pour $s$ une section
+de $X \times \AA^1/X$ sont donc tous naturellement isomorphes. En particulier, pour
+$V$ un fibr\'e vectoriel sur $X \times \AA^1$, les $[s^* V]$ sont naturellement isomorphes.
+Soient $s_0$ et $s_1$ les sections $X \to X \times \{0\}$ et $X \to X \times \{1\}$, et $V_0 = s_0^* V$,
+$V_1 = s_1^* V$.
+
+Supposons provisoirement qu'un formalisme 5.1 est donn\'e. Si $g_i$ est une
+m\'etrique sur $V_i$, les $[g_i]$ sont des m\'etriques virtuelles sur $[V_0] \cong [V_1]$,
+et $[g_0] - [g_1] \in M(X)$ est d\'efini. C.~Soul\'e propose que, lorsque $\pr_1^* V$ est prolong\'e
+en un fibr\'e encore not\'e $V$ sur $X \times \PP^1$, $[g_0] - [g_1]$ est donn\'e par la formule
+suivante: on choisit une m\'etrique $g$ sur $V$ sur $X \times \PP^1$ induisant $g_0$ et
+$g_1$ sur $V_0$, $V_1$ --- d'o\`u une forme de Chern $\ch(V, g)$ sur $X \times \PP^1$ nulle sur
+$X \times \{0\}$ et $X \times \{1\}$ --- et
+\begin{equation}\label{eq:5.12.1}
+[g_0] - [g_1] = -\int_{X \times \PP^1/X} \ch(V, g) \cdot \log\|z_0/z_1\| .
+\end{equation}
+Notons $C(V, g)$ le membre de droite. L'identit\'e sur $\PP^1$
+\[
+\frac{1}{2\pi i} d'd'' \log\|z_0/z_1\| = \delta(0) - \delta(1)
+\]
+assure que
+\begin{equation}\label{eq:5.12.2}
+C(V, g_0) - C(V, g_1) = \frac{-1}{2\pi i} d'd'' C^*(g_0, g_1) .
+\end{equation}
+
+Soit $W$ un fibr\'e sur $X$ et prenons $V = \pr_1^* W$. On a $V_0 = V_1 = W$ et
+$V$ d\'efinit l'isomorphisme identique de $[V_0] = [W]$ avec $[V_1] = [W]$. Si $g_0$
+et $g_1$ sont deux m\'etriques sur $W$, et que la m\'etrique $g$ sur $\pr_1^* W$ sur $X \times \PP^1$
+est $g_0$ sur $X \times \{0\}$ et $g_1$ sur $X \times \{1\}$, ce qui pr\'ec\`ede am\`ene \`a prendre comme fonction $\delta(g_0; g_1)$ de 5.2 la fonction
+\begin{equation}\label{eq:5.12.3}
+\delta(g_0; g_1) := \int_{X \times \PP^1/X} \ch(V, g) \cdot \log\|z_0/z_1\| .
+\end{equation}
+
+Soit $W$ un fibr\'e sur $X$ muni d'une extension de $W''$ par $W'$. Les $W_i$ (comme en
+5.9) sont les restrictions \`a $X \times \{i\}$ d'un fibr\'e $V$ sur $X \times \AA^1$. On a $V_0 =
+W' \oplus W''$, $V_1 = W$ et $V$ d\'efinit l'isomorphisme naturel
+\[
+[W] \xrightarrow{\sim} [W' \oplus W''] = [W'] + [W''] .
+\]
+En dehors de la section $0$, les $W_i$ de 5.9 fournissent un isomorphisme $\varphi$ de
+$V$ avec $\pr_1^* W$. Notons encore $V$ le prolongement de $V$ \`a $X \times \PP^1$ auquel
+$\varphi$ se prolonge. Si $s: \Oo(-X \times \{0\}) \hookrightarrow \Oo$ est l'inclusion naturelle, $V$ est d\'efini
+par le diagramme cart\'esien
+\[
+\begin{tikzcd}
+0 \arrow[r] & \pr_1^* W' \arrow[r] \arrow[d] & \pr_1^* W \arrow[r] \arrow[d] & \pr_1^* W'' \arrow[r] \arrow[d] & 0 \\
+0 \arrow[r] & \pr_1^* W' \arrow[r] & V \arrow[r] & \pr_1^* W'' \otimes \Oo(-X \times \{0\}) \arrow[r] & 0
+\end{tikzcd}
+\]
+Si une m\'etrique $g$ sur $V$ munit des m\'etriques $g_1$ sur $V_1 = W$ et $g_0 =
+g_0'$ sur $V_0 = W' \oplus W''$, ceci am\`ene C.~Soul\'e \`a proposer comme fonction $\delta(g_0', g_1'';
+g_0)$ de (5.2) la fonction
+\begin{equation}\label{eq:5.12.4}
+\delta(g_0'; g_0, g_0'') := \int_{X \times \PP^1/X} \ch(V, g) \cdot \log\|z_0/z_1\| .
+\end{equation}
+D'apr\`es (5.12.1), les exigences (5.2.7) et (5.2.6) sont remplies.
+
+Les d\'efinitions de $\delta(g_0, g_1)$ (5.12.1) et (5.12.3), (5.12.4) d\'ependent d'une
+m\'etrique $g$ interpolant les m\'etriques donn\'ees au-dessus de $X \times \{0\}$ et $X \times
+\{1\}$. Si on change $g$, on modifie $\ch(V, g)$ par un $d'd'' \alpha$, o\`u $\alpha$ a une restriction
+nulle \`a $X \times \{0\}$ et $X \times \{1\}$ (utiliser 5.5, ou (5.12.1), avec $X$ remplac\'e par
+$X \times \PP^1$). Dans l'identit\'e
+\[
+\int d'd''\alpha \cdot \log\|z_0/z_1\| = d'\int d''\alpha \cdot \log\|z_0/z_1\| + d''\int d'\alpha \cdot \log\|z_0/z_1\|
+\]
+\[
++ \int \alpha \cdot d'd''\log\|z_0/z_1\|
+\]
+(int\'egrales selon les fibres de $X \times \PP^1/X$, prises au sens des distributions),
+
+le troisi\`eme terme est nul. Les seconds membres de (5.12.1), (5.12.3), (5.12.4)
+sont donc d\'efinis sans ambigu\"it\'e dans $M(X)$.
+
+
+
+\newpage
+
+\begin{thebibliography}{99}
+
+\bibitem{1} S.~Arakelov, ``Intersection theory of divisors on an arithmetic surface'', \textit{Math.\ USSR Izv.}\ \textbf{8} (1974), 1167--1180.
+
+\bibitem{2} S.~Arakelov, ``Theory of intersections on the arithmetic surface'', \textit{Proc.\ Intern.\ Congr.\ Mathematicians Vancouver}, (1974), 405--408.
+
+\bibitem{3} J.-M.~Bismut and D.~Freed, ``The analysis of elliptic families I: Index and curvature'', \textit{J.\ Funct.\ Anal.}\ (1986).
+
+\bibitem{4} R.~Bott and S.~S.~Chern, ``Hermitian vector bundles and the equidistribution of the zeroes of their holomorphic sections'', \textit{Acta Math.}\ \textbf{114} (1965), 71--112.
+
+\bibitem{5} G.~Faltings, ``Calculus on arithmetic surfaces'', \textit{Ann.\ of Math.}\ \textbf{119} (1984), 387--424.
+
+\bibitem{6} D.~Freed, ``Determinants, torsion, and strings'', \textit{Comm.\ Math.\ Phys.}\ \textbf{107} (1986), 483--513.
+
+\bibitem{7} H.~Gillet and C.~Soul\'e, ``Intersection theory using Adams operations'', \textit{Invent.\ Math.}\ (1986).
+
+\bibitem{8} H.~Gillette and C.~Soul\'e, ``Direct images of Hermitian holomorphic bundles'', \`a para\^itre.
+
+\bibitem{9} A.~Grothendieck, letter to Quillen, 1983.
+
+\bibitem{10} F.~Knudsen and D.~Mumford, ``The projectivity of the moduli space of stable curves I: Preliminaries on ``det'' and ``Div'' '', \textit{Math.\ Scand.}\ \textbf{39} (1976), 19--55.
+
+\bibitem{11} S.~Mac Lane, ``Natural associativity and commutativity'', \textit{Rice Univ.\ Studies}\ \textbf{49} (1963), 28--46.
+
+\bibitem{12} D.~Quillen, ``Higher algebraic $K$-theory I'', in: \textit{Algebraic $K$-theory I}, Lecture Notes in Math.\ \textbf{341}, Springer (1973), 85--147.
+
+\bibitem{13} D.~Quillen, ``Determinants of Cauchy-Riemann operators over a Riemann surface'', \textit{Funct.\ Anal.\ Appl.}\ \textbf{19} (1985), 31--34.
+
+\bibitem{14} D.~B.~Ray and I.~M.~Singer, ``Analytic torsion for complex manifolds'', \textit{Ann.\ of Math.}\ \textbf{98} (1973), 154--177.
+
+\bibitem{15} N.~Saavedra, \textit{Cat\'egories tannakiennes}, Lecture Notes in Math.\ \textbf{265}, Springer (1972).
+
+\bibitem{16} C.~Soul\'e, ``Op\'erations en $K$-th\'eorie alg\'ebrique'', \`a para\^itre.
+
+\end{thebibliography}
+
+\end{document}

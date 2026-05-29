@@ -1,0 +1,504 @@
+% ------------------------------------------------------------
+% English working translation layer.
+% Source file: papers_30_59/34_Cycles_de_Hodge_absolus_et_periodes_des_integrales_des_varietes_abeliennes/34_Cycles_Hodge_Absolus.tex
+% Modern title: Absolute Hodge cycles and periods of integrals on abelian varieties
+% ------------------------------------------------------------
+
+% Cycles de Hodge absolus et périodes des intégrales des variétés abéliennes
+% Pierre Deligne, rédigé par J. L. Brylinski
+% Publié dans Astérisque, Société Mathématique de France, 2e série, Mémoire n° 2, 1980, p. 23-33
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{booktabs}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+\theoremstyle{remark}
+\newtheorem{example}{Example}
+
+% Math operators
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Inf}{Inf}
+\DeclareMathOperator{\rank}{rang}
+
+% Number sets
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Gm}{\mathbb{G}_\mathrm{m}}
+
+\title{Absolute Hodge cycles and periods of integrals on abelian varieties}
+\author{Pierre DELIGNE\\\small rédigé par J. L. BRYLINSKI}
+\date{}
+
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+
+% --- Pass-2 compatibility shim. ---
+% Purpose: repair transcription-level LaTeX omissions without changing mathematical text.
+\providecommand{\AA}{\mathbb{A}}
+\providecommand{\BB}{\mathbb{B}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\DD}{\mathbb{D}}
+\providecommand{\EE}{\mathbb{E}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\GG}{\mathbb{G}}
+\providecommand{\HH}{\mathbb{H}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\TT}{\mathbb{T}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\Gm}{\mathbb{G}_{\mathrm m}}
+\providecommand{\Ga}{\mathbb{G}_{\mathrm a}}
+\providecommand{\cA}{\mathcal{A}}
+\providecommand{\cB}{\mathcal{B}}
+\providecommand{\cC}{\mathcal{C}}
+\providecommand{\cD}{\mathcal{D}}
+\providecommand{\cE}{\mathcal{E}}
+\providecommand{\cF}{\mathcal{F}}
+\providecommand{\cG}{\mathcal{G}}
+\providecommand{\cH}{\mathcal{H}}
+\providecommand{\cI}{\mathcal{I}}
+\providecommand{\cJ}{\mathcal{J}}
+\providecommand{\cK}{\mathcal{K}}
+\providecommand{\cL}{\mathcal{L}}
+\providecommand{\cM}{\mathcal{M}}
+\providecommand{\cN}{\mathcal{N}}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\cP}{\mathcal{P}}
+\providecommand{\cQ}{\mathcal{Q}}
+\providecommand{\cR}{\mathcal{R}}
+\providecommand{\cS}{\mathcal{S}}
+\providecommand{\cT}{\mathcal{T}}
+\providecommand{\cU}{\mathcal{U}}
+\providecommand{\cV}{\mathcal{V}}
+\providecommand{\cW}{\mathcal{W}}
+\providecommand{\cX}{\mathcal{X}}
+\providecommand{\cY}{\mathcal{Y}}
+\providecommand{\cZ}{\mathcal{Z}}
+\providecommand{\fA}{\mathfrak{A}}
+\providecommand{\fB}{\mathfrak{B}}
+\providecommand{\fC}{\mathfrak{C}}
+\providecommand{\fD}{\mathfrak{D}}
+\providecommand{\fE}{\mathfrak{E}}
+\providecommand{\fF}{\mathfrak{F}}
+\providecommand{\fG}{\mathfrak{G}}
+\providecommand{\fH}{\mathfrak{H}}
+\providecommand{\fI}{\mathfrak{I}}
+\providecommand{\fJ}{\mathfrak{J}}
+\providecommand{\fK}{\mathfrak{K}}
+\providecommand{\fL}{\mathfrak{L}}
+\providecommand{\fM}{\mathfrak{M}}
+\providecommand{\fN}{\mathfrak{N}}
+\providecommand{\fO}{\mathfrak{O}}
+\providecommand{\fP}{\mathfrak{P}}
+\providecommand{\fQ}{\mathfrak{Q}}
+\providecommand{\fR}{\mathfrak{R}}
+\providecommand{\fS}{\mathfrak{S}}
+\providecommand{\fT}{\mathfrak{T}}
+\providecommand{\fU}{\mathfrak{U}}
+\providecommand{\fV}{\mathfrak{V}}
+\providecommand{\fW}{\mathfrak{W}}
+\providecommand{\fX}{\mathfrak{X}}
+\providecommand{\fY}{\mathfrak{Y}}
+\providecommand{\fZ}{\mathfrak{Z}}
+\providecommand{\fraka}{\mathfrak{a}}
+\providecommand{\frakb}{\mathfrak{b}}
+\providecommand{\frakc}{\mathfrak{c}}
+\providecommand{\frakd}{\mathfrak{d}}
+\providecommand{\frakm}{\mathfrak{m}}
+\providecommand{\frakp}{\mathfrak{p}}
+\providecommand{\frakq}{\mathfrak{q}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\End}{\operatorname{End}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Alg}{\mathbf{Alg}}
+\providecommand{\Aff}{\mathbf{Aff}}
+\providecommand{\mot}{\mathrm{mot}}
+\providecommand{\et}{\mathrm{et}}
+\providecommand{\dR}{\mathrm{dR}}
+\providecommand{\der}{\mathrm{der}}
+\providecommand{\Le}{\leqslant}
+\providecommand{\Ge}{\geqslant}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\mup}{\mu_p}
+\makeatletter
+\@ifundefined{construction}{\newtheorem{construction}{Construction}}{}
+\@ifundefined{notation}{\newtheorem{notation}{Notation}}{}
+\@ifundefined{claim}{\newtheorem{claim}{Claim}}{}
+\makeatother
+
+% --- Pass-2 extra compile shims ---
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\PGL}{\operatorname{PGL}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\limind}{\varinjlim}
+\providecommand{\limproj}{\varprojlim}
+\makeatletter
+\@ifundefined{scholie}{\newtheorem{scholie}{Scholium}}{}
+\makeatother
+% --- end pass-2 extra compile shims ---
+
+
+% --- Pass-2 extra compile shims 2 ---
+\providecommand{\SO}{\operatorname{SO}}
+\providecommand{\SU}{\operatorname{SU}}
+\providecommand{\rk}{\operatorname{rk}}
+\providecommand{\fp}{\mathfrak{p}}
+\providecommand{\DR}{\mathrm{DR}}
+\makeatletter
+\@ifundefined{miseengarde}{\newtheorem{miseengarde}{Warning}}{}
+\@ifundefined{warning}{\newtheorem{warning}{Warning}}{}
+\makeatother
+% --- end pass-2 extra compile shims 2 ---
+
+
+% --- Pass-2 extra compile shims 3 ---
+\providecommand{\U}{\operatorname{U}}
+\providecommand{\NS}{\operatorname{NS}}
+\providecommand{\cris}{\mathrm{cris}}
+% --- end pass-2 extra compile shims 3 ---
+
+
+% --- Pass-2 extra compile shims 4 ---
+\providecommand{\na}{a}
+\providecommand{\supp}{\operatorname{supp}}
+\providecommand{\comp}{\operatorname{comp}}
+% --- end pass-2 extra compile shims 4 ---
+
+
+% --- Pass-2 extra compile shims 5 ---
+\providecommand{\dist}{\operatorname{dist}}
+\makeatletter
+\@ifundefined{variante}{\newtheorem{variante}{Variant}}{}
+\makeatother
+% --- end pass-2 extra compile shims 5 ---
+
+
+% --- Pass-2 extra compile shims 6 ---
+\providecommand{\R}{\mathrm{R}}
+\providecommand{\pr}{\operatorname{pr}}
+\makeatletter
+\@ifundefined{exemple}{\newtheorem{exemple}{Example}}{}
+\makeatother
+% --- end pass-2 extra compile shims 6 ---
+
+
+% --- Pass-2 extra compile shims 7 ---
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Int}{\operatorname{Int}}
+\providecommand{\RHom}{\operatorname{RHom}}
+% --- end pass-2 extra compile shims 7 ---
+
+
+% --- Pass-2 extra compile shims 8 ---
+\providecommand{\Lie}{\operatorname{Lie}}
+% --- end pass-2 extra compile shims 8 ---
+
+
+% --- Pass-2 extra compile shims 9 ---
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+% --- end pass-2 extra compile shims 9 ---
+
+
+% --- Pass-2 extra compile shims 10 ---
+\providecommand{\comma}{,}
+\providecommand{\Pcl}{\operatorname{Pcl}}
+\makeatletter
+\@ifundefined{paraphrase}{\newtheorem{paraphrase}{Paraphrase}}{}
+\makeatother
+% --- end pass-2 extra compile shims 10 ---
+
+
+% --- Pass-2 extra compile shims 11 ---
+\providecommand{\re}{\operatorname{Re}}
+% --- end pass-2 extra compile shims 11 ---
+
+
+% --- Pass-2 extra compile shims 12 ---
+\providecommand{\ab}{\mathrm{ab}}
+\providecommand{\Subset}{\subset}
+% --- end pass-2 extra compile shims 12 ---
+
+% --- end pass-2 compatibility shim ---
+
+\begin{document}
+\begin{center}\small\emph{Literal English translation working draft. Formulae, numbering, and TeX structure are preserved; this is not yet a modern recast.}\end{center}
+\vspace{0.5em}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+One shows ici comment a theorie suitable of the ``motives'' permet of retrouver certain of the results of Shimura on the periods of the abelian varieties of type C-M \cite{Shimura2}. It a paru instructif of commencer by a description informelle of the properties of the motives and of leurs realisations~: c'is this which is fait to the section~1. The section~2 interprete certain results of Shimura a the aide of motives. The section~3 defines the absolute Hodge cycles, and the theorie of the motives which leur is subordonnee. The section~4 given a majoration of the degree of transcendance of the field generated by the periods of a abelian variety quelconque.
+\end{abstract}
+
+\section{THE LANGAGE OF THE MOTIVES}
+
+Let $k$ a field of caracteristique $0$. There exists of the ``motives on $k$'' plusieurs definitions, of which one ignore si they are equivalentes, and ayant chacune leurs vertus. We preciserons to the section~3 laquelle we is utile.
+
+The motives on $k$ forment an additive category, equipped with a tensor product. Each projective variety and smooth $X$ on $k$ defines a motive $h(X)$ on $k$, the \emph{cohomology motivic} of $X$, and all motive on $k$ se deduces of a motive of this form (by decoupage en morceaux and twist a the Tate). Enfin, a various theories of cohomology for the algebraic varieties correspondent of the functors ``realisation'' for the motives.
+
+Each abelian variety $A$ on $k$ defines a motive $T(A)$ on $k$, son $H_1$ \emph{motivic}, and the functor $A \mapsto T(A)$ is fully faithful. Plonger the category of the abelian varieties in celle of the motives a for interet of pouvoir prendre of the $\otimes$. But the objects obtained ne are not geometriques~: it n'y a not of ``functions'' on a motive.
+
+The \emph{rank} of a motive is the dimension of the a quelconque of ses realisations, that we shall maintenant decrire.
+
+Si $k = \CC$, the \emph{Betti realization} of a motive $M$ is a group abelien free of rank finite $H_B(M)$, which is equipped with a \emph{Hodge structure}, that is of a decomposition~:
+\[
+H_B(M) \otimes_\ZZ \CC = \bigoplus_{p+q=n} H^{p,q} \qquad \text{(avec } \overline{H}^{p,q} = H^{q,p}\text{)}.
+\]
+
+Illustrons this on the motive $T(A)$, which is the $H_1$ of a abelian variety $A$. One defines $H_B(T(A)) = H_1(A, \ZZ)$, homology of $A = A(\CC)$ vu as space topologique.
+
+Let $\Lie(A)$ the algebra of Lie of the group analytic $A$, and let $J : H_1(A, \ZZ) \to \Lie(A)$ the homomorphisme ``integration on a $1$-cycle''. one has a exact sequence of groups analytiques complexes~:
+\begin{equation*}
+\begin{CD}
+0 @>>> H_1(A, \ZZ) @>{J}>> \Lie(A) @>{\exp}>> A @>>> 0
+\end{CD}
+\end{equation*}
+
+The Hodge structure of $H_1(A, \CC)$ is such that $H_1(A, \CC) = H^{0,-1} \oplus H^{-1,0}$. One obtains $H^{0,-1}$ as kernel of the map $H_1(A, \CC) \to \Lie(A)$, prolongement $\CC$-lineaire of $J : H_1(A, \ZZ) \to \Lie(A)$.
+
+\bigskip
+
+Placons-we maintenant over a field of caracteristique $0$ and donnons-we a algebraic closure $\bar{k}$ of $k$. For every nombre prime $\ell$, the \emph{realisation $\ell$-adique} of a motive $M$ is a $\ZZ_\ell$-module free of type finite $H_\ell(M)$ (equipped with ailleurs of a action of the Galois group of $\bar{k}$ on $k$). Lorsque $k = \CC$, one dispose of a isomorphism~: $H_\ell(M) \cong H_B(M) \otimes_\ZZ \ZZ_\ell$. Si $A$ is a abelian variety on $k$, si $\bar{k}$ is a algebraic closure of $k$, the realisation $\ell$-adique of $T(A)$ is notee $T_\ell(A)$~; c'is the $\ZZ_\ell$-module~:
+\[
+T_\ell(A) = \varprojlim_n A_{\ell^n}(\bar{k}) \qquad \text{(où } A_{\ell^n}(\bar{k}) \text{ est le groupe des points d'ordre } \ell^n \text{ de } A(\bar{k})\text{)}.
+\]
+
+Si $k = \CC$, the isomorphism $T_\ell(A) \cong H_B(T(A)) \otimes_\ZZ \ZZ_\ell$ is easy a decrire. For every $n$, the projection of $\gamma \otimes x \in H_B(T(A)) \otimes_\ZZ \ZZ_\ell$ on $A_{\ell^n}(\CC)$ se calcule ainsi~; si $m \in H_B(T(A))$ is such that $x - m \in \ell^n (H_B(T(A)) \otimes_\ZZ \ZZ_\ell)$, the exponentielle of the element $\dfrac{m}{\ell^n} \in H_1(A, \QQ)$ is the point of ordre $\ell^n$ voulu.
+
+The \emph{de Rham realization} of $M$ is a space vector on $k$ of dimension finite $H_{DR}(M)$, equipped with a filtration decroissante $F^\bullet$ (the \emph{Hodge filtration}). Lorsque $k = \CC$, one has a isomorphism $H_B(M) \otimes_\QQ \CC \xrightarrow{\sim} H_{DR}(M)$. By this isomorphism, the Hodge filtration is such that $F^p = \bigoplus_{p' \geq p} H^{p',q}$. In the cas of the motive $T(A)$, recall \cite{Weil2} the existence of a ``extension universelle'' $E$ of $A$ by a group vector, which s'inscrit in a exact sequence of algebraic groups~:
+\begin{equation*}
+\begin{CD}
+0 @>>> H^1(A, \mathcal{O}_A)^* @>>> E @>>> A @>>> 0.
+\end{CD}
+\end{equation*}
+one has $H_{DR}(T(A)) = \Lie(E)$, and the Hodge filtration is given by~:
+\[
+0 = F^1 \subset F^0 = H^1(A, \mathcal{O}_A)^* \subset F^{-1} = \Lie(E).
+\]
+Si $k = \CC$, one has $H_1(E, \ZZ) \xrightarrow{\sim} H_1(A, \ZZ)$, of or a morphism~:
+\[
+H_1(A, \CC) \xleftarrow{\sim} H_1(E, \CC) \xrightarrow{J} \Lie(E) = H_{DR}(T(A)).
+\]
+C'is the isomorphism voulu.
+
+\subsection*{Examples}
+
+\textbf{1)} Ici, $k = \QQ$. One va define the \emph{Tate motive} $\ZZ(1)$~; c'is the $H_1$ of the algebraic group $\Gm$. For trouver ses various realisations, one substitue $\Gm$ a $A$ in the definition of $T(A)$. One obtains~:
+\begin{itemize}[label={--}]
+\item $H_B(\ZZ(1)) = 2\pi i \cdot \ZZ$, kernel of $\exp : \CC \to \CC^*$
+\item $H_B(\ZZ(1)) \otimes_\ZZ \CC = H^{-1,-1}$
+\item $H_\ell(\ZZ(1)) = \ZZ_\ell(1) = T_\ell(\Gm) = \varprojlim_n \mu_{\ell^n}(\bar{\QQ})$
+\item $H_{DR}(\ZZ(1)) = \QQ$.
+\end{itemize}
+
+the isomorphism $H_B(\ZZ(1)) \otimes_\QQ \CC \xrightarrow{\sim} H_{DR}(\ZZ(1)) \otimes_\QQ \CC$ envoie $(2\pi i) \otimes 1$ on $2\pi i$. We recall the isomorphisms $H_1(\Gm) \cong H_1(\PP^1 \setminus \{0, \infty\}) \cong H_2(\PP^1)$. Moreover, for every curve algebraic proper smooth and connected on $\QQ$, $H_2(X)$ is isomorphic a $H_2(\PP^1)$ (therefore a $\ZZ(1)$). For every integer $d$, one defines a motive $\ZZ(d)$ of sorte that $\ZZ(d) = \ZZ(d-1) \otimes_\ZZ \ZZ(1)$. one has $\ZZ(m+n) \cong \ZZ(m) \otimes_\ZZ \ZZ(n)$ for $m, n \in \ZZ$.
+
+\textbf{2)} Let $E$ a curve elliptique on $\QQ$. The motive $T(E)$ is of rank $2$. Therefore the motive $\bigwedge^2 T(E)$ is of rank $1$, and one has $\bigwedge^2 T(E) \cong \bigwedge^2 H_1(E) \cong H_2(E) \cong \ZZ(1)$.
+
+Precisons the isomorphism $\bigwedge^2 T(E) \cong \ZZ(1)$ in the differentes realisations.
+
+On $H_1(E(\CC), \RR) \cong \Lie(E)$, the structure complex defines a orientation. Si $(e_1, e_2)$ is a $\ZZ$-base orientee of $H_B(T(E)) = H_1(E(\CC), \ZZ)$, then $e_1 \wedge e_2$ is a base of $H_B(\bigwedge^2 T(E))$~; one lui associated $2\pi i \in H_B(\ZZ(1))$.
+
+the isomorphism $\bigwedge^2(T_\ell(E)) \cong \ZZ_\ell(1)$ is given by the form alternee of Weil \cite{Weil1}. Enfin, one has~: $\bigwedge^2 H_{DR}(T(E)) \cong \Hom(H^2_{DR}(E), \QQ)$. Let $\omega$ and $\eta$ the forms differentielles habituelles of premiere and deuxieme espece. $H^2_{DR}(E)$ is generated by the cup-product $\omega \wedge \eta$ of leurs cohomology classes. By the isomorphism $H_B(\bigwedge^2 T(E)) \otimes_\ZZ \CC \to H_{DR}(\bigwedge^2 T(E)) \otimes_\QQ \CC$, $e_1 \wedge e_2$ a for image the homomorphisme which envoie $\omega \wedge \eta \in H^2_{DR}(E)$ on
+\[
+@@MATH3@@
+\in \CC.
+\]
+The compatibility of the realisations of Betti and of Rham of the isomorphism $\bigwedge^2(T(E)) \cong \ZZ(1)$ equivaut a the \emph{relation of Legendre}
+\[
+\omega_1 \cdot \eta_2 - \omega_2 \cdot \eta_1 = 2\pi i.
+\]
+
+\textbf{3)} Let $A$ a abelian variety on $\QQ$. A the cohomology class of a section hyperplane of $A$ in a embedding projective, correspond a morphism of motives $\bigwedge^2 T(A) \to \ZZ(1)$. En cohomology of Betti, this correspond a form alternee $2\pi i \cdot E$ on $H_B(T(A))$, with values in $2\pi i \cdot \ZZ$. En de Rham cohomology, one has similarly a form alternee $E_{DR}$ on $H_{DR}(T(A))$ with values in $\QQ$. It is classique that $F^0$ is a under-space totalement isotrope. One deduces that one can trouver of the differentielles of premiere espece $\omega_1, \ldots, \omega_g$ on $A$, of the differentielles of deuxieme espece $\eta_1, \ldots, \eta_g$ on $A$, such that the one ait~:
+\[
+E_{DR}(x, y) = \sum_{i=1}^{g} \bigl((\omega_i \cdot x)(\eta_i \cdot y) - (\omega_i \cdot y)(\eta_i \cdot x)\bigr).
+\]
+The compatibility between $E$ and $E_{DR}$ se traduit as suit. Let $(e_1, \ldots, e_{2g})$ a base of $H_B(T(A))$, let $\Omega$ the matrice $g \times 2g$ such that $\Omega_{ij} = \int_{e_j} \omega_i$, and $N$ the matrice $g \times 2g$ such that $N_{ij} = \int_{e_j} \eta_i$. one has~:
+\[
+{}^t\!N \cdot \Omega - {}^t\!\Omega \cdot N = 2i\pi \cdot E.
+\]
+Enfin, for the realisation $\ell$-adique one trouve a form alternee on $T_\ell(A)$ with values in $\ZZ_\ell(1)$~: c'is the form alternee of Weil associated to the diviseur of the section hyperplane \cite{Weil1}.
+
+\section{MOTIVES LIES TO THE ABELIAN VARIETIES OF TYPE C-M}
+
+Let $k$ a under-field algebriquement clos of $\CC$ --- by example $\bar{\QQ}$ --- and let $\mathcal{A}$ the subcategory of the category of the motives on $k$, generated by the $T(A)$ of the abelian varieties (for the operations of tensor product, passage to the dual and direct summands). The functor ``Betti realization of motive deduces of $M/k$ by extension of scalars a $\CC$'' envoie $\mathcal{A}$ in the category of the Hodge structures. It follows formally of the Theorem~1 of the \S\,3 that this functor is fully faithful.
+
+Let $E$ a field CM, $S$ the set of these embeddings complexes and $- : S \to S$ the conjugaison complex. A each function $\varphi : S \to \ZZ$ verifiant
+\begin{equation}\tag{*}
+\varphi(\sigma) + \varphi(\bar{\sigma}) \quad \text{est indépendant de } \sigma \in S,
+\end{equation}
+attachons a Hodge structure $H_\varphi$, equipped with a structure of module on the ring $\mathcal{O}_E$ of the integers of $E$~:
+\[
+H_\varphi = \mathcal{O}_E \text{, muni de la structure de module évidente, et dans la décomposition } H_\varphi \otimes_\ZZ \CC = E \otimes_\QQ \CC \cong \CC^S \text{, le facteur } \CC \text{ d'indice } \sigma \in S \text{ est de type de Hodge } (\varphi(\sigma), \varphi(\bar{\sigma})).
+\]
+
+One checks that the $H_\varphi$ are in the image of $\mathcal{A}$, and same in the image of the subcategory generated by the abelian varieties of type CM. This permet of define the motive $M_\varphi$ on $\bar{\QQ}$ as being celui of Betti realization $H_\varphi$.
+
+The de Rham realization $H_{DR}(M_\varphi)$ is a space vector on $\bar{\QQ}$, equipped with a action of $E$. For every $\sigma \in S$, let $H_{DR}(M_\varphi)_\sigma$ the under-$\bar{\QQ}$-space vector on lequel $x \in E$ agit as $\sigma(x) \in \bar{\QQ}$. Chacun of these vector spaces is of dimension $1$ generated by a element $\omega_\sigma$, and $H_{DR}(M_\varphi)$ en is the sum. Via the isomorphism~: $H_B(M_\varphi) \otimes_\QQ \CC \xrightarrow{\sim} H_{DR}(M_\varphi) \otimes_{\bar{\QQ}} \CC$, a element $e$ of $E = H_B(M_\varphi) \otimes_\ZZ \QQ$ correspond a family $(e_\sigma)$ with $e_\sigma \in H_{DR}(M_\varphi)_\sigma$. One verifies immediatement that the nombre complex $p(\sigma, \varphi)$ such that $p(\sigma, \varphi) \cdot e_\sigma = \omega_\sigma$ ne depend, a multiplication pres by $\bar{\QQ}^*$, ni of $e$ ni of the choix of $\omega_\sigma$. This justifie the notation.
+
+Between the $p(\sigma, \varphi)$ and the \emph{invariants of Shimura} $p_E(\sigma, \varphi)$ (see \cite{Shimura2}), one has the relation~:
+\[
+p_E(\sigma, \varphi) = \frac{p(\sigma, \varphi)}{(2\pi i)^{\varphi(\sigma)}} \quad (\text{modulo } \bar{\QQ}^*)
+\]
+(which n'is that a traduction of the definitions).
+
+The identites between the periods of Shimura, correspondent a of the properties algebraic of the motives $M_\varphi$. Before of the resumer en a tableau, introduisons some notations relatives a extension $F|E$ of field CM. One denotes $S_F$ (resp.~$S_E$) the set of the embeddings complexes of $F$ (resp.~$E$). For $\sigma \in S_F$, one denotes $\sigma|E \in S_E$ the restriction a $E$ of the embedding $\sigma$.
+
+For $\varphi : S_E \to \ZZ$ satisfaisant $(*)$, one denotes $\Inf(\varphi)$ the function of $S_F$ toward $\ZZ$ such that $\Inf(\varphi)(\sigma) = \varphi(\sigma|E)$. This function satisfait $(*)$. For $\varphi : S_F \to \ZZ$ satisfaisant $(*)$, one denotes $\Res(\varphi)$ the function of $S_E$ toward $\ZZ$ such that $\Res(\varphi)(\sigma) = \sum_{\tau|E = \sigma} \varphi(\tau)$~; it satisfait $(*)$.
+
+\begin{center}
+\begin{tabular}{p{6.5cm}|p{6.5cm}}
+\multicolumn{1}{c}{\textbf{Identites between periods}} & \multicolumn{1}{c}{\textbf{Relations between motives}} \\ \midrule
+1. $p(\sigma, \varphi' + \varphi'') = p(\sigma, \varphi') \cdot p(\sigma, \varphi'')$ & 1. $M_{\varphi' + \varphi''} \cong M_{\varphi'} \otimes_E M_{\varphi''}$ \\ \addlinespace
+2. $F|E$ extension of field CM, $\sigma \in S_F$, $\varphi : S_E \to \ZZ$ satisfaisant $(*)$~:
+
+$p(\sigma, \Inf(\varphi)) = p(\sigma|E, \varphi)$ & 2. $M_{\Inf(\varphi)} \cong M_\varphi \otimes_E F$ \\ \addlinespace
+3. $\sigma \in S_E$, $\varphi : S_F \to \ZZ$ satisfaisant $(*)$~:
+
+$p(\sigma, \Res\,\varphi) = \prod_{\tau|E = \sigma} p(\tau, \varphi)$ & 3. $M_\varphi$ is a $F$-motive of rank $1$, therefore a $E$-motive of rank $d = [F:E]$
+
+$M_{\Res(\varphi)} \cong \bigwedge^d_E M_\varphi$ \\ \addlinespace
+4. $p(\sigma, \underline{1}) = 2\pi i$ & 4. $M_{\underline{1}} = \ZZ(-1)$ (dual of the Tate motive) \\
+\end{tabular}
+\end{center}
+
+These identites between periods permettent of retrouver the theorems 1 a 4 of the expose of Shimura \cite{Shimura2}. Notons that in \cite{Shimura2} Shimura relie the periods $p_E(\sigma, \varphi)$ to the values en a point special of modular forms of Hilbert, rationnelles on $\bar{\QQ}$.
+
+\section{ABSOLUTE HODGE CYCLES AND MOTIVES}
+
+Let $X$ a projective variety and smooth on $\CC$. A \emph{cycle of Hodge} of codimension $d$ on $X$ is a element of $H^{2d}(X, \QQ)$ of type $(d,d)$, or, this which revient to the same, a element of $H^{2d}(X, \QQ)(d) \overset{\text{def}}{=} H^{2d}(X, \QQ) \otimes_\ZZ \ZZ(d)$ of type $(0,0)$. Remarquons that for $x \in H^{2d}(X, \QQ)(d)$, it is equivalent of dire that $x$ is of type $(0,0)$ or that $x$ is in $F^0$. A cohomology class of a under-algebraic variety of $X$ is a cycle of Hodge. Hodge a conjecture that all cycle of Hodge serait combinaison lineaire of cohomology classes of under-varieties. This conjecture paraissant inaccessible, one introduit a notion which ``arithmetise'' celle of cycle of Hodge.
+
+The cycles that one defines auront all the attributs visibles of the cycles algebraic, namely of the realisations en cohomology $\ell$-adiques and of Rham. A \emph{absolute Hodge cycle} of codimension $d$ on a projective variety smooth $X$, over a field $k$ of caracteristique $0$, will be a collection of cohomology classes in the groups $H^{2d}_{et}(X_{\bar{k}}, \QQ_\ell)(d)$ (resp.~$H^{2d}_{DR}(X)(d)$) satisfaisant the deux conditions
+\begin{itemize}
+\item the element of $H^{2d}_{DR}(X)(d)$ is in $F^0$~;
+\item for every embedding $k \hookrightarrow \CC$, the differentes cohomology classes correspondent (via the isomorphisms of the \S\,1) a class rational of the cohomology of Betti of $X \otimes_k \CC$.
+\end{itemize}
+
+one has the inclusions~: $(\text{cycles algébriques}) \subset (\text{cycles de Hodge absolus}) \subset (\text{cycles de Hodge})$. Utilisons this definition for preciser the category of the motives on laquelle one has travaille in the \S\,1 and 2. Let of abord $\mathcal{V}(k)$ the category of the smooth projective varieties on $k$. One constructs a category \emph{additive} $\mathcal{M}(k)$, in laquelle the groups $\Hom(M,N)$ are of the vector spaces on $\QQ$, which is equipped of the data suivantes~:
+\begin{enumerate}[label=\alph*)]
+\item a tensor product $\otimes$, associatif, commutative, distributive with respect to the addition of the objects
+\item a contravariant functor $H^*$ of $\mathcal{V}(k)$ in $\mathcal{M}(k)$, bijective on objects, compatible to the sums, sending products to tensor products.
+\end{enumerate}
+In $\mathcal{M}(k)$, one has, for $X$ and $Y$ connected~:
+\[
+\Hom(H^*(X), H^*(Y)) = Z^{\dim(Y)}_{h.a}(X \times Y),
+\]
+or one denotes $Z^d_{h.a}(Z)$ the space vector on $\QQ$ of the absolute Hodge cycles of codimension $d$ on $Z$. The construction of the category of motives $\mathcal{M}(k)$ se fait then all as in \cite{Demazure}, the cycles algebraic being remplaces by the absolute Hodge cycles. Grace a this new definition, the composantes of Kunneth of the diagonale of $X \times X$ being of Hodge absolues, one has in $\mathcal{M}(k)$ a decomposition~:
+\[
+H^*(X) = \bigoplus_i H^i(X).
+\]
+
+The result which suit a fait the object of exposes a the I.H.E.S. en 1979.
+
+\begin{theorem}
+All cycle of Hodge on a abelian variety is of Hodge absolute.
+\end{theorem}
+
+Signalons the
+
+\begin{corollary}[Borovoi]
+Let $A$ a abelian variety over a field $k$ of caracteristique $0$, $\xi$ a cycle of Hodge on $A$. The correspondants $\ell$-adiques $\xi_\ell$ of $\xi$ are fixes by a under-group open of $\Gal(\bar{k}|k)$.
+\end{corollary}
+
+\section{PERIODS OF THE INTEGRALS OF THE ABELIAN VARIETIES}
+
+Let $A$ a abelian variety complex, $H_1(A, \CC) = H^{0,-1} \oplus H^{-1,0}$ the decomposition of Hodge of $H_B(A)$ (cf.~\S\,1). Considerons $\GL(H_1(A))$ as algebraic group on $\QQ$. one has a morphism of algebraic groups complexes~:
+\[
+\mu : \Gm \to \GL(H_1(A, \CC)) \text{ tel que } \mu(z) \text{ agisse par l'homothétie de rapport } z \text{ sur } H^{-1,0},
+\]
+by the identity on $H^{0,-1}$. The \emph{group of Hodge} $G$ of $A$ is the adherence of Zariski of the under-group $\mu(\CC^*)$ of $\GL(H_1(A))$. En of other termes, $G$ is a under-algebraic group on $\QQ$ of $\GL(H_1(A))$. A function regular on a open of Zariski of $G$, and $\QQ$-rational, is zero on $G$ if and only if it is zero on $\mu(\CC^*)$. One verifies aisement that $G$ contient the homotheties of $H_1(A)$. Voici a seconde description of $G$, tres utile~: one considers all the tenseurs rationnels of type $(-\frac{N}{2}, -\frac{N}{2})$ in the tensor products $\bigotimes^N H_1(A)$. Then $G$ is the under-group of $\GL(H_1(A))$ form of the transformations lineaires $g$ for lesquelles there exists a scalaire $\mu$ such that~: $g \cdot t = \mu^m t$, for every tenseur $t$ of type $(m,m)$. Enfin, one shows that $G$ is the group which fixe all the absolute Hodge cycles of type $(0,0)$ in the spaces of tenseurs mixtes on $H_1(A)$ (mixtes = covariants and contravariants).
+
+Supposons maintenant $A$ defined on a under-field $k$ of $\CC$. Posons $g = \dim(A)$.
+
+\begin{theorem}
+Let $\omega_1, \ldots, \omega_g$ of the differentielles of premiere espece on $A$, $\eta_1, \ldots, \eta_g$ of the differentielles of deuxieme espece on $A$, such that $(\omega_1, \ldots, \omega_g, \eta_1, \ldots, \eta_g)$ Let base of $H^1_{DR}(A)$. Let $K$ the under-field of $\CC$ generated by $k$ and by the periods $\int_\gamma \omega_i$, $\int_\gamma \eta_i$ $(1 \leq i \leq g$, $\gamma \in H_1(A, \ZZ))$~; the degree of transcendance of $K$ on $k$ is majore by the dimension of $G$.
+\end{theorem}
+
+\begin{proof}[Proof]
+$K$ is the field of rationalite of the isomorphism $H_{1,B}(A) \otimes_\QQ \CC \xrightarrow{\sim} H_{1,DR}(A) \otimes_k \CC$ given by ``integration'' on a cycle. This isomorphism preserve the cohomology classes of the absolute Hodge cycles. Let $P$ the algebraic variety formee of the isomorphisms which have this property. Of the definition of $G$, and of the theorem~1 resulte that $P$ is a space principal homogene under $G$, defined on $k$, therefore $\dim(P) = \dim(G)$. One conclut by the lemma suivant~:
+
+\begin{lemma}
+Let $z$ a point of $\AA^N(\CC)$~; the degree of transcendance of $k(z)$ on $k$ is egal a the dimension of the $k$-adherence of Zariski of $\{z\}$~;
+\end{lemma}
+\noindent C'is a tautologie. \hfill C.Q.F.D.
+\end{proof}
+
+\begin{remark}
+Of the example 3 of the \S\,1, resulte that $2\pi i \in K$. One can of ailleurs montrer that the degree of transcendance of $K$ on $k(2\pi i)$ is majore by $\dim(G) - 1$.
+\end{remark}
+
+\begin{corollary}
+With the notations of the Theorem~2, supposons moreover $A$ simple of type C-M. The degree of transcendance of $K$ on $k$ is majore by $g + 1$.
+\end{corollary}
+
+\begin{proof}[Proof]
+It is enough to montrer~: $\dim(G) \leq g + 1$. Or $\mu(\CC^*)$ commute a the action on $H_1(A, \QQ)$ of the field $E$. It follows that $G$ commute also a this action, and that $G$ is a tore algebraic. Moreover $G$ preserve, a factor pres, the form alternee associated a section hyperplane (see the example 3 of the \S\,1). of or the assertion.
+\end{proof}
+
+Remarquons that, in this dernier cas, one dispose of the minoration suivante~: $\dim(G) \geq 2 + \log_2(g)$, due a Ribet \cite{Ribet}.
+
+\begin{thebibliography}{99}
+\bibitem{Deligne} P. Deligne~: \textit{Values of functions L and periods of integrals}, in Proceedings of symposia in Pure Mathematics, Volume 33, 1978.
+\bibitem{Demazure} M. Demazure~: \textit{Expose to the seminaire Bourbaki} n 365, in Springer Lecture Notes, 180 (1971).
+\bibitem{Ribet} K. Ribet~: \textit{Division fields of abelian varieties with complex multiplications}, in this volume.
+\bibitem{Shimura1} G. Shimura~: \textit{One the derivatives of modular forms}, Duke Math. Journal 44 (1977), 365--387.
+\bibitem{Shimura2} G. Shimura~: \textit{The periods of abelian varieties with complex multiplication and the special values of certain zeta functions}, in this volume.
+\bibitem{Weil1} A. Weil~: \textit{Curves algebraic and abelian varieties}, Hermann 1971 (reimpression).
+\bibitem{Weil2} A. Weil~: \textit{Abelian varieties}, in ``Algebra and Theorie of the Nombres'', Colloque international of the C.N.R.S., 24, 1950, p.\,124--127.
+\end{thebibliography}
+
+\vfill
+
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+\small
+P. Deligne\\
+Institut of the Hautes Etudes Scientifiques\\
+91440 Bures-on-Yvette
+\end{minipage}
+\end{flushright}
+
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+\small
+J.-L. Brylinski\\
+Ecole polytechnique, Centre of Mathematiques\\
+91128 Palaiseau cedex
+\end{minipage}
+\end{flushright}
+
+\end{document}

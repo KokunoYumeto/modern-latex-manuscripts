@@ -8,7 +8,7 @@ Generated: 2026-05-29T03:33:13
 |---|---:|---:|---:|---:|---:|---|---|
 | main | [20436971](https://zenodo.org/records/20436971) | 100 | 53 | 45 | 20698.65 | none | 0 |
 | ega | [20434859](https://zenodo.org/records/20434859) | 14 | 9 | 3 | 462.28 | none | 0 |
-| sga | [20436860](https://zenodo.org/records/20436860) | 58 | 37 | 20 | 586.77 | none | 0 |
+| sga | [20441206](https://zenodo.org/records/20441206) | 58 | 37 | 20 | 586.77 | none | 0 |
 | non_european_consolidated | [20436420](https://zenodo.org/records/20436420) | 74 | 66 | 7 | 4090.3 | none | 0 |
 | chinese | [20435670](https://zenodo.org/records/20435670) | 29 | 27 | 1 | 121.81 | none | 0 |
 | indian_sanskrit | [20435677](https://zenodo.org/records/20435677) | 13 | 11 | 1 | 699.28 | none | 0 |
@@ -18,9 +18,9 @@ Generated: 2026-05-29T03:33:13
 | noether | [20436637](https://zenodo.org/records/20436637) | 4 | 2 | 1 | 19.55 | none | 0 |
 | riemann | [20434317](https://zenodo.org/records/20434317) | 4 | 2 | 2 | 52.35 | none | 0 |
 | gauss | [20433382](https://zenodo.org/records/20433382) | 10 | 8 | 1 | 166.2 | none | 0 |
-| deligne | [20414959](https://zenodo.org/records/20414959) | 93 | 91 | 1 | 207.28 | none | 0 |
+| deligne | [20414959](https://zenodo.org/records/20443168) | 93 | 91 | 1 | 207.28 | none | 0 |
 | classical_algebra_arithmetic | [20418609](https://zenodo.org/records/20418609) | 23 | 21 | 1 | 193.5 | none | 0 |
-| additional_author_cluster | [20416839](https://zenodo.org/records/20416839) | 12 | 10 | 1 | 137.78 | none | 0 |
+| additional_author_cluster | [20416839](https://zenodo.org/records/20442003) | 12 | 10 | 1 | 137.78 | none | 0 |
 
 ## Flagged Details
 
@@ -47,7 +47,7 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `15 EGA IV Part 2 - French Original (NUMDAM PMIHES 24, 1965).pdf`
 - `00 EGA - English Translation Working Draft.pdf`
 
-### sga (20436860)
+### sga (20441206)
 - `40 SGA 1 - French Reference PDF.pdf`
 - `16 SGA 4 - Expose VII Complete English Draft.pdf`
 - `44 SGA 3 Part 3 - French Reference PDF.pdf`
@@ -166,3 +166,4 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `80 Additional Author Cluster - Sources, TeX, and Provenance.zip`
 - `00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf`
 - `01 Reader PDF - Hecke - Vorlesungen ueber die Theorie der algebraischen Zahlen.pdf`
+

@@ -1,0 +1,631 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,mathtools,mathrsfs,tikz-cd}
+\usepackage{geometry,hyperref,enumitem,microtype}
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+\allowdisplaybreaks
+\sloppy
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Imop}{Im}
+
+\newcommand{\cD}{\mathscr{D}}
+\newcommand{\cC}{\mathscr{C}}
+\newcommand{\cA}{\mathscr{A}}
+\newcommand{\cM}{\mathscr{M}}
+\newcommand{\cB}{\mathscr{B}}
+\newcommand{\bQ}{\mathbf{Q}}
+
+\title{\textbf{Decompositions in the Derived Category}}
+\author{\textbf{Pierre Deligne}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Translator's note.} This is a direct English working translation from the project TeX transcription. Mathematical notation and numbering have been kept close to the source; the prose has been normalized into contemporary English.
+
+\medskip
+
+Let $\cD$ be a triangulated category equipped with a $t$-structure [1, \S\,1.3.1], and let $\cC$ be its heart (loc. cit.). We use the notation $\cD^{\leqslant a}$, $\cD^{\geqslant b}$, $\tau_{[a,b]}$, and $H^i$ of [1, \S\,1.3]. Let $K\mapsto K(1)$ be an autoequivalence of $\cD$, carrying distinguished triangles to distinguished triangles and respecting the $t$-structure. We write $K\mapsto K(i)$ for the $i$-th iterate, $i\in\mathbb{Z}$, of this autoequivalence. We will call the functors $K\mapsto K(i)$ ``twists.''
+
+We assume that the objects of $\cD$ have bounded cohomology: every object belongs to some $\cD^{\leqslant a}$ and to some $\cD^{\geqslant b}$. If this hypothesis is not satisfied, then the objects considered below should be assumed to have bounded cohomology.
+
+Let $K$ be an object of $\cD$, equipped with a morphism
+\begin{equation}\label{eq:0.1}
+\eta\colon K\to K(1)[2].
+\end{equation}
+We will again write $\eta$ for the morphisms deduced from $\eta$ by twisting $(i)$, shifting, and truncating $\tau_{[a,b]}$, and we write $\eta^i$ for a composite of $i$ such morphisms. For example, we again write $\eta$ for the morphisms in the abelian category $\cC$
+\begin{equation}\label{eq:0.2}
+\eta\colon H^iK\to H^{i+2}K(1)
+\end{equation}
+deduced from \eqref{eq:0.1}.
+
+Assume that $\eta$ satisfies the following condition.
+
+\smallskip
+\noindent\textbf{(L.V.)} For every $i\geqslant0$, the $i$-th iterate of $\eta$,
+\[
+\eta^i\colon H^{-i}(K)\to H^i(K)(i),
+\]
+is an isomorphism.
+\smallskip
+
+The arguments of [2], recalled in paragraph 1, then show that $K$ is isomorphic to the sum of the $H^i(K)$, each placed in its cohomological degree:
+\begin{equation}\label{eq:0.3}
+K\simeq \bigoplus H^i(K)[-i].
+\end{equation}
+
+In [2], I announced the existence of a canonical isomorphism \eqref{eq:0.3}. The purpose of this note is to define one, and in fact several.
+
+\section{Review of the proof of [2]}
+
+For $i\geqslant0$, the primitive part $P^{-i}$ of $H^{-i}(K)$ is the kernel of
+\[
+\eta^{i+1}\colon H^{-i}(K)\to H^{i+2}(K)(i+1).
+\]
+It follows from (L.V.) that the iterated morphisms \eqref{eq:0.2} induce a direct-sum decomposition
+\begin{equation}\label{eq:1.1}
+\sum_{j\geqslant0}\eta^j\colon \bigoplus_{j\geqslant0}P^{-i-2j}(-j)\xrightarrow{\sim}H^{-i}(K).
+\end{equation}
+
+For $H^i(K)$, this gives an isomorphism
+\begin{equation}\label{eq:1.2}
+\sum_{j\geqslant0}\eta^{i+j}\colon \bigoplus_{j\geqslant0}P^{-i-2j}(-i-j)\xrightarrow{\sim}H^i(K).
+\end{equation}
+
+These isomorphisms assemble into
+\begin{equation}\label{eq:1.3}
+\sum\eta^j\colon \bigoplus_{i,j}P^{-i}(-j)\xrightarrow{\sim}H^*(K),
+\end{equation}
+where the sum is over $i,j$ with $0\leqslant j\leqslant i$. In \eqref{eq:1.3}, $P^{-i}(-j)$ is a direct summand of $H^{2j-i}(K)$.
+
+Recall that a cohomological functor $F$ from $\cD$ to an abelian category $\cM$ is an additive functor such that, for every distinguished triangle $K\to L\to M\to K[1]$, the sequence $F(K)\to F(L)\to F(M)$ is exact [6, \S\,3.1]. Put $F^i(K)=F(K[i])$. By rotating the distinguished triangle $K\to L\to M\to K[1]$, one sees that a cohomological functor $F$ gives a long exact sequence
+\[
+\cdots\to F^i(K)\to F^i(L)\to F^i(M)\to F^{i+1}(K)\to F^{i+1}(L)\to\cdots.
+\]
+
+For $K$ in $\cD$, the truncations $\tau_{[a,b]}K$ of $K$ give distinguished triangles
+\[
+\to \tau_{[a,b]}K\to \tau_{[a,c]}K\to \tau_{[b+1,c]}K\to .
+\]
+The system of corresponding long exact sequences is a ``spectral object'' in the sense of J. L. Verdier and supplies a spectral sequence
+\[
+E_2^{pq}=F^pH^qK\Rightarrow F^{p+q}K.
+\]
+See the appendix. Let ${}^i\!E_2^{pq}$ be the analogous spectral sequence for $K(i)$. A morphism \eqref{eq:0.1} gives morphisms of spectral sequences
+\[
+{}^i\!E_2^{pq}\to {}^{i+1}\!E_2^{p,q+2}.
+\]
+
+We show that (L.V.) forces these spectral sequences to degenerate. Proceeding by induction on $r\geqslant2$, assume that the $d_s$ vanish for $2\leqslant s<r$, and prove that $d_r=0$. For $q\leqslant0$, let ${}^i\!P^{pq}$ be the direct summand $F^pP^q(i)$ of ${}^i\!E_2^{pq}={}^i\!E_r^{pq}$.
+
+By \eqref{eq:1.1} and \eqref{eq:1.2}, it is enough to verify that $d_r$ vanishes on the ${}^i\!P^{pq}$. By definition, ${}^i\!P^{pq}$ is annihilated by $\eta^{q+1}$. The morphism $d_r$ sends ${}^i\!E_r^{pq}$ to ${}^i\!E_r^{p+r,q-r+1}$, on which $\eta^{q+1}$ is injective. The vanishing of $d_r$ follows.
+
+Applying the degeneration of \eqref{eq:1.3} to a cohomological functor $\Hom(X,K)$, with $X$ in $\cC$, one finds that every morphism $X\to H^iK$ lifts to a degree-$i$ morphism from $X$ to $K$. In particular, for $X=H^iK$, the identity map of $H^iK$ lifts to a degree-$i$ morphism from $H^iK$ to $K$. The sum of these morphisms
+\[
+\bigoplus H^iK[-i]\xrightarrow{\sim}K
+\]
+is an isomorphism on cohomology, hence an isomorphism.
+
+\section{An isomorphism \eqref{eq:0.3}}
+
+Let $K,\eta$ satisfy (L.V.).
+
+\begin{lemma}\label{lem:2.1}
+Let $F$ be a cohomological functor from $\cD$ to the category of abelian groups. Let $i\geqslant0$ and let $x\in F(\tau_{\geqslant -i}K)$ be such that $\eta^{i+1}(x)\in F^{2(i+1)}(\tau_{\geqslant i+2}K(i+1))$ is zero. Then $x$ has a unique lift $y$ in $F(\tau_{\geqslant -i-1}K)$ such that $\eta^{i+1}(y)\in F^{2(i+1)}(\tau_{\geqslant i+1}K(i+1))$ is zero.
+\end{lemma}
+
+\begin{proof}
+We saw in paragraph 1 that $K$ is isomorphic to the sum of the $H^i(K)[-i]$. It follows that the sequences
+\[
+0\to F^aH^aK\to F\tau_{\geqslant a}K\to F\tau_{\geqslant a+1}K\to0
+\]
+are exact, and similarly for the $K(i)$. The morphism $\eta^{i+1}$ induces a morphism of short exact sequences
+\[
+\begin{tikzcd}[column sep=small]
+0 \arrow[r] & F^{i+1}H^{-i-1}K \arrow[r] \arrow[d] & F\tau_{\geqslant -i-1}K \arrow[r] \arrow[d] & F\tau_{\geqslant -i}K \arrow[r] \arrow[d] & 0 \\
+0 \arrow[r] & F^{i+1}H^{i+1}K(i+1) \arrow[r] & F^{2(i+1)}\tau_{\geqslant i+1}K(i+1) \arrow[r] & F^{2(i+1)}\tau_{\geqslant i+2}K(i+1) \arrow[r] & 0.
+\end{tikzcd}
+\]
+It remains only to apply the snake lemma.
+\end{proof}
+
+The element $y$ of Lemma \ref{lem:2.1} satisfies the hypothesis of Lemma \ref{lem:2.1} for $i+1$, and one concludes by induction.
+
+\begin{lemma}\label{lem:2.2}
+Under the hypotheses of Lemma \ref{lem:2.1}, there exists a unique lift $y\in F(K)$ such that, for each $s>i$, $\eta^s y$ has zero image in $F^{2s}(\tau_{\geqslant s}K(s))$.
+\end{lemma}
+
+\subsection*{2.3}
+Apply Lemma \ref{lem:2.2} to the cohomological functor $F(L):=\Hom(P^{-i}[i],L)$ and to the element $x\colon P^{-i}[i]\to \tau_{\geqslant -i}K$ defined by the inclusion of $P^{-i}$ into $H^{-i}K$. The hypothesis $\eta^{i+1}x=0\colon P^{-i}[-i-2]\to\tau_{\geqslant i+2}K(i+1)$ is satisfied because $\eta^{i+1}\colon P^{-i}\to H^{i+2}K(i+1)$ is zero. We obtain the following.
+
+\begin{proposition}\label{prop:2.4}
+Let $i\geqslant0$. There exists a unique morphism $f_i$ from $P^{-i}[i]$ to $K$ such that
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $H^{-i}(f_i)$ is the inclusion of $P^{-i}$ into $H^{-i}K$;
+\item for each $s>i$, the morphism induced by $\eta^sf_i$, from $P^{-i}[i]$ to $(\tau_{\geqslant s}K)(s)[2s]$, is zero.
+\end{enumerate}
+\end{proposition}
+
+\subsection*{2.5}
+From the morphisms $f_i$ of Proposition \ref{prop:2.4} and from \eqref{eq:1.3}, one deduces morphisms $g_i\colon H^i(K)[-i]\to K$ by the rule
+\begin{equation}\label{eq:2.5.1}
+\text{on the direct summand }P^{-i}(-j)\text{ of }H^{2j-i}\ (0\leqslant j\leqslant i),\quad g_i\text{ is }\eta^jf_{i-2j}.
+\end{equation}
+The sum of these morphisms is an isomorphism \eqref{eq:0.3}.
+
+\subsection*{2.6}
+Let
+\[
+\varphi\colon \bigoplus H^i(K)[-i]\xrightarrow{\sim}K
+\]
+be an isomorphism inducing the identity on cohomology. Put $Q^{i,j}=P^{-i}(-j)[i-2j]$, so that $P^{-i}(-j)$ lies in cohomological degree $2j-i$. Combining $\varphi$ with the isomorphism \eqref{eq:1.3}, one obtains
+\begin{equation}\label{eq:2.6.1}
+\varphi_1\colon \bigoplus_{0\leqslant j\leqslant i}Q^{i,j}\xrightarrow{\sim}K.
+\end{equation}
+
+We denote by $\eta^{k,\ell}_{i,j}$ the matrix entries of $\eta\colon K\to K(1)[2]$ relative to this decomposition:
+\[
+\eta^{k,\ell}_{i,j}\colon Q^{i,j}\to Q^{k,\ell}(1)[2].
+\]
+These matrix entries are zero for $2j-i<2\ell-k-2$, since, for $A,B$ in $\cC$, one has $\Hom(A[-n],B[-m])=0$ for $n<m$. For $2j-i=2\ell-k-2$, this is the morphism induced by $\eta\colon H^{2j-i}(K)\to H^{2j-i+2}(K)(1)$: the identity of $P^{-i}(-j)$ if $k=i$ and $\ell=j+1$, and $0$ otherwise.
+
+\begin{proposition}\label{prop:2.7}
+For an isomorphism $\varphi$ as in 2.6 to be the one defined in 2.5, it is necessary and sufficient that
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item for $j<i$, the only nonzero $\eta^{k,\ell}_{i,j}$ is the evident identity morphism $\eta^{i,j+1}_{i,j}$;
+\item $\eta^{k,\ell}_{i,i}$ is nonzero only for $\ell\leqslant i$.
+\end{enumerate}
+\end{proposition}
+
+The following picture may help one follow the argument. Each $\bullet$ represents a direct summand $Q^{i,j}$. In each row, $i$ is constant. Each column corresponds to one $H^n$, with $Q^{i,j}$ contributing to $H^{2j-i}$. Condition (i) determines $\eta$, except on the right side of the triangle. Condition (ii) says that $\eta^{k,\ell}_{i,i}$ is nonzero only for $k,\ell$ in the region to the left of the dotted line.
+
+\begin{center}
+\begin{tabular}{cccccc}
+$H^{-i}$ & $H^0$ & $H^i$ & & & \\[4pt]
+$\bullet$ & & & & & \\[-2pt]
+& $\bullet$ & & & & \\[-2pt]
+& & $\bullet$ & & & \\[-2pt]
+& & $\ddots$ & & & \\[-2pt]
+& & $\bullet$ & $\bullet$ & & \\[-2pt]
+& & & & $\bullet$ &
+\end{tabular}
+\end{center}
+
+\medskip
+\noindent\textbf{Notation.} We lighten notation by calling an $a$-morphism from $K$ to $L$ a morphism from $K$ to $L(a)[2a]$. For example, $\eta^{k,\ell}_{i,j}$ is a $1$-morphism from $Q^{i,j}$ to $Q^{k,\ell}$.
+
+\begin{proof}
+Identify $K$ with the sum of the $H^i(K)[-i]$ by means of $\varphi$. By definition, the isomorphism $\varphi$ of 2.5 is characterized by (i) and by the condition
+\begin{enumerate}[label=($*$)]
+\item for every $i\geqslant0$ and $s>i$, the $s$-morphism $\eta^s$ sends $Q^{i,0}$ into the sum of the $H^n(K)[-n]$ for $n<s$.
+\end{enumerate}
+Assume (i), so that $\eta$ is evident on $Q^{i,j}$ for $j<i$. Then condition ($*$) is equivalent to
+\begin{enumerate}[label=($**$)]
+\item for $t>0$, the $t$-morphism $\eta^t$ sends $Q^{i,i}$ into the sum of the $H^n(K)[-n]$ for $n<i+t$.
+\end{enumerate}
+
+\emph{Proof that $(**)$ implies (ii).} We prove by induction on $k-\ell$ that $\eta^{k,\ell}_{i,i}=0$ if $\ell>i$. Assume that the assertion has been proved for $k-\ell<a$, and prove it for $k-\ell=a$. The restriction of $\eta^{a+1}$ to $Q^{i,i}$ is the sum
+\[
+\sum \eta^a\circ\eta^{k,\ell}_{i,i}.
+\]
+The terms with $\ell>i$ are controlled by the induction hypothesis and by (i): they are zero if $k-\ell<a$; for $k-\ell\geqslant a$, they take values in the distinct $Q^{k,\ell+a}$, and the vanishing of $\eta^a\eta^{k,\ell}_{i,i}$ implies the vanishing of $\eta^{k,\ell}_{i,i}$. Note that $Q^{k,\ell+a}\subset H^n[-n]$ for $n=2\ell+2a-k$. For $k-\ell=a$, one therefore lands in $H^k$, and the hypothesis $\ell=k-a>i$ gives $k>i+a$, a value of $k$ forbidden by ($**$). It remains to show that these terms cannot cancel with those for $\ell\leqslant i$. It is enough to show that, if $\ell\leqslant i$, then on $Q^{k,\ell}$ the $a$-morphism $\eta^a$ has values in the sum of the $H^n[-n]$ for $n\leqslant i+a$.
+
+First case: $a\leqslant k-\ell$. One lands in $H^{-k+2\ell+2a}$, and
+\[
+-k+2\ell+2a=(-k+\ell+a)+\ell+a\leqslant0+i+a=i+a.
+\]
+
+Second case: $a>k-\ell$. Write $\eta^a=\eta^{a-(k-\ell)}\eta^{k-\ell}$, and consider $\eta^{a-(k-\ell)}$ on $Q^{k,k}$. Hypothesis ($*$) ensures that one lands in the $H^n$ with
+\[
+n< k+(a-(k-\ell))=a+\ell\leqslant a+i.
+\]
+
+\emph{Proof that (ii) implies (i).} We prove by induction on $a\geqslant1$ that the $a$-morphism $\eta^a$ restricted to $Q^{i,i}$ has values in the $Q^{k,\ell}$ with $\ell\leqslant i+a-1$. For $a=1$ this is hypothesis (ii). Assume the claim for $a$, and consider $\eta^{a+1}=\eta\circ\eta^a$. It is enough to see that, if $\ell\leqslant i+a-1$, the restriction of the $1$-morphism $\eta$ to $Q^{k,\ell}$ has values in the sum of the $Q^{m,n}$ with $n\leqslant i+a$. If $\ell<k$, this follows from (i). If $\ell=k$, it follows from (ii).
+
+Finally $Q^{k,\ell}$ lies in $H^n[-n]$ for $n=2\ell-k$, and if $\ell\leqslant i+a-1$ then
+\[
+n=2\ell-k=\ell-(k-\ell)\leqslant\ell\leqslant i+a-1.
+\]
+\end{proof}
+
+\section{Another isomorphism \eqref{eq:0.3}}
+
+\subsection*{3.1}
+The opposite category $\cD^0$ of $\cD$ is again a triangulated category. Its translation functor is $K^0\mapsto (K[-1])^0$. We equip it with the autoequivalence $(1)$ for which $K^0(1)=K(-1)^0$.
+
+The $t$-structure of $\cD$ supplies one on $\cD^0$, and $\eta\colon K\to K(1)[2]$ transposes to
+\[
+{}^t\eta\colon K^0\to K^0(1)[2].
+\]
+For $\eta$ to satisfy (L.V.) it is necessary and sufficient that ${}^t\eta$ satisfy (L.V.).
+
+The construction (2.5) is not self-dual, as is seen from its characterization in Proposition \ref{prop:2.7}. The dual construction, obtained from Proposition \ref{prop:2.4} applied to ${}^t\eta$, gives morphisms
+\[
+f'_i\colon K\to P^{-i}(-i)[-i]
+\]
+such that $H^i(f'_i)$ is the projection of $H^i(K)$ onto $P^{-i}(-i)$, and such that, for each $s>i$, the morphism induced by $f'_i\eta^s$, from $K$ to $P^{-i}(-i)[-i](s)[2s]$, is zero on $\tau_{\leqslant -s}K$. Proceeding as in 2.5, one deduces morphisms $g'_i\colon K\to H^i(K)[-i]$ whose sum is an isomorphism from $K$ to the sum of the $H^i(K)[-i]$. This isomorphism is in general not the inverse of the one constructed in 2.5.
+
+In this paragraph we assume that we are in characteristic zero, that is, that the category $\cD$ is $\bQ$-linear. Let $K,\eta$ satisfy (L.V.). Our aim is to construct a self-dual isomorphism \eqref{eq:0.3}.
+
+\subsection*{3.2}
+The grading of $H^*K$ defines an endomorphism
+\[
+h\colon H^*K\to H^*K:
+\text{ multiplication by }n\text{ on }H^nK.
+\]
+Passing to cohomology, $\eta$ gives a morphism of degree $2$
+\[
+e\colon H^*K\to H^*K(1).
+\]
+Because we are in characteristic zero, one can complete $h$ and $e$ by a morphism of degree $-2$
+\[
+f\colon H^*K\to H^*K(-1)
+\]
+such that $h,e,f$ satisfy the relations between the standard generators of $\mathfrak{sl}(2)$:
+\[
+[h,e]=2e,\qquad [h,f]=-2f,\qquad [e,f]=h.
+\]
+To give meaning to these formulae, a morphism and those obtained from it by twisting $(n)$ are denoted in the same way.
+
+In characteristic zero, the existence of $f$ is equivalent to (L.V.). In the decomposition \eqref{eq:1.3}, each sum over $j$, $\bigoplus_jP^{-i}(j)$, is stable under $h,e,f$, and from the factor in $H^{i+1}$ to the factor in $H^{i-1}$, $f$ is the inverse of $e$, multiplied by
+\[
+\frac{(i+1)^2}{4}-\frac{n^2}{4}.
+\]
+
+Let $F$ be one of the bifunctors $\Ext^a(A,B)=\Hom_{\cD}(A,B[a])$ on $\cC$. Up to canonical isomorphism, the functor $F(A(i),B(j))$ depends only on $n:=j-i$. We denote it by $F_n(A,B)$. From $h,e,f$ one again obtains an action of $\mathfrak{sl}(2)$ on $F_*(H^*K,H^*K)$. More precisely, there are morphisms
+\begin{align*}
+h&\colon F_j(H^*K,H^*K)\to F_j(H^*K,H^*K),\\
+e&\colon F_j(H^*K,H^*K)\to F_{j+1}(H^*K,H^*K),\\
+f&\colon F_j(H^*K,H^*K)\to F_{j-1}(H^*K,H^*K)
+\end{align*}
+satisfying the $\mathfrak{sl}(2)$ relations. The endomorphism $h$ is multiplication by $n$ in degree $n$, and $e$, of degree $2$, is the bracket with $\eta\colon H^*K\to H^*K(1)$.
+
+Let $F_j^d$ be the degree-$d$ part of $F_j(H^*K,H^*K)$: the sum of the $F_j(H^pK,H^qK)$ for $q-p=d$. If $H^iK=0$ for $|i|>N$, then $F_j^d=0$ for $|d|>2N$. On the sum of $\bQ$-vector spaces $\bigoplus_dF_{j+d/2}^d$, where the sum is over $d$ of fixed parity, with $j$ integral for $d$ even and half-integral for $d$ odd, $(h,e,f)$ defines an action of $\mathfrak{sl}(2)$, and $e$ therefore satisfies (L.V.). Reading the corresponding decomposition \eqref{eq:1.3}, one obtains the following.
+
+\begin{lemma}\label{lem:3.3}
+With the preceding notation, for $d\leqslant1$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $e\colon F_{j-1}^{d-2}\to F_j^d$ is injective;
+\item $F_j^d$ is the direct sum of the image of $e$ and the kernel of $e^{1-d}\colon F_j^d\to F_{j+1-d}^{2-d}$.
+\end{enumerate}
+\end{lemma}
+
+\subsection*{3.4}
+Let $\varphi$ be an isomorphism
+\begin{equation}\label{eq:3.4.1}
+\bigoplus H^i(K)[-i]\xrightarrow{\sim}K
+\end{equation}
+inducing the identity on cohomology. As in Proposition \ref{prop:2.7}, and using its notation, regard $\eta$ as a $1$-map from $K$ to $K$, and let $\eta^{(d)}$ be its homogeneous component of degree $d$ in the decomposition \eqref{eq:3.4.1}. With the notation of 3.2, $\eta^{(d)}$ belongs to $F_1^d$, for $F$ the functor $\Ext^{2-d}$. For $d>2$, it is therefore zero; for $d=2$, $\eta^{(2)}\in\Hom(H^*K,H^*K(1))$ is the endomorphism $e$ of 3.2.
+
+\begin{proposition}\label{prop:3.5}
+Assume that $\cD$ is $\bQ$-linear and that $(K,\eta)$ satisfies (L.V.). Then there exists a unique isomorphism \eqref{eq:3.4.1} for which
+\begin{equation}\label{eq:3.5.1}
+\text{for }d\leqslant1,\qquad e^{1-d}(\eta^{(d)})=0.
+\end{equation}
+\end{proposition}
+
+For $d=1$, condition \eqref{eq:3.5.1} means that $\eta^{(1)}=0$.
+
+\begin{proof}
+By induction on $n\geqslant-1$, we show that the conditions \eqref{eq:3.5.1} for $-n<d\leqslant1$ determine $\varphi$ uniquely modulo composition with an endomorphism $1+w$ of the sum of the $H^i(K)[-i]$, with $w$ of degree $\leqslant -n-2$. Note that, with the notation of 3.2, the homogeneous component $\psi^{(d)}$ of degree $d$ of $w$ belongs to $F_0^d$ for $F$ the functor $\Ext^{-d}$.
+
+For $n=-1$, the hypothesis is empty and the conclusion says that $\varphi$, assumed to be the identity on cohomology, is defined modulo composition with $1+\psi$, where $\psi$ has degree $\leqslant -1$.
+
+We prove the assertion for $n\geqslant0$, assuming it known for $n-1$. Changing $\varphi$ to $\varphi\circ(1+\psi)$ conjugates the $1$-morphism $\eta$ -- more precisely $\varphi^{-1}\eta\varphi$ -- of the sum of the $H^iK[-i]$ to $(1+\psi)^{-1}\eta(1+\psi)$. For $\psi$ of degree $\leqslant -n-1$, since $\eta$ has degree $\leqslant2$, one has
+\begin{align*}
+(1+\psi)^{-1}\eta(1+\psi)&\equiv \eta+[\eta,\psi]\\
+&\equiv \eta+e(\psi^{(-n-1)})
+\end{align*}
+modulo degree $\leqslant -n$. By Lemma \ref{lem:3.3}, there is a unique choice of $\psi^{(-n-1)}$ giving a new $\eta$ satisfying \eqref{eq:3.5.1} for $d>-n$, as required.
+\end{proof}
+
+\begin{proposition}\label{prop:3.6}
+Let $\varphi$ be the isomorphism \eqref{eq:3.4.1} of Proposition \ref{prop:3.5}. Then, on $P^{-i}[i]$, $\varphi$ coincides with the morphism $f_i$ of Proposition \ref{prop:2.4}.
+\end{proposition}
+
+\begin{proof}
+Identify the sum of the $H^i[-i]$ with $K$ by $\varphi$. By the characterization in Proposition \ref{prop:2.4} of $f_i$, it is enough to verify that, for $s>i$, the restriction to $P^{-i}[i]$ of the $s$-morphism $\eta^s$ has degree $<s+i$. We have a decomposition into homogeneous components
+\[
+\eta=\eta^{(2)}+\sum_{a\leqslant0}\eta^{(a)}.
+\]
+Put $e=\eta^{(2)}$. By Proposition \ref{prop:3.5},
+\[
+(\operatorname{ad}e)^{-a+1}(\eta^{(a)})=0.
+\]
+Expand $\eta^s$ and reorder the factors by repeated application of the rule
+\[
+ex=xe+\operatorname{ad}e(x).
+\]
+One finds that $\eta^s$ is a sum of terms of the following types:
+\begin{enumerate}[label=(\alph*)]
+\item $e^s$;
+\item $(\operatorname{ad}e)^{r_k}(\eta^{(a_k)})\cdots(\operatorname{ad}e)^{r_1}(\eta^{(a_1)})e^{r_0}$ with $\sum_0^k r_k<s$.
+\end{enumerate}
+If $s>i$, $e^s$ vanishes on $P^{-i}[i]$. Similarly, the terms (b) with $r_0>i$ vanish on $P^{-i}[i]$. The factor $(\operatorname{ad}e)^{r_k}(\eta^{(a_k)})$ has degree $2r_k+a_k$ and is zero if $r_k>-a_k$. If it is nonzero, its degree is
+\[
+2r_k+a_k=r_k+(r_k+a_k)\leqslant r_k.
+\]
+Each term of type (b) nonzero on $P^{-i}[i]$ is therefore of degree at most
+\[
+2r_0+\sum_1^k r_k=r_0+\sum_0^k r_i<i+s,
+\]
+as required.
+\end{proof}
+
+\section{\texorpdfstring{$\ell$}{ell}-adic cohomology}
+
+\subsection*{4.1}
+Let $k$ be a field and let $\ell$ be a prime number different from the characteristic. Take for $\cD$ the $\ell$-adic derived category with its natural $t$-structure [5]. The heart $\cC$ of $\cD$ is the category of $\ell$-adic representations $(V,\rho)$ of $\Gal(\bar k/k)$: $V$ is finite-dimensional over $\bQ$, and $\rho\colon\Gal(\bar k/k)\to\GL(V)$ is continuous. The $\Ext^a(V,W)$ are the groups $H^a(\Gal(\bar k/k),\Hom(V,W))$ computed in terms of continuous cochains.
+
+Let $X$ be projective and smooth over $k$, purely of dimension $N$. Let $a\colon X\to\Spec(k)$ be the structural morphism. Then $Ra_*\bQ_\ell$ is an object of $\cD$. Fix an ample invertible sheaf $\mathcal{O}(1)$, and let $\eta\colon Ra_*\bQ_\ell\to Ra_*\bQ_\ell(1)[2]$ be cup product with $c_1\mathcal{O}(1)$. It is known that $(Ra_*\bQ_\ell[N],\eta)$ satisfies (L.V.) (P. Deligne, [4, Theorem 4.1.1]).
+
+The decomposition 2.5 of $Ra_*\bQ_\ell[N]$ gives, by translation, a decomposition of $Ra_*\bQ_\ell$. Changing notation, we write $P^i$ for the direct summand of $H^iRa_*\bQ_\ell$ given by the kernel of
+\[
+\eta^{N-i+1}\colon H^iRa_*\bQ_\ell\to H^{2N-i+2}Ra_*\bQ_\ell.
+\]
+In the notation of \S\,1 for $Ra_*\bQ_\ell[N]$, this is $P^{i-N}$. The decomposition \eqref{eq:2.6.1} deduced from 2.5 translates into a decomposition
+\begin{equation}\label{eq:4.1.1}
+\bigoplus_{0\leqslant j\leqslant N-i}P^i(-j)[-i-2j]\xrightarrow{\sim}Ra_*\bQ_\ell.
+\end{equation}
+
+According to Proposition \ref{prop:2.7}, the only interesting components of the $1$-morphism $\eta$ in this decomposition are the $\eta^{k,\ell}_{i,N-i}$ for $\ell\leqslant N-i$. One has
+\[
+\eta^{k,\ell}_{i,N-i}\in\Ext^{(2N-i)-(k+2\ell)+2}\bigl(P^i(-(N-i)),P^k(-\ell)(1)\bigr).
+\]
+
+One would like to regard these classes as motivic: they have been defined by a procedure uniform in $\ell$. On the other hand, optimistic conjectures on the relation between algebraic cycles and the motivic derived category imply [3, \S\S\,3.7, 3.8] that, for $M$ an effective motive of weight $w$ and $i\geqslant0$, one has
+\[
+\Ext^n(1,\check M(i))=0\qquad\text{for }n>w+i.
+\]
+The special case which matters to us is the vanishing of this $\Ext$ when $n$ is equal to the negative of the weight of $\check M(i)$, with $M$ effective and $i>0$.
+
+In the case at hand, by (L.V.) and Poincare duality, $\check P^k$ is isomorphic to $\check P^k(-k)$ and
+\[
+\eta^{k,\ell}_{i,N-i}\in\Ext^n(1,V),
+\]
+where $n$ is the negative of the weight of $V$, and
+\[
+V=\check P^i\otimes\check P^k(N-i-k-\ell+1).
+\]
+If the $\ell$-adic classes $\eta^{k,\ell}_{i,N-i}$ are motivic, the conjecture therefore implies a positive answer to the following question.
+
+\smallskip
+\noindent\textbf{Question.} Does one have $\eta^{k,\ell}_{i,N-i}=0$ for $N-i-k-\ell\geqslant0$?
+\smallskip
+
+\subsection*{4.2}
+In the decomposition \eqref{eq:4.1.1}, the cup product
+\[
+Ra_*\bQ_\ell\otimes Ra_*\bQ_\ell\to Ra_*\bQ_\ell
+\]
+has components
+\[
+c^{m,n}_{i,j;k,\ell}\in\Ext^A(P^i(-j)\otimes P^k(-\ell),P^m(-n)),
+\]
+with $A$ the negative of the weight of $V$ and
+\[
+V=\check P^i\otimes\check P^k\otimes\check P^m(j+k-m-n).
+\]
+Thus one wants vanishing for $j+k-m-n>0$.
+
+\subsection*{4.3}
+Let $Z$ be an algebraic cycle of codimension $d$. It has a class
+\[
+cl(Z)\colon \bQ_\ell\to Ra_*\bQ_\ell(d)[2d],
+\]
+with components
+\[
+cl(Z)^{i,j}\in\Ext^A(1,V),
+\]
+where $A$ is the negative of the weight of $V$ and
+\[
+V=\check P^i(-j+d)=\check P^i(d-i-j).
+\]
+One therefore expects the vanishing of the components $cl(Z)^{i,j}$ for $i+j<d$.
+
+\appendix
+\section*{Appendix. Spectral objects, after J. L. Verdier}
+\addcontentsline{toc}{section}{Appendix. Spectral objects, after J. L. Verdier}
+
+I learned the formalism presented in this appendix from J. L. Verdier, who said that he was inspired by the treatment of spectral sequences in Cartan--Eilenberg (vol. 1, pp. 318--319).
+
+\subsection*{A.1}
+Let $\cD$ be a triangulated category. A \emph{spectral object} in $\cD$ consists of
+\begin{enumerate}[label=(\arabic*)]
+\item a family $X_{pq}$ of objects of $\cD$, indexed by pairs of integers $p\leqslant q$;
+\item for $p'\leqslant p$ and $q'\leqslant q$, a morphism $X_{pq}\to X_{p'q'}$;
+\item for $p\leqslant q\leqslant r$, a degree-one morphism, called a boundary, $X_{qr}\to X_{pq}$.
+\end{enumerate}
+One requires that
+\begin{enumerate}[label=(\alph*)]
+\item the morphisms (2) define a contravariant functor from the ordered set of pairs $(p,q)$ with $p\leqslant q$ to $\cD$;
+\item for $p\leqslant q\leqslant r$, $p'\leqslant q'\leqslant r'$, and $p'\leqslant p$, $q'\leqslant q$, $r'\leqslant r$, the diagram of the morphisms (2) and (3) is commutative;
+\item for $p\leqslant q\leqslant r$, the triangle
+\[
+X_{qr}\to X_{pr}\to X_{pq}\xrightarrow{+1}X_{qr}
+\]
+formed by the morphisms (2) and (3) is distinguished.
+\end{enumerate}
+
+\begin{example}
+For $\cD$ the derived category of an abelian category $\cA$ and $(K,F)$ a filtered complex, the objects $X_{pq}=F^p(K)/F^q(K)$ form a spectral object.
+\end{example}
+
+\begin{remark}
+A spectral object $X$ is said to have amplitude in $[a,b]$ if the morphisms (2), $X_{pq}\to X_{p'q'}$, are isomorphisms for $p'\leqslant p\leqslant a$ and $q'=q$, and also for $b<q'\leqslant q$ and $p'=p$. This is equivalent to requiring $X_{p,p+1}=0$ for $p\notin[a,b]$. A spectral object of amplitude $[0,n]$ with $n=1$, respectively $2$, is identified with a distinguished triangle, respectively an octahedral diagram; see [1, \S\S\,1.1.6, 1.1.7, 1.1.14].
+\end{remark}
+
+\subsection*{A.2}
+Let $\cA$ be an abelian category equipped with a ``translation functor'' $X\mapsto X[1]$, an autoequivalence. Write $X\mapsto X[n]$ for the $n$-th iterate of the translation functor, and call a morphism of degree $n$ from $X$ to $Y$ a morphism from $X$ to $Y[n]$. A sequence $X\xrightarrow{\alpha}Y\xrightarrow{\beta}Z$, with $\alpha$ of degree $n$ and $\beta$ of degree $m$, is said to be exact if the sequence $X\to Y[n]\to Z[n+m]$ is exact.
+
+A \emph{spectral object} of $\cA$ consists of data $(1')$, $(2')$, $(3')$ of objects and morphisms of $\cA$, as in A.1, satisfying conditions $(a')$ and $(b')$ with the same formulation as A.1(a),(b), and the condition
+\begin{enumerate}[label=$(c')$]
+\item for $p\leqslant q\leqslant r$, the sequence
+\[
+\cdots\to X_{qr}\to X_{pr}\to X_{pq}\xrightarrow{\partial}X_{qr}\to X_{pr}\to\cdots
+\]
+formed by the morphisms $(2')$ and $(3')$ is exact.
+\end{enumerate}
+
+Let $X$ be a spectral object of $\cA$. From $(b')$, the morphism $(2')$: $X_{p,r}\to X_{p,r}$ is the identity. From $(c')$, for $p=q$, one has $X_{pp}=0$. If $p\leqslant q'$, the morphism $X_{pq}\to X_{p'q'}$ is zero, since it factors through $X_{pp}$. For $p\leqslant q\leqslant r\leqslant s$, the composite of boundary morphisms
+\[
+X_{pq}\to X_{qr}\to X_{rs}
+\]
+is zero: the first morphism factors through the boundary morphism to $X_{qs}$, followed by $X_{qs}\to X_{qr}$, and the composite $X_{qs}\to X_{qr}\to X_{rs}$ is zero by $(c')$.
+
+If $\cA$ is the category of graded objects of an abelian category $\cB$, with the translation functor defined by $(X[1])^n=X^{n+1}$, then the data $(1')$ are objects $X_{pq}^n$ of $\cB$, the data $(2')$ are morphisms $X_{pq}^n\to X_{p'q'}^n$, the data $(3')$ are morphisms $X_{pq}^n\to X_{qr}^{n+1}$, and $(c')$ becomes a long exact sequence
+\[
+\cdots\to X_{pr}^n\to X_{pq}^n\xrightarrow{\partial}X_{qr}^{n+1}\to X_{pr}^{n+1}\to\cdots.
+\]
+
+\begin{example}
+With the preceding notation, if $F$ is a cohomological functor [6, \S\,3.1] from $\cD$ to $\cB$, and if $F^*$ is the functor from $\cD$ to $\cA$ defined by $F^n(X)=F(X[n])$, then $F^*$ carries spectral objects of $\cD$ to spectral objects of $\cA$.
+\end{example}
+
+\begin{remark}
+As in A.1, if $X$ is a spectral object of $\cA$, then for the morphisms $(2')$ to be isomorphisms for $p'\leqslant p\leqslant a$ and $q'=q$, and also for $b<q'\leqslant q$ and $p'=p$, it is necessary and sufficient that $X_{p,p+1}=0$ for $p\notin[a,b]$. One then says that $X$ has amplitude in $[a,b]$. In this case, $X_{-\infty,q}$, respectively $X_{p,\infty}$, denotes any $X_{p,q}$ with $p\leqslant a$, respectively $b<q$.
+\end{remark}
+
+\subsection*{A.3}
+Let $X$ be a spectral object of $\cA$. For $p\leqslant q\leqslant r\leqslant s$, put
+\begin{equation}\label{eq:A.3.1}
+E(pqrs):=\operatorname{Im}(X_{qs}\to X_{pr}).
+\end{equation}
+The morphism $X_{qs}\to X_{pr}$ factors through $X_{qr}$, and this factorization gives a cross of exact sequences
+\[
+\begin{tikzcd}
+& X_{qr} \arrow[rd] \\
+X_{qs} \arrow[ru] \arrow[rd] & & X_{pr}. \\
+& X_{qs}/X_{rs} \arrow[ru]
+\end{tikzcd}
+\]
+It follows that one also has
+\begin{equation}\label{eq:A.3.2}
+E(pqrs)=H(X_{qs}\to X_{qr}\to X_{pr}).
+\end{equation}
+
+For $k\leqslant \ell\leqslant m\leqslant n\leqslant p\leqslant q$, the commutative diagram
+\[
+\begin{tikzcd}
+X_{\ell n} \arrow[r] \arrow[d] & X_{nq} \\
+X_{km} \arrow[r] & X_{mp}
+\end{tikzcd}
+\]
+gives, after passing to images by the vertical morphisms $(2')$, a degree-one morphism
+\[
+\partial\colon E(k\ell mn)\to E(mnpq).
+\]
+For $k\leqslant\ell\leqslant m\leqslant n\leqslant p\leqslant q\leqslant r\leqslant s$, the composite
+\begin{equation}\label{eq:A.3.3}
+E(k\ell mn)\xrightarrow{\partial}E(mnpq)\xrightarrow{\partial}E(pqrs)
+\end{equation}
+is zero, because the rows in the diagram
+\[
+\begin{tikzcd}
+X_{\ell n} \arrow[r] \arrow[d] & X_{nq} \arrow[r] \arrow[d] & X_{qs} \arrow[d] \\
+X_{km} \arrow[r] & X_{mp} \arrow[r] & X_{pr}
+\end{tikzcd}
+\]
+have zero composite (see A.2).
+
+\medskip
+\noindent\textbf{Construction.} \emph{The cohomology of the sequence} \eqref{eq:A.3.3} \emph{is} $E(\ell npr)$.
+
+The cohomology of \eqref{eq:A.3.3} is also the cohomology of
+\[
+X_{\ell n}\xrightarrow{\partial}\operatorname{Im}(X_{nq}\to X_{mp})\xrightarrow{\partial}X_{pr}.
+\]
+Consider the commutative diagram
+\[
+\begin{tikzcd}[column sep=tiny,row sep=small]
+& X_{mn} \arrow[rd] \arrow[ld] \\
+X_{\ell n} \arrow[rd] & & X_{nq} \arrow[ld] \arrow[rd] \\
+& X_{pq} \arrow[rd] & & X_{mp}. \\
+& & X_{pr} \arrow[ru]
+\end{tikzcd}
+\]
+The desired cohomology is still that of
+\[
+X_{\ell n}\to H(X_{mn}\to X_{np}\to X_{pq})\to X_{pr},
+\]
+which is equal to
+\[
+H(X_{\ell n}\to X_{np}\to X_{pr}),
+\]
+and this gives the required construction by \eqref{eq:A.3.2}.
+
+\subsection*{A.4}
+For $r\geqslant1$, put
+\[
+E_r^p=E(p-r+1,p,p+1,p+r).
+\]
+The morphism $\partial$ of A.3, for $(p-r+1,p,p+1,p+r,p+r+1,p+2r)$, is a degree-one map $d_r\colon E_r^p\to E_r^{p+r}$. One has $d_r^2=0$, and A.3 gives
+\[
+E_{r+1}^p=H(E_r^{p-r}\to E_r^p\to E_r^{p+r});
+\]
+the $E_r^p$ form a spectral sequence.
+
+If $X$ has finite amplitude, say in an interval $[a,b]$ (A.2), this spectral sequence converges to $X_{-\infty,\infty}$; $E_r^p$ is independent of $r$ for sufficiently large $r$ ($r>b-a$), and identifies with the associated graded of $X_{-\infty,\infty}$ filtered by the images of the $X_{p,\infty}$.
+
+If this filtration is denoted by $F$, the exact sequence
+\[
+X_{p,\infty}\to X_{-\infty,\infty}\to X_{-\infty,p}
+\]
+indeed shows that
+\[
+X_{p,\infty}\twoheadrightarrow F^p\qquad\text{and}\qquad X_{-\infty,\infty}/F^p\hookrightarrow X_{-\infty,p},
+\]
+so that
+\[
+F^p/F^{p+1}\sim \operatorname{Im}(X_{p,\infty}\to X_{-\infty,p+1})=E_\infty^p.
+\]
+
+The spectral sequence constructed in this way starts from $E_1$. In the case where $\cA$ is the category of graded objects of $\cB$, if one wants a spectral sequence starting from $E_2$, it is enough to reindex:
+\[
+{}_2\!E_2^{pq}:=({}_1\!E_1^{-q})^{p+q}.
+\]
+
+\begin{thebibliography}{99}
+
+\bibitem{BBD}
+A.~A.~Beilinson, J.~Bernstein, and P.~Deligne, \textit{Faisceaux pervers}, Ast\'erisque {\bf 100} (1983), pp.~1--172.
+
+\bibitem{DL}
+P.~Deligne, \textit{Th\'eor\`eme de Lefschetz et crit\`eres de d\'eg\'en\'erescence de suites spectrales}, Inst. Hautes \'Etudes Sci. Publ. Math. {\bf 35} (1968), pp.~107--126.
+
+\bibitem{Motifs}
+P.~Deligne, \textit{A quoi servent les motifs?} this volume, pp.~143--161.
+
+\bibitem{Weil2}
+P.~Deligne, \textit{La conjecture de Weil. II}, Inst. Hautes \'Etudes Sci. Publ. Math. {\bf 52} (1980), pp.~137--252.
+
+\bibitem{Ekedahl}
+T.~Ekedahl, \textit{On the adic formalism}, Grothendieck Festschrift, vol.~II, pp.~197--218.
+
+\bibitem{Verdier}
+J.~L.~Verdier, \textit{Cat\'egories d\'eriv\'ees, \'etat z\'ero}, S\'eminaire de G\'eom\'etrie Alg\'ebrique 4 1/2, pp.~262--311, Springer Lecture Notes, no.~569, Springer-Verlag, New York and Berlin, 1977.
+
+\end{thebibliography}
+
+\medskip
+\noindent\textsc{Institute for Advanced Study, Princeton, New Jersey}
+
+\end{document}

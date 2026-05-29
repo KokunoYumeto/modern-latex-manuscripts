@@ -1,0 +1,515 @@
+% ------------------------------------------------------------
+% English working translation layer.
+% Source file: papers_30_59/45_Le_lemme_de_Gabber_Representations_l_adiques/45_Lemme_Gabber.tex
+% Modern title: Gabber's lemma; ℓ-adic representations
+% ------------------------------------------------------------
+
+% Exposé V: Le lemme de Gabber / Représentations l-adiques
+% Pierre DELIGNE
+% Astérisque 127 (1985), pp. 131--150
+% Segment: Full paper (pages 131--150)
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Example}
+
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Alb}{Alb}
+
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cM}{\mathcal{M}}
+
+\begin{document}
+\begin{center}\small\emph{Literal English translation working draft. Formulae, numbering, and TeX structure are preserved; this is not yet a modern recast.}\end{center}
+\vspace{0.5em}
+
+
+\begin{center}
+{\Large\bf Expose V}\\[0.5em]
+{\LARGE\bf LE LEMME DE GABBER}\\[1em]
+{\large Pierre DELIGNE}\\[1em]
+{\small Astérisque 127 (1985), 131--150}
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+Le résultat principal de cet exposé, le théorème 1.4, est dû à O.~Gabber.
+\end{center}
+
+\section{ENONCÉS}
+
+\subsection{} Dans cet exposé, nous travaillerons systématiquement avec des espaces algébriques ([1] ou [6]), plutôt qu'avec des schémas. Ceci pose un problème de références. Nous nous permettrons de renvoyer à un article où un théorème est démontré pour les schémas, et de l'appliquer aux espaces algébriques, lorsque la même preuve permet de le démontrer. Une preuve pose problème lorsqu'elle utilise que tout point a un voisinage affine, et que ``voisinage'' ne peut pas être remplacé par ``voisinage étale''.
+
+Ceci nous amène à parler d'\emph{espace algébrique abélien} $A$ sur $S$, là où on parlerait d'ordinaire de schéma abélien sur $S$ : c'est un $S$-espace algébrique en groupes commutatifs $f : A \to S$, avec $f$ propre et plat de présentation finie, de fibres géométriques des variétés abéliennes. Nous appellerons \emph{espace algébrique semi-abélien} $A$ sur $S$ un $S$-espace algébrique en groupes commutatifs $f : A \to S$ avec $f$ séparé plat de présentation finie, de fibres géométriques des extensions de variétés abéliennes par des tores. Noter toutefois que
+
+\begin{enumerate}[label=(\alph*)]
+\item Pour $S$ le spectre d'un corps, tout espace algébrique en groupes sur $S$ est un schéma ([2] n\textsuperscript{o}~4), d'ailleurs quasi-projectif ([4]).
+\item Pour $S$ un trait, tout espace algébrique en groupes $G$ sur $S$, localement de type fini et séparé sur $S$, est un schéma. Voir [9]~3.3.1, où est traité le cas où $G$ est lisse sur $S$.
+\item Pour $S$ normal intègre de point générique $\eta$ et $A$ un espace algébrique abélien sur $S$, des arguments de Grothendieck montrent que toute polarisation de $A_\eta$ (vue comme morphisme symétrique de $A$ dans sa duale) se prolonge de façon unique en une polarisation de $A$ sur $S$, de sorte que $A$ est projectif sur $S$ et en particulier que $A$ est un schéma si $S$ en est un. Cf [7], ou [10]~XI~1.4, rédigés pour des schémas mais valables en général.
+\end{enumerate}
+
+Un espace algébrique $f : X \to S$ plat de présentation finie séparé sur $S$ et à fibres géométriques propres et connexes est propre sur $S$ : par localisation sur $S$ et passage à la limite on se ramène à supposer $S$ spectre d'un anneau noethérien local, qu'on peut supposer complet par descente fidèlement plate, et on applique EGA~III (1\textsuperscript{ère} partie)~5.5. En particulier, un espace algébrique semi-abélien sur $S$ de fibres des variétés abéliennes est abélien sur $S$.
+
+Sauf mention expresse du contraire, les schémas et espaces algébriques considérés sont quasi-compacts et quasi-séparés.
+
+\subsection{} Soient $U$ un ouvert dense d'un espace algébrique normal $S$ et $A$ un espace algébrique abélien sur $U$. Un \emph{prolongement semi-abélien} de $A$ sur $S$ est un espace algébrique semi-abélien $P$ sur $S$, muni d'un isomorphisme $A \xrightarrow{\sim} P|U$.
+
+\begin{theorem}[Raynaud {[10] XI 1.15}]
+Sous les hypothèses ci-dessus, $A$ admet un prolongement semi-abélien, ce dernier étant unique (à isomorphisme unique près).
+\end{theorem}
+
+Localisation et passage à la limite ramènent à supposer que $S$ est un schéma noethérien. Si $S$ est un trait, et $U$ son point générique, tout prolongement semi-abélien $P$ de $A$ coïncide avec la composante neutre $N^0$ du modèle de Néron ([8]) $N$ de $A$ : parce que $P$ est lisse à fibres connexes, on dispose de $\phi : P \to N^0$ avec $\phi_\eta = \id$ et SGA~7~IX~3.1 montre que $\phi$ est un isomorphisme (cf SGA~7~IX~3.2). Pour $S$ normal noethérien, il en résulte que deux prolongements $P'$, $P''$ coïncident sur un ouvert $V \supset U$ de complément de codimension $\geq 2$. D'après [10]~IX~1.5, $P'$ et $P''$ coïncident (cf [10]~XI~1.15). Correction : voir note (1).
+
+\subsection{}
+
+\textbf{Remarque 1 :} Si $P$ et $Q$ sont deux espaces algébriques semi-abéliens sur $S$ normal et intègre, de fibres génériques $P_\eta$ et $Q_\eta$ des variétés abéliennes sur $k(\eta)$, la même démonstration donne que
+\[
+\Hom_S(P,Q) \xrightarrow{\sim} \Hom_\eta(P_\eta, Q_\eta).
+\]
+
+\textbf{Remark 2:} the hypothese of normalite faite on $S$ is indispensable, as the shows the example suivant: $S =$ cubique a point double on $k$ algebriquement clos $= \mathbf{E}^\wedge$ with $O$ and $w$ identifies en a point $p$, $U = S \setminus \{p\}$, $A =$ curve elliptique constant $E$ on $U$ ($A = E \times U$).
+
+Se donner a prolongement $P$ of $A$ revient a se donner a prolongement on $\widetilde{E}^\wedge$, more a isomorphism of gluing between the fibers of this prolongement en $0$ and $w$. The prolongement a $\widetilde{E}^\wedge$ is unique: c'is $E \times \widetilde{E}^\wedge$, but the isomorphism of gluing can be choisi of to the less deux manieres: $\Aut(E) \supset \{\pm 1\}$. The theorem devrait toutefois be vrai for $U$ schematiquement dense in $S$ and $S$ only assumed geometriquement unibranche and, for $S$ quelconque, deux prolongements donnant lieu to the same prolongements $P_\eta$ of the $A_\eta$ devraient be isomorphes ($\ell$ prime fixe, $n$ variable).
+
+\subsection{} For eviter of avoir a faire of the references fantomes, and parce that this cas we suffira, we n'enoncerons the lemma of Gabber that under of the hypotheses without doute inutilement restrictives.
+
+\begin{theorem}[Lemma of Gabber]
+Let $U$ a open dense of a scheme integre normal $S$ and $A$ a space algebraic abelien on $U$. There exists a morphism proper surjective $f : S' \to S$ such that the inverse image of $A$ on $f^{-1}(U)$ se prolonge en a space algebraic semi-abelien on $S'$.
+\end{theorem}
+
+\subsection{} S'it existait a moduli space for the spaces algebraic semi-abeliens, the theorem of reduction semi-stable (SGA~7~IX~3.6), joint to the critere valuatif of proprete, montrerait that this space is proper on $\Spec(\mathbf{Z})$, and the lemma of Gabber en serait a consequence immediate. One is toutefois loin of the compte: not only the objects consideres have of the automorphismes, same parfois en nombre infini, but, pire, a space algebraic semi-abelien $A$ over a ring of valuation discrete complet $V$ n'is not determine by the space algebraic formel corresponding. Si the fiber speciale is isomorphic a $\mathbf{G}_m$, the reduction mod $m^k$ is isomorphic a $\mathbf{G}_m$ quelque let $k$ (rigidite of the tores), without for autant that $A$ let necessarily a tore.
+
+The mauvais comportement of the spaces semi-abeliens, vis a vis of the completion formelle, tient to the fait that ceux-ci ne are not necessarily proper. For the curves, the situation is meilleure, car one dispose of the notion of curve stable of genre $g$ ([5]~1.1). These curves are proper and, for $g \geq 2$, n'have that a nombre finite of automorphismes. A cause of the groups finite of automorphismes, the curves stables of genre $g \geq 2$ ne donnent not lieu a space fin of modules but donnent of the less lieu a champ algebraic proper on $\Spec(\mathbf{Z})$ (of after the critere valuatif of proprete and the theorem of reduction stable for the curves ([5]~2.7 or [3])). one has:
+
+\subsection{}\label{sec:1.6}
+
+\begin{lemma}
+Let $U$ a open quasi-compact dense of a space algebraic $S$, $u : X \to S$ a family of curves stables of genre $g \geq 2$ parametree by $U$. There exists $f : S' \to S$ proper surjective such that the inverse image of $X$ on $f^{-1}(U)$ se prolonge en a family of curves stables parametree by $S'$.
+\end{lemma}
+
+\begin{proof}
+Fixons $g \geq 2$. For abreger, we shall say \emph{curve stable} for curve stable of genre $g$. The champ algebraic $\mathcal{M}$ classifiant the curves stables is proper on $\Spec(\mathbf{Z})$. There exists therefore ([5]~4.11, 4.12) $S_0$, proper on $\Spec(\mathbf{Z})$ and a morphism surjective of $S_0$ in $\mathcal{M}$. En of other termes: $S_0$ is proper on $\Spec(\mathbf{Z})$, equipped with a family of curves stables $u_0 : X_0 \to S_0$ such that every curve stable of genre $g$ on $k$ algebriquement clos let the fiber of $X_0/S_0$ en a $k$-point of $S_0$.
+
+On $U \times S_0$, one dispose of the deux curves stables $\pr_1^* X$ and $\pr_2^* X_0$. Let the space algebraic on $U \times S_0$
+\[
+I := \Isom(\pr_1^* X, \pr_2^* X_0)
+\]
+(c'is $U \times_{\mathcal{M}} S_0$); it is finite on $U \times S_0$ and s'envoie on $U$. Let $\Gamma$ son image. Choisissons a morphism finite $I \to \Gamma$ en a morphism finite $T \to \Gamma$:
+\[
+@@MATH2@@
+\]
+the space $T$, equipped of the morphism proper $T \to \Gamma \hookrightarrow S \times S_0 \to S$, is the $S'$ cherche. the inverse image on $T$ of $X_0/S_0$ prolonge the inverse image on $I$ of $X/U$.
+
+To the n\textsuperscript{o}~3, we tacherons of demystifier the usage fait in this proof of the champs algebraic.
+\end{proof}
+
+\subsection{} The principe of the proof of the lemma of Gabber will be of se ramener to the cas of the curves en utilisant the jacobiennes. Some remarks preliminaires.
+
+\begin{enumerate}[label=(\alph*)]
+\item As explique en 1.1~(b), $A/U$ is automatiquement a scheme abelien.
+\item Being donnes $U \hookrightarrow S$, $A/U$ and $f : S' \to S$ as in the theorem, all $f_1 : S'' \to S$ proper surjective, with $S''$ to the-dessus of $S'$ (i.e. such that exists a $S$-morphism of $S''$ in $S'$), satisfies again the conclusion. Appliquant the lemma of Chow ([6]~IV~3.1) and normalisant, one sees that si the conclusion of the theorem vaut for $U \subset S$ and $A/U$, it vaut also with a $f : S' \to S$ projective and surjective, $S'$ being integre and normal.
+\item It is enough to verify the theorem locally on $S$: si $S$ is recouvert by a family finite of ouverts $S_i$, and that for chacun of eux one dispose of $f_i : S_i' \to S_i$, one can trouver $f : S' \to S$ projective and surjective such that $S'|S_i$ let to the-dessus of $S_i$, that $f^{-1}(U)$ let dense in $S'$ and that $S'$ let normal. The prolongements of $A$ on the $S'|S_i$ se recollent en a prolongement on $S$, grace a 1.2.
+\item It is enough to verify the theorem with $U$ remplace by a open not vide $V \subset U$: for $S'$ integre and normal a prolongement of the restriction of $A$ will be automatiquement a prolongement of $A$ (1.2).
+\end{enumerate}
+
+
+\section{PROOF}
+
+Let $U \subset S$ and $A/U$ as en 1.4, and $d$ the dimension relative of $A$ on $U$. One can supposer, and one assumed, that $d \geq 1$. One cherche $S'$ integre and normal, and a morphism surjective projective $f : S' \to S$ such that the inverse image of $A$ on $f^{-1}(U)$ se prolonge en a space semi-abelien on $S'$. For this faire, it is loisible of rapetisser $U$ (1.7~(d)), and of remplacer $S$ by $S_1$ integre normal s'envoyant by a morphism surjective projective on $S$, $U$ by son inverse image $U_1$ in $S_1$ and $A_\eta$ by son inverse image on $U_1$.
+
+Let $\eta = \Spec(K)$ the point generique of $U$ and $A_\eta$ the abelian variety on $K$ fiber of $A/U$ en $\eta$. One can supposer, and one assumed, $K$ infini (without what $S = \Spec(K) = U$). Choisissons a embedding projective $A_\eta \hookrightarrow \mathbf{P}^N$ of $A_\eta$. In the grassmannienne of the under-spaces lineaires $H$ of $\mathbf{P}^N$ of codimension $d-1$, the $H$ of which the intersection with $A_\eta$ is a curve smooth are the points of a open dense, therefore ayant of the $K$-points. The densite se deduces, by iteration, of this that a section hyperplane generale is transverse --- see by example SGA~7~XVII~3.1.4.
+
+Choisissons a tel under-space lineaire $H$ and let $\Gamma_\eta = A_\eta \cap H$. On the algebraic closure $\overline{K}$ of $K$, one has
+\[
+H^0(A_{\overline{K}}, \mathbf{Z}_\ell) \xrightarrow{\sim} H^0(\Gamma_{\overline{K}}, \mathbf{Z}_\ell)
+\]
+and
+\[
+H^1(A_{\overline{K}}, \mathbf{Z}_\ell)(-1) \hookrightarrow H^1(\Gamma_{\overline{K}}, \mathbf{Z}_\ell)
+\]
+(Lefschetz theorem faible --- or of Bertini --- a reference moderne is SGA~2~XIV~4.6~+~1.10) of sorte that $\Gamma_{\overline{K}}$ is connected and that the morphism $\Alb(\Gamma_{\overline{K}}) = \Pic^0(\Gamma_{\overline{K}}) \to A_{\overline{K}}$ of the jacobienne of $\Gamma_{\overline{K}}$ in $A_{\overline{K}}$ is a epimorphisme. In particular, $\Gamma_{\overline{K}}$ is of genre $g \geq d$. Excluons provisoirement the cas $d = 1$. one has then $g \geq 2$.
+
+This which is vrai on $\eta = \Spec(K)$ the is also in a neighborhood sufficiently petit $V$ of $\eta$: there exists to the-dessus of $V \subset U$ suitable a curve smooth $\Gamma_V$ of genre $g \geq 2$, plongee in $A_V$, with $\Pic^0(\Gamma_V) \twoheadrightarrow A_V^\vee$. Rapetissant $U$, one can supposer and one assumed that $U = V$.
+
+Appliquons the lemma \ref{sec:1.6} a the curve $\Gamma_U$ on $U \subset S$, and remplacons $S$ by the $S'$ fourni by the lemma (or plutot by the normalise of a composante irreducible): one se ramene a supposer that $\Gamma_U$ se prolonge en a family of curves stables on $S$. of after [2]~7.3, $\Pic_S^0(\Gamma)$ exists as space algebraic on $S$. Let $P := \Pic_S^0(\Gamma)$ the under-space algebraic en groups open which parametre the sheaves inversibles on $\Gamma$ of which the restriction a each composante irreducible of each fiber geometric is of degree $0$. This space algebraic is separe and smooth of type finite on $S$. Ses fibers geometriques are of the extensions of abelian varieties by of the tores: c'is a space algebraic semi-abelien on $S$.
+
+one has ainsi obtained (recall-the, after changement of $S$, and of $U$) a space algebraic semi-abelien $P$ on $S$, of which the restriction $P|U$ a $U$ is a space algebraic abelien on $U$ equipped with a epimorphisme $u : P|U \twoheadrightarrow A$. Let $K_U = \Ker(u)$. C'is a under-space algebraic en groups of $P|U$. Quitte a rapetisser $U$ (this n'is of ailleurs not necessary), one can the supposer plat on $U$. of after [11]~5.7.9, a new modification of $S$ permet of supposer that the adherence schematique $\overline{K}_U$ of $K_U$ in $P$ is a under-space algebraic plat of $P|U$. Lorsque $\overline{K}_U$ is $S$-plat, c'is automatiquement a under-space algebraic en groups of $P$.
+
+For the spaces algebraic en groups on a base $S$, the passage to the quotient by a under-space en groups plat and closed se fait without probleme. It is compatible to the changement of base and fournit a quotient separe on $S$, plat si the space of depart the is. See [1]~7 (the proofs ne are not data). Let $K$ the adherence schematique of $K_U$, assumed plate on $S$, and $N = P/K$. The fibers geometriques of $N$ are of the quotients of extensions of abelian varieties by of the tores, therefore again of the extensions of abelian varieties by of the tores. the space algebraic en groups $N$ is therefore semi-abelien. Puisque $A = P|U/K_U$, it prolonge $A$ and repond to the probleme pose.
+
+It reste a traiter the cas $d = 1$ which had ete exclus. The same proof continue a s'appliquer si one defines a curve stable of genre a as a curve pointee: $X \xrightarrow{e} S$, with $e$ in the open of lissite of fibers geometriques of the curves elliptiques or of the cubiques nodales.
+
+Other possibilite: define $\Gamma_\eta$ as a section hyperplane of $A_\eta \times A_\eta^\vee$.
+
+
+\section{EXORCISER THE CHAMPS}
+
+\subsection{} Recall the definition of a groupoide en schemes (SGA~3~VI). C'is a diagram
+\begin{equation}\label{eq:3.1.1}
+\begin{tikzcd}
+S_2 \arrow[r, shift left=1.5ex, "d_2"] \arrow[r, "d_1"{description}] \arrow[r, shift right=1.5ex, "d_0"'] & S_1 \arrow[r, shift left=0.75ex, "d_1"] \arrow[r, shift right=0.75ex, "d_0"'] & S_0
+\end{tikzcd}
+\end{equation}
+(fleches $d_i$, $i = 0,1$ and $0,1,2$ respectivement), with
+\[
+@@MATH3@@
+\]
+cartesien such that, for every scheme $T$, si one appelle objects the elements of $\Hom(T,S_0)$, fleches ceux of $\Hom(T,S_1)$, source (resp. but) of $f$ the object $d_1(f)$ (resp. $d_0(f)$) and si for $f$ of but the source of $g$ (of sorte that there exists a and a seul $\langle g,f \rangle \in \Hom(T,S_2)$ with $d_2\langle g,f \rangle = f$ and $d_0\langle g,f \rangle = g$), one defines the composition by $g \circ f = d_1\langle g,f \rangle$, one obtains a groupoide, i.e. a category of which all the fleches are inversibles. One the note $S_*(T)$. For $T$ variable, the $S_*(T)$ forment a prechamp en groupoides.
+
+The champs algebraic quasi-compacts and separes are the champs en groupoides obtained as champ associated a prechamp $S_*(T)$ (for the topologie étale) for lequel $S_0$ is quasi-compact, $(d_0,d_1) : S_1 \to S_0 \times S_0$ is a morphism finite and or the $d_i : S_1 \to S_0$ are etale.
+
+The spaces algebraic quasi-compacts and separes correspondent to the cas particulier or $(d_0,d_1) : S_1 \to S_0 \times S_0$ is a embedding closed. The under-scheme $S_1$ of $S_0 \times S_0$ is then a relation of equivalence étale and the space algebraic ``is'' the quotient $S_0/S_1$.
+
+\subsection{} Let $g$ a integer $\geq 2$ and disons simplement \emph{curve stable} for a curve stable of genre $g$. Expliquons comment one can construct a diagram \eqref{eq:3.1.1} in the cas of the champ $\mathcal{M}$ of the curves stables. Being given $T_i$ ($i = 1,2$), equipped with a curve stable $u_i : X_i \to T_i$, one denotes $T_1 \times_{\mathcal{M}} T_2$ the scheme $\Isom(X_1, X_2)$ which represente the functor $T \mapsto \{(a_1, a_2, \phi) \mid a_i \text{ est un morphisme de } T \text{ dans } T_i \text{ } (i = 1,2) \text{ et } \phi \text{ est un isomorphisme de } a_1^* X_1 \text{ avec } a_2^* X_2\}$.
+
+This ``fiber product'' is finite on $T_1 \times T_2$. One dit that $S$, equipped with a curve stable $X$ (i.e. of $S \to \mathcal{M}$) is étale on $\mathcal{M}$ (resp. smooth, resp. s'envoie on $\mathcal{M}$) si for every $T$, equipped with a curve stable $Y$, $S \times_{\mathcal{M}} T$ is étale on $T$ (resp. smooth, resp. s'envoie on $T$). Si $S$ is étale on $\mathcal{M}$ and s'envoie on $\mathcal{M}$, the champ $\mathcal{M}$ correspond to the diagram \eqref{eq:3.1.1} suivant:
+\[
+@@MATH4@@
+\]
+the moduli space $H$ of the curves stables $X$ equipped with a embedding tricanonique $X \hookrightarrow \mathbf{P}^{5g-6}$ is smooth on $\mathcal{M}$ and s'envoie on $\mathcal{M}$. The group $\PGL(5g-5)$ agit on $H$ with of the stabilisateurs finite and reduits. Si $S$ is a sum disjointe of under-schemes smooth of $H$, transverses to the orbites of $\PGL$, of dimension complementaire and the rencontrant all, $S$ is étale on $\mathcal{M}$, and s'envoie on $\mathcal{M}$, therefore fournit a diagram \eqref{eq:3.1.1}. The champ $\mathcal{M}$ is separe of type finite on $\Spec(\mathbf{Z})$ ([5]~5.1). The deformations of the curves n'being not obstruees, it is smooth. One can also the deduire of this that $H$, smooth on $\mathcal{M}$, is smooth on $\Spec(\mathbf{Z})$.
+
+\subsection{} Let $n \geq 1$ a integer and $\mathcal{M}_g[n]$ the champ algebraic classifiant the curves proper and smooth of genre $g$, $X$, on of the bases $S$ or $n$ is inversible, equipped with a isomorphism (the \emph{structure of niveau $n$}) $\alpha : \Pic_S^0(X)_n \xrightarrow{\sim} (\mathbf{Z}/n\mathbf{Z})^{2g}$. Si $\mathcal{M}_g^0$ is the open of $\mathcal{M}$ corresponding to the curves smooth, the morphism ``oubli of the structure of niveau $n$'': $\mathcal{M}_g[n][1/n] \to \mathcal{M}_g^0[1/n]$ fait of $\mathcal{M}_g[n][1/n]$ a covering finite étale of $\mathcal{M}_g^0[1/n]$.
+
+\subsection{}\label{sec:3.4}
+
+\textbf{Definition} ($g \geq 2$): $\mathcal{M}_g[n]$ = normalise of $\mathcal{M}_g$ in $\mathcal{M}_g[n][1/n]$.
+
+In the langage 3.1., this definition signifie this,
+
+\begin{enumerate}[label=(\alph*)]
+\item One choisit $S_0$ étale on $\mathcal{M}$, and s'envoyant on $\mathcal{M}$, of or as en 3.2 a diagram \eqref{eq:3.1.1} $S_*$.
+\item On each $S_i$, one dispose by construction of a curve stable $X_i$ ($i = 0,1,2$), and they donnent lieu a diagram cartesien
+\[
+@@MATH5@@
+\]
+\item Let $S_i^0$ the open of $S_i$ to the-dessus duquel $X_i$ is smooth, and $S_{i,n}^0[1/n]$ the covering finite étale $\Isom(\Pic^0(X_i)_n, (\mathbf{Z}/n\mathbf{Z})^{2g})$ of $S_i^0[1/n]$. Let enfin $S_{i,n}$ the normalisation of $S_i$ in $S_{i,n}^0[1/n]$. Parce that $S_{i,n}^0[1/n]$ is smooth on $\Spec(\mathbf{Z})$, therefore normal, c'is again the sum disjointe, on the composantes irreductibles $T$ of $S_{i,n}^0[1/n]$ of the normalise of the composante image of $S_1$ in the field of the functions rationnelles of $T$.
+\end{enumerate}
+
+The normalisation commute to the changements of base étale, the $S_{i,n}$ forment a new a diagram \eqref{eq:3.1.1}. The champ $\mathcal{M}_g[n]$ is the champ defined by this diagram.
+
+The diagram
+\[
+@@MATH6@@
+\]
+is cartesien. In the langage of the champs, that fournit $S_{0,n} = S_0 \times_{\mathcal{M}} \mathcal{M}_g[n]$ and the representabilite relative of $\mathcal{M}_g[n]$ on $\mathcal{M}$. We shall have only a utiliser the consequence, formelle on the definitions, that for $t \in S_{0,n}(T)$ of image $s$ in $S_0(T)$, one has in the groupoides $S_{*,n}(T)$ and $S_*(T)$
+\begin{equation}\label{eq:3.4.1}
+\Aut(t) \hookrightarrow \Aut(s).
+\end{equation}
+
+\subsection{}
+
+\begin{proposition}
+Si $n \geq 3$, $\mathcal{M}_g[n]$ is a space algebraic.
+\end{proposition}
+
+En of other termes, with the notations of \ref{sec:3.4}, the morphism $(d_0, d_1)$ identifie $S_{1,n}[1/n]$ a under-scheme closed of $S_{0,n}[1/n] \times S_{0,n}[1/n]$. The point essential is the
+
+\begin{lemma}\label{lem:3.5.1}
+Let $X$ a curve stable on $k$ algebriquement clos and $n \geq 3$ inversible in $k$. All automorphism of $X$, agissant trivialement on $\Pic^0(X)_n$, is the identity.
+\end{lemma}
+
+\begin{proof}
+Ecrivons $\Pic^0$ as extension of a abelian variety by a tore:
+\[
+0 \to T \to \Pic^0(X) \to A \to 0
+\]
+and let $L$ the group of the characters of $T$. One sait that all automorphism $u$ of $X$ is of ordre finite. S'it agit trivialement on $\Pic^0(X)_n$, it agit trivialement on $A_n$ and on $T_n$, therefore on $L/nL$. By Serre [12], for $A$, and a argument direct analogue for $L$, it agit trivialement on $A$ and on $L$, therefore on $T$.
+
+the endomorphism $u - 1$ of $\Pic^0 X$ envoie therefore $A$ on $T$, therefore is trivial: $u$ agit trivialement on $\Pic^0$, and one conclut by [5]~1.13.
+\end{proof}
+
+\begin{lemma}\label{lem:3.5.2}
+Let $S$ a scheme normal, $j : U \hookrightarrow S$ a open dense of $S$, $A$ a space algebraic abelien on $U$, prolonge en $N$ semi-abelien on $S$, and $n$ inversible on $S$.
+
+\begin{enumerate}[label=(\roman*)]
+\item The sheaf étale $N_n$ of the points of division by $n$ of $N$ s'injecte in $j_* j^* N_n = j_* A_n$.
+\item All isomorphism $\alpha$, on $U$, of $A_n$ with the sheaf constant $(\mathbf{Z}/n\mathbf{Z})^{2g}_U$, se prolonge en a monomorphisme $N_n \hookrightarrow (\mathbf{Z}/n\mathbf{Z})^{2g}_S$.
+\end{enumerate}
+\end{lemma}
+
+the assertion (i) resulte of this that $N_n$ is separe on $S$. Parce that $S$ is normal, one has $j_* (\mathbf{Z}/n\mathbf{Z})_U = (\mathbf{Z}/n\mathbf{Z})_S$ and
+\[
+N_n \hookrightarrow j_* j^* N_n = j_* A_n \xrightarrow{\sim} j_* (\mathbf{Z}/n\mathbf{Z})^{2g}_U = (\mathbf{Z}/n\mathbf{Z})^{2g}_S
+\]
+is the prolongement cherche.
+
+\begin{proof}[Proof of the Proposition]
+Posons $T_i = S_{i,n}[1/n]$. Puisque $T_1$ is finite and net on $T_0 \times T_0$ (net car étale, therefore net, on $T_0$), it is enough to verify that for every field algebriquement clos $k$, $T_1(k)$ s'injecte in $T_0(k) \times T_0(k)$. One can supposer $n$ inversible in $k$, without what $T_1(k) = \emptyset$. Parce that $T_*(k)$ is a groupoide, it is enough to verify that for $t \in T_0(k)$, there exists exactly a object of $T_1(k)$ to the-dessus of $(t,t)$ i.e. that $\Aut(t)$ is reduit a the identity.
+
+Notons again $X$ the curve stable on $S_0$, inverse image of the curve universelle on $\mathcal{M}$, and of 3.4~(b). On the $T_i := S_{2,n}[1/n]$, one dispose by definition of a systeme cartesien of isomorphisms $\Pic^0(X_i)_n \xrightarrow{\sim} (\mathbf{Z}/n\mathbf{Z})^{2g}$. of after \ref{lem:3.5.2}, it se prolonge on $T_i$ en a monomorphisme of sheaves etale
+\[
+\Pic^0(X_i)_n \hookrightarrow (\mathbf{Z}/n\mathbf{Z})^{2g}.
+\]
+It follows that the morphism of the champ defined by $T_*$ in celui, $\mathcal{M}_*$, defined by $S_*$ se factorise by the champ (not algebraic, celui-the) of the curves stables $X$, equipped with $\Pic^0(X)_n \hookrightarrow (\mathbf{Z}/n\mathbf{Z})^{2g}$.
+
+For $t \in T_0(k)$, of image $s$ in $S_0(k)$, the monomorphisme \eqref{eq:3.4.1}
+\[
+\Aut(t) \hookrightarrow \Aut(s) = \Aut(\text{fibre de } X_0 \text{ en } s)
+\]
+a therefore a image consistant of automorphismes of $(X_0)_s$ agissant trivialement on $\Pic^0((X_0)_s)_n$. of after \ref{lem:3.5.1}, a tel automorphism is trivial.
+\end{proof}
+
+\subsection{}
+
+\begin{corollary}
+Si $n \geq 3$, definissons by deux integers $n_i$ ($i = 1,2$) prime between eux $\geq 3$, then $\mathcal{M}_g[n_1 n_2]$ is a space algebraic.
+\end{corollary}
+
+It is enough to verify that each $\mathcal{M}_g[n_i][1/n_i]$ is a space algebraic, i.e. that the objects of the champ corresponding n'have not of automorphism. One the deduces of \eqref{eq:3.4.1} and of sa factorisation $\mathcal{M}_g[n_1 n_2][1/n_i] \to \mathcal{M}_g[n_i][1/n_i] \to \mathcal{M}$, compte tenu of 3.5.
+
+\subsection{} In 3.6, the langage of the champs a permis of construct, a partir of a family on $S$ of curves stables as en 3.2, a atlas, to the sens of the topologie étale, definissant a space algebraic $\mathcal{M}_g[n]$. The criteres valuatifs of separation and of proprete montrent, grace to the theorem of reduction semi-stable, that this space algebraic is proper on $\Spec(\mathbf{Z})$. One can utiliser this $\mathcal{M}_g[n]$ as $S_0$ in the proof of the lemma \ref{sec:1.6}. Si one prefere that $S_0$ let projective on $\Spec(\mathbf{Z})$, it is enough to appliquer the lemma of Chow a $\mathcal{M}_g[n]$. En fait, $\mathcal{M}_g[n]$ is projective (Mumford).
+
+
+\section{OBTENIR OF THE SCHEMES}
+
+In this n\textsuperscript{o}, we montrons comment modifier and completer the proof of the lemma of Gabber for obtenir of the schemes, plutot that of the spaces algebraic. A other approche m'a ete signalee by Michel Raynaud: it me dit savoir prouver that si $X$ is a $S$-space algebraic en groups, smooth and separe on $S$, a fibers connected, then $X$ devient representable after changement of base a eclate suitable $S'/S$.
+
+Let $g$ a integer $\geq 2$. For abreger, we shall say \emph{curve stable} for a curve stable of genre $g$.
+
+\subsection{} For $X/S$ a curve smooth of genre $g$, the autodualite of the jacobienne $e : \Pic_S^0(X) \xrightarrow{\sim} \Pic_S^0(X)^*$ fournit a sheaf inversible relativement ample canonical on $\Pic_S^0(X)$:
+\[
+(\id,e)^*(\text{faisceau de Poincaré}).
+\]
+It is symmetric, and trivialise the long of the section zero. Sa formation is compatible a all changement of base. Notons the $\beta(X/S)$.
+
+\subsection{}\label{sec:4.2}
+
+\textbf{Lemma}: It is possible, in such a way unique a isomorphism unique pres, of assigner a each curve stable $X/S$ a sheaf inversible $\beta(X/S)$ on $\Pic_S^0(X)$, trivialise the long of the section zero, of formation compatible a all changement of base, and donnant $\beta(X/S)$ of 4.1 quand $X$ is smooth.
+
+It is enough to traiter the cas ``universal'' that voici: one prend $X^*/S^*$ as en \ref{sec:3.4}, and one cherche of the sheaves inversibles $\beta(X_i/S_i)$ on the $\Pic_{S_i}^0(X_i)$, trivialises the long of the section zero, prolongeant the sheaves inversibles 4.1 to the-dessus of the open $S_i^0$ of $S_i$ or $X_i$ is smooth and formant a systeme cartesien on $S_*$ (compatibility to the changements of base $S_i \to S_j$). For each $i$, $S_i$ is smooth on $\Spec(\mathbf{Z})$, therefore regular. Similarly for $\Pic_{S_i}^0(X_i)$, smooth on $S_i$. There exists therefore a prolongement $\beta'(X_i/S_i)$ of the sheaf inversible $\beta((X_i|S_i^0)/S_i^0)$ of 4.1 (prendre the determinant of a quelconque prolongement coherent). The corrigeant by the inverse image of sa restriction a the section zero, one obtains a prolongement $\beta''(X_i/S_i)$, trivialise the long of the section zero (the trivialisation prolongeant celle of 4.1 on $S_i^0$). Parce that $\Pic_{S_i}^0(X_i)$ is a fibers geometriques irreductibles, a tel prolongement is unique a isomorphism unique pres. Grace a this unicite, the $\beta''(X_i/S_i)$ are compatible to the changements of base $S_i \to S_j$ and repondent to the probleme pose.
+
+\subsection{}\label{sec:4.3}
+
+\begin{proposition}
+For $X/S$ a curve stable, the sheaf inversible $\beta(X/S)$ of \ref{sec:4.2} is relativement ample. In particular, $\Pic_S^0(X)$ is quasi-projective on $S$, and is a scheme si $S$ en is a.
+\end{proposition}
+
+A new, it is enough to the verify in a cas universal, by example, with the notations precedentes, for $X_0/S_0$. In particular, one can supposer that $S$ is a scheme regular and that the open $S^0$ of $S$ to the-dessus duquel $X$ is smooth is dense. One the assumed. Si one savait a priori that $\Pic_S^0(X)$ is a scheme, the assertion resulterait of [10]~XI~1.13. Malheureusement, the proof of loc.~cit. utilise in such a way essential that one ait affaire a scheme, for construct a priori, locally on $S$, of the diviseurs relativement amples as complements of ouverts affine (cf [10]~V~3.10).
+
+\subsection{}\label{sec:4.4}
+
+\begin{lemma}
+Let $X$ a curve geometriquement reduite connected on $k$ algebriquement clos. There exists a diviseur $D$, contenu in the open of lissite of $X$, of degree $g := \dim H^1(X, \cO)$, such that
+\[
+H^0(X, \cO(D)) = k \quad \text{et} \quad H^1(X, \cO(D)) = 0.
+\]
+\end{lemma}
+
+\begin{proof}
+the assertion $H^0(X, \cO(D)) = k$ resulte of the other and of Riemann-Roch. Si $\omega$ is the sheaf dualisant, one has $\dim H^0(X, \omega) = g$ and $H^1(X, \cO(D)) = 0$ equivaut by duality a $H^0(X, \omega(-D)) = 0$.
+
+The sheaf $\omega$ n'a not of composante immergee. This permet of construct by recurrence on $i$, $0 \leq i \leq g$, a sequence croissante of diviseurs $D_i$ of degree $i$ contenus in the open of lissite with $\dim H^0(X, \omega(-D_i)) = g-i$: prendre $D_0 = 0$ and $D_{i+1} = D_i + P_i$, with $P_i$ a $k$-point smooth or the sections of $H^0(X, \omega(-D_i))$ ne s'annulent not all. One prend $D = D_g$.
+\end{proof}
+
+\subsection{}\label{sec:4.5}
+
+\begin{lemma}
+Let $f : X \to S$ with $f$ projective plat, a fibers geometriques reduites connected. Locally for the topologie étale on $S$, there exists a open $V \subset \Pic_S^0(X)$ which rencontre each fiber and which is a scheme.
+\end{lemma}
+
+\begin{proof}
+One se ramene a supposer $S$ strictement local, of point closed $s$, and it is enough to construct a open $V \subset \Pic_S^0(X)$ which Let scheme and rencontre $X_s$.
+
+Let $D_s$ a diviseur of degree $g := \dim H^1(X_s, \cO)$ on $X_s$, contenu in the open of lissite $X^0$, verifiant $H^1(X_s, \cO(D_s)) = 0$ (\ref{sec:4.4}). Prolongeons-the en a diviseur of Cartier relative $D$ on $X$. C'is possible car $S$ is local henselien. one has $f_* \cO(D) = \cO$ and $R^1 f_* \cO(D) = 0$.
+
+Let $V'$ the open of $\Pic_S^0(X)$ corresponding to the sheaves inversibles $\mathcal{L}$ such that $R^1 f_* (\mathcal{L}(D)) = 0$. For a tel $\mathcal{L}$, $f_* \mathcal{L}(D)$ is free of rank a, of formation compatible a all changement of base. Let $V \subset V'$ the open of $V'$ corresponding to the $\mathcal{L}$ such that si the section $s$ is a base of $f_* \mathcal{L}(D)$, the under-scheme $s = 0$ of $X$ Let diviseur of Cartier relative $D(\mathcal{L})$, contenu in the open of lissite $X^0$. By construction, $V$ contient the section zero. The morphism $\mathcal{L} \mapsto D(\mathcal{L})$ identifie $V$ a open of $\Sym^g(X^0)$ and $V$ is therefore a scheme.
+\end{proof}
+
+The projectivite of $X$ on $S$ a servi a garantir the existence of $\Sym^g(X^0)$.
+
+\subsection{}\label{sec:4.6}
+
+\begin{lemma}
+Under the hypotheses of \ref{sec:4.5}, locally for the topologie étale on $S$, $\Pic_S^0(X)$ is a scheme.
+\end{lemma}
+
+\begin{proof}
+One se ramene again a supposer $S$ strictement local. Posons $P := \Pic_S^0(X)$. C'is a space algebraic smooth on $S$, purement of a dimension relative $g$. Let $V$ as en \ref{sec:4.5}. It is enough to montrer that $P$ is the reunion of the $g \cdot V$ for $g \in P(S)$. One se ramene a supposer $S$ essentiellement of type finite on $\mathbf{Z}$, this which permet of ``compter the dimensions'' without crainte. Let $n$ a integer, and $P_n$ the power fibree $n$-uple of $P$ on $S$. For $t$ a point geometric of $S$ and $g = (g_1, \ldots, g_n)$ a point geometric of $P_n$ to the-dessus of $t$, disons that $g$ is permis si the $g_i V$ recouvrent $P_t$. The points geometriques permis are the points geometriques of a part constructible $Y$ of $P_n$ (EGA~IV~3\textsuperscript{eme} part~9.6.1~(i)). Let $Z$ son complement. One checks that $Z$ is fiber a fiber of codimension $\geq n - g$. Si $n - g > \dim S$, it follows that the adherence $\overline{Z}$ of $Z$ ne contient not every the fiber speciale and one can trouver a section $g$ of $P_n - \overline{Z}$: $P$ is the reunion of the $g_i V$.
+\end{proof}
+
+\subsection{}
+\textbf{Remark:} In \ref{sec:4.5} and \ref{sec:4.6}, the hypothese that $f$ is projective can be remplacee by celle that $f$ let proper: locally on $S$ for the topologie étale, $f$ will be automatiquement projective.
+
+\subsection{}
+\textbf{Proof of \ref{sec:4.3}} (under the hypotheses auxquelles one s'is reduit, see \ref{sec:4.3}). The probleme is local for $S$ for the topologie étale. Grace a \ref{sec:4.6}, one can therefore appliquer [10]~XI~1.13.
+
+\subsection{}
+\textbf{Remark:} The proof of [10]~XI~1.13 ne fait, me semble-t-it, usage of the hypothese that one ait affaire a of the schemes that via the conclusion of \ref{sec:4.5}. This permettrait of eviter \ref{sec:4.6}.
+
+\subsection{}
+
+\begin{proposition}
+The lemma of Gabber (theorem 1.4) reste vrai with, in the conclusion, space algebraic semi-abelien remplace by scheme semi-abelien.
+\end{proposition}
+
+\begin{proof}
+Procedant as in the proof datum to the \S~2, one se ramene a supposer the existence of a curve stable $X$ on $S$, smooth on $U$, and, on $U$, of a epimorphisme $u : \Pic_S^0(X) \to A$ of which the kernel $K_U$ se prolonge en a under-space algebraic en groups plat $K$ of $\Pic_S^0(X)$. Montrons that the space algebraic semi-abelien $P := \Pic_S^0(X)/K$, prolongeant $A$, is a scheme.
+
+On $U$, the theorem of complete reductibilite of Poincare assure the existence of $v : A \to \Pic_S^0(X)$ such that $uv$ let the endomorphism of multiplication by a integer $n \geq 1$ of $A$. Notons again $u$ the morphism of passage to the quotient of $\Pic_S^0(X)$ in $P$. of after 1.3 remark~1, $v$ se prolonge en a morphism again note $v$ of $P$ in $\Pic_S^0(X)$. By densite of $U$ in $S$, one has again $uv = n$. The multiplication by $n : P \to P$ being quasi-finite, $v$ is quasi-finite, therefore quasi-affine ([6]~II~6.15). Puisque $\Pic_S^0(X)$ is a scheme, $P$ en is a also.
+\end{proof}
+
+\vspace{1em}
+
+Je remercie M.~Raynaud and O.~Gabber of a lecture critique of a premiere version of this texte.
+
+
+\section*{Note (1)}
+\addcontentsline{toc}{section}{Note (1)}
+
+\textbf{(1)} O.~Gabber m'a fait observer that the proof of [10]~XI~1.15 fait usage of this that one travaille with of the schemes. Ci-dessous, we donnons the proof of enonces voisins, valables for the spaces algebraic and sufficient a justifier 1.2 and 1.3 Remark~1.
+
+\subsection*{\textbf{(1).1.}}
+For $S = \Spec(A)$ a scheme affine and $U$ a under-scheme open of $S$ reunion finite of ouverts $U_i = \Spec(A[f_i^{-1}])$, the adherence schematique $\overline{F}$ in $S$ of a under-scheme closed $F$ of $U$, defined in each carte $U_i$ by a ideal $I_i$ of $A[f_i^{-1}]$, is the under-scheme closed of $S$ defined by the ideal $I$ suivant. For $\beta_i$ the map canonical of $A$ in $A[f_i^{-1}]$, one prend
+\[
+I = \bigcap_i \beta_i^{-1}(I_i).
+\]
+
+Si $S' = \Spec(A')$ is plat on $S$, and si $U'$ (resp.~$F'$, resp.~$\overline{F}'$) is the inverse image of $U$ (resp.~$F$, resp.~$\overline{F}$) in $S'$ (resp.~$U$, resp.~$S$), $\overline{F}'$ is again the adherence schematique of $F'$ in $S'$. In particular, the construction of the adherences schematiques commute a the localisation étale, therefore garde a sens for the spaces algebraic.
+
+\textbf{Complement:} For $S$ as ci-dessus and $f = X \to S$ quasi-compact, the image schematique closed $\overline{f(X)}$ is the under-scheme closed of ideal the set of the $a \in A$ of inverse image zero on $X$. For $f$ the inclusion of $F$ as ci-dessus, one retrouve the notion of adherence schematique. one has for $\overline{f(X)}$ the same compatibility to the changements of base that for the adherence schematique.
+
+\subsection*{\textbf{(1).2.}}
+Let $S$ a space algebraic noetherien, $X$ and $Y$ deux $S$-spaces algebraic, equipped with sections $e$, $V$ a open of $X$, $U = eb_1(V)$ son image converse in $S$ and $f_V$ a $S$-morphism of $V$ in $Y$, envoyant $e$ on $e$: $f_V \circ (e|U) = e|U$. For each integer $n$, $f_V$ induces a morphism of the $n$-ieme neighborhood infinitesimal of $e$ in $V$ (or in $X_U$, the inverse image of $U$ in $X$, that revient to the same) in the $n$-ieme neighborhood infinitesimal of $e$ in $Y_U$. The systeme projective of these morphisms is a morphism $\hat{f}$ of $\hat{X}_U$, complete formel of $X_U$ the long of $e$, in $\hat{Y}_U$.
+
+\begin{proposition}
+One assumed $X$ smooth on $S$ and $Y$ separe of type finite.
+
+\begin{enumerate}[label=(\roman*)]
+\item Si $U$ contient all the points of $S$ of profondeur $\leq 1$, then $\hat{f} : \hat{X}_U \to \hat{Y}_U$ se prolonge, in such a way unique en a morphism $\hat{f}_1$ of the complete formel $\hat{X}_1$ of $X$ the long of $e$ in celui, $\hat{Y}_1$, of $Y$.
+\item Let $\Gamma$ the adherence schematique, in $X \times_S Y$, of the graphe $\Gamma_V \subset V \times_S Y$ of $f_V$. Si $\hat{f}_1 : \hat{X}_1 \to \hat{Y}_1$ se prolonge en $\hat{f}_1 : \hat{X}_1 \to \hat{Y}_1$ and that $U$ contient all the points of $S$ of profondeur $0$, then $\Gamma$ is étale on $X$ the long of $e$ (of complete the graphe of $\hat{f}_1$).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The problemes are local on $S$, for the topologie étale. This permet of supposer $S$ affine. The voisinages infinitesimaux of $e$ in $X$ and $Y$ are then egalement of the schemes affine, and (i) se proves as in [10]; the hypothese of lissite sert a assurer that the voisinages infinitesimaux of $e$ in $X$ are finite and plats on $S$.
+
+Some preliminaires before of prouver (ii). A space algebraic $E$ a en each point $s$ a ring local --- en fait local henselien --- which, in the cas particulier or $E$ ``is'' a scheme is the henselise of the ring local ordinaire. The complete of $E$ en $s$ is the spectre of the complete of this ring local.
+
+\begin{lemma}
+Let $S$ the spectre of a ring local noetherien complet $A$, $X$ the spectre of $A[[T_1, \ldots, T_n]]$, $e$ the section zero of $X/S$, $V$ a open of $X$ such that $U := eb_1(V)$ contienne all the points of $S$ of profondeur $0$ and $F \subset V$ a under-scheme closed contenant all the voisinages infinitesimaux of $e(U)$ in $V$. Then $F = V$.
+\end{lemma}
+
+\begin{proof}
+It is enough to montrer that $X$ is the adherence schematique of $F$ in $X$. Indeed, si $f = \sum a_i T^i$ is zero on $F$, each $a_i$ is zero on $U \subset S$, therefore zero, and $f = 0$.
+\end{proof}
+
+\textbf{Proof of (ii):} Let $s$ a point of $S$. Ecrivons $X_s^1$ for $X \times_S \Spec(\cO_{S,s}^1)$ and $V_s^1$ (resp.~$U_s^1$) for the inverse image of $V$ (resp.~$U$) in $X_s^1$ (resp.~$S_s^1$). The morphism formel $\hat{f}_1$ induces $\hat{f}_1 : \hat{X}_s^1 \to \hat{Y}$ and $f$ induces $f_2 : V_s^1 \to Y$. Montrons that $f_2$ is the restriction $\hat{f}_1|_{V_s^1}$ of $\hat{f}_1$ a $V_s^1$: these morphisms coincident on a under-scheme closed of $V_s^1$ contenant all the voisinages infinitesimaux of $e(U)$, and one applique the lemma precedent. the inverse image of $\Gamma_V$ in $X_s^1 \times_S Y$ is therefore the graphe of the restriction of $\hat{f}_1$ a $V_s^1$, of adherence schematique the graphe of $\hat{f}_1 : \hat{X}_s^1 \to \hat{Y}$. The formation of the adherence schematique commutant to the changement of base plat $X_s^1 \times_S Y \to X \times_S Y$, one sees that, after the changement of base $X_s^1 \to X$, $\Gamma$ is étale on $X$. It follows that $\Gamma$ is étale on $X$ en $e(s)$.
+\end{proof}
+
+\subsection*{\textbf{(1).3.}}
+\textbf{Corollary}: Let $G$ and $H$ deux spaces algebraic en groups on $S$, $U$ a open of $S$ and $f_U$ a morphism of $G|U$ in $H|U$. One assumed $G$ smooth a fibers connected, $H$ of type finite and separe on $S$ and that $U$ contient all the points of profondeur $0$ of $S$.
+
+Si the complete $\hat{f}_U$ of $f_U$ the long of the sections neutres se prolonge en $\hat{f}_1 : \hat{G}_1 \to \hat{H}_1$ and that $U$ contient all the points of $S$ of profondeur $\leq 1$ (proposition (1).2 (i)) --- then $f$ se prolonge en a morphism (unique) of $G$ in $H$.
+
+\begin{proof}
+the unicite provient of this that $U$ is schematiquement dense in $S$, therefore $G|U$ schematiquement dense in $G$. Prouvons the existence. Let $\Gamma_U$ the graphe of $f_U$, $\Gamma \subset G \times_S H$ son adherence schematique and $\Gamma^0$ the open of $\Gamma$ or $\Gamma$ is étale on $G$. of after (1).2~(ii), $\Gamma^0$ contient the section neutre of $G \times_S H$.
+
+For every section $\gamma$ of $\Gamma$, the translation a gauche by $(e \times f_U(\gamma|U))$ envoie $\Gamma_U$ on lui-same. By transport of structure, the translation a gauche by $\gamma$ envoie therefore $\Gamma^0$ on lui-same. This reste vrai after all changement of base plat. Prenant for changement of base $\Gamma^0/S$, one trouve that $\Gamma^0$ is a under-space en groups of $G \times_S H$. Son image in $G$ is a under-scheme en groups open of $G$, therefore is $G$ puisque $G/S$ is a fibers connected. Puisque $\Gamma^0/G$ is étale and separe, the function on $G$ ``nombres of points of the fiber geometric of $\Gamma^0/G$ en $x \in |G|$'' is semi-continue inferieurement. Being partout a $\geq 1$ and egale a $1$ on $G|U$, it is constant egale a $1$: the morphism $\Gamma^0 \to G$ is étale, surjective and radiciel, therefore a isomorphism (SGA~1~I~5.1). The prolongement cherche is the compose $G \xleftarrow{\sim} \Gamma^0 \longrightarrow H$, of graphe $\Gamma^0$.
+\end{proof}
+
+\subsection*{\textbf{(1).4.}}
+\textbf{Remark:} The proposition devrait rester vraie with the hypothese $G/S$ smooth affaiblie en $G/S$ plat of type finite, and en omettant the hypothese that $H$ is separe on $S$.
+
+
+\section*{BIBLIOGRAPHIE}
+\addcontentsline{toc}{section}{Bibliographie}
+
+\begin{enumerate}[label={[\arabic*]},leftmargin=2em]
+\item M.~ARTIN.--- The implicit function theorem in algebraic geometry, in Proc. Coll. Alg.~Geom., Tata Institute (1969).
+
+\item M.~ARTIN.--- Algebraization of formal moduli I, p.~21--71 in Global analysis, papers in honor of K.~Kodaira. Princeton University Press 1969.
+
+\item M.~ARTIN and G.~WINTERS.--- Degenerate fibers and stable reduction of curves. Topology \textbf{10} (1971) p.~373--383.
+
+\item W.L.~CHOW.--- One the projective embedding of homogeneous varieties, p.~122--128 in A symp.~in honor of S.~Lefschetz. Princeton University Press.
+
+\item P.~DELIGNE and D.~MUMFORD.--- The irreducibility of the space of curves of a given genus. Publ.~math.~IHES \textbf{36} (1969) p.~75--110.
+
+\item D.~KNUTSON.--- Algebraic spaces. Lecture Notes in Math. \textbf{203} Springer Verlag 1971.
+
+\item J.P.~MURRE.--- Representation of unramified functors. Maps, Seminaire Bourbaki, 294, 1964--1965.
+
+\item M.~RAYNAUD.--- Models of Neron. C.R.~Acad.~Sci.~293, (1966). pp.~413--416.
+
+\item M.~RAYNAUD.--- Specialisation of the functor of Picard. Publ.~Math.~IHES \textbf{38} (1970) p.~27--76.
+
+\item M.~RAYNAUD.--- Sheaves amples on the schemes en groups and the spaces homogenes. Lecture Notes in Math.~\textbf{119}. Springer Verlag 1970.
+
+\item M.~RAYNAUD and L.~GRUSON.--- Criteres of platitude and of projectivite. Inv.~Math.~\textbf{13} (1971) p.~1--39.
+
+\item J-P.~SERRE.--- Rigidite of the functor of Jacobi of echelon $n \geq 3$. App. a the expose 17 of the seminaire Cartan 60/61.
+\end{enumerate}
+
+\vspace{1em}
+
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+\end{center}
+
+\vspace{0.5em}
+
+\noindent\textbf{Sigles}
+
+\medskip
+
+\noindent\textbf{E.G.A}: Elements of geometrie algebraic, by A.~Grothendieck and J.~Dieudonne, publie to the Publ.~Math.~IHES.
+
+\noindent EGA~III 1\textsuperscript{ere} part = n\textsuperscript{o}~11, EGA~IV 3\textsuperscript{eme} part = n\textsuperscript{o}~28.
+
+\medskip
+
+\noindent\textbf{S.G.A}: Seminaire of geometrie algebraic of the Bois-Marie. Publie to the Lecture Notes in Math. (sauf SGA~2: cohomology local of the sheaves coherents and theorems of Lefschetz local and globaux; North Holland Publ.~Co 1968).
+
+\noindent SGA~2~XIV = profondeur and theorems of Lefschetz en étale cohomology, by Michele Raynaud; SGA~3~V = construction of preschemas quotient, by A.~Gabriel, in LN~151; SGA~7~XI = models of Neron and monodromy, by A.~Grothendieck, in LN~288; SGA~7~XVII = pinceaux of Lefschetz: theorem of existence, by N.~Katz, in LN~340.
+
+\vspace{2em}
+
+\begin{flushright}
+\textit{P.~DELIGNE}
+
+\textit{I.H.E.S}
+
+\textit{The Bois Marie}
+
+\textit{35 route of Chartres}
+
+\textit{91440 BURES ON YVETTE}
+\end{flushright}
+
+\end{document}

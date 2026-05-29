@@ -1,0 +1,1482 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{calrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{stmaryrd}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{compatibility}[theorem]{Compatibility}
+\newtheorem{questions}[theorem]{Questions}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\cont}{cont}
+\DeclareMathOperator{\gen}{gen}
+\let\sl\relax
+\DeclareMathOperator{\sl}{sl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Isom}{Isom}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+
+\newcommand{\Gm}{{\mathbb{G}_m}}
+\newcommand{\der}{\mathrm{der}}
+\newcommand{\scu}{\mathrm{sc}}
+\newcommand{\ad}{\mathrm{ad}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\newcommand{\intg}{\mathrm{int}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\Zar}{\mathrm{Zar}}
+\newcommand{\et}{\mathrm{\acute{e}t}}
+
+\begin{document}
+
+\title{Central Extensions of Reductive Groups by $K_2$}
+\author{Jean-Luc Brylinski$^*$ \and Pierre Deligne}
+\date{}
+\maketitle
+\footnotetext[1]{Research supported in part by NSF Grants DMS-9203517 and DMS-9504522}
+
+\tableofcontents
+
+\section{Introduction}
+
+If a group $G$ is equal to its commutator subgroup $(G,G)$, it has a universal central extension
+\begin{equation}\label{eq:0.1}
+E \to G \to 1.
+\end{equation}
+(C.~Moore (1968) no.~1). Suppose that $G$ is the group $G(k)$, for $G$ a split simple simply-connected algebraic group over a field $k$, and let us forget about some small groups over small finite fields. Then R.~Steinberg (1962) describes the central extension $E$ by generators and relations, while H.~Matsumoto (1969) describes the kernel by generators and relations. Except for $G$ of type $C_n$ ($n>1$), the kernel is $k^* \otimes k^*/\langle u \otimes v \mid u+v=1 \rangle$, the group we now call $K_2(k)$, following J.~Milnor (1971). For $G$ of any type, including $C_n$, the following remains true: the adjoint group $G_{\ad}(k)$ acts on $G(k)$, hence on the corresponding central extension \eqref{eq:0.1}, and the group of coinvariants is $K_2(k)_{G_{\ad}(k)}$. The universal central extension hence gives rise to a central extension
+\begin{equation}\label{eq:0.2}
+K_2(k) \to \widetilde{G}(k) \to G(k).
+\end{equation}
+The central extension \eqref{eq:0.2} is canonically an extension by $K_2(k)$: the action on $G(k)$ of the group of automorphisms of $G$ (and in particular of $G_{\ad}(k)$) lifts to an action on $\widetilde{G}(k)$, trivial on $K_2(k)$. We will call \eqref{eq:0.2} Matsumoto's central extension. Notation: the universal symbol $\{,\}: k^* \times k^* \to K_2(k)$ maps $u,v$ to the image of $u \otimes v$ in $K_2(k)$.
+
+Suppose now that $k$ is a global field, i.e.~a number field or the field of rational functions of a curve over a finite field. Let $m$ be the group of roots of unity in $k$. Matsumoto's central extensions, for $k$ and its completions $k_v$, then give rise to a topological central extension of the adelic group $G(\bA)$ by $m$, and to a splitting of this central extension over $G(k)$:
+\begin{equation}\label{eq:0.3}
+\begin{tikzcd}
+& G(k) \arrow[d] \\
+m \arrow[r] & \widetilde{G}(\bA) \arrow[r] & G(\bA) \arrow[lu]
+\end{tikzcd}
+\end{equation}
+See C.~Moore (1968).
+
+In this paper, we consider reductive groups $G$ over $k$, where reductive is meant to imply connected. We classify central extensions of $G(k)$ by $K_2(k)$ which, roughly speaking, are functorial in $k$. More precisely, we define objects called central extensions of $G$ by $K_2$, which give rise to a central extension of $G(k)$ by $K_2(k)$ and, for $k$ a global field, to a diagram \eqref{eq:0.3}. We classify the central extensions of $G$ by $K_2$, see below, and we determine their functoriality in $G$ and $k$. We hope that for $k$ a global field this will prove useful in the study of ``metaplectic'' automorphic forms, that is, the harmonic analysis of functions on $G(\bA)/G(k)$.
+
+\textbf{Notation.} --- For $X$ a scheme, the $K_n(X)$ are Quillen's higher $K$-theory groups of the exact category of vector bundles on $X$. For $U$ open in $X$, $U \mapsto K_n(U)$ is a presheaf on $X$. We denote by $\cK_n$ the associated sheaf.
+
+An algebraic group $G$ over a field $k$ defines a sheaf $S \mapsto G(S) = \Hom_{\Spec(k)}(S,G)$ on the big Zariski site $\Spec(k)_{\Zar}$ (see 1.4) of $\Spec(k)$. A central extension of $G$ by $K_2$ is a central extension, on $\Spec(k)_{\Zar}$, of the sheaf of groups $G$ by the sheaf of abelian groups $\cK_2$. By SGA7 (tI, exp.~VII, no.~1), it can be viewed as a $K_2$-torsor $P$ on $G$, provided with a multiplicative structure: an isomorphism $m: \pr_1^*P + \pr_2^*P \to m^*P$ of $K_2$-torsors on $G \times G$, for $m: G \times G \to G$ the group law, obeying an associativity condition on $G \times G \times G$.
+
+The following alternate description, to be explained in \S 8, played for us a useful heuristic role. It is valid when $k$ is infinite and $G$, as an algebraic variety over $k$, is connected and unirational. The face maps of the simplicial classifying space $BG$, that is, the simplicial scheme $G^{\Delta n}/G$, induce homomorphisms of fields of rational functions
+\[k \rightrightarrows k(G) \rightrightarrows k(G \times G) \rightrightarrows k(G \times G \times G) \cdots\]
+Applying the functor $K_2$ and taking the usual alternating sum of face maps, one obtains
+\[K_2k \to K_2k(G) \to K_2k(G \times G) \to K_2k(G \times G \times G) \to \cdots\]
+This complex incarnates in degree 2 the category of central extensions of $G$ by $K_2$. This means that: (a) a 2-cocycle $c \in K_2k(G \times G)$ defines a central extension $E(c)$ of $G$ by $K_2$ and any isomorphism class of central extensions can be obtained in this way; (b) if $c_0$ and $c_1$ are two 2-cocycles, a 1-cochain $b$ such that $c_1 - c_0 = db$ defines an isomorphism $E(b): E(c_0) \to E(c_1)$, and this construction is a bijection
+\[\{b \mid c_1 - c_0 = db\} \xrightarrow{\;\sim\;} \Isom(E(c_0), E(c_1));\]
+(c) obvious compatibilities hold. The idea to go from the cocycle $c \in K_2k(G \times G)$ to the corresponding extension of $G(k)$ by $K_2(k)$ is as follows. One can write $c$ as a finite sum $\sum n_i\{f_i, g_i\}$ with $f_i, g_i$ in $k(G \times G)^*$. The $f_i$ and $g_i$ are all regular on some dense open subset $U$ of $G \times G$ and
+\begin{equation}\label{eq:0.4}
+c(x,y) = \sum n_i\{f_i(x,y), g_i(x,y)\}
+\end{equation}
+is defined for $(x,y) \in U$. Because $c$ is a cocycle, $c(x,y)$ obeys the cocycle condition $c(y,z) - c(xy,z) + c(x,yz) - c(x,y) = 0$ for $(x,y,z)$ in some dense open subset of $G \times G \times G$.
+
+That such a generic cocycle suffices to define a group extension is similar to Weil's theorem that a birational group law determines an algebraic group (SGA3, t2, XVIII 3.7). We were also inspired by Mackey's theorem that for separable locally compact topological groups, borelian 2-cocycles define topological extensions (G.~W.~Mackey (1957)).
+
+\textbf{Example.} --- For $G$ split simple simply-connected, Matsumoto's central extension carries a set theoretic section for which the cocycle describing the extension is expressed in terms of universal symbols. On some open subset $U$ of $G \times G$, this cocycle is given by a formula \eqref{eq:0.4}. As this formula continues to define a cocycle after extension of scalars from $k$ to $k(G \times G \times G)$, the element $\sum n_i\{f_i, g_i\} \in K_2k(G \times G)$ satisfies the cocycle condition in $K_2k(G \times G \times G)$: Matsumoto's central extension of $G(k)$ by $K_2(k)$ comes from an extension of $G$ by $K_2$.
+
+We now sketch the classification of the central extensions of a reductive group $G$ by $K_2$. If $G$ is simply-connected, the central extensions of $G$ by $K_2$ have no nontrivial automorphisms. In contrast, it can happen that $G(k)$ is not its own commutator subgroup and that the group of automorphisms $\Hom(G(k), K_2(k))$ of a central extension of $G(k)$ by $K_2(k)$ is not trivial. If $G$ is in addition simple (over $k$), the group of isomorphism classes of central extensions of $G$ by $K_2$ is $\bZ$. Corresponding to $1 \in \bZ$, we have a canonical central extension of $G$ by $K_2$. It induces a canonical central extension of $G(k)$ by $K_2(k)$, well-defined up to unique isomorphism. Being canonical, it is acted upon by the group of automorphisms of $G$, and in particular by $G_{\ad}(k)$. For $G$ split, the central extension of $G(k)$ by $K_2(k)$ obtained is the one constructed by Matsumoto.
+
+Fix a maximal torus $T$ in $G$, and a Galois extension $k'$ of $k$ over which $T$ splits. Let $Y$ be the dual of the character group of $T$ over $k'$. It is acted upon by $\Gal(k'/k)$ and by the Weyl group $W$. Rather than to say that central extensions of $G$ by $K_2$ are classified by integers, it is better to say that they are classified by the integer-valued quadratic forms $Q$ on $Y$ invariant by $W$ and by $\Gal(k'/k)$. The classification then remains valid for $G$ semi-simple simply-connected, and is functorial in $G$ and $k$. For $G$ simple, invariant quadratic forms correspond to integers by $Q \mapsto Q(a^\vee)$, for $a^\vee$ the (short) coroot corresponding to a long root $a$.
+
+Let $G$ be a reductive group over $k$. The group of automorphisms of any central extension of $G$ by $K_2$ is $\Hom(G, \cK_2)$. The $\Hom$ group is in the category of sheaves on the big Zariski site of $k$. It is the subgroup $H^0(G, \cK_2)_{\mathrm{prim}}$ of primitive elements of $H^0(G, \cK_2)$. It is also the subgroup of elements $b$ of $K_2k(G)$ for which $\pr_2^*b - m^*b + \pr_1^*b = 0$ in $K_2k(G \times G)$. Example: if $G$ is the quotient of a reductive group $G_1$ by a central $\mu_n$, Kummer theory attaches to the $\mu_n$-torsor $G_1$ over $G$ a section $f$ of $\cO^*/\cO^{*n}$ on $G$ and for $z$ a root of unity of $k$ of order dividing $n$, $b := \{z, f\}$ belongs to $H^0(G, \cK_2)_{\mathrm{prim}}$. Other example: $\Hom(\Gm, \cK_2) = k^*$, with $a \in k^*$ giving rise to $x \mapsto \{a, x\}$.
+
+Because of those automorphisms, the classification problem we consider, for $G$ reductive, is not that of determining the set of isomorphism classes of central extensions by $K_2$. It is that of determining the category of central extensions by $K_2$. This turns out to be an easier problem. It means: to define an equivalence from the category of central extensions of $G$ by $K_2$ to a more down-to-earth category $\cC$.
+
+Suppose first that $G$ is a torus $T$. Fix a Galois extension $k'$ of $k$ over which $T$ splits and let $Y$ be the dual of the character group of $T$ over $k'$. The category $\cC$ is here the category of pairs $(Q,E)$, where $Q$ is a $\Gal(k'/k)$-invariant integer-valued quadratic form on $Y$ and $E$ a $\Gal(k'/k)$-equivariant central extension of $Y$ by $k'^*$, for which \eqref{eq:0.5} below holds. Let $B$ be the bilinear form associated to $Q$: $B(y_1, y_2) := Q(y_1+y_2) - Q(y_1) - Q(y_2)$. The condition is that the commutator of liftings $\tilde{y}_1$, $\tilde{y}_2$ to $E$ of $y_1, y_2 \in Y$ should be given by
+\begin{equation}\label{eq:0.5}
+(\tilde{y}_1, \tilde{y}_2) = (-1)^{B(y_1, y_2)} \in k'^*.
+\end{equation}
+In $\cC$, there can be a morphism from $(Q', E')$ to $(Q'', E'')$ only if $Q' = Q''$. If $Q' = Q''$, morphisms are isomorphisms of equivariant central extensions from $E'$ to $E''$.
+
+Let $T^\vee$ be the torus over $k$, split over $k'$, whose character group is $Y$. It follows from the equivalence of the category of central extensions of $T$ by $K_2$ with $\cC$ that
+\[T^\vee(k) \xrightarrow{\sim} \Hom(T, \cK_2).\]
+
+Suppose that $T$ is a maximal torus in a semi-simple simply-connected group $G$. A Weyl group and $\Gal(k'/k)$-invariant integer-valued quadratic form $Q$ on $Y$ defines a central extension $E$ of $G$ by $K_2$. Restricting $E$ to $T$, we obtain a central extension $E_T$ of $T$ by $K_2$, classified by a pair $(Q, E)$. One has $Q = Q_0$. In 11.7 we will describe $E$ in terms of the root spaces decomposition of the Lie algebra of $G$ over $k'$, relative to the action of $T$.
+
+The classification for general reductive groups is a mixture of the torus and simply-connected cases. Let $G$ be a reductive group over $k$, with maximal torus $T$ split over $k'$. Our main result, a particular case of Theorem 7.2, is:
+
+\begin{theorem}
+The category of central extensions of $G$ by $K_2$ is naturally equivalent to the category of triples $(Q, E, j)$ as follows: $Q$ is a Weyl and Galois invariant integer-valued quadratic form on $Y$; $E$ is a Galois equivariant central extension of $Y$ by $k'^*$, obeying \eqref{eq:0.5}. Let $f: G_{\scu} \to G$ be the simply connected covering of the derived group of $G$, $T_{\scu} := f^{-1}(T)$ and $Y_{\scu} \subset Y$ be the dual character group of $T_{\scu}$. The form $Q$ induces $Q_{\scu}$ on $Y_{\scu}$, from which we get a Galois-equivariant central extension $E_{\scu}$ of $Y_{\scu}$ by $k'^*$, and $j$ is a Galois equivariant morphism from $E$ to $E_{\scu}$ making the diagram
+\[
+\begin{tikzcd}
+k'^* \arrow[r] \arrow[d, equal] & E_{\scu} \arrow[r] & Y_{\scu} \arrow[d] \\
+k'^* \arrow[r] & E \arrow[r] \arrow[u, "j"'] & Y \arrow[u]
+\end{tikzcd}
+\]
+commute.
+\end{theorem}
+
+Let $H$ be the group of multiplicative type over $k$, split over $k'$, with character group $Y/Y_{\scu}$. It follows from the equivalence of the category of central extensions of $G$ by $K_2$ with $\cC$ that
+\[H(k) \xrightarrow{\sim} \Hom(G, \cK_2).\]
+
+For $X$ connected and smooth over $k$, pointed by $x \in X(k)$, $K_2$-torsors $P$ over $X$, given with a trivialization of $x^*P$, obey Galois descent. This results from the Quillen resolution of $K_2$ and from B.~Kahn (1993) (corollary 1 to theorem 3.1).
+
+Galois descent reduces the classification problem for central extensions by $K_2$ to the split case. It matters here that the classification problem considered is that of describing a category, not just a set of isomorphism classes. The split case is handled using the Bruhat decomposition and known results on cohomology with coefficients in $K_2$ for affine spaces or multiplicative group bundles (Quillen (1973), Sherman (1979)).
+
+In 1978, the second named author constructed a canonical central extension of $G(k)$ by $K_2(k)$, for $G$ absolutely simple and simply-connected, under the assumption that $G$ is rational as an algebraic variety over $k$. This construction was exposed in a seminar at the IHES in 1977--1978. It used the results of Tate on the structure of $K_2k(T)$, and its consequence that $H^1(\Gal(k'/k), K_2k'(T)/K_2k') = 0$. In retrospect, one sees that this was a substitute for Galois descent.
+
+Let $n$ be an integer invertible in $k$. For $\bar{k}$ a separable closure of $k$, let us write simply $H^2(k, \bZ/n(2))$ for $H^2(\Gal(\bar{k}/k), \mu_n(\bar{k})^{\otimes 2})$. By Tate (1976) one has a map
+\[K_2(k)/nK_2(k) \to H^2(k, \bZ/n(2)).\]
+A central extension by $K_2(k)$ hence provides one by $H^2(k, \bZ/n(2))$. For $G$ simply-connected, Deligne (1996) attaches a central extension of $G(k)$ by $H^2(k, \bZ/n(2))$ to each \'etale cohomology class in $H^4(BG \bmod Be, \bZ/n(2))$. We will show that the central extension of $G(k)$ by $H^2(k, \bZ/n(2))$ deduced from the canonical central extension by $K_2(k)$ is canonically isomorphic to that of Deligne (1996), applied to a natural generator of $H^4(BG \bmod Be, \bZ/n(2))$.
+
+In this introduction, we have emphasized the case of a ground field $k$. In the text, we consider a more general base $S$ as well. This is useful to handle actions of an algebraic group $H$ on an extension of $G$ by $K_2$. Cf.~1.7. For the ease of exposition, we often present the ground field case first, and explain later the changes required to work over $S$. Our reliance on the Quillen resolution of $K_2$ usually forces us to assume that $S$ is regular of finite type over a field. Using Bloch (1986), one could also handle the case where $S$ is smooth over the spectrum of a discrete valuation ring.
+
+We now review the successive sections of the paper. In \S 1, we define central extensions of $G$ by $K_2$, we review from SGA7 their description as multiplicative torsors and we explain how to compute at the cocycle level. In \S 2, we prove the Galois descent theorem for pointed $K_2$-torsors. We also consider a relative version, for a base $S$ which is regular of finite type over a field, with Galois descent generalized to descent for \'etale surjective maps.
+
+In \S\S 3, 4, 5 and 6, we consider split groups. We successively consider tori, semi-simple simply-connected groups, semi-simple groups and reductive groups. Our results partially duplicate those of \S\S 3 and 4 of Esnault et al.~(1998).
+
+In \S 7, we put together \S\S 2 and 6 to classify the central extensions of not necessarily split reductive groups by $K_2$. In \S 8, we explain the formalism of generic cocycles. In \S 9, we compare the central extensions constructed with those of Deligne (1996). In \S 10, we explain how, over global fields, to construct diagram \eqref{eq:0.3}. The central extensions of $Y$ by $k^*$ alluded to above are made explicit in \S 11. A number of examples are collected in \S 12.
+
+The first author thanks J.-L.~Colliot-Th\'el\`ene for useful correspondence, and Harvard University for its hospitality during the summer of 1996, during which part of this article was written. The authors thank G.~Prasad and B.~Kahn for useful discussions and correspondence.
+
+The authors are grateful to J.-L.~Colliot-Th\'el\`ene, S.~Merkurjev, G.~Prasad and the referee for useful comments on the first versions of this manuscript.
+
+\subsection{Notation and terminology}
+
+\subsubsection{}
+We will systematically use the following notation:
+
+$T$: an algebraic torus over a base scheme;
+
+$X$: the character group $\Hom(T, \Gm)$ of $T$;
+
+$Y$: the dual $\Hom(\Gm, T)$ of $X$.
+
+If $T$ is a split torus over a field $k$: $T$ isomorphic to $\Gm^n$ for some $n$, one can think of $X$ as simply being the free abelian group $\Hom(T, \Gm)$. For $T$ a split torus group scheme over a base $S$, $X$ is a locally constant sheaf of free abelian groups on $S$. For $T$ not necessarily split, one should use the \'etale topology: for $T$ over $S$, $X$ is a locally constant sheaf of free abelian groups on the \'etale site of $S$. For $S$ the spectrum of a field $k$, and $k'$ a Galois extension of $k$ on which $T$ splits, one also writes $X$ for the free abelian group $\Hom(T_{k'}, \Gm)$ with the natural action of $\Gal(k'/k)$, which carries the same information.
+
+If a torus is denoted by $T$, with some decoration, for instance the subscript $\scu$, its character and dual character groups will be $X$ and $Y$, with the same decoration.
+
+\subsubsection{}
+When considering a reductive group $G$, we will reserve the notation $T$ for a maximal torus of $G$, and we denote by
+
+$N(T)$: the normalizer of $T$;
+
+$W$: the Weyl group $N(T)/T$.
+
+Over a field, and for $T$ split, one can think of $W$ as simply being a finite group. Over $S$, or for $T$ not necessarily split, it is a locally constant sheaf of groups on the \'etale site of $S$.
+
+\subsubsection{}
+When considering a quadratic form $Q$, we will write $B$ for the associated bilinear form
+\[B(x,y) := Q(x+y) - Q(x) - Q(y).\]
+The construction $Q \mapsto B$ is bijective, from integer-valued quadratic forms on a free abelian group $Y$ to even symmetric bilinear forms on $Y$.
+
+\subsubsection{}
+Let
+\[A \to E \to G\]
+be a central extension of a group $G$ by an abelian group $A$. For $g$ in $G$, we will denote by $\intg[g]$, or $\intg_g$, the inner automorphism of $E$ defined by any lifting $\tilde{g}$ of $g$ to $E$:
+\begin{equation}\label{eq:0N.1}
+\intg[g]: x \mapsto \tilde{g} x \tilde{g}^{-1}.
+\end{equation}
+For $g$ and $d$ in $G$, we will denote by $(g,d)\tilde{}$ the commutator in $E$ of liftings $\tilde{g}$ of $g$ and of $\tilde{d}$ of $d$:
+\begin{equation}\label{eq:0N.2}
+(g,d)\tilde{} := \tilde{g}\tilde{d}\tilde{g}^{-1}\tilde{d}^{-1} = \intg[\tilde{d}](\tilde{g}) \cdot \tilde{g}^{-1}.
+\end{equation}
+Both \eqref{eq:0N.1} and \eqref{eq:0N.2} are independent of the choices of liftings.
+
+If a group $D$ acts on the central extension $E$, inducing the trivial action on $A$, for $g$ in $G$ and $d$ in $D$, we will write
+\begin{equation}\label{eq:0N.3}
+(d,g)\tilde{} := d(\tilde{g}) \cdot \tilde{g}^{-1}
+\end{equation}
+for any lifting of $g$. For the action \eqref{eq:0N.1} of $G$ on $E$, we recover \eqref{eq:0N.2}.
+
+The same constructions make sense for a sheaf of central extensions, if liftings are replaced by local liftings.
+
+\subsubsection{}
+The group law in $K_n$ will be written additively, and the product map will be denoted by a dot. For $f$ in the multiplicative group, $\{f\}$ is its image in $K_1$; one defines $\{f,g\} := \{f\} \cdot \{g\}$ in $K_2$.
+
+\subsubsection{}
+For $K$ a cochain complex and $n$ an integer, $t_{\leq n}K$ (resp.~$t_{>n}K$) is the subcomplex (resp.~quotient complex) of $K$ defined by
+\[(t_{\leq n}K)^i = \begin{cases} 0 & i > n \\ \text{cycles in } K_n & i = n \\ K^i & i < n \end{cases} \quad \text{resp.}\quad (t_{>n}K)^i = \begin{cases} K^i & i > n \\ K^n/\text{coboundaries} & i = n \\ 0 & i < n. \end{cases}\]
+For $n \leq m$, $t_{[n,m]}K := t_{>n} t_{\leq m} K$ has as cohomology groups $H^i$ those of $K$ for $n \leq i \leq m$, $0$ otherwise.
+
+\subsubsection{}
+A strict simplicial object of a category $\cC$ is a contravariant functor with values in $\cC$ from the category of the finite ordered sets $\Delta_n$ ($n \geq 0$) and injective increasing maps. Similarly for strict cosimplicial: face maps are given, but not degeneracies.
+
+\section{Central extensions, torsors and cocycles}
+
+\subsection{}
+If $A$ is a sheaf of groups over some space, or site, $S$, an $A$-torsor (also called ``principal homogeneous space'') on $S$ is a sheaf $P$ on which $A$ acts on the right and which locally on $S$ is isomorphic to the following standard model: $A$, with the action of $A$ on itself by right translations. If $P_i$ is an $A_i$-torsor ($i=1,2$), $P_1 \times P_2$ is a $A_1 \times A_2$-torsor. A morphism $f: A \to B$ induces a functor $f_*$ (also called ``pushing by $f$'') from $A$-torsors to $B$-torsors; one has a map of sheaves $f: P \to f_*(P)$ obeying $f(pa) = f(p)f(a)$ and this characterizes $f_*(P)$ up to unique isomorphism. Special case: for $A$ commutative, and for the morphism $+: A \times A \to A$, one obtains the bifunctor ``addition of $A$-torsors''.
+
+\subsection{}
+We recall from SGA7 (tI, exp.~VII, no.~1) Grothendieck's description of central extensions in terms of torsors. We first consider the set-theoretic case. Let $A \to E \xrightarrow{p} G$ be a central extension of a group $G$ by an abelian group $A$. The set $E$, with its projection $p$ to $G$, and the action $e \mapsto ea$ of $A$ on $E$, is then an $A$-torsor on $G$ (viewed as a discrete topological space). The product map $E \times E \to E$ sits in a commutative diagram
+\[
+\begin{tikzcd}
+E \times E \arrow[r] \arrow[d] & E \arrow[d] \\
+G \times G \arrow[r, "m"'] & G
+\end{tikzcd}
+\]
+where $m$ is the product map of $G$. The top line can be reinterpreted as corresponding to a morphism of sets mapping to $G \times G$:
+\[m_0: \pr_1^*E \times_{G \times G} \pr_2^*E \to m^*E.\]
+This map is such that $m_0(e_1a_1, e_2a_2) = m_0(e_1, e_2) a_1 a_2$, hence defines an isomorphism of $A$-torsors over $G \times G$
+\begin{equation}\label{eq:1.2.1}
+m: \pr_1^* E + \pr_2^* E \to m^* E.
+\end{equation}
+If $m_{123} = m m_{12} = m m_{23}: G \times G \times G \to G$ is the triple product map, the associativity of the multiplication of $E$ is expressed by the commutativity of the following diagram of maps deduced from $m$ between $A$-torsors on $G \times G \times G$:
+\begin{equation}\label{eq:1.2.2}
+\begin{tikzcd}
+\pr_1^* E + \pr_2^* E + \pr_3^* E \arrow[r, "{\pr_{12}^* m}"] \arrow[d, "{\pr_{23}^* m}"'] & \pr_{12}^* m^* E + \pr_3^* E \arrow[d, "m"] \\
+\pr_1^* E + \pr_{23}^* m^* E \arrow[r, "m"'] & m_{123}^* E.
+\end{tikzcd}
+\end{equation}
+From the central extension $E$ we have deduced a multiplicative $A$-torsor on $G$, that is, an $A$-torsor $E$ provided with a morphism \eqref{eq:1.2.1} of $A$-torsors on $G \times G$ for which the diagram \eqref{eq:1.2.2} is commutative. This construction is an equivalence from the category of central extensions of $G$ by $A$ to the category of multiplicative $A$-torsors on $G$.
+
+\subsection{}
+As explained in SGA7 loc.~cit., the natural framework for this construction is to work in any category of sheaves $\cT$, not just in the category of sets (= sheaves over the space with one point). Here, ``sheaf'' means sheaf over some site $S$, not just the case of sheaves on a topological space: $\cT$ is any topos (SGA4 IV).
+
+For $X$ in $\cT$, one can ``think of $X$ as being a space'', i.e.~consider the topos $\cT/X$ of pairs $(F,f)$ with $F$ in $\cT$ and $f$ a map from $F$ to $X$. In the case of sheaves on a topological space $S$, this amounts to looking at a sheaf $X$ on $S$ as being a topological space mapped to $S$ by a local homeomorphism. One has a morphism of topos $\cT/X \to \cT$.
+
+Let $G$ be a sheaf of groups and $A$ be a sheaf of abelian groups. For $n = 1, 2, 3$, let us ``think of $G^n$ as being a space'', and let us keep writing $A$ for the pull-back of $A$ to $G^n$. The same construction as in 1.2 then defines an equivalence from the category of central extensions of $G$ by $A$ to the category of multiplicative $A$-torsors on $G$, that is $A$-torsors on $G$ provided with a multiplicative structure \eqref{eq:1.2.1} on $G^2$ obeying \eqref{eq:1.2.2} on $G^3$.
+
+\subsection{}
+A big Zariski site $S_{\Zar}$ of a scheme $S$ is a full subcategory $\cC$ of the category of schemes over $S$, with the Zariski topology. If $X$ is in $\cC$, any open subscheme of $X$ should be in $\cC$ too, and $\cC$ should be large enough to contain the schemes over $S$ we are interested in. For us, the precise choice of $S_{\Zar}$ will be immaterial. To fix ideas, we take for $S_{\Zar}$ the category of schemes of finite type over $S$.
+
+For $A$ a sheaf on $S_{\Zar}$ and for $X$ in $S_{\Zar}$, define the sheaf $A_X$ on the topological space $X$ by $A_X(U) := A(U)$. This construction identifies sheaves on $S_{\Zar}$ with systems $(A_X)$ of sheaves on the topological spaces $X$, for $X$ in $S_{\Zar}$, contravariant in $X$, and with $A_U = (A_X \text{ restricted to } U)$ for $U$ open in $X$: a morphism $f: X \to Y$ in $S_{\Zar}$ defines $j(f): f^*A_Y \to A_X$, with a compatibility for composition of morphisms, and $j(f)$ is an isomorphism if $f$ is an open embedding.
+
+The Zariski sheaves $\cK_n$ form such a system. We denote by $K_n$ the corresponding sheaf on $S_{\Zar}$. For $n=0$, it is the constant sheaf $\bZ$. For $n=1$, it is the sheaf $\cO^*$.
+
+We now unravel the description 1.3 of central extensions of sheaves in the case of sheaves over $S_{\Zar}$, when $G$ is representable.
+
+For $Y$ in $S_{\Zar}$, the representable functor $h_Y: T \mapsto Y(T) := \Hom_S(T,Y)$ is a sheaf.
+
+To ``think of $h_Y$ as being a space'', as in 1.3, simply means to consider the topos of sheaves over $Y$. If $A$ is a sheaf of abelian groups on $S_{\Zar}$, its ``pull-back to $h_Y$, thought of as a space'', is simply the sheaf on $Y$ whose sections on $T \to Y$ is $A(T)$.
+
+A further simplification is that the restriction from the big to the small Zariski site induces an equivalence of categories from $A$-torsors on $S_{\Zar}$ to $A_S$-torsors on $S$.
+
+Let $G$ be a group scheme of finite type over $S$. What matters is that the fiber powers $G^n$ of $G$ over $S$ are in $S_{\Zar}$. By 1.3, central extensions of $h_G$ by $A$ can be described as multiplicative $A$-torsors. In terms of the system of Zariski sheaves $A_X$, the description can be rephrased as follows. Notation: for $f: X \to Y$ in $S_{\Zar}$ and $P$ a $A_Y$-torsor on $Y$, we write $f^*P$ for the $A_X$-torsor on $X$ obtained by pushing by $f^*: f^*A_Y \to A_X$ the $f^*A_Y$-torsor on $X$ inverse image of $P$. With this notation, a multiplicative $A$-torsor is an $A_G$-torsor on $G$, provided with a morphism \eqref{eq:1.2.1} of $A_{G \times G}$-torsors on $G \times G$ for which the associativity diagram \eqref{eq:1.2.2} is a commutative diagram of $A_{G \times G \times G}$-torsors on $G \times G \times G$.
+
+A section over $T$ of the corresponding central extension $E$ of $G$ by $A$ is a pair $(g,e): g \in G(T): T \to G$ and $e \in \Gamma(T, g^*E)$. Attaching to $g$ the isomorphism class of the $A_T$-torsor $e^*E$ on $T$, one obtains an exact sequence
+\begin{equation}\label{eq:1.4.1}
+1 \to H^0(T, A_T) \to E(T) \to G(T) \to H^1(T, A_T).
+\end{equation}
+By abuse of language, we will often say ``central extension of $G$ by $A$'' for ``central extension of $h_G$ by $A$''.
+
+\begin{remark}
+Suppose that $S$ is the spectrum of a field $k$ and write $A(k)$ for $A(S)$. If $E$ is the central extension of $G$ by $A$ corresponding to a multiplicative $A$-torsor $E$, \eqref{eq:1.4.1} for $T=S$ reduces to
+\[1 \to A(k) \to E(k) \to G(k) \to 1,\]
+making $E(k) := E(S)$ a central extension of $G(k)$ by $A(k)$.
+
+Our strategy to construct central extensions of $G(k)$ by $K_2(k)$ will be to apply this construction to central extensions of $G$ by $\cK_2$.
+\end{remark}
+
+\subsection{Variant}
+Let $X$ be a scheme in $S_{\Zar}$, given with a section $e$. A pointed $A$-torsor on $(X,e)$ is a $A_X$-torsor $P$ on $X$, provided with a trivialization, on $S$, of the $A_S$-torsor $e^*P$.
+
+If $G$ is the trivial group scheme over $S$: $G$ reduced to its neutral section, i.e.~$G \xrightarrow{\sim} S$, a multiplicative structure on a $G$-torsor $E$ is an isomorphism $E + E \xrightarrow{\sim} E$. It amounts to the data of a trivialization of $E$.
+
+For a group scheme $G$, with neutral section $e$, it follows by restriction to $e$ that a multiplicative torsor on $G$ is automatically pointed. Multiplicative torsors could be redefined as pointed torsors on $G$, provided with a morphism \eqref{eq:1.2.1} of pointed torsors on $G \times_S G$, obeying an associativity \eqref{eq:1.2.2} on $G \times_S G \times_S G$.
+
+\subsection{}
+Let $E$ be a multiplicative $A$-torsor on a group scheme of finite type $G$ over $S$. An automorphism $s$ of $G$ transforms $E$ into a new multiplicative $A$-torsor $s_*(E)$ on $G$. If $s$ is inner, i.e.~is $\intg[g]$ for some $g$ in $G(S)$, then $E$ and $s_*(E)$ are isomorphic. This is clear if $E$ is interpreted as a central extension $E$: the construction \eqref{eq:0N.1} (1) lifts $\intg[g]$ to an automorphism of $E$ trivial on $A$.
+
+Let $G$ and $H$ be group schemes of finite type over $S$, and let $r$ be an action of $H$ on $G$.
+
+\begin{construction}
+We will construct an equivalence of categories from the category of multiplicative $A$-torsors $E$ on the semi-direct product $H \ltimes G$ to the category of triples (a) (b) (c) as follows: (a) a multiplicative $A$-torsor $E$ on $G$; (b) a multiplicative $A$-torsor $F$ on $H$; (c) an action of $H$ on $(G,E)$ lifting the action of $H$ on $G$.
+
+Here are equivalent definitions (1) (1$'$) (2) (3) of what an action (c) is.
+
+(1) For any $T$ of finite type over $S$, let $(G_T, E_T)$ be deduced from $(G,E)$ by base change to $T$. The group $H(T)$ acts on $G_T$. Data (c) is a lifting of this action $r$ to an action $\tilde{r}$ of $H(T)$ on $(G_T, E_T)$, functorial in $T$.
+
+If $H$ is smooth over $S$, we have a variant
+
+(1$'$) Same as (1), except that $T$ is restricted to be smooth over $S$.
+
+The definition (2) is (1), in a universal case:
+
+(2) Let $h_0 \in H(H) = \Hom(H,H)$ be the identity map of $H$. The group $H(H)$ acts on $G_H$. Data (c) is a lifting of the automorphism $r(h_0)$ of $G_H$ to an automorphism $\tilde{r}(h_0)$ of $(G_H, E_H)$. If $m: H \times H \to H$ is the multiplication map, it is required that $m^*\tilde{r}(h_0) = \pr_1^*\tilde{r}(h_0) \circ \pr_2^*\tilde{r}(h_0)$ over $H \times H$.
+
+One goes from (1) or (1$'$) to (2) by taking $\tilde{r}(h_0) = \tilde{r}(h_0)$. For any $h \in H(T)$, $h$ is the pull-back of $h_0 \in H(H)$ by $h: T \to H$ and one has $\tilde{r}(h) = h^*(\tilde{r}(h_0))$: the lifted action is determined by $\tilde{r}(h_0)$, and the condition on $H \times H$ in (2) is what is needed for $h \mapsto h^*(\tilde{r}(h_0))$ to be an action.
+
+We wrote (2) to make clear the equivalence of (1) and (1$'$) when $H$ is smooth over $S$. It is in order to construct actions in the sense of (1) or (1$'$) that we will systematically be considering multiplicative torsors not only on algebraic groups over a field, but also for group schemes.
+
+(3) The multiplicative torsor $E$ corresponds by 1.4 to a central extension $E$ of the sheaf of groups $h_G$ on $S_{\Zar}$ by the sheaf of abelian groups $A$. The sheaf of groups $h_H$ acts on $h_G$. An action (c) is an action of $h_H$ on $E$, lifting the action of $h_H$ on $h_G$ and trivial on $A$.
+\end{construction}
+
+To construct 1.7, we will use the interpretation 1.4 of multiplicative torsors as central extensions, and the interpretation (3) of data (c). Its equivalence with interpretation (1) is easily checked. To simplify notations, we write $G$, $H$, $H \ltimes G$ for $h_G$, $h_H$, $h_{H \ltimes G}$.
+
+Let $E$ be a central extension of $H \ltimes G$ by $A$. Let $E_0$ (resp.~$F$) be the inverse image of $G$ (resp.~$H$) in $E_0$. It is a central extension of $G$ (resp.~$H$) by $A$. The central extension $F \subset E_0$ acts on $E_0 \subset E$ by conjugation. The action is trivial on $A \subset F \subset E_0$ hence factors through an action of $H$ on $E$, which lifts the action of $H$ on $G$. This gives data (a) (b) (c), from which $E$ is recovered as the quotient of the semi-direct product of $F \ltimes E$, a central extension of $H \ltimes G$ by $A \times A$, by the antidiagonal copy of $A$ in $A \times A$.
+
+\subsection{}
+For any central extension $E$ of $G$ by $A$, if $g$ and $h$ in $G$ commute, the lifted commutator \eqref{eq:0N.2} is in $A$: on the subscheme $C \subset G \times_S G$ of commuting pairs of elements, the lifted commutator is a morphism of sheaves from $C$ to $A$, i.e.~is a section
+\begin{equation}\label{eq:1.8.1}
+\mathrm{comm} \in H^0(C, A).
+\end{equation}
+If $G$ is commutative, then $C = G \times G$ and the section \eqref{eq:1.8.1} of $A$ over $G \times G$ is bimultiplicative.
+
+More generally, if an algebraic group $H$ acts on $G$, and if this action is lifted to an action on $E$, trivial on $A$, we have a lifted commutator \eqref{eq:0N.3} from $H \times G$ to $E$. If $C \subset H \times G$ is the subscheme of pairs $(h,g)$ for which $h$ fixes $g$, this lifted commutator defines
+\begin{equation}\label{eq:1.8.2}
+\mathrm{comm} \in H^0(C, A),
+\end{equation}
+and if $H$ acts trivially on $G$, the section \eqref{eq:1.8.2} of $A$ over $H \times G$ is bimultiplicative.
+
+\subsection{}
+To go back and forth between cohomological computations and categorical interpretations, we will rely on the following construction of SGA4 XVIII 1.4. Let $K$ be a complex and $n$ an integer. Let $A \to B$ be the truncation $t_{[n-1,n]}K$ of $K$: one has $A := K^{n-1}/\text{coboundaries}$ and $B := \text{$n$-cocycles}$. We define a category $\cC_n(K)$ as the category of $n$-cocycles, a morphism from $b_0$ to $b_1$ being $a \in A$ such that $b_1 - b_0 = da$. Composition of morphisms is given by addition. Addition of $n$-cocycles defines an addition law for objects, turning $\cC_n(K)$ into a strictly commutative Picard category. The group of isomorphism classes of objects of $\cC_n(K)$ is $H^n(K)$, and the automorphism group of any object is $H^{n-1}(K)$. A morphism of complexes $f: K \to L$ induces a functor $f: \cC_n(K) \to \cC_n(L)$, and if the morphism $f$ induces isomorphisms on $H^n$ and $H^{n-1}$, the functor $f$ is an equivalence.
+
+We will say that $K$ \emph{incarnates} a category $\cC$, in degree $n$, if we are given an equivalence (usually: an equivalence of commutative Picard categories) from $\cC_n(K)$ to $\cC$. When no $n$ is mentioned, $n=1$ is assumed.
+
+The heuristics for using this definition is as follows. Let $\cC$ be a strictly commutative Picard category. Let $h^1(\cC)$ be the group of its isomorphism classes of objects and $h^0(\cC)$ be the group of automorphisms of any object. Suppose that $h^1(\cC)$ and $h^0(\cC)$ can be interpreted as cohomology groups $H^n$ and $H^{n-1}$. Then, if $K$ is any complex which naturally computes the cohomology in question, the complex $K$ should incarnate $\cC$ in degree $n$. The construction of the equivalence of $\cC_n(K)$ with $\cC$ will mimic the construction of the isomorphism of $H^n(K)$ with $h^1(\cC)$.
+
+\textbf{Examples.} --- (i) Let $F$ be a sheaf of abelian groups on a space $S$ and let $F^*$ be a resolution of $F$, such that the complex $G\Gamma(S, F^*)$ computes the cohomology of $F$ in degrees 0 and 1: the canonical maps $H^i G\Gamma(S, F) \to H^i(S, F)$ are isomorphisms for $i=0$ and 1. Then, $G\Gamma(S, F^*)$ incarnates the category of $F$-torsors on $S$. The equivalence $\cC_{G\Gamma}(S,F^*) \to (F\text{-torsors})$ is as follows: a 1-cocycle $c$ gives rise to the $F$-torsor $P(c)$ of local sections $s$ of $F^0$ with $ds=c$, and if $c_1 - c_0 = df$, $f$ defines the isomorphism $s \mapsto s+f: P(c_0) \to P(c_1)$.
+
+(ii) Suppose that a group $G$ acts on $(S, F)$ and that the resolution $F^*$ is $G$-equivariant. The group $G$ then acts on $(S, F^*)$ and we can for each $i$ form the standard complex $C^*(G, G\Gamma(S, F_i))$ computing $H^*(S, F_i)$. These complexes organize into a double complex, whose component in bidegree $(p,q)$ is the group $C^q(G, G\Gamma(S, F_p))$ of $q$-cochains with values in $G\Gamma(S, F_p)$; it is the group of maps $G^q \to G\Gamma(S, F_p)$. The associated simple complex incarnates the category of equivariant $F$-torsors.
+
+Standard operations on complexes can be given categorical meaning.
+
+\textbf{Examples.} --- (iii) Let $f: K \to L$ be a morphism of complexes. We view $f: K \to L$ as a double complex, with $K$ (resp.~$L$) in second degree 0 (resp.~1) and form the associated simple complex $s(K \to L)$. This shifted mapping cone construction gives rise to a long exact sequence of cohomology
+\[\cdots \to H^i(s(K \to L)) \to H^i(K) \to H^i(L) \to \cdots\]
+Suppose that $K^i = L^i = 0$ for $i < 0$. Then, $s(K \to L)$ incarnates the category of objects of $\cC(K)$ given with a trivialization (= isomorphism with the object 0) of its image in $\cC(L)$.
+
+(iv) We now view $f: K \to L$ as a double complex with $K$ in second degree $-1$ and $L$ in second degree 0. The long exact sequence of cohomology is
+\[\cdots \to H^i(K) \to H^i(L) \to H^i(s(K \to L)) \to \cdots\]
+Suppose that $K^i = L^i = 0$ for $i < 0$, and that $H^i(K)$ injects into $H^i(L)$ for $i=0$ and 2. By the long exact sequence, $H^1(L)$ maps onto $H^1(s(K \to L))$: the category $\cC(s(K \to L))$ is equivalent to its subcategory with objects the 1-cocycles of $L$. This category has as objects the objects of $\cC(L)$, a morphism from $P$ to $Q$ being an isomorphism class of pairs $(A, a)$ with $A$ an object of $\cC(K)$ and $a$ a morphism from $P + f(A)$ to $Q$.
+
+(v) Let $K \xrightarrow{f} L \xrightarrow{g} M$ be morphisms of complexes with zero composite. They give rise to functors $\cC(K) \xrightarrow{f} \cC(L) \xrightarrow{g} \cC(M)$ and to an isomorphism of the composite functor with the constant functor with value the object 0. We view $K \to L \to M$ as a double complex, with $K$ (resp.~$L$, $M$) in second degree 0 (resp.~1, 2). We assume that the cohomology of $K$, $L$ and $M$ is zero in degree $i < 0$. The category $\cC(s(K \to L \to M))$ does not change (up to a natural equivalence) if $K$, $L$, $M$ are replaced by their quasi-isomorphic truncation $t_{>0}$ and, using this remark, one checks that it is the category of objects $P$ of $\cC(K)$, given with a trivialization $0 \to f(P)$ in $\cC(L)$ whose image $0 \to gf(P)$ in $\cC(M)$ is the identity automorphism of the object zero of $\cC(L)$.
+
+In our applications, we will start from a cosimplicial system of complexes $K(p)$. We won't need degeneracies and so could start from a strict cosimplicial system (0.N.7). We assume that $H^i K(p) = 0$ for $i < 0$.
+
+For each $n$ one can consider $K(n) \to K(n+1) \to K(n+2)$, taking as morphisms of complexes the usual $(-1)^i \partial_i$. The $\cC(K(p))$ form a strict cosimplicial system of Picard categories. For $n=0$ (resp.~$n=1$), $\cC(s(K(n) \to K(n+1) \to K(n+2)))$ has the following interpretation.
+
+Case $n=0$: Objects $P$ of $\cC(K(0))$, given with an isomorphism $f: \partial_0(P) \to \partial_1(P)$ in $\cC(K(1))$ obeying a cocycle condition in $\cC(K(2))$: for $\partial_i$ ($a = 0,1,2$) the three face maps from $\Delta_0$ to $\Delta_2$, commutativity of the diagram
+\[
+\begin{tikzcd}
+\partial_2(P) \arrow[r, "{\partial_1(f)}"] \arrow[rd] & \partial_0(P) \\
+& \partial_1(P) \arrow[u, "{\partial_2(f)}"'] \arrow[ul, "{\partial_0(f)}"']
+\end{tikzcd}
+\]
+
+Case $n = 1$: Objects $P$ of $\cC(K(1))$ given with a multiplicativity isomorphism $\partial_0(P) + \partial_2(P) \to \partial_1(P)$ in $\cC(K(2))$ obeying an associativity condition in $\cC(K(3))$.
+
+(vi) The case $n=1$ above will be met in the following context, explaining the terminology. Let $K$ be a sheaf on the big Zariski site $S_{\Zar}$, and $G$ be a group scheme of finite type over $S$. In the inhomogeneous notation, the simplicial classifying space $BG = (G^{\Delta n}/G)$ of $G$ is
+\[\cdots G^3 \rightrightarrows G^2 \rightrightarrows G \rightrightarrows e,\]
+the three maps $\partial_0$, $\partial_1$, $\partial_2$ from $G^2$ to $G$ being $\pr_2$, $m$ and $\pr_1$. Suppose that on each $G^n$ we are given a resolution $K^*$ of $K_{G^n}$, contravariant in the face maps, and which computes $H^i(G^n, K_{G^n})$ for $i = 0$ or 1. By the example (i), $G\Gamma(G^n, K^*)$ incarnates the category of $K_{G^n}$-torsors on $G^n$. Applying example (v) to
+\[G\Gamma(G, K^*) \to G\Gamma(G^2, K^*) \to G\Gamma(G^3, K^*),\]
+one obtains a complex which incarnates the category of multiplicative torsors on $G$. This complex can be replaced by the subcomplex of simplicial degree $> 1$ of $s(G\Gamma(G^*, K^*))$: the complex
+\begin{equation}\label{eq:1.9.1}
+s(G\Gamma(G^n, K^*) \text{ for } n > 1)
+\end{equation}
+incarnates multiplicative torsors in degree 2.
+
+Let us write $e$ for the trivial group scheme $G^0$. For each $n$, $G\Gamma(e, K^*)$ maps to $G\Gamma(G^n, K^*)$, defining a cosimplicial map from $G\Gamma((Be)^*, K^*)$ to $G\Gamma((BG)^*, K^*)$. The composite
+\[s(G\Gamma(G^n, K^*) \text{ for } n > 1) \to sG\Gamma((BG)^*, K^*) \to s(sG\Gamma((Be)^*, K^*) \to sG\Gamma((BG)^*, K^*))\]
+is a quasi-isomorphism. It follows that
+\begin{equation}\label{eq:1.9.2}
+s(s(G\Gamma((Be)^*, K^*) \to s(G\Gamma((BG)^*, K^*))))
+\end{equation}
+which computes the relative cohomology of $BG \bmod Be$ with values in $K$, also incarnates the category of multiplicative $K$-torsors in degree 2.
+
+(vii) With notation as in example (vi), if $H^i(G^n, K_{G^n}) = 0$ for $i > 0$, we can, on each $G^n$, take for $K^*$ the complex reduced to $K_{G^n}$ in degree 0. We find that the category of multiplicative torsors on $G$ is incarnated by the complex
+\[G\Gamma(G^n, K) \text{ for } n > 1.\]
+This is the familiar description of central extensions by 2-cocycles. One could as well use the complex
+\[H^0(G^n, K), \quad d = \sum (-1)^i \partial_i,\]
+where $H^0$ is the direct summand $G\Gamma(G^n, K)/G\Gamma(e, K)$ of $G\Gamma(G^n, K)$.
+
+\subsection{}
+The constructions 1.9 can be sheafified. Let $K$ be a complex of sheaves on $S$ and $n$ be an integer. As in 1.9, consider the truncation $t_{[n-1,n]}(K): A \to B$ of $K$. Define $\cC_n(K)$ to be the stack on $S$ having as objects over $U$ the $A$-torsors $P$ over $U$ provided with a trivialization of the $B$-torsor $d(P)$. It is a strictly commutative Picard stack. For $S$ a point, i.e.~for a complex of abelian groups, one recovers a category incarnated by $K$ in degree $n$: to the cocycle $b \in B$ attach the trivial $A$-torsor $A$ with the trivialization $b$ of the trivial $B$-torsor $d(A)$. Indeed, over a point any $A$-torsor is isomorphic to the trivial one.
+
+The analogue of 1.9, Example (i), is that for $f: X \to S$, $F$ a sheaf on $X$, and $R^i f_* F^*$ a resolution of $F$ such that $f_* F^*$ computes $f_* F$ in degree 0 and 1, $f_* F^*$ incarnates the stack on $S$ having as objects over $U$ the $F$-torsors on $f^{-1}(U)$.
+
+\section{Descent for $K_2$-torsors}
+
+The main result of this section is Theorem 2.2, which will allow us to reduce the construction of multiplicative $K_2$-torsors on connected reductive groups to the case of split groups. From 2.6 on, we prove a relative variant of 2.2. This variant will not be needed for our main results, or rather for their restriction to the case of reductive groups over fields.
+
+Our main tool is the following theorem of Colliot-Th\'el\`ene and Suslin, see B.~Kahn (1993) (corollary 1 to theorem 3.1):
+
+\begin{theorem}\label{thm:2.1}
+Let $X$ be a smooth geometrically irreducible variety over $k$. Assume that $X$ has a $k$-rational point $e$. If $k'$ is a finite Galois extension of $k$, with Galois group $G$, and $X' := X \otimes_k k'$, one has, denoting by $k(X)$ and $k(X')$ the fields of rational functions on $X$ and $X'$
+\begin{equation}\label{eq:2.1.1}
+K_2(k(X))/K_2(k) \xrightarrow{\;\sim\;} [K_2(k(X'))/K_2(k')]^G
+\end{equation}
+and
+\begin{equation}\label{eq:2.1.2}
+H^1(G, K_2(k(X'))/K_2(k')) = 0.
+\end{equation}
+\end{theorem}
+
+In characteristic zero, \eqref{eq:2.1.1} is Colliot-Th\'el\`ene (1983) Th.~1. In any characteristic, it is in Suslin (1987), 3.6 and 5.8. The vanishing \eqref{eq:2.1.2} can be deduced from Merkurjev-Suslin (1983) 14.1. The point of view of B.~Kahn (1993) is that the Lichtenbaum complex $\Gamma(2)$ has good \'etale localization properties and that theorem 2.1 is a corollary of these. See also B.~Kahn (1996). Under the assumptions of 2.1, one also knows that $K_2(k)$ injects as a direct summand in $K_2k(X)$.
+
+The group $G$ acts semi-linearly on $(X', e') = (X, e) \times_{\Spec(k)} \Spec(k')$. A (Galois) descent data on a pointed $K_2$-torsor $P'$ on $(X', e')$ is an action of $G$ on $P'$, covering the action of $G$ on $(X', e')$.
+
+\begin{theorem}\label{thm:2.2}
+Under the assumptions of \ref{thm:2.1}, the pull-back functor is an equivalence from
+\begin{itemize}
+\item[(a)] the category of pointed $K_2$-torsors on $(X,e)$, to
+\item[(b)] the category of pointed $K_2$-torsors on $(X',e')$, provided with a descent data.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+The category of $K_n$-torsors on $X$ is incarnated by the global sections of the Quillen resolution $G^*_n$ of $K_n$ by flabby sheaves on $X$. Let $X^{(i)}$ be the set of points of codimension $i$ of $X$. One has
+\[G^i_n = \bigoplus_{x \in X^{(i)}} K_{n-i}(k(x)).\]
+For $n=2$, the complex of global sections is
+\[K_2 k(X) \to \bigoplus_{x \in X^{(1)}} k(x)^* \to \bigoplus_{x \in X^{(2)}} \bZ.\]
+
+We want to use the resolution $G^*_n$ of $K_n$ to construct a complex incarnating the category of pointed $K$-torsors. The fact that the resolution $G^*_n$, while contravariant for smooth maps, is not contravariant for closed embeddings, creates a difficulty. We go around it as follows. The point $e$, viewed as a section of $f: X \to \Spec(k)$, defines an equivalence of the category of $K_n$-torsors on $X$ with the product of the categories of pointed torsors on $(X,e)$ and the category of $K_n(k)$-torsors. This allows us to view the category of pointed torsors as a quotient category, rather than a subcategory, of the category of $K$-torsors: it is naturally equivalent to the category of relative torsors having as objects the $K_n$-torsors on $X$, a map from $P$ to $Q$ being a class mod $K_n(k)$ of maps of torsors from $P$ to $Q$. The inverse of the forgetting functor from pointed torsors to relative torsors is the functor $P \mapsto P - f^{**} e^* P$.
+
+By 1.9, Example (iv), the category of relative $K_2$-torsors on $X$ is incarnated by the complex
+\begin{equation}\label{eq:2.2.1}
+K_2 k(X)/K_2(k) \to \bigoplus_{x \in X^{(1)}} k(x)^* \to \bigoplus_{x \in X^{(2)}} \bZ.
+\end{equation}
+By a variant of 1.9, Example (ii), the category of relative $K_2$-torsors on $X'$, provided with a descent data, is incarnated by the simple complex associated to the double complex
+\begin{equation}\label{eq:2.2.2}
+C^*(G, K_2k(X')/K_2(k')) \to \bigoplus_{x' \in X'^{(1)}} C^*(G, k(x')^*) \to \bigoplus_{x' \in X'^{(2)}} C^*(G, \bZ).
+\end{equation}
+These incarnations reduce \ref{thm:2.2} to
+\begin{lemma}\label{lem:2.3}
+The natural map of complexes \eqref{eq:2.2.1} $\to s$\eqref{eq:2.2.2} induces an isomorphism on $H^0$ and $H^1$.
+\end{lemma}
+
+\begin{proof}[Proof of \ref{lem:2.3}]
+More precisely, we will check that the cone on the natural map of complexes \eqref{eq:2.2.1} $\to s$\eqref{eq:2.2.2} has vanishing $H^{-1}, H^0$ and $H^1$. This cone is the associated simple complex of the double complex \eqref{eq:2.2.2}, coaugmented by \eqref{eq:2.2.1} in second (= group cohomology) degree $-1$. It vanishes outside of $0 \leq p \leq 2$, $q \geq -1$.
+
+The $p=0$ column is $C^*(G, K_2k(X')/K_2(k'))$, coaugmented by $K_2k(X)/K_2(k)$ in degree $-1$. By \ref{thm:2.1}, its cohomology vanishes in degree $-1$, $0$ and $1$.
+
+The $p=1$ column is the sum over $x \in X^{(1)}$ of the $C^*(G, (k(x) \otimes_k k')^*)$, coaugmented by $k(x)^*$ in degree $-1$. As $k(x)^* \xrightarrow{\sim} ((k(x) \otimes_k k')^*)^G$, its cohomology vanishes in degree $-1$ and $0$.
+
+The $p=2$ column is the sum over $x \in X^{(2)}$ of the $C^*(G, \bZ^{I(x)})$, where $k(x) \otimes k'$ is a product of fields indexed by $I(x)$, coaugmented by $\bZ$ in degree $-1$. As the diagonal map from $\bZ$ to $\bZ^{I(x)}$ is injective, its cohomology vanishes in degree $-1$.
+
+The spectral sequence for the filtration by $p$ gives the required vanishing.
+\end{proof}
+
+If we apply \ref{thm:2.2} to the group of automorphisms of an object (resp.~to the set of isomorphism classes of objects), we obtain
+
+\begin{corollary}\label{cor:2.4}
+Under the assumptions of \ref{thm:2.1},
+\begin{itemize}
+\item[(i)] $H^0(X, \cK_2)/K_2(k) \xrightarrow{\sim} (H^0(X', \cK_2)/K_2(k'))^G$;
+\item[(ii)] one has an exact sequence
+\[0 \to H^1(G, H^0(X', \cK_2)/K_2(k')) \to H^1(X, \cK_2) \to H^1(X', \cK_2)^G \to H^2(G, H^0(X', \cK_2)/K_2(k')).\]
+\end{itemize}
+\end{corollary}
+
+\begin{remark}
+\begin{itemize}
+\item[(i)] If further $K_2(k) \xrightarrow{\sim} H^0(X', \cK_2)$, then $K_2(k) \xrightarrow{\sim} H^0(X, \cK_2)$ and $H^1(X, \cK_2) \xrightarrow{\sim} H^1(X', \cK_2)^G$. This results from \ref{cor:2.4}.
+\item[(ii)] Suppose that $X$ is open and dense in a smooth geometrically irreducible variety $X_1$ over $k$ and that $X_1$ has a $k$-rational point. Then \ref{thm:2.2} remains valid, with the same proof, if ``pointed $K_2$-torsor'' is replaced by ``relative $K_2$-torsor''.
+\end{itemize}
+\end{remark}
+\end{proof}
+
+\subsection{}
+Let $f: X \to S$ be a smooth morphism, with a section $e$. We assume that
+\begin{equation}\label{eq:2.6.1}
+\text{$S$ is regular and of finite type over some field $k$;}
+\end{equation}
+\begin{equation}\label{eq:2.6.2}
+\text{For each generic point $\eta$ of $S$, the generic fiber $X_\eta/\eta$ is geometrically irreducible.}
+\end{equation}
+Assumption \eqref{eq:2.6.1} is to have Quillen resolutions. Assumption \eqref{eq:2.6.2} is to have \ref{thm:2.1} for $X_\eta/\eta$.
+
+\subsection{}
+Let $u: S_0 \to S$ be an \'etale surjective map. We define $S_n$ to be the $(n+1)$st fiber power $(S_0/S)^{\Delta n}$ of $S_0$ over $S$. Let $(X_0, e_0)$ be the pull-back of $(X, e)$ over $S_0$; $X_n := X \times_S S_n$ is also the fiber power $(X_0/X)^{\Delta(n+1)}$ of $X_0$ over $X$. The $X_n$ ($n \geq 0$) form a simplicial scheme, augmented to $X_{-1} := X$.
+
+A descent data for a $K_2$-torsor $P$ on $X_0$ is an isomorphism between its two inverse images on $X_1$, obeying a compatibility condition on $X_2$.
+
+\begin{theorem}\label{thm:2.7}
+Under the assumptions of 2.6, the pull-back functor is an equivalence from
+\begin{itemize}
+\item[(a)] the category of pointed $K_2$-torsors on $(X,e)$, to
+\item[(b)] the category of pointed $K_2$-torsors on $(X_0, e_0)$, provided with a descent data.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+If $S$ is the spectrum of a field $k$, \ref{thm:2.7} is little more than a rephrasing of \ref{thm:2.2}. The general case follows similarly using the Quillen resolution.
+\end{proof}
+
+\section{Split tori}
+
+Our aim in this section is to compute the category of multiplicative $K_2$-torsors on a split torus. We also treat the case of split unipotent groups.
+
+\subsection{}
+Let $S$ be regular and of finite type over a field $k$. If $p: \bA^1_S \to S$ is the affine line over $S$, Sherman (1979) proves that
+\begin{equation}\label{eq:3.1.1}
+p_* K_j = K_j \quad \text{and} \quad R^i p_* K_j = 0 \text{ for } i > 0 \quad (\text{for } p: \bA^1_S \to S).
+\end{equation}
+If we remove the 0-section, we obtain the multiplicative group $p: \Gm_S \to S$ over $S$. Sherman (1979) proves that
+\begin{equation}\label{eq:3.1.2}
+p_* K_j = K_j \oplus K_{j-1} \quad \text{and} \quad R^i p_* K_j = 0 \text{ for } i > 0 \quad (\text{for } p: \Gm_S \to S).
+\end{equation}
+
+\begin{proposition}\label{prop:3.2}
+If $S$ is regular of finite type over a field, and if the group scheme $G$ over $S$ is an extension of $G'$ smooth over $S$ by a split unipotent group scheme $U$, the pull back by $p: G \to G' = G/U$ is an equivalence from the category of central extensions of $G'$ by $\cK_2$ to the category of central extensions of $G$ by $\cK_2$.
+\end{proposition}
+
+For $G$ the trivial group scheme $e$, \ref{prop:3.2} tells that a central extension of a split unipotent group scheme by $\cK_2$ is trivial, and admits a unique trivialization.
+
+\subsection{}
+Let $p: T \to S$ be a split torus over $S$ and $X$, $Y$ be as in (0.N.1). If we choose an isomorphism of $Y$ with $\bZ^n$, we obtain $T \xrightarrow{\sim} \Gm_S^n$. Using induction on $n$ we deduce from \eqref{eq:3.1.2} that $R^i p_* K_j = 0$ for $i > 0$ and we obtain a description of $p_* K_j$.
+
+\begin{lemma}\label{lem:3.3.1}
+The sheaf of graded rings $p_* K_*$ on $S$ is generated by $K_*$ and by $X$ in degree 1, with the only relations that
+\begin{itemize}
+\item[(i)] $X \to p_* K_1$ is additive;
+\item[(ii)] for $x$ in $X$, $x \cdot x = x \cdot \{-1\}$.
+\end{itemize}
+\end{lemma}
+
+\subsection{}
+If we filter $p_* K_*$ by ``how many factors in $X$'', we obtain an increasing filtration $V$ with
+\begin{equation}\label{eq:3.4.1}
+\Gr^V_m p_* K_* = \Lambda^m X \otimes K_{*-m}.
+\end{equation}
+The bottom piece $V_0(p_* K_*) = K_*$ is a direct factor: the pullback by the 0-section $e$ is a retraction to the embedding of $K_*$ in $p_* K_*$. The kernel of $e^*$ is the reduced direct image $\tilde{p}_* K_*$.
+
+\begin{construction}\label{constr:3.5}
+Under the assumptions of 3.1 and 3.3, the sheaf $\tilde{p}_* K_2$ is the sheaf of pairs $(A, q)$, with $A$ an alternating form on $Y$ and $q$ a map of sheaves $Y \to \cO^*_S$ such that
+\begin{equation}\label{eq:3.5.1}
+q(y+z)/q(y)q(z) = (-1)^{A(y,z)}.
+\end{equation}
+\end{construction}
+
+In \ref{constr:3.5} and below, ``form'' means integer-valued form.
+
+\begin{corollary}\label{cor:3.7}
+\begin{itemize}
+\item[(i)] Under the assumptions of 3.1 and 3.3, the group of multiplicative sections of $K_2$ over $T$ is $H^0(S, X \otimes \cO^*_S)$.
+\item[(ii)] For split tori $T_1$, $T_2$ over $S$, a section of $K_2$ over $T_1 \times_S T_2$ is bimultiplicative as soon as it has a trivial restriction to $T_1 \times e$ and $e \times T_2$. The group of bimultiplicative sections is $H^0(S, X_1 \otimes X_2)$.
+\end{itemize}
+\end{corollary}
+
+\subsection{}
+If $S$ is the spectrum of a field, it results from 1.9 Example (vii) and from the vanishing of $H^i(T, K_n)$ for $i > 0$ that the category of central extension of $T$ by $K_n$ is incarnated in degree 2 by the complex $H^0(T^p, K_n)$. The cohomology of the complex $H^0(T^*, K_m)$ is computed in Esnault et al.~(1998) 4.6:
+\begin{equation}\label{eq:3.9.1}
+H^n(H^0(T^*, K_m)) = \Sym^n(X) \otimes K_{m-n}(k).
+\end{equation}
+For $m=2$, one deduces from \eqref{eq:3.9.1} that the complex $H^0(T^p, K_2)$ has cohomology only in degree 1 and 2, with
+\begin{equation}\label{eq:3.9.2}
+\begin{aligned}
+H^1 H^0(T^*, K_2) &= X \otimes k^*, \\
+H^2 H^0(T^*, K_2) &= \Sym^2(X).
+\end{aligned}
+\end{equation}
+
+\subsection{}
+Let $E$ be a multiplicative $K_2$-torsor on $T$. By 3.9, for some bilinear form $C$ on $Y$, $E$ is isomorphic to the trivial torsor, with the multiplicative structure given by the cocycle image of $C$ by
+\begin{equation}\label{eq:3.9.3}
+x_1 \otimes x_2 \mapsto \{\pr_1^* x_1, \pr_2^* x_2\}.
+\end{equation}
+The group of isomorphism classes of multiplicative $K_2$-torsors is $\Sym^2(X)$, and the class of $E$ is given by the quadratic form $C(y,y)$ on $Y$.
+
+Let us extend the scalars from $k$ to $k[t, t^{-1}]$. By 1.4, we deduce from $E$ a central extension, on $\Spec k[t, t^{-1}]$, of the sheaf of local sections of $T$ by $\cK_2$. As $H^1(\Spec k[t,t^{-1}], \cK_2) = 0$ (\eqref{eq:3.1.2}), taking global sections, we obtain a central extension
+\begin{equation}\label{eq:3.10.1}
+H^0(\Spec(k[t,t^{-1}]), \cK_2) \to E \to T(k[t,t^{-1}]).
+\end{equation}
+We take the pull back of this central extension by
+\begin{equation}\label{eq:3.10.2}
+Y \to T(k[t,t^{-1}]) = k[t,t^{-1}]^* \otimes Y: y \mapsto t \otimes y,
+\end{equation}
+and the push out by
+\begin{equation}\label{eq:3.10.3}
+H^0(\Spec(k[t,t^{-1}]), \cK_2) = K_2(k) \oplus k^* \to k^*,
+\end{equation}
+obtaining a central extension
+\begin{equation}\label{eq:3.10.4}
+k^* \to E \to Y.
+\end{equation}
+
+\begin{proposition}\label{prop:3.11}
+The construction 3.10 is an equivalence of categories from the category of multiplicative $K_2$-torsors on $T$ to the category of pairs $(Q, E)$, where $Q$ is a quadratic form on $Y$ and $E$ is a central extension of $Y$ by $k^*$ for which the commutator map \textup{(0.N.4)} (2): $Y \times Y \to k^*$, is given by
+\begin{equation}\label{eq:3.11.1}
+(y, z) = (-1)^{B(y,z)}.
+\end{equation}
+In \eqref{eq:3.11.1}, $B$ is the bilinear form associated to $Q$ \textup{(0.N.3)}.
+\end{proposition}
+
+\begin{remark}\label{rem:3.12}
+In 3.10, instead of extending scalars from $k$ to the ring $k[t, t^{-1}]$, we could have extended scalars to the field $k((t))$, obtaining from $E$ instead of \eqref{eq:3.10.1} a central extension
+\[K_2k((t)) \to E_1 \to T(k((t))).\]
+We still have a morphism
+\begin{equation}\label{eq:3.12.1}
+Y \to T(k((t))) = k((t))^* \otimes Y: y \mapsto t \otimes y
+\end{equation}
+and the tame symbol defines
+\begin{equation}\label{eq:3.12.2}
+K_2 k((t)) \to k^*.
+\end{equation}
+Pushing by \eqref{eq:3.12.2} and pulling back by \eqref{eq:3.12.1}, we obtain a central extension of $Y$ by $k^*$, canonically isomorphic to the central extension \eqref{eq:3.10.4}.
+\end{remark}
+
+\begin{proposition}\label{prop:3.13}
+Let $E$ be a central extension of $T$ by $K_2$, that is a multiplicative $K_2$-torsor on $T$ \textup{(1.4)}. Let $Q$ be the corresponding quadratic form on $Y$, and let $B$ be the associated bilinear form. The corresponding commutator $\mathrm{comm}$ of \textup{(1.8.1)}, in $H^0(T \times T, K_2)$, is bimultiplicative. It is the image of $B$, by the identification \ref{cor:3.7} \textup{(ii)}.
+\end{proposition}
+
+\begin{corollary}\label{cor:3.14}
+If $B = \sum b_{ij} x_i \otimes x_j$, the commutator for the central extension
+\[K_2(k) \to E(k) \to T(k)\]
+is given by $(t_1, t_2) \mapsto \sum b_{ij} \{x_i(t_1), x_j(t_2)\}$.
+\end{corollary}
+
+\subsection{}
+We now return to the case of a split torus $T$ over $S$ regular of finite type over a field. Let $p$ be the projection of $T^n$ to $S$. Ambiguity on $n$ will be avoided by writing $p_*(T^n, K_2)$ for the direct image of $K_2$ from $T^n$ to $S$. Let $\tilde{p}_*(T^n, K_2)$ be the reduced direct image $p_*(T^n, K_2)/K_2$. Applying the variant 1.10 of 1.9 Example (vii), one deduces from the vanishing \eqref{eq:3.1.2} that the complex of sheaves $\tilde{p}_*(T^n, K_2)$ on $S$ incarnates in degree 2 the stack $U \mapsto$ category of multiplicative $K_2$-torsors on the split torus $T = p^{-1}(U)$ over $U$.
+
+\begin{theorem}\label{thm:3.16}
+For $T$ a split torus over $S$ regular of finite type over a field $k$, the construction 3.15 induces an equivalence of commutative Picard categories from
+\begin{itemize}
+\item[(i)] the category of multiplicative $K_2$-torsors on $T$, to
+\item[(ii)] the category of pairs $(Q, E)$: $Q$ a quadratic form on the sheaf $Y$ and $E$ a central extension of $Y$ by the sheaf $\cO^*_S$, for which, as in \ref{prop:3.11},
+\[(y, z) = (-1)^{B(y,z)}.\]
+\end{itemize}
+The commutator \textup{(1.8.1)} defined by a multiplicative $K_2$-torsor is given as in \ref{prop:3.13}.
+\end{theorem}
+
+\section{Split semi-simple simply-connected groups}
+
+For $G$ split semi-simple simply-connected over a field $k$, with split maximal torus $T$ and Weyl group $W$, we will prove in this section results which, via the formalism of 1.9, amounts to $H^i(G, \cK_2) = 0$ for $i \neq 1$, $H^i(BG, \cK_2) = 0$ for $i \neq 2$, quadratic forms on $Y$ being dual to $H^1(G, \cK_2)$ and the dual of $H^2(BG, \cK_2)$ being the group of $W$-invariant quadratic forms on $Y$. Our proofs are similar to those in Esnault et al.~(1996) (3.2, 4.7, 4.8), but closer to the cocycle level and at places more elementary.
+
+\subsection{}
+Let $G$ be a split reductive group over a field $k$. We fix a split maximal torus $T$ of $G$. We will use the notation $X$, $Y$, $W$ of (0.N.1) and (0.N.2), as well as the following:
+
+$\Phi$: the set of roots (a subset of $X$). For $\alpha$ a root, we denote by
+
+$\alpha^\vee$: the corresponding coroot; $\alpha^\vee$ is in $Y$ and $\langle \alpha^\vee, \alpha \rangle = 2$;
+
+$U_\alpha$: the corresponding radicial subgroup; it is isomorphic to $\bG_a$ and $T$ acts on it by $\alpha$;
+
+$s_\alpha$: the corresponding reflection in $W$;
+
+$S_\alpha$: the corresponding $\SL(2)$ or $\PGL(2)$ subgroup of $G$, generated by $\alpha^\vee(\Gm)$, $U_\alpha$ and $U_{-\alpha}$.
+
+The walls are the hyperplanes $\langle x, \alpha^\vee \rangle = 0$ of $X \otimes \bR$. For $w \in W$, we will write $\dot{w}$ for a lifting of $w$ in the normalizer $N(T)$ of $T$.
+
+We fix a Borel subgroup $B$ containing $T$. We denote by
+
+$\Phi^+$: the corresponding set of positive roots: a root $\alpha$ is in $\Phi^+$ if and only if $U_\alpha$ is in the unipotent radical $U$ of $B$;
+
+$I$: the corresponding system of simple roots. A simple root $i \in I$ will often be written $\alpha_i$;
+
+$\ell(w)$: the length of $w \in W$, relative to the system of generators $s_i$ ($i \in I$);
+
+$\Phi^-$: the complement of $\Phi^+$ in $\Phi$. It is also $-\Phi^+$;
+
+$C_0$: the fundamental chamber in $X \otimes \bR$, defined by $\langle x, \alpha^\vee \rangle > 0$ for $\alpha$ positive.
+
+For $w \in W$, let $U_{\Phi^+ \cap w\Phi^-}$ be the group generated by the $U_\alpha$ with $\alpha \in \Phi^+ \cap w\Phi^-$. As a scheme, it is isomorphic to $\bA^n$ for some $n$.
+
+The product map
+\begin{equation}\label{eq:4.1.1}
+U_{\Phi^+ \cap w\Phi^-} \times wT \times U \to BwB
+\end{equation}
+is an isomorphism. The map
+\begin{equation}\label{eq:4.1.2}
+p: BwB \to wT: p = \pr_2 \circ \text{\eqref{eq:4.1.1}}^{-1}
+\end{equation}
+is the unique retraction of $BwB$ to $wT$ such that $p(u \dot{w} t v) = \dot{w} t$ for $u$ and $v$ in $U$, $t$ in $T$ and $\dot{w}$ any lifting of $w$ in $N(T)$. By 3.1,
+\begin{equation}\label{eq:4.1.3}
+H^i(BwB, K_j) = 0 \quad \text{for } i > 0
+\end{equation}
+and $p: BwB \to wT$ induces an isomorphism
+\begin{equation}\label{eq:4.1.4}
+H^0(wT, K_j) \xrightarrow{\;\sim\;} H^0(BwB, K_j).
+\end{equation}
+
+The length $\ell(w)$ of $w$ is $|\Phi^+ \cap w\Phi^-|$: it is the number of walls separating the fundamental chamber $C_0$ from its transform $w(C_0)$.
+
+\subsection{}
+
+\begin{lemma}\label{lem:4.2}
+\begin{itemize}
+\item[(i)] With the notation above, the valuation of $\dot{x}_w$ along $Bw_1 B$ is given by
+\begin{equation}\label{eq:4.2.1}
+v(\dot{x}_w) = \langle x, w'' \alpha_i^\vee \rangle.
+\end{equation}
+\item[(ii)] If $v(\dot{x}_w) = 0$, let $\dot{x}_w|_{Bw_1 B}$ be the restriction to $Bw_1 B$ of the extension of $\dot{x}_w$ to $BwB \cup Bw_1 B$. Then, $\dot{x}_w|_{Bw_1 B}$ is a constant multiple of $\dot{x}_{w_1}$.
+\item[(iii)] If further $w = w' s_i w''$ with $s_i$ in $S_i$ and $w_1 = w' w''$, then
+\begin{equation}\label{eq:4.2.2}
+\dot{x}_w|_{Bw_1 B} = \dot{x}_{w_1}.
+\end{equation}
+\end{itemize}
+\end{lemma}
+
+Writing $w = w' \cdot (w_1 s_i w')$, one can rewrite \eqref{eq:4.2.1} as follows: $w_1 = ws_i$ for $s_i$ a reflection in $W$, and if $\alpha$ is the corresponding positive root, then
+\begin{equation}\label{eq:4.2.3}
+v(\dot{x}_w) = \langle x, \alpha^\vee \rangle.
+\end{equation}
+
+\subsection{}
+The Bruhat decomposition induces a filtration $F$ on any sheaf $\cF$ on $G$, $F^p \cF$ being the sheaf of sections with support in the union of the $BwB$ of codimension $> p$.
+
+\subsection{}
+
+\begin{proposition}\label{prop:4.6}
+If $G$ is simply-connected the complex \textup{(4.4.1)}$_{n=0}$ is acyclic, and \textup{(4.4.1)}$_{n=1}$ has cohomology only in degree 1. In the model \textup{(4.4.3)}$_{n=2}$, the morphism $C \mapsto C(y,y)$ identifies the $H^1$ of \textup{(4.4.1)} with the group of $W$-invariant quadratic forms on $Y$.
+
+As a consequence,
+\begin{align}
+H^0(G, \cK_2) &= K_2(k), \quad \text{hence } H^0(G, \cK_2) = 0; \label{eq:4.6.1} \\
+H^1(G, \cK_2) &= \{\text{$W$-invariant quadratic forms on $Y$}\}; \label{eq:4.6.2} \\
+H^i(G, \cK_2) &= 0 \quad \text{for } i > 2. \label{eq:4.6.3}
+\end{align}
+\end{proposition}
+
+\begin{theorem}\label{thm:4.7}
+For $G$ split and simply-connected, pointed $K_2$-torsors on $G$ have no nontrivial automorphism. They admit a unique multiplicative structure. They are classified by $W$-invariant quadratic forms on $Y$.
+\end{theorem}
+
+\begin{proof}
+The first statement amounts to \eqref{eq:4.6.1}. The last statement expresses \eqref{eq:4.6.2}.
+\end{proof}
+
+\subsection{}
+For $S$ regular of finite type over a field and $G$ a split reductive group over $S$, with split maximal torus $T$ and Borel subgroup $B$ containing $T$, the arguments used in this section can be repeated, when sheafified over $S$.
+
+If $a$ (resp.~$a_w$) is the projection of $G$ (resp.~$BwB$) to $S$, the complex $a_* G^*_j$ is quasi-isomorphic to the subcomplex
+\begin{equation}\label{eq:4.8.1}
+\bigoplus_{w \in W(p)} a_{w*} K_{j-p}[-p]
+\end{equation}
+which, for $j=2$, can be filtered with associated graded $\Gr_n$ the following complexes of sheaves on $S$
+\begin{equation}\label{eq:4.8.2}
+\begin{aligned}
+n=0: &\quad K_2; \\
+n=1: &\quad X \otimes \cO^*_S \to \bigoplus_{w \in W(1)} \cO^*_S; \\
+n=2: &\quad \Lambda^2 X \to \bigoplus_{w \in W(1)} X \to \bigoplus_{w \in W(2)} \bZ.
+\end{aligned}
+\end{equation}
+
+For $G$ simply-connected the proof of \ref{prop:4.6} gives
+\begin{align}
+\tilde{a}_* K_2 &= K_2, \quad \text{hence } \tilde{a}_* K_2 = 0 \text{ for the reduced direct image}; \label{eq:4.8.3} \\
+R^1 a_* K_2 &= \text{the locally constant sheaf of $W$-invariant forms on $Y$}; \label{eq:4.8.4} \\
+R^i a_* K_2 &= 0 \quad \text{for } i > 2. \label{eq:4.8.5}
+\end{align}
+
+As in \ref{thm:4.7}, it follows that pointed $K_2$-torsors on $G$ have no nontrivial automorphisms, have a unique multiplicative structure, and are classified by \eqref{eq:4.8.4}.
+
+\begin{lemma}\label{lem:4.8.6}
+The quadratic forms on $Y$ and $Y'$ attached to a multiplicative $K_2$-torsor on $G$ correspond to each other by the isomorphism of $Y$ with $Y'$.
+\end{lemma}
+
+\begin{compatibility}[4.9]\label{comp:4.9}
+Assume that $G$ is simply-connected. Let $E$ be a multiplicative $K_2$-torsor on $G$, and $E_T$ be its restriction to $T$. The quadratic form 3.11 describing the isomorphism class of the multiplicative $K_2$-torsor $E_T$ on $T$ is the same as the quadratic form 4.7.
+\end{compatibility}
+
+\subsection{}
+Let $G_\ad$ be the adjoint group of $G$ and $T_\ad$ be the maximal split torus of $G_\ad$ image of $T$. The group $G_\ad$ acts on $G$ (adjoint action). Multiplicative $K_2$-torsors on $G$ have no nontrivial automorphism and their classification is discrete. It follows that if $E$ is a multiplicative $K_2$-torsor on $G$, the action of $G_\ad$ on $G$ extends uniquely to an action of $G_\ad$ on $(G, E)$.
+
+\subsection{}
+We pass to the language 1.4 of central extensions by $\cK_2$. As $T_\ad$ fixes $T$, the commutator section (1.8.2) is a bimultiplicative section
+\begin{equation}\label{eq:4.11.1}
+\mathrm{comm} \in H^0(T_\ad \times T, K_2).
+\end{equation}
+By \ref{cor:3.7} (ii), it corresponds to an element of $X_\ad \otimes X$, or equivalently to a bilinear pairing between $Y_\ad$ and $Y$.
+
+The pullback of \eqref{eq:4.11.1} to $T \times T$ is induced by the commutator section (1.8.1). It can be computed using \ref{comp:4.9} and \ref{cor:3.14}. This fixes \eqref{eq:4.11.1} uniquely:
+
+\begin{proposition}\label{prop:4.12}
+Suppose that $E$ corresponds by \ref{thm:4.7} to the $W$-invariant quadratic form $Q$ on $Y$. Then, the associated bilinear form $B$ extends to a pairing $B_1$ between $Y_\ad$ and $Y$ and, with the identifications of \ref{cor:3.7} \textup{(ii)}, the bimultiplicative section \eqref{eq:4.11.1} of $K_2$ corresponds to $B_1$.
+\end{proposition}
+
+\subsection{}
+Fix $E$ as in 4.10 to 4.12. Taking $k$-points, we deduce from $E$ a central extension
+\begin{equation}\label{eq:4.13.1}
+K_2(k) \to E(k) \to G(k)
+\end{equation}
+as in (1.4). The action 4.10 of $G_\ad$ on $E$ induces an action of $G_\ad(k)$ on this central extension. By restriction to $T_\ad(k)$ and $T(k)$, the corresponding ``commutator'' (0.N.4) (3): $G_\ad(k) \times G(k) \to E(k)$ induces a bimultiplicative map
+\begin{equation}\label{eq:4.13.2}
+T_\ad(k) \times T(k) \to K_2(k).
+\end{equation}
+
+\begin{corollary}\label{cor:4.14}
+The pairing \eqref{eq:4.13.2}:
+\[(Y_\ad \otimes k^*) \times (Y \otimes k^*) \to K_2(k)\]
+is given by $(y_1 \otimes a, y \otimes b) \mapsto B_1(y_1, y) \{a, b\}$.
+\end{corollary}
+
+\begin{proposition}\label{prop:4.15}
+Suppose that $G$ is simple and that $Q$ takes the value 1 on short coroots. Then the central extension \eqref{eq:4.13.1} is Matsumoto's central extension \textup{(0.2)}.
+\end{proposition}
+
+\begin{proof}
+The group $G(k)$ is its own commutator subgroup (except for small finite fields $k$, for which $K_2(k)$ is trivial anyway). It follows that a central extension $E$ of $G(k)$ by an abelian group $A$ has no nontrivial automorphism (trivial on $G(k)$ and $A$). Suppose that the action of $G_\ad(k)$ on $G(k)$ extends to $E$, the action being trivial on $A$. As explained in Deligne (1996) 3.8, the central extension $E$ is then determined up to unique isomorphism by the ``commutator'' pairing $T_\ad(k) \times T(k) \to A$.
+\end{proof}
+
+\begin{remark}
+We keep the notations of 4.1, with $G$ simply-connected. The choice of a Borel subgroup $B$ is not needed. By \ref{thm:4.7}, a $W$-invariant quadratic form $Q$ on $Y$ defines a canonical multiplicative $K_2$-torsor $E$ on $G$. By restriction to $T$, we obtain a multiplicative $K_2$-torsor $E_T$ on $T$ well defined up to unique isomorphism, and whose isomorphism class is given by $Q$. It defines a central extension
+\[k^* \to E \to Y\]
+with commutator map $(-1)^{B(y,z)}$. In 11.7, we will describe this central extension in terms of $Q$ and of the root space decomposition of the Lie algebra of $G$.
+\end{remark}
+
+\section{Split semi-simple groups}
+
+We keep the notation of 4.1.
+
+\subsection{}
+Let $(f_w)_{w \in W(1)}$ be a 1-cochain in the complex (4.3.2) for $j=2$. Each $f_w$ is an invertible function on $BwB$. Write $f_i$ for $f_{w_0 s_i}$ and, as in the proof of 4.9, let $f_i$ be the character of $T$ such that $f_i(gt) = f_i(g) f_i(t)$. Whether $(f_w)$ is a cocycle depends only on its image in the quotient (4.4.1)$_{n=2}$ of the complex (4.3.2). As in 4.4, we identify this image with a bilinear form $C \in X_\scu \otimes X$ pairing $Y_\scu$ and $Y$. The form $C$ is defined by $C(\alpha_i^\vee, y) = \langle f_i, y \rangle$. By 4.5, $(f_w)$ is a cocycle if and only if the quadratic form $C(y,y)$ on $Y_\scu$ is $W$-invariant.
+
+Until the end of this section, we assume that $G$ is semi-simple. This means that $Y_\scu$ is of finite index in $Y$: $Y_\scu \otimes \bQ \xrightarrow{\sim} Y \otimes \bQ$. Dually, $X \otimes \bQ \xrightarrow{\sim} X_\scu \otimes \bQ$ and $X_\scu$ is of finite index in $X$.
+
+\begin{lemma}\label{lem:5.2}
+Suppose that $(f_w)$ is a cocycle and that $E$ is the corresponding $K_2$-torsor. The following conditions are then equivalent:
+\begin{itemize}
+\item[(i)] the inverse image of $E$ by $\pr_1: G \times T \to G$ is isomorphic to its inverse image by the multiplication map $m$;
+\item[(ii)] the inverse image of $E$ by $\pr_2: T \times G \to G$ is isomorphic to its inverse image by the multiplication map $m$;
+\item[(iii)] the bilinear pairing $C$ of $Y_\scu$ with $Y$ extends to a bilinear pairing of $Y$ with itself.
+\end{itemize}
+If the $K_2$-torsor $E$ on $G$ admits a multiplicative structure, the torsors $m^* E$ and $\pr_1^*(E) + \pr_2^*(E)$ on $G \times T$ are isomorphic. As, by 3.3, the restriction of $E$ to $T$ is a trivial torsor, 5.2 (i) then holds. The main result of this section is a converse to be proven in 5.7.
+\end{lemma}
+
+\begin{proof}[Proof (i) $\Leftrightarrow$ (iii)]
+The right action of $T$ respects the Bruhat stratification. The difference $\pr_1^* E - m^* E$ is given by the difference of the inverse image cocycles. We have $f_i(gt)/f_i(g) = f_i(t)$ and this difference is the cocycle $\pr_2^*(f_i)$ on $(Bw_0 s_i B) \times T$.
+\end{proof}
+
+\begin{lemma}\label{lem:5.3}
+If $G$ is a product $G_1 \times G_2$, with $T = T_1 \times T_2$, the conditions of (i) (ii) (iii) 5.2 are equivalent to
+\begin{itemize}
+\item[(iv)] the inverse image of $E$ by $\pr_2: T_1 \times G \times T_2 \to G$ is isomorphic to its inverse image by the product map.
+\end{itemize}
+\end{lemma}
+
+\begin{lemma}\label{lem:5.4}
+For $G = G_1 \times G_2$ as in \ref{lem:5.3}, the functor of restriction to $G_1$ and $G_2$ is an equivalence from
+\begin{itemize}
+\item[(i)] the category of pointed $K_2$-torsors on $G$, for which the equivalent conditions of 5.3 hold,
+\end{itemize}
+to
+\begin{itemize}
+\item[(ii)] the category of pairs $(E_1, E_2)$ of pointed $K_2$-torsors on $G_1$ and $G_2$, for which the equivalent conditions of 5.2 hold.
+\end{itemize}
+\end{lemma}
+
+\begin{proposition}\label{prop:5.5}
+If $G$ is split semi-simple, a pointed $K_2$-torsor $E$ on $G$ has at most one multiplicative structure. It has one if and only if the equivalent conditions of 5.2 hold.
+\end{proposition}
+
+\begin{proof}
+We have already shown, in the comment after 5.2, that if $E$ has a multiplicative structure, 5.2 (i) holds.
+
+Conversely, suppose that 5.2 (i) (ii) hold. Using that $t(gh)t^{-1} = (tg)(ht^{-1})$, one sees that 5.3(iv) holds for $m^*(E)$ on $G \times G$. Applying \ref{lem:5.4} one finds that there is a unique isomorphism
+\[m: \pr_1^* E + \pr_2^* E \to m^* E\]
+which extends the obvious isomorphisms on $G \times \{e\}$ and $\{e\} \times G$. It is the only possible multiplicative structure and it is a multiplicative structure, as the two isomorphisms (1.1.2) deduced from $m$ on $G \times G \times G$ have the same restriction to $G \times e \times e$, $e \times G \times e$ and $e \times e \times G$ and, by (5.4), are characterized by those three restrictions.
+\end{proof}
+
+\subsection{}
+The arguments leading to \ref{prop:5.5} extend to the case of $G$ split semi-simple over a base $S$ regular of finite type over a field.
+
+\begin{proposition}\label{prop:5.7}
+If $G$ is split semi-simple over $S$ regular of finite type over a field, a pointed $K_2$-torsor on $G$ has at most one multiplicative structure. It has one if and only if the locally equivalent conditions of 5.2 hold locally on $S$.
+\end{proposition}
+
+\section{Split reductive groups}
+
+\subsection{}
+Let $S$ be regular of finite type over a field $k$ and let $G$ be a split reductive group scheme over $S$. We fix a split maximal torus $T$. Let $G_\der$ be the commutator subgroup of $G$, $G_\scu$ be its simply-connected covering and $G_\ad$ be the adjoint group:
+\[G_\scu \to G_\der \to G \to G_\ad.\]
+The inverse images of $T$ in $G_\der$ and $G_\scu$, and its image in $G_\ad$, are split maximal tori in the respective reductive groups. Notation: $T_\der$, $T_\scu$, $T_\ad$. With the notation (0.N.1), (0.N.2), the morphisms $T_\scu \to T_\der \to T \to T_\ad$ induce $W$-equivariant morphisms $Y_\scu \to Y_\der \to Y \to Y_\ad$ and $X_\scu \leftarrow X_\der \leftarrow X \leftarrow X_\ad$. The group $Y_\scu$ (resp.~$X_\scu$) is the subgroup of $Y$ (resp.~$X$) generated by the coroots (resp.~roots). The group $Y_\der$ is $Y_\scu \otimes \bQ \cap Y$, and $Y_\scu$ and $Y_\der$ are subgroups of finite index in $Y_\ad$.
+
+If $E$ is a multiplicative $K_2$-torsor on $G$, its restriction to $T$ is a multiplicative torsor $E_T$ on $T$. By the equivalence of categories \ref{thm:3.16}, $E_T$ gives $(Q, E)$, with $Q$ a quadratic form on $Y$ and $E$ a central extension, on $S$, of $Y$ by $\cO^*_S$, obeying \eqref{eq:3.11.1}. Locally on $S$, any $w \in W$ can be lifted to $G$ and, by 1.6, the automorphism $w$ of $T$ preserves the isomorphism class of $E_T$. It follows by transport of structure that the quadratic form $Q$ is $W$-invariant.
+
+The pullback $E_\scu$ of $E$ to $G_\scu$ is a multiplicative torsor on $G_\scu$. By 4.9, the corresponding quadratic form 4.7 on $Y_\scu$ is the restriction $Q_\scu$ of $Q$ to $Y_\scu$. The multiplicative torsor $E_\scu$ is determined up to unique isomorphism by $Q_\scu$. Its restriction to $T_\scu$ gives rise to a central extension 3.15 of sheaves on $S$
+\begin{equation}\label{eq:6.1.1}
+\cO^*_S \to E_\scu \to Y_\scu
+\end{equation}
+depending only on $Q_\scu$. As $E$ restricted to $T_\scu$ is the pullback to $T_\scu$ of $E_T$, we have a commutative diagram
+\begin{equation}\label{eq:6.1.2}
+\begin{tikzcd}
+\cO^*_S \arrow[r] \arrow[d, equal] & E_\scu \arrow[r] \arrow[d] & Y_\scu \arrow[d] \\
+\cO^*_S \arrow[r] & E \arrow[r] \arrow[u, "j"'] & Y \arrow[u]
+\end{tikzcd}
+\end{equation}
+
+\begin{theorem}\label{thm:6.2}
+Let $G$ be a split reductive group scheme over $S$ regular of finite type over a field. The construction 6.1 is an equivalence of categories from
+\begin{itemize}
+\item[(i)] the category of multiplicative $K_2$-torsors $E$ on $G$, to
+\item[(ii)] the category of triples $(Q, E, j)$, where
+\begin{itemize}
+\item[(a)] $Q$ is a $W$-invariant quadratic form on $Y$. By 4.16, the restriction of $Q$ to $Y_\scu$ defines a central extension $E_\scu$ of $Y_\scu$ by $\cO^*_S$;
+\item[(b)] $E$ is a central extension of $Y$ by $\cO^*_S$, obeying \textup{(3.11.1)};
+\item[(c)] $j: E_\scu \to E$ makes the diagram \textup{(6.12)} commute.
+\end{itemize}
+\end{itemize}
+The morphisms in the category of triples $(Q, E, j)$ are as follows. There can be a morphism from $(Q', E', j')$ to $(Q'', E'', j'')$ only if $Q' = Q''$. If $Q' = Q''$, a morphism is an isomorphism $f$ of central extensions
+\[
+\begin{tikzcd}
+\cO^*_S \arrow[r] \arrow[d, equal] & E' \arrow[r] \arrow[d, "f"] & Y \arrow[d, equal] \\
+\cO^*_S \arrow[r] & E'' \arrow[r] & Y
+\end{tikzcd}
+\]
+compatible with $j'$ and $j''$: commutativity of the diagram
+\[
+\begin{tikzcd}
+E_\scu \arrow[r, "{j'}"] \arrow[rd, "{j''}"'] & E' \arrow[d, "f"] \\
+& E''
+\end{tikzcd}
+\]
+\end{theorem}
+
+\begin{proof}[Proof of 6.2, when $G$ is semi-simple]
+The group $G$ is assumed to be semi-simple and for the ease of exposition, we begin by assuming that $S$ is the spectrum of a field $k$.
+
+We first show that any $W$-invariant $\bZ$-valued quadratic form $Q$ on $Y$ comes from some multiplicative $K_2$-torsor on $G$. There exists a possibly nonsymmetric $\bZ$-valued bilinear form $C$ on $Y$, such that $C(y,y) = Q(y)$. We have $C \in X \otimes X \subset X_\scu \otimes X$ and there exists a 1-cochain $(f_w)$ as in 5.1 giving rise to $C$. By 5.1, based on 4.5, this cochain is a cocycle. Let $E$ be the corresponding $K_2$-torsor, and choose a trivialization of $E$ at $e \in G$. By \ref{prop:5.5}, the pointed torsor $E$ has a unique multiplicative structure. Applying 4.9 to the restriction of the multiplicative torsor $E$ to $G_\scu$, we obtain that the quadratic form 6.1 attached to $E$ is $Q$.
+
+As any $W$-invariant quadratic form on $Y$ comes from some multiplicative $K_2$-torsor, it suffices to prove 6.2 for the full subcategories of the categories described in (i) (ii) given by the condition $Q = 0$. Those categories can be incarnated as follows. For (i), if $E$ is defined by a cocycle as in 5.1, giving rise to $C$ in $X \otimes X$ by 5.5, the condition $Q=0$ means that $C$ is in the image of $\Lambda^2 X$. The category is incarnated by (4.4.1)$_{n=1}$, i.e.~by the complex (4.4.2):
+\begin{equation}\label{eq:6.3.1}
+X \otimes k^* \to X_\scu \otimes k^*.
+\end{equation}
+For (ii), we have to consider the category of pairs $(E, j)$, where $E$ is a commutative central extension of $Y$ by $k^*$, and $j$ is splitting of $E$ over $Y_\scu$. The extension $E$ is commutative because $Q=0$. This category is incarnated by \eqref{eq:6.3.1} as well: an element $f \in X_\scu \otimes k^* = \Hom(Y_\scu, k^*)$ defines the following object $[f]$: the trivial extension $k^* \times Y$ of $Y$ by $k^*$, with the splitting $f$ on $Y_\scu$. An element $g$ of $X \otimes k^* = \Hom(Y, k^*)$ defines an isomorphism from $[f]$ to $[fg]$.
+
+We leave it to the reader to check that the functor 6.2 is incarnated by the identity automorphism of \eqref{eq:6.3.1}.
+
+Over a base $S$, one similarly finds that any $Q$ can be locally obtained, and local incarnations of the subcategory of 6.2(i) (ii) where $Q=0$ are given by
+\begin{equation}\label{eq:6.3.2}
+X \otimes \cO^*_S \to X_\scu \otimes \cO^*_S.
+\end{equation}
+\end{proof}
+
+\begin{proof}[Proof of 6.2 (general case)]
+The quotient $Y/Y_\der$ is torsion free. It follows that $Y_\der$ is a direct factor in $Y$. We choose a decomposition $Y = Y_0 \oplus Y_\der$. It gives us a product decomposition $T = T_0 \times T_\der$, and $G$ is the semi-direct product
+\begin{equation}\label{eq:6.4.1}
+G = T_0 \ltimes G_\der.
+\end{equation}
+We will apply 1.7 to the semi-direct product decomposition \eqref{eq:6.4.1} of $G$. For this, even if we cared only for the case when $S$ is the spectrum of a field, we need the semi-simple case of 6.2 over a more general base, to describe actions of $T_0$ on a central extension of $G_\der$ by $\cK_2$.
+
+The inner action of $G$ on itself factors through $G_\ad$. The action of $T_0$ on $G_\der$ is hence the composite of $q: T_0 \to T_\ad$ and of the action of $T_\ad$ on $G_\der$. We continue to write $q$ for the induced map
+\begin{equation}\label{eq:6.4.2}
+q: Y_0 \to Y_\ad.
+\end{equation}
+
+\begin{lemma}\label{lem:6.5}
+Let $E_\der$ be a multiplicative $K_2$-torsor on $G_\der$, and let $Q_\der$ be the corresponding quadratic form on $Y_\der$.
+\begin{itemize}
+\item[(i)] If the action of $T_0$ on $G_\der$ can be lifted to $E_\der$, the lifting is unique;
+\item[(ii)] A lifting exists if and only if the quadratic form $Q_\der$ can be extended to a $W$-invariant quadratic form on $Y$.
+\end{itemize}
+\end{lemma}
+
+\begin{lemma}\label{lem:6.6}
+Let $Q_\der$ be a $W$-invariant quadratic form on $Y_\der$. By \ref{prop:4.12}, the restriction to $Y_\scu$ of the associated bilinear form extends to a pairing $B$ of $Y_\ad$ with $Y_\scu$.
+\begin{itemize}
+\item[(i)] The form $Q_\der$ extends to a $W$-invariant quadratic form on $Y$ if and only if $B(q(y_0), y_\scu)$ extends to a pairing between $Y_0$ and $Y_\der$.
+\item[(ii)] If $Q_\der$ extends to a $W$-invariant quadratic form on $Y$, the $W$-invariant extensions $Q$ correspond one to one to quadratic forms on $Y_0$, by $Q \mapsto Q|_{Y_0}$.
+\end{itemize}
+\end{lemma}
+
+The rest of the proof proceeds by using the dictionary 1.4 between multiplicative torsors and central extensions, and translating conditions (a) (b) (c) of 1.7 using 6.2 (semi-simple case) and \ref{lem:6.5}. This concludes the proof of \ref{thm:6.2}.
+\end{proof}
+
+\section{Reductive groups}
+
+\subsection{}
+Let $S$ be regular of finite type over a field $k$ and $G$ be a reductive group scheme over $S$. Locally for the \'etale topology of $S$, $G$ is split (SGA3 XXII 2.3): there exists a surjective \'etale map $u: S_0 \to S$ such that $G$ over $S_0$ deduced from $G$ by base change is a split reductive group over $S_0$. By \ref{thm:2.7}, the change of base from $S$ to $S_0$ is an equivalence of categories from pointed $K_2$-torsors on $(G,e)$ to pointed $K_2$-torsors on $(G_0, e)$ provided with a descent data. Applying this to the $G^n$, and using that this equivalence of categories is compatible with pull-backs, one sees that giving a multiplicative $K_2$-torsor on $G$ amounts to giving one on $G_0$, and a descent data from $S_0$ to $S$.
+
+Suppose $T$ is a maximal torus of $G$. As in 6.1, one deduces from $G$ semi-simple group schemes $G_\scu$, $G_\der$ and $G_\ad$ over $S$, with maximal tori $T_\scu$, $T_\der$ and $T_\ad$. With the notations (0.N.1), (0.N.2), let $Q$ be a $W$-invariant quadratic form on $Y$, and $Q_\scu$ be the induced quadratic form on $Y_\scu$. Locally on $S$ for the \'etale topology, $G$ and $T$, hence $G_\scu$ and $T_\scu$, are split, and by \ref{thm:4.7}, amplified by 4.8, $Q_\scu$ defines a multiplicative $K_2$-torsor $E_\scu$ on $G_\scu$. Locally on $S$ for the \'etale topology, more precisely after any \'etale change of base $S' \to S$ such that $T$ splits on $S'$, the multiplicative torsor $E_\scu$, restricted to $T_\scu$, defines by \ref{thm:3.16} a central extension of Zariski sheaves on $S'$
+\begin{equation}\label{eq:7.1.1}
+1 \to \cO^* \to E_\scu \to Y_\scu \to 1,
+\end{equation}
+obeying (3.11.1). It is functorial in $S'$, hence defines locally on $S$ for the \'etale topology a central extension \eqref{eq:7.1.1} of sheaves for the \'etale topology. To define a central extension of sheaves, it suffices to define it locally: we obtain a central extension \eqref{eq:7.1.1} of \'etale sheaves on $S$ obeying (3.11.1).
+
+We can now consider triples $(Q, E, j)$ as in 6.2, with all sheaves for the \'etale topology. For triples $(Q, E, j)$, \'etale descent is trivially valid: to give a triple on $S$ amounts to giving one on $S'$, and a descent data. By descent, one hence deduces from 6.2:
+
+\begin{theorem}\label{thm:7.2}
+By \'etale descent, the equivalence of categories 6.2 induces an equivalence of categories from
+\begin{itemize}
+\item[(i)] the category of multiplicative $K_2$-torsors on $G$, to
+\item[(ii)] the category of triples $(Q, E, j)$ as in 6.2, with all sheaves taken in the \'etale topology.
+\end{itemize}
+\end{theorem}
+
+\subsection{Special cases}
+\begin{itemize}
+\item[(i)] If $G$ is semi-simple simply-connected, the data of $(Q, E, j)$ reduces to that of $Q$: multiplicative $K_2$-torsors on $G$ have no nontrivial automorphisms, and are classified by $W$-invariant quadratic forms $Q$ on $Y$.
+\item[(ii)] For $G$ reductive, the group $\Hom(G, \cK_2)$ of automorphisms of a central extension $E$ of $G$ by $\cK_2$ is the group of automorphisms for the corresponding $(E, j)$. For variable $S$, they form the \'etale sheaf $\Hom(Y/Y_\scu, \cO^*)$.
+\item[(iii)] Suppose $S = \Spec(k)$. A triple $(Q, E, j)$ determines a multiplicative $K_2$-torsor. This torsor in turn defines a central extension $E(k)$ of $G(k)$ by $K_2(k)$. Automorphisms of $(Q, E, j)$ induce automorphisms of the central extension $E(k)$.
+\end{itemize}
+
+\begin{proposition}\label{prop:7.4}
+Fix $S$ as in 7.1.
+\begin{itemize}
+\item[(i)] For $p: T \to S$ a torus over $S$, $p_* K_2$ is the sheaf of pairs $(A, q)$ as in \ref{constr:3.5}.
+\item[(ii)] The group of multiplicative sections of $\cK_2$ over $T$ is $H^0(S_\et, X \otimes \cO^*)$.
+\item[(iii)] For tori $T_1$ and $T_2$ over $S$, with sheaves of character groups $X_1$ and $X_2$, the group of bimultiplicative sections of $\cK_2$ over $T_1 \times_S T_2$ is $H^0(S_\et, X_1 \otimes X_2)$.
+\end{itemize}
+\end{proposition}
+
+\subsection{Special case}
+Suppose $S = \Spec(k)$ and let $T_1$ and $T_2$ be tori over $S$. For $\bar{k}$ a separable closure of $k$, the character groups of $T_1$ and $T_2$ are $\Gal(\bar{k}/k)$-modules $X_1$ and $X_2$. Bimultiplicative sections of $K_2$ are in bijection with the group of $\Gal(\bar{k}/k)$-invariants in $X_1 \otimes X_2$. Such an invariant element $B$ hence gives rise to a bimultiplicative map
+\begin{equation}\label{eq:7.5.1}
+(\,,\,)_B: T_1(k) \times T_2(k) \to K_2(k).
+\end{equation}
+This, completed by 7.6 below, answers the question 7.11 of Deligne (1996).
+
+\subsection{}
+Fix $G$ over $S$ as in 7.1, and a multiplicative $K_2$-torsor on $G$. We view it as an extension $E$ of $G$ by $\cK_2$, viewed as sheaves on a big Zariski sites. If $C \subset G \times_S G$ is the subscheme of commuting elements, the commutator map $G \times G \to E$ induces a morphism from $C$ to $\cK_2$, i.e.~an element
+\begin{equation}\label{eq:7.6.1}
+\mathrm{comm} \in H^0(C, \cK_2).
+\end{equation}
+For $T$ a maximal torus in $G$, the restriction of $\mathrm{comm}$ to $T \times_S T$ is a bimultiplicative section of $\cK_2$. To determine which, one may first localize for the \'etale topology. Applying \ref{prop:3.13}, one sees that it corresponds by \ref{prop:7.4} to the bilinear form $B$ associated to the quadratic form $Q$ attached to the multiplicative torsor we started with.
+
+In particular, for $S = \Spec(k)$, we have a central extension of $G(k)$ by $K_2(k)$ and on $T(k)$ the commutator map is \eqref{eq:7.5.1}.
+
+\section{Generic cocycles}
+
+\subsection{}
+Let $k$ be a field and $K$ be a sheaf on the big Zariski site of $\Spec(k)$. For $X$ a reduced and irreducible scheme of finite type over $k$, with field of rational functions $k(X)$, we define $K(k(X))$ to be the fiber of $K$ at the generic point of $X$. It is the inductive limit over $U$ of $K(U)$, for $U$ a nonempty open subscheme of $X$. For $K = \cK_2$, we get $K_2(k(X))$.
+
+Let $G$ be a connected algebraic group over $k$. Each component $G^p$ of the simplicial classifying space $BG = (G^{\Delta p}/G)$ is geometrically irreducible and the face maps $\partial_i: G^p \to G^{p-1}$ map the generic point of $G^p$ to the generic point of $G^{p-1}$. The generic points of the components $G^p$ of $BG$ hence form a strict (0.N.7) simplicial system of spectrum of fields $k(G^p)$.
+
+Applying the functor $K$ to the one obtains a strict cosimplicial abelian group. The complex of generic cochains is the corresponding complex
+\[K(k(G^p)), \quad d = \sum (-1)^i \partial_i^*.\]
+
+\begin{construction}\label{constr:8.2}
+Assume that the field $k$ is infinite, and that the connected algebraic group $G$ over $k$ is unirational. Then the category of multiplicative $K$-torsors on $G$ is incarnated in degree 2 by the complex of generic cochains.
+
+The unirationality assumption holds if $G$ is reductive (SGA3 XIV 6.7).
+\end{construction}
+
+In cohomological degree one, the construction boils down to the following statement: the map ``restriction to the generic point of $G$'' is an isomorphism from the group of multiplicative sections of $K$ over $G$ to the group of elements of $K(k(G))$ for which $s(g_1 g_2) = s(g_1) + s(g_2)$ in $K(k(G \times G))$.
+
+\begin{proposition}\label{prop:8.3}
+Under the assumptions of \ref{constr:8.2}, the morphism of restriction to the generic points
+\begin{equation}\label{eq:8.3.1}
+s(G\Gamma(G^p, K^q), \text{ for } p > 1) \to s(K^q(k(G^p)), \text{ for } p > 1)
+\end{equation}
+is a quasi-isomorphism.
+\end{proposition}
+
+\begin{corollary}\label{cor:8.8}
+Under the assumptions of \ref{constr:8.2}, the complexes
+\begin{equation}\label{eq:8.8.1}
+K(k(G^p)) \quad (p > 1)
+\end{equation}
+as well as
+\begin{equation}\label{eq:8.8.2}
+\coker(K(k) \to K(k(G^p)))
+\end{equation}
+are quasi-isomorphic to the complex \textup{(1.9.2)} computing the cohomology of $H^*(BG \bmod Be, K)$.
+\end{corollary}
+
+\begin{proof}
+The first quasi-isomorphism follows from \ref{constr:8.2} applied to $G$ and to the trivial group.
+
+For each $p$, the map $K(k) \to K(k(G^p))$ is injective: indeed, $K(k(G^p))$ is the inductive limit of the $K(U)$, for $U \subset G^p$ open and nonempty, and each map $K(k) \to K(U)$ is injective, because by unirationality of $G$, $U$ has a rational point. It follows that the complex \eqref{eq:8.8.2} is quasi-isomorphic to \eqref{eq:8.8.1}.
+\end{proof}
+
+\subsection{}
+Under the assumptions of \ref{constr:8.2}, it follows that the category of central extensions of $G(k)$ by $A$ is incarnated in degree 2 by the complex $C^*_{\gen}(G(k), A)$ of generic cochains. In particular, a generic 2-cochain $c$ defines a central extension $E(c)$, unique up to unique isomorphisms. More precisely, $c$ is the image of a cocycle $\tilde{c}$ in $C^*_1(G(k), A)$, defining $E(c)$ and if $\tilde{c}'$, $\tilde{c}''$ are two such liftings of $c$, there exists a unique 1-cochain $d$, vanishing on some $U(k)$, with $U$ open and Zariski dense in $G$, with coboundary $\tilde{c}'' - \tilde{c}'$. It defines an isomorphism from $E(c')$ to $E(c'')$.
+
+\section{Comparison with Galois cohomology}
+
+\subsection{}
+Let $k$ be a field and $n$ an integer prime to the characteristic. We write $\bZ/n(1)$ for the group of roots of unity in a separable closure $\bar{k}$ of $k$, $\bZ/n(d)$ for its $d$\textsuperscript{th} tensor power and $H^p(k, \bZ/n(d))$ for a Galois cohomology group $H^p(\Gal(\bar{k}/k), \bZ/n(d))$. Let $\cl$ be the Kummer coboundary
+\[\cl: k^* \to H^1(k, \bZ/n(1)).\]
+By Tate (1970), if $u+v=1$, one has $\cl(u) \cup \cl(v) = 0$ in $H^2(k, \bZ/n(2))$. As $K_2(k) = k^* \otimes k^*/\langle u \otimes v \mid u+v=1 \rangle$, the morphism $u, v \mapsto \cl(u) \cup \cl(v)$ induces a morphism
+\begin{equation}\label{eq:9.1.1}
+K_2(k) \to H^2(k, \bZ/n(2)).
+\end{equation}
+More generally, if $n$ is invertible on a scheme $S$, $\bZ/n(1)$ is the \'etale sheaf of $n$\textsuperscript{th} roots of 1 and $\bZ/n(d)$ its $d$\textsuperscript{th}-tensor power.
+
+\subsection{}
+Let $G$ be a simply-connected absolutely simple algebraic group over a field $k$. Let $T$ be a maximal torus, $Y$ be its cocharacter group (an \'etale sheaf over $\Spec(k)$, i.e.~a $\Gal(\bar{k}/k)$-module) and $Q$ be the minimal Weyl group invariant positive quadratic form on $Y$: one has $Q(\alpha^\vee) = 1$ for $\alpha$ a long root. Applying 7.3(i), we obtain a multiplicative $K_2$-torsor $E$ on $G$, hence a central extension of $G(k)$ by $K_2(k)$. Pushing it by \eqref{eq:9.1.1}, one obtains a central extension
+\begin{equation}\label{eq:9.2.1}
+H^2(k, \bZ/n(2)) \to E(k) \to G(k).
+\end{equation}
+
+\begin{construction}\label{constr:9.3}
+We construct an isomorphism of the central extension \eqref{eq:9.2.1} with the opposite of the canonical central extension of Deligne (1996) 3.6.
+
+For simplicity, we assume $k$ infinite. If $k$ is finite, both central extensions are by the trivial group.
+\end{construction}
+
+\begin{lemma}\label{lem:9.4}
+Both central extensions are deduced, as in 1.4, from a multiplicative $H^2$-torsor on $G$.
+\end{lemma}
+
+\begin{lemma}\label{lem:9.5}
+In the spectral sequence (9.4.1),
+\begin{itemize}
+\item[(i)] $E_2^{0,q} = 0$
+\item[(ii)] the morphism $H^4 \to E_2^{1,3}$ vanishes
+\item[(iii)] the resulting morphism $H^4 \to E_2^{2,2} = H^2(BG \bmod Be, H^2)$ carries $c_Q$ to the class of the multiplicative $H^2$-torsor on $G$ we constructed.
+\end{itemize}
+\end{lemma}
+
+\begin{lemma}\label{lem:9.6}
+\begin{itemize}
+\item[(i)] In the spectral sequence (9.4.1), the morphism $H^4 \to E_2^{2,2} = H^2(BG \bmod Be, H^2)$ (defined thanks to 9.5 (i) (ii)) is an isomorphism.
+\item[(ii)] One has $E_2^{1,2} = H^1(BG \bmod Be, H^2) = 0$: multiplicative $H^2$-torsors on $G$ have no nontrivial automorphisms.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}[Proof of \ref{constr:9.3}]
+We will construct the isomorphism 9.3 as the image of an isomorphism between the multiplicative $H^2$-torsors of \ref{lem:9.4}. By \ref{lem:9.6} (ii), such an isomorphism, if it exists, is unique: we are left with showing that the two multiplicative $H^2$-torsors of \ref{lem:9.4} are isomorphic. The group $H^2(BG \bmod Be, H^2)$ of isomorphism classes coincides with $H^4_\et(BG \bmod Be, \bZ/n(2))$ (\ref{lem:9.6} (i)). This group is $\bZ/n$, independently of $k$. To prove the isomorphism of the two multiplicative $H^2$-torsors of \ref{lem:9.4}, it therefore suffices to do so after a field extension $k'/k$: we may and shall assume that $G$ is split.
+
+The two $H^2$-torsors to be compared have the same functoriality in $G$. As in loc.~cit.~3.7, we can hence reduce the general case to that of $G = \SL(2)$, and reduce the case of $\SL(2)$ to that of $\SL(3)$.
+\end{proof}
+
+\subsection{}
+Let $T_1$ and $T_2$ be two tori over a field $k$. We let $Y_1$ and $Y_2$ be their groups of cocharacters and view them as Galois-modules. To a bilinear form $B: Y_1 \otimes Y_2 \to \bZ$, supposed to be Galois invariant, we have attached a bimultiplicative map \eqref{eq:7.5.1}
+\begin{equation}\label{eq:9.8.1}
+T_1(k) \times T_2(k) \to K_2(k).
+\end{equation}
+Fix an integer $n$ prime to the characteristic of $k$. Composing \eqref{eq:9.8.1} with the map \eqref{eq:9.1.1}: $K_2(k) \to H^2(k, \bZ/n(2))$, we obtain
+\begin{equation}\label{eq:9.8.2}
+T_1(k) \times T_2(k) \to H^2(k, \bZ/n(2)).
+\end{equation}
+The short exact sequences of sheaves for the \'etale topology,
+\[0 \to Y_i \otimes \bZ/n(1) \to T_i \xrightarrow{n} T_i \to 1,\]
+give rise to coboundaries
+\[T_i(k) \to H^1(k, Y_i \otimes \bZ/n(1)).\]
+Taking a cup product, and applying $B$, we obtain
+\begin{equation}\label{eq:9.8.3}
+T_1(k) \times T_2(k) \to H^2(k, Y_1 \otimes Y_2 \otimes \bZ/n(2)) \to H^2(k, \bZ/n(2)).
+\end{equation}
+
+\begin{proposition}\label{prop:9.9}
+The maps \eqref{eq:9.8.2} and \eqref{eq:9.8.3} are equal.
+\end{proposition}
+
+\section{Local and global fields}
+
+\subsection{}
+Let $F$ be a local field: $F$ a finite extension of $\bR$, $\bQ_p$ or $\bF_p((T))$ for some $p$. The group $K_2(F)$ is the target of the universal symbol $\{,\}$, where a symbol with values in an abelian group $A$ is a bimultiplicative map $F^* \times F^* \to A$, with $(x,y) = 0$ for $x+y=1$. If one considers only locally constant symbols, there is also a universal one. Its target $K_2^{\cont}(F)$ is trivial if $F \cong \bC$, and is the group $\mu_F$ of roots of unity of $F$ otherwise, with $\{,\} = $ Hilbert symbol. See Moore (1968), Theorem 3.1.
+
+\begin{lemma}\label{lem:10.2}
+Let $X$ be a scheme of finite type over $F$ and let $s$ be a section of $\cK_2$ over $X$. Evaluating $s$ at each $x \in X(F)$, one obtains a map $s_1: X(F) \to K_2(F) \to K_2^{\cont}(F)$. The map $s_1$ is locally constant.
+\end{lemma}
+
+\begin{construction}\label{constr:10.3}
+Let $E$ be a multiplicative $K_2$-torsor on the algebraic group $G$ over $F$. The resulting central extension
+\begin{equation}\label{eq:10.3.1}
+K_2^{\cont}(F) \to \widetilde{G}(F) \to G(F)
+\end{equation}
+deduced from 1.4 by pushing by $K_2(F) \to K_2^{\cont}(F)$ is a topological central extension of the locally compact group $G(F)$ by the finite (and discrete) group $K_2^{\cont}(F)$.
+\end{construction}
+
+For $G$ absolutely simple and simply-connected, the central extensions \eqref{eq:10.3.1} coincide with the central extensions constructed in Deligne (1996). See \S 9 and loc.~cit.~5.4. For $E$ a generator of the group of central extensions of $G$ by $\cK_2$, Prasad-Rapinchuk (1996) 8.4 proves that if $F$ is nonarchimedian and $G$ isotropic, the central extension \eqref{eq:10.3.1} is a universal topological central extension of $G(F)$.
+
+\subsection{}
+Let now $F$ be a global field. For each place $v$ of $F$, let $F_v$ be the completion of $F$ at $v$. Let $\mu_F$, or simply $\mu$, be the group of roots of unity of $F$. For each place $v$, if $v$ is not a complex place, let $\mu_v$ be the group of roots of unity in $F_v$, and let $[\mu_v : \mu]$ be the index of $\mu$ in $\mu_v$. For $v$ a complex place, define $\mu_v$ to be trivial. The reciprocity law for the Hilbert symbols says that for $x, y$ in $F_v^*$, $((x,y))_v$ is in the kernel of the map
+\begin{equation}\label{eq:10.4.1}
+(z_v) \mapsto \prod_v z_v^{[\mu_v : \mu]}
+\end{equation}
+from $\bigoplus_v \mu_v$ to $\mu$. By Moore (1968), Theorem 7.4 one has more precisely an exact sequence
+\begin{equation}\label{eq:10.4.2}
+K_2(F) \to \bigoplus_v K_2^{\cont}(F_v) \xrightarrow{\text{\eqref{eq:10.4.1}}} \mu \to 0.
+\end{equation}
+From this, we will deduce that for $G$ a linear algebraic group over $F$ and $E$ a multiplicative $K_2$-torsor over $G$, one has a topological central extension of the adelic group $G(\bA)$ by $\mu$, canonically split over $G(F)$:
+\begin{equation}\label{eq:10.4.3}
+\begin{tikzcd}
+& G(F) \arrow[d] \\
+\mu \arrow[r] & \widetilde{G}(\bA) \arrow[r] & G(\bA) \arrow[lu]
+\end{tikzcd}
+\end{equation}
+
+\section{Associated central extensions of dual characters groups}
+
+If $G$ is a split simply connected group over a field $k$, with split maximal torus $T$, a Weyl group invariant integer-valued quadratic form $Q$ on the dual character group $Y$ of $T$ determines a central extension of $Y$ by $k^*$. This central extension is an ingredient in the classification 6.2 of central extensions of split reductive groups by $K_2$. Our aim in this section is to describe it in terms of the root spaces decomposition of $\Lie(G)$. The classification 6.2 depends on the choice of a split maximal torus in the split reductive group. We will explain also how the classifications for different maximal torus are related.
+
+To simplify the exposition, we will work in this section over a field $k$.
+
+\subsection{}
+We first consider the case when $G$ is isomorphic to $\SL(2)$. Choose a split maximal torus $T$. Let $U^+$, $U^-$ be the root subgroups normalized by $T$. We write $\alpha^+$ and $\alpha^-$ for the corresponding roots. In the constructions which follow, $U^+$ and $U^-$ play symmetric roles: the constructions are invariant by the group of automorphisms of $(G,T)$, i.e.~by the normalizer of $T$ in the adjoint group $G_\ad$.
+
+Define $U^{\pm*} := U^\pm - \{e\}$ and $N_1 := N(T) - T$. We will use the trijection of Tits (1966) 1.1 between $U^{+*}$, $U^{-*}$ and $N_1$. Trijection means: transitive system of isomorphisms. For the standard $\SL(2)$ and its torus of diagonal matrices, the triples in trijection are the
+\begin{equation}\label{eq:11.1.1}
+\begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix}, \quad \begin{pmatrix} 1 & 0 \\ t & 1 \end{pmatrix}, \quad \begin{pmatrix} 0 & t \\ -t^{-1} & 0 \end{pmatrix}.
+\end{equation}
+The elements $e^+$, $e^-$ and $n$ are in trijection if and only if $n = e^+ e^- e^+$. One then has
+\begin{equation}\label{eq:11.1.2}
+n = e^+ e^- e^+ = e^- e^+ e^-.
+\end{equation}
+If $e^+$, $e^-$ and $n$ are in trijection, so are their inverses and the conjugation by $n$ exchanges $e^+$ and $e^-$.
+
+Let $E$ be the extension of $G$ by $K_2$ defined by a quadratic form $Q$ on $Y$. By \ref{prop:3.2}, it is trivial on the unipotent subgroup $U^+$ (resp.~$U^-$). We note $u \mapsto \tilde{u}$ the unique trivializing section. We define a section of $E$ over $N_1$ by $n \mapsto \tilde{n} = \tilde{e}^- \tilde{e}^+$, for $n$ decomposed as in \eqref{eq:11.1.2}.
+
+Fix $n$ in $N_1$. The right translation by $n$ induces an isomorphism of schemes from $T$ to $N_1$, and $h \mapsto s[n](h) := (\widetilde{hn}) \tilde{n}^{-1}$ is a section $s[n]$ of $E$ over $T$, trivial at $e$. One has
+\begin{equation}\label{eq:11.1.3}
+\tilde{n}^{-1} = (\tilde{n}^{-1})\tilde{} = (\alpha^{\vee+}(-1) \cdot n)\tilde{} = s[n](\alpha^{\vee+}(-1)).
+\end{equation}
+Steinberg's cocycle $c \in H^0(T \times T, K_2)$ is the 2-cocycle defined by
+\begin{equation}\label{eq:11.1.4}
+s[n](h_1) \cdot s[n](h_2) = s[n](h_1 h_2) \cdot c(h_1, h_2).
+\end{equation}
+
+Let us identify $T$ with $\Gm$ and $Y$ with $\bZ$, using $\alpha^{\vee+}$. The cocycle $c(h_1, h_2)$ is trivial for $h_1 = e$ or $h_2 = e$. By \ref{cor:3.7} (ii), it is of the form $c(h_1, h_2) = q \cdot \{h_1, h_2\}$ for some integer $q$. Applying \ref{prop:3.13} and 4.9, one obtains that the quadratic form $Q$ is $qn^2$:
+\begin{equation}\label{eq:11.1.5}
+c(\alpha^{\vee+}(a), \alpha^{\vee+}(b)) = Q(\alpha^{\vee+}) \{a, b\}.
+\end{equation}
+
+The adjoint group $G_\ad$ acts on $G$, with $T$ respecting $T$. One has $Y_\ad = \frac{1}{2}Y$. The group $U^+$ is naturally a vector space, with
+\begin{equation}\label{eq:11.1.6}
+\alpha^{\vee+}(a)[e^+] = a e^+.
+\end{equation}
+
+The action of $G_\ad$ on $G$ extends uniquely to $E$ (4.10). If $\alpha^{\vee+}(a)$ transforms $n$ into $n'$, it will transform the section $s[n]$ of $E$ over $T$ into $s[n']$. By \ref{prop:4.12},
+\begin{equation}\label{eq:11.1.7}
+s[n'](t) = s[n](t) \cdot \{Q(\alpha^{\vee+}) \alpha^{\vee+}(a), t\}.
+\end{equation}
+
+The central extension $E$ of $Y$ by $k^*$ attached to $Q$ is obtained as follows. One extends the scalars from $k$ to $k((t_*))$, one obtains from $E$ a central extension of $T(k((t_*)))$ by $K_2k((t_*))$, one pulls it back by $Y \to T(k((t_*))): y \mapsto y(t_*)$ and pushes it out by the residue map $\Res: K_2 k((t_*)) \to k^*$. We normalized the residue map to be the tame symbol
+\begin{equation}\label{eq:11.1.8}
+\Res\{f, g\} = (-1)^{v(f)v(g)} \cdot (g^{v(f)} f^{-v(g)})(0).
+\end{equation}
+
+For $e^+$, $e^-$ and $n$ in Tits trijection, we define $[e^+]$ to be the image in $E$ of $s[n](\alpha^{\vee+}(t_*))$. The element $[e^+]$ (resp.~$[e^-]$) of $E$ is a lifting to $E$ of the generator $\alpha^{\vee+}$ (resp.~$\alpha^{\vee-}$) of $Y$. By \eqref{eq:11.1.6}, \eqref{eq:11.1.7} and \eqref{eq:11.1.8}, one has
+\begin{equation}\label{eq:11.1.9}
+[ae^+] = a^{-Q(\alpha^{\vee+})} [e^+]
+\end{equation}
+in $E$. By \eqref{eq:11.1.4}, \eqref{eq:11.1.5} and \eqref{eq:11.1.8}, one has
+\begin{equation}\label{eq:11.1.10}
+[e^+][e^-] = (-1)^{Q(\alpha^{\vee+})}.
+\end{equation}
+
+\subsection{}
+Suppose that $G$ is a split semi-simple simply-connected algebraic group, with split maximal torus $T$. We will use the notation of 4.1. For each root $\alpha$, we denote by $T_\alpha$ the maximal torus $\alpha^\vee(\Gm)$ of the $\SL(2)$-subgroup $S_\alpha$, and define $N_1^\alpha := N(T_\alpha) - T_\alpha$ in $S_\alpha$. Let $E$ be the central extension of $G$ by $K_2$ defined by a quadratic form $Q$ on $Y$, and $E$ be the corresponding central extension of $Y$ by $k^*$. Let us apply 11.1 to $S_\alpha$.
+
+\begin{proposition}\label{prop:11.3}
+With the notations of 11.2, for $n_\alpha$ in $N_1^\alpha$, for $t$ in $T$, and for $\tilde{t}$ a lifting of $t$ in $E$, one has
+\begin{equation}\label{eq:11.3.1}
+\intg[n_\alpha](\tilde{t}) = \tilde{t} \cdot s[n_\alpha](\alpha^\vee(t)^{-1}).
+\end{equation}
+\end{proposition}
+
+\begin{lemma}\label{lem:11.5}
+With the notation of 11.2 and 4.1, $Y$ admits the following presentation. Generators: the coroots. Relations:
+\begin{equation}\label{eq:11.5.1}
+s_\alpha(\beta^\vee) = \beta^\vee - \langle \alpha, \beta^\vee \rangle \alpha^\vee.
+\end{equation}
+\end{lemma}
+
+\begin{proposition}\label{prop:11.7}
+Under the assumption of 11.2, the central extension $E$ of $Y$ by $k^*$ defined by $Q$ (4.16) is characterized up to unique isomorphism as being a central extension of $Y$ by $k^*$, provided for each root $\alpha$ with a map $[\;]$ from $U_\alpha^*$ to the inverse image of $\alpha^\vee$, obeying \textup{(3.11.1)}, \textup{(11.2.1)} and \textup{(11.6.1)}.
+
+The unicity claim results from \ref{lem:11.5}.
+
+This description extends by Galois descent to the non split case.
+\end{proposition}
+
+\begin{proposition}\label{prop:11.9}
+With the notations of 11.8, for $n_\alpha$ in $N_1^\alpha \subset G_\scu$ and for $t$ in $T$, lifted to $\tilde{t}$ in $E$, one has
+\begin{equation}\label{eq:11.9.1}
+\intg[q(n_\alpha)](\tilde{t}) = \tilde{t} \cdot q(s[n_\alpha](\alpha^\vee(t)^{-1})).
+\end{equation}
+\end{proposition}
+
+\begin{proposition}\label{prop:11.11}
+With the notation of 11.10, let $B$ be the bilinear form associated to $Q$.
+\begin{itemize}
+\item[(i)] For $y$ in $Y$, the linear form $B(y, \;)$ on $Y$ can be identified with a character of $T$. For $t$ in $T$, and $\tilde{y}$ in $E$ lifting $y$, the inner automorphism $\intg[t]$ acts on $E$ by
+\begin{equation}\label{eq:11.11.1}
+\intg[t](\tilde{y}) = \tilde{y} \cdot B(y, t)^{-1}.
+\end{equation}
+\item[(ii)] For $e_\alpha$, $e_{-\alpha}$ and $n_\alpha$ in Tits trijection,
+\begin{equation}\label{eq:11.11.2}
+\intg[n_\alpha](\tilde{y}) = \tilde{y} \cdot j([e_\alpha])^{-\alpha(y)} \cdot (-1)^{\epsilon(-\alpha(y)) Q(\alpha^\vee)}.
+\end{equation}
+\end{itemize}
+\end{proposition}
+
+\section{Examples}
+
+\subsection{$\SL(2)$}
+Let $G$ be a semi-simple simply-connected algebraic group over a field $k$, and let $E$ be a multiplicative $K_2$-torsor on $G$. Arguing as in the proof of 4.9, one finds the following description for the central extension $E(k)$ of $G(k)$ by $K_2(k)$: it is the group of automorphisms of the pair (space $G$, $K_2$-torsor $E$ on $G$), acting on $G$ as a left translation.
+
+Take $G = \SL(2)$. Let $U$ be the unipotent subgroup of matrices $\begin{psmallmatrix} 1 & * \\ 0 & 1 \end{psmallmatrix}$. The quotient $\SL(2)/U$ is identified with the punctured affine plane $\bA^2 - \{0\}$ by $g \mapsto g \cdot (1,0)$. The projection $p: \SL(2) \to \SL(2)/U = \bA^2 - \{0\}$ is a $U$-torsor. The pull-back functor $p^*$ is hence an equivalence of categories from $K_2$-torsors on $\bA^2 - \{0\}$ to $K_2$-torsors on $\SL(2)$.
+
+\begin{proposition}\label{prop:12.2}
+Central extensions $E$ of $\SL(2)$ by $K_2$ correspond one to one to isomorphism classes of $K_2$-torsors on $\bA^2 - \{0\}$. For the central extension $E$ corresponding to $P$, $E(k)$ is the group of $g$ in $\SL(2,k)$ given with a lifting of their action on $\bA^2 - \{0\}$ to an action on $(\bA^2 - \{0\}, P)$.
+\end{proposition}
+
+The punctured affine plane $\bA^2 - \{0\}$ is covered by the two open sets $x \neq 0$ and $y \neq 0$. The group $H^1(\bA^2 - \{0\}, \cK_2)$ of isomorphism classes of $K_2$-torsors on $\bA^2 - \{0\}$ is $\bZ$, generated by the \v Cech cocycle $\{x,y\}$ on the intersection $x \neq 0$, $y \neq 0$.
+
+\subsection{}
+Let $G$ be a reductive group over $k$, with maximal torus $T$, and $r: G \to \SL(V)$ be a unimodular representation of $G$. Let $E_0$ be the central extension of $\SL(V)$ by $K_2$ corresponding to the quadratic form $Q_0$ taking the value 1 on each coroot. By pullback to $G$, it gives a central extension $E$ of $G$ by $K_2$. To compute the quadratic form $Q$ on $Y$ defined by $E$, we may first extend the scalars to a splitting field for $T$: we may and shall assume that $T$ is split.
+
+In characteristic zero, one can identify $Y$ with a subgroup of the Lie algebra $t$ of $T$, by attaching to $y: \Gm \to T$ the element $dy(1)$ of $t$. The quadratic form $Q_0$ is then induced by the quadratic form $\frac{1}{2}\Tr(x^2)$ on the Lie algebra $\sl(V)$, and the quadratic form $Q$ is hence induced by the quadratic form $\frac{1}{2}\Tr(r_*(x)^2)$ on the Lie algebra of $G$.
+
+In any characteristic, similar arguments show that
+\[Q(y) = \frac{1}{2} \sum m_i(y)^2,\]
+where the sum runs over the weights $m_i$ of $V$, counted with their multiplicity.
+
+Suppose $G$ split simple and simply connected, fix a simple root system, let $\alpha^\vee$ be the largest root and let $\alpha^\vee = \sum n_i \alpha_i^\vee$ be the decomposition of the coroot $\alpha^\vee$ into simple coroots. When $V$ is the adjoint representation, $Q(\alpha^\vee)$ is twice the dual Coxeter number $h^\vee = 1 + \sum n_i$ of $G$. One can case by case check that for any $V$, each $n_i$ divides $Q(\alpha^\vee)$ and that for $V$ nontrivial of the smallest possible dimension, $Q(\alpha^\vee)$ is the l.c.m. of the $n_i$.
+
+\subsection{$\PGL(n)$}
+Let $T_1$ be the image in $\PGL(n)$ of the torus $T$ of diagonal matrices in $\GL(n)$. The cocharacter group $Y$ of $T_1$ is the quotient of $Y = \bZ^n$ by the diagonal $\bZ$. The Weyl group invariant integer-valued quadratic forms $Q$ on $Y$ are the Weyl group invariant integer-valued quadratic forms on $\bZ^n$, which vanish on the diagonal $\bZ$. For $n$ even, the minimal positive $Q$ is
+\[Q_1(y) := \sum_i y_i^2 - \frac{1}{n} \Bigl(\sum_i y_i\Bigr)^2.\]
+For $n$ odd, it is $\frac{1}{2}Q_1$. One has $Q_1(\alpha^\vee) = 2n$. The dual Coxeter number is $n$, and $Q_1$ is obtained as in 12.3, for the adjoint representation.
+
+\subsection{$\GL(n)$}
+Let $T$ be the split maximal torus of diagonal matrices in $\GL(n)$. On $Y = \bZ^n$, take the quadratic form
+\[Q(y) = \frac{1}{2}\Bigl(\sum_i y_i^2 - \bigl(\sum_i y_i\bigr)^2\Bigr).\]
+The construction of the \S 7 of Deligne (1996) agrees with those of 11. Applying loc.~cit.~7.10, one finds that for $G$ an inner form of $\GL(n)$, to give a central extension of $G$ by $K_2$ corresponding to the form $Q$ amounts to giving a representation $V$ of $G$, which is a form of the defining representation of $\GL(n)$. Such a representation exists only if $G$ is isomorphic to $\GL(n)$.
+
+\subsection{}
+Over $\bR$, any torus is a product of tori $T$ of the following three types: $\Gm$, $U_1$ and $\Res_{\bC/\bR}\Gm$, with groups of points $\bR^*$, the circle group and $\bC^*$. The corresponding $Y$ are $\bZ$ with the trivial action of $\Gal(\bC/\bR)$, $\bZ$ with the sign action: $F_\infty(n) = -n$ and $\bZ \oplus \bZ$, with $F_\infty$ interchanging $e_1 = (1,0)$ and $e_2 = (0,1)$. For $E$ a central extension of $T$ by $\cK_2$, we will determine the resulting topological central extensions of the groups of real points by $\mu_\bR = \{\pm 1\}$ (10.3).
+
+\begin{proposition}\label{prop:12.7}
+The morphism \textup{(12.6.1)} is $(q, n) \mapsto q + n$.
+\end{proposition}
+
+\subsection{}
+Let $K$ be a local field, by which we mean: the field of fractions of a complete discrete valuation ring. Let $V$ be the valuation ring, and $k$ be the residue field. Let $E$ be a central extension by $K_2$ of an algebraic group $G$ over $K$. Pushing the central extension $E(K)$ by the residue map $K_2(K) \to k^*$, we obtain a central extension of $G(K)$ by $k^*$, which we denote by $\widetilde{G}(k)$:
+\begin{equation}\label{eq:12.8.1}
+k^* \to \widetilde{G}(k) \to G(K).
+\end{equation}
+
+\begin{proposition}\label{prop:12.9}
+One has $\widetilde{G}(k) \xrightarrow{\sim} \widetilde{G}_0(k')^{\Gal(K'/K)}$.
+\end{proposition}
+
+\subsection{}
+Suppose that $K = k((t))$, and that $G$ is absolutely simple and simply-connected, and splits over some unramified extension $k((t'))$ of $K$. In this situation, Garland (1980) constructed a central extension of $G(K)$ by $k^*$. It agrees with the central extension 12.8.1, for $E$ defined by the quadratic form $Q$ taking the value 1 on small coroots. Indeed, both obey 12.9, and for $G$ split, Garland's extension is derived from Matsumoto's central extension by pushing by $K_2(K) \to k^*$.
+
+\begin{questions}\label{ques:12.13}
+\begin{itemize}
+\item[(i)] Suppose that $G$ is reductive, and that $E$ is given as in \ref{thm:7.2}, for $T$ a maximally split maximal torus of $G$. Suppose that $G_V$ is given as in Bruhat-Tits (1984) 4.6. It would be interesting to compute the central extension $\widetilde{G}_s$ in that case, especially for $G_V(V)$ a maximal bounded subgroup of $G(K)$, given by a vertex of the building of $G$.
+\item[(ii)] Suppose that $V = k[[t]]$ and that $G$ is a split reductive group. How to relate the point of view where central extensions of $G(K)$ by $k^*$ are viewed as infinite dimensional groups of $k$, corresponding to affine Cartan matrices, with our point of view of central extensions by $K_2$, classified by 6.2?
+\item[(iii)] For $V = k[[t]]$, not all natural central extensions by $k^*$ are captured by 12.8. For example, if $G$ is the multiplicative group, $G(K) = K^*$ acts projectively on the semi-infinite exterior algebra of $k((t))$, relative to $k[[t]]$, giving rise to a central extension $E$ of $K^*$ by $k^*$. See E.~Arbarello, C.~De~Concini and V.~Kac, ``The infinite wedge representation and the reciprocity law for algebraic curves'', in: Theta functions, Proc.~Symp.~Pure Math, 49\textsuperscript{1} AMS (1987), p.~171--190. The square of this commutator is the commutator for the central extension \eqref{eq:12.8.1} defined by the tame symbol used as a cocycle. We expect that ``natural'' central extensions of $G(K)$ by $k^*$ are attached to data as follows: a Weyl group and Galois group invariant integer-valued symmetric bilinear form $B$ on $Y$, even on $Y_\scu$; a central extension $E$ of $Y$ by $\Gm$, for which the commutator is $(y_1, y_2) = (-1)^{B(y_1, y_2) + \epsilon(y_1)\epsilon(y_2)}$ for $\epsilon(y) \equiv B(y,y) \pmod 2$; $j: E_\scu \to E$ as in 6.2.
+\end{itemize}
+\end{questions}
+
+\subsection{}
+Let $X$ be a projective and smooth curve over a field $k$. Let $K$ be its field of rational functions. For $x$ a closed point of $X$, let $V_x$ be the completion of the local ring of $X$ at $x$, and $K_x$ be its field of fractions, the completion of $K$ at $x$.
+
+For $G$ a linear algebraic group over $K$, we write $G(\bA)$ for the restricted product of the $G(K_x)$. It is also the group of $\bA$-points of $G$, for $\bA = \prod'_x K_x$.
+
+Let $E$ be a central extension of $G$ by $K_2$. For some Zariski dense open subset $U$ of $X$, $G$ extends as an affine group scheme of finite type $G_U$ over $U$, and $E$ as a multiplicative $K_2$-torsor over $G_U$. By extension of scalars to $K_x$, $E$ defines central extensions \eqref{eq:12.8.1} of $G(K_x)$ by $k(x)^*$, split over $G(V_x)$ for $x$ in $U$. For $U_1 \subset U$ Zariski dense, we get commutative diagrams with inductive limit
+\begin{equation}\label{eq:12.15.1}
+\begin{tikzcd}
+1 \arrow[r] & K_2(K) \arrow[r] \arrow[d] & \widetilde{G}(K) \arrow[r] \arrow[d] & G(K) \arrow[r] \arrow[d] & 1 \\
+1 \arrow[r] & \bigoplus_x k(x)^* \arrow[r] & \widetilde{G}(\bA) \arrow[r] & G(\bA) \arrow[r] & 1.
+\end{tikzcd}
+\end{equation}
+By the reciprocity law for tame symbols, the first vertical arrow has its image in the kernel of the product of the norm maps $N: \bigoplus_x k(x)^* \to k^*$. Pushing by $N$, we hence get from \eqref{eq:12.15.1} a central extension of $G(\bA)$ by $k^*$, canonically split over $G(K)$:
+\begin{equation}\label{eq:12.15.2}
+\begin{tikzcd}
+& G(K) \arrow[d] \\
+k^* \arrow[r] & \widetilde{G}(\bA) \arrow[r] & G(\bA) \arrow[lu]
+\end{tikzcd}
+\end{equation}
+the geometric analogue of 10.4.3. For $G$ simply-connected, it is also an analogue, in algebraic geometry, of the analytic constructions of Segal (1988) and Brylinski-McLaughlin (1994).
+
+As in 12.13(iii), we don't obtain all natural diagrams \eqref{eq:12.15.2} by this method.
+
+\section*{Bibliography}
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=*]
+\item E.~Arbarello, C.~De~Concini, V.G.~Kac, ``The infinite wedge representation and the reciprocity law for algebraic curves'', in: \textit{Theta functions}, Proc.~Symp.~Pure Math.~49\textsuperscript{1} (1987), pp.~171--190.
+
+\item S.~Bloch, ``Algebraic cycles and higher $K$-theory'', \textit{Adv. Math.} \textbf{61} (1986), pp.~267--304.
+
+\item J.-L.~Brylinski, D.~McLaughlin, ``The geometry of four-dimensional bundles over algebraic curves and the Donaldson invariants of four-manifolds'', preprint.
+
+\item J.-L.~Brylinski, P.~Deligne, ``Central extensions of reductive groups by $K_2$'', \textit{Publ. Math. IHES} \textbf{94} (2001), pp.~5--85.
+
+\item F.~Bruhat, J.~Tits, ``Groupes r\'eductifs sur un corps local. II'', \textit{Publ. Math. IHES} \textbf{60} (1984), pp.~5--184.
+
+\item J.-L.~Colliot-Th\'el\`ene, ``Hilbert's theorem 90 for $K_2$, with application to the Chow groups of rational surfaces'', \textit{Invent. Math.} \textbf{71} (1983), pp.~1--20.
+
+\item P.~Deligne, ``Le symbole mod\'er\'e'', \textit{Publ. Math. IHES} \textbf{73} (1991), pp.~147--181.
+
+\item P.~Deligne, ``Extensions centrales de groupes alg\'ebriques simplement connexes et cohomologie galoisienne'', \textit{Publ. Math. IHES} \textbf{84} (1996), pp.~35--89.
+
+\item H.~Esnault, B.~Kahn, M.~Levine, E.~Viehweg, ``The Arason invariant and mod 2 algebraic cycles'', \textit{J. Amer. Math. Soc.} \textbf{11} (1998), pp.~73--118.
+
+\item H.~Garland, ``The arithmetic theory of loop groups'', \textit{Publ. Math. IHES} \textbf{52} (1980), pp.~5--136.
+
+\item H.~Gillet, R.W.~Thomason, ``The $K$-theory of strict hensel local rings and a theorem of Suslin'', \textit{J. Pure Applied Algebra} \textbf{34} (1984), pp.~241--254.
+
+\item B.~Kahn, ``Descente galoisienne et $K_2$ des corps de nombres'', \textit{$K$-theory} \textbf{7} (1), 1993, pp.~55--100.
+
+\item B.~Kahn, ``Appendix'', in: E.~Peyre, ``Products of Severi-Brauer varieties and Galois cohomology'', in \textit{Proc. Symp. Pure Math.} \textbf{58\textsubscript{1}}, AMS 1995, pp.~431--435.
+
+\item B.~Kahn, ``$K$-theory of semi-local rings with finite coefficients and Hochschild homology'', \textit{K-Theory} (1996).
+
+\item G.W.~Mackey, ``Les ensembles bor\'eliens et les extensions des groupes'', \textit{J. Math. Pures Appl.} \textbf{36} (1957), pp.~171--178.
+
+\item H.~Matsumoto, ``Sur les sous-groupes arithm\'etiques des groupes semi-simples d\'eploy\'es'', \textit{Ann. Sci. ENS} \textbf{2} (1969), pp.~1--62.
+
+\item A.S.~Merkurjev, A.A.~Suslin, ``$K$-cohomology of Severi-Brauer varieties and the norm residue homomorphism'', \textit{Math. USSR Izv.} \textbf{21} (1983), pp.~307--340.
+
+\item C.C.~Moore, ``Group extensions of $p$-adic and adelic linear groups'', \textit{Publ. Math. IHES} \textbf{35} (1968), pp.~5--70.
+
+\item G.~Prasad, A.S.~Rapinchuk, ``Computation of the metaplectic kernel'', \textit{Publ. Math. IHES} \textbf{84} (1996), pp.~91--187.
+
+\item D.~Quillen, ``Higher algebraic $K$-theory I'', in: \textit{Algebraic $K$-theory I} (Proc. Conf. Seattle 1972) SLN 341 (1973), pp.~85--147.
+
+\item G.~Segal, ``The definition of conformal field theory'', preprint.
+
+\item C.~Sherman, ``$K$-theory of discrete valuation rings'', \textit{J. Pure Appl. Algebra} \textbf{17} (1979), pp.~35--50.
+
+\item R.~Steinberg, ``G\'en\'erateurs, relations et rev\^etements de groupes alg\'ebriques'', in: \textit{Colloque sur la th\'eorie des groupes alg\'ebriques}, Bruxelles (1962), pp.~113--127.
+
+\item M.~Rost, ``Chow groups with coefficients'', \textit{Doc. Math.} \textbf{1} (1996), pp.~319--393.
+
+\item A.~Suslin, ``$K_3$ of a field, and the Bloch group'', translated in: \textit{Proc. Steklov Inst. Math.} 1991, no.~4, pp.~217--239; Gibbs translation (1992).
+
+\item J.~Tate, ``Relations between $K_2$ and Galois cohomology'', \textit{Invent. Math.} \textbf{36} (1976), pp.~257--274.
+
+\item J.~Tits, ``Normalisateurs de tores I. Groupes de Coxeter \'etendus'', \textit{J. Algebra} \textbf{4} (1966), pp.~96--116.
+\end{enumerate}
+
+\end{document}

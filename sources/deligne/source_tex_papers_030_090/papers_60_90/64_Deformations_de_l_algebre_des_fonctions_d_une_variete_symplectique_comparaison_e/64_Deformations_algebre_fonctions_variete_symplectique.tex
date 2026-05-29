@@ -1,0 +1,1133 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+\geometry{a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Th\'eor\`eme}[section]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{D\'efinition}
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{construction}[theorem]{Construction}
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+% \Im already defined
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\aut}{aut}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\ASp}{ASp}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\obs}{obs}
+\DeclareMathOperator{\Obs}{Obs}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+
+\begin{document}
+
+\title{D\'eformations de l'Alg\`ebre des Fonctions d'une Vari\'et\'e Symplectique: \\
+Comparaison entre Fedosov et De Wilde, Lecomte}
+\author{P. Deligne}
+\date{}
+\maketitle
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Soit $M$ une vari\'et\'e diff\'erentiable. On s'int\'eresse aux d\'eformations de l'op\'erateur
+``produit'' de deux fonctions en un produit associatif mais non n\'ecessairement
+commutatif. Plus pr\'ecis\'ement, on s'int\'eresse aux d\'eformations $*_{t}$ d\'ependant d'un
+param\`etre formel $t$, de la forme
+\[
+f *_{t} g = \sum c_{n}(f,g)\, t^{n}
+\]
+avec $c_{n}$ $\R$-bilin\'eaire et diff\'erentiel en $f$ et $g$. Pour un panorama de la th\'eorie de ces
+``star-products'', nous renvoyons \`a [10]. Qu'on d\'eforme le produit usuel signifie que
+$c_{0}(f, g) = fg$. On a
+\[
+f *_{t} g - g *_{t} f = \{f,g\}t + O(t^{2})
+\]
+avec $\{f, g\} = c_{1}(f, g) - c_{1}(g, f)$ et $\{\, , \,\}$ est un crochet de Poisson.
+
+De Wilde et Lecomte [1], [2] et Fedosov [4] ont montr\'e que si $M$ est une vari\'et\'e
+symplectique, il existe une d\'eformation $*_{t}$ du produit donnant lieu au crochet de
+Poisson symplectique. Disons que deux d\'eformations $*_{t}$ et $*'_{t}$ sont isomorphes si
+on passe de l'une \`a l'autre par $f \mapsto \sum c_{n}(f)t^{n}$ avec $c_{0}(f) = f$ et $c_{n}$ $\R$-lin\'eaire et
+diff\'erentiel en $f$. La construction de Fedosov montre que les classes d'isomorphie de
+d\'eformations $*_{t}$, donnant lieu au crochet de Poisson symplectique, sont classifi\'ees
+par les suites $(R_{n})_{n > 0}$ de classes dans $H^{2}(M)$. La m\'ethode de De Wilde et Lecomte
+permet une classification analogue.
+
+Notre but est de comparer les m\'ethodes utilis\'ees, les classifications correspon-
+dantes, et d'expliciter l'effet d'un changement de param\`etre formel
+\[
+t \mapsto \sum_{n \geq 1} a_{n} t^{n} \quad (a_{1} \text{ inversible}).
+\]
+
+
+\section{D\'eformations}
+
+\subsection{}
+
+Soient $M$ une vari\'et\'e diff\'erentiable (toujours suppos\'ee paracompacte) et
+$A = C^{\infty}(M)$ l'alg\`ebre des fonctions $C^{\infty}$ sur $M$. La g\'eom\'etrie alg\'ebrique sugg\`ere
+une autre description de la notion de ``d\'eformation $*_{t}$ du produit'' consid\'er\'ee dans
+l'introduction. Il s'agit de consid\'erer une $\R[[t]]$-alg\`ebre $A_{t}$, munie d'un isomorphisme
+$A \iso A_{t}/tA_{t}$, et v\'erifiant les conditions (1.1.1) et (1.1.2) ci-dessous.
+
+\medskip
+\noindent \textbf{1.1.1.} $A_{t}$ est plat sur $\R[[t]]$ et est s\'epar\'e et complet pour la topologie $t$-adique:
+\[
+A_{t} \iso \varprojlim A_{t}/t^{n}A_{t}.
+\]
+Si on choisit un rel\`evement $\R$-lin\'eaire de $A$ dans $A_{t}$: une section $a \mapsto \tilde{a}$ de la
+projection $A_{t} \to A_{t}/tA_{t} = A$, la condition (1.1.1) \'equivaut \`a ce que
+\[
+\sum a_{n} t^{n} \longmapsto \sum \tilde{a}_{n} t^{n} : A[[t]] \longrightarrow A_{t}
+\]
+est une bijection. Le produit de $A_{t}$ est d\'etermin\'e par sa restriction \`a l'image $\tilde{A} \subset A_{t}$
+de $A$ par $\sim$:
+\[
+\tilde{a} \cdot \tilde{b} = \sum \widetilde{c_{n}(a,b)}\, t^{n}.
+\]
+
+\medskip
+\noindent \textbf{1.1.2.} Il existe un rel\`evement $a \mapsto \tilde{a}$ pour lequel les $c_{n}(a, b)$ sont diff\'erentiels en $a$
+et $b$.
+
+\medskip
+Pour un tel rel\`evement, les $c_{n}(a, b)$ d\'efinissent un produit $*_{t}$ au sens de
+l'introduction. Si on change le rel\`evement en
+\begin{equation}
+a \longmapsto \sum \tilde{c}_{n}(a) t^{n}, \tag{1.1.3}
+\end{equation}
+avec $c_{0}(a) = a$ et $c_{n}$ $\R$-lin\'eaire et diff\'erentiel en $a$, la condition (1.1.2) est encore
+v\'erifi\'ee.
+
+\begin{lemma}
+On obtient ainsi tous les rel\`evements v\'erifiant \emph{(1.1.2)}.
+\end{lemma}
+
+\begin{proof}
+Utilisons le rel\`evement donn\'e au d\'epart pour identifier $A_{t}$ et $A[[t]]$. Soit $G$
+le groupe des automorphismes $\R[[t]]$-lin\'eaires $g$ de $A[[t]]$ qui sont l'identit\'e modulo
+$t$. Ils sont d\'etermin\'es par leur restriction \`a $A$, de la forme $a \mapsto \sum c_{n}(a)t^{n}$ avec
+$c_{0}(a) = a$. Le transform\'e par $g$ du rel\`evement identique $\id$ de $A$ dans $A[[t]]$ est
+$a \mapsto \sum c_{n}(a)t^{n}$, et les rel\`evements forment un espace principal homog\`ene sous $G$.
+L'\'ecriture, en terme du rel\`evement $g(\id)$, du produit $*$, co\"incide avec celle, en terme
+du rel\`evement identique, du produit $g^{-1}(*): x, y \mapsto g^{-1}(g x * g y)$.
+
+Soit $G_{\text{diff}}$ le sous-groupe de $G$ form\'e des $g$ pour lesquels $c_{n}(a)$ est diff\'erentiel en
+$a$. Il s'agit de voir que si un produit $*$ est donn\'e par des $c_{n}(a, b)$ diff\'erentiels en $a$ et
+$b$ et que $g^{-1}(*)$ a la m\^eme propri\'et\'e, alors $g$ est dans $G_{\text{diff}}$. Prouvons par r\'ecurrence
+sur $n$ que pour un tel $g$, donn\'e par $a \mapsto \sum c_{i}(a)t^{i}$, les $c_{n}(a)$ sont diff\'erentiels en
+$a$. Supposant les $c_{i}(a)$ diff\'erentiels en $a$ pour $i < n$, il s'agit de le prouver pour
+$i = n > 0$. On a $g = g_{1} \circ h$, avec $g_{1}$ donn\'e par $a \mapsto \sum_{i=0}^{n-1} c_{i}(a)t^{i}$ dans $G_{\text{diff}}$ et $h$ de
+la forme $a \mapsto a + c_{n}(a)t^{n} + \cdots$ et $h^{-1}$ transforme le produit $*' := g_{1}^{-1}(*)$, donn\'e
+par des $c'_{n}(a, b)$ diff\'erentiel en $a$ et $b$, en $g^{-1}(*)$. Mod $t^{n+1}$, on a
+\begin{align*}
+h^{-1}(h a *' h b) &\equiv h^{-1}((a + t^{n}c_{n}(a)) *' (b + t^{n}c_{n}(b))) \\
+&\equiv h^{-1}(a *' b + t^{n}(c_{n}(a)b + a c_{n}(b))) \\
+&\equiv a *' b + t^{n}(c_{n}(a)b + a c_{n}(b) - c_{n}(ab))
+\end{align*}
+de sorte que $c_{n}(a)b + a c_{n}(b) - c_{n}(ab)$ est diff\'erentiel en $a$ et $b$. L\`a o\`u
+$a \mapsto c_{n}(a)b - c_{n}(ab)$ est diff\'erentiel en $a$ d'ordre $\leq N$ pour tout $b$,
+$a \mapsto c_{n}(a)$ est diff\'erentiel en $a$ d'ordre $\leq N+1$. Ceci termine la preuve de 1.1.4.
+\end{proof}
+
+Changer le rel\`evement change le produit $*_{t}$ correspondant en un produit iso-
+morphe, au sens de l'introduction, d'o\`u une bijection entre classes d'isomorphie de
+produits $*_{t}$, au sens de l'introduction, et classes d'isomorphie de $\R[[t]]$-alg\`ebres $A_{t}$,
+munies de $A_{t}/tA_{t} \iso A$, v\'erifiant (1.1.1) (1.1.2).
+
+Pour $a, b \in A$, et $\tilde{a}, \tilde{b}$ dans $A_{t}$ rel\`evant $a$ et $b$, $[\tilde{a}, \tilde{b}]$ mod $t^{2}$ ne d\'epend que
+de $a$ et $b$: le crochet de Poisson $\{a, b\} = \frac{1}{t}[\tilde{a}, \tilde{b}]$ mod $t$ ne d\'epend que de la classe
+d'isomorphie de $A_{t}$.
+
+\begin{remark}
+L'alg\`ebre $A_{t}$ est automatiquement \`a unit\'e: si $f$ dans $A_{t}$ est inversible mod $t$, la multiplication \`a gauche par $f$ est bijective, car elle l'est apr\`es passage
+au gradu\'e pour la filtration $t$-adique, et si $fu = f$, $u$ est une unit\'e \`a gauche. M\^eme
+argument \`a droite. Soit $\sim$ un rel\`evement comme en (1.1.2), et utilisons-le pour
+identifier $A_{t}$ \`a $A[[t]]$. Si $u$ est l'unit\'e de $(A_{t}, *)$, le rel\`evement $a \mapsto au$ (produit dans
+$A[[t]]$) rel\`eve $1$ en $u$ et v\'erifie encore (1.1.2). Les $c_{n}(a, b)$ correspondant v\'erifient
+\begin{equation}
+c_{n}(a, 1) = c_{n}(1, b) = 0 \tag{1.2.1}
+\end{equation}
+pour $n > 0$: op\'erateurs diff\'erentiels sans terme d'ordre $0$ en $a$ ou $b$. Les changements
+de rel\`evements respectant les unit\'es sont donn\'es par (1.1.3) avec $c_{n}(1) = 0$ pour
+$n > 0$.
+
+Dans la litt\'erature, la condition (1.2.1) fait souvent partie de la d\'efinition des
+$*$-produits.
+\end{remark}
+
+\begin{remark}
+On peut montrer qu'il existe des rel\`evements pour lesquels les
+$c_{n}(a, b)$ sont sommes d'op\'erateurs bidiff\'erentiels en $a, b$ d'ordre $\leq (p,q)$, avec $p + q \leq 2n$. On passe d'un tel rel\`evement \`a un autre par (1.1.3), avec $c_{n}(a)$ d'ordre $\leq 2n$
+en $a$.
+\end{remark}
+
+\subsection{}
+Les conditions de r\'ealit\'e utilis\'ees ci-dessus ne sont pas les plus usuelles. Voici
+des variantes.
+
+\textbf{Variante complexe:} partir non de $C^{\infty}(M)$, mais de la $\C$-alg\`ebre $A^{c} = C^{\infty}(M) \otimes_{\R} \C$
+des fonctions $C^{\infty}$ \`a valeurs complexes. On prend $A_{t}^{c}$ plat sur $\C[[t]]$, s\'epar\'e et
+complet pour la topologie $t$-adique, muni de $A_{t}^{c}/tA_{t}^{c} \iso A^{c}$, et admettant un
+rel\`evement $a \mapsto \tilde{a}$ v\'erifiant (1.1.2). Ceci correspond \`a un produit $*_{t}$ o\`u les $c_{n}(a, b)$
+sont complexes. Le crochet de Poisson $\{a,b\} = c_{1}(a,b) - c_{1}(b,a)$ est complexe.
+S'il est non d\'eg\'en\'er\'e, il correspond \`a une $2$-forme ferm\'ee non d\'eg\'en\'er\'ee complexe
+$\omega \in \Omega^{2}(M) \otimes \C$. Bien qu'on n'ait pas de mod\`ele local (th\'eor\`eme de Darboux) dans
+ce contexte, la m\'ethode de Fedosov continue \`a s'appliquer.
+
+Une d\'eformation r\'eelle, i.e., une d\'eformation au sens de 1.1, s'identifie \`a une
+d\'eformation complexe, comme ci-dessus, munie d'une involution $\sigma$ de $A_{t}^{c}$, $\sigma(xy) = \sigma(x)\sigma(y)$, induisant la conjugaison complexe sur $\C[[t]]$ et sur $A^{c}$. D\'eformation r\'eelle
+correspondante: l'alg\`ebre des points fixes de $\sigma$.
+
+\textbf{Variante $*$-r\'eelle:} d\'eformations complexes $A_{t}^{c}$, munies d'une anti-involution $*$:
+$(xy)^{*} = y^{*}x^{*}$, induisant la conjugaison complexe sur $\C[[t]]$ et sur $A^{c}$. Une d\'eformation $*$-r\'eelle donne lieu \`a un crochet de Poisson purement imaginaire. Il est d'usage
+de le diviser par $i$.
+
+Si une d\'eformation complexe est isomorphe (resp.\ anti-isomorphe) \`a sa complexe conjugu\'ee, elle provient d'une d\'eformation r\'eelle (resp.\ $*$-r\'eelle) et cette
+derni\`ere est unique \`a isomorphisme pr\`es. Cela r\'esulte par un argument standard
+de cohomologie galoisienne (pour $\Gal(\C/\R)$) de ce que le groupe $G$ des automorphismes ($\C[[t]]$-lin\'eaires et l'identit\'e mod $t$) d'une d\'eformation complexe est pro-unipotent. Si $\sigma$ est un automorphisme (resp.\ anti-automorphisme) de $A_{t}^{c}$, induisant
+la conjugaison complexe sur $\C[[t]]$ ainsi que sur $A^{c}$, il s'agit de v\'erifier qu'on peut
+corriger $\sigma$ en $a \circ \sigma$ avec $a \in G$ pour avoir $(a\sigma)^{2} = 1$, puis que si $\sigma$ est d\'ej\`a involutif
+et que $(b\sigma)^{2} = 1$, avec $b \in G$, alors $\sigma$ et $b\sigma$ sont conjugu\'es par $c \in G$. Solutions:
+$a = (\sigma^{2})^{-1/2}$, $c = b^{1/2}$ (on a $b\sigma b\sigma = 1$, donc $b^{1/2} = (b^{-1/2})^{\sigma}$ et il faut r\'esoudre
+$b = c \sigma c^{-1} \sigma$).
+
+\subsection{}
+Pour suivre par transport de structures l'effet d'un changement de param\`etre
+formel $t$, il est commode de reprendre 1.1 en rempla\c{c}ant $\R[[t]]$ par une $\R$-alg\`ebre $V$
+suppos\'ee seulement isomorphe \`a $\R[[t]]$: une $\R$-alg\`ebre qui soit un anneau de valuation discr\`ete complet de corps r\'esiduel $\R$. Soit $\mathfrak{m}$ l'id\'eal maximal. Le choix d'un
+g\'en\'erateur $t_{V}$ de $\mathfrak{m}$ \'equivaut par $f \mapsto f(t_{V})$ \`a celui d'un isomorphisme de $\R[[t]]$ avec
+$V$. Le crochet de Poisson d\'efini par une d\'eformation est \`a valeurs dans l'espace
+vectoriel de dimension un $\mathfrak{m}/\mathfrak{m}^{2}$.
+
+\begin{remark}
+Il revient au m\^eme de d\'eformer $C^{\infty}(M)$, comme en 1.1, ou de
+d\'eformer le faisceau $\mathcal{C}^{\infty}$ des fonctions $C^{\infty}$ sur $M$. Il faut comprendre ``d\'eformation
+de $\mathcal{C}^{\infty}$'' comme \'etant un faisceau de $\R[[t]]$-alg\`ebres $\mathcal{A}_{t}$, plat (i.e.\ sans $t$-torsion)
+s\'epar\'e et complet: $\mathcal{A}_{t} \iso \varprojlim \mathcal{A}_{t}/t^{n}$, muni de $\mathcal{A}_{t}/t\mathcal{A}_{t} \iso \mathcal{C}^{\infty}$, et v\'erifiant
+localement (1.1.2). Les faisceaux en jeu \'etant mous (d'apr\`es [7] II 3.4.1, la question
+est locale), y compris celui des rel\`evements v\'erifiant (1.1.2), on obtient la
+d\'eformation correspondante de $C^{\infty}(M)$ par passage aux sections globales.
+\end{remark}
+
+\section{Comparer deux d\'eformations}
+
+\subsection{}
+Soit $M$ une vari\'et\'e symplectique. Ant\'erieurement aux travaux de De Wilde,
+Lecomte et Fedosov, on savait d\'ej\`a ([8], [9]) que si $H^{3}(M,\R) = 0$, il existe une
+d\'eformation $A_{t}$ de $A = C^{\infty}(M)$ au sens 1.1, donnant lieu au crochet de Poisson symplectique. De plus, si $H^{2}(M, \R) = 0$, elle est unique \`a isomorphisme pr\`es. Les m\'ethodes de De Wilde, Lecomte et Fedosov donnent l'existence sans hypoth\`ese sur la cohomologie. L'unicit\'e \`a isomorphisme pr\`es n'a pas lieu en g\'en\'eral: si $A_{t}^{1}$ et $A_{t}^{2}$ sont deux d\'eformations, il n'existe pas toujours d'isomorphisme de d\'eformations de $A_{t}^{1}$ avec $A_{t}^{2}$ (sur $M$ tout entier).
+
+Rappelons le principe de la preuve de [8], [9]. Pour toute alg\`ebre $A$, le complexe de Hochschild $C^{*}(A,A)$, qui calcule les $\Ext^{*}_{A \otimes A^{0}}(A,A)$, a pour cohomologie l'alg\`ebre ext\'erieure sur l'espace des d\'erivations de $A$ (Koszul). Pour $A = C^{\infty}(M)$, cela se pr\'ecise comme suit. Soit $C^{*}_{\text{diff}}(A,A)$ le sous-complexe form\'e des cocha\^ines donn\'ees par des op\'erateurs diff\'erentiels en chaque variable. L'inclusion de $C^{*}_{\text{diff}}$ dans $C^{*}$ est un quasi-isomorphisme. Le groupe de cohomologie $H^{p}(C^{*}_{\text{diff}}(A,A))$ est l'espace des champs de $p$-vecteurs, et le crochet de $C^{*}_{\text{diff}}(A,A)[1]$ induit en cohomologie le crochet de Schouten. Un crochet de Poisson est un champ de $2$-vecteurs v\'erifiant $[\gamma,\gamma] = 0$. Il induit une diff\'erentielle $\ad_{\gamma}$ sur $H^{*}(C^{*}_{\text{diff}}(A,A)[1])$. Point essentiel: si $\gamma$ est non d\'eg\'en\'er\'e, et qu'on utilise la structure symplectique correspondante pour identifier $p$-vecteurs et $p$-formes, $\ad_{\gamma}$ devient la diff\'erentielle ext\'erieure.
+
+\subsection{}
+Supposons que $H^{0}(M,\R) = \R$ et $H^{1}(M,\R) = 0$, et traduisons (2.1.1) en terme de groupes d'automorphismes.
+
+Pour $\mathcal{L}$ une alg\`ebre de Lie pro-nilpotente, limite projective d'alg\`ebres de Lie nilpotentes $\mathcal{L}_{n}$, nous noterons $\exp(\mathcal{L})$ le groupe correspondant: $\mathcal{L}$, muni de la loi de Hausdorff. On a $\exp(\mathcal{L}) = \varprojlim \exp(\mathcal{L}_{n})$. On notera ``$\exp$'' ($a$) un \'el\'ement $a$ de $\mathcal{L}$, vu comme \'el\'ement de $\exp(\mathcal{L})$.
+
+Soit $\Aut(A_{t})$ le groupe des automorphismes $\R[[t]]$-lin\'eaires et triviaux modulo $t$ de $A_{t}$. L'exponentielle est une bijection de $\aut(A_{t})$ avec $\Aut(A_{t})$ et un isomorphisme
+\[
+\exp(\aut(A_{t})) \iso \Aut(A_{t}); \quad \text{``exp''}(a) \longmapsto \exp(a).
+\]
+
+La suite exacte (2.1.1) d'alg\`ebres de Lie pro-unipotentes fournit une suite exacte de groupes
+\begin{equation}
+0 \longrightarrow \exp(\R[[t]]) \longrightarrow \exp(A_{t}) \longrightarrow \Aut(A_{t}) \longrightarrow 0 \tag{2.2.1}
+\end{equation}
+et un isomorphisme
+\begin{equation}
+\exp(A_{t}/\R[[t]]) \iso \Aut(A_{t}). \tag{2.2.2}
+\end{equation}
+
+Noter que l'alg\`ebre de Lie $\R[[t]]$ \'etant commutative, le groupe $\exp \R[[t]]$ est simplement le groupe additif $\R[[t]]$.
+
+L'application exponentielle $\exp: A_{t} \to A_{t}$ induit un isomorphisme ``$\exp$'' ($a$) $\mapsto \exp(a)$ de $\exp(A_{t})$ avec le groupe multiplicatif $A_{t}^{*}$ des \'el\'ements inversibles de $A_{t}$.
+
+\subsection{}
+De (2.2.1), on d\'eduit une suite exacte de faisceaux
+\begin{equation}
+0 \longrightarrow \exp(\R[[t]]) \longrightarrow \exp(\mathcal{A}_{t}) \longrightarrow \Aut(\mathcal{A}_{t}) \longrightarrow 0 \tag{2.3.1}
+\end{equation}
+o\`u $\exp(\R[[t]])$ d\'esigne le faisceau constant de valeur $\exp(\R[[t]]) \iso \R[[t]]$. La suite exacte (2.3.1) d\'efinit un cobord
+\begin{equation}
+H^{1}(M, \Aut(\mathcal{A}_{t})) \longrightarrow H^{2}(M, \R[[t]]). \tag{2.3.2}
+\end{equation}
+Nous noterons $[A_{t}^{2} : A_{t}^{1}]$ l'image par (2.3.2) de la classe d'isomorphie de $A_{t}^{2}$. Rappelons sa d\'efinition en cohomologie de \v{C}ech. On choisit un recouvrement ouvert $(U_{i})_{i \in I}$ de $X$ et des isomorphismes de d\'eformations $\varphi_{ij}: A_{t}^{1} \iso A_{t}^{2}$ sur $U_{i}$. Soit $c_{ij} = \varphi_{j}^{-1} \varphi_{i}$ un automorphisme de $A_{t}^{1}$ sur $U_{i} \cap U_{j}$. Les $c_{ij}$ sont le $1$-cocycle d\'ecrivant $A_{t}^{2}$. Supposons que $c_{ij}$ se rel\`eve dans $\exp(\mathcal{A}_{t})$. Tel est le cas apr\`es passage \`a un recouvrement plus fin (cf.~A.1~(a)). Choisissons un rel\`evement $\tilde{c}_{ij}$. Les $\gamma_{ijk} = \tilde{c}_{ij} \tilde{c}_{jk} \tilde{c}_{ki}$ sont un $2$-cocycle \`a valeurs dans $\exp(\R[[t]])$, identifi\'e \`a $\R[[t]]$. Sa classe est $[A_{t}^{2} : A_{t}^{1}]$.
+
+Il est parfois commode de d\'efinir $\gamma_{ijk}$ par la formule \'equivalente
+\[
+\tilde{c}_{ij} \tilde{c}_{jk} \tilde{c}_{ki} = \text{``exp''} (\gamma_{ijk}).
+\]
+
+D'apr\`es [6] IV 3.4, de m\^eme qu'un $H^{1}$ classifie des torseurs, un $H^{2}$ classifie des gerbes. La gerbe $\mathcal{G}$ en jeu ici est la suivante: un objet de $\mathcal{G}$ sur $U$ est un torseur $P$ sous $\exp(\mathcal{A}_{t})$, sur $U$, muni d'un morphisme $\exp(\mathcal{A}_{t})$-\'equivariant dans le $\Aut(\mathcal{A}_{t})$-torseur des isomorphismes $A_{t}^{1} \iso A_{t}^{2}$. Le faisceau des automorphismes de $P$ (compatibles \`a la projection donn\'ee) est $\exp(\R[[t]])$.
+
+\begin{proposition}
+Pour $A_{t}^{1}$, $A_{t}^{2}$ et $A_{t}^{3}$ trois d\'eformations donnant lieu au crochet de Poisson symplectique, on a
+\[
+[A_{t}^{3} : A_{t}^{1}] = [A_{t}^{3} : A_{t}^{2}] + [A_{t}^{2} : A_{t}^{1}].
+\]
+\end{proposition}
+
+\begin{proof}[1\`ere preuve]
+On calcule en cohomologie de \v{C}ech.
+\end{proof}
+
+\begin{proof}[2\`eme preuve (gerbale)]
+Soit $P$ le bitorseur des isomorphismes de $A_{t}^{1}$ avec $A_{t}^{2}$:
+espace principal homog\`ene \`a droite sous $\Aut(A_{t}^{1})$ et \`a gauche sous $\Aut(A_{t}^{2})$. De
+m\^eme, soit $Q$ celui des isomorphismes de $A_{t}^{2}$ avec $A_{t}^{3}$. Le bitorseur compos\'e $Q \circ P$
+est le bitorseur des isomorphismes de $A_{t}^{1}$ avec $A_{t}^{3}$. Si $\tilde{P}$ est un rel\`evement de $P$ en
+un $\exp(\mathcal{A}_{t}^{1})$-torseur, $\tilde{P}$ est aussi un torseur \`a gauche sous le tordu de $\exp(\mathcal{A}_{t}^{1})$ par $P$,
+i.e.\ sous $\exp(\mathcal{A}_{t}^{2})$ puisque $\mathcal{A}_{t}^{2}$ est le tordu de $\mathcal{A}_{t}^{1}$ par $P$: $\tilde{P}$ est un $(\exp(\mathcal{A}_{t}^{1}), \exp(\mathcal{A}_{t}^{2}))$-bitorseur. De m\^eme, un rel\`evement $\tilde{Q}$ de $Q$ en un $\exp(\mathcal{A}_{t}^{2})$-torseur est automatiquement
+un $(\exp(\mathcal{A}_{t}^{2}), \exp(\mathcal{A}_{t}^{3}))$-bitorseur. La composition $\tilde{Q} \circ \tilde{P}$ induit sur les faisceaux
+d'automorphismes la multiplication sur $\exp(\R[[t]])$, et l'existence du foncteur $\tilde{Q} \circ \tilde{P}$:
+\[
+(\text{gerbe classifi\'ee par } [A_{t}^{3} : A_{t}^{2}]) \times (\text{gerbe classifi\'ee par } [A_{t}^{2} : A_{t}^{1}]) \longrightarrow (\text{gerbe classifi\'ee par } [A_{t}^{3} : A_{t}^{1}])
+\]
+fournit 2.4.
+\end{proof}
+
+Si $A_{t}$ est une d\'eformation de $C^{\infty}(M)$, l'alg\`ebre oppos\'ee $A_{t}^{0}$ est \'egalement une d\'eformation. Le crochet de Poisson induit est l'oppos\'e de celui de $A_{t}$. Si $A_{t}^{1}$ et $A_{t}^{2}$
+sont deux d\'eformations, correspondant \`a la m\^eme structure symplectique $\omega$, $A_{t}^{1\,0}$ et
+$A_{t}^{2\,0}$ correspondent \`a la m\^eme structure symplectique $-\omega$ et $[A_{t}^{2\,0} : A_{t}^{1\,0}]$ est d\'efini.
+On a
+
+\begin{proposition}
+$[A_{t}^{2\,0} : A_{t}^{1\,0}] = -[A_{t}^{2} : A_{t}^{1}]$.
+\end{proposition}
+
+\begin{proof}
+On calcule en cohomologie de \v{C}ech, avec $[A_{t}^{2} : A_{t}^{1}]$ classe de $\gamma_{ij}$, d\'eduit de
+$\varphi_{ij}$, $c_{ij}$ et $\tilde{c}_{ij}$ comme en 2.3. L'isomorphisme $\varphi_{ij}: \mathcal{A}_{t}^{1} \iso \mathcal{A}_{t}^{2}$ fournit $\varphi_{ij}^{0}: \mathcal{A}_{t}^{1\,0} \iso \mathcal{A}_{t}^{2\,0}$ et $\gamma_{ij}^{0} = \gamma_{ij}$. Si $c_{ij}$ est l'automorphisme int\'erieur de $\mathcal{A}_{t}^{1}$ d\'efini par $\tilde{c}_{ij}$ dans $\mathcal{A}_{t}^{1}$,
+\[
+c_{ij}^{0}(x) = c_{ij}^{-1} x c_{ij} = \tilde{c}_{ij}^{-1} x \tilde{c}_{ij}
+\]
+est dans $\mathcal{A}_{t}^{1}$; le rel\`evement $\tilde{c}_{ij}^{0} = -\tilde{c}_{ij}$ donne $\gamma_{ij}^{0} = -\gamma_{ij}$.
+\end{proof}
+
+\subsection{}
+Le r\'esultat suivant donne un sens pr\'ecis \`a l'unicit\'e locale. Soit $\omega$ une $2$-forme symplectique sur $M$, i.e.\ une $2$-forme ferm\'ee non d\'eg\'en\'er\'ee.
+
+\begin{theorem}
+Si $H^{2}(M, \R) = 0$, toute d\'eformation $A_{t}$ de $C^{\infty}(M)$, de crochet de Poisson
+correspondant \`a la structure symplectique, est triviale: isomorphe \`a $C^{\infty}(M)[[t]]$ avec
+le produit usuel.
+\end{theorem}
+
+\begin{proof}
+R\'einterpr\'etons l'assertion: la gerbe des d\'eformations de crochet de Poisson donn\'e est
+triviale. D'apr\`es 2.4 et 2.5, si $A_{t}$ est une d\'eformation de crochet de Poisson $\omega$,
+on a $[A_{t} : C^{\infty}(M)[[t]]] \in H^{2}(M, \R[[t]])$ et $[A_{t}^{0} : C^{\infty}(M)[[t]]] \in H^{2}(M, \R[[t]])$. Ces deux classes sont oppos\'ees. Si $A_{t}$ et $C^{\infty}(M)[[t]]$ \`a oppos\'e pr\`es sont isomorphes, $A_{t}$ et $A_{t}^{0}$ sont isomorphes. Si $H^{2}(M, \R) = 0$, ces conditions sont v\'erifi\'ees et le th\'eor\`eme en r\'esulte.
+\end{proof}
+
+\noindent \textbf{Variante 2.7.} Comme en 1.5, soit $V$ isomorphe \`a $\R[[t]]$ et $M$ muni d'un crochet de Poisson non d\'eg\'en\'er\'e \`a valeur dans $\mathfrak{m}/\mathfrak{m}^{2}$. Les constructions qui pr\'ec\'edent montrent encore que l'ensemble des classes d'isomorphie de d\'eformations de $C^{\infty}(M)$
+sur $V$, donnant lieu au crochet de Poisson impos\'e, est vide ou un espace principal homog\`ene sous $H^{2}(M, V)$. En d'autres termes, la formation de $[A_{t}^{2} : A_{t}^{1}]$ de 2.3 est compatible \`a un changement de variable $t \mapsto f(t)$.
+
+\noindent \textbf{Variante 2.8.} Supposons donn\'ee une $2$-forme ferm\'ee non d\'eg\'en\'er\'ee complexe $\omega$,
+et consid\'erons les d\'eformations de $C^{\infty}(M) \otimes_{\R} \C$ sur $\C[[t]]$ donnant lieu au crochet de Poisson correspondant. Les r\'esultats de [8] rappel\'es en t\^ete de 2.1 restent valables et fournissent une classification par $H^{1}(\Aut(\mathcal{A}_{t}))$. La suite exacte (2.3.1) est \`a remplacer par
+\begin{equation}
+0 \longrightarrow \exp(\C[[t]]) \longrightarrow \exp(\mathcal{A}_{t}) \longrightarrow \Aut(\mathcal{A}_{t}) \longrightarrow 0, \tag{2.8.1}
+\end{equation}
+o\`u $\exp(\C[[t]])$ est simplement le faisceau constant de valeur le groupe additif $\C[[t]]$ et o\`u l'application exponentielle de $\mathcal{A}_{t}$ dans $\mathcal{A}_{t}$ induit un isomorphisme ``$\exp$'' ($a$) $\mapsto (\exp(a), a \bmod t)$ de $\exp(\mathcal{A}_{t})$ avec le groupe multiplicatif des \'el\'ements inversibles de $\mathcal{A}_{t}$, munis d'un logarithme de leur r\'eduction modulo $t$.
+
+On obtient que l'ensemble des classes d'isomorphie de d\'eformations complexes,
+donnant lieu au crochet de Poisson d\'efini par $\omega$, est vide ou un espace principal homog\`ene sous $H^{2}(M, \C[[t]])$. La compatibilit\'e 2.5 (passage \`a l'alg\`ebre oppos\'ee) reste valable.
+
+\noindent \textbf{Variante 2.9.} Si la $2$-forme $\omega$ est purement imaginaire, on dispose encore d'une
+variante $*$-r\'eelle. Si $A_{t}^{1}$ et $A_{t}^{2}$ sont deux d\'eformations complexes de m\^eme crochet de Poisson non d\'eg\'en\'er\'e, on a pour leurs complexes conjugu\'ees
+\[
+[\overline{A_{t}^{2}} : \overline{A_{t}^{1}}] = \overline{[A_{t}^{2} : A_{t}^{1}]}
+\]
+et pour les alg\`ebres oppos\'ees
+\[
+[A_{t}^{2\,0} : A_{t}^{1\,0}] = -[A_{t}^{2} : A_{t}^{1}].
+\]
+Pour $A_{t}^{1}$ anti-isomorphe \`a sa complexe conjugu\'ee, les d\'eformations $A_{t}^{2}$ ayant la m\^eme propri\'et\'e et de m\^eme crochet de Poisson, suppos\'e non d\'eg\'en\'er\'e, sont classifi\'ees par $[A_{t}^{2} : A_{t}^{1}] \in H^{2}(M, i\R[[t]])$, et par 1.4, l'ensemble des classes d'isomorphie de d\'eformations $*$-r\'eelles correspondantes est vide ou principal homog\`ene sous $H^{2}(M, i\R[[t]])$.
+
+\begin{remark}
+On peut cumuler 2.7 et 2.8 ou 2.9: pour $V$ isomorphe \`a $\C[[t]]$
+(resp.~$\R[[t]]$), les classes d'isomorphie de d\'eformations complexes (resp.~$*$-r\'eelles) de
+$C^{\infty}(M)$ sur $V$ (resp.~$V$), de crochet de Poisson non d\'eg\'en\'er\'e donn\'e, forment un
+ensemble vide ou principal homog\`ene sous $H^{2}(M, V)$ (resp.~$H^{2}(M, iV)$).
+\end{remark}
+
+\section{La m\'ethode de Fedosov}
+
+Rappelons ce qu'il nous faudra savoir de la m\'ethode de Fedosov.
+
+\subsection{}
+Soit $E_{0}$ espace vectoriel symplectique type, de dimension $2n$: coordonn\'ees $p_{i}$,
+$q_{i}$ ($1 \leq i \leq n$), $\omega = \sum dp_{i} \wedge dq_{i}$. Le produit de Moyal $*_{t}$ de deux fonctions $C^{\infty}$ sur $E_{0}$
+est
+\[
+f *_{t} g = \exp\left(\frac{t}{2} \sum \partial_{p_{i}} \partial_{q'_{i}} - \partial_{q_{i}} \partial_{p'_{i}}\right) [f(p',q') g(p'',q'')]
+\]
+\'evalu\'e en $(p',q') = (p'',q'') = (p,q)$.
+
+Il correspond \`a une structure de $\R[[t]]$-alg\`ebre $*$ sur le $\R[[t]]$-module $C^{\infty}(E_{0})[[t]]$,
+faisant de ce dernier une d\'eformation de $C^{\infty}(E_{0})$. Cette construction, invariante
+par translations, n'utilise que la structure d'espace affine symplectique de $E_{0}$: le
+groupe symplectique affine $\ASp = \Sp \ltimes (\text{translations})$ agissant sur $C^{\infty}(E_{0})$ respecte
+le produit $*$.
+
+\textbf{Variante polynomiale:} $\R[(p_{i}),(q_{i}),t] \subset C^{\infty}(E_{0})[[t]]$ est une sous-$\R[[t]]$-alg\`ebre,
+pour le produit $*$. Elle est gradu\'ee, avec $p_{i}, q_{i}$ de degr\'e $1$ et $t$ de degr\'e $2$. On note
+$F$ la filtration correspondante: degr\'e $\geq n$. C'est la filtration par les puissances de
+l'id\'eal $((p_{i}),(q_{i})) = ((p_{i}),(q_{i}),t)$, noyau de l'\'evaluation en $0$ de la r\'eduction modulo $t$.
+
+\textbf{Variante formelle:} soit $\mathcal{A}_{0}$ le compl\'et\'e \`a l'origine de $C^{\infty}(E_{0})$. Le produit de
+Moyal est encore d\'efini sur $\mathcal{A}_{0}[[t]] = \R[[(p_{i}),(q_{i}),t]]$. L'alg\`ebre obtenue est le
+compl\'et\'e de $\R[(p_{i}),(q_{i}),t]$ pour la filtration $F$. Le groupe symplectique continue \`a
+agir sur $\mathcal{A}_{0}$, ainsi que l'alg\`ebre de Lie $\mathfrak{asp}$ de $\ASp$. Le crochet $[f,g] = f * g - g * f$ de
+$\mathcal{A}_{0}$, \`a valeurs dans $t\mathcal{A}_{0}$, se prolonge uniquement en un crochet de Lie $\R[[t]]$-lin\'eaire
+sur $\mathcal{A}_{0}$. La filtration $F$ se prolonge, avec $F^{n}$.
+
+Pour $n > 0$, l'alg\`ebre de Lie $F^{0}/F^{n}(\mathcal{A}_{0})$ est de dimension finie, extension de $\rho(\mathfrak{sp})$ par le radical unipotent $\R \oplus F^{1}/F^{n}$. On notera $\exp(F^{0}/F^{n})$ le groupe alg\'ebrique correspondant, extension du groupe symplectique par un groupe unipotent d'alg\'ebre de Lie $\R \oplus F^{1}/F^{n}$.
+
+Passant \`a la limite projective, on obtient un groupe pro-alg\'ebrique not\'e
+$\exp(F^{0}(\mathcal{A}_{0}))$ extension du groupe symplectique par le radical unipotent $\exp(\R \oplus F^{1}(\mathcal{A}_{0}))$. L'action adjointe de l'alg\`ebre de Lie $F^{0}(\mathcal{A}_{0})$ sur $\mathcal{A}_{0}$ s'int\`egre en une action du groupe $\exp(F^{0}(\mathcal{A}_{0}))$ sur $\mathcal{A}_{0}$, limite projective de l'action
+des $\exp(F^{0}/F^{n}(\mathcal{A}_{0}))$ sur les $\mathcal{A}_{0}/F^{n}\mathcal{A}_{0}$. Le centre $\exp(\R[[t]])$ agit trivialement. On peut v\'erifier que cette action identifie le quotient $\exp(F^{0}(\mathcal{A}_{0}))/\R[[t]]$ au groupe des automorphismes de la $\R[[t]]$-alg\`ebre $\mathcal{A}_{0}$, et $\mathcal{A}_{0}/\R[[t]]$ \`a l'alg\`ebre de Lie de ses d\'erivations.
+
+\subsection{}
+Le syst\`eme $(\Sp, \mathcal{A}_{0}, \rho)$ est du type suivant: un groupe de Lie $G$, une alg\`ebre de Lie $\mathcal{L}$ sur laquelle $G$ agit, et un plongement $G$-\'equivariant $\rho$ de $\mathfrak{g} = \Lie G$ dans $\mathcal{L}$, avec $\ad_{\rho(x)}$ devant co\"incider avec l'action de $\mathfrak{g}$ sur $\mathcal{L}$. Pour $G$ connexe (notre cas), cela revient \`a: $G$ groupe de Lie, $\mathcal{L}$ alg\`ebre de Lie et $\rho: \mathfrak{g} \hookrightarrow \mathcal{L}$ tel que $\ad_{\rho}$ s'int\`egre en une action de $G$ sur $\mathcal{L}$.
+
+De tels syst\`emes $(G, \mathcal{L}, \rho)$ sont familiers en th\'eorie des repr\'esentations des groupes de Lie semi-simples, o\`u il est commode de remplacer un groupe $H$ par un compact maximal $K$ et l'alg\`ebre de Lie de $H$. Si $\mathcal{L}$ s'int\`egre en $L$ contenant $G$,
+l'information port\'ee par $(G, \mathcal{L}, \rho)$ est celle du compl\'et\'e formel de $L$ le long de $G$,
+avec sa structure de groupe.
+
+Soit un syst\`eme $(G, \mathcal{L}, \rho)$, avec $G$ suppos\'e connexe (pour simplifier). Supposons
+tout d'abord que $\mathcal{L}$ s'int\`egre en $L$ et $\rho$ en un morphisme $G \to L$. Dans ce cas, si $P$
+est un $G$-torseur sur une vari\'et\'e $M$, on peut pousser $P$ par $G \to L$ pour obtenir un
+$L$-torseur $P_{L}$, et on dispose de la notion de connexion sur $P_{L}$. Cette notion ne d\'epend pas en fait de pouvoir int\'egrer $\rho$.
+
+\textbf{(a)} Une connexion sur $P_{L}$ est une application $\R$-lin\'eaire $\nabla: \mathcal{L}^{P} \to \Omega^{1}(\mathcal{L}^{P})$, de la forme $\nabla = \nabla_{0} + \beta$, avec $\nabla_{0}$ une connexion usuelle (de courbure dans $\Omega^{2}(\mathfrak{g}^{P})$) et $\beta \in \Omega^{1}(\mathcal{L}^{P})$. L'axiome: pour toute section $s$ de $\mathfrak{g}^{P}$, $\nabla_{0}(s)$ est la d\'erivation de $\mathcal{L}^{P}$ donn\'ee par l'action de $s$, et $[\nabla_{0}(s), \beta] = \nabla_{0}([s, \beta])$.
+
+\textbf{(b)} Une connexion $\nabla$ a une courbure $R$ dans $\Omega^{2}(\mathcal{L}^{P})$. Pour $\nabla$ comme en (a), la courbure de $\nabla$ est $\nabla_{0}(\beta) + \frac{1}{2}[\beta,\beta]$. Pour $\mathcal{L} = \mathcal{A}_{0}$, si $\nabla = \nabla_{0} + \beta$ et que $\nabla_{0}$ est de courbure $R_{0}$, on a
+\[
+R = R_{0} + \nabla_{0}(\beta) + \frac{1}{2}[\beta,\beta] \quad \text{et} \quad \nabla R = 0 \quad \text{(Bianchi)}.
+\]
+
+Nous appliquerons ces constructions \`a $(\Sp, \mathcal{A}_{0}, \rho)$ agissant sur l'alg\`ebre $\mathcal{A}_{0}$.
+La sous-alg\`ebre de Lie $F^{0}(\mathcal{A}_{0})$ s'int\`egre en un pro-groupe de Lie agissant sur $\mathcal{A}_{0}$,
+mais il n'en va pas de m\^eme de $\mathcal{A}_{0}$. Exemple: $\frac{\partial}{\partial p_{i}}$ (forme lin\'eaire) agit comme une
+translation infinit\'esimale.
+
+\subsection{}
+Soit $(M,\omega)$ une vari\'et\'e symplectique de dimension $2n$. Chaque espace tangent
+$T_{x}$ est un espace vectoriel symplectique, et les espaces de rep\`eres symplectiques
+$\Isom(E_{0}, T_{x})$ forment un $\Sp$-torseur $P$ sur $M$. La m\'ethode de Fedosov est de
+chercher une connexion $\nabla$ sur $P_{L}$ (au sens 3.2) ayant les propri\'et\'es (A), (B)
+ci-dessous.
+
+Tordant $\mathcal{A}_{0}$ par $P$, on obtient un fibr\'e $\mathcal{A}_{0}^{P}$ sur $M$. Sa fibre en $x \in M$ est
+\begin{equation}
+(\text{compl\'et\'e en } 0 \text{ de } C^{\infty}(T_{x}))[[t]]. \tag{3.3.1}
+\end{equation}
+Le fibr\'e $\mathcal{A}_{0}^{P}$ est de dimension infinie. Il faut le voir comme un syst\`eme projectif de fibr\'es de dimension finie. Il h\'erite des structures de $\mathcal{A}_{0}$ invariantes par le groupe symplectique: la structure de $\R[[t]]$-alg\`ebre, la filtration $F$ de $\mathcal{A}_{0}$, etc.
+
+Le fibr\'e des (formes lin\'eaires affines sur $T_{x}$) s'envoie isomorphiquement sur
+le quotient de $\mathcal{A}_{0}^{P}$ par $F^{0}$. Puisque $\mathfrak{sp} \subset F^{0}$, une connexion $\nabla$ sur $P_{L}$ a par
+projection ``mod $F^{0}$'' sur l'espace des $1$-formes \`a valeurs dans le fibr\'e vectoriel
+des (formes lin\'eaires affines sur l'espace tangent): \'ecrire $\nabla = \nabla_{0} + \beta$ avec $\nabla_{0}$ une
+connexion sur $P$ et projeter $\beta$.
+
+L'application identique de $T_{x}$, est une $1$-forme $\tau_{0}$ \`a valeurs dans le fibr\'e tangent.
+Un vecteur tangent $v \in T_{x}$ d\'efinit la forme lin\'eaire $\omega(v, - ): w \mapsto \omega(v, w)$. Appliquant
+cette construction \`a $\tau_{0}$, on obtient une $1$-forme $\omega(\tau_{0}, -)$ \`a valeurs dans les fonctions
+lin\'eaires sur les $T_{x}$. On pose $\tilde{\tau} = \frac{1}{2} \omega(\tau_{0}, -)$.
+
+\medskip
+\noindent \textbf{Conditions sur $\nabla$:}
+
+\medskip
+\noindent \textbf{(A)} $\nabla$ mod $F^{0}$ est $\tilde{\tau}$;
+
+\noindent \textbf{(B)} La courbure $R$ de $\nabla$ est une $2$-forme \`a valeurs dans le centre $\R[[t]]$ de $\mathcal{A}_{0}$.
+
+\medskip
+D'apr\`es l'identit\'e de Bianchi, la $2$-forme $R$ est automatiquement ferm\'ee.
+
+\subsection{}
+Soit $\nabla_{0}$ une connexion sur $P$, i.e., une connexion lin\'eaire sur le fibr\'e tangent respectant la structure symplectique. Si le fibr\'e tangent est trait\'e comme un fibr\'e en espaces affines, il admet une unique connexion sans glissement $\nabla_{0}^{\text{aff}}$ de partie lin\'eaire $\nabla_{0}$. Sans glissement: tel que le transport parall\`ele de $T_{x}$ \`a $T_{x+\delta x}$ envoie $0$
+sur $-\tau_{0} \delta x + O(\delta x^{2})$. La connexion induite sur le fibr\'e des fonctions sur les $T_{x}$ est
+\[
+\nabla_{0}^{\text{aff}}(f) = \nabla_{0}(f) - \tilde{\tau}(f).
+\]
+Le lecteur peut prendre cette formule comme d\'efinissant $\nabla_{0}^{\text{aff}}$. Par (3.3.1), $\nabla_{0}^{\text{aff}}$
+induit une connexion sur $\mathcal{A}_{0}^{P}$. C'est la connexion d\'efinie par la connexion $\nabla_{0} + \tilde{\tau}$
+sur $P_{L}$. En effet, pour $f$ une fonction sur $T_{x}$ et $v$ un vecteur tangent, on a dans
+l'alg\`ebre de Moyal
+\[
+\left[\frac{\tilde{\tau}_{v}}{t}, f\right] = -\partial_{v} f
+\]
+et donc, dans les $1$-formes \`a valeurs dans l'alg\`ebre de Moyal,
+\[
+\frac{1}{t}[\tilde{\tau}, f] = -d_{n}f.
+\]
+La courbure de $\nabla_{0}^{\text{aff}}$ est une $2$-forme \`a valeurs dans l'alg\`ebre de Lie du groupe symplectique affine ($\Sp \ltimes \text{translations}$) du fibr\'e tangent. Par d\'efinition de la torsion
+$T_{0}$ de $\nabla_{0}$, c'est la somme $R_{0} + T_{0}$ de la courbure et de la torsion de $\nabla_{0}$.
+
+La courbure de la connexion $\nabla_{0} + \tilde{\tau}$ de $P_{L}$ se rel\`eve $R_{0} + T_{0}$: c'est $R_{0} + \nabla_{0}(\tilde{\tau}) + \tilde{\tau}^{2}$, o\`u $\tilde{\tau}^{2} = \frac{1}{2}[\tilde{\tau}, \tilde{\tau}]$.
+
+On a $\tilde{\tau} = \frac{1}{2} \omega(\tau_{0}, -)$ et $\nabla_{0}(\tilde{\tau}) = \frac{1}{2} \omega(T_{0}, -)$.
+
+Une connexion v\'erifiant (A) s'\'ecrit $\nabla = \nabla_{0} + \tilde{\tau} + \delta$
+avec $\delta$ \`a valeurs dans $(\R \oplus F^{1}(\mathcal{A}_{0}))^{P}$. Sa courbure est
+\[
+R = R_{0} + T_{0} + \nabla_{0}(\delta) + [\tilde{\tau}, \delta] + \frac{1}{2}[\delta, \delta].
+\]
+La condition (A) impose $R = R_{0} + \text{termes de filtration } \geq -1$
+et $R \bmod F^{0}$, est donn\'e par la torsion $T_{0}$. En particulier, (B) impose \`a $\nabla_{0}$ d'\^etre sans torsion.
+
+\subsection{}
+Fedosov prouve que pour chaque $2$-forme ferm\'ee $R$ \`a valeurs dans $\R[[t]]$, de partie polaire $\omega \cdot \frac{1}{t}$, il existe une connexion $\nabla$ v\'erifiant (A) (B) de courbure $R$.
+De plus, deux telles connexions d\'efinissent des d\'eformations isomorphes.
+
+\begin{proposition}
+Soient $\nabla_{1}$ et $\nabla_{2}$ deux connexions v\'erifiant \emph{(A) (B)}, de courbure $R_{1}$ et $R_{2}$. La diff\'erence $R_{2} - R_{1}$ est une $2$-forme ferm\'ee \`a valeurs dans $\R[[t]]$ et $[A(\nabla_{2}) : A(\nabla_{1})]$ est sa classe de cohomologie.
+\end{proposition}
+
+Rappelons comment obtenir un cocycle de \v{C}ech de classe de cohomologie celle d'une $2$-forme ferm\'ee $\alpha$. Pour un recouvrement ouvert $(U_{i})$ convenable, on r\'esout
+\[
+\alpha = d\beta_{i} \text{ (sur } U_{i}), \quad \beta_{i} - \beta_{j} = df_{ij} \text{ (sur } U_{i} \cap U_{j})
+\]
+et $c_{ijk} = f_{ij} + f_{jk} + f_{ki}$ v\'erifie $dc_{ijk} = 0$, i.e.\ est localement constant. Le cocycle
+cherch\'e est l'oppos\'e $-c_{ijk}$. Le signe provient de ceux qui parsement le complexe double $(C^{p,q})$.
+
+Ecrivons donc
+\[
+R_{2} - R_{1} = d\beta_{i}, \quad \beta_{i} - \beta_{j} = df_{ij}, \quad c_{ijk} = f_{ij} + f_{jk} + f_{ki}.
+\]
+Les connexions $\nabla_{2}$ et $\nabla_{1} + \beta_{i}$ ont la m\^eme courbure (puisque $f_{ij}$ est \`a valeurs
+centrales, la courbure de $\nabla_{1} + \beta_{i}$ est simplement $R_{1} + \nabla_{1}(\beta_{i}) = R_{1} + df_{ij}$). Il existe
+donc $g_{i}$ dans $\exp(F^{1}(\mathcal{A}_{0})^{P})$ transformant $\nabla_{1} + \beta_{i}$ en $\nabla_{2}$, et sur $U_{ij}$, $g_{j}^{-1}g_{i}$ transforme $\nabla_{1} + \beta_{i}$ en $\nabla_{1} + \beta_{j}$: \'ecrivant simplement $\nabla$ pour $\nabla_{1}$,
+\[
+g_{j}^{-1} g_{i} (g_{j}^{-1} g_{i})^{-1} = \beta_{i} - \beta_{j} = -df_{ij}
+\]
+et $g_{j}^{-1} g_{i} \exp(-f_{ij})$ est horizontal pour $\nabla$. C'est une section du sous-groupe unipotent de $\exp(F^{0}(\mathcal{A}_{0})^{P})$ d'alg\`ebre de Lie $(F^{1} \oplus \R)^{P}$ et on a
+\[
+g_{j}^{-1} g_{i} \exp(-f_{ij}) = \exp(u_{ij})
+\]
+avec $u_{ij}$ dans $(F^{1}(\mathcal{A}_{0}) \oplus \R)^{P}$ et horizontal. Notons $\bar{u}_{ij}$ la r\'eduction mod $t$ de $u_{ij}$.
+En chaque point $x \in M$, $u_{ij}(x)$ est un jet d'ordre infini de fonctions sur $(T_{x}, 0)$, nul
+\`a l'origine. Il est aussi horizontal. L'argument par lequel Fedosov montre que $A(\nabla)$
+est bien une d\'eformation montre qu'une section horizontale du fibr\'e des jets d'ordre infini de fonctions sur les $T_{x}$ est d\'etermin\'ee par la valeur de ces jets \`a l'origine. On a donc $\bar{u}_{ij} = 0$ et $u_{ij}$ est une section horizontale de $\mathcal{A}_{0}^{P}$, i.e.\ appartient \`a $A(\nabla)$.
+
+Sur $\mathcal{A}_{0}^{P}$, $\nabla$ et $\nabla + \beta_{i}$ d\'efinissent la m\^eme connexion. Puisque $g_{i}$ transforme $\nabla + \beta_{i}$ en $\nabla_{2}$, $g_{i}$ induit un isomorphisme de la d\'eformation $A(\nabla_{1})$ avec la d\'eformation $A(\nabla_{2})$. Puisque $f_{ij}$ est central, l'automorphisme $g_{j}^{-1} g_{i}$ de $A(\nabla_{1})$ est donn\'e par $\exp(u_{ij})$, i.e.\ est l'automorphisme int\'erieur d\'efini par $u_{ij} \in A(\nabla_{1})$, et 3.6 r\'esulte de la d\'efinition de $[A(\nabla_{2}) : A(\nabla_{1})]$.
+
+\subsection{}
+D'apr\`es 2.6 et 3.6, les d\'eformations $A$ de $C^{\infty}(M)$ sur $\R[[t]]$, donnant lieu \`a
+un crochet de Poisson non d\'eg\'en\'er\'e, sont classifi\'ees par ce crochet de Poisson,
+correspondant \`a une structure symplectique $\omega$, et par une classe de cohomologie
+$\cl(A)$ dans $H^{2}(M, \R[[t]])$ de partie polaire $\frac{1}{t}[\omega]$. La classe de cohomologie attach\'ee
+\`a $A$ s'obtient en mettant $A$ sous la forme $A(\nabla)$, et en prenant la courbure de $\nabla$.
+
+Nous allons v\'erifier que la formation de $\cl(A)$ est compatible \`a un changement de variables $t \mapsto f(t)$, $f(t) = \sum_{n \geq 1} a_{n} t^{n}$ avec $a_{1}$ inversible: si $A'$ est d\'eduit de $A$ par l'extension des scalaires $f^{*}: \R[[t]] \to \R[[t]]$, $t \mapsto f(t)$, on a $\cl(A') = f^{*}\cl(A)$.
+
+Il suffit de v\'erifier que les constructions 3.1 \`a 3.5 peuvent \^etre reformul\'ees
+pour garder un sens pour $\R[[t]]$ remplac\'e par $V$ isomorphe \`a $\R[[t]]$, comme en 1.5.
+
+\subsection{L'analogue du fibr\'e $\mathcal{A}_{0}^{P}$}
+Soit $\mathfrak{m}$ l'id\'eal maximal de $V$. Les droites $\mathfrak{m}/\mathfrak{m}^{2}$ et $\mathfrak{m}^{-1}/V$ sont en dualit\'e. La vari\'et\'e $M$ est suppos\'ee non pas symplectique, mais munie d'une $2$-forme ferm\'ee $\omega_{V}$ non d\'eg\'en\'er\'ee \`a valeurs dans $\mathfrak{m}^{-1}/V$. Il lui correspond un crochet de Poisson
+\[
+\{\, , \,\}: C^{\infty}(M) \times C^{\infty}(M) \longrightarrow C^{\infty}(M) \otimes \mathfrak{m}/\mathfrak{m}^{2}
+\]
+et on s'int\'eresse aux d\'eformations de $C^{\infty}(M)$ telles que le crochet correspondant soit mod $\mathfrak{m}^{2}$ ce crochet de Poisson. En chaque point $x$, le crochet de Poisson correspond \`a un $2$-vecteur \`a coefficients dans $\mathfrak{m}/\mathfrak{m}^{2}$: $\eta_{x} \in \wedge^{2} T_{x} \otimes \mathfrak{m}/\mathfrak{m}^{2}$.
+
+Soit $E_{0}$ un espace vectoriel muni d'un $2$-vecteur $\eta_{0}$ \`a coefficients dans $\mathfrak{m}/\mathfrak{m}^{2}$.
+On veut lui associer un $V$-module libre $\mathcal{E}$, muni d'un $2$-vecteur $\eta$ dans $\wedge^{2} \mathcal{E} \otimes_{V} \mathfrak{m}$, tel que $(E_{0}, \eta_{0})$ soit $(\mathcal{E}, \eta)$ mod $\mathfrak{m}$. L'id\'eal fractionnaire $\mathfrak{m}^{-1}$ est libre de rang un.
+Tordons-le en $\mathfrak{m}^{-1} \otimes_{V} (\mathfrak{m}/\mathfrak{m}^{2})$. Le module obtenu est trivialis\'e modulo $\mathfrak{m}$. Une racine carr\'ee de $\mathfrak{m}^{-1} \otimes_{V} (\mathfrak{m}/\mathfrak{m}^{2})$ est un $V$-module libre de rang un $\rho$, trivialis\'e modulo $\mathfrak{m}$, muni d'un isomorphisme de modules trivialis\'es modulo $\mathfrak{m}$
+\[
+\rho^{\otimes 2} \iso \mathfrak{m}^{-1} \otimes_{V} (\mathfrak{m}/\mathfrak{m}^{2}).
+\]
+Une telle racine carr\'ee existe, et est unique \`a isomorphisme unique pr\`es. On prend $\mathcal{E} = E_{0} \otimes_{\R} \rho$. On a
+\[
+\wedge^{2}\mathcal{E} \otimes_{V} \mathfrak{m} = \wedge^{2} E_{0} \otimes_{\R} \rho^{\otimes 2} \otimes_{V} \mathfrak{m} = \wedge^{2} E_{0} \otimes_{\R} (\mathfrak{m}/\mathfrak{m}^{2}).
+\]
+
+Description \'equivalente: si on choisit une uniformisante $t$, $\eta_{0}$ s'\'ecrit $\eta_{1} \cdot t$ avec
+$\eta_{1} \in \wedge^{2} E_{0}$. On prend $\mathcal{E} = E_{0} \otimes_{\R} V$ et $\eta = \eta_{1} \cdot t$. On identifie ces modules entre eux par $a_{t'/t} = t'/t \cdot (t'/t \bmod \mathfrak{m})^{-1/2}$.
+
+Soit enfin $\mathcal{A}(E_{0}) = \widehat{\bigoplus} \Sym^{n}(\mathcal{E}^{\vee})$: le compl\'et\'e \`a l'origine de l'alg\`ebre locale de $\mathcal{E}$, vue comme sch\'ema vectoriel sur $\Spec(V)$. Le $2$-vecteur $\eta$ d\'efinit un produit de Moyal sur $\mathcal{A}(E_{0})$. On dispose d'une augmentation $\mathcal{A}(E_{0}) \to V \to \R$ et les puissances de l'id\'eal d'augmentation fournissent la filtration $F$. Puisque $\mathcal{A}(E_{0})$ est commutative modulo $\mathfrak{m}$, $\mathfrak{m}^{-1}\mathcal{A}(E_{0})$ est une alg\`ebre de Lie. On a
+\[
+\mathfrak{m}^{-1}\mathcal{A}(E_{0}) \supset \mathfrak{m}^{-1}\Sym^{2}(\mathcal{E}^{\vee}) = \mathfrak{m}^{-1}\rho^{\otimes 2} \otimes_{\R} \Sym^{2}(E_{0}^{\vee}) = V \otimes \mathfrak{m}^{-1}/V \otimes \Sym^{2}(E_{0}^{\vee}) \supset \mathfrak{m}^{-1}/V \otimes \Sym^{2}(E_{0}^{\vee}).
+\]
+Si $\eta_{0}$ est non d\'eg\'en\'er\'e, ce sous-espace est l'alg\`ebre de Lie de $\Sp(E_{0})$: $\Sp(E_{0})$ agit
+sur $\mathcal{A}(E_{0})$ et l'action de $x \in \mathfrak{sp}$ est $\ad \rho(x)$, pour $\rho(x)$ l'\'el\'ement correspondant de $\mathfrak{m}^{-1}/\mathfrak{m}^{2} \otimes \Sym^{2}(E_{0}^{\vee}) \subset \mathfrak{m}^{-1}\mathcal{A}(E_{0})$. Il suffit de le v\'erifier apr\`es avoir choisi une uniformisante $t$, auquel cas on retrouve 3.1.
+
+Pour chaque $x$ dans $M$, appliquons cette construction \`a $T_{x}$, et \`a $\eta \in \wedge^{2} T_{x} \otimes \mathfrak{m}/\mathfrak{m}^{2}$. On obtient un fibr\'e en $V$-alg\`ebres filtr\'ees $\mathcal{A}$ sur $M$ et un morphisme d'alg\`ebres de Lie $\mathfrak{sp} \to \mathfrak{m}^{-1}\mathcal{A}$, pour $\mathfrak{sp}$ le fibr\'e des alg\`ebres de Lie symplectiques des $T_{x}$.
+
+\subsection{}
+D\'efinissons une \emph{Connexion} comme \'etant ``quelque chose qui s'\'ecrit'' $\nabla_{0} + \beta$,
+avec $\nabla_{0}$ une connexion symplectique sur le fibr\'e tangent et $\beta$ une $1$-forme \`a valeurs dans $\mathfrak{m}\mathcal{A}$, (no-)modulo l'identification $(\nabla_{0} + \alpha) + \beta = \nabla_{0} + (\alpha + \beta)$ pour $\alpha$ une $1$-forme \`a valeurs dans $\mathfrak{sp} \subset \mathfrak{m}^{-1}\mathcal{A}$. Une Connexion induit une connexion sur le fibr\'e $\mathcal{A}$, et a une courbure: celle de $\nabla_{0} + \beta$ est la somme de celle de $\nabla_{0}$, \`a valeurs dans $\mathfrak{sp} \subset \mathfrak{m}^{-1}\mathcal{A}$, et de $\nabla_{0}(\beta) + \frac{1}{2}[\beta,\beta]$.
+
+On traduit facilement pour les Connexions les conditions (A) (B) de 3.2. Une Connexion $\nabla$ v\'erifiant (A) (B) fournit une d\'eformation de $C^{\infty}(M)$ sur $V$: l'alg\`ebre des sections horizontales de $\mathcal{A}$. La classe de cette d\'eformation est la classe de cohomologie de la courbure de $\nabla$.
+
+On a
+
+\begin{construction}
+Les classes d'isomorphie de d\'eformations sur $V$ de $C^{\infty}(M)$,
+donnant lieu \`a un crochet de Poisson non d\'eg\'en\'er\'e, sont classifi\'ees par
+\begin{itemize}
+\item[(a)] ce crochet de Poisson
+\item[(b)] une classe de cohomologie $\cl \in H^{2}(M, \mathfrak{m}^{-1})$, d'image dans $H^{2}(M, \mathfrak{m}^{-1}/V)$ la classe de la $2$-forme ferm\'ee \`a valeurs dans $\mathfrak{m}^{-1}/V$ d\'efinie par le crochet de Poisson.
+\end{itemize}
+\end{construction}
+
+\noindent \textbf{Variantes 3.11.} Le m\^eme \'enonc\'e vaut, avec la m\^eme preuve, pour les d\'eformations complexes ($V$ isomorphe \`a $\C[[t]]$) et pour les d\'eformations $*$-r\'eelles ($V$ isomorphe \`a $\R[[t]]$, classe dans $H^{2}(M, i\mathfrak{m}^{-1})$).
+
+\section{La m\'ethode de De Wilde et Lecomte}
+
+\subsection{}
+Soit $(M,\omega)$ une vari\'et\'e symplectique et soit $A_{t}$ une d\'eformation de $C^{\infty}(M)$
+sur $\R[[t]]$, donnant lieu au crochet de Poisson correspondant. D'apr\`es (2.1.1), toute
+d\'erivation $\R[[t]]$-lin\'eaire et induisant $0$ mod $t$ est localement de la forme $\ad f$ avec
+$f$ section de $A_{t}$. Divisant par $t$, on trouve que toute d\'erivation $\R[[t]]$-lin\'eaire est
+localement de la forme $\ad f$, avec $f$ section de $tA_{t}$. De plus, $\ad f$ est trivial si et seulement si $f$ est une section du faisceau constant $\R[[t]]$.
+
+Soit $\mathcal{L}$ l'alg\`ebre de Lie des d\'erivations $D$ de $A_{t}$ induisant sur $\R[[t]]$ une d\'erivation $\lambda t\partial_{t}$, avec $\lambda$ localement constant. Associant \`a $D$ sa restriction \`a $\R[[t]]$, on obtient une suite de faisceaux
+\begin{equation}
+0 \longrightarrow \tfrac{1}{t}\R[[t]] \longrightarrow \mathcal{L} \longrightarrow \R.t\partial_{t} \longrightarrow 0. \tag{4.1.1}
+\end{equation}
+
+\begin{lemma}
+La suite (4.1.1) est exacte.
+\end{lemma}
+
+\begin{proof}
+Il reste \`a voir que $\mathcal{L}$ se projette sur le faisceau constant $\R.t\partial_{t}$. La question
+est locale. On peut donc supposer que $M$ est un espace vectoriel symplectique et
+que $A_{t}$ est $C^{\infty}(M)[[t]]$ muni du produit de Moyal. Les $f(a,t) \mapsto f(a, \lambda t)$ pour $\lambda \in \R^{*}$ forment un groupe \`a un param\`etre d'automorphismes. Son g\'en\'erateur infinit\'esimal
+induit $t\partial_{t}$ sur $\R[[t]]$.
+\end{proof}
+
+\subsection{}
+La suite exacte (4.1.1) d\'efinit une classe de Yoneda
+\[
+\obs_{PL}(A_{t}) \in \Ext^{2}(\R, \tfrac{1}{t}\R[[t]]) = H^{2}(M, \tfrac{1}{t}\R[[t]]).
+\]
+Voici son interpr\'etation en terme de gerbes (et notre choix de signes).
+
+Consid\'erons le probl\`eme de relever l'extension $\mathcal{L}$ de $\R.t\partial_{t}$ par $\tfrac{1}{t}A_{t}/\tfrac{1}{t}\R[[t]]$ en une extension par $\tfrac{1}{t}A_{t}$, i.e.\ d'avoir un diagramme commutatif de faisceaux de $\R$-espaces vectoriels \`a lignes exactes
+\[
+\begin{array}{ccccccccc}
+0 & & & & & & & & 0 \\
+& & & & & & & & \downarrow \\
+& & & & & & & & \tfrac{1}{t}\R[[t]] \\
+& & & & & & & & \downarrow \\
+0 & \longrightarrow & \tfrac{1}{t}A_{t} & \longrightarrow & \widetilde{\mathcal{L}} & \longrightarrow & \R & \longrightarrow & 0 \\
+& & \downarrow & & \downarrow & & \| & & \\
+0 & \longrightarrow & \tfrac{1}{t}A_{t}/\tfrac{1}{t}\R[[t]] & \longrightarrow & \mathcal{L} & \longrightarrow & \R & \longrightarrow & 0.
+\end{array} \tag{4.3.1}
+\]
+La seconde ligne est d\'eduite de (4.1.1), avec $\R.t\partial_{t}$ identifi\'e \`a $\R$. Le rel\`evement $\widetilde{\mathcal{L}}$ est automatiquement un faisceau d'alg\`ebres de Lie: si $\hat{\varepsilon}$ dans $\mathcal{L}$ se projette sur $1$ dans $\R$, et $\tilde{\varepsilon}$ sur $\hat{\varepsilon}$ dans $\widetilde{\mathcal{L}}$, on munit $\widetilde{\mathcal{L}}$ du crochet pour lequel il est produit semi-direct de $\R.\tilde{\varepsilon}$ et $\tfrac{1}{t}A_{t}$, l'action de $\hat{\varepsilon}$ sur $\tfrac{1}{t}A_{t}$ \'etant celle de $\mathcal{L}$. Ce crochet est ind\'ependant du choix de $\tilde{\varepsilon}$.
+
+La seconde ligne de (4.3.1) \'etant localement scind\'ee, il existe localement
+des rel\`evements $\widetilde{\mathcal{L}}$: scinder $\mathcal{L}$ en $(\tfrac{1}{t}A_{t}/\tfrac{1}{t}\R[[t]]) \times \R$ (comme faisceau vectoriel) et
+prendre $\widetilde{\mathcal{L}} = \tfrac{1}{t}A_{t} \times \R$. Deux rel\`evements sont localement isomorphes (en tant
+que rel\`evements) et le faisceau des automorphismes d'un rel\`evement (en tant que
+rel\`evement) est $\Hom(\R, \tfrac{1}{t}\R[[t]]) = \tfrac{1}{t}\R[[t]]$. Les rel\`evements $\widetilde{\mathcal{L}}$ forment donc une gerbe
+sur $X$, de lien $\tfrac{1}{t}\R[[t]]$, et $\obs_{PL}(A_{t})$ est sa classe de cohomologie, obstruction \`a l'existence d'un rel\`evement global.
+
+Pr\'ecisons les signes: \`a $f$ dans $\tfrac{1}{t}\R[[t]]$ correspond l'automorphisme $\tilde{\varepsilon} \mapsto \tilde{\varepsilon} + f \cdot (\text{image de } \tilde{\varepsilon} \text{ dans } \R)$. Si $\widetilde{\mathcal{L}}_{i}$ est un rel\`evement sur $U_{i}$ et $c_{ij}: \widetilde{\mathcal{L}}_{j} \to \widetilde{\mathcal{L}}_{i}$ un isomorphisme de rel\`evements sur $U_{ij} = U_{i} \cap U_{j}$, $\obs_{PL}(A_{t})$ est la classe du $2$-cocycle $c_{ik} - c_{ij} c_{jk}$.
+
+\begin{proposition}
+Soit $A_{t}$ une d\'eformation comme en 4.1, obtenue par la m\'ethode de Fedosov 3.5 \`a partir d'une connexion $\nabla$ de courbure $R$, de classe de cohomologie $\cl(A_{t}) = [R] \in H^{2}(M, \tfrac{1}{t}\R[[t]])$. L'obstruction 4.3 est
+\[
+\obs_{PL}(A_{t}) = -t\partial_{t}[R].
+\]
+\end{proposition}
+
+\begin{proof}
+Soit $E_{0}$ espace vectoriel symplectique type, comme en 3.1. Sur l'alg\`ebre
+de Moyal formelle $\mathcal{A}_{0}$, identifi\'ee \`a $\R[[(p_{i}),(q_{i})]][t]$ en tant que $\R[[t]]$-module, on dispose d'une action des homoth\'eties $f(p,q,t) \mapsto f(p,q,\lambda t)$. Le g\'en\'erateur infinit\'esimal est $E := t\partial_{t} + \tfrac{1}{2}(\sum D_{p_{i}}\partial_{p_{i}} + q_{i}\partial_{q_{i}})$. Soit $L$ l'alg\`ebre de Lie produit semi-direct $\R.E \ltimes \tfrac{1}{t}\mathcal{A}_{0}$. Le groupe symplectique agit sur $L$ par transport de structures.
+
+Il fixe $E$. Les \'el\'ements de $\mathcal{A}_{0}$ de la forme $\tfrac{1}{t} \cdot (\text{forme quadratique})$ sont annul\'es par $E$. L'alg\`ebre de Lie du groupe symplectique agit donc sur $L$ par $\ad \rho(x)$, avec $\rho: \mathfrak{sp} \to \tfrac{1}{t}\mathcal{A}_{0}$ comme en 3.1.
+
+Soit $P$ comme en 3.3 et tordons par $P$ la suite exacte
+\begin{equation}
+0 \longrightarrow \tfrac{1}{t}\mathcal{A}_{0} \longrightarrow \mathcal{L} \longrightarrow \R.t\partial_{t} \longrightarrow 0. \tag{4.4.1}
+\end{equation}
+On obtient un fibr\'e d'extensions (4.4.1), limite projective de fibr\'es vectoriels de
+rang fini. C'est une extension du fibr\'e trivial (correspondant \`a $\R.t\partial_{t}$) par $\tfrac{1}{t}\mathcal{A}_{0}^{P}$:
+\begin{equation}
+0 \longrightarrow \tfrac{1}{t}\mathcal{A}_{0}^{P} \longrightarrow \mathcal{L}^{P} \longrightarrow \R \longrightarrow 0. \tag{4.4.1}'
+\end{equation}
+Le fibr\'e $\mathcal{A}_{0}^{P}$ est d\'ecrit en (3.3.1).
+
+La connexion $\nabla$ de $P_{L}$ d\'efinissant $A_{t} = A(\nabla)$ fournit une connexion sur $\mathcal{L}^{P}$.
+Sa courbure est $\ad R$, pour $R$ la courbure de $\nabla$. C'est la $2$-forme \`a valeurs dans les d\'erivations de $\mathcal{L}^{P}$: $f \longmapsto -tR \cdot \pr(\hat{\varepsilon})$
+o\`u $\pr$ est la projection de $\mathcal{L}^{P}$ sur $(\R.t\partial_{t})^{P}$, identifi\'e au faisceau des fonctions $C^{\infty}$.
+
+Comme en 3.6, exprimons la classe de cohomologie de la $2$-forme ferm\'ee $R$
+par un cocycle de \v{C}ech: si $\alpha = R$ et que $\beta_{i}$, $f_{ij}$, $c_{ijk}$ sont comme en 3.6, c'est la classe de $-c_{ijk}$.
+
+Sur $U_{i}$, la connexion $\nabla_{i} := \nabla - \beta_{i}$ est de courbure nulle, et induit une connexion de courbure nulle sur $\mathcal{L}^{P}$. Soit $\mathcal{L}_{i} \subset \mathcal{L}^{P}$ le faisceau des sections horizontales.
+
+\begin{lemma}
+La suite
+\begin{equation}
+0 \longrightarrow \tfrac{1}{t}A_{t} \longrightarrow \mathcal{L}_{i} \longrightarrow \R.t\partial_{t} \longrightarrow 0 \tag{4.5.1}
+\end{equation}
+d\'eduite de (4.4.1)' par passage aux sections horizontales est exacte.
+\end{lemma}
+
+\begin{proof}
+La suite exacte (4.4.1)' fournit une suite exacte de complexes de de Rham.
+Par (3.5.1), la suite exacte longue de faisceaux de cohomologie correspondante se
+r\'eduit \`a (4.5.1).
+\end{proof}
+
+L'extension $\mathcal{L}_{i}$ est une solution sur $U_{i}$ au probl\`eme de rel\`evement (4.3.1). Soit $\pr$ la projection de $\mathcal{L}^{P}$ sur $(\R.t\partial_{t})^{P}$, identifi\'e au faisceau des fonctions $C^{\infty}$. Si $\hat{\varepsilon}$ est dans $\mathcal{L}_{i}$:
+$(\nabla - \beta_{i})(\hat{\varepsilon}) = 0$,
+$\pr(\hat{\varepsilon})$ est localement constant et
+\[
+(\nabla - \beta_{j})(\hat{\varepsilon}) = (\nabla - \beta_{i} + \beta_{i} - \beta_{j})(\hat{\varepsilon}) = [\hat{\varepsilon}, f_{ij}] = \pr(\hat{\varepsilon}).d(-t\partial_{t} f_{ij})
+\]
+de sorte que $\hat{\varepsilon} + \pr(\hat{\varepsilon}) t\partial_{t} f_{ij}$ est dans $\mathcal{L}_{j}$: on dispose d'isomorphismes
+\[
+c_{ij}: \mathcal{L}_{j} \iso \mathcal{L}_{i}, \quad \hat{\varepsilon} \longmapsto \hat{\varepsilon} + \pr(\hat{\varepsilon}).t\partial_{t} f_{ij}
+\]
+et $c_{ik} - c_{ij}c_{jk}$ est l'automorphisme d\'efini par $t\partial_{t}c_{ijk}$, en accord avec 4.4.
+\end{proof}
+
+\subsection{}
+Comme nous l'avons exploit\'e au \S 2, les d\'eformations (sur un ouvert $U$ variable
+de $M$) $A_{t}$ de $C^{\infty}$ sur $\R[[t]]$ donnant lieu au crochet de Poisson symplectique forment
+une gerbe. Son lien: le faisceau $\exp(A_{t}/\R[[t]])$ des automorphismes de $A_{t}$ (ind\'ependant de $A_{t}$ \`a automorphisme int\'erieur pr\`es). Les d\'eformations $A_{t}$ comme ci-dessus, munies d'un rel\`evement $\widetilde{\mathcal{L}}$ comme en (4.3.1), forment \'egalement une gerbe. Le faisceau des automorphismes de $(A_{t}, \widetilde{\mathcal{L}})$ est une extension de celui des automorphismes de $A_{t}$ par celui des automorphismes de $\widetilde{\mathcal{L}}$, \`a $A_{t}$ fix\'e:
+\begin{equation}
+0 \longrightarrow \tfrac{1}{t}\R[[t]] \longrightarrow \Aut(A_{t}, \widetilde{\mathcal{L}}) \longrightarrow \Aut(A_{t}) \longrightarrow 0 \tag{4.6.1}
+\end{equation}
+et (4.6.1) fait du lien $\Aut(A_{t}, \widetilde{\mathcal{L}})$ une extension centrale du lien $\Aut(A_{t})$.
+
+Les faisceaux de groupes (4.6.1) sont pro-unipotents, et s'identifient \`a leurs alg\`ebres de Lie:
+\begin{equation}
+0 \longrightarrow \tfrac{1}{t}\R[[t]] \longrightarrow \aut(A_{t}, \widetilde{\mathcal{L}}) \longrightarrow A_{t}/\R[[t]] \longrightarrow 0 \tag{4.6.2}
+\end{equation}
+munies de la loi de Hausdorff. L'action adjointe de l'alg\`ebre de Lie $A_{t}$ sur $\widetilde{\mathcal{L}}$ rel\`eve la projection de $A_{t}$ sur $A_{t}/\R[[t]]$ en $\ad: A_{t} \to \aut(A_{t}, \widetilde{\mathcal{L}})$, et la section $t^{n}$ de $A_{t}$, qui agit trivialement sur $A_{t}$, agit sur $\widetilde{\mathcal{L}}$ par $\tilde{\varepsilon} \mapsto -nt^{n}.(\text{image de } \tilde{\varepsilon} \text{ dans } \R)$: l'image de $-nt^{n}$ par (4.6.2). On a donc un isomorphisme:
+\[
+\ad \oplus t\partial_{t}: A_{t}/\R \oplus \R.t\partial_{t} \iso \aut(A_{t}, \widetilde{\mathcal{L}})
+\]
+d'exponentielle un isomorphisme
+\begin{equation}
+\exp(A_{t}/\R) \times \R \iso \Aut(A_{t}, \widetilde{\mathcal{L}}). \tag{4.6.3}
+\end{equation}
+
+\subsection{}
+L'id\'ee essentielle de De Wilde et Lecomte peut \^etre pr\'esent\'ee comme suit.
+La gerbe $\mathcal{G}_{0}$ des d\'eformations $A_{t}$ de $C^{\infty}$ comme en 4.6, avec son lien $\exp(A_{t}/\R[[t]])$,
+ouvre la porte \`a une obstruction dans $H^{3}(M, \R[[t]])$ \`a l'existence d'un objet global.
+Formellement: le cobord de la classe de $\mathcal{G}_{0}$ dans $H^{2}(\exp(A_{t}/\R[[t]]))$. Bien que la cohomologie soit non ab\'elienne, on peut donner un sens \`a ce cobord (A.6, A.9). Il est plus facile de chercher un objet global de la gerbe $\mathcal{G}_{1}$ des $(A_{t}, \widetilde{\mathcal{L}})$ et d'obtenir $A_{t}$ comme sous-produit. Formellement: on a seulement une obstruction dans $H^{2}(\exp(A_{t}/\R)) \times H^{2}(\tfrac{1}{t}\R) \times H^{2}(\R)$, avec $H^{2}(\exp(A_{t}/\R)) = H^{2}(\R)$: l'obstruction dans $H^{3}(\R[[t]])$ s'est r\'eduite \`a une dans $H^{2}(\R)$. On \'ecope aussi d'obstructions parasites dans $H^{2}(\tfrac{1}{t}\R)$ et $H^{2}(\R)$.
+
+\subsection{}
+La strat\'egie 4.7 ne permet de produire que des d\'eformations $A_{t}$ v\'erifiant $\obs_{PL}(A_{t}) = 0$. D'apr\`es 4.4 et 3.4 ou 3.10 (b), elle ne peut donc r\'eussir que si la classe de cohomologie $[\omega]$ de la structure symplectique est nulle. Que le cas $[\omega] = 0$
+soit plus facile est confirm\'e par l'ant\'eriorit\'e [1] sur [2].
+
+Une variante de 4.7 permet de produire des d\'eformations pour lesquelles $\obs_{PL}(A_{t})$ est pr\'eassign\'e. Il s'agit de tordre la gerbe $\mathcal{G}_{1}$ par une classe dans $H^{2}(\R[[t]])$.
+
+Plus pr\'ecis\'ement, soit $c_{ijk}$ un $2$-cocycle de \v{C}ech \`a valeurs dans $t\R[[t]]$, de classe $c \in H^{2}$, et soit $\mathcal{G}_{1}^{c}$ la gerbe suivante: un objet de $\mathcal{G}_{1}^{c}$ sur un ouvert $U$ de $M$ est la donn\'ee de
+
+\textbf{4.8.1.} une d\'eformation $A_{t}$ de $C^{\infty}$ sur $\R[[t]]$ (sur $U$), munie de rel\`evements (4.3.1) $\widetilde{\mathcal{L}}_{i}$ sur les $U \cap U_{i}$ et d'isomorphismes de rel\`evements $c_{ij}: \widetilde{\mathcal{L}}_{j} \iso \widetilde{\mathcal{L}}_{i}$ sur $U \cap U_{i} \cap U_{j}$, v\'erifiant la condition de cocycle tordue
+\[
+c_{jk} c_{ij} c_{ik}^{-1} = c_{ijk}.
+\]
+Localement (par exemple sur chaque $U_{i}$), le cocycle $c_{ijk}$ est un cobord, et le
+choix de $\delta$ dont il soit cobord d\'efinit une \'equivalence de $\mathcal{G}_{1}^{c}$ avec $\mathcal{G}_{1}$. Le calcul menant
+\`a (4.6.4) \'etant local, le lien de $\mathcal{G}_{1}^{c}$ est encore donn\'e par (4.6.4):
+\begin{equation}
+\text{Lien}(\mathcal{G}_{1}^{c}) = \exp(A_{t}/\R) \times \tfrac{1}{t}\R \times \R. \tag{4.8.2}
+\end{equation}
+Si $(A_{t}, \widetilde{\mathcal{L}}_{i}, c_{ij})$ est un objet global de $\mathcal{G}_{1}^{c}$, on a
+\begin{equation}
+\obs_{PL}(A_{t}) = c. \tag{4.8.3}
+\end{equation}
+La d\'ecomposition (4.8.2) du lien de $\mathcal{G}_{1}^{c}$ en produit d\'efinit des gerbes quotients.
+
+\subsection{}
+La d\'ecomposition (4.8.2) sugg\`ere de remplacer $\mathcal{G}_{1}^{c}$ par une gerbe quotient. Consid\'erer plut\^ot que $\mathcal{G}_{1}$ la gerbe $\mathcal{G}_{2}$ des d\'eformations $A_{t}$ comme en 4.1, munie d'un rel\`evement de l'extension $\mathcal{L}$ en une extension par $\tfrac{1}{t}A_{t}/\tfrac{1}{t}\R \oplus \R$:
+\[
+\begin{array}{ccccccccc}
+0 & & & & & & & & 0 \\
+& & & & & & & & \downarrow \\
+& & & & & & & & \tfrac{1}{t}\R[[t]] \\
+& & & & & & & & \downarrow \\
+0 & \longrightarrow & \tfrac{1}{t}A_{t}/\tfrac{1}{t}\R \oplus \R & \longrightarrow & \widetilde{\mathcal{L}} & \longrightarrow & \R & \longrightarrow & 0 \\
+& & \downarrow & & \downarrow & & \| & & \\
+0 & \longrightarrow & \tfrac{1}{t}A_{t}/\tfrac{1}{t}\R[[t]] & \longrightarrow & \mathcal{L} & \longrightarrow & \R & \longrightarrow & 0.
+\end{array} \tag{4.8.4}
+\]
+Le lien de $\mathcal{G}_{2}$ est $\exp(A_{t}/\R[[t]])$. L'obstruction \`a l'existence d'un objet global est dans $H^{3}(\R[[t]])$ (A.9) et la d\'eformation $A_{t}$ sous-jacente \`a un objet global v\'erifie
+\[
+\obs_{PL}(A_{t}) = c \bmod H^{2}(\tfrac{1}{t}\R \oplus \R).
+\]
+D'apr\`es 4.4 et 3.4 ou 3.10 (b), $A_{t}$ n'est donc pas d\'etermin\'e \`a isomorphisme pr\`es: ambigu\"it\'e dans $H^{2}(\R[[t]])$. Pour se d\'ebarrasser de ces ultimes obstructions et ambigu\"it\'es, plusieurs m\'ethodes sont possibles: voir 4.9 et 4.10.
+
+\subsection{}
+Si on pense \`a une d\'eformation $A_{t}$ comme construite pas \`a pas de $A_{t}/t^{n}A_{t}$
+\`a $A_{t}/t^{n+1}A_{t}$, les ambigu\"it\'es et obstructions r\'esiduelles apparaissent au d\'ebut, et
+peuvent \^etre trait\'ees directement. Soit $\gamma$ le champ de $2$-vecteurs correspondant
+au crochet de Poisson. L'interpr\'etation en cohomologie de Hochschild de la nullit\'e
+$[\gamma, \gamma] = 0$ (voir 2.1) assure l'existence d'une $2$-cocha\^ine $c_{2}(f, g)$ telle que
+\begin{equation}
+f *_{t} g := fg + \tfrac{1}{2}\{f,g\}t + c_{2}(f,g)t^{2} \tag{4.9.1}
+\end{equation}
+soit associatif modulo $t^{3}$. La cocha\^ine $c(f,g) := c_{2}(g, f)$ a alors la m\^eme propri\'et\'e.
+Pour le voir, passer au produit oppos\'e et remplacer $t$ par $-t$. Rempla\c{c}ant $c_{2}$ par
+$\tfrac{1}{2}(c_{2} + c_{2}^{0})$, on peut donc supposer $c_{2}$ sym\'etrique. Supposons-le.
+
+Consid\'erons la gerbe suivante. Un objet local consiste en
+
+(a) Une d\'eformation $A_{t}$ de $C^{\infty}$ sur $\R[[t]]$,
+
+(b) Un isomorphisme $\varphi$ de $A_{t}/t^{3}$ avec la d\'eformation mod $t^{3}$ donn\'ee par $fg + \tfrac{1}{2}\{f,g\}t$ sur $C^{\infty}[t]/(t^{3})$, cet isomorphisme \'etant localement relevable en un isomorphisme de $A_{t}/t^{3}$ avec la d\'eformation mod $t^{3}$ (4.9.1),
+
+(c) Un rel\`evement (4.8.4).
+
+On v\'erifie que deux objets sont localement isomorphes, et que le faisceau des automorphismes d'un objet est $\exp(tA_{t})$. Le faisceau $tA_{t}$ \'etant mou, il existe un
+objet global, unique \`a isomorphisme pr\`es.
+
+La d\'eformation sous-jacente est de classe de Fedosov $\frac{1}{t}\omega$ (voir 4.12). Pour obtenir les autres d\'eformations, il suffit de modifier (b), (c) en (b*), (c*):
+
+(b*) Soit $\alpha$ une $2$-forme ferm\'ee. Soit $\tfrac{1}{t} + t\eta$ le $2$-vecteur \`a coefficients dans $\R[[t]]/t^{2}$ inverse de la $2$-forme non d\'eg\'en\'er\'ee $\omega + t\alpha$. On ajoute \`a (4.9.1) le terme $(\alpha \vdash f \wedge g)$.
+
+(c*) Tordre (c) par un $2$-cocycle \`a valeurs dans $t\R[[t]]$, comme en 4.8.
+
+\subsection{}
+De Wilde et Lecomte proc\`edent autrement: ils utilisent l'involution $t \mapsto -t$
+de $\R[[t]]$ et cherchent un $*$-produit $f *_{t} g$ tel que
+\[
+f *_{t} g = \overline{g *_{t} f}.
+\]
+En terme de d\'eformations du faisceau d'alg\`ebres $C^{\infty}(M)$, il s'agit de chercher une d\'eformation $A_{t}$ munie d'une anti-involution $\tau$ induisant $t \mapsto -t$ sur $\R[[t]]$. Pour une telle d\'eformation, on d\'eduit de 4.4 et 2.5, ou on v\'erifie directement, que
+\[
+\obs_{PL}(A_{t}) \in \R[[t]]^{\text{pairs}}.
+\]
+
+\subsection{}
+Soit donc $c$ un cocycle de \v{C}ech, \`a valeurs dans $t^{2}\R[[t]]$. Consid\'erons le probl\`eme de construire un objet du type (a) (b) suivant.
+
+(a) Une d\'eformation $A_{t}$ de $C^{\infty}(M)$ comme en 4.1, munie d'une anti-involution $\tau$ induisant $t \mapsto -t$ sur $\R[[t]]$ et l'identit\'e sur $C^{\infty}(M)$.
+
+Le faisceau des d\'erivations $\R[[t]]$-lin\'eaires et commutant \`a $\tau$ de $A_{t}$ est la sous-alg\`ebre de Lie de $\tfrac{1}{t}A_{t}/\tfrac{1}{t}\R[[t]]$ des anti-invariants sous $\tau$. Les d\'erivations commutant \`a $\tau$ et agissant sur $\R[[t]]$ par $\lambda t\partial_{t}$ sont une extension $\mathcal{L}^{\tau}$:
+
+(b) Sur chaque $U_{i}$, un rel\`evement de $\mathcal{L}^{\tau}$ en une extension $\widetilde{\mathcal{L}}_{i}$ de $\R$ par $(\tfrac{1}{t}A_{t})^{\tau}/\tfrac{1}{t}\R$. Des isomorphismes $c_{ij}: \widetilde{\mathcal{L}}_{j} \iso \widetilde{\mathcal{L}}_{i}$ v\'erifiant la condition de cocycle tordue
+\[
+c_{jk} c_{ij} c_{ik}^{-1} = c_{ijk}.
+\]
+Comme en 4.6, on v\'erifie que ce probl\`eme a localement une solution unique \`a isomorphisme pr\`es. Le faisceau des automorphismes est $\exp(A_{t}^{\tau})$.
+
+La gerbe des solutions est donc une gerbe de lien mou et, par A.5, il existe une solution globale, unique \`a isomorphisme pr\`es.
+Pour $c = 0$, on obtient
+
+\begin{proposition}
+Sur une vari\'et\'e symplectique, il existe \`a isomorphisme (non unique) pr\`es un et un seul syst\`eme du type suivant:
+\begin{itemize}
+\item[(a)] une d\'eformation $A_{t}$ de $C^{\infty}(M)$ comme en 4.1
+\item[(b)] une anti-involution $\tau$ de $A_{t}$ induisant $t \mapsto -t$ sur $\R[[t]]$ et l'identit\'e sur $C^{\infty}(M)$
+\item[(c)] un rel\`evement de $\mathcal{L}^{\tau}$ en une extension de $\R$ par $(\tfrac{1}{t}A_{t})^{\tau}/\tfrac{1}{t}\R$:
+\[
+\begin{array}{ccccccccc}
+0 & \longrightarrow & (\tfrac{1}{t}A_{t})^{\tau}/\tfrac{1}{t}\R & \longrightarrow & \widetilde{\mathcal{L}} & \longrightarrow & \R & \longrightarrow & 0 \\
+& & \downarrow & & \downarrow & & \| & & \\
+0 & \longrightarrow & (\tfrac{1}{t}A_{t})^{\tau}/\tfrac{1}{t}\R[[t]] & \longrightarrow & \mathcal{L}^{\tau} & \longrightarrow & \R & \longrightarrow & 0.
+\end{array}
+\]
+\end{itemize}
+D'apr\`es 4.4, la classe (3.4) de $A_{t}$ est
+\begin{equation}
+\cl(A_{t}) = \tfrac{1}{t}\omega. \tag{4.12.1}
+\end{equation}
+\end{proposition}
+
+\begin{remark}
+Une d\'eformation comme en 4.12 est sous-jacente \`a une d\'eformation comme en 4.9 (a) (b) (c): prendre pour $\varphi$ de 4.9 (b) l'unique isomorphisme mod $t^{3}$ qui transforme $\tau$ en $t \mapsto -t$, et obtenir (4.8.3) en poussant par $(\tfrac{1}{t}A_{t})^{\tau}/\tfrac{1}{t}\R \to \tfrac{1}{t}A_{t}/\tfrac{1}{t}\R \oplus \R$. La d\'eformation de 4.9 (a) (b) (c) a donc pour classe $\tfrac{1}{t}\omega$.
+\end{remark}
+
+\begin{remark}
+Une d\'eformation $A_{t}$ munie d'une involution $\tau$ comme en 4.10
+fournit aussi une d\'eformation $*$-r\'eelle. En formules: faire $t = i\hbar$. Dans notre langage:
+munir $A_{t}^{c}$ de l'anti-involution compos\'ee de $\tau$ et de la conjugaison complexe.
+\end{remark}
+
+\subsection{}
+Ce paragraphe 4 est pour l'essentiel une traduction dans le langage des gerbes
+des textes cocycliques [2] [3] de De Wilde et Lecomte.
+
+Une diff\'erence: ils restreignent leur consid\'eration aux $*$-produits v\'erifiant
+\begin{equation}
+f *_{t} g = \overline{g *_{t} f} \tag{4.15.1}
+\end{equation}
+(cf.~4.10). Une telle d\'eformation du produit induit une d\'eformation de l'alg\`ebre de
+Lie de Poisson sur $\R[[t]]$. Dans le langage de 4.10: consid\'erer les invariants $A_{t}^{\tau}$ de
+$\tau$ dans $A_{t}$, un $\R[[t]]$-module, et munir $A_{t}^{\tau}$ du crochet $\tfrac{1}{t}[f,g]$.
+
+Il revient au m\^eme de d\'eformer le crochet de Poisson --- la d\'eformation \'etant localement, au premier ordre, d'un type pr\'eassign\'e --- ou de d\'eformer $C^{\infty}$, avec (4.15.1):
+la construction $(A_{t}, \tau) \mapsto (A_{t}^{\tau}, [\,,])$ d\'efinit une \'equivalence de gerbe. Ils utilisent
+cette \'equivalence pour s'exprimer en terme de d\'eformations du crochet de Poisson.
+
+\section*{Appendice: cohomologie non ab\'elienne}
+\addcontentsline{toc}{section}{Appendice: cohomologie non ab\'elienne}
+
+\subsection{}
+Nous travaillerons en cohomologie de \v{C}ech, sur un espace paracompact $X$.
+La paracompacit\'e garantit que pour tout recouvrement ouvert $\mathcal{U} = (U_{i})_{i \in I}$, \'etant
+donn\'e $n > 1$ et $(a_{m})$ pour chaque $i_{0}, \ldots, i_{n} \in I$, un recouvrement ouvert $(U_{i_{0}, \ldots, i_{n}})_{\alpha}$ de $U_{i_{0}} \cap \cdots \cap U_{i_{n}}$, il existe un recouvrement ouvert $\mathcal{V} = (V_{j})_{j \in J}$ et $g: J \to I$ tels que $V_{j} \subset U_{g(j)}$
+et que chaque $V_{j_{0}, \ldots, j_{n}}$ soit contenu dans un $(U_{g(j_{0}), \ldots, g(j_{n})})_{\alpha}$.
+
+Cet usage de la paracompacit\'e n'est pas s\'erieux. S'il est seul en cause, le cas
+g\'en\'eral (un topos quelconque) peut se traiter de m\^eme en cohomologie hyper\v{C}echiste
+(cf.~SGA4$\tfrac{1}{2}$ V 7). Seules les notations sont plus lourdes.
+
+La paracompacit\'e garantit aussi que les faisceaux mous ont de bonnes propri\'et\'es d'acyclicit\'e.
+
+Un ouvert $U$ d'un espace paracompact $X$ n'est pas n\'ecessairement paracom-
+pact, et la restriction \`a $U$ d'un faisceau mou n'est pas n\'ecessairement molle. Cette difficult\'e dispara\^it pour $X$ m\'etrisable ([7] II 3.4.2). Dans le cas g\'en\'eral, le bon crit\`ere de localisation est [7] II 3.4.1: soient $\mathcal{U}_{i}$ un recouvrement ouvert d'un espace
+paracompact $X$ et $\mathcal{F}$ un faisceau sur $X$. Pour que $\mathcal{F}$ soit mou, il faut et il suffit
+que pour tout $U$ dans $\mathcal{U}$, la restriction de $\mathcal{F}$ \`a $U$ v\'erifie
+\[
+\text{Toute section de } \mathcal{F} \text{ sur } F \subset U \text{ ferm\'e dans } X \text{ se prolonge \`a } U. \tag{A.1.1}
+\]
+
+Nous dirons qu'une gerbe $\mathcal{G}$ sur un espace paracompact $X$ a un \emph{lien mou} si
+pour tout objet $G$ de $\mathcal{G}$ sur un ouvert $U$, le faisceau sur $U$ des automorphismes de
+$G$ sur $U$ v\'erifie (A.1.1). Condition \'equivalente: pour tout objet $G$ de $\mathcal{G}$ sur un ferm\'e
+$F$ de $X$, le faisceau sur $F$ des automorphismes de $G$ est mou.
+
+\subsection{}
+Soit une suite exacte de faisceaux en groupes
+\begin{equation}
+0 \longrightarrow A \longrightarrow B \longrightarrow C \longrightarrow 0 \tag{A.2.1}
+\end{equation}
+avec $A$ central. On dispose d'un cobord
+\begin{equation}
+\delta: H^{1}(X, C) \longrightarrow H^{2}(X, A). \tag{A.2.2}
+\end{equation}
+
+Pour $Q$ un $C$-torseur, notons $\cl(Q)$ le cobord de la classe de $Q$ dans $H^{1}(X,C)$. C'est l'obstruction \`a relever $Q$ en un $B$-torseur (i.e.\ la classe dans $H^{2}(X, A)$ de la $A$-gerbe des rel\`evements de $Q$).
+
+Le faisceau $C$ agit sur la suite exacte (A.2.1). Tordons-la par $Q$. L'action de $C$
+sur $A$ \'etant triviale, la suite tordue s'\'ecrit
+\begin{equation}
+0 \longrightarrow A \longrightarrow B^{Q} \longrightarrow C^{Q} \longrightarrow 0. \tag{A.2.1$_{Q}$}
+\end{equation}
+Le faisceau $C^{Q}$ est le faisceau des automorphismes du torseur $Q$, qui en devient un $(C, C^{Q})$-bitorseur. Si $P$ est un $C^{Q}$-torseur, le compos\'e $P \circ Q = P \times Q/C^{Q}$ est un
+$C$-torseur. On a
+\begin{equation}
+\cl(P \circ Q) = \cl(P) + \cl(Q). \tag{A.2.3}
+\end{equation}
+La preuve est la m\^eme qu'en 2.4.
+
+\begin{proposition}
+Si $B$ est mou sur $X$ paracompact, le cobord (A.2.2) est bijectif.
+\end{proposition}
+
+\begin{lemma}
+$H^{1}(X, B) = 0$.
+\end{lemma}
+
+\begin{proof}
+Si $P$ est un $B$-torseur, le faisceau des sections de $P$ est mou: il est localement
+isomorphe \`a $B$ et on applique le crit\`ere local de mollesse (A.1). En particulier, $P$
+admet une section globale: tout $B$-torseur est trivial.
+\end{proof}
+
+\noindent \textsc{Injectivit\'e.} Si $P$ et $Q$ sont deux $C$-torseurs de m\^eme classe, la classe dans $H^{2}(A)$
+du $C^{Q}$-torseur $P \circ Q^{-1}$, \'egale \`a $\cl(P) - \cl(Q)$ par (A.2.3), est triviale. La suite
+exacte (A.2.1)$_{Q}$ fournit une suite exacte d'ensembles point\'es
+\[
+H^{1}(B^{Q}) \longrightarrow H^{1}(C^{Q}) \longrightarrow H^{2}(A)
+\]
+et $H^{1}(B^{Q}) = 0$ par A.4, car d'apr\`es le crit\`ere local de mollesse (A.1), le faisceau $B^{Q}$, localement isomorphe \`a $B$, est mou. Le $C^{Q}$-torseur $P \circ Q^{-1}$ est donc trivial: $P$
+est isomorphe \`a $Q$.
+
+De m\^eme que l'injectivit\'e de (A.2.2) r\'esulte de (A.4), la surjectivit\'e r\'esultera
+du lemme suivant.
+
+\begin{lemma}
+Sur un espace paracompact $X$, une gerbe $\mathcal{G}$ de lien mou admet un objet global.
+\end{lemma}
+
+\begin{proof}
+Soit $(F_{i})_{i \in I}$ un recouvrement ferm\'e localement fini de $X$, tel que sur chaque
+$F_{i}$, $\mathcal{G}$ admette un objet $G_{i}$. Si $\mathcal{G}$ admet un objet $G$ sur un ferm\'e $F$, cet objet
+est unique \`a un isomorphisme (non unique) pr\`es: r\'esulte de $H^{1}(F, \Aut(G)) = 0$.
+Soit $\mathcal{E}$ l'ensemble des syst\`emes form\'e d'une partie $J$ de $I$, et d'isomorphismes
+$c_{jk}: G_{k} \iso G_{j}$ ($j,k \in J$) sur $F_{j} \cap F_{k}$, v\'erifiant la condition de cocycle. Ordonn\'e par
+prolongement, l'ensemble $\mathcal{E}$ est inductif, donc admet un \'el\'ement maximal $(J, c)$.
+Les $G_{j}$ se recollent en $G_{F}$ sur la r\'eunion $F$ des $F_{j}$ ($j \in J$). Pour tout $i \notin J$, $G_{i}$ et $G_{F}$ sont isomorphes sur $F \cap F_{i}$, et le choix d'un isomorphisme permet de prolonger $(J, c)$ en $(J \cup \{i\}, c)$. Par maximalit\'e, $J = I$ et $G_{F}$ est l'objet cherch\'e.
+\end{proof}
+
+\noindent \textsc{Surjectivit\'e.} Soit $c \in H^{2}(A)$ correspondant \`a une gerbe $\mathcal{G}$, dont les objets
+locaux ont pour faisceau d'automorphismes $A$. Poussons par $A \to B$ pour obtenir
+une gerbe $\widetilde{\mathcal{G}}$ de lien $B$. Si $c_{ijk}$ est un cocycle de \v{C}ech repr\'esentant $c$, elle admet la
+description suivante que le lecteur peut prendre pour d\'efinition: un objet $G$ de $\widetilde{\mathcal{G}}$ sur
+$U$ est la donn\'ee de $B$-torseurs $G_{i}$ sur les $U \cap U_{i}$ et d'isomorphismes $c_{ij}: G_{j} \iso G_{i}$
+sur $U_{i} \cap U_{j}$, v\'erifiant la condition de cocycle tordue
+\[
+c_{jk} c_{ij} c_{ik}^{-1} = c_{ijk}.
+\]
+Par A.5, la gerbe $\widetilde{\mathcal{G}}$ a un objet global $G$. Poussons les torseurs $G_{i}$ par $B \to C$.
+Les torseurs obtenus se recollent en un $C$-torseur, avec l'image dans $C$ des
+$c_{ij}$ comme donn\'ee de recollement, et on laisse au lecteur le soin de v\'erifier que $\cl = c$.
+
+\subsection{}
+Dans [6], le cobord \`a valeur dans $H^{3}$ en cohomologie non ab\'elienne n'est d\'efini
+que pour la gerbe des r\'ealisations d'un lien. Voici le cas g\'en\'eral.
+
+Soient $\mathcal{H}$ une gerbe, $\mathcal{F}$ un faisceau ab\'elien et supposons donn\'e, pour chaque
+objet local $Z$ de $\mathcal{H}$, une extension centrale
+\begin{equation}
+0 \longrightarrow \mathcal{F} \longrightarrow G_{Z} \longrightarrow \Aut(Z) \longrightarrow 0, \tag{A.6.1}
+\end{equation}
+fonctorielle en $Z$ et compatible \`a la localisation. On suppose que l'action par foncto-
+ialit\'e de $\Aut(Z)$ sur $G_{Z}$ est celle d\'efinie par l'action int\'erieure de $G_{Z}$ sur lui-m\^eme
+(cette action int\'erieure se factorise par $G_{Z}/\mathcal{F}$).
+
+\noindent \textsc{Exemple 1.} Soient $\mathcal{L}$ un lien, $\mathcal{H}$ la gerbe des r\'ealisations de $\mathcal{L}$ et $\mathcal{F}$ le centre de $\mathcal{L}$.
+Pour chaque r\'ealisation $Z$ de $\mathcal{L}$, le faisceau (dans $\mathcal{H}$) des automorphismes de $Z$ est
+celui des automorphismes int\'erieurs, d'o\`u une extension centrale
+\[
+0 \longrightarrow \mathcal{F} \longrightarrow \mathcal{Z} \longrightarrow \Aut_{\mathcal{H}}(Z) \longrightarrow 0.
+\]
+
+\noindent \textsc{Exemple 2.} Soient $(M, \omega)$ une vari\'et\'e symplectique, $\mathcal{H}$ la gerbe des d\'eformations de $C^{\infty}$ sur $\R[[t]]$ donnant lieu au crochet de Poisson symplectique et $\mathcal{F}$ le faisceau constant $\R[[t]]$. Pour $A_{t}$ dans $\mathcal{H}$, on a $\Aut(A_{t}) = \exp(A_{t}/\R[[t]])$, d'o\`u une extension centrale
+\[
+0 \longrightarrow \R[[t]] \longrightarrow \exp(A_{t}) \longrightarrow \exp(A_{t}/\R[[t]]) \longrightarrow 0.
+\]
+
+Nous nous proposons de d\'efinir une classe $\Obs_{\mathcal{H}} \in H^{3}(\mathcal{F})$. Soit $\mathcal{U} = (U_{i})_{i \in I}$
+un recouvrement ouvert de $X$. Pour $\mathcal{U}$ assez fin, $\mathcal{H}$ admet un objet $Z_{i}$ sur chaque $U_{i}$. Choisissons $Z_{i}$ et posons $G_{i} := G_{Z_{i}}$. Apr\`es passage \`a un recouvrement plus fin (cf.~A.1), $Z_{i}$ et $Z_{j}$ sont isomorphes sur $U_{ij}$. Soit $P_{ij}$ le bitorseur des isomorphismes $Z_{i} \iso Z_{j}$: un $(\Aut(Z_{i}), \Aut(Z_{j}))$-bitorseur sur $U_{ij}$. Choisissons un $(G_{i}, G_{j})$-bitorseur $B_{ij}$, muni d'un morphisme de bitorseurs $g: B_{ij} \to P_{ij}$ tel que, pour $s$ une section locale de $P_{ij}$, l'isomorphisme correspondant $G_{i} \iso G_{j}$: $g \mapsto s(g)$ tel que $sg = s(g)s$ soit d\'eduit de $g(s)$ par fonctorialit\'e. Deux tels $(B_{ij}, g)$ sont localement isomorphes, avec pour faisceau d'automorphismes $\mathcal{F}$. Apr\`es passage \`a un recouvrement plus fin (cf.~A.1), $B_{ij} \circ B_{jk}$, muni de sa projection sur $P_{ij} \circ P_{jk} = P_{ik}$, est donc isomorphe \`a $B_{ik}$ sur $U_{ijk}$. Choisissons $c_{ijk}: B_{jk} \circ B_{ij} \iso B_{ik}$. Sur $U_{ijkl}$, les $c_{ijk}$ fournissent deux isomorphismes $B_{il} \iso B_{ij} \circ B_{jk} \circ B_{kl}$.
+
+La cocha\^ine \`a valeurs dans $\mathcal{F}$
+\[
+d_{ijkl} = (c_{ijl} c_{jkl})^{-1} (c_{ijk} c_{ikl})
+\]
+est un cocycle, et changer les $B_{ij}$ modifie $d$ par un cobord.
+
+\noindent \textsc{D\'efinition.} $\Obs_{\mathcal{H}}$ est la classe du cocycle $d$.
+
+Dans le cas particulier de l'exemple 1, L.~Breen exprime cette construction de fa\c{c}on plus g\'eom\'etrique, faisant appara\^itre $\Obs_{\mathcal{H}}$ comme la classe d'une $2$-gerbe convenable (\textit{On the classification of 2-gerbes and 2-stacks}, Ast\'erisque 225, SMF
+1994: \S 6).
+
+\subsection{}
+Si $d = 0$, soit $\mathcal{G}$ la gerbe engendr\'ee par un objet $Y_{i}$ sur chaque $U_{i}$, avec
+$\Hom(Y_{i}, Y_{j}) = B_{ij}$ sur $U_{ij}$, la composition \'etant donn\'ee par les $c_{ijk}$. Elle est munie
+d'un morphisme de gerbes $\phi: \mathcal{G} \to \mathcal{H}$: $Y_{i} \mapsto Z_{i}$, et, pour tout objet local $Y$ de $\mathcal{G}$,
+d'image $Z$ dans $\mathcal{H}$, on dispose d'un diagramme commutatif fonctoriel en $Y$ et
+compatible \`a la localisation
+\[
+\begin{array}{ccccccccc}
+0 & \longrightarrow & \mathcal{F} & \longrightarrow & \Aut(Y) & \longrightarrow & \Aut(Z) & \longrightarrow & 0 \\
+& & \| & & \downarrow & & \downarrow & & \\
+0 & \longrightarrow & \mathcal{F} & \longrightarrow & G_{Z} & \longrightarrow & \Aut(Z) & \longrightarrow & 0.
+\end{array} \tag{A.7.1}
+\]
+
+R\'eciproquement, s'il existe un morphisme de gerbes $\phi: \mathcal{G} \to \mathcal{H}$ et un isomorphisme (A.7.1), le cocycle $d$ est cohomologue \`a z\'ero: relever les $Z_{i}$ en des $Y_{i}$ dans $\mathcal{G}$ et prendre $B_{ij} = \Hom(Y_{i}, Y_{j})$, $c_{ijk} = (\text{composition})^{-1}$ pour avoir $d = 0$.
+
+\begin{proposition}
+Pour que $\Obs_{\mathcal{H}} = 0$, il faut et il suffit qu'il existe un morphisme de gerbes $\phi: \mathcal{G} \to \mathcal{H}$ donnant lieu \`a un isomorphisme fonctoriel et compatible \`a la localisation (A.7.1)
+\end{proposition}
+
+\begin{corollary}
+Si $X$ est paracompact et que, le lien form\'e par les $G_{Z}$ est mou,
+alors $\Obs_{\mathcal{H}} = 0$ si et seulement si la gerbe $\mathcal{H}$ admet un objet global.
+\end{corollary}
+
+\begin{proof}
+Si $\Obs_{\mathcal{H}} = 0$, la gerbe $\mathcal{H}$ est quotient d'une gerbe $\mathcal{G}$ \`a laquelle A.5 s'applique:
+$\mathcal{G}$, et donc $\mathcal{H}$, admet un objet global.
+
+R\'eciproquement, si $Z$ est un objet global de $\mathcal{H}$, on peut identifier $\mathcal{H}$ \`a la gerbe
+des $\Aut(Z)$-torseurs. Prendre pour $\mathcal{G}$ celle des $G_{Z}$-torseurs.
+\end{proof}
+
+\begin{thebibliography}{11}
+
+\bibitem{1}
+M.~De Wilde and P.B.A.~Lecomte. Existence of star-products on exact symplectic manifolds. \textit{Annales de l'Institut Fourier}, XXXV, 2 (1985), 117--143.
+
+\bibitem{2}
+M.~De Wilde and P.B.A.~Lecomte. Existence of star-products and of formal deformations in Poisson Lie algebra of arbitrary symplectic manifolds. \textit{Lett.\ Math.\ Phys.}, 7 (1983), 487--496.
+
+\bibitem{3}
+M.~De Wilde and P.B.A.~Lecomte. Existence of star-products revisited. Suppl.\ n.~1, \textit{Note di Mathematica}, X (1990), 205--216.
+
+\bibitem{4}
+B.V.~Fedosov. Formal quantization. in: \textit{Some topics of Modern Mathematics and their applications to problems of mathematical physics}, Moscow, 1985, pp.\ 129--136.
+
+\bibitem{5}
+B.V.~Fedosov. A simple geometrical construction of deformation quantization. \textit{J.\ Diff.\ Geom.}, 40 2 (1994), 213--238.
+
+\bibitem{6}
+J.~Giraud. \textit{Cohomologie non ab\'elienne}. Grundlehren 179, Springer-Verlag, 1971.
+
+\bibitem{7}
+R.~Godement. \textit{Th\'eorie des faisceaux}. Publ.\ Inst.\ Math.\ Univ.\ de Strasbourg, Paris: Hermann, 1985.
+
+\bibitem{8}
+O.M.~Neroslavsky et A.T.~Vlassov. Sur les d\'eformations de l'alg\'ebre des fonctions d'une vari\'et\'e symplectique. \textit{CR Acad.\ Sci.\ Paris}, 292 I (1981), 71--73.
+
+\bibitem{9}
+J.~Vey. D\'eformation du crochet de Poisson sur une vari\'et\'e symplectique. \textit{Comm.\ Math.\ Helv.}, 50 (1975), 421--454.
+
+\bibitem{10}
+A.~Weinstein. Deformation quantization. \textit{S\'eminaire Bourbaki} 789, (juin 1994), Ast\'erisque.
+
+\bibitem{11}
+SGA4. \textit{Th\'eorie des topos et cohomologie \'etale des sch\'emas}. S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1963/64, dirig\'e par M.~Artin, A.~Grothendieck, et J.~L.~Verdier: vol.~2: Lecture Notes in Math.\ 270, Springer-Verlag 1972.
+
+\end{thebibliography}
+
+\vspace{1cm}
+\noindent P.~Deligne
+
+\noindent School of Mathematics
+
+\noindent Institute for Advanced Study
+
+\noindent Princeton, NJ 08540, USA
+
+\noindent e-mail address: deligne@math.ias.edu
+
+\end{document}

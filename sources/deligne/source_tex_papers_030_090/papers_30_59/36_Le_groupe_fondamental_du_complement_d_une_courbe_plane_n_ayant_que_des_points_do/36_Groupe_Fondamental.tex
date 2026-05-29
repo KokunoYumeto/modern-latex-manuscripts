@@ -1,0 +1,392 @@
+% Séminaire BOURBAKI 32e année, 1979/80, n° 543
+% Novembre 1979
+% LE GROUPE FONDAMENTAL DU COMPLEMENT D'UNE COURBE PLANE
+% N'AYANT QUE DES POINTS DOUBLES ORDINAIRES EST ABELIEN
+% [d'après W. FULTON]
+% par Pierre DELIGNE
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm, amscd}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+
+% Custom counter for numbered statements within sections
+\newcounter{secitem}
+\renewcommand{\thesecitem}{\thesection.\arabic{secitem}}
+
+% Manual environments for section items
+\newenvironment{secassertion}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Assertion~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{secconjecture}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Conjecture~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{seclemma}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Lemme~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{sectheorem}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Théorème~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+\newenvironment{secproposition}{%
+  \refstepcounter{secitem}%
+  \par\medskip\noindent\textbf{Proposition~\thesecitem.}~\ignorespaces
+}{\par\medskip}
+
+% Main theorems with their own counter
+\newcounter{mainthm}
+\newenvironment{maintheorem}[1][]{%
+  \refstepcounter{mainthm}%
+  \par\medskip\noindent\textbf{THÉORÈME \themainthm#1.}~\ignorespaces
+}{\par\medskip}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Sing}{Sing}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Gr}{Gr}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5ex plus 0.2ex minus 0.1ex}
+
+\begin{center}
+\textbf{SÉMINAIRE BOURBAKI}\\
+\textbf{32e année, 1979/80, n° 543}\\
+\textbf{543-01}\\[1ex]
+Novembre 1979
+\end{center}
+
+\begin{center}
+\Large\bfseries
+LE GROUPE FONDAMENTAL DU COMPLEMENT\\
+D'UNE COURBE PLANE N'AYANT QUE DES POINTS\\
+DOUBLES ORDINAIRES EST ABÉLIEN
+\end{center}
+
+\begin{center}
+\textbf{[d'après W.\ FULTON]}\\[1ex]
+par Pierre DELIGNE
+\end{center}
+
+\section*{Introduction}
+
+\begin{maintheorem}
+Soit $C \subset \mathbb{P}^2(\mathbb{C})$ une courbe plane, dont les seules singularités sont des points doubles à tangentes distinctes. Alors, le groupe fondamental de $\mathbb{P}^2(\mathbb{C}) - C$ est abélien.
+\end{maintheorem}
+
+Ce théorème a été énoncé par Zariski en 1929 ([8]). Voir aussi [9] Ch.\ VIII. Sa démonstration utilisait le théorème de Severi, selon lequel l'espace des courbes planes irréductibles de degré donné, ayant un nombre donné de points doubles, est irréductible (Vorlesungen über algebraische Geometrie, 1921, Anhang F). On ignore toujours si l'assertion de Severi est vraie ou non.
+
+Le $\pi_1$ considéré dans le théorème est le vrai groupe fondamental, celui des topologues. Si $\mathbb{C}$ est remplacé par un corps algébriquement clos $k$ de caractéristique $0$ quelconque, le même énoncé vaut pour le groupe fondamental algébrique, celui qui classifie les revêtements étales : le principe de Lefschetz nous ramène à supposer que $k = \mathbb{C}$, auquel cas le groupe fondamental algébrique est le complété profini du vrai groupe fondamental.
+
+En caractéristique quelconque, on a la variante :
+
+\begin{maintheorem}[~(Fulton {[3]})]
+Soient $k$ un corps algébriquement clos et, sur $k$, $C \subset \mathbb{P}^2$ une courbe plane, dont les seules singularités sont des points doubles à tangentes distinctes. Alors, le groupe fondamental modéré de $\mathbb{P}^2 - C$ est abélien.
+\end{maintheorem}
+
+En d'autres termes, les revêtements (au sens 0.2) de $\mathbb{P}^2$, ramifiés seulement le long de $C$, et modérément ramifiés, sont abéliens. Rappelons que le caractère modéré de la ramification se teste après changement de base, de $\mathbb{P}^2$ à ses localisés en les points génériques des composantes irréductibles de $C$. Ces localisés sont des traits (= spectre d'anneau de valuation discrète).
+
+Supposons $k$ de caractéristique $p > 0$. Si $C$ est comme dans le théorème 2, il existe toujours dans l'espace projectif relatif $\mathbb{P}^2$ sur $\Spec(W(k))$ un diviseur à croisements normaux relatif $\mathcal{C}$, dont $C$ se déduise par passage à la fibre spéciale (voir par exemple Mumford, App.\ au chap.\ VIII de [9]). Ceci permet de déduire le théorème 2 du théorème 1 par un argument de spécialisation.
+
+\newpage
+\begin{flushright}
+\textbf{543-02}
+\end{flushright}
+
+Une fois que l'on sait que $\pi_1(\mathbb{P}^2(\mathbb{C}) - C)$ est abélien, des arguments homologiques donnent immédiatement sa structure : si $C$ est réunion de courbes irréductibles de degrés $d_1, \ldots, d_r$, le groupe $\pi_1(\mathbb{P}^2(\mathbb{C}) - C)$ est le quotient de $\mathbb{Z}^r$ par le sous-groupe engendré par l'élément $(d_1, \ldots, d_r)$.
+
+Dans sa démonstration du théorème 2, Fulton utilise d'une part des méthodes introduites par Abhyankar [1] pour prouver le cas particulier du théorème 2 où l'on suppose les composantes irréductibles de $C$ lisses --- méthodes dont un exposé très clair a été donné ici par Serre ([7]) --- d'autre part le théorème 3 ci-dessous. Une analyse de la démonstration a ensuite permis au rédacteur d'en donner une variante qui fournisse le théorème 1.
+
+Abhyankar et Fulton utilisent tous deux des instances du principe selon lequel, en géométrie algébrique, ce qui est très mobile est connexe. Soient $C \subset \mathbb{P}^2$ comme dans le théorème 2, $D$ une composante irréductible de $C$ et $f : X \to \mathbb{P}^2$ un revêtement ramifié seulement le long de $C$, et de ramification modérée. Puisque $D \subset \mathbb{P}^2$ est très mobile, $f^{-1}(D)$ est connexe. Plus précisément, le diviseur $D \subset \mathbb{P}^2$ est ample, le diviseur $f^{-1}(D) \subset X$ l'est donc aussi, puisque $f$ est fini, et on applique Bertini. Par une étude locale de $f$, Abhyankar montre que, si $D$ est lisse, alors $(f^{-1}(D))_{\mathrm{red}}$ l'est aussi, et conclut que $f^{-1}(D)$ est irréductible.
+
+Dans le cas général, soit $g : \widetilde{D} \to D$ le normalisé de $D$. La même étude locale montre que le produit fibré réduit $(X \times_{\mathbb{P}^2} \widetilde{D})_{\mathrm{red}}$ est lisse. C'est donc le normalisé de $f^{-1}(D)$. Si on peut montrer qu'il est connexe, on en déduira que $f^{-1}(D)$ est irréductible, et on peut recopier la fin de la démonstration d'Abhyankar, telle qu'elle figure dans [7].
+
+Rappelons la définition du produit fibré : si $h : X \times \widetilde{D} \to \mathbb{P}^2 \times \mathbb{P}^2$ est le produit des applications $f : X \to \mathbb{P}^2$ et $g : \widetilde{D} \to D \hookrightarrow \mathbb{P}^2$, le produit fibré $X \times_{\mathbb{P}^2} \widetilde{D}$ est l'image inverse $h^{-1}(\Delta)$ de la diagonale.
+
+Puisque $\mathbb{P}^2$ a beaucoup d'automorphismes, la diagonale $\Delta \subset \mathbb{P}^2 \times \mathbb{P}^2$ est très mobile, et $h^{-1}(\Delta)$ est connexe. Ceci termine la démonstration.
+
+Plus précisément, on applique à $h$ le cas particulier $r = 2$, $m = 2$ du théorème suivant :
+
+\begin{maintheorem}[~(W.\ Fulton et J.\ Hansen {[4]})]
+Soient $P = (\mathbb{P}^m)^r$ le produit de $r$ copies de l'espace projectif $\mathbb{P}^m$, $\delta$ l'application diagonale de $\mathbb{P}^m$ dans $P$, $\Delta = \delta(\mathbb{P}^m)$ la diagonale, $Z$ une variété complète irréductible, $h : Z \to P$, $n = \dim h(Z)$ et $c = (r-1)m$ la codimension de $\Delta$ dans $P$. Si $n - c \geq 1$, alors $h^{-1}(\Delta)$ est connexe.
+\end{maintheorem}
+
+Ce théorème a de nombreuses autres applications, pour lesquelles je renvoie à [4], et à l'article de T.\ Gaffney et R.\ Lazarsfeld [5].
+
+Dans la fin de cette introduction, nous expliquons sur un exemple la méthode suivie pour transposer la démonstration de Fulton du théorème 2 en une démonstration du théorème 1. L'exemple est : comment transposer les arguments d'Abhyankar pour prouver le théorème 1 dans le cas particulier où $C$ est lisse (donc irréductible).
+
+\newpage
+\begin{flushright}
+\textbf{543-03}
+\end{flushright}
+
+Soient $U$ un voisinage tubulaire de $C$ dans $\mathbb{P}^2(\mathbb{C})$, $U^* = U - C$ et $u \in U^*$. Pour tout revêtement $f : X \to \mathbb{P}^2(\mathbb{C})$ ramifié seulement le long de $C$, on a
+\[
+(f^{-1}(C) \text{ connexe}) \Longleftrightarrow (f^{-1}(U) \text{ connexe}) \Longleftrightarrow (f^{-1}(U^*) \text{ connexe}).
+\]
+Le résultat clef : quel que soit le revêtement $X$, la courbe $f^{-1}(C)$ est connexe, équivaut donc à celui-ci : pour tout quotient fini $H$ de $\pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$, le morphisme composé
+\[
+\pi_1(U^*, u) \xrightarrow{j_*} \pi_1(\mathbb{P}^2(\mathbb{C}) - C, u) \twoheadrightarrow H
+\]
+est surjectif. Un argument de théorie de Morse permet de prouver mieux : la surjectivité du morphisme $j_* : \pi_1(U^*, u) \to \pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$.
+
+Une métrique riemannienne étant choisie sur $\mathbb{P}^2(\mathbb{C})$, on peut, pour $\varepsilon > 0$ assez petit, prendre pour $U$ l'image par l'application exponentielle $\exp$ du sous-fibré en boules de rayon $\varepsilon$ du fibré normal de $C$ dans $\mathbb{P}^2(\mathbb{C})$. Pour $\varepsilon$ assez petit, $\exp$ identifie $U^*$ à un fibré en disques épointés orientés sur $C$, d'où une suite exacte :
+\[
+1 \longrightarrow \pi_1(U^*_u) \longrightarrow \pi_1(U^*, u) \xrightarrow{\;q_*\;} \pi_1(C, \bar{u}) \longrightarrow 1
+\]
+($\bar{u}$ image de $u$). L'image de $\pi_1(U^*_u)$ est centrale ; celle de $1 \in \pi_1(U^*_u) \cong \mathbb{Z}$ est représentée par un petit lacet $\gamma$ tournant une fois, dans le sens positif, autour de $C$.
+
+Puisque $j_*$ est surjectif, $\gamma$ définit encore un élément central de $\pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$. Le quotient de $\pi_1(\mathbb{P}^2(\mathbb{C}) - C, u)$ par le sous-groupe distingué engendré par $\gamma$ (en l'occurrence, le sous-groupe cyclique engendré par $\gamma$) est $\pi_1(\mathbb{P}^2(\mathbb{C}), u) = \{e\}$ et le cas particulier considéré du théorème s'ensuit.
+
+\section*{0.\ Terminologie}
+
+\textbf{0.1.} Connexe signifie connexe et non vide. De même pour irréductible.
+
+\textbf{0.2.} Un revêtement d'un schéma $S$, supposé normal et connexe, est un morphisme $f : T \to S$, de source $T$ normale et connexe, dont la restriction à un ouvert dense de $T$ est étale.
+
+\textbf{0.3.} Dans toute la suite de cet exposé, nous nous plaçons sur $\mathbb{C}$. Nous écrirons simplement $\mathbb{P}^n$ pour $\mathbb{P}^n(\mathbb{C})$. Les schémas considérés sont tous supposés séparés.
+
+\newpage
+\begin{flushright}
+\textbf{543-04}
+\end{flushright}
+
+\section{Théorèmes du type de Lefschetz et Bertini}
+\setcounter{secitem}{0}
+
+Le cas particulier de 1.1, ci-dessous, où $Z \subset \mathbb{P}^n$ est le complément d'une hypersurface est démontré par Hamm et Lê [6], à l'aide de la théorie de Morse. Notre but dans ce \S\ est d'en déduire la variante 1.6 du théorème 3.
+
+\begin{secassertion}
+Soit $Z \subset \mathbb{P}^n$ un ouvert de Zariski non vide. Si $H$ est un hyperplan général, le morphisme naturel $\pi_i(Z \cap H) \to \pi_i(Z)$ est bijectif pour $i < n-1$, et surjectif pour $i = n-1$.
+\end{secassertion}
+
+L'assertion 1.1 est énoncée dans [2], mais la démonstration de Cheniot ne couvre que le cas où le complément de $Z$ est de codimension $\geq 2$. Sous cette hypothèse, $Z$ et $Z \cap H$ sont simplement connexes, et il est innocent de travailler, comme il le fait, avec les $H_i$ plutôt qu'avec les $\pi_i$. Le cas $i = 1$ peut aussi se déduire de Lê ou [2 bis].
+
+Rappelons que l'adjectif ``général'', qualifiant un élément $H$ d'une variété algébrique irréductible $S$ (ici, l'espace projectif dual $\check{\mathbb{P}}^n$), est un quantificateur. Il signifie l'existence d'un ouvert de Zariski non vide (et donc dense) $S'$ de $S$, tel que pour tout $H$ dans $S'$, \ldots
+
+\textbf{1.2.} Soit $Y \subset \mathbb{P}^n \times \check{\mathbb{P}}^n$ l'espace des couples $(z, H)$ tels que $z \in Z$ et $z \in H$. Le théorème d'isotopie, appliqué à la seconde projection $\pr_2 : Y \to \check{\mathbb{P}}^n$, fournit l'existence d'un ouvert de Zariski non vide $U$ de $\check{\mathbb{P}}^n$, au-dessus duquel $Y$ est un espace fibré --- topologiquement localement trivial. Il suffit de prendre pour $U$ l'ensemble des hyperplans transverses aux strates d'une stratification de Whitney algébrique du complément de $Z$ dans $\mathbb{P}^n$. Localement sur $U$ et si on choisit une trivialisation locale de ce fibré, l'inclusion de $Z \cap H = \pr_2^{-1}(\{H\})$ dans $Z$ apparaît comme une application dépendant continûment de $H$ d'un espace fixe dans $Z$. La conclusion de 1.1 ne peut donc valoir pour un $H$ dans $U$ que si elle vaut pour tous, et 1.1 équivaut à dire qu'elle vaut pour tout $H$ dans $U$.
+
+Supposons que $Z$ dépende de paramètres : on se donne un schéma irréductible $S$, un ouvert $\mathcal{Z}$ de $S \times \mathbb{P}^n$ ; on pose $\pr_2\pr_1^{-1}(\{s\}) = Z(s)$ et on suppose chaque $Z(s)$ non vide. Soit $\mathcal{Y} \subset S \times \mathbb{P}^n \times \check{\mathbb{P}}^n$ l'espace des triples $(s, z, H)$ tels que $z \in Z(s)$ et $z \in H$. Le théorème d'isotopie, appliqué à la projection de $\mathcal{Y}$ sur $S \times \check{\mathbb{P}}^n$ (resp.\ de $\mathcal{Z}$ sur $S$), fournit l'existence d'un ouvert de Zariski non vide $U$ de $S \times \check{\mathbb{P}}^n$ (resp.\ $V$ de $S$), au-dessus duquel $\mathcal{Y}$ (resp.\ $\mathcal{Z}$) est un espace fibré --- topologiquement localement trivial.
+
+Comme ci-dessus, si $s \in V$ et que $(s, H) \in U$, la conclusion de 1.1 vaut pour $Z(s)$ et $H$. Cette variante --- avec paramètres --- de 1.1 sera utilisée implicitement dans la preuve de 1.4.
+
+\newpage
+\begin{flushright}
+\textbf{543-05}
+\end{flushright}
+
+\setcounter{secitem}{2}
+\begin{secconjecture}
+Soient $Z$ lisse et connexe de dimension $n$, $f : Z \to \mathbb{P}^N$ un morphisme à fibres finies, $c$ un entier, $L$ un sous-espace linéaire de $\mathbb{P}^N$ de codimension $c$ et $n^* = n - c$. Choisissons une métrique riemannienne sur $\mathbb{P}^N$, et soit $V(\varepsilon)$ l'ensemble des points $p$ de $\mathbb{P}^N$ tels que $d(p, L) < \varepsilon$. Alors, pour $\varepsilon$ assez petit, le morphisme naturel
+\[
+\pi_i(f^{-1}(V(\varepsilon))) \longrightarrow \pi_i(Z)
+\]
+est bijectif pour $i < n^*$, et surjectif pour $i = n^*$.
+\end{secconjecture}
+
+On notera que pour $L$ général, l'inclusion de $f^{-1}(L)$ dans $f^{-1}(V(\varepsilon))$ est, pour $\varepsilon$ assez petit, une équivalence d'homotopie : 1.3 est bien une généralisation de 1.1.
+
+Si on ne suppose plus $f$ quasi-fini, et que l'ensemble des points de $\mathbb{P}^N$ où la fibre de $f$ est de dimension $k$ est de dimension $g(k)$, il y a lieu de redéfinir $n^*$ comme étant
+\[
+n^* = 2\dim Z - \sup_k(2k + g(k) + \inf(g(k), c-1)) - 1.
+\]
+La conjecture 1.3 devrait par ailleurs se déduire d'un énoncé plus précis, comme quoi $Z$ se déduit de $f^{-1}(V(\varepsilon))$ par adjonction d'anses tuant des sphères de dimension $> n^*$.
+
+Nous nous contenterons de résultats plus faibles que 1.3. Nous les déduirons du cas particulier de 1.1 où $Z$ est le complément d'une hypersurface.
+
+\begin{seclemma}
+Soient $Z$ normal et connexe, $f : Z \to \mathbb{P}^N$ un morphisme, $n$ la dimension de $f(Z)$ et $c$ un entier. On suppose que $n - c \geq 1$. Si $L$ est un sous-espace linéaire de codimension $c$ général de $\mathbb{P}^N$, alors $f^{-1}(L)$ est connexe et, pour $z \in f^{-1}(L)$, le morphisme naturel de $\pi_1(f^{-1}(L), z)$ dans $\pi_1(Z, z)$ est surjectif.
+\end{seclemma}
+
+Il est loisible de remplacer $Z$ par un ouvert de Zariski non vide $Z'$ : pour $L$ général, $f^{-1}(L)$ est encore normal, et $Z'$ (resp.\ $Z' \cap f^{-1}(L)$) se déduit de $Z$ (resp.\ $f^{-1}(L)$) par soustraction d'une partie algébrique d'intérieur vide. Vu l'hypothèse de normalité, ceci ne change pas les $\pi_1$ et on peut supposer, et on suppose, que $Z$ est lisse. Le lecteur intéressé seulement par la preuve du théorème 1 aurait d'ailleurs pu le supposer d'emblée ; il remplacera ``normal'' par ``lisse'' dans la suite du \S.
+
+Rétrécissant $Z$, on peut supposer, et on suppose, que $f(Z)$ est localement fermé et que $Z$ est un espace fibré --- topologiquement localement trivial --- sur $f(Z)$.
+
+Si $c = 1$ et que $f$ est dominant, $f(Z)$ est un ouvert de Zariski de $\mathbb{P}^N$ --- rétrécissant $Z$, on peut supposer que c'est le complément d'une hypersurface --- et il ne reste qu'à appliquer 1.1 à $f(Z)$, et à comparer les suites exactes longues d'homotopie pour $Z \to f(Z)$ et $f^{-1}(L) \to L \cap f(Z)$.
+
+Continuons à supposer que $c = 1$. Si $f$ n'est pas dominant, soient $A$ un sous-espace linéaire de dimension $N - n - 1$, $B$ l'espace projectif des sous-espaces linéaires de dimension $N - n$ contenant $A$ et $q : \mathbb{P}^N - A \to B : x \mapsto$ le sous-espace le contenant. Pour $A$ disjoint de $f(Z)$, la restriction de $q$ à $f(Z)$ est un morphisme fini, donc dominant puisque $\dim f(Z) = \dim B$, et $qf : Z \to B$ est dominant. Du lemme, appliqué à $qf$ et à $c = 1$, on déduit la conclusion du lemme pour $L$ un hyperplan général parmi ceux contenant $A$. Le sous-espace $A$ étant seulement assujetti à se trouver dans un ouvert dense d'une grassmannienne convenable, la conclusion du lemme vaut aussi pour $L$ général (cf.\ 1.2).
+
+On finit la démonstration par une récurrence sur $c$ : un sous-espace linéaire général de codimension $c - 1$ d'un hyperplan général est un sous-espace linéaire de codimension $c$ général (cf.\ 1.2).
+
+\newpage
+\begin{flushright}
+\textbf{543-06}
+\end{flushright}
+
+\begin{seclemma}
+Soient $Z$, $f$, $n$ et $c$ comme en 1.4. Tout sous-espace linéaire $L$ de $\mathbb{P}^N$ de codimension $c$ admet un système fondamental de voisinages ouverts $V$ tels que $f^{-1}(V)$ soit connexe, et que, pour $z \in f^{-1}(V)$, le morphisme naturel de $\pi_1(f^{-1}(V), z)$ dans $\pi_1(Z, z)$ soit surjectif.
+\end{seclemma}
+
+Soient $\Gr$ la grassmannienne des sous-espaces linéaires de codimension $c$ de $\mathbb{P}^N$, $\mathcal{Y} \subset Z \times \Gr$ l'ensemble des couples $(z, L)$ tels que $f(z) \in L$, et $G$ un ouvert de Zariski non vide de $\Gr$ tel que, au-dessus de $G$, $\mathcal{Y}$ soit un fibré --- topologiquement localement trivial. La conclusion de 1.4 vaut alors pour $L \in G$ (cf.\ 1.2).
+
+Pour chaque ouvert $U$ de $\Gr$, nous noterons $U^*$ l'ouvert de $\mathbb{P}^N$ réunion des $L \in U$. Nous allons prouver que si $U$ est connexe, la conclusion de 1.5 vaut pour $V = U^*$. Le lemme en suivra.
+
+Prouvons que, si $U$ est connexe, $f^{-1}(U^*)$ l'est aussi. L'intersection $U' = U \cap G$ est connexe, car déduite de $U$ par soustraction d'une partie (triangulable) de codimension réelle $\geq 2$. D'après 1.4, la réunion $f^{-1}(U'^*)$ des $f^{-1}(L)$ pour $L \in U'$ est donc connexe. Nous allons montrer qu'elle est dense dans $f^{-1}(U^*)$.
+
+L'image $f(Z)$ de $Z$ n'est pas dans le complément $F$ de $G^*$ : puisque $n - c > 0$, les $L \in G$ rencontrent $f(Z)$. Si $z \in Z$, l'image d'un quelconque voisinage de $z$ n'est pas dans $F$, sinon celle de $Z$ le serait, par prolongement analytique. Si $z \in f^{-1}(U^*)$, il existe donc arbitrairement près un point $z'$ tel que $f(z') \in G^*$. Dans l'ensemble des $L \in \Gr$ contenant $z'$, la trace de $G$ est dense, puisque non vide. Si $z \in f^{-1}(L)$, avec $L \in U$, ceci permet de trouver $z'$ comme ci-dessus, contenu dans un $f^{-1}(L')$, avec $L'$ dans $G$ arbitrairement proche de $L$. En particulier, on peut prendre $L' \in U'$, auquel cas $z' \in f^{-1}(U'^*)$. Ceci prouve la densité de $f^{-1}(U'^*)$ dans $f^{-1}(U^*)$, et la connexité de $f^{-1}(U^*)$.
+
+Soit enfin $L \in U'$. On a $f^{-1}(L) \subset f^{-1}(U^*) \subset Z$. D'après 1.4, le $\pi_1$ de $f^{-1}(L)$ s'envoie sur celui de $Z$. A fortiori celui de $f^{-1}(U^*)$.
+
+Nous allons en déduire une variante du théorème 3.
+
+\newpage
+\begin{flushright}
+\textbf{543-07}
+\end{flushright}
+
+\begin{sectheorem}
+Soient $P = (\mathbb{P}^m)^r$ le produit de $r$ copies de l'espace projectif $\mathbb{P}^m$, $\delta$ l'application diagonale de $\mathbb{P}^m$ dans $P$, $\Delta = \delta(\mathbb{P}^m)$ la diagonale, $Z$ normal et connexe, $h : Z \to P$, $n = \dim h(Z)$ et $c = (r-1)m$ la codimension de $\Delta$ dans $P$. Si $n - c \geq 1$, $\Delta$ admet un système fondamental de voisinages ouverts $V$, tels que $h^{-1}(V)$ soit connexe. Si $h^{-1}(V)$ est connexe, et que $z \in h^{-1}(V)$, le morphisme naturel de $\pi_1(h^{-1}(V), z)$ dans $\pi_1(Z, z)$ est surjectif.
+\end{sectheorem}
+
+Comme en 1.4, il est loisible de rétrécir $Z$, et en particulier de supposer $Z$ lisse. Supposons-le.
+
+Soit $(H_\alpha)_{\alpha \in A}$ une famille d'hyperplans de $\mathbb{P}^m$, telle que
+\begin{enumerate}[label=\alph*)]
+\item l'intersection des $H_\alpha$ est vide : dans un système de coordonnées projectives convenable $(X_\alpha)_{\alpha \in A}$, ils s'écrivent $X_\alpha = 0$ ;
+\item $h(Z)$ n'est contenu dans aucun des $\pr_\alpha^{-1}(H_\alpha)$. Rétrécissant $Z$, on peut alors --- et on suppose --- que $h(Z)$ est disjoint des $\pr_\alpha^{-1}(H_\alpha)$.
+\item $h(Z) \cap \Delta$ n'est pas contenu dans la réunion des $\delta(H_\alpha)$ : puisque $\delta(\mathbb{P}^m)$ est membre d'une famille connexe de cycles remplissant $P$ tout entier, on a $h(Z) \cap \Delta \neq \varnothing$, et il est possible de choisir des $H_\alpha$ vérifiant c).
+\end{enumerate}
+
+Soient $A_\alpha = \mathbb{P}^m - H_\alpha \subset \mathbb{P}^m$ et $\Delta_\alpha = \delta(A_\alpha)$ la diagonale de $B_\alpha = A_\alpha^r \subset P$. Les espaces $A_\alpha$ et $B_\alpha$ sont des espaces affines et $\Delta_\alpha$ est un sous-espace affine de $B_\alpha$. La complétion projective de $A_\alpha$ est $\mathbb{P}^m$. Notons $\widehat{B}_\alpha$ celle de $B_\alpha$, et $\widehat{\Delta}_\alpha$ celle de $\Delta_\alpha$.
+
+Fixons $\alpha$, et écrivons simplement $H$, $A$, $B$, $\Delta_B$, $\widehat{\Delta}$, $\widehat{B}$ pour $H_\alpha$, $A_\alpha$, $B_\alpha$, $\Delta_\alpha$, $\widehat{\Delta}_\alpha$ et $\widehat{B}_\alpha$.
+
+\begin{seclemma}
+Pour tout voisinage $U$ de $\widehat{\Delta}$ dans $\widehat{B}$, il existe un voisinage $V$ de $\widehat{\Delta}_A$ dans $\widehat{B}$ tel que $V \cap B \subset U \cap B$.
+\end{seclemma}
+
+Choisissons sur $A$ une structure d'espace vectoriel hermitien, compatible à sa structure affine. Un système fondamental de voisinages $U$ de $\widehat{\Delta}$ (resp.\ $V$ de $\widehat{\Delta}_A$) admet alors pour trace sur $B$ les ensembles de la forme suivante :
+\begin{multline*}
+U \cap B = \{(x_i) \mid \text{Si } |x_i| \leq R \text{ pour un } i, \text{ on a } \forall j\, \forall k\, |x_j - x_k| \leq \varepsilon \text{ ;} \\
+\text{si les } |x_i| \text{ sont } > R \text{, on a } \forall j\, \forall k\, \text{l'angle entre les droites} \\
+\text{complexes engendrées par } x_j \text{ et } x_k \text{ est } < \varepsilon\}
+\end{multline*}
+\begin{multline*}
+V \cap B = \{(x_i) \mid \text{Si } |x_i| \leq R \text{ pour un } i, \text{ on a } \forall j\, \forall k\, |x_j - x_k| < \varepsilon \text{ ;} \\
+\text{si les } |x_i| \text{ sont } > R \text{, on a } \forall j\, \forall k\, |x_j - x_k| < \inf(|x_i|)\}
+\end{multline*}
+
+Le lemme en résulte.
+
+Dans le cas où $r = m = 1$, les deux compactifications $\mathbb{P}^1 \times \mathbb{P}^1$ et $\mathbb{P}^2$ de $\mathbb{A}^2$ sont coiffées par une troisième comme suit : le dessin représente le lieu à l'infini, et la diagonale ; les points entourés sont ceux qu'il faut éclater pour obtenir la troisième compactification ; $U$ et $V$ sont suggérés par les pointillés :
+
+\newpage
+\begin{flushright}
+\textbf{543-08}
+\end{flushright}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[thick] (0,0) -- (4,0);
+\draw[thick] (0,0) -- (0,4);
+\draw[thick] (4,0) -- (4,4);
+\draw[thick] (0,4) -- (4,4);
+\draw[thick,dashed] (0,0) -- (4,4);
+\node at (-0.3,-0.3) {$\infty \times \infty$};
+\node at (4.3,-0.3) {$0 \times \infty$};
+\node at (-0.3,4.3) {$\infty \times 0$};
+\node at (4.7,4.3) {$0 \times 0$};
+\node at (2,-0.5) {$\mathbb{P}^1 \times \{\infty\}$};
+\node at (-0.7,2) {$\{\infty\} \times \mathbb{P}^1$};
+\draw (0,0) circle (3pt);
+\draw (4,4) circle (3pt);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[scale=0.8]
+\draw[thick] (0,0) -- (4,0) -- (2,3.464) -- cycle;
+\draw[thick,dashed] (2,0) -- (2,3.464);
+\draw (0,0) circle (3pt);
+\draw (4,0) circle (3pt);
+\draw (2,3.464) circle (3pt);
+\node at (2,-0.5) {$\mathbb{P}^1$};
+\end{tikzpicture}
+\end{center}
+
+Une construction similaire peut être faite pour $r$ et $m$ quelconques.
+
+Reprenons la preuve de 1.6. Appliquons 1.5 à $h : Z \to \widehat{B}_\alpha$ et $\widehat{\Delta}_\alpha \subset \widehat{B}_\alpha$. On trouve que $\widehat{\Delta}_\alpha$ admet un voisinage ouvert arbitrairement petit $V_\alpha$ tel que $h^{-1}(V_\alpha) = h^{-1}(V_\alpha \cap B_\alpha)$ soit connexe, de $\pi_1$ s'envoyant sur celui de $Z$. D'après 1.7, quel que soit le voisinage $U_\alpha$ de $\widehat{\Delta}$ dans $\widehat{B}_\alpha$, on peut prendre $V_\alpha$ tel que $V_\alpha \cap B_\alpha \subset U_\alpha$.
+
+La réunion $\mathcal{V}$ des ouverts $V_\alpha \cap B_\alpha$ de $P$ est un voisinage, arbitrairement petit de $\Delta$. L'hypothèse b) sur les $H_\alpha$ assure que l'intersection des $V_\alpha \cap B_\alpha$ rencontre $h(Z)$. Dès lors, $h^{-1}(\mathcal{V})$, réunion des ouverts connexes $h^{-1}(V_\alpha)$, d'intersection non vide, est connexe. Puisque le $\pi_1$ de l'un des $h^{-1}(V_\alpha)$ s'envoie sur celui de $Z$, a fortiori celui de $h^{-1}(\mathcal{V})$, et ceci achève la démonstration.
+
+\newpage
+\begin{flushright}
+\textbf{543-09}
+\end{flushright}
+
+\section{Preuve du théorème 1}
+\setcounter{secitem}{0}
+
+\textbf{2.1.} Soient $C \subset \mathbb{P}^2$ une courbe plane réduite, $D$ une composante irréductible de $C$, $C' = (C - D)$ la réunion des autres composantes, $\Sing(C)$ l'ensemble des points singuliers de $C$ et $D^* = D - \Sing(C)$. Choisissons un point base $O \in \mathbb{P}^2 - C$, et soit $\gamma$ un lacet dans $\mathbb{P}^2 - C$ du type suivant : $\gamma$ va de $O$ à un point $p'$ proche d'un point $p$ de $D^*$ par un chemin $\mathrm{ch}$, tourne une fois autour de $D^*$ dans le sens positif, et revient à $O$ par $\mathrm{ch}^{-1}$. La courbe $D^*$ étant connexe, les lacets de ce type sont tous conjugués entre eux. Le quotient de $\pi_1(\mathbb{P}^2 - C, O)$ par le sous-groupe distingué qu'ils engendrent est $\pi_1(\mathbb{P}^2 - C')$.
+
+\setcounter{secitem}{1}
+\begin{secproposition}
+Supposons que ceux des points singuliers de $C$ qui sont sur $D$ sont des points doubles à tangentes distinctes. Alors, $\gamma$ est central dans $\pi_1(\mathbb{P}^2 - C, O)$.
+\end{secproposition}
+
+Soient $j$ l'inclusion de $\mathbb{P}^2 - C$ dans $\mathbb{P}^2 - C'$, $g : \widetilde{D} \to D$ la normalisée de $D$ et appliquons 1.6 à $h = j \times g : (\mathbb{P}^2 - C) \times \widetilde{D} \to \mathbb{P}^2 \times \mathbb{P}^2$. Pour présenter commodément l'image inverse de certains voisinages de la diagonale, nous choisissons sur $\mathbb{P}^2$ une structure riemannienne telle que, au voisinage de chaque point $P \in D \cap \Sing(C)$, soit euclidien, et que les deux branches de $C$ par $P$ soient des 2-plans (rèels) orthogonaux.
+
+Si $(u, v) \in (\mathbb{P}^2 - C) \times \widetilde{D}$ est dans l'image inverse d'un voisinage assez petit de la diagonale, i.e.\ si $u$ et $v$ sont assez proches, le point $u$ est près de $D$, et on peut abaisser une courte perpendiculaire de $u$ sur $D$. Pour $u$ près de $\Sing(D)$, on en a même deux, une par branche. On choisit celle dont le pied $\xi$ est proche de $v$ sur $\widetilde{D}$ :
+
+Le point $u$ est dans $D^*$. Réciproquement, soient $\varepsilon > 0$ assez petit, $q : U^* \to D^*$ le sous-fibré en disques épointés du fibré normal de $D^*$ dans $\mathbb{P}^2$ formé des vecteurs normaux non nuls de longueur $< \varepsilon$, et $E$ l'ensemble des couples $(x, v)$ avec $x \in U^*$, $v \in \widetilde{D}$ et $d(q(x), v) < \varepsilon$ (distance calculée sur $\widetilde{D}$). L'application $\pr_1 : E \to U^*$ est une équivalence d'homotopie et admet pour section l'espace des $(x, q(x))$. L'application $\exp : (x, v) \mapsto (\exp(x), v)$ de $E$ dans $(\mathbb{P}^2 - C) \times \widetilde{D}$ identifie $E$ à l'image inverse d'un voisinage de $\Delta$, et, pour $\varepsilon \to 0$, on obtient les images inverses d'un système fondamental de voisinage.
+
+Appliquant 1.6, on trouve que, quel que soit $O \in U^*$, $\exp$ et $q$ induisent une surjection
+\[
+(\exp, q)_* : \pi_1(U^*, O) \twoheadrightarrow \pi_1(\mathbb{P}^2 - C, \exp(O)) \times \pi_1(\widetilde{D}, q(O)).
+\]
+On dispose d'une suite exacte d'homotopie
+\[
+1 \longrightarrow \pi_1(U^*_O) \longrightarrow \pi_1(U^*, O) \xrightarrow{\;q_*\;} \pi_1(D^*, q(O)) \longrightarrow 1.
+\]
+L'image de $\pi_1(U^*_O)$ est centrale ; celle de $1 \in \pi_1(U^*_O) \cong \mathbb{Z}$ est représentée par un petit lacet tournant une fois, dans le sens positif, autour de $D^*$. Puisque $(\exp, q)_*$, donc $\exp_* : \pi_1(U^*, O) \to \pi_1(\mathbb{P}^2 - C, \exp(O))$ est surjectif, ce lacet définit encore un élément central de $\pi_1(\mathbb{P}^2 - C, \exp(O))$. C'est $\gamma$.
+
+\newpage
+\begin{flushright}
+\textbf{543-10}
+\end{flushright}
+
+\textbf{2.3 Preuve du théorème 1 :} Pour chaque composante irréductible $D$ de $C$, soit $\gamma(D)$ l'élément central correspondant de $\pi_1(\mathbb{P}^2 - C, O)$. Le quotient de $\pi_1(\mathbb{P}^2 - C, O)$ par le sous-groupe --- central --- engendré par les $\gamma(D)$ est $\pi_1(\mathbb{P}^2, O) = \{e\}$. Le théorème en résulte.
+
+\section*{Bibliographie}
+
+\begin{enumerate}[label={[\arabic*]}]
+\item S.\ ABHYANKAR --- ``Tame coverings and fundamental groups of algebraic varieties'', \textit{Amer.\ J.\ of Math.}, 81 (1959), 46--94.
+\item D.\ CHENIOT --- ``Un théorème du type de Lefschetz'', \textit{Annales de l'Institut Fourier}, 25 1 (1975), 195--213.
+\item[{$[2$ bis$]$}] D.\ CHENIOT --- ``Une démonstration du théorème de Zariski sur les sections hyperplanes d'une hypersurface projective et du théorème de Van Kampen sur le groupe fondamental du complémentaire d'une courbe plane'', \textit{comp.\ Math.}, 27 2 (1973), 141--158.
+\item W.\ FULTON --- ``On the fundamental group of the complement of a node curve'', \textit{Ann.\ of Math.}, 111 2 (1980), 407--409.
+\item W.\ FULTON and J.\ HANSEN --- ``A connectedness theorem for projective varieties, with applications to intersections and singularities of mappings'', \textit{Ann.\ of Math.}, 109 1 (1979), 159--166.
+\item T.\ GAFFNEY and R.\ LAZARSFELD --- ``On the ramification of branched coverings of $\mathbb{P}^n$'', \textit{Inv.\ Math.}, 59 1 (1980), 53--58.
+\item H.\ HAMM et LÊ DUNG TRANG --- ``Un théorème de Zariski du type de Lefschetz'', \textit{Ann.\ Sci.\ E.N.S.}, 6 3 (1973), 317--366.
+\item J.-P.\ SERRE --- ``Revêtements ramifiés du plan projectif (d'après S.\ Abhyankar)'', séminaire Bourbaki 204, mai 1960.
+\item O.\ ZARISKI --- ``On the problem of existence of algebraic functions of two variables possessing a given branch curve'', \textit{Amer.\ J.\ of Math.}, 51 (1929), 305--328.
+\item[{$[9]$}] O.\ ZARISKI --- \textit{Algebraic surfaces}, second supplemented edition, Ergebnisse 61, Springer-Verlag.
+\end{enumerate}
+
+\vspace{1ex}
+\textit{Je viens (1/10/80) de recevoir un très bel exposé, faisant le point sur les méthodes étudiées ici, leurs variantes et leurs nombreuses applications : W.\ FULTON and R.\ LAZARSFELD --- ``Connectivity and its applications in algebraic geometry''.}
+
+\vspace{2ex}
+\begin{flushright}
+\textbf{Pierre DELIGNE}
+
+Institut des Hautes Études Scientifiques
+
+35 route de Chartres
+
+F-91440 BURES-SUR-YVETTE
+\end{flushright}
+
+\end{document}
