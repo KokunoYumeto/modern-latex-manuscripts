@@ -1,0 +1,1238 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\codim}{codim}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\wt}[1]{\widetilde{#1}}
+\providecommand{\Cons}{\operatorname{Cons}}
+\providecommand{\Hh}{\mathrm{H}}
+\providecommand{\uH}{\underline{\mathrm H}}
+\providecommand{\uExt}{\underline{\Ext}}
+\providecommand{\qedtext}{\hfill$\square$}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\NN}{\mathbb{N}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\car}{\operatorname{car}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\car}{\operatorname{car}}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{SGA 5 --- Exposé I}}\\[0.4em]
+{\large \textbf{COMPLEXES DUALISANTS}}\\[0.3em]
+par A.~Grothendieck\\
+(rédaction de L.~Illusie)
+\end{center}
+
+\section*{Introduction}
+
+Cet exposé est consacré au théorème de bidualité en cohomologie étale. La théorie développée ici et dans SGA~A~XVIII (SGA~A = SGA~4), pour la topologie étale et les faisceaux constructibles de torsion sur les préschémas, est formellement très analogue à celle développée dans HARTSHORNE~[H] pour la topologie de Zariski et les faisceaux cohérents: cette dernière lui a, dans une très large mesure, servi de modèle. Mais, tandis que dans le cas des coefficients ``continus'' l'existence de complexes dualisants ne présente pas de difficultés, dans le cas des coefficients ``discrets'', en revanche, elle est beaucoup plus délicate à prouver, et il semble qu'elle requière de façon essentielle la résolution des singularités. Voir cependant le théorème de bidualité de Deligne (SGA~$4^{1/2}$~Th.~finitude~4.3.).
+
+Le paragraphe~1 contient la définition des complexes dualisants et les propriétés formelles qui en découlent, notamment l'interprétation des foncteurs dualisants comme ``échangeurs de foncteurs''.
+
+Dans le paragraphe~2, on montre que, sur un préschéma localement noethérien connexe, un complexe dualisant est déterminé de manière unique, à translation près des degrés et tensorisation par un faisceau inversible.
+
+Dans le paragraphe~3, on en vient au théorème central de l'exposé (3.4.1.), qui assure que, sur un ``bon'' préschéma régulier $X$, par exemple un excellent préschéma noethérien régulier de caractéristique nulle\footnote{Cette dernière restriction sera inutile une fois qu'on disposera de la résolution des singularités à la Hironaka pour ces derniers, et du ``théorème de pureté''.}, le complexe $(\Z/n\Z)_X$ est dualisant.
+
+Le paragraphe~4 donne les applications de la théorie au théorème de dualité locale. Ce dernier exprime que l'on a, sur un ``bon'' préschéma $X$ muni d'un point fermé $x$ de corps résiduel séparablement clos, et pour un faisceau constructible $F$, un accouplement parfait entre $\underline{\H}^i_x(F')$ et $\underline{\H}^{-i}_x(F)$, où $F'$ est le dual de $F$, i.e.\ $F' = \R\,\underline{\Hom}(F,K_X)$, où $K_X$ est un complexe dualisant.
+
+Enfin, dans le paragraphe~5, on prouve directement que sur un préschéma régulier de dimension~1 le complexe $(\Z/n\Z)_X$ est dualisant ($n$ premier aux caractéristiques résiduelles).
+
+\section{Définition et propriétés formelles des complexes dualisants}
+
+On se fixe un anneau de coefficients $A = \Z/n\Z$. Si $X$ est un préschéma, on note $A_X$ le faisceau constant sur $X_{\mathrm{\acute{e}t}}$ de valeur $A$, et $\D(X)$ la catégorie dérivée de celle des $A_X$-Modules. On note d'autre part $\D_c(X)$ la sous-catégorie triangulée pleine de $\D(X)$ formée des complexes $F$ tels que $\H^i(F)$ soit un $A_X$-Module constructible pour tout $i$. On pose $\D_c^{*}(X) = \D^{*}(X) \cap \D_c(X)$, où $* = \varnothing$, $+$, $-$, ou $b$.
+
+\subsection*{Définition 1.1}
+On dit qu'un $A_X$-Module $I$ est \emph{quasi-injectif} si l'on a
+\[
+\underline{\Ext}^i(F,I) = 0
+\]
+pour tout $A_X$-Module \emph{constructible} $F$ et tout $i > 0$.
+
+\subsection*{Remarques 1.2}
+\begin{enumerate}[label=\alph*)]
+\item Contrairement à ce qui se passe dans le cas des coefficients ``continus'' (cf.~[H]~II.7.17), un faisceau quasi-injectif n'est pas en général injectif. Soit par exemple $X = \Spec(\R)$, $A = \Z/2\Z$ : le faisceau $A_X$ est quasi-injectif, mais n'est pas injectif, ni même de dimension injective finie, puisque $\H^{*}(X; A_X) = \H^{*}(\Z/2\Z; \Z/2\Z)$ est une algèbre de polynômes à un générateur de dimension~1.
+
+\item Soit $I$ un $A_X$-Module quasi-injectif. Il est faux en général que la relation $\underline{\Ext}^i(F,I) = 0$ pour $i > 0$, valable pour $F$ constructible, soit valable pour tout $F$. Prenons en effet $A = \F_{\ell}$. Soient $k$ un corps, $\ol{k}$ une clôture séparable de $k$, $f : \ol{x} = \Spec(\ol{k}) \to X = \Spec(k)$ le morphisme canonique, et supposons que, pour tout revêtement étale connexe $X' \to X$, il existe un revêtement étale connexe $X'' \to X'$ tel que $[X'':X']$ soit divisible par $\ell$ (prendre par exemple $k = \Q$). Considérons la suite exacte
+\[
+(*) \qquad 0 \longrightarrow A_X \xrightarrow{\;\varepsilon\;} f_{*}f^{*}A_X \longrightarrow F \longrightarrow 0
+\]
+définie par la flèche d'adjonction $\varepsilon$. Vu l'hypothèse, la section de $\Ext^1(F,A_X)$ définie par $(*)$ ne s'annule au-dessus d'aucun $U$ étale sur $X$, donc $\underline{\Ext}^1(F,A_X)_{\ol{x}} \neq 0$. Or on vérifie trivialement que $A_X$ est quasi-injectif.
+\end{enumerate}
+
+\subsection*{Proposition 1.3 {\normalfont (cf.~[H]~1.7.6)}}
+Soient $X$ un préschéma et $N \in \Z$. Conditions équivalentes sur $K \in \ob \D^{+}(X)$ :
+\begin{enumerate}[label=(\roman*)]
+\item $K$ est isomorphe, dans $\D(X)$, à un complexe $I$ à degrés bornés tel que $I^i$ soit quasi-injectif pour tout $i$ et nul pour $i > N$;
+\item pour tout $F \in \ob \D_c^{b}(X)$ tel que $\H^i(F) = 0$ pour $i < 0$, on a $\underline{\Ext}^i(F,K) = 0$ pour $i > N$;
+\item pour tout $A_X$-Module constructible $F$, on a $\underline{\Ext}^i(F,K) = 0$ pour $i > N$.
+\end{enumerate}
+
+\emph{Preuve.} $(i) \Rightarrow (ii)$. Soient $F \in \ob \D_c^{b}(X)$ tel que $\H^i(F) = 0$ pour $i < 0$, et $I \in \ob \D^{+}(X)$ à degrés bornés et tel que $I^i$ soit quasi-injectif pour tout $i$ et nul pour $i > N$; montrons que $\underline{\Ext}^i(F,I) = 0$ pour $i > N$. Raisonnant par récurrence sur le nombre d'indices $i$ tels que $\H^i \neq 0$, on se ramène, par dévissage, au cas où $N = 0$ et $I$ est réduit au degré $0$. On a alors une suite spectrale birégulière
+\[
+\E_2^{pq} = \underline{\Ext}^p(\H^{-q}(F),I) \Rightarrow \underline{\Ext}^{*}(F,I).
+\]
+Comme $I$ est quasi-injectif, $\E_2^{pq} = 0$ pour $p > 0$ et tout $q$, donc on a $\E_2^{0i} = \underline{\Hom}(\H^{-i}(F),I) \xrightarrow{\sim} \underline{\Ext}^i(F,I)$, d'où la conclusion.
+
+$(ii) \Rightarrow (iii)$ est trivial.
+
+$(iii) \Rightarrow (i)$ On peut supposer $K$ à degrés bornés inférieurement et à composantes injectives. L'hypothèse, appliquée à $F = A_X$, entraîne que $\H^i(K) = 0$ pour $i > N$. On peut donc remplacer $K$ par un complexe isomorphe $K'$, à degrés bornés et tel que $K'^i$ soit injectif pour $i < N$ et nul pour $i > N$. On constate alors que $K'^N$ est quasi-injectif, ce qui achève la démonstration.
+
+\subsection*{Remarque 1.3.1}
+Le rédacteur ignore si (1.3) est encore vraie lorsqu'on remplace, dans la condition (ii), l'hypothèse ``$F \in \ob \D_c^{b}(X)$'' par ``$F \in \ob \D_c^{+}(X)$''.
+
+\subsection*{Définition 1.4}
+On appellera \emph{dimension quasi-injective} de $K$, et on notera $\dim.\,q.\,inj(K)$ la borne inférieure (dans $\overline{\R}$) des entiers $N$ vérifiant les conditions équivalentes de (1.3).
+
+Si $K$ est de dimension quasi-injective finie, le foncteur $\R\,\underline{\Hom}(\quad,K) : \D(X) \to \D(X)$ induit un foncteur $\D_c^{b}(X) \to \D^{b}(X)$.
+
+On verra plus bas que si $X$ est lisse de dimension $d$ sur un corps $k$ et $n$ premier à la caractéristique de $k$, $\dim.\,q.\,inj(A_X) = 2d$.
+
+L'exemple de (1.2~a)) montre qu'un complexe de dimension quasi-injective finie n'est pas nécessairement de dimension injective finie. On a cependant :
+
+\subsection*{Proposition 1.5}
+Soient $X$ un préschéma localement noethérien et $K \in \ob \D^{+}(X)$. On suppose qu'il existe un entier $N$ tel que $\cd_{\mathbf{n}}(X) \leqslant N$, où $\mathbf{n}$ est l'ensemble des diviseurs premiers de $n$ (notation de SGAA~X~1). On a alors, pour $N' \in \Z$,
+\[
+\dim.\,q.\,inj(K) \leqslant N' \quad \Longrightarrow \quad \dim.\,inj(K) \leqslant N + N'.
+\]
+
+On utilisera, dans la démonstration, le
+
+\subsection*{Lemme 1.5.1}
+Soit $C$ une catégorie abélienne satisfaisant à (AB5) et possédant une famille de générateurs $(U_i)_{i \in I}$. Soient $K \in \ob \D^{+}(C)$ et $N \in \Z$. Conditions équivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item $\dim.\,inj(K) \leqslant N$
+\item pour tout $i \in I$ et tout quotient $F$ de $U_i$, on a
+\[
+\Ext^n(F,K) = 0 \qquad \text{pour } n > N.
+\]
+\end{enumerate}
+
+\emph{Preuve.} Il suffit de prouver $(ii) \Rightarrow (i)$. Par un argument bien connu (cf.\ par exemple [H]~1.7.6), on est ramené à montrer que si $K' \in \ob(C)$ est tel que $\Ext^1(F,K') = 0$ chaque fois que $F$ est quotient d'un $U_i$, alors $K'$ est injectif. En d'autres termes, il s'agit de prouver que, si tout morphisme d'un sous-objet $V$ d'un $U_i$ dans $K'$ se prolonge à $U_i$, alors $K'$ est injectif. Mais cela résulte aussitôt de la démonstration du lemme~1 p.~136 de (Tohoku).
+
+\emph{Preuve de (1.5).} Supposons $\dim.\,q.\,inj(K) \leqslant N'$ et prouvons $\dim.\,inj(K) \leqslant N + N'$. Comme la catégorie des $A_X$-Modules admet comme générateurs les $A_{U,X}$ où $U$ est étale de type fini sur $X$, il suffit, en vertu de (1.5.1), de prouver que $\Ext^i(X; F,K) = 0$ pour $i > N + N'$ quand $F$ est quotient d'un tel $A_{U,X}$, donc constructible (SGAA~IX~2.9). Considérons la suite spectrale
+\[
+\E_2^{pq} = \H^p(X; \underline{\Ext}^q(F,K)) \Rightarrow \Ext^{*}(X; F,K).
+\]
+L'hypothèse $\cd_{\mathbf{n}}(X) \leqslant N$ (resp.~$\dim.\,q.\,inj(K) \leqslant N'$) implique $\E_2^{pq} = 0$ pour $p > N$ (resp.~$q > N'$). Donc $\E_2^{pq} = 0$ pour $p+q > N+N'$, d'où la conclusion.
+
+\subsection*{Remarque 1.5.2}
+L'hypothèse de (1.5) est vérifiée (avec $N = 2d$) si $X$ est un préschéma de type fini et de dimension $d$ sur un corps $k$ séparablement clos, $n$ étant premier à $\car(k)$ (SGAA~X~4).
+
+\subsection*{Proposition 1.6}
+Soient $f : X \to Y$ un morphisme quasi-fini séparé de préschémas noethériens, et $K \in \ob \D^{+}(Y)$. Alors, pour $N \in \Z$, on a
+\[
+\dim.\,q.\,inj(K) \leqslant N \quad \Longrightarrow \quad \dim.\,q.\,inj(\R^{!}f(K)) \leqslant N.
+\]
+
+\emph{Preuve.} D'après le ``Main theorem'' (EGA~IV~8.12.6), il existe une factorisation de $f$ en $f = uf'$, où $f'$ est une immersion ouverte et $u$ un morphisme fini. On a $\R^{!}f = \R^{!}f' \, \R^{!}u$, ce qui nous ramène à examiner séparément le cas d'une immersion ouverte et d'un morphisme fini. Si $f$ est une immersion ouverte, l'assertion est triviale (puisque tout faisceau constructible sur $X$ est alors induit par un faisceau constructible sur $Y$). Supposons donc que $f$ soit un morphisme fini, et soit $F$ un $A_X$-Module constructible. On a alors les isomorphismes de dualité (SGAA~XVIII~3.1.9.6)
+\[
+f_{*}\underline{\Ext}^i(F, \R^{!}f(K)) \xrightarrow{\sim} \underline{\Ext}^i(f_{*}F, K).
+\]
+Comme $f_{*}(F)$ est constructible (SGAA~IX~2.14), il en résulte que, si $\dim.\,q.\,inj(K) \leqslant N$, on a $f_{*}\underline{\Ext}^i(F, \R^{!}f(K)) = 0$ pour $i > N$, donc $\underline{\Ext}^i(F, \R^{!}f(K)) = 0$ pour $i > N$ (SGAA~VIII~5.5), cqfd.
+
+Soient maintenant $X$ un préschéma, et $K \in \ob \D^{+}(X)$. Notons $\underline{D}_K$ le foncteur $\R\,\underline{\Hom}(\quad, K)$. Nous allons définir, pour $F \in \ob \D(X)$ un homomorphisme fonctoriel $F \to \underline{D}_K \underline{D}_K F$ (cf.~[H]~V.1.2). La construction qui suit vaudrait plus généralement sur un topos annelé. On peut d'abord supposer $K$ formé d'injectifs, ce qui permet ``d'ôter les $\R$''. Le morphisme identique $\underline{\Hom}(F,K) \to \underline{\Hom}(F,K)$ définit, par la formule chère à Cartan, un homomorphisme $F \otimes \underline{\Hom}(F,K) \to K$, d'où, par une deuxième application de ladite, un homomorphisme $F \to \underline{\Hom}(\underline{\Hom}(F,K), K)$, qui est l'homomorphisme annoncé, et qu'on baptise homomorphisme canonique. On dit que le couple $(F,K)$ est \emph{bidualisant}, ou \emph{satisfait à la bidualité}, ou encore que $F$ est \emph{réflexif} relativement à $K$, si l'homomorphisme canonique $F \to \underline{D}_K \underline{D}_K F$ est un isomorphisme.
+
+\textbf{\underline{À partir de maintenant, tous les préschémas considérés seront, sauf mention expresse du contraire, supposés localement noethériens.}}
+
+\subsection*{Définition 1.7}
+Soit $X$ un préschéma. On dit qu'un complexe $K \in \ob \D^{+}(X)$ est \emph{dualisant} si les conditions suivantes sont vérifiées :
+\begin{enumerate}[label=(\roman*)]
+\item $K$ est de dimension quasi-injective finie;
+\item pour tout $F \in \ob \D_c^{-}(X)$, on a $\underline{D}_K(F) \in \ob \D_c^{+}(X)$;
+\item tout $F \in \ob \D_c^{b}(X)$ est réflexif relativement à $K$.
+\end{enumerate}
+
+\subsection*{Remarque 1.8}
+\begin{enumerate}[label=\alph*)]
+\item Par un dévissage standard (tronquer $F$ et utiliser le fait que $\D_c(X)$ est triangulée), on voit que la condition (ii) équivaut à
+
+(ii~bis) : pour tout $A_X$-Module constructible $F$ et tout $i \in \Z$, $\underline{\Ext}^i(F,K)$ est constructible.
+
+\item La condition (ii~bis) implique $K \in \ob \D_c^{+}(X)$. Contrairement à l'exemple des faisceaux cohérents (EGA~$0_{\mathrm{III}}$~12.3.3), la réciproque n'est peut-être pas automatiquement vérifiée. Elle l'est cependant (voir n${}^{\circ}$~3) dans les ``bons'' cas, par exemple lorsqu'on dispose sur $X$ de la résolution des singularités et de la pureté (en particulier si $X$ est un excellent préschéma de caractéristique nulle).
+
+\item Par dévissage sur $F$, on voit que la condition (iii) équivaut à (iii~bis) : tout $A_X$-Module constructible $F$ est réflexif relativement à $K$.
+
+\item Si $K \in \ob \D^{+}(X)$ vérifie (i) et (ii) (resp.~est dualisant), le foncteur $\underline{D}_K$ induit un foncteur (resp.~une équivalence de catégories) $(\D_c^{b}(X))^{\circ} \to \D_c^{b}(X)$.
+
+\item Si $K \in \ob \D^{+}(X)$ est de dimension \emph{injective} finie (cf.~1.5.2) et vérifie (ii), alors, pour tout $F \in \ob \D_c(X)$, on a $\underline{D}_K(F) \in \D_c(X)$, et $\underline{D}_K$ induit un foncteur $(\D_c^{+}(X))^{\circ} \to \D_c^{-}(X)$.
+
+Si en outre $K$ est dualisant, tout $F \in \ob \D_c(X)$ est réflexif relativement à $K$, et $\underline{D}_K$ induit des équivalences de catégories
+\[
+(\D_c(X))^{\circ} \xrightarrow{\approx} \D_c(X), \quad (\D_c^{-}(X))^{\circ} \xrightarrow{\approx} \D_c^{+}(X), \quad (\D_c^{+}(X))^{\circ} \xrightarrow{\approx} \D_c^{-}(X).
+\]
+On ignore si cette conclusion reste valable sans la restriction que $K$ soit de dimension injective finie.
+\end{enumerate}
+
+Abordons maintenant les ``\emph{formules d'échange}''.
+
+Nous ne reviendrons pas sur la notion de tor-dimension d'un complexe (SGAA~XVII~4.1.9)~(*)\footnote{(*) Voir aussi (SGA~6~I~5).}. Retenons seulement que si $X$ est un préschéma et $G \in \ob \D^{-}(X)$, la relation $\underline{\Tor}_i(F,G) = 0$ pour $i > N$ et tout $A_X$-Module $F$ équivaut à la même avec $F$ constructible (grâce à SGAA~IX~2.9. et à la commutativité de $\otimes$ aux limites inductives), donc qu'il n'y a pas à introduire de notion de ``quasi-tor-dimension'' !
+
+\subsection*{Lemme 1.9 (cf. [H] II 4.3)}
+\begin{enumerate}
+\item[a)] Soient $X$ un préschéma, $F \in \ob \D_c^{-}(X)$, $G \in \ob \D_c^{-}(X)$. On a $F \mathop{\otimes}\limits^{\mathrm{L}} G \in \ob \D_c(X)$ si $F \in \ob \D_c^{-}(X)$ ou si $G$ est de tor-dimension finie.
+\item[b)] Soient $f : X \to Y$ un morphisme de préschémas, et $G \in \ob \D_c^{-}(Y)$. Alors, $f^{*}(G) \in \ob \D_c(X)$.
+\end{enumerate}
+
+\begin{proof}[Preuve]
+L'assertion b) résulte trivialement de (SGAA~IX~2.4). Prouvons a). L'une ou l'autre des hypothèses sur $(F,G)$ implique que la suite spectrale
+\[
+\E_2^{pq} = \sum_{q_1+q_2=q} \underline{\Tor}_{-p}(\H^{q_1}(F), \H^{q_2}(G)) \Rightarrow \H^{*}(F \mathop{\otimes}\limits^{\mathrm{L}} G)
+\]
+est birégulière. On est donc ramené à prouver a) quand $F$ et $G$ sont réduits au degré $0$, i.e.~sont des $A_X$-Modules constructibles. La question étant locale, on peut supposer $X$ noethérien. $F$ admet alors (SGAA~IX~2.7) une résolution gauche $F'$, où les $F'^i$ sont de la forme $A_{U,X}$, avec $U$ étale et de type fini sur $X$. On a $F \mathop{\otimes}\limits^{\mathrm{L}} G \xleftarrow{\sim} F' \otimes G$, et l'on gagne car les $A_{U,X} \otimes G$ sont constructibles.
+\end{proof}
+
+\subsection*{Notation 1.10}
+Si $X$ est un préschéma, nous désignerons par $\D^{b}(X)_{\mathrm{torf}}$ (resp.~$\D^{b}(X)_{\mathrm{qinjf}}$) la sous-catégorie pleine de $\D(X)$ formée des objets de tor-dimension finie (resp.~de dimension quasi-injective finie).
+
+\subsection*{Proposition 1.11 (cf. [H] V 2.6)}
+Soient $X$ un préschéma et $K \in \ob \D^{+}(X)$.
+\begin{enumerate}
+\item[a)] Pour $F \in \ob \D^{-}(X)$ et $G \in \ob \D^{-}(X)$ (resp.~$F \in \ob \D(X)$ et $G \in \ob \D^{b}(X)_{\mathrm{torf}}$), il existe un isomorphisme fonctoriel
+\[
+\underline{D}_K(F \mathop{\otimes}\limits^{\mathrm{L}} G) \xrightarrow{\sim} \R\,\underline{\Hom}(F, \underline{D}_K(G)).
+\]
+\item[b)] Si $K$ satisfait aux conditions (i) et (ii) de (1.7), on a l'implication
+\[
+G \in \ob \D_c^{b}(X)_{\mathrm{torf}} \quad \Longrightarrow \quad \underline{D}_K(G) \in \ob \D_c^{b}(X)_{\mathrm{qinjf}} \text{ et } \underline{D}_K(G) \text{ satisfait à (1.7.(ii)).}
+\]
+\item[c)] Si $K$ est dualisant, il existe, pour $F \in \ob \D_c^{-}(X)$ et $G \in \ob \D_c^{b}(X)$ (resp.~$F \in \ob \D(X)$, $G \in \ob \D_c^{b}(X)$ et $\underline{D}_K(G) \in \ob \D_c^{b}(X)_{\mathrm{torf}}$) un isomorphisme fonctoriel
+\[
+\underline{D}_K(F \mathop{\otimes}\limits^{\mathrm{L}} \underline{D}_K(G)) \xrightarrow{\sim} \R\,\underline{\Hom}(F, G).
+\]
+On a en outre l'implication
+\[
+\underline{D}_K(G) \in \ob \D_c^{b}(X)_{\mathrm{torf}} \quad \Longrightarrow \quad G \in \ob \D_c^{b}(X)_{\mathrm{qinjf}} \text{ et } G \text{ satisfait à (1.7.(ii)).}
+\]
+\item[d)] Si $K$ est dualisant et de dimension injective finie, les implications de b) et c) sont des équivalences.
+\end{enumerate}
+
+\begin{proof}[Preuve]
+a) n'est autre que la formule d'adjonction chère à Cartan (SGA~6~I~7.4).
+
+b) Soit $G \in \ob \D_c^{b}(X)_{\mathrm{torf}}$. Si $F$ est un $A_X$-Module constructible variable, les objets de cohomologie de $F \mathop{\otimes}\limits^{\mathrm{L}} G$ sont constructibles (1.9), et nuls en dehors de deux bornes fixes indépendantes de $F$. Donc il en est de même des objets de cohomologie de $\underline{D}_K(F \mathop{\otimes}\limits^{\mathrm{L}} G)$, et l'on gagne grâce à a).
+
+c) La première assertion résulte de la formule a) appliquée à $\underline{D}_K(G)$ au lieu de $G$, et de la réflexivité de $G$. La seconde s'en déduit par un raisonnement analogue à b).
+
+d) Prouvons par exemple l'implication réciproque de b). Supposons que $\underline{D}_K(G) \in \ob \D_c^{b}(X)_{\mathrm{qinjf}}$ et que $\underline{D}_K(G)$ satisfait à (1.7.(ii)). Alors, pour $F$ constructible variable, les objets de cohomologie de $\underline{D}_K(F \mathop{\otimes}\limits^{\mathrm{L}} G)$ sont constructibles et nuls en dehors de deux bornes fixes. Donc il en est de même des objets de cohomologie de $\underline{D}_K \underline{D}_K(F \mathop{\otimes}\limits^{\mathrm{L}} G)$, mais $F \mathop{\otimes}\limits^{\mathrm{L}} G \xrightarrow{\sim} \underline{D}_K \underline{D}_K(F \mathop{\otimes}\limits^{\mathrm{L}} G)$ puisque $K$ est dualisant et de dimension injective finie (1.8~d)), donc $G$ est de tor-dimension finie. L'implication réciproque de c) se démontre de manière analogue.
+\end{proof}
+
+\subsection*{Remarque 1.11.1}
+\begin{enumerate}
+\item[a)] Le rédacteur ignore si l'assertion d) de (1.11) est valable sous la seule hypothèse que $K$ soit dualisant.
+\item[b)] On traduit la proposition précédente de manière imagée en disant que le foncteur dualisant $\underline{D}_K$ échange les foncteurs $\mathop{\otimes}\limits^{\mathrm{L}}$ et $\R\,\underline{\Hom}$, ainsi que les notions de tor-dimension finie et de dimension quasi-injective finie, (l'échange n'étant d'ailleurs tout à fait satisfaisant que lorsque $K$ est de dimension injective finie).
+\end{enumerate}
+
+\subsection*{Proposition 1.12}
+Soient $Y$ un préschéma noethérien, $f : X \to Y$ un morphisme de type fini, $K \in \ob \D^{+}(Y)$. Supposons $n$ premier aux caractéristiques résiduelles de $Y$, et posons $K_X = \R^{!}f(K_Y)$ (SGAA~XVIII~3.1), $\underline{D}_X = \underline{D}_{K_X}$, $\underline{D}_Y = \underline{D}_{K_Y}$.
+\begin{enumerate}
+\item[a)] Il existe, pour $F \in \ob \D^{-}(X)$, un isomorphisme fonctoriel
+\[
+(i) \qquad \R f_{*} \underline{D}_X(F) \xrightarrow{\sim} \underline{D}_Y \R f_{*}(F).
+\]
+Si en outre $K_X$ et $K_Y$ sont dualisants\footnote{On verra plus bas que, sous des conditions assez générales, $K_Y$ dualisant implique $K_X$ dualisant.}, il existe, pour $F \in \ob \D_c^{b}(X)$, un isomorphisme fonctoriel
+\[
+(ii) \qquad \R f_{!} \underline{D}_X(F) \xrightarrow{\sim} \underline{D}_Y \R f_{*}(F).
+\]
+\item[b)] Il existe, pour $F \in \D_c^{-}(Y)$, un isomorphisme fonctoriel\footnote{Si le foncteur $\R^{!}f$ est de dimension cohomologique finie, ce qui est le cas par exemple lorsque $Y$ est de type fini sur un corps (SGAA~X~4.3. et XVIII~3.1.7), l'isomorphisme b)(i) est valable pour $F \in \ob \D_c(Y)$.}
+\[
+(i) \qquad \R^{!}f \, \underline{D}_Y(F) \xrightarrow{\sim} \underline{D}_X f^{*}(F).
+\]
+Si en outre $K_X$ et $K_Y$ sont dualisants\footnotemark[3], il existe, pour $F \in \D_c^{b}(Y)$, un isomorphisme fonctoriel
+\[
+(ii) \qquad f^{*} \underline{D}_Y F \xrightarrow{\sim} \underline{D}_X \R^{!}f \, F.
+\]
+\end{enumerate}
+
+\begin{proof}[Preuve]
+a) (i) n'est autre que l'isomorphisme de dualité (SGAA~XVIII~3.1.9.6)
+
+a) (ii) s'obtient en appliquant $\underline{D}_Y$ aux deux membres de a) (i) écrit pour l'argument $\underline{D}_X F$, et utilisant le ``th.~de finitude'' (SGAA~XVII~5.3.6) qui assure que $\R f_{*}(\underline{D}_X(F)) \in \ob \D_c(Y)$.
+
+b) (i) n'est autre que la ``formule d'induction'' (SGAA~XVIII~3.1.12.2).
+
+b) (ii) s'obtient en appliquant $\underline{D}_X$ aux deux membres de b) (i) écrit pour l'argument $\underline{D}_Y F$, et utilisant (1.9.~b)).
+\end{proof}
+
+\textbf{Scholie :} On peut dire, de manière imagée, que les foncteurs dualisants $\underline{D}_X$ et $\underline{D}_Y$ échangent les notions d'image directe (resp.~inverse) habituelle et inhabituelle : $\R f_{*}$ et $\R_{!}f$ (resp.~$f^{*}$ et $\R^{!}f$).
+
+\subsection*{Corollaire 1.13}
+Sous les hypothèses de 1.12, supposons en outre $f$ propre, et soit $F \in \ob \D^{-}(X)$. Si $(F, K_X)$ est bidualisant, $(\R f_{*}F, K_Y)$ est bidualisant. Inversement, si $f$ est fini, et si $(\R f_{*}F, K_Y)$ est bidualisant, $(F, K_X)$ est bidualisant.
+
+\begin{proof}[Preuve]
+Supposons $(F, K_X)$ bidualisant. Appliquant $\R f_{*}$ à l'isomorphisme canonique $F \xrightarrow{\sim} \underline{D}_X^{2} F$, il vient :
+\begin{align*}
+\R f_{*} F &\xrightarrow{\sim} \R f_{*} \underline{D}_X \underline{D}_X F \\
+&\xrightarrow{\sim} \underline{D}_Y \R f_{*} \underline{D}_X F \qquad \text{(par a) (i))} \\
+&\xrightarrow{\sim} \underline{D}_Y \underline{D}_Y \R f_{*} F \qquad \text{(par a) (i)).}
+\end{align*}
+Le lecteur courageux se persuadera que l'isomorphisme obtenu est le canonique, ce qui démontre la première assertion.
+
+Supposons maintenant $f$ fini, et $(f_{*}F, K_Y)$ bidualisant ($\R f_{*} = f_{*}$, $f$ étant fini), et prouvons que le morphisme canonique $F \to \underline{D}_X^{2} F$ est un isomorphisme. Par le lemme 1.14~a) ci-dessous, il suffit de montrer que le morphisme qui s'en déduit $f_{*}F \to f_{*}\underline{D}_X^{2} F$ est un isomorphisme. Mais, par une double application de a) (i), ``on se persuade'' que ce dernier n'est autre que l'isomorphisme canonique $f_{*}F \to \underline{D}_Y^{2} f_{*}F$, ce qui achève la démonstration.
+\end{proof}
+
+\subsection*{Lemme 1.14}
+Soit $f : X \to Y$ un morphisme fini de préschémas.
+\begin{enumerate}
+\item[a)] Soit $u : F \to G$ une flèche de $\D(X)$. Pour que $u$ soit un isomorphisme, il faut et il suffit que $f_{*}u$ le soit.
+\item[b)] Soit $F \in \ob \D(X)$. Pour que $F \in \ob \D_c(X)$, il faut et il suffit que $f_{*}F \in \ob \D_c(Y)$.
+\end{enumerate}
+
+\begin{proof}[Preuve]
+a) Le foncteur $f_{*}$ étant exact, on peut se borner au cas où $F$ et $G$ sont réduits au degré zéro. L'assertion résulte alors aussitôt du calcul des fibres de $f_{*}F$ (resp.~$f_{*}G$) (SGAA~VIII~5.5).
+
+b) On peut de même se borner au cas où $F$ est réduit au degré zéro. La nécessité est connue (SGAA~IX~2.14), prouvons la suffisance, i.e.~montrons que $f_{*}F$ constructible implique $F$ constructible. La question étant locale (en haut, donc a fortiori en bas), on peut supposer $Y$ (donc $X$) affine. Il existe alors (EGA~IV~17.16.6) une famille finie $(Y_i)$ de sous-préschémas affines de $Y$, deux à deux disjoints et de réunion $Y$, telle que, si $X_i = X \times_Y Y_i$, le morphisme induit $f_i : X_i \to Y_i$ se décompose en $X_i \xrightarrow{u_i} X'_i \xrightarrow{v_i} Y_i$, où $u_i$ est un morphisme fini radiciel surjectif, et $v_i$ un morphisme fini étale. Posons $F|X_i = F_i$. Par le théorème de changement de base pour un morphisme fini (SGAA~VIII~5.5), on a $f_{i*}(F_i) \xrightarrow{\sim} (f_{*}F)|Y_i$, et l'on est ramené (SGAA~IX~2.8) à prouver l'assertion pour $(f_i, F_i)$. Posons $F'_i = u_{i*}(F_i)$, donc $f_{i*}(F_i) = v_{i*}(F'_i)$. Il est clair sur la définition de la constructibilité (resp.~résulte de SGAA~VIII~1.1) que $F_i$ (resp.~$F'_i$) est constructible si et seulement si $F'_i$ (resp.~$v_{i*}(F'_i)$) l'est, d'où la conclusion voulue.
+\end{proof}
+
+\subsection*{Corollaire 1.15}
+Soit $f : X \to Y$ un morphisme quasi-fini séparé de préschémas noethériens. Soit $K_Y \in \ob \D^{+}(Y)$, et posons, comme en 1.12, $K_X = \R^{!}f(K_Y)$, $\underline{D}_X = \underline{D}_{K_X}$, $\underline{D}_Y = \underline{D}_{K_Y}$. Alors, si $K_Y$ est dualisant, $K_X$ est dualisant.
+
+\begin{proof}[Preuve]
+On sait déjà (1.6) que si $K_Y$ est de dimension quasi-injective finie, il en est de même de $K_X$. Montrons que si $K_Y$ satisfait à la condition (ii) (resp.~(iii)) de (1.7), $K_X$ y satisfait également. D'après le ``Main theorem'' (EGA~IV~8.12.6), $f$ se factorise en $f = f'i$, où $i$ est une immersion ouverte et $f'$ un morphisme fini. Comme $\R^{!}f \simeq \R^{!}i \, \R^{!}f'$, on doit donc regarder séparément le cas d'une immersion ouverte et d'un morphisme fini. Si $f$ est une immersion ouverte, l'assertion est triviale, vu qu'un faisceau constructible sur $X$ est induit par un faisceau constructible sur $Y$, et que la formation des $\R\,\underline{\Hom}$ commute à la restriction à un ouvert. Supposons donc $f$ fini. On sait alors (1.13) que si $K_Y$ satisfait à (iii), $K_X$ aussi (compte tenu du théorème de finitude SGAA~IX~2.14). Reste à prouver que si $K_Y$ satisfait à (ii), $K_X$ aussi. Soit $F \in \ob \D_c^{-}(X)$, montrons que $\underline{D}_X(F) \in \ob \D_c^{+}(X)$. Par le théorème de finitude, on a $f_{*}(F) \in \ob \D_c^{-}(Y)$, donc, par hypothèse, $\underline{D}_Y f_{*}(F) \in \ob \D_c^{+}(Y)$. Mais $\underline{D}_Y f_{*}(F) \xrightarrow{\sim} f_{*}\underline{D}_X(F)$ (1.12~a)(i)), et l'on gagne grâce à (1.14~b)).
+\end{proof}
+
+\subsection{2. Unicité du complexe dualisant}
+
+Dans ce numéro, on suppose $A$ local, i.e.~que $A = \Z/\ell^{\nu}\Z$, $\ell$ premier.
+
+\subsection*{Théorème 2.1 (cf. [H] V 3.1)}
+Soit $X$ un préschéma (localement noethérien) connexe, et soit $K$ un complexe dualisant sur $X$ (1.6).
+
+Soit d'autre part $K' \in \ob \D_c^{+}(X)$. Pour que $K'$ soit dualisant, il faut et il suffit qu'il existe un $A_X$-Module inversible $L$ et un entier $r$ (qui sont alors déterminés à isomorphisme unique près) tels que :
+\[
+K' \xrightarrow{\sim} K \mathop{\otimes}\limits^{\mathrm{L}} L[r].
+\]
+
+\begin{proof}[Preuve]
+Soit $L$ un $A_X$-Module inversible, $r$ un entier, et posons $L^{\vee} = \underline{\Hom}(L, A_X)$. Il existe, pour $F \in \ob \D(X)$ et $G \in \ob \D^{+}(X)$, des isomorphismes canoniques :
+\[
+(*) \quad \R\,\underline{\Hom}(F \mathop{\otimes}\limits^{\mathrm{L}} L^{\vee}[-r], G) \xrightarrow{\sim} \R\,\underline{\Hom}(F, G \mathop{\otimes}\limits^{\mathrm{L}} L[r]) \xrightarrow{\sim} \R\,\underline{\Hom}(F,G) \mathop{\otimes}\limits^{\mathrm{L}} L[r].
+\]
+On en déduit aisément que, si $K' \xrightarrow{\sim} K \mathop{\otimes}\limits^{\mathrm{L}} L[r]$, $K'$ est dualisant.
+
+En outre, si l'on pose $\underline{D}_X = \underline{D}$, $\underline{D}_{K'} = \underline{D}'$, on a, pour $F \in \ob \D(X)$, $\underline{D}'F \xrightarrow{\sim} \underline{D} F \mathop{\otimes}\limits^{\mathrm{L}} L^{\vee}[-r]$ d'après $(*)$, donc, comme $\underline{D} K \xrightarrow{\sim} A_X$, on a
+\[
+\underline{D}' K \xrightarrow{\sim} L^{\vee}[-r],
+\]
+ce qui montre que $L^{\vee}[r]$, donc $L$ et $r$ sont déterminés de manière essentiellement unique par $K'$.
+
+Inversement, supposons $K'$ dualisant, et posons
+\[
+P = \underline{D}'K = \underline{D}'\underline{D} A_X = \R\,\underline{\Hom}(K,K').
+\]
+Nous allons montrer que l'on a
+\begin{align*}
+\text{a)} \qquad K' &\xrightarrow{\sim} K \mathop{\otimes}\limits^{\mathrm{L}} P, \\
+\text{b)} \qquad P &\xrightarrow{\sim} L[r], \text{ pour un $A_X$-Module inversible $L$, ce qui achèvera la démonstration du théorème.}
+\end{align*}
+
+Remarquons d'abord qu'en vertu de 1.9~b)(ii) on a, pour $F \in \ob \D_c(X)$,
+\[
+(**) \qquad F \mathop{\otimes}\limits^{\mathrm{L}} P \xrightarrow{\sim} \underline{D}'\underline{D} F.
+\]
+
+Appliquant $(**)$ à $F = K$, il vient
+\[
+K \mathop{\otimes}\limits^{\mathrm{L}} P \xrightarrow{\sim} \underline{D}'\underline{D} K \xrightarrow{\sim} \underline{D}' A_X = K', \text{ ce qui prouve a).}
+\]
+
+Appliquant $(**)$ à $F = P' = \underline{D}\underline{D}'A_X$, il vient
+\[
+P' \mathop{\otimes}\limits^{\mathrm{L}} P = \underline{D}'\underline{D}\underline{D}\underline{D}'A_X \xrightarrow{\sim} \underline{D}'\underline{D}'A_X \xrightarrow{\sim} A_X.
+\]
+Donc b) sera conséquence du lemme suivant :
+
+\subsection*{Lemme 2.2 (cf. [H] V 3.3)}
+Soit $X$ un préschéma localement noethérien connexe, et soient $P, P' \in \ob \D_c^{-}(X)$ tels que $P \mathop{\otimes}\limits^{\mathrm{L}} P' \xrightarrow{\sim} A_X$. Il existe alors un $A_X$-Module inversible $L$ et un entier $r$ tels que
+\[
+P \xrightarrow{\sim} L[r], \quad P' \xrightarrow{\sim} L^{\vee}[-r].
+\]
+
+La démonstration va se faire en deux pas.
+
+\textbf{1) Cas particulier :} $X = \Spec(k)$, $k$ corps séparablement clos. Il n'y a qu'à recopier la démonstration (d'ailleurs facile) donnée dans [H] (loc.~cit.). Le point important est que (EGA~$0_{\mathrm{I}}$~5.4.3) si $M$ et $M'$ sont deux $A$-modules de type fini tels que $M \otimes M' \xrightarrow{\sim} A$, alors $M$ et $M'$ sont inversibles et $M' \xrightarrow{\sim} M^{\vee}$; c'est ici qu'intervient l'hypothèse $A$ local.
+
+\textbf{2) Cas général.}
+
+En vertu du cas particulier précédent, il existe, pour tout $x \in X$, un entier $r(x)$ tel que $P_{\ol{x}} \xrightarrow{\sim} A_{\ol{x}}[r(x)]$, $P'_{\ol{x}} \xrightarrow{\sim} A_{\ol{x}}[-r(x)]$, i.e.~$\H^i(P_{\ol{x}}) = 0$ (resp.~$\H^i(P'_{\ol{x}}) = 0$) pour $i \neq -r(x)$ (resp.~$+r(x)$), et $\H^{-r(x)}(P_{\ol{x}}) \xrightarrow{\sim} A_{\ol{x}}$, $\H^{+r(x)}(P'_{\ol{x}}) \xrightarrow{\sim} A_{\ol{x}}$. Il s'agit de montrer que la fonction $x \mapsto r(x)$ est localement constante. En effet, supposons ce point acquis. Comme $X$ est connexe, $r$ est constant, disons de valeur $r_0$. On a donc $\H^i(P) = 0$ pour $i \neq -r_0$, $\H^i(P') = 0$ pour $i \neq r_0$, et $\H^{-r_0}(P) \otimes \H^{r_0}(P') \xrightarrow{\sim} A$. Posons $\H^{-r_0}(P) = L$, $\H^{r_0}(P') = L'$.
+
+Soit $u : \ol{x} \to \ol{y}$ une flèche de spécialisation (SGAA~VIII~7.2), $u^{*} : L_{\ol{y}} \to L_{\ol{x}}$, $u'^{*} : L'_{\ol{y}} \to L'_{\ol{x}}$ les morphismes de spécialisation correspondants (SGAA~VIII~7.7). On a un diagramme commutatif
+\[
+\begin{tikzcd}
+L_{\ol{y}} \otimes L'_{\ol{y}} \arrow[r,"\sim"] \arrow[d,"u^{*} \otimes u'^{*}"'] & A_{\ol{y}} \arrow[d] \\
+L_{\ol{x}} \otimes L'_{\ol{x}} \arrow[r,"\sim"] & A_{\ol{x}}
+\end{tikzcd}
+\tag{*}
+\]
+Choisissons une base $e$ (resp.~$f$) de $L_{\ol{x}}$ (resp.~$L_{\ol{y}}$) sur $A_{\ol{x}}$ (resp.~$A_{\ol{y}}$), et notons $e'$ (resp.~$f'$) la base ``duale'' de $L'_{\ol{x}}$ (resp.~$L'_{\ol{y}}$), i.e.~telle que l'image de $e \otimes e'$ (resp.~$f \otimes f'$) dans $A_{\ol{x}}$ (resp.~$A_{\ol{y}}$) soit égale à 1. On a $u^{*}(f) = \lambda e$, $u'^{*}(f') = \lambda' e'$, et la commutativité de $(*)$ implique $\lambda\lambda' = 1$, donc $u^{*}$ est un isomorphisme (et $u'^{*}$ l'isomorphisme ``contragrédient''). En vertu de (SGAA~IX~2.13), cela entraîne que $L$ et $L'$ sont localement constants, donc de présentation finie comme $A_X$-Modules. Par suite, si $x \in X$, la flèche canonique $\underline{\Hom}(L,F)_{\ol{x}} \to \Hom(L_{\ol{x}}, F_{\ol{x}})$ est un isomorphisme pour tout $A_X$-Module $F$. Comme les fibres géométriques de $L$ sont inversibles, il en résulte que $L$ est inversible. De même $L'$ est inversible, et $L' \xrightarrow{\sim} L^{\vee}$. Donc on a $P \xrightarrow{\sim} L[-r_0]$, $P' \xrightarrow{\sim} L^{\vee}[+r_0]$.
+
+Tout revient donc à montrer que la fonction $r$ est localement constante. Pour $m \in \Z$, on a $r(x) = m$ si et seulement si $\H^{m}(P')_{\ol{x}} \neq 0$, donc, en vertu de (SGAA~IX~2.4), $r$ est localement constructible. Par conséquent, pour vérifier qu'elle est localement constante, on peut, par (EGA~IV~1.10.1), supposer $X$ local. Soit $x$ le point fermé de $X$, et soit $U$ l'ouvert complémentaire.
+
+On va montrer que $r$ est constante. Raisonnant par récurrence sur la dimension de $X$, on peut déjà supposer que $r(y)$ est constant et égal à $r_0$ pour $y \in U$, et il s'agit de prouver que $r(x) = r_0$.
+
+Supposons qu'il n'en soit pas ainsi, i.e.~que l'on ait $r(x) \neq r_0$, et montrons que l'on aboutit à une contradiction. Par hypothèse, on a $P|U \xrightarrow{\sim} L[r_0]$, où $L$ est un $A_U$-Module inversible. Quitte à translater les degrés, on peut supposer $r_0 = 0$. On a d'autre part $r(x) \neq 0$, disons $r(x) = a > 0$. Notons $i : U \to X$, et $j : x \to X$ les inclusions canoniques.
+
+Ecrivons la suite exacte :
+\[
+(**) \quad 0 \longrightarrow i_{!}(P|U) \longrightarrow P \longrightarrow j_{*}j^{*}P \longrightarrow 0.
+\]
+Par hypothèse, les seuls objets de cohomologie non nuls de $P$ sont $\H^{0}(P)$ et $\H^{-a}(P)$, et l'on a $\H^{0}(P) \xrightarrow{\sim} i_{!}(L)$. Il en résulte que $(**)$ splitte naturellement (grâce à la flèche $P \to \H^{0}(P)$), donc que l'on a
+\[
+P \xrightarrow{\sim} i_{!}(P|U) + j_{*}j^{*}P.
+\]
+On en déduit
+\begin{align*}
+P \mathop{\otimes}\limits^{\mathrm{L}} P' &\xrightarrow{\sim} i_{!}(P|U) \mathop{\otimes}\limits^{\mathrm{L}} P' + j_{*}j^{*}P \mathop{\otimes}\limits^{\mathrm{L}} P' \\
+&\xrightarrow{\sim} i_{!}(P|U \mathop{\otimes}\limits^{\mathrm{L}} P'|U) + j_{*}(j^{*}P \mathop{\otimes}\limits^{\mathrm{L}} j^{*}P') \\
+&\xrightarrow{\sim} i_{!}(A_U) + j_{*}(A_x),
+\end{align*}
+ce qui est absurde, puisque $i_{!}(A_U) + j_{*}(A_x)$ n'est manifestement pas isomorphe à $A_X$ (déjà les $\H^{0}$ ne sont pas isomorphes !).
+
+Cela achève la démonstration du lemme 2.2.
+\end{proof}
+
+\subsection{3. Existence de complexes dualisants}
+
+\subsubsection{3.1. Préliminaires.}
+
+Comme il a été dit dans l'introduction, l'objet de ce paragraphe est de prouver que, sur un ``bon'' préschéma régulier $X$, le faisceau $A_X$ est dualisant, $n$ étant supposé premier aux caractéristiques résiduelles.
+
+En réalité, on aimerait qu'il en soit ainsi sur les préschémas excellents réguliers d'égales caractéristiques, mais il ne fait pas de doute que la démonstration donnée plus bas s'étendra à ceux-ci lorsqu'on disposera dans ce cas de la résolution des singularités et du théorème de pureté.
+
+Nous allons d'abord présenter les divers ingrédients que nous aurons à utiliser.
+
+\textbf{3.1.1. Lieu singulier.} Soit $X$ un préschéma (localement noethérien). Nous dirons que $X$ vérifie la \emph{condition (reg)} si les propriétés équivalentes suivantes sont vérifiées (EGA~IV~6.12.3) :
+\begin{enumerate}
+\item[(i)] pour tout sous-préschéma $Y$ de $X$, l'ensemble $\Reg(Y)$ des points réguliers de $Y$ est ouvert dans $Y$;
+\item[(ii)] pour tout sous-préschéma fermé intègre $Y$ de $X$, $\Reg(Y)$ contient un ouvert non vide de $Y$.
+\end{enumerate}
+
+La condition (reg) est vérifiée si $X$ est localement de type fini sur un anneau local noethérien complet (par exemple un corps) (EGA~IV~6.12.8), ou sur un anneau de Dedekind dont le corps des fractions est de car.~0 (par exemple $\Z$) (EGA~IV~6.12.6), plus généralement si $X$ est excellent (EGA~IV~7.8.6).
+
+\textbf{3.1.2. Dévissage de faisceaux constructibles.} Soit $X$ un préschéma noethérien, et soit $C$ une sous-catégorie strictement pleine de la catégorie $\Cons(X)$ des $A_X$-Modules constructibles. On suppose $C$ stable par facteurs directs et extensions. Conditions équivalentes :
+\begin{enumerate}
+\item[(i)] $C = \Cons(X)$;
+\item[(ii)] $C$ contient les faisceaux du type $i_{!}(F)$, où $i : Y \to X$ est l'immersion d'un sous-préschéma intègre, et $F$ est localement constant sur $Y$;
+\item[(iii)] $C$ contient les faisceaux du type $f_{*}i_{!}(A'_U)$, où $i : U \to Y$ est un ouvert d'un préschéma intègre, $f : Y \to X$ est un morphisme fini tel que le point générique de $Y$ soit séparable sur son image et $A' = \Z/\ell\Z$, pour $\ell$ diviseur premier de $n$.
+\end{enumerate}
+Si $X$ vérifie (reg) (3.1.1.), ces conditions sont encore équivalentes aux suivantes :
+\begin{enumerate}
+\item[(ii~bis)] : analogue à (ii), $Y$ étant de plus régulier;
+\item[(iii~bis)] : analogue à (iii), avec $U$ régulier.
+\end{enumerate}
+Si en outre $X$ est affine, on peut supposer dans (ii) (resp.~(ii~bis)) $Y$ fermé dans un ouvert du type $D(f)$, $f \in \Gamma(X; \cO_X)$.
+
+\begin{proof}[Preuve]
+L'équivalence de (i)--(iii) a été prouvée dans (SGAA~IX~2.5 et 5.8). Les autres assertions s'en déduisent par récurrence noethérienne.
+\end{proof}
+
+\textbf{3.1.3. Dimension cohomologique.} Soit $X$ un préschéma (localement noethérien). Nous noterons $(\mathrm{cdloc})_n$ la condition suivante :
+
+Pour tout sous-préschéma $Y$ de $X$, tout point géométrique $\ol{y}$ de $Y$, et tout $f \in \Gamma(\wt{Y}(\ol{y}); \cO_{\wt{Y},\ol{y}})$ (où $\wt{Y}(\ol{y})$ désigne (cf.~SGAA~VIII~7.1.) le localisé strict de $Y$ en $\ol{y}$) on a
+\[
+\cd_{\mathbf{n}}(\wt{Y}(\ol{y}) - V(f)) \leqslant \dim \cO_{Y,\ol{y}} \quad (= \dim \cO_{Y,y} \text{ par EGA~IV~6.1.3}),
+\]
+où $\mathbf{n}$ est l'ensemble des nombres premiers qui divisent $n$.
+
+La condition $(\mathrm{cdloc})_n$ est vérifiée si $X$ est localement de type fini sur un corps (SGAA~XIV~3.5), ou est un préschéma excellent de caractéristique nulle (SGAA~XIX~6.2.).(*)\footnote{(*) (ajouté en 1977) ou, d'après un résultat récent de G.~Ofer, si $X$ est excellent, régulier, et de dimension~2.}
+
+\textbf{3.1.4. Pureté cohomologique absolue.} Soit $X$ un préschéma régulier, et soit $Y$ un sous-préschéma fermé régulier de $X$ de codimension $d$ en tout point. On dit que le couple $(X,Y)$ satisfait au théorème de pureté cohomologique absolue (relativement à $n$) si l'on a :
+\[
+\underline{\H}^i_Y(A_X) = 0 \qquad \text{pour } i \neq 2d, \text{ et}
+\]
+si l'homomorphisme ``classe fondamentale locale'' (SGAA~$4^{1/2}$~Cycle~2.2)
+\[
+A_Y \longrightarrow \underline{\H}^{2d}_Y((\mu_n)^{\otimes d}_X)
+\]
+est un isomorphisme.
+
+On dit que le théorème de pureté (cohomologique) absolue est vrai sur $X$ si tout couple $(U,Y)$ comme ci-dessus y satisfait, où $U$ est un ouvert de $X$.
+
+Le théorème de pureté absolue est vrai sur $X$ si $X$ est lisse sur un corps parfait de car.~première à $n$, (SGAA~XVI~3.9), ou est un préschéma excellent de caractéristique nulle (SGAA~XIX~3.2), ou est un préschéma régulier de dimension~1 (cf.~5.1.).(*)\footnote{(*) (ajouté en 1977) ou, d'après un résultat récent de G.~Ofer, si $X$ est excellent, régulier, et de dimension~2.}
+
+\textbf{3.1.5. Résolution des singularités à la Hironaka.}
+
+a) Soit $X$ un préschéma régulier, et soit $D \geqslant 0$ sur $X$. On dit que $D$ est \emph{strictement à croisements normaux} s'il existe une famille finie $(f_i)_{i \in I}$ d'éléments de $\Gamma^{*}(X; \cO_X)$ telle que $D = \sum_{i \in I} \Div(f_i)$ (EGA~IV~21) et que pour tout $x \in \Supp(D)$ les $(f_i)_x$ tels que $(f_i)_x \in \fm_x$ fassent partie d'une suite de paramètres réguliers. On dit que $D$ est \emph{à croisements normaux} si $D$ est, localement pour la topologie étale, strictement à croisements normaux.
+
+L'exemple-type d'un diviseur à croisements normaux est fourni par une réunion localement finie d'hyperplans de coordonnées dans l'espace affine type.
+
+b) Soit $X$ un préschéma localement noethérien. Nous dirons que $X$ est \emph{fortement désingularisable} si la condition suivante est vérifiée :
+
+Pour tout morphisme fini $f : Y \to X$, où $Y$ est intègre et de point générique séparable sur son image, et tout ouvert régulier $U$ de $Y$, il existe un morphisme propre et birationnel $h : Y' \to Y$, où $Y'$ est régulier, $h$ induit un isomorphisme de $U' = h^{-1}(U)$ sur $U$, et $Y' - U'$ est un diviseur à croisements normaux.
+
+Voici des cas où $X$ est fortement désingularisable :
+\begin{enumerate}
+\item[a)] $X$ est excellent, de caractéristique nulle ([2]);
+\item[b)] $X$ est localement noethérien, régulier, et de dimension $\leqslant 1$;
+\item[c)] $X$ est de type fini sur $\Z$ ou sur un corps parfait, et de dimension $\leqslant 2$ ([1]).(*)\footnote{(*) (ajouté en 1977) plus généralement, si $X$ est excellent noethérien de dimension $\leqslant 2$, d'après H.~Hironaka, Desingularization of excellent surfaces, notes by B.~Bennett, Bowdoin college, 1967 (à compléter éventuellement par H.~Hironaka, Certain numerical characters of singularities, J.~of Math of Kyoto Univ., 10, 1970, p.~151--187).}
+\end{enumerate}
+
+\textbf{3.1.6. Finitude cohomologique.} Soit $f : X \to Y$ un morphisme de préschémas, et soit $F \in \ob \D_c^{+}(X)$. On a $\R f_{*}(F) \in \ob \D_c^{+}(Y)$ dans les cas suivants :
+\begin{enumerate}
+\item[a)] $f$ est propre et de présentation finie (SGAA~XIV~1.1);
+\item[b)] ``lorsqu'on dispose de la résolution des singularités et du théorème de pureté'', en particulier
+\begin{enumerate}
+\item[(i)] si $X$ et $Y$ sont localement de type fini sur un corps $k$ de caractéristique~0 et $f$ un $k$-morphisme de type fini (SGAA~XVI~5.1);
+\item[(ii)] si $Y$ est excellent de caractéristique nulle et $f$ de type fini (SGAA~XIX~5.1);
+\item[(iii)] si $X$ est localement de type fini sur un corps et $\dim(X) \leqslant 2$ (SGAA~XIX~5.1).
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{3.2. Dimension quasi-injective de $A_X$.}
+
+\subsection*{Proposition 3.2.1}
+Soit $X$ un préschéma régulier, de caractéristiques résiduelles premières à $n$. On suppose que $X$ satisfait aux conditions (reg) (3.1.1) et $(\mathrm{cdloc})_n$ (3.1.3) et que le théorème de pureté absolue est vrai sur $X$ (3.1.4). Alors, pour tout $A_X$-Module constructible $F$ et tout $x \in X$, on a
+\[
+(*) \qquad \underline{\Ext}^i(F, A_X)_x = 0 \quad \text{pour } i > 2\dim \cO_{X,x}.
+\]
+
+\begin{proof}[Preuve]
+La question étant locale, on peut supposer $X$ affine. Par dévissage (3.1.2), on peut se borner à vérifier $(*)$ pour $F = i_{!}(G)$, où $i : Y \to X$ est l'immersion d'un sous-préschéma intègre régulier fermé dans un ouvert $D(f)$ ($f \in A(X)$), et $G$ est un faisceau localement constant constructible sur $Y$. Il s'agit de calculer $\underline{\Ext}^q(F, A_X) = \H^q(\R\,\underline{\Hom}(F, A_X))$.
+
+La formule de projection pour $i$ (SGAA~XVIII) donne $\R\,\underline{\Hom}(i_{!}(G), A_X) \xrightarrow{\sim} \R i_{*} \R\,\underline{\Hom}(G, \R^{!}i(A_X))$. Par le théorème de pureté, on a $\R^{!}i(A_X) \xrightarrow{\sim} (\mu_n)^{\otimes d}_Y[-2d]$, où $d = \codim(Y,X)$.
+
+Posons $(\mu_n)^{\otimes d}_Y = T$. Comme $G$ est localement constant constructible, on a $\underline{\Ext}^p(G,T)_{\ol{y}} \xrightarrow{\sim} \Ext^p(G_{\ol{y}}, T_{\ol{y}})$ pour tout point géométrique $\ol{y}$ de $Y$ et tout $p$. Or $T_{\ol{y}}$ est injectif, car isomorphe à $A = \Z/n\Z$. Par suite $\underline{\Ext}^p(G,T) = 0$ pour $p \neq 0$, donc $\R\,\underline{\Hom}(G,T) \xrightarrow{\sim} \underline{\Hom}(G,T)$, d'où finalement
+\[
+\R\,\underline{\Hom}(F, A_X) \xrightarrow{\sim} \R i_{*}(\H)[-2d], \quad \text{avec } \H = \underline{\Hom}(G,T).
+\]
+Soit $Z$ l'adhérence schématique de $Y$ dans $X$ (EGA~I~9.5.10). On a $Y = Z \cap D(f)$ (EGA~$0_{\mathrm{I}}$~2.1.6). Notons $j : Y \to Z$, $k : Z \to X$ les immersions canoniques. On a $\R i_{*} = k_{*} \R j_{*}$, donc on est ramené à calculer $\R j_{*}(\H)$. Soient $\ol{x}$ un point géométrique de $Z$, $\wt{Z} = \Spec(\cO_{Z,\ol{x}})$ le localisé strict de $Z$ en $\ol{x}$, $\wt{f}$ l'image de $f$ dans $\cO_{Z,\ol{x}}$, $\wt{Y} = \wt{Z} \times_Z Y = \wt{Z} - V(\wt{f})$, $\wt{\H}$ l'image inverse de $\H$ sur $\wt{Y}$. D'après (SGAA~VIII~5.2), on a $\R^q j_{*}(\H)_{\ol{x}} \xrightarrow{\sim} \H^q(\wt{Y}, \wt{\H})$, d'où $\underline{\Ext}^q(F, A_X)_{\ol{x}} \xrightarrow{\sim} \H^{q-2d}(\wt{Y}, \wt{\H})$. La condition $(\mathrm{cdloc})_n$ implique alors $\underline{\Ext}^q(F, A_X)_{\ol{x}} = 0$ pour $q - 2d > \dim \cO_{Z,\ol{x}}$. Des relations $d = \codim_{\ol{x}}(Z,X) \leqslant \dim \cO_{X,\ol{x}}$ (EGA~IV~5.1.3) et $\dim \cO_{Z,\ol{x}} = \dim \cO_{X,\ol{x}} - \codim_{\ol{x}}(Z,X)$ (EGA~$0_{\mathrm{IV}}$~16.5.12 et IV~5.1.9), on tire $\underline{\Ext}^q(F, A_X)_x = 0$ pour $q > 2\dim \cO_{X,x}$, cqfd.
+\end{proof}
+
+\subsection*{Remarque 3.2.2}
+La majoration obtenue dans (3.2.1) est la meilleure possible. Soient en effet $x$ un point de $X$ et $Y$ le sous-préschéma fermé intègre de $X$ ayant $x$ pour point générique. Comme $X$ satisfait à la condition (reg), il existe un ouvert régulier $U$ de $Y$ contenant $x$. Et par le théorème de pureté, on a $\underline{\Ext}^{2d}(A_U, A_X)|U = (\mu_n)^{\otimes d}_U$, où $d = \dim \cO_{X,x} = \codim(Y,X)$.
+
+\subsection*{Corollaire 3.2.3}
+Soit $X$ un préschéma régulier de dimension $d$. Si $X$ est lisse sur un corps $k$ de car.~première à $n$, ou est excellent de caractéristique nulle alors $X$ vérifie la conclusion de (3.2.1) et l'on a par suite
+\[
+\dim.\,q.\,inj(A_X) \leqslant 2d.
+\]
+
+\begin{proof}[Preuve]
+Lorsque $X$ est excellent de car.~0, ou lorsque $k$ est parfait de car.~première à $n$, et $X$ lisse sur $k$, les hypothèses de (3.2.1) sont vérifiées en vertu de (3.1.1), (3.1.3) et (3.1.4). La conclusion est encore valable si $X$ est lisse sur un corps $k$ quelconque, comme on le voit aussitôt par changement de base $\Spec(k') \to \Spec(k)$, où $k'$ est une clôture parfaite de $k$ (SGAA~VIII~1.1).
+\end{proof}
+
+\subsection*{Lemme 3.2.4}
+Soit $X$ un préschéma satisfaisant à la conclusion de (3.2.1) et de dimension $\leqslant d$. S'il existe un entier $N$ tel que $X$ soit de dimension cohomologique $\leqslant N$, on a
+\[
+\dim.\,inj(A_X) \leqslant 2d + N.
+\]
+Si en outre, pour tout fermé $Y$ de $X$, $\codim(Y,X) \geqslant p$ implique $\cd_{\mathbf{n}}(Y) \leqslant N - 2p$, on a alors
+\[
+\dim.\,inj(A_X) \leqslant N.
+\]
+
+\begin{proof}[Preuve]
+La première assertion résulte aussitôt de (1.5). Pour la deuxième, on raisonne comme dans (1.5). On est ramené à prouver, pour $F$ constructible sur $X$, la relation $\Ext^i(X; F, A_X) = 0$ pour $i > N$. Pour ce, on examine la suite spectrale
+\[
+\E_2^{pq} = \H^p(X; \underline{\Ext}^q(F, A_X)) \Rightarrow \Ext^{*}(X; F, A_X).
+\]
+D'après (3.2.1), les faisceaux $\underline{\Ext}^{2i}(F, A_X)$ et $\underline{\Ext}^{2i-1}(F, A_X)$ sont concentrés en codimension $\geqslant i$. Donc $\E_2^{p,2i} = \E_2^{p,2i-1} = 0$ pour $p > N - 2i$ par hypothèse. Donc $\E_2^{pq} = 0$ pour $p+q > N$, d'où l'assertion.
+\end{proof}
+
+\subsection*{Corollaire 3.2.5}
+Si $X$ est un préschéma lisse de dimension $d$ sur un corps $k$ séparablement clos de car.~première à $n$, on a $\dim.\,inj(A_X) = 2d$.
+
+\begin{proof}[Preuve]
+Par (3.2.3) et (SGAA~X~4.2), on est en effet dans les conditions d'application de (3.2.4) (Noter que les hypothèses de (SGAA~X~4.2) sont vérifiées en vertu de (SGAA~X~2.1 et 3.2)), qui implique $\dim.\,inj\, A_X \leqslant 2d$. La relation $\dim.\,inj(A_X) = 2d$ provient du théorème de pureté (cf.~3.2.2) : si $x$ est un point fermé de codim.~$d$ de $X$, on a en effet $\Ext^{2d}(X, A_x, A_X) = \H^{2d}_x(A_X) \xrightarrow{\sim} (\mu_n)^{\otimes d}(k) \neq 0$.
+\end{proof}
+
+\subsubsection{3.3. Constructibilité des $\underline{\Ext}^i(F, A_X)$.}
+
+\subsection*{Proposition 3.3.1}
+Soit $X$ un préschéma.
+\begin{enumerate}
+\item[a)] Les conditions suivantes sont équivalentes :
+\begin{enumerate}
+\item[(i)] pour $F \in \ob \D_c^{-}(X)$ et $G \in \ob \D_c^{+}(X)$, $\R\,\underline{\Hom}(F,G) \in \ob \D_c^{+}(X)$;
+\item[(i~bis)] pour tout couple $(F,G)$ de $A_X$-Modules constructibles, $\R\,\underline{\Hom}(F,G) \in \ob \D_c^{+}(X)$, i.e.~les $\underline{\Ext}^i(F,G)$ sont constructibles pour tout $i$;
+\item[(ii)] pour toute immersion ouverte $i : U \to X$ et tout $A_U$-Module constructible $F$, $\R^p i_{*}(F)$ est constructible pour tout $p$;
+\item[(ii~bis)] pour toute immersion $i : Y \to X$ et tout $A_Y$-Module constructible $F$, $\R^p i_{*}(F)$ est constructible pour tout $p$;
+\item[(ii~ter)] pour toute immersion $i : Y \to X$ et tout $A_Y$-Module localement constant constructible $F$, $\R^p i_{*}(F)$ est constructible pour tout $p$;
+\item[(iii)] pour tout morphisme fini (resp.~toute immersion fermée) $f : Y \to X$, et tout $F \in \ob \D_c^{+}(X)$, $\R^{!}f(F) \in \ob \D_c^{+}(Y)$.
+\end{enumerate}
+\item[b)] Ces conditions sont vérifiées dans les deux cas suivants :
+\begin{enumerate}
+\item[(i)] $\dim(X) \leqslant 1$;
+\item[(ii)] ``On dispose sur $X$ de la résolution des singularités et de la pureté'' (cf.~3.1.6~b)).
+\end{enumerate}
+\end{enumerate}
+
+\begin{proof}[Preuve]
+L'équivalence de (i) et (i~bis) résulte de la suite spectrale standard des $\underline{\Ext}$ aux hyper $\underline{\Ext}$.
+
+$(\text{i~bis}) \Rightarrow (\text{ii})$. Soit $\ol{F}$ un $A_X$-Module constructible prolongeant $F$, par exemple $\ol{F} = i_{!}(F)$. Par dualité (SGAA~XVIII~3.1.10), on a
+\[
+\R i_{*}(F) = \R i_{*} \R\,\underline{\Hom}(A_U, i^{!}(\ol{F})) \xrightarrow{\sim} \R\,\underline{\Hom}(i_{!}(A_U), \ol{F}), \text{ et l'on gagne.}
+\]
+
+$(ii) \Rightarrow (ii\text{~bis})$. Factoriser $i$ en une immersion fermée suivie d'une immersion ouverte.
+
+$(ii\text{~bis}) \Rightarrow (i\text{~bis})$. La question étant locale, on peut supposer $X$ affine, et, par le dévissage habituel (SGAA~IX~2.5), on peut se borner à vérifier (ii) pour $F = i_{!}(M)$, où $i : Y \to X$ est l'immersion d'un sous-préschéma, et $M$ est un $A_Y$-Module localement constant (constructible). Par la formule de projection (SGAA~XVIII)
+\[
+\R\,\underline{\Hom}(i_{!}(M), G) \xrightarrow{\sim} \R i_{*} \R\,\underline{\Hom}(M, \R i^{!}(G))
+\]
+et une suite spectrale, on est ramené à prouver que $\R\,\underline{\Hom}(M, \R i^{!}(G)) \in \ob \D_c^{+}(Y)$. Montrons d'abord que $\R i^{!}(G) \in \ob \D_c^{+}(Y)$. Quitte à factoriser $i$, on peut supposer $Y$ fermé. Soit $j : U = X - Y$ l'immersion complémentaire.
+
+Appliquant le foncteur $\R\,\underline{\Hom}(\quad, G)$ à la suite exacte
+\[
+0 \longrightarrow A_{U,X} \longrightarrow A_X \longrightarrow A_Y \longrightarrow 0
+\]
+on obtient un triangle distingué
+\[
+\begin{tikzcd}
+\R\,\underline{\Hom}(A_{U,X}, G) \ar[dr] & \\
+\R\,\underline{\Hom}(A_Y, G) \ar[r] & \R\,\underline{\Hom}(A_X, G) \ar[ul]
+\end{tikzcd}
+\]
+Or on a $\R\,\underline{\Hom}(A_X, G) = G$. D'autre part, $\R\,\underline{\Hom}(A_{U,X}, G) \xrightarrow{\sim} \R j_{*} j^{!}(G)$ appartient à $\D_c^{+}(X)$ par hypothèse. Donc $\R\,\underline{\Hom}(A_Y, G) \xrightarrow{\sim} i_{*} \R i^{!}(G)$ appartient à $\D_c^{+}(X)$. Résolvant $M$ à gauche localement, pour la topologie étale, par des $A_Y$-Modules libres, on en déduit, par un nouveau dévissage, que $\R\,\underline{\Hom}(M, \R i^{!}(G)) \in \ob \D_c^{+}(X)$, cqfd.
+
+$(ii\text{~bis}) \Rightarrow (ii\text{~ter})$ est trivial.
+
+$(ii\text{~ter}) \Rightarrow (ii)$. Soient $i : U \to X$ une immersion ouverte, $F$ un $A_U$-Module constructible. On doit prouver que $\R i_{*}(F) \in \ob \D_c^{+}(X)$. La question étant locale, on peut supposer $X$ noethérien, et l'on procède par récurrence noethérienne sur $X$. On peut supposer $U \neq \emptyset$, donc il existe $j : V \to U$ un ouvert non vide de $U$ tel que $j^{*}(F)$ soit localement constant (SGAA~IX~2.4). Soit $M$ le mapping-cylinder de $F \to \R j_{*}j^{*}(F)$. Appliquant $\R i_{*}$, on obtient donc un triangle distingué
+\[
+\R i_{*}(F) \longrightarrow \R i_{*} \R j_{*} j^{*}(F) \longrightarrow \R i_{*}(M) \xrightarrow{[1]}
+\]
+La condition (ii~ter) implique que l'on a
+\[
+\R i_{*} \R j_{*} j^{*}(F) \xrightarrow{\sim} \R(ij)_{*} j^{*}(F) \in \ob \D_c^{+}(X).
+\]
+On a par suite
+\[
+\R j_{*}j^{*}(F) \xrightarrow{\sim} i^{*} \R(ij)_{*} j^{*}(F) \in \ob \D_c^{+}(U).
+\]
+Donc $M \in \ob \D_c^{+}(U)$, puisque $F \in \ob \D_c^{+}(U)$. En outre, la cohomologie de $M$ est à support dans un fermé $Z$ de $U$ distinct de $U$. Appliquant l'hypothèse de récurrence à $U \cap \ol{Z} \to \ol{Z}$, on en déduit que $\R i_{*}(M) \in \ob \D_c^{+}(X)$, et par suite que $\R i_{*}(F) \in \ob \D_c^{+}(X)$.
+
+L'équivalence des conditions (i)--(ii~ter) avec la condition (iii) est laissée au lecteur (utiliser 1.14).
+
+b) (i) Par normalisation, on se ramène au cas où $X$ est régulier et l'on utilise la pureté (qui sera démontrée en (5.1)).
+
+b) (ii) voir 3.1.6 b).
+\end{proof}
+
+\subsubsection{3.4. Le théorème de bidualité sur les préschémas réguliers.}
+
+\subsection*{Théorème 3.4.1 (cf. [H] V 2.2)}
+Soit $X$ un préschéma (localement noethérien) régulier de dimension finie. On suppose que $X$ est fortement désingularisable (3.1.5), satisfait aux conditions (reg) (3.1.1) et $(\mathrm{cdloc})_n$ (3.1.3), et que le théorème de pureté absolue (3.1.4) est vrai sur tout préschéma lisse sur $X$. Alors $A_X$ est dualisant (1.6).
+
+\begin{proof}[Démonstration]
+Il s'agit de prouver que $A_X$ satisfait aux conditions (i) à (iii) de (1.6). La condition (i) est vérifiée en vertu de (3.2.1). De plus $A_X$ satisfait à (ii) en vertu de (3.3.1~b)). Reste la condition (iii). Autrement dit, reste à prouver, d'après (1.7), que, pour tout $A_X$-Module constructible $F$, l'homomorphisme canonique $F \to \underline{D}_X \underline{D}_X F$ (où l'on a posé $\underline{D}_X = \R\,\underline{\Hom}(\quad, A_X)$) est un isomorphisme. La question étant locale, on peut supposer $X$ noethérien, et par dévissage (3.1.2 (iii~bis)), on peut se borner aux $F$ de la forme $F = f_{*}i_{!}(A'_U)$, où $i : U \to Y$ est l'inclusion d'un ouvert régulier dans un préschéma intègre, $f : Y \to X$ est un morphisme fini tel que le point générique de $Y$ soit séparable sur son image, $A' = \Z/\ell\Z$, $\ell$ diviseur premier de $n$.
+
+Comme $X$ est fortement désingularisable, il existe alors (3.1.6) un morphisme propre et birationnel $h : Y' \to Y$, où $Y'$ est régulier, $h$ induit un isomorphisme de $U' = h^{-1}(U)$ sur $U$, et $Y' - U'$ est un diviseur à croisements normaux (3.1.6). On a grâce au th.~de changement de base (cf.~SGAA~XVII) $i_{!}(A'_U) \xrightarrow{\sim} \R h_{*} i'_{!}(A'_{U'})$ (où $i'$ est l'inclusion $U' \to Y'$), d'où
+\[
+f_{*} i_{!}(A'_U) \xrightarrow{\sim} f_{*} \R h_{*} i'_{!}(A'_{U'}) \xrightarrow{\sim} \R g_{*} i'_{!}(A'_{U'}),
+\]
+avec $g = fh$. En vertu de (1.11), il suffit de prouver que le couple $(i'_{!}(A'_{U'}), \R^{!}g(A_X))$ est bidualisant. Plongeant localement $Y'$ dans un préschéma $X'$ lisse sur $X$, et appliquant le théorème de pureté sur $X'$, on voit que $\R^{!}g(A_X)$ est localement isomorphe à $A_{Y'}$, à translation près. On est donc ramené à prouver le cas particulier suivant de (3.4.1) :
+
+\subsection*{Lemme 3.4.2}
+Soit $X$ un préschéma localement noethérien régulier sur lequel le théorème de pureté absolue est vrai (3.1.4). Soit $Y = Y_1 \cup \cdots \cup Y_p$ un diviseur strictement à croisements normaux sur $X$ (3.1.6), et soit $U = X - Y$. Alors le couple $(A'_{U,X}, A_X)$ est bidualisant (1.4).
+
+\begin{proof}[Preuve]
+Grâce à la suite exacte $0 \to A'_{U,X} \to A'_X \to A'_Y \to 0$, il revient au même de vérifier que le couple $(A'_Y, A_X)$ est bidualisant. On raisonne par récurrence sur $p$.
+
+a) $p = 1$. Notons $i$ l'immersion $Y \to X$. Par (1.11), il suffit de vérifier que $(A'_Y, \R^{!}i(A_X))$ est bidualisant. Or, en vertu du théorème de pureté, $\R^{!}i(A_X) \xrightarrow{\sim} (\mu_n)^{\otimes 1}_Y[-2]$. Par suite, l'homomorphisme canonique $A'_Y \to \underline{D}_Y \underline{D}_Y(A'_Y)$ est un isomorphisme, comme on le vérifie trivialement fibre par fibre (dualité de Pontryagin pour les $A$-modules).
+
+b) $p \geqslant 2$. Posons $Y' = Y_1 \cup \cdots \cup Y_{p-1}$. On a la suite exacte
+\[
+0 \longrightarrow A'_{(Y-Y'),X} \longrightarrow A'_Y \longrightarrow A'_{Y'} \longrightarrow 0.
+\]
+Le couple $(A'_{Y'}, A_X)$ étant bidualisant par hypothèse de récurrence, on est ramené par le lemme des 5 à vérifier la bidualité pour $(A'_{(Y-Y'),X}, A_X)$. Or, on a de nouveau une suite exacte :
+\[
+0 \longrightarrow A'_{(Y-Y'),X} \longrightarrow A'_{Y_p} \longrightarrow A'_{Y_p \cap Y'} \longrightarrow 0.
+\]
+Comme $(A'_{Y_p}, A_X)$ est bidualisant, on doit donc vérifier qu'il en est de même de $(A'_{Y_p \cap Y'}, A_X)$. Appliquant à nouveau (1.11) et la pureté, on est finalement ramené à vérifier la bidualité pour $(A'_{Y_p \cap Y'}, A_X)$ sur $Y_p$, et l'on gagne par hypothèse de récurrence.
+\end{proof}
+\end{proof}
+
+\subsection*{Corollaire 3.4.3}
+Soit $S$ un préschéma noethérien régulier excellent de caractéristique nulle. Alors $A_S$ est dualisant. En outre, si $f : X \to S$ est un morphisme de type fini, $\R^{!}f(A_S)$ est dualisant.
+
+\begin{proof}[Preuve]
+La première assertion résulte de ce que $S$ vérifie les hypothèses de (3.4.1) (voir 3.1). Pour la deuxième, on doit d'abord vérifier que $\R^{!}f(A_S)$ est de dimension quasi-injective finie. Pour ce, on recouvre $S$ par un nombre fini d'ouverts affines $S_i$ tels que $X_i = f^{-1}(S_i)$ soit réunion finie d'ouverts affines $X_{ij}$ plongés comme fermés dans des $X'_{ij}$ lisses de dimension finie sur $S_i$. De (3.2.3) et (1.6), on déduit alors que $\dim.\,q.\,inj(\R^{!}f(A_S)) \leqslant 2\sup(\dim X'_{ij})$. Reste à vérifier les conditions (ii) et (iii) de (1.7). Comme celles-ci sont de nature locale sur $X$ pour la topologie étale, on peut supposer que $f$ se factorise en $f = f'i$, où $f' : X' \to S$ est un morphisme lisse de dimension relative $d$ et $i : X \to X'$ une immersion fermée. On a $\R^{!}f(A_S) \simeq \R^{!}i \, \R^{!}f'(A_S)$.
+
+Or $\R^{!}f'(A_S)$ est localement isomorphe à $A_{X'}$ (à translation près de $2d$), donc dualisant en vertu de la première assertion. Par suite, en vertu de (1.15), $\R^{!}f(A_S)$ est dualisant, donc en particulier vérifie les conditions (ii) et (iii) de (1.7), cqfd.
+\end{proof}
+
+\subsection*{Corollaire 3.4.4}
+Soit $k$ un corps, et soit $f : X \to S = \Spec(k)$ un morphisme localement de type fini, avec $\dim(X) \leqslant 2$.
+
+Alors, $\R^{!}f(A_S)$ est dualisant.
+
+\begin{proof}[Preuve]
+Quitte à remplacer $k$ par sa clôture parfaite, opération anodine pour la topologie étale (VIII~1.1), on peut supposer $k$ parfait. On recouvre $X$ par des ouverts affines $X_i$ de type fini sur $k$. Comme $\dim(X_i) \leqslant 2$, $X_i$ est fini sur un $X'_i$ lisse sur $S$ et de dimension $\leqslant 2$ (lemme de normalisation). Par (1.15) on est alors ramené au cas où $f$ est lisse, donc $f^{!}(A_S) \simeq A_X[2d]$ (localement) i.e.~à montrer que dans ce cas $A_X$ est dualisant; mais ceci résulte de (3.4.1), car les hypothèses sont bien vérifiées (voir 3.1)).
+\end{proof}
+
+\subsection*{Remarque 3.4.5}
+On verra plus bas que si $X$ est régulier de dimension $\leqslant 1$, $A_X$ est dualisant.
+
+\section*{4. Dualité locale}
+
+L'objet de ce numéro est de présenter la notion de ``bidualité'' développée aux numéros précédents sous une forme plus proche de l'intuition géométrique.
+
+\subsection*{4.1}
+Soient $X$ un préschéma, $i:x\to X$ un point fermé de corps résiduel séparablement clos, $K_X$ un complexe dualisant sur $X$ (1.7). On sait (1.15) que $K_{\{x\}}=\R^{!}i(K_X)$ est un complexe dualisant sur $x$, donc, en vertu de (2.1) et (3.4.4), isomorphe à $A[r]$ pour un $r\in\Z$ (si $A$ est local). Nous dirons que $K_X$ est \emph{normalisé en $x$} si $r=0$ et si l'on s'est donné un isomorphisme $K_{\{x\}}\xrightarrow{\sim}A$.
+
+Par exemple, si $X$ est lisse de dimension relative $d$ sur le spectre d'un corps séparablement clos, le complexe $(\mu_n)_X^{\otimes d}[2d]$ est, en vertu du théorème de pureté (SGA~XVI~3, SGA~$4^{1/2}$ Cycle~2.3), canoniquement normalisé en tout point fermé de $X$.
+
+\subsection*{4.2}
+Soient $X$ un préschéma, $i:Y\to X$ un sous-préschéma fermé, $K_X$ un complexe dualisant sur $X$. Alors (1.15) $K_Y=\R^{!}i(K_X)$ est un complexe dualisant sur $Y$, et l'on a la \emph{formule d'induction complémentaire} (1.12 b) (ii)), pour $F\in \ob\D_c^b(X)$,
+\[
+(4.2.1)\qquad i^*\underline{D}_X(F)\xrightarrow{\sim}\underline{D}_Y\R^{!}i(F),
+\]
+où l'on a posé $\underline{D}_X=\R\,\underline{\Hom}(\ ,K_X)$, $\underline{D}_Y=\R\,\underline{\Hom}(\ ,K_Y)$.
+
+Appliquons en particulier (4.2.1) au cas où $Y=\{x\}$ est un point fermé de $X$ à corps résiduel séparablement clos, $K_X$ étant normalisé en $x$ (4.1). Compte tenu de ce que $A_x$ est injectif, (4.2.1) s'écrit alors
+\[
+(4.2.2)\qquad \underline{D}_X(F)_x\xrightarrow{\sim}\Hom^*(\R^{!}i(F),A).
+\]
+Notant que $\R^{!}i(F)$ s'écrit aussi, par définition, $\R\Gamma_x(F)$, on a donc un accouplement parfait dans $\D(A)$:
+\[
+(4.2.2)'\qquad \underline{D}_X(F)_x\times \R\Gamma_x(F)\longrightarrow A,
+\]
+donnant lieu à des accouplements parfaits entre groupes finis:
+\[
+(4.2.2)''\qquad \uH^i(\underline{D}_X(F))_x\times \uH_x^{-i}(F)\longrightarrow A.
+\]
+Par exemple, soit $X$ un préschéma lisse de dimension $d$ sur un corps séparablement clos, et soit $x\in X$ un point fermé. Alors, pour $F\in\ob\D_c^b(X)$, on a une dualité parfaite canonique entre groupes finis:
+\[
+(4.2.2)'''\qquad \Ext^{2d-i}(F,\mu_n^{\otimes d})_x\times \uH_x^i(F)\longrightarrow A.
+\]
+
+\subsection*{Exercice 4.2.3}
+Soit $X$ un schéma strictement local (SGA~VIII~4.2), de point fermé $x$, et soit $i:x\to X$ le morphisme canonique. Soit $K$ un complexe dualisant sur $X$, normalisé en $x$. Notons
+\[
+\overset{\mathbf L}{\otimes} i_? : \D^b(A)\longrightarrow \D^-(X)
+\]
+le foncteur défini par
+\[
+\overset{\mathbf L}{\otimes} i_?(M)=M\overset{\mathbf L}{\otimes}_A K.
+\]
+(Si $K$ est de tor-dimension finie sur $A$, $\overset{\mathbf L}{\otimes} i_?$ s'étend en un foncteur de $\D^+(A)$ dans $\D(X)$.)
+
+Montrer qu'il existe, pour $L\in\D^-(X)$ et $M\in\D^b(A)$, un isomorphisme fonctoriel canonique
+\[
+(*)\qquad \R\Hom(L,\overset{\mathbf L}{\otimes} i_?(M))\xrightarrow{\sim}\R\Hom(\R^{!}i(L),M),
+\]
+(on suppose bien entendu que $\R^{!}i:\D^-(X)\to\D^-(A)$ est défini \dots).
+
+\emph{Hint:} Définir d'abord un morphisme ``trace'' $\R^{!}i\,\overset{\mathbf L}{\otimes}i_?(M)\to M$, puis, pour vérifier que $(*)$ est un isomorphisme, se ramener, par dévissage, au cas où $L\in\ob\D_c^b(X)$ et $M=A$, et appliquer (4.2.2). Noter que, pour $M=A$, $(*)$ se réduit à l'accouplement parfait (``dualité locale'' cf.~[H]~V~6.2)
+\[
+\R\Gamma_x(L)\times \R\Hom(L,K)\longrightarrow A,
+\]
+ou
+\[
+\H_x^i(L)\times \Ext^{-i}(L,K)\longrightarrow A.
+\]
+
+\subsection*{4.3}
+Nous allons maintenant généraliser (4.2.2) au cas d'un point géométrique $\ol{x}$ de $X$ localisé en un point $x$ non nécessairement fermé. Nous aurons besoin pour cela de quelques préliminaires.
+
+\begin{statement}{Lemme 4.3}
+Soient $X$ un préschéma, $X'$ le localisé strict de $X$ en un point géométrique $\ol{x}$, $f:X'\to X$ la flèche canonique. Alors, pour $F\in\ob\D_c^-(X)$, $G\in\ob\D^+(X)$, l'homomorphisme fonctoriel canonique (SGA~VI~I~3.7)
+\[
+f^*\R\,\underline{\Hom}(F,G)\longrightarrow \R\,\underline{\Hom}(f^*F,f^*G)
+\]
+est un isomorphisme.
+\end{statement}
+
+\begin{prooftext}[Preuve]
+On se ramène, comme d'habitude, à $F$ et $G$ réduits au degré $0$. La question étant locale au voisinage de $x$, on peut supposer $X$ affine. $F$ admet alors (SGA~IX~2.7) une résolution gauche par des faisceaux du type $i_!(A_U)$, où $i:U\to X$ est étale de présentation finie, donc, par dévissage, on est ramené à $F=i_!(A_U)$. Formons le carré cartésien
+\[
+\begin{tikzcd}
+U & U' \arrow[l,"g"'] \\
+X \arrow[u,"i"] & X' \arrow[l,"f"] \arrow[u,"i'"']
+\end{tikzcd}
+\]
+On a des isomorphismes canoniques, cas particuliers triviaux de la dualité (SGA~XVIII~3.1.10):
+\[
+\R\,\underline{\Hom}(F,G)\xleftarrow{\sim}\R i_* i^*G,
+\qquad
+\R\,\underline{\Hom}(f^*F,f^*G)\xleftarrow{\sim}\R i'_* g^*i^*G.
+\]
+Par ces isomorphismes la flèche canonique
+\[
+f^*\R\,\underline{\Hom}(F,G)\longrightarrow \R\,\underline{\Hom}(f^*F,f^*G)
+\]
+s'identifie à la flèche de changement de base (SGA~XVII)
+\[
+f^*\R i_*i^*(G)\longrightarrow \R i'_*g^*i^*(G).
+\]
+Or celle-ci est un isomorphisme, comme on le voit aussitôt par passage à la limite (SGA~VII~5.11).
+\end{prooftext}
+
+\begin{statement}{Lemme 4.4}
+Soit $X$ un préschéma, et soit $K\in\ob\D_c^+(X)$ un complexe satisfaisant aux conditions (i) et (ii) de (1.7). Pour que $K$ soit dualisant, il faut et il suffit que, pour tout localisé strict $f:\ol{X}(\ol{x})\to X$, $f^*K$ soit dualisant.
+\end{statement}
+
+\begin{prooftext}[Preuve]
+Utiliser le fait que tout faisceau constructible sur un localisé strict $\ol{X}(\ol{x})$ est induit par un faisceau constructible sur un schéma étale $\ol{x}$-ponctué sur $X$ (SGA~IX~2.7.4) et appliquer (4.3).
+\end{prooftext}
+
+\subsection*{4.5}
+Soient $X$ un préschéma, $\ol{x}$ un point géométrique de $X$, $f:X'=\ol{X}(\ol{x})\to X$ le localisé strict correspondant.
+
+Soit $Y$ le sous-préschéma fermé intègre adhérence de $x$ dans $X$, notons $g:\ol{x}\to Y$ et $i:Y\to X$ les flèches canoniques, et formons le carré cartésien
+\[
+\begin{tikzcd}
+Y \arrow[r,"i"] & X \\
+\ol{x} \arrow[u,"g"] \arrow[r,"i'"'] & X' \arrow[u,"f"']
+\end{tikzcd}
+\]
+($\ol{x}$ est à la fois le point fermé de $X'$ et le localisé strict de $Y$ en $\ol{x}$).
+
+Nous noterons
+\[
+\R\Gamma_{\ol{x}}:\D^+(X)\longrightarrow \D^+(\ol{x})
+\]
+le foncteur défini par
+\[
+(4.5.1)\qquad \R\Gamma_{\ol{x}}=g^*\R^{!}i.
+\]
+Utilisant la relation bien connue entre les foncteurs $\R^{!}i$ et $\R j_*j^*$, où $j:U\to X$ est l'ouvert complémentaire de $Y$, et appliquant le passage à la limite (SGA~VII~5.11), on trouve un isomorphisme canonique
+\[
+(4.5.2)\qquad \R\Gamma_{\ol{x}}\xrightarrow{\sim}\R^{!}i' f^*.
+\]
+Lorsque $x$ est un point fermé de corps résiduel séparablement clos, le foncteur $\R\Gamma_{\ol{x}}$ coïncide avec le foncteur $\R\Gamma_x$ habituel (SGA~V~4.3) ce qui justifie la notation.
+
+Soit $K_X\in\ob\D^+(X)$, et posons $K_Y=\R^{!}j(K_X)$, $K_{X'}=f^*K_X$, $K_{\ol{x}}=\R\Gamma_{\ol{x}}(K_X)$ (attention, $K_{\ol{x}}$ n'est pas la fibre de $K_X$ en $\ol{x}$ !). Supposons que $K_X$ soit dualisant. Alors, en vertu de (1.15) et (4.4), il en est de même de $K_{X'}$, $K_Y$, $K_{\ol{x}}$. Donc (2.1) on a $K_{\ol{x}}\simeq A[d]$ pour un $d\in\Z$.
+
+Nous dirons que $K_X$ est \emph{normalisé en $\ol{x}$} si $d=0$ et si l'on a choisi un isomorphisme $K_{\ol{x}}\simeq A$. Dans le cas où $x$ est fermé de corps résiduel séparablement clos, on retrouve la notion introduite en (4.1).
+
+Soit $K_X$ un complexe dualisant, et posons $\underline{D}_X=\R\underline{\Hom}(\ ,K_X)$; $\underline{D}_Y=\R\underline{\Hom}(\ ,K_Y)$, etc. Soit $F\in\ob\D_c^b(X)$, calculons $(\underline{D}_XF)_{\ol{x}}$. On a:
+\[
+\begin{aligned}
+(\underline{D}_XF)_{\ol{x}}&\xrightarrow{\sim}g^*i^*\underline{D}_X F\\
+&\xrightarrow{\sim}g^*\underline{D}_Y\R^{!}iF\qquad\text{(en vertu de la formule d'induction complémentaire (4.2.1))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}g^*\R^{!}i(F)\qquad\text{(d'après (4.3)), c'est-à-dire}
+\end{aligned}
+\]
+\[
+(4.5.3)\qquad (\underline{D}_X F)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}(F).
+\]
+Bien entendu, on aurait pu faire un calcul analogue en passant par $X'$ au lieu de $Y$, on aurait alors obtenu un isomorphisme canonique
+\[
+(\underline{D}_XF)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R^{!}i'f^*(F),
+\]
+compatible avec (4.5.3) moyennant l'identification (4.5.2).
+
+Si en outre $K_X$ est normalisé en $\ol{x}$, on obtient des accouplements parfaits généralisant (4.2.2)' et (4.2.2)'':
+\[
+(4.5.3)'\qquad \H_Y^i(F)_{\ol{x}}\times \R^{-i}\Gamma_{\ol{x}}(F)\longrightarrow A,
+\]
+\[
+(4.5.3)''\qquad \H^i(\underline{D}_X(F))_{\ol{x}}\times \H_{\ol{x}}^{-i}(F)\longrightarrow A,
+\]
+(où l'on a posé $\H_{\ol{x}}^i=\H^i\R\Gamma_{\ol{x}}$).
+
+Inversement, soit $K_X\in\ob\D^+(X)$ satisfaisant aux conditions (i) et (ii) de (1.7) et tel que $K_{\ol{x}}=\R\Gamma_{\ol{x}}(K_X)$ soit dualisant pour tout point géométrique $\ol{x}$ de $X$. Alors, pour tout $\ol{x}$, on peut définir (cf.~1.12 b) (ii)) une flèche canonique
+\[
+(4.5.3)^{\mathrm{bis}}\qquad \underline{D}_X(F)_{\ol{x}}\longrightarrow \underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}(F)\qquad (F\in\ob\D_c^b(X)).
+\]
+Si celle-ci est un isomorphisme pour tout $\ol{x}$ et tout $F$, alors $K_X$ est dualisant. En effet, il s'agit de vérifier que la flèche canonique
+\[
+F\longrightarrow \underline{D}_X\underline{D}_X(F)
+\]
+est un isomorphisme pour tout $F\in\ob\D_c^b(X)$. Or, en un point géométrique arbitraire $\ol{x}$, on a
+\[
+\begin{aligned}
+F_{\ol{x}}&\xrightarrow{\sim}\underline{D}_{\ol{x}}\underline{D}_{\ol{x}}(F_{\ol{x}})\qquad\text{(puisque $K_{\ol{x}}$ est dualisant)}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}\underline{D}_X(F)\qquad\text{(par (4.3) et la formule d'induction 1.12 b) (i))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}\underline{D}_{\ol{x}}(F)_{\ol{x}}\qquad\text{(par hypothèse)},
+\end{aligned}
+\]
+donc, moyennant une vérification de compatibilité, $(F,K_X)$ est bidualisant, ce qui prouve notre assertion. En résumé:
+
+\begin{statement}{Proposition 4.5.4}
+Soient $X$ un préschéma, et $K_X\in\ob\D^+(X)$ un complexe satisfaisant aux conditions (i) et (ii) de (1.7). Pour que $K_X$ soit dualisant, il faut et il suffit que pour tout point géométrique $\ol{x}$ de $X$ le complexe $K_{\ol{x}}$ soit dualisant et que la flèche canonique (4.5.3)$^{\mathrm{bis}}$ soit un isomorphisme pour tout $F\in\ob\D_c^b(X)$.
+\end{statement}
+
+\begin{statement}{Remarque 4.5.5}
+L'existence de complexes dualisants doit être considérée, en un sens, comme un complément important au théorème de dualité globale. En effet, ce dernier exprime que l'on a, pour un morphisme séparé de type fini $f:X\to Y$ ($Y$ étant quasi-compact), un isomorphisme canonique
+\[
+\underline{D}_Y\R_!f(F)\xrightarrow{\sim}\R f_*\underline{D}_X(F)
+\]
+(avec les notations de 1.12). Son exploitation pour le calcul de $\R_!f(F)$ (quand $F\in\ob\D_c^b(X)$) nécessite des renseignements sur $\underline{D}_X(F)$. Lorsque $K_X$ est dualisant, ceux-ci sont fournis par l'isomorphisme (4.5.3), qui permet, du moins théoriquement, un calcul des fibres de $\underline{D}_X(F)$ comme invariants de cohomologie ``purement spatiale''.
+\end{statement}
+
+\begin{statement}{Exercice 4.5.6}
+Soit $X$ un préschéma muni d'un complexe dualisant (1.7). La famille des foncteurs (cf.~(4.5.3)'')
+\[
+\H_{\ol{x}}^i:\D_c^b(X)\longrightarrow (A\text{-modules})
+\]
+($i$ parcourant $\Z$ et $\ol{x}$ l'ensemble des points géométriques de $X$) est ``conservative'', i.e. un morphisme $F\to G$ dans $\D_c^b(X)$ tel que les $\H_{\ol{x}}^i(F)\to\H_{\ol{x}}^i(G)$ soient des isomorphismes, est un isomorphisme.
+\end{statement}
+
+\subsection*{4.6}
+Soient $X$ un préschéma, $j:Y\to X$ un sous-préschéma fermé, $i:\ol{x}\to Y$ un point géométrique de $Y$. Soit d'autre part $K_X$ un complexe dualisant sur $X$, normalisé en $\ol{x}$ (cf.~(4.5)). On a vu en (4.5) que, si $Y$ est l'adhérence de $x$, on a, pour $F\in\ob\D_c^b(X)$, un accouplement parfait
+\[
+\R^{!}j(F)_{\ol{x}}\times \underline{D}_X(F)_{\ol{x}}\longrightarrow A.
+\]
+Il n'est pas difficile de définir un accouplement analogue dans le cas général. Introduisons la factorisation de $i$ en
+\[
+\ol{x}\xrightarrow{i'}\{\ol{x}\}\xrightarrow{i''}Y.
+\]
+Pour $F\in\ob\D_c^b(X)$, on a des isomorphismes canoniques:
+\[
+\begin{aligned}
+\R\Gamma_{\ol{x}}j^*\underline{D}_X(F)&\xrightarrow{\sim}\R\Gamma_{\ol{x}}\underline{D}_Y\R^{!}j(F)\qquad\text{(formule d'induction complémentaire (4.2.1))}\\
+&\xrightarrow{\sim}i'^*\R^{!}i''\underline{D}_Y\R^{!}j(F)\qquad\text{(définition de $\R\Gamma_{\ol{x}}$ (4.5.1))}\\
+&\xrightarrow{\sim}i'^*\underline{D}_{\ol{x}}i''^*\R^{!}j(F)\qquad\text{(induction ordinaire (1.12 b) (i))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}i^*\R^{!}j(F)\qquad\text{(par 4.3)), i.e. finalement un}
+\end{aligned}
+\]
+isomorphisme canonique
+\[
+(4.6.1)\qquad \R^{!}j(F)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}j^*\underline{D}_X(F),
+\]
+d'où des accouplements parfaits
+\[
+(4.6.1)'\qquad \R^{!}j(F)_{\ol{x}}\times \R\Gamma_{\ol{x}}j^*\underline{D}_X(F)\longrightarrow A,
+\]
+\[
+(4.6.1)''\qquad \H_Y^i(F)_{\ol{x}}\times \H_{\ol{x}}^{-i}(\underline{D}_X(F)|Y)\longrightarrow A.
+\]
+
+\begin{statement}{Exemple 4.6.2}
+Soient $X$ un préschéma régulier, $\ol{x}$ un point géométrique de $X$, $d=\dim(\cO_{X,\ol{x}})$. Posons $K_X=(\mu_n)_X^{\otimes d}[2d]$. Si $X$ satisfait à la condition (reg) (3.1.1) et au théorème de pureté (3.1.4), alors $K_X$ est canoniquement normalisé en $\ol{x}$. Donc, si $K_X$ est dualisant, on a des accouplements parfaits
+\[
+\H_Y^i(F)_{\ol{x}}\times \H_{\ol{x}}^{2d-i}(F'|Y)\longrightarrow A,
+\]
+pour tout fermé $Y$ contenant $x$ et tout $F\in\ob\D_c^b(X)$, avec $F'=\R\Hom(F,(\mu_n)_X^{\otimes d})$.
+\end{statement}
+
+Donnons, pour terminer, une variante strictement locale de (4.6.1).
+
+\subsection*{4.7}
+Soit $X$ un schéma strictement local noethérien (SGA~VIII~4.2), de point fermé $x$. Soit $Y$ un fermé non vide de $X$, et considérons les immersions canoniques
+\[
+U=X-Y\xrightarrow{i}V=X-\{x\}\xrightarrow{j}X.
+\]
+Enfin, soit $K_X$ un complexe dualisant normalisé en $x$ (4.1), d'où des complexes dualisants ``correspondants'' sur $U,V,Y,x$ (et par hypothèse $\underline{D}_x=\R\Hom(\ ,A)$):
+\[
+K_V=j^*K_X,
+\qquad K_U=i^*K_V,
+\qquad K_Y=\R\Gamma_Y(K_X).
+\]
+Soit $G\in\ob\D_c^b(U)$, et posons $G'=\underline{D}_U(G)$. Nous nous proposons de définir un accouplement naturel
+\[
+(4.7.1)\qquad \R\Gamma(U,G)\times \R\Gamma(V,i_!G')[-1]\longrightarrow A,
+\]
+i.e. un homomorphisme fonctoriel
+\[
+(4.7.1)'\qquad \R\Gamma(U,G)\overset{\mathbf L}{\otimes}_A\R\Gamma(V,i_!G')[-1]\longrightarrow A.
+\]
+(L'anneau $A=\Z/\ell\Z$ étant de dimension cohomologique infinie pour $\ell\geqslant2$, on ne sait définir que les produits tensoriels
+\[
+\overset{\mathbf L}{\otimes}:\D^-(A)\times\D^-(A)\longrightarrow\D^-(A)
+\]
+et
+\[
+\overset{\mathbf L}{\otimes}:\D(A)\times\D^b(A)_{\mathrm{torf}}\longrightarrow\D(A)\quad(*).
+\]
+On laisse donc au lecteur le soin de faire des hypothèses convenables assurant que les deux facteurs de $\overset{\mathbf L}{\otimes}$ figurant dans (4.7.1)' sont dans $\D^b(A)$ ou que l'un d'eux est de tor-dimension finie.)
+
+Notons d'abord que, par la formule de dualité complémentaire (1.12 a) (ii), on a un isomorphisme canonique
+\[
+(4.7.2)\qquad i_!(G')\xrightarrow{\sim}\underline{D}_V(\R i_*G).
+\]
+D'autre part, on a l'isomorphisme de dualité ordinaire
+\[
+(4.7.3)\qquad \R\Hom(A_U,G)\xrightarrow{\sim}\R\Hom(A_V,\R i_*G).
+\]
+Par définition de $\underline{D}_V$ (et indépendamment du fait que $K_V$ est dualisant), on a une flèche canonique
+\[
+(4.7.4)\qquad \R i_*G\overset{\mathbf L}{\otimes}\underline{D}_V(\R i_*G)\longrightarrow K_V.
+\]
+De (4.7.2), (4.7.3) et (4.7.4) on déduit une flèche (canonique)
+\[
+(4.7.5)\qquad \R\Gamma(U,G)\overset{\mathbf L}{\otimes}_A\R\Gamma(V,i_!G')\longrightarrow \R\Hom(A_V,K_V).
+\]
+Mais $K_V=j^*K_X$, et l'on a l'isomorphisme de dualité (SGA~3.1.10):
+\[
+(4.7.6)\qquad \R\Hom(A_V,K_V)\xrightarrow{\sim}\R\Hom(A_{V,X},K_X).
+\]
+Enfin, la suite exacte
+\[
+(4.7.7)\qquad 0\longrightarrow A_{V,X}\longrightarrow A_X\longrightarrow A_x\longrightarrow 0
+\]
+donne un homomorphisme de degré $+1$:
+\[
+(4.7.8)\qquad \R\Hom(A_{V,X},K_X)\longrightarrow \R\Hom(A_x,K_X)\xrightarrow{\sim}A.
+\]
+En composant (4.7.5), (4.7.6) et (4.7.8), on obtient la flèche annoncée (4.7.1)'.
+
+\emph{(*) (ajouté en 77) Inexact: il est facile, en fait, de prolonger $\overset{\mathbf L}{\otimes}:\D^-(A)\times\D^-(A)\to\D^-(A)$ en $\overset{\mathbf L}{\otimes}:\D^-(A)\times\D(A)\to\D(A)$.}
+
+Nous allons voir maintenant que l'accouplement (4.7.1) est ``parfait'', i.e. que la flèche (4.7.1)' identifie $\R\Gamma(V,i_!G')[-1]$ à $\underline{D}_x\R\Gamma(U,G)$. Supposons en effet, ce qui est loisible, que l'on a
+\[
+G=(ji)^*F,
+\]
+avec $F\in\ob\D_c^b(X)$. Posant $F'=\underline{D}_X(F)$ et $F'_{U,X}=(ji)_!G'$, on a la suite exacte
+\[
+(4.7.9)\qquad 0\longrightarrow F'_{U,X}\longrightarrow F'\longrightarrow F'|Y\longrightarrow0,
+\]
+qui donne naissance à un triangle distingué
+\[
+\begin{tikzcd}
+& \R\Gamma_x(F'_{U,X}) \arrow[dl] \\
+\R\Gamma_x(F'|Y) \arrow[rr] && \R\Gamma_x(F') \arrow[ul,"{+1}"']
+\end{tikzcd}
+\qquad (b)
+\]
+Par définition de $\R\Gamma_x$, on a
+\[
+\R\Gamma_x(F'_{U,X})=\R\Hom(A_x,F'_{U,X});
+\]
+donc, utilisant (4.7.7) et le fait que $(F'_{U,X})_x=\R\Gamma(X,F'_{U,X})=0$, on a un isomorphisme canonique
+\[
+\R\Hom(A_{V,X},F'_{U,X})[1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X}).
+\]
+Mais on a
+\[
+\begin{aligned}
+\R\Hom(A_{V,X},F'_{U,X})&=\R\Hom(j_!A_V,j_!i_!G')\\
+&\xrightarrow{\sim}\R\Hom(A_V,i_!G')\qquad\text{par dualité (SGA~3.1.10)},
+\end{aligned}
+\]
+d'où finalement un isomorphisme canonique
+\[
+(4.7.10)\qquad \R\Gamma(V,i_!G')[-1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X}).
+\]
+On a d'autre part la suite exacte
+\[
+(4.7.11)\qquad 0\longrightarrow A_{U,X}\longrightarrow A_X\longrightarrow A_Y\longrightarrow0,
+\]
+qui donne naissance à un triangle distingué
+\[
+\begin{tikzcd}
+& \R\Gamma(U,F|U) \arrow[dl] \\
+\R\Gamma_Y(F) \arrow[rr] && \R\Gamma_X(F) \arrow[ul,"{+1}"']
+\end{tikzcd}
+\qquad (a)
+\]
+En vertu de (4.7.1) et (4.7.10), on a un accouplement naturel
+\[
+(4.7.12)\qquad \R\Gamma(U,F|U)\times\R\Gamma_x(F'_{U,X})\longrightarrow A.
+\]
+En vertu de (4.6.1), on a un accouplement parfait
+\[
+(4.7.13)\qquad \R\Gamma_Y(F)\times\R\Gamma_x(F'|Y)\longrightarrow A.
+\]
+Enfin, par la formule d'induction ordinaire (1.12 b) (i)), on a un accouplement parfait
+\[
+(4.7.14)\qquad \R\Gamma(X,F)\times\R\Gamma_x(F')\longrightarrow A.
+\]
+Le lecteur qui aura la patience de s'orienter dans ce dédale de ``flèches canoniques'' vérifiera que les accouplements (4.7.12), (4.7.13) et (4.7.14) sont ``compatibles'' avec les flèches des triangles (a) et (b), et par suite que les accouplements (4.7.12) et (4.7.1) sont parfaits.
+
+L'accouplement des triangles (a) et (b) donne naissance à deux suites exactes ``transposées l'une de l'autre'':
+\[
+(4.7.15)\qquad \cdots\longrightarrow \H_Y^i(X,F)\longrightarrow\H^i(X,F)\longrightarrow\H^i(U,F)\longrightarrow\cdots
+\]
+\[
+\cdots\longleftarrow \H_x^{-i}(Y,F'|Y)\longleftarrow\H_x^{-i}(X,F')\longleftarrow\H_x^{-i-1}(V,F'_{U,V})\longleftarrow\cdots.
+\]
+En résumé, nous pouvons énoncer:
+
+\begin{statement}{Proposition 4.7.16}
+Soit $X$ un schéma strictement local noethérien, de point fermé $x$. Soient $Y$ un fermé non vide de $X$, $U=X-Y$, $V=X-x$, $i:U\to V$ et $j:V\to X$ les inclusions canoniques. Soit $K_X$ un complexe dualisant sur $X$ normalisé en $x$ (d'où des complexes dualisants associés sur $V,U,Y$). Pour $G\in\ob\D_c^b(U)$, on a un accouplement parfait:
+\[
+(*)\qquad \R\Gamma(U,G)\times\R\Gamma(V,i_!G')[-1]\longrightarrow A
+\]
+(où $G'=\underline{D}_U(G)$). Si $G=F|U$, où $F\in\ob\D_c^b(X)$, on a un isomorphisme canonique
+\[
+(**)\qquad \R\Gamma(V,i_!G')[-1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X})
+\]
+(où $F'=\underline{D}_X(F)$ et $F'_{U,X}=(ji)_!(F'|U)=(ji)_!(G')$), et un accouplement parfait entre les triangles distingués
+\[
+\begin{gathered}
+\R\Gamma_Y(F)\longrightarrow \R\Gamma(X,F)\longrightarrow \R\Gamma(U,F|U)\xrightarrow{+1},\\
+\R\Gamma_x(F'_{U,X})\longrightarrow \R\Gamma_x(F')\longrightarrow \R\Gamma_x(F'|Y)\xrightarrow{+1}.
+\end{gathered}
+\]
+compatible avec l'accouplement $(*)$ et l'isomorphisme $(**)$, et donnant lieu à deux suites exactes transposées l'une de l'autre (4.7.15).
+\end{statement}
+
+\begin{statement}{Remarque 4.7.17}
+Dans le cas particulier où $Y=\{x\}$, l'accouplement (4.7.1) se définit sous la seule hypothèse que $K_X$ soit normalisé en $x$ (et non nécessairement dualisant), i.e. tel que $\R\Gamma_x(K_X)\simeq A$, (l'isomorphisme étant donné): l'isomorphisme (4.7.2) (qui utilisait la bidualité) se réduit en effet à l'identité. Comme l'accouplement (4.7.14) est de toute façon parfait, on voit donc que la dualité locale sur $X$ (sous la forme (4.2.2)') équivaut à la dualité ``globale'' sur $U=X-x$, i.e. au fait que l'accouplement (4.7.1)
+\[
+\R\Gamma(U,G)\times\R\Gamma(U,G')[-1]\longrightarrow A
+\]
+est parfait, ou encore que les accouplements
+\[
+\H^i(U,G)\times\H^{-i-1}(U,G')\longrightarrow A
+\]
+sont parfaits.
+
+Supposons que l'on dispose sur $X$ d'un complexe dualisant $K_X$ normalisé en $x$. Si $X$ est excellent et $U$ régulier de dimension $d$ ($x$ pouvant donc être une singularité isolée), on doit pouvoir vérifier que $K_U=K_X|U$ est canoniquement isomorphe à $(\mu_n)_U^{\otimes d}[2d]$ (on le vérifie facilement en tout cas si $X$ est localisé strict d'un préschéma localement de type fini sur un corps de car.~0). Alors la dualité locale sur $X$ implique que l'on a, pour tout $A_U$-Module localement constant constructible $G$, des accouplements parfaits:
+\[
+\H^i(U,G)\times\H^{2d-1-i}(U,G^\circ)\longrightarrow A,
+\]
+(où $G^\circ=\Hom(G,(\mu_n)_U^{\otimes d})$), qui correspondent formellement à la dualité de Poincaré sur un schéma de dimension $2d-1$.
+\end{statement}
+
+\section*{5. Dualité locale sur les courbes}
+
+\begin{statement}{Théorème 5.1}
+Soit $X$ un préschéma noethérien régulier de dimension $1$. On suppose $n$ premier aux caractéristiques résiduelles de $X$. Alors le théorème de pureté est vrai sur $X$ (3.1.4) et le complexe $A_X$ est dualisant (1.7).
+\end{statement}
+
+\begin{prooftext}[Démonstration]
+Supposons prouvée la pureté. Comme $X$ satisfait évidemment à la condition (reg) (3.1.1), et que la condition $(\mathrm{cdloc})_n$ est vérifiée en vertu de (SGA~X~2.2), on en conclut, par (3.2.1), que $\dim.q.inj(A_X)=2$. D'autre part, la condition (ii) de (1.7) est vérifiée d'après (3.3.1 b) (i)) (qui a été démontré moyennant la pureté). Donc, en vertu de (4.4), on est ramené à prouver que $A_X$ est dualisant quand $X$ est strictement local. Mais, pour prouver la pureté, qui est une question locale au voisinage d'un point fermé, on peut également supposer $X$ strictement local. Finalement, on est ramené à prouver le théorème quand $X$ est strictement local.
+
+Supposons donc $X$ strictement local. Soient $x$ son point fermé, $(\pi=\car(k(x)))$, $\eta$ son point générique, $U=X-x=\Spec(k(\eta))$. Soit $G=\Gal(k(\ol{\eta})/k(\eta))$ le groupe fondamental de $U$. On sait [CL, Chap.~IV \S~2 Exer.~2] qu'on a une suite exacte canonique
+\[
+(5.1.1)\qquad 1\longrightarrow P\longrightarrow G\longrightarrow H\longrightarrow1,
+\]
+où $H=\prod_{\ell\ne\pi}\Z_\ell(1)$, $\Z_\ell(1)=\varprojlim \mu_{\ell^\nu}$, et $P$ est un pro-$\pi$-groupe. (Bien entendu, $H$ est isomorphe, mais non canoniquement, à $\prod_{\ell\ne\pi}\Z_\ell$.)
+
+On sait d'autre part (SGA~VIII~2) que la cohomologie étale de $U$ s'interprète comme la cohomologie galoisienne de $G$, les faisceaux (resp.~faisceaux constructibles) de $A_U$-modules correspondant aux $A$-modules (resp.~$A$-modules de type fini) sur lesquels $G$ opère continûment.
+
+Cela étant, les $\H_x^i(A_X)$ sont déterminés par la suite exacte
+\[
+(5.1.2)\qquad 0\longrightarrow \H_x^0(A_X)\longrightarrow \H^0(X,A_X)\longrightarrow \H^0(U,A_U)\longrightarrow \H_x^1(A_X)\longrightarrow0,
+\]
+et les isomorphismes
+\[
+(5.1.3)\qquad \H_x^i(A_X)\xrightarrow{\sim}\H^{i-1}(U,A_U)\qquad\text{pour }i\geqslant2.
+\]
+Or on a trivialement $\H^0(X,A_X)=\H^0(U,A_U)=A$, donc $\H_x^0(A_X)=\H_x^1(A_X)=0$.
+
+D'autre part, pour un $G$-$A$-module (galoisien) $M$, on a la suite spectrale de Hochschild--Serre
+\[
+E_2^{pq}=\H^p(H,\H^q(P,M))\Longrightarrow \H^{p+q}(G,M).
+\]
+Comme $n$ est premier à $\pi$ et que $P$ est un pro-$\pi$-groupe, on a
+\[
+\H^q(P,M)=0\quad\text{pour }q\ne0,
+\]
+donc $E_2^{pq}=0$ pour $q\ne0$, d'où un isomorphisme canonique
+\[
+(5.1.4)\qquad \H^p(G,M)\xrightarrow{\sim}\H^p(H,M^P).
+\]
+On voit d'ailleurs, par un argument analogue, que $\H^p(H,N)$ s'identifie à $\H^p(\widehat{\Z}(1),N)$ lorsqu'on fait opérer trivialement sur $N$ le facteur $\widehat{\Z}(1)$. On a donc finalement, avec la convention précédente, un isomorphisme canonique
+\[
+(5.1.5)\qquad \H^p(G,M)\xrightarrow{\sim}\H^p(\widehat{\Z}(1),M^P).
+\]
+Or la cohomologie galoisienne de $\widehat{\Z}$ est bien connue (CG chap.~I p.~31): pour un $G$-$A$-module $N$, on a
+\[
+(5.1.6)\qquad
+\H^i(\widehat{\Z},N)=0\quad\text{pour }i\geqslant2,
+\qquad
+\H^0(\widehat{\Z},N)=N^{\widehat{\Z}},
+\qquad
+\H^1(\widehat{\Z},N)=N_{\widehat{\Z}}.
+\]
+De (5.1.3), (5.1.5), et (5.1.6) on déduit aussitôt que
+\[
+\H^i(U,A_U)=0\quad\text{pour }i\geqslant2,
+\]
+et
+\[
+\H^1(U,A_U)\xrightarrow{\sim}A.
+\]
+Ce dernier isomorphisme n'est pas canonique, car il dépend du choix d'une identification de $\widehat{\Z}(1)$ à $\widehat{\Z}$. Mais, utilisant la suite exacte de Kummer, on trouve (SGA~XIX~1.3) un isomorphisme canonique (donné par la ``classe fondamentale locale'')
+\[
+(5.1.7)\qquad \H^1(U,\mu_n)\xrightarrow{\sim}A.
+\]
+La pureté est donc démontrée.
+
+Prouvons maintenant que $A_X$ est dualisant. D'après (4.7.17), il s'agit de montrer que, pour tout $A_U$-Module localement constant constructible $M$, l'accouplement
+\[
+(5.1.8)\qquad \H^i(U,M)\times\H^{1-i}(U,\Hom(M,A_U))\longrightarrow \H^1(U,A_U)\xrightarrow{\sim}(\mu_n)_x^{\otimes -1}
+\]
+est une dualité parfaite. Nous allons interpréter cet accouplement en termes de cohomologie galoisienne. Nous utiliserons le lemme élémentaire suivant.
+\end{prooftext}
+
+\begin{statement}{Lemme 5.1.9}
+Notons $D=\Hom(\ ,A)$ le foncteur dualisant de Pontrjagin sur la catégorie des $A$-modules de type fini. Soit $M$ un $A$-module de type fini sur lequel un groupe $G$ opère $A$-linéairement.
+\begin{enumerate}[label=(\roman*)]
+\item On a un isomorphisme canonique
+\[
+D(M^G)\xrightarrow{\sim}(DM)_G.
+\]
+\item Si $G$ est un groupe profini opérant continûment sur $M$ et si $G$ est de pro-ordre premier à $n$, la flèche canonique
+\[
+M^G\longrightarrow M_G
+\]
+est un isomorphisme.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}[Preuve]
+On a par définition
+\[
+M^G=\varprojlim_{s\in G}\Ker(M\xrightarrow{s-1}M),
+\]
+d'où
+\[
+D(M^G)\xrightarrow{\sim}\varinjlim_{s\in G}\Coker(DM\xrightarrow{s-1}DM)\xrightarrow{\sim}(DM)_G,
+\]
+ce qui prouve (i).
+
+Prouvons (ii). Soit $M'$ le $A$-module défini par la suite exacte
+\[
+0\longrightarrow M'\longrightarrow M\longrightarrow M_G\longrightarrow0.
+\]
+On a $\H^1(G,M')=0$ parce que $G$ est de pro-ordre premier à $n$. La suite exacte de cohomologie implique donc que la flèche $M^G\to M_G$ est un épimorphisme. Mais, appliquant le foncteur $D$ et tenant compte de (i), on en déduit qu'elle est un monomorphisme, ce qui achève la preuve.
+\end{prooftext}
+
+Appliquant (5.1.9) à $M$ et $P$, on trouve que $\Hom(M,A)^P$ s'identifie canoniquement à $\Hom(M^P,A)$. Si l'on choisit un isomorphisme de $\widehat{\Z}(1)$ sur $\widehat{\Z}$, l'accouplement (5.1.8) s'écrit, compte tenu de (5.1.5),
+\[
+(5.1.8)'\qquad \H^i(\widehat{\Z},M^P)\times\H^{1-i}(\widehat{\Z},D(M^P))\longrightarrow\H^1(\widehat{\Z},A)\xrightarrow{\sim}A.
+\]
+Il résulte aussitôt de (5.1.6) et (5.1.9(i)) que (5.1.8)' est un accouplement parfait. Cela achève la démonstration de (5.1).
+
+\section*{Bibliographie}
+
+\begin{description}[leftmargin=2.5cm,style=nextline]
+\item[{[2]}] Hironaka, H. \emph{Resolution of singularities of an algebraic variety over a field of characteristic zero}, Ann. of Math., vol. 79 (1964), p.~109.
+\item[{[1]}] Abhyankar, S. \emph{Local uniformization on algebraic surfaces over ground fields of characteristic $p\ne0$}, Ann. of Math., vol. 63 (1956), p.~491--526, et \emph{Resolution of singularities of arithmetical surfaces}, Arithmetical Algebraic Geometry, Harper \& Row, New York (1965).
+\item[{[H]}] Hartshorne, R. \emph{Residues and duality}, Lecture Notes n\textsuperscript{o}~20, Springer (1966).
+\item[{[SGA]}] Séminaire de Géométrie Algébrique de l'IHES, \emph{Cohomologie étale des schémas}, par M.~Artin et A.~Grothendieck, 1963--64.
+\item[{[CL]}] Serre, J.-P. \emph{Corps locaux}, Hermann (1962).
+\item[{[CG]}] Serre, J.-P. \emph{Cohomologie galoisienne}, Lecture Notes n\textsuperscript{o}~5, Springer (1964).
+\end{description}
+
+\end{document}

@@ -1,0 +1,594 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\codim}{codim}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\wt}[1]{\widetilde{#1}}
+\providecommand{\Cons}{\operatorname{Cons}}
+\providecommand{\Hh}{\mathrm{H}}
+\providecommand{\uH}{\underline{\mathrm H}}
+\providecommand{\uExt}{\underline{\Ext}}
+\providecommand{\qedtext}{\hfill$\square$}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\NN}{\mathbb{N}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\charac}{\operatorname{char}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\car}{\operatorname{car}}
+
+\begin{document}
+
+\begin{center}{\Large \textbf{SGA 5 --- Exposé I}}\\{\large \textbf{Dualizing Complexes}}\end{center}
+
+
+\section*{4. Local duality}
+
+The object of this section is to present the notion of ``biduality'' developed in the preceding sections in a form closer to geometric intuition.
+
+\subsection*{4.1}
+Let $X$ be a prescheme, let $i:x\to X$ be a closed point whose residue field is separably closed, and let $K_X$ be a dualizing complex on $X$ (1.7). We know (1.15) that $K_{\{x\}}=\R^{!}i(K_X)$ is a dualizing complex on $x$, hence, by (2.1) and (3.4.4), isomorphic to $A[r]$ for some $r\in\Z$ (if $A$ is local). We shall say that $K_X$ is \emph{normalized at $x$} if $r=0$ and if an isomorphism $K_{\{x\}}\xrightarrow{\sim}A$ has been given.
+
+For example, if $X$ is smooth of relative dimension $d$ over the spectrum of a separably closed field, the complex $(\mu_n)_X^{\otimes d}[2d]$ is, by the purity theorem (SGA~XVI~3, SGA~$4^{1/2}$ Cycle~2.3), canonically normalized at every closed point of $X$.
+
+\subsection*{4.2}
+Let $X$ be a prescheme, $i:Y\to X$ a closed sub-prescheme, and $K_X$ a dualizing complex on $X$. Then (1.15) $K_Y=\R^{!}i(K_X)$ is a dualizing complex on $Y$, and one has the \emph{complementary induction formula} (1.12 b) (ii)), for $F\in \ob\D_c^b(X)$,
+\[
+(4.2.1)\qquad i^*\underline{D}_X(F)\xrightarrow{\sim}\underline{D}_Y\R^{!}i(F),
+\]
+where $\underline{D}_X=\R\,\underline{\Hom}(\ ,K_X)$ and $\underline{D}_Y=\R\,\underline{\Hom}(\ ,K_Y)$.
+
+Apply (4.2.1) in particular in the case where $Y=\{x\}$ is a closed point of $X$ with separably closed residue field, $K_X$ being normalized at $x$ (4.1). Taking into account that $A_x$ is injective, (4.2.1) is then written
+\[
+(4.2.2)\qquad \underline{D}_X(F)_x\xrightarrow{\sim}\Hom^*(\R^{!}i(F),A).
+\]
+Noting that $\R^{!}i(F)$ is also written, by definition, $\R\Gamma_x(F)$, one therefore has a perfect pairing in $\D(A)$:
+\[
+(4.2.2)'\qquad \underline{D}_X(F)_x\times \R\Gamma_x(F)\longrightarrow A,
+\]
+giving rise to perfect pairings between finite groups:
+\[
+(4.2.2)''\qquad \uH^i(\underline{D}_X(F))_x\times \uH_x^{-i}(F)\longrightarrow A.
+\]
+For example, let $X$ be a prescheme smooth of dimension $d$ over a separably closed field, and let $x\in X$ be a closed point. Then, for $F\in\ob\D_c^b(X)$, one has a canonical perfect duality between finite groups:
+\[
+(4.2.2)'''\qquad \Ext^{2d-i}(F,\mu_n^{\otimes d})_x\times \uH_x^i(F)\longrightarrow A.
+\]
+
+\subsection*{Exercise 4.2.3}
+Let $X$ be a strictly local scheme (SGA~VIII~4.2), with closed point $x$, and let $i:x\to X$ be the canonical morphism. Let $K$ be a dualizing complex on $X$, normalized at $x$. Denote by
+\[
+\overset{\mathbf L}{\otimes} i_? : \D^b(A)\longrightarrow \D^-(X)
+\]
+the functor defined by
+\[
+\overset{\mathbf L}{\otimes} i_?(M)=M\overset{\mathbf L}{\otimes}_A K.
+\]
+(If $K$ has finite tor-dimension over $A$, $\overset{\mathbf L}{\otimes} i_?$ extends to a functor from $\D^+(A)$ to $\D(X)$.)
+
+Show that there exists, for $L\in\D^-(X)$ and $M\in\D^b(A)$, a canonical functorial isomorphism
+\[
+(*)\qquad \R\Hom(L,\overset{\mathbf L}{\otimes} i_?(M))\xrightarrow{\sim}\R\Hom(\R^{!}i(L),M),
+\]
+(assuming of course that $\R^{!}i:\D^-(X)\to\D^-(A)$ is defined \dots).
+
+\emph{Hint:} First define a ``trace'' morphism $\R^{!}i\,\overset{\mathbf L}{\otimes}i_?(M)\to M$; then, to check that $(*)$ is an isomorphism, reduce by dévissage to the case where $L\in\ob\D_c^b(X)$ and $M=A$, and apply (4.2.2). Note that, for $M=A$, $(*)$ reduces to the perfect pairing (``local duality'', cf.~[H]~V~6.2)
+\[
+\R\Gamma_x(L)\times \R\Hom(L,K)\longrightarrow A,
+\]
+or
+\[
+\H_x^i(L)\times \Ext^{-i}(L,K)\longrightarrow A.
+\]
+
+\subsection*{4.3}
+We shall now generalize (4.2.2) to the case of a geometric point $\ol{x}$ of $X$ localized at a point $x$ which is not necessarily closed. For this we need a few preliminaries.
+
+\begin{statement}{Lemma 4.3}
+Let $X$ be a prescheme, $X'$ the strict localization of $X$ at a geometric point $\ol{x}$, and $f:X'\to X$ the canonical map. Then, for $F\in\ob\D_c^-(X)$ and $G\in\ob\D^+(X)$, the canonical functorial homomorphism (SGA~VI~I~3.7)
+\[
+f^*\R\,\underline{\Hom}(F,G)\longrightarrow \R\,\underline{\Hom}(f^*F,f^*G)
+\]
+is an isomorphism.
+\end{statement}
+
+\begin{prooftext}[Proof]
+As usual, one reduces to $F$ and $G$ concentrated in degree $0$. Since the question is local in a neighborhood of $x$, one may suppose $X$ affine. Then $F$ admits (SGA~IX~2.7) a left resolution by sheaves of the form $i_!(A_U)$, where $i:U\to X$ is étale of finite presentation; hence, by dévissage, one is reduced to $F=i_!(A_U)$. Form the cartesian square
+\[
+\begin{tikzcd}
+U & U' \arrow[l,"g"'] \\
+X \arrow[u,"i"] & X' \arrow[l,"f"] \arrow[u,"i'"']
+\end{tikzcd}
+\]
+One has canonical isomorphisms, trivial special cases of duality (SGA~XVIII~3.1.10):
+\[
+\R\,\underline{\Hom}(F,G)\xleftarrow{\sim}\R i_* i^*G,
+\qquad
+\R\,\underline{\Hom}(f^*F,f^*G)\xleftarrow{\sim}\R i'_* g^*i^*G.
+\]
+Under these isomorphisms, the canonical arrow
+\[
+f^*\R\,\underline{\Hom}(F,G)\longrightarrow \R\,\underline{\Hom}(f^*F,f^*G)
+\]
+is identified with the base-change arrow (SGA~XVII)
+\[
+f^*\R i_*i^*(G)\longrightarrow \R i'_*g^*i^*(G).
+\]
+But this is an isomorphism, as one sees at once by passing to the limit (SGA~VII~5.11).
+\end{prooftext}
+
+\begin{statement}{Lemma 4.4}
+Let $X$ be a prescheme, and let $K\in\ob\D_c^+(X)$ be a complex satisfying conditions (i) and (ii) of (1.7). In order that $K$ be dualizing, it is necessary and sufficient that, for every strict localization $f:\ol{X}(\ol{x})\to X$, $f^*K$ be dualizing.
+\end{statement}
+
+\begin{prooftext}[Proof]
+Use the fact that every constructible sheaf on a strict localization $\ol{X}(\ol{x})$ is induced by a constructible sheaf on an étale $\ol{x}$-pointed scheme over $X$ (SGA~IX~2.7.4), and apply (4.3).
+\end{prooftext}
+
+\subsection*{4.5}
+Let $X$ be a prescheme, $\ol{x}$ a geometric point of $X$, and $f:X'=\ol{X}(\ol{x})\to X$ the corresponding strict localization.
+
+Let $Y$ be the integral closed sub-prescheme which is the closure of $x$ in $X$; denote by $g:\ol{x}\to Y$ and $i:Y\to X$ the canonical maps, and form the cartesian square
+\[
+\begin{tikzcd}
+Y \arrow[r,"i"] & X \\
+\ol{x} \arrow[u,"g"] \arrow[r,"i'"'] & X' \arrow[u,"f"']
+\end{tikzcd}
+\]
+($\ol{x}$ is both the closed point of $X'$ and the strict localization of $Y$ at $\ol{x}$).
+
+We shall denote by
+\[
+\R\Gamma_{\ol{x}}:\D^+(X)\longrightarrow \D^+(\ol{x})
+\]
+the functor defined by
+\[
+(4.5.1)\qquad \R\Gamma_{\ol{x}}=g^*\R^{!}i.
+\]
+Using the well-known relation between the functors $\R^{!}i$ and $\R j_*j^*$, where $j:U\to X$ is the open complement of $Y$, and applying passage to the limit (SGA~VII~5.11), one obtains a canonical isomorphism
+\[
+(4.5.2)\qquad \R\Gamma_{\ol{x}}\xrightarrow{\sim}\R^{!}i' f^*.
+\]
+When $x$ is a closed point with separably closed residue field, the functor $\R\Gamma_{\ol{x}}$ coincides with the usual functor $\R\Gamma_x$ (SGA~V~4.3), which justifies the notation.
+
+Let $K_X\in\ob\D^+(X)$, and put $K_Y=\R^{!}j(K_X)$, $K_{X'}=f^*K_X$, and $K_{\ol{x}}=\R\Gamma_{\ol{x}}(K_X)$ (warning: $K_{\ol{x}}$ is not the fiber of $K_X$ at $\ol{x}$!). Suppose that $K_X$ is dualizing. Then, by (1.15) and (4.4), the same is true of $K_{X'}$, $K_Y$, and $K_{\ol{x}}$. Hence (2.1) one has $K_{\ol{x}}\simeq A[d]$ for some $d\in\Z$.
+
+We shall say that $K_X$ is \emph{normalized at $\ol{x}$} if $d=0$ and if an isomorphism $K_{\ol{x}}\simeq A$ has been chosen. In the case where $x$ is closed with separably closed residue field, this recovers the notion introduced in (4.1).
+
+Let $K_X$ be a dualizing complex, and put $\underline{D}_X=\R\underline{\Hom}(\ ,K_X)$, $\underline{D}_Y=\R\underline{\Hom}(\ ,K_Y)$, etc. Let $F\in\ob\D_c^b(X)$; let us compute $(\underline{D}_XF)_{\ol{x}}$. One has:
+\[
+\begin{aligned}
+(\underline{D}_XF)_{\ol{x}}&\xrightarrow{\sim}g^*i^*\underline{D}_X F\\
+&\xrightarrow{\sim}g^*\underline{D}_Y\R^{!}iF\qquad\text{(by the complementary induction formula (4.2.1))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}g^*\R^{!}i(F)\qquad\text{(by (4.3)), that is,}
+\end{aligned}
+\]
+\[
+(4.5.3)\qquad (\underline{D}_X F)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}(F).
+\]
+Of course, one could have made an analogous computation by passing through $X'$ instead of $Y$; one would then have obtained a canonical isomorphism
+\[
+(\underline{D}_XF)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R^{!}i'f^*(F),
+\]
+compatible with (4.5.3) by means of the identification (4.5.2).
+
+If moreover $K_X$ is normalized at $\ol{x}$, one obtains perfect pairings generalizing (4.2.2)' and (4.2.2)'':
+\[
+(4.5.3)'\qquad \H_Y^i(F)_{\ol{x}}\times \R^{-i}\Gamma_{\ol{x}}(F)\longrightarrow A,
+\]
+\[
+(4.5.3)''\qquad \H^i(\underline{D}_X(F))_{\ol{x}}\times \H_{\ol{x}}^{-i}(F)\longrightarrow A,
+\]
+where $\H_{\ol{x}}^i=\H^i\R\Gamma_{\ol{x}}$.
+
+Conversely, let $K_X\in\ob\D^+(X)$ satisfy conditions (i) and (ii) of (1.7), and suppose that $K_{\ol{x}}=\R\Gamma_{\ol{x}}(K_X)$ is dualizing for every geometric point $\ol{x}$ of $X$. Then, for every $\ol{x}$, one can define (cf.~1.12 b) (ii)) a canonical arrow
+\[
+(4.5.3)^{\mathrm{bis}}\qquad \underline{D}_X(F)_{\ol{x}}\longrightarrow \underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}(F)\qquad (F\in\ob\D_c^b(X)).
+\]
+If this is an isomorphism for every $\ol{x}$ and every $F$, then $K_X$ is dualizing. Indeed, it remains to verify that the canonical arrow
+\[
+F\longrightarrow \underline{D}_X\underline{D}_X(F)
+\]
+is an isomorphism for every $F\in\ob\D_c^b(X)$. At an arbitrary geometric point $\ol{x}$, one has
+\[
+\begin{aligned}
+F_{\ol{x}}&\xrightarrow{\sim}\underline{D}_{\ol{x}}\underline{D}_{\ol{x}}(F_{\ol{x}})\qquad\text{(since $K_{\ol{x}}$ is dualizing)}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}\underline{D}_X(F)\qquad\text{(by (4.3) and the induction formula 1.12 b) (i))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}\underline{D}_{\ol{x}}(F)_{\ol{x}}\qquad\text{(by hypothesis)},
+\end{aligned}
+\]
+and therefore, modulo a compatibility check, $(F,K_X)$ is bidualizing, which proves the assertion. In summary:
+
+\begin{statement}{Proposition 4.5.4}
+Let $X$ be a prescheme, and let $K_X\in\ob\D^+(X)$ be a complex satisfying conditions (i) and (ii) of (1.7). In order that $K_X$ be dualizing, it is necessary and sufficient that, for every geometric point $\ol{x}$ of $X$, the complex $K_{\ol{x}}$ be dualizing and the canonical arrow (4.5.3)$^{\mathrm{bis}}$ be an isomorphism for every $F\in\ob\D_c^b(X)$.
+\end{statement}
+
+\begin{statement}{Remark 4.5.5}
+The existence of dualizing complexes should be regarded, in a sense, as an important complement to the global duality theorem. Indeed, the latter expresses that, for a separated morphism of finite type $f:X\to Y$ ($Y$ quasi-compact), one has a canonical isomorphism
+\[
+\underline{D}_Y\R_!f(F)\xrightarrow{\sim}\R f_*\underline{D}_X(F)
+\]
+(with the notation of 1.12). Its use for computing $\R_!f(F)$ (when $F\in\ob\D_c^b(X)$) requires information about $\underline{D}_X(F)$. When $K_X$ is dualizing, this information is supplied by the isomorphism (4.5.3), which makes possible, at least in theory, a computation of the fibers of $\underline{D}_X(F)$ as invariants of ``purely spatial'' cohomology.
+\end{statement}
+
+\begin{statement}{Exercise 4.5.6}
+Let $X$ be a prescheme endowed with a dualizing complex (1.7). The family of functors (cf.~(4.5.3)'')
+\[
+\H_{\ol{x}}^i:\D_c^b(X)\longrightarrow (A\text{-modules})
+\]
+($i$ running through $\Z$ and $\ol{x}$ through the set of geometric points of $X$) is ``conservative'', i.e. a morphism $F\to G$ in $\D_c^b(X)$ such that the maps $\H_{\ol{x}}^i(F)\to\H_{\ol{x}}^i(G)$ are isomorphisms, is an isomorphism.
+\end{statement}
+
+\subsection*{4.6}
+Let $X$ be a prescheme, $j:Y\to X$ a closed sub-prescheme, and $i:\ol{x}\to Y$ a geometric point of $Y$. Let, on the other hand, $K_X$ be a dualizing complex on $X$, normalized at $\ol{x}$ (cf.~(4.5)). We saw in (4.5) that, if $Y$ is the closure of $x$, one has, for $F\in\ob\D_c^b(X)$, a perfect pairing
+\[
+\R^{!}j(F)_{\ol{x}}\times \underline{D}_X(F)_{\ol{x}}\longrightarrow A.
+\]
+It is not difficult to define an analogous pairing in the general case. Introduce the factorization of $i$ as
+\[
+\ol{x}\xrightarrow{i'}\{\ol{x}\}\xrightarrow{i''}Y.
+\]
+For $F\in\ob\D_c^b(X)$, one has canonical isomorphisms:
+\[
+\begin{aligned}
+\R\Gamma_{\ol{x}}j^*\underline{D}_X(F)&\xrightarrow{\sim}\R\Gamma_{\ol{x}}\underline{D}_Y\R^{!}j(F)\qquad\text{(complementary induction formula (4.2.1))}\\
+&\xrightarrow{\sim}i'^*\R^{!}i''\underline{D}_Y\R^{!}j(F)\qquad\text{(definition of $\R\Gamma_{\ol{x}}$ (4.5.1))}\\
+&\xrightarrow{\sim}i'^*\underline{D}_{\ol{x}}i''^*\R^{!}j(F)\qquad\text{(ordinary induction (1.12 b) (i))}\\
+&\xrightarrow{\sim}\underline{D}_{\ol{x}}i^*\R^{!}j(F)\qquad\text{(by 4.3)), i.e. finally a}
+\end{aligned}
+\]
+canonical isomorphism
+\[
+(4.6.1)\qquad \R^{!}j(F)_{\ol{x}}\xrightarrow{\sim}\underline{D}_{\ol{x}}\R\Gamma_{\ol{x}}j^*\underline{D}_X(F),
+\]
+and hence perfect pairings
+\[
+(4.6.1)'\qquad \R^{!}j(F)_{\ol{x}}\times \R\Gamma_{\ol{x}}j^*\underline{D}_X(F)\longrightarrow A,
+\]
+\[
+(4.6.1)''\qquad \H_Y^i(F)_{\ol{x}}\times \H_{\ol{x}}^{-i}(\underline{D}_X(F)|Y)\longrightarrow A.
+\]
+
+\begin{statement}{Example 4.6.2}
+Let $X$ be a regular prescheme, let $\ol{x}$ be a geometric point of $X$, and put $d=\dim(\cO_{X,\ol{x}})$. Set $K_X=(\mu_n)_X^{\otimes d}[2d]$. If $X$ satisfies condition (reg) (3.1.1) and the purity theorem (3.1.4), then $K_X$ is canonically normalized at $\ol{x}$. Thus, if $K_X$ is dualizing, one has perfect pairings
+\[
+\H_Y^i(F)_{\ol{x}}\times \H_{\ol{x}}^{2d-i}(F'|Y)\longrightarrow A,
+\]
+for every closed subset $Y$ containing $x$ and every $F\in\ob\D_c^b(X)$, with $F'=\R\Hom(F,(\mu_n)_X^{\otimes d})$.
+\end{statement}
+
+To finish, let us give a strictly local variant of (4.6.1).
+
+\subsection*{4.7}
+Let $X$ be a noetherian strictly local scheme (SGA~VIII~4.2), with closed point $x$. Let $Y$ be a non-empty closed subset of $X$, and consider the canonical immersions
+\[
+U=X-Y\xrightarrow{i}V=X-\{x\}\xrightarrow{j}X.
+\]
+Finally, let $K_X$ be a dualizing complex normalized at $x$ (4.1), giving dualizing complexes ``corresponding'' on $U,V,Y,x$ (and by hypothesis $\underline{D}_x=\R\Hom(\ ,A)$):
+\[
+K_V=j^*K_X,
+\qquad K_U=i^*K_V,
+\qquad K_Y=\R\Gamma_Y(K_X).
+\]
+Let $G\in\ob\D_c^b(U)$, and put $G'=\underline{D}_U(G)$. We propose to define a natural pairing
+\[
+(4.7.1)\qquad \R\Gamma(U,G)\times \R\Gamma(V,i_!G')[-1]\longrightarrow A,
+\]
+i.e. a functorial homomorphism
+\[
+(4.7.1)'\qquad \R\Gamma(U,G)\overset{\mathbf L}{\otimes}_A\R\Gamma(V,i_!G')[-1]\longrightarrow A.
+\]
+(Since the ring $A=\Z/\ell\Z$ has infinite cohomological dimension for $\ell\geqslant2$, one knows how to define only the tensor products
+\[
+\overset{\mathbf L}{\otimes}:\D^-(A)\times\D^-(A)\longrightarrow\D^-(A)
+\]
+and
+\[
+\overset{\mathbf L}{\otimes}:\D(A)\times\D^b(A)_{\mathrm{torf}}\longrightarrow\D(A)\quad(*).
+\]
+We therefore leave it to the reader to make suitable hypotheses ensuring that the two factors of $\overset{\mathbf L}{\otimes}$ appearing in (4.7.1)' are in $\D^b(A)$, or that one of them has finite tor-dimension.)
+
+First note that, by the complementary duality formula (1.12 a) (ii), one has a canonical isomorphism
+\[
+(4.7.2)\qquad i_!(G')\xrightarrow{\sim}\underline{D}_V(\R i_*G).
+\]
+On the other hand, one has the ordinary duality isomorphism
+\[
+(4.7.3)\qquad \R\Hom(A_U,G)\xrightarrow{\sim}\R\Hom(A_V,\R i_*G).
+\]
+By the definition of $\underline{D}_V$ (and independently of the fact that $K_V$ is dualizing), one has a canonical arrow
+\[
+(4.7.4)\qquad \R i_*G\overset{\mathbf L}{\otimes}\underline{D}_V(\R i_*G)\longrightarrow K_V.
+\]
+From (4.7.2), (4.7.3), and (4.7.4) one obtains a (canonical) arrow
+\[
+(4.7.5)\qquad \R\Gamma(U,G)\overset{\mathbf L}{\otimes}_A\R\Gamma(V,i_!G')\longrightarrow \R\Hom(A_V,K_V).
+\]
+But $K_V=j^*K_X$, and one has the duality isomorphism (SGA~3.1.10):
+\[
+(4.7.6)\qquad \R\Hom(A_V,K_V)\xrightarrow{\sim}\R\Hom(A_{V,X},K_X).
+\]
+Finally, the exact sequence
+\[
+(4.7.7)\qquad 0\longrightarrow A_{V,X}\longrightarrow A_X\longrightarrow A_x\longrightarrow 0
+\]
+gives a homomorphism of degree $+1$:
+\[
+(4.7.8)\qquad \R\Hom(A_{V,X},K_X)\longrightarrow \R\Hom(A_x,K_X)\xrightarrow{\sim}A.
+\]
+Composing (4.7.5), (4.7.6), and (4.7.8), one obtains the announced arrow (4.7.1)'.
+
+\emph{(*) (added in 1977) Inexact: in fact it is easy to extend $\overset{\mathbf L}{\otimes}:\D^-(A)\times\D^-(A)\to\D^-(A)$ to $\overset{\mathbf L}{\otimes}:\D^-(A)\times\D(A)\to\D(A)$.}
+
+We shall now see that the pairing (4.7.1) is ``perfect'', i.e. that the arrow (4.7.1)' identifies $\R\Gamma(V,i_!G')[-1]$ with $\underline{D}_x\R\Gamma(U,G)$. Indeed suppose, as is allowed, that
+\[
+G=(ji)^*F,
+\]
+with $F\in\ob\D_c^b(X)$. Put $F'=\underline{D}_X(F)$ and $F'_{U,X}=(ji)_!G'$. One has the exact sequence
+\[
+(4.7.9)\qquad 0\longrightarrow F'_{U,X}\longrightarrow F'\longrightarrow F'|Y\longrightarrow0,
+\]
+which gives rise to a distinguished triangle
+\[
+\begin{tikzcd}
+& \R\Gamma_x(F'_{U,X}) \arrow[dl] \\
+\R\Gamma_x(F'|Y) \arrow[rr] && \R\Gamma_x(F') \arrow[ul,"{+1}"']
+\end{tikzcd}
+\qquad (b)
+\]
+By definition of $\R\Gamma_x$, one has
+\[
+\R\Gamma_x(F'_{U,X})=\R\Hom(A_x,F'_{U,X});
+\]
+hence, using (4.7.7) and the fact that $(F'_{U,X})_x=\R\Gamma(X,F'_{U,X})=0$, one has a canonical isomorphism
+\[
+\R\Hom(A_{V,X},F'_{U,X})[1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X}).
+\]
+But one has
+\[
+\begin{aligned}
+\R\Hom(A_{V,X},F'_{U,X})&=\R\Hom(j_!A_V,j_!i_!G')\\
+&\xrightarrow{\sim}\R\Hom(A_V,i_!G')\qquad\text{by duality (SGA~3.1.10)},
+\end{aligned}
+\]
+and hence finally a canonical isomorphism
+\[
+(4.7.10)\qquad \R\Gamma(V,i_!G')[-1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X}).
+\]
+On the other hand one has the exact sequence
+\[
+(4.7.11)\qquad 0\longrightarrow A_{U,X}\longrightarrow A_X\longrightarrow A_Y\longrightarrow0,
+\]
+which gives rise to a distinguished triangle
+\[
+\begin{tikzcd}
+& \R\Gamma(U,F|U) \arrow[dl] \\
+\R\Gamma_Y(F) \arrow[rr] && \R\Gamma_X(F) \arrow[ul,"{+1}"']
+\end{tikzcd}
+\qquad (a)
+\]
+By virtue of (4.7.1) and (4.7.10), one has a natural pairing
+\[
+(4.7.12)\qquad \R\Gamma(U,F|U)\times\R\Gamma_x(F'_{U,X})\longrightarrow A.
+\]
+By virtue of (4.6.1), one has a perfect pairing
+\[
+(4.7.13)\qquad \R\Gamma_Y(F)\times\R\Gamma_x(F'|Y)\longrightarrow A.
+\]
+Finally, by the ordinary induction formula (1.12 b) (i)), one has a perfect pairing
+\[
+(4.7.14)\qquad \R\Gamma(X,F)\times\R\Gamma_x(F')\longrightarrow A.
+\]
+The reader who has the patience to orient himself in this maze of ``canonical arrows'' will check that the pairings (4.7.12), (4.7.13), and (4.7.14) are ``compatible'' with the arrows of the triangles (a) and (b), and consequently that the pairings (4.7.12) and (4.7.1) are perfect.
+
+The pairing of the triangles (a) and (b) gives rise to two exact sequences ``transpose to one another'':
+\[
+(4.7.15)\qquad \cdots\longrightarrow \H_Y^i(X,F)\longrightarrow\H^i(X,F)\longrightarrow\H^i(U,F)\longrightarrow\cdots
+\]
+\[
+\cdots\longleftarrow \H_x^{-i}(Y,F'|Y)\longleftarrow\H_x^{-i}(X,F')\longleftarrow\H_x^{-i-1}(V,F'_{U,V})\longleftarrow\cdots.
+\]
+In summary, we may state:
+
+\begin{statement}{Proposition 4.7.16}
+Let $X$ be a noetherian strictly local scheme, with closed point $x$. Let $Y$ be a non-empty closed subset of $X$, let $U=X-Y$, $V=X-x$, and let $i:U\to V$ and $j:V\to X$ be the canonical inclusions. Let $K_X$ be a dualizing complex on $X$ normalized at $x$ (hence giving associated dualizing complexes on $V,U,Y$). For $G\in\ob\D_c^b(U)$, one has a perfect pairing:
+\[
+(*)\qquad \R\Gamma(U,G)\times\R\Gamma(V,i_!G')[-1]\longrightarrow A
+\]
+(where $G'=\underline{D}_U(G)$). If $G=F|U$, where $F\in\ob\D_c^b(X)$, one has a canonical isomorphism
+\[
+(**)\qquad \R\Gamma(V,i_!G')[-1]\xrightarrow{\sim}\R\Gamma_x(F'_{U,X})
+\]
+(where $F'=\underline{D}_X(F)$ and $F'_{U,X}=(ji)_!(F'|U)=(ji)_!(G')$), and a perfect pairing between the distinguished triangles
+\[
+\begin{gathered}
+\R\Gamma_Y(F)\longrightarrow \R\Gamma(X,F)\longrightarrow \R\Gamma(U,F|U)\xrightarrow{+1},\\
+\R\Gamma_x(F'_{U,X})\longrightarrow \R\Gamma_x(F')\longrightarrow \R\Gamma_x(F'|Y)\xrightarrow{+1}.
+\end{gathered}
+\]
+compatible with the pairing $(*)$ and the isomorphism $(**)$, and giving rise to two exact sequences transpose to one another (4.7.15).
+\end{statement}
+
+\begin{statement}{Remark 4.7.17}
+In the particular case where $Y=\{x\}$, the pairing (4.7.1) is defined under the sole hypothesis that $K_X$ is normalized at $x$ (and not necessarily dualizing), i.e. such that $\R\Gamma_x(K_X)\simeq A$ (the isomorphism being given): the isomorphism (4.7.2) (which used biduality) then reduces to the identity. Since the pairing (4.7.14) is in any case perfect, one sees therefore that local duality on $X$ (in the form (4.2.2)') is equivalent to the ``global'' duality on $U=X-x$, i.e. to the assertion that the pairing (4.7.1)
+\[
+\R\Gamma(U,G)\times\R\Gamma(U,G')[-1]\longrightarrow A
+\]
+is perfect, or equivalently that the pairings
+\[
+\H^i(U,G)\times\H^{-i-1}(U,G')\longrightarrow A
+\]
+are perfect.
+
+Suppose that one has on $X$ a dualizing complex $K_X$ normalized at $x$. If $X$ is excellent and $U$ is regular of dimension $d$ ($x$ may therefore be an isolated singularity), one should be able to check that $K_U=K_X|U$ is canonically isomorphic to $(\mu_n)_U^{\otimes d}[2d]$ (this is easily checked, at any rate, if $X$ is the strict localization of a prescheme locally of finite type over a field of characteristic~$0$). Then local duality on $X$ implies that, for every locally constant constructible $A_U$-module $G$, one has perfect pairings:
+\[
+\H^i(U,G)\times\H^{2d-1-i}(U,G^\circ)\longrightarrow A,
+\]
+where $G^\circ=\Hom(G,(\mu_n)_U^{\otimes d})$, corresponding formally to Poincaré duality on a scheme of dimension $2d-1$.
+\end{statement}
+
+\section*{5. Local duality on curves}
+
+\begin{statement}{Theorem 5.1}
+Let $X$ be a noetherian regular prescheme of dimension $1$. Suppose that $n$ is prime to the residual characteristics of $X$. Then the purity theorem is true on $X$ (3.1.4), and the complex $A_X$ is dualizing (1.7).
+\end{statement}
+
+\begin{prooftext}[Proof]
+Suppose purity has been proved. Since $X$ plainly satisfies condition (reg) (3.1.1), and since condition $(\mathrm{cdloc})_n$ is verified by (SGA~X~2.2), it follows from (3.2.1) that $\dim.q.inj(A_X)=2$. On the other hand, condition (ii) of (1.7) is verified by (3.3.1 b) (i)) (which was proved assuming purity). Hence, by (4.4), we are reduced to proving that $A_X$ is dualizing when $X$ is strictly local. But, to prove purity, which is a local question in a neighborhood of a closed point, one may equally well suppose $X$ strictly local. Finally, we are reduced to proving the theorem when $X$ is strictly local.
+
+Thus suppose that $X$ is strictly local. Let $x$ be its closed point, let $(\pi=\car(k(x)))$, let $\eta$ be its generic point, and let $U=X-x=\Spec(k(\eta))$. Let $G=\Gal(k(\ol{\eta})/k(\eta))$ be the fundamental group of $U$. It is known [CL, Chap.~IV \S~2 Exer.~2] that one has a canonical exact sequence
+\[
+(5.1.1)\qquad 1\longrightarrow P\longrightarrow G\longrightarrow H\longrightarrow1,
+\]
+where $H=\prod_{\ell\ne\pi}\Z_\ell(1)$, $\Z_\ell(1)=\varprojlim \mu_{\ell^\nu}$, and $P$ is a pro-$\pi$-group. (Of course, $H$ is isomorphic, but not canonically, to $\prod_{\ell\ne\pi}\Z_\ell$.)
+
+It is also known (SGA~VIII~2) that the étale cohomology of $U$ is interpreted as the Galois cohomology of $G$, sheaves (respectively constructible sheaves) of $A_U$-modules corresponding to $A$-modules (respectively finite type $A$-modules) on which $G$ acts continuously.
+
+This being so, the $\H_x^i(A_X)$ are determined by the exact sequence
+\[
+(5.1.2)\qquad 0\longrightarrow \H_x^0(A_X)\longrightarrow \H^0(X,A_X)\longrightarrow \H^0(U,A_U)\longrightarrow \H_x^1(A_X)\longrightarrow0,
+\]
+and the isomorphisms
+\[
+(5.1.3)\qquad \H_x^i(A_X)\xrightarrow{\sim}\H^{i-1}(U,A_U)\qquad\text{for }i\geqslant2.
+\]
+But trivially $\H^0(X,A_X)=\H^0(U,A_U)=A$, so $\H_x^0(A_X)=\H_x^1(A_X)=0$.
+
+On the other hand, for a Galois $G$-$A$-module $M$, one has the Hochschild--Serre spectral sequence
+\[
+E_2^{pq}=\H^p(H,\H^q(P,M))\Longrightarrow \H^{p+q}(G,M).
+\]
+Since $n$ is prime to $\pi$ and $P$ is a pro-$\pi$-group, one has
+\[
+\H^q(P,M)=0\quad\text{for }q\ne0,
+\]
+hence $E_2^{pq}=0$ for $q\ne0$, giving a canonical isomorphism
+\[
+(5.1.4)\qquad \H^p(G,M)\xrightarrow{\sim}\H^p(H,M^P).
+\]
+By an analogous argument, one sees moreover that $\H^p(H,N)$ is identified with $\H^p(\widehat{\Z}(1),N)$ when the factor $\widehat{\Z}(1)$ is made to act trivially on $N$. Thus, finally, with the preceding convention, one has a canonical isomorphism
+\[
+(5.1.5)\qquad \H^p(G,M)\xrightarrow{\sim}\H^p(\widehat{\Z}(1),M^P).
+\]
+Now the Galois cohomology of $\widehat{\Z}$ is well known (CG chap.~I p.~31): for a $G$-$A$-module $N$, one has
+\[
+(5.1.6)\qquad
+\H^i(\widehat{\Z},N)=0\quad\text{for }i\geqslant2,
+\qquad
+\H^0(\widehat{\Z},N)=N^{\widehat{\Z}},
+\qquad
+\H^1(\widehat{\Z},N)=N_{\widehat{\Z}}.
+\]
+From (5.1.3), (5.1.5), and (5.1.6) one immediately deduces that
+\[
+\H^i(U,A_U)=0\quad\text{for }i\geqslant2,
+\]
+and
+\[
+\H^1(U,A_U)\xrightarrow{\sim}A.
+\]
+This last isomorphism is not canonical, since it depends on the choice of an identification of $\widehat{\Z}(1)$ with $\widehat{\Z}$. But, using the Kummer exact sequence, one finds (SGA~XIX~1.3) a canonical isomorphism (given by the ``local fundamental class'')
+\[
+(5.1.7)\qquad \H^1(U,\mu_n)\xrightarrow{\sim}A.
+\]
+Purity is therefore proved.
+
+Let us now prove that $A_X$ is dualizing. By (4.7.17), it is a matter of showing that, for every locally constant constructible $A_U$-module $M$, the pairing
+\[
+(5.1.8)\qquad \H^i(U,M)\times\H^{1-i}(U,\Hom(M,A_U))\longrightarrow \H^1(U,A_U)\xrightarrow{\sim}(\mu_n)_x^{\otimes -1}
+\]
+is a perfect duality. We shall interpret this pairing in terms of Galois cohomology. We shall use the following elementary lemma.
+\end{prooftext}
+
+\begin{statement}{Lemma 5.1.9}
+Let $D=\Hom(\ ,A)$ denote the Pontrjagin dualizing functor on the category of finite type $A$-modules. Let $M$ be a finite type $A$-module on which a group $G$ acts $A$-linearly.
+\begin{enumerate}[label=(\roman*)]
+\item One has a canonical isomorphism
+\[
+D(M^G)\xrightarrow{\sim}(DM)_G.
+\]
+\item If $G$ is a profinite group acting continuously on $M$, and if $G$ has pro-order prime to $n$, then the canonical arrow
+\[
+M^G\longrightarrow M_G
+\]
+is an isomorphism.
+\end{enumerate}
+\end{statement}
+
+\begin{prooftext}[Proof]
+By definition one has
+\[
+M^G=\varprojlim_{s\in G}\Ker(M\xrightarrow{s-1}M),
+\]
+hence
+\[
+D(M^G)\xrightarrow{\sim}\varinjlim_{s\in G}\Coker(DM\xrightarrow{s-1}DM)\xrightarrow{\sim}(DM)_G,
+\]
+which proves (i).
+
+Let us prove (ii). Let $M'$ be the $A$-module defined by the exact sequence
+\[
+0\longrightarrow M'\longrightarrow M\longrightarrow M_G\longrightarrow0.
+\]
+One has $\H^1(G,M')=0$ because $G$ has pro-order prime to $n$. The exact cohomology sequence therefore implies that the arrow $M^G\to M_G$ is an epimorphism. But, applying the functor $D$ and taking (i) into account, one deduces that it is a monomorphism, which completes the proof.
+\end{prooftext}
+
+Applying (5.1.9) to $M$ and $P$, one finds that $\Hom(M,A)^P$ is canonically identified with $\Hom(M^P,A)$. If one chooses an isomorphism from $\widehat{\Z}(1)$ to $\widehat{\Z}$, the pairing (5.1.8) is written, taking (5.1.5) into account, as
+\[
+(5.1.8)'\qquad \H^i(\widehat{\Z},M^P)\times\H^{1-i}(\widehat{\Z},D(M^P))\longrightarrow\H^1(\widehat{\Z},A)\xrightarrow{\sim}A.
+\]
+It follows immediately from (5.1.6) and (5.1.9(i)) that (5.1.8)' is a perfect pairing. This completes the proof of (5.1).
+
+\section*{Bibliography}
+
+\begin{description}[leftmargin=2.5cm,style=nextline]
+\item[{[2]}] Hironaka, H. \emph{Resolution of singularities of an algebraic variety over a field of characteristic zero}, Ann. of Math., vol. 79 (1964), p.~109.
+\item[{[1]}] Abhyankar, S. \emph{Local uniformization on algebraic surfaces over ground fields of characteristic $p\ne0$}, Ann. of Math., vol. 63 (1956), p.~491--526, and \emph{Resolution of singularities of arithmetical surfaces}, Arithmetical Algebraic Geometry, Harper \& Row, New York (1965).
+\item[{[H]}] Hartshorne, R. \emph{Residues and duality}, Lecture Notes no.~20, Springer (1966).
+\item[{[SGA]}] Séminaire de Géométrie Algébrique de l'IHES, \emph{Cohomologie étale des schémas}, by M.~Artin and A.~Grothendieck, 1963--64.
+\item[{[CL]}] Serre, J.-P. \emph{Corps locaux}, Hermann (1962).
+\item[{[CG]}] Serre, J.-P. \emph{Cohomologie galoisienne}, Lecture Notes no.~5, Springer (1964).
+\end{description}
+
+\end{document}

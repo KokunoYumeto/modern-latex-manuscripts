@@ -13,6 +13,6 @@ Round-8 reports are carried forward. Round-9 reports are:
 - `reports/quality-refresh_cumulative_actual_fixed_manifest.csv`
 - `reports/quality-refresh_new_surface_render_contact_sheet.jpg`
 
-The round-9 audit checks for blank/tiny pages, replacement characters, square glyphs, visible LaTeX/control strings, local paths, HTML/404 text, process-agent labels, and visible XeLaTeX/process footer text.
+The round-9 audit checks for blank/tiny pages, replacement characters, square glyphs, visible LaTeX/control strings, local paths, HTML/404 text, process labels, and visible XeLaTeX/process footer text.
 
 The round-9 additions are PDF-surface repairs/pass-through verifications, not source-level TeX rebuilds. Source-level TeX repairs from rounds 5-8 are still carried in `cumulative-actually-fixed/patched-tex/`.
