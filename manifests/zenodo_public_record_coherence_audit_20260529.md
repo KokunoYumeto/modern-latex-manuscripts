@@ -1,6 +1,6 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-29T22:51:43
+Generated: 2026-05-29T23:08:01
 
 Reader PDF counts by section:
 
@@ -19,7 +19,7 @@ Cayley policy: the public reader shelf uses only repaired slice PDFs that render
 
 Current public Zenodo records:
 
-- main: https://zenodo.org/records/20451281
+- main: https://zenodo.org/records/20451500
 - ega: https://zenodo.org/records/20444982
 - sga: https://zenodo.org/records/20450840
 - non_european: https://zenodo.org/records/20450502
