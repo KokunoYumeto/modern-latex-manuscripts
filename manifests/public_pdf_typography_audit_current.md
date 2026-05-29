@@ -1,6 +1,6 @@
 # Public PDF Typography Audit
 
-Generated from the current GitHub mirror reader PDFs after the Cayley slice correction.
+Generated from the current GitHub mirror reader PDFs after the Cayley slice correction and Gauss mirror refresh.
 
 - PDFs checked: 240
 - Reader PDFs: 219
@@ -22,6 +22,7 @@ Counts by section:
 Important interpretation:
 
 - Cayley front-facing files are repaired slice PDFs only; broad cumulative Cayley drafts are preserved on Zenodo artifact/source material rather than promoted as GitHub reader PDFs.
+- Gauss front-facing files now mirror the current 3,061-page Zenodo rebuild.
 - Warnings are triage hints, not automatic publication blockers. Original scans and legacy community PDFs can legitimately trip page-size or text-extraction heuristics.
 
 Current warning list:
