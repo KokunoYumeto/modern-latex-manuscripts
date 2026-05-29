@@ -1,12 +1,12 @@
 # Public Archive Readability Audit
 
-Generated: 2026-05-29T02:36:16
+Generated: 2026-05-29T03:33:13
 
 ## Summary
 
 | Label | Record | Files | PDFs | ZIPs | MB | Metadata Flags | File Flags |
 |---|---:|---:|---:|---:|---:|---|---|
-| main | [20435272](https://zenodo.org/records/20435272) | 100 | 53 | 45 | 20698.32 | none | 0 |
+| main | [20436971](https://zenodo.org/records/20436971) | 100 | 53 | 45 | 20698.65 | none | 0 |
 | ega | [20434859](https://zenodo.org/records/20434859) | 14 | 9 | 3 | 462.28 | none | 0 |
 | sga | [20436860](https://zenodo.org/records/20436860) | 58 | 37 | 20 | 586.77 | none | 0 |
 | non_european_consolidated | [20436420](https://zenodo.org/records/20436420) | 74 | 66 | 7 | 4090.3 | none | 0 |
@@ -27,15 +27,15 @@ Generated: 2026-05-29T02:36:16
 No public metadata or filename flags found for the configured internal/stale patterns.
 ## First Files
 
-### main (20435272)
+### main (20436971)
 - `10 Reader PDF - Dedekind - Was sind und was sollen die Zahlen.pdf`
 - `10 Reader PDF - Lie - Theory of Transformation Groups Volume I.pdf`
 - `10 Reader PDF - Minkowski - Geometry of Numbers.pdf`
-- `99 Raw Source Drops - Manifest.csv`
 - `90 Artifacts - Weber - Lehrbuch der Algebra Volume I Complete Draft.zip`
 - `10 Reader PDF - Qin Jiushao - Shushu Jiuzhang.pdf`
 - `10 Reader PDF - Al-Tusi - Shakl al-Qatta.pdf`
-- `10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part II.pdf`
+- `99 Full Repository Preservation - Current Working Inputs - Part 02 of 10.zip`
+- `99 Full Repository Preservation - Current Working Inputs - Part 03 of 10.zip`
 
 ### ega (20434859)
 - `16 EGA IV Part 3 - French Original (NUMDAM PMIHES 28, 1966).pdf`
@@ -58,34 +58,34 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `47 SGA 4 Part 3 - French Reference PDF.pdf`
 
 ### non_european_consolidated (20436420)
+- `60-07 Reference Scan - Robert of Chester and Karpinski (1915).pdf`
+- `70-02 Reference Text - al-Muqaddasi - Ahsan al-Taqasim.pdf`
+- `70-05 Reference Text - Smith-Karpinski - Numerals.pdf`
+- `82 Non-European Mathematics - OCR Text and Review Notes.zip`
 - `85 Non-European Mathematics - Additional Source Refinement Packets.zip`
 - `90 Non-European Mathematics - Public Summary.json`
 - `99 Non-European Mathematics - As-Received Source and Provenance Archive.zip`
 - `10-19 English Translation - Ibn al-Nadim - Kitab al-Fihrist.pdf`
-- `50-03 Indian Original - Bhaskara II - Lilavati.pdf`
-- `30-03 Arabic Translation - Yang Hui - Xiangjie, part 1.pdf`
-- `60-01 Islamic Original - al-Kashi - Miftah al-Hisab.pdf`
-- `40-07 Chinese Original - Yang Hui - Xiangjie, parts 1-3.pdf`
 
 ### chinese (20435670)
+- `10-01 English Translation - Nine Chapters, vols. 1-9.pdf`
+- `00 Index - Chinese Mathematical Classics.pdf`
+- `20-04 Modern Chinese - Qin - Shuxue Jiuzhang, fasc. 1 and 5-9.pdf`
+- `20-05 Modern Chinese - Sunzi Suanjing.pdf`
+- `01 Chinese Classics - Combined English Translation Drafts.pdf`
+- `03 Chinese Classics - Sunzi Suanjing Arabic Translation.pdf`
 - `40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf`
 - `40-07 Chinese Original - Yang Hui - Xiangjie, parts 1-3.pdf`
-- `40-08 Chinese Original - Zhu Shijie - Suanxue Qimeng, parts 1-2.pdf`
-- `10-02 English Translation - Li Ye - Ceyuan Haijing, vols. 1-12.pdf`
-- `20-01 Modern Chinese - Nine Chapters, vols. 1-9.pdf`
-- `80 Chinese Mathematical Classics - TeX Sources and Artifacts.zip`
-- `10-04 English Translation - Sunzi Suanjing.pdf`
-- `20-02 Modern Chinese - Li Ye - Ceyuan Haijing, vols. 1-12.pdf`
 
 ### indian_sanskrit (20435677)
+- `02 Indian Classics - Combined Original-Language Drafts.pdf`
+- `50-01 Indian Original - Aryabhata - Aryabhatiya.pdf`
 - `90 Indian and Sanskrit Mathematical Classics - Public Summary.json`
 - `50-02 Indian Original - Bhaskara II - Bijaganita, parts 1-3.pdf`
 - `10-08 English Translation - Bhaskara II - Bijaganita, parts 1-3.pdf`
 - `50-04 Indian Original - Brahmagupta - Brahmasphutasiddhanta.pdf`
 - `10-10 English Translation - Brahmagupta - Brahmasphutasiddhanta.pdf`
 - `10-07 English Translation - Aryabhata - Aryabhatiya.pdf`
-- `10-09 English Translation - Bhaskara II - Lilavati.pdf`
-- `80 Indian and Sanskrit Mathematical Classics - TeX Sources and Artifacts.zip`
 
 ### islamic_arabic (20435687)
 - `10-11 English Translation - al-Kashi - Miftah al-Hisab.pdf`
@@ -108,12 +108,12 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `00 Index - Historical Reference Texts.pdf`
 
 ### weber (20436635)
+- `90 Weber - Public Summary.json`
 - `80 Weber - TeX Sources, Component PDFs, and Provenance.zip`
 - `00 Weber - Lehrbuch der Algebra, Volume I - Modern LaTeX Draft.pdf`
 - `01 Weber - Lehrbuch der Algebra, Volume III - Modern LaTeX Draft.pdf`
 - `02 Weber - Lehrbuch der Algebra, Volume II - English Translation Draft.pdf`
 - `03 Weber - Lehrbuch der Algebra, Volume I - English Translation Draft.pdf`
-- `90 Weber - Public Summary.json`
 
 ### noether (20436637)
 - `01 Noether - English Translation Drafts.pdf`

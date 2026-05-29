@@ -2,11 +2,11 @@
 
 This repository is the forkable working mirror for an ongoing project to produce modern, inspectable LaTeX editions and translations of older mathematics and physics manuscripts.
 
-Zenodo is the archival source of record. GitHub keeps editable TeX, public metadata, manifests, and reasonably sized reader PDFs together so people can fork, inspect, correct, and contribute without downloading multi-gigabyte raw archives. The already-linked main Zenodo record is also the preservation backstop for the current raw working inputs, stored there as ten chunked ZIP parts plus a manifest and README; there is no separate public raw-source DOI.
+Zenodo is the archival source of record. GitHub keeps editable TeX, public metadata, manifests, and reasonably sized reader PDFs together so people can fork, inspect, correct, and contribute without downloading multi-gigabyte preservation archives. The already-linked main Zenodo record is also the preservation backstop for the current working inputs, stored there as ten chunked ZIP parts plus a manifest and README; there is no separate public raw-source DOI.
 
 ## Current Public Records
 
-- Main landing, bulk preservation, and raw source backstop: https://zenodo.org/records/20435272
+- Main landing, bulk preservation, and full repository preservation backstop: https://zenodo.org/records/20436971
 - EGA working English translation and French originals: https://zenodo.org/records/20434859
 - SGA working English translation and French references: https://zenodo.org/records/20436860
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20436420
@@ -55,7 +55,7 @@ Please keep corrections narrowly scoped and cite the source page or file when po
 
 Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
 
-For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20435272.
+For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20436971.
 
 
 
