@@ -1,0 +1,272 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\codim}{codim}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\wt}[1]{\widetilde{#1}}
+\providecommand{\Cons}{\operatorname{Cons}}
+\providecommand{\Hh}{\mathrm{H}}
+\providecommand{\uH}{\underline{\mathrm H}}
+\providecommand{\uExt}{\underline{\Ext}}
+\providecommand{\qedtext}{\hfill$\square$}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\NN}{\mathbb{N}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\charac}{\operatorname{char}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\car}{\operatorname{car}}
+
+
+\providecommand{\RHom}{\mathrm{RHom}}
+\providecommand{\Dctf}{D_{\mathrm{ctf}}}
+\providecommand{\Id}{\mathrm{Id}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Gr}{\Gamma}
+\providecommand{\Fix}{\operatorname{Fix}}
+\providecommand{\Loc}{\operatorname{Loc}}
+\providecommand{\lto}{\longrightarrow}
+\providecommand{\xto}[1]{\xrightarrow{#1}}
+\providecommand{\lisom}{\xrightarrow{\sim}}
+\providecommand{\ctf}{\mathrm{ctf}}
+\providecommand{\et}{\mathrm{\acute{e}t}}
+\providecommand{\Sfrac}{SGA~$4^{1/2}$}
+
+
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\EP}{\operatorname{EP}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\DF}{\operatorname{DF}}
+
+\providecommand{\OO}{\mathcal{O}}
+\providecommand{\LL}{\mathbf L}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\frob}{\operatorname{Frob}}
+\nofiles
+\begin{document}
+
+\clearpage
+\section*{Exposé III B\\Calculations of Local Terms}
+\begin{center}
+by Luc Illusie
+\end{center}
+
+\section*{Introduction}
+
+This exposé, written in January 1977, does not correspond to any oral exposé of the seminar. It comprises two independent parts. In the first, we compute the Lefschetz--Verdier local terms for cohomological correspondences between smooth curves over an algebraically closed field, supported on correspondences satisfying certain general-position hypotheses. The formula that we obtain gives as corollaries Verdier's formula~[6] for transversal endomorphisms (which applies in particular to the case of the Frobenius endomorphism), and the formula stated by Langlands in ([4]~7.12). The method of proof is parallel to that followed by Artin--Verdier in [6]. One reduces to proving the vanishing of the local term when the given complexes of sheaves have zero fibre at the images of the fixed point under consideration, and in fact one proves a stronger property, namely that a certain restriction map is zero (2.5). To establish this property, one first reduces to the tamely ramified case by covers of the same degree of the two given curves (so as not to destroy the general-position hypotheses), and then treats this case directly by means of Abhyankar's lemma and the relative purity theorem. The second part of this exposé, of a much more technical nature, is inspired by the method used by Grothendieck to establish the Lefschetz formula for certain cohomological correspondences on curves (see XII and (SGA~$4^{1/2}$ Rapport)). In no.~5, for complexes of modules on a topos, we develop a theory of non-commutative traces which generalizes the commutative theory of (SGA~6~I) and, in the case of a punctual topos, recovers the non-commutative theory developed by Grothendieck in the oral seminar (this was written up in Exposé XI, unfortunately lost). We apply the techniques of no.~5 to define, in no.~6, Lefschetz--Verdier local terms for cohomological correspondences between complexes of modules over rings that are not necessarily commutative. These local terms behave like non-commutative traces and make it possible, in particular when one takes as base ring the algebra of a group, to divide canonically the ordinary local terms attached to equivariant correspondences. As an application, we prove Grothendieck's divisibility conjecture of (XII~4.5), in a more general form. We also show that the local terms defined by Grothendieck in the Lefschetz formula of XII are indeed the Lefschetz--Verdier local terms, and we generalize the formula of (loc. cit.).
+
+I thank P.~Deligne for the useful suggestions he made to me during many discussions; I am particularly grateful to him for having pointed out, and helped me correct, an error in an early proof of Theorem~1.2.
+
+\section*{Summary}
+\begin{tabular}{@{}p{0.84\textwidth}r@{}}
+I. Correspondences in general position between curves & 3\\
+1. Statement of the theorem and corollaries & 3\\
+2. Reduction to a vanishing theorem & 9\\
+3. Reduction to the tame case & 15\\
+4. End of the proof of 1.2 & 20\\
+II. Equivariant correspondences & 25\\
+5. Non-commutative traces & 25\\
+6. Equivariant correspondences and divisibility of local terms & 46
+\end{tabular}
+
+\section*{I. Correspondences in General Position between Curves}
+
+In this part, $S$ denotes the spectrum of an algebraically closed field $k$ of characteristic $p$, and $\Lambda$ a noetherian commutative ring killed by an integer prime to $p$. For every scheme $X$ over $S$ we denote by $D(X)$ the derived category of sheaves of $\Lambda$-modules on $X$, and by $D_{\ctf}(X)$ the full subcategory of $D(X)$ formed by complexes of finite tor-dimension and constructible cohomology.
+
+\subsection*{1. Statement of the theorem and corollaries}
+
+\subsubsection*{1.1}
+Let $X$ (resp. $Y$) be the strict localization, at a closed point, of a smooth separated $S$-curve, let $A$ (resp. $B$) be a strictly local $S$-scheme, and let
+\[
+a:A\longrightarrow X\times_S Y,
+\qquad
+b:B\longrightarrow X\times_S Y
+\]
+be $S$-morphisms. We denote by $p_1:X\times_S Y\to X$, $p_2:X\times_S Y\to Y$ the projections, put $a_i=p_i a$, $b_i=p_i b$, and denote by $x$ (resp. $y$) the closed point of $X$ (resp. $Y$). We assume that $a_2$ and $b_1$ are finite and surjective, and that $A\times_{(X\times_S Y)}B$ is reduced to the closed point $z$ whose image in $X\times_S Y$ is $(x,y)$.
+
+Let $L\in \ob D_{\ctf}(X)$, $M\in \ob D_{\ctf}(Y)$, $u\in\Hom(a_1^*L,a_2^!M)$, and $v\in\Hom(b_2^*M,b_1^!L)$. Denote by
+\[
+u_z\in\Hom(L_x,M_y)\qquad (\text{resp. }v_z\in\Hom(M_y,L_x))
+\]
+the composite homomorphism
+\[
+L_x=R\Gamma(X,L)\xrightarrow{a_1^*}R\Gamma(A,a_1^*L)
+\xrightarrow{R\Gamma(A,u)}R\Gamma(A,a_2^!M)
+\xrightarrow{a_{2*}}R\Gamma(Y,M)=M_y,
+\]
+where $a_{2*}$ is defined by the adjunction map $a_{2*}a_2^!M\to M$ (resp. the analogous composite homomorphism defined by means of $(b,v)$). Since $L_x$ and $M_y$ are perfect complexes of $\Lambda$-modules, one can form the cup-product (SGA~6~I~8.3)
+\begin{equation}\tag{1.1.1}
+\langle u_z,v_z\rangle=\Tr(u_zv_z)=\Tr(v_zu_z)\in\Lambda.
+\end{equation}
+Put $\Lambda_X(1)[2]=K_X$, $\Lambda_Y(1)[2]=K_Y$. By (I~5) (or (SGA~$4^{1/2}$ Duality~1, or Finitude~4.1)) the functor $D_X=\RHom(-,K_X)$ (resp. $D_Y=\RHom(-,K_Y)$) on $D_{\ctf}(X)$ (resp. $D_{\ctf}(Y)$) is dualizing, i.e. for every $E\in\ob D_{\ctf}(X)$ (resp. $E\in\ob D_{\ctf}(Y)$), one has $E\xrightarrow{\sim}D_XD_XE$ (resp. $E\xrightarrow{\sim}D_YD_YE$). We shall sometimes write $D$ instead of $D_X$, $D_Y$.
+
+On the other hand, denote by $p_i^!$ the functor $p_i^*(-)(1)[2]$. We have trivially
+\[
+K_X\otimes_S^{\LL}M\xrightarrow{\sim}p_2^!M,
+\qquad
+L\otimes_S^{\LL}K_Y\xrightarrow{\sim}p_1^!L,
+\]
+and it follows from (III~2.3), by passage to the limit, that the Künneth maps analogous to (III~3.1.1)
+\[
+DL\otimes_S^{\LL}M\longrightarrow \RHom(p_1^*L,p_2^!M),
+\qquad
+L\otimes_S^{\LL}DM\longrightarrow \RHom(p_2^*M,p_1^!L)
+\]
+are isomorphisms. Since $a_2$ is finite, $a$ is finite, and hence the functor $a^!$ is defined; one verifies easily that one has the transitivity isomorphism $a^!p_2^!=a_2^!$. By the induction formula for $a$ (SGA~4~XVIII~3.1.12.2), one therefore has a canonical isomorphism analogous to (III~3.2.1)
+\[
+a^!\RHom(p_1^*L,p_2^!M)\xrightarrow{\sim}\RHom(a_1^*L,a_2^!M),
+\]
+whence an isomorphism
+\begin{equation}\tag{*}
+\Hom(a_1^*L,a_2^!M)\xrightarrow{\sim}H^0(X\times_S Y,a_*a^!(DL\otimes_S^{\LL}M)).
+\end{equation}
+Likewise one has an isomorphism
+\begin{equation}\tag{**}
+\Hom(b_2^*M,b_1^!L)\xrightarrow{\sim}H^0(X\times_S Y,b_*b^!(L\otimes_S^{\LL}DM)).
+\end{equation}
+As in (III~4.1.2), one defines a natural pairing
+\[
+(DL\otimes_S^{\LL}M)\otimes^{\LL}(L\otimes_S^{\LL}DM)
+\longrightarrow K_X\otimes_S^{\LL}K_Y=\Lambda_{X\times_S Y}(2)[4]\stackrel{\mathrm{dfn}}{=}K_{X\times_S Y}.
+\]
+Composing with the pairing analogous to (III~4.2.3)
+\[
+a_*a^!P\otimes^{\LL} b_*b^!Q\longrightarrow c_*c^!(P\otimes^{\LL}Q),
+\]
+where $P=DL\otimes_S^{\LL}M$, $Q=L\otimes_S^{\LL}DM$, and $c:Z=A\times_{(X\times_S Y)}B\to X\times_S Y$ is the canonical projection, and taking into account the isomorphisms (*), (**), one deduces a pairing analogous to (III~4.2.5)
+\[
+\langle\ ,\ \rangle:\Hom(a_1^*L,a_2^!M)\otimes\Hom(b_2^*M,b_1^!L)
+\longrightarrow H^0(X\times_S Y,c_*c^!K_{X\times_S Y}).
+\]
+One verifies easily, by passage to the limit, that $c^!K_{X\times_S Y}=\Lambda_z$, so that $H^0(X\times_S Y,c_*c^!K_{X\times_S Y})=\Lambda$. Thus one has a ``cup-product''
+\begin{equation}\tag{1.1.2}
+\langle u,v\rangle\in\Lambda.
+\end{equation}
+
+\subsubsection*{1.1.3}
+Let $X'$ (resp. $Y'$) be a smooth $S$-curve, $A'$ (resp. $B'$) a separated $S$-curve,
+\[
+a':A'\longrightarrow X'\times_S Y',
+\qquad
+b':B'\longrightarrow X'\times_S Y'
+\]
+finite $S$-morphisms, $x'$ (resp. $y'$) a closed point of $X'$ (resp. $Y'$), $z'$ an isolated closed point of $A'\times_{(X'\times_S Y')}B'$, with image $s'$ (resp. $t'$) in $A'$ (resp. $B'$), and such that $a'_2(=p_2a')$ (resp. $b'_1(=p_1b')$) is quasi-finite at $s'$ (resp. $t'$),
+\[
+L'\in\ob D_{\ctf}(X'),\quad M'\in\ob D_{\ctf}(Y'),\quad
+u'\in\Hom(a_1'^*L',a_2'^!M'),\quad v'\in\Hom(b_2'^*M',b_1'^!L').
+\]
+One can then consider the local term (III~4.2.7) $\langle u',v'\rangle_{z'}\in\Lambda$. On the other hand, if $X,Y,A,B$ are the strict localizations of $X',Y',A',B'$ at $x',y',s',t'$, if $a:A\to X\times_S Y$, $b:B\to X\times_SY$ are the morphisms deduced from $a'$, $b'$, if $L=L'|X$, $M=M'|Y$, and if $u\in\Hom(a_1^*L,a_2^!M)$, $v\in\Hom(b_2^*M,b_1^!L)$ are the maps deduced from $u'$, $v'$, then the data $(X,Y,a,b,u,v)$ satisfy the hypotheses at the beginning of 1.1, and hence a cup-product 1.1.2 $\langle u,v\rangle\in\Lambda$ is defined. It follows from the compatibility of the formation of local terms (III~4.2.7) with localization (III~4.2.6) that $\langle u',v'\rangle_{z'}=\langle u,v\rangle$. It is also easy to see that any data $(X,Y,a,b,u,v)$ satisfying the hypotheses at the beginning of 1.1 are induced by data $(X',Y',a',b',x',y',z',s',t',u',v')$ as above, where one may also assume, if desired, that $A'\times_{(X'\times_S Y')}B'$ is reduced to $z'$.
+
+In general the cup-products 1.1.1 and 1.1.2 are unequal. Nevertheless one has the following theorem, which is the main result of this first part:
+
+\begin{statement}{Theorem 1.2}
+Under the hypotheses at the beginning of 1.1, assume moreover that $A$ and $B$ are in general position, i.e. that the intersection of the tangent cones at $(x,y)$ to the images of $A$ and $B$ in $X\times_S Y$ is reduced to $(x,y)$, and that likewise $A$ and $X\times\{y\}$ are in general position, as are $\{x\}\times Y$ and $B$. Then
+\begin{equation}\tag{1.2.1}
+\langle u_z,v_z\rangle=\langle u,v\rangle.
+\end{equation}
+\end{statement}
+
+By the Lefschetz--Verdier formula (III~4.7), taking 1.1.3 into account, one deduces:
+
+\begin{statement}{Corollary 1.3}
+Let $F$ be an endomorphism of a proper smooth curve $X/S$ such that the fixed-point scheme $X^F$ is finite and formed of points where the graph of $F$ is transverse to the diagonal. Let $L\in\ob D_{\ctf}(X)$, and $u\in\Hom(F^*L,L)$. Then
+\[
+\Tr((F,u),R\Gamma(X,L))=\sum_{x\in X^F}\Tr(u_x,L_x),
+\]
+where the trace on both sides is taken in the sense of (SGA~6~I~8).
+\end{statement}
+
+For $L$ concentrated in degree $0$, 1.3 is the result of Artin--Verdier ([6]~4.1). By a passage to the limit explained in XV, one deduces from 1.3 an analogous result in $\ell$-adic cohomology ([6]~1.1), (XV~\S2 no.~3 prop.~2):
+
+\begin{statement}{Corollary 1.3.1}
+With $X$ and $F$ as in 1.3, let $L$ be a constructible $\mathbb Q_\ell$-sheaf on $X$ ($\ell$ prime to $p$), and let $u\in\Hom(F^*L,L)$. Then:
+\[
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=\sum_{x\in X^F}\Tr(u_x,L_x).
+\]
+\end{statement}
+
+The hypotheses of 1.3 and 1.3.1 apply in particular to the case where $(F,u)$ is a Frobenius correspondence (XV~2), whence Grothendieck's trace formula ([2]~5.1), (SGA~$4^{1/2}$ Rapport~3.2).
+
+\subsubsection*{1.4}
+With the notation of 1.1, assume that $b_2$ and $a_1$ are finite and surjective (instead of $a_2$ and $b_1$), and consider the dual correspondences (III~5.1)
+\[
+Du\in\Hom(a_2^*DM,a_1^!DL),\qquad Dv\in\Hom(b_1^*DL,b_2^!DM),
+\]
+and the homomorphisms $(Du)_z\in\Hom((DM)_y,(DM)_x)$, $(Dv)_z\in\Hom((DL)_x,(DM)_y)$. Assume that $(A,\{x\}\times Y)$ is in general position, as are $(X\times\{y\},B)$ and $(A,B)$. Applying 1.2 to $Du,Dv$, one obtains
+\[
+\langle Du,Dv\rangle=\langle (Du)_z,(Dv)_z\rangle,
+\]
+whence, by (III~5.1.6) and (III~4.2.6),
+\begin{equation}\tag{1.4.1}
+\langle u,v\rangle=\langle (Du)_z,(Dv)_z\rangle.
+\end{equation}
+
+From this remark and from 1.2 one deduces, by the Lefschetz--Verdier formula (III~4.7):
+
+\begin{statement}{Corollary 1.5}
+Let $X,Y$ be proper smooth curves over $S$,
+\[
+a:A\longrightarrow X\times_S Y,
+\qquad
+b:B\longrightarrow X\times_S Y
+\]
+correspondences where $A$ and $B$ are proper curves over $S$, let $L\in\ob D_{\ctf}(X)$, $M\in\ob D_{\ctf}(Y)$, $u\in\Hom(a_1^*L,a_2^!M)$, and $v\in\Hom(b_2^*M,b_1^!L)$. Assume that $C=A\times_{(X\times_S Y)}B$ is finite over $S$ and of the form $C=C_1\amalg C_2$, with the following properties: for $z\in C_1$, the morphisms deduced from $a_2,b_1$ by strict localization at the images of $z$ are finite, and, if $(x,y)$ denotes the image of $z$ in $X\times_S Y$, each of the pairs $(A,B)$, $(A,X\times\{y\})$, $(\{x\}\times Y,B)$ is in general position at $(x,y)$; for $z\in C_2$, the morphisms deduced from $a_1,b_2$ by strict localization at the images of $z$ are finite, and each of the pairs $(A,B)$, $(A,\{x\}\times Y)$, $(B,X\times\{y\})$ is in general position at $(x,y)$ (``general position'' meaning that the intersection of the tangent cones at $(x,y)$ to the images of the curves of the pair under consideration is reduced to $(x,y)$). Then, if $u_*\in\Hom(R\Gamma(X,L),R\Gamma(Y,M))$, $v_*\in\Hom(R\Gamma(Y,M),R\Gamma(X,L))$ are the morphisms defined by $u,v$ (III~3.7.6), one has, with the notation of 1.1.1, (III~5.1.5),
+\begin{equation}\tag{1.5.1}
+\langle u_*,v_*\rangle=\sum_{z\in C_1}\langle u_z,v_z\rangle+\sum_{z\in C_2}\langle (Du)_z,(Dv)_z\rangle.
+\end{equation}
+\end{statement}
+
+\subsubsection*{1.6}
+Assuming the formalism of $\ell$-adic cohomology, one deduces from 1.5, by the passage-to-the-limit technique of XIV, that, under the hypotheses of 1.5 on $X,Y,a,b$, for $L\in\ob D^b(X,\mathbb Q_\ell)$ ($\ell$ prime $\ne p$), $M\in\ob D^b(Y,\mathbb Q_\ell)$, $u\in\Hom(a_1^*L,a_2^!M)$, $v\in\Hom(b_2^*M,b_1^!L)$, one has the analogue of 1.5.1 in $\mathbb Q_\ell$. This formula contains, as a special case, Proposition 7.12 of Langlands [4]: apply the formula with $X=Y$, $M$ the sheaf $F$ considered by Langlands; $L=\alpha M$ ($\alpha\in\mathbb Q_\ell^*$), $A$ the diagonal of $X\times X$, $b$ the correspondence $\Phi$ of (loc. cit.), $u$ the correspondence supported on $A$ given by $\alpha^{-1}:L\to M$, $v$ the correspondence $\Phi$ of (loc. cit.); with the notation of (loc. cit.), $C_1$ (resp. $C_2$) is the set of fixed points where $a<d$ (resp. $a>d$).
+
+\subsubsection*{1.7}
+Under the hypotheses of 1.2, take for $u$ (resp. $v$) the correspondence $\cl(A)$ (resp. $\cl(B)$) defined by $\Tr_{a_2}:a_{2*}\Lambda\to\Lambda$ (resp. $\Tr_{b_1}:b_{1*}\Lambda\to\Lambda$). Formula 1.2.1 becomes
+\begin{equation}\tag{1.7.1}
+\deg(a_2)\deg(b_1)=\langle \cl(A),\cl(B)\rangle,
+\end{equation}
+where $\deg(a_2)$ (resp. $\deg(b_1)$) denotes the generic degree of $a_2$ (resp. $b_1$). Taking into account the hypotheses of general position, the left hand side of 1.7.1 is none other than the intersection multiplicity at $(x,y)$ of the cycles $a_*A$, $b_*B$, the direct images of $A$ and $B$. It is not difficult to deduce 1.7.1 directly from the compatibility of the formation of the cohomology class associated with a cycle with intersections (SGA~$4^{1/2}$ Cycle~2.3.8).
+
+\end{document}

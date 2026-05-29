@@ -1,0 +1,184 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{remark}{Remarque}[section]
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\HM}{\mathcal H}
+
+\begin{document}
+\begin{center}
+ {\Large\bfseries Structures de Hodge mixtes réelles}\\[0.7em]
+ {\large Pierre Deligne}\\[0.4em]
+ {\small Couche française de travail, recomposée en TeX moderne.}
+\end{center}
+
+Les structures de Hodge mixtes réelles (§2) forment une catégorie abélienne rigide, et le foncteur « espace vectoriel réel sous-jacent » est un foncteur fibre. Le foncteur \(\Gr^W\) en est un autre. Nous nous proposons de calculer ce que donne la théorie générale des catégories tannakiennes dans ce cas particulier.
+
+\section{Trois filtrations opposées}
+
+\subsection*{1.1}
+Ce numéro est une variation sur le numéro 1.2 de P. Deligne, \emph{Théorie de Hodge II}, Publ. Math. IHES 40, pp. 5--58. Soient \(\mathcal A\) une catégorie abélienne, et \(A\) un objet de \(\mathcal A\) muni de trois filtrations opposées \(W,F,\overline F\). « Filtration » signifie ici « filtration finie »; \(W\) est croissante, et \(F\) et \(\overline F\) sont décroissantes. La condition d'opposition s'écrit
+\[
+   \Gr^W_n\Gr^p_F\Gr^q_{\overline F} A=0
+   \qquad\text{pour } n\ne p+q .
+\]
+
+Pour tout objet bigradué \(B=\bigoplus B^{p,q}\), nous noterons \(W,F_W,\overline F_W\) les trois filtrations opposées
+\[
+ W_nB=\bigoplus_{p+q\le n}B^{p,q},\qquad
+ F_W^iB=\bigoplus_{p\ge i}B^{p,q},\qquad
+ \overline F_W^{\,i}B=\bigoplus_{q\ge i}B^{p,q}.
+\]
+Avec cette notation, que trois filtrations \(W,F,\overline F\) de \(A\) soient opposées signifie encore que chaque \(\Gr^W_nA\) admet une unique décomposition
+\[
+   \Gr^W_nA=\bigoplus_{p+q=n} A_W^{p,q}
+\]
+telle que les filtrations de \(\Gr^W_nA\) induites par \(F\) et \(\overline F\) soient données par
+\[
+ F^i\Gr^W_nA=\bigoplus_{p+q=n,\,p\ge i}A_W^{p,q},\qquad
+ \overline F^{\,i}\Gr^W_nA=\bigoplus_{p+q=n,\,q\ge i}A_W^{p,q}.
+\]
+
+Posons
+\[
+ A_F^{p,q}:=W_{p+q}A\cap F^pA\cap
+ \left(\overline F^{\,q}A+\sum_{i>0}W_{p+q-i}A\cap \overline F^{\,q-i+1}A\right),
+\]
+et, en échangeant les rôles de \(F,\overline F\) et de \(p,q\),
+\[
+ A_{\overline F}^{p,q}:=W_{p+q}A\cap \overline F^{\,q}A\cap
+ \left(F^pA+\sum_{i>0}W_{p+q-i}A\cap F^{p-i+1}A\right).
+\]
+Pour \(p+q=n\), la projection de \(W_nA\) sur \(\Gr^W_nA\) induit des isomorphismes
+\[
+ A_F^{p,q}\simeq A_W^{p,q},\qquad
+ A_{\overline F}^{p,q}\simeq A_W^{p,q}.
+\]
+On en déduit que les \(A_F^{p,q}\), respectivement les \(A_{\overline F}^{p,q}\), forment une bigraduation de \(A\), et que les sommes des isomorphismes
+\[
+ A_F^{p,q}\xrightarrow{\sim}A_W^{p,q},\qquad
+ A_{\overline F}^{p,q}\xrightarrow{\sim}A_W^{p,q}
+\]
+sont des isomorphismes bifiltrés
+\[
+ a_F:(A;W,F)\xrightarrow{\sim}(\Gr^WA;W,F_W),
+ \qquad
+ a_{\overline F}:(A;W,\overline F)\xrightarrow{\sim}(\Gr^WA;W,\overline F_W).
+\]
+
+\begin{lemma}
+L'automorphisme \(d=a_Fa_{\overline F}^{-1}\) de \(\Gr^WA\) vérifie
+\begin{equation}\tag{1.1.1}
+   (d-1)(A_W^{p,q})\subset
+   \bigoplus_{\substack{r<p\\ s<q}} A_W^{r,s}.
+\end{equation}
+\end{lemma}
+
+Par passage au gradué, les isomorphismes \(a_F\) et \(a_{\overline F}\) induisent l'identité de \(\Gr^WA\). On a donc \(\Gr^W(d)=1\). Pour toute partie \(I\) de \(\mathbb Z^2\), et pour \(B\) bigradué, posons \(B_I=\bigoplus_{(r,s)\in I}B^{r,s}\), et posons
+\[
+ I(p,q)=\{(r,s):r+s\le p+q\text{ et }((r,s)=(p,q)\text{ ou }r<p)\},
+\]
+\[
+ J(p,q)=\{(r,s):r+s\le p+q\text{ et }((r,s)=(p,q)\text{ ou }s<q)\},
+\]
+\[
+ K(p,q)=\{(r,s):r+s\le p+q\text{ et }r<p\text{ et }s<q\}.
+\]
+Dans la définition de \(A_F^{p,q}\) comme intersection de deux sous-objets de \(A\), le premier sous-objet est \(A_F{}_{I(p,q)}\) et le second est \(A_{\overline F}{}_{J(p,q)}\). Il en résulte que \(dA_W^{p,q}\) est contenu dans la somme des composantes indexées par \(K(p,q)\cup\{(p,q)\}\), et la conclusion suit de \(\Gr^W(d)=1\).
+
+\begin{proposition}\label{prop:trois-filtrations}
+Le foncteur \(A\mapsto \Gr^WA\) est une équivalence de la catégorie des objets de \(\mathcal A\), munis de trois filtrations opposées \(W,F,\overline F\), avec la catégorie des objets de \(\mathcal A\), munis d'une bigraduation finie et d'un automorphisme \(d\) vérifiant \((1.1.1)\).
+\end{proposition}
+
+L'isomorphisme \(a_F:A\to\Gr^WA\) respecte la filtration \(W\), transforme \(F\) en \(F_W\), et \(\overline F\) en \(d^{-1}\overline F_W\). Le foncteur \(\Gr^W\) admet donc pour inverse le foncteur
+\[
+ s:(B=\bigoplus B^{p,q},d)\longmapsto (B,W,F_W,d^{-1}\overline F_W).
+\]
+Réciproquement, si l'on part de \(B\) bigradué muni de \(d\), les filtrations ainsi définies sont opposées dès que \(d\) vérifie \((1.1.1)\), et l'isomorphisme évident de \(B\) avec \(\Gr^WB\) donne \(\mathrm{Id}\xrightarrow{\sim}\Gr^W\circ s\).
+
+\begin{remark}
+Si \(2\) est inversible, \(d\) admet une unique racine carrée \(d^{1/2}\) vérifiant encore \((1.1.1)\). Posons
+\[
+ a:=d^{1/2}a_F=d^{-1/2}a_{\overline F}.
+\]
+Alors \(a_{\overline F}=d^{1/2}a\) et \(a_F=d^{-1/2}a\), de sorte que \(a\) transforme \(F\) et \(\overline F\) en les filtrations \(d^{1/2}(F_W)\) et \(d^{-1/2}(\overline F_W)\) de \(\Gr^WA\). L'isomorphisme \(a\) est le même pour \((A;W,F,\overline F)\) et pour \((A;W,\overline F,F)\).
+\end{remark}
+
+\subsection*{1.4}
+Ces constructions sont compatibles au produit tensoriel. Si \(\otimes:\mathcal A_1\times\mathcal A_2\to\mathcal A\) est un foncteur biadditif exact, on l'étend aux objets filtrés par
+\[
+ F^n(A_1\otimes A_2)=\sum_{a+b=n}F^aA_1\otimes F^bA_2\subset A_1\otimes A_2.
+\]
+Le foncteur « gradué associé » est compatible à \(\otimes\); en particulier, si \((W_i,F_i,\overline F_i)\) sont trois filtrations opposées sur \(A_i\), alors \((W_1\otimes W_2,F_1\otimes F_2,\overline F_1\otimes\overline F_2)\) sont encore opposées sur \(A_1\otimes A_2\). La formation des bigraduations, des isomorphismes \(a_F,a_{\overline F}\) et de \(d\) est compatible à \(\otimes\).
+
+\subsection*{1.5}
+Soient \(k\) un corps commutatif, \(\mathcal A\) la catégorie des espaces vectoriels de dimension finie sur \(k\), et \(\mathcal C\) la catégorie des espaces vectoriels munis de trois filtrations opposées. C'est une catégorie abélienne rigide tensorielle, avec \(\End(1)=k\). Elle admet le foncteur fibre \(\omega_0\) « espace vectoriel sous-jacent », et aussi le foncteur fibre \(\Gr^W=:\omega_W\). Posons \(\mathcal G=\Aut(\omega_W)\). La bigraduation fonctorielle donne
+\[
+ \alpha:\Gm\times\Gm\longrightarrow\mathcal G,
+\]
+section de la projection \(\operatorname{pr}:\mathcal G\to\Gm\times\Gm\), normalisée par \(\alpha(\lambda,\mu)v=\lambda^p\mu^qv\) pour \(v\in V^{p,q}\).
+
+Supposons \(k\) de caractéristique zéro. Soit \(\mathfrak l\) l'algèbre de Lie librement engendrée par des \(D^{i,j}\), \(i,j<0\), où \(D^{i,j}\) est de bidegré \((i,j)\). Les quotients \(\mathfrak l/W_n\mathfrak l\) sont nilpotents. Soit \(\mathcal U\) la limite projective des groupes unipotents \(\exp(\mathfrak l/W_n\mathfrak l)\). Le groupe \(\Gm\times\Gm\) agit par \((\lambda,\mu)\) sur le bidegré \((i,j)\) comme multiplication par \(\lambda^i\mu^j\).
+
+\begin{construction}
+On a
+\[
+ \mathcal G=(\Gm\times\Gm)\ltimes\mathcal U.
+\]
+Faire agir ce produit semi-direct sur \(V\) revient à se donner une bigraduation et des endomorphismes \(D^{i,j}\) de bidegré \((i,j)\). Leur somme \(D=\sum D^{i,j}\) vérifie
+\[
+ D(V^{p,q})\subset\bigoplus_{r<p,\,s<q}V^{r,s}.
+\]
+En posant \(d=\exp(D)\), on retrouve la donnée d'une bigraduation et d'un automorphisme \(d\) vérifiant \((1.1.1)\). Cette construction est compatible au produit tensoriel et donne l'isomorphisme voulu.
+\end{construction}
+
+\section{Structures de Hodge mixtes}
+
+Rappelons qu'une structure de Hodge mixte réelle est un espace vectoriel réel de dimension finie muni d'une filtration croissante \(W\), et dont le complexifié \(V_\mathbb C\) est muni d'une filtration décroissante \(F\), telle que \(W_\mathbb C\), \(F\) et sa conjuguée complexe \(\overline F\) forment trois filtrations opposées.
+
+D'après la proposition~\ref{prop:trois-filtrations}, le foncteur \(\Gr^W\) induit une équivalence avec la catégorie des espaces vectoriels complexes bigradués \(V=\bigoplus V^{p,q}\), munis d'un automorphisme \(d\) vérifiant \((1.1.1)\), et d'une conjugaison complexe échangeant \(V^{p,q}\) et \(V^{q,p}\), pour laquelle le conjugué de \(d\) est \(d^{-1}\).
+
+La catégorie \(\mathcal H\) des structures de Hodge mixtes réelles est une catégorie abélienne rigide tensorielle, avec \(\End(1)=\mathbb R\). Elle admet le foncteur fibre \(\omega_0\), donc est tannakienne et neutre, et aussi \(\Gr^W=:\omega_W\). L'isomorphisme fonctoriel
+\[
+ a:V_\mathbb C\longrightarrow \Gr^W(V_\mathbb C)
+\]
+respecte les structures réelles des deux membres, car il dépend symétriquement de \(F\) et \(\overline F\). Il induit un isomorphisme de foncteurs fibres \(a:\omega_0\to\omega_W\).
+
+Avec les notations du numéro 1 et \(k=\mathbb C\), soit \(\mathcal G_\mathbb R\) la forme réelle de \(\mathcal G\) définie par la conjugaison complexe suivante: sur \(\Gm\times\Gm\), \((\lambda,\mu)\mapsto(\overline\mu,\overline\lambda)\); sur \(\mathcal U\), celle qui est compatible avec la conjugaison complexe de \(\mathfrak l\) donnée par
+\[
+ D^{i,j}\longmapsto -D^{j,i}.
+\]
+Comme en 1.1, faire agir \(\mathcal G_\mathbb R\) sur un espace vectoriel réel \(V\) revient à se donner une bigraduation \(V_\mathbb C=\bigoplus V^{p,q}\), avec \(V^{p,q}\) et \(V^{q,p}\) conjugués, et un automorphisme \(d\) tel que \(\overline d=d^{-1}\) et
+\[
+   (d-1)V^{p,q}\subset\bigoplus_{i<p,\,j<q}V^{i,j}.
+\]
+
+\begin{proposition}
+Le foncteur fibre \(\omega_W\) induit une équivalence de \(\mathcal H\) avec la catégorie des représentations de \(\mathcal G_\mathbb R\); on a donc
+\[
+ \mathcal G_\mathbb R=\Aut(\omega_W).
+\]
+Le foncteur inverse envoie une représentation de \(\mathcal G_\mathbb R\) sur la structure de Hodge mixte \((V,W,F)\), où \(W\) est la filtration réelle dont la complexifiée est la filtration associée à la bigraduation de \(V_\mathbb C\), et
+\[
+ F=d^{-1/2}(F_W)
+\]
+sur le complexifié. L'isomorphisme \(a\) donne l'identification fonctorielle \(\phi\circ\Gr^W\simeq\mathrm{Id}\).
+\end{proposition}
+
+\end{document}

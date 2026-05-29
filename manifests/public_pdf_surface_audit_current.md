@@ -1,29 +1,42 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-29T03:36:07
+Generated: 2026-05-29T22:45:10
 
-PDFs checked: 370
-Flagged for review: 0
+Reader PDF counts by section:
 
-| Record | PDF files | Flagged |
-|---|---:|---:|
-| main [20436971](https://zenodo.org/records/20436971) | 53 | 0 |
-| ega [20434859](https://zenodo.org/records/20434859) | 9 | 0 |
-| sga [20446071](https://zenodo.org/records/20446071) | 37 | 0 |
-| non_european_consolidated [20436420](https://zenodo.org/records/20436420) | 66 | 0 |
-| chinese [20435670](https://zenodo.org/records/20435670) | 27 | 0 |
-| indian_sanskrit [20435677](https://zenodo.org/records/20435677) | 11 | 0 |
-| islamic_arabic [20435687](https://zenodo.org/records/20435687) | 17 | 0 |
-| historical_references [20435690](https://zenodo.org/records/20435690) | 12 | 0 |
-| weber [20436635](https://zenodo.org/records/20436635) | 4 | 0 |
-| noether [20436637](https://zenodo.org/records/20436637) | 2 | 0 |
-| riemann [20434317](https://zenodo.org/records/20434317) | 2 | 0 |
-| gauss [20444827](https://zenodo.org/records/20444827) | 8 | 0 |
-| deligne [20414959](https://zenodo.org/records/20445997) | 91 | 0 |
-| classical_algebra_arithmetic [20418609](https://zenodo.org/records/20418609) | 21 | 0 |
-| additional_author_cluster [20416839](https://zenodo.org/records/20442003) | 10 | 0 |
+- author-cluster: 10
+- classical: 33
+- deligne: 99
+- ega: 10
+- gauss: 8
+- noether: 8
+- non-european: 41
+- riemann: 2
+- sga: 23
+- weber: 6
 
-## Flagged Files
+Cayley policy: the public reader shelf uses only repaired slice PDFs that render as real mathematical text. Broad cumulative Cayley draft volumes are preserved in source/artifact material rather than promoted as reader PDFs.
 
-No PDF surface flags found.
+Current public Zenodo records:
 
+- main: https://zenodo.org/records/20451281
+- ega: https://zenodo.org/records/20444982
+- sga: https://zenodo.org/records/20450840
+- non_european: https://zenodo.org/records/20450502
+- weber: https://zenodo.org/records/20450915
+- noether: https://zenodo.org/records/20450906
+- deligne: https://zenodo.org/records/20450386
+- classical: https://zenodo.org/records/20451242
+- author_cluster: https://zenodo.org/records/20442003
+- gauss: https://zenodo.org/records/20444827
+- riemann: https://zenodo.org/records/20434317
+
+Reader PDF health flags:
+
+- `reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf`: first_page_blankish
+- `reader-pdfs/deligne/10-048 Deligne - Monodromy of hypergeometric fu - Original.pdf`: first_page_blankish
+- `reader-pdfs/sga/13 SGA 4 - English Translation Working Draft.pdf`: first_page_blankish
+- `reader-pdfs/sga/49 SGA 5 - French Reference PDF.pdf`: first_page_blankish
+- `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
+- `reader-pdfs/sga/51 SGA 7 Tome 1 - French Reference PDF.pdf`: first_page_blankish
+- `reader-pdfs/sga/52 SGA 7 Tome 2 - French Reference PDF.pdf`: first_page_blankish

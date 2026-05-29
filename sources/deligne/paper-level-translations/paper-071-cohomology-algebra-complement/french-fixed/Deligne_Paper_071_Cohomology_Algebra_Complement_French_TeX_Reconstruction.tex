@@ -1,0 +1,416 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{corollary}[theorem]{Corollaire}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem{construction}[theorem]{Construction}
+
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\ornt}{\operatorname{or}}
+\newcommand{\coor}{\operatorname{coor}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\Inf}{\operatorname{inf}}
+\newcommand{\incl}{\operatorname{incl}}
+
+\title{L'algèbre de cohomologie du complément, dans un espace affine, d'une famille finie de sous-espaces affines\\\large Version française corrigée de travail}
+\author{P. Deligne, M. Goresky et R. MacPherson}
+\date{}
+
+\begin{document}
+\maketitle
+
+Cet article est dédié à W. Fulton, en admiration pour ses réalisations mathématiques et pour sa large influence sur la géométrie algébrique.
+
+\section*{0. Introduction}
+\addcontentsline{toc}{section}{0. Introduction}
+
+Soit $X$ le complément, dans un espace affine réel $V$, d'un ensemble localement fini $E$ de sous-espaces affines propres de $V$. Les plats de $E$ sont $V$ et les intersections non vides d'éléments de $E$. Dans \cite{GM}, partie III, Goresky et MacPherson appliquent la théorie de Morse à une fonction « distance à $v_0\in V$ » afin, d'une part, de décomposer l'homologie de $X$ en facteurs indexés par les plats et, d'autre part, de donner une description combinatoire de chaque facteur. Au §1 nous retrouvons ces résultats par des méthodes faisceautiques. Ces méthodes font apparaître clairement de quoi dépend la décomposition de \cite{GM}; elles s'appliquent aussi à la détermination de la cohomologie $\ell$-adique du complément d'une famille finie de sous-espaces affines dans un espace affine sur un corps algébriquement clos.
+
+Par dualité, ces résultats d'homologie se transportent à la cohomologie. Lorsque $E$ est fini, on a une décomposition indexée par les plats
+\begin{equation}
+H^*(X)=\bigoplus h^*(A). \tag{0.1}
+\end{equation}
+Soit $\coor(A)$ le $\ZZ$-module libre gradué de rang un ayant pour bases $\pm e$ les coorientations de $A$ dans $V$, placé en degré $\codim(A)$; alors
+\begin{equation}
+\coor(A)=H_A^*(V,\ZZ). \tag{0.2}
+\end{equation}
+Le facteur direct $h^*(A)$ est le produit tensoriel de $\coor(A)$ avec un groupe qui ne dépend que de la combinatoire de l'arrangement, c'est-à-dire seulement de l'ensemble ordonné $\mathcal A^+$ des plats. La décomposition (0.1) dépend du choix, pour chaque plat $A$, d'un point
+\[
+ x_A\in A^0:=A-\bigcup\{\text{plats plus petits}\}.
+\]
+Seule la composante connexe de $A^0$ contenant $x_A$ intervient. En particulier, si l'hypothèse de connexité suivante est satisfaite, la décomposition (0.1) ne dépend d'aucun choix:
+\begin{equation*}
+\text{si un plat } B \text{ est contenu dans un plat } A,
+\qquad A=B \text{ ou } \dim(A)-\dim(B)\geq 2.\tag{CONN}
+\end{equation*}
+
+Au §4.2, sous l'hypothèse \textup{(CONN)}, nous calculons le cup-produit de $H^*(X)$ au moyen de la décomposition (0.1). Le point essentiel est que la composante
+\[
+ h(A)\otimes h(B)\longrightarrow h(C)
+\]
+du cup-produit ne peut être non nulle que pour $C=A\cap B$, l'intersection étant transverse. Nous le prouvons en interprétant le cup-produit comme le produit extérieur suivi de la restriction à la diagonale $X\to X\times X$, puis en traitant cette restriction comme un cas particulier d'un morphisme de restriction
+\[
+H^*(X)\longrightarrow H^*(X'),
+\]
+où $X'=V'\cap X$ est la trace de $X$ sur un sous-espace affine.
+
+Sous \textup{(CONN)}, il résulte de ce calcul que l'algèbre de cohomologie $H^*(X)$ ne dépend, à isomorphisme unique près, que des données suivantes:
+\begin{enumerate}[label=(\alph*)]
+\item l'ensemble $\mathcal A^+$ des plats, ordonné par inclusion;
+\item la fonction $A\mapsto\codim(A)$;
+\item pour chaque plat $A$, le $\ZZ$-module libre gradué de rang un $\coor(A)$;
+\item pour $C=\inf(A,B)$ et $\codim(C)=\codim(A)+\codim(B)$, c'est-à-dire pour une intersection transverse $C=A\cap B$, l'isomorphisme naturel de $\coor(A)\otimes\coor(B)$ sur $\coor(C)$.
+\end{enumerate}
+
+M. de Longueville et C. Schultz ont déterminé indépendamment l'algèbre de cohomologie entière du complément d'un arrangement central satisfaisant \textup{(CONN)} \cite{dS}. Voir aussi \cite{FZ}.
+
+\paragraph{Remerciements.} Notre intérêt pour ces questions a été suscité par le préprint \cite{Y} de Yuzvinsky. Dans le cas des arrangements complexes, Yuzvinsky détermine, à isomorphisme près et en utilisant les résultats de Morgan \cite{M}, l'algèbre de cohomologie rationnelle du complément d'un arrangement.
+
+\section{Décomposition de la cohomologie}
+
+\subsection*{1.1}
+Nous utiliserons le sens faible suivant de stratification. Une stratification d'un espace topologique $T$, indexée par un ensemble ordonné fini $I$, est une décomposition de $T$ en sous-ensembles disjoints non vides $S_i$, les strates, telle que pour tout $i\in I$ la réunion
+\[
+T_i:=\bigcup_{j\leq i}S_j
+\]
+soit fermée. Les $T_i$ sont les strates fermées. On a $i\leq j$ si et seulement si $T_i\subset T_j$, et les $T_i$ déterminent les $S_i$ par
+\begin{equation}
+S_i=T_i-\bigcup_{j<i}T_j.\tag{1.1.1}
+\end{equation}
+Soit $\varphi:T\to I$ l'application égale à $i$ sur $S_i$. Si $I$ est muni de la topologie pour laquelle l'adhérence d'un point $i$ est l'intervalle
+\[
+[\cdot,i]:=\{j\mid j\leq i\},
+\]
+alors dire que les $T_i$ sont fermés revient à dire que $\varphi$ est continue.
+
+\subsection*{1.2}
+Nous noterons aussi $I$ la catégorie dont les objets sont les éléments de $I$, avec une unique flèche de $i$ vers $j$ pour $i\leq j$.
+
+Chaque point $i$ de l'espace topologique $I$ possède un plus petit voisinage, à savoir l'intervalle
+\[
+[i,\cdot]:=\{j\mid i\leq j\}.
+\]
+Pour un faisceau $F$ sur $I$, la fibre $F_i$ de $F$ en $i$ coïncide avec $F([i,\cdot])$. Pour $i\leq j$, la restriction de $[i,\cdot]$ à $[j,\cdot]$ est un morphisme de $F_i$ vers $F_j$; cette construction identifie les faisceaux de groupes abéliens sur $I$ aux foncteurs de $I$ vers \textup{(Ab)}.
+
+Si $I$ a un plus petit élément $0$, le foncteur $\Gamma(I,F)=F_0$ est exact et les $H^i$ supérieurs s'annulent. Si $I$ a un plus grand élément $1$, tout faisceau constant est flasque et ses $H^i$ supérieurs s'annulent: l'espace $I$ est acyclique, c'est-à-dire que sa cohomologie à coefficients constants est celle d'un point.
+
+On peut aussi calculer la cohomologie par la résolution flasque canonique: la cohomologie de $I$ à coefficients constants coïncide avec celle de l'espace classifiant $|I|$ de la catégorie $I$. Elle est donc la même pour $I$ et pour l'ordre opposé, et nous avons déjà vu que tout $I$ ayant un plus petit élément est acyclique.
+
+\begin{lemma}[Dévissage, 1.3]
+Soit $\mathcal C$ une classe de faisceaux sur $I$. Supposons que $\mathcal C$ contienne le faisceau nul, contienne tout faisceau constant sur un fermé $[\cdot,i]$ prolongé par zéro à $I$, et possède la propriété « deux sur trois » suivante: pour toute suite exacte courte
+\[
+0\to F_1\to F_2\to F_3\to0
+\]
+de faisceaux sur $I$, si deux des $F_i$ appartiennent à $\mathcal C$, alors le troisième y appartient aussi. Alors $\mathcal C$ contient tous les faisceaux sur $I$.
+\end{lemma}
+\begin{proof}
+On raisonne par récurrence sur le nombre d'éléments de $I$. Pour un fermé $i:J\hookrightarrow I$ distinct de $I$, en appliquant l'hypothèse de récurrence à la classe des faisceaux sur $J$ tels que $i_!F$ appartienne à $\mathcal C$, on voit que tout faisceau dont le support n'est pas tout $I$ appartient à $\mathcal C$. Si $I$ est vide, c'est clair. Sinon, soit $x$ un élément maximal de $I$ et soit $j$ l'inclusion de $\{x\}$ dans $I$. En prenant $F_1,F_2,F_3$ constants sur $\{x\}$, sur $[\cdot,x]$, et sur $[\cdot,x[$, prolongés par zéro, on voit que $j_!\Lambda$ appartient à $\mathcal C$ pour tout groupe abélien $\Lambda$. Pour un faisceau $F$ sur $I$, on conclut puisque le support de $F/j_!j^*F$ est contenu dans le fermé $I-\{x\}$.
+\end{proof}
+
+\begin{proposition}[1.4]
+Si les strates fermées sont acycliques, alors pour tout faisceau $F$ sur $I$ on a
+\begin{equation}
+H^*(I,F)\xrightarrow{\sim}H^*(T,\varphi^*F).\tag{1.4.1}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Si $F$ est constant sur un fermé $[\cdot,i]$ et prolongé par zéro, alors $\varphi^*F$ est constant sur $T_i$ et prolongé par zéro à $T$; l'isomorphisme résulte de l'acyclicité de $[\cdot,i]$ et de $T_i$. Le cas général suit par dévissage en appliquant les suites exactes longues de cohomologie aux deux membres de (1.4.1).
+\end{proof}
+
+\begin{remark}[1.5]
+Si $|I|$ est l'espace classifiant de la catégorie $I$, l'application continue $|I|\to I$ envoyant l'intérieur du simplexe $[i_0,\ldots,i_n]$, avec $i_0<\cdots<i_n$, sur $i_n$ a pour image inverse de $[\cdot,i]$ le cône $|[\cdot,i]|$ de sommet $i$. L'hypothèse de 1.4 est donc satisfaite, et avec $F$ constant on retrouve que $I$ et $|I|$ ont la même cohomologie.
+\end{remark}
+
+\subsection*{1.6}
+Supposons $T$ localement compact, séparé et dénombrable à l'infini, et supposons que les strates fermées $T_i$ soient des variétés sans bord acycliques. Pour une variété connexe orientable $V$, notons $\ornt(V)$ le $\ZZ$-module libre gradué de rang un, pur de degré $\dim V$, dont les deux générateurs correspondent aux deux orientations de $V$. Pour tout groupe abélien $\Lambda$ et tout point $x\in V$,
+\begin{equation}
+\Lambda\otimes\ornt(V)=H^*_{\{x\}}(V,\Lambda)\xrightarrow{\sim}H_c^{\dim V}(V,\Lambda),\tag{1.6.1}
+\end{equation}
+et, si $V$ est acyclique, la dualité de Poincaré donne
+\begin{equation}
+\Lambda\otimes\ornt(V)\xrightarrow{\sim}H_c^*(V,\Lambda).\tag{1.6.2}
+\end{equation}
+On écrit $\ornt_i=\ornt(T_i)$.
+
+Choisissons dans chaque strate $S_i$ un point $x_i$. Pour tout faisceau $F$ sur $I$, on dispose d'un morphisme d'image inverse en cohomologie à supports
+\begin{equation}
+\varphi^*:H^*_{\{i\}}([i,\cdot],F)\longrightarrow H^*_{S_i}\left(\bigcup_{i\leq j}S_j,\varphi^*F\right).\tag{1.6.3}
+\end{equation}
+Il y a un cup-produit
+\begin{equation}
+H^*_{S_i}(U_i,\varphi^*F)\otimes H^*_{\{x_i\}}(S_i,\ZZ)\longrightarrow H^*_{\{x_i\}}(U_i,\varphi^*F),\tag{1.6.4}
+\end{equation}
+où $U_i=\bigcup_{i\leq j}S_j$. Dans le langage des catégories dérivées, ce produit est simplement la composition de morphismes. Le composé
+\begin{equation}
+H^*_{S_i}(U_i,\varphi^*F)\otimes\ornt_i\longrightarrow H^*_{\{x_i\}}(U_i,\varphi^*F)\longrightarrow H^*_c(U_i,\varphi^*F)\tag{1.6.5}
+\end{equation}
+ne dépend que de la composante connexe de $S_i$ contenant $x_i$. En composant (1.6.3) et (1.6.5), puis en envoyant $H_c^*(U_i,\varphi^*F)$ dans $H_c^*(T,\varphi^*F)$, on obtient
+\begin{equation}
+\bigoplus_i H^*_{\{i\}}([i,\cdot],F)\otimes\ornt_i\longrightarrow H_c^*(T,\varphi^*F).\tag{1.6.7}
+\end{equation}
+
+\begin{theorem}[1.7]
+Sous les hypothèses et avec les notations de 1.6, le morphisme (1.6.7) est un isomorphisme.
+\end{theorem}
+\begin{proof}
+Par dévissage, il suffit de considérer $F=\Lambda_{[\cdot,i]}$, le faisceau constant $\Lambda$ sur $[\cdot,i]$ prolongé par zéro. Pour $j\nleq i$, les groupes correspondants sont nuls. Pour $j\leq i$, la suite exacte longue de cohomologie à support identifie le problème à celui de l'intervalle $[j,i]$. Si $j<i$, les deux espaces $[j,i]$ et $]j,i]$ sont acycliques, et le groupe à support est nul. Si $j=i$, on obtient $\Lambda$ en degré $0$. Le morphisme se réduit donc à l'isomorphisme (1.6.2) pour $T_i$.
+\end{proof}
+
+\begin{corollary}[1.8]
+Avec les hypothèses et notations de 1.6, supposons que $I$ ait un plus grand élément $1$, et soit $S_1$ la strate correspondante. Si $j_1$ est l'inclusion de $\{1\}$ dans $I$, alors le choix d'une composante connexe de chaque $S_i$ définit un isomorphisme
+\begin{equation}
+\bigoplus_i H^*_{\{i\}}([i,1],j_{1!}\Lambda)\otimes\ornt_i\xrightarrow{\sim}H_c^*(S_1,\Lambda).\tag{1.8.1}
+\end{equation}
+\end{corollary}
+
+\begin{construction}[1.9]
+Si $I$ est fini avec plus grand élément $1$, alors
+\[
+H^*_{\{i\}}([i,1],j_{1!}\Lambda)=
+\begin{cases}
+\Lambda & \text{en degré }0,\text{ si }i=1,\\
+\widetilde H^{*-2}(]i,1[,\Lambda) & \text{sinon.}
+\end{cases}
+\]
+Lorsque $]i,1[$ est vide, la cohomologie réduite vaut $\Lambda$ en degré $-1$.
+\end{construction}
+
+\subsection*{1.10. Variantes: homologie et cohomologie de $S_1$}
+Le produit-cap avec la classe fondamentale identifie la cohomologie à support compact d'une variété orientée pure $n$-dimensionnelle $V$ à l'homologie de $V$:
+\[
+H_c^i(V,\Lambda)\xrightarrow{\sim}H_{n-i}(V,\Lambda).
+\]
+Les résultats précédents donnent donc, après renumérotation et torsion par $\ornt(T)$, l'homologie de $S_1$, puis par dualité sa cohomologie. Pour des coefficients dans un corps $k$,
+\[
+H^i=\Hom_k(H_i,k)
+\]
+ou $H^i=\Hom_k(H_c^{n-i},k)$; pour $\Lambda$ fini et $\Lambda'$ son dual dans $\QQ/\ZZ$,
+\[
+H^i(\cdot,\Lambda')=\Hom(H_i(\cdot,\Lambda),\QQ/\ZZ),
+\]
+et de même avec $H_c^{n-i}$. Plus généralement, on peut employer la dualité de Pontryagin. Pour $\Lambda$ borné dans $D^b(\ZZ)$ à cohomologie finiment engendrée, avec $\Lambda'=R\Hom(\Lambda,\ZZ)$, on a encore
+\[
+R\Gamma(S_1,\Lambda')=\RHom(R\Gamma_c(S_1,\Lambda),\ZZ)\otimes\ornt(T).
+\]
+
+Nous noterons $h_c^*(i)$ les groupes
+\[
+H^*_{\{i\}}([i,1],F)\otimes\ornt_i
+\]
+intervenant dans (1.8.1). Les facteurs correspondants en homologie et en cohomologie seront notés $h_*(i)$ et $h^*(i)$. Si $\coor(T_i)$ est défini par
+\[
+\ornt(T_i)\otimes\coor(T_i)\xrightarrow{\sim}\ornt(T),
+\]
+alors, par dualité,
+\begin{equation}
+h^*(i)=
+\begin{cases}
+\Lambda & \text{en degré zéro pour }i=1,\\
+\widetilde H_*(]i,1[,\Lambda)[2]\otimes\coor_i & \text{sinon.}
+\end{cases}\tag{1.10.1}
+\end{equation}
+
+\begin{example}[1.11]
+Soient $V$ un espace affine réel et $\mathcal A$ une famille finie de sous-espaces affines non vides et distincts de $V$, stable par intersection non vide. Posons
+\[
+\mathcal A^+:=\mathcal A\cup\{V\},\qquad X:=V-\bigcup\mathcal A.
+\]
+Les éléments de $\mathcal A^+$ sont les plats. Ils forment les strates fermées d'une stratification de $V$. L'application 1.8 donne, après choix de points $x_A\in A^0$,
+\begin{equation}
+H_c^*(X,\Lambda)=\bigoplus_A h_c^*(A),\tag{1.11.2}
+\end{equation}
+où
+\[
+h_c^*(A)=H^*_{\{A\}}([A,V],j_{V!}\Lambda)\otimes\ornt(A).
+\]
+Cette décomposition coïncide avec celle que Goresky et MacPherson obtiennent par théorie de Morse appliquée à la distance à un point générique $v_0$.
+\end{example}
+
+\begin{example}[1.12]
+Si $T$ est un ouvert convexe de $\RR^n$ et si $E$ est une famille finie de traces sur $T$ de sous-espaces affines, alors les intersections non vides $T\cap F$ sont les strates fermées d'une stratification satisfaisant les hypothèses de 1.8. On peut plus généralement prendre $T$ convexe dans un espace de courbure négative et $E$ formé de sous-espaces totalement géodésiques.
+\end{example}
+
+\begin{example}[1.13]
+Dans les exemples 1.11 et 1.12, si deux éléments ont une borne inférieure, ils ont une plus grande borne inférieure. Ce n'est pas nécessaire dans les applications de 1.8: on peut avoir un disque, deux courbes $A$ et $B$, et deux points d'intersection comme strates fermées.
+\end{example}
+
+\begin{example}[1.14]
+La preuve faisceautique de 1.8 s'applique à la cohomologie $\ell$-adique. Pour une variété lisse connexe $V$ de dimension $n$ sur un corps algébriquement clos, $\ornt(V)$ est remplacé par $\ZZ_\ell(-n)$ placé en degré $2n$. Si $V$ est affine et $\mathcal A$ une famille finie de sous-espaces affines, on obtient
+\begin{equation}
+\bigoplus_A H^*_{\{A\}}([A,V],j_{V!}\ZZ_\ell)(-\dim A)[-2\dim A]
+\xrightarrow{\sim}H_c^*(X,\ZZ_\ell).\tag{1.14.1}
+\end{equation}
+Sur $\CC$, la même décomposition vaut en théorie de Hodge mixte; $h_c^*(A)$ est pur de type de Hodge $(\dim_\CC A,\dim_\CC A)$ et dualement $h^*(A)$ est pur de type $(\codim A,\codim A)$. Ainsi les composantes non nulles du cup-produit ne peuvent apparaître que lorsque les codimensions s'additionnent.
+\end{example}
+
+\section{Fonctorialité par rapport à l'arrangement}
+
+\subsection*{2.1}
+Soient $V$, $\mathcal A$, $\mathcal A^+$ et $X$ comme ci-dessus. Si $\mathcal A'\subset\mathcal A$ satisfait les mêmes hypothèses, la stratification définie par $\mathcal A$ raffine celle définie par $\mathcal A'$. L'application
+\[
+\alpha:\mathcal A^+\longrightarrow\mathcal A'{}^+
+\]
+qui associe à un plat de $\mathcal A$ le plus petit plat de $\mathcal A'$ qui le contient est adjointe à gauche de l'inclusion $\incl$ de $\mathcal A'{}^+$ dans $\mathcal A^+$. L'inclusion $X\subset X'$ induit
+\begin{equation}
+H_c^*(X,\Lambda)\longrightarrow H_c^*(X',\Lambda).\tag{2.1.1}
+\end{equation}
+
+\begin{proposition}[2.2]
+Soit $A$ un plat de $\mathcal A^+$.
+\begin{enumerate}[label=(\roman*)]
+\item Si $A$ n'est pas un plat de $\mathcal A'{}^+$, alors (2.1.1) est nul sur $h_c^*(A)$.
+\item Si $A$ est un plat de $\mathcal A'{}^+$, le morphisme envoie $h_c^*(A)$ dans $h_c^*(A')$; le morphisme induit est le produit tensoriel par $\ornt(A)$ de
+\begin{equation}
+\incl^*:H^*_{\{A\}}([A,V],j_{V!}\Lambda)\longrightarrow H^*_{\{A'\}}([A',V],j'_{V!}\Lambda).\tag{2.2.1}
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+La preuve consiste à comparer les morphismes de cohomologie à support compact à travers les strates ouvertes correspondantes. Elle identifie les composantes de (2.1.1) avec les morphismes naturels induits par l'inclusion des intervalles d'ensembles ordonnés.
+
+\subsection*{2.3}
+Pour un plat $A$, les idempotents définis par la restriction à un voisinage $U$ de $A^0$ permettent de reconstruire la décomposition de $H_c^*(X,\Lambda)$ en facteurs indexés par les plats. En effet, le diagramme
+\begin{equation}
+\begin{tikzcd}
+\displaystyle\bigoplus_{B\in[A,V]}h_c(B) \arrow[r] \arrow[d] & \displaystyle\bigoplus h_c(B) \arrow[r] \arrow[d] & \displaystyle\bigoplus_{B\in[A,V]}h_c(B) \arrow[d]\\
+H_c^*(U-\bigcup[A,V],\Lambda) \arrow[r] & H_c^*(X,\Lambda) \arrow[r] & H_c^*(V-\bigcup[A,V],\Lambda)
+\end{tikzcd}\tag{2.3.1}
+\end{equation}
+montre que les projecteurs ainsi obtenus commutent et récupèrent les sommes partielles de la décomposition.
+
+\section{Restriction à un sous-espace linéaire}
+
+\subsection*{3.1}
+Soit $V'$ un sous-espace affine de $V$ non contenu dans $\bigcup\mathcal A$, et soit $\mathcal A'$ l'ensemble des intersections non vides de $V'$ avec les plats de $\mathcal A$. Posons $X'=X\cap V'$. Un choix de coorientation de $V'$ dans $V$ définit un morphisme de Gysin
+\begin{equation}
+H_c^*(X',\Lambda)\longrightarrow H_c^*(X,\Lambda).\tag{3.1.1}
+\end{equation}
+
+\begin{theorem}[3.2]
+Supposons que $(V,\mathcal A)$ et $(V',\mathcal A')$ satisfassent \textup{(CONN)}. Alors, pour $A\in\mathcal A$ et $A'\in\mathcal A'$, la composante
+\begin{equation}
+h_c^*(A')\longrightarrow h_c^*(A)\tag{3.2.1}
+\end{equation}
+de (3.1.1) ne peut être non nulle que si $A'=A\cap V'$ et si l'intersection est transverse. Dans ce cas, la coorientation choisie donne un isomorphisme $\epsilon:\ornt(A')\xrightarrow{\sim}\ornt(A)$, l'application de trace
+\[
+\alpha:[A,V]\longrightarrow[A',V']
+\]
+est injective, et (3.2.1) est le produit tensoriel de $\epsilon$ avec
+\begin{equation}
+\alpha^*:H^*_{\{A'\}}([A',V'],j_{V'!}\Lambda)\longrightarrow H^*_{\{A\}}([A,V],j_{V!}\Lambda).\tag{3.2.2}
+\end{equation}
+\end{theorem}
+
+\begin{lemma}[3.3]
+Si $A$ est le plus petit élément de $\mathcal A$ et si l'intersection de $A$ et $V'$ est vide ou non transverse, alors le composé
+\[
+H_c^*(X')\longrightarrow H_c^*(X)\longrightarrow h(A)
+\]
+est nul.
+\end{lemma}
+\begin{proof}
+Si $A$ et $V'$ sont disjoints, on choisit un voisinage tubulaire $U$ de $V'$ ne rencontrant pas $A$; l'image passe par les facteurs $h(B)$ tels que $B\cap U\neq\varnothing$, donc pas par $h(A)$. Si l'intersection est non transverse, on choisit un hyperplan contenant $A$ et $V'$ et un demi-espace $U$ bordé par lui. En homologie, le morphisme de Gysin est une image directe; les cycles issus de $X'$ peuvent être poussés dans l'intérieur de $U$, et le même argument annule la projection sur $h(A)$.
+\end{proof}
+
+\subsection*{3.4}
+Dans le cas restant, où $A$ est minimal et $A\cap V'$ est transverse, le triplet $(V,V',\mathcal A)$ est isomorphe à
+\[
+(V_1\times V_2,\,V_1\times\{0\},\,\{B\times V_2\mid B\in\mathcal A_1\}).
+\]
+Alors $X=X_1\times V_2$ et $X'=X_1\times\{0\}$, et le morphisme de Gysin est l'isomorphisme de Künneth
+\[
+H_c^*(X_1,\Lambda)\otimes H_c^{\dim V_2}(V_2,\ZZ)\xrightarrow{\sim}H_c^*(X,\Lambda),
+\]
+qui envoie chaque $h_c^*(B_1)$ isomorphiquement sur $h_c^*(B_1\times V_2)$.
+
+\subsection*{3.5}
+Duellement, le morphisme de restriction
+\begin{equation}
+H^*(X,\Lambda)\longrightarrow H^*(X',\Lambda)\tag{3.5.1}
+\end{equation}
+n'a de composantes non nulles que pour $A'=A\cap X'$, l'intersection étant transverse; ces composantes sont les duales de (3.2.2).
+
+\section{Application au cup-produit}
+
+\subsection*{4.1}
+Pour deux arrangements $(V_1,\mathcal A_1)$ et $(V_2,\mathcal A_2)$, la stratification produit de $V=V_1\times V_2$ donne $\mathcal A^+=\mathcal A_1^+\times\mathcal A_2^+$. Dans la catégorie dérivée, l'isomorphisme (1.6.7) se raffine en
+\begin{equation}
+\bigoplus_i R\Gamma_{\{i\}}([i,\cdot],F)\otimes\ornt_i\xrightarrow{\sim}R\Gamma_c(T,\varphi^*F).\tag{4.1.1}
+\end{equation}
+Pour un arrangement affine, on a
+\begin{equation}
+\bigoplus_A R\Gamma_{\{A\}}([A,V_i],j_{V_i!}\Lambda)\otimes\ornt(A)\xrightarrow{\sim}R\Gamma_c(X_i,\Lambda),\tag{4.1.2}
+\end{equation}
+et ces isomorphismes sont compatibles avec les formules de Künneth. En particulier,
+\begin{equation}
+R\Gamma_{\{A_1\}}([A_1,V_1],j_{V_1!}\Lambda)\otimes^L R\Gamma_{\{A_2\}}([A_2,V_2],j_{V_2!}\Lambda)
+\xrightarrow{\sim}R\Gamma_{\{A_1\times A_2\}}([A_1\times A_2,V],j_{V!}\Lambda).\tag{4.1.3}
+\end{equation}
+Avec les orientations, cela donne le diagramme commutatif
+\begin{equation}
+\begin{tikzcd}[column sep=small]
+\left(R\Gamma_{\{A_1\}}([A_1,V_1],j_{V_1!}\Lambda)\otimes\ornt(A_1)\right)
+\otimes^L_
+\Lambda
+\left(R\Gamma_{\{A_2\}}([A_2,V_2],j_{V_2!}\Lambda)\otimes\ornt(A_2)\right)
+\arrow[r]\arrow[d,"\sim"']
+& R\Gamma_c(X_1,\Lambda)\otimes^L_\Lambda R\Gamma_c(X_2,\Lambda)\arrow[d,"\sim"]\\
+R\Gamma_{\{A_1\times A_2\}}([A_1\times A_2,V],j_{V!}\Lambda)\otimes\ornt(A_1\times A_2)\arrow[r]
+& R\Gamma_c(X,\Lambda).
+\end{tikzcd}\tag{4.1.4}
+\end{equation}
+En dualisant, et en utilisant la dualité de Poincaré
+\[
+R\Gamma(X_i,\Lambda)=D(R\Gamma_c(X_i,\Lambda))\otimes\ornt(V_i),
+\]
+on obtient les décompositions correspondantes de $R\Gamma(X_i,\Lambda)$ et leur compatibilité avec Künneth.
+
+\subsection*{4.2}
+Supposons maintenant $(V,\mathcal A)$ comme en 1.11 et satisfaisant \textup{(CONN)}. On applique 4.1 à $V\times V$. Le cup-produit est le produit extérieur
+\[
+R\Gamma(X,\Lambda)\otimes^L R\Gamma(X,\Lambda)\xrightarrow{\sim}R\Gamma(X\times X,\Lambda)
+\]
+suivi de la restriction à la diagonale. Par 3.5, les seules composantes non nulles sont
+\begin{equation}
+h^*(A)\otimes h^*(B)\longrightarrow h^*(C)\tag{4.2.1}
+\end{equation}
+pour $C=A\cap B$, l'intersection étant transverse. Dans ce cas, (4.2.1) se déduit de la duale de (4.1.3) et de la duale de
+\[
+\alpha^*:R\Gamma_{\{C\}}([C,V],j_{V!}\Lambda)\to R\Gamma_{\{(A,B)\}}([A,V]\times[B,V],j_{(V,V)!}\Lambda),
+\]
+où $\alpha:[A,V]\times[B,V]\to[C,V]$ est l'intersection.
+
+\begin{remark}[4.3]
+Sur un corps algébriquement clos $k$, les arguments de 2.2 s'étendent sans changement à la cohomologie $\ell$-adique. En revanche 3.3 introduit une difficulté. Nos arguments ne déterminent donc pas le cup-produit en cohomologie $\ell$-adique. Nous conjecturons qu'il reste donné par les mêmes formules qu'en 4.2.
+\end{remark}
+
+\begin{thebibliography}{9}
+\bibitem[dS]{dS} M. de Longueville et C. Schultz, \emph{The cohomology rings of complements of subspace arrangements}, prépublication, Technische Universität Berlin, 2000.
+\bibitem[FZ]{FZ} E. Feichtner et G. Ziegler, \emph{On cohomology algebras of complex subspace arrangements}, Trans. Amer. Math. Soc. 352 (2000), 3523--3555.
+\bibitem[GM]{GM} M. Goresky et R. MacPherson, \emph{Stratified Morse theory}, Ergeb. Math. Grenzgeb. (3), 14, Springer-Verlag, Berlin, 1988.
+\bibitem[M]{M} J. W. Morgan, \emph{The algebraic topology of smooth algebraic varieties}, Inst. Hautes Études Sci. Publ. Math. 48 (1978), 137--204.
+\bibitem[Y]{Y} S. Yuzvinsky, \emph{Small rational model of subspace complement}, prépublication.
+\end{thebibliography}
+
+\end{document}
