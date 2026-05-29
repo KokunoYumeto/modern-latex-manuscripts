@@ -1,6 +1,6 @@
 # Public Archive Readability Audit
 
-Generated: 2026-05-29T01:45:10
+Generated: 2026-05-29T01:59:48
 
 ## Summary
 
@@ -14,8 +14,8 @@ Generated: 2026-05-29T01:45:10
 | indian_sanskrit | [20435677](https://zenodo.org/records/20435677) | 13 | 11 | 1 | 699.28 | none | 0 |
 | islamic_arabic | [20435687](https://zenodo.org/records/20435687) | 19 | 17 | 1 | 98.46 | none | 0 |
 | historical_references | [20435690](https://zenodo.org/records/20435690) | 14 | 12 | 1 | 57.2 | none | 0 |
-| weber | [20434880](https://zenodo.org/records/20434880) | 6 | 4 | 1 | 19.67 | none | 0 |
-| noether | [20434882](https://zenodo.org/records/20434882) | 4 | 2 | 1 | 19.55 | none | 0 |
+| weber | [20436635](https://zenodo.org/records/20436635) | 6 | 4 | 1 | 19.67 | none | 0 |
+| noether | [20436637](https://zenodo.org/records/20436637) | 4 | 2 | 1 | 19.55 | none | 0 |
 | riemann | [20434317](https://zenodo.org/records/20434317) | 4 | 2 | 2 | 52.35 | none | 0 |
 | gauss | [20433382](https://zenodo.org/records/20433382) | 10 | 8 | 1 | 166.2 | none | 0 |
 | deligne | [20414959](https://zenodo.org/records/20414959) | 93 | 91 | 1 | 207.28 | none | 0 |
@@ -35,7 +35,7 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `10 Reader PDF - Fricke and Klein - Automorphic Functions Volume II.pdf`
 - `99 Raw Source Drops - Current Working Inputs - Part 04 of 10.zip`
 - `99 Raw Source Drops - Current Working Inputs - Part 10 of 10.zip`
-- `99 Raw Source Drops - Current Working Inputs - Part 06 of 10.zip`
+- `10 Reader PDF - Lie - Theory of Transformation Groups Volume I.pdf`
 
 ### ega (20434859)
 - `16 EGA IV Part 3 - French Original (NUMDAM PMIHES 28, 1966).pdf`
@@ -107,18 +107,18 @@ No public metadata or filename flags found for the configured internal/stale pat
 - `02 Historical Reference Texts - Combined Source Drafts.pdf`
 - `00 Index - Historical Reference Texts.pdf`
 
-### weber (20434880)
+### weber (20436635)
 - `80 Weber - TeX Sources, Component PDFs, and Provenance.zip`
 - `00 Weber - Lehrbuch der Algebra, Volume I - Modern LaTeX Draft.pdf`
+- `01 Weber - Lehrbuch der Algebra, Volume III - Modern LaTeX Draft.pdf`
 - `02 Weber - Lehrbuch der Algebra, Volume II - English Translation Draft.pdf`
 - `03 Weber - Lehrbuch der Algebra, Volume I - English Translation Draft.pdf`
-- `01 Weber - Lehrbuch der Algebra, Volume III - Modern LaTeX Draft.pdf`
 - `90 Weber - Public Summary.json`
 
-### noether (20434882)
-- `80 Noether - TeX Sources, Component PDFs, and Provenance.zip`
+### noether (20436637)
 - `01 Noether - English Translation Drafts.pdf`
 - `00 Noether - Selected Mathematical Papers - Modern LaTeX Draft.pdf`
+- `80 Noether - TeX Sources, Component PDFs, and Provenance.zip`
 - `90 Noether - Public Summary.json`
 
 ### riemann (20434317)
