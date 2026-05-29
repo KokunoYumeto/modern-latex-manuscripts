@@ -1,64 +1,95 @@
 # Public PDF Typography Audit
 
-Generated: 2026-05-29T04:15
+Generated from the current GitHub mirror reader PDFs after the Cayley slice correction.
 
-This is a conservative mechanical audit of the current public-facing PDF surfaces. It measures extractable text span sizes and page sizes; it can flag title pages, inserted scans, reference PDFs, and section dividers even when the document is usable. Treat this as a repair queue, not as proof of bad typography.
+- PDFs checked: 240
+- Reader PDFs: 219
+- Reader PDFs with typography warnings: 67
 
-## Summary
+Counts by section:
 
-- PDFs checked: 370
-- Reader-class PDFs checked: 344
-- Reader-class PDFs with at least one typography warning: 133
-- Warning counts: body-font-large: 1, body-font-small: 1, inconsistent-page-font-size: 131, mixed-page-sizes: 36, wide-font-size-spread: 7
+- author-cluster: 10
+- classical: 33
+- deligne: 99
+- ega: 10
+- gauss: 8
+- noether: 8
+- non-european: 41
+- riemann: 2
+- sga: 23
+- weber: 6
 
-## Warnings By Record
+Important interpretation:
 
-| Record | Warned reader PDFs |
-|---|---:|
-| author_cluster | 6 |
-| chinese | 13 |
-| classical | 17 |
-| deligne | 19 |
-| ega | 1 |
-| gauss | 6 |
-| historical_references | 5 |
-| indian_sanskrit | 6 |
-| islamic_arabic | 3 |
-| main | 22 |
-| noether | 1 |
-| non_eu | 29 |
-| riemann | 1 |
-| sga | 2 |
-| weber | 2 |
+- Cayley front-facing files are repaired slice PDFs only; broad cumulative Cayley drafts are preserved on Zenodo artifact/source material rather than promoted as GitHub reader PDFs.
+- Warnings are triage hints, not automatic publication blockers. Original scans and legacy community PDFs can legitimately trip page-size or text-extraction heuristics.
 
-## Highest-Priority Mechanical Review Items
+Current warning list:
 
-| Record | PDF | Pages | Median body size | Page-size/font range | Warning |
-|---|---|---:|---:|---:|---|
-| main | 10 Reader PDF - Aryabhata - Aryabhatiya.pdf | 22 | 12.55 | 1.2 | body-font-large |
-| deligne | 10-076 Deligne - Groupes fondamentaux motivique - Original.pdf | 56 | 7.25 | 0.73 | body-font-small |
-| classical | 02 Cayley - Collected Mathematical Papers, Volume X - Modern LaTeX Draft.pdf | 461 | 11.96 | 9.67 | inconsistent-page-font-size;mixed-page-sizes |
-| main | 10 Reader PDF - Cayley - Collected Papers Partial Draft.pdf | 2266 | 10.91 | 9.67 | inconsistent-page-font-size;mixed-page-sizes |
-| classical | 34 Gauss - Werke, Band VI - Modern LaTeX Draft.pdf | 665 | 11.96 | 9.37 | inconsistent-page-font-size;mixed-page-sizes |
-| gauss | 04 Carl Friedrich Gauss - Werke, Band VI - Modern LaTeX Draft.pdf | 665 | 11.96 | 9.37 | inconsistent-page-font-size;mixed-page-sizes |
-| chinese | 02 Chinese Classics - Combined Modern Chinese Renderings.pdf | 460 | 10.91 | 8.25 | inconsistent-page-font-size |
-| non_eu | 02 Combined Modern Chinese Renderings.pdf | 460 | 10.91 | 8.25 | inconsistent-page-font-size |
-| chinese | 20-06 Modern Chinese - Yang Hui - Xiangjie, parts 1-3.pdf | 82 | 9.96 | 7.26 | inconsistent-page-font-size;wide-font-size-spread |
-| non_eu | 20-06 Modern Chinese - Yang Hui - Xiangjie, parts 1-3.pdf | 82 | 9.96 | 7.26 | inconsistent-page-font-size;wide-font-size-spread |
-| classical | 04 Cayley - Collected Mathematical Papers, Volume XII - Modern LaTeX Draft.pdf | 353 | 10.91 | 5.98 | inconsistent-page-font-size |
-| author_cluster | 08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf | 675 | 11.96 | 5.38 | inconsistent-page-font-size;mixed-page-sizes |
-| main | 10 Reader PDF - Darboux - Lessons on the General Theory of Surfaces.pdf | 484 | 11.96 | 5.38 | inconsistent-page-font-size |
-| main | 10 Reader PDF - Hausdorff - Set Theory.pdf | 673 | 11.96 | 5.38 | inconsistent-page-font-size;mixed-page-sizes |
-| classical | 11 Dedekind - Gesammelte Mathematische Werke, Band II - Modern LaTeX Draft.pdf | 304 | 11.96 | 5.35 | inconsistent-page-font-size;wide-font-size-spread |
-| main | 10 Reader PDF - Picard - Traite d analyse.pdf | 657 | 11.96 | 5.26 | inconsistent-page-font-size;mixed-page-sizes |
-| indian_sanskrit | 02 Indian Classics - Combined Original-Language Drafts.pdf | 392 | 10.91 | 4.78 | inconsistent-page-font-size;wide-font-size-spread |
-| non_eu | 05 Indian Originals - Modern LaTeX.pdf | 392 | 10.91 | 4.78 | inconsistent-page-font-size;wide-font-size-spread |
-| classical | 01 Cayley - Collected Mathematical Papers, Volume VII - Modern LaTeX Draft.pdf | 455 | 10.91 | 3.99 | inconsistent-page-font-size;wide-font-size-spread;mixed-page-sizes |
-| main | 10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part I.pdf | 108 | 10.91 | 3.79 | inconsistent-page-font-size;wide-font-size-spread |
-
-## Immediate Interpretation
-
-- The SGA author/corpus record itself has stable body size for the new SGA 4/5/6/7 working readers; the warnings on SGA 2 and SGA 3 are inherited from existing snapshot PDFs, not from the new TeX builds.
-- The main landing page still contains some older broad-reader PDFs whose cleaner or more current equivalents now live in focused author/corpus records. The main page should be refreshed over time so its direct PDFs mirror the cleanest current surfaces, while preserving older material in ZIPs or version history.
-- Most non-European warnings are range/spread warnings caused by title pages, language/script changes, or section dividers; the current non-European Zenodo record matches the latest reviewed public-reader overlay and has no process-note or public-surface audit flags.
-- The largest true typography candidates for repair are legacy/main Cayley and Gauss combined readers, selected non-European combined readers, and duplicated broad main readers that are superseded by focused records.
+- `author-cluster/00 Reader PDF - Minkowski - Gesammelte Abhandlungen Volume II - Selected Papers.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 2.0)
+- `author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 3.99)
+- `author-cluster/05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 1.94)
+- `author-cluster/06 Reader PDF - Hausdorff - Set Theory.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 2.99)
+- `author-cluster/07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 2.99)
+- `author-cluster/08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 11.96, page range 5.38)
+- `classical/Cayley - Collected Mathematical Papers, Volume IV, pages 101-150 - Repaired LaTeX Slice.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `classical/Cayley - Collected Mathematical Papers, Volume VIII, pages 317-366 - Repaired LaTeX Slice.pdf`: inconsistent-page-font-size (median body 8.97, page range 1.94)
+- `classical/Cayley - Collected Mathematical Papers, Volume XI, pages 051-100 - Repaired LaTeX Slice.pdf`: inconsistent-page-font-size (median body 11.96, page range 1.9)
+- `classical/Cayley - Collected Mathematical Papers, Volume XI, pages 451-500 - Repaired LaTeX Slice.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.01)
+- `classical/Cayley - Collected Mathematical Papers, Volume XII, pages 301-350 - Repaired LaTeX Slice.pdf`: inconsistent-page-font-size (median body 11.96, page range 5.98)
+- `classical/Dedekind - Gesammelte Mathematische Werke, Band II.pdf`: inconsistent-page-font-size;wide-font-size-spread (median body 11.96, page range 5.35)
+- `classical/Dedekind - Gesammelte Mathematische Werke, Band III.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.0)
+- `deligne/10-003 Deligne - Lefschetz theorem and a degene - Original.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.0)
+- `deligne/10-005 Deligne - The irreducibility of the spac - Original.pdf`: inconsistent-page-font-size (median body 9.96, page range 1.99)
+- `deligne/10-006 Deligne - Modular forms and l adic repre - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-007 Deligne - The work of Griffiths - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-008 Deligne - The work of Shimura - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-009 Deligne - Hodge theory I - Original.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.0)
+- `deligne/10-012 Deligne - The Weil conjecture for K3 sur - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-013 Deligne - Complete intersections of Hodg - Original.pdf`: inconsistent-page-font-size (median body 9.96, page range 1.99)
+- `deligne/10-015 Deligne - Unirational nonrational variet - Original.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.0)
+- `deligne/10-016 Deligne - Constants of functional equati - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-017 Deligne - Modular forms and representati - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-018 Deligne - Moduli schemes of elliptic cur - Original.pdf`: inconsistent-page-font-size (median body 9.96, page range 3.99)
+- `deligne/10-019 Deligne - Hodge theory III - Original.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 2.99)
+- `deligne/10-021 Deligne - Modular forms of weight 1 - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-022 Deligne - Weights in the cohomology of a - Original.pdf`: inconsistent-page-font-size (median body 9.96, page range 1.99)
+- `deligne/10-023 Deligne - Real homotopy theory of Kahler - Original.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `deligne/10-027 Deligne - Representations of reductive g - Original.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 2.94)
+- `deligne/10-076 Deligne - Groupes fondamentaux motivique - Original.pdf`: body-font-small (median body 7.25, page range 0.73)
+- `ega/00 EGA - English Translation Working Draft.pdf`: inconsistent-page-font-size (median body 9.96, page range 2.09)
+- `gauss/01 Carl Friedrich Gauss - Werke, Band I - Alternate Modern LaTeX Draft.pdf`: inconsistent-page-font-size (median body 11.96, page range 4.39)
+- `gauss/02 Carl Friedrich Gauss - Werke, Band II - Modern LaTeX Draft.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 11.96, page range 2.99)
+- `gauss/03 Carl Friedrich Gauss - Werke, Band III - Modern LaTeX Draft.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 11.96, page range 4.79)
+- `gauss/04 Carl Friedrich Gauss - Werke, Band VI - Modern LaTeX Draft.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 11.96, page range 9.37)
+- `gauss/05 Carl Friedrich Gauss - Werke, Band VII - Modern LaTeX Draft.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 11.96, page range 2.0)
+- `gauss/06 Carl Friedrich Gauss - Werke, Band XI Part I - Modern LaTeX Draft.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.0)
+- `noether/00 Noether - Paper-Level Cumulative through Paper 06 Section 3 - Original German Editable LaTeX.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 7.54)
+- `noether/01 Noether - Paper-Level Cumulative through Paper 06 Section 3 - English High-Fidelity Translation.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 7.5)
+- `noether/04 Noether - Paper 02 Complete - Original German Editable LaTeX.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 7.47)
+- `noether/05 Noether - Paper 02 Complete - English High-Fidelity Translation.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 10.91, page range 7.5)
+- `noether/40 Noether - Selected Mathematical Papers - Modern LaTeX Draft.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 11.96, page range 3.99)
+- `non-european/00 Project Guide - Non-European Mathematics Manuscripts.pdf`: body-font-small (median body 8.0, page range 0.0)
+- `non-european/10-02 English Translation - Li Ye - Ceyuan Haijing, vols. 1-12.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `non-european/10-06 English Translation - Zhu Shijie - Suanxue Qimeng, parts 1-2.pdf`: inconsistent-page-font-size (median body 8.97, page range 2.99)
+- `non-european/10-07 English Translation - Aryabhata - Aryabhatiya.pdf`: inconsistent-page-font-size (median body 9.96, page range 2.0)
+- `non-european/10-08 English Translation - Bhaskara II - Bijaganita, parts 1-3.pdf`: inconsistent-page-font-size (median body 10.91, page range 3.44)
+- `non-european/10-12 English Translation - al-Khwarizmi - Algebra.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.82)
+- `non-european/10-14 English Translation - Robert of Chester and Karpinski.pdf`: inconsistent-page-font-size (median body 10.91, page range 4.39)
+- `non-european/10-18 English Translation - al-Muqaddasi - Ahsan al-Taqasim.pdf`: inconsistent-page-font-size (median body 10.91, page range 4.49)
+- `non-european/10-21 English Translation - Smith-Karpinski - Numerals.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `non-european/20-06 Modern Chinese - Yang Hui - Xiangjie, parts 1-3.pdf`: inconsistent-page-font-size;wide-font-size-spread (median body 9.96, page range 7.26)
+- `non-european/30-05 Arabic Translation - al-Khwarizmi - Algebra.pdf`: inconsistent-page-font-size (median body 9.96, page range 2.99)
+- `non-european/30-06 Arabic Translation - Omar Khayyam - Treatise on Algebra.pdf`: inconsistent-page-font-size (median body 10.91, page range 2.0)
+- `non-european/40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf`: inconsistent-page-font-size (median body 10.91, page range 2.0)
+- `non-european/50-01 Indian Original - Aryabhata - Aryabhatiya.pdf`: inconsistent-page-font-size (median body 9.96, page range 2.0)
+- `non-european/50-02 Indian Original - Bhaskara II - Bijaganita, parts 1-3.pdf`: inconsistent-page-font-size (median body 10.91, page range 3.44)
+- `non-european/60-02 Islamic Original - al-Khwarizmi - Algebra.pdf`: inconsistent-page-font-size (median body 10.91, page range 2.0)
+- `non-european/70-01 Reference Text - Said al-Andalusi - Tabaqat al-Umam.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.84)
+- `non-european/70-02 Reference Text - al-Muqaddasi - Ahsan al-Taqasim.pdf`: inconsistent-page-font-size (median body 11.16, page range 2.26)
+- `non-european/70-05 Reference Text - Smith-Karpinski - Numerals.pdf`: inconsistent-page-font-size (median body 10.91, page range 1.94)
+- `riemann/10 Reader PDF - Riemann - Gesammelte Werke Complete Draft.pdf`: inconsistent-page-font-size;mixed-page-sizes (median body 11.96, page range 3.99)
+- `sga/02 SGA 3 - Existing English Translation Clean Rebuild.pdf`: body-font-small;inconsistent-page-font-size (median body 8.27, page range 1.65)
+- `sga/11 SGA 2 - Existing English Translation Snapshot.pdf`: inconsistent-page-font-size (median body 9.93, page range 1.66)
+- `weber/20 Weber - Lehrbuch der Algebra, Volume I - Modern LaTeX Draft.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.0)
+- `weber/21 Weber - Lehrbuch der Algebra, Volume III - Modern LaTeX Draft.pdf`: inconsistent-page-font-size (median body 11.96, page range 2.06)

@@ -1,0 +1,441 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\codim}{codim}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\wt}[1]{\widetilde{#1}}
+\providecommand{\Cons}{\operatorname{Cons}}
+\providecommand{\Hh}{\mathrm{H}}
+\providecommand{\uH}{\underline{\mathrm H}}
+\providecommand{\uExt}{\underline{\Ext}}
+\providecommand{\qedtext}{\hfill$\square$}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\NN}{\mathbb{N}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\charac}{\operatorname{char}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\car}{\operatorname{car}}
+
+
+\providecommand{\RHom}{\mathrm{RHom}}
+\providecommand{\Dctf}{D_{\mathrm{ctf}}}
+\providecommand{\Id}{\mathrm{Id}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Gr}{\Gamma}
+\providecommand{\Fix}{\operatorname{Fix}}
+\providecommand{\Loc}{\operatorname{Loc}}
+\providecommand{\lto}{\longrightarrow}
+\providecommand{\xto}[1]{\xrightarrow{#1}}
+\providecommand{\lisom}{\xrightarrow{\sim}}
+\providecommand{\ctf}{\mathrm{ctf}}
+\providecommand{\et}{\mathrm{\acute{e}t}}
+\providecommand{\Sfrac}{SGA~$4^{1/2}$}
+
+
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\EP}{\operatorname{EP}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\DF}{\operatorname{DF}}
+
+
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\Dparf}{D_{\mathrm{parf}}}
+\providecommand{\Rr}{\mathrm{R}}
+\providecommand{\LL}{\mathbf L}
+\providecommand{\OO}{\mathcal O}
+\providecommand{\Res}{\operatorname{Res}}
+\providecommand{\Card}{\operatorname{Card}}
+\begin{document}
+
+\begin{statement}{6.5}
+
+\begin{equation}
+\tag{6.5.4}
+f_*c_*\RHom(c_1^*L_1,c_2^!L_2)
+\longrightarrow
+d_*\RHom(d_1^*(f_{1*}L_1),d_2^!(f_{2*}L_2)),
+\end{equation}
+\begin{equation}
+\tag{6.5.5}
+f_*:\Hom(c_1^*L_1,c_2^!L_2)
+\longrightarrow
+\Hom(d_1^*(f_{1*}L_1),d_2^!(f_{2*}L_2)),
+\end{equation}
+analogous to 3.7.5, 3.7.6.
+\end{statement}
+
+\begin{statement}{6.6}
+Let, for $i=1,2$, $X_i$ be $S$-schemes of finite tor-dimension and tor-independent, and let $L_i\in\ob D(X_i)_{\parf/S}$. The external tensor product of the evaluation arrows
+\[
+DL_i\otimes^{\LL}L_i\longrightarrow K_{X_i}
+\]
+defines, as in 4.1, ``cup-product'' pairings analogous to 4.1.2, 4.1.3, 4.1.4.
+
+Let $c:C\to X$, $d:D\to X$ be proper morphisms, $e=c\times_X d:E\to X$, and $P,Q\in\ob D(X)_{\parf/S}$. By 6.1.1, one has
+\[
+c_*c^!P=\RHom(Rc_*\OO_C,P)
+\]
+(and an analogous isomorphism with $d$). Assuming that $c$ and $d$ have finite tor-dimension at the points lying above $e(E)$, one deduces, by tensor product, a canonical arrow
+\begin{equation}
+\tag{6.6.1}
+c_*c^!P\otimes^{\LL}d_*d^!Q
+\longrightarrow
+\RHom(Rc_*\OO_C\otimes^{\LL}Rd_*\OO_D,P\otimes^{\LL}Q).
+\end{equation}
+When $c$ and $d$ are tor-independent, the second member is rewritten, by Künneth and 6.1.1, as $e_*e^!(P\otimes^{\LL}Q)$, and 6.6.1 takes the form 4.2.3. For $P=DL_1\otimes_S^{\LL}L_2$, $Q=L_1\otimes_S^{\LL}DL_2$, one deduces from 6.6.1 and the pairings indicated above pairings analogous to 4.2.4, 4.2.5:
+\begin{equation}
+\tag{6.6.2}
+c_*\RHom(c_1^*L_1,c_2^!L_2)\otimes^{\LL}d_*\RHom(d_2^*L_2,d_1^!L_1)
+\longrightarrow
+\RHom(Rc_*\OO_C\otimes^{\LL}Rd_*\OO_D,K_X),
+\end{equation}
+\begin{equation}
+\tag{6.6.3}
+\langle\ ,\ \rangle:\Hom(c_1^*L_1,c_2^!L_2)\otimes\Hom(d_2^*L_2,d_1^!L_1)
+\longrightarrow
+\Hom(Rc_*\OO_C\otimes^{\LL}Rd_*\OO_D,K_X).
+\end{equation}
+Just like the pairings of 4.2, these are compatible with étale localization. When $c$ and $d$ are tor-independent, the second member of 6.6.2 (respectively 6.6.3) is canonically identified with $e_*K_E$ (respectively $H^0(E,K_E)$).
+\end{statement}
+
+\begin{statement}{Theorem 6.7}
+Let, for $i=1,2$, $f_i:X_i\to Y_i$ be a proper $S$-morphism, $f=f_1\times_S f_2:X\to Y$, and let $p_i:X\to X_i$, $q_i:Y\to Y_i$ be the projections. Let, moreover, a cube 4.4.0 with Cartesian horizontal faces be given, with $c'$, $c''$, $d'$, $d''$ proper, and with $c'$, $c''$ (respectively $d'$, $d''$) of finite tor-dimension at the points lying above $c(C)$ (respectively $d(D)$). Put $c'_i=p_ic'$, $c''_i=p_ic''$, $d'_i=q_id'$, $d''_i=p_id''$. Finally let $L_i\in\ob D(X_i)_{\parf/S}$. Assume that the pairs $(X_1,X_2)$, $(X_1,Y_2)$, $(Y_1,X_2)$, $(Y_1,Y_2)$ are tor-independent over $S$, and that the $X_i$ and $Y_i$ are of finite tor-dimension over $S$. Then one has a commutative square
+\begin{equation}
+\tag{6.7.1}
+\begin{array}{ccc}
+f_*c'_*\RHom(c_1'^*L_1,c_2'^!L_2)\otimes^{\LL} f_*c''_*\RHom(c_2''^*L_2,c_1''^!L_1)
+&\xrightarrow{(1)}&
+f_*\RHom(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''},K_X)\\[0.8em]
+\downarrow{(2)}&&\downarrow{(4)}\\[0.8em]
+d'_*\RHom(d_1'^*M_1,d_2'^!M_2)\otimes^{\LL} d''_*\RHom(d_2''^*M_2,d_1''^!M_1)
+&\xrightarrow{(3)}&
+\RHom(Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''},K_Y),
+\end{array}
+\end{equation}
+where $M_i=f_{i*}L_i$; $(3)$ is given by 6.6.2; $(1)$ is deduced from 6.6.2 by applying $f_*$ and composing with the canonical arrow
+\[
+f_*c'_*\otimes^{\LL}f_*c''_*\longrightarrow f_*(c'_*\otimes^{\LL}c''_*);
+\]
+$(2)$ is the tensor product of the arrows 6.5.4 relative to the faces containing $f$; and $(4)$ is the composite of the duality isomorphism 6.1.1 with the arrow defined by the canonical arrow
+\[
+Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''}
+\longrightarrow
+f_*(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''})
+\]
+(adjoint to the tensor product of the ``base-change'' arrows $f^*Rd'_*\OO_{D'}\to Rc'_*\OO_{C'}$, $f^*Rd''_*\OO_{D''}\to Rc''_*\OO_{C''}$).
+
+The proof is essentially the same as that of 4.4; we leave to the reader the minor modifications to be made.
+
+When $c'$, $c''$ are tor-independent, as are $d'$, $d''$, the arrow $(4)$ of 6.7.1 is rewritten in the form $f_*c_*K_C\to d_*K_D$; it is simply defined by the adjunction arrow $g_*K_C=g_*g^!K_D\to K_D$ (as with the arrow $(4)$ of 4.4.1). It would however not be natural to consider only this case, since one would thereby exclude correspondences with excess intersection.
+
+One deduces from 6.7 formulae analogous to 4.5.1, 4.7.1: under the hypotheses of 6.7, for $u\in\Hom(c_1'^*L_1,c_2'^!L_2)$, $v\in\Hom(c_2''^*L_2,c_1''^!L_1)$, one has
+\begin{equation}
+\tag{6.7.2}
+\langle f_*u,f_*v\rangle=f_*\langle u,v\rangle,
+\end{equation}
+where $f_*u$ (respectively $f_*v$) denotes the direct-image correspondence of $u$ (respectively $v$) in the sense of 6.5.5, and $f_*$ in the second member is the homomorphism
+\begin{equation}
+\tag{6.7.3}
+\Hom(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''},K_X)
+\longrightarrow
+\Hom(Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''},K_Y)
+\end{equation}
+which is the composite of the duality isomorphism 6.1.1 and the arrow induced by the canonical arrow
+\[
+Rd'_*\OO_{D'}\otimes^{\LL}Rd''_*\OO_{D''}
+\longrightarrow
+f_*(Rc'_*\OO_{C'}\otimes^{\LL}Rc''_*\OO_{C''}),
+\]
+cited in 6.7. When $Y_1=Y_2=S=D'=D''$, 6.7.2 is the Lefschetz-Verdier formula.
+
+As an illustration, we shall show that this formula implies the Woods Hole formula [1].
+\end{statement}
+
+\begin{statement}{6.8}
+For this we shall need some reminders on the cohomology class ``of Hodge'' associated with a regularly immersed subscheme of a smooth scheme, and on Grothendieck residues ([8] III 9). Let $f=X\to S$ be a smooth morphism purely of relative dimension $N$, and $i:Y\hookrightarrow X$ a regular immersion of codimension $d$ (i.e. ((SGA IV 16.9.2), (SGA 6 VII 1)) a closed subscheme locally defined by a regular sequence of $d$ equations, or, in an equivalent terminology ((8 III 1), (SGA 6 VIII 1)) a closed immersion which is locally a complete intersection of codimension $d$). Put $g=fi$. One then associates with $Y$ an element
+\begin{equation}
+\tag{6.8.1}
+\cl_{X/S}(Y)\in\Ext^d_{\OO_X}(\OO_Y,\Omega^d_{X/S}),
+\end{equation}
+called the cohomology class associated with $Y$, defined as follows. By the ``purity'' theorem ([8] III 7.2), one has
+\begin{equation}
+\tag{6.8.2}
+\uExt^i_{\OO_X}(\OO_Y,\Omega^d_{X/S})=
+\begin{cases}
+0 & \text{if } i\ne d,\\
+\underline{\Hom}(\Lambda^dN_{Y/X},\Omega^d_{X/S}\otimes\OO_Y) & \text{if } i=d,
+\end{cases}
+\end{equation}
+where $N_{Y/X}=I/I^2$ is the conormal sheaf ($I=\Ker(\OO_X\to\OO_Y)$). Hence
+\begin{equation}
+\tag{6.8.3}
+\Ext^d_{\OO_X}(\OO_Y,\Omega^d_{X/S})=H^0(Y,\underline{\Hom}(\Lambda^dN_{Y/X},\Omega^d_{X/S}\otimes\OO_Y)).
+\end{equation}
+The differential $d_{X/S}:\OO_X\to\Omega^1_{X/S}$ induces an $\OO_Y$-linear map
+\[
+d_{X/S}\otimes 1:N_{Y/X}\longrightarrow \Omega^1_{X/S}\otimes\OO_Y.
+\]
+The $d$-th exterior power of this map is a global section, on $Y$, of $\Lambda^dN^\vee_{Y/X}\otimes\Omega^d_{X/S}$, whose image in $\Ext^d_{\OO_X}(\OO_Y,\Omega^d_{X/S})$ under the isomorphism 6.8.3 is by definition the class 6.8.1.
+
+Assume that $g$ is finite and flat (therefore $d=N$). Let $\omega\in H^0(Y,\Lambda^dN^\vee_{Y/X}\otimes\Omega^d_{X/S})$. By 6.8.2 and 6.1, one may view $\omega$ as a homomorphism $\OO_Y\to g^!\OO_S=(\Lambda^dN^\vee_{Y/X}\otimes\Omega^d_{X/S})$, hence, by adjunction, as a homomorphism $g_*\OO_Y\to\OO_S$. The residue (relative to $g$) of $\omega$ is defined as the section of $\OO_S$ which is the image of $1$ under this homomorphism, and is denoted $\Res_{Y/S}(\omega)$ (cf. ([8] III 9)). On the other hand, let $i_*\omega\in H^N(X,\Omega^N_{X/S})$ denote the image of $\omega$ by the composite of the isomorphism 6.8.3 and the canonical arrow $\Ext^N_{\OO_X}(\OO_Y,\Omega^N_{X/S})\to H^N(X,\Omega^N_{X/S})$. When $f$ is proper, it follows from transitivity for trace morphisms (or adjunction arrows) $i_*i^!\to 1$, $f_*f^!\to 1$, that
+\begin{equation}
+\tag{6.8.4}
+\Res_{Y/S}(\omega)=\Tr_f(i_*\omega),
+\end{equation}
+where $\Tr_f:H^N(X,\Omega^N_{X/S})\to H^0(S,\OO_S)$ is defined by the adjunction arrow $f_*f^!\OO_S=Rf_*\Omega^N_{X/S}[N]\to\OO_S$ (6.1). On the other hand, without any properness hypothesis, one has the important compatibility ([8] III 9 R6)
+\begin{equation}
+\tag{6.8.5}
+\Res_{Y/S}(\gamma\cl_{X/S}(Y))=\Tr_{Y/S}(\gamma),
+\end{equation}
+for $\gamma\in H^0(Y,\OO_Y)$, where $\Tr_{Y/S}:g_*\OO_Y\to\OO_S$ denotes the trace in the classical sense, i.e. $\Tr_{Y/S}(\gamma)$ = the trace of the endomorphism of $g_*\OO_Y$ defined by multiplication by $\gamma$ (this compatibility is not proved in loc. cit.; the case $N=1$ is treated in [Raynaud, Anneaux locaux henséliens, VII 1, Lecture Notes in Math. n\textsuperscript{o}169, Springer Verlag, 1970]). In other words, $\Tr_{Y/S}$ corresponds, by adjunction, to the homomorphism $\OO_Y\to g^!\OO_S$ defined by multiplication by $\cl_{X/S}(Y)$. It follows that, for $F\in\ob D(S)_{\coh}$, the arrow
+\begin{equation}
+\tag{6.8.6}
+g^*F\longrightarrow g^!F=g^*F\otimes g^!\OO_S
+\end{equation}
+given by multiplication by $\cl_{X/S}(Y)$ corresponds by adjunction to the arrow
+\begin{equation}
+\tag{6.8.7}
+g_*g^*F=F\otimes g_*\OO_Y\longrightarrow F
+\end{equation}
+defined by $\Tr_{Y/S}:g_*\OO_Y\to\OO_S$.
+\end{statement}
+
+\begin{statement}{6.9}
+Let $X$ (respectively $Y$) be a proper smooth $S$-scheme of relative dimension $m$ (respectively $n$), let $Z=X\times_SY$, and let $a:A\hookrightarrow Z$, $b:B\hookrightarrow Z$ be regular immersions such that $a_2:A\to Y$, $b_1:B\to X$ are finite and flat (we denote by $p_1:Z\to X$, $p_2:Z\to Y$ the projections, and put $a_i=p_ia$, $b_i=p_ib$), $c:C=A\times_ZB\to Z$, $L\in\ob D(X)_{\parf}$, $M\in\ob D(Y)_{\parf}$ (the subscript parf means ``perfect in the absolute sense'', which is also equivalent to perfect rel. to $S$, since $X$ and $Y$ are smooth). Assume that $C$ is finite and flat over $S$. The hypotheses made therefore imply that $c$ is a regular immersion and that $a$ and $b$ are tor-independent.
+
+One has $p_1^*\Omega^1_{X/S}=\Omega^1_{Z/Y}$, $p_2^*\Omega^1_{Y/S}=\Omega^1_{Z/X}$, and a decomposition $\Omega^1_{Z/S}=\Omega^1_{Z/Y}\oplus\Omega^1_{Z/X}$, whence, for every integer $r$, a decomposition
+\begin{equation}
+\tag{6.9.0}
+\Omega^r_{Z/S}=\bigoplus_{i+j=r}\Omega^i_{Z/Y}\otimes\Omega^j_{Z/X}.
+\end{equation}
+On the other hand, by 6.1.2, one has $p_2^!M=p_2^*M\otimes\Omega^m_{Z/Y}[m]$, hence
+\[
+H^0(Z,a_*a^!\RHom(p_1^*L,p_2^!M))=
+\Ext^m_{\OO_Z}(a_1^*L,a_2^*M\otimes\Omega^m_{Z/Y}),
+\]
+whence, by 6.4.4 and 6.8.2, an isomorphism
+\begin{equation}
+\tag{6.9.1}
+\Hom(a_1^*L,a_2^!M)=H^0(A,\RHom(a_1^*L,a_2^*M)\otimes\Lambda^mN^\vee_{A/Z}\otimes\Omega^m_{Z/Y}).
+\end{equation}
+Similarly, one has an isomorphism
+\begin{equation}
+\tag{6.9.2}
+\Hom(b_2^*M,b_1^!L)=H^0(B,\RHom(b_2^*M,b_1^*L)\otimes\Lambda^nN^\vee_{B/Z}\otimes\Omega^n_{Z/X}).
+\end{equation}
+Let $u\in\Hom(a_1^*L,a_2^*M)$ and $v\in\Hom(b_2^*M,b_1^*L)$, and denote by
+\begin{equation}
+\tag{6.9.3}
+\langle u,v\rangle\in H^0(C,\OO_C)
+\end{equation}
+the section $\Tr(u_Cv_C)=\Tr(v_Cu_C)$, where $u_C\in\Hom(c_1^*L,c_2^*M)$ and $v_C\in\Hom(c_2^*M,c_1^*L)$ are induced by $u$ and $v$. Consider the cohomological correspondence $u^!\in\Hom(a_1^*L,a_2^!M)$ (respectively $v^!\in\Hom(b_2^*M,b_1^!L)$) deduced from $u$ (respectively $v$) by composition with the trace homomorphism 6.8.7 $a_{2*}a_2^*M\to M$ (respectively $b_{1*}b_1^*L\to L$), or, what amounts to the same thing (6.8.6), by product with $\cl_{Z/Y}(A)$ (respectively $\cl_{Z/X}(B)$). Let us note in passing that $\cl_{Z/Y}(A)$ (respectively $\cl_{Z/X}(B)$) is the component in $H^0(A,\Lambda^mN^\vee_{A/Z}\otimes\Omega^m_{Z/Y})$ (respectively $H^0(B,\Lambda^nN^\vee_{B/Z}\otimes\Omega^n_{Z/X})$) of $\cl_{Z/S}(A)$ (respectively $\cl_{Z/S}(B)$) defined by the projection $\Omega^m_{Z/S}\to\Omega^m_{Z/Y}$ (respectively $\Omega^n_{Z/S}\to\Omega^n_{Z/X}$) of 6.9.0. One checks easily that the cup-product
+\[
+\langle u^!,v^!\rangle\in\Ext^{m+n}_{\OO_Z}(\OO_C,\Omega^{m+n}_{Z/S})=H^0(C,\Lambda^{m+n}N^\vee_{C/Z}\otimes\Omega^{m+n}_{Z/S})
+\]
+defined in 6.6.3 is given by
+\begin{equation}
+\tag{6.9.4}
+\langle u^!,v^!\rangle=\langle u,v\rangle\cl_{Z/Y}(A)\cl_{Z/X}(B).
+\end{equation}
+One checks, on the other hand, that the homomorphism 6.7.3
+\[
+\Ext^{m+n}_{\OO_Z}(\OO_C,\Omega^{m+n}_{Z/S})\longrightarrow H^0(S,\OO_S)
+\]
+is the composite of the canonical arrow $\Ext^{m+n}_{\OO_Z}(\OO_C,\Omega^{m+n}_{Z/S})\to H^{m+n}(Z,\Omega^{m+n}_{Z/S})$ and the trace morphism $\Tr_{Z/S}:H^{m+n}(Z,\Omega^{m+n}_{Z/S})\to H^0(S,\OO_S)$. The Lefschetz-Verdier formula 6.7.2 therefore gives the relation
+\begin{equation}
+\tag{6.9.5}
+\langle (u^!)_*,(v^!)_*\rangle=\Tr_{Z/S}(\langle u,v\rangle\cl_{Z/Y}(A)\cl_{Z/X}(B)).
+\end{equation}
+Thanks to 6.8.4, one may rewrite the second member as a residue, so that, in summary, one has obtained:
+\end{statement}
+
+\begin{statement}{Theorem 6.10}
+Under the hypotheses of the first paragraph of 6.9, let $u\in\Hom(a_1^*L,a_2^*M)$, $v\in\Hom(b_2^*M,b_1^*L)$, and consider the cohomological correspondence $u^!$ (respectively $v^!$) from $L$ to $M$ (respectively from $M$ to $L$) with support in $A$ (respectively $B$) deduced from $u$ (respectively $v$) by composition with the trace $a_{2*}a_2^*M\to M$ (respectively $b_{1*}b_1^*L\to L$) (6.8.7), and the homomorphism $(u^!)_*:f_*L\to g_*M$ (respectively $(v^!)_*:g_*M\to f_*L$) deduced from $u^!$ (respectively $v^!$) by direct image (6.5.5) ($f:X\to S$, $g:Y\to S$ denoting the projections). Then, with the notation of 6.8, 6.9.3, one has
+\begin{equation}
+\tag{6.10.1}
+\langle (u^!)_*,(v^!)_*\rangle=\Res_{C/S}(\langle u,v\rangle\cl_{Z/Y}(A)\cl_{Z/X}(B)).
+\end{equation}
+\end{statement}
+
+\begin{statement}{Remarks 6.11}
+\begin{enumerate}[label=\alph*)]
+\item One verifies, as in 3.6, using the description 3.5 b) of the direct image of a correspondence, that, if $h:Z\to S$ is the projection, $(u^!)_*$ (respectively $(v^!)_*$) is the composite of the arrows
+\[
+f_*L\xrightarrow{(1)}(ha)_*a_1^*L\xrightarrow{(ha)_*u}(ha)_*a_2^*M=g_*a_{2*}a_2^*M\xrightarrow{(2)}g_*M
+\]
+(respectively
+\[
+g_*M\xrightarrow{(1)}(hb)_*b_2^*M\xrightarrow{(hb)_*v}(hb)_*b_1^*L=f_*b_{1*}b_1^*L\xrightarrow{(2)}f_*L),
+\]
+where $(1)$ is the usual functoriality arrow (defined by the adjunction arrow $1\to a_{1*}a_1^*$ (respectively $1\to b_{2*}b_2^*$)) and $(2)$ is given by the trace $a_{2*}a_2^*M\to M$ (respectively $b_{1*}b_1^*L\to L$) (6.8.7).
+
+\item Assume that $S$ is the spectrum of a field. Then the intersection $C=A\times_{(X\times_SY)}B$ consists of isolated points. At each point $z$ of $C$, choose, near the images of $z$, regular sequences $(s_1,\ldots,s_m)$, $(t_1,\ldots,t_n)$ of equations of $A,B$. Then 6.10.1 is written, with the notation of residual symbols of ([8] III 9), as
+\begin{equation}
+\tag{6.11.1}
+\langle (u^!)_*,(v^!)_*\rangle=
+\sum_{z\in C}\Res_z\left(\langle u,v\rangle
+\prod_{1\le i\le m}\frac{d_{Z/Y}s_i}{s_i}
+\prod_{1\le j\le n}\frac{d_{Z/X}t_j}{t_j}\right),
+\end{equation}
+where $d_{Z/Y}s_i$ (respectively $d_{Z/X}t_j$) denotes the component of type $(1,0)$ (respectively $(0,1)$) of $d_Zs_i$ (respectively $d_Zt_j$) in the decomposition 6.9.0.
+\end{enumerate}
+\end{statement}
+
+\begin{statement}{Corollary 6.12 --- Woods-Hole formula [1]}
+Assume that $S$ is the spectrum of a field. Let $X$ be a proper smooth $S$-scheme, $F$ an $S$-endomorphism of $X$, $L$ an object of $D(X)_{\parf}$ (i.e. a perfect complex on $X$), and $u\in\Hom(F^*L,L)$. Assume that the scheme of fixed points $X^F$ is finite and consists of transverse points (i.e. points where the graph of $F$ cuts the diagonal transversely). Then
+\begin{equation}
+\tag{6.12.1}
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=
+\sum_{x\in X^F}\frac{\Tr(u_x)}{\det(1-dF_x)},
+\end{equation}
+where $(F,u)$ is the endomorphism of $H^i(X,L)$ obtained by composing $H^i(X,L)\to H^i(X,F^*L)$ (inverse image) and $H^i(X,u)$, $\Tr(u_x)$ denotes the value at $x$ of the endomorphism induced by $u$ on the fiber of $L$ at $x$, and $\det(1-dF_x)$ the value at $x$ of the determinant of the map $(1-$map induced by $F$ on $\Omega^1_{X,x})$.
+
+\emph{Proof.} We apply 6.10, taking account of 6.11 a), b). Put $Z=X\times_SX$. Let $x\in X^F$. Near $x$, choose a system of local coordinates $(x_1,\ldots,x_n)$ (defining an étale morphism to $\mathbb A^n_S$), put $F_i=x_iF$, and denote by $(x_1,\ldots,x_n,y_1,\ldots,y_n)$ the corresponding local coordinates on $Z$ near $z=(x,x)$ ($x_i=x_i\otimes1$, $y_i=1\otimes x_i$). Then, near $z$, $(x_1-y_1,\ldots,x_n-y_n)$ (respectively $(y_1-F_1,\ldots,y_n-F_n)$) is a regular system of equations of the diagonal $A$ (respectively of the graph $B$ of $F$). The contribution of the second member of 6.11.1 at $z$ is
+\[
+\langle u,1\rangle_z=\Res_z\left(\Tr(u)\frac{dx_1\cdots dx_n\,dy_1\cdots dy_n}{(x_1-y_1)\cdots(x_n-y_n)(y_1-F_1)\cdots(y_n-F_n)}\right).
+\]
+Note that in the numerator one may replace $dy_i$ by
+\[
+dy_i-dF_i=dy_i-\sum_{1\le j\le n}(dF_i/dx_j)dx_j.
+\]
+Applying then formula ([8] III 9 R3) to the situation $(B\hookrightarrow Z\to S)$, $(s_1,\ldots,s_p)=(y_1-F_1,\ldots,y_n-F_n)$, $(t_1,\ldots,t_n)=(x_1-y_1,\ldots,x_n-y_n)$, $\omega=(\Tr(u)\,dx_1\cdots dx_n)$, one obtains
+\begin{equation}
+\tag{*}
+\langle u,1\rangle_z=\Res_x\left(\Tr(u)\frac{dx_1\cdots dx_n}{(x_1-F_1)\cdots(x_n-F_n)}\right).
+\end{equation}
+Since $x$ is transverse, the $x_i-F_i$ form a regular system of parameters of $\OO_{X,x}$, hence one may write, near $x$,
+\[
+x_i=\sum_j(x_j-F_j)c_{ij},
+\]
+where $(c_{ij})$ is a matrix of sections of $\OO_X$ invertible at $x$, its determinant having as its value at $x$ $\det(1-dF_x)^{-1}$. Thanks to ([8] III 9 R1), one therefore deduces from (*)
+\[
+\langle u,1\rangle_z=\Res_x\left(\Tr(u)\det(c_{ij})\frac{dx_1\cdots dx_n}{x_1\cdots x_n}\right),
+\]
+whence, by ([8] III 9 R6),
+\[
+\langle u,1\rangle_z=\Tr(u(x))\det(c_{ij}(x))=\Tr(u(x))\det(1-dF_x)^{-1}.
+\]
+The corollary therefore follows from 6.11.1.
+\end{statement}
+
+\begin{statement}{Remark 6.12.1}
+If $X^F$ is assumed only finite, the preceding calculation shows that one has
+\[
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=
+\sum_{x\in X^F}\Res_x\left(\Tr(u)\frac{dx_1\cdots dx_n}{(x_1-F_1)\cdots(x_n-F_n)}\right),
+\]
+where $(x_i)$ is a system of local coordinates at $x$, and the $F_i$ are the coordinates of $F$ (near $x$) in this system.
+
+The reader will convince himself, on the other hand, that the preceding formula is still valid if $X$ is proper and assumed only smooth at the points of $X^F$.
+\end{statement}
+
+\begin{statement}{6.13}
+Assume that $S$ is the spectrum of an algebraic closure of the finite field $\mathbb F_q$, and that $X/S$ comes by extension of scalars from a proper smooth scheme $X_0/\mathbb F_q$. Take for $F$ the Frobenius endomorphism of $X/S$ ``defined by raising the coordinates to the $q$-th power''. One has $X^F=X_0(\mathbb F_q)$, and $X^F$ consists of transverse points since $dF=0$. If $L$ is a locally free sheaf of finite type on $X$ and $u\in\Hom(F^*L,L)$, the Woods-Hole formula is therefore written
+\begin{equation}
+\tag{6.13.1}
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=
+\sum_{x\in X_0(\mathbb F_q)}\Tr(u_x,L_x).
+\end{equation}
+In particular, for $L=\OO_X$, with $u$ the canonical isomorphism $F^*\OO_X\xrightarrow{\sim}\OO_X$, one finds:
+\begin{equation}
+\tag{6.13.2}
+\sum_i(-1)^i\Tr(F,H^i(X,\OO_X))=\Card(X_0(\mathbb F_q))\quad (\bmod\ p).
+\end{equation}
+Artin-Schreier theory permits one to rewrite the first member in the form $\sum(-1)^i\Tr(F,H^i(X,\mathbb F_p))$, where $H^*(X,\mathbb F_p)$ denotes the étale cohomology of $X$ with values in the constant sheaf $\mathbb F_p$. By a refinement of this argument, Deligne, in (SGA $4^{1/2}$ Fonctions L), deduced from 6.13.1 the following generalization of 6.13.2:
+\end{statement}
+
+\begin{statement}{Theorem 6.13.3 (Deligne)}
+Let $X_0$ be a separated scheme of finite type over $\mathbb F_q$, let $X$ be the scheme deduced from $X_0$ by extension of scalars to an algebraic closure $k$ of $\mathbb F_q$, and let $F$ be the Frobenius endomorphism of $X/k$. Then, for every $L_0\in\ob D_{\ctf}(X_0,\mathbb F_p)$, denoting by $L$ the inverse image of $L_0$ on $X$, one has
+\[
+\sum_i(-1)^i\Tr(F,H^i_c(X,L))=\sum_{x\in X^F}\Tr(F,L_x).
+\]
+Let us point out that the particular case of 6.13.3 corresponding to $L_0=\mathbb F_p$ was established by Katz in (SGA 7 XXII) by an entirely different method, based on Dwork's calculation of the zeta function of a hypersurface. Moreover, 6.13.2 in the proper smooth case is also an immediate consequence of the Lefschetz formula in crystalline cohomology ([5] VII 3.1.9). In fact, crystalline cohomology gives the more precise information that each factor $\det(1-Ft,H^i(X_0/W))\in W[t]$ of the zeta function is congruent modulo $p$ to $\det(1-Ft,H^i(X_0,\OO_{X_0}))$ (at least if $H^*(X_0/W)$ is torsion-free). Katz showed [11] that one could obtain, with the aid of estimates of B. Mazur [14], higher congruences (involving the $H^i(X_0,\Omega^j_{X_0})$ and the Cartier operation) for smooth hypersurfaces (or complete intersections) whose Hodge numbers (in the interesting dimension) are assumed to vanish up to a certain point.
+
+On the other hand, if $X_0$ is a proper scheme over $\mathbb F_q$, geometrically integral, and such that $H^i(X_0,\OO_{X_0})=0$ for $i>0$, the Lefschetz-Verdier formula 6.7.2, applied to $X=X_0\otimes k$ and to the Frobenius endomorphism of $X$, immediately implies that $X_0$ has at least one rational point over $\mathbb F_q$ (since $\Tr(F,R\Gamma(X,\OO_X))=1$). Serre asks whether this conclusion remains true when $\mathbb F_q$ is replaced by a field satisfying $(C_1)$ ([17] II 3), for example $\mathbb C(t)$ (Tsen), or $\mathbb C((t))$ (Lang) (see loc. cit. for other examples); indeed, he observes that, if $X_0$ is a complete intersection of multidegree $(m_1,\ldots,m_r)$ in $\mathbb P^n$, the condition of triviality of the cohomology is equivalent ([16] no. 78) to the condition $m_1+\cdots+m_r<n+1$, which is also the one that enters when one writes condition $(C_1)$.
+\end{statement}
+
+\begin{statement}{6.14}
+The Woods Hole formula has many other applications, for which we refer to [2] and to Beauville's exposé [4].
+\end{statement}
+
+\begin{statement}{6.15}
+The editor has not examined the case of components of fixed points of dimension $\ge 1$, but it is not excluded that one could deduce from 6.7.2 (probably conjugated with Riemann-Roch) Lefschetz-Riemann-Roch formulae in the style of those of Donovan [7], Iversen [10], Nielsen [15] (at least with values in the base field). Nor is it excluded, on the other hand, that the formula 6.7.2, applied over the dual numbers, would furnish residue formulae for vector fields analogous to those of Bott [6], [3].
+\end{statement}
+
+\section*{Bibliography}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.5em]
+\item Atiyah, M. and Bott, R. On the Woods Hole Fixed point theorem, Proceedings of the Woods Hole Conference on Algebraic Geometry, 1964.
+\item Atiyah, M. and Bott, R., Notes on the Lefschetz fixed point theorem for elliptic complexes, Harvard University, 1964.
+\item Baum, P. and Bott, R., On the zeroes of meromorphic vector-fields, in Essays on topology and related topics, memoirs dedicated to Georges De Rham, Springer Verlag, 1970.
+\item Beauville, A., Formules de points fixes en cohomologie cohérente, in Séminaire de géométrie algébrique, Université de Paris-Sud, Orsay, 1970.
+\item Berthelot, P., Cohomologie cristalline des schémas de car. $p>0$, Lecture Notes in Mathematics no. 407, Springer-Verlag, 1974.
+\item Bott, R., A residue formula for holomorphic vector-fields, J. of Diff. Geometry Vol 1, p. 311--330, 1967.
+\item Donovan, P., The Lefschetz-Riemann-Roch formula, Bull. S.M.F., 97, p.257--273, 1969.
+\item Hartshorne, R., Residues and duality, Lecture Notes in Mathematics no. 20, Springer-Verlag, 1966.
+\item Illusie, L., Complexe cotangent et déformations I, Lecture Notes in Math. no. 239, Springer-Verlag, 1971.
+\item Iversen, B., A fixed point formula for action of tori on algebraic varieties, Inv. Math., 16, p. 229--236, 1972.
+\item Katz, N., Lettre à B. Mazur, 1971.
+\item Kleiman, S., Algebraic cycles and the Weil conjectures, in Dix exposés sur la cohomologie des schémas, North Holland Pub. Company, 1968.
+\item Langlands, R.P., Modular forms and $\ell$-adic representations, in Modular functions of one variable II, Lecture Notes in Math. no. 349, Springer-Verlag, 1973.
+\item Mazur, B., Frobenius and the Hodge filtration (estimates), Ann. of Math., 98, p. 58--95, 1973.
+\item Nielsen, H.A., Diagonalizably linearized coherent sheaves, Bull. SMF, 102, p. 85--97, 1974.
+\item Serre, J.-P., Faisceaux algébriques cohérents, Ann. of Math., 61, p. 197--278, 1955.
+\item Serre, J.P., Cohomologie galoisienne, Lecture Notes in Math. no. 5, Springer Verlag, 1964.
+\item Verdier, J.-L., The Lefschetz fixed point formula in étale cohomology, Proceedings of a conference on local fields, Springer-Verlag, 1967.
+\end{enumerate}
+
+SGA $4^{1/2}$ Étale Cohomology, by P. Deligne, Séminaire de Géométrie Algébrique du Bois-Marie, Lecture Notes in Mathematics no. 569, Springer-Verlag, 1977.
+
+In SGA $4^{1/2}$:
+\begin{description}[leftmargin=3.5em]
+\item[Finiteness:] Finiteness theorem in $\ell$-adic cohomology.
+\item[Cycle:] The cohomology class associated with a cycle, by A. Grothendieck, edited by P. Deligne (replaces the missing SGA 5 Exposé IV).
+\item[Report:] Report on the trace formula.
+\item[L-functions:] L-functions mod $\ell^n$ and mod $p$.
+\end{description}
+
+\end{document}

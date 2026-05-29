@@ -1,0 +1,244 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\A}{\mathbf A}
+\newcommand{\C}{\mathbf C}
+\newcommand{\Gm}{\mathbf G_m}
+\begin{document}
+
+\begin{center}
+{\Large Intégration sur un cycle évanescent}\par
+\vspace{0.5em}
+{P. Deligne}\par
+\end{center}
+
+\section*{Introduction}
+
+Soient $k$ un corps commutatif et $f$ une série formelle en deux indéterminées $x$ et $y$ sur $k$:
+\[
+ f=\sum a_{n,m}x^ny^m.
+\]
+Soit $I(f)$ la série formelle en une indéterminée $t$
+\[
+ I(f)=\sum a_{n,n}t^n.
+\]
+On se propose de prouver le résultat suivant.
+
+\paragraph{Théorème.} Si $f$ représente une fonction algébrique de $x$ et $y$, et si $k$ est de caractéristique $p\ne0$, alors $I(f)$ représente une fonction algébrique de $t$.
+
+Pour une série formelle en $N$ indéterminées
+\[
+ g=\sum a_nx^n,
+\]
+on définit de même
+\[
+ I_N(g)=\sum a_{n,\ldots,n}t^n.
+\]
+On obtient encore le corollaire suivant.
+
+\paragraph{Corollaire.} Si $g$ est algébrique sur $k(x_1,\ldots,x_N)$ et si $k$ est de caractéristique $p>0$, alors $I_N(g)$ est algébrique sur $k(t)$.
+
+Sous l'hypothèse plus forte $g\in k(x_1,
+\ldots,x_N)$, ce résultat est dû à H. Furstenberg. Le but initial est de donner une explication géométrique de son résultat.
+
+Supposons d'abord $k=\C$ et la série $f$ convergente. Alors $I(f)$ est convergente et possède la représentation intégrale
+\begin{equation}\tag{1}
+ I(f)(t)=\frac1{2\pi i}\int_{xy=t} f(x,y)\,\frac{dx\wedge dy}{dt}.
+\end{equation}
+Le morphisme $\pi:\C^2\to\C$ est donné par $(x,y)\mapsto xy$. L'expression $(dx\wedge dy)/dt$ est une différentielle holomorphe relative sur $\C^2-\{(0,0)\}$; au point singulier elle se lit comme section du faisceau dualisant relatif. Sur la fibre $xy=t$, dans la coordonnée $y$, on a
+\[
+ \frac{dx\wedge dy}{dt}=\frac{d(t/y)\wedge dy}{dt}=\frac{dy}{y},
+\]
+avec la convention de signe déterminée par l'ordre des coordonnées.
+
+Si $f$ converge dans un polydisque de rayon $R$, l'intégrale est prise pour $|t|$ petit sur le cycle $|y|=r$, $|x|=|t|/r$, $xy=t$, avec $|t|/R<r<R$, et elle ne dépend pas de $r$. Développer $f(t/y,y)$ puis appliquer le théorème des résidus ne garde que les termes $a_{n,n}t^n$.
+
+Le cycle d'intégration est le cycle évanescent de Lefschetz de $\pi$ près de $(0,0)$; pour $r=|t|^{1/2}$, il disparaît lorsque $|t|\to0$.
+
+La formule (1) suggère que $I$ a un sens intrinsèque pour un morphisme de schémas formels $\pi:X\to S$ avec $X\simeq\Spf k[[x,y]]$, $S\simeq\Spf k[[t]]$ et $\pi(x,y)=xy$. On suppose les deux branches de $\pi^{-1}(0)$ définies sur $k$ et ordonnées, la première étant $x=0$.
+
+On note $\Omega^1_{X/k}$ les différentielles de Kähler continues; en coordonnées elles sont librement engendrées par $dx,dy$. On pose
+\[
+ \omega_{X/S}=\omega_{X/k}\otimes\pi^*\omega_{S/k}^{-1}.
+\]
+En coordonnées, $\omega_{X/S}$ est engendré par $(dx\wedge dy)/dt$. L'application $I$ sera interprétée comme un morphisme
+\[
+ \pi_*\omega_{X/S}\to\OO_S.
+\]
+
+\section{Analogue algébrique de la formule intégrale}
+
+Soit $A_n=k[[x,y]]/((xy)^n)$ et $X'_n=\Spec A_n$. Le complément de l'origine dans $X'_n$ a deux composantes correspondant aux deux branches $x=0$ et $y=0$. Soit $u_n$ la section valant $1$ sur la première branche et $0$ sur la seconde. L'élément $v_n\in H^1_{\{O\}}(X'_n,\OO)$ est défini comme l'image de $u_n$ par le morphisme bord
+\[
+ H^0(X'_n-\{O\},\OO)\to H^1_{\{O\}}(X'_n,\OO).
+\]
+La suite exacte
+\[
+ 0\to((x+y)^N)\to A_n\to A_n/((x+y)^N)\to0
+\]
+montre que, pour $N=2n-1$, $v_n$ provient de $\Ext^1_{A_n}(A_n/((x+y)^{2n-1}),A_n)$.
+
+\paragraph{1.2. Proposition.} Pour $f\in k[[x,y]]$ et tout $n$, on a
+\begin{equation}\tag{1.2.1}
+ \Tr\left(f\frac{dx\wedge dy}{dt},v_n\right)=-I(f)\pmod {t^n}.
+\end{equation}
+Le morphisme $\Tr$ est la trace locale de Grothendieck. La démonstration utilise les automorphismes $(x,y,t)\mapsto(\lambda x,\mu y,\lambda\mu t)$: ils annulent toutes les contributions $x^ay^b$ avec $a\ne b$, et l'on se ramène au calcul du cas $n=1$, où $X'_1$ est la réunion de deux branches lisses transverses. Le morphisme trace y est l'opposé de la somme des résidus, ce qui donne le signe de (1.2.1).
+
+\section{Relation avec le foncteur de Picard}
+
+Soit $\pi:Y\to S=\Spec k[[t]]$ propre et plat, de dimension relative purement $1$, et soit $O\in Y_s(k)$ un point où le complété formel est la singularité précédente. On suppose les branches ordonnées. La fibre générique $Y_\eta$ est absolument irréductible et génériquement lisse.
+
+Pour une courbe complète réduite et génériquement lisse $C$ sur $K$ et un diviseur de Cartier $D$, la jacobienne généralisée $\Pic(C;D)$ paramètre les faisceaux inversibles sur $C$ trivialisés sur $D$, et
+\begin{equation}\tag{2.3.1}
+ \Lie\Pic(C;D)=H^1(C,\OO(-D)).
+\end{equation}
+Si $C$ est lisse, l'application
+\begin{equation}\tag{2.3.2}
+ j:C-D\to\Pic(C;D),\qquad u\mapsto[\OO(u(T))]
+\end{equation}
+donne l'interprétation géométrique de la dualité de Serre.
+
+Pour un diviseur relatif $Z$ disjoint de $O$, les constructions additive et multiplicative donnent, modulo $t^n$, des morphismes
+\begin{align}\tag{2.4.6}
+ H^0(O_T,\OO_T)&\to H^1(Y_{n,T},\OO(-Z_{n,T})),\\
+\tag{2.4.7}
+ H^0(O_T,\OO_T^*)&\to H^1(Y_{n,T},\OO(1\text{ sur }Z_{n,T})^*).
+\end{align}
+La version multiplicative donne
+\begin{equation}\tag{2.4.8}
+ w_n:\Gm\to\Pic(Y_n,Z)^0.
+\end{equation}
+En restreignant aux sous-groupes finis $\mu_m\subset\Gm$ et en passant aux algèbres de Lie, on obtient
+\begin{equation}\tag{2.4.10}
+ dw:\Lie\Gm\to\Lie\Pic(Y;Z)^0,
+\end{equation}
+et donc
+\begin{equation}\tag{2.4.11}
+ dw(1)\in H^1(Y,\OO(-Z)).
+\end{equation}
+
+Soit $\varphi$ une section de $\omega_{Y/S}(Z)$; dans les coordonnées formelles elle s'écrit
+\[
+ \varphi=f(x,y)\frac{dx\wedge dy}{dt}.
+\]
+Alors
+\begin{equation}\tag{2.5.1}
+ I(f)=-(dw(1),\varphi),
+\end{equation}
+l'accouplement étant celui de la dualité de Serre. La compatibilité entre trace locale et trace globale ramène cette assertion au lemme que $v_n$ est envoyé sur $dw_n(1)$.
+
+\section{Preuve du théorème}
+
+Soient $S_0$ une courbe lisse sur $k$, $s\in S_0(k)$, et $S$ son complété en $s$. Soit $\pi:Y_0\to S_0$ propre et plat, de dimension relative $1$, avec un point $O$ dont le complété donne la singularité quadratique. Soit $\varphi$ une section rationnelle de $\omega_{Y_0/S_0}$, régulière en $O$, et écrivons
+\[
+ \varphi=f(x,y)\frac{dx\wedge dy}{dt}.
+\]
+
+\paragraph{3.2. Proposition.} Si $k$ est de caractéristique $p>0$, alors $I(f)$ est algébrique sur le corps $k(S_0)$.
+
+La proposition est conséquence de la formule (2.5.1) et du lemme-clef suivant.
+
+\paragraph{3.3. Lemme-clef.} Si $p>0$, le morphisme $dw$ est algébrique sur $S_0$.
+
+En effet, l'inclusion $\mu_p\subset\Gm$ induit un isomorphisme des algèbres de Lie. La rigidité de $\mu_p$ implique que les morphismes $\mu_p\to P$ vers un schéma en groupes commutatif plat $P$ sont représentés par un schéma étale sur la base. En l'appliquant à $P=\Pic(Y_0;Z_0)^0$, on voit que $dw$ provient d'un morphisme défini algébriquement sur une base étale au-dessus de $S_0$.
+
+Un élément de $k[[x_1,\ldots,x_N]]$ est algébrique sur $k(x_1,\ldots,x_N)$ si et seulement s'il appartient à l'hensélisé $k\{x_1,\ldots,x_N\}$. Cela permet d'appliquer la proposition après remplacement du germe formel par un modèle algébrique étale et compactification.
+
+La preuve du corollaire se fait par récurrence sur $N$. Écrivant
+\[
+ g=\sum g_{n,m}x_{N-1}^n x_N^m,
+\]
+on pose $I(g)=\sum g_{n,n}x_{N-1}^n$ et l'on a
+\begin{equation}\tag{3.6.1}
+ I_N(g)=I_{N-1}(I(g)).
+\end{equation}
+Le théorème appliqué sur le corps des fractions de l'hensélisé des $N-2$ premières variables donne l'algébricité de $I(g)$, puis l'hypothèse de récurrence conclut.
+
+On extrait aussi une estimation du degré. Avec les notations géométriques, si $\alpha$ est le degré de $S_0$ sur la droite $t$, $g$ le genre de la normalisée de la fibre générique géométrique, et $z=\max(0,z'-1)$, alors
+\begin{equation}\tag{3.7.1}
+ d<\alpha p^{g+z}.
+\end{equation}
+Pour une série formelle algébrique à coefficients entiers, on obtient pour presque tout $p$
+\begin{equation}\tag{3.7.2}
+ d_p<\alpha p^{g+z}.
+\end{equation}
+
+Une preuve directe en $N$ variables devrait partir de l'analogue analytique
+\begin{equation}\tag{1'}
+ I(g)(t)=\int_{Z(t)} g\,\frac{dz_1\cdots dz_N}{dt},
+\end{equation}
+où
+\[
+ Z(t)=\{(x_1,
+\ldots,x_N):x_1\cdots x_N=t,
+ |x_i|=r_i,
+ \prod r_i=|t|\}.
+\]
+Ce serait un test pour une théorie $p$-adique des cycles évanescents. La preuve de Furstenberg, dans le cas rationnel, suggère un lien avec les $F$-cristaux: si un vecteur $h$ vérifie $h=Ah^p$, alors l'opération $I$ conserve ce type d'équation.
+
+\appendix
+\section{Signes}
+
+Les conventions de signes dans le formalisme de dualité des faisceaux cohérents sont fixées comme suit. Pour un morphisme plat d'intersection complète relative $f:X\to S$ de dimension relative pure $n$,
+\begin{equation}\tag{S.1}
+ K_{X/S}=\omega_{X/S}[n].
+\end{equation}
+Si $X$ est le produit fibré des $X_i$ de dimensions relatives $n_i$, alors
+\begin{equation}\tag{S.2}
+ K_{X/S}=\boxtimes_i K_{X_i/S},
+\end{equation}
+ou encore, après choix d'un ordre,
+\begin{equation}\tag{S.3}
+ \omega_{X/S}=\bigotimes_i\omega_{X_i/S},
+\end{equation}
+avec le signe $(-1)^N$ lorsque l'ordre change, $N$ étant la somme des $n_in_j$ sur les inversions.
+
+Pour $f$ propre, la trace est
+\begin{equation}\tag{S.4}
+ \Tr:Rf_*K_{X/S}\to\OO_S,
+\end{equation}
+et induit
+\begin{equation}\tag{S.5}
+ \Tr:R^nf_*\omega_{X/S}\to\OO_S.
+\end{equation}
+Pour une section $s$ il y a une trace locale
+\begin{equation}\tag{S.6}
+ \Tr:Rs^!K_{X/S}\to\OO_S.
+\end{equation}
+Le choix est normalisé par le fait que, pour une courbe lisse sur un corps algébriquement clos et un point $x$, la trace locale
+\begin{equation}\tag{S.7}
+ H^1_{\{x\}}(X,\Omega^1[1])\to k
+\end{equation}
+est le résidu. Avec cette convention, le cobord suivi de la trace vaut $-\Res_x$, et la trace sur un produit satisfait
+\[
+ \Tr(\operatorname{pr}_1^*u_1\smile\operatorname{pr}_2^*u_2)=(-1)^{n_1n_2}\Tr(u_1)\Tr(u_2).
+\]
+En topologie transcendante sur $\C$, la trace algébrique se compare à l'intégration par le facteur usuel $(2\pi i)^{-n}$. Pour l'espace projectif, le cocycle de Cech
+\[
+ \frac{dt_1\wedge\cdots\wedge dt_n}{t_1\cdots t_n}
+\]
+a la trace $(-1)^{n(n+1)/2}$.
+
+\begin{thebibliography}{9}
+\bibitem{Furstenberg} H. Furstenberg, Algebraic functions over finite fields, \emph{J. Algebra} \textbf{7} (1967), 271--277.
+\bibitem{RaynaudPic} M. Raynaud, Spécialisation du foncteur de Picard, \emph{Publ. Math. IHES} \textbf{38} (1970), 27--76.
+\bibitem{RaynaudHensel} M. Raynaud, \emph{Anneaux locaux henséliens}, Lecture Notes in Mathematics 169, Springer, 1970.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,272 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\codim}{codim}
+\providecommand{\cO}{\mathcal{O}}
+\providecommand{\fm}{\mathfrak{m}}
+\providecommand{\wt}[1]{\widetilde{#1}}
+\providecommand{\Cons}{\operatorname{Cons}}
+\providecommand{\Hh}{\mathrm{H}}
+\providecommand{\uH}{\underline{\mathrm H}}
+\providecommand{\uExt}{\underline{\Ext}}
+\providecommand{\qedtext}{\hfill$\square$}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{\mathbb{Q}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\FF}{\mathbb{F}}
+\providecommand{\NN}{\mathbb{N}}
+
+\newenvironment{statement}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\medskip}
+\newenvironment{prooftext}[1][Proof]{\par\noindent\emph{#1.}\ }{\par\medskip}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\let\accentH\H
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\cd}{cd}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\ob}{\operatorname{ob}}
+\newcommand{\car}{\operatorname{car}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\SGAA}{SGA~A}
+
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\car}{\operatorname{car}}
+
+
+\providecommand{\RHom}{\mathrm{RHom}}
+\providecommand{\Dctf}{D_{\mathrm{ctf}}}
+\providecommand{\Id}{\mathrm{Id}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\Gr}{\Gamma}
+\providecommand{\Fix}{\operatorname{Fix}}
+\providecommand{\Loc}{\operatorname{Loc}}
+\providecommand{\lto}{\longrightarrow}
+\providecommand{\xto}[1]{\xrightarrow{#1}}
+\providecommand{\lisom}{\xrightarrow{\sim}}
+\providecommand{\ctf}{\mathrm{ctf}}
+\providecommand{\et}{\mathrm{\acute{e}t}}
+\providecommand{\Sfrac}{SGA~$4^{1/2}$}
+
+
+\providecommand{\cl}{\operatorname{cl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\EP}{\operatorname{EP}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\DF}{\operatorname{DF}}
+
+\providecommand{\OO}{\mathcal{O}}
+\providecommand{\LL}{\mathbf L}
+\providecommand{\parf}{\mathrm{parf}}
+\providecommand{\coh}{\mathrm{coh}}
+\providecommand{\frob}{\operatorname{Frob}}
+\nofiles
+\begin{document}
+
+\clearpage
+\section*{Exposé III B\\Calculs de termes locaux}
+\begin{center}
+par Luc Illusie
+\end{center}
+
+\section*{Introduction}
+
+Cet exposé, rédigé en janvier 1977, ne correspond à aucun exposé oral du séminaire. Il comprend deux parties indépendantes. Dans la première, nous calculons les termes locaux de Lefschetz--Verdier pour des correspondances cohomologiques entre courbes lisses sur un corps algébriquement clos, à support dans des correspondances vérifiant certaines hypothèses de position générale. La formule que nous obtenons fournit comme corollaires la formule de Verdier~[6] pour les endomorphismes transversaux (qui s'applique notamment au cas de l'endomorphisme de Frobenius), et la formule énoncée par Langlands dans ([4]~7.12). La méthode de démonstration est parallèle à celle suivie par Artin--Verdier dans [6]. On se ramène à prouver la nullité du terme local lorsque les complexes de faisceaux donnés ont une fibre nulle aux images du point fixe considéré, et l'on démontre en fait une propriété plus forte, à savoir qu'une certaine flèche de restriction est nulle (2.5). Pour établir cette propriété, on commence par se ramener au cas d'une ramification modérée par des revêtements de même degré des deux courbes données (afin de ne pas détruire les hypothèses de position générale), puis l'on traite directement ce cas à l'aide du lemme d'Abhyankar et du théorème de pureté relatif. La deuxième partie de cet exposé, de nature beaucoup plus technique, est inspirée de la méthode utilisée par Grothendieck pour établir la formule de Lefschetz pour certaines correspondances cohomologiques sur les courbes (voir XII et (SGA~$4^{1/2}$ Rapport)). Au n\textsuperscript{o}~5, nous développons, pour les complexes de modules sur un topos, une théorie de traces non commutatives qui généralise la théorie commutative de (SGA~6~I) et redonne, dans le cas d'un topos ponctuel, la théorie non commutative développée par Grothendieck dans le séminaire oral (celle-ci était rédigée dans l'exposé XI, malheureusement disparu). Nous appliquons les techniques du n\textsuperscript{o}~5 pour définir, au n\textsuperscript{o}~6, des termes locaux de Lefschetz--Verdier pour des correspondances cohomologiques entre complexes de modules sur des anneaux non nécessairement commutatifs. Ces termes locaux se comportent comme des traces non commutatives, et permettent notamment, dans le cas où l'on prend comme anneau de base l'algèbre d'un groupe, de diviser canoniquement les termes locaux ordinaires attachés à des correspondances équivariantes. À titre d'application, nous démontrons la conjecture de divisibilité de Grothendieck de (XII~4.5), sous une forme plus générale. Nous montrons également que les termes locaux définis par Grothendieck dans la formule de Lefschetz de XII sont bien les termes locaux de Lefschetz--Verdier, et nous généralisons la formule de (loc. cit.).
+
+Je remercie P.~Deligne pour les utiles suggestions qu'il m'a faites au cours de nombreux entretiens; je lui suis particulièrement reconnaissant de m'avoir signalé et aidé à corriger une erreur dans une démonstration primitive du théorème~1.2.
+
+\section*{Sommaire}
+\begin{tabular}{@{}p{0.84\textwidth}r@{}}
+I. Correspondances en position générale entre courbes & 3\\
+1. Énoncé du théorème et corollaires & 3\\
+2. Réduction à un théorème d'annulation & 9\\
+3. Réduction au cas modéré & 15\\
+4. Fin de la démonstration de 1.2 & 20\\
+II. Correspondances équivariantes & 25\\
+5. Traces non commutatives & 25\\
+6. Correspondances équivariantes et divisibilité de termes locaux & 46
+\end{tabular}
+
+\section*{I. Correspondances en position générale entre courbes}
+
+Dans cette partie, $S$ désigne le spectre d'un corps algébriquement clos $k$ de car.~$p$, $\Lambda$ un anneau commutatif noethérien annulé par un entier premier à $p$. Pour tout schéma $X$ sur $S$ on notera $D(X)$ la catégorie dérivée des faisceaux de $\Lambda$-modules sur $X$, $D_{\ctf}(X)$ la sous-catégorie pleine de $D(X)$ formée des complexes de tor-dimension finie et à cohomologie constructible.
+
+\subsection*{1. Énoncé du théorème et corollaires}
+
+\subsubsection*{1.1}
+Soient $X$ (resp. $Y$) un $S$-schéma localisé strict en un point fermé d'une $S$-courbe lisse et séparée, $A$ (resp. $B$) un $S$-schéma strictement local,
+\[
+a:A\longrightarrow X\times_S Y,
+\qquad
+b:B\longrightarrow X\times_S Y
+\]
+des $S$-morphismes. On note $p_1:X\times_S Y\to X$, $p_2:X\times_S Y\to Y$ les projections, $a_i=p_i a$, $b_i=p_i b$, $x$ (resp. $y$) le point fermé de $X$ (resp. $Y$). On suppose $a_2$ et $b_1$ finis et surjectifs, et $A\times_{(X\times_S Y)}B$ réduit au point fermé $z$ d'image $(x,y)$ dans $X\times_S Y$.
+
+Soient $L\in \ob D_{\ctf}(X)$, $M\in \ob D_{\ctf}(Y)$, $u\in\Hom(a_1^*L,a_2^!M)$, $v\in\Hom(b_2^*M,b_1^!L)$. Notons
+\[
+u_z\in\Hom(L_x,M_y)\qquad (\text{resp. }v_z\in\Hom(M_y,L_x))
+\]
+l'homomorphisme composé
+\[
+L_x=R\Gamma(X,L)\xrightarrow{a_1^*}R\Gamma(A,a_1^*L)
+\xrightarrow{R\Gamma(A,u)}R\Gamma(A,a_2^!M)
+\xrightarrow{a_{2*}}R\Gamma(Y,M)=M_y,
+\]
+où $a_{2*}$ est défini par la flèche d'adjonction $a_{2*}a_2^!M\to M$ (resp. l'homomorphisme composé analogue défini à l'aide de $(b,v)$). Comme $L_x$ et $M_y$ sont des complexes parfaits de $\Lambda$-modules, on peut former le cup-produit (SGA~6~I~8.3)
+\begin{equation}\tag{1.1.1}
+\langle u_z,v_z\rangle=\Tr(u_zv_z)=\Tr(v_zu_z)\in\Lambda.
+\end{equation}
+Posons $\Lambda_X(1)[2]=K_X$, $\Lambda_Y(1)[2]=K_Y$. D'après (I~5) (ou (SGA~$4^{1/2}$ Dualité~1, ou Finitude~4.1)) le foncteur $D_X=\RHom(-,K_X)$ (resp. $D_Y=\RHom(-,K_Y)$) sur $D_{\ctf}(X)$ (resp. $D_{\ctf}(Y)$) est dualisant, i.e. pour tout $E\in\ob D_{\ctf}(X)$ (resp. $E\in\ob D_{\ctf}(Y)$), on a $E\xrightarrow{\sim}D_XD_XE$ (resp. $E\xrightarrow{\sim}D_YD_YE$). On écrira parfois $D$ au lieu de $D_X$, $D_Y$.
+
+Notons d'autre part $p_i^!$ le foncteur $p_i^*(-)(1)[2]$. On a trivialement
+\[
+K_X\otimes_S^{\LL}M\xrightarrow{\sim}p_2^!M,
+\qquad
+L\otimes_S^{\LL}K_Y\xrightarrow{\sim}p_1^!L,
+\]
+et il découle de (III~2.3), par passage à la limite, que les flèches de Künneth analogues à (III~3.1.1)
+\[
+DL\otimes_S^{\LL}M\longrightarrow \RHom(p_1^*L,p_2^!M),
+\qquad
+L\otimes_S^{\LL}DM\longrightarrow \RHom(p_2^*M,p_1^!L)
+\]
+sont des isomorphismes. Comme $a_2$ est fini, $a$ est fini, donc le foncteur $a^!$ est défini, et l'on vérifie facilement que l'on a l'isomorphisme de transitivité $a^!p_2^!=a_2^!$. Grâce à la formule d'induction pour $a$ (SGA~4~XVIII~3.1.12.2), on a donc un isomorphisme canonique analogue à (III~3.2.1)
+\[
+a^!\RHom(p_1^*L,p_2^!M)\xrightarrow{\sim}\RHom(a_1^*L,a_2^!M),
+\]
+d'où un isomorphisme
+\begin{equation}\tag{*}
+\Hom(a_1^*L,a_2^!M)\xrightarrow{\sim}H^0(X\times_S Y,a_*a^!(DL\otimes_S^{\LL}M)).
+\end{equation}
+On a de même un isomorphisme
+\begin{equation}\tag{**}
+\Hom(b_2^*M,b_1^!L)\xrightarrow{\sim}H^0(X\times_S Y,b_*b^!(L\otimes_S^{\LL}DM)).
+\end{equation}
+On définit, comme en (III~4.1.2), un accouplement naturel
+\[
+(DL\otimes_S^{\LL}M)\otimes^{\LL}(L\otimes_S^{\LL}DM)
+\longrightarrow K_X\otimes_S^{\LL}K_Y=\Lambda_{X\times_S Y}(2)[4]\stackrel{\mathrm{dfn}}{=}K_{X\times_S Y}.
+\]
+Par composition avec l'accouplement analogue à (III~4.2.3)
+\[
+a_*a^!P\otimes^{\LL} b_*b^!Q\longrightarrow c_*c^!(P\otimes^{\LL}Q),
+\]
+où $P=DL\otimes_S^{\LL}M$, $Q=L\otimes_S^{\LL}DM$, et $c:Z=A\times_{(X\times_S Y)}B\to X\times_S Y$ est la projection canonique, et compte tenu des isomorphismes (*), (**), on en déduit un accouplement analogue à (III~4.2.5)
+\[
+\langle\ ,\ \rangle:\Hom(a_1^*L,a_2^!M)\otimes\Hom(b_2^*M,b_1^!L)
+\longrightarrow H^0(X\times_S Y,c_*c^!K_{X\times_S Y}).
+\]
+On vérifie aisément, par passage à la limite, que $c^!K_{X\times_S Y}=\Lambda_z$, de sorte que $H^0(X\times_S Y,c_*c^!K_{X\times_S Y})=\Lambda$. On dispose donc d'un ``cup-produit''
+\begin{equation}\tag{1.1.2}
+\langle u,v\rangle\in\Lambda.
+\end{equation}
+
+\subsubsection*{1.1.3}
+Soient $X'$ (resp. $Y'$) une $S$-courbe lisse, $A'$ (resp. $B'$) une $S$-courbe séparée,
+\[
+a':A'\longrightarrow X'\times_S Y',
+\qquad
+b':B'\longrightarrow X'\times_S Y'
+\]
+des $S$-morphismes finis, $x'$ (resp. $y'$) un point fermé de $X'$ (resp. $Y'$), $z'$ un point fermé isolé de $A'\times_{(X'\times_S Y')}B'$, d'image $s'$ (resp. $t'$) dans $A'$ (resp. $B'$), et tel que $a'_2(=p_2a')$ (resp. $b'_1(=p_1b')$) soit quasi-fini en $s'$ (resp. $t'$),
+\[
+L'\in\ob D_{\ctf}(X'),\quad M'\in\ob D_{\ctf}(Y'),\quad
+u'\in\Hom(a_1'^*L',a_2'^!M'),\quad v'\in\Hom(b_2'^*M',b_1'^!L').
+\]
+On peut alors considérer le terme local (III~4.2.7) $\langle u',v'\rangle_{z'}\in\Lambda$. D'autre part, si $X,Y,A,B$ sont les localisés stricts de $X',Y',A',B'$ en $x',y',s',t'$, $a:A\to X\times_S Y$, $b:B\to X\times_SY$ les morphismes déduits de $a'$, $b'$, $L=L'|X$, $M=M'|Y$, $u\in\Hom(a_1^*L,a_2^!M)$, $v\in\Hom(b_2^*M,b_1^!L)$ les flèches déduites de $u'$, $v'$, les données $(X,Y,a,b,u,v)$ vérifient les hypothèses du début de 1.1, donc un cup-produit 1.1.2 $\langle u,v\rangle\in\Lambda$ est défini. Il découle de la compatibilité de la formation des termes locaux (III~4.2.7) à la localisation (III~4.2.6) que l'on a $\langle u',v'\rangle_{z'}=\langle u,v\rangle$. Il est facile de voir, par ailleurs, que toute donnée $(X,Y,a,b,u,v)$ vérifiant les hypothèses du début de 1.1 est induite par une donnée $(X',Y',a',b',x',y',z',s',t',u',v')$ comme ci-dessus, où l'on peut supposer de plus, si on le désire, que $A'\times_{(X'\times_S Y')}B'$ est réduit à $z'$.
+
+En général, les cup-produits 1.1.1 et 1.1.2 sont inégaux. On a cependant le théorème suivant, qui est le résultat principal de cette première partie:
+
+\begin{statement}{Théorème 1.2}
+Sous les hypothèses du début de 1.1, on suppose de plus que $A$ et $B$ sont en position générale, i.e. que l'intersection des cônes tangents en $(x,y)$ aux images de $A$ et $B$ dans $X\times_S Y$ est réduite à $(x,y)$, et que de même $A$ et $X\times\{y\}$ sont en position générale, ainsi que $\{x\}\times Y$ et $B$. Alors on a
+\begin{equation}\tag{1.2.1}
+\langle u_z,v_z\rangle=\langle u,v\rangle.
+\end{equation}
+\end{statement}
+
+Par la formule de Lefschetz--Verdier (III~4.7), compte tenu de 1.1.3, on en déduit:
+
+\begin{statement}{Corollaire 1.3}
+Soit $F$ un endomorphisme d'une courbe propre et lisse $X/S$ tel que le schéma des points fixes $X^F$ soit fini et formé de points où le graphe de $F$ est transverse à la diagonale. Soient $L\in\ob D_{\ctf}(X)$, et $u\in\Hom(F^*L,L)$. Alors on a
+\[
+\Tr((F,u),R\Gamma(X,L))=\sum_{x\in X^F}\Tr(u_x,L_x),
+\]
+où la trace, aux deux membres, est prise au sens de (SGA~6~I~8).
+\end{statement}
+
+Pour $L$ concentré en degré $0$, 1.3 est le résultat d'Artin--Verdier ([6]~4.1). Par un passage à la limite expliqué dans XV, on déduit de 1.3 un résultat analogue en cohomologie $\ell$-adique ([6]~1.1), (XV~\S2 n\textsuperscript{o}~3 prop.~2):
+
+\begin{statement}{Corollaire 1.3.1}
+Avec $X$ et $F$ comme en 1.3, soient $L$ un $\mathbb Q_\ell$-faisceau constructible sur $X$ ($\ell$ premier $\ne p$), et $u\in\Hom(F^*L,L)$. Alors on a:
+\[
+\sum_i(-1)^i\Tr((F,u),H^i(X,L))=\sum_{x\in X^F}\Tr(u_x,L_x).
+\]
+\end{statement}
+
+Les hypothèses de 1.3, 1.3.1 s'appliquent notamment au cas où $(F,u)$ est une correspondance de Frobenius (XV~2), d'où la formule des traces de Grothendieck ([2]~5.1), (SGA~$4^{1/2}$ Rapport~3.2).
+
+\subsubsection*{1.4}
+Avec les notations de 1.1, supposons $b_2$ et $a_1$ finis et surjectifs (au lieu de $a_2$ et $b_1$), et considérons les correspondances duales (III~5.1)
+\[
+Du\in\Hom(a_2^*DM,a_1^!DL),\qquad Dv\in\Hom(b_1^*DL,b_2^!DM),
+\]
+et les homomorphismes $(Du)_z\in\Hom((DM)_y,(DM)_x)$, $(Dv)_z\in\Hom((DL)_x,(DM)_y)$. Supposons $(A,\{x\}\times Y)$ en position générale, ainsi que $(X\times\{y\},B)$, $(A,B)$. Appliquant 1.2 à $Du,Dv$, on obtient:
+\[
+\langle Du,Dv\rangle=\langle (Du)_z,(Dv)_z\rangle,
+\]
+d'où, par (III~5.1.6) et (III~4.2.6),
+\begin{equation}\tag{1.4.1}
+\langle u,v\rangle=\langle (Du)_z,(Dv)_z\rangle.
+\end{equation}
+
+De cette remarque et de 1.2 on déduit, par la formule de Lefschetz--Verdier (III~4.7):
+
+\begin{statement}{Corollaire 1.5}
+Soient $X,Y$ des courbes propres et lisses sur $S$,
+\[
+a:A\longrightarrow X\times_S Y,
+\qquad
+b:B\longrightarrow X\times_S Y
+\]
+des correspondances où $A$ et $B$ sont des courbes propres sur $S$, $L\in\ob D_{\ctf}(X)$, $M\in\ob D_{\ctf}(Y)$, $u\in\Hom(a_1^*L,a_2^!M)$, $v\in\Hom(b_2^*M,b_1^!L)$. On suppose que $C=A\times_{(X\times_S Y)}B$ est fini sur $S$ et de la forme $C=C_1\amalg C_2$, avec les propriétés suivantes: pour $z\in C_1$, les morphismes déduits de $a_2,b_1$ par localisation stricte aux images de $z$ sont finis, et, si $(x,y)$ désigne l'image de $z$ dans $X\times_S Y$, chacun des couples $(A,B)$, $(A,X\times\{y\})$, $(\{x\}\times Y,B)$ est en position générale en $(x,y)$; pour $z\in C_2$, les morphismes déduits de $a_1,b_2$ par localisation stricte aux images de $z$ sont finis, et chacun des couples $(A,B)$, $(A,\{x\}\times Y)$, $(B,X\times\{y\})$ est en position générale en $(x,y)$ (``position générale'' signifiant que l'intersection des cônes tangents en $(x,y)$ aux images des courbes du couple considéré est réduite à $(x,y)$). Alors, si $u_*\in\Hom(R\Gamma(X,L),R\Gamma(Y,M))$, $v_*\in\Hom(R\Gamma(Y,M),R\Gamma(X,L))$ sont les morphismes définis par $u,v$ (III~3.7.6), on a, avec les notations de 1.1.1, (III~5.1.5),
+\begin{equation}\tag{1.5.1}
+\langle u_*,v_*\rangle=\sum_{z\in C_1}\langle u_z,v_z\rangle+\sum_{z\in C_2}\langle (Du)_z,(Dv)_z\rangle.
+\end{equation}
+\end{statement}
+
+\subsubsection*{1.6}
+Admettant le formalisme de la cohomologie $\ell$-adique, on déduit de 1.5, par la technique de passage à la limite de XIV, que, sous les hypothèses de 1.5 sur $X,Y,a,b$, on a, pour $L\in\ob D^b(X,\mathbb Q_\ell)$ ($\ell$ premier $\ne p$), $M\in\ob D^b(Y,\mathbb Q_\ell)$, $u\in\Hom(a_1^*L,a_2^!M)$, $v\in\Hom(b_2^*M,b_1^!L)$, l'égalité analogue à 1.5.1 dans $\mathbb Q_\ell$. Cette formule contient comme cas particulier la proposition 7.12 de Langlands [4]: appliquer la formule avec $X=Y$, $M$ le faisceau $F$ considéré par Langlands; $L=\alpha M$ ($\alpha\in\mathbb Q_\ell^*$), $A$ la diagonale de $X\times X$, $b$ la correspondance $\Phi$ de (loc. cit.), $u$ la correspondance à support dans $A$ donnée par $\alpha^{-1}:L\to M$, $v$ la correspondance $\Phi$ de (loc. cit.); avec les notations de (loc. cit.), $C_1$ (resp. $C_2$) est l'ensemble des points fixes où $a<d$ (resp. $a>d$).
+
+\subsubsection*{1.7}
+Sous les hypothèses de 1.2, prenons pour $u$ (resp. $v$) la correspondance $\cl(A)$ (resp. $\cl(B)$) définie par $\Tr_{a_2}:a_{2*}\Lambda\to\Lambda$ (resp. $\Tr_{b_1}:b_{1*}\Lambda\to\Lambda$). La formule 1.2.1 s'écrit
+\begin{equation}\tag{1.7.1}
+\deg(a_2)\deg(b_1)=\langle \cl(A),\cl(B)\rangle,
+\end{equation}
+où $\deg(a_2)$ (resp. $\deg(b_1)$) désigne le degré générique de $a_2$ (resp. $b_1$). Compte tenu des hypothèses de position générale, le premier membre de 1.7.1 n'est autre que la multiplicité d'intersection en $(x,y)$ des cycles $a_*A$, $b_*B$, images directes de $A$ et $B$. Il n'est pas difficile de déduire directement 1.7.1 de la compatibilité de la formation de la classe de cohomologie associée à un cycle avec les intersections (SGA~$4^{1/2}$ Cycle~2.3.8).
+
+\end{document}
