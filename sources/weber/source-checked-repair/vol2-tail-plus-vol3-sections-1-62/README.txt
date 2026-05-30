@@ -1,6 +1,11 @@
-Weber literal repair batch 20
-New repaired block: Vol. III §§51–56.
-No table of contents. No in-text source-page markers. No scan images or screenshot stand-ins in the work package.
-Includes current individual English/German TeX+PDF and cumulative repaired English/German TeX+PDF through Vol. III §56.
-Also includes prior cleaned individual Vol. III repaired batches for continuation convenience.
-Next continuation point: Vol. III §57.
+Weber literal repair batch 21 - cumulative plus new only
+
+Contents:
+- new_work/: Vol. III sections 57-62, English translation and German transcription, TeX and PDF.
+- cumulative_repaired/: cumulative repaired English translation and German transcription through Vol. III section 62, TeX and PDF.
+
+Not included:
+- prior individual batch chunks
+- source scan images or screenshot stand-ins
+- in-text source-page marker layer
+- table of contents
