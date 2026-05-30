@@ -27,13 +27,13 @@ Audit outputs:
 - EGA all-version DOI: https://zenodo.org/records/20414353
 - Non-European current version: https://zenodo.org/record/20460444
 - Non-European all-version DOI: https://zenodo.org/records/20410957
-- Classical/Cayley current version: https://zenodo.org/record/20414787
+- Classical/Cayley current version: https://zenodo.org/record/20459215
 - Classical/Cayley all-version DOI: https://zenodo.org/records/20414787
-- Gauss current version: https://zenodo.org/record/20410934
+- Gauss current version: https://zenodo.org/record/20454309
 - Gauss all-version DOI: https://zenodo.org/records/20410934
-- Noether current version: https://zenodo.org/record/20412587
+- Noether current version: https://zenodo.org/record/20459983
 - Noether all-version DOI: https://zenodo.org/records/20412587
-- Weber current version: https://zenodo.org/record/20412153
+- Weber current version: https://zenodo.org/record/20460049
 - Weber all-version DOI: https://zenodo.org/records/20412153
 - GitHub mirror: https://github.com/KokunoYumeto/modern-latex-manuscripts
 
@@ -43,11 +43,11 @@ Audit outputs:
 - Preserved the larger scan-backed Brahmagupta reader inside the non-European artifact ZIP for provenance and source checking.
 - Refreshed the non-European public summary, public guide, Zenodo metadata, main landing metadata, and GitHub mirror.
 - Updated audit scripts to target the new main/non-European versions and the current SGA record.
-- Published the refreshed classical shelf with 77 verified/repaired Cayley slice PDFs as top-level readers.
+- Published the refreshed classical shelf with 127 promoted Claude-validated Cayley slice PDFs represented in the artifact layer; the front-facing public surface is organized as Cayley volume-level source-checked slice readers rather than the older broad per-volume drafts.
 - Published the refreshed Gauss author page with eight cumulative working readers totaling 3,061 pages.
 - Published the refreshed EGA record with a 514-page standalone EGA IV sections 1-21 English working reader, the TeX/PDF supplement, and the updated full artifact ZIP.
-- Published the refreshed Noether author page with paired German/English paper-level cumulative readers through Paper 10.
-- Published the refreshed Weber author page with paired German/English readers for the Volume II tail plus Volume III sections 1-45.
+- Published the refreshed Noether author page with paired German/English paper-level cumulative readers through Paper 15.
+- Published the refreshed Weber author page with paired German/English readers for the Volume II tail plus Volume III sections 1-65.
 - Published the curated main landing version 20393488: metadata was refreshed after the Noether/Weber/SGA/non-European updates; older broad Cayley/Weber direct-reader drafts remain demoted from the latest main file list while the full preservation ZIPs, prior Zenodo versions, and author/corpus records remain available.
 - Added local OCR tooling report for repair agents at `reports/MATH_OCR_TOOLING_STATUS_FOR_REPAIR_AGENTS_20260530.md`; standard Docling/Surya is useful as a witness, local SmolDocling was weaker on EGA, pix2tex runs but is only a fallible formula-crop witness, and direct Surya 0.20 currently needs Docker/vLLM.
 - Confirmed no current public PDFs are flagged for extraction failure, process notes, stale public records, or archive-level readability problems.
