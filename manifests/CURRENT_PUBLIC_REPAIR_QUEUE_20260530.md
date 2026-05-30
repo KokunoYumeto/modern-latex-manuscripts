@@ -21,19 +21,19 @@ Audit outputs:
 
 ## Published State
 
-- Main landing page: https://zenodo.org/record/20456732
+- Main landing page: https://zenodo.org/record/20393488
 - Main all-version DOI: https://zenodo.org/records/20393488
-- EGA current version: https://zenodo.org/record/20454552
+- EGA current version: https://zenodo.org/record/20414353
 - EGA all-version DOI: https://zenodo.org/records/20414353
-- Non-European current version: https://zenodo.org/record/20455873
+- Non-European current version: https://zenodo.org/record/20410957
 - Non-European all-version DOI: https://zenodo.org/records/20410957
-- Classical/Cayley current version: https://zenodo.org/record/20454226
+- Classical/Cayley current version: https://zenodo.org/record/20414787
 - Classical/Cayley all-version DOI: https://zenodo.org/records/20414787
-- Gauss current version: https://zenodo.org/record/20454309
+- Gauss current version: https://zenodo.org/record/20410934
 - Gauss all-version DOI: https://zenodo.org/records/20410934
-- Noether current version: https://zenodo.org/record/20455701
+- Noether current version: https://zenodo.org/record/20412587
 - Noether all-version DOI: https://zenodo.org/records/20412587
-- Weber current version: https://zenodo.org/record/20455748
+- Weber current version: https://zenodo.org/record/20412153
 - Weber all-version DOI: https://zenodo.org/records/20412153
 - GitHub mirror: https://github.com/KokunoYumeto/modern-latex-manuscripts
 
@@ -48,7 +48,7 @@ Audit outputs:
 - Published the refreshed EGA record with a 514-page standalone EGA IV sections 1-21 English working reader, the TeX/PDF supplement, and the updated full artifact ZIP.
 - Published the refreshed Noether author page with paired German/English paper-level cumulative readers through Paper 10.
 - Published the refreshed Weber author page with paired German/English readers for the Volume II tail plus Volume III sections 1-45.
-- Published the curated main landing version 20456732: metadata was refreshed after the Noether/Weber/SGA/non-European updates; older broad Cayley/Weber direct-reader drafts remain demoted from the latest main file list while the full preservation ZIPs, prior Zenodo versions, and author/corpus records remain available.
+- Published the curated main landing version 20393488: metadata was refreshed after the Noether/Weber/SGA/non-European updates; older broad Cayley/Weber direct-reader drafts remain demoted from the latest main file list while the full preservation ZIPs, prior Zenodo versions, and author/corpus records remain available.
 - Added local OCR tooling report for repair agents at `reports/MATH_OCR_TOOLING_STATUS_FOR_REPAIR_AGENTS_20260530.md`; standard Docling/Surya is useful as a witness, local SmolDocling was weaker on EGA, pix2tex runs but is only a fallible formula-crop witness, and direct Surya 0.20 currently needs Docker/vLLM.
 - Confirmed no current public PDFs are flagged for extraction failure, process notes, stale public records, or archive-level readability problems.
 

@@ -1,16 +1,16 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-30T04:53:15
+Generated: 2026-05-30T13:22:26
 
 Reader PDF counts by section:
 
 - author-cluster: 10
-- classical: 81
-- deligne: 10
+- classical: 17
+- deligne: 11
 - ega: 10
 - gauss: 8
-- noether: 8
-- non-european: 60
+- noether: 12
+- non-european: 59
 - riemann: 2
 - sga: 23
 - weber: 6
@@ -34,14 +34,12 @@ Current public Zenodo records:
 Reader PDF health flags:
 
 - `reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf`: first_page_blankish
-- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume IV, pages 026-050 - Repaired LaTeX Slice.pdf`: first_page_blankish
-- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XI, pages 001-025 - Repaired LaTeX Slice.pdf`: first_page_blankish
-- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XII, pages 001-025 - Repaired LaTeX Slice.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
 - `reader-pdfs/non-european/10-01 English Translation - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/20-04 Modern Chinese - Qin - Shuxue Jiuzhang, fasc. 1 and 5-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
-- `reader-pdfs/non-european/50-04 Indian Original - Brahmagupta - Brahmasphutasiddhanta, part 01 of 02.pdf`: first_page_blankish
-- `reader-pdfs/non-european/50-04 Indian Original - Brahmagupta - Brahmasphutasiddhanta, part 02 of 02.pdf`: first_page_blankish
 - `reader-pdfs/sga/13 SGA 4 - English Translation Working Draft.pdf`: first_page_blankish
 - `reader-pdfs/sga/49 SGA 5 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
