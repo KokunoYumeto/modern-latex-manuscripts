@@ -6,21 +6,21 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 
 ## Current Public Records
 
-- Main landing, bulk preservation, and full repository preservation backstop: https://zenodo.org/records/20451500
-- EGA working English translation and French originals: https://zenodo.org/records/20444982
-- SGA working English translation and French references: https://zenodo.org/records/20450840
-- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20450502
-- Chinese mathematical classics: https://zenodo.org/records/20435670
-- Indian and Sanskrit mathematical classics: https://zenodo.org/records/20435677
-- Islamic and Arabic mathematical texts: https://zenodo.org/records/20435687
-- Historical reference texts for non-European mathematics: https://zenodo.org/records/20435690
-- Heinrich Weber author record: https://zenodo.org/records/20450915
-- Emmy Noether author record: https://zenodo.org/records/20450906
-- Carl Friedrich Gauss author record: https://zenodo.org/records/20444827
-- Bernhard Riemann author record: https://zenodo.org/records/20434317
-- Deligne working record: https://zenodo.org/records/20450386
-- Cayley, Dedekind, and Dirichlet classical algebra/arithmetic shelf: https://zenodo.org/records/20451242
-- Author cluster shelf: https://zenodo.org/records/20442003
+- Main landing, bulk preservation, and full repository preservation backstop: https://zenodo.org/records/20393488
+- EGA working English translation and French originals: https://zenodo.org/records/20414353
+- SGA working English translation and French references: https://zenodo.org/records/20410947
+- Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20410957
+- Chinese mathematical classics: https://zenodo.org/records/20410957
+- Indian and Sanskrit mathematical classics: https://zenodo.org/records/20410957
+- Islamic and Arabic mathematical texts: https://zenodo.org/records/20410957
+- Historical reference texts for non-European mathematics: https://zenodo.org/records/20410957
+- Heinrich Weber author record: https://zenodo.org/records/20412153
+- Emmy Noether author record: https://zenodo.org/records/20412587
+- Carl Friedrich Gauss author record: https://zenodo.org/records/20410934
+- Bernhard Riemann author record: https://zenodo.org/records/20429778
+- Deligne working record: https://zenodo.org/records/20410853
+- Cayley, Dedekind, and Dirichlet classical algebra/arithmetic shelf: https://zenodo.org/records/20414787
+- Author cluster shelf: https://zenodo.org/records/20411006
 
 ## What Is Here
 
@@ -56,7 +56,7 @@ Please keep corrections narrowly scoped and cite the source page or file when po
 
 Unless a file or upstream source says otherwise, project-created material in this repository is dedicated under CC0 1.0 Universal, to the extent possible under law. Upstream projects, source scans, source texts, and historical authors retain their own provenance, credit, public-domain status, and license context.
 
-For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20451500.
+For citation, use the relevant Zenodo record for the corpus you consulted. The main project record is https://zenodo.org/records/20393488.
 
 
 
