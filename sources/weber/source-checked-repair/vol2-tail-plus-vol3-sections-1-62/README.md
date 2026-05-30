@@ -1,6 +1,6 @@
-Weber literal repair batch 19
+Weber literal repair current cumulative package
 
-New block: Heinrich Weber, Lehrbuch der Algebra, Vol. III, sections 46-50.
+Current block: Heinrich Weber, Lehrbuch der Algebra, Vol. II tail plus Vol. III, sections 1-62.
 
 Package policy:
 - TeX/PDF only.
@@ -8,6 +8,6 @@ Package policy:
 - No in-text source-page markers.
 - No screenshot or scan-image stand-ins in the work package.
 - English translation and German transcription are separate.
-- Cumulative repaired builds continue the cleaned Vol. II tail plus Vol. III through section 50.
+- Cumulative repaired builds continue the cleaned Vol. II tail plus Vol. III through section 62.
 
-Next continuation point: Vol. III section 51.
+Next continuation point: Vol. III section 63.
