@@ -3,6 +3,7 @@
 Generated from the local public release folders.
 
 - Main landing and preservation backstop: https://zenodo.org/records/20393488
+- Workflow and replication packet: https://zenodo.org/records/20461174
 - EGA: https://zenodo.org/records/20414353
 - SGA: https://zenodo.org/records/20410947
 - Non-European and multilingual mathematics: https://zenodo.org/records/20410957

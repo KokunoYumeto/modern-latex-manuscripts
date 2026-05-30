@@ -18,11 +18,11 @@ The preferred public shape is:
 
 ## Current AI-Assisted Workflow
 
-1. review system web project sessions help identify useful public-domain works, plan batches, and perform focused translation or repair passes.
+1. ChatGPT web project sessions help identify useful public-domain works, plan batches, and perform focused translation or repair passes.
 2. Codex downloads and indexes public scans, builds local inventories, writes scripts, packages releases, audits public files, publishes through the Zenodo API, and mirrors clean material to GitHub.
-3. transcription system K2.6 agent swarms have been used for large first-pass transcription into TeX, especially where hundreds of pages can be split into small source-checkable units.
-4. review system Pro sessions check, translate, repair, and recompile TeX. In practice, several extended sessions can run in parallel against different works.
-5. review system Code has been useful as a local coding and LaTeX-repair worker, especially for direct scan-based chunk repair, EGA translation drafts, and large TeX repair triage.
+3. Kimi K2.6 agent swarms have been used for large first-pass transcription into TeX, especially where hundreds of pages can be split into small source-checkable units.
+4. ChatGPT Pro sessions check, translate, repair, and recompile TeX. In practice, several extended sessions can run in parallel against different works.
+5. Claude Code has been useful as a local coding and LaTeX-repair worker, especially for direct scan-based chunk repair, EGA translation drafts, and large TeX cleanup triage.
 6. The publication pass promotes the cleanest available reader PDFs while preserving rougher drafts and provenance inside ZIP artifacts rather than pretending they are final.
 
 This is a work-in-progress research and preservation workflow, not a benchmark. The exact model mix changes as rate limits and availability change.
@@ -31,10 +31,10 @@ This is a work-in-progress research and preservation workflow, not a benchmark. 
 
 These figures are informal project notes, not controlled measurements.
 
-- A review system Max weekly allowance was consumed on major Cayley repair work plus partial EGA translation. That produced double-digit-percent progress on a very large Cayley corpus and meaningful EGA additions, but at a high token cost.
+- A Claude Max weekly allowance was consumed on major Cayley repair work plus partial EGA translation. That produced double-digit-percent progress on a very large Cayley corpus and meaningful EGA additions, but at a high token cost.
 - Codex carried the Zenodo/GitHub/indexing/publication pipeline on a separate weekly allowance while web sessions continued translation and repair work.
-- review system Pro web sessions were useful in parallel: several extended sessions could translate or repair a few to several pages per 30-60 minutes each, depending on mathematical density and whether source TeX was already available.
-- transcription system K2.6 agent swarms were effective for broad first-pass TeX transcription, but monthly credit exhaustion became a practical scheduling constraint.
+- ChatGPT Pro web sessions were useful in parallel: several extended sessions could translate or repair a few to several pages per 30-60 minutes each, depending on mathematical density and whether source TeX was already available.
+- Kimi K2.6 agent swarms were effective for broad first-pass TeX transcription, but monthly credit exhaustion became a practical scheduling constraint.
 - If significant paid compute were available, the bottleneck would move from raw transcription to audit discipline: page completeness, formula fidelity, typography, public naming, and provenance.
 
 ## Local Tool Stack
@@ -42,7 +42,7 @@ These figures are informal project notes, not controlled measurements.
 Core tools:
 
 - Windows PowerShell for orchestration, file inventory, chunking, and local process control.
-- Python 3 with PyMuPDF (`fitz`) for PDF inspection, page counts, text extraction, rendering checks, redaction/surface repair, and simple generated PDFs.
+- Python 3 with PyMuPDF (`fitz`) for PDF inspection, page counts, text extraction, rendering checks, redaction/surface cleanup, and simple generated PDFs.
 - Python standard-library `zipfile`, `hashlib`, `json`, `csv`, `pathlib`, and `subprocess` for packaging and manifests.
 - MiKTeX / XeLaTeX / pdfLaTeX / LuaLaTeX for TeX compilation.
 - Git and GitHub over SSH for the public mirror.
@@ -50,12 +50,13 @@ Core tools:
 
 OCR and formula witnesses tested or installed:
 
-- Docling and RapidOCR for OCR witnesses and layout extraction.
-- Surya OCR for OCR/layout experiments.
-- pix2tex / LaTeX-OCR as a formula-crop witness.
-- PyTorch with CUDA where GPU acceleration is available.
+- Docling and RapidOCR are currently useful for rough Latin-script/French mathematical page witnesses. They preserve enough prose to help a repair pass, but spacing, symbols, formulas, and non-Latin scripts still need source checking.
+- pix2tex / LaTeX-OCR is installed and runs locally on CPU. It is useful only for tightly cropped isolated formulas; full pages and mixed text/formula paragraphs produced unusable output in smoke tests.
+- Surya OCR is installed in a formula/OCR environment, but the current v2 command path is blocked on this workstation until a Docker/vLLM or llama.cpp server backend is configured.
+- Pix2Text and olmOCR are next candidates to test for mixed text/math/table extraction.
+- PyTorch with CUDA should be used where GPU acceleration is available.
 
-These OCR tools are helpful witnesses, but none should be treated as authoritative for historical mathematical text. The reliable workflow is still scan -> TeX candidate -> compile -> visual/text audit -> source check.
+These OCR tools are helpful witnesses, but none should be treated as authoritative for historical mathematical text. The reliable workflow is still scan -> OCR/formula witness -> TeX candidate -> compile -> visual/text audit -> source check.
 
 ## Repeatable Release Procedure
 
@@ -89,7 +90,7 @@ These OCR tools are helpful witnesses, but none should be treated as authoritati
 
 Public names should describe the work, not the internal batch that produced it. Good names look like:
 
-- `Emmy Noether - Paper 13 - Invariant Variational Problems - English Translation.pdf`
+- `Emmy Noether - Paper 11 - Equations with Prescribed Group - English Translation.pdf`
 - `SGA 5 - High-Fidelity Working Translation through Expose VII.pdf`
 - `Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf`
 
