@@ -1,11 +1,11 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-30T02:50:59
+Generated: 2026-05-30T03:35:46
 
 Reader PDF counts by section:
 
 - author-cluster: 10
-- classical: 40
+- classical: 81
 - deligne: 10
 - ega: 10
 - gauss: 8
@@ -35,6 +35,8 @@ Reader PDF health flags:
 
 - `reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf`: first_page_blankish
 - `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume IV, pages 026-050 - Repaired LaTeX Slice.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XI, pages 001-025 - Repaired LaTeX Slice.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XII, pages 001-025 - Repaired LaTeX Slice.pdf`: first_page_blankish
 - `reader-pdfs/non-european/10-01 English Translation - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/20-04 Modern Chinese - Qin - Shuxue Jiuzhang, fasc. 1 and 5-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
