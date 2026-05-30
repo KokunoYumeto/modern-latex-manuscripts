@@ -89,7 +89,7 @@ These OCR tools are helpful witnesses, but none should be treated as authoritati
 
 Public names should describe the work, not the internal batch that produced it. Good names look like:
 
-- `Emmy Noether - Paper 11 - Equations with Prescribed Group - English Translation.pdf`
+- `Emmy Noether - Paper 13 - Invariant Variational Problems - English Translation.pdf`
 - `SGA 5 - High-Fidelity Working Translation through Expose VII.pdf`
 - `Cayley - Collected Mathematical Papers, Volume X - Source-Checked Modern LaTeX Slice Reader.pdf`
 
