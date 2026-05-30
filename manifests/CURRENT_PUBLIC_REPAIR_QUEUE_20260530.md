@@ -2,7 +2,7 @@
 
 Generated: 2026-05-30
 
-This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface correction, Cayley verified-slice refresh, Gauss repair rebuild, EGA IV sections 1-21 publication, and main landing refresh.
+This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface correction, Cayley verified-slice refresh, Gauss repair rebuild, EGA IV sections 1-21 publication, Noether/Weber author-page refreshes, and main landing refresh.
 
 ## Current Public Audit Status
 
@@ -13,11 +13,11 @@ This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface
 
 Audit outputs:
 
-- `reports/public_pdf_surface_audit_20260530_070900.md`
-- `reports/public_pdf_process_note_audit_20260530_070900.md`
-- `reports/public_archive_readability_audit_20260530_070900.md`
-- `reports/public_pdf_typography_audit_20260530_070900.csv`
-- `reports/public_pdf_typography_audit_20260530_070900.json`
+- `reports/public_pdf_surface_audit_20260530_073000.md`
+- `reports/public_pdf_process_note_audit_20260530_073000.md`
+- `reports/public_archive_readability_audit_20260530_073000.md`
+- `reports/public_pdf_typography_audit_20260530_073000.csv`
+- `reports/public_pdf_typography_audit_20260530_073000.json`
 
 ## Published State
 
@@ -26,6 +26,8 @@ Audit outputs:
 - Non-European all-version DOI: https://zenodo.org/records/20410957
 - Classical/Cayley all-version DOI: https://zenodo.org/records/20414787
 - Gauss all-version DOI: https://zenodo.org/records/20410934
+- Noether all-version DOI: https://zenodo.org/records/20412587
+- Weber all-version DOI: https://zenodo.org/records/20412153
 - GitHub mirror: https://github.com/KokunoYumeto/modern-latex-manuscripts
 
 ## Repairs Completed In This Pass
@@ -37,6 +39,8 @@ Audit outputs:
 - Published the refreshed classical shelf with 77 verified/repaired Cayley slice PDFs as top-level readers.
 - Published the refreshed Gauss author page with eight cumulative working readers totaling 3,061 pages.
 - Published the refreshed EGA record with a 514-page standalone EGA IV sections 1-21 English working reader, the TeX/PDF supplement, and the updated full artifact ZIP.
+- Published the refreshed Noether author page with paired German/English paper-level cumulative readers through Paper 09 section 4.
+- Published the refreshed Weber author page with paired German/English readers for the Volume II tail plus Volume III sections 1-37.
 - Confirmed no current public PDFs are flagged for extraction failure, process notes, stale public records, or archive-level readability problems.
 
 ## Priority Queue
@@ -60,7 +64,7 @@ Audit outputs:
    Current known mathematical transcription defects reported by the local repair pass have been addressed and the refreshed author page is live. The bands still need continued proofread and scan comparison. New scan downloads for missing bands should be indexed and fed into future repair work.
 
 7. Noether and Weber high-fidelity repair streams.
-   Replace older cumulative drafts only incrementally, preserving older drafts in artifacts until the paper-level or volume-level high-fidelity replacement is complete. Keep author pages organized by work/paper, not by source session.
+   Noether is live through Paper 09 section 4 in paired German/English paper-level cumulative readers. Weber is live through the Volume II tail plus Volume III sections 1-37 in paired German/English readers. Replace older cumulative drafts only incrementally, preserving older drafts in artifacts until the paper-level or volume-level high-fidelity replacement is complete. Keep author pages organized by work/paper, not by source session.
 
 8. Author-cluster and older main-record drafts.
    Several older broad readers still trigger mixed-page-size or font-size heuristics. These are not urgent public-surface failures, but they should be split or replaced by author/work-level records as cleaner TeX becomes available.
