@@ -15,7 +15,7 @@ This is a continuation queue for the current public non-European/multilingual wo
 ### P1 - 01 Combined English Translations.pdf
 
 - Issue: square/missing glyphs in extracted text
-- Audit reason: `garbage_chars=727`
+- Audit reason: `missing_or_corrupt_glyph_chars=727`
 - Pages: 1213; near-blank text pages: 24
 - Square/missing-glyph count in extracted text: 727
 - Sample blank/sparse pages: 16, 751, 907, 910, 911, 921, 938, 941, 979, 990, 991, 995, 1007, 1012, 1013, 1016, 1017, 1037, 1151, 1153, 1157, 1158, 1163, 1164
@@ -25,7 +25,7 @@ This is a continuation queue for the current public non-European/multilingual wo
 ### P1 - 02 Combined Modern Chinese Renderings.pdf
 
 - Issue: square/missing glyphs in extracted text
-- Audit reason: `garbage_chars=371`
+- Audit reason: `missing_or_corrupt_glyph_chars=371`
 - Pages: 460; near-blank text pages: 13
 - Square/missing-glyph count in extracted text: 371
 - Sample blank/sparse pages: 17, 35, 90, 135, 175, 247, 276, 303, 321, 323, 360, 362, 446
@@ -35,7 +35,7 @@ This is a continuation queue for the current public non-European/multilingual wo
 ### P1 - 04 Chinese Originals - Modern LaTeX.pdf
 
 - Issue: square/missing glyphs in extracted text; process-pattern or placeholder text hit
-- Audit reason: `garbage_chars=498; process_hits=1`
+- Audit reason: `missing_or_corrupt_glyph_chars=498; process_hits=1`
 - Pages: 587; near-blank text pages: 14
 - Square/missing-glyph count in extracted text: 498
 - Sample blank/sparse pages: 2, 28, 87, 109, 130, 155, 183, 218, 261, 376, 397, 413, 446, 507
@@ -54,7 +54,7 @@ This is a continuation queue for the current public non-European/multilingual wo
 ### P1 - 10-02 English Translation - Li Ye - Ceyuan Haijing, vols. 1-12.pdf
 
 - Issue: square/missing glyphs in extracted text
-- Audit reason: `garbage_chars=727`
+- Audit reason: `missing_or_corrupt_glyph_chars=727`
 - Pages: 144; near-blank text pages: 0
 - Square/missing-glyph count in extracted text: 727
 - Archive assessment: quality/layout issue only
@@ -72,7 +72,7 @@ This is a continuation queue for the current public non-European/multilingual wo
 ### P1 - 20-02 Modern Chinese - Li Ye - Ceyuan Haijing, vols. 1-12.pdf
 
 - Issue: square/missing glyphs in extracted text
-- Audit reason: `garbage_chars=371`
+- Audit reason: `missing_or_corrupt_glyph_chars=371`
 - Pages: 89; near-blank text pages: 1
 - Square/missing-glyph count in extracted text: 371
 - Sample blank/sparse pages: 47
@@ -91,7 +91,7 @@ This is a continuation queue for the current public non-European/multilingual wo
 ### P1 - 40-02 Chinese Original - Li Ye - Ceyuan Haijing, vols. 1-12.pdf
 
 - Issue: square/missing glyphs in extracted text
-- Audit reason: `garbage_chars=498`
+- Audit reason: `missing_or_corrupt_glyph_chars=498`
 - Pages: 95; near-blank text pages: 4
 - Square/missing-glyph count in extracted text: 498
 - Sample blank/sparse pages: 2, 24, 45, 70
