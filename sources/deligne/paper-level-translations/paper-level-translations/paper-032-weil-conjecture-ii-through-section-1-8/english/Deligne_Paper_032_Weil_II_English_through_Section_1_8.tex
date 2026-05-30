@@ -1,0 +1,1481 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{variant}{Variant}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\Ql}{\mathbb{Q}_\ell}
+\newcommand{\Qlb}{\overline{\mathbb{Q}}_\ell}
+\newcommand{\Zl}{\mathbb{Z}_\ell}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fbar}{\overline{\mathbb{F}}_q}
+\newcommand{\Abar}{\overline{\mathbb{Q}}_\ell}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Frob}{\operatorname{Frob}}
+\newcommand{\Norm}{\operatorname{N}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\RHom}{R\mathcal{H}om}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\rk}{\operatorname{rg}}
+\newcommand{\degm}{\operatorname{deg}}
+\newcommand{\boxt}{\boxtimes}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Image}{\operatorname{Im}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\limind}{\varinjlim}
+\newcommand{\limproj}{\varprojlim}
+\setlist[enumerate]{itemsep=0.35em,topsep=0.4em}
+\setlist[itemize]{itemsep=0.25em,topsep=0.4em}
+\title{The Weil Conjecture. II}
+\author{Pierre Deligne\\\small English translation}
+\date{}
+\begin{document}
+\maketitle
+% ===== Source unit: deligne_paper32_weilII_contents_intro_EN.tex =====
+\section*{Contents}
+
+\begin{description}[leftmargin=3.2em,style=nextline]
+\item[Introduction]
+\item[Notations and conventions]
+\item[1. Purity]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(1.1)] $\ell$-adic sheaves.
+\item[(1.2)] Weights.
+\item[(1.3)] Determinantal weights.
+\item[(1.4)] Cohomology of curves and $L$-functions: reminders.
+\item[(1.5)] A criterion for purity.
+\item[(1.6)] Around Jacobson--Morosov.
+\item[(1.7)] Local monodromy.
+\item[(1.8)] Local monodromy of pure sheaves.
+\item[(1.9)] Tame local monodromy of mixed sheaves.
+\item[(1.10)] Non-archimedean absolute values.
+\item[(1.11)] Specialization of monodromy.
+\end{description}
+\item[2. The Hadamard--de la Vallee Poussin method]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(2.1)] The method.
+\item[(2.2)] Purity and compactness.
+\end{description}
+\item[3. The fundamental theorem]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(3.1)] A calculation of vanishing cycles.
+\item[(3.2)] Dimension one.
+\item[(3.3)] The general case.
+\item[(3.4)] Application: the structure of mixed sheaves.
+\item[(3.5)] Application: equidistribution theorems.
+\item[(3.6)] Application: the local invariant-cycle theorem.
+\item[(3.7)] Return to (1.8).
+\end{description}
+\item[4. Lefschetz pencils]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(4.1)] The hard Lefschetz theorem.
+\item[(4.2)] Reminders on Lefschetz pencils.
+\item[(4.3)] Complement to SGA 7, XIX, 4.
+\item[(4.4)] The monodromy of Lefschetz pencils.
+\item[(4.5)] The gcd theorem.
+\end{description}
+\item[5. Application to the $\Ql$-homotopy type]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(5.1)] The $\mathbb Z\{\ell\}$-de Rham complex, after Grothendieck and Miller.
+\item[(5.2)] The $\Ql$-homotopy type.
+\item[(5.3)] Gradings by weight.
+\end{description}
+\item[6. The formalism of mixed sheaves]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(6.1)] Stability.
+\item[(6.2)] Pure complexes.
+\end{description}
+\end{description}
+
+\section*{Introduction}
+
+In [1], cited below as I, we proved the Weil conjecture giving the complex absolute value of the eigenvalues of Frobenius acting on the cohomology of a projective smooth variety defined over a finite field. Here we study cohomology with values in a sheaf: the point is to pass from pointwise properties of the sheaf to corresponding properties of its cohomology.
+
+Let therefore $X_0$ be a scheme of finite type over $\Fq$, and let $\mathcal F_0$ be a $\Ql$-sheaf on $X_0$. We choose an algebraic closure $\Fbar$ of $\Fq$, and we indicate by suppressing the subscript $0$ the extension of the base field from $\Fq$ to $\Fbar$; see (0.7). For $x_0\in |X_0|$ a closed point of $X_0$, and $x\in X(\Fbar)$ above it, one has the Frobenius automorphism $F_{x_0}$ of the fibre $\mathcal F_x$ of $\mathcal F$ at $x$ (I, (1.11)--(1.13), or (1.18)). We shall call its eigenvalues the eigenvalues of $F_{x_0}$ on $\mathcal F_0$. We say that $\mathcal F_0$ is pointwise pure of weight $n$ if, for every $x_0\in |X_0|$, the eigenvalues of $F_{x_0}$ on $\mathcal F_0$ are algebraic numbers all of whose complex conjugates have absolute value $\Norm(x_0)^{n/2}$. We say that $\mathcal F_0$ is mixed if it is an iterated extension of pointwise pure sheaves; the weights of these pure constituents are the weights of $\mathcal F_0$. Our essential result is the following.
+
+\begin{theorem}[Theorem 1, (3.3.1)]
+Let $f:X_0\to S_0$ be a morphism of schemes of finite type over $\Fq$, and let $\mathcal F_0$ be a mixed sheaf of weights $\le n$ on $X_0$. Then, for every $i$, the sheaf
+\[
+R^i f_!\mathcal F_0
+\]
+on $S_0$ is mixed of weights $\le n+i$.
+\end{theorem}
+
+For $S_0=\Spec(\Fq)$, this theorem says that, for every eigenvalue $\alpha$ of Frobenius on $H^i_c(X,\mathcal F)$, there is an integer $m\le n+i$ (the weight of $\alpha$) such that all complex conjugates of $\alpha$ have absolute value $q^{m/2}$.
+
+Poincare duality sometimes makes it possible to complement these upper bounds by lower bounds (3.3.5). For example, if $X_0$ is proper and smooth, and if $\mathcal F_0$ is lisse (``twisted constant'', in another terminology) and pointwise pure of weight $n$, then the eigenvalues of Frobenius on $H^i(X,\mathcal F)$ are all of weight $n+i$; we shall also express this by saying that $H^i(X,\mathcal F)$ is pure of weight $n+i$.
+
+For $\mathcal F_0=\Ql$ (of weight $0$), one recovers the main result of I, with the hypothesis ``projective and smooth'' replaced by ``proper and smooth''.
+
+A simple reduction, parallel to the proof of the finiteness theorem for the $R^i f_!$ (cf. SGA 4, XIV), reduces Theorem 1 to the following theorem, together with a local study at infinity of lisse pointwise pure sheaves on a curve.
+
+\begin{theorem}[Theorem 2, cf. (3.2.3)]
+Let $X_0$ be a proper smooth curve over $\Fq$, let $j:U_0\hookrightarrow X_0$ be the inclusion of a dense open subset, and let $\mathcal F_0$ be a lisse pointwise pure sheaf of weight $n$ on $U_0$. Then $H^i(X,j_*\mathcal F)$ is pure of weight $n+i$.
+\end{theorem}
+
+Here are the main lines of the proof.
+
+\paragraph{A. Preparatory reductions.}
+\begin{enumerate}[label=(\roman*)]
+\item If $u:X'_0\to X_0$ is a finite surjective morphism whose source is a proper smooth curve, and if primes denote base change by $u$, then the groups
+\[
+H^i(X,j_*\mathcal F)
+\]
+are direct factors of
+\[
+H^i(X',j'_*\mathcal F').
+\]
+This argument allows one to reduce to the case where the local monodromy of $\mathcal F$ at the points of $X-U$ is unipotent.
+\item A duality theorem asserts that $H^i(X,j_*\mathcal F)$ and
+\[
+H^{2-i}(X,j_*(\mathcal F^\vee))
+\]
+are in perfect duality, with values in $\Ql(-1)$. This reduces the problem to verifying that the complex conjugates $\alpha'$ of the eigenvalues $\alpha$ of Frobenius on $H^i(X,j_*\mathcal F)$ have absolute value bounded in the required way. The difficult case is $H^1$.
+\end{enumerate}
+
+\paragraph{B. Complex embeddings.}
+Let $\alpha\in \Abar$ be an eigenvalue of Frobenius on $H^i(X,j_*\mathcal F)$. It is convenient to reformulate the estimates to be checked as follows: for every isomorphism
+\[
+\iota:\Abar\xrightarrow{\sim}\CC,
+\]
+one must prove an inequality of the form
+\[
+|\iota(\alpha)|\le q^{(i+n)/2}.
+\]
+In the proof, each isomorphism $\iota$ will be treated separately. This leads one to introduce the notions of pointwise $\iota$-pure and $\iota$-mixed sheaves: one looks not at all complex conjugates of the eigenvalues, but only at their images under $\iota$. It is also convenient to allow the weights to be arbitrary real numbers. See (1.2.6). We shall prove Theorem 2 with ``pure'' replaced by ``$\iota$-pure''. I refer to (1.2.11) the reader who, like me, dislikes the axiom of choice implicit in the use of isomorphisms between $\Abar$ and $\CC$.
+
+\paragraph{C. Local monodromy of $\iota$-pure sheaves.}
+Put $S_0=X_0-U_0$. One begins by proving that, if $\mathcal F_0$ is lisse and pointwise $\iota$-pure of weight $\beta\in\mathbb R$, the $\iota$-weight
+\[
+w_q(\alpha)=\frac{2\log |\iota(\alpha)|}{\log q}
+\]
+of an eigenvalue $\alpha$ of $F_{x_0}$ on $j_*\mathcal F_0$, for $x_0\in S_0$, is of the form $\beta-m$, with $m$ an integer $\ge 0$, and one determines $m$ in terms of the local monodromy of $\mathcal F_0$ at $x_0$ (1.8.4). More generally, one determines the corresponding weights of the eigenvalues of $F_{x_0}$ on $\mathcal F_0$ in the sense of (1.10.2).
+
+The first step is to prove the necessary upper bound. This is done by using Grothendieck's formula for the function $Z(U_0,\mathcal F_0,t)$: after applying $\iota$, one finds on the left an infinite product converging in the appropriate half-plane, and on the right a rational function whose numerator is essentially
+\[
+\det(1-Ft,H^1_c(U,\mathcal F));
+\]
+one uses the fact that the fibres $(j_*\mathcal F)_x$ for $x\in S$ contribute to $H^2_c(U,\mathcal F)$. The second step is to apply this result to tensor powers of $\mathcal F_0$ and of its dual, while taking account of the known structure of local monodromy.
+
+Once this is known, it is permissible, and convenient, to study $j_!\mathcal F_0$ rather than $j_*\mathcal F_0$: if $\mathcal F_0$ is lisse and pointwise $\iota$-pure of weight $\beta\in\mathbb R$, the point is to show that the eigenvalues $\alpha$ of Frobenius on
+\[
+H^1_c(U,\mathcal F)=H^1(X,j_!\mathcal F)
+\]
+have weight $w_q(\alpha)\le \beta+1$. To simplify the notation, we assume $\beta=0$; one reduces to this case by twisting (1.2.7).
+
+\paragraph{D. Passage to $X_0\times X_0$.}
+The main geometric idea is to pass from $(U_0,\mathcal F_0)$ to
+\[
+(U_0\times U_0,\mathcal F_0\boxtimes\mathcal F_0)
+\]
+and to analyze
+\[
+H^2(U\times U,\mathcal F\boxtimes\mathcal F)
+  = H^2(X\times X,j_!\mathcal F\boxtimes j_!\mathcal F)
+\]
+by means of a pencil of hyperplane sections of $X_0\times X_0$, assumed to be in general position, for a suitable projective compactification of $X_0\times X_0$. We assume that reduction A(i) has been carried out.
+
+The aim is to prove that the weight of an eigenvalue $\alpha$ of Frobenius on
+\[
+H^2(X\times X,j_!\mathcal F\boxtimes j_!\mathcal F)
+\]
+satisfies $w_q(\alpha)\le 2+\varepsilon$ in the inductive form of the argument. If $\alpha$ is now an eigenvalue of Frobenius on $H^1(X,j_!\mathcal F)$, the Kunneth formula asserts that $\alpha^2$ is an eigenvalue of Frobenius on the preceding $H^2$, and one obtains an improved bound for $H^1(X,j_!\mathcal F)$. Iterating this procedure replaces the use of large Cartesian powers in I.
+
+Take a sufficiently general pencil of hyperplane sections of $X_0\times X_0$. The hyperplane sections of the pencil are the fibres of a morphism
+\[
+f:Y_0\longrightarrow \mathbb P^1_0,
+\]
+where $Y_0$ is obtained from $X_0\times X_0$ by blowing up finitely many points. Let $\mathcal G_0$ be the inverse image of $j_!\mathcal F_0\boxtimes j_!\mathcal F_0$ on $Y_0$. The Leray spectral sequence for $f$ reduces, in essence, the study of
+\[
+H^2(X\times X,j_!\mathcal F\boxtimes j_!\mathcal F)
+\]
+to that of
+\[
+H^1(\mathbb P^1,R^1 f_*\mathcal G).
+\]
+
+The generalization (1.5.1) of the fundamental estimate I (1.3.2) shows that, over a certain open subset $V_0\subset \mathbb P^1_0$ on which the sheaf $R^1f_*\mathcal G_0$ is lisse, it is a successive extension of lisse pointwise $\iota$-pure sheaves. The hypotheses left from I (1.3.2) are replaced by the requirement that $R^1f_*\mathcal G_0$ be, on $V_0$, a direct factor of a lisse $\iota$-real sheaf, that is, a sheaf $\mathcal H_0$ such that the polynomials
+\[
+\det(1-F_xt,\mathcal H_0)
+\]
+have real coefficients. The results of Section 2 (see E below) let one deduce this from the fact that $\mathcal F_0$ itself is a direct factor of an $\iota$-real sheaf, namely $\mathcal F_0\oplus\mathcal F_0^\vee$: because $\mathcal F_0$ has weight $0$, its dual plays the role of a complex conjugate.
+
+How are the weights of $R^1f_*\mathcal G_0|V_0$ computed? In I (1.3.2), one hypothesis ensured that the sheaf considered had no nontrivial lisse subsheaf, hence was pointwise $\iota$-pure by (1.5.1), and another hypothesis made it possible to compute its weight. In the application I (1.6.3), those hypotheses came from the theory of Lefschetz pencils, more precisely from the conjugacy theorem for vanishing cycles. Here $R^1f_*\mathcal G_0$ has ramification points of three geometrically distinct types, so another argument is needed.
+
+The theory of vanishing cycles makes it possible to control the jump of $R^1f_*\mathcal G_0$ at a point of $\mathbb P^1_0-V_0$ from local information on $X_0\times X_0$, namely the groups of vanishing cycles. A local calculation, together with the results in C applied to $\mathcal F_0$, determines the weights of the Frobenius eigenvalues on those groups of vanishing cycles. These weights turn out to be integers. Applying the results of C to the successive quotients of $R^1f_*\mathcal G_0|V_0$ for a suitable filtration, one shows that $R^1f_*\mathcal G_0$ is a successive extension of lisse sheaves on $V_0$ which either
+\begin{enumerate}[label=(\alph*)]
+\item are lisse on all of $\mathbb P^1_0$ (with weights not detected by vanishing cycles), or
+\item have restriction to $V_0$ pointwise $\iota$-pure of integral weight.
+\end{enumerate}
+Fortunately, the sheaves in case (a) do not contribute to the group
+\[
+H^1(\mathbb P^1,R^1f_*\mathcal G)
+\]
+which interests us, since $\mathbb P^1$ is simply connected and $H^1(\mathbb P^1,\Ql)=0$.
+
+Which integral weights $m$ appear? If one already knows the theorem with an error $\le \delta<1$ and applies it to the fibres of $f$, it gives an estimate $m<1+\delta$; since $m$ is an integer, one even has $m\le 1$. Applying the theorem, with the same error, to $\mathbb P^1$ and to the successive quotients of $R^1f_*\mathcal G_0$ for the filtration introduced above, one obtains the desired estimate for the eigenvalues of Frobenius on $H^1(\mathbb P^1,R^1f_*\mathcal G)$. At the start, however, one only has the cruder bound, and allowing weight $2$ ruins the argument.
+
+\paragraph{E. The weight of an $H^1$ is $<2$.}
+We prove directly that, for $\mathcal F_0$ lisse and pointwise $\iota$-pure of weight $0$, the eigenvalues $\alpha$ of Frobenius on $H^1(X,j_*\mathcal F)$ have weight $w_q(\alpha)<2$. Applied to the fibre of $f$ at a point of $V_0$, this is enough to start the proof. It also separates the Frobenius eigenvalues on $H^1(X,j_*\mathcal F)$, of weight $<2$, from those on $H^2(X,j_!\mathcal F)$, of weight $2$. Applied to the fibres of $f$, it is used in proving that $R^1f_*\mathcal G_0$ is, on $V_0$, a direct factor of a lisse $\iota$-real sheaf. The proof is inspired by Mertens' proof of the Hadamard--de la Vallee Poussin theorem, namely the nonvanishing of $\zeta(s)$ on the line $\Re(s)=1$.
+
+From E one can deduce that, if $\mathcal F_0$ is a lisse pointwise $\iota$-pure sheaf on a smooth curve $U_0$, the fibre $\mathcal F_u$ of $\mathcal F$ at $u\in |U|$ is a completely reducible representation of the geometric monodromy group; see (3.4.1)(iii) and (3.4.14). Via the heuristic dictionary of [2], I, this corresponds to the semisimplicity theorem [2], II (4.2.6) in the theory of variations of Hodge structure. A particular case shows that if $X$ is a nonsingular projective variety over an algebraically closed field $k$, if $(H_t)_{t\in\mathbb P^1}$ is a Lefschetz pencil of hyperplane sections of $X$, with $H_t$ singular for $t\in S$, and if $u\in\mathbb P^1-S$, then the $H^i(H_u,\Ql)$ are completely reducible representations of $\pi_1(\mathbb P^1-S,u)$. A specialization argument reduces one to the case $k=\Fbar$; then $X$ and the pencil are defined over a finite field, and the required purity hypothesis follows from the Weil conjecture for the $H^i$. As is well known, the original arguments of Lefschetz allow one to deduce from this complete reducibility the hard Lefschetz theorem for iterated cup product with the cohomology class of a hyperplane section (4.1.1). We also give a variant for cohomology with values in a sheaf, even in a complex (6.2.13).
+
+Other purely geometric statements result from the existence of a formalism of weights: the local invariant-cycle theorem (3.6.1), for instance, and the results announced in [3] concerning the existence of a grading by weight on $\Ql$-homotopy types (5.3.4). Parallel results are available in Hodge theory, where one can also speak of weights: [12], [9].
+
+Theorem 1 belongs to a formalism that is often far easier to use than I. In (3.7) we show how it simplifies the proofs of the applications given in (1.8). For instructions on its application to estimates of trigonometric sums, I refer to SGA $4\frac12$ [Sommes trigonometriques], especially nos. 1, 2, 3, and 7.
+
+The essential results of the article concern schemes of finite type over a finite field, with two ``buts''. First, they have geometric consequences for a scheme of finite type over the algebraic closure of a finite field, and specialization arguments allow one to pass from there to the case of an arbitrary algebraically closed base field. Second, some results hold for schemes of finite type over $\mathbb Z$. They follow immediately from the proofs of the analogous results over a finite field, but not from their statements. We shall omit them from the section-by-section review below.
+
+In (1.1) we recall what a constructible $\Ql$-sheaf is, with a few variants. We also give a formalism for a corresponding derived category. In (1.2) we define pointwise pure, $\iota$-pure, mixed sheaves, and so on, and state in a more precise form a conjecture according to which, on a scheme of finite type over $\Fq$, every constructible $\Ql$-sheaf is $\iota$-mixed. Sections (1.3) to (1.5) are devoted to the announced generalization of I (1.3.2). In (1.3), Grothendieck's theorem I (1.3.8) is used to define the determinantal weights of a lisse sheaf $\mathcal F_0$ on a smooth curve $U_0$. They depend only on the highest exterior powers of the constituents of $\mathcal F_0$, and control the $H^1$ (and hence the $H^2$) of every sheaf obtained from $\mathcal F_0$ by passing to a tensor space. Proposition (1.3.13), innocent in appearance, will play the role played in I (1.3.2) by the classical invariant theory of the symplectic group.
+
+Sections (1.6) to (1.8) are devoted to point C above in the proof. Section (1.6) contains algebraic preliminaries: the theory of a nilpotent endomorphism of a vector space. Section (1.7) contains geometric preliminaries: how local monodromy supplies nilpotent endomorphisms. The multidimensional end of (1.7) will be used only in (1.9), which itself is unnecessary for the rest of the article.
+
+Section (1.9) is an application of (1.8) to the local monodromy of a mixed lisse sheaf on the complement of a normal-crossing divisor along which it is tamely ramified. An analogous result for variations of Hodge structure has just been obtained by Cattani and Kaplan.
+
+In (1.10), the methods of (1.6)--(1.8) are applied to non-archimedean absolute values. The semicontinuity result (1.10.7) has made it possible to prove that, for a general complete intersection in characteristic $p$, the Newton polygon (defined by the slopes of crystalline cohomology) coincides with the Hodge polygon. That this problem, of $p$-adic nature, could be solved only by $\ell$-adic methods is due to the present absence of a good theory of vanishing cycles in $p$-adic cohomology.
+
+Section (1.11), on specialization of monodromy, is technical and contains no surprises.
+
+Section 2 contains part E above of the proof. In (3.5), by known arguments, one deduces from it an equidistribution theorem, of which one special case is the analogue, for a function field, of the Sato--Tate conjecture concerning the distribution of Frobenius angles for an elliptic curve over $K$.
+
+Section (3.3) contains the proof of Theorem 1 and some corollaries. Section (3.2) gives the proof of Theorem 2, and (3.1) gives the calculation of vanishing cycles used above. In (3.4), Theorem 1 is applied to the study of the successive extensions that define a mixed sheaf. In particular, one proves that a mixed lisse sheaf admits a ``weight filtration'' by lisse subsheaves, and that the geometric monodromy of a pointwise pure lisse sheaf on a normal scheme is semisimple. Section (3.6) gives the local invariant-cycle theorem; (3.7) gives simplifications in the proofs of (1.8).
+
+Section (4.1) contains the proof of the hard Lefschetz theorem. Sections (4.2) and (4.3) provide complements to SGA 7. In (4.3), the use of an ad hoc topos allows one to transpose the Morse-theoretic-looking arguments used by Lefschetz. In (4.4), one proves that the geometric monodromy group of the vanishing part of the cohomology of the hyperplane sections of a Lefschetz pencil (assumed sufficiently general in the wild characteristic-two case) is Zariski dense in an orthogonal or symplectic group, or is a Weyl group. The last case is studied in detail. In (4.5), one deduces the ``gcd theorem'' used in [7] to compare the $\ell$-adic and crystalline cohomologies of projective smooth varieties.
+
+In Section 5, the yoga of weights is applied to the $\Ql$-homotopy type. The definition of the latter makes essential use of the construction, by Miller and Grothendieck, of a graded differential (anti-)commutative algebra attached to a simplicial set and allowing one to compute its integral cohomology.
+
+Finally, Section 6 develops the formalism of mixed sheaves. With proofs inspired by SGA $4\frac12$ [Th. finitude], it is shown that their category is remarkably stable. One also defines a notion of pure complex, generalizing that of a lisse pointwise pure sheaf on a smooth scheme (6.2.4), (6.2.5). The direct image $Rf_*$ by a proper morphism carries pure complexes to pure complexes. For them one generalizes the local invariant-cycle theorem and, under dimension hypotheses, the global invariant-cycle theorem and the hard Lefschetz theorem.
+
+% ===== Source unit: deligne_paper32_weilII_notations_11_EN.tex =====
+\section*{Notations and conventions}
+
+\paragraph{(0.1).} Throughout this article, unless the contrary is explicitly stated, we fix a prime number $\ell$, and we consider only noetherian separated algebraic spaces on which $\ell$ is invertible. We shall simply call them schemes.
+
+The reader who dislikes algebraic spaces may replace, in (0.1), the words ``algebraic space'' by ``scheme''.
+
+\paragraph{(0.2).} We fix an algebraic closure $\Qlb$ of the field $\Ql$ of $\ell$-adic numbers. We denote by $\iota$ an isomorphism of fields from $\Qlb$ to $\mathbb C$; see (1.2.11). Exception: in (1.10), the same letter $\iota$ will denote an isomorphism of fields from $\Qlb$ to an algebraic closure $\overline{\mathbb Q}_{\ell'}$ of the field of $\ell'$-adic numbers. The word sheaf will mean, according to the section, ``sheaf for the etale topology'', ``constructible $\Qlb$-sheaf'', or ``Weil sheaf''. See (1.1.5), (1.3.2).
+
+If $f:X\to Y$ is a morphism, and $\mathcal F$ is a sheaf on $Y$, we shall often write, when no ambiguity can arise,
+\[
+H^*(X,\mathcal F)
+\]
+for $H^*(X,f^*\mathcal F)$. The same convention applies to hypercohomology, with or without supports.
+
+\paragraph{(0.3).} A geometric point $\bar x$ of $X$ is a morphism from the spectrum of an algebraically closed field - denoted $k(\bar x)$ - to $X$. It is said to be localized at $x\in X$ if $x$ is its image in $X$. It is called algebraic if $k(\bar x)$ is an algebraic closure of $k(x)$.
+
+Every geometric point defines an algebraic geometric point: replace $k(\bar x)$ by the algebraic closure of $k(x)$ in $k(\bar x)$. We shall sometimes use this construction to extend tacitly to geometric points terminology introduced for algebraic geometric points.
+
+Every point $x$ of $X$ whose residue field is separably closed defines a geometric point $\bar x$: take the perfect closure of $k(x)$. We shall often identify $x$ and $\bar x$.
+
+If $f:X\to Y$ is a morphism, every geometric point $\bar x$ of $X$ defines by composition a geometric point $f(\bar x)$ of $Y$, sometimes denoted simply by $f\bar x$.
+
+\paragraph{(0.4).} Unless explicitly stated otherwise, locally means locally for the etale topology.
+
+If $x$ is a point of a scheme $X$, we write $X_{(x)}$ for the henselization of $X$ at $x$, i.e. the spectrum of the henselization of the local ring of $X$ at $x$. If $\bar x$ is a geometric point of $X$, we write $X_{(\bar x)}$ for the strict localization, or strict henselization, of $X$ at $x$. Its residue field is the separable closure of $k(x)$ in $k(\bar x)$.
+
+\paragraph{(0.5).} A smooth curve over a field $k$ is a smooth scheme purely of dimension one over $k$.
+
+Let $X$ be a scheme of finite type over a field $k$. If $X$ is connected, its structural morphism $X\to\Spec(k)$ admits a unique factorization
+\[
+X\longrightarrow \Spec(k')\longrightarrow \Spec(k)
+\]
+with $k'$ a finite separable extension of $k$ and $X/k'$ geometrically connected. In general, each connected component of $X$ admits such a factorization.
+
+In particular, this gives a mechanical procedure for reducing properties of smooth curves over finite fields to those of absolutely irreducible smooth curves over finite fields. We shall often use it tacitly, passing from one formulation to the other.
+
+\paragraph{(0.6).} A trait is the spectrum of a discrete valuation ring $V$. It is henselian if $V$ is henselian, and strictly local if it is henselian and its residue field is separably closed. The expression ``a trait $(S,\eta,s)$'' means a trait $S$ with closed point $s$ and generic point $\eta$. The expression ``a trait $(S,\bar\eta,s,\bar s)$'' means a trait $(S,\eta,s)$, together with a geometric point $\bar s$ localized at $s$, and with a generic geometric point $\bar\eta$ of the strict localization $S_{(\bar s)}$.
+
+\paragraph{(0.7).} We shall always denote by $p$ a prime number distinct from $\ell$, by $q$ a power of $p$, by $\Fq$ a finite field with $q$ elements, and by $F$ an algebraic closure of $\Fq$ (or of $\mathbb F_p$, if $\Fq$ has not been introduced).
+
+The following conventions will often be in force. The fields $\Fq$ and $F$ are fixed. Objects over $\Fq$ - schemes, or sheaves on $\Fq$-schemes - are denoted with a subscript $0$. Suppressing this subscript indicates extension of scalars from $\Fq$ to $F$. For instance, if $\mathcal F_0$ is a sheaf on the $\Fq$-scheme $X_0$, then $\mathcal F$ denotes its inverse image on $X=X_0\otimes_{\Fq}F$.
+
+Geometric points $\Spec(K)\to X_0$ of $X_0$ will always be assumed to be defined by a geometric point of $X$; that is, $K$ is assumed to be endowed with an $\Fq$-morphism $F\to K$.
+
+\paragraph{(0.8).} If $X$ is a scheme of finite type over a field or over $\mathbb Z$, we denote by $|X|$ the set of its closed points. With the notation of (0.7), if $X_0$ is of finite type over $\Fq$, each point $x\in |X|$ defines a geometric point, again denoted $x$, of $X_0$. We shall simply speak of the geometric point $x\in |X|$.
+
+\paragraph{(0.9).} In this article the point of view will be more Galoisian than in I; this will often lead us to write $F$ where $F^*$ appeared in I.
+
+\paragraph{(0.10).} A filtration $F$ of an object $V$ of an abelian category is called finite if there exist $n$ and $m$ such that $F^nV=V$ and $F^mV=0$.
+
+\paragraph{(0.11).} We write $\limind$ and $\limproj$ for inductive and projective limits. Quotation marks indicate a limit taken in a category of ind-objects or pro-objects; thus ``$\limind X_i$'' denotes the ind-object defined by the inductive system of the $X_i$ (assumed filtered).
+
+We write $:=$ for an equality whose right-hand side is the definition of the left-hand side.
+
+\section*{1. Purity}
+\subsection*{(1.1) $\ell$-adic sheaves}
+
+\paragraph{(1.1.1).} We recall the definition of a constructible $\Qlb$-sheaf on a scheme $X$ as in (0.1), following SGA 5, VI (1.4.2).
+
+\begin{enumerate}[label=\alph*)]
+\item Let $A$ be a noetherian torsion ring. A sheaf of $A$-modules $\mathcal F$ is called constructible if there exists a finite partition of $X$ into locally closed subsets $X_i$ such that the restrictions $\mathcal F|X_i$ are locally constant, with fibres finitely generated $A$-modules.
+
+\item Let $R$ be a noetherian local ring of residual characteristic $\ell$, and let $\mathfrak m$ be its maximal ideal. We assume that $R$ is complete for the $\mathfrak m$-adic topology. The category of constructible $R$-sheaves is the 2-projective limit of the categories of sheaves of $R/I$-modules, for $I$ an open ideal of $R$.
+
+More explicitly, a constructible $R$-sheaf $\mathcal F$ on $X$ is a projective system of sheaves of $R$-modules, indexed by open ideals $I$ of $R$, such that:
+\begin{enumerate}[label=(\roman*)]
+\item $\mathcal F_I$ is annihilated by $I$, and is constructible as a sheaf of $R/I$-modules;
+\item for $I\supset J$, the transition morphism from $\mathcal F_J$ to $\mathcal F_I$ induces an isomorphism
+\[
+\mathcal F_J\otimes_{R/J} R/I \xrightarrow{\sim} \mathcal F_I.
+\]
+\end{enumerate}
+The map $n\mapsto \mathfrak m^n$ from the positive integers to the set of open ideals of $R$ is cofinal. Thus one may replace the projective limit over $I$ by a projective limit over $n$, with $R/I$ replaced by $R/\mathfrak m^n$.
+
+The functor
+\[
+\mathcal F\longmapsto ``\limproj''\,\mathcal F_I
+\]
+from constructible $R$-sheaves to pro-sheaves of $R$-modules is fully faithful. We shall again call any pro-sheaf in its essential image a constructible $R$-sheaf. This leads one to abandon the notation $\mathcal F_I$ and to write instead
+\[
+\mathcal F\otimes_R R/I.
+\]
+Justification: for $\mathcal F$ as above, the projective system in $J$ of the $\mathcal F_J\otimes_R R/I$ is essentially constant, with value $\mathcal F_I$.
+
+We say that $\mathcal F$ is lisse (in another terminology, twisted constant) if the sheaves $\mathcal F\otimes_R R/I$ are locally constant.
+
+\item Let $E$ be a finite extension of $\Ql$, and let $R$ be the integral closure of $\Zl$ in $E$. The category of constructible $E$-sheaves is the quotient of the category of constructible $R$-sheaves by the thick subcategory of torsion sheaves. Equivalently:
+\begin{enumerate}[label=(\roman*)]
+\item There is an essentially surjective functor
+\[
+\mathcal F\longmapsto \mathcal F\otimes_R E
+\]
+from constructible $R$-sheaves to constructible $E$-sheaves.
+\item One has
+\[
+\Hom(\mathcal F\otimes_R E,\mathcal G\otimes_R E)
+   = \Hom(\mathcal F,\mathcal G)\otimes_R E.
+\]
+\end{enumerate}
+A constructible $E$-sheaf is lisse if it is locally of the form $\mathcal F\otimes_R E$, with $\mathcal F$ lisse.
+
+\item For $F$ a finite extension of $E$, there is a functor
+\[
+\mathcal F\longmapsto \mathcal F\otimes_E F
+\]
+from constructible $E$-sheaves to constructible $F$-sheaves, and
+\[
+\Hom(\mathcal F\otimes_E F,\mathcal G\otimes_E F)
+  =\Hom(\mathcal F,\mathcal G)\otimes_E F.
+\]
+For an iterated extension, one has the canonical isomorphism
+\[
+(\mathcal F\otimes_E F)\otimes_F K\simeq \mathcal F\otimes_E K. \tag{1.1.1.1}
+\]
+
+The category of constructible $\Qlb$-sheaves is the $\Qlb$-linear 2-inductive limit of the categories of constructible $E$-sheaves, for finite extensions $E\subset\Qlb$ of $\Ql$ becoming larger and larger. In other words:
+\begin{enumerate}[label=(\roman*)]
+\item for $E\subset\Qlb$ finite over $\Ql$, there is an $E$-linear functor
+\[
+\mathcal F\longmapsto \mathcal F\otimes_E \Qlb
+\]
+from constructible $E$-sheaves to constructible $\Qlb$-sheaves, inducing isomorphisms on Hom after tensoring with $\Qlb$;
+\item there are canonical isomorphisms compatible with (1.1.1.1);
+\item every constructible $\Qlb$-sheaf is of the form $\mathcal F\otimes_E\Qlb$ for suitable $E$ and $\mathcal F$.
+\end{enumerate}
+A constructible $\Qlb$-sheaf is lisse if it is locally of the form $\mathcal F\otimes_E\Qlb$ with $\mathcal F$ lisse.
+\end{enumerate}
+
+For these definitions to be usable, one needs the usual formalism for such sheaves. Such a formalism is partially constructed in SGA 5, V and VI. In those expositions, Jouanolou proves that constructible $\Zl$-sheaves on $X$ form a noetherian abelian category, gives the relation between lisse constructible $\Zl$-sheaves and representations of the fundamental group, proves that constructible $\Zl$-sheaves are lisse on the strata of a stratification of $X$, defines tensor products and inverse images, and defines and studies the direct image functors with proper support $R^if_!$ for $f:X\to Y$ a morphism of finite type between noetherian schemes.
+
+Thanks to SGA $4\frac12$ [finiteness], the theory also applies to the functors $R^if_*$ and $R^if_!$ when $f$ is a morphism of finite type between schemes of finite type over an excellent regular scheme of dimension $\le1$. It likewise applies to the sheaves of vanishing cycles $R^i\Psi$ and $R^i\Phi$.
+
+\paragraph{(1.1.2).} In Section 6 we shall work essentially in the derived category of a category of $\ell$-adic sheaves. This theory is not yet fully in place. We shall use the following framework.
+
+Let $R$ be the ring of integers of a finite extension $E_\lambda$ of $\Ql$, and let $\mathfrak m$ be its maximal ideal. If $X$ is a scheme, define
+\[
+D^-(X,R):=2\text{-}\limproj_n D^-(X,R/\mathfrak m^n).
+\]
+An object $K$ of $D^-(X,R)$ is a projective system represented by complexes $K_n\in\Ob D^-(X,R/\mathfrak m^n)$ and by isomorphisms
+\[
+K_{n+1}\overset L\otimes_{R/\mathfrak m^{n+1}} R/\mathfrak m^n \xrightarrow{\sim} K_n
+\]
+in $D^-(X,R/\mathfrak m^n)$. The complex $K_n$ will rather be denoted
+\[
+K\overset L\otimes_R R/\mathfrak m^n.
+\]
+
+We shall be especially interested in the subcategory $D^b_c(X,R)$ consisting of those $K\in\Ob D^-(X,R)$ such that $K\overset L\otimes_R R/\mathfrak m$ is bounded with constructible cohomology. Then, for every $n$, $K\overset L\otimes_R R/\mathfrak m^n$ belongs to $D^b_{ctf}(X,R/\mathfrak m^n)$: bounded complexes of finite Tor-dimension whose cohomology sheaves are constructible.
+
+The following remarks justify the use we shall make of $D^b_c(X,R)$.
+
+\begin{enumerate}[label=\alph*)]
+\item If $K$ is in $D^b_c(X,R)$, the sheaves
+\[
+\mathcal H^iK := ``\limproj_n''\,\mathcal H^i(K\overset L\otimes_R R/\mathfrak m^n)
+\]
+are constructible $R$-sheaves. The proof is reduced, by cutting up $X$, to the case where the cohomology sheaves of $K\overset L\otimes_R R/\mathfrak m^n$ are locally constant; then it is enough to examine their fibres at points, where one applies the argument of SGA 5, XV.
+
+\item Conversely, if $\mathcal F$ is a torsion-free constructible $R$-sheaf, the projective system of complexes concentrated in degree zero with term $\mathcal F\otimes_R R/\mathfrak m^n$ belongs to $D^b_c(X,R)$. We shall not need to consider the case in which $\mathcal F$ has torsion.
+
+\item Under suitable finiteness hypotheses, for instance when working with schemes of finite type over a regular scheme $S$ of dimension $\le1$, the categories $D^b_{ctf}(X,R/\mathfrak m^n)$ are stable under the four operations $Rf_*$, $f^*$, $Rf_!$, $Rf^!$, and under the internal operations $\otimes^L$ and $R\mathcal Hom$. Moreover these operations commute with reduction modulo $\mathfrak m^n$. They therefore extend trivially to $D^b_c(X,R)$. The same applies to the functors $R\Psi$ and $R\Phi$ of the theory of vanishing cycles.
+
+\item If, for all $K,L$ in $D^b_c(X,R)$, the groups
+\[
+\Hom(K\overset L\otimes_R R/\mathfrak m^n,
+     L\overset L\otimes_R R/\mathfrak m^n)
+\]
+are finite, then $D^b_c(X,R)$ is a triangulated category, with distinguished triangles those whose reductions modulo $\mathfrak m^n$ are distinguished for all $n$.
+
+In general, it is better to replace triangles by filtered complexes. One defines $DF^b_{ctf}(X,R/\mathfrak m^n)$ as the derived category of bounded filtered complexes, with finite filtration, whose associated graded object has finite Tor-dimension. Then one puts
+\[
+DF^b_c(X,R):=2\text{-}\limproj_n DF^b_{ctf}(X,R/\mathfrak m^n).
+\]
+Whenever one would like to consider a triangle in $D^b_c(X,R)$, one can do better: construct an object of $DF^b_c(X,R)$ whose filtration has only two steps, the two components of the associated graded object being the vertices of the desired triangle and the underlying complex being the third vertex. By abuse of language we shall sometimes call such objects triangles and write them as short exact sequences.
+
+\item The definition of truncation functors $\tau_{\le a}$ is delicate. If $K$ is a complex of sheaves, $\tau_{\le a}K$ is the complex
+\[
+\cdots\to K^{a-1}\to \Ker(d^a)\to 0\to\cdots.
+\]
+This functor carries quasi-isomorphisms to quasi-isomorphisms and hence passes to the derived category, but it does not preserve finite Tor-dimension. The difficulty is bypassed by a modified construction using the images of cohomology modulo sufficiently high powers of $\mathfrak m$. This construction uses in an essential way the fact that $R$ is regular of dimension one.
+\end{enumerate}
+
+\begin{variant}[(1.1.3)]
+Let $D^b_c(X,E_\lambda)$ be the category obtained from $D^b_c(X,R)$ by extension of scalars from $R$ to $E_\lambda$: there is an essentially surjective functor
+\[
+D^b_c(X,R)\longrightarrow D^b_c(X,E_\lambda)
+\]
+and
+\[
+\Hom(K,L)\otimes_R E_\lambda\xrightarrow{\sim}
+\Hom(K\otimes_R E_\lambda,L\otimes_R E_\lambda).
+\]
+One then puts
+\[
+D^b_c(X,\Qlb):=2\text{-}\limind_{E_\lambda\subset\Qlb} D^b_c(X,E_\lambda).
+\]
+\end{variant}
+
+\paragraph{(1.1.4).} In the sequel we shall freely use, for $\Zl$-, $\Ql$-, or $\Qlb$-sheaves, the theorems known for constructible sheaves of $R/\mathfrak m^n$-modules. The expositions SGA 5, V, VI, XV, and the preceding remarks justify our arguments; whenever a difficulty arises, it will be pointed out.
+
+\paragraph{(1.1.5).} In this section and the next, we shall simply say sheaf for constructible $\Qlb$-sheaf. This convention will be superseded by (1.3.2).
+
+\paragraph{(1.1.6).} An $\ell$-adic representation of a profinite group $\pi$ (or, more generally, of an extension of a finitely generated discrete group by a profinite group) on a $\Qlb$-vector space $V$ is a homomorphism
+\[
+\rho:\pi\to \GL(V)
+\]
+such that there exist a finite extension $E$ of $\Ql$ in $\Qlb$ and an $E$-structure $V_E$ on $V$ for which $\rho$ factors through a continuous homomorphism from $\pi$ to $\GL(V_E)$. Representations of $\pi$ in an algebraic group over $\Qlb$ are defined similarly.
+
+For $X$ connected and pointed by a geometric point $\bar x$, there is the usual relation between lisse sheaves and continuous representations of the fundamental group $\pi_1(X,\bar x)$: the equivalence of categories sending a lisse sheaf to its fibre. We shall transport to sheaves the familiar terminology for representations. Whether or not $X$ is connected, a lisse sheaf $\mathcal F$ on $X$ is called simple or irreducible if it is nonzero and has no nontrivial lisse subsheaf; it is semisimple if it is a sum of simple sheaves. A Jordan--Holder series of $\mathcal F$ is a finite filtration of $\mathcal F$ by lisse subsheaves whose graded pieces are irreducible or zero. The constituents of $\mathcal F$ are the nonzero graded pieces for such a series, and the semisimplification of $\mathcal F$ is the direct sum of its constituents. Constituents and semisimplification are defined up to nonunique isomorphism.
+
+\paragraph{(1.1.7).} Let $k$ be a finite field with $q$ elements, and let $\bar k$ be an algebraic closure of $k$. The Frobenius substitution $\varphi\in\Gal(\bar k/k)$ is the automorphism $x\mapsto x^q$ of $\bar k$. The geometric Frobenius $F\in\Gal(\bar k/k)$ is the inverse of $\varphi$. The Weil group $W(\bar k/k)$ is the subgroup of $\Gal(\bar k/k)$ formed by the integral powers of $F$. It is isomorphic to $\mathbb Z$, and $\Gal(\bar k/k)$ is its profinite completion. We shall often identify $W(\bar k/k)$ with $\mathbb Z$, and $\Gal(\bar k/k)$ with $\widehat{\mathbb Z}$, by the isomorphism sending $F$ to $1$.
+
+Specialize (1.1.6) to $X=\Spec(k)$. If $\mathcal F$ is a sheaf on $\Spec(k)$, its fibre $\mathcal F_{\bar k}$ at the geometric point $\Spec(\bar k)$ is a $\Qlb$-vector space on which $\Gal(\bar k/k)$ acts by transport of structure. This action is continuous: the map $n\mapsto F^n$ extends by continuity to a homomorphism $\widehat{\mathbb Z}\to \GL(\mathcal F_{\bar k})$. Equivalently, the eigenvalues of $F$ are $\ell$-adic units. The functor $\mathcal F\mapsto\mathcal F_{\bar k}$ is an equivalence from the category of sheaves on $\Spec(k)$ to the category of $\Qlb$-vector spaces equipped with an automorphism $F$ whose eigenvalues are $\ell$-adic units.
+
+\paragraph{(1.1.8).} Let $X$ be a scheme of finite type over $\mathbb Z$, $\mathcal F$ a sheaf on $X$, and $y:\Spec(k)\to X$ a point of $X$ with values in a finite field $k$. Let $\bar k$ be an algebraic closure of $k$. The inverse image of $\mathcal F$ on $\Spec(k)$ falls under (1.1.7), so $\Gal(\bar k/k)$ acts on $\mathcal F_{\bar y}$. By abuse of notation we write
+\[
+\det(1-F_y t,\mathcal F)
+\]
+for the corresponding determinant, and we speak similarly of the eigenvalues of $F_y$ acting on $\mathcal F$.
+
+If $X$ is connected and pointed by a geometric point $\bar x$, one has a conjugacy class of maps
+\[
+\Gal(\bar k/k)=\pi_1(\Spec(k),\Spec(\bar k))\longrightarrow \pi_1(X,\bar x).
+\]
+We write $F_y$ for the image of geometric Frobenius by any of these maps. For $\mathcal F$ lisse, defined by a representation $V$ of $\pi_1(X,\bar x)$, one has
+\[
+\det(1-F_y t,\mathcal F)=\det(1-F_y t,V),
+\]
+which justifies the notation. In the special case where $y$ is a closed point of $X$, this is simply the morphism of inclusion $\Spec(k(y))\to X$.
+
+\paragraph{(1.1.9).} When studying schemes of finite type over $\mathbb F_p$, it is often convenient to replace Galois groups and sheaves by the Weil groups and Weil sheaves defined below. The reader should note that the definition of Weil sheaves is relative to the choice of an algebraic closure $F$ of $\mathbb F_p$.
+
+\begin{definition}[(1.1.10)]
+With the notation of (0.7):
+\begin{enumerate}[label=(\roman*)]
+\item A Weil sheaf $\mathcal F_0$ on $X_0$ consists of a sheaf $\mathcal F$ on $X$, together with an action of $W(F/\Fq)$ on $(X,\mathcal F)$ inducing on $X=X_0\otimes_{\Fq}F$ the action deduced from the action of $W(F/\Fq)$ on $F$.
+\item If $\bar x$ is a geometric point of $X$, the Weil group $W(X_0,\bar x)$ is the inverse image of $W(F/\Fq)$ by the natural map
+\[
+\pi_1(X_0,\bar x)\longrightarrow \pi_1(\Spec(\Fq),\bar x)=\Gal(F/\Fq).
+\]
+\end{enumerate}
+\end{definition}
+
+Thus the topology on
+\[
+W(X_0,\bar x)=\pi_1(X_0,\bar x)\times_{\Gal(F/\Fq)} W(F/\Fq)
+\]
+is the product topology; the subgroup
+\[
+\pi_1(X,\bar x)=\Ker\bigl(\pi_1(X_0,\bar x)\to\pi_1(\Spec(\Fq),\bar x)\bigr)
+\]
+is open and closed. Replacing $\Fq$ by $\mathbb F_p$ does not change either the category of Weil sheaves or the Weil group.
+
+\paragraph{(1.1.11).} The inverse image on $X$ of a sheaf on $X_0$ is endowed, by transport of structure, with an action of $\Gal(F/\Fq)$. This identifies sheaves on $X_0$ with particular Weil sheaves: those for which the action of $W(F/\Fq)$ extends to a continuous action of $\Gal(F/\Fq)$.
+
+We shall admit for Weil sheaves the analogue of Grothendieck's results for ordinary sheaves. The generalization is easy, using (1.3.14).
+
+\paragraph{(1.1.12).} If $\widetilde X$ is the universal covering of $X_0$, pointed by $\bar x$, then there is an equivariant morphism, relative to the natural morphism $W(X_0,\bar x)\to W(F/\Fq)$,
+\[
+(\widetilde X,\text{ with action of }W(X_0,\bar x))
+\longrightarrow
+(X,\text{ with action of }W(F/\Fq)).
+\]
+The inverse image on $\widetilde X$ of a Weil sheaf is therefore endowed with an action of $W(X_0,\bar x)$. If the sheaf is lisse, its fibre at $\bar x$ identifies with its global sections on $\widetilde X$, giving a fibre functor
+\[
+\{\text{lisse Weil sheaves}\}\longrightarrow\{ \text{representations of }W(X_0,\bar x)
+\}.
+\]
+Here ``representation'' is defined as in (1.1.6). Standard arguments show that, if $X_0$ is connected, this functor is an equivalence of categories. As in (1.1.6), it allows us to transfer the language of representations to lisse Weil sheaves.
+
+\paragraph{(1.1.13).} Suppose $X_0$ is connected. For $y\in |X_0|$ (or more generally for $y$ a point of $X_0$ with values in a finite field), the Frobenius elements $F_y$ lie in $W(X_0,\bar x)$; the image of $F_y$ in $\Gal(F/\Fq)$ is the integral power $q^{\deg y}$ of the Frobenius substitution. The element $F_y$ of $W(X_0,\bar x)$ is well-defined up to conjugacy.
+
+We shall call degrees the arrows to the right in the standard diagram connecting $\pi_1(X,\bar x)$, $W(X_0,\bar x)$, and $W(F/\Fq)\simeq\mathbb Z$. One has $\deg F_y=\deg y$. The degree maps are surjective if $X_0$ is geometrically connected. In general, if the largest finite subfield of $\Gamma(X_0,\mathcal O_{X_0})$ has degree $n$ over $\Fq$, their images are $n\mathbb Z$ and $n\widehat{\mathbb Z}$.
+
+\paragraph{(1.1.14).} Let $\mathcal F$ be a sheaf on $X$. If $F:X\to X$ is the Frobenius endomorphism deduced by scalar extension from the endomorphism $x\mapsto x^q$ of $X_0$, and if $\operatorname{id}_{X_0}\times F:X\to X$ is the action of geometric Frobenius, then, as in SGA 5, XV, there is a canonical isomorphism
+\[
+(\operatorname{id}_{X_0}\times F)^*\mathcal F\simeq F^*\mathcal F.
+\]
+For a Weil sheaf $\mathcal F_0$ on $X_0$, one deduces a Frobenius correspondence $F^*\mathcal F\to\mathcal F$, and the functor
+\[
+\mathcal F_0\longmapsto (\mathcal F,F^*)
+\]
+is an equivalence from the category of Weil sheaves to the category of sheaves $\mathcal F$ on $X$ endowed with an isomorphism $F^*\mathcal F\xrightarrow{\sim}\mathcal F$.
+
+For constructible sheaves of $\mathbb Z/\ell^n$-modules, or for constructible $\Zl$-sheaves, an analogous result holds. This is not so for $\Ql$- or $\Qlb$-sheaves: for example, take $\mathcal F=\Qlb$ and let $F^*$ be multiplication by an element of $\Qlb^\times$ which is not an $\ell$-adic unit.
+
+The induced morphism
+\[
+H^i(X,\mathcal F)\xrightarrow{F^*}H^i(X,F^*\mathcal F)\to H^i(X,\mathcal F)
+\]
+coincides with the action of $F\in W(F/\Fq)$ on cohomology by transport of structure. The same holds for cohomology with compact supports.
+
+\paragraph{(1.1.15).} We call $\pi_1(X_0,\bar x)$ the arithmetic fundamental group, and $\pi_1(X,\bar x)$ the geometric fundamental group. If $X_0$ is normal, these are profinite groups. If $\mathcal F_0$ is a lisse Weil sheaf on $X_0$, its geometric monodromy group is the image of $\pi_1(X,\bar x)$ in $\GL(\mathcal F_{\bar x})$.
+
+% ===== Source unit: deligne_paper32_weilII_section_12_weights_EN.tex =====
+\section*{(1.2) Weights}
+
+\paragraph{Definition (1.2.1).} Let $q$ be a power of a prime number, and let $n\in\ZZ$. A number $\alpha$ is said to be \emph{pure of weight $n$, relative to $q$}, if it is algebraic and all of its complex conjugates have absolute value $q^{n/2}$.
+
+In what follows, ``number'' will mean ``element of $\Qlb$''.
+
+\paragraph{Definition (1.2.2).} Let $X$ be a scheme of finite type over $\ZZ$, and let $\mathcal F$ be a sheaf on $X$.
+\begin{enumerate}[label=(\roman*)]
+\item We say that $\mathcal F$ is \emph{pointwise pure} if there exists an integer $n$, the weight of $\mathcal F$, such that, for every $x\in |X|$, the eigenvalues of $F_x$ are pure of weight $n$ relative to $N(x)$.
+\item We say that $\mathcal F$ is \emph{mixed} if it admits a finite filtration whose successive quotients are pointwise pure sheaves. The weights of those quotients which are nonzero are the pointwise weights of $\mathcal F$.
+\end{enumerate}
+
+According to these definitions, the zero sheaf is pointwise pure and, for every $n$, has weight $n$. It is mixed, with empty set of weights.
+
+\paragraph{Variant (1.2.3).} If $k$ is a finite field, sheaves on $\Spec(k)$ identify with $\ell$-adic representations of $\Gal(\bar k/k)$. We transport the terminology of (1.2.2) to them.
+
+\paragraph{Variant (1.2.4).} The same terminology applies to Weil sheaves (1.1.10), and also to $\Qlb$-vector spaces endowed with an action of Frobenius, as far as the variant (1.2.3) is concerned.
+
+\paragraph{Stabilities (1.2.5).}
+\begin{enumerate}[label=(\roman*)]
+\item The category of pointwise pure sheaves of weight $n$ is stable under passage to a quotient, to a subsheaf, by extension, by inverse image, and by direct image under a finite morphism.
+\item The tensor product of two pointwise pure sheaves of weights $n$ and $m$ is pointwise pure of weight $n+m$. The dual of a lisse pointwise pure sheaf of weight $n$ is pointwise pure of weight $-n$.
+\item The category of mixed sheaves is stable under the operations of (i), and under tensor product.
+\item Finally, note that $\Qlb(1)$ is pointwise pure of weight $-2$.
+\end{enumerate}
+
+\paragraph{(1.2.6).} To show that $\alpha\in\Qlb$ is pure of weight $n$, it suffices to verify that for every isomorphism $\iota$ from $\Qlb$ to $\CC$, the complex number $\iota\alpha$ has absolute value $q^{n/2}$. The number $\alpha$ is then automatically algebraic; otherwise $\alpha$ could be any transcendental number. Throughout what follows, our arguments will concern each isomorphism $\iota$ separately. This is why, although the important concepts are those of (1.2.2), the following terminology will be useful to us.
+
+Let $\iota$ be an isomorphism of fields from $\Qlb$ to $\CC$. If $q$ is a power of a prime number, and $\alpha\in\Qlb$, put
+\begin{equation}
+\tag{1.2.6.1}
+w_q(\alpha):=2\log_q |\iota\alpha|;
+\end{equation}
+this is the $\iota$-weight of $\alpha$, relative to $q$. For every real number $\beta$, a sheaf $\mathcal F$ is called \emph{pointwise $\iota$-pure of weight $\beta$} if, for every $x\in |X|$ and every eigenvalue $\alpha$ of $F_x$ acting on $\mathcal F$, one has $w_{N(x)}(\alpha)=\beta$. We say that $\mathcal F$ is \emph{$\iota$-mixed} if it admits a finite filtration whose successive quotients are pointwise $\iota$-pure. The weights of those of these quotients which are nonzero are the pointwise $\iota$-weights of $\mathcal F$. One similarly transposes the variants (1.2.3) and (1.2.4). The analogue of (1.2.5) remains true. Note that, for $k$ a finite field, a representation $V$ of $W(\bar k/k)$ is automatically $\iota$-mixed.
+
+\paragraph{(1.2.7) Torsion.} For $b\in \Qlb^*$, we shall denote by $\Qlb^{(b)}$ any Weil sheaf on $\Spec(\Fp)$ of rank one for which $F$ acts by multiplication by $b$. For $b$ an $\ell$-adic unit, this is an ordinary sheaf. If a choice has been made of an algebraic closure $\bar F$ of $\Fp$, it will be normalized by the choice of an isomorphism between its geometric fibre at $\bar F$ and $\Qlb$. For $X$ a scheme of characteristic $p$ (that is, over $\Fp$), $\mathcal F$ a sheaf on $X$, and $b$ an $\ell$-adic unit (respectively, $X$ of finite type over $\Fp$, $\mathcal F$ a Weil sheaf, and $b\in\Qlb^*$), we write $\mathcal F^{(b)}$ for the tensor product of $\mathcal F$ by the inverse image of $\Qlb^{(b)}$; we say that $\mathcal F^{(b)}$ is deduced from $\mathcal F$ by torsion. The sheaf $\Qlb^{(b)}$ is pointwise $\iota$-pure of weight $w_p(b)$; the torsion $\mathcal F\mapsto\mathcal F^{(b)}$ therefore increases weights by $w_p(b)$.
+
+\paragraph{Remark (1.2.8).} In the definitions of pointwise pure sheaves and mixed sheaves, we have required the weights to be integers. In the definitions of pointwise $\iota$-pure sheaves and $\iota$-mixed sheaves, it is convenient to allow them to be arbitrary real numbers. The deep theorem (3.4.1) shows a posteriori that, for $X$ of finite type over $\Fp$, this generality is largely illusory: every $\iota$-mixed sheaf is a direct sum of sheaves deduced by torsion (1.2.7) from $\iota$-mixed sheaves of integral weights, and every sheaf which is $\iota$-mixed for every $\iota$ is a direct sum of sheaves deduced by torsion from mixed sheaves.
+
+Every lisse sheaf is a successive extension of irreducible lisse sheaves, and we shall see in (1.3.6) that every lisse sheaf on $X$ normal, connected, and of finite type over $\Fp$ is obtained by torsion from a sheaf whose determinant (the maximal exterior power) is defined by a finite-order character of the fundamental group of $X$. Therefore the following conjecture
+
+\paragraph{Conjecture (1.2.9).} On $X$ of finite type over $\Fp$, every sheaf is $\iota$-mixed,
+
+is a consequence of the more precise conjecture (1.2.10) below. One of our main tools, the theorem (1.5.1), is a partial result in the direction of (1.2.9).
+
+\paragraph{Conjecture (1.2.10).} Let $X$ be normal, connected, and of finite type over $\Fp$, and let $\mathcal F$ be an irreducible lisse sheaf whose determinant is defined by a finite-order character of the fundamental group.
+\begin{enumerate}[label=(\roman*)]
+\item $\mathcal F$ is pure of weight $0$.
+\item There exists a number field $E\subset\Qlb$ such that, for $x\in |X|$, the polynomial
+\[
+\det(1-F_x t,\mathcal F)
+\]
+has coefficients in $E$.
+\item For $\lambda$ a non-archimedean place of $E$ prime to $p$, the inverse roots in $\bar E_\lambda$ of the polynomial $\det(1-F_x t,\mathcal F)$, that is, the eigenvalues of Frobenius, are $\lambda$-adic units.
+\item For $\lambda$ dividing $p$, the valuation of the inverse roots verifies
+\[
+|v(\alpha)/v(Nx)|\le \frac12\,\rk \mathcal F.
+\]
+\item For a suitable $E$ (perhaps larger than in (ii)), and for each non-archimedean place $\lambda$ prime to $p$, there exists an $E_\lambda$-sheaf compatible with $\mathcal F$, that is, with the same Frobenius eigenvalues.
+\item For $\lambda$ dividing $p$, one hopes for small crystalline companions.
+\end{enumerate}
+
+The parts (i), (iii), and (iv) of the conjecture follow from the special case in which $X$ is a curve. For $\mathcal F$ of rank $2$ on a curve, Drinfeld's work reduces the conjecture, except for (vi) at present, to control of the constant of the functional equation of the $L$-function attached to $\mathcal F$; it is a question of $L(\mathcal F,\chi)$, with $\chi$ and its twists. In particular, if $\mathcal F$ belongs to an infinite compatible system of $\lambda$-adic representations, then (i) through (v) are verified.
+
+\paragraph{Remark (1.2.11).} I do not claim to believe in the existence of isomorphisms between $\Qlb$ and $\CC$; they are only a convenience of exposition. Whenever we prove that a number is pure, an easy fragment of the proof would suffice to establish that it is algebraic. For the rest of the arguments, it would then suffice to consider the complex embeddings of the subfield of $\Qlb$ formed by the algebraic numbers, and this does not require the axiom of choice.
+
+\paragraph{Definition (1.2.12).} Let $X$ be a scheme of finite type over $\ZZ$, and let $\mathcal F$ be a lisse sheaf on $X$. We say that $\mathcal F$ is \emph{totally real} if, for every $x\in |X|$, the coefficients of the characteristic polynomial of $F_x$ acting on $\mathcal F$ are totally real algebraic numbers.
+
+The following variant will be useful to us in equal characteristic.
+
+\paragraph{Variant (1.2.13).} We say that $\mathcal F$ is \emph{$\iota$-real} if, for every $x\in |X|$, the polynomial
+\[
+\iota\det(1-F_x t,\mathcal F)
+\]
+has real coefficients.
+
+\paragraph{Remark (1.2.14).} Every lisse pointwise pure sheaf $\mathcal F$ is a direct factor of a totally real lisse pointwise pure sheaf, namely, if it is of weight $n$, the sheaf $\mathcal F\otimes\mathcal F^\vee(-n)$. Similarly, every lisse pointwise $\iota$-pure sheaf of integral weight is a direct factor of a lisse pointwise $\iota$-pure $\iota$-real sheaf.
+
+In these variants, one may take $\mathcal F$ to be a Weil sheaf. For Weil sheaves, every lisse pointwise $\iota$-pure sheaf of arbitrary weight is a direct factor of a lisse pointwise $\iota$-pure $\iota$-real sheaf.
+
+% ===== Source unit: deligne_paper32_weilII_section_13_determinantal_weights_EN.tex =====
+\section*{(1.3) Determinantal weights}
+
+The conventions of (0.7) are in force. Let $X_0$ be a normal geometrically connected scheme of finite type over $\Fq$, and let $\bar x$ be a geometric point of $X_0$. In this section we give consequences of the following theorem.
+
+\paragraph{Theorem (1.3.1).} The image of the geometric fundamental group $\pi_1(X,\bar x)$ in the quotient of $W(X_0,\bar x)$ by the closure of its derived group is the product of a finite group of order prime to $p$ by a pro-$p$ group.
+
+This theorem is well known, but I have not been able to find it in the literature. For our principal results, only the case in which $X$ is a curve matters. We give below a proof in that case. The general case will be treated in (1.11.4).
+
+Let $\bar X_0$ be the smooth projective completion of $X_0$, and let $S=\bar X_0-X_0$. Let $k$ be the function field of $X_0$, let $k_v$ be its completion at a place $v$ (identified with a closed point $v\in |\bar X_0|$), let $r_v$ be the group of units of $k_v$, and let $k_{\mathbb A}^*$ be the idèle group of $k$. Class-field theory identifies $W(X_0,\bar x)^{\mathrm{ab}}$ with the idèle-class group
+\[
+\left(\prod_{v\notin S} r_v\right)\backslash k_{\mathbb A}^*/k^*,
+\]
+the projective limit of the divisor-class groups
+\[
+ C_m=\{\hbox{divisors on }\bar X_0\}/\{\hbox{those of the form }(\varphi),\;\varphi\equiv 1\pmod m\}
+\]
+for a ``modulus'' $m$ which becomes larger and larger and is concentrated on $S$. The image of the geometric fundamental group is obtained by replacing $k_{\mathbb A}^*$ by the subgroup $k_{\mathbb A}^{1}$ of idèles of norm $1$, that is, by replacing the $C_m$ by the subgroups $C_m^0$ of divisor classes of degree $0$. The kernel of the map
+\[
+\left(\prod_{v\notin S}r_v\right)\backslash k_{\mathbb A}^{1}/k^*
+\longrightarrow
+\left(\prod_v r_v\right)\backslash k_{\mathbb A}^{1}/k^*
+\]
+is a quotient of $\prod_{v\in S} r_v$, hence is the product of a pro-$p$ group by a finite group; and the image group
+\[
+\prod_v r_v\backslash k_{\mathbb A}^{1}/k^*
+\]
+of divisor classes of degree $0$, for linear equivalence, is finite (Weil, BNT IV, Th. 7). Indeed the Picard variety $\Pic^0(X)$ is of finite type, and this divisor-class group is the group of rational points over $\Fq$ of $\Pic^0(X)$.
+
+\paragraph{(1.3.2).} In the remainder of this article, we shall simply call sheaves the Weil sheaves of (1.1.10). Constructible $\Ql$-sheaves will be called etale sheaves.
+
+This convention will sometimes lead us to apply to $\Qlb$-sheaves results proved for $\Ql$-sheaves. The justification will always be immediate.
+
+\paragraph{(1.3.3).} Let $\mathcal F_0$ be a sheaf of rank $1$ on $X_0$. The group $W(X_0,\bar x)$ acts on $\mathcal F_{\bar x}$ by homotheties, through a character
+\[
+\chi:W(X_0,\bar x)\longrightarrow \Qlb^*.
+\]
+Conversely, for any such character $\chi$, the equivalence (1.1.12) gives us a sheaf $\mathcal L_0(\chi)$ endowed with a trivialization $\mathcal L(\chi)_{\bar x}\simeq\Qlb$.
+
+The character $\chi$ factors through the largest abelian quotient of $W(X_0,\bar x)$. By (1.3.1), the geometric monodromy group of $\mathcal F_0$, that is, the image under $\chi$ of $\pi_1(X,\bar x)$, is therefore the product of a finite group by a pro-$p$ group. This image is also a compact subgroup of $E^*$, for $E\subset\Qlb$ a finite extension of $\Ql$. It is therefore the product of a finite group by a pro-$\ell$ group and, since $p\ne\ell$, it is a finite group. In particular, some power $\chi^n$ ($n>0$) of $\chi$ is trivial on $\pi_1(X,\bar x)$, that is, is of the form
+\[
+ w\longmapsto b^{\deg(w)}.
+\]
+If $c$ is an $n$-th root of $b$, the character $\chi$ is the product of the character $w\mapsto c^{\deg(w)}$ by a character $z$ of order $n$, that is, with values in the cyclic group of $n$-th roots of unity of $\Qlb$. In particular, for $y\in |X_0|$, one has
+\[
+ |\iota\chi(F_y)|=|\iota c|^{\deg(y)};
+\]
+the sheaf $\mathcal F_0$ is pointwise $\iota$-pure, of weight the $\iota$-weight of $c$ relative to $q$ (1.2.6.1). We have proved:
+
+\paragraph{Proposition (1.3.4).} Let $\mathcal F_0$ be a lisse sheaf of rank $1$ on $X_0$, and let
+$\chi:W(X_0,\bar x)\to\Qlb^*$ be the corresponding character.
+\begin{enumerate}[label=(\roman*)]
+\item The geometric monodromy group of $\mathcal F_0$ is finite. More precisely, $\chi$ is the product of a character $w\mapsto c^{\deg(w)}$ by a character of finite order.
+\item $\mathcal F_0$ is pointwise $\iota$-pure, of weight the weight of $c$ relative to $q$.
+\end{enumerate}
+
+\paragraph{Variant.} If $X_0$ is a curve, the proof of (1.3.1) is complete - independent of (1.11) - and hence already gives (1.3.4). Here, following N. Katz, is how to deduce the general case of (1.3.4) from this particular case.
+
+Let $E\subset\Qlb$ be as above, and let $M$ be the group of elements of finite order in $E^*$, that is, the roots of unity. It is a finite group. First one shows that, whatever $x,y\in |X_0|$ may be, one has
+\[
+ \chi(F_x)^{1/\deg(x)}=\chi(F_y)^{1/\deg(y)}\quad\hbox{in }E^*\otimes\mathbb Q
+\]
+(written multiplicatively): by joining $x$ and $y$ by a curve, one reduces to the case in which $X_0$ is a curve and applies (1.3.4). For every zero-cycle of degree $0$, $\sum n(x)x$, one therefore has $\chi(\prod F_x^{n(x)})\in M$. It follows from Chebotarev's theorem that these products of Frobenius elements are dense in the geometric $\pi_1$, which $\chi$ therefore sends into $M$: the restriction of $\chi$ to the geometric $\pi_1$ has finite order, and one concludes as above.
+
+\paragraph{Definition (1.3.5).} Let $\mathcal F_0$ be a lisse sheaf on $X_0$. The determinantal weights (relative to $\iota$) of $\mathcal F_0$ are the numbers
+\[
+\frac1d\bigl(\hbox{$\iota$-weight of }\wedge^d \mathcal F_0'\bigr)
+\]
+where $\mathcal F_0'$ runs through the constituents of $\mathcal F_0$, and $d$ is its rank.
+
+It is clear that a lisse sheaf pointwise $\iota$-pure of weight $\beta$ is also purely of determinantal weight $\beta$.
+
+\paragraph{(1.3.6).} If $\mathcal F_0$ is lisse and irreducible of rank $n$, and if $b\in\Qlb^*$ is such that, for some $y\in |X_0|$,
+\[
+\det(F_y)=b^{n\deg(y)[\Fq:\Fp]},
+\]
+then the sheaf $\mathcal F_0^{(b^{-1})}$ of (1.2.7) is of determinantal weight $0$ relative to every $\iota$: its maximal exterior power is defined by a character of finite order.
+
+\paragraph{(1.3.7).} To study the behaviour of determinantal weights under tensor product and exterior power, it will be convenient to pass from the language of sheaves to that of representations of algebraic monodromy groups. The dictionary is inspired by Serre [11], II (1.3).
+
+Let therefore $\mathcal F_0$ be a lisse sheaf on $X_0$. Let $G^0$ be the algebraic subgroup of $\GL(\mathcal F_{\bar x})$ which is the Zariski closure of the geometric monodromy group (1.1.15). By push-out from the exact sequence
+\[
+0\to\pi_1(X,\bar x)\to W(X_0,\bar x)\to\ZZ\to0,
+\]
+one defines an algebraic group $G$ (not of finite type), extension of $\ZZ$ by $G^0$:
+\begin{equation}
+\tag{1.3.7.1}
+\begin{tikzcd}[column sep=2.8em,row sep=1.6em]
+0 \arrow[r] & \pi_1(X,\bar x) \arrow[r] \arrow[d] & W(X_0,\bar x) \arrow[r] \arrow[d] & \ZZ \arrow[r] \arrow[d,equal] & 0 \\
+0 \arrow[r] & G^0 \arrow[r] & G \arrow[r] \arrow[d] & \ZZ \arrow[r] & 0 \\
+& & \GL(\mathcal F_{\bar x}) & &
+\end{tikzcd}
+\end{equation}
+
+Here is the exact definition: if $w$ is an element of $W(X_0,\bar x)$ of degree $1$, then $W(X_0,\bar x)$ is the semidirect product of the group $w^\ZZ$ generated by $w$ with $\pi_1(X,\bar x)$. The image of $w$ in $\GL(\mathcal F_{\bar x})$ normalizes that of $\pi_1(X,\bar x)$, that is, the geometric monodromy group. It therefore normalizes its Zariski closure $G^0$, and $G$ is the semidirect product of $\ZZ$ by $G^0$ relative to the action $\operatorname{int}(w)$ of $\ZZ$ on $G^0$. The group $G$ thus obtained fits into diagram (1.3.7.1), and this characterizes it up to a unique isomorphism.
+
+Each linear representation of the algebraic group $G$ defines an $\ell$-adic representation of $W(X_0,\bar x)$, hence a Weil sheaf on $X_0$. The original sheaf $\mathcal F_0$ corresponds to the tautological representation (1.3.7.1) of $G$ in $\GL(\mathcal F_{\bar x})$.
+
+If $\mathcal F_0^{(i)}$ is a finite family of lisse sheaves, and one applies the preceding construction to the direct sum $\mathcal F_0$ of the $\mathcal F_0^{(i)}$, then in (1.3.7.1) one may replace $\GL(\mathcal F_{\bar x})$ by the subgroup $\prod_i\GL(\mathcal F_{\bar x}^{(i)})$. Each sheaf $\mathcal F_0^{(i)}$ is determined by the representation of $G$ in the corresponding factor $\GL(\mathcal F_{\bar x}^{(i)})$.
+
+\paragraph{Theorem (1.3.8) (Grothendieck).} Let $\mathcal F_0$ be a lisse sheaf on $X_0$, let $G$ and $G^0$ be as above, and let $G^{00}$ be the neutral component of $G^0$. Then the radical of the algebraic group $G^{00}$ is unipotent.
+
+We first prove:
+
+\paragraph{Corollary (1.3.9).} If $\mathcal F_0$ is semisimple, the Zariski closure $G^0$ of the geometric monodromy group of $\mathcal F_0$ is an extension of a finite group by a semisimple group.
+
+If the representation of $W(X_0,\bar x)$ on $\mathcal F_{0\bar x}$ is semisimple, the same is true of its restriction to the distinguished subgroup $\pi_1(X,\bar x)$; the sum of the $\pi_1(X,\bar x)$-subspaces simple for $\pi_1(X,\bar x)$ is $W$-stable, hence is a supplement to any other. We shall prove (1.3.9) assuming only that the representation of $\pi_1(X,\bar x)$ is semisimple. Under this hypothesis, $G^{00}$ is reductive, and it remains to prove that its largest central torus $T_1$ is trivial. It is therefore isogenous to the largest torus $T$ quotient of $G^{00}$.
+
+First suppose that $G^0=G^{00}$ and that $G$ is a product $G\simeq G^0\times\ZZ$. The application $W(X_0,\bar x)\to G$ furnishes morphisms $W(X_0,\bar x)\to T$, such that the image of $\pi_1(X,\bar x)$ is Zariski dense. Since $T$ is a product of multiplicative groups, it follows from (1.3.4) that this image is finite; hence $T=\{1\}$.
+
+We reduce to this case in general by replacing $X_0$ by a finite cover and $\Fq$ by a finite extension, hence $W(X_0,\bar x)$ and $G$ by subgroups of finite index. The group $W(X_0,\bar x)$ acts on $T_1$ while respecting the finite set $F\subset X(T_1)$ of characters whose kernels do not contain $T_1$; this set generates $X(T_1)\otimes\mathbb Q$. Hence $G^0$, and therefore $T_1$, acts faithfully; the group $W(X_0,\bar x)$ therefore acts on $T_1$ through a finite quotient, and one is reduced to assuming this action trivial. The group of exterior automorphisms of $G^{00}$, finite on $T_1$, is finite; one may suppose that $W(X_0,\bar x)$ acts on $G^{00}$ by inner automorphisms. Finally one is reduced to supposing that $G^0=G^{00}$, and then $G\simeq G^{00}\times\ZZ$.
+
+Prove (1.3.8). Let $G$ be a Jordan--Hölder sequence for $\mathcal F_0$, let $P$ be the subgroup of $\GL(\mathcal F_{\bar x})$ which respects the filtration $G$, let $N$ be the subgroup of $P$ which acts trivially on the successive quotients (unipotent radical), and let $L=P/N$. The analogue $G_1^0$ of $G^0$ for $\operatorname{Gr}_G(\mathcal F_0)$ is the image of $G^0$ in $L$: the algebraic group $G^0$ is an extension of $G_1^0$ by a subgroup of $N$, automatically unipotent, so that it suffices to prove (1.3.8) for $\operatorname{Gr}_G(\mathcal F_0)$, where (1.3.9) applies.
+
+\paragraph{Lemma (1.3.10).} Let $G$ be a group scheme extension of $\ZZ$ by an algebraic group $G^0$, whose connected component of the identity $G^{00}$ is reductive. The following conditions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $G$ admits a linear representation whose restriction to $G^0$ is faithful.
+\item $G$ admits a linear representation whose restriction to $G^0$ has finite kernel.
+\item Let $Z^{00}$ be the connected component of the centre of $G^{00}$. The restriction to $Z^{00}$ of every inner automorphism of $G$ is of finite order.
+\item The centre of $G$ maps onto a finite-index subgroup of $\ZZ$.
+\end{enumerate}
+
+The implication (i)$\Rightarrow$(ii) is trivial. Prove that (ii)$\Rightarrow$(iii): if $\rho$ is a linear representation as in (ii), the weights of $Z^{00}$ in this representation form a finite set of characters, rationally generating the character group of $Z^{00}$. This finite set is respected by the action of $G$ on $Z^{00}$ by inner automorphisms. A finite-index subgroup of $G$ therefore acts trivially on this set, and hence on $Z^{00}$.
+
+Prove that (iii)$\Rightarrow$(iv). Let $g$ be an element of $G$ whose image in $\ZZ$ is $1$, and let $\gamma$ be the automorphism $x\mapsto gxg^{-1}$ of $G^{00}$. We know that the group of exterior automorphisms of a reductive group is the semidirect product of the automorphisms respecting a pinning by the adjoint group (inner automorphisms) (SGA 3 XXIV (1.3)), and that an automorphism preserving a pinning is of finite order as soon as its restriction to the connected centre is. Hypothesis (iii) therefore ensures that $\gamma$ is the product of an automorphism of finite order preserving a pinning by an inner automorphism. Modifying $g$ by an element of $G^{00}$, we may suppose $\gamma$ of finite order. The restriction of $\operatorname{Int}(g)$ to $G^0$ is then also of finite order. If its order is $n$, then $g^n$ is central (because it centralizes $G^0$ and $g$), and (iv) follows.
+
+Finally, under hypothesis (iv), $G$ admits a central subgroup $Z$, generated by an element $g$ of nonzero degree in $\ZZ$; the group $G/Z$ is algebraic and every faithful representation of $G/Z$ gives a representation of $G$ whose restriction to $G^0$ is faithful.
+
+\paragraph{Corollary (1.3.11).} Suppose $\mathcal F_0$ semisimple, and let $Z$ be the centre of $G$. Then the kernel and cokernel of $\deg:Z\to\ZZ$ are finite.
+
+The kernel $Z\cap G^0$ is contained in the centre of $G^0$, which is finite by (1.3.9). Again by (1.3.9), condition (1.3.10)(iii) is trivially verified (one has $Z^{00}=\{e\}$), and the cokernel is finite by (1.3.10)(iv).
+
+\paragraph{Corollary (1.3.12).} Suppose $\mathcal F_0$ semisimple, and let $g$ be a central element of degree $m\ne0$ in $G$. For the sheaf defined by a representation $V$ of $G$ to be purely of $\iota$-determinantal weight $\beta$, it is necessary and sufficient that all the eigenvalues $\alpha$ of $g$ acting on $V$ verify
+\[
+|\iota\alpha|=q^{m\beta/2}.
+\]
+
+One reduces to supposing $V$ simple, in which case $g$ is scalar. One then replaces $V$ by its maximal exterior power, to reduce to the case in which $V$ has rank $1$. That case is left to the reader; see (1.3.4).
+
+This interpretation of determinantal weight immediately gives the following proposition, which is the main result of this section.
+
+\paragraph{Proposition (1.3.13).}
+\begin{enumerate}[label=(\roman*)]
+\item Let $f:X'_0\to X_0$ be a dominant morphism of normal connected schemes of finite type over $\Fq$. For a lisse sheaf on $X_0$ to be purely of $\iota$-determinantal weight $\beta$, it is necessary and sufficient that its inverse image on $X'_0$ be so.
+\item If the lisse sheaves $\mathcal F_0$ and $\mathcal G_0$ on $X_0$ are purely of $\iota$-determinantal weights $\beta$ and $\gamma$, then $\mathcal F_0\otimes\mathcal G_0$ is purely of $\iota$-determinantal weight $\beta+\gamma$.
+\item Let $\mathcal F_0$ be a lisse sheaf on $X_0$, and let $n(\beta)$ be the sum of the ranks of the constituents of $\mathcal F_0$ of $\iota$-determinantal weight $\beta$. Then the determinantal weights of $\wedge^a\mathcal F_0$ are the sums
+\[
+\sum a(\beta)\beta
+\]
+with $\sum a(\beta)=a$ and $a(\beta)\le n(\beta)$.
+\end{enumerate}
+
+For (ii), take $G$ defined by $\mathcal F_0$ and $\mathcal G_0$; see (1.3.7), last paragraph.
+
+\paragraph{Proposition (1.3.14) (see (1.3.2)).} For an irreducible lisse sheaf $\mathcal F_0$ of rank $r$ on $X_0$ to be an etale sheaf, it is necessary and sufficient that $\wedge^r\mathcal F_0$ be one. Every irreducible lisse sheaf is therefore obtained by torsion (1.2.7) from an etale sheaf.
+
+Let $g$ be central in $G$ as in (1.3.12). It acts on $\mathcal F_{0\bar x}$ by multiplication by a scalar $u$. The group $G$ acts on $\wedge^r\mathcal F_{0\bar x}$ through a discrete quotient, which is also a quotient of $W(X_0,\bar x)$; and for $\wedge^r\mathcal F_0$ to be an etale sheaf, it is necessary and sufficient that $u$ be an $\ell$-adic unit. Suppose this is so, and let $E$ be a finite extension of $\Ql$ such that the action of $W(X_0,\bar x)$ factors through $\GL(r,E)$. It remains to show that the image of $W(X_0,\bar x)$ in $\GL(r,E)$ is bounded; then the inverse image of an open subgroup will be open of finite index, and the representation will extend to the completion $\pi_1(X_0,\bar x)$ of $W(X_0,\bar x)$.
+
+Let $W_1$ be the subgroup of finite index of $W(X_0,\bar x)$ which is the inverse image of $G^{00}\times g^\ZZ$, let $W_1^0$ be the inverse image of $G^{00}$, and let $\rho$ be the composite morphism
+\[
+W_1\longrightarrow G^{00}\times g^\ZZ\longrightarrow G^{00}.
+\]
+Since the $u^n$ ($n\in\ZZ$) form a bounded set, it suffices to show that $\rho(W_1)\subset G^{00}(E)$ is bounded. This subgroup normalizes $\rho(W_1^0)$, which is compact and Zariski dense. We conclude by the following lemma.
+
+\paragraph{Lemma (1.3.15).} In a semisimple group $H$ over a local field $E$, the normalizer of a compact Zariski-dense subgroup $K\subset H(E)$ is compact.
+
+We treat only the case in which $E$ has characteristic $0$. The logarithm map, first defined on a sufficiently small neighbourhood of $e$, is extended to the union of the compact subgroups of $H(E)$ by the formula
+\[
+\log(x)=\frac1n\log(x^n).
+\]
+The density of $K$, and the fact that $H$ is semisimple, imply that $\log(K)$ generates $\Lie H$ as a vector space over $E$. Let $\mathcal O_E$ be the valuation ring of $E$, and let $L$ be the $\mathcal O_E$-module generated by the compact set $\log K\subset\Lie H$. It is stable under the normalizer of $K$. Since the adjoint representation has finite kernel, and since
+\[
+\ad:H(E)\longrightarrow\GL(\Lie H)
+\]
+is proper, it follows that this normalizer is compact.
+
+
+
+
+\section*{(1.4) Cohomology of curves and \texorpdfstring{$L$}{L}-functions: reminders}
+
+This section gathers together some well-known results that we shall use constantly.
+
+\paragraph{(1.4.1).} Let $X$ be a curve over an algebraically closed field $k$, and let $\mathcal F$ be a sheaf on $X$. The groups
+\[
+H^0_c(X,\mathcal F),\quad H^0(X,\mathcal F),\quad H^2_c(X,\mathcal F),\quad H^2(X,\mathcal F)
+\]
+are elementary in nature.
+
+\begin{enumerate}[label=\alph*)]
+\item $H^0(X,\mathcal F)$ is the group of global sections, and $H^0_c(X,\mathcal F)$ is the subgroup of those with compact support; if $X$ has no complete irreducible component, this means finite support. If $X$ is connected, with base point $x$, and if $\mathcal F$ is lisse and defined by a representation $V$ of $\pi_1(X,x)$, then
+\begin{equation}\tag{1.4.1.1}
+H^0(X,\mathcal F)=V^{\pi_1(X,x)},
+\end{equation}
+while
+\begin{equation}\tag{1.4.1.2}
+H^0_c(X,\mathcal F)=
+\begin{cases}
+V^{\pi_1(X,x)},&\text{if }X\text{ is complete},\\
+0,&\text{otherwise}.
+\end{cases}
+\end{equation}
+
+\item If $U$ is the complement of a finite subset of $X$, then
+\[
+H^2_c(U,\mathcal F)\simeq H^2_c(X,\mathcal F).
+\]
+Taking $U$ small enough so that $U_{\mathrm{red}}$ is smooth and $\mathcal F$ is lisse on $U$, this makes it possible to compute $H^2_c$ by Poincare duality from the calculation of $H^0$ in a). If $U_{\mathrm{red}}$ is smooth and connected, with base point $x$, and if, on $U$, the sheaf $\mathcal F$ is defined by a representation $V$ of $\pi_1(U,x)$, then
+\begin{equation}\tag{1.4.1.3}
+H^2_c(X,\mathcal F)=V_{\pi_1(U,x)}(-1).
+\end{equation}
+\end{enumerate}
+
+\paragraph{(1.4.2).} With the conventions of (0.7), let $X_0$ be a smooth absolutely irreducible curve over $\Fq$, and let $\mathcal F_0$ be a lisse sheaf on $X_0$. Let $\mathcal F'_0$ (respectively $\mathcal F''_0$) be the largest subsheaf (respectively quotient sheaf) of $\mathcal F_0$ which becomes constant on $X$. It is the inverse image of a sheaf $F'_0$ (respectively $F''_0$) on $\Spec(\Fq)$, and the discussion (1.4.1) gives
+\begin{align}
+H^0(X,\mathcal F)&=F',\tag{1.4.2.1}\\
+H^0_c(X,\mathcal F)&=F'\text{ or }0\text{ according as }X\text{ is complete or not},\tag{1.4.2.2}\\
+H^2_c(X,\mathcal F)&=F''(-1).\tag{1.4.2.3}
+\end{align}
+The sheaves $\mathcal F'_0$ and $F'_0$ (respectively $\mathcal F''_0$ and $F''_0$) have the same determinantal weights, and these are among the determinantal weights of $\mathcal F_0$. From (1.4.2) we therefore get:
+
+\paragraph{Corollary (1.4.3).} If $\alpha$ is an eigenvalue of $F^*$ on $H^0(X,\mathcal F)$ or $H^0_c(X,\mathcal F)$ (respectively on $H^2_c(X,\mathcal F)$), then there exists a determinantal weight $\beta$ of $\mathcal F_0$ such that
+\[
+w_q(\alpha)=\beta \qquad \text{(respectively } w_q(\alpha)=\beta+2\text{)}.
+\]
+
+More trivially, one also has:
+
+\paragraph{Corollary (1.4.4).} If $\alpha$ is an eigenvalue of $F^*$ on $H^0(X,\mathcal F)$ or $H^0_c(X,\mathcal F)$ (respectively on $H^2_c(X,\mathcal F)$), then, for every $x\in |X_0|$, the number $\alpha^{\deg(x)}$ (respectively $(q^{-1}\alpha)^{\deg(x)}$) is an eigenvalue of $F_x$ on $\mathcal F_0$.
+
+\paragraph{(1.4.5).} If $X_0$ is a scheme of finite type over $\Fq$, and if $\mathcal F_0$ is a sheaf on $X_0$, then by Grothendieck one has an equality of formal $t$-adic series:
+\begin{equation}\tag{1.4.5.1}
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+=
+\prod_i\det(1-Ft,H^i_c(X,\mathcal F))^{(-1)^{i+1}}.
+\end{equation}
+Applying $\iota$ to it, one obtains an equality between complex formal series, expressing that the left hand side is the Taylor expansion of the rational function on the right. If the product on the left converges for $|t|<R$, one obtains in that disc an equality between analytic functions. Here is a convergence criterion.
+
+\paragraph{Proposition (1.4.6).} Suppose that, for $x\in |X_0|$, the eigenvalues $\alpha$ of $F_x$ on $\mathcal F$ satisfy
+\[
+w_{N(x)}(\alpha)<\beta.
+\]
+Then the product
+\[
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+\]
+converges for
+\[
+|t|<q^{-\beta/2-\dim X_0},
+\]
+and hence has neither zero nor pole in that disc.
+
+Set $d=\dim X_0$, and decompose $X_0$ into pieces each of which is quasi-finite over an affine space $\mathbb A^d$: one obtains an estimate
+\[
+\#\{x\in |X_0|\mid \deg(x)=n\}<\mathrm{Cte}\cdot q^{dn}.
+\]
+This reduces the convergence of the product to that of the geometric series
+\[
+\sum_n q^{dn}\,q^{n\beta/2}\,|t|^n.
+\]
+
+\paragraph{(1.4.7).} If $\dim X_0\le 1$, the $H^i_c$ are zero for $i\notin\{0,1,2\}$. The formula deduced from (1.4.5.1) by applying $\iota$ therefore reduces to
+\begin{equation}\tag{1.4.7.1}
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+=
+\frac{\det(1-Ft,H^1_c(X,\mathcal F))}
+{\det(1-Ft,H^0_c(X,\mathcal F))\det(1-Ft,H^2_c(X,\mathcal F))}.
+\end{equation}
+If $X_0$ is a smooth affine curve and $\mathcal F_0$ is lisse, then $H^0_c$ is zero and the formula simplifies to
+\begin{equation}\tag{1.4.7.2}
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+=
+\frac{\det(1-Ft,H^1_c(X,\mathcal F))}
+{\det(1-Ft,H^2_c(X,\mathcal F))}.
+\end{equation}
+In the uses we shall make of these formulae, the left hand side will be controlled by (1.4.6), and the poles on the right by (1.4.3).
+
+
+
+\section*{(1.5) A criterion for purity}
+
+The conventions of (0.7) are in force. Let $X_0$ be a smooth absolutely irreducible curve over $\Fq$. The proof of the following theorem is parallel to that of Theorem (1.3.4), which it generalizes.
+
+\paragraph{Theorem (1.5.1).} The constituents of any lisse $\iota$-real sheaf on $X_0$ are $\iota$-pure.
+
+\paragraph{Lemma (1.5.2).} Let $\mathcal F_0$ be a lisse $\iota$-real sheaf on $X_0$, and let $r$ be the largest of its determinantal weights, relative to $\iota$ (1.3.5). Then, for every $x\in |X_0|$, and every eigenvalue $\alpha$ of $F_x$ on $\mathcal F_0$, one has
+\[
+w_{N(x)}(\alpha)\le r.
+\]
+
+After removing from $X_0$ a point other than the one under consideration, one reduces to the case in which $X_0$ is affine. For every positive integer $k$, one then has the equality (1.4.7.2)
+\begin{equation}\tag{1.5.2.1}
+\prod_{x\in |X_0|}\det\bigl(1-F_x t^{\deg(x)},\mathcal F^{\otimes 2k}\bigr)^{-1}
+=
+\frac{\det\bigl(1-Ft,H^1_c(X,\mathcal F^{\otimes 2k})\bigr)}
+{\det\bigl(1-Ft,H^2_c(X,\mathcal F^{\otimes 2k})\bigr)}.
+\end{equation}
+
+In this formula:
+\begin{enumerate}[label=\alph*)]
+\item The factors
+\[
+\det\bigl(1-F_x t^{\deg(x)},\mathcal F^{\otimes 2k}\bigr)^{-1}
+\]
+on the left are formal series with constant term $1$ and real non-negative coefficients. The proof is as in (1.3.3), (3.4), with ``rational'' replaced by ``real''.
+
+\item By (1.3.13)(ii), the determinantal weights of the constituents of $\mathcal F_0^{\otimes 2k}$ are at most $2kr$. By (1.4.3), the right hand side has no pole for
+\[
+ |t|<q^{-(2kr+2)/2}.
+\]
+\end{enumerate}
+
+Because the factors on the left have non-negative coefficients, poles cannot be cancelled. In particular, if $\alpha$ is an eigenvalue of $F_x$ on $\mathcal F_0$, then the contribution of $\alpha^{2k}$ gives a pole at absolute value
+\[
+ |\iota(\alpha)|^{-2k/\deg(x)}.
+\]
+Consequently
+\[
+ |\iota(\alpha)|^{-2k/\deg(x)}\ge q^{-(2kr+2)/2},
+\]
+or equivalently
+\[
+w_{N(x)}(\alpha)\le r+\frac1k.
+\]
+Letting $k$ tend to infinity gives the lemma.
+
+\paragraph{(1.5.3) Proof of (1.5.1).} Let $\mathcal F_0$ be a lisse $\iota$-real sheaf on $X_0$. For $\gamma\in\mathbb R$, let $\mathcal F_0(\gamma)$ be the sum of the constituents of $\mathcal F_0$ of determinantal weight $\gamma$, relative to $\iota$, and let $n(\gamma)$ be the rank of $\mathcal F_0(\gamma)$. Let $x\in |X_0|$, and let $\alpha_i^\gamma$ $(1\le i\le n(\gamma))$ be the eigenvalues of $F_x$ on $\mathcal F_0(\gamma)$, counted with multiplicity. We have to prove that
+\[
+w_{N(x)}(\alpha_i^\gamma)=\gamma.
+\]
+By the definition of the determinantal weight, one has, for every $\gamma$,
+\begin{equation}\tag{1.5.3.1}
+\sum_i w_{N(x)}(\alpha_i^\gamma)=n(\gamma)\gamma.
+\end{equation}
+
+Suppose, as we may, that $\mathcal F_0(\beta)\ne0$, and let $N$ be the sum of the $n(\gamma)$ for $\gamma>\beta$. By (1.3.13)(iii), the determinantal weights of the $(N+1)$-st exterior power of $\mathcal F_0$ are at most
+\[
+\beta+\sum_{\gamma>\beta}n(\gamma)\gamma.
+\]
+Since each product
+\[
+\alpha_i^\beta\prod_{\gamma>\beta}\prod_{j=1}^{n(\gamma)}\alpha_j^\gamma
+\]
+is an eigenvalue of $F_x$ on $\wedge^{N+1}\mathcal F_0$, (1.5.2) gives
+\[
+w_{N(x)}(\alpha_i^\beta)+\sum_{\gamma>\beta}\sum_j w_{N(x)}(\alpha_j^\gamma)
+\le
+\beta+\sum_{\gamma>\beta}n(\gamma)\gamma.
+\]
+Subtracting the equalities (1.5.3.1) for $\gamma>\beta$, one obtains
+\begin{equation}\tag{1.5.3.2}
+w_{N(x)}(\alpha_i^\beta)\le \beta.
+\end{equation}
+To deduce equality from this inequality, one may either pass to the dual sheaf, or observe that summing the inequalities (1.5.3.2) over $i$ gives the equality (1.5.3.1) for $\beta$.
+
+
+
+\section*{(1.6) Around Jacobson--Morosov}
+
+\paragraph{Proposition (1.6.1).}
+Let $N$ be a nilpotent endomorphism of an object $V$ of an abelian category. There is then one and only one finite increasing filtration $M$ of $V$ such that
+\[
+N M_i\subset M_{i-2}
+\]
+and such that $N^k$ induces an isomorphism
+\[
+\Gr^M_k V\xrightarrow{\sim}\Gr^M_{-k}V.
+\]
+
+We prove existence; uniqueness is proved in the same way. We proceed by induction on an integer $d$ such that $N^{d+1}=0$. For $d=0$ one takes the trivial filtration. Next put
+\[
+M_d=V,
+\qquad
+M_{d-1}=\Ker N^d,
+\qquad
+M_{-d}=\Image N^d,
+\qquad
+M_{-d-1}=0,
+\]
+so that $\Gr^M_d V$ and $\Gr^M_{-d}V$ are respectively the coimage and the image of $N^d$. On $\Ker N^d/\Image N^d$, the $(d-1)$-st power of $N$ is zero. The induction hypothesis therefore defines $M$ on this quotient, and, for $d-1\ge i\ge -d$, $M_i$ on $V$ is defined as the inverse image in $\Ker N^d$ of the corresponding subobject of $\Ker N^d/\Image N^d$.
+
+\paragraph{Remark (1.6.2).}
+The characterization (1.6.1) of $M$ shows its compatibility with passage to the dual category.
+
+\paragraph{Definition (1.6.3).}
+The primitive part $P_i(V)$, or simply $P_i$, of $\Gr^M_i V$ is the kernel of the morphism induced by $N$ from $\Gr^M_i V$ to $\Gr^M_{i-2}V$.
+
+\paragraph{(1.6.4).}
+If $i>0$, then
+\[
+N:\Gr^M_i V\longrightarrow \Gr^M_{i-2}V
+\]
+is injective, since $N^{i-1}N$ is an isomorphism, and therefore $P_i=0$. If $i\ge0$, writing that
+\[
+N\circ N^{i+1}:\Gr^M_{i+2}V\longrightarrow \Gr^M_i V\longrightarrow \Gr^M_{-i-2}V
+\]
+is an isomorphism shows that $\Gr^M_{-i}V$ is the direct sum of $P_{-i}$ and of the image of $\Gr^M_{i+2}V$ by $N^{i+1}$; the morphism $N$ induces an isomorphism from that image onto $\Gr^M_{-i-2}V$. Repeating the construction, one obtains, by descending induction on $i\ge0$, an isomorphism
+\begin{equation}\tag{1.6.4.1}
+\Gr^M_i V\simeq \bigoplus_{\substack{j\ge |i|\\ j\equiv i\ (2)}} P_{-j}.
+\end{equation}
+Through these isomorphisms, the morphism $N:\Gr^M_iV\to\Gr^M_{i-2}V$ is the evident inclusion for $i\ge1$ and the evident projection for $i-2\le -1$.
+
+Schematically, the graded pieces are arranged as follows:
+\[
+\begin{array}{cccccc}
+\Gr^M_3: &&& P_3&\cdots\\
+\Gr^M_2: && P_2 && P_4&\cdots\\
+\Gr^M_1: & P_1 && P_3 &&\cdots\\
+\Gr^M_0: P_0&&P_2&&P_4&\cdots\\
+\Gr^M_{-1}: & P_1 &&P_3&&\cdots\\
+\Gr^M_{-2}: &&P_2&&P_4&\cdots\\
+\Gr^M_{-3}: &&&P_3&\cdots
+\end{array}
+\]
+with arrows induced by $N$ running downward.
+
+\paragraph{Lemma (1.6.5).}
+The morphism
+\[
+N:(V,M)\longrightarrow (V,M\text{ shifted by }2)
+\]
+is strictly compatible with the filtrations.
+
+It is necessary to prove that $NM_{i+2}\supset \Image(N)\cap M_i$. Distinguish two cases. If $i<0$, the morphism $N:M_{i+2}\to M_i$ has surjective associated graded, hence is surjective, and $NM_{i+2}=M_i$, which proves the assertion a fortiori. If $i+2\ge0$, the morphism
+\[
+N:V/M_{i+2}\longrightarrow V/M_i
+\]
+has injective associated graded, hence is injective, and $N^{-1}M_i\subset M_{i+2}$, again proving the assertion.
+
+This permits one to exchange the constructions $\Ker N$ and $\Gr^M$.
+
+\paragraph{Corollary (1.6.6).}
+The inclusion of $\Ker N$ in $V$ induces isomorphisms
+\[
+\Gr^M_i(\Ker N)\xrightarrow{\sim} P_i.
+\]
+
+\paragraph{(1.6.7).}
+Assume now that $V$ is a finite-dimensional vector space over a field $k$. We first describe $M$ when, in a basis $e$, the matrix of $N$ is
+\begin{equation}\tag{1.6.7.1}
+\begin{pmatrix}
+0&0&0&\cdots&0&0\\
+1&0&0&\cdots&0&0\\
+0&1&0&\cdots&0&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&0&\cdots&1&0
+\end{pmatrix}.
+\end{equation}
+Put $\dim V=d+1$ and index the basis vectors by the integers going by steps of two from $d$ to $-d$, so that $Ne_i=e_{i-2}$ for $i\ne -d$ and $Ne_{-d}=0$. Then $M_i$ is generated by the $e_j$ with $j\le i$.
+
+In general, $V$ is a sum of subspaces $V_a$ stable under $N$, with $N$ of the form (1.6.7.1) on each $V_a$, and the filtration $M$ of $V$ is the sum of the preceding filtrations of the $V_a$.
+
+\paragraph{(1.6.8).}
+If $k$ has characteristic zero, one may interpret the filtration $M$ in terms of the Jacobson--Morosov theorem: if
+\[
+u:\operatorname{SL}(2)\longrightarrow \GL(V)
+\]
+satisfies
+\[
+du\begin{pmatrix}0&0\\1&0\end{pmatrix}=N,
+\]
+and if $V_j$ is the subspace of $V$ formed by those vectors $v$ such that
+\[
+u\begin{pmatrix}\lambda&0\\0&\lambda^{-1}\end{pmatrix}(v)=\lambda^j v,
+\]
+then $M_i$ is the sum of the $V_j$ for $j\le i$. This is reduced to the case where $V$ is an irreducible representation of $\operatorname{SL}(2)$, that is, a symmetric power of the evident representation, and one is then in the situation of (1.6.7).
+
+This interpretation gives the behavior of $M$ under tensor product and duality.
+
+\paragraph{Proposition (1.6.9).}
+Define the tensor product $(V,N)$ of $(V',N')$ and $(V'',N'')$ by
+\[
+V=V'\otimes V'',\qquad N=N'\otimes 1+1\otimes N'',
+\]
+and the dual of $(V',N')$ as $(V'{}^\vee,-{}^tN')$.
+\begin{enumerate}[label=(\roman*)]
+\item If $k$ has characteristic zero, the filtration $M$ of a tensor product is the tensor product of the filtrations $M$ of the factors:
+\[
+M_i(V'\otimes V'')=\sum_{i'+i''=i}M_{i'}(V')\otimes M_{i''}(V'').
+\]
+\item The filtration $M$ of a dual is the dual of the filtration $M$ of the original space:
+\[
+M_i(V'{}^\vee)=M_{-i-1}(V')^\perp.
+\]
+\item Under these hypotheses, formation of $\Gr^M$ is therefore compatible with tensor product and passage to the dual.
+\end{enumerate}
+
+\paragraph{(1.6.10).}
+Assume henceforth that $V$ is finite-dimensional over a field $k$ of characteristic zero. On $\Gr^M(V)$ there is then a unique representation $v$ of $\operatorname{SL}(2)$ such that
+\[
+dv\begin{pmatrix}0&0\\1&0\end{pmatrix}
+\]
+is $N:\Gr^M_i V\to\Gr^M_{i-2}V$ and such that
+\[
+\begin{pmatrix}\lambda&0\\0&\lambda^{-1}\end{pmatrix}
+\]
+acts by multiplication by $\lambda^j$ on $\Gr^M_j(V)$. Existence is seen by choosing $u$ as in (1.6.8), identifying $\Gr^M(V)$ with $V$ by means of the splitting $V_j$ of the filtration, and transporting $u$ to the graded object by this identification. Uniqueness follows from Bourbaki, Lie VIII, \S 11, no. 1, Lemma 1. Formation of $v$ is compatible with tensor product and passage to the dual taken as in (1.6.9). This will allow us to determine the behavior of $P_i$ under tensor product and duality.
+
+\paragraph{(1.6.11).}
+Choose once and for all, for each integer $d\ge0$, an irreducible representation $S_d$ of $\operatorname{SL}(2)$ of dimension $d+1$, and a lowest-weight vector $e_{-d}\in S_d$ such that $e_{-d}\ne0$ and
+\[
+\begin{pmatrix}\lambda&0\\0&\lambda^{-1}\end{pmatrix}e_{-d}=\lambda^{-d}e_{-d}.
+\]
+Put
+\begin{equation}\tag{1.6.11.1}
+P(d,d')=\{j\mid |d-d'|\le j\le d+d',\; j\equiv d+d'\pmod 2\},
+\end{equation}
+and choose isomorphisms of representations
+\begin{equation}\tag{1.6.11.2}
+S_d\otimes S_{d'}\xrightarrow{\sim}\bigoplus_{j\in P(d,d')}S_j,
+\end{equation}
+\begin{equation}\tag{1.6.11.3}
+S_d^\vee\xrightarrow{\sim}S_d.
+\end{equation}
+For $V,N,M,P$ as above, there exists a unique isomorphism of $\operatorname{SL}(2)$-representations
+\begin{equation}\tag{1.6.11.4}
+\varphi:\bigoplus_j S_j\otimes P_{-j}\xrightarrow{\sim}\Gr^M(V),
+\end{equation}
+where $\operatorname{SL}(2)$ acts trivially on $P_{-j}$ in the source and as in (1.6.10) on the target, such that the composite
+\[
+P_{-j}\xrightarrow{e_{-j}\otimes -}S_j\otimes P_{-j}\longrightarrow \Gr^M_{-j}(V)
+\]
+is the identity inclusion of $P_{-j}$. This yields isomorphisms
+\begin{equation}\tag{1.6.11.5}
+P_{-j}\simeq \Hom_{\operatorname{SL}(2)}(S_j,\Gr^M(V)).
+\end{equation}
+
+\paragraph{(1.6.12).}
+Let now $V'$ and $V''$ be as in (1.6.10), let $V=V'\otimes V''$, and write $P_j$, $P'_j$, $P''_j$ for $P_j(V)$, $P_j(V')$, and $P_j(V'')$. The tensor product of the isomorphisms (1.6.11.4), followed by the choices (1.6.11.2), gives an isomorphism, depending only on the choices (1.6.11.2),
+\begin{equation}\tag{1.6.12.1}
+P_{-j}\xrightarrow{\sim}\bigoplus_{j\in P(j',j'')}P'_{-j'}\otimes P''_{-j''}.
+\end{equation}
+For passage to the dual, one similarly obtains isomorphisms, depending only on the choices (1.6.11.3),
+\begin{equation}\tag{1.6.12.2}
+P_{-j}(V'{}^\vee)\xrightarrow{\sim}P_{-j}(V')^\vee.
+\end{equation}
+
+\paragraph{Proposition (1.6.13).}
+Let $V$ be an object of an abelian category, endowed with a finite increasing filtration $W$, and let $N$ be a nilpotent endomorphism of $V$ respecting $W$. There is at most one finite increasing filtration $M$ of $V$ such that $NM_i\subset M_{i-2}$ and such that $N^k$ induces isomorphisms
+\[
+\Gr^M_k\Gr^W V\xrightarrow{\sim}\Gr^M_{-k}\Gr^W V.
+\]
+
+The proof is by induction on the length of $W$. This reduces one to the case where, for an integer $a$, one has $W_a=V$, and where the assertion is known for $W_{a-1}$, endowed with the induced filtration and the endomorphism induced by $N$. A simultaneous shift by the same amount on the filtrations $W$ and $M$ preserves the condition of (1.6.13), so that we may suppose $a=0$.
+
+Let $M$ be a filtration satisfying the stated conditions. The filtration induced on $W_{-1}$ satisfies the same conditions, hence is uniquely determined. The quotient filtration is the filtration (1.6.1) of $\Gr^W_0V$. Let $c$ be such that $\Gr^M_i\Gr^W_0V$ is nonzero only for $-c\le i\le c$. For $i\ge0$, the following identities hold:
+\begin{enumerate}[label=\arabic*)]
+\item for $i>c$, $M_{-i}=M_{-i}(W_{-1})$;
+\item $M_{-i}=M_{-i}(W_{-1})+N^i(M_i)$;
+\item $M_i=\Ker(N^{i+1}:V\to V/M_{-i-2})$.
+\end{enumerate}
+These identities determine $M$ uniquely, by descending induction on $|i|$, in terms of its restriction to $W_{-1}$ and of $N$.
+
+\paragraph{(1.6.14).}
+In the applications, the abelian category is the category of vector spaces over a field $k$ of characteristic zero, and instead of a single nilpotent endomorphism $N$ of $V$ one has a nilpotent action of a one-dimensional Lie algebra $\mathfrak N$. The preceding theory applies as soon as one chooses $N\ne0$ in $\mathfrak N$. In (1.6.13), existence of $M$, and $M$ itself when it exists, are independent of this choice. The isomorphism $N^k$ has the canonical avatar
+\begin{equation}\tag{1.6.14.1}
+\Gr^M_{i+k}\Gr^W V(k)\xrightarrow{\sim}\Gr^M_{i-k}\Gr^W V,
+\end{equation}
+where for a vector space $Y$ one writes $Y(k)=Y\otimes \mathfrak N^{\otimes k}$.
+
+In the situation of (1.6.1)--(1.6.12), the filtration $M$ and the $P_j$ do not depend on the choice of $N$, but the isomorphisms (1.6.4.1) and (1.6.12.1--2) do. If $N$ is replaced by $\lambda N$, each of their components, generically denoted $\alpha:X\to Y$, is multiplied by a convenient power $\lambda^n$ of $N$. It therefore defines a map
+\[
+\alpha\otimes N^{\otimes n}:X\longrightarrow Y(n)
+\]
+independent of the choice of $N$. In this way the previous isomorphisms become canonical:
+\begin{align}
+\Gr^M_i(\Ker N)&\simeq P_i, \tag{1.6.14.2}\\
+\Gr^M_i V&\simeq \bigoplus_{\substack{j\ge |i|\\ j\equiv i\ (2)}}P_{-j}\Bigl(\frac{i+j}{2}\Bigr), \tag{1.6.14.3}\\
+P_{-j}&\simeq \bigoplus_{j\in P(j',j'')}P'_{-j'}\otimes P''_{-j''}\Bigl(\frac{j-j'-j''}{2}\Bigr), \tag{1.6.14.4}\\
+P_{-j}(V'{}^\vee)&\simeq P_{-j}(V')^\vee(j). \tag{1.6.14.5}
+\end{align}
+To remember these formulas, one regards $\Gr_i$ and $P_i$ as of weight $i$, and $\mathfrak N$ as of weight $-2$; both members are then always isobaric of the same weight. We shall also use a sheaf-theoretic variant of (1.6.14).
+
+\section*{(1.7) Local monodromy}
+
+\paragraph{(1.7.1).}
+Let $R$ be a henselian discrete valuation ring, $K$ its field of fractions, $k=R/\mathfrak m$ its residue field, $\overline K$ an algebraic closure of $K$, and $\overline k$ the residue field of the normalization of $R$ in $\overline K$. The extension $\overline k/k$ is not algebraic in general. It is often convenient first to choose $\overline k$, and then $\overline K$, by taking an algebraic closure $\overline k$ of $k$, then an algebraic closure $\overline K$ of the field of fractions of the strict henselization of $R$.
+
+The inertia group is defined as the kernel in the exact sequence
+\begin{equation}\tag{1.7.1.1}
+0\longrightarrow I\longrightarrow \Gal(\overline K/K)\longrightarrow \Gal(\overline k/k)\longrightarrow 0.
+\end{equation}
+It, or its image in a representation, is also called the local monodromy group. Recall that if $k$ has exponential characteristic $p$, one has an exact sequence
+\[
+0\longrightarrow P\longrightarrow I\longrightarrow \widehat{\ZZ}_{(p')}(1)\longrightarrow 0,
+\]
+where $P$ is a pro-$p$ group and
+\[
+\widehat{\ZZ}_{(p')}(1)=\prod_{\ell\ne p}\ZZ_\ell(1)
+\]
+is the tame inertia group. Taking the $\ell$-component gives
+\[
+t_\ell:I\longrightarrow \ZZ_\ell(1)
+\]
+whose kernel is a profinite group of order prime to $\ell$.
+
+\paragraph{(1.7.2).}
+Let $\rho:I\to\GL(V)$ be an $\ell$-adic representation of $I$. Grothendieck proved that the following hypothesis is often verified in practice:
+
+\smallskip
+\noindent $(*)$ The restriction of $\rho$ to a finite-index subgroup $I_1$ of $I$ is unipotent.
+\smallskip
+
+If this is so, there is a unique representation $\overline\rho$ of $\Ql(1)$, viewed as a one-dimensional Lie algebra in $V$, such that
+\begin{equation}\tag{1.7.2.1}
+\rho(\sigma)=\exp(\overline\rho(t_\ell(\sigma)))\qquad(\sigma\in I_1\subset I).
+\end{equation}
+One calls $\overline\rho$ the logarithm of the unipotent part of the local monodromy. It may be identified with a nilpotent morphism
+\[
+N:V(1)\longrightarrow V.
+\]
+The defining formula is then written
+\begin{equation}\tag{1.7.2.2}
+\rho(\sigma)=\exp(Nt_\ell(\sigma))\qquad(\sigma\in I_1\subset I).
+\end{equation}
+The theory of (1.6.14) applies to this situation. The twist $(k)$ of local systems is the usual Tate twist. The filtrations (1.6.1) and (1.6.13) are called, respectively, the local monodromy filtration of $V$ and the local monodromy filtration of $V$ relative to $W$.
+
+\paragraph{(1.7.3).}
+Assume the residue field finite with $q$ elements. Define the Weil group $W(\overline K/K)$ as the subgroup of $\Gal(\overline K/K)$ inverse image of $W(\overline k/k)$. If $V$ is an $\ell$-adic representation of $W(\overline K/K)$, then by Grothendieck (SGA 7 I) condition $(*)$ of (1.7.2) is automatically verified. The logarithm of the unipotent part of the monodromy
+\[
+N:V(1)\longrightarrow V
+\]
+is therefore defined. It commutes with the action of $W(\overline K/K)$.
+
+\paragraph{Lemma (1.7.4).}
+If $F'$ and $F''$ are two liftings in $W(\overline K/K)$ of $F\in W(\overline k/k)$, then the eigenvalues of $F'$ and $F''$ coincide up to multiplication by roots of unity.
+
+To verify this, one may replace $V$ by its semisimplification, and then suppose that the action of the inertia group factors through a finite quotient. In that case there is $n>0$ such that $F'^n$ and $F''{}^n$ have the same image in $\GL(V)$, and the lemma follows.
+
+Whatever lift one chooses, the $\iota$-weights of the eigenvalues of $F'$ or of $F''$, relative to $q$, are therefore the same. Imitating (1.2), one then defines pure, mixed, $\iota$-pure representations, and the weights of a representation.
+
+\paragraph{Proposition-definition (1.7.5).}
+Suppose that the $\iota$-weights of $V$ are integers. There exists then one and only one finite increasing filtration $M$ of $V$, stable under $W(\overline K/K)$, such that $\Gr^M_i(V)$ is $\iota$-pure of weight $i$. It is called the weight filtration. One has $NM_i(1)\subset M_{i-2}$.
+
+Choose a Frobenius lift $F'$ in $W(\overline K/K)$. Let $V'_i$ be the sum of the generalized eigenspaces of $F'$ in $V$ corresponding to eigenvalues $\alpha$ such that $w_q(\alpha)=i$, and put $M'_i=\prod_{j\le i}V'_j$. One proves that $M'$ is independent of $F'$. This will make it stable under $W(\overline K/K)$ and gives $M=M'$. If $M''$ is the filtration defined by another lift $F''$, let $I_1$ be as in (1.7.2.1). Since $I/I_1$ is finite, there is $n>0$ such that $F'^n\equiv F''{}^n\pmod{I_1}$. For a suitable $\lambda\in\Ql(-1)$, one then has in $\GL(V)$
+\[
+F''{}^n=\exp(\lambda N)F'^n,
+\]
+hence
+\[
+F''{}^n=\exp(\mu N)F''{}^n\exp(\mu N)^{-1}
+\qquad\text{with }\mu=\lambda/(1-q^n).
+\]
+Since $V'_i$ is the sum of the generalized eigenspaces of $F'^n$ corresponding to eigenvalues of weight $i$, the automorphism $\exp(\mu N)$ sends $M'$ onto $M''$. Since $N$ respects $M'$, this proves the assertion.
+
+\paragraph{Corollary (1.7.6).}
+If $V$ is $\iota$-pure, the action of $I$ factors through a finite quotient.
+
+By twisting, one reduces to the case where $V$ has integral weights. The filtration $M$ is then reduced to one step. Since $NM_i\subset M_{i-2}$, one has $N=0$, and the corollary follows.
+
+\paragraph{Remark (1.7.7).}
+The proof of (1.7.5) shows that any representation $V$ admits a unique decomposition
+\[
+V=\sum V^\alpha \qquad (\alpha\in \Qlb^*/\{\alpha\sim\alpha' \text{ if }\alpha/\alpha'\text{ is a root of unity}\}),
+\]
+such that the eigenvalues of Frobenius liftings on $V^\alpha$ lie in the class $\alpha$. Each $V^\alpha$ is obtained from a mixed representation by twisting.
+
+\paragraph{Variant (1.7.8).}
+If $D$ is a smooth divisor in a regular scheme $X$, the preceding constructions have an analogue for sheaves on $X-D$ that are tamely ramified along $D$. More generally, let $D$ be a normal-crossings divisor of $X$, the transverse union of smooth divisors $D_i$ $(i\in I)$. We work locally so that each $D_i$ admits a global equation $t_i=0$. Let $E$ be the intersection of the $D_i$. For $n$ invertible on $X$, put
+\[
+X_n=X[t_i^{1/n}]_{i\in I},
+\]
+the closed subscheme of the affine space over $X$, with coordinates $T_i$, defined by the equations $T_i^n=t_i$. The ramified covering $\pi:X_n\to X$ is etale over $X-D$ and totally ramified over $E$; over $E$, $\pi$ has the section $t_i^{1/n}=0$. The restriction to $E$ of a sheaf on $X_n$ means its inverse image by this section. The group $(\mu_n)^I$ acts on $X_n$ by multiplying $t_i^{1/n}$ by $\tau_i$.
+
+Let $L$ be a set of prime numbers invertible on $X$, and let $\mathcal F$ be a sheaf of sets on $X-D$, locally constant, tamely ramified along $D$, and indeed $L$-ramified along $D$ in the following sense. For $d$ the generic point of an irreducible component of $D$, the henselization $X_{(d)}$ is a henselian trait; if $\bar\eta$ is a geometric generic point, require the inertia group to act on $\mathcal F_{\bar\eta}$ through an $L$-group. Abhyankar's lemma then gives an integer $n$, all of whose prime factors lie in $L$, such that the inverse image of $\mathcal F$ on $\pi^{-1}(X-D)\subset X_n$ is the restriction to $\pi^{-1}(X-D)$ of a locally constant sheaf on $X_n$. We call this the locally constant extension of $\mathcal F$ to $X_n$. We write $\mathcal F[E]$ for its restriction to $E$. It carries an action of $\mu_n^I$ deduced from the action on $X_n$. Putting
+\[
+\ZZ_L(1)=\prod_{\ell\in L}\ZZ_\ell(1)
+\]
+(a pro-sheaf on $E$), one obtains a functor
+\[
+\mathcal F\longmapsto \mathcal F[E]
+\]
+from locally constant sheaves of sets on $X-D$ that are $L$-ramified along $D$ to locally constant sheaves of sets on $E$ endowed with an action of $\ZZ_L(1)^I$. This functor passes to constructible $\Qlb$-sheaves by passage to the limit, with a parallel variant for Weil sheaves. In many cases, in particular if $X$ is of finite type over $\ZZ$, the action of $\ZZ_L(1)^I$ is quasi-unipotent: there are mutually commuting nilpotent endomorphisms
+\[
+N_i\in \End(\mathcal F[E])(-1)
+\]
+such that, for $\sigma$ in a suitable open subsheaf $n\ZZ_L(1)^I$ of $\ZZ_L(1)^I$, it acts by
+\[
+\exp\bigl(\sum_i N_i\sigma_i\bigr).
+\]
+We call $N_i$ the logarithm of the unipotent part of the monodromy around $D_i$. In the case of a smooth divisor, one uses this endomorphism, as above, to define the local monodromy filtration of $\mathcal F[D]$, and, when a filtration $W$ is present, the relative local monodromy filtration.
+
+\paragraph{(1.7.9).}
+Near an intersection of $p$ of the $D_i$, the divisor $D$ appears as the union of $p$ smooth divisors, and the preceding constructions can be repeated. We use the following notation: for $J\subset I$, $D_J$ is the intersection of the $D_j$ $(j\in J)$, $X_J$ is the complement of the union of the $D_i$ with $i\notin J$, and $D'_J=D_J\cap X_J$. The $D_i$ with $i\notin J$ cut out on the regular scheme $D_J$ a normal-crossings divisor with complement $D'_J$, while the $D_j$ with $j\in J$ cut out on $X_J$ a normal-crossings divisor with complement $X-D$; the intersection of their traces is $D'_J$.
+
+Let $\mathcal F$ be a locally constant sheaf of sets on $X-D$, $L$-ramified along $D$. Applying (1.7.8) gives for each $J$ a sheaf $\mathcal F[D'_J]$ on $D'_J$ with an action of $\ZZ_L(1)^J$. Repeating the construction yields, for $K\subset I-J$, a locally constant sheaf $\mathcal F[D'_J][D'_{J\cup K}]$ on $D'_{J\cup K}$ with the compatible actions. Transitivity of inverse images gives an isomorphism
+\begin{equation}\tag{1.7.9.1}
+\mathcal F[D'_J][D'_{J\cup K}]\xrightarrow{\sim}\mathcal F[D'_{J\cup K}],
+\end{equation}
+compatible with the action of $\ZZ_L(1)^{J\cup K}$. For $J\subset K\subset L$, the corresponding square is commutative. All this extends to constructible $\Qlb$-sheaves, and to Weil sheaves, by passage to the limit.
+
+\paragraph{(1.7.10).}
+The constructions (1.7.8) depend on the choice of the coordinates $t_i$. To make them canonical, one introduces the normal bundle $T$ of $E$ in $X$ and the subbundles $T_i$ tangent to the $D_i$. One replaces the construction of $\mathcal F[E]$ by that of a sheaf $\mathcal F[E]'$ on $T-\bigcup T_i$. A system of equations $t_i$ defines a section of $T-\bigcup T_i$, and the sheaf $\mathcal F[E]$ defined in terms of the $t_i$ is identified with the inverse image of $\mathcal F[E]'$ by this section. The construction is also compatible with base change by a smooth morphism $X'\to X$. The $N_i$ and $\ZZ_L(1)^I$ act on $\mathcal F[E]'$, which plays the role of the restriction of $\mathcal F$ to a tubular neighborhood of $E$ in $X$. It may also be regarded as an analogue of nilpotent orbits in the theory of variations of Hodge structure.
+
+\paragraph{(1.7.11).}
+Assume that $X$ is henselian local, $X=\Spec(R)$, and take for $L$ the set of all primes invertible on $X$. We interpret (1.7.8) in Galois terms. Let $k$ be the residue field of $R$, $K$ its field of fractions, $R_1$ a strict henselization of $R$ with residue field $k_1$ and fraction field $K_1$, $\overline K$ an algebraic closure of $K_1$, and $K_2\subset \overline K$ the extension of $K_1$ obtained by adjoining the $n$-th roots of the $t_i$, for all $n$ invertible in $R$. A locally constant sheaf of sets on $X-D$ is tamely ramified along $D$ if and only if it becomes trivial over $\Spec(K_2)$; this identifies the tame fundamental group of $X-D$ with $\Gal(K_2/K)$. It is an extension
+\[
+0\longrightarrow \ZZ_L(1)^I\longrightarrow \pi_1^{\mathrm{mod}}(X-D)\longrightarrow \Gal(k_1/k)\longrightarrow 0.
+\]
+The choice of the $t_i$ and of their roots splits this extension. From a sheaf $\mathcal F$ on $X-D$, identified with a set $F$ on which $\pi_1^{\mathrm{mod}}(X-D)$ acts, one obtains an action of $\Gal(k_1/k)$ on $F$, and a $\Gal(k_1/k)$-equivariant action of $\ZZ_L(1)^I$. This is the sheaf $\mathcal F[E]$ of (1.7.8).
+
+\paragraph{(1.7.12).}
+If $k$ is finite, define $W^{\mathrm{mod}}(X-D)$ as the inverse image of $W(k_1/k)$ in the tame fundamental group. Generalizing (1.7.3)--(1.7.7), with the same proof, one has:
+\begin{enumerate}[label=(1.7.12.\arabic*)]
+\item The restriction to $\ZZ_L(1)^I$ of an $\ell$-adic representation of $W^{\mathrm{mod}}(X-D)$ is quasi-unipotent.
+\item If $F'$ and $F''$ are two liftings in $W^{\mathrm{mod}}$ of $F\in W(k_1/k)$, the eigenvalues of $F'$ and $F''$ coincide up to multiplication by roots of unity. Thus the $\iota$-weights are defined as in (1.7.4).
+\item If the $\iota$-weights of $V$ are integers, there is on $V$ one and only one weight filtration $M$, as in (1.7.5). The analogues of (1.7.6) and (1.7.7) are true.
+\end{enumerate}
+
+\section*{(1.8) Local monodromy of pure sheaves}
+
+The conventions of (0.7) are in force. Let $X_0$ be a smooth absolutely irreducible curve over $\Fq$, and let $j:U_0\hookrightarrow X_0$ be an open subset whose complement is the finite set $S_0$.
+
+\paragraph{Lemma (1.8.1).}
+If $\mathcal F_0$ is a lisse sheaf on $U_0$ pointwise $\iota$-pure of weight $\beta$, then, for every $x\in |S_0|$ and every eigenvalue $\alpha$ of $F_x$ on $(j_*\mathcal F_0)_x$, one has
+\[
+w_{N(x)}(\alpha)\le \beta.
+\]
+
+Removing, if necessary, a point of $X_0$ lying in $U_0$, one reduces to the case where $X_0$ is affine. One then has the equality (1.4.7.2)
+\begin{equation}\tag{1.8.1.1}
+\prod_{x\in |U_0|}\det(1-F_x t^{\deg x},\mathcal F_0)^{-1}
+\prod_{x\in |S_0|}\det(1-F_x t^{\deg x},j_*\mathcal F_0)^{-1}
+=
+\frac{\det(1-Ft,H^1_c(X,j_*\mathcal F))}
+{\det(1-Ft,H^0(X,j_*\mathcal F))}.
+\end{equation}
+In this formula:
+\begin{enumerate}[label=\alph*)]
+\item By (1.4.6), the first factor on the left converges for $|t|<q^{-(\beta+2)/2}$ and has neither zero nor pole in this region.
+\item By (1.4.3), the right-hand side has no pole for $|t|<q^{-(\beta+2)/2}$.
+\item Comparing a) and b), one finds that the remaining factors
+\[
+\det(1-F_x t^{\deg x},j_*\mathcal F_0)^{-1}\qquad (x\in |S_0|)
+\]
+are without pole for $|t|<q^{-(\beta+2)/2}$.
+\end{enumerate}
+If $\alpha$ is an eigenvalue of $F_x$ on $(j_*\mathcal F_0)_x$, then $|\alpha|\le N(x)^{(\beta+2)/2}$, that is
+\begin{equation}\tag{1.8.1.2}
+w_{N(x)}(\alpha)\le \beta+2.
+\end{equation}
+To conclude, one applies (1.8.1.2) to tensor powers of $\mathcal F_0$. Since $(j_*\mathcal F_0)^{\otimes k}$ is a subsheaf of $j_*(\mathcal F_0^{\otimes k})$, the eigenvalues $\alpha^k$ satisfy $w_{N(x)}(\alpha^k)\le k\beta+2$, hence $w_{N(x)}(\alpha)\le \beta+2/k$. Letting $k\to\infty$ gives the lemma.
+
+\paragraph{Remark (1.8.2).}
+Compare the zeros of the two sides of (1.8.1.1). On the left, there are none for $|t|<q^{-(\beta+2)/2}$. On the right, the denominator does not vanish in this same region. Therefore the numerator cannot vanish there. Thus for every eigenvalue $\alpha$ of $F$ on $H^1_c(X,j_*\mathcal F)$, one has $w_q(\alpha)\le \beta+2$.
+
+\paragraph{(1.8.3).}
+Let $y\in S$, with image $s$ in $S_0$, let $\eta$ be the generic point of the henselian trait with residue field $X_0(s)$, and let $\bar\eta$ be a geometric generic point of its strict henselization. The fibre $\mathcal F_{0\bar\eta}$ of $\mathcal F_0$ at $\bar\eta$ is a representation of the Weil group $W(\bar\eta/\eta)$. We write $M$ for its local monodromy filtration (1.7.2).
+
+\paragraph{Theorem (1.8.4).}
+With the notation of (1.8.1) and (1.8.3), if $\mathcal F_0$ is pointwise $\iota$-pure of weight $\beta$, the representation
+\[
+\Gr^M_i(\mathcal F_{0\bar\eta})
+\]
+of $W(\bar\eta/\eta)$ is $\iota$-pure of weight $\beta+i$.
+
+By twisting (1.2.7), we reduce to the case $\beta=0$. Replace $X_0$ by a finite covering, and $U_0$, $\mathcal F_0$, and $s$ by their inverse images. This changes neither the weights, nor $\mathcal F_{0\bar\eta}$, nor the filtration $M$, and reduces us to the case where formula (1.7.2.1) for the representation of $W(\bar\eta/\eta)$ on $\mathcal F_{0\bar\eta}$ holds on all of $I$:
+\[
+\rho(\sigma)=\exp(t_\ell(\sigma)N)\qquad(\sigma\in I).
+\]
+Under these hypotheses,
+\[
+\Ker N=(\mathcal F_{0\bar\eta})^I,
+\]
+and this vector space is the fibre of $j_*\mathcal F_0$ at $\bar s$. By (1.8.1), if $\alpha$ is an eigenvalue of $F$ on $\Ker N$, then $|\iota(\alpha)|\le 1$.
+
+Let $\alpha$ be an eigenvalue of $F$ on $P_{-j}(\mathcal F_{0\bar\eta})$. By (1.6.14.2), one first obtains $|\iota(\alpha)|\le1$. Apply this result to $\mathcal F_0\otimes\mathcal F_0$. By (1.6.14.4),
+\[
+P_{-j}(\mathcal F_{0\bar\eta})\otimes P_{-j}(\mathcal F_{0\bar\eta})(-j)
+\]
+is a direct factor of $P_0(\mathcal F_{0\bar\eta}\otimes\mathcal F_{0\bar\eta})$; hence $\alpha^2 q^j$ is an eigenvalue of $F$ on that $P_0$, and $|\iota(\alpha^2 q^j)|\le1$, i.e. $|\iota(\alpha)|\le q^{-j/2}$. Applying this last result to the dual sheaf and using (1.6.14.5), one obtains also $|\iota(\alpha^{-1}q^{-j})|\le q^{-j/2}$, i.e. $|\iota(\alpha)|\ge q^{-j/2}$. Thus the eigenvalues $\alpha$ of $F$ on $P_{-j}(\mathcal F_{0\bar\eta})$ have absolute value $q^{-j/2}$, and one concludes by (1.6.14.3).
+
+\paragraph{Corollary (1.8.5).}
+Assume that $\mathcal F_0$ is a lisse sheaf on $U_0$ and that it admits a finite increasing filtration $W$ by lisse subsheaves such that, for every $i$, $\Gr^W_i(\mathcal F_0)$ is pointwise $\iota$-pure of weight $i$. Write again $W$ for the induced filtration on $\mathcal F_{0\bar\eta}$. Then $\mathcal F_{0\bar\eta}$ is $\iota$-mixed with integral weights; the local monodromy filtration of $V$ relative to $W$ exists, and it coincides with the weight filtration of $\mathcal F_{0\bar\eta}$ (1.7.5).
+
+By (1.7.5) and (1.8.4) applied to $\Gr^W(\mathcal F_0)$, the characteristic properties (1.6.13) are satisfied by the weight filtration.
+
+\paragraph{(1.8.6).}
+Let $D_0$ be a smooth divisor in a scheme $X_0$ smooth over $\Fq$, let $U_0$ be the complementary open, and let $\mathcal F_0$ be a lisse sheaf on $U_0$ tamely ramified along $D_0$. Suppose that $\mathcal F_0$ admits a finite increasing filtration $W$ by lisse subsheaves such that $\Gr^W_i\mathcal F_0$ is pointwise $\iota$-pure of weight $i$. Suppose that $D_0$ is defined by an equation $t$, and let $\mathcal F_0[D_0]$ be the sheaf on $D_0$ endowed with an action of $\ZZ_\ell(1)$ obtained from (1.7.8). Restricting $\mathcal F_0$ to curves transverse to $D_0$, one deduces:
+
+\paragraph{Corollary (1.8.7).}
+With the notation of (1.8.6), the local monodromy filtration around $D$ of $\mathcal F_0[D_0]$, relative to $W$, exists. For this filtration, denoted $M$, the sheaf $\Gr^M_i\mathcal F_0[D_0]$ is pointwise $\iota$-pure of weight $i$.
+
+\paragraph{Remark (1.8.8).}
+\begin{enumerate}[label=\arabic*)]
+\item With the notation of (1.8.1), if $\mathcal F_0$ is lisse on $U_0$, then $(j_*\mathcal F_0)_{\bar s}=(\mathcal F_{0\bar\eta})^I$. This group is deduced from $\Ker N$ by taking invariants by a finite group $I/I_1$. Under the hypotheses of (1.8.4), $\Ker N\subset M_0$, and the induced filtration $M$ on $(j_*\mathcal F_0)_{\bar s}$ has associated graded $\Gr^M_i(j_*\mathcal F_0)_{\bar s}$ $\iota$-pure of weight $\beta+i$, and zero for $i>0$.
+\item With the notation of (1.8.6), if $\mathcal F_0$ is lisse on $U_0$ and tamely ramified along $D_0$, the restriction of $j_*\mathcal F_0$ to $D_0$ is the subsheaf of invariants of a finite group in $\Ker N\subset\mathcal F_0[D_0]$. If $\mathcal F_0$ is pointwise $\iota$-pure of weight $\beta$, twisting (1.8.7) gives that, for the monodromy filtration $M$, $\Gr^M_i(j_*\mathcal F_0|D_0)$ is pointwise $\iota$-pure of weight $\beta+i$, and is zero for $i>0$.
+\item Under the hypotheses of (1.8.6), $W$ and the monodromy define on $j_*\mathcal F_0|D_0$ a filtration $M$ for which $\Gr^M_i(j_*\mathcal F_0|D_0)$ is lisse and $\iota$-pure of weight $i$.
+\end{enumerate}
+
+\paragraph{Corollary (1.8.9).}
+Let $X_0$ be a scheme of finite type over $\Fq$, let $j:U_0\hookrightarrow X_0$ be an open subset, and let $\mathcal F_0$ be an $\iota$-mixed sheaf of pointwise weights $\le p$ on $U_0$. Then $j_*\mathcal F_0$ is again $\iota$-mixed of pointwise weights $\le p$. If the pointwise weights of $\mathcal F_0$ are integral, those of $j_*\mathcal F_0$ are integral as well.
+
+We use the following devissages, justified by (1.2.5): devissage in $\mathcal F_0$ by exact sequences; replacement of the support by a locally closed subscheme; normalization by a finite surjective morphism; replacing the open by a dense smaller open to make infinity a divisor; and finally localization at the generic point at infinity. These reductions bring the proof to (1.8.8), 2).
+
+\paragraph{Corollary (1.8.10).}
+Let $\mathcal F_0$ be a lisse sheaf on $X_0$ of finite type over $\Fq$, and let $j:U_0\hookrightarrow X_0$ be a dense open subset. If the restriction of $\mathcal F_0$ to $U_0$ is pointwise $\iota$-pure, then $\mathcal F_0$ itself is pointwise $\iota$-pure.
+
+Let $\beta$ be the weight of $\mathcal F_0|U_0$. Since $\mathcal F_0\to j_*j^*\mathcal F_0$ and likewise for the dual, (1.8.9) shows that $\mathcal F_0$ is $\iota$-mixed of weights $\le\beta$, while its dual is $\iota$-mixed of weights $\le -\beta$. Thus the weights are also $\ge\beta$, and the assertion follows. Equivalently, one can reduce by curves and normalization to the case of a smooth curve and then use (1.8.1) directly.
+
+\paragraph{Corollary (1.8.11).}
+Every lisse $\iota$-mixed sheaf $\mathcal F_0$ on a normal scheme $X_0$ of finite type over $\Fq$ is a successive extension of lisse pointwise $\iota$-pure sheaves.
+
+One may suppose $X_0$ connected and reduce to the case where the sheaf is irreducible. Since $X_0$ is normal, its restriction to any nonempty open subset is still irreducible; for a suitable open subset it is pointwise $\iota$-pure by the definition of mixed sheaves, and (1.8.10) applies. Later, in (3.4.1), the normality hypothesis will be removed.
+
+\paragraph{Corollary (1.8.12).}
+Let $\mathcal F_0$ be a lisse $\iota$-mixed sheaf on a connected scheme $X_0$ of finite type over $\Fq$. If $\mathcal F_0$ is $\iota$-pure at one point of $X_0$, then it is pointwise $\iota$-pure.
+
+For $X_0$ normal this follows from (1.8.11): the weights of $\mathcal F_0$ are read from its fibre at any point. The general case is obtained by applying this to the normalization and then descending the conclusion.
+
+\paragraph{(1.8.13)--(1.8.14).}
+The preceding discussion has the expected analogues for variations in Hodge theory. A variation of mixed Hodge structures on a smooth analytic space $S$ consists of a local system $V_\ZZ$ of free finitely generated $\ZZ$-modules, an increasing finite filtration $W$ of $V_\QQ$, and a decreasing finite filtration $F$ of $V_\CC$ by vector subbundles, holomorphically varying and satisfying Griffiths transversality, such that $W$ and $F$ define at each point of $S$ a mixed Hodge structure. The variations occurring in algebraic geometry satisfy additional properties, for instance the polarizability of the variations $\Gr^W(V)$.
+
+Let $(V,W,F)$ be such a variation on the punctured disk $D^*$, let $t\in D^*$, let $V$ be the fibre at $t$, and let $T$ be the monodromy. Suppose for simplicity that $T$ is unipotent, and put $N=-\log T$.
+
+\paragraph{Problem (1.8.15).}
+Isolate a class of good variations of mixed Hodge structures on $D^*$ such that, for a good unipotent variation $(V,W,F)$, there exists on $V$ a finite increasing filtration $M$ with $NM_a\subset M_{a-2}$ and such that $N^b$ induces isomorphisms
+\[
+N^b:\Gr^M_{a+b}\Gr^W_a V\xrightarrow{\sim}\Gr^M_{a-b}\Gr^W_a V.
+\]
+One would also like:
+\begin{enumerate}[label=\alph*)]
+\item the variation $V$ to be asymptotic, in a suitable sense, to a nilpotent orbit: a good variation for which $F$ at $t\exp(u)$ is the transform by $\exp(-uN)$ of the filtration deduced from $F_t$ by horizontal transport from $t$ to $t\exp(u)$;
+\item for a nilpotent orbit, $(V,M,F)$ to be again a variation of mixed Hodge structures.
+\end{enumerate}
+
+\end{document}

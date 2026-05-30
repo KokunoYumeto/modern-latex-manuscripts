@@ -1,6 +1,6 @@
 # SGA Source Coverage Inventory (2026-05-29)
 
-This note summarizes the local source-vs-public check for the SGA working translation material mirrored here and archived on Zenodo at https://zenodo.org/records/20450840. Exact local source filenames are preserved inside the artifact ZIPs; this public note records coverage rather than raw workflow names.
+This note summarizes the local source-vs-public check for the SGA working translation material mirrored here and archived on Zenodo at https://zenodo.org/records/20410947. Exact local source filenames are preserved inside the artifact ZIPs; this public note records coverage rather than raw workflow names.
 
 - Source ZIPs scanned locally: 31.
 - Highest local source-packet sequence observed: 033.

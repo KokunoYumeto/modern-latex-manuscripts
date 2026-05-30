@@ -1,0 +1,418 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{variant}{Variant}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\Ql}{\mathbb{Q}_\ell}
+\newcommand{\Qlb}{\overline{\mathbb{Q}}_\ell}
+\newcommand{\Zl}{\mathbb{Z}_\ell}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fbar}{\overline{\mathbb{F}}_q}
+\newcommand{\Abar}{\overline{\mathbb{Q}}_\ell}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Frob}{\operatorname{Frob}}
+\newcommand{\Norm}{\operatorname{N}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\RHom}{R\mathcal{H}om}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\rk}{\operatorname{rg}}
+\newcommand{\degm}{\operatorname{deg}}
+\newcommand{\boxt}{\boxtimes}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Image}{\operatorname{Im}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\limind}{\varinjlim}
+\newcommand{\limproj}{\varprojlim}
+\setlist[enumerate]{itemsep=0.35em,topsep=0.4em}
+\setlist[itemize]{itemsep=0.25em,topsep=0.4em}
+\title{The Weil Conjecture. II}
+\author{Pierre Deligne\\\small English translation}
+\date{}
+\begin{document}
+\title{The Weil Conjecture. II}
+\author{Pierre Deligne\\\small English translation}
+\date{}\maketitle
+
+
+\section*{(1.6) Around Jacobson--Morosov}
+
+\paragraph{Proposition (1.6.1).} Let $N$ be a nilpotent endomorphism of an object $V$ of an abelian category. There exists a unique finite increasing filtration $M$ of $V$ such that
+\[
+        NM_i\subset M_{i-2}
+        \quad\text{and}\quad
+        N^k: \Gr^M_k V \xrightarrow{\sim} \Gr^M_{-k}V
+\]
+for every $k\ge0$.
+
+We prove existence; uniqueness is proved in the same way. Induct on an integer $d$ such that $N^{d+1}=0$. For $d=0$, take the trivial filtration, with $\Gr^M_iV=0$ for $i\ne0$. For the induction step, put
+\[
+M_d=V,\qquad M_{d-1}=\Ker N^d,\qquad M_{-d}=\operatorname{Im}N^d,
+\]
+and choose $M_{-d-1}$ so that $\Gr^M_dV$ and $\Gr^M_{-d}V$ are respectively the coimage and the image of $N^d$. On $\Ker N^d/\operatorname{Im}N^d$, the $(d-1)$-st power of $N$ is zero. By induction this quotient has its filtration; for $d-1>i>-d$, define $M_i$ in $V$ as the inverse image in $\Ker N^d$ of the corresponding subobject of $\Ker N^d/\operatorname{Im}N^d$.
+
+\paragraph{Remark (1.6.2).} The characterization (1.6.1) shows compatibility of $M$ with passage to the dual category.
+
+\paragraph{Definition (1.6.3).} The primitive part $P_i(V)$, or simply $P_i$, of $\Gr^M_iV$ is the kernel of the map induced by $N$:
+\[
+        N:\Gr^M_iV\longrightarrow \Gr^M_{i-2}V.
+\]
+
+\paragraph{(1.6.4).} If $i>0$, the map $N:\Gr^M_iV\to\Gr^M_{i-2}V$ is injective, since $N^{i-1}N$ is an isomorphism; hence $P_i=0$. For $i\ge0$, writing that
+\[
+N\circ N^{i+1}:\Gr^M_{i+2}V\longrightarrow \Gr^M_{-i}V\longrightarrow \Gr^M_{-i-2}V
+\]
+is an isomorphism shows that $\Gr^M_{-i}V$ is the direct sum of $P_{-i}$ and of the image of $\Gr^M_{i+2}V$ by $N^{i+1}$; the morphism $N$ induces an isomorphism from this image onto $\Gr^M_{-i-2}V$. Repeating this construction gives, by decreasing induction on $i\ge0$, an isomorphism of $\Gr^M_{-i}V$ with the sum of the $P_{-j}$ for $j\ge i$ and $j\equiv i\pmod 2$. Using also the isomorphisms $N^i:\Gr^M_iV\to\Gr^M_{-i}V$, one obtains
+\begin{equation}\tag{1.6.4.1}
+        \Gr^M_iV\simeq \bigoplus_{\substack{j\ge |i|\\ j\equiv i\; (2)}} P_{-j}.
+\end{equation}
+Via these isomorphisms, the map $N:\Gr^M_iV\to\Gr^M_{i-2}V$ is the evident inclusion for $i>1$ and the evident projection for $i-2<-1$.
+
+\paragraph{Lemma (1.6.5).} The morphism
+\[
+        N:(V,M)\longrightarrow (V,M\text{ shifted by }2)
+\]
+is strictly compatible with the filtrations.
+
+It is enough to prove that $NM_{i+2}\supset \operatorname{Im}(N)\cap M_i$. If $i<0$, the morphism $N:M_{i+2}\to M_i$ has surjective associated graded, hence is surjective, and $NM_{i+2}=M_i$. If $i+2>0$, the morphism $N:V/M_{i+2}\to V/M_i$ has injective associated graded, hence is injective, and $N^{-1}M_i\subset M_{i+2}$.
+
+\paragraph{Corollary (1.6.6).} The inclusion $\Ker N\subset V$ induces isomorphisms
+\[
+        \Gr^M_i(\Ker N) \xrightarrow{\sim} P_i.
+\]
+
+\paragraph{(1.6.7).} Suppose now that $V$ is a finite-dimensional vector space over a field $k$. First consider the case where, in a basis adapted to $N$, the matrix of $N$ is one Jordan block
+\begin{equation}\tag{1.6.7.1}
+\begin{pmatrix}
+0&0&0&\cdots&0\\
+1&0&0&\cdots&0\\
+0&1&0&\cdots&0\\
+\vdots&\vdots&\ddots&\ddots&\vdots\\
+0&0&\cdots&1&0
+\end{pmatrix}.
+\end{equation}
+Put $\dim V=d+1$ and index the basis vectors by the integers, differing by $2$, from $d$ down to $-d$, so that $Ne_i=e_{i-2}$ for $i\ne -d$ and $Ne_{-d}=0$. Then $M_i$ is spanned by the $e_j$ with $j\le i$.
+
+In general, $V$ is a sum of subspaces $V_a$ stable under $N$, with $N$ of the preceding type on $V_a$, and the filtration $M$ of $V$ is the sum of the filtrations just described on the $V_a$.
+
+\paragraph{(1.6.8).} If $k$ has characteristic zero, the filtration $M$ may be interpreted through the Jacobson--Morosov theorem. If
+\[
+        u:SL_2\longrightarrow GL(V)
+\]
+is chosen so that its lowering operator is $N$, and if $V_j$ is the subspace on which $\begin{pmatrix}x&0\\0&x^{-1}\end{pmatrix}$ acts by multiplication by $x^j$, then $M_i$ is the sum of the $V_j$ for $j\le i$. It is enough to check this for an irreducible representation of $SL_2$, i.e. for a symmetric power of the standard representation, where one is in the situation of (1.6.7).
+
+This interpretation gives the behavior of $M$ under tensor products and under passage to duals; for duals one may also invoke (1.6.2).
+
+\paragraph{Proposition (1.6.9).} Define the tensor product $(V,N)$ of $(V',N')$ and $(V'',N'')$ by
+\[
+        V=V'\otimes V'',\qquad
+        N=N'\otimes1+1\otimes N'',
+\]
+and the dual of $(V',N')$ as $((V')^\vee,-{}^tN')$.
+\begin{enumerate}[label=(\roman*)]
+\item If $k$ has characteristic zero, the filtration $M$ of a tensor product is the tensor product of the filtrations $M$ of the factors:
+\[
+        M_i(V'\otimes V'')=
+        \sum_{i'+i''=i} M_{i'}(V')\otimes M_{i''}(V'').
+\]
+\item The filtration $M$ of a dual is the dual filtration:
+\[
+        M_i((V')^\vee)=M_{-i-1}(V')^\perp.
+\]
+\item Under these hypotheses, formation of $\Gr^M$ is therefore compatible with tensor products and with passage to duals.
+\end{enumerate}
+
+\paragraph{(1.6.10).} Assume from now on that $V$ is finite-dimensional over a field of characteristic zero. On $\Gr^M(V)$ there exists a unique representation $v$ of $SL_2$ such that the differential of the standard nilpotent element is the map
+\[
+        N:\Gr^M_iV\longrightarrow \Gr^M_{i-2}V,
+\]
+and such that $\begin{pmatrix}x&0\\0&x^{-1}\end{pmatrix}$ acts by multiplication by $x^j$ on $\Gr^M_j(V)$. Existence is obtained by choosing $u$ as in (1.6.8), identifying $\Gr^M(V)$ with $V$ through the splitting $\bigoplus V_j$, and transporting $u$ to the associated graded. Uniqueness follows from the usual $\mathfrak{sl}_2$ lemma. Formation of $v$ is compatible with tensor products and with duals as in (1.6.9).
+
+\paragraph{(1.6.11).} Choose once and for all, for each integer $d\ge0$, an irreducible representation $S^d$ of $SL_2$ of dimension $d+1$, and a lowest-weight vector $e_{-d}\in S^d$. Put
+\[
+        P(d,d')=\{j\mid |d-d'|\le j\le d+d',\quad j-d+d'\equiv0\pmod2\},
+\]
+and choose isomorphisms of representations
+\begin{align}
+        S^d\otimes S^{d'}&\simeq \bigoplus_{j\in P(d,d')}S^j,\tag{1.6.11.2}\\
+        (S^d)^\vee&\simeq S^d.\tag{1.6.11.3}
+\end{align}
+For $V,N,M$ and $P$ as above, there is a unique isomorphism of $SL_2$-representations
+\begin{equation}\tag{1.6.11.4}
+        \bigoplus_j S^j\otimes P_{-j}\xrightarrow{\sim}\Gr^M(V),
+\end{equation}
+where $SL_2$ acts trivially on $P_{-j}$ at the source, and by (1.6.10) at the target, such that the composite
+\[
+        P_{-j}\longrightarrow S^j\otimes P_{-j}\longrightarrow \Gr^M_{-j}(V)
+\]
+using the vector $e_{-j}$ is the identity inclusion of $P_{-j}$. This gives isomorphisms
+\begin{equation}\tag{1.6.11.5}
+        P_{-j}\simeq \Hom_{SL_2}(S^j,\Gr^M(V)).
+\end{equation}
+
+\paragraph{(1.6.12).} Let now $V'$ and $V''$ be as in (1.6.10), let $V=V'\otimes V''$, and write $P_j$, $P'_j$, $P''_j$ for the primitive parts of $V$, $V'$, $V''$. Combining (1.6.11.4) for $V'$ and $V''$ with (1.6.11.2) gives isomorphisms, depending only on the choices (1.6.11.2),
+\begin{equation}\tag{1.6.12.1}
+        P_{-j}\simeq
+        \bigoplus_{j\in P(j',j'')} P'_{-j'}\otimes P''_{-j''}.
+\end{equation}
+For duals one similarly obtains isomorphisms, depending only on (1.6.11.3),
+\begin{equation}\tag{1.6.12.2}
+        P_{-j}((V')^\vee)\simeq P_{-j}(V')^\vee.
+\end{equation}
+
+\paragraph{Proposition (1.6.13).} Let $V$ be an object of an abelian category, endowed with a finite increasing filtration $W$, and let $N$ be a nilpotent endomorphism of $V$ preserving $W$. There is at most one finite increasing filtration $M$ of $V$ such that
+\[
+        NM_i\subset M_{i-2}
+        \quad\text{and}\quad
+        N^k:\Gr^M_{i+k}\Gr^W_iV\xrightarrow{\sim}\Gr^M_{i-k}\Gr^W_iV
+\]
+for all $i,k$.
+
+The proof is by induction on the length of $W$. We may suppose that $W_0=V$ and that the assertion is known for $W_{-1}$ with the induced filtration and induced endomorphism. A simultaneous shift of $W$ and $M$ preserves the condition. If $M$ satisfies the condition, its restriction to $W_{-1}$ is determined, and the quotient filtration is the filtration (1.6.1) of $\Gr^W_0V$. Let $c$ be such that $\Gr^M_i\Gr^W_0V$ is nonzero only for $-c\le i\le c$. For $i\ge0$ one has
+\begin{enumerate}[label=\arabic*)]
+\item if $i>c$, then $M_{-i}=M_{-i}(W_{-1})$;
+\item $M_{-i}=M_{-i}(W_{-1})+N^iM_i$;
+\item $M_i=\Ker(N^{i+1}:V\to V/M_{-i-2}).$
+\end{enumerate}
+These identities determine $M$ uniquely by descending induction on $|i|$.
+
+\paragraph{(1.6.14).} In applications the abelian category will be vector spaces over a field $k$ of characteristic zero. We shall not have merely one nilpotent endomorphism $N$ of $V$, but a nilpotent action of a one-dimensional Lie algebra $\mathfrak n$. The preceding theory applies as soon as one chooses $N\ne0$ in $\mathfrak n$. In (1.6.13), the existence of the filtration $M$, and the filtration itself if it exists, are independent of the choice of $N$. The isomorphism $N^k$ from $\Gr^M_{i+k}\Gr^W_iV$ to $\Gr^M_{i-k}\Gr^W_iV$ has as invariant form the canonical isomorphism
+\begin{equation}\tag{1.6.14.1}
+        \Gr^M_{i+k}\Gr^W_iV(k)\xrightarrow{\sim}\Gr^M_{i-k}\Gr^W_iV,
+\end{equation}
+where $Y(k)$ denotes $Y\otimes\mathfrak n^{\otimes k}$.
+
+In the situation of (1.6.1)--(1.6.12), the filtration $M$ and the $P_j$ are independent of the choice of $N$; the isomorphisms (1.6.4.1) and (1.6.12.1--2) become
+\begin{align}
+        \Gr^M_i(\Ker N)&\simeq P_i, \tag{1.6.14.2}\\
+        \Gr^M_iV&\simeq \bigoplus_{\substack{j\ge |i|\\j\equiv i(2)}}P_{-j}\Bigl(\frac{i+j}{2}\Bigr),\tag{1.6.14.3}\\
+        P_{-j}&\simeq \bigoplus_{j\in P(j',j'')} P'_{-j'}\otimes P''_{-j''}\Bigl(\frac{j-j'-j''}{2}\Bigr),\tag{1.6.14.4}\\
+        P_{-j}((V')^\vee)&\simeq P_{-j}(V')^\vee(j).\tag{1.6.14.5}
+\end{align}
+
+To remember these formulas: if $\Gr^M_i$ and $P_j$ are regarded as of weight $i$, and $\mathfrak n$ as of weight $-2$, then the two sides are isobaric of the same weight. We shall also use a sheaf-theoretic version of (1.6.14).
+
+\section*{(1.7) Local monodromy}
+
+\paragraph{(1.7.1).} Let $R$ be a henselian discrete valuation ring, $K$ its field of fractions, $k=R/\mathfrak m$ its residue field, $\overline K$ an algebraic closure of $K$, and $\overline k$ the residue field of the normalization of $R$ in $\overline K$. Then $\overline k$ is an algebraic closure of $k$. It is often convenient first to choose $\overline k$, and then $\overline K$, by taking an algebraic closure $\overline R$ of $R$ and then an algebraic closure of the field of fractions of the strict henselization.
+
+The inertia group is the kernel
+\begin{equation}\tag{1.7.1.1}
+        0\longrightarrow I\longrightarrow \Gal(\overline K/K)\longrightarrow \Gal(\overline k/k)\longrightarrow0.
+\end{equation}
+It, or its image in a representation, is also called the local monodromy group. If $\ell$ is different from the residue characteristic, there is an exact sequence
+\[
+        0\longrightarrow P\longrightarrow I\xrightarrow{t_\ell}\widehat{\mathbb Z}^{(\ell')}(1)\longrightarrow0,
+\]
+where $P$ is a pro-$p$-group and $\widehat{\mathbb Z}^{(\ell')}(1)=\prod_{r\ne p}\mathbb Z_r(1)$ is the tame inertia group. Taking the $\ell$-component gives
+\[
+        t_\ell:I\longrightarrow \mathbb Z_\ell(1),
+\]
+whose kernel is a profinite group of order prime to $\ell$.
+
+\paragraph{(1.7.2).} Let $\rho:I\to GL(V)$ be an $\ell$-adic representation of $I$. Grothendieck proved that the following hypothesis is often satisfied in practice:
+\begin{quote}
+$(*)$ the restriction of $\rho$ to a subgroup $I_1$ of finite index in $I$ is unipotent.
+\end{quote}
+If this holds, there is a unique nilpotent representation $\overline\rho$ of $\overline{\mathbb Q}_\ell(1)$, viewed as a one-dimensional Lie algebra, in $V$, such that
+\begin{equation}\tag{1.7.2.1}
+        \rho(\sigma)=\exp(\overline\rho(t_\ell(\sigma)))\qquad(\sigma\in I_1).
+\end{equation}
+We call $\overline\rho$ the logarithm of the unipotent part of the local monodromy. Equivalently it is a nilpotent morphism
+\[
+        N:V(1)\longrightarrow V,
+\]
+and (1.7.2.1) is written
+\begin{equation}\tag{1.7.2.2}
+        \rho(\sigma)=\exp(N\,t_\ell(\sigma))\qquad(\sigma\in I_1\subset I).
+\end{equation}
+The theory (1.6.14--15) applies. The twist $(k)$ is simply a Tate twist. The filtrations (1.6.1) and (1.6.13) of $V$ will be called respectively the local monodromy filtration of $V$ and the local monodromy filtration of $V$ relative to $W$.
+
+\paragraph{(1.7.3).} Suppose the residue field has $q$ elements. Define the Weil group $W(\overline K/K)$ as the inverse image in $\Gal(\overline K/K)$ of $W(\overline k/k)$. If $V$ is an $\ell$-adic representation of $W(\overline K/K)$, Grothendieck's theorem makes $(*)$ automatic. Hence
+\[
+        N:V(1)\longrightarrow V
+\]
+is defined and commutes with the action of $W(\overline K/K)$.
+
+\paragraph{Lemma (1.7.4).} If $F'$ and $F''$ are two liftings in $W(\overline K/K)$ of $F\in W(\overline k/k)$, then the eigenvalues of $F'$ and $F''$ coincide up to multiplication by roots of unity.
+
+It suffices to replace $V$ by its semisimplification. Then the action of $I$ factors through a finite quotient. There is an integer $n>0$ such that $(F')^n$ and $(F'')^n$ have the same image in $GL(V)$, and the assertion follows. Thus the $\iota$-weights of the eigenvalues of a lifting are well defined; one may speak of a pure, mixed, or $\iota$-pure representation.
+
+\paragraph{Proposition--Definition (1.7.5).} Suppose the $\iota$-weights of $V$ are integral. There is then a unique finite increasing filtration $M$ of $V$, stable under $W(\overline K/K)$, such that $\Gr^M_i(V)$ is $\iota$-pure of weight $i$. This is the filtration by weights. Moreover $NM_i(1)\subset M_{i-2}$.
+
+Choose a lifting $F'$ of Frobenius in $W(\overline K/K)$. Let $V'_i$ be the sum of the generalized eigenspaces of $F'$ corresponding to eigenvalues $\alpha$ with $w_q(\alpha)=i$, and put $M'_i=\prod_{j\le i}V'_j$. We must show that $M'$ is independent of $F'$. If $M''$ is obtained from another lifting $F''$, choose $I_1$ as in (1.7.2.1). Since $I/I_1$ is finite, there are $n>0$ and $\lambda$ such that $(F')^n\equiv (F'')^n\bmod I_1$, and in $GL(V)$
+\[
+        (F')^n=\exp(\lambda N)(F'')^n,
+        \qquad
+        (F')^n=\exp(\mu N)(F'')^n\exp(\mu N)^{-1},
+        \quad \mu=\lambda/(1-q^n).
+\]
+Since $V'_i$ is still the sum of the generalized eigenspaces of $(F')^n$ of the corresponding weights, the automorphism $\exp(\mu N)$ carries $M'$ onto $M''$. Since $N$ preserves $M'$, they are equal.
+
+\paragraph{Corollary (1.7.6).} If $V$ is $\iota$-pure, then the action of $I$ factors through a finite quotient.
+
+By twisting one reduces to integral weight. The weight filtration has only one step. Since $NM_i\subset M_{i-2}$, one has $N=0$, and the assertion follows.
+
+\paragraph{Remark (1.7.7).} The proof of (1.7.5) shows that every representation $V$ has a unique decomposition
+\[
+        V=\sum_{\alpha}V^\alpha
+\]
+where $\alpha$ runs through $\overline{\mathbb Q}_\ell^{\times}$ modulo roots of unity, and such that the eigenvalues of Frobenius liftings on $V^\alpha$ lie in the class $\alpha$. Each $V^\alpha$ is obtained from a mixed representation by twisting.
+
+\paragraph{Variant (1.7.8).} If $D$ is a smooth divisor in a regular scheme $X$, the preceding constructions have analogues for sheaves on $X-D$ which are tamely ramified along $D$. More generally, let $D$ be a divisor with normal crossings on $X$, the transverse union of smooth divisors $D_i$ $(i\in I)$. Locally choose equations $t_i=0$. Let $E$ be their intersection. For $n$ invertible on $X$, set
+\[
+        X_n=X[t_i^{1/n}]_{i\in I}.
+\]
+The cover $X_n\to X$ is etale over $X-D$ and totally ramified over $E$; above $E$ it has the section $t_i^{1/n}=0$. Restriction to $E$ of a sheaf on $X_n$ means inverse image by that section. One obtains an action of $(\mu_n)^I$ on $X_n$ by letting $(\zeta_i)_{i\in I}$ act on $t_i^{1/n}$ by multiplication by $\zeta_i$.
+
+Let $L$ be a set of primes invertible on $X$, and let $\mathcal F$ be a locally constant sheaf of sets on $X-D$, tamely ramified along $D$ and even $L$-ramified along $D$. Abhyankar's lemma gives an integer $n$, with prime factors in $L$, such that the inverse image of $\mathcal F$ on $\pi^{-1}(X-D)\subset X_n$ is the restriction of a locally constant sheaf $\overline{\mathcal F}$ on $X_n$. We write $\mathcal F[E]$ for its restriction to $E$. It is equipped with an action of
+\[
+        \mathbb Z_L(1)^I=\prod_{\ell\in L}\mathbb Z_\ell(1)^I.
+\]
+This construction is functorial and passes to constructible $\overline{\mathbb Q}_\ell$-sheaves, and to Weil sheaves, by passage to the limit. If $X$ is of finite type over $\mathbb Z$, the action is quasi-unipotent; there are commuting nilpotent endomorphisms
+\[
+        N_i\in \End(\mathcal F[E])(-1)
+\]
+such that an element $\sigma$ in a sufficiently small open subgroup acts by $\exp(\sum_iN_i\sigma_i)$.
+
+\paragraph{(1.7.9).} Near an intersection of $p$ of the $D_i$, $D$ is the union of $p$ smooth divisors, and the constructions can be repeated. If $J\subset I$, let $D_J$ be the intersection of the $D_j$ $(j\in J)$, let $X_J$ be the complement of the union of the $D_i$ for $i\notin J$, and put $D_J^	imes=D_J\cap X_J$. The divisors $D_i$ with $i\notin J$ cut out on $D_J$ a normal-crossing divisor with complement $D_J^	imes$, while the $D_j$ with $j\in J$ cut out on $X_J$ a normal-crossing divisor with complement $X-D$.
+
+Applying (1.7.8) gives sheaves $\mathcal F[D_J]$ and, for $J\subset K\subset I$, canonical identifications
+\begin{equation}\tag{1.7.9.1}
+        \mathcal F[D_J][D^	imes_{J\cup K}]\simeq \mathcal F[D_{J\cup K}],
+\end{equation}
+compatible with the actions of the corresponding inertia groups. The transitivity square is
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\mathcal F[D_J][D_K][D_L] \arrow[r,equal] \arrow[d,equal] & \mathcal F[D_K][D_L] \arrow[d,equal]\\
+\mathcal F[D_J][D_L] \arrow[r,equal] & \mathcal F[D_L].
+\end{tikzcd}
+\]
+
+\paragraph{(1.7.10).} The constructions (1.7.8) depend on the choice of the coordinates $t_i$. To make them canonical one introduces the normal bundle $T$ of $E$ in $X$ and the subbundles $T_i$ tangent to $D_i$. The sheaf $\mathcal F[E]$ is replaced by a sheaf $\mathcal F[E]'$ on $T-\bigcup T_i$; a system of equations $t_i$ gives a section of $T-\bigcup T_i$, and the former $\mathcal F[E]$ is the inverse image of $\mathcal F[E]'$ by that section. The construction is compatible with smooth base change. The $N_i$ and the inertia actions act on $\mathcal F[E]'$, which plays the role of a restriction of $\mathcal F$ to a tubular neighborhood of $E$ in $X$.
+
+\paragraph{(1.7.11).} Suppose $X$ henselian local, $X=\Spec(R)$, and take for $L$ the set of all primes invertible on $X$. The preceding construction has a Galois interpretation. With notation as in the source, a locally constant sheaf on $X-D$, tamely ramified along $D$, becomes trivial after adjoining the $n$-th roots of the local equations. This gives an extension
+\[
+0\longrightarrow \mathbb Z_L(1)^I\longrightarrow
+\pi_1^{\mathrm{mod}}(X-D,\Spec\overline K)\longrightarrow \Gal(\overline k/k)\longrightarrow0,
+\]
+and the choice of the $t_i$ splits it. The construction of $\mathcal F[E]$ is precisely the corresponding sheaf on $\Spec(k)$ with its action of $\mathbb Z_L(1)^I$.
+
+\paragraph{(1.7.12).} If $k$ is finite, define $W^{\mathrm{mod}}(X-D,\Spec\overline K)$ as the inverse image of $W(\overline k/k)$ in the preceding tame fundamental group. The analogues of (1.7.3)--(1.7.7) hold:
+\begin{enumerate}[label=(1.7.12.\arabic*)]
+\item The restriction to $\mathbb Z_L(1)^I$ of an $\ell$-adic representation of $W^{\mathrm{mod}}(X-D,\Spec\overline K)$ is quasi-unipotent.
+\item If $F'$ and $F''$ are two liftings of $F\in W(\overline k/k)$, then their eigenvalues coincide up to roots of unity; this defines the $\iota$-weights.
+\item If the $\iota$-weights of $V$ are integral, there is a unique weight filtration $M$ on $V$, as in (1.7.5), and the analogues of (1.7.6) and (1.7.7) hold.
+\end{enumerate}
+
+\section*{(1.8) Local monodromy of pure sheaves}
+
+The conventions of (0.7) are in force. Let $X_0$ be a smooth absolutely irreducible curve over $\Fq$ and let $j:U_0\hookrightarrow X_0$ be an open subset with finite complement $S_0$.
+
+\paragraph{Lemma (1.8.1).} If $\mathcal F_0$ is a lisse sheaf on $U_0$, pointwise $\iota$-pure of weight $\beta$, then, for every $x\in |S_0|$ and every eigenvalue $\alpha$ of $F_x$ on $j_*\mathcal F_0$, one has
+\[
+        w_{N(x)}(\alpha)\le \beta.
+\]
+
+After removing from $X_0$ a point of $U_0$, one reduces to the affine case. Then
+\begin{equation}\tag{1.8.1.1}
+\prod_{x\in |U_0|}\det(1-F_xt^{\deg x},\mathcal F_0)^{-1}
+\prod_{x\in |S_0|}\det(1-F_xt^{\deg x},j_*\mathcal F_0)^{-1}
+=
+\frac{\det(1-Ft,H^1_c(X,j_*\mathcal F))}
+{\det(1-Ft,H^2_c(X,j_*\mathcal F))}.
+\end{equation}
+In this formula: the first factor on the left converges for $|t|<q^{-(\beta+2)/2}$ and has neither zeros nor poles there; by (1.4.3), the right hand side has no pole in the same region. Comparing, the remaining factors have no pole in that region. Hence, if $\alpha$ is an eigenvalue of $F_x$ on $j_*\mathcal F_0$,
+\begin{equation}\tag{1.8.1.2}
+        w_{N(x)}(\alpha)\le \beta+2.
+\end{equation}
+Applying this to tensor powers $\mathcal F_0^{\otimes k}$, and using that $j_*(\mathcal F_0^{\otimes k})$ contains $(j_*\mathcal F_0)^{\otimes k}$ as a subsheaf, gives $kw_{N(x)}(\alpha)\le k\beta+2$, and letting $k\to\infty$ proves the lemma.
+
+\paragraph{Remark (1.8.2).} Comparing zeros in (1.8.1.1), the numerator cannot vanish in the same region. Thus, for an eigenvalue $\alpha$ of $F$ on $H^1_c(X,j_*\mathcal F)$, one obtains $w_q(\alpha)\le \beta+2$.
+
+\paragraph{(1.8.3).} Let $\overline s$ be a geometric point over $s\in S_0$, let $\eta$ be the generic point of the henselian trait with finite residue field $X_{0,(s)}$, and let $\overline\eta$ be a geometric generic point of its strict henselization. The fibre $\mathcal F_{0,\overline\eta}$ is a representation of the Weil group $W(\overline\eta/\eta)$. Let $M$ be its local monodromy filtration.
+
+\paragraph{Theorem (1.8.4).} With the notation of (1.8.1) and (1.8.3), if $\mathcal F_0$ is pointwise $\iota$-pure of weight $\beta$, then
+\[
+        \Gr^M_i(\mathcal F_{0,\overline\eta})
+\]
+is $\iota$-pure of weight $\beta+i$ as a representation of $W(\overline\eta/\eta)$.
+
+By twisting (1.2.7), reduce to $\beta=0$. After replacing $X_0$ by a finite cover, and replacing $U_0$, $\mathcal F_0$, and $s$ by their inverse images, assume that the local monodromy is unipotent on all of inertia:
+\[
+        \rho(\sigma)=\exp(t_\ell(\sigma)N)
+        \qquad(\sigma\in I).
+\]
+Then $\Ker N=(j_*\mathcal F_0)_{\overline s}$. By (1.8.1), eigenvalues of Frobenius on $\Ker N$ have absolute value at most $1$. If $\alpha$ is an eigenvalue of Frobenius on $P_{-j}(\mathcal F_{0,\overline\eta})$, then (1.6.14.2) gives $|\iota(\alpha)|\le1$. Applying this to $\mathcal F_0\otimes\mathcal F_0$, and using (1.6.14.4), shows that $\alpha^2q^j$ occurs on $P_0(\mathcal F_{0,\overline\eta}\otimes\mathcal F_{0,\overline\eta})$; hence $|\iota(\alpha^2q^j)|\le1$ and $|\iota(\alpha)|\le q^{-j/2}$. Applying the same argument to the dual sheaf, and using (1.6.14.5), gives the opposite inequality. Thus the eigenvalues on $P_{-j}$ have absolute value $q^{-j/2}$; (1.6.14.3) gives the theorem.
+
+\paragraph{Corollary (1.8.5).} Suppose that $\mathcal F_0$ is a lisse sheaf on $U_0$ and admits a finite increasing filtration $W$ by lisse subsheaves such that each $\Gr^W_i(\mathcal F_0)$ is pointwise $\iota$-pure of weight $i$. Let $W$ also denote the filtration induced on $\mathcal F_{0,\overline\eta}$. Then the local monodromy filtration of $V=\mathcal F_{0,\overline\eta}$ relative to $W$ exists, and it agrees with the weight filtration of $\mathcal F_{0,\overline\eta}$ of (1.7.5).
+
+Indeed, by (1.7.5) and (1.8.4) applied to the $\Gr^W_i(\mathcal F_0)$, the characteristic conditions (1.6.13) are satisfied by the weight filtration.
+
+\paragraph{(1.8.6).} Let $D_0$ be a smooth divisor in a smooth scheme $X_0$ over $\Fq$, let $U_0=X_0-D_0$, and let $\mathcal F_0$ be a lisse sheaf on $U_0$, tamely ramified along $D_0$. Suppose that $\mathcal F_0$ has a finite increasing filtration $W$ by lisse subsheaves such that $\Gr^W_i\mathcal F_0$ is pointwise $\iota$-pure of weight $i$. If $D_0$ is defined by an equation $t$, let $\mathcal F_0[D_0]$ be the sheaf on $D_0$ with its action of $\mathbb Z_\ell(1)$ obtained by (1.7.8). Restricting to curves transverse to $D_0$, one obtains from (1.8.5):
+
+\paragraph{Corollary (1.8.7).} With the notation of (1.8.6), the local monodromy filtration around $D$ of $\mathcal F_0[D_0]$, relative to $W$, exists. For this filtration $M$, the object $\Gr^M_i\mathcal F_0[D_0]$ is pointwise $\iota$-pure of weight $i$.
+
+\paragraph{Remark (1.8.8).} With the notation of (1.8.1), if $\mathcal F_0$ is lisse on $U_0$, then $j_*\mathcal F_0$ is the invariant part of the local monodromy. Under the hypotheses of (1.8.4), $\Ker N\subset M_0$, so the filtration induced on $(j_*\mathcal F_0)_s$ has $\Gr^M_i$ pure of weight $\beta+i$ and is zero for $i>0$. The analogous statement for a smooth divisor is obtained from (1.8.7). Under the hypotheses of (1.8.6), $W$ and monodromy define a filtration $M$ on $j_*\mathcal F_0|_{D_0}$ for which $\Gr^M_i(j_*\mathcal F_0)|_{D_0}$ is lisse and $\iota$-pure of weight $i$.
+
+\paragraph{Corollary (1.8.9).} Let $X_0$ be of finite type over $\Fq$, let $j:U_0\hookrightarrow X_0$ be an open subset, and let $\mathcal F_0$ be an $\iota$-mixed lisse sheaf of pointwise weights $\le \beta$ on $U_0$. Then $j_*\mathcal F_0$ is again $\iota$-mixed of pointwise weights $\le\beta$. If the pointwise weights of $\mathcal F_0$ are integral, those of $j_*\mathcal F_0$ are integral as well.
+
+The proof uses the standard devissages: devissage in $\mathcal F_0$, suppression of a locally closed subscheme, normalization after finite surjective maps, making infinity a divisor, and localization at the generic point of infinity. These reductions reduce the assertion to (1.8.8).
+
+\paragraph{Corollary (1.8.10).} Let $\mathcal F_0$ be a lisse sheaf on $X_0$ of finite type over $\Fq$, and let $j:U_0\hookrightarrow X_0$ be a dense open subset. If the restriction of $\mathcal F_0$ to $U_0$ is pointwise $\iota$-pure, then $\mathcal F_0$ itself is pointwise $\iota$-pure.
+
+Indeed, if $\beta$ is the weight on $U_0$, then $\mathcal F_0\to j_*j^*\mathcal F_0$ and the same map for the dual show, using (1.8.9), the two inequalities on the pointwise weights.
+
+\paragraph{Corollary (1.8.11).} Every lisse $\iota$-mixed sheaf on a normal scheme $X_0$ of finite type over $\Fq$ is an iterated extension of pointwise $\iota$-pure lisse sheaves.
+
+One reduces to the irreducible case. Since $X_0$ is normal, the restriction to a suitable nonempty open is still irreducible, hence pointwise pure after shrinking; one applies (1.8.10). Later (3.4.1) will remove the normality hypothesis.
+
+\paragraph{Corollary (1.8.12).} Let $\mathcal F_0$ be a lisse $\iota$-mixed sheaf on a connected scheme $X_0$ of finite type over $\Fq$. If $\mathcal F_0$ is $\iota$-pure at one point of $X_0$, then it is pointwise $\iota$-pure.
+
+For normal $X_0$ this follows from (1.8.11), since weights are read on every fibre. In general, apply the result to the inverse image on the normalization: the locus where the sheaf is pure of a fixed weight is open and closed.
+
+\paragraph{Variant (1.8.13).} In this paragraph one may replace $\iota$-pure and $\iota$-mixed by pure and mixed, and also by $\iota$-pure of integral weights and $\iota$-mixed of integral weights.
+
+\paragraph{(1.8.14).} In the heuristic dictionary of [2], I, Theorem (1.8.4) corresponds to Schmid's theory of the asymptotic behavior of polarizable variations of Hodge structure on the punctured disk $D^*$. Corollary (1.8.5) suggests the following problem.
+
+Call a ``variation of mixed Hodge structures'' on a smooth analytic space $S$ the data of a local system $V_\mathbb Z$ of free finitely generated $\mathbb Z$-modules, a finite increasing filtration $W$ of $V_\mathbb Q=V_\mathbb Z\otimes\mathbb Q$ by local subsystems, and a finite decreasing filtration $F$ of $V=V_\mathbb Z\otimes\mathcal O$ by vector subbundles, varying holomorphically, satisfying transversality $\nabla F^p\subset\Omega^1\otimes F^{p-1}$ and such that $W$ and $F$ define a mixed Hodge structure at every point of $S$.
+
+Variations arising in algebraic geometry have additional properties; for example, the variations of Hodge structures $\Gr^W_i(V)$ are polarizable. Let $(V,W,F)$ be a variation of mixed Hodge structures on $D^*$, let $t\in D^*$, let $V$ denote the fibre at $t$, and let $T\in\End(V)$ be monodromy. Assume for simplicity that $T$ is unipotent and put $N=\log T$.
+
+\paragraph{Problem (1.8.15).} Find a class of ``good'' variations of mixed Hodge structures on $D^*$ such that, for $(V,W,F)$ good and $T$ unipotent, there exists on $V$ a finite increasing filtration $M$ satisfying $NM_i\subset M_{i-2}$ and such that $N^k$ induces isomorphisms
+\[
+        N^k: \Gr^M_{a+k}\Gr^W_aV\xrightarrow{\sim}\Gr^M_{a-k}\Gr^W_aV.
+\]
+One would also like: (a) $V$ should be asymptotic, in a suitable sense, to a nilpotent orbit; a good variation for which $F$ is replaced by the transport to $\exp(t)$ of $\exp(-tN)F$ should be the filtration deduced from $F$ by horizontal transport from $t$ to $\exp(t)$; and (b) for a nilpotent orbit, $(V,M,F)$ should still be a variation of mixed Hodge structures.
+
+\end{document}

@@ -1,0 +1,945 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{variant}{Variant}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\Ql}{\mathbb{Q}_\ell}
+\newcommand{\Qlb}{\overline{\mathbb{Q}}_\ell}
+\newcommand{\Zl}{\mathbb{Z}_\ell}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fbar}{\overline{\mathbb{F}}_q}
+\newcommand{\Abar}{\overline{\mathbb{Q}}_\ell}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Frob}{\operatorname{Frob}}
+\newcommand{\Norm}{\operatorname{N}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\RHom}{R\mathcal{H}om}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\rk}{\operatorname{rg}}
+\newcommand{\degm}{\operatorname{deg}}
+\newcommand{\boxt}{\boxtimes}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Coker}{\operatorname{Coker}}
+\newcommand{\Image}{\operatorname{Im}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\limind}{\varinjlim}
+\newcommand{\limproj}{\varprojlim}
+\setlist[enumerate]{itemsep=0.35em,topsep=0.4em}
+\setlist[itemize]{itemsep=0.25em,topsep=0.4em}
+\title{La conjecture de Weil. II}
+\author{Pierre Deligne\\\small Texte français révisé}
+\date{}
+\begin{document}
+\maketitle
+% ===== Source unit: deligne_paper32_weilII_contents_intro_FR.tex =====
+\section*{Sommaire}
+
+\begin{description}[leftmargin=3.2em,style=nextline]
+\item[Introduction]
+\item[Notations et conventions]
+\item[1. Pureté]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(1.1)] Faisceaux $\ell$-adiques.
+\item[(1.2)] Poids.
+\item[(1.3)] Poids déterminantiels.
+\item[(1.4)] Cohomologie des courbes et fonctions $L$ : rappels.
+\item[(1.5)] Un critère de pureté.
+\item[(1.6)] Autour de Jacobson--Morosov.
+\item[(1.7)] Monodromie locale.
+\item[(1.8)] Monodromie locale des faisceaux purs.
+\item[(1.9)] Monodromie locale modérée des faisceaux mixtes.
+\item[(1.10)] Valeurs absolues non archimédiennes.
+\item[(1.11)] Spécialisation de la monodromie.
+\end{description}
+\item[2. La méthode de Hadamard--de la Vallée-Poussin]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(2.1)] La méthode.
+\item[(2.2)] Pureté et compacité.
+\end{description}
+\item[3. Le théorème fondamental]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(3.1)] Un calcul de cycles évanescents.
+\item[(3.2)] Dimension $1$.
+\item[(3.3)] Le cas général.
+\item[(3.4)] Application : la structure des faisceaux mixtes.
+\item[(3.5)] Application : théorèmes d'équidistribution.
+\item[(3.6)] Application : le théorème local des cycles invariants.
+\item[(3.7)] Retour à (1.8).
+\end{description}
+\item[4. Pinceaux de Lefschetz]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(4.1)] Le théorème de Lefschetz difficile.
+\item[(4.2)] Rappels sur les pinceaux de Lefschetz.
+\item[(4.3)] Complément à SGA 7, XIX, 4.
+\item[(4.4)] La monodromie des pinceaux de Lefschetz.
+\item[(4.5)] Le théorème du pgcd.
+\end{description}
+\item[5. Application au $\Ql$-type d'homotopie]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(5.1)] Le $\mathbb Z\{\ell\}$-complexe de de Rham, d'après Grothendieck et Miller.
+\item[(5.2)] Le $\Ql$-type d'homotopie.
+\item[(5.3)] Graduations par le poids.
+\end{description}
+\item[6. Le formalisme des faisceaux mixtes]
+\begin{description}[leftmargin=2.5em,style=nextline]
+\item[(6.1)] Stabilité.
+\item[(6.2)] Complexes purs.
+\end{description}
+\end{description}
+
+\section*{Introduction}
+
+Dans [1], cité I par la suite, nous avons démontré la conjecture de Weil donnant la valeur absolue complexe des valeurs propres de Frobenius agissant sur la cohomologie d'une variété projective et lisse définie sur un corps fini. Nous étudions ici la cohomologie à valeurs dans un faisceau; il s'agit de passer des propriétés ponctuelles du faisceau à celles de sa cohomologie.
+
+Soient donc $X_0$ un schéma de type fini sur $\Fq$ et $\mathcal F_0$ un $\Ql$-faisceau sur $X_0$. On suppose choisie une clôture algébrique $\Fbar$ de $\Fq$, et on indique par suppression de l'indice $0$ l'extension du corps de base de $\Fq$ à $\Fbar$; cf. (0.7). Pour $x_0\in |X_0|$ un point fermé de $X_0$, et $x\in X(\Fbar)$ au-dessus, on dispose de l'automorphisme de Frobenius $F_{x_0}$ de la fibre $\mathcal F_x$ de $\mathcal F$ en $x$ (I, (1.11)--(1.13), ou (1.18)). On appellera ses valeurs propres les valeurs propres de $F_{x_0}$ sur $\mathcal F_0$. On dit que $\mathcal F_0$ est ponctuellement pur de poids $n$ si, pour tout $x_0\in |X_0|$, les valeurs propres de $F_{x_0}$ sur $\mathcal F_0$ sont des nombres algébriques dont tous les conjugués complexes sont de valeur absolue $\Norm(x_0)^{n/2}$. On dit que $\mathcal F_0$ est mixte s'il est extension itérée de faisceaux ponctuellement purs; les poids de ceux-ci sont les poids de $\mathcal F_0$. Notre résultat essentiel est le suivant.
+
+\begin{theorem}[Théorème 1, (3.3.1)]
+Soient $f:X_0\to S_0$ un morphisme de schémas de type fini sur $\Fq$, et $\mathcal F_0$ un faisceau mixte de poids $\le n$ sur $X_0$. Alors, pour chaque $i$, le faisceau
+\[
+R^i f_!\mathcal F_0
+\]
+sur $S_0$ est mixte de poids $\le n+i$.
+\end{theorem}
+
+Pour $S_0=\Spec(\Fq)$, ce théorème dit que, pour chaque valeur propre $\alpha$ de Frobenius sur $H^i_c(X,\mathcal F)$, il existe un entier $m\le n+i$ (le poids de $\alpha$) tel que les conjugués complexes de $\alpha$ soient tous de valeur absolue $q^{m/2}$.
+
+La dualité de Poincaré permet parfois de compléter ces majorations par des minorations (3.3.5). Par exemple, si $X_0$ est propre et lisse, et que le faisceau $\mathcal F_0$ est lisse (``constant tordu'', dans une autre terminologie) et ponctuellement pur de poids $n$, alors les valeurs propres de Frobenius sur $H^i(X,\mathcal F)$ sont toutes de poids $n+i$; nous exprimerons encore cela en disant que $H^i(X,\mathcal F)$ est pur de poids $n+i$.
+
+Pour $\mathcal F_0=\Ql$ (de poids $0$), on retrouve le résultat principal de I, avec l'hypothèse « projectif et lisse » remplacée par « propre et lisse ».
+
+Une réduction facile, parallèle à la preuve du théorème de finitude pour les $R^i f_!$ (cf. SGA 4, XIV), ramène le théorème 1 au théorème suivant, et à une étude locale à l'infini des faisceaux lisses ponctuellement purs sur une courbe.
+
+\begin{theorem}[Théorème 2, cf. (3.2.3)]
+Soient $X_0$ une courbe propre et lisse sur $\Fq$, $j:U_0\hookrightarrow X_0$ l'inclusion d'un ouvert dense, et $\mathcal F_0$ un faisceau lisse ponctuellement pur de poids $n$ sur $U_0$. Alors $H^i(X,j_*\mathcal F)$ est pur de poids $n+i$.
+\end{theorem}
+
+Voici les grandes lignes de la démonstration.
+
+\paragraph{A. Nettoyages.}
+\begin{enumerate}[label=(\roman*)]
+\item Si $u:X'_0\to X_0$ est un morphisme fini surjectif de source une courbe propre et lisse, et que l'on désigne par des primes le changement de base par $u$, les groupes
+\[
+H^i(X,j_*\mathcal F)
+\]
+sont des facteurs directs de
+\[
+H^i(X',j'_*\mathcal F').
+\]
+Cet argument permet de se ramener au cas où la monodromie locale de $\mathcal F$ aux points de $X-U$ est unipotente.
+\item Un théorème de dualité assure que $H^i(X,j_*\mathcal F)$ et
+\[
+H^{2-i}(X,j_*(\mathcal F^\vee))
+\]
+sont en dualité parfaite, à valeurs dans $\Ql(-1)$. Ceci ramène à vérifier que les conjugués complexes $\alpha'$ des valeurs propres $\alpha$ de Frobenius sur $H^i(X,j_*\mathcal F)$ ont la valeur absolue requise. Le cas difficile est celui de $H^1$.
+\end{enumerate}
+
+\paragraph{B. Plongements complexes.}
+Soit $\alpha\in\Abar$ une valeur propre de Frobenius sur $H^i(X,j_*\mathcal F)$. Il est commode de reformuler comme suit les estimations à vérifier : pour chaque isomorphisme
+\[
+\iota:\Abar\xrightarrow{\sim}\CC,
+\]
+on doit prouver une inégalité de la forme
+\[
+|\iota(\alpha)|\le q^{(i+n)/2}.
+\]
+Dans la démonstration, chaque isomorphisme $\iota$ sera traité séparément; ceci conduit à introduire les notions de faisceau ponctuellement $\iota$-pur ou $\iota$-mixte. Il s'agit de ne pas regarder tous les conjugués complexes des valeurs propres, mais seulement leurs images par $\iota$. Il est par ailleurs commode de permettre aux poids d'être des nombres réels quelconques. Voir (1.2.6). On prouvera le théorème 2 avec « pur » remplacé par « $\iota$-pur ». Je renvoie à (1.2.11) le lecteur qui, comme moi, répugne à l'axiome du choix, implicite dans l'usage d'isomorphismes entre $\Abar$ et $\CC$.
+
+\paragraph{C. Monodromie locale des faisceaux $\iota$-purs.}
+Posons $S_0=X_0-U_0$. On commence par montrer que, si $\mathcal F_0$ est lisse et ponctuellement $\iota$-pur de poids $\beta\in\mathbb R$, le poids $\iota$
+\[
+w_q(\alpha)=\frac{2\log |\iota(\alpha)|}{\log q}
+\]
+d'une valeur propre $\alpha$ de $F_{x_0}$ sur $j_*\mathcal F_0$, pour $x_0\in S_0$, est de la forme $\beta-m$, avec $m$ entier $\ge 0$, et on détermine $m$ en termes de la monodromie locale de $\mathcal F_0$ en $x_0$ (1.8.4). Plus généralement, on détermine les poids correspondants des valeurs propres de $F_{x_0}$ sur $\mathcal F_0$ au sens de (1.10.2).
+
+Première étape : montrer la majoration nécessaire. On le fait en exploitant la formule de Grothendieck pour la fonction $Z(U_0,\mathcal F_0,t)$ : après application de $\iota$, on trouve à gauche un produit infini convergeant dans le demi-plan convenable, et à droite une fraction rationnelle dont le numérateur est essentiellement
+\[
+\det(1-Ft,H^1_c(U,\mathcal F));
+\]
+on utilise le fait que les fibres $(j_*\mathcal F)_x$ pour $x\in S$ contribuent à $H^2_c(U,\mathcal F)$. Deuxième étape : appliquer ce résultat aux puissances tensorielles de $\mathcal F_0$ et de son dual, en tenant compte de la structure connue de la monodromie locale.
+
+Ceci acquis, il est loisible, et commode, d'étudier $j_!\mathcal F_0$ plutôt que $j_*\mathcal F_0$ : si $\mathcal F_0$ est lisse et ponctuellement $\iota$-pur de poids $\beta\in\mathbb R$, il s'agit de montrer que les valeurs propres $\alpha$ de Frobenius sur
+\[
+H^1_c(U,\mathcal F)=H^1(X,j_!\mathcal F)
+\]
+sont de poids $w_q(\alpha)\le \beta+1$. On supposera, pour simplifier l'écriture, que $\beta=0$; on se ramène à ce cas par torsion (1.2.7).
+
+\paragraph{D. Passage à $X_0\times X_0$.}
+L'idée géométrique principale est de passer de $(U_0,\mathcal F_0)$ à
+\[
+(U_0\times U_0,\mathcal F_0\boxtimes\mathcal F_0)
+\]
+et d'analyser
+\[
+H^2(U\times U,\mathcal F\boxtimes\mathcal F)
+  = H^2(X\times X,j_!\mathcal F\boxtimes j_!\mathcal F)
+\]
+à l'aide d'un pinceau de sections hyperplanes de $X_0\times X_0$, supposé en position générale, pour un prolongement projectif convenable de $X_0\times X_0$. On suppose effectué le nettoyage A(i).
+
+Le but est de prouver que le poids d'une valeur propre $\alpha$ de Frobenius sur
+\[
+H^2(X\times X,j_!\mathcal F\boxtimes j_!\mathcal F)
+\]
+vérifie $w_q(\alpha)\le 2+\varepsilon$ dans la forme inductive de l'argument. Si $\alpha$ est maintenant une valeur propre de Frobenius sur $H^1(X,j_!\mathcal F)$, la formule de Künneth assure que $\alpha^2$ est valeur propre de Frobenius sur le $H^2$ précédent, et on obtient une meilleure borne pour $H^1(X,j_!\mathcal F)$. En itérant le procédé, on remplace l'usage des grandes puissances cartésiennes dans I.
+
+Prenons un pinceau assez général de sections hyperplanes de $X_0\times X_0$. Les sections hyperplanes du pinceau sont les fibres d'un morphisme
+\[
+f:Y_0\longrightarrow \mathbb P^1_0,
+\]
+où $Y_0$ se déduit de $X_0\times X_0$ en éclatant un nombre fini de points. Soit $\mathcal G_0$ l'image inverse de $j_!\mathcal F_0\boxtimes j_!\mathcal F_0$ sur $Y_0$. La suite spectrale de Leray pour $f$ réduit, pour l'essentiel, l'étude de
+\[
+H^2(X\times X,j_!\mathcal F\boxtimes j_!\mathcal F)
+\]
+à celle de
+\[
+H^1(\mathbb P^1,R^1 f_*\mathcal G).
+\]
+
+La généralisation (1.5.1) de la majoration fondamentale I (1.3.2) permet de montrer que, sur un certain ouvert $V_0\subset\mathbb P^1_0$ où le faisceau $R^1f_*\mathcal G_0$ est lisse, il est extension successive de faisceaux lisses ponctuellement $\iota$-purs. Des hypothèses de I (1.3.2) ne subsiste que l'exigence que $R^1f_*\mathcal G_0$ soit, sur $V_0$, facteur direct d'un faisceau lisse $\iota$-réel, c'est-à-dire un faisceau $\mathcal H_0$ tel que les polynômes
+\[
+\det(1-F_xt,\mathcal H_0)
+\]
+soient à coefficients réels. Les résultats de la section 2 (voir E ci-dessous) permettent de le déduire de ce que $\mathcal F_0$ lui-même est facteur direct d'un faisceau $\iota$-réel, à savoir $\mathcal F_0\oplus\mathcal F_0^\vee$ : parce que $\mathcal F_0$ est de poids $0$, son dual joue le rôle d'un complexe conjugué.
+
+Comment calculer les poids de $R^1f_*\mathcal G_0|V_0$? Dans I (1.3.2), une hypothèse assurait que le faisceau considéré n'ait pas de sous-faisceau lisse non trivial, donc soit ponctuellement $\iota$-pur d'après (1.5.1), et une autre hypothèse permettait de calculer son poids. Dans l'application I (1.6.3), ces hypothèses résultaient de la théorie des pinceaux de Lefschetz, et plus particulièrement du théorème de conjugaison des cycles évanescents. Ici, $R^1f_*\mathcal G_0$ admet des points de ramification de trois types géométriquement distincts, et il faut un autre argument.
+
+La théorie des cycles évanescents permet de contrôler le saut de $R^1f_*\mathcal G_0$ en un point de $\mathbb P^1_0-V_0$ à partir d'informations locales sur $X_0\times X_0$, à savoir les groupes de cycles évanescents. Un calcul local et les résultats de C, appliqués à $\mathcal F_0$, permettent de déterminer les poids des valeurs propres de Frobenius sur les groupes de cycles évanescents. On trouve que ces poids sont des entiers. Appliquant alors les résultats de C aux quotients successifs de $R^1f_*\mathcal G_0|V_0$, pour une filtration convenable, on parvient à montrer que $R^1f_*\mathcal G_0$ est extension successive de faisceaux lisses sur $V_0$ qui sont soit
+\begin{enumerate}[label=(\alph*)]
+\item lisses sur $\mathbb P^1_0$ tout entier (de poids non détectés par les cycles évanescents), soit
+\item tels que leur restriction à $V_0$ soit ponctuellement $\iota$-pure de poids entier.
+\end{enumerate}
+Heureusement, les faisceaux du cas (a) ne contribuent pas au groupe
+\[
+H^1(\mathbb P^1,R^1f_*\mathcal G)
+\]
+qui nous intéresse, puisque $\mathbb P^1$ est simplement connexe et que $H^1(\mathbb P^1,\Ql)=0$.
+
+Quels poids entiers $m$ apparaissent? Si on suppose déjà connu le théorème avec une erreur $\le \delta<1$, et qu'on l'applique aux fibres de $f$, il fournit l'estimation $m<1+\delta$; puisque $m$ est entier, on a même $m\le 1$. Appliquant le théorème, avec la même erreur, à $\mathbb P^1$ et aux quotients successifs de $R^1f_*\mathcal G_0$ pour la filtration introduite précédemment, on trouve l'estimation voulue pour les valeurs propres de Frobenius sur $H^1(\mathbb P^1,R^1f_*\mathcal G)$. Au départ toutefois, on a seulement une borne plus grossière, et permettre le poids $2$ ruine l'argument.
+
+\paragraph{E. Le poids d'un $H^1$ est $<2$.}
+Nous prouvons directement que, pour $\mathcal F_0$ lisse et ponctuellement $\iota$-pur de poids $0$, les valeurs propres $\alpha$ de Frobenius sur $H^1(X,j_*\mathcal F)$ sont de poids $w_q(\alpha)<2$. Ceci, appliqué à la fibre de $f$ en un point de $V_0$, suffit à faire démarrer la démonstration. Ce résultat permet aussi de séparer les valeurs propres de Frobenius sur $H^1(X,j_*\mathcal F)$, de poids $<2$, de celles sur $H^2(X,j_!\mathcal F)$, de poids $2$. Appliqué aux fibres de $f$, il est utilisé dans la démonstration du fait que $R^1f_*\mathcal G_0$ est, sur $V_0$, facteur direct d'un faisceau lisse $\iota$-réel. La démonstration est inspirée de la démonstration de Mertens du théorème de Hadamard--de la Vallée-Poussin, c'est-à-dire de la non-nullité de $\zeta(s)$ pour $\Re(s)=1$.
+
+On peut déduire de E que, si $\mathcal F_0$ est un faisceau lisse ponctuellement $\iota$-pur sur une courbe lisse $U_0$, la fibre $\mathcal F_u$ de $\mathcal F$ en $u\in |U|$ est une représentation complètement réductible du groupe de monodromie géométrique; cf. (3.4.1)(iii) et (3.4.14). Via le dictionnaire heuristique de [2], I, ceci correspond au théorème de semi-simplicité [2], II (4.2.6) en théorie des variations de structures de Hodge. Un cas particulier du théorème montre que si $X$ est une variété projective non singulière sur un corps algébriquement clos $k$, que $(H_t)_{t\in\mathbb P^1}$ est un pinceau de Lefschetz de sections hyperplanes de $X$, avec $H_t$ singulier pour $t\in S$, et que $u\in\mathbb P^1-S$, les $H^i(H_u,\Ql)$ sont des représentations complètement réductibles de $\pi_1(\mathbb P^1-S,u)$. Un argument de spécialisation ramène à supposer que $k=\Fbar$; $X$ et le pinceau sont alors définis sur un corps fini, et l'hypothèse de pureté requise résulte de la conjecture de Weil pour les $H^i$. Comme il est bien connu, les arguments originaux de Lefschetz permettent de déduire de cette complète réductibilité le théorème de Lefschetz difficile pour le cup-produit itéré par la classe de cohomologie d'une section hyperplane (4.1.1). On en donne aussi une variante pour la cohomologie à valeurs dans un faisceau, voire un complexe (6.2.13).
+
+D'autres énoncés purement géométriques résultent de l'existence d'un formalisme des poids : citons le théorème local des cycles invariants (3.6.1), et les résultats annoncés dans [3] quant à l'existence de graduations par le poids sur des $\Ql$-types d'homotopie (5.3.4). On dispose de résultats parallèles en théorie de Hodge, laquelle permet aussi de parler de poids : [12], [9].
+
+Le théorème 1 s'insère dans un formalisme souvent beaucoup plus facile à manier que I. En (3.7), on montre comment il permet de simplifier les preuves des applications données en (1.8). Pour le mode d'emploi de son application aux majorations de sommes trigonométriques, je renvoie à SGA $4\frac12$ [Sommes trigonométriques], spécialement aux nos. 1, 2, 3, 7.
+
+Les résultats essentiels de l'article concernent les schémas de type fini sur un corps fini, avec deux « mais » : a) ils ont des conséquences géométriques, pour un schéma de type fini sur la clôture algébrique d'un corps fini, et des arguments de spécialisation permettent de passer de là au cas d'un corps de base algébriquement clos quelconque; b) certains résultats valent pour des schémas de type fini sur $\mathbb Z$. Ils se déduisent immédiatement de la démonstration des résultats analogues sur un corps fini, mais non de leur énoncé. Nous les omettrons de la revue ci-dessous, section par section, de l'article.
+
+En (1.1), on rappelle ce qu'est un $\Ql$-faisceau constructible, avec quelques variantes. On donne aussi un formalisme pour une catégorie dérivée correspondante. En (1.2), on définit les faisceaux ponctuellement purs ou $\iota$-purs, mixtes, etc., et on énonce, sous une forme plus précise, une conjecture selon laquelle sur un schéma de type fini sur $\Fq$, tout $\Ql$-faisceau constructible est $\iota$-mixte. Les sections (1.3) à (1.5) sont consacrées à la généralisation annoncée de I (1.3.2). En (1.3), on exploite le théorème de Grothendieck I (1.3.8) pour définir les « poids déterminantiels » d'un faisceau lisse $\mathcal F_0$ sur une courbe lisse $U_0$. Ils ne dépendent que des puissances extérieures maximales des constituants de $\mathcal F_0$, et contrôlent le $H^1$ (et donc le $H^2$) de tout faisceau déduit de $\mathcal F_0$ par passage à un espace de tenseurs. La proposition (1.3.13), d'apparence anodine, jouera le rôle joué dans I (1.3.2) par la théorie classique des invariants pour le groupe symplectique.
+
+Les sections (1.6) à (1.8) sont consacrées au point C ci-dessus de la démonstration. En (1.6), des préliminaires algébriques : la théorie d'un endomorphisme nilpotent d'un espace vectoriel; en (1.7), des préliminaires géométriques : comment la monodromie locale fournit des endomorphismes nilpotents. La fin multidimensionnelle de (1.7) ne servira qu'en (1.9), lui-même inutile au reste de l'article.
+
+La section (1.9) est une application de (1.8) à la monodromie locale d'un faisceau mixte lisse sur le complément d'un diviseur à croisements normaux, le long duquel il est modérément ramifié. Un résultat analogue, pour les variations de structures de Hodge, vient d'être obtenu par Cattani et Kaplan.
+
+Dans (1.10), on applique les méthodes de (1.6)--(1.8) à des valeurs absolues non archimédiennes. Le résultat de semi-continuité (1.10.7) a permis de montrer que, pour une intersection complète générale de caractéristique $p$, le polygone de Newton (défini par les pentes de la cohomologie cristalline) coïncide avec le polygone de Hodge. Que ce problème, de nature $p$-adique, n'ait pu être résolu que par des méthodes $\ell$-adiques tient à l'absence jusqu'à présent d'une bonne théorie des cycles évanescents en cohomologie $p$-adique.
+
+La section (1.11), spécialisation de la monodromie, est technique et sans surprise.
+
+La section 2 contient la partie E ci-dessus de la démonstration. En (3.5), par des arguments connus, on en déduit un théorème d'équidistribution, dont un cas particulier est l'analogue pour un corps de fonctions de la conjecture de Sato--Tate sur la distribution des angles de Frobenius pour une courbe elliptique sur $K$.
+
+La section (3.3) contient la preuve du théorème 1, et quelques corollaires. La section (3.2) donne celle du théorème 2, et (3.1) donne le calcul de cycles évanescents utilisé. En (3.4), le théorème 1 est appliqué à l'étude des extensions successives qui définissent un faisceau mixte. On prouve en particulier qu'un faisceau mixte lisse admet une « filtration par le poids » par des sous-faisceaux lisses, et que la monodromie géométrique d'un faisceau lisse ponctuellement pur sur un schéma normal est semi-simple. En (3.6), le théorème local des cycles invariants; en (3.7), des simplifications aux preuves de (1.8).
+
+La section (4.1) contient la preuve du théorème de Lefschetz difficile. Les sections (4.2) et (4.3) apportent quelques compléments à SGA 7. Dans (4.3), l'usage d'un topos ad hoc permet de transposer les arguments d'aspect « théorie de Morse » utilisés par Lefschetz. Dans (4.4), on montre que le groupe de monodromie géométrique de la partie évanescente de la cohomologie des sections hyperplanes d'un pinceau de Lefschetz (supposé assez général dans le cas sauvage de caractéristique 2) est Zariski dense dans un groupe orthogonal ou symplectique, ou est un groupe de Weyl. Ce dernier cas est étudié en détail. En (4.5), on en déduit le « théorème du pgcd » utilisé dans [7] pour comparer les cohomologies $\ell$-adiques et cristallines des variétés projectives et lisses.
+
+Dans la section 5, on applique le yoga des poids au $\Ql$-type d'homotopie. La définition de ce dernier utilise de façon essentielle la construction par Miller et Grothendieck d'une algèbre différentielle graduée (anti-) commutative attachée à un ensemble simplicial qui permette le calcul de sa cohomologie entière.
+
+La section 6 enfin développe le formalisme des faisceaux mixtes. On montre, avec des démonstrations inspirées de SGA $4\frac12$ [Th. finitude], que leur catégorie est remarquablement stable. On définit aussi une notion de complexe pur, généralisant celle de faisceau lisse ponctuellement pur sur un schéma lisse (6.2.4), (6.2.5). L'image directe $Rf_*$ par un morphisme propre transforme complexes purs en complexes purs. On leur généralise le théorème local des cycles invariants et, sous des hypothèses de dimension, le théorème global des cycles invariants et le théorème de Lefschetz difficile.
+
+% ===== Source unit: deligne_paper32_weilII_section_12_weights_FR.tex =====
+\section*{(1.2) Poids}
+
+\paragraph{Définition (1.2.1).} Soient $q$ une puissance d'un nombre premier, et $n\in\ZZ$. Un nombre $\alpha$ est dit pur de poids $n$, rel. $q$, s'il est algébrique et que tous ses conjugués complexes sont de valeur absolue $q^{n/2}$.
+
+Dans la suite, « nombre » signifiera « élément de $\Qlb$ ».
+
+\paragraph{Définition (1.2.2).} Soient $X$ un schéma de type fini sur $\ZZ$ et $\mathcal F$ un faisceau sur $X$.
+\begin{enumerate}[label=(\roman*)]
+\item On dit que $\mathcal F$ est ponctuellement pur s'il existe un entier $n$, le poids de $\mathcal F$, tel que, pour tout $x\in |X|$, les valeurs propres de $F_x$ soient pures de poids $n$, rel. $N(x)$.
+\item $\mathcal F$ est mixte s'il admet une filtration finie de quotients successifs des faisceaux ponctuellement purs. Les poids de ceux de ces quotients qui sont non nuls sont les poids ponctuels de $\mathcal F$.
+\end{enumerate}
+
+D'après ces définitions, le faisceau $0$ est ponctuellement pur et, pour tout $n$, est de poids $n$. Il est mixte, d'ensemble de poids vide.
+
+\paragraph{Variante (1.2.3).} Si $k$ est un corps fini, les faisceaux sur $\Spec(k)$ s'identifient aux représentations $\ell$-adiques de $\Gal(\bar k/k)$. On leur transporte la terminologie (1.2.2).
+
+\paragraph{Variante (1.2.4).} Une même terminologie s'applique aux faisceaux de Weil (1.1.10), ainsi qu'aux $\Qlb$-vectoriels munis d'une action de Frobenius, en ce qui concerne la variante (1.2.3).
+
+\paragraph{Stabilités (1.2.5).}
+\begin{enumerate}[label=(\roman*)]
+\item La catégorie des faisceaux ponctuellement purs de poids $n$ est stable par les opérations de passage au quotient, à un sous-faisceau, par extension, image réciproque, image directe par un morphisme fini.
+\item Le produit tensoriel de deux faisceaux ponctuellement purs de poids $n$ et $m$ est ponctuellement pur de poids $n+m$. Le dual d'un faisceau lisse ponctuellement pur de poids $n$ est ponctuellement pur de poids $-n$.
+\item La catégorie des faisceaux mixtes est stable par les opérations de (i), et par produit tensoriel.
+\item Notons enfin que $\Qlb(1)$ est ponctuellement pur de poids $-2$.
+\end{enumerate}
+
+\paragraph{(1.2.6).} Pour montrer que $\alpha\in\Qlb$ est pur de poids $n$, il suffit de vérifier que, pour tout isomorphisme $\iota$ de $\Qlb$ avec $\CC$, le nombre complexe $\iota\alpha$ est de valeur absolue $q^{n/2}$. Le nombre $\alpha$ est alors automatiquement algébrique, sans quoi $\alpha$ pourrait être n'importe quel nombre transcendant. Dans toute la suite, nos arguments concerneront séparément chaque isomorphisme $\iota$. C'est pourquoi, bien que les concepts importants soient ceux de (1.2.2), la terminologie suivante nous sera utile.
+
+Soit $\iota$ un isomorphisme de corps de $\Qlb$ avec $\CC$. Si $q$ est une puissance d'un nombre premier, et que $\alpha\in\Qlb$, on pose :
+\begin{equation}
+\tag{1.2.6.1}
+w_q(\alpha):=2\log_q|\iota\alpha|;
+\end{equation}
+c'est le $\iota$-poids de $\alpha$, rel. $q$. Pour tout nombre réel $\beta$, un faisceau $\mathcal F$ est dit ponctuellement $\iota$-pur de poids $\beta$ si, pour tout $x\in |X|$ et toute valeur propre $\alpha$ de $F_x$ agissant sur $\mathcal F$, on a $w_{N(x)}(\alpha)=\beta$. On dit que $\mathcal F$ est $\iota$-mixte s'il admet une filtration finie de quotients successifs ponctuellement $\iota$-purs. Les poids de ceux de ces quotients qui sont non nuls sont les $\iota$-poids ponctuels de $\mathcal F$. On transpose de même les variantes (1.2.3) et (1.2.4). L'analogue de (1.2.5) reste vrai. On notera que, pour $k$ un corps fini, une représentation $V$ de $W(\bar k/k)$ est automatiquement $\iota$-mixte.
+
+\paragraph{(1.2.7) Torsion.} Pour $b\in\Qlb^*$, nous appellerons $\Qlb^{(b)}$ un quelconque faisceau de Weil sur $\Spec(\Fp)$, de rang un et pour lequel $F$ soit la multiplication par $b$. Pour $b$ une unité $\ell$-adique, c'est un faisceau ordinaire. Si un choix a été fait d'une clôture algébrique $\bar F$ de $\Fp$, on le normalisera par le choix d'un isomorphisme entre sa fibre géométrique en $\bar F$ et $\Qlb$. Pour $X$ un schéma de caractéristique $p$ (i.e. sur $\Fp$), $\mathcal F$ un faisceau sur $X$ et $b$ une unité $\ell$-adique (resp. $X$ de type fini sur $\Fp$, $\mathcal F$ un faisceau de Weil et $b\in\Qlb^*$), on note $\mathcal F^{(b)}$ le produit tensoriel de $\mathcal F$ par l'image inverse de $\Qlb^{(b)}$; on dit que $\mathcal F^{(b)}$ se déduit de $\mathcal F$ par torsion. Le faisceau $\Qlb^{(b)}$ est ponctuellement $\iota$-pur de poids $w_p(b)$; la torsion $\mathcal F\mapsto\mathcal F^{(b)}$ accroît donc les poids par $w_p(b)$.
+
+\paragraph{Remarque (1.2.8).} Dans les définitions des faisceaux ponctuellement purs, et des faisceaux mixtes, nous avons imposé aux poids d'être entiers. Dans celles des faisceaux ponctuellement $\iota$-purs, et des faisceaux $\iota$-mixtes, il est commode de leur permettre d'être des nombres réels quelconques. Le théorème profond (3.4.1) montre \emph{a posteriori} que, pour $X$ de type fini sur $\Fp$, cette généralité est largement illusoire : tout faisceau $\iota$-mixte est somme directe de faisceaux déduits par torsion (1.2.7) de faisceaux $\iota$-mixtes de poids entiers, et tout faisceau $\iota$-mixte pour tout $\iota$ est somme directe de faisceaux déduits par torsion de faisceaux mixtes.
+
+Tout faisceau lisse est extension successive de faisceaux lisses irréductibles, et nous verrons en (1.3.6) que tout faisceau lisse sur $X$ normal connexe de type fini sur $\Fp$ se déduit par torsion d'un faisceau dont le déterminant (= puissance extérieure maximale) est défini par un caractère d'ordre fini du groupe fondamental de $X$. La
+
+\paragraph{Conjecture (1.2.9).} Sur $X$ de type fini sur $\Fp$, tout faisceau est $\iota$-mixte,
+
+est donc conséquence de la conjecture (1.2.10) plus précise ci-dessous. Un de nos outils principaux, le théorème (1.5.1), est un résultat partiel en direction de (1.2.9).
+
+\paragraph{Conjecture (1.2.10).} Soient $X$ normal connexe de type fini sur $\Fp$, et $\mathcal F$ un faisceau lisse irréductible dont le déterminant est défini par un caractère d'ordre fini du groupe fondamental.
+\begin{enumerate}[label=(\roman*)]
+\item $\mathcal F$ est pur de poids $0$.
+\item Il existe un corps de nombres $E\subset\Qlb$ tel que le polynôme $\det(1-F_x t,\mathcal F)$, pour $x\in |X|$, soit à coefficients dans $E$.
+\item Pour $\lambda$ une place non archimédienne première à $p$ de $E$, les racines inverses dans $\bar E_\lambda$ du polynôme $\det(1-F_x t,\mathcal F)$, c'est-à-dire les valeurs propres de Frobenius, sont des unités $\lambda$-adiques.
+\item Pour $\lambda$ divisant $p$, la valuation des racines inverses vérifie :
+\[
+|v(\alpha)/v(Nx)|\le \frac12\,\rg \mathcal F.
+\]
+\item Pour $E$ convenable (peut-être plus grand qu'en (ii)), et chaque place non archimédienne $\lambda$ première à $p$, il existe un $E_\lambda$-faisceau compatible à $\mathcal F$ (mêmes valeurs propres des Frobenius).
+\item Pour $\lambda$ divisant $p$, on espère des petits camarades cristallins.
+\end{enumerate}
+
+Les parties (i), (iii), (iv) de la conjecture résultent du cas particulier où $X$ est une courbe. Pour $\mathcal F$ de rang $2$ sur une courbe, les travaux de Drinfeld ramènent la conjecture ((vi) jusqu'à présent exclue) au contrôle de la constante de l'équation fonctionnelle de la fonction $L$ attachée à $\mathcal F$ (il s'agit de $L(\mathcal F,\chi)$ : $\chi$ et ses tordues). En particulier, si $\mathcal F$ appartient à un système compatible infini de représentations $\lambda$-adiques, (i) à (v) sont vérifiés.
+
+\paragraph{Remarque (1.2.11).} Je ne prétends pas croire à l'existence d'isomorphismes entre $\Qlb$ et $\CC$, et ceux-ci ne sont qu'une commodité d'exposition. Chaque fois que nous prouverons qu'un nombre est pur, un fragment facile de la démonstration suffirait à établir qu'il est algébrique. Pour le reste des arguments, il suffirait alors de considérer les plongements complexes du sous-corps de $\Qlb$ formé des nombres algébriques, et ceci ne requiert pas l'axiome du choix.
+
+\paragraph{Définition (1.2.12).} Soient $X$ un schéma de type fini sur $\ZZ$ et $\mathcal F$ un faisceau lisse sur $X$. On dit que $\mathcal F$ est totalement réel si, pour tout $x\in |X|$, les coefficients du polynôme caractéristique de $F_x$ agissant sur $\mathcal F$ sont des nombres algébriques totalement réels.
+
+La variante suivante nous sera utile en égale caractéristique.
+
+\paragraph{Variante (1.2.13).} On dit que $\mathcal F$ est $\iota$-réel si, pour tout $x\in |X|$, le polynôme
+\[
+\iota\det(1-F_x t,\mathcal F)
+\]
+est à coefficients réels.
+
+\paragraph{Remarque (1.2.14).} Tout faisceau lisse ponctuellement pur $\mathcal F$ est facteur direct d'un faisceau lisse ponctuellement pur totalement réel, à savoir, s'il est de poids $n$, le faisceau $\mathcal F\otimes\mathcal F^\vee(-n)$. De même, un faisceau lisse ponctuellement $\iota$-pur de poids entier est facteur direct d'un faisceau lisse ponctuellement $\iota$-pur $\iota$-réel.
+
+Dans ces variantes, on peut prendre pour $\mathcal F$ un faisceau de Weil; pour les faisceaux de Weil, un faisceau lisse ponctuellement $\iota$-pur de poids quelconque est facteur direct d'un faisceau lisse ponctuellement $\iota$-pur $\iota$-réel.
+
+% ===== Source unit: deligne_paper32_weilII_section_13_poids_determinantiels_FR.tex =====
+\section*{(1.3) Poids déterminantiels}
+
+Les conventions (0.7) sont en vigueur. Soient $X_0$ un schéma normal géométriquement connexe de type fini sur $\Fq$ et $\bar x$ un point géométrique de $X_0$. Dans cette section, nous donnons des conséquences du théorème suivant.
+
+\paragraph{Théorème (1.3.1).} L'image du groupe fondamental géométrique $\pi_1(X,\bar x)$ dans le quotient de $W(X_0,\bar x)$ par l'adhérence de son groupe dérivé est le produit d'un groupe fini d'ordre premier à $p$ par un pro-$p$-groupe.
+
+Ce théorème est bien connu, mais je n'ai pu le trouver dans la littérature. Pour nos résultats principaux, seul le cas où $X$ est une courbe nous importe. Ci-dessous, une preuve dans ce cas. Le cas général sera traité en (1.11.4).
+
+Soient $\bar X_0$ la complétée projective et lisse de $X_0$, et $S=\bar X_0-X_0$. Notons $k$ le corps des fonctions de $X_0$, $k_v$ son complété en une place $v$ (identifiée à un point fermé $v\in |\bar X_0|$), $r_v$ le groupe des unités de $k_v$ et $k_{\mathbb A}^*$ le groupe des idèles de $k$. La théorie du corps de classe identifie $W(X_0,\bar x)^{\mathrm{ab}}$ au groupe de classes d'idèles
+\[
+\left(\prod_{v\notin S}r_v\right)\backslash k_{\mathbb A}^*/k^*,
+\]
+la limite projective des groupes de classes de diviseurs
+\[
+C_m=\{\hbox{diviseurs sur }\bar X_0\}/\{\hbox{ceux de la forme }(\varphi),\; \varphi\equiv 1\pmod m\}
+\]
+pour $m$ un « module » de plus en plus grand, concentré sur $S$. L'image du groupe fondamental géométrique s'obtient en remplaçant $k_{\mathbb A}^*$ par le sous-groupe $k_{\mathbb A}^{1}$ des idèles de norme $1$, i.e. en remplaçant les $C_m$ par les sous-groupes $C_m^0$ des classes de diviseurs de degré $0$. Le noyau de l'application
+\[
+\left(\prod_{v\notin S}r_v\right)\backslash k_{\mathbb A}^{1}/k^*
+\longrightarrow
+\left(\prod_v r_v\right)\backslash k_{\mathbb A}^{1}/k^*
+\]
+est un quotient de $\prod_{v\in S} r_v$, donc est le produit d'un pro-$p$-groupe par un groupe fini; et le groupe image
+\[
+\prod_v r_v\backslash k_{\mathbb A}^{1}/k^*
+\]
+des classes de diviseurs de degré $0$, pour l'équivalence linéaire, est fini (Weil, BNT IV, Th. 7). La variété de Picard $\Pic^0(X)$ est en effet de type fini, et ce groupe de classes de diviseurs est le groupe des points rationnels sur $\Fq$ de $\Pic^0(X)$.
+
+\paragraph{(1.3.2).} Dans la suite de cet article, nous appellerons simplement faisceaux les faisceaux de Weil (1.1.10). Les $\Ql$-faisceaux constructibles seront appelés faisceaux étales.
+
+Cette convention nous amènera parfois à appliquer à des $\Qlb$-faisceaux des résultats prouvés pour des $\Ql$-faisceaux. La justification sera toujours immédiate.
+
+\paragraph{(1.3.3).} Soit $\mathcal F_0$ un faisceau de rang $1$ sur $X_0$. Le groupe $W(X_0,\bar x)$ agit sur $\mathcal F_{\bar x}$ par homothéties, via un caractère
+\[
+\chi:W(X_0,\bar x)\longrightarrow\Qlb^*.
+\]
+Réciproquement, pour tout tel caractère $\chi$, l'équivalence (1.1.12) nous fournit un faisceau $\mathcal L_0(\chi)$, muni d'une trivialisation $\mathcal L(\chi)_{\bar x}\simeq\Qlb$.
+
+Le caractère $\chi$ se factorise par le plus grand quotient abélien de $W(X_0,\bar x)$. D'après (1.3.1), le groupe de monodromie géométrique de $\mathcal F_0$, i.e. l'image par $\chi$ de $\pi_1(X,\bar x)$, est donc le produit d'un groupe fini par un pro-$p$-groupe. Cette image est aussi un sous-groupe compact de $E^*$, pour $E\subset\Qlb$ une extension finie de $\Ql$. C'est donc le produit d'un groupe fini par un pro-$\ell$-groupe et, puisque $p\ne\ell$, c'est un groupe fini. En particulier, une puissance $\chi^n$ ($n>0$) de $\chi$ est triviale sur $\pi_1(X,\bar x)$, i.e. de la forme
+\[
+w\longmapsto b^{\deg(w)}.
+\]
+Si $c$ est une racine $n$-ième de $b$, le caractère $\chi$ est le produit du caractère $w\mapsto c^{\deg(w)}$ par un caractère $z$ d'ordre $n$, i.e. à valeurs dans le groupe cyclique des racines $n$-ièmes de l'unité de $\Qlb$. En particulier, pour $y\in |X_0|$, on a
+\[
+|\iota\chi(F_y)|=|\iota c|^{\deg(y)};
+\]
+le faisceau $\mathcal F_0$ est ponctuellement $\iota$-pur, de poids le $\iota$-poids de $c$ rel. $q$ (1.2.6.1). On a prouvé :
+
+\paragraph{Proposition (1.3.4).} Soient $\mathcal F_0$ un faisceau lisse de rang $1$ sur $X_0$ et $\chi:W(X_0,\bar x)\to\Qlb^*$ le caractère correspondant.
+\begin{enumerate}[label=(\roman*)]
+\item Le groupe de monodromie géométrique de $\mathcal F_0$ est fini. Plus précisément, le caractère $\chi$ est le produit d'un caractère $w\mapsto c^{\deg(w)}$ par un caractère d'ordre fini.
+\item $\mathcal F_0$ est ponctuellement $\iota$-pur, de poids le poids de $c$, rel. $q$.
+\end{enumerate}
+
+\paragraph{Variante.} Si $X_0$ est une courbe, la démonstration de (1.3.1) est complète -- indépendante de (1.11) -- d'où déjà (1.3.4). Voici, d'après N. Katz, comment déduire le cas général de (1.3.4) de ce cas particulier.
+
+Soient $E\subset\Qlb$ comme plus haut et $M$ le groupe des éléments d'ordre fini de $E^*$ (racines de l'unité). C'est un groupe fini. On commence par montrer que, quels que soient $x$ et $y$ dans $|X_0|$, on a
+\[
+\chi(F_x)^{1/\deg(x)}=\chi(F_y)^{1/\deg(y)}\quad\hbox{dans }E^*\otimes\mathbb Q
+\]
+(noté multiplicativement) : joignant $x$ et $y$ par une courbe, on se ramène au cas où $X_0$ est une courbe et on applique (1.3.4). Quel que soit le $0$-cycle de degré $0$, $\sum n(x)x$, on a donc $\chi(\prod F_x^{n(x)})\in M$. Il résulte du théorème de Chebotarev que ces produits de Frobenius sont denses dans le $\pi_1$ géométrique, que $\chi$ envoie donc dans $M$ : la restriction de $\chi$ au $\pi_1$ géométrique est d'ordre fini, et on conclut comme précédemment.
+
+\paragraph{Définition (1.3.5).} Soit $\mathcal F_0$ un faisceau lisse sur $X_0$. Les poids déterminantiels (rel. $\iota$) de $\mathcal F_0$ sont les nombres
+\[
+\frac1d\bigl(\hbox{$\iota$-poids de }\wedge^d\mathcal F_0'\bigr)
+\]
+pour $\mathcal F_0'$ un constituant de $\mathcal F_0$, et $d$ son rang.
+
+Il est clair qu'un faisceau lisse ponctuellement $\iota$-pur de poids $\beta$ est aussi purement de poids déterminantiel $\beta$.
+
+\paragraph{(1.3.6).} Si $\mathcal F_0$ est lisse, irréductible de rang $n$ et que $b\in\Qlb^*$ est tel que, pour un $y\in |X_0|$, on a
+\[
+\det(F_y)=b^{n\deg(y)[\Fq:\Fp]},
+\]
+le faisceau $\mathcal F_0^{(b^{-1})}$ (1.2.7) est de poids déterminantiel $0$ (rel. $\iota$) pour tout $\iota$ : sa puissance extérieure maximale est définie par un caractère d'ordre fini.
+
+\paragraph{(1.3.7).} Pour étudier le comportement des poids déterminantiels par produit tensoriel et puissance extérieure, il nous sera commode de passer du langage des faisceaux à celui des représentations de groupes algébriques de monodromie. Le dictionnaire est inspiré de Serre [11], II (1.3).
+
+Soit donc $\mathcal F_0$ un faisceau lisse sur $X_0$. Soit $G^0$ le sous-groupe algébrique de $\GL(\mathcal F_{\bar x})$, adhérence de Zariski du groupe de monodromie géométrique (1.1.15). Par push-out à partir de la suite exacte
+\[
+0\to\pi_1(X,\bar x)\to W(X_0,\bar x)\to\ZZ\to0,
+\]
+on définit un groupe algébrique (non de type fini) $G$, extension de $\ZZ$ par $G^0$ :
+\begin{equation}
+\tag{1.3.7.1}
+\begin{tikzcd}[column sep=2.8em,row sep=1.6em]
+0 \arrow[r] & \pi_1(X,\bar x) \arrow[r] \arrow[d] & W(X_0,\bar x) \arrow[r] \arrow[d] & \ZZ \arrow[r] \arrow[d,equal] & 0 \\
+0 \arrow[r] & G^0 \arrow[r] & G \arrow[r] \arrow[d] & \ZZ \arrow[r] & 0 \\
+& & \GL(\mathcal F_{\bar x}) & &
+\end{tikzcd}
+\end{equation}
+
+Voici la définition exacte : si $w$ est un élément de $W(X_0,\bar x)$ de degré $1$, $W(X_0,\bar x)$ est le produit semi-direct du groupe $w^{\ZZ}$ engendré par $w$ par $\pi_1(X,\bar x)$. L'image de $w$ dans $\GL(\mathcal F_{\bar x})$ normalise celle de $\pi_1(X,\bar x)$ (le groupe de monodromie géométrique). Elle normalise donc son adhérence de Zariski $G^0$ et $G$ est le produit semi-direct de $\ZZ$ par $G^0$, relativement à l'action $\operatorname{int}(w)$ de $\ZZ$ sur $G^0$. Le groupe $G$ obtenu s'insère dans un diagramme (1.3.7.1), et ceci le caractérise à isomorphisme unique près.
+
+Chaque représentation linéaire du groupe algébrique $G$ définit une représentation $\ell$-adique de $W(X_0,\bar x)$, donc un faisceau de Weil sur $X_0$. Le faisceau $\mathcal F_0$ de départ correspond à la représentation tautologique (1.3.7.1) de $G$ dans $\GL(\mathcal F_{\bar x})$.
+
+Si $\mathcal F_0^{(i)}$ est une famille finie de faisceaux lisses, et qu'on applique la construction précédente à la somme $\mathcal F_0$ des $\mathcal F_0^{(i)}$, on peut dans (1.3.7.1) remplacer $\GL(\mathcal F_{\bar x})$ par le sous-groupe $\prod_i\GL(\mathcal F_{\bar x}^{(i)})$. Chaque faisceau $\mathcal F_0^{(i)}$ est déterminé par la représentation de $G$ dans le facteur correspondant $\GL(\mathcal F_{\bar x}^{(i)})$.
+
+\paragraph{Théorème (1.3.8) (Grothendieck).} Soient $\mathcal F_0$ un faisceau lisse sur $X_0$, $G$ et $G^0$ comme ci-dessus et $G^{00}$ la composante neutre de $G^0$. Alors, le radical du groupe algébrique $G^{00}$ est unipotent.
+
+Nous prouverons d'abord le
+
+\paragraph{Corollaire (1.3.9).} Si $\mathcal F_0$ est semi-simple, l'adhérence de Zariski $G^0$ du groupe de monodromie géométrique de $\mathcal F_0$ est extension d'un groupe fini par un groupe semi-simple.
+
+Si la représentation de $W(X_0,\bar x)$ sur $\mathcal F_{0\bar x}$ est semi-simple, il en va de même de sa restriction au sous-groupe distingué $\pi_1(X,\bar x)$ : la somme des $\pi_1(X,\bar x)$-sous-espaces simples est $W$-stable, donc un supplémentaire. Nous prouverons (1.3.9) en supposant seulement que la représentation de $\pi_1(X,\bar x)$ est semi-simple. Sous cette hypothèse, $G^{00}$ est réductif, et il s'agit de prouver que son plus grand tore central $T_1$ est trivial. Il est isogène au plus grand tore $T$ quotient de $G^{00}$.
+
+Supposons tout d'abord que $G^0=G^{00}$ et que $G$ est un produit $G\simeq G^0\times\ZZ$. L'application $W(X_0,\bar x)\to G$ fournit alors des morphismes $W(X_0,\bar x)\to T$, tels que l'image de $\pi_1(X,\bar x)$ soit Zariski dense. Puisque $T$ est un produit de groupes multiplicatifs, il résulte de (1.3.4) que cette image est finie, et $T=\{1\}$.
+
+Nous ramenons le cas général à ce cas particulier en remplaçant $X_0$ par un revêtement fini, et $\Fq$ par une extension finie, donc $W(X_0,\bar x)$ et $G$ par des sous-groupes d'indice fini. Le groupe $W(X_0,\bar x)$ agit sur $T_1$ en respectant l'ensemble fini $F\subset X(T_1)$ des caractères par lesquels $T_1$ agit sur $\mathcal F_{0\bar x}$. Cet ensemble engendre $X(T_1)\otimes\mathbb Q$, donc $T_1$ agit fidèlement; le groupe $W(X_0,\bar x)$ agit donc sur $T_1$ via un quotient fini, et on se ramène à supposer cette action triviale. Le groupe des automorphismes extérieurs de $G^{00}$ triviaux sur $T_1$ est fini : on peut supposer que $W(X_0,\bar x)$ agit sur $G^{00}$ par automorphismes intérieurs. On se ramène enfin à supposer que $G^0=G^{00}$, et on a alors $G\simeq G^{00}\times\ZZ$.
+
+Prouvons (1.3.8). Soient $G$ une suite de Jordan--Hölder pour $\mathcal F_0$, $P$ le sous-groupe de $\GL(\mathcal F_{\bar x})$ qui respecte la filtration $G$, $N$ le sous-groupe de $P$ qui agit trivialement sur les quotients successifs, et $L=P/N$. L'analogue $G_1^0$ de $G^0$ pour $\operatorname{Gr}_G(\mathcal F_0)$ est l'image de $G^0$ dans $L$ : le groupe algébrique $G^0$ est extension de $G_1^0$ par un sous-groupe de $N$, automatiquement unipotent, de sorte qu'il suffit de prouver (1.3.8) pour $\operatorname{Gr}_G(\mathcal F_0)$, justifiable de (1.3.9).
+
+\paragraph{Lemme (1.3.10).} Soit $G$ un schéma en groupes extension de $\ZZ$ par un groupe algébrique $G^0$, dont la composante connexe de l'identité $G^{00}$ est réductive. Les conditions suivantes sont équivalentes :
+\begin{enumerate}[label=(\roman*)]
+\item $G$ admet une représentation linéaire dont la restriction à $G^0$ est fidèle.
+\item $G$ admet une représentation linéaire dont la restriction à $G^0$ est à noyau fini.
+\item Soit $Z^{00}$ la composante connexe du centre de $G^{00}$. La restriction à $Z^{00}$ de tout automorphisme intérieur de $G$ est d'ordre fini.
+\item Le centre de $G$ s'envoie sur un sous-groupe fini de $\ZZ$.
+\end{enumerate}
+
+L'implication (i)$\Rightarrow$(ii) est triviale. Prouvons que (ii)$\Rightarrow$(iii) : si $\rho$ est une représentation linéaire comme en (ii), les poids de $Z^{00}$ dans cette représentation forment un ensemble fini de caractères, qui engendrent rationnellement le groupe des caractères de $Z^{00}$. Cet ensemble fini est respecté par l'action de $G$ sur $Z^{00}$ par automorphismes intérieurs. Un sous-groupe d'indice fini de $G$ agit donc trivialement sur cet ensemble, et sur $Z^{00}$.
+
+Prouvons que (iii)$\Rightarrow$(iv). Soit $g$ un élément de $G$ d'image $1$ dans $\ZZ$ et soit $\gamma$ l'automorphisme $x\mapsto gxg^{-1}$ de $G^{00}$. On sait que le groupe des automorphismes d'un groupe réductif est le produit semi-direct du groupe des automorphismes respectant un épinglage par le groupe adjoint (automorphismes intérieurs) (SGA 3 XXIV (1.3)), et qu'un automorphisme qui respecte un épinglage est d'ordre fini si et seulement si sa restriction au centre connexe l'est. L'hypothèse (iii) assure donc que $\gamma$ est le produit d'un automorphisme d'ordre fini respectant un épinglage par un automorphisme intérieur. Modifiant $g$ par un élément de $G^{00}$, on peut supposer $\gamma$ d'ordre fini. La restriction de $\operatorname{Int}(g)$ à $G^0$ est alors elle aussi d'ordre fini. Si elle est d'ordre $n$, $g^n$ est central (comme centralisant $G^0$ et $g$), et (iv) en résulte.
+
+Enfin, sous l'hypothèse (iv), $G$ admet un sous-groupe central $Z$, engendré par un élément $g$ d'image non nulle dans $\ZZ$; le groupe $G/Z$ est algébrique et toute représentation fidèle de $G/Z$ fournit une représentation de $G$ dont la restriction à $G^0$ est fidèle.
+
+\paragraph{Corollaire (1.3.11).} Supposons $\mathcal F_0$ semi-simple, et soit $Z$ le centre de $G$. Alors, les noyaux et conoyaux de $\deg:Z\to\ZZ$ sont finis.
+
+Le noyau $Z\cap G^0$ est contenu dans le centre de $G^0$, qui est fini d'après (1.3.9). D'après (1.3.9) encore, la condition (1.3.10)(iii) est trivialement vérifiée (on a $Z^{00}=\{e\}$), et le conoyau est fini d'après (1.3.10)(iv).
+
+\paragraph{Corollaire (1.3.12).} Supposons $\mathcal F_0$ semi-simple, et soit $g$ un élément central de degré $m\ne0$ de $G$. Pour que le faisceau défini par une représentation $V$ de $G$ soit purement de $\iota$-poids déterminantiel $\beta$, il faut et il suffit que les valeurs propres $\alpha$ de $g$ agissant sur $V$ vérifient toutes
+\[
+|\iota\alpha|=q^{m\beta/2}.
+\]
+
+On se ramène à supposer $V$ simple, auquel cas $g$ est scalaire. On remplace alors $V$ par sa puissance extérieure maximale, pour se ramener au cas où $V$ est de rang $1$. Ce cas est laissé au lecteur; cf. (1.3.4).
+
+Cette interprétation du poids déterminantiel fournit aussitôt la proposition suivante, qui est le résultat principal de ce numéro.
+
+\paragraph{Proposition (1.3.13).}
+\begin{enumerate}[label=(\roman*)]
+\item Soit $f:X'_0\to X_0$ un morphisme dominant de schémas normaux connexes de type fini sur $\Fq$. Pour qu'un faisceau lisse sur $X_0$ soit purement de $\iota$-poids déterminantiel $\beta$, il faut et il suffit que son image inverse sur $X'_0$ le soit.
+\item Si des faisceaux lisses $\mathcal F_0$ et $\mathcal G_0$ sur $X_0$ sont purement de $\iota$-poids déterminantiel $\beta$ et $\gamma$, alors $\mathcal F_0\otimes\mathcal G_0$ est purement de $\iota$-poids déterminantiel $\beta+\gamma$.
+\item Soit $\mathcal F_0$ un faisceau lisse sur $X_0$, et soit $n(\beta)$ la somme des rangs des constituants de $\mathcal F_0$ de $\iota$-poids déterminantiel $\beta$. Alors, les poids déterminantiels de $\wedge^a\mathcal F_0$ sont les sommes
+\[
+\sum a(\beta)\beta
+\]
+avec $\sum a(\beta)=a$ et $a(\beta)\le n(\beta)$.
+\end{enumerate}
+
+Pour (ii), on prendra $G$ défini par $\mathcal F_0$ et $\mathcal G_0$ ((1.3.7), dernier alinéa).
+
+\paragraph{Proposition (1.3.14) (voir (1.3.2)).} Pour qu'un faisceau lisse irréductible $\mathcal F_0$ de rang $r$ sur $X_0$ soit un faisceau étale, il faut et il suffit que $\wedge^r\mathcal F_0$ en soit un. Tout faisceau lisse irréductible est donc obtenu par torsion (1.2.7) à partir d'un faisceau étale.
+
+Soit $g$ central dans $G$ comme en (1.3.12), il agit sur $\mathcal F_{0\bar x}$ par multiplication par un scalaire $u$. Le groupe $G$ agit sur $\wedge^r\mathcal F_{0\bar x}$ via un quotient discret, qui est aussi un quotient de $W(X_0,\bar x)$; et pour que $\wedge^r\mathcal F_0$ soit un faisceau étale, il faut et il suffit que $u$ soit une unité $\ell$-adique. Supposons-le, et soit $E$ une extension finie de $\Ql$ telle que l'action de $W(X_0,\bar x)$ se factorise par $\GL(r,E)$. Il s'agit de montrer que l'image de $W(X_0,\bar x)$ dans $\GL(r,E)$ est bornée : l'image inverse d'un sous-groupe ouvert sera alors ouverte d'indice fini, et la représentation se prolongera au complété $\pi_1(X_0,\bar x)$ de $W(X_0,\bar x)$.
+
+Soient $W_1$ le sous-groupe d'indice fini de $W(X_0,\bar x)$ image inverse de $G^{00}\times g^\ZZ$, $W_1^0$ l'image inverse de $G^{00}$, et $\rho$ le morphisme composé
+\[
+W_1\longrightarrow G^{00}\times g^\ZZ\longrightarrow G^{00}.
+\]
+Puisque les $u^n$ ($n\in\ZZ$) forment un ensemble borné, il suffit de montrer que $\rho(W_1)\subset G^{00}(E)$ est borné. Ce sous-groupe normalise $\rho(W_1^0)$, qui est compact et Zariski dense. On conclut par le
+
+\paragraph{Lemme (1.3.15).} Dans un groupe semi-simple $H$ sur un corps local $E$, le normalisateur d'un sous-groupe compact et Zariski dense $K\subset H(E)$ est compact.
+
+Nous ne traiterons que le cas où $E$ est de caractéristique $0$. L'application logarithme, d'abord définie sur un voisinage assez petit de $e$, est étendue à la réunion des sous-groupes compacts de $H(E)$ par la formule
+\[
+\log(x)=\frac1n\log(x^n).
+\]
+La densité de $K$, et le fait que $H$ soit semi-simple, impliquent que $\log(K)$ engendre $\Lie H$ comme espace vectoriel sur $E$. Soient $\mathcal O_E$ l'anneau de la valuation de $E$, et $L$ le $\mathcal O_E$-module engendré par le compact $\log K\subset\Lie H$. Il est stable sous le normalisateur de $K$. La représentation adjointe étant à noyau fini, et
+\[
+\ad:H(E)\longrightarrow\GL(\Lie H)
+\]
+étant propre, il en résulte que ce normalisateur est compact.
+
+
+
+
+\section*{(1.4) Cohomologie des courbes et fonctions \texorpdfstring{$L$}{L} : rappels}
+
+Ce numéro rassemble quelques résultats bien connus dont nous ferons un usage constant.
+
+\paragraph{(1.4.1).} Si $X$ est une courbe sur un corps algébriquement clos $k$, et $\mathcal F$ un faisceau sur $X$, les groupes
+\[
+H^0_c(X,\mathcal F),\quad H^0(X,\mathcal F),\quad H^2_c(X,\mathcal F),\quad H^2(X,\mathcal F)
+\]
+sont de nature élémentaire.
+
+\begin{enumerate}[label=\alph*)]
+\item $H^0(X,\mathcal F)$ est le groupe des sections globales, et $H^0_c(X,\mathcal F)$ le sous-groupe de celles à support compact ; à support fini, si $X$ n'a pas de composante irréductible complète. Si $X$ est connexe, de point base $x$, et que $\mathcal F$ est lisse, défini par une représentation $V$ de $\pi_1(X,x)$, on a
+\begin{equation}\tag{1.4.1.1}
+H^0(X,\mathcal F)=V^{\pi_1(X,x)},
+\end{equation}
+et
+\begin{equation}\tag{1.4.1.2}
+H^0_c(X,\mathcal F)=
+\begin{cases}
+V^{\pi_1(X,x)},&\text{pour }X\text{ complet},\\
+0,&\text{sinon}.
+\end{cases}
+\end{equation}
+
+\item Si $U$ est le complément d'une partie finie de $X$, on a
+\[
+H^2_c(U,\mathcal F)\simeq H^2_c(X,\mathcal F).
+\]
+Prenant $U$ assez petit pour que $U_{\mathrm{red}}$ soit lisse et $\mathcal F$ lisse sur $U$, ceci permet de calculer le $H^2_c$ par dualité de Poincaré à partir du calcul a) du $H^0$ : si $U_{\mathrm{red}}$ est lisse connexe, de point base $x$, et que, sur $U$, $\mathcal F$ est défini par une représentation $V$ de $\pi_1(U,x)$, on a
+\begin{equation}\tag{1.4.1.3}
+H^2_c(X,\mathcal F)=V_{\pi_1(U,x)}(-1).
+\end{equation}
+\end{enumerate}
+
+\paragraph{(1.4.2).} Avec les conventions (0.7), soient $X_0$ une courbe lisse absolument irréductible sur $\Fq$, et $\mathcal F_0$ un faisceau lisse sur $X_0$. Soit $\mathcal F'_0$ (resp. $\mathcal F''_0$) le plus grand sous-faisceau (resp. faisceau quotient) de $\mathcal F_0$ qui devienne constant sur $X$. C'est l'image inverse d'un faisceau $F'_0$ (resp. $F''_0$) sur $\Spec(\Fq)$, et la discussion (1.4.1) donne
+\begin{align}
+H^0(X,\mathcal F)&=F',\tag{1.4.2.1}\\
+H^0_c(X,\mathcal F)&=F'\text{ ou }0\text{ selon que }X\text{ est ou n'est pas complet},\tag{1.4.2.2}\\
+H^2_c(X,\mathcal F)&=F''(-1).\tag{1.4.2.3}
+\end{align}
+Les faisceaux $\mathcal F'_0$ et $F'_0$ (resp. $\mathcal F''_0$ et $F''_0$) ont les mêmes poids déterminantiels, et ceux-ci sont parmi les poids déterminantiels de $\mathcal F_0$. D'après (1.4.2), on a donc le
+
+\paragraph{Corollaire (1.4.3).} Si $\alpha$ est une valeur propre de $F^*$ sur $H^0(X,\mathcal F)$ ou $H^0_c(X,\mathcal F)$ (resp. sur $H^2_c(X,\mathcal F)$), il existe un poids déterminantiel $\beta$ de $\mathcal F_0$ tel que
+\[
+w_q(\alpha)=\beta \qquad \text{(resp. } w_q(\alpha)=\beta+2\text{)}.
+\]
+
+Plus trivialement, on a aussi le
+
+\paragraph{Corollaire (1.4.4).} Si $\alpha$ est une valeur propre de $F^*$ sur $H^0(X,\mathcal F)$ ou $H^0_c(X,\mathcal F)$ (resp. sur $H^2_c(X,\mathcal F)$), pour tout $x\in |X_0|$, $\alpha^{\deg(x)}$ (resp. $(q^{-1}\alpha)^{\deg(x)}$) est une valeur propre de $F_x$ sur $\mathcal F_0$.
+
+\paragraph{(1.4.5).} Si $X_0$ est un schéma de type fini sur $\Fq$, et que $\mathcal F_0$ est un faisceau sur $X_0$, on a d'après Grothendieck une égalité de séries formelles $t$-adiques :
+\begin{equation}\tag{1.4.5.1}
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+=
+\prod_i\det(1-Ft,H^i_c(X,\mathcal F))^{(-1)^{i+1}}.
+\end{equation}
+Appliquons-lui $\iota$ : on obtient une égalité entre séries formelles complexes, qui exprime que le membre de gauche est le développement en série de Taylor de la fonction rationnelle au membre de droite. Si le produit au membre de gauche converge pour $|t|<R$, on obtient dans ce disque une égalité entre fonctions analytiques. Voici un critère de convergence.
+
+\paragraph{Proposition (1.4.6).} Si, pour $x\in |X_0|$, les valeurs propres $\alpha$ de $F_x$ sur $\mathcal F$ vérifient
+\[
+w_{N(x)}(\alpha)<\beta,
+\]
+le produit
+\[
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+\]
+converge pour
+\[
+|t|<q^{-\beta/2-\dim X_0},
+\]
+donc n'a ni zéro ni pôle dans ce disque.
+
+Posons $d=\dim X_0$, et découpons $X_0$ en morceaux dont chacun est quasi-fini sur un espace affine $\mathbb A^d$ : on trouve une majoration
+\[
+\#\{x\in |X_0|\mid \deg(x)=n\}<\mathrm{Cte}\cdot q^{dn}.
+\]
+Ceci ramène la convergence du produit à celle de la série géométrique
+\[
+\sum_n q^{dn}\,q^{n\beta/2}\,|t|^n.
+\]
+
+\paragraph{(1.4.7).} Si $\dim X_0\le 1$, les $H^i_c$ sont nuls pour $i\notin\{0,1,2\}$. La formule déduite de (1.4.5.1) par application de $\iota$ se réduit donc à
+\begin{equation}\tag{1.4.7.1}
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+=
+\frac{\det(1-Ft,H^1_c(X,\mathcal F))}
+{\det(1-Ft,H^0_c(X,\mathcal F))\det(1-Ft,H^2_c(X,\mathcal F))}.
+\end{equation}
+Si $X_0$ est une courbe lisse affine et que $\mathcal F_0$ est lisse, le $H^0_c$ est nul et la formule se simplifie en
+\begin{equation}\tag{1.4.7.2}
+\prod_{x\in |X_0|}\det(1-F_x t^{\deg(x)},\mathcal F)^{-1}
+=
+\frac{\det(1-Ft,H^1_c(X,\mathcal F))}
+{\det(1-Ft,H^2_c(X,\mathcal F))}.
+\end{equation}
+Dans l'usage que nous ferons de ces formules, le membre de gauche sera contrôlé par (1.4.6), et les pôles au membre de droite par (1.4.3).
+
+
+
+\section*{(1.5) Un critère de pureté}
+
+Les conventions (0.7) sont en vigueur. Soit $X_0$ une courbe lisse absolument irréductible sur $\Fq$. La démonstration du théorème suivant est parallèle à celle du théorème (1.3.4), qu'il généralise.
+
+\paragraph{Théorème (1.5.1).} Les constituants de tout faisceau lisse $\iota$-réel sur $X_0$ sont $\iota$-purs.
+
+\paragraph{Lemme (1.5.2).} Soient $\mathcal F_0$ un faisceau lisse $\iota$-réel sur $X_0$, et $r$ le plus grand de ses poids déterminantiels, relativement à $\iota$ (1.3.5). Alors, pour tout $x\in |X_0|$, et toute valeur propre $\alpha$ de $F_x$ sur $\mathcal F_0$, on a
+\[
+w_{N(x)}(\alpha)\le r.
+\]
+
+Quitte à ôter de $X_0$ un point autre que celui auquel on s'intéresse, on se ramène à supposer $X_0$ affine. Pour chaque entier positif $k$, on a alors une égalité (1.4.7.2)
+\begin{equation}\tag{1.5.2.1}
+\prod_{x\in |X_0|}\det\bigl(1-F_x t^{\deg(x)},\mathcal F^{\otimes 2k}\bigr)^{-1}
+=
+\frac{\det\bigl(1-Ft,H^1_c(X,\mathcal F^{\otimes 2k})\bigr)}
+{\det\bigl(1-Ft,H^2_c(X,\mathcal F^{\otimes 2k})\bigr)}.
+\end{equation}
+
+Dans cette formule :
+\begin{enumerate}[label=\alph*)]
+\item Les facteurs
+\[
+\det\bigl(1-F_x t^{\deg(x)},\mathcal F^{\otimes 2k}\bigr)^{-1}
+\]
+au membre de gauche sont des séries formelles de terme constant $1$ à coefficients réels $\ge0$. La démonstration est comme en (1.3.3), (3.4), avec « rationnel » remplacé par « réel ».
+
+\item D'après (1.3.13)(ii), les poids déterminantiels des constituants de $\mathcal F_0^{\otimes 2k}$ sont $\le 2kr$. D'après (1.4.3), le membre de droite n'a donc pas de pôle pour
+\[
+ |t|<q^{-(2kr+2)/2}.
+\]
+\end{enumerate}
+
+Les facteurs du membre de gauche ayant des coefficients positifs, les pôles ne peuvent pas se compenser. En particulier, si $\alpha$ est valeur propre de $F_x$ sur $\mathcal F_0$, la contribution de $\alpha^{2k}$ donne un pôle de valeur absolue
+\[
+ |\iota(\alpha)|^{-2k/\deg(x)}.
+\]
+Par suite
+\[
+ |\iota(\alpha)|^{-2k/\deg(x)}
+\ge q^{-(2kr+2)/2},
+\]
+soit
+\[
+w_{N(x)}(\alpha)\le r+\frac1k.
+\]
+Le lemme s'obtient en faisant tendre $k$ vers l'infini.
+
+\paragraph{(1.5.3) Preuve de (1.5.1).} Soit $\mathcal F_0$ un faisceau lisse $\iota$-réel sur $X_0$. Pour $\gamma\in\mathbb R$, soient $\mathcal F_0(\gamma)$ la somme des constituants de $\mathcal F_0$ de poids déterminantiel $\gamma$, relativement à $\iota$, et $n(\gamma)$ le rang de $\mathcal F_0(\gamma)$. Soient $x\in |X_0|$, et $\alpha_i^\gamma$ $(1\le i\le n(\gamma))$ les valeurs propres de $F_x$ sur $\mathcal F_0(\gamma)$, comptées avec leur multiplicité. Il nous faut prouver que
+\[
+w_{N(x)}(\alpha_i^\gamma)=\gamma.
+\]
+Par définition du poids déterminantiel, on a, pour tout $\gamma$,
+\begin{equation}\tag{1.5.3.1}
+\sum_i w_{N(x)}(\alpha_i^\gamma)=n(\gamma)\gamma.
+\end{equation}
+
+Supposons, ce qui est loisible, que $\mathcal F_0(\beta)\ne0$, et soit $N$ la somme des $n(\gamma)$ pour $\gamma>\beta$. D'après (1.3.13)(iii), les poids déterminantiels de la puissance extérieure $(N+1)$-ième de $\mathcal F_0$ sont $\le$
+\[
+\beta+\sum_{\gamma>\beta}n(\gamma)\gamma.
+\]
+Puisque chaque produit
+\[
+\alpha_i^\beta\prod_{\gamma>\beta}\prod_{j=1}^{n(\gamma)}\alpha_j^\gamma
+\]
+est une valeur propre de $F_x$ sur $\wedge^{N+1}\mathcal F_0$, on a par (1.5.2)
+\[
+w_{N(x)}(\alpha_i^\beta)+\sum_{\gamma>\beta}\sum_j w_{N(x)}(\alpha_j^\gamma)
+\le
+\beta+\sum_{\gamma>\beta}n(\gamma)\gamma.
+\]
+Soustrayant de cette inégalité les égalités (1.5.3.1) pour $\gamma>\beta$, on trouve
+\begin{equation}\tag{1.5.3.2}
+w_{N(x)}(\alpha_i^\beta)\le \beta.
+\end{equation}
+Pour déduire de cette inégalité une égalité, on peut soit passer au faisceau dual, soit observer que si l'on somme sur $i$ les inégalités (1.5.3.2), on trouve l'égalité (1.5.3.1) pour $\beta$.
+
+
+
+\section*{(1.6) Autour de Jacobson--Morosov}
+
+\paragraph{Proposition (1.6.1).}
+Soit $N$ un endomorphisme nilpotent d'un objet $V$ d'une catégorie abélienne. Il existe alors une et une seule filtration finie croissante $M$ de $V$ telle que
+\[
+NM_i\subset M_{i-2}
+\]
+et que $N^k$ induise un isomorphisme
+\[
+\Gr^M_kV\xrightarrow{\sim}\Gr^M_{-k}V.
+\]
+
+Prouvons l'existence; l'unicité se prouve de même. On procède par récurrence sur un entier $d$ tel que $N^{d+1}=0$. Pour $d=0$, on prend la filtration triviale. Ensuite, on prend
+\[
+M_d=V,
+\qquad
+M_{d-1}=\Ker N^d,
+\qquad
+M_{-d}=\Image N^d,
+\qquad
+M_{-d-1}=0,
+\]
+de sorte que $\Gr^M_dV$ et $\Gr^M_{-d}V$ soient les co-images et images de $N^d$. Sur $\Ker N^d/\Image N^d$, la puissance $(d-1)$-ième de $N$ induit zéro. Ceci permet de définir $M$ par récurrence sur ce quotient, et on définit $M_i$ sur $V$ comme l'image inverse dans $\Ker N^d$ du sous-objet correspondant de $\Ker N^d/\Image N^d$.
+
+\paragraph{Remarque (1.6.2).}
+La caractérisation (1.6.1) de $M$ montre sa compatibilité au passage à la catégorie duale.
+
+\paragraph{Définition (1.6.3).}
+La partie primitive $P_i(V)$, ou simplement $P_i$, de $\Gr^M_iV$ est le noyau du morphisme induit par $N$ de $\Gr^M_iV$ dans $\Gr^M_{i-2}V$.
+
+\paragraph{(1.6.4).}
+Si $i>0$, le morphisme $N:\Gr^M_iV\to\Gr^M_{i-2}V$ est injectif, puisque $N^{i-1}N$ est un isomorphisme, et $P_i=0$. Si $i\ge0$, on obtient, par récurrence descendante, des isomorphismes
+\begin{equation}\tag{1.6.4.1}
+\Gr^M_iV\simeq\bigoplus_{\substack{j\ge |i|\\ j\equiv i\ (2)}}P_{-j}.
+\end{equation}
+Par ces isomorphismes, $N$ est l'inclusion évidente dans les degrés supérieurs et la projection évidente dans les degrés inférieurs.
+
+\[
+\begin{array}{cccccc}
+\Gr^M_3: &&& P_3&\cdots\\
+\Gr^M_2: && P_2 &&P_4&\cdots\\
+\Gr^M_1: &P_1&&P_3&&\cdots\\
+\Gr^M_0:P_0&&P_2&&P_4&\cdots\\
+\Gr^M_{-1}:&P_1&&P_3&&\cdots\\
+\Gr^M_{-2}:&&P_2&&P_4&\cdots
+\end{array}
+\]
+
+\paragraph{Lemme (1.6.5).}
+Le morphisme $N:(V,M)\to(V,M\text{ décalé de }2)$ est strictement compatible aux filtrations.
+
+Il faut prouver que $NM_{i+2}\supset\Image(N)\cap M_i$. Si $i<0$, $N:M_{i+2}\to M_i$ a un gradué surjectif, donc est surjectif. Si $i+2\ge0$, $N:V/M_{i+2}\to V/M_i$ a un gradué injectif, donc est injectif. Dans les deux cas, l'assertion suit.
+
+\paragraph{Corollaire (1.6.6).}
+L'inclusion de $\Ker N$ dans $V$ induit des isomorphismes
+\[
+\Gr^M_i(\Ker N)\xrightarrow{\sim}P_i.
+\]
+
+\paragraph{(1.6.7).}
+Supposons maintenant que $V$ soit un espace vectoriel de dimension finie sur un corps $k$. Dans un bloc de Jordan
+\begin{equation}\tag{1.6.7.1}
+\begin{pmatrix}
+0&0&0&\cdots&0&0\\
+1&0&0&\cdots&0&0\\
+0&1&0&\cdots&0&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&0&\cdots&1&0
+\end{pmatrix},
+\end{equation}
+on indexe les vecteurs de base par les entiers de $d$ à $-d$, de deux en deux, et $M_i$ est engendré par les $e_j$ tels que $j\le i$. En général, $V$ est somme de sous-espaces stables par $N$ sur lesquels on est dans ce cas.
+
+\paragraph{(1.6.8).}
+Si $k$ est de caractéristique zéro, on peut interpréter $M$ par Jacobson--Morosov: si $u:\operatorname{SL}(2)\to\GL(V)$ satisfait
+\[
+du\begin{pmatrix}0&0\\1&0\end{pmatrix}=N,
+\]
+et si $V_j$ est défini par
+\[
+u\begin{pmatrix}\lambda&0\\0&\lambda^{-1}\end{pmatrix}(v)=\lambda^jv,
+\]
+alors $M_i$ est la somme des $V_j$ pour $j\le i$.
+
+\paragraph{Proposition (1.6.9).}
+Pour le produit tensoriel $V=V'\otimes V''$ on prend $N=N'\otimes1+1\otimes N''$, et pour le dual $(V'{}^\vee,-{}^tN')$. Si $k$ est de caractéristique zéro,
+\[
+M_i(V'\otimes V'')=\sum_{i'+i''=i}M_{i'}(V')\otimes M_{i''}(V''),
+\]
+et
+\[
+M_i(V'{}^\vee)=M_{-i-1}(V')^\perp.
+\]
+La formation de $\Gr^M$ est donc compatible au produit tensoriel et au passage au dual.
+
+\paragraph{(1.6.10)--(1.6.14).}
+Sur $\Gr^M(V)$ il existe une unique représentation $v$ de $\operatorname{SL}(2)$ telle que le nilpotent standard induise $N$ et que la diagonale agisse sur $\Gr^M_j(V)$ par $\lambda^j$. En choisissant des représentations irréductibles $S_d$ de dimension $d+1$ et des vecteurs de plus bas poids, on pose
+\begin{equation}\tag{1.6.11.1}
+P(d,d')=\{j\mid |d-d'|\le j\le d+d',\; j\equiv d+d'\pmod 2\},
+\end{equation}
+et l'on choisit
+\begin{equation}\tag{1.6.11.2}
+S_d\otimes S_{d'}\xrightarrow{\sim}\bigoplus_{j\in P(d,d')}S_j,
+\end{equation}
+\begin{equation}\tag{1.6.11.3}
+S_d^\vee\xrightarrow{\sim}S_d.
+\end{equation}
+On obtient
+\begin{equation}\tag{1.6.11.4}
+\bigoplus_j S_j\otimes P_{-j}\xrightarrow{\sim}\Gr^M(V),
+\end{equation}
+\begin{equation}\tag{1.6.11.5}
+P_{-j}\simeq\Hom_{\operatorname{SL}(2)}(S_j,\Gr^M(V)).
+\end{equation}
+Le produit tensoriel et le dual donnent
+\begin{align}
+P_{-j}&\simeq\bigoplus_{j\in P(j',j'')}P'_{-j'}\otimes P''_{-j''}, \tag{1.6.12.1}\\
+P_{-j}(V'{}^\vee)&\simeq P_{-j}(V')^\vee. \tag{1.6.12.2}
+\end{align}
+Enfin, si $V$ est muni d'une filtration $W$ et si $N$ respecte $W$, il existe au plus une filtration $M$ vérifiant les propriétés de (1.6.13). Dans les applications, avec une algèbre de Lie unidimensionnelle $\mathfrak N$, les isomorphismes canoniques sont
+\begin{align}
+\Gr^M_{i+k}\Gr^WV(k)&\xrightarrow{\sim}\Gr^M_{i-k}\Gr^WV, \tag{1.6.14.1}\\
+\Gr^M_i(\Ker N)&\simeq P_i, \tag{1.6.14.2}\\
+\Gr^M_iV&\simeq\bigoplus_{\substack{j\ge |i|\\ j\equiv i\ (2)}}P_{-j}\Bigl(\frac{i+j}{2}\Bigr), \tag{1.6.14.3}\\
+P_{-j}&\simeq\bigoplus_{j\in P(j',j'')}P'_{-j'}\otimes P''_{-j''}\Bigl(\frac{j-j'-j''}{2}\Bigr), \tag{1.6.14.4}\\
+P_{-j}(V'{}^\vee)&\simeq P_{-j}(V')^\vee(j). \tag{1.6.14.5}
+\end{align}
+
+\section*{(1.7) Monodromie locale}
+
+\paragraph{(1.7.1)--(1.7.3).}
+Soient $R$ un anneau de valuation discrète hensélien, $K$ son corps des fractions, $k$ son corps résiduel, $\overline K$ une clôture algébrique de $K$, et $\overline k$ le corps résiduel normalisé. Le groupe d'inertie est défini par
+\begin{equation}\tag{1.7.1.1}
+0\to I\to\Gal(\overline K/K)\to\Gal(\overline k/k)\to0.
+\end{equation}
+Si $k$ est d'exposant caractéristique $p$, on a
+\[
+0\to P\to I\to \widehat{\ZZ}_{(p')}(1)\to0,
+\qquad
+\widehat{\ZZ}_{(p')}(1)=\prod_{\ell\ne p}\ZZ_\ell(1),
+\]
+et $t_\ell:I\to\ZZ_\ell(1)$. Pour une représentation $\ell$-adique $\rho:I\to\GL(V)$ dont la restriction à un sous-groupe d'indice fini est unipotente, il existe un unique logarithme nilpotent
+\[
+N:V(1)\to V
+\]
+tel que
+\begin{equation}\tag{1.7.2.2}
+\rho(\sigma)=\exp(Nt_\ell(\sigma)).
+\end{equation}
+Si le corps résiduel est fini, le groupe de Weil $W(\overline K/K)$ est l'image inverse de $W(\overline k/k)$, et pour une représentation $\ell$-adique de ce groupe, le logarithme de la monodromie est défini et commute à l'action du groupe de Weil.
+
+\paragraph{Lemme (1.7.4).}
+Si $F'$ et $F''$ sont deux relèvements dans $W(\overline K/K)$ de $F\in W(\overline k/k)$, leurs valeurs propres coïncident à multiplication près par des racines de l'unité.
+
+\paragraph{Proposition-définition (1.7.5).}
+Si les $\iota$-poids de $V$ sont entiers, il existe sur $V$ une unique filtration finie croissante $M$, stable par $W(\overline K/K)$, telle que $\Gr^M_i(V)$ soit $\iota$-pur de poids $i$. On l'appelle la filtration par le poids, et $NM_i(1)\subset M_{i-2}$.
+
+\paragraph{Corollaire (1.7.6).}
+Si $V$ est $\iota$-pur, l'action de $I$ se factorise par un quotient fini.
+
+\paragraph{Remarque (1.7.7).}
+Toute représentation $V$ admet une unique décomposition
+\[
+V=\sum V^\alpha
+\]
+où les valeurs propres des relèvements de Frobenius dans $V^\alpha$ sont dans une classe donnée modulo les racines de l'unité. Chaque $V^\alpha$ est obtenu par torsion à partir d'une représentation mixte.
+
+\paragraph{Variante (1.7.8)--(1.7.12).}
+Pour un diviseur à croisements normaux $D=\bigcup_{i\in I}D_i$ dans un schéma régulier $X$, avec équations locales $t_i=0$, on considère les revêtements
+\[
+X_n=X[t_i^{1/n}]_{i\in I}.
+\]
+Ils sont étales au-dessus de $X-D$ et totalement ramifiés au-dessus de l'intersection $E$ des $D_i$. Un faisceau localement constant et $L$-ramifié le long de $D$ possède un prolongement localement constant sur un tel $X_n$, et sa restriction à $E$ fournit un faisceau $\mathcal F[E]$ muni d'une action de $\ZZ_L(1)^I$. Dans les cas usuels, cette action est quasi-unipotente et se décrit par des endomorphismes nilpotents commutants
+\[
+N_i\in\End(\mathcal F[E])(-1).
+\]
+Pour $J\subset I$, les restrictions itérées vérifient
+\begin{equation}\tag{1.7.9.1}
+\mathcal F[D'_J][D'_{J\cup K}]\xrightarrow{\sim}\mathcal F[D'_{J\cup K}],
+\end{equation}
+avec compatibilité aux actions de $\ZZ_L(1)^{J\cup K}$. En remplaçant les équations par le fibré normal $T$ de $E$ dans $X$ et les sous-fibrés tangents $T_i$, on obtient une version canonique sur $T-\bigcup T_i$, analogue des orbites nilpotentes.
+
+Si $X=\Spec(R)$ est hensélien local, cette construction s'interprète galoisiennement par l'extension
+\[
+0\to\ZZ_L(1)^I\to\pi_1^{\mathrm{mod}}(X-D)\to\Gal(k_1/k)\to0.
+\]
+Lorsque $k$ est fini, on obtient pour $W^{\mathrm{mod}}(X-D)$ les analogues de (1.7.3)--(1.7.7): quasi-unipotence, invariance des poids des relèvements de Frobenius, et existence de la filtration par le poids lorsque les poids sont entiers.
+
+\section*{(1.8) Monodromie locale des faisceaux purs}
+
+Les conventions (0.7) sont en vigueur. Soient $X_0$ une courbe lisse absolument irréductible sur $\Fq$ et $j:U_0\hookrightarrow X_0$ un ouvert dont le complément est l'ensemble fini $S_0$.
+
+\paragraph{Lemme (1.8.1).}
+Si $\mathcal F_0$ est un faisceau lisse ponctuellement $\iota$-pur de poids $\beta$ sur $U_0$, alors, pour tout $x\in |S_0|$ et toute valeur propre $\alpha$ de $F_x$ sur $(j_*\mathcal F_0)_x$, on a
+\[
+w_{N(x)}(\alpha)\le\beta.
+\]
+La preuve utilise l'égalité
+\begin{equation}\tag{1.8.1.1}
+\prod_{x\in |U_0|}\det(1-F_x t^{\deg x},\mathcal F_0)^{-1}
+\prod_{x\in |S_0|}\det(1-F_x t^{\deg x},j_*\mathcal F_0)^{-1}
+=
+\frac{\det(1-Ft,H^1_c(X,j_*\mathcal F))}
+{\det(1-Ft,H^0(X,j_*\mathcal F))},
+\end{equation}
+puis l'application aux puissances tensorielles pour passer de $\beta+2$ à $\beta$.
+
+\paragraph{Remarque (1.8.2).}
+La comparaison des zéros des deux membres de (1.8.1.1) donne aussi, pour toute valeur propre de $F$ sur $H^1_c(X,j_*\mathcal F)$, une majoration de poids $\le\beta+2$.
+
+\paragraph{Théorème (1.8.4).}
+Avec les notations précédentes, si $\mathcal F_0$ est ponctuellement $\iota$-pur de poids $\beta$, alors
+\[
+\Gr^M_i(\mathcal F_{0\bar\eta})
+\]
+est $\iota$-pur de poids $\beta+i$.
+
+Par torsion, on se ramène à $\beta=0$. Après un revêtement fini, la formule de monodromie vaut sur tout $I$:
+\[
+\rho(\sigma)=\exp(t_\ell(\sigma)N).
+\]
+Alors $\Ker N=(\mathcal F_{0\bar\eta})^I$, fibre de $j_*\mathcal F_0$. Le lemme (1.8.1) borne les valeurs propres de Frobenius sur $\Ker N$. En appliquant ce résultat à $\mathcal F_0\otimes\mathcal F_0$, puis au dual, et en utilisant (1.6.14.3)--(1.6.14.5), on obtient l'égalité exacte des poids sur chaque $P_{-j}$, donc sur chaque $\Gr^M_i$.
+
+\paragraph{Corollaires (1.8.5)--(1.8.12).}
+Si $\mathcal F_0$ est lisse sur $U_0$ et possède une filtration $W$ dont les gradués sont ponctuellement purs de poids $i$, la filtration de monodromie locale relative à $W$ existe et coïncide avec la filtration par le poids. Pour un diviseur lisse $D_0$ dans un schéma lisse $X_0$, la version le long de $D_0$ donne la pureté des gradués de $\mathcal F_0[D_0]$. Il s'ensuit que, pour un ouvert $j:U_0\hookrightarrow X_0$, le faisceau $j_*\mathcal F_0$ d'un faisceau $\iota$-mixte de poids ponctuels $\le p$ est encore $\iota$-mixte de poids ponctuels $\le p$, avec intégralité des poids si elle vaut au départ. On en déduit aussi la propagation de la pureté depuis un ouvert dense, la décomposition successive des faisceaux lisses mixtes sur un schéma normal, et le critère de pureté à partir d'une fibre.
+
+\paragraph{Problème (1.8.15).}
+Dans l'analogue hodge-théorique, on demande de dégager une classe de bonnes variations de structures de Hodge mixtes sur le disque épointé $D^*$ telle que, pour une bonne variation unipotente $(V,W,F)$, il existe une filtration $M$ vérifiant $NM_a\subset M_{a-2}$ et
+\[
+N^b:\Gr^M_{a+b}\Gr^W_aV\xrightarrow{\sim}\Gr^M_{a-b}\Gr^W_aV.
+\]
+On souhaite aussi que la variation soit asymptotique à une orbite nilpotente et que, pour une orbite nilpotente, $(V,M,F)$ soit encore une variation de structures de Hodge mixtes.
+
+\end{document}
