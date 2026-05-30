@@ -61,7 +61,7 @@ Audit outputs:
    The current rebuild is a substantial improvement over the raw code-block version, but formulas inside many imported blocks still render as text-like expressions rather than fully converted math. Keep it top-level for readability, but queue formula-level conversion as future repair.
 
 3. SGA 5 high-fidelity source-checked edition.
-   Current source-checkable SGA 5 material is through Expose VIII page 371. Continue merging new source-checked batches only when paired source/translation material is present and the cumulative reader remains coherent.
+   Current source-checkable SGA 5 material is through Expose X page 382. Continue merging new source-checked batches only when paired source/translation material is present and the cumulative reader remains coherent.
 
 4. EGA working translation.
    EGA IV sections 1 through 21 are now live as a 514-page standalone working reader. Continue incorporating new translated sections from the local EGA workspace after each clean build, and keep the standalone EGA IV reader plus source ZIP current.
@@ -73,7 +73,7 @@ Audit outputs:
    Current known mathematical transcription defects reported by the local repair pass have been addressed and the refreshed author page is live. The bands still need continued proofread and scan comparison. New scan downloads for missing bands should be indexed and fed into future repair work.
 
 7. Noether and Weber high-fidelity repair streams.
-   Noether is live through Paper 14 in paired German/English paper-level cumulative readers. Weber is live through the Volume II tail plus Volume III sections 1-62 in paired German/English readers. Replace older cumulative drafts only incrementally, preserving older drafts in artifacts until the paper-level or volume-level high-fidelity replacement is complete. Keep author pages organized by work/paper, not by source session.
+   Noether is live through Paper 15 in paired German/English paper-level cumulative readers. Weber is live through the Volume II tail plus Volume III sections 1-65 in paired German/English readers. Replace older cumulative drafts only incrementally, preserving older drafts in artifacts until the paper-level or volume-level high-fidelity replacement is complete. Keep author pages organized by work/paper, not by source session.
 
 8. al-Battani / Albategnius, Opus Astronomicum.
    Newly queued acquisition candidate: Carlo Alfonso Nallino's edition of al-Battani's astronomical work, including Arabic text, Latin translation, notes, and astronomical tables. Baseline source located at Internet Archive (`albattanisivealb00batt`), with PDF plus OCR text, word-level XML, and hOCR witnesses downloaded locally. Next pass should split the scan into Arabic/Latin/table-heavy sections and create a table-aware transcription packet before any public reader is promoted.
@@ -91,5 +91,6 @@ Audit outputs:
 ## Rule For Future Uploads
 
 Top-level PDFs should be reader-facing: coherent work-level or corpus-level PDFs that open, extract text where appropriate, and avoid visible process notes. ZIP artifacts should carry TeX sources, source scans, provenance, build logs, superseded drafts, and repair notes.
+
 
 
