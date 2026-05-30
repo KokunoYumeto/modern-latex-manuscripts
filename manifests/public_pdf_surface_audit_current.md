@@ -1,28 +1,47 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-30T10:23:54
+Generated: 2026-05-30T13:22:26
 
-PDFs checked: 335
-Flagged for review: 0
+Reader PDF counts by section:
 
-| Record | PDF files | Flagged |
-|---|---:|---:|
-| main [20456732](https://zenodo.org/records/20456732) | 49 | 0 |
-| ega [20454552](https://zenodo.org/records/20454552) | 10 | 0 |
-| sga [20455791](https://zenodo.org/records/20455791) | 23 | 0 |
-| non_european_consolidated [20455873](https://zenodo.org/records/20455873) | 59 | 0 |
-| chinese [20435670](https://zenodo.org/records/20435670) | 27 | 0 |
-| indian_sanskrit [20435677](https://zenodo.org/records/20435677) | 11 | 0 |
-| islamic_arabic [20435687](https://zenodo.org/records/20435687) | 17 | 0 |
-| historical_references [20435690](https://zenodo.org/records/20435690) | 12 | 0 |
-| weber [20455748](https://zenodo.org/records/20455748) | 6 | 0 |
-| noether [20455701](https://zenodo.org/records/20455701) | 10 | 0 |
-| riemann [20434317](https://zenodo.org/records/20434317) | 2 | 0 |
-| gauss [20454309](https://zenodo.org/records/20454309) | 8 | 0 |
-| deligne [20453551](https://zenodo.org/records/20453551) | 10 | 0 |
-| classical_algebra_arithmetic [20454226](https://zenodo.org/records/20454226) | 81 | 0 |
-| additional_author_cluster [20442003](https://zenodo.org/records/20442003) | 10 | 0 |
+- author-cluster: 10
+- classical: 17
+- deligne: 11
+- ega: 10
+- gauss: 8
+- noether: 12
+- non-european: 59
+- riemann: 2
+- sga: 23
+- weber: 6
 
-## Flagged Files
+Cayley policy: the public reader shelf uses only repaired slice PDFs that render as real mathematical text. Broad cumulative Cayley draft volumes are preserved in source/artifact material rather than promoted as reader PDFs.
 
-No PDF surface flags found.
+Current public Zenodo records:
+
+- main: https://zenodo.org/records/20393488
+- ega: https://zenodo.org/records/20414353
+- sga: https://zenodo.org/records/20410947
+- non_european: https://zenodo.org/records/20410957
+- weber: https://zenodo.org/records/20412153
+- noether: https://zenodo.org/records/20412587
+- deligne: https://zenodo.org/records/20410853
+- classical: https://zenodo.org/records/20414787
+- author_cluster: https://zenodo.org/records/20411006
+- gauss: https://zenodo.org/records/20410934
+- riemann: https://zenodo.org/records/20429778
+
+Reader PDF health flags:
+
+- `reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume IV - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XI - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
+- `reader-pdfs/classical/Cayley - Collected Mathematical Papers, Volume XII - Source-Checked Modern LaTeX Slice Reader.pdf`: first_page_blankish
+- `reader-pdfs/non-european/10-01 English Translation - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
+- `reader-pdfs/non-european/20-04 Modern Chinese - Qin - Shuxue Jiuzhang, fasc. 1 and 5-9.pdf`: first_page_blankish
+- `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
+- `reader-pdfs/sga/13 SGA 4 - English Translation Working Draft.pdf`: first_page_blankish
+- `reader-pdfs/sga/49 SGA 5 - French Reference PDF.pdf`: first_page_blankish
+- `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
+- `reader-pdfs/sga/51 SGA 7 Tome 1 - French Reference PDF.pdf`: first_page_blankish
+- `reader-pdfs/sga/52 SGA 7 Tome 2 - French Reference PDF.pdf`: first_page_blankish
