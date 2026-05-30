@@ -2,7 +2,7 @@
 
 Generated: 2026-05-30
 
-This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface correction and main landing refresh.
+This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface correction, Cayley verified-slice refresh, Gauss repair rebuild, and main landing refresh.
 
 ## Current Public Audit Status
 
@@ -15,10 +15,12 @@ Audit outputs live in the local project reports directory and are mirrored into 
 
 ## Published State
 
-- Main landing page: https://zenodo.org/record/20454056
+- Main landing page: https://zenodo.org/records/20393488
 - Main all-version DOI: https://zenodo.org/records/20393488
-- Non-European current version: https://zenodo.org/record/20453848
+- Non-European public entry: https://zenodo.org/records/20410957
 - Non-European all-version DOI: https://zenodo.org/records/20410957
+- Classical/Cayley public entry: https://zenodo.org/records/20414787
+- Gauss public entry: https://zenodo.org/records/20410934
 - GitHub mirror: https://github.com/KokunoYumeto/modern-latex-manuscripts
 
 ## Repairs Completed In This Pass
@@ -27,6 +29,8 @@ Audit outputs live in the local project reports directory and are mirrored into 
 - Preserved the larger scan-backed Brahmagupta reader inside the non-European artifact ZIP for provenance and source checking.
 - Refreshed the non-European public summary, public guide, Zenodo metadata, main landing metadata, and GitHub mirror.
 - Updated audit scripts to target the new main/non-European versions and the current SGA record.
+- Published the refreshed classical shelf with 77 verified/repaired Cayley slice PDFs as top-level readers.
+- Published the refreshed Gauss author page with eight cumulative working readers totaling 3,061 pages.
 - Confirmed no current public PDFs are flagged for extraction failure, process notes, stale public records, or archive-level readability problems.
 
 ## Priority Queue
@@ -47,7 +51,7 @@ Audit outputs live in the local project reports directory and are mirrored into 
    Keep validated/repaired slices as the public reader surface. Broad per-volume Cayley drafts remain artifact/source material until they are independently rendered and checked; do not promote broad volume drafts as clean top-level readers.
 
 6. Gauss current working editions.
-   Current known mathematical transcription defects reported by the local repair pass have been addressed, but the bands still need continued proofread and scan comparison. New scan downloads for missing bands should be indexed and fed into future repair work.
+   Current known mathematical transcription defects reported by the local repair pass have been addressed and the refreshed author page is live. The bands still need continued proofread and scan comparison. New scan downloads for missing bands should be indexed and fed into future repair work.
 
 7. Noether and Weber high-fidelity repair streams.
    Replace older cumulative drafts only incrementally, preserving older drafts in artifacts until the paper-level or volume-level high-fidelity replacement is complete. Keep author pages organized by work/paper, not by source session.
