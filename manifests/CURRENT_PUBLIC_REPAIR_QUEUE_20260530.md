@@ -2,7 +2,7 @@
 
 Generated: 2026-05-30
 
-This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface correction, Cayley verified-slice refresh, Gauss repair rebuild, and main landing refresh.
+This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface correction, Cayley verified-slice refresh, Gauss repair rebuild, EGA IV sections 1-21 publication, and main landing refresh.
 
 ## Current Public Audit Status
 
@@ -11,16 +11,21 @@ This is the working repair queue after the 2026-05-30 Brahmagupta reader-surface
 - Public archive/readability audit: 15 current records checked, 0 flagged.
 - Typography/layout heuristic audit: 337 PDFs checked, 126 reader PDFs warned. These warnings are quality triage, not proof that a file is unusable.
 
-Audit outputs live in the local project reports directory and are mirrored into source/provenance artifacts during release refreshes.
+Audit outputs:
+
+- `reports/public_pdf_surface_audit_20260530_070900.md`
+- `reports/public_pdf_process_note_audit_20260530_070900.md`
+- `reports/public_archive_readability_audit_20260530_070900.md`
+- `reports/public_pdf_typography_audit_20260530_070900.csv`
+- `reports/public_pdf_typography_audit_20260530_070900.json`
 
 ## Published State
 
-- Main landing page: https://zenodo.org/records/20393488
-- Main all-version DOI: https://zenodo.org/records/20393488
-- Non-European public entry: https://zenodo.org/records/20410957
+- Main landing all-version DOI: https://zenodo.org/records/20393488
+- EGA all-version DOI: https://zenodo.org/records/20414353
 - Non-European all-version DOI: https://zenodo.org/records/20410957
-- Classical/Cayley public entry: https://zenodo.org/records/20414787
-- Gauss public entry: https://zenodo.org/records/20410934
+- Classical/Cayley all-version DOI: https://zenodo.org/records/20414787
+- Gauss all-version DOI: https://zenodo.org/records/20410934
 - GitHub mirror: https://github.com/KokunoYumeto/modern-latex-manuscripts
 
 ## Repairs Completed In This Pass
@@ -31,6 +36,7 @@ Audit outputs live in the local project reports directory and are mirrored into 
 - Updated audit scripts to target the new main/non-European versions and the current SGA record.
 - Published the refreshed classical shelf with 77 verified/repaired Cayley slice PDFs as top-level readers.
 - Published the refreshed Gauss author page with eight cumulative working readers totaling 3,061 pages.
+- Published the refreshed EGA record with a 514-page standalone EGA IV sections 1-21 English working reader, the TeX/PDF supplement, and the updated full artifact ZIP.
 - Confirmed no current public PDFs are flagged for extraction failure, process notes, stale public records, or archive-level readability problems.
 
 ## Priority Queue
@@ -45,7 +51,7 @@ Audit outputs live in the local project reports directory and are mirrored into 
    Current strict source-checkable SGA 5 material is through complete Expose V. Continue merging new strict batches only when paired source/translation material is present and the cumulative reader remains coherent.
 
 4. EGA working translation.
-   Continue incorporating new translated sections from the local EGA workspace after each clean build. The active blocker reported by the EGA worker was a single extra brace in `ega4-21.tex` plus a possible remarks/env mismatch after a re-merge.
+   EGA IV sections 1 through 21 are now live as a 514-page standalone working reader. Continue incorporating new translated sections from the local EGA workspace after each clean build, and keep the standalone EGA IV reader plus source ZIP current.
 
 5. Cayley front-facing policy.
    Keep validated/repaired slices as the public reader surface. Broad per-volume Cayley drafts remain artifact/source material until they are independently rendered and checked; do not promote broad volume drafts as clean top-level readers.
