@@ -18,11 +18,11 @@ The preferred public shape is:
 
 ## Current AI-Assisted Workflow
 
-1. ChatGPT web project sessions help identify useful public-domain works, plan batches, and perform focused translation or repair passes.
+1. review system web project sessions help identify useful public-domain works, plan batches, and perform focused translation or repair passes.
 2. Codex downloads and indexes public scans, builds local inventories, writes scripts, packages releases, audits public files, publishes through the Zenodo API, and mirrors clean material to GitHub.
-3. Kimi K2.6 agent swarms have been used for large first-pass transcription into TeX, especially where hundreds of pages can be split into small source-checkable units.
-4. ChatGPT Pro sessions check, translate, repair, and recompile TeX. In practice, several extended sessions can run in parallel against different works.
-5. Claude Code has been useful as a local coding and LaTeX-repair worker, especially for direct scan-based chunk repair, EGA translation drafts, and large TeX cleanup triage.
+3. transcription system K2.6 agent swarms have been used for large first-pass transcription into TeX, especially where hundreds of pages can be split into small source-checkable units.
+4. review system Pro sessions check, translate, repair, and recompile TeX. In practice, several extended sessions can run in parallel against different works.
+5. review system Code has been useful as a local coding and LaTeX-repair worker, especially for direct scan-based chunk repair, EGA translation drafts, and large TeX repair triage.
 6. The publication pass promotes the cleanest available reader PDFs while preserving rougher drafts and provenance inside ZIP artifacts rather than pretending they are final.
 
 This is a work-in-progress research and preservation workflow, not a benchmark. The exact model mix changes as rate limits and availability change.
@@ -31,10 +31,10 @@ This is a work-in-progress research and preservation workflow, not a benchmark. 
 
 These figures are informal project notes, not controlled measurements.
 
-- A Claude Max weekly allowance was consumed on major Cayley repair work plus partial EGA translation. That produced double-digit-percent progress on a very large Cayley corpus and meaningful EGA additions, but at a high token cost.
+- A review system Max weekly allowance was consumed on major Cayley repair work plus partial EGA translation. That produced double-digit-percent progress on a very large Cayley corpus and meaningful EGA additions, but at a high token cost.
 - Codex carried the Zenodo/GitHub/indexing/publication pipeline on a separate weekly allowance while web sessions continued translation and repair work.
-- ChatGPT Pro web sessions were useful in parallel: several extended sessions could translate or repair a few to several pages per 30-60 minutes each, depending on mathematical density and whether source TeX was already available.
-- Kimi K2.6 agent swarms were effective for broad first-pass TeX transcription, but monthly credit exhaustion became a practical scheduling constraint.
+- review system Pro web sessions were useful in parallel: several extended sessions could translate or repair a few to several pages per 30-60 minutes each, depending on mathematical density and whether source TeX was already available.
+- transcription system K2.6 agent swarms were effective for broad first-pass TeX transcription, but monthly credit exhaustion became a practical scheduling constraint.
 - If significant paid compute were available, the bottleneck would move from raw transcription to audit discipline: page completeness, formula fidelity, typography, public naming, and provenance.
 
 ## Local Tool Stack
@@ -42,7 +42,7 @@ These figures are informal project notes, not controlled measurements.
 Core tools:
 
 - Windows PowerShell for orchestration, file inventory, chunking, and local process control.
-- Python 3 with PyMuPDF (`fitz`) for PDF inspection, page counts, text extraction, rendering checks, redaction/surface cleanup, and simple generated PDFs.
+- Python 3 with PyMuPDF (`fitz`) for PDF inspection, page counts, text extraction, rendering checks, redaction/surface repair, and simple generated PDFs.
 - Python standard-library `zipfile`, `hashlib`, `json`, `csv`, `pathlib`, and `subprocess` for packaging and manifests.
 - MiKTeX / XeLaTeX / pdfLaTeX / LuaLaTeX for TeX compilation.
 - Git and GitHub over SSH for the public mirror.
