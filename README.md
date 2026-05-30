@@ -7,6 +7,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 ## Current Public Records
 
 - Main landing, bulk preservation, and full repository preservation backstop: https://zenodo.org/records/20393488
+- Workflow and replication packet: https://zenodo.org/records/20461174
 - EGA working English translation and French originals: https://zenodo.org/records/20414353
 - SGA working English translation and French references: https://zenodo.org/records/20410947
 - Non-European and multilingual mathematical manuscripts: https://zenodo.org/records/20410957
@@ -31,7 +32,7 @@ Zenodo is the archival source of record. GitHub keeps editable TeX, public metad
 - `reader-pdfs/non-european/`: current work-level public readers for Chinese, Indian/Sanskrit, Islamic/Arabic, and historical-reference material. Recent work-level replacements include Li Ye, Bhaskara II, al-Khwarizmi, Omar Khayyam, Ibn al-Nadim, Qin Jiushao, and Brahmagupta readers; weaker combined readers are preserved on Zenodo as artifacts rather than promoted as front-facing PDFs.
 - `sources/non-european/`: extracted TeX source bundles from the non-European corpus. Large page-image, OCR, raw-provenance, and source-scan zips stay on Zenodo.
 - `reader-pdfs/weber/` and `sources/weber/`: Weber original-language readers and current English translation drafts, including the Volume II tail and Volume III sections 1-65.
-- `reader-pdfs/noether/` and `sources/noether/`: Noether selected-paper reader, the older cumulative translation/summary draft, and newer source-checkable paper-level German/English files through paper 14.
+- `reader-pdfs/noether/` and `sources/noether/`: Noether selected-paper reader, the older cumulative translation/summary draft, and newer source-checkable paper-level German/English files through paper 15.
 - `reader-pdfs/deligne/` and `sources/deligne/`: Deligne paper-level working translations, including a complete bilingual working package for Paper 32, *The Weil Conjecture II*, and source-grounded rebuild material for papers 32, 42, 45, 56, 57, 58, 69, 70, 71, 83, 84, 85, 87, and 88.
 - `reader-pdfs/classical/`: current Cayley volume-level source-checked slice readers, Dedekind, and Dirichlet reader PDFs from the cleaned classical algebra/arithmetic shelf.
 - `reader-pdfs/gauss/` and `sources/gauss/`: Gauss Werke reader drafts for Bands I, I alternate, II, III, VI, VII, XI Part I, and individual papers, plus TeX sources and audit reports.
