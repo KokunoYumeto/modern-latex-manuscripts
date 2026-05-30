@@ -25,7 +25,7 @@ Audit outputs:
 - Main all-version DOI: https://zenodo.org/records/20393488
 - EGA current version: https://zenodo.org/record/20414353
 - EGA all-version DOI: https://zenodo.org/records/20414353
-- Non-European current version: https://zenodo.org/record/20459766
+- Non-European current version: https://zenodo.org/record/20460444
 - Non-European all-version DOI: https://zenodo.org/records/20410957
 - Classical/Cayley current version: https://zenodo.org/record/20414787
 - Classical/Cayley all-version DOI: https://zenodo.org/records/20414787
@@ -91,6 +91,7 @@ Audit outputs:
 ## Rule For Future Uploads
 
 Top-level PDFs should be reader-facing: coherent work-level or corpus-level PDFs that open, extract text where appropriate, and avoid visible process notes. ZIP artifacts should carry TeX sources, source scans, provenance, build logs, superseded drafts, and repair notes.
+
 
 
 
