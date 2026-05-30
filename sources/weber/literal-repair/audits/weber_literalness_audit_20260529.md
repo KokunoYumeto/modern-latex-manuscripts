@@ -15,11 +15,11 @@ The Weber continuation material currently present in this workspace is not safe 
 | weber_translation_batch14_vol2_sections70_105.tex | 50 | 37 | 13270 | 1.14 | Weber records; may be summarized |
 | weber_translation_batch15_vol2_sections106_124.tex | 50 | 20 | 10623 | 1.36 | The full expression is lengthy; we shall not follow; The purpose is only; For brevity |
 | weber_translation_batch16_vol2_sections125_154.tex | 53 | 31 | 10662 | 1.34 |  |
-| weber_translation_batch17_vol2_sections155_168.tex | 52 | 21 | 9792 | 1.34 | may be summarized |
-| weber_translation_batch17_vol2_sections155_174.tex | 52 | 21 | 9794 | 1.34 | may be summarized |
-| weber_translation_batch17_vol2_sections155_175.tex | 50 | 22 | 7739 | 1.34 |  |
-| weber_translation_batch18_vol2_sections176_192.tex | 51 | 18 | 7305 | 2.10 |  |
-| weber_translation_batch18_vol2_sections176_194.tex | 51 | 20 | 7327 | 1.84 | not the precise exponent; In modern language; Weber records |
+| weber_vol2_sections155_168_english_translation.tex | 52 | 21 | 9792 | 1.34 | may be summarized |
+| weber_vol2_sections155_174_english_translation.tex | 52 | 21 | 9794 | 1.34 | may be summarized |
+| weber_vol2_sections155_175_english_translation.tex | 50 | 22 | 7739 | 1.34 |  |
+| weber_vol2_sections176_192_english_translation.tex | 51 | 18 | 7305 | 2.10 |  |
+| weber_vol2_sections176_194_english_translation.tex | 51 | 20 | 7327 | 1.84 | not the precise exponent; In modern language; Weber records |
 | weber_translation_batch19_vol2_sections195_206.tex |  | 13 | 4558 | 1.63 |  |
 | weber_translation_batch19_vol2_sections195_207.tex | 50 | 14 | 7800 | 2.09 |  |
 | weber_translation_batch19_vol2_sections195_207_addenda_I_II.tex |  | 14 | 6467 | 2.45 |  |
