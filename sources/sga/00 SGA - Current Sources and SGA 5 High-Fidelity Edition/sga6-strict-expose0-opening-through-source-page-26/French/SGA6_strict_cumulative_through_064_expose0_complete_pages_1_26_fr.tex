@@ -1,0 +1,428 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\begin{document}
+\begin{center}
+{\Large Séminaire de Géométrie Algébrique du Bois Marie}\par
+{\large 1966--67}\par
+\vspace{1.5em}
+{\Large Théorie des intersections et théorème de Riemann--Roch}\par
+{\large (SGA 6)}\par
+\vspace{1.5em}
+un Séminaire dirigé par\par
+P. Berthelot, A. Grothendieck, L. Illusie\par
+avec la collaboration de\par
+D. Ferrand, J.-P. Jouanolou, O. Jussila, S. Kleiman, M. Raynaud, J.-P. Serre
+\end{center}
+
+\section*{Préface}
+La présente édition du Séminaire de Géométrie Algébrique 6 reproduit à peu de chose près la première édition, distribuée par l'I.H.E.S. sous forme d'exposés multigraphiés. Les corrections effectuées portent essentiellement sur des fautes d'impression, sauf dans les exposés I et III, où de légères modifications ont été apportées par L. Illusie à quelques énoncés incorrects dans la version primitive. D'autre part, des notes ont été rajoutées en bas de page, en particulier dans l'exposé XIV par A. Grothendieck, afin de signaler des progrès récents dans des questions encore ouvertes lors du Séminaire.
+
+Signalons enfin que l'exposé XI, de D. Ferrand, concernant la théorie du déterminant pour les complexes parfaits, n'a pas été rédigé, et ne sera donc pas publié; pour éviter des erreurs de référence, nous avons gardé telle quelle la numérotation des exposés suivants.
+
+\begin{flushright}Juin 1971\end{flushright}
+
+\section*{Introduction}
+Le but du présent Séminaire est de développer une théorie globale des intersections, et une formule de Riemann--Roch, pour des schémas quelconques. Le lecteur trouvera une description du programme du Séminaire dans l'exposé 0. La possibilité en principe d'une démonstration d'une formule de Riemann--Roch pour les schémas réguliers généraux, suivant les lignes du rapport bien connu de Borel--Serre en 1958, était claire dès ce moment, du moins pour un morphisme projectif. L'extension au cas général est moins évidente; le programme dans lequel elle s'insère, et partiellement réalisé dans notre séminaire, remonte à 1960. Comme c'était également le cas pour la théorie de dualité des faisceaux cohérents, un outil essentiel pour formuler une théorie satisfaisante est la théorie des catégories dérivées de Verdier, dont la connaissance est indispensable pour la compréhension du Séminaire.
+
+À part cette théorie, l'étude du Séminaire n'exige guère qu'une connaissance générale des fondements de la géométrie algébrique, tels qu'ils sont exposés dans EGA, chapitres I, II, III; nous n'aurons en plus que des références occasionnelles à faire à EGA IV, pour certains faits concernant les morphismes plats ou lisses, qui pour l'essentiel figurent également dans les premiers exposés de SGA 1. Enfin, pour développer certains résultats avec toute la généralité souhaitable pour les applications, nous faisons usage parfois de la notion de site annelé et de topos annelé, pour laquelle nous renvoyons à SGA 4, exposés I à IV. Le lecteur qui ignorerait le langage des sites et topos pourra remplacer partout lesdits objets par des espaces topologiques ordinaires, les objets du topos étant alors remplacés par des ouverts de ces espaces; mais nous lui conseillons néanmoins, de préférence, de s'assimiler le langage des topos, qui fournit un principe d'unification extrêmement commode.
+
+La notion fondamentale pour la théorie présentée ici est celle de complexe de Modules parfait, et ses diverses variantes, développées dans les exposés I, II, III. Il semble clair que ces notions, importantes également dans d'autres contextes en géométrie algébrique, notamment pour les formules de type Lefschetz--Verdier en cohomologie à coefficients discrets (SGA 5) ou cohérents, auront aussi leur rôle à jouer en dehors de la géométrie algébrique, notamment pour la formulation d'une variante analytique complexe du théorème de Riemann--Roch présenté ici, ou de variantes convenables du théorème de l'index d'Atiyah--Singer. Quelques indications dans ce sens seront données dans l'exposé II. Malheureusement, il manque encore à l'heure actuelle un énoncé, même heuristique, qui engloberait ces deux théorèmes, dont le premier pour l'instant reste conjectural. Il manque apparemment une idée nouvelle, comme il en manque aussi en géométrie algébrique pour parvenir à une démonstration du théorème de Riemann--Roch en dehors d'hypothèses projectives (cf. Exp. XIV, no 2).
+
+Nous n'aurons à faire nul usage dans ce séminaire de la théorie locale des intersections, exposée dans J.-P. Serre, \emph{Algèbre locale. Multiplicités} (Lecture Notes in Mathematics no 11, Springer), et nous contenterons simplement de signaler ici que ce cours de Serre a eu une influence évidente sur la genèse de la théorie en 1957. Nous n'utiliserons pas non plus la théorie de l'anneau de Chow développée dans le Séminaire Chevalley 1958, exposés 2 et 3 (École Normale Supérieure). Cette théorie est liée de façon essentielle à des hypothèses de non singularité, alors que le but de notre séminaire est au contraire de développer une théorie des intersections sur les schémas généraux, et même les topos localement annelés généraux; voir à ce sujet les commentaires dans Exp. XIV nos 4 et 8, donnant les relations entre notre théorie et celle de l'anneau de Chow, et posant la question d'une généralisation de cette dernière. Nous pouvons dire que le Séminaire présente une théorie des intersections cohérente et se suffisant à elle-même, mais nullement exhaustive des différents points de vue utiles, voire indispensables, en théorie des intersections, et qu'il convient par suite de le compléter par les exposés cités de Serre et de Chevalley.
+
+Nous avons joint au Séminaire, en appendice à l'exposé 0, le rapport de Grothendieck de 1957, «Classes de faisceaux et théorème de Riemann--Roch», qui avait servi de base au séminaire de Borel et Serre à Princeton la même année, ainsi qu'à leur article déjà cité. Ce rapport esquisse deux démonstrations du théorème de Riemann--Roch pour les variétés quasi-projectives non singulières, dont la première, valable pour le moment seulement en caractéristique nulle, mais donnant en revanche un résultat un peu plus précis dans le cas d'une immersion, ne figure pas encore dans la littérature, sans exclure le travail de Borel--Serre ni le présent séminaire. La lecture de ce rapport ne présuppose bien entendu celle d'aucun autre exposé du séminaire, et peut même servir d'introduction à l'étude de ce dernier au même titre que l'exposé 0, surtout pour un lecteur qui ne serait pas encore familier avec Borel--Serre. La démonstration à laquelle nous venons de faire allusion s'applique d'ailleurs essentiellement telle quelle au cas d'un morphisme projectif d'espaces analytiques complexes, et s'appliquera sans doute également en caractéristique quelconque, une fois résolu le problème des opérations «puissances extérieures» dans la catégorie dérivée (cf. Exp. XIV, nos 1, 2, 3). C'est l'absence d'une étude de cette question qui constitue sans doute la lacune la plus sérieuse dans ce Séminaire, dans l'optique même où nous nous y sommes placés.
+
+On remarquera l'absence, dans la table des matières du présent Séminaire, de deux des participants mentionnés sur la page de garde. L'un, J.-P. Jouanolou, avait pris une part active à l'élaboration technique de la première partie du séminaire, mais avait été empêché de prendre part aux exposés oraux; on lui doit notamment l'assertion d'indépendance linéaire contenue dans l'important énoncé VI 1.1 donnant la structure de l'anneau $K^\circ$ des classes de Modules localement libres sur un fibré projectif, qui n'était prouvé auparavant que lorsqu'on supposait que le schéma de base admet un Module inversible ample. L'autre, J.-P. Serre, avait fait deux exposés oraux, logiquement indépendants du reste du Séminaire, et qu'il a par suite préféré publier sous forme d'article séparé (cf. J.-P. Serre, «Groupes de Grothendieck des schémas en groupes réductifs déployés», à paraître dans \emph{Publications Mathématiques}, no 34).
+
+Comme dans les autres parties du Séminaire de Géométrie Algébrique du Bois Marie, les sigles SGA 1 à SGA 6 renvoient aux différentes parties dudit Séminaire, le chiffre romain suivant ce sigle indiquant le numéro de l'exposé, et les chiffres arabes qui le suivent correspondant à la numérotation intérieure de l'exposé en question; pour les références intérieures au présent Séminaire, on omet le sigle SGA 6, en utilisant des références du style I 4.9, signifiant: exposé I, énoncé 4.9. Le sigle EGA réfère aux \emph{Éléments de Géométrie Algébrique} de J. Dieudonné et A. Grothendieck.
+
+\section*{Table des matières}
+\begin{longtable}{@{}p{0.16\linewidth}p{0.64\linewidth}r@{}}
+\toprule
+Exposé & Titre et auteur & Page \\
+\midrule
+0 & Esquisse d'un programme pour une théorie des intersections sur les schémas généraux, par A. Grothendieck & 1 \\
+Appendice & Classes de faisceaux et théorème de Riemann--Roch, par A. Grothendieck & 20 \\
+I & Généralités sur les conditions de finitude dans les catégories dérivées, par L. Illusie & 56 \\
+II & Existence de résolutions globales, par L. Illusie & 160 \\
+III & Conditions de finitude relatives, par L. Illusie & 190 \\
+IV & Groupes de Grothendieck des topos annelés, par L. Illusie & 222 \\
+V & Généralités sur les $\lambda$-anneaux, par P. Berthelot & 297 \\
+VI & Le $K^\circ$ d'un fibré projectif: calculs et conséquences, par P. Berthelot & 365 \\
+VII & Immersions régulières et calcul de $K^\circ$ d'un éclatement, par P. Berthelot & 416 \\
+VIII & Le théorème de Riemann--Roch, par P. Berthelot & 466 \\
+IX & Quelques calculs de groupes $K_\bullet$, par P. Berthelot & 498 \\
+X & Formalisme des intersections sur les schémas algébriques propres, par O. Jussila, avec un appendice par A. Grothendieck, «Spécialisation en théorie des intersections» & 519 \\
+XI & Non rédigé & -- \\
+XII & Un théorème de représentabilité relative sur le foncteur de Picard, par M. Raynaud, rédigé par S. Kleiman & 595 \\
+XIII & Les théorèmes de finitude pour le foncteur de Picard, par S. Kleiman & 616 \\
+XIV & Problèmes ouverts en théorie des intersections, par A. Grothendieck & 667 \\
+\bottomrule
+\end{longtable}
+
+\section*{Exposé 0}
+\begin{center}
+{\large Esquisse d'un programme pour une théorie des intersections sur les schémas généraux}\par
+par A. Grothendieck
+\end{center}
+
+Le présent exposé est de nature introductive, et sa lecture n'est pas logiquement indispensable pour l'étude du Séminaire. Il s'adresse plus particulièrement aux lecteurs au courant de la version provisoire du théorème de Riemann--Roch, telle qu'elle est exposée dans le rapport de Borel--Serre ou dans le rapport de Grothendieck déjà mentionné dans l'introduction, cité [RRR] dans la suite, et qui est reproduit sous forme d'appendice à la fin du présent exposé.
+
+\subsection*{1. Rappelons la formule de Riemann--Roch}
+Rappelons la formule de Riemann--Roch pour un morphisme propre
+\[
+f:X\longrightarrow Y
+\]
+de schémas quasi-projectifs et lisses sur un corps $k$, et un faisceau cohérent $F$ sur $X$, dont la classe dans le groupe $K(X)$ des classes de faisceaux cohérents sur $X$ est notée $\cl(F)$:
+\begin{equation}\tag{1.1}
+\Todd(T_Y)\,\ch_Y\bigl(f_!(\cl(F))\bigr)=f_*\bigl(\Todd(T_X)\,\ch_X(F)\bigr).
+\end{equation}
+Cette formule est valable dans $A(Y)\otimes\mathbb Q$, où $A(Y)$ est l'anneau de Chow de $Y$, le $f_*$ du second membre étant déduit par tensorisation par $\mathbb Q$ de l'homomorphisme «image directe de cycles»
+\[
+f_*:A(X)\longrightarrow A(Y),
+\]
+celui du premier membre étant la caractéristique d'Euler--Poincaré de $F$ relativement à $f$:
+\[
+f_!(\cl(F))=\sum_i(-1)^i\cl\bigl(R^if_*(F)\bigr).
+\]
+$\ch_X$, $\ch_Y$ désignent les caractères de Chern sur $X$ et sur $Y$, et $T_X$, $T_Y$ les fibrés tangents à $X$ et à $Y$. Comme on sait, $\Todd(-)$ et $\ch(-)$ sont des polynômes universels à coefficients dans $\mathbb Q$ en les classes de Chern de l'argument. Le terme constant de $\Todd(-)$ étant $1$, c'est un élément inversible pour toute valeur de l'argument, de sorte que la formule (1.1) prend, après multiplication par $\Todd(T_Y)^{-1}$, la forme équivalente, plus commode pour notre propos,
+\begin{equation}\tag{1.2}
+\ch_Y\bigl(f_!(\cl(F))\bigr)=f_*\bigl(\Todd(T_f)\,\ch_X(F)\bigr),
+\end{equation}
+où on a posé
+\begin{equation}\tag{1.3}
+T_f=T_X-f^*T_Y\in K(X).
+\end{equation}
+Ainsi $T_f$ joue le rôle d'un fibré tangent relatif virtuel de $X$ sur $Y$. Dans le cas où le morphisme $f$ est lisse, on a simplement $T_f=T_{X/Y}$, tandis que dans le cas où $f:X\to Y$ est une immersion, on trouve
+\[
+T_f=-\check N_{X/Y},
+\]
+où $N_{X/Y}$ désigne le faisceau normal de $X$ dans $Y$.
+
+Un des buts principaux du Séminaire est de généraliser (1.2) simultanément dans deux directions:
+\begin{enumerate}[label=\alph*)]
+\item se débarrasser de l'hypothèse de l'existence d'un corps de base $k$;
+\item remplacer les hypothèses de régularité sur $Y,X$ par une hypothèse de «régularité locale» de $f$.
+\end{enumerate}
+Enfin, chemin faisant, nous nous occuperons également du problème suivant:
+\begin{enumerate}[label=\alph*),start=3]
+\item éliminer les hypothèses de quasi-projectivité qui, en l'absence d'un corps de base, s'expriment par l'existence de Modules inversibles amples sur $X$ et sur $Y$.
+\end{enumerate}
+
+\subsection*{2. La suppression du corps de base}
+Examinons d'abord la généralisation a), en gardant cependant les hypothèses de régularité et d'existence de Modules inversibles amples sur $X$ et sur $Y$.
+
+La définition de $K(X)$, $K(Y)$ et de l'homomorphisme $f_!:K(X)\to K(Y)$ n'offre alors pas de nouveau problème, grâce au fait que $X$ et $Y$ sont réguliers. La voie la plus naturelle pour donner un sens à (1.2) semble donc consister en la définition d'anneaux de Chow $A(X),A(Y)$ et d'un homomorphisme de groupes
+\[
+f_*:A(X)\longrightarrow A(Y),
+\]
+en l'établissement d'une théorie des classes de Chern, fournissant des applications
+\[
+c_i:K(X)\longrightarrow A(X),
+\]
+et de même pour $Y$, et enfin en la description d'un élément fibré tangent relatif virtuel
+\[
+T_f\in K(X).
+\]
+
+\subsubsection*{2.1}
+Pour ce qui est de cette dernière, une définition s'offre de façon assez évidente. On utilise le fait que le morphisme $f$, grâce à l'hypothèse d'existence d'un Module inversible ample sur $X$ et sur $Y$, peut se factoriser en
+\[
+X\xrightarrow{i}X'\xrightarrow{f'}Y,
+\]
+où $i$ est une immersion fermée et $f'$ est lisse; on pourra prendre $X'=\mathbb P^r_Y$ pour $r$ convenable. On posera alors
+\begin{equation}\tag{2.1}
+T_f=i^*T_{X'/Y}-\check N_{X/X'}\in K(X),
+\end{equation}
+où $\Omega^1_{X'/Y}$ est le Module localement libre des $1$-différentielles relatives de $X'$ sur $Y$, ou Module cotangent relatif de $X'$ sur $Y$, et $N_{X/X'}$ le Module conormal de $X$ dans $X'$, égal par définition à $J/J^2$, où $J$ est l'idéal sur $X'$ définissant $X$. Les hypothèses de régularité faites sur $X$ et $X'$ impliquent d'ailleurs que $N_{X/X'}$ est également localement libre. Enfin, $\check N$ désigne le dual de $N$. On vérifie sans peine, dans l'exposé VIII, que l'élément $T_f$ défini par (2.1) ne dépend pas de la factorisation de $f$ choisie.
+
+\subsubsection*{2.2}
+Quant à une définition, sous les conditions envisagées, d'un anneau de Chow et d'une théorie des classes de Chern correspondante, bien qu'il soit plausible qu'une telle théorie doive pouvoir se développer sur le modèle des variétés lisses sur un corps, il semble que ce travail n'ait pas été fait à l'heure actuelle. Nous adopterons donc un point de vue différent, en définissant directement un anneau qui remplace l'anneau de Chow, et dont le produit tensoriel par $\mathbb Q$ est effectivement isomorphe à $A(X)\otimes\mathbb Q$ dans le cas classique.
+
+Une première filtration naturelle de $K(X)$, qui est celle envisagée dans [RRR], est la filtration topologique par la codimension du support des faisceaux cohérents: $\Fil^iK(X)$ est engendré par les $\cl(F)$ avec $F$ cohérent et $\operatorname{codim}(\operatorname{Supp}F,X)\ge i$. Une première question est celle de la compatibilité de cette filtration à la structure multiplicative de $K(X)$. Dans [RRR], cette compatibilité est obtenue, pour $X$ lisse sur un corps, à l'aide du moving lemma de Chow. Moyennant cette assertion, on obtient un anneau gradué $\Gr_{\mathrm{top}}(X)$ et un homomorphisme canonique surjectif
+\[
+\varphi:A(X)\longrightarrow \Gr_{\mathrm{top}}(X),
+\]
+transformant la classe d'un cycle premier $Z$ en $\cl(\mathcal O_Z)$, dont il s'avère ensuite, Exp. XIV 4.2, que le noyau est un sous-groupe de torsion. De plus, on montre dans [RRR] comment les images dans $\Gr_{\mathrm{top}}(X)$ des classes de Chern $c_i(F)$ peuvent se calculer directement en termes de $\cl(F)\in K(X)$ et des opérations $\lambda^i$ de puissance extérieure dans $K(X)$.
+
+Ceci montre que, pour $X$ schéma noethérien régulier muni d'un Module inversible ample, l'anneau $\Gr_{\mathrm{top}}(X)$ est un substitut commode pour l'anneau de Chow hypothétique $A(X)$; il a de plus l'avantage sur ce dernier que c'est directement dans cet anneau que se font certains calculs de [RRR] aboutissant à des formules importantes dans cet anneau, formules qui même pour $X$ projectif et lisse sur un corps ne sont pas établies à l'heure actuelle dans $A(X)$ lui-même (Exp. XIV, 4.3 et 6.4). Pour justifier entièrement ce point de vue, il faudrait cependant résoudre le problème signalé plus haut de la compatibilité de la filtration topologique de $K(X)$ avec sa structure d'anneau, problème qui semble essentiellement lié au moving lemma de Chow, qui lui-même est l'ingrédient technique essentiel de la théorie de l'anneau de Chow que nous avons prétendu pouvoir éviter.
+
+\subsubsection*{2.3}
+Pour éviter ce problème, on munit $K(X)$ d'une deuxième filtration, plus fine que la filtration topologique, et qui peut se décrire en termes purement algébriques à partir de la structure de $\lambda$-anneau augmenté de $K(X)$. La définition de cette filtration est suggérée par l'expression donnée dans [RRR] des classes de Chern d'un $x\in K(X)$ dans $\Gr_{\mathrm{top}}(X)$:
+\begin{equation}\tag{2.3}
+c_i(x)=\gamma^i(x-\epsilon(x))\mod \Fil^{i+1}K(X),
+\end{equation}
+où $\gamma^i$ désigne une certaine combinaison linéaire des $\lambda^j$ ($j\le i$), explicitée dans loc. cit., $\epsilon$ étant l'augmentation. On montre que $\gamma^i(x-\epsilon(x))$ est bien de filtration topologique $\ge i$, ce qui donne un sens à la formule (2.3). On définit alors la $\lambda$-filtration de $K(X)$ par les idéaux $\Fil^i_\lambda K(X)$, où $\Fil^i_\lambda K(X)$ est formé par les sommes d'expressions de la forme
+\[
+\gamma^{i_1}(x_1-\epsilon(x_1))\cdots \gamma^{i_r}(x_r-\epsilon(x_r)),\qquad i_1+\cdots+i_r\ge i.
+\]
+L'anneau gradué associé à cette filtration sera noté $\Gr^\bullet(X)$, et c'est lui qui remplacera dans le Séminaire l'anneau de Chow de $X$. On peut d'ailleurs montrer que, dans le cas envisagé ici, l'homomorphisme canonique
+\begin{equation}\tag{2.4}
+\Gr^\bullet(X)\longrightarrow \Gr_{\mathrm{top}}(X)
+\end{equation}
+est un isomorphisme modulo torsion, ce qui justifie le point de vue suivant lequel cet anneau tensorisé par $\mathbb Q$ peut jouer en tous points le même rôle que l'anneau de Chow tensorisé par $\mathbb Q$. D'autre part, on a fait exactement ce qu'il fallait pour que la formule (2.3), où on remplace $\Fil_{\mathrm{top}}$ par $\Fil_\lambda$, définisse une théorie des classes de Chern à valeurs dans $\Gr^\bullet(X)$; donc les classes de Chern dans $\Gr_{\mathrm{top}}(X)$ se déduisent à l'aide de l'homomorphisme (2.4). On montre, Exp. V, grâce au fait, Exp. VI, que $K(X)$ est un $\lambda$-anneau spécial au sens de [RRR], c'est-à-dire un $\lambda$-anneau au sens de l'exposé V, que cette notion de classe de Chern satisfait à toutes les propriétés formelles habituelles, passées en revue dans [RRR].
+
+\subsubsection*{2.4}
+On notera un avantage très appréciable de la définition de $\Gr^\bullet(X)$ sur celle de $A(X)$ et $\Gr_{\mathrm{top}}(X)$: c'est qu'elle garde un sens pour un schéma $X$ absolument quelconque, et plus généralement pour un topos localement annelé quelconque $X$, en prenant alors pour $K(X)$ le groupe de classes construit avec les Modules localement libres sur $X$, qui est encore un $\lambda$-anneau augmenté, donc muni d'une filtration correspondante, permettant de définir un gradué associé $\Gr^\bullet(X)$. Comme prix de cette généralité, il faut cependant remarquer que lorsqu'on n'est pas disposé à négliger les phénomènes de torsion, c'est-à-dire à tensoriser par $\mathbb Q$, les propriétés de $\Gr^\bullet(X)$ sont moins satisfaisantes à divers égards que celles de ses deux concurrents (Exp. XIV no 4). C'est ainsi que, supposant à nouveau que $f:X\to Y$ est un morphisme propre de schémas noethériens réguliers munis de Modules inversibles amples, il n'est pas vrai en général que l'homomorphisme
+\[
+f_*:K(X)\longrightarrow K(Y)
+\]
+applique $\Fil^i_\lambda K(X)$ dans $\Fil^{i-d}_\lambda K(Y)$, où $d$ est la dimension relative de $X$ sur $Y$, et définisse par suite, par passage aux gradués associés, un homomorphisme de degré $-d$ de $\Gr^\bullet(X)$ dans $\Gr^\bullet(Y)$. Cependant, on peut prouver, Exp. VII, qu'il en est ainsi à condition de tensoriser par $\mathbb Q$, de sorte qu'on obtient un homomorphisme de degré $-d$
+\begin{equation}\tag{2.5}
+f_*:\Gr^\bullet(X)\otimes\mathbb Q\longrightarrow \Gr^\bullet(Y)\otimes\mathbb Q,
+\end{equation}
+jouant le rôle de l'homomorphisme «image directe de cycles» $A(X)\to A(Y)$.
+
+Ceci posé, nous voyons donc que nous sommes en possession de tous les éléments de structure pour donner un sens à la formule (1.2) lorsqu'on ne postule pas l'existence d'un corps de base, $f:X\to Y$ étant un morphisme propre de schémas noethériens réguliers admettant des Modules inversibles amples.
+
+\subsection*{3. Le cas des schémas généraux}
+Montrons maintenant comment on peut encore donner un sens à la formule (1.2) lorsqu'on abandonne l'hypothèse de régularité faite sur $X,Y$, en la remplaçant par une hypothèse de nature locale sur le morphisme $f$, que nous allons préciser.
+
+\subsubsection*{3.1}
+Une première difficulté provient du fait que l'observation qui avait servi de point de départ à la théorie [RRR], savoir que le groupe $K(X)$ des classes de faisceaux sur $X$ est le même, qu'on le définisse en termes de faisceaux cohérents ou en termes de faisceaux localement libres, est liée de façon essentielle à l'hypothèse de régularité sur $X$. Dans le cas où $X$ est un schéma, disons noethérien pour simplifier, général, il convient de distinguer entre ces deux groupes, que nous noterons respectivement $K_\bullet(X)$ et $K^\bullet(X)$, le premier ayant un caractère covariant en $X$ pour les morphismes propres, le deuxième un caractère contravariant en $X$ pour les morphismes quelconques. On notera que $K^\bullet(X)$ est muni de façon naturelle d'une structure d'anneau, et même de $\lambda$-anneau augmenté, alors que sur $K_\bullet(X)$ il n'y a plus en général une structure d'anneau, mais seulement une structure de module sur $K^\bullet(X)$. L'homomorphisme $x\mapsto x\cdot\cl(\mathcal O_X)$ de $K^\bullet(X)$ dans $K_\bullet(X)$ n'est plus en général un isomorphisme. Pour notre formulation du théorème de Riemann--Roch généralisé, nous travaillerons exclusivement avec $K^\bullet(X)$, $K^\bullet(Y)$, à l'exclusion de $K_\bullet(X)$, $K_\bullet(Y)$. Comme nous avons signalé dans 2.3, ces $\lambda$-anneaux augmentés, munis de leur $\lambda$-filtration naturelle, donnent naissance à des anneaux gradués $\Gr^\bullet(X)$, $\Gr^\bullet(Y)$, et à des homomorphismes «classes de Chern»
+\[
+c_i:K^\bullet(X)\longrightarrow \Gr^\bullet(X),
+\]
+et de même pour $Y$. La difficulté vient cependant dans la définition d'un homomorphisme image directe
+\begin{equation}\tag{3.1}
+f_*:K^\bullet(X)\longrightarrow K^\bullet(Y),
+\end{equation}
+qui ne peut plus être définie par la formule naïve
+\[
+f_*(\cl(F))=\sum_i(-1)^i\cl\bigl(R^if_*(F)\bigr),
+\]
+car même si $F$ est localement libre, les Modules $R^if_*(F)$ ne sont plus en général localement libres, ni même de tor-dimension finie, et la formule précédente perd son sens. Une solution de cette difficulté est fournie par le point de vue des catégories dérivées. En effet, alors que les $R^if_*(F)$ sont en général des «mauvais» faisceaux, de tor-dimension infinie disons, le complexe $Rf_*(F)$ sur $Y$, image directe de $F$ au sens des catégories dérivées, a tendance à être excellent. De façon précise, lorsque $F$ est de tor-dimension finie sur $Y$, par exemple lorsque $f$ est de tor-dimension finie et $F$ est localement libre sur $X$, alors $Rf_*(F)$ est parfait sur $Y$, c'est-à-dire à cohomologie cohérente, et de tor-dimension globale finie (Exp. III); d'où il résulte facilement, Exp. IV, que sa classe dans le groupe de Grothendieck des complexes parfaits a un sens dans $K^\bullet(Y)$.
+
+\subsubsection*{3.2}
+Pour donner un sens à (1.2), il reste encore à faire sur $f$ une hypothèse permettant de donner un sens à l'homomorphisme (2.5), c'est-à-dire assurant que l'homomorphisme (3.1) qu'on vient de définir est, modulo un décalage et modulo torsion, compatible aux filtrations de ces anneaux; et enfin à définir encore un élément «fibré tangent relatif virtuel»
+\[
+T_f\in K^\bullet(X).
+\]
+Pour ce dernier, reprenant la définition proposée dans 2.1, on voit qu'il y a lieu de faire une hypothèse assurant que, avec les notations de loc. cit., le Module conormal $N_{X/X'}$ soit localement libre. L'hypothèse la plus naturelle à cet effet est celle que $i$ soit une «immersion régulière», c'est-à-dire identifie $X$ à un sous-schéma de $X'$ défini par un idéal qui localement peut être défini par une suite $\mathcal O_{X'}$-régulière de sections de $\mathcal O_{X'}$. Cette hypothèse, de nature purement locale, ne dépend pas en fait du choix de la factorisation de $f$ en une immersion suivie d'un morphisme lisse (Exp. VIII), et comme plus haut il en est de même pour la classe $T_f$ définie par la formule (2.1). Lorsque l'hypothèse qu'on vient d'envisager est vérifiée, on dit que le morphisme $f$ est un morphisme «localement d'intersection complète». Un tel morphisme est d'ailleurs localement de tor-dimension finie.
+
+On se permettra également de supprimer le vocable «localement» dans cette terminologie, ce qui ne risque d'entraîner aucune confusion.
+
+Si $f$ est un morphisme localement d'intersection compl\`ete, on introduit une notion naturelle de ``dimension relative virtuelle'' $d(f)$ par la formule
+\[
+d(f)(x)=\dim_x\bigl(f^{-1}(f(x))\bigr)-\codim_x(X,X').
+\]
+C'est une fonction \`a valeurs enti\`eres localement constante en le point $x\in X$, donc constante si $X$ est connexe, qui ne d\'epend d'ailleurs pas non plus du choix de la factorisation (2.1). Lorsque cette dimension relative virtuelle $d$ est constante, que $f$ est propre et que $X$ et $Y$ admettent des modules inversibles amples, on peut montrer (Exp. VIII), encore que ce soit loin d'\^etre un r\'esultat trivial, que l'on a
+\begin{equation}\tag{3.4}
+f_*\bigl(\Fil^iK^\bullet(X)_{\mathbb Q}\bigr)\subset \Fil^{i-d}K^\bullet(Y)_{\mathbb Q},
+\end{equation}
+d'o\`u un homomorphisme (3.3) de degr\'e $-d$.
+
+\subsubsection*{3.3}
+Nous avons donc r\'euni tous les \'el\'ements de structure pour donner un sens \`a la formule (1.2) dans le cas d'un morphisme propre et localement d'intersection compl\`ete de sch\'emas noeth\'eriens $X,Y$ admettant tous deux des modules inversibles amples. Moyennant un peu de soin suppl\'ementaire, cette formulation garde d'ailleurs un sens ind\'ependamment de toute hypoth\`ese noeth\'erienne.
+
+Sous cette forme g\'en\'erale, cette formule de Riemann--Roch sera prouv\'ee dans Exp. VIII. Le lecteur constatera que la d\'emonstration donn\'ee dans ce S\'eminaire combine des \'el\'ements des deux d\'emonstrations qui figurent dans [RRR] et dont il a \'et\'e question dans l'Introduction. La n\'ecessit\'e de recourir aux m\'ethodes de la premi\`ere de ces d\'emonstrations, impliquant plus de $K$-formalisme que la deuxi\`eme, suivie dans Borel--Serre, est due \`a la n\'ecessit\'e d'une d\'emonstration de l'inclusion (3.4), question qui ne se posait pas dans le cadre plus restreint de [RRR] et Borel--Serre [2], o\`u on pouvait travailler avec l'anneau de Chow ou l'anneau $\Gr^\bullet_{\mathrm{top}}$. De la deuxi\`eme d\'emonstration, nous conservons l'introduction du sch\'ema \'eclat\'e de $Y$ le long de $X$ dans le cas o\`u $f$ est une immersion. Cet artifice technique dispara\^itra sans doute, et la d\'emonstration du cas d'une immersion s'\'etendra au cas o\`u on ne postule plus l'existence d'un module inversible ample sur $Y$, une fois r\'esolue la question soulev\'ee dans Exp. XIV, no. 1, sur l'introduction d'op\'erations de puissances ext\'erieures dans la cat\'egorie d\'eriv\'ee $D^-(Y)$.
+
+\subsection*{4.}
+Il nous faut enfin donner quelques indications sur la fa\c{c}on dont on peut encore donner un sens \`a (1.2) en l'absence d'une hypoth\`ese d'existence de modules inversibles amples sur $X$ et $Y$.
+
+\subsubsection*{4.1}
+Notons d'abord que pour un sch\'ema $X$, ou plus g\'en\'eralement un topos localement annel\'e quelconque, il semble hors de doute que le ``bon'' invariant qui doit remplacer l'anneau $K(X)$ de [RRR] n'est pas l'anneau $K^\bullet(X)$ consid\'er\'e pr\'ec\'edemment, d\'efini en termes de modules localement libres sur $X$, mais bien le groupe $K(\Parf(X))$, envisag\'e dans 3.1, d\'efini en termes de complexes parfaits sur $X$, groupe que nous noterons ici $K^\bullet(X)$, et que nous distinguerons du groupe ``na\"if'' de 3.1, que nous notons $K^\bullet_{\mathrm{naif}}(X)$. Ce point de vue est impos\'e par la n\'ecessit\'e de d\'efinir un homomorphisme (3.1) image directe pour un morphisme
+\[
+f:X\longrightarrow Y
+\]
+propre et de Tor-dimension finie, de sch\'emas noeth\'eriens disons, le cas non noeth\'erien exigeant des propri\'et\'es de finitude locales un peu plus fortes sur $f$, cf. Exp. III. Avec la d\'efinition de $K^\bullet(X)$ adopt\'ee maintenant, cet homomorphisme $f_*$ se d\'efinit en effet de fa\c{c}on triviale par la formule (3.2), o\`u maintenant $F$ est un complexe parfait quelconque sur $X$, ce qui implique que $Rf_*(F)$ est \'egalement parfait.
+
+\subsubsection*{4.2}
+Cette nouvelle d\'efinition de $K^\bullet(X)$ soul\`eve cependant un nouveau probl\`eme d'alg\`ebre homologique, qui est celui d'une d\'efinition d'une $\lambda$-structure sur $K^\bullet(X)$, compatible avec sa structure d'anneau naturelle provenant du produit tensoriel dans la cat\'egorie d\'eriv\'ee. Si $L$ et $L'$ sont deux complexes parfaits, il en est de m\^eme de leur produit tensoriel total $L\otimes^{\mathbf L}L'$. Plus pr\'ecis\'ement, il y aurait lieu de d\'efinir des op\'erations ``puissances ext\'erieures'' dans la cat\'egorie d\'eriv\'ee $D^-(X)$, transformant complexes parfaits en complexes parfaits. Cette question n'a pas encore \'et\'e tir\'ee au clair \`a l'heure actuelle, et comme il a \'et\'e dit dans l'Introduction, elle constitue la lacune la plus s\'erieuse dans le S\'eminaire. Une fois cette question r\'esolue, et proc\'edant comme dans 2.3, on trouve une filtration naturelle sur $K^\bullet(X)$, permettant de former l'anneau gradu\'e associ\'e $\Gr^\bullet(X)$, qui jouera le r\^ole de l'anneau de Chow, et de d\'efinir une th\'eorie des classes de Chern
+\[
+c_i:K^\bullet(X)\longrightarrow \Gr^i(X).
+\]
+
+\subsubsection*{4.3}
+Pour donner un sens \`a la formule (1.2) pour un morphisme propre localement d'intersection compl\`ete
+\[
+f:X\longrightarrow Y
+\]
+de sch\'emas noeth\'eriens, il faut encore inclure dans l'\'enonc\'e de cette formule les inclusions non triviales (3.4), o\`u $d$ est la dimension relative virtuelle, pour permettre de d\'efinir (3.3), et de d\'efinir enfin la classe tangente relative virtuelle
+\[
+T_f\in K^\bullet(X).
+\]
+Lorsque $f$ admet une factorisation (2.1) par une immersion dans un sch\'ema relatif lisse, la d\'efinition de $T_f$ n'offre pas de nouvelle difficult\'e. On peut d'ailleurs la reformuler dans ce cas, d'une fa\c{c}on plus conforme \`a l'esprit ``cat\'egories d\'eriv\'ees'', en consid\'erant l'homomorphisme canonique bien connu
+\begin{equation}\tag{4.1}
+N_{X/X'}\longrightarrow \Omega^1_{X'/Y}\otimes_{\mathcal O_{X'}}\mathcal O_X
+\end{equation}
+induit par la diff\'erentielle ext\'erieure, et le complexe de cha\^ines $L_{X/Y}$ d\'efini gr\^ace \`a (4.1) ``en prolongeant par des z\'eros'', complexe \'egal en degr\'e $1$, respectivement $0$, \`a la source, respectivement au but, de l'homomorphisme (4.1). La formule (2.2) prend alors la forme plus sympathique
+\begin{equation}\tag{4.2}
+T_f=\cl\bigl(L_{X/Y}^{\vee}\bigr),
+\end{equation}
+formule qui a un sens dans $K^\bullet(X)$ lorsque $f$ est un morphisme localement d'intersection compl\`ete, puisque dans ce cas le complexe $L_{X/Y}$ est manifestement parfait. L'assertion d'invariance de $T_f$ relativement \`a la factorisation choisie de $f$ peut alors se pr\'eciser facilement en une assertion d'invariance pour le complexe $L_{X/Y}$; modulo isomorphisme canonique dans la cat\'egorie d\'eriv\'ee $D(X)$, ce complexe est \'egalement ind\'ependant de la factorisation choisie (Exp. VIII).
+
+\subsubsection*{4.4}
+Lorsque $f:X\to Y$ est un morphisme quelconque de sch\'emas, on peut encore construire un objet canonique $L_{X/Y}$ de la cat\'egorie d\'eriv\'ee $D(X)$, d\'efini \`a isomorphisme unique pr\`es, qui sur chaque ouvert affine de $X$ au dessus d'un ouvert affine de $Y$ soit isomorphe au complexe construit suivant le principe expos\'e \`a l'alin\'ea pr\'ec\'edent, o\`u il convient cependant dans le cas g\'en\'eral de remplacer ``lisse'' par ``formellement lisse'', de sorte que toute alg\`ebre $B$ sur un anneau $A$ appara\^it comme quotient d'une alg\`ebre formellement lisse, par exemple une alg\`ebre de polyn\^omes. Pour une telle d\'efinition il n'est pas possible de proc\'eder par simple ``recollement'' \`a partir des constructions affines, car les objets de la cat\'egorie d\'eriv\'ee $D(X)$ sont de nature essentiellement non recollable.
+
+Voici une construction g\'en\'erale de $L_{X/Y}$, valable plus g\'en\'eralement pour tout morphisme
+\[
+f:X\longrightarrow Y
+\]
+de topos commutativement annel\'es. Soit $B=\mathcal O_X$, $A=f^{-1}\mathcal O_Y$, de sorte que $A$ est un anneau sur l'espace $X$, et $B$ une $A$-alg\`ebre. Soit $T\to B$ un homomorphisme de faisceaux d'ensembles qui engendre $B$ comme $A$-alg\`ebre, i.e. tel que l'homomorphisme de $A$-alg\`ebres
+\[
+C=A[T]\longrightarrow B
+\]
+correspondant soit un \'epimorphisme de faisceaux d'ensembles, o\`u $A[T]$ d\'esigne la $A$-alg\`ebre commutative libre engendr\'ee par $T$, i.e. le faisceau associ\'e au pr\'efaisceau
+\[
+U\longmapsto A(U)[T(U)].
+\]
+Soit $J$ le noyau de $C\to B$, et consid\'erons comme dans 4.3 le complexe de cha\^ines de longueur $1$ d\'efini par l'homomorphisme naturel
+\[
+J/J^2\longrightarrow \Omega^1_{C/A}\otimes_C B.
+\]
+Il n'est pas difficile de voir que, \`a isomorphisme canonique pr\`es dans la cat\'egorie $D(X)$, le complexe ainsi construit est ind\'ependant du choix de $T$ et de $T\to B$, de sorte qu'il m\'erite la d\'esignation de complexe cotangent relatif $L_{X/Y}$ de $X$ sur $Y$. On v\'erifie \'egalement que pour tout ouvert affine de $X$ au dessus d'un ouvert affine de $Y$, il est donn\'e, \`a isomorphisme canonique pr\`es, par le proc\'ed\'e de 4.3.
+
+Dans le cas o\`u $f$ est localement d'intersection compl\`ete, on voit de plus que l'on obtient m\^eme un complexe parfait, ce qui permet alors de d\'efinir encore un \'el\'ement $T_f$ dans $K^\bullet(X)$ par la formule (4.2). Signalons qu'ici encore, il n'aurait pas \'et\'e possible en g\'en\'eral de d\'efinir $T_f$ comme un \'el\'ement de $K^\bullet_{\mathrm{naif}}(X)$, et rien ne permet de supposer que $T_f$ soit globalement isomorphe dans $D(X)$ \`a un complexe born\'e \`a composantes localement libres de type fini. Cela est donc une justification suppl\'ementaire du point de vue avanc\'e dans 4.1 en faveur du $K^\bullet(X)$ ``sophistiqu\'e'', de pr\'ef\'erence \`a $K^\bullet_{\mathrm{naif}}(X)$.
+
+\subsubsection*{4.5}
+Sous r\'eserve de la question soulev\'ee dans 4.2, nous avons donc encore r\'euni tous les \'el\'ements de structure pour donner un sens \`a (1.2) pour un morphisme propre localement d'intersection compl\`ete de sch\'emas quelconques, l'hypoth\`ese noeth\'erienne faite implicitement dans les sections qui pr\'ec\`edent pouvant en fait s'\'eliminer sans difficult\'e essentielle. Cela ne signifie pas malheureusement que, m\^eme sous cette r\'eserve, la formule en question soit \'etablie, m\^eme dans le cas o\`u $Y$ est le spectre d'un corps alg\'ebriquement clos de caract\'eristique $p>0$, et que $X$ est un sch\'ema alg\'ebrique propre et lisse de dimension $3$ disons. Voir commentaires dans Exp. XIV, no. 2.
+
+\subsection*{5.}
+Sous la forme pr\'esent\'ee dans le no. 4, la formule de Riemann--Roch (1.2) a \'egalement un sens pour un morphisme propre localement d'intersection compl\`ete d'espaces analytiques complexes, ou d'espaces rigide-analytiques au sens de Tate. Mais bien s\^ur la d\'emonstration donn\'ee dans [RRR] ne s'applique \`a ce cas que lorsqu'on suppose de plus que le morphisme $f$ est projectif, et, comme dans le cas alg\'ebrique, il semble qu'il faille une id\'ee essentiellement nouvelle pour traiter le cas g\'en\'eral. La formule que nous envisageons ici est une formule \`a valeurs dans un ``anneau de Chow analytique'' $\Gr^\bullet(X)$ ou plut\^ot $\Gr^\bullet(X)_{\mathbb Q}$, construit suivant le principe expliqu\'e dans 4.2, la difficult\'e qui y est rencontr\'ee s'\'evanouissant d'ailleurs du fait qu'on est en caract\'eristique nulle, comme on le signale dans Exp. XIV, no. 1.
+
+Lorsque $X$ et $Y$ sont non singuliers, il est possible de donner une autre version de la formule de Riemann--Roch en proc\'edant comme suit. Soit d'abord $X$ un espace analytique complexe quelconque, $X^{\mathrm{top}}$ le m\^eme espace muni du faisceau des fonctions complexes continues. On a donc un morphisme canonique d'espaces annel\'es
+\[
+X^{\mathrm{top}}\longrightarrow X,
+\]
+qui d\'efinit, gr\^ace au caract\`ere contravariant \'evident du foncteur $K^\bullet(X)$ en l'espace annel\'e variable $X$, un homomorphisme d'anneaux
+\begin{equation}\tag{5.1}
+K^\bullet(X)\longrightarrow K^\bullet(X^{\mathrm{top}}).
+\end{equation}
+Supposons pour simplifier $X^{\mathrm{top}}$ compact; alors, comme dans le cas d\'ej\`a signal\'e dans 3.1 d'un sch\'ema admettant un module inversible ample, on voit (Exp. II) que tout complexe parfait sur $X^{\mathrm{top}}$ est globalement isomorphe \`a un complexe born\'e localement libre en chaque degr\'e, i.e. \`a un complexe de fibr\'es vectoriels complexes sur $X^{\mathrm{top}}$, et que par suite $K^\bullet(X^{\mathrm{top}})$ est isomorphe canoniquement au groupe $K(X^{\mathrm{top}})$ bien connu des topologues [1], d\'efini en termes de fibr\'es vectoriels complexes sur l'espace compact $X^{\mathrm{top}}$. On peut donc interpr\'eter l'homomorphisme (5.1) comme \'etant un homomorphisme du $K^\bullet(X)$ d\'efini en termes de la structure analytique, dans l'anneau bien connu $K(X^{\mathrm{top}})$ des topologues. Si maintenant
+\[
+f:X\longrightarrow Y
+\]
+est un morphisme d'espaces analytiques non singuliers compacts, on sait lui associer gr\^ace \`a Atiyah--Hirzebruch [1] un homomorphisme de groupes
+\begin{equation}\tag{5.2}
+f^{\mathrm{top}}_*:K^\bullet(X^{\mathrm{top}})\longrightarrow K^\bullet(Y^{\mathrm{top}}).
+\end{equation}
+Utilisant de m\^eme l'homomorphisme $f_*$ de (3.1) d\'efini par la formule (3.2), qui utilise ici implicitement le th\'eor\`eme de finitude de Grauert [4] pour un morphisme propre d'espaces analytiques, on trouve un carr\'e d'homomorphismes naturels, ne faisant intervenir que des groupes du type $K^\bullet$, \`a l'exclusion d'anneaux du type anneaux de Chow ou de cohomologie:
+\begin{equation}\tag{5.3}
+\begin{array}{ccc}
+K^\bullet(X) & \longrightarrow & K^\bullet(X^{\mathrm{top}}) \\
+\downarrow f_* && \downarrow f^{\mathrm{top}}_* \\
+K^\bullet(Y) & \longrightarrow & K^\bullet(Y^{\mathrm{top}}).
+\end{array}
+\end{equation}
+La formule de type Riemann--Roch \`a laquelle nous faisions allusion consiste \`a affirmer la commutativit\'e de ce carr\'e. On notera la diff\'erence de nature entre cette assertion, qui ne n\'eglige pas les ph\'enom\`enes de torsion et se place dans un groupe $K^\bullet(Y^{\mathrm{top}})$ de nature essentiellement discr\`ete, et la formule de Riemann--Roch du type envisag\'e au no. 4, se pla\c{c}ant dans un groupe du type ``Chow'' qui n'est plus de nature discr\`ete, mais qu'on doit tensoriser en revanche par $\mathbb Q$. Notons que la formule (5.3) est d\'emontr\'ee en tous cas lorsque $X$ et $Y$ sont des vari\'et\'es projectives non singuli\`eres [7], comme la formule du type envisag\'e au no. 4, qui est d\'emontr\'ee dans ce cas dans [RRR]. Il s'agit l\`a d'une variante plausible du th\'eor\`eme de l'index de Atiyah--Singer, et de ses g\'en\'eralisations dues \`a Shih [7] et Atiyah, qui appelle \'evidemment une g\'en\'eralisation commune. Une fois prouv\'ee la commutativit\'e de (5.3), on en conclurait aussit\^ot, \`a l'aide du ``th\'eor\`eme de Riemann--Roch diff\'erentiable'' de Atiyah--Hirzebruch [1], une variante cohomologique de la formule de Riemann--Roch analytique complexe, savoir la commutativit\'e du diagramme
+\begin{equation}\tag{5.4}
+\begin{array}{ccc}
+K^\bullet(X) & \xrightarrow{\;x\mapsto \ch(x)\Todd(T_X)\;} & H^{2\bullet}(X,\mathbb Q) \\
+\downarrow f_* && \downarrow f_* \\
+K^\bullet(Y) & \xrightarrow{\;y\mapsto \ch(y)\Todd(T_Y)\;} & H^{2\bullet}(Y,\mathbb Q),
+\end{array}
+\end{equation}
+o\`u les fl\`eches horizontales sont d\'eduites des classes de Chern cohomologiques, d\'eduites de l'homomorphisme (5.1) et de l'homomorphisme classe de Chern ordinaire
+\[
+K^\bullet(X^{\mathrm{top}})\longrightarrow H^{2\bullet}(X,\mathbb Z),
+\]
+la premi\`ere fl\`eche verticale est la m\^eme que dans (5.3), et la deuxi\`eme est l'homomorphisme de Gysin en cohomologie rationnelle.
+
+\subsection*{6.}
+Dans tout ceci, il n'a \'et\'e gu\`ere question que de l'invariant contravariant $K^\bullet(X)$, \`a l'exclusion de l'invariant covariant $K_\bullet(X)$ dont l'existence a \'et\'e signal\'ee dans 3.1. Si on consid\`ere $K^\bullet(X)$ comme donnant un analogue de l'anneau de cohomologie enti\`ere d'un espace topologique, on doit consid\'erer $K_\bullet(X)$ comme donnant un analogue de l'homologie enti\`ere, la structure de module de $K_\bullet(X)$ sur $K^\bullet(X)$ correspondant alors \`a l'op\'eration de cap-produit. Le fait que lorsque $X$ est r\'egulier, l'homomorphisme naturel $K^\bullet(X)\to K_\bullet(X)$ soit un isomorphisme, doit \^etre regard\'e comme l'analogue du th\'eor\`eme de dualit\'e de Poincar\'e sur les vari\'et\'es topologiques orient\'ees, affirmant que le cap-produit avec la classe d'homologie fondamentale d\'efinit un isomorphisme de la cohomologie sur l'homologie. Ces analogies sugg\`erent d'ailleurs l'opportunit\'e de d\'efinir \'egalement, pour un poly\`edre fini $X$ mettons, un invariant $K_\bullet(X)$ de nature covariante, dont les relations \`a l'homologie enti\`ere (suite spectrale, homomorphisme de Chern, etc.) seraient analogues \`a celles existant entre $K^\bullet(X)$ et la cohomologie enti\`ere; et il ne semble pas non plus exclu qu'il puisse exister, en termes de ces groupes $K_\bullet(X)$, des variantes du th\'eor\`eme de Riemann--Roch diff\'erentiable, valable pour des espaces plus g\'en\'eraux que des vari\'et\'es diff\'erentiables compactes.
+
+Revenant au cas o\`u $X$ est un sch\'ema noeth\'erien quelconque, il convient de munir $K_\bullet(X)$ d'une filtration croissante, $\Fil_iK_\bullet(X)$ \'etant engendr\'e par des classes $\cl_\bullet(F)$, avec $F$ faisceau coh\'erent sur $X$ tel que $\dim \operatorname{Supp}F\le i$. On prouvera (Exp. X) la compatibilit\'e de cette filtration avec la structure de module et la filtration de $K^\bullet(X)$, i.e. la formule
+\begin{equation}\tag{6.1}
+\Fil^iK^\bullet(X)\cdot \Fil_jK_\bullet(X)\subset \Fil_{j-i}K_\bullet(X),
+\end{equation}
+ce qui permet de munir le gradu\'e associ\'e au module filtr\'e $K_\bullet(X)$, not\'e $\Gr_\bullet(X)$, d'une structure de module sur $\Gr^\bullet(X)$. Ses \'el\'ements peuvent d'ailleurs s'interpr\'eter comme des classes de cycles alg\'ebriques sur $X$, pour une relation d'\'equivalence moins fine que l'\'equivalence rationnelle, lorsque $X$ est de type fini sur un corps de base $k$. Si
+\[
+f:X\longrightarrow Y
+\]
+est un morphisme propre de sch\'emas noeth\'eriens, alors
+\begin{equation}\tag{6.2}
+f_*:K_\bullet(X)\longrightarrow K_\bullet(Y)
+\end{equation}
+est compatible avec les filtrations, et d\'efinit un homomorphisme de groupes gradu\'es
+\begin{equation}\tag{6.3}
+f_*:\Gr_\bullet(X)\longrightarrow \Gr_\bullet(Y),
+\end{equation}
+donnant lieu \`a une ``formule de projection'', i.e. qui est $\Gr^\bullet(Y)$-lin\'eaire, formule qui se r\'eduit par passage aux gradu\'es de la formule de projection analogue pour l'homomorphisme (6.2), qui est $K^\bullet(Y)$-lin\'eaire.
+
+Dans le point de vue propos\'e dans le S\'eminaire, une th\'eorie des intersections maniable, sur les sch\'emas noeth\'eriens $X$ pas n\'ecessairement r\'eguliers, doit consister en l'\'etude combin\'ee des invariants contravariants $K^\bullet(X),\Gr^\bullet(X)$ et des invariants covariants $K_\bullet(X),\Gr_\bullet(X)$, qui jouent des r\^oles de nature essentiellement diff\'erente, et dont les propri\'et\'es se compl\`etent mutuellement. C'est ainsi que les groupes covariants $K_\bullet(X),\Gr_\bullet(X)$ se calculent mieux pour certaines fibrations non propres, gr\^ace \`a la ``suite exacte d'homotopie'' qu'on peut \'etablir pour eux ([RRR] et Exp. IX); par exemple on prouve (Exp. IX) des isomorphismes canoniques tels que
+\[
+K_\bullet(X[t])\simeq K_\bullet(X),\qquad \Gr_\bullet(X[t])\simeq \Gr_\bullet(X),
+\]
+qui tombent en d\'efaut en g\'en\'eral pour $K^\bullet$ lorsque $X$ est un sch\'ema non r\'egulier. En revanche, $K^\bullet(X)$ et $\Gr^\bullet(X)$ se pr\^etent bien aux calculs gr\^ace \`a leur structure d'anneaux.
+
+Lorsqu'on consid\`ere des sch\'emas $X$ propres sur un corps, la projection
+\[
+\pi_X:X\longrightarrow(\operatorname{point})
+\]
+d\'efinit un homomorphisme ``caract\'eristique d'Euler--Poincar\'e''
+\begin{equation}\tag{6.4}
+\chi_X=\pi_{X*}:K_\bullet(X)\longrightarrow K_\bullet(\operatorname{point})=\mathbb Z,
+\end{equation}
+induisant sur le sous-groupe $\Gr_0(X)=\Fil_0K_\bullet(X)$ l'homomorphisme ``degr\'e des $0$-cycles''
+\begin{equation}\tag{6.5}
+\deg_X:\Gr_0(X)\longrightarrow \mathbb Z.
+\end{equation}
+L'homomorphisme de multiplication
+\[
+\Gr^i(X)\times\Gr_i(X)\longrightarrow \Gr_0(X),
+\]
+compos\'e avec l'homomorphisme degr\'e (6.5), fournit alors un accouplement
+\begin{equation}\tag{6.6}
+\Gr^i(X)\times \Gr_i(X)\longrightarrow \mathbb Z,
+\end{equation}
+qui explique qu'\`a certains \'egards $\Gr^\bullet(X)$ et $\Gr_\bullet(X)$ jouent des r\^oles duaux, tout comme la cohomologie et l'homologie. Ainsi, si $f:X\to Y$ est un morphisme de sch\'emas alg\'ebriques propres, les deux homomorphismes
+\[
+f^*:\Gr^\bullet(Y)\longrightarrow \Gr^\bullet(X),\qquad f_*:\Gr_\bullet(X)\longrightarrow \Gr_\bullet(Y)
+\]
+sont formellement transpos\'es l'un de l'autre, au sens des accouplements (6.6).
+
+Les homomorphismes (6.4) et (6.5) et l'accouplement (6.6) qu'on en d\'eduit, peuvent \^etre consid\'er\'es comme la source des relations num\'eriques en th\'eorie des intersections sur les sch\'emas alg\'ebriques propres sur un corps donn\'e $k$. Ce point de vue sera d\'evelopp\'e avec quelques d\'etails dans Exp. X, ind\'ependant pour l'essentiel des Exp. VI, VII, VIII, centr\'es sur la d\'emonstration du th\'eor\`eme de Riemann--Roch, et de Exp. IX. On y donnera \'egalement quelques notions sur le comportement de $K^\bullet(X),\Gr^\bullet(X)$ par sp\'ecialisation.
+
+\subsection*{7.}
+Comme dans toute th\'eorie d'intersection, il importe de pr\'eciser la place que prend dans la th\'eorie le groupe de Picard, ou groupe des classes de diviseurs dans la terminologie classique. Moyennant une l\'eg\`ere restriction, automatiquement satisfaite lorsque $X$ est par exemple quasi-compact, on \'etablit dans Exp. X un isomorphisme canonique
+\begin{equation}\tag{7.1}
+c_1:\Pic(X)\xrightarrow{\sim}\Gr^1(X),
+\end{equation}
+qui montre le r\^ole exact du groupe de Picard dans la th\'eorie que nous proposons. Ce r\^ole justifie une \'etude plus d\'etaill\'ee de ce groupe de Picard dans les expos\'es XII, XIII, qui sont logiquement ind\'ependants du texte du S\'eminaire. Une \'etude de l'\'equivalence num\'erique et de certains th\'eor\`emes de finitude pour le groupe de Picard, annonc\'es sans d\'emonstration dans [6], est faite par Kleiman dans Exp. XIII, en utilisant des techniques de nature purement num\'erique, n'utilisant pas la th\'eorie du foncteur de Picard et de sa repr\'esentabilit\'e, dues \`a lui-m\^eme et \`a Mumford, nettement plus simples que les d\'emonstrations initiales de Grothendieck. Le seul r\'esultat r\'efractaire aux m\'ethodes de Kleiman, et dont il est oblig\'e de faire usage, est [6, C-07 (i)], dont la d\'emonstration et certains raffinements, incluant certains th\'eor\`emes de repr\'esentabilit\'e pour le foncteur de Picard, occupent l'expos\'e XII. Ce dernier rel\`eve d'ailleurs d'un esprit et d'une technique enti\`erement \'etrangers au reste du S\'eminaire, se rattachant \`a [5]; cet expos\'e est logiquement ind\'ependant de tous les autres.
+
+Enfin, dans Exp. XI, de nature nettement plus g\'en\'erale que XII et XIII et plus proche de l'esprit g\'en\'eral du S\'eminaire, on \'etudie, sur un topos localement annel\'e quelconque, un foncteur remarquable appel\'e ``foncteur d\'eterminant'':
+\begin{equation}\tag{7.2}
+\det^\bullet:\Parf_{\mathrm{is}}(X)\longrightarrow \Inv(X)
+\end{equation}
+de la cat\'egorie des complexes parfaits sur $X$, les morphismes \'etant les seuls isomorphismes au sens de la cat\'egorie d\'eriv\'ee $D(X)$, dans la cat\'egorie des modules inversibles sur $X$. Ce foncteur est d\'ecrit \`a peu de choses pr\`es par l'exigence d'\^etre de ``nature locale'', et d'\^etre donn\'e, pour un complexe $L$ born\'e et \`a composantes localement libres, par la formule
+\begin{equation}\tag{7.3}
+\det^\bullet(L)=\bigotimes_i \det(L_i)^{(-1)^i},
+\end{equation}
+o\`u $\det(L_i)$ d\'esigne la puissance ext\'erieure de degr\'e maximum du module localement libre $L_i$. Bien que cet expos\'e aussi soit logiquement ind\'ependant du reste du S\'eminaire \`a l'exception de l'expos\'e I, il constitue n\'eanmoins un \'el\'ement important du ``yoga'' g\'en\'eral propos\'e dans le S\'eminaire, et d\'evelopp\'e pour l'essentiel dans les expos\'es I \`a XI.
+
+\section*{Bibliographie}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.5em]
+\item M. Atiyah et F. Hirzebruch, \emph{Vector bundles and homogeneous spaces}, Symposia in Pure Mathematics, vol. 3, Differential Geometry, p. 7--38, 1961.
+\item A. Borel et J.-P. Serre, \emph{Le th\'eor\`eme de Riemann--Roch}, Bull. Soc. math. France, t. 86, p. 97--136 (1958).
+\item H. Grauert, \emph{Ein Theorem der analytischen Garbentheorie}, Pub. Math. no. 5, p. 5--64 (1960).
+\item A. Grothendieck, \emph{Classes de faisceaux et th\'eor\`eme de Riemann--Roch}, notes mim\'eographi\'ees, Princeton 1957, cit\'e [RRR] et reproduit en Appendice \`a l'Exp. 0 du S\'eminaire.
+\item A. Grothendieck, \emph{Technique de descente et th\'eor\`emes d'existence en G\'eom\'etrie Alg\'ebrique}, dans \emph{Fondements de la G\'eom\'etrie Alg\'ebrique}, Extraits du S\'eminaire Bourbaki 1957--1962, Secr\'etariat Math\'ematique, Paris.
+\item W. Shih, S\'eminaire de Topologie \`a l'I.H.E.S., 1966/67.
+\item M. Atiyah et F. Hirzebruch, \emph{The Riemann--Roch theorem for analytic embeddings}, Topology, vol. 1, p. 151--166 (1962).
+\end{enumerate}
+
+\end{document}
