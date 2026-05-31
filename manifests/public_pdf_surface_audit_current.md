@@ -1,6 +1,6 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-31T15:55:52
+Generated: 2026-05-31T16:04:38
 
 Reader PDF counts by section:
 
@@ -40,7 +40,7 @@ Reader PDF health flags:
 - `reader-pdfs/non-european/40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/non-european/40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf`: first_page_blankish
 - `reader-pdfs/sga/13 SGA 4 - English Translation Working Draft.pdf`: first_page_blankish
-- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice for Strict Edition, Pages 1-110.pdf`: first_page_blankish
+- `reader-pdfs/sga/22 SGA 6 - Source Scan Slice for Strict Edition, Pages 1-153.pdf`: first_page_blankish
 - `reader-pdfs/sga/49 SGA 5 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/50 SGA 6 - French Reference PDF.pdf`: first_page_blankish
 - `reader-pdfs/sga/51 SGA 7 Tome 1 - French Reference PDF.pdf`: first_page_blankish
