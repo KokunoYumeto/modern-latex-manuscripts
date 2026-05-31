@@ -1,12 +1,12 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-31T21:19:30
+Generated: 2026-05-31T21:34:33
 
 Reader PDF counts by section:
 
 - author-cluster: 10
 - classical: 17
-- deligne: 19
+- deligne: 21
 - ega: 10
 - gauss: 8
 - noether: 40
