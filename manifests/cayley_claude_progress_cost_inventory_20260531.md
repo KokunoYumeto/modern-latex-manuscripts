@@ -48,7 +48,7 @@
 - Treating this as roughly **about 30-50 USD of review system subscription usage, while also doing EGA, Gauss, downloads and triage**, review system produced about **3307 rendered pages** / **3917 unique book pages** of validated pickup material.
 - That is roughly **66.1 rendered pages per $50** or **78.3 book pages per $50** for this run.
 - Naive rate: **$0.0151 per rendered page** or **$0.0128 per book page**, before proofing/layout polish and before harder-page penalty.
-- Grant-planning conservative multiplier: expect real production completion to cost several times the naive page rate once you include dense tables, diagrams, hard math, final visual QA, and second-pass source comparison.
+- Conservative production multiplier: expect real production completion to cost several times the naive page rate once you include dense tables, diagrams, hard math, final visual QA, and second-pass source comparison.
 
 ## Public location notes
 
