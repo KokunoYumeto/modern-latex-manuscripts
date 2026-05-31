@@ -1,6 +1,6 @@
 # Persian/Iranian Mathematical Tradition Source Intake
 
-Generated: 2026-05-31T15:04:36
+Generated: 2026-05-31T15:06:18
 
 Purpose: split the Persian/Iranian mathematical tradition out of the broader non-European lane so it can be developed as a coherent source-backed archive cluster.
 
