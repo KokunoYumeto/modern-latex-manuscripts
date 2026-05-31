@@ -1,6 +1,7 @@
 param(
   [string]$OutDir = (Join-Path $PSScriptRoot 'downloaded_sources'),
-  [switch]$IncludePageImages
+  [switch]$IncludePageImages,
+  [switch]$IncludeSupportTools
 )
 $ErrorActionPreference = 'Stop'
 New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
@@ -9,7 +10,12 @@ function Fetch($Url, $Name) {
   $Dest = Join-Path $OutDir $Name
   if (Test-Path -LiteralPath $Dest) { Write-Host "exists $Name"; return }
   Write-Host "download $Name"
-  Invoke-WebRequest -Uri $Url -OutFile $Dest
+  try {
+    Invoke-WebRequest -Uri $Url -OutFile $Dest
+  } catch {
+    Write-Warning "failed $Name :: $($_.Exception.Message)"
+    if (Test-Path -LiteralPath $Dest) { Remove-Item -LiteralPath $Dest -Force }
+  }
 }
 
 # 1 - Abu Rayhan al-Biruni - al-Qanun al-Masudi
@@ -84,19 +90,23 @@ if ($IncludePageImages) { Fetch "https://archive.org/download/jstor-25207498/252
 
 # 3 - Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics
 # https://archive.org/details/descriptivepersianenglishdictionaryofbasicmathematics
-Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics.pdf" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.pdf"
-Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_djvu.txt" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.djvu.txt"
-Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_djvu.xml" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.djvu.xml"
-Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_scandata.xml" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.scandata.xml"
-if ($IncludePageImages) { Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_jp2.zip" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.jp2.zip" }
+if ($IncludeSupportTools) {
+  Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics.pdf" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.pdf"
+  Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_djvu.txt" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.djvu.txt"
+  Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_djvu.xml" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.djvu.xml"
+  Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_scandata.xml" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.scandata.xml"
+  if ($IncludePageImages) { Fetch "https://archive.org/download/descriptivepersianenglishdictionaryofbasicmathematics/descriptive%20%20Persian-English%20%20dictionary%20of%20basic%20Mathematics_jp2.zip" "Gholamreza Mokhtari Aski - Descriptive Persian-English Dictionary of Basic Mathematics.jp2.zip" }
+}
 
 # 3 - M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics: English-French-Persian
 # https://archive.org/details/arxiv-astro-ph0701421
-Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421.pdf" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.pdf"
-Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_djvu.txt" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.djvu.txt"
-Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_djvu.xml" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.djvu.xml"
-Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_scandata.xml" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.scandata.xml"
-if ($IncludePageImages) { Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_jp2.zip" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.jp2.zip" }
+if ($IncludeSupportTools) {
+  Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421.pdf" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.pdf"
+  Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_djvu.txt" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.djvu.txt"
+  Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_djvu.xml" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.djvu.xml"
+  Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_scandata.xml" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.scandata.xml"
+  if ($IncludePageImages) { Fetch "https://archive.org/download/arxiv-astro-ph0701421/astro-ph0701421_jp2.zip" "M. Heydari-Malayeri - Etymological Dictionary of Astronomy and Astrophysics_ English-French-Persian.jp2.zip" }
+}
 
 # open - Ulugh Beg / Samarkand observatory tradition - Zij-i Sultani / star catalogue tradition
 # https://archive.org/details/arxiv-1206.0628
