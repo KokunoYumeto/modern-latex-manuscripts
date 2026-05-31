@@ -38,12 +38,6 @@ This report treats Claude's `cayley_codex_pickup` folder as the current clean-is
 - The current state is best described as: a large validated slice corpus, not yet a clean per-volume edition.
 - Good next archive shape: keep these slices public and clearly labeled as scan-grounded repair slices, keep old cumulative volumes in artifact/provenance status, and only promote reconstructed per-volume readers once gaps are filled and visual equation QA is done.
 
-## Cost / Grant Baseline
-
-- If one uses the recent Claude Code subscription run as a rough baseline, the work produced at least this many scan-grounded Cayley source pages while also doing Gauss, EGA, downloads, and orchestration. That means the Cayley-only page-per-dollar estimate is conservative in the sense that other work consumed part of the same budget.
-- Do not present this as final proofread scholarly quality. Present it as evidence that AI-assisted scan-to-TeX repair can convert thousands of pages into usable, inspectable modern TeX/PDF in days, with a remaining human/AI verification layer.
-- For grant planning, budget multipliers should account for hard pages: dense invariant tables, large displayed formulae, diagrams, multilingual passages, and final source comparison.
-
 ## Pickup Sync Check
 
 - Source-TeX PDFs under `cayley_v2_fixes/sources_tex_Vol_*`: **209**.
@@ -51,11 +45,7 @@ This report treats Claude's `cayley_codex_pickup` folder as the current clean-is
 - No current source-TeX PDFs are missing from the pickup manifest.
 - Manifest source names no longer visible in `sources_tex`: **18**. Usually harmless if they came from older staging or hand-built fixes; see JSON.
 
-## Key Paths
+## Public Audit Files
 
-- Pickup folder: `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\CLAUDE_OUTPUTS\cayley_codex_pickup`
-- Pickup manifest: `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\CLAUDE_OUTPUTS\cayley_codex_pickup\MANIFEST.md`
-- Active Claude fixes: `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\CLAUDE_OUTPUTS\cayley_v2_fixes`
-- Local source scans: `C:\Users\Floris\Documents\Papors\OS\Cayley`
-- Machine-readable JSON: `C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\manuscript_translation_project\reports\cayley_claude_current_pickup_coverage_20260531.json`
-- CSV: `C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\manuscript_translation_project\reports\cayley_claude_current_pickup_coverage_20260531.csv`
+- Machine-readable JSON: `cayley_current_source_checked_slice_coverage_20260531.json`
+- CSV: `cayley_current_source_checked_slice_coverage_20260531.csv`
