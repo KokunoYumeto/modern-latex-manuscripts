@@ -1,21 +1,19 @@
-Weber literal repair current section packet - cumulative plus new only
+Weber literal repair current section packet
 
-Package layout:
-- One top-level folder in the ZIP: weber_literal_repair_batch27/
-- Inside it: current_cumulative/, new_work/, and this README.txt.
-- No prior chunk stack.
-- No screenshots, scan-image stand-ins, or embedded source images.
-- No in-text source-page marker lines.
+New work:
+- Volume I section 40.
+- Volume III section 97.
 
-New work in this batch:
-1. Volume I backfill: First Section, sections 5-8 (fractional functions and divisibility; greatest common divisor; products of linear factors; binomial theorem).
-2. Volume III forward continuation: sections 77-78 (geometric interpretation of the irrational modular equations as modular correspondences; Galois group of the transformation equations for a prime degree).
+Current cumulative coverage:
+- Volume I: Introduction through section 40.
+- Volume II: section 176 through end matter.
+- Volume III: sections 1 through 97.
 
-Current cumulative coverage after this batch:
-- Volume I: Introduction and sections 1-8.
-- Volume II: repaired tail from section 176 through end matter.
-- Volume III: sections 1-78.
+Layout:
+- current_cumulative/volume_1, volume_2, volume_3 contain the current cumulative German and English TeX/PDF files by volume.
+- new_work/ contains only the new batch material in German and English TeX/PDF.
+- source_scans/ contains the source scan slices used for this batch.
 
-Next continuation points:
-- Volume I: section 9, Interpolation.
-- Volume III: section 79, Examination of the group G.
+The work PDFs do not include table of contents pages, in-text page markers, or embedded scan-image stand-ins. The scan slices are included separately only as source verification.
+
+Next continuation points: Volume I section 41 and Volume III section 98.
