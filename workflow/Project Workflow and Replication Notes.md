@@ -1,6 +1,6 @@
 # Project Workflow and Replication Notes
 
-Updated: 2026-05-30
+Updated: 2026-05-31
 
 This note documents the current practical workflow used to modernize, typeset, audit, translate, package, and publish public-domain mathematical and physical manuscripts. It is intentionally operational: the aim is that another reader can reproduce the pipeline with their own scans, their own compute, and their own publication account.
 
@@ -43,7 +43,10 @@ Core tools:
 
 - Windows PowerShell for orchestration, file inventory, chunking, and local process control.
 - Python 3 with PyMuPDF (`fitz`) for PDF inspection, page counts, text extraction, rendering checks, redaction/surface cleanup, and simple generated PDFs.
+- Python `pdf2image` plus Poppler-compatible rendering for spot-check PNGs from generated PDFs and long audit packets.
 - Python standard-library `zipfile`, `hashlib`, `json`, `csv`, `pathlib`, and `subprocess` for packaging and manifests.
+- Pandoc for Markdown-to-DOCX/PDF conversion of workflow and provenance packets.
+- LibreOffice (`soffice`, installed via `winget` as TheDocumentFoundation.LibreOffice) for DOCX/PDF conversion and document render QA where available.
 - MiKTeX / XeLaTeX / pdfLaTeX / LuaLaTeX for TeX compilation.
 - Git and GitHub over SSH for the public mirror.
 - Zenodo REST API for versioned archival deposits.
