@@ -45,7 +45,7 @@ Core tools:
 - Python 3 with PyMuPDF (`fitz`) for PDF inspection, page counts, text extraction, rendering checks, redaction/surface cleanup, and simple generated PDFs.
 - Python `pdf2image` plus Poppler-compatible rendering for spot-check PNGs from generated PDFs and long audit packets.
 - Python standard-library `zipfile`, `hashlib`, `json`, `csv`, `pathlib`, and `subprocess` for packaging and manifests.
-- Pandoc for Markdown-to-DOCX/PDF conversion of proposal, workflow, and prompt-provenance packets.
+- Pandoc for Markdown-to-DOCX/PDF conversion of workflow and provenance packets.
 - LibreOffice (`soffice`, installed via `winget` as TheDocumentFoundation.LibreOffice) for DOCX/PDF conversion and document render QA where available.
 - MiKTeX / XeLaTeX / pdfLaTeX / LuaLaTeX for TeX compilation.
 - Git and GitHub over SSH for the public mirror.
