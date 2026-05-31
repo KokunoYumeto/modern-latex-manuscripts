@@ -1,0 +1,592 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}\frenchsetup{StandardLists=true}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,calc,patterns,decorations.pathmorphing,positioning}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\prodword}{\operatorname{prod}}
+\newcommand{\Dplus}{D^+}
+\newcommand{\calB}{\mathcal B}
+\newcommand{\calC}{\mathcal C}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\calT}{\mathcal T}
+\newcommand{\calX}{\mathcal X}
+\newcommand{\calS}{\mathcal S}
+\newcommand{\tauw}{\tau}
+\newcommand{\tildi}{\widetilde{i}}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\tensor}{\otimes}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\im}{im}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+
+% Schematic vector drawings of the figures in the paper.  These are deliberately drawn in TikZ, not included as raster screenshots.
+\newcommand{\RootSphereFigure}{%
+\begin{center}
+\begin{tikzpicture}[scale=0.82,line cap=round,line join=round]
+  \draw (-3.8,0)--(3.8,0);
+  \draw (0,-3.2)--(0,3.2);
+  \draw (0,0) circle (2.05);
+  \draw (-1.35,0) circle (1.85);
+  \draw (1.35,0) circle (1.85);
+  \draw (0,1.35) circle (1.85);
+  \draw (0,-1.35) circle (1.85);
+  \draw (-2.15,-.10) -- (2.15,.95);
+  \draw (-2.0,.95) -- (2.0,-.95);
+  \fill[pattern=north east lines,opacity=.55] (-2.75,-.75) -- (-1.65,0) -- (-2.75,0) -- cycle;
+  \fill[pattern=north east lines,opacity=.55] (.15,-.05) -- (.85,.55) -- (.45,.95) -- (-.1,.35) -- cycle;
+  \node at (0.18,.12) {$C_0$};
+  \node at (.95,.55) {$\overline C_0$};
+  \node[font=\scriptsize] at (0,3.05) {$a$};
+  \node[font=\scriptsize] at (0,-3.05) {$a$};
+  \node[font=\scriptsize] at (-3.55,.18) {$c$};
+  \node[font=\scriptsize] at (3.55,.18) {$c$};
+  \node[font=\scriptsize] at (1.3,2.35) {$b$};
+  \node[font=\scriptsize] at (2.6,.1) {$c$};
+  \node[font=\scriptsize] at (-1.65,1.4) {$a$};
+  \node[font=\scriptsize] at (-1.45,.45) {$b$};
+  \node[font=\scriptsize] at (1.45,.42) {$b$};
+  \node[font=\scriptsize] at (-.7,-1.2) {$a$};
+  \node[font=\scriptsize] at (.75,-1.25) {$b$};
+  \node[font=\scriptsize] at (-1.9,-1.65) {$b$};
+  \node[font=\scriptsize] at (1.9,-1.65) {$b$};
+  \node[font=\scriptsize] at (.2,.65) {$b$};
+  \node[font=\scriptsize] at (-.65,.25) {$a$};
+  \node[font=\scriptsize] at (.55,.05) {$a$};
+  \node[font=\scriptsize] at (.15,-.55) {$c$};
+\end{tikzpicture}
+\end{center}}
+
+\newcommand{\MoveDiamond}[1]{%
+\begin{tikzpicture}[scale=#1,line cap=round]
+ \draw (0,1)--(1,0)--(0,-1)--(-1,0)--cycle;
+ \draw (-1,0)--(1,0); \draw (0,-1)--(0,1);
+ \fill (0,.45) circle (.04); \fill (0,-.45) circle (.04);
+ \fill (.45,0) circle (.04); \fill (-.45,0) circle (.04);
+\end{tikzpicture}}
+\newcommand{\MoveDiamondAlt}[1]{%
+\begin{tikzpicture}[scale=#1,line cap=round]
+ \draw (0,1)--(1,0)--(0,-1)--(-1,0)--cycle;
+ \draw (-1,0)--(1,0); \draw (0,-1)--(0,1);
+ \draw (-.5,.5)--(.5,-.5);
+ \fill (0,.35) circle (.04); \fill (0,-.35) circle (.04);
+ \fill (.35,0) circle (.04); \fill (-.35,0) circle (.04);
+\end{tikzpicture}}
+\newcommand{\MoveHex}[1]{%
+\begin{tikzpicture}[scale=#1,line cap=round]
+ \coordinate (p0) at (0:1); \coordinate (p60) at (60:1); \coordinate (p120) at (120:1); \coordinate (p180) at (180:1); \coordinate (p240) at (240:1); \coordinate (p300) at (300:1);
+ \draw (p0)--(p60)--(p120)--(p180)--(p240)--(p300)--cycle;
+ \draw (p0)--(p180); \draw (p60)--(p240); \draw (p120)--(p300);
+ \fill (0,.45) circle (.04); \fill (0,-.45) circle (.04); \fill (.45,0) circle (.04); \fill (-.45,0) circle (.04);
+\end{tikzpicture}}
+\newcommand{\MoveHexAlt}[1]{%
+\begin{tikzpicture}[scale=#1,line cap=round]
+ \coordinate (p0) at (0:1); \coordinate (p60) at (60:1); \coordinate (p120) at (120:1); \coordinate (p180) at (180:1); \coordinate (p240) at (240:1); \coordinate (p300) at (300:1);
+ \draw (p0)--(p60)--(p120)--(p180)--(p240)--(p300)--cycle;
+ \draw (p0)--(p180); \draw (p60)--(p240); \draw (p120)--(p300);
+ \draw (p0)--(p120); \draw (p180)--(p300);
+ \fill (0,.45) circle (.04); \fill (0,-.45) circle (.04); \fill (.45,0) circle (.04); \fill (-.45,0) circle (.04);
+\end{tikzpicture}}
+\newcommand{\MoveFigures}{%
+\begin{center}
+\begin{tabular}{ccccc}
+from & \MoveDiamond{.45} & to & \MoveDiamondAlt{.45} & or \\
+from & \MoveHex{.45} & to & \MoveHexAlt{.45} &
+\end{tabular}
+\end{center}}
+\newcommand{\HomotopyFigures}{%
+\begin{center}
+\begin{tikzpicture}[scale=.55,line cap=round]
+ \draw (-1.5,-1.5) rectangle (1.5,1.5);
+ \draw (-1.5,-.5)--(1.5,-.5); \draw (-1.5,.5)--(1.5,.5); \draw (-.5,-1.5)--(-.5,1.5); \draw (.5,-1.5)--(.5,1.5);
+ \draw[very thick] (0,-1.7)--(0,1.7); \draw[pattern=north east lines,opacity=.7] (-1.5,-1.5) rectangle (1.5,1.5);
+\end{tikzpicture}\qquad or\qquad
+\begin{tikzpicture}[scale=.55,line cap=round]
+ \draw (-1.7,-.2)--(1.7,.2); \draw (-1.7,.2)--(1.7,-.2); \draw (0,-1.7)--(0,1.7);
+ \draw (-1.5,-1.5) rectangle (1.5,1.5);
+ \draw[pattern=north east lines,opacity=.7] (-1.2,-1.2)--(1.3,-.9)--(1.2,1.2)--(-1.1,1.1)--cycle;
+\end{tikzpicture}
+\end{center}}
+
+\title{Action du groupe des tresses sur une catégorie\\\large Texte français de travail, retapé en \TeX}
+\author{P. Deligne}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Nous décrivons comment définir par générateurs et relations une action du groupe des tresses sur une catégorie. Plus généralement, comment définir un foncteur d'un monoïde de tresses positives généralisé, correspondant à un groupe de Coxeter fini, vers une catégorie monoïdale. Des applications aux constructions de Bondal (systèmes exceptionnels) et de Broué--Michel (correspondances sur des variétés de drapeaux) sont données.
+\end{abstract}
+
+\tableofcontents
+
+\section*{0. Introduction}\addcontentsline{toc}{section}{0. Introduction}
+Une action d'un monoïde $M$ (n'ayant pas nécessairement d'unité) sur une catégorie $C$ est la donnée de foncteurs $T(f)$ ($f\in M$) et d'isomorphismes de foncteurs
+\[
+ c_{f,g}:T(f)\circ T(g)\longrightarrow T(fg)
+\]
+rendant commutatifs les diagrammes
+\begin{equation}
+\begin{tikzcd}
+T(f)\circ T(g)\circ T(h) \arrow[r] \arrow[d] & T(fg)\circ T(h) \arrow[d]\\
+T(f)\circ T(gh) \arrow[r] & T(fgh)
+\end{tikzcd}\tag{0.1}
+\end{equation}
+
+Les actions d'un monoïde $M$ sur une catégorie $C$ forment une catégorie: un morphisme $(T,c)\to(T',c')$ est la donnée de morphismes de foncteurs $T(f)\to T'(f)$ rendant commutatifs les diagrammes
+\[
+\begin{tikzcd}
+T(f)T(g) \arrow[r,"c_{f,g}"] \arrow[d] & T(fg) \arrow[d]\\
+T'(f)T'(g) \arrow[r,"c'_{f,g}"] & T'(fg).
+\end{tikzcd}
+\]
+
+Supposons $M$ donné par générateurs et relations: $M=\langle G\mid R\rangle$. Si à chaque générateur $g\in G$ on fait correspondre $T(g):C\to C$, et si chaque relation $r_1=r_2$ dans $R$ donne lieu à une égalité de foncteurs composés, on obtient par composition des $T(g)$ ($g\in G$) une action de $M$ sur $C$ pour laquelle les $c_{f,g}$ sont des isomorphismes identiques. Cette construction est sans intérêt. La question utile est la suivante. Considérons la catégorie des systèmes du type suivant: (a) des $T(g):C\to C$ ($g\in G$); (b) des isomorphismes entre foncteurs composés pour $r_1=r_2$ dans $R$; (c) vérifiant des compatibilités à la (0.1), à spécifier. Comment spécifier (c) pour que le foncteur de restriction de la catégorie des actions de $M$ sur $C$ dans celle des systèmes (a),(b) vérifiant (c) soit une équivalence de catégories? En d'autres termes: pour qu'il revienne au même de se donner une action de $M$ sur $C$ ou de se donner un système (a),(b) vérifiant (c).
+
+Dans cet article, nous traitons du cas où $M$ est le monoïde des tresses strictement positives $B_n^+$ (1.2). Nous utilisons un système de générateurs indexé par les éléments non triviaux du groupe symétrique $S_n$. Pour $b\in B_n^+$, soit $E(b)$ l'ensemble des décompositions de $b$ comme produit de générateurs. Cet ensemble admet un ordre naturel et notre outil principal est le théorème que la réalisation géométrique de l'ensemble ordonné $E(b)$ est contractile. On peut penser à ce théorème comme à un résultat d'unicité, à homotopie près, de la décomposition de $b$ en produit de générateurs. Pour prouver la contractibilité de $E(b)$, nos méthodes sont celles de Deligne (1972) et donc, indirectement, de Garside (1969).
+
+Nos méthodes s'appliquent aussi bien au cas de monoïdes de tresses strictement positives généralisés (1.4), correspondant aux groupes de Coxeter finis. Par ailleurs, $f\mapsto T(f)$ peut être pris à valeurs dans une quelconque catégorie monoïdale $\calM$, plutôt qu'à valeurs dans $\Hom(C,C)$.
+
+Dans la fin de cette introduction, nous donnons les deux applications qui nous ont motivés. Le lecteur peut préférer les lire après le paragraphe 2.
+
+\paragraph{Application 1.} Soient $T$ une catégorie triangulée et $W$ une filtration
+\[
+ W_1\subset\cdots\subset W_N=T
+\]
+de $T$ par des sous-catégories triangulées, avec $W_n$ épaisse (Verdier (1963), p. 13) dans $W_{n+1}$ ($1\leq n<N$). On pose $W_0:=0$.
+
+Disons avec Bondal--Kapranov (1989), 4.1, que la filtration $W$ est admissible à droite si les conditions équivalentes suivantes sont vérifiées pour $1\leq n<N$: (i) l'inclusion de $W_n$ dans $W_{n+1}$ admet un adjoint à droite; (ii) le foncteur de passage au quotient $W_{n+1}\to W_{n+1}/W_n$ admet un adjoint à droite; (iii) tout objet $Y$ de $W_{n+1}$ figure dans un triangle distingué $(X,Y,Z)$ avec $X$ dans $W_n$ et $Z$ dans l'orthogonal à droite de $W_n$ dans $W_{n+1}$. Pour l'équivalence de ces conditions, voir Bondal--Kapranov (1989), paragraphe 1, ou Verdier (1963), Ch. 1, paragraphe 2, no. 6. La filtration $W$ est admissible à gauche si elle est admissible à droite dans la catégorie triangulée opposée: remplacer dans (i),(ii) ci-dessus «adjoint à droite» par «adjoint à gauche». Elle est admissible si elle l'est à gauche et à droite.
+
+Notons $\Gr^W_n(T)$ la catégorie quotient $W_n/W_{n-1}$ ($1\leq n\leq N$). Pour $W$ admissible à droite, notons
+\[
+\begin{array}{ll}
+ i_{n*}:W_n\to T & \text{le foncteur d'inclusion},\\
+ i_n^!:T\to W_n & \text{son adjoint à droite},\\
+ j_{n*}:\Gr^W_n(T)\to T & \text{le composé de }i_{n*}\text{ et de l'adjoint à droite}\\
+ & \text{du foncteur de passage au quotient }W_n\to W_n/W_{n-1}=\Gr^W_n(T),\\
+ j_n^!:T\to\Gr^W_n(T) & \text{le composé du foncteur de passage au quotient et de }i_n^!.
+\end{array}
+\]
+Comme expliqué dans Bondal--Kapranov (1989), 4.3, la donnée d'une filtration admissible à droite $W$ équivaut à celle d'une suite $(B_i)_{1\leq i\leq N}$ de sous-catégories triangulées strictement pleines de $T$ engendrant $T$, avec $B_j$ orthogonale à droite à $B_i$ pour $i<j$: $\Hom(X,Y)=0$ pour $X$ dans $B_i$ et $Y$ dans $B_j$. Passage de $W$ à $(B_i)$: $B_n$ est l'image essentielle de $\Gr^W_n(T)$ par le foncteur $j_{n!}$; de $(B_i)$ à $W$: $W_n$ est la sous-catégorie triangulée de $T$ engendrée par les $B_i$ ($i\leq n$), i.e. la plus petite sous-catégorie triangulée strictement pleine de $T$ contenant ces $B_i$.
+
+Pour $\sigma$ une permutation de $\{1,\ldots,N\}$, la mutation à droite $\sigma_dW$ ou simplement $\sigma W$ de $W$ est définie par
+\[
+ (\sigma W)_n:=\text{sous-catégorie triangulée engendrée par les }B_i\text{ tels que }\sigma i\leq n.
+\]
+C'est la catégorie des objets $K$ de $T$ avec $j_i^!K=0$ pour $\sigma i>n$. Les équivalences
+\begin{equation}
+ \Gr^W_n T \xleftarrow{\sim} B_n \xrightarrow{\sim} \Gr^{\sigma W}_{\sigma n}T
+\tag{0.2}
+\end{equation}
+fournissent une équivalence de $\Gr^W_nT$ avec $\Gr^{\sigma W}_{\sigma n}T$.
+
+Pour $W$ admissible à gauche, la mutation à gauche $\sigma_sW$ est la mutation à droite dans la catégorie opposée. Si $W$ est admissible, la mutation à droite $\sigma_dW$ est encore admissible à gauche, et $(\sigma^{-1})_s\sigma_dW=W$.
+
+Une filtration $W$ est $\infty$-admissible si elle est admissible, ainsi que ses mutations à gauche ou à droite itérées. Le lecteur trouvera dans Bondal--Kapranov (1989), paragraphes 3,4, des critères commodes pour vérifier la $\infty$-admissibilité d'une filtration.
+
+L'exemple suivant explique les notations choisies.
+
+\paragraph{Exemple 1.} Soient $X$ un espace topologique et $F_1\subset\cdots\subset F_N=X$ une filtration de $X$ par des sous-espaces fermés. Posons $F_0:=\varnothing$ et $S_n:=F_n-F_{n-1}$ ($n\in I:=\{1,\ldots,N\}$). La filtration $W$ de $T:=D^+(X)$ par les sous-catégories épaisses $D^+(F_n)$ est admissible. Les foncteurs $i_{n*}$ et $i_n^!$ (resp. $j_{n*}$ et $j_n^!$) s'identifient à ceux de même nom relatifs à l'inclusion $i_n$ de $F_n$ dans $X$ (resp. $j_n$ de $S_n$ dans $X$).
+
+Factorisons l'inclusion $j_n$ de $S_n$ dans $X$ en les morphismes d'inclusion
+\[
+ g_{n,i}:F_n-F_i\longrightarrow F_n-F_{i-1}\qquad(n\geq i>0)
+\]
+et $i_n$. Soit $\sigma$ une permutation de $\{1,\ldots,N\}$ et soit $\sigma W$ la mutation à droite correspondante de $W$. La sous-catégorie $(\sigma W)_n$ de $D^+(X)$ est celle des objets $K$ tels que $j_i^!K=0$ pour $\sigma i>n$. La filtration $\sigma W$ est admissible à gauche, l'orthogonal à droite de $(\sigma W)_{\sigma n-1}$ dans $(\sigma W)_{\sigma n}$ étant l'image essentielle de $D^+(S_n)$ par le foncteur composé des $g_{n,i!}$ (pour $\sigma i<\sigma n$) ou des $g_{n,i*}$ (pour $\sigma i>\sigma n$) et de $i_{n*}=i_{n!}$. Le foncteur composé induit l'équivalence déjà considérée de $D^+(S_n)=\Gr^W_n(T)$ avec $\Gr^{\sigma W}_{\sigma n}(T)$.
+
+Soient $T$ une catégorie triangulée et $(T_i)_{i\in I}$ une famille à $N$ éléments de catégories triangulées. Considérons les systèmes exceptionnels $E$ du type (a),(b),(c) suivant: (a) un ordre total sur $I$, identifié à une bijection $\tau$ de $I$ dans $\{1,\ldots,N\}$; (b) une filtration $\infty$-admissible $W:W_1\subset\cdots\subset W_N=T$ de $T$; (c) des équivalences de catégories triangulées $\varphi_i:\Gr^W_{\tau(i)}(T)\to T_i$ ($i\in I$).
+
+Les systèmes exceptionnels forment une catégorie: il n'y a de morphisme de $E$ dans $E'$ que si les ordres correspondants coïncident, et dans ce cas un morphisme est un système d'isomorphismes de foncteurs $\varphi_i\to\varphi'_i$.
+
+Soit $\sigma$ une permutation de $\{1,\ldots,N\}$. La mutation à droite $\sigma E$ de $E=(\tau,W,(\varphi_i))$ est le système exceptionnel défini par $\sigma\circ\tau$, $\sigma W$, et les équivalences
+\[
+ \Gr^{\sigma W}_{\sigma\tau(i)}(T)\xleftarrow{(0.2)}\Gr^W_{\tau(i)}(T)\xrightarrow{\varphi_i}T_i.
+\]
+Cette construction $E\mapsto\sigma E$ est une autoéquivalence de la catégorie des systèmes exceptionnels, d'inverse donné par une mutation à gauche.
+
+Notons $\ell(\sigma)$ le nombre de paires $(i,j)$ telles que $i<j$ et $\sigma(j)<\sigma(i)$. Si $\ell(\sigma_1\sigma_2)=\ell(\sigma_1)+\ell(\sigma_2)$, on vérifie que $\sigma_1\sigma_2E$ est canoniquement isomorphe à $\sigma_1(\sigma_2E)$, avec une compatibilité pour un composé triple $\sigma_1\sigma_2\sigma_3$ si les longueurs s'ajoutent. Appliquant 1.5 et 1.10, on obtient une action du groupe des tresses sur la catégorie des systèmes exceptionnels.
+
+Ceci précise Bondal--Kapranov (1989), 4.10, qui définit l'action par mutations du groupe des tresses sur l'ensemble des filtrations $\infty$-admissibles et prouve l'équivalence de $\Gr^W_n(T)$ avec $\Gr^{bW}_{\bar b n}(T)$ (pour $b\mapsto\bar b$ la projection du groupe des tresses sur le groupe symétrique). Nous obtenons une équivalence $[b]:\Gr^W_n(T)\to\Gr^{bW}_{\bar b n}(T)$ bien définie à isomorphisme unique près, un isomorphisme $[b_1b_2]\xrightarrow{\sim}[b_1]\circ[b_2]$, et une compatibilité pour un composé triple.
+
+\paragraph{Variante.} Supposons la catégorie triangulée $T$ $k$-linéaire, pour $k$ un corps commutatif, et que les $k$-espaces vectoriels $\Hom^*(X,Y):=\bigoplus_n\Hom(X,Y[n])$ soient de dimension finie. Si chacune des catégories $T_i$ est la catégorie dérivée bornée de la catégorie des espaces vectoriels de dimension finie sur $k$, i.e. si $T_i$ est la catégorie des espaces vectoriels gradués de dimension finie, la notion de système exceptionnel se réduit à celle de suite exceptionnelle: une suite $X_1,\ldots,X_N$ d'objets de $T$ avec $\Hom^*(X_i,X_j)=0$ pour $i<j$ et $\Hom^*(X_i,X_i)=k$, qui engendrent $T$. Plus précisément, il faudrait considérer une famille finie $(X_i)_{i\in I}$, un ordre total $\leq$ sur $I$, et exiger que les $X_i$ engendrent $T$, que $\Hom^*(X_i,X_j)=0$ pour $i<j$ et que $\Hom^*(X_i,X_i)=k$. Le système exceptionnel correspondant est défini par l'ordre $\leq$, identifié à une bijection $\tau$ comme en (a), et par la filtration $W$, où $W_n$ est engendré par les $X_i$ pour $\tau(i)\leq n$. L'équivalence $\varphi_i$ est caractérisée comme envoyant $X_i$ sur $k$ en degré $0$. D'après Bondal--Kapranov (1989), 3.2 et 4.11, la filtration $W$ est automatiquement $\infty$-admissible.
+
+L'action du groupe des tresses sur la catégorie des systèmes exceptionnels en fournit une sur celle des suites exceptionnelles.
+
+\paragraph{Application 2.} Soient $G$ un groupe réductif déployé sur un corps $k$ et $\calB$ la variété de ses sous-groupes de Borel. Soit $\calM$ la catégorie des schémas sur $\calB\times\calB$, vus comme correspondances de $\calB$ vers $\calB$. La composition des correspondances fait de $\calM$ une catégorie monoïdale. Soit $W$ le groupe de Weyl, identifié à l'ensemble des positions relatives de sous-groupes de Borel, i.e. aux orbites de $G(k)$ sur $\calB(k)\times\calB(k)$. Pour $w\in W$, on note $X(w)$ la variété des paires $(B',B'')$ de sous-groupes de Borel en position relative $w$. Dans cette description de $W$, pour $e\in W$ l'élément neutre, l'orbite $X(e)$ est la diagonale. Les générateurs distingués $s_i$ correspondent aux orbites $X$ d'adhérence $X$ union la diagonale et la loi de groupe est caractérisée par
+\begin{equation}
+ X(w)=X(w')\circ X(w'')
+\quad\text{si }w=w'w''\text{ et que }\ell(w)=\ell(w')+\ell(w'').
+\tag{0.3}
+\end{equation}
+Les générateurs distingués de $W$ en font un groupe de Coxeter fini. Soit $B^+$ le monoïde des tresses positives généralisé correspondant. Broué et Michel (1995) déduisent de (0.3) qu'on peut étendre $w\mapsto X(w)$ en une construction qui à $b\in B^+$ attache une classe d'isomorphie de schémas $X(b)$ sur $\calB\times\calB$, avec $X(b)\simeq X(b')\circ X(b'')$ pour $b=b'b''$. Nos résultats montrent que $X(b)$ est en fait défini à isomorphisme unique près.
+
+\section{Actions}
+\paragraph{1.1.} Comme expliqué dans l'introduction, les actions d'un monoïde $M$ sur une catégorie $C$ forment une catégorie. Dire qu'il «revient au même» de se donner une action de $M$ sur $C$ ou de donner quelque chose d'autre signifie la construction d'une équivalence de la catégorie des actions avec celle des choses en question.
+
+\paragraph{1.2.} Le monoïde (sans unité) $B_n^+$ des tresses strictement positives à $n$ brins ($n\geq2$) est le monoïde engendré par des générateurs $s_i$ ($1\leq i\leq n-1$) soumis aux relations
+\begin{align}
+ s_i s_{i+1}s_i&=s_{i+1}s_i s_{i+1},\tag{1.2.1}\\
+ s_i s_j&=s_j s_i\qquad\text{pour }j\geq i+2.
+\end{align}
+On sait qu'il s'injecte dans le groupe de tresses $B_n$, défini par les mêmes générateurs et relations.
+
+\paragraph{1.3.} Pour définir une action de $B_n^+$ sur un ensemble $E$, il suffit de donner des applications $T(s_i):E\to E$ vérifiant (1.2.1).
+
+Pour définir une action de $B_n^+$ sur une catégorie $C$, il ne suffit pas de donner des foncteurs $T(s_i):C\to C$ et des isomorphismes de foncteurs
+\begin{align}
+ T(s_i)T(s_{i+1})T(s_i)&\xrightarrow{\sim}T(s_{i+1})T(s_i)T(s_{i+1}),\tag{1.3.1}\\
+ T(s_i)T(s_j)&\xrightarrow{\sim}T(s_j)T(s_i)\qquad\text{pour }j\geq i+2.
+\end{align}
+Dans le cas de $B_4^+$, il faut de plus que la condition suivante soit vérifiée. Écrivons $a,b,c$ pour $T(s_1),T(s_2),T(s_3)$. Dans le cycle de douze foncteurs suivant, chacun est relié au suivant par des isomorphismes (1.3.1) ou leurs inverses, appliqués aux composés indiqués dans la notation originale:
+\begin{equation}
+\begin{array}{llll}
+ acbcab & abcbab & abcaba & abacba\\
+ babcba & bacbca & bcabac & bcbabc\\
+ cbcabc & cbacbc & cbabcb & cabacb.
+\end{array}\tag{1.3.2}
+\end{equation}
+Le composé de ces isomorphismes doit être l'identité.
+
+Voici le sens géométrique de (1.3.2). On considère la sphère $S^2$, découpée en triangles sphériques (chambres) par les hyperplans radiciels du système de racines $A_3$. Un tétraèdre régulier inscrit fournit une décomposition de $S^2$ en quatre triangles sphériques; ce qu'on considère est sa subdivision barycentrique. Appelons un des triangles la chambre fondamentale, et attachons à chaque arête un label $a$, $b$ ou $c$, de façon invariante par le groupe de Weyl, les arêtes d'un triangle ayant des labels distincts et $b$ étant opposé à l'angle droit. En projection stéréographique, envoyant un sommet à l'infini:
+\RootSphereFigure
+En hachuré: la chambre fondamentale $C_0$, et son opposée $\overline C_0$. Chaque mot (1.3.2) correspond à une suite $G$ de chambres mitoyennes (galerie) allant de la chambre fondamentale $C_0$ à la chambre opposée $-C_0$ et traversant une et une seule fois chacun des hyperplans radiciels (sur le dessin: les deux droites et les quatre circonférences). Le mot donne la suite des labels des arêtes traversées. Le cycle de mots (1.3.2) donne un cycle de galeries. On passe d'une galerie $G$ à la suivante par une modification de l'un des types suivant, ou deux modifications disjointes du premier type:
+\MoveFigures
+Attachons à $G$ le chemin du centre de $C_0$ à celui de $\overline C_0$ suite des géodésiques allant du centre d'un triangle au centre du triangle suivant. Quand on passe d'une galerie à la suivante, on dispose d'une homotopie entre les chemins correspondants:
+\HomotopyFigures
+Pour la suite de galeries (1.3.2), ces homotopies successives balaient $S^2$, donnant lieu au générateur de $\pi_1\Omega S^2=\pi_2S^2$.
+
+Le théorème 1.5 ci-dessous permet de vérifier que la condition de compatibilité (1.3.2) est suffisante. Plus précisément, on dispose d'un foncteur de restriction, de la catégorie des actions de $B_4^+$ sur $C$ vers celle des triples de foncteurs $T(s_1),T(s_2),T(s_3)$ munis d'isomorphismes (1.3.1) vérifiant (1.3.2): à $T$ attacher les $T(s_i)$ et les isomorphismes
+\[
+\begin{aligned}
+ T(s_i)T(s_{i+1})T(s_i)&\xrightarrow{\sim}T(s_is_{i+1}s_i)=T(s_{i+1}s_is_{i+1})\xleftarrow{\sim}T(s_{i+1})T(s_i)T(s_{i+1}),\\
+ T(s_i)T(s_j)&\xrightarrow{\sim}T(s_is_j)=T(s_js_i)\xleftarrow{\sim}T(s_j)T(s_i).
+\end{aligned}
+\]
+Ce foncteur de restriction est une équivalence de catégories.
+
+\paragraph{1.4.} Une description plus commode s'obtient en remplaçant (1.2.1) par un système redondant de générateurs et relations. Considérons le cas plus général du monoïde des tresses strictement positives généralisé $B^+$ correspondant à un groupe de Coxeter fini $W$ d'ensemble générateur distingué $R$. Les tresses usuelles correspondent à $W=S_n$, $R$ étant l'ensemble des transpositions $(i,i+1)$. On note $\ell$ la fonction longueur $W\to\N$ définie par le système générateur $R$.
+
+Notons $\prodword(m,a,b)$ un produit de $m$ facteurs alternés $abab\cdots$. Le groupe $W$ est engendré par les $i\in R$, soumis à des relations
+\begin{align}
+ \prodword(m_{ij},i,j)&=\prodword(m_{ij},j,i) &&(i,j\in R,\ i\ne j),\tag{1.4.1}\\
+ i^2&=e &&(i\in R).\tag{1.4.2}
+\end{align}
+Le monoïde $B^+$ correspondant est engendré par des générateurs $\widetilde{i}$ ($i\in R$) soumis aux seules relations (1.4.1). Il s'injecte dans le groupe de tresses généralisé $B$ défini par les mêmes générateurs et relations (1.4.1) (Deligne (1972), 4.14(ii)). La projection $\widetilde{i}\mapsto i$ de $B^+$ sur $W$ admet, sur le complément de l'élément neutre $e$, une section ensembliste canonique $\tau$, caractérisée par
+\begin{align}
+ \tau(i)&=\widetilde{i} &&(i\in R),\tag{1.4.3}\\
+ \tau(w'w'')&=\tau(w')\tau(w'') &&\text{si }\ell(w'w'')=\ell(w')+\ell(w'').\tag{1.4.4}
+\end{align}
+(Bourbaki, Lie IV, 1.5, proposition 5). Cette section fournit une nouvelle présentation de $B^+$:
+\begin{equation}
+ \text{générateurs: }\tau(w)\quad(w\in W,\ w\ne e),\tag{1.4.5}
+\end{equation}
+relations: (1.4.4). Noter que (1.4.5), i.e. (1.4.4), permet d'écrire chaque $\tau(w)$ comme produit de $\tau(i)$ ($i\in R$) et implique (1.4.1) pour les $\tau(i)$: les deux membres de (1.4.1) sont des décompositions minimales du même élément de $W$.
+
+Notre résultat principal est le suivant.
+
+\begin{theorem}[1.5]
+Il revient au même (1.1) de se donner une action de $B^+$ sur $C$, ou de se donner:
+\begin{enumerate}[label=(1.5.\arabic*)]
+\item pour $w\in W$, $w\ne e$, un foncteur $T(w):C\to C$;
+\item pour $w',w''$ vérifiant $\ell(w'w'')=\ell(w')+\ell(w'')$, un isomorphisme de foncteurs
+\[
+ (1.5.2)_{w',w''}:T(w')T(w'')\longrightarrow T(w'w'');
+\]
+\item ces isomorphismes vérifiant, pour $\ell(w'w''w''')=\ell(w')+\ell(w'')+\ell(w''')$, la commutativité du diagramme
+\[
+\begin{tikzcd}
+ T(w')T(w'')T(w''') \arrow[r] \arrow[d] & T(w'w'')T(w''') \arrow[d]\\
+ T(w')T(w''w''') \arrow[r] & T(w'w''w''').
+\end{tikzcd}
+\tag{1.5.3}
+\]
+\end{enumerate}
+\end{theorem}
+Dans cet énoncé, «il revient au même» présuppose que les données (1.5.1),(1.5.2) vérifiant (1.5.3) forment une catégorie. Un morphisme $T_1\to T_2$ est la donnée de morphismes de foncteurs $T_1(w)\to T_2(w)$ ($w\in W-\{e\}$) rendant commutatifs les diagrammes
+\[
+\begin{tikzcd}
+T_1(w')T_1(w'') \arrow[r] \arrow[d] & T_1(w'w'') \arrow[d]\\
+T_2(w')T_2(w'') \arrow[r] & T_2(w'w'')
+\end{tikzcd}
+\]
+pour $w',w''$ comme en (1.5.2). Nous nous contenterons de construire le foncteur quasi-inverse au foncteur de restriction, et laisserons au lecteur le soin de vérifier que c'est bien un quasi-inverse. La partie difficile de la preuve est le théorème de contractibilité 1.7 qui sera prouvé au paragraphe 2.
+
+Soient donc des données (1.5.1),(1.5.2) vérifiant (1.5.3) et construisons une action de $B^+$ sur $C$ qui prolonge (1.5.1),(1.5.2).
+
+Considérons l'ensemble $E(b)$ des façons d'écrire $b\in B^+$ comme produit de $\tau(w)$. Plus précisément, soit $L(W-\{e\})$ le monoïde libre engendré par les $w\in W-\{e\}$. Il s'envoie dans $B^+$ par $w\mapsto\tau(w)$ et $E(b)\subset L(W-\{e\})$ est l'image inverse de $b$. Une donnée (1.5.1) fournit pour chaque $A\in L(W-\{e\})$ un foncteur composé $T(A)$ qui prolonge (1.5.1) et tel que $T(AB)=T(A)T(B)$.
+
+Si $A_1$ et $A_2$ sont des types
+\begin{equation}
+ B:w':w'':C\qquad\text{et}\qquad B:(w'w''):C
+\tag{1.5.4}
+\end{equation}
+avec $\ell(w'w'')=\ell(w')+\ell(w'')$, une donnée (1.5.2) fournit un isomorphisme
+\begin{equation}
+ T(B):(1.5.2)_{w',w''}:T(C):T(A_1)\longrightarrow T(A_2).
+\tag{1.5.5}
+\end{equation}
+Le point essentiel est de vérifier le lemme suivant.
+
+\begin{lemma}[1.6]
+Les isomorphismes (1.5.5) engendrent un système transitif d'isomorphismes entre les $T(A)$, $A\in E(b)$.
+\end{lemma}
+
+\paragraph{Preuve de $1.6\Rightarrow1.5$.} On définit $T(b)$ comme étant la valeur commune des $T(A)$, $A\in E(b)$. Plus précisément, la limite projective du système des $T(A)$: on dispose d'isomorphismes $T(b)\xrightarrow{\sim}T(A)$ ($A\in E(b)$) rendant commutatifs les diagrammes
+\[
+\begin{tikzcd}[row sep=small,column sep=large]
+& T(A_1) \arrow[dd,"(1.5.5)"]\\
+T(b) \arrow[ur] \arrow[dr] & \\
+& T(A_2)
+\end{tikzcd}
+\]
+Pour $b,c\in B^+$, $B\in E(b)$ et $C\in E(c)$, le mot composé $BC$ est dans $E(bc)$. De plus, si $u:T(B_1)\to T(B_2)$ est un isomorphisme (1.5.5), $u\cdot T(C)$ est un isomorphisme (1.5.5) pour $bc$. De même en permutant les rôles de $B$ et $C$. Ceci permet de définir l'isomorphisme $T(b)T(c)\to T(bc)$ comme étant celui qui rend commutatifs les diagrammes
+\[
+\begin{tikzcd}
+T(b)T(c) \arrow[r] \arrow[d] & T(bc) \arrow[d]\\
+T(B)T(C) \arrow[r] & T(BC).
+\end{tikzcd}
+\]
+Cette construction, fonctorielle en les données (1.5.1),(1.5.2) vérifiant (1.5.3), est le quasi-inverse cherché au foncteur de restriction.
+
+\paragraph{Preuve de 1.6.} Soit $\leq$ la relation d'ordre sur $E(b)$ engendrée par «$A_1\leq A_2$ pour $A_1$ et $A_2$ comme en (1.5.4)». En d'autres termes, $A\leq B$ si $B$ est déduit de $A$ en factorisant $A$ en $A_1\cdots A_k$, chaque $A_i$ étant dans $L(W-\{e\})$ du type $w_{i,1}:\cdots:w_{i,m}$ avec $\ell(w_{i,1}\cdots w_{i,m})=\sum_j\ell(w_{i,j})$, et en remplaçant $A_i$ par le produit $w_{i,1}\cdots w_{i,m}$ dans $W$. Le théorème suivant sera prouvé en 2.3 et 2.4.
+
+\begin{theorem}[1.7]
+La réalisation géométrique $|E(b)|$ de l'ensemble ordonné $E(b)$ est contractile.
+\end{theorem}
+La réalisation géométrique de $E(b)$ est celle de la catégorie attachée de façon usuelle à $E(b)$: ensemble d'objets $E(b)$, $\Hom(x,y)$ réduit à un élément si $x\leq y$, vide sinon. Voir Quillen (1973), paragraphe 1, p. 89.
+
+Montrons que 1.6 résulte de ce que $|E(b)|$ est connexe et simplement connexe. La condition (1.5.3) assure que, pour $A\leq B$, les composés d'isomorphismes (1.5.5) fournissent un unique isomorphisme
+\[
+ \varphi_{B,A}:T(A)\longrightarrow T(B)
+\]
+avec $\varphi_{C,B}\varphi_{B,A}=\varphi_{C,A}$ pour $A\leq B\leq C$.
+
+D'après Quillen (1973), paragraphe 1, Proposition 1, p. 90, la catégorie des revêtements de $|E(b)|$ est équivalente à celle des foncteurs de la catégorie $E(b)$ dans celle $(\mathrm{Ens},\mathrm{is})$ des ensembles et de leurs bijections. Si $|E(b)|$ est connexe et simplement connexe, tout foncteur de $E(b)$ dans $(\mathrm{Ens},\mathrm{is})$ est donc isomorphe à un foncteur constant: étant donnés des ensembles $T(x)$ ($x\in E(b)$), un système de bijections $\varphi_{y,x}:T(x)\to T(y)$ pour $x\leq y$ vérifiant $\varphi_{z,y}\varphi_{y,x}=\varphi_{z,x}$ engendre un système transitif de bijections. On en déduit le même résultat pour $T$ à valeur dans une catégorie $\calX$ et les $\varphi_{x,y}$ des isomorphismes: considérer les $\Hom(A,T(x))$ pour $A$ dans $\calX$.
+
+\paragraph{1.8. Variante: unités.} Une action unitale d'un monoïde à unité $(M,e)$ sur une catégorie $C$ est une action $T$ de $M$ telle que $T(e)$ soit une autoéquivalence. Il existe alors un unique isomorphisme
+\begin{equation}
+ T(e)\xrightarrow{\sim}\Id
+\tag{1.8.1}
+\end{equation}
+tel que $c_{e,f}:T(e)T(f)\to T(f)$ et $c_{f,e}:T(f)T(e)\to T(f)$ soient induits par (1.8.1). Si $M^+$ est déduit d'un monoïde $M$ par adjonction d'une unité, il revient au même de se donner une action de $M$ ou une action unitale de $M^+$.
+
+Une action de groupe d'un groupe $G$ est une action unitale de $G$.
+
+\begin{proposition}[1.9]
+Soient $M$ un monoïde à unité vérifiant la condition de Ore à gauche ou à droite et $G$ son groupe de fractions. Il revient au même (1.1) de se donner une action de $G$ sur une catégorie $C$, ou une action unitale de $M$ sur $C$ par autoéquivalences.
+\end{proposition}
+\begin{proof}
+Pour fixer les idées, on supposera la condition de Ore vérifiée à gauche.
+
+Pour $f\in G$, soit $L_f$ la catégorie d'objets les couples $(x,y)\in M\times M$ tels que $f=x^{-1}y$, une flèche $a:(x,y)\to(x',y')$ étant $a$ dans $M$ tel que $x'=ax$ et $y'=ay$. La condition de Ore assure que $L_f$ est filtrante. Pour $a:(x,y)\to(x',y')$, on dispose d'un isomorphisme
+\[
+ \varphi_a:T(x)^{-1}T(y)=T(x)^{-1}T(a)^{-1}T(a)T(y)=T(x')^{-1}T(y')
+\]
+et $\varphi_{ba}=\varphi_b\varphi_a$. Les $\varphi_a$ étant des isomorphismes et $L_f$ étant filtrante, la limite inductive $T(f)$ des $T(x)^{-1}T(y)$ existe, et $T(x)^{-1}T(y)\xrightarrow{\sim}T(f)$.
+
+Pour $f,g\in G$, soit $L_{f,g}$ la catégorie des triples $(x,y,z)$ tels que $f=x^{-1}y$ et $g=y^{-1}z$; une flèche $a:(x,y,z)\to(x',y',z')$ étant $a$ dans $M$ tel que $x'=ax$, $y'=ay$ et $z'=az$. La condition de Ore assure encore que cette catégorie est filtrante et que les foncteurs $(x,y)$, $(y,z)$, $(x,z)$ de $L_{f,g}$ dans $L_f,L_g$ et $L_{fg}$ sont cofinaux. On définit $c_{f,g}:T(f)T(g)\to T(fg)$ comme étant la limite inductive des isomorphismes
+\[
+ T(x)^{-1}T(y)T(y)^{-1}T(z)\longrightarrow T(x)^{-1}T(z).
+\]
+Pour vérifier (0.1), on écrit $f,g,h$ sous la forme $x^{-1}y$, $y^{-1}z$ et $z^{-1}t$.
+\end{proof}
+
+\paragraph{1.10.} D'après Deligne (1972), le monoïde des tresses positives généralisé, déduit de $B^+$ (1.4) par adjonction d'un élément neutre, vérifie la condition de Ore à gauche et à droite. Par 1.8, 1.9 et 1.5, il revient au même de se donner une action sur une catégorie du groupe de tresses généralisé correspondant, ou de se donner (1.5.1),(1.5.2),(1.5.3) tels que les $T(w)$ soient des autoéquivalences.
+
+\paragraph{1.11. Variante.} Soit $\calM$ une catégorie monoïdale et considérons les catégories (A) et (B) suivantes.
+
+(A) La catégorie des systèmes formés par:
+\begin{enumerate}[label=(A.\arabic*)]
+\item $B^+\to\Ob\calM:b\mapsto T(b)$;
+\item des isomorphismes $T(b')T(b'')\xrightarrow{\sim}T(b'b'')$, vérifiant
+\item le carré
+\[
+\begin{tikzcd}
+T(b')T(b'')T(b''') \arrow[r] \arrow[d] & T(b'b'')T(b''') \arrow[d]\\
+T(b')T(b''b''') \arrow[r] & T(b'b''b''')
+\end{tikzcd}
+\]
+commutatif.
+\end{enumerate}
+
+(B) La catégorie des systèmes formés par:
+\begin{enumerate}[label=(B.\arabic*)]
+\item $W-\{e\}\to\Ob(\calM):w\mapsto T(w)$;
+\item des isomorphismes $T(w')T(w'')\xrightarrow{\sim}T(w'w'')$ pour $\ell(w'w'')=\ell(w')+\ell(w'')$, vérifiant
+\item le carré
+\[
+\begin{tikzcd}
+T(w')T(w'')T(w''') \arrow[r] \arrow[d] & T(w'w'')T(w''') \arrow[d]\\
+T(w')T(w''w''') \arrow[r] & T(w'w''w''')
+\end{tikzcd}
+\]
+commutatif pour $\ell(w'w''w''')=\ell(w')+\ell(w'')+\ell(w''')$.
+\end{enumerate}
+Le foncteur de restriction de la catégorie (A) à la catégorie (B) est une équivalence. La preuve est la même que celle de 1.5.
+
+La même conclusion vaut si $\calM$ est une catégorie de Picard (monoïdale à unité où tout objet est inversible), et que dans (A) on remplace $B^+$ par le groupe des tresses généralisé $B$. La preuve est la même qu'en 1.9, 1.10.
+
+\section{Contractibilité}
+\paragraph{2.1.} Soient $V$ un espace vectoriel réel de dimension finie et $\calM$ un ensemble fini d'hyperplans homogènes de $V$ (les murs). On suppose que les composantes connexes de $V-\bigcup_{M\in\calM}M$ (les chambres) sont des cônes simpliciaux ouverts. Nous utiliserons la terminologie (murs, chambres, faces, facettes) de Bourbaki (Lie V, paragraphe 1), et celle de Deligne (1972) rappelée ci-dessous.
+
+Deux chambres $A$ et $B$ sont dites mitoyennes si $A\ne B$ et que $A$ et $B$ ont une face en commun. Une galerie de longueur $n$ ($n\geq0$) de source $A$ et de but $B$ est une suite de chambres $C_i$ ($0\leq i\leq n$) avec $A=C_0$, $C_i$ mitoyenne de $C_{i+1}$ ($0\leq i<n$) et $C_n=B$. La composée $GG'$ de deux galeries $G=(C_0,\ldots,C_n)$ et $G'=(C'_0,\ldots,C'_m)$, définie si $C_n=C'_0$, est $(C_0,\ldots,C_n=C'_0,\ldots,C'_m)$. Pour $A$ et $B$ deux chambres, les galeries minimales de $A$ à $B$ sont celles de longueur minimale, i.e. de longueur le nombre $d(A,B)$ de murs séparant $A$ de $B$. Elles traversent une seule fois chaque mur séparant $A$ de $B$. L'équivalence entre galeries est la relation d'équivalence compatible à la composition la plus fine telle que les galeries minimales d'une chambre $A$ à une chambre $B$ soient équivalentes. Deux galeries équivalentes ont même longueur. Plus précisément, elles traversent le même nombre de fois chaque mur. Les galeries minimales de $A$ à $B$ forment une classe d'équivalence, notée $u(A,B)$, et si $d(A,B)+d(B,C)=d(A,C)$, on a $u(A,B)u(B,C)=u(A,C)$ pour la composition des classes d'équivalence de galeries.
+
+Soient $A,B,C$ trois chambres. Les conditions suivantes sont équivalentes (Deligne (1972), 1.4): (a) $d(A,B)+d(B,C)=d(A,C)$; (b) il existe une galerie minimale de $A$ à $C$ passant par $B$; (c) $B$ est dans l'intersection des demi-espaces bordés par un mur, contenant $A$ et $C$. On note $D(A,C)$ l'ensemble des chambres $B$ vérifiant ces conditions (chambres entre $A$ et $C$). Pour $A$ fixé, la relation «$B$ est entre $A$ et $C$», équivalente à $D(A,B)\subset D(A,C)$, est une relation d'ordre entre chambres.
+
+D'après le résultat technique central 1.9 de Deligne (1972), pour toute classe d'équivalence $g$ de galeries de source $A$, si $g$ commence par $u(A,C)$, i.e. s'il existe $g'$ tel que $g=u(A,C)g'$, la classe d'équivalence $g'$ est unique. De plus, il existe une chambre optimale $C$ telle que $g$ commence par $u(A,C)$: pour que $g$ commence par $u(A,B)$, il faut et il suffit que $B$ soit entre $A$ et $C$.
+
+\paragraph{2.2.} Soient $g$ une classe d'équivalence de galeries de $A$ à $B$, $\ell(g)$ leur longueur et $E(g)$ l'ensemble des façons d'écrire $g$ comme un composé de classes $u(C,D)$. Plus précisément, $E(g)$ est l'ensemble des suites de chambres $(C_i)$ ($0\leq i\leq n$) telles que $C_0=A$, $C_n=B$, $C_i\ne C_{i+1}$ pour tout $i$ ($0\leq i<n$) et que
+\begin{equation}
+ g=\text{composé des }u(C_i,C_{i+1}).
+\tag{2.2.1}
+\end{equation}
+La condition (2.2.1) implique que
+\begin{equation}
+ \sum d(C_i,C_{i+1})=\ell(g).
+\tag{2.2.2}
+\end{equation}
+Ordonnons $E(g)$: $(C_0,\ldots,C_n)\leq(D_0,\ldots,D_m)$ s'il existe une application strictement croissante $\varphi:\{0,\ldots,m\}\to\{0,\ldots,n\}$ telle que $\varphi(0)=0$, $\varphi(m)=n$, $D_j=C_{\varphi(j)}$ et
+\[
+ d(C_{\varphi(j)},C_{\varphi(j+1)})=
+ \sum_{\varphi(j)\leq i<\varphi(j+1)}d(C_i,C_{i+1}).
+\]
+L'application $\varphi$ est alors unique. Si $(C_0,\ldots,C_n)\leq(D_0,\ldots,D_m)$, on passe de la décomposition $g=\prod u(C_i,C_{i+1})$ à la décomposition $g=\prod u(D_j,D_{j+1})$ en remplaçant les $u(C_i,C_{i+1})$ ($\varphi(j)\leq i<\varphi(j+1)$) par leur composé $u(D_j,D_{j+1})$.
+
+\paragraph{2.3. Exemple.} Soit $W\subset GL(V)$ un groupe fini engendré par des réflexions. On suppose que le sous-espace $V^W$ des invariants est réduit à $0$. Prenons pour murs les miroirs, c'est-à-dire les hyperplans fixes, des réflexions dans $W$. On sait que les chambres de $V$ sont des cônes simpliciaux, permutés de façon simplement transitive par $W$ (Bourbaki, Lie V, 3.9, prop. 7 et 3.2, th. 1).
+
+Choisissons une chambre $C_0$ et appelons-la chambre fondamentale. Pour toute chambre $A$, soit $g(A)$ l'unique élément de $W$ qui envoie $C_0$ sur $A$. Pour $A$ et $B$ deux chambres, la position relative $w(A,B)$ de $A$ et $B$ est l'élément $w$ de $W$ tel que $g(A)$ envoie $(C_0,wC_0)$ sur $(A,B)$: on a $w(A,B)=g(A)^{-1}g(B)$ et $w(A,B)w(B,C)=w(A,C)$.
+
+Le groupe $W$, muni de l'ensemble $R$ des réflexions par rapport aux miroirs contenant les faces de $C_0$, est un groupe de Coxeter (Bourbaki, Lie V, 3.2, théorème 1).
+
+Soit $G=(A_0,\ldots,A_n)$ une galerie de longueur $n>0$. Pour $0\leq i<n$, soit $r(i)\in R$ la position relative de $A_i$ et $A_{i+1}$. Attachons à $G$ l'élément
+\begin{equation}
+ b(G)=\widetilde{r(0)}\cdots\widetilde{r(n-1)}
+\tag{2.3.1}
+\end{equation}
+de $B^+$ (1.4). L'image de $b(G)$ dans $W$ est la position relative de $A_0$ et $A_n$. Pour une galerie composée, on a
+\begin{equation}
+ b(G'G'')=b(G')b(G'').
+\tag{2.3.2}
+\end{equation}
+La définition (2.1) de l'équivalence des galeries mimique la présentation (1.4.5) de $B^+$, et on vérifie que l'application (2.3.1) induit une bijection, encore notée $b$:
+\begin{equation}
+\left\{
+\begin{array}{c}
+\text{classes d'équivalence de galeries de source fixe}\\
+\text{et de longueur positive}
+\end{array}
+\right\}\xrightarrow{\sim}B^+.
+\tag{2.3.3}
+\end{equation}
+De plus, l'application
+\[
+ E(g)\to E(b(g)):(C_0,\ldots,C_n)\mapsto w_0:\cdots:w_{n-1}
+\]
+avec $w_i$ la position relative de $C_i$ et $C_{i+1}$, est un isomorphisme d'ensembles ordonnés. Le théorème 1.7 est donc un cas particulier de l'énoncé suivant.
+
+\begin{theorem}[2.4]
+Avec les notations de 2.2, la réalisation géométrique $|E(g)|$ de l'ensemble ordonné $E(g)$ est contractile.
+\end{theorem}
+\begin{proof}
+On prouvera 2.4 par récurrence sur la longueur $\ell(g)$ de $g$. Si $\ell(g)=0$, $A=B$ et l'ensemble de suites $E(g)$ est réduit à la suite $(A)$. Si $\ell(g)=0$, $|E(g)|$ est donc contractile. Soit $\ell$ un entier $>0$, supposons 2.4 pour $\ell(g)<\ell$, et prouvons 2.4 pour $\ell(g)=\ell$.
+
+Soient $g$ une classe d'équivalence de galeries de longueur $\ell$ de $A$ à $B$, $C$ la chambre optimale (2.1) telle que $g$ commence par $u(A,C)$ et $S$ l'ensemble des murs de $A$ qui séparent $A$ de $C$. Puisque $\ell>0$, $A\ne C$ et $S$ est non vide.
+
+Pour $s\in S$, soit $E_s(g)\subset E(g)$ l'ensemble des suites $(C_i)$ dans $E(g)$ telles que le mur $s$ sépare $A$ de $C_1$. L'ensemble $E(g)$ est la réunion des $E_s(g)$. Chaque $E_s(g)$ est un segment final de $E(g)$. Si on le munit de l'ordre induit, on a donc pour les réalisations géométriques
+\begin{equation}
+ |E(g)|=\bigcup |E_s(g)|.
+\tag{2.4.1}
+\end{equation}
+Pour $T$ une partie non vide de $S$, soit $E_T(g)$ l'intersection des $E_t(g)$ pour $t\in T$, munie de l'ordre induit. On a
+\begin{equation}
+ |E_T(g)|=\bigcap |E_t(g)|.
+\tag{2.4.2}
+\end{equation}
+
+\begin{lemma}[2.5]
+Chaque $|E_T(g)|$ est contractile.
+\end{lemma}
+\begin{proof}
+Soit $F_T$ la facette de $A$ ouverte dans l'intersection $P_T$ des murs $t\in T$ et soit $A_T$ la chambre opposée à $A$ dans l'étoile de $F_T$. Dans la notation 1.6(ii) de Deligne (1972): $A_T:=A\cdot\Delta(P_T)$. La chambre $A_T$ est la plus petite (2.1) des chambres séparées de $A$ par les murs $t\in T$. En particulier, $A_T$ est entre $A$ et $C$. Notons $h$ l'unique classe d'équivalence de galeries de $A_T$ à $B$ telle que $g=u(A,A_T)h$. On a $\ell(h)<\ell(g)$.
+
+Soit $f:E(h)\to E_T(g)$ l'application croissante
+\begin{equation}
+ (C_0=A_T,\ldots,C_n)\mapsto(A,C_0,\ldots,C_n).
+\tag{2.5.1}
+\end{equation}
+Si $(C_i)$ est dans $E(g)$, $C_1$ est dans $D(A,C)$, et pour que $(C_i)$ soit dans $E_T(g)$, il faut et il suffit que $C_1$ soit dans $D(A_T,C)$. L'application $f$ induit donc un isomorphisme de $E(h)$ avec un segment initial de $E_T(g)$.
+
+Soit $f_*:E_T(g)\to E(h)$ l'application croissante
+\begin{equation}
+ (C_0=A,C_1,\ldots,C_n)\mapsto
+ \begin{cases}
+  (C_1,\ldots,C_n),& C_1=A_T,\\
+  (A_T,C_1,\ldots,C_n),& C_1\ne A_T.
+ \end{cases}
+\tag{2.5.2}
+\end{equation}
+Pour $x\in E(h)$ et $y\in E_T(g)$, on a
+\begin{equation}
+ f(x)\leq y\Longleftrightarrow x\leq f_*(y).
+\tag{2.5.3}
+\end{equation}
+Si on regarde $E(h)$ et $E_T(g)$ comme des catégories et $f,f_*$ comme des foncteurs (cf. 1.7), (2.5.3) signifie que $(f,f_*)$ est une paire de foncteurs adjoints. D'après Quillen (1973), paragraphe 1, corollaire 1 à la proposition 2, p. 92, l'application $|f|:|E(h)|\to |E_T(g)|$ est une équivalence d'homotopie et 2.5 résulte de l'hypothèse de récurrence.
+\end{proof}
+Les intersections non vides des $|E_s(g)|$ étant contractiles ((2.4.2) et 2.5), $|E(g)|$ a même type d'homotopie que le nerf de son recouvrement fermé fini par les $|E_s(g)|$. Les intersections étant toutes non vides, ce nerf est un simplexe et $|E(g)|$ est contractile.
+\end{proof}
+
+\paragraph{Remarque 2.6.} Soit $\calC$ une 2-catégorie dont les objets sont indexés par les chambres. De même que 1.7 nous a fourni 1.5, le théorème 2.4 fournit, avec la même démonstration, qu'il revient au même (1.1) de se donner (A) ou (B) comme suit:
+
+(A) (i) Pour $g$ une classe d'équivalence de galeries de longueur $>0$ de $A$ à $B$, une 1-flèche $T(g):X_A\to X_B$;
+
+(ii) pour $g=g'g''$, un isomorphisme $T(g'')T(g')\to T(g)$, ces isomorphismes rendant commutatifs les diagrammes
+\[
+\begin{tikzcd}
+T(g''')T(g'')T(g') \arrow[r] \arrow[d] & T(g''g''')T(g') \arrow[d]\\
+T(g''')T(g'g'') \arrow[r] & T(g'g''g''')
+\end{tikzcd}
+\]
+
+(B) (i) Pour $A$ et $B$ deux chambres distinctes, une 1-flèche $T_{B,A}:X_A\to X_B$;
+
+(ii) pour $A,B,C$ trois chambres distinctes, avec $C$ entre $A$ et $B$, un isomorphisme $T_{C,B}T_{B,A}\xrightarrow{\sim}T_{C,A}$, ces isomorphismes rendant commutatifs les diagrammes
+\[
+\begin{tikzcd}
+T_{D,C}T_{C,B}T_{B,A} \arrow[r] \arrow[d] & T_{D,B}T_{B,A} \arrow[d]\\
+T_{D,C}T_{C,A} \arrow[r] & T_{D,A}
+\end{tikzcd}
+\]
+lorsque ceux-ci sont définis, i.e. lorsque $d(A,D)=d(A,B)+d(B,C)+d(C,D)$.
+
+L'application 1 donnée dans l'introduction est plus commodément exprimée dans ce langage: l'ensemble des ordres totaux sur $I$ s'identifie à l'ensemble des chambres d'un système de racines de type $A_n$, pour $n=|I|-1$. Pour chaque ordre total $\leq$, correspondant à une chambre $C$, soit $X_C$ la catégorie des systèmes exceptionnels correspondants, et soit $\Hom(X_C,X_D)$ la catégorie des foncteurs de $X_C$ dans $X_D$. Ce que construit Bondal est une donnée (B).
+
+\begin{thebibliography}{9}
+\bibitem{BK} A. I. Bondal, M. M. Kapranov, \emph{Representable functors, Serre functors and mutations}, Math. USSR Izvestiya 63, 1183--1205 (1989) (en russe); traduction AMS: 35, 519--541 (1990).
+\bibitem{BM} M. Broué, J. Michel, \emph{Sur certains éléments réguliers des groupes de Weyl et les variétés de Deligne--Lusztig associées}, dans \emph{Finite reductive groups, related structures and representations} (proc. of Oct. 94 Luminy conference). Basel, Boston, Stuttgart: Birkhäuser, 1996.
+\bibitem{Deligne1972} P. Deligne, \emph{Les immeubles des groupes de tresses généralisés}, Invent. Math. 17, 273--302 (1972).
+\bibitem{Garside} F. A. Garside, \emph{The braid group and other groups}, Quart. J. Math. Oxford, 2e série 20, 235--254 (1969).
+\bibitem{Quillen} D. Quillen, \emph{Higher algebraic K-theory I}, Battelle Institute Conference 1972, pp. 85--142, Lecture Notes in Math. 341, Springer, 1973.
+\bibitem{Verdier} J. L. Verdier, \emph{Catégories dérivées (état 0) [texte de 1963]}, dans \emph{Cohomologie étale} (SGA $4\frac12$), Lecture Notes in Math. 569, Springer, 1977, pp. 262--311.
+\end{thebibliography}
+
+\end{document}

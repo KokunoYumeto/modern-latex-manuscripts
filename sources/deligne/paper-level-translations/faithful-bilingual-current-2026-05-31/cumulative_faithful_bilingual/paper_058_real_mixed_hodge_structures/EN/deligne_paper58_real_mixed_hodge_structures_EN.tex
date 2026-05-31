@@ -1,0 +1,255 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{construction}{Construction}[section]
+\newtheorem{remark}{Remark}[section]
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\HM}{\mathcal H}
+
+\begin{document}
+\begin{center}
+ {\Large\bfseries Real Mixed Hodge Structures}\\[0.7em]
+ {\large Pierre Deligne}\\[0.4em]
+ {\small English working translation; formulas, filtrations, and numbering retained.}
+\end{center}
+
+The real mixed Hodge structures of \S2 form a rigid abelian tensor category, and the functor ``underlying real vector space'' is a fiber functor.  The functor \(\Gr^W\) is another one.  We compute what the general theory of Tannakian categories gives in this particular case.
+
+\section{Three opposite filtrations}
+
+\subsection*{1.1}
+This paragraph is a variation on \S1.2 of P. Deligne, \emph{Théorie de Hodge II}, Publ. Math. IHES 40, pp. 5--58.  Let \(\mathcal A\) be an abelian category, and let \(A\) be an object of \(\mathcal A\) endowed with three opposite filtrations \(W,F,\overline F\).  Here ``filtration'' means finite filtration; \(W\) is increasing, and \(F\) and \(\overline F\) are decreasing.  The condition of opposition is
+\[
+   \Gr^W_n\Gr^p_F\Gr^q_{\overline F} A=0
+   \qquad\text{for } n\ne p+q .
+\]
+
+For a bigraded object \(B=\bigoplus B^{p,q}\), we write \(W,F_W,\overline F_W\) for the three opposite filtrations
+\[
+ W_nB=\bigoplus_{p+q\le n}B^{p,q},\qquad
+ F_W^iB=\bigoplus_{p\ge i}B^{p,q},\qquad
+ \overline F_W^{\,i}B=\bigoplus_{q\ge i}B^{p,q}.
+\]
+With this notation, saying that \(W,F,\overline F\) are opposite on \(A\) is equivalent to saying that, for each \(n\), \(\Gr^W_nA\) has a unique decomposition
+\[
+   \Gr^W_nA=\bigoplus_{p+q=n} A_W^{p,q}
+\]
+such that the filtrations induced by \(F\) and \(\overline F\) on \(\Gr^W_nA\) are given by
+\[
+ F^i\Gr^W_nA=\bigoplus_{p+q=n,\,p\ge i}A_W^{p,q},\qquad
+ \overline F^{\,i}\Gr^W_nA=\bigoplus_{p+q=n,\,q\ge i}A_W^{p,q}.
+\]
+
+Put
+\[
+ A_F^{p,q}:=W_{p+q}A\cap F^pA\cap
+ \left(\overline F^{\,q}A+\sum_{i>0}W_{p+q-i}A\cap \overline F^{\,q-i+1}A\right),
+\]
+and, interchanging the roles of \(F,\overline F\) and of \(p,q\),
+\[
+ A_{\overline F}^{p,q}:=W_{p+q}A\cap \overline F^{\,q}A\cap
+ \left(F^pA+\sum_{i>0}W_{p+q-i}A\cap F^{p-i+1}A\right).
+\]
+For \(p+q=n\), the projection from \(W_nA\) to \(\Gr^W_nA\) induces isomorphisms
+\[
+ A_F^{p,q}\simeq A_W^{p,q},\qquad
+ A_{\overline F}^{p,q}\simeq A_W^{p,q}.
+\]
+It follows that the \(A_F^{p,q}\), respectively the \(A_{\overline F}^{p,q}\), form a bigrading of \(A\).  The sums of the isomorphisms
+\[
+ A_F^{p,q}\xrightarrow{\sim}A_W^{p,q},\qquad
+ A_{\overline F}^{p,q}\xrightarrow{\sim}A_W^{p,q}
+\]
+are bifiltered isomorphisms
+\[
+ a_F:(A;W,F)\xrightarrow{\sim}(\Gr^WA;W,F_W),
+ \qquad
+ a_{\overline F}:(A;W,\overline F)\xrightarrow{\sim}(\Gr^WA;W,\overline F_W).
+\]
+
+\begin{lemma}
+The automorphism \(d=a_Fa_{\overline F}^{-1}\) of \(\Gr^WA\) satisfies
+\begin{equation}\tag{1.1.1}
+   (d-1)(A_W^{p,q})\subset
+   \bigoplus_{\substack{r<p\\ s<q}} A_W^{r,s}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Passing to the associated graded, the isomorphisms \(a_F\) and \(a_{\overline F}\) induce the identity on \(\Gr^WA\).  Thus \(\Gr^W(d)=1\).  For a subset \(I\subset \mathbb Z^2\) and a bigraded object \(B\), write \(B_I=\bigoplus_{(r,s)\in I}B^{r,s}\).  Let
+\[
+ I(p,q)=\{(r,s):r+s\le p+q\text{ and }((r,s)=(p,q)\text{ or }r<p)\},
+\]
+\[
+ J(p,q)=\{(r,s):r+s\le p+q\text{ and }((r,s)=(p,q)\text{ or }s<q)\},
+\]
+\[
+ K(p,q)=\{(r,s):r+s\le p+q\text{ and }r<p\text{ and }s<q\}.
+\]
+In the definition of \(A_F^{p,q}\) as an intersection of two subobjects, the first subobject is \(A_F{}_{I(p,q)}\) and the second is \(A_{\overline F}{}_{J(p,q)}\).  Hence \(dA_W^{p,q}\) lies in the intersection corresponding to \(I(p,q)\cap J(p,q)=K(p,q)\cup\{(p,q)\}\).  Since \(\Gr^W(d)=1\), this gives exactly (1.1.1).
+\end{proof}
+
+\begin{proposition}\label{prop:three-filtrations}
+The functor \(A\mapsto \Gr^WA\) is an equivalence from the category of objects of \(\mathcal A\) endowed with three opposite filtrations \(W,F,\overline F\) to the category of objects of \(\mathcal A\) endowed with a finite bigrading and with an automorphism \(d\) satisfying \((1.1.1)\).
+\end{proposition}
+
+The isomorphism \(a_F:A\to\Gr^WA\) respects \(W\), sends \(F\) to \(F_W\), and sends \(\overline F\) to \(d^{-1}\overline F_W\).  Thus the functor \(\Gr^W\) has the inverse
+\[
+ s:(B=\bigoplus B^{p,q},d)\longmapsto (B,W,F_W,d^{-1}\overline F_W),
+\]
+with the functorial isomorphism \(a_F:A\xrightarrow{\sim}s\Gr^WA\).  Conversely, starting from a bigraded object \(B\) with an automorphism \(d\), define \(W,F,\overline F\) as above.  If \(d\) satisfies \((1.1.1)\), the evident map \(B\to\Gr^WB\) is an isomorphism of functors \(\mathrm{Id}\xrightarrow{\sim}\Gr^W\circ s\).
+
+\begin{remark}\label{rem:half}
+If \(2\) is invertible in the ground field, then \(d\) has a unique square root \(d^{1/2}\) still satisfying \((1.1.1)\).  Put
+\[
+ a:=d^{1/2}a_F=d^{-1/2}a_{\overline F}.
+\]
+Then \(a_{\overline F}=d^{1/2}a\) and \(a_F=d^{-1/2}a\); thus \(a\) sends \(F\), respectively \(\overline F\), to
+\[
+ d^{1/2}(F_W),\qquad d^{-1/2}(\overline F_W)
+\]
+on \(\Gr^WA\).  The isomorphism \(a\) is the same for \((A;W,F,\overline F)\) and for \((A;W,\overline F,F)\).
+\end{remark}
+
+\subsection*{1.4}
+The constructions are compatible with tensor products.  If
+\[
+ \otimes:\mathcal A_1\times \mathcal A_2\to \mathcal A
+\]
+is a biadditive exact functor, it is extended to filtered objects by
+\[
+ F^n(A_1\otimes A_2)=\sum_{a+b=n}F^aA_1\otimes F^bA_2\subset A_1\otimes A_2.
+\]
+The associated-graded functor is compatible with \(\otimes\), and, for bifiltered objects, the canonical isomorphism
+\[
+ \Gr^W\Gr^F(A_1\otimes A_2)\simeq
+ \Gr^W\Gr^F(A_1)\otimes \Gr^W\Gr^F(A_2)
+\]
+sends the filtration induced by \(F_1\otimes F_2\) to the tensor product of the filtrations induced by \(F_1\) and \(F_2\).  For vector spaces this follows from the fact that every bifiltration underlies a bigrading.  Hence, if \((W_i,F_i,\overline F_i)\) are three opposite filtrations on \(A_i\), then \((W_1\otimes W_2,F_1\otimes F_2,\overline F_1\otimes \overline F_2)\) are again opposite on \(A_1\otimes A_2\).  The bigradings, the isomorphisms \(a_F,a_{\overline F}\), and the automorphism \(d\) are all compatible with \(\otimes\).
+
+\subsection*{1.5}
+Let \(k\) be a commutative field, let \(\mathcal A\) be the category of finite-dimensional vector spaces over \(k\), and let \(\mathcal C\) be the category of vector spaces endowed with three opposite filtrations \(W,F,\overline F\).  This is a rigid abelian tensor category with \(\End(1)=k\).  It has the fiber functor \(\omega_0\), the underlying vector space, hence it is neutral Tannakian.  It also has the fiber functor \(\Gr^W=:\omega_W\).  The isomorphisms \(a_F\) and \(a_{\overline F}\) are isomorphisms of fiber functors \(\omega_0\to \omega_W\).  Put
+\[
+   \mathcal G=\Aut(\omega_W).
+\]
+The functorial automorphism \(d\) defines a \(k\)-point of the pro-algebraic group \(\mathcal G\).  The functorial bigrading of \(\Gr^W(V)\) by the \(V^{p,q}\) corresponds to a homomorphism
+\[
+   \alpha:\Gm\times\Gm\longrightarrow \mathcal G.
+\]
+It is a section of the projection
+\[
+   \operatorname{pr}:\mathcal G\longrightarrow \Gm\times\Gm
+\]
+corresponding to the inclusion of the category of bigraded vector spaces in \(\mathcal C\).  We normalize \(\alpha\) by
+\[
+   \alpha(\lambda,\mu)v=\lambda^p\mu^q v\qquad (v\in V^{p,q}).
+\]
+By Proposition~\ref{prop:three-filtrations}, \(\mathcal G\) is also the algebraic group of automorphisms of the fiber functor on the category of bigraded vector spaces endowed with an automorphism \(d\) satisfying \((1.1.1)\).  We now compute it when \(k\) has characteristic zero.
+
+Let \(\mathfrak l\) be the Lie algebra over \(k\) freely generated by elements
+\[
+   D^{i,j}\qquad (i,j<0),
+\]
+with the unique bigrading in which \(D^{i,j}\) has bidegree \((i,j)\).  The \(W_n\mathfrak l\) are ideals, and the quotients \(\mathfrak l/W_n\mathfrak l\) are nilpotent Lie algebras.  Let \(\mathcal U\) be the pro-algebraic group which is the projective limit of the unipotent groups
+\[
+   \exp(\mathfrak l/W_n\mathfrak l).
+\]
+Let \(\Gm\times\Gm\) act on \(\mathfrak l\) so that \((\lambda,\mu)\) acts on bidegree \((i,j)\) by multiplication by \(\lambda^i\mu^j\).  This action respects \(W\) and therefore gives an action of \(\Gm\times\Gm\) on \(\mathcal U\).
+
+\begin{construction}\label{construction:G}
+The group \(\mathcal G\) is the semidirect product
+\[
+   \mathcal G=(\Gm\times\Gm)\ltimes \mathcal U.
+\]
+Indeed, giving an action of this semidirect product on a finite-dimensional vector space \(V\) is equivalent to giving an action of \(\Gm\times\Gm\), hence a bigrading, together with a compatible nilpotent action of \(\mathfrak l\).  Equivalently, it is the datum of endomorphisms \(D^{i,j}\) of bidegree \((i,j)\), or of their sum
+\[
+   D=\sum D^{i,j},
+\]
+with
+\[
+   D(V^{p,q})\subset\bigoplus_{r<p,\,s<q}V^{r,s}.
+\]
+Writing \(d=\exp(D)\), this is precisely the datum of a bigrading and of an automorphism satisfying \((1.1.1)\).  The construction is compatible with tensor products, giving the required isomorphism
+\[
+   (\Gm\times\Gm)\ltimes\mathcal U\xrightarrow{\sim}\mathcal G=\Aut(\omega_W).
+\]
+\end{construction}
+
+\section{Mixed Hodge structures}
+
+Recall that a real mixed Hodge structure is a finite-dimensional real vector space endowed with an increasing filtration \(W\), whose complexification \(V_\mathbb C\) is endowed with a decreasing filtration \(F\), such that the filtration \(W_\mathbb C\), the filtration \(F\), and its complex conjugate \(\overline F\) form a system of three opposite filtrations.
+
+Via the dictionary between real vector spaces and complex vector spaces with a real structure, giving a real mixed Hodge structure is equivalently giving a complex vector space with three opposite filtrations \(W,F,\overline F\) and with a complex conjugation respecting \(W\) and interchanging \(F\) and \(\overline F\).  By Proposition~\ref{prop:three-filtrations}, the functor \(\Gr^W\) identifies this category with the category of bigraded complex vector spaces
+\[
+   V=\bigoplus V^{p,q}
+\]
+equipped with an automorphism \(d\) satisfying \((1.1.1)\) and a complex conjugation \(\sigma\) interchanging \(V^{p,q}\) and \(V^{q,p}\), for which the complex conjugate of \(d\) is \(d^{-1}\):
+\[
+   \sigma d\sigma^{-1}=d^{-1}.
+\]
+
+Let \(\mathcal H\) be the category of real mixed Hodge structures.  It is a rigid abelian tensor category with \(\End(1)=\mathbb R\).  It has the fiber functor \(\omega_0\), the underlying real vector space, hence is neutral Tannakian.  It also has the fiber functor \(\Gr^W=:\omega_W\).  With the notation of Remark~\ref{rem:half}, the functorial morphism
+\[
+   a:V_\mathbb C\longrightarrow \Gr^W(V_\mathbb C)
+\]
+respects the real structures on both sides, since it depends symmetrically on \(F\) and \(\overline F\).  It induces an isomorphism of fiber functors, again denoted
+\[
+   a:\omega_0\xrightarrow{\sim}\omega_W.
+\]
+
+With the notation of Section~1, put \(k=\mathbb C\), and let \(\mathcal G_\mathbb R\) be the real form of \(\mathcal G\) defined by the following complex conjugation:
+\begin{enumerate}[label=(\alph*)]
+\item on \(\Gm\times\Gm\), it is \((\lambda,\mu)\mapsto(\overline\mu,\overline\lambda)\);
+\item on \(\mathcal U\), it is the one compatible with the complex conjugation of \(\mathfrak l\) given by
+\[
+   D^{i,j}\longmapsto -D^{j,i}.
+\]
+\end{enumerate}
+As in \S1.1, giving an action of \(\mathcal G_\mathbb R\) on a real vector space \(V\) is equivalent to giving:
+\begin{enumerate}[label=(\alph*)]
+\item a bigrading \(V_\mathbb C=\bigoplus V^{p,q}\) such that \(V^{p,q}\) and \(V^{q,p}\) are complex conjugates of one another;
+\item an automorphism \(d\) of \(V_\mathbb C\) such that \(\overline d=d^{-1}\) and
+\[
+   (d-1)V^{p,q}\subset\bigoplus_{i<p,\,j<q}V^{i,j}.
+\]
+\end{enumerate}
+
+\begin{proposition}\label{prop:mhs}
+The fiber functor \(\omega_W\) induces an equivalence between \(\mathcal H\) and the category of representations of \(\mathcal G_\mathbb R\).  Thus
+\[
+   \mathcal G_\mathbb R=\Aut(\omega_W).
+\]
+The inverse functor is
+\[
+ (V,\text{ action of }\mathcal G_\mathbb R)
+ \longmapsto
+ (V,\text{ bigrading of }V_\mathbb C, d)
+ \longmapsto
+ (V,W,F),
+\]
+where \(W\) is the real filtration whose complexification is the weight filtration attached to the bigrading of \(V_\mathbb C\), and
+\[
+   F=d^{-1/2}(F_W)
+\]
+on the complexification.  The isomorphism \(a\) gives the functorial identification
+\[
+   \phi\circ\Gr^W\xrightarrow{\sim}\mathrm{Id}.
+\]
+\end{proposition}
+
+\end{document}
