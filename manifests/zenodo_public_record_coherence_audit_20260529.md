@@ -1,6 +1,6 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-31T04:42:19
+Generated: 2026-05-31T05:20:16
 
 Reader PDF counts by section:
 
@@ -9,11 +9,11 @@ Reader PDF counts by section:
 - deligne: 13
 - ega: 10
 - gauss: 8
-- noether: 20
+- noether: 22
 - non-european: 59
 - riemann: 2
 - sga: 23
-- weber: 8
+- weber: 10
 
 Cayley policy: the public reader shelf uses only repaired slice PDFs that render as real mathematical text. Broad cumulative Cayley draft volumes are preserved in source/artifact material rather than promoted as reader PDFs.
 
