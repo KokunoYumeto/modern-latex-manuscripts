@@ -62,7 +62,7 @@ Audit outputs:
    The current rebuild is a substantial improvement over the raw code-block version, but formulas inside many imported blocks still render as text-like expressions rather than fully converted math. Keep it top-level for readability, but queue formula-level conversion as future repair.
 
 3. SGA 5 high-fidelity source-checked edition.
-   Current source-checkable SGA 5 material is through Expose XV, printed page 461. Continue merging new source-checked batches only when paired source/translation material is present and the cumulative reader remains coherent.
+   Current source-checkable SGA 5 material is complete through printed page 484. Continue merging new source-checked batches only when paired source/translation material is present and the cumulative reader remains coherent.
 
 4. EGA working translation.
    EGA IV sections 1 through 21 are now live as a 514-page standalone working reader. Continue incorporating new translated sections from the local EGA workspace after each clean build, and keep the standalone EGA IV reader plus source ZIP current.

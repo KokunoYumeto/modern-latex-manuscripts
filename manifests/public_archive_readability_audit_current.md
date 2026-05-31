@@ -1,6 +1,6 @@
 # Public PDF Surface Audit
 
-Generated: 2026-05-31T06:06:43
+Generated: 2026-05-31T08:48:06
 
 Reader PDF counts by section:
 
