@@ -1,0 +1,188 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=30mm]{geometry}
+\usepackage[french]{babel}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{array,booktabs}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.35em}
+\emergencystretch=3em
+\allowdisplaybreaks
+\newcommand{\Spec}{\operatorname{Spec}}
+\begin{document}
+\section*{3. Déformations au premier ordre}
+
+\paragraph{3.1.}
+Pour un moment, on va oublier $\delta$ et calculer la déformation verselle, au premier ordre, de la singularité 2.2, I ou II. Le calcul est pénible, mais standard. Pour un super-schéma à singularité isolée quelconque, il faut :
+
+\begin{enumerate}
+\item[(a)] écrire
+\[
+  X=\Spec(A),\qquad A=k[X,\Theta]/\langle f_i\rangle ;
+\]
+\item[(b)] trouver un système de syzygies $S_k$,
+\[
+  \sum_i a_i(X,\Theta)f_i=0,
+\]
+les engendrant toutes modulo les syzygies triviales
+\[
+  f_i f_j-f_j f_i=0\qquad\text{(cas pair ou pair/impair)},
+\]
+\[
+  f_i f_j+f_j f_i=0\qquad\text{($f_i$ et $f_j$ impairs)};
+\]
+\item[(c)] calculer la cohomologie du complexe de $A$-modules libres
+\[
+  \bigoplus_i\left(A\frac{\partial}{\partial X_i}\oplus
+  A\frac{\partial}{\partial\Theta_i}\right)
+  \xrightarrow{\ df/\partial X\ }
+  \bigoplus_i A\frac{\partial}{\partial f_i}
+  \xrightarrow{\ \text{coefficients}\ }
+  \bigoplus_k A\frac{\partial}{\partial S_k}.
+\]
+Le $H^1$ paramétrise les déformations.
+\end{enumerate}
+
+\paragraph{Cas I.}
+On a les coordonnées $(z_1,z_2,\theta)$, l'équation
+\[
+  z_1z_2=0,
+\]
+et pas de syzygie. La déformation universelle au premier ordre est
+\[
+  z_1z_2=t+\tau\theta
+  \qquad\bigl(\text{sur }k[t,\tau]/(t^2,t\tau)\bigr).
+\]
+Le cas II est une autre paire de manches.
+
+\paragraph{Cas II.}
+On prend les coordonnées
+\[
+  z_1,\ z_2,\ \theta_1,\ \theta_2
+\]
+et les équations
+\[
+  z_1z_2=z_1\theta_2=\theta_1z_2=\theta_1\theta_2=0.
+\]
+Les syzygies sont
+\[
+\begin{cases}
+\theta_1(z_1z_2)=z_1(\theta_1z_2),\\
+\theta_2(z_1z_2)=z_2(z_1\theta_2),\\
+z_1(\theta_1\theta_2)=\theta_1(z_1\theta_2),\\
+z_2(\theta_1\theta_2)=-\theta_2(\theta_1z_2).
+\end{cases}
+\]
+Il s'agit de considérer un système de quatre équations, une par syzygie, à quatre inconnues, une par équation, dans l'anneau $A$, exprimant que ces inconnues vérifient les syzygies. Il s'agit de calculer l'espace des solutions modulo les solutions triviales, obtenues par dérivation des équations. Je note
+\[
+  ++,\quad +-,\quad -+,\quad --
+\]
+les inconnues.
+
+Les équations correspondant aux syzygies ont pour coefficients
+\[
+\begin{array}{c|cccc}
+& ++ & +- & -+ & --\\ \hline
+1& \theta_1&0&-z_1&0\\
+2& \theta_2&-z_2&0&0\\
+3&0&-\theta_1&0&z_1\\
+4&0&0&\theta_2&z_2
+\end{array}
+\qquad
+\begin{array}{c|cccc}
+& \partial_{z_1}&\partial_{z_2}&\partial_{\theta_1}&\partial_{\theta_2}\\ \hline
+++& z_2&z_1&0&0\\
++-& \theta_2&0&0&z_1\\
+-+&0&\theta_1&z_2&0\\
+--&0&0&\theta_2&-\theta_1
+\end{array}
+\]
+\[
+\text{chaque ligne, une syzygie},\qquad
+\text{chaque colonne, une solution triviale}.
+\]
+
+Soit $(a,b,c,d)$ une solution. La modifiant par les deux dernières solutions triviales, on peut supposer $d$ pair. Les équations
+\[
+  z_1d=\theta_1 b,
+  \qquad
+  z_2d=-\theta_2 c
+\]
+donnent alors $d=0$. Les combinaisons linéaires avec $d=0$ de solutions triviales sont les combinaisons linéaires de la première, de la deuxième, de la troisième multipliée par $\theta_2$, et de la quatrième multipliée par $\theta_1$. Ceci nous ramène au système
+\[
+\begin{array}{c|cccc}
+& ++&+-&-+&--=0\\ \hline
+1&\theta_1&0&-z_1&0\\
+2&\theta_2&-z_2&0&0\\
+3&0&-\theta_1&0&0\\
+4&0&0&\theta_2&0
+\end{array}
+\qquad
+\begin{array}{c|cccc}
+&1&2&3\theta_2&4\theta_1\\ \hline
+++&z_2&z_1&0&0\\
++-&\theta_2&0&0&\theta_1z_1\\
+-+&0&\theta_1&\theta_2z_2&0\\
+--&0&0&0&0
+\end{array}
+\]
+
+Soit une solution $(a,b,c)$, avec $d=0$. L'équation
+\[
+  \theta_1 a=z_1c
+\]
+impose que, modulo $(\theta_2,z_2)$, $(a,c)$ soit multiple de la deuxième solution triviale. En particulier
+\[
+  a\in (z_1,\theta_1,z_2,\theta_2)=(z_1,\theta_1)\oplus(z_2,\theta_2).
+\]
+De même pour $b$ et $c$ :
+\[
+  a=a_1+a_2,
+  \qquad b=b_1+b_2,
+  \qquad c=c_1+c_2.
+\]
+Modulo les deux premières solutions triviales, on obtient
+\[
+  a=0,\qquad b_2=0,\qquad c_1=0.
+\]
+Par les dernières équations,
+\[
+  a_1\in(\theta_1),\quad a_2\in(\theta_2),\quad b_2=c_1=0,
+\]
+\[
+  a_1\in(\theta_1),\quad a_2\in(\theta_2),\quad b_1\in(\theta_1),\quad c_1=0,
+  \qquad b_2=0,\quad c_2\in(\theta_2).
+\]
+Et enfin, modulo les $\theta$-multiples des premières solutions triviales, toute solution se ramène à l'une des suivantes:
+\[
+\begin{array}{c|cccc}
+& a&b&c&d\\ \hline
+1&\theta_1&0&0&0\\
+2&\theta_2&0&0&0\\
+3&0&\theta_1&0&0\\
+4&0&0&\theta_2&0
+\end{array}
+\]
+La déformation verselle au premier ordre est donc donnée par les paramètres
+\[
+  t_1,t_2,\tau_1,\tau_2,
+\]
+les coordonnées
+\[
+  z_1,z_2,\theta_1,\theta_2,
+\]
+et les équations
+\[
+\begin{cases}
+ z_1z_2+\tau_1\theta_1+\tau_2\theta_2=0,\\
+ z_1\theta_2+t_1\theta_1=0,\\
+ z_2\theta_1+t_2\theta_2=0,\\
+ \theta_1\theta_2=0.
+\end{cases}
+\]
+
+\end{document}
