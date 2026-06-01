@@ -1,0 +1,394 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\R}{\mathbb R}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Expose VII additions
+\providecommand{\Kosz}{\mathrm K}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Imf}{\operatorname{Im}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Id}{\operatorname{Id}}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\cO}{\mathcal O}
+\providecommand{\cS}{\mathcal S}
+\providecommand{\cJ}{\mathcal J}
+\providecommand{\cN}{\mathcal N}
+\providecommand{\bfP}{\mathbf P}
+\providecommand{\bfA}{\mathbf A}
+
+\begin{center}
+{\Large SGA 6 Exposé VII, pages 423--454}\\[0.4em]
+{\large Original source scan pages 423--454}
+\end{center}
+
+
+\section*{Exposé VII. Immersions régulières et calcul du \texorpdfstring{$K^\bullet$}{K} d'un schéma éclaté}
+\begin{center}
+par Pierre Berthelot
+\end{center}
+
+\section*{1. Généralités sur les immersions régulières}
+
+La notion classique d'immersion régulière (EGA IV 16.9.2) s'avérant inadéquate dans le cas non noethérien, nous allons définir une notion plus faible, mais qui donne les propriétés souhaitées et qui équivaut à la définition usuelle dans le cas noethérien.
+
+\textbf{Définition 1.1.} Soient \(A\) un anneau commutatif, \(E\) un \(A\)-module projectif de type fini, et \(u:E\to A\) un homomorphisme \(A\)-linéaire. On dit que \(u\) est \emph{régulier} si le complexe de Koszul \(\Kosz(u)\) défini par \(u\) est acyclique en dimensions \(>0\), donc est une résolution de \(B=A/u(E)\).
+
+Rappelons que le complexe de Koszul associé à \(u\) est le \(A\)-module gradué \(\bigwedge(E)\), muni de l'opérateur bord donné par la multiplication intérieure par \(u\), considéré comme élément du dual \(\check E\). C'est une antidérivation de degré \(-1\), égale à \(u\) sur \(E\).
+
+\textbf{Lemme 1.2.} Soit \(u:E\to A\) régulier. Soient \(A'\) une \(A\)-algèbre, et \(u':E'\to A'\) déduit de \(u\) par changement de base; supposons \(u'\) régulier. Posons \(J=u(E)\), \(J'=JA'=u(E')\). Pour tout \(n\ge0\), on a
+\begin{align}
+ J^n/J^{n+1}\otimes_AA'&\xrightarrow{\sim}J'^n/J'^{n+1}, \tag{1.2.1}\\
+ \Tor_i^A(J^n/J^{n+1},A')&=0\quad(i\ge1), \tag{1.2.2}\\
+ J^n\otimes_AA'&\xrightarrow{\sim}J'^n, \tag{1.2.3}\\
+ \Tor_i^A(J^n,A')&=0\quad(i\ge1). \tag{1.2.4}
+\end{align}
+
+On suppose d'abord que les \(J^n/J^{n+1}\) sont projectifs sur \(B=A/J\). Comme \(J\) est de type fini, ils sont localement libres de type fini sur \(B\). Les relations à prouver se vérifiant ponctuellement sur \(\Spec(A)\), on est ramené au cas où \(A\) est local et où \(u(E)\subset\rad(A)\). Alors les \(J^n/J^{n+1}\) sont libres sur \(B\), et (1.2.2) équivaut à \(\Tor_i^A(B,A')=0\) pour \(i\ge1\). Ces groupes se calculent avec la résolution de Koszul \(\Kosz(u)\), qui devient après tensorisation \(\Kosz(u')\), acyclique en degrés positifs.
+
+Les suites exactes
+\[
+0\to J^n/J^{n+1}\to A/J^{n+1}\to A/J^n\to0,
+\qquad
+0\to J^n\to A\to A/J^n\to0
+\]
+donnent ensuite (1.2.1), (1.2.3) et (1.2.4) par récurrence. Il reste à prouver que \(J^n/J^{n+1}\) est projectif sur \(B\). Localement on réduit à \(E=A^d\), \(u\) étant défini par \(f_1,\ldots,f_d\), puis au cas universel \(\mathbb Z[T_1,\ldots,T_d]\). Comme la suite \((T_1,\ldots,T_d)\) est régulière, le résultat s'obtient par changement de base.
+
+\textbf{Proposition 1.3.} Soient \(A\) un anneau, \(E\) un \(A\)-module projectif de type fini, \(u:E\to A\) un homomorphisme régulier et \(J=u(E)\). Alors \(J\) est quasi-régulier : \(J\) est de type fini, \(J/J^2\) est un \(A/J\)-module projectif de type fini, et l'homomorphisme canonique
+\begin{equation}\tag{1.3.1}
+ \Sym_{A/J}(J/J^2)\longrightarrow \gr_J(A)=\bigoplus_{n\ge0}J^n/J^{n+1}
+\end{equation}
+est un isomorphisme. Cela résulte de la démonstration précédente, par réduction au cas polynomial universel.
+
+\textbf{Définition 1.4.} Soient \((X,A)\) un site commutativement localement annelé, \(E\) un \(A\)-module localement libre de type fini, et \(u:E\to A\) un homomorphisme \(A\)-linéaire. On dit que \(u\) est régulier si \(\Kosz(u)\) est acyclique en degrés \(>0\). Si \(J\) est un idéal de \(A\), on dit que \(J\) est régulier si, localement sur \(X\), il est l'image d'un homomorphisme régulier surjectif partant d'un \(A\)-module libre de type fini.
+
+Soit \(i:Y\to X\) une immersion de préschémas. Si \(U\) est un ouvert de \(X\) contenant \(i(Y)\), et si \(i\) est une immersion fermée dans \(U\), on dit que \(i\) est régulière si l'idéal définissant \(i(Y)\) dans \(\cO_U\) est régulier. Cette condition ne dépend pas de \(U\), et elle se vérifie au voisinage de chaque point.
+
+Cette définition remplace ici celle d'EGA IV 16.9.2; dans le cas noethérien, les deux définitions sont équivalentes. Une immersion fermée localement définie par une suite régulière est régulière, et une immersion régulière est quasi-régulière d'après 1.3. Un système minimum de générateurs de \(J\) en un point est une famille dont les images forment une base de \(J_x\otimes k(x)\); la régularité équivaut à l'acyclicité locale du complexe de Koszul correspondant. Si \(J\) est de type fini et \(J/J^2\) localement libre, ces systèmes correspondent aux bases locales de \(J/J^2\).
+
+\textbf{Proposition 1.5.} Si \(i:Y\to X\) est régulière, il en est de même après tout changement de base plat. Réciproquement, \(i\) est régulière si et seulement si elle l'est localement pour la topologie fidèlement plate quasi-compacte.
+
+\textbf{Définition 1.6.} Si \(i:Y\to X\) est définie par un idéal \(J\), le \(\cO_Y\)-module \(J/J^2\) est le faisceau conormal de \(Y\) dans \(X\), noté \(N_{X/Y}\). Si \(i\) est régulière, il est localement libre de type fini, et son rang est la codimension. Pour des immersions fermées \(Z\xrightarrow{j}Y\xrightarrow{i}X\), on a la suite conormale exacte
+\begin{equation}\tag{1.6.1}
+ j^*N_{X/Y}\longrightarrow N_{X/Z}\longrightarrow N_{Y/Z}\longrightarrow0.
+\end{equation}
+
+\textbf{Proposition 1.7.} Soient \(i:Y\to X\) et \(j:Z\to Y\) deux immersions. Si \(i\) et \(j\) sont régulières, alors \(i\circ j\) est régulière et la suite conormale, complétée par \(0\) à gauche, est exacte. Si \(i\circ j\) et \(i\) sont régulières et si cette suite est exacte et localement scindée, alors \(j\) est régulière. Si \(X\) est noethérien et si \(i\circ j\) et \(j\) sont régulières, alors \(i\) est régulière aux points de \(Z\).
+
+Localement, on écrit \(X=\Spec(A)\), \(Y=\Spec(B)\), \(Z=\Spec(C)\), avec \(B=A/I\) et \(C=B/K\). En choisissant des relèvements \(f_1,\ldots,f_n\) d'une base de \(I/I^2\) et \(g_1,\ldots,g_m\) d'une base de \(K/K^2\), on obtient le diagramme
+\begin{equation}\tag{1.7.1}
+\begin{tikzcd}[column sep=large,row sep=small]
+A_0=\mathbb Z[T_1,\ldots,T_{n+m}] \arrow[r] \arrow[d] & A \arrow[d]\\
+B_0=\mathbb Z[T_1,\ldots,T_m] \arrow[r] \arrow[d] & B \arrow[d]\\
+C_0=\mathbb Z \arrow[r] & C,
+\end{tikzcd}
+\end{equation}
+et la suite spectrale de transitivité
+\begin{equation}\tag{1.7.3}
+E^2_{pq}=\Tor_p^{B_0}\bigl(C_0,\Tor_q^{A_0}(B_0,A)\bigr)\Rightarrow\Tor_n^{A_0}(C_0,A).
+\end{equation}
+Elle donne les deux premières assertions; l'assertion noethérienne est celle d'EGA IV 19.1.5, les définitions étant identifiées dans le cas noethérien.
+
+\textbf{Proposition 1.8.} Soient \(X\) un schéma, \(E\) un \(\cO_X\)-module localement libre de type fini, \(u:E\to\cO_X\) régulier, \(J=u(E)\), \(Y\) le sous-schéma fermé défini par \(J\), \(X'\) l'éclaté de \(Y\), \(P=\bfP(E)\), et \(p:P\to X\). Sur \(P\), on considère
+\begin{equation}\tag{1.8.1}
+0\to F\to p^*E\to\cO_P(1)\to0,
+\end{equation}
+et \(v:F\to p^*E\xrightarrow{p^*u}\cO_P\). Alors la formation de \(X'\) commute à tout changement de base pour lequel l'homomorphisme tiré en arrière est régulier; l'immersion fermée \(j:X'\to P\) définie par \(\cS(E)\to\bigoplus J^n\) est régulière, son idéal étant l'image de \(v\); et \(\bigoplus J^n\) est parfait comme \(\cS(E)\)-module gradué. La preuve se réduit au cas polynomial standard et aux ouverts affines \(D_+(X_i)\), où les générateurs de Koszul sont écrits explicitement, puis on redescend au moyen des relations de changement de base du lemme 1.2.
+
+\textbf{Proposition 1.9.} Si \(i:Y\to X\) est une immersion fermée régulière, si \(X'\) est l'éclaté de \(Y\), et si \(f:X'\to X\) est structural, alors \(i\) et \(f\) sont des morphismes parfaits. En effet, \(\Kosz\) résout \(\cO_Y\) par des \(\cO_X\)-modules localement libres de type fini, et \(f\) se factorise par une immersion régulière dans un fibré projectif suivie d'un morphisme lisse.
+
+\textbf{Proposition 1.10.} Si \(X\) et \(Y\) sont lisses sur \(S\), toute \(S\)-immersion de \(X\) dans \(Y\) est régulière. En particulier, toute section d'un morphisme lisse est une immersion régulière.
+
+\section*{2. Calculs sur les immersions régulières}
+
+\textbf{2.1--2.3.} Pour deux \(A\)-algèbres \(B,C\), le module gradué \(\bigoplus_{i\ge0}\Tor_i^A(B,C)\) est muni d'une structure naturelle d'algèbre graduée associative sur \(B\otimes_A C\), en choisissant une résolution projective \(P_\bullet\to B\), en utilisant les morphismes de Künneth, et en prolongeant l'augmentation \(B\otimes_A B\to B\). Si la résolution est une algèbre différentielle graduée alternée, l'algèbre Tor est alternée. Globalement, pour deux \(X\)-schémas \(X',X''\), cela donne une structure d'algèbre graduée sur
+\[
+\bigoplus_i\Tor_i^{\cO_X}(\cO_{X'},\cO_{X''}).
+\]
+La multiplication est représentée par le carré commutatif de complexes
+\begin{equation}\tag{2.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+P_i\otimes P_j \arrow[r] \arrow[d] & (P_{i-1}\otimes P_j)\oplus(P_i\otimes P_{j-1}) \arrow[d]\\
+P_{i+j} \arrow[r] & P_{i+j-1}.
+\end{tikzcd}
+\end{equation}
+
+\textbf{Lemme 2.4.} Pour deux \(X\)-schémas \(X',X''\) et un \(\cO_{X'}\)-module plat \(M\), on a canoniquement
+\begin{equation}\tag{2.4.1}
+\Tor_i^{\cO_X}(M,\cO_{X''})\simeq
+M\otimes_{\cO_{X'}}\Tor_i^{\cO_X}(\cO_{X'},\cO_{X''}).
+\end{equation}
+Cela se voit localement sur une résolution projective, puis se recolle.
+
+\textbf{Proposition 2.5.} Soient \(Y\) et \(Z\) deux sous-schémas fermés de \(X\), avec \(T=Y\times_XZ\). Sous les hypothèses locales de complexes de Koszul énoncées dans la source, on a
+\begin{equation}\tag{2.5.1}
+\Tor_i^{\cO_X}(\cO_Y,\cO_Z)\simeq \bigwedge^i\Tor_1^{\cO_X}(\cO_Y,\cO_Z),
+\end{equation}
+et
+\begin{equation}\tag{2.5.2}
+\Tor_1^{\cO_X}(\cO_Y,\cO_Z)
+\simeq I\cap J/IJ
+\simeq \Ker\bigl(i^*N_{Y/X}\times j^*N_{Z/X}\to N_{T/X}\bigr).
+\end{equation}
+En particulier, pour une immersion fermée régulière \(Y\to X\),
+\begin{equation}\tag{2.5.3}
+\Tor_i^{\cO_X}(\cO_Y,\cO_Y)\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_Y,\cO_Y),
+\qquad
+\Tor_1^{\cO_X}(\cO_Y,\cO_Y)\simeq N_{Y/X}.
+\end{equation}
+La preuve est la comparaison usuelle des complexes de Koszul, avec la suite spectrale du bicomplexe et la construction multiplicative précédente.
+
+\textbf{2.6--2.7.} Supposons que \(X\) possède un faisceau ample, de sorte que les deux définitions de \(K^\bullet\) coïncident. Si \(i:Y\to X\) est une immersion fermée régulière, on définit
+\[
+i_*:K^\bullet(Y)\to K^\bullet(X)
+\]
+au moyen de la classe de l'image directe, et on a, pour \(x\in K^\bullet(Y)\),
+\begin{equation}\tag{2.7.1}
+i^*i_*(x)=x\lambda_{-1}(N),
+\qquad
+\lambda_{-1}(N)=\sum_{r\ge0}(-1)^r\lambda^r(N),
+\end{equation}
+où \(N\) est le faisceau conormal. Si \(x\) est représenté par un \(\cO_Y\)-module localement libre de type fini \(M\), les faisceaux d'homologie de l'image inverse dérivée de \(i_*M\) sont \(M\otimes\Tor_i^{\cO_X}(\cO_Y,\cO_Y)\), et la proposition 2.5 donne la formule.
+
+\textbf{Corollaire 2.8.} Sous les hypothèses de 2.7, pour \(x,y\in K^\bullet(Y)\),
+\begin{equation}\tag{2.8.1}
+i_*(xy\lambda_{-1}(N))=i_*(x)i_*(y).
+\end{equation}
+C'est la formule de projection appliquée à (2.7.1).
+
+\textbf{Corollaire 2.9.} Sous les mêmes hypothèses, si \(i_*(1)\) est inversible dans \(K^\bullet(X)\), alors \(i_*\) identifie \(K^\bullet(Y)\) à un facteur direct. La source enregistre les conséquences standard de l'image directe par une immersion régulière.
+
+\section*{3. Calcul du \texorpdfstring{$K^\bullet$}{K} d'un schéma éclaté}
+
+\textbf{3.1.} Soit \(i:Y\to X\) une immersion fermée régulière. On note \(X'\) le schéma obtenu en faisant éclater \(Y\), et \(Y'=Y\times_X X'\). D'après EGA II 8.1.8, \(Y'\) est un sous-schéma fermé de \(X'\) défini par un idéal canoniquement isomorphe à \(\cO_{X'}(1)\). Ainsi \(j:Y'\to X'\) est une immersion fermée régulière de codimension \(1\). Soit \(J\) l'idéal de \(Y\) dans \(X\), et \(J'\) l'idéal de \(Y'\) dans \(X'\); alors
+\[
+J'\simeq J\cO_{X'}\simeq\cO_{X'}(1).
+\]
+En notant \(f:X'\to X\) et \(g:Y'\to Y\) les morphismes structuraux, on a le diagramme commutatif
+\begin{equation}\tag{3.1.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X.
+\end{tikzcd}
+\end{equation}
+De plus,
+\[
+X'=\Proj(S),\qquad S=\bigoplus_{n\ge0}J^n,
+\]
+et
+\[
+Y'=\Proj\bigl(i^*S\bigr)
+=\Proj\bigl(\bigoplus_{n\ge0}J^n/J^{n+1}\bigr).
+\]
+Comme \(i\) est régulière, \(\bigoplus J^n/J^{n+1}\simeq\Sym_{\cO_Y}(J/J^2)\). Si \(N=J/J^2\), alors \(Y'=\bfP(N)\). Sur \(Y'\), on a la suite exacte
+\begin{equation}\tag{3.1.2}
+0\to F\to g^*N\to\cO_{Y'}(1)\to0.
+\end{equation}
+Le faisceau \(\cO_{Y'}(1)=j^*\cO_{X'}(1)=J'/J'^2\) est le faisceau conormal de \(j\); on le note \(L\).
+
+\textbf{Lemme 3.2.} Avec les hypothèses et les notations de 3.1, on a
+\begin{align}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)&\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_{X'},\cO_Y),\tag{3.2.i}\\
+\Tor_1^{\cO_X}(\cO_{X'},\cO_Y)&\simeq F.\tag{3.2.ii}
+\end{align}
+
+Pour (i), comme \(\cO_Y\) se résout localement par un complexe de Koszul, l'algèbre \(\bigoplus_i\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)\) est alternée. Il existe donc un homomorphisme d'algèbres unique
+\begin{equation}\tag{3.2.1}
+\bigwedge \Tor_1^{\cO_X}(\cO_{X'},\cO_Y)
+\longrightarrow
+\bigoplus_{i\ge0}\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\end{equation}
+prolongeant l'injection en degré un; il suffit de vérifier localement que c'est un isomorphisme. Sur un ouvert affine, on choisit un homomorphisme régulier \(E\to A\) définissant \(J\), les images d'une base étant \(f_1,\ldots,f_d\). Sur l'ouvert de \(X'\) où \(f_1^{(1)}\) est inversible, on change de base par
+\[
+e'_1=e_1,
+\qquad
+e'_i=e_i-(f_i^{(1)}/f_1^{(1)})e_1\quad(i\ne1).
+\]
+La différentielle de Koszul donne alors les isomorphismes locaux
+\begin{equation}\tag{3.2.2}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\simeq
+(\cO_{X'}/f_1^{(0)}\cO_{X'})\otimes_{\cO_{X'}}
+\bigwedge^i(\cO_{X'}^{d-1})
+\simeq
+\bigwedge^i(\cO_{Y'}^{d-1}).
+\end{equation}
+En particulier, pour \(i=1\), \(\Tor_1^{\cO_X}(\cO_{X'},\cO_Y)\simeq \cO_{Y'}^{d-1}\), et donc
+\begin{equation}\tag{3.2.3}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_{X'},\cO_Y).
+\end{equation}
+Pour (ii), on tensorise avec \(\cO_{X'}\) la suite exacte \(0\to J\to\cO_X\to\cO_Y\to0\). L'image de \(J\otimes\cO_{X'}\to\cO_{X'}\) est \(J\cO_{X'}=\cO_{X'}(1)\); après tensorisation avec \(\cO_{Y'}\), on obtient
+\begin{equation}\tag{3.2.4}
+0\to \Tor_1^{\cO_X}(\cO_{X'},\cO_Y)\to g^*N\to\cO_{Y'}(1)
+\to0,
+\end{equation}
+qui identifie ce faisceau Tor avec \(F\) dans (3.1.2).
+
+\textbf{3.3.} Supposons maintenant que \(X\) possède un faisceau ample. Alors il en est de même pour \(X'\), projectif sur \(X\), et pour \(Y\) et \(Y'\). De plus, \(i\) et \(j\) sont parfaits, \(g\) est lisse donc parfait car \(Y'=\bfP(N)\), et \(f\) est parfait d'après 1.9. Ces morphismes étant projectifs, on a les homomorphismes additifs
+\[
+i_*:K^\bullet(Y)\to K^\bullet(X),\quad
+j_*:K^\bullet(Y')\to K^\bullet(X'),\quad
+f_*:K^\bullet(X')\to K^\bullet(X),\quad
+g_*:K^\bullet(Y')\to K^\bullet(Y).
+\]
+
+\textbf{Proposition 3.4.} Avec les hypothèses et les notations de 3.1 et 3.3, pour tout \(x\in K^\bullet(Y)\), on a
+\begin{equation}\tag{3.4.1}
+f^*(i_*(x))=j_*\bigl(g^*(x)\lambda_{-1}(F)\bigr).
+\end{equation}
+Comme les deux membres sont additifs, on peut supposer que \(x\) est représenté par un \(\cO_Y\)-module localement libre de type fini \(M\). Les faisceaux d'homologie du complexe représentant \(f^*i_*(x)\) sont \(\Tor_i^{\cO_X}(M,\cO_{X'})\). D'après 2.4 et 3.2,
+\[
+\Tor_i^{\cO_X}(M,\cO_{X'})
+\simeq M\otimes_{\cO_Y}\Tor_i^{\cO_X}(\cO_X,\cO_Y)
+\simeq M\otimes_{\cO_Y}\bigwedge^iF,
+\]
+et la somme alternée de leurs classes donne le second membre de (3.4.1).
+
+\textbf{Lemme 3.5.} Avec les hypothèses et les notations de 3.1, on a les isomorphismes suivants :
+\begin{enumerate}[label=\roman*)]
+\item pour tout \(n\ge0\) et tout \(i\ge1\),
+\[
+R^if_*\bigl(\cO_{X'}(n)\bigr)=0;
+\]
+\item pour tout \(n\ge0\),
+\[
+f_*\bigl(\cO_{X'}(n)\bigr)=J^n.
+\]
+\end{enumerate}
+On peut supposer \(X\) affine, donc quasi-compact. Pour (i), on utilise le lemme suivant : si \(f:X'\to X\) est projectif et parfait, avec \(X\) quasi-compact, et si \(L'\) est un complexe parfait sur \(X'\), acyclique en degrés \(>0\), alors il existe \(n_0\) tel que, pour \(n\ge n_0\), \(Rf_*(L'\otimes\cO_{X'}(n))\) soit acyclique en degrés \(>0\). Appliqué à \(\cO_{X'}\), ce lemme donne l'annulation pour \(n\) grand. La suite exacte
+\[
+0\to \cO_{X'}(n+1)\to\cO_{X'}(n)\to\cO_{Y'}(n)\to0
+\]
+et le fait que \(Y'=\bfP(N)\) permettent alors de redescendre par récurrence jusqu'à \(n=0\).
+
+Pour (ii), il faut montrer que l'homomorphisme canonique gradué
+\[
+\bigoplus_{n\ge0}J^n\longrightarrow\bigoplus_{n\ge0}f_*\bigl(\cO_{X'}(n)\bigr)
+\]
+est un isomorphisme. La question étant locale, on écrit \(S=\bigoplus J^n\), et l'on prend un épimorphisme gradué \(\cO_X[T_1,\ldots,T_d]\to S\) défini par des générateurs de \(J\). Il définit une immersion fermée régulière \(X'\to\bfP_X^{d-1}\). Pour une présentation finie graduée \(L''\to L'\to S\to0\), on obtient sur \(\bfP_X^{d-1}\) une présentation \(M''\to M'\to\cO_{X'}\to0\). Pour chaque \(n\), on a un diagramme commutatif
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+L''_n \arrow[r] \arrow[d,"\sim"'] & L'_n \arrow[r] \arrow[d,"\sim"'] & J^n \arrow[r] \arrow[d] & 0 \arrow[d]\\
+p_*M''(n) \arrow[r] & p_*M'(n) \arrow[r] & p_*\cO_{X'}(n) \arrow[r] & 0,
+\end{tikzcd}
+\]
+où \(p:\bfP_X^{d-1}\to X\). Pour \(n\) assez grand, la ligne du bas est exacte; le résultat est donc vrai pour \(n\) grand. La récurrence descendante, utilisant \(0\to J^{n+1}\to J^n\to J^n/J^{n+1}\to0\) et la suite exacte analogue des images directes, achève la preuve.
+
+\textbf{Proposition 3.6.} Avec les hypothèses et les notations de 3.1 et 3.3,
+\begin{equation}\tag{3.6.1}
+f_*f^*=\Id_{K^\bullet(X)}.
+\end{equation}
+En effet, par la formule de projection, \(f_*f^*(x)=xf_*(1)\), et le lemme 3.5 dit que \(Rf_*\cO_{X'}\) a \(\cO_X\) en degré \(0\) et pas de cohomologie supérieure.
+
+\textbf{Théorème 3.7.} Soit \(i:Y\to X\) une immersion fermée régulière, soit \(X'\) l'éclaté de \(Y\), et soit \(Y'=X'\times_XY\), de sorte que l'on ait
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X.
+\end{tikzcd}
+\]
+Supposons que \(X\) soit quasi-compact et possède un faisceau ample. Alors la suite
+\begin{equation}\tag{3.7.0}
+0\to K^\bullet(Y)\xrightarrow{u}K^\bullet(Y')\times K^\bullet(X)\xrightarrow{v}K^\bullet(X')
+\end{equation}
+est exacte, où
+\begin{equation}\tag{3.7.u}
+u(y)=\bigl(g^*(y)\lambda_{-1}(F),-i_*(y)\bigr),
+\end{equation}
+et, pour \(y'\in K^\bullet(Y')\), \(x\in K^\bullet(X)\),
+\begin{equation}\tag{3.7.v}
+v(y',x)=j_*(y')+f^*(x).
+\end{equation}
+De plus, \(u\) admet un inverse à gauche \(u'\), défini par \(u'(y',x)=g_*(y')\). Si, de plus, \(X\) est noethérien et \(Y\) régulier, alors \(v\) est surjectif et
+\begin{equation}\tag{3.7.2}
+0\to K^\bullet(Y)\xrightarrow{u}K^\bullet(Y')\times K^\bullet(X)\xrightarrow{v}K^\bullet(X')\to0
+\end{equation}
+est exacte.
+
+D'abord, \(u'\circ u=1\), car \(g_*(g^*y\lambda_{-1}(F))=y\,g_*(\lambda_{-1}(F))=y\). Ensuite \(v\circ u=0\), d'après la proposition 3.4. Si \((y',x)\) est dans le noyau de \(v\), alors \(j_*(y')+f^*(x)=0\). Il faut trouver \(y\in K^\bullet(Y)\) tel que
+\begin{equation}\tag{3.7.1}
+x=-i_*(y),\qquad y'=g^*(y)\lambda_{-1}(F).
+\end{equation}
+Nécessairement \(y=u'(y',x)=g_*(y')\). En appliquant \(f_*\) à la relation \(f^*(x)=-j_*(y')\), et en utilisant la proposition 3.6, on obtient \(x=-i_*(y)\). Pour montrer la seconde égalité de (3.7.1), posons \(z=y'-g^*(g_*y')\lambda_{-1}(F)\). Alors \(g_*z=0\), et les formules précédentes donnent \(j_*z=0\). Comme \(\Ker j_*\cap\Ker g_*=0\), on a \(z=0\). Cela prouve l'exactitude au terme du milieu.
+
+Pour la surjectivité finale, supposons \(X\) noethérien et \(Y\) régulier. Alors \(Y'\) est régulier, car c'est un fibré projectif sur \(Y\), et les anneaux locaux de \(X'\) le long de \(Y'\) sont réguliers, puisque \(Y'\) y est défini par un élément régulier. Les modules cohérents sur \(X'\) à support dans \(Y'\) sont donc parfaits. Si un tel module \(E\) a pour classe un élément de \(K^\bullet(X')\), la filtration par les puissances \(J'^nE\) montre que sa classe est dans l'image de \(j_*\). Pour un \(x\in K^\bullet(X')\) quelconque, on choisit un complexe parfait \(M'\) représentant \(x\), et l'on forme le triangle distingué
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& N' \arrow[dl] \arrow[dr] &\\
+M' \arrow[rr] && Lf^*Rf_*(M').
+\end{tikzcd}
+\]
+La flèche horizontale est le morphisme canonique. C'est un isomorphisme sur le complémentaire de \(Y'\); les faisceaux de cohomologie de \(N'\) sont donc cohérents à support dans \(Y'\). Leur classe est dans \(\Imf(j_*)\). On a donc
+\[
+x-f^*f_*(x)\in\Imf(j_*),
+\]
+et \(v\) est surjectif.
+
+\end{document}

@@ -1,0 +1,397 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\R}{\mathbb R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\N}{\mathbb N}
+\begin{document}
+
+% Expose VII additions
+\providecommand{\Kosz}{\mathrm K}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\Sym}{\operatorname{Sym}}
+\providecommand{\gr}{\operatorname{gr}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Imf}{\operatorname{Im}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Id}{\operatorname{Id}}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\cO}{\mathcal O}
+\providecommand{\cS}{\mathcal S}
+\providecommand{\cJ}{\mathcal J}
+\providecommand{\cN}{\mathcal N}
+\providecommand{\bfP}{\mathbf P}
+\providecommand{\bfA}{\mathbf A}
+
+\begin{center}
+{\Large SGA 6 Exposé VII, pages 423--454}\\[0.4em]
+{\large Original source scan pages 423--454}
+\end{center}
+
+
+\section*{Exposé VII. Regular immersions and the computation of \texorpdfstring{$K^\bullet$}{K} of a blow-up scheme}
+\begin{center}
+by Pierre Berthelot
+\end{center}
+
+\section*{1. Generalities on regular immersions}
+
+The classical notion of regular immersion (EGA IV 16.9.2) proves inadequate in the non-noetherian case. We shall define a weaker notion, one which gives the desired properties, and which is equivalent to the usual definition in the noetherian case.
+
+\textbf{Definition 1.1.} Let \(A\) be a commutative ring, let \(E\) be a projective \(A\)-module of finite type, and let \(u:E\to A\) be an \(A\)-linear homomorphism. We say that \(u\) is \emph{regular} if the Koszul complex \(\Kosz(u)\) defined by \(u\) is acyclic in dimensions \(>0\), and hence is a resolution of \(B=A/u(E)\).
+
+Recall that the Koszul complex associated with \(u\) is the graded \(A\)-module \(\bigwedge(E)\), with boundary the interior multiplication by \(u\), regarded as an element of the dual \(\check E\). This boundary is an antiderivation of degree \(-1\), equal to \(u\) on \(E\).
+
+\textbf{Lemma 1.2.} Let \(u:E\to A\) be regular. Let \(A'\) be an \(A\)-algebra and let \(u':E'\to A'\) be obtained from \(u\) by base change; suppose that \(u'\) is regular. Put \(J=u(E)\), \(J'=JA'=u(E')\). For every \(n\ge0\) one has
+\begin{align}
+ J^n/J^{n+1}\otimes_AA'&\xrightarrow{\sim}J'^n/J'^{n+1}, \tag{1.2.1}\\
+ \Tor_i^A(J^n/J^{n+1},A')&=0\quad(i\ge1), \tag{1.2.2}\\
+ J^n\otimes_AA'&\xrightarrow{\sim}J'^n, \tag{1.2.3}\\
+ \Tor_i^A(J^n,A')&=0\quad(i\ge1). \tag{1.2.4}
+\end{align}
+
+First assume that the modules \(J^n/J^{n+1}\) are projective over \(B=A/J\). Since \(J\) is of finite type they are locally free of finite type over \(B\). The assertions are checked pointwise on \(\Spec(A)\), so that one may suppose \(A\) local and \(u(E)\subset\rad(A)\). Then \(J^n/J^{n+1}\) is free over \(B\), and (1.2.2) is equivalent to \(\Tor_i^A(B,A')=0\) for \(i\ge1\). This follows by computing with the Koszul resolution \(\Kosz(u)\), since after tensoring with \(A'\) it becomes \(\Kosz(u')\), acyclic in positive degrees.
+
+The exact sequences
+\[
+0\to J^n/J^{n+1}\to A/J^{n+1}\to A/J^n\to0,
+\qquad
+0\to J^n\to A\to A/J^n\to0
+\]
+then give (1.2.1), (1.2.3), and (1.2.4) by induction on \(n\). It remains to know that \(J^n/J^{n+1}\) is projective over \(B\). Locally one reduces to \(E=A^d\), with \(u\) given by \(f_1,\ldots,f_d\), and to the universal homomorphism \(\mathbb Z[T_1,\ldots,T_d]^d\to \mathbb Z[T_1,\ldots,T_d]\). Since the sequence \((T_1,\ldots,T_d)\) is regular, the conclusion follows by base change.
+
+\textbf{Proposition 1.3.} Let \(A\) be a ring, \(E\) a projective \(A\)-module of finite type, \(u:E\to A\) a regular homomorphism, and \(J=u(E)\). Then \(J\) is quasi-regular: \(J\) is of finite type, \(J/J^2\) is a projective \(A/J\)-module of finite type, and the canonical homomorphism
+\begin{equation}\tag{1.3.1}
+ \Sym_{A/J}(J/J^2)\longrightarrow \gr_J(A)=\bigoplus_{n\ge0}J^n/J^{n+1}
+\end{equation}
+is an isomorphism. This is obtained from the preceding proof, again by reduction to the universal polynomial case.
+
+\textbf{Definition 1.4.} Let \((X,A)\) be a commutatively locally ringed site, let \(E\) be an \(A\)-module locally free of finite type, and let \(u:E\to A\) be \(A\)-linear. We say that \(u\) is regular if \(\Kosz(u)\) is acyclic in degrees \(>0\). If \(J\) is an ideal of \(A\), we say that \(J\) is regular if, locally on \(X\), it is the image of a surjective regular homomorphism from a free \(A\)-module of finite type.
+
+Let \(i:Y\to X\) be an immersion of preschemes. If \(U\) is an open subset of \(X\) containing \(i(Y)\), and if \(i\) is a closed immersion into \(U\), then \(i\) is said to be regular if the ideal defining \(i(Y)\) in \(\cO_U\) is regular. This condition is independent of \(U\), and regularity may be tested in a neighbourhood of every point.
+
+The definition replaces here that of EGA IV 16.9.2, and in the noetherian case the two definitions are equivalent. A closed immersion locally defined by a regular sequence is regular, and a regular immersion is quasi-regular by Proposition 1.3. A minimal system of generators of an ideal \(J\) at a point is a family whose images form a basis of \(J_x\otimes k(x)\); regularity is equivalently the local acyclicity of the corresponding Koszul complex. If \(J\) is of finite type and \(J/J^2\) is locally free, these systems correspond to local bases of \(J/J^2\).
+
+\textbf{Proposition 1.5.} If \(i:Y\to X\) is regular, it remains regular after every flat base change. Conversely, \(i\) is regular if and only if it is so locally for the faithfully flat quasi-compact topology.
+
+\textbf{Definition 1.6.} If \(i:Y\to X\) is defined by an ideal \(J\), the \(\cO_Y\)-module \(J/J^2\) is the conormal sheaf of \(Y\) in \(X\), denoted \(N_{X/Y}\). If \(i\) is regular it is locally free of finite type, and its rank is the codimension. For closed immersions \(Z\xrightarrow{j}Y\xrightarrow{i}X\) one has the exact conormal sequence
+\begin{equation}\tag{1.6.1}
+ j^*N_{X/Y}\longrightarrow N_{X/Z}\longrightarrow N_{Y/Z}\longrightarrow0.
+\end{equation}
+
+\textbf{Proposition 1.7.} Let \(i:Y\to X\) and \(j:Z\to Y\) be immersions. If \(i\) and \(j\) are regular, then \(i\circ j\) is regular and the conormal sequence, completed by \(0\) on the left, is exact. If \(i\circ j\) and \(i\) are regular and if this sequence is exact and locally split, then \(j\) is regular. If \(X\) is noetherian and if \(i\circ j\) and \(j\) are regular, then \(i\) is regular at the points of \(Z\).
+
+Locally, write \(X=\Spec(A)\), \(Y=\Spec(B)\), \(Z=\Spec(C)\), with \(B=A/I\) and \(C=B/K\). Choosing liftings \(f_1,\ldots,f_n\) of a basis of \(I/I^2\) and \(g_1,\ldots,g_m\) of a basis of \(K/K^2\), one obtains the diagram
+\begin{equation}\tag{1.7.1}
+\begin{tikzcd}[column sep=large,row sep=small]
+A_0=\mathbb Z[T_1,\ldots,T_{n+m}] \arrow[r] \arrow[d] & A \arrow[d]\\
+B_0=\mathbb Z[T_1,\ldots,T_m] \arrow[r] \arrow[d] & B \arrow[d]\\
+C_0=\mathbb Z \arrow[r] & C,
+\end{tikzcd}
+\end{equation}
+and the transitivity spectral sequence
+\begin{equation}\tag{1.7.3}
+E^2_{pq}=\Tor_p^{B_0}\bigl(C_0,\Tor_q^{A_0}(B_0,A)\bigr)\Rightarrow\Tor_n^{A_0}(C_0,A).
+\end{equation}
+This gives the first two assertions; the noetherian assertion is that of EGA IV 19.1.5, with the definitions identified in the noetherian case.
+
+\textbf{Proposition 1.8.} Let \(X\) be a scheme, \(E\) a locally free \(\cO_X\)-module of finite type, \(u:E\to\cO_X\) regular, \(J=u(E)\), \(Y\) the closed subscheme defined by \(J\), \(X'\) the blow-up of \(Y\), \(P=\bfP(E)\), and \(p:P\to X\). On \(P\) consider
+\begin{equation}\tag{1.8.1}
+0\to F\to p^*E\to\cO_P(1)\to0,
+\end{equation}
+and let \(v:F\to p^*E\xrightarrow{p^*u}\cO_P\). Then the formation of \(X'\) commutes with every base change for which the pulled-back homomorphism is regular; the closed immersion \(j:X'\to P\) defined by \(\cS(E)\to\bigoplus J^n\) is regular, its ideal being the image of \(v\); and \(\bigoplus J^n\) is perfect as a graded \(\cS(E)\)-module. The proof is reduced to the standard polynomial case and the affine opens \(D_+(X_i)\), where the Koszul generators are written explicitly, then descended by the base-change relations of Lemma 1.2.
+
+\textbf{Proposition 1.9.} If \(i:Y\to X\) is a regular closed immersion, if \(X'\) is the blow-up of \(Y\), and if \(f:X'\to X\) is structural, then \(i\) and \(f\) are perfect morphisms: \(\Kosz\) resolves \(\cO_Y\) by finite locally free \(\cO_X\)-modules, and \(f\) factors through a regular immersion into a projective bundle followed by a smooth morphism.
+
+\textbf{Proposition 1.10.} If \(X\) and \(Y\) are smooth over \(S\), every \(S\)-immersion from \(X\) into \(Y\) is regular. In particular, every section of a smooth morphism is a regular immersion.
+
+\section*{2. Computations on regular immersions}
+
+\textbf{2.1--2.3.} For two \(A\)-algebras \(B,C\), the graded module \(\bigoplus_{i\ge0}\Tor_i^A(B,C)\) is given a natural structure of associative graded \(B\otimes_A C\)-algebra by choosing a projective resolution \(P_\bullet\to B\), using the Kunneth morphisms, and extending the augmentation \(B\otimes_A B\to B\). If the resolution is an alternating differential graded algebra, the Tor algebra is alternating. Globally this gives, for two \(X\)-schemes \(X',X''\), a graded algebra structure on
+\[
+\bigoplus_i\Tor_i^{\cO_X}(\cO_{X'},\cO_{X''}).
+\]
+The multiplication is represented by the commutative square of complexes
+\begin{equation}\tag{2.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+P_i\otimes P_j \arrow[r] \arrow[d] & (P_{i-1}\otimes P_j)\oplus(P_i\otimes P_{j-1}) \arrow[d]\\
+P_{i+j} \arrow[r] & P_{i+j-1}.
+\end{tikzcd}
+\end{equation}
+
+\textbf{Lemma 2.4.} For two \(X\)-schemes \(X',X''\) and a flat \(\cO_{X'}\)-module \(M\), one has canonically
+\begin{equation}\tag{2.4.1}
+\Tor_i^{\cO_X}(M,\cO_{X''})\simeq
+M\otimes_{\cO_{X'}}\Tor_i^{\cO_X}(\cO_{X'},\cO_{X''}).
+\end{equation}
+This is immediate locally from a projective resolution, and then glues.
+
+\textbf{Proposition 2.5.} Let \(Y\) and \(Z\) be closed subschemes of \(X\), with \(T=Y\times_XZ\). Under the local Koszul hypotheses stated in the source, one has
+\begin{equation}\tag{2.5.1}
+\Tor_i^{\cO_X}(\cO_Y,\cO_Z)\simeq \bigwedge^i\Tor_1^{\cO_X}(\cO_Y,\cO_Z),
+\end{equation}
+and
+\begin{equation}\tag{2.5.2}
+\Tor_1^{\cO_X}(\cO_Y,\cO_Z)
+\simeq I\cap J/IJ
+\simeq \Ker\bigl(i^*N_{Y/X}\times j^*N_{Z/X}\to N_{T/X}\bigr).
+\end{equation}
+In particular, for a regular closed immersion \(Y\to X\),
+\begin{equation}\tag{2.5.3}
+\Tor_i^{\cO_X}(\cO_Y,\cO_Y)\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_Y,\cO_Y),
+\qquad
+\Tor_1^{\cO_X}(\cO_Y,\cO_Y)\simeq N_{Y/X}.
+\end{equation}
+The proof is the standard comparison of Koszul complexes, together with the bicomplex spectral sequence and the preceding multiplicative construction.
+
+\textbf{2.6--2.7.} Assume that \(X\) has an ample sheaf, so that the two definitions of \(K^\bullet\) coincide. If \(i:Y\to X\) is a regular closed immersion, one defines
+\[
+i_*:K^\bullet(Y)\to K^\bullet(X)
+\]
+using the class of the direct image, and one has, for every \(x\in K^\bullet(Y)\),
+\begin{equation}\tag{2.7.1}
+i^*i_*(x)=x\lambda_{-1}(N),
+\qquad
+\lambda_{-1}(N)=\sum_{r\ge0}(-1)^r\lambda^r(N),
+\end{equation}
+where \(N\) is the conormal sheaf. Indeed, if \(x\) is represented by a locally free finite type \(\cO_Y\)-module \(M\), the homology sheaves of the derived inverse image of \(i_*M\) are \(M\otimes\Tor_i^{\cO_X}(\cO_Y,\cO_Y)\), and Proposition 2.5 gives the displayed formula.
+
+\textbf{Corollary 2.8.} Under the hypotheses of 2.7, for \(x,y\in K^\bullet(Y)\),
+\begin{equation}\tag{2.8.1}
+i_*(xy\lambda_{-1}(N))=i_*(x)i_*(y).
+\end{equation}
+This follows from (2.7.1) and the projection formula.
+
+\textbf{Corollary 2.9.} Under the same hypotheses, if \(i_*(1)\) is invertible in \(K^\bullet(X)\), then \(i_*\) is an isomorphism of \(K^\bullet(Y)\) onto a direct summand. The source records the standard consequences for the operation of direct image under a regular immersion.
+
+\section*{3. Computation of \texorpdfstring{$K^\bullet$}{K} of a blow-up scheme}
+
+\textbf{3.1.} Let \(i:Y\to X\) be a regular closed immersion. Let \(X'\) be the blow-up of \(Y\), and let \(Y'=Y\times_X X'\). By EGA II 8.1.8, \(Y'\) is a closed subscheme of \(X'\) defined by an ideal canonically isomorphic to \(\cO_{X'}(1)\). Thus \(j:Y'\to X'\) is a regular closed immersion of codimension \(1\). Let \(J\) be the ideal of \(Y\) in \(X\), and \(J'\) the ideal of \(Y'\) in \(X'\); then
+\[
+J'\simeq J\cO_{X'}\simeq\cO_{X'}(1).
+\]
+Writing \(f:X'\to X\) and \(g:Y'\to Y\) for the structural morphisms, one has the commutative diagram
+\begin{equation}\tag{3.1.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X.
+\end{tikzcd}
+\end{equation}
+Moreover,
+\[
+X'=\Proj(S),\qquad S=\bigoplus_{n\ge0}J^n,
+\]
+and
+\[
+Y'=\Proj\bigl(i^*S\bigr)
+=\Proj\bigl(\bigoplus_{n\ge0}J^n/J^{n+1}\bigr).
+\]
+Since \(i\) is regular, \(\bigoplus J^n/J^{n+1}\simeq\Sym_{\cO_Y}(J/J^2)\). If \(N=J/J^2\), then \(Y'=\bfP(N)\). On \(Y'\) there is the exact sequence
+\begin{equation}\tag{3.1.2}
+0\to F\to g^*N\to\cO_{Y'}(1)\to0.
+\end{equation}
+The sheaf \(\cO_{Y'}(1)=j^*\cO_{X'}(1)=J'/J'^2\) is the conormal sheaf of \(j\); denote it by \(L\).
+
+\textbf{Lemma 3.2.} With the hypotheses and notation of 3.1, one has
+\begin{align}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)&\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_{X'},\cO_Y),\tag{3.2.i}\\
+\Tor_1^{\cO_X}(\cO_{X'},\cO_Y)&\simeq F.\tag{3.2.ii}
+\end{align}
+
+For (i), since \(\cO_Y\) can locally be resolved by a Koszul complex, the algebra \(\bigoplus_i\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)\) is alternating. Hence there is a unique algebra homomorphism
+\begin{equation}\tag{3.2.1}
+\bigwedge \Tor_1^{\cO_X}(\cO_{X'},\cO_Y)
+\longrightarrow
+\bigoplus_{i\ge0}\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\end{equation}
+extending the injection of degree one; it is enough to verify locally that it is an isomorphism. On an affine open, choose a regular homomorphism \(E\to A\) defining \(J\), with basis images \(f_1,\ldots,f_d\). On the open of \(X'\) where \(f_1^{(1)}\) is invertible, change the basis by
+\[
+e'_1=e_1,
+\qquad
+e'_i=e_i-(f_i^{(1)}/f_1^{(1)})e_1\quad(i\ne1).
+\]
+The Koszul differential then gives local isomorphisms
+\begin{equation}\tag{3.2.2}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\simeq
+(\cO_{X'}/f_1^{(0)}\cO_{X'})\otimes_{\cO_{X'}}
+\bigwedge^i(\cO_{X'}^{d-1})
+\simeq
+\bigwedge^i(\cO_{Y'}^{d-1}).
+\end{equation}
+In particular, for \(i=1\) one obtains \(\Tor_1^{\cO_X}(\cO_{X'},\cO_Y)\simeq \cO_{Y'}^{d-1}\), and hence
+\begin{equation}\tag{3.2.3}
+\Tor_i^{\cO_X}(\cO_{X'},\cO_Y)
+\simeq
+\bigwedge^i\Tor_1^{\cO_X}(\cO_{X'},\cO_Y).
+\end{equation}
+For (ii), tensor the exact sequence \(0\to J\to\cO_X\to\cO_Y\to0\) with \(\cO_{X'}\). Since the image of \(J\otimes\cO_{X'}\to\cO_{X'}\) is \(J\cO_{X'}=\cO_{X'}(1)\), and then tensoring with \(\cO_{Y'}\), one obtains
+\begin{equation}\tag{3.2.4}
+0\to \Tor_1^{\cO_X}(\cO_{X'},\cO_Y)\to g^*N\to\cO_{Y'}(1)\to0,
+\end{equation}
+which identifies this Tor sheaf with \(F\) in (3.1.2).
+
+\textbf{3.3.} Suppose now that \(X\) has an ample sheaf. Then the same is true for \(X'\), which is projective over \(X\), and for \(Y\) and \(Y'\). Moreover \(i\) and \(j\) are perfect morphisms, \(g\) is smooth hence perfect because \(Y'=\bfP(N)\), and \(f\) is perfect by 1.9. Since these morphisms are projective, one has additive homomorphisms
+\[
+i_*:K^\bullet(Y)\to K^\bullet(X),\quad
+j_*:K^\bullet(Y')\to K^\bullet(X'),\quad
+f_*:K^\bullet(X')\to K^\bullet(X),\quad
+g_*:K^\bullet(Y')\to K^\bullet(Y).
+\]
+
+\textbf{Proposition 3.4.} With the hypotheses and notation of 3.1 and 3.3, for every \(x\in K^\bullet(Y)\) one has
+\begin{equation}\tag{3.4.1}
+f^*(i_*(x))=j_*\bigl(g^*(x)\lambda_{-1}(F)\bigr).
+\end{equation}
+By additivity, one may assume \(x\) represented by a locally free finite type \(\cO_Y\)-module \(M\). The class of \(f^*i_*(x)\) is represented by the complex obtained from a projective resolution of \(i_*M\) and application of \(f^*\). Its homology sheaves are \(\Tor_i^{\cO_X}(M,\cO_{X'})\). By 2.4 and 3.2,
+\[
+\Tor_i^{\cO_X}(M,\cO_{X'})
+\simeq M\otimes_{\cO_Y}\Tor_i^{\cO_X}(\cO_X,\cO_Y)
+\simeq M\otimes_{\cO_Y}\bigwedge^iF,
+\]
+and the alternating sum of their classes is exactly the right hand side of (3.4.1).
+
+\textbf{Lemma 3.5.} With the hypotheses and notation of 3.1, one has the following isomorphisms:
+\begin{enumerate}[label=\roman*)]
+\item for all \(n\ge0\) and \(i\ge1\),
+\[
+R^if_*\bigl(\cO_{X'}(n)\bigr)=0;
+\]
+\item for all \(n\ge0\),
+\[
+f_*\bigl(\cO_{X'}(n)\bigr)=J^n.
+\]
+\end{enumerate}
+One may suppose \(X\) affine, hence quasi-compact. For (i) one uses the following lemma: if \(f:X'\to X\) is projective and perfect, with \(X\) quasi-compact, and if \(L'\) is a perfect complex on \(X'\) acyclic in degrees \(>0\), then there exists \(n_0\) such that, for \(n\ge n_0\), \(Rf_*(L'\otimes\cO_{X'}(n))\) is acyclic in degrees \(>0\). Applied to \(\cO_{X'}\), this gives the vanishing for large \(n\). The exact sequence
+\[
+0\to \cO_{X'}(n+1)\to\cO_{X'}(n)\to\cO_{Y'}(n)\to0
+\]
+and the fact that \(Y'=\bfP(N)\) then allow descending induction to \(n=0\).
+
+For (ii), the canonical graded homomorphism
+\[
+\bigoplus_{n\ge0}J^n\longrightarrow\bigoplus_{n\ge0}f_*\bigl(\cO_{X'}(n)\bigr)
+\]
+is shown to be an isomorphism locally. Write \(S=\bigoplus J^n\) and use a surjective graded homomorphism \(\cO_X[T_1,\ldots,T_d]\to S\) given by a set of generators of \(J\). This realizes \(X'\) as a regular closed subscheme of \(\bfP_X^{d-1}\). With a finite graded presentation \(L''\to L'\to S\to0\), one obtains on \(\bfP_X^{d-1}\) a presentation \(M''\to M'\to\cO_{X'}\to0\). For each \(n\) there is a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+L''_n \arrow[r] \arrow[d,"\sim"'] & L'_n \arrow[r] \arrow[d,"\sim"'] & J^n \arrow[r] \arrow[d] & 0 \arrow[d]\\
+p_*M''(n) \arrow[r] & p_*M'(n) \arrow[r] & p_*\cO_{X'}(n) \arrow[r] & 0,
+\end{tikzcd}
+\]
+where \(p:\bfP_X^{d-1}\to X\). For \(n\) sufficiently large the bottom row is exact; hence the middle vertical arrow is an isomorphism for large \(n\). Descending induction, using
+\[
+0\to J^{n+1}\to J^n\to J^n/J^{n+1}\to0
+\]
+and the analogous direct-image exact sequence, completes the proof.
+
+\textbf{Proposition 3.6.} With the hypotheses and notation of 3.1 and 3.3,
+\begin{equation}\tag{3.6.1}
+f_*f^*=\Id_{K^\bullet(X)}.
+\end{equation}
+Indeed, by the projection formula, \(f_*f^*(x)=x f_*(1)\), and Lemma 3.5 says that \(Rf_*\cO_{X'}\) has \(\cO_X\) in degree \(0\) and no higher cohomology.
+
+\textbf{Theorem 3.7.} Let \(i:Y\to X\) be a regular closed immersion, let \(X'\) be the blow-up of \(Y\), and let \(Y'=X'\times_XY\), so that one has
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+Y' \arrow[r,"j"] \arrow[d,"g"'] & X' \arrow[d,"f"]\\
+Y \arrow[r,"i"'] & X.
+\end{tikzcd}
+\]
+Assume that \(X\) is quasi-compact and has an ample sheaf. Then the sequence
+\begin{equation}\tag{3.7.0}
+0\to K^\bullet(Y)\xrightarrow{u}K^\bullet(Y')\times K^\bullet(X)\xrightarrow{v}K^\bullet(X')
+\end{equation}
+is exact, where
+\begin{equation}\tag{3.7.u}
+u(y)=\bigl(g^*(y)\lambda_{-1}(F),-i_*(y)\bigr),
+\end{equation}
+and, for \(y'\in K^\bullet(Y')\), \(x\in K^\bullet(X)\),
+\begin{equation}\tag{3.7.v}
+v(y',x)=j_*(y')+f^*(x).
+\end{equation}
+Moreover \(u\) has a left inverse \(u'\), defined by \(u'(y',x)=g_*(y')\). If, in addition, \(X\) is noetherian and \(Y\) regular, then \(v\) is surjective and
+\begin{equation}\tag{3.7.2}
+0\to K^\bullet(Y)\xrightarrow{u}K^\bullet(Y')\times K^\bullet(X)\xrightarrow{v}K^\bullet(X')\to0
+\end{equation}
+is exact.
+
+First, \(u'\circ u=1\), because \(g_*(g^*y\lambda_{-1}(F))=y\,g_*(\lambda_{-1}(F))=y\). Also \(v\circ u=0\), by Proposition 3.4. If \((y',x)\) belongs to the kernel of \(v\), then \(j_*(y')+f^*(x)=0\). One must find \(y\in K^\bullet(Y)\) such that
+\begin{equation}\tag{3.7.1}
+x=-i_*(y),\qquad y'=g^*(y)\lambda_{-1}(F).
+\end{equation}
+Necessarily \(y=u'(y',x)=g_*(y')\). Applying \(f_*\) to the relation \(f^*(x)=-j_*(y')\), and using Proposition 3.6, gives \(x=-i_*(y)\). To prove the second equality in (3.7.1), put \(z=y'-g^*(g_*y')\lambda_{-1}(F)\). Then \(g_*z=0\), and the preceding formulas give \(j_*z=0\). Since \(\Ker j_*\cap\Ker g_*=0\), it follows that \(z=0\). This proves exactness at the middle term.
+
+For the final surjectivity assertion, assume \(X\) noetherian and \(Y\) regular. Then \(Y'\) is regular, being a projective bundle over \(Y\), and local rings of \(X'\) along \(Y'\) are regular because \(Y'\) is cut out by one regular element. Therefore coherent modules on \(X'\) with support in \(Y'\) are perfect. If such a module \(E\) has class in \(K^\bullet(X')\), filtration by the powers \(J'^nE\) shows that its class is in the image of \(j_*\). For arbitrary \(x\in K^\bullet(X')\), choose a perfect complex \(M'\) representing \(x\), and form the distinguished triangle
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& N' \arrow[dl] \arrow[dr] &\\
+M' \arrow[rr] && Lf^*Rf_*(M').
+\end{tikzcd}
+\]
+The horizontal arrow is the canonical morphism. It is an isomorphism off \(Y'\), so the cohomology sheaves of \(N'\) are coherent sheaves supported on \(Y'\). Their class lies in \(\Imf(j_*)\). Hence
+\[
+x-f^*f_*(x)\in\Imf(j_*),
+\]
+and \(v\) is surjective.
+
+\end{document}
