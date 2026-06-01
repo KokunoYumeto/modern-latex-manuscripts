@@ -1,0 +1,105 @@
+% !TEX root = micro_Lie_theory.tex
+% source: [local source path]
+% converted_by: Codex
+% date: 2026-06-01
+% compile_status: pending
+% known_issues: none
+
+\section{Композиційні маніфолди}
+
+За ціною часткової втрати узгодженості з теорією Лі, але з перевагами в нотації та маніпуляціях, можна розглядати великі гетерогенні стани як композиційні маніфолди (або пучки).
+
+
+\if \examples y \input{example_composite} \fi
+
+Композиційний маніфолд $\cM=\langle\cM_1,\cdots,\cM_M\rangle$ є простим зшиванням $M$ некорельованих маніфолдів.
+Це випливає з визначення тотожності, оберненого елемента й композиції, які діють окремо на кожен блок композиції:
+%
+\begin{align}
+\cE_\diamond &\te \begin{bmatrix}
+\cE_1 \\ \vdots \\ \cE_M
+\end{bmatrix},
+&
+\cX^\diamond &\te \begin{bmatrix}
+\cX\inv \\ \vdots \\ \cX_M\inv
+\end{bmatrix},
+&
+\cX\diamond\cY &\te \begin{bmatrix}
+\cX\circ\cY_1 \\
+\vdots\\
+\cX_M\circ\cY_M 
+\end{bmatrix}
+,
+\end{align}
+%
+що забезпечує виконання аксіом групи, а також некорельовану ретракційну карту, яку також позначатимемо як експоненціальне відображення для уніфікації нотацій (зверніть увагу на кутові дужки):
+%
+\begin{align}\label{equ:exp_composite}
+\Exp\langle\bftau\rangle &\te \begin{bmatrix}
+\Exp(\bftau_1) \\ \vdots \\ \Exp(\bftau_M)
+\end{bmatrix}
+\,,
+&
+\Log\langle\cX\rangle &\te \begin{bmatrix}
+\Log(\cX) \\ \vdots \\ \Log(\cX_M)
+\end{bmatrix}
+,
+\end{align}
+% 
+що забезпечує гладкість.
+Тоді отримуємо праві операції додавання та віднімання для композиції (зверніть увагу на символи діаманту):
+%
+\begin{align}
+\cX\dplus\bftau &\te \cX\diamond\Exp\langle\bftau\rangle \\
+\cY\dminus\cX &\te \Log\langle\cX^\diamond\diamond\cY\rangle
+~.
+\end{align}
+
+Ключовим наслідком цих міркувань
+\if\examples y{ (див. Ex.~\ref{ex:sen_sonxrn_comp}) }\else { }\fi 
+є те, що тепер можна визначити нові похідні\footnotemark\ з використанням $
+\dplus$ і $
+\dminus$,
+\footnotetext{Тут вважаємо праві похідні; те саме справедливо для лівих.}
+%
+\begin{align}
+\ndpar{f(\cX)}{\cX} &\te \lim_{\bftau\to0}\frac{f(\cX\dplus\bftau)\dminus f(\cX)}{\bftau}
+\label{equ:Jacobian_composite}
+~.
+\end{align}
+%
+За цією похідною Якобіани функцій $f:\cM\to\cN$, що діють на композиційних маніфолдах, можна знаходити блоками, що дає прості вирази й вимагає лише знань про блоки маніфолду:
+%
+\begin{align}
+\ndpar{f(\cX)}{\cX} &= \begin{bmatrix}
+\ndpar{f_1}{\cX_1} & \cdots & \ndpar{f_1}{\cX_M} \\
+\vdots             & \ddots & \vdots \\
+\ndpar{f_N}{\cX_1} & \cdots & \ndpar{f_N}{\cX_M} \\
+\end{bmatrix}
+~,
+\end{align}
+%
+де $
+\ndpar{f_i}{\cX_j}$ обчислюються за 
+\eqRef{equ:Jacobian}.
+Для малих значень $
+\bftau$ має місце
+%
+\begin{align}\label{equ:lin_approx_composite}
+f(\cX\dplus\bftau) \xrightarrow[{\bftau}\to0]{} f(\cX)\dplus\ndpar{f(\cX)}{\cX}\,{\bftau}
+\quad \in \cN
+~.
+\end{align}
+
+Під час використання цих похідних коваріанси й поширення невизначеності мають слідувати цій конвенції. Зокрема, матриця коваріації 
+\eqRef{equ:cov} набуває вигляду
+%
+\begin{align}\label{equ:cov_composite}
+\bfSigma_\cX &\te \bbE[(\cX \dminus \bar\cX)(\cX \dminus \bar\cX)\tr]~\in\bbR^{n\times n}
+~,
+\end{align}
+%
+до неї застосовується лінеаризоване поширення 
+\eqRef{equ:cov_propagation} за 
+\eqRef{equ:Jacobian_composite}.
+

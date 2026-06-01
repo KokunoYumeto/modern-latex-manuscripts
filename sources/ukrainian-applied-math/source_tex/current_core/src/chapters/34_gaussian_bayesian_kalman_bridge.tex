@@ -1,0 +1,115 @@
+\chapter{Гаусівський байєсівський фільтр як міст до Kalman filter}
+\label{ch:gaussian-bayesian-kalman-bridge}
+
+\sourcebox{Основа: source-backed material з Labbe, \emph{Kalman and Bayesian Filters in Python}, staged як notebook Markdown. Тут подано стислий український TeX-модуль: не повний переклад глави, а формульний міст від discrete Bayes до Kalman.}
+
+\section{Чому гаусіани замінюють гістограми}
+
+Discrete Bayes filter може зберігати belief як гістограму: кожна комірка відповідає можливому положенню, а її значення - імовірності. Це інтуїтивно, але дорого за пам'яттю і обчисленнями. Якщо невизначеність добре апроксимується нормальним розподілом, belief можна подати двома числами:
+\[
+  x \sim \mathcal N(\mu,\sigma^2).
+\]
+У прикладних задачах це часто не просто зручність. Це робить фільтр рекурсивним, компактним і придатним для реального часу.
+
+\section{Prediction: сума гаусіанів}
+
+Нехай попереднє положення
+\[
+  x_{k-1}\sim\mathcal N(\mu_x,\sigma_x^2),
+\]
+а модель руху за один epoch дає приріст
+\[
+  f_x\sim\mathcal N(\mu_f,\sigma_f^2).
+\]
+Якщо похибки незалежні, prior після prediction:
+\[
+  \bar x_k = x_{k-1}+f_x,
+\]
+тобто
+\[
+  \bar x_k\sim\mathcal N(\mu_x+\mu_f,\;\sigma_x^2+\sigma_f^2).
+\]
+Сенс variance update: prediction додає невизначеність. Навіть якщо середнє рухається правильно, модель руху не є точною.
+
+\section{Update: добуток гаусіанів}
+
+Нехай prior
+\[
+  \bar x\sim\mathcal N(\bar\mu,\bar\sigma^2),
+\]
+а measurement likelihood
+\[
+  z\sim\mathcal N(\mu_z,\sigma_z^2).
+\]
+Добуток двох гаусіанів, після нормування, знову є гаусіаном:
+\[
+  \mu = \frac{\bar\sigma^2\mu_z+\sigma_z^2\bar\mu}{\bar\sigma^2+\sigma_z^2},
+\]
+\[
+  \sigma^2 = \frac{\bar\sigma^2\sigma_z^2}{\bar\sigma^2+\sigma_z^2}.
+\]
+Еквівалентна форма через Kalman gain:
+\[
+  K = \frac{\bar\sigma^2}{\bar\sigma^2+\sigma_z^2},
+\]
+\[
+  \mu = \bar\mu + K(\mu_z-\bar\mu),\qquad
+  \sigma^2=(1-K)\bar\sigma^2.
+\]
+
+\section{Скалярний алгоритм}
+
+\begin{lstlisting}[language=Python]
+# scalar Gaussian Bayes / one-dimensional Kalman skeleton
+# x: mean, P: variance, Q: process variance, R: measurement variance
+# u: predicted motion increment, z: measurement
+
+# predict
+x = x + u
+P = P + Q
+
+# update
+K = P / (P + R)
+y = z - x
+x = x + K*y
+P = (1 - K)*P
+\end{lstlisting}
+
+Це не ``toy'' у поганому сенсі. Це мінімальний випадок тієї самої логіки, яка в багатовимірному фільтрі стає
+\[
+  \bar x_k = F x_{k-1}+B u_k,
+  \qquad
+  \bar P_k = F P_{k-1}F^\T + Q,
+\]
+\[
+  K_k = \bar P_k H^\T(H\bar P_k H^\T+R)^{-1}.
+\]
+
+\section{Термінологія}
+
+\begin{longtable}{L{0.34\linewidth}L{0.44\linewidth}}
+\toprule
+English & Ukrainian \\
+\midrule
+belief & переконання / імовірнісна оцінка \\
+prior & апріорна оцінка \\
+posterior & апостеріорна оцінка \\
+likelihood & правдоподібність \\
+process noise & шум процесу \\
+measurement noise & шум вимірювання \\
+variance & дисперсія \\
+standard deviation & стандартне відхилення \\
+Kalman gain & коефіцієнт Калмана \\
+innovation / residual & інновація / залишок \\
+\bottomrule
+\end{longtable}
+
+\section{Перевірки}
+
+\begin{enumerate}[label=\arabic*.]
+\item Variance не має ставати від'ємною.
+\item Prediction збільшує або не зменшує uncertainty, якщо $Q\succeq0$.
+\item Update зменшує uncertainty у скалярному випадку, якщо $R>0$.
+\item Якщо measurement noise дуже великий, $K\to0$ і measurement майже ігнорується.
+\item Якщо prior variance дуже великий, $K\to1$ і measurement домінує.
+\end{enumerate}

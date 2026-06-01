@@ -1,0 +1,213 @@
+% !TEX TS-program = xelatex
+\documentclass[11pt,a4paper,oneside]{book}
+
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguage{english}
+
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{booktabs,longtable,array,multirow}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ragged2e}
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\AtBeginEnvironment{longtable}{\scriptsize\setlength{\tabcolsep}{2pt}\RaggedRight}
+
+
+\pdfstringdefDisableCommands{%
+  \def\oplus{+}%
+  \def\ominus{-}%
+  \def\Exp{Exp}%
+  \def\Log{Log}%
+  \def\SO{SO}%
+  \def\SE{SE}%
+}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+  pdftitle={Ukrainian Applied Mathematics Core - Current QA and PySDR TeX build},
+  pdfauthor={OpenAI GPT-5.5 Pro, user-directed translation project},
+  pdfsubject={Applied mathematics, Ukrainian technical translation, TeX-first source},
+  pdfkeywords={Ukrainian, applied mathematics, signal processing, state estimation, Kalman filter, Lie groups, numerical methods, quaternions, ESKF, SDR, RF, antennas, sensor fusion, PDE control, robotics}
+}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  columns=fullflexible,
+  breaklines=true,
+  frame=single,
+  keepspaces=true
+}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\T}{\mathsf{T}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SE}{\mathrm{SE}}
+\newcommand{\Exp}{\operatorname{Exp}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\sinc}{\operatorname{sinc}}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\trans}{^{\mathsf{T}}}
+\newcommand{\given}{\,\middle|\,}
+
+% Layout/QC settings for machine-generated Ukrainian technical TeX.
+% They prevent long Ukrainian/English mixed headings, paths, and inline code from
+% spilling outside the printable area while keeping the source easy to edit.
+\titleformat{\chapter}[block]
+  {\normalfont\sffamily\Large\bfseries\RaggedRight}
+  {\thechapter.}{0.8em}{}
+\titlespacing*{\chapter}{0pt}{1.2ex plus .4ex minus .2ex}{1.6ex plus .3ex}
+\titleformat{\part}[display]
+  {\normalfont\sffamily\LARGE\bfseries\RaggedRight}
+  {\partname\ \thepart}{0.7ex}{}
+\titlespacing*{\part}{0pt}{2ex plus .5ex minus .2ex}{2ex plus .5ex}
+\setlength{\emergencystretch}{4em}
+\tolerance=2200
+\hbadness=5000
+\hfuzz=5pt
+\tracinglostchars=0
+\urlstyle{tt}
+\makeatletter
+\g@addto@macro\UrlBreaks{\do\/\do\_\do\-\do\.\do\:}
+\makeatother
+\newcommand{\sourcepath}[1]{\begingroup\footnotesize\path{#1}\endgroup}
+\newcommand{\sourcebox}[1]{%
+  \par\smallskip\noindent
+  \begingroup
+  \setlength{\fboxsep}{5pt}%
+  \fbox{\begin{minipage}{0.94\linewidth}\footnotesize\RaggedRight\setlength{\emergencystretch}{6em}#1\end{minipage}}%
+  \endgroup\par\smallskip}
+
+\newcommand{\quat}{\mathbb{H}}
+\newcommand{\qmul}{\otimes}
+\newcommand{\hatmap}[1]{\left[#1\right]_{\times}}
+\newcommand{\unskew}[1]{#1^{\vee}}
+\newcommand{\vectzero}{\vect{0}}
+\newcommand{\matI}{\mat{I}}
+\newcommand{\dt}{\Delta t}
+\newcommand{\Normal}{\mathcal{N}}
+
+% Defensive aux reader patch for this generated bundle.
+\makeatletter
+\providecommand{\@writefile}[2]{}
+\makeatother
+
+
+\title{Українське ядро прикладної математики\\\large Сесія 09: QA, format sweep і PySDR TeX-доріжка}
+\author{TeX-first machine-readable translation lane}
+\date{2026-06-01}
+
+\begin{document}
+\pagestyle{plain}
+\frontmatter
+\maketitle
+
+\chapter*{Стан пакета}
+Цей файл продовжує компільоване TeX-ядро з сесії 01. Він іде за поточною чергою: кватерніони та ESKF, групи Лі для оцінювання стану, неперервно-дискретне поширення шуму, а потім DSP/SDR-основа. Пріоритет тут не ``гарна книжка'', а чистий машинозчитуваний TeX, який можна подавати локальним агентам для перекладу, редагування, звірки формул і подальшого складання модулів.
+
+\medskip
+\noindent\textbf{Публічна межа.} Матеріал подано як навчальну прикладну математику та інженерну теорію. Тут немає оперативних інструкцій, тактичних налаштувань, процедур вибору цілей або прикладних рецептів для конкретних польових сценаріїв.
+
+\tableofcontents
+
+\mainmatter
+\input{chapters/00_execution_plan.tex}
+\input{chapters/01_signals_fourier_sampling.tex}
+\input{chapters/02_state_estimation_kalman.tex}
+\input{chapters/03_quaternions_eskf.tex}
+\input{chapters/04_micro_lie_theory.tex}
+\input{chapters/05_numerical_methods_pde.tex}
+\input{chapters/06_optimization_core.tex}
+\input{chapters/07_queue_and_integration.tex}
+
+\part{Сесія 02: розгортання пріоритетної черги}
+\input{chapters/08_quaternion_conventions_and_products.tex}
+\input{chapters/09_eskf_imu_state_model.tex}
+\input{chapters/10_continuous_discrete_noise.tex}
+\input{chapters/11_lie_groups_for_state_estimation.tex}
+\input{chapters/12_kalman_esfk_implementation_checks.tex}
+\input{chapters/13_sampling_iq_frequency_tex_module.tex}
+\input{chapters/14_session02_queue_and_gap_notes.tex}
+
+\input{chapters/15_document_architecture_original_vs_bespoke.tex}
+\input{chapters/16_source_preserved_esfk_paper_start.tex}
+\input{chapters/17_measurement_update_injection_reset.tex}
+\input{chapters/18_sensor_models_and_calibration.tex}
+\input{chapters/19_bayesian_filtering_smoothing_factor_graphs.tex}
+\input{chapters/20_control_foundations_state_space.tex}
+\input{chapters/21_signal_filter_design_core.tex}
+\input{chapters/22_matrix_derivatives_and_least_squares_checks.tex}
+\input{chapters/23_session03_queue_and_source_splitting.tex}
+
+\part{Сесія 04: зовнішні batch-модулі і практичні прикладні доріжки}
+\input{chapters/24_claude_integration_status.tex}
+\input{chapters/25_sdr_architecture_and_rf_frontend.tex}
+\input{chapters/26_maxwell_antenna_foundations.tex}
+\input{chapters/27_multisensor_fusion_perception.tex}
+\input{chapters/28_wave_control_and_pde_energy.tex}
+\input{chapters/29_session04_queue_and_module_policy.tex}
+\input{chapters/30_tex_qa_for_machine_translation.tex}
+
+\part{Сесія 05: використання швидких code-agent токенів і розширення практичного ядра}
+\input{chapters/31_session05_claude_delta_and_spark_lane.tex}
+\input{chapters/32_digital_modulation_practical_core.tex}
+\input{chapters/33_channel_coding_information_core.tex}
+\input{chapters/34_gaussian_bayesian_kalman_bridge.tex}
+\input{chapters/35_state_space_discretization_core.tex}
+\input{chapters/36_session05_queue_and_transfer.tex}
+
+
+\part{Сесія 06: інтеграція фактичного Claude payload і заповнення прогалин}
+\input{chapters/37_session06_claude_audit_and_integration.tex}
+\input{chapters/38_wave_control_boundary_interior_bridge.tex}
+\input{chapters/39_antenna_rf_practical_stack.tex}
+\input{chapters/40_event_sensor_fusion_odometry_bridge.tex}
+\input{chapters/41_robust_filtering_outlier_rejection.tex}
+\input{chapters/42_autonomous_robotics_navigation_stack.tex}
+\input{chapters/43_session06_queue_and_missing_payloads.tex}
+
+
+
+\part{Сесія 07: повний Claude payload і Spark-доріжка}
+\input{chapters/44_session07_latest_payload_audit.tex}
+\input{chapters/45_zuazua_chapters_1_to_3_linear_control.tex}
+\input{chapters/46_antenna_electromagnetics_and_arrays.tex}
+\input{chapters/47_dual_sensor_fusion_surveys.tex}
+\input{chapters/48_roth_student_t_robust_filtering.tex}
+\input{chapters/49_correll_autonomous_robots_curriculum.tex}
+\input{chapters/50_spark_micro_lie_and_working_ocr_lane.tex}
+\input{chapters/51_session07_practical_queue.tex}
+
+\appendix
+\input{support/terminology_seed.tex}
+\input{support/terminology_session04_additions.tex}
+\input{support/terminology_session05_additions.tex}
+\input{support/terminology_session06_additions.tex}
+\input{support/terminology_session07_additions.tex}
+
+\end{document}
+
+

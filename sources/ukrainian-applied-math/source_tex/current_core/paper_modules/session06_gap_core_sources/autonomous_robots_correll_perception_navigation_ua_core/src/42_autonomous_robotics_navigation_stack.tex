@@ -1,0 +1,70 @@
+\chapter{Autonomous robots: сенсори, бачення, локалізація, карти, SLAM і планування}
+\label{chap:autonomous-robots-stack}
+
+\sourcebox{Bridge-розділ. Заявлені 6 розділів \texttt{autonomous\_robots\_correll} у фактичному ZIP відсутні.}
+
+Робототехнічна автономія розкладається на стек:
+\begin{equation}
+ \text{сенсори}\rightarrow \text{оцінювання стану}\rightarrow \text{карта}\rightarrow \text{план}\rightarrow \text{керування}.
+\end{equation}
+Це не одна модель, а набір зв'язаних математичних задач із різними часовими масштабами.
+
+\section{Сенсори}
+
+Сенсорна модель має форму
+\begin{equation}
+ \mathbf{z}_k=h(\mathbf{x}_k,\mathbf{m})+\mathbf{v}_k,
+\end{equation}
+де $\mathbf{x}_k$ --- стан, $\mathbf{m}$ --- карта або параметри середовища, $\mathbf{v}_k$ --- шум.
+
+\section{Комп'ютерний зір}
+
+Пінхол-модель камери:
+\begin{equation}
+ s\begin{bmatrix}u\\v\\1\end{bmatrix}=
+ \mathbf{K}\begin{bmatrix}\mathbf{R}&\mathbf{t}\end{bmatrix}
+ \begin{bmatrix}X\\Y\\Z\\1\end{bmatrix}.
+\end{equation}
+Для двох зображень епіполярне обмеження
+\begin{equation}
+ \mathbf{x}_2^\T\mathbf{F}\mathbf{x}_1=0
+\end{equation}
+дає базовий constraint для matching, pose estimation і visual odometry.
+
+\section{Локалізація}
+
+У probabilistic robotics локалізація підтримує belief
+\begin{equation}
+ bel(\mathbf{x}_k)=p(\mathbf{x}_k\mid \mathbf{z}_{1:k},\mathbf{u}_{1:k}).
+\end{equation}
+Bayes filter має prediction/update структуру:
+\begin{align}
+ \overline{bel}(\mathbf{x}_k)&=\int p(\mathbf{x}_k\mid\mathbf{x}_{k-1},\mathbf{u}_k)bel(\mathbf{x}_{k-1})\,\dd\mathbf{x}_{k-1},\\
+ bel(\mathbf{x}_k)&=\eta\,p(\mathbf{z}_k\mid\mathbf{x}_k)\overline{bel}(\mathbf{x}_k).
+\end{align}
+
+\section{Карти і SLAM}
+
+SLAM оцінює і траєкторію, і карту:
+\begin{equation}
+ p(\mathbf{x}_{0:K},\mathbf{m}\mid \mathbf{z}_{1:K},\mathbf{u}_{1:K}).
+\end{equation}
+Graph-SLAM записує це як задачу найменших квадратів:
+\begin{equation}
+ \min_{\mathbf{x}_{0:K},\mathbf{m}}\sum_i \|\mathbf{r}^{\rm motion}_i\|^2_{\mathbf{Q}_i^{-1}}+
+ \sum_j \|\mathbf{r}^{\rm obs}_j\|^2_{\mathbf{R}_j^{-1}}.
+\end{equation}
+
+\section{Планування шляху}
+
+У дискретному графі $G=(V,E)$ базова задача:
+\begin{equation}
+ \min_{\pi=(v_0,\ldots,v_N)}\sum_{i=0}^{N-1} c(v_i,v_{i+1}).
+\end{equation}
+Dijkstra гарантує оптимальність для невід'ємних вартостей. A* додає евристику $h(v)$:
+\begin{equation}
+ f(v)=g(v)+h(v).
+\end{equation}
+Якщо $h$ admissible, A* зберігає оптимальність і часто зменшує кількість розглянутих вузлів.
+
+Localization --- \emph{локалізація}; mapping --- \emph{побудова карти}; path planning --- \emph{планування шляху}; occupancy grid --- \emph{сітка зайнятості}; loop closure --- \emph{замикання циклу}; pose graph --- \emph{граф поз}.

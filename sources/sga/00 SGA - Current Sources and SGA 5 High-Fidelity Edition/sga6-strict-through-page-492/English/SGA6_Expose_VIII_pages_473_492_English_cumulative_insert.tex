@@ -1,0 +1,623 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=3em
+\hbadness=10000
+\hfuzz=20pt
+\newcommand{\K}{K}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Fil}{\operatorname{Fil}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Todd}{\operatorname{Todd}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Parf}{\operatorname{Parf}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\RRR}{\mathrm{RRR}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Inv}{\operatorname{Inv}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Z}{\mathbb Z}
+\providecommand{\Q}{\mathbb Q}
+\providecommand{\R}{\mathbb R}
+\providecommand{\Ahat}{\widehat A}
+\providecommand{\Ahp}{\widehat A^{+}}
+\providecommand{\That}{\widehat T}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Gl}{\operatorname{Gl}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\ch}{\operatorname{ch}}
+\providecommand{\Todd}{\operatorname{Todd}}
+\providecommand{\Gr}{\operatorname{Gr}}
+
+% Core macro additions
+\providecommand{\Atil}{\widetilde A}
+\providecommand{\Ctil}{\widetilde C}
+\providecommand{\K}{\mathrm K}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cF}{\mathscr F}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\ellc}{\ell}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\Gr}{\operatorname{G}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\rang}{\operatorname{rang}}
+\providecommand{\cO}{\mathcal O}
+
+\hypersetup{hypertexnames=false}
+\providecommand{\N}{\mathbb N}
+
+\providecommand{\etale}{\'etale}
+\providecommand{\Ch}{\operatorname{Ch}}
+\begin{document}
+\setcounter{page}{237}
+
+\section*{Expos\'e VIII. The Riemann--Roch theorem}
+\begin{center}
+by Pierre Berthelot
+\end{center}
+
+\subsection*{1. Complete-intersection morphisms}
+
+\textbf{Definition 1.1.} Let $f:X\to Y$ be a morphism of schemes. One says that $f$ is a \emph{complete-intersection morphism} if, for every point $x$ of $X$, there exist an open neighbourhood $U$ of $x$ and a smooth $Y$-scheme $V$ such that the restriction of $f$ to $U$ factors as
+\[
+\begin{tikzcd}[column sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+where $i$ is a regular immersion (VII 1.4). After replacing $V$ by an open subset, one may suppose that $i$ is a regular closed immersion.
+
+In this definition one may replace $V$ by a vector bundle $Y[T_1,\ldots,T_n]$. Indeed, since the notion is local, one may suppose that $V$ is affine and that its image in $Y$ is contained in an affine open $W$ of $Y$. There then exists an integer $n$ and a closed $W$-immersion
+\[
+V\longrightarrow W[T_1,\ldots,T_n],
+\]
+hence a $Y$-immersion $V\to Y[T_1,\ldots,T_n]$, which is regular by VII 1.10. Since the composite of two regular immersions is regular, one obtains a regular $Y$-immersion
+\[
+U\longrightarrow Y[T_1,\ldots,T_n]
+\]
+factorizing $f$.
+
+\textbf{Proposition 1.2.} Let $f:X\to Y$ be a complete-intersection morphism. Then every $Y$-immersion $i:X\to Z$ of $X$ in a smooth $Y$-scheme is regular.
+
+We first prove the following corollary.
+
+\textbf{Corollary 1.3.} Let
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V
+\end{tikzcd}
+\]
+be a commutative diagram in which $i$ and $j$ are immersions, and $p$ is a smooth morphism. Then $i$ is a regular immersion if and only if $j$ is a regular immersion.
+
+(i) Suppose $i$ regular. Put $X'=V'\times_V X$. The datum of $j$ defines a section $j'$ of $X'$ over $X$, such that $j=i'j'$:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+\end{tikzcd}
+\]
+Now $j'$ is a regular immersion, being a section of a smooth morphism (VII 1.10); $i'$ is a regular immersion because it is obtained from $i$ by the smooth, hence flat, base change (VII 1.5). Therefore $j$ is a regular immersion (VII 1.7).
+
+(ii) Suppose $j$ regular and $p$ \etale. Then $j'$ is an open immersion (EGA IV 17.9.3), hence an isomorphism of $X$ onto $j'(X)$; put $U=j'(X)$. Let $i''$ be the restriction of $i'$ to $U$, and let $U'$ be an open subset of $V'$ such that $U=U'\cap X'$. Then
+\[
+i''=j\circ(j')^{-1},
+\]
+so that $i''$ is a regular immersion of $U$ into $U'$. But the morphism $U'\to V$, being smooth, is flat and locally of finite presentation, hence open. Consequently it is faithfully flat and quasi-compact from $U'$ onto an open neighbourhood of $X$ in $V$. It follows from VII 1.5 that $i$ is a regular immersion.
+
+(iii) Suppose $j$ regular, and suppose that $V'$ is a vector bundle over $V$. Since the property to be proved is local on $V$, one may suppose $V$ affine, $i$ closed, and $V'=V[T_1,\ldots,T_n]$. Put $V=\Spec(A)$, $X=\Spec(B)$. One has the commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& A[T_1,\ldots,T_n] \arrow[d,"v"]\\
+A \arrow[r] \arrow[ur,"u"] & B,
+\end{tikzcd}
+\]
+where the morphisms $u$ and $v$ are surjective. Choose elements $t_i\in A$, $1\leq i\leq n$, such that $u(t_i)=v(T_i)$ for every $i$. Define a homomorphism
+\[
+w:A[T_1,\ldots,T_n]\longrightarrow A,
+\qquad w(T_i)=t_i.
+\]
+This gives a closed immersion $s:V\to V'$ which is a section of $p$, and such that $j=s\circ i$. Moreover, being a section of a smooth morphism, $s$ is a regular immersion (VII 1.10). Since $s$ and $s\circ i$ are regular, it will follow that $i$ is regular if one proves that the sequence
+\[
+0\longrightarrow i^*(K/K^2)\longrightarrow J/J^2\longrightarrow I/I^2\longrightarrow 0
+\]
+is exact and locally split; here $I,J,K$ denote respectively the ideals defining $i,j,s$ (VII 1.7). It is enough to show that $i^*(K/K^2)$ is a direct factor of $J/J^2$. But $j'$ is obtained from $s$ by the base change $i':X'\to V'$. Moreover $j'$ and $s$ are regular immersions (VII 1.10). Thus, by VII 1.2, the ideal defining $j'$ is $i'^*(K)$, and the conormal sheaf of $j'$ is $i'^*(K/K^2)$. The exact sequence of conormal sheaves attached to the decomposition $j=i'j'$ therefore gives in particular a homomorphism
+\[
+J/J^2\longrightarrow i^*(K/K^2).
+\]
+It is immediate to verify that the composite
+\[
+i^*(K/K^2)\longrightarrow J/J^2\longrightarrow i^*(K/K^2)
+\]
+is the identity. In affine terms, this corresponds to the decomposition of $J$ as the direct sum of an ideal of $A$ and the ideal generated by the $T_i-t_i$. This gives the required splitting.
+
+(iv) Finally suppose $j$ regular and $p$ smooth. For every $x\in X$, one can find an open neighbourhood $W$ of $i(x)$, an open neighbourhood $W'$ of $j(x)$ lying over $W$, and a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+W' \arrow[r,"q"] \arrow[d,"p"'] & W[T_1,\ldots,T_n] \arrow[d,"p_0"]\\
+W \arrow[r,equal] & W,
+\end{tikzcd}
+\]
+where $p_0$ is the structural morphism, and $q$ is an \etale morphism (EGA IV 17.11.4). One may then suppose $V=W$ and $V'=W'$. It is easy to see that $qj$ is an immersion, by introducing the fiber product $X[T_1,\ldots,T_n]$. Applying (ii) and (iii), one deduces that $qj$ is regular, and then that $i$ is regular.
+
+We now prove Proposition 1.2. Since regularity is local on $Z$, we may work in a neighbourhood of a point $x\in X$. There is then an open neighbourhood $U$ of $x$ in $X$, a smooth $Y$-scheme $V$, and a regular $Y$-immersion $i':U\to V$. We have a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i'"] \arrow[d,"i"'] & V \arrow[d]\\
+Z \arrow[r] & Y,
+\end{tikzcd}
+\]
+where the unlabeled vertical arrows are the structural morphisms. From it one deduces a closed immersion
+\[
+i'':U\longrightarrow Z\times_Y V,
+\]
+and a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& U \arrow[dl,"i"'] \arrow[dr,"i'"] &\\
+Z & Z\times_Y V \arrow[l,"p"'] \arrow[r,"p'"] & V.
+\end{tikzcd}
+\]
+Since $i'$ is regular and $p,p'$ are smooth, the corollary implies that $i''$ and $i$ are regular.
+
+The following proposition will not be used in the sequel of the Seminar.
+
+\textbf{Proposition 1.4.} Let $f:X\to Y$ be a flat morphism locally of finite presentation. For $f$ to be a complete-intersection morphism in the sense of 1.1, it is necessary and sufficient that it be a complete-intersection morphism in the sense of EGA IV 19.3.6.
+
+Suppose that $f$ is a complete-intersection morphism in the sense of 1.1, and let $x\in X$. Then there are an open neighbourhood $U$ of $x$ and a factorization
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+where $i$ is a regular immersion and $g$ is smooth. Let $y=f(x)$. Then the immersion $i_y:U_y\to V_y$ is regular at $x$. Indeed, after possibly restricting $V$, one may suppose that there is a finite-type free $\mathcal O_V$-module $E$ and a regular homomorphism $u:E\to\mathcal O_V$ such that the Koszul complex associated to $u$ is a resolution of $\mathcal O_U$. Let $u_y$ be the homomorphism induced on the fiber over $y$, and let $K_\bullet(u_y)=K_\bullet(u)_y$ be the associated Koszul complex. Since $g$ is smooth, hence flat, $K_\bullet(u)$ is a $Y$-flat resolution of $\mathcal O_U$. Consequently the homology groups of $K_\bullet(u)_y$ are the groups
+\[
+\Tor_i^{\mathcal O_Y}(\mathcal O_U,k(y)),
+\]
+where $k(y)$ is the residue field of $\mathcal O_{Y,y}$. Since $f$ is flat, these groups are zero; hence $i_y$ is regular at $x$. Since $g$ is smooth, the local ring of $V_y$ at $x$ is regular. The local ring of $U_y$ at $y$ is therefore the quotient of a regular ring by a regular ideal, hence a complete-intersection ring (EGA IV 19.3.2). It follows that $f$ is a complete intersection at $x$ in the sense of EGA IV 19.3.6.
+
+Conversely, suppose that $f$ is a complete-intersection morphism in the sense of EGA IV 19.3.6, and let $x\in X$. Let $U$ be an affine neighbourhood of $x$ lying over an affine neighbourhood $U'$ of $y=f(x)$. One can then find a smooth $U'$-scheme $V$, and a closed immersion $U\to V$ (for instance by taking for $V$ a vector bundle over $U'$). We shall show that $i$ is regular. By EGA IV 19.3.7, $i$ is transversally regular at $x$, since $V$ is smooth over $Y$, hence $V_y$ is regular at $x$, and $U$ is flat over $Y$. It follows from EGA IV 19.2.4, a)3c), that $i$ is regular at $x$. Therefore $f$ is a complete-intersection morphism in the sense of 1.1.
+
+\textbf{Proposition 1.5.} Let $f:X\to Y$ and $g:Y\to Z$ be two locally complete-intersection morphisms. Then $gf$ is locally complete-intersection.
+
+Let $x\in X$. One can find open neighbourhoods $U,V$ of $x,f(x)$ and regular immersions $i,j$ such that one has factorizations
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V[T_1,\ldots,T_n] \arrow[d]\\
+& V
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=large,row sep=large]
+V \arrow[r,"j"] \arrow[dr,"g"'] & Z[T'_1,\ldots,T'_m] \arrow[d]\\
+& Z.
+\end{tikzcd}
+\]
+This diagram can be completed by the commutative square
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+V[T_1,\ldots,T_n] \arrow[r,"j'"] \arrow[d] & Z[T'_1,\ldots,T'_m,T_1,\ldots,T_n] \arrow[d]\\
+V \arrow[r,"j"'] & Z[T'_1,\ldots,T'_m],
+\end{tikzcd}
+\]
+where $j'$ is obtained from $j$ by base change. This base change is flat; hence $j'$ is a regular immersion, and so $j'i$ is a regular immersion of $U$ in a scheme smooth over $W$, where $W$ is the relevant open of $Z$. This proves the assertion.
+
+\textbf{Proposition 1.6.} Let $f:X\to Y$ be a morphism and let $g:Y'\to Y$ be a flat base change. If $f$ is complete-intersection, then the morphism
+\[
+f':X\times_Y Y'\longrightarrow Y'
+\]
+deduced from $f$ is complete-intersection. The converse is true if, moreover, $g$ is quasi-compact and surjective.
+
+One can find an open covering of $X$ by open subsets $U_i$ such that, for every $i$, the restriction of $f$ to $U_i$ factors as
+\[
+U_i\longrightarrow V_i\longrightarrow Y,
+\]
+where $U_i\to V_i$ is a regular immersion and $V_i\to Y$ is smooth. The $U_i\times_Y Y'$ form an open covering of $X\times_Y Y'$, the immersions
+\[
+U_i\times_Y Y'\longrightarrow V_i\times_Y Y'
+\]
+are regular by VII 1.5, and the morphisms $V_i\times_Y Y'\to Y'$ are smooth, giving the first assertion. For the converse, EGA IV 2.7.1 (iv) first implies that $f$ is locally of finite presentation; this reduces us easily, using 1.2, to the case where $f$ is a closed immersion. In that case the assertion is just VII 1.5.
+
+\textbf{Proposition 1.7.} Let $f:X\to Y$ be a complete-intersection morphism. Then $f$ is a perfect morphism.
+
+Since the property is local on $X$, one may work in a neighbourhood of a point $x\in X$ and suppose that there is an open subset $U$ containing $x$ and a factorization
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+where $i$ is a regular immersion and $g$ is smooth. Since $g$ is smooth, it is a perfect morphism (III 4.1). By VII 1.9, $i$ is also a perfect morphism. Since the composite of two perfect morphisms is perfect (III 4.5), the proposition follows.
+
+\textbf{Proposition 1.8.} Let $f:X\to Y$ be a complete-intersection morphism, let $x$ be a point of $X$, and let
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+U \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y
+\end{tikzcd}
+\]
+be a factorization in which $U$ is an open neighbourhood of $x$, $i$ is a regular immersion, and $g$ is smooth. Let $J$ be the ideal of $\mathcal O_V$ defining $U$. Then the integer
+\[
+d_x=\operatorname{rank}\bigl((\Omega^1_{V/Y})_{i(x)}\bigr)-\operatorname{rank}\bigl((J/J^2)_x\bigr)
+\]
+is independent of the chosen factorization of $f$.
+
+Suppose that the restriction of $f$ to $U$ factors through two smooth $Y$-schemes $V$ and $V'$, and put $V''=V\times_Y V'$. Then $V''$ is smooth over $Y$, and also over $V$ and $V'$. Moreover, the immersions $X\to V$ and $X\to V'$ define an immersion $X\to V''$, which is regular by 1.2. It is therefore enough to compare the integers $d_x$ attached to two factorizations through smooth $Y$-schemes $V$ and $V'$ such that there exists a commutative diagram over $Y$
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V,
+\end{tikzcd}
+\]
+where $p$ is smooth. We may also suppose that $\Omega^1_{V/Y}$, $\Omega^1_{V'/Y}$, and $\Omega^1_{V'/V}$ have constant rank, as do the conormal sheaves of $i$ and $j$.
+
+From the commutative diagram, all morphisms being smooth,
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+V' \arrow[r,"p"] \arrow[dr] & V \arrow[d]\\
+& Y,
+\end{tikzcd}
+\]
+one deduces
+\begin{equation}\tag{1.8.1}
+\operatorname{rank}(\Omega^1_{V'/Y})=
+\operatorname{rank}(\Omega^1_{V/Y})+
+\operatorname{rank}(\Omega^1_{V'/V}).
+\end{equation}
+Let $X'=V'\times_V X$; then the rank of $\Omega^1_{V'/V}$ is equal to that of $\Omega^1_{X'/X}$. Further, $j$ defines a section $j':X\to X'$, which is a regular immersion of codimension equal to the rank of $\Omega^1_{X'/X}$ (EGA IV 17.10.4). If $i'$ is the immersion obtained from $i$ by the base change $V'\to V$, then $j=i'j'$, and consequently (VII 1.7)
+\begin{equation}\tag{1.8.2}
+\operatorname{rank}(N_{V'/X})=
+\operatorname{rank}(N_{V/X})+
+\operatorname{rank}(\Omega^1_{V'/V}).
+\end{equation}
+Comparing (1.8.1) and (1.8.2) gives the proposition.
+
+\textbf{Definition 1.9.} The integer $d_x$ of Proposition 1.8 is called the \emph{relative virtual dimension} of $X$ over $Y$ (or of $f$) at the point $x$.
+
+The relative virtual dimension of $X$ over $Y$ is therefore a locally constant function on $X$, with integral values, positive or negative. If $f$ is a smooth morphism of relative dimension $n$, its relative virtual dimension is $n$. If $f$ is a regular immersion of codimension $n$, its relative virtual dimension is $-n$.
+
+\textbf{Proposition 1.10.} Let $f:X\to Y$ and $g:Y\to Z$ be two complete-intersection morphisms, and let $x\in X$. Then
+\[
+\operatorname{dim.rel.virt.}_x(gf)=
+\operatorname{dim.rel.virt.}_x(f)+
+\operatorname{dim.rel.virt.}_{f(x)}(g).
+\]
+This follows immediately from 1.9 and from the proof of 1.5.
+
+\subsection*{2. The relative cotangent complex}
+
+\textbf{2.1.} We give here a definition of the cotangent complex which, without having the greatest possible generality (see Expos\'e 0, 4.4), will be sufficient for the needs of the Riemann--Roch theorem. Of course the definition given in Expos\'e 0 coincides, in the case considered there, with the definition given here.
+
+Let $f:X\to Y$ be a smoothable morphism, that is, a morphism admitting a factorization
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[d,"g"]\\
+& Y,
+\end{tikzcd}
+\]
+where $g$ is smooth and $i$ is an immersion, which may be supposed closed. Let $J$ be the ideal of $X$ in $V$. The canonical derivation
+\[
+d:\mathcal O_V\longrightarrow\Omega^1_{V/Y}
+\]
+defines a homomorphism
+\[
+J\longrightarrow\mathcal O_V\xrightarrow{d}\Omega^1_{V/Y}\longrightarrow
+\Omega^1_{V/Y}\otimes_{\mathcal O_V}\mathcal O_X
+\]
+which vanishes on $J^2$, and hence defines a homomorphism, still denoted $d$,
+\begin{equation}\tag{2.1.1}
+J/J^2\xrightarrow{d} i^*(\Omega^1_{V/Y}).
+\end{equation}
+One checks easily that this homomorphism is $\mathcal O_X$-linear. One then defines a chain complex $L^{X/Y}_\bullet$ by putting
+\[
+L^{X/Y}_0=i^*(\Omega^1_{V/Y}),\qquad
+L^{X/Y}_1=J/J^2,
+\qquad
+L^{X/Y}_i=0\quad(i\neq 0,1),
+\]
+and taking as homomorphism $L^{X/Y}_1\to L^{X/Y}_0$ the homomorphism (2.1.1).
+
+\textbf{Proposition 2.2.} The complex $L^{X/Y}_\bullet$ is independent, up to canonical isomorphism in the derived category $D(X)$, of the factorization chosen through a smooth $Y$-scheme.
+
+Let $V,V'$ be two smooth $Y$-schemes through which $f$ factors. Put $V''=V\times_Y V'$. Then $V''$ is smooth over $Y$, and also over $V$ and $V'$. Moreover the immersions $X\to V$ and $X\to V'$ define an immersion $X\to V''$ which factors $f$. It is therefore enough to compare the complexes $L^{X/Y}_\bullet$ attached to two factorizations through smooth $Y$-schemes $V$ and $V'$ for which there is a commutative diagram over $Y$
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& V' \arrow[d,"p"]\\
+X \arrow[ur,"j"] \arrow[r,"i"'] & V,
+\end{tikzcd}
+\]
+where $i$ and $j$ are closed immersions, and $p$ is smooth. Functoriality then gives homomorphisms
+\[
+I/I^2\longrightarrow J/J^2,
+\qquad
+p^*(\Omega^1_{V/Y})\longrightarrow\Omega^1_{V'/Y},
+\]
+hence a diagram
+\begin{equation}\tag{2.2.1}
+\begin{tikzcd}[column sep=large,row sep=large]
+I/I^2 \arrow[r] \arrow[d,"d"'] & J/J^2 \arrow[d,"d"]\\
+i^*(\Omega^1_{V/Y}) \arrow[r] & j^*(\Omega^1_{V'/Y}).
+\end{tikzcd}
+\end{equation}
+Since $V$ and $V'$ are smooth over $Y$, one obtains the exact sequence
+\[
+0\longrightarrow p^*(\Omega^1_{V/Y})\longrightarrow\Omega^1_{V'/Y}
+\longrightarrow\Omega^1_{V'/V}\longrightarrow0.
+\]
+Since the modules of differentials considered are locally free on $\mathcal O_V$, applying the functor $j^*$ gives the exact sequence
+\begin{equation}\tag{2.2.2}
+0\longrightarrow i^*(\Omega^1_{V/Y})\longrightarrow j^*(\Omega^1_{V'/Y})
+\longrightarrow j^*(\Omega^1_{V'/V})\longrightarrow0.
+\end{equation}
+Furthermore, $j$ defines a section $j'$ of $X'=V'\times_V X$:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X' \arrow[r,"i'"] \arrow[d,"p'"'] & V' \arrow[d,"p"]\\
+X \arrow[r,"i"'] \arrow[ur,"j"] & V .
+\end{tikzcd}
+\]
+Let $I,J,K$ be the ideals defining $i,j,j'$. Then $j=i'j'$, and the immersions $i',j,j'$ are regular; moreover $i'$ is defined by the ideal $p^*(I)$, because $p$ is flat, and its conormal sheaf is therefore
+\[
+i'^*(p^*(I))=p'^*(I/I^2).
+\]
+One obtains the exact sequence
+\begin{equation}\tag{2.2.3}
+0\longrightarrow I/I^2\longrightarrow J/J^2\longrightarrow K/K^2\longrightarrow0.
+\end{equation}
+We shall show: (a) the diagram (2.2.1) is commutative; this will give a homomorphism of complexes $\theta$ from the complex $L^{X/Y}_\bullet$ defined by $V$ to the complex $L^{X/Y}_\bullet$ defined by $V'$; (b) the homomorphism
+\[
+K/K^2\longrightarrow j^*(\Omega^1_{V'/V})
+\]
+defined by (2.2.2), (2.2.3), and (2.2.1) is an isomorphism. This will imply that the mapping cylinder of $\theta$ is acyclic, hence that $\theta$ is a quasi-isomorphism, and therefore defines an isomorphism in the derived category.
+
+The properties (a) and (b) are local on $X$. One may therefore suppose $X,Y,V,V'$ affine. Put $Y=\Spec(A)$, $V=\Spec(B)$, $V'=\Spec(B')$, $X=\Spec(C)$, and keep the same letters for the corresponding homomorphisms and ideals. One has the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+B\otimes_A B \arrow[r,"p\otimes p"] \arrow[d,"\Delta"'] & B'\otimes_A B' \arrow[d,"\Delta"] & B'\otimes_B B' \arrow[l] \arrow[d]\\
+B \arrow[r,"p"] \arrow[dr,"i"'] & B' \arrow[d,"j"] & B'\otimes_B C = B'/IB' \arrow[dl,"p'" ]\\
+{} & C & {}
+\end{tikzcd}
+\]
+where the two displayed squares are those denoted (1) and (2) in the source.
+The homomorphism $I/I^2\to J/J^2$ is deduced from the homomorphism $IB'\to J$ and coincides with that deduced from $p:I\to J$; the homomorphism
+\[
+i^*(\Omega^1_{V/Y})\longrightarrow j^*(\Omega^1_{V'/Y})
+\]
+is deduced from the commutative square (1). Hence property (a) is evident.
+
+The homomorphism $K/K^2\to j^*(\Omega^1_{V'/V})$ considered in (b) may be defined as follows. Let $\overline x\in K/K^2$, and let $x$ be an element of $J$ lifting $\overline x$ (such an element exists because $K=J/IB'$). To $\overline x$ one associates the image of $x$ by the composite
+\[
+J\xrightarrow{d}\Omega^1_{B'/A}\otimes_{B'}C
+\longrightarrow\Omega^1_{B'/B}\otimes_{B'}C.
+\]
+On the other hand, let $H$ be the augmentation ideal of
+\[
+B'\otimes_B B'\longrightarrow B'.
+\]
+The commutative square (2) gives a homomorphism $H\to K$, hence a homomorphism
+\[
+H/H^2\otimes_{B'}C\longrightarrow K/K^2.
+\]
+But $H/H^2=\Omega^1_{B'/B}$. It remains only to check that the homomorphisms thus constructed are inverse to each other, which is straightforward.
+
+\textbf{Definition 2.3.} Let $f:X\to Y$ be a smoothable morphism. The complex $L^{X/Y}_\bullet$, defined up to canonical isomorphism in the derived category $D(X)$, is called the \emph{relative cotangent complex} of $X$ over $Y$ (or of $f$).
+
+\textbf{Proposition 2.4.} Let $f:X\to Y$ be a smoothable complete-intersection morphism. Then $L^{X/Y}_\bullet$ is perfect. More precisely, for every factorization of $f$ as the composite of an immersion and a smooth morphism, the complex $L^{X/Y}_\bullet$ defined in 2.1 is strictly perfect.
+
+Let $f=g i$, where $g$ is smooth and $i$ is an immersion. By 1.2, $i$ is a regular immersion. If $J$ is the ideal defining $i$, then $J/J^2$ is a locally free finite-type $\mathcal O_X$-module. Likewise, since $g:V\to Y$ is smooth, $i^*(\Omega^1_{V/Y})$ is locally free of finite type. This proves 2.4.
+
+\textbf{Corollary 2.5.} Let $f:X\to Y$ be a smoothable complete-intersection morphism, and let $f=gi$ be a factorization of $f$ through a smooth $Y$-scheme $V$. Let $J$ be the ideal of $\mathcal O_V$ defining $i$. If $K^{\bullet}(X)$ denotes the Grothendieck group of locally free finite-type $\mathcal O_X$-modules (respectively of perfect complexes on $X$), the element $T_f\in K^{\bullet}(X)$ defined by
+\[
+T_f=\operatorname{cl}(i^*\Omega^1_{V/Y})-\operatorname{cl}(J/J^2)
+\]
+respectively
+\[
+T_f=\operatorname{cl}(L^{X/Y}_\bullet)
+\]
+does not depend on the chosen factorization of $f$. The value at a point $x$ of $X$ of the augmentation of $T_f$ is precisely the relative virtual dimension of $X$ over $Y$ at $x$ (1.9).
+
+The element $T_f$ is well defined in both cases by 2.4; its class in $K^{\bullet}(X)$ is independent of the factorization, by 2.2 in the second case and by the proof of 2.2 in the first. The last assertion is trivial.
+
+\textbf{Proposition 2.6.} Let $f:X\to Y$ and $g:Y\to Z$ be two smoothable complete-intersection morphisms, and suppose in addition that the following condition is satisfied:
+
+(G) There exists a smooth $Y$-scheme $V$ factorizing $f$ such that, for every closed immersion $Y\to V'$ into a smooth $Z$-scheme, one can find a smooth $V'$-scheme $V''$ with
+\[
+V \simeq V''\times_{V'}Y.
+\]
+This condition is in particular satisfied if $f$ is quasi-projective and if $Y$ has an ample sheaf, by taking for $V$ some $\mathbb P^r_Y$.
+
+Then $gf$ is complete-intersection and smoothable, and there is a distinguished triangle
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+& L^{X/Y}_\bullet \arrow[dl] \\
+f^*L^{Y/Z}_\bullet \arrow[rr] && L^{X/Z}_\bullet \arrow[ul]
+\end{tikzcd}
+\]
+in the derived category.
+
+Let $V'$ be a smooth $Z$-scheme factorizing $g$. Consider the commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & V \arrow[r,"j'"] \arrow[d,"p"] & V'' \arrow[d,"p''"]\\
+& Y \arrow[r,"j"] \arrow[dr,"g"'] & V' \arrow[d,"p'"]\\
+& & Z .
+\end{tikzcd}
+\]
+Then the immersion $j'$ is regular, since it is obtained from $j$ by a flat base change. Hence $j'i$ is a regular immersion factorizing $gf$, which is therefore smoothable and complete-intersection. Moreover, one has the exact sequence of conormal sheaves
+\[
+0\longrightarrow i^*(J'/J'^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0,
+\]
+where $I,J,J',K$ denote the sheaves defining respectively the immersions $i,j,j',j'i$. Since $p''$ is flat, $J'=p''^*(J)$, and the sequence can be written
+\begin{equation}\tag{2.6.1}
+0\longrightarrow f^*(J/J^2)\longrightarrow K/K^2\longrightarrow I/I^2\longrightarrow0.
+\end{equation}
+Furthermore, since $V'$ and $V''$ are smooth over $Z$, there is an exact sequence
+\[
+0\longrightarrow p''^*(\Omega^1_{V'/Z})\longrightarrow\Omega^1_{V''/Z}\longrightarrow\Omega^1_{V''/V'}\longrightarrow0.
+\]
+Applying $(j'i)^*$, one obtains an exact sequence
+\[
+0\longrightarrow (p''ji)^*(\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/V'})\longrightarrow0.
+\]
+Since
+\[
+j'^*(\Omega^1_{V''/V'})=\Omega^1_{V/Y}
+\]
+by hypothesis (G), one obtains
+\begin{equation}\tag{2.6.2}
+0\longrightarrow f^*(j^*\Omega^1_{V'/Z})\longrightarrow (j'i)^*(\Omega^1_{V''/Z})\longrightarrow i^*(\Omega^1_{V/Y})\longrightarrow0.
+\end{equation}
+Combining (2.6.1) and (2.6.2), one is reduced to checking that the diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+0 \arrow[r] & f^*(J/J^2) \arrow[r] \arrow[d,"f^*(d)"'] & K/K^2 \arrow[r] \arrow[d,"d"] & I/I^2 \arrow[r] \arrow[d,"d"] & 0\\
+0 \arrow[r] & f^*(j^*\Omega^1_{V'/Z}) \arrow[r] & (j'i)^*\Omega^1_{V''/Z} \arrow[r] & i^*\Omega^1_{V/Y} \arrow[r] & 0
+\end{tikzcd}
+\]
+is commutative. This is verified locally without difficulty by returning to the definitions of the homomorphisms involved. The announced distinguished triangle follows from the resulting exact sequence of complexes.
+
+\textbf{Corollary 2.7.} With the notation and hypotheses of 2.6, one has in $K^{\bullet}(X)$ the equality
+\[
+T_{gf}=T_f+f^*(T_g).
+\]
+
+\subsection*{3. Riemann--Roch theorem: statement}
+
+\textbf{3.1.} In no. 3, $Y$ is a quasi-compact scheme having an ample sheaf.
+
+Let $f:X\to Y$ be a projective complete-intersection morphism (1.1); suppose moreover that the relative virtual dimension of $f$ (1.9) is constant on $X$. Since $f$ is projective, there is a closed immersion $X\to P$, where $P$ is a projective bundle over $Y$; since $Y$ has an ample sheaf, one may suppose that $P=\mathbb P^r_Y$. Thus there is a factorization
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+X \arrow[r,"i"] \arrow[dr,"f"'] & \mathbb P^r_Y \arrow[d,"g"]\\
+& Y.
+\end{tikzcd}
+\]
+Since $f$ is complete-intersection, the immersion $i$ is regular (1.2).
+
+By 1.7, $f$ is a perfect morphism. Moreover $Y$ has an ample sheaf, and therefore so do $X$ and $P$. One can therefore define an additive homomorphism
+\[
+f_*:K^{\bullet}(X)\longrightarrow K^{\bullet}(Y)
+\]
+(IV 2.12), the groups $K^{\bullet}$ defined in terms of locally free sheaves of finite type, or of perfect complexes, being identical. One can also define additive homomorphisms
+\[
+i_*:K^{\bullet}(X)\longrightarrow K^{\bullet}(P),
+\qquad
+ g_*:K^{\bullet}(P)\longrightarrow K^{\bullet}(Y),
+\]
+and one has $f_*=g_*i_*$.
+
+Let $d$ be the relative virtual dimension of $X$ over $Y$. The codimension of $i$ is then $r-d$. By VII 4.6, the homomorphism $i_*$ gives, after tensoring with $\mathbb Q$, inclusions
+\[
+i_*\bigl(\Fil^kK^{\bullet}(X)_{\mathbb Q}\bigr)
+\subset
+\Fil^{k+r-d}K^{\bullet}(P)_{\mathbb Q}.
+\]
+By VI 5.8, the homomorphism $g_*$ gives inclusions
+\[
+g_*\bigl(\Fil^{k'}K^{\bullet}(P)\bigr)
+\subset
+\Fil^{k'-r}K^{\bullet}(Y).
+\]
+Composing, one obtains the following.
+
+\textbf{Proposition 3.2.} Let $f:X\to Y$ be a projective complete-intersection morphism whose relative virtual dimension $d$ is constant. Suppose that $Y$ is quasi-compact and has an ample sheaf. Then for every $k\in\mathbb Z$,
+\[
+f_*\bigl(\Fil^kK^{\bullet}(X)_{\mathbb Q}\bigr)
+\subset
+\Fil^{k-d}K^{\bullet}(Y)_{\mathbb Q}.
+\]
+Consequently one obtains an additive homomorphism
+\[
+f^{\mathrm{gr}}_*:\Gr K^{\bullet}(X)_{\mathbb Q}\longrightarrow
+\Gr K^{\bullet}(Y)_{\mathbb Q}
+\]
+sending $\Gr^kK^{\bullet}(X)_{\mathbb Q}$ into $\Gr^{k-d}K^{\bullet}(Y)_{\mathbb Q}$.
+
+\textbf{3.3.} Recall that in V 6.1 we defined a functor
+\[
+A\longmapsto \operatorname{Ch}(A)
+\]
+from the category of graded $K$-algebras to the category of augmented $K$-$\lambda$-algebras, where $K$ is a binomial ring (V 2.7). If $A$ is a graded $K$-algebra, then
+\[
+\operatorname{Ch}(A)=K\times(1+\widehat A^+).
+\]
+For every augmented $K$-$\lambda$-algebra $\Lambda$ we defined a $K$-$\lambda$-homomorphism, called the completed Chern class (V 6.7),
+\[
+\widetilde c=(\varepsilon,c):\Lambda\longrightarrow\operatorname{Ch}(\Gr_{\Lambda}).
+\]
+Finally, we defined a ring homomorphism, functorial in $A$, called the Chern character (V 6.4),
+\[
+\ch:\operatorname{Ch}(A)\longrightarrow K\oplus\widehat A^+_{\mathbb Q},
+\]
+and a group endomorphism, called the Todd character (V 1.16),
+\[
+\Todd:1+\widehat A^+\longrightarrow 1+\widehat A^+.
+\]
+We shall apply these definitions to the augmented $\lambda$-rings $K^{\bullet}(X)$ and $K^{\bullet}(Y)$; the augmentation rings $H^0(X,\mathbb Z)$ and $H^0(Y,\mathbb Z)$ are binomial (V 2.8). To simplify notation, for every scheme $Z$ and every $z\in K^{\bullet}(Z)$ we write
+\[
+\ch(z)=\ch(\widetilde c(z)),
+\qquad
+\Todd(z)=\Todd(c(z)).
+\]
+For every graded algebra $A$ we regard the group $1+\widehat A^+$ as contained in $\widehat A$. Finally, if $f:A\to B$ is additive and compatible with the gradings up to a shift, we shall still write $f$ for the homomorphism $\widehat A\to\widehat B$ deduced from it.
+
+\textbf{3.4.} Let $X$ be a scheme. For every locally free finite-type $\mathcal O_X$-module $E$, denote by $\check E$ the class in $K^{\bullet}(X)$ of the dual $\check E$ of $E$. It is clear that the function $E\mapsto\check E$ is additive on the category of locally free finite-type $\mathcal O_X$-modules, and therefore defines an endomorphism of $K^{\bullet}(X)$, denoted $x\mapsto\check x$.
+
+\textbf{Proposition 3.5.} Let $X$ be a quasi-compact scheme. Then, for all $x\in K^{\bullet}(X)$ and all $i\geq0$, one has
+\[
+c^i(\check x)=(-1)^i c^i(x).
+\]
+Equivalently,
+\[
+c_t(\check x)=c_{-t}(x),
+\qquad
+c_t(x)=\sum_{i\geq0}c^i(x)t^i.
+\]
+By additivity one may suppose that $x$ is the class of a locally free finite-type $\mathcal O_X$-module $E$. Moreover, after replacing $X$ by the flag scheme of $E$, which gives an injection on the groups $\Gr K^{\bullet}$ (VI 5.5), one may suppose that $E$ is an invertible sheaf. Then $\check E=E^{-1}$, so $\check x=x^{-1}$.
+
+The $c^i(\check x)$ and $c^j(x)$ are zero for $i,j\geq2$. It is enough to prove
+\[
+c^1(x^{-1})=-c^1(x).
+\]
+Now $c^1(x)$ is the class in $\Gr^1K^{\bullet}(X)$ of $x-1$, while $c^1(x^{-1})$ is that of $x^{-1}-1$. The equality
+\[
+x^{-1}-1=1-x+(x-1)(1-x^{-1})
+\]
+gives
+\[
+x^{-1}-1=1-x\pmod{\Fil^2K^{\bullet}(X)},
+\]
+and the result follows.
+
+\textbf{Theorem 3.6 (Riemann--Roch).} Let $f:X\to Y$ be a projective complete-intersection morphism (1.1), whose relative virtual dimension $d$ is constant (1.9). Suppose that $Y$ is quasi-compact and admits an ample sheaf. With the notation of 3.3, for every $x\in K^{\bullet}(X)$ one has
+\[
+\ch(f_*(x))=f^{\mathrm{gr}}_*\bigl(\ch(x)\Todd(\check T_f)\bigr),
+\]
+where $\check T_f$ denotes the dual element of the class of the relative cotangent complex $L^{X/Y}_\bullet$ (2.5 and 2.3).
+
+In other words, the diagram
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+K^{\bullet}(X) \arrow[r,"\ch\circ\widetilde c"] \arrow[d,"f_*"'] & \Gr K^{\bullet}(X)_{\mathbb Q} \arrow[d,"x\mapsto f^{\mathrm{gr}}_*(x\Todd(\check T_f))"]\\
+K^{\bullet}(Y) \arrow[r,"\ch\circ\widetilde c"'] & \Gr K^{\bullet}(Y)_{\mathbb Q}
+\end{tikzcd}
+\]
+is commutative.
+
+\end{document}

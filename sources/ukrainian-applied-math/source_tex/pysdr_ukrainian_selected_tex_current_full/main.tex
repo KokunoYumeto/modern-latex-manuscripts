@@ -1,0 +1,96 @@
+
+\documentclass[11pt,a4paper,oneside]{book}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguage{english}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}[Scale=0.88]
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{fvextra}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{graphicx}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\emergencystretch=4em
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\providecommand{\includesvg}[2][]{%
+  \par\smallskip\noindent\fbox{\parbox{0.92\linewidth}{\centering\small SVG-рисунок не вбудовано у цю TeX-конверсію.\par
+  Оригінальна прив'язка: \texttt{\detokenize{#2}}}}\par\smallskip}
+
+\renewcommand{\includegraphics}[2][]{%
+  \par\smallskip\noindent\fbox{\parbox{0.92\linewidth}{\centering\small Рисунок не вбудовано у цю машинно-читабельну TeX-конверсію.\par
+  Оригінальна прив'язка: \texttt{\detokenize{#2}}}}\par\smallskip}
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor{blue}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor{teal}{#1}}
+\newcommand{\DecValTok}[1]{#1}
+\newcommand{\BaseNTok}[1]{#1}
+\newcommand{\FloatTok}[1]{#1}
+\newcommand{\ConstantTok}[1]{#1}
+\newcommand{\CharTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{#1}
+\newcommand{\StringTok}[1]{#1}
+\newcommand{\VerbatimStringTok}[1]{#1}
+\newcommand{\SpecialStringTok}[1]{#1}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor{gray}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor{gray}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor{gray}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor{gray}{#1}}
+\newcommand{\OtherTok}[1]{#1}
+\newcommand{\FunctionTok}[1]{#1}
+\newcommand{\VariableTok}[1]{#1}
+\newcommand{\ControlFlowTok}[1]{\textcolor{blue}{#1}}
+\newcommand{\OperatorTok}[1]{#1}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor{teal}{#1}}
+\newcommand{\AttributeTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor{gray}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor{orange}{#1}}
+\newcommand{\AlertTok}[1]{\textcolor{red}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor{red}{#1}}
+\newcommand{\NormalTok}[1]{#1}
+\title{PySDR українською: практичне SDR/DSP ядро}
+\author{Українська RST-доріжка PySDR; TeX-конверсія}
+\date{Сесія 09, 2026-06-01}
+\begin{document}
+\maketitle
+\frontmatter
+\chapter*{Статус конверсії}
+Цей модуль є механічною XeLaTeX-конверсією вже наявних українських RST-розділів PySDR у машинно-читабельний TeX. Мета: отримати компільовану, редаговану TeX-основу для подальшого QA, термінологічного вирівнювання та локальних агентів. Формули, кодові ідентифікатори і технічні скорочення збережено настільки буквально, наскільки дозволяє автоматична RST-to-TeX конверсія.
+
+Рисунки в цьому проході замінено контрольованими плейсхолдерами, щоб компіляція не залежала від повного дерева Sphinx/HTML-ресурсів. Для фінального видання треба або вбудувати оригінальні зображення PySDR, або замінити їх власними векторними схемами.
+
+\tableofcontents
+\mainmatter
+\input{chapters/00_intro.tex}
+\input{chapters/01_sampling_iq.tex}
+\input{chapters/02_frequency_domain.tex}
+\input{chapters/03_filters.tex}
+\input{chapters/04_noise_db.tex}
+\input{chapters/05_digital_modulation.tex}
+\input{chapters/06_pulse_shaping.tex}
+\input{chapters/07_sync.tex}
+\input{chapters/08_channel_coding.tex}
+\input{chapters/09_iq_files_sigmf.tex}
+
+\appendix
+\chapter{QA-позначки після конверсії}
+\begin{itemize}
+\item Перевірити всі посилання виду \texttt{chapter-label}: у RST вони часто були внутрішніми Sphinx-посиланнями, а у TeX потребують ручного \texttt{\textbackslash ref} або простого текстового посилання.
+\item Перевірити терміни: \emph{семплювання}/\emph{дискретизація}, \emph{сузір'я}/\emph{констеляція}, \emph{формування імпульсу}, \emph{синхронізація несучої}, \emph{узгоджена фільтрація}.
+\item Рисунки не вбудовано; це свідомо для зменшення залежностей і уникнення missing-file failure.
+\item Кодові блоки зроблено переносимими через \texttt{fvextra}.
+\end{itemize}
+\end{document}

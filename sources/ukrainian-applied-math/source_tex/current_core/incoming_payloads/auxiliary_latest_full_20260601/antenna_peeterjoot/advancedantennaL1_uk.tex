@@ -1,0 +1,350 @@
+%
+% Ukrainian translation of Peeter Joot's ECE1229 Advanced Antenna Theory notes
+% Source: github.com/peeterjoot/ece1229-antenna
+% File: advancedantennaL1.tex — Lecture 1: Introduction
+% Original © 2015 Peeter Joot. Licensed per repo LICENSE.
+% Translation by auxiliary local run (Anthropic), 2026-06-01.
+%
+% Build note: Joot's notes use custom style files (peeter_*.sty) and macros
+% like \BE, \BH, \rcap, \xcap, \ycap, \zcap, \ncap, \rhocap, \lr, \cross,
+% \conj, \Real, \timeaverage, \dmath (display math), \makeexample, \mytikzmark,
+% \DrawMyBox, \mathLabelBox, \cref, \textfigref, etc. These must be loaded
+% from the source repo's latex/ subdirectory.
+%
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{advancedantennaL1_uk}
+\renewcommand{\dirname}{notes/ece1229/}
+\newcommand{\keywords}{ECE1229H}
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{esint}
+\usepackage{peeters_layout_exercise}
+\usepackage{siunitx}
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguage{english}
+
+\newcommand{\tiso}[0]{{\textrm{ізо}}}
+\newcommand{\tin}[0]{{\textrm{вх}}}
+\newcommand{\trad}[0]{{\textrm{вип}}}
+\newcommand{\tmax}[0]{{\textrm{max}}}
+\newcommand{\tA}[0]{{\textrm{A}}}
+\newcommand{\tav}[0]{{\textrm{сер}}}
+\newcommand{\tdB}[0]{{\textrm{дБ}}}
+\newcommand{\tdBi}[0]{{\textrm{дБі}}}
+
+\newcommand{\timeaverage}[1]{\left[#1\right]}
+
+\beginArtNoToc
+
+\generatetitle{ECE1229H Розширена теорія антен. Лекція~1: вступ. Викладач: проф. G.V.~Eleftheriades}
+\label{chap:advancedantennaL1}
+
+\section{Що таке антена?}
+Антена — це лінійний пасивний пристрій, який перетворює \emph{обмежену} електромагнітну хвилю на \emph{необмежену} (вільнопросторову).
+
+Антени можна розглядати як сенсори електромагнітного випромінювання.
+
+Питання, що нас цікавлять:
+\begin{itemize}
+\item не втрачати потужність;
+\item спрямований прийом, коли він потрібен.
+\end{itemize}
+
+Якщо ми маємо джерело, ми можемо зробити обернене — використати антену для випромінювання, а не приймання. Саме так, фактично, далі описується вся антена: ми говоримо про потужність, що її випромінює антена. Можливо, це тому, що математично простіше описати поле, що його породжує рухомий розподіл зарядів, ніж описати струми, що їх породжує поле, діючи на вільний розподіл зарядів.
+
+\section{Діаграма спрямованості (antenna pattern)}
+\begin{itemize}
+\item Математична функція (графічне представлення), яка описує властивості випромінювання антени як функцію просторових координат.
+\item Зазвичай це робиться в дальній зоні для густини потоку потужності, інтенсивності випромінювання або напруженості поля як функції напрямкових координат \(\lr{\theta, \phi}\).
+\end{itemize}
+
+\section{Головні площини}
+\index{головна площина}
+Для лінійно поляризованих антен визначаємо головні площини \(\BE\) і \(\BH\):
+\begin{itemize}
+\item \underline{\(\BE\)-площина}: містить вектор електричного поля та напрямок максимального випромінювання.
+\item \underline{\(\BH\)-площина}: містить вектор магнітного поля та напрямок максимального випромінювання.
+\end{itemize}
+Див.~\textfigref{2.2, 2.3} у~\citep{balanis2005antenna} для прикладів діаграм у площинах.
+
+\section{Густина потужності випромінювання}
+\index{густина потужності випромінювання}
+Середній за часом вектор Пойнтінга (середня густина потужності, \(\mathrm{W/m^2}\)):
+\begin{dmath}\label{eqn:advancedantennaL1:380}
+\BW_\tav(x,y,z) = \inv{2} \Real \timeaverage{ \BE \cross \BH^\conj}.
+\end{dmath}
+Тут \(\BE, \BH\) — фазори (пікові значення).
+
+У дальній зоні \(\BW_\tav\) дійсний і називається \underlineAndIndex{густиною випромінювання}.
+
+Середня потужність (Вт), випромінювана антеною:
+\begin{dmath}\label{eqn:advancedantennaL1:400}
+P_\trad = P_\tav = \oiint_S \BW_\tav \cdot \ncap\, ds = \inv{2} \oiint \Real \timeaverage{ \BE \cross \BH^\conj } \cdot d \Bs.
+\end{dmath}
+Елемент інтегрування проілюстровано на~\cref{fig:farfieldsurfaceElement:farfieldsurfaceElementFig1}.
+
+\section{Ізотропний випромінювач}
+\index{ізотропний випромінювач}
+Випромінює рівномірно в усіх напрямках. Така антена насправді не існує, але це зручна фікція з середньою густиною потужності
+\begin{dmath}\label{eqn:advancedantennaL1:420}
+\BW_\tiso = \rcap \frac{P_0}{4 \pi r^2} \qquad (\mathrm{W/m^2}).
+\end{dmath}
+Зауважимо, що тут немає кутової залежності.
+
+Повна випромінювана потужність, інтегрована по сферичній поверхні в дальній зоні:
+\begin{dmath}\label{eqn:advancedantennaL1:440}
+\oiint_S \BW_\tiso \cdot \rcap\, d\Bs
+= \frac{P_0}{4 \pi} \oiint \inv{r^2}\, ds
+= \frac{P_0}{4 \pi} \int_0^{2 \pi} \int_0^\pi r^2 \inv{r^2} \sin\theta\, d\theta\, d\phi
+= \frac{P_0}{4 \pi} \iint d\Omega
+= \frac{P_0}{4 \pi} 4 \pi
+= P_0.
+\end{dmath}
+Тут \(d\Omega = \sin\theta\, d\theta\, d\phi\) — елемент тілесного кута.
+
+\section{Інтенсивність випромінювання}
+\index{інтенсивність випромінювання}
+Потужність, випромінювана на одиницю тілесного кута:
+\begin{dmath}\label{eqn:advancedantennaL1:460}
+U = r^2 \BW_\tav \qquad (\mathrm{W/}\text{тіл.кут})
+\end{dmath}
+
+\section{Типова інтенсивність випромінювання в дальній зоні}
+\index{інтенсивність випромінювання!дальня зона}
+\begin{dmath}\label{eqn:advancedantennaL1:20}
+U(\theta, \phi)
+=
+\frac{r^2}{2 \eta_0} \Abs{ \BE(r, \theta, \phi) }^2
+\approx
+\frac{r^2}{2 \eta_0}
+\lr{
+\Abs{ E_\theta(r, \theta, \phi) }^2
++
+\Abs{ E_\phi(r, \theta, \phi) }^2
+},
+\end{dmath}
+де власна імпеданс вільного простору
+\begin{dmath}\label{eqn:advancedantennaL1:480}
+\eta_0 = \sqrt{\frac{\mu_0}{\epsilon_0}} = 377\,\Omega.
+\end{dmath}
+
+Для сферичної хвилі запишемо
+\begin{dmath}\label{eqn:advancedantennaL1:500}
+\BE(r, \theta, \phi) = \BE^0\lr{\theta, \phi} \frac{e^{-j k r}}{r},
+\end{dmath}
+звідки
+\begin{dmath}\label{eqn:advancedantennaL1:40}
+P_\trad
+= \oiint_\Omega U\lr{\theta, \phi}\, d\Omega
+= \int_0^{2 \pi} \int_0^\pi U \sin\theta\, d\theta\, d\phi.
+\end{dmath}
+
+Для ізотропної антени, де \(P_0 = P_\trad\):
+\begin{dmath}\label{eqn:advancedantennaL1:520}
+U_\tiso = r^2 \BW_\tiso = \frac{P_0}{4 \pi}.
+\end{dmath}
+
+[[CHECK: math]] У джерелі стоїть \(P_0/(2\pi)\); правильне нормування \(P_0/(4\pi)\), оскільки \(\oiint d\Omega = 4\pi\). Залишено виправленим.
+
+\section{Спрямованість (Directivity)}
+\index{спрямованість}
+Відношення інтенсивності випромінювання у заданому напрямку від антени до інтенсивності випромінювання ізотропного джерела (що випромінює ту саму потужність \(P_\trad\)):
+\begin{dmath}\label{eqn:advancedantennaL1:60}
+D(\theta, \phi)
+= \frac{U(\theta, \phi)}{U_\tiso}
+= \frac{U(\theta, \phi)}{
+\mathLabelBox
+{
+P_\trad/{4 \pi}
+}
+{середня інтенсивність випромінювання}
+}
+= 4 \pi \frac{U(\theta, \phi)}{P_\trad} \qquad (\text{безрозмірна})
+\end{dmath}
+де \(P_\trad\) визначено в~\cref{eqn:advancedantennaL1:160}.
+
+\begin{equation}\label{eqn:advancedantennaL1:80}
+D_{\max} = 4 \pi \frac{U_{\max}}{P_\trad}.
+\end{equation}
+
+Часто \(D\) обчислюють у напрямку максимуму інтенсивності:
+\begin{dmath}\label{eqn:advancedantennaL1:540}
+D_\tmax = 4 \pi \frac{U_\tmax}{P_\trad} \qquad (\text{безрозмірна}).
+\end{dmath}
+
+Яка густина потужності (\(\mathrm{W/m^2}\)) випромінюється у точці \((r, \theta)\)?
+
+\begin{equation}\label{eqn:advancedantennaL1:100}
+W(\theta) =
+\mathLabelBox
+[
+   labelstyle={below of=m\themathLableNode, below of=m\themathLableNode}
+]
+{
+\frac{P_\trad}{4 \pi r^2}
+}
+{ізотропний випромінювач}
+\mathLabelBox
+[
+   labelstyle={xshift=2cm},
+   linestyle={out=270,in=90, latex-}
+]
+{
+D(\theta).
+}
+{коефіцієнт спрямованості}
+\end{equation}
+
+Назвати це \emph{підсиленням} дещо неточно, оскільки антена нічого не підсилює. Однак, оскільки вона може \emph{фокусувати} потужність (не випромінюючи ізотропно), у точках, де поле виявлено, інтенсивність зазвичай більша за ізотропну.
+
+\makeexample{Випромінювана густина потужності нескінченно малого диполя.}{example:advancedantennaL1:1}{
+\begin{dmath}\label{eqn:advancedantennaL1:120}
+\BW_\tav = \rcap \frac{A_0 \sin^2 \theta}{r^2}
+\end{dmath}
+
+\begin{dmath}\label{eqn:advancedantennaL1:140}
+U(\theta, \phi) = r^2 W_{\tav} = A_0 \sin^2 \theta
+\end{dmath}
+(діаграма інтенсивності випромінювання)
+
+\begin{dmath}\label{eqn:advancedantennaL1:560}
+D(\theta, \phi) = \frac{4 \pi U}{P_\trad},
+\end{dmath}
+
+\begin{dmath}\label{eqn:advancedantennaL1:160}
+P_\trad
+= \oiint_\Omega U\lr{\theta, \phi}\, d\Omega
+= \int_0^{2 \pi} \int_0^\pi A_0 \sin^2 \theta \sin \theta\, d\theta\, d\phi
+= A_0 \frac{8 \pi}{3}
+\end{dmath}
+
+Отже,
+\begin{dmath}\label{eqn:advancedantennaL1:180}
+D\lr{\theta, \phi}
+= \frac{4 \cancel{\pi} \cancel{A_0} \sin^2 \theta}{\cancel{A_0} \frac{8 \cancel{\pi}}{3}}
+= \frac{3}{2} \sin^2 \theta.
+\end{dmath}
+
+Максимальна спрямованість при \(\theta = \pi/2\) становить \(D = 3/2 = 1{,}5\).
+
+\begin{dmath}\label{eqn:advancedantennaL1:200}
+10 \log_{10} D = 1{,}76 \, \tdBi.
+\end{dmath}
+
+\paragraph{Важливе зауваження.}
+Інтегруючи по сфері дальньої зони,
+\begin{dmath}\label{eqn:advancedantennaL1:220}
+\iint U\, d\Omega = P_\trad \implies
+\end{dmath}
+
+\begin{equation}\label{eqn:advancedantennaL1:240}
+\iint D\, d\Omega = \frac{4 \pi}{P_\trad} \iint U\, d\Omega =
+\mytikzmark{left}{1}
+4 \pi
+\mytikzmark{right}{1}.
+\end{equation}
+
+\DrawMyBox[thick, Maroon, rounded corners]{1}
+Це можна використати для перевірки правильності спрямованості.
+}
+
+\section{Максимальна спрямованість}
+\index{спрямованість!максимальна}
+Максимальна спрямованість задається формулою
+\begin{dmath}\label{eqn:advancedantennaL1:260}
+D_0 = 4 \pi \frac{U_\tmax}{P_\trad} = 4 \pi \frac{U\lr{\theta, \phi}_\tmax}{
+\oiint_\Omega U\lr{\theta, \phi}\, d\Omega
+}.
+\end{dmath}
+Тут \(\Omega\) — повний тілесний кут \(4 \pi\):
+\begin{dmath}\label{eqn:advancedantennaL1:280}
+4 \pi = \int_0^{2 \pi} \int_0^\pi \sin\theta\, d\theta\, d\phi = \iint d\Omega.
+\end{dmath}
+
+Визначимо \(\Omega_\tA\) — \emph{тілесний кут променя} (beam solid angle) антени:
+\begin{dmath}\label{eqn:advancedantennaL1:300}
+\Omega_\tA = \inv{U\lr{\theta, \phi}_\tmax} \int_0^{2\pi} \int_0^\pi U\lr{\theta, \phi} \sin\theta\, d\theta\, d\phi.
+\end{dmath}
+
+Тоді
+\begin{dmath}\label{eqn:advancedantennaL1:320}
+D_0 = \frac{4 \pi}{\Omega_\tA},
+\end{dmath}
+тобто відношення повного тілесного кута (\(4\pi\)) до тілесного кута головного променя антени.
+
+\begin{dmath}\label{eqn:advancedantennaL1:580}
+D_0 = \frac{4 \pi}{\Omega_\tA}
+\approx \frac{4 \pi}{\theta_{1r} \theta_{2r}},
+\end{dmath}
+де тілесний кут променя апроксимовано (добре для вузьких променів спрямованих антен) як
+\begin{dmath}\label{eqn:advancedantennaL1:600}
+\Omega_\tA \approx \theta_{1r} \theta_{2r}.
+\end{dmath}
+
+Величини \(\theta_{1r}, \theta_{2r}\) — це кути ширини променя за рівнем половинної потужності (half-power beamwidth) у двох ортогональних площинах (зазвичай площинах \(\BE\) і \(\BH\) відповідно).
+
+\makeexample{Випромінювач у верхній півплощині.}{example:advancedantennaL1:620}{
+Знайти спрямованість для випромінювача у верхній півплощині \(0 \le \theta \le \pi/2\), \(0 \le \phi \le 2\pi\) виду
+\begin{dmath}\label{eqn:advancedantennaL1:340}
+U = A_0 \cos\theta.
+\end{dmath}
+
+При \(\theta = \pi/3\) (\ang{60}), \(U = A_0/2\), що є точкою половинної максимальної потужності. Тож повна ширина променя за рівнем половини максимуму
+\begin{dmath}\label{eqn:advancedantennaL1:640}
+\theta_{1r} = \theta_{2r} = \frac{2 \pi}{3}.
+\end{dmath}
+(Це \underline{повні} кути за рівнем половини максимуму.)
+
+Якщо застосувати наближену формулу:
+\begin{dmath}\label{eqn:advancedantennaL1:660}
+D_0 = \frac{4 \pi}{\theta_{1r} \theta_{2r}} = \frac{4\pi}{(2\pi/3)^2} = 2{,}86.
+\end{dmath}
+
+Точний розв'язок:
+\begin{dmath}\label{eqn:advancedantennaL1:680}
+U_\tmax = A_0 \qquad (\theta = 0)
+\end{dmath}
+\begin{dmath}\label{eqn:advancedantennaL1:700}
+P_\trad
+= \int_0^{2 \pi} \int_0^\pi A_0 \cos\theta \sin\theta\, d\theta\, d\phi
+= 2 \pi A_0 \int_0^{\pi/2} \sin\theta \cos\theta\, d\theta
+= \pi A_0 \int_0^{\pi/2} \sin 2\theta\, d\theta
+= \pi A_0.
+\end{dmath}
+Отже,
+\begin{dmath}\label{eqn:advancedantennaL1:720}
+D_0 = \frac{4\pi A_0}{\pi A_0} = 4.
+\end{dmath}
+
+Це більше за наближення \(2{,}86\), оскільки маємо широкий промінь. Наближення працює краще для більш спрямованого випромінювача.
+}
+
+\section{Вимірювання спрямованості}
+\index{спрямованість!дБ}
+Спрямованість вимірюють у децибелах:
+\begin{dmath}
+D_\tdB = 10 \log_{10}(
+\mathLabelBox
+[
+   labelstyle={xshift=2cm},
+   linestyle={out=270,in=90, latex-}
+]
+{
+D
+}
+{безрозмірна}
+).
+\end{dmath}
+
+Якщо розглядати більш спрямовані діаграми виду
+\begin{dmath}
+U = \cos^n \theta,
+\end{dmath}
+то можна показати, що наведене наближення для спрямованості загалом покращується зі зростанням \(n\). Альтернативне наближення (\emph{рівняння Тая–Перейри}, Tai–Pereira)
+\begin{dmath}
+D_0 \approx \frac{32 \ln 2}{\theta_{1r}^2 + \theta_{2r}^2}
+\end{dmath}
+також покращується зі зростанням \(n\). Значення обох наближень табульовано у~\citep{balanis2005antenna}, табл.~2.1.
+
+\EndArticle

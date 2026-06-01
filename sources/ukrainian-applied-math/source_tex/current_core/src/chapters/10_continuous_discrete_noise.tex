@@ -1,0 +1,156 @@
+\chapter{Неперервний шум і дискретний фільтр}
+
+\sourcebox{Джерело для цього модуля: Joan Solà, arXiv:1711.02508, файл \texttt{Noise.tex}. Тут перекладено практичне ядро про інтегрування шумів і коваріацій у неперервно-дискретних системах.}
+
+\section{Постановка}
+
+Багато фізичних моделей природно задаються у неперервному часі, але реалізуються дискретним фільтром. Тому не можна просто переписати шум з неперервного рівняння в дискретне без масштабування. Треба інтегрувати не невідомі реалізації випадкового процесу, а їхні дисперсії та коваріації.
+
+Розглянемо неперервну систему
+\begin{equation}\label{eq:cont_sys_noise_session02}
+\dot{\vect{x}}=f(\vect{x},\vect{u},\vect{w}),
+\end{equation}
+де $\vect{x}$ - стан, $\vect{u}$ - керування або виміряний вхід, а $\vect{w}$ - випадкове збурення. Виміряний вхід має шум
+\begin{equation}
+\vect{u}_m=\vect{u}+\tilde{\vect{u}}.
+\end{equation}
+У неперервній специфікації часто пишуть
+\begin{equation}
+\tilde{\vect{u}}\sim\Normal(\vect{0},\mat{U}^{c}),
+\qquad
+\vect{w}^{c}\sim\Normal(\vect{0},\mat{W}^{c}),
+\end{equation}
+де верхній індекс $c$ означає неперервну часову специфікацію.
+
+\section{Два різні типи шуму}
+
+Є принципова різниця між шумом виміряного входу $\tilde{\vect{u}}$ і неперервним збуренням $\vect{w}$.
+
+\begin{enumerate}[leftmargin=2em]
+\item Вхід $\vect{u}_m$ дискретизується в моменти $n\dt$. На інтервалі інтегрування зазвичай вважають
+\begin{equation}\label{eq:sampled_control_noise}
+\tilde{\vect{u}}(t)=\tilde{\vect{u}}(n\dt)=\tilde{\vect{u}}_n,
+\qquad n\dt<t<(n+1)\dt.
+\end{equation}
+Тобто після вибірки цей шум поводиться як стала на інтервалі величина.
+
+\item Збурення $\vect{w}$ не вибирається як стала величина. Воно описує неперервний білий шум або випадкову дію всередині всього інтервалу.
+\end{enumerate}
+
+Через це їхні внески в дискретну коваріацію мають різні степені $\dt$.
+
+\section{Лінеаризація стану похибки}
+
+Лінеаризована неперервна модель стану похибки:
+\begin{equation}\label{eq:lin_error_cont_session02}
+\dot{\delta\vect{x}}
+=\mat{A}\delta\vect{x}+\mat{B}\tilde{\vect{u}}+\mat{C}\vect{w},
+\end{equation}
+де
+\begin{equation}
+\mat{A}=\frac{\partial f}{\partial \delta\vect{x}},\qquad
+\mat{B}=\frac{\partial f}{\partial \tilde{\vect{u}}},\qquad
+\mat{C}=\frac{\partial f}{\partial \vect{w}}.
+\end{equation}
+Інтегруючи \eqref{eq:lin_error_cont_session02} на інтервалі $\dt$, маємо три внески:
+\begin{align}
+\delta\vect{x}_{n+1}
+&=\delta\vect{x}_n+
+\int_{n\dt}^{(n+1)\dt}
+\left(\mat{A}\delta\vect{x}(\tau)+\mat{B}\tilde{\vect{u}}(\tau)+\mat{C}\vect{w}^{c}(\tau)\right)\,d\tau.
+\end{align}
+
+\section{Дискретизована модель}
+
+Динамічна частина дає матрицю переходу
+\begin{equation}
+\mat{F}_x=\Phi=e^{\mat{A}\dt}.
+\end{equation}
+Для шуму виміряного входу, який зафіксовано на інтервалі,
+\begin{equation}
+\int_{n\dt}^{(n+1)\dt}\mat{B}\tilde{\vect{u}}(\tau)\,d\tau
+=\mat{B}\dt\,\tilde{\vect{u}}_n.
+\end{equation}
+Для неперервного білого шуму
+\begin{equation}
+\vect{w}_n=\int_{n\dt}^{(n+1)\dt}\vect{w}^{c}(\tau)\,d\tau,
+\qquad
+\vect{w}_n\sim\Normal(\vect{0},\mat{W}),
+\qquad
+\mat{W}=\mat{W}^{c}\dt.
+\end{equation}
+Отже дискретна модель стану похибки має вигляд
+\begin{equation}\label{eq:disc_error_model_session02}
+\delta\vect{x}_{n+1}
+=\mat{F}_{x}\delta\vect{x}_{n}
++\mat{F}_{u}\tilde{\vect{u}}_n
++\mat{F}_{w}\vect{w}_n,
+\end{equation}
+де
+\begin{equation}
+\mat{F}_{x}=e^{\mat{A}\dt},\qquad
+\mat{F}_{u}=\mat{B}\dt,
+\qquad
+\mat{F}_{w}=\mat{C}.
+\end{equation}
+
+\section{Коваріаційне оновлення}
+
+Якщо
+\begin{equation}
+\tilde{\vect{u}}_n\sim\Normal(\vect{0},\mat{U}),\qquad
+\vect{w}_n\sim\Normal(\vect{0},\mat{W}),
+\end{equation}
+з
+\begin{equation}
+\mat{U}=\mat{U}^{c},\qquad \mat{W}=\mat{W}^{c}\dt,
+\end{equation}
+то прогноз коваріації
+\begin{align}\label{eq:cov_update_dt_terms}
+\mat{P}_{n+1}
+&=\mat{F}_x\mat{P}_n\mat{F}_x\trans
++\mat{F}_u\mat{U}\mat{F}_u\trans
++\mat{F}_w\mat{W}\mat{F}_w\trans\\
+&=e^{\mat{A}\dt}\mat{P}_n(e^{\mat{A}\dt})\trans
++\dt^2\mat{B}\mat{U}^{c}\mat{B}\trans
++\dt\mat{C}\mat{W}^{c}\mat{C}\trans.
+\end{align}
+
+Важливий висновок: динамічна похибка входить через експоненту, шум вибраного входу масштабується як $\dt^2$, а неперервне збурення - як $\dt$. Це одна з найчастіших причин некоректно налаштованих фільтрів.
+
+\begin{longtable}{L{0.28\linewidth}L{0.32\linewidth}L{0.32\linewidth}}
+\toprule
+Опис & Неперервний час & Дискретний час\\
+\midrule
+Стан & $\dot{\vect{x}}=f^c(\vect{x},\vect{u},\vect{w})$ & $\vect{x}_{n+1}=f(\vect{x}_n,\vect{u}_n,\vect{w}_n)$\\
+Стан похибки & $\dot{\delta\vect{x}}=\mat{A}\delta\vect{x}+\mat{B}\tilde{\vect{u}}+\mat{C}\vect{w}$ & $\delta\vect{x}_{n+1}=\mat{F}_{x}\delta\vect{x}_{n}+\mat{F}_{u}\tilde{\vect{u}}_n+\mat{F}_{w}\vect{w}_n$\\
+Матриця системи & $\mat{A}$ & $\mat{F}_{x}=e^{\mat{A}\dt}$\\
+Матриця входу & $\mat{B}$ & $\mat{F}_{u}=\mat{B}\dt$\\
+Матриця збурення & $\mat{C}$ & $\mat{F}_{w}=\mat{C}$\\
+Коваріація входу & $\mat{U}^{c}$ & $\mat{U}=\mat{U}^{c}$\\
+Коваріація збурення & $\mat{W}^{c}$ & $\mat{W}=\mat{W}^{c}\dt$\\
+\bottomrule
+\end{longtable}
+
+\section{Імпульсна форма $\mat{Q}$}
+
+У багатьох реалізаціях прогноз записано коротше:
+\begin{equation}
+\mat{P}_{n+1}=\mat{F}_x\mat{P}_n\mat{F}_x\trans+\mat{Q}.
+\end{equation}
+Це означає, що всі випадкові внески вже зібрані в одну дискретну коваріацію імпульсу:
+\begin{equation}\label{eq:Q_combined_session02}
+\mat{Q}=\dt^2\mat{B}\mat{U}^{c}\mat{B}\trans
++\dt\mat{C}\mat{W}^{c}\mat{C}\trans.
+\end{equation}
+Якщо $\mat{Q}$ підібрано емпірично, формула \eqref{eq:Q_combined_session02} все одно корисна як перевірка одиниць виміру та залежності від частоти дискретизації.
+
+\section{Перевірки перед перекладом у код}
+
+\begin{enumerate}[leftmargin=2em]
+\item З'ясувати, чи коваріації в джерелі задані як неперервні спектральні густини, дискретні дисперсії на відлік або емпіричні параметри.
+\item Перевірити степінь $\dt$ для кожного шумового внеску.
+\item Не змішувати шум виміряного входу і випадкове блукання зміщення.
+\item Перевірити симетрію $\mat{P}$ після кожного оновлення: чисельно використовувати $(\mat{P}+\mat{P}\trans)/2$ лише як аварійний захист, не як заміну правильної моделі.
+\item Перевірити додатну напіввизначеність $\mat{Q}$.
+\end{enumerate}

@@ -1,0 +1,111 @@
+\chapter{Чисельне моделювання: скінченні різниці і хвильові моделі}
+
+\section{Навіщо цей розділ у ядрі}
+
+Чисельні методи потрібні не як абстрактний курс, а як мова перевірки моделей. Якщо модель записано як диференціальне рівняння, її треба дискретизувати, перевірити стійкість, оцінити похибку і зрозуміти, які параметри справді вимірювані. У поточному корпусі є великі відкриті джерела FDM/FEM і TeX-джерело про керованість хвильового рівняння; перша хвиля має перекладати не все підряд, а базові розділи, які дають інженерний інструментарій.
+
+\section{Сітка і різницеві оператори}
+
+Нехай $u(x,t)$ - невідома функція. Введемо сітку
+\begin{equation}
+    x_i=i\Delta x,
+    \qquad
+    t^n=n\Delta t,
+    \qquad
+    u_i^n\approx u(x_i,t^n).
+\end{equation}
+Перша похідна вперед:
+\begin{equation}
+    \frac{\partial u}{\partial x}(x_i,t^n)
+    \approx
+    \frac{u_{i+1}^n-u_i^n}{\Delta x}.
+\end{equation}
+Перша похідна назад:
+\begin{equation}
+    \frac{\partial u}{\partial x}(x_i,t^n)
+    \approx
+    \frac{u_i^n-u_{i-1}^n}{\Delta x}.
+\end{equation}
+Центральна різниця:
+\begin{equation}
+    \frac{\partial u}{\partial x}(x_i,t^n)
+    \approx
+    \frac{u_{i+1}^n-u_{i-1}^n}{2\Delta x}.
+\end{equation}
+Друга похідна:
+\begin{equation}
+    \frac{\partial^2u}{\partial x^2}(x_i,t^n)
+    \approx
+    \frac{u_{i+1}^n-2u_i^n+u_{i-1}^n}{(\Delta x)^2}.
+\end{equation}
+
+\section{Теплопровідність як тест стійкості}
+
+Одновимірне рівняння теплопровідності:
+\begin{equation}
+    u_t = \alpha u_{xx}.
+\end{equation}
+Явна схема Ейлера:
+\begin{equation}
+    u_i^{n+1}=u_i^n+r\left(u_{i+1}^n-2u_i^n+u_{i-1}^n\right),
+    \qquad
+    r=\frac{\alpha\Delta t}{(\Delta x)^2}.
+\end{equation}
+Для класичної явної схеми потрібна умова стійкості
+\begin{equation}
+    r\leq \frac{1}{2}.
+\end{equation}
+Перекладацьке правило: \texttt{stability condition} - «умова стійкості», \texttt{time step restriction} - «обмеження на крок часу».
+
+\section{Хвильове рівняння}
+
+Одновимірне хвильове рівняння:
+\begin{equation}
+    u_{tt}=c^2u_{xx}.
+\end{equation}
+Стандартна явна центральна схема:
+\begin{equation}
+    u_i^{n+1}=2u_i^n-u_i^{n-1}+\lambda^2\left(u_{i+1}^n-2u_i^n+u_{i-1}^n\right),
+    \qquad
+    \lambda=\frac{c\Delta t}{\Delta x}.
+\end{equation}
+Число $\lambda$ часто називають числом Куранта. Для базової схеми в одному вимірі типова умова CFL:
+\begin{equation}
+    \lambda\leq 1.
+\end{equation}
+
+\section{Енергія і перевірка розрахунку}
+
+Для багатьох хвильових задач корисно відстежувати дискретний аналог енергії. Якщо система без втрат, енергія має приблизно зберігатися. Якщо модель містить демпфування, енергія має спадати. Це простий спосіб виявити помилки знаків, переплутані індекси або надто великий крок часу.
+
+Приклад дискретного тесту:
+\begin{equation}
+    E^n = \sum_i \left[\frac{1}{2}\left(\frac{u_i^n-u_i^{n-1}}{\Delta t}\right)^2
+    +\frac{c^2}{2}\left(\frac{u_{i+1}^n-u_i^n}{\Delta x}\right)^2\right]\Delta x.
+\end{equation}
+У перекладі \texttt{energy estimate} - це «енергетична оцінка», а не «оцінка енергії» у побутовому сенсі.
+
+\section{Похибка, збіжність, верифікація}
+
+Схема має порядок точності $p$ за простором, якщо при зменшенні $\Delta x$ похибка спадає як
+\begin{equation}
+    \|u-u_{\Delta x}\| \approx C(\Delta x)^p.
+\end{equation}
+Практична перевірка на сітках $\Delta x$, $\Delta x/2$, $\Delta x/4$:
+\begin{equation}
+    p\approx \log_2\frac{\|u_{\Delta x}-u_{\Delta x/2}\|}{\|u_{\Delta x/2}-u_{\Delta x/4}\|}.
+\end{equation}
+Цей тест корисний для перекладених чисельних текстів: якщо формула перенесена неправильно, очікуваний порядок збіжності часто зникає.
+
+\section{Черга перекладу для чисельних методів}
+
+Першими перекладати:
+\begin{enumerate}[label=\arabic*.]
+  \item базові розділи про скінченні різниці, сітки, граничні умови, стійкість;
+  \item явні й неявні схеми для теплопровідності та хвильового рівняння;
+  \item вступ до варіаційних форм і FEM лише після FDM-основи;
+  \item обчислювальну перевірку: manufactured solutions, convergence tests, residual checks.
+\end{enumerate}
+
+Пізніше перекладати повну теорію керованості хвильового рівняння. Вона важлива для контрольної лінії, але як перший практичний текст поступається фільтрам, сигналам і чисельній базі.
+

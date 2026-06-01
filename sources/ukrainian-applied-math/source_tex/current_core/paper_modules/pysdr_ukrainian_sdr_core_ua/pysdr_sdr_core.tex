@@ -1,0 +1,126 @@
+
+\chapter{Практичне SDR/DSP ядро з PySDR Ukrainian RST}
+\label{chap:pysdr_rst_tex_core}
+
+У fetched-корпусі вже є українська доріжка PySDR у форматі RST. Це означає, що для частини SDR/DSP-матеріалу вузьким місцем більше не є переклад англійської прози, а нормалізація у машинозчитуваний TeX, перевірка коду і вирівнювання термінології. Цей розділ фіксує ядро, яке треба винести з RST у clean TeX першої хвилі.
+
+\section{SDR, DSP та комплексна базова смуга}
+Програмно-визначене радіо переносить частину обробки, яка історично виконувалася аналоговими RF-блоками, у цифрове програмне середовище. Для перекладу й TeX-обробки важливо розрізняти три рівні:
+\begin{enumerate}
+\item фізичний RF-сигнал на носійній частоті;
+\item комплексний сигнал базової смуги;
+\item масив відліків у Python/NumPy або іншому середовищі.
+\end{enumerate}
+
+Комплексний дискретний сигнал записуємо як
+\begin{equation}
+ x[n] = I[n] + j Q[n],
+\end{equation}
+де $I$ -- синфазна компонента, а $Q$ -- квадратурна компонента. Типова дійсна RF-форма, що відповідає комплексній огинальній, має вигляд
+\begin{equation}
+ s(t) = I(t)\cos(2\pi f_c t) - Q(t)\sin(2\pi f_c t).
+\end{equation}
+У TeX-модулі треба зберегти різницю між $I/Q$, real/imaginary, baseband/passband та carrier/baseband frequency. Переклад цих слів не повинен міняти математичну роль символів.
+
+\section{Дискретизація}
+Якщо неперервний сигнал позначено $S(t)$, а період дискретизації дорівнює $T$, то відліки мають вигляд
+\begin{equation}
+ S_n = S(nT), \qquad n\in\mathbb{Z}.
+\end{equation}
+Частота дискретизації
+\begin{equation}
+ F_s = \frac{1}{T}.
+\end{equation}
+Правило Найквіста в навчальному формулюванні: щоб уникнути накладання спектра для сигналу з максимальною істотною частотою $f_{\max}$, потрібно
+\begin{equation}
+ F_s \ge 2f_{\max}.
+\end{equation}
+Для практичного перекладу важливо не плутати \emph{sample rate}, \emph{symbol rate}, \emph{bandwidth} і \emph{carrier frequency}. Це різні величини з різними одиницями.
+
+\section{Частотна область і DFT}
+Дискретне перетворення Фур'є для $N$ відліків:
+\begin{equation}
+ X[k] = \sum_{n=0}^{N-1} x[n] \exp\!\left(-j\frac{2\pi kn}{N}\right), \qquad k=0,\dots,N-1.
+\end{equation}
+Обернена форма:
+\begin{equation}
+ x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k] \exp\!\left(j\frac{2\pi kn}{N}\right).
+\end{equation}
+FFT -- це алгоритм для обчислення DFT, а не інше математичне перетворення. У перекладі потрібно стабільно тримати пару: DFT = дискретне перетворення Фур'є; FFT = швидке перетворення Фур'є.
+
+Для спектрального аналізу реальні сигнали часто множать на вікно $w[n]$:
+\begin{equation}
+ x_w[n] = x[n] w[n].
+\end{equation}
+Це зменшує деякі види спектрального витікання, але змінює амплітудні властивості. Тому в QA потрібно перевіряти, чи переклад не перетворив ``window'' на побутове ``вікно'' без контексту.
+
+\section{Фільтри}
+FIR-фільтр задається згорткою
+\begin{equation}
+ y[n] = \sum_{k=0}^{M-1} h[k]x[n-k].
+\end{equation}
+IIR-фільтр має рекурсивну різницеву форму
+\begin{equation}
+ y[n] = \sum_{k=0}^{M} b_k x[n-k] - \sum_{\ell=1}^{P} a_\ell y[n-\ell].
+\end{equation}
+У TeX варто тримати \texttt{FIR}, \texttt{IIR}, \texttt{tap}, \texttt{impulse response} та \texttt{frequency response} як контрольовані терміни. Рекомендовані українські відповідники: \emph{нерекурсивний FIR-фільтр}, \emph{рекурсивний IIR-фільтр}, \emph{коефіцієнт фільтра / tap}, \emph{імпульсна характеристика}, \emph{частотна характеристика}.
+
+\section{Шум, SNR і децибели}
+Гауссівський шум у простій дійсній моделі:
+\begin{equation}
+ n \sim \mathcal{N}(0,\sigma^2).
+\end{equation}
+Для комплексного baseband-шуму часто використовують
+\begin{equation}
+ n_c = n_I + j n_Q, \qquad n_I,n_Q\sim\mathcal{N}(0,\sigma^2/2),
+\end{equation}
+щоб сумарна комплексна потужність мала потрібну нормалізацію.
+
+Для величини потужності $x$ у лінійній шкалі запис у децибелах:
+\begin{equation}
+ x_{\mathrm{dB}} = 10\log_{10}x.
+\end{equation}
+Для амплітудної величини, коли квадрат амплітуди пропорційний потужності, часто з'являється
+\begin{equation}
+ A_{\mathrm{dB}} = 20\log_{10}A.
+\end{equation}
+Це місце потрібно чітко коментувати в перекладі, бо плутанина між 10 і 20 у dB-перетвореннях є типовою помилкою.
+
+\section{Модуляція, символи, імпульсне формування}
+Базовий комплексний символ можна розглядати як точку сузір'я. Для BPSK типово
+\begin{equation}
+ a_k \in \{-1,+1\},
+\end{equation}
+для QPSK -- чотири комплексні точки, наприклад
+\begin{equation}
+ a_k \in \left\{\frac{1+j}{\sqrt 2},\frac{-1+j}{\sqrt 2},\frac{-1-j}{\sqrt 2},\frac{1-j}{\sqrt 2}\right\}.
+\end{equation}
+
+Після вставляння нульових відліків між символами застосовується pulse-shaping фільтр. У простій навчальній формі смугу raised-cosine family можна контролювати roll-off параметром $\beta$; груба оцінка смуги:
+\begin{equation}
+ \mathrm{BW} = R_S(1+\beta),
+\end{equation}
+де $R_S$ -- symbol rate. У перекладі потрібно не плутати \emph{символьну швидкість} і \emph{бітову швидкість}.
+
+\section{IQ-файли і SigMF}
+IQ-запис -- це послідовність пар $I,Q$:
+\begin{equation}
+ [I_0,Q_0,I_1,Q_1,I_2,Q_2,\dots].
+\end{equation}
+Якщо використано 16-бітні цілі для $I$ і $Q$, то один комплексний відлік займає 4 байти. Для частоти дискретизації $F_s$ приблизний необроблений потік даних:
+\begin{equation}
+ R_{\mathrm{bytes/s}} = 4F_s.
+\end{equation}
+Для 32-бітних float-компонент один комплексний відлік займає 8 байтів.
+
+\section{Висновок для pipeline}
+PySDR Ukrainian RST треба не перекладати заново, а нормалізувати:
+\begin{enumerate}
+\item RST headings $\rightarrow$ TeX chapters/sections;
+\item \texttt{:math:`...`} $\rightarrow$ inline math;
+\item \texttt{.. math::} $\rightarrow$ display math;
+\item \texttt{.. code-block:: python} $\rightarrow$ \texttt{lstlisting}, без перекладу Python keywords;
+\item images $\rightarrow$ placeholders або copied assets з підписом;
+\item raw HTML blocks $\rightarrow$ коментар або note environment.
+\end{enumerate}
+
