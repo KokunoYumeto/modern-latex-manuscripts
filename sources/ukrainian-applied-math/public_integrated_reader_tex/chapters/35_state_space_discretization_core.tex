@@ -1,0 +1,113 @@
+\chapter{State-space моделі і дискретизація для фільтрів та керування}
+\label{ch:state-space-discretization-core}
+
+\sourcebox{Основа: Labbe Kalman math material + стандартна state-space нотація з control/estim. corpus. Мета - дати перекладачам і локальним агентам стабільний український TeX-шаблон для $\dot x=Ax+Bu+w$ та $x_k=Fx_{k-1}+B_ku_k+w_k$.}
+
+\section{Неперервна модель}
+
+Для лінійної системи стан $x(t)\in\R^n$ часто описують як
+\[
+  \dot x(t)=A x(t)+B u(t)+w(t),
+\]
+де $A$ - matrix of system dynamics, $B$ - input matrix, $u$ - control/input vector, $w$ - process disturbance/noise.
+
+Вимірювання:
+\[
+  z(t)=H x(t)+v(t),
+\]
+де $H$ проектує стан у простір вимірювань, а $v$ - measurement noise.
+
+\section{Дискретна модель}
+
+Kalman filter у цифровій реалізації працює з дискретними epoch:
+\[
+  x_k=F_k x_{k-1}+B_k u_k+w_k,
+\]
+\[
+  z_k=H_k x_k+v_k.
+\]
+Для time-invariant continuous model без зміни $A$ на інтервалі $\Delta t$:
+\[
+  F=e^{A\Delta t}.
+\]
+Якщо $A^2=0$ для простої constant-velocity моделі, тоді
+\[
+  e^{A\Delta t}=I+A\Delta t.
+\]
+
+\section{Constant velocity model}
+
+Для стану
+\[
+  x=\begin{bmatrix}p\\v\end{bmatrix},
+\]
+маємо
+\[
+  \dot p=v,
+  \qquad
+  \dot v=0.
+\]
+Отже
+\[
+  A=\begin{bmatrix}0&1\\0&0\end{bmatrix},
+  \qquad
+  F=\begin{bmatrix}1&\Delta t\\0&1\end{bmatrix}.
+\]
+Prediction:
+\[
+  \begin{bmatrix}p_k\\v_k\end{bmatrix}
+  =
+  \begin{bmatrix}1&\Delta t\\0&1\end{bmatrix}
+  \begin{bmatrix}p_{k-1}\\v_{k-1}\end{bmatrix}.
+\]
+
+\section{Constant acceleration input}
+
+Якщо acceleration $a$ є входом, то
+\[
+  p_k=p_{k-1}+v_{k-1}\Delta t+\frac12 a\Delta t^2,
+  \qquad
+  v_k=v_{k-1}+a\Delta t.
+\]
+Тому
+\[
+  B=\begin{bmatrix}\frac12\Delta t^2\\\Delta t\end{bmatrix}.
+\]
+
+\section{Process noise covariance}
+
+Найнебезпечніша помилка у перекладах Kalman material - плутати ``шум датчика'' і ``шум моделі''. Measurement noise $R$ описує неточність $z_k$. Process noise $Q$ описує невірність моделі переходу. Для white acceleration noise з spectral density $q$ у constant-velocity model часто отримують
+\[
+  Q = q\begin{bmatrix}
+  \frac{\Delta t^3}{3} & \frac{\Delta t^2}{2}\\
+  \frac{\Delta t^2}{2} & \Delta t
+  \end{bmatrix}.
+\]
+Якщо натомість acceleration noise моделюється як дискретний sample з variance $\sigma_a^2$, тоді інша типова форма:
+\[
+  Q = \sigma_a^2
+  \begin{bmatrix}
+  \frac{\Delta t^4}{4} & \frac{\Delta t^3}{2}\\
+  \frac{\Delta t^3}{2} & \Delta t^2
+  \end{bmatrix}.
+\]
+Ці дві формули не можна бездумно змішувати: вони відповідають різним моделям шуму.
+
+\section{Перевірки розмірностей}
+
+Якщо $p$ має одиниці meters, а $v$ має meters/second, то елементи $Q$ мають відповідати covariance одиницям:
+\[
+  Q_{11}: m^2,
+  \qquad Q_{12}: \frac{m^2}{s},
+  \qquad Q_{22}: \frac{m^2}{s^2}.
+\]
+Ця перевірка часто ловить неправильні степені $\Delta t$.
+
+\section{Що має робити local TeX worker}
+
+local TeX worker-доріжка може автоматично проходити source-файли і шукати небезпечні патерни:
+\begin{lstlisting}[language=bash]
+grep -R "dt\^4\|dt\^3\|Delta t\^4\|Delta t\^3" source_uk/
+grep -R "process noise\|measurement noise\|шум процесу\|шум вимір" source_uk/
+\end{lstlisting}
+Потім вона має створювати маленькі \texttt{CHECK\_REPORT.md} з рядками, а не самовільно переписувати формули.

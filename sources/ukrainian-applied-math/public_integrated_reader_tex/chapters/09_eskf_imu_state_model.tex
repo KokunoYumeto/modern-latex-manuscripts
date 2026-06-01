@@ -1,0 +1,151 @@
+\chapter{ESKF для IMU-систем: номінальний стан, істинний стан і стан похибки}
+
+\sourcebox{Джерело для цього модуля: Joan Solà, arXiv:1711.02508, файл \texttt{ErrorState.tex}. Тут перекладено і нормалізовано практичне ядро: мотивацію ESKF, розділення істинного/номінального/похибкового стану, IMU-кінематику та таблицю змінних.}
+
+\section{Мотивація}
+
+Потрібно записати рівняння стану похибки для інерціальної системи, яка інтегрує покази акселерометра і гірометра зі зміщенням та шумом. Орієнтація в просторі подається гамільтоновим одиничним кватерніоном. Типове джерело таких даних - IMU, тобто інерціальний вимірювальний блок.
+
+Інтегрування IMU дає dead-reckoning, тобто позиціювання за власним рухом. Воно неминуче дрейфує з часом. Зменшення дрейфу досягається не магією, а злиттям інерціальних даних з іншими вимірюваннями: абсолютною позицією, візуальними ознаками, висотою, швидкістю, маяками або іншими сенсорними джерелами. Математично це саме задача оцінювання стану з невизначеністю.
+
+Фільтр Калмана зі станом похибки (ESKF) корисний з кількох причин:
+\begin{enumerate}[leftmargin=2em]
+\item Похибка орієнтації мінімальна: вона має три параметри, як і три ступені вільності обертання. Це уникає надмірної параметризації та сингулярностей у коваріаціях.
+\item Стан похибки працює близько до нуля. Тому лінеаризація має сенс протягом роботи фільтра.
+\item Похибка мала, тому добутки другого порядку часто можна відкидати. Це спрощує якобіани.
+\item Великосигнальна динаміка інтегрується в номінальному стані, а не в лінійному фільтрі. Через це похибка змінюється повільніше, і корекції можна робити з нижчою частотою, ніж IMU-прогноз.
+\end{enumerate}
+
+\section{Істинний, номінальний і похибковий стани}
+
+У формулюваннях ESKF розрізняють три величини:
+\begin{description}[leftmargin=2em]
+\item[істинний стан] $\vect{x}_t$, фізичний стан системи;
+\item[номінальний стан] $\vect{x}$, нелінійно інтегрована оцінка великого сигналу;
+\item[стан похибки] $\delta\vect{x}$, малий сигнал, який оцінюється лінійно-гаусовим фільтром.
+\end{description}
+
+Зв'язок записують як композицію
+\begin{equation}\label{eq:state_composition_generic}
+\vect{x}_t=\vect{x}\oplus\delta\vect{x}.
+\end{equation}
+Для векторних компонент це звичайна сума. Для орієнтації це добуток кватерніонів або матриць повороту. Саме тут помилки в угодах найчастіше ламають увесь фільтр.
+
+\section{Структура ESKF-циклу}
+
+Один цикл ESKF можна подати так:
+\begin{enumerate}[leftmargin=2em]
+\item IMU-дані високої частоти інтегруються у номінальний стан $\vect{x}$ без явного врахування шумів як випадкових реалізацій.
+\item Паралельно лінійна модель стану похибки прогнозує середнє і коваріацію $\delta\vect{x}$.
+\item Коли приходить зовнішнє вимірювання, будується нев'язка вимірювання.
+\item Фільтр оцінює поправку $\widehat{\delta\vect{x}}$.
+\item Ця поправка ін'єктується в номінальний стан:
+\begin{equation}
+\vect{x}\leftarrow \vect{x}\oplus\widehat{\delta\vect{x}}.
+\end{equation}
+\item Середнє стану похибки скидається до нуля, а коваріація оновлюється з урахуванням цього скидання.
+\end{enumerate}
+
+Ця архітектура відрізняється від ``звичайного EKF на кватерніоні'': коваріація не живе напряму на чотиривимірному одиничному кватерніоні, а на тривимірній малій похибці орієнтації.
+
+\section{Змінні IMU-моделі}
+
+Номінальний стан у базовій моделі:
+\begin{equation}\label{eq:nominal_state_imu}
+\vect{x}=\begin{bmatrix}
+\vect{p}\\
+\vect{v}\\
+\vect{q}\\
+\vect{a}_b\\
+\vect{\omega}_b\\
+\vect{g}
+\end{bmatrix},
+\end{equation}
+де $\vect{p}$ - позиція, $\vect{v}$ - швидкість, $\vect{q}$ - орієнтація, $\vect{a}_b$ і $\vect{\omega}_b$ - зміщення акселерометра і гірометра, $\vect{g}$ - вектор гравітації у вибраній системі координат.
+
+Стан похибки:
+\begin{equation}\label{eq:error_state_imu}
+\delta\vect{x}=\begin{bmatrix}
+\delta\vect{p}\\
+\delta\vect{v}\\
+\delta\vect{\theta}\\
+\delta\vect{a}_b\\
+\delta\vect{\omega}_b\\
+\delta\vect{g}
+\end{bmatrix}.
+\end{equation}
+Зверніть увагу: замість $\delta\vect{q}$ у векторі стану похибки використовується $\delta\vect{\theta}\in\R^3$.
+
+\begin{longtable}{L{0.18\linewidth}L{0.18\linewidth}L{0.18\linewidth}L{0.18\linewidth}L{0.18\linewidth}}
+\toprule
+Величина & Істинна & Номінальна & Похибка & Композиція\\
+\midrule
+Повний стан & $\vect{x}_t$ & $\vect{x}$ & $\delta\vect{x}$ & $\vect{x}_t=\vect{x}\oplus\delta\vect{x}$\\
+Позиція & $\vect{p}_t$ & $\vect{p}$ & $\delta\vect{p}$ & $\vect{p}_t=\vect{p}+\delta\vect{p}$\\
+Швидкість & $\vect{v}_t$ & $\vect{v}$ & $\delta\vect{v}$ & $\vect{v}_t=\vect{v}+\delta\vect{v}$\\
+Орієнтація & $\vect{q}_t$ & $\vect{q}$ & $\delta\vect{\theta}$ & $\vect{q}_t=\vect{q}\qmul\delta\vect{q}$\\
+Зміщення акселерометра & $\vect{a}_{bt}$ & $\vect{a}_b$ & $\delta\vect{a}_b$ & $\vect{a}_{bt}=\vect{a}_b+\delta\vect{a}_b$\\
+Зміщення гірометра & $\vect{\omega}_{bt}$ & $\vect{\omega}_b$ & $\delta\vect{\omega}_b$ & $\vect{\omega}_{bt}=\vect{\omega}_b+\delta\vect{\omega}_b$\\
+Гравітація & $\vect{g}_t$ & $\vect{g}$ & $\delta\vect{g}$ & $\vect{g}_t=\vect{g}+\delta\vect{g}$\\
+\bottomrule
+\end{longtable}
+
+\section{Номінальна IMU-кінематика}
+
+Нехай $\vect{a}_m$ і $\vect{\omega}_m$ - виміряні акселерометром прискорення та гірометром кутові швидкості. Нехай $\vect{R}(\vect{q})$ - матриця повороту, що відповідає кватерніону $\vect{q}$. Тоді типова номінальна модель має вигляд
+\begin{subequations}\label{eq:nominal_imu_dynamics}
+\begin{align}
+\dot{\vect{p}} &= \vect{v},\\
+\dot{\vect{v}} &= \vect{R}(\vect{q})(\vect{a}_m-\vect{a}_b)+\vect{g},\\
+\dot{\vect{q}} &= \frac{1}{2}\,\vect{q}\qmul[0,\vect{\omega}_m-\vect{\omega}_b],\\
+\dot{\vect{a}}_b &= \vect{0},\\
+\dot{\vect{\omega}}_b &= \vect{0},\\
+\dot{\vect{g}} &= \vect{0}.
+\end{align}
+\end{subequations}
+У прогнозі фільтра зміщення часто моделюють як випадкові блукання, а не як абсолютно сталі величини; відповідні шуми входять у модель похибки.
+
+\section{Лінеаризована модель стану похибки}
+
+Для локальної похибки орієнтації стандартна перша лінеаризація дає структуру
+\begin{subequations}\label{eq:error_imu_dynamics}
+\begin{align}
+\delta\dot{\vect{p}} &= \delta\vect{v},\\
+\delta\dot{\vect{v}} &\approx
+-\vect{R}(\vect{q})[\vect{a}_m-\vect{a}_b]_{\times}\,\delta\vect{\theta}
+-\vect{R}(\vect{q})\,\delta\vect{a}_b
+-\vect{R}(\vect{q})\,\vect{a}_n
++\delta\vect{g},\\
+\delta\dot{\vect{\theta}} &\approx
+-[\vect{\omega}_m-\vect{\omega}_b]_{\times}\,\delta\vect{\theta}
+-\delta\vect{\omega}_b
+-\vect{\omega}_n,\\
+\delta\dot{\vect{a}}_b &= \vect{a}_w,\\
+\delta\dot{\vect{\omega}}_b &= \vect{\omega}_w,\\
+\delta\dot{\vect{g}} &= \vect{0}.
+\end{align}
+\end{subequations}
+Тут $[\cdot]_{\times}$ - кососиметрична матриця векторного добутку, $\vect{a}_n$ і $\vect{\omega}_n$ - шуми вимірювання, а $\vect{a}_w$ і $\vect{\omega}_w$ - шуми випадкового блукання зміщень.
+
+\section{Чому гравітацію іноді включають у стан}
+
+Якщо початкова орієнтація не є достовірно вирівняною з горизонтом, зручно оцінювати $\vect{g}$ як частину стану. Тоді початкова невизначеність орієнтації частково переноситься у невизначеність напряму гравітації, а рівняння швидкості лишається лінійним за $\vect{g}$. Після оцінювання напряму гравітації траєкторію можна переорієнтувати до горизонтальної системи координат.
+
+Це не є єдиним правильним способом. В іншій постановці можна взяти $\vect{g}=(0,0,-9.81)\,\mathrm{m/s^2}$ і тримати невизначеність у початковій орієнтації. Важливо лише, щоб модель, якобіани і коваріація були узгоджені.
+
+\section{Мінімальний машинний шаблон}
+
+\begin{lstlisting}[language=Python,caption={Псевдокод ESKF-прогнозу. Це не прив'язано до конкретного пакета.}]
+# input: nominal x=(p,v,q,a_b,w_b,g), covariance P, IMU a_m, w_m, dt
+# 1. propagate nominal state with nonlinear integration
+p = p + v*dt + 0.5*(R(q) @ (a_m - a_b) + g)*dt**2
+v = v + (R(q) @ (a_m - a_b) + g)*dt
+q = normalize(q * Exp_quat((w_m - w_b)*dt))
+
+# 2. build continuous A, B, C around the nominal state
+# 3. discretize: F = expm(A*dt), Qd from continuous noise
+# 4. propagate covariance
+P = F @ P @ F.T + Qd
+\end{lstlisting}
+
+Такий псевдокод демонструє математичну структуру оцінювання, перевірку одиниць і місця, де повна інженерна реалізація мусить мати власну калібрацію, тестування і валідацію.

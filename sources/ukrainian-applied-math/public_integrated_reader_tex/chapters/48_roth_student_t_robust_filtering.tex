@@ -1,0 +1,37 @@
+\chapter{Roth et al.: робастне фільтрування зі Student's \texorpdfstring{$t$}{t}-розподілом}
+\label{chap:roth-robust-filtering}
+
+\sourcebox{Source-preserved модуль: \sourcepath{paper_modules/roth_student_t_robust_filter_ua/}. translation system переклав практичні секції: abstract, introduction, алгоритм $t$-filter, приклад валідації, conclusion.}
+
+Класичний Kalman filter оптимальний для лінійної гаусівської моделі. Але в реальних даних бувають outliers, heavy tails, misdetections, burst noise, некоректні асоціації вимірювань. Робастний фільтр потрібний для того, щоб один поганий вимір не зруйнував оцінку.
+
+\section{Гаусівський update і проблема outlier}
+
+Стандартний update:
+\begin{align}
+  \nu_k &= z_k-Hx_{k|k-1},\\
+  S_k &= HP_{k|k-1}H^\T+R,\\
+  K_k &= P_{k|k-1}H^\T S_k^{-1},\\
+  x_{k|k} &= x_{k|k-1}+K_k\nu_k.
+\end{align}
+Якщо $\nu_k$ великий через outlier, гаусівська модель усе одно трактує його як малоймовірний, але чинний вимір. Це може дати надмірну корекцію.
+
+\section{Student's \texorpdfstring{$t$}{t} як heavy-tailed модель}
+
+$t$-розподіл має товстіші хвости. Інтуїтивно він каже: великі залишки трапляються частіше, ніж вважає гаусівська модель, тому їм не слід дозволяти надто сильно керувати станом. Одна з форм щільності:
+\begin{equation}
+  p(r)\propto \left(1+\frac{1}{\nu}r^\T\Sigma^{-1}r\right)^{-(\nu+d)/2},
+\end{equation}
+де $\nu$ --- degrees of freedom, $d$ --- розмірність залишку. Коли $\nu\to\infty$, модель наближається до Gaussian.
+
+\section{Зв'язок з gating}
+
+Навіть якщо повний $t$-filter не впроваджується, ідея відразу дає практичний контроль:
+\begin{equation}
+  \mathrm{NIS}_k = \nu_k^\T S_k^{-1}\nu_k.
+\end{equation}
+Занадто великий NIS означає або outlier, або неправильну $R$, або помилку моделі. Робастний блок має бути поруч з Kalman/ESKF, а не окремо: це статистична безпека для рекурсивного оцінювання.
+
+\section{Стан прикладу валідації}
+
+У source-пакеті є приклад валідації на послідовних вимірюваннях. Математично корисні частини: алгоритм, залишки, метрики, перевірка стійкості та порівняння з Gaussian/KF/RTS. Це треба звірити з оригіналом перед фінальною публікацією.

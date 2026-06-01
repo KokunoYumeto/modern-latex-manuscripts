@@ -1,0 +1,34 @@
+\chapter{Поточний research radar 2025--2026: що тягнути з arXiv наступним}
+\sourcebox{Web-scouting: GNSS-denied navigation, VIO/SLAM, event/sensor fusion, anti-jamming channel access, FHSS, multi-agent swarm resilience.}
+
+Цей розділ є не перекладом однієї статті, а списком пріоритетів для наступного source-first fetch. Він потрібний тому, що ці напрями швидко рухаються, і старі підручники не закривають frontier.
+
+\begin{longtable}{L{0.12\linewidth}L{0.28\linewidth}L{0.20\linewidth}L{0.30\linewidth}}
+\toprule
+Пріоритет & Target & Доріжка & Чому тягнути \\
+\midrule
+P0 & 2510.01348, kilometer-scale GNSS-denied UAV navigation via heightmap gradients & GNSS-denied / onboard autonomy & Дає системний приклад: onboard mapping, planning, localization, drift correction, embedded constraints. \\
+P0 & 2605.03678, robust visual SLAM for UAV navigation in GPS-denied degraded environments & V-SLAM / onboard CV & Порівнює ORB-SLAM3, DPVO, DROID-SLAM, DUSt3R, MASt3R під degradation. \\
+P0 & 2502.00575, DeepUKF-VIN & VIO / Kalman / deep adaptive covariance & Міст між UKF, quaternion navigation, camera+IMU, GPS-denied navigation. \\
+P0 & 2410.15480, event-based sensor fusion and odometry & Event camera / odometry & Уже є в корпусі; треба довести до повного source-preserved TeX. \\
+P0 & 2506.19769, multi-sensor fusion survey & Fusion taxonomy & Уже є в корпусі; треба зробити applied map, glossary, QA. \\
+P0 & 2508.11687, agent-based anti-jamming UAV communications survey & SDR/FHSS/RL & Дає taxonomy P-D-A, game theory, RL, engineering challenges. \\
+P1 & 2601.06095, DQN-based resilient FHSS communication & FHSS / DQN & Корисно як простий MDP/DQN/FEC math module; публічний release-review. \\
+P1 & 2502.04963, fast adaptive anti-jamming channel access & DQN / spectrum prediction & Дає ``learning faster than jammer'' formulation. \\
+P1 & 2512.16813, coordinated anti-jamming resilience in swarm networks via MARL & Swarm / MARL & Дає QMIX-like multi-agent formulation; корисно для theory module. \\
+P1 & 2507.14945, jamming-resistant UAV communications multichannel-aided approach & SDR/RF synchronization & Корисно для preamble, синхронізації та cancellation-math. \\
+P1 & 2511.21083, dual-agent RL for adaptive cost-aware VIO & VIO / compute budget & Прямо відповідає embedded compute vs accuracy tradeoff. \\
+P1 & 2507.16600, robust 5G terrestrial positioning with VO+IMU fusion & Sensor fusion / positioning & Корисно як приклад EKF fusion при втраті зовнішнього positioning link. \\
+\bottomrule
+\end{longtable}
+
+\section*{Fetch script policy}
+
+Для кожного arXiv target спершу пробувати source tarball:
+\begin{lstlisting}
+mkdir -p fetched_current/<id>
+curl -L https://arxiv.org/e-print/<id> -o fetched_current/<id>/source
+file fetched_current/<id>/source
+tar -tf fetched_current/<id>/source | head -80
+\end{lstlisting}
+Якщо e-print містить TeX, перекладати source-first. Якщо є тільки PDF, робити extraction/OCR audit і вирішувати, чи потрібен public source replacement.

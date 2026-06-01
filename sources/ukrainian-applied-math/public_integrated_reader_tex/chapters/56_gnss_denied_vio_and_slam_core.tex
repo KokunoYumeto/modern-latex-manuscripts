@@ -1,0 +1,78 @@
+\chapter{GNSS-denied navigation: VIO, SLAM і бортова оцінка стану}
+\sourcebox{Практичний міст між ESKF/micro-Lie, Correll robotics, event-sensor fusion та актуальними preprint targets 2025--2026.}
+
+\section*{Задача}
+
+У GNSS-denied режимі позиція не приходить як зовнішній абсолютний сигнал. Система має інтегрувати інерціальні вимірювання, візуальні ознаки, висоту/рельєф, LiDAR/depth або інші сенсори, а потім контролювати дрейф. Математично це задача оцінювання стану з неповними, асинхронними й шумними вимірюваннями.
+
+Типовий мінімальний стан для visual-inertial navigation:
+\[
+  x = (R, v, p, b_g, b_a),
+  \qquad R\in \SO(3),\quad v,p,b_g,b_a\in\R^3,
+\]
+де $R$ --- орієнтація тіла в навігаційній системі координат, $v$ --- швидкість, $p$ --- положення, $b_g,b_a$ --- зміщення гіроскопа й акселерометра.
+
+Номінальна IMU-модель:
+\[
+\begin{aligned}
+  \dot R &= R[\omega_m-b_g-n_g]_\times,\\
+  \dot v &= g + R(a_m-b_a-n_a),\\
+  \dot p &= v,\\
+  \dot b_g &= n_{wg},\qquad \dot b_a = n_{wa}.
+\end{aligned}
+\]
+Для дискретної реалізації це не просто чисельне інтегрування. Треба зберігати структуру групи обертань, масштаб шуму, одиниці і часові мітки.
+
+\section*{VIO як фактор-граф}
+
+У backend-формі VIO часто записують як нелінійну задачу найменших квадратів:
+\[
+  \min_{\{x_i\}}\sum_i \|r^{\mathrm{imu}}_i(x_i,x_{i+1})\|_{\Sigma_i^{-1}}^2
+  + \sum_{(i,j)\in\mathcal{O}} \|r^{\mathrm{cam}}_{ij}(x_i,\ell_j)\|_{\Lambda_{ij}^{-1}}^2
+  + \sum_k \|r^{\mathrm{prior}}_k\|^2.
+\]
+Тут $r^{\mathrm{imu}}$ --- IMU preintegration residual, $r^{\mathrm{cam}}$ --- reprojection residual, $\ell_j$ --- landmark або inverse-depth параметр ознаки. Для машинного перекладу ці формули треба залишати незмінними; перекладається пояснювальний текст, а не позначення.
+
+\section*{VIO як фільтр}
+
+Фільтрова форма зручна для бортових систем з малими ресурсами:
+\[
+\begin{aligned}
+  \hat x^-_k &= f(\hat x^+_{k-1},u_k),\\
+  P^-_k &= F_kP^+_{k-1}F_k^\top + G_kQ_kG_k^\top,\\
+  r_k &= z_k-h(\hat x^-_k),\\
+  S_k &= H_kP^-_kH_k^\top + R_k,\\
+  K_k &= P^-_kH_k^\top S_k^{-1},\\
+  \delta x_k &= K_kr_k.
+\end{aligned}
+\]
+На многовидах он має виконувати injection:
+\[
+  \hat x^+_k = \hat x^-_k \oplus \delta x_k,
+\]
+а не просте додавання до всіх компонентів. Для орієнтацій похибка живе в дотичному просторі, а не в самій матриці $R$.
+
+\section*{Джерела дрейфу й корекції}
+
+\begin{longtable}{L{0.26\linewidth}L{0.34\linewidth}L{0.30\linewidth}}
+\toprule
+Проблема & Математична причина & Перекладний/TeX модуль \\
+\midrule
+IMU bias drift & Інтегрування малих систематичних похибок дає зростаючу похибку $v,p$. & ESKF, bias random walk, covariance propagation. \\
+Scale ambiguity & Монокулярна камера сама не дає метричного масштабу. & VIO, stereo/depth, IMU constraints. \\
+Low texture / blur / dust & Feature residuals стають нестійкими або outlier-heavy. & Robust residuals, gating, visual SLAM comparison. \\
+Asynchronous events & Event camera не дає кадрів, а потік подій $(x,y,t,p)$. & Asynchronous filtering and contrast/event residuals. \\
+No loop closure & Далека траєкторія без повторного огляду не має класичного SLAM correction. & Geodata/heightmap correction; map-relative residual. \\
+Compute limit & Оптимізація має вкладатися в embedded budget. & Filter/optimization tradeoff, cost-aware VIO. \\
+\bottomrule
+\end{longtable}
+
+\section*{Порядок перекладу}
+
+Найкорисніша послідовність для цієї доріжки:
+\begin{enumerate}[leftmargin=2em]
+\item Завершити повний Solà ESKF і micro-Lie, бо вони дають мову для $\SO(3)$, $\SE(3)$, perturbation, Jacobian, reset.
+\item Довести event-sensor fusion/odometry до source-preserved standalone, не тільки summary.
+\item Додати 2025--2026 VIO/GNSS-denied preprints як короткі TeX modules з формулами і failure-mode tables.
+\item Лише після цього розширювати CV/SLAM на великі surveys.
+\end{enumerate}
